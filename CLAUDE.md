@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a content production repository for **History vs Hype**, a YouTube channel focused on evidence-based myth-busting about geopolitics, colonial history, and border disputes. The channel uses academic research and primary sources to debunk historical myths with modern political relevance.
 
-**Channel Stats:** 37 subscribers, 41.5% average view duration
+**Channel Stats:** 169 subscribers, 82K+ views, 590+ hours watch time, 30-35% average retention
 **Target Audience:** Males 25-44, international (UK, Germany, Canada, US)
 **Video Length:** 8-12 minutes
 **Format:** Hybrid talking head + B-roll evidence
@@ -183,11 +183,12 @@ When editing or creating scripts:
 ## Performance Insights
 
 ### What Works
-- Historical political myths (Stalin video: 1.4K views)
+- Territorial disputes with modern news hooks (Essequibo: 1.9K views, 19 new subs)
+- Political fact-checking (JD Vance: 936 views)
+- Historical political myths (Stalin video performance)
 - Modern relevance connections
 - Evidence-based approach
-- Controversial but balanced topics (Israel/Palestine: 236 views)
-- Strong retention (41.5% is excellent for 8-12 min educational videos)
+- Strong retention (30-35% is excellent for 8-12 min educational videos)
 
 ### Topic Formula
 "[Colonial/Historical Decision] from [X] years ago is still [causing deaths/conflicts/disputes] today"
