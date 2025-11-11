@@ -1,0 +1,77 @@
+# Windows
+desktop.ini
+Thumbs.db
+ehthumbs.db
+*.lnk
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+~$*
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor backups
+*~
+*.autosave
+*.bak
+
+# NotebookLM exports (if temporary)
+# notebooklm-*.md
+
+# Video project working files
+*.partial
+*.wip
+
+# Personal notes (if you want to keep private)
+# personal-notes/
+
+# Sensitive data
+*.env
+secrets.json
+credentials.json
+
+# Large video files (track separately or use Git LFS)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.flv
+
+# Large audio files
+*.wav
+*.aiff
+
+# Photoshop working files (keep only finals)
+*.psd~
+
+# DaVinci Resolve project files (large)
+*.drp
+*.dra
+
+# Cache directories
+__pycache__/
+*.pyc
+*.pyo
+node_modules/
+.cache/
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+
+# IDE specific
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+logs/

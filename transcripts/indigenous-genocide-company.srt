@@ -1,0 +1,920 @@
+1
+01:00:00,066 --> 01:00:02,633
+<b>Everyone knows about the Holocaust, the</b>
+
+2
+01:00:02,633 --> 01:00:04,366
+<b>Armenian genocide or</b>
+
+3
+01:00:04,366 --> 01:00:05,933
+<b>the Rwandan genocide.</b>
+
+4
+01:00:05,933 --> 01:00:07,900
+<b>But there's one genocide that achieved a</b>
+
+5
+01:00:07,900 --> 01:00:10,366
+<b>97% extermination rate</b>
+
+6
+01:00:10,366 --> 01:00:12,133
+<b>higher than any of these,</b>
+
+7
+01:00:12,400 --> 01:00:14,266
+<b>and most people have never heard of it.</b>
+
+8
+01:00:14,533 --> 01:00:17,400
+<b>Between 1880 and 1930, a</b>
+
+9
+01:00:17,400 --> 01:00:18,766
+<b>publicly traded company</b>
+
+10
+01:00:18,966 --> 01:00:21,166
+<b>systematically eliminated an entire</b>
+
+11
+01:00:21,166 --> 01:00:22,566
+<b>indigenous people in South</b>
+
+12
+01:00:22,566 --> 01:00:24,933
+<b>America. They paid bounties for</b>
+
+13
+01:00:24,966 --> 01:00:27,033
+<b>each person killed. They required</b>
+
+14
+01:00:27,033 --> 01:00:28,866
+<b>physical proof of death. They</b>
+
+15
+01:00:28,866 --> 01:00:30,666
+<b>specifically targeted women and</b>
+
+16
+01:00:30,666 --> 01:00:33,166
+<b>children to prevent reproduction. The</b>
+
+17
+01:00:33,166 --> 01:00:35,900
+<b>Selknam people went from over 3,000</b>
+
+18
+01:00:35,900 --> 01:00:37,333
+<b>individuals to fewer</b>
+
+19
+01:00:37,333 --> 01:00:41,066
+<b>than 100 survivors in 50 years. This is</b>
+
+20
+01:00:41,066 --> 01:00:42,366
+<b>the Selknam genocide</b>
+
+21
+01:00:42,366 --> 01:00:44,666
+<b>and why it matters now.</b>
+
+22
+01:00:44,966 --> 01:00:46,633
+<b>Picture the southern tip of South</b>
+
+23
+01:00:46,633 --> 01:00:50,333
+<b>America, Tierra del Fuego, land of fire.</b>
+
+24
+01:00:50,699 --> 01:00:52,566
+<b>For over 10,000 years,</b>
+
+25
+01:00:52,733 --> 01:00:55,099
+<b>this was home to the Selknam people,</b>
+
+26
+01:00:56,433 --> 01:00:57,566
+<b>master hunters who had</b>
+
+27
+01:00:57,566 --> 01:00:59,866
+<b>adapted to one of Earth's most</b>
+
+28
+01:00:59,866 --> 01:01:02,833
+<b>challenging environments. This wasn't</b>
+
+29
+01:01:02,833 --> 01:01:04,599
+<b>just survival, this was</b>
+
+30
+01:01:04,599 --> 01:01:06,233
+<b>sophisticated civilization.</b>
+
+31
+01:01:06,466 --> 01:01:08,833
+<b>The Selknam had complex territorial</b>
+
+32
+01:01:08,833 --> 01:01:10,566
+<b>systems, spiritual</b>
+
+33
+01:01:10,566 --> 01:01:12,566
+<b>ceremonies that lasted weeks,</b>
+
+34
+01:01:12,933 --> 01:01:15,566
+<b>and hunting techniques so advanced they</b>
+
+35
+01:01:15,566 --> 01:01:17,166
+<b>could take down guanaco,</b>
+
+36
+01:01:17,633 --> 01:01:20,166
+<b>South American llamas in arctic</b>
+
+37
+01:01:20,166 --> 01:01:22,566
+<b>conditions. According to</b>
+
+38
+01:01:22,566 --> 01:01:24,566
+<b>anthropologist Anne Chapman,</b>
+
+39
+01:01:25,133 --> 01:01:27,933
+<b>who interviewed the last survivors in the</b>
+
+40
+01:01:27,933 --> 01:01:30,266
+<b>1960s, they lived in</b>
+
+41
+01:01:30,266 --> 01:01:32,099
+<b>organized family groups with</b>
+
+42
+01:01:32,099 --> 01:01:36,133
+<b>populations around 3,500 to 4,000 people</b>
+
+43
+01:01:36,133 --> 01:01:37,666
+<b>when Europeans first</b>
+
+44
+01:01:37,666 --> 01:01:41,000
+<b>arrived. Until the 1870s,</b>
+
+45
+01:01:41,000 --> 01:01:43,166
+<b>their main contact with Europeans was</b>
+
+46
+01:01:43,166 --> 01:01:45,900
+<b>actually rescuing shipwreck survivors.</b>
+
+47
+01:01:46,599 --> 01:01:49,166
+<b>Chapman's interviews revealed that the</b>
+
+48
+01:01:49,166 --> 01:01:50,966
+<b>Selknam often saved and</b>
+
+49
+01:01:50,966 --> 01:01:52,966
+<b>protected stranded Europeans.</b>
+
+50
+01:01:53,566 --> 01:01:56,633
+<b>But around 1880, everything changed.</b>
+
+51
+01:01:57,133 --> 01:01:58,099
+<b>European businessmen</b>
+
+52
+01:01:58,099 --> 01:02:00,433
+<b>discovered that Tierra del Fuego's</b>
+
+53
+01:02:00,433 --> 01:02:03,266
+<b>grasslands were perfect for sheep farming.</b>
+
+54
+01:02:03,533 --> 01:02:04,466
+<b>There was just one</b>
+
+55
+01:02:04,466 --> 01:02:06,733
+<b>problem, indigenous people were</b>
+
+56
+01:02:06,733 --> 01:02:09,366
+<b>already living there. Here's where this</b>
+
+57
+01:02:09,366 --> 01:02:11,500
+<b>gets disturbing. This</b>
+
+58
+01:02:11,500 --> 01:02:13,900
+<b>wasn't random frontier violence,</b>
+
+59
+01:02:14,633 --> 01:02:16,800
+<b>this was systematic extermination</b>
+
+60
+01:02:16,800 --> 01:02:19,266
+<b>designed by corporate</b>
+
+61
+01:02:19,266 --> 01:02:21,566
+<b>executives with government backing.</b>
+
+62
+01:02:22,066 --> 01:02:24,766
+<b>The mastermind wasJosé Menéndez, a</b>
+
+63
+01:02:24,766 --> 01:02:26,466
+<b>Spanish businessman who</b>
+
+64
+01:02:26,466 --> 01:02:28,833
+<b>developed massive sheep operations.</b>
+
+65
+01:02:29,466 --> 01:02:31,666
+<b>According to survivor testimony recorded</b>
+
+66
+01:02:31,666 --> 01:02:33,533
+<b>by Chapman, Menendez</b>
+
+67
+01:02:33,533 --> 01:02:34,966
+<b>got permission from the</b>
+
+68
+01:02:34,966 --> 01:02:38,400
+<b>government to kill them. Menendez</b>
+
+69
+01:02:38,400 --> 01:02:39,933
+<b>employed Alexander</b>
+
+70
+01:02:39,933 --> 01:02:42,633
+<b>MacLennan, nicknamed Chancho Colorado,</b>
+
+71
+01:02:43,366 --> 01:02:46,633
+<b>or Red Pig as his administrator and</b>
+
+72
+01:02:46,633 --> 01:02:48,166
+<b>primary executioner.</b>
+
+73
+01:02:48,166 --> 01:02:49,766
+<b>Here's how the system worked.</b>
+
+74
+01:02:50,300 --> 01:02:53,099
+<b>Step 1. Hunters were paid one pound</b>
+
+75
+01:02:53,099 --> 01:02:54,833
+<b>sterling for each head.</b>
+
+76
+01:02:55,099 --> 01:02:57,366
+<b>That's about $150 today.</b>
+
+77
+01:02:57,966 --> 01:03:00,733
+<b>Step 2. They had to bring physical proof.</b>
+
+78
+01:03:01,033 --> 01:03:03,633
+<b>Ears, body parts to receive payment.</b>
+
+79
+01:03:04,066 --> 01:03:07,066
+<b>Step 3. They paid extra for killing</b>
+
+80
+01:03:07,066 --> 01:03:09,033
+<b>women. Federico, a</b>
+
+81
+01:03:09,033 --> 01:03:10,866
+<b>survivor interviewed by Chapman,</b>
+
+82
+01:03:10,900 --> 01:03:13,466
+<b>explained "For women they cut off the</b>
+
+83
+01:03:13,466 --> 01:03:15,266
+<b>breasts, then they paid a</b>
+
+84
+01:03:15,266 --> 01:03:16,800
+<b>little more for women. This</b>
+
+85
+01:03:16,800 --> 01:03:19,233
+<b>wasn't about protecting livestock, this</b>
+
+86
+01:03:19,233 --> 01:03:20,266
+<b>was about preventing</b>
+
+87
+01:03:20,266 --> 01:03:22,366
+<b>reproduction to ensure complete</b>
+
+88
+01:03:22,366 --> 01:03:26,966
+<b>elimination." In 1886, Romanian engineer</b>
+
+89
+01:03:26,966 --> 01:03:29,233
+<b>Julius Popper actually</b>
+
+90
+01:03:29,233 --> 01:03:30,933
+<b>photographed himself standing</b>
+
+91
+01:03:30,966 --> 01:03:33,533
+<b>over indigenous bodies he'd just killed.</b>
+
+92
+01:03:34,099 --> 01:03:35,966
+<b>This was documentation for</b>
+
+93
+01:03:35,966 --> 01:03:38,066
+<b>investors, proof that the</b>
+
+94
+01:03:38,733 --> 01:03:41,666
+<b>Indian problem was being solved. This</b>
+
+95
+01:03:41,666 --> 01:03:43,633
+<b>wasn't aberrant behavior.</b>
+
+96
+01:03:44,466 --> 01:03:45,733
+<b>This was a business model</b>
+
+97
+01:03:45,733 --> 01:03:47,966
+<b>that historian David Stannard calls</b>
+
+98
+01:03:47,966 --> 01:03:49,533
+<b>"extraction-based</b>
+
+99
+01:03:49,533 --> 01:03:53,233
+<b>genocide", systematic elimination of</b>
+
+100
+01:03:53,233 --> 01:03:56,333
+<b>indigenous peoples to access land and</b>
+
+101
+01:03:56,333 --> 01:03:58,133
+<b>resources for maximum</b>
+
+102
+01:03:58,133 --> 01:04:00,433
+<b>profit. Let me tell you about Lola</b>
+
+103
+01:04:00,500 --> 01:04:04,233
+<b>Kiepja. Born around 1874, she lived</b>
+
+104
+01:04:04,233 --> 01:04:05,833
+<b>through this genocide and</b>
+
+105
+01:04:05,833 --> 01:04:07,466
+<b>became the last traditional</b>
+
+106
+01:04:07,666 --> 01:04:10,833
+<b>Selknam shaman. Chapman worked with Kipya</b>
+
+107
+01:04:10,833 --> 01:04:13,099
+<b>until her death in 1966,</b>
+
+108
+01:04:13,666 --> 01:04:16,433
+<b>recording 47 traditional chants,</b>
+
+109
+01:04:17,300 --> 01:04:20,566
+<b>the last direct link to 10,000 years of</b>
+
+110
+01:04:20,566 --> 01:04:22,166
+<b>culture. Kipya</b>
+
+111
+01:04:22,166 --> 01:04:24,166
+<b>remembered specific massacres,</b>
+
+112
+01:04:24,633 --> 01:04:27,066
+<b>naming the killers, describing the</b>
+
+113
+01:04:27,066 --> 01:04:28,533
+<b>systematic nature of the</b>
+
+114
+01:04:28,533 --> 01:04:30,966
+<b>extermination. Chapman calculated</b>
+
+115
+01:04:30,966 --> 01:04:34,333
+<b>the demographic collapse precisely. 3,500</b>
+
+116
+01:04:34,333 --> 01:04:37,199
+<b>people in 1880, fewer than</b>
+
+117
+01:04:37,199 --> 01:04:40,566
+<b>100 by 1930, that's a 97%</b>
+
+118
+01:04:41,133 --> 01:04:43,266
+<b>extermination rate, higher than the</b>
+
+119
+01:04:43,266 --> 01:04:45,000
+<b>Jewish Holocaust, higher</b>
+
+120
+01:04:45,000 --> 01:04:47,133
+<b>than Rwanda. Kipya described</b>
+
+121
+01:04:47,133 --> 01:04:50,566
+<b>a massacre at Cabo Peñas, where McLennan</b>
+
+122
+01:04:50,566 --> 01:04:52,433
+<b>positioned armed guards with</b>
+
+123
+01:04:52,433 --> 01:04:54,366
+<b>Winchester rifles during high</b>
+
+124
+01:04:54,433 --> 01:04:57,199
+<b>tide. Families gathering shellfish were</b>
+
+125
+01:04:57,199 --> 01:04:58,733
+<b>trapped against cliffs as</b>
+
+126
+01:04:58,733 --> 01:05:00,766
+<b>the tide rose. According to</b>
+
+127
+01:05:00,766 --> 01:05:03,133
+<b>survivor testimony, women and children</b>
+
+128
+01:05:03,133 --> 01:05:04,466
+<b>were crowded where the</b>
+
+129
+01:05:04,466 --> 01:05:06,466
+<b>cliff was, and there they</b>
+
+130
+01:05:06,466 --> 01:05:08,766
+<b>drowned them all. Only one person</b>
+
+131
+01:05:08,766 --> 01:05:11,500
+<b>survived by hiding in the rocks. These</b>
+
+132
+01:05:11,500 --> 01:05:13,000
+<b>weren't combat deaths,</b>
+
+133
+01:05:13,366 --> 01:05:15,966
+<b>they were systematic executions of entire</b>
+
+134
+01:05:15,966 --> 01:05:18,233
+<b>families. They were witnessing a</b>
+
+135
+01:05:18,233 --> 01:05:19,666
+<b>prototype. The Selknam</b>
+
+136
+01:05:19,699 --> 01:05:22,233
+<b>genocide wasn't unique, it was a</b>
+
+137
+01:05:22,233 --> 01:05:24,033
+<b>template. The same pattern</b>
+
+138
+01:05:24,033 --> 01:05:25,933
+<b>appears across Latin America</b>
+
+139
+01:05:26,233 --> 01:05:28,699
+<b>whenever indigenous people live on land</b>
+
+140
+01:05:28,699 --> 01:05:30,300
+<b>with valuable resources.</b>
+
+141
+01:05:30,800 --> 01:05:33,133
+<b>Amazon rubber boom, 40,000</b>
+
+142
+01:05:33,133 --> 01:05:35,000
+<b>indigenous people killed by British</b>
+
+143
+01:05:35,000 --> 01:05:36,933
+<b>companies for rubber profits.</b>
+
+144
+01:05:37,333 --> 01:05:40,666
+<b>California gold rush, 95% of</b>
+
+145
+01:05:40,666 --> 01:05:43,033
+<b>indigenous people exterminated through</b>
+
+146
+01:05:43,033 --> 01:05:44,333
+<b>state-sponsored bounty</b>
+
+147
+01:05:44,333 --> 01:05:47,099
+<b>hunting. Guatemala in the 1980s,</b>
+
+148
+01:05:47,300 --> 01:05:51,199
+<b>200,000 people killed with 83% of the</b>
+
+149
+01:05:51,199 --> 01:05:52,833
+<b>victims being indigenous.</b>
+
+150
+01:05:53,099 --> 01:05:54,833
+<b>Corporate genocide requires</b>
+
+151
+01:05:54,866 --> 01:05:57,366
+<b>government support. Companies like</b>
+
+152
+01:05:57,366 --> 01:05:59,666
+<b>Menendez obtained official</b>
+
+153
+01:05:59,666 --> 01:06:02,933
+<b>permission to remove indigenous</b>
+
+154
+01:06:02,933 --> 01:06:06,233
+<b>populations. When survivors tried to seek</b>
+
+155
+01:06:06,233 --> 01:06:09,233
+<b>justice, Judge Waldo Seguel</b>
+
+156
+01:06:09,233 --> 01:06:11,166
+<b>deliberately protected the</b>
+
+157
+01:06:11,199 --> 01:06:13,599
+<b>perpetrators by falsely claiming</b>
+
+158
+01:06:13,599 --> 01:06:16,633
+<b>inability to find translators. This</b>
+
+159
+01:06:16,633 --> 01:06:18,366
+<b>pattern continues today.</b>
+
+160
+01:06:19,066 --> 01:06:22,233
+<b>70 indigenous peoples in Brazil currently</b>
+
+161
+01:06:22,233 --> 01:06:26,566
+<b>face extinction. Between 2012 and 2020,</b>
+
+162
+01:06:27,033 --> 01:06:30,933
+<b>363 indigenous activists were murdered</b>
+
+163
+01:06:30,933 --> 01:06:32,266
+<b>across Latin America.</b>
+
+164
+01:06:32,766 --> 01:06:35,066
+<b>Indigenous people comprise one</b>
+
+165
+01:06:35,300 --> 01:06:38,199
+<b>third of murdered environmental defenders</b>
+
+166
+01:06:38,199 --> 01:06:39,599
+<b>globally. Mining</b>
+
+167
+01:06:39,599 --> 01:06:42,233
+<b>companies, agribusinesses,</b>
+
+168
+01:06:42,599 --> 01:06:45,666
+<b>extractive industries continue targeting</b>
+
+169
+01:06:45,666 --> 01:06:47,099
+<b>indigenous territories</b>
+
+170
+01:06:47,099 --> 01:06:49,433
+<b>using legal frameworks,</b>
+
+171
+01:06:50,033 --> 01:06:52,699
+<b>hired violence and government complicity.</b>
+
+172
+01:06:53,533 --> 01:06:58,233
+<b>Until 2020, 90 years later, Chile</b>
+
+173
+01:06:58,233 --> 01:06:59,366
+<b>officially considered</b>
+
+174
+01:06:59,433 --> 01:07:02,766
+<b>the Selknam extinct. If they don't exist,</b>
+
+175
+01:07:03,333 --> 01:07:04,366
+<b>there's no crime to</b>
+
+176
+01:07:04,366 --> 01:07:07,400
+<b>acknowledge. But here's what the</b>
+
+177
+01:07:07,400 --> 01:07:09,866
+<b>corporate executioners didn't count on.</b>
+
+178
+01:07:10,566 --> 01:07:12,766
+<b>Survival and resistance.</b>
+
+179
+01:07:13,466 --> 01:07:15,533
+<b>Current census data records over</b>
+
+180
+01:07:15,533 --> 01:07:19,066
+<b>1,000 self-identified Selknam in Chile</b>
+
+181
+01:07:19,066 --> 01:07:21,033
+<b>and thousands more in Argentina.</b>
+
+182
+01:07:21,533 --> 01:07:23,099
+<b>Descendant communities like</b>
+
+183
+01:07:23,133 --> 01:07:26,133
+<b>Corporación Selknam are fighting for</b>
+
+184
+01:07:26,133 --> 01:07:27,466
+<b>territorial rights,</b>
+
+185
+01:07:28,066 --> 01:07:30,366
+<b>cultural recognition and justice.</b>
+
+186
+01:07:31,166 --> 01:07:33,566
+<b>Indigenous communities worldwide are</b>
+
+187
+01:07:33,566 --> 01:07:36,066
+<b>fighting the same extractive violence</b>
+
+188
+01:07:36,066 --> 01:07:37,866
+<b>that Chapman documented.</b>
+
+189
+01:07:38,166 --> 01:07:40,599
+<b>They are not just victims, they're the</b>
+
+190
+01:07:40,599 --> 01:07:43,166
+<b>primary opposition to systems that</b>
+
+191
+01:07:43,166 --> 01:07:44,533
+<b>prioritize corporate</b>
+
+192
+01:07:44,633 --> 01:07:47,366
+<b>profit over human survival. And this</b>
+
+193
+01:07:47,366 --> 01:07:50,033
+<b>matters to everyone because the same</b>
+
+194
+01:07:50,033 --> 01:07:51,433
+<b>systems that eliminated</b>
+
+195
+01:07:51,699 --> 01:07:54,699
+<b>the Selknam are driving climate change,</b>
+
+196
+01:07:55,300 --> 01:07:55,633
+<b>environmental</b>
+
+197
+01:07:55,633 --> 01:07:58,233
+<b>destruction and resource wars</b>
+
+198
+01:07:58,233 --> 01:08:01,133
+<b>that affect all of us. And Chapman spent</b>
+
+199
+01:08:01,133 --> 01:08:02,966
+<b>decades documenting the</b>
+
+200
+01:08:02,966 --> 01:08:05,333
+<b>Selknam genocide because she</b>
+
+201
+01:08:05,366 --> 01:08:08,333
+<b>understood that memory is resistance. Her</b>
+
+202
+01:08:08,333 --> 01:08:09,733
+<b>work proves that</b>
+
+203
+01:08:09,733 --> 01:08:12,433
+<b>systematic extermination operates</b>
+
+204
+01:08:12,566 --> 01:08:14,866
+<b>through formal business structures with</b>
+
+205
+01:08:14,866 --> 01:08:17,233
+<b>government sanction. Therefore,</b>
+
+206
+01:08:17,566 --> 01:08:19,166
+<b>recognizing these patterns</b>
+
+207
+01:08:19,433 --> 01:08:21,566
+<b>helps us understand contemporary</b>
+
+208
+01:08:21,566 --> 01:08:25,366
+<b>conflicts. Therefore, supporting</b>
+
+209
+01:08:25,366 --> 01:08:26,766
+<b>Indigenous resistance</b>
+
+210
+01:08:27,133 --> 01:08:30,466
+<b>helps disrupt these systems. Therefore,</b>
+
+211
+01:08:31,000 --> 01:08:32,500
+<b>this isn't just history,</b>
+
+212
+01:08:32,933 --> 01:08:34,633
+<b>it's a blueprint for action.</b>
+
+213
+01:08:35,266 --> 01:08:37,233
+<b>I've linked organizations in the</b>
+
+214
+01:08:37,233 --> 01:08:39,133
+<b>description supporting Indigenous</b>
+
+215
+01:08:39,133 --> 01:08:40,766
+<b>communities fighting these</b>
+
+216
+01:08:40,800 --> 01:08:44,466
+<b>systems. These aren't charities, they're</b>
+
+217
+01:08:44,466 --> 01:08:45,466
+<b>resistance movements</b>
+
+218
+01:08:45,466 --> 01:08:47,433
+<b>that need strategic support.</b>
+
+219
+01:08:47,933 --> 01:08:50,100
+<b>What surprised you most about this</b>
+
+220
+01:08:50,100 --> 01:08:52,533
+<b>documented genocide? How do</b>
+
+221
+01:08:52,533 --> 01:08:54,366
+<b>you see these patterns operating</b>
+
+222
+01:08:54,399 --> 01:08:57,533
+<b>today? Drop a comment below because</b>
+
+223
+01:08:57,533 --> 01:08:59,833
+<b>recognizing these systems is the first</b>
+
+224
+01:08:59,833 --> 01:09:01,666
+<b>step in disrupting them.</b>
+
+225
+01:09:02,133 --> 01:09:04,800
+<b>The Selknam deserved better. Indigenous</b>
+
+226
+01:09:04,800 --> 01:09:06,966
+<b>people today deserve</b>
+
+227
+01:09:06,966 --> 01:09:10,133
+<b>better. Chapman's research gives</b>
+
+228
+01:09:10,166 --> 01:09:12,766
+<b>us the evidence to understand how</b>
+
+229
+01:09:12,766 --> 01:09:15,866
+<b>genocide works and the responsibility to</b>
+
+230
+01:09:15,866 --> 01:09:17,266
+<b>stop it from continuing.</b>
+

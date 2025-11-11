@@ -1,0 +1,1308 @@
+1
+01:00:00,000 --> 01:00:04,599
+<b>In 1974, Petros was 16, living peacefully</b>
+
+2
+01:00:04,599 --> 01:00:05,933
+<b>in his Cyprus village</b>
+
+3
+01:00:05,933 --> 01:00:07,466
+<b>with his farming family.</b>
+
+4
+01:00:08,166 --> 01:00:08,199
+<b>Today, he's in his 60s and still can't go</b>
+
+5
+01:00:08,199 --> 01:00:10,766
+<b>Today, he's in his 60s and still can't go</b>
+
+6
+01:00:10,766 --> 01:00:13,833
+<b>home, because there's a military buffer</b>
+
+7
+01:00:13,833 --> 01:00:15,466
+<b>zone with soldiers and</b>
+
+8
+01:00:15,466 --> 01:00:17,466
+<b>barbed wire blocking his path.</b>
+
+9
+01:00:17,833 --> 01:00:17,866
+<b>Petros is one of over 210,000 people who</b>
+
+10
+01:00:17,866 --> 01:00:21,666
+<b>Petros is one of over 210,000 people who</b>
+
+11
+01:00:21,666 --> 01:00:24,000
+<b>lost their homes when Cyprus was divided.</b>
+
+12
+01:00:25,133 --> 01:00:25,233
+<b>Greek families fled south, Turkish</b>
+
+13
+01:00:25,233 --> 01:00:27,400
+<b>Greek families fled south, Turkish</b>
+
+14
+01:00:27,400 --> 01:00:28,666
+<b>families fled north.</b>
+
+15
+01:00:29,500 --> 01:00:29,533
+<b>50 years later, their children and</b>
+
+16
+01:00:29,533 --> 01:00:32,266
+<b>50 years later, their children and</b>
+
+17
+01:00:32,266 --> 01:00:34,966
+<b>grandchildren are still separated by</b>
+
+18
+01:00:34,966 --> 01:00:37,099
+<b>Europe's last divided capital.</b>
+
+19
+01:00:38,000 --> 01:00:40,766
+<b>This isn't just a sad family story.</b>
+
+20
+01:00:40,766 --> 01:00:40,800
+<b>This isn't just a sad family story.</b>
+
+21
+01:00:41,400 --> 01:00:43,933
+<b>This division is blocking billions in</b>
+
+22
+01:00:43,933 --> 01:00:45,033
+<b>energy development,</b>
+
+23
+01:00:45,033 --> 01:00:45,633
+<b>energy development, creating tensions</b>
+
+24
+01:00:45,633 --> 01:00:47,599
+<b>creating tensions within NATO,</b>
+
+25
+01:00:47,599 --> 01:00:48,066
+<b>within NATO, and it</b>
+
+26
+01:00:48,066 --> 01:00:49,800
+<b>and it didn't happen by accident.</b>
+
+27
+01:00:50,500 --> 01:00:50,533
+<b>So how did an island of neighbors become</b>
+
+28
+01:00:50,533 --> 01:00:53,766
+<b>So, how did an island of neighbors become</b>
+
+29
+01:00:53,766 --> 01:00:56,400
+<b>a militarized border that still affects</b>
+
+30
+01:00:56,400 --> 01:00:57,866
+<b>global politics today?</b>
+
+31
+01:00:58,733 --> 01:01:02,266
+<b>Before 1974, Greeks and Turks lived side</b>
+
+32
+01:01:02,266 --> 01:01:03,400
+<b>by side on this</b>
+
+33
+01:01:03,400 --> 01:01:05,266
+<b>strategically vital island.</b>
+
+34
+01:01:06,033 --> 01:01:06,066
+<b>They were neighbors, business</b>
+
+35
+01:01:06,066 --> 01:01:07,866
+<b>They were neighbors, business</b>
+
+36
+01:01:07,866 --> 01:01:10,233
+<b>partners, sometimes friends.</b>
+
+37
+01:01:10,233 --> 01:01:10,300
+<b>partners, sometimes friends.</b>
+
+38
+01:01:10,300 --> 01:01:10,666
+<b>But by 1963, politics</b>
+
+39
+01:01:10,666 --> 01:01:12,966
+<b>But by 1963, politics</b>
+
+40
+01:01:12,966 --> 01:01:14,533
+<b>turned them into enemies.</b>
+
+41
+01:01:14,533 --> 01:01:14,933
+<b>Turkish Cypriots were forced into</b>
+
+42
+01:01:14,933 --> 01:01:17,199
+<b>Turkish Cypriots were forced into</b>
+
+43
+01:01:17,199 --> 01:01:20,333
+<b>isolated enclaves, surrounded communities</b>
+
+44
+01:01:20,333 --> 01:01:22,866
+<b>like West Berlin during the Cold War.</b>
+
+45
+01:01:22,933 --> 01:01:23,366
+<b>For 11 years, they lived under what the</b>
+
+46
+01:01:23,366 --> 01:01:26,033
+<b>For 11 years, they lived under what the</b>
+
+47
+01:01:26,033 --> 01:01:28,533
+<b>UN called "virtual imprisonment".</b>
+
+48
+01:01:28,566 --> 01:01:29,000
+<b>Meanwhile, Greek Cypriots controlled most</b>
+
+49
+01:01:29,000 --> 01:01:31,900
+<b>Meanwhile, Greek Cypriots controlled most</b>
+
+50
+01:01:31,900 --> 01:01:34,366
+<b>of the island, but lived in fear of</b>
+
+51
+01:01:34,366 --> 01:01:35,566
+<b>escalating violence.</b>
+
+52
+01:01:35,733 --> 01:01:36,133
+<b>Both communities suffered attacks,</b>
+
+53
+01:01:36,133 --> 01:01:38,566
+<b>Both communities suffered attacks,</b>
+
+54
+01:01:38,633 --> 01:01:39,066
+<b>displacement and the</b>
+
+55
+01:01:39,066 --> 01:01:40,666
+<b>displacement and the</b>
+
+56
+01:01:40,666 --> 01:01:42,766
+<b>constant threat of wars to come.</b>
+
+57
+01:01:42,766 --> 01:01:43,099
+<b>Imagine your neighborhood surrounded by</b>
+
+58
+01:01:43,099 --> 01:01:45,433
+<b>Imagine your neighborhood surrounded by</b>
+
+59
+01:01:45,433 --> 01:01:48,033
+<b>hostile checkpoints for over a decade.</b>
+
+60
+01:01:48,500 --> 01:01:48,900
+<b>That was reality for</b>
+
+61
+01:01:48,900 --> 01:01:50,233
+<b>That was reality for</b>
+
+62
+01:01:50,233 --> 01:01:52,966
+<b>both communities by 1974.</b>
+
+63
+01:01:53,099 --> 01:01:53,533
+<b>By 1974, Greek extremists had a plan.</b>
+
+64
+01:01:53,533 --> 01:01:57,599
+<b>By 1974, Greek extremists had a plan.</b>
+
+65
+01:01:57,599 --> 01:01:57,933
+<b>Unite Cyprus with Greece and eliminate</b>
+
+66
+01:01:57,933 --> 01:02:00,199
+<b>Unite Cyprus with Greece and eliminate</b>
+
+67
+01:02:00,199 --> 01:02:01,333
+<b>the Turkish population.</b>
+
+68
+01:02:01,433 --> 01:02:01,866
+<b>In a 1976 interview, Cyprus president</b>
+
+69
+01:02:01,866 --> 01:02:05,333
+<b>In a 1976 interview, Cyprus president</b>
+
+70
+01:02:05,333 --> 01:02:08,366
+<b>Makarios claimed that Greek military</b>
+
+71
+01:02:08,366 --> 01:02:10,566
+<b>leader Dimitrios Ioannidis</b>
+
+72
+01:02:10,566 --> 01:02:10,800
+<b>had told him to attack Turkish Cypriots</b>
+
+73
+01:02:10,800 --> 01:02:13,833
+<b>had told him to attack Turkish Cypriots</b>
+
+74
+01:02:13,833 --> 01:02:16,266
+<b>suddenly everywhere on the island and</b>
+
+75
+01:02:16,266 --> 01:02:18,566
+<b>eliminate them to the last one.</b>
+
+76
+01:02:18,566 --> 01:02:18,833
+<b>Makarios said he refused, but in July</b>
+
+77
+01:02:18,833 --> 01:02:21,833
+<b>Makarios said he refused, but in July</b>
+
+78
+01:02:21,833 --> 01:02:25,733
+<b>1974, these extremists staged a coup,</b>
+
+79
+01:02:25,733 --> 01:02:28,133
+<b>installing Nicos Sampson, a man with a</b>
+
+80
+01:02:28,133 --> 01:02:29,466
+<b>documented history of</b>
+
+81
+01:02:29,466 --> 01:02:30,933
+<b>killing Turkish civilians.</b>
+
+82
+01:02:31,033 --> 01:02:31,466
+<b>Turkey invaded on July 20th</b>
+
+83
+01:02:31,466 --> 01:02:33,633
+<b>Turkey invaded on July 20th</b>
+
+84
+01:02:33,633 --> 01:02:35,466
+<b>to protect Turkish enclaves.</b>
+
+85
+01:02:35,500 --> 01:02:35,933
+<b>Initially limited, arguably legal under</b>
+
+86
+01:02:35,933 --> 01:02:39,533
+<b>Initially limited, arguably legal under</b>
+
+87
+01:02:39,533 --> 01:02:40,733
+<b>international treaty.</b>
+
+88
+01:02:40,733 --> 01:02:41,166
+<b>But three weeks later, Turkey launched a</b>
+
+89
+01:02:41,166 --> 01:02:43,566
+<b>But three weeks later, Turkey launched a</b>
+
+90
+01:02:43,566 --> 01:02:45,133
+<b>massive second operation,</b>
+
+91
+01:02:45,166 --> 01:02:45,566
+<b>seizing 37% of the island.</b>
+
+92
+01:02:45,566 --> 01:02:48,166
+<b>seizing 37% of the island.</b>
+
+93
+01:02:48,266 --> 01:02:48,733
+<b>This expansion killed over 120 Greek</b>
+
+94
+01:02:48,733 --> 01:02:52,266
+<b>This expansion killed over 120 Greek</b>
+
+95
+01:02:52,266 --> 01:02:55,233
+<b>Cypriot civilians in villages like</b>
+
+96
+01:02:55,233 --> 01:02:57,333
+<b>Maratha and Santalaris.</b>
+
+97
+01:02:57,333 --> 01:02:57,533
+<b>Both communities became</b>
+
+98
+01:02:57,533 --> 01:02:58,933
+<b>Both communities became</b>
+
+99
+01:02:58,933 --> 01:03:01,066
+<b>victims of extremist violence.</b>
+
+100
+01:03:01,166 --> 01:03:01,666
+<b>But here's what neither side tells you.</b>
+
+101
+01:03:01,666 --> 01:03:03,866
+<b>But here's what neither side tells you.</b>
+
+102
+01:03:03,866 --> 01:03:04,599
+<b>A third player was pulling</b>
+
+103
+01:03:04,599 --> 01:03:06,233
+<b>A third player was pulling</b>
+
+104
+01:03:06,233 --> 01:03:07,966
+<b>strings behind the scenes.</b>
+
+105
+01:03:07,966 --> 01:03:08,433
+<b>According to historian William Malinson's</b>
+
+106
+01:03:08,433 --> 01:03:10,866
+<b>According to historian William Malinson's</b>
+
+107
+01:03:10,866 --> 01:03:12,766
+<b>analysis of declassified</b>
+
+108
+01:03:12,766 --> 01:03:14,433
+<b>State Department cables,</b>
+
+109
+01:03:14,433 --> 01:03:15,099
+<b>the CIA warned Henry Kissinger on June</b>
+
+110
+01:03:15,099 --> 01:03:18,133
+<b>the CIA warned Henry Kissinger on June</b>
+
+111
+01:03:18,133 --> 01:03:22,000
+<b>29, 1974, that Greek coup</b>
+
+112
+01:03:22,000 --> 01:03:23,666
+<b>preparations were underway.</b>
+
+113
+01:03:23,666 --> 01:03:24,400
+<b>Malinson argues that America</b>
+
+114
+01:03:24,400 --> 01:03:26,666
+<b>Malinson argues that America</b>
+
+115
+01:03:26,666 --> 01:03:28,866
+<b>chose not to prevent the crisis,</b>
+
+116
+01:03:28,866 --> 01:03:29,733
+<b>Seeing strategic advantage in Cyprus's</b>
+
+117
+01:03:29,733 --> 01:03:32,433
+<b>seeing strategic advantage in Cyprus's</b>
+
+118
+01:03:32,433 --> 01:03:34,366
+<b>division during the Cold War.</b>
+
+119
+01:03:34,366 --> 01:03:34,733
+<b>division during the Cold War, a unified</b>
+
+120
+01:03:34,733 --> 01:03:37,333
+<b>A unified Cyprus might align with the</b>
+
+121
+01:03:37,333 --> 01:03:40,533
+<b>Soviet Union, but a divided Cyprus would</b>
+
+122
+01:03:40,533 --> 01:03:41,533
+<b>keep both halves</b>
+
+123
+01:03:41,533 --> 01:03:43,666
+<b>dependent on Western protection.</b>
+
+124
+01:03:43,666 --> 01:03:44,033
+<b>Consider this, if you knew your neighbors</b>
+
+125
+01:03:44,033 --> 01:03:46,366
+<b>Consider this. If you knew your neighbors</b>
+
+126
+01:03:46,366 --> 01:03:47,366
+<b>were about to start</b>
+
+127
+01:03:47,366 --> 01:03:49,766
+<b>shooting, would you try to stop it?</b>
+
+128
+01:03:49,766 --> 01:03:51,333
+<b>Or would you let it happen because it</b>
+
+129
+01:03:51,333 --> 01:03:52,433
+<b>served your interests?</b>
+
+130
+01:03:52,433 --> 01:03:52,900
+<b>Over 210,000 people</b>
+
+131
+01:03:52,900 --> 01:03:55,033
+<b>Over 210,000 people</b>
+
+132
+01:03:55,033 --> 01:03:56,666
+<b>lost their homes in weeks.</b>
+
+133
+01:03:56,666 --> 01:03:57,133
+<b>162,000 Greek Cypriots fled their</b>
+
+134
+01:03:57,133 --> 01:03:59,966
+<b>162,000 Greek Cypriots fled their</b>
+
+135
+01:03:59,966 --> 01:04:01,733
+<b>ancestral villages in the north.</b>
+
+136
+01:04:02,033 --> 01:04:02,733
+<b>Farmers leaving olive groves their</b>
+
+137
+01:04:02,733 --> 01:04:04,333
+<b>Farmers leaving olive groves their</b>
+
+138
+01:04:04,333 --> 01:04:07,300
+<b>families had tended to for generations.</b>
+
+139
+01:04:07,466 --> 01:04:08,133
+<b>Shop owners abandoning</b>
+
+140
+01:04:08,133 --> 01:04:09,166
+<b>Shop owners abandoning</b>
+
+141
+01:04:09,166 --> 01:04:11,333
+<b>businesses built over lifetimes.</b>
+
+142
+01:04:11,400 --> 01:04:11,733
+<b>50,000 Turkish Cypriots headed north,</b>
+
+143
+01:04:11,733 --> 01:04:14,666
+<b>50,000 Turkish Cypriots headed north,</b>
+
+144
+01:04:14,666 --> 01:04:15,166
+<b>leaving behind homes in the</b>
+
+145
+01:04:15,166 --> 01:04:16,566
+<b>leaving behind homes in the</b>
+
+146
+01:04:16,566 --> 01:04:18,800
+<b>south, they'd never see again.</b>
+
+147
+01:04:18,800 --> 01:04:19,099
+<b>You're a parent in 1974, extremists</b>
+
+148
+01:04:19,099 --> 01:04:22,366
+<b>You're a parent in 1974. Extremists</b>
+
+149
+01:04:22,366 --> 01:04:23,666
+<b>control your government.</b>
+
+150
+01:04:23,699 --> 01:04:24,366
+<b>Foreign troops are landing,</b>
+
+151
+01:04:24,366 --> 01:04:25,533
+<b>Foreign troops are landing.</b>
+
+152
+01:04:25,533 --> 01:04:25,933
+<b>you have two hours to pack.</b>
+
+153
+01:04:25,933 --> 01:04:27,533
+<b>You have two hours to pack.</b>
+
+154
+01:04:27,533 --> 01:04:28,133
+<b>What do you take?</b>
+
+155
+01:04:28,133 --> 01:04:28,966
+<b>What do you take?</b>
+
+156
+01:04:28,966 --> 01:04:29,300
+<b>What do you leave behind?</b>
+
+157
+01:04:29,300 --> 01:04:30,133
+<b>What do you leave behind?</b>
+
+158
+01:04:30,400 --> 01:04:30,699
+<b>2001 people vanished during the violence.</b>
+
+159
+01:04:30,699 --> 01:04:34,233
+<b>2001 people vanished during the violence.</b>
+
+160
+01:04:34,400 --> 01:04:34,900
+<b>1,508 Greek Cypriots</b>
+
+161
+01:04:34,900 --> 01:04:37,733
+<b>1,508 Greek Cypriots</b>
+
+162
+01:04:37,733 --> 01:04:41,366
+<b>and 493 Turkish Cypriots.</b>
+
+163
+01:04:41,366 --> 01:04:41,633
+<b>The UN has identified 766</b>
+
+164
+01:04:41,633 --> 01:04:44,133
+<b>The UN has identified 766</b>
+
+165
+01:04:44,133 --> 01:04:45,833
+<b>bodies from mass graves.</b>
+
+166
+01:04:45,833 --> 01:04:46,300
+<b>Over 1,200 families are still waiting to</b>
+
+167
+01:04:46,300 --> 01:04:49,000
+<b>Over 1,200 families are still waiting to</b>
+
+168
+01:04:49,000 --> 01:04:51,500
+<b>learn what happened to their loved ones.</b>
+
+169
+01:04:51,500 --> 01:04:51,733
+<b>For Greek Cypriots the</b>
+
+170
+01:04:51,733 --> 01:04:53,000
+<b>For Greek Cypriots, the</b>
+
+171
+01:04:53,000 --> 01:04:54,566
+<b>losses went beyond homes.</b>
+
+172
+01:04:54,866 --> 01:04:55,533
+<b>Ancient Orthodox churches in the north</b>
+
+173
+01:04:55,533 --> 01:04:57,633
+<b>Ancient Orthodox churches in the north</b>
+
+174
+01:04:57,633 --> 01:04:59,833
+<b>were abandoned or destroyed.</b>
+
+175
+01:04:59,833 --> 01:05:00,466
+<b>Entire villages like Varosha became ghost</b>
+
+176
+01:05:00,466 --> 01:05:03,633
+<b>Entire villages like Varosha became ghost</b>
+
+177
+01:05:03,633 --> 01:05:05,866
+<b>towns sealed off for 50 years.</b>
+
+178
+01:05:05,866 --> 01:05:06,233
+<b>According to the University of Cyprus,</b>
+
+179
+01:05:06,233 --> 01:05:08,133
+<b>According to the University of Cyprus,</b>
+
+180
+01:05:08,133 --> 01:05:08,733
+<b>Greek Cypriot property in the north is</b>
+
+181
+01:05:08,733 --> 01:05:11,266
+<b>Greek Cypriot property in the north is</b>
+
+182
+01:05:11,266 --> 01:05:13,599
+<b>worth over 82 billion today.</b>
+
+183
+01:05:13,599 --> 01:05:14,099
+<b>Land, homes and businesses that families</b>
+
+184
+01:05:14,099 --> 01:05:16,599
+<b>Land, homes and businesses that families</b>
+
+185
+01:05:16,599 --> 01:05:19,666
+<b>built over centuries, now inaccessible</b>
+
+186
+01:05:19,666 --> 01:05:21,366
+<b>across a military line.</b>
+
+187
+01:05:21,366 --> 01:05:21,866
+<b>Imagine if half your city was suddenly</b>
+
+188
+01:05:21,866 --> 01:05:23,766
+<b>Imagine if half your city was suddenly</b>
+
+189
+01:05:23,766 --> 01:05:25,966
+<b>off limits and you could see your</b>
+
+190
+01:05:25,966 --> 01:05:27,433
+<b>childhood home from a</b>
+
+191
+01:05:27,433 --> 01:05:28,866
+<b>distance but never visited.</b>
+
+192
+01:05:28,866 --> 01:05:29,533
+<b>Greek Cypriots and most of the</b>
+
+193
+01:05:29,533 --> 01:05:31,533
+<b>Greek Cypriots and most of the</b>
+
+194
+01:05:31,533 --> 01:05:33,366
+<b>international community see</b>
+
+195
+01:05:33,366 --> 01:05:35,400
+<b>this as a illegal occupation.</b>
+
+196
+01:05:35,400 --> 01:05:35,966
+<b>UN resolution 541 declared northern</b>
+
+197
+01:05:35,966 --> 01:05:39,566
+<b>UN resolution 541 declared northern</b>
+
+198
+01:05:39,566 --> 01:05:41,666
+<b>Cyprus legally invalid.</b>
+
+199
+01:05:41,666 --> 01:05:41,733
+<b>The European court ruled Turkey violated</b>
+
+200
+01:05:41,733 --> 01:05:44,366
+<b>The European Court ruled Turkey violated</b>
+
+201
+01:05:44,366 --> 01:05:47,166
+<b>multiple articles of international law</b>
+
+202
+01:05:47,166 --> 01:05:49,466
+<b>and owes billions in compensation.</b>
+
+203
+01:05:49,466 --> 01:05:50,266
+<b>Turkish Cypriots counter that they faced</b>
+
+204
+01:05:50,266 --> 01:05:52,166
+<b>Turkish Cypriots counter that they faced</b>
+
+205
+01:05:52,166 --> 01:05:54,433
+<b>systematic persecution and</b>
+
+206
+01:05:54,433 --> 01:05:56,133
+<b>credible genocide threats.</b>
+
+207
+01:05:56,133 --> 01:05:56,333
+<b>They see international isolation as</b>
+
+208
+01:05:56,333 --> 01:05:58,633
+<b>They see international isolation as</b>
+
+209
+01:05:58,633 --> 01:06:00,233
+<b>punishment for surviving.</b>
+
+210
+01:06:00,233 --> 01:06:00,599
+<b>The 1960 treaty gave Turkey guarantor</b>
+
+211
+01:06:00,599 --> 01:06:04,033
+<b>The 1960 treaty gave Turkey guarantor</b>
+
+212
+01:06:04,033 --> 01:06:06,666
+<b>rights and they argue they still need</b>
+
+213
+01:06:06,666 --> 01:06:07,733
+<b>protection from</b>
+
+214
+01:06:07,733 --> 01:06:09,333
+<b>potential future violence.</b>
+
+215
+01:06:09,333 --> 01:06:09,733
+<b>These legal arguments matter because</b>
+
+216
+01:06:09,733 --> 01:06:12,266
+<b>These legal arguments matter because</b>
+
+217
+01:06:12,266 --> 01:06:14,666
+<b>Cyprus sits on massive energy wealth.</b>
+
+218
+01:06:14,666 --> 01:06:15,199
+<b>In 2011 the Aphrodite gas field discovery</b>
+
+219
+01:06:15,199 --> 01:06:18,966
+<b>In 2011, the Aphrodite gas field</b>
+
+220
+01:06:18,966 --> 01:06:21,266
+<b>discovery revealed reserves that could</b>
+
+221
+01:06:21,266 --> 01:06:22,833
+<b>power Europe for years.</b>
+
+222
+01:06:22,833 --> 01:06:23,266
+<b>But the division means that these</b>
+
+223
+01:06:23,266 --> 01:06:25,433
+<b>But the division means that these</b>
+
+224
+01:06:25,433 --> 01:06:27,433
+<b>resources can be fully developed.</b>
+
+225
+01:06:27,433 --> 01:06:27,900
+<b>Cyprus has signed deals with Egypt and</b>
+
+226
+01:06:27,900 --> 01:06:30,433
+<b>Cyprus has signed deals with Egypt and</b>
+
+227
+01:06:30,433 --> 01:06:32,166
+<b>Israel to build pipelines.</b>
+
+228
+01:06:32,166 --> 01:06:32,866
+<b>But Turkey blocks drilling ships claiming</b>
+
+229
+01:06:32,866 --> 01:06:35,333
+<b>But Turkey blocks drilling ships,</b>
+
+230
+01:06:35,333 --> 01:06:35,599
+<b>Turkish Cypriots deserve equal access to</b>
+
+231
+01:06:35,599 --> 01:06:37,766
+<b>claiming Turkish Cypriots deserve equal</b>
+
+232
+01:06:37,766 --> 01:06:40,466
+<b>access to any energy revenues.</b>
+
+233
+01:06:40,466 --> 01:06:41,033
+<b>So who's right? The answer could affect</b>
+
+234
+01:06:41,033 --> 01:06:43,866
+<b>So who's right? The answer could affect</b>
+
+235
+01:06:43,866 --> 01:06:45,566
+<b>energy prices across Europe.</b>
+
+236
+01:06:45,566 --> 01:06:45,766
+<b>The tensions are escalating. Turkish</b>
+
+237
+01:06:45,766 --> 01:06:48,233
+<b>The tensions are escalating. Turkish</b>
+
+238
+01:06:48,233 --> 01:06:51,366
+<b>warships now regularly escort drilling</b>
+
+239
+01:06:51,366 --> 01:06:54,699
+<b>vessels into waters Cyprus considers its</b>
+
+240
+01:06:54,699 --> 01:06:56,333
+<b>exclusive economic zone.</b>
+
+241
+01:06:56,333 --> 01:06:56,766
+<b>Greece threatens military response to</b>
+
+242
+01:06:56,766 --> 01:06:58,966
+<b>Greece threatens military response to</b>
+
+243
+01:06:58,966 --> 01:07:00,433
+<b>protect Cyprus' rights.</b>
+
+244
+01:07:00,433 --> 01:07:01,099
+<b>The EU has imposed sanctions on Turkish</b>
+
+245
+01:07:01,099 --> 01:07:03,866
+<b>The EU has imposed sanctions on Turkish</b>
+
+246
+01:07:03,866 --> 01:07:05,233
+<b>officials involved in</b>
+
+247
+01:07:05,233 --> 01:07:06,400
+<b>drilling operations.</b>
+
+248
+01:07:06,400 --> 01:07:06,900
+<b>These are all NATO allies.</b>
+
+249
+01:07:06,900 --> 01:07:08,366
+<b>These are all NATO allies.</b>
+
+250
+01:07:08,366 --> 01:07:09,233
+<b>Greece, Turkey and Cyprus as an EU member</b>
+
+251
+01:07:09,233 --> 01:07:11,766
+<b>Greece, Turkey and Cyprus as an EU</b>
+
+252
+01:07:11,766 --> 01:07:13,866
+<b>member, potentially confronting each</b>
+
+253
+01:07:13,866 --> 01:07:16,233
+<b>other over resources that could benefit</b>
+
+254
+01:07:16,233 --> 01:07:17,266
+<b>everyone if they</b>
+
+255
+01:07:17,266 --> 01:07:18,666
+<b>could agree to share them.</b>
+
+256
+01:07:18,666 --> 01:07:19,533
+<b>Meanwhile, the island's legal complexity</b>
+
+257
+01:07:19,533 --> 01:07:22,033
+<b>Meanwhile, the island's legal complexity</b>
+
+258
+01:07:22,033 --> 01:07:23,966
+<b>has made it a haven for</b>
+
+259
+01:07:23,966 --> 01:07:25,933
+<b>questionable financial flows.</b>
+
+260
+01:07:25,933 --> 01:07:26,233
+<b>European Parliament investigations</b>
+
+261
+01:07:26,233 --> 01:07:28,333
+<b>European Parliament investigations</b>
+
+262
+01:07:28,333 --> 01:07:31,366
+<b>revealed that Cyprus' investment programs</b>
+
+263
+01:07:31,366 --> 01:07:33,300
+<b>attracted over 200</b>
+
+264
+01:07:33,300 --> 01:07:35,166
+<b>billion in Russian money,</b>
+
+265
+01:07:35,166 --> 01:07:35,533
+<b>Much of it from oligarchs now under</b>
+
+266
+01:07:35,533 --> 01:07:37,766
+<b>much of it from oligarchs now under</b>
+
+267
+01:07:37,766 --> 01:07:39,533
+<b>sanctions for supporting</b>
+
+268
+01:07:39,533 --> 01:07:41,266
+<b>Putin's war in Ukraine.</b>
+
+269
+01:07:41,266 --> 01:07:41,566
+<b>The division creates regulatory gaps that</b>
+
+270
+01:07:41,566 --> 01:07:44,533
+<b>The division creates regulatory gaps that</b>
+
+271
+01:07:44,533 --> 01:07:45,633
+<b>sophisticated money</b>
+
+272
+01:07:45,633 --> 01:07:47,033
+<b>launderers can exploit,</b>
+
+273
+01:07:47,033 --> 01:07:47,366
+<b>turning Cyprus' tragedy into a tool for</b>
+
+274
+01:07:47,366 --> 01:07:50,133
+<b>turning Cyprus' tragedy into a tool for</b>
+
+275
+01:07:50,133 --> 01:07:51,866
+<b>avoiding international sanctions.</b>
+
+276
+01:07:51,866 --> 01:07:52,366
+<b>But there's hope. Young Cypriots see</b>
+
+277
+01:07:52,366 --> 01:07:54,566
+<b>But there's hope. Young</b>
+
+278
+01:07:54,566 --> 01:07:57,166
+<b>Cypriots see division as absurd.</b>
+
+279
+01:07:57,166 --> 01:07:57,300
+<b>division as absurd. They cross the buffer</b>
+
+280
+01:07:57,300 --> 01:07:57,599
+<b>zone to study, work, even fall in love.</b>
+
+281
+01:07:57,599 --> 01:07:59,633
+<b>They cross the buffer zone to study,</b>
+
+282
+01:07:59,633 --> 01:07:59,900
+<b>zone to study, work, even fall in love.</b>
+
+283
+01:07:59,900 --> 01:08:01,599
+<b>work, even fall in love.</b>
+
+284
+01:08:01,599 --> 01:08:02,066
+<b>Opinion polls show majorities on both</b>
+
+285
+01:08:02,066 --> 01:08:04,233
+<b>Opinion polls show majorities on both</b>
+
+286
+01:08:04,233 --> 01:08:07,066
+<b>sides support reunification, with</b>
+
+287
+01:08:07,066 --> 01:08:09,866
+<b>property rights, security guarantees and</b>
+
+288
+01:08:09,866 --> 01:08:12,400
+<b>political equality for both communities.</b>
+
+289
+01:08:12,400 --> 01:08:12,900
+<b>Remember Petros from Zodea village? He</b>
+
+290
+01:08:12,900 --> 01:08:15,033
+<b>Remember Petros from Zodea village?</b>
+
+291
+01:08:15,033 --> 01:08:15,900
+<b>spent 50 years unable to visit the</b>
+
+292
+01:08:15,900 --> 01:08:18,833
+<b>He spent 50 years unable to visit the</b>
+
+293
+01:08:18,833 --> 01:08:19,933
+<b>orchard his family</b>
+
+294
+01:08:19,933 --> 01:08:21,566
+<b>tended to for generations.</b>
+
+295
+01:08:21,566 --> 01:08:22,533
+<b>At his age, he</b>
+
+296
+01:08:22,533 --> 01:08:22,633
+<b>probably never will return.</b>
+
+297
+01:08:22,633 --> 01:08:23,733
+<b>At his age, he</b>
+
+298
+01:08:23,733 --> 01:08:25,633
+<b>probably never will return.</b>
+
+299
+01:08:25,633 --> 01:08:26,033
+<b>But young Turkish and Greek Cypriots are</b>
+
+300
+01:08:26,033 --> 01:08:28,233
+<b>But young Turkish and Greek Cypriots are</b>
+
+301
+01:08:28,233 --> 01:08:30,333
+<b>crossing that buffer zone to build</b>
+
+302
+01:08:30,333 --> 01:08:32,466
+<b>friendships their parents never could.</b>
+
+303
+01:08:32,466 --> 01:08:33,199
+<b>The question isn't whether Petros will</b>
+
+304
+01:08:33,199 --> 01:08:35,133
+<b>The question isn't whether Petros will</b>
+
+305
+01:08:35,133 --> 01:08:36,233
+<b>see his village again.</b>
+
+306
+01:08:36,233 --> 01:08:37,100
+<b>It's whether his grandchildren will</b>
+
+307
+01:08:37,100 --> 01:08:39,166
+<b>It's whether his grandchildren will</b>
+
+308
+01:08:39,166 --> 01:08:41,666
+<b>inherit another 50 years of division,</b>
+
+309
+01:08:41,666 --> 01:08:42,199
+<b>Or whether leaders will finally choose</b>
+
+310
+01:08:42,199 --> 01:08:44,600
+<b>or whether leaders will finally choose</b>
+
+311
+01:08:44,600 --> 01:08:46,366
+<b>compromise over conflict.</b>
+
+312
+01:08:46,366 --> 01:08:46,866
+<b>Looking at this 50 year conflict, what do</b>
+
+313
+01:08:46,866 --> 01:08:49,566
+<b>Looking at this 50-year conflict, what do</b>
+
+314
+01:08:49,566 --> 01:08:51,033
+<b>you think matters more?</b>
+
+315
+01:08:51,033 --> 01:08:51,699
+<b>Following international law</b>
+
+316
+01:08:51,699 --> 01:08:54,100
+<b>Following international law or protecting</b>
+
+317
+01:08:54,100 --> 01:08:57,033
+<b>people's safety, both communities have</b>
+
+318
+01:08:57,033 --> 01:08:58,766
+<b>legitimate fears based on</b>
+
+319
+01:08:58,766 --> 01:09:00,433
+<b>real violence they suffered.</b>
+
+320
+01:09:00,433 --> 01:09:01,133
+<b>Let me know your thoughts.</b>
+
+321
+01:09:01,133 --> 01:09:02,266
+<b>Let me know your thoughts.</b>
+
+322
+01:09:02,266 --> 01:09:02,733
+<b>And if this story surprised you, imagine</b>
+
+323
+01:09:02,733 --> 01:09:05,266
+<b>And if this story surprised you, imagine</b>
+
+324
+01:09:05,266 --> 01:09:08,199
+<b>what other ancient ethnic conflicts are</b>
+
+325
+01:09:08,199 --> 01:09:10,666
+<b>actually shaped by modern power politics.</b>
+
+326
+01:09:10,666 --> 01:09:11,133
+<b>I'll fact check whatever you suggest.</b>
+
+327
+01:09:11,133 --> 01:09:13,066
+<b>I'll fact-check whatever you suggest.</b>
+
