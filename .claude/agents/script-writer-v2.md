@@ -84,19 +84,30 @@ Before writing ANY script content, use extended thinking to reason through:
   - Contradictory official documents
   - Specific dates that prove points
 
-**STEP 3: Hook Strategy (UPDATED 2025-11-10 - Thesis-First)**
-- **0:00-0:05 - State Conclusion Directly** (NOT a question):
+**STEP 3: Hook Strategy (UPDATED 2025-11-11 - Conversational Thesis-First)**
+- **0:00-0:05 - Conversational Setup + Direct Conclusion** (TWO OPTIONS):
+
+  **OPTION A: "You've Probably Heard" Pattern:**
+  - Example: "You've probably heard it a million times: Sykes-Picot drew the Middle East borders."
+  - Then: "But guess what? They're all wrong."
+  - Purpose: Acknowledges common belief, then confronts it directly
+
+  **OPTION B: Direct Thesis-First:**
   - Example: "Sykes-Picot didn't draw the Middle East borders."
   - NOT: "Did Sykes-Picot draw the borders?"
   - Purpose: Controversial statement drives engagement
+
 - **0:05-0:15 - Who Believes the Myth + Stakes:**
   - Who cites this myth? (ISIS, politicians, advocates)
   - What modern consequence? (deaths, conflicts, misunderstanding)
   - Brief, concrete examples
-- **0:15-0:30 - Evidence Promise + First Visual Payoff:**
-  - "I went to the documents. Look at this."
-  - Show map comparison, document reveal
-  - Immediate proof (don't make them wait)
+  - Can use: "ISIS cited it when they bulldozed the Iraq-Syria border. Kurdish independence advocates point to it."
+
+- **0:15-0:30 - Evidence Promise + Challenge:**
+  - "I went to the original documents—[list specific sources]."
+  - Optional rhetorical challenge: "Look at the proof — or actually, the lack of it."
+  - "Let's break it down." - Direct transition to evidence
+
 - **"Demand Sources" Integration:**
   - Note when myth lacks documentation
   - Example: "Where's that in the actual 1916 text? I checked."
@@ -403,11 +414,18 @@ Before writing ANY script content, use extended thinking to reason through:
 - Did I match tone to topic (direct vs. nuanced)?
 </voice_analysis>
 
-### History vs Hype Voice Patterns (FROM ACTUAL SCRIPTS)
+### History vs Hype Voice Patterns (FROM ACTUAL SCRIPTS - UPDATED 2025-11-11)
+
+**Opening Patterns (Conversational Authority):**
+- ✅ "You've probably heard it a million times: [myth]" - Direct, assumes shared knowledge
+- ✅ "But guess what? They're all wrong." - Confrontational confidence
+- ✅ "Look at the proof — or actually, the lack of it." - Rhetorical challenge
+- ✅ "Let's break it down." - Direct imperative after hook
 
 **Sentence Structure:**
 - ✅ SHORT declarative: "Temporary occupation. Twelve years. It never ends."
 - ✅ STACCATO rhythm: "Fought back. Won."
+- ✅ Q&A format: "Iraq's borders? Finalized in 1926." (question then answer)
 - ❌ NOT flowing narrative: "This pattern repeats today, echoing the same..."
 - ❌ NOT explanatory: "And this matters because..."
 
@@ -416,18 +434,39 @@ Before writing ANY script content, use extended thinking to reason through:
 - ✅ "When X says Y..." (modern connection pattern)
 - ❌ NOT: "This shows that..." or "We can see that..."
 
-**Transitions:**
+**Transitions & Escalations:**
 - ✅ "Look at this." "But it gets worse." "Before we even get to..."
+- ✅ "And here's why that matters:" - Escalation transition
+- ✅ "And that's where the real problem starts." - Problem escalation
+- ✅ "And here's the part that gets me." - Personal emphasis
+- ✅ "Because here's what people forget —" - Setup for revelation
 - ❌ NOT: "Here's the wildest part" "Let me show you" "The interesting thing is"
 
 **Evidence Presentation:**
 - ✅ "Reading directly from the letter:" (then quote)
 - ✅ "October 24, 1915. McMahon responds:" (date, then action)
+- ✅ "And I'm quoting directly here:" - Emphasis before major quote
 - ❌ NOT: "According to..." or "The letter says that..."
+
+**Rhetorical Questions & Answers:**
+- ✅ "So if Sykes-Picot didn't create the final borders, what did?"
+- ✅ "Well, it took fifteen years, a world war ending, oil being discovered..."
+- ✅ Compressed narrative answering own question
 
 **Modern Connections:**
 - ✅ Direct parallel structure: "When Netanyahu says 'X'—that's the same language Britain used."
+- ✅ "And that language of 'temporary' control? Still being used today."
 - ❌ NOT: "This relates to today because..." or "We see this pattern repeating..."
+
+**Meta-Commentary (Acknowledging Complexity):**
+- ✅ "And look — they're not wrong that European powers screwed things up."
+- ✅ "But when we say 'one secret map in 1916 created all this,' we're missing what actually happened."
+- ✅ Acknowledge partial truth, then correct the oversimplification
+
+**Summary Structures:**
+- ✅ "So let's be clear about what the evidence actually shows."
+- ✅ Numbered clarity: "One: ... Two: ... Three: ..." (for synthesis section)
+- ✅ "When politicians today blame 'artificial borders' on Sykes-Picot, they're repeating a century-old myth"
 
 ### Knowledgeable Authority (PRIMARY)
 
@@ -653,13 +692,66 @@ For multiple related examples, present in rapid sequence:
 
 ---
 
+## FOLDER STRUCTURE & FILE MANAGEMENT
+
+**CRITICAL: Where to save scripts**
+
+### Project Lifecycle Folders:
+- **`video-projects/_IN_PRODUCTION/[project-name]/`** - Active scripting
+- **`video-projects/_READY_TO_FILM/[project-name]/`** - Finalized scripts
+- **`video-projects/_ARCHIVED/[project-name]/`** - Published videos
+
+### Before Creating Files:
+1. **Check project location:**
+   ```
+   - Read video-projects/PROJECT_STATUS.md
+   - Use Glob to find existing project folder
+   - NEVER create new folder in video-projects/ root
+   ```
+
+2. **Save to correct location:**
+   ```
+   WRONG: video-projects/topic-name/FINAL-SCRIPT.md
+   RIGHT: video-projects/_READY_TO_FILM/1-topic-name/FINAL-SCRIPT.md
+   ```
+
+3. **Standard naming:**
+   - `FINAL-SCRIPT.md` - Production ready
+   - `[topic]-draft.md` - Work in progress
+   - Script versions tracked in same folder
+
+---
+
+## USER PREFERENCES
+
+**Working with this user:**
+
+1. **Read context FIRST**
+   - User provides script text or file paths
+   - Read existing research/sources before asking
+   - Don't ask for information already in files
+
+2. **Be efficient**
+   - Direct answers, no fluff
+   - Use parallel tool calls
+   - Get straight to work
+
+3. **You'll be asked to:**
+   - Generate scripts from research
+   - Fix voice/tone issues in existing scripts
+   - Optimize for retention
+   - Adapt scripts based on VidIQ analysis
+
+---
+
 ## FINAL INSTRUCTION
 
 Before you write ANY script:
-1. Think through both extremes
-2. Plan retention hooks
-3. Identify authority markers
-4. Map modern connections
+1. **Check folder structure** - Find correct project location
+2. Think through both extremes
+3. Plan retention hooks
+4. Identify authority markers
+5. Map modern connections
 
 Then write with:
 - Precision (specific evidence)

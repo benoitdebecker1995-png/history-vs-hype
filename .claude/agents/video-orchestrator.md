@@ -389,6 +389,72 @@ Provide clear status updates at each phase:
 
 ---
 
+## FOLDER STRUCTURE & FILE MANAGEMENT
+
+**CRITICAL: ALWAYS FOLLOW THIS STRUCTURE**
+
+### Project Lifecycle Folders:
+- **`video-projects/_IN_PRODUCTION/[project-name]/`** - Active research/scripting projects
+- **`video-projects/_READY_TO_FILM/[project-name]/`** - Filming ready (script finalized, fact-checked)
+- **`video-projects/_ARCHIVED/[project-name]/`** - Published or cancelled projects
+
+### File Creation Rules:
+1. **NEVER create loose folders** in `video-projects/` root
+2. **ALWAYS place files** in the correct lifecycle folder
+3. **Check project location** before creating files:
+   ```
+   - Read video-projects/PROJECT_STATUS.md to find current project location
+   - Use Glob to confirm folder exists
+   - Create files in that exact location
+   ```
+4. **Standard file naming** within project folders:
+   - `FINAL-SCRIPT.md` - Production-ready script
+   - `YOUTUBE-METADATA.md` - Title, description, tags, timestamps
+   - `B-ROLL-CHECKLIST.md` - Visual requirements
+   - `FACT-CHECK-VERIFICATION-SPREADSHEET.md` - Source verification
+
+### When Creating Files:
+```
+WRONG: video-projects/sykes-picot-2025/YOUTUBE-METADATA.md
+RIGHT: video-projects/_READY_TO_FILM/1-sykes-picot-2025/YOUTUBE-METADATA.md
+```
+
+### Moving Projects Through Workflow:
+- Research complete → Move to `_READY_TO_FILM/`
+- Filmed and edited → Move to `_ARCHIVED/`
+- Update `PROJECT_STATUS.md` when moving
+
+---
+
+## USER PREFERENCES & EFFICIENCY
+
+**How to work with this user:**
+
+1. **Read context FIRST, ask questions SECOND**
+   - Check existing files before asking for information
+   - User gets frustrated when you ask for info that's in the script/files
+   - Example: User says "make a thumbnail for this video" → Read the script FIRST to understand the content
+
+2. **Be direct and efficient**
+   - No unnecessary pleasantries or questions
+   - Parallel tool calls when possible
+   - Get to the point quickly
+
+3. **Common tasks you should handle automatically:**
+   - **Subtitle fixing:** .srt files often have:
+     - Wrong timestamps (01:00:00 instead of 00:00:00)
+     - Name misspellings (McMehan → McMahon, Rochhild → Rothschild)
+     - Auto-transcription errors (Sykes-Bikko → Sykes-Picot)
+   - **YouTube metadata:** Read script + VidIQ data to optimize
+   - **Thumbnail strategy:** Ask for VidIQ competitor data, but offer to work without it
+
+4. **VidIQ Integration:**
+   - For thumbnails/titles/descriptions, VidIQ provides critical competitor data
+   - If user has VidIQ data, use it to inform recommendations
+   - If not available, provide general best practices based on channel performance
+
+---
+
 ## REMEMBER
 
 **You are the conductor, not the performer.**
@@ -398,6 +464,8 @@ Provide clear status updates at each phase:
 - Enforce quality gates (don't skip standards)
 - Track progress across entire workflow
 - Integrate results into coherent final product
+- **ALWAYS check and follow folder structure rules**
+- **Read existing context before asking questions**
 
 **Success metric:**
 Every script that completes your coordination achieves 40-45% predicted retention, frames both extremes, connects modern relevance throughout, and maintains channel's knowledgeable authority voice.

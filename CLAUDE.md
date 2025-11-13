@@ -139,11 +139,48 @@ B-roll is evidence, not decoration. You are the authority making an argument, no
 
 ## File Organization
 
-Scripts are primarily markdown files (.md) in the root directory. Common patterns:
-- Topic-specific scripts: `[topic]_script.md`, `[topic]_final_script.md`
-- Autocue versions: `[topic]_autocue.md`
-- Multiple versions: `[topic]_script(1).md`, `[topic]_script(2).md`
-- Compass artifacts: AI-generated drafts from collaboration tool
+### Project Lifecycle Folders (CRITICAL)
+
+**All video projects MUST be in lifecycle folders:**
+
+- **`video-projects/_IN_PRODUCTION/`** - Active research and scripting
+- **`video-projects/_READY_TO_FILM/`** - Finalized scripts ready for filming
+- **`video-projects/_ARCHIVED/`** - Published or cancelled projects
+
+**NEVER create loose folders in `video-projects/` root**
+
+**Naming convention:** `video-projects/[lifecycle]/[number]-[topic-slug-year]/`
+
+Example: `video-projects/_READY_TO_FILM/1-sykes-picot-2025/`
+
+### Standard Files Within Projects
+
+- `FINAL-SCRIPT.md` - Production-ready script
+- `YOUTUBE-METADATA.md` - Title, description, tags, timestamps
+- `B-ROLL-CHECKLIST.md` - Visual requirements
+- `FACT-CHECK-VERIFICATION-SPREADSHEET.md` - Source verification
+- `*.srt` - Subtitle files (often need fixing for name/timestamp errors)
+
+### Claude Agent Configuration Files
+
+**Important reference documents in `.claude/`:**
+
+- **`FOLDER-STRUCTURE-GUIDE.md`** - Complete folder system rules (READ FIRST when creating files)
+- **`USER-PREFERENCES.md`** - Working style, efficiency expectations, common tasks
+- **`agents/`** - Specialized AI agents for scripting, analysis, orchestration
+- **`commands/`** - Slash commands for common workflows
+
+**Agents:**
+- `video-orchestrator.md` - Coordinates full workflow
+- `script-writer-v2.md` - Generates scripts with retention optimization
+- `structure-checker-v2.md` - Analyzes scripts for retention issues
+
+**Commands:**
+- `/new-video` - Start new project with full workflow
+- `/script` - Generate script from research
+- `/youtube-metadata` - Create optimized metadata
+- `/fix-subtitles` - Fix auto-transcription errors in .srt files
+- `/fact-check` - Verify sources and claims
 
 ## Working with Scripts
 

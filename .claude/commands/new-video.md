@@ -2,21 +2,41 @@
 description: Start a new video project with the complete History vs Hype workflow
 ---
 
-You are helping create a new video project for the History vs Hype YouTube channel. Guide the user through the complete production workflow.
+You are helping create a new video project for the History vs Hype YouTube channel.
+
+## CRITICAL: Folder Structure
+
+**Before creating any project files:**
+
+1. **Determine project stage:**
+   - New research/scripting → `video-projects/_IN_PRODUCTION/[project-name]/`
+   - Script ready for filming → `video-projects/_READY_TO_FILM/[project-name]/`
+
+2. **Create project folder:**
+   ```
+   Format: video-projects/_IN_PRODUCTION/[number]-[topic-slug-year]/
+   Example: video-projects/_IN_PRODUCTION/3-kashmir-partition-2025/
+   ```
+
+3. **Check PROJECT_STATUS.md:**
+   - Read current status before creating
+   - Find next available project number
+   - Update status file after creation
 
 ## Step 1: Topic Validation
 
-Ask these questions:
-1. **What's the topic/myth to debunk?**
-2. **What's the modern hook?** (Current event, political claim, recent news that makes this timely)
-3. **Why does this matter in 2025?** (What are the current stakes?)
+**Ask these questions ONLY (don't ask for info you can research):**
 
-Then evaluate the topic against the channel's criteria:
-- Does it involve colonial history, borders, or geopolitical myths?
-- Is there a modern news hook or political relevance?
-- Can we show PRIMARY SOURCES (treaties, documents, official records)?
-- Does it fit the "colonial borders still killing people" angle?
-- Is there academic research available to cite?
+1. **What's the topic/myth to debunk?**
+2. **What's the modern hook?** (Current event, political claim, recent news)
+3. **Why does this matter in 2025?**
+
+Then evaluate:
+- Colonial history, borders, or geopolitical myths?
+- Modern news hook or political relevance?
+- PRIMARY SOURCES available (treaties, documents, archives)?
+- "Colonial borders still killing people" angle?
+- Academic research available?
 
 ## Step 2: Research Setup Guide
 

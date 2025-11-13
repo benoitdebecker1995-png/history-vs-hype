@@ -57,7 +57,7 @@ MODERN IRAQ-SYRIA BORDER
 **SAY:**
 "They don't match.
 
-Mosul—oil-rich city. Supposed to be French zone according to Sykes-Picot. Ended up British Iraq. 1926. Ten years later.
+Mosul, oil-rich city. Supposed to be French zone according to Sykes-Picot. Ended up British Iraq. 1926. Ten years later.
 
 **(VISUAL TEXT OVERLAY):**
 ```
@@ -76,7 +76,7 @@ Syria-Palestine border? 1923. Transjordan? 1921."
 **SAY:**
 "Not 1916. Fifteen years.
 
-Get this wrong—we misunderstand ISIS. Kurdistan. Palestine.
+Get this wrong, we misunderstand ISIS. Kurdistan. Palestine.
 
 So what did Sykes-Picot actually do? The problem was worse."
 
@@ -102,7 +102,7 @@ THEREFORE they promised everyone everything."
 **(SHOW: Sharif Hussein portrait)**
 
 **SAY:**
-"July 14, 1915. Sharif Hussein of Mecca writes to Britain. He wants a massive Arab empire—Syria, Iraq, the Arabian Peninsula, Palestine.
+"July 14, 1915. Sharif Hussein of Mecca writes to Britain. He wants a massive Arab empire: Syria, Iraq, the Arabian Peninsula, Palestine.
 
 October 24, 1915. British High Commissioner Henry McMahon responds:"
 
@@ -121,7 +121,7 @@ Arab independence. Vast territory. 1915."
 **(BACK TO CAMERA)**
 
 **SAY:**
-"Six months later—May 1916—Britain signs a secret agreement with France.
+"Six months later, May 1916. Britain signs a secret agreement with France.
 
 Mark Sykes. François Georges-Picot."
 
@@ -131,7 +131,7 @@ Mark Sykes. François Georges-Picot."
 **SAY:**
 "They split the Ottoman Empire with a diagonal line from Acre to Kirkuk.
 
-Blue zone—France gets direct control of coastal Syria and Lebanon. Red zone—Britain gets southern Iraq. Area A—French sphere of influence. Area B—British sphere. Brown zone—Palestine under international administration."
+Blue zone: France gets direct control of coastal Syria and Lebanon. Red zone: Britain gets southern Iraq. Area A: French sphere of influence. Area B: British sphere. Brown zone: Palestine under international administration."
 
 **(ZOOM: Diagonal line on Sykes-Picot map)**
 
@@ -149,7 +149,7 @@ But it gets worse."
 
 Whitehall, London. Seven British officials brief François Georges-Picot on what they'd already promised to the Arabs.
 
-Picot's response—reading from the official meeting minutes:"
+Picot's response, reading from the official meeting minutes:"
 
 **(PAUSE)**
 
@@ -211,13 +211,13 @@ Frame 8: "THREE PROMISES"
 
 Sykes-Picot didn't create that border. 1923.
 
-Kurdish advocates cite Sykes-Picot—divided Kurdistan. Palestine advocates cite it—broken promises. Syria analysts cite it—civil war.
+Kurdish advocates cite Sykes-Picot: divided Kurdistan. Palestine advocates cite it: broken promises. Syria analysts cite it: civil war.
 
 One 1916 map. That's what everyone blames.
 
 Three contradictory promises. Fifteen years. Local resistance.
 
-When we say 'one map'—we erase all of that."
+When we say 'one map,' we erase all of that."
 
 **(VISUAL TEXT OVERLAY):**
 ```
@@ -277,9 +277,9 @@ STILL NOT FINALIZED
 **SAY:**
 "The borders took fifteen to sixteen years to finalize.
 
-Key milestones: 1922, Iraq-Najd treaty. 1926, League of Nations gives oil-rich Mosul to British Iraq—ten years after Sykes-Picot. 1932, Iraq independence.
+Key milestones: 1922, Iraq-Najd treaty. 1926, League of Nations gives oil-rich Mosul to British Iraq, ten years after Sykes-Picot. 1932, Iraq independence.
 
-When Israel's defense minister says they'll stay in Syria 'indefinitely'—that's the same language Britain used in Iraq. 1920 to 1932. Temporary occupation. Twelve years. It never ends."
+When Israel's defense minister says they'll stay in Syria 'indefinitely,' that's the same language Britain used in Iraq. 1920 to 1932. Temporary occupation. Twelve years. It never ends."
 
 **(VISUAL TEXT OVERLAY - Sequence replacing static timeline):**
 ```
@@ -314,11 +314,11 @@ Before we even get to 1916, look at this."
 
 Reading from the source:
 
-'An Ottoman map from 1893 shows the three administrative provinces of Basra, Baghdad, and Mosul. Stretching across the first two of these is the label al-'Iraq al-'Arabi—Arab Iraq.'
+'An Ottoman map from 1893 shows the three administrative provinces of Basra, Baghdad, and Mosul. Stretching across the first two of these is the label al-'Iraq al-'Arabi: Arab Iraq.'
 
 **(HONEST RESTRAINT - acknowledge source limitation):**
 
-Iraq existed as a recognized geographical region before 1916. Syria, Lebanon—they corresponded to Ottoman provinces of Damascus, Aleppo, Beirut.
+Iraq existed as a recognized geographical region before 1916. Syria, Lebanon: they corresponded to Ottoman provinces of Damascus, Aleppo, Beirut.
 
 The exact boundaries shifted over centuries. But the regions existed before European partition.
 
@@ -353,7 +353,7 @@ Blaming one 1916 agreement obscures all of that."
 **SAY:**
 "The myth says European powers drew lines and imposed them. Locals were powerless.
 
-But European powers tried to impose borders—and failed."
+But European powers tried to impose borders. And failed."
 
 ### [7:00] Evidence - Treaty of Sèvres FAILED - VISUAL PROOF
 
@@ -361,7 +361,7 @@ But European powers tried to impose borders—and failed."
 **(TEXT ON SCREEN: "August 10, 1920: Treaty of Sèvres")**
 
 **SAY:**
-"August 10, 1920. Britain and France sign the Treaty of Sèvres. It's supposed to formalize the partition of the Ottoman Empire. Harsh terms for Turkey—loss of Anatolia, Armenia, Kurdistan.
+"August 10, 1920. Britain and France sign the Treaty of Sèvres. It's supposed to formalize the partition of the Ottoman Empire. Harsh terms for Turkey: loss of Anatolia, Armenia, Kurdistan.
 
 Turkey's response?"
 
@@ -390,7 +390,7 @@ Three years of war. Complete renegotiation. Britain and France had to tear up th
 
 BECAUSE Turkish military resistance worked. THEREFORE European powers couldn't simply impose their will.
 
-When Netanyahu says 'until another arrangement is found'—that's the same indefinite occupation language. Turkey rejected it in 1920. Fought back. Won."
+When Netanyahu says 'until another arrangement is found,' that's the same indefinite occupation language. Turkey rejected it in 1920. Fought back. Won."
 
 ### [7:50] Pattern - Arab Resistance
 
@@ -401,7 +401,7 @@ When Netanyahu says 'until another arrangement is found'—that's the same indef
 
 Syria, July 1920. French forces forcibly dismantle Faysal's Arab state in Damascus. Faysal expelled.
 
-Damascus Congress, 1920. Local Arab demands influence mandate terms—even as France and Britain ignore most of them.
+Damascus Congress, 1920. Local Arab demands influence mandate terms, even as France and Britain ignore most of them.
 
 Mosul, 1925-1926. League of Nations commission includes local testimony. Turkish-British-Iraqi negotiations. The final border isn't just European diktat."
 
@@ -440,15 +440,15 @@ Saying 'Sykes-Picot alone caused conflicts' erases that agency."
 **SAY:**
 "Three claims checked.
 
-ONE: Britain made three contradictory promises. Hussein-McMahon. Sykes-Picot. Balfour. Georges-Picot knew—'throwing dust in the eyes' of Arabs. That's betrayal.
+ONE: Britain made three contradictory promises. Hussein-McMahon. Sykes-Picot. Balfour. Georges-Picot knew, 'throwing dust in the eyes' of Arabs. That's betrayal.
 
 TWO: Borders weren't finalized in 1916. 1922 to 1932. Fifteen to sixteen years. League of Nations commissions. Oil interests. Local resistance. Not one map.
 
 THREE: Local actors shaped outcomes. Turkey rejected Sèvres. Forced Lausanne. Arab resistance in Iraq and Syria. The Mosul Commission heard local testimony.
 
-When people say 'Sykes-Picot drew the borders'—they erase this. Three contradictory promises. Fifteen years. Local resistance that forced changes.
+When people say 'Sykes-Picot drew the borders,' they erase this. Three contradictory promises. Fifteen years. Local resistance that forced changes.
 
-ISIS bulldozes the border. 'Erasing Sykes-Picot.' Kurdish advocates cite it—territorial claims. Palestine analysts cite it—broken promises. Syria commentators blame it—civil war.
+ISIS bulldozes the border. 'Erasing Sykes-Picot.' Kurdish advocates cite it: territorial claims. Palestine analysts cite it: broken promises. Syria commentators blame it: civil war.
 
 European colonial powers DID make contradictory promises. Borders ARE part of modern conflicts.
 
@@ -456,7 +456,7 @@ But fifteen years. Multiple actors. Contested process.
 
 Not one secret map.
 
-When we reduce this to myths—we misunderstand ISIS. Kurdistan. Palestine."
+When we reduce this to myths, we misunderstand ISIS. Kurdistan. Palestine."
 
 ---
 
@@ -465,7 +465,7 @@ When we reduce this to myths—we misunderstand ISIS. Kurdistan. Palestine."
 **(BACK TO CAMERA)**
 
 **SAY:**
-"Every source—Sykes-Picot text, Hussein-McMahon letters, San Remo records, League of Nations archives, Treaty of Sèvres, Treaty of Lausanne—is in the description. Public domain. Check everything.
+"Every source: Sykes-Picot text, Hussein-McMahon letters, San Remo records, League of Nations archives, Treaty of Sèvres, Treaty of Lausanne. All in the description. Public domain. Check everything.
 
 Want more evidence-based history? Subscribe."
 
