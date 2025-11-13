@@ -449,11 +449,54 @@ Line [X]: "[Quote with too many fillers]"
 
 ---
 
+## PHASE 4.5: VIDIQ DATA INTEGRATION (NEW - if available)
+
+**If user provides VidIQ retention predictions:**
+
+### Compare VidIQ vs. Your Analysis
+
+```markdown
+## VIDIQ RETENTION COMPARISON
+
+**VidIQ Prediction (user-provided):**
+- Current structure: [X]% final retention
+- After optimization: [Y]% final retention
+- Critical dropout: [Timestamp] ([Z]% loss)
+- Recommended fixes: [List from VidIQ]
+
+**Your Independent Analysis:**
+- Predicted retention: [X]%
+- Critical dropout points: [List]
+- Dead zones: [List]
+
+**ALIGNMENT CHECK:**
+- ✅ Agree on: [What both analyses identify]
+- ⚠️ Differ on: [Where analyses diverge - investigate why]
+- 🎯 Combined insight: [Strongest fixes addressing both]
+```
+
+### Enhance Prediction with VidIQ Data
+
+**If VidIQ identifies channel-specific patterns:**
+- Example: "Channel always drops at 1:11 mark"
+- **Your recommendation:** Deploy strongest evidence at 2:30 (before dropout)
+- Example: Höfle Telegram full-screen reveal
+
+**If VidIQ recommends specific hook frequency:**
+- Example: "Every 45 seconds" (not every 2 minutes)
+- **Your check:** Count current hook frequency, flag gaps
+
+**If VidIQ provides compression recommendations:**
+- Example: "10:30 optimal" (current script 12:00)
+- **Your analysis:** Identify what to cut (1:30 of content)
+
+---
+
 ## PHASE 5: RETENTION PREDICTION MODEL
 
 ### Viewer Journey Simulation
 
-**Based on script analysis, predict retention curve:**
+**Based on script analysis (enhanced with VidIQ if available), predict retention curve:**
 
 ```
 ## RETENTION PREDICTION

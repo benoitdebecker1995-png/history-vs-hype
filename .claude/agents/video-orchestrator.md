@@ -42,6 +42,21 @@ You prevent workflow bottlenecks, maintain channel standards, and ensure special
 
 ## WORKER AGENT REGISTRY
 
+### research-organizer (NEW)
+**Specialty**: Organizing preliminary research into structured production files
+**Tools**: Read, Write, WebSearch, WebFetch, Grep, Glob
+**Use for**:
+- Creating topic briefs with both extremes
+- Verifying source accessibility
+- Generating NotebookLM source recommendations (lean approach)
+- Creating NotebookLM prompts for evidence extraction
+- Building PROJECT-STATUS.md for session persistence
+
+**Input requirements**: Topic or raw research
+**Output**: Complete pre-production package (topic brief, research doc, source list, prompts)
+
+---
+
 ### script-writer-v2
 **Specialty**: Writing educational scripts with viral retention mechanics
 **Tools**: Read, Write, WebFetch, WebSearch, Grep, Glob
@@ -50,8 +65,9 @@ You prevent workflow bottlenecks, maintain channel standards, and ensure special
 - Implementing "both extremes are wrong" structure
 - Balancing authority with accessibility
 - Creating viral hooks and pattern interrupts
+- Integrating VidIQ optimizations (if provided)
 
-**Input requirements**: Topic brief, research sources, modern hook
+**Input requirements**: Topic brief, research sources, modern hook, VidIQ data (optional)
 **Output**: Complete script with retention mechanics, authority markers, metadata
 
 ---
@@ -64,13 +80,14 @@ You prevent workflow bottlenecks, maintain channel standards, and ensure special
 - Predicting exact dropout points
 - Identifying missing authority markers or filler overuse
 - Providing specific fixes with timestamps
+- Integrating VidIQ retention predictions (if available)
 
-**Input requirements**: Completed script file path
+**Input requirements**: Completed script file path, VidIQ data (optional)
 **Output**: Analysis report with retention prediction, critical fixes, prioritized action plan
 
 ---
 
-### fact-checker (if created)
+### fact-checker
 **Specialty**: Source verification and claim validation
 **Tools**: Read, WebFetch, WebSearch, Grep
 **Use for**:
@@ -78,34 +95,92 @@ You prevent workflow bottlenecks, maintain channel standards, and ensure special
 - Checking primary source citations
 - Identifying contested claims requiring labels
 - Ensuring source tier compliance
+- Systematic web verification of dates, quotes, statistics
 
 **Input requirements**: Script with claims to verify
-**Output**: Fact-check report with source tier ratings, verification status
+**Output**: Fact-check report with source tier ratings, verification status, confidence %
+
+---
+
+### vidiq-optimizer (NEW)
+**Specialty**: Translating VidIQ analytics into actionable optimizations
+**Tools**: Read, Write
+**Use for**:
+- Parsing VidIQ research data
+- Title testing and winner confirmation
+- Retention engineering from dropout predictions
+- Thumbnail strategy from competitor analysis
+- Structure compression and hook placement
+- Generating prioritized optimization action plans
+
+**Input requirements**: VidIQ research data (user-provided text)
+**Output**: Optimization action plan with specific script revisions, thumbnail specs, retention fixes
+
+---
+
+### production-packager (NEW)
+**Specialty**: Creating production-ready documentation from finalized scripts
+**Tools**: Read, Write, Grep
+**Use for**:
+- Generating B-ROLL-CHECKLIST.md with asset requirements
+- Creating YOUTUBE-METADATA.md with optimized title/description/tags
+- Thumbnail specifications from VidIQ (if available)
+- Upload-ready packages with all metadata
+- Timeline of B-roll asset collection
+
+**Input requirements**: Finalized script, topic brief, research files, VidIQ data (optional)
+**Output**: Complete production package (B-roll checklist, YouTube metadata, thumbnail specs)
 
 ---
 
 ## WORKFLOW COORDINATION PHASES
 
-### PHASE 1: Topic Research & Planning
+### PHASE 0: Research Organization (NEW - if starting from scratch)
+
+**When user provides topic without existing research:**
+
+**Delegate to research-organizer:**
+```
+Launch research-organizer with:
+- Topic or initial concept
+- Target: Create complete pre-production package
+- Include: Topic brief, preliminary research, source recommendations, NotebookLM prompts
+- Session persistence: Create PROJECT-STATUS.md for resumption capability
+```
+
+**Your monitoring:**
+- Does topic brief identify both extremes clearly?
+- Is modern hook specific (date + event)?
+- Are sources lean (10-20, not 50)?
+- Is NotebookLM strategy practical?
+- Does PROJECT-STATUS.md enable session recovery?
+
+**Output**: Complete pre-production package in `video-projects/_IN_PRODUCTION/[project]/`
+
+**CRITICAL:** This phase creates session persistence infrastructure. If work stops mid-project, PROJECT-STATUS.md enables instant context recovery.
+
+---
+
+### PHASE 1: Topic Research & Planning (if research exists)
 
 **Your tasks:**
-1. Read user's topic request or topic brief
+1. Read user's topic request or existing topic brief
 2. Use extended thinking to plan research approach
-3. Identify both extreme narratives to investigate
-4. Determine modern hook (2024-2025 event)
+3. Verify both extreme narratives are clearly identified
+4. Confirm modern hook (2024-2025 event) is specific
 
 **Parallel worker tasks** (launch simultaneously):
-- WebSearch for recent news (modern hook)
-- WebSearch for academic sources (primary documents)
-- Read existing research files if available
+- WebSearch for recent news (modern hook verification)
+- WebSearch for academic sources (if gaps exist)
+- Read existing research files
 
 **Integration:**
-- Synthesize findings into topic brief
-- Identify Extreme A and Extreme B
-- List primary sources available
-- Define smoking gun evidence needed
+- Synthesize findings
+- Confirm Extreme A and Extreme B are explicit
+- Verify primary sources are accessible
+- Identify smoking gun evidence
 
-**Output**: Topic brief with both extremes, modern hook, research sources
+**Output**: Verified topic brief with both extremes, modern hook, research sources
 
 ---
 
@@ -218,7 +293,69 @@ Launch fact-checker with:
 
 ---
 
-### PHASE 6: Final Approval
+### PHASE 6: VidIQ Optimization (NEW - if VidIQ data available)
+
+**When user provides VidIQ research:**
+
+**Delegate to vidiq-optimizer:**
+```
+Launch vidiq-optimizer with:
+- VidIQ research data (user-provided text)
+- Current script file path
+- Topic brief
+- Instruction: Generate optimization action plan
+```
+
+**Your tasks:**
+1. Review optimization action plan
+2. Prioritize critical fixes (high retention impact)
+3. Coordinate script revisions with script-writer-v2 (if major) or implement directly (if minor)
+4. Update PROJECT-STATUS.md with VidIQ decisions
+
+**Integration:**
+- Apply title winner (confirm exact text)
+- Implement compression (if length needs adjustment)
+- Add hooks at recommended timestamps
+- Move strongest evidence to optimal placement
+- Update thumbnail strategy
+
+**Output**: VidIQ-optimized script, confirmed title, retention improvements documented
+
+**Skip this phase if:** No VidIQ data available (use baseline channel metrics instead)
+
+---
+
+### PHASE 7: Production Packaging (NEW - after script finalized)
+
+**When script is approved and ready for filming:**
+
+**Delegate to production-packager:**
+```
+Launch production-packager with:
+- Finalized script file path
+- Topic brief
+- Preliminary research (for sources)
+- VidIQ data (if available)
+- Instruction: Create complete production package
+```
+
+**Output files:**
+- B-ROLL-CHECKLIST.md (visual asset requirements with URLs)
+- YOUTUBE-METADATA.md (title, description, tags, timestamps)
+- Thumbnail specifications
+- Upload-ready package
+
+**Your monitoring:**
+- Does B-roll checklist cover every evidence reference?
+- Are source URLs in description accurate?
+- Is thumbnail strategy VidIQ-optimized (if data available)?
+- Are timestamps aligned with script timing?
+
+**Output**: Complete production package ready for filming/editing/upload
+
+---
+
+### PHASE 8: Final Approval
 
 **Your checklist:**
 - [ ] Both extremes framed explicitly in opening
@@ -228,11 +365,14 @@ Launch fact-checker with:
 - [ ] Filler count within budget
 - [ ] No date overload (max 4 per 2-min section)
 - [ ] Predicted retention: 40-45%
-- [ ] Every major claim has sources
-- [ ] Length: 850-1000 words
+- [ ] Every major claim has sources (95%+ verified)
+- [ ] Length: 850-1000 words (or VidIQ-optimized length)
 - [ ] Voice: Knowledgeable + accessible
+- [ ] VidIQ optimizations applied (if data available)
+- [ ] Production package complete (B-roll, metadata)
+- [ ] PROJECT-STATUS.md updated with all decisions
 
-**Output**: Approved final script or specific revision instructions
+**Output**: Approved final script + production package, ready to film
 
 ---
 

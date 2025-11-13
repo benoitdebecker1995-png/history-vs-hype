@@ -510,6 +510,45 @@ Before writing ANY script content, use extended thinking to reason through:
 
 ---
 
+## PHASE 5.5: VIDIQ INTEGRATION (NEW - if data available)
+
+**If user provides VidIQ research data:**
+
+### Title Confirmation
+- **Use VidIQ's winning title EXACTLY** (don't change it)
+- User paid for this analysis - respect the data
+- Example: "Fact-Checking Nick Fuentes: What the Nazi Documents Actually Say" (89/100)
+
+### Structure Optimization
+**If VidIQ recommends compression:**
+- Adjust target length (e.g., 12:00 → 10:30)
+- Identify what to cut (secondary details, excess dates)
+- Keep: Both extremes, smoking gun, modern connections
+
+**Hook Frequency:**
+- Follow VidIQ recommendation (e.g., every 45 seconds not 2 minutes)
+- Add specific hooks at timestamps VidIQ identifies
+- Example: If VidIQ says "add hook at 1:45", do it
+
+**Strongest Evidence Placement:**
+- VidIQ predicts dropout points (e.g., channel drops at 1:11)
+- Deploy strongest evidence BEFORE dropout (e.g., at 2:30)
+- Example: Höfle Telegram at 2:30 prevents 1:11 dropout
+
+### Retention Dead Zones
+**If VidIQ identifies gaps without engagement:**
+- Add modern connections at specified timestamps
+- Insert pattern interrupts where recommended
+- Compress sections VidIQ marks as "overlong"
+
+### Thumbnail Integration
+**If VidIQ provides thumbnail strategy:**
+- Note recommended composition in script metadata
+- Example: "70% Höfle Telegram document, 20% photo, 10% text"
+- This informs visual planning
+
+---
+
 ## PHASE 6: QUALITY ASSURANCE CHECKLIST
 
 Before outputting script, verify:
