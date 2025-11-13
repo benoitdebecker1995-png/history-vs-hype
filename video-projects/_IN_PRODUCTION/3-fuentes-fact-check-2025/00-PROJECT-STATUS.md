@@ -108,6 +108,31 @@ Why: Highest search optimization, matches evidence-based channel identity, avoid
 - Replaced by FINAL-NOTEBOOKLM-SOURCES.md
 - Can delete or keep for reference
 
+**8. DOWNLOAD-CHECKLIST.md** ✅ COMPLETE
+- Step-by-step guide with exact URLs for all 14 free sources
+- Folder structure setup commands
+- Verification checklists for each document
+- Time estimates: 4-6 hours total
+- READ THIS when ready to collect sources
+
+**9. B-ROLL-CHECKLIST.md** ✅ COMPLETE
+- Complete list of visual assets needed
+- Document display requirements (Höfle Telegram, Korherr Report, etc.)
+- 2025 quote text overlays
+- Founding Fathers documents
+- Editing notes and thumbnail strategy
+- READ THIS during filming/editing phase
+
+**10. YOUTUBE-METADATA.md** ✅ COMPLETE
+- Confirmed title (89/100 VidIQ score)
+- Optimized description (5,850 characters with all source URLs)
+- 20+ tags
+- 21 timestamps
+- Thumbnail specifications
+- Pinned comment template
+- Comment response templates
+- READ THIS before uploading to YouTube
+
 ### Files NOT Created Yet (Next Steps)
 
 **05-notebooklm-output.md** - Not started
@@ -123,16 +148,6 @@ Why: Highest search optimization, matches evidence-based channel identity, avoid
 **07-script-final.md** - Not started
 - Production-ready script
 - After fact-checking and voice editing
-
-**B-ROLL-CHECKLIST.md** - Not started
-- List of visual assets needed
-- Screenshots, documents, clips
-
-**YOUTUBE-METADATA.md** - Not started
-- Title (already decided)
-- Description with sources
-- Tags
-- Timestamps
 
 ---
 
@@ -317,14 +332,17 @@ video-projects/
         ├── 03-source-recommendations.md (outdated, use FINAL version)
         ├── 04-notebooklm-prompts.md (25 prompts to run)
         ├── FINAL-NOTEBOOKLM-SOURCES.md (lean 14-source list)
+        ├── DOWNLOAD-CHECKLIST.md (step-by-step source collection guide)
+        ├── B-ROLL-CHECKLIST.md (visual assets needed)
+        ├── YOUTUBE-METADATA.md (title, description, tags, timestamps)
         ├── LEAN-NOTEBOOKLM-LIST.md (duplicate, can ignore)
         ├── 00-QUICK-START-CHECKLIST.md (outdated, replaced by this file)
+        ├── FACT-CHECK-VERIFICATION.md (verification results from research)
+        ├── GROK-RESEARCH-RAW.md (2025 quotes preserved)
         └── (Future files to create):
             ├── 05-notebooklm-output.md
             ├── 06-script-draft.md
-            ├── 07-script-final.md
-            ├── B-ROLL-CHECKLIST.md
-            └── YOUTUBE-METADATA.md
+            └── 07-script-final.md
 ```
 
 ---
