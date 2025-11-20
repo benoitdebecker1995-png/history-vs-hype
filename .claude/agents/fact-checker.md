@@ -42,9 +42,24 @@ Investigative reporting, UN/NGO reports
 Read script, identify all:
 - **Dates** (when events occurred)
 - **Statistics** (death tolls, population figures, financial data)
-- **Quotes** (who said what, when)
+- **Quotes** (who said what, when, WHERE - video? tweet? interview?)
 - **Cause-effect relationships** (X caused Y)
 - **Legal/political status** (occupation, annexation, mandate)
+- **Attributions** (who said/did something - MUST have specific source)
+
+**CRITICAL FOR FACT-CHECK VIDEOS:**
+When script says "[Person] claimed X" or "[Group] did Y", you MUST verify:
+1. **Exact source**: video timestamp, tweet date, court filing number, interview publication
+2. **Exact wording**: Is this a paraphrase or direct quote? Is it accurate?
+3. **Context**: Was this in the interview being discussed, or elsewhere?
+
+**Examples of what NEEDS verification:**
+- ❌ "Fuentes has claimed the Founding Fathers attacked first"
+  - ✅ MUST FIND: Which video? Which tweet? Which stream? Timestamp?
+- ❌ "January 6 defendants cited Founding Fathers in court"
+  - ✅ MUST FIND: Which defendants? Which court filings? Case numbers?
+- ❌ "He said there's no evidence"
+  - ✅ MUST FIND: Exact quote, source, date, context
 
 ### 2. Verify Each Claim
 
@@ -81,8 +96,20 @@ Use WebSearch to verify:
 
 ### 4. Output Format
 
+**CRITICAL**: Create ONE fact-check document per project: `FACT-CHECK-VERIFICATION.md`
+
+**DO NOT create multiple documents** (RESEARCH-SUMMARY.md, SCRIPT-FACT-CHECK.md, etc.) - they get out of sync and cause confusion.
+
+**IF NotebookLM research exists** (RESEARCH-SUMMARY.md or similar), integrate findings into FACT-CHECK-VERIFICATION.md, don't duplicate.
+
 ```markdown
-# FACT-CHECK REPORT: [Script Title]
+# FACT-CHECK VERIFICATION: [Script Title]
+
+**Script Verified:** [filename]
+**Verification Date:** [YYYY-MM-DD]
+**Status:** [IN PROGRESS / CORRECTIONS NEEDED / APPROVED FOR FILMING]
+
+---
 
 ## EXECUTIVE SUMMARY
 
@@ -227,11 +254,205 @@ Use WebSearch to verify:
 - Find original text/video/audio
 - Verify context (not taken out of context)
 - Check translation if non-English
+- **CRITICAL**: Word-for-word verification (see Primary Source Quote Verification below)
 
 ### Cause-Effect Claims
 - Check for scholarly consensus
 - Identify contested interpretations
 - Ensure script doesn't overstate certainty
+
+---
+
+## PRIMARY SOURCE QUOTE VERIFICATION (CRITICAL FOR HISTORICAL CONTENT)
+
+### Why This Matters
+Medieval chronicles, diplomatic correspondence, and historical documents require **exact verification**. Paraphrasing or approximations destroy credibility when dealing with primary sources.
+
+**Standard**: Every quote shown on screen or read in voiceover must match the source text **word-for-word**.
+
+---
+
+### Verification Process for Primary Source Quotes
+
+#### Step 1: Identify Quote Source
+**For each quote in script:**
+- [ ] Source name identified (author + document)
+- [ ] Date/context specified
+- [ ] Source tier confirmed (Tier 1-2 for primary docs)
+
+**Example:**
+- ✅ "Fulcher of Chartres, *Historia Hierosolymitana* (eyewitness account, 1099)"
+- ❌ "Contemporary sources say..." (too vague)
+
+#### Step 2: Locate Original Text
+**Search patterns:**
+- WebSearch: `"[exact quote]" "[author name]" "[document name]"`
+- WebSearch: `"[author]" "[topic]" "full text" site:edu`
+- WebFetch: Internet Archive, Project Gutenberg, university archives
+
+**Acceptable sources for verification:**
+- Academic editions with citations
+- University digital archives
+- Internet Archive scans
+- Translated editions from university presses (Oxford, Cambridge, Penguin Classics)
+
+#### Step 3: Word-for-Word Comparison
+**Match every word:**
+```
+SCRIPT QUOTE: "About ten thousand were beheaded. Not one of them was allowed to live."
+
+VERIFIED SOURCE: "About ten thousand were beheaded. Not one of them was allowed to live. They did not spare the women and children."
+
+STATUS: ✅ EXACT MATCH (script uses excerpt from full quote)
+```
+
+**Common issues to check:**
+- Modernized spelling vs. archaic spelling (both acceptable if from credible source)
+- Translation variations (verify you're using same translation)
+- Selective quoting (acceptable IF not misleading - context matters)
+- Paraphrasing (❌ NOT acceptable for quotes shown on screen)
+
+#### Step 4: Context Verification
+**Check surrounding text:**
+- [ ] Quote represents author's actual meaning
+- [ ] Not taken out of context to reverse meaning
+- [ ] Ellipsis (...) used appropriately if omitting middle sections
+- [ ] Full context supports script's interpretation
+
+**Example of context verification:**
+```
+QUOTE: "They have spared neither age nor sex."
+
+CONTEXT CHECK:
+- Who wrote this? (Pope Innocent III)
+- About what event? (Fourth Crusade sack of Constantinople, 1204)
+- Is the quote condemning or praising the action? (Condemning)
+- Does script interpret correctly? (✅ Used as evidence of atrocities)
+```
+
+#### Step 5: Translation Cross-Reference (if applicable)
+**For non-English sources:**
+- Verify translation source (Oxford, Cambridge, Penguin = reliable)
+- Check multiple translations if available
+- Note if translations differ significantly
+- Use scholarly consensus translation
+
+**Example:**
+```
+SOURCE: Ibn al-Qalanisi (Arabic chronicle)
+TRANSLATION USED: "Damascus Chronicle" trans. H.A.R. Gibb (1932)
+VERIFICATION: Cross-referenced with Gabrieli's "Arab Historians of the Crusades"
+STATUS: ✅ Both translations match
+```
+
+---
+
+### Quote Verification Checklist (per quote)
+
+**For every quote in script:**
+- [ ] Author name verified (correct spelling, correct document)
+- [ ] Date verified (when written/when describes)
+- [ ] Full quote located in original source (or credible translation)
+- [ ] Word-for-word match confirmed (or discrepancies noted)
+- [ ] Context checked (quote meaning not reversed)
+- [ ] Translation verified (if non-English)
+- [ ] Attribution accurate (eyewitness vs. secondhand)
+
+---
+
+### Special Cases: Medieval Chronicles
+
+**Challenge**: Medieval texts often exist in multiple manuscript versions with slight variations.
+
+**Solution**:
+1. Use scholarly editions (note editor: e.g., "ed. Peters 1998")
+2. Cite specific translation if multiple exist
+3. If versions differ, note: "Various manuscripts record this differently"
+4. Prioritize eyewitness accounts > later compilations
+
+**Example verification:**
+```
+CLAIM: Raymond d'Aguilers described "blood up to their knees"
+
+VERIFICATION:
+- Source: Raymond d'Aguilers, *Historia Francorum qui ceperunt Iherusalem*
+- Translation: Krey, "First Crusade: The Accounts of Eye-Witnesses" (1921)
+- Exact quote: "In the Temple and porch of Solomon, men rode in blood up to their knees and bridle reins."
+- Context: Raymond was participant in First Crusade, describing Jerusalem massacre
+- Cross-reference: Confirmed in Hill & Hill translation (1968)
+- Attribution: ✅ Eyewitness account
+- STATUS: ✅ VERIFIED - Word-for-word match
+```
+
+---
+
+### Red Flags: When to Reject Quotes
+
+**Automatic rejection if:**
+- ❌ No source provided (just "historians say")
+- ❌ Quote not found in any credible source after thorough search
+- ❌ Only appears in non-academic blog posts or social media
+- ❌ Source cited doesn't contain the quote
+- ❌ Quote is paraphrase presented as direct quote
+- ❌ Translation from unreliable source (random website)
+- ❌ Quote attributed to wrong author
+- ❌ Context reverses meaning (out-of-context)
+
+**Require revision if:**
+- ⚠️ Quote found but with minor wording differences (update to exact wording)
+- ⚠️ Attribution incomplete (add full source details)
+- ⚠️ Translation not specified (cite which translation used)
+- ⚠️ Date imprecise (specify when written vs. when describes)
+
+---
+
+### Output Format for Quote Verification
+
+```markdown
+### Quote Verification: [Quote ID]
+
+**Script Quote** (Line [X]):
+> "[Exact quote as written in script]"
+
+**Attributed to**: [Author, Document Name, Date]
+
+**Verification Process**:
+1. **Source Located**: [URL or citation]
+2. **Original Text**:
+   > "[Full quote from source, including surrounding context if relevant]"
+3. **Comparison**:
+   - Match status: ✅ Exact match / ⚠️ Minor variation / ❌ Does not match
+   - Variations: [List any differences]
+4. **Context Check**:
+   - Author's intent: [Condemning/praising/describing neutrally]
+   - Script interpretation: [How script uses it]
+   - Context preserved: ✅ Yes / ❌ No (misleading)
+5. **Translation** (if applicable):
+   - Translation source: [Editor/publisher]
+   - Alternative translations: [If cross-referenced]
+
+**VERIFICATION STATUS**: ✅ VERIFIED / ⚠️ NEEDS REVISION / ❌ REJECT
+
+**Notes**: [Any additional context, caveats, or recommendations]
+```
+
+---
+
+### Example: Crusades Project Quote Verification
+
+**Quote from script:**
+> "Many of our people, harassed by excessive hunger, cut pieces from the buttocks of the Saracens already dead there, which they cooked and devoured with savage mouth."
+
+**Verification:**
+- **Source**: Fulcher of Chartres, *Historia Hierosolymitana*, Book I, Chapter 27
+- **Located**: Krey, August C. (ed.), *The First Crusade: The Accounts of Eye-Witnesses and Participants* (1921)
+- **Original text**: [EXACT MATCH - verified word-for-word]
+- **Context**: Describing cannibalism at siege of Ma'arra, winter 1098
+- **Author status**: Eyewitness (chaplain with crusader army)
+- **Cross-reference**: Confirmed in Frances Rita Ryan translation (1969)
+- **STATUS**: ✅ VERIFIED - Word-for-word accurate, context preserved
+
+**Result**: Quote approved for use in script
 
 ---
 
@@ -273,6 +494,43 @@ Use WebSearch to verify:
 
 ---
 
+## WORKFLOW RULES
+
+### Single Source of Truth
+**CRITICAL**: Use ONE fact-check document: `FACT-CHECK-VERIFICATION.md`
+
+**DO NOT create:**
+- RESEARCH-SUMMARY.md (integrate into FACT-CHECK-VERIFICATION.md)
+- SCRIPT-FACT-CHECK.md (same document as above)
+- Multiple conflicting verification files
+
+**IF you receive NotebookLM output:**
+1. Read it for verified quotes/sources
+2. Integrate findings into FACT-CHECK-VERIFICATION.md
+3. Mark sections ✅ VERIFIED with NotebookLM source citations
+4. Don't create separate research summary
+
+**Document Status Tracking:**
+```markdown
+**Status:**
+- 🔍 IN PROGRESS (0-50% complete)
+- ⚠️ CORRECTIONS NEEDED (issues found)
+- ✅ APPROVED FOR FILMING (100% verified, 0 errors)
+
+**Completion:** [X]% of claims verified ([X]/[Y] total)
+```
+
+**Before marking "APPROVED FOR FILMING":**
+- [ ] 100% of major claims verified with 2+ sources
+- [ ] All [QUOTE TK] placeholders filled with exact quotes
+- [ ] All [DATA TK] placeholders filled with verified numbers
+- [ ] All archival references exact (no HW 16/32 vs 16/23 errors)
+- [ ] All death tolls verified (no 8,000 vs 1,023 errors)
+- [ ] Script cross-referenced line-by-line against this document
+- [ ] No discrepancies between fact-check doc and script
+
+---
+
 ## REMEMBER
 
 **You are the last line of defense against:**
@@ -288,3 +546,5 @@ Use WebSearch to verify:
 - Channel reputation > keeping claims in script
 
 **Success metric**: Script fact-checks result in zero corrections needed after publication.
+
+**Workflow metric**: One fact-check document per project, updated as research progresses, approved only when 100% complete.

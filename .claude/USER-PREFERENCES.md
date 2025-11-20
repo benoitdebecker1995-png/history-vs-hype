@@ -109,22 +109,48 @@ Glob: guides/**/*voice*.md
 ---
 
 ### 2. YouTube Metadata Creation
-**What user wants:** Ready-to-paste title, description, tags, timestamps
+**What user wants:** Complete package ready to copy-paste into YouTube
 
-**Process:**
-1. Find and read script
-2. Check if user provided VidIQ data (ask if not mentioned)
-3. Generate 3 title options (50-60 chars)
-4. Full description with timestamps and sources
-5. 20-30 tags
-6. Thumbnail strategy
-7. Save to correct project folder
+**Full Package Must Include:**
+1. Title (60-70 chars max, non-clickbait)
+2. Complete description with:
+   - Opening hook (2-3 sentences)
+   - Document/evidence descriptions
+   - Full source citations (archival references)
+   - "Why this matters" section
+3. Chapters (from SRT timestamps)
+4. Tags (comma-separated, ready to paste)
+5. Thumbnail strategy notes
+
+**Title Requirements:**
+- ❌ NO clickbait: "You won't BELIEVE...", "SHOCKING truth...", dramatic punctuation
+- ✅ Documentary tone: "Fact-Checking [Person]: [Topic] and [Evidence]"
+- Must be factually accurate (don't claim things happened that didn't)
+- 60-70 character sweet spot
+- Include "Holocaust" explicitly if relevant (don't hide from subject)
+
+**Description Structure:**
+1. First 3 lines = Hook (what happened, what you're fact-checking)
+2. Document explanations (what each source shows)
+3. Timeline sections (for historical claims)
+4. "Why this matters" conclusion
+5. Full sources with archival references
+6. Additional resources
+
+**Tags Format:**
+- Comma-separated (ready to paste)
+- 15-20 tags total
+- Include: person names, topic, fact-checking terms, document names
+- Example: `nick fuentes, tucker carlson, holocaust evidence, nazi documents, fact checking`
+
+**Save Location:**
+- Always: `video-projects/_IN_PRODUCTION/[project]/YOUTUBE-METADATA.md`
 
 **VidIQ Integration:**
-- If user provides VidIQ analysis, USE IT
-- VidIQ shows: competitor titles, thumbnail styles, tags
-- Optimize based on actual ranking data
-- If no VidIQ, use channel performance best practices
+- If user provides VidIQ prompts/responses, incorporate recommendations
+- VidIQ helps with: keywords, thumbnail concepts, title optimization
+- Balance VidIQ suggestions with documentary tone requirements
+- User often works with VidIQ in parallel to finalize metadata
 
 ---
 
@@ -233,11 +259,12 @@ Your recommendation should reflect this data:
 ## Quality Standards
 
 ### User Values:
-1. **Historical accuracy** - Every claim verified
+1. **Historical accuracy** - Every claim verified WITH SPECIFIC SOURCES
 2. **Efficiency** - Fast, direct work
 3. **Autonomous execution** - Figure things out, don't ask
 4. **Specific recommendations** - Not vague suggestions
 5. **Context awareness** - Read files, understand project
+6. **Non-clickbait titles** - Documentary/academic tone over engagement tricks
 
 ### User Does NOT Value:
 1. Excessive politeness or apologies
@@ -245,6 +272,39 @@ Your recommendation should reflect this data:
 3. Vague suggestions
 4. Asking for information you can find yourself
 5. Slow, sequential processes when parallel is possible
+6. Clickbait or sensationalized titles
+
+---
+
+## CRITICAL: NEVER INCLUDE UNVERIFIED CLAIMS
+
+**THE MOST IMPORTANT RULE:**
+
+When writing scripts, fact-checks, or metadata, **NEVER include claims about what someone said or did without a specific, verifiable source.**
+
+### What Counts as Verified:
+✅ Video timestamp: "In his 2019 video at 3:45..."
+✅ Tweet with date: "April 16, 2025 tweet..."
+✅ Court document: "In court filing 21-CR-175..."
+✅ Published interview: "During BBC interview on [date]..."
+
+### What Does NOT Count:
+❌ "Fuentes has claimed..." (when? where?)
+❌ "January 6 defendants cited Founding Fathers in court" (which defendants? which cases?)
+❌ "He said X" (find the actual quote with source)
+
+### Why This Matters:
+- User is creating fact-checking content
+- One unverified claim destroys credibility
+- Critics will check EVERYTHING
+- User will catch errors during editing (as happened in this session)
+
+### If You Can't Verify:
+1. **Don't include it** - better to leave out than get wrong
+2. **Flag it**: "NEEDS VERIFICATION: [claim]"
+3. **Ask user**: "Do you have source for [specific claim]?"
+
+**NEVER assume something is true because it sounds plausible.**
 
 ---
 

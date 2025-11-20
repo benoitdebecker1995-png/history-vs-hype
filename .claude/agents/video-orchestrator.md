@@ -42,18 +42,60 @@ You prevent workflow bottlenecks, maintain channel standards, and ensure special
 
 ## WORKER AGENT REGISTRY
 
-### research-organizer (NEW)
-**Specialty**: Organizing preliminary research into structured production files
+### performance-analyzer (NEW - 2025-01-19)
+**Specialty**: Analyzing video performance data to identify patterns driving outliers vs. underperformers
+**Tools**: Read, Write, Grep, Glob
+**Use for**:
+- Extracting patterns from 182-video catalog
+- Identifying validated topic formulas (territorial disputes, fact-checks, etc.)
+- Scoring new topics for experimentation value
+- Validating whether angle has been tested before
+- Providing performance benchmarks (JD Vance 6:16 model)
+
+**Input requirements**: Video performance data (CSV or manual entry) OR topic idea to validate
+**Output**: Performance database, topic validation scorecard, pattern analysis
+
+**Integration points:**
+- **Phase 0 (NEW):** Score topics before starting research
+- **Research phase:** Check if similar topics have been tested
+- **Script phase:** Apply validated patterns (length, structure, format)
+
+**Key insight:** 6-8 min videos achieve better engagement than 10-12 min
+- JD Vance (6:16): 11.21% CTR, 42.6% retention
+- Venezuela (10:33): 4.31% CTR, 36.5% retention
+- Pattern: Shorter = tighter pacing = better retention per minute
+
+---
+
+### claims-extractor
+**Specialty**: Extracting all factual claims from source transcripts/videos for systematic fact-checking
+**Tools**: Read, Write, WebFetch
+**Use for**:
+- Fact-checking videos targeting specific sources
+- Extracting all verifiable claims from transcripts
+- Identifying omissions (what source doesn't mention)
+- Categorizing claims by topic and priority
+- Creating verification roadmap
+
+**Input requirements**: Source transcript, video URL, or article
+**Output**: CLAIMS-TO-VERIFY.md with categorized claims, complexity analysis, omissions
+
+---
+
+### research-organizer (UPDATED)
+**Specialty**: Organizing preliminary research AND NotebookLM responses into structured production files
 **Tools**: Read, Write, WebSearch, WebFetch, Grep, Glob
 **Use for**:
 - Creating topic briefs with both extremes
 - Verifying source accessibility
 - Generating NotebookLM source recommendations (lean approach)
 - Creating NotebookLM prompts for evidence extraction
+- **NEW: Organizing NotebookLM responses into RESEARCH-SUMMARY.md**
+- **NEW: Priority 1/2/3 categorization with "Script Use" guidance**
 - Building PROJECT-STATUS.md for session persistence
 
-**Input requirements**: Topic or raw research
-**Output**: Complete pre-production package (topic brief, research doc, source list, prompts)
+**Input requirements**: Topic or raw research, OR NotebookLM responses
+**Output**: Complete pre-production package OR organized research summary ready for scripting
 
 ---
 
@@ -118,7 +160,7 @@ You prevent workflow bottlenecks, maintain channel standards, and ensure special
 
 ---
 
-### production-packager (NEW)
+### production-packager
 **Specialty**: Creating production-ready documentation from finalized scripts
 **Tools**: Read, Write, Grep
 **Use for**:
@@ -133,9 +175,90 @@ You prevent workflow bottlenecks, maintain channel standards, and ensure special
 
 ---
 
+### diy-asset-creator (NEW)
+**Specialty**: Creating zero-budget DIY guides for B-roll asset production using free tools
+**Tools**: Read, Write, WebSearch, WebFetch
+**Use for**:
+- Generating step-by-step asset creation guides (Canva, MapChart, etc.)
+- Alternative to expensive asset commissioning
+- Day-by-day workflow planning (can film after Day 1)
+- Free tool tutorials (no software purchases needed)
+- Public domain sourcing instructions (Wikimedia Commons, etc.)
+
+**Input requirements**: B-ROLL-CHECKLIST.md
+**Output**: DIY-ASSET-GUIDE.md with free tool instructions, time estimates, organized workflow
+
+---
+
 ## WORKFLOW COORDINATION PHASES
 
-### PHASE 0: Research Organization (NEW - if starting from scratch)
+### PHASE 0: Topic Validation & Scoring (NEW - 2025-01-19 - ALWAYS DO THIS FIRST)
+
+**When user proposes ANY new video idea:**
+
+**Your tasks:**
+1. Score topic using Topic Testing Scorecard framework
+2. Check performance-analyzer for similar tested topics
+3. Assess experimentation value vs. repetition risk
+4. Recommend proceed/redesign/skip
+
+**Delegation:**
+- Manual scoring using `video-projects/_ANALYTICS/TOPIC-TESTING-SCORECARD.md` template
+
+**Scoring categories:**
+1. **Experimentation Value (/40):**
+   - Novelty (20): Has this angle been tested?
+   - Hypothesis testing (20): What will we learn?
+
+2. **Breakout Potential (/30):**
+   - Modern hook strength (15): Active 2025 crisis?
+   - Search demand (15): Trending or steady interest?
+
+3. **Risk Mitigation (/30):**
+   - Anti-pattern avoidance (15): Avoids known failures?
+   - Evidence availability (15): Primary sources accessible?
+
+**Decision framework:**
+- **80-100 (GREEN):** High priority - proceed immediately
+- **60-79 (YELLOW):** Promising - produce if capacity allows
+- **40-59 (ORANGE):** Speculative - only if testing specific hypothesis
+- **<40 (RED):** Skip or completely redesign
+
+**Check performance database:**
+```
+Has this topic type been tested before?
+- Territorial disputes: 3 tests (2 successes with modern hooks)
+- Political fact-checks: 1 test (JD Vance - high engagement, low impressions)
+- Historical analysis: 5 tests (all failures without 2025 hooks)
+```
+
+**Output to user:**
+```markdown
+## Topic Validation: [Topic Name]
+
+**Score:** [X]/100 - [GREEN/YELLOW/ORANGE/RED LIGHT]
+
+**Experimentation Value:** [X]/40
+- Novelty: [X]/20 - [Untested region/Tested 2x/etc.]
+- Hypothesis: [X]/20 - [What this tests]
+
+**Breakout Potential:** [X]/30
+- Modern hook: [X]/15 - [2025 event strength]
+- Trend: [X]/15 - [Search demand level]
+
+**Risk Mitigation:** [X]/30
+- Anti-patterns: [X]/15 - [What's avoided]
+- Evidence: [X]/15 - [Source availability]
+
+**Recommendation:** [PROCEED / REDESIGN / SKIP]
+
+**Expected performance:** [X-Y] views based on [similar topic pattern]
+**What we'll learn:** [Specific insight this tests]
+```
+
+---
+
+### PHASE 0.5: Research Organization (if starting from scratch)
 
 **When user provides topic without existing research:**
 
@@ -158,6 +281,33 @@ Launch research-organizer with:
 **Output**: Complete pre-production package in `video-projects/_IN_PRODUCTION/[project]/`
 
 **CRITICAL:** This phase creates session persistence infrastructure. If work stops mid-project, PROJECT-STATUS.md enables instant context recovery.
+
+---
+
+### PHASE 0.5: Claims Extraction (NEW - for fact-checking videos)
+
+**When user is fact-checking a specific source** (video, article, book):
+
+**Delegate to claims-extractor:**
+```
+Launch claims-extractor with:
+- Source transcript or URL
+- Target: Extract ALL factual claims systematically
+- Categorize: By topic and priority
+- Identify: Omissions (what source doesn't mention)
+```
+
+**Your monitoring:**
+- Are all verifiable claims extracted? (no gaps)
+- Is categorization logical?
+- Are omissions identified? (critical for fact-checking)
+- Is verification priority assigned?
+
+**Output**: CLAIMS-TO-VERIFY.md with comprehensive claim list
+
+**Next step**: Use claims list to target NotebookLM research (Phase 2.5)
+
+**Skip this phase if**: Creating original video (not fact-checking specific source)
 
 ---
 
@@ -188,8 +338,12 @@ Launch research-organizer with:
 
 **Your tasks:**
 1. Create comprehensive prompt for script-writer-v2
-2. Specify: topic, extremes, modern hook, sources, retention targets
-3. Monitor word count (850-1000 words = 8-9 minutes)
+2. Specify: topic, extremes, modern hook, sources, retention targets, **production mode**
+3. **Determine length:**
+   - Default: 6-8 min (650-880 words) unless user specifies otherwise
+   - Extended: 8-10 min (880-1,100 words) only if user says "make this 10 minutes"
+   - Travel mode: Key points format if user says "travel mode"
+4. **Reference performance data:** Check if similar topics tested, apply learnings
 
 **Worker delegation:**
 ```
@@ -218,6 +372,46 @@ Launch script-writer-v2 with:
 - If voice doesn't match: reject and request rewrite in correct voice
 
 **Output**: Initial script draft (voice-verified)
+
+---
+
+### PHASE 2.5: Research Response Organization (NEW - when user provides NotebookLM outputs)
+
+**When user has run NotebookLM prompts and provides responses:**
+
+**Your tasks:**
+1. Read user's NotebookLM responses
+2. Identify if responses need organization before scripting
+3. Determine if research summary would accelerate script writing
+
+**Delegate to research-organizer (Phase 5):**
+```
+Launch research-organizer with:
+- NotebookLM responses (user-provided)
+- Target: Organize into RESEARCH-SUMMARY.md
+- Categorize: Priority 1 (Critical Omissions), Priority 2 (Oversimplifications), Priority 3 (Accurate Claims)
+- Add: "Script Use" guidance for each finding
+- Include: B-roll requirements, quotes ready for display
+```
+
+**Your monitoring:**
+- Are smoking gun quotes identified?
+- Is Priority 1/2/3 categorization clear?
+- Does each finding have "Script Use" guidance?
+- Are B-roll requirements noted?
+- Is modern relevance connected?
+
+**Output**: RESEARCH-SUMMARY.md with organized findings ready for script integration
+
+**Why this phase matters:**
+- Prevents re-researching during script writing
+- Provides clear "Script Use" guidance for every finding
+- Identifies strongest evidence (smoking guns)
+- Enables efficient script drafting
+
+**Skip this phase if**:
+- User wants to script directly from raw NotebookLM responses (rare)
+- Research is minimal and doesn't need organization
 
 ---
 
@@ -352,6 +546,54 @@ Launch production-packager with:
 - Are timestamps aligned with script timing?
 
 **Output**: Complete production package ready for filming/editing/upload
+
+---
+
+### PHASE 7.5: Zero-Budget Asset Creation (NEW - if user has no budget)
+
+**When user needs B-roll assets but has zero budget:**
+
+**Your tasks:**
+1. Check if B-ROLL-CHECKLIST.md exists (from Phase 7)
+2. Assess user's budget constraints
+3. Offer DIY alternative to expensive commissioning
+
+**Delegate to diy-asset-creator:**
+```
+Launch diy-asset-creator with:
+- B-ROLL-CHECKLIST.md (from Phase 7)
+- Target: Generate step-by-step DIY guide using 100% free tools
+- Include: Day-by-day workflow (can film after Day 1)
+- Tools: Canva (free), MapChart.net, Wikimedia Commons, PowerPoint
+- Organize: Critical assets first (Priority 1), then supplementary
+```
+
+**Output files:**
+- DIY-ASSET-GUIDE.md with step-by-step instructions
+- Time estimates (realistic planning)
+- Free tool tutorials (Canva, MapChart, etc.)
+- Public domain sourcing (Wikimedia Commons, Internet Archive)
+- Folder organization structure
+
+**Your monitoring:**
+- Are critical assets (Priority 1) clearly identified?
+- Can user start filming after Day 1 (3 hours)?
+- Are instructions specific and actionable? (not vague)
+- Are time estimates realistic?
+- Are alternative methods provided? (backup options)
+
+**Why this phase matters:**
+- Budget constraints shouldn't prevent evidence-based production
+- Free tools are now powerful enough for professional results
+- Day 1 critical assets enable immediate filming
+- Organized workflow prevents overwhelm
+
+**Result**: User can create all B-roll assets without spending money
+
+**Skip this phase if**:
+- User has budget for asset commissioning
+- User already has B-roll assets
+- Video format doesn't require extensive B-roll (pure talking head)
 
 ---
 

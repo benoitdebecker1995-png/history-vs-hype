@@ -6,10 +6,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a content production repository for **History vs Hype**, a YouTube channel focused on evidence-based myth-busting about geopolitics, colonial history, and border disputes. The channel uses academic research and primary sources to debunk historical myths with modern political relevance.
 
-**Channel Stats:** 169 subscribers, 82K+ views, 590+ hours watch time, 30-35% average retention
+**Channel Stats:** 197 subscribers, 82K+ views, 590+ hours watch time, 30-35% average retention
 **Target Audience:** Males 25-44, international (UK, Germany, Canada, US)
-**Video Length:** 8-12 minutes
+**Video Length:** **6-8 minutes** (default for best engagement), 8-10 minutes for complex topics
 **Format:** Hybrid talking head + B-roll evidence
+
+**Performance Insights (Updated 2025-01-19):**
+- Shorter videos (6-8 min) achieve higher CTR and retention per minute
+- JD Vance (6:16): 11.21% CTR, 42.6% retention = efficiency benchmark
+- Venezuela (10:33): 4.31% CTR, 36.5% retention (more views but lower engagement)
+- Strategy: Default to concise, extend only when topic demands deeper explanation
 
 ## Core Principles
 
@@ -31,11 +37,16 @@ This is a content production repository for **History vs Hype**, a YouTube chann
 - Enhance with Claude Pro for better hooks and flow
 - Script structure: Hook (0-0:45) → Context (0:45-2:00) → Deep-dive (2:00-8:00) → Modern connections (8:00-10:00) → CTA (10:00-12:00)
 
-### 3. Fact-Checking (CRITICAL)
+### 3. Fact-Checking (CRITICAL - UPDATED 2025-01-20)
 - Every factual claim needs 2+ sources
+- **Attributions require SPECIFIC sources** (video timestamp, tweet date, court filing)
+- ❌ NEVER write "[Person] claimed X" without verifiable source
+- ❌ NEVER assume something is true because it sounds plausible
 - Academic sources prioritized
 - Document all sources for citation
+- **For fact-check videos**: Every claim about what someone said/did MUST have exact source
 - See `fact-checking-protocol.md` for full process
+- See `.claude/USER-PREFERENCES.md` section "NEVER INCLUDE UNVERIFIED CLAIMS"
 
 ### 4. Production
 - Record talking head footage (multiple takes)
@@ -43,10 +54,43 @@ This is a content production repository for **History vs Hype**, a YouTube chann
 - Add B-roll strategically (evidence, not decoration)
 - Hybrid format: 60-70% talking head, 15-20% maps, 10-15% primary sources
 
-### 5. Publishing
-- Create thumbnail in Photoshop
-- Write description with timestamps and sources
-- Use VidIQ clipping tool for shorts
+### 5. YouTube Metadata & Publishing (UPDATED 2025-01-20)
+
+**Title Requirements:**
+- **Non-clickbait, documentary tone** - NOT "You won't BELIEVE..." or "SHOCKING..."
+- **60-70 characters** - Mobile-friendly length
+- **Factually accurate** - Don't claim things that didn't happen
+- **Explicit about sensitive topics** - Use "Holocaust" if relevant, don't hide from subject
+- **Examples:**
+  - ✅ "Fact-Checking Nick Fuentes: Claims Tucker Didn't Raise"
+  - ❌ "Nick Fuentes Told Tucker 'No Evidence' – Here Are the Nazi Documents" (clickbait-y)
+
+**Description Structure:**
+1. First 3 lines = Hook (what happened, what you're fact-checking)
+2. Document explanations (what each primary source shows)
+3. Timeline sections (for historical claims)
+4. "Why this matters" conclusion
+5. **Full source citations** with archival references
+6. Additional resources (museums, archives, academic sources)
+
+**Chapters:**
+- Extract from SRT file timestamps
+- Clear, descriptive chapter names
+
+**Tags:**
+- 15-20 tags
+- Comma-separated format (ready to paste into YouTube)
+- Include: person names, topic keywords, fact-checking terms, document names
+
+**Workflow:**
+- VidIQ helps with keywords, thumbnail concepts, optimization
+- Balance VidIQ suggestions with documentary tone requirements
+- Create complete package in `YOUTUBE-METADATA.md`
+
+**Publishing:**
+- Create thumbnail in Photoshop (documentary style, evidence-focused)
+- Upload during optimal windows (Tuesday-Thursday, 9-11 AM EST)
+- Monitor comments for first 24 hours
 
 ## Key Documentation Files
 
@@ -235,3 +279,25 @@ When editing or creating scripts:
 Make academic research accessible while maintaining historical integrity. The goal is not entertainment or political commentary, but evidence-based education that reveals how distorted history fuels present-day conflicts.
 
 **Quality over quantity, always.**
+
+## Critical: Primary Source Accuracy for Fact-Checking Videos
+
+When creating editing guides or production materials for fact-checking videos:
+
+**ALWAYS ask clarifying questions about primary sources before writing:**
+- What does each document actually record? (e.g., Höfle Telegram = train deportations, not death counts)
+- What specific language/euphemisms are used? (e.g., Korher Report uses "Sonderbehandlung/SB" for killings)
+- What is the exact historical context?
+
+**NEVER assume you know what a document contains** - especially for:
+- Nazi documents (telegrams, statistical reports, operational records)
+- Historical treaties, petitions, declarations
+- Court rulings, government documents
+- Scientific studies
+
+**Why this matters:**
+- Holocaust/genocide videos require ABSOLUTE precision for credibility
+- Fact-checking claims requires understanding what evidence actually proves
+- Context changes interpretation (deportation records + death camp destinations = evidence of genocide)
+
+**When in doubt:** Read the script first, ask questions, then create the guide.

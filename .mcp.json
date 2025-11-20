@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "youtube-transcript": {
+      "url": "https://youtube-transcript-mcp.vercel.app"
+    }
+  }
+}

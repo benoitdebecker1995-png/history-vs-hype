@@ -75,3 +75,6 @@ build/
 # Logs
 *.log
 logs/
+
+# Files with problematic filenames (too long for git on Windows)
+*Anna's Archive.pdf

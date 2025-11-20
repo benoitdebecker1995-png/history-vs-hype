@@ -33,8 +33,9 @@ Transform raw research into structured production-ready files:
 **1. Video Concept**
 - Clear title (VidIQ-optimizable)
 - Hook description
-- Target length (8-12 minutes)
+- Target length (**6-8 minutes default**, 8-10 for complex topics)
 - Format (talking head/B-roll ratio)
+- **Performance benchmark:** Reference similar tested topics from performance-analyzer
 
 **2. Modern Relevance (2024-2025)**
 - Specific date + event
@@ -360,6 +361,364 @@ Provide quote + citation for each.
 4. Save all responses in 05-notebooklm-output.md
 5. Use responses for script writing
 ```
+
+---
+
+## PHASE 5: NOTEBOOKLM RESPONSE ORGANIZATION (NEW)
+
+### Purpose: Transform raw NotebookLM outputs into actionable script guidance
+
+**When user provides NotebookLM responses:**
+User has run the prompts from Phase 4 and now has extensive NotebookLM outputs. These need organization into script-ready format.
+
+### Process:
+
+1. **Read all NotebookLM responses**
+   - Identify recurring themes
+   - Note strongest evidence (smoking gun quotes)
+   - Track contradictions between sources
+   - Flag complexity ignored by source being fact-checked
+
+2. **Categorize findings by priority**
+   - **Priority 1: CRITICAL OMISSIONS** - What source completely ignored that undermines thesis
+   - **Priority 2: OVERSIMPLIFICATIONS** - What source mentioned but stripped of nuance
+   - **Priority 3: ACCURATE CLAIMS** - What source got right (acknowledge in script)
+
+3. **Add "Script Use" suggestions**
+   - For each finding, provide specific guidance on how to use in script
+   - Include exact quotes for B-roll
+   - Note timing (hook vs. deep-dive sections)
+
+### Output Structure:
+
+```markdown
+# Research Summary - [Topic]
+
+**Status:** NotebookLM Analysis Complete
+**Total Findings:** [X]
+
+---
+
+## QUICK REFERENCE: KEY EVIDENCE
+
+**Smoking Gun #1:** [Most powerful evidence]
+- Source: [Citation]
+- Quote: "[Exact quote]"
+- Script use: [Where to deploy]
+
+**Smoking Gun #2:** [Second most powerful]
+- Source: [Citation]
+- Quote: "[Exact quote]"
+- Script use: [Where to deploy]
+
+[Continue for 3-5 smoking guns]
+
+---
+
+## PRIORITY 1: CRITICAL OMISSIONS ([X] findings)
+
+These are facts the source completely ignored that undermine their thesis.
+
+### FINDING 1.1: [Topic - e.g., "Jerusalem Massacre (1099)"]
+
+**What Source Claims:**
+> "[Source's position or silence on this]"
+
+**What Source Omits:**
+[What they didn't mention]
+
+**Evidence from CHRISTIAN Sources:**
+
+**Primary Source 1:**
+- **Author**: [Name + credentials]
+- **Quote**:
+  > "[Exact quote from NotebookLM response]"
+- **Citation**: [Full citation]
+
+**Primary Source 2:**
+- **Author**: [Name + credentials]
+- **Quote**:
+  > "[Exact quote from NotebookLM response]"
+- **Citation**: [Full citation]
+
+**Modern Scholarly Consensus:**
+- [What historians say - from NotebookLM]
+- [Key statistics or estimates]
+
+**Why This Matters:**
+[Explain significance - why omitting this is problematic]
+
+**Script Use:**
+> "Source claims X was 'awesome.' They don't mention that [Y happened]. Here's what contemporary Christian sources recorded..."
+>
+> [Then show primary source quote on screen]
+
+**B-roll Needed:**
+- Document: [Primary source quote graphic]
+- Map: [If applicable]
+- Context: [Modern parallel if relevant]
+
+---
+
+[Repeat for each critical omission]
+
+---
+
+## PRIORITY 2: OVERSIMPLIFICATIONS ([X] findings)
+
+Source mentions these but strips away critical context/nuance.
+
+### FINDING 2.1: [Topic - e.g., "Jizya Tax"]
+
+**What Source Claims:**
+> "[Exact quote from source being fact-checked]"
+
+**What's Accurate:**
+- [What source got right]
+- [Acknowledge this in script]
+
+**What's Missing:**
+- [Context 1 - e.g., tax rates compared to alternatives]
+- [Context 2 - e.g., who was exempt]
+- [Context 3 - e.g., purpose of tax]
+
+**Evidence from NotebookLM:**
+
+**Tax Rate Details:**
+- Wealthy: [X] dinars/year
+- Middle class: [X] dinars/year
+- Poor: [X] dinar/year
+- Source: [Citation from NotebookLM]
+
+**Comparison:**
+- Muslim zakat (charity tax): [Rate]
+- Byzantine tax rates: [Rate if available]
+- Exemptions: [List from NotebookLM]
+
+**Modern Historians:**
+[Summary of scholarly consensus from NotebookLM]
+
+**Script Use:**
+> "Source says Christians 'had to pay special taxes.' That's true. Here's what they don't tell you..."
+>
+> [Show comparison chart: Jizya vs. Zakat vs. Byzantine taxes]
+
+**B-roll Needed:**
+- Chart: Tax rate comparison
+- Text overlay: Who was exempt
+
+---
+
+[Repeat for each oversimplification]
+
+---
+
+## PRIORITY 3: ACCURATE CLAIMS ([X] findings)
+
+What source got RIGHT - acknowledge these to maintain credibility.
+
+### FINDING 3.1: [Topic - e.g., "Muslim Expansion Timeline"]
+
+**What Source Claims:**
+> "[Quote from source]"
+
+**Verification from NotebookLM:**
+- ✅ Confirmed accurate
+- Source: [Citation]
+- Details: [Specific facts verified]
+
+**Script Use:**
+> "Source is right that Muslim armies expanded rapidly in the 7th-8th centuries. That part is accurate."
+>
+> [Brief acknowledgment, then pivot to what they left out]
+
+---
+
+[Repeat for accurate claims - keeps fact-check fair and balanced]
+
+---
+
+## COUNTER-NARRATIVES ADDRESSED
+
+### Counter-Narrative 1: [Argument source might make]
+
+**How to Address:**
+- Evidence: [From NotebookLM]
+- Pre-empt: [Acknowledge before they bring it up]
+- Script: "[Suggested phrasing]"
+
+### Counter-Narrative 2: [Another argument]
+
+[Continue...]
+
+---
+
+## MODERN RELEVANCE CONNECTIONS
+
+### Connection 1: [2024-2025 Event]
+
+**Historical Parallel:**
+[How historical finding connects to modern event]
+
+**Script Use:**
+[When to deploy this connection]
+
+**B-roll:**
+- Modern: [News screenshot, social media post]
+- Historical: [Primary source parallel]
+
+### Connection 2: [Another modern connection]
+
+[Continue...]
+
+---
+
+## CHRONOLOGICAL TIMELINE (from NotebookLM)
+
+**[Date 1]:** [Event]
+**[Date 2]:** [Event]
+**[Date 3]:** [Event]
+[...]
+
+**Script Use:**
+Use this timeline for [specific section of script]
+
+---
+
+## QUOTES FOR B-ROLL (Ready to Display)
+
+### Quote 1: [Short descriptor]
+```
+"[Exact quote - formatted for on-screen display]"
+
+— [Attribution]
+```
+**When to show:** [Timestamp suggestion]
+
+### Quote 2: [Short descriptor]
+```
+"[Exact quote]"
+
+— [Attribution]
+```
+**When to show:** [Timestamp suggestion]
+
+[Continue for all display-ready quotes]
+
+---
+
+## RESEARCH GAPS IDENTIFIED
+
+**Still need to verify:**
+1. [Claim or detail NotebookLM couldn't fully address]
+2. [Additional source needed]
+3. [Follow-up research required]
+
+**How to address:**
+- [Specific search strategy]
+- [Additional sources to consult]
+
+---
+
+## SCRIPT STRUCTURE RECOMMENDATION
+
+Based on NotebookLM findings, suggested script structure:
+
+**HOOK (0:00-0:45):**
+- Modern relevance: [Specific hook from research]
+- Payoff preview: [Most shocking finding]
+
+**ACKNOWLEDGE ACCURACY (0:45-1:30):**
+- What source got right: [Priority 3 findings]
+- Establish fairness
+
+**CRITICAL OMISSION #1 (1:30-3:00):**
+- [Priority 1 Finding 1]
+- Show primary source quote
+- Modern relevance connection
+
+**CRITICAL OMISSION #2 (3:00-4:30):**
+- [Priority 1 Finding 2]
+- Show primary source quote
+
+**OVERSIMPLIFICATION (4:30-6:00):**
+- [Priority 2 Finding 1]
+- Add missing context
+- Show comparison chart
+
+**CRITICAL OMISSION #3 (6:00-7:30):**
+- [Priority 1 Finding 3]
+- Most shocking evidence
+
+**MODERN RELEVANCE (7:30-9:00):**
+- Why accurate history matters
+- Current implications
+- Both extremes wrong
+
+**CTA (9:00-10:00):**
+- Engagement question
+- Subscribe/comment
+
+---
+
+## NEXT STEPS
+
+**Ready for:**
+- [ ] Script writing (all evidence organized)
+- [ ] B-roll planning (quotes/charts/maps identified)
+- [ ] Fact-check preparation (claims pre-verified)
+
+**Estimated script writing time:** [X] hours
+**Estimated B-roll creation time:** [X] hours
+
+---
+
+## FILE MANAGEMENT
+
+**Save this as:**
+`video-projects/_IN_PRODUCTION/[project-name]/RESEARCH-SUMMARY.md`
+
+**Companion files:**
+- CLAIMS-TO-VERIFY.md (what source claimed)
+- NOTEBOOKLM-PROMPTS.md (prompts used)
+- 05-notebooklm-output.md (raw responses - for reference)
+
+**This file feeds into:**
+- Script writing (direct evidence integration)
+- B-roll planning (visual requirements)
+- Fact-checking (verification already complete)
+```
+
+---
+
+## EXAMPLE: CRUSADES PROJECT RESEARCH SUMMARY
+
+**From actual workflow:**
+
+**Input:** NotebookLM responses on 15+ topics (Jerusalem massacre, Fourth Crusade, dhimmi status, jizya tax, Ma'arra cannibalism, etc.)
+
+**Output:** RESEARCH-SUMMARY.md with:
+- Priority 1: 5 critical omissions (Jerusalem 1099, Constantinople 1204, Ma'arra 1098, Rhineland massacres, Byzantine-Sassanid War)
+- Priority 2: 4 oversimplifications (jizya tax, dhimmi status, pilgrim persecution, Mediterranean piracy)
+- Priority 3: 3 accurate claims to acknowledge (Muslim expansion timeline, Pope Urban's call, Seljuk threat)
+- 10+ primary source quotes ready for B-roll
+- Modern relevance: Pete Hegseth, Christian nationalism, 2024-2025 news hooks
+- Script structure: 12-minute fact-check video outline
+
+**Result:** Research summary enabled direct script writing without re-searching, all evidence pre-organized and verified.
+
+---
+
+## INTEGRATION NOTE
+
+**This phase bridges:**
+- NOTEBOOKLM-PROMPTS.md → [User runs prompts] → Raw responses → **RESEARCH-SUMMARY.md** → SCRIPT-DRAFT.md
+
+**Why separate from Phase 4:**
+- User needs time to run NotebookLM prompts and collect responses
+- This phase can happen days later
+- Organization step requires synthesis, not just prompt creation
+- Makes session resumption easier (organized summary vs. raw outputs)
 
 ---
 
