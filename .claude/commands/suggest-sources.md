@@ -9,25 +9,26 @@ I'll recommend 20-30 authoritative sources (up to 50 if all essential) for your 
 A detailed source recommendation report with:
 
 **Organized by tier:**
-- Tier 1: Essential standard works (the definitive scholarship)
-- Tier 2: Primary source collections (critical evidence)
-- Tier 3: Key academic articles (specific claims)
+- Tier 1: Recent Comprehensive Works (2010-present) - Modern consensus scholarship
+- Tier 2: Primary source collections (timeless critical evidence)
+- Tier 3: Classic Works (pre-2010) - Note: Verify against recent scholarship
 - Tier 4: Contemporary analysis (modern relevance)
-- Tier 5: Counter-perspective (academic balance)
+- Tier 5: Counter-perspective (strongest academic rebuttals with specific scholars)
 - Tier 6: Historical context (background)
 
 **For each source:**
 - Why it's essential (what research gap it fills)
-- Cost (ebook, used, new, library availability)
+- Publication date (2010+ prioritized for modern consensus)
+- Page ranges for key claims (needed for YouTube citations)
 - Author credentials and citation count
-- Access speed (immediate vs. shipping)
+- Acquisition options (university library / purchase / interlibrary loan)
 - Preview links
 
 **Plus:**
-- Total cost summary
-- Budget-friendly alternatives
-- Acquisition priority (what to buy first)
+- Acquisition priority (what to get first)
+- Counter-perspective works (strongest academic rebuttals listed)
 - NotebookLM upload strategy
+- Modern vs. classic work distinction
 
 ## What I Need
 
@@ -39,9 +40,12 @@ I'll use your deep research report. If you haven't run `/deep-research` yet, I'l
 ## Standards
 
 I prioritize:
+- **Modern consensus (2010-present)** - peer-reviewed, well-respected scholarship
 - "Standard works" cited 100+ times
 - University press publications
 - Leading scholars in the field
+- Pre-2010 classics flagged with: "Verify against recent scholarship"
+- Counter-arguments explicitly researched (not just supporting evidence)
 - No filler - every source serves a purpose
 
 ## Output

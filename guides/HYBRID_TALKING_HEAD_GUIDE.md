@@ -28,6 +28,217 @@
 
 ---
 
+## 🎵 SPEAKING RHYTHM → EDITING RHYTHM (NEW - 2025-01-27)
+
+**Your natural speaking patterns should dictate when and how to cut. Match visual rhythm to vocal rhythm.**
+
+### Pattern 1: Short Declarative Emphasis → Visual Punctuation
+
+**When you deliver a hard stop for emphasis:**
+- "Britain never built it." (period, pause)
+- "The ruling comes in 2027." (hard fact)
+- "Treaties matter more than occupation." (declarative conclusion)
+
+**Editing response:**
+→ **Cut to evidence/visual ON the period** (emphasizes the finality)
+→ Example: "Britain never built it." → CUT to empty landscape or document showing failure
+→ Hold visual for 2-3 seconds, then back to you
+
+**Why:** The hard stop creates anticipation. The cut provides visual punctuation.
+
+---
+
+### Pattern 2: Sentence Fragments Building Tension → Rapid Cut Succession
+
+**When you use staccato fragments:**
+- "Multi-billion dollar infrastructure. Locks, reservoirs and power plants."
+- "Effective administration, security forces and infrastructure."
+- "Deportation records. Statistical reports. Blueprints. Killing reports."
+
+**Editing response:**
+→ **Quick B-roll succession matching the rhythm** (2-3 seconds each)
+→ Example fragments:
+  - "Multi-billion dollar infrastructure." → Show dam (2 sec)
+  - "Locks," → Show locks (2 sec)
+  - "reservoirs" → Show reservoir (2 sec)
+  - "and power plants." → Show power plant (2 sec)
+
+**Why:** Visual rhythm mirrors vocal rhythm. Creates momentum and emphasis.
+
+---
+
+### Pattern 3: Dash-Separated Clarifications → Quick Visual Insert
+
+**When you use em-dashes for immediate context:**
+- "Right now—November 2025—the ICJ is hearing oral arguments."
+- "The peninsula—a strategic location with rich fishing grounds—sits at the mouth..."
+- "In 1977, Hungary and Slovakia—then both under Soviet influence—signed a treaty..."
+
+**Editing response:**
+→ **Insert quick B-roll during the dash pause** (1-2 seconds)
+→ Example: "Right now—[SHOW ICJ BUILDING]—November 2025—[BACK TO YOU]—the ICJ is hearing..."
+→ OR: Keep on camera but show graphic/text overlay during dash
+
+**Why:** The dash creates a natural pause. Fill it with relevant visual context.
+
+---
+
+### Pattern 4: Technical Term Definition → Text Overlay
+
+**When you define terms in the same breath:**
+- "The principle is called estoppel—a legal rule that says you can't benefit from an agreement for decades, then suddenly claim it never existed."
+- "This is the international law rulebook for when one country can cancel a treaty."
+- "Translation: The ICJ wants to prevent wars between neighboring countries."
+
+**Editing response:**
+→ **Display definition as lower third text overlay** (appears as you say it)
+→ Example:
+  - Audio: "The principle is called estoppel—"
+  - Visual: Text appears: "ESTOPPEL: Can't benefit from agreement, then claim it never existed"
+→ **OR: Stay on camera** and let the verbal definition land (no visual distraction)
+
+**Why:** Reinforces complex terms visually. Helps retention.
+
+**Warning:** Don't overuse. Only for truly technical terms audience might not know.
+
+---
+
+### Pattern 5: Embedded Explanations → Talking Head Priority
+
+**When you follow complex language with plain explanation:**
+- ICJ quote → "The Court is saying: not every treaty violation lets you cancel the whole agreement."
+- Legal language → "In simpler terms: [plain explanation]"
+- Academic concept → "Translation: [accessible version]"
+
+**Editing response:**
+→ **Stay on talking head for the explanation** (your interpretation needs your authority)
+→ **Show document/quote FIRST** (2-3 seconds)
+→ **Cut back to YOU** for "The Court is saying..." or "In simpler terms..."
+
+**Example sequence:**
+1. Show ICJ document with quote (3 sec)
+2. CUT to you: "The Court is saying: not every treaty violation..." (on camera, 5-8 sec)
+3. Continue to next point
+
+**Why:** The explanation is YOUR analysis. Needs your face/authority, not B-roll.
+
+---
+
+### Pattern 6: Meta-Framing → Visual Transition Cues
+
+**When you explicitly signal what you're doing:**
+- "Let me show you the three precedents..."
+- "I'm citing the Libya-Chad principle, from a 1994 case:"
+- "Let me bring this back to where we started."
+- "So: Was that road essential to the treaty's purpose?"
+
+**Editing response:**
+→ **These are verbal editing cues** (transition FROM talking head TO evidence)
+
+**Examples:**
+- "Let me show you..." → Start on camera, then transition to documents/maps
+- "I'm citing..." → CUT to the document being cited
+- "Let me bring this back..." → Return to talking head (callback to opening)
+- "So: [question]" → Stay on camera for question, then cut to evidence for answer
+
+**Why:** You're literally telling the editor when to change visuals.
+
+---
+
+### Pattern 7: Question-Then-Answer → Two-Shot Editing Pattern
+
+**When you pose rhetorical question then answer it:**
+- "So: Was that road essential to the treaty's purpose? Three ICJ cases might give us the answer."
+- "If your government cooperated in marking boundary points...how do you argue the treaty was invalid?"
+
+**Editing response:**
+→ **Question = Stay on talking head** (builds tension, audience engagement)
+→ **Brief pause** (1-2 seconds) after question
+→ **Answer = Cut to evidence** (payoff)
+
+**Example:**
+1. ON CAMERA: "Was that road essential to the treaty's purpose?" (5 sec)
+2. PAUSE on your face (1 sec)
+3. ON CAMERA: "Three ICJ cases might give us the answer." (3 sec)
+4. CUT to case documents/maps
+
+**Why:** Question needs your face for audience connection. Answer provides evidence.
+
+---
+
+### Pattern 8: Concrete Specifics → Always Show What You're Naming
+
+**When you provide specific details answering implicit questions:**
+- "Colombia kept the islands—the San Andrés and Providencia archipelago."
+- "Nicaragua got a favorable maritime boundary—the ICJ redrew the sea borders, giving them about 75,000 square kilometers..."
+
+**Editing response:**
+→ **Show the specific thing you're naming** (map, document, data)
+
+**Examples:**
+- "the San Andrés and Providencia archipelago" → Show map with islands labeled
+- "75,000 square kilometers" → Show map with that area highlighted OR graphic with number
+- "the Höfle Telegram" → Show actual telegram image
+
+**Why:** You're being specific verbally. Match with specific visuals.
+
+---
+
+### Pattern 9: Direct Address → Talking Head Priority
+
+**When you use "you/your" to make arguments personal:**
+- "If your government cooperated in marking boundary points..."
+- "You just saw five Nazi documents."
+- "You can't benefit from an agreement for decades..."
+
+**Editing response:**
+→ **Stay on talking head** (direct address requires face-to-face connection)
+→ Exception: "You just saw five documents" → Quick montage of the 5 documents (1 sec each)
+
+**Why:** "You" language creates intimacy. Breaking eye contact weakens it.
+
+---
+
+### Pattern 10: Circular Callback → Visual Callback
+
+**When you explicitly return to the opening:**
+- "Let me bring this back to where we started."
+- "When Guatemala assumes the ICJ will restore their sovereignty, they're ignoring..."
+
+**Editing response:**
+→ **Mirror opening visuals** (if you showed a map at 0:15, show it again here)
+→ **Stay on talking head** for the reframing with evidence
+→ Creates satisfying visual closure matching verbal closure
+
+**Example:**
+- Opening (0:15): Showed Guatemalan map claiming Belize
+- Callback (9:30): "Let me bring this back..." → Show that same map again briefly, then back to you
+
+**Why:** Visual symmetry reinforces narrative structure.
+
+---
+
+## 🎯 EDITING RHYTHM SUMMARY
+
+**Your speaking patterns create natural editing cues:**
+
+| Speaking Pattern | Visual Response | Camera Priority |
+|-----------------|----------------|-----------------|
+| Hard stop declarative | Cut to evidence ON the period | Evidence |
+| Staccato fragments | Rapid B-roll succession (2-3 sec each) | Evidence |
+| Dash clarification | Quick insert during pause | Evidence/Overlay |
+| Technical term | Text overlay (optional) | Talking head |
+| Plain explanation | Stay on camera for YOUR interpretation | Talking head |
+| "Let me show you..." | Transition to evidence | Evidence |
+| Rhetorical question | Stay on camera, pause, then evidence | Talking head → Evidence |
+| Specific details | Show what you're naming (map, doc) | Evidence |
+| "You/your" address | Stay on camera (eye contact) | Talking head |
+| Circular callback | Mirror opening visuals | Talking head + Evidence |
+
+**The Rule:** Your vocal rhythm dictates visual rhythm. Don't fight it—enhance it.
+
+---
+
 ## 📍 REVISED SHOT-BY-SHOT BREAKDOWN
 
 ### **0:00-0:16 - THE HOOK**

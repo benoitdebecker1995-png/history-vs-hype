@@ -33,6 +33,21 @@ Peer-reviewed publications, recognized specialists
 Investigative reporting, UN/NGO reports
 → **Need 2+ sources + cross-reference with Tier 1-2**
 
+### Source Currency Evaluation
+
+**For secondary scholarship (Tier 2 - Expert Historians):**
+- Is source 2010+ (modern consensus)?
+- If pre-2010: Has recent scholarship revised this claim?
+- Flag for verification: "Classic source - check for updates"
+
+**Timeless sources (no recency check needed):**
+- **Primary documents** (treaties, archives, government reports)
+- **Statistical datasets** (census, economic data)
+- **Contemporary eyewitness accounts**
+
+**Why This Matters:**
+Academic consensus shifts over time. A historian's 1980s interpretation may have been revised by 2020s scholarship. For Tier 2 sources, always verify that pre-2010 scholarship still represents current consensus.
+
 ---
 
 ## WORKFLOW
@@ -174,6 +189,30 @@ Use WebSearch to verify:
 
 ---
 
+## COUNTER-EVIDENCE VERIFICATION
+
+**For every major claim, actively search for:**
+1. Academic rebuttals from credible scholars
+2. Alternative interpretations in peer-reviewed literature
+3. Contested data or methodology critiques
+
+**Document in verification table:**
+
+| Claim | Supporting Source | Counter-Evidence | Scholarly Consensus |
+|-------|-------------------|------------------|---------------------|
+| [Claim 1] | [Source + page] | [Opposing scholar + argument] | [Dominant vs minority view] |
+| [Claim 2] | [Source + page] | [Counter-evidence] | [Consensus status] |
+
+**Why This Matters:**
+Steel-manning counter-arguments prevents cherry-picking evidence. If credible scholars disagree, the script must acknowledge the debate rather than presenting one side as settled fact.
+
+**Action Required:**
+- [ ] For contested claims: Script labels as debated
+- [ ] For minority views presented as fact: Add qualifying language
+- [ ] For evolving consensus: Note that interpretation has shifted over time
+
+---
+
 ## CRITICAL FIXES REQUIRED
 
 ### Priority 1: Unverifiable Claims
@@ -249,11 +288,13 @@ Use WebSearch to verify:
 - Find original source (not secondary reporting)
 - Check methodology (census, estimate, calculation)
 - Note ranges vs. precise numbers
+- **Extract page numbers** for source citations (required for YouTube description)
 
 ### Quotes
 - Find original text/video/audio
 - Verify context (not taken out of context)
 - Check translation if non-English
+- **Extract page numbers** (required for YouTube description citations)
 - **CRITICAL**: Word-for-word verification (see Primary Source Quote Verification below)
 
 ### Cause-Effect Claims
@@ -278,11 +319,13 @@ Medieval chronicles, diplomatic correspondence, and historical documents require
 **For each quote in script:**
 - [ ] Source name identified (author + document)
 - [ ] Date/context specified
+- [ ] **Page number or chapter reference** (required for YouTube description)
 - [ ] Source tier confirmed (Tier 1-2 for primary docs)
 
 **Example:**
-- ✅ "Fulcher of Chartres, *Historia Hierosolymitana* (eyewitness account, 1099)"
-- ❌ "Contemporary sources say..." (too vague)
+- ✅ "Fulcher of Chartres, *Historia Hierosolymitana*, Book I, Chapter 27"
+- ✅ "Chris Wickham, *The Inheritance of Rome*, page 147"
+- ❌ "Contemporary sources say..." (too vague, no page number)
 
 #### Step 2: Locate Original Text
 **Search patterns:**

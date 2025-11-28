@@ -29,6 +29,12 @@ Research + Verify simultaneously → Write from verified facts → No errors
 
 **As you research with NotebookLM, immediately verify each fact:**
 
+**Modern Consensus Priority:**
+- For secondary scholarship: prioritize 2010-present sources
+- For pre-2010 classic works: note as "foundational" and check for recent updates
+- Primary sources: timeless (no recency check needed)
+- Always extract page numbers for YouTube description citations
+
 ```markdown
 # VERIFIED RESEARCH - [Topic]
 
@@ -44,17 +50,18 @@ Research + Verify simultaneously → Write from verified facts → No errors
 **What opponent claims:** "Tens of thousands killed"
 **What's actually true:** Modern estimate ~3,000
 **Sources:**
-1. Thomas Asbridge (Tier 2) - *The Crusades*, p. 98
-2. Jonathan Riley-Smith (Tier 2) - *The Crusades: A History*, p. 45
+1. Thomas Asbridge (2010) (Tier 2 - modern consensus) - *The Crusades*, p. 98
+2. Jonathan Riley-Smith (2014 ed.) (Tier 2 - modern consensus) - *The Crusades: A History*, p. 45
 
 **Primary Source Quote (EXACT):**
 > "About ten thousand were beheaded. Not one of them was allowed to live. They did not spare the women and children."
 > — Fulcher of Chartres, *Historia Hierosolymitana* (Krey translation, 1921)
 
-**Context:** Medieval sources inflated (10K-70K). Modern scholarship: ~3,000.
+**Context:** Medieval sources inflated (10K-70K). Modern scholarship (2010-present): ~3,000.
 
+**Source Currency:** ✅ Modern consensus (2010+)
 **Script-Ready:** ✅ YES
-**How to use in script:** Show Fulcher quote (medieval claim), then modern estimate (scholarly correction)
+**How to use in script:** Show Fulcher quote (medieval claim), then modern estimate (scholarly correction with page numbers)
 
 ---
 

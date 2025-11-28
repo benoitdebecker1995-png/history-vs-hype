@@ -19,7 +19,7 @@
 
 [B-ROLL: Pete Hegseth image with Jerusalem Cross tattoo visible]
 
-This is Pete Hegseth, President Trump's nominee for Defense Secretary. He has a tattoo that says "Deus Vult"—Latin for "God wills it." That was the war cry of the First Crusade.
+This is Pete Hegseth, the current U.S. Secretary of Defense. He has a tattoo that says "Deus Vult"—Latin for "God wills it." That was the war cry of the First Crusade.
 
 [B-ROLL: Pax Tube video thumbnail, view count highlighted]
 
@@ -500,7 +500,7 @@ History isn't simple. The Crusades weren't either.
 ### Modern Footage:
 1. Pete Hegseth with Jerusalem Cross tattoo
 2. Pax Tube video thumbnail with view count
-3. News clips about Defense Secretary nomination
+3. News clips about Hegseth as Defense Secretary
 4. Modern Christian nationalist imagery (brief, contextual)
 
 ### Historical Illustrations:

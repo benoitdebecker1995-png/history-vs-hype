@@ -45,6 +45,12 @@ Final approval → Film
    - Are sources from same scholarly tradition or diverse?
    - Are there better/more recent sources available?
 
+4. **Source Currency (Modern Consensus)**
+   - For secondary scholarship: Is it from 2010-present?
+   - For pre-2010 classic works: Is it noted as "foundational" with recent updates cited?
+   - For primary sources: Timeless (no recency check needed)
+   - Are page numbers provided for YouTube description citations?
+
 **Output:** SOURCE VERIFICATION REPORT
 
 ---
@@ -65,9 +71,11 @@ Final approval → Film
    - Are comparisons historically appropriate?
 
 3. **Counter-Evidence**
-   - Are opposing interpretations acknowledged?
-   - Is contradictory evidence addressed?
-   - Are debates among historians noted?
+   - Are STRONGEST academic counter-arguments presented (steel-manned, not strawmen)?
+   - Are specific opposing scholars named with citations?
+   - Is contradictory evidence addressed fairly?
+   - Are scholarly debates acknowledged where consensus is uncertain?
+   - For evolving interpretations: Is it noted how understanding has shifted over time?
 
 4. **Qualification of Claims**
    - Are contested claims labeled as such?

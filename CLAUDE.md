@@ -105,14 +105,63 @@ This is a content production repository for **History vs Hype**, a YouTube chann
 - **sources-reference.md** - Academic library organized by topic
 - **topics-list.md** - Video ideas and research links
 
-## NotebookLM Research Workflow
+## Research Workflow: Two-Phase Approach (CRITICAL - Updated 2025-01-25)
 
-NotebookLM is the primary research tool:
-- Max 50 sources per notebook, 25M words total
-- Upload primary documents, academic papers, news analysis
-- Use research organization prompts to extract evidence
-- Run fact-checking prompts on completed scripts
-- See Master Project Template for specific prompts
+**This is the channel's competitive advantage.** Other history YouTubers stop at internet research. You go deeper with academic sources.
+
+### Phase 1: Preliminary Internet Research
+**Purpose:** Map the landscape and identify claims to verify
+
+**Sources:**
+- Wikipedia (for basic timeline)
+- News articles (for modern relevance)
+- Academic websites (.edu domains)
+- Google Scholar (previews, not full texts yet)
+
+**Output:**
+- RESEARCH-SUMMARY.md with preliminary findings (all marked ❓)
+- List of claims that need academic verification
+- Understanding of the debate landscape
+
+**Time:** 2-4 hours
+**Cost:** Free
+
+### Phase 2: NotebookLM Academic Verification
+**Purpose:** Verify claims and get proper citations with academic sources
+
+**Sources:**
+- Academic books (download via university library or purchase)
+- Primary documents (full text)
+- Scholarly articles (full PDFs)
+
+**Process:**
+1. Create NOTEBOOKLM-RESEARCH-PLAN.md identifying specific books to download
+2. Download 10-20 sources (prioritize free primary docs, 1-3 key academic books)
+3. Upload to NotebookLM (max 50 sources per notebook, 25M words total)
+4. Run targeted prompts to verify preliminary findings
+5. Extract proper citations with page numbers
+6. Get smoking gun quotes for B-roll
+
+**Output:**
+- Verified statistics with academic sources
+- Proper citations: "According to Chris Wickham in *The Inheritance of Rome*, page 147..."
+- Primary source quotes ready for on-screen display
+- Academic authority competitors lack
+
+**Time:** 1-2 weeks (source download + NotebookLM prompts)
+**Cost:** $0-200 (university library + selective purchases)
+
+### Why Both Phases Matter
+
+**Competitor approach (Phase 1 only):**
+"During the Dark Ages, literacy declined significantly according to historians..."
+
+**Your approach (Phase 1 + Phase 2):**
+"According to William V. Harris in *Ancient Literacy*, Roman literacy was around 10-15%. Chris Wickham's *The Inheritance of Rome* shows Early Medieval literacy dropped to 1-5%. Here's a Carolingian manuscript from 800 CE proving monks preserved classical texts..."
+
+**Result:** You can cite specific books with page numbers, show primary sources on screen, and provide academic depth that builds trust and authority.
+
+**NEVER skip Phase 2.** That's what makes your channel different.
 
 ## Script Writing Guidelines
 
@@ -239,12 +288,28 @@ When editing or creating scripts:
 ## Common Tasks
 
 ### Creating a new video script
-1. Research topic using NotebookLM
-2. Use Master Project Template structure
-3. Run research organization and evidence extraction prompts
-4. Draft script following structure guidelines
-5. Fact-check every claim
-6. Plan visual elements using Hybrid Talking Head Guide
+**Phase 1: Preliminary Research (Internet Sources)**
+1. Conduct preliminary internet research (Wikipedia, news, academic sites)
+2. Create RESEARCH-SUMMARY.md with preliminary findings (mark all claims ❓)
+3. Identify what needs academic verification
+
+**Phase 2: Academic Verification (NotebookLM)**
+4. Create NOTEBOOKLM-RESEARCH-PLAN.md with specific academic books to download
+5. Download sources (university library + selective purchases, $0-200)
+6. Upload to NotebookLM and run targeted verification prompts
+7. Extract verified statistics, proper citations, smoking gun quotes
+
+**Phase 3: Script Writing**
+8. Draft script using verified academic sources and proper citations
+9. Write for conversational spoken delivery (contractions, natural dates, breath marks)
+10. Follow "both extremes are wrong" structure
+11. Include modern relevance connections every 90 seconds
+12. Plan visual elements using Hybrid Talking Head Guide
+
+**Phase 4: Final Verification**
+13. Fact-check every claim has 2+ sources
+14. Verify citations include page numbers where possible
+15. Test script by reading aloud (conversational delivery check)
 
 ### Fact-checking an existing script
 1. Review fact-checking-protocol.md

@@ -221,18 +221,21 @@ Please analyze all uploaded sources and identify:
 
 1. KEY CLAIMS with source citations:
    - What are the main factual assertions about [topic]?
-   - Which sources support each claim?
+   - Which sources support each claim? (with page numbers)
+   - Note publication dates (prioritize 2010-present for modern consensus)
    - Are there contradictions between sources?
 
 2. PRIMARY SOURCE QUOTES:
    - Extract exact quotes from treaties, documents, letters
+   - Include page numbers or chapter references
    - Include dates and full context
    - Note any contested interpretations
 
 3. STATISTICS & DATA:
    - All numbers (deaths, distances, populations, etc.)
-   - Source for each statistic
+   - Source for each statistic with page number
    - Methodology if provided
+   - Note if from peer-reviewed source
 
 4. TIMELINE OF EVENTS:
    - Chronological sequence
@@ -243,8 +246,9 @@ Please analyze all uploaded sources and identify:
    - What do historians disagree about?
    - What claims need qualification?
    - What's speculation vs documented fact?
+   - Are there scholarly debates requiring acknowledgment?
 
-Format each finding with: [CLAIM] - Source: [Author, Title, Page]
+Format each finding with: [CLAIM] - Source: [Author, Title, Page X, Year]
 ```
 
 #### Prompt 2: Modern Connections
@@ -263,10 +267,12 @@ Provide specific examples with dates and sources.
 ```
 Playing devil's advocate:
 
-1. What counter-arguments exist to the main narrative?
-2. What evidence complicates or contradicts simple explanations?
-3. Where is the historical consensus uncertain?
-4. What am I at risk of oversimplifying?
+1. What are the STRONGEST academic counter-arguments (steel-manned, not strawmen)?
+2. Which credible scholars present opposing interpretations? (names, publications, page numbers)
+3. What evidence complicates or contradicts simple explanations?
+4. Where is the historical consensus uncertain or evolving?
+5. What am I at risk of oversimplifying?
+6. For pre-2010 sources: Has recent scholarship (2010-present) revised these claims?
 
 I need to present this fairly - show me the complexity.
 ```

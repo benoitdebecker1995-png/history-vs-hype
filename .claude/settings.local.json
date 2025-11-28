@@ -61,7 +61,21 @@
       "Bash(test:*)",
       "Bash(mv:*)",
       "Bash(rmdir:*)",
-      "Bash(.gitignore)"
+      "Bash(.gitignore)",
+      "Bash(python auto_rename_books.py:*)",
+      "Bash(pip install:*)",
+      "Bash(setx PATH \"%PATH%;C:\\Program Files\\Tesseract-OCR\")",
+      "Bash(tesseract:*)",
+      "Bash(\"C:\\Program Files\\Tesseract-OCR\\tesseract.exe\" --version)",
+      "Bash(tee:*)",
+      "Bash(python:*)",
+      "Bash(for dir in */)",
+      "Bash(wmic logicaldisk get name)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:)",
+      "WebFetch(domain:www.medievalists.net)",
+      "Bash(git checkout:*)",
+      "WebFetch(domain:www.icj-cij.org)"
     ],
     "deny": [],
     "ask": []

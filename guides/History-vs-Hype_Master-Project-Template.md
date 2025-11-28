@@ -28,11 +28,11 @@
   - Counter-Evidence (opposing viewpoints)
 
 **Step 2: Source Upload Checklist**
-- [ ] Primary historical documents
-- [ ] Academic monographs/papers
+- [ ] Primary historical documents (timeless)
+- [ ] Modern consensus scholarship (2010-present peer-reviewed)
+- [ ] Classic works (pre-2010) - note for verification against recent scholarship
 - [ ] Statistical data sources
-- [ ] Expert analysis/opinion pieces
-- [ ] Counter-narrative sources
+- [ ] Counter-narrative sources (strongest academic rebuttals, not strawmen)
 - [ ] Related documentaries (transcript links)
 
 ### NotebookLM Research Prompts
@@ -41,9 +41,11 @@
 ```
 Analyze all inputs and generate 5 essential questions that capture the core meaning of this topic. For each question:
 1. Provide specific source and page references for answers
-2. Identify any contradictions or gaps in the evidence
-3. Suggest additional research areas that would strengthen the analysis
-4. Note which claims have strongest/weakest source support
+2. Note publication dates (prioritize 2010-present for modern consensus)
+3. Identify any contradictions or gaps in the evidence
+4. Extract strongest academic counter-arguments (steel-manned versions)
+5. Flag pre-2010 sources that may need verification against recent scholarship
+6. Note which claims have strongest/weakest source support
 ```
 
 **🎬 VIDEO HOOK GENERATION PROMPT:**
@@ -81,20 +83,29 @@ For each item, provide: exact quote/data, source, and persuasive power ranking (
 ```
 Verify this script against all sources. Check:
 
-STATISTICS (exact numbers & sources):
+STATISTICS (exact numbers & sources with page numbers):
 [List all numerical claims from script]
 
-DIRECT QUOTES (confirm exact wording):
+DIRECT QUOTES (confirm exact wording with page numbers):
 [List all quotes used in script]
 
-KEY CLAIMS (identify sources):
+KEY CLAIMS (identify sources with publication dates):
 [List major interpretive claims]
+
+SOURCE CURRENCY:
+- Are claims based on 2010-present scholarship?
+- Are pre-2010 sources contextualized as "foundational" with recent updates noted?
+
+COUNTER-ARGUMENTS:
+- Are strongest academic rebuttals addressed?
+- Are contested claims labeled as debated?
 
 FLAG:
 - ❌ Incorrect facts
 - ⚠️ Missing context needed
 - 🔍 Unsourced claims
 - ⚡ Contradictions with sources
+- 📅 Outdated scholarship (pre-2010) presented as current consensus
 
 Priority: [List 3 most critical evidence points]
 ```

@@ -4,6 +4,13 @@ description: Generate customized NotebookLM prompts for your specific topic and 
 
 I'll create fully customized NotebookLM research prompts tailored to your specific topic and the sources you've uploaded.
 
+## Modern Consensus Priority
+
+All prompts prioritize **2010-present scholarship** for modern consensus:
+- Pre-2010 classic works flagged: "Verify against recent scholarship"
+- Extract page numbers for ALL claims (required for YouTube citations)
+- Request source publication dates to verify currency
+
 ## What You'll Get
 
 A complete set of custom prompts to paste into NotebookLM:
@@ -11,7 +18,7 @@ A complete set of custom prompts to paste into NotebookLM:
 **Core Research Prompts:**
 1. **Topic-Specific Research Organization** - Extract the most important evidence for your exact thesis
 2. **Smoking Gun Evidence Extraction** - Find the quotes/documents that prove your case
-3. **Counter-Evidence Analysis** - Identify strongest opposing arguments to address
+3. **Counter-Evidence Analysis** - Extract strongest scholarly counter-arguments (steel-manned, not strawmen) with specific scholars, page numbers, and reasoning
 4. **Modern Relevance Mapping** - Connect historical events to current impact
 5. **Pattern Recognition** - Identify systematic issues (3+ interconnected incidents)
 6. **Script Hook Generation** - Find the most compelling opening hooks
@@ -34,7 +41,9 @@ Each prompt will be:
 - Copy-paste ready
 - Optimized for NotebookLM's length limits
 - Focused on extracting specific evidence
-- Designed to get source citations and page numbers
+- Designed to get source citations with page numbers (required for YouTube description)
+- Prioritize 2010-present sources for modern consensus
+- Request counter-evidence (academic rebuttals, not just supporting evidence)
 
 ## Output
 

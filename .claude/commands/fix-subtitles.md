@@ -4,6 +4,20 @@ description: Fix common subtitle (.srt) errors from auto-transcription
 
 You are fixing subtitle files for History vs Hype videos.
 
+## ⚠️ CRITICAL RULE: NEVER CHANGE WORDS
+
+**ONLY fix spelling/transcription errors. NEVER change the actual words spoken.**
+
+Examples:
+- ✅ CORRECT: "demi-tax" → "dhimmi tax" (same words, fixed spelling)
+- ❌ WRONG: "demi-tax" → "jizya" (different word entirely)
+- ✅ CORRECT: "Godwills it" → "God wills it" (spacing fix)
+- ❌ WRONG: Changing any phrasing or word choice
+
+**The subtitle must match what was actually said in the video, word-for-word.**
+
+---
+
 ## Common Issues in Auto-Generated Subtitles
 
 ### 1. Timestamp Errors

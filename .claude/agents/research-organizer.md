@@ -9,13 +9,21 @@ model: sonnet
 
 ## MISSION
 
-Transform raw research into structured production-ready files:
-- **Topic brief** with both extremes and modern hook
-- **Preliminary research** document with verified sources
-- **Source recommendations** for NotebookLM (lean approach)
-- **NotebookLM prompts** for evidence extraction
+Transform raw research into structured production-ready files using the **TWO-PHASE RESEARCH WORKFLOW**:
 
-**Why this matters**: Organized research prevents wasted effort and ensures all production files are consistent.
+**PHASE 1: Preliminary Internet Research**
+- Map the landscape using free internet sources (Wikipedia, news, academic websites)
+- Identify key claims that need academic verification
+- Verify basic facts and timelines
+- Understand what the debate is about
+
+**PHASE 2: NotebookLM Academic Verification**
+- Download specific academic books and primary sources
+- Upload to NotebookLM for systematic evidence extraction
+- Get proper citations with page numbers
+- Extract smoking gun quotes for B-roll
+
+**Why this matters**: This two-phase approach is the channel's competitive advantage. Other history YouTubers stop at Phase 1 (Wikipedia + internet sources). You go deeper by citing actual academic books (Wickham, McKitterick, Lynn White, etc.) and showing primary documents on screen.
 
 ---
 
@@ -23,6 +31,92 @@ Transform raw research into structured production-ready files:
 
 ### INPUT: User provides topic or existing research
 ### OUTPUT: Complete pre-production package
+
+---
+
+## THE TWO-PHASE RESEARCH PHILOSOPHY (CRITICAL)
+
+### Why Two Phases?
+
+**The Problem:**
+Other history YouTubers research a topic using Wikipedia and internet sources, then write the script. They cite "studies show" without specific sources.
+
+**The Solution:**
+You use a two-phase approach that provides academic depth and authority.
+
+## MODERN CONSENSUS PRIORITY (2010-PRESENT)
+
+**Phase 2 (NotebookLM Academic Verification) Source Requirements:**
+- Prioritize scholarship published 2010-present (peer-reviewed and well-respected)
+- Recent synthesis works (Oxford/Cambridge/Wiley-Blackwell handbooks)
+- Recent monographs incorporating latest scholarship
+- Flag pre-2010 sources: "Classic work - verify against recent scholarship"
+
+**Primary vs. Secondary Sources:**
+- **Primary sources** (treaties, documents, archives): TIMELESS - use freely
+- **Secondary scholarship** (academic analysis): Prioritize 2010+
+- **Classic works** (pre-2010): Note as foundational, cite modern revisions
+
+**Why This Matters:**
+Academic consensus shifts over time. A foundational work from the 1960s may have been revised by 2020s scholarship. Using modern consensus (2010-present) ensures you're citing current scholarly understanding, not outdated interpretations.
+
+### Phase 1: Preliminary Internet Research
+**Purpose:** Map the landscape
+**Sources:** Wikipedia, news articles, academic websites, Google Scholar previews
+**Output:** List of claims to verify, preliminary timeline, identified primary sources
+**Time:** 2-4 hours
+
+**What you get:**
+- Understanding of the debate
+- Key claims identified (marked with ❓)
+- Basic statistics (need verification)
+- List of primary sources that exist
+
+**What you DON'T get:**
+- Proper citations with page numbers
+- Academic authority
+- Verified statistics
+- Nuanced expert analysis
+
+### Phase 2: NotebookLM Academic Verification
+**Purpose:** Verify claims and get proper citations
+**Sources:** Academic books (downloaded), primary documents (full text)
+**Output:** Verified statistics, page number citations, smoking gun quotes
+**Time:** 1-2 weeks (source download + NotebookLM prompts)
+**Note:** User has university library access - prioritize quality over cost
+
+**What you get:**
+- "According to Chris Wickham in *The Inheritance of Rome*, page 147..."
+- Verified statistics from academic sources
+- Primary source quotes for B-roll
+- Expert analysis and nuance
+- Academic authority competitors lack
+
+### The Competitive Advantage:
+
+**Competitor video:**
+"During the Dark Ages, literacy declined significantly according to historians..."
+
+**Your video:**
+"According to William V. Harris in *Ancient Literacy*, Roman literacy was around 10-15%. Chris Wickham's *The Inheritance of Rome* shows Early Medieval literacy dropped to 1-5%. Here's a Carolingian manuscript from 800 CE proving monks preserved classical texts..."
+
+**Result:** You can cite specific books with page numbers, show primary sources on screen, and provide academic depth that builds trust and authority.
+
+### When to Use Each Phase:
+
+**Always do Phase 1 first:**
+- Understand the topic landscape
+- Identify what needs verification
+- Create targeted NotebookLM research plan
+
+**Always do Phase 2 before scripting:**
+- Verify all major claims
+- Get proper citations
+- Extract smoking gun evidence
+- Provide academic authority
+
+**NEVER skip Phase 2:**
+That's what makes your channel different from competitors.
 
 ---
 
@@ -118,23 +212,68 @@ Transform raw research into structured production-ready files:
 
 ---
 
-## PHASE 2: PRELIMINARY RESEARCH DOCUMENT
+## PHASE 2: PRELIMINARY INTERNET RESEARCH (Two-Phase Workflow: Phase 1)
 
-### Purpose: Verify sources exist and are accessible
+### Purpose: Map the landscape using free internet sources
+
+**CRITICAL**: This is Phase 1 of the two-phase research workflow. Use internet sources (Wikipedia, news articles, academic websites) to:
+1. Identify key claims that need academic verification
+2. Understand the basic narrative and debate
+3. Find preliminary statistics and dates
+4. Verify that primary sources exist and are accessible
+
+**Sources to use:**
+- Wikipedia (for basic timeline and claims to verify)
+- News articles (for modern relevance)
+- Academic websites (.edu, university pages)
+- Google Scholar (for article previews, not full texts yet)
+- Archive.org (for primary source previews)
+
+**What NOT to do:**
+- ❌ Don't stop here and write script (that's what competitors do)
+- ❌ Don't treat Wikipedia as final authority
+- ❌ Don't assume internet sources are sufficient
 
 **Process:**
-1. WebSearch for each primary source
-2. Verify document authenticity
-3. Check accessibility (free archive, purchase, library)
-4. Note key quotes/statistics if available
-5. Cross-reference dates and facts
+1. WebSearch for topic overview
+2. Identify major claims (note which need academic verification)
+3. Find preliminary statistics (mark as "to verify with academic sources")
+4. Verify primary sources exist and are accessible
+5. Cross-reference dates and basic facts
 
 ### Output Structure:
 
 ```markdown
-# Preliminary Research - [Topic]
+# Preliminary Internet Research - [Topic]
 
-**Status:** Source Verification Phase
+**Date:** [YYYY-MM-DD]
+**Status:** Phase 1 Complete (Internet Research) → Ready for Phase 2 (NotebookLM Academic Verification)
+
+**IMPORTANT**: This document contains PRELIMINARY findings from internet sources. All claims marked with ❓ need academic verification in Phase 2.
+
+---
+
+## PRELIMINARY FINDINGS (To Verify with Academic Sources)
+
+### 1. [Topic Area - e.g., "Literacy Decline"]
+- ❓ Roman Empire: 10-15% literacy (Source: Wikipedia)
+- ❓ Early Medieval: 1-5% literacy (Source: Wikipedia)
+- ❓ By 1000 AD: 1/10th of Roman levels (Source: History.com)
+
+**Academic sources needed:**
+- William V. Harris - *Ancient Literacy* (for Roman baseline)
+- Chris Wickham - *The Inheritance of Rome* (for medieval data)
+
+### 2. [Topic Area - e.g., "Urban Decline"]
+- ❓ Rome: 1M → 30K population (Source: britannica.com)
+- ❓ Constantinople: 500K → 70K (Source: academic website)
+
+**Academic sources needed:**
+- Chris Wickham - *The Inheritance of Rome* (for specific numbers and evidence)
+
+[Repeat for each topic area...]
+
+---
 
 ## PRIMARY SOURCE VERIFICATION
 
@@ -147,13 +286,13 @@ Transform raw research into structured production-ready files:
 - **Date:** [When created]
 - **Author:** [Who wrote it]
 - **Type:** [Treaty, letter, report, etc.]
-- **Key Content:** [Brief summary]
+- **Key Content:** [Brief summary from preview/secondary source]
 - **Accessibility:** [How to obtain]
 
-**Key Quotes/Stats:**
-> "[Quote if available from preview/secondary source]"
+**Preview Quotes/Stats:**
+> "[Quote if available from preview - NOTE: needs verification from full document]"
 
-**Verification Sources:**
+**Found via:**
 - [Where found]
 - [Cross-reference]
 
@@ -169,103 +308,152 @@ Transform raw research into structured production-ready files:
 - [Link 1]
 - [Link 2]
 
-## GAPS IDENTIFIED
+## WHAT'S VERIFIED vs WHAT NEEDS ACADEMIC SOURCES
 
-**Missing Sources:**
-- [What we still need to find]
+**✅ Verified with internet sources:**
+- [Facts confirmed across multiple reliable sources]
+- [Modern news events with dates]
+- [Primary sources exist and are accessible]
 
-**Unverified Claims:**
-- [Claims that need more research]
+**❓ NEEDS ACADEMIC VERIFICATION (Phase 2):**
+- [Statistics cited only by Wikipedia/tertiary sources]
+- [Conflicting numbers across sources]
+- [Claims that need expert analysis]
+- [Nuanced interpretations requiring scholarly consensus]
 
-**Next Steps:**
-- [Specific research tasks]
+---
+
+## NEXT STEPS → PHASE 2 (NotebookLM)
+
+**Ready for NotebookLM Research Plan creation:**
+1. Identify specific academic books to download
+2. Create targeted NotebookLM prompts
+3. Download sources (via university library or purchase)
+4. Upload to NotebookLM
+5. Run prompts to verify/expand preliminary findings
+
+**Estimated Phase 2 time:** [X] days
 ```
 
 ---
 
-## PHASE 3: SOURCE RECOMMENDATIONS (NotebookLM Strategy)
+## PHASE 3: NOTEBOOKLM RESEARCH PLAN (Two-Phase Workflow: Phase 2)
+
+### Purpose: Verify and expand preliminary findings with academic sources
+
+**CRITICAL**: This is Phase 2 of the two-phase research workflow. Now that you've mapped the landscape with internet sources, identify specific academic books and primary sources to:
+1. Verify preliminary statistics with proper citations
+2. Get page numbers for script citations
+3. Extract smoking gun quotes for B-roll
+4. Provide academic authority that competitors lack
+
+### Competitive Advantage:
+**Other history YouTubers:** "Wikipedia says X..." (stops at Phase 1)
+**Your channel:** "According to Chris Wickham in *The Inheritance of Rome*, page 147..." (Phase 2 with academic sources)
 
 ### Lean Approach Philosophy:
 - **Primary documents >> books** (90% of evidence)
-- **1-2 key books** for academic depth
+- **1-3 key academic books** for proper citations and authority
 - **Total: 10-20 sources** (not 50)
-- **Cost: Minimize** without sacrificing quality
+- **Quality over quantity** - user has university library access
 
 ### Process:
 
 1. **Categorize sources:**
-   - FREE primary documents (archives, government sites)
-   - PURCHASE-worthy books (1-2 max)
-   - FREE academic articles (Google Scholar PDFs)
+   - Primary documents (archives, government sites)
+   - Academic books (university library or purchase)
+   - Academic articles (via institutional access or open access)
 
-2. **Evaluate each purchase:**
+2. **Evaluate each source:**
    - Is this essential or nice-to-have?
-   - Do free sources cover 80% of this?
-   - Does this add unique authority?
+   - Does this provide unique academic authority?
+   - Is this 2010+ modern consensus or classic work requiring contextualization?
 
 3. **Create download checklist** with exact URLs
 
 ### Output Structure:
 
 ```markdown
-# Source Recommendations - [Topic]
+# NotebookLM Research Plan - [Topic]
 
-## NOTEBOOKLM STRATEGY
+**Project:** [slug]
+**Date:** [YYYY-MM-DD]
+**Status:** Ready for academic source download
+**Purpose:** Expand and confirm preliminary research findings with academic sources
+
+---
+
+## PRELIMINARY RESEARCH FINDINGS (To Verify/Expand)
+
+From internet research, we found these claims that need academic verification:
+
+### 1. [Topic Area]
+- ❓ [Claim 1 from preliminary research]
+- ❓ [Claim 2 from preliminary research]
+- ❓ [Claim 3 from preliminary research]
+
+### 2. [Topic Area]
+- ❓ [Claim 1]
+- ❓ [Claim 2]
+
+[List all preliminary findings that need verification...]
+
+---
+
+## NOTEBOOKLM SOURCES TO DOWNLOAD
 
 **Total Sources:** [X]
-**Budget:** $[X]
 **Research Time:** [X] hours
+**Acquisition:** University library access + selective purchases
 
 **Notebook Structure:**
 - Notebook #1: [Main topic] ([X] sources)
 - Notebook #2: [Comparison topic] ([X] sources) [if needed]
 
-## FREE SOURCES (Priority)
+## PRIMARY SOURCES ([X] sources)
 
-### Primary Documents ([X] sources)
+### Timeless Documents
 
 **1. [Document Name]**
-- **URL:** [Direct link]
+- **URL:** [Direct link or archive]
+- **Date:** [When created - for historical context]
 - **Why essential:** [Specific evidence it provides]
 - **Download:** [How to save - PDF, screenshot, etc.]
-- **Time:** [X] minutes
 
 [Repeat...]
 
-### Academic Articles ([X] sources)
+## MODERN CONSENSUS SCHOLARSHIP (2010-PRESENT) ([X] sources)
 
-**1. [Article Title]**
-- **Search:** Google Scholar "[search query]"
-- **Look for:** [PDF] link
-- **Why useful:** [What it analyzes]
-- **Backup:** [Alternative if paywalled]
+### Recent Comprehensive Works
 
-## PURCHASE RECOMMENDATIONS ([X] sources)
-
-**Priority 1: ESSENTIAL**
-
-**[Book Title]** by [Author]
-- **Cost:** ~$[X]
-- **Why buy:** [Unique value - can't get this info free]
+**1. [Book Title]** by [Author] (20XX)
+- **Publication Date:** [YYYY - must be 2010+]
+- **Why essential:** [Unique value - represents current scholarly consensus]
 - **NotebookLM value:** [What chapters to upload]
-- **Recommendation:** BUY
+- **Acquisition:** [University library / Purchase / Interlibrary loan]
 
-**Priority 2: NICE TO HAVE**
+[Repeat...]
 
-[Books that add depth but aren't essential]
-- **Recommendation:** SKIP unless budget allows
+### Classic Works Requiring Contextualization
+
+**1. [Book Title]** by [Author] (pre-2010)
+- **Publication Date:** [YYYY]
+- **Why included:** [Foundational work BUT note: check for modern revisions]
+- **Modern update:** [Recent scholar who has revised/updated this thesis]
+- **Acquisition:** [University library / Purchase]
 
 ## DOWNLOAD CHECKLIST
 
-[Step-by-step guide with exact URLs]
+[Step-by-step guide with exact URLs and library catalog links]
 
-## BUDGET OPTIONS
+## SOURCE QUALITY CHECKLIST
 
-**Minimal ($[X]):** Core primary docs + 1 book
-**Moderate ($[X]):** Above + 1-2 more books
-**Optimal ($[X]):** Full source list
-
-**RECOMMENDATION:** [Which tier for this project]
+Before finalizing sources, verify:
+- [ ] Modern consensus (2010-present) prioritized
+- [ ] Classic works (pre-2010) noted with recent revisions identified
+- [ ] Primary sources (timeless) included
+- [ ] Counter-arguments researched (both extremes)
+- [ ] Page number extraction plan for all major claims
 ```
 
 ---
@@ -325,6 +513,9 @@ Compare these sources:
 2. What does Extreme A ignore from these sources?
 3. What does Extreme B ignore?
 4. What complexity do both extremes miss?
+5. What are the specific page numbers for these claims?
+6. What counter-evidence exists? What do opposing scholars argue?
+7. For pre-2010 sources: Has recent scholarship (2010+) revised these claims?
 ```
 
 ### PROMPT [X+1]: Timeline Verification
@@ -344,13 +535,24 @@ Identify any date conflicts between sources.
 ### PROMPT [X+2]: Script Citation Helper
 
 ```
-For the video script, I need exact quotes for:
+For the video script, I need exact quotes with page numbers for:
 
 1. [Key point 1] - Which source provides strongest evidence?
-2. [Key point 2] - Which source provides strongest evidence?
-3. [Counter-argument] - What sources address this?
+   - Exact quote:
+   - Page number:
+   - Source date (2010+ modern consensus or pre-2010 classic):
 
-Provide quote + citation for each.
+2. [Key point 2] - Which source provides strongest evidence?
+   - Exact quote:
+   - Page number:
+   - Source date:
+
+3. [Counter-argument] - What sources address this?
+   - Strongest scholarly counter-argument (steel-manned):
+   - Quote + page number:
+   - Has this been revised by recent scholarship?
+
+Provide quote + page number citation for each (required for YouTube description).
 ```
 
 ## USAGE INSTRUCTIONS
@@ -784,18 +986,27 @@ Based on NotebookLM findings, suggested script structure:
 
 ### When user says: "Research [topic]"
 
-**Auto-execute:**
-1. Create topic brief (PHASE 1)
-2. Verify sources (PHASE 2)
-3. Recommend NotebookLM sources (PHASE 3)
-4. Create prompts (PHASE 4)
-5. Create PROJECT-STATUS.md
-6. Place all files in `video-projects/_IN_PRODUCTION/[project-name]/`
+**Auto-execute (Two-Phase Workflow):**
+
+**Phase 1: Preliminary Internet Research**
+1. Create topic brief with both extremes and modern hook
+2. Conduct preliminary internet research (Wikipedia, news, academic sites)
+3. Create RESEARCH-SUMMARY.md with preliminary findings (all marked ❓)
+4. Identify what needs academic verification
+
+**Phase 2: NotebookLM Research Plan**
+5. Create NOTEBOOKLM-RESEARCH-PLAN.md with specific academic books to download
+6. Create targeted NotebookLM prompts
+7. Provide download checklist with URLs and budget estimate
+8. Create PROJECT-STATUS.md
+
+**Place all files in:** `video-projects/_IN_PRODUCTION/[project-name]/`
 
 **Ask user only when:**
 - Multiple valid approaches exist
-- Budget decision needed
+- Budget decision needed (though user has university access + $50-200 budget typically)
 - Unclear which extreme to emphasize
+- Topic requires more than 10-20 sources
 
 ---
 
@@ -827,35 +1038,49 @@ video-projects/
 
 Before marking research phase complete:
 
+**Two-Phase Workflow:**
+- [ ] Phase 1 complete (internet research done, claims identified)
+- [ ] Phase 2 plan ready (academic sources identified, NotebookLM prompts created)
+- [ ] All preliminary findings marked ❓ (indicating need for verification)
+- [ ] Clear transition from Phase 1 → Phase 2 documented
+
 **Topic Brief:**
 - [ ] Both extremes explicitly identified
 - [ ] Modern hook specific (date + event)
 - [ ] Primary sources listed
 - [ ] Smoking gun identified
 
-**Preliminary Research:**
-- [ ] Every source verified (URL checked)
-- [ ] Key quotes noted (if accessible)
+**Preliminary Internet Research (Phase 1):**
+- [ ] Used internet sources (Wikipedia, news, academic sites) - NOT academic books yet
+- [ ] All claims marked ❓ for verification
+- [ ] Identified what needs academic verification
 - [ ] Modern hook verified (news sources)
 - [ ] Gaps identified
+- [ ] Clear about what's preliminary vs verified
 
-**Source Recommendations:**
+**NotebookLM Research Plan (Phase 2):**
+- [ ] Specific academic books identified (author + title)
 - [ ] Lean approach (10-20 sources, not 50)
-- [ ] FREE sources prioritized
+- [ ] FREE sources prioritized (primary docs, articles)
+- [ ] 1-3 key academic books for citations
 - [ ] Purchase justifications clear
 - [ ] Download checklist with exact URLs
+- [ ] Budget estimate provided ($0-200 range typically)
+- [ ] Lists preliminary findings at top (what needs verification)
 
 **NotebookLM Prompts:**
+- [ ] Targeted prompts to verify preliminary findings
 - [ ] Cover all sources systematically
 - [ ] Include cross-reference prompts
 - [ ] Timeline verification prompt
-- [ ] Citation helper prompts
+- [ ] Citation helper prompts (for page numbers)
 
 **Project Status:**
 - [ ] Quick resume clear
 - [ ] File guide accurate
-- [ ] Next steps specific
+- [ ] Next steps specific (download sources → upload → run prompts)
 - [ ] Context preserved for session continuity
+- [ ] Phase 1 vs Phase 2 status clear
 
 ---
 

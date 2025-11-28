@@ -398,6 +398,40 @@ Historian at Yale, Samuel Moyn. He documented it. The phrase gets invented in th
 **Benoit's voice:**
 "This isn't isolated. Three years later - 1455 - Pope Nicholas V issues Romanus Pontifex."
 
+---
+
+### ✅ CONVERSATIONAL DELIVERY FOR FILMING (CRITICAL - Added 2025-01-25)
+
+**Key insight:** User films talking head videos. Scripts must sound natural when spoken aloud, not when read silently.
+
+**DO - Natural Spoken Delivery:**
+- **Conversational dates:** "On June 16th, 2014," NOT "June 16, 2014."
+- **Use contractions:** "it's" not "it is", "they're" not "they are", "here's" not "here is"
+- **Natural quote flow:** "The treaty says..." NOT "Quote: '...'"
+- **Natural connectors:** Start sentences with "So..." "And..." "Why?"
+- **Rhetorical questions for pacing:** "Why? To make his daughter a princess."
+- **Split long sentences for breath marks:** "Two borders. Two different outcomes." NOT "Two borders with two different outcomes."
+
+**DON'T - Formal Written Style:**
+- ❌ Stiff dates: "1899. Britain and Egypt sign..."
+- ✅ Natural dates: "In 1899, Britain and Egypt signed..."
+
+- ❌ No contractions: "That is why it is important"
+- ✅ Contractions: "That's why it's important"
+
+- ❌ Formal quotes: "According to the document: '[quote]'"
+- ✅ Natural flow: "The document says '[quote]'"
+
+**The Test:** Read the script aloud. If it sounds like reading an essay, rewrite for spoken delivery.
+
+**Example Transformation:**
+
+**BEFORE (Written Style):**
+"June 16, 2014. A Virginia farmer named Jeremiah Heaton planted a flag in the African desert to make his seven-year-old daughter Emily a princess."
+
+**AFTER (Spoken Delivery):**
+"On June 16th, 2014, a farmer from Virginia named Jeremiah Heaton planted a flag in the African desert. Why? To make his seven-year-old daughter Emily a princess."
+
 ## STEP 5: Mark Visual Requirements
 
 **CRITICAL: Integrate visual staging notes INLINE in the script using ALL CAPS parentheticals.**

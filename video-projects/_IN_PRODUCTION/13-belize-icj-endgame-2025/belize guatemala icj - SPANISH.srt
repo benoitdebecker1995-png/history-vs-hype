@@ -1,0 +1,1303 @@
+1
+01:00:00,533 --> 01:00:02,500
+<b>Guatemala reclama la mitad de este país.</b>
+
+2
+01:00:03,000 --> 01:00:05,800
+<b>Ahora mismo, en noviembre de 2025, la</b>
+
+3
+01:00:05,800 --> 01:00:06,633
+<b>Corte Internacional</b>
+
+4
+01:00:06,633 --> 01:00:08,533
+<b>de Justicia escucha los argumentos orales.</b>
+
+5
+01:00:08,933 --> 01:00:11,300
+<b>El fallo llega en 2027.</b>
+
+6
+01:00:11,733 --> 01:00:14,766
+<b>Analicé tres fallos fronterizos de la CIJ</b>
+
+7
+01:00:14,766 --> 01:00:15,833
+<b>para ver qué hace</b>
+
+8
+01:00:15,833 --> 01:00:17,666
+<b>realmente la corte cuando países</b>
+
+9
+01:00:17,666 --> 01:00:19,800
+<b>reclaman que tratados coloniales deben anularse.</b>
+
+10
+01:00:20,500 --> 01:00:21,500
+<b>El precedente apunta</b>
+
+11
+01:00:21,500 --> 01:00:23,233
+<b>hacia un resultado probable.</b>
+
+12
+01:00:23,533 --> 01:00:24,900
+<b>La CIJ probablemente</b>
+
+13
+01:00:24,900 --> 01:00:26,400
+<b>confirmará la frontera de Belice.</b>
+
+14
+01:00:27,366 --> 01:00:29,400
+<b>Pero el razonamiento legal importa, y</b>
+
+15
+01:00:29,400 --> 01:00:30,833
+<b>ni Guatemala ni</b>
+
+16
+01:00:30,833 --> 01:00:32,466
+<b>Belice lo ven claramente.</b>
+
+17
+01:00:33,166 --> 01:00:34,733
+<b>Déjame mostrarte los tres precedentes,</b>
+
+18
+01:00:35,033 --> 01:00:35,900
+<b>y luego el giro</b>
+
+19
+01:00:35,900 --> 01:00:37,500
+<b>histórico que hace que el</b>
+
+20
+01:00:37,500 --> 01:00:38,966
+<b>reclamo de Guatemala sea aún más débil.</b>
+
+21
+01:00:39,400 --> 01:00:40,433
+<b>La disputa se reduce</b>
+
+22
+01:00:40,433 --> 01:00:41,733
+<b>a una cláusula del tratado.</b>
+
+23
+01:00:42,233 --> 01:00:45,300
+<b>En 1859, Gran Bretaña y Guatemala firmaron el</b>
+
+24
+01:00:45,300 --> 01:00:46,533
+<b>Tratado Wyke-Aycinena.</b>
+
+25
+01:00:47,233 --> 01:00:49,466
+<b>El Artículo 1 estableció la frontera con</b>
+
+26
+01:00:49,466 --> 01:00:51,500
+<b>coordenadas específicas, ríos y</b>
+
+27
+01:00:51,500 --> 01:00:52,466
+<b>características geográficas.</b>
+
+28
+01:00:53,333 --> 01:00:55,300
+<b>El Artículo 7 decía que Gran Bretaña usaría</b>
+
+29
+01:00:55,300 --> 01:00:56,766
+<b>los mejores esfuerzos para</b>
+
+30
+01:00:56,766 --> 01:00:58,433
+<b>ayudar a construir una carretera desde</b>
+
+31
+01:00:58,433 --> 01:00:59,300
+<b>Ciudad de Guatemala al Atlántico.</b>
+
+32
+01:01:00,366 --> 01:01:01,500
+<b>Gran Bretaña nunca la construyó.</b>
+
+33
+01:01:02,033 --> 01:01:04,699
+<b>Guatemala presentó su memorial ante la CIJ en</b>
+
+34
+01:01:04,699 --> 01:01:06,800
+<b>diciembre de 2020, argumentando</b>
+
+35
+01:01:06,800 --> 01:01:09,500
+<b>que "sin carretera" el tratado queda</b>
+
+36
+01:01:09,500 --> 01:01:09,733
+<b>anulado.</b>
+
+37
+01:01:10,533 --> 01:01:12,500
+<b>Belice presentó un contra-memorial en junio</b>
+
+38
+01:01:12,500 --> 01:01:15,066
+<b>de 2022 que argumenta que la</b>
+
+39
+01:01:15,066 --> 01:01:16,133
+<b>cláusula de la carretera estaba</b>
+
+40
+01:01:16,133 --> 01:01:16,933
+<b>separada de la frontera.</b>
+
+41
+01:01:17,866 --> 01:01:19,800
+<b>Esto significa, según Belice, que una</b>
+
+42
+01:01:19,800 --> 01:01:21,000
+<b>violación del Artículo 7</b>
+
+43
+01:01:21,000 --> 01:01:23,000
+<b>no anula el Artículo 1.</b>
+
+44
+01:01:23,300 --> 01:01:25,066
+<b>La prueba legal viene de la Convención</b>
+
+45
+01:01:25,066 --> 01:01:27,033
+<b>de Viena sobre el Derecho de los Tratados.</b>
+
+46
+01:01:27,699 --> 01:01:28,500
+<b>Artículo 60.</b>
+
+47
+01:01:29,000 --> 01:01:30,666
+<b>Este es el libro de reglas del derecho internacional</b>
+
+48
+01:01:30,666 --> 01:01:31,933
+<b>para cuando un país puede</b>
+
+49
+01:01:31,933 --> 01:01:33,333
+<b>cancelar un tratado, porque</b>
+
+50
+01:01:33,333 --> 01:01:34,533
+<b>el otro lado lo rompió.</b>
+
+51
+01:01:35,133 --> 01:01:37,300
+<b>Una violación sustancial es una violación de una</b>
+
+52
+01:01:37,300 --> 01:01:39,500
+<b>disposición, esencial para el</b>
+
+53
+01:01:39,500 --> 01:01:40,833
+<b>cumplimiento del objeto</b>
+
+54
+01:01:40,833 --> 01:01:42,033
+<b>o propósito del tratado.</b>
+
+55
+01:01:43,133 --> 01:01:45,300
+<b>En otras palabras, ¿era la promesa tan</b>
+
+56
+01:01:45,300 --> 01:01:47,166
+<b>central al acuerdo que</b>
+
+57
+01:01:47,166 --> 01:01:48,400
+<b>romperla destruye todo</b>
+
+58
+01:01:48,400 --> 01:01:49,133
+<b>el argumento?</b>
+
+59
+01:01:50,099 --> 01:01:51,333
+<b>Entonces, ¿era esa carretera</b>
+
+60
+01:01:51,333 --> 01:01:53,033
+<b>esencial para el propósito del tratado?</b>
+
+61
+01:01:54,199 --> 01:01:56,599
+<b>Tres casos de la CIJ podrían darnos la respuesta.</b>
+
+62
+01:01:57,099 --> 01:01:59,633
+<b>Camerún v Nigeria 2002.</b>
+
+63
+01:02:00,300 --> 01:02:02,099
+<b>Nigeria había controlado la península de</b>
+
+64
+01:02:02,099 --> 01:02:03,800
+<b>Bakassi por décadas con</b>
+
+65
+01:02:03,800 --> 01:02:05,000
+<b>administración efectiva,</b>
+
+66
+01:02:05,833 --> 01:02:07,400
+<b>fuerzas de seguridad e infraestructura.</b>
+
+67
+01:02:08,466 --> 01:02:09,699
+<b>La península está en la</b>
+
+68
+01:02:09,699 --> 01:02:10,800
+<b>desembocadura del río Cross.</b>
+
+69
+01:02:11,233 --> 01:02:13,266
+<b>Una ubicación estratégica con ricos caladeros</b>
+
+70
+01:02:13,266 --> 01:02:15,500
+<b>de pesca y potenciales depósitos de petróleo.</b>
+
+71
+01:02:16,133 --> 01:02:18,133
+<b>El ejército nigeriano estaba estacionado allí</b>
+
+72
+01:02:18,133 --> 01:02:20,733
+<b>y sus civiles vivían allí.</b>
+
+73
+01:02:21,533 --> 01:02:23,666
+<b>Camerún invocó el tratado colonial, el</b>
+
+74
+01:02:23,666 --> 01:02:25,933
+<b>acuerdo anglo-alemán de 1913.</b>
+
+75
+01:02:26,766 --> 01:02:28,699
+<b>Ese tratado trazó la frontera entre</b>
+
+76
+01:02:28,699 --> 01:02:30,133
+<b>la Nigeria británica y</b>
+
+77
+01:02:30,133 --> 01:02:32,000
+<b>el Camerún alemán y ubicó a</b>
+
+78
+01:02:32,000 --> 01:02:34,099
+<b>Bakassi del lado camerunés.</b>
+
+79
+01:02:34,666 --> 01:02:36,733
+<b>La CIJ falló que el tratado colonial</b>
+
+80
+01:02:36,733 --> 01:02:38,433
+<b>superaba la posesión de Nigeria.</b>
+
+81
+01:02:39,266 --> 01:02:41,833
+<b>El principio, "Uti possidetis juris"</b>
+
+82
+01:02:42,300 --> 01:02:43,133
+<b>las fronteras coloniales</b>
+
+83
+01:02:43,133 --> 01:02:44,599
+<b>heredadas en la independencia</b>
+
+84
+01:02:44,633 --> 01:02:47,099
+<b>se convierten en fronteras internacionales permanentes.</b>
+
+85
+01:02:47,433 --> 01:02:49,099
+<b>Su propósito obvio es prevenir</b>
+
+86
+01:02:49,099 --> 01:02:51,266
+<b>luchas fratricidas provocadas por el</b>
+
+87
+01:02:51,266 --> 01:02:52,633
+<b>cuestionamiento de fronteras.</b>
+
+88
+01:02:53,266 --> 01:02:55,900
+<b>Traducción, la CIJ quiere prevenir</b>
+
+89
+01:02:55,900 --> 01:02:56,633
+<b>guerras entre</b>
+
+90
+01:02:56,633 --> 01:02:58,400
+<b>países vecinos peleando por</b>
+
+91
+01:02:58,400 --> 01:02:59,633
+<b>dónde deberían estar las fronteras.</b>
+
+92
+01:03:00,333 --> 01:03:02,533
+<b>Mantener las líneas coloniales estables para que las naciones</b>
+
+93
+01:03:02,533 --> 01:03:03,433
+<b>no se maten entre sí</b>
+
+94
+01:03:03,433 --> 01:03:04,599
+<b>por disputas fronterizas.</b>
+
+95
+01:03:05,533 --> 01:03:06,800
+<b>Nigeria perdió a pesar de</b>
+
+96
+01:03:06,800 --> 01:03:08,233
+<b>décadas de ocupación.</b>
+
+97
+01:03:08,900 --> 01:03:10,633
+<b>El título legal venció a la posesión.</b>
+
+98
+01:03:11,699 --> 01:03:14,133
+<b>Para Belice, esto corta por ambos lados.</b>
+
+99
+01:03:14,533 --> 01:03:16,533
+<b>Si el tratado de 1859 es válido,</b>
+
+100
+01:03:17,000 --> 01:03:18,366
+<b>Belice tiene el título legal.</b>
+
+101
+01:03:18,900 --> 01:03:21,300
+<b>Si el tratado es nulo, la posesión sola</b>
+
+102
+01:03:21,300 --> 01:03:22,566
+<b>podría no salvarlos.</b>
+
+103
+01:03:23,300 --> 01:03:24,733
+<b>Los tratados importan más que la ocupación.</b>
+
+104
+01:03:25,766 --> 01:03:28,400
+<b>El proyecto Gabčíkovo-Nagymaros, Hungría</b>
+
+105
+01:03:28,400 --> 01:03:30,566
+<b>contra Eslovaquia en 1997.</b>
+
+106
+01:03:31,133 --> 01:03:33,066
+<b>Este es el punto crucial para el</b>
+
+107
+01:03:33,066 --> 01:03:34,300
+<b>argumento de violación sustancial de Guatemala.</b>
+
+108
+01:03:35,300 --> 01:03:38,733
+<b>En 1977, Hungría y Eslovaquia, entonces ambos</b>
+
+109
+01:03:38,733 --> 01:03:39,333
+<b>bajo influencia soviética,</b>
+
+110
+01:03:39,333 --> 01:03:41,533
+<b>firmaron un tratado para</b>
+
+111
+01:03:41,533 --> 01:03:43,433
+<b>construir una represa conjunta masiva y un</b>
+
+112
+01:03:43,433 --> 01:03:44,699
+<b>proyecto hidroeléctrico</b>
+
+113
+01:03:44,699 --> 01:03:45,733
+<b>en el río Danubio.</b>
+
+114
+01:03:46,133 --> 01:03:47,699
+<b>Infraestructura multimillonaria,</b>
+
+115
+01:03:48,333 --> 01:03:50,433
+<b>esclusas, embalses y centrales eléctricas.</b>
+
+116
+01:03:51,199 --> 01:03:52,866
+<b>Cada país debía construir componentes específicos</b>
+
+117
+01:03:52,866 --> 01:03:54,433
+<b>en su territorio.</b>
+
+118
+01:03:55,300 --> 01:03:58,733
+<b>Para 1989, Hungría suspendió el trabajo, citando</b>
+
+119
+01:03:58,733 --> 01:04:00,000
+<b>preocupaciones ambientales.</b>
+
+120
+01:04:00,900 --> 01:04:03,633
+<b>Eslovaquia dijo "Bien, construiremos una</b>
+
+121
+01:04:03,633 --> 01:04:04,900
+<b>versión modificada nosotros mismos."</b>
+
+122
+01:04:05,333 --> 01:04:07,466
+<b>Y desvió el Danubio unilateralmente.</b>
+
+123
+01:04:08,233 --> 01:04:09,733
+<b>Ambos lados violaron el tratado.</b>
+
+124
+01:04:10,300 --> 01:04:11,400
+<b>Hungría no cumplió sus</b>
+
+125
+01:04:11,400 --> 01:04:12,533
+<b>obligaciones de construcción.</b>
+
+126
+01:04:13,333 --> 01:04:15,333
+<b>Eslovaquia violó el tratado al alterar</b>
+
+127
+01:04:15,333 --> 01:04:16,699
+<b>el proyecto sin consentimiento.</b>
+
+128
+01:04:17,366 --> 01:04:19,800
+<b>La CIJ falló que el tratado no debía</b>
+
+129
+01:04:19,800 --> 01:04:21,900
+<b>terminarse, leyendo del fallo.</b>
+
+130
+01:04:22,366 --> 01:04:24,133
+<b>La corte establecería un precedente con</b>
+
+131
+01:04:24,133 --> 01:04:26,033
+<b>implicaciones perturbadoras para las relaciones</b>
+
+132
+01:04:26,033 --> 01:04:27,000
+<b>de tratados si concluyera</b>
+
+133
+01:04:27,033 --> 01:04:29,300
+<b>que un tratado aplicado</b>
+
+134
+01:04:29,300 --> 01:04:30,933
+<b>entre estados, que las</b>
+
+135
+01:04:30,933 --> 01:04:31,900
+<b>partes han implementado</b>
+
+136
+01:04:31,900 --> 01:04:34,566
+<b>en medida considerable y a gran costo</b>
+
+137
+01:04:34,566 --> 01:04:35,366
+<b>durante un período de</b>
+
+138
+01:04:35,366 --> 01:04:37,233
+<b>años, podría dejarse de lado unilateralmente</b>
+
+139
+01:04:37,466 --> 01:04:39,833
+<b>por razones de</b>
+
+140
+01:04:39,833 --> 01:04:40,866
+<b>incumplimiento recíproco.</b>
+
+141
+01:04:41,533 --> 01:04:44,000
+<b>En términos más simples, si dejamos que los países</b>
+
+142
+01:04:44,000 --> 01:04:44,733
+<b>se alejen de</b>
+
+143
+01:04:44,733 --> 01:04:46,066
+<b>tratados en los que ya gastaron</b>
+
+144
+01:04:46,066 --> 01:04:48,400
+<b>miles de millones implementando, solo porque ambos</b>
+
+145
+01:04:48,400 --> 01:04:50,766
+<b>lados violaron partes, nadie</b>
+
+146
+01:04:50,766 --> 01:04:51,699
+<b>confiaría en acuerdos</b>
+
+147
+01:04:51,800 --> 01:04:52,666
+<b>internacionales nunca más.</b>
+
+148
+01:04:53,433 --> 01:04:55,400
+<b>La corte no destruirá la estabilidad de los tratados</b>
+
+149
+01:04:55,400 --> 01:04:56,800
+<b>por violaciones mutuas.</b>
+
+150
+01:04:57,433 --> 01:04:59,199
+<b>Incluso el colapso total de un</b>
+
+151
+01:04:59,199 --> 01:05:01,533
+<b>megaproyecto conjunto no terminó el tratado.</b>
+
+152
+01:05:02,133 --> 01:05:04,000
+<b>Si el fracaso total de un proyecto de represa</b>
+
+153
+01:05:04,000 --> 01:05:05,333
+<b>de miles de millones no fue una</b>
+
+154
+01:05:05,333 --> 01:05:07,233
+<b>violación sustancial, ¿qué posibilidad</b>
+
+155
+01:05:07,233 --> 01:05:09,133
+<b>tiene una promesa de carretera incumplida?</b>
+
+156
+01:05:09,599 --> 01:05:10,766
+<b>Templo de Preah Vihear,</b>
+
+157
+01:05:11,033 --> 01:05:13,699
+<b>Camboya v Tailandia, 1962</b>
+
+158
+01:05:14,599 --> 01:05:17,133
+<b>Francia y Siam, el antiguo nombre de Tailandia,</b>
+
+159
+01:05:17,533 --> 01:05:19,733
+<b>trazaron su frontera colonial en 1907.</b>
+
+160
+01:05:20,433 --> 01:05:22,333
+<b>Una comisión produjo mapas detallados</b>
+
+161
+01:05:22,333 --> 01:05:23,833
+<b>mostrando el templo de Preah Vihear</b>
+
+162
+01:05:23,833 --> 01:05:25,599
+<b>del lado camboyano.</b>
+
+163
+01:05:26,666 --> 01:05:27,533
+<b>Tailandia recibió esos</b>
+
+164
+01:05:27,533 --> 01:05:29,000
+<b>mapas y no objetó.</b>
+
+165
+01:05:29,766 --> 01:05:32,533
+<b>Durante 50 años, funcionarios tailandeses los usaron,</b>
+
+166
+01:05:32,733 --> 01:05:34,233
+<b>no los cuestionaron, e incluso</b>
+
+167
+01:05:34,233 --> 01:05:35,199
+<b>reconocieron la soberanía</b>
+
+168
+01:05:35,199 --> 01:05:36,199
+<b>camboyana sobre el</b>
+
+169
+01:05:36,199 --> 01:05:37,933
+<b>templo en intercambios diplomáticos.</b>
+
+170
+01:05:38,633 --> 01:05:40,400
+<b>Luego, en 1954,</b>
+
+171
+01:05:41,033 --> 01:05:42,666
+<b>Tailandia ocupó el templo.</b>
+
+172
+01:05:43,800 --> 01:05:44,199
+<b>Camboya demandó.</b>
+
+173
+01:05:45,199 --> 01:05:47,566
+<b>El argumento de Tailandia: los mapas estaban equivocados,</b>
+
+174
+01:05:47,900 --> 01:05:48,599
+<b>el tratado decía que la</b>
+
+175
+01:05:48,599 --> 01:05:49,633
+<b>frontera sigue la línea de</b>
+
+176
+01:05:49,933 --> 01:05:51,333
+<b>división de aguas y eso pondría</b>
+
+177
+01:05:51,333 --> 01:05:52,633
+<b>el templo de nuestro lado.</b>
+
+178
+01:05:53,633 --> 01:05:55,533
+<b>La CIJ falló contra Tailandia.</b>
+
+179
+01:05:56,400 --> 01:05:57,466
+<b>Aquí está la línea clave.</b>
+
+180
+01:05:58,433 --> 01:06:00,300
+<b>Tailandia, por su conducta, está impedida</b>
+
+181
+01:06:00,300 --> 01:06:01,733
+<b>de afirmar que</b>
+
+182
+01:06:01,733 --> 01:06:03,800
+<b>no aceptó la línea fronteriza</b>
+
+183
+01:06:03,800 --> 01:06:05,099
+<b>mostrada en el mapa.</b>
+
+184
+01:06:05,633 --> 01:06:08,000
+<b>En otras palabras, no puedes aceptar la</b>
+
+185
+01:06:08,000 --> 01:06:10,000
+<b>frontera durante 50 años, y luego</b>
+
+186
+01:06:10,000 --> 01:06:11,800
+<b>repentinamente reclamar que estaba equivocada</b>
+
+187
+01:06:11,800 --> 01:06:12,699
+<b>todo el tiempo.</b>
+
+188
+01:06:13,500 --> 01:06:15,333
+<b>Este es el principio de estoppel.</b>
+
+189
+01:06:15,833 --> 01:06:17,333
+<b>Tu propia conducta puede impedirte</b>
+
+190
+01:06:17,333 --> 01:06:18,800
+<b>hacer un reclamo legal.</b>
+
+191
+01:06:19,699 --> 01:06:22,533
+<b>El paralelo con Belice: Guatemala marcó</b>
+
+192
+01:06:22,533 --> 01:06:25,900
+<b>puntos fronterizos desde 1859 hasta 1939.</b>
+
+193
+01:06:26,366 --> 01:06:27,666
+<b>Cooperaron en la administración</b>
+
+194
+01:06:27,666 --> 01:06:29,966
+<b>fronteriza, reconocieron a la</b>
+
+195
+01:06:29,966 --> 01:06:31,699
+<b>Honduras Británica en mapas oficiales,</b>
+
+196
+01:06:32,000 --> 01:06:34,199
+<b>y participaron en relaciones transfronterizas.</b>
+
+197
+01:06:35,133 --> 01:06:37,233
+<b>80 años de aceptar esa frontera.</b>
+
+198
+01:06:37,666 --> 01:06:40,133
+<b>Si los 50 años de aceptación de Tailandia</b>
+
+199
+01:06:40,133 --> 01:06:41,300
+<b>bloquearon su reclamo,</b>
+
+200
+01:06:42,033 --> 01:06:43,866
+<b>los 80 años de Guatemala son aún</b>
+
+201
+01:06:43,866 --> 01:06:45,500
+<b>más perjudiciales para su caso.</b>
+
+202
+01:06:46,400 --> 01:06:48,266
+<b>Una cosa más: la CIJ no sigue</b>
+
+203
+01:06:48,266 --> 01:06:50,633
+<b>precedente estricto como las cortes de derecho común.</b>
+
+204
+01:06:50,966 --> 01:06:53,633
+<b>Cada caso se decide según hechos únicos, pero</b>
+
+205
+01:06:53,633 --> 01:06:54,833
+<b>estos tres fallos</b>
+
+206
+01:06:54,833 --> 01:06:56,466
+<b>muestran cómo la corte aplica</b>
+
+207
+01:06:56,466 --> 01:06:58,733
+<b>las pruebas de violación sustancial y trata</b>
+
+208
+01:06:58,733 --> 01:07:00,166
+<b>los tratados de fronteras coloniales.</b>
+
+209
+01:07:01,333 --> 01:07:03,466
+<b>Artículo 38 del estatuto de la CIJ.</b>
+
+210
+01:07:04,400 --> 01:07:05,733
+<b>La corte aplica convenciones</b>
+
+211
+01:07:05,733 --> 01:07:08,333
+<b>internacionales primero, luego derecho consuetudinario,</b>
+
+212
+01:07:08,866 --> 01:07:09,833
+<b>luego principios generales.</b>
+
+213
+01:07:10,566 --> 01:07:12,599
+<b>No equidad, no preferencia</b>
+
+214
+01:07:12,599 --> 01:07:15,366
+<b>política, solo derecho puro.</b>
+
+215
+01:07:16,066 --> 01:07:18,599
+<b>En 1859, Gran Bretaña controlaba lo que ahora es</b>
+
+216
+01:07:18,599 --> 01:07:20,599
+<b>Belice, llamado Honduras Británica.</b>
+
+217
+01:07:21,633 --> 01:07:23,433
+<b>Guatemala se había separado de España en</b>
+
+218
+01:07:23,433 --> 01:07:25,333
+<b>1821 y reclamó el</b>
+
+219
+01:07:25,333 --> 01:07:26,699
+<b>territorio basándose en la</b>
+
+220
+01:07:26,766 --> 01:07:28,233
+<b>soberanía colonial española heredada.</b>
+
+221
+01:07:28,699 --> 01:07:30,233
+<b>Los dos países firmaron el Tratado</b>
+
+222
+01:07:30,233 --> 01:07:32,099
+<b>Wyke-Aycinena para resolverlo.</b>
+
+223
+01:07:32,800 --> 01:07:35,000
+<b>El Artículo 1 creó la frontera, el Artículo 7</b>
+
+224
+01:07:35,000 --> 01:07:37,533
+<b>dijo que Gran Bretaña usaría "mejores esfuerzos" para</b>
+
+225
+01:07:37,533 --> 01:07:38,300
+<b>construir esa carretera.</b>
+
+226
+01:07:39,133 --> 01:07:40,599
+<b>Gran Bretaña rechazó las demandas de carretera de Guatemala,</b>
+
+227
+01:07:40,599 --> 01:07:42,366
+<b>diciendo que "mejores</b>
+
+228
+01:07:42,366 --> 01:07:44,599
+<b>esfuerzos" no era una obligación vinculante.</b>
+
+229
+01:07:45,800 --> 01:07:47,833
+<b>Guatemala protestó, pero esto es lo que hicieron</b>
+
+230
+01:07:47,833 --> 01:07:49,333
+<b>durante los siguientes 80 años.</b>
+
+231
+01:07:49,900 --> 01:07:52,366
+<b>Aceptaron la frontera en la práctica.</b>
+
+232
+01:07:52,933 --> 01:07:56,000
+<b>En 1931, funcionarios guatemaltecos físicamente</b>
+
+233
+01:07:56,000 --> 01:07:57,199
+<b>salieron y ayudaron</b>
+
+234
+01:07:57,199 --> 01:07:58,733
+<b>a marcar puntos fronterizos en el</b>
+
+235
+01:07:58,733 --> 01:08:00,000
+<b>terreno como las Cataratas</b>
+
+236
+01:08:00,000 --> 01:08:01,733
+<b>Garbutt y las Cataratas Gracias a Dios.</b>
+
+237
+01:08:02,199 --> 01:08:06,133
+<b>Desde 1859 hasta 1939, Guatemala cooperó</b>
+
+238
+01:08:06,133 --> 01:08:06,933
+<b>en marcar esa</b>
+
+239
+01:08:06,933 --> 01:08:08,699
+<b>frontera, reconoció a la</b>
+
+240
+01:08:08,699 --> 01:08:11,666
+<b>Honduras Británica en mapas oficiales y participó en</b>
+
+241
+01:08:11,666 --> 01:08:12,599
+<b>administración fronteriza.</b>
+
+242
+01:08:13,500 --> 01:08:15,300
+<b>Durante 80 años trataron</b>
+
+243
+01:08:15,300 --> 01:08:16,733
+<b>esa frontera como legítima.</b>
+
+244
+01:08:17,133 --> 01:08:19,033
+<b>Si tu gobierno cooperó en marcar</b>
+
+245
+01:08:19,033 --> 01:08:20,066
+<b>puntos fronterizos,</b>
+
+246
+01:08:20,399 --> 01:08:21,833
+<b>reconoció el territorio en mapas oficiales</b>
+
+247
+01:08:21,833 --> 01:08:24,333
+<b>y administró la frontera durante 80</b>
+
+248
+01:08:24,333 --> 01:08:26,199
+<b>años, ¿cómo argumentas en</b>
+
+249
+01:08:26,199 --> 01:08:28,166
+<b>2020 que el tratado que creó</b>
+
+250
+01:08:28,166 --> 01:08:30,133
+<b>esa frontera fue inválido desde el principio?</b>
+
+251
+01:08:30,533 --> 01:08:31,366
+<b>Ese es el principio de</b>
+
+252
+01:08:31,366 --> 01:08:33,133
+<b>estoppel del caso del Templo.</b>
+
+253
+01:08:33,833 --> 01:08:36,100
+<b>Y los 80 años de Guatemala hacen su</b>
+
+254
+01:08:36,100 --> 01:08:38,433
+<b>posición aún más débil que los 50 de Tailandia.</b>
+
+255
+01:08:39,100 --> 01:08:40,899
+<b>Entonces, ¿qué hará probablemente la CIJ?</b>
+
+256
+01:08:41,766 --> 01:08:43,566
+<b>Basándose en los tres precedentes, aquí están</b>
+
+257
+01:08:43,566 --> 01:08:45,533
+<b>los resultados clasificados por probabilidad.</b>
+
+258
+01:08:46,433 --> 01:08:47,100
+<b>Resultado 1.</b>
+
+259
+01:08:47,699 --> 01:08:49,866
+<b>Afirmación total del territorio de Belice.</b>
+
+260
+01:08:50,633 --> 01:08:52,899
+<b>Basándose en patrones de la CIJ en numerosos</b>
+
+261
+01:08:52,899 --> 01:08:54,800
+<b>casos territoriales, este</b>
+
+262
+01:08:54,800 --> 01:08:56,100
+<b>es el resultado más probable.</b>
+
+263
+01:08:56,699 --> 01:08:58,033
+<b>Estoy citando el principio de</b>
+
+264
+01:08:58,033 --> 01:09:00,533
+<b>Libia-Chad de un caso de 1994.</b>
+
+265
+01:09:00,933 --> 01:09:03,766
+<b>Una vez acordada, la frontera permanece porque cualquier</b>
+
+266
+01:09:03,766 --> 01:09:05,666
+<b>otro enfoque viciaría el</b>
+
+267
+01:09:05,666 --> 01:09:06,733
+<b>principio fundamental</b>
+
+268
+01:09:06,899 --> 01:09:08,166
+<b>de la estabilidad de las fronteras.</b>
+
+269
+01:09:09,199 --> 01:09:10,899
+<b>El argumento de violación sustancial de Guatemala</b>
+
+270
+01:09:10,899 --> 01:09:13,333
+<b>enfrenta la barrera de Gabčíkovo-Nagymaros.</b>
+
+271
+01:09:13,966 --> 01:09:17,066
+<b>El problema del estoppel es severo y el Uti</b>
+
+272
+01:09:17,066 --> 01:09:18,300
+<b>possidetis juris favorece</b>
+
+273
+01:09:18,300 --> 01:09:20,133
+<b>confirmar fronteras coloniales.</b>
+
+274
+01:09:20,600 --> 01:09:21,233
+<b>Resultado 2.</b>
+
+275
+01:09:22,033 --> 01:09:23,000
+<b>Declaración de compensación.</b>
+
+276
+01:09:23,699 --> 01:09:25,699
+<b>La CIJ podría fallar que Gran Bretaña violó</b>
+
+277
+01:09:25,699 --> 01:09:28,866
+<b>el Artículo 7, pero la frontera permanece con</b>
+
+278
+01:09:28,866 --> 01:09:29,933
+<b>posible compensación</b>
+
+279
+01:09:30,100 --> 01:09:31,333
+<b>a Guatemala por la</b>
+
+280
+01:09:31,333 --> 01:09:32,600
+<b>promesa de carretera incumplida.</b>
+
+281
+01:09:33,133 --> 01:09:36,133
+<b>El valor estimado en términos de 1859 sería</b>
+
+282
+01:09:36,133 --> 01:09:38,000
+<b>significativo en la moneda actual.</b>
+
+283
+01:09:38,633 --> 01:09:40,699
+<b>Ese reclamo sería contra el Reino Unido como el</b>
+
+284
+01:09:40,699 --> 01:09:41,699
+<b>estado predecesor,</b>
+
+285
+01:09:42,233 --> 01:09:43,733
+<b>no necesariamente Belice.</b>
+
+286
+01:09:44,366 --> 01:09:44,833
+<b>Resultado 3.</b>
+
+287
+01:09:46,000 --> 01:09:47,100
+<b>Transferencia territorial a Guatemala.</b>
+
+288
+01:09:48,333 --> 01:09:50,600
+<b>Esto requeriría que la corte revoque el</b>
+
+289
+01:09:50,600 --> 01:09:52,233
+<b>Uti possidetis juris de</b>
+
+290
+01:09:52,233 --> 01:09:54,600
+<b>estabilidad fronteriza y el estándar de violación</b>
+
+291
+01:09:54,600 --> 01:09:56,800
+<b>sustancial de Gabčíkovo-Nagymaros.</b>
+
+292
+01:09:57,166 --> 01:09:59,333
+<b>Guatemala ha tenido cero control efectivo</b>
+
+293
+01:09:59,333 --> 01:10:00,600
+<b>del territorio reclamado.</b>
+
+294
+01:10:01,366 --> 01:10:02,300
+<b>Basándose en precedente,</b>
+
+295
+01:10:03,033 --> 01:10:04,199
+<b>esto es altamente improbable.</b>
+
+296
+01:10:05,000 --> 01:10:07,100
+<b>Pero la CIJ decide cada</b>
+
+297
+01:10:07,100 --> 01:10:08,666
+<b>caso según sus hechos específicos.</b>
+
+298
+01:10:09,300 --> 01:10:10,866
+<b>Estos patrones no son garantías.</b>
+
+299
+01:10:11,666 --> 01:10:12,566
+<b>Así que déjame traerlo</b>
+
+300
+01:10:12,566 --> 01:10:13,633
+<b>de vuelta a donde empezamos.</b>
+
+301
+01:10:14,366 --> 01:10:16,733
+<b>Cuando Guatemala asume que la CIJ</b>
+
+302
+01:10:16,733 --> 01:10:17,433
+<b>restaurará su</b>
+
+303
+01:10:17,433 --> 01:10:19,600
+<b>soberanía, están ignorando tres</b>
+
+304
+01:10:19,600 --> 01:10:21,666
+<b>casos donde los tratados coloniales se mantuvieron,</b>
+
+305
+01:10:22,033 --> 01:10:24,366
+<b>a pesar de reclamos de violación, y</b>
+
+306
+01:10:24,366 --> 01:10:26,433
+<b>80 años de su propia conducta</b>
+
+307
+01:10:26,433 --> 01:10:27,666
+<b>aceptando esa frontera.</b>
+
+308
+01:10:28,199 --> 01:10:30,066
+<b>Cuando Belice asume que su frontera es</b>
+
+309
+01:10:30,066 --> 01:10:31,433
+<b>completamente segura, están</b>
+
+310
+01:10:31,433 --> 01:10:33,233
+<b>ignorando que la CIJ ha ofrecido</b>
+
+311
+01:10:33,300 --> 01:10:35,833
+<b>compensación en decisiones divididas antes.</b>
+
+312
+01:10:36,266 --> 01:10:38,766
+<b>La evidencia muestra que la CIJ aplica derecho,</b>
+
+313
+01:10:39,333 --> 01:10:40,033
+<b>la prueba de violación sustancial</b>
+
+314
+01:10:40,033 --> 01:10:42,000
+<b>de la Convención de Viena, el Uti</b>
+
+315
+01:10:42,033 --> 01:10:44,166
+<b>possidetis juris y la estabilidad de tratados.</b>
+
+316
+01:10:44,933 --> 01:10:46,899
+<b>Ambas narrativas borran cómo las cortes</b>
+
+317
+01:10:46,899 --> 01:10:48,333
+<b>internacionales realmente funcionan.</b>
+
+318
+01:10:49,199 --> 01:10:52,033
+<b>Y cuando este fallo salga en 2027,</b>
+
+319
+01:10:52,633 --> 01:10:53,800
+<b>miles de personas mayas</b>
+
+320
+01:10:53,800 --> 01:10:55,533
+<b>todavía no habrán tenido voz</b>
+
+321
+01:10:55,533 --> 01:10:57,699
+<b>en un proceso que decide si su</b>
+
+322
+01:10:57,699 --> 01:10:58,933
+<b>tierra natal se divide.</b>
+
+323
+01:11:00,500 --> 01:11:01,600
+<b>Suscríbete para más análisis</b>
+
+324
+01:11:01,600 --> 01:11:03,566
+<b>basado en evidencia y déjame saber</b>
+
+325
+01:11:03,566 --> 01:11:04,666
+<b>qué tema debería abordar</b>
+
+326
+01:11:04,800 --> 01:11:05,066
+<b>próximamente.</b>

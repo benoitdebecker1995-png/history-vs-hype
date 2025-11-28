@@ -1,0 +1,88 @@
+# VidIQ Thumbnail Concept Prompt - Crusades Fact-Check Video
+
+## Video Context
+- **Title:** Fact-Checking the "Awesome Crusades" Narrative
+- **Topic:** Debunking viral video claiming Crusades were defensive and justified
+- **Angle:** Primary sources show the massacres, sacks, and atrocities the viral video omits
+- **Modern hook:** Pete Hegseth's "Deus Vult" tattoo + 5M view viral video
+- **Target audience:** Males 25-44, intelligent, interested in history
+
+## Thumbnail Requirements
+
+**Style:** Documentary, evidence-based, professional (NOT clickbait)
+
+**Key Elements to Include:**
+1. **Medieval primary source imagery** - Show actual crusader chronicles or illuminated manuscripts
+2. **Visual contrast** - "What they say" vs. "What crusaders wrote"
+3. **Pete Hegseth reference** (optional) - His "Deus Vult" tattoo is the modern hook
+4. **Text overlay** - Clear, readable, documentary tone
+
+## Thumbnail Concept Options
+
+### Option 1: Split Screen Contrast
+- **Left side:** "CRUSADES WERE AWESOME" (quote from viral video)
+- **Right side:** Medieval manuscript showing Jerusalem massacre scene
+- **Center text:** "What the Sources Actually Say"
+- **Color palette:** Muted medieval colors, parchment tones
+
+### Option 2: Primary Source Focus
+- **Background:** Fulcher of Chartres manuscript page (blurred)
+- **Foreground text:** "10,000 Beheaded" / "They Did Not Spare Women and Children"
+- **Attribution:** "- Fulcher of Chartres, Christian Crusader"
+- **Bottom text:** "The Sources They Won't Show You"
+
+### Option 3: Modern-Medieval Connection
+- **Top half:** Pete Hegseth's "Deus Vult" tattoo (cropped from news photo)
+- **Bottom half:** Medieval illustration of Jerusalem sack
+- **Center text:** "What 'Deus Vult' Actually Meant"
+- **Documentary framing:** Evidence-focused, not sensationalist
+
+### Option 4: Chronicle Quote Emphasis
+- **Background:** Medieval battle scene (illuminated manuscript)
+- **Large quote overlay:** "Men rode in blood up to their knees"
+- **Attribution:** "Raymond d'Aguilers, Crusader Eyewitness"
+- **Bottom text:** "Fact-Checking the Crusades"
+
+## Text Guidelines
+
+**DO:**
+- Use serif fonts (medieval/historical feel)
+- Keep text readable at mobile size
+- Quote actual primary sources
+- Use documentary language
+
+**DON'T:**
+- Use clickbait phrases ("You Won't BELIEVE...")
+- Make it look sensationalist
+- Hide what the video is about
+- Use excessive color saturation or effects
+
+## Color Palette Suggestions
+- Parchment beige (#F4E8D0)
+- Medieval red (#8B0000)
+- Dark brown text (#3E2723)
+- Gold accents (#D4AF37)
+- Avoid bright, modern colors
+
+## Image Sources to Consider
+- Medieval manuscript illuminations (public domain)
+- Historical maps of Jerusalem
+- Crusader chronicle pages
+- Byzantine/Islamic art (to show both sides)
+
+## Final Thumbnail Should Communicate:
+1. This is a fact-check video
+2. Using primary historical sources
+3. Challenging a popular narrative
+4. Professional, documentary approach
+5. Not taking political sides, just examining evidence
+
+---
+
+**Prompt for VidIQ AI Thumbnail Generator:**
+
+"Create a documentary-style YouTube thumbnail for a historical fact-check video. Split-screen design: Left side shows 'CRUSADES WERE AWESOME' in bold medieval text, right side shows a medieval manuscript illustration of the 1099 Jerusalem massacre. Center overlay text: 'What the Sources Actually Say' in serif font. Color palette: parchment beige background, dark brown text, medieval red accents. Professional, evidence-based aesthetic (NOT clickbait). Target audience: educated history enthusiasts 25-44. Include subtle visual reference to crusader chronicles."
+
+**Alternative prompt:**
+
+"Documentary thumbnail featuring a medieval manuscript quote: 'Men rode in blood up to their knees - Raymond d'Aguilers, Crusader Eyewitness' overlaid on blurred crusader chronicle page. Bottom text: 'Fact-Checking the Crusades' in serif font. Muted historical color palette: parchment, sepia, burgundy. Professional educational style, readable at small size, evidence-focused not sensationalist."

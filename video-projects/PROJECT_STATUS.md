@@ -1,7 +1,7 @@
 # Video Projects Status Tracker
 
-**Last Updated:** 2025-11-12
-**Active Projects:** 3
+**Last Updated:** 2025-01-21
+**Active Projects:** 6
 **Ready to Film:** 1
 **Total Subscribers:** 169
 **Target:** Consistent quality over quantity
@@ -77,7 +77,27 @@
 
 ---
 
-### 4. Nick Fuentes Fact-Check (2 Claims) 🆕
+### 4. Crusades Fact-Check (Pax Dei) 🎬
+**Location:** `_IN_PRODUCTION/4-crusades-fact-check-2025/`
+**Status:** 📝 FINALIZING - Ready for filming soon
+**Topic:** Fact-checking modern crusades claims (Pete Hegseth connection identified)
+
+**Completion Status:**
+- [x] Research complete
+- [x] Script drafted
+- [x] B-roll checklist created
+- [x] Modern hook potential: Pete Hegseth (Defense Secretary, "Deus Vult")
+- [ ] Final script polish
+- [ ] Film
+
+**Next Action:** Complete final edits, then film
+**Expected Performance:** 800-1,200 views (if Hegseth hook added)
+**Priority:** HIGH (filming next)
+**Notes:** Could pivot to include Hegseth's "crusades were defensive" claims for stronger modern hook
+
+---
+
+### 5. Nick Fuentes Fact-Check (2 Claims)
 **Location:** `_IN_PRODUCTION/3-fuentes-fact-check-2025/`
 **Status:** 📚 PRELIMINARY RESEARCH COMPLETE
 **Topic:** Debunking Holocaust denial math + January 6/Founding Fathers comparison
@@ -106,30 +126,105 @@
 
 ---
 
+### 6. Netanyahu "Redrawn the Map"
+**Location:** `_IN_PRODUCTION/5-netanyahu-map-2025/`
+**Status:** ⏸️ DEPRIORITIZED - Feels too modern geopolitics, not enough history
+**Topic:** Fact-checking Netanyahu's claim that Israel has "redrawn the map of the Middle East"
+
+**Completion Status:**
+- [x] Research complete (Sykes-Picot → present)
+- [x] Script draft V1 (1,126 words, 10:15 runtime)
+- [x] B-roll checklist (30-35 assets identified)
+- [x] Fact-check verification spreadsheet (57 claims tracked)
+- [x] YouTube metadata prepared
+- [x] NotebookLM source list and prompts created
+- [ ] Verification (38% complete, need 90%+)
+- [ ] B-roll acquisition
+- [ ] Script refinement with verified facts
+- [ ] Film
+
+**Decision:** User correctly identified this feels like modern geopolitics analysis rather than historical myth-busting. Research is solid but doesn't match "History vs Hype" DNA. May revisit later but focusing on better-fit content now.
+
+**Next Action:** Consider repurposing research for Lebanon borders video (better historical focus)
+**Expected Performance:** 600-1,000 views (territorial dispute + political figure)
+**Priority:** LOW (deprioritized)
+**Demonetization Risk:** 20-30% (Low-Medium)
+**Notes:** Strong research foundation but wrong tone for channel. Lebanon borders is better angle for this region.
+
+---
+
+### 7. Bir Tawil - Only Unclaimed Land on Earth 🆕🔥💎
+**Location:** `_IN_PRODUCTION/6-bir-tawil-2025/`
+**Status:** 📚 RESEARCH COMPLETE - Breakout video candidate
+**Topic:** The 800-square-mile desert between Egypt and Sudan that neither country claims
+
+**Completion Status:**
+- [x] Research complete (1899/1902 British colonial borders)
+- [x] Project brief created (viral potential analysis)
+- [x] Research summary (comprehensive historical context)
+- [ ] VidIQ validation (test titles, search volume)
+- [ ] Primary source verification (treaties, maps)
+- [ ] Script writing (target: 6-8 min, 800-900 words)
+- [ ] B-roll acquisition (maps essential)
+- [ ] Film
+
+**The Hook:** Only habitable land on Earth with no owner. Why? British drew TWO different borders in 1899 and 1902. Both Egypt and Sudan reject Bir Tawil because claiming it costs them the valuable Hala'ib Triangle on the Red Sea.
+
+**Why This Could Go Viral:**
+- Unique story nobody owns on YouTube
+- Extreme shareability ("land nobody owns" = instant conversation)
+- Curiosity-driven, algorithm-friendly
+- Human interest angle (Virginia dad claims it to make daughter a princess, 2014)
+- Perfect channel fit (colonial border fuckup)
+- High search volume (15K/month "Bir Tawil", 50K/month "unclaimed land")
+- Near-zero demonetization risk
+
+**The Paradox:**
+- 1899: British set border at 22nd parallel (straight line)
+- 1902: Redraw based on tribal land use (irregular line)
+- Egypt claims 1899 line → gets Hala'ib, rejects Bir Tawil
+- Sudan claims 1902 line → gets Hala'ib, rejects Bir Tawil
+- Both want Hala'ib (10x bigger, Red Sea access, manganese, oil)
+- Neither claims Bir Tawil (landlocked desert, no value)
+
+**Next Action:** VidIQ title testing, then script development
+**Expected Performance:** 3,000-8,000 views (conservative: 3-5K, breakout: 10-25K+)
+**Priority:** 🔥 HIGH - Film after crusades, potential breakout video
+**Demonetization Risk:** 5% (VERY LOW - no controversy, family-friendly story)
+**Strategic Value:** Evergreen content, strong SEO, content cluster starter (British colonial borders series)
+**Notes:** This checks every box for viral potential. Unique, shareable, perfect channel fit, low risk, high reward.
+
+---
+
 ## 📊 PROJECT PIPELINE
 
 ### Quick Status Overview:
 | Project | Phase | Priority | Filming Target | Expected Views |
 |---------|-------|----------|----------------|----------------|
 | Sykes-Picot | Ready to Film | 🔥 HIGH | This week | 800-1.2K |
+| Crusades (Pax Dei) | Finalizing | 🔥 HIGH | Next | 800-1.2K |
+| Bir Tawil | Research Done | 🔥💎 BREAKOUT | 2-3 weeks | 3-8K (viral) |
 | Vance Part 2 | On Hold | Medium | TBD | 500-900 |
-| Heritage/Protocols | Research Done | Medium | 2-3 weeks | 2.8-4.2K |
-| Fuentes Fact-Check | Research Phase | Medium-High | 4-5 weeks | 800-1.5K |
+| Netanyahu Map | Deprioritized | LOW | TBD | 600-1K |
+| Heritage/Protocols | Research Done | Medium | 4-5 weeks | 2.8-4.2K |
+| Fuentes Fact-Check | Research Phase | Medium-High | 5-6 weeks | 800-1.5K |
 
 ---
 
 ## 🎯 NEXT STEPS (Prioritized)
 
 ### This Week:
-1. **Sykes-Picot:** Download final B-roll item (1893 Ottoman map)
-2. **Sykes-Picot:** Film when ready
-3. **Sykes-Picot:** Edit and publish
-4. **Decision:** Vance Part 2 timing - film now or wait?
+1. **Crusades:** Final polish and film
+2. **Bir Tawil:** VidIQ title testing and validation
+3. **Bir Tawil:** Download 1899/1902 treaties and maps
+4. **Bir Tawil:** Begin script development (target 6-8 min)
 
 ### Next 2-3 Weeks:
-1. **Heritage/Protocols:** Begin scripting
-2. **Sykes-Picot:** Analyze published performance
-3. **New topic research:** Identify next territorial dispute or fact-check opportunity
+1. **Crusades:** Edit and publish
+2. **Bir Tawil:** Complete script and fact-checking (90%+ target)
+3. **Bir Tawil:** Source B-roll materials (maps essential, Heaton news coverage)
+4. **Bir Tawil:** Film and edit (potential breakout video)
+5. **Crusades:** Analyze published performance
 
 ### Long-Term (1-2 Months):
 1. Build pipeline of 2-3 ready-to-film scripts
@@ -208,16 +303,17 @@
 ✅ B-roll planning comprehensive
 
 ### Current Issues to Address:
-⚠️ Need larger buffer of ready-to-film content (only 1 currently)
+⚠️ Netanyahu verification needed (38% complete, need 90%+)
 ⚠️ Vance Part 2 timing decision needed
 ⚠️ Heritage/Protocols demonetization risk requires strategy
+✅ Buffer improving (2 videos in active production)
 
 ### Action Items to Improve Pipeline:
-1. Identify 2-3 new topics for research
-2. Use `/find-topic` to research trending opportunities
-3. Build templates for faster project setup
-4. Streamline fact-checking process
-5. Create reusable B-roll library
+1. ✅ Netanyahu video researched (border disputes series)
+2. 🔄 Lebanon borders identified as follow-up (content cluster strategy)
+3. 🔄 Pete Hegseth crusades connection identified (modern hook)
+4. Build templates for faster project setup
+5. Create reusable B-roll library (maps especially)
 
 ---
 
@@ -320,10 +416,10 @@
    - **Decision needed:** Before scripting
 
 3. **Pipeline Development:**
-   - What 2-3 topics to research next?
-   - Focus on proven formats or experiment?
-   - Timely fact-checks vs evergreen education?
-   - **Decision needed:** End of month
+   - ✅ Netanyahu borders researched (proven territorial dispute format)
+   - Next: Lebanon borders (French mandate, Hezbollah conflict)
+   - Consider: Pete Hegseth crusades pivot for current video
+   - **Decision:** Focus on Middle East borders cluster (Sykes-Picot → Netanyahu → Lebanon)
 
 ---
 

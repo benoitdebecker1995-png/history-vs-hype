@@ -4,6 +4,18 @@ description: Conduct comprehensive preliminary research on a topic using free so
 
 I'll do a deep-dive on your topic using only freely available sources - before you invest in expensive books.
 
+## This Is Phase 1 Only
+
+**Phase 1 (This command):** Preliminary internet research (free sources)
+- Identifies claims needing verification
+- Notes which Wikipedia sources are pre-2010 (flag for Phase 2 check)
+- Maps the research landscape
+
+**Phase 2 (NotebookLM):** Academic verification with university library sources
+- Modern consensus scholarship (2010-present)
+- Exact page numbers for citations
+- Counter-evidence research
+
 ## What You'll Get
 
 A comprehensive research report including:
@@ -29,9 +41,13 @@ A comprehensive research report including:
 **Deep analysis:**
 - Overview & context (30 min equivalent)
 - Primary source hunting (45 min equivalent)
-- Academic consensus (30 min equivalent)
-- Counter-argument research (20 min equivalent)
+- Academic consensus (30 min equivalent) - **Note: flag pre-2010 sources for Phase 2 verification**
+- Counter-argument research (20 min equivalent) - **Extract strongest academic rebuttals, not strawmen**
 - Modern connection research (15 min equivalent)
+
+**Important Notes:**
+- Free sources may lack page numbers (NotebookLM Phase 2 will provide precise citations for YouTube)
+- Wikipedia bibliography sources should note publication dates (pre-2010 = "needs Phase 2 verification against recent scholarship")
 
 ## What I Need From You
 

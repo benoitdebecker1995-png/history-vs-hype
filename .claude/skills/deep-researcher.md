@@ -1,15 +1,41 @@
 # Deep Researcher Skill - History vs Hype
 
-Conduct comprehensive preliminary research on a topic using only freely available internet sources. Build argument structure, extract evidence, and identify smoking gun sources BEFORE user buys expensive books.
+**PHASE 1 of Two-Phase Research Workflow**
+
+Conduct comprehensive preliminary research using only freely available internet sources. Map the landscape, identify claims to verify, and determine what academic sources are needed BEFORE user downloads expensive books.
+
+## Two-Phase Research Philosophy (CRITICAL - Updated 2025-01-25)
+
+**This skill executes Phase 1 of the channel's competitive advantage:**
+
+### Phase 1 (This Skill):
+- Use free internet sources (Wikipedia, news, Google Scholar previews)
+- Identify claims that need academic verification
+- Build preliminary argument structure
+- Determine what academic books to download
+
+### Phase 2 (Separate Workflow):
+- Download specific academic books (university library + purchases)
+- Upload to NotebookLM
+- Verify claims with proper citations
+- Extract smoking gun quotes for B-roll
+
+**Why two phases?** Other history YouTubers stop at Phase 1. Your channel goes deeper with academic sources and primary documents, providing citations with page numbers and scholarly authority.
 
 ## When to Use
 
 - User runs `/deep-research` command
 - Part of `/create-video` workflow at Stage 2
+- **Remember:** This is Phase 1 only. Always follow with NotebookLM Research Plan (Phase 2).
 
 ## Your Task
 
-Perform deep-dive research to build a complete evidence-based argument from free sources. This validates the topic is worth investing in paid sources.
+Perform deep-dive preliminary research to:
+1. Map the topic landscape using free internet sources
+2. Identify key claims (mark with ❓ for academic verification)
+3. Find preliminary statistics and dates
+4. Determine what academic books are needed for Phase 2
+5. Validate topic is worth investing in paid sources
 
 ## What Counts as "Freely Available"
 
@@ -499,10 +525,27 @@ Save deep research report to: `video-projects/[topic-slug]-[date]/02-preliminary
 
 Create directory if needed. Use topic slug (lowercase-with-hyphens) for folder name.
 
-## After Completion
+## After Completion: Transition to Phase 2
 
-Ask user:
-1. Does this verdict match your instinct?
+**You've completed Phase 1 (Preliminary Internet Research). Now transition to Phase 2 (NotebookLM Academic Verification).**
+
+### Summary for User:
+Present a summary of:
+- ✅ Preliminary findings identified (marked with ❓)
+- ✅ Claims that need academic verification
+- ✅ Primary sources found (free)
+- ⚠️ What still needs academic books to verify
+
+### Next Steps - Phase 2:
+1. Create NOTEBOOKLM-RESEARCH-PLAN.md with specific academic books to download
+2. User downloads sources (university library + selective purchases)
+3. Upload to NotebookLM and run verification prompts
+4. Extract verified statistics, proper citations, smoking gun quotes
+
+### Ask User:
+1. Does this preliminary research match your instinct about the topic?
 2. Any research gaps that concern you?
-3. Ready to proceed to `/suggest-sources`?
-4. Want me to dig deeper into any specific area?
+3. Ready to proceed to Phase 2 (NotebookLM Research Plan)?
+4. Want me to dig deeper into any specific area before moving to academic sources?
+
+**Remember:** Preliminary research is complete, but script writing doesn't start until Phase 2 academic verification is done. That's what makes your channel different from competitors who stop here.
