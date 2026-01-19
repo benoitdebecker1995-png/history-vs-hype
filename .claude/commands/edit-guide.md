@@ -28,6 +28,25 @@ You are creating an editing guide for filmed A-roll footage. Generate a comprehe
 **Date Created:** [date]
 ```
 
+**Runtime Estimation:**
+
+*Script estimate calculation:*
+- Count words in FINAL-SCRIPT (exclude stage directions, headers)
+- Divide by 150 (average speaking pace for this channel)
+- Result = approximate minutes
+
+*SRT actual runtime:*
+- Check last timestamp in SRT file
+- This is the real recorded duration
+
+*Delta interpretation:*
+| Delta | Status | Action |
+|-------|--------|--------|
+| **+3 min or more** | Needs trimming | Use Priority 1 cuts first, then Priority 2 |
+| **+1-3 min** | Light trimming | Priority 1 cuts should be sufficient |
+| **On target (+/- 1 min)** | Good | Focus on pacing, not cutting |
+| **-1 min or more** | Too short | May be rushed - check pacing, add breathing room |
+
 ### 2. CUT CANDIDATES (BEFORE shot breakdown)
 
 **This section is MANDATORY.** Identify sections that can be trimmed if runtime needs reduction.
