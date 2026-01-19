@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace Optimization
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2025-01-19
+**Last Updated:** 2026-01-19
 
 ## Project Reference
 
@@ -11,20 +11,21 @@
 
 ## Current Position
 
-**Phase:** Not started
-**Plan:** None active
-**Status:** Roadmap created, awaiting Phase 1 planning
+**Phase:** 0.1 - Edit Guide Optimization (URGENT)
+**Plan:** 01 of 1 COMPLETE
+**Status:** Phase 0.1 complete
 
 **Progress:**
 ```
-[                    ] 0% (0/6 phases complete)
+[██                  ] 10% (0.1/7 phases complete)
 ```
 
 ## Phase Status
 
 | Phase | Name | Status | Plans |
 |-------|------|--------|-------|
-| 1 | File Cleanup | Pending | - |
+| 0.1 | Edit Guide Optimization | **COMPLETE** | 1/1 |
+| 1 | File Cleanup | Pending | 4 |
 | 2 | Style Consolidation | Pending | - |
 | 3 | Research Structure | Pending | - |
 | 4 | Script Management | Pending | - |
@@ -35,10 +36,10 @@
 
 | Metric | Value |
 |--------|-------|
-| Phases completed | 0 |
-| Plans completed | 0 |
-| Tasks completed | 0 |
-| Requirements delivered | 0/15 |
+| Phases completed | 0.1 |
+| Plans completed | 1 |
+| Tasks completed | 3 |
+| Requirements delivered | 3/15 |
 
 ## Accumulated Context
 
@@ -49,6 +50,13 @@
 | Cleanup before new features | Can't organize cluttered workspace | 1 |
 | Style before scripts | Scriptwriter needs authoritative reference | 2 |
 | Git for version tracking | Tracks history without file proliferation | 4 |
+| Words/150 for runtime estimation | Matches observed speaking pace for this channel | 0.1 |
+| Delta interpretation table | Makes runtime comparison immediately actionable | 0.1 |
+
+### Roadmap Evolution
+
+- Phase 0.1 inserted before Phase 1: Edit Guide Optimization (URGENT - Thursday deadline for Iran Part 1)
+- Phase 0.1 COMPLETED: 2026-01-19
 
 ### Discovered TODOs
 
@@ -66,15 +74,15 @@ None identified yet.
 
 ### Last Session
 
-- **Date:** 2025-01-19
-- **Work:** Project initialization and roadmap creation
-- **Stopped at:** Roadmap complete, ready for Phase 1 planning
+- **Date:** 2026-01-19
+- **Work:** Completed Phase 0.1 Plan 01 - edit-guide optimization with cut detection heuristics and runtime estimation
+- **Stopped at:** Phase 0.1 complete, ready to test with Iran Part 1 video
 
 ### Next Session Should
 
-1. Review ROADMAP.md Phase 1 requirements
-2. Run `/gsd:plan-phase 1` to create detailed plan
-3. Begin File Cleanup work
+1. Generate editing guide for Iran Part 1 with the updated /edit-guide command
+2. Verify new format produces all expected sections (cut candidates, pacing analysis, runtime comparison)
+3. Continue to Phase 1 (File Cleanup) if Phase 0.1 output is satisfactory
 
 ### Important Context
 
