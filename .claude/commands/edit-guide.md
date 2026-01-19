@@ -68,6 +68,37 @@ You are creating an editing guide for filmed A-roll footage. Generate a comprehe
 - **Condense:** Combine two sections saying similar things
 - **Move to B-roll:** Cover with visuals while shortening VO
 
+**How to Identify Cut Candidates:**
+
+**Priority 1 (Easy Cuts):**
+- Repeated explanations (saying the same thing twice in different words)
+- Filler phrases ("So basically...", "What I mean is...", "In other words...")
+- Unnecessary context that doesn't advance the argument
+- Tangents that don't connect back to main thesis
+- Pauses longer than 2 seconds
+- Hedging language that weakens claims without adding nuance
+
+**Priority 2 (Moderate Cuts):**
+- Examples beyond the first two (diminishing returns on proof)
+- Historical context that could be summarized in one sentence
+- Quotes that could be shortened without losing core meaning
+- Secondary evidence after the main proof is established
+- Transitions that over-explain the connection
+
+**Priority 3 (Hard Cuts):**
+- Sections that feel like "darlings" (author loves them, audience doesn't need them)
+- Secondary arguments that compete with rather than support the main thesis
+- Evidence stacking beyond the proof point (when 3 examples exist but 1 suffices)
+- Interesting tangents that belong in a separate video
+
+**DO NOT CUT:**
+- Opening hook (first 60 seconds) - critical for retention
+- Thesis statements and reframes - structural anchors
+- Primary source evidence shown on screen - channel differentiator
+- Pattern interrupts every 90-120 seconds - retention tool
+- Payoff moments that reward viewer patience
+- Call to action - conversion opportunity
+
 ### 3. PACING & RETENTION RISK ANALYSIS
 ```markdown
 ## PACING ANALYSIS
