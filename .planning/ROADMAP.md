@@ -22,6 +22,14 @@ This roadmap transforms a content production workspace that grew organically int
 - CLNP-02: Consolidate duplicate files into single sources of truth
 - CLNP-03: Establish and document file naming conventions
 
+**Plans:** 4 plans
+
+Plans:
+- [ ] 01-01-PLAN.md - Delete confirmed outdated files and review candidates
+- [ ] 01-02-PLAN.md - Consolidate duplicate files in transcripts/ and research/
+- [ ] 01-03-PLAN.md - Relocate misplaced files and update references
+- [ ] 01-04-PLAN.md - Fix naming convention violations and document standards
+
 **Success Criteria:**
 1. User can find any file in under 30 seconds using documented naming patterns
 2. No duplicate files exist for the same purpose (one source of truth per concept)
@@ -126,7 +134,7 @@ This roadmap transforms a content production workspace that grew organically int
 
 | Phase | Status | Requirements | Mapped |
 |-------|--------|--------------|--------|
-| 1 - File Cleanup | Pending | CLNP-01, CLNP-02, CLNP-03 | 3 |
+| 1 - File Cleanup | Planned | CLNP-01, CLNP-02, CLNP-03 | 3 |
 | 2 - Style Consolidation | Pending | STYL-01, STYL-02, STYL-03 | 3 |
 | 3 - Research Structure | Pending | RSCH-01, RSCH-02, RSCH-03 | 3 |
 | 4 - Script Management | Pending | SCRP-01, SCRP-02 | 2 |
@@ -158,3 +166,4 @@ Phase 1 ---> Phase 6 (Competitive Intel)
 ---
 
 *Roadmap created: 2025-01-19*
+*Phase 1 planned: 2025-01-19*
