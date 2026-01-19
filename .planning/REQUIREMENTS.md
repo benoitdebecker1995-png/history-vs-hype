@@ -62,27 +62,27 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CLNP-01 | TBD | Pending |
-| CLNP-02 | TBD | Pending |
-| CLNP-03 | TBD | Pending |
-| SCRP-01 | TBD | Pending |
-| SCRP-02 | TBD | Pending |
-| RSCH-01 | TBD | Pending |
-| RSCH-02 | TBD | Pending |
-| RSCH-03 | TBD | Pending |
-| STYL-01 | TBD | Pending |
-| STYL-02 | TBD | Pending |
-| STYL-03 | TBD | Pending |
-| WKFL-01 | TBD | Pending |
-| WKFL-02 | TBD | Pending |
-| COMP-01 | TBD | Pending |
-| COMP-02 | TBD | Pending |
+| CLNP-01 | Phase 1 | Pending |
+| CLNP-02 | Phase 1 | Pending |
+| CLNP-03 | Phase 1 | Pending |
+| SCRP-01 | Phase 4 | Pending |
+| SCRP-02 | Phase 4 | Pending |
+| RSCH-01 | Phase 3 | Pending |
+| RSCH-02 | Phase 3 | Pending |
+| RSCH-03 | Phase 3 | Pending |
+| STYL-01 | Phase 2 | Pending |
+| STYL-02 | Phase 2 | Pending |
+| STYL-03 | Phase 2 | Pending |
+| WKFL-01 | Phase 5 | Pending |
+| WKFL-02 | Phase 5 | Pending |
+| COMP-01 | Phase 6 | Pending |
+| COMP-02 | Phase 6 | Pending |
 
 **Coverage:**
 - v1 requirements: 15 total
-- Mapped to phases: 0
-- Unmapped: 15 (pending roadmap creation)
+- Mapped to phases: 15
+- Unmapped: 0
 
 ---
 *Requirements defined: 2025-01-19*
-*Last updated: 2025-01-19 after initial definition*
+*Last updated: 2025-01-19 after roadmap creation*
