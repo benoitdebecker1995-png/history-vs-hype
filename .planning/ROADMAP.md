@@ -11,6 +11,33 @@ This roadmap transforms a content production workspace that grew organically int
 
 ---
 
+## Phase 0.1: Edit Guide Optimization (INSERTED - URGENT)
+
+**Goal:** Improve edit-guide command with cut candidates, pacing analysis, and runtime comparison — ready for Iran Part 1 video shipping Thursday
+
+**Dependencies:** None (urgent production need)
+
+**Requirements:**
+- EDIT-01: Add CUT CANDIDATES section to identify trimmable content with priority levels
+- EDIT-02: Add pacing/retention risk analysis to flag dropout zones
+- EDIT-03: Add runtime comparison (script estimate vs actual SRT)
+- EDIT-04: Test improved guide against Iran Part 1 script
+
+**Plans:** 2 plans
+
+Plans:
+- [ ] 0.1-01-PLAN.md — Finalize edit-guide.md with clean structure, cut detection heuristics, runtime estimation
+- [ ] 0.1-02-PLAN.md — Test against Iran Part 1 (requires SRT file)
+
+**Success Criteria:**
+1. Running /edit-guide on Iran SRT produces actionable cut recommendations
+2. Pacing analysis identifies sections at high dropout risk
+3. Guide helps editor trim 29-min recording to ~25-min target
+
+**Deadline:** Thursday (Iran Part 1 release)
+
+---
+
 ## Phase 1: File Cleanup
 
 **Goal:** Workspace contains only current, relevant files with clear organization
@@ -134,6 +161,7 @@ Plans:
 
 | Phase | Status | Requirements | Mapped |
 |-------|--------|--------------|--------|
+| 0.1 - Edit Guide Optimization | **PLANNED** | EDIT-01, EDIT-02, EDIT-03, EDIT-04 | 4 |
 | 1 - File Cleanup | Planned | CLNP-01, CLNP-02, CLNP-03 | 3 |
 | 2 - Style Consolidation | Pending | STYL-01, STYL-02, STYL-03 | 3 |
 | 3 - Research Structure | Pending | RSCH-01, RSCH-02, RSCH-03 | 3 |
@@ -148,6 +176,9 @@ Plans:
 ## Dependency Graph
 
 ```
+Phase 0.1 (Edit Guide - URGENT)
+    |
+    v
 Phase 1 (Cleanup)
     |
     +---> Phase 2 (Style)
@@ -166,4 +197,5 @@ Phase 1 ---> Phase 6 (Competitive Intel)
 ---
 
 *Roadmap created: 2025-01-19*
+*Phase 0.1 planned: 2025-01-19*
 *Phase 1 planned: 2025-01-19*
