@@ -144,7 +144,7 @@
 
 37
 01:01:04,366 --> 01:01:06,866
-<b>for 33 skeletal actions.</b>
+<b>for 33 escalatory actions.</b>
 
 38
 01:01:07,433 --> 01:01:07,699
@@ -356,7 +356,7 @@
 
 90
 01:02:42,599 --> 01:02:45,199
-<b>The Franko-Saimi Treaty of 1904</b>
+<b>The Franco-Siamese Treaty of 1904</b>
 
 91
 01:02:45,199 --> 01:02:47,900
@@ -368,11 +368,11 @@
 
 93
 01:02:49,566 --> 01:02:51,133
-<b>in the Dangrag Mountains.</b>
+<b>in the Dangrek Mountains.</b>
 
 94
 01:02:51,133 --> 01:02:51,166
-<b>in the Dangrag Mountains.</b>
+<b>in the Dangrek Mountains.</b>
 
 95
 01:02:52,099 --> 01:02:54,866
@@ -396,7 +396,7 @@
 
 100
 01:03:01,933 --> 01:03:03,666
-<b>The temple of Preah Viher</b>
+<b>The temple of Preah Vihear</b>
 
 101
 01:03:03,666 --> 01:03:05,699
@@ -424,7 +424,7 @@
 
 107
 01:03:14,166 --> 01:03:17,566
-<b>In 1907, a joint French-Saimi's</b>
+<b>In 1907, a joint French-Siamese</b>
 
 108
 01:03:17,566 --> 01:03:18,266
