@@ -1,0 +1,102 @@
+FORMAT TEMPLATE RESEARCH SESSION
+=================================
+Session Start: 2026-01-03
+Goal: Identify underserved content formats/templates that make channel stand out
+
+RESEARCH QUESTION:
+What repeatable content formats/series structures are underserved in educational YouTube history/geopolitics space?
+
+FOCUS AREAS:
+1. Series formats (recurring structures)
+2. Presentation styles (how to show information)
+3. Unique angles (what competitors DON'T do)
+4. Systematized approaches (templates that scale)
+
+RESEARCH COMPLETE
+=================
+
+COMPETITOR ANALYSIS FINDINGS:
+
+Successful Formats Identified:
+✅ Shaun: Sentence-by-sentence forensic analysis (1-3 hour videos)
+✅ Atun-Shei Films: Character debate format (Billy Yank vs Johnny Reb) with primary sources
+✅ OverSimplified: Stick-figure animation, satirical storytelling
+✅ Historia Civilis: Minimalist visuals, deep intellectual commentary
+✅ Veritasium: Detective story structure (wrong assumptions → real answer)
+✅ Timeline: Hour-long mini-documentaries
+✅ H.I.C.C. Structure: Hook, Introduction, Content, Conclusion
+
+CRITICAL GAPS IDENTIFIED (What NO ONE Does Systematically):
+
+❌ Side-by-side document comparison (show TWO sources simultaneously)
+❌ "Both extremes wrong" as recurring series format
+❌ Forensic treaty/legal document line-by-line breakdown
+❌ "The Map They Ignored" pattern (alternative borders from real documents)
+❌ Comparative timeline (same date, different theaters)
+
+5 SIGNATURE FORMAT TEMPLATES DESIGNED:
+
+1. THE DOCUMENT SHOWDOWN
+   - Side-by-side source comparison
+   - Split screen: Document A (left) vs Document B (right)
+   - Highlight contradictions in real-time
+   - 10-12 min format
+   - Example: Confederate Constitution vs Cornerstone Speech
+
+2. BOTH EXTREMES ARE WRONG (Series)
+   - Systematic myth-busting format
+   - Act 1: False binary
+   - Act 2: Debunk Extreme A
+   - Act 3: Debunk Extreme B
+   - Act 4: Actual truth from primary sources
+   - 9-11 min format
+   - 15 episode ideas identified
+
+3. TREATY AUTOPSY
+   - Forensic legal document line-by-line
+   - Read treaty on screen, every word
+   - Color-code key phrases (yellow), ambiguities (red)
+   - Map visuals for each article
+   - 12-15 min format
+   - Example: Belize-Honduras 1930 Exchange of Notes
+
+4. THE MAP THEY IGNORED
+   - Alternative historical borders from real documents
+   - Show current borders vs proposed alternatives
+   - MUST have documentary evidence
+   - Side-by-side comparison
+   - 10-12 min format
+   - Example: King-Crane Commission 1919 Middle East map
+
+5. SAME DAY, DIFFERENT WAR
+   - Comparative timeline analysis
+   - Three theaters on same date
+   - Synchronized storytelling
+   - Shows resource allocation context
+   - 8-10 min format
+   - Example: June 6, 1944 across all WWII theaters
+
+VALIDATION AGAINST CHANNEL DNA:
+✅ All formats emphasize PRIMARY SOURCE DISPLAY
+✅ All use forensic/documentary tone
+✅ All target educated, intellectually curious audience
+✅ All avoid partisan framing
+✅ All scalable (10-50+ episodes each)
+
+RECOMMENDED IMPLEMENTATION:
+Phase 1: Launch "Both Extremes Are Wrong" series (highest scalability)
+Phase 2: Add "Document Showdown" as second series
+Phase 3: "Treaty Autopsy" for ICJ cases
+Phase 4: "Map They Ignored" for special events
+Phase 5: "Same Day Different War" for WWII quarterly
+
+COMPETITIVE ADVANTAGE:
+"We show you what the documents ACTUALLY say, not what people CLAIM they say."
+
+NO major competitor does systematic primary source display across multiple format templates.
+
+FILES CREATED:
+- FORMAT-TEMPLATES-FINAL.md (complete implementation guide)
+- format-research-progress.txt (this file)
+
+SESSION COMPLETE: 2026-01-03

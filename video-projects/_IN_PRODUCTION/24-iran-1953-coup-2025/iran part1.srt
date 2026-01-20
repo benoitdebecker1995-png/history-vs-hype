@@ -1,0 +1,2528 @@
+1
+01:00:00,566 --> 01:00:02,766
+<b>This document created one of the first</b>
+
+2
+01:00:02,766 --> 01:00:04,833
+<b>constitutional democracies in Asia.</b>
+
+3
+01:00:05,766 --> 01:00:07,466
+<b>December 30th 1906.</b>
+
+4
+01:00:08,199 --> 01:00:09,333
+<b>The Shas signed it and</b>
+
+5
+01:00:09,333 --> 01:00:11,366
+<b>then died five days later.</b>
+
+6
+01:00:11,900 --> 01:00:13,533
+<b>But the Constitution survived.</b>
+
+7
+01:00:14,533 --> 01:00:16,500
+<b>Iran had an elected parliament before</b>
+
+8
+01:00:16,500 --> 01:00:17,733
+<b>most of the Middle East.</b>
+
+9
+01:00:18,066 --> 01:00:19,266
+<b>Before the Russian Revolution.</b>
+
+10
+01:00:19,966 --> 01:00:20,699
+<b>Before the Ottoman</b>
+
+11
+01:00:20,699 --> 01:00:22,033
+<b>Constitution was restored.</b>
+
+12
+01:00:22,599 --> 01:00:25,099
+<b>And then foreign powers destroyed it.</b>
+
+13
+01:00:25,599 --> 01:00:25,800
+<b>Twice.</b>
+
+14
+01:00:26,833 --> 01:00:28,333
+<b>Right now Iranians are</b>
+
+15
+01:00:28,333 --> 01:00:28,966
+<b>in the streets again.</b>
+
+16
+01:00:29,033 --> 01:00:32,333
+<b>Same demands. Same pattern.</b>
+
+17
+01:00:32,733 --> 01:00:35,433
+<b>And most people have no idea this fight</b>
+
+18
+01:00:35,433 --> 01:00:37,733
+<b>started 120 years ago.</b>
+
+19
+01:00:38,433 --> 01:00:39,566
+<b>If you ask online about</b>
+
+20
+01:00:39,566 --> 01:00:43,133
+<b>the situation in Iran.</b>
+
+21
+01:00:43,633 --> 01:00:44,633
+<b>You'll get two answers.</b>
+
+22
+01:00:45,533 --> 01:00:47,599
+<b>One side says it's America's fault.</b>
+
+23
+01:00:48,400 --> 01:00:49,633
+<b>The 1953 coup</b>
+
+24
+01:00:49,633 --> 01:00:51,233
+<b>destroyed Iranian democracy.</b>
+
+25
+01:00:51,833 --> 01:00:53,633
+<b>Everything since then is blowback.</b>
+
+26
+01:00:54,033 --> 01:00:55,966
+<b>The other side says Iran is just</b>
+
+27
+01:00:55,966 --> 01:00:57,166
+<b>culturally authoritarian.</b>
+
+28
+01:00:58,033 --> 01:00:59,533
+<b>Nothing will change until they</b>
+
+29
+01:00:59,533 --> 01:01:00,733
+<b>have their own enlightenment.</b>
+
+30
+01:01:01,566 --> 01:01:02,900
+<b>So I did some digging.</b>
+
+31
+01:01:03,300 --> 01:01:04,833
+<b>I read some books about the topic and</b>
+
+32
+01:01:04,833 --> 01:01:06,833
+<b>then went to the primary sources.</b>
+
+33
+01:01:07,466 --> 01:01:09,833
+<b>The truth is both narratives are wrong.</b>
+
+34
+01:01:10,233 --> 01:01:12,066
+<b>And they're wrong because</b>
+
+35
+01:01:12,066 --> 01:01:13,433
+<b>they start in their own place.</b>
+
+36
+01:01:13,933 --> 01:01:16,066
+<b>Everyone talks about 1953.</b>
+
+37
+01:01:16,733 --> 01:01:19,099
+<b>The CIA coup. That's the story.</b>
+
+38
+01:01:19,766 --> 01:01:22,099
+<b>But 1953 wasn't the beginning.</b>
+
+39
+01:01:22,633 --> 01:01:24,099
+<b>It was a repetition.</b>
+
+40
+01:01:24,633 --> 01:01:25,966
+<b>Let's start with 1906.</b>
+
+41
+01:01:27,000 --> 01:01:28,366
+<b>The pattern starts there.</b>
+
+42
+01:01:28,833 --> 01:01:29,633
+<b>Iranians build a</b>
+
+43
+01:01:29,633 --> 01:01:30,900
+<b>constitutional democracy.</b>
+
+44
+01:01:31,466 --> 01:01:32,966
+<b>Foreign powers found it inconvenient.</b>
+
+45
+01:01:33,566 --> 01:01:34,900
+<b>These foreign powers allied</b>
+
+46
+01:01:34,900 --> 01:01:36,500
+<b>with domestic authoritarians.</b>
+
+47
+01:01:36,966 --> 01:01:38,900
+<b>And this led to the destruction of the</b>
+
+48
+01:01:38,900 --> 01:01:39,866
+<b>constitutional government.</b>
+
+49
+01:01:40,566 --> 01:01:43,066
+<b>1953 was the second time that happened.</b>
+
+50
+01:01:43,633 --> 01:01:44,266
+<b>Not the first.</b>
+
+51
+01:01:44,733 --> 01:01:47,133
+<b>And understanding the first time explains</b>
+
+52
+01:01:47,133 --> 01:01:48,533
+<b>why the second time worked.</b>
+
+53
+01:01:48,933 --> 01:01:50,766
+<b>And why the trauma runs so deep.</b>
+
+54
+01:01:51,233 --> 01:01:52,466
+<b>December 1905.</b>
+
+55
+01:01:53,333 --> 01:01:53,566
+<b>Tehran.</b>
+
+56
+01:01:54,300 --> 01:01:56,466
+<b>The governor ordered several sugar</b>
+
+57
+01:01:56,466 --> 01:01:58,699
+<b>merchants beaten with the bastinado.</b>
+
+58
+01:01:59,166 --> 01:02:01,266
+<b>That's a punishment where they whipped</b>
+
+59
+01:02:01,266 --> 01:02:02,466
+<b>the soles of your feet.</b>
+
+60
+01:02:03,433 --> 01:02:05,900
+<b>Because they refused to lower prices</b>
+
+61
+01:02:05,900 --> 01:02:07,433
+<b>during an economic crisis.</b>
+
+62
+01:02:08,433 --> 01:02:09,433
+<b>This seems like a small</b>
+
+63
+01:02:09,433 --> 01:02:11,433
+<b>thing. A local dispute.</b>
+
+64
+01:02:12,033 --> 01:02:14,566
+<b>But the sources reveal why it exploded.</b>
+
+65
+01:02:15,099 --> 01:02:16,333
+<b>At this time Iran was</b>
+
+66
+01:02:16,333 --> 01:02:17,666
+<b>ruled by the Qajar dynasty.</b>
+
+67
+01:02:18,266 --> 01:02:19,433
+<b>A royal family that had</b>
+
+68
+01:02:19,433 --> 01:02:21,533
+<b>been in power since 1789.</b>
+
+69
+01:02:22,466 --> 01:02:23,900
+<b>And the Qajars had a problem.</b>
+
+70
+01:02:24,333 --> 01:02:25,000
+<b>They were broke.</b>
+
+71
+01:02:25,400 --> 01:02:27,266
+<b>The revolution's long-term causes were</b>
+
+72
+01:02:27,266 --> 01:02:28,866
+<b>rooted in the 19th century.</b>
+
+73
+01:02:29,400 --> 01:02:31,066
+<b>Its short-term ones were</b>
+
+74
+01:02:31,066 --> 01:02:33,633
+<b>triggered in 1904 and 1905.</b>
+
+75
+01:02:34,266 --> 01:02:36,533
+<b>By an economic crisis brought about by</b>
+
+76
+01:02:36,533 --> 01:02:37,666
+<b>government bankruptcy</b>
+
+77
+01:02:37,666 --> 01:02:39,166
+<b>and spiraling inflation.</b>
+
+78
+01:02:40,000 --> 01:02:42,233
+<b>For decades the Qajars had been selling</b>
+
+79
+01:02:42,233 --> 01:02:44,533
+<b>off pieces of Iran to foreign powers.</b>
+
+80
+01:02:45,233 --> 01:02:46,533
+<b>Telegraph rights, banking</b>
+
+81
+01:02:46,533 --> 01:02:49,366
+<b>rights, tobacco rights, oil rights.</b>
+
+82
+01:02:50,099 --> 01:02:52,566
+<b>Each sale made the Shah more dependent on</b>
+
+83
+01:02:52,566 --> 01:02:54,133
+<b>foreigners and less</b>
+
+84
+01:02:54,133 --> 01:02:55,466
+<b>responsive to Iranians.</b>
+
+85
+01:02:56,199 --> 01:02:57,633
+<b>So when the governor beat those</b>
+
+86
+01:02:57,633 --> 01:02:59,233
+<b>merchants, he wasn't just</b>
+
+87
+01:02:59,233 --> 01:03:00,766
+<b>enforcing price controls.</b>
+
+88
+01:03:01,300 --> 01:03:03,933
+<b>He was defending a system that had sold</b>
+
+89
+01:03:03,933 --> 01:03:05,666
+<b>the country piece by piece.</b>
+
+90
+01:03:06,133 --> 01:03:07,733
+<b>While ordinary people starved.</b>
+
+91
+01:03:08,133 --> 01:03:08,733
+<b>And that's when</b>
+
+92
+01:03:08,733 --> 01:03:10,466
+<b>something unprecedented happened.</b>
+
+93
+01:03:10,900 --> 01:03:15,033
+<b>The merchants took bast, sanctuary, first</b>
+
+94
+01:03:15,033 --> 01:03:17,066
+<b>in mosques, then in the</b>
+
+95
+01:03:17,066 --> 01:03:18,400
+<b>garden of the British embassy.</b>
+
+96
+01:03:19,000 --> 01:03:20,366
+<b>What makes this different from other</b>
+
+97
+01:03:20,366 --> 01:03:22,933
+<b>Middle Eastern protests of that era is</b>
+
+98
+01:03:22,933 --> 01:03:24,099
+<b>the direction it went.</b>
+
+99
+01:03:24,533 --> 01:03:26,199
+<b>While in Egypt the British were</b>
+
+100
+01:03:26,199 --> 01:03:28,566
+<b>dissolving parliaments, in Iran</b>
+
+101
+01:03:28,566 --> 01:03:30,333
+<b>protesters were demanding one.</b>
+
+102
+01:03:30,900 --> 01:03:33,366
+<b>And using British territory to do it.</b>
+
+103
+01:03:33,366 --> 01:03:36,033
+<b>While in the Ottoman Empire the 1876</b>
+
+104
+01:03:36,033 --> 01:03:37,033
+<b>constitution had been</b>
+
+105
+01:03:37,033 --> 01:03:38,933
+<b>granted from above by the Sultan.</b>
+
+106
+01:03:39,566 --> 01:03:41,233
+<b>In Iran the constitution was being</b>
+
+107
+01:03:41,233 --> 01:03:42,366
+<b>demanded from below.</b>
+
+108
+01:03:43,066 --> 01:03:46,066
+<b>By merchants, intellectuals and dissident</b>
+
+109
+01:03:46,066 --> 01:03:47,500
+<b>clerics working together.</b>
+
+110
+01:03:48,033 --> 01:03:52,099
+<b>By August 1906 there were 14,000 people</b>
+
+111
+01:03:52,099 --> 01:03:54,033
+<b>camped in the British Legation Garden.</b>
+
+112
+01:03:54,266 --> 01:03:55,666
+<b>The British counted them.</b>
+
+113
+01:03:55,666 --> 01:03:57,933
+<b>Their report states their numbers</b>
+
+114
+01:03:57,933 --> 01:04:00,000
+<b>gradually increased and soon there were</b>
+
+115
+01:04:00,000 --> 01:04:02,500
+<b>14,000 persons in the Legation Garden.</b>
+
+116
+01:04:02,866 --> 01:04:06,533
+<b>14,000? Not a metaphor, an actual count.</b>
+
+117
+01:04:06,866 --> 01:04:09,433
+<b>And what they demanded was a Majlis, a</b>
+
+118
+01:04:09,433 --> 01:04:10,633
+<b>parliament and</b>
+
+119
+01:04:10,633 --> 01:04:12,699
+<b>constitutional limits on the Shah's power.</b>
+
+120
+01:04:13,266 --> 01:04:13,733
+<b>They won.</b>
+
+121
+01:04:14,400 --> 01:04:16,333
+<b>On October 7th 1906</b>
+
+122
+01:04:16,333 --> 01:04:18,433
+<b>the first Majlis opened.</b>
+
+123
+01:04:18,966 --> 01:04:21,033
+<b>On December 30th the Shah</b>
+
+124
+01:04:21,033 --> 01:04:22,066
+<b>signed the constitution.</b>
+
+125
+01:04:22,533 --> 01:04:24,433
+<b>But this wasn't just a symbolic document.</b>
+
+126
+01:04:24,833 --> 01:04:25,533
+<b>It was an operational</b>
+
+127
+01:04:25,533 --> 01:04:27,633
+<b>manual for limiting royal power.</b>
+
+128
+01:04:28,133 --> 01:04:30,599
+<b>The Majlis, elected representatives from</b>
+
+129
+01:04:30,599 --> 01:04:33,699
+<b>across Iran, had to approve all budgets,</b>
+
+130
+01:04:34,566 --> 01:04:36,933
+<b>treaties, loans and concessions.</b>
+
+131
+01:04:37,666 --> 01:04:38,433
+<b>They could question</b>
+
+132
+01:04:38,433 --> 01:04:40,333
+<b>ministers and force them to resign.</b>
+
+133
+01:04:41,033 --> 01:04:42,966
+<b>They even controlled the court budget.</b>
+
+134
+01:04:43,000 --> 01:04:44,966
+<b>The Shah couldn't spend without</b>
+
+135
+01:04:44,966 --> 01:04:46,300
+<b>parliamentary approval.</b>
+
+136
+01:04:46,866 --> 01:04:48,833
+<b>The Majlis was designed to be the central</b>
+
+137
+01:04:48,833 --> 01:04:51,466
+<b>piece of the new constitution, described</b>
+
+138
+01:04:51,466 --> 01:04:52,833
+<b>as the representative</b>
+
+139
+01:04:52,833 --> 01:04:54,233
+<b>of the whole people.</b>
+
+140
+01:04:54,633 --> 01:04:58,366
+<b>It had final say over all laws, decrees,</b>
+
+141
+01:04:58,666 --> 01:05:01,433
+<b>budgets, treaties, loans, monopolies and</b>
+
+142
+01:05:01,433 --> 01:05:03,066
+<b>concessions and even</b>
+
+143
+01:05:03,066 --> 01:05:04,433
+<b>controlled the court budget.</b>
+
+144
+01:05:04,800 --> 01:05:06,900
+<b>The Shah couldn't sell another concession</b>
+
+145
+01:05:06,900 --> 01:05:08,300
+<b>without Majlis' approval.</b>
+
+146
+01:05:08,733 --> 01:05:09,733
+<b>He couldn't take another</b>
+
+147
+01:05:09,733 --> 01:05:10,966
+<b>loan without Majlis' approval.</b>
+
+148
+01:05:12,000 --> 01:05:14,666
+<b>Every mechanism the Qajars had used to</b>
+
+149
+01:05:14,666 --> 01:05:16,099
+<b>sell of Iran was now</b>
+
+150
+01:05:16,099 --> 01:05:17,566
+<b>under parliamentary control.</b>
+
+151
+01:05:17,966 --> 01:05:19,400
+<b>The constitution was modelled on</b>
+
+152
+01:05:19,400 --> 01:05:21,566
+<b>Belgians, itself derived from British</b>
+
+153
+01:05:21,566 --> 01:05:22,866
+<b>constitutional principles.</b>
+
+154
+01:05:23,633 --> 01:05:27,000
+<b>Iran had created, on paper, a genuine</b>
+
+155
+01:05:27,000 --> 01:05:28,366
+<b>constitutional monarchy.</b>
+
+156
+01:05:28,699 --> 01:05:30,099
+<b>And the part that matters is this.</b>
+
+157
+01:05:30,533 --> 01:05:32,166
+<b>It wasn't imposed by foreigners.</b>
+
+158
+01:05:32,633 --> 01:05:34,366
+<b>It grew from internal pressure.</b>
+
+159
+01:05:34,900 --> 01:05:36,800
+<b>Iranians themselves built this.</b>
+
+160
+01:05:37,066 --> 01:05:38,833
+<b>Which is exactly why foreign powers</b>
+
+161
+01:05:38,833 --> 01:05:39,966
+<b>decided to destroy it.</b>
+
+162
+01:05:40,033 --> 01:05:43,566
+<b>One year later, in 1907, Britain faced a</b>
+
+163
+01:05:43,566 --> 01:05:45,266
+<b>problem that had nothing to do with Iran.</b>
+
+164
+01:05:46,233 --> 01:05:47,333
+<b>Germany was rising.</b>
+
+165
+01:05:47,699 --> 01:05:49,433
+<b>The Royal Navy needed allies.</b>
+
+166
+01:05:50,033 --> 01:05:51,099
+<b>And the only power that could</b>
+
+167
+01:05:51,099 --> 01:05:51,766
+<b>counterbalance</b>
+
+168
+01:05:51,766 --> 01:05:53,500
+<b>Germany on land was Russia.</b>
+
+169
+01:05:53,766 --> 01:05:55,766
+<b>But Britain and Russia had been rivals in</b>
+
+170
+01:05:55,766 --> 01:05:57,366
+<b>Central Asia for decades.</b>
+
+171
+01:05:57,933 --> 01:06:00,266
+<b>They'd been competing for influence in</b>
+
+172
+01:06:00,266 --> 01:06:02,400
+<b>Persia, Afghanistan and Tibet.</b>
+
+173
+01:06:02,933 --> 01:06:04,000
+<b>A rivalry the British</b>
+
+174
+01:06:04,000 --> 01:06:04,966
+<b>called "the great game".</b>
+
+175
+01:06:05,033 --> 01:06:08,666
+<b>To get Russia as an ally against Germany,</b>
+
+176
+01:06:09,300 --> 01:06:09,866
+<b>Britain needed to</b>
+
+177
+01:06:09,866 --> 01:06:11,400
+<b>settle these Asian disputes.</b>
+
+178
+01:06:12,333 --> 01:06:13,233
+<b>So, they signed the</b>
+
+179
+01:06:13,233 --> 01:06:14,500
+<b>Anglo-Russian Convention.</b>
+
+180
+01:06:15,099 --> 01:06:16,133
+<b>Britain got southern Iran</b>
+
+181
+01:06:16,133 --> 01:06:17,466
+<b>as its sphere of influence.</b>
+
+182
+01:06:17,966 --> 01:06:19,533
+<b>Russia got northern Iran.</b>
+
+183
+01:06:19,866 --> 01:06:22,166
+<b>A neutral zone set between them.</b>
+
+184
+01:06:22,566 --> 01:06:24,166
+<b>The critical detail is this.</b>
+
+185
+01:06:24,666 --> 01:06:26,333
+<b>Iran was not consulted but was simply</b>
+
+186
+01:06:26,333 --> 01:06:28,666
+<b>informed of this arrangement after the</b>
+
+187
+01:06:28,666 --> 01:06:30,366
+<b>treaty was signed in St. Petersburg.</b>
+
+188
+01:06:30,833 --> 01:06:32,633
+<b>No Iranians were at the table when</b>
+
+189
+01:06:32,633 --> 01:06:33,966
+<b>Britain and Russia divided their country.</b>
+
+190
+01:06:34,033 --> 01:06:36,400
+<b>Iran wasn't at the table.</b>
+
+191
+01:06:36,733 --> 01:06:37,833
+<b>They were on the menu.</b>
+
+192
+01:06:38,233 --> 01:06:40,166
+<b>And this created a fundamental problem.</b>
+
+193
+01:06:40,566 --> 01:06:42,233
+<b>The constitutional government that the</b>
+
+194
+01:06:42,233 --> 01:06:44,800
+<b>Iranians had just built depended on</b>
+
+195
+01:06:44,800 --> 01:06:45,800
+<b>controlling concessions.</b>
+
+196
+01:06:46,566 --> 01:06:48,833
+<b>But Britain and Russia had just divided</b>
+
+197
+01:06:48,833 --> 01:06:50,400
+<b>up their right to grant</b>
+
+198
+01:06:50,400 --> 01:06:51,933
+<b>concessions between themselves.</b>
+
+199
+01:06:52,433 --> 01:06:53,133
+<b>The constitution was</b>
+
+200
+01:06:53,133 --> 01:06:55,199
+<b>designed to limit foreign influence.</b>
+
+201
+01:06:55,599 --> 01:06:56,800
+<b>The Anglo-Russian Convention</b>
+
+202
+01:06:56,800 --> 01:06:58,733
+<b>was designed to guarantee it.</b>
+
+203
+01:06:59,166 --> 01:06:59,966
+<b>Something had to give.</b>
+
+204
+01:07:00,033 --> 01:07:02,833
+<b>The new Shah, Mohammed Ali</b>
+
+205
+01:07:02,833 --> 01:07:04,233
+<b>Shah, saw his opportunity.</b>
+
+206
+01:07:05,133 --> 01:07:07,000
+<b>The constitution limited his power.</b>
+
+207
+01:07:07,766 --> 01:07:09,366
+<b>Russia and Britain had just shown that</b>
+
+208
+01:07:09,366 --> 01:07:10,766
+<b>they didn't care about the constitution.</b>
+
+209
+01:07:11,400 --> 01:07:14,599
+<b>So, in 1908, he moved to destroy it.</b>
+
+210
+01:07:14,866 --> 01:07:17,133
+<b>At this time, the Shah's most reliable</b>
+
+211
+01:07:17,133 --> 01:07:19,233
+<b>military force was the Cossack Brigade.</b>
+
+212
+01:07:19,966 --> 01:07:21,699
+<b>A Iranian unit trained and</b>
+
+213
+01:07:21,699 --> 01:07:22,966
+<b>commanded by Russian officers.</b>
+
+214
+01:07:23,033 --> 01:07:26,199
+<b>Declaring martial law, the Shah appointed</b>
+
+215
+01:07:26,199 --> 01:07:28,466
+<b>Colonel Lyakov, the Russian Cossack</b>
+
+216
+01:07:28,466 --> 01:07:29,533
+<b>commander, to be</b>
+
+217
+01:07:29,533 --> 01:07:30,866
+<b>military governor of Tehran.</b>
+
+218
+01:07:31,400 --> 01:07:33,566
+<b>Lyakov sent his Cossacks to occupy the</b>
+
+219
+01:07:33,566 --> 01:07:34,866
+<b>telegraph office and to</b>
+
+220
+01:07:34,866 --> 01:07:36,533
+<b>bombard the Majlis building.</b>
+
+221
+01:07:36,766 --> 01:07:38,233
+<b>Do you see what happened here?</b>
+
+222
+01:07:38,699 --> 01:07:41,000
+<b>The Iranian parliament was bombarded by</b>
+
+223
+01:07:41,000 --> 01:07:43,466
+<b>Iranian troops, commanded by a Russian</b>
+
+224
+01:07:43,466 --> 01:07:46,433
+<b>officer, appointed by an Iranian Shah,</b>
+
+225
+01:07:46,933 --> 01:07:48,900
+<b>with the tested approval of Britain and</b>
+
+226
+01:07:48,900 --> 01:07:50,333
+<b>Russia, who had just</b>
+
+227
+01:07:50,333 --> 01:07:51,966
+<b>divided Iran between themselves.</b>
+
+228
+01:07:52,000 --> 01:07:54,566
+<b>Foreign intervention and domestic</b>
+
+229
+01:07:54,566 --> 01:07:57,233
+<b>authoritarianism working together.</b>
+
+230
+01:07:57,533 --> 01:08:00,566
+<b>About 250 people died. The Majlis</b>
+
+231
+01:08:00,566 --> 01:08:01,833
+<b>building was destroyed.</b>
+
+232
+01:08:02,166 --> 01:08:04,166
+<b>The constitutional forces fought back.</b>
+
+233
+01:08:04,733 --> 01:08:05,833
+<b>They retook Tehran.</b>
+
+234
+01:08:06,433 --> 01:08:07,533
+<b>They restored the Majlis.</b>
+
+235
+01:08:08,433 --> 01:08:10,333
+<b>But in 1911, Russia</b>
+
+236
+01:08:10,333 --> 01:08:11,466
+<b>delivered an ultimatum.</b>
+
+237
+01:08:12,033 --> 01:08:13,533
+<b>The Majlis had hired an American</b>
+
+238
+01:08:13,533 --> 01:08:17,033
+<b>financial advisor named Morgan Shostar to</b>
+
+239
+01:08:17,033 --> 01:08:18,733
+<b>fix Iranian's finances and</b>
+
+240
+01:08:18,733 --> 01:08:20,233
+<b>reduce foreign influence.</b>
+
+241
+01:08:21,100 --> 01:08:24,266
+<b>Russia demanded his dismissal, or they</b>
+
+242
+01:08:24,266 --> 01:08:26,333
+<b>would occupy. The Majlis</b>
+
+243
+01:08:26,333 --> 01:08:29,333
+<b>refused. So Russia occupied.</b>
+
+244
+01:08:29,833 --> 01:08:32,100
+<b>The second Majlis was closed in December</b>
+
+245
+01:08:32,100 --> 01:08:35,733
+<b>1911, and Shostar's contract was abruptly</b>
+
+246
+01:08:35,733 --> 01:08:37,399
+<b>terminated a few weeks later.</b>
+
+247
+01:08:37,666 --> 01:08:39,966
+<b>With the closure of the Majlis, the first</b>
+
+248
+01:08:39,966 --> 01:08:42,166
+<b>phase of the revolution effectively came</b>
+
+249
+01:08:42,166 --> 01:08:43,300
+<b>to a stuttering halt.</b>
+
+250
+01:08:44,000 --> 01:08:47,333
+<b>Iran's first democracy crushed. And this</b>
+
+251
+01:08:47,333 --> 01:08:48,333
+<b>is what it established.</b>
+
+252
+01:08:49,000 --> 01:08:50,166
+<b>The Iranians built constitutional</b>
+
+253
+01:08:50,166 --> 01:08:52,633
+<b>institutions. Foreign powers find those</b>
+
+254
+01:08:52,633 --> 01:08:53,800
+<b>institutions inconvenient.</b>
+
+255
+01:08:54,433 --> 01:08:56,166
+<b>Foreign powers ally with domestic</b>
+
+256
+01:08:56,166 --> 01:08:57,166
+<b>authoritarians.</b>
+
+257
+01:08:57,699 --> 01:08:58,933
+<b>Constitutional government is destroyed.</b>
+
+258
+01:08:59,333 --> 01:09:01,166
+<b>And that trauma creates demand for the</b>
+
+259
+01:09:01,166 --> 01:09:02,433
+<b>next constitutional movement.</b>
+
+260
+01:09:03,000 --> 01:09:05,366
+<b>1906 to 1911, that's the</b>
+
+261
+01:09:05,366 --> 01:09:07,000
+<b>first turn of the cycle.</b>
+
+262
+01:09:07,000 --> 01:09:09,233
+<b>For the next decades, Iran descended into</b>
+
+263
+01:09:09,233 --> 01:09:10,866
+<b>chaos. World War I,</b>
+
+264
+01:09:11,433 --> 01:09:12,966
+<b>foreign occupation, famine.</b>
+
+265
+01:09:13,033 --> 01:09:16,533
+<b>A new dynasty, Reza Shah, who kept the</b>
+
+266
+01:09:16,533 --> 01:09:17,366
+<b>constitutional form</b>
+
+267
+01:09:17,366 --> 01:09:18,933
+<b>but gutted its substance.</b>
+
+268
+01:09:19,466 --> 01:09:21,766
+<b>Then World War II, Britain and the</b>
+
+269
+01:09:21,766 --> 01:09:23,966
+<b>Soviets occupied Iran again,</b>
+
+270
+01:09:24,466 --> 01:09:26,333
+<b>forcing Reza Shah to abdicate.</b>
+
+271
+01:09:26,666 --> 01:09:28,933
+<b>His son, Mohammad Reza, took</b>
+
+272
+01:09:28,933 --> 01:09:31,666
+<b>the throne at 21. He was weak.</b>
+
+273
+01:09:32,133 --> 01:09:35,133
+<b>The Majlis had space to act again. And</b>
+
+274
+01:09:35,133 --> 01:09:36,199
+<b>the men who would lead the</b>
+
+275
+01:09:36,199 --> 01:09:36,966
+<b>revival had been waiting.</b>
+
+276
+01:09:37,000 --> 01:09:40,033
+<b>A 69 year old aristocrat who had spent</b>
+
+277
+01:09:40,033 --> 01:09:42,933
+<b>his entire political career fighting for</b>
+
+278
+01:09:42,933 --> 01:09:44,066
+<b>a constitutional government.</b>
+
+279
+01:09:44,666 --> 01:09:47,300
+<b>Back in 1919, when Britain tried to make</b>
+
+280
+01:09:47,300 --> 01:09:49,133
+<b>Iran a protectorate through the</b>
+
+281
+01:09:49,133 --> 01:09:50,466
+<b>Anglo-Persian agreement,</b>
+
+282
+01:09:51,000 --> 01:09:53,233
+<b>this man stood up in the Majlis and</b>
+
+283
+01:09:53,233 --> 01:09:54,800
+<b>called the negotiators</b>
+
+284
+01:09:54,800 --> 01:09:56,266
+<b>traitors to their faces.</b>
+
+285
+01:09:56,766 --> 01:09:58,966
+<b>His name was Mohammad Mossadegh.</b>
+
+286
+01:09:59,233 --> 01:10:01,333
+<b>I'll be honest, before I did research I</b>
+
+287
+01:10:01,333 --> 01:10:02,966
+<b>had a simple picture of Mossadegh.</b>
+
+288
+01:10:03,033 --> 01:10:04,699
+<b>National hero,</b>
+
+289
+01:10:05,133 --> 01:10:07,333
+<b>overturned by the CIA, a victim.</b>
+
+290
+01:10:07,933 --> 01:10:10,466
+<b>The sources complicate that picture. Not</b>
+
+291
+01:10:10,466 --> 01:10:11,933
+<b>in the way that you might think.</b>
+
+292
+01:10:12,500 --> 01:10:15,100
+<b>The CIA still overthrew him. But</b>
+
+293
+01:10:15,100 --> 01:10:18,066
+<b>understanding who he was explains both</b>
+
+294
+01:10:18,066 --> 01:10:21,233
+<b>why he succeeded and why he failed.</b>
+
+295
+01:10:21,566 --> 01:10:22,733
+<b>Mossadegh wasn't a young</b>
+
+296
+01:10:22,733 --> 01:10:24,966
+<b>revolutionary. He was 69.</b>
+
+297
+01:10:25,333 --> 01:10:26,699
+<b>He'd been fighting for a constitutional</b>
+
+298
+01:10:26,699 --> 01:10:27,966
+<b>government since 1906.</b>
+
+299
+01:10:28,000 --> 01:10:30,600
+<b>He was an aristocrat. Educated</b>
+
+300
+01:10:30,600 --> 01:10:33,100
+<b>in Europe, wealthy, connected.</b>
+
+301
+01:10:33,633 --> 01:10:36,399
+<b>And he had one absolute conviction. Iran</b>
+
+302
+01:10:36,399 --> 01:10:38,333
+<b>must control its own resources.</b>
+
+303
+01:10:38,966 --> 01:10:40,066
+<b>This wasn't a man who</b>
+
+304
+01:10:40,066 --> 01:10:41,800
+<b>compromised with foreign powers.</b>
+
+305
+01:10:42,266 --> 01:10:44,333
+<b>Mossadegh's conviction would be tested on</b>
+
+306
+01:10:44,333 --> 01:10:46,266
+<b>one issue above all others.</b>
+
+307
+01:10:46,566 --> 01:10:49,166
+<b>Oil. Since 1901, British interests had</b>
+
+308
+01:10:49,166 --> 01:10:51,000
+<b>controlled Iranian oil through something</b>
+
+309
+01:10:51,000 --> 01:10:53,399
+<b>called the Darcy Concession.</b>
+
+310
+01:10:53,933 --> 01:10:54,966
+<b>The deal worked like this.</b>
+
+311
+01:10:55,033 --> 01:10:57,866
+<b>The concession gave British investors 60</b>
+
+312
+01:10:57,866 --> 01:11:00,566
+<b>years of exclusive rights to Iranian oil.</b>
+
+313
+01:11:01,033 --> 01:11:04,733
+<b>Iran got 16% of net profits. And the</b>
+
+314
+01:11:04,733 --> 01:11:05,966
+<b>British controlled how</b>
+
+315
+01:11:05,966 --> 01:11:07,500
+<b>net profits were calculated.</b>
+
+316
+01:11:08,399 --> 01:11:10,233
+<b>The British controlled oil drilling,</b>
+
+317
+01:11:10,766 --> 01:11:13,033
+<b>refining and export operations.</b>
+
+318
+01:11:13,666 --> 01:11:15,766
+<b>And by 1914 the British</b>
+
+319
+01:11:15,766 --> 01:11:18,600
+<b>government owned 51% of the company.</b>
+
+320
+01:11:18,899 --> 01:11:21,133
+<b>The Anglo-Iranian oil company, which</b>
+
+321
+01:11:21,133 --> 01:11:21,966
+<b>would later become BP.</b>
+
+322
+01:11:22,033 --> 01:11:24,500
+<b>But what I found interesting is that</b>
+
+323
+01:11:24,500 --> 01:11:25,633
+<b>Iran's profit share</b>
+
+324
+01:11:25,633 --> 01:11:27,199
+<b>wasn't even the core issue.</b>
+
+325
+01:11:27,566 --> 01:11:29,533
+<b>British Petroleum Archives and Foreign</b>
+
+326
+01:11:29,533 --> 01:11:32,133
+<b>Office records show that the core of the</b>
+
+327
+01:11:32,133 --> 01:11:33,333
+<b>dispute was not profit</b>
+
+328
+01:11:33,333 --> 01:11:35,100
+<b>sharing, but control.</b>
+
+329
+01:11:35,433 --> 01:11:38,833
+<b>A March 1951 memo stated, "We can be</b>
+
+330
+01:11:38,833 --> 01:11:41,333
+<b>flexible in profits, administration or</b>
+
+331
+01:11:41,333 --> 01:11:43,133
+<b>partnership, but not in</b>
+
+332
+01:11:43,133 --> 01:11:44,333
+<b>the issue of control."</b>
+
+333
+01:11:45,033 --> 01:11:47,133
+<b>Control. Not profits. Control.</b>
+
+334
+01:11:47,666 --> 01:11:49,866
+<b>The British would share money, they</b>
+
+335
+01:11:49,866 --> 01:11:50,966
+<b>wouldn't share power.</b>
+
+336
+01:11:51,633 --> 01:11:53,333
+<b>So when Mossadegh proposed</b>
+
+337
+01:11:53,333 --> 01:11:55,933
+<b>nationalisation, not confiscation,</b>
+
+338
+01:11:56,566 --> 01:11:59,133
+<b>nationalisation with compensation, it</b>
+
+339
+01:11:59,133 --> 01:12:01,300
+<b>wasn't radical by global standards.</b>
+
+340
+01:12:01,899 --> 01:12:04,466
+<b>Saudi Arabia had just negotiated a 50-50</b>
+
+341
+01:12:04,466 --> 01:12:05,966
+<b>profit split with Aramco.</b>
+
+342
+01:12:06,433 --> 01:12:08,866
+<b>Venezuela had done the same. Iran was</b>
+
+343
+01:12:08,866 --> 01:12:10,066
+<b>asking for what others</b>
+
+344
+01:12:10,066 --> 01:12:11,233
+<b>had already achieved.</b>
+
+345
+01:12:11,733 --> 01:12:14,133
+<b>But there was a difference. Saudi Arabia</b>
+
+346
+01:12:14,133 --> 01:12:15,800
+<b>and Venezuela negotiated</b>
+
+347
+01:12:15,800 --> 01:12:17,033
+<b>from within the system.</b>
+
+348
+01:12:17,633 --> 01:12:18,600
+<b>Mossadegh wanted to</b>
+
+349
+01:12:18,600 --> 01:12:19,866
+<b>change the system itself.</b>
+
+350
+01:12:20,033 --> 01:12:23,300
+<b>On March 15, 1951, the</b>
+
+351
+01:12:23,300 --> 01:12:25,633
+<b>Marchlies voted to nationalise oil.</b>
+
+352
+01:12:26,133 --> 01:12:27,766
+<b>The Marchlies met on March</b>
+
+353
+01:12:27,766 --> 01:12:30,000
+<b>15 to cast its historic vote.</b>
+
+354
+01:12:30,500 --> 01:12:33,466
+<b>96 deputies showed up, including several</b>
+
+355
+01:12:33,466 --> 01:12:34,566
+<b>who had promised the</b>
+
+356
+01:12:34,566 --> 01:12:36,133
+<b>Shah they would stay away.</b>
+
+357
+01:12:36,566 --> 01:12:37,500
+<b>Everyone voted in</b>
+
+358
+01:12:37,500 --> 01:12:38,566
+<b>favour of nationalisation.</b>
+
+359
+01:12:39,266 --> 01:12:41,466
+<b>Even deputies who had promised the Shah</b>
+
+360
+01:12:41,466 --> 01:12:42,566
+<b>they would boycott</b>
+
+361
+01:12:42,566 --> 01:12:44,666
+<b>showed up and voted yes.</b>
+
+362
+01:12:45,233 --> 01:12:47,433
+<b>That's how popular nationalisation was.</b>
+
+363
+01:12:48,000 --> 01:12:50,966
+<b>Every single deputy, unanimous. This</b>
+
+364
+01:12:50,966 --> 01:12:53,133
+<b>wasn't Mossadegh imposing his will.</b>
+
+365
+01:12:53,566 --> 01:12:55,166
+<b>This was the Marchlies, the</b>
+
+366
+01:12:55,166 --> 01:12:57,366
+<b>constitutional institution Iranians had</b>
+
+367
+01:12:57,366 --> 01:12:58,866
+<b>been fighting for since</b>
+
+368
+01:12:58,866 --> 01:13:01,600
+<b>1906, exercising its authority.</b>
+
+369
+01:13:02,066 --> 01:13:03,000
+<b>And that's precisely when</b>
+
+370
+01:13:03,000 --> 01:13:04,466
+<b>Britain couldn't accept it.</b>
+
+371
+01:13:05,133 --> 01:13:06,766
+<b>Britain refused to negotiate.</b>
+
+372
+01:13:07,533 --> 01:13:09,600
+<b>Sir William Fraser, the chairman of the</b>
+
+373
+01:13:09,600 --> 01:13:12,633
+<b>Anglo-Iranian oil company, put it simply,</b>
+
+374
+01:13:12,633 --> 01:13:14,399
+<b>"There will be no further concessions."</b>
+
+375
+01:13:15,033 --> 01:13:16,733
+<b>When negotiation failed,</b>
+
+376
+01:13:17,166 --> 01:13:18,966
+<b>Britain turned to covert action.</b>
+
+377
+01:13:19,633 --> 01:13:21,066
+<b>But they had a problem.</b>
+
+378
+01:13:21,766 --> 01:13:23,433
+<b>Britain couldn't avert role Mossadegh</b>
+
+379
+01:13:23,433 --> 01:13:25,600
+<b>alone. They needed American help.</b>
+
+380
+01:13:26,066 --> 01:13:28,733
+<b>And in 1952, President Truman wasn't</b>
+
+381
+01:13:28,733 --> 01:13:30,199
+<b>interested in coups.</b>
+
+382
+01:13:30,500 --> 01:13:33,933
+<b>Then, Eisenhower won the 1952 election.</b>
+
+383
+01:13:34,533 --> 01:13:36,066
+<b>And the British found a</b>
+
+384
+01:13:36,066 --> 01:13:37,633
+<b>way to get American support.</b>
+
+385
+01:13:38,133 --> 01:13:40,500
+<b>Christopher Woodhouse was the MI6 officer</b>
+
+386
+01:13:40,500 --> 01:13:42,199
+<b>who helped plan the operation.</b>
+
+387
+01:13:43,033 --> 01:13:45,666
+<b>This is how he described their strategy.</b>
+
+388
+01:13:46,166 --> 01:13:48,133
+<b>I decided to emphasize the communist</b>
+
+389
+01:13:48,133 --> 01:13:50,533
+<b>threat to Iran, rather than the need to</b>
+
+390
+01:13:50,533 --> 01:13:52,533
+<b>recover control of the oil industry.</b>
+
+391
+01:13:52,933 --> 01:13:54,733
+<b>The British reframed the issue.</b>
+
+392
+01:13:55,366 --> 01:13:56,633
+<b>This wasn't about oil</b>
+
+393
+01:13:56,633 --> 01:13:58,699
+<b>anymore. This was about communism.</b>
+
+394
+01:13:59,166 --> 01:14:00,766
+<b>And the causal chain matters.</b>
+
+395
+01:14:01,533 --> 01:14:02,199
+<b>Britain couldn't</b>
+
+396
+01:14:02,199 --> 01:14:03,800
+<b>overthrow Mossadegh alone.</b>
+
+397
+01:14:04,366 --> 01:14:05,833
+<b>They needed American power.</b>
+
+398
+01:14:06,466 --> 01:14:08,366
+<b>And the only way to get American power</b>
+
+399
+01:14:08,366 --> 01:14:09,699
+<b>was to make Iran about</b>
+
+400
+01:14:09,699 --> 01:14:11,733
+<b>the Cold War, not about oil.</b>
+
+401
+01:14:12,366 --> 01:14:14,266
+<b>Consequently, a 69-year-old</b>
+
+402
+01:14:14,266 --> 01:14:16,833
+<b>constitutional nationalist became, in</b>
+
+403
+01:14:16,833 --> 01:14:19,133
+<b>American eyes, a communist threat.</b>
+
+404
+01:14:19,566 --> 01:14:21,966
+<b>This is how the coup actually worked. Not</b>
+
+405
+01:14:21,966 --> 01:14:23,933
+<b>the narrative, the mechanism.</b>
+
+406
+01:14:24,266 --> 01:14:26,733
+<b>The operation had two names. The British</b>
+
+407
+01:14:26,733 --> 01:14:28,033
+<b>called it Operation Boot.</b>
+
+408
+01:14:28,399 --> 01:14:30,933
+<b>The Americans called it TPA Jax.</b>
+
+409
+01:14:31,233 --> 01:14:34,833
+<b>The CIA budgeted $150,000 for propaganda</b>
+
+410
+01:14:34,833 --> 01:14:37,500
+<b>alone, plus additional funds for bribing</b>
+
+411
+01:14:37,500 --> 01:14:38,633
+<b>members of the Majlis.</b>
+
+412
+01:14:39,233 --> 01:14:41,066
+<b>They made weekly payments to newspapers,</b>
+
+413
+01:14:41,699 --> 01:14:43,233
+<b>clerics and street organizers.</b>
+
+414
+01:14:43,800 --> 01:14:45,733
+<b>They bribed newspapers to print</b>
+
+415
+01:14:45,733 --> 01:14:47,066
+<b>anti-Mossadegh stories.</b>
+
+416
+01:14:47,566 --> 01:14:49,166
+<b>They paid clerics to preach against</b>
+
+417
+01:14:49,166 --> 01:14:50,166
+<b>communist influence.</b>
+
+418
+01:14:51,066 --> 01:14:53,000
+<b>They purchased deputies for a</b>
+
+419
+01:14:53,000 --> 01:14:54,100
+<b>non-confidence vote.</b>
+
+420
+01:14:54,600 --> 01:14:55,766
+<b>They organized street</b>
+
+421
+01:14:55,766 --> 01:14:57,399
+<b>mobs with paid demonstrators.</b>
+
+422
+01:14:58,166 --> 01:15:00,133
+<b>And when the moment was right, military</b>
+
+423
+01:15:00,133 --> 01:15:02,133
+<b>units would complete the overthrow.</b>
+
+424
+01:15:02,566 --> 01:15:03,366
+<b>But the part that</b>
+
+425
+01:15:03,366 --> 01:15:05,233
+<b>most people miss is this.</b>
+
+426
+01:15:05,566 --> 01:15:07,966
+<b>The CIA didn't just organize a coup.</b>
+
+427
+01:15:08,366 --> 01:15:10,433
+<b>They manufactured the communist threat</b>
+
+428
+01:15:10,433 --> 01:15:12,399
+<b>they claimed to be fighting against.</b>
+
+429
+01:15:12,833 --> 01:15:13,699
+<b>Iran did have a</b>
+
+430
+01:15:13,699 --> 01:15:15,600
+<b>communist party, the Tudor.</b>
+
+431
+01:15:16,166 --> 01:15:17,333
+<b>But the Tudor was an</b>
+
+432
+01:15:17,333 --> 01:15:18,600
+<b>allied with Mossadegh.</b>
+
+433
+01:15:19,066 --> 01:15:20,566
+<b>The CIA decided to make</b>
+
+434
+01:15:20,566 --> 01:15:21,733
+<b>it look like they were.</b>
+
+435
+01:15:22,133 --> 01:15:24,666
+<b>Black propaganda means fake materials</b>
+
+436
+01:15:24,666 --> 01:15:25,666
+<b>designed to look like</b>
+
+437
+01:15:25,666 --> 01:15:26,833
+<b>they came from the enemy.</b>
+
+438
+01:15:27,233 --> 01:15:30,066
+<b>The CIA printed fake Tudor leaflets,</b>
+
+439
+01:15:30,733 --> 01:15:33,133
+<b>threatening religious leaders with savage</b>
+
+440
+01:15:33,133 --> 01:15:34,966
+<b>punishment if they opposed Mossadegh.</b>
+
+441
+01:15:36,000 --> 01:15:38,833
+<b>CIA agents gave serious attention to</b>
+
+442
+01:15:38,833 --> 01:15:39,466
+<b>alarming the</b>
+
+443
+01:15:39,466 --> 01:15:41,433
+<b>religious leaders at Teheran.</b>
+
+444
+01:15:41,433 --> 01:15:43,866
+<b>CIA agents gave serious attention to</b>
+
+445
+01:15:43,866 --> 01:15:46,566
+<b>alarming the religious leaders at Teheran</b>
+
+446
+01:15:46,566 --> 01:15:48,433
+<b>by issuing black propaganda</b>
+
+447
+01:15:48,433 --> 01:15:50,266
+<b>in the name of the Tudor party.</b>
+
+448
+01:15:50,666 --> 01:15:52,100
+<b>Threatening these leaders with savage</b>
+
+449
+01:15:52,100 --> 01:15:54,466
+<b>punishment if they opposed Mossadegh.</b>
+
+450
+01:15:54,466 --> 01:15:56,766
+<b>They printed fake communist threats to</b>
+
+451
+01:15:56,766 --> 01:15:58,399
+<b>make clerics fear communists.</b>
+
+452
+01:15:59,133 --> 01:16:01,533
+<b>To make clerics oppose Mossadegh.</b>
+
+453
+01:16:01,533 --> 01:16:02,233
+<b>To create the</b>
+
+454
+01:16:02,233 --> 01:16:03,966
+<b>appearance of a communist threat.</b>
+
+455
+01:16:04,433 --> 01:16:06,233
+<b>To justify removing him.</b>
+
+456
+01:16:06,733 --> 01:16:08,633
+<b>August 15th 1953.</b>
+
+457
+01:16:09,566 --> 01:16:10,933
+<b>The first coup attempt.</b>
+
+458
+01:16:11,433 --> 01:16:13,333
+<b>The plan was for the Shah to sign a</b>
+
+459
+01:16:13,333 --> 01:16:15,566
+<b>decree dismissing Mossadegh and</b>
+
+460
+01:16:15,566 --> 01:16:18,666
+<b>appointing General Fazlollach Zaredi,</b>
+
+461
+01:16:18,933 --> 01:16:20,566
+<b>a military officer the British and</b>
+
+462
+01:16:20,566 --> 01:16:22,233
+<b>Americans had chosen, as</b>
+
+463
+01:16:22,233 --> 01:16:23,433
+<b>the new prime minister.</b>
+
+464
+01:16:23,833 --> 01:16:24,733
+<b>Military units would</b>
+
+465
+01:16:24,733 --> 01:16:25,966
+<b>then arrest Mossadegh.</b>
+
+466
+01:16:25,966 --> 01:16:28,233
+<b>But someone in the plot leaked the plan.</b>
+
+467
+01:16:28,966 --> 01:16:29,966
+<b>Mossadegh found out.</b>
+
+468
+01:16:30,033 --> 01:16:32,466
+<b>He arrested the officer who</b>
+
+469
+01:16:32,466 --> 01:16:33,800
+<b>came to deliver the decree.</b>
+
+470
+01:16:34,199 --> 01:16:35,466
+<b>The coup had failed.</b>
+
+471
+01:16:36,166 --> 01:16:37,500
+<b>The Shah fled to Rome.</b>
+
+472
+01:16:38,199 --> 01:16:40,266
+<b>Washington sent the cable ordering the</b>
+
+473
+01:16:40,266 --> 01:16:41,466
+<b>operation discontinued.</b>
+
+474
+01:16:42,066 --> 01:16:44,633
+<b>In view foregoing and in absence strong</b>
+
+475
+01:16:44,633 --> 01:16:47,100
+<b>contrary recommendations from you and</b>
+
+476
+01:16:47,100 --> 01:16:49,833
+<b>Ambassador Henderson, operations against</b>
+
+477
+01:16:49,833 --> 01:16:51,733
+<b>Mossadegh should be discontinued.</b>
+
+478
+01:16:52,300 --> 01:16:54,933
+<b>Kermit Roosevelt, the CIA officer running</b>
+
+479
+01:16:54,933 --> 01:16:55,699
+<b>the operation in</b>
+
+480
+01:16:55,699 --> 01:16:57,733
+<b>Teheran, ignored the order.</b>
+
+481
+01:16:58,066 --> 01:16:59,800
+<b>August 19th.</b>
+
+482
+01:17:00,000 --> 01:17:02,266
+<b>Roosevelt organized paid mobs to flood</b>
+
+483
+01:17:02,266 --> 01:17:04,633
+<b>the streets, creating chaos and the</b>
+
+484
+01:17:04,633 --> 01:17:05,633
+<b>appearance of popular</b>
+
+485
+01:17:05,633 --> 01:17:07,133
+<b>opposition to Mossadegh.</b>
+
+486
+01:17:07,133 --> 01:17:08,866
+<b>Military units that had been paid off</b>
+
+487
+01:17:08,866 --> 01:17:10,566
+<b>moved on Mossadegh's house.</b>
+
+488
+01:17:11,033 --> 01:17:13,433
+<b>Richard Cotton, who was on CIA staff,</b>
+
+489
+01:17:13,800 --> 01:17:14,766
+<b>later admitted what</b>
+
+490
+01:17:14,766 --> 01:17:16,266
+<b>those crowds actually were.</b>
+
+491
+01:17:16,533 --> 01:17:19,199
+<b>That mob that came into North Teheran and</b>
+
+492
+01:17:19,199 --> 01:17:20,133
+<b>was decisive in the</b>
+
+493
+01:17:20,133 --> 01:17:22,266
+<b>overthrow was a mercenary mob.</b>
+
+494
+01:17:22,566 --> 01:17:23,766
+<b>It had no ideology.</b>
+
+495
+01:17:24,233 --> 01:17:25,266
+<b>And that mob was paid</b>
+
+496
+01:17:25,266 --> 01:17:26,266
+<b>with American dollars.</b>
+
+497
+01:17:27,000 --> 01:17:29,166
+<b>That evening Mossadegh was under arrest.</b>
+
+498
+01:17:29,633 --> 01:17:30,933
+<b>Saredi was prime minister.</b>
+
+499
+01:17:31,666 --> 01:17:33,533
+<b>And the Shah returned from Rome.</b>
+
+500
+01:17:34,033 --> 01:17:36,166
+<b>The CIA's own internal history,</b>
+
+501
+01:17:36,166 --> 01:17:39,166
+<b>declassified in 2013, states it plainly.</b>
+
+502
+01:17:39,566 --> 01:17:41,166
+<b>The military coup that overthrew</b>
+
+503
+01:17:41,166 --> 01:17:43,633
+<b>Mossadegh and his National Front Cabinet</b>
+
+504
+01:17:43,633 --> 01:17:47,133
+<b>was carried out under CIA direction as an</b>
+
+505
+01:17:47,133 --> 01:17:50,233
+<b>act of US foreign policy, conceived and</b>
+
+506
+01:17:50,233 --> 01:17:51,133
+<b>approved at the</b>
+
+507
+01:17:51,133 --> 01:17:52,166
+<b>highest level of government.</b>
+
+508
+01:17:53,233 --> 01:17:56,066
+<b>At his trial Mossadegh said, "My only</b>
+
+509
+01:17:56,066 --> 01:17:58,199
+<b>crime is that I nationalized the Iranian</b>
+
+510
+01:17:58,199 --> 01:18:00,866
+<b>oil industry and removed from this land</b>
+
+511
+01:18:00,866 --> 01:18:03,366
+<b>the network of colonialism and the</b>
+
+512
+01:18:03,366 --> 01:18:05,500
+<b>political and economic influence of the</b>
+
+513
+01:18:05,500 --> 01:18:06,833
+<b>greatest empire on earth."</b>
+
+514
+01:18:07,066 --> 01:18:08,933
+<b>He was sentenced to three years in</b>
+
+515
+01:18:08,933 --> 01:18:11,233
+<b>prison, then house arrest for life.</b>
+
+516
+01:18:11,766 --> 01:18:13,633
+<b>He died in 1967,</b>
+
+517
+01:18:14,033 --> 01:18:15,266
+<b>still under house arrest.</b>
+
+518
+01:18:15,633 --> 01:18:16,366
+<b>The government didn't</b>
+
+519
+01:18:16,366 --> 01:18:17,899
+<b>permit a public funeral.</b>
+
+520
+01:18:18,166 --> 01:18:19,966
+<b>Iran's second democracy crushed.</b>
+
+521
+01:18:20,033 --> 01:18:22,433
+<b>Now, if you've been following the</b>
+
+522
+01:18:22,433 --> 01:18:25,066
+<b>evidence, you might think the America's</b>
+
+523
+01:18:25,066 --> 01:18:27,600
+<b>fault narrative sounds pretty accurate.</b>
+
+524
+01:18:27,866 --> 01:18:29,566
+<b>The CIA did overthrow a</b>
+
+525
+01:18:29,566 --> 01:18:30,500
+<b>democratic government.</b>
+
+526
+01:18:31,033 --> 01:18:32,100
+<b>The documents prove it.</b>
+
+527
+01:18:32,500 --> 01:18:34,066
+<b>And the CIA admitted it.</b>
+
+528
+01:18:34,066 --> 01:18:36,033
+<b>And the trauma this created is real.</b>
+
+529
+01:18:36,433 --> 01:18:39,533
+<b>After 1953, Iranian politics became</b>
+
+530
+01:18:39,533 --> 01:18:41,666
+<b>saturated with conspiracy thinking.</b>
+
+531
+01:18:42,266 --> 01:18:44,633
+<b>Political polemics in Iran are replete</b>
+
+532
+01:18:44,633 --> 01:18:45,966
+<b>with such terms as</b>
+
+533
+01:18:45,966 --> 01:18:47,966
+<b>"Dotayah," "Jazuz," "Hinyat."</b>
+
+534
+01:18:48,066 --> 01:18:52,766
+<b>These words, plot, spy, treason, became</b>
+
+535
+01:18:52,766 --> 01:18:54,166
+<b>central to how Iranians</b>
+
+536
+01:18:54,166 --> 01:18:55,500
+<b>talked about politics.</b>
+
+537
+01:18:55,933 --> 01:18:56,766
+<b>Every event got</b>
+
+538
+01:18:56,766 --> 01:18:58,399
+<b>explained as foreign conspiracy.</b>
+
+539
+01:18:59,033 --> 01:19:00,066
+<b>Every politician got</b>
+
+540
+01:19:00,066 --> 01:19:02,166
+<b>suspected of being a foreign agent.</b>
+
+541
+01:19:02,699 --> 01:19:04,866
+<b>This vocabulary treats Iranian politics</b>
+
+542
+01:19:04,866 --> 01:19:07,466
+<b>as a puppet show, in which the real</b>
+
+543
+01:19:07,466 --> 01:19:09,433
+<b>players are hidden hands.</b>
+
+544
+01:19:09,766 --> 01:19:11,966
+<b>The belief that real decisions are made</b>
+
+545
+01:19:11,966 --> 01:19:13,033
+<b>by foreign powers</b>
+
+546
+01:19:13,033 --> 01:19:13,966
+<b>operating behind the scenes.</b>
+
+547
+01:19:15,000 --> 01:19:17,899
+<b>That's the psychological legacy of 1953.</b>
+
+548
+01:19:18,633 --> 01:19:20,533
+<b>Every regime since then has</b>
+
+549
+01:19:20,533 --> 01:19:22,066
+<b>used the coup as justification.</b>
+
+550
+01:19:23,199 --> 01:19:24,566
+<b>Every failure gets blamed</b>
+
+551
+01:19:24,566 --> 01:19:26,066
+<b>on foreign conspiracies.</b>
+
+552
+01:19:26,600 --> 01:19:28,966
+<b>So, where does this narrative go wrong?</b>
+
+553
+01:19:29,366 --> 01:19:30,866
+<b>The coup was foreign planned,</b>
+
+554
+01:19:31,166 --> 01:19:32,866
+<b>but it was Iranian executed.</b>
+
+555
+01:19:33,333 --> 01:19:36,100
+<b>The events were steered, executed, and</b>
+
+556
+01:19:36,100 --> 01:19:38,266
+<b>operationalized by Iranians,</b>
+
+557
+01:19:39,000 --> 01:19:40,966
+<b>who were directly, and indirectly,</b>
+
+558
+01:19:41,533 --> 01:19:44,733
+<b>carrying out modified British US plans.</b>
+
+559
+01:19:45,333 --> 01:19:47,166
+<b>Mossadegh and his colleagues made a</b>
+
+560
+01:19:47,166 --> 01:19:48,433
+<b>number of key strategic</b>
+
+561
+01:19:48,433 --> 01:19:49,866
+<b>and tactical mistakes.</b>
+
+562
+01:19:50,433 --> 01:19:52,766
+<b>Most importantly, they failed to create</b>
+
+563
+01:19:52,766 --> 01:19:55,433
+<b>an organization, capable of mobilizing</b>
+
+564
+01:19:55,433 --> 01:19:57,266
+<b>broad support for their movement.</b>
+
+565
+01:19:57,966 --> 01:19:59,100
+<b>Foreign powers provided</b>
+
+566
+01:19:59,100 --> 01:20:00,399
+<b>the plan and the money.</b>
+
+567
+01:20:01,000 --> 01:20:02,733
+<b>Iranians provided the execution.</b>
+
+568
+01:20:03,233 --> 01:20:04,766
+<b>And Mossadegh made mistakes.</b>
+
+569
+01:20:05,033 --> 01:20:07,566
+<b>He held referendums with separate ballot</b>
+
+570
+01:20:07,566 --> 01:20:09,066
+<b>boxes for yes and no.</b>
+
+571
+01:20:09,366 --> 01:20:11,033
+<b>Anyone could see how you voted.</b>
+
+572
+01:20:11,333 --> 01:20:12,433
+<b>That's not real democracy.</b>
+
+573
+01:20:12,899 --> 01:20:14,166
+<b>He took emergency powers</b>
+
+574
+01:20:14,166 --> 01:20:16,066
+<b>that alienated former allies.</b>
+
+575
+01:20:16,733 --> 01:20:18,699
+<b>He knew General Zahidi was plotting</b>
+
+576
+01:20:18,699 --> 01:20:20,966
+<b>against him, but didn't act decisively.</b>
+
+577
+01:20:21,533 --> 01:20:22,933
+<b>Does this justify the coup?</b>
+
+578
+01:20:23,733 --> 01:20:23,966
+<b>No.</b>
+
+579
+01:20:24,433 --> 01:20:26,466
+<b>But it explains why the coup succeeded.</b>
+
+580
+01:20:27,366 --> 01:20:28,399
+<b>The CIA didn't</b>
+
+581
+01:20:28,399 --> 01:20:30,100
+<b>overthrow a unified government.</b>
+
+582
+01:20:30,833 --> 01:20:31,833
+<b>They exploited</b>
+
+583
+01:20:31,833 --> 01:20:32,966
+<b>divisions that already existed.</b>
+
+584
+01:20:33,033 --> 01:20:34,966
+<b>And the deeper problem is</b>
+
+585
+01:20:34,966 --> 01:20:37,033
+<b>treating 1953 as the beginning.</b>
+
+586
+01:20:37,966 --> 01:20:39,166
+<b>As we've seen, the</b>
+
+587
+01:20:39,166 --> 01:20:40,833
+<b>pattern started in 1907.</b>
+
+588
+01:20:41,800 --> 01:20:43,133
+<b>Foreign powers destroying Iranian</b>
+
+589
+01:20:43,133 --> 01:20:44,233
+<b>constitutional government.</b>
+
+590
+01:20:44,800 --> 01:20:46,600
+<b>The 1953 coup wasn't a</b>
+
+591
+01:20:46,600 --> 01:20:47,933
+<b>rupture in Iranian history.</b>
+
+592
+01:20:48,466 --> 01:20:49,766
+<b>It was a repetition.</b>
+
+593
+01:20:50,533 --> 01:20:52,766
+<b>The same pattern, different players.</b>
+
+594
+01:20:53,333 --> 01:20:55,766
+<b>And treating 1953 as the original sin</b>
+
+595
+01:20:55,766 --> 01:20:57,300
+<b>means waiting for America</b>
+
+596
+01:20:57,300 --> 01:20:58,966
+<b>to fix what America broke.</b>
+
+597
+01:20:59,000 --> 01:21:01,066
+<b>That's not a political program.</b>
+
+598
+01:21:01,399 --> 01:21:03,266
+<b>That's learned helplessness.</b>
+
+599
+01:21:03,533 --> 01:21:04,333
+<b>So this is what the</b>
+
+600
+01:21:04,333 --> 01:21:05,633
+<b>evidence actually shows.</b>
+
+601
+01:21:06,233 --> 01:21:07,300
+<b>Twice Iranians built</b>
+
+602
+01:21:07,300 --> 01:21:08,533
+<b>constitutional governments.</b>
+
+603
+01:21:09,166 --> 01:21:10,766
+<b>1906 and 1951.</b>
+
+604
+01:21:11,800 --> 01:21:13,766
+<b>Twice foreign powers allied with domestic</b>
+
+605
+01:21:13,766 --> 01:21:15,566
+<b>authoritarians to destroy it.</b>
+
+606
+01:21:15,866 --> 01:21:17,766
+<b>And each time the same elements,</b>
+
+607
+01:21:18,366 --> 01:21:20,033
+<b>constitutional demands, foreign</b>
+
+608
+01:21:20,033 --> 01:21:22,833
+<b>inconvenience, domestic collaboration and</b>
+
+609
+01:21:22,833 --> 01:21:23,766
+<b>violent suppression.</b>
+
+610
+01:21:24,366 --> 01:21:25,966
+<b>The 1953 coup wasn't unique.</b>
+
+611
+01:21:26,000 --> 01:21:27,733
+<b>It was the second verse of</b>
+
+612
+01:21:27,733 --> 01:21:29,833
+<b>the song started in 1906.</b>
+
+613
+01:21:30,500 --> 01:21:32,366
+<b>But what makes this a cycle, not just</b>
+
+614
+01:21:32,366 --> 01:21:34,366
+<b>repetition, is what happened next.</b>
+
+615
+01:21:34,666 --> 01:21:35,566
+<b>Each suppression</b>
+
+616
+01:21:35,566 --> 01:21:37,333
+<b>radicalized the next generation.</b>
+
+617
+01:21:38,033 --> 01:21:40,266
+<b>The trauma of 1953 shaped</b>
+
+618
+01:21:40,266 --> 01:21:41,833
+<b>everything that came after.</b>
+
+619
+01:21:42,566 --> 01:21:45,699
+<b>In 1979, Iranians rose up again.</b>
+
+620
+01:21:46,333 --> 01:21:47,333
+<b>Millions in the street.</b>
+
+621
+01:21:47,866 --> 01:21:49,033
+<b>They overthrew the Shah.</b>
+
+622
+01:21:49,500 --> 01:21:50,500
+<b>They promised democracy.</b>
+
+623
+01:21:51,466 --> 01:21:52,966
+<b>And then something strange happened.</b>
+
+624
+01:21:53,033 --> 01:21:55,466
+<b>The revolution that promised freedom</b>
+
+625
+01:21:55,466 --> 01:21:57,733
+<b>created a new system of control.</b>
+
+626
+01:21:58,133 --> 01:21:59,633
+<b>One that would prove even harder to</b>
+
+627
+01:21:59,633 --> 01:22:01,066
+<b>challenge than the Shah's.</b>
+
+628
+01:22:01,566 --> 01:22:02,566
+<b>How did that happen?</b>
+
+629
+01:22:02,966 --> 01:22:04,699
+<b>And what does it mean that Iranians are</b>
+
+630
+01:22:04,699 --> 01:22:05,766
+<b>still fighting the same</b>
+
+631
+01:22:05,766 --> 01:22:08,133
+<b>fight 120 years later?</b>
+
+632
+01:22:08,899 --> 01:22:10,366
+<b>That is part two.</b>
+
