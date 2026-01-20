@@ -47,6 +47,8 @@ D:\History vs Hype\
 │   ├── Kraut/
 │   ├── RealLifeLore/
 │   ├── Shaun/
+│   ├── haiti/                  # Haiti research transcripts
+│   ├── niche-research/         # Niche creator analysis
 │   └── *.srt/*.vtt/*.txt       # Individual transcripts
 ├── video-ideas/                # Topic brainstorming
 ├── video-projects/             # Active production projects
@@ -59,9 +61,7 @@ D:\History vs Hype\
 ├── _archive-old/               # Legacy files
 ├── CLAUDE.md                   # Primary Claude Code instructions
 ├── START-HERE.md               # Quick start guide
-├── VERIFIED-WORKFLOW-QUICK-REFERENCE.md  # One-page workflow
-├── PROJECT_REGISTRY.md         # Project numbering registry
-└── *.vtt/*.srt                 # Working transcripts (root level)
+└── VERIFIED-WORKFLOW-QUICK-REFERENCE.md  # One-page workflow
 ```
 
 ## Directory Purposes
@@ -91,7 +91,7 @@ D:\History vs Hype\
 **video-projects/:**
 - Purpose: All video production work
 - Contains: Lifecycle folders with project subfolders
-- Key files: `PROJECT_STATUS.md` (global tracker), `_CORRECTIONS-LOG.md` (error tracking)
+- Key files: `PROJECT_STATUS.md` (global tracker), `_CORRECTIONS-LOG.md` (error tracking), `PROJECT_REGISTRY.md` (quick path lookup)
 
 **video-projects/_IN_PRODUCTION/:**
 - Purpose: Active research and scripting projects
@@ -109,7 +109,7 @@ D:\History vs Hype\
 
 **transcripts/:**
 - Purpose: Competitor transcripts for style analysis
-- Contains: Creator-specific folders (Kraut, Knowing Better, Shaun, Alex O'Connor, etc.), individual `.srt`/`.vtt` files
+- Contains: Creator-specific folders (Kraut, Knowing Better, Shaun, Alex O'Connor, etc.), topic-specific folders (haiti/, niche-research/), individual `.srt`/`.vtt` files
 
 ## Key File Locations
 
