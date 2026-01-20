@@ -97,7 +97,7 @@ Open `04-notebooklm-prompts.md` and run each prompt:
 - [ ] Find modern footage clips (political speeches, news coverage)
 
 ### Visual Strategy:
-- [ ] Review `guides/HYBRID_TALKING_HEAD_GUIDE.md`
+- [ ] Review `.claude/REFERENCE/HYBRID_TALKING_HEAD_GUIDE.md`
 - [ ] Plan when to show face vs. B-roll (60-70% talking head, 30-40% evidence)
 - [ ] Mark visual breaks every 30-45 seconds
 - [ ] Ensure primary documents shown on screen, not just quoted
@@ -152,7 +152,7 @@ Open `04-notebooklm-prompts.md` and run each prompt:
 ### Post-Publication:
 - [ ] Monitor analytics for 24-48 hours
 - [ ] Check retention at 1:11 mark (did 0:45 payoff work?)
-- [ ] Respond to comments using `guides/youtube-comment-response-guide.md`
+- [ ] Respond to comments using `.claude/REFERENCE/youtube-comment-response-guide.md`
 - [ ] Note learnings for next video
 
 ---

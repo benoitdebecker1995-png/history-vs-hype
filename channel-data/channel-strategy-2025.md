@@ -557,7 +557,7 @@ Not just a YouTube channel. A counter-narrative resource. An evidence-based alte
 - `CHANNEL_ANALYTICS_MASTER.md` - Performance data & insights
 - `../guides/MASTER_WORKFLOW.md` - Complete production process
 - `../guides/Master-Project-Template.md` - NotebookLM research system
-- `../guides/fact-checking-protocol.md` - Source verification standards
+- `../.claude/REFERENCE/fact-checking-protocol.md` - Source verification standards
 - `../planning/CHANNEL_MASTER_PLAN.md` - Long-term planning
 
 ---

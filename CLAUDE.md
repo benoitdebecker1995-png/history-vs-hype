@@ -411,7 +411,7 @@ Before filming ANY script with court rulings, treaty provisions, or legal defini
 **Time investment:** 30-60 min per video
 **Value:** Prevents hours of re-filming, protects channel credibility
 
-**See:** `guides/fact-checking-protocol.md` for complete process
+**See:** `.claude/REFERENCE/fact-checking-protocol.md` for complete process
 
 ---
 
@@ -456,7 +456,7 @@ Before filming ANY script with court rulings, treaty provisions, or legal defini
 
 B-roll is evidence, not decoration. You are the authority making an argument, not just a narrator.
 
-**See:** `HYBRID_TALKING_HEAD_GUIDE.md` for visual planning details
+**See:** `.claude/REFERENCE/HYBRID_TALKING_HEAD_GUIDE.md` for visual planning details
 
 ---
 
@@ -550,14 +550,15 @@ B-roll is evidence, not decoration. You are the authority making an argument, no
 - `VERIFIED-WORKFLOW-QUICK-REFERENCE.md` - One-page workflow with checklists
 
 **Core Workflows:**
-- `guides/fact-checking-protocol.md` - Source hierarchy and verification process
+- `.claude/REFERENCE/fact-checking-protocol.md` - Source hierarchy and verification process
 
 **Reference:**
 - `.claude/SCRIPTWRITING-STYLE-GUIDE.md` - **Kraut/Alex O'Connor style analysis (CRITICAL for scripts)**
 - `.claude/FOLDER-STRUCTURE-GUIDE.md` - Complete folder system rules
 - `.claude/USER-PREFERENCES.md` - Working style, efficiency expectations, common tasks
-- `HYBRID_TALKING_HEAD_GUIDE.md` - Visual strategy for when to show face vs. B-roll
-- `youtube-comment-response-guide.md` - Voice, tone, and response templates
+- `.claude/REFERENCE/HYBRID_TALKING_HEAD_GUIDE.md` - Visual strategy for when to show face vs. B-roll
+- `.claude/REFERENCE/youtube-comment-response-guide.md` - Voice, tone, and response templates
+- `.claude/REFERENCE/VOICE-GUIDE.md` - Voice and speaking patterns reference
 
 **Advanced:**
 - `.claude/ACADEMIC-PEER-REVIEW-PROTOCOL.md` - Journal-level verification for high-stakes topics
