@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace Optimization
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-01-19
+**Last Updated:** 2026-01-20
 
 ## Project Reference
 
@@ -11,13 +11,13 @@
 
 ## Current Position
 
-**Phase:** 0.1 - Edit Guide Optimization (URGENT)
-**Plan:** 02 of 2 COMPLETE
-**Status:** Phase 0.1 COMPLETE - Ready for Phase 1
+**Phase:** 1 of 6 - File Cleanup
+**Plan:** 01 of 4 COMPLETE
+**Status:** In progress
 
 **Progress:**
 ```
-[██                  ] 10% (0.1/7 phases complete)
+[███                 ] 15% (0.1 + 1 plan of Phase 1 complete)
 ```
 
 ## Phase Status
@@ -25,7 +25,7 @@
 | Phase | Name | Status | Plans |
 |-------|------|--------|-------|
 | 0.1 | Edit Guide Optimization | **COMPLETE** | 2/2 |
-| 1 | File Cleanup | Pending | 4 |
+| 1 | File Cleanup | **In Progress** | 1/4 |
 | 2 | Style Consolidation | Pending | - |
 | 3 | Research Structure | Pending | - |
 | 4 | Script Management | Pending | - |
@@ -37,8 +37,8 @@
 | Metric | Value |
 |--------|-------|
 | Phases completed | 0.1 |
-| Plans completed | 2 |
-| Tasks completed | 6 |
+| Plans completed | 3 |
+| Tasks completed | 8 |
 | Requirements delivered | 4/15 |
 
 ## Accumulated Context
@@ -52,11 +52,14 @@
 | Git for version tracking | Tracks history without file proliferation | 4 |
 | Words/150 for runtime estimation | Matches observed speaking pace for this channel | 0.1 |
 | Delta interpretation table | Makes runtime comparison immediately actionable | 0.1 |
+| Delete POLITICIAN_FACTCHECK_SERIES_PLAN | Channel DNA shifted away from politician-centered content | 1-01 |
+| Delete channel-data/archive entirely | All files superseded by Jan 2026 analytics | 1-01 |
 
 ### Roadmap Evolution
 
 - Phase 0.1 inserted before Phase 1: Edit Guide Optimization (URGENT - Thursday deadline for Iran Part 1)
 - Phase 0.1 COMPLETED: 2026-01-19
+- Phase 1 Plan 01 COMPLETED: 2026-01-20 (deleted 21+ outdated files)
 
 ### Discovered TODOs
 
@@ -74,14 +77,14 @@ None identified yet.
 
 ### Last Session
 
-- **Date:** 2026-01-19
-- **Work:** Completed Phase 0.1 Plan 02 - generated EDITING-GUIDE.md for Iran Part 1 with all new sections
-- **Stopped at:** Phase 0.1 fully complete, Iran Part 1 editing guide ready for use
+- **Date:** 2026-01-20
+- **Work:** Completed Phase 1 Plan 01 - deleted outdated files, updated CLAUDE.md references
+- **Stopped at:** Plan 01-01 complete, ready for Plan 01-02 (misplaced files)
 
 ### Next Session Should
 
-1. User reviews Iran Part 1 EDITING-GUIDE.md for actionability
-2. Begin Phase 1 (File Cleanup) - see ROADMAP.md for 4 plans
+1. Execute Plan 01-02 (relocate misplaced files)
+2. Continue through Phase 1 plans (duplicates, naming conventions)
 3. Run `/gsd:progress` to see next action
 
 ### Important Context
@@ -91,6 +94,7 @@ None identified yet.
 - Style guidance scattered across files
 - Focus broadening from geopolitics to history in general
 - Solo creator workflow - everything must be manageable by one person
+- 21 outdated .md files now deleted (587 -> 566 .md files)
 
 ---
 
