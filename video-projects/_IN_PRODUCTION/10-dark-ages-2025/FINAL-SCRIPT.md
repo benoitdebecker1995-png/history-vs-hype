@@ -1,8 +1,9 @@
-# Dark Ages Script - FINAL DRAFT
+# Dark Ages Script - FINAL DRAFT V2 (EDITED)
 
 **Target Length:** 6-8 minutes (~700-850 words)
 **Hook:** YouGov March 2025 survey
 **Structure:** Both extremes wrong + academic evidence
+**Edits:** Added weregild definition, database analogy, condensed elephant/clock
 
 ---
 
@@ -52,6 +53,9 @@ Oral culture. Literary texts, philosophy, poetry—they were mainly disseminated
 
 And here's the critical distinction that reframes the entire Dark Ages argument: the massive use of writing by the government does not equal universal individual literacy.
 
+**[EDIT: ADDED DATABASE ANALOGY]**
+Like how governments use databases today, but most people don't code them—Rome's writing served the state, not ordinary citizens.
+
 Rome was already operating on a highly stratified system where writing served the state and a wealthy elite. Most knowledge was still shared orally.
 
 So when the Western Roman Empire transitions in the 5th century, it's not falling from some 90% literate utopia. It's transitioning from a system where literacy was already specialized, already limited, already expensive.
@@ -80,7 +84,8 @@ Lombard Italy operated on a different model, but equally pragmatic. The main fun
 
 And their laws show how sophisticated this was. King Liutprand's legislation includes this incredibly specific law: the penalty for a man who steals a woman's clothes while she's bathing in a river, forcing her to walk home naked?
 
-His full weregild. His blood price. The highest possible fine—the same as if you'd killed him.
+**[EDIT: ADDED WEREGILD DEFINITION]**
+His full weregild—the blood price paid for killing someone. The highest possible fine—the same as if you'd killed him.
 
 (SHOW: Text overlay - "STOLEN CLOTHES = BLOOD PRICE")
 
@@ -138,13 +143,8 @@ And then there's the diplomacy. The sheer geographic scope completely refutes an
 
 (SHOW: Map showing diplomatic connections - Spain, Denmark, Persia, Byzantium)
 
-Charlemagne was receiving and sending legates to Arabic rulers in Spain, to the Danes, to the Huns. And most memorably, he received legates from the Abbasid Caliph Harun al-Rashid in Persia.
-
-The gifts? The famous elephant Abu al-Abbas and a legendary water-powered automaton clock with 12 little mechanical horsemen that emerged on the hour.
-
-(SHOW: Artistic reconstruction of clock mechanism)
-
-Imagine the engineering sophistication that represented arriving in Aachen.
+**[EDIT: CONDENSED ELEPHANT/CLOCK SECTION]**
+Charlemagne was receiving and sending legates to Arabic rulers in Spain, to the Danes, to the Huns. And most memorably, he received legates from the Abbasid Caliph Harun al-Rashid in Persia—gifts included an elephant and a water-powered automaton clock. Imagine that engineering arriving in Aachen.
 
 The palace chapel at Aachen was built with columns carted from Rome and Ravenna. It was a physical symbol—a conscious effort to link this new Frankish power directly to the classical imperial Roman past. Court poetry celebrated Aachen as a "new Athens."
 
@@ -222,8 +222,40 @@ If this changed how you think about the Middle Ages, subscribe. There's more myt
 
 ---
 
-**WORD COUNT:** ~850 words
-**RUNTIME:** ~7:30-8:00 minutes
+## EDIT SUMMARY
+
+**Changes from V1:**
+
+1. **Added database analogy (after line 53):**
+   - "Like how governments use databases today, but most people don't code them—Rome's writing served the state, not ordinary citizens."
+   - **Why:** Makes abstract concept (state writing ≠ mass literacy) immediately clear to modern viewers
+   - **Time added:** ~5 seconds
+
+2. **Added weregild definition (line 83):**
+   - Changed: "His full weregild. His blood price."
+   - To: "His full weregild—the blood price paid for killing someone. The highest possible fine—the same as if you'd killed him."
+   - **Why:** Clarifies unfamiliar medieval term without breaking flow
+   - **Time added:** ~3 seconds
+
+3. **Condensed elephant/clock section (lines 141-148):**
+   - Removed: Full description of "12 little mechanical horsemen that emerged on the hour" and separate artistic reconstruction callout
+   - Kept: Diplomatic reach, elephant, clock mention, engineering sophistication
+   - **Why:** Trims least essential detail from densest section while keeping fun visual
+   - **Time saved:** ~6 seconds
+
+**Net time change:** +2 seconds (~852 words, 7:45 runtime)
+
+**Impact:**
+- ✅ Improved clarity (database analogy, weregild definition)
+- ✅ Maintained engagement (kept elephant/clock, just condensed)
+- ✅ Stayed within 6-8 minute target
+- ✅ All changes improve viewer comprehension without sacrificing content
+
+---
+
+**WORD COUNT:** ~852 words
+**RUNTIME:** ~7:40-7:50 minutes @ natural speaking pace
+**STATUS:** ✅ READY FOR PRODUCTION
 
 **B-ROLL NOTES:**
 - YouGov survey graphics (opening)
@@ -231,8 +263,8 @@ If this changed how you think about the Middle Ages, subscribe. There's more myt
 - Visigothic Spain map
 - Lombard Italy map
 - Carolingian minuscule manuscript page
-- Text overlays for key points
+- Text overlays for key points (manuscript numbers, "STOLEN CLOTHES = BLOOD PRICE")
 - Diplomatic connections map
-- Clock mechanism reconstruction
+- **Clock mechanism reconstruction** (condensed mention, but still visual B-roll available)
 - St. Gall monastery map
 - Final text overlay: "WHO WASN'T ALLOWED TO WRITE?"

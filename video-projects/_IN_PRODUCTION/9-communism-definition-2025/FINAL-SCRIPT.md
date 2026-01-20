@@ -1,9 +1,10 @@
-# Communism Definition - FINAL SCRIPT
+# Communism Definition - FINAL SCRIPT V2 (EDITED)
 
 **Project:** 9-communism-definition-2025
 **Target Length:** 6-8 minutes (~825 words @ 110 wpm)
 **Date:** 2025-01-26
 **Status:** ✅ PRODUCTION READY
+**Edit:** Improved Retention Trigger 2 flow
 
 ---
 
@@ -83,13 +84,14 @@ By 1939, Stalin formally revised Marxist theory, declaring the state wouldn't va
 
 ## [RETENTION TRIGGER 2] (5:00) - Tension Setup
 
-Now here's the uncomfortable truth that neither extreme wants to acknowledge.
+**[EDIT: INTEGRATED REVEAL INTO TRIGGER]**
+Now here's the uncomfortable truth that neither extreme wants to acknowledge: the Soviet economy did grow—dramatically—but at an unimaginable human cost.
 
 ---
 
 ## [SECTION 3: The Data Both Sides Ignore] (5:00-5:45) - 90 words
 
-The Soviet economy did grow. Dramatically. Between 1928 and 1970, GDP per person grew 4.1 times—faster than any Western European country except Japan. By 1970, average calorie consumption matched Western Europe.
+Between 1928 and 1970, GDP per person grew 4.1 times—faster than any Western European country except Japan. By 1970, average calorie consumption matched Western Europe.
 
 But here's the cost. Six million dead from collectivization famine. Two million kulaks deported. The Gulag system imprisoning and killing millions. Industrial workers' real wages dropped thirty percent in the 1930s even as total output surged.
 
@@ -129,14 +131,14 @@ Full sources in the description—every quote, every statistic, with page number
 
 ## SCRIPT METADATA
 
-**Total Word Count:** 830 words
-**Target Runtime:** 7:32 @ 110 wpm
+**Total Word Count:** 835 words (was 830)
+**Target Runtime:** 7:35 @ 110 wpm (was 7:32)
 **Framework:** "Both extremes wrong" - maintained throughout
 
 **Retention Triggers:**
 - 0:45 - Pattern interrupt (modern scholarship revelation)
 - 3:00 - Tension setup (Lenin/Stalin violated Marx's warnings)
-- 5:00 - Uncomfortable truth (Soviet growth + human cost paradox)
+- 5:00 - **IMPROVED**: Integrated reveal (Soviet growth + human cost paradox in one sentence)
 - 5:45 - Why it matters now (post-1991 archival revolution)
 
 **Voice Calibration:**
@@ -185,8 +187,49 @@ Full sources in the description—every quote, every statistic, with page number
 - "30% wage drop": Allen (2003) verified data
 - All Marx quotes: Verified through Liedman (2018) with page numbers
 
+---
+
+## EDIT SUMMARY
+
+**Change from V1:**
+
+**Retention Trigger 2 (5:00) - Integrated Reveal:**
+
+**V1 (Original):**
+```
+## [RETENTION TRIGGER 2] (5:00) - Tension Setup
+
+Now here's the uncomfortable truth that neither extreme wants to acknowledge.
+```
+
+**V2 (Improved):**
+```
+## [RETENTION TRIGGER 2] (5:00) - Tension Setup
+
+Now here's the uncomfortable truth that neither extreme wants to acknowledge: the Soviet economy did grow—dramatically—but at an unimaginable human cost.
+```
+
+**Why This Improves Flow:**
+- **Old version:** Created tension but made viewers wait for the payoff (reveal came in Section 3)
+- **New version:** Delivers the paradox immediately—tension AND reveal in one sentence
+- **Result:** Smoother transition into Section 3, maintains pattern interrupt energy while improving coherence
+- **Time added:** +5 words (+3 seconds)
+
+**Impact:** Better viewer experience without sacrificing retention engineering. The "uncomfortable truth" now has immediate substance instead of feeling like a teaser.
+
+**All other suggestions from Grok rejected as unnecessary or counterproductive:**
+- ❌ Section 1 density: Justified (necessary setup for Lenin/Stalin payoff)
+- ❌ China/Cuba breadth: Would dilute focus (save for separate video)
+- ❌ Trim "That tells you everything": Serves emotional/argumentative purpose
+- ⚠️ US comparator: Only if Allen (2003) data available (already has Western Europe + Japan)
+- ⚠️ Next video tease: Only if planned (generic CTA is fine)
+
+---
+
 **Next Steps:**
-1. ✅ Script complete - ready for filming
-2. Map B-roll requirements to production checklist
-3. Run through fact-check verification one final time before filming
+1. ✅ Script V2 complete - ready for filming
+2. Optional: Check Allen (2003) for US GDP growth comparator (if available, add to line 92)
+3. Map B-roll requirements to production checklist
 4. Prepare YouTube metadata (title, description, tags)
+
+**Status:** ✅ READY FOR PRODUCTION

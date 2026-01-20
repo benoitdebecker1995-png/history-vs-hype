@@ -1,8 +1,8 @@
 # The Only Land on Earth Nobody Owns
 
 **Runtime:** 8:20 (820 words at 100 WPM)
-**Version:** 4.2 - FINAL (Fixed "worthless" contradiction re: gold mines)
-**Date:** 2025-01-25
+**Version:** 4.3 - FINAL (Applied AUDIENCE ZERO + LOGIC BRIDGE fixes)
+**Date:** 2025-12-04
 **Title:** "Bir Tawil: The Only Land No Country Claims"
 **Modern Hook:** Virginia dad claims African territory to make daughter a princess
 **Viral Elements:** Only unclaimed land on Earth, colonial paradox, human interest story
@@ -21,6 +21,12 @@
 - Strengthens "many tried, all failed" narrative with verified details
 - Adds 15 seconds to runtime (8:05 → 8:20, still optimal)
 - All claims verified via Tier 4-5 sources (Delayed Gratification, Newsweek, Scroll.in)
+
+**Changes from V4.2 to V4.3:**
+- AUDIENCE ZERO fixes: Added explanations for "Condominium" (joint colonial rule), manganese (steel production metal), Montevideo Convention (statehood standard), Antarctic Treaty (freezes claims)
+- LOGIC BRIDGE fixes: Added "In response" connector for 1995 Mubarak section
+- Quote introduction fixes: Changed "Quote:" prefix to natural phrasing ("The treaty defines...", "In their words...")
+- READ-ALOUD fixes: "Oil potential" → "Potential for offshore oil", numbers made more speakable
 
 ---
 
@@ -72,7 +78,7 @@ Bir Tawil: eight hundred square miles of landlocked desert. No water. No infrast
 
 **[VISUAL: Highlight Hala'ib Triangle]**
 
-Hala'ib Triangle: eight thousand square miles. Ten times bigger. Red Sea coastline. Oil potential. Seven hundred thousand tons of manganese.
+Hala'ib Triangle: eight thousand square miles. Ten times bigger. Red Sea coastline. Potential for offshore oil. Nearly three-quarters of a million tons of manganese—a metal essential for steel production.
 
 **[HOOK 1:00 - PATTERN INTERRUPT]**
 
@@ -80,11 +86,11 @@ And here's the problem. Because of how the British drew the borders, you can't c
 
 **[VISUAL: 1899 treaty document on screen]**
 
-1899. Britain and Egypt sign the Anglo-Egyptian Condominium Agreement.
+1899. Britain and Egypt sign the Anglo-Egyptian Condominium Agreement—a joint colonial arrangement where both powers ruled Sudan together.
 
 **[VISUAL: Zoom to specific text, underline this phrase]**
 
-Quote: "Sudan is defined as territories south of the 22nd parallel of latitude."
+The treaty defines Sudan as "territories south of the 22nd parallel of latitude."
 
 **[VISUAL: Period map showing straight line at 22° N]**
 
@@ -104,7 +110,7 @@ November 4, 1902. New administrative boundary.
 
 **[VISUAL: Underline key phrase about tribal territories]**
 
-Not a straight line. Quote: "Based on tribal use and settlement patterns."
+Not a straight line this time. In their words, it was "based on tribal use and settlement patterns."
 
 **[VISUAL: Map showing irregular 1902 line]**
 
@@ -194,7 +200,7 @@ And the dispute over Hala'ib has gotten violent.
 
 **[VISUAL: News coverage from mid-1990s if available]**
 
-1995: Assassination attempt on Egyptian President Mubarak. Egypt blames Sudan. Strengthens military control over Hala'ib.
+1995: Assassination attempt on Egyptian President Mubarak. Egypt blamed Sudan. In response, they strengthened military control over Hala'ib.
 
 2000: Sudan withdraws its forces. Egypt has controlled the territory ever since.
 
@@ -242,7 +248,7 @@ Because in modern international law, you can't just plant a flag and create a co
 
 **[VISUAL: Legal text or graphic]**
 
-You need a permanent population. A functioning government. Recognition from other states.
+Under the 1933 Montevideo Convention—the accepted standard for statehood—you need a permanent population. A functioning government. And recognition from other states.
 
 **[HOOK 4:55]**
 
@@ -268,7 +274,7 @@ Every piece of habitable land on Earth is claimed by some country. Except:
 
 - Bir Tawil
 - Four small pockets along the Danube River (Croatia-Serbia border dispute)
-- Parts of Antarctica (but the Antarctic Treaty System suspends claims)
+- Parts of Antarctica—but the Antarctic Treaty System freezes all territorial claims there
 
 **[HOOK 5:25]**
 
