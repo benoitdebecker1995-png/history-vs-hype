@@ -26,8 +26,8 @@ This roadmap transforms a content production workspace that grew organically int
 **Plans:** 2 plans
 
 Plans:
-- [ ] 0.1-01-PLAN.md — Finalize edit-guide.md with clean structure, cut detection heuristics, runtime estimation
-- [ ] 0.1-02-PLAN.md — Test against Iran Part 1 (requires SRT file)
+- [x] 0.1-01-PLAN.md — Finalize edit-guide.md with clean structure, cut detection heuristics, runtime estimation
+- [x] 0.1-02-PLAN.md — Test against Iran Part 1 (requires SRT file)
 
 **Success Criteria:**
 1. Running /edit-guide on Iran SRT produces actionable cut recommendations
@@ -161,7 +161,7 @@ Plans:
 
 | Phase | Status | Requirements | Mapped |
 |-------|--------|--------------|--------|
-| 0.1 - Edit Guide Optimization | **PLANNED** | EDIT-01, EDIT-02, EDIT-03, EDIT-04 | 4 |
+| 0.1 - Edit Guide Optimization | **COMPLETE** | EDIT-01, EDIT-02, EDIT-03, EDIT-04 | 4 |
 | 1 - File Cleanup | Planned | CLNP-01, CLNP-02, CLNP-03 | 3 |
 | 2 - Style Consolidation | Pending | STYL-01, STYL-02, STYL-03 | 3 |
 | 3 - Research Structure | Pending | RSCH-01, RSCH-02, RSCH-03 | 3 |
