@@ -1,3 +1,16 @@
+---
+status: supplement
+authoritative: .claude/REFERENCE/STYLE-GUIDE.md
+---
+
+# SUPPLEMENT: Voice & Delivery Balance
+
+> **Note:** This file provides extended examples of voice and delivery balance. For authoritative style rules, see **[STYLE-GUIDE.md](STYLE-GUIDE.md)**.
+>
+> Core voice principles have been consolidated into STYLE-GUIDE.md Part 1 (Core Identity) and Part 2 (Spoken Delivery Rules).
+
+---
+
 # Voice Guide for History vs Hype Scripts (UPDATED)
 
 This guide captures the balance between **knowledgeable authority** and **accessible delivery**. Scripts should sound like an expert who's done deep research explaining to an intelligent audience, NOT casual chat.
