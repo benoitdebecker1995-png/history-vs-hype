@@ -97,34 +97,19 @@ This file will be used to cross-check the script after Phase 2.
 
 **Create:** `_research/` subfolder
 
-**Add:** `NOTEBOOKLM-SETUP.md` with:
-```markdown
-# NotebookLM Setup for [Topic]
+**Use template:** Copy structure from `.claude/templates/_RESEARCH-SUBFOLDER-TEMPLATE.md`
 
-## Sources to Load
+**Minimum required files:**
+- `00-NOTEBOOKLM-SOURCE-LIST.md` - Sources to download (mandatory)
+- `01-PRELIMINARY-RESEARCH.md` - Internet research findings (Phase 1)
+- `02-NOTEBOOKLM-PROMPTS.md` - Verification queries (Phase 2)
 
-**Primary Sources:**
-- [ ] [List key primary documents to find]
+**When to create _research subfolder:**
+- Videos with 10+ sources (standard for this channel)
+- Extensive NotebookLM verification needed
+- Optional for simple fact-checks with fewer sources
 
-**Academic Sources:**
-- [ ] [List expert historians' books]
-
-**Modern Context:**
-- [ ] [List 2024-2025 news articles]
-
-## Research Questions
-
-1. [What specific claims need verification?]
-2. [What statistics need sources?]
-3. [What quotes need exact wording?]
-
-## Next Steps
-
-1. Load sources into NotebookLM
-2. Use research prompts from Master Project Template
-3. As you verify each fact, add to 01-VERIFIED-RESEARCH.md
-4. Don't start writing until 90%+ verified
-```
+**Note:** Raw NotebookLM outputs can go in `_research/notebooklm-outputs/` if you want to preserve them, but verified facts MUST be transferred to `01-VERIFIED-RESEARCH.md`.
 
 ### Step 7: Create PROJECT-STATUS.md
 
@@ -208,7 +193,9 @@ Tell the user:
   - 02-SCRIPT-DRAFT.md (placeholder - don't use yet)
   - 03-FACT-CHECK-VERIFICATION.md (placeholder)
   - PROJECT-STATUS.md (track progress)
-  - _research/NOTEBOOKLM-SETUP.md (source checklist)
+  - _research/00-NOTEBOOKLM-SOURCE-LIST.md (sources to download)
+  - _research/01-PRELIMINARY-RESEARCH.md (internet research)
+  - _research/02-NOTEBOOKLM-PROMPTS.md (verification queries)
 
 ---
 
@@ -216,8 +203,8 @@ Tell the user:
 
 **Phase 1: Research + Verification** (Your focus now)
 
-1. Open _research/NOTEBOOKLM-SETUP.md
-2. Load sources into NotebookLM
+1. Open _research/00-NOTEBOOKLM-SOURCE-LIST.md
+2. Download academic sources and upload to NotebookLM
 3. As you research each claim:
    - Verify with 2+ sources
    - Get exact quotes word-for-word
