@@ -79,9 +79,9 @@ Plans:
 **Plans:** 3 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Create STYLE-GUIDE.md with 6-part structure, unified checklist, preference capture section
-- [ ] 02-02-PLAN.md — Update script-writer-v2.md with consolidated references, auto-capture rule, streamlined checklists
-- [ ] 02-03-PLAN.md — Add supplement headers to old files, update CLAUDE.md style reference
+- [x] 02-01-PLAN.md — Create STYLE-GUIDE.md with 6-part structure, unified checklist, preference capture section
+- [x] 02-02-PLAN.md — Update script-writer-v2.md with consolidated references, auto-capture rule, streamlined checklists
+- [x] 02-03-PLAN.md — Add supplement headers to old files, update CLAUDE.md style reference
 
 **Success Criteria:**
 1. Scriptwriter produces scripts that sound natural when read aloud on first draft
@@ -101,6 +101,13 @@ Plans:
 - RSCH-01: Per-video organized research files with clear structure
 - RSCH-02: Cross-video verified facts database (reusable across videos)
 - RSCH-03: Standard source attribution format (every fact traces to citation)
+
+**Plans:** 3 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — Standardize per-video research structure with unified source attribution format
+- [ ] 03-02-PLAN.md — Integrate claims database as mandatory workflow checkpoint, backfill Flat Earth claims
+- [ ] 03-03-PLAN.md — Clean up research/ folder, establish 30-day maintenance routine
 
 **Success Criteria:**
 1. User can find any verified fact and its source citation within 60 seconds
@@ -170,8 +177,8 @@ Plans:
 |-------|--------|--------------|--------|
 | 0.1 - Edit Guide Optimization | **COMPLETE** | EDIT-01, EDIT-02, EDIT-03, EDIT-04 | 4 |
 | 1 - File Cleanup | **COMPLETE** | CLNP-01, CLNP-02, CLNP-03 | 3 |
-| 2 - Style Consolidation | **PLANNED** | STYL-01, STYL-02, STYL-03 | 3 |
-| 3 - Research Structure | Pending | RSCH-01, RSCH-02, RSCH-03 | 3 |
+| 2 - Style Consolidation | **COMPLETE** | STYL-01, STYL-02, STYL-03 | 3 |
+| 3 - Research Structure | **PLANNED** | RSCH-01, RSCH-02, RSCH-03 | 3 |
 | 4 - Script Management | Pending | SCRP-01, SCRP-02 | 2 |
 | 5 - Workflow Simplification | Pending | WKFL-01, WKFL-02 | 2 |
 | 6 - Competitive Intelligence | Pending | COMP-01, COMP-02 | 2 |
@@ -208,3 +215,5 @@ Phase 1 ---> Phase 6 (Competitive Intel)
 *Phase 1 planned: 2025-01-19*
 *Phase 1 completed: 2026-01-20*
 *Phase 2 planned: 2026-01-20*
+*Phase 2 completed: 2026-01-21*
+*Phase 3 planned: 2026-01-21*
