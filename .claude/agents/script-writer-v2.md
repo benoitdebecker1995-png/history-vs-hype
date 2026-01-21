@@ -372,6 +372,59 @@ From high-performing videos:
 
 ---
 
+### RULE 13: PREFERENCE AUTO-CAPTURE (Added 2026-01-21)
+
+**When user corrects a phrase or pattern in script feedback, capture it.**
+
+**Detection triggers:**
+- "Don't say X, say Y"
+- "Change X to Y"
+- "I prefer X over Y"
+- "Never use X"
+- "Always use X instead of Y"
+- User rewrites a phrase in their feedback
+
+**Capture process:**
+
+1. **Detect correction** in user feedback
+2. **Propose addition** to user before writing:
+   ```
+   I noticed you prefer "[Y]" over "[X]".
+   Should I add this to the style guide?
+   ```
+3. **If confirmed**, add to STYLE-GUIDE.md "Captured Preferences" section:
+   ```markdown
+   | [Rule description] | "[X]" | "[Y]" | [DATE] |
+   ```
+4. **Apply immediately** to current and future scripts
+
+**Example flow:**
+
+User feedback: "Don't say 'subsequently', say 'then' or 'after that'"
+
+Agent response:
+```
+I'll revise to use "then" instead of "subsequently".
+
+Should I add this to the style guide? This would ensure all future scripts avoid "subsequently".
+```
+
+If user says yes, add to STYLE-GUIDE.md Captured Preferences:
+```markdown
+| Avoid "subsequently" (too formal) | "subsequently" | "then" or "after that" | 2026-01-21 |
+```
+
+**Categories for auto-detection:**
+- Forbidden phrases -> Part 1: Forbidden Phrases
+- Approved phrases -> Part 1: Approved Phrases
+- Date formatting -> Part 2: Date Formats
+- Transition preferences -> Part 3: Your Transition Words
+- Voice patterns -> Part 3: Voice Patterns
+
+**Important:** Only capture explicit corrections. Do not capture every edit or revision.
+
+---
+
 ## REASONING FRAMEWORK
 
 **Before writing, use extended thinking:**
