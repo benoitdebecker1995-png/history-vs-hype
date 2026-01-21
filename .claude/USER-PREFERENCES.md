@@ -1,5 +1,35 @@
 # User Preferences & Working Style
 
+## Research Quality Standards (CRITICAL)
+
+### Academic Source Requirements
+**User's standard:** "I need trustworthy scholars, books, or authoritative articles. Price shouldn't matter."
+
+**What this means:**
+- **University press publications ONLY** - Cambridge, Oxford, Chicago, Harvard, Yale, Princeton, etc.
+- **Top-tier scholars** - Leading authorities in their field (check credentials: endowed chairs, major universities)
+- **Critical editions** - Primary sources with scholarly apparatus and commentary
+- **Peer-reviewed journals** - *Isis*, *History of Science*, *Speculum*, major journals only
+- **NO popular history** unless supplementary to academic sources
+
+**Budget is NOT a constraint for quality sources:**
+- Prioritize quality over cost
+- $40-60 for definitive monograph = acceptable
+- $150-250 for comprehensive source collection = expected
+- Access all necessary sources through university library + purchases
+
+**Examples:**
+- ✅ Edward Grant's *Planets, Stars, and Orbs* (Cambridge, $60) - THE cosmology authority
+- ✅ John Hedley Brooke's *Science and Religion* (Cambridge, $50) - Oxford professor
+- ✅ Critical edition with scholarly commentary (Liverpool UP, $45)
+- ❌ Popular history book without academic apparatus
+- ❌ Blog posts or websites (except for claim extraction)
+- ❌ Generic "history of X" without scholarly credentials
+
+**See:** `.claude/REFERENCE/NOTEBOOKLM-SOURCE-STANDARDS.md` for complete standards
+
+---
+
 ## Communication Style
 
 ### Be Direct and Efficient
@@ -276,6 +306,37 @@ Your recommendation should reflect this data:
 
 ---
 
+## CRITICAL: RESEARCH FILES FIRST, WEB SEARCH SECOND
+
+**THE RULE (Added 2025-12-04):**
+
+Before ANY web search, check existing project research files.
+
+**Order of operations:**
+1. Glob for project research files (`**/RESEARCH*.md`, `**/MASTER*.md`, `**/VERIFIED*.md`)
+2. Read relevant sections
+3. Only web search for claims NOT in existing research
+4. **ADD new findings to research files** (saves future searches)
+
+**Why This Matters:**
+- Research files are the single source of truth
+- Re-searching wastes 4 web searches on already-verified facts
+- New findings should be saved for future use
+
+**Real Error (Belize comment response 2025-12-04):**
+- User asked for comment response
+- I went straight to web search
+- Research files already had 1931 boundary marking, 80-year acceptance, estoppel
+- Wasted searches, user called it out
+
+**Correct Flow:**
+1. Check MASTER-RESEARCH-COMPILATION.md or equivalent
+2. Use existing verified facts
+3. Only search for NEW claims not in research
+4. Add any new findings to research file with sources
+
+---
+
 ## CRITICAL: NEVER INCLUDE UNVERIFIED CLAIMS
 
 **THE MOST IMPORTANT RULE:**
@@ -387,6 +448,19 @@ Before implementing ANY external suggestion, verify:
 
 **If unsure:** Present critical analysis to user, don't auto-implement.
 
+### VidIQ Score Reality Check (Added 2025-12-04)
+
+**VidIQ scores DON'T predict this channel's performance:**
+- 83-scored title got 21x more views than 97-scored title
+- Face thumbnails score higher but map thumbnails perform 26x better
+- VidIQ optimizes for generic YouTube, not documentary niche
+
+**When analyzing VidIQ data:**
+1. Be critical - VidIQ "tends to prioritize clickbaity shit"
+2. Filter through channel values before implementing
+3. Ignore advice that contradicts documentary tone
+4. Trust channel-specific performance data over VidIQ predictions
+
 ---
 
 ## Comment Engagement Strategy (Updated 2025-01-24)
@@ -477,6 +551,36 @@ Before implementing ANY external suggestion, verify:
 
 ---
 
+## CRITICAL: DOCUMENT PROCESS FIXES IMMEDIATELY
+
+**THE RULE (Added 2025-12-04):**
+
+When an error is discovered, IMMEDIATELY:
+1. Acknowledge the error
+2. Identify root cause
+3. Add a process fix to prevent recurrence
+4. Document in _CORRECTIONS-LOG.md
+
+**User Expectation:**
+- "make sure it doesn't happen again" = Add a documented rule/process
+- Not just "I'll remember" - that doesn't scale
+- Update relevant agent files with new rules
+
+**Real Error (Bir Tawil claimant dates 2025-12-04):**
+- Script said "2014" when reality was "2017"
+- Script said "radio operator" when reality was "DJ"
+- User response: "how did you fuck this up so badly"
+- Fix: Added RULE 4 (HIGH-RISK DETAILS REQUIRE EXACT QUOTES) to script-writer-v2.md
+- Created _CORRECTIONS-LOG.md to track errors
+
+**Process fix categories:**
+- Agent rules (script-writer-v2.md, fact-checker.md)
+- User preferences (USER-PREFERENCES.md)
+- Workflow documentation (REFERENCE/workflow.md)
+- Corrections log (_CORRECTIONS-LOG.md)
+
+---
+
 ## CRITICAL LESSONS FROM RECENT SESSIONS
 
 ### 1. Always Verify Current Status of Political Figures
@@ -553,46 +657,49 @@ grep -i "netanyahu\|fuentes\|hegseth" COMPLETE-PERFORMANCE-DATABASE.md
 
 ---
 
-### 4. Channel DNA: Timeless Relevance, Not Political Figures
+### 4. Channel DNA: History-First, Not Geopolitics-First (Updated 2025-12-07)
+
 **Error made:** Created full research package for Netanyahu "redrawn the map" video.
 
-**User correction:** "i dont know if this is a good video to make. it feels more modern geeopolicits than hsitory related."
-**Follow-up clarification:** "they shouldnt be politicially relevant but they should be relevant today"
+**User corrections:**
+- "i dont know if this is a good video to make. it feels more modern geopolitics than history related."
+- "they shouldnt be politically relevant but they should be relevant today"
+- "there shouldnt necessarily be a divide, some old things can spill into modern things. i would always want to show people why things are relevant nowadays. but i dont want to become a geopolitics channel."
 
-**Why they were right:**
-- Netanyahu video centered on a CURRENT POLITICIAN'S statements (temporary relevance)
-- Channel is about TIMELESS questions using historical evidence (permanent relevance)
-- Better fit: "Why do territorial disputes persist?" not "What did Netanyahu say?"
+**The Core Principle:**
+This is a **history channel with modern relevance**, NOT a geopolitics channel with historical background.
 
-**The Rule:**
-Videos should be:
-- ✅ Relevant to TODAY'S issues (territorial disputes, religious conflicts, border problems)
-- ✅ 60-80% historical analysis (colonial decisions, treaties, primary documents)
-- ✅ 20-40% modern consequences (how that history causes today's conflicts)
-- ❌ NOT centered on current politicians or political figures as main subject
-- ❌ NOT temporary relevance that expires when politician leaves office
+**What this means:**
+- ✅ Historical sources/events = the core content (60-80%)
+- ✅ Modern relevance = the hook and stakes (20-40%)
+- ❌ NOT: current events as the main subject with history as background
+- ❌ NOT: news commentary that happens to mention history
+- ❌ NOT: centered on current politicians or political figures
 
-**Good channel fit (timeless relevance today):**
-- Bir Tawil: "Why is this land unclaimed?" (ongoing territorial paradox)
-- Crusades: "Were Crusades defensive?" (timeless religious conflict narrative)
-- Sykes-Picot: "How did colonial borders create Middle East conflicts?" (ongoing consequences)
-- Lebanon: "Why does France's 1920 mandate still fuel sectarian war?" (persistent issue)
+**The right balance:**
+- "This medieval manuscript shows X, and that myth still shapes how people think about Y today" ✅
+- "This 1859 treaty created a dispute that's being decided by the ICJ right now" ✅
+- "Here's what Netanyahu said last week, and here's some historical context" ❌
+- "Breaking down the latest ICJ ruling with some history" ❌
 
-**Poor channel fit (political figure centered):**
-- Netanyahu's current border policies (centered on one politician's statements)
+**Good channel fit (history → modern relevance):**
+- Library of Alexandria: "Did one fire destroy all ancient knowledge?" (ancient sources → "religion vs science" debates)
+- Bir Tawil: "Why is this land unclaimed?" (colonial border decisions → ongoing paradox)
+- Crusades: "Were Crusades defensive?" (medieval chronicles → modern religious conflict framing)
+- Sykes-Picot: "How did colonial borders create Middle East conflicts?" (1916 treaty → ongoing consequences)
+- Belize-Guatemala: "What do ICJ precedents tell us?" (legal history → 2027 ruling)
+
+**Poor channel fit (news-first or political figure centered):**
+- Netanyahu's current border policies (politician's statements as main subject)
+- "What the latest ICJ ruling means" (news commentary)
 - Trump's border wall plans (temporary political issue)
-- Biden's foreign policy positions (current administration)
-
-**The Distinction:**
-- ✅ "Why do Egypt and Sudan both reject Bir Tawil?" = Timeless territorial question, relevant today
-- ❌ "What did Netanyahu claim about Israel's borders?" = Political figure commentary, temporary
-- ✅ "How do Crusades myths fuel modern conflicts?" = Timeless narrative question, relevant today
-- ❌ "What does Hegseth believe about Crusades?" = Political figure focus, temporary
 
 **Note on Modern Hooks:**
 Using current figures as HOOKS is fine (Hegseth tattoo opens Crusades video), but the video's core question must be timeless. Hegseth is the doorway, not the destination.
 
-**Test:** Ask "Will this question matter in 10 years regardless of who's in power?" If yes, good fit. If no, too politically specific.
+**Test 1:** Ask "Is the historical source/event the main content, or just background for current events?" If the latter, wrong balance.
+
+**Test 2:** Ask "Will this question matter in 10 years regardless of who's in power?" If yes, good fit. If no, too politically specific.
 
 ---
 
@@ -718,11 +825,27 @@ You say: "According to Rosamond McKitterick in *The Carolingians and the Written
 
 ---
 
-## SCRIPT WRITING STYLE (Updated 2025-01-27)
+## SCRIPT WRITING STYLE (Updated 2026-01-21)
+
+> **Note:** Speaking patterns and voice profile have been consolidated into **[STYLE-GUIDE.md](.claude/REFERENCE/STYLE-GUIDE.md)**.
+>
+> For the authoritative reference on spoken delivery, transitions, voice patterns, and quality checklist, see STYLE-GUIDE.md.
 
 ### Write for Spoken Delivery, Not Written Text
 
-**User films talking head videos** - scripts must sound natural when read aloud.
+**User films talking head videos via teleprompter** - scripts must sound natural when read aloud.
+
+**MANDATORY: Spoken Delivery Rules**
+See: `.claude/REFERENCE/STYLE-GUIDE.md` → Part 2: Spoken Delivery Rules
+
+Apply these rules automatically to ALL scripts, without being asked:
+- Fix telegraph-style noun fragments ("Ambassadors. Embassies." → full sentence)
+- Fix informational fragments that require mental reassembly
+- PRESERVE rhetorical fragments used for emphasis ("Britain never built it.")
+- Smooth dense legal/diplomatic phrasing for spoken delivery
+- DO NOT alter facts, dates, or legal precision
+
+**The Stumble Test:** If a line would make a presenter stumble or pause awkwardly → rewrite it.
 
 **Common Issues:**
 - Formal date formats: "1899. Britain and Egypt sign..."
@@ -781,7 +904,11 @@ This means:
 
 ---
 
-## USER'S NATURAL SPEAKING PATTERNS (NEW - 2025-01-27)
+## USER'S NATURAL SPEAKING PATTERNS
+
+> **Note:** Core speaking patterns have been consolidated into **[STYLE-GUIDE.md](.claude/REFERENCE/STYLE-GUIDE.md)** Part 3 (Voice Patterns).
+>
+> This section preserves extended examples and analysis. For the authoritative rules, see STYLE-GUIDE.md.
 
 **These patterns are from analyzing user's actual script edits (Belize ICJ video).**
 
@@ -977,10 +1104,293 @@ Makes the structure transparent to the audience.
 
 ---
 
-## SPEAKING STYLE CHECKLIST (Use When Writing/Editing Scripts)
+## TONE PREFERENCES FROM FLAT EARTH VIDEO (Discovered 2026-01-03)
+
+**Analysis method:** Compared FINAL-SCRIPT-V3.md to actual recorded A-roll (flat earth.srt)
+
+### Pattern 21: Simplify Proper Names on the Fly
+
+**Rule:** You naturally drop unnecessary formality when speaking.
+
+| Script Had | You Said |
+|------------|----------|
+| "John J. Anderson" | "Anderson" |
+| "Eratosthenes of Cyrene" | "Ertostenes of Sirenae" (then corrected) |
+
+**Takeaway for future scripts:**
+- Don't write "John J. Anderson" - just write "Anderson"
+- First names in citations are unnecessary formality
+- You'll simplify them during delivery anyway
+
+---
+
+### Pattern 22: You Trust Argument Structure Over Word-Perfect Delivery
+
+**Rule:** When structural beats are clear, you hit them precisely as written.
+
+**Examples from recording:**
+- ✅ "An obvious question follows" - delivered exactly as written
+- ✅ "Not shape. Size." - delivered with pause exactly as structured
+- ✅ "A scene that never happened" - emphasis exactly as intended
+
+**Takeaway:**
+- Rhetorical signposts work ("An obvious question follows...")
+- Dramatic reveals written as short sentences land correctly
+- The script's structural beats guide your delivery effectively
+
+---
+
+### Pattern 23: Moving Fast Through Difficult Names = Transcription Errors
+
+**Evidence from SRT errors:**
+- "Beethoven" instead of "Bede" (wrong person AND wrong century)
+- "Ertostenes of Sirenae" instead of "Eratosthenes of Cyrene"
+- "Ilatostenis, Isodore" instead of "Eratosthenes, Isidore"
+
+**Why this happens:**
+- You're reading quickly through complex Greek/Latin names
+- Auto-transcription struggles with specialized terminology
+- Fast delivery + unfamiliar names = garbled transcription
+
+**Solution for future scripts:**
+- **BOLD CAPS for difficult names:** **ERATOSTHENES**, **SACROBOSCO**, **ISIDORE**
+- Print scripts in LARGER FONT (16pt+) for teleprompter
+- Mark difficult names with pronunciation guides if needed
+
+---
+
+### Pattern 24: You May Cut Academic Source Citations During Delivery
+
+**Script had:** "We know this from later Greek writers like Cleomedes and Strabo"
+**Analysis needed:** Check if you kept full citation or simplified to "We know this from..."
+
+**Implication:**
+- If you're cutting verbose source attributions during filming
+- Future scripts can be lighter on mid-narration citations
+- Save detailed citations for on-screen text overlays instead
+- Trust your judgment - if it feels academic-heavy, you'll simplify it
+
+---
+
+### Pattern 25: Numbers Need Extra Attention
+
+**Critical error in recording:**
+- Script: "24,901 miles" (correct)
+- Recording: "23,901 miles" (off by 1,000)
+
+**Why this matters:**
+- Precision numbers can be rushed when reading quickly
+- One-digit error undermines credibility on factual claim
+- Critical statistics need emphasis markers
+
+**Solution for future scripts:**
+```markdown
+❗ CRITICAL NUMBER: **24,901 miles** (pause after, let it land)
+```
+
+Mark critical numbers with:
+- ❗ symbol before them
+- Bold formatting
+- "(pause)" instruction after
+- This prevents rushing through important data
+
+---
+
+### Pattern 26: Conversational Phrasing Over Written Style
+
+**Your natural voice is:**
+- Confident and efficient
+- Trusts clarity over exact wording
+- Makes it conversational without losing authority
+- Knows when to hit rhetorical beats hard
+
+**Script writing recommendation:**
+- Write shorter proper name references (just "Anderson")
+- Flag critical numbers in CAPS so you don't rush them
+- Mark "PAUSE HERE" after dramatic reveals
+- Don't over-source if you'll cut it anyway
+- Trust the argument structure beats
+
+---
+
+### Updated Script Writing Checklist (Flat Earth Insights Applied)
+
+Before finalizing scripts, verify:
+
+**Name formatting:**
+- [ ] Drop unnecessary first names/formality ("Anderson" not "John J. Anderson")
+- [ ] **BOLD CAPS** for difficult Greek/Latin names (**ERATOSTHENES**)
+- [ ] Pronunciation guides for truly obscure names
+
+**Number emphasis:**
+- [ ] Critical statistics marked with ❗ and **bold**
+- [ ] "(pause)" instruction after key numbers
+- [ ] Round to nearest meaningful digit where appropriate
+
+**Structural beats:**
+- [ ] "PAUSE HERE" marked after dramatic reveals
+- [ ] Rhetorical signposts clear ("An obvious question follows")
+- [ ] Short declarative sentences for emphasis ("A scene that never happened.")
+
+**Source citations:**
+- [ ] Reduce mid-narration attribution verbosity
+- [ ] Move detailed citations to on-screen text overlays
+- [ ] Only keep essential "According to [Authority]" attributions
+
+**Delivery prep:**
+- [ ] Print teleprompter script in 16pt+ font
+- [ ] Difficult names highlighted in color
+- [ ] Critical numbers/dates in bold
+- [ ] Pause markers clearly visible
+
+---
+
+## NATURAL DELIVERY PATTERNS
+
+> **Note:** Core delivery patterns have been consolidated into **[STYLE-GUIDE.md](.claude/REFERENCE/STYLE-GUIDE.md)** Part 2 (Spoken Delivery Rules) and Part 3 (Voice Patterns).
+>
+> This section preserves extended examples from A-roll analysis. For the authoritative rules, see STYLE-GUIDE.md.
+
+**These patterns emerged from comparing the final script to what the user actually said when filming. Apply these automatically when writing scripts.**
+
+### Pattern 11: Expand Abbreviations for Authority
+
+**Rule:** Spell out abbreviations rather than using shorthand.
+
+| Script Had | User Said |
+|------------|-----------|
+| "The AU rejected it" | "The African Union rejected it" |
+| "The AU has been deciding" | "The African Union has been deciding" |
+| "The AU's own investigation" | "The African Union's own investigation" |
+
+**Takeaway:** User naturally prefers spelled-out forms for authority. Use "African Union" not "AU" in scripts.
+
+---
+
+### Pattern 12: Drop Parenthetical Details That Break Flow
+
+**Rule:** Remove mid-sentence asides that interrupt the main point.
+
+| Script Had | User Said |
+|------------|-----------|
+| "Ethiopia—120 million people—is landlocked" | "Ethiopia is landlocked" |
+| "Reading directly from the Act, page 1279:" | "Reading directly from the act, the territories..." |
+| "Deputy Chairperson Patrick Mazimhaka. Five days investigating." | [cut entirely] |
+
+**Takeaway:** User cuts details that don't advance the argument. Don't add parenthetical population numbers, page numbers in quoted setup lines, or name+title combos that don't add value.
+
+---
+
+### Pattern 13: Flowing Lists Over Staccato Fragments
+
+**Rule:** Connect list items with commas rather than hard stops, unless for deliberate rhetorical emphasis.
+
+| Script Had | User Said |
+|------------|-----------|
+| "Soviet Union. Britain. France. Egypt." | "The Soviet Union, Britain, France, Egypt..." |
+| "Two parliaments. Two laws. One union." | "Two different parliaments, two laws, one union." |
+
+**Takeaway:** Staccato works for emphasis ("Not a promise. Not a transition. Independence.") but NOT for informational lists. Connect list items with commas.
+
+---
+
+### Pattern 14: "That is" for Emphasis, "That's" for Flow
+
+**Rule:** Use uncontracted forms ("that is", "it is") when emphasizing a point.
+
+| Context | Preferred Form |
+|---------|----------------|
+| Emphatic agreement | "That is true." |
+| Emphatic attribution | "That is not my interpretation." |
+| Casual flow | "That's the AU's own fact-finding mission." |
+
+**Takeaway:** Use "that is" when you want the statement to land with weight.
+
+---
+
+### Pattern 15: Statements Over Rhetorical Questions for Documentary Tone
+
+**Rule:** Convert rhetorical questions to declarative statements for documentary authority.
+
+| Script Had | User Said |
+|------------|-----------|
+| "That first narrative—Somaliland is just a separatist region with no legal basis?" | "That first narrative, Somaliland is just a separatist region with no legal basis." |
+| "But the second narrative—Somaliland was never part of Somalia?" | "But the second narrative, Somaliland was never part of Somalia." |
+
+**Takeaway:** User prefers declarative framing over rhetorical questions. Use statements, not questions, when presenting narratives to evaluate.
+
+---
+
+### Pattern 16: Drop Quote Markers
+
+**Rule:** Don't say "quote" before reading quoted material—just read it with document on screen.
+
+| Script Had | User Said |
+|------------|-----------|
+| "Somalia's parliament even passed a resolution requesting—quote—'a definitive single text...'" | "Somalia's parliament even passed a resolution requesting a definitive single text..." |
+
+**Takeaway:** The document on screen provides the "quote" signal. Don't verbally announce quotes.
+
+---
+
+### Pattern 17: Explicit Transition Phrases
+
+**Rule:** Add explicit setup phrases rather than using colons.
+
+| Script Had | User Said |
+|------------|-----------|
+| "The deal:" | "The deal was this." |
+| "Their conclusion:" | "Their conclusion, the fact that..." |
+
+**Takeaway:** User prefers "The deal was this" or "Here's what happened" over colon-style setups.
+
+---
+
+### Pattern 18: Personal Ownership of Research
+
+**Rule:** Claim the research as your own—you did the work.
+
+| Script Had | User Said |
+|------------|-----------|
+| "Here's what they found" | "Here's what I found" |
+
+**Takeaway:** User takes ownership of findings. Use "I" not "they" when presenting conclusions from your research.
+
+---
+
+### Pattern 19: Polite CTAs
+
+**Rule:** Add "please" to calls to action.
+
+| Script Had | User Said |
+|------------|-----------|
+| "subscribe." | "please subscribe." |
+
+**Takeaway:** User naturally softens CTAs with "please". Include it in scripts.
+
+---
+
+### Pattern 20: Drop Trailing Timestamps After Key Points
+
+**Rule:** Don't repeat the date after making the main point.
+
+| Script Had | User Said |
+|------------|-----------|
+| "But Somaliland's borders ARE the colonial borders. June 26, 1960." | "But Somaliland's borders are the colonial borders." |
+
+**Takeaway:** If the date has already been established, don't repeat it after the conclusion. Let the point land cleanly.
+
+---
+
+## SPEAKING STYLE CHECKLIST
+
+> **Note:** The unified quality checklist is in **[STYLE-GUIDE.md](.claude/REFERENCE/STYLE-GUIDE.md)** Part 6 (Quality Checklist).
+>
+> This checklist is preserved for reference. Use STYLE-GUIDE.md Part 6 as the authoritative checklist.
 
 Before finalizing any script, verify:
 
+**Original Patterns (1-10):**
 - [ ] All technical terms defined immediately in bold (same sentence)
 - [ ] All quotes/complex language explained in next sentence ("In simpler terms...")
 - [ ] No vague references (answer: what islands? how so? which case?)
@@ -991,6 +1401,18 @@ Before finalizing any script, verify:
 - [ ] Rhetorical questions followed by answers
 - [ ] Direct address to audience ("you/your") not academic distance
 - [ ] Circular structure with explicit callback to opening
+
+**Natural Delivery Patterns (11-20) - Added 2025-12-30:**
+- [ ] Abbreviations expanded ("African Union" not "AU")
+- [ ] Parenthetical asides removed (no mid-sentence population numbers)
+- [ ] Lists connected with commas (flowing, not staccato)
+- [ ] "That is" for emphasis, "That's" for casual flow
+- [ ] Declarative statements over rhetorical questions for narratives
+- [ ] No "quote" markers before quoted text
+- [ ] Explicit transitions ("The deal was this." not "The deal:")
+- [ ] Personal ownership ("I found" not "they found")
+- [ ] Polite CTAs ("please subscribe")
+- [ ] No trailing timestamps after conclusions
 
 ---
 
@@ -1289,6 +1711,101 @@ Shot 15 (0:25 in final video)
 - Self-contained (doesn't require watching full video)
 - Surprising fact or data reveal
 - Can be understood without context
+
+---
+
+## CRITICAL: YOUTUBE DESCRIPTION SOURCES (Added 2026-01-14)
+
+### Sources = What Was ACTUALLY Used, Not What's Mentioned
+
+**Error Made:**
+- User asked for sources in YouTube description
+- I looked at NotebookLM SOURCE LIST (planned sources) and script mentions
+- I invented source citations based on what MIGHT have been used
+- User response: "are you an actual retard?"
+
+**The Problem:**
+- NotebookLM SOURCE LIST = sources planned for download
+- Script narration = sources mentioned verbally
+- Neither = actual sources cited on screen and used in research
+
+**Correct Approach:**
+1. ASK user: "What sources did you actually use/show on screen?"
+2. User will provide the exact list
+3. Use EXACTLY that list - no additions, no inventions
+4. Format properly with publishers/translators
+
+**What User Provided (Example from Flat Earth):**
+- Cleomedes (UC Press, 2004)
+- Strabo (George Bell & Sons, 1903)
+- Isidore (Cambridge UP, 2006)
+- Sacrobosco (Chicago UP, 1949)
+- Ferdinand Columbus (Rutgers UP, 1959)
+- etc.
+
+**NEVER:**
+- Invent sources based on what seems plausible
+- Use NotebookLM SOURCE LIST as "sources used"
+- Add sources not explicitly provided by user
+
+---
+
+## THUMBNAIL TEXT: MINIMAL IS BETTER (Added 2026-01-14)
+
+### Less Text = More Impact
+
+**User Pattern:**
+- Asked "more text on this thumbnail?"
+- Answer: No, dates only is correct
+
+**Lesson:**
+- Dates only (1880, 1898) can be enough
+- Title does the talking, thumbnail shows proof
+- Adding more text clutters and competes with title
+- If user asks "should I add more text?" → probably no
+
+**Thumbnail A (Textbook Contrast):**
+- Just "1880" and "1898" - no other text needed
+- Red highlights draw attention
+- Title explains what changed
+
+**Thumbnail B (Manuscript):**
+- Just "1230" - single date stamp
+- Document is the visual
+- Title provides context
+
+**Default Answer:** When in doubt, less text is better.
+
+---
+
+## CHAPTERS: FEWER IS BETTER (Added 2026-01-14)
+
+### Don't Over-Segment
+
+**Error Made:**
+- Current metadata had 20 chapters for 15-minute video
+- User said "i dont want too many chapters"
+- Asked for 8 specifically
+
+**Correct Approach:**
+- ~1 chapter per 2 minutes is appropriate
+- Major narrative beats only
+- Combine related sections (Draper + White → one chapter)
+- Don't micro-segment every topic shift
+
+**8 Chapters for 15-min video (Flat Earth example):**
+```
+0:00 - The Textbook Lie
+1:33 - The Greeks Measured It
+2:51 - Medieval Scholars Knew
+5:46 - Columbus at Salamanca
+8:17 - Washington Irving (1828)
+9:46 - John Draper (1874)
+11:01 - Andrew Dickson White (1896)
+15:07 - Why This Lie Persists
+```
+
+**NOT 20 chapters with every sub-topic.**
 
 ---
 
