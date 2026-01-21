@@ -24,7 +24,7 @@ This is a content production repository for **History vs Hype**, a YouTube chann
 - **Shaun:** Document-first argumentation, chronological precision
 - **Fall of Civilizations:** Systems collapse framing, evidence stacking
 
-**See:** `.claude/STYLE-GUIDE-ADDITIONS.md` for detailed transcript analysis
+**See:** `.claude/REFERENCE/STYLE-GUIDE.md` Part 5 (Creator Techniques) for detailed analysis
 
 **Performance Insights:**
 - Belize (10:57): 23,181 views, best performer = detailed territorial dispute
@@ -238,81 +238,25 @@ Cross-check every line of script against VERIFIED-RESEARCH.md
 
 ## Script Writing Guidelines
 
-**CRITICAL REFERENCE:** `.claude/SCRIPTWRITING-STYLE-GUIDE.md` for complete Kraut and Alex O'Connor style analysis
+**Authoritative Reference:** `.claude/REFERENCE/STYLE-GUIDE.md`
 
-### Style Models
+### Quick Summary
 
-**Kraut Techniques:**
-- Sweep-then-specifics: Open with sweeping pattern, ground in multiple examples, introduce exception
-- Deep causal chains: Use "consequently," "thereby," "which meant that," "as a result"
-- Comparative analysis: "While in Europe [X], in Russia [opposite]"
-- Confident declarative statements for key points
+**Core Non-Negotiable:** Scripts are read aloud via teleprompter. They must sound natural when spoken.
 
-**Alex O'Connor Techniques:**
-- Conversational think-aloud: "I don't know about this. Let me know what you think..."
-- Intellectual humility: "I'm not super convinced by this, mostly because..."
-- Define every term immediately in same sentence
-- Engage with counterarguments directly
+**Voice:** "Calm Prosecutor" - emotionally low, intellectually high. Evidence-based referee between opposing camps.
 
-### Real Quote Requirements (MANDATORY)
+**Key Rules:**
+- Real quotes with page numbers (not summaries)
+- Primary sources displayed ON SCREEN
+- Define every term immediately
+- "Here's" usage: 2-4 per script max
+- Contractions: "it's" not "it is"
+- Dates: "On June 16th, 2014" not "June 16, 2014"
 
-**Quote Integration Patterns:**
-1. **Attribution-First:** "According to Chris Wickham in *Medieval Europe*, page 147..."
-2. **Claim-Then-Source:** "The Carolingians produced 10x more manuscripts. That's not my interpretation—that's Buringh and Van Zanden's quantitative analysis."
-3. **Block Quote Display:** "Here's what King Liutprand's law actually says: [SHOW: text on screen]"
-4. **Historian as Witness:** "As the historian John Delon described it, '[exact quote]'"
+**Creator Models:** Kraut (causal chains), Alex O'Connor (intellectual honesty), Shaun (document-first), Knowing Better (source verification)
 
-### Write for Spoken Delivery, Not Written Text
-
-User films talking head videos - scripts must sound natural when read aloud.
-
-**Date Formats:**
-- ❌ "June 16, 2014. A Virginia farmer..."
-- ✅ "On June 16th, 2014, a farmer from Virginia..."
-
-**Contractions:**
-- Use "it's" not "it is"
-- Use "they're" not "they are"
-
-**Quote Attribution:**
-- ❌ "Quote: 'Sudan is defined as...'"
-- ✅ "The treaty says Sudan is defined as..."
-
-**Sentence Flow:**
-- Break up long sentences with natural pauses
-- Use rhetorical questions for pacing
-- Add natural connectors: "So...", "And...", "But..."
-- Make it sound like explaining to a friend, not reading a document
-
-### User's Natural Speaking Patterns
-
-**Pattern 1: Immediately Define Technical Terms**
-```markdown
-[Technical term] — [plain language definition in same breath]
-```
-Example: "The principle is called estoppel—a legal rule that says you can't benefit from an agreement for decades, then suddenly claim it never existed."
-
-**Pattern 2: Embedded Explanations**
-After quoting legal/complex language, immediately explain in next sentence.
-- "In simpler terms..."
-- "Translation:"
-- "The Court is saying:"
-
-**Pattern 3: Always Provide Concrete Specifics**
-Never leave references vague. Answer implicit questions immediately.
-- ❌ "Colombia kept the islands." → User asks: "what islands??"
-- ✅ "Colombia kept the islands—the San Andrés and Providencia archipelago."
-
-**Pattern 4: Short Declarative Sentences for Emphasis**
-- ✅ "Britain never built it."
-- ✅ "Treaties matter more than occupation."
-
-**Pattern 5: Dash-Separated Clarifications**
-```markdown
-[Main statement]—[immediate clarification]—[continuation]
-```
-
-**See:** `.claude/USER-PREFERENCES.md` section "USER'S NATURAL SPEAKING PATTERNS" for all 10 patterns
+**For complete style rules, voice patterns, and quality checklist, see [STYLE-GUIDE.md](.claude/REFERENCE/STYLE-GUIDE.md).**
 
 ### Structure
 - Videos as long as needed (no arbitrary caps)
@@ -552,13 +496,16 @@ B-roll is evidence, not decoration. You are the authority making an argument, no
 **Core Workflows:**
 - `.claude/REFERENCE/fact-checking-protocol.md` - Source hierarchy and verification process
 
+**Style:**
+- `.claude/REFERENCE/STYLE-GUIDE.md` - **Authoritative style reference** (voice, delivery, patterns, checklist)
+- `.claude/REFERENCE/OPENING-HOOK-TEMPLATES.md` - Opening templates
+- `.claude/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md` - Closing templates
+
 **Reference:**
-- `.claude/SCRIPTWRITING-STYLE-GUIDE.md` - **Kraut/Alex O'Connor style analysis (CRITICAL for scripts)**
-- `.claude/FOLDER-STRUCTURE-GUIDE.md` - Complete folder system rules
+- `.claude/REFERENCE/FOLDER-STRUCTURE-GUIDE.md` - Complete folder system rules
 - `.claude/USER-PREFERENCES.md` - Working style, efficiency expectations, common tasks
 - `.claude/REFERENCE/HYBRID_TALKING_HEAD_GUIDE.md` - Visual strategy for when to show face vs. B-roll
 - `.claude/REFERENCE/youtube-comment-response-guide.md` - Voice, tone, and response templates
-- `.claude/REFERENCE/VOICE-GUIDE.md` - Voice and speaking patterns reference
 
 **Advanced:**
 - `.claude/ACADEMIC-PEER-REVIEW-PROTOCOL.md` - Journal-level verification for high-stakes topics
@@ -717,7 +664,7 @@ Make academic research accessible while maintaining historical integrity. The go
 3. **Use REAL QUOTES, not summaries** - Word-for-word from academic sources with page numbers from NotebookLM citations
 4. **Primary sources are NON-OPTIONAL** - Showing documents on screen sets the channel apart
 5. **Videos as long as needed** - No arbitrary length caps (Kraut runs 30-45 min)
-6. **Read SCRIPTWRITING-STYLE-GUIDE.md before writing scripts** - Kraut/Alex O'Connor patterns
+6. **Read STYLE-GUIDE.md before writing scripts** - Authoritative voice, delivery, patterns, checklist
 7. **Write for spoken delivery** - Conversational tone, contractions, natural phrasing
 8. **Deep causal chains** - Explain WHY things happened (consequently, thereby, which meant that)
 9. **Intellectual honesty** - Acknowledge what opposing side gets right (Alex O'Connor style)
@@ -740,7 +687,7 @@ Make academic research accessible while maintaining historical integrity. The go
 - Agent configurations: `.claude/agents/`
 
 **New (Dec 2025):**
-- Style patterns from creators: `.claude/STYLE-GUIDE-ADDITIONS.md`
+- **Style Guide (authoritative):** `.claude/REFERENCE/STYLE-GUIDE.md`
 - VidIQ workflow: `.claude/VIDIQ-WORKFLOW.md`
 - Topic ideas pipeline: `.claude/OUTLIER-TOPIC-IDEAS.md`
 - Source standards: `.claude/NOTEBOOKLM-SOURCE-STANDARDS.md`
