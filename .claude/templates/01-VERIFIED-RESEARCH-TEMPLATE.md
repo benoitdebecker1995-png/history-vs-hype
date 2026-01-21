@@ -3,7 +3,30 @@
 **Project:** [Project folder name]
 **Date Started:** [YYYY-MM-DD]
 **Completion:** 0% verified
-**Status:** 🔄 IN PROGRESS / ✅ READY TO WRITE SCRIPT
+**Status:** IN PROGRESS / READY TO WRITE SCRIPT
+
+---
+
+## MODERN HOOK ANALYSIS (Complete First)
+
+### Hook Type
+- [ ] **Territorial** - Colonial decision still causing conflicts/disputes
+- [ ] **Ideological** - Historical myth still shaping modern beliefs/debates
+
+### Modern Hook Statement
+**The myth:** [What distorted historical claim are you debunking?]
+
+**Who uses it today:** [Which public figures, movements, or debates invoke this myth?]
+
+**Modern consequence:** [What opinion, belief, or conflict does this myth fuel RIGHT NOW?]
+
+**Hook strength (1-5):** [1 = vague connection, 5 = actively in current discourse]
+
+### Why This Matters in 2024-2025
+[2-3 sentences connecting to current events, debates, or trending discourse]
+
+### Script Opening Hook (Draft)
+> "You've probably heard [modern claim rooted in bad history]. Here's what the sources actually show..."
 
 ---
 
@@ -12,124 +35,143 @@
 This is your **single source of truth** for verified facts.
 
 **RULES:**
-1. ✅ Only add facts here AFTER verifying with 2+ sources
-2. ❌ Don't write script until 90%+ of claims verified
-3. 📝 Mark each claim with status: ✅ VERIFIED / ⏳ RESEARCHING / ❌ UNVERIFIABLE
+1. Only add facts here AFTER verifying with 2+ sources
+2. Don't write script until 90%+ of claims verified
+3. Mark each claim with status: VERIFIED / RESEARCHING / UNVERIFIABLE
 
 ---
 
-## SECTION 1: [Topic Category - e.g., "Jerusalem Massacre"]
+## NOTEBOOKLM SOURCES
 
-### ✅ CLAIM 1: [Clear title - e.g., "Death Toll"]
+### Primary Sources [P]
 
-**What opponent claims:** "[Their exact claim]"
-**What's actually true:** [Modern scholarly consensus]
+#### [P1] [Document Name]
+- **Type:** [Primary source / Government document / Treaty / Census / etc.]
+- **Author/Origin:** [Who created it, when]
+- **Access:** [URL / Library / Purchased]
+- **Key content:** [What's relevant to this video]
+- **Status:** Downloaded / Pending
+- **NotebookLM filename:** `[P1] Filename.pdf`
 
-**Sources:**
-1. [Author Last Name] (Tier [1/2/3]) - *[Book Title]*, p. [page number]
-2. [Author Last Name] (Tier [1/2/3]) - *[Book Title]*, p. [page number]
+#### [P2] [Document Name]
+[Same format as P1]
 
-**Primary Source Quote (EXACT):**
-> "[Word-for-word exact quote from primary source]"
-> — [Source attribution], *[Document title]* ([Translation/Edition], [Year])
+### Academic Sources [A]
 
-**Context:** [Modern interpretation, why medieval sources differ, scholarly debate if relevant]
+#### [A1] [Author Last Name], [First Name]. *[Title]*
+- **Type:** Academic monograph / Journal article / Book chapter
+- **Publisher:** [University press, year]
+- **Access:** [JSTOR / Library / Purchased]
+- **Key chapters:** [Which sections are relevant]
+- **Relevance:** [Why this source matters for this video]
+- **Status:** Downloaded / Pending
+- **NotebookLM filename:** `[A1] Author-Title.pdf`
 
-**Script-Ready:** ✅ YES / ❌ NO
-**How to use in script:** [Brief note on how to present this]
+#### [A2] [Author Last Name], [First Name]. *[Title]*
+[Same format as A1]
+
+### Modern Context [M]
+
+#### [M1] [Article/Report Name]
+- **Type:** News article / Think tank report / Government statement
+- **Source:** [Publication name, date]
+- **Access:** [URL]
+- **Key content:** [What modern context it provides]
+- **Status:** Downloaded / Pending
+- **NotebookLM filename:** `[M1] Source-Title.pdf`
 
 ---
 
-### ⏳ CLAIM 2: [Title]
+## VERIFIED CLAIMS
 
-**Status:** STILL RESEARCHING
-**What I need:** [What specific info you're looking for]
-**Sources to check:** [List sources to verify]
-**Script-Ready:** ❌ NO - Don't use until verified
-
----
-
-### ❌ CLAIM 3: [Unverifiable Statistic]
-
-**What opponent claims:** "[Their claim]"
-**Problem:** No credible source found / Only Tier 4-5 sources / Contested by majority of scholars
-**Sources checked:** [List what you searched]
-**Decision:** DON'T USE - unverifiable
-**Script approach:** [Alternative verified fact to use instead]
+### Claim: [Clear statement of fact]
+**Status:** VERIFIED / RESEARCHING / UNVERIFIABLE
+**Sources (min 2):**
+1. [Author] (Tier [1/2/3]) - *[Title]*, p. [page] - [URL if available]
+2. [Author] (Tier [1/2/3]) - *[Title]*, p. [page]
+**Notes:** [Context, caveats, how to present]
+**Script-Ready:** YES / NO
 
 ---
 
-## SECTION 2: [Next Topic Category]
+### Claim: [Another fact to verify]
+**Status:** RESEARCHING
+**What I need:** [Specific info still required]
+**Sources to check:** [List sources]
+**Script-Ready:** NO - Don't use until verified
 
-[Repeat same structure as Section 1]
+---
+
+### Claim: [Unverifiable statistic]
+**Status:** UNVERIFIABLE
+**Problem:** No credible source found / Only Tier 4-5 sources / Contested by scholars
+**Sources checked:** [What you searched]
+**Decision:** DON'T USE
+**Alternative:** [Verified fact to use instead]
+
+---
+
+## VERIFIED QUOTES (Word-for-Word)
+
+### Quote: [Topic/Description]
+> "[Exact quote, word-for-word]"
+>
+> **Source:** [Author], *[Title]*, p. [page]
+> **Tier:** [1/2/3]
+> **Verified:** [date]
+> **Used in script:** Lines [XX-YY]
+
+---
+
+### Quote: [Another topic]
+> "[Exact quote]"
+>
+> **Source:** [Author], *[Title]*, p. [page]
+> **Tier:** [1/2/3]
+> **Verified:** [date]
+> **Used in script:** Lines [XX-YY]
+
+---
+
+## VERIFIED NUMBERS
+
+| Claim | Number | Source 1 | Source 2 | Verified | Script-Ready |
+|-------|--------|----------|----------|----------|--------------|
+| [Description] | [Exact number] | [Author], p. [X] | [Author], p. [Y] | YES/NO | YES/NO |
+| [Description] | [Exact number] | [Author], p. [X] | [Author], p. [Y] | YES/NO | YES/NO |
+
+---
+
+## CONTESTED CLAIMS (Label in Script)
+
+### Contested: [Topic]
+**Claim:** [What's being debated]
+**School A says:** [Interpretation 1 with sources]
+**School B says:** [Interpretation 2 with sources]
+**Scholarly consensus:** [Majority view if one exists, or "Actively debated"]
+**How to present:** "[We don't know for certain, but most historians argue...]"
+
+---
+
+## ARCHIVAL REFERENCES
+
+### [Archive Name] - [Document]
+- **Archive:** [Full archive name and location]
+- **Reference:** [Precise catalogue number/reference code]
+- **Date:** [When document was created]
+- **Verified from:** [How verified - archive catalogue, secondary source]
+- **Common errors:** [Frequent misattributions to avoid]
+- **Script-Ready:** YES / NO
 
 ---
 
 ## VERIFICATION STATS
 
 - **Total claims identified:** [Number]
-- **Verified (✅):** [Number]
-- **Researching (⏳):** [Number]
-- **Unverifiable (❌):** [Number]
+- **Verified:** [Number]
+- **Researching:** [Number]
+- **Unverifiable:** [Number]
 - **Ready to write script:** [YES/NO] (need 90%+ to start)
-
----
-
-## QUOTES - WORD-FOR-WORD VERIFIED
-
-### Quote 1: [Source Name] - [Topic]
-
-**Source:** *[Document title]*, [Chapter/Section if applicable]
-**Translation:** [Translator name] ([Year]), cross-checked with [Second translation if available]
-
-**Exact text:**
-> "[Full quote, word-for-word exact]"
-
-**Verified:** ✅ YES / ❌ NO
-**Script-Ready:** ✅ YES / ❌ NO
-**Usage:** Lines [XX-XX] of script (fill in during script phase)
-
----
-
-### Quote 2: [Source Name] - [Topic]
-
-[Same format as Quote 1]
-
----
-
-## ARCHIVAL REFERENCES - EXACT
-
-### Reference 1: [Document Name]
-
-**Archive:** [Full archive name and location]
-**Exact Reference:** [Precise catalogue number/reference code]
-**Date of document:** [When document was created]
-**Verified from:** [How you verified - archive catalogue, secondary source citing it]
-**Common errors to avoid:** [e.g., "NOT HW 16/32 - that's a common misattribution"]
-**Script-Ready:** ✅ YES / ❌ NO
-
----
-
-## NUMBERS - VERIFIED
-
-| Claim | Number | Sources (2+ required) | Verified | Use in Script |
-|-------|--------|----------------------|----------|---------------|
-| [Description] | [Exact number] | [Source 1], [Source 2] | ✅/❌ | YES/NO |
-| [Description] | [Exact number] | [Source 1], [Source 2] | ✅/❌ | YES/NO |
-
-**Cross-check:** All numbers verified against primary sources or expert scholarly consensus
-
----
-
-## CONTESTED CLAIMS (Label in Script)
-
-### Contested Claim 1: [Topic]
-
-**Claim:** [What's being debated]
-**School A says:** [Interpretation 1 with sources]
-**School B says:** [Interpretation 2 with sources]
-**Scholarly consensus:** [Majority view if one exists, or "Actively debated"]
-**How to present in script:** "[We don't know for certain, but most historians argue...]"
 
 ---
 
@@ -142,23 +184,14 @@ This is your **single source of truth** for verified facts.
 - [ ] All numbers have 2+ sources
 - [ ] No [TK] placeholders remaining
 - [ ] Contested claims identified and labeled
+- [ ] Check VERIFIED-CLAIMS-DATABASE.md for reusable facts
 
-**Status:** ❌ NOT READY / ✅ READY TO WRITE
+**Status:** NOT READY / READY TO WRITE
 
-**When ready → Create `02-SCRIPT-DRAFT.md` and write ONLY from verified facts in this document**
-
----
-
-## NOTEBOOKLM SOURCES USED
-
-1. [Source title/author]
-2. [Source title/author]
-3. [Source title/author]
-
-[Add all sources loaded into NotebookLM for this project]
+**When ready:** Create `02-SCRIPT-DRAFT.md` and write ONLY from verified facts in this document
 
 ---
 
 ## RESEARCH NOTES
 
-[Any additional context, background info, or notes that don't fit above categories but are useful to remember]
+[Any additional context, background info, or notes that don't fit above categories]
