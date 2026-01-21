@@ -76,6 +76,13 @@ Plans:
 - STYL-02: Scriptwriter enforces spoken-delivery voice (not essay voice)
 - STYL-03: Preference tracking system (captures word choices, patterns from feedback)
 
+**Plans:** 3 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Create STYLE-GUIDE.md with 6-part structure, unified checklist, preference capture section
+- [ ] 02-02-PLAN.md — Update script-writer-v2.md with consolidated references, auto-capture rule, streamlined checklists
+- [ ] 02-03-PLAN.md — Add supplement headers to old files, update CLAUDE.md style reference
+
 **Success Criteria:**
 1. Scriptwriter produces scripts that sound natural when read aloud on first draft
 2. User's speaking patterns (dashes, contractions, embedded explanations) appear consistently in generated scripts
@@ -163,7 +170,7 @@ Plans:
 |-------|--------|--------------|--------|
 | 0.1 - Edit Guide Optimization | **COMPLETE** | EDIT-01, EDIT-02, EDIT-03, EDIT-04 | 4 |
 | 1 - File Cleanup | **COMPLETE** | CLNP-01, CLNP-02, CLNP-03 | 3 |
-| 2 - Style Consolidation | Pending | STYL-01, STYL-02, STYL-03 | 3 |
+| 2 - Style Consolidation | **PLANNED** | STYL-01, STYL-02, STYL-03 | 3 |
 | 3 - Research Structure | Pending | RSCH-01, RSCH-02, RSCH-03 | 3 |
 | 4 - Script Management | Pending | SCRP-01, SCRP-02 | 2 |
 | 5 - Workflow Simplification | Pending | WKFL-01, WKFL-02 | 2 |
@@ -200,3 +207,4 @@ Phase 1 ---> Phase 6 (Competitive Intel)
 *Phase 0.1 planned: 2025-01-19*
 *Phase 1 planned: 2025-01-19*
 *Phase 1 completed: 2026-01-20*
+*Phase 2 planned: 2026-01-20*
