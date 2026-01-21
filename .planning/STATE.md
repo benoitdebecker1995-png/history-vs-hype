@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace Optimization
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-01-21T12:46:53Z
+**Last Updated:** 2026-01-21T17:25:00Z
 
 ## Project Reference
 
@@ -11,13 +11,13 @@
 
 ## Current Position
 
-**Phase:** 2 of 6 - Style Consolidation
-**Plan:** 03 of 03 COMPLETE
-**Status:** **Phase 2 COMPLETE**
+**Phase:** 3 of 6 - Research Structure
+**Plan:** 02 of 03 COMPLETE
+**Status:** In progress
 
 **Progress:**
 ```
-[██████████          ] 50% (Phase 0.1 + Phase 1 + Phase 2 complete)
+[███████████         ] 55% (Phase 0.1 + Phase 1 + Phase 2 + 03-01/03-02 complete)
 ```
 
 ## Phase Status
@@ -27,7 +27,7 @@
 | 0.1 | Edit Guide Optimization | **COMPLETE** | 2/2 |
 | 1 | File Cleanup | **COMPLETE** | 4/4 |
 | 2 | Style Consolidation | **COMPLETE** | 3/3 |
-| 3 | Research Structure | Pending | - |
+| 3 | Research Structure | In progress | 2/3 |
 | 4 | Script Management | Pending | - |
 | 5 | Workflow Simplification | Pending | - |
 | 6 | Competitive Intelligence | Pending | - |
@@ -37,9 +37,9 @@
 | Metric | Value |
 |--------|-------|
 | Phases completed | 2.1 (0.1 + 1 + 2) |
-| Plans completed | 10 |
-| Tasks completed | 25 |
-| Requirements delivered | 9/15 |
+| Plans completed | 12 |
+| Tasks completed | 27 |
+| Requirements delivered | 10/15 |
 
 ## Accumulated Context
 
@@ -62,6 +62,11 @@
 | Deprecate with redirect (not delete) | Preserves git history; doesn't break existing references | 2-01 |
 | Supplement headers (not delete) | Extended examples preserved; clear hierarchy established | 2-03 |
 | CLAUDE.md summarizes, STYLE-GUIDE.md is authoritative | Reduces duplication; single source of truth | 2-03 |
+| Tier system for scriptwriter references | Reduces context loading from 16+ to 2-8 files | 2-02 |
+| Auto-capture requires user confirmation | Prevents accidental style guide pollution | 2-02 |
+| 3 quality checklist sections | Topic-specific guidance without redundancy | 2-02 |
+| Claims database as workflow checkpoint | Prevents duplicate research; captures knowledge | 3-02 |
+| Gate 3 for post-completion database update | Makes knowledge capture mandatory | 3-02 |
 
 ### Roadmap Evolution
 
@@ -76,6 +81,8 @@
 - Phase 2 Plan 02 COMPLETED: 2026-01-21 (deprecated scriptwriting-style.md with redirect)
 - Phase 2 Plan 03 COMPLETED: 2026-01-21 (supplement headers added, CLAUDE.md updated)
 - **Phase 2 COMPLETE: 2026-01-21**
+- Phase 3 Plan 01 COMPLETED: 2026-01-21 (research audit, identified 2 topic clusters)
+- Phase 3 Plan 02 COMPLETED: 2026-01-21 (claims database integration, Medieval Flat Earth backfill)
 
 ### Discovered TODOs
 
@@ -93,15 +100,15 @@ None identified yet.
 
 ### Last Session
 
-- **Date:** 2026-01-21T12:46:53Z
-- **Work:** Completed Phase 2 Plan 03 - Style Supplement Updates
-- **Stopped at:** Phase 2 complete, all style files consolidated
+- **Date:** 2026-01-21T17:25:00Z
+- **Work:** Completed Phase 3 Plan 02 - Claims Database Integration
+- **Stopped at:** Plan 03-02 complete, claims database integrated into workflow
 
 ### Next Session Should
 
-1. Begin Phase 3 (Research Structure)
+1. Execute Phase 3 Plan 03 (NotebookLM templates)
 2. Run `/gsd:progress` to see next action
-3. Create plans for Phase 3 if not already defined
+3. Phase 3 will complete after Plan 03
 
 ### Important Context
 
@@ -121,6 +128,8 @@ None identified yet.
 - **Old style files (author-style, USER-VOICE-PROFILE, VOICE-GUIDE) marked as supplements**
 - **CLAUDE.md points to STYLE-GUIDE.md as authoritative source**
 - **USER-PREFERENCES.md speaking patterns redirect to STYLE-GUIDE.md**
+- **Claims database now integrated as workflow checkpoint (Step 2 in /new-video)**
+- **3 topic clusters active:** Belize-Guatemala, Somaliland, Medieval Flat Earth
 
 ---
 
