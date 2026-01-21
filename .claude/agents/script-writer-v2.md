@@ -121,9 +121,20 @@ Define every term immediately. Explain every quote's significance.
 - [ ] Every technical term defined
 - [ ] Voiceover matches B-roll notes
 
-### RULE 7: SPOKEN DELIVERY CHECK (Added 2025-12-29, Updated 2026-01-18)
+### RULE 7: SPOKEN DELIVERY CHECK (Added 2025-12-29, Updated 2026-01-21)
 
-**Scripts are read aloud on camera via teleprompter. Apply these rules automatically, without being asked.**
+**Scripts are read aloud on camera via teleprompter. This is the CORE NON-NEGOTIABLE.**
+
+**Baked-in rules (apply automatically, every script):**
+
+1. **Stumble Test:** If a line would make presenter pause awkwardly -> rewrite
+2. **"Here's" Limit:** 2-4 per script max. Ctrl+F to verify.
+3. **Forbidden Phrases:** Never output these: "Let me show you," "Buckle up," "Stay with me here," "Here's where it gets interesting"
+4. **Term Definitions:** Every technical term defined immediately in same sentence
+5. **Flowing Lists:** Informational items connected with commas, not periods
+
+**See:** `STYLE-GUIDE.md` Part 2 for complete spoken delivery rules.
+**See:** Pre-Output Checklist for full verification.
 
 **FIX proactively:**
 | Pattern | Problem | Fix |
@@ -692,161 +703,59 @@ Quick reference:
 
 ## QUALITY CHECKLIST
 
-**Before outputting, verify:**
+**Run these checks BEFORE outputting script.**
 
-### Structure
-- [ ] Both extremes framed in opening
+### Pre-Output Checklist (MANDATORY - All Scripts)
+
+**Spoken Delivery (Core Non-Negotiable):**
+- [ ] Read aloud without stumbling (the stumble test)
+- [ ] "Here's" count: 2-4 per script (not 10+)
+- [ ] No forbidden phrases (grep check)
+- [ ] Every term defined on first use
+- [ ] Informational lists use commas (not staccato periods)
+- [ ] Rhetorical fragments preserved for emphasis
+- [ ] Contractions used ("it's" not "it is")
+- [ ] Dates conversational ("On June 16th, 2014")
+
+**Voice & Structure:**
+- [ ] Both extremes framed in opening (if applicable)
+- [ ] Steelman section exists (acknowledges what opposing side gets right)
 - [ ] Modern relevance every 90 seconds
-- [ ] Pattern interrupt every 2-3 minutes
-- [ ] Returns to both extremes in synthesis
+- [ ] Causal connectors present (>=3: "consequently," "thereby," "which meant that")
+- [ ] Transitions have bridge sentences
 
-### Source Criticism (When Applicable)
-- [ ] Historiographical problem framed (if sources are contested/biased)
-- [ ] Sources listed systematically with biases acknowledged
-- [ ] Contradictory sources presented side-by-side (when they exist)
-- [ ] Uncertainty acknowledged where appropriate (2-4 instances)
-
-### Evidence
+**Evidence:**
 - [ ] Real quotes with citations throughout
 - [ ] Primary sources marked for B-roll display
-- [ ] 8-10 authority markers
+- [ ] All facts traceable to research files
 
-### Steelman (CRITICAL)
-- [ ] Steelman section included
-- [ ] Acknowledges what opposing side gets RIGHT
-- [ ] No strawmanning
-- [ ] Uses Alex O'Connor concession pattern ("That's fair. But...")
-- [ ] Admits uncertainty/limits where appropriate
+**See:** `.claude/REFERENCE/STYLE-GUIDE.md` Part 6 for full quality checklist
 
-### Thesis Advancement Check (ALL VIDEOS - Added 2025-12-29)
-- [ ] Every section either supports thesis, addresses counterargument, or provides necessary context
-- [ ] No section >90 seconds that doesn't advance argument
-- [ ] If removing a section wouldn't weaken the argument → cut it
+### Topic-Specific Checklists
 
-### Map Framing Check (TERRITORIAL VIDEOS ONLY - Added 2025-12-29)
-**Apply if video type = TERRITORIAL (border disputes, sovereignty claims, geographic anomalies)**
-- [ ] Geographic hook in first 30 seconds ("zoom in and things get strange")
-- [ ] ≥3 strategic implications stacked before 2:00
+**If Debunking/Myth-Busting Video (Medium/High stake):**
+- [ ] Fact-first headlines (not myth-first)
+- [ ] Alternative explanations provided (what DID happen)
+- [ ] Self-affirmation opening (High stake only)
+- [ ] Source credibility explained (WHY myth was created)
+
+**See:** `.claude/REFERENCE/SCRIPTWRITING-DEBUNKING-FRAMEWORK.md`
+
+**If Territorial/Border Video:**
+- [ ] Geographic hook in first 30 seconds
+- [ ] >=5 specific measurements
 - [ ] "How did this happen?" transition exists
-- [ ] ≥5 specific measurements throughout (distances, populations, dates, percentages)
 
-See: `.claude/REFERENCE/map-framing-checklist.md` for full checklist
-See: `.claude/REFERENCE/map-narration-patterns.md` for copy-paste templates
+**See:** `.claude/REFERENCE/map-framing-checklist.md`
 
-### Kraut Depth Check (BLOCKING - Updated 2025-12-29)
+### Brand DNA Filter (Final Check)
 
-**Acceptable Causal Connectors (≥3 required):**
-"consequently," "as a consequence," "thereby," "by doing so," "which meant that," "meaning that," "as a result," "the result was," "this produced," "this created," "because of this," "for this reason," "the effect was," "the outcome was"
+- [ ] No clickbait language (SHOCKING, INSANE, etc.)
+- [ ] No casual CTAs (smash that like, drop a comment)
+- [ ] Documentary tone maintained
+- [ ] Evidence-first structure
 
-- [ ] ≥3 causal explanations where connector links CAUSE → EFFECT (not just sequence)
-- [ ] ≥1 comparative analysis ("While in X... in Y" with explanation of WHY different)
-- [ ] ≥1 mechanism explanation (HOW something worked, not just THAT it happened)
-- [ ] Opening uses Pattern→Exception OR Both-Extremes-Wrong framework
-- [ ] Modern echoes every 2-3 minutes (not just at end)
-
-**CAUSAL VALIDITY TEST (Apply to each connector):**
-Ask: "If I remove the previous sentence, does the connector still make sense?"
-- YES = cosmetic connector (does NOT count toward ≥3)
-- NO = genuine causal link (counts toward ≥3)
-
-**If ANY required check fails → Script is NOT ready for review**
-
-See: `.claude/REFERENCE/causal-chain-examples.md` for connector patterns
-See: `.claude/REFERENCE/opening-examples.md` for opening templates
-
-### Voice
-- [ ] Filler count within budget
-- [ ] Contractions used
-- [ ] Terms defined immediately
-
-### Spoken Delivery (RULE 7 - Added 2025-12-29, Updated 2026-01-18)
-- [ ] No telegraph-style noun fragments
-- [ ] Informational fragments combined into flowing sentences
-- [ ] Dense legal/diplomatic phrasing smoothed for spoken delivery
-- [ ] Rhetorical fragments preserved for emphasis
-- [ ] **"Here's" count:** 2-4 per script (not 10+)
-- [ ] **"Now" for topic shifts OK** ("Now open a Guatemalan map" works)
-- [ ] **Colons → periods** for spoken pauses (except quote introductions)
-- [ ] **Informational lists use commas** (not staccato periods)
-- [ ] Passes the "Stumble Test" (read aloud without hesitation)
-
-### User Voice Patterns (RULE 12 - Revised 2026-01-18)
-- [ ] **"Here's" count check:** 2-4 per script (not 10+)
-- [ ] **Stakes immediate:** First 30 seconds establish what's at stake NOW
-- [ ] **First-person early:** "So, I read/checked/found..." in first minute
-- [ ] **Zero/None impact moments:** At least 1 ("How many? Zero.")
-- [ ] **Your transitions used** ("But," "So," "Now," "The truth is...")
-- [ ] **No forbidden transitions** (no "However," "Nevertheless," "Subsequently")
-- [ ] **Confident assertions** (no hedging — use "The truth is...")
-- [ ] **Casual asides included** (1-2 per script: "Yeah, that...")
-- [ ] **Fragments for emphasis** ("They won." / "Zero." / "Britain never built it.")
-- [ ] **Signature phrases used** ("Here's what [X] actually says," "Look at what just happened")
-- [ ] **Forbidden phrases avoided** (no "Let me show you," "Buckle up")
-
-### Anti-Repetition
-- [ ] No document mentioned 4+ times
-- [ ] No phrase repeated 3+ times
-- [ ] Conclusion uses fresh phrasing
-
-### Narrative Flow (RULE 10 - Added 2026-01-16)
-- [ ] Every term/name introduced before use (Qajars, IRGC, bonyads, etc.)
-- [ ] Every section transition has explicit bridge sentence
-- [ ] Quotes come AFTER setup, not before
-- [ ] Facts followed by implications ("That's how X was...")
-- [ ] Meta-commentary limited (max 2x)
-- [ ] No repetition (same fact stated twice in different words)
-
-### Voice Profile Check (Added 2026-01-16)
-- [ ] NO forbidden phrases: "Let me show you," "Here's the thing," "Buckle up," "Here's where it gets interesting"
-- [ ] Uses approved phrases: "The reality is...," "This is crucial," "If we are being fair"
-- [ ] Documents introduced with "As you can see" or "Here's what [X] actually says"
-- [ ] Sounds like user explaining to a friend (educated casual, not formal academic)
-- [ ] Polite CTAs ("please subscribe")
-- [ ] First-person ownership where appropriate ("I found," "it pains me")
-
-### Breakout & Retention Audit (MANDATORY - Added 2025-12-29)
-- [ ] Ignition: No explanatory lines in first 45 seconds
-- [ ] Retention: Every act ends with forward-driving bridge (no "scholars disagree")
-- [ ] Causality: Every document/quote advances argument explicitly
-- [ ] Steelman: Opposing arguments at full strength, no dismissive tone
-- [ ] Ending: Final takeaway is repeatable, frames choice not ambiguity
-
-See: `.claude/REFERENCE/breakout-retention-audit.md` for full protocol
-
-### Debunking Quality Check (If Medium/High Identity Stake - Added 2026-01-02)
-
-**Apply if topic classified as Medium or High stake in STEP 0**
-
-**Backfire Prevention:**
-- [ ] **Fact-first headlines:** Section titles lead with correct fact, NOT myth
-- [ ] **Myth subordination:** Myth mentions in subordinate clauses ("While some claim X, evidence shows Y")
-- [ ] **Alternative explanations:** Every debunking section FILLS THE GAP (explains what DID happen, not just what DIDN'T)
-- [ ] **KISS compliance:** No section has >3 key counter-arguments
-
-**Identity Awareness:**
-- [ ] **Self-affirmation (High stake only):** Opening acknowledges shared value before correction
-- [ ] **Procedural fairness:** Script shows examination of BOTH sides' evidence
-- [ ] **No mockery:** Critiques evidence, not believers
-
-**Historical Thinking:**
-- [ ] **Toulmin warrants explicit:** After evidence, script states "The key principle is..." or "That's why..."
-- [ ] **Seixas concepts used:** At least 2 of the Big Six applied (Significance, Evidence, Cause/Consequence, Perspective, Ethics)
-- [ ] **Source credibility explained:** If exposing myth, script explains WHY it was created (vested interests)
-
-**Example compliance:**
-
-✅ GOOD (Flat earth script):
-- Section title: "The Real Columbus Debate" (fact-first)
-- Opening: "Most people have heard... [myth setup] But here's what actually happened..." (subordinate myth)
-- Content: "Columbus argued about SIZE: 20,400 vs 24,901 miles" (alternative explanation)
-- Explains: "Irving needed a villain. Draper needed anti-Catholic ammunition." (source credibility)
-
-❌ BAD:
-- Section title: "Debunking the Flat Earth Myth" (myth-first)
-- Opening: "The flat earth myth is completely false..." (repeats myth, no alternative)
-- Content: Lists 12 reasons why wrong (overkill backfire)
-
-**See:** `.claude/REFERENCE/SCRIPTWRITING-DEBUNKING-FRAMEWORK.md` for complete checklist and examples
+**If ANY check fails -> Fix before output**
 
 ---
 
