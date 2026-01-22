@@ -13,8 +13,8 @@
 
 ### Script Management
 
-- [ ] **SCRP-01**: One canonical script file per video (git tracks changes, no version sprawl)
-- [ ] **SCRP-02**: Teleprompter-ready export format (clean, readable output)
+- [x] **SCRP-01**: One canonical script file per video (git tracks changes, no version sprawl)
+- [x] **SCRP-02**: Teleprompter-ready export format (clean, readable output)
 
 ### Research Organization
 
@@ -65,8 +65,8 @@
 | CLNP-01 | Phase 1 | Complete |
 | CLNP-02 | Phase 1 | Complete |
 | CLNP-03 | Phase 1 | Complete |
-| SCRP-01 | Phase 4 | Pending |
-| SCRP-02 | Phase 4 | Pending |
+| SCRP-01 | Phase 4 | Complete |
+| SCRP-02 | Phase 4 | Complete |
 | RSCH-01 | Phase 3 | Complete |
 | RSCH-02 | Phase 3 | Complete |
 | RSCH-03 | Phase 3 | Complete |
