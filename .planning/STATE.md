@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace Optimization
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-01-21T17:29:00Z
+**Last Updated:** 2026-01-22T19:28:46Z
 
 ## Project Reference
 
@@ -11,13 +11,13 @@
 
 ## Current Position
 
-**Phase:** 4 of 6 - Script Management **COMPLETE**
-**Plan:** 02 of 02 COMPLETE
-**Status:** Phase complete
+**Phase:** 5 of 6 - Workflow Simplification
+**Plan:** 01 of 02 COMPLETE
+**Status:** In progress
 
 **Progress:**
 ```
-[████████████████    ] 80% (Phase 0.1 + Phase 1 + Phase 2 + Phase 3 + Phase 4 complete)
+[█████████████████   ] 85% (Phase 0.1 + Phase 1 + Phase 2 + Phase 3 + Phase 4 + Plan 5-01 complete)
 ```
 
 ## Phase Status
@@ -29,7 +29,7 @@
 | 2 | Style Consolidation | **COMPLETE** | 3/3 |
 | 3 | Research Structure | **COMPLETE** | 3/3 |
 | 4 | Script Management | **COMPLETE** | 2/2 |
-| 5 | Workflow Simplification | Pending | - |
+| 5 | Workflow Simplification | In Progress | 1/2 |
 | 6 | Competitive Intelligence | Pending | - |
 
 ## Performance Metrics
@@ -37,9 +37,9 @@
 | Metric | Value |
 |--------|-------|
 | Phases completed | 4.1 (0.1 + 1 + 2 + 3 + 4) |
-| Plans completed | 15 |
-| Tasks completed | 38 |
-| Requirements delivered | 13/15 |
+| Plans completed | 16 |
+| Tasks completed | 41 |
+| Requirements delivered | 14/15 |
 
 ## Accumulated Context
 
@@ -69,6 +69,9 @@
 | Gate 3 for post-completion database update | Makes knowledge capture mandatory | 3-02 |
 | Archive not delete for research cleanup | Preserves files; enables recovery if needed | 3-03 |
 | Monthly cleanup routine on 1st | Prevents research folder accumulation | 3-03 |
+| Flag-based command absorption | Preserves all capabilities while reducing command count | 5-01 |
+| Phase naming in descriptions | Clear mental model: Pre-production/Production/Post-production | 5-01 |
+| Keep original commands during transition | Backward compatibility - don't break existing workflows | 5-01 |
 
 ### Roadmap Evolution
 
@@ -90,11 +93,13 @@
 - Phase 4 Plan 01 COMPLETED: 2026-01-22 (migrated 16 projects to SCRIPT.md pattern)
 - Phase 4 Plan 02 COMPLETED: 2026-01-22 (created /teleprompter command)
 - **Phase 4 COMPLETE: 2026-01-22**
+- Phase 5 Plan 01 COMPLETED: 2026-01-22 (8 phase-organized commands via flags)
 
 ### Discovered TODOs
 
 - Library folder cleanup (728 files) - See `.planning/phases/01-file-cleanup/USER-REVIEW-NEEDED.md`
 - Research folder .docx files and Vance research - See `research/_archive/CLEANUP-LOG.md`
+- Original commands can be deprecated after transition period - Track usage first
 
 ### Blockers
 
@@ -102,21 +107,21 @@ None currently.
 
 ### Technical Debt
 
-None identified yet.
+- Original commands (22) exist alongside new consolidated commands (8) - deprecate after user adoption
 
 ## Session Continuity
 
 ### Last Session
 
-- **Date:** 2026-01-21T17:29:00Z
-- **Work:** Completed Phase 3 Plan 03 - Research Folder Cleanup
-- **Stopped at:** Phase 3 complete, research structure established
+- **Date:** 2026-01-22T19:28:46Z
+- **Work:** Completed Phase 5 Plan 01 - Command Consolidation
+- **Stopped at:** 8 phase-organized commands created, originals kept for transition
 
 ### Next Session Should
 
-1. Start Phase 4: Script Management
+1. Continue Phase 5: Plan 02 (Smart router implementation)
 2. Run `/gsd:progress` to see next action
-3. Phase 4 focuses on script version management and git workflows
+3. Plan 02 focuses on `/status` command and context-aware routing
 
 ### Important Context
 
@@ -141,6 +146,9 @@ None identified yet.
 - **research/_archive folder established with CLEANUP-LOG.md**
 - **30-day cleanup rule documented in research/README.md**
 - **/new-video references _RESEARCH-SUBFOLDER-TEMPLATE.md for project setup**
+- **8 new phase-organized commands:** /research, /sources, /script, /verify, /prep, /publish, /fix, /engage
+- **Original 22 commands kept for backward compatibility during transition**
+- **Phase organization:** Pre-production (research, sources), Production (script, verify, prep), Post-production (publish, fix, engage)
 
 ---
 
