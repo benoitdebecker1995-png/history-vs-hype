@@ -1,10 +1,35 @@
 ---
-description: Generate a video script using the proven History vs Hype formula (based on successful Vance and Essequibo videos)
+description: Write, revise, review, or export scripts (Production Phase 1)
 ---
 
-# /script Command
+# /script - Script Management Entry Point
 
-Generate a script for History vs Hype using the script-writer-v2 agent.
+Write new scripts, revise existing ones, review for issues, or export for teleprompter.
+
+## Usage
+
+```
+/script                      # Interactive: write new or work on existing
+/script --new [project]      # Write new script for project
+/script --revise [project]   # Revise existing script
+/script --review [project]   # Review script for issues
+/script --teleprompter [project]  # Export clean text for filming
+```
+
+## Flags
+
+| Flag | Purpose | Example |
+|------|---------|---------|
+| `--new` | Write new script from verified research | `/script --new 19-flat-earth-medieval-2025` |
+| `--revise` | Revise existing SCRIPT.md | `/script --revise 19-flat-earth-medieval-2025` |
+| `--review` | Comprehensive quality review | `/script --review 19-flat-earth-medieval-2025` |
+| `--teleprompter` | Export clean text for filming | `/script --teleprompter 19-flat-earth-medieval-2025` |
+
+---
+
+## WRITE NEW SCRIPT (`--new` or default)
+
+Generate a script using the script-writer-v2 agent.
 
 ## Before Writing
 
@@ -163,3 +188,150 @@ Ask the user:
 2. Does the steelmanning feel fair to the other side?
 3. Should I expand any section?
 4. Ready for fact-checking?
+
+**Proactive suggestion:** "Script complete. Run `/verify` to fact-check before filming."
+
+---
+
+## REVISE SCRIPT (`--revise`)
+
+Work on an existing SCRIPT.md with specific improvements.
+
+### Process
+
+1. **Read current script:** Find and read SCRIPT.md
+2. **Identify revision type:**
+   - User feedback (specific sections to change)
+   - Quality issues (from `/script --review`)
+   - Fact-check findings (from `/verify`)
+3. **Apply revisions** while preserving voice and structure
+4. **Git tracks history** - no need for V2/V3 files
+
+### Common Revision Types
+
+| Type | Focus |
+|------|-------|
+| **Tightening** | Remove filler, redundancy, tangents |
+| **Restructuring** | Reorder sections for better flow |
+| **Evidence update** | Add/fix quotes and citations |
+| **Voice correction** | Fix forbidden phrases, improve delivery |
+| **Hook improvement** | Strengthen opening/closing |
+
+---
+
+## REVIEW SCRIPT (`--review`)
+
+Comprehensive script analysis before filming. Absorbs `/review-script` functionality.
+
+### Part 1: Forbidden Phrase Scan
+
+Run grep for forbidden patterns:
+```
+(Let me show you|Here's where it gets interesting|And that's the key insight|Buckle up|Stay with me here|Here's the thing|You won't believe|SHOCKING)
+```
+
+**If found:** Flag as CRITICAL and provide rewrite.
+
+### Part 2: Narrative Flow Check
+
+- **Rule 1:** Terms introduced before use
+- **Rule 2:** Bridge transitions between sections
+- **Rule 3:** Quote integration (Setup → Quote → Implication)
+- **Rule 4:** Implications after major facts
+- **Rule 5:** Meta-commentary count within budget
+- **Rule 6:** No repetition of same fact in different words
+
+### Part 3: Voice Profile Check
+
+- Approved phrases used correctly
+- Formal language flagged (Furthermore → On top of that)
+- Register check (educated casual, not academic)
+- Read-aloud test (sentences under 25 words, contractions)
+
+### Part 4: Structure Check
+
+- Opening (0:00-1:00): Concrete detail, modern hook, both extremes
+- Closing (final 60-90 sec): Returns to opening, answers "so what?"
+- Modern relevance map (no gaps over 90 seconds)
+- Both extremes pattern complete
+- Steelman present
+
+### Part 5: Retention Prediction
+
+- Danger zones identified (0:00-0:08, 1:00-1:30, 3:00-4:00)
+- Pattern interrupt check every 90-120 seconds
+- Predicted retention curve
+
+### Output Format
+
+```markdown
+## QUICK SUMMARY
+
+**Forbidden Phrases:** [X found / Clean]
+**Narrative Flow:** [X/10]
+**Voice Match:** [X/10]
+**Structure:** [Both Extremes / Other]
+**Retention Risk:** [Low / Medium / High]
+
+**VERDICT:** [Ready to film / Needs revision / Major issues]
+
+## CRITICAL ISSUES (Must Fix)
+[List with specific line numbers and fixes]
+
+## IMPORTANT ISSUES (Should Fix)
+[List with specific fixes]
+
+## WHAT WORKS
+[Strengths to preserve]
+```
+
+---
+
+## TELEPROMPTER EXPORT (`--teleprompter`)
+
+Export SCRIPT.md to clean text for filming.
+
+### Process
+
+1. Read SCRIPT.md from project folder
+2. Strip all markdown formatting (`#`, `**`, `[]`, etc.)
+3. Strip B-roll notes (`[B-ROLL: ...]`)
+4. Strip source citations (`[SOURCE: ...]`)
+5. Strip metadata (target length, framing notes)
+6. Preserve paragraph breaks for pacing
+7. Output to SCRIPT-TELEPROMPTER.txt
+
+### Output
+
+- **File:** `SCRIPT-TELEPROMPTER.txt` in project folder
+- **Format:** Plain text, clean paragraphs
+- **Content:** Spoken words only
+
+### Reports After Export
+
+- Word count
+- Estimated runtime (words / 150)
+- Output file location
+
+---
+
+## Reference Files
+
+- **Authoritative style guide:** `.claude/REFERENCE/STYLE-GUIDE.md`
+- **Script template:** `.claude/templates/02-SCRIPT-DRAFT-TEMPLATE.md`
+- **Narrative flow rules:** `.claude/REFERENCE/NARRATIVE-FLOW-RULES.md`
+- **Voice profile:** `.claude/REFERENCE/USER-VOICE-PROFILE.md`
+- **Opening templates:** `.claude/REFERENCE/OPENING-HOOK-TEMPLATES.md`
+- **Closing templates:** `.claude/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md`
+- **Creator phrases:** `.claude/REFERENCE/CREATOR-PHRASE-LIBRARY.md`
+
+---
+
+## Absorbed Commands
+
+This command consolidates functionality from:
+- Original `/script` - Script generation
+- `/review-script` - Script quality review
+- `/teleprompter` - Clean text export for filming
+
+All original functionality preserved through flags.
