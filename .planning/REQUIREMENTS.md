@@ -7,9 +7,9 @@
 
 ### File Cleanup
 
-- [ ] **CLNP-01**: Remove outdated files that no longer reflect current workflow
-- [ ] **CLNP-02**: Consolidate duplicate files into single sources of truth
-- [ ] **CLNP-03**: Establish and document file naming conventions
+- [x] **CLNP-01**: Remove outdated files that no longer reflect current workflow
+- [x] **CLNP-02**: Consolidate duplicate files into single sources of truth
+- [x] **CLNP-03**: Establish and document file naming conventions
 
 ### Script Management
 
@@ -18,15 +18,15 @@
 
 ### Research Organization
 
-- [ ] **RSCH-01**: Per-video organized research files with clear structure
-- [ ] **RSCH-02**: Cross-video verified facts database (reusable across videos)
-- [ ] **RSCH-03**: Standard source attribution format (every fact traces to citation)
+- [x] **RSCH-01**: Per-video organized research files with clear structure
+- [x] **RSCH-02**: Cross-video verified facts database (reusable across videos)
+- [x] **RSCH-03**: Standard source attribution format (every fact traces to citation)
 
 ### Style Guide
 
-- [ ] **STYL-01**: Consolidate scattered style notes into one authoritative reference
-- [ ] **STYL-02**: Scriptwriter enforces spoken-delivery voice (not essay voice)
-- [ ] **STYL-03**: Preference tracking system (captures word choices, patterns from feedback)
+- [x] **STYL-01**: Consolidate scattered style notes into one authoritative reference
+- [x] **STYL-02**: Scriptwriter enforces spoken-delivery voice (not essay voice)
+- [x] **STYL-03**: Preference tracking system (captures word choices, patterns from feedback)
 
 ### Workflow
 
@@ -62,17 +62,17 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CLNP-01 | Phase 1 | Pending |
-| CLNP-02 | Phase 1 | Pending |
-| CLNP-03 | Phase 1 | Pending |
+| CLNP-01 | Phase 1 | Complete |
+| CLNP-02 | Phase 1 | Complete |
+| CLNP-03 | Phase 1 | Complete |
 | SCRP-01 | Phase 4 | Pending |
 | SCRP-02 | Phase 4 | Pending |
-| RSCH-01 | Phase 3 | Pending |
-| RSCH-02 | Phase 3 | Pending |
-| RSCH-03 | Phase 3 | Pending |
-| STYL-01 | Phase 2 | Pending |
-| STYL-02 | Phase 2 | Pending |
-| STYL-03 | Phase 2 | Pending |
+| RSCH-01 | Phase 3 | Complete |
+| RSCH-02 | Phase 3 | Complete |
+| RSCH-03 | Phase 3 | Complete |
+| STYL-01 | Phase 2 | Complete |
+| STYL-02 | Phase 2 | Complete |
+| STYL-03 | Phase 2 | Complete |
 | WKFL-01 | Phase 5 | Pending |
 | WKFL-02 | Phase 5 | Pending |
 | COMP-01 | Phase 6 | Pending |
@@ -85,4 +85,4 @@
 
 ---
 *Requirements defined: 2025-01-19*
-*Last updated: 2025-01-19 after roadmap creation*
+*Last updated: 2026-01-21 after Phase 3 completion*
