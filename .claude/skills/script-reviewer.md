@@ -84,6 +84,45 @@ Check if script seriously engages opposing arguments:
 - ❌ Doesn't explain WHY minority position lost (just notes it existed)
 - ❌ Fails to engage with strongest version of opposing argument
 
+#### 3b. ALEX O'CONNOR INTELLECTUAL HONESTY CHECK (Added 2025-12-28)
+
+**Does script use concession-before-rebuttal pattern?**
+- ✅ "That's fair. But..." or "They're right about X. Where they go wrong is Y."
+- ❌ Jumps straight to criticism without acknowledging valid points
+
+**Does script admit uncertainty where appropriate?**
+- ✅ "I'm not entirely sure about this..." when genuinely uncertain
+- ❌ False confidence on contested claims
+
+**Does script flag expertise limits?**
+- ✅ "I'm probably not the best person to ask about..." when out of lane
+- ❌ Presents opinions on specialized topics as expert analysis
+
+**Does script use parallel reasoning to test logic?**
+- ✅ "Imagine if [different group] used this same logic..."
+- ❌ Critiques logic without demonstrating its inconsistency
+
+**Red flags:**
+- ❌ No concessions anywhere in script (appears one-sided)
+- ❌ Absolute certainty on genuinely contested claims
+- ❌ Logic critiqued but not tested with parallel examples
+
+**What to output:**
+```
+🟡 INTELLECTUAL HONESTY ISSUE
+Problem: Script critiques [position] without conceding any valid points.
+No use of "That's fair. But..." or "They're right about..." pattern.
+
+Impact: Viewer with nuanced view thinks: "This person isn't being fair.
+They're not acknowledging what I know to be true about the other side."
+
+Fix needed: Add 1-2 concessions before major rebuttals:
+- "To be fair, [valid point from other side]. But..."
+- "They're right that [concession]. Where they go wrong is..."
+
+Priority: MEDIUM - affects perceived fairness and credibility
+```
+
 **What to output:**
 ```
 🔴 COUNTER-EVIDENCE UNDERPLAYED
@@ -100,7 +139,211 @@ OR (3) engage more seriously with this counterargument (30-45 seconds).
 Priority: HIGH - weakest part of argument if not addressed
 ```
 
-#### 4. TIMELINE PRECISION
+#### 4. KRAUT DEPTH CHECK (Updated 2025-12-29)
+
+**This is the most common script weakness.** Scripts explain WHAT happened but not WHY.
+
+**Acceptable Causal Connectors (≥3 required):**
+"consequently," "as a consequence," "thereby," "by doing so," "which meant that," "meaning that," "as a result," "the result was," "this produced," "this created," "because of this," "for this reason," "the effect was," "the outcome was"
+
+**Check for:**
+- **Causal connectors:** Does script use connectors from the list above? (Need ≥3 VALID ones)
+- **Comparative analysis:** Is there at least one "While in X... in Y" comparison with explanation of WHY different?
+- **Mechanism explanation:** Does script show HOW things worked, not just THAT they happened?
+- **Opening framework:** Does opening use Pattern→Exception OR Both-Extremes-Wrong?
+- **Modern echoes:** Are there modern relevance callbacks every 2-3 minutes?
+
+**CAUSAL VALIDITY TEST (Apply to each connector):**
+Ask: "If I remove the previous sentence, does the connector still make sense?"
+- YES = cosmetic connector (does NOT count toward ≥3) → FAIL
+- NO = genuine causal link (counts toward ≥3) → PASS
+
+**CAUSAL DEPTH CHECK (Apply to connectors that pass Validity Test) - Added 2025-12-29:**
+Ask: "Does the surrounding text explain HOW the cause produced the effect, or just THAT it did?"
+- THAT only (motive → outcome, no transmission) → ⚠️ SHALLOW CAUSATION
+- HOW explained (motive → action → intermediate effect → outcome) → PASS
+
+**Requirement:** ≥1 mechanism-level explanation per major argument section
+**Enforcement:** SOFT-BLOCKING (proceeds with warning, must resolve before filming)
+
+| Level | Pattern | Example |
+|-------|---------|---------|
+| **Assertion** (shallow) | "They needed X, so they did Y" | "The Ptolemies needed legitimacy. Consequently, they invested in culture." |
+| **Mechanism** (deep) | "They needed X. To achieve this, they [action] which [effect], thereby Y" | "The Ptolemies needed legitimacy. To achieve this, they funded scholars who produced authoritative texts, which positioned Alexandria as the intellectual center—thereby attracting more scholars and reinforcing their cultural authority." |
+
+**Red flags:**
+- ❌ "X happened. Then Y happened." (no causal connection)
+- ❌ "Consequently" used but previous sentence doesn't explain WHY (cosmetic)
+- ❌ No comparisons to similar cases
+- ❌ States effects without explaining mechanisms
+- ❌ Opening goes straight to content without framing extremes
+- ❌ Modern relevance only appears at end
+
+**What to output:**
+```
+🔴 KRAUT DEPTH FAILURE
+Problem: Script explains WHAT happened (Mongols invaded, Russia changed)
+but not WHY the outcome was different from other conquests.
+
+Missing:
+- Causal connectors: Found 2 uses but only 1 passes Causal Validity Test
+  - Line 45: "Consequently, Russia changed" ← COSMETIC (previous sentence doesn't explain cause)
+  - Line 78: "As a result of the Mongol tax system" ← VALID (cause stated)
+- No comparative analysis (doesn't compare to Magyar/Seljuk/Ottoman conquests)
+- No mechanism (says "peasants were controlled" but not HOW vodka did this)
+
+Causal Depth Issues:
+- ⚠️ SHALLOW CAUSATION at Line 78: "The Mongols needed control, so they taxed vodka"
+  → Motive stated but transmission path missing
+  → Fix: "The Mongols needed control. They granted monopoly licenses to loyal nobles,
+     who then controlled village access to vodka, thereby making peasant communities
+     dependent on state-approved distribution."
+
+Impact: Script feels shallow. Viewer doesn't understand the WHY,
+just memorizes facts. Lower retention, less shareability.
+
+Fix needed:
+1. Add causal chain with valid connectors: "Because X, and because Y, consequently Z"
+2. Add comparison: "While in Europe [opposite outcome], in [subject]..."
+3. Add mechanism: Show step-by-step HOW the process worked
+4. Expand ≥1 shallow causation per section into full mechanism
+
+Priority: CRITICAL - This is the primary quality differentiator
+```
+
+See: `.claude/REFERENCE/causal-chain-examples.md` for patterns
+See: `.claude/REFERENCE/creator-techniques.md` → KRAUT section
+
+#### 4b. MAP FRAMING CHECK (TERRITORIAL VIDEOS ONLY - Added 2025-12-29)
+
+**Apply if video type = TERRITORIAL (border disputes, sovereignty claims, geographic anomalies)**
+
+**Check for:**
+- **Geographic hook:** Does script open with "zoom in and things get strange" or similar geographic reveal in first 30 seconds?
+- **Strategic implications:** Are ≥3 strategic implications stacked before 2:00 mark?
+- **"How did this happen?" transition:** Is there explicit pivot from current situation to historical cause?
+- **Specific measurements:** Are there ≥5 specific numbers (distances, populations, dates, percentages)?
+
+**Red flags:**
+- ❌ Opens with historical background instead of current map oddity
+- ❌ No specific measurements in first 90 seconds
+- ❌ Strategic implications stated but not stacked (only 1-2 reasons why territory matters)
+- ❌ "How did this happen?" transition missing or weak
+- ❌ Numbers are vague ("hundreds of years" instead of "684 years")
+
+**What to output:**
+```
+🔴 MAP FRAMING FAILURE
+Problem: Territorial dispute video doesn't establish geographic stakes early.
+
+Missing:
+- No geographic hook in first 30 seconds (opens with 1859 treaty background)
+- Only 2 strategic implications (needs ≥3)
+- "How did this happen?" transition at 3:45 (too late, should be ~2:00)
+- Only 3 specific measurements (needs ≥5)
+
+Impact: Viewer doesn't feel the geographic tension. Drops off before
+understanding why this territory matters.
+
+Fix needed:
+1. Open with map showing the anomaly before explaining history
+2. Stack strategic implications: military, economic, political stakes
+3. Move historical transition earlier (~2:00)
+4. Add specific numbers: distances, populations, exact dates
+
+Priority: CRITICAL for territorial videos - this is the hook structure
+```
+
+See: `.claude/REFERENCE/map-framing-checklist.md` for full checklist
+See: `.claude/REFERENCE/map-narration-patterns.md` for copy-paste templates
+
+#### 4c. THESIS ADVANCEMENT CHECK (ALL VIDEOS - Added 2025-12-29)
+
+**Check for:**
+- **Section purpose:** Does every section either support thesis, address counterargument, or provide necessary context?
+- **No bloat:** Is there any section >90 seconds that doesn't advance the argument?
+- **Necessity test:** If you removed any section, would the argument be weaker?
+
+**Red flags:**
+- ❌ Interesting historical tangent that doesn't connect to thesis
+- ❌ Section exists because research found it, not because argument needs it
+- ❌ Over-explaining context that viewer doesn't need for the argument
+- ❌ Repetition of points already made
+
+**What to output:**
+```
+🟡 THESIS ADVANCEMENT ISSUE
+Problem: Section at 4:30-6:00 provides interesting context but doesn't
+advance the main argument.
+
+Analysis:
+- Section topic: Byzantine trade routes
+- Thesis: "Colonial borders still cause modern conflicts"
+- Connection: None clear
+
+Impact: Viewer may find it interesting but loses narrative momentum.
+Runtime inflated without improving argument strength.
+
+Fix needed:
+- Option A: Cut section entirely (saves 90 seconds)
+- Option B: Add explicit connection: "And this matters because..."
+- Option C: Move to research notes for future video
+
+Priority: MEDIUM - affects pacing but not argument validity
+```
+
+#### 4d. ATTRIBUTION VERIFICATION CHECK (REVISIONS ONLY - Added 2025-12-29)
+
+**Trigger:** Any of the following added AFTER initial draft:
+- Named scholar/historian
+- Specific publication year
+- Page number citation
+- Claim about scholarly consensus ("historians agree," "mainstream since X")
+
+**For each triggered item, check:**
+1. Is this in `01-VERIFIED-RESEARCH.md`?
+   - YES → PASS
+   - NO → 🔴 UNVERIFIED REVISION ATTRIBUTION
+
+2. Does claim assert scholarly consensus without named source?
+   - YES → ⚠️ CONSENSUS CLAIM UNANCHORED
+
+**Enforcement:** SOFT-BLOCKING (script can proceed to review, filming gate blocks until resolved)
+
+**What to output:**
+```
+🔴 UNVERIFIED REVISION ATTRIBUTION
+Problem: Revision added citations not in VERIFIED-RESEARCH.md
+
+Flagged items:
+- Line 145: "Bagnall's quantitative analyses in the 1990s..."
+  → Scholar + decade cited, not in research doc
+  → Action: VERIFY exact publication OR REMOVE
+- Line 203: "historians moved on from this debate by 2005"
+  → Consensus claim with specific date, not sourced
+  → Action: CITE specific historian OR SOFTEN to "recent scholarship suggests"
+
+⚠️ CONSENSUS CLAIM UNANCHORED
+- Line 89: "Among classicists, this is settled"
+  → No named scholar anchoring the claim
+  → Action: Add "As [Name] argues in [Work]..." OR remove consensus framing
+
+Impact: Plausible-sounding citations may be misremembered.
+Informed viewer or commenter will check.
+
+Fix options:
+1. Verify against primary source and add to VERIFIED-RESEARCH.md
+2. Remove unverified attribution and use softer language
+3. Flag for pre-filming verification (add to B-ROLL-CHECKLIST.md)
+
+Priority: HIGH - Must resolve before filming
+```
+
+**Scope limitation:** This check ONLY applies to revisions. Initial draft citations are covered by Phase 1 verification.
+
+---
+
+#### 5. TIMELINE PRECISION
 Check dates and timeframes:
 - **Exact dates:** Are "1,800 years" or "centuries" claims mathematically correct?
 - **Starting points:** Is the starting date justified? (Augustine 400 AD? Earlier?)
@@ -372,12 +615,50 @@ Before sending review, verify:
 - [ ] Provided actionable fixes with priorities?
 - [ ] Offered next steps?
 
+**Alex O'Connor Intellectual Honesty Checks (Added 2025-12-28):**
+- [ ] Script uses concession-before-rebuttal pattern at least once?
+- [ ] Script admits uncertainty where genuinely uncertain?
+- [ ] Script flags expertise limits when appropriate?
+- [ ] Script uses parallel reasoning to test logical consistency?
+- [ ] No strawmanning (engages strongest version of opposing argument)?
+
+**Kraut Depth Check with Causal Validity + Depth Tests (Updated 2025-12-29):**
+- [ ] ≥3 causal connectors that pass Causal Validity Test (not cosmetic)?
+- [ ] ≥1 mechanism-level explanation per major argument section (Causal Depth Check)?
+- [ ] All ⚠️ SHALLOW CAUSATION flags resolved or acknowledged?
+- [ ] ≥1 comparative analysis with explanation of WHY different?
+- [ ] ≥1 mechanism explanation (HOW, not just WHAT)?
+- [ ] Opening uses Pattern→Exception OR Both-Extremes-Wrong?
+- [ ] Modern echoes every 2-3 minutes?
+
+**Attribution Verification Check (REVISIONS ONLY - Added 2025-12-29):**
+- [ ] All named scholars added in revision verified against VERIFIED-RESEARCH.md?
+- [ ] All publication years/page numbers added in revision verified?
+- [ ] All consensus claims ("historians agree") anchored with named source?
+- [ ] No 🔴 UNVERIFIED REVISION ATTRIBUTION flags unresolved?
+- [ ] No ⚠️ CONSENSUS CLAIM UNANCHORED flags unresolved?
+
+**Map Framing Check (TERRITORIAL VIDEOS ONLY - Added 2025-12-29):**
+- [ ] Geographic hook in first 30 seconds?
+- [ ] ≥3 strategic implications stacked before 2:00?
+- [ ] "How did this happen?" transition exists?
+- [ ] ≥5 specific measurements throughout?
+
+**Thesis Advancement Check (ALL VIDEOS - Added 2025-12-29):**
+- [ ] Every section advances thesis, addresses counterargument, or provides necessary context?
+- [ ] No section >90 seconds that doesn't advance argument?
+- [ ] If removing any section wouldn't weaken argument → flagged for cutting?
+
 ## Integration with Other Skills
+
+**Before script-reviewer:**
+- Run **voice check** (`tools/prompt_evaluation.py` channel_voice_check) to verify style patterns
 
 **After review, offer:**
 - Run **fact-checker** to validate all claims
-- Use **script-generator** to rewrite problem sections in Benoit's voice
+- Use **script-generator** (`.claude/skills/script-generator.md`) to rewrite problem sections
 - Create **visual staging** document for production
+- When all issues fixed → Move project to `_READY_TO_FILM/`
 
 ## Example Reviews (Reference Patterns)
 

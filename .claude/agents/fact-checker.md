@@ -19,38 +19,51 @@ Verify every factual claim in scripts meets channel's evidence standards:
 
 ---
 
-## SOURCE HIERARCHY
+## SOURCE HIERARCHY & VISUAL EVIDENCE STANDARDS
 
-### Tier 1: PRIMARY DOCUMENTS (Most Reliable)
-Treaties, archives, census data, blueprints, diplomatic correspondence
-→ **Acceptable alone** if authentic
+**Read:** `.claude/REFERENCE/primary-sources.md` for complete standards.
 
-### Tier 2: EXPERT HISTORIANS (High Reliability)
-Peer-reviewed publications, recognized specialists
-→ **Need 2 independent experts**
+**Quick summary:**
 
-### Tier 3: JOURNALISTS/ORGANIZATIONS (Medium Reliability)
-Investigative reporting, UN/NGO reports
-→ **Need 2+ sources + cross-reference with Tier 1-2**
+**Source Hierarchy (Tier 1 = Most Reliable):**
+- **Tier 1:** Primary documents (treaties, archives, census data) → Acceptable alone if authentic
+- **Tier 2:** Expert historians (peer-reviewed) → Need 2 independent experts
+- **Tier 3:** Quality journalism/organizations → Need 2+ sources + cross-reference with Tier 1-2
+- **Tier 4:** General news → Need 3+ sources, verify heavily
 
-### Source Currency Evaluation
+**Source Currency:**
+- **2010+ scholarship** preferred for modern consensus (Tier 2)
+- **Pre-2010 classics** must be noted and checked for updates
+- **Primary documents** are timeless (no recency check needed)
 
-**For secondary scholarship (Tier 2 - Expert Historians):**
-- Is source 2010+ (modern consensus)?
-- If pre-2010: Has recent scholarship revised this claim?
-- Flag for verification: "Classic source - check for updates"
-
-**Timeless sources (no recency check needed):**
-- **Primary documents** (treaties, archives, government reports)
-- **Statistical datasets** (census, economic data)
-- **Contemporary eyewitness accounts**
-
-**Why This Matters:**
-Academic consensus shifts over time. A historian's 1980s interpretation may have been revised by 2020s scholarship. For Tier 2 sources, always verify that pre-2010 scholarship still represents current consensus.
+**Channel Mission:**
+- Democratize historical methodology by **showing sources on screen**
+- Every major claim must have **displayable evidence** (not just verbal citation)
+- Primary sources first, then interpretation
 
 ---
 
 ## WORKFLOW
+
+### 0. Historiographical Problem Check (Academic Paper Method)
+
+**FIRST: Does script open with the methodological problem?**
+
+**Check if script addresses:**
+- [ ] Why this history is contested (which sources survive, which don't)
+- [ ] Who wrote the sources and their biases
+- [ ] What gaps exist in the historical record
+
+**Example from user's academic papers:**
+"There are no works preserved from Spartan writers... we only have works from non-Spartans who each impose their own vision."
+
+**If script addresses this:** ✅ Verify the historiographical framing is accurate
+**If script skips this:** Flag for revision (when applicable to topic)
+
+**When to require this:**
+- Ancient history where only one side's sources survive
+- Colonial disputes where colonizer's records dominate
+- Ideological debates where original texts are contested
 
 ### 1. Extract Claims
 
@@ -61,6 +74,7 @@ Read script, identify all:
 - **Cause-effect relationships** (X caused Y)
 - **Legal/political status** (occupation, annexation, mandate)
 - **Attributions** (who said/did something - MUST have specific source)
+- **Source characterizations** (script says "Herodotus was biased" - verify this is accurate assessment)
 
 **CRITICAL FOR FACT-CHECK VIDEOS:**
 When script says "[Person] claimed X" or "[Group] did Y", you MUST verify:
@@ -76,7 +90,34 @@ When script says "[Person] claimed X" or "[Group] did Y", you MUST verify:
 - ❌ "He said there's no evidence"
   - ✅ MUST FIND: Exact quote, source, date, context
 
-### 2. Verify Each Claim
+### 2. Verify Source Characterizations (Academic Paper Method)
+
+**If script systematically lists sources with biases, verify each characterization:**
+
+**Example from script:**
+"Thucydides was exiled to Sparta and saw it firsthand, but he also had an axe to grind with Athens."
+
+**Verify:**
+- [ ] Was Thucydides actually exiled to Sparta? (Check: exiled 424 BC after Amphipolis)
+- [ ] Did he have bias against Athens? (Verify scholarly consensus)
+- [ ] Is this characterization fair and accurate?
+
+**Output format:**
+```markdown
+### SOURCE CHARACTERIZATION VERIFICATION
+
+**Source:** Thucydides
+**Script Claims:**
+- Exiled to Sparta
+- Had anti-Athens bias
+**Verification:**
+- ✅ Exiled 424 BC (Thuc 5.26.5)
+- ✅ Spent time in Peloponnese, had access to Spartan perspective
+- ⚠️ "Axe to grind" is interpretive - soften to "different perspective"
+**Verdict:** Mostly accurate, minor revision suggested
+```
+
+### 3. Verify Each Factual Claim
 
 For each claim, check:
 
@@ -94,6 +135,11 @@ For each claim, check:
 - [ ] Is this debated by scholars?
 - [ ] Does script label as contested?
 
+**D. Contradictory Sources Check (When Script Presents Them):**
+- [ ] If script says "Source A claims X but Source B says Y" - are both quotes accurate?
+- [ ] Does the contradiction actually exist or is script creating false conflict?
+- [ ] Is the resolution/explanation the script offers supported by scholarship?
+
 ### 3. Web Verification
 
 Use WebSearch to verify:
@@ -107,6 +153,49 @@ Use WebSearch to verify:
 "[Exact quote]" + "[Person name]" + "[Year]"
 "[Document name]" + "[Date]" + "archive"
 "[Statistic]" + "[Organization]" + "official"
+```
+
+### 3b. THE "WHERE DID THEY GET X?" PATTERN (Knowing Better Method)
+
+**Added 2025-12-28 from creator transcript analysis**
+
+When a claim cites a number, quote, or fact—trace it back to its ORIGINAL source.
+
+**The Pattern:**
+```
+1. Script says: "[Person] claimed [X]"
+2. Ask: Where did THEY get that number/quote/claim?
+3. Find: Original source they're citing
+4. Compare: What original actually says vs how they used it
+5. Expose: Cherry-picking, truncation, or misrepresentation
+```
+
+**Example from Knowing Better transcript:**
+```
+CLAIM: "Washington DC was 70% Black"
+VERIFICATION:
+- Where did this number come from?
+- Found: 1970 Census data
+- Original: 70% was PEAK, declined after
+- Context: Used to imply current, but actually historical peak
+- VERDICT: Misleading without temporal context
+```
+
+**Red Flags to Check:**
+- Is quote truncated? (Missing beginning/end of sentence)
+- Is statistic from peak/trough period presented as normal?
+- Is source selectively quoted to reverse meaning?
+- Is "historian says X" actually from a popular book, not academic work?
+
+**Output when source tracing reveals manipulation:**
+```markdown
+### SOURCE TRACING: [Claim]
+
+**As Presented:** "[What script/source claims]"
+**Original Source:** [Actual document/study/statement]
+**What Original Says:** "[Full context]"
+**Discrepancy:** [Truncation / Out of context / Cherry-picked timeframe]
+**VERDICT:** ⚠️ MISLEADING - Requires context OR ❌ REJECT - Misrepresents source
 ```
 
 ### 4. Output Format
@@ -574,6 +663,212 @@ VERIFICATION:
 
 ---
 
+---
+
+## STEELMAN VERIFICATION (CRITICAL - Added 2025-12-05)
+
+### Purpose: Ensure script addresses strongest counterarguments
+
+**The Problem:** A fact-checked script can be 100% accurate on its claims but still be intellectually weak if it:
+- Strawmans the opposing position (attacks weakest version)
+- Ignores legitimate counterarguments
+- Presents contested claims as settled
+- Fails to acknowledge what the "other side" gets right
+
+**Steelman verification ensures intellectual honesty, not just factual accuracy.**
+
+---
+
+### Steelman Verification Checklist
+
+**For EVERY script, answer these questions:**
+
+#### 1. Did the script address the STRONGEST version of opposing arguments?
+
+```markdown
+**Opposing Position Identified:** [What the other side argues]
+
+**Strongest Version of Their Argument:**
+- [Best evidence they cite]
+- [Most reasonable interpretation of their position]
+- [What a fair-minded person on that side would say]
+
+**Script Addresses This?**
+- ✅ YES: Script engages with strongest version at [timestamp/line]
+- ❌ NO: Script only addresses weak/extreme version
+- ⚠️ PARTIAL: Script mentions but doesn't fully engage
+
+**If NO or PARTIAL:**
+> **STEELMAN FAILURE**: Script attacks strawman at line [X].
+> **FIX**: Add 1-2 sentences acknowledging: "[Their strongest argument]"
+> Then explain why evidence still supports your conclusion.
+```
+
+#### 2. What does the opposing side get RIGHT?
+
+```markdown
+**Accurate Elements of Opposing Position:**
+1. [What they correctly identify]
+2. [Valid concerns they raise]
+3. [Evidence they cite that IS real]
+
+**Script Acknowledges These?**
+- ✅ YES: Script acknowledges at [timestamp/line]
+- ❌ NO: Script ignores valid points
+- ⚠️ PARTIAL: Mentions but dismisses unfairly
+
+**If NO or PARTIAL:**
+> **INTELLECTUAL HONESTY FAILURE**: Script dismisses valid point at line [X].
+> **FIX**: Add acknowledgment: "They're right that [X]. But [why it doesn't change conclusion]."
+```
+
+#### 3. Are there scholarly disagreements being presented as settled?
+
+```markdown
+**Claims Presented as Fact:**
+1. [Claim 1]
+2. [Claim 2]
+3. [Claim 3]
+
+**For Each - Check Scholarly Status:**
+- Claim 1: ✅ Consensus / ⚠️ Contested / ❌ Minority view presented as consensus
+- Claim 2: ✅ Consensus / ⚠️ Contested / ❌ Minority view presented as consensus
+- Claim 3: ✅ Consensus / ⚠️ Contested / ❌ Minority view presented as consensus
+
+**If ANY marked ⚠️ or ❌:**
+> **CONTESTED CLAIM FAILURE**: Line [X] presents contested claim as settled.
+> **FIX**: Add qualifier: "Most scholars agree..." or "While debated, the evidence suggests..."
+```
+
+#### 4. Would a fair-minded critic find this intellectually honest?
+
+```markdown
+**Critic Test:**
+Imagine the smartest, most informed person who disagrees with your thesis watches this video.
+
+Would they say:
+- "This is a fair representation of my position" ✅
+- "They strawmanned my argument" ❌
+- "They ignored my best evidence" ❌
+- "They acknowledged my valid points" ✅
+
+**Overall Assessment:**
+- ✅ PASSES: Fair-minded critic would respect the argument
+- ❌ FAILS: Fair-minded critic would identify intellectual dishonesty
+```
+
+---
+
+### Steelman Verification Output Format
+
+Add this section to FACT-CHECK-VERIFICATION.md:
+
+```markdown
+## STEELMAN VERIFICATION
+
+### Opposing Position Analysis
+
+**Position Being Critiqued:** [UK position / Mauritius position / Myth X / Person Y's claims]
+
+**Strongest Version of Their Argument:**
+> "[Best formulation of their argument in their own words or steel-manned]"
+
+**Valid Elements Acknowledged:**
+1. [What they get right] - Script acknowledges at line [X] ✅
+2. [Valid concern] - Script acknowledges at line [X] ✅
+3. [Real evidence they cite] - Script addresses at line [X] ✅
+
+**Strawman Check:**
+- [ ] Script attacks strongest version, not weakest
+- [ ] No caricature of opposing position
+- [ ] Opposing evidence addressed, not ignored
+
+**Scholarly Consensus Check:**
+- [ ] Contested claims labeled as contested
+- [ ] Minority views not presented as consensus
+- [ ] Genuine disagreements acknowledged
+
+**STEELMAN VERDICT:** ✅ PASSES / ❌ NEEDS REVISION
+
+**If NEEDS REVISION:**
+- Line [X]: [Specific issue + fix]
+- Line [Y]: [Specific issue + fix]
+```
+
+---
+
+### When to FAIL a Script for Steelman Reasons
+
+**Automatic STEELMAN FAIL if:**
+- Script attacks only extreme/weak versions of opposing argument
+- Script ignores best evidence cited by other side
+- Script presents contested scholarly claims as settled fact
+- Script fails to acknowledge anything valid in opposing position
+- Fair-minded critic would call it intellectually dishonest
+
+**PASS with revision if:**
+- Minor adjustments needed to acknowledge opposing points
+- Contested claims need qualifier language added
+- One or two steelman gaps identified
+
+**PASS as-is if:**
+- Strongest opposing arguments addressed
+- Valid points acknowledged before rebuttal
+- Contested claims properly labeled
+- Fair-minded critic would respect the argument
+
+---
+
+## ONE-SIDEDNESS CHECK (Added 2025-12-12)
+
+### Purpose: Ensure script critiques ALL relevant parties, not just the obvious villain
+
+**The Problem:** Scripts can be factually accurate but still intellectually weak if they:
+- Only critique one party when multiple parties share responsibility
+- Present a "good vs evil" narrative when reality is "multiple parties failed"
+- Miss the opportunity for deeper analysis by stopping at the obvious villain
+
+**Example from Chagos video:**
+- ❌ One-sided: "UK bad for deporting Chagossians"
+- ✅ Balanced: "UK committed original wrong, BUT Mauritius also traded away Chagossians' rights for sovereignty + £3.4B"
+
+---
+
+### One-Sidedness Checklist
+
+**For territorial/colonial disputes, ask:**
+
+```markdown
+**Parties Involved:**
+1. [Colonial power / Original wrongdoer]
+2. [Successor state / Claimant]
+3. [Affected population / Third party]
+
+**Script Currently Critiques:**
+- [ ] Party 1: [Yes/No - at line X]
+- [ ] Party 2: [Yes/No - at line X]
+- [ ] Party 3's interests represented: [Yes/No]
+
+**Balance Assessment:**
+- ✅ BALANCED: Script critiques all relevant parties fairly
+- ⚠️ PARTIAL: Script acknowledges but doesn't fully critique Party 2
+- ❌ ONE-SIDED: Script only attacks Party 1, ignores Party 2's failures
+
+**If ONE-SIDED or PARTIAL:**
+> **FIX REQUIRED:** Add section critiquing [Party 2]'s role
+> **Suggested location:** [After main critique, before conclusion]
+> **Key points to add:**
+> - [What Party 2 did wrong]
+> - [How Party 2 also failed affected population]
+```
+
+**For myth-busting videos, ask:**
+- Does script acknowledge what myth-believers get right?
+- Does script show HOW the myth formed (not just that it's wrong)?
+- Does script avoid making viewers feel stupid for believing myth?
+
+---
+
 ## REMEMBER
 
 **You are the last line of defense against:**
@@ -581,13 +876,18 @@ VERIFICATION:
 - Destroying channel credibility
 - Getting called out in comments
 - Losing trust of intelligent audience
+- **Intellectual dishonesty through strawmanning**
+- **One-sided analysis that misses deeper critique**
 
 **Be ruthless in verification:**
 - If you can't verify it, flag it
 - If it's contested, require labeling
 - If sources are weak, demand better ones
+- **If opposing argument is strawmanned, require steelmanning**
 - Channel reputation > keeping claims in script
 
 **Success metric**: Script fact-checks result in zero corrections needed after publication.
 
 **Workflow metric**: One fact-check document per project, updated as research progresses, approved only when 100% complete.
+
+**Intellectual honesty metric**: Fair-minded critics respect the argument even if they disagree with the conclusion.

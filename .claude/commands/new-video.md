@@ -9,7 +9,7 @@ You are setting up a new History vs Hype video project using the **3-phase verif
 ## WORKFLOW OVERVIEW
 
 **Phase 1:** Research + Verify simultaneously → `01-VERIFIED-RESEARCH.md`
-**Phase 2:** Write script from verified facts only → `02-SCRIPT-DRAFT.md`
+**Phase 2:** Write script from verified facts only → `SCRIPT.md`
 **Phase 3:** Cross-check script against research → `03-FACT-CHECK-VERIFICATION.md`
 
 **Goal:** Zero fact-check errors (like Fuentes HW 16/32, 8,000 Italian Jews)
@@ -51,7 +51,7 @@ This step prevents duplicate research and ensures consistency across videos.
 ```
 [number]-[topic-slug-year]/
   01-VERIFIED-RESEARCH.md
-  02-SCRIPT-DRAFT.md (placeholder for Phase 2)
+  SCRIPT.md (placeholder for Phase 2)
   03-FACT-CHECK-VERIFICATION.md (placeholder for Phase 3)
   _research/ (for NotebookLM outputs, source PDFs, etc.)
 ```
@@ -71,7 +71,7 @@ This step prevents duplicate research and ensures consistency across videos.
 
 ### Step 5: Create Placeholder Files
 
-**02-SCRIPT-DRAFT.md:**
+**SCRIPT.md:**
 ```markdown
 # Script Draft - [Topic]
 
@@ -81,6 +81,8 @@ Do not write script until 01-VERIFIED-RESEARCH.md is 90%+ verified.
 
 **Next step:** Complete research phase first.
 ```
+
+**Note:** SCRIPT.md is the canonical script file. Git tracks version history—no V2/V3/FINAL files needed.
 
 **03-FACT-CHECK-VERIFICATION.md:**
 ```markdown
@@ -141,7 +143,7 @@ This file will be used to cross-check the script after Phase 2.
 
 ## Phase 2: Script Writing ⏸️
 
-**File:** 02-SCRIPT-DRAFT.md
+**File:** SCRIPT.md
 **Status:** Not started
 
 **Waiting for:** Phase 1 to reach 90% verification
@@ -190,7 +192,7 @@ Tell the user:
 
 📋 Files created:
   - 01-VERIFIED-RESEARCH.md (START HERE)
-  - 02-SCRIPT-DRAFT.md (placeholder - don't use yet)
+  - SCRIPT.md (placeholder - don't use yet)
   - 03-FACT-CHECK-VERIFICATION.md (placeholder)
   - PROJECT-STATUS.md (track progress)
   - _research/00-NOTEBOOKLM-SOURCE-LIST.md (sources to download)

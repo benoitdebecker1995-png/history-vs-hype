@@ -54,7 +54,7 @@ For each question:
 
 ### Prompt 2: Smoking Gun Evidence Extraction
 
-**Purpose:** Find the most undeniable primary source evidence
+**Purpose:** Find the most undeniable primary source evidence WITH context for spoken delivery
 
 **Template Structure:**
 ```
@@ -85,6 +85,21 @@ For each piece of evidence:
 - Author/issuer and their position
 - Why this is "smoking gun" level (impossible to dispute)
 - Any known counter-arguments to this evidence
+
+**CRITICAL - FOR EACH QUOTE, ALSO PROVIDE:**
+
+1. WHY IT MATTERS (1-2 sentences): What does this quote PROVE? Why is it significant to the argument?
+
+2. SPOKEN INTRODUCTION: How would you naturally introduce this quote in conversation?
+   - NOT: "Quote: 'The treaty states...'"
+   - YES: "The treaty actually says..." or "Look at what the document states..."
+   - YES: "Here's the exact language from the 1899 agreement..."
+
+3. AUDIENCE CONTEXT: What does a viewer with ZERO background need to know to understand why this quote matters? (1 sentence of setup)
+
+4. JARGON FLAG: Does this quote contain technical/legal/academic language that needs simplification? If yes, provide plain-English translation.
+
+5. VISUAL POTENTIAL: Can this quote be shown on screen as B-roll? (treaty text, document scan, etc.)
 ```
 
 ### Prompt 3: Pattern Recognition
@@ -208,7 +223,7 @@ For each example: Source, date, specific quote/reference, why it matters.
 
 ### Prompt 6: Script Hook Generation
 
-**Purpose:** Find the most compelling opening hooks
+**Purpose:** Find the most compelling opening hooks READY FOR SPOKEN DELIVERY
 
 **Template Structure:**
 ```
@@ -236,11 +251,19 @@ VIRAL POTENTIAL:
 - Does it work in 8-15 seconds?
 - Clear visual potential?
 
+**SPOKEN DELIVERY TEST:**
+- Write out the hook as it would be SPOKEN (conversational, not written)
+- Use contractions ("it's" not "it is")
+- Use conversational date formats ("On June 16th, 2014" not "June 16, 2014.")
+- Keep under 25 words for the opening line
+- Test: Does this sound natural when read aloud?
+
 Prioritize hooks that:
 - Involve concrete actions or specific numbers
 - Connect to current events ([LAST 3 MONTHS])
 - Reveal hypocrisy or contradiction
 - Show immediate human stakes
+- Sound natural when spoken (not academic/written)
 ```
 
 ### Prompt 7: Academic Consensus Summary
@@ -638,7 +661,9 @@ Ask user:
 ## Integration with Other Skills
 
 **After prompts are run in NotebookLM:**
-- User provides NotebookLM output → Run **script-generator** skill
-- Script generated → Run **script-reviewer** skill for credibility check
-- Reviewer identifies issues → Fix and run **fact-checker** skill
-- Fact-checker validates → Script ready for production
+1. User provides NotebookLM output → Save to `01-VERIFIED-RESEARCH.md`
+2. Run **script-generator** skill (`.claude/skills/script-generator.md`) to write script
+3. Run **voice check** (`tools/prompt_evaluation.py` channel_voice_check) to verify style
+4. Run **script-reviewer** skill for credibility check
+5. Run **fact-checker** skill for final verification
+6. Script ready for production → Move to `_READY_TO_FILM/`

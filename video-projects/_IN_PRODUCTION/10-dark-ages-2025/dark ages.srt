@@ -11,7 +11,7 @@
 <b>Here's what they found.</b>
 
 4
-01:00:07,833 --> 01:00:11,666
+01:00:07,800 --> 01:00:11,666
 <b>48% describe it as dark, 54% said</b>
 
 5
@@ -23,1322 +23,1210 @@
 <b>know much about the period.</b>
 
 7
-01:00:16,800 --> 01:00:18,333
-<b>So here's the question. Where</b>
+01:00:16,800 --> 01:00:17,733
+<b>So here's the question.</b>
 
 8
-01:00:18,333 --> 01:00:19,933
-<b>the Dark Age is really dark?</b>
+01:00:18,266 --> 01:00:19,933
+<b>Were the Dark Ages really dark?</b>
 
 9
 01:00:20,733 --> 01:00:23,166
-<b>One site is Mrs. Dis as Hollywood myth,</b>
+<b>One side dismisses this as Hollywood myth.</b>
 
 10
-01:00:23,466 --> 01:00:25,400
-<b>the other insists the intellectual</b>
+01:00:23,533 --> 01:00:25,400
+<b>The other insists the intellectual</b>
 
 11
 01:00:25,400 --> 01:00:27,766
 <b>collapse after Rome's fall was real.</b>
 
 12
-01:00:28,133 --> 01:00:30,533
-<b>Libraries burned, literacy vanished,</b>
+01:00:28,533 --> 01:00:28,966
+<b>Libraries burned.</b>
 
 13
-01:00:30,900 --> 01:00:32,666
-<b>Europe went dark for 500 years.</b>
+01:00:29,366 --> 01:00:30,466
+<b>Literacy vanished.</b>
 
 14
+01:00:30,933 --> 01:00:32,666
+<b>Europe went dark for 500 years.</b>
+
+15
 01:00:33,333 --> 01:00:35,166
 <b>I went to the modern academic sources.</b>
 
-15
-01:00:35,766 --> 01:00:37,233
-<b>Chris Wickham's medieval Europe,</b>
-
 16
-01:00:37,766 --> 01:00:39,300
-<b>quantitative miniscript counts from</b>
+01:00:35,833 --> 01:00:37,266
+<b>Chris Wickham's Medieval Europe,</b>
 
 17
-01:00:39,300 --> 01:00:42,333
-<b>Burink and Van Zanden, Mike de Jong's</b>
+01:00:37,733 --> 01:00:39,333
+<b>quantitative manuscript counts from</b>
 
 18
-01:00:42,333 --> 01:00:43,699
-<b>work on the Carolinians.</b>
+01:00:39,333 --> 01:00:41,033
+<b>Buringh and Van Zanden,</b>
 
 19
-01:00:44,266 --> 01:00:46,099
-<b>They're analyzing the actual miniscript</b>
+01:00:41,666 --> 01:00:43,733
+<b>Mayke de Jong's work on the Carolingians.</b>
 
 20
-01:00:46,099 --> 01:00:48,400
-<b>production data, the legal codes from</b>
+01:00:44,300 --> 01:00:46,066
+<b>They're analyzing the actual manuscript</b>
 
 21
-01:00:48,400 --> 01:00:49,766
-<b>successor kingdoms and</b>
+01:00:46,066 --> 01:00:47,833
+<b>production data, the legal</b>
 
 22
-01:00:50,166 --> 01:00:51,866
-<b>the charter documents that ordinary</b>
+01:00:47,833 --> 01:00:49,266
+<b>codes from successor kingdoms,</b>
 
 23
-01:00:51,866 --> 01:00:53,900
-<b>people used for property transactions.</b>
+01:00:49,566 --> 01:00:51,866
+<b>and the charter documents that ordinary</b>
 
 24
-01:00:54,633 --> 01:00:56,566
-<b>When you examine the evidence, both</b>
+01:00:51,866 --> 01:00:53,933
+<b>people used for property transactions.</b>
 
 25
+01:00:54,733 --> 01:00:56,566
+<b>When you examine the evidence, both</b>
+
+26
 01:00:56,566 --> 01:00:57,933
 <b>extremes oversimplify</b>
 
-26
+27
 01:00:57,933 --> 01:00:58,866
 <b>what actually happened.</b>
 
-27
-01:00:59,766 --> 01:01:01,933
-<b>And here's why this matters. The poll</b>
-
 28
-01:01:01,933 --> 01:01:05,199
-<b>shows that 51% of Americans say that they</b>
+01:00:59,766 --> 01:01:01,000
+<b>And here's why this matters.</b>
 
 29
-01:01:05,199 --> 01:01:06,166
-<b>learn medieval history</b>
+01:01:01,466 --> 01:01:04,733
+<b>The poll shows that 51% of Americans say</b>
 
 30
-01:01:06,166 --> 01:01:08,133
-<b>from movies, not historians.</b>
+01:01:04,733 --> 01:01:06,500
+<b>that they learn medieval history from</b>
 
 31
-01:01:08,966 --> 01:01:11,066
-<b>That gap between popular belief and</b>
+01:01:06,500 --> 01:01:08,133
+<b>movies, not historians.</b>
 
 32
-01:01:11,066 --> 01:01:12,966
-<b>academic reality, that's</b>
+01:01:08,966 --> 01:01:11,099
+<b>That gap between popular belief and</b>
 
 33
+01:01:11,099 --> 01:01:12,966
+<b>academic reality, that's</b>
+
+34
 01:01:12,966 --> 01:01:14,033
 <b>what I'm trying to fix.</b>
 
-34
-01:01:14,966 --> 01:01:16,733
+35
+01:01:14,933 --> 01:01:16,766
 <b>Before we can talk about whether literacy</b>
 
-35
-01:01:16,733 --> 01:01:18,699
+36
+01:01:16,766 --> 01:01:18,766
 <b>collapsed, we need to ask</b>
 
-36
-01:01:18,699 --> 01:01:21,366
+37
+01:01:18,766 --> 01:01:21,199
 <b>how high were we to begin with?</b>
 
-37
-01:01:21,866 --> 01:01:23,733
+38
+01:01:21,933 --> 01:01:23,666
 <b>The assumption is always that classical</b>
 
-38
-01:01:23,733 --> 01:01:25,866
+39
+01:01:23,666 --> 01:01:25,866
 <b>Rome was this intellectual utopia.</b>
 
-39
-01:01:26,666 --> 01:01:28,733
+40
+01:01:26,933 --> 01:01:28,733
 <b>Everyone's reading Virgil, universal</b>
 
-40
+41
 01:01:28,733 --> 01:01:30,533
 <b>education, scroll</b>
 
-41
+42
 01:01:30,533 --> 01:01:32,333
 <b>libraries on every corner.</b>
 
-42
-01:01:32,866 --> 01:01:34,466
+43
+01:01:32,900 --> 01:01:34,466
 <b>Reading from the sources on ancient</b>
 
-43
+44
 01:01:34,466 --> 01:01:36,599
 <b>literacy, papyrus was</b>
 
-44
-01:01:36,599 --> 01:01:38,233
+45
+01:01:36,599 --> 01:01:38,266
 <b>prohibitively expensive.</b>
 
-45
+46
 01:01:38,666 --> 01:01:40,733
 <b>Unless you were a wealthy government or</b>
 
-46
-01:01:40,733 --> 01:01:42,900
-<b>maybe a temple running your entire</b>
-
 47
-01:01:42,900 --> 01:01:43,933
-<b>operation on written</b>
+01:01:40,733 --> 01:01:42,333
+<b>maybe a temple running</b>
 
 48
-01:01:43,933 --> 01:01:46,033
-<b>documents just wasn't feasible.</b>
+01:01:42,333 --> 01:01:43,733
+<b>your entire operation on</b>
 
 49
-01:01:46,933 --> 01:01:49,833
-<b>Even at the peak, Athenian democracy in</b>
+01:01:43,733 --> 01:01:46,066
+<b>written documents just wasn't feasible.</b>
 
 50
-01:01:49,833 --> 01:01:51,500
-<b>the 4th century BCE,</b>
+01:01:47,166 --> 01:01:49,833
+<b>Even at the peak, Athenian democracy in</b>
 
 51
-01:01:52,000 --> 01:01:53,533
-<b>here's what the evidence shows.</b>
+01:01:49,833 --> 01:01:51,466
+<b>the 4th century BCE,</b>
 
 52
-01:01:54,566 --> 01:01:56,533
-<b>Citizens serving on juries got a little</b>
+01:01:52,166 --> 01:01:53,500
+<b>here's what the evidence shows.</b>
 
 53
+01:01:54,599 --> 01:01:56,533
+<b>Citizens serving on juries got a little</b>
+
+54
 01:01:56,533 --> 01:01:58,300
 <b>ticket with their name on it.</b>
 
-54
+55
 01:01:58,300 --> 01:02:00,033
 <b>You had to be able to read your own name,</b>
 
-55
-01:02:00,566 --> 01:02:02,333
+56
+01:02:00,633 --> 01:02:02,333
 <b>maybe the date, but not</b>
 
-56
+57
 01:02:02,333 --> 01:02:03,833
 <b>a complex legal decree.</b>
 
-57
-01:02:04,366 --> 01:02:06,533
+58
+01:02:04,400 --> 01:02:06,533
 <b>The assembly functioned perfectly well</b>
 
-58
+59
 01:02:06,533 --> 01:02:07,533
 <b>without every member</b>
 
-59
-01:02:07,533 --> 01:02:09,666
+60
+01:02:07,533 --> 01:02:09,699
 <b>reading and writing complex prose.</b>
 
-60
-01:02:10,366 --> 01:02:11,366
-<b>Because what did it</b>
-
 61
-01:02:11,366 --> 01:02:13,500
-<b>rely on? Oral culture.</b>
+01:02:10,266 --> 01:02:12,033
+<b>Because what did it rely on?</b>
 
 62
-01:02:14,366 --> 01:02:17,533
-<b>Literary texts, philosophy, poetry, they</b>
+01:02:12,566 --> 01:02:13,466
+<b>Oral culture.</b>
 
 63
-01:02:17,533 --> 01:02:19,266
-<b>were mainly disseminated orally.</b>
+01:02:14,133 --> 01:02:17,533
+<b>Literary texts, philosophy, poetry, they</b>
 
 64
-01:02:19,833 --> 01:02:22,366
-<b>You didn't read Plato yourself, you went</b>
+01:02:17,533 --> 01:02:19,300
+<b>were mainly disseminated orally.</b>
 
 65
+01:02:19,866 --> 01:02:22,366
+<b>You didn't read Plato yourself, you went</b>
+
+66
 01:02:22,366 --> 01:02:24,566
 <b>to a performance or a public reading.</b>
 
-66
+67
 01:02:25,233 --> 01:02:27,500
 <b>And here's the critical distinction that</b>
 
-67
+68
 01:02:27,500 --> 01:02:30,066
 <b>reframes the entire Dark Ages argument.</b>
 
-68
-01:02:30,833 --> 01:02:32,666
+69
+01:02:30,966 --> 01:02:32,666
 <b>The massive use of writing by the</b>
 
-69
-01:02:32,666 --> 01:02:35,099
+70
+01:02:32,666 --> 01:02:35,133
 <b>government does not equal universal</b>
 
-70
-01:02:35,099 --> 01:02:36,300
+71
+01:02:35,133 --> 01:02:36,500
 <b>individual literacy.</b>
 
-71
-01:02:36,866 --> 01:02:38,433
+72
+01:02:37,133 --> 01:02:38,400
 <b>Rome's writing served the</b>
 
-72
-01:02:38,433 --> 01:02:40,533
+73
+01:02:38,400 --> 01:02:40,500
 <b>state, not ordinary citizens.</b>
 
-73
-01:02:41,566 --> 01:02:43,633
+74
+01:02:41,733 --> 01:02:43,633
 <b>Rome was already operating on a highly</b>
 
-74
-01:02:43,633 --> 01:02:46,400
-<b>stratified system where writing served</b>
-
 75
-01:02:46,400 --> 01:02:48,133
-<b>the state and a wealthy elite.</b>
+01:02:43,633 --> 01:02:45,233
+<b>stratified system where</b>
 
 76
-01:02:49,000 --> 01:02:50,933
-<b>Most knowledge was still shared orally.</b>
+01:02:45,233 --> 01:02:47,300
+<b>writing served the state and</b>
 
 77
-01:02:51,833 --> 01:02:53,866
-<b>So when the Western Roman Empire</b>
+01:02:47,300 --> 01:02:48,166
+<b>a wealthy elite.</b>
 
 78
-01:02:53,866 --> 01:02:56,566
-<b>transitions in the 5th century, it's not</b>
+01:02:48,966 --> 01:02:50,933
+<b>Most knowledge was still shared orally.</b>
 
 79
-01:02:56,566 --> 01:02:59,533
-<b>falling from some 90% literate utopia.</b>
+01:02:51,933 --> 01:02:53,866
+<b>So when the Western Roman Empire</b>
 
 80
-01:03:00,133 --> 01:03:02,533
-<b>It's transitioning from a system where</b>
+01:02:53,866 --> 01:02:55,400
+<b>transitions in the 5th</b>
 
 81
-01:03:02,533 --> 01:03:05,266
-<b>literacy was already specialized, already</b>
+01:02:55,400 --> 01:02:57,333
+<b>century, it's not falling from</b>
 
 82
-01:03:05,266 --> 01:03:07,533
-<b>limited, and already expensive.</b>
+01:02:57,333 --> 01:02:59,599
+<b>some 90% literate utopia.</b>
 
 83
-01:03:08,533 --> 01:03:10,266
-<b>So if the state collapses,</b>
+01:03:00,366 --> 01:03:02,566
+<b>It's transitioning from a system where</b>
 
 84
-01:03:10,800 --> 01:03:12,000
-<b>where does the writing go?</b>
+01:03:02,566 --> 01:03:03,766
+<b>literacy was already</b>
 
 85
+01:03:03,766 --> 01:03:06,566
+<b>specialized, already limited and</b>
+
+86
+01:03:06,566 --> 01:03:07,333
+<b>already expensive.</b>
+
+87
+01:03:08,633 --> 01:03:10,266
+<b>So if the state collapses,</b>
+
+88
+01:03:10,900 --> 01:03:12,000
+<b>where does the writing go?</b>
+
+89
 01:03:12,633 --> 01:03:14,966
 <b>The traditional story demands chaos here.</b>
 
-86
+90
 01:03:15,433 --> 01:03:17,666
 <b>Barbarians sack Rome, the lights go out,</b>
 
-87
-01:03:18,133 --> 01:03:20,300
+91
+01:03:18,166 --> 01:03:20,266
 <b>all sophisticated government just ends.</b>
 
-88
-01:03:21,266 --> 01:03:23,066
+92
+01:03:21,233 --> 01:03:23,066
 <b>But the sources reveal a story of</b>
 
-89
-01:03:23,066 --> 01:03:24,199
+93
+01:03:23,066 --> 01:03:24,400
 <b>institutional adaptation.</b>
 
-90
-01:03:25,366 --> 01:03:28,133
-<b>Visigothic Spain? Far from chaos.</b>
-
-91
-01:03:28,699 --> 01:03:30,666
-<b>They maintained Roman governmental style</b>
-
-92
-01:03:30,666 --> 01:03:32,800
-<b>with careful attention to legal form.</b>
-
-93
-01:03:33,533 --> 01:03:34,533
-<b>And here's the litmus test</b>
-
 94
-01:03:34,533 --> 01:03:36,133
-<b>for any functioning state.</b>
+01:03:25,466 --> 01:03:26,466
+<b>Visigothic Spain?</b>
 
 95
-01:03:37,400 --> 01:03:37,599
-<b>Taxes.</b>
+01:03:27,199 --> 01:03:29,633
+<b>Far from chaos, they maintained Roman</b>
 
 96
-01:03:38,300 --> 01:03:39,599
-<b>The Visigoths kept tax</b>
+01:03:29,633 --> 01:03:30,933
+<b>governmental style with</b>
 
 97
-01:03:39,599 --> 01:03:40,666
-<b>collection functional.</b>
+01:03:30,933 --> 01:03:32,666
+<b>careful attention to legal form.</b>
 
 98
-01:03:41,199 --> 01:03:42,866
-<b>That's the institutional hallmark of a</b>
+01:03:33,466 --> 01:03:34,533
+<b>And here's the litmus test</b>
 
 99
-01:03:42,866 --> 01:03:44,666
-<b>surviving structured state.</b>
+01:03:34,533 --> 01:03:36,166
+<b>for any functioning state.</b>
 
 100
+01:03:37,066 --> 01:03:37,433
+<b>Taxes.</b>
+
+101
+01:03:38,300 --> 01:03:39,633
+<b>The Visigoths kept tax</b>
+
+102
+01:03:39,633 --> 01:03:40,699
+<b>collection functional.</b>
+
+103
+01:03:41,266 --> 01:03:42,900
+<b>That's the institutional hallmark of a</b>
+
+104
+01:03:42,900 --> 01:03:44,766
+<b>surviving, structured state.</b>
+
+105
 01:03:45,933 --> 01:03:47,833
 <b>Lombard Italy operated on a different</b>
 
-101
+106
 01:03:47,833 --> 01:03:49,866
 <b>model, but equally pragmatic.</b>
 
-102
-01:03:50,566 --> 01:03:51,733
+107
+01:03:50,633 --> 01:03:51,733
 <b>The main function of their</b>
 
-103
-01:03:51,733 --> 01:03:54,066
+108
+01:03:51,733 --> 01:03:54,133
 <b>assemblies was law and justice.</b>
 
-104
-01:03:54,566 --> 01:03:55,766
+109
+01:03:54,666 --> 01:03:55,766
 <b>Appeals went all the way</b>
 
-105
-01:03:55,766 --> 01:03:57,333
+110
+01:03:55,766 --> 01:03:57,300
 <b>up to the capital at Pavia.</b>
 
-106
-01:03:58,266 --> 01:03:59,533
+111
+01:03:58,233 --> 01:03:59,533
 <b>And their laws show how</b>
 
-107
-01:03:59,533 --> 01:04:00,966
+112
+01:03:59,533 --> 01:04:00,933
 <b>sophisticated this was.</b>
 
-108
-01:04:01,466 --> 01:04:03,800
-<b>King Ljudpran's legislation includes this</b>
+113
+01:04:01,433 --> 01:04:03,800
+<b>King Liutprand's legislation includes this</b>
 
-109
-01:04:03,800 --> 01:04:05,199
+114
+01:04:03,800 --> 01:04:05,166
 <b>incredibly specific law.</b>
 
-110
+115
 01:04:05,833 --> 01:04:07,666
 <b>The penalty for a man who steals a</b>
 
-111
-01:04:07,666 --> 01:04:10,133
-<b>woman's clothes while she's bathing in a</b>
-
-112
-01:04:10,133 --> 01:04:12,366
-<b>river, forcing her to walk home naked.</b>
-
-113
-01:04:12,833 --> 01:04:13,966
-<b>His full warry guilt.</b>
-
-114
-01:04:14,333 --> 01:04:16,566
-<b>The blood price paid for killing someone.</b>
-
-115
-01:04:16,866 --> 01:04:18,266
-<b>The highest possible fine.</b>
-
 116
-01:04:18,866 --> 01:04:21,166
-<b>The same as if he would kill the person.</b>
+01:04:07,666 --> 01:04:09,533
+<b>woman's clothes while she's</b>
 
 117
-01:04:21,433 --> 01:04:22,666
-<b>What does that tell us?</b>
+01:04:09,533 --> 01:04:10,833
+<b>bathing in a river forcing</b>
 
 118
-01:04:23,166 --> 01:04:24,333
-<b>The law is designed to</b>
+01:04:10,966 --> 01:04:12,366
+<b>her to walk home naked.</b>
 
 119
-01:04:24,333 --> 01:04:25,466
-<b>prevent blood revenge.</b>
+01:04:12,833 --> 01:04:13,933
+<b>His full weregild.</b>
 
 120
-01:04:26,133 --> 01:04:28,933
-<b>By setting the highest penalty, the king</b>
+01:04:14,400 --> 01:04:16,599
+<b>The blood price paid for killing someone.</b>
 
 121
-01:04:28,933 --> 01:04:31,500
-<b>stops the victim's family from seeking</b>
+01:04:16,866 --> 01:04:18,300
+<b>The highest possible fine.</b>
 
 122
-01:04:31,500 --> 01:04:33,233
-<b>violent retaliation, which</b>
+01:04:18,900 --> 01:04:21,199
+<b>The same as if you'd killed him.</b>
 
 123
-01:04:33,233 --> 01:04:34,966
-<b>would spiral into clan warfare.</b>
+01:04:21,500 --> 01:04:22,766
+<b>What does that tell us?</b>
 
 124
-01:04:35,533 --> 01:04:37,099
-<b>This is tight functional</b>
+01:04:23,066 --> 01:04:24,333
+<b>The law is designed to</b>
 
 125
-01:04:37,099 --> 01:04:39,666
-<b>government aimed at social cohesion.</b>
+01:04:24,333 --> 01:04:25,433
+<b>prevent blood revenge.</b>
 
 126
-01:04:40,266 --> 01:04:42,333
-<b>The Franks found it so impressive they</b>
+01:04:26,099 --> 01:04:28,933
+<b>By setting the highest penalty, the king</b>
 
 127
+01:04:28,933 --> 01:04:30,133
+<b>stops the victim's</b>
+
+128
+01:04:30,133 --> 01:04:31,933
+<b>family from seeking violent</b>
+
+129
+01:04:31,966 --> 01:04:33,366
+<b>retaliation which would</b>
+
+130
+01:04:33,366 --> 01:04:34,933
+<b>spiral into clan warfare.</b>
+
+131
+01:04:35,633 --> 01:04:37,800
+<b>This is tight, functional government</b>
+
+132
+01:04:37,800 --> 01:04:39,666
+<b>aimed at social cohesion.</b>
+
+133
+01:04:40,333 --> 01:04:42,333
+<b>The Franks found it so impressive they</b>
+
+134
 01:04:42,333 --> 01:04:44,166
 <b>borrowed these exact legal procedures.</b>
 
-128
-01:04:44,733 --> 01:04:45,866
+135
+01:04:44,766 --> 01:04:45,866
 <b>Many of these barbarian</b>
 
-129
+136
 01:04:45,866 --> 01:04:47,833
 <b>leaders were already Romanized.</b>
 
-130
-01:04:48,333 --> 01:04:48,699
+137
+01:04:48,333 --> 01:04:48,733
 <b>Bilingual.</b>
 
-131
-01:04:49,333 --> 01:04:51,633
+138
+01:04:49,333 --> 01:04:51,599
 <b>They adopted every functional element of</b>
 
-132
-01:04:51,633 --> 01:04:53,199
+139
+01:04:51,599 --> 01:04:53,266
 <b>Roman administrative systems.</b>
 
-133
-01:04:53,833 --> 01:04:54,633
+140
+01:04:53,733 --> 01:04:54,666
 <b>They weren't hordes</b>
 
-134
-01:04:54,633 --> 01:04:55,966
+141
+01:04:54,666 --> 01:04:55,966
 <b>wiping the slate clean.</b>
 
-135
+142
 01:04:56,433 --> 01:04:58,333
 <b>They were continuing Roman governance</b>
 
-136
+143
 01:04:58,333 --> 01:04:59,500
 <b>under new management.</b>
 
-137
+144
 01:04:59,900 --> 01:05:00,833
 <b>But the successor kingdoms</b>
 
-138
+145
 01:05:00,833 --> 01:05:02,199
 <b>just built the foundation.</b>
 
-139
-01:05:02,866 --> 01:05:04,833
-<b>The Carolinians provided the ambition.</b>
+146
+01:05:02,933 --> 01:05:04,833
+<b>The Carolingians provided the ambition.</b>
 
-140
+147
 01:05:05,866 --> 01:05:07,966
 <b>Under Charlemagne, learning and the</b>
 
-141
-01:05:07,966 --> 01:05:10,133
-<b>written word went from being a functional</b>
+148
+01:05:07,966 --> 01:05:09,366
+<b>written word went from</b>
 
-142
-01:05:10,133 --> 01:05:13,133
-<b>tool for administrators to being a</b>
+149
+01:05:09,366 --> 01:05:11,000
+<b>being a functional tool for</b>
 
-143
-01:05:13,133 --> 01:05:15,166
-<b>fundamental pillar of state identity.</b>
+150
+01:05:11,000 --> 01:05:13,666
+<b>administrators to being a fundamental</b>
 
-144
-01:05:15,599 --> 01:05:16,866
+151
+01:05:13,666 --> 01:05:15,266
+<b>pillar of state identity.</b>
+
+152
+01:05:15,633 --> 01:05:16,733
 <b>His logic was simple.</b>
 
-145
+153
 01:05:17,099 --> 01:05:19,366
 <b>If his priests couldn't read the liturgy</b>
 
-146
-01:05:19,366 --> 01:05:21,766
-<b>or scripture accurately, how could his</b>
-
-147
-01:05:21,766 --> 01:05:23,266
-<b>people possibly be saved?</b>
-
-148
-01:05:23,699 --> 01:05:24,900
-<b>The sources define his</b>
-
-149
-01:05:24,900 --> 01:05:26,766
-<b>aim at one key Latin word.</b>
-
-150
-01:05:27,166 --> 01:05:27,566
-<b>Correctio.</b>
-
-151
-01:05:27,866 --> 01:05:28,199
-<b>Correction.</b>
-
-152
-01:05:28,800 --> 01:05:29,433
-<b>Or reform.</b>
-
-153
-01:05:29,766 --> 01:05:31,900
-<b>Establishing a collective moral framework</b>
-
 154
-01:05:31,900 --> 01:05:33,166
-<b>for the salvation of the</b>
+01:05:19,366 --> 01:05:19,766
+<b>or scripture</b>
 
 155
-01:05:33,166 --> 01:05:34,533
-<b>entire Frankish people.</b>
+01:05:19,766 --> 01:05:22,000
+<b>accurately, how could his people</b>
 
 156
-01:05:35,300 --> 01:05:37,166
-<b>And that intellectual drive immediately</b>
+01:05:22,000 --> 01:05:23,166
+<b>possibly be saved?</b>
 
 157
-01:05:37,166 --> 01:05:38,966
-<b>translates into massive</b>
+01:05:23,533 --> 01:05:25,866
+<b>The sources define his aim at one key</b>
 
 158
-01:05:38,966 --> 01:05:40,466
-<b>expansion of administration.</b>
+01:05:25,866 --> 01:05:27,466
+<b>Latin word, correctio,</b>
 
 159
-01:05:41,599 --> 01:05:42,933
-<b>Literacy became essential</b>
+01:05:27,666 --> 01:05:29,333
+<b>correction or reform.</b>
 
 160
-01:05:42,933 --> 01:05:44,266
-<b>for the royal bureaucracy.</b>
+01:05:30,233 --> 01:05:32,066
+<b>Establishing a collective moral framework for</b>
 
 161
-01:05:44,866 --> 01:05:46,400
-<b>For maintaining law.</b>
+01:05:32,066 --> 01:05:33,066
+<b>the salvation of the</b>
 
 162
-01:05:46,666 --> 01:05:47,866
-<b>For social advancement.</b>
+01:05:33,066 --> 01:05:34,433
+<b>entire Frankish people.</b>
 
 163
-01:05:48,533 --> 01:05:50,333
-<b>The material output is astonishing.</b>
+01:05:35,333 --> 01:05:37,066
+<b>And that intellectual drive immediately</b>
 
 164
-01:05:51,099 --> 01:05:52,833
-<b>Large-scale production of law books,</b>
+01:05:37,066 --> 01:05:38,833
+<b>translates into massive</b>
 
 165
-01:05:53,266 --> 01:05:55,633
-<b>capitularies, royal decrees covering</b>
+01:05:38,833 --> 01:05:40,366
+<b>expansion of administration.</b>
 
 166
-01:05:55,633 --> 01:05:58,066
-<b>everything from church discipline to</b>
+01:05:41,933 --> 01:05:43,633
+<b>Literacy became essential for the royal</b>
 
 167
-01:05:58,066 --> 01:05:59,300
-<b>military organization</b>
+01:05:43,633 --> 01:05:45,866
+<b>bureaucracy, for maintaining</b>
 
 168
-01:05:59,300 --> 01:06:01,599
-<b>to judicial procedures.</b>
+01:05:45,866 --> 01:05:47,766
+<b>law, for social advancement.</b>
 
 169
-01:06:02,466 --> 01:06:03,833
-<b>And we can quantify this.</b>
+01:05:48,366 --> 01:05:50,233
+<b>The material output is astonishing.</b>
 
 170
-01:06:04,333 --> 01:06:06,566
-<b>Bureink and Van Zanden analyzed</b>
+01:05:50,966 --> 01:05:52,733
+<b>Large scale production of law books,</b>
 
 171
-01:06:06,566 --> 01:06:08,533
-<b>manuscript production across Europe.</b>
+01:05:53,133 --> 01:05:55,533
+<b>capitularies, royal decrees covering</b>
 
 172
-01:06:08,900 --> 01:06:11,333
-<b>In the 6th and 7th centuries, the period</b>
+01:05:55,533 --> 01:05:56,933
+<b>everything from church</b>
 
 173
-01:06:11,333 --> 01:06:13,133
-<b>that most people associate with the Dark</b>
+01:05:56,966 --> 01:06:00,033
+<b>discipline to military organization to</b>
 
 174
-01:06:13,133 --> 01:06:14,466
-<b>Ages, there were</b>
+01:06:00,033 --> 01:06:01,500
+<b>judicial procedures.</b>
 
 175
-01:06:14,466 --> 01:06:18,366
-<b>24,191 manuscripts produced.</b>
+01:06:02,400 --> 01:06:03,699
+<b>And we can quantify this.</b>
 
 176
-01:06:19,099 --> 01:06:21,166
-<b>In the 8th and 9th centuries under the</b>
+01:06:04,233 --> 01:06:06,466
+<b>Buringh and Van Zanden analyzed</b>
 
 177
-01:06:21,166 --> 01:06:26,766
-<b>Carolinians, 245,444 manuscripts.</b>
+01:06:06,466 --> 01:06:08,433
+<b>manuscript production across Europe.</b>
 
 178
-01:06:27,566 --> 01:06:30,433
-<b>That's a 915% increase.</b>
+01:06:08,933 --> 01:06:11,233
+<b>In the 6th and 7th centuries, the period</b>
 
 179
-01:06:30,966 --> 01:06:32,766
-<b>The lights didn't go out.</b>
+01:06:11,233 --> 01:06:11,933
+<b>that most people</b>
 
 180
-01:06:33,133 --> 01:06:34,000
-<b>They got brighter.</b>
+01:06:11,933 --> 01:06:13,433
+<b>associate with the Dark Ages,</b>
 
 181
-01:06:34,866 --> 01:06:35,800
-<b>Think about the logistics.</b>
+01:06:14,033 --> 01:06:18,199
+<b>there were 24,191 manuscripts produced.</b>
 
 182
-01:06:36,766 --> 01:06:39,033
-<b>Charlemagne's court was huge and often</b>
+01:06:19,133 --> 01:06:21,166
+<b>In the 8th and 9th centuries under the</b>
 
 183
-01:06:39,033 --> 01:06:41,033
-<b>itinerant, moving around.</b>
+01:06:21,166 --> 01:06:26,666
+<b>Carolingians, 245,444 manuscripts.</b>
 
 184
-01:06:41,766 --> 01:06:43,933
-<b>How did they organize moving hundreds,</b>
+01:06:27,599 --> 01:06:30,333
+<b>That's a 915% increase.</b>
 
 185
-01:06:44,333 --> 01:06:46,466
-<b>maybe thousands of people, without</b>
+01:06:30,866 --> 01:06:32,333
+<b>The lights didn't go</b>
 
 186
-01:06:46,466 --> 01:06:47,266
-<b>destroying local</b>
+01:06:32,333 --> 01:06:34,066
+<b>out, they got brighter.</b>
 
 187
-01:06:47,266 --> 01:06:48,866
-<b>communities they landed on?</b>
+01:06:34,766 --> 01:06:35,833
+<b>Think about the logistics.</b>
 
 188
-01:06:49,766 --> 01:06:51,199
-<b>Through written notice.</b>
+01:06:36,699 --> 01:06:38,933
+<b>Charlemagne's court was huge and often</b>
 
 189
-01:06:51,599 --> 01:06:53,199
-<b>They'd send written warnings ahead to</b>
+01:06:38,933 --> 01:06:40,933
+<b>itinerant, moving around.</b>
 
 190
-01:06:53,199 --> 01:06:56,400
-<b>local officials called "susceptors" who'd</b>
+01:06:41,566 --> 01:06:43,833
+<b>How did they organize moving hundreds,</b>
 
 191
-01:06:56,400 --> 01:06:58,333
-<b>prepare all the supplies and lodgings</b>
+01:06:44,233 --> 01:06:45,733
+<b>maybe thousands of people</b>
 
 192
-01:06:58,333 --> 01:06:59,633
-<b>before the court arrived.</b>
+01:06:45,733 --> 01:06:47,133
+<b>without destroying local</b>
 
 193
-01:06:59,966 --> 01:07:01,666
-<b>But here's what's even more important.</b>
+01:06:47,233 --> 01:06:48,933
+<b>communities they landed on?</b>
 
 194
-01:07:02,033 --> 01:07:03,233
-<b>This system wasn't just</b>
+01:06:49,800 --> 01:06:51,066
+<b>Through written notice.</b>
 
 195
-01:07:03,233 --> 01:07:04,333
-<b>about cold efficiency.</b>
-
-196
-01:07:04,833 --> 01:07:06,533
-<b>It was also an extension</b>
-
-197
-01:07:06,533 --> 01:07:08,366
-<b>of royal justice and mercy.</b>
-
-198
-01:07:09,099 --> 01:07:11,566
-<b>The notices made sure that anyone who was</b>
-
-199
-01:07:11,566 --> 01:07:14,333
-<b>desolate, impoverished, oppressed by</b>
-
-200
-01:07:14,333 --> 01:07:17,333
-<b>debts, or suffering unjust accusations,</b>
-
-201
-01:07:18,199 --> 01:07:20,466
-<b>the source specifically mentions widows</b>
-
-202
-01:07:20,466 --> 01:07:22,333
-<b>and orphans, they knew</b>
-
-203
-01:07:22,333 --> 01:07:23,366
-<b>the court was coming.</b>
-
-204
-01:07:23,766 --> 01:07:24,966
-<b>They could seek access</b>
-
-205
-01:07:24,966 --> 01:07:26,800
-<b>to royal justice directly.</b>
-
-206
-01:07:27,300 --> 01:07:29,833
-<b>The written system literally guaranteed</b>
-
-207
-01:07:29,833 --> 01:07:32,266
-<b>access to justice for the most vulnerable</b>
-
-208
-01:07:32,266 --> 01:07:33,433
-<b>people in the kingdom.</b>
-
-209
-01:07:34,300 --> 01:07:36,333
+01:06:51,866 --> 01:06:53,566
 <b>And then there's the diplomacy.</b>
 
-210
-01:07:37,099 --> 01:07:39,566
+196
+01:06:54,366 --> 01:06:57,000
 <b>The sheer geographic scope completely</b>
 
-211
-01:07:39,566 --> 01:07:41,633
+197
+01:06:57,000 --> 01:06:59,033
 <b>refutes any idea of a</b>
 
-212
-01:07:41,633 --> 01:07:43,666
+198
+01:06:59,033 --> 01:07:00,900
 <b>dark, isolated Western Europe.</b>
 
-213
-01:07:44,433 --> 01:07:46,000
+199
+01:07:01,633 --> 01:07:03,266
 <b>Charlemagne was receiving and sending</b>
 
-214
-01:07:46,000 --> 01:07:49,199
-<b>legates to Arabic rulers in Spain, to the</b>
+200
+01:07:03,266 --> 01:07:04,933
+<b>legates to Arabic rulers</b>
 
-215
-01:07:49,199 --> 01:07:52,333
-<b>Danes, to the Huns, and most memorably he</b>
+201
+01:07:04,933 --> 01:07:07,766
+<b>in Spain, to the Danes, to</b>
 
-216
-01:07:52,333 --> 01:07:54,533
-<b>received legates from the Abbasid Caliph</b>
+202
+01:07:07,766 --> 01:07:10,166
+<b>the Huns and most memorably he received</b>
 
-217
-01:07:54,533 --> 01:07:56,566
-<b>Harun al-Rashid in Persia.</b>
+203
+01:07:10,166 --> 01:07:11,500
+<b>legates from the Abbasid</b>
 
-218
-01:07:57,333 --> 01:07:59,099
-<b>Gifts included an elephant and a</b>
+204
+01:07:11,500 --> 01:07:13,466
+<b>Caliph Harun al-Rashid in</b>
 
-219
-01:07:59,099 --> 01:08:00,933
+205
+01:07:13,533 --> 01:07:13,966
+<b>Persia.</b>
+
+206
+01:07:14,933 --> 01:07:16,566
+<b>This included an elephant and a</b>
+
+207
+01:07:16,566 --> 01:07:18,466
 <b>water-powered automaton clock.</b>
 
-220
-01:08:01,366 --> 01:08:03,466
+208
+01:07:18,900 --> 01:07:20,933
 <b>The palace chapel at Aachen was built</b>
 
-221
-01:08:03,466 --> 01:08:04,866
+209
+01:07:20,933 --> 01:07:22,366
 <b>with columns carted</b>
 
-222
-01:08:04,866 --> 01:08:06,266
+210
+01:07:22,366 --> 01:07:23,800
 <b>from Rome and Ravenna.</b>
 
-223
-01:08:06,633 --> 01:08:08,900
+211
+01:07:24,099 --> 01:07:26,366
 <b>It was a physical symbol, a conscious</b>
 
-224
-01:08:08,900 --> 01:08:11,733
-<b>effort to link this new, Frankish power</b>
+212
+01:07:26,366 --> 01:07:28,099
+<b>effort to link this new,</b>
 
-225
-01:08:11,733 --> 01:08:12,666
-<b>directly to the</b>
+213
+01:07:28,099 --> 01:07:29,633
+<b>Frankish power directly</b>
 
-226
-01:08:12,666 --> 01:08:14,800
-<b>classical imperial Roman past.</b>
+214
+01:07:29,633 --> 01:07:32,233
+<b>to the classical imperial Roman past.</b>
 
-227
-01:08:15,699 --> 01:08:16,966
+215
+01:07:33,133 --> 01:07:34,433
 <b>Court poetry celebrated</b>
 
-228
-01:08:16,966 --> 01:08:19,366
+216
+01:07:34,433 --> 01:07:36,833
 <b>Aachen as the new Athens.</b>
 
-229
-01:08:20,300 --> 01:08:22,500
+217
+01:07:37,833 --> 01:07:39,933
 <b>The revival was completely intentional.</b>
 
-230
-01:08:22,866 --> 01:08:25,266
-<b>And crucially, and this is a huge point</b>
+218
+01:07:40,466 --> 01:07:42,733
+<b>Crucially, and this is a huge point</b>
 
-231
-01:08:25,266 --> 01:08:28,033
-<b>against the Dark Ages myth, this literacy</b>
+219
+01:07:42,733 --> 01:07:43,566
+<b>against the Dark Ages</b>
 
-232
-01:08:28,033 --> 01:08:29,300
-<b>wasn't just for clergy.</b>
+220
+01:07:43,566 --> 01:07:45,966
+<b>myth, this literacy wasn't</b>
 
-233
-01:08:30,366 --> 01:08:32,866
-<b>Einhart, a layman from a minor</b>
+221
+01:07:45,966 --> 01:07:46,800
+<b>just for clergy.</b>
 
-234
-01:08:32,866 --> 01:08:35,866
-<b>aristocratic family, he rose to immense</b>
+222
+01:07:47,800 --> 01:07:50,300
+<b>Einhard, a layman from a minor</b>
 
-235
-01:08:35,866 --> 01:08:37,566
-<b>influence solely because</b>
+223
+01:07:50,300 --> 01:07:52,733
+<b>aristocratic family, he rose</b>
 
-236
-01:08:37,566 --> 01:08:38,966
-<b>of his intellectual skill.</b>
+224
+01:07:52,733 --> 01:07:54,666
+<b>to immense influence solely</b>
 
-237
-01:08:39,633 --> 01:08:41,966
+225
+01:07:54,733 --> 01:07:56,433
+<b>because of his intellectual skill.</b>
+
+226
+01:07:57,033 --> 01:07:59,433
 <b>He was an advisor, he managed huge</b>
 
-238
-01:08:41,966 --> 01:08:44,733
-<b>building projects and later wrote the</b>
+227
+01:07:59,433 --> 01:08:00,866
+<b>building projects and</b>
 
-239
-01:08:44,733 --> 01:08:46,366
-<b>seminal biography of Charlemagne.</b>
+228
+01:08:00,866 --> 01:08:02,966
+<b>later wrote a seminal biography</b>
 
-240
-01:08:47,199 --> 01:08:49,333
+229
+01:08:02,966 --> 01:08:03,800
+<b>of Charlemagne.</b>
+
+230
+01:08:04,633 --> 01:08:06,800
 <b>His entire career was built on his</b>
 
-241
-01:08:49,333 --> 01:08:51,100
+231
+01:08:06,800 --> 01:08:08,500
 <b>written intellectual abilities.</b>
 
-242
-01:08:51,566 --> 01:08:54,333
-<b>And then there's Tuchodah, the wife of</b>
+232
+01:08:09,166 --> 01:08:11,766
+<b>And then there's Dhuoda, the wife of</b>
 
-243
-01:08:54,333 --> 01:08:56,366
+233
+01:08:11,766 --> 01:08:13,966
 <b>aristocrat Bernard of Septimania.</b>
 
-244
-01:08:57,133 --> 01:08:59,666
+234
+01:08:14,733 --> 01:08:17,133
 <b>She wrote a detailed handbook for her son</b>
 
-245
-01:08:59,666 --> 01:09:02,199
-<b>William, filled with advice drawn from</b>
+235
+01:08:17,133 --> 01:08:18,566
+<b>William, filled with</b>
 
-246
-01:09:02,199 --> 01:09:02,933
-<b>Christian Latin</b>
+236
+01:08:18,566 --> 01:08:20,100
+<b>advice drawn from Christian</b>
 
-247
-01:09:02,933 --> 01:09:05,666
-<b>literature from patristic sources.</b>
+237
+01:08:20,133 --> 01:08:23,133
+<b>Latin literature from patristic sources.</b>
 
-248
-01:09:06,233 --> 01:09:08,633
+238
+01:08:23,666 --> 01:08:26,133
 <b>The complexity and the sheer range of</b>
 
-249
-01:09:08,633 --> 01:09:11,633
-<b>literature she synthesizes, it strongly</b>
+239
+01:08:26,133 --> 01:08:27,366
+<b>literature she</b>
 
-250
-01:09:11,633 --> 01:09:13,266
-<b>suggests she was fully</b>
+240
+01:08:27,366 --> 01:08:30,233
+<b>synthesizes, it strongly suggests she</b>
 
-251
-01:09:13,266 --> 01:09:15,733
-<b>educated, probably at Aachen itself.</b>
+241
+01:08:30,233 --> 01:08:31,466
+<b>was fully educated,</b>
 
-252
-01:09:16,066 --> 01:09:18,600
-<b>Which proves high-level Latin literacy</b>
+242
+01:08:31,833 --> 01:08:33,133
+<b>probably at Aachen itself.</b>
 
-253
-01:09:18,600 --> 01:09:21,133
-<b>existed among the Carolinian aristocratic</b>
+243
+01:08:33,733 --> 01:08:36,233
+<b>Which proves high level Latin literacy</b>
 
-254
-01:09:21,133 --> 01:09:24,033
-<b>laity for both men and women.</b>
+244
+01:08:36,233 --> 01:08:37,466
+<b>existed among the</b>
 
-255
-01:09:24,566 --> 01:09:26,800
+245
+01:08:37,466 --> 01:08:39,866
+<b>Carolingian aristocratic laity for</b>
+
+246
+01:08:39,866 --> 01:08:41,733
+<b>both men and women.</b>
+
+247
+01:08:42,266 --> 01:08:44,466
 <b>After Charlemagne dies, the intellectual</b>
 
-256
-01:09:26,800 --> 01:09:28,233
-<b>systems he created</b>
+248
+01:08:44,466 --> 01:08:46,733
+<b>systems he created didn't vanish.</b>
 
-257
-01:09:28,233 --> 01:09:30,766
-<b>didn't vanish. They diffused.</b>
+249
+01:08:47,300 --> 01:08:48,366
+<b>They diffused.</b>
 
-258
-01:09:31,133 --> 01:09:33,533
+250
+01:08:48,800 --> 01:08:51,166
 <b>Monasteries like St. Gall provided what</b>
 
-259
-01:09:33,533 --> 01:09:35,333
+251
+01:08:51,166 --> 01:08:52,966
 <b>the sources call an</b>
 
-260
-01:09:35,333 --> 01:09:37,233
-<b>"etenerent notarial service".</b>
+252
+01:08:52,966 --> 01:08:54,933
+<b>"itinerant notarial service".</b>
 
-261
-01:09:37,800 --> 01:09:39,966
+253
+01:08:55,399 --> 01:08:57,633
 <b>Scribes didn't just stay writing prayer</b>
 
-262
-01:09:39,966 --> 01:09:42,066
-<b>books, they traveled out into surrounding</b>
+254
+01:08:57,633 --> 01:08:59,066
+<b>books, they traveled out</b>
 
-263
-01:09:42,066 --> 01:09:44,000
-<b>communities to provide professional</b>
+255
+01:08:59,066 --> 01:09:00,133
+<b>into surrounding communities</b>
 
-264
-01:09:44,000 --> 01:09:46,333
-<b>written documentation services to</b>
+256
+01:09:00,433 --> 01:09:01,966
+<b>to provide professional written</b>
 
-265
-01:09:46,333 --> 01:09:47,633
-<b>non-monastic people.</b>
+257
+01:09:01,966 --> 01:09:03,366
+<b>documentation services</b>
 
-266
-01:09:48,500 --> 01:09:51,966
+258
+01:09:03,366 --> 01:09:05,500
+<b>to non-monastic people.</b>
+
+259
+01:09:06,266 --> 01:09:09,566
 <b>Charters for gifts, sales, exchanges of</b>
 
-267
-01:09:51,966 --> 01:09:55,066
-<b>property, high-stakes transactions that</b>
+260
+01:09:09,566 --> 01:09:11,266
+<b>property, high stakes</b>
 
-268
-01:09:55,066 --> 01:09:56,933
-<b>cemented who owned what land.</b>
+261
+01:09:11,266 --> 01:09:13,633
+<b>transactions that cemented who</b>
 
-269
-01:09:57,366 --> 01:09:59,266
+262
+01:09:13,633 --> 01:09:14,533
+<b>owned what land.</b>
+
+263
+01:09:15,000 --> 01:09:16,933
 <b>And the procedure shows how important the</b>
 
-270
-01:09:59,266 --> 01:10:00,433
+264
+01:09:16,933 --> 01:09:18,033
 <b>document had become.</b>
 
-271
-01:10:01,066 --> 01:10:02,933
+265
+01:09:18,666 --> 01:09:20,566
 <b>Witnesses in these transactions had to</b>
 
-272
-01:10:02,933 --> 01:10:04,433
+266
+01:09:20,566 --> 01:09:22,066
 <b>confirm they saw the</b>
 
-273
-01:10:04,433 --> 01:10:05,500
+267
+01:09:22,066 --> 01:09:23,133
 <b>document being written.</b>
 
-274
-01:10:05,733 --> 01:10:06,966
+268
+01:09:23,433 --> 01:09:24,566
 <b>Their hands were physically</b>
 
-275
-01:10:06,966 --> 01:10:08,800
+269
+01:09:24,566 --> 01:09:26,433
 <b>placed on the completed document.</b>
 
-276
-01:10:09,166 --> 01:10:11,000
+270
+01:09:26,966 --> 01:09:28,633
 <b>It's a societal affirmation that the</b>
 
-277
-01:10:11,000 --> 01:10:12,800
+271
+01:09:28,633 --> 01:09:30,433
 <b>written word now holds the</b>
 
-278
-01:10:12,800 --> 01:10:14,033
+272
+01:09:30,433 --> 01:09:31,666
 <b>ultimate legal authority.</b>
 
-279
-01:10:14,833 --> 01:10:16,066
+273
+01:09:32,500 --> 01:09:33,699
 <b>The written document had</b>
 
-280
-01:10:16,066 --> 01:10:18,166
+274
+01:09:33,699 --> 01:09:35,733
 <b>become essential for ordinary life.</b>
 
-281
-01:10:19,066 --> 01:10:20,666
+275
+01:09:36,699 --> 01:09:38,300
 <b>So let's be clear about what</b>
 
-282
-01:10:20,666 --> 01:10:22,266
+276
+01:09:38,300 --> 01:09:39,899
 <b>the evidence actually shows.</b>
 
-283
-01:10:23,466 --> 01:10:25,100
-<b>1. Classical Rome</b>
+277
+01:09:40,966 --> 01:09:41,166
+<b>1.</b>
 
-284
-01:10:25,100 --> 01:10:26,866
-<b>wasn't universally literate.</b>
+278
+01:09:42,266 --> 01:09:43,133
+<b>Classical Rome wasn't</b>
 
-285
-01:10:27,233 --> 01:10:29,333
+279
+01:09:43,133 --> 01:09:44,500
+<b>universally literate.</b>
+
+280
+01:09:44,766 --> 01:09:46,966
 <b>It was already a highly stratified system</b>
 
+281
+01:09:46,966 --> 01:09:48,466
+<b>where writing served</b>
+
+282
+01:09:48,466 --> 01:09:50,166
+<b>elite functions and most</b>
+
+283
+01:09:50,166 --> 01:09:51,600
+<b>knowledge was shared orally.</b>
+
+284
+01:09:52,266 --> 01:09:52,466
+<b>2.</b>
+
+285
+01:09:53,133 --> 01:09:54,866
+<b>Successor kingdoms maintained sophisticated</b>
+
 286
-01:10:29,333 --> 01:10:32,133
-<b>where writing served elite functions and</b>
+01:09:54,866 --> 01:09:56,966
+<b>legal and administrative systems.</b>
 
 287
-01:10:32,133 --> 01:10:33,966
-<b>most knowledge was shared orally.</b>
-
-288
-01:10:34,399 --> 01:10:36,466
-<b>2. Successor kingdoms maintained</b>
-
-289
-01:10:36,466 --> 01:10:37,933
-<b>sophisticated legal and</b>
-
-290
-01:10:37,933 --> 01:10:39,333
-<b>administrative systems.</b>
-
-291
-01:10:39,633 --> 01:10:42,366
+01:09:57,333 --> 01:10:00,000
 <b>They kept taxes, wrote complex laws and</b>
 
-292
-01:10:42,366 --> 01:10:43,500
+288
+01:10:00,000 --> 01:10:01,333
 <b>continued Roman governance.</b>
 
+289
+01:10:02,066 --> 01:10:02,266
+<b>3.</b>
+
+290
+01:10:02,833 --> 01:10:04,733
+<b>The Carolingians launched a deliberate,</b>
+
+291
+01:10:04,933 --> 01:10:07,333
+<b>centrally driven cultural revolution.</b>
+
+292
+01:10:07,866 --> 01:10:10,333
+<b>They standardized scripts, produced</b>
+
 293
-01:10:44,433 --> 01:10:46,600
-<b>3. The Carolingians launched a</b>
+01:10:10,333 --> 01:10:12,366
+<b>massive legal codes, trained</b>
 
 294
-01:10:46,600 --> 01:10:47,666
-<b>deliberate, centrally</b>
+01:10:12,366 --> 01:10:14,133
+<b>lay elites in Latin literacy</b>
 
 295
-01:10:47,666 --> 01:10:49,733
-<b>driven cultural revolution.</b>
+01:10:14,666 --> 01:10:16,933
+<b>and used writing to guarantee justice.</b>
 
 296
-01:10:50,199 --> 01:10:52,733
-<b>They standardized script, produced</b>
-
-297
-01:10:52,733 --> 01:10:55,500
-<b>massive legal codes, trained lay elites</b>
-
-298
-01:10:55,500 --> 01:10:57,533
-<b>in Latin literacy and used</b>
-
-299
-01:10:57,533 --> 01:10:59,333
-<b>writing to guarantee justice.</b>
-
-300
-01:10:59,933 --> 01:11:02,233
+01:10:17,833 --> 01:10:19,866
 <b>Knowledge definitely became concentrated,</b>
 
+297
+01:10:20,466 --> 01:10:21,066
+<b>centered around</b>
+
+298
+01:10:21,066 --> 01:10:23,466
+<b>monasteries, cathedrals and</b>
+
+299
+01:10:23,466 --> 01:10:24,266
+<b>royal courts.</b>
+
+300
+01:10:24,766 --> 01:10:26,500
+<b>But it was deployed strategically to</b>
+
 301
-01:11:02,766 --> 01:11:04,333
-<b>centered around monasteries,</b>
+01:10:26,500 --> 01:10:27,466
+<b>build new Christian</b>
 
 302
-01:11:04,633 --> 01:11:06,633
-<b>cathedrals and royal courts.</b>
+01:10:27,466 --> 01:10:29,833
+<b>states with sophisticated legal</b>
 
 303
-01:11:07,033 --> 01:11:08,866
-<b>But it was developed strategically to</b>
+01:10:29,833 --> 01:10:30,399
+<b>structures.</b>
 
 304
-01:11:08,866 --> 01:11:11,166
-<b>build new Christian states with</b>
+01:10:31,066 --> 01:10:33,433
+<b>The term "Dark Ages" fundamentally fails</b>
 
 305
-01:11:11,166 --> 01:11:12,766
-<b>sophisticated legal structures.</b>
-
-306
-01:11:13,266 --> 01:11:15,833
-<b>The term "dark ages" fundamentally fails</b>
-
-307
-01:11:15,833 --> 01:11:17,199
+01:10:33,433 --> 01:10:34,833
 <b>to capture that reality.</b>
 
-308
-01:11:17,699 --> 01:11:19,633
-<b>So why does it persist?</b>
-
-309
-01:11:20,233 --> 01:11:21,800
-<b>Here's a provocative thought.</b>
-
-310
-01:11:22,166 --> 01:11:24,466
-<b>The perceived darkness might just be the</b>
-
-311
-01:11:24,466 --> 01:11:26,733
-<b>shadow cast by the success of the</b>
-
-312
-01:11:26,733 --> 01:11:27,933
-<b>surviving written record.</b>
-
-313
-01:11:28,199 --> 01:11:30,233
-<b>The Carolingian project successfully</b>
-
-314
-01:11:30,233 --> 01:11:32,666
-<b>imposed a singular model across Europe.</b>
-
-315
-01:11:33,533 --> 01:11:36,266
-<b>A Latin Christian learning model based on</b>
-
-316
-01:11:36,266 --> 01:11:38,166
-<b>the written word as used by the elite.</b>
-
-317
-01:11:38,633 --> 01:11:40,899
-<b>If that model was so successful, doesn't</b>
-
-318
-01:11:40,899 --> 01:11:44,199
-<b>the term "dark ages" perhaps persist not</b>
-
-319
-01:11:44,199 --> 01:11:45,033
-<b>because the period</b>
-
-320
-01:11:45,033 --> 01:11:46,399
-<b>actually lacked knowledge?</b>
-
-321
-01:11:46,866 --> 01:11:48,533
-<b>But because that successful agenda</b>
-
-322
-01:11:48,533 --> 01:11:49,899
-<b>actively marginalized</b>
-
-323
-01:11:49,899 --> 01:11:51,233
-<b>other kinds of knowledge.</b>
-
-324
-01:11:51,966 --> 01:11:54,199
-<b>Vernacular cultures, pagan knowledge,</b>
-
-325
-01:11:54,633 --> 01:11:56,800
-<b>local intellectual traditions, anything</b>
-
-326
-01:11:56,800 --> 01:11:58,199
-<b>that didn't conform to</b>
-
-327
-01:11:58,199 --> 01:12:00,066
-<b>Latin Christian elite standards.</b>
-
-328
-01:12:00,333 --> 01:12:02,033
-<b>The perceived darkness might be what we</b>
-
-329
-01:12:02,033 --> 01:12:04,199
-<b>lost because it didn't fit the agenda of</b>
-
-330
-01:12:04,199 --> 01:12:05,399
-<b>the people holding the pen.</b>
-
-331
-01:12:06,100 --> 01:12:07,933
-<b>And that forces us to look beyond what</b>
-
-332
-01:12:07,933 --> 01:12:09,533
-<b>was written and ask who</b>
-
-333
-01:12:09,533 --> 01:12:10,666
-<b>wasn't allowed to write.</b>
-
-334
-01:12:11,300 --> 01:12:13,066
+306
+01:10:35,333 --> 01:10:37,100
 <b>If this changed how you think about the</b>
 
-335
-01:12:13,066 --> 01:12:15,366
-<b>middle ages, please subscribe.</b>
+307
+01:10:37,100 --> 01:10:39,399
+<b>Middle Ages, please subscribe.</b>
 
-336
-01:12:15,866 --> 01:12:17,333
-<b>There's more Mid-Best in coming.</b>
+308
+01:10:39,899 --> 01:10:41,366
+<b>There's more myth-busting coming.</b>
 

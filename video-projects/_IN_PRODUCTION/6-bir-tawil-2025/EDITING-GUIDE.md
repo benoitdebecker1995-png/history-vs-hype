@@ -5,6 +5,7 @@
 **Format:** Hybrid talking head + B-roll evidence
 **Target Ratio:** 60-70% talking head, 30-40% B-roll
 **Date Created:** 2025-01-26
+**Last Updated:** 2025-12-04 (SRT sync + error corrections)
 
 ---
 
@@ -210,7 +211,14 @@ Stay on camera when:
 
 **Duration:** 14 seconds (rich detail)
 
-**NOTE:** The audio says "800,000 square miles" but this is likely error - should be 8,000 square miles. Visual should show correct number.
+**CRITICAL FIX REQUIRED:** The audio says "800,000 square miles" but this is WRONG - Hala'ib is 8,000 square miles.
+
+**How to fix:**
+1. Add text overlay showing "8,000 sq mi" (correct number)
+2. The visual with correct number will override the audio error
+3. Viewers will see correct info on screen while hearing the slip
+
+**Do NOT re-record** - text overlay fix is cleaner and faster.
 
 ---
 
@@ -534,8 +542,8 @@ Stay on camera when:
 
 ---
 
-#### Shot 25: B-ROLL - TIMELINE GRAPHIC: 1992-2000 conflict (01:04:06 - 01:05:02)
-**Timestamps:** Subtitle #104-115
+#### Shot 25: B-ROLL - TIMELINE GRAPHIC: 1992-2000 conflict (01:04:07 - 01:04:37)
+**Timestamps:** Subtitle #104-114
 **Content:**
 > "In 1992, Sudan granted offshore exploration rights to a Canadian oil company. Egypt objected. In 1994, Egyptian military forces expelled Sudanese officials from Hala'ip. In 1995, there was an assassination attempt on Egyptian President Mubarak. Egypt blamed Sudan and strengthened military control over Hala'ip. By 2000, Sudan withdrew its forces. Egypt has controlled the territory ever since."
 
@@ -566,20 +574,20 @@ Stay on camera when:
 - Historical photos add gravity
 - "Egyptian military forces expelled" = military action needs visual weight
 
-**Duration:** 56 seconds (long but information-dense)
+**Duration:** 30 seconds (information-dense)
 
-**EDITING NOTE:** This is a long B-roll segment, but it's justified because it's pure factual sequence with dates, names, events. Timeline keeps it engaging visually.
+**EDITING NOTE:** Dense factual sequence - timeline graphic keeps it engaging. Fits tighter than originally estimated.
 
 ---
 
-### [SECTION 6: BACK TO HEATON] (01:05:02 - 01:06:09)
+### [SECTION 6: BACK TO HEATON] (01:04:37 - 01:05:56)
 
 **Purpose:** Return to opening story with new context
 
 ---
 
-#### Shot 26: TALKING HEAD (01:05:02 - 01:05:09)
-**Timestamps:** Subtitle #116-123
+#### Shot 26: TALKING HEAD (01:04:37 - 01:04:52)
+**Timestamps:** Subtitle #115-123
 **Content:**
 > "So when Hittin showed up to claim Berthawil, neither country cared. His daughter had asked if she could be a real princess. In Hittin's own words, 'Ain't nothing more important than my daughter's happiness, and now she's got everything she ever wanted.'"
 
@@ -595,7 +603,7 @@ Stay on camera when:
 
 ---
 
-#### Shot 27: B-ROLL - PHOTO: Heaton with Emily (01:05:09 - 01:05:23)
+#### Shot 27: B-ROLL - PHOTO: Heaton with Emily (01:04:53 - 01:05:09)
 **Timestamps:** Subtitle #124-131
 **Content:**
 > "He even got permission from Cairo to make the trip. Egypt let him drive through, plant his flag, declare the Kingdom of North Sudan. Why? Because Egypt doesn't claim Berthawil. Letting some American play pretend costs them nothing."
@@ -615,8 +623,8 @@ Stay on camera when:
 
 ---
 
-#### Shot 28: TALKING HEAD (01:05:23 - 01:05:33)
-**Timestamps:** Subtitle #132-140
+#### Shot 28: TALKING HEAD (01:05:09 - 01:05:30)
+**Timestamps:** Subtitle #132-139
 **Content:**
 > "And he's not alone. Many others have tried to claim Berthawil. A Russian radio operator declared it the Kingdom of Middle-Earth in 2014. An Indian businessman called it Kingdom of Dixit in 2017. Each one with flags, GPS locks, and bold declarations."
 
@@ -664,6 +672,8 @@ Stay on camera when:
 ---
 
 ### [SECTION 7: MODERN SIGNIFICANCE] (01:05:56 - 01:06:38)
+
+**NOTE:** Timestamps from here are approximately aligned with SRT. Minor drift (~2-3 sec) is normal.
 
 **Purpose:** Explain why this story matters beyond curiosity
 
@@ -1222,6 +1232,63 @@ Stay on camera when:
 
 **"Running long"**
 → Look for redundant talking head segments where same point is made twice. DO NOT speed up B-roll (maps need time).
+
+---
+
+---
+
+## AUDIO FIXES REQUIRED
+
+### FIX 1: Re-record "2017" (FACTUAL ERROR)
+**Location:** Subtitle #135, timestamp 01:05:17-01:05:20
+**Current audio:** "Kingdom of Middle-Earth in 2014"
+**Correct:** "Kingdom of Middle-Earth in 2017"
+
+**How to fix:**
+1. Record yourself saying "twenty seventeen" (match tone/pace)
+2. In DaVinci, split clip at "in" before "2014"
+3. Replace "2014" audio with new "2017" recording
+4. Crossfade if needed
+
+**Why this matters:** Both Dixit and Zhikharev claimed in November 2017. Zhikharev claims he *visited* in 2014 but declared the kingdom in 2017.
+
+---
+
+### FIX 2: Text overlay for "800,000" error
+**Location:** Subtitle #35-36, timestamp 01:01:17
+**Issue:** Audio says "800,000 square miles" - should be 8,000
+**Fix:** Text overlay showing "8,000 sq mi" on screen
+
+---
+
+## SRT CORRECTIONS REQUIRED
+
+**File:** `bir tawil.srt`
+
+Before exporting final video, fix these transcription errors:
+
+| Subtitle # | Timestamp | Error | Correction |
+|------------|-----------|-------|------------|
+| 35-36 | 01:01:17 | "800,000 square miles" | Leave audio, use text overlay "8,000 sq mi" |
+| 93 | 01:03:41 | "graced here" | "grazed here" |
+| 115 | 01:04:37 | "Hittin" | "Heaton" |
+| 119 | 01:04:45 | "Hittin's" | "Heaton's" |
+| 135 | 01:05:17 | "in 2014" | "in 2017" (after re-record) |
+| 151 | 01:05:57 | "Hittin" | "Heaton" |
+
+**How to fix in DaVinci:**
+1. Open SRT in text editor
+2. Find/Replace "Hittin" → "Heaton"
+3. Find/Replace "graced here" → "grazed here"
+4. Change "2014" → "2017" at subtitle #135
+5. Save and reimport
+
+---
+
+## COMPANION FILES
+
+- **B-ROLL-DOWNLOAD-LINKS.md** - Direct URLs for all assets (created 2025-12-04)
+- **FINAL-SCRIPT.md** - v4.3 with AUDIENCE ZERO fixes
 
 ---
 

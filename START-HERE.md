@@ -1,6 +1,14 @@
 # History vs Hype - Start Here
 
-**Last Updated:** 2025-01-16
+**Last Updated:** 2026-01-06
+
+## CHANGELOG
+
+**2026-01-06 - Documentation Hierarchy & Workflow Clarity**
+- Added Documentation Hierarchy (Tier 1-3 authority system for reference files)
+- Added Command vs Skill vs Agent Decision Tree (clarifies when to use each)
+- Integrated VERIFIED-CLAIMS-DATABASE into Phase 1 workflow (saves 2-4 hours/video)
+- All Tier 1 & 2 enforcement mechanisms now live in workflow.md
 **Your current system:** Verified Workflow (3-phase, zero-error scriptwriting)
 
 ---
@@ -8,15 +16,36 @@
 ## QUICK START: NEXT VIDEO
 
 ```bash
-/new-video-verified
+/new-video
 ```
 
 This starts the 3-phase workflow that prevents fact-check errors:
 1. **Research + Verify** (4 hours) → 01-VERIFIED-RESEARCH.md
-2. **Write Script** (1 hour) → 02-SCRIPT-DRAFT.md
-3. **Cross-Check** (30 min) → 03-FACT-CHECK-VERIFICATION.md
+2. **Choose Format Template** (5 min) → NEW! See format templates below
+3. **Write Script** (1 hour) → 02-SCRIPT-DRAFT.md
+4. **Cross-Check** (30 min) → 03-FACT-CHECK-VERIFICATION.md
 
 **Result:** 5.5 hours, 0 errors, ready to film
+
+---
+
+## NEW: FORMAT TEMPLATES (2026-01-04)
+
+**5 signature series structures** that differentiate your channel:
+
+**⭐ BOTH EXTREMES ARE WRONG** (Primary Series)
+- Use when: Two polarized online claims about same history
+- Next video: Medieval Flat Earth (Episode 2)
+- Structure: False binary → Debunk A → Debunk B → Real story
+- See: `.claude/REFERENCE/FORMAT-TEMPLATES.md`
+
+**Other Templates:**
+- DOCUMENT SHOWDOWN (side-by-side source comparison)
+- TREATY AUTOPSY (legal document line-by-line)
+- THE MAP THEY IGNORED (alternative borders from real documents)
+- SAME DAY DIFFERENT WAR (multiple theaters, same date)
+
+**Full details:** `video-projects/_IN_PRODUCTION/research-session-autonomous/FORMAT-TEMPLATES-FINAL.md`
 
 ---
 
@@ -28,19 +57,12 @@ This starts the 3-phase workflow that prevents fact-check errors:
 - `VERIFIED-WORKFLOW-QUICK-REFERENCE.md` - One-page workflow guide with checklists
 
 **📗 Complete Guide** (detailed explanation)
-- `.claude/CORE-WORKFLOW-SCRIPTWRITING-FACTCHECKING.md` - Full 3-phase process
-
-**📙 Upgrade Summary** (what changed)
-- `WORKFLOW-UPGRADE-SUMMARY.md` - What was built and why
+- `.claude/REFERENCE/workflow.md` - Full 3-phase process
 
 ### Advanced Features
 
-**🎓 Academic Peer Review** (optional, high-stakes topics)
-- `.claude/ACADEMIC-PEER-REVIEW-PROTOCOL.md` - Journal-level verification
-- Use for: Holocaust/genocide topics, politically controversial videos
-
 **📺 YouTube Claim Extraction**
-- `YOUTUBE-TRANSCRIPT-SETUP.md` - Extract claims from competitor videos
+- `.claude/tools/YOUTUBE-TRANSCRIPT-SETUP.md` - Extract claims from competitor videos
 - Command: `/extract-claims`
 
 ---
@@ -64,7 +86,7 @@ This starts the 3-phase workflow that prevents fact-check errors:
 - Cross-checks script vs research
 - Output: ✅ APPROVED or ❌ NEEDS REVISION
 
-**Note:** `/new-video-verified` automatically sets these up for you
+**Note:** `/new-video` automatically sets these up for you
 
 ---
 
@@ -72,7 +94,7 @@ This starts the 3-phase workflow that prevents fact-check errors:
 
 ### Video Production
 ```bash
-/new-video-verified    # Start new video (3-phase workflow)
+/new-video    # Start new video (3-phase workflow)
 /script                # Generate script from research
 /fact-check            # Run academic peer review
 ```
@@ -150,6 +172,75 @@ video-projects/_IN_PRODUCTION/
 
 ---
 
+## DOCUMENTATION HIERARCHY
+
+**When reference files conflict, this is the order of authority:**
+
+### Tier 1: Authoritative (NEVER contradict these)
+1. **`.claude/REFERENCE/workflow.md`** - Workflow steps, quality gates, enforcement rules
+2. **`.claude/REFERENCE/channel-values.md`** - Brand DNA, non-negotiables, documentary tone
+3. **`.claude/USER-PREFERENCES.md`** - Your natural speaking patterns, delivery preferences
+
+### Tier 2: Operational (Must align with Tier 1)
+4. **`.claude/agents/*.md`** - Agent execution instructions
+5. **`.claude/commands/*.md`** - Command entry points
+6. **`.claude/templates/*.md`** - Starting structures for projects
+
+### Tier 3: Reference (Useful but not authoritative)
+7. **All other `.claude/REFERENCE/*.md` files** - Examples, techniques, patterns
+
+**Maintenance Rule:**
+- When updating Tier 1: Review Tier 2 files for alignment
+- When updating Tier 2: No need to update Tier 3 (reference only)
+- **If Tier 3 contradicts Tier 1: Tier 1 wins, update Tier 3**
+
+**Why this matters:** You have 30+ reference files. This hierarchy prevents confusion and ensures consistency when documents disagree.
+
+---
+
+## COMMAND VS SKILL VS AGENT: DECISION TREE
+
+**Confused about when to use `/command`, a skill, or call an agent directly? Use this guide:**
+
+### Use COMMAND when:
+- ✅ You want the standard workflow for a task
+- ✅ You're following the verified 3-phase system
+- ✅ Commands auto-invoke the right agents/skills for you
+
+**Examples:**
+- "I want to start a new video" → `/new-video` (handles project setup, templates, workflow)
+- "I want to fact-check a script" → `/fact-check` (runs fact-checker agent with full protocol)
+- "I want to generate metadata" → `/youtube-metadata` (runs optimizer with channel DNA filter)
+
+### Use SKILL directly when:
+- ✅ You want a specific sub-task without full workflow
+- ✅ You're customizing or skipping workflow steps
+- ✅ You need just one component of a larger process
+
+**Examples:**
+- "I just want the voice consistency check" → Use `script-reviewer` skill (not full review)
+- "I just need NotebookLM prompts" → Use `notebooklm-prompt-generator` skill
+- "I just want clip suggestions" → Use `clip-suggestions` skill
+
+### Call AGENT directly when:
+- ✅ You need advanced customization
+- ✅ You're running experimental/non-standard workflows
+- ✅ Command doesn't exist for your use case
+
+**Examples:**
+- "I want to test a new scriptwriting approach" → Call `script-writer-v2` agent with custom parameters
+- "I want non-standard fact-checking criteria" → Call `fact-checker` agent with specific instructions
+- "I need deep codebase exploration" → Call Task tool with `subagent_type=Explore`
+
+**Quick Reference:**
+- `/new-video` = Full workflow (command)
+- `script-reviewer` = Just voice check (skill)
+- `script-writer-v2` = Custom script generation (agent)
+
+**Why this matters:** Reduces confusion, speeds up task completion, prevents invoking wrong tool.
+
+---
+
 ## TIME COMPARISON
 
 ### Old Workflow (Fuentes Video)
@@ -174,7 +265,7 @@ video-projects/_IN_PRODUCTION/
 
 ### Day 1: Research Phase
 ```bash
-/new-video-verified
+/new-video
 ```
 1. Open `01-VERIFIED-RESEARCH.md`
 2. Load sources into NotebookLM
@@ -210,7 +301,7 @@ video-projects/_IN_PRODUCTION/
 ### Standard Video (10-12 minutes)
 - Use 3-phase verified workflow
 - Time: 5.5 hours
-- Commands: `/new-video-verified` → `/youtube-metadata`
+- Commands: `/new-video` → `/youtube-metadata`
 
 ### Fact-Checking Video (debunking Pax Tube, Nick Fuentes, etc.)
 1. Get transcript: `YOUTUBE-TRANSCRIPT-SETUP.md` (manual extract)
@@ -292,7 +383,7 @@ video-projects/_IN_PRODUCTION/
 ## TROUBLESHOOTING
 
 ### "Where do I start?"
-→ Run `/new-video-verified` and open `01-VERIFIED-RESEARCH.md`
+→ Run `/new-video` and open `01-VERIFIED-RESEARCH.md`
 
 ### "The templates are overwhelming"
 → Start with `VERIFIED-WORKFLOW-QUICK-REFERENCE.md` (simpler)
@@ -316,16 +407,12 @@ video-projects/_IN_PRODUCTION/
 ### Daily Use:
 1. `VERIFIED-WORKFLOW-QUICK-REFERENCE.md` - Workflow checklist
 2. `.claude/templates/` - Starting templates
-3. `YOUTUBE-TRANSCRIPT-SETUP.md` - Get competitor transcripts
+3. `.claude/tools/get-transcript.py` - Get competitor transcripts
 
 ### Reference:
-4. `.claude/CORE-WORKFLOW-SCRIPTWRITING-FACTCHECKING.md` - Complete workflow
-5. `WORKFLOW-UPGRADE-SUMMARY.md` - What was built
-6. `.claude/ACADEMIC-PEER-REVIEW-PROTOCOL.md` - Advanced verification
-
-### Historical:
-7. `WORKFLOW-IMPROVEMENTS-PROPOSAL.md` - Original proposals
-8. `PROJECT-CLEANUP-PROPOSAL.md` - File organization standards
+4. `.claude/REFERENCE/workflow.md` - Complete workflow
+5. `.claude/REFERENCE/scriptwriting-style.md` - Voice and style guide
+6. `.claude/REFERENCE/retention-mechanics.md` - Engagement triggers
 
 ---
 
@@ -373,7 +460,7 @@ video-projects/_IN_PRODUCTION/
 
 ### Right Now:
 ```bash
-/new-video-verified
+/new-video
 ```
 
 ### This Week:
@@ -412,4 +499,4 @@ video-projects/_IN_PRODUCTION/
 
 ---
 
-**Welcome to the verified workflow system. Start your next video with `/new-video-verified` and experience zero-error scriptwriting.**
+**Welcome to the verified workflow system. Start your next video with `/new-video` and experience zero-error scriptwriting.**

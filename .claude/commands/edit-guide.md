@@ -7,7 +7,7 @@ You are creating an editing guide for filmed A-roll footage. Generate a comprehe
 ## BEFORE YOU START
 
 1. **Read the SRT file** - Get exact timestamps, total runtime, identify transcription errors
-2. **Read the FINAL-SCRIPT** - Understand argument structure and intended visuals
+2. **Read the SCRIPT.md** - Understand argument structure and intended visuals
 3. **Compare runtimes** - Script estimate vs actual SRT runtime (identifies pacing drift)
 4. **Identify cut candidates FIRST** - Before shot-by-shot breakdown
 
@@ -31,7 +31,7 @@ You are creating an editing guide for filmed A-roll footage. Generate a comprehe
 **Runtime Estimation:**
 
 *Script estimate calculation:*
-- Count words in FINAL-SCRIPT (exclude stage directions, headers)
+- Count words in SCRIPT.md (exclude stage directions, headers)
 - Divide by 150 (average speaking pace for this channel)
 - Result = approximate minutes
 
@@ -205,7 +205,7 @@ Stay on camera when:
 ## Your Task
 
 1. **Read the SRT file** - Get exact timestamps and identify transcription errors
-2. **Read the FINAL-SCRIPT** - Understand argument structure and intended visuals
+2. **Read the SCRIPT.md** - Understand argument structure and intended visuals
 3. **Generate guide** - Following the MANDATORY FORMAT above exactly
 
 ## Reference Examples

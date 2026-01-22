@@ -457,6 +457,164 @@ the fundamental principle of the stability of boundaries."
 
 ---
 
+---
+
+## SECTION 7: COMMON GUATEMALAN COUNTER-ARGUMENTS (Added 2025-12-04)
+
+**Purpose:** Responses to nationalist comments on YouTube videos
+
+---
+
+### Counter-Argument 1: "Mexico signed the first treaty, had no legal right"
+
+**Claim:** Mexico signed a treaty with Britain in 1826 but had no right because the territory belonged to the Capitanía General de Guatemala.
+
+**Facts:**
+- Mexico signed Treaty of Friendship, Commerce, and Navigation with Britain on December 26, 1826
+- Article 14 adopted the limits of Belize from the 1786 Treaty between Britain and Spain
+- Multiple successor states inherited Spanish claims after independence (Mexico, Central American Federation, Guatemala)
+- Guatemala repudiated the idea that Mexico had sovereignty over Belize
+
+**Source:** [Wikipedia - Belizean-Guatemalan Dispute](https://en.wikipedia.org/wiki/Belizean–Guatemalan_territorial_dispute)
+
+**Response:** The 1826 Mexico-Britain treaty was one of several colonial successor arrangements. Multiple states claimed inheritance of Spanish rights. Guatemala's argument that only they inherited the territory is contested.
+
+---
+
+### Counter-Argument 2: "Capitanía General de Guatemala controlled this territory"
+
+**Claim:** Spain's Captaincy General of Guatemala included Belize, so Guatemala inherited it.
+
+**Facts:**
+- The Captaincy General of Guatemala (1543-1821) was an administrative unit including modern Belize ON PAPER
+- BUT: Spain never actually occupied or settled Belize
+- The Maya resisted Spanish colonization
+- By mid-1600s, Spain abandoned all permanent settlements in Belize
+- British settlers (Baymen) were there from the 1600s
+- Spain retained nominal sovereignty but no actual control
+
+**Key quote:**
+> "Spain never settled in the region... by the mid-1600s, the Spanish had been militarily forced to abandon all permanent settlements and attempts at colonialism in Belize."
+
+> "Despite being the first Europeans to set foot on Belize, Spain failed to establish any governmental presence nor erect any sort of towns or villages."
+
+**Source:** [Britannica - Belize Early History](https://www.britannica.com/place/Belize/Early-history)
+
+**Response:** Administrative inclusion on colonial maps ≠ actual control. Spain never occupied Belize; the Maya resisted and British settlers were there from the 1600s.
+
+---
+
+### Counter-Argument 3: "Guatemala never accepted boundaries"
+
+**Claim:** Guatemala never recognized the 1859 boundary as legitimate.
+
+**Facts (from verified research):**
+- 1859: Guatemala signed Wyke-Aycinena Treaty establishing boundary
+- 1931: Guatemalan officials PHYSICALLY MARKED boundary points at Garbets Falls and Gracias Adios Falls
+- 1859-1939: 80 years of treating boundary as legitimate
+- 1940: Guatemala first declared treaty void (81 years after signing)
+- 1945: New constitution declared Belize part of Guatemala
+
+**Key quote (from NotebookLM):**
+> "If Guatemalan officials physically went out there and helped mark the boundary points in 1929, which was then confirmed by these notes in 1931, how can Guatemala turn around later and say the treaty that created that boundary was invalid?"
+
+**Source:** Verified in MASTER-RESEARCH-COMPILATION.md, Section 3
+
+**Response:** The 1931 Exchange of Notes proves Guatemala physically cooperated in marking boundary points. This is documented evidence of acceptance, not verbal claims.
+
+---
+
+### Counter-Argument 4: "Britain offered Toledo to stop Guatemala's claim"
+
+**Claim:** Britain offered to give Guatemala the Toledo District as a compromise.
+
+**Facts:**
+- REVERSED: In 1936, Guatemalan President Ubico proposed THREE demands:
+  1. Britain "return" all of British Honduras for £400,000
+  2. Britain pay £400,000 AND cede the southern half (including Toledo)
+  3. Britain cede the southern half AND pay £50,000 with interest from 1859
+- These were Guatemalan DEMANDS, not British offers
+- Britain counter-offered £25,000 (half the 1859 price) with no interest, which Guatemala rejected
+
+**Source:** [Wikipedia - Belizean-Guatemalan Dispute](https://en.wikipedia.org/wiki/Belizean–Guatemalan_territorial_dispute)
+
+**Response:** Historical record shows Guatemala demanding territory, not Britain offering it.
+
+---
+
+### Counter-Argument 5: "Temporary adjacent lines, not permanent boundary"
+
+**Claim:** The 1859 agreement was just a temporary arrangement, not a real boundary treaty.
+
+**Facts:**
+- The 1859 Wyke-Aycinena Treaty was a FORMAL BOUNDARY TREATY
+- Both governments ratified it
+- Guatemala implemented it for 80 years (1859-1939)
+- 1931 Exchange of Notes confirmed physical boundary markers
+- Guatemala only declared it void in 1940
+
+**Key finding:**
+> "Both Guatemala and Britain ratified it and it is still a legally valid treaty. The wording of the 1859 Treaty clearly establishes that it is a boundary treaty."
+
+**Source:** [Belize Referendum Official Site](http://www.belizereferendum.gov.bz/dispute/about), [1859 Treaty Text (PDF)](http://www.belizereferendum.gov.bz/files/Treaty-1859%20-%20Text.pdf)
+
+**Response:** The treaty text is public. There's nothing "temporary" in it. Guatemala's argument is that Britain's failure to build the road voided the treaty - not that it was temporary.
+
+---
+
+### Counter-Argument 6: "War threats and killing of our people by Britain"
+
+**Claim:** Britain threatened war and killed Guatemalans to take the territory.
+
+**Facts (REVERSED - Guatemala threatened Belize):**
+- 1945: New Guatemalan constitution declared Belize part of Guatemala and threatened invasion
+- 1972: Guatemala threatened to invade Belize
+- 1975: Guatemala threatened to invade Belize
+- 1977: Guatemala threatened to invade Belize
+- British military presence prevented these invasions each time
+
+**Key quote:**
+> "Similar invasion threats occurred in 1972, 1975 and 1977, each time an increased British military presence prevented the invasions."
+
+**Source:** [Britannica - History of Belize](https://www.britannica.com/topic/history-of-Belize)
+
+**Response:** Documented record shows Guatemala threatening Belize with invasion multiple times. The commenter has the aggressor backwards.
+
+---
+
+### Counter-Argument 8: "ICJ has many British judges, ruling won't be fair"
+
+**Claim:** The ICJ is biased because many judges are British.
+
+**Facts (verified 2025-12-04):**
+- ICJ has 15 judges from different countries
+- **There is NO British judge currently on the ICJ**
+- Current composition (Feb 2024): France, India, Brazil, China, Japan, Germany, Lebanon, Uganda, Slovakia, Somalia, Australia, Romania, United States, Mexico, South Africa
+- UK is notably absent despite being a permanent Security Council member
+- First time since 2024 that Russia also has no judge
+
+**Source:** [ICJ Official - Current Members](https://www.icj-cij.org/current-members)
+
+**Response:** There are zero British judges on the ICJ. The 15 current judges come from France, India, Brazil, China, Japan, Germany, Lebanon, Uganda, Slovakia, Somalia, Australia, Romania, USA, Mexico, and South Africa.
+
+---
+
+### Counter-Argument 7: "Guatemala was destabilized by foreign powers"
+
+**Claim:** Guatemala couldn't defend its claim because of internal conflicts caused by foreign interference.
+
+**Facts:**
+- Guatemala did experience internal conflicts (1871 Liberal Revolution, various coups, civil war)
+- BUT: Internal instability doesn't change treaty obligations under international law
+- Guatemala CHOSE to accept the 1859 boundary for 80 years before challenging it
+- The 1931 boundary marking happened during a period of relative stability
+
+**Legal principle:** Domestic political difficulties don't void international treaties (pacta sunt servanda)
+
+**Response:** Internal conflicts are documented, but international law doesn't allow states to void treaties due to domestic instability. Guatemala cooperated in boundary marking in 1931.
+
+---
+
 ## SOURCES FOR DESCRIPTION
 
 **Primary ICJ Documents:**

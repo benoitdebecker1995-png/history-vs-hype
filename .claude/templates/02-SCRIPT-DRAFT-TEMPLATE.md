@@ -3,7 +3,9 @@
 **Based on:** 01-VERIFIED-RESEARCH.md
 **All facts pre-verified:** ✅ YES / ❌ NO (if NO, stop and verify first)
 **Retention optimized:** ✅ YES / ❌ NO
-**Runtime Target:** 10-12 minutes (~1,100-1,300 words at 110 WPM)
+**Length:** As long as needed for topic (no arbitrary caps)
+
+**Style Reference:** `.claude/REFERENCE/scriptwriting-style.md` (Kraut, Alex O'Connor, Knowing Better, Shaun, Historia Civilis, Fall of Civilizations patterns)
 
 ---
 
@@ -11,14 +13,37 @@
 
 **Target Audience:** Males 25-44, intelligent, skeptical
 **Hook Focus:** Modern relevance (connect to 2024-2025 news)
-**Opponent Being Fact-Checked:** [Name/Channel if applicable]
-**Their Main Claim:** "[Quote their central argument]"
+
+**Format Template:** (NEW - 2026-01-04)
+- [ ] ⭐ BOTH EXTREMES ARE WRONG (Series - Episode #__)
+- [ ] DOCUMENT SHOWDOWN (Series)
+- [ ] TREATY AUTOPSY (ICJ case analysis)
+- [ ] THE MAP THEY IGNORED (Alternative borders)
+- [ ] SAME DAY DIFFERENT WAR (Multiple theaters)
+- [ ] CUSTOM (No template fit)
+
+**If using template:** See `.claude/REFERENCE/FORMAT-TEMPLATES.md` for Act structure
+
+**Style Approach:**
+- [ ] Kraut sweep-then-specifics (historical patterns)
+- [ ] Alex O'Connor conversational (philosophy/myths)
+**Quote Density:** As many real quotes as needed to prove claims
 
 ---
 
-## HOOK (0:00-0:45) [~60-80 words]
+## HOOK - Opening Pattern
 
 **Goal:** Modern relevance + why this matters NOW
+
+**Choose Opening Pattern (from REFERENCE/scriptwriting-style.md):**
+
+**Option A - Kraut Sweep-Then-Specifics:**
+> [Sweeping historical pattern] → [Multiple specific examples] → [Exception that creates curiosity]
+> Example: "Nomadic empires were some of the most fascinating entities in human history... There is, however, one big exception: [Topic]."
+
+**Option B - Alex O'Connor Conversational:**
+> [Acknowledgment of common belief] → [Direct challenge] → [Promise of evidence]
+> Example: "You've probably heard it a million times: [myth]. But guess what? They're all wrong."
 
 [Write hook here - connects historical myth to current event]
 
@@ -62,79 +87,118 @@
 
 ---
 
-## EVIDENCE SECTION 1 (2:00-4:00) [~220-240 words]
+## EVIDENCE SECTION 1 - Real Quotes + Causal Chains
 
-**Goal:** First major piece of counter-evidence
+**Goal:** First major piece of counter-evidence with REAL QUOTES
 
-### Primary Source 1
+### Primary Source Quote (Word-for-Word)
 
-[Present the evidence - quote, statistic, or archival document]
+**Quote Integration Pattern (choose one):**
 
-**Verification Reference:** ✅ Quote #[X] from 01-VERIFIED-RESEARCH.md
+1. **Attribution-First:**
+   > "According to [Historian] in *[Book Title]*, page [X]: '[exact quote]'"
 
-**Attribution:** [Exact source citation for viewers]
+2. **Claim-Then-Source:**
+   > "[Make claim]. That's not my interpretation—that's [Author]'s [work]."
 
-**Visual:** [Show primary source document, or talking head explaining it]
+3. **Block Quote Display:**
+   > "Here's what [Source] actually says:"
+   > (SHOW: Text on screen)
+   > "[Exact quote]"
 
-### What This Actually Means
+[Write your quote with full attribution here]
 
-[Explain the significance - why does this evidence debunk opponent's claim?]
+**Verification Reference:** ✅ Quote #[X] from 01-VERIFIED-RESEARCH.md, page [Y]
+
+**Visual:** [Show quote on screen + source document if available]
+
+### What This Actually Means (Causal Chain)
+
+[Explain WHY - use Kraut-style connectors: "consequently," "thereby," "which meant that," "as a result"]
 
 **Verification Reference:** ✅ [Scholarly interpretation from line # of 01-VERIFIED-RESEARCH.md]
 
-### Callback Hook (3:45)
+### Callback Hook
 
 "Remember what [Opponent] claimed? This document shows the opposite..."
 
 ---
 
-## EVIDENCE SECTION 2 (4:00-6:00) [~220-240 words]
+## EVIDENCE SECTION 2 - Different Evidence Type + Comparative Analysis
 
 **Goal:** Second major piece of counter-evidence (different type - if first was quote, this is statistic)
 
-[Repeat structure from Evidence Section 1]
+### Evidence with Attribution
+
+[Present evidence with real quote or specific data]
 
 **Verification References:**
-- Statistic: ✅ [Line # from Numbers table in 01-VERIFIED-RESEARCH.md]
-- Source: ✅ [Line # from 01-VERIFIED-RESEARCH.md]
+- Quote/Statistic: ✅ [Line # from 01-VERIFIED-RESEARCH.md]
+- Source with page #: ✅ [Full citation]
+
+### Comparative Analysis (Kraut-style)
+
+**Use comparative framing where applicable:**
+> "While in [Place A] [X happened], in [Place B] [opposite happened]."
+> "Throughout the rest of [Europe/region], [pattern]. But [our subject] remained [different]."
 
 **Visual:** [Show data visualization, archival reference, or talking head]
 
 ---
 
-## ACKNOWLEDGE OPPONENT'S VALID POINTS (6:00-6:30) [~55-65 words]
+## ACKNOWLEDGE OPPOSING SIDE (Alex O'Connor Intellectual Honesty)
 
-**Goal:** Academic balance - where are they right?
+**Goal:** Academic balance - where are they right? What do they get correct?
 
-"To be fair, [Opponent] is correct about [X]. [Acknowledge their valid point with source]."
+**Alex O'Connor-style honesty patterns:**
+> "I don't know about this. Let me know what you think in the comments."
+> "I'm not super convinced by this, mostly because..."
+> "To be fair, [Opponent] is correct about [X]."
+> "Now you may have noticed that anytime you bring this up, the first thing people say is [counterargument]. Let me address that..."
+
+[Acknowledge their valid point with source]
 
 **Verification Reference:** ✅ [Line # from 01-VERIFIED-RESEARCH.md]
 
-**Why this matters:** Shows you're not cherry-picking, builds credibility
+**Why this matters:** Shows intellectual humility, builds credibility, addresses counterarguments directly
 
 ---
 
-## EVIDENCE SECTION 3 (6:30-8:30) [~220-240 words]
+## EVIDENCE SECTION 3 - Smoking Gun + Deep Causal Chain
 
-**Goal:** Strongest evidence - the knockout punch
+**Goal:** Strongest evidence - the knockout punch with REAL QUOTE
 
-[Present most compelling counter-evidence]
+### Smoking Gun Quote (Most Damning)
+
+[Present most compelling counter-evidence with word-for-word quote]
+
+**Quote:** "[Exact quote from source]"
+**Source:** [Full citation with page number]
 
 **Verification References:**
 - Primary source: ✅ Quote #[X] from 01-VERIFIED-RESEARCH.md
 - Archive reference: ✅ Reference #[X] from 01-VERIFIED-RESEARCH.md
 
-**Visual:** [Show archival document, then cut to talking head for interpretation]
+### Deep Causal Chain (Kraut-style)
 
-### Callback Hook (8:15)
+[Explain the causal mechanism - why did this happen? Use consequence chains:]
+> "[Event A] → consequently [Event B] → which meant that [Event C] → as a result [Outcome]"
+
+**Visual:** [Show archival document quote on screen, then cut to talking head for interpretation]
+
+### Callback Hook
 
 "So when [Opponent] claims [X], we now know from [Source] that actually [Y]."
 
 ---
 
-## MODERN CONNECTIONS (8:30-10:00) [~165-185 words]
+## MODERN CONNECTIONS + PRESENT RELEVANCE BRIDGE (Kraut-style)
 
 **Goal:** Why does accurate history matter? What's at stake today?
+
+**Kraut-style present relevance:**
+> "When you look at [modern example today], you will notice..."
+> "And that language of '[historical phrase]'? Still being used today."
 
 [Connect historical facts to modern political situation, policy debates, or conflicts]
 
@@ -148,19 +212,28 @@
 
 ---
 
-## CONCLUSION (10:00-10:30) [~55-65 words]
+## SYNTHESIS + COUNTERFACTUAL (Kraut-style)
 
-**Goal:** Summarize what we proved, emphasize why truth matters
+**Goal:** Return to both extremes, summarize evidence, invite reflection
 
-[Recap: We examined [X] sources, found [Y] evidence, showed [Z] conclusion]
+**Structure:**
+1. "So let's be clear about what the evidence actually shows..."
+2. Numbered clarity: "One: [first conclusion]. Two: [second conclusion]. Three: [third conclusion]."
+3. Return to both extremes and show why each oversimplifies
+4. Present relevance bridge
 
-**Key takeaway:** [One-sentence summary of why this matters]
+**Counterfactual Invitation (Optional but powerful - Kraut signature):**
+> "One can only imagine what [modern situation] would look like if [historical alternative had happened]..."
+
+[Write synthesis here]
+
+**Key takeaway:** [One-sentence summary - confident declarative]
 
 ---
 
-## CALL TO ACTION (10:30-11:00) [~55-65 words]
+## CALL TO ACTION - Sources Listed
 
-"If you want to see more evidence-based history, check out my video on [Related Topic]. And if you think I got something wrong, sources are in the description - I want to know."
+"Every source is in the description. [List key sources: Author's *Book Title*, etc.] If this changed how you think about [topic], subscribe. There's more myth-busting coming."
 
 **Visual:** [Talking head, then end screen with video thumbnail]
 
@@ -168,24 +241,33 @@
 
 ## SELF-CHECK BEFORE CALLING "FINAL"
 
-### Script Quality Checklist
+### Script Quality Checklist (Updated 2025-12-09)
 
-**Structure:**
-- [ ] Hook in first 30 seconds (modern relevance)
-- [ ] Structure telegraph at 1:00-1:15 (tells viewers what's coming)
-- [ ] Callback hooks at 3:45 and 8:15 (every ~4 minutes)
+**Structure (Kraut/Alex O'Connor Style):**
+- [ ] Strong opening hook (sweep-then-specifics OR conversational challenge)
+- [ ] Both extremes framed explicitly in opening
+- [ ] Deep causal chains throughout (consequently, thereby, which meant that)
+- [ ] Intellectual honesty section (acknowledge what opponents get right)
+- [ ] Present relevance bridge in synthesis
 - [ ] Read out loud - no awkward phrasing
-- [ ] Runtime: 10-12 minutes (~1,100-1,300 words)
+- [ ] Length: As long as needed for topic (no arbitrary caps)
+
+**Real Quotes (MANDATORY):**
+- [ ] Every major claim has word-for-word quote from source
+- [ ] All quotes have page numbers where available
+- [ ] Quote integration patterns used (Attribution-First, Claim-Then-Source, Block Quote, Historian as Witness)
+- [ ] Quotes displayed as B-roll text where impactful
 
 **Retention Optimization:**
+- [ ] Modern relevance connection every 90 seconds
+- [ ] Pattern interrupt every 2-3 minutes
 - [ ] No evidence stacking (max 2 sources in a row without interpretation)
 - [ ] Topic transitions smooth (no sudden jumps)
-- [ ] Modern relevance clear throughout
-- [ ] Every 2 minutes: new evidence or callback hook
+- [ ] Callback hooks where needed
 
 **Visual Planning:**
 - [ ] Talking head 60-70% (arguments, interpretation, emphasis)
-- [ ] B-roll 30-40% (evidence, maps, sources)
+- [ ] B-roll 30-40% (evidence with quotes on screen, maps, sources)
 - [ ] No decorative B-roll (every visual makes argument stronger)
 
 ### Fact Verification Checklist

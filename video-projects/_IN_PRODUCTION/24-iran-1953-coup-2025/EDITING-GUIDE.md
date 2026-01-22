@@ -604,49 +604,978 @@ Heavy use of academic quotes displayed on screen. Every Abrahamian quote should 
 
 ### ACT 3: THE FIRST DESTRUCTION [4:45-8:50]
 
-*(Shot-by-shot continues for remaining acts...)*
+---
+
+#### SHOT 23: B-ROLL - Abrahamian Quote on Majlis (04:46-05:04)
+**SRT #136-150** | **Duration: 18 sec**
+
+> "The Majlis was designed to be the central piece of the new constitution, described as the representative of the whole people. It had final say over all laws, decrees, budgets, treaties, loans, monopolies and concessions and even controlled the court budget."
+
+**VISUAL:**
+- Academic quote on screen (Abrahamian citation)
+- Text overlay with key powers highlighted
+- Transition showing Shah's power diminishing
+
+**WHY B-ROLL:** Primary source display. Quote establishes constitutional legitimacy.
+
+**CREATE IN:** Canva - quote template with academic styling
 
 ---
 
-### REMAINING ACTS - KEY SHOTS SUMMARY
+#### SHOT 24: TALKING HEAD - Every Mechanism Under Control (05:04-05:18)
+**SRT #148-155** | **Duration: 14 sec**
 
-Due to length, remaining acts summarized with critical shots:
+> "The Shah couldn't sell another concession without Majlis' approval. He couldn't take another loan without Majlis' approval. Every mechanism the Qajars had used to sell of Iran was now under parliamentary control."
 
-**ACT 3 (4:45-8:50) - The First Destruction:**
-- SHOT 23-25: Abrahamian Majlis quote (B-ROLL with quote on screen)
-- SHOT 26-28: 1907 Anglo-Russian Convention map (ESSENTIAL B-ROLL)
-- SHOT 29: "Iran wasn't at the table. They were on the menu." (TALKING HEAD - memorable line)
-- SHOT 30-32: Mohammad Ali Shah / Cossack bombardment (B-ROLL historical)
-- SHOT 33: Liakhoff quote from Abrahamian (B-ROLL)
-- SHOT 34-35: 1911 closure / Shuster ultimatum (B-ROLL)
+**WHY TALKING HEAD:** Interpretive summary connecting quote to argument. Direct address reinforces importance.
 
-**ACT 4 (8:50-10:49) - The Pattern:**
-- SHOT 36: Pattern diagram return (B-ROLL - callback to earlier)
-- SHOT 37-38: Decades of chaos summary (TALKING HEAD)
-- SHOT 39: Mossadegh introduction - "69-year-old aristocrat" (TALKING HEAD)
+**CAMERA NOTES:** Build emphasis through the list. "Under parliamentary control" is the payoff.
 
-**ACT 5 (10:49-14:05) - Mossadegh & Oil:**
-- SHOT 40-42: D'Arcy Concession infographic (B-ROLL)
-- SHOT 43: "Control. Not profits. Control." (TALKING HEAD - key insight)
-- SHOT 44-45: March 1951 vote / "Every single deputy" (B-ROLL + TH)
-- SHOT 46-48: British refusal / Woodhouse quote (B-ROLL primary source)
+---
 
-**ACT 6 (14:05-18:18) - The Coup:**
-- SHOT 49-51: TPAJAX mechanism / $150,000 budget (B-ROLL infographic)
-- SHOT 52-54: Black propaganda / fake Tudeh leaflets (B-ROLL - revelatory)
-- SHOT 55-56: August 15-19 timeline (B-ROLL animated)
-- SHOT 57: "Mercenary mob" CIA admission (B-ROLL quote)
-- SHOT 58: Mossadegh trial quote (B-ROLL - emotional payoff)
+#### SHOT 25: B-ROLL - Belgian Constitution Comparison (05:18-05:28)
+**SRT #151-155** | **Duration: 10 sec**
 
-**ACT 7 (18:18-20:59) - The Uncomfortable Truth:**
-- SHOT 59-60: Conspiracy vocabulary / "hidden hands" (B-ROLL + TH)
-- SHOT 61-62: "Foreign-planned, Iranian-executed" (TALKING HEAD - nuance)
-- SHOT 63: Mossadegh's mistakes (TALKING HEAD)
-- SHOT 64: "Learned helplessness" conclusion (TALKING HEAD - thesis)
+> "The constitution was modelled on Belgians, itself derived from British constitutional principles. Iran had created, on paper, a genuine constitutional monarchy."
 
-**CONCLUSION (20:59-22:10):**
-- SHOT 65: Full timeline 1906-1953 (B-ROLL)
-- SHOT 66-67: 1979 tease / "Part 2" (TALKING HEAD + protest footage)
+**VISUAL:**
+- Side-by-side: Belgian Constitution / Iranian Constitution
+- Text: "MODELED ON EUROPEAN SYSTEMS"
+- Map showing constitutional monarchy spread
+
+**WHY B-ROLL:** Establishes legitimacy through European comparison.
+
+---
+
+#### SHOT 26: TALKING HEAD - Not Imposed by Foreigners (05:28-05:40)
+**SRT #156-161** | **Duration: 12 sec**
+
+> "And the part that matters is this. It wasn't imposed by foreigners. It grew from internal pressure. Iranians themselves built this. Which is exactly why foreign powers decided to destroy it."
+
+**WHY TALKING HEAD:** Key thesis moment. "Iranians themselves built this" must land with authority.
+
+**CAMERA NOTES:** Slow down on "Which is exactly why foreign powers decided to destroy it." This is the pivot.
+
+---
+
+#### SHOT 27: B-ROLL - Germany Rising / Naval Map (05:40-05:53)
+**SRT #162-168** | **Duration: 13 sec**
+
+> "One year later, in 1907, Britain faced a problem that had nothing to do with Iran. Germany was rising. The Royal Navy needed allies. And the only power that could counterbalance Germany on land was Russia."
+
+**VISUAL:**
+- Map of Europe showing Germany's rise
+- Naval fleet imagery
+- Arrows showing British-Russian alliance need
+
+**WHY B-ROLL:** Geographic context. Shows Britain's strategic priorities had nothing to do with Iran.
+
+**SOURCES:**
+- Wikimedia: WWI era European maps
+- Naval history archives
+
+---
+
+#### SHOT 28: B-ROLL - Great Game Map (05:53-06:13)
+**SRT #169-177** | **Duration: 20 sec**
+
+> "But Britain and Russia had been rivals in Central Asia for decades. They'd been competing for influence in Persia, Afghanistan and Tibet. A rivalry the British called 'the great game'. To get Russia as an ally against Germany, Britain needed to settle these Asian disputes."
+
+**VISUAL:**
+- Animated map showing British-Russian rivalry zones
+- Labels: PERSIA, AFGHANISTAN, TIBET
+- Text: "THE GREAT GAME"
+- Arrows showing competing spheres
+
+**WHY B-ROLL:** Essential geographic context. Shows the geopolitical chess game.
+
+**CREATE IN:** Canva/After Effects - animated map with competing arrows
+
+---
+
+#### SHOT 29: B-ROLL - Anglo-Russian Convention Map (06:13-06:32)
+**SRT #178-189** | **Duration: 19 sec**
+
+> "So, they signed the Anglo-Russian Convention. Britain got southern Iran as its sphere of influence. Russia got northern Iran. A neutral zone set between them. The critical detail is this. Iran was not consulted but was simply informed of this arrangement after the treaty was signed in St. Petersburg. No Iranians were at the table when Britain and Russia divided their country."
+
+**VISUAL:**
+- **ESSENTIAL MAP:** Iran divided into three zones
+  - BLUE: British sphere (south)
+  - RED: Russian sphere (north)
+  - GREY: Neutral zone (middle)
+- Text: "1907 ANGLO-RUSSIAN CONVENTION"
+- Animation showing division happening
+
+**WHY B-ROLL:** Most important B-roll in the video. The visual of Iran being divided is the core argument.
+
+**CREATE IN:** MapChart or Canva - clean, clear division map
+
+**SOURCES:**
+- Historical maps of 1907 convention
+
+---
+
+#### SHOT 30: TALKING HEAD - "They Were on the Menu" (06:32-06:40)
+**SRT #190-192** | **Duration: 8 sec**
+
+> "Iran wasn't at the table. They were on the menu."
+
+**WHY TALKING HEAD:** Most memorable line in the video. MUST be delivered on camera with direct eye contact.
+
+**CAMERA NOTES:** Pause after "at the table." Let "They were on the menu" land as its own beat. This is the quotable moment.
+
+**DO NOT CUT THIS SHOT.**
+
+---
+
+#### SHOT 31: TALKING HEAD - Fundamental Problem (06:40-07:00)
+**SRT #192-202** | **Duration: 20 sec**
+
+> "And this created a fundamental problem. The constitutional government that the Iranians had just built depended on controlling concessions. But Britain and Russia had just divided up their right to grant concessions between themselves. The constitution was designed to limit foreign influence. The Anglo-Russian Convention was designed to guarantee it. Something had to give."
+
+**WHY TALKING HEAD:** Building the logical trap. This is the causal chain explanation.
+
+**CAMERA NOTES:** Use hand gestures to show the contradiction. "Something had to give" should feel inevitable.
+
+---
+
+#### SHOT 32: B-ROLL - Mohammad Ali Shah (07:00-07:14)
+**SRT #204-208** | **Duration: 14 sec**
+
+> "The new Shah, Mohammed Ali Shah, saw his opportunity. The constitution limited his power. Russia and Britain had just shown that they didn't care about the constitution. So, in 1908, he moved to destroy it."
+
+**VISUAL:**
+- Photo of Mohammad Ali Shah
+- Text: "MOHAMMAD ALI SHAH"
+- Timeline: 1908
+
+**WHY B-ROLL:** Historical figure identification. Humanizes the villain of this act.
+
+**SOURCES:**
+- Wikimedia: Mohammad Ali Shah Qajar portraits
+
+---
+
+#### SHOT 33: B-ROLL - Cossack Brigade (07:14-07:36)
+**SRT #210-220** | **Duration: 22 sec**
+
+> "At this time, the Shah's most reliable military force was the Cossack Brigade. A Iranian unit trained and commanded by Russian officers. Declaring martial law, the Shah appointed Colonel Lyakov, the Russian Cossack commander, to be military governor of Tehran. Lyakov sent his Cossacks to occupy the telegraph office and to bombard the Majlis building."
+
+**VISUAL:**
+- Historical photo of Cossack Brigade
+- Photo of Colonel Liakhov
+- Image of Majlis building (before destruction)
+- Text: "RUSSIAN-COMMANDED IRANIAN TROOPS"
+
+**WHY B-ROLL:** Shows the mechanism of destruction. Iranian troops, Russian command.
+
+**SOURCES:**
+- Wikimedia: Persian Cossack Brigade historical photos
+
+---
+
+#### SHOT 34: TALKING HEAD - "Do You See What Happened Here?" (07:36-07:52)
+**SRT #221-227** | **Duration: 16 sec**
+
+> "Do you see what happened here? The Iranian parliament was bombarded by Iranian troops, commanded by a Russian officer, appointed by an Iranian Shah, with the tested approval of Britain and Russia, who had just divided Iran between themselves."
+
+**WHY TALKING HEAD:** Rhetorical question + thesis crystallization. The chain of causation must be delivered with rising emphasis.
+
+**CAMERA NOTES:** Count off the elements with slight finger ticks. Build to "divided Iran between themselves."
+
+---
+
+#### SHOT 35: TALKING HEAD - Foreign and Domestic Together (07:52-08:02)
+**SRT #228-231** | **Duration: 10 sec**
+
+> "Foreign intervention and domestic authoritarianism working together. About 250 people died. The Majlis building was destroyed."
+
+**WHY TALKING HEAD:** Thesis statement. Short declarative sentences for impact.
+
+**CAMERA NOTES:** Pause between sentences. Let "250 people died" land.
+
+---
+
+#### SHOT 36: B-ROLL - Constitutional Forces Fight Back (08:02-08:12)
+**SRT #232-235** | **Duration: 10 sec**
+
+> "The constitutional forces fought back. They retook Tehran. They restored the Majlis."
+
+**VISUAL:**
+- Historical photos of constitutional revolutionaries
+- Map showing Tehran being retaken
+- Text: "1909 - MAJLIS RESTORED"
+
+**WHY B-ROLL:** Brief moment of hope. Visual shows the resistance.
+
+---
+
+#### SHOT 37: B-ROLL - 1911 Russian Ultimatum (08:12-08:37)
+**SRT #235-246** | **Duration: 25 sec**
+
+> "But in 1911, Russia delivered an ultimatum. The Majlis had hired an American financial advisor named Morgan Shuster to fix Iranian's finances and reduce foreign influence. Russia demanded his dismissal, or they would occupy. The Majlis refused. So Russia occupied. The second Majlis was closed in December 1911, and Shuster's contract was abruptly terminated a few weeks later."
+
+**VISUAL:**
+- Photo of Morgan Shuster
+- Russian ultimatum document (stylized)
+- Map showing Russian occupation
+- Text: "DECEMBER 1911 - MAJLIS CLOSED"
+
+**WHY B-ROLL:** Key turning point. Shows how foreign powers crushed the revival.
+
+**SOURCES:**
+- Wikimedia: Morgan Shuster photos
+- Historical documents
+
+---
+
+#### SHOT 38: B-ROLL - Abrahamian Quote on Closure (08:37-08:44)
+**SRT #247-249** | **Duration: 7 sec**
+
+> "With the closure of the Majlis, the first phase of the revolution effectively came to a stuttering halt."
+
+**VISUAL:**
+- Academic quote on screen (Abrahamian citation)
+- Image of closed Majlis building
+
+**WHY B-ROLL:** Primary source confirmation of the destruction.
+
+---
+
+#### SHOT 39: TALKING HEAD - First Democracy Crushed (08:44-08:50)
+**SRT #250-251** | **Duration: 6 sec**
+
+> "Iran's first democracy crushed. And this is what it established."
+
+**WHY TALKING HEAD:** Transition to pattern explanation. Direct delivery with weight.
+
+**CAMERA NOTES:** Pause after "crushed." Then shift to explanatory tone.
+
+---
+
+### ACT 4: THE PATTERN [8:50-10:49]
+
+---
+
+#### SHOT 40: B-ROLL - Pattern Diagram Return (08:49-09:03)
+**SRT #252-259** | **Duration: 14 sec**
+
+> "The Iranians built constitutional institutions. Foreign powers find those institutions inconvenient. Foreign powers ally with domestic authoritarians. Constitutional government is destroyed. And that trauma creates demand for the next constitutional movement."
+
+**VISUAL:**
+- Return to the pattern diagram from earlier
+- Each step highlights as mentioned:
+  1. Build institutions ✓
+  2. Foreign inconvenience ✓
+  3. Alliance with authoritarians ✓
+  4. Destruction ✓
+  5. Trauma → next movement ✓
+
+**WHY B-ROLL:** Callback to thesis visualization. Reinforces the pattern.
+
+**CREATE IN:** Same diagram from Shot 10, now with checkmarks
+
+---
+
+#### SHOT 41: TALKING HEAD - First Turn of the Cycle (09:03-09:13)
+**SRT #260-264** | **Duration: 10 sec**
+
+> "1906 to 1911, that's the first turn of the cycle. For the next decades, Iran descended into chaos. World War I, foreign occupation, famine."
+
+**WHY TALKING HEAD:** Transition statement. Sets up the intervening decades.
+
+---
+
+#### SHOT 42: B-ROLL - Decades of Chaos (09:13-09:37)
+**SRT #265-272** | **Duration: 24 sec**
+
+> "A new dynasty, Reza Shah, who kept the constitutional form but gutted its substance. Then World War II, Britain and the Soviets occupied Iran again, forcing Reza Shah to abdicate. His son, Mohammad Reza, took the throne at 21. He was weak. The Majlis had space to act again."
+
+**VISUAL:**
+- Timeline: 1911-1951 with key events
+- Photo of Reza Shah
+- WWII occupation map
+- Photo of young Mohammad Reza Shah
+- Text: "21 YEARS OLD - WEAK SHAH"
+
+**WHY B-ROLL:** Rapid historical summary. Visuals prevent information overload.
+
+**SOURCES:**
+- Wikimedia: Reza Shah, Mohammad Reza Shah photos
+
+---
+
+#### SHOT 43: TALKING HEAD - Men Who Would Lead (09:37-10:00)
+**SRT #273-285** | **Duration: 23 sec**
+
+> "And the men who would lead the revival had been waiting. A 69 year old aristocrat who had spent his entire political career fighting for a constitutional government. Back in 1919, when Britain tried to make Iran a protectorate through the Anglo-Persian agreement, this man stood up in the Majlis and called the negotiators traitors to their faces. His name was Mohammad Mossadegh."
+
+**WHY TALKING HEAD:** Introduction of Mossadegh. Build anticipation, then reveal name.
+
+**CAMERA NOTES:** Build dramatic tension. "His name was Mohammad Mossadegh" should feel like an arrival.
+
+---
+
+#### SHOT 44: B-ROLL - Mossadegh Photo (10:00-10:12)
+**SRT #286-291** | **Duration: 12 sec**
+
+> "I'll be honest, before I did research I had a simple picture of Mossadegh. National hero, overturned by the CIA, a victim. The sources complicate that picture. Not in the way that you might think."
+
+**VISUAL:**
+- Iconic Mossadegh photo
+- Text: "MOHAMMAD MOSSADEGH (1882-1967)"
+- Transition to archival footage if available
+
+**WHY B-ROLL:** Face identification. Humanizes the central figure.
+
+**SOURCES:**
+- Wikimedia: Mossadegh photos (multiple angles)
+
+---
+
+#### SHOT 45: TALKING HEAD - Sources Complicate (10:12-10:42)
+**SRT #292-304** | **Duration: 30 sec**
+
+> "The CIA still overthrew him. But understanding who he was explains both why he succeeded and why he failed. Mossadegh wasn't a young revolutionary. He was 69. He'd been fighting for a constitutional government since 1906. He was an aristocrat. Educated in Europe, wealthy, connected. And he had one absolute conviction. Iran must control its own resources. This wasn't a man who compromised with foreign powers."
+
+**WHY TALKING HEAD:** Character development. Extended talking head builds understanding of Mossadegh.
+
+**CAMERA NOTES:** Conversational tone. You're adding nuance, not lecturing.
+
+---
+
+#### SHOT 46: TALKING HEAD - Conviction Tested on Oil (10:42-10:49)
+**SRT #305-306** | **Duration: 7 sec**
+
+> "Mossadegh's conviction would be tested on one issue above all others."
+
+**WHY TALKING HEAD:** Cliffhanger transition to oil section.
+
+---
+
+### ACT 5: MOSSADEGH & OIL [10:49-14:05]
+
+---
+
+#### SHOT 47: B-ROLL - D'Arcy Concession (10:49-11:08)
+**SRT #307-315** | **Duration: 19 sec**
+
+> "Oil. Since 1901, British interests had controlled Iranian oil through something called the Darcy Concession. The deal worked like this. The concession gave British investors 60 years of exclusive rights to Iranian oil. Iran got 16% of net profits. And the British controlled how net profits were calculated."
+
+**VISUAL:**
+- Infographic: D'ARCY CONCESSION 1901
+  - 60 YEARS exclusive rights
+  - 16% to Iran
+  - Britain controls calculation
+- Oil derrick imagery
+- Money flow diagram
+
+**WHY B-ROLL:** Complex financial arrangement needs visualization.
+
+**CREATE IN:** Canva - clean infographic with numbers prominent
+
+---
+
+#### SHOT 48: B-ROLL - Anglo-Iranian Oil Company (11:08-11:22)
+**SRT #316-321** | **Duration: 14 sec**
+
+> "The British controlled oil drilling, refining and export operations. And by 1914 the British government owned 51% of the company. The Anglo-Iranian oil company, which would later become BP."
+
+**VISUAL:**
+- AIOC logo/branding
+- Text: "51% BRITISH GOVERNMENT OWNED"
+- Transition: AIOC → BP logo
+- Refinery historical photos
+
+**WHY B-ROLL:** Company identification. "Became BP" is a modern hook.
+
+**SOURCES:**
+- Historical AIOC imagery
+- BP corporate history
+
+---
+
+#### SHOT 49: TALKING HEAD - Core Issue Was Control (11:22-11:47)
+**SRT #322-335** | **Duration: 25 sec**
+
+> "But what I found interesting is that Iran's profit share wasn't even the core issue. British Petroleum Archives and Foreign Office records show that the core of the dispute was not profit sharing, but control. A March 1951 memo stated, 'We can be flexible in profits, administration or partnership, but not in the issue of control.'"
+
+**WHY TALKING HEAD:** Key insight delivery. This reframes the standard narrative.
+
+**CAMERA NOTES:** Lean into "what I found interesting" - you're sharing a discovery.
+
+---
+
+#### SHOT 50: TALKING HEAD - "Control. Not Profits. Control." (11:45-11:51)
+**SRT #333** | **Duration: 6 sec**
+
+> "Control. Not profits. Control."
+
+**WHY TALKING HEAD:** Emphatic repetition. Must land with full weight on camera.
+
+**CAMERA NOTES:** Pause between each word. Direct eye contact.
+
+**DO NOT CUT THIS LINE.**
+
+---
+
+#### SHOT 51: B-ROLL - Saudi/Venezuela Comparison (11:51-12:11)
+**SRT #336-344** | **Duration: 20 sec**
+
+> "The British would share money, they wouldn't share power. So when Mossadegh proposed nationalisation, not confiscation, nationalisation with compensation, it wasn't radical by global standards. Saudi Arabia had just negotiated a 50-50 profit split with Aramco. Venezuela had done the same. Iran was asking for what others had already achieved."
+
+**VISUAL:**
+- Comparison table:
+  - SAUDI: 50-50 split ✓
+  - VENEZUELA: 50-50 split ✓
+  - IRAN: Asking for same
+- Text: "NOT RADICAL BY GLOBAL STANDARDS"
+
+**WHY B-ROLL:** Context that prevents audience from seeing Iran as extreme.
+
+**CREATE IN:** Canva - simple comparison graphic
+
+---
+
+#### SHOT 52: TALKING HEAD - Mossadegh Wanted to Change the System (12:11-12:20)
+**SRT #345-349** | **Duration: 9 sec**
+
+> "But there was a difference. Saudi Arabia and Venezuela negotiated from within the system. Mossadegh wanted to change the system itself."
+
+**WHY TALKING HEAD:** Key distinction. Direct delivery.
+
+---
+
+#### SHOT 53: B-ROLL - March 1951 Vote (12:20-12:45)
+**SRT #350-362** | **Duration: 25 sec**
+
+> "On March 15, 1951, the Majlis voted to nationalise oil. The Majlis met on March 15 to cast its historic vote. 96 deputies showed up, including several who had promised the Shah they would stay away. Everyone voted in favour of nationalisation. Even deputies who had promised the Shah they would boycott showed up and voted yes. That's how popular nationalisation was."
+
+**VISUAL:**
+- Majlis chamber photo
+- Text: "MARCH 15, 1951"
+- Vote tally: 96-0
+- Animation showing unanimous vote
+
+**WHY B-ROLL:** Historic moment visualization. The unanimity is striking.
+
+**SOURCES:**
+- Historical Majlis photos
+
+---
+
+#### SHOT 54: TALKING HEAD - Every Single Deputy (12:45-12:57)
+**SRT #363-368** | **Duration: 12 sec**
+
+> "Every single deputy, unanimous. This wasn't Mossadegh imposing his will. This was the Majlis, the constitutional institution Iranians had been fighting for since 1906, exercising its authority."
+
+**WHY TALKING HEAD:** Emphasis on constitutional legitimacy. Direct address.
+
+**NOTE:** Cut candidate identified - "Every single deputy. Unanimous." may be redundant with earlier line.
+
+---
+
+#### SHOT 55: TALKING HEAD - Britain Couldn't Accept (13:00-13:07)
+**SRT #369-371** | **Duration: 7 sec**
+
+> "And that's precisely when Britain couldn't accept it. Britain refused to negotiate."
+
+**WHY TALKING HEAD:** Pivot to British response.
+
+---
+
+#### SHOT 56: B-ROLL - William Fraser Quote (13:07-13:19)
+**SRT #372-376** | **Duration: 12 sec**
+
+> "Sir William Fraser, the chairman of the Anglo-Iranian oil company, put it simply, 'There will be no further concessions.' When negotiation failed, Britain turned to covert action."
+
+**VISUAL:**
+- Quote on screen: "There will be no further concessions." - Sir William Fraser
+- Photo of Fraser if available
+- Transition: negotiating table → shadowy imagery
+
+**WHY B-ROLL:** Primary source quote. Shows British intransigence.
+
+---
+
+#### SHOT 57: TALKING HEAD - Needed American Help (13:19-13:34)
+**SRT #377-381** | **Duration: 15 sec**
+
+> "But they had a problem. Britain couldn't avert role Mossadegh alone. They needed American help. And in 1952, President Truman wasn't interested in coups."
+
+**WHY TALKING HEAD:** Setting up the American angle.
+
+---
+
+#### SHOT 58: B-ROLL - Eisenhower Election (13:34-13:48)
+**SRT #382-387** | **Duration: 14 sec**
+
+> "Then, Eisenhower won the 1952 election. And the British found a way to get American support. Christopher Woodhouse was the MI6 officer who helped plan the operation. This is how he described their strategy."
+
+**VISUAL:**
+- Eisenhower campaign/election imagery
+- Photo of Christopher Woodhouse
+- MI6 insignia
+- Text: "OPERATION BOOT"
+
+**WHY B-ROLL:** Historical transition. New players introduced.
+
+**SOURCES:**
+- Wikimedia: Eisenhower, Woodhouse photos
+
+---
+
+#### SHOT 59: B-ROLL - Woodhouse Quote (13:48-14:05)
+**SRT #388-400** | **Duration: 17 sec**
+
+> "I decided to emphasize the communist threat to Iran, rather than the need to recover control of the oil industry. The British reframed the issue. This wasn't about oil anymore. This was about communism. And the causal chain matters. Britain couldn't overthrow Mossadegh alone. They needed American power. And the only way to get American power was to make Iran about the Cold War, not about oil."
+
+**VISUAL:**
+- Quote on screen: "I decided to emphasize the communist threat to Iran, rather than the need to recover control of the oil industry." - Christopher Woodhouse
+- Cold War imagery
+- Diagram: OIL → COMMUNISM (reframing)
+
+**WHY B-ROLL:** Revelatory quote. Shows the deliberate manipulation.
+
+**CREATE IN:** Canva - quote template + reframing diagram
+
+---
+
+### ACT 6: THE COUP [14:05-18:18]
+
+---
+
+#### SHOT 60: TALKING HEAD - 69-Year-Old Became Communist Threat (14:02-14:20)
+**SRT #401-405** | **Duration: 18 sec**
+
+> "Consequently, a 69-year-old constitutional nationalist became, in American eyes, a communist threat. This is how the coup actually worked. Not the narrative, the mechanism."
+
+**WHY TALKING HEAD:** Transition to coup mechanics. "Not the narrative, the mechanism" signals what follows.
+
+---
+
+#### SHOT 61: B-ROLL - TPAJAX Overview (14:20-14:44)
+**SRT #406-413** | **Duration: 24 sec**
+
+> "The operation had two names. The British called it Operation Boot. The Americans called it TPA Jax. The CIA budgeted $150,000 for propaganda alone, plus additional funds for bribing members of the Majlis. They made weekly payments to newspapers, clerics and street organizers."
+
+**VISUAL:**
+- Infographic: OPERATION BOOT (UK) / TPAJAX (US)
+- Budget breakdown:
+  - $150,000 propaganda
+  - Bribes to Majlis
+  - Newspapers
+  - Clerics
+  - Street organizers
+- CIA document imagery
+
+**WHY B-ROLL:** Mechanism visualization. Shows the infrastructure of the coup.
+
+**CREATE IN:** Canva - operation infographic with money flows
+
+---
+
+#### SHOT 62: B-ROLL - Corruption Network (14:44-14:58)
+**SRT #414-421** | **Duration: 14 sec**
+
+> "They bribed newspapers to print anti-Mossadegh stories. They paid clerics to preach against communist influence. They purchased deputies for a non-confidence vote. They organized street mobs with paid demonstrators."
+
+**VISUAL:**
+- Network diagram showing:
+  - CIA → Newspapers
+  - CIA → Clerics
+  - CIA → Deputies
+  - CIA → Street mobs
+- Money flowing through each channel
+
+**WHY B-ROLL:** Corruption network visualization. Shows systematic nature.
+
+---
+
+#### SHOT 63: TALKING HEAD - The Part Most People Miss (14:58-15:13)
+**SRT #422-428** | **Duration: 15 sec**
+
+> "And when the moment was right, military units would complete the overthrow. But the part that most people miss is this. The CIA didn't just organize a coup. They manufactured the communist threat they claimed to be fighting against."
+
+**WHY TALKING HEAD:** Key insight. Must be delivered with emphasis.
+
+**CAMERA NOTES:** Pause before "They manufactured the communist threat." This is revelatory.
+
+---
+
+#### SHOT 64: B-ROLL - Tudeh Party Explanation (15:13-15:27)
+**SRT #429-437** | **Duration: 14 sec**
+
+> "Iran did have a communist party, the Tudeh. But the Tudeh was an allied with Mossadegh. The CIA decided to make it look like they were. Black propaganda means fake materials designed to look like they came from the enemy."
+
+**VISUAL:**
+- Tudeh Party imagery/logo
+- Diagram: TUDEH ≠ MOSSADEGH (not allied)
+- Text: "BLACK PROPAGANDA"
+- Definition on screen
+
+**WHY B-ROLL:** Context for what follows. Define the term before showing the evidence.
+
+---
+
+#### SHOT 65: B-ROLL - CIA Black Propaganda Quote (15:27-15:55)
+**SRT #438-450** | **Duration: 28 sec**
+
+> "The CIA printed fake Tudeh leaflets, threatening religious leaders with savage punishment if they opposed Mossadegh. CIA agents gave serious attention to alarming the religious leaders at Teheran by issuing black propaganda in the name of the Tudeh party. Threatening these leaders with savage punishment if they opposed Mossadegh."
+
+**VISUAL:**
+- CIA document quote on screen (full attribution)
+- Fake leaflet representation
+- Text highlighting: "SAVAGE PUNISHMENT"
+- Clerics imagery
+
+**WHY B-ROLL:** Most revelatory evidence in the video. PRIMARY SOURCE DISPLAY.
+
+**NOTE:** Cut candidate identified - duplicate lines in SRT #441-447. Remove repetition in edit.
+
+---
+
+#### SHOT 66: TALKING HEAD - What They Created (15:55-16:06)
+**SRT #450-455** | **Duration: 11 sec**
+
+> "They printed fake communist threats to make clerics fear communists. To make clerics oppose Mossadegh. To create the appearance of a communist threat. To justify removing him."
+
+**WHY TALKING HEAD:** Chain of causation. Each sentence builds on the last.
+
+**CAMERA NOTES:** Rhythmic delivery. Short sentences building to conclusion.
+
+---
+
+#### SHOT 67: B-ROLL - August 15 First Attempt (16:06-16:30)
+**SRT #456-470** | **Duration: 24 sec**
+
+> "August 15th 1953. The first coup attempt. The plan was for the Shah to sign a decree dismissing Mossadegh and appointing General Fazlollah Zahedi, a military officer the British and Americans had chosen, as the new prime minister. Military units would then arrest Mossadegh. But someone in the plot leaked the plan. Mossadegh found out. He arrested the officer who came to deliver the decree. The coup had failed."
+
+**VISUAL:**
+- Timeline: AUGUST 15, 1953
+- Text: "FIRST COUP ATTEMPT"
+- Photo of Zahedi
+- Diagram showing the plan
+- Text: "LEAKED" / "FAILED"
+
+**WHY B-ROLL:** Timeline clarity. First attempt visualization.
+
+**SOURCES:**
+- Historical photos of Zahedi
+
+---
+
+#### SHOT 68: B-ROLL - Shah Flees (16:30-16:52)
+**SRT #471-477** | **Duration: 22 sec**
+
+> "The Shah fled to Rome. Washington sent the cable ordering the operation discontinued. 'In view foregoing and in absence strong contrary recommendations from you and Ambassador Henderson, operations against Mossadegh should be discontinued.'"
+
+**VISUAL:**
+- Photo of Shah leaving
+- Map: Tehran → Rome
+- Declassified cable document
+- Quote on screen with attribution
+
+**WHY B-ROLL:** Primary source document. Shows Washington ordered stop.
+
+---
+
+#### SHOT 69: TALKING HEAD - Roosevelt Ignored Order (16:52-17:00)
+**SRT #478-480** | **Duration: 8 sec**
+
+> "Kermit Roosevelt, the CIA officer running the operation in Teheran, ignored the order."
+
+**WHY TALKING HEAD:** Dramatic pivot. Direct delivery.
+
+**CAMERA NOTES:** Let "ignored the order" hang for a beat.
+
+---
+
+#### SHOT 70: B-ROLL - August 19 (17:00-17:13)
+**SRT #481-489** | **Duration: 13 sec**
+
+> "August 19th. Roosevelt organized paid mobs to flood the streets, creating chaos and the appearance of popular opposition to Mossadegh. Military units that had been paid off moved on Mossadegh's house."
+
+**VISUAL:**
+- Timeline: AUGUST 19, 1953
+- Text: "SECOND COUP ATTEMPT"
+- Crowd footage/photos
+- Map showing military movement
+
+**WHY B-ROLL:** The decisive day visualization.
+
+---
+
+#### SHOT 71: B-ROLL - "Mercenary Mob" Quote (17:13-17:27)
+**SRT #488-496** | **Duration: 14 sec**
+
+> "Richard Cottam, who was on CIA staff, later admitted what those crowds actually were. 'That mob that came into North Teheran and was decisive in the overthrow was a mercenary mob. It had no ideology. And that mob was paid with American dollars.'"
+
+**VISUAL:**
+- Quote on screen: Full Cottam quote
+- Text: "MERCENARY MOB"
+- Dollar bills imagery
+- CIA attribution
+
+**WHY B-ROLL:** Damning admission. Primary source display.
+
+---
+
+#### SHOT 72: B-ROLL - Coup Success (17:27-17:39)
+**SRT #497-501** | **Duration: 12 sec**
+
+> "That evening Mossadegh was under arrest. Zahedi was prime minister. And the Shah returned from Rome. The CIA's own internal history, declassified in 2013, states it plainly."
+
+**VISUAL:**
+- Photo of Mossadegh arrest/trial
+- Photo of Zahedi as PM
+- Shah returning
+- CIA document header
+
+**WHY B-ROLL:** Aftermath visualization. Quick sequence of outcomes.
+
+---
+
+#### SHOT 73: B-ROLL - CIA Admission Quote (17:39-17:52)
+**SRT #502-507** | **Duration: 13 sec**
+
+> "The military coup that overthrew Mossadegh and his National Front Cabinet was carried out under CIA direction as an act of US foreign policy, conceived and approved at the highest level of government."
+
+**VISUAL:**
+- Full quote on screen with CIA document attribution
+- Text: "DECLASSIFIED 2013"
+- Official seal/document imagery
+
+**WHY B-ROLL:** The definitive admission. Must be displayed prominently.
+
+---
+
+#### SHOT 74: B-ROLL - Mossadegh Trial Quote (17:52-18:07)
+**SRT #508-513** | **Duration: 15 sec**
+
+> "At his trial Mossadegh said, 'My only crime is that I nationalized the Iranian oil industry and removed from this land the network of colonialism and the political and economic influence of the greatest empire on earth.'"
+
+**VISUAL:**
+- Mossadegh at trial photo
+- Quote on screen (full text)
+- Courtroom imagery
+
+**WHY B-ROLL:** Emotional payoff. His own words.
+
+**DO NOT CUT THIS QUOTE.**
+
+---
+
+#### SHOT 75: B-ROLL - Mossadegh's Fate (18:07-18:18)
+**SRT #514-520** | **Duration: 11 sec**
+
+> "He was sentenced to three years in prison, then house arrest for life. He died in 1967, still under house arrest. The government didn't permit a public funeral. Iran's second democracy crushed."
+
+**VISUAL:**
+- Timeline: 3 years prison → house arrest → 1967 death
+- Photo of elderly Mossadegh
+- Text: "NO PUBLIC FUNERAL PERMITTED"
+- Text: "IRAN'S SECOND DEMOCRACY CRUSHED"
+
+**WHY B-ROLL:** Tragic conclusion to Mossadegh arc.
+
+---
+
+### ACT 7: THE UNCOMFORTABLE TRUTH [18:18-20:59]
+
+---
+
+#### SHOT 76: TALKING HEAD - America's Fault Seems Accurate (18:18-18:34)
+**SRT #521-527** | **Duration: 16 sec**
+
+> "Now, if you've been following the evidence, you might think the America's fault narrative sounds pretty accurate. The CIA did overthrow a democratic government. The documents prove it. And the CIA admitted it."
+
+**WHY TALKING HEAD:** Acknowledging the obvious conclusion before complicating it.
+
+---
+
+#### SHOT 77: B-ROLL - Conspiracy Vocabulary (18:34-18:55)
+**SRT #528-536** | **Duration: 21 sec**
+
+> "And the trauma this created is real. After 1953, Iranian politics became saturated with conspiracy thinking. Political polemics in Iran are replete with such terms as 'Dotayah,' 'Jazuz,' 'Hinyat.' These words, plot, spy, treason, became central to how Iranians talked about politics."
+
+**VISUAL:**
+- Persian text: دوطایه، جاسوس، خیانت
+- English translations: PLOT, SPY, TREASON
+- Newspaper headlines showing conspiracy language
+- Academic quote source
+
+**WHY B-ROLL:** Shows the linguistic evidence of trauma.
+
+---
+
+#### SHOT 78: B-ROLL - "Hidden Hands" Quote (18:55-19:14)
+**SRT #537-546** | **Duration: 19 sec**
+
+> "Every event got explained as foreign conspiracy. Every politician got suspected of being a foreign agent. This vocabulary treats Iranian politics as a puppet show, in which the real players are hidden hands. The belief that real decisions are made by foreign powers operating behind the scenes."
+
+**VISUAL:**
+- Quote on screen: "hidden hands"
+- Puppet/strings imagery (tasteful)
+- Academic source attribution
+
+**WHY B-ROLL:** Explains the psychological legacy.
+
+---
+
+#### SHOT 79: TALKING HEAD - Psychological Legacy (19:14-19:26)
+**SRT #547-551** | **Duration: 12 sec**
+
+> "That's the psychological legacy of 1953. Every regime since then has used the coup as justification. Every failure gets blamed on foreign conspiracies."
+
+**WHY TALKING HEAD:** Direct statement of the problem.
+
+---
+
+#### SHOT 80: TALKING HEAD - Where Narrative Goes Wrong (19:26-19:45)
+**SRT #552-558** | **Duration: 19 sec**
+
+> "So, where does this narrative go wrong? The coup was foreign planned, but it was Iranian executed. The events were steered, executed, and operationalized by Iranians, who were directly, and indirectly, carrying out modified British US plans."
+
+**WHY TALKING HEAD:** The nuance. This is the intellectual contribution.
+
+**CAMERA NOTES:** "Foreign planned, Iranian executed" is the key formulation.
+
+---
+
+#### SHOT 81: B-ROLL - Abrahamian on Mistakes (19:45-19:57)
+**SRT #559-564** | **Duration: 12 sec**
+
+> "Mossadegh and his colleagues made a number of key strategic and tactical mistakes. Most importantly, they failed to create an organization, capable of mobilizing broad support for their movement."
+
+**VISUAL:**
+- Academic quote on screen (Abrahamian)
+- Diagram showing organizational failure
+
+**WHY B-ROLL:** Scholar backing for the nuanced argument.
+
+---
+
+#### SHOT 82: TALKING HEAD - Plan and Money vs Execution (19:57-20:05)
+**SRT #565-568** | **Duration: 8 sec**
+
+> "Foreign powers provided the plan and the money. Iranians provided the execution. And Mossadegh made mistakes."
+
+**WHY TALKING HEAD:** Summary statement. Direct.
+
+---
+
+#### SHOT 83: TALKING HEAD - Specific Mistakes (20:05-20:27)
+**SRT #569-577** | **Duration: 22 sec**
+
+> "He held referendums with separate ballot boxes for yes and no. Anyone could see how you voted. That's not real democracy. He took emergency powers that alienated former allies. He knew General Zahedi was plotting against him, but didn't act decisively."
+
+**WHY TALKING HEAD:** Listing the mistakes. Honest assessment.
+
+**CAMERA NOTES:** Not condemning, just honest. Acknowledging complexity.
+
+---
+
+#### SHOT 84: TALKING HEAD - Does This Justify? (20:27-20:46)
+**SRT #577-583** | **Duration: 19 sec**
+
+> "Does this justify the coup? No. But it explains why the coup succeeded. The CIA didn't overthrow a unified government. They exploited divisions that already existed."
+
+**WHY TALKING HEAD:** Key distinction. Justification ≠ explanation.
+
+---
+
+#### SHOT 85: TALKING HEAD - 1953 Not the Beginning (20:46-20:59)
+**SRT #584-598** | **Duration: 13 sec**
+
+> "And the deeper problem is treating 1953 as the beginning. As we've seen, the pattern started in 1907. Foreign powers destroying Iranian constitutional government. The 1953 coup wasn't a rupture in Iranian history. It was a repetition."
+
+**WHY TALKING HEAD:** Return to thesis. "It was a repetition" echoes earlier.
+
+---
+
+#### SHOT 86: TALKING HEAD - "Learned Helplessness" (20:52-21:03)
+**SRT #593-598** | **Duration: 11 sec**
+
+> "The same pattern, different players. And treating 1953 as the original sin means waiting for America to fix what America broke. That's not a political program. That's learned helplessness."
+
+**WHY TALKING HEAD:** Provocative conclusion. Must land with full weight.
+
+**CAMERA NOTES:** "Learned helplessness" is the diagnosis. Direct eye contact.
+
+---
+
+### CONCLUSION [21:03-22:10]
+
+---
+
+#### SHOT 87: TALKING HEAD - What Evidence Shows (21:03-21:06)
+**SRT #599-600** | **Duration: 3 sec**
+
+> "So this is what the evidence actually shows."
+
+**WHY TALKING HEAD:** Transition to summary.
+
+---
+
+#### SHOT 88: B-ROLL - Full Pattern Summary (21:06-21:30)
+**SRT #601-612** | **Duration: 24 sec**
+
+> "Twice Iranians built constitutional governments. 1906 and 1951. Twice foreign powers allied with domestic authoritarians to destroy it. And each time the same elements, constitutional demands, foreign inconvenience, domestic collaboration and violent suppression. The 1953 coup wasn't unique. It was the second verse of the song started in 1906."
+
+**VISUAL:**
+- Full timeline: 1906 → 1911 → 1951 → 1953
+- Pattern diagram with both cycles shown
+- Text: "SECOND VERSE OF THE SAME SONG"
+
+**WHY B-ROLL:** Visual summary of entire argument.
+
+**CREATE IN:** After Effects - full timeline animation
+
+**NOTE:** Cut candidate - the list explanation (21:06-21:24) may be redundant with the metaphor (21:24-21:30). Consider keeping only the metaphor.
+
+---
+
+#### SHOT 89: TALKING HEAD - What Makes It a Cycle (21:30-21:42)
+**SRT #613-618** | **Duration: 12 sec**
+
+> "But what makes this a cycle, not just repetition, is what happened next. Each suppression radicalized the next generation. The trauma of 1953 shaped everything that came after."
+
+**WHY TALKING HEAD:** Setting up Part 2.
+
+---
+
+#### SHOT 90: B-ROLL - 1979 Tease (21:42-21:57)
+**SRT #619-625** | **Duration: 15 sec**
+
+> "In 1979, Iranians rose up again. Millions in the street. They overthrew the Shah. They promised democracy. And then something strange happened. The revolution that promised freedom created a new system of control."
+
+**VISUAL:**
+- 1979 revolution footage/photos
+- Massive crowds
+- Shah leaving
+- Transition to Islamic Republic imagery
+- Text: "1979"
+
+**WHY B-ROLL:** Visual hook for Part 2.
+
+**SOURCES:**
+- Creative Commons 1979 revolution footage
+
+---
+
+#### SHOT 91: TALKING HEAD - Part 2 Tease (21:57-22:10)
+**SRT #626-632** | **Duration: 13 sec**
+
+> "One that would prove even harder to challenge than the Shah's. How did that happen? And what does it mean that Iranians are still fighting the same fight 120 years later? That is part two."
+
+**WHY TALKING HEAD:** Direct address to camera for series hook. End on anticipation.
+
+**CAMERA NOTES:** "That is part two" should feel like a promise, not a cliffhanger. Confidence.
+
+---
+
+### END OF SHOT-BY-SHOT BREAKDOWN
 
 ---
 

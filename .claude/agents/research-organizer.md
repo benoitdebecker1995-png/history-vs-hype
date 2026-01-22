@@ -27,6 +27,25 @@ Transform raw research into structured production-ready files using the **TWO-PH
 
 ---
 
+## REFERENCE DOCUMENTS (Channel Standards)
+
+**Organize research to meet channel standards defined in:**
+
+1. **`.claude/REFERENCE/primary-sources.md`** - Visual evidence standards
+   - Core mission: Democratize historical methodology by showing sources on screen
+   - Every major claim must have displayable evidence
+   - B-roll distribution: 30-40% total (15-20% maps, 10-15% primary sources)
+   - Source hierarchy for verification (Tier 1-4)
+
+2. **`.claude/REFERENCE/channel-values.md`** - Brand DNA
+   - Evidence-first approach (not narrative flourishes)
+   - Both extremes framework (steel-man both positions)
+   - Academic authority (cite specific sources with page numbers)
+
+**Your research must identify sources that can be SHOWN ON SCREEN, not just cited verbally.**
+
+---
+
 ## CORE WORKFLOW
 
 ### INPUT: User provides topic or existing research
@@ -562,6 +581,364 @@ Provide quote + page number citation for each (required for YouTube description)
 3. Run prompts [X+1]-[Y] in Notebook #2 [if applicable]
 4. Save all responses in 05-notebooklm-output.md
 5. Use responses for script writing
+```
+
+---
+
+## PHASE 4B: DEEP UNDERSTANDING PROMPTS (AUTO-GENERATED)
+
+### Purpose: Go beyond fact extraction to genuine understanding
+
+**CRITICAL**: These prompts ensure you UNDERSTAND the conflict/topic before building your argument. Other YouTubers extract facts and apply a formula. You understand the nuances first.
+
+### Topic Classification System
+
+**When creating NotebookLM prompts, first classify the topic:**
+
+| Topic Type | Indicators | Example Projects |
+|------------|------------|------------------|
+| **Territorial Dispute** | Borders, sovereignty, ICJ, treaties, colonial detachment | Chagos, Belize, Essequibo |
+| **Historical Myth** | "Did X really happen?", misconceptions, popular belief vs evidence | Dark Ages, Crusades defensive? |
+| **Political Fact-Check** | Person's claims, statements to verify, quotes | Fuentes, JD Vance |
+| **Colonial History** | Empire decisions, long-term consequences, partition | Sykes-Picot, India-Pakistan |
+
+### Auto-Generate Deep Understanding Prompts By Type
+
+**ALWAYS include these prompts based on topic type:**
+
+---
+
+### TYPE A: TERRITORIAL DISPUTE PROMPTS
+
+```markdown
+### DEEP UNDERSTANDING: Counterarguments
+
+What are the strongest legal arguments AGAINST [weaker party]'s position?
+
+1. What does [stronger party] argue in their defense?
+2. Are there dissenting legal opinions?
+3. Do any scholars criticize the [ICJ ruling / treaty interpretation]?
+4. What's the argument that [consent was given / territory was legitimately acquired]?
+5. Is there precedent that supports [stronger party]?
+
+I want to steelman [stronger party]'s position before critiquing it.
+```
+
+```markdown
+### DEEP UNDERSTANDING: Comparative Cases
+
+How does [this dispute] compare to other territorial/decolonization disputes?
+
+Compare to:
+1. [Similar case 1] - why similar or different?
+2. [Similar case 2] - why similar or different?
+3. [Case where outcome differed] - what was different?
+4. [Successful resolution case] - what worked?
+
+What makes [this case] unique? What patterns repeat?
+```
+
+```markdown
+### DEEP UNDERSTANDING: Strategic Context
+
+What was the geopolitical context that caused [the original decision]?
+
+1. Why was [territory] strategically valuable at the time?
+2. What were the competing interests?
+3. How did [Cold War / colonial / economic] thinking shape this?
+4. Were alternatives considered?
+5. How did [power dynamics] justify the decision?
+
+I want to explain WHY this happened without excusing it.
+```
+
+```markdown
+### DEEP UNDERSTANDING: Third Party Critique
+
+What are legitimate criticisms of [the party claiming victimhood]?
+
+1. Did [victim party] benefit from the original arrangement?
+2. How has [victim party] treated [affected population] domestically?
+3. Why was [affected population] excluded from negotiations?
+4. Is [victim party] using [affected population] as pawns?
+5. What do [affected population] advocacy groups say about [victim party]?
+
+I need to critique BOTH sides fairly.
+```
+
+```markdown
+### DEEP UNDERSTANDING: Legal Framework
+
+Explain the legal theory of [relevant doctrine] as it applies to [this case].
+
+1. What is [self-determination / sovereignty / treaty law] under international law?
+2. How did [court/body] apply it here?
+3. What's the difference between [competing legal concepts]?
+4. Does [third party] have a SEPARATE right under this framework?
+5. How do legal scholars debate this question?
+
+I want to understand the legal framework, not just the ruling.
+```
+
+```markdown
+### DEEP UNDERSTANDING: Scholarly Disagreements
+
+Where do scholars and experts disagree about [this case]?
+
+1. Is there academic debate about whether [key claim] is accurate?
+2. Do legal scholars disagree about [court's] jurisdiction or reasoning?
+3. Is there debate about [definitions / categories]?
+4. Do historians disagree about [motivations / causes]?
+5. What's contested vs. what's consensus?
+
+Show me where the experts don't agree.
+```
+
+```markdown
+### DEEP UNDERSTANDING: What Am I Missing?
+
+Based on everything in these sources, what important context or nuance might I be missing about [this dispute]?
+
+1. What complexity gets lost in simplified narratives?
+2. What do journalists typically get wrong about this case?
+3. What would experts wish the public understood better?
+4. Are there aspects that don't fit neatly into "[Party A] bad / [Party B] victim" framing?
+5. What questions remain genuinely unresolved?
+
+Challenge my assumptions.
+```
+
+---
+
+### TYPE B: HISTORICAL MYTH PROMPTS
+
+```markdown
+### DEEP UNDERSTANDING: Steelman the Myth
+
+What's the STRONGEST version of the "[myth]" argument?
+
+1. What evidence do proponents cite?
+2. Which legitimate historians (if any) support elements of this?
+3. What kernel of truth exists in the myth?
+4. Why does this myth persist? What psychological need does it serve?
+5. What would I need to prove to show the myth is entirely wrong?
+
+I need to steelman before I debunk.
+```
+
+```markdown
+### DEEP UNDERSTANDING: How the Myth Developed
+
+How did the "[myth]" narrative develop historically?
+
+1. When did this interpretation first appear?
+2. Who popularized it and why?
+3. What political/cultural purposes did it serve?
+4. How has the myth evolved over time?
+5. What's the historiographical trajectory?
+
+Understanding the myth's history helps explain why it persists.
+```
+
+```markdown
+### DEEP UNDERSTANDING: Nuance Within the Myth
+
+What parts of "[myth]" are TRUE vs FALSE vs COMPLICATED?
+
+1. ✅ What elements are actually accurate?
+2. ❌ What elements are demonstrably false?
+3. ⚠️ What elements are oversimplified but contain truth?
+4. Where do historians still genuinely disagree?
+5. What's the most accurate one-sentence summary?
+
+I want nuance, not just "myth = wrong."
+```
+
+```markdown
+### DEEP UNDERSTANDING: Counter-Evidence
+
+What's the strongest evidence AGAINST my debunking?
+
+1. What would critics of my position argue?
+2. Are there legitimate scholars who disagree with the consensus I'm presenting?
+3. What evidence might seem to support the myth?
+4. What caveats should I include?
+5. Where might I be oversimplifying in the opposite direction?
+
+Keep me honest.
+```
+
+```markdown
+### DEEP UNDERSTANDING: Modern Stakes
+
+Why does debunking "[myth]" matter TODAY?
+
+1. Who uses this myth politically in 2024-2025?
+2. What real-world consequences does believing this myth have?
+3. How does the myth connect to current debates?
+4. What's at stake if this myth continues to spread?
+5. Why should a viewer care about historical accuracy on this topic?
+
+Connect history to present stakes.
+```
+
+---
+
+### TYPE C: POLITICAL FACT-CHECK PROMPTS
+
+```markdown
+### DEEP UNDERSTANDING: Steelman the Claims
+
+What's the most charitable interpretation of [person]'s claims?
+
+1. What context might make their statements less problematic?
+2. Are they quoting or paraphrasing others?
+3. What legitimate grievances might underlie their position?
+4. Where might they have a point, even if overstated?
+5. What would their defenders say?
+
+I need to steelman before fact-checking.
+```
+
+```markdown
+### DEEP UNDERSTANDING: Source Evaluation
+
+For each primary source I'm using to fact-check:
+
+1. Is this source the BEST evidence, or just convenient?
+2. Could this source be interpreted differently?
+3. What would [person being fact-checked] say about this source?
+4. Are there sources that support their position I should address?
+5. Am I cherry-picking, or is this representative?
+
+Ensure my fact-check is watertight.
+```
+
+```markdown
+### DEEP UNDERSTANDING: Broader Context
+
+What broader context shapes [person]'s statements?
+
+1. What movement or ideology are they part of?
+2. What's the historical lineage of these ideas?
+3. Who else makes similar claims?
+4. What are they responding to?
+5. Why does this message resonate with their audience?
+
+I want to explain the phenomenon, not just fact-check isolated claims.
+```
+
+```markdown
+### DEEP UNDERSTANDING: My Own Bias
+
+Where might MY biases affect this fact-check?
+
+1. Am I holding [person] to a higher standard than others?
+2. Would I fact-check someone I agree with the same way?
+3. Am I addressing their strongest arguments or weakest?
+4. What would a neutral observer say about my framing?
+5. How do I maintain credibility with viewers who like [person]?
+
+Keep the fact-check rigorous and fair.
+```
+
+---
+
+### TYPE D: COLONIAL HISTORY PROMPTS
+
+```markdown
+### DEEP UNDERSTANDING: Multiple Perspectives
+
+What are the competing narratives about [colonial event/decision]?
+
+For each perspective:
+1. **Colonial power's view:** How did [Britain/France/etc.] justify this at the time? How do they frame it now?
+2. **Successor state's view:** How does [modern country] frame this history?
+3. **Affected population's view:** What do the people most impacted say?
+4. **Academic consensus:** Where do historians agree/disagree?
+
+I need ALL perspectives before judging.
+```
+
+```markdown
+### DEEP UNDERSTANDING: Long-Term Consequences
+
+What are the documented long-term consequences of [colonial decision]?
+
+1. Immediate effects (0-10 years)
+2. Medium-term effects (10-50 years)
+3. Long-term effects (50+ years to present)
+4. Unintended consequences
+5. Contested causation (what's debated)
+
+Connect 1800s/1900s decisions to 2020s conflicts.
+```
+
+```markdown
+### DEEP UNDERSTANDING: Agency and Complexity
+
+How do we avoid oversimplifying [colonial situation]?
+
+1. What agency did local actors have?
+2. Were there local collaborators? Why?
+3. Was there resistance? What forms?
+4. What internal divisions existed before colonialism?
+5. How did colonialism interact with pre-existing power structures?
+
+Avoid both "colonialism explains everything" and "colonialism was harmless."
+```
+
+```markdown
+### DEEP UNDERSTANDING: Comparative Colonialism
+
+How does [this colonial case] compare to others?
+
+1. Same colonizer, different colonies - what patterns?
+2. Different colonizers, similar outcomes - why?
+3. Cases where decolonization went better - what was different?
+4. Cases where decolonization went worse - why?
+5. What's unique about this case?
+
+Patterns reveal systemic issues vs. specific failures.
+```
+
+---
+
+### Implementation Instructions
+
+**When generating NotebookLM prompts:**
+
+1. **Classify the topic** into Type A/B/C/D (or hybrid)
+2. **Include ALL standard prompts** from Phase 4 (fact extraction)
+3. **Add ALL deep understanding prompts** for the relevant type
+4. **Customize placeholders** with specific names/cases
+5. **Order prompts:** Fact extraction first → Deep understanding second → Production third
+
+**Run Order Template:**
+
+```markdown
+## RUN ORDER
+
+**Phase 1: Fact Extraction (Prompts 1-X)**
+- [Standard document-specific prompts]
+- [Timeline verification]
+- [Key statistics]
+
+**Phase 2: Deep Understanding (Prompts X+1 to Y)** ⭐ CRITICAL
+- Steelman opposing position
+- Comparative cases
+- Strategic/historical context
+- Third party / affected population critique
+- Legal/theoretical framework
+- Scholarly disagreements
+- "What am I missing?"
+
+**Phase 3: Video Production (Prompts Y+1 to Z)**
+- Structure the argument
+- Fact verification
+- B-roll quotes
+- Script review
+- Source citations
 ```
 
 ---

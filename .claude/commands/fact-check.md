@@ -62,10 +62,40 @@ You are fact-checking a video script for the History vs Hype YouTube channel. Th
    - Statistics without clear methodology
    - "Common knowledge" that can't be verified
 
-5. **Generate fact-check report:**
+5. **Run simplification detection:**
+
+   **CRITICAL: Before generating report, scan script for simplification patterns**
+
+   Read `.claude/FACT-CHECK-SIMPLIFICATION-RULES.md` and check for:
+   - Territorial claims without boundaries/percentages (Rule 1)
+   - Present tense for past positions (Rule 2)
+   - Absolutist language without qualifiers (Rule 3)
+   - Statistics without context (Rule 4)
+   - Contested claims as facts (Rule 5)
+   - Quotes without specific attribution (Rule 6)
+   - Complex events oversimplified (Rule 7)
+   - Vague timelines (Rule 8)
+
+   Flag each violation with severity:
+   - 🔴 CRITICAL - Will cause viewer confusion or factual error
+   - 🟡 IMPORTANT - Reduces accuracy, should fix
+   - 🟢 RECOMMENDED - Improves clarity, nice to have
+
+6. **Generate fact-check report:**
 
    ```markdown
    # FACT-CHECK REPORT: [Script Title]
+
+   ## 🚨 SIMPLIFICATION FLAGS
+
+   ### 🔴 CRITICAL - Fix before filming
+   [List Rule 1, 2, 6 violations with suggested fixes]
+
+   ### 🟡 IMPORTANT - Should fix
+   [List Rule 3, 4, 5 violations with suggested fixes]
+
+   ### 🟢 RECOMMENDED - Improves clarity
+   [List Rule 7, 8 violations with suggested fixes]
 
    ## ✅ VERIFIED CLAIMS (Source confirmed)
    1. [Claim] → Source: [Exact citation]
@@ -88,7 +118,8 @@ You are fact-checking a video script for the History vs Hype YouTube channel. Th
 
    ## OVERALL ASSESSMENT
    - Ready to film? [YES/NO]
-   - Critical issues: [Number]
+   - Critical simplifications: [Number]
+   - Source issues: [Number]
    - Recommendations: [What needs to be fixed/added]
    ```
 
@@ -105,6 +136,10 @@ Before approving for filming:
 - [ ] At least 2 sources for each major point
 - [ ] No logical fallacies in arguments
 - [ ] Counter-evidence acknowledged where relevant
+- [ ] **Simplification check complete** (all 🔴 CRITICAL flags resolved)
+- [ ] Territorial claims have specific boundaries/percentages
+- [ ] Present-tense statements have temporal accuracy
+- [ ] Attributions have specific sources (video timestamp, document, interview date)
 
 ## Key Principle
 

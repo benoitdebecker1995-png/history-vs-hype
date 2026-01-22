@@ -255,7 +255,7 @@ For each claim in script:
 ## ACADEMIC PEER REVIEW (Optional Extra Quality Check)
 
 **If you want journal-publication-level verification**, run the script through:
-`.claude/ACADEMIC-PEER-REVIEW-PROTOCOL.md`
+`.claude/_ARCHIVE/ACADEMIC-PEER-REVIEW-PROTOCOL.md`
 
 This adds:
 - Source tier verification

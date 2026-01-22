@@ -28,7 +28,7 @@ Time: 5.5 hours | Errors: 0
 ### 1. Create New Project
 
 ```bash
-/new-video-verified
+/new-video
 ```
 
 This creates:
@@ -73,6 +73,30 @@ This creates:
 ```
 
 **Don't proceed until:** 90%+ claims marked ✅ VERIFIED
+
+---
+
+### 2.5. Choose Format Template (NEW - 2026-01-04) (5 minutes)
+
+**Before writing, identify if topic fits a signature format:**
+
+**Format Options:**
+1. ⭐ **BOTH EXTREMES ARE WRONG** - Two polarized online claims? (Primary series)
+2. **DOCUMENT SHOWDOWN** - Two competing documents? (Secondary series)
+3. **TREATY AUTOPSY** - Legal treaty with modern dispute? (ICJ cases)
+4. **THE MAP THEY IGNORED** - Documented alternative borders? (Quarterly)
+5. **SAME DAY DIFFERENT WAR** - Multiple theaters, same date? (Special)
+6. **CUSTOM** - None fit? (Write custom structure)
+
+**If format identified:**
+- See `.claude/REFERENCE/FORMAT-TEMPLATES.md` for full Act structure
+- Follow template exactly (builds viewer expectations)
+- Use series branding (title formula, intro, thumbnail)
+
+**Example:** Medieval Flat Earth = "Both Extremes Are Wrong" format
+- Extreme A: Modern flat-earthers claim medieval "truth"
+- Extreme B: Science advocates claim Church suppressed knowledge
+- Act structure: False binary → Debunk A → Debunk B → Real story
 
 ---
 
@@ -219,7 +243,7 @@ Uses `.claude/ACADEMIC-PEER-REVIEW-PROTOCOL.md`:
 
 ### Start new video:
 ```bash
-/new-video-verified
+/new-video
 ```
 
 ### Extract claims from YouTube video:
@@ -436,7 +460,7 @@ All templates in: `.claude/templates/`
 - `.claude/agents/fact-checker.md` (fact-checking agent rules)
 
 **Project setup:**
-- `.claude/commands/new-video-verified.md` (project initialization)
+- `.claude/commands/new-video.md` (project initialization)
 - `.claude/FOLDER-STRUCTURE-GUIDE.md` (where files go)
 
 ---
@@ -467,7 +491,7 @@ All templates in: `.claude/templates/`
 
 ## NEXT VIDEO: ACTION PLAN
 
-1. **Run:** `/new-video-verified`
+1. **Run:** `/new-video`
 2. **Open:** `01-VERIFIED-RESEARCH.md`
 3. **Research:** Verify facts in NotebookLM, add to research doc as you go
 4. **Check:** 90%+ verified? → Proceed to Phase 2

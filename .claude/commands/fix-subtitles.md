@@ -85,3 +85,25 @@ After fixing, report:
 - List of name corrections
 - Any date fixes
 - File is ready for upload
+
+---
+
+## BONUS: Extract Chapter Timestamps (Added 2025-12-12)
+
+**If asked to update YouTube metadata, you can extract chapter timestamps from SRT files.**
+
+**Process:**
+1. Read the SRT file
+2. Note the timestamp offset (often starts at 01:00:00 instead of 00:00:00)
+3. Identify topic transitions by reading subtitle content
+4. Convert SRT timestamps to video timestamps (subtract offset)
+5. Create chapter list for YOUTUBE-METADATA.md
+
+**Example:**
+```
+SRT shows: 01:05:02 → "The Carolingians provided the ambition"
+Actual video timestamp: 5:02 (subtract 1 hour offset)
+Chapter: "5:02 - Charlemagne's cultural revolution"
+```
+
+**This saves manual chapter timestamp creation during editing.**

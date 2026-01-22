@@ -10,7 +10,7 @@ You are generating YouTube metadata for a History vs Hype video.
 
 1. **Find the script:**
    ```
-   - Use Glob to find script: video-projects/**/*FINAL-SCRIPT.md
+   - Use Glob to find script: video-projects/**/SCRIPT.md
    - Read the script to understand content
    - Extract title, runtime estimate, structure
    ```

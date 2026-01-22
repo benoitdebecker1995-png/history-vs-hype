@@ -1,432 +1,296 @@
 # Video Projects Status Tracker
 
-**Last Updated:** 2025-01-21
-**Active Projects:** 6
-**Ready to Film:** 1
-**Total Subscribers:** 169
-**Target:** Consistent quality over quantity
+**Last Updated:** 2025-12-22
+**Active Projects:** 15
+**Ready to Film:** 2
+**Total Subscribers:** 197
+**Total Views:** 82K+
+**Watch Time:** 590+ hours
+**Target:** Quality over quantity, always
 
 ---
 
-## 🎬 READY TO FILM (Priority Order)
+## Quick Status Overview
 
-### 1. Sykes-Picot Agreement Myths 🔥 HIGH PRIORITY
+| # | Project | Hook Type | Phase | Priority | Status |
+|---|---------|-----------|-------|----------|--------|
+| 1 | Sykes-Picot | Territorial | Ready to Film | HIGH | Ready |
+| 2 | Heritage/Protocols | Ideological | Research Done | Medium | On Hold |
+| 3 | Fuentes Fact-Check | Ideological | Script Done | Medium-High | Ready |
+| 4 | Crusades (Hegseth) | Ideological | Script Done | HIGH | Ready |
+| 5 | Netanyahu Map | Territorial | Deprioritized | LOW | On Hold |
+| 6 | Bir Tawil | Territorial | Script Done | HIGH | Ready |
+| 7 | Genocide Definition | Ideological | Early Research | Medium | Planning |
+| 8 | Medieval Women | Ideological | Early Research | Medium | Planning |
+| 9 | Communism Definition | Ideological | Script Done | Medium | Ready |
+| 10 | Dark Ages | Ideological | Script Done | Medium | Ready |
+| 11 | Industrial Revolution | Ideological | Script Done | Medium | Ready |
+| 12 | Guatemala Maya | Territorial | Early Research | Low | Planning |
+| 13 | Belize ICJ | Territorial | Script V3 Done | HIGH | Ready |
+| 14 | Christmas Origins | Ideological | Script Done | URGENT | Ready |
+| - | Vance Part 2 | Ideological | Script Done | Medium | On Hold |
+
+---
+
+## READY TO FILM
+
+### 1. Sykes-Picot Agreement Myths
 **Location:** `_READY_TO_FILM/1-sykes-picot-2025/`
-**Status:** ✅ 98% Complete - READY TO FILM
-**Topic:** Politicians blame Sykes-Picot for modern Middle East conflicts - but what did it actually do?
+**Hook Type:** Territorial
+**Status:** Ready to Film
+**Modern Hook:** Politicians blame Sykes-Picot for modern Middle East conflicts
 
-**Completion Status:**
-- [x] Research complete
-- [x] Script finalized
-- [x] Fact-checking verified (98%)
-- [x] B-roll checklist created
-- [x] Retention optimized
-- [x] Modern relevance confirmed
-- [ ] Download 1893 Ottoman map (final B-roll item)
-- [ ] Film
+**Files Ready:**
+- Script verified
+- B-roll checklist
+- YouTube metadata
+- Editing guide (shot-by-shot)
 
-**Next Action:** Download remaining B-roll, then film
-**Expected Performance:** 800-1,200 views
-**Target Filming Date:** Within 1 week
-**Notes:** Strong retention predicted, clear modern relevance, proven territorial dispute format
+**Next Action:** Film
 
 ---
 
-## 🚧 IN PRODUCTION
+### 14. Christmas Origins (Sol Invictus)
+**Location:** `_IN_PRODUCTION/4-christmas-origins-2025/`
+**Hook Type:** Ideological
+**Status:** Ready to Film - URGENT (Thursday publish deadline)
+**Modern Hook:** "Christmas is pagan" claim resurfaces every December
 
-### 2. JD Vance Part 2 - Christian Civilization Claims
-**Location:** `_IN_PRODUCTION/vance-part-2-review/`
-**Status:** ⏸️ ON HOLD - Script ready, awaiting timing decision
-**Topic:** Fact-checking Vance's claims about Christianity and Western civilization
+**Files Ready:**
+- 01-VERIFIED-RESEARCH.md (NotebookLM fact-checked)
+- 02-SCRIPT-DRAFT.md (VidIQ optimized)
+- YOUTUBE-METADATA.md
 
-**Completion Status:**
-- [x] Research complete
-- [x] Script written
-- [x] Fact-checking complete
-- [x] Multiple version iterations
-- [ ] Final timing decision
-- [ ] B-roll preparation
-- [ ] Film
-
-**Next Action:** Decide on publication timing (political sensitivity)
-**Expected Performance:** 500-900 views (political fact-check)
-**Priority:** Medium
-**Notes:** Script solid, but timing matters for political content
+**Title:** Sol Invictus: The 274 AD Mistake That Changed Christmas
+**Next Action:** Film Thursday, publish before Christmas
 
 ---
 
-### 3. Heritage Foundation / Protocols of Zion
-**Location:** `_IN_PRODUCTION/2-heritage-protocols-2025/`
-**Status:** 📚 RESEARCH COMPLETE - Awaiting production start
-**Topic:** From 1903 forgery to modern terrorism - tracing antisemitic conspiracy
+## SCRIPTS COMPLETED (Need to Move to Ready)
 
-**Completion Status:**
-- [x] Research complete
-- [x] NotebookLM prompts prepared
-- [x] Modern hook identified (Heritage Foundation controversy)
-- [ ] Script writing
-- [ ] Fact-checking
-- [ ] B-roll planning
-- [ ] Film
-
-**Next Action:** Begin scripting after Sykes-Picot filmed
-**Expected Performance:** 2,800-4,200 views
-**Priority:** Medium
-**Demonetization Risk:** 70-80% (HIGH)
-**Notes:** Research complete, saving for after Sykes-Picot due to monetization concerns
-
----
-
-### 4. Crusades Fact-Check (Pax Dei) 🎬
+### 4. Crusades Fact-Check (Hegseth Connection)
 **Location:** `_IN_PRODUCTION/4-crusades-fact-check-2025/`
-**Status:** 📝 FINALIZING - Ready for filming soon
-**Topic:** Fact-checking modern crusades claims (Pete Hegseth connection identified)
+**Hook Type:** Ideological
+**Modern Hook:** Pete Hegseth's "Crusades were defensive" claims
+**Hook Strength:** 5/5 (Defense Secretary, active discourse)
 
-**Completion Status:**
-- [x] Research complete
-- [x] Script drafted
-- [x] B-roll checklist created
-- [x] Modern hook potential: Pete Hegseth (Defense Secretary, "Deus Vult")
-- [ ] Final script polish
-- [ ] Film
-
-**Next Action:** Complete final edits, then film
-**Expected Performance:** 800-1,200 views (if Hegseth hook added)
-**Priority:** HIGH (filming next)
-**Notes:** Could pivot to include Hegseth's "crusades were defensive" claims for stronger modern hook
+**Files:** FINAL-SCRIPT.md, B-ROLL-CHECKLIST.md, EDITING-GUIDE.md
+**Next Action:** Final review, then move to _READY_TO_FILM
 
 ---
 
-### 5. Nick Fuentes Fact-Check (2 Claims)
-**Location:** `_IN_PRODUCTION/3-fuentes-fact-check-2025/`
-**Status:** 📚 PRELIMINARY RESEARCH COMPLETE
-**Topic:** Debunking Holocaust denial math + January 6/Founding Fathers comparison
-
-**Completion Status:**
-- [x] Topic validated (2 strong claims)
-- [x] Primary sources verified and located
-- [x] Modern hook confirmed (Tucker interview 20M views)
-- [x] Preliminary research complete
-- [ ] Source recommendations for NotebookLM
-- [ ] NotebookLM research
-- [ ] Script writing
-- [ ] Fact-checking verification
-- [ ] B-roll acquisition
-- [ ] Film
-
-**Claims to Debunk:**
-1. **Holocaust Math:** "15 ovens can't cremate 6M" - Debunk with Korherr Report, Höfle Telegram, Auschwitz blueprints
-2. **January 6:** "Founders would take country by force" - Debunk with Olive Branch Petition, 2+ years peaceful attempts
-
-**Next Action:** Create source recommendations, set up NotebookLM
-**Expected Performance:** 800-1,500 views
-**Priority:** Medium-High (viral misinformation counter)
-**Demonetization Risk:** 60-70% (Holocaust content = manual review)
-**Notes:** All primary sources (Tier 1) verified and accessible. Strong documentary debunks for both claims.
-
----
-
-### 6. Netanyahu "Redrawn the Map"
-**Location:** `_IN_PRODUCTION/5-netanyahu-map-2025/`
-**Status:** ⏸️ DEPRIORITIZED - Feels too modern geopolitics, not enough history
-**Topic:** Fact-checking Netanyahu's claim that Israel has "redrawn the map of the Middle East"
-
-**Completion Status:**
-- [x] Research complete (Sykes-Picot → present)
-- [x] Script draft V1 (1,126 words, 10:15 runtime)
-- [x] B-roll checklist (30-35 assets identified)
-- [x] Fact-check verification spreadsheet (57 claims tracked)
-- [x] YouTube metadata prepared
-- [x] NotebookLM source list and prompts created
-- [ ] Verification (38% complete, need 90%+)
-- [ ] B-roll acquisition
-- [ ] Script refinement with verified facts
-- [ ] Film
-
-**Decision:** User correctly identified this feels like modern geopolitics analysis rather than historical myth-busting. Research is solid but doesn't match "History vs Hype" DNA. May revisit later but focusing on better-fit content now.
-
-**Next Action:** Consider repurposing research for Lebanon borders video (better historical focus)
-**Expected Performance:** 600-1,000 views (territorial dispute + political figure)
-**Priority:** LOW (deprioritized)
-**Demonetization Risk:** 20-30% (Low-Medium)
-**Notes:** Strong research foundation but wrong tone for channel. Lebanon borders is better angle for this region.
-
----
-
-### 7. Bir Tawil - Only Unclaimed Land on Earth 🆕🔥💎
+### 6. Bir Tawil - Only Unclaimed Land
 **Location:** `_IN_PRODUCTION/6-bir-tawil-2025/`
-**Status:** 📚 RESEARCH COMPLETE - Breakout video candidate
-**Topic:** The 800-square-mile desert between Egypt and Sudan that neither country claims
+**Hook Type:** Territorial
+**Modern Hook:** Viral curiosity ("land nobody owns")
+**Hook Strength:** 4/5 (evergreen interest, viral potential)
 
-**Completion Status:**
-- [x] Research complete (1899/1902 British colonial borders)
-- [x] Project brief created (viral potential analysis)
-- [x] Research summary (comprehensive historical context)
-- [ ] VidIQ validation (test titles, search volume)
-- [ ] Primary source verification (treaties, maps)
-- [ ] Script writing (target: 6-8 min, 800-900 words)
-- [ ] B-roll acquisition (maps essential)
-- [ ] Film
-
-**The Hook:** Only habitable land on Earth with no owner. Why? British drew TWO different borders in 1899 and 1902. Both Egypt and Sudan reject Bir Tawil because claiming it costs them the valuable Hala'ib Triangle on the Red Sea.
-
-**Why This Could Go Viral:**
-- Unique story nobody owns on YouTube
-- Extreme shareability ("land nobody owns" = instant conversation)
-- Curiosity-driven, algorithm-friendly
-- Human interest angle (Virginia dad claims it to make daughter a princess, 2014)
-- Perfect channel fit (colonial border fuckup)
-- High search volume (15K/month "Bir Tawil", 50K/month "unclaimed land")
-- Near-zero demonetization risk
-
-**The Paradox:**
-- 1899: British set border at 22nd parallel (straight line)
-- 1902: Redraw based on tribal land use (irregular line)
-- Egypt claims 1899 line → gets Hala'ib, rejects Bir Tawil
-- Sudan claims 1902 line → gets Hala'ib, rejects Bir Tawil
-- Both want Hala'ib (10x bigger, Red Sea access, manganese, oil)
-- Neither claims Bir Tawil (landlocked desert, no value)
-
-**Next Action:** VidIQ title testing, then script development
-**Expected Performance:** 3,000-8,000 views (conservative: 3-5K, breakout: 10-25K+)
-**Priority:** 🔥 HIGH - Film after crusades, potential breakout video
-**Demonetization Risk:** 5% (VERY LOW - no controversy, family-friendly story)
-**Strategic Value:** Evergreen content, strong SEO, content cluster starter (British colonial borders series)
-**Notes:** This checks every box for viral potential. Unique, shareable, perfect channel fit, low risk, high reward.
+**Files:** SCRIPT-V4-FINAL.md (needs rename to FINAL-SCRIPT.md)
+**Breakout Potential:** High (3K-8K views, possibly viral)
+**Next Action:** Rename script, move to _READY_TO_FILM
 
 ---
 
-## 📊 PROJECT PIPELINE
+### 3. Fuentes Fact-Check (Holocaust Math + Jan 6)
+**Location:** `_IN_PRODUCTION/3-fuentes-fact-check-2025/`
+**Hook Type:** Ideological
+**Modern Hook:** Tucker Carlson interview (20M views)
+**Hook Strength:** 4/5 (viral misinformation counter)
 
-### Quick Status Overview:
-| Project | Phase | Priority | Filming Target | Expected Views |
-|---------|-------|----------|----------------|----------------|
-| Sykes-Picot | Ready to Film | 🔥 HIGH | This week | 800-1.2K |
-| Crusades (Pax Dei) | Finalizing | 🔥 HIGH | Next | 800-1.2K |
-| Bir Tawil | Research Done | 🔥💎 BREAKOUT | 2-3 weeks | 3-8K (viral) |
-| Vance Part 2 | On Hold | Medium | TBD | 500-900 |
-| Netanyahu Map | Deprioritized | LOW | TBD | 600-1K |
-| Heritage/Protocols | Research Done | Medium | 4-5 weeks | 2.8-4.2K |
-| Fuentes Fact-Check | Research Phase | Medium-High | 5-6 weeks | 800-1.5K |
+**Files:** FINAL-SCRIPT.md, YOUTUBE-METADATA.md, B-ROLL-CHECKLIST.md
+**Demonetization Risk:** 60-70%
+**Next Action:** Review for filming readiness
 
 ---
 
-## 🎯 NEXT STEPS (Prioritized)
+### 13. Belize ICJ Endgame
+**Location:** `_IN_PRODUCTION/13-belize-icj-endgame-2025/`
+**Hook Type:** Territorial
+**Modern Hook:** Ongoing ICJ case, territorial dispute resolution
 
-### This Week:
-1. **Crusades:** Final polish and film
-2. **Bir Tawil:** VidIQ title testing and validation
-3. **Bir Tawil:** Download 1899/1902 treaties and maps
-4. **Bir Tawil:** Begin script development (target 6-8 min)
-
-### Next 2-3 Weeks:
-1. **Crusades:** Edit and publish
-2. **Bir Tawil:** Complete script and fact-checking (90%+ target)
-3. **Bir Tawil:** Source B-roll materials (maps essential, Heaton news coverage)
-4. **Bir Tawil:** Film and edit (potential breakout video)
-5. **Crusades:** Analyze published performance
-
-### Long-Term (1-2 Months):
-1. Build pipeline of 2-3 ready-to-film scripts
-2. Maintain consistent upload schedule (2-3 videos/week)
-3. Focus on monetizable content while channel grows
-4. Monitor trending topics for quick-turn fact-checks
+**Files:** FINAL-SCRIPT-V3.md (needs cleanup - multiple versions exist)
+**Issue:** Has V1, V2, V3 - need to consolidate
+**Next Action:** Clean up versions, move to _READY_TO_FILM
 
 ---
 
-## 📈 PERFORMANCE TRACKING
+### 9. Communism Definition
+**Location:** `_IN_PRODUCTION/9-communism-definition-2025/`
+**Hook Type:** Ideological
+**Modern Hook:** Political debates misuse the term
+**Hook Strength:** 4/5 (constant political discourse)
 
-### Current Channel Performance:
-- **Subscribers:** 169 (+132 from 37 baseline)
-- **Total Views:** 82,649
-- **Watch Time:** 590.8 hours
-- **Average Retention:** 30-35%
-- **Top Video:** Venezuela/Guyana Essequibo (1,905 views, 19 subs gained)
-
-### Content Strategy Working:
-✅ Territorial disputes with modern news hooks
-✅ Political fact-checking (timely, controversial)
-✅ Primary source evidence on screen
-✅ Academic balance with accessible delivery
-✅ 8-12 minute format
-
-### Content to Develop More:
-- Border dispute deep-dives (proven format)
-- Political fact-checks (trending, high engagement)
-- Colonial myth-busting (core mission)
-- Modern geopolitical analysis grounded in history
+**Files:** FINAL-SCRIPT-V2-EDITED.md (needs rename)
+**Next Action:** Rename to FINAL-SCRIPT.md
 
 ---
 
-## 🎬 FILMING CAPACITY
+### 10. Dark Ages Myth
+**Location:** `_IN_PRODUCTION/10-dark-ages-2025/`
+**Hook Type:** Ideological
+**Modern Hook:** Western civilization narratives
+**Hook Strength:** 3/5 (evergreen ideological)
 
-### Realistic Production Schedule:
-- **Current:** Can film 1-2 videos/week when scripts ready
-- **Bottleneck:** Research and fact-checking (most time-intensive)
-- **Goal:** Build 2-3 week buffer of ready-to-film content
-
-### Time Estimates:
-- **Research:** 4-6 hours (with NotebookLM)
-- **Scripting:** 3-4 hours
-- **Fact-checking:** 2-3 hours
-- **Filming:** 1-2 hours
-- **Editing:** 4-6 hours
-- **Total per video:** 14-21 hours
-
-**Target:** 2-3 videos published per week when fully optimized
+**Files:** FINAL-SCRIPT-V2-EDITED.md (needs rename)
+**Next Action:** Rename to FINAL-SCRIPT.md
 
 ---
 
-## 🚀 STRATEGIC PRIORITIES
+### 11. Industrial Revolution
+**Location:** `_IN_PRODUCTION/11-industrial-revolution-2025/`
+**Hook Type:** Ideological
+**Modern Hook:** Economic system debates
+**Hook Strength:** 3/5 (evergreen ideological)
 
-### Growth Phase Focus:
-1. **Quality over quantity** - Every video meets standards
-2. **Monetizable content first** - Build revenue while growing
-3. **Proven formats** - Territorial disputes performing well
-4. **Modern relevance** - Connect to current events
-5. **Build library** - Create evergreen content catalog
-
-### Content Balance:
-- 50% Territorial disputes (proven, monetizable)
-- 30% Political fact-checks (trending, viral potential)
-- 20% Historical myth-busting (educational, core mission)
+**Files:** FINAL-SCRIPT-V2-REVISED.md (needs rename)
+**Next Action:** Rename to FINAL-SCRIPT.md
 
 ---
 
-## 📝 PROJECT HEALTH INDICATORS
+## ON HOLD
 
-### Green Flags (All Projects Healthy):
-✅ Research systematically documented
-✅ Fact-checking protocols followed
-✅ Multiple projects in pipeline
-✅ Clear modern relevance for each topic
-✅ B-roll planning comprehensive
+### Vance Part 2 - Christian Civilization
+**Location:** `_IN_PRODUCTION/vance-part-2-review/`
+**Hook Type:** Ideological
+**Status:** Script ready, timing decision needed
 
-### Current Issues to Address:
-⚠️ Netanyahu verification needed (38% complete, need 90%+)
-⚠️ Vance Part 2 timing decision needed
-⚠️ Heritage/Protocols demonetization risk requires strategy
-✅ Buffer improving (2 videos in active production)
-
-### Action Items to Improve Pipeline:
-1. ✅ Netanyahu video researched (border disputes series)
-2. 🔄 Lebanon borders identified as follow-up (content cluster strategy)
-3. 🔄 Pete Hegseth crusades connection identified (modern hook)
-4. Build templates for faster project setup
-5. Create reusable B-roll library (maps especially)
+**Issue:** Multiple script versions (FINAL_YOUR_VOICE_SCRIPT.md, FINAL_PRODUCTION_SCRIPT.md)
+**Decision Needed:** Which version is final? Publication timing?
 
 ---
 
-## 🔄 WORKFLOW OPTIMIZATION
+### 2. Heritage Foundation / Protocols
+**Location:** `_IN_PRODUCTION/2-heritage-protocols-2025/`
+**Hook Type:** Ideological
+**Modern Hook:** Heritage Foundation controversy
+**Demonetization Risk:** 70-80% (HIGH)
 
-### What's Working Well:
-- NotebookLM for research (fast, comprehensive)
-- Agent system for script generation and analysis
-- Fact-checking protocol (ensures quality)
-- B-roll checklist system (nothing forgotten)
-- Project folder organization (clear status)
-
-### What to Improve:
-- Faster topic-to-script pipeline (reduce research time)
-- Build B-roll library (reusable maps, documents)
-- Template system for faster setup
-- Analytics integration (track what works)
-- Automated metadata generation
+**Status:** Research complete, awaiting scripting
+**Next Action:** Script when demonetization strategy decided
 
 ---
 
-## 📅 CALENDAR VIEW
+### 5. Netanyahu Map
+**Location:** `_IN_PRODUCTION/5-netanyahu-map-2025/`
+**Hook Type:** Territorial
+**Status:** Deprioritized - feels too modern geopolitics
 
-### Week of Nov 10-17:
-- **Mon-Tue:** Finish Sykes-Picot B-roll, film
-- **Wed-Thu:** Edit Sykes-Picot
-- **Fri:** Publish Sykes-Picot
-- **Weekend:** Decide on Vance Part 2 timing, begin Heritage scripting
-
-### Week of Nov 18-24:
-- **If Vance filmed:** Edit and publish
-- **If Heritage scripting:** Complete first draft
-- **Research:** Find 1-2 new topics for pipeline
-- **Monitor:** Sykes-Picot performance
-
-### Week of Nov 25-Dec 1:
-- **Film:** Next ready video
-- **Research:** Develop pipeline
-- **Analyze:** Adjust strategy based on recent performance
+**Decision:** May repurpose research for Lebanon borders video
 
 ---
 
-## 🎯 SUCCESS METRICS
+## EARLY RESEARCH
 
-### Short-Term Goals (1 Month):
-- [ ] Publish Sykes-Picot (expected 800-1.2K views)
-- [ ] Reach 200 subscribers (+31)
-- [ ] Maintain 30-35% retention average
-- [ ] Build 2-3 video buffer in _READY_TO_FILM
-- [ ] Decide and execute on Vance Part 2
-
-### Medium-Term Goals (3 Months):
-- [ ] 300+ subscribers
-- [ ] 3-4 videos ready to film at all times
-- [ ] Consistent 2-3 videos/week publishing
-- [ ] 100K+ total views
-- [ ] Monetization eligible (if reaching 1K subs, 4K watch hours)
-
-### Long-Term Goals (6 Months):
-- [ ] 500+ subscribers
-- [ ] Established authority in colonial border disputes
-- [ ] Partnership with educational channels
-- [ ] Consistent revenue from ads/sponsors
-- [ ] Evergreen content library generating views
+### 7. Genocide Definition
+**Location:** `_IN_PRODUCTION/7-genocide-definition-2025/`
+**Hook Type:** Ideological
+**Modern Hook:** Legal/moral framework debates
+**Files:** PROJECT-BRIEF.md, SCRIPT-OUTLINE.md
 
 ---
 
-## 💡 QUICK REFERENCE
-
-### Check Project Status:
-- `_READY_TO_FILM/` - Film these next
-- `_IN_PRODUCTION/` - Currently developing
-- `_ARCHIVED/` - Published or cancelled
-
-### Start New Project:
-1. Create folder in `_IN_PRODUCTION/`
-2. Use project templates from `templates/`
-3. Follow `MASTER_WORKFLOW.md`
-4. Track progress in this file
-
-### Move Projects:
-- Research → Scripting → Fact-checking → `_READY_TO_FILM/` → Film → `_ARCHIVED/`
+### 8. Medieval Women
+**Location:** `_IN_PRODUCTION/8-medieval-women-2025/`
+**Hook Type:** Ideological
+**Modern Hook:** Gender discourse, misconceptions
+**Files:** PROJECT-BRIEF.md, SCRIPT-OUTLINE.md
 
 ---
 
-## 📞 DECISION POINTS
-
-### Questions Needing Answers:
-
-1. **Vance Part 2 Timing:**
-   - Option A: Film now while VP is in news
-   - Option B: Wait for specific news hook
-   - Option C: Cancel and focus on other content
-   - **Decision needed:** This week
-
-2. **Heritage/Protocols Monetization:**
-   - Option A: Accept demonetization risk for high views
-   - Option B: Structure to avoid triggers (reduce virality)
-   - Option C: Postpone until monetization achieved
-   - **Decision needed:** Before scripting
-
-3. **Pipeline Development:**
-   - ✅ Netanyahu borders researched (proven territorial dispute format)
-   - Next: Lebanon borders (French mandate, Hezbollah conflict)
-   - Consider: Pete Hegseth crusades pivot for current video
-   - **Decision:** Focus on Middle East borders cluster (Sykes-Picot → Netanyahu → Lebanon)
+### 12. Guatemala Maya Claims
+**Location:** `_IN_PRODUCTION/12-guatemala-maya-claims-2025/`
+**Hook Type:** Territorial
+**Files:** PROJECT-BRIEF.md
 
 ---
 
-**This document should be updated:**
-- Weekly minimum (status changes)
-- After each video published (performance)
-- When new projects added
-- When strategic decisions made
+## CONTENT BALANCE ANALYSIS
 
-**Stay organized. Stay focused. Make great content.**
+### Current Pipeline by Hook Type
+
+**Territorial (conflicts/borders):** 5 projects
+- Sykes-Picot (ready)
+- Bir Tawil (ready)
+- Belize ICJ (ready)
+- Netanyahu (on hold)
+- Guatemala Maya (early)
+
+**Ideological (myths/opinions):** 9 projects
+- Crusades/Hegseth (ready)
+- Fuentes (ready)
+- Communism (ready)
+- Dark Ages (ready)
+- Industrial Revolution (ready)
+- Heritage/Protocols (on hold)
+- Vance Part 2 (on hold)
+- Genocide Definition (early)
+- Medieval Women (early)
+
+### Recommended Filming Order (Hook Strength)
+
+1. **Crusades/Hegseth** - Hook 5/5, Defense Secretary in news
+2. **Sykes-Picot** - Hook 4/5, ready to film
+3. **Bir Tawil** - Hook 4/5, viral potential
+4. **Fuentes** - Hook 4/5, counter misinformation
+5. **Belize ICJ** - Hook 3/5, timely territorial
+6. **Communism** - Hook 4/5, constant discourse
+
+---
+
+## CLEANUP NEEDED
+
+### Script Version Consolidation
+
+| Project | Issue | Action Needed |
+|---------|-------|---------------|
+| vance-part-2 | 2 "final" scripts | Decide which is THE final |
+| 6-bir-tawil | SCRIPT-V4-FINAL.md | Rename to FINAL-SCRIPT.md |
+| 9-communism | FINAL-SCRIPT-V2-EDITED.md | Rename to FINAL-SCRIPT.md |
+| 10-dark-ages | FINAL-SCRIPT-V2-EDITED.md | Rename to FINAL-SCRIPT.md |
+| 11-industrial | FINAL-SCRIPT-V2-REVISED.md | Rename to FINAL-SCRIPT.md |
+| 13-belize-icj | V1, V2, V3 exist | Keep V3, archive others |
+
+---
+
+## CHANNEL STRATEGY
+
+### What's Working
+- Territorial disputes with modern news hooks
+- Ideological fact-checking (highest CTR)
+- Primary source evidence on screen
+- 6-8 minute format
+- 30-35% retention
+
+### Content Mix Target
+- 40% Territorial (proven format)
+- 40% Ideological (growing format, high engagement)
+- 20% Political fact-checks (viral potential, but timing sensitive)
+
+### Key Insight
+**Hook strength matters more than topic type.** A strong ideological hook (Hegseth's Crusades claims) outperforms a weak territorial hook.
+
+---
+
+## NEXT ACTIONS
+
+### Immediate (This Week)
+1. Film Crusades (Hegseth hook is strong NOW)
+2. Clean up script versions across projects
+3. Move Bir Tawil to _READY_TO_FILM
+
+### Short Term (2 Weeks)
+1. Film Sykes-Picot
+2. Film Bir Tawil (viral candidate)
+3. Decide on Fuentes timing (demonetization risk)
+
+### Pipeline Building
+1. Complete Medieval Women research (ideological)
+2. Complete Genocide Definition research (ideological)
+3. Consider Lebanon borders (territorial, connects to Sykes-Picot)
+
+---
+
+**Update this file:**
+- After each filming decision
+- When projects move between stages
+- Weekly minimum for status review

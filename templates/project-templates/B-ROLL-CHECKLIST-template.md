@@ -35,6 +35,127 @@
 
 ---
 
+## 🔍 ARCHIVAL DOCUMENT VERIFICATION (CRITICAL)
+
+**Purpose:** Prevent catalogue number errors (e.g., HW 16/23 vs HW 16/32 Fuentes error)
+
+**MANDATORY for all archival references (National Archives, library catalogues, etc.)**
+
+### Verification Process
+
+For EACH archival document referenced in script:
+
+#### Step 1: Cross-Check Script Citation
+
+**Script Citation:**
+- Line [X]: "[Exact quote from script including catalogue number]"
+
+**Example:**
+- Line 45: "National Archives reference HW 16/23 shows..."
+
+#### Step 2: Verify Against Source Document
+
+**Actual Catalogue Number from Source:**
+- [ ] Screenshot saved showing catalogue number on document OR reference page
+- [ ] Filename: `[document-name]-catalogue-verification.png`
+- [ ] Catalogue number matches script: [ ] YES [ ] NO
+
+**If NO:**
+- Correct catalogue number: [___]
+- Update script line [X] with correct number
+- Flag for review before filming
+
+#### Step 3: Format Validation
+
+**Check catalogue number format:**
+- [ ] Follows archive's standard format (HW 16/23, RG 242/T175/Roll 23, etc.)
+- [ ] No typos or transcription errors
+- [ ] Slashes, hyphens, and spaces match archival standard
+
+**Common Format Examples:**
+- UK National Archives: `HW 16/23` (series/piece)
+- US National Archives: `RG 242/T175/Roll 23` (record group/microfilm/roll)
+- German archives: `R 70 Polen/32` (series/subseries)
+
+#### Step 4: Document Provenance
+
+**Full citation for video description:**
+```
+[Document Title], [Archive Name], [Catalogue Number], [URL if digitized]
+```
+
+**Example:**
+```
+Höfle Telegram, UK National Archives, HW 16/23, https://discovery.nationalarchives.gov.uk/details/r/C11531663
+```
+
+---
+
+### Archival Verification Checklist
+
+**BEFORE marking B-roll as "Ready", verify:**
+
+- [ ] **ALL archival catalogue numbers cross-checked** against original documents
+- [ ] **Screenshot evidence saved** for each catalogue number (showing number on document/reference page)
+- [ ] **Script citations updated** if any discrepancies found
+- [ ] **Format validation complete** (follows archive's standard)
+- [ ] **Full citations prepared** for video description
+
+**Verification Status:** [ ] COMPLETE [ ] IN PROGRESS
+
+**Verified by:** [Name/Date]
+
+**Screenshot Location:** `[project]/B-roll/documents/verification-screenshots/`
+
+---
+
+### Example: Archival Reference Verification
+
+**Script Citation (Line 67):**
+> "The Höfle Telegram, National Archives reference HW 16/23, shows..."
+
+**Verification:**
+- [x] Screenshot saved: `hofle-telegram-catalogue-verification.png`
+- [x] Catalogue number confirmed: HW 16/23 ✅
+- [x] Format validated: UK National Archives standard ✅
+- [x] Full citation: "Höfle Telegram (Höfle Report), 11 January 1943, UK National Archives, HW 16/23, https://discovery.nationalarchives.gov.uk/details/r/C11531663"
+
+**Status:** ✅ VERIFIED
+
+---
+
+### Red Flags Requiring Immediate Verification
+
+**STOP and verify if you see:**
+
+❌ **Memory-based catalogue numbers** - "I think it was HW 16/23..."
+❌ **Inconsistent numbers** - Script says HW 16/23, B-roll file is labeled HW 16/32
+❌ **Vague references** - "National Archives document" without specific number
+❌ **Copy-pasted citations** - From secondary source without checking primary
+❌ **Multiple versions** - Different catalogue numbers for same document in notes
+
+**Action:** Go back to source document, take screenshot, verify exact number.
+
+---
+
+### Archival Document Inventory
+
+**List all archival documents by catalogue number:**
+
+| Document Name | Catalogue Number | Archive | Script Line | Verified? | Screenshot? |
+|---------------|------------------|---------|-------------|-----------|-------------|
+| [Example] | HW 16/23 | UK National Archives | Line 67 | ✅ | ✅ |
+| [Document 1] | [___] | [___] | Line [X] | [ ] | [ ] |
+| [Document 2] | [___] | [___] | Line [X] | [ ] | [ ] |
+
+**Total Archival Documents:** [X]
+**Verified:** [X/X]
+**Verification Complete:** [ ] YES [ ] NO
+
+---
+
+## 🗺️ MAPS (Geographic Context)
+
 ## 🗺️ MAPS (Geographic Context)
 
 **Usage:** Show these when discussing territories, borders, changes
