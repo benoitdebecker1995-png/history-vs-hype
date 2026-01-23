@@ -6,6 +6,8 @@ description: Start new video project OR conduct topic research (Pre-production P
 
 Start a new video project or research an existing topic. This command consolidates project setup, topic research, and NotebookLM preparation.
 
+**Competitive Integration:** This workflow includes competitor analysis and technique selection.
+
 ## Usage
 
 ```
@@ -90,7 +92,29 @@ Research the topic to identify:
 
 **Output to:** `_research/01-PRELIMINARY-RESEARCH.md`
 
-### Step 6: Create NotebookLM Source List
+### Step 6: Competitive Intelligence Check
+
+After preliminary research, before deep research:
+
+1. **Check what competitors covered:**
+   - Search YouTube for "[topic]" - who has videos?
+   - Note their angle, length, and apparent sources
+   - What's missing from their coverage?
+
+2. **Check for applicable techniques:**
+   - Skim `PROVEN-TECHNIQUES-LIBRARY.md` for relevant techniques
+   - Which opening hook fits this topic?
+   - What evidence presentation style works here?
+   - Note intended techniques in PROJECT-STATUS.md
+
+3. **Check gap database:**
+   - Is this topic in `GAP-DATABASE.md`?
+   - If new, add it with preliminary scores
+   - If existing, update status to "Researching"
+
+> **Proactive:** "I've checked competitor coverage of [topic]. The main videos are [list]. Your unique angle could be [suggestion based on channel DNA]."
+
+### Step 7: Create NotebookLM Source List
 
 Based on preliminary research, create:
 - `_research/00-NOTEBOOKLM-SOURCE-LIST.md`
@@ -101,7 +125,7 @@ Based on preliminary research, create:
 - Critical editions of primary sources
 - Budget is UNLIMITED - recommend best sources regardless of price
 
-### Step 7: Report and Next Steps
+### Step 8: Report and Next Steps
 
 ```
 Project created: video-projects/_IN_PRODUCTION/[folder]/
@@ -172,6 +196,8 @@ Cannot proceed to scripting until:
 - **Research subfolder:** `.claude/templates/_RESEARCH-SUBFOLDER-TEMPLATE.md`
 - **Source standards:** `.claude/REFERENCE/NOTEBOOKLM-SOURCE-STANDARDS.md`
 - **Claims database:** `.claude/VERIFIED-CLAIMS-DATABASE.md`
+- **Technique library:** `.claude/REFERENCE/PROVEN-TECHNIQUES-LIBRARY.md`
+- **Gap database:** `channel-data/GAP-DATABASE.md`
 
 ---
 
