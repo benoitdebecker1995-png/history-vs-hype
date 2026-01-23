@@ -1,4 +1,15 @@
 ---
+deprecated: true
+replaced_by: /research --existing
+---
+
+> **DEPRECATED:** This command has been replaced by `/research --existing`.
+> Run `/help` to see current commands.
+
+[Original content below for reference]
+---
+
+---
 description: Conduct comprehensive preliminary research on a topic using free sources
 ---
 

@@ -1,4 +1,15 @@
 ---
+deprecated: true
+replaced_by: /sources --prompts
+---
+
+> **DEPRECATED:** This command has been replaced by `/sources --prompts`.
+> Run `/help` to see current commands.
+
+[Original content below for reference]
+---
+
+---
 description: Generate customized NotebookLM prompts for your specific topic and sources
 ---
 

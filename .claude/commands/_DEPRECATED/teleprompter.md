@@ -1,3 +1,14 @@
+---
+deprecated: true
+replaced_by: /script --teleprompter
+---
+
+> **DEPRECATED:** This command has been replaced by `/script --teleprompter`.
+> Run `/help` to see current commands.
+
+[Original content below for reference]
+---
+
 # /teleprompter - Export Script for Filming
 
 Export a SCRIPT.md to clean teleprompter-ready text.

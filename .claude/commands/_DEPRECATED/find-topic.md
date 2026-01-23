@@ -1,4 +1,15 @@
 ---
+deprecated: true
+replaced_by: /research --topic
+---
+
+> **DEPRECATED:** This command has been replaced by `/research --topic`.
+> Run `/help` to see current commands.
+
+[Original content below for reference]
+---
+
+---
 description: Research trending topics for potential History vs Hype videos
 ---
 

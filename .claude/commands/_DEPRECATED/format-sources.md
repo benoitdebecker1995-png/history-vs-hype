@@ -1,4 +1,15 @@
 ---
+deprecated: true
+replaced_by: /sources --format
+---
+
+> **DEPRECATED:** This command has been replaced by `/sources --format`.
+> Run `/help` to see current commands.
+
+[Original content below for reference]
+---
+
+---
 description: Format source list for video description with verified URLs
 ---
 
@@ -15,7 +26,7 @@ You are formatting a source list for a video description. Use the **source-forma
 
 Provide formatted source list:
 - Grouped by category (Primary Documents, Academic, etc.)
-- All URLs verified (✅ working, ❌ broken, ⚠️ paywalled)
+- All URLs verified (check: working, x: broken, warning: paywalled)
 - Copy-paste ready format for YouTube description
 - Notes on source credibility where needed
 

@@ -1,18 +1,29 @@
 ---
+deprecated: true
+replaced_by: /fix
+---
+
+> **DEPRECATED:** This command has been replaced by `/fix`.
+> Run `/help` to see current commands.
+
+[Original content below for reference]
+---
+
+---
 description: Fix common subtitle (.srt) errors from auto-transcription
 ---
 
 You are fixing subtitle files for History vs Hype videos.
 
-## ⚠️ CRITICAL RULE: NEVER CHANGE WORDS
+## CRITICAL RULE: NEVER CHANGE WORDS
 
 **ONLY fix spelling/transcription errors. NEVER change the actual words spoken.**
 
 Examples:
-- ✅ CORRECT: "demi-tax" → "dhimmi tax" (same words, fixed spelling)
-- ❌ WRONG: "demi-tax" → "jizya" (different word entirely)
-- ✅ CORRECT: "Godwills it" → "God wills it" (spacing fix)
-- ❌ WRONG: Changing any phrasing or word choice
+- CORRECT: "demi-tax" -> "dhimmi tax" (same words, fixed spelling)
+- WRONG: "demi-tax" -> "jizya" (different word entirely)
+- CORRECT: "Godwills it" -> "God wills it" (spacing fix)
+- WRONG: Changing any phrasing or word choice
 
 **The subtitle must match what was actually said in the video, word-for-word.**
 
@@ -26,19 +37,19 @@ Examples:
 
 ### 2. Name Misspellings
 Common auto-transcription errors in historical names:
-- McMehan → McMahon
-- Rochhild → Rothschild
-- Francois-Jacques-Picot → François Georges-Picot
-- even South → Ibn Saud
-- MacMehan → McMahon
-- Ataturk → Atatürk
+- McMehan -> McMahon
+- Rochhild -> Rothschild
+- Francois-Jacques-Picot -> Francois Georges-Picot
+- even South -> Ibn Saud
+- MacMehan -> McMahon
+- Ataturk -> Ataturk
 
 ### 3. Treaty/Place Names
-- Seyver → Sèvres
-- Lausan → Lausanne
-- Nasht → Najd
-- Sun Remo → San Remo
-- Sykes-Bikko → Sykes-Picot (common misrecognition)
+- Seyver -> Sevres
+- Lausan -> Lausanne
+- Nasht -> Najd
+- Sun Remo -> San Remo
+- Sykes-Bikko -> Sykes-Picot (common misrecognition)
 
 ### 4. Date Errors
 - Check dates against script for accuracy
@@ -58,17 +69,17 @@ Usually in: video-projects/_READY_TO_FILM/[project]/
 - Verify dates against script
 
 **Step 3: Fix systematically**
-1. **Timestamp offset:** Use replace_all for 01:0 → 00:0
+1. **Timestamp offset:** Use replace_all for 01:0 -> 00:0
 2. **Name errors:** Fix each misspelling individually
 3. **Treaty names:** Check historical accuracy
 4. **Verify:** Read corrected sections to confirm
 
 **Step 4: Common replacement patterns**
 ```
-Replace all: 01:0 → 00:0
-Replace all: Sykes-Bikko → Sykes-Picot
-Replace all: Seyver → Sèvres
-Individual: McMehan → McMahon (check context)
+Replace all: 01:0 -> 00:0
+Replace all: Sykes-Bikko -> Sykes-Picot
+Replace all: Seyver -> Sevres
+Individual: McMehan -> McMahon (check context)
 ```
 
 ## User Preference
@@ -101,7 +112,7 @@ After fixing, report:
 
 **Example:**
 ```
-SRT shows: 01:05:02 → "The Carolingians provided the ambition"
+SRT shows: 01:05:02 -> "The Carolingians provided the ambition"
 Actual video timestamp: 5:02 (subtract 1 hour offset)
 Chapter: "5:02 - Charlemagne's cultural revolution"
 ```

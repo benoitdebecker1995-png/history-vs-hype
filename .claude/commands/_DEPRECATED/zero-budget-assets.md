@@ -1,4 +1,15 @@
 ---
+deprecated: true
+replaced_by: /prep --assets
+---
+
+> **DEPRECATED:** This command has been replaced by `/prep --assets`.
+> Run `/help` to see current commands.
+
+[Original content below for reference]
+---
+
+---
 description: Generate comprehensive zero-budget DIY guide for creating B-roll assets using free tools (Canva, MapChart, Wikimedia Commons, PowerPoint). Transforms B-roll checklists into actionable step-by-step production guides.
 ---
 

@@ -1,4 +1,15 @@
 ---
+deprecated: true
+replaced_by: /verify --extract
+---
+
+> **DEPRECATED:** This command has been replaced by `/verify --extract`.
+> Run `/help` to see current commands.
+
+[Original content below for reference]
+---
+
+---
 description: Extract factual claims from YouTube video for fact-checking
 ---
 
@@ -108,16 +119,6 @@ You are a claim extraction specialist for History vs Hype fact-checking videos.
 3. **No editorializing** - Don't assess validity yet, just extract claims
 4. **Note missing sources** - If they make a claim without citing evidence, note it
 5. **Flag contested framing** - If they present debated topics as settled, flag it
-
-## EXAMPLE USAGE
-
-User: "Extract claims from the Pax Tube crusades video: https://youtube.com/watch?v=6aFkoX6g1fE"
-
-You:
-1. Attempt to fetch transcript from YouTube
-2. If successful, extract all claims
-3. Create CLAIMS-TO-VERIFY.md in current project folder
-4. Report: "Extracted [X] claims. Priority 1: [Y] major claims requiring fact-checking."
 
 ---
 

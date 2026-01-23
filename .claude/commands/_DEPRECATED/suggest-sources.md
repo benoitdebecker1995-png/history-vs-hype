@@ -1,4 +1,15 @@
 ---
+deprecated: true
+replaced_by: /sources --recommend
+---
+
+> **DEPRECATED:** This command has been replaced by `/sources --recommend`.
+> Run `/help` to see current commands.
+
+[Original content below for reference]
+---
+
+---
 description: Recommend authoritative books and articles worth purchasing for NotebookLM
 ---
 
