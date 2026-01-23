@@ -327,6 +327,29 @@ Export SCRIPT.md to clean text for filming.
 
 ---
 
+## After Completion
+
+When script generation completes, suggest:
+
+> "Script saved to SCRIPT.md. Next recommended steps:
+> 1. `/verify` - Run fact-check verification (recommended before filming)
+> 2. `/prep --edit-guide` - Generate filming preparation guide
+>
+> Ready for fact-check? Run `/verify`"
+
+**If review mode (`--review`):** Suggest based on verdict:
+
+> **If Ready to film:** "Script passed review. Run `/verify` for fact-check before filming."
+> **If Needs revision:** "Script has [X] issues to fix. Run `/script --revise` to address them."
+
+**If teleprompter mode (`--teleprompter`):**
+
+> "Teleprompter text exported to SCRIPT-TELEPROMPTER.txt.
+> [Word count] words, estimated [X] minutes at 150 wpm.
+> Ready to film!"
+
+---
+
 ## Absorbed Commands
 
 This command consolidates functionality from:

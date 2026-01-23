@@ -175,6 +175,20 @@ Cannot proceed to scripting until:
 
 ---
 
+## After Completion
+
+When project setup is complete, suggest:
+
+> "Project created! Your next step: Load sources into NotebookLM and verify claims in 01-VERIFIED-RESEARCH.md.
+> When research is 90%+ verified, run `/script` to write from verified facts."
+
+**If topic-only mode:** Suggest creating full project if topic looks viable:
+
+> "Research complete. This topic has [X] key claims to verify.
+> Ready to commit? Run `/research --new` to create the project folder."
+
+---
+
 ## Absorbed Commands
 
 This command consolidates functionality from:

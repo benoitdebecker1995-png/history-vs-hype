@@ -301,6 +301,34 @@ Historical integrity is the channel's core value. Better to cut a claim than to 
 
 ---
 
+## After Completion
+
+**When verification completes with APPROVED verdict:**
+
+> "Fact-check complete! Script approved for filming.
+> Next steps before filming:
+> 1. `/prep` - Generate edit guide and B-roll checklist
+> 2. `/publish` - Create YouTube metadata
+>
+> Ready to prepare for filming? Run `/prep`"
+
+**When verification completes with NEEDS REVISION:**
+
+> "Fact-check found issues requiring revision.
+> See 03-FACT-CHECK-VERIFICATION.md for specific corrections needed.
+> After fixing, run `/verify` again."
+
+**When claims extraction completes (`--extract`):**
+
+> "Extracted [X] claims from transcript.
+> - Priority 1 (critical): [X] claims
+> - Priority 2 (supporting): [X] claims
+> - Priority 3 (minor): [X] claims
+>
+> Claims saved to CLAIMS-TO-VERIFY.md. Ready to fact-check? Run `/verify --script`"
+
+---
+
 ## Absorbed Commands
 
 This command consolidates functionality from:
