@@ -24,6 +24,7 @@ Generate YouTube metadata, test titles, or identify clip-worthy moments. Everyth
 | `--titles` | Title variants for VidIQ testing | `/publish --titles 19-flat-earth-medieval-2025` |
 | `--clips` | Clip suggestions for Shorts/TikTok | `/publish --clips 19-flat-earth-medieval-2025` |
 | `--full` | All three workflows | `/publish --full 19-flat-earth-medieval-2025` |
+| `--evaluate` | Technique effectiveness evaluation | `/publish --evaluate somaliland-2025` |
 
 ---
 
@@ -299,6 +300,47 @@ Run complete publishing preparation:
 - **Thumbnail framework:** `.claude/REFERENCE/THUMBNAIL-EVALUATION-FRAMEWORK.md`
 - **VidIQ filter:** `.claude/REFERENCE/VIDIQ-CHANNEL-DNA-FILTER.md`
 - **Title database:** `channel-data/COMPETITOR-TITLE-DATABASE.md`
+- **Technique library:** `.claude/REFERENCE/PROVEN-TECHNIQUES-LIBRARY.md`
+- **Technique log:** `channel-data/TECHNIQUE-USAGE-LOG.md`
+
+---
+
+## POST-PUBLISH: Technique Evaluation (`--evaluate`)
+
+**When to run:** 7-14 days after publishing (when retention data is available)
+
+### Evaluate Technique Effectiveness
+
+1. **What techniques did you use?**
+   - List techniques from PROVEN-TECHNIQUES-LIBRARY.md used in this video
+   - Note which script sections used which techniques
+
+2. **How did they perform?**
+   - Check retention graph in YouTube Studio
+   - Note retention % at sections where techniques were applied
+   - Rate each technique 1-5 (see scale in TECHNIQUE-USAGE-LOG.md)
+
+3. **Update the log:**
+   - Add row(s) to `channel-data/TECHNIQUE-USAGE-LOG.md`
+   - Include: date, video slug, technique, section, retention %, rating, notes
+
+4. **Update the library (optional):**
+   - If technique worked well, update "Effectiveness" in PROVEN-TECHNIQUES-LIBRARY.md
+   - If technique failed, note why in the library entry
+
+> **Proactive:** "It's been [X] days since [video] published. Ready to evaluate technique effectiveness? I can help you log which techniques worked."
+
+### Evaluation Workflow
+
+```
+/publish --evaluate [video-slug]
+```
+
+This prompts for:
+1. Which techniques were used
+2. Retention data at technique points
+3. 1-5 rating for each
+4. Auto-updates TECHNIQUE-USAGE-LOG.md
 
 ---
 
