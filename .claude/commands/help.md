@@ -55,7 +55,7 @@ Publish, fix issues, and engage with audience.
 
 | Command | Purpose | Flags |
 |---------|---------|-------|
-| `/publish` | YouTube metadata, titles, clips | `--titles-only`, `--clips-only` |
+| `/publish` | YouTube metadata, titles, clips | `--titles`, `--clips` |
 | `/fix` | Fix subtitle errors | - |
 | `/engage` | Comment response, corrections | `--respond`, `--correction`, `--save` |
 
@@ -127,8 +127,8 @@ You don't need to remember commands. Just describe what you want:
 | Review script quality | `/script --review` |
 | Export for teleprompter | `/script --teleprompter` |
 | Extract claims from video | `/verify --extract [file]` |
-| Generate title variants | `/publish --titles-only` |
-| Find clip-worthy moments | `/publish --clips-only` |
+| Generate title variants | `/publish --titles` |
+| Find clip-worthy moments | `/publish --clips` |
 
 ---
 

@@ -59,7 +59,7 @@ This is a content production repository for **History vs Hype**, a YouTube chann
 - `/prep` - Filming preparation, edit guide, B-roll (--edit-guide, --assets)
 
 **Post-production:**
-- `/publish` - YouTube metadata, titles, clips (--titles-only, --clips-only)
+- `/publish` - YouTube metadata, titles, clips (--titles, --clips)
 - `/fix` - Fix subtitle errors in SRT files
 - `/engage` - Comment responses, corrections (--respond, --correction, --save)
 
@@ -525,7 +525,6 @@ B-roll is evidence, not decoration. You are the authority making an argument, no
 
 **Available via Task tool:**
 
-- `video-orchestrator` - Coordinates full workflow from topic to finished script
 - `script-writer-v2` - Writes retention-optimized scripts using Kraut/Alex O'Connor style patterns with real quotes
 - `structure-checker-v2` - Analyzes scripts for retention issues, predicts dropout points
 - `fact-checker` - Verifies sources using tier-based system

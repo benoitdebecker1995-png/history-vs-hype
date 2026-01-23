@@ -34,8 +34,8 @@ Generate a script using the script-writer-v2 agent.
 ## Before Writing
 
 **Read these reference files:**
-- `.claude/REFERENCE/scriptwriting-style.md` - Complete style guide
-- `.claude/REFERENCE/retention-mechanics.md` - Hook formulas
+- `.claude/REFERENCE/STYLE-GUIDE.md` - **AUTHORITATIVE** style reference (voice, delivery, patterns)
+- `.claude/REFERENCE/PROVEN-TECHNIQUES-LIBRARY.md` - Hook formulas and retention techniques
 - `.claude/REFERENCE/channel-values.md` - Brand DNA
 - `.claude/USER-PREFERENCES.md` - Natural speaking patterns
 - `.claude/REFERENCE/SCRIPTWRITING-DEBUNKING-FRAMEWORK.md` - Debunking psychology + public history
@@ -158,7 +158,7 @@ Use the script-writer-v2 agent guidelines:
 - [ ] Rhetorical fragments preserved for emphasis only
 - [ ] Passes the "Stumble Test" (read aloud without hesitation)
 
-See: `.claude/REFERENCE/scriptwriting-style.md` → "SPOKEN DELIVERY RULES"
+See: `.claude/REFERENCE/STYLE-GUIDE.md` → Part 3 "Voice and Delivery"
 
 ### Natural Delivery Patterns (MANDATORY - Added 2025-12-30)
 - [ ] Abbreviations expanded ("African Union" not "AU")

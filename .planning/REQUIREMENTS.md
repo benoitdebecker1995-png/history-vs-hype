@@ -35,8 +35,8 @@
 
 ### Competitive Intelligence
 
-- [ ] **COMP-01**: Technique tracking (document what works for top history creators)
-- [ ] **COMP-02**: Gap identification (find underserved topics/angles in the niche)
+- [x] **COMP-01**: Technique tracking (document what works for top history creators)
+- [x] **COMP-02**: Gap identification (find underserved topics/angles in the niche)
 
 ## v2 Requirements
 
@@ -75,8 +75,8 @@
 | STYL-03 | Phase 2 | Complete |
 | WKFL-01 | Phase 5 | Complete |
 | WKFL-02 | Phase 5 | Complete |
-| COMP-01 | Phase 6 | Pending |
-| COMP-02 | Phase 6 | Pending |
+| COMP-01 | Phase 6 | Complete |
+| COMP-02 | Phase 6 | Complete |
 
 **Coverage:**
 - v1 requirements: 15 total
@@ -85,4 +85,4 @@
 
 ---
 *Requirements defined: 2025-01-19*
-*Last updated: 2026-01-23 after Phase 5 completion*
+*Last updated: 2026-01-23 after Phase 6 completion - v1 COMPLETE*
