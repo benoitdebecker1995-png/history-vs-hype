@@ -39,7 +39,13 @@ A topic is underserved if ANY of these apply:
 
 | Topic | Demand | Comp | Fit | Hook | Total | Status | Notes |
 |-------|--------|------|-----|------|-------|--------|-------|
-| [placeholder] | - | - | - | - | - | - | - |
+| Diary of Merer (Pyramid Logistics) | 5 | 4 | 5 | +0 | 14 | Identified | Massive demand; aliens/slaves myth saturated but NO papyrus logistics angle; primary source = Papyrus Jarf |
+| Viking Law Code (Gragas) | 4 | 4 | 5 | +0 | 13 | Identified | High demand; TV show fluff saturated but NO legal code angle; primary source = actual law text |
+| Medieval Court Rolls (Peasants Suing Lords) | 3 | 5 | 5 | +0 | 13 | Identified | Moderate demand; almost NO quality coverage; 1290 court records available |
+| Antarctic Treaty 2048 | 3 | 4 | 4 | +1 | 12 | Identified | Legal fiction pattern; deadline approaching creates urgency; treaty text available |
+| King-Crane Commission (Ignored Map) | 3 | 5 | 5 | +1 | 14 | Identified | Syria/Iraq conflicts ongoing; 1919 survey document vs Sykes-Picot; "Map They Ignored" pattern |
+| Bald's Leechbook (Medieval Medicine) | 4 | 4 | 5 | +1 | 14 | Identified | MRSA study (2015) = modern hook; 9th century manuscript; antibiotic resistance crisis |
+| Egyptian Will of Naunakhte | 2 | 5 | 5 | +0 | 12 | Identified | Low competition; 3000-year-old legal contract; "ancient women had no rights" myth |
 
 ---
 
