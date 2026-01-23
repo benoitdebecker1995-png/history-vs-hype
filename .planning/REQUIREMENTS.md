@@ -30,8 +30,8 @@
 
 ### Workflow
 
-- [ ] **WKFL-01**: Clear entry points for common tasks (obvious starting commands)
-- [ ] **WKFL-02**: Documentation cleanup (remove/update outdated guides)
+- [x] **WKFL-01**: Clear entry points for common tasks (obvious starting commands)
+- [x] **WKFL-02**: Documentation cleanup (remove/update outdated guides)
 
 ### Competitive Intelligence
 
@@ -73,8 +73,8 @@
 | STYL-01 | Phase 2 | Complete |
 | STYL-02 | Phase 2 | Complete |
 | STYL-03 | Phase 2 | Complete |
-| WKFL-01 | Phase 5 | Pending |
-| WKFL-02 | Phase 5 | Pending |
+| WKFL-01 | Phase 5 | Complete |
+| WKFL-02 | Phase 5 | Complete |
 | COMP-01 | Phase 6 | Pending |
 | COMP-02 | Phase 6 | Pending |
 
@@ -85,4 +85,4 @@
 
 ---
 *Requirements defined: 2025-01-19*
-*Last updated: 2026-01-21 after Phase 3 completion*
+*Last updated: 2026-01-23 after Phase 5 completion*
