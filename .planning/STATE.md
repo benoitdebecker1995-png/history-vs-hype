@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace Optimization
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-01-23T01:17:14Z
+**Last Updated:** 2026-01-22T04:35:00Z
 
 ## Project Reference
 
@@ -12,7 +12,7 @@
 ## Current Position
 
 **Phase:** 5 of 6 - Workflow Simplification
-**Plan:** 02 of 02 COMPLETE
+**Plan:** 03 of 03 COMPLETE
 **Status:** Phase complete
 
 **Progress:**
@@ -29,7 +29,7 @@
 | 2 | Style Consolidation | **COMPLETE** | 3/3 |
 | 3 | Research Structure | **COMPLETE** | 3/3 |
 | 4 | Script Management | **COMPLETE** | 2/2 |
-| 5 | Workflow Simplification | **COMPLETE** | 2/2 |
+| 5 | Workflow Simplification | **COMPLETE** | 3/3 |
 | 6 | Competitive Intelligence | Pending | - |
 
 ## Performance Metrics
@@ -37,8 +37,8 @@
 | Metric | Value |
 |--------|-------|
 | Phases completed | 5.1 (0.1 + 1 + 2 + 3 + 4 + 5) |
-| Plans completed | 18 |
-| Tasks completed | 46 |
+| Plans completed | 19 |
+| Tasks completed | 50 |
 | Requirements delivered | 15/15 |
 
 ## Accumulated Context
@@ -75,6 +75,8 @@
 | Status detection order: git > recent files | Most likely to find what user is working on | 5-02 |
 | Natural language as primary interface | User describes intent, Claude routes to commands | 5-02 |
 | Proactive suggestions in blockquotes | Visually distinct, scannable, consistent | 5-02 |
+| "Ask Claude" as primary user guidance | Users describe what they want; Claude knows system | 5-03 |
+| Archive not delete for deprecated commands | Preserves git history; provides migration reference | 5-03 |
 
 ### Roadmap Evolution
 
@@ -98,13 +100,14 @@
 - **Phase 4 COMPLETE: 2026-01-22**
 - Phase 5 Plan 01 COMPLETED: 2026-01-22 (8 phase-organized commands via flags)
 - Phase 5 Plan 02 COMPLETED: 2026-01-23 (/status router, /help menu, proactive suggestions)
-- **Phase 5 COMPLETE: 2026-01-23**
+- Phase 5 Plan 03 COMPLETED: 2026-01-22 (START-HERE simplified, commands archived, workflow reference updated)
+- **Phase 5 COMPLETE: 2026-01-22**
 
 ### Discovered TODOs
 
 - Library folder cleanup (728 files) - See `.planning/phases/01-file-cleanup/USER-REVIEW-NEEDED.md`
 - Research folder .docx files and Vance research - See `research/_archive/CLEANUP-LOG.md`
-- Original commands can be deprecated after transition period - Track usage first
+- Original commands archived to _DEPRECATED folder (21 files) with migration headers
 
 ### Blockers
 
@@ -112,15 +115,15 @@ None currently.
 
 ### Technical Debt
 
-- Original commands (22) exist alongside new consolidated commands (8) - deprecate after user adoption
+None - deprecated commands archived to _DEPRECATED folder
 
 ## Session Continuity
 
 ### Last Session
 
-- **Date:** 2026-01-23T01:17:14Z
-- **Work:** Completed Phase 5 Plan 02 - Smart Router and Help System
-- **Stopped at:** /status, /help created; proactive suggestions added to key commands
+- **Date:** 2026-01-22T04:35:00Z
+- **Work:** Completed Phase 5 Plan 03 - User-Facing Documentation Updates
+- **Stopped at:** START-HERE simplified, deprecated commands archived, workflow reference updated
 
 ### Next Session Should
 
@@ -152,8 +155,10 @@ None currently.
 - **30-day cleanup rule documented in research/README.md**
 - **/new-video references _RESEARCH-SUBFOLDER-TEMPLATE.md for project setup**
 - **10 consolidated commands:** /research, /sources, /script, /verify, /prep, /publish, /fix, /engage, /status, /help
-- **Original 22 commands kept for backward compatibility during transition**
+- **Original 21 commands archived to .claude/commands/_DEPRECATED/ with migration headers**
 - **Phase organization:** Pre-production (2), Production (3), Post-production (3), Meta (2)
+- **START-HERE.md simplified to 38 lines with "ask Claude" guidance**
+- **VERIFIED-WORKFLOW-QUICK-REFERENCE.md reduced 65% (509 -> 179 lines)**
 - **/status provides context-aware project detection and next-step suggestions**
 - **/help provides phase-organized command discovery**
 - **Proactive suggestions in research/script/verify commands**
