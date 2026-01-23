@@ -170,6 +170,13 @@ Plans:
 - COMP-01: Technique tracking (document what works for top history creators)
 - COMP-02: Gap identification (find underserved topics/angles in the niche)
 
+**Plans:** 3 plans
+
+Plans:
+- [ ] 06-01-PLAN.md — Add effectiveness tracking to technique library + create usage log
+- [ ] 06-02-PLAN.md — Create gap database with composite scoring system
+- [ ] 06-03-PLAN.md — Create creator watchlist + integrate into /research and /publish workflows
+
 **Success Criteria:**
 1. User can look up proven techniques by creator or category (hooks, evidence presentation, pacing)
 2. Gap analysis identifies at least 5 underserved topic areas with supporting evidence
@@ -188,7 +195,7 @@ Plans:
 | 3 - Research Structure | **COMPLETE** | RSCH-01, RSCH-02, RSCH-03 | 3 |
 | 4 - Script Management | **COMPLETE** | SCRP-01, SCRP-02 | 2 |
 | 5 - Workflow Simplification | **COMPLETE** | WKFL-01, WKFL-02 | 2 |
-| 6 - Competitive Intelligence | Pending | COMP-01, COMP-02 | 2 |
+| 6 - Competitive Intelligence | **PLANNED** | COMP-01, COMP-02 | 2 |
 
 **Total:** 15/15 requirements mapped
 
@@ -229,3 +236,4 @@ Phase 1 ---> Phase 6 (Competitive Intel)
 *Phase 4 completed: 2026-01-22*
 *Phase 5 planned: 2026-01-22*
 *Phase 5 completed: 2026-01-23*
+*Phase 6 planned: 2026-01-23*
