@@ -47,29 +47,27 @@ This is a content production repository for **History vs Hype**, a YouTube chann
 
 ## Quick Start Commands
 
-### Production Workflow
-- `/new-video-verified` - Start new video with 3-phase verified workflow
-- `/script` - Generate script from research
-- `/fact-check` - Run academic peer review with simplification detection
-- `/youtube-metadata` - Create optimized metadata (VidIQ auto-filtered)
-- `/fix-subtitles` - Fix auto-transcription errors in .srt files
+### Video Production (by phase)
 
-### Post-Publication & Engagement
-- `/respond-to-comment` - Research and respond to YouTube comments with fact-checked answers
-- `/publish-correction` - Document and publish corrections for post-publication errors
-- `/save-comment` - Save insightful comments for future research or video ideas
+**Pre-production:**
+- `/research` - Start new video, topic research, NotebookLM setup
+- `/sources` - Source recommendations, formatting, NotebookLM prompts
 
-### Analysis & Tools
-- `/extract-claims` - Extract claims from YouTube transcript for fact-checking
-- `/edit-guide` - Generate shot-by-shot visual staging guide + B-roll download links
-- `/zero-budget-assets` - Create DIY B-roll guide with free tools
-- `/evaluate-feedback` - Evaluate external optimization feedback against channel values
+**Production:**
+- `/script` - Generate script from verified research (--teleprompter for export)
+- `/verify` - Fact-check verification (--extract for transcript claims)
+- `/prep` - Filming preparation, edit guide, B-roll (--edit-guide, --assets)
 
-### Optimization & Testing (NEW)
-- `/test-titles` - Generate 5-10 title variants for VidIQ A/B testing
-- `/clip-suggestions` - Identify 3-5 clip-worthy moments for Shorts/TikTok
+**Post-production:**
+- `/publish` - YouTube metadata, titles, clips (--titles-only, --clips-only)
+- `/fix` - Fix subtitle errors in SRT files
+- `/engage` - Comment responses, corrections (--respond, --correction, --save)
 
-**For comprehensive workflow:** See `START-HERE.md`
+### Navigation
+- `/status` - Project state and next action suggestion
+- `/help` - Full command list with flags
+
+**For comprehensive workflow:** See workflow details below or run `/status`
 
 ---
 
@@ -674,7 +672,7 @@ Make academic research accessible while maintaining historical integrity. The go
 13. **Filter external feedback through channel DNA** - Documentary tone over generic YouTube optimization
 14. **Run simplification detection on ALL scripts** - Territorial claims need boundaries, present-tense needs temporal accuracy
 15. **Check VERIFIED-CLAIMS-DATABASE before researching** - Avoid re-researching same facts across videos
-16. **Document corrections systematically** - Use /publish-correction for post-publication errors
+16. **Document corrections systematically** - Use `/engage --correction` for post-publication errors
 17. **HOW > WHY for subscriber growth** - Show mechanisms/logistics, not just political reasons
 18. **Academic-level sources for NotebookLM** - See `.claude/REFERENCE/NOTEBOOKLM-SOURCE-STANDARDS.md`
 
@@ -696,4 +694,4 @@ Make academic research accessible while maintaining historical integrity. The go
 - **Script structure analysis:** `channel-data/SCRIPT-STRUCTURE-ANALYSIS.md` (opening formulas, transcript breakdowns)
 - **YouTube transcript extractor:** `get-transcript.py` (automatic transcript fetching)
 
-**Ready to create your next video?** Start with `/new-video-verified`
+**Ready to create your next video?** Start with `/research --new`
