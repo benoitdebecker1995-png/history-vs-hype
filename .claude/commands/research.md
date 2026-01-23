@@ -197,7 +197,7 @@ Cannot proceed to scripting until:
 - **Source standards:** `.claude/REFERENCE/NOTEBOOKLM-SOURCE-STANDARDS.md`
 - **Claims database:** `.claude/VERIFIED-CLAIMS-DATABASE.md`
 - **Technique library:** `.claude/REFERENCE/PROVEN-TECHNIQUES-LIBRARY.md`
-- **Gap database:** `channel-data/GAP-DATABASE.md`
+- **Gap database:** `.claude/REFERENCE/GAP-DATABASE.md`
 
 ---
 
