@@ -9,12 +9,12 @@ Requirements for Analytics & Learning Loop milestone.
 
 ### API Integration
 
-- [ ] **INTEG-01**: Google Cloud project set up with YouTube Analytics API enabled
-- [ ] **INTEG-02**: OAuth2 flow implemented for channel authorization
+- [x] **INTEG-01**: Google Cloud project set up with YouTube Analytics API enabled
+- [x] **INTEG-02**: OAuth2 flow implemented for channel authorization
 - [ ] **INTEG-03**: Script pulls CTR data per video
 - [ ] **INTEG-04**: Script pulls retention/audience data per video
 - [ ] **INTEG-05**: Script pulls watch time and engagement metrics
-- [ ] **INTEG-06**: Credentials stored securely (not in git)
+- [x] **INTEG-06**: Credentials stored securely (not in git)
 
 ### Post-Publish Analysis
 
@@ -44,12 +44,12 @@ Requirements for Analytics & Learning Loop milestone.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INTEG-01 | Phase 7 | Pending |
-| INTEG-02 | Phase 7 | Pending |
+| INTEG-01 | Phase 7 | Complete |
+| INTEG-02 | Phase 7 | Complete |
 | INTEG-03 | Phase 8 | Pending |
 | INTEG-04 | Phase 8 | Pending |
 | INTEG-05 | Phase 8 | Pending |
-| INTEG-06 | Phase 7 | Pending |
+| INTEG-06 | Phase 7 | Complete |
 | ANALYSIS-01 | Phase 9 | Pending |
 | ANALYSIS-02 | Phase 9 | Pending |
 | ANALYSIS-03 | Phase 9 | Pending |
@@ -67,4 +67,4 @@ Requirements for Analytics & Learning Loop milestone.
 
 ---
 *Requirements defined: 2026-01-23*
-*Last updated: 2026-01-23 after roadmap creation*
+*Last updated: 2026-01-24 after Phase 7 completion*
