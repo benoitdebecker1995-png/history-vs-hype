@@ -44,27 +44,27 @@ Requirements for Analytics & Learning Loop milestone.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INTEG-01 | TBD | Pending |
-| INTEG-02 | TBD | Pending |
-| INTEG-03 | TBD | Pending |
-| INTEG-04 | TBD | Pending |
-| INTEG-05 | TBD | Pending |
-| INTEG-06 | TBD | Pending |
-| ANALYSIS-01 | TBD | Pending |
-| ANALYSIS-02 | TBD | Pending |
-| ANALYSIS-03 | TBD | Pending |
-| ANALYSIS-04 | TBD | Pending |
-| ANALYSIS-05 | TBD | Pending |
-| ANALYSIS-06 | TBD | Pending |
-| PATRN-01 | TBD | Pending |
-| PATRN-02 | TBD | Pending |
-| PATRN-03 | TBD | Pending |
+| INTEG-01 | Phase 7 | Pending |
+| INTEG-02 | Phase 7 | Pending |
+| INTEG-03 | Phase 8 | Pending |
+| INTEG-04 | Phase 8 | Pending |
+| INTEG-05 | Phase 8 | Pending |
+| INTEG-06 | Phase 7 | Pending |
+| ANALYSIS-01 | Phase 9 | Pending |
+| ANALYSIS-02 | Phase 9 | Pending |
+| ANALYSIS-03 | Phase 9 | Pending |
+| ANALYSIS-04 | Phase 9 | Pending |
+| ANALYSIS-05 | Phase 9 | Pending |
+| ANALYSIS-06 | Phase 9 | Pending |
+| PATRN-01 | Phase 10 | Pending |
+| PATRN-02 | Phase 10 | Pending |
+| PATRN-03 | Phase 10 | Pending |
 
 **Coverage:**
 - v1.1 requirements: 15 total
-- Mapped to phases: 0
-- Unmapped: 15
+- Mapped to phases: 15
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-01-23*
-*Last updated: 2026-01-23 after initial definition*
+*Last updated: 2026-01-23 after roadmap creation*
