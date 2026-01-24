@@ -25,6 +25,16 @@ The workspace has been optimized for solo creator efficiency:
 - `/help` — phase-organized command list
 - `/research --new` — start new video project
 
+## Current Milestone: v1.1 Analytics & Learning Loop
+
+**Goal:** Build a feedback system that helps learn what works from each video, with automated YouTube Analytics integration.
+
+**Target features:**
+- YouTube Analytics API integration (CTR, retention, watch time pulls)
+- Post-publish learning loop (7-day analysis, lessons logged)
+- Cross-video pattern recognition (monthly insights)
+- Experiment mode preserved (no pressure to always optimize)
+
 ## Requirements
 
 ### Validated (v1.0)
@@ -38,9 +48,12 @@ The workspace has been optimized for solo creator efficiency:
 - Scriptwriter produces spoken-delivery scripts — v1.0
 - Competitive intelligence tracking — v1.0
 
-### Active
+### Active (v1.1)
 
-(None currently — run `/gsd:new-milestone` to define next milestone)
+- YouTube Analytics API integration for automated data pulls
+- Post-publish learning loop (CTR, retention, audience signals)
+- Cross-video pattern recognition system
+- Experiment/strategic balance (gap database maintained, no optimization pressure)
 
 ### Out of Scope
 
@@ -85,4 +98,4 @@ The workspace has been optimized for solo creator efficiency:
 
 ---
 
-*Last updated: 2026-01-23 after v1.0 milestone*
+*Last updated: 2026-01-23 after v1.1 milestone start*
