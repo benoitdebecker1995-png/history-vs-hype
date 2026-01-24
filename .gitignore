@@ -78,3 +78,7 @@ logs/
 
 # Files with problematic filenames (too long for git on Windows)
 *Anna's Archive.pdf
+
+# YouTube Analytics credentials (belt and suspenders)
+tools/youtube-analytics/credentials/client_secret.json
+tools/youtube-analytics/credentials/token.json

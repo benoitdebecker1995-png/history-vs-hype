@@ -1,0 +1,10 @@
+# YouTube API credentials - NEVER commit
+credentials/client_secret.json
+credentials/token.json
+
+# But keep the folder structure
+!credentials/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
