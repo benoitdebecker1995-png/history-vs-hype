@@ -27,6 +27,12 @@ Build a feedback system that helps learn what works from each video. YouTube Ana
 3. Credentials file exists in secure location (gitignored, not in repo)
 4. Token refresh works without re-authorization
 
+**Plans:** 2 plans
+
+Plans:
+- [ ] 07-01-PLAN.md — Infrastructure setup + Google Cloud Console configuration (human checkpoint)
+- [ ] 07-02-PLAN.md — OAuth2 Python implementation + connection verification
+
 ---
 
 ### Phase 8: Data Pull Scripts
@@ -97,7 +103,7 @@ Build a feedback system that helps learn what works from each video. YouTube Ana
 
 | Phase | Name | Requirements | Status |
 |-------|------|--------------|--------|
-| 7 | API Foundation | INTEG-01, INTEG-02, INTEG-06 | Not Started |
+| 7 | API Foundation | INTEG-01, INTEG-02, INTEG-06 | Planned (2 plans) |
 | 8 | Data Pull Scripts | INTEG-03, INTEG-04, INTEG-05 | Not Started |
 | 9 | Post-Publish Analysis | ANALYSIS-01 through ANALYSIS-06 | Not Started |
 | 10 | Pattern Recognition | PATRN-01, PATRN-02, PATRN-03 | Not Started |
@@ -127,3 +133,4 @@ Build a feedback system that helps learn what works from each video. YouTube Ana
 ---
 
 *Roadmap created: 2026-01-23*
+*Phase 7 planned: 2026-01-24*
