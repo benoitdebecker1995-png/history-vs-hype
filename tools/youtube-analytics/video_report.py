@@ -28,7 +28,7 @@ Dependencies:
 
 import sys
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 
 from metrics import get_video_metrics
 from retention import get_retention_data
@@ -70,7 +70,9 @@ def generate_video_report(video_id: str, start_date: str = None, end_date: str =
         errors.append({'source': 'metrics', 'message': metrics_result['error']})
         engagement = None
         title = None
-        date_range = {'start': start_date or '2020-01-01', 'end': end_date or 'today'}
+        # Use actual date for 'end' instead of 'today'
+        actual_end = end_date or date.today().isoformat()
+        date_range = {'start': start_date or '2020-01-01', 'end': actual_end}
     else:
         engagement = {
             'views': metrics_result.get('views'),
@@ -226,27 +228,58 @@ def format_as_markdown(report: dict) -> str:
 
     # Quick Insights
     summary = report.get('summary', {})
-    if summary:
-        lines.append("## Quick Insights")
-        lines.append("")
+    engagement = report.get('engagement')
+    retention = report.get('retention')
 
-        if 'retention_percent' in summary:
-            rating = summary.get('retention_rating', 'unknown')
-            lines.append(f"- **Average retention:** {summary['retention_percent']}% ({rating})")
+    lines.append("## Quick Insights")
+    lines.append("")
 
-        if 'biggest_drop' in summary:
-            drop = summary['biggest_drop']
-            lines.append(f"- **Biggest drop-off:** {drop['drop_percent']}% at {drop['position']}% ({drop['location']})")
+    if 'retention_percent' in summary:
+        rating = summary.get('retention_rating', 'unknown')
+        # Add threshold context
+        threshold_note = ""
+        if rating == 'good':
+            threshold_note = " - above 35% benchmark"
+        elif rating == 'needs work':
+            threshold_note = " - below 25% benchmark"
+        lines.append(f"- **Average retention:** {summary['retention_percent']}% ({rating}{threshold_note})")
 
-        lines.append(f"- **CTR:** {summary.get('ctr_status', 'N/A')}")
+    if 'biggest_drop' in summary:
+        drop = summary['biggest_drop']
+        lines.append(f"- **Biggest drop-off:** {drop['drop_percent']}% at {drop['position']}% ({drop['location']})")
+        # Add drop-off count
+        if retention and retention.get('drop_off_points'):
+            drop_count = len(retention['drop_off_points'])
+            lines.append(f"- **Total significant drops:** {drop_count}")
 
-        if 'engagement_rate' in summary:
-            lines.append(f"- **Engagement rate:** {summary['engagement_rate']}%")
+    lines.append(f"- **CTR:** {summary.get('ctr_status', 'N/A')}")
 
-        if 'watch_time_hours' in summary:
-            lines.append(f"- **Total watch time:** {summary['watch_time_hours']} hours")
+    if 'engagement_rate' in summary:
+        eng_rate = summary['engagement_rate']
+        # Add context for engagement rate
+        eng_note = ""
+        if eng_rate >= 5:
+            eng_note = " (excellent)"
+        elif eng_rate >= 2:
+            eng_note = " (good)"
+        elif eng_rate >= 1:
+            eng_note = " (average)"
+        else:
+            eng_note = " (low)"
+        lines.append(f"- **Engagement rate:** {eng_rate}%{eng_note}")
 
-        lines.append("")
+    if 'watch_time_hours' in summary:
+        lines.append(f"- **Total watch time:** {summary['watch_time_hours']} hours")
+
+    # Add subscriber efficiency metric
+    if engagement:
+        subs = engagement.get('subscribers_gained', 0) or 0
+        views = engagement.get('views', 0) or 0
+        if views > 0 and subs > 0:
+            subs_per_100_views = round(subs / views * 100, 2)
+            lines.append(f"- **Subscribers per 100 views:** {subs_per_100_views}")
+
+    lines.append("")
 
     # Engagement metrics table
     engagement = report.get('engagement')
@@ -314,22 +347,27 @@ def format_as_markdown(report: dict) -> str:
         lines.append(f"- **Data points:** {retention.get('data_points_count', 0)}")
         lines.append("")
 
-        # Drop-off table
+        # Drop-off table - sorted by magnitude (biggest first)
         drops = retention.get('drop_off_points', [])
         if drops:
             lines.append("### Retention Drop-offs")
             lines.append("")
-            lines.append("| Position | Viewers Lost | Timestamp |")
-            lines.append("|----------|--------------|-----------|")
+            lines.append("*Sorted by impact (biggest drops first)*")
+            lines.append("")
+            lines.append("| Position | Viewers Lost | Location |")
+            lines.append("|----------|--------------|----------|")
 
-            for drop in drops[:10]:  # Limit to top 10
+            # Sort by drop magnitude (biggest first)
+            sorted_drops = sorted(drops, key=lambda d: d.get('drop', 0), reverse=True)
+
+            for drop in sorted_drops[:10]:  # Limit to top 10
                 pos = round(drop.get('position', 0) * 100, 1)
                 lost = round(drop.get('drop', 0) * 100, 1)
                 hint = drop.get('timestamp_hint', 'unknown')
                 lines.append(f"| {pos}% | {lost}% dropped | {hint} |")
 
             if len(drops) > 10:
-                lines.append(f"| ... | ({len(drops) - 10} more) | ... |")
+                lines.append(f"| ... | ({len(drops) - 10} more drops) | ... |")
 
             lines.append("")
     else:
