@@ -1,0 +1,770 @@
+"""
+YouTube Post-Publish Analysis Orchestrator
+
+Combines all data sources into a complete post-publish analysis with automated lessons.
+This is the engine that powers the /analyze command.
+
+Usage:
+    CLI:
+        python analyze.py VIDEO_ID
+        python analyze.py VIDEO_ID --markdown
+        python analyze.py https://youtu.be/VIDEO_ID
+        python analyze.py VIDEO_ID --ctr 4.5
+
+    Python:
+        from analyze import run_analysis, generate_lessons
+
+        analysis = run_analysis('VIDEO_ID')
+        print(analysis['lessons'])
+
+Output:
+    JSON (default) or Markdown format with complete video analysis including:
+    - Performance metrics vs channel benchmarks
+    - Retention curve with drop-off points
+    - Categorized comments
+    - Automated lessons and actionable insights
+
+Dependencies:
+    - video_report.py (Phase 8) - engagement, retention, CTR data
+    - comments.py (Plan 01) - comment fetching and categorization
+    - channel_averages.py (Plan 01) - benchmark calculations
+"""
+
+import sys
+import json
+import re
+from datetime import datetime, timezone
+from urllib.parse import urlparse, parse_qs
+
+from video_report import generate_video_report
+from comments import fetch_and_categorize_comments
+from channel_averages import get_channel_averages, compare_to_channel
+from metrics import get_video_metrics
+
+
+def extract_video_id(url_or_id: str) -> str:
+    """
+    Extract YouTube video ID from URL or return as-is if already an ID.
+
+    Supports:
+    - https://www.youtube.com/watch?v=VIDEO_ID
+    - https://youtu.be/VIDEO_ID
+    - https://youtube.com/shorts/VIDEO_ID
+    - https://www.youtube.com/embed/VIDEO_ID
+    - Raw VIDEO_ID (11 characters)
+
+    Args:
+        url_or_id: YouTube URL or video ID
+
+    Returns:
+        11-character video ID
+
+    Raises:
+        ValueError: If video ID cannot be extracted
+    """
+    # Clean input
+    url_or_id = url_or_id.strip()
+
+    # If already looks like a video ID (11 alphanumeric + hyphens/underscores)
+    if re.match(r'^[\w-]{11}$', url_or_id):
+        return url_or_id
+
+    # Parse URL
+    parsed = urlparse(url_or_id)
+
+    # youtu.be/VIDEO_ID
+    if parsed.netloc in ('youtu.be', 'www.youtu.be'):
+        video_id = parsed.path.lstrip('/')
+        if len(video_id) >= 11:
+            return video_id[:11]
+
+    # youtube.com variants
+    if 'youtube.com' in parsed.netloc or 'youtube.com' in url_or_id:
+        # /watch?v=VIDEO_ID
+        if parsed.path == '/watch' or '/watch' in url_or_id:
+            query = parse_qs(parsed.query)
+            if 'v' in query:
+                return query['v'][0][:11]
+
+        # /shorts/VIDEO_ID, /embed/VIDEO_ID, /v/VIDEO_ID
+        for prefix in ('/shorts/', '/embed/', '/v/'):
+            if prefix in parsed.path:
+                remainder = parsed.path.split(prefix)[-1]
+                if len(remainder) >= 11:
+                    return remainder[:11]
+
+    raise ValueError(f"Could not extract video ID from: {url_or_id}")
+
+
+def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
+    """
+    Run complete post-publish analysis for a video.
+
+    Orchestrates data from video_report, comments, and channel_averages,
+    then generates automated lessons based on the data.
+
+    Args:
+        video_id_or_url: YouTube video ID or URL
+        manual_ctr: Optional manual CTR override (0-100)
+
+    Returns:
+        Complete analysis dict:
+        {
+            'video_id': '...',
+            'title': '...',
+            'fetched_at': 'ISO timestamp',
+            'engagement': {...},
+            'ctr': {...},
+            'retention': {...},
+            'benchmarks': {
+                'channel_averages': {...},
+                'comparison': {...}
+            },
+            'comments': {
+                'total': N,
+                'questions': [...],
+                'objections': [...],
+                'requests': [...]
+            },
+            'lessons': {
+                'observations': [...],
+                'actionable': [...]
+            },
+            'errors': [...]
+        }
+    """
+    errors = []
+    fetched_at = datetime.now(timezone.utc).isoformat()
+
+    # Extract video ID from URL if needed
+    try:
+        video_id = extract_video_id(video_id_or_url)
+    except ValueError as e:
+        return {
+            'video_id': video_id_or_url,
+            'title': None,
+            'fetched_at': fetched_at,
+            'errors': [{'source': 'input', 'message': str(e)}]
+        }
+
+    # 1. Get video report (engagement, retention, CTR)
+    video_report = generate_video_report(video_id)
+
+    # Extract components from video report
+    title = video_report.get('title')
+    engagement = video_report.get('engagement')
+    retention = video_report.get('retention')
+    ctr = video_report.get('ctr')
+
+    # Collect errors from video report
+    if video_report.get('errors'):
+        errors.extend(video_report['errors'])
+
+    # 2. Handle manual CTR override
+    if manual_ctr is not None:
+        ctr = {
+            'impressions': ctr.get('impressions') if ctr else None,
+            'ctr_percent': manual_ctr,
+            'available': True,
+            'source': 'manual'
+        }
+
+    # 3. Fetch and categorize comments
+    comments_result = fetch_and_categorize_comments(video_id)
+
+    if 'error' in comments_result:
+        errors.append({
+            'source': 'comments',
+            'message': comments_result['error']
+        })
+        comments = {
+            'total': 0,
+            'questions': [],
+            'objections': [],
+            'requests': [],
+            'other': []
+        }
+    else:
+        comments = {
+            'total': comments_result.get('total_fetched', 0),
+            'questions': comments_result.get('categories', {}).get('questions', []),
+            'objections': comments_result.get('categories', {}).get('objections', []),
+            'requests': comments_result.get('categories', {}).get('requests', []),
+            'other': comments_result.get('categories', {}).get('other', [])
+        }
+
+    # 4. Get channel averages and comparison
+    channel_avgs = get_channel_averages()
+
+    if 'error' in channel_avgs:
+        errors.append({
+            'source': 'channel_averages',
+            'message': channel_avgs['error']
+        })
+        benchmarks = {
+            'channel_averages': None,
+            'comparison': None
+        }
+    else:
+        # Get video metrics for comparison
+        video_metrics = get_video_metrics(video_id)
+
+        if 'error' in video_metrics:
+            comparison = None
+        else:
+            comparison = compare_to_channel(video_metrics, channel_avgs)
+            if 'error' in comparison:
+                errors.append({
+                    'source': 'comparison',
+                    'message': comparison['error']
+                })
+                comparison = None
+
+        benchmarks = {
+            'channel_averages': channel_avgs,
+            'comparison': comparison
+        }
+
+    # 5. Generate lessons based on all data
+    analysis_data = {
+        'engagement': engagement,
+        'retention': retention,
+        'ctr': ctr,
+        'benchmarks': benchmarks,
+        'comments': comments
+    }
+    lessons = generate_lessons(analysis_data)
+
+    return {
+        'video_id': video_id,
+        'title': title,
+        'fetched_at': fetched_at,
+        'engagement': engagement,
+        'ctr': ctr,
+        'retention': retention,
+        'benchmarks': benchmarks,
+        'comments': comments,
+        'lessons': lessons,
+        'errors': errors
+    }
+
+
+def generate_lessons(analysis_data: dict) -> dict:
+    """
+    Generate automated lessons and actionable insights from analysis data.
+
+    Applies pattern-based rules to generate observations and recommendations.
+
+    Args:
+        analysis_data: dict with engagement, retention, ctr, benchmarks, comments
+
+    Returns:
+        dict with:
+            'observations': [...] - What the data shows
+            'actionable': [...] - What to do next time
+    """
+    observations = []
+    actionable = []
+
+    engagement = analysis_data.get('engagement') or {}
+    retention = analysis_data.get('retention') or {}
+    ctr = analysis_data.get('ctr') or {}
+    benchmarks = analysis_data.get('benchmarks') or {}
+    comments = analysis_data.get('comments') or {}
+
+    # --- Retention Observations ---
+    avg_retention = retention.get('avg_retention')
+    if avg_retention is not None:
+        retention_percent = avg_retention * 100
+
+        if retention_percent >= 35:
+            observations.append(f"Strong retention ({retention_percent:.1f}%) - hook and pacing working well")
+        elif retention_percent >= 25:
+            observations.append(f"Average retention ({retention_percent:.1f}%) - room for improvement")
+            actionable.append("Consider stronger opening hook in first 30 seconds")
+        else:
+            observations.append(f"Retention needs work ({retention_percent:.1f}%) - review first 30 seconds")
+            actionable.append("Review and tighten intro - front-load the most compelling content")
+
+    drop_offs = retention.get('drop_off_points', [])
+    if drop_offs:
+        # Find biggest drop
+        biggest_drop = max(drop_offs, key=lambda d: d.get('drop', 0))
+        drop_percent = biggest_drop.get('drop', 0) * 100
+        drop_position = biggest_drop.get('position', 0) * 100
+        drop_location = biggest_drop.get('timestamp_hint', 'unknown')
+
+        if drop_percent > 10:
+            observations.append(
+                f"Major drop-off at {drop_position:.0f}% ({drop_location}) - {drop_percent:.1f}% viewers lost"
+            )
+            actionable.append(f"Review content at {drop_location} section - consider adding pattern interrupt")
+
+        if len(drop_offs) > 5:
+            observations.append(f"Multiple drop-off points ({len(drop_offs)}) - consider tightening overall pacing")
+            actionable.append("Trim tangents and maintain narrative momentum throughout")
+
+    # --- Engagement Observations ---
+    views = engagement.get('views', 0) or 0
+    subs_gained = engagement.get('subscribers_gained', 0) or 0
+    likes = engagement.get('likes', 0) or 0
+    comment_count = engagement.get('comments', 0) or 0
+
+    if views > 0:
+        # Subscriber conversion rate
+        subs_per_100 = (subs_gained / views) * 100
+        if subs_per_100 >= 1:
+            observations.append(f"Strong subscriber conversion ({subs_per_100:.2f} per 100 views)")
+        elif subs_per_100 < 0.3 and views > 1000:
+            observations.append(f"Low subscriber conversion ({subs_per_100:.2f} per 100 views)")
+            actionable.append("Consider adding stronger subscribe CTA at high-engagement moment")
+
+        # Engagement rate
+        engagement_rate = ((likes + comment_count) / views) * 100
+        if engagement_rate >= 5:
+            observations.append(f"Excellent engagement ({engagement_rate:.1f}%)")
+        elif engagement_rate >= 2:
+            observations.append(f"Good engagement ({engagement_rate:.1f}%)")
+        elif engagement_rate < 1:
+            observations.append(f"Low engagement ({engagement_rate:.1f}%)")
+            actionable.append("Consider adding engagement prompts (questions, polls, discussion topics)")
+
+    # --- Benchmark Observations ---
+    comparison = benchmarks.get('comparison')
+    if comparison and 'comparisons' in comparison:
+        views_comp = comparison['comparisons'].get('views', {})
+        delta = views_comp.get('delta_percent', 0)
+
+        if delta > 50:
+            observations.append(f"Outperforming channel average by {delta:.0f}%")
+            actionable.append("This topic type works well - consider similar content")
+        elif delta < -50:
+            observations.append(f"Underperforming vs channel average by {abs(delta):.0f}%")
+            actionable.append("Analyze what's different about this video vs better performers")
+
+    # --- CTR Observations ---
+    if ctr.get('available') and ctr.get('ctr_percent') is not None:
+        ctr_val = ctr['ctr_percent']
+        if ctr_val >= 6:
+            observations.append(f"Excellent CTR ({ctr_val}%) - thumbnail/title working well")
+        elif ctr_val >= 4:
+            observations.append(f"Good CTR ({ctr_val}%)")
+        elif ctr_val < 2:
+            observations.append(f"Low CTR ({ctr_val}%) - consider thumbnail/title optimization")
+            actionable.append("A/B test alternative thumbnails or titles")
+
+    # --- Comment Observations ---
+    question_count = len(comments.get('questions', []))
+    objection_count = len(comments.get('objections', []))
+    request_count = len(comments.get('requests', []))
+
+    if question_count > 5:
+        observations.append(f"{question_count} questions detected - audience seeking clarification")
+        actionable.append("Address top questions in pinned comment or follow-up content")
+
+    if objection_count > 3:
+        observations.append(f"{objection_count} objections raised - review for accuracy")
+        actionable.append("Review objections for potential corrections or clarifications")
+
+    if request_count > 3:
+        observations.append(f"{request_count} content requests - note for future topics")
+        actionable.append("Log requested topics for future video pipeline")
+
+    # Provide at least one observation even if data is sparse
+    if not observations:
+        observations.append("Insufficient data for automated insights - check individual metrics")
+
+    return {
+        'observations': observations,
+        'actionable': actionable
+    }
+
+
+def ascii_retention_curve(data_points: list, width: int = 60, height: int = 10) -> str:
+    """
+    Generate ASCII retention curve visualization.
+
+    Custom implementation without external dependencies.
+
+    Args:
+        data_points: List of {'position': float, 'retention': float} dicts
+        width: Chart width in characters (default 60)
+        height: Chart height in rows (default 10)
+
+    Returns:
+        ASCII art string representing retention curve
+    """
+    if not data_points:
+        return "No retention data available for visualization"
+
+    # Extract retention values
+    values = [dp.get('retention', 0) for dp in data_points]
+
+    if not values:
+        return "No retention data available for visualization"
+
+    # Sample values to fit width
+    step = max(1, len(values) // width)
+    sampled = values[::step][:width]
+
+    if not sampled:
+        return "Insufficient data points for visualization"
+
+    # Build chart
+    lines = []
+
+    for row in range(height, -1, -1):
+        threshold = row / height
+        pct_label = int(threshold * 100)
+        line = f"{pct_label:3d}% |"
+
+        for val in sampled:
+            if val >= threshold:
+                line += "*"
+            else:
+                line += " "
+
+        lines.append(line)
+
+    # X-axis
+    lines.append("     +" + "-" * len(sampled))
+    lines.append("     0%       Video Progress       100%")
+
+    return "\n".join(lines)
+
+
+def format_analysis_markdown(analysis: dict) -> str:
+    """
+    Format complete analysis as human-readable Markdown.
+
+    Includes:
+    - Quick summary with benchmark comparisons
+    - Performance table with channel average comparison
+    - Retention section with ASCII curve
+    - All drop-off points with timestamps
+    - Full comment lists under each category
+    - Lessons section
+
+    Args:
+        analysis: Complete analysis dict from run_analysis()
+
+    Returns:
+        Markdown-formatted string
+    """
+    lines = []
+
+    # --- Header ---
+    title = analysis.get('title') or analysis.get('video_id')
+    lines.append(f"# Post-Publish Analysis: {title}")
+    lines.append("")
+    lines.append(f"**Video ID:** {analysis.get('video_id')}")
+    lines.append(f"**Analysis generated:** {analysis.get('fetched_at', 'Unknown')}")
+    lines.append("")
+
+    # --- Quick Summary ---
+    lines.append("## Quick Summary")
+    lines.append("")
+
+    benchmarks = analysis.get('benchmarks', {})
+    comparison = benchmarks.get('comparison', {})
+
+    if comparison and 'summary' in comparison:
+        above = comparison['summary'].get('above_average', [])
+        below = comparison['summary'].get('below_average', [])
+
+        if above:
+            lines.append(f"**Above average:** {', '.join(above)}")
+        if below:
+            lines.append(f"**Below average:** {', '.join(below)}")
+        if not above and not below:
+            lines.append("**Performance:** At channel average")
+    else:
+        lines.append("*Channel benchmark comparison unavailable*")
+
+    lines.append("")
+
+    # --- Performance vs Benchmarks Table ---
+    lines.append("## Performance vs Benchmarks")
+    lines.append("")
+
+    engagement = analysis.get('engagement')
+    channel_avgs = benchmarks.get('channel_averages')
+
+    if engagement and channel_avgs and 'error' not in channel_avgs:
+        lines.append("| Metric | This Video | Channel Avg | vs Avg |")
+        lines.append("|--------|-----------|-------------|--------|")
+
+        comparisons = comparison.get('comparisons', {}) if comparison else {}
+
+        # Views
+        views = engagement.get('views', 0)
+        avg_views = channel_avgs.get('avg_views', 0)
+        views_comp = comparisons.get('views', {})
+        delta = views_comp.get('delta_percent', 0)
+        delta_str = f"+{delta:.0f}%" if delta > 0 else f"{delta:.0f}%"
+        lines.append(f"| Views | {views:,} | {avg_views:,.0f} | {delta_str} |")
+
+        # Watch time
+        watch_time = engagement.get('watch_time_minutes', 0)
+        avg_watch = channel_avgs.get('avg_watch_time_minutes', 0)
+        wt_comp = comparisons.get('watch_time_minutes', {})
+        wt_delta = wt_comp.get('delta_percent', 0)
+        wt_delta_str = f"+{wt_delta:.0f}%" if wt_delta > 0 else f"{wt_delta:.0f}%"
+        lines.append(f"| Watch Time (min) | {watch_time:,.0f} | {avg_watch:,.0f} | {wt_delta_str} |")
+
+        # Likes
+        likes = engagement.get('likes', 0)
+        avg_likes = channel_avgs.get('avg_likes', 0)
+        likes_comp = comparisons.get('likes', {})
+        likes_delta = likes_comp.get('delta_percent', 0)
+        likes_delta_str = f"+{likes_delta:.0f}%" if likes_delta > 0 else f"{likes_delta:.0f}%"
+        lines.append(f"| Likes | {likes:,} | {avg_likes:,.0f} | {likes_delta_str} |")
+
+        # Comments
+        comments_count = engagement.get('comments', 0)
+        avg_comments = channel_avgs.get('avg_comments', 0)
+        comments_comp = comparisons.get('comments', {})
+        comments_delta = comments_comp.get('delta_percent', 0)
+        comments_delta_str = f"+{comments_delta:.0f}%" if comments_delta > 0 else f"{comments_delta:.0f}%"
+        lines.append(f"| Comments | {comments_count:,} | {avg_comments:,.0f} | {comments_delta_str} |")
+
+        # Subscribers gained
+        subs = engagement.get('subscribers_gained', 0)
+        avg_subs = channel_avgs.get('avg_subscribers_gained', 0)
+        subs_comp = comparisons.get('subscribers_gained', {})
+        subs_delta = subs_comp.get('delta_percent', 0)
+        subs_delta_str = f"+{subs_delta:.0f}%" if subs_delta > 0 else f"{subs_delta:.0f}%"
+        lines.append(f"| Subscribers | +{subs} | +{avg_subs:.0f} | {subs_delta_str} |")
+
+        sample_size = channel_avgs.get('sample_size', 0)
+        lines.append("")
+        lines.append(f"*Channel averages based on last {sample_size} videos*")
+    elif engagement:
+        # No benchmark, just show raw metrics
+        lines.append("| Metric | Value |")
+        lines.append("|--------|-------|")
+        lines.append(f"| Views | {engagement.get('views', 0):,} |")
+        lines.append(f"| Watch Time | {engagement.get('watch_time_minutes', 0):,.0f} min |")
+        lines.append(f"| Likes | {engagement.get('likes', 0):,} |")
+        lines.append(f"| Comments | {engagement.get('comments', 0):,} |")
+        lines.append(f"| Subscribers | +{engagement.get('subscribers_gained', 0)} |")
+        lines.append("")
+        lines.append("*Channel benchmark unavailable - need 3+ videos for comparison*")
+    else:
+        lines.append("*Performance data unavailable*")
+
+    lines.append("")
+
+    # --- CTR Section ---
+    lines.append("## Click-Through Rate")
+    lines.append("")
+
+    ctr = analysis.get('ctr')
+    if ctr:
+        if ctr.get('available') and ctr.get('ctr_percent') is not None:
+            source = ctr.get('source', 'api')
+            source_note = " (manual entry)" if source == 'manual' else ""
+            lines.append(f"**CTR:** {ctr['ctr_percent']}%{source_note}")
+            if ctr.get('impressions'):
+                lines.append(f"**Impressions:** {ctr['impressions']:,}")
+        else:
+            lines.append("**CTR:** Not available via API")
+            lines.append("")
+            lines.append("*Check YouTube Studio > Analytics > Reach tab for CTR data*")
+    else:
+        lines.append("*CTR data unavailable*")
+
+    lines.append("")
+
+    # --- Retention Section ---
+    lines.append("## Retention Analysis")
+    lines.append("")
+
+    retention = analysis.get('retention')
+    if retention:
+        avg_ret = retention.get('avg_retention')
+        final_ret = retention.get('final_retention')
+
+        if avg_ret is not None:
+            lines.append(f"**Average retention:** {avg_ret * 100:.1f}%")
+        if final_ret is not None:
+            lines.append(f"**Final retention:** {final_ret * 100:.1f}%")
+
+        lines.append("")
+
+        # ASCII curve - we need to fetch full data points for this
+        # The video_report only includes summary, not full curve
+        # For now, note that full curve requires retention.py directly
+        lines.append("### Retention Curve")
+        lines.append("")
+        lines.append("*Run `python retention.py VIDEO_ID` for full curve visualization*")
+        lines.append("")
+
+        # Drop-offs
+        drop_offs = retention.get('drop_off_points', [])
+        if drop_offs:
+            lines.append("### Drop-off Points")
+            lines.append("")
+            lines.append("*Sorted by impact (biggest drops first)*")
+            lines.append("")
+            lines.append("| Position | Viewers Lost | Location |")
+            lines.append("|----------|--------------|----------|")
+
+            sorted_drops = sorted(drop_offs, key=lambda d: d.get('drop', 0), reverse=True)
+
+            for drop in sorted_drops[:10]:
+                pos = drop.get('position', 0) * 100
+                lost = drop.get('drop', 0) * 100
+                hint = drop.get('timestamp_hint', 'unknown')
+                lines.append(f"| {pos:.0f}% | {lost:.1f}% dropped | {hint} |")
+
+            if len(drop_offs) > 10:
+                lines.append(f"| ... | ({len(drop_offs) - 10} more) | ... |")
+        else:
+            lines.append("*No significant drop-offs detected*")
+    else:
+        lines.append("*Retention data unavailable*")
+
+    lines.append("")
+
+    # --- Comments Section ---
+    lines.append("## Comments Analysis")
+    lines.append("")
+
+    comments = analysis.get('comments', {})
+    total = comments.get('total', 0)
+    lines.append(f"**Total fetched:** {total}")
+    lines.append("")
+
+    # Questions
+    questions = comments.get('questions', [])
+    lines.append(f"### Questions ({len(questions)})")
+    lines.append("")
+    if questions:
+        for q in questions[:10]:
+            author = q.get('author', 'Unknown')
+            text = q.get('text', '')[:200]
+            likes = q.get('likes', 0)
+            lines.append(f"- **{author}** ({likes} likes): {text}")
+        if len(questions) > 10:
+            lines.append(f"- *...and {len(questions) - 10} more questions*")
+    else:
+        lines.append("*No questions detected*")
+    lines.append("")
+
+    # Objections
+    objections = comments.get('objections', [])
+    lines.append(f"### Objections ({len(objections)})")
+    lines.append("")
+    if objections:
+        for obj in objections[:10]:
+            author = obj.get('author', 'Unknown')
+            text = obj.get('text', '')[:200]
+            likes = obj.get('likes', 0)
+            lines.append(f"- **{author}** ({likes} likes): {text}")
+        if len(objections) > 10:
+            lines.append(f"- *...and {len(objections) - 10} more objections*")
+    else:
+        lines.append("*No objections detected*")
+    lines.append("")
+
+    # Requests
+    requests = comments.get('requests', [])
+    lines.append(f"### Content Requests ({len(requests)})")
+    lines.append("")
+    if requests:
+        for req in requests[:10]:
+            author = req.get('author', 'Unknown')
+            text = req.get('text', '')[:200]
+            likes = req.get('likes', 0)
+            lines.append(f"- **{author}** ({likes} likes): {text}")
+        if len(requests) > 10:
+            lines.append(f"- *...and {len(requests) - 10} more requests*")
+    else:
+        lines.append("*No content requests detected*")
+    lines.append("")
+
+    # --- Lessons Section ---
+    lines.append("## Lessons")
+    lines.append("")
+
+    lessons = analysis.get('lessons', {})
+    observations = lessons.get('observations', [])
+    actionable_items = lessons.get('actionable', [])
+
+    lines.append("### Observations")
+    lines.append("")
+    if observations:
+        for obs in observations:
+            lines.append(f"- {obs}")
+    else:
+        lines.append("*No automated observations generated*")
+    lines.append("")
+
+    lines.append("### Actionable Items")
+    lines.append("")
+    if actionable_items:
+        for item in actionable_items:
+            lines.append(f"- [ ] {item}")
+    else:
+        lines.append("*No action items identified*")
+    lines.append("")
+
+    # --- Errors Section ---
+    errors = analysis.get('errors', [])
+    if errors:
+        lines.append("## Errors")
+        lines.append("")
+        for err in errors:
+            lines.append(f"- **{err.get('source')}:** {err.get('message')}")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+if __name__ == '__main__':
+    # CLI interface
+    if len(sys.argv) < 2:
+        print("Usage: python analyze.py VIDEO_ID_OR_URL [OPTIONS]")
+        print("")
+        print("Complete post-publish analysis with benchmarks and lessons.")
+        print("")
+        print("Options:")
+        print("  --markdown    Output as human-readable Markdown (default: JSON)")
+        print("  --ctr VALUE   Provide manual CTR (e.g., --ctr 4.5)")
+        print("")
+        print("Examples:")
+        print("  python analyze.py wCFReiCGiks")
+        print("  python analyze.py wCFReiCGiks --markdown")
+        print("  python analyze.py https://youtu.be/wCFReiCGiks")
+        print("  python analyze.py wCFReiCGiks --ctr 4.5 --markdown")
+        sys.exit(1)
+
+    # Parse arguments
+    video_input = sys.argv[1]
+    output_markdown = '--markdown' in sys.argv
+    manual_ctr = None
+
+    # Parse --ctr argument
+    args = sys.argv[2:]
+    for i, arg in enumerate(args):
+        if arg == '--ctr' and i + 1 < len(args):
+            try:
+                ctr_value = float(args[i + 1])
+                if 0 <= ctr_value <= 100:
+                    manual_ctr = ctr_value
+                else:
+                    print(f"Error: --ctr must be between 0 and 100, got {ctr_value}")
+                    sys.exit(1)
+            except ValueError:
+                print(f"Error: --ctr must be a number, got '{args[i + 1]}'")
+                sys.exit(1)
+
+    # Run analysis
+    analysis = run_analysis(video_input, manual_ctr=manual_ctr)
+
+    # Output
+    if output_markdown:
+        print(format_analysis_markdown(analysis))
+    else:
+        print(json.dumps(analysis, indent=2))
