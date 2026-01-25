@@ -13,12 +13,12 @@ See: `.planning/PROJECT.md` (updated 2026-01-23)
 ## Current Position
 
 **Milestone:** v1.1 Analytics & Learning Loop
-**Phase:** 9 - Post-Publish Analysis (Plan 02 complete)
-**Status:** In progress - Plan 03 remaining
+**Phase:** 9 - Post-Publish Analysis (COMPLETE)
+**Status:** Phase 9 complete, ready for Phase 10
 
 **Progress:**
 ```
-[██████████░░        ] 53% — Plan 09-02 complete (8/15 requirements)
+[██████████████░░░░░░] 73% — Phase 9 complete (11/15 requirements)
 ```
 
 ## Milestone History
@@ -36,32 +36,41 @@ See: `.planning/PROJECT.md` (updated 2026-01-23)
 |-------|------|--------------|--------|
 | 7 | API Foundation | 3 | Complete |
 | 8 | Data Pull Scripts | 3 | Complete |
-| 9 | Post-Publish Analysis | 6 | In Progress (Plan 02 done) |
-| 10 | Pattern Recognition | 3 | Blocked (needs Phase 9) |
+| 9 | Post-Publish Analysis | 6 | Complete |
+| 10 | Pattern Recognition | 3 | Ready to start |
 
 **Total requirements:** 15
-**Completed:** 8/15 (Phase 7 + Phase 8 + Plans 09-01 + 09-02)
+**Completed:** 11/15 (Phase 7 + Phase 8 + Phase 9)
 
 ## Session Continuity
 
 ### Last Session
 
 - **Date:** 2026-01-25
-- **Work:** Completed Phase 9 Plan 02 - Analysis orchestrator with automated lessons
+- **Work:** Completed Phase 9 Plan 03 - /analyze command and file saving
 - **Output:**
-  - tools/youtube-analytics/analyze.py — Complete analysis engine
+  - .claude/commands/analyze.md — Slash command documentation
+  - tools/youtube-analytics/analyze.py — Enhanced with project folder discovery and file saving
+  - channel-data/analyses/.gitkeep — Fallback directory for analyses
 
 ### Next Session
 
-1. **Execute Plan 09-03:** Create /analyze slash command and file saving
+1. **Execute Phase 10:** Pattern Recognition (3 plans)
+   - Plan 10-01: Topic performance tracking
+   - Plan 10-02: Format effectiveness metrics
+   - Plan 10-03: Audience insight aggregation
 
 ### Important Context
 
-- **Plan 09-02 delivered:** analyze.py orchestrates all data sources
-- **Key functions:** `run_analysis()`, `generate_lessons()`, `format_analysis_markdown()`
-- **Manual CTR fallback:** `--ctr 4.5` flag for manual override
-- **URL support:** Accepts full YouTube URLs, extracts video ID automatically
-- **Lesson generation:** Pattern-based rules for retention, engagement, benchmarks, comments
+- **Phase 9 complete:** All 6 ANALYSIS requirements satisfied
+- **Key deliverables:**
+  - `/analyze VIDEO_ID` triggers complete post-publish analysis
+  - Auto-saves to project folder or fallback location
+  - Manual CTR input via `--ctr` flag
+  - Lessons generated automatically from performance data
+- **File locations:**
+  - Project folder match: `{project}/POST-PUBLISH-ANALYSIS.md`
+  - Fallback: `channel-data/analyses/POST-PUBLISH-ANALYSIS-{video_id}.md`
 
 ## Accumulated Context
 
@@ -87,6 +96,8 @@ See: `.planning/PROJECT.md` (updated 2026-01-23)
 | Minimum 3 videos for averages | Fewer would produce misleading benchmarks |
 | 5% threshold for at_average | Avoid over-sensitivity to minor variations |
 | ASCII curve via retention.py | Full data points needed; video_report only has summary |
+| Fallback location for analyses | channel-data/analyses/ when no project folder match |
+| Project folder search order | _IN_PRODUCTION first, then _READY_TO_FILM, then _ARCHIVED |
 
 ### Technical Notes
 
@@ -97,8 +108,9 @@ See: `.planning/PROJECT.md` (updated 2026-01-23)
 - **CTR confirmed:** Not available via API, returns graceful fallback with note to check YouTube Studio
 - **Data scripts ready:** metrics.py, retention.py, ctr.py, video_report.py
 - **Comment scripts ready:** comments.py with categorization, channel_averages.py with benchmarks
-- **Analysis engine ready:** analyze.py with lesson generation and markdown output
+- **Analysis engine ready:** analyze.py with lesson generation, markdown output, and file saving
+- **Slash command ready:** /analyze triggers full workflow
 
 ---
 
-*State updated: 2026-01-25 after Plan 09-02 completion*
+*State updated: 2026-01-25 after Phase 9 completion*
