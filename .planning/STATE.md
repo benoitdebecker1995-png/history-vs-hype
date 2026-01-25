@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-01-24
+**Last Updated:** 2026-01-25
 
 ## Project Reference
 
@@ -14,12 +14,12 @@ See: `.planning/PROJECT.md` (updated 2026-01-23)
 
 **Milestone:** v1.1 Analytics & Learning Loop
 **Phase:** 8 - Data Pull Scripts (In Progress)
-**Plan:** 1 of 3 complete
-**Status:** Ready for Plan 08-02
+**Plan:** 2 of 3 complete
+**Status:** Ready for Plan 08-03
 
 **Progress:**
 ```
-[██████              ] 27% — Plan 08-01 complete (4/15 requirements)
+[███████             ] 33% — Plan 08-02 complete (5/15 requirements)
 ```
 
 ## Milestone History
@@ -36,36 +36,37 @@ See: `.planning/PROJECT.md` (updated 2026-01-23)
 | Phase | Name | Requirements | Status |
 |-------|------|--------------|--------|
 | 7 | API Foundation | 3 | ✓ Complete |
-| 8 | Data Pull Scripts | 3 | In Progress (1/3 plans) |
+| 8 | Data Pull Scripts | 3 | In Progress (2/3 plans) |
 | 9 | Post-Publish Analysis | 6 | Blocked (needs Phase 8) |
 | 10 | Pattern Recognition | 3 | Blocked (needs Phase 9) |
 
 **Total requirements:** 15
-**Completed:** 4/15 (Phase 7 + 08-01)
+**Completed:** 5/15 (Phase 7 + 08-01 + 08-02)
 
 ## Session Continuity
 
 ### Last Session
 
-- **Date:** 2026-01-24
-- **Work:** Completed Plan 08-01 - Core Engagement Metrics Fetcher
+- **Date:** 2026-01-25
+- **Work:** Completed Plan 08-02 - Retention Curve Fetcher
 - **Output:**
-  - tools/youtube-analytics/metrics.py — Core engagement metrics fetcher
-  - get_video_metrics() function for views, watch time, likes, comments, shares
-  - get_video_title() helper for human-readable output
-  - CLI: `python metrics.py VIDEO_ID`
+  - tools/youtube-analytics/retention.py — Retention curve fetcher with drop-off detection
+  - get_retention_data() function for audience retention metrics
+  - find_drop_off_points() for identifying where viewers leave
+  - CLI: `python retention.py VIDEO_ID [--threshold 0.03]`
 
 ### Next Session
 
-1. **Continue Phase 8:** Run `/gsd:execute-phase 8` for Plan 08-02 (Retention Curve Fetcher)
+1. **Continue Phase 8:** Run `/gsd:execute-phase 8` for Plan 08-03 (CTR/Impressions Fetcher)
 2. **Or check status:** Run `/gsd:progress` to see current position
 
 ### Important Context
 
-- **Plan 08-01 delivered:** metrics.py with get_video_metrics() and get_video_title()
-- **Error dict pattern:** Return {error: msg} instead of raising exceptions
-- **Date range default:** 2020-01-01 to today (captures full video lifetime)
-- **Title lookup graceful:** Returns None on failure, doesn't crash request
+- **Plan 08-02 delivered:** retention.py with get_retention_data() and find_drop_off_points()
+- **~100 data points:** API returns 0.01 increments covering 0-100% of video
+- **Drop-off detection:** Default 5% threshold, configurable via --threshold flag
+- **Position hints:** intro/early/first half/second half/toward end/conclusion
+- **Test insight:** Flat Earth video showed 3 major drops in intro section
 
 ## Accumulated Context
 
@@ -82,6 +83,8 @@ See: `.planning/PROJECT.md` (updated 2026-01-23)
 | Port 8080 for OAuth | Standard port that works reliably for local OAuth server |
 | Error dict pattern | Return {error: msg} instead of exceptions for API scripts |
 | Default date range 2020-01-01 | Captures full video lifetime without user input |
+| Position hints for retention | 6 segments map % to human-readable labels |
+| Configurable drop-off threshold | Default 5%, adjustable for sensitivity |
 
 ### Technical Notes
 
@@ -93,4 +96,4 @@ See: `.planning/PROJECT.md` (updated 2026-01-23)
 
 ---
 
-*State updated: 2026-01-24 after Plan 08-01 completion*
+*State updated: 2026-01-25 after Plan 08-02 completion*
