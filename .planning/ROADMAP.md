@@ -58,9 +58,11 @@ Plans:
 **Plans:** 3 plans
 
 Plans:
-- [ ] 08-01-PLAN.md — Core metrics script (views, watch time, engagement) — INTEG-05
-- [ ] 08-02-PLAN.md — Retention script (retention curve, drop-off detection) — INTEG-04
-- [ ] 08-03-PLAN.md — CTR script with fallback + combined report — INTEG-03
+- [x] 08-01-PLAN.md — Core metrics script (views, watch time, engagement) — INTEG-05
+- [x] 08-02-PLAN.md — Retention script (retention curve, drop-off detection) — INTEG-04
+- [x] 08-03-PLAN.md — CTR script with fallback + combined report — INTEG-03
+
+**Completed:** 2026-01-24
 
 ---
 
@@ -113,7 +115,7 @@ Plans:
 | Phase | Name | Requirements | Status |
 |-------|------|--------------|--------|
 | 7 | API Foundation | INTEG-01, INTEG-02, INTEG-06 | ✓ Complete |
-| 8 | Data Pull Scripts | INTEG-03, INTEG-04, INTEG-05 | Planned (3 plans) |
+| 8 | Data Pull Scripts | INTEG-03, INTEG-04, INTEG-05 | ✓ Complete |
 | 9 | Post-Publish Analysis | ANALYSIS-01 through ANALYSIS-06 | Not Started |
 | 10 | Pattern Recognition | PATRN-01, PATRN-02, PATRN-03 | Not Started |
 
@@ -144,3 +146,4 @@ Plans:
 *Roadmap created: 2026-01-23*
 *Phase 7 planned: 2026-01-24*
 *Phase 8 planned: 2026-01-24*
+*Phase 8 completed: 2026-01-24*
