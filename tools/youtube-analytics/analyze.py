@@ -8,14 +8,20 @@ Usage:
     CLI:
         python analyze.py VIDEO_ID
         python analyze.py VIDEO_ID --markdown
+        python analyze.py VIDEO_ID --save
+        python analyze.py VIDEO_ID --save --output ./custom/path.md
         python analyze.py https://youtu.be/VIDEO_ID
         python analyze.py VIDEO_ID --ctr 4.5
 
     Python:
-        from analyze import run_analysis, generate_lessons
+        from analyze import run_analysis, generate_lessons, find_project_folder, save_analysis
 
         analysis = run_analysis('VIDEO_ID')
         print(analysis['lessons'])
+
+        # Save to project folder or fallback
+        result = save_analysis(analysis)
+        print(f"Saved to: {result['saved_to']}")
 
 Output:
     JSON (default) or Markdown format with complete video analysis including:
@@ -33,13 +39,163 @@ Dependencies:
 import sys
 import json
 import re
+import os
+import glob
 from datetime import datetime, timezone
 from urllib.parse import urlparse, parse_qs
+from pathlib import Path
 
 from video_report import generate_video_report
 from comments import fetch_and_categorize_comments
 from channel_averages import get_channel_averages, compare_to_channel
 from metrics import get_video_metrics
+
+
+# Determine project root (2 levels up from tools/youtube-analytics/)
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parent.parent
+
+
+def find_project_folder(video_id: str = None, video_title: str = None) -> str:
+    """
+    Find project folder matching video ID or title.
+
+    Search strategy (in order):
+    1. Search for video ID string in any .md file within video-projects/_IN_PRODUCTION/*/
+    2. Search for video ID in video-projects/_READY_TO_FILM/*/
+    3. Search for video ID in video-projects/_ARCHIVED/*/
+    4. If video_title provided, match title words against folder names
+    5. Return None if no match found
+
+    Args:
+        video_id: YouTube video ID (11 characters)
+        video_title: Video title for fuzzy matching
+
+    Returns:
+        Absolute path to project folder, or None if not found
+    """
+    search_paths = [
+        PROJECT_ROOT / 'video-projects' / '_IN_PRODUCTION' / '*',
+        PROJECT_ROOT / 'video-projects' / '_READY_TO_FILM' / '*',
+        PROJECT_ROOT / 'video-projects' / '_ARCHIVED' / '*'
+    ]
+
+    # Strategy 1: Search for video ID in files
+    if video_id:
+        for pattern in search_paths:
+            for folder in glob.glob(str(pattern)):
+                if not os.path.isdir(folder):
+                    continue
+                # Search all .md files in the folder
+                for filepath in glob.glob(os.path.join(folder, '*.md')):
+                    try:
+                        with open(filepath, 'r', encoding='utf-8') as f:
+                            content = f.read()
+                            if video_id in content:
+                                return folder
+                    except (IOError, UnicodeDecodeError):
+                        continue
+
+    # Strategy 2: Match title slug to folder name
+    if video_title:
+        # Extract significant words (>3 chars) from title
+        slug_words = re.sub(r'[^a-z0-9]+', ' ', video_title.lower()).split()
+        significant_words = [w for w in slug_words if len(w) > 3]
+
+        if significant_words:
+            for pattern in search_paths:
+                for folder in glob.glob(str(pattern)):
+                    if not os.path.isdir(folder):
+                        continue
+                    folder_name = os.path.basename(folder).lower()
+                    # Check if any significant word from title appears in folder name
+                    if any(word in folder_name for word in significant_words):
+                        return folder
+
+    return None
+
+
+def save_analysis(analysis: dict, output_path: str = None) -> dict:
+    """
+    Save analysis to file.
+
+    Behavior:
+    1. If output_path provided, save there
+    2. If not, try find_project_folder(video_id, title)
+    3. If project folder found, save as `{folder}/POST-PUBLISH-ANALYSIS.md`
+    4. If not found, save to `channel-data/analyses/POST-PUBLISH-ANALYSIS-{video_id}.md`
+    5. Create directory if needed
+
+    Args:
+        analysis: Complete analysis dict from run_analysis()
+        output_path: Optional explicit path. If None, auto-discover project folder.
+
+    Returns:
+        dict with:
+            'saved_to': path where file was saved
+            'project_folder_found': bool indicating if project folder was matched
+    """
+    video_id = analysis.get('video_id', 'unknown')
+    title = analysis.get('title')
+    fetched_at = analysis.get('fetched_at', datetime.now(timezone.utc).isoformat())
+
+    project_folder_found = False
+
+    if output_path:
+        # Use explicit path
+        save_path = Path(output_path)
+    else:
+        # Try to find project folder
+        project_folder = find_project_folder(video_id=video_id, video_title=title)
+
+        if project_folder:
+            save_path = Path(project_folder) / 'POST-PUBLISH-ANALYSIS.md'
+            project_folder_found = True
+        else:
+            # Fallback to central location
+            fallback_dir = PROJECT_ROOT / 'channel-data' / 'analyses'
+            fallback_dir.mkdir(parents=True, exist_ok=True)
+            save_path = fallback_dir / f'POST-PUBLISH-ANALYSIS-{video_id}.md'
+
+    # Ensure parent directory exists
+    save_path.parent.mkdir(parents=True, exist_ok=True)
+
+    # Format content with header
+    display_title = title or video_id
+    header_lines = [
+        f"# Post-Publish Analysis: {display_title}",
+        "",
+        f"**Video ID:** {video_id}",
+        f"**Analyzed:** {fetched_at}",
+        f"**Saved to:** {save_path}",
+        "",
+        "---",
+        ""
+    ]
+
+    # Get full markdown content (skip the first header since we have our own)
+    full_markdown = format_analysis_markdown(analysis)
+    # Remove the duplicate header section from format_analysis_markdown
+    lines = full_markdown.split('\n')
+    # Skip lines until we hit "## Quick Summary" (the first real section)
+    content_start = 0
+    for i, line in enumerate(lines):
+        if line.startswith('## Quick Summary'):
+            content_start = i
+            break
+    content = '\n'.join(lines[content_start:])
+
+    # Combine header and content
+    final_content = '\n'.join(header_lines) + content
+
+    # Write to file
+    with open(save_path, 'w', encoding='utf-8') as f:
+        f.write(final_content)
+
+    return {
+        'saved_to': str(save_path),
+        'project_folder_found': project_folder_found
+    }
 
 
 def extract_video_id(url_or_id: str) -> str:
@@ -730,22 +886,28 @@ if __name__ == '__main__':
         print("Complete post-publish analysis with benchmarks and lessons.")
         print("")
         print("Options:")
-        print("  --markdown    Output as human-readable Markdown (default: JSON)")
-        print("  --ctr VALUE   Provide manual CTR (e.g., --ctr 4.5)")
+        print("  --markdown      Output as human-readable Markdown (default: JSON)")
+        print("  --ctr VALUE     Provide manual CTR (e.g., --ctr 4.5)")
+        print("  --save          Save analysis to file (project folder or fallback)")
+        print("  --output PATH   Save to specific path (implies --save)")
         print("")
         print("Examples:")
         print("  python analyze.py wCFReiCGiks")
         print("  python analyze.py wCFReiCGiks --markdown")
+        print("  python analyze.py wCFReiCGiks --save")
+        print("  python analyze.py wCFReiCGiks --save --output ./custom/analysis.md")
         print("  python analyze.py https://youtu.be/wCFReiCGiks")
-        print("  python analyze.py wCFReiCGiks --ctr 4.5 --markdown")
+        print("  python analyze.py wCFReiCGiks --ctr 4.5 --markdown --save")
         sys.exit(1)
 
     # Parse arguments
     video_input = sys.argv[1]
     output_markdown = '--markdown' in sys.argv
+    do_save = '--save' in sys.argv
     manual_ctr = None
+    output_path = None
 
-    # Parse --ctr argument
+    # Parse --ctr and --output arguments
     args = sys.argv[2:]
     for i, arg in enumerate(args):
         if arg == '--ctr' and i + 1 < len(args):
@@ -759,12 +921,26 @@ if __name__ == '__main__':
             except ValueError:
                 print(f"Error: --ctr must be a number, got '{args[i + 1]}'")
                 sys.exit(1)
+        elif arg == '--output' and i + 1 < len(args):
+            output_path = args[i + 1]
+            do_save = True  # --output implies --save
 
     # Run analysis
     analysis = run_analysis(video_input, manual_ctr=manual_ctr)
 
-    # Output
-    if output_markdown:
+    # Output to stdout
+    if output_markdown or do_save:
         print(format_analysis_markdown(analysis))
     else:
         print(json.dumps(analysis, indent=2))
+
+    # Save to file if requested
+    if do_save:
+        save_result = save_analysis(analysis, output_path=output_path)
+        print("")
+        print("---")
+        print(f"Analysis saved to: {save_result['saved_to']}")
+        if save_result['project_folder_found']:
+            print("(Matched to video project folder)")
+        else:
+            print("(Saved to fallback location - no matching project folder found)")
