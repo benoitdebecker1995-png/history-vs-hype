@@ -10,25 +10,34 @@ This module enables cross-video pattern recognition by:
 3. Aggregating metrics by topic type with minimum sample size enforcement
 4. Generating insights-first reports with actionable recommendations
 5. Extracting title structure and thumbnail metadata for CTR correlation
+6. Monthly summaries and rolling time window analysis
 
 Usage:
     CLI:
         python patterns.py              # Show collected video data
         python patterns.py --tags       # Show videos with auto-tags
+        python patterns.py --last N     # Filter to last N days
         python patterns.py --topic-report    # Generate TOPIC-ANALYSIS.md
         python patterns.py --title-report    # Generate TITLE-PATTERNS.md
+        python patterns.py --monthly         # Generate current month summary
+        python patterns.py --monthly M Y     # Generate specific month summary
+        python patterns.py --all             # Generate all reports
 
     Python:
         from patterns import collect_video_data, auto_tag_video, aggregate_by_topic
         from patterns import identify_winners, generate_topic_report
         from patterns import extract_title_structure, extract_thumbnail_metadata
         from patterns import generate_title_patterns_report
+        from patterns import get_videos_for_period, generate_monthly_summary
+        from patterns import generate_all_reports
 
         videos = collect_video_data()
         enriched = enrich_video_data(videos)
         topic_stats = aggregate_by_topic(enriched)
         generate_topic_report()
         generate_title_patterns_report()
+        generate_monthly_summary()
+        generate_all_reports()
 
 Dependencies:
     - Standard library only (pathlib, re, glob, statistics, datetime)
@@ -1646,14 +1655,252 @@ def generate_title_patterns_report() -> str:
     return str(output_path)
 
 
+def get_videos_for_period(
+    videos: list[dict],
+    days: int = None,
+    month: int = None,
+    year: int = None
+) -> list[dict]:
+    """
+    Filter videos by time period.
+
+    Args:
+        videos: List of video dicts with 'analyzed_date' field
+        days: Rolling window (e.g., 30 for last 30 days)
+        month: Specific month (1-12)
+        year: Specific year (defaults to current year if month provided)
+
+    Returns:
+        Filtered list of videos
+    """
+    from datetime import timedelta
+
+    if not videos:
+        return []
+
+    now = datetime.now()
+
+    def parse_date(date_str):
+        """Parse ISO date string to datetime."""
+        if not date_str:
+            return None
+        try:
+            # Handle various ISO formats
+            if 'T' in date_str:
+                return datetime.fromisoformat(date_str.replace('Z', '+00:00')).replace(tzinfo=None)
+            return datetime.fromisoformat(date_str)
+        except (ValueError, TypeError):
+            return None
+
+    filtered = []
+
+    for v in videos:
+        date = parse_date(v.get('analyzed_date'))
+        if not date:
+            continue
+
+        if days is not None:
+            # Rolling window
+            cutoff = now - timedelta(days=days)
+            if date >= cutoff:
+                filtered.append(v)
+        elif month is not None:
+            # Specific month
+            target_year = year or now.year
+            if date.month == month and date.year == target_year:
+                filtered.append(v)
+        else:
+            # No filter, include all
+            filtered.append(v)
+
+    return filtered
+
+
+def generate_monthly_summary(month: int = None, year: int = None) -> str:
+    """
+    Generate monthly summary across all videos published that month.
+
+    Args:
+        month: Target month (1-12), defaults to current month
+        year: Target year, defaults to current year
+
+    Returns:
+        Markdown report string
+    """
+    now = datetime.now()
+    target_month = month or now.month
+    target_year = year or now.year
+
+    # Get all video data
+    videos = collect_video_data()
+    videos = enrich_video_data(videos)
+
+    # Filter to target month
+    month_videos = get_videos_for_period(videos, month=target_month, year=target_year)
+
+    if not month_videos:
+        return f"# Monthly Summary: {target_year}-{target_month:02d}\n\nNo videos analyzed for this month."
+
+    # Build report
+    lines = [
+        f"# Monthly Summary: {target_year}-{target_month:02d}",
+        "",
+        f"**Generated:** {now.isoformat()}",
+        f"**Videos analyzed:** {len(month_videos)}",
+        "",
+    ]
+
+    # Quick stats
+    total_views = sum(v.get('views', 0) or 0 for v in month_videos)
+    avg_views = total_views / len(month_videos) if month_videos else 0
+
+    valid_ctr = [v['ctr_percent'] for v in month_videos if v.get('ctr_percent')]
+    avg_ctr = sum(valid_ctr) / len(valid_ctr) if valid_ctr else None
+
+    valid_ret = [v['avg_retention'] for v in month_videos if v.get('avg_retention')]
+    avg_retention = sum(valid_ret) / len(valid_ret) if valid_ret else None
+
+    lines.extend([
+        "## Month at a Glance",
+        "",
+        "| Metric | Value |",
+        "|--------|-------|",
+        f"| Videos Published | {len(month_videos)} |",
+        f"| Total Views | {total_views:,} |",
+        f"| Avg Views/Video | {avg_views:,.0f} |",
+    ])
+
+    if avg_ctr:
+        lines.append(f"| Avg CTR | {avg_ctr:.1f}% |")
+    else:
+        lines.append("| Avg CTR | N/A |")
+
+    if avg_retention:
+        lines.append(f"| Avg Retention | {avg_retention*100:.1f}% |")
+    else:
+        lines.append("| Avg Retention | N/A |")
+
+    lines.append("")
+
+    # Best performer
+    best = max(month_videos, key=lambda v: v.get('views', 0) or 0)
+    lines.extend([
+        "## Best Performer",
+        "",
+        f"**{best.get('title', 'Unknown')}**",
+        f"- Views: {best.get('views', 0):,}",
+    ])
+
+    if best.get('ctr_percent'):
+        lines.append(f"- CTR: {best['ctr_percent']:.1f}%")
+    else:
+        lines.append("- CTR: N/A")
+
+    if best.get('avg_retention'):
+        lines.append(f"- Retention: {best['avg_retention']*100:.1f}%")
+    else:
+        lines.append("- Retention: N/A")
+
+    lines.append("")
+
+    # Topic breakdown for month
+    topic_stats = aggregate_by_topic(month_videos, min_count=1)  # Lower threshold for monthly
+    if topic_stats:
+        lines.extend([
+            "## Topic Breakdown",
+            "",
+            "| Topic | Videos | Avg Views |",
+            "|-------|--------|-----------|",
+        ])
+        for topic, stats in sorted(topic_stats.items(), key=lambda x: x[1]['avg_views'], reverse=True):
+            lines.append(f"| {topic} | {stats['count']} | {stats['avg_views']:,.0f} |")
+        lines.append("")
+
+    # All videos this month
+    lines.extend([
+        "## Videos This Month",
+        "",
+        "| Title | Views | CTR | Retention |",
+        "|-------|-------|-----|-----------|",
+    ])
+    for v in sorted(month_videos, key=lambda x: x.get('views', 0) or 0, reverse=True):
+        title = v.get('title', 'Unknown')[:40]
+        views = v.get('views', 0)
+        ctr = f"{v['ctr_percent']:.1f}%" if v.get('ctr_percent') else 'N/A'
+        ret = f"{v['avg_retention']*100:.1f}%" if v.get('avg_retention') else 'N/A'
+        lines.append(f"| {title} | {views:,} | {ctr} | {ret} |")
+
+    lines.extend([
+        "",
+        "---",
+        "*Generated from POST-PUBLISH-ANALYSIS files*",
+    ])
+
+    return "\n".join(lines)
+
+
+def generate_all_reports() -> dict:
+    """
+    Generate all pattern reports.
+
+    Returns:
+        dict with paths to generated reports
+    """
+    reports = {}
+
+    # Topic analysis
+    topic_report = generate_topic_report()
+    reports['topic'] = topic_report
+    print(f"Generated: {topic_report}")
+
+    # Title patterns
+    title_report = generate_title_patterns_report()
+    reports['title'] = title_report
+    print(f"Generated: {title_report}")
+
+    # Monthly summary
+    now = datetime.now()
+    monthly_report = generate_monthly_summary()
+    monthly_path = PROJECT_ROOT / 'channel-data' / 'patterns' / f'MONTHLY-{now.year}-{now.month:02d}.md'
+    monthly_path.parent.mkdir(parents=True, exist_ok=True)
+    monthly_path.write_text(monthly_report, encoding='utf-8')
+    reports['monthly'] = str(monthly_path)
+    print(f"Generated: {monthly_path}")
+
+    return reports
+
+
 if __name__ == '__main__':
     # CLI interface
-    if len(sys.argv) == 1:
+    args = sys.argv[1:]
+
+    # Parse --last N flag (can combine with other flags)
+    last_days = None
+    if '--last' in args:
+        idx = args.index('--last')
+        if idx + 1 < len(args):
+            try:
+                last_days = int(args[idx + 1])
+                args = args[:idx] + args[idx + 2:]  # Remove --last and N
+            except ValueError:
+                print("Error: --last requires a number (e.g., --last 30)")
+                sys.exit(1)
+        else:
+            print("Error: --last requires a number (e.g., --last 30)")
+            sys.exit(1)
+
+    if len(args) == 0:
         # No args: show collected video data
         print("Collecting video data from POST-PUBLISH-ANALYSIS files...")
         print()
 
         videos = collect_video_data()
+
+        if last_days:
+            videos = enrich_video_data(videos)
+            videos = get_videos_for_period(videos, days=last_days)
+            print(f"Filtered to last {last_days} days")
+            print()
 
         if not videos:
             print("No POST-PUBLISH-ANALYSIS files found.")
@@ -1679,14 +1926,21 @@ if __name__ == '__main__':
             print("Run with --tags to see topic classifications")
             print("Run with --topic-report to generate TOPIC-ANALYSIS.md")
             print("Run with --title-report to generate TITLE-PATTERNS.md")
+            print("Run with --monthly to generate monthly summary")
+            print("Run with --all to generate all reports")
 
-    elif sys.argv[1] == '--tags':
+    elif args[0] == '--tags':
         # Show videos with auto-tags
         print("Collecting and tagging video data...")
         print()
 
         videos = collect_video_data()
         videos = enrich_video_data(videos)
+
+        if last_days:
+            videos = get_videos_for_period(videos, days=last_days)
+            print(f"Filtered to last {last_days} days")
+            print()
 
         if not videos:
             print("No POST-PUBLISH-ANALYSIS files found.")
@@ -1700,7 +1954,7 @@ if __name__ == '__main__':
                 print(f"    Tags: {tags}")
                 print()
 
-    elif sys.argv[1] == '--topic-report':
+    elif args[0] == '--topic-report':
         # Generate TOPIC-ANALYSIS.md
         print("Generating topic performance report...")
         print()
@@ -1714,7 +1968,7 @@ if __name__ == '__main__':
         print()
         print(f"Report saved to: {output_path}")
 
-    elif sys.argv[1] == '--title-report':
+    elif args[0] == '--title-report':
         # Generate TITLE-PATTERNS.md
         print("Generating title and thumbnail pattern report...")
         print()
@@ -1728,23 +1982,80 @@ if __name__ == '__main__':
         print()
         print(f"Report saved to: {output_path}")
 
-    elif sys.argv[1] in ('--help', '-h'):
+    elif args[0] == '--monthly':
+        # Generate monthly summary
+        target_month = None
+        target_year = None
+
+        if len(args) >= 2:
+            try:
+                target_month = int(args[1])
+            except ValueError:
+                print(f"Error: Invalid month '{args[1]}'. Use a number 1-12.")
+                sys.exit(1)
+
+        if len(args) >= 3:
+            try:
+                target_year = int(args[2])
+            except ValueError:
+                print(f"Error: Invalid year '{args[2]}'.")
+                sys.exit(1)
+
+        now = datetime.now()
+        target_month = target_month or now.month
+        target_year = target_year or now.year
+
+        print(f"Generating monthly summary for {target_year}-{target_month:02d}...")
+        print()
+
+        report = generate_monthly_summary(month=target_month, year=target_year)
+
+        # Save report
+        output_dir = PROJECT_ROOT / 'channel-data' / 'patterns'
+        output_dir.mkdir(parents=True, exist_ok=True)
+        output_path = output_dir / f'MONTHLY-{target_year}-{target_month:02d}.md'
+        output_path.write_text(report, encoding='utf-8')
+
+        # Print report
+        print(report)
+        print()
+        print(f"Report saved to: {output_path}")
+
+    elif args[0] == '--all':
+        # Generate all reports
+        print("Generating all pattern reports...")
+        print()
+
+        reports = generate_all_reports()
+
+        print()
+        print("All reports generated:")
+        for name, path in reports.items():
+            print(f"  - {name}: {path}")
+
+    elif args[0] in ('--help', '-h'):
         print("Usage: python patterns.py [OPTIONS]")
         print()
-        print("Cross-video pattern analysis for YouTube channel performance.")
+        print("Cross-video pattern analysis for YouTube channel optimization.")
         print()
-        print("Options:")
-        print("  (no args)         Show collected video data from analysis files")
-        print("  --tags            Show videos with auto-detected topic tags")
-        print("  --topic-report    Generate TOPIC-ANALYSIS.md report")
-        print("  --title-report    Generate TITLE-PATTERNS.md report")
-        print("  --help, -h        Show this help message")
+        print("Data Commands:")
+        print("  (no args)           Show collected video data")
+        print("  --tags              Show videos with auto-detected topic tags")
+        print("  --last N            Filter to last N days")
+        print()
+        print("Report Commands:")
+        print("  --topic-report      Generate topic performance analysis")
+        print("  --title-report      Generate title/thumbnail pattern analysis")
+        print("  --monthly [M Y]     Generate monthly summary (current month if no args)")
+        print("  --all               Generate all reports")
+        print()
+        print("Reports are saved to channel-data/patterns/")
         print()
         print("Examples:")
-        print("  python patterns.py              # List analyzed videos")
-        print("  python patterns.py --tags       # Show videos with topic tags")
-        print("  python patterns.py --topic-report   # Generate topic report")
-        print("  python patterns.py --title-report   # Generate title/thumbnail report")
+        print("  python patterns.py --all                    # Generate all reports")
+        print("  python patterns.py --monthly 1 2026         # January 2026 summary")
+        print("  python patterns.py --last 30 --tags         # Last 30 days with tags")
+        print("  python patterns.py --last 90                # Videos from last 90 days")
         print()
         print("Data sources:")
         print("  POST-PUBLISH-ANALYSIS files are searched in:")
@@ -1754,6 +2065,6 @@ if __name__ == '__main__':
         print("  - video-projects/_ARCHIVED/*/")
 
     else:
-        print(f"Unknown option: {sys.argv[1]}")
+        print(f"Unknown option: {args[0]}")
         print("Run 'python patterns.py --help' for usage information")
         sys.exit(1)
