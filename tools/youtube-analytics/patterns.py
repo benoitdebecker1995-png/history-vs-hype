@@ -1201,6 +1201,451 @@ def generate_topic_report() -> str:
     return str(output_path)
 
 
+def generate_title_insights(title_struct_stats: dict, pattern_stats: dict, thumb_stats: dict) -> list[str]:
+    """
+    Generate actionable insights from title and thumbnail analysis.
+
+    Args:
+        title_struct_stats: dict from aggregate_by_title_structure()
+        pattern_stats: dict from aggregate_by_pattern()
+        thumb_stats: dict from aggregate_by_thumbnail()
+
+    Returns:
+        list[str] of insight statements
+    """
+    insights = []
+
+    # Best title attribute insight
+    if title_struct_stats:
+        # Find attribute with highest CTR delta
+        best_attr = None
+        best_delta = -float('inf')
+
+        for attr, stats in title_struct_stats.items():
+            delta = stats.get('delta_ctr')
+            if delta is not None and delta > best_delta:
+                best_delta = delta
+                best_attr = attr
+
+        if best_attr and best_delta > 5:
+            attr_display = best_attr.replace('has_', '').replace('_', ' ')
+            insights.append(
+                f"Titles with **{attr_display}** average {best_delta:.1f}% higher CTR"
+            )
+
+        # Find worst attribute (anti-pattern)
+        worst_attr = None
+        worst_delta = float('inf')
+
+        for attr, stats in title_struct_stats.items():
+            delta = stats.get('delta_ctr')
+            if delta is not None and delta < worst_delta:
+                worst_delta = delta
+                worst_attr = attr
+
+        if worst_attr and worst_delta < -5:
+            attr_display = worst_attr.replace('has_', '').replace('_', ' ')
+            insights.append(
+                f"Titles with {attr_display} have {abs(worst_delta):.1f}% LOWER CTR"
+            )
+
+    # Best title pattern insight
+    if pattern_stats:
+        by_ctr = [(p, s) for p, s in pattern_stats.items() if s.get('avg_ctr') is not None]
+        if by_ctr:
+            by_ctr.sort(key=lambda x: x[1]['avg_ctr'], reverse=True)
+            best_pattern, best_stats = by_ctr[0]
+            if best_stats['avg_ctr'] is not None:
+                insights.append(
+                    f"The \"{best_pattern}\" pattern has the highest average CTR "
+                    f"({best_stats['avg_ctr']:.1f}%)"
+                )
+
+    # Thumbnail type insight
+    thumb_by_type = thumb_stats.get('by_type', {})
+    if thumb_by_type:
+        by_views = sorted(thumb_by_type.items(), key=lambda x: x[1]['avg_views'], reverse=True)
+        if len(by_views) >= 2:
+            best_type, best_stats = by_views[0]
+            second_type, second_stats = by_views[1]
+            if second_stats['avg_views'] > 0:
+                ratio = best_stats['avg_views'] / second_stats['avg_views']
+                if ratio > 1.3:
+                    insights.append(
+                        f"**{best_type.capitalize()}**-focused thumbnails average "
+                        f"{ratio:.1f}x more views than {second_type}"
+                    )
+
+    if not insights:
+        insights.append("Insufficient data for title/thumbnail patterns - analyze more videos")
+
+    return insights
+
+
+def generate_title_recommendations(title_struct_stats: dict, pattern_stats: dict, thumb_stats: dict, winners: list[dict]) -> list[str]:
+    """
+    Generate actionable recommendations from title/thumbnail analysis.
+
+    Args:
+        title_struct_stats: dict from aggregate_by_title_structure()
+        pattern_stats: dict from aggregate_by_pattern()
+        thumb_stats: dict from aggregate_by_thumbnail()
+        winners: list from identify_winners()
+
+    Returns:
+        list[str] of recommended actions
+    """
+    recommendations = []
+
+    # Best attribute recommendation
+    if title_struct_stats:
+        best_attr = None
+        best_delta = 0
+
+        for attr, stats in title_struct_stats.items():
+            delta = stats.get('delta_ctr')
+            if delta is not None and delta > best_delta:
+                best_delta = delta
+                best_attr = attr
+
+        if best_attr and best_delta > 5:
+            attr_display = best_attr.replace('has_', '').replace('_', ' ')
+            recommendations.append(
+                f"Use {attr_display} in next 3 titles to validate pattern"
+            )
+
+    # Thumbnail recommendation
+    thumb_by_type = thumb_stats.get('by_type', {})
+    if thumb_by_type:
+        by_views = sorted(thumb_by_type.items(), key=lambda x: x[1]['avg_views'], reverse=True)
+        if by_views:
+            best_type = by_views[0][0]
+            if best_type != 'unknown':
+                recommendations.append(
+                    f"Test {best_type}-focused thumbnail on next territorial video"
+                )
+
+    # Anti-pattern recommendation
+    if title_struct_stats:
+        worst_attr = None
+        worst_delta = 0
+
+        for attr, stats in title_struct_stats.items():
+            delta = stats.get('delta_ctr')
+            if delta is not None and delta < worst_delta:
+                worst_delta = delta
+                worst_attr = attr
+
+        if worst_attr and worst_delta < -10:
+            attr_display = worst_attr.replace('has_', '').replace('_', ' ')
+            recommendations.append(
+                f"Avoid {attr_display} - associated with below-average performance"
+            )
+
+    if not recommendations:
+        recommendations.append("Run /analyze on more videos to enable pattern recommendations")
+
+    return recommendations
+
+
+def generate_title_patterns_report() -> str:
+    """
+    Generate complete TITLE-PATTERNS.md report with insights-first format.
+
+    Collects video data, analyzes title structure and thumbnail patterns,
+    correlates with CTR/retention, and generates Markdown report.
+
+    Returns:
+        str: Path to saved report file
+    """
+    # Collect and enrich data
+    videos = collect_video_data()
+    videos = enrich_video_data(videos)
+
+    # Generate statistics
+    title_struct_stats = aggregate_by_title_structure(videos)
+    pattern_stats = aggregate_by_pattern(videos)
+    thumb_stats = aggregate_by_thumbnail(videos)
+    winners = identify_winners(videos)
+    anti_patterns_list = identify_anti_patterns(videos)
+
+    # Calculate channel averages for quadrant analysis
+    valid_ctr = [v['ctr_percent'] for v in videos if v.get('ctr_percent') is not None]
+    valid_ret = [v['avg_retention'] for v in videos if v.get('avg_retention') is not None]
+    avg_ctr = mean(valid_ctr) if valid_ctr else 4.0  # Default to 4% if no data
+    avg_ret = mean(valid_ret) if valid_ret else 0.30  # Default to 30% if no data
+
+    # Generate insights and recommendations
+    insights = generate_title_insights(title_struct_stats, pattern_stats, thumb_stats)
+    recommendations = generate_title_recommendations(title_struct_stats, pattern_stats, thumb_stats, winners)
+
+    # Build report
+    timestamp = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+
+    lines = [
+        "# Title & Thumbnail Pattern Analysis",
+        "",
+        f"**Generated:** {timestamp}",
+        f"**Videos analyzed:** {len(videos)}",
+        "",
+        "## Key Insights",
+        "",
+    ]
+
+    # Add insights
+    for insight in insights:
+        lines.append(f"- {insight}")
+
+    lines.extend([
+        "",
+        "## Recommended Next Actions",
+        "",
+    ])
+
+    # Add recommendations
+    for rec in recommendations:
+        lines.append(f"- [ ] {rec}")
+
+    # Title Structure Patterns - By Attribute
+    lines.extend([
+        "",
+        "## Title Structure Patterns",
+        "",
+        "### By Attribute",
+        "",
+    ])
+
+    if title_struct_stats:
+        lines.append("| Attribute | With | Without | CTR Delta | Retention Delta |")
+        lines.append("|-----------|------|---------|-----------|-----------------|")
+
+        attr_display_names = {
+            'has_colon': 'Colon (:)',
+            'has_question': 'Question (?)',
+            'has_number': 'Number',
+            'has_year': 'Year (1914, 2024)',
+            'has_country': 'Country name',
+        }
+
+        for attr, stats in sorted(title_struct_stats.items()):
+            display_name = attr_display_names.get(attr, attr)
+            with_stats = stats['with']
+            without_stats = stats['without']
+
+            # Format CTR strings
+            with_ctr = f"{with_stats['avg_ctr']:.1f}% avg CTR (n={with_stats['count']})" if with_stats['avg_ctr'] is not None else f"N/A (n={with_stats['count']})"
+            without_ctr = f"{without_stats['avg_ctr']:.1f}% avg CTR (n={without_stats['count']})" if without_stats['avg_ctr'] is not None else f"N/A (n={without_stats['count']})"
+
+            delta_ctr = f"+{stats['delta_ctr']:.1f}%" if stats['delta_ctr'] is not None and stats['delta_ctr'] > 0 else (f"{stats['delta_ctr']:.1f}%" if stats['delta_ctr'] is not None else "N/A")
+            delta_ret = f"+{stats['delta_retention']:.1f}%" if stats['delta_retention'] is not None and stats['delta_retention'] > 0 else (f"{stats['delta_retention']:.1f}%" if stats['delta_retention'] is not None else "N/A")
+
+            lines.append(f"| {display_name} | {with_ctr} | {without_ctr} | {delta_ctr} | {delta_ret} |")
+    else:
+        lines.append("*Insufficient data for title attribute analysis - need 2+ videos per group*")
+
+    # Title Structure Patterns - By Pattern
+    lines.extend([
+        "",
+        "### By Title Pattern",
+        "",
+    ])
+
+    if pattern_stats:
+        lines.append("| Pattern | Count | Avg Views | Avg CTR | Avg Retention | Example |")
+        lines.append("|---------|-------|-----------|---------|---------------|---------|")
+
+        for pattern, stats in sorted(pattern_stats.items(), key=lambda x: x[1]['avg_views'], reverse=True):
+            ctr_str = f"{stats['avg_ctr']:.1f}%" if stats['avg_ctr'] is not None else "N/A"
+            ret_str = f"{stats['avg_retention']*100:.1f}%" if stats['avg_retention'] is not None else "N/A"
+            example = stats['videos'][0][:40] if stats['videos'] else "N/A"
+
+            lines.append(f"| {pattern} | {stats['count']} | {stats['avg_views']:,.0f} | {ctr_str} | {ret_str} | {example} |")
+    else:
+        lines.append("*Insufficient data for pattern analysis*")
+
+    # Thumbnail Patterns - By Type
+    lines.extend([
+        "",
+        "## Thumbnail Patterns",
+        "",
+        "### By Type",
+        "",
+    ])
+
+    thumb_by_type = thumb_stats.get('by_type', {})
+    if thumb_by_type:
+        lines.append("| Type | Count | Avg Views | Avg CTR | Avg Retention |")
+        lines.append("|------|-------|-----------|---------|---------------|")
+
+        for thumb_type, stats in sorted(thumb_by_type.items(), key=lambda x: x[1]['avg_views'], reverse=True):
+            ctr_str = f"{stats['avg_ctr']:.1f}%" if stats['avg_ctr'] is not None else "N/A"
+            ret_str = f"{stats['avg_retention']*100:.1f}%" if stats['avg_retention'] is not None else "N/A"
+
+            lines.append(f"| {thumb_type} | {stats['count']} | {stats['avg_views']:,.0f} | {ctr_str} | {ret_str} |")
+    else:
+        lines.append("*Insufficient data for thumbnail type analysis*")
+
+    # Thumbnail Patterns - By Attribute
+    lines.extend([
+        "",
+        "### By Attribute",
+        "",
+    ])
+
+    thumb_by_attr = thumb_stats.get('by_attribute', {})
+    if thumb_by_attr:
+        attr_display_names = {
+            'has_text': 'Has Text Overlay',
+            'has_person': 'Has Person/Face',
+            'has_map': 'Has Map',
+        }
+
+        for attr, stats in thumb_by_attr.items():
+            display_name = attr_display_names.get(attr, attr)
+            lines.append(f"| {display_name} | Count | Avg CTR |")
+            lines.append("|------------------|-------|---------|")
+
+            with_ctr = f"{stats['with']['avg_ctr']:.1f}%" if stats['with']['avg_ctr'] is not None else "N/A"
+            without_ctr = f"{stats['without']['avg_ctr']:.1f}%" if stats['without']['avg_ctr'] is not None else "N/A"
+
+            lines.append(f"| Yes | {stats['with']['count']} | {with_ctr} |")
+            lines.append(f"| No | {stats['without']['count']} | {without_ctr} |")
+            lines.append("")
+    else:
+        lines.append("*Insufficient data for thumbnail attribute analysis*")
+
+    # High Performers
+    lines.extend([
+        "",
+        "## High Performers (Examples to Learn From)",
+        "",
+        "*Videos above average on both CTR AND retention*",
+        "",
+    ])
+
+    if winners:
+        lines.append("| Title | CTR | Retention | Thumbnail Type |")
+        lines.append("|-------|-----|-----------|----------------|")
+
+        for w in winners[:10]:
+            title = w.get('title', w.get('video_id', 'Unknown'))[:50]
+            ctr = w.get('ctr_percent', 0) or 0
+            retention = (w.get('avg_retention', 0) or 0) * 100
+            thumb_type = w.get('thumbnail', {}).get('type', 'unknown')
+
+            lines.append(f"| {title} | {ctr:.1f}% | {retention:.1f}% | {thumb_type} |")
+    else:
+        lines.append("*No videos currently beat average on both metrics*")
+
+    # Low Performers
+    lines.extend([
+        "",
+        "## Low Performers (Anti-Patterns)",
+        "",
+        "*Videos below average on both CTR AND retention*",
+        "",
+    ])
+
+    if anti_patterns_list:
+        lines.append("| Title | CTR | Retention | What to Avoid |")
+        lines.append("|-------|-----|-----------|---------------|")
+
+        for ap in anti_patterns_list[:10]:
+            title = ap.get('title', ap.get('video_id', 'Unknown'))[:40]
+            ctr = ap.get('ctr_percent', 0) or 0
+            retention = (ap.get('avg_retention', 0) or 0) * 100
+            thumb_type = ap.get('thumbnail', {}).get('type', 'unknown')
+            title_struct = ap.get('title_structure', {})
+
+            # Build "what to avoid" notes
+            avoid_notes = []
+            if thumb_type == 'face':
+                avoid_notes.append('Face thumbnail')
+            if not title_struct.get('has_country', False):
+                avoid_notes.append('No country name')
+            if title_struct.get('has_question', False):
+                avoid_notes.append('Question title')
+
+            avoid_str = ' + '.join(avoid_notes) if avoid_notes else '-'
+
+            lines.append(f"| {title} | {ctr:.1f}% | {retention:.1f}% | {avoid_str} |")
+    else:
+        lines.append("*No videos are below average on both metrics*")
+
+    # Combined CTR + Retention Quadrant View
+    lines.extend([
+        "",
+        "## Combined View",
+        "",
+        "### CTR + Retention Quadrant",
+        "",
+        "```",
+        f"High CTR (>{avg_ctr:.1f}%)",
+        "    |",
+        "    |  WINNERS       | Optimize Retention",
+        "    |  (Both high)   | (CTR ok, retention low)",
+        "    |________________|_________________",
+        "    |                |",
+        "    |  Fix Both      | Optimize CTR",
+        "    |  (Both low)    | (Retention ok, CTR low)",
+        "    |",
+        f"                        High Retention (>{avg_ret*100:.0f}%)",
+        "```",
+        "",
+        "Videos in each quadrant:",
+        "",
+    ])
+
+    # Categorize videos into quadrants
+    quadrant_winners = []
+    quadrant_optimize_retention = []
+    quadrant_optimize_ctr = []
+    quadrant_fix_both = []
+
+    for v in videos:
+        ctr = v.get('ctr_percent')
+        retention = v.get('avg_retention')
+
+        if ctr is None or retention is None:
+            continue
+
+        title = v.get('title', v.get('video_id', 'Unknown'))[:40]
+
+        if ctr > avg_ctr and retention > avg_ret:
+            quadrant_winners.append(title)
+        elif ctr > avg_ctr and retention <= avg_ret:
+            quadrant_optimize_retention.append(title)
+        elif ctr <= avg_ctr and retention > avg_ret:
+            quadrant_optimize_ctr.append(title)
+        else:
+            quadrant_fix_both.append(title)
+
+    lines.append(f"- **Winners:** {', '.join(quadrant_winners[:5]) if quadrant_winners else 'None'}")
+    lines.append(f"- **Optimize Retention:** {', '.join(quadrant_optimize_retention[:5]) if quadrant_optimize_retention else 'None'}")
+    lines.append(f"- **Optimize CTR:** {', '.join(quadrant_optimize_ctr[:5]) if quadrant_optimize_ctr else 'None'}")
+    lines.append(f"- **Fix Both:** {', '.join(quadrant_fix_both[:5]) if quadrant_fix_both else 'None'}")
+
+    lines.extend([
+        "",
+        "---",
+        f"*Analysis based on {len(videos)} videos. Patterns with fewer than 2 videos are excluded.*",
+        "*CTR data may be incomplete (API limitations) - use YouTube Studio for definitive numbers.*",
+        ""
+    ])
+
+    # Save report
+    output_dir = PROJECT_ROOT / 'channel-data' / 'patterns'
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    output_path = output_dir / 'TITLE-PATTERNS.md'
+    report_content = '\n'.join(lines)
+
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(report_content)
+
+    return str(output_path)
+
+
 if __name__ == '__main__':
     # CLI interface
     if len(sys.argv) == 1:
@@ -1233,6 +1678,7 @@ if __name__ == '__main__':
             print()
             print("Run with --tags to see topic classifications")
             print("Run with --topic-report to generate TOPIC-ANALYSIS.md")
+            print("Run with --title-report to generate TITLE-PATTERNS.md")
 
     elif sys.argv[1] == '--tags':
         # Show videos with auto-tags
@@ -1268,6 +1714,20 @@ if __name__ == '__main__':
         print()
         print(f"Report saved to: {output_path}")
 
+    elif sys.argv[1] == '--title-report':
+        # Generate TITLE-PATTERNS.md
+        print("Generating title and thumbnail pattern report...")
+        print()
+
+        output_path = generate_title_patterns_report()
+
+        # Also print report to stdout
+        with open(output_path, 'r', encoding='utf-8') as f:
+            print(f.read())
+
+        print()
+        print(f"Report saved to: {output_path}")
+
     elif sys.argv[1] in ('--help', '-h'):
         print("Usage: python patterns.py [OPTIONS]")
         print()
@@ -1277,12 +1737,14 @@ if __name__ == '__main__':
         print("  (no args)         Show collected video data from analysis files")
         print("  --tags            Show videos with auto-detected topic tags")
         print("  --topic-report    Generate TOPIC-ANALYSIS.md report")
+        print("  --title-report    Generate TITLE-PATTERNS.md report")
         print("  --help, -h        Show this help message")
         print()
         print("Examples:")
         print("  python patterns.py              # List analyzed videos")
         print("  python patterns.py --tags       # Show videos with topic tags")
-        print("  python patterns.py --topic-report   # Generate report")
+        print("  python patterns.py --topic-report   # Generate topic report")
+        print("  python patterns.py --title-report   # Generate title/thumbnail report")
         print()
         print("Data sources:")
         print("  POST-PUBLISH-ANALYSIS files are searched in:")
