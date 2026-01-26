@@ -14,12 +14,12 @@ See: `.planning/PROJECT.md` (updated 2026-01-23)
 
 **Milestone:** v1.1 Analytics & Learning Loop
 **Phase:** 10 - Pattern Recognition (In Progress)
-**Plan:** 01 of 3 complete
-**Status:** Plan 10-01 complete, ready for Plan 10-02
+**Plan:** 02 of 3 complete
+**Status:** Plan 10-02 complete, ready for Plan 10-03
 
 **Progress:**
 ```
-[████████████████░░░░] 80% — Plan 10-01 complete (12/15 requirements)
+[██████████████████░░] 87% — Plan 10-02 complete (13/15 requirements)
 ```
 
 ## Milestone History
@@ -38,38 +38,38 @@ See: `.planning/PROJECT.md` (updated 2026-01-23)
 | 7 | API Foundation | 3 | Complete |
 | 8 | Data Pull Scripts | 3 | Complete |
 | 9 | Post-Publish Analysis | 6 | Complete |
-| 10 | Pattern Recognition | 3 | Plan 01 complete |
+| 10 | Pattern Recognition | 3 | Plan 02 complete |
 
 **Total requirements:** 15
-**Completed:** 12/15 (Phase 7 + Phase 8 + Phase 9 + Plan 10-01)
+**Completed:** 13/15 (Phase 7 + Phase 8 + Phase 9 + Plans 10-01 + 10-02)
 
 ## Session Continuity
 
 ### Last Session
 
 - **Date:** 2026-01-26
-- **Work:** Completed Phase 10 Plan 01 - Topic performance tracking
+- **Work:** Completed Phase 10 Plan 02 - Title/thumbnail pattern analysis
 - **Output:**
-  - tools/youtube-analytics/patterns.py — Core pattern analysis module (809 lines)
-  - channel-data/patterns/TOPIC-ANALYSIS.md — Initial topic performance report
+  - tools/youtube-analytics/patterns.py — Enhanced with title/thumbnail analysis (1759 lines)
+  - channel-data/patterns/TITLE-PATTERNS.md — Title and thumbnail pattern report
 
 ### Next Session
 
-1. **Continue Phase 10:** Pattern Recognition (2 plans remaining)
-   - Plan 10-02: Title/thumbnail pattern analysis
-   - Plan 10-03: Audience insight aggregation
+1. **Continue Phase 10:** Pattern Recognition (1 plan remaining)
+   - Plan 10-03: Monthly summaries and /patterns slash command
 
 ### Important Context
 
-- **Plan 10-01 complete:** PATRN-01 (cross-video comparison by topic type) satisfied
+- **Plan 10-02 complete:** PATRN-03 (title/thumbnail patterns correlated with CTR) satisfied
 - **Key deliverables:**
-  - `patterns.py` with collect_video_data, auto_tag_video, aggregate_by_topic
-  - `--topic-report` generates TOPIC-ANALYSIS.md with insights-first format
-  - Fixed TAG_VOCABULARY with 6 categories for consistent tagging
-  - Minimum 3 videos per topic enforced for statistical validity
+  - `extract_title_structure()` parses title attributes (colon, question, number, year, country)
+  - `detect_title_pattern()` identifies 9 proven title patterns
+  - `extract_thumbnail_metadata()` parses YOUTUBE-METADATA.md for thumbnail type
+  - `aggregate_by_title_structure()` and `aggregate_by_pattern()` for correlations
+  - `--title-report` generates TITLE-PATTERNS.md with insights-first format
 - **File locations:**
   - Module: `tools/youtube-analytics/patterns.py`
-  - Reports: `channel-data/patterns/TOPIC-ANALYSIS.md`
+  - Reports: `channel-data/patterns/TITLE-PATTERNS.md`, `channel-data/patterns/TOPIC-ANALYSIS.md`
 
 ## Accumulated Context
 
@@ -99,6 +99,9 @@ See: `.planning/PROJECT.md` (updated 2026-01-23)
 | Project folder search order | _IN_PRODUCTION first, then _READY_TO_FILM, then _ARCHIVED |
 | TAG_VOCABULARY with 6 categories | Covers channel content: territorial, ideological, colonial, politician, archaeological, medieval |
 | Insights-first report format | Per 10-CONTEXT.md - actionable insights before data tables |
+| Minimum 2 videos for attribute comparisons | Avoid misleading single-video comparisons |
+| 9 title patterns from COMPETITOR-TITLE-DATABASE | Detect proven title formulas for correlation |
+| Thumbnail type as map/face/document/mixed/unknown | Categorize thumbnails for CTR correlation |
 
 ### Technical Notes
 
@@ -111,8 +114,10 @@ See: `.planning/PROJECT.md` (updated 2026-01-23)
 - **Comment scripts ready:** comments.py with categorization, channel_averages.py with benchmarks
 - **Analysis engine ready:** analyze.py with lesson generation, markdown output, and file saving
 - **Slash command ready:** /analyze triggers full workflow
-- **Pattern analysis ready:** patterns.py with topic tagging, aggregation, and report generation
+- **Pattern analysis ready:** patterns.py with topic tagging, title/thumbnail analysis, and report generation
+- **Title patterns:** 9 patterns detected (e.g., "[Topic]: [Subtitle]", "Why [X] Is/Are [Verb]")
+- **Thumbnail extraction:** Parses YOUTUBE-METADATA.md for type and attributes
 
 ---
 
-*State updated: 2026-01-26 after Plan 10-01 completion*
+*State updated: 2026-01-26 after Plan 10-02 completion*
