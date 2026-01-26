@@ -27,9 +27,9 @@ Requirements for Analytics & Learning Loop milestone.
 
 ### Pattern Recognition
 
-- [ ] **PATRN-01**: Cross-video comparison by topic type vs. performance
-- [ ] **PATRN-02**: Monthly summary generation
-- [ ] **PATRN-03**: Title/thumbnail patterns correlated with CTR
+- [x] **PATRN-01**: Cross-video comparison by topic type vs. performance
+- [x] **PATRN-02**: Monthly summary generation
+- [x] **PATRN-03**: Title/thumbnail patterns correlated with CTR
 
 ## Out of Scope
 
@@ -56,9 +56,9 @@ Requirements for Analytics & Learning Loop milestone.
 | ANALYSIS-04 | Phase 9 | Complete |
 | ANALYSIS-05 | Phase 9 | Complete |
 | ANALYSIS-06 | Phase 9 | Complete |
-| PATRN-01 | Phase 10 | Pending |
-| PATRN-02 | Phase 10 | Pending |
-| PATRN-03 | Phase 10 | Pending |
+| PATRN-01 | Phase 10 | Complete |
+| PATRN-02 | Phase 10 | Complete |
+| PATRN-03 | Phase 10 | Complete |
 
 **Coverage:**
 - v1.1 requirements: 15 total
@@ -67,4 +67,4 @@ Requirements for Analytics & Learning Loop milestone.
 
 ---
 *Requirements defined: 2026-01-23*
-*Last updated: 2026-01-25 after Phase 9 completion*
+*Last updated: 2026-01-26 after Phase 10 completion (v1.1 shipped)*
