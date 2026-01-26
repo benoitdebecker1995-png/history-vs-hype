@@ -313,6 +313,227 @@ def auto_tag_video(title: str, description: str = '') -> list[str]:
     return tags or ['uncategorized']
 
 
+def find_project_folder_for_video(title: str) -> str | None:
+    """
+    Find project folder matching video title.
+
+    Search strategy:
+    1. Extract significant words (>3 chars) from title
+    2. Search video-projects lifecycle folders for matching folder names
+    3. Return folder path if found, None otherwise
+
+    Args:
+        title: Video title to match
+
+    Returns:
+        Path to project folder if found, None otherwise
+    """
+    if not title:
+        return None
+
+    # Extract significant words (>3 chars) from title
+    slug_words = re.sub(r'[^a-z0-9]+', ' ', title.lower()).split()
+    significant_words = [w for w in slug_words if len(w) > 3]
+
+    if not significant_words:
+        return None
+
+    search_paths = [
+        PROJECT_ROOT / 'video-projects' / '_IN_PRODUCTION' / '*',
+        PROJECT_ROOT / 'video-projects' / '_READY_TO_FILM' / '*',
+        PROJECT_ROOT / 'video-projects' / '_ARCHIVED' / '*',
+    ]
+
+    for pattern in search_paths:
+        for folder in glob_module.glob(str(pattern)):
+            if not Path(folder).is_dir():
+                continue
+            folder_name = Path(folder).name.lower()
+            if any(word in folder_name for word in significant_words):
+                return folder
+
+    return None
+
+
+def extract_thumbnail_metadata(project_folder: str | None) -> dict:
+    """
+    Extract thumbnail attributes from project YOUTUBE-METADATA.md file.
+
+    Parses thumbnail characteristics for correlation with CTR data.
+
+    Args:
+        project_folder: Path to project folder (may be None)
+
+    Returns:
+        dict with thumbnail attributes:
+            - type: 'map', 'face', 'document', 'mixed', or 'unknown'
+            - has_text: Whether thumbnail has text overlay
+            - has_person: Whether thumbnail includes a person/face
+            - has_map: Whether thumbnail includes a map
+            - description: Extracted thumbnail description if available
+    """
+    metadata = {
+        'type': 'unknown',
+        'has_text': False,
+        'has_person': False,
+        'has_map': False,
+        'description': None,
+    }
+
+    if not project_folder:
+        return metadata
+
+    metadata_path = Path(project_folder) / 'YOUTUBE-METADATA.md'
+    if not metadata_path.exists():
+        return metadata
+
+    try:
+        content = metadata_path.read_text(encoding='utf-8').lower()
+
+        # Parse thumbnail section - detect thumbnail type
+        if 'map-focused' in content or 'map thumbnail' in content or 'map:' in content:
+            metadata['type'] = 'map'
+            metadata['has_map'] = True
+        if 'face' in content or 'person' in content or 'talking head' in content:
+            metadata['has_person'] = True
+            if metadata['type'] == 'unknown':
+                metadata['type'] = 'face'
+        if 'text overlay' in content or 'text:' in content or 'text options' in content:
+            metadata['has_text'] = True
+        if 'document' in content or 'primary source' in content or 'manuscript' in content:
+            if metadata['type'] == 'unknown':
+                metadata['type'] = 'document'
+
+        # Detect mixed type (e.g., map with text)
+        detected_features = sum([metadata['has_map'], metadata['has_person'], metadata['has_text']])
+        if detected_features >= 2 and metadata['type'] != 'unknown':
+            metadata['type'] = 'mixed'
+
+        # Try to extract thumbnail description
+        thumb_match = re.search(r'thumbnail[:\s]+([^\n]+)', content)
+        if thumb_match:
+            desc = thumb_match.group(1).strip()
+            # Clean up common patterns
+            if desc and not desc.startswith('option') and not desc.startswith('#'):
+                metadata['description'] = desc[:100]  # Truncate for display
+
+    except (IOError, UnicodeDecodeError):
+        pass
+
+    return metadata
+
+
+def aggregate_by_thumbnail(videos: list[dict], min_count: int = 2) -> dict:
+    """
+    Aggregate performance by thumbnail characteristics.
+
+    Groups videos by thumbnail type and attributes.
+
+    Args:
+        videos: List of video data dicts with 'thumbnail' and metrics
+        min_count: Minimum videos per group to include (default 2)
+
+    Returns:
+        dict with two sections:
+        {
+            'by_type': {
+                'map': {'count': 4, 'avg_views': 2100, 'avg_ctr': 5.2, 'avg_retention': 0.34},
+                'face': {...},
+                ...
+            },
+            'by_attribute': {
+                'has_text': {
+                    'with': {'count': 5, 'avg_views': 1400, 'avg_ctr': 4.2},
+                    'without': {'count': 3, 'avg_views': 1200, 'avg_ctr': 3.8},
+                    'delta_views': 16.7,
+                    'delta_ctr': 10.5,
+                },
+                ...
+            },
+        }
+    """
+    # Aggregate by type
+    by_type_groups = defaultdict(list)
+    for v in videos:
+        thumb = v.get('thumbnail', {})
+        thumb_type = thumb.get('type', 'unknown')
+        if v.get('views') is not None:
+            by_type_groups[thumb_type].append(v)
+
+    by_type_result = {}
+    for thumb_type, vids in by_type_groups.items():
+        if len(vids) >= min_count:
+            views_list = [v['views'] for v in vids]
+            ctr_list = [v['ctr_percent'] for v in vids if v.get('ctr_percent') is not None]
+            ret_list = [v['avg_retention'] for v in vids if v.get('avg_retention') is not None]
+
+            by_type_result[thumb_type] = {
+                'count': len(vids),
+                'avg_views': mean(views_list) if views_list else 0,
+                'avg_ctr': mean(ctr_list) if ctr_list else None,
+                'avg_retention': mean(ret_list) if ret_list else None,
+            }
+
+    # Aggregate by boolean attributes
+    bool_attributes = ['has_text', 'has_person', 'has_map']
+    by_attr_result = {}
+
+    for attr in bool_attributes:
+        with_attr = []
+        without_attr = []
+
+        for v in videos:
+            thumb = v.get('thumbnail', {})
+            if v.get('views') is None:
+                continue
+
+            if thumb.get(attr, False):
+                with_attr.append(v)
+            else:
+                without_attr.append(v)
+
+        if len(with_attr) >= min_count and len(without_attr) >= min_count:
+            # Calculate metrics for "with" group
+            with_views = [v['views'] for v in with_attr]
+            with_ctr = [v['ctr_percent'] for v in with_attr if v.get('ctr_percent') is not None]
+
+            with_stats = {
+                'count': len(with_attr),
+                'avg_views': mean(with_views) if with_views else 0,
+                'avg_ctr': mean(with_ctr) if with_ctr else None,
+            }
+
+            # Calculate metrics for "without" group
+            without_views = [v['views'] for v in without_attr]
+            without_ctr = [v['ctr_percent'] for v in without_attr if v.get('ctr_percent') is not None]
+
+            without_stats = {
+                'count': len(without_attr),
+                'avg_views': mean(without_views) if without_views else 0,
+                'avg_ctr': mean(without_ctr) if without_ctr else None,
+            }
+
+            # Calculate deltas
+            def calc_delta(with_val, without_val):
+                if with_val is None or without_val is None:
+                    return None
+                if without_val == 0:
+                    return None
+                return ((with_val - without_val) / without_val) * 100
+
+            by_attr_result[attr] = {
+                'with': with_stats,
+                'without': without_stats,
+                'delta_views': calc_delta(with_stats['avg_views'], without_stats['avg_views']),
+                'delta_ctr': calc_delta(with_stats['avg_ctr'], without_stats['avg_ctr']),
+            }
+
+    return {
+        'by_type': by_type_result,
+        'by_attribute': by_attr_result,
+    }
+
+
 def enrich_video_data(videos: list[dict]) -> list[dict]:
     """
     Add tags, title structure, thumbnail metadata, and computed fields to video data.
