@@ -117,6 +117,13 @@ Plans:
 4. Thumbnail characteristics (map vs. face, text amount) correlated with CTR data
 5. Insights are actionable ("Territorial topics average 2.3x more views than ideological")
 
+**Plans:** 3 plans
+
+Plans:
+- [ ] 10-01-PLAN.md — Core patterns.py module + topic performance analysis (PATRN-01)
+- [ ] 10-02-PLAN.md — Title structure and thumbnail pattern correlation (PATRN-03)
+- [ ] 10-03-PLAN.md — Monthly summaries + /patterns slash command (PATRN-02)
+
 ---
 
 ## Progress
@@ -126,7 +133,7 @@ Plans:
 | 7 | API Foundation | INTEG-01, INTEG-02, INTEG-06 | ✓ Complete |
 | 8 | Data Pull Scripts | INTEG-03, INTEG-04, INTEG-05 | ✓ Complete |
 | 9 | Post-Publish Analysis | ANALYSIS-01 through ANALYSIS-06 | ✓ Complete |
-| 10 | Pattern Recognition | PATRN-01, PATRN-02, PATRN-03 | Not Started |
+| 10 | Pattern Recognition | PATRN-01, PATRN-02, PATRN-03 | Planned |
 
 ## Coverage
 
@@ -158,3 +165,4 @@ Plans:
 *Phase 8 completed: 2026-01-24*
 *Phase 9 planned: 2026-01-25*
 *Phase 9 completed: 2026-01-25*
+*Phase 10 planned: 2026-01-25*
