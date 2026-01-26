@@ -91,9 +91,11 @@ Plans:
 **Plans:** 3 plans
 
 Plans:
-- [ ] 09-01-PLAN.md — Comment fetcher + channel averages calculator (ANALYSIS-04, ANALYSIS-02 infrastructure)
-- [ ] 09-02-PLAN.md — Analysis orchestrator with lessons generation (ANALYSIS-01, 02, 03, 04, 05)
-- [ ] 09-03-PLAN.md — /analyze command + project folder linking (ANALYSIS-01, ANALYSIS-06)
+- [x] 09-01-PLAN.md — Comment fetcher + channel averages calculator (ANALYSIS-04, ANALYSIS-02 infrastructure)
+- [x] 09-02-PLAN.md — Analysis orchestrator with lessons generation (ANALYSIS-01, 02, 03, 04, 05)
+- [x] 09-03-PLAN.md — /analyze command + project folder linking (ANALYSIS-01, ANALYSIS-06)
+
+**Completed:** 2026-01-25
 
 ---
 
@@ -123,7 +125,7 @@ Plans:
 |-------|------|--------------|--------|
 | 7 | API Foundation | INTEG-01, INTEG-02, INTEG-06 | ✓ Complete |
 | 8 | Data Pull Scripts | INTEG-03, INTEG-04, INTEG-05 | ✓ Complete |
-| 9 | Post-Publish Analysis | ANALYSIS-01 through ANALYSIS-06 | Planned |
+| 9 | Post-Publish Analysis | ANALYSIS-01 through ANALYSIS-06 | ✓ Complete |
 | 10 | Pattern Recognition | PATRN-01, PATRN-02, PATRN-03 | Not Started |
 
 ## Coverage
@@ -155,3 +157,4 @@ Plans:
 *Phase 8 planned: 2026-01-24*
 *Phase 8 completed: 2026-01-24*
 *Phase 9 planned: 2026-01-25*
+*Phase 9 completed: 2026-01-25*
