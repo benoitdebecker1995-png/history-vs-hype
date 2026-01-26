@@ -9,21 +9,26 @@ This module enables cross-video pattern recognition by:
 2. Auto-tagging videos by topic based on title/description keywords
 3. Aggregating metrics by topic type with minimum sample size enforcement
 4. Generating insights-first reports with actionable recommendations
+5. Extracting title structure and thumbnail metadata for CTR correlation
 
 Usage:
     CLI:
         python patterns.py              # Show collected video data
         python patterns.py --tags       # Show videos with auto-tags
         python patterns.py --topic-report    # Generate TOPIC-ANALYSIS.md
+        python patterns.py --title-report    # Generate TITLE-PATTERNS.md
 
     Python:
         from patterns import collect_video_data, auto_tag_video, aggregate_by_topic
         from patterns import identify_winners, generate_topic_report
+        from patterns import extract_title_structure, extract_thumbnail_metadata
+        from patterns import generate_title_patterns_report
 
         videos = collect_video_data()
         enriched = enrich_video_data(videos)
         topic_stats = aggregate_by_topic(enriched)
         generate_topic_report()
+        generate_title_patterns_report()
 
 Dependencies:
     - Standard library only (pathlib, re, glob, statistics, datetime)
@@ -54,6 +59,109 @@ TAG_VOCABULARY = {
     'archaeological': ['dna', 'excavation', 'artifact', 'manuscript', 'archaeology'],
     'medieval': ['medieval', 'dark ages', 'crusade', 'viking', 'middle ages'],
 }
+
+
+# Country names for title pattern detection (comprehensive list for history channel)
+COUNTRY_NAMES = [
+    'America', 'United States', 'USA', 'Britain', 'UK', 'England', 'France', 'Germany',
+    'Russia', 'China', 'Israel', 'Palestine', 'Ukraine', 'Iran', 'Iraq', 'Syria',
+    'Egypt', 'India', 'Japan', 'Spain', 'Portugal', 'Netherlands', 'Belgium', 'Italy',
+    'Austria', 'Hungary', 'Poland', 'Turkey', 'Greece', 'Serbia', 'Croatia', 'Bosnia',
+    'Kosovo', 'Cyprus', 'Lebanon', 'Jordan', 'Saudi', 'Yemen', 'Libya', 'Algeria',
+    'Morocco', 'Tunisia', 'Ethiopia', 'Somalia', 'Somaliland', 'Kenya', 'Uganda',
+    'Rwanda', 'Congo', 'Nigeria', 'Ghana', 'South Africa', 'Zimbabwe', 'Zambia',
+    'Mozambique', 'Angola', 'Namibia', 'Botswana', 'Mexico', 'Brazil', 'Argentina',
+    'Chile', 'Peru', 'Colombia', 'Venezuela', 'Cuba', 'Haiti', 'Jamaica', 'Canada',
+    'Australia', 'New Zealand', 'Philippines', 'Vietnam', 'Thailand', 'Indonesia',
+    'Malaysia', 'Singapore', 'Korea', 'Taiwan', 'Belize', 'Guatemala', 'Sudan',
+    'Eritrea', 'Djibouti', 'Chagos', 'Mauritius',
+]
+
+
+def detect_title_pattern(title: str) -> str:
+    """
+    Identify which proven title pattern the title matches.
+
+    Based on COMPETITOR-TITLE-DATABASE.md analysis of high-performing titles.
+    Returns pattern name for aggregation, or 'other' if no pattern matches.
+
+    Args:
+        title: Video title to analyze
+
+    Returns:
+        str: Pattern name (e.g., "[X]'s [Noun] Problem", "Why [X] Is/Are [Verb]")
+    """
+    if not title:
+        return 'other'
+
+    patterns = [
+        (r"^.+'s\s+\w+\s+Problem$", "[X]'s [Noun] Problem"),
+        (r"^Why\s+.+\s+(Is|Are|Was|Were)\s+", "Why [X] Is/Are [Verb]"),
+        (r"^How\s+.+\s+(Got|Became|Turned)\s+", "How [X] Got/Became [Adj]"),
+        (r"^The\s+.+\s+That\s+", "The [X] That [Verb]"),
+        (r"^What\s+.+\?$", "What [Question]"),
+        (r"\?$", "[Question]"),
+        (r":\s+.+$", "[Topic]: [Subtitle]"),
+        (r"^Fact[- ]Check", "Fact-Check [Subject]"),
+        (r"^The\s+(Real|True|Actual)\s+", "The Real/True [X]"),
+    ]
+
+    for regex, pattern_name in patterns:
+        if re.search(regex, title, re.IGNORECASE):
+            return pattern_name
+
+    return 'other'
+
+
+def extract_title_structure(title: str) -> dict:
+    """
+    Extract structural attributes from video title.
+
+    Parses title structure for correlation with CTR data.
+    Used for pattern analysis in TITLE-PATTERNS.md report.
+
+    Args:
+        title: Video title to analyze
+
+    Returns:
+        dict with title attributes:
+            - length: Character count
+            - word_count: Word count
+            - has_colon: Contains ':'
+            - has_question: Contains '?'
+            - has_number: Contains any digit
+            - has_year: Contains 4-digit year (19xx or 20xx)
+            - has_country: Contains country name from COUNTRY_NAMES
+            - pattern: Detected title pattern (from detect_title_pattern)
+            - first_word: First word of title
+    """
+    if not title:
+        return {
+            'length': 0,
+            'word_count': 0,
+            'has_colon': False,
+            'has_question': False,
+            'has_number': False,
+            'has_year': False,
+            'has_country': False,
+            'pattern': 'other',
+            'first_word': '',
+        }
+
+    # Build regex pattern for country names
+    country_pattern = r'\b(' + '|'.join(re.escape(c) for c in COUNTRY_NAMES) + r')\b'
+
+    return {
+        'length': len(title),
+        'word_count': len(title.split()),
+        'has_colon': ':' in title,
+        'has_question': '?' in title,
+        'has_number': bool(re.search(r'\d+', title)),
+        'has_year': bool(re.search(r'\b(19|20)\d{2}\b', title)),
+        'has_country': bool(re.search(country_pattern, title, re.IGNORECASE)),
+        'pattern': detect_title_pattern(title),
+        'first_word': title.split()[0] if title.split() else '',
+    }
 
 
 def collect_video_data() -> list[dict]:
@@ -207,12 +315,13 @@ def auto_tag_video(title: str, description: str = '') -> list[str]:
 
 def enrich_video_data(videos: list[dict]) -> list[dict]:
     """
-    Add tags and additional computed fields to collected video data.
+    Add tags, title structure, thumbnail metadata, and computed fields to video data.
 
     For each video:
     1. Calls auto_tag_video(title) to get topic tags
-    2. Adds 'tags' field to video dict
-    3. Computes 'days_since_publish' if analyzed_date available
+    2. Calls extract_title_structure(title) to get title attributes
+    3. Finds project folder and extracts thumbnail metadata
+    4. Computes 'days_since_publish' if analyzed_date available
 
     Args:
         videos: List of video data dicts from collect_video_data()
@@ -224,6 +333,14 @@ def enrich_video_data(videos: list[dict]) -> list[dict]:
         # Add tags based on title
         title = video.get('title') or ''
         video['tags'] = auto_tag_video(title)
+
+        # Add title structure analysis
+        video['title_structure'] = extract_title_structure(title)
+
+        # Find project folder and extract thumbnail metadata
+        project_folder = find_project_folder_for_video(title)
+        video['project_folder'] = project_folder
+        video['thumbnail'] = extract_thumbnail_metadata(project_folder)
 
         # Compute days_since_publish if we have analyzed_date
         analyzed_date = video.get('analyzed_date')
@@ -423,6 +540,156 @@ def identify_anti_patterns(videos: list[dict], channel_avg: dict = None) -> list
                 })
 
     return sorted(anti_patterns, key=lambda x: x.get('views', 0) or 0)
+
+
+def aggregate_by_title_structure(videos: list[dict], min_count: int = 2) -> dict:
+    """
+    Aggregate performance by title structure attributes.
+
+    For each boolean attribute (has_colon, has_question, etc.):
+    1. Split videos into "with attribute" and "without attribute"
+    2. Calculate avg_views, avg_ctr, avg_retention for each group
+    3. Calculate percentage delta between groups
+
+    Args:
+        videos: List of video data dicts with 'title_structure' and metrics
+        min_count: Minimum videos per group to include (default 2)
+
+    Returns:
+        dict with attribute -> comparison mapping:
+        {
+            'has_colon': {
+                'with': {'count': 5, 'avg_views': 1500, 'avg_ctr': 4.2, 'avg_retention': 0.32},
+                'without': {'count': 8, 'avg_views': 1200, 'avg_ctr': 3.8, 'avg_retention': 0.28},
+                'delta_views': 25.0,  # percentage difference
+                'delta_ctr': 10.5,
+                'delta_retention': 14.3,
+            },
+            ...
+        }
+    """
+    # Boolean attributes to analyze
+    bool_attributes = ['has_colon', 'has_question', 'has_number', 'has_year', 'has_country']
+
+    result = {}
+
+    for attr in bool_attributes:
+        with_attr = []
+        without_attr = []
+
+        for v in videos:
+            title_struct = v.get('title_structure', {})
+            views = v.get('views')
+
+            # Skip videos without views data
+            if views is None:
+                continue
+
+            if title_struct.get(attr, False):
+                with_attr.append(v)
+            else:
+                without_attr.append(v)
+
+        # Only include if both groups have enough data
+        if len(with_attr) >= min_count and len(without_attr) >= min_count:
+            # Calculate metrics for "with" group
+            with_views = [v['views'] for v in with_attr]
+            with_ctr = [v['ctr_percent'] for v in with_attr if v.get('ctr_percent') is not None]
+            with_ret = [v['avg_retention'] for v in with_attr if v.get('avg_retention') is not None]
+
+            with_stats = {
+                'count': len(with_attr),
+                'avg_views': mean(with_views) if with_views else 0,
+                'avg_ctr': mean(with_ctr) if with_ctr else None,
+                'avg_retention': mean(with_ret) if with_ret else None,
+            }
+
+            # Calculate metrics for "without" group
+            without_views = [v['views'] for v in without_attr]
+            without_ctr = [v['ctr_percent'] for v in without_attr if v.get('ctr_percent') is not None]
+            without_ret = [v['avg_retention'] for v in without_attr if v.get('avg_retention') is not None]
+
+            without_stats = {
+                'count': len(without_attr),
+                'avg_views': mean(without_views) if without_views else 0,
+                'avg_ctr': mean(without_ctr) if without_ctr else None,
+                'avg_retention': mean(without_ret) if without_ret else None,
+            }
+
+            # Calculate deltas (percentage difference)
+            def calc_delta(with_val, without_val):
+                if with_val is None or without_val is None:
+                    return None
+                if without_val == 0:
+                    return None
+                return ((with_val - without_val) / without_val) * 100
+
+            result[attr] = {
+                'with': with_stats,
+                'without': without_stats,
+                'delta_views': calc_delta(with_stats['avg_views'], without_stats['avg_views']),
+                'delta_ctr': calc_delta(with_stats['avg_ctr'], without_stats['avg_ctr']),
+                'delta_retention': calc_delta(
+                    with_stats['avg_retention'] * 100 if with_stats['avg_retention'] else None,
+                    without_stats['avg_retention'] * 100 if without_stats['avg_retention'] else None
+                ),
+            }
+
+    return result
+
+
+def aggregate_by_pattern(videos: list[dict], min_count: int = 2) -> dict:
+    """
+    Aggregate performance by detected title pattern type.
+
+    Groups videos by their 'pattern' field from title_structure.
+
+    Args:
+        videos: List of video data dicts with 'title_structure' and metrics
+        min_count: Minimum videos per pattern to include (default 2)
+
+    Returns:
+        dict with pattern -> stats mapping:
+        {
+            '[Topic]: [Subtitle]': {
+                'count': 5,
+                'avg_views': 1500,
+                'avg_ctr': 4.5,
+                'avg_retention': 0.32,
+                'videos': ['Video Title 1', 'Video Title 2', ...],
+            },
+            ...
+        }
+    """
+    by_pattern = defaultdict(list)
+
+    for v in videos:
+        title_struct = v.get('title_structure', {})
+        pattern = title_struct.get('pattern', 'other')
+
+        # Skip videos without views data
+        if v.get('views') is None:
+            continue
+
+        by_pattern[pattern].append(v)
+
+    result = {}
+
+    for pattern, vids in by_pattern.items():
+        if len(vids) >= min_count:
+            views_list = [v['views'] for v in vids]
+            ctr_list = [v['ctr_percent'] for v in vids if v.get('ctr_percent') is not None]
+            ret_list = [v['avg_retention'] for v in vids if v.get('avg_retention') is not None]
+
+            result[pattern] = {
+                'count': len(vids),
+                'avg_views': mean(views_list) if views_list else 0,
+                'avg_ctr': mean(ctr_list) if ctr_list else None,
+                'avg_retention': mean(ret_list) if ret_list else None,
+                'videos': [v.get('title', v.get('video_id', 'Unknown')) for v in vids],
+            }
+
+    return result
 
 
 def generate_insights(topic_stats: dict, winners: list[dict], anti_patterns: list[dict], total_videos: int) -> list[str]:
