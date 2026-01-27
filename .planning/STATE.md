@@ -8,14 +8,15 @@
 See: `.planning/PROJECT.md` (updated 2026-01-27)
 
 **Core value:** Every video shows sources on screen — viewers see the evidence themselves
-**Current focus:** Planning next milestone
+**Current focus:** v1.2 Script Quality & Discovery
 
 ## Current Position
 
-**Milestone:** v1.1 complete, next milestone not started
-**Phase:** N/A
-**Plan:** N/A
-**Status:** Ready for next milestone
+**Milestone:** v1.2 Script Quality & Discovery
+**Phase:** Not started (researching)
+**Plan:** —
+**Status:** Researching domain
+**Last activity:** 2026-01-27 — Milestone v1.2 started
 
 **Progress:**
 ```

@@ -26,6 +26,15 @@ The workspace now includes a complete analytics and learning loop:
 - `/analyze VIDEO_ID` — post-publish video analysis
 - `/patterns` — cross-video pattern recognition
 
+## Current Milestone: v1.2 Script Quality & Discovery
+
+**Goal:** Produce better scripts faster, and make videos people actually find.
+
+**Target features:**
+- Script quality improvements (better first drafts, natural flow, less revision needed)
+- Discovery/SEO optimization (topic research, title optimization, keyword research)
+- NotebookLM workflow integration (streamlined research-to-script pipeline)
+
 ## Requirements
 
 ### Validated (v1.1)
@@ -102,4 +111,4 @@ The workspace now includes a complete analytics and learning loop:
 
 ---
 
-*Last updated: 2026-01-27 after v1.1 milestone shipped*
+*Last updated: 2026-01-27 after v1.2 milestone started*
