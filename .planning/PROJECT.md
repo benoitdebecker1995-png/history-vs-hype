@@ -8,34 +8,32 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current State (v1.0 Shipped)
+## Current State (v1.1 Shipped)
 
-**Shipped:** 2026-01-23
+**Shipped:** 2026-01-26
 
-The workspace has been optimized for solo creator efficiency:
+The workspace now includes a complete analytics and learning loop:
 
-- **Commands:** 10 phase-organized commands (research, sources, script, verify, prep, publish, fix, engage, status, help)
-- **Style:** STYLE-GUIDE.md is authoritative reference (543 lines, 6 parts)
-- **Research:** Claims database, standardized templates, 30-day cleanup rules
-- **Scripts:** Single SCRIPT.md per project, git tracks versions
-- **Intelligence:** Technique tracking, gap database (7 scored topics), creator watchlist
+- **Analytics:** YouTube Analytics API integration for automated metrics pulls
+- **Analysis:** `/analyze VIDEO_ID` for comprehensive post-publish analysis
+- **Patterns:** `/patterns` for cross-video pattern recognition
+- **Commands:** 12 commands total (added /analyze, /patterns)
 
 **Entry points:**
 - `/status` — project state and next action
 - `/help` — phase-organized command list
 - `/research --new` — start new video project
-
-## Current Milestone: v1.1 Analytics & Learning Loop
-
-**Goal:** Build a feedback system that helps learn what works from each video, with automated YouTube Analytics integration.
-
-**Target features:**
-- YouTube Analytics API integration (CTR, retention, watch time pulls)
-- Post-publish learning loop (7-day analysis, lessons logged)
-- Cross-video pattern recognition (monthly insights)
-- Experiment mode preserved (no pressure to always optimize)
+- `/analyze VIDEO_ID` — post-publish video analysis
+- `/patterns` — cross-video pattern recognition
 
 ## Requirements
+
+### Validated (v1.1)
+
+- YouTube Analytics API integration for automated data pulls — v1.1
+- Post-publish learning loop (CTR, retention, audience signals) — v1.1
+- Cross-video pattern recognition system — v1.1
+- Comment fetching and categorization — v1.1
 
 ### Validated (v1.0)
 
@@ -48,19 +46,14 @@ The workspace has been optimized for solo creator efficiency:
 - Scriptwriter produces spoken-delivery scripts — v1.0
 - Competitive intelligence tracking — v1.0
 
-### Active (v1.1)
-
-- YouTube Analytics API integration for automated data pulls
-- Post-publish learning loop (CTR, retention, audience signals)
-- Cross-video pattern recognition system
-- Experiment/strategic balance (gap database maintained, no optimization pressure)
-
 ### Out of Scope
 
 - Building a new channel or brand — improving existing workspace
 - Changing the core format (talking head + B-roll evidence) — optimizing execution
 - Multi-person workflow — solo creator optimization
 - Video editing automation — out of scope for this workspace
+- Predictive analytics — focus on learning, not prediction
+- VidIQ API integration — no API available
 
 ## Context
 
@@ -69,11 +62,18 @@ The workspace has been optimized for solo creator efficiency:
 - Academic sourcing approach is the competitive advantage
 - Style is now consistent (STYLE-GUIDE.md authoritative)
 - Commands are discoverable (/help, /status)
-- Technique tracking enables learning loop
+- Analytics integration provides learning feedback
+- Pattern recognition surfaces what's working
 
 **Known tech debt:**
 - Library folder (728 files) needs manual cleanup
 - Some deprecated commands still in _DEPRECATED/ folder
+- Title pattern "Why ... Has ..." not detected (minor)
+
+**Tech stack:**
+- ~5,000 lines Python (tools/youtube-analytics/)
+- YouTube Analytics API v2 + YouTube Data API v3
+- OAuth2 authentication with token refresh
 
 **Existing codebase map:** `.planning/codebase/` (7 documents, 1600+ lines)
 
@@ -95,7 +95,11 @@ The workspace has been optimized for solo creator efficiency:
 | 10 phase-organized commands | Fewer to remember, flags for variants | ✓ Good (v1.0) |
 | Gap scoring formula (max 16) | Demand + Competition + Fit + Hook | ✓ Good (v1.0) |
 | Two-tier creator system | Style models (500K+) vs breakout (1K-50K) | ✓ Good (v1.0) |
+| Desktop app OAuth type | Simpler flow for CLI tools | ✓ Good (v1.1) |
+| Error dict pattern | Return {error: msg} instead of exceptions | ✓ Good (v1.1) |
+| CTR fallback strategy | Graceful response when API unavailable | ✓ Good (v1.1) |
+| Insights-first reports | Actionable insights before data tables | ✓ Good (v1.1) |
 
 ---
 
-*Last updated: 2026-01-23 after v1.1 milestone start*
+*Last updated: 2026-01-27 after v1.1 milestone shipped*
