@@ -44,4 +44,16 @@ class BaseChecker(ABC):
         pass
 
 
-__all__ = ['BaseChecker']
+# Import all checkers for convenience
+from .stumble import StumbleChecker
+from .scaffolding import ScaffoldingChecker
+from .repetition import RepetitionChecker
+from .flow import FlowChecker
+
+__all__ = [
+    'BaseChecker',
+    'StumbleChecker',
+    'ScaffoldingChecker',
+    'RepetitionChecker',
+    'FlowChecker'
+]

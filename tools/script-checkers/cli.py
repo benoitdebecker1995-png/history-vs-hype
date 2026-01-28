@@ -10,13 +10,15 @@ Usage:
     Options:
         --stumble          Run stumble checker only
         --scaffolding      Run scaffolding checker only
+        --repetition       Run repetition checker only
+        --flow             Run flow checker only
         --all              Run all available checkers (default)
         --json             Output JSON instead of Markdown
         --no-annotate      Summary only, no annotated script
 
     Examples:
         python cli.py script.md
-        python cli.py script.md --stumble
+        python cli.py script.md --flow --repetition
         python cli.py script.md --all --json
         python cli.py script.md --scaffolding --no-annotate
 
@@ -73,17 +75,41 @@ def run_checkers(text: str, config: Config, checker_flags: Dict[str, bool]) -> D
     """
     Run selected checkers on text.
 
+    Checkers run in logical order:
+    1. Flow (check definitions and transitions first)
+    2. Repetition (check content issues)
+    3. Stumble (check delivery complexity)
+    4. Scaffolding (check delivery phrases)
+
     Args:
         text: Script text to analyze
         config: Configuration object
         checker_flags: Dictionary of {checker_name: should_run}
 
     Returns:
-        Dictionary of {checker_name: result}
+        Dictionary of {checker_name: result} in execution order
     """
     results = {}
 
-    # SCRIPT-03: Stumble Test
+    # SCRIPT-02: Flow Analysis (check definitions before content)
+    if checker_flags.get('flow', False):
+        try:
+            from checkers.flow import FlowChecker
+            checker = FlowChecker(config)
+            results['flow'] = checker.check(text)
+        except RuntimeError as e:
+            # spaCy model not installed
+            print(f"ERROR: {e}", file=sys.stderr)
+            print("Install with: python -m spacy download en_core_web_sm", file=sys.stderr)
+            sys.exit(3)
+
+    # SCRIPT-01: Repetition Detection (content issues)
+    if checker_flags.get('repetition', False):
+        from checkers.repetition import RepetitionChecker
+        checker = RepetitionChecker(config)
+        results['repetition'] = checker.check(text)
+
+    # SCRIPT-03: Stumble Test (delivery complexity)
     if checker_flags.get('stumble', False):
         try:
             from checkers.stumble import StumbleChecker
@@ -95,7 +121,7 @@ def run_checkers(text: str, config: Config, checker_flags: Dict[str, bool]) -> D
             print("Install with: python -m spacy download en_core_web_sm", file=sys.stderr)
             sys.exit(3)
 
-    # SCRIPT-04: Scaffolding Counter
+    # SCRIPT-04: Scaffolding Counter (delivery phrases)
     if checker_flags.get('scaffolding', False):
         from checkers.scaffolding import ScaffoldingChecker
         checker = ScaffoldingChecker(config)
@@ -151,6 +177,8 @@ def main():
         epilog="""
 Examples:
   python cli.py script.md                    # Run all checkers
+  python cli.py script.md --flow             # Only flow analysis
+  python cli.py script.md --repetition       # Only repetition detection
   python cli.py script.md --stumble          # Only stumble test
   python cli.py script.md --scaffolding      # Only scaffolding counter
   python cli.py script.md --json             # JSON output
@@ -164,6 +192,8 @@ Exit codes:
     )
 
     parser.add_argument('script_path', help='Path to script file (.md or .txt)')
+    parser.add_argument('--flow', action='store_true', help='Run flow checker only')
+    parser.add_argument('--repetition', action='store_true', help='Run repetition checker only')
     parser.add_argument('--stumble', action='store_true', help='Run stumble checker only')
     parser.add_argument('--scaffolding', action='store_true', help='Run scaffolding checker only')
     parser.add_argument('--all', action='store_true', help='Run all checkers (default)')
@@ -175,11 +205,20 @@ Exit codes:
     # Determine which checkers to run
     checker_flags = {}
 
-    if args.all or not (args.stumble or args.scaffolding):
+    if args.all or not (args.flow or args.repetition or args.stumble or args.scaffolding):
         # Default: run all checkers
-        checker_flags = {'stumble': True, 'scaffolding': True}
+        checker_flags = {
+            'flow': True,
+            'repetition': True,
+            'stumble': True,
+            'scaffolding': True
+        }
     else:
         # Run selected checkers
+        if args.flow:
+            checker_flags['flow'] = True
+        if args.repetition:
+            checker_flags['repetition'] = True
         if args.stumble:
             checker_flags['stumble'] = True
         if args.scaffolding:
