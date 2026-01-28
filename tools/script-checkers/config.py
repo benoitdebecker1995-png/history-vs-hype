@@ -39,6 +39,13 @@ class Config:
         r"here'?s what the .{1,30} (say|said|show|showed)",
     ])
 
+    # SCRIPT-01: Repetition Detection
+    repetition_min_phrase_words: int = 2  # Minimum words to consider a phrase (2-3 words)
+    repetition_max_phrase_words: int = 4  # Maximum words to consider
+    repetition_similarity_threshold: float = 0.8  # Fuzzy match threshold (0-1)
+    repetition_min_occurrences: int = 3  # Flag phrases appearing 3+ times
+    repetition_rhetorical_proximity: int = 2  # Sentences within this distance = potential rhetorical
+
 
 def calculate_threshold(word_count: int, base_rate: float, min_val: int = 1) -> int:
     """
