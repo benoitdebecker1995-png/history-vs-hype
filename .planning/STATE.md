@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-01-28
+**Last Updated:** 2026-01-28 10:02 (Plan 11-01 complete)
 
 ## Project Reference
 
@@ -14,15 +14,15 @@ See: `.planning/PROJECT.md` (updated 2026-01-27)
 
 **Milestone:** v1.2 Script Quality & Discovery
 **Phase:** 11 of 14 (Script Quality Checkers)
-**Plan:** Ready to plan
-**Status:** Ready to plan phase 11
-**Last activity:** 2026-01-28 — v1.2 roadmap created
+**Plan:** 01 of 4 complete
+**Status:** In progress
+**Last activity:** 2026-01-28 — Completed 11-01-PLAN.md (script checker foundation)
 
 **Progress:**
 ```
 v1.0 [████████████████████] 100% — Workspace Optimization
 v1.1 [████████████████████] 100% — Analytics & Learning Loop
-v1.2 [░░░░░░░░░░░░░░░░░░░░]   0% — Script Quality & Discovery (Phase 11/14)
+v1.2 [█████░░░░░░░░░░░░░░░]  25% — Script Quality & Discovery (Phase 11/14, Plan 01/04)
 ```
 
 ## Milestone History
@@ -52,25 +52,34 @@ v1.2 [░░░░░░░░░░░░░░░░░░░░]   0% — Scr
 ### Last Session
 
 - **Date:** 2026-01-28
-- **Work:** Created v1.2 roadmap (phases 11-14)
+- **Work:** Executed 11-01 plan (script checker foundation)
 - **Output:**
-  - `.planning/ROADMAP.md` — v1.2 roadmap with 4 phases
-  - `.planning/REQUIREMENTS.md` — updated traceability (pending)
-  - `.planning/STATE.md` — updated current position
+  - `tools/script-checkers/` — Working CLI with stumble + scaffolding checkers
+  - `.planning/phases/11-script-quality-checkers/11-01-SUMMARY.md` — Execution summary
+  - `.planning/STATE.md` — Updated current position
 
 ### Next Session
 
-**Ready to plan Phase 11: Script Quality Checkers**
+**Continue Phase 11: Script Quality Checkers**
 
-Next action: `/gsd:plan-phase 11` (when user approves roadmap)
+Next action: Continue with remaining plans (11-02, 11-03, 11-04) or pause for user feedback
 
 ## Accumulated Context
+
+### Technical Decisions
+
+**Script Quality Checkers (Phase 11-01):**
+- **Proportional thresholds:** Base rate 0.002 per word scales naturally (500 words = 1 allowed, 3000 words = 6)
+- **Lazy-load spaCy:** Import at first use, not module load time (faster CLI startup)
+- **Signature phrase exemption:** "Here's what X actually says" is channel pattern, not filler
+- **Sentence-initial detection:** Only flag "so," and "now," at sentence start to reduce false positives
+- **BaseChecker pattern:** All checkers implement `check()` returning `{issues: [], stats: {}}`
 
 ### v1.2 Phase Structure
 
 **Phase 11: Script Quality Checkers** (SCRIPT-01 through SCRIPT-04)
-- Repetition detection, flow analysis, stumble test, scaffolding counter
-- Foundation for automated quality checks
+- 11-01 COMPLETE: Stumble test, scaffolding counter, CLI foundation
+- Remaining: Repetition detection, flow analysis
 
 **Phase 12: Voice Fingerprinting** (SCRIPT-05)
 - Depends on Phase 11 infrastructure
@@ -84,7 +93,9 @@ Next action: `/gsd:plan-phase 11` (when user approves roadmap)
 - Final phase: research-to-script pipeline
 - Prompt templates, session logging, citation extraction
 
-### Key Deliverables (v1.1)
+### Key Deliverables
+
+**v1.1 (Analytics & Learning Loop):**
 
 | Component | Location | Purpose |
 |-----------|----------|---------|
@@ -100,6 +111,16 @@ Next action: `/gsd:plan-phase 11` (when user approves roadmap)
 | /analyze | .claude/commands/ | Post-publish analysis command |
 | /patterns | .claude/commands/ | Pattern recognition command |
 
+**v1.2 (Script Quality & Discovery) - In Progress:**
+
+| Component | Location | Purpose |
+|-----------|----------|---------|
+| cli.py | tools/script-checkers/ | Script quality checker orchestrator |
+| stumble.py | tools/script-checkers/checkers/ | SCRIPT-03: Teleprompter stumble detection |
+| scaffolding.py | tools/script-checkers/checkers/ | SCRIPT-04: Scaffolding phrase counter |
+| config.py | tools/script-checkers/ | Proportional threshold configuration |
+| output.py | tools/script-checkers/ | Markdown/JSON report formatter |
+
 ### Technical Notes
 
 - YouTube Analytics API requires Google Cloud project (configured)
@@ -107,6 +128,14 @@ Next action: `/gsd:plan-phase 11` (when user approves roadmap)
 - CTR not available via API — graceful fallback prompts for manual entry
 - Reports saved to project folders or channel-data/analyses/ fallback
 
+### Known Issues
+
+**Python 3.14 Compatibility (Phase 11-01):**
+- spaCy 3.8 dependency (Pydantic v1) incompatible with Python 3.14.2
+- Stumble checker code correct but untestable in current environment
+- Resolution: Use Python 3.11-3.13, or wait for spaCy Python 3.14 support
+- Scaffolding checker works perfectly (no spaCy dependency)
+
 ---
 
-*State updated: 2026-01-28 after v1.2 roadmap creation*
+*State updated: 2026-01-28 after Plan 11-01 execution*
