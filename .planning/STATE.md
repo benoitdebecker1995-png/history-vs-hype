@@ -14,15 +14,15 @@ See: `.planning/PROJECT.md` (updated 2026-01-27)
 
 **Milestone:** v1.2 Script Quality & Discovery
 **Phase:** 11 of 14 (Script Quality Checkers)
-**Plan:** 01 of 4 complete
+**Plan:** 02 of 4 complete
 **Status:** In progress
-**Last activity:** 2026-01-28 — Completed 11-01-PLAN.md (script checker foundation)
+**Last activity:** 2026-01-28 — Completed 11-02-PLAN.md (repetition and flow checkers)
 
 **Progress:**
 ```
 v1.0 [████████████████████] 100% — Workspace Optimization
 v1.1 [████████████████████] 100% — Analytics & Learning Loop
-v1.2 [█████░░░░░░░░░░░░░░░]  25% — Script Quality & Discovery (Phase 11/14, Plan 01/04)
+v1.2 [██████░░░░░░░░░░░░░░]  29% — Script Quality & Discovery (Phase 11/14, Plan 02/04)
 ```
 
 ## Milestone History
@@ -52,34 +52,41 @@ v1.2 [█████░░░░░░░░░░░░░░░]  25% — Scr
 ### Last Session
 
 - **Date:** 2026-01-28
-- **Work:** Executed 11-01 plan (script checker foundation)
+- **Work:** Executed 11-02 plan (repetition and flow checkers)
 - **Output:**
-  - `tools/script-checkers/` — Working CLI with stumble + scaffolding checkers
-  - `.planning/phases/11-script-quality-checkers/11-01-SUMMARY.md` — Execution summary
+  - `tools/script-checkers/checkers/repetition.py` — SCRIPT-01 repetition detection
+  - `tools/script-checkers/checkers/flow.py` — SCRIPT-02 flow analysis
+  - Full CLI integration with all 4 checkers
+  - `.planning/phases/11-script-quality-checkers/11-02-SUMMARY.md` — Execution summary
   - `.planning/STATE.md` — Updated current position
 
 ### Next Session
 
-**Continue Phase 11: Script Quality Checkers**
+**Phase 11 Script Quality Checkers: Complete**
 
-Next action: Continue with remaining plans (11-02, 11-03, 11-04) or pause for user feedback
+All 4 requirements (SCRIPT-01 through SCRIPT-04) implemented. Ready for Phase 12 (Voice Fingerprinting) or continue with remaining v1.2 phases (13-14).
 
 ## Accumulated Context
 
 ### Technical Decisions
 
-**Script Quality Checkers (Phase 11-01):**
+**Script Quality Checkers (Phase 11-01 + 11-02):**
 - **Proportional thresholds:** Base rate 0.002 per word scales naturally (500 words = 1 allowed, 3000 words = 6)
 - **Lazy-load spaCy:** Import at first use, not module load time (faster CLI startup)
 - **Signature phrase exemption:** "Here's what X actually says" is channel pattern, not filler
 - **Sentence-initial detection:** Only flag "so," and "now," at sentence start to reduce false positives
 - **BaseChecker pattern:** All checkers implement `check()` returning `{issues: [], stats: {}}`
+- **Repetition: 2-4 word phrases:** Catches both common 2-word repetitions and 3-4 word patterns
+- **Rhetorical detection:** Requires clustering (all within proximity) + fragments, not just adjacent occurrences
+- **Exact match only:** Fuzzy matching with difflib was O(n²), simplified to exact matches for performance
+- **Flow 80% accuracy:** High-confidence flagging with user decision, not 100% automatic blocking
+- **Checker execution order:** flow -> repetition -> stumble -> scaffolding (definitions first, delivery last)
 
 ### v1.2 Phase Structure
 
-**Phase 11: Script Quality Checkers** (SCRIPT-01 through SCRIPT-04)
-- 11-01 COMPLETE: Stumble test, scaffolding counter, CLI foundation
-- Remaining: Repetition detection, flow analysis
+**Phase 11: Script Quality Checkers** (SCRIPT-01 through SCRIPT-04) — ✅ COMPLETE
+- 11-01 COMPLETE: Stumble test (SCRIPT-03), scaffolding counter (SCRIPT-04), CLI foundation
+- 11-02 COMPLETE: Repetition detection (SCRIPT-01), flow analysis (SCRIPT-02), full CLI integration
 
 **Phase 12: Voice Fingerprinting** (SCRIPT-05)
 - Depends on Phase 11 infrastructure
@@ -111,11 +118,13 @@ Next action: Continue with remaining plans (11-02, 11-03, 11-04) or pause for us
 | /analyze | .claude/commands/ | Post-publish analysis command |
 | /patterns | .claude/commands/ | Pattern recognition command |
 
-**v1.2 (Script Quality & Discovery) - In Progress:**
+**v1.2 (Script Quality & Discovery) - Phase 11 Complete:**
 
 | Component | Location | Purpose |
 |-----------|----------|---------|
-| cli.py | tools/script-checkers/ | Script quality checker orchestrator |
+| cli.py | tools/script-checkers/ | Script quality checker orchestrator (all 4 checkers) |
+| repetition.py | tools/script-checkers/checkers/ | SCRIPT-01: Phrase repetition detection |
+| flow.py | tools/script-checkers/checkers/ | SCRIPT-02: Flow analysis (definitions, transitions) |
 | stumble.py | tools/script-checkers/checkers/ | SCRIPT-03: Teleprompter stumble detection |
 | scaffolding.py | tools/script-checkers/checkers/ | SCRIPT-04: Scaffolding phrase counter |
 | config.py | tools/script-checkers/ | Proportional threshold configuration |
