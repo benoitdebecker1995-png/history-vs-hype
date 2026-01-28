@@ -1,0 +1,8 @@
+# Script Quality Checker Dependencies
+# Phase 11: Script Quality Checkers
+
+spacy>=3.8
+textstat>=0.7.3
+
+# After installing requirements, download the spaCy English model:
+# python -m spacy download en_core_web_sm
