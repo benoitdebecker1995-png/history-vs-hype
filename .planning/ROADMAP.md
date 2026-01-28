@@ -106,11 +106,11 @@ Plans:
   2. User can verify narrative flow (terms defined before use, smooth transitions)
   3. User can identify teleprompter stumble risks (long sentences, complex clauses)
   4. User can count scaffolding language ("Here's", "So", "Now") and get alerts when exceeded
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 11-01: TBD
-- [ ] 11-02: TBD
+- [ ] 11-01-PLAN.md — Foundation infrastructure + stumble/scaffolding checkers
+- [ ] 11-02-PLAN.md — Repetition detection + flow analysis checkers
 
 #### Phase 12: Voice Fingerprinting
 **Goal**: Learn speech patterns from existing transcripts
@@ -170,7 +170,7 @@ Phases execute in numeric order: 11 → 12 → 13 → 14
 | 8. API Foundation | v1.1 | 3/3 | Complete | 2026-01-26 |
 | 9. Data Pull Scripts | v1.1 | 3/3 | Complete | 2026-01-26 |
 | 10. Pattern Recognition | v1.1 | 3/3 | Complete | 2026-01-26 |
-| 11. Script Quality Checkers | v1.2 | 0/2 | Not started | - |
+| 11. Script Quality Checkers | v1.2 | 0/2 | Planned | - |
 | 12. Voice Fingerprinting | v1.2 | 0/1 | Not started | - |
 | 13. Discovery Tools | v1.2 | 0/2 | Not started | - |
 | 14. NotebookLM Workflow | v1.2 | 0/1 | Not started | - |
