@@ -46,6 +46,19 @@ class Config:
     repetition_min_occurrences: int = 3  # Flag phrases appearing 3+ times
     repetition_rhetorical_proximity: int = 2  # Sentences within this distance = potential rhetorical
 
+    # SCRIPT-02: Flow Analysis
+    flow_term_min_words: int = 2  # Minimum words to consider a "term"
+    flow_common_terms: List[str] = field(default_factory=lambda: [
+        "treaty", "border", "country", "government", "region", "state",
+        "nation", "people", "agreement", "conflict", "war", "territory"
+    ])
+    flow_transition_phrases: List[str] = field(default_factory=lambda: [
+        "however", "therefore", "as a result", "meanwhile", "consequently",
+        "moreover", "furthermore", "nevertheless", "in contrast", "similarly",
+        "in addition", "for example", "for instance", "on the other hand",
+        "in fact", "indeed", "thus", "hence", "thereby", "which meant that"
+    ])
+
 
 def calculate_threshold(word_count: int, base_rate: float, min_val: int = 1) -> int:
     """
