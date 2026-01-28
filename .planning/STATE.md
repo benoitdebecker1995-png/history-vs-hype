@@ -1,27 +1,28 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-01-27
+**Last Updated:** 2026-01-28
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-01-27)
 
 **Core value:** Every video shows sources on screen — viewers see the evidence themselves
-**Current focus:** v1.2 Script Quality & Discovery
+**Current focus:** v1.2 Script Quality & Discovery — Phase 11
 
 ## Current Position
 
 **Milestone:** v1.2 Script Quality & Discovery
-**Phase:** Not started (researching)
-**Plan:** —
-**Status:** Researching domain
-**Last activity:** 2026-01-27 — Milestone v1.2 started
+**Phase:** 11 of 14 (Script Quality Checkers)
+**Plan:** Ready to plan
+**Status:** Ready to plan phase 11
+**Last activity:** 2026-01-28 — v1.2 roadmap created
 
 **Progress:**
 ```
 v1.0 [████████████████████] 100% — Workspace Optimization
 v1.1 [████████████████████] 100% — Analytics & Learning Loop
+v1.2 [░░░░░░░░░░░░░░░░░░░░]   0% — Script Quality & Discovery (Phase 11/14)
 ```
 
 ## Milestone History
@@ -30,6 +31,7 @@ v1.1 [████████████████████] 100% — Ana
 |---------|------|--------|---------|
 | v1.0 | Workspace Optimization | 0.1, 1-6 | 2026-01-23 |
 | v1.1 | Analytics & Learning Loop | 7-10 | 2026-01-26 |
+| v1.2 | Script Quality & Discovery | 11-14 | In progress |
 
 **Full history:** `.planning/MILESTONES.md`
 **Archives:** `.planning/milestones/`
@@ -49,19 +51,38 @@ v1.1 [████████████████████] 100% — Ana
 
 ### Last Session
 
-- **Date:** 2026-01-27
-- **Work:** Completed v1.1 milestone, archived roadmap and requirements
+- **Date:** 2026-01-28
+- **Work:** Created v1.2 roadmap (phases 11-14)
 - **Output:**
-  - `.planning/milestones/v1.1-ROADMAP.md` — archived milestone roadmap
-  - `.planning/milestones/v1.1-REQUIREMENTS.md` — archived requirements
-  - `.planning/milestones/v1.1-MILESTONE-AUDIT.md` — audit report
+  - `.planning/ROADMAP.md` — v1.2 roadmap with 4 phases
+  - `.planning/REQUIREMENTS.md` — updated traceability (pending)
+  - `.planning/STATE.md` — updated current position
 
 ### Next Session
 
-1. **Start next milestone** — `/gsd:new-milestone`
-2. **Or use workspace** — `/analyze`, `/patterns`, etc.
+**Ready to plan Phase 11: Script Quality Checkers**
+
+Next action: `/gsd:plan-phase 11` (when user approves roadmap)
 
 ## Accumulated Context
+
+### v1.2 Phase Structure
+
+**Phase 11: Script Quality Checkers** (SCRIPT-01 through SCRIPT-04)
+- Repetition detection, flow analysis, stumble test, scaffolding counter
+- Foundation for automated quality checks
+
+**Phase 12: Voice Fingerprinting** (SCRIPT-05)
+- Depends on Phase 11 infrastructure
+- Analyzes transcripts to learn speech patterns
+
+**Phase 13: Discovery Tools** (DISC-01 through DISC-04)
+- Can run parallel to Phase 12
+- Keyword research, search intent, impression diagnostics
+
+**Phase 14: NotebookLM Workflow** (NBLM-01 through NBLM-03)
+- Final phase: research-to-script pipeline
+- Prompt templates, session logging, citation extraction
 
 ### Key Deliverables (v1.1)
 
@@ -88,4 +109,4 @@ v1.1 [████████████████████] 100% — Ana
 
 ---
 
-*State updated: 2026-01-27 after v1.1 milestone completion*
+*State updated: 2026-01-28 after v1.2 roadmap creation*

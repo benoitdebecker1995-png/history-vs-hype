@@ -63,23 +63,30 @@ Deferred features requiring more data or API availability.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SCRIPT-01 | TBD | Pending |
-| SCRIPT-02 | TBD | Pending |
-| SCRIPT-03 | TBD | Pending |
-| SCRIPT-04 | TBD | Pending |
-| SCRIPT-05 | TBD | Pending |
-| DISC-01 | TBD | Pending |
-| DISC-02 | TBD | Pending |
-| DISC-03 | TBD | Pending |
-| DISC-04 | TBD | Pending |
-| NBLM-01 | TBD | Pending |
-| NBLM-02 | TBD | Pending |
-| NBLM-03 | TBD | Pending |
+| SCRIPT-01 | Phase 11 | Pending |
+| SCRIPT-02 | Phase 11 | Pending |
+| SCRIPT-03 | Phase 11 | Pending |
+| SCRIPT-04 | Phase 11 | Pending |
+| SCRIPT-05 | Phase 12 | Pending |
+| DISC-01 | Phase 13 | Pending |
+| DISC-02 | Phase 13 | Pending |
+| DISC-03 | Phase 13 | Pending |
+| DISC-04 | Phase 13 | Pending |
+| NBLM-01 | Phase 14 | Pending |
+| NBLM-02 | Phase 14 | Pending |
+| NBLM-03 | Phase 14 | Pending |
 
 **Coverage:**
 - v1.2 requirements: 12 total
-- Mapped to phases: 0 (pending roadmap)
-- Unmapped: 12
+- Mapped to phases: 12/12 (100%)
+- Unmapped: 0
+
+**Phase Distribution:**
+- Phase 11 (Script Quality Checkers): 4 requirements
+- Phase 12 (Voice Fingerprinting): 1 requirement
+- Phase 13 (Discovery Tools): 4 requirements
+- Phase 14 (NotebookLM Workflow): 3 requirements
 
 ---
 *Requirements defined: 2026-01-27*
+*Traceability updated: 2026-01-28*
