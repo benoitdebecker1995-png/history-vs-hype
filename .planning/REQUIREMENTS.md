@@ -9,10 +9,10 @@ Requirements for Script Quality & Discovery milestone.
 
 ### Script Quality
 
-- [ ] **SCRIPT-01**: Repetition detection — scan scripts for identical/near-identical phrases, flag when threshold exceeded
-- [ ] **SCRIPT-02**: Flow analyzer — check narrative flow (terms defined before use, transitions between sections)
-- [ ] **SCRIPT-03**: Stumble test — identify sentences >25 words, complex subordinate clauses, written-style colons
-- [ ] **SCRIPT-04**: "Here's" counter — alert when scaffolding language exceeds 4 instances
+- [x] **SCRIPT-01**: Repetition detection — scan scripts for identical/near-identical phrases, flag when threshold exceeded
+- [x] **SCRIPT-02**: Flow analyzer — check narrative flow (terms defined before use, transitions between sections)
+- [x] **SCRIPT-03**: Stumble test — identify sentences >25 words, complex subordinate clauses, written-style colons
+- [x] **SCRIPT-04**: "Here's" counter — alert when scaffolding language exceeds 4 instances
 - [ ] **SCRIPT-05**: Voice fingerprinting — analyze transcripts to learn speech patterns, flag violations
 
 ### Discovery/SEO
@@ -63,10 +63,10 @@ Deferred features requiring more data or API availability.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SCRIPT-01 | Phase 11 | Pending |
-| SCRIPT-02 | Phase 11 | Pending |
-| SCRIPT-03 | Phase 11 | Pending |
-| SCRIPT-04 | Phase 11 | Pending |
+| SCRIPT-01 | Phase 11 | Complete |
+| SCRIPT-02 | Phase 11 | Complete |
+| SCRIPT-03 | Phase 11 | Complete |
+| SCRIPT-04 | Phase 11 | Complete |
 | SCRIPT-05 | Phase 12 | Pending |
 | DISC-01 | Phase 13 | Pending |
 | DISC-02 | Phase 13 | Pending |
