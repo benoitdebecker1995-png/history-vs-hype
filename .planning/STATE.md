@@ -14,15 +14,15 @@ See: `.planning/PROJECT.md` (updated 2026-01-27)
 
 **Milestone:** v1.2 Script Quality & Discovery
 **Phase:** 13 of 14 (Discovery Tools)
-**Plan:** 0 of TBD
-**Status:** Not started
-**Last activity:** 2026-01-29 — Phase 12 complete (voice fingerprinting infrastructure)
+**Plan:** 1 of TBD
+**Status:** In progress
+**Last activity:** 2026-01-29 — Completed 13-01-PLAN.md (keyword extraction foundation)
 
 **Progress:**
 ```
 v1.0 [████████████████████] 100% — Workspace Optimization
 v1.1 [████████████████████] 100% — Analytics & Learning Loop
-v1.2 [████████████░░░░░░░░]  57% — Script Quality & Discovery (Phase 13/14)
+v1.2 [█████████████░░░░░░░]  64% — Script Quality & Discovery (Phase 13/14)
 ```
 
 ## Milestone History
@@ -52,21 +52,24 @@ v1.2 [████████████░░░░░░░░]  57% — Scr
 ### Last Session
 
 - **Date:** 2026-01-29
-- **Work:** Executed 12-02 plan (pattern application and CLI integration)
+- **Work:** Executed 13-01 plan (keyword extraction foundation)
 - **Output:**
-  - `tools/script-checkers/voice/pattern_applier.py` — Apply learned patterns to new scripts
-  - Updated `tools/script-checkers/voice/__init__.py` — Lazy imports for optional dependencies
-  - Updated `tools/script-checkers/cli.py` — CLI integration with --voice flags
-  - `.planning/phases/12-voice-fingerprinting/12-02-SUMMARY.md` — Execution summary
+  - `tools/discovery/schema.sql` — SQLite database schema (keywords, intents, performance tracking)
+  - `tools/discovery/database.py` — KeywordDB class with CRUD operations
+  - `tools/discovery/autocomplete.py` — YouTube autocomplete scraper with pyppeteer
+  - `tools/discovery/keywords.py` — Keyword management CLI (add, search, export)
+  - `tools/discovery/__init__.py` — Module exports
+  - `tools/discovery/requirements.txt` — Dependencies documentation
+  - `.planning/phases/13-discovery-tools/13-01-SUMMARY.md` — Execution summary
   - `.planning/STATE.md` — Updated current position
 
 ### Next Session
 
-**Phase 12 Voice Fingerprinting: Complete**
+**Phase 13-01 Complete:** Keyword extraction foundation ready
 
-Both plans complete. Voice fingerprinting infrastructure ready for use in scriptwriting workflow.
+SQLite database created with keyword tracking tables. Autocomplete scraper implemented (requires pyppeteer installation). CLI provides add/search/export operations.
 
-Next phase: Phase 13 (Discovery Tools) or Phase 14 (NotebookLM Workflow) per roadmap.
+Next: Phase 13-02 (Search Intent Classification) or continue Phase 13 plans per roadmap.
 
 ## Accumulated Context
 
@@ -95,6 +98,13 @@ Next phase: Phase 13 (Discovery Tools) or Phase 14 (NotebookLM Workflow) per roa
 - **HIGH-confidence only:** Only apply patterns with freq >= 5 (skip MEDIUM to avoid over-applying)
 - **Transform-then-check:** Voice patterns applied BEFORE quality checkers analyze script
 
+**Discovery Tools (Phase 13-01):**
+- **Error dict pattern:** Return `{'error': msg}` instead of exceptions (consistent with youtube-analytics, script-checkers)
+- **Lazy database init:** Auto-create tables on first KeywordDB() instantiation (no separate setup step needed)
+- **Pyppeteer over Node.js:** Use Python port to stay in Python ecosystem (easier integration with existing tools)
+- **Rate limiting:** 2s base delay + 1-3s random jitter, exponential backoff on errors (1s → 2s → 4s → 8s max)
+- **Database location:** tools/discovery/keywords.db (relative to module, persists across sessions)
+
 ### v1.2 Phase Structure
 
 **Phase 11: Script Quality Checkers** (SCRIPT-01 through SCRIPT-04) — ✅ COMPLETE 2026-01-28
@@ -107,8 +117,8 @@ Next phase: Phase 13 (Discovery Tools) or Phase 14 (NotebookLM Workflow) per roa
 - 12-02 COMPLETE: Pattern applier, CLI integration with --voice flags
 - Verification: CLI accepts --voice, --show-voice-changes, --rebuild-voice flags
 
-**Phase 13: Discovery Tools** (DISC-01 through DISC-04)
-- Can run parallel to Phase 12
+**Phase 13: Discovery Tools** (DISC-01 through DISC-04) — 🔄 IN PROGRESS
+- 13-01 COMPLETE: Keyword extraction foundation (database + autocomplete + CLI)
 - Keyword research, search intent, impression diagnostics
 
 **Phase 14: NotebookLM Workflow** (NBLM-01 through NBLM-03)
@@ -133,7 +143,7 @@ Next phase: Phase 13 (Discovery Tools) or Phase 14 (NotebookLM Workflow) per roa
 | /analyze | .claude/commands/ | Post-publish analysis command |
 | /patterns | .claude/commands/ | Pattern recognition command |
 
-**v1.2 (Script Quality & Discovery) - Phases 11-12 Complete:**
+**v1.2 (Script Quality & Discovery) - Phases 11-13 Partial:**
 
 | Component | Location | Purpose |
 |-----------|----------|---------|
@@ -148,6 +158,9 @@ Next phase: Phase 13 (Discovery Tools) or Phase 14 (NotebookLM Workflow) per roa
 | pattern_extractor.py | tools/script-checkers/voice/ | SCRIPT-05: Frequency analysis with temporal weighting |
 | pattern_applier.py | tools/script-checkers/voice/ | SCRIPT-05: Apply patterns to new scripts |
 | voice-patterns.json | tools/script-checkers/ | SCRIPT-05: Learned pattern library |
+| database.py | tools/discovery/ | DISC-01: SQLite keyword database with CRUD |
+| autocomplete.py | tools/discovery/ | DISC-01: YouTube autocomplete scraper |
+| keywords.py | tools/discovery/ | DISC-01: Keyword management CLI |
 
 ### Technical Notes
 
@@ -166,4 +179,4 @@ Next phase: Phase 13 (Discovery Tools) or Phase 14 (NotebookLM Workflow) per roa
 
 ---
 
-*State updated: 2026-01-29 after Phase 12 completion*
+*State updated: 2026-01-29 after Phase 13-01 completion*
