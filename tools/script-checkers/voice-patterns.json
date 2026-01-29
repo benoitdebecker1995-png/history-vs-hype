@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "generated": "2026-01-28T23:20:00",
+    "videos_analyzed": 0,
+    "video_list": [],
+    "confidence_note": "Initial structure - run build_pattern_library() to populate",
+    "total_modifications": 0,
+    "patterns_found": {
+      "substitutions": 0,
+      "anti_patterns": 0,
+      "additions": 0
+    }
+  },
+  "patterns": {
+    "word_substitutions": [],
+    "anti_patterns": [],
+    "additions": [],
+    "sentence_patterns": {
+      "max_preferred_length": null,
+      "break_triggers": []
+    }
+  }
+}
