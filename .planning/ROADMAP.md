@@ -135,11 +135,12 @@ Plans:
   2. User can classify titles by search intent (why/how/what patterns)
   3. User can diagnose discovery issues (low impressions = SEO, low CTR = title/thumbnail)
   4. User can verify metadata consistency across title/description/tags
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 13-01: TBD
-- [ ] 13-02: TBD
+- [ ] 13-01-PLAN.md — Database schema + autocomplete extraction + keyword CLI (DISC-01)
+- [ ] 13-02-PLAN.md — Intent classification + discovery diagnostics + /analyze extension (DISC-02, DISC-03)
+- [ ] 13-03-PLAN.md — Metadata checker + VidIQ workflow + /discover command (DISC-04)
 
 #### Phase 14: NotebookLM Workflow
 **Goal**: Streamlined research-to-script pipeline
@@ -173,5 +174,5 @@ Phases execute in numeric order: 11 → 12 → 13 → 14
 | 10. Pattern Recognition | v1.1 | 3/3 | Complete | 2026-01-26 |
 | 11. Script Quality Checkers | v1.2 | 2/2 | Complete | 2026-01-28 |
 | 12. Voice Fingerprinting | v1.2 | 2/2 | Complete | 2026-01-29 |
-| 13. Discovery Tools | v1.2 | 0/2 | Not started | - |
+| 13. Discovery Tools | v1.2 | 0/3 | Planned | - |
 | 14. NotebookLM Workflow | v1.2 | 0/1 | Not started | - |
