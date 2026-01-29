@@ -1,28 +1,28 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-01-28 (Phase 11 complete)
+**Last Updated:** 2026-01-29 (Phase 12 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-01-27)
 
 **Core value:** Every video shows sources on screen — viewers see the evidence themselves
-**Current focus:** v1.2 Script Quality & Discovery — Phase 12
+**Current focus:** v1.2 Script Quality & Discovery — Phase 13
 
 ## Current Position
 
 **Milestone:** v1.2 Script Quality & Discovery
 **Phase:** 12 of 14 (Voice Fingerprinting)
-**Plan:** 1 of 2
-**Status:** In progress
-**Last activity:** 2026-01-28 — Completed 12-01-PLAN.md (corpus builder and pattern extractor)
+**Plan:** 2 of 2
+**Status:** Phase complete
+**Last activity:** 2026-01-29 — Completed 12-02-PLAN.md (pattern application and CLI integration)
 
 **Progress:**
 ```
 v1.0 [████████████████████] 100% — Workspace Optimization
 v1.1 [████████████████████] 100% — Analytics & Learning Loop
-v1.2 [█████████░░░░░░░░░░░]  43% — Script Quality & Discovery (Phase 12/14)
+v1.2 [███████████░░░░░░░░░]  50% — Script Quality & Discovery (Phase 12/14)
 ```
 
 ## Milestone History
@@ -51,23 +51,22 @@ v1.2 [█████████░░░░░░░░░░░]  43% — Scr
 
 ### Last Session
 
-- **Date:** 2026-01-28
-- **Work:** Executed 12-01 plan (corpus builder and pattern extractor)
+- **Date:** 2026-01-29
+- **Work:** Executed 12-02 plan (pattern application and CLI integration)
 - **Output:**
-  - `tools/script-checkers/voice/corpus_builder.py` — Script-to-transcript diff analysis
-  - `tools/script-checkers/voice/pattern_extractor.py` — Frequency analysis with temporal weighting
-  - `tools/script-checkers/voice-patterns.json` — Initial pattern library structure
-  - `tools/script-checkers/VOICE-SETUP.md` — Installation and usage instructions
-  - `.planning/phases/12-voice-fingerprinting/12-01-SUMMARY.md` — Execution summary
+  - `tools/script-checkers/voice/pattern_applier.py` — Apply learned patterns to new scripts
+  - Updated `tools/script-checkers/voice/__init__.py` — Lazy imports for optional dependencies
+  - Updated `tools/script-checkers/cli.py` — CLI integration with --voice flags
+  - `.planning/phases/12-voice-fingerprinting/12-02-SUMMARY.md` — Execution summary
   - `.planning/STATE.md` — Updated current position
 
 ### Next Session
 
-**Phase 12 Voice Fingerprinting: Plan 02 next**
+**Phase 12 Voice Fingerprinting: Complete**
 
-Plan 01 complete with corpus analysis infrastructure. Next: integrate patterns into scriptwriter.
+Both plans complete. Voice fingerprinting infrastructure ready for use in scriptwriting workflow.
 
-Note: User must install srt library (`pip install srt`) and run `build_pattern_library()` to populate patterns from existing video corpus.
+Next phase: Phase 13 (Discovery Tools) or Phase 14 (NotebookLM Workflow) per roadmap.
 
 ## Accumulated Context
 
@@ -85,12 +84,16 @@ Note: User must install srt library (`pip install srt`) and run `build_pattern_l
 - **Flow 80% accuracy:** High-confidence flagging with user decision, not 100% automatic blocking
 - **Checker execution order:** flow -> repetition -> stumble -> scaffolding (definitions first, delivery last)
 
-**Voice Fingerprinting (Phase 12-01):**
+**Voice Fingerprinting (Phase 12-01 + 12-02):**
 - **Word-level diff:** Uses difflib.SequenceMatcher on word arrays, not character-level (avoids O(n²) on long texts)
 - **Minimum frequency:** Pattern must occur >= 3 times to distinguish from ad-libs
 - **Temporal weighting:** Exponential decay (0.95^months) gives recent videos more influence
 - **Confidence levels:** HIGH (freq >= 5), MEDIUM (freq >= 3) based on corpus linguistics standards
 - **Manual srt install:** pip install commands hang in automation, documented in VOICE-SETUP.md for user
+- **Lazy imports:** Use __getattr__ to avoid srt dependency blocking pattern_applier (only needed for corpus analysis)
+- **Case-preserving replacement:** Capitalize replacement if original word was capitalized (sentence-initial)
+- **HIGH-confidence only:** Only apply patterns with freq >= 5 (skip MEDIUM to avoid over-applying)
+- **Transform-then-check:** Voice patterns applied BEFORE quality checkers analyze script
 
 ### v1.2 Phase Structure
 
@@ -99,10 +102,10 @@ Note: User must install srt library (`pip install srt`) and run `build_pattern_l
 - 11-02 COMPLETE: Repetition detection (SCRIPT-01), flow analysis (SCRIPT-02), full CLI integration
 - Verification: PASSED 8/8 must-haves
 
-**Phase 12: Voice Fingerprinting** (SCRIPT-05) — 🚧 IN PROGRESS
+**Phase 12: Voice Fingerprinting** (SCRIPT-05) — ✅ COMPLETE 2026-01-29
 - 12-01 COMPLETE: Corpus builder, pattern extractor, initial pattern library structure
-- 12-02 NEXT: Integrate patterns into scriptwriter
-- Depends on Phase 11 infrastructure (complete)
+- 12-02 COMPLETE: Pattern applier, CLI integration with --voice flags
+- Verification: CLI accepts --voice, --show-voice-changes, --rebuild-voice flags
 
 **Phase 13: Discovery Tools** (DISC-01 through DISC-04)
 - Can run parallel to Phase 12
@@ -130,11 +133,11 @@ Note: User must install srt library (`pip install srt`) and run `build_pattern_l
 | /analyze | .claude/commands/ | Post-publish analysis command |
 | /patterns | .claude/commands/ | Pattern recognition command |
 
-**v1.2 (Script Quality & Discovery) - Phases 11-12 In Progress:**
+**v1.2 (Script Quality & Discovery) - Phases 11-12 Complete:**
 
 | Component | Location | Purpose |
 |-----------|----------|---------|
-| cli.py | tools/script-checkers/ | Script quality checker orchestrator (all 4 checkers) |
+| cli.py | tools/script-checkers/ | Script quality checker orchestrator (all 4 checkers + voice) |
 | repetition.py | tools/script-checkers/checkers/ | SCRIPT-01: Phrase repetition detection |
 | flow.py | tools/script-checkers/checkers/ | SCRIPT-02: Flow analysis (definitions, transitions) |
 | stumble.py | tools/script-checkers/checkers/ | SCRIPT-03: Teleprompter stumble detection |
@@ -143,6 +146,7 @@ Note: User must install srt library (`pip install srt`) and run `build_pattern_l
 | output.py | tools/script-checkers/ | Markdown/JSON report formatter |
 | corpus_builder.py | tools/script-checkers/voice/ | SCRIPT-05: Script-to-transcript diff analysis |
 | pattern_extractor.py | tools/script-checkers/voice/ | SCRIPT-05: Frequency analysis with temporal weighting |
+| pattern_applier.py | tools/script-checkers/voice/ | SCRIPT-05: Apply patterns to new scripts |
 | voice-patterns.json | tools/script-checkers/ | SCRIPT-05: Learned pattern library |
 
 ### Technical Notes
