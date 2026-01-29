@@ -14,9 +14,9 @@ See: `.planning/PROJECT.md` (updated 2026-01-27)
 
 **Milestone:** v1.2 Script Quality & Discovery
 **Phase:** 12 of 14 (Voice Fingerprinting)
-**Plan:** 0 of TBD
-**Status:** Not started
-**Last activity:** 2026-01-28 — Phase 11 complete (all 4 script quality checkers implemented)
+**Plan:** 1 of 2
+**Status:** In progress
+**Last activity:** 2026-01-28 — Completed 12-01-PLAN.md (corpus builder and pattern extractor)
 
 **Progress:**
 ```
@@ -52,21 +52,22 @@ v1.2 [█████████░░░░░░░░░░░]  43% — Scr
 ### Last Session
 
 - **Date:** 2026-01-28
-- **Work:** Executed 11-02 plan (repetition and flow checkers)
+- **Work:** Executed 12-01 plan (corpus builder and pattern extractor)
 - **Output:**
-  - `tools/script-checkers/checkers/repetition.py` — SCRIPT-01 repetition detection
-  - `tools/script-checkers/checkers/flow.py` — SCRIPT-02 flow analysis
-  - Full CLI integration with all 4 checkers
-  - `.planning/phases/11-script-quality-checkers/11-02-SUMMARY.md` — Execution summary
+  - `tools/script-checkers/voice/corpus_builder.py` — Script-to-transcript diff analysis
+  - `tools/script-checkers/voice/pattern_extractor.py` — Frequency analysis with temporal weighting
+  - `tools/script-checkers/voice-patterns.json` — Initial pattern library structure
+  - `tools/script-checkers/VOICE-SETUP.md` — Installation and usage instructions
+  - `.planning/phases/12-voice-fingerprinting/12-01-SUMMARY.md` — Execution summary
   - `.planning/STATE.md` — Updated current position
 
 ### Next Session
 
-**Phase 12 Voice Fingerprinting: Ready to start**
+**Phase 12 Voice Fingerprinting: Plan 02 next**
 
-Phase 11 complete with all 4 script quality checkers. Next: analyze transcripts to learn speech patterns (SCRIPT-05).
+Plan 01 complete with corpus analysis infrastructure. Next: integrate patterns into scriptwriter.
 
-Run `/gsd:discuss-phase 12` to gather context before planning.
+Note: User must install srt library (`pip install srt`) and run `build_pattern_library()` to populate patterns from existing video corpus.
 
 ## Accumulated Context
 
@@ -84,6 +85,13 @@ Run `/gsd:discuss-phase 12` to gather context before planning.
 - **Flow 80% accuracy:** High-confidence flagging with user decision, not 100% automatic blocking
 - **Checker execution order:** flow -> repetition -> stumble -> scaffolding (definitions first, delivery last)
 
+**Voice Fingerprinting (Phase 12-01):**
+- **Word-level diff:** Uses difflib.SequenceMatcher on word arrays, not character-level (avoids O(n²) on long texts)
+- **Minimum frequency:** Pattern must occur >= 3 times to distinguish from ad-libs
+- **Temporal weighting:** Exponential decay (0.95^months) gives recent videos more influence
+- **Confidence levels:** HIGH (freq >= 5), MEDIUM (freq >= 3) based on corpus linguistics standards
+- **Manual srt install:** pip install commands hang in automation, documented in VOICE-SETUP.md for user
+
 ### v1.2 Phase Structure
 
 **Phase 11: Script Quality Checkers** (SCRIPT-01 through SCRIPT-04) — ✅ COMPLETE 2026-01-28
@@ -91,9 +99,10 @@ Run `/gsd:discuss-phase 12` to gather context before planning.
 - 11-02 COMPLETE: Repetition detection (SCRIPT-01), flow analysis (SCRIPT-02), full CLI integration
 - Verification: PASSED 8/8 must-haves
 
-**Phase 12: Voice Fingerprinting** (SCRIPT-05) — 🚧 NEXT
+**Phase 12: Voice Fingerprinting** (SCRIPT-05) — 🚧 IN PROGRESS
+- 12-01 COMPLETE: Corpus builder, pattern extractor, initial pattern library structure
+- 12-02 NEXT: Integrate patterns into scriptwriter
 - Depends on Phase 11 infrastructure (complete)
-- Analyzes transcripts to learn speech patterns
 
 **Phase 13: Discovery Tools** (DISC-01 through DISC-04)
 - Can run parallel to Phase 12
@@ -121,7 +130,7 @@ Run `/gsd:discuss-phase 12` to gather context before planning.
 | /analyze | .claude/commands/ | Post-publish analysis command |
 | /patterns | .claude/commands/ | Pattern recognition command |
 
-**v1.2 (Script Quality & Discovery) - Phase 11 Complete:**
+**v1.2 (Script Quality & Discovery) - Phases 11-12 In Progress:**
 
 | Component | Location | Purpose |
 |-----------|----------|---------|
@@ -132,6 +141,9 @@ Run `/gsd:discuss-phase 12` to gather context before planning.
 | scaffolding.py | tools/script-checkers/checkers/ | SCRIPT-04: Scaffolding phrase counter |
 | config.py | tools/script-checkers/ | Proportional threshold configuration |
 | output.py | tools/script-checkers/ | Markdown/JSON report formatter |
+| corpus_builder.py | tools/script-checkers/voice/ | SCRIPT-05: Script-to-transcript diff analysis |
+| pattern_extractor.py | tools/script-checkers/voice/ | SCRIPT-05: Frequency analysis with temporal weighting |
+| voice-patterns.json | tools/script-checkers/ | SCRIPT-05: Learned pattern library |
 
 ### Technical Notes
 
