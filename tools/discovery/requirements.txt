@@ -1,0 +1,16 @@
+# Discovery Tools Requirements
+
+# Core dependencies
+# SQLite is part of Python standard library (no external dependency)
+
+# Python version requirement
+# Requires: Python 3.10+
+
+# Optional dependencies for autocomplete scraping (Task 2)
+pyppeteer>=1.0.2
+pyppeteer-stealth>=2.7.4
+
+# Notes:
+# - SQLite operations use stdlib sqlite3 module
+# - pyppeteer/pyppeteer-stealth only needed for autocomplete.py
+# - Install autocomplete dependencies: pip install pyppeteer pyppeteer-stealth
