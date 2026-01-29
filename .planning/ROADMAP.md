@@ -123,8 +123,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 12-01-PLAN.md — Corpus builder and pattern extractor modules
-- [ ] 12-02-PLAN.md — Pattern applier and CLI integration
+- [x] 12-01-PLAN.md — Corpus builder and pattern extractor modules
+- [x] 12-02-PLAN.md — Pattern applier and CLI integration
 
 #### Phase 13: Discovery Tools
 **Goal**: SEO and keyword research for topic discovery
@@ -172,6 +172,6 @@ Phases execute in numeric order: 11 → 12 → 13 → 14
 | 9. Data Pull Scripts | v1.1 | 3/3 | Complete | 2026-01-26 |
 | 10. Pattern Recognition | v1.1 | 3/3 | Complete | 2026-01-26 |
 | 11. Script Quality Checkers | v1.2 | 2/2 | Complete | 2026-01-28 |
-| 12. Voice Fingerprinting | v1.2 | 0/2 | Not started | - |
+| 12. Voice Fingerprinting | v1.2 | 2/2 | Complete | 2026-01-29 |
 | 13. Discovery Tools | v1.2 | 0/2 | Not started | - |
 | 14. NotebookLM Workflow | v1.2 | 0/1 | Not started | - |

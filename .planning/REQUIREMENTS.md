@@ -13,7 +13,7 @@ Requirements for Script Quality & Discovery milestone.
 - [x] **SCRIPT-02**: Flow analyzer — check narrative flow (terms defined before use, transitions between sections)
 - [x] **SCRIPT-03**: Stumble test — identify sentences >25 words, complex subordinate clauses, written-style colons
 - [x] **SCRIPT-04**: "Here's" counter — alert when scaffolding language exceeds 4 instances
-- [ ] **SCRIPT-05**: Voice fingerprinting — analyze transcripts to learn speech patterns, flag violations
+- [x] **SCRIPT-05**: Voice fingerprinting — analyze transcripts to learn speech patterns, flag violations
 
 ### Discovery/SEO
 
@@ -67,7 +67,7 @@ Deferred features requiring more data or API availability.
 | SCRIPT-02 | Phase 11 | Complete |
 | SCRIPT-03 | Phase 11 | Complete |
 | SCRIPT-04 | Phase 11 | Complete |
-| SCRIPT-05 | Phase 12 | Pending |
+| SCRIPT-05 | Phase 12 | Complete |
 | DISC-01 | Phase 13 | Pending |
 | DISC-02 | Phase 13 | Pending |
 | DISC-03 | Phase 13 | Pending |
