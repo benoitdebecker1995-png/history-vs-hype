@@ -16,11 +16,18 @@ Usage:
         --json             Output JSON instead of Markdown
         --no-annotate      Summary only, no annotated script
 
+        --voice            Apply learned voice patterns to script
+        --show-voice-changes   Show what voice modifications were made
+        --voice-patterns PATH  Path to voice-patterns.json (default: auto-detect)
+        --rebuild-voice    Rebuild voice-patterns.json from all script+transcript pairs
+
     Examples:
         python cli.py script.md
         python cli.py script.md --flow --repetition
         python cli.py script.md --all --json
         python cli.py script.md --scaffolding --no-annotate
+        python cli.py script.md --voice --show-voice-changes
+        python cli.py --rebuild-voice
 
 Exit codes:
     0 = No errors
@@ -30,6 +37,7 @@ Exit codes:
 Dependencies:
     - spacy (for stumble checker)
     - en_core_web_sm model (install: python -m spacy download en_core_web_sm)
+    - srt (for voice pattern corpus analysis)
 """
 
 import sys
@@ -130,6 +138,44 @@ def run_checkers(text: str, config: Config, checker_flags: Dict[str, bool]) -> D
     return results
 
 
+def format_voice_changes(changes: list) -> str:
+    """
+    Format voice pattern changes for display.
+
+    Args:
+        changes: List of change dictionaries from pattern applier
+
+    Returns:
+        Formatted markdown string showing changes
+    """
+    if not changes:
+        return "## Voice Pattern Changes Applied\n\nNo changes made.\n\n---\n"
+
+    output = ["## Voice Pattern Changes Applied\n"]
+
+    # Separate substitutions and removals
+    substitutions = [c for c in changes if c['type'] == 'substitution']
+    removals = [c for c in changes if c['type'] == 'removal']
+
+    if substitutions:
+        output.append("**Substitutions:**")
+        for sub in substitutions:
+            output.append(f"- \"{sub['original']}\" -> \"{sub['replacement']}\" ({sub['count']} times)")
+        output.append("")
+
+    if removals:
+        output.append("**Phrases Removed:**")
+        for rem in removals:
+            output.append(f"- \"{rem['phrase']}\" ({rem['count']} times)")
+        output.append("")
+
+    total_mods = sum(c['count'] for c in changes)
+    output.append(f"**Total modifications:** {total_mods}\n")
+    output.append("---\n")
+
+    return "\n".join(output)
+
+
 def determine_exit_code(results: Dict[str, Any]) -> int:
     """
     Determine exit code based on checker results.
@@ -191,7 +237,7 @@ Exit codes:
         """
     )
 
-    parser.add_argument('script_path', help='Path to script file (.md or .txt)')
+    parser.add_argument('script_path', nargs='?', help='Path to script file (.md or .txt)')
     parser.add_argument('--flow', action='store_true', help='Run flow checker only')
     parser.add_argument('--repetition', action='store_true', help='Run repetition checker only')
     parser.add_argument('--stumble', action='store_true', help='Run stumble checker only')
@@ -200,7 +246,65 @@ Exit codes:
     parser.add_argument('--json', action='store_true', help='Output JSON instead of Markdown')
     parser.add_argument('--no-annotate', action='store_true', help='Summary only, no annotated script')
 
+    # Voice pattern flags
+    parser.add_argument('--voice', action='store_true', help='Apply learned voice patterns to script')
+    parser.add_argument('--show-voice-changes', action='store_true', help='Show what voice pattern changes were made')
+    parser.add_argument('--voice-patterns', type=str, default=None, help='Path to voice-patterns.json (default: auto-detect)')
+    parser.add_argument('--rebuild-voice', action='store_true', help='Rebuild voice-patterns.json from all available script+transcript pairs')
+
     args = parser.parse_args()
+
+    # Handle --rebuild-voice (exits after completion)
+    if args.rebuild_voice:
+        # Determine projects directory
+        if args.script_path:
+            # Use script path's parent to find video-projects
+            script_dir = Path(args.script_path).parent
+            projects_dir = script_dir / '../../video-projects'
+        else:
+            # Try to find video-projects relative to cli.py
+            cli_dir = Path(__file__).parent
+            projects_dir = cli_dir / '../../video-projects'
+
+        projects_dir = projects_dir.resolve()
+        output_path = Path(__file__).parent / 'voice-patterns.json'
+
+        if not projects_dir.exists():
+            print(f"ERROR: Projects directory not found: {projects_dir}", file=sys.stderr)
+            print("Provide a script path from your video project, or ensure video-projects/ is in expected location", file=sys.stderr)
+            sys.exit(1)
+
+        try:
+            from voice import build_pattern_library
+        except ImportError as e:
+            print("ERROR: srt library not installed. Required for corpus analysis.", file=sys.stderr)
+            print("Install with: pip install srt", file=sys.stderr)
+            print("See: VOICE-SETUP.md for details", file=sys.stderr)
+            sys.exit(1)
+
+        print(f"Rebuilding voice patterns from: {projects_dir}")
+        patterns = build_pattern_library(projects_dir, output_path)
+
+        # Print summary
+        meta = patterns.get('metadata', {})
+        patterns_data = patterns.get('patterns', {})
+
+        videos_analyzed = meta.get('videos_analyzed', 0)
+        subs = len(patterns_data.get('word_substitutions', []))
+        anti = len(patterns_data.get('anti_patterns', []))
+
+        print(f"\nAnalyzed {videos_analyzed} videos")
+        print(f"Found {subs} substitution patterns")
+        print(f"Found {anti} anti-patterns")
+        print(f"\nPatterns saved to: {output_path}")
+
+        sys.exit(0)
+
+    # Require script_path for all other operations
+    if not args.script_path:
+        print("ERROR: script_path is required (unless using --rebuild-voice)", file=sys.stderr)
+        parser.print_help()
+        sys.exit(1)
 
     # Determine which checkers to run
     checker_flags = {}
@@ -235,6 +339,25 @@ Exit codes:
         print("No content to check", file=sys.stderr)
         sys.exit(0)
 
+    # Apply voice patterns if requested (BEFORE checkers)
+    voice_changes = []
+    if args.voice:
+        from voice import apply_voice_patterns
+
+        patterns_path = None
+        if args.voice_patterns:
+            patterns_path = Path(args.voice_patterns)
+
+        try:
+            script, voice_changes = apply_voice_patterns(
+                script,
+                patterns_path=patterns_path,
+                show_changes=args.show_voice_changes
+            )
+        except FileNotFoundError:
+            print("WARNING: No voice patterns found. Run corpus analysis first to build voice-patterns.json", file=sys.stderr)
+            print("See: VOICE-SETUP.md for setup instructions", file=sys.stderr)
+
     # Initialize config
     config = Config()
 
@@ -247,6 +370,11 @@ Exit codes:
     else:
         include_annotated = not args.no_annotate
         output = OutputFormatter.format_full_report(script, results, include_annotated)
+
+    # Prepend voice changes if requested
+    if args.show_voice_changes and voice_changes:
+        voice_output = format_voice_changes(voice_changes)
+        output = voice_output + output
 
     # Print results
     print(output)
