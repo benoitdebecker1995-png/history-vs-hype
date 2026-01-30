@@ -28,6 +28,35 @@ Generate YouTube metadata, test titles, or identify clip-worthy moments. Everyth
 
 ---
 
+## PRE-PUBLISH QUALITY GATES
+
+**Before generating final metadata, run validation checks:**
+
+### Metadata Consistency Check
+
+```bash
+/discover --check YOUTUBE-METADATA.md
+```
+
+**What it validates:**
+- Primary keyword in title (HIGH priority)
+- Primary keyword in description opening (HIGH priority)
+- Keyword stuffing detection (>2% = fail)
+- Title-tag overlap (consistency)
+- Description length (200+ words)
+- Tag count (5-30 recommended)
+
+**Required status:** [PASS] before publishing
+
+**If [FAIL]:**
+1. Review issues list
+2. Fix HIGH priority issues
+3. Re-run check until [PASS]
+
+**See:** `/discover --check` documentation for full details
+
+---
+
 ## METADATA GENERATION (`--metadata` or default)
 
 ### Step 1: Read Context FIRST
@@ -302,6 +331,7 @@ Run complete publishing preparation:
 - **Title database:** `channel-data/COMPETITOR-TITLE-DATABASE.md`
 - **Technique library:** `.claude/REFERENCE/PROVEN-TECHNIQUES-LIBRARY.md`
 - **Technique log:** `channel-data/TECHNIQUE-USAGE-LOG.md`
+- **Metadata checker:** `tools/discovery/metadata_checker.py`
 
 ---
 
