@@ -166,10 +166,10 @@ Plans:
   1. User can select from 15+ structured prompt templates for research scenarios
   2. User can log NotebookLM sessions with standard format capturing findings
   3. User can paste NotebookLM output and get structured citation extraction
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 14-01: TBD
+- [ ] 14-01-PLAN.md — Expand prompt templates (17 use cases) + session log template + citation extraction script
 
 ## Progress
 
