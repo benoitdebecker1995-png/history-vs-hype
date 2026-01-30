@@ -2,14 +2,14 @@
 
 ## Milestones
 
-- ✅ **v1.0 MVP** - Phases 1-7 (shipped 2026-01-19)
-- ✅ **v1.1 Analytics & Learning Loop** - Phases 8-10 (shipped 2026-01-26)
-- 🚧 **v1.2 Script Quality & Discovery** - Phases 11-14 (in progress)
+- **v1.0 MVP** - Phases 1-7 (shipped 2026-01-19)
+- **v1.1 Analytics & Learning Loop** - Phases 8-10 (shipped 2026-01-26)
+- **v1.2 Script Quality & Discovery** - Phases 11-14 (shipped 2026-01-30)
 
 ## Phases
 
 <details>
-<summary>✅ v1.0 MVP (Phases 1-7) - SHIPPED 2026-01-19</summary>
+<summary>v1.0 MVP (Phases 1-7) - SHIPPED 2026-01-19</summary>
 
 ### Phase 1: File Cleanup
 **Goal**: Remove redundant files and establish clean baseline
@@ -62,7 +62,7 @@ Plans:
 </details>
 
 <details>
-<summary>✅ v1.1 Analytics & Learning Loop (Phases 8-10) - SHIPPED 2026-01-26</summary>
+<summary>v1.1 Analytics & Learning Loop (Phases 8-10) - SHIPPED 2026-01-26</summary>
 
 ### Phase 8: API Foundation
 **Goal**: YouTube Analytics API integration
@@ -93,88 +93,52 @@ Plans:
 
 </details>
 
-### 🚧 v1.2 Script Quality & Discovery (In Progress)
+<details>
+<summary>v1.2 Script Quality & Discovery (Phases 11-14) - SHIPPED 2026-01-30</summary>
 
-**Milestone Goal:** Produce better scripts faster, and make videos people actually find.
-
-#### Phase 11: Script Quality Checkers
+### Phase 11: Script Quality Checkers
 **Goal**: Automated quality checks for spoken-delivery scripts
-**Depends on**: Nothing (first phase of v1.2)
-**Requirements**: SCRIPT-01, SCRIPT-02, SCRIPT-03, SCRIPT-04
-**Success Criteria** (what must be TRUE):
-  1. User can scan script for repetitive phrases and get flagged sections with counts
-  2. User can verify narrative flow (terms defined before use, smooth transitions)
-  3. User can identify teleprompter stumble risks (long sentences, complex clauses)
-  4. User can count scaffolding language ("Here's", "So", "Now") and get alerts when exceeded
 **Plans**: 2 plans
 
 Plans:
-- [x] 11-01-PLAN.md — Foundation infrastructure + stumble/scaffolding checkers
-- [x] 11-02-PLAN.md — Repetition detection + flow analysis checkers
+- [x] 11-01: Foundation infrastructure + stumble/scaffolding checkers
+- [x] 11-02: Repetition detection + flow analysis checkers
 
-#### Phase 12: Voice Fingerprinting
+### Phase 12: Voice Fingerprinting
 **Goal**: Learn speech patterns from existing transcripts
-**Depends on**: Phase 11 (builds on quality checker infrastructure)
-**Requirements**: SCRIPT-05
-**Success Criteria** (what must be TRUE):
-  1. User can analyze existing video transcripts to build speech pattern library
-  2. User can flag script violations of established voice patterns
-  3. User can see suggestions aligned with personal delivery style
 **Plans**: 2 plans
 
 Plans:
-- [x] 12-01-PLAN.md — Corpus builder and pattern extractor modules
-- [x] 12-02-PLAN.md — Pattern applier and CLI integration
+- [x] 12-01: Corpus builder and pattern extractor modules
+- [x] 12-02: Pattern applier and CLI integration
 
-#### Phase 13: Discovery Tools
+### Phase 13: Discovery Tools
 **Goal**: SEO and keyword research for topic discovery
-**Depends on**: Phase 11 (can run parallel to Phase 12)
-**Requirements**: DISC-01, DISC-02, DISC-03, DISC-04
-**Success Criteria** (what must be TRUE):
-  1. User can extract long-tail keyword phrases from YouTube autocomplete
-  2. User can classify titles by search intent (why/how/what patterns)
-  3. User can diagnose discovery issues (low impressions = SEO, low CTR = title/thumbnail)
-  4. User can verify metadata consistency across title/description/tags
 **Plans**: 3 plans
 
 Plans:
-- [x] 13-01-PLAN.md — Database schema + autocomplete extraction + keyword CLI (DISC-01)
-- [x] 13-02-PLAN.md — Intent classification + discovery diagnostics + /analyze extension (DISC-02, DISC-03)
-- [x] 13-03-PLAN.md — Metadata checker + VidIQ workflow + /discover command (DISC-04)
+- [x] 13-01: Database schema + autocomplete extraction + keyword CLI
+- [x] 13-02: Intent classification + discovery diagnostics + /analyze extension
+- [x] 13-03: Metadata checker + VidIQ workflow + /discover command
 
-#### Phase 13.1: Token Optimization via Model Assignment (INSERTED)
-**Goal**: Reduce token usage by assigning Haiku to simple tasks, Sonnet to standard tasks, and Opus to complex creative tasks
-**Depends on**: Phase 13 (uses existing skill/agent infrastructure)
-**Requirements**: TOKEN-01 (Model assignment system for skills and agents)
-**Success Criteria** (what must be TRUE):
-  1. User can see which model is assigned to each skill/agent in configuration
-  2. Simple tasks (status, help, fix) use Haiku for faster/cheaper execution
-  3. Standard tasks (verify, publish, engage) use Sonnet for balanced performance
-  4. Complex creative tasks (script-writer-v2) use Opus for highest quality
-  5. Model assignments are documented and easily adjustable
+### Phase 13.1: Token Optimization (INSERTED)
+**Goal**: Reduce token usage by assigning appropriate models to tasks
 **Plans**: 2 plans
 
 Plans:
-- [x] 13.1-01-PLAN.md — Add model assignments to skill files (13 commands)
-- [x] 13.1-02-PLAN.md — Update agent model assignments + create reference documentation
+- [x] 13.1-01: Add model assignments to 13 skill files
+- [x] 13.1-02: Update agent model assignments + create reference documentation
 
-#### Phase 14: NotebookLM Workflow
+### Phase 14: NotebookLM Workflow
 **Goal**: Streamlined research-to-script pipeline
-**Depends on**: Phases 11 and 13 (quality checks + discovery inform research needs)
-**Requirements**: NBLM-01, NBLM-02, NBLM-03
-**Success Criteria** (what must be TRUE):
-  1. User can select from 15+ structured prompt templates for research scenarios
-  2. User can log NotebookLM sessions with standard format capturing findings
-  3. User can paste NotebookLM output and get structured citation extraction
 **Plans**: 1 plan
 
 Plans:
-- [ ] 14-01-PLAN.md — Expand prompt templates (17 use cases) + session log template + citation extraction script
+- [x] 14-01: Expand prompt templates + session log template + citation extraction
+
+</details>
 
 ## Progress
-
-**Execution Order:**
-Phases execute in numeric order: 11 → 12 → 13 → 13.1 → 14
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
@@ -192,4 +156,4 @@ Phases execute in numeric order: 11 → 12 → 13 → 13.1 → 14
 | 12. Voice Fingerprinting | v1.2 | 2/2 | Complete | 2026-01-29 |
 | 13. Discovery Tools | v1.2 | 3/3 | Complete | 2026-01-29 |
 | 13.1 Token Optimization | v1.2 | 2/2 | Complete | 2026-01-30 |
-| 14. NotebookLM Workflow | v1.2 | 0/1 | Not started | - |
+| 14. NotebookLM Workflow | v1.2 | 1/1 | Complete | 2026-01-30 |

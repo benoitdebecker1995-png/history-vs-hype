@@ -8,34 +8,43 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current State (v1.1 Shipped)
+## Current State (v1.2 Shipped)
 
-**Shipped:** 2026-01-26
+**Shipped:** 2026-01-30
 
-The workspace now includes a complete analytics and learning loop:
+The workspace now includes comprehensive script quality tools and discovery optimization:
 
-- **Analytics:** YouTube Analytics API integration for automated metrics pulls
-- **Analysis:** `/analyze VIDEO_ID` for comprehensive post-publish analysis
-- **Patterns:** `/patterns` for cross-video pattern recognition
-- **Commands:** 12 commands total (added /analyze, /patterns)
+- **Script Quality:** 4 automated checkers (repetition, flow, stumble, scaffolding) + voice fingerprinting
+- **Discovery:** Keyword research, intent classification, pre-publish metadata validation
+- **Token Optimization:** Model assignments for cost-effective AI usage
+- **NotebookLM:** 17 prompt templates, session logging, citation extraction
+- **Commands:** 13 commands total
 
 **Entry points:**
 - `/status` — project state and next action
 - `/help` — phase-organized command list
 - `/research --new` — start new video project
 - `/analyze VIDEO_ID` — post-publish video analysis
-- `/patterns` — cross-video pattern recognition
-
-## Current Milestone: v1.2 Script Quality & Discovery
-
-**Goal:** Produce better scripts faster, and make videos people actually find.
-
-**Target features:**
-- Script quality improvements (better first drafts, natural flow, less revision needed)
-- Discovery/SEO optimization (topic research, title optimization, keyword research)
-- NotebookLM workflow integration (streamlined research-to-script pipeline)
+- `/discover TOPIC` — keyword research and metadata validation
+- `python tools/script-checkers/cli.py script.md --all` — script quality check
 
 ## Requirements
+
+### Validated (v1.2)
+
+- Repetition detection for scripts — v1.2
+- Flow analysis (undefined terms, transitions) — v1.2
+- Stumble test (sentence complexity) — v1.2
+- Scaffolding counter (filler language) — v1.2
+- Voice fingerprinting (learn patterns from transcripts) — v1.2
+- Keyword extraction from YouTube autocomplete — v1.2
+- Search intent classification (6 categories) — v1.2
+- Discovery diagnostics (impressions vs CTR analysis) — v1.2
+- Pre-publish metadata validation — v1.2
+- Model assignments for skills/agents — v1.2
+- NotebookLM prompt templates (17 use cases) — v1.2
+- NotebookLM session logging format — v1.2
+- Citation extraction from NotebookLM output — v1.2
 
 ### Validated (v1.1)
 
@@ -63,6 +72,8 @@ The workspace now includes a complete analytics and learning loop:
 - Video editing automation — out of scope for this workspace
 - Predictive analytics — focus on learning, not prediction
 - VidIQ API integration — no API available
+- Retention heatmap prediction — requires 30+ videos with data
+- NotebookLM API automation — waiting for Enterprise API
 
 ## Context
 
@@ -73,16 +84,23 @@ The workspace now includes a complete analytics and learning loop:
 - Commands are discoverable (/help, /status)
 - Analytics integration provides learning feedback
 - Pattern recognition surfaces what's working
+- Script quality checkers catch issues before filming
+- Voice fingerprinting learns personal delivery patterns
 
 **Known tech debt:**
 - Library folder (728 files) needs manual cleanup
-- Some deprecated commands still in _DEPRECATED/ folder
-- Title pattern "Why ... Has ..." not detected (minor)
+- Python 3.14 + spaCy compatibility (use Python 3.11-3.13 for now)
+- datetime.utcnow() deprecation warning in intent_mapper.py
+- Voice patterns empty until user runs --rebuild-voice
+- Discovery diagnostics standalone (not auto-integrated into /analyze)
 
 **Tech stack:**
 - ~5,000 lines Python (tools/youtube-analytics/)
+- ~2,600 lines Python (tools/script-checkers/)
+- ~1,300 lines Python (tools/discovery/)
 - YouTube Analytics API v2 + YouTube Data API v3
 - OAuth2 authentication with token refresh
+- SQLite database for keywords
 
 **Existing codebase map:** `.planning/codebase/` (7 documents, 1600+ lines)
 
@@ -97,18 +115,22 @@ The workspace now includes a complete analytics and learning loop:
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Git for script versioning | Tracks style evolution without file sprawl | ✓ Good (v1.0) |
-| Two-tier research (per-video + database) | Organized for fact-checking + reusable facts | ✓ Good (v1.0) |
-| History in general (not just geopolitics) | Broader niche, more topic flexibility | ✓ Good |
-| STYLE-GUIDE.md as authoritative | Single source of truth for style | ✓ Good (v1.0) |
-| 10 phase-organized commands | Fewer to remember, flags for variants | ✓ Good (v1.0) |
-| Gap scoring formula (max 16) | Demand + Competition + Fit + Hook | ✓ Good (v1.0) |
-| Two-tier creator system | Style models (500K+) vs breakout (1K-50K) | ✓ Good (v1.0) |
-| Desktop app OAuth type | Simpler flow for CLI tools | ✓ Good (v1.1) |
-| Error dict pattern | Return {error: msg} instead of exceptions | ✓ Good (v1.1) |
-| CTR fallback strategy | Graceful response when API unavailable | ✓ Good (v1.1) |
-| Insights-first reports | Actionable insights before data tables | ✓ Good (v1.1) |
+| Git for script versioning | Tracks style evolution without file sprawl | Good (v1.0) |
+| Two-tier research (per-video + database) | Organized for fact-checking + reusable facts | Good (v1.0) |
+| History in general (not just geopolitics) | Broader niche, more topic flexibility | Good |
+| STYLE-GUIDE.md as authoritative | Single source of truth for style | Good (v1.0) |
+| 10 phase-organized commands | Fewer to remember, flags for variants | Good (v1.0) |
+| Gap scoring formula (max 16) | Demand + Competition + Fit + Hook | Good (v1.0) |
+| Two-tier creator system | Style models (500K+) vs breakout (1K-50K) | Good (v1.0) |
+| Desktop app OAuth type | Simpler flow for CLI tools | Good (v1.1) |
+| Error dict pattern | Return {error: msg} instead of exceptions | Good (v1.1) |
+| CTR fallback strategy | Graceful response when API unavailable | Good (v1.1) |
+| Insights-first reports | Actionable insights before data tables | Good (v1.1) |
+| Proportional thresholds | 0.002 per word scales with script length | Good (v1.2) |
+| Word-level diff | Avoids O(n^2) character-level performance | Good (v1.2) |
+| 6-category intent classification | Tailored to history niche | Good (v1.2) |
+| Haiku/Sonnet/Opus model tiering | Cost optimization without quality loss | Good (v1.2) |
 
 ---
 
-*Last updated: 2026-01-27 after v1.2 milestone started*
+*Last updated: 2026-01-30 after v1.2 milestone*

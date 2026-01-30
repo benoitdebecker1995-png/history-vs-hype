@@ -1,5 +1,33 @@
 # Project Milestones: History vs Hype Workspace
 
+## v1.2 Script Quality & Discovery (Shipped: 2026-01-30)
+
+**Delivered:** Automated script quality checking, voice pattern learning, keyword research tools, and streamlined NotebookLM workflows for better scripts and improved discoverability.
+
+**Phases completed:** 11-14 including 13.1 (10 plans total)
+
+**Key accomplishments:**
+
+- Script quality checkers: 4 automated checks (repetition, flow, stumble, scaffolding)
+- Voice fingerprinting: Learn speech patterns from transcripts, apply to new scripts
+- Discovery tools: Keyword research, intent classification, pre-publish metadata validation
+- Token optimization: Model assignments for 13 skills and 6 agents (Haiku/Sonnet/Opus)
+- NotebookLM workflow: 17 prompt templates, session logs, citation extraction
+
+**Stats:**
+
+- 5 phases, 10 plans
+- 49 commits over 4 days
+- 13/13 requirements delivered
+
+**Git range:** `1289b45` → `2b50a9b`
+
+**What's next:** Use script checkers with `python tools/script-checkers/cli.py script.md --all`. Run `/discover TOPIC` for keyword research.
+
+**Archive:** `.planning/milestones/v1.2-ROADMAP.md`
+
+---
+
 ## v1.1 Analytics & Learning Loop (Shipped: 2026-01-26)
 
 **Delivered:** YouTube Analytics API integration with automated post-publish analysis, pattern recognition, and cross-video insights.
