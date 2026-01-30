@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-01-29 (Phase 13-03 complete)
+**Last Updated:** 2026-01-30 (Phase 13-02 complete)
 
 ## Project Reference
 
@@ -14,9 +14,9 @@ See: `.planning/PROJECT.md` (updated 2026-01-27)
 
 **Milestone:** v1.2 Script Quality & Discovery
 **Phase:** 13 of 14 (Discovery Tools)
-**Plan:** 3 of TBD
+**Plan:** 2 of TBD
 **Status:** In progress
-**Last activity:** 2026-01-29 — Completed 13-03-PLAN.md (metadata integration & pre-publish gate)
+**Last activity:** 2026-01-30 — Completed 13-02-PLAN.md (intent classification & discovery diagnostics)
 
 **Progress:**
 ```
@@ -55,23 +55,22 @@ v1.2 [█████████████░░░░░░░]  64% — Scr
 
 ### Last Session
 
-- **Date:** 2026-01-29
-- **Work:** Executed 13-03 plan (metadata integration & pre-publish gate)
+- **Date:** 2026-01-30
+- **Work:** Executed 13-02 plan (intent classification & discovery diagnostics)
 - **Output:**
-  - `tools/discovery/metadata_checker.py` — Pre-publish validation (keyword consistency, stuffing detection)
-  - `tools/discovery/vidiq_workflow.py` — VidIQ guided data collection (3-step workflow)
-  - `.claude/commands/discover.md` — /discover command documentation (keyword research + validation)
-  - `.claude/commands/publish.md` — Updated with pre-publish quality gate
-  - `.planning/phases/13-discovery-tools/13-03-SUMMARY.md` — Execution summary
+  - `tools/discovery/intent_mapper.py` — 6-category intent classification with DNA fit scoring (475 lines)
+  - `tools/discovery/diagnostics.py` — Discovery diagnostics with channel-specific benchmarks (434 lines)
+  - `tools/youtube-analytics/analyze.py` — Extended with Discovery Diagnostics section (1024 lines)
+  - `.planning/phases/13-discovery-tools/13-02-SUMMARY.md` — Execution summary
   - `.planning/STATE.md` — Updated current position
 
 ### Next Session
 
-**Phase 13-03 Complete:** Metadata validation and VidIQ workflow ready
+**Phase 13-02 Complete:** Intent classification and discovery diagnostics operational
 
-Pre-publish gate validates metadata consistency before publishing. Detects keyword stuffing (>2% density), checks primary keyword presence, validates title-tag overlap. VidIQ guided workflow provides step-by-step prompts for manual data collection. /discover command unifies all keyword research and validation workflows.
+Intent mapper classifies keywords into 6 history-niche categories (MYTH_BUSTING, TERRITORIAL_DISPUTE, PRIMARY_SOURCE, MECHANISM_EXPLAINER, TIMELINE_CORRECTION, IDEOLOGICAL_NARRATIVE). DNA fit scoring identifies channel-appropriate vs clickbait topics. Discovery diagnostics analyzes LOW_IMPRESSIONS vs LOW_CTR issues with actionable fixes + learnings. /analyze now includes Discovery Diagnostics section automatically.
 
-Next: Phase 13-02 (Search Intent Classification) or Phase 13-04 (Impression Diagnostics) per roadmap.
+Next: Continue Phase 13 plans (keyword research workflows) or begin Phase 14 (NotebookLM) per roadmap.
 
 ## Accumulated Context
 
@@ -100,16 +99,16 @@ Next: Phase 13-02 (Search Intent Classification) or Phase 13-04 (Impression Diag
 - **HIGH-confidence only:** Only apply patterns with freq >= 5 (skip MEDIUM to avoid over-applying)
 - **Transform-then-check:** Voice patterns applied BEFORE quality checkers analyze script
 
-**Discovery Tools (Phase 13-01 + 13-03):**
+**Discovery Tools (Phase 13-01 through 13-02):**
 - **Error dict pattern:** Return `{'error': msg}` instead of exceptions (consistent with youtube-analytics, script-checkers)
 - **Lazy database init:** Auto-create tables on first KeywordDB() instantiation (no separate setup step needed)
 - **Pyppeteer over Node.js:** Use Python port to stay in Python ecosystem (easier integration with existing tools)
 - **Rate limiting:** 2s base delay + 1-3s random jitter, exponential backoff on errors (1s → 2s → 4s → 8s max)
 - **Database location:** tools/discovery/keywords.db (relative to module, persists across sessions)
-- **ASCII over Unicode:** Use ASCII for CLI output (Windows console cp1252 doesn't support emoji checkmarks)
-- **2% keyword density threshold:** Industry standard for stuffing detection, prevents YouTube spam penalties
-- **Manual VidIQ workflow:** No public API, guided prompts avoid TOS violations from browser automation
-- **Infer primary keyword:** Auto-extract from title if not specified (reduces user friction)
+- **Confidence scoring:** 1 match = 0.33, 2 = 0.66, 3+ = 1.0 (not ratio-based, allows single strong matches)
+- **DNA fit weighting:** Positive signals +0.2 each, negative -0.3 each, base 0.5 (penalty > bonus)
+- **Impressions threshold:** 50% of channel average = LOW_IMPRESSIONS (channel-specific, not absolute)
+- **Graceful degradation:** DISCOVERY_AVAILABLE flag in analyze.py (works without discovery module)
 
 ### v1.2 Phase Structure
 
@@ -125,8 +124,8 @@ Next: Phase 13-02 (Search Intent Classification) or Phase 13-04 (Impression Diag
 
 **Phase 13: Discovery Tools** (DISC-01 through DISC-04) — 🔄 IN PROGRESS
 - 13-01 COMPLETE: Keyword extraction foundation (database + autocomplete + CLI)
-- 13-03 COMPLETE: Metadata integration & pre-publish gate (validation + VidIQ + /discover command)
-- Remaining: 13-02 (Search Intent), 13-04 (Impression Diagnostics)
+- 13-02 COMPLETE: Intent classification + discovery diagnostics (6 categories + /analyze integration)
+- Remaining: Additional discovery workflows per roadmap
 
 **Phase 14: NotebookLM Workflow** (NBLM-01 through NBLM-03)
 - Final phase: research-to-script pipeline
@@ -168,9 +167,9 @@ Next: Phase 13-02 (Search Intent Classification) or Phase 13-04 (Impression Diag
 | database.py | tools/discovery/ | DISC-01: SQLite keyword database with CRUD |
 | autocomplete.py | tools/discovery/ | DISC-01: YouTube autocomplete scraper |
 | keywords.py | tools/discovery/ | DISC-01: Keyword management CLI |
-| metadata_checker.py | tools/discovery/ | DISC-03: Pre-publish metadata validation |
-| vidiq_workflow.py | tools/discovery/ | DISC-03: VidIQ guided data collection |
-| /discover | .claude/commands/ | DISC-03: Keyword research & validation command |
+| intent_mapper.py | tools/discovery/ | DISC-02: 6-category intent classification + DNA fit |
+| diagnostics.py | tools/discovery/ | DISC-02: Discovery diagnostics (impressions/CTR analysis) |
+| analyze.py (extended) | tools/youtube-analytics/ | DISC-02: Includes Discovery Diagnostics section |
 
 ### Technical Notes
 
