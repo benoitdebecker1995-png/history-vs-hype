@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-01-29 (Phase 13 complete)
+**Last Updated:** 2026-01-30 (Phase 13.1 complete)
 
 ## Project Reference
 
@@ -13,16 +13,16 @@ See: `.planning/PROJECT.md` (updated 2026-01-27)
 ## Current Position
 
 **Milestone:** v1.2 Script Quality & Discovery
-**Phase:** 14 of 14 (NotebookLM Workflow)
+**Phase:** 14 of 14+ (NotebookLM Workflow)
 **Plan:** 0 of TBD
 **Status:** Not started
-**Last activity:** 2026-01-29 — Phase 13 complete (Discovery Tools)
+**Last activity:** 2026-01-30 — Phase 13.1 complete (Token Optimization)
 
 **Progress:**
 ```
 v1.0 [████████████████████] 100% — Workspace Optimization
 v1.1 [████████████████████] 100% — Analytics & Learning Loop
-v1.2 [██████████████░░░░░░]  71% — Script Quality & Discovery (Phase 14/14)
+v1.2 [████████████████░░░░]  80% — Script Quality & Discovery (Phase 14/14)
 ```
 
 ## Milestone History
@@ -55,31 +55,30 @@ v1.2 [██████████████░░░░░░]  71% — Scr
 
 ### Last Session
 
-- **Date:** 2026-01-29
-- **Work:** Completed Phase 13 (Discovery Tools) - all 3 plans executed
+- **Date:** 2026-01-30
+- **Work:** Completed Phase 13.1 (Token Optimization) - all 2 plans executed
 - **Output:**
-  - `tools/discovery/database.py` — SQLite keyword database with CRUD operations
-  - `tools/discovery/autocomplete.py` — YouTube autocomplete scraper with pyppeteer
-  - `tools/discovery/keywords.py` — Keyword management CLI
-  - `tools/discovery/intent_mapper.py` — 6-category intent classification with DNA fit scoring
-  - `tools/discovery/diagnostics.py` — Discovery diagnostics with channel-specific benchmarks
-  - `tools/discovery/metadata_checker.py` — Pre-publish metadata consistency validation
-  - `tools/discovery/vidiq_workflow.py` — Guided VidIQ data collection prompts
-  - `tools/youtube-analytics/analyze.py` — Extended with Discovery Diagnostics section
-  - `.claude/commands/discover.md` — Unified keyword research command
-  - `.claude/commands/publish.md` — Updated with metadata check gate
+  - 13 skill files updated with `model:` field in YAML frontmatter
+  - 4 agent files updated with optimized model assignments
+  - `.claude/REFERENCE/MODEL-ASSIGNMENT-GUIDE.md` — Complete reference documentation
 
 ### Next Session
 
-**Phase 13 Complete:** Full discovery toolkit operational
+**Phase 13.1 Complete:** Token optimization via model assignment
 
-- **Keyword extraction:** YouTube autocomplete scraper + manual entry + SQLite persistence
-- **Intent classification:** 6 history-niche categories + channel DNA fit scoring
-- **Discovery diagnostics:** LOW_IMPRESSIONS vs LOW_CTR analysis integrated into /analyze
-- **Metadata validation:** Pre-publish quality gate in /publish workflow
-- **VidIQ workflow:** Guided prompts for manual data collection
+- **Skill assignments:** 6 Haiku, 6 Sonnet, 1 Opus (13 total)
+- **Agent assignments:** 3 Haiku, 2 Sonnet, 1 Opus (6 total)
+- **Reference doc:** Decision framework for future assignments
 
-Next: Begin Phase 14 (NotebookLM Workflow) - prompt templates, session logging, citation extraction.
+Next: Begin Phase 14 (NotebookLM Workflow) - research-to-script pipeline.
+
+## Roadmap Evolution
+
+- Phase 13.1 inserted after Phase 13: Token Optimization via Model Assignment (URGENT)
+  - Rationale: Reduce token costs by assigning cheaper models to simpler tasks
+  - Haiku for: /status, /help, /fix, /sources, /prep, /discover
+  - Sonnet for: /verify, /publish, /engage, /analyze, /patterns, /research
+  - Opus for: script-writer-v2 agent (complex creative writing)
 
 ## Accumulated Context
 

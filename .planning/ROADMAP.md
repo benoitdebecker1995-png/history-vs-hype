@@ -155,8 +155,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 13.1-01-PLAN.md — Add model assignments to skill files (13 commands)
-- [ ] 13.1-02-PLAN.md — Update agent model assignments + create reference documentation
+- [x] 13.1-01-PLAN.md — Add model assignments to skill files (13 commands)
+- [x] 13.1-02-PLAN.md — Update agent model assignments + create reference documentation
 
 #### Phase 14: NotebookLM Workflow
 **Goal**: Streamlined research-to-script pipeline
@@ -191,5 +191,5 @@ Phases execute in numeric order: 11 → 12 → 13 → 13.1 → 14
 | 11. Script Quality Checkers | v1.2 | 2/2 | Complete | 2026-01-28 |
 | 12. Voice Fingerprinting | v1.2 | 2/2 | Complete | 2026-01-29 |
 | 13. Discovery Tools | v1.2 | 3/3 | Complete | 2026-01-29 |
-| 13.1 Token Optimization | v1.2 | 0/2 | Not started | - |
+| 13.1 Token Optimization | v1.2 | 2/2 | Complete | 2026-01-30 |
 | 14. NotebookLM Workflow | v1.2 | 0/1 | Not started | - |
