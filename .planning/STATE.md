@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-01-29 (Phase 12 complete)
+**Last Updated:** 2026-01-29 (Phase 13-03 complete)
 
 ## Project Reference
 
@@ -14,9 +14,9 @@ See: `.planning/PROJECT.md` (updated 2026-01-27)
 
 **Milestone:** v1.2 Script Quality & Discovery
 **Phase:** 13 of 14 (Discovery Tools)
-**Plan:** 1 of TBD
+**Plan:** 3 of TBD
 **Status:** In progress
-**Last activity:** 2026-01-29 — Completed 13-01-PLAN.md (keyword extraction foundation)
+**Last activity:** 2026-01-29 — Completed 13-03-PLAN.md (metadata integration & pre-publish gate)
 
 **Progress:**
 ```
@@ -47,29 +47,31 @@ v1.2 [█████████████░░░░░░░]  64% — Scr
 - `/analyze VIDEO_ID` — post-publish video analysis
 - `/patterns` — cross-video pattern recognition
 
+**Discovery commands (v1.2 Phase 13):**
+- `/discover TOPIC` — keyword research workflow
+- `/discover --check FILE` — pre-publish metadata validation
+
 ## Session Continuity
 
 ### Last Session
 
 - **Date:** 2026-01-29
-- **Work:** Executed 13-01 plan (keyword extraction foundation)
+- **Work:** Executed 13-03 plan (metadata integration & pre-publish gate)
 - **Output:**
-  - `tools/discovery/schema.sql` — SQLite database schema (keywords, intents, performance tracking)
-  - `tools/discovery/database.py` — KeywordDB class with CRUD operations
-  - `tools/discovery/autocomplete.py` — YouTube autocomplete scraper with pyppeteer
-  - `tools/discovery/keywords.py` — Keyword management CLI (add, search, export)
-  - `tools/discovery/__init__.py` — Module exports
-  - `tools/discovery/requirements.txt` — Dependencies documentation
-  - `.planning/phases/13-discovery-tools/13-01-SUMMARY.md` — Execution summary
+  - `tools/discovery/metadata_checker.py` — Pre-publish validation (keyword consistency, stuffing detection)
+  - `tools/discovery/vidiq_workflow.py` — VidIQ guided data collection (3-step workflow)
+  - `.claude/commands/discover.md` — /discover command documentation (keyword research + validation)
+  - `.claude/commands/publish.md` — Updated with pre-publish quality gate
+  - `.planning/phases/13-discovery-tools/13-03-SUMMARY.md` — Execution summary
   - `.planning/STATE.md` — Updated current position
 
 ### Next Session
 
-**Phase 13-01 Complete:** Keyword extraction foundation ready
+**Phase 13-03 Complete:** Metadata validation and VidIQ workflow ready
 
-SQLite database created with keyword tracking tables. Autocomplete scraper implemented (requires pyppeteer installation). CLI provides add/search/export operations.
+Pre-publish gate validates metadata consistency before publishing. Detects keyword stuffing (>2% density), checks primary keyword presence, validates title-tag overlap. VidIQ guided workflow provides step-by-step prompts for manual data collection. /discover command unifies all keyword research and validation workflows.
 
-Next: Phase 13-02 (Search Intent Classification) or continue Phase 13 plans per roadmap.
+Next: Phase 13-02 (Search Intent Classification) or Phase 13-04 (Impression Diagnostics) per roadmap.
 
 ## Accumulated Context
 
@@ -98,12 +100,16 @@ Next: Phase 13-02 (Search Intent Classification) or continue Phase 13 plans per 
 - **HIGH-confidence only:** Only apply patterns with freq >= 5 (skip MEDIUM to avoid over-applying)
 - **Transform-then-check:** Voice patterns applied BEFORE quality checkers analyze script
 
-**Discovery Tools (Phase 13-01):**
+**Discovery Tools (Phase 13-01 + 13-03):**
 - **Error dict pattern:** Return `{'error': msg}` instead of exceptions (consistent with youtube-analytics, script-checkers)
 - **Lazy database init:** Auto-create tables on first KeywordDB() instantiation (no separate setup step needed)
 - **Pyppeteer over Node.js:** Use Python port to stay in Python ecosystem (easier integration with existing tools)
 - **Rate limiting:** 2s base delay + 1-3s random jitter, exponential backoff on errors (1s → 2s → 4s → 8s max)
 - **Database location:** tools/discovery/keywords.db (relative to module, persists across sessions)
+- **ASCII over Unicode:** Use ASCII for CLI output (Windows console cp1252 doesn't support emoji checkmarks)
+- **2% keyword density threshold:** Industry standard for stuffing detection, prevents YouTube spam penalties
+- **Manual VidIQ workflow:** No public API, guided prompts avoid TOS violations from browser automation
+- **Infer primary keyword:** Auto-extract from title if not specified (reduces user friction)
 
 ### v1.2 Phase Structure
 
@@ -119,7 +125,8 @@ Next: Phase 13-02 (Search Intent Classification) or continue Phase 13 plans per 
 
 **Phase 13: Discovery Tools** (DISC-01 through DISC-04) — 🔄 IN PROGRESS
 - 13-01 COMPLETE: Keyword extraction foundation (database + autocomplete + CLI)
-- Keyword research, search intent, impression diagnostics
+- 13-03 COMPLETE: Metadata integration & pre-publish gate (validation + VidIQ + /discover command)
+- Remaining: 13-02 (Search Intent), 13-04 (Impression Diagnostics)
 
 **Phase 14: NotebookLM Workflow** (NBLM-01 through NBLM-03)
 - Final phase: research-to-script pipeline
@@ -161,6 +168,9 @@ Next: Phase 13-02 (Search Intent Classification) or continue Phase 13 plans per 
 | database.py | tools/discovery/ | DISC-01: SQLite keyword database with CRUD |
 | autocomplete.py | tools/discovery/ | DISC-01: YouTube autocomplete scraper |
 | keywords.py | tools/discovery/ | DISC-01: Keyword management CLI |
+| metadata_checker.py | tools/discovery/ | DISC-03: Pre-publish metadata validation |
+| vidiq_workflow.py | tools/discovery/ | DISC-03: VidIQ guided data collection |
+| /discover | .claude/commands/ | DISC-03: Keyword research & validation command |
 
 ### Technical Notes
 
