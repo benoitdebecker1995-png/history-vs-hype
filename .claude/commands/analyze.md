@@ -1,5 +1,6 @@
 ---
 description: Run complete post-publish analysis on any video
+model: sonnet
 ---
 
 # /analyze - Post-Publish Video Analysis

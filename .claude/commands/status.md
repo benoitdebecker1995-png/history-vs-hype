@@ -1,5 +1,6 @@
 ---
 description: Smart project status and next action suggestion (responds to "what should I do?")
+model: haiku
 ---
 
 # /status - Context-Aware Project Router

@@ -1,5 +1,6 @@
 ---
 description: YouTube metadata, title testing, clip suggestions (Post-production Phase 1)
+model: sonnet
 ---
 
 # /publish - Publishing Preparation Entry Point

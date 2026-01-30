@@ -1,5 +1,6 @@
 ---
 description: Fact-check scripts, extract claims, detect simplifications (Production Phase 2)
+model: sonnet
 ---
 
 # /verify - Verification Entry Point

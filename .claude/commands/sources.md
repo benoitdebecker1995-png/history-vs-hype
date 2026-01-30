@@ -1,5 +1,6 @@
 ---
 description: Source recommendations, NotebookLM prompts, and citation formatting (Pre-production Phase 2)
+model: haiku
 ---
 
 # /sources - Source Management Entry Point

@@ -1,5 +1,6 @@
 ---
 description: Start new video project OR conduct topic research (Pre-production Phase 1)
+model: sonnet
 ---
 
 # /research - Pre-production Research Entry Point

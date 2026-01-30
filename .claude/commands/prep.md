@@ -1,5 +1,6 @@
 ---
 description: Filming preparation - edit guides, B-roll planning, asset creation (Production Phase 3)
+model: haiku
 ---
 
 # /prep - Filming Preparation Entry Point

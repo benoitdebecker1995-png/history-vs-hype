@@ -1,5 +1,6 @@
 ---
 description: Comment responses, corrections, and feedback management (Post-production Phase 3)
+model: sonnet
 ---
 
 # /engage - Audience Engagement Entry Point

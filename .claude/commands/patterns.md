@@ -1,3 +1,8 @@
+---
+description: Cross-Video Pattern Analysis
+model: sonnet
+---
+
 # /patterns - Cross-Video Pattern Analysis
 
 Analyze patterns across all published videos to identify what's working.

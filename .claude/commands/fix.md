@@ -1,5 +1,6 @@
 ---
 description: Fix subtitle errors from auto-transcription (Post-production Phase 2)
+model: haiku
 ---
 
 # /fix - Subtitle Correction

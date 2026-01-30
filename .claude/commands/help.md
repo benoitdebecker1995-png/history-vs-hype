@@ -1,5 +1,6 @@
 ---
 description: Phase-organized command menu and capability discovery
+model: haiku
 ---
 
 # /help - History vs Hype Commands

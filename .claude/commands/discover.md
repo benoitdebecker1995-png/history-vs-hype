@@ -1,5 +1,6 @@
 ---
 description: Keyword research and metadata validation for discovery optimization
+model: haiku
 ---
 
 # /discover - Discovery & Keyword Research

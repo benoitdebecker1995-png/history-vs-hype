@@ -1,5 +1,6 @@
 ---
 description: Write, revise, review, or export scripts (Production Phase 1)
+model: opus
 ---
 
 # /script - Script Management Entry Point
@@ -46,6 +47,7 @@ Generate a script using the script-writer-v2 agent.
 - **`.claude/REFERENCE/OPENING-HOOK-TEMPLATES.md`** - Fill-in-the-blank templates for first 60 seconds
 - **`.claude/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md`** - Fill-in-the-blank templates for final 60-90 seconds
 - **`.claude/REFERENCE/CREATOR-PHRASE-LIBRARY.md`** - Natural language from Kraut, Knowing Better, Shaun, Alex O'Connor
+- **`.claude/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md`** - **NEW** Pre-filming polish (Iran Part 1 lessons)
 
 ## Format Template Selection (NEW - 2026-01-04)
 
@@ -294,12 +296,17 @@ Export SCRIPT.md to clean text for filming.
 ### Process
 
 1. Read SCRIPT.md from project folder
-2. Strip all markdown formatting (`#`, `**`, `[]`, etc.)
-3. Strip B-roll notes (`[B-ROLL: ...]`)
-4. Strip source citations (`[SOURCE: ...]`)
-5. Strip metadata (target length, framing notes)
-6. Preserve paragraph breaks for pacing
-7. Output to SCRIPT-TELEPROMPTER.txt
+2. **Run Pre-Filming Polish checklist** (see `.claude/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md`)
+   - Cut academic attributions from flow
+   - Cut "Do you see what this means?" phrases
+   - Convert numbered lists to prose
+   - Remove hedging words (essentially, basically, kind of)
+3. Strip all markdown formatting (`#`, `**`, `[]`, etc.)
+4. Strip B-roll notes (`[B-ROLL: ...]`)
+5. Strip source citations (`[SOURCE: ...]`)
+6. Strip metadata (target length, framing notes)
+7. Preserve paragraph breaks for pacing
+8. Output to SCRIPT-TELEPROMPTER.txt
 
 ### Output
 
