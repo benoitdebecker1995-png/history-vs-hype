@@ -142,6 +142,22 @@ Plans:
 - [x] 13-02-PLAN.md — Intent classification + discovery diagnostics + /analyze extension (DISC-02, DISC-03)
 - [x] 13-03-PLAN.md — Metadata checker + VidIQ workflow + /discover command (DISC-04)
 
+#### Phase 13.1: Token Optimization via Model Assignment (INSERTED)
+**Goal**: Reduce token usage by assigning Haiku to simple tasks, Sonnet to standard tasks, and Opus to complex creative tasks
+**Depends on**: Phase 13 (uses existing skill/agent infrastructure)
+**Requirements**: TOKEN-01 (Model assignment system for skills and agents)
+**Success Criteria** (what must be TRUE):
+  1. User can see which model is assigned to each skill/agent in configuration
+  2. Simple tasks (status, help, fix) use Haiku for faster/cheaper execution
+  3. Standard tasks (verify, publish, engage) use Sonnet for balanced performance
+  4. Complex creative tasks (script-writer-v2) use Opus for highest quality
+  5. Model assignments are documented and easily adjustable
+**Plans**: 2 plans
+
+Plans:
+- [ ] 13.1-01-PLAN.md — Add model assignments to skill files (13 commands)
+- [ ] 13.1-02-PLAN.md — Update agent model assignments + create reference documentation
+
 #### Phase 14: NotebookLM Workflow
 **Goal**: Streamlined research-to-script pipeline
 **Depends on**: Phases 11 and 13 (quality checks + discovery inform research needs)
@@ -158,7 +174,7 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 11 → 12 → 13 → 14
+Phases execute in numeric order: 11 → 12 → 13 → 13.1 → 14
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
@@ -175,4 +191,5 @@ Phases execute in numeric order: 11 → 12 → 13 → 14
 | 11. Script Quality Checkers | v1.2 | 2/2 | Complete | 2026-01-28 |
 | 12. Voice Fingerprinting | v1.2 | 2/2 | Complete | 2026-01-29 |
 | 13. Discovery Tools | v1.2 | 3/3 | Complete | 2026-01-29 |
+| 13.1 Token Optimization | v1.2 | 0/2 | Not started | - |
 | 14. NotebookLM Workflow | v1.2 | 0/1 | Not started | - |
