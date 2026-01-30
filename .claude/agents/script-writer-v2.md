@@ -2,7 +2,7 @@
 name: script-writer-v2
 description: World-class scriptwriting agent using extended thinking and YouTube retention formulas. Writes educational history scripts with 40%+ retention targeting intelligent male 25-44 audience.
 tools: [Read, Write, WebFetch, WebSearch, Grep, Glob]
-model: sonnet
+model: opus
 version: 5.5 (2026-01-21 - Consolidated to STYLE-GUIDE.md as primary reference, added auto-capture)
 ---
 

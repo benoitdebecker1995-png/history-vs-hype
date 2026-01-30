@@ -2,7 +2,7 @@
 name: research-organizer
 description: Organizes preliminary research into structured project files. Creates topic briefs, identifies both extremes, finds modern hooks, and prepares NotebookLM source lists. Bridges research phase to production phase.
 tools: [Read, Write, WebSearch, WebFetch, Grep, Glob]
-model: sonnet
+model: haiku
 ---
 
 # Research Organizer Agent - Research-to-Production Bridge

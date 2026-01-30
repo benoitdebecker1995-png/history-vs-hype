@@ -2,7 +2,7 @@
 name: claims-extractor
 description: Extracts all factual claims from source transcripts, videos, or articles for systematic fact-checking. Organizes claims by category with timestamps and complexity analysis. Essential for fact-checking videos targeting specific sources.
 tools: [Read, Write, WebFetch]
-model: sonnet
+model: haiku
 ---
 
 # Claims Extractor Agent - Systematic Source Analysis

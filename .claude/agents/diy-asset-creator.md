@@ -2,7 +2,7 @@
 name: diy-asset-creator
 description: Creates zero-budget DIY guides for producing B-roll assets using free tools (Canva, MapChart, Wikimedia, PowerPoint). Transforms expensive asset lists into accessible step-by-step instructions for creators without budget.
 tools: [Read, Write, WebSearch, WebFetch]
-model: sonnet
+model: haiku
 ---
 
 # DIY Asset Creator - Zero-Budget B-Roll Production
