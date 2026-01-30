@@ -50,6 +50,14 @@ from comments import fetch_and_categorize_comments
 from channel_averages import get_channel_averages, compare_to_channel
 from metrics import get_video_metrics
 
+# Try to import discovery diagnostics (may not be available)
+try:
+    sys.path.insert(0, str(Path(__file__).parent.parent / 'discovery'))
+    from diagnostics import diagnose_discovery, format_diagnosis_markdown
+    DISCOVERY_AVAILABLE = True
+except ImportError:
+    DISCOVERY_AVAILABLE = False
+
 
 # Determine project root (2 levels up from tools/youtube-analytics/)
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -391,6 +399,21 @@ def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
     }
     lessons = generate_lessons(analysis_data)
 
+    # 6. Run discovery diagnostics if available
+    discovery_diagnosis = None
+    if DISCOVERY_AVAILABLE:
+        try:
+            discovery_diagnosis = diagnose_discovery(
+                video_metrics=engagement if engagement else {},
+                channel_averages=channel_avgs if channel_avgs and 'error' not in channel_avgs else {},
+                ctr=ctr.get('ctr_percent') if ctr and ctr.get('available') else None
+            )
+        except Exception as e:
+            errors.append({
+                'source': 'discovery',
+                'message': f'Discovery diagnostics failed: {str(e)}'
+            })
+
     return {
         'video_id': video_id,
         'title': title,
@@ -401,6 +424,7 @@ def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
         'benchmarks': benchmarks,
         'comments': comments,
         'lessons': lessons,
+        'discovery': discovery_diagnosis,
         'errors': errors
     }
 
@@ -865,6 +889,60 @@ def format_analysis_markdown(analysis: dict) -> str:
     else:
         lines.append("*No action items identified*")
     lines.append("")
+
+    # --- Discovery Diagnostics Section ---
+    if analysis.get('discovery'):
+        discovery = analysis['discovery']
+        diagnosis = discovery.get('diagnosis', {})
+
+        lines.append("## Discovery Diagnostics")
+        lines.append("")
+
+        # Summary
+        primary_issue = diagnosis.get('primary_issue', 'UNKNOWN')
+        severity = diagnosis.get('severity', 'UNKNOWN')
+        summary = diagnosis.get('summary', 'No diagnosis available')
+
+        lines.append(f"**Diagnosis:** {summary}")
+        lines.append(f"**Primary Issue:** {primary_issue} (Severity: {severity})")
+        lines.append("")
+
+        # Issues detail
+        issues = discovery.get('issues', [])
+        if issues:
+            lines.append("### Issues Detected")
+            lines.append("")
+            for issue in issues:
+                issue_type = issue.get('type', 'UNKNOWN')
+                issue_severity = issue.get('severity', 'UNKNOWN')
+                description = issue.get('description', '')
+                lines.append(f"- **{issue_type}** ({issue_severity}): {description}")
+            lines.append("")
+
+        # Fixes
+        fixes = discovery.get('fixes', [])
+        if fixes:
+            lines.append("### Recommended Fixes")
+            lines.append("")
+            for fix in fixes:
+                priority = fix.get('priority', 'NORMAL')
+                action = fix.get('action', '')
+                rationale = fix.get('rationale', '')
+                lines.append(f"- [{priority}] {action}")
+                lines.append(f"  - *Why:* {rationale}")
+            lines.append("")
+
+        # Learnings
+        learnings = discovery.get('learnings', [])
+        if learnings:
+            lines.append("### Learnings for Future Videos")
+            lines.append("")
+            for learn in learnings:
+                insight = learn.get('insight', '')
+                apply_to = learn.get('apply_to', '')
+                lines.append(f"- {insight}")
+                lines.append(f"  - *Apply to:* {apply_to}")
+            lines.append("")
 
     # --- Errors Section ---
     errors = analysis.get('errors', [])
