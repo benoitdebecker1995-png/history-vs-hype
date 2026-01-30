@@ -1,28 +1,28 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-01-30 (Phase 13-02 complete)
+**Last Updated:** 2026-01-29 (Phase 13 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-01-27)
 
 **Core value:** Every video shows sources on screen — viewers see the evidence themselves
-**Current focus:** v1.2 Script Quality & Discovery — Phase 13
+**Current focus:** v1.2 Script Quality & Discovery — Phase 14
 
 ## Current Position
 
 **Milestone:** v1.2 Script Quality & Discovery
-**Phase:** 13 of 14 (Discovery Tools)
-**Plan:** 2 of TBD
-**Status:** In progress
-**Last activity:** 2026-01-30 — Completed 13-02-PLAN.md (intent classification & discovery diagnostics)
+**Phase:** 14 of 14 (NotebookLM Workflow)
+**Plan:** 0 of TBD
+**Status:** Not started
+**Last activity:** 2026-01-29 — Phase 13 complete (Discovery Tools)
 
 **Progress:**
 ```
 v1.0 [████████████████████] 100% — Workspace Optimization
 v1.1 [████████████████████] 100% — Analytics & Learning Loop
-v1.2 [█████████████░░░░░░░]  64% — Script Quality & Discovery (Phase 13/14)
+v1.2 [██████████████░░░░░░]  71% — Script Quality & Discovery (Phase 14/14)
 ```
 
 ## Milestone History
@@ -55,22 +55,31 @@ v1.2 [█████████████░░░░░░░]  64% — Scr
 
 ### Last Session
 
-- **Date:** 2026-01-30
-- **Work:** Executed 13-02 plan (intent classification & discovery diagnostics)
+- **Date:** 2026-01-29
+- **Work:** Completed Phase 13 (Discovery Tools) - all 3 plans executed
 - **Output:**
-  - `tools/discovery/intent_mapper.py` — 6-category intent classification with DNA fit scoring (475 lines)
-  - `tools/discovery/diagnostics.py` — Discovery diagnostics with channel-specific benchmarks (434 lines)
-  - `tools/youtube-analytics/analyze.py` — Extended with Discovery Diagnostics section (1024 lines)
-  - `.planning/phases/13-discovery-tools/13-02-SUMMARY.md` — Execution summary
-  - `.planning/STATE.md` — Updated current position
+  - `tools/discovery/database.py` — SQLite keyword database with CRUD operations
+  - `tools/discovery/autocomplete.py` — YouTube autocomplete scraper with pyppeteer
+  - `tools/discovery/keywords.py` — Keyword management CLI
+  - `tools/discovery/intent_mapper.py` — 6-category intent classification with DNA fit scoring
+  - `tools/discovery/diagnostics.py` — Discovery diagnostics with channel-specific benchmarks
+  - `tools/discovery/metadata_checker.py` — Pre-publish metadata consistency validation
+  - `tools/discovery/vidiq_workflow.py` — Guided VidIQ data collection prompts
+  - `tools/youtube-analytics/analyze.py` — Extended with Discovery Diagnostics section
+  - `.claude/commands/discover.md` — Unified keyword research command
+  - `.claude/commands/publish.md` — Updated with metadata check gate
 
 ### Next Session
 
-**Phase 13-02 Complete:** Intent classification and discovery diagnostics operational
+**Phase 13 Complete:** Full discovery toolkit operational
 
-Intent mapper classifies keywords into 6 history-niche categories (MYTH_BUSTING, TERRITORIAL_DISPUTE, PRIMARY_SOURCE, MECHANISM_EXPLAINER, TIMELINE_CORRECTION, IDEOLOGICAL_NARRATIVE). DNA fit scoring identifies channel-appropriate vs clickbait topics. Discovery diagnostics analyzes LOW_IMPRESSIONS vs LOW_CTR issues with actionable fixes + learnings. /analyze now includes Discovery Diagnostics section automatically.
+- **Keyword extraction:** YouTube autocomplete scraper + manual entry + SQLite persistence
+- **Intent classification:** 6 history-niche categories + channel DNA fit scoring
+- **Discovery diagnostics:** LOW_IMPRESSIONS vs LOW_CTR analysis integrated into /analyze
+- **Metadata validation:** Pre-publish quality gate in /publish workflow
+- **VidIQ workflow:** Guided prompts for manual data collection
 
-Next: Continue Phase 13 plans (keyword research workflows) or begin Phase 14 (NotebookLM) per roadmap.
+Next: Begin Phase 14 (NotebookLM Workflow) - prompt templates, session logging, citation extraction.
 
 ## Accumulated Context
 
@@ -99,7 +108,7 @@ Next: Continue Phase 13 plans (keyword research workflows) or begin Phase 14 (No
 - **HIGH-confidence only:** Only apply patterns with freq >= 5 (skip MEDIUM to avoid over-applying)
 - **Transform-then-check:** Voice patterns applied BEFORE quality checkers analyze script
 
-**Discovery Tools (Phase 13-01 through 13-02):**
+**Discovery Tools (Phase 13-01 through 13-03):**
 - **Error dict pattern:** Return `{'error': msg}` instead of exceptions (consistent with youtube-analytics, script-checkers)
 - **Lazy database init:** Auto-create tables on first KeywordDB() instantiation (no separate setup step needed)
 - **Pyppeteer over Node.js:** Use Python port to stay in Python ecosystem (easier integration with existing tools)
@@ -109,6 +118,9 @@ Next: Continue Phase 13 plans (keyword research workflows) or begin Phase 14 (No
 - **DNA fit weighting:** Positive signals +0.2 each, negative -0.3 each, base 0.5 (penalty > bonus)
 - **Impressions threshold:** 50% of channel average = LOW_IMPRESSIONS (channel-specific, not absolute)
 - **Graceful degradation:** DISCOVERY_AVAILABLE flag in analyze.py (works without discovery module)
+- **Metadata validation:** Keyword density > 2% = HIGH severity stuffing, description < 200 words = WARNING
+- **VidIQ guided workflow:** Manual prompts (no API available), project-specific storage in vidiq-data.json
+- **Pre-publish gate:** /publish integrates metadata check as required step before upload
 
 ### v1.2 Phase Structure
 
@@ -122,10 +134,11 @@ Next: Continue Phase 13 plans (keyword research workflows) or begin Phase 14 (No
 - 12-02 COMPLETE: Pattern applier, CLI integration with --voice flags
 - Verification: CLI accepts --voice, --show-voice-changes, --rebuild-voice flags
 
-**Phase 13: Discovery Tools** (DISC-01 through DISC-04) — 🔄 IN PROGRESS
+**Phase 13: Discovery Tools** (DISC-01 through DISC-04) — ✅ COMPLETE 2026-01-29
 - 13-01 COMPLETE: Keyword extraction foundation (database + autocomplete + CLI)
 - 13-02 COMPLETE: Intent classification + discovery diagnostics (6 categories + /analyze integration)
-- Remaining: Additional discovery workflows per roadmap
+- 13-03 COMPLETE: Metadata checker + VidIQ workflow + /discover command + /publish integration
+- Verification: PASSED 4/4 requirements
 
 **Phase 14: NotebookLM Workflow** (NBLM-01 through NBLM-03)
 - Final phase: research-to-script pipeline
@@ -149,7 +162,7 @@ Next: Continue Phase 13 plans (keyword research workflows) or begin Phase 14 (No
 | /analyze | .claude/commands/ | Post-publish analysis command |
 | /patterns | .claude/commands/ | Pattern recognition command |
 
-**v1.2 (Script Quality & Discovery) - Phases 11-13 Partial:**
+**v1.2 (Script Quality & Discovery) - Phases 11-13 Complete:**
 
 | Component | Location | Purpose |
 |-----------|----------|---------|
@@ -168,8 +181,12 @@ Next: Continue Phase 13 plans (keyword research workflows) or begin Phase 14 (No
 | autocomplete.py | tools/discovery/ | DISC-01: YouTube autocomplete scraper |
 | keywords.py | tools/discovery/ | DISC-01: Keyword management CLI |
 | intent_mapper.py | tools/discovery/ | DISC-02: 6-category intent classification + DNA fit |
-| diagnostics.py | tools/discovery/ | DISC-02: Discovery diagnostics (impressions/CTR analysis) |
-| analyze.py (extended) | tools/youtube-analytics/ | DISC-02: Includes Discovery Diagnostics section |
+| diagnostics.py | tools/discovery/ | DISC-03: Discovery diagnostics (impressions/CTR analysis) |
+| analyze.py (extended) | tools/youtube-analytics/ | DISC-03: Includes Discovery Diagnostics section |
+| metadata_checker.py | tools/discovery/ | DISC-04: Pre-publish metadata consistency validation |
+| vidiq_workflow.py | tools/discovery/ | DISC-04: Guided VidIQ data collection prompts |
+| discover.md | .claude/commands/ | DISC-01-04: Unified keyword research command |
+| publish.md (extended) | .claude/commands/ | DISC-04: Metadata check gate integration |
 
 ### Technical Notes
 
@@ -188,4 +205,4 @@ Next: Continue Phase 13 plans (keyword research workflows) or begin Phase 14 (No
 
 ---
 
-*State updated: 2026-01-29 after Phase 13-01 completion*
+*State updated: 2026-01-29 after Phase 13 completion*

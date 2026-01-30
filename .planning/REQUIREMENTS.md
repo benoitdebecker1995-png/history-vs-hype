@@ -17,10 +17,10 @@ Requirements for Script Quality & Discovery milestone.
 
 ### Discovery/SEO
 
-- [ ] **DISC-01**: Long-tail keyword extractor — pull 3-4 word phrases from YouTube autocomplete
-- [ ] **DISC-02**: Search intent mapper — classify titles by query type (why/how/what)
-- [ ] **DISC-03**: Impression diagnostic — if impressions <500 in 7 days = SEO issue, CTR <2% = title/thumbnail issue
-- [ ] **DISC-04**: Metadata consistency check — verify keywords in title appear in description/tags
+- [x] **DISC-01**: Long-tail keyword extractor — pull 3-4 word phrases from YouTube autocomplete
+- [x] **DISC-02**: Search intent mapper — classify titles by query type (why/how/what)
+- [x] **DISC-03**: Impression diagnostic — if impressions <500 in 7 days = SEO issue, CTR <2% = title/thumbnail issue
+- [x] **DISC-04**: Metadata consistency check — verify keywords in title appear in description/tags
 
 ### NotebookLM Workflow
 
@@ -68,10 +68,10 @@ Deferred features requiring more data or API availability.
 | SCRIPT-03 | Phase 11 | Complete |
 | SCRIPT-04 | Phase 11 | Complete |
 | SCRIPT-05 | Phase 12 | Complete |
-| DISC-01 | Phase 13 | Pending |
-| DISC-02 | Phase 13 | Pending |
-| DISC-03 | Phase 13 | Pending |
-| DISC-04 | Phase 13 | Pending |
+| DISC-01 | Phase 13 | Complete |
+| DISC-02 | Phase 13 | Complete |
+| DISC-03 | Phase 13 | Complete |
+| DISC-04 | Phase 13 | Complete |
 | NBLM-01 | Phase 14 | Pending |
 | NBLM-02 | Phase 14 | Pending |
 | NBLM-03 | Phase 14 | Pending |

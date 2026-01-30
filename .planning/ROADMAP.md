@@ -138,9 +138,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 13-01-PLAN.md — Database schema + autocomplete extraction + keyword CLI (DISC-01)
-- [ ] 13-02-PLAN.md — Intent classification + discovery diagnostics + /analyze extension (DISC-02, DISC-03)
-- [ ] 13-03-PLAN.md — Metadata checker + VidIQ workflow + /discover command (DISC-04)
+- [x] 13-01-PLAN.md — Database schema + autocomplete extraction + keyword CLI (DISC-01)
+- [x] 13-02-PLAN.md — Intent classification + discovery diagnostics + /analyze extension (DISC-02, DISC-03)
+- [x] 13-03-PLAN.md — Metadata checker + VidIQ workflow + /discover command (DISC-04)
 
 #### Phase 14: NotebookLM Workflow
 **Goal**: Streamlined research-to-script pipeline
@@ -174,5 +174,5 @@ Phases execute in numeric order: 11 → 12 → 13 → 14
 | 10. Pattern Recognition | v1.1 | 3/3 | Complete | 2026-01-26 |
 | 11. Script Quality Checkers | v1.2 | 2/2 | Complete | 2026-01-28 |
 | 12. Voice Fingerprinting | v1.2 | 2/2 | Complete | 2026-01-29 |
-| 13. Discovery Tools | v1.2 | 0/3 | Planned | - |
+| 13. Discovery Tools | v1.2 | 3/3 | Complete | 2026-01-29 |
 | 14. NotebookLM Workflow | v1.2 | 0/1 | Not started | - |
