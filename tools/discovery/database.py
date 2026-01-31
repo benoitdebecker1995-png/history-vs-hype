@@ -434,6 +434,315 @@ class KeywordDB:
             self._conn.close()
             self._conn = None
 
+    # =========================================================================
+    # DEMAND RESEARCH METHODS (Phase 15)
+    # =========================================================================
+
+    def add_trend(
+        self,
+        keyword_id: int,
+        interest: int,
+        trend_direction: str,
+        percent_change: float,
+        region: str = 'US'
+    ) -> Dict[str, Any]:
+        """
+        Add trend data for a keyword.
+
+        Args:
+            keyword_id: Keyword ID
+            interest: Normalized interest 0-100
+            trend_direction: 'rising', 'stable', or 'declining'
+            percent_change: Percentage change (+45.2 or -20.1)
+            region: Region code (default 'US')
+
+        Returns:
+            {'status': 'inserted', 'trend_id': int} on success
+            {'error': msg} on failure
+        """
+        try:
+            cursor = self._conn.cursor()
+            now = datetime.utcnow().isoformat()
+
+            cursor.execute(
+                """
+                INSERT INTO trends (keyword_id, fetched_at, interest, trend_direction, percent_change, region)
+                VALUES (?, ?, ?, ?, ?, ?)
+                """,
+                (keyword_id, now, interest, trend_direction, percent_change, region)
+            )
+
+            self._conn.commit()
+
+            return {
+                'status': 'inserted',
+                'trend_id': cursor.lastrowid
+            }
+
+        except sqlite3.IntegrityError as e:
+            return {'error': 'Integrity constraint violated', 'details': str(e)}
+        except sqlite3.OperationalError as e:
+            return {'error': 'Database operation failed', 'details': str(e)}
+
+    def get_cached_trend(self, keyword_id: int, max_age_days: int = 7) -> Optional[Dict[str, Any]]:
+        """
+        Get cached trend data if not expired.
+
+        Args:
+            keyword_id: Keyword ID
+            max_age_days: Maximum age in days (default 7, use 0 for force refresh, 999 for stale fallback)
+
+        Returns:
+            Trend dict with data_age_days field, or None if not found/expired
+        """
+        try:
+            cursor = self._conn.cursor()
+
+            cursor.execute(
+                """
+                SELECT *,
+                    CAST((julianday('now') - julianday(fetched_at)) AS INTEGER) AS data_age_days
+                FROM trends
+                WHERE keyword_id = ?
+                ORDER BY fetched_at DESC
+                LIMIT 1
+                """,
+                (keyword_id,)
+            )
+
+            row = cursor.fetchone()
+
+            if row is None:
+                return None
+
+            result = dict(row)
+
+            # Check if data is too old (unless max_age_days is very large for stale fallback)
+            if result['data_age_days'] > max_age_days:
+                return None
+
+            return result
+
+        except sqlite3.Error:
+            return None
+
+    def get_latest_trend(self, keyword_id: int) -> Dict[str, Any]:
+        """
+        Get most recent trend record regardless of age.
+
+        Args:
+            keyword_id: Keyword ID
+
+        Returns:
+            Trend dict on success
+            {'error': 'not found'} if no trend data exists
+        """
+        try:
+            cursor = self._conn.cursor()
+
+            cursor.execute(
+                """
+                SELECT *,
+                    CAST((julianday('now') - julianday(fetched_at)) AS INTEGER) AS data_age_days
+                FROM trends
+                WHERE keyword_id = ?
+                ORDER BY fetched_at DESC
+                LIMIT 1
+                """,
+                (keyword_id,)
+            )
+
+            row = cursor.fetchone()
+
+            if row is None:
+                return {'error': 'not found'}
+
+            return dict(row)
+
+        except sqlite3.Error as e:
+            return {'error': 'Database operation failed', 'details': str(e)}
+
+    def add_competitor_video(
+        self,
+        video_id: str,
+        channel_id: int,
+        keyword_id: int,
+        title: str,
+        view_count: Optional[int] = None,
+        published_at: Optional[str] = None
+    ) -> Dict[str, Any]:
+        """
+        Add a competitor video for a keyword.
+
+        Args:
+            video_id: YouTube video ID
+            channel_id: Database ID from competitor_channels table
+            keyword_id: Keyword ID
+            title: Video title
+            view_count: Optional view count
+            published_at: Optional publish date (ISO format)
+
+        Returns:
+            {'status': 'inserted'} on success
+            {'error': msg} on failure
+        """
+        try:
+            cursor = self._conn.cursor()
+            now = datetime.utcnow().date().isoformat()
+
+            # Calculate video age if published_at is provided
+            video_age_days = None
+            if published_at:
+                try:
+                    pub_date = datetime.fromisoformat(published_at.replace('Z', '+00:00'))
+                    video_age_days = (datetime.utcnow() - pub_date.replace(tzinfo=None)).days
+                except (ValueError, TypeError):
+                    pass
+
+            cursor.execute(
+                """
+                INSERT INTO competitor_videos (video_id, channel_id, keyword_id, title, view_count, published_at, video_age_days, discovered_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (video_id, channel_id, keyword_id, title, view_count, published_at, video_age_days, now)
+            )
+
+            self._conn.commit()
+
+            return {'status': 'inserted'}
+
+        except sqlite3.IntegrityError as e:
+            return {'error': 'Integrity constraint violated', 'details': str(e)}
+        except sqlite3.OperationalError as e:
+            return {'error': 'Database operation failed', 'details': str(e)}
+
+    def get_competition_count(self, keyword_id: int, max_age_days: int = 7) -> Optional[Dict[str, Any]]:
+        """
+        Get competition count for a keyword.
+
+        Args:
+            keyword_id: Keyword ID
+            max_age_days: Maximum age in days for cached data
+
+        Returns:
+            {'video_count': int, 'channel_count': int, 'data_age_days': int} or None
+        """
+        try:
+            cursor = self._conn.cursor()
+
+            # Get video and channel counts with data age
+            cursor.execute(
+                """
+                SELECT
+                    COUNT(DISTINCT cv.video_id) AS video_count,
+                    COUNT(DISTINCT cv.channel_id) AS channel_count,
+                    CAST(MIN(julianday('now') - julianday(cv.discovered_at)) AS INTEGER) AS data_age_days
+                FROM competitor_videos cv
+                WHERE cv.keyword_id = ?
+                    AND julianday('now') - julianday(cv.discovered_at) <= ?
+                """,
+                (keyword_id, max_age_days)
+            )
+
+            row = cursor.fetchone()
+
+            if row is None or row['video_count'] == 0:
+                return None
+
+            return {
+                'video_count': row['video_count'],
+                'channel_count': row['channel_count'],
+                'data_age_days': row['data_age_days'] if row['data_age_days'] is not None else 0
+            }
+
+        except sqlite3.Error:
+            return None
+
+    def add_opportunity_score(
+        self,
+        keyword_id: int,
+        demand_score: float,
+        competition_score: float,
+        opportunity_ratio: float,
+        category: str
+    ) -> Dict[str, Any]:
+        """
+        Add calculated opportunity score for a keyword.
+
+        Args:
+            keyword_id: Keyword ID
+            demand_score: Autocomplete position proxy (0-100)
+            competition_score: Video + channel count
+            opportunity_ratio: demand/competition
+            category: 'High', 'Medium', or 'Low'
+
+        Returns:
+            {'status': 'inserted'} on success
+            {'error': msg} on failure
+        """
+        try:
+            cursor = self._conn.cursor()
+            now = datetime.utcnow().date().isoformat()
+
+            cursor.execute(
+                """
+                INSERT INTO opportunity_scores (keyword_id, demand_score, competition_score, opportunity_ratio, opportunity_category, calculated_at)
+                VALUES (?, ?, ?, ?, ?, ?)
+                """,
+                (keyword_id, demand_score, competition_score, opportunity_ratio, category, now)
+            )
+
+            self._conn.commit()
+
+            return {'status': 'inserted'}
+
+        except sqlite3.IntegrityError as e:
+            return {'error': 'Integrity constraint violated', 'details': str(e)}
+        except sqlite3.OperationalError as e:
+            return {'error': 'Database operation failed', 'details': str(e)}
+
+    def get_opportunity_score(self, keyword_id: int, max_age_days: int = 7) -> Optional[Dict[str, Any]]:
+        """
+        Get cached opportunity score for a keyword.
+
+        Args:
+            keyword_id: Keyword ID
+            max_age_days: Maximum age in days
+
+        Returns:
+            Opportunity score dict with data_age_days, or None if not found/expired
+        """
+        try:
+            cursor = self._conn.cursor()
+
+            cursor.execute(
+                """
+                SELECT *,
+                    CAST((julianday('now') - julianday(calculated_at)) AS INTEGER) AS data_age_days
+                FROM opportunity_scores
+                WHERE keyword_id = ?
+                ORDER BY calculated_at DESC
+                LIMIT 1
+                """,
+                (keyword_id,)
+            )
+
+            row = cursor.fetchone()
+
+            if row is None:
+                return None
+
+            result = dict(row)
+
+            # Check if data is too old
+            if result['data_age_days'] > max_age_days:
+                return None
+
+            return result
+
+        except sqlite3.Error:
+            return None
+
 
 def init_database(db_path: Optional[str] = None) -> Dict[str, Any]:
     """
