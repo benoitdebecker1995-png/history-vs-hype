@@ -5,6 +5,7 @@
 - **v1.0 MVP** - Phases 1-7 (shipped 2026-01-19)
 - **v1.1 Analytics & Learning Loop** - Phases 8-10 (shipped 2026-01-26)
 - **v1.2 Script Quality & Discovery** - Phases 11-14 (shipped 2026-01-30)
+- **v1.3 Niche Discovery** - Phases 15-18 (in progress)
 
 ## Phases
 
@@ -138,6 +139,66 @@ Plans:
 
 </details>
 
+<details open>
+<summary>v1.3 Niche Discovery (Phases 15-18) - IN PROGRESS</summary>
+
+### Phase 15: Database Foundation & Demand Research
+**Goal**: User can quantify demand for topics
+**Dependencies**: Phase 13 (keywords.db schema)
+**Requirements**: DEM-01, DEM-02, DEM-03, DEM-04
+**Plans**: 2 plans
+
+**Success Criteria:**
+1. User can input a seed keyword and get search volume proxy (autocomplete position score)
+2. User can see trend direction for a keyword (rising/stable/declining with percentage change)
+3. User can expand a seed keyword into 10-20 related queries
+4. User can see competition ratio score showing demand vs. supply balance
+
+Plans:
+- [ ] 15-01-PLAN.md — Schema extension + DemandAnalyzer foundation
+- [ ] 15-02-PLAN.md — External data integration + CLI + /discover --demand
+
+### Phase 16: Competition Analysis
+**Goal**: User can identify gaps in existing coverage
+**Dependencies**: Phase 15 (demand data foundation)
+**Requirements**: COMP-01, COMP-02, COMP-03, COMP-04
+
+**Success Criteria:**
+1. User can see video count and unique channel count for a keyword
+2. User can filter out low-quality content to see real competition
+3. User can see what format competitors use (animation vs. documentary, political vs. legal angles)
+4. User can see differentiation score identifying which angles are missing
+
+**Plans**: Not yet planned
+
+### Phase 17: Format Filtering
+**Goal**: Topics are filtered by production constraints
+**Dependencies**: Phase 16 (competition data)
+**Requirements**: FMT-01, FMT-02, FMT-03
+
+**Success Criteria:**
+1. Topics requiring animation are flagged as hard blocks before research investment
+2. Topics are scored 0-4 for document-friendliness (treaty-heavy = 4, concept-heavy = 0)
+3. User can verify academic source availability for a topic before committing
+
+**Plans**: Not yet planned
+
+### Phase 18: Opportunity Scoring & Orchestrator
+**Goal**: User gets ranked topic opportunities with full context
+**Dependencies**: Phases 15, 16, 17 (all data layers)
+**Requirements**: OPP-01, OPP-02, OPP-03, OPP-04, OPP-05
+
+**Success Criteria:**
+1. User can see combined opportunity score (demand x gap x fit / effort) for any topic
+2. Production constraints are weighted in scoring (animation-required topics score 0 regardless of demand)
+3. Channel DNA rules auto-reject topics (clickbait language, news-first framing automatically filtered)
+4. Opportunities track lifecycle status from DISCOVERED through PUBLISHED
+5. User can generate Markdown opportunity report with all decision factors documented
+
+**Plans**: Not yet planned
+
+</details>
+
 ## Progress
 
 | Phase | Milestone | Plans Complete | Status | Completed |
@@ -157,3 +218,7 @@ Plans:
 | 13. Discovery Tools | v1.2 | 3/3 | Complete | 2026-01-29 |
 | 13.1 Token Optimization | v1.2 | 2/2 | Complete | 2026-01-30 |
 | 14. NotebookLM Workflow | v1.2 | 1/1 | Complete | 2026-01-30 |
+| **15. Database Foundation & Demand Research** | **v1.3** | **0/2** | **Planned** | - |
+| **16. Competition Analysis** | **v1.3** | **0/0** | **Pending** | - |
+| **17. Format Filtering** | **v1.3** | **0/0** | **Pending** | - |
+| **18. Opportunity Scoring & Orchestrator** | **v1.3** | **0/0** | **Pending** | - |
