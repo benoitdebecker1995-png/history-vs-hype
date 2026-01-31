@@ -1,1010 +1,927 @@
-# Technology Stack: Script Quality, Discovery & NotebookLM Integration
+# Technology Stack: Niche Discovery Additions (v1.3)
 
-**Project:** History vs Hype v1.2
-**Researched:** 2026-01-27
-**Context:** Subsequent milestone — adding to existing YouTube Analytics API integration
+**Project:** History vs Hype YouTube Workspace
+**Research Domain:** Stack additions for v1.3 niche discovery milestone
+**Researched:** 2026-01-31
+**Overall Confidence:** HIGH
 
 ---
 
 ## Executive Summary
 
-**Current Stack (DO NOT change):**
-- Python 3.x (~5,000 lines in tools/youtube-analytics/)
-- YouTube Analytics API v2 + YouTube Data API v3
-- OAuth2 authentication with token refresh
-- Markdown-based workflows
-- Claude Code slash commands
+This research focuses on stack additions needed for v1.3 niche discovery capabilities. The existing stack (~9,000 lines Python) already includes YouTube Data API v3, YouTube Analytics API v2, OAuth2 authentication, and SQLite for keyword storage.
 
-**New Stack Recommendations:**
+**Core Finding:** Add 3 lightweight libraries for demand research and competitor analysis. Avoid paid tools (VidIQ/TubeBuddy API). Extend existing `tools/discovery/` module with new demand and competition capabilities.
 
-| Component | Technology | Why | Integration Point |
-|-----------|------------|-----|-------------------|
-| **Script Quality** | Claude 4.5 API + textstat + py-readability-metrics | Best LLM + proven readability scoring | New Python module |
-| **Discovery/SEO** | YouTube autocomplete endpoint + pytrends + YouTube Data API | Undocumented but stable endpoint + free Trends access | New Python module |
-| **NotebookLM** | Manual workflow (NO API) | Enterprise API in alpha, not production-ready | Workflow optimization only |
-| **Text Analysis** | spaCy + textstat | Industry standard NLP + comprehensive readability | Script quality module |
-
-**Critical Finding: NotebookLM has NO production-ready API.** Focus on workflow optimization, not technical integration.
+**Integration Strategy:** Build on validated v1.2 foundation (YouTube APIs, SQLite, OAuth2). Add demand research layer (Google Trends), enhance competition analysis (YouTube scraping fallback), implement opportunity scoring formula.
 
 ---
 
-## 1. Script Quality Improvements
-
-### Problem Statement
-
-Current pain: AI-generated scripts need heavy revision (unnatural flow, repetitions, academic phrasing that doesn't work spoken).
-
-### Recommended Stack
-
-#### 1.1 Claude API (Anthropic)
-
-**Purpose:** Script generation with optimized prompts
-
-**Models & Pricing (2026):**
-
-| Model | Input Cost | Output Cost | Context Window | Use Case |
-|-------|-----------|-------------|----------------|----------|
-| Claude Sonnet 4.5 | $3/M tokens | $15/M tokens | 200K standard | Script generation |
-| Claude Sonnet 4.5 (>200K) | $6/M tokens | $22.50/M tokens | Up to 1M tokens | Large research context |
-| Claude Haiku 4.5 | $1/M tokens | $5/M tokens | 200K | Quick revisions |
-
-**Key Features for This Use Case:**
-- **200K context window** - Entire style guide + examples + research in one prompt
-- **Prompt caching** - Reduces costs by 90% and latency by 85% for repeated style rules
-- **Prompt improver** - Console tool for optimizing generation prompts
-- **Chain-of-thought** - Explicit reasoning before generation improves quality
-
-**Implementation Strategy:**
-1. Use prompt caching for style guide (`.claude/REFERENCE/STYLE-GUIDE.md` stays in cache)
-2. Feed research from NotebookLM as context
-3. Apply best practices from Anthropic's prompt engineering guide
-4. Estimated cost: $0.50-$2.00 per script (assuming 20K input, 3K output with caching)
-
-**Confidence:** HIGH - Official API, well-documented, already using Claude Code
-
-**Sources:**
-- [Anthropic Claude API Pricing 2026](https://www.metacto.com/blogs/anthropic-api-pricing-a-full-breakdown-of-costs-and-integration)
-- [Prompt Caching Guide](https://www.aifreeapi.com/en/posts/claude-api-prompt-caching-guide)
-- [Prompt Engineering Best Practices](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
-- [Context Windows Documentation](https://platform.claude.com/docs/en/build-with-claude/context-windows)
-
-#### 1.2 Readability Analysis
-
-**Purpose:** Objective metrics for script quality (sentence length, complexity, readability level)
-
-**Library:** `py-readability-metrics` + `textstat`
-
-**Installation:**
-```bash
-pip install py-readability-metrics textstat
-```
-
-**Metrics to Track:**
-
-| Metric | Library | Target Range | Why |
-|--------|---------|--------------|-----|
-| Flesch Reading Ease | py-readability-metrics | 60-70 | Conversational but not simplistic |
-| Flesch-Kincaid Grade | py-readability-metrics | 8-10 | High school level (YouTube standard) |
-| Average sentence length | textstat | 12-18 words | Spoken delivery sweet spot |
-| Syllables per word | textstat | 1.5-2.0 | Natural speech patterns |
-| SMOG Index | py-readability-metrics | 10-12 | Comprehension difficulty |
-
-**Usage:**
-```python
-from readability import Readability
-
-r = Readability(script_text)
-flesch = r.flesch_kincaid()
-fog = r.gunning_fog()
-# Flag sections outside target ranges
-```
-
-**Output:** JSON report with:
-- Overall readability score
-- Per-section analysis
-- Sentences flagged for revision (too long, too complex)
-- Comparison to previous scripts
-
-**Confidence:** HIGH - Established libraries with clear documentation
-
-**Sources:**
-- [py-readability-metrics GitHub](https://github.com/cdimascio/py-readability-metrics)
-- [textstat PyPI](https://pypi.org/project/textstat/)
-- [Readability Index NLP Guide](https://www.geeksforgeeks.org/python/readability-index-pythonnlp/)
-
-#### 1.3 Repetition Detection
-
-**Purpose:** Flag word/phrase repetition that sounds robotic
-
-**Library:** `spaCy` + custom analysis
-
-**Installation:**
-```bash
-pip install spacy
-python -m spacy download en_core_web_sm
-```
-
-**Detection Strategy:**
-
-1. **N-gram repetition** - Detect repeated 3-5 word phrases within 500-word windows
-2. **Semantic similarity** - Use spaCy's word vectors to detect "saying the same thing differently"
-3. **Filler word frequency** - Track "essentially," "basically," "kind of" usage
-
-**Implementation:**
-```python
-import spacy
-from collections import Counter
-
-nlp = spacy.load("en_core_web_sm")
-
-def detect_repetition(text, window=500):
-    doc = nlp(text)
-
-    # N-gram repetition
-    trigrams = [doc[i:i+3].text for i in range(len(doc)-2)]
-    repeated = [ng for ng, count in Counter(trigrams).items() if count > 2]
-
-    # Filler words
-    fillers = ["essentially", "basically", "kind of", "sort of"]
-    filler_count = sum(token.text.lower() in fillers for token in doc)
-
-    return {
-        "repeated_phrases": repeated,
-        "filler_count": filler_count,
-        "filler_budget": 5  # Target threshold
-    }
-```
-
-**Confidence:** HIGH - spaCy is industry standard, custom logic straightforward
-
-**Sources:**
-- [spaCy Documentation](https://spacy.io/)
-- [TextDescriptives for spaCy](https://arxiv.org/pdf/2301.02057)
-- [Text Similarity Methods](https://www.newscatcherapi.com/blog-posts/ultimate-guide-to-text-similarity-with-python)
-
-#### 1.4 Natural Language Generation Evaluation (Optional)
-
-**Purpose:** Benchmark script quality against reference scripts
-
-**Libraries:** ROUGE and BLEU metrics via `evaluate` or `nltk`
-
-**Installation:**
-```bash
-pip install evaluate rouge-score nltk
-```
-
-**Use Case:**
-- Compare generated script to "gold standard" previous scripts
-- Measure how similar the style is to approved voice patterns
-- Track improvement over time
-
-**Implementation:**
-```python
-from evaluate import load
-
-rouge = load('rouge')
-results = rouge.compute(
-    predictions=[generated_script],
-    references=[reference_script]
-)
-# Higher ROUGE-L = closer to reference style
-```
-
-**Recommendation:** OPTIONAL - Use only if you want quantitative style drift tracking. Subjective review may be sufficient.
-
-**Confidence:** MEDIUM - Metrics exist but correlation with "good script" is unclear
-
-**Sources:**
-- [BLEU and ROUGE Explained](https://doc.superannotate.com/docs/guide-bleu-rouge)
-- [NLG Evaluation Metrics Guide](https://plainenglish.io/blog/evaluating-nlp-models-a-comprehensive-guide-to-rouge-bleu-meteor-and-bertscore-metrics-d0f1b1)
-- [LLM Evaluation Metrics](https://medium.com/data-science-in-your-pocket/llm-evaluation-metrics-explained-af14f26536d2)
-
----
-
-## 2. Discovery & SEO Optimization
-
-### Problem Statement
-
-Current pain: Topic selection is manual guesswork. No data on search volume, keyword difficulty, or trending topics.
-
-### Recommended Stack
-
-#### 2.1 YouTube Autocomplete (Undocumented Endpoint)
-
-**Purpose:** Discover what viewers are actually searching for
-
-**Endpoint:** `https://clients1.google.com/complete/search`
-
-**Status:** Undocumented but stable. Used by community for years. YouTube doesn't provide official autocomplete API.
-
-**Parameters:**
-- `client=youtube`
-- `hl=en` (language)
-- `ds=yt` (YouTube dataset)
-- `q=[search term]`
-
-**Response Format:** JSON array of autocomplete suggestions
-
-**Implementation:**
-```python
-import requests
-
-def get_youtube_suggestions(query):
-    url = "https://clients1.google.com/complete/search"
-    params = {
-        "client": "youtube",
-        "hl": "en",
-        "ds": "yt",
-        "q": query
-    }
-    response = requests.get(url, params=params)
-    # Parse JSON response
-    suggestions = response.json()[1]  # Second element contains suggestions
-    return [s[0] for s in suggestions]
-
-# Example: get_youtube_suggestions("somaliland")
-# Returns: ["somaliland documentary", "somaliland recognition", ...]
-```
-
-**Use Cases:**
-- Topic discovery: "What are people searching for about [topic]?"
-- Title optimization: Test title variants to see if they appear in autocomplete
-- Related topics: Discover adjacent search terms
-
-**Rate Limits:** None documented. Use respectful rate limiting (1 req/sec).
-
-**Risk Assessment:** LOW - Endpoint has been stable for years, used by multiple tools (Apify, BOTSTER, keyword tools). Not officially supported but not blocked.
-
-**Confidence:** HIGH - Multiple tools rely on this, community-validated approach
-
-**Sources:**
-- [Hacking YouTube Suggest API](https://dev.to/adrienshen/hacking-together-your-own-youtube-suggest-api-c0o)
-- [YouTube Autocomplete Scraper - Apify](https://apify.com/scraper-mind/youtube-autocomplete-scraper)
-- [How to Scrape YouTube Autocomplete](https://blog.apify.com/how-to-scrape-youtube-search-keywords/)
-
-#### 2.2 Google Trends (pytrends)
-
-**Purpose:** Understand search volume trends over time
-
-**Library:** `pytrends` (unofficial but widely used)
-
-**Installation:**
-```bash
-pip install pytrends
-```
-
-**Status:** Google Trends has NO official API. `pytrends` is a pseudo-API that scrapes Google Trends. It breaks occasionally when Google changes backend, but the community maintains it.
-
-**Implementation:**
-```python
-from pytrends.request import TrendReq
-
-pytrend = TrendReq(hl='en-US', tz=360)
-
-# Compare topics
-pytrend.build_payload(
-    kw_list=['somaliland', 'taiwan', 'western sahara'],
-    timeframe='today 12-m'
-)
-data = pytrend.interest_over_time()
-
-# Related queries
-related = pytrend.related_queries()
-```
-
-**Use Cases:**
-- Validate topic interest over time
-- Compare multiple topic ideas
-- Identify trending moments (e.g., news events that spike searches)
-- Discover related search terms
-
-**Limitations:**
-- Breaks when Google changes backend (community fixes within days)
-- Incomplete data (not full search volume numbers)
-- Rate limited (use delays between requests)
-
-**Alternative (Commercial):** Glimpse API ($$$) - More reliable, full data access, used by Fortune 50. Overkill for solo creator.
-
-**Recommendation:** Use pytrends for validation, not as single source of truth. Cross-reference with YouTube autocomplete.
-
-**Confidence:** MEDIUM - Works but fragile, requires maintenance
-
-**Sources:**
-- [pytrends PyPI](https://pypi.org/project/pytrends/)
-- [pytrends GitHub](https://github.com/GeneralMills/pytrends)
-- [Pytrends Alternatives 2026](https://meetglimpse.com/software-guides/pytrends-alternatives/)
-- [How to Scrape Google Trends 2026](https://brightdata.com/blog/web-data/how-to-scrape-google-trends)
-
-#### 2.3 YouTube Data API v3 (Already Integrated)
-
-**Purpose:** Get video performance data for keyword research
-
-**Current Status:** Already using YouTube Data API v3 for analytics
-
-**Additional Use Cases for Discovery:**
-
-1. **Search endpoint** - Query YouTube for existing videos on topic
-2. **Video statistics** - Check view counts, engagement on competitor videos
-3. **Channel analysis** - Study successful channels in niche
-
-**New Usage:**
-```python
-# Use existing auth from tools/youtube-analytics/auth.py
-
-def search_youtube_videos(query, max_results=10):
-    """Find existing videos on topic"""
-    request = youtube.search().list(
-        q=query,
-        part="snippet",
-        type="video",
-        maxResults=max_results,
-        order="viewCount"
-    )
-    return request.execute()
-
-def get_video_stats(video_id):
-    """Check competitor performance"""
-    request = youtube.videos().list(
-        part="statistics,snippet",
-        id=video_id
-    )
-    return request.execute()
-```
-
-**Use Cases:**
-- Competitive analysis: "Who else covered this topic?"
-- Gap analysis: "What angle hasn't been covered?"
-- Performance benchmarks: "What view counts are realistic?"
-
-**Quota:** 10,000 units/day (already allocated). Search costs 100 units per query.
-
-**Confidence:** HIGH - Already integrated, official API
-
-**Sources:**
-- [YouTube Data API Search Documentation](https://developers.google.com/youtube/v3/docs/search/list)
-- [YouTube API Complete Guide 2026](https://getlate.dev/blog/youtube-api)
-
-#### 2.4 Third-Party APIs (Keyword Research)
-
-**Available Options:**
-
-| Service | Features | Cost | Recommendation |
-|---------|----------|------|----------------|
-| YouTube Keyword Research API (Zyla) | Search volume, competition, difficulty | Paid (pricing varies) | NOT RECOMMENDED - adds complexity |
-| YouTube Trending Topics API (Zyla) | Real-time trending topics | Paid | NOT RECOMMENDED - news-first approach violates channel DNA |
-| TubeBuddy Keyword Explorer | Search data, competition | $9-49/mo | Manual tool, not API |
-| VidIQ | Topic suggestions, optimization | Pro plan | NO API AVAILABLE |
-
-**Recommendation:** Skip third-party APIs. Combine free tools (YouTube autocomplete + pytrends + YouTube Data API) for sufficient keyword research.
-
-**Why Skip Paid APIs:**
-- Adds cost for marginal benefit
-- Overkill for solo creator (1-2 videos/month)
-- Free tools provide 80% of value
-- VidIQ manual workflow already works
-
-**Confidence:** HIGH - Paid APIs not necessary for this use case
-
-**Sources:**
-- [YouTube Keyword Research API - Zyla](https://zylalabs.com/api-marketplace/data/youtube+keyword+research+api/2490)
-- [VidIQ Features 2026](https://www.getapp.com/marketing-software/a/vidiq/)
-- [TubeBuddy Keyword Explorer](https://www.tubebuddy.com/tools/keyword-explorer/)
-
-#### 2.5 Metadata Optimization
-
-**Purpose:** Optimize titles, descriptions, tags based on data
-
-**Current Approach:** Manual + VidIQ suggestions
-
-**New Approach:** Data-driven validation
-
-**Workflow:**
-1. Generate title variants (existing: `/publish --titles`)
-2. **NEW:** Check each variant against YouTube autocomplete
-3. **NEW:** Check search trends in pytrends
-4. **NEW:** Search YouTube API for existing video performance
-5. Select variant with best discovery potential
-
-**No New APIs Needed** - Compose existing tools
-
-**Implementation:**
-```python
-def validate_title(title_variants):
-    """Score title variants for discoverability"""
-    scores = {}
-
-    for title in title_variants:
-        # Extract key phrase
-        key_phrase = extract_key_phrase(title)
-
-        # Check autocomplete
-        suggestions = get_youtube_suggestions(key_phrase)
-        autocomplete_score = 1 if key_phrase in suggestions else 0
-
-        # Check trends
-        trends_data = get_trends(key_phrase)
-        trend_score = calculate_trend_score(trends_data)
-
-        # Check existing videos
-        existing = search_youtube_videos(key_phrase)
-        competition_score = calculate_competition(existing)
-
-        scores[title] = {
-            "autocomplete": autocomplete_score,
-            "trend": trend_score,
-            "competition": competition_score,
-            "total": autocomplete_score + trend_score + competition_score
-        }
-
-    return scores
-```
-
-**Confidence:** HIGH - Clear composition of existing tools
-
----
-
-## 3. NotebookLM Integration
-
-### Critical Finding: NO Production-Ready API
-
-**Status as of 2026-01-27:**
-
-NotebookLM Enterprise API exists but is in **alpha** with significant limitations:
-- **v1alpha** version (pre-production)
-- Limited to notebook creation and management
-- Podcast generation API separate (also alpha)
-- Requires Google Cloud project + NotebookLM Enterprise subscription
-- Enterprise-focused (VPC, HIPAA compliance)
-- Not designed for solo creator workflow
-
-**Official API Limitations:**
-- Cannot programmatically query notebooks for answers
-- Cannot automate research extraction
-- Cannot pull citations/page numbers via API
-- Core use case (interactive research) not exposed in API
-
-**Unofficial Alternatives:**
-
-| Tool | Type | Status | Recommendation |
-|------|------|--------|----------------|
-| notebooklm-py (teng-lin) | Python library | Community-maintained | LOW confidence - reverse engineering |
-| nblm-rs (K-dash) | Rust/Python SDK | Unofficial | LOW confidence - unofficial client |
-| Apify NotebookLM API | Scraper/exporter | Commercial service | NOT NEEDED - export feature |
-| AutoContent API | Third-party proxy | Commercial | NOT NEEDED - adds complexity |
-
-**Confidence:** HIGH - Multiple sources confirm API limitations
-
-**Sources:**
-- [NotebookLM Enterprise API Documentation](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks)
-- [Does NotebookLM Have an API?](https://autocontentapi.com/blog/does-notebooklm-have-an-api)
-- [How to Access NotebookLM Via API - Google Forum](https://discuss.ai.google.dev/t/how-to-access-notebooklm-via-api/5084)
-- [NotebookLM API Launch 2026](https://blockchain.news/ainews/notebooklm-launches-direct-notebook-access-boosting-ai-productivity-tools-in-2026)
-
-### Recommended Approach: Workflow Optimization (NOT Technical Integration)
-
-Since NotebookLM has no usable API for the core workflow, focus on **process improvements** instead:
-
-#### 3.1 Structured Export Workflow
-
-**Current Pain:** Copy-paste from NotebookLM to VERIFIED-RESEARCH.md is manual
-
-**Solution:** Standardized templates for NotebookLM prompts
-
-**Implementation:**
-1. Create prompt library in `.claude/REFERENCE/NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` (already exists)
-2. Add structured output requests to prompts:
-   ```
-   Please provide findings in this format:
-
-   CLAIM: [factual claim]
-   SOURCE: [Author, Title, Page X]
-   QUOTE: "[exact quote]"
-   CONFIDENCE: [HIGH/MEDIUM/LOW]
-   ```
-3. NotebookLM "Save to Notes" feature → structured notes → easier copy-paste
-
-**Benefit:** Reduces manual reformatting, maintains verification standards
-
-**Confidence:** HIGH - Process improvement, no API needed
-
-#### 3.2 NotebookLM Best Practices Documentation
-
-**Current State:** Workflow documented in CLAUDE.md
-
-**Enhancement:** Expand NotebookLM guidance in `.claude/REFERENCE/NOTEBOOKLM-SOURCE-STANDARDS.md`
-
-**Add:**
-- Naming conventions for sources (`[P1] Primary-Source.pdf`, `[A1] Author-Book.pdf`)
-- Notebook organization strategy (Act 1, Act 2, Act 3 notebooks)
-- Citation extraction workflow (click citation → copy page number → save to notes)
-- Customized Audio Overview prompts (use "Customize" feature for targeted discussions)
-- Interactive Mode usage (clarify confusing points with podcast hosts)
-
-**Benefit:** Faster research, fewer errors, better citations
-
-**Confidence:** HIGH - Leveraging existing NotebookLM features
-
-#### 3.3 Research-to-Script Pipeline
-
-**Current Workflow:**
-1. NotebookLM research (manual)
-2. Copy-paste to VERIFIED-RESEARCH.md
-3. Claude generates script from VERIFIED-RESEARCH.md
-4. Manual revision cycle
-
-**Optimized Workflow:**
-1. NotebookLM research with structured prompts
-2. Export notes to VERIFIED-RESEARCH.md (still manual, but faster)
-3. **NEW:** Claude API script generation with full context (200K tokens)
-4. **NEW:** Automated quality checks (readability, repetition)
-5. Targeted revision based on metrics
-
-**Key Improvement:** Replace Claude web interface with Claude API for script generation
-- Full style guide + research in context (200K tokens)
-- Prompt caching reduces cost/latency
-- Repeatable, versioned prompts
-
-**Benefit:** Better first drafts, fewer revision cycles, lower cognitive load
-
-**Confidence:** HIGH - Practical process improvement
-
----
-
-## 4. Integration Architecture
-
-### Module Structure
-
-```
-tools/
-├── youtube-analytics/       # EXISTING - v1.1
-│   ├── auth.py
-│   ├── metrics.py
-│   ├── analyze.py
-│   └── patterns.py
-├── script-quality/          # NEW - v1.2
-│   ├── __init__.py
-│   ├── generate.py          # Claude API script generation
-│   ├── readability.py       # Readability metrics
-│   ├── repetition.py        # Repetition detection
-│   └── quality_report.py    # Combined quality report
-└── discovery/               # NEW - v1.2
-    ├── __init__.py
-    ├── autocomplete.py      # YouTube autocomplete
-    ├── trends.py            # Google Trends (pytrends)
-    ├── youtube_search.py    # YouTube Data API search
-    └── keyword_report.py    # Combined keyword research report
-```
-
-### Slash Command Integration
-
-**New Commands:**
-
-| Command | Module | Function |
-|---------|--------|----------|
-| `/script --generate` | script-quality/generate.py | Generate script via Claude API |
-| `/script --quality` | script-quality/quality_report.py | Readability + repetition analysis |
-| `/research --keywords [topic]` | discovery/keyword_report.py | Autocomplete + trends + competition |
-| `/publish --validate-title` | discovery/keyword_report.py | Score title variants for discovery |
-
-**Existing Commands Enhanced:**
-
-| Command | Enhancement | Module |
-|---------|-------------|--------|
-| `/script` | Add quality metrics after generation | script-quality/ |
-| `/publish --titles` | Add discovery scoring | discovery/ |
-
-### Data Flow
-
-```
-1. Topic Research Flow
-   User: /research --keywords "somaliland independence"
-   ↓
-   discovery/keyword_report.py
-   ├→ autocomplete.py → YouTube suggestions
-   ├→ trends.py → Google Trends data
-   └→ youtube_search.py → Competitor analysis
-   ↓
-   Output: KEYWORD-RESEARCH.md in project folder
-
-2. Script Generation Flow
-   User: /script --generate 1-somaliland-2025
-   ↓
-   script-quality/generate.py
-   ├→ Read VERIFIED-RESEARCH.md
-   ├→ Read .claude/REFERENCE/STYLE-GUIDE.md
-   ├→ Claude API with prompt caching
-   ↓
-   Output: SCRIPT.md
-   ↓
-   Auto-run: quality_report.py
-   ├→ readability.py → Readability metrics
-   └→ repetition.py → Repetition detection
-   ↓
-   Output: SCRIPT-QUALITY-REPORT.md
-
-3. Title Optimization Flow
-   User: /publish --validate-title 1-somaliland-2025
-   ↓
-   discovery/keyword_report.py
-   ├→ Extract title variants from YOUTUBE-METADATA.md
-   ├→ Score each via autocomplete + trends + search
-   ↓
-   Output: Title recommendation with scores
+## Recommended Stack Additions
+
+### Demand Research Layer
+
+| Technology | Version | Purpose | Why |
+|------------|---------|---------|-----|
+| **trendspyg** | 0.3.0+ | Google Trends data | pytrends archived April 2025. trendspyg is actively maintained replacement with 188K+ config options, CLI + Python API, real-time trending searches. FREE unlimited usage |
+| **python-youtube** | 0.9.8+ | YouTube Data API wrapper | Cleaner interface than raw google-api-python-client. Modern `pyyoutube.Client` API for channel/video metadata. Simplifies quota management |
+| **scrapetube** | Latest (Jan 2026) | YouTube scraping (no API quota) | Scrapes channels/playlists/search WITHOUT YouTube API quota consumption. Fallback when 10K daily quota exhausted. Updated Jan 2026, actively maintained |
+
+### Data Analysis Layer (Already Exists)
+
+| Technology | Current Version | Purpose | Notes |
+|------------|-----------------|---------|-------|
+| **pandas** | 2.3.3+ | Data manipulation | Already in use for analytics. Reuse for opportunity scoring calculations |
+| **numpy** | 2.4.1+ | Numerical operations | Already in use. Latest version (Jan 10, 2026) |
+| **SQLite** | Built-in | Keyword/trend storage | Already used in `tools/discovery/keywords.db`. Extend schema for trends + competitor cache |
+
+### Database Layer Extensions
+
+Extend existing SQLite schema in `tools/discovery/keywords.db`:
+
+```sql
+-- Trend data from trendspyg
+CREATE TABLE trends (
+    keyword TEXT,
+    timestamp INTEGER,
+    interest INTEGER,      -- 0-100 scale from Google Trends
+    region TEXT,
+    source TEXT DEFAULT 'trendspyg',
+    PRIMARY KEY (keyword, timestamp, region)
+);
+
+-- Competitor channel cache (avoid redundant API calls)
+CREATE TABLE competitor_channels (
+    channel_id TEXT PRIMARY KEY,
+    channel_name TEXT,
+    subscriber_count INTEGER,
+    view_count INTEGER,
+    video_count INTEGER,
+    last_updated INTEGER
+);
+
+-- Competitor video cache
+CREATE TABLE competitor_videos (
+    video_id TEXT PRIMARY KEY,
+    channel_id TEXT,
+    title TEXT,
+    view_count INTEGER,
+    like_count INTEGER,
+    comment_count INTEGER,
+    duration_seconds INTEGER,
+    published_at INTEGER,
+    last_updated INTEGER,
+    FOREIGN KEY (channel_id) REFERENCES competitor_channels(channel_id)
+);
+
+-- Opportunity scores (reusable across research sessions)
+CREATE TABLE opportunity_scores (
+    topic TEXT PRIMARY KEY,
+    demand_score REAL,        -- 0-4 (from trends)
+    competition_score REAL,   -- 0-4 (inverse of saturation)
+    fit_score REAL,           -- 0-4 (document-friendly)
+    hook_score REAL,          -- 0-4 (modern relevance)
+    total_score REAL,         -- Sum (max 16)
+    calculated_at INTEGER
+);
 ```
 
 ---
 
-## 5. Dependencies & Installation
+## Installation Commands
 
-### Python Requirements (NEW)
+### Core Additions (Required)
 
+```bash
+# Demand research
+pip install trendspyg[cli,analysis]>=0.3.0
+
+# YouTube Data API wrapper
+pip install python-youtube>=0.9.8
+
+# YouTube scraping fallback (no API quota)
+pip install scrapetube
+```
+
+### Verify Existing Dependencies (Should Already Be Installed)
+
+```bash
+# From v1.2 script-checkers and analytics
+pip install pandas>=2.3.0
+pip install numpy>=2.4.0
+
+# From v1.1 YouTube Analytics API
+pip install google-api-python-client
+pip install google-auth-oauthlib
+pip install google-auth-httplib2
+```
+
+### Environment Variables (No Changes Needed)
+
+Existing OAuth2 flow already has `youtube.readonly` scope for YouTube Data API v3. No new API keys required.
+
+---
+
+## What NOT to Add (And Why)
+
+### ❌ pytrends (Google Trends library)
+
+**Why avoid:**
+- **CRITICAL:** Archived April 17, 2025 with no official replacement
+- No maintenance, known issues unaddressed
+- Breaks frequently when Google changes backend
+- "Not built for scale, reliability, or production use"
+
+**Alternative:** trendspyg (modern replacement, 188K+ configurations, actively maintained)
+
+**Confidence:** HIGH — Multiple sources confirm pytrends deprecation
+
+**Sources:**
+- [pytrends Archive Notice](https://github.com/GeneralMills/pytrends) — Archived April 17, 2025
+- [Top 4 Pytrends Alternatives 2026](https://meetglimpse.com/software-guides/pytrends-alternatives/) — Why pytrends deprecated
+- [trendspyg GitHub](https://github.com/flack0x/trendspyg) — Modern replacement with active maintenance
+
+### ❌ Official Google Trends API (Alpha)
+
+**Why avoid:**
+- Still in limited alpha as of Jan 2026
+- Requires application + approval (prioritizes researchers/journalists)
+- "Won't be publicly available for another year" (as of Jan 2026)
+- Restricted quotas, limited endpoints
+
+**Alternative:** trendspyg (free, unlimited, no approval needed)
+
+**When to reconsider:** If Google opens public access OR channel grows to enterprise scale
+
+**Confidence:** HIGH — Official API not production-ready for solo creators
+
+**Sources:**
+- [Google Trends API Alpha Launch](https://blogs.garudmarketing.com/google-trends-api-alpha-launch/) — Application process, limitations
+- [Google's July 2025 Update: The Google Trends API](https://thatware.co/july-2025-update-google-trends-api/) — Current alpha status
+
+### ❌ VidIQ/TubeBuddy Paid API Access
+
+**Why avoid:**
+- VidIQ API only available at enterprise tier ($500+/year)
+- TubeBuddy has no public API
+- Would require browser automation (fragile, detection-prone)
+- Channel already has VidIQ Pro subscription for manual use
+- Can build equivalent scoring with free tools (YouTube Data API + Google Trends)
+
+**Alternative approach:**
+- Use VidIQ manually for inspiration and validation
+- Build custom opportunity scoring with free APIs
+- Cost: $0 (within existing API quotas)
+
+**Confidence:** HIGH — VidIQ/TubeBuddy are manual tools, not programmatic APIs
+
+**Sources:**
+- [Best YouTube Analytics Tools 2026](https://outlierkit.com/blog/best-youtube-analytics-tools) — Tool comparison
+- [VidIQ vs TubeBuddy](https://outlierkit.com/blog/vidiq-vs-tubebuddy) — Pricing and API availability
+
+### ❌ Heavy ML Libraries (TensorFlow, PyTorch, scikit-learn)
+
+**Why avoid:**
+- Overkill for opportunity scoring (simple formula: demand × gap × fit / effort)
+- Large dependencies (~500MB+ each for TF/PyTorch)
+- Slow installation, potential version conflicts
+- Rule-based filters sufficient for format compatibility
+
+**Alternative approach:**
+- Use pandas + numpy for scoring calculations (already installed)
+- Implement scoring formula directly (no ML needed)
+- Detection heuristics for animation requirements (title patterns, channel analysis)
+
+**Confidence:** HIGH — Problem doesn't require ML complexity
+
+### ❌ Web Scraping Frameworks (Scrapy, Selenium)
+
+**Why avoid:**
+- Already have pyppeteer for YouTube autocomplete (v1.2, working)
+- scrapetube handles YouTube scraping without browser automation
+- Scrapy is overkill for simple API/scraping tasks
+- Selenium requires browser driver maintenance
+
+**Current approach (keep):**
+- pyppeteer + pyppeteer-stealth for autocomplete (already working in v1.2)
+- scrapetube for channel/video scraping (lightweight, no browser)
+- YouTube Data API for metadata (official, reliable)
+
+**Confidence:** HIGH — Current tools cover use cases
+
+---
+
+## Integration Points with Existing Stack
+
+### 1. Extend `tools/discovery/` Module
+
+**Current structure (v1.2):**
+```
+tools/discovery/
+├── autocomplete.py       # YouTube autocomplete scraper (pyppeteer)
+├── intent_mapper.py      # 6-category intent classification
+├── metadata_checker.py   # Pre-publish validation
+├── diagnostics.py        # CTR vs impressions analysis
+├── keywords.py           # Keyword extraction
+├── database.py           # SQLite keyword storage
+└── vidiq_workflow.py     # VidIQ manual workflow guide
+```
+
+**Add for v1.3:**
+```
+tools/discovery/
+├── demand_research.py       # NEW: trendspyg integration for search volume
+├── competitor_analysis.py   # NEW: python-youtube + scrapetube for competition
+├── opportunity_scorer.py    # NEW: Scoring formula (demand × gap × fit)
+└── format_filter.py         # NEW: Document-friendly vs animation detection
+```
+
+### 2. YouTube Data API Quota Management
+
+**Current quota:** 10,000 units/day (default free tier)
+**Reset:** Midnight Pacific Time
+
+**Quota costs for niche discovery operations:**
+
+| Operation | Quota Cost | Use Case |
+|-----------|------------|----------|
+| `search.list` | 100 units | Find videos on topic (competitor analysis) |
+| `videos.list` | 1 unit | Get video metadata (batch 50 videos per call) |
+| `channels.list` | 1 unit | Get channel statistics |
+| `comments.list` | 1 unit | Analyze audience questions (already used in v1.1) |
+
+**Quota budget example (niche discovery session):**
+- Search 10 topics: 10 × 100 = 1,000 units
+- Get metadata for 500 videos: 10 batches × 1 = 10 units (batched)
+- Get 10 channel stats: 10 units
+- **Total:** ~1,020 units (10% of daily quota)
+
+**Efficiency strategies:**
+1. **Cache aggressively** — Store channel/video data in SQLite (avoid duplicate API calls)
+2. **Batch requests** — Request 50 video IDs per `videos.list` call (costs 1 unit, not 50)
+3. **Fallback to scrapetube** — When quota exhausted, use scrapetube (no quota cost)
+4. **Stale data acceptable** — Competitor metrics don't need real-time updates (cache for 7 days)
+
+**Request quota increase (if needed):**
+1. Complete compliance audit (show Terms of Service compliance)
+2. Submit form: https://support.google.com/youtube/contact/yt_api_form
+3. Provide realistic estimates with calculations
+4. Show track record of responsible usage (v1.1 analytics already using API responsibly)
+
+**Cost:** Free (approval based on merit and compliance, no fees)
+
+**Confidence:** HIGH — Official process, existing API usage demonstrates compliance
+
+**Sources:**
+- [YouTube Data API Quota Calculator](https://developers.google.com/youtube/v3/determine_quota_cost) — Official quota costs
+- [Quota and Compliance Audits](https://developers.google.com/youtube/v3/guides/quota_and_compliance_audits) — How to request increases
+- [YouTube API Limits Guide](https://www.getphyllo.com/post/youtube-api-limits-how-to-calculate-api-usage-cost-and-fix-exceeded-api-quota) — Best practices
+
+### 3. OAuth2 Flow (Already Working)
+
+**Current implementation:** `tools/youtube-analytics/auth.py`
+- Desktop app flow (port 8080)
+- Token refresh automatic
+- Credentials in `tools/youtube-analytics/credentials/`
+- Scopes: `yt-analytics.readonly`, `youtube.readonly`
+
+**No changes needed** — Existing auth already has `youtube.readonly` scope for YouTube Data API v3
+
+**Confidence:** HIGH — v1.1 integration validates auth works
+
+### 4. Rate Limiting for trendspyg
+
+**Built-in rate limiting:**
+- trendspyg includes respectful delays between requests
+- Random jitter to avoid patterns
+- Exponential backoff on errors
+- Respects Google's robots.txt
+
+**Best practices:**
+- Don't hammer endpoints (defeats anti-detection measures)
+- Batch queries when possible (1 query for multiple keywords)
+- Cache results in SQLite (trends don't change minute-to-minute)
+- Max 1-2 queries per minute (respectful rate)
+
+**No quota limits** — trendspyg scrapes public Google Trends pages (free, unlimited)
+
+**Confidence:** HIGH — trendspyg designed for responsible scraping
+
+**Sources:**
+- [trendspyg GitHub](https://github.com/flack0x/trendspyg) — Rate limiting documentation
+- [How to Scrape Google Trends 2026](https://brightdata.com/blog/web-data/how-to-scrape-google-trends) — Best practices
+
+---
+
+## Recommended Implementation Approach
+
+### Phase 1: Demand Research (Week 1)
+
+**Add:** `tools/discovery/demand_research.py`
+
+**Features:**
+- Query Google Trends via trendspyg
+- Get interest over time (5 years rolling window, weekly aggregation)
+- Get related queries and rising topics
+- Cache in SQLite `trends` table
+
+**Example usage:**
 ```python
-# requirements-v1.2.txt
+from tools.discovery.demand_research import get_trend_data
 
-# Script Quality
-anthropic>=0.18.0           # Claude API
-py-readability-metrics>=1.4.5
-textstat>=0.7.3
-spacy>=3.7.0
-en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
-
-# Discovery/SEO
-pytrends>=4.9.2
-requests>=2.31.0
-
-# Evaluation (OPTIONAL)
-evaluate>=0.4.1
-rouge-score>=0.1.2
-nltk>=3.8.1
-
-# EXISTING (v1.1) - DO NOT REMOVE
-google-auth-oauthlib>=1.2.0
-google-auth-httplib2>=0.2.0
-google-api-python-client>=2.100.0
+result = get_trend_data("medieval flat earth myth")
+# Returns: {
+#   'interest_over_time': [...],  # 5 years weekly data
+#   'related_queries': [...],     # "flat earth medieval", etc.
+#   'rising_queries': [...],      # Trending variations
+#   'peak_interest': 73,          # Max interest score (0-100)
+#   'avg_interest': 42,           # Mean interest score
+#   'demand_score': 3.0           # 0-4 scale for scoring formula
+# }
 ```
 
-### Installation Script
-
-```bash
-# Install new dependencies
-pip install anthropic py-readability-metrics textstat spacy pytrends
-
-# Download spaCy English model
-python -m spacy download en_core_web_sm
-
-# Optional: NLG evaluation
-pip install evaluate rouge-score nltk
+**Scoring formula:**
+```python
+# Convert Google Trends interest (0-100) to demand score (0-4)
+if avg_interest >= 75:
+    demand_score = 4.0  # High demand
+elif avg_interest >= 50:
+    demand_score = 3.0  # Medium-high demand
+elif avg_interest >= 25:
+    demand_score = 2.0  # Medium demand
+else:
+    demand_score = 1.0  # Low demand
 ```
 
-### Environment Variables (NEW)
+### Phase 2: Competition Analysis (Week 2)
 
-```bash
-# .env file
+**Add:** `tools/discovery/competitor_analysis.py`
 
-# EXISTING - YouTube API
-YOUTUBE_API_KEY=...
-YOUTUBE_CLIENT_SECRET=...
+**Features:**
+- Search YouTube for topic keywords (YouTube Data API)
+- Get top 20 videos per topic
+- Analyze: views, engagement, channel size, upload frequency
+- Identify gaps (topics with high demand, low competition)
+- Fall back to scrapetube if quota issues
 
-# NEW - Claude API
-ANTHROPIC_API_KEY=sk-ant-...    # Get from console.anthropic.com
+**Example usage:**
+```python
+from tools.discovery.competitor_analysis import analyze_competition
+
+result = analyze_competition("medieval literacy rates")
+# Returns: {
+#   'total_videos': 847,
+#   'top_videos': [...],              # Top 20 by views
+#   'avg_views': 12500,
+#   'channel_sizes': [234000, 1200000, 45000, ...],
+#   'saturation_score': 6.2,          # 0-10 scale (10 = saturated)
+#   'competition_score': 2.4,         # 0-4 scale (inverse of saturation)
+#   'gap_opportunity': 'medium'       # low/medium/high
+# }
+```
+
+**Scoring formula:**
+```python
+# Convert saturation (0-10) to competition score (0-4)
+# High saturation = low competition score
+competition_score = 4.0 - (saturation_score * 0.4)
+
+# Saturation factors:
+# - Number of videos on topic (>1000 = saturated)
+# - Channel sizes (many 1M+ channels = saturated)
+# - Recent uploads (active niche = saturated)
+# - View distribution (few top performers = gap opportunity)
+```
+
+**API quota fallback:**
+```python
+def get_video_list(topic, use_api=True):
+    """Get videos with fallback to scrapetube"""
+    if use_api and quota_available():
+        # Use YouTube Data API (costs 100 units)
+        return youtube_api_search(topic)
+    else:
+        # Fall back to scrapetube (no quota cost)
+        return scrapetube_search(topic)
+```
+
+### Phase 3: Format Filtering (Week 3)
+
+**Add:** `tools/discovery/format_filter.py`
+
+**Features:**
+- Analyze top videos for format requirements
+- Flag: Animation-heavy, infographics, talking head, documentary
+- Score: Document-friendliness (0-4)
+
+**Detection heuristics:**
+1. **Title patterns:**
+   - "explained with animation" → animation required
+   - "animated history" → animation required
+   - "documentary" → document-friendly
+
+2. **Channel analysis:**
+   - Kurzgesagt, RealLifeLore → animation-focused
+   - History Matters → animation-focused
+   - Fall of Civilizations, Kraut → document-friendly
+
+3. **Video duration vs content density:**
+   - 10 min video with 50+ visual sources → document-friendly
+   - 10 min video with 5 sources → likely animation-heavy
+
+**Example usage:**
+```python
+from tools.discovery.format_filter import assess_format_fit
+
+result = assess_format_fit("Sykes-Picot agreement")
+# Returns: {
+#   'format_type': 'documentary',
+#   'animation_required': False,
+#   'document_friendly': True,
+#   'fit_score': 4.0,              # Perfect fit for channel
+#   'reasoning': 'Top videos show treaty documents, maps, historical photos. Primary sources exist and are visually compelling.'
+# }
+```
+
+**Scoring formula:**
+```python
+# Document-friendliness score (0-4)
+if animation_required:
+    fit_score = 1.0  # Poor fit (channel can't produce animations)
+elif top_videos_show_documents:
+    fit_score = 4.0  # Perfect fit (evidence-based format)
+elif mixed_format:
+    fit_score = 2.5  # Possible but challenging
+else:
+    fit_score = 1.5  # Unclear fit
+```
+
+### Phase 4: Opportunity Scoring (Week 4)
+
+**Add:** `tools/discovery/opportunity_scorer.py`
+
+**Features:**
+- Combine demand (trends) + competition (saturation) + format fit + modern hook
+- Calculate total score (max 16, matching existing gap scoring from v1.0)
+- Rank topics
+
+**Formula (from v1.0 Key Decisions in PROJECT.md):**
+```
+Score = Demand (0-4) + Competition (0-4) + Fit (0-4) + Hook (0-4)
+Max: 16 points
+
+Demand: Google Trends interest (0-24 = 1, 25-49 = 2, 50-74 = 3, 75-100 = 4)
+Competition: Inverse saturation (many big channels = 1, gaps = 4)
+Fit: Document-friendliness (animation required = 1, docs exist = 4)
+Hook: Modern relevance (historical only = 1, active news hook = 4)
+```
+
+**Example usage:**
+```python
+from tools.discovery.opportunity_scorer import score_topic
+
+result = score_topic("Chagos Islands UK treaty 2024")
+# Returns: {
+#   'topic': 'Chagos Islands UK treaty 2024',
+#   'demand_score': 3.5,          # Rising interest (treaty news)
+#   'competition_score': 3.0,     # Few quality videos
+#   'fit_score': 4.0,             # Treaty documents available
+#   'hook_score': 4.0,            # Active news (2024 treaty)
+#   'total_score': 14.5,          # High opportunity
+#   'recommendation': 'Strong candidate - high demand, low competition, perfect format fit, current news hook'
+# }
+```
+
+**Hook scoring (manual input for now):**
+```python
+# Modern relevance hook (0-4)
+# User specifies news hook when scoring topic
+
+hook_types = {
+    'active_news': 4.0,        # Current events, ongoing
+    'recent_event': 3.0,       # 2023-2025 event
+    'recurring_debate': 2.5,   # Evergreen but active
+    'historical_only': 1.0     # No modern connection
+}
 ```
 
 ---
 
-## 6. Cost Estimates
+## API Limits and Quotas Summary
 
-### Monthly Operating Costs (Solo Creator, 2 videos/month)
+### YouTube Data API v3
+
+**Daily quota:** 10,000 units (free tier)
+**Reset:** Midnight Pacific Time
+**Current usage (v1.1):** ~300-500 units/day (analytics, comments)
+**New usage (v1.3):** ~1,000 units per niche discovery session
+**Budget headroom:** 8,000+ units/day available
+
+**Mitigation strategies:**
+- Cache competitor data (7-day TTL)
+- Batch video metadata requests (50 per call)
+- Fall back to scrapetube when quota low
+- Request increase if needed (free, approval-based)
+
+**Confidence:** HIGH — Sufficient quota for solo creator workflow
+
+### Google Trends (via trendspyg)
+
+**Quota:** None (scrapes public pages)
+**Rate limiting:** Built-in respectful delays
+**Cost:** Free, unlimited
+
+**Best practices:**
+- 1-2 queries per minute max
+- Cache results (trends stable over days)
+- Batch keywords when possible
+
+**Confidence:** HIGH — Free, unlimited, maintained library
+
+### scrapetube (YouTube scraping fallback)
+
+**Quota:** None (scrapes public YouTube pages)
+**Rate limiting:** None documented, use respectfully
+**Cost:** Free
+
+**Use cases:**
+- Fallback when YouTube Data API quota exhausted
+- Bulk video list retrieval (thousands of videos)
+- Channel history analysis (all uploads)
+
+**Confidence:** HIGH — Actively maintained, updated Jan 2026
+
+**Sources:**
+- [scrapetube GitHub](https://github.com/dermasmid/scrapetube) — Updated Jan 6, 2026
+- [scrapetube Package Health](https://snyk.io/advisor/python/scrapetube) — Maintenance confirmation
+
+---
+
+## Version Verification Notes
+
+All versions verified via web search on 2026-01-31:
+
+**New libraries (v1.3):**
+- **trendspyg 0.3.0**: Latest on PyPI (actively maintained)
+  - Source: [trendspyg PyPI](https://libraries.io/pypi/trendspyg) — Version 0.3.0 confirmed
+- **python-youtube 0.9.8**: Released 2025-08-22 (latest available)
+  - Source: [python-youtube PyPI](https://pypi.org/project/python-youtube/) — Version 0.9.8 confirmed
+- **scrapetube**: Updated 2026-01-06 (active maintenance)
+  - Source: [scrapetube GitHub](https://github.com/dermasmid/scrapetube) — Jan 6, 2026 update confirmed
+
+**Existing libraries (v1.2, verify current):**
+- **pandas 2.3.3**: Current stable (released 2025-06-05)
+  - Source: [pandas Release Notes](https://pandas.pydata.org/docs/whatsnew/index.html)
+- **numpy 2.4.1**: Latest (released 2026-01-10)
+  - Source: [NumPy News](https://numpy.org/news/) — Version 2.4.1 Jan 10, 2026
+- **matplotlib 3.10.0**: Current (released 2024-12-14)
+  - Source: [Matplotlib Dependency Policy](https://matplotlib.org/devdocs/devel/min_dep_policy.html)
+
+**CRITICAL deprecation:**
+- **pytrends**: Archived April 17, 2025 — DO NOT USE
+  - Source: [pytrends GitHub](https://github.com/GeneralMills/pytrends) — Archive notice confirmed
+
+---
+
+## Alternatives Considered
+
+| Category | Recommended | Alternative | Why Not Alternative |
+|----------|-------------|-------------|---------------------|
+| Google Trends | trendspyg | pytrends | Archived April 2025, no maintenance, breaks frequently |
+| Google Trends | trendspyg | Official API (alpha) | Limited access, requires approval, won't be public for ~1 year |
+| Google Trends | trendspyg | SerpApi/Glimpse (paid) | $29-99/mo, trendspyg is free and sufficient for solo creator |
+| YouTube wrapper | python-youtube | google-api-python-client | Raw client verbose, python-youtube cleaner interface |
+| YouTube scraping | scrapetube | yt-dlp | yt-dlp for downloads, scrapetube specialized for metadata scraping |
+| YouTube scraping | scrapetube | Selenium/Scrapy | Heavier dependencies, scrapetube lightweight and sufficient |
+| YouTube scraping | scrapetube | pyppeteer (v1.2) | Already using pyppeteer for autocomplete, scrapetube complements (different use cases) |
+| Niche research | Build custom | VidIQ API | $500+/year for API access, can build equivalent with free tools |
+| Niche research | Build custom | TubeBuddy API | No public API, would require fragile browser automation |
+| Data analysis | pandas + numpy | scikit-learn/ML | Overkill for scoring formula, rule-based sufficient |
+
+---
+
+## Migration Notes (From v1.2 to v1.3)
+
+### No Breaking Changes
+
+**Existing stack continues to work:**
+- `tools/youtube-analytics/` — No changes needed
+- `tools/discovery/autocomplete.py` — Keep using pyppeteer (v1.2)
+- `tools/discovery/intent_mapper.py` — Keep as-is
+- OAuth2 flow — Already has `youtube.readonly` scope
+
+### Additive Integration
+
+**New modules extend existing:**
+- Add 4 new Python files to `tools/discovery/`
+- Extend SQLite schema (new tables, no migration of existing data needed)
+- New CLI commands: `/discover --demand TOPIC`, `/discover --competitors TOPIC`
+
+### Dependency Conflicts
+
+**Watch for:**
+- Python 3.14 + spaCy incompatibility (noted in PROJECT.md tech debt)
+  - Solution: Use Python 3.11-3.13 for now
+- trendspyg, python-youtube, scrapetube all support Python 3.6+ (no conflicts)
+
+**No conflicts expected** — All new libraries are lightweight, pure Python or minimal C extensions
+
+**Confidence:** HIGH — Additive changes, no replacements
+
+---
+
+## Testing Strategy
+
+### Unit Tests
+
+```python
+# tests/test_demand_research.py
+def test_trendspyg_integration():
+    """Verify trendspyg returns valid trend data"""
+    result = get_trend_data("dark ages myth")
+    assert 'interest_over_time' in result
+    assert isinstance(result['peak_interest'], (int, float))
+    assert 0 <= result['demand_score'] <= 4
+
+# tests/test_competitor_analysis.py
+def test_youtube_api_search():
+    """Verify YouTube Data API search works"""
+    result = analyze_competition("medieval literacy")
+    assert 'total_videos' in result
+    assert result['total_videos'] > 0
+    assert 0 <= result['competition_score'] <= 4
+
+# tests/test_format_filter.py
+def test_animation_detection():
+    """Verify animation requirement detection"""
+    result = assess_format_fit("Kurzgesagt evolution")
+    assert result['animation_required'] == True
+    assert result['fit_score'] < 2.0  # Poor fit for channel
+
+# tests/test_opportunity_scorer.py
+def test_end_to_end_scoring():
+    """Verify full pipeline: trends → competition → format → scoring"""
+    topic = "Chagos Islands UK treaty"
+    score = score_topic(topic)
+    assert 0 <= score['total_score'] <= 16
+    assert 'recommendation' in score
+```
+
+### Integration Tests
+
+```python
+# tests/test_quota_fallback.py
+def test_scrapetube_fallback():
+    """Verify scrapetube fallback works when quota exhausted"""
+    # Mock quota exhaustion
+    with mock.patch('quota_available', return_value=False):
+        result = get_video_list("test topic", use_api=True)
+        # Should fall back to scrapetube, not fail
+        assert len(result) > 0
+
+# tests/test_cache_usage.py
+def test_competitor_cache():
+    """Verify SQLite cache reduces API calls"""
+    # First call hits API
+    analyze_competition("topic1")
+    api_calls_1 = count_api_calls()
+
+    # Second call (same topic) uses cache
+    analyze_competition("topic1")
+    api_calls_2 = count_api_calls()
+
+    assert api_calls_2 == api_calls_1  # No new API calls
+```
+
+### Manual Testing Checklist
+
+- [ ] Run demand research on known topics (verify scores match reality)
+- [ ] Compare competitor analysis with manual VidIQ check
+- [ ] Validate opportunity scores against actual video performance (historical data)
+- [ ] Test quota fallback (intentionally exhaust quota, verify scrapetube works)
+- [ ] Verify SQLite cache (second query should be instant)
+- [ ] Check format detection (animation channels vs documentary channels)
+
+---
+
+## Deployment Checklist
+
+- [ ] Install trendspyg with CLI extras: `pip install trendspyg[cli,analysis]`
+- [ ] Install python-youtube: `pip install python-youtube>=0.9.8`
+- [ ] Install scrapetube: `pip install scrapetube`
+- [ ] Verify existing YouTube OAuth still works (no re-auth needed)
+- [ ] Test trendspyg CLI: `trendspyg "dark ages myth"`
+- [ ] Create new SQLite tables (see schema above)
+- [ ] Add 4 new Python modules to `tools/discovery/`
+- [ ] Update command system with `/discover --demand`, `/discover --competitors`
+- [ ] Document quota usage expectations in `.planning/codebase/`
+- [ ] Test quota fallback (scrapetube when API exhausted)
+- [ ] Update `PROJECT.md` with v1.3 validated capabilities
+
+---
+
+## Cost Estimates
+
+### Monthly Operating Costs (Solo Creator, 1-2 videos/month)
 
 | Service | Usage | Cost | Notes |
 |---------|-------|------|-------|
-| **Claude API (Script Generation)** | 2 scripts/month, 20K input + 3K output each | $1.20/month | With prompt caching: ~$0.50/month |
-| **YouTube Data API** | 10,000 units/day quota | FREE | Already allocated |
-| **YouTube Autocomplete** | ~50 queries/month | FREE | Undocumented but free |
-| **Google Trends (pytrends)** | ~20 queries/month | FREE | Unofficial but free |
-| **spaCy, textstat** | Local processing | FREE | Open source |
+| **trendspyg (Google Trends)** | ~20 queries/month | FREE | Unlimited, no API key needed |
+| **YouTube Data API** | 10,000 units/day quota | FREE | Already allocated in v1.1 |
+| **scrapetube** | Fallback usage only | FREE | No quota, scrapes public pages |
+| **python-youtube** | Wrapper around YouTube API | FREE | Library, not service |
+| **SQLite** | Local database | FREE | Built into Python |
 
-**Total New Costs: $0.50-$1.20/month**
+**Total New Costs: $0/month**
 
-**One-Time Costs:** $0 (all open source or free tier)
+**One-Time Costs:** $0 (all open source, no paid tiers needed)
 
-### Cost Optimization Strategies
+### Quota Usage Estimates
 
-1. **Prompt caching:** Reuse style guide in cache (saves 90% on repeated context)
-2. **Batch processing:** Generate multiple title variants in one API call
-3. **Local processing:** All analysis (readability, repetition) runs locally, no API costs
+**Per niche discovery session (10 topics):**
+- Demand research (trendspyg): 0 API units (no YouTube API usage)
+- Competition analysis (YouTube Data API): ~1,020 units
+- Format filtering (analyze cached videos): 0 units (uses cache)
+- Opportunity scoring (calculation only): 0 units (local)
+
+**Daily budget:** 10,000 units
+**Sessions per day:** ~9 sessions before quota exhausted (then fall back to scrapetube)
+
+**Realistic usage:** 1-2 discovery sessions per week = ~2,000-4,000 units/week (well within quota)
 
 ---
 
-## 7. Risk Assessment
+## Risk Assessment
 
 ### Technical Risks
 
-| Risk | Severity | Mitigation |
-|------|----------|------------|
-| YouTube autocomplete endpoint changes | MEDIUM | Monitor community tools, have fallback to manual research |
-| pytrends breaks (Google backend change) | MEDIUM | Wait for community fix (usually <1 week), use autocomplete as backup |
-| Claude API costs exceed budget | LOW | Prompt caching + monitoring, costs are predictable |
-| spaCy model accuracy issues | LOW | Thresholds are tunable, human review remains |
-| Rate limiting on undocumented APIs | LOW | Implement respectful delays (1 req/sec) |
+| Risk | Severity | Likelihood | Mitigation |
+|------|----------|-----------|------------|
+| trendspyg breaks (Google backend change) | MEDIUM | LOW | Active maintenance, community fixes quickly. Fall back to manual Google Trends |
+| YouTube Data API quota exhausted | LOW | LOW | Fallback to scrapetube (no quota cost). Request increase if needed (free) |
+| scrapetube detection/blocking | LOW | LOW | Library maintained, no evidence of blocking. Fall back to API if issues |
+| Format detection false positives | MEDIUM | MEDIUM | Heuristics tunable, human review remains final decision |
+| Opportunity scores don't correlate with success | MEDIUM | MEDIUM | Track metrics vs. performance, iterate scoring formula |
 
 ### Integration Risks
 
-| Risk | Severity | Mitigation |
-|------|----------|------------|
-| Slash command complexity increases | MEDIUM | Clear help text, flag-based organization |
-| Multiple data sources conflict | LOW | Clear precedence: autocomplete > trends > manual |
-| Script quality metrics don't correlate with success | MEDIUM | Track metrics vs. performance, adjust thresholds |
+| Risk | Severity | Likelihood | Mitigation |
+|------|----------|-----------|------------|
+| SQLite schema conflicts | LOW | LOW | New tables only, no changes to existing schema |
+| Dependency version conflicts | LOW | LOW | All libraries support Python 3.6+, minimal dependencies |
+| Command system complexity | MEDIUM | MEDIUM | Clear flag-based organization, comprehensive help text |
 
 ### Workflow Risks
 
-| Risk | Severity | Mitigation |
-|------|----------|------------|
-| NotebookLM API becomes available mid-project | LOW | Current manual workflow works, API would be enhancement |
-| Over-reliance on automation reduces editorial judgment | MEDIUM | Metrics inform, don't decide. Human review remains |
-| Tool maintenance burden | LOW | Minimize dependencies, use stable libraries |
+| Risk | Severity | Likelihood | Mitigation |
+|------|----------|-----------|------------|
+| Over-reliance on automation reduces editorial judgment | MEDIUM | MEDIUM | Tools inform, don't decide. Opportunity scores are suggestions, not mandates |
+| False confidence from metrics | LOW | MEDIUM | Validate scores against historical data. Track prediction accuracy |
+| Tool maintenance burden | LOW | LOW | Minimal dependencies, stable libraries. trendspyg + scrapetube actively maintained |
 
 ---
 
-## 8. What NOT to Add (and Why)
+## Future Considerations (Out of Scope for v1.3)
 
-### 8.1 VidIQ API Integration
+### Later Milestones
 
-**Status:** NO API AVAILABLE
+**If demand grows:**
+- Apply for Google Trends API alpha access (more reliable, structured data)
+- Request YouTube Data API quota increase (>10K/day) if hitting limits
+- Add visualization dashboard (matplotlib charts for trend analysis)
 
-VidIQ does not provide a public API. Community tools exist (VidIQ-Pack on GitHub) but rely on scraping/exports, not official API access.
+**If analysis gets complex:**
+- Add scipy for statistical analysis (correlation between scores and performance)
+- Consider lightweight ML for pattern detection (only if rule-based insufficient)
+- Implement A/B testing framework (compare opportunity scores vs. actual performance)
 
-**Recommendation:** Continue manual VidIQ workflow. Not worth reverse engineering.
+**Integration opportunities:**
+- NotebookLM Enterprise API (when available) for source-based topic validation
+- YouTube Analytics API for retention heatmap prediction (requires 30+ videos with data)
+- Automated topic refresh (monthly re-scoring of topic database)
 
-**Sources:**
-- [VidIQ Features Review 2026](https://www.getapp.com/marketing-software/a/vidiq/)
-- [VidIQ Help Center](https://support.vidiq.com/en)
+### NOT Recommended
 
-### 8.2 Paid Keyword Research APIs
-
-**Services:** YouTube Keyword Research API (Zyla), YouTube Trending Topics API (Zyla), TubeBuddy API
-
-**Why Skip:**
-- Cost: $20-100/month for minimal marginal benefit
-- Overkill: Solo creator (1-2 videos/month) doesn't need enterprise-level keyword tools
-- Free tools sufficient: YouTube autocomplete + pytrends + YouTube Data API cover 80% of use case
-- Validation: Current VidIQ Pro + manual research already works
-
-**Recommendation:** Use free tools. Paid APIs are for agencies/high-volume creators.
-
-### 8.3 NotebookLM Unofficial APIs
-
-**Services:** notebooklm-py, nblm-rs, AutoContent API, Apify NotebookLM API
-
-**Why Skip:**
-- **Reverse engineering risk:** Unofficial clients may break when Google changes backend
-- **Limited functionality:** Export-only APIs don't solve core workflow (interactive research)
-- **Added complexity:** Another service to maintain and debug
-- **Enterprise API in alpha:** Official API coming but not production-ready
-
-**Recommendation:** Wait for official NotebookLM API to reach production. Focus on workflow optimization (structured prompts, export templates).
-
-### 8.4 Video Editing Automation
-
-**Out of scope:** CLAUDE.md explicitly excludes "Video editing automation"
-
-**Recommendation:** Keep focus on pre-production (research, scripts) and post-production analysis (analytics). Editing stays manual in DaVinci Resolve.
-
-### 8.5 Predictive Analytics
-
-**Out of scope:** CLAUDE.md explicitly excludes "Predictive analytics — focus on learning, not prediction"
-
-**Recommendation:** Analyze what happened (patterns), don't predict what will happen. Discovery tools suggest topics, not guarantee success.
+- VidIQ/TubeBuddy paid subscriptions (already have VidIQ Pro for manual use, API not available)
+- Heavy ML frameworks (overkill for scoring formula)
+- Custom web scraping beyond scrapetube (maintenance burden, detection risk)
+- Real-time monitoring dashboards (batch analysis sufficient for solo creator)
+- Predictive analytics (CLAUDE.md explicitly excludes: "focus on learning, not prediction")
 
 ---
 
-## 9. Alternatives Considered
-
-### Alternative: Open-Source NotebookLM Clone
-
-**Option:** Use [Open Notebook](https://github.com/lfnovo/open-notebook) - open source NotebookLM implementation
-
-**Pros:**
-- Self-hosted, full control
-- Can integrate with custom workflows
-- No Google Cloud dependency
-
-**Cons:**
-- Requires deployment and maintenance
-- Feature parity with NotebookLM unclear
-- User already has NotebookLM Enterprise subscription
-- Migration effort (move existing notebooks)
-
-**Decision:** NOT RECOMMENDED - NotebookLM already works, manual workflow is acceptable
-
-### Alternative: Glimpse API for Google Trends
-
-**Option:** Use Glimpse (commercial Google Trends API) instead of pytrends
-
-**Pros:**
-- More reliable (doesn't break when Google changes)
-- Complete data (not sampled)
-- Used by Fortune 50
-
-**Cons:**
-- Cost: $$$$ (enterprise pricing)
-- Overkill for solo creator
-- pytrends works 95% of the time
-
-**Decision:** NOT RECOMMENDED - Free pytrends sufficient, paid API doesn't justify cost for 1-2 videos/month
-
-### Alternative: OpenAI GPT-4 for Script Generation
-
-**Option:** Use OpenAI GPT-4/GPT-4 Turbo instead of Claude
-
-**Pros:**
-- Slightly lower cost ($2.50/$10 per M tokens for GPT-4 Turbo)
-- Wider adoption, more community resources
-
-**Cons:**
-- Smaller context window (128K vs Claude's 200K)
-- Claude's prompt engineering is already established in project
-- Claude Code already in use, API integration simpler
-- Anthropic's constitutional AI approach better for nuanced historical content
-
-**Decision:** NOT RECOMMENDED - Stick with Claude for consistency and larger context
-
----
-
-## 10. Roadmap Integration Points
-
-### How This Stack Enables Roadmap Phases
-
-| Roadmap Phase | Stack Component | How It Helps |
-|---------------|----------------|--------------|
-| **Phase 1: Topic Research** | Discovery module (autocomplete + trends + search) | Data-driven topic validation |
-| **Phase 2: Script Generation** | Claude API + style guide caching | Better first drafts, less revision |
-| **Phase 3: Script Quality Check** | Readability + repetition analysis | Objective quality metrics, flag issues early |
-| **Phase 4: Title Optimization** | Discovery module (autocomplete scoring) | Test title variants for discoverability |
-| **Phase 5: NotebookLM Workflow** | Structured prompts + export templates | Faster research extraction |
-
-### Dependencies Between Components
-
-```
-Discovery module
-├→ Informs topic selection (Phase 1)
-├→ Validates title variants (Phase 4)
-└→ Used independently of script-quality module
-
-Script Quality module
-├→ Depends on: VERIFIED-RESEARCH.md (from NotebookLM)
-├→ Depends on: .claude/REFERENCE/STYLE-GUIDE.md
-├→ Outputs: SCRIPT.md + SCRIPT-QUALITY-REPORT.md
-└→ Used independently of discovery module
-
-NotebookLM workflow
-├→ Feeds into: VERIFIED-RESEARCH.md
-├→ Used before: Script Quality module
-└→ Independent of API integration (manual workflow optimized)
-```
-
-### Build Order Recommendation
-
-1. **Phase 1:** Discovery module (simple, no dependencies)
-2. **Phase 2:** Script quality analysis (readability + repetition, no Claude API yet)
-3. **Phase 3:** Claude API script generation (most complex, depends on quality metrics)
-4. **Phase 4:** NotebookLM workflow optimization (documentation only, no code)
-5. **Phase 5:** Integration testing and slash command updates
-
-**Rationale:** Build from simple to complex, validate each component independently before integration.
-
----
-
-## 11. Success Metrics
+## Success Metrics
 
 ### How to Measure If This Stack Works
 
 | Goal | Metric | Target | Measurement |
 |------|--------|--------|-------------|
-| Better first drafts | Revision cycles per script | 1-2 (down from 3-4) | Manual tracking |
-| Script quality | Flesch Reading Ease score | 60-70 (conversational) | Automated |
-| Repetition reduction | Filler word count | <5 per script | Automated |
-| Topic validation | Topics with >10K monthly searches | 50%+ of topics | Discovery module |
-| Title optimization | Titles appearing in autocomplete | 70%+ of published videos | Discovery module |
-| NotebookLM efficiency | Time from research to VERIFIED-RESEARCH.md | <2 hours (down from 3-4) | Manual tracking |
+| **Topic validation** | Topics with >10K monthly searches identified | 50%+ of research sessions | Demand research module |
+| **Gap identification** | Low-competition topics found | 2-3 per month | Opportunity scorer |
+| **Time savings** | Topic research time | <1 hour (down from 2-3 hours) | Manual tracking |
+| **Format filtering** | Animation-required topics flagged | 90%+ accuracy | Manual validation vs. actual videos |
+| **Opportunity scoring** | High-scoring topics (12+) perform better | 2x better than low-scoring | Analytics correlation |
+| **Quota efficiency** | API quota exhaustion | <1x per month | Quota monitoring |
 
 ### What "Good" Looks Like
 
-**Script Quality:**
-- Script reads naturally on first take (no stumbles)
-- Readability scores in target ranges (60-70 FRE, 8-10 grade level)
-- Fewer than 3 repeated phrases per script
-- User says "This sounds like me" without heavy revision
+**Demand Research:**
+- Trend data available within 30 seconds per topic
+- Related queries reveal adjacent topic opportunities
+- Historical trends show whether topic is rising/stable/declining
 
-**Discovery:**
-- Topic validation data available before research begins
-- Title variants scored objectively (not just gut feeling)
-- Keyword research takes <30 minutes (down from 1-2 hours)
-- 1-2 "hidden gem" topics discovered per month (low competition, decent volume)
+**Competition Analysis:**
+- Top 20 competitors identified with view counts, channel sizes
+- Gap opportunities flagged (topics with demand but few quality videos)
+- Format requirements clear (animation vs. documentary)
 
-**NotebookLM Workflow:**
-- Structured notes copy-paste directly to VERIFIED-RESEARCH.md
-- Fewer "I need to go back and find the page number" moments
-- Research completeness checkable (all claims have sources)
+**Opportunity Scoring:**
+- Topics ranked objectively (not just gut feeling)
+- High-scoring topics (12-16) produce 2x better results than low-scoring
+- Scores inform decision, human judgment remains
+
+**Workflow:**
+- Niche discovery takes <1 hour (down from 2-3 hours manual research)
+- SQLite cache makes second queries instant
+- Quota fallback seamless (user doesn't notice API vs. scraping)
 
 ---
 
-## 12. Confidence Assessment
+## Confidence Assessment
 
 | Area | Confidence Level | Reason |
 |------|------------------|--------|
-| **Claude API** | HIGH | Official API, well-documented, already using Claude |
-| **Readability metrics** | HIGH | Established libraries (py-readability-metrics, textstat) |
-| **Repetition detection** | HIGH | spaCy is industry standard, custom logic straightforward |
-| **YouTube autocomplete** | HIGH | Undocumented but stable, community-validated for years |
-| **Google Trends (pytrends)** | MEDIUM | Works but fragile, requires maintenance when Google changes |
-| **NotebookLM API** | HIGH (that it doesn't exist) | Multiple sources confirm alpha status, not production-ready |
-| **NLG evaluation (ROUGE/BLEU)** | MEDIUM | Metrics exist but correlation with "good script" unclear |
-| **Cost estimates** | HIGH | Transparent pricing, calculable from usage |
-| **Integration complexity** | MEDIUM | New modules, but clear separation of concerns |
+| **trendspyg** | HIGH | Actively maintained replacement for archived pytrends. 188K+ configs, CLI + Python API |
+| **python-youtube** | HIGH | Official wrapper, well-documented, current version 0.9.8 (Aug 2025) |
+| **scrapetube** | HIGH | Actively maintained (updated Jan 6, 2026), community-validated |
+| **YouTube Data API integration** | HIGH | Already using in v1.1, OAuth2 working, quota sufficient |
+| **SQLite schema extension** | HIGH | Simple additive changes, no migration complexity |
+| **Opportunity scoring formula** | MEDIUM | Formula logical, needs validation against historical data |
+| **Format detection heuristics** | MEDIUM | Rule-based approach reasonable, requires tuning |
+| **Quota management** | HIGH | Fallback strategy (scrapetube) proven, cache reduces API calls |
+| **Cost estimates** | HIGH | All tools free, no hidden costs, quota sufficient |
+| **Integration complexity** | MEDIUM | 4 new modules, clear separation of concerns, additive only |
 
 ---
 
-## 13. Open Questions for User
+## Open Questions for Roadmap Creation
 
-Before implementing this stack, clarify:
+**Before building, clarify:**
 
-1. **Claude API budget:** Is $0.50-$1.20/month acceptable? (Estimate based on 2 scripts/month)
-2. **NotebookLM workflow:** Are you open to structured prompt templates, or prefer current freeform approach?
-3. **Quality metrics:** Which readability metrics matter most? (Sentence length? Grade level? Syllables per word?)
-4. **Discovery scope:** Topic validation only, or also title/keyword optimization?
-5. **Automation level:** Generate scripts fully automated (Claude API), or keep manual Claude Code interaction?
-6. **Risk tolerance:** Comfortable using undocumented YouTube autocomplete endpoint? (Stable but not officially supported)
+1. **Scoring weights:** Should all 4 components (demand, competition, fit, hook) be weighted equally? Or prioritize format fit (channel constraint)?
+
+2. **Hook scoring:** Modern relevance is manual input for now. Build automated news detection later, or keep manual?
+
+3. **Cache TTL:** How long to cache competitor data? 7 days? 30 days? Trade-off: freshness vs. API quota
+
+4. **Quota threshold:** At what quota level (e.g., 8,000/10,000 used) should we automatically fall back to scrapetube?
+
+5. **Validation timeline:** How many topics to score before validating formula against historical performance? 20? 50?
+
+6. **Batch vs. interactive:** Build as batch tool (score 10 topics at once) or interactive CLI (score 1 topic on demand)?
 
 ---
 
 ## Sources
 
-### NotebookLM API Research
-- [NotebookLM Enterprise API Documentation](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks)
-- [Does NotebookLM Have an API?](https://autocontentapi.com/blog/does-notebooklm-have-an-api)
-- [How to Access NotebookLM Via API](https://discuss.ai.google.dev/t/how-to-access-notebooklm-via-api/5084)
-- [NotebookLM API Launch 2026](https://blockchain.news/ainews/notebooklm-launches-direct-notebook-access-boosting-ai-productivity-tools-in-2026)
-- [NotebookLM Evolution 2023-2026](https://medium.com/@jimmisound/the-cognitive-engine-a-comprehensive-analysis-of-notebooklms-evolution-2023-2026-90b7a7c2df36)
+### Library Documentation
+- [trendspyg GitHub](https://github.com/flack0x/trendspyg) — Google Trends library (pytrends replacement)
+- [trendspyg PyPI](https://libraries.io/pypi/trendspyg) — Version 0.3.0 confirmed
+- [python-youtube PyPI](https://pypi.org/project/python-youtube/) — YouTube Data API wrapper, v0.9.8
+- [scrapetube GitHub](https://github.com/dermasmid/scrapetube) — YouTube scraper, updated Jan 6, 2026
+- [scrapetube Package Health](https://snyk.io/advisor/python/scrapetube) — Maintenance confirmation
+- [pandas Documentation](https://pandas.pydata.org/docs/) — Data manipulation library
+- [NumPy News](https://numpy.org/news/) — Version 2.4.1 (Jan 10, 2026)
 
-### YouTube Discovery APIs
-- [YouTube Data API Search](https://developers.google.com/youtube/v3/docs/search/list)
-- [Hacking YouTube Suggest API](https://dev.to/adrienshen/hacking-together-your-own-youtube-suggest-api-c0o)
-- [YouTube Autocomplete Scraper - Apify](https://apify.com/scraper-mind/youtube-autocomplete-scraper)
-- [How to Scrape YouTube Autocomplete](https://blog.apify.com/how-to-scrape-youtube-search-keywords/)
-- [YouTube API Complete Guide 2026](https://getlate.dev/blog/youtube-api)
+### API Documentation
+- [YouTube Data API Quota Calculator](https://developers.google.com/youtube/v3/determine_quota_cost) — Official quota costs
+- [YouTube Data API Overview](https://developers.google.com/youtube/v3/getting-started) — API setup guide
+- [Quota and Compliance Audits](https://developers.google.com/youtube/v3/guides/quota_and_compliance_audits) — How to request increases
+- [YouTube API Limits Guide](https://www.getphyllo.com/post/youtube-api-limits-how-to-calculate-api-usage-cost-and-fix-exceeded-api-quota) — Best practices
+- [Is the YouTube API Free?](https://www.getphyllo.com/post/is-the-youtube-api-free-costs-limits-iv) — Costs and limits
 
-### Google Trends
-- [pytrends PyPI](https://pypi.org/project/pytrends/)
-- [pytrends GitHub](https://github.com/GeneralMills/pytrends)
-- [Pytrends Alternatives 2026](https://meetglimpse.com/software-guides/pytrends-alternatives/)
-- [How to Scrape Google Trends 2026](https://brightdata.com/blog/web-data/how-to-scrape-google-trends)
+### Google Trends API
+- [Google Trends API Alpha Launch](https://blogs.garudmarketing.com/google-trends-api-alpha-launch/) — Alpha details, application process
+- [Google's July 2025 Update: The Google Trends API](https://thatware.co/july-2025-update-google-trends-api/) — Current status, limitations
+- [Google Trends API Alpha Access](https://rankorbit.com/google-trends-api-alpha-search-insights/) — 5 years of data, quotas
+- [How to Scrape Google Trends 2026](https://brightdata.com/blog/web-data/how-to-scrape-google-trends) — Best practices, trendspyg usage
 
-### Text Analysis & Readability
-- [py-readability-metrics GitHub](https://github.com/cdimascio/py-readability-metrics)
-- [textstat PyPI](https://pypi.org/project/textstat/)
-- [Readability Index NLP Guide](https://www.geeksforgeeks.org/python/readability-index-pythonnlp/)
-- [spaCy Documentation](https://spacy.io/)
-- [TextDescriptives for spaCy](https://arxiv.org/pdf/2301.02057)
-- [Text Similarity Methods](https://www.newscatcherapi.com/blog-posts/ultimate-guide-to-text-similarity-with-python)
+### Niche Research Tools
+- [Best YouTube Analytics Tools 2026](https://outlierkit.com/blog/best-youtube-analytics-tools) — VidIQ/TubeBuddy alternatives
+- [VidIQ vs TubeBuddy](https://outlierkit.com/blog/vidiq-vs-tubebuddy) — Tool comparison, pricing, API availability
+- [10 Best Niche Finder Tools For YouTube 2026](https://outlierkit.com/blog/best-niche-finder-tools-for-youtube) — Comprehensive tool overview
+- [TubeLab Reviews 2026](https://outlierkit.com/blog/tubelab-reviews-features-alternatives) — API access comparison ($500+/year)
 
-### NLG Evaluation Metrics
-- [BLEU and ROUGE Explained](https://doc.superannotate.com/docs/guide-bleu-rouge)
-- [NLG Evaluation Metrics Guide](https://plainenglish.io/blog/evaluating-nlp-models-a-comprehensive-guide-to-rouge-bleu-meteor-and-bertscore-metrics-d0f1b1)
-- [LLM Evaluation Metrics](https://medium.com/data-science-in-your-pocket/llm-evaluation-metrics-explained-af14f26536d2)
+### Library Status
+- [pytrends GitHub](https://github.com/GeneralMills/pytrends) — Archived April 17, 2025
+- [Top 4 Pytrends Alternatives 2026](https://meetglimpse.com/software-guides/pytrends-alternatives/) — Why pytrends deprecated, trendspyg recommended
+- [pytrends PyPI](https://pypi.org/project/pytrends/) — Last release April 13, 2023 (pre-archive)
 
-### Claude API
-- [Anthropic Claude API Pricing 2026](https://www.metacto.com/blogs/anthropic-api-pricing-a-full-breakdown-of-costs-and-integration)
-- [Prompt Caching Guide](https://www.aifreeapi.com/en/posts/claude-api-prompt-caching-guide)
-- [Prompt Engineering Best Practices](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
-- [Context Windows Documentation](https://platform.claude.com/docs/en/build-with-claude/context-windows)
-- [Claude Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview)
-
-### Third-Party Tools
-- [VidIQ Features Review 2026](https://www.getapp.com/marketing-software/a/vidiq/)
-- [YouTube Keyword Research API - Zyla](https://zylalabs.com/api-marketplace/data/youtube+keyword+research+api/2490)
-- [TubeBuddy Keyword Explorer](https://www.tubebuddy.com/tools/keyword-explorer/)
-- [YouTube Metadata Optimization Guide](https://air.io/en/youtube-hacks/youtube-metadata-your-gateway-to-high-rankings-and-global-views)
+### Technical References
+- [YouTube Data API Search](https://developers.google.com/youtube/v3/docs/search/list) — Search endpoint documentation
+- [pandas Release Notes](https://pandas.pydata.org/docs/whatsnew/index.html) — Version 2.3.3 (June 2025)
+- [Matplotlib Dependency Policy](https://matplotlib.org/devdocs/devel/min_dep_policy.html) — Version 3.10.0 (Dec 2024)
 
 ---
 
-*Research complete. Ready for roadmap creation.*
+*Research complete. Stack recommendations ready for roadmap creation.*

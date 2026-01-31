@@ -1,831 +1,915 @@
-# Architecture Patterns for Script Quality, Discovery & NotebookLM Integration
+# Architecture Patterns: Niche Discovery Integration
 
-**Domain:** YouTube content production workspace
-**Researched:** 2026-01-27
-**Milestone:** v1.2 - Script Quality & Discovery
-**Confidence:** HIGH (existing codebase analysis + 2026 tooling research)
+**Domain:** YouTube content optimization workspace
+**Researched:** 2026-01-31
+**Milestone:** v1.3 - Niche Discovery
+**Confidence:** HIGH (existing codebase analysis + integration point verification)
 
 ---
 
 ## Executive Summary
 
-This architecture research addresses how to integrate three new capabilities into an existing YouTube content production workspace:
+This architecture research addresses how to integrate niche discovery capabilities into the existing YouTube analytics workspace without disrupting established workflows.
 
-1. **Script quality improvements** - Better first drafts with natural spoken delivery
-2. **Discovery/SEO optimization** - Topic research, keyword analysis, title optimization
-3. **NotebookLM workflow integration** - Streamlined research-to-script pipeline
+**New capabilities:**
+1. **Demand research** - Search volume, trending topics, audience questions
+2. **Competition analysis** - Who covers what, quality assessment, gap identification
+3. **Competitor learning** - What works for big channels (techniques to adapt)
+4. **Format filtering** - Flag topics needing animation vs document-friendly
+5. **Opportunity scoring** - Rank topics by (demand × gap × fit) / effort
 
-**Key finding:** The existing architecture (slash commands → Python scripts → Markdown reference) is well-suited for all three additions. No major structural changes needed.
+**Key finding:** The existing architecture (SQLite database + Python modules + error dict pattern) is well-suited for niche discovery additions. Integration points are clear. No major structural changes needed.
 
-**Recommendation:** Follow established patterns with targeted enhancements to existing components rather than building parallel systems.
+**Recommendation:** Extend existing components (keywords.db, discovery tools) rather than building parallel systems. Follow established patterns for consistency.
 
 ---
 
 ## Existing Architecture Analysis
 
-### Current Component Structure
+### Current Data Flow
 
-**Slash Commands (`.claude/commands/*.md`):**
-- Entry points for user actions
-- Orchestrate workflows across multiple tools
-- 12 commands currently (research, script, verify, analyze, patterns, etc.)
-- Pattern: Commands define what to do, agents/scripts do the work
+```
+POST-PUBLISH ANALYTICS (current):
+1. Video Published
+   ↓
+2. /analyze VIDEO_ID
+   ↓
+3. YouTube Analytics API → metrics.py → video_report.py
+   ↓
+4. Comments API → comments.py (categorization)
+   ↓
+5. patterns.py (cross-video aggregation)
+   ↓
+6. POST-PUBLISH-ANALYSIS.md (saved to project folder)
+```
 
-**Python Scripts (`tools/youtube-analytics/*.py`):**
-- Data processing and API integration
-- 10 scripts covering metrics, retention, CTR, comments, patterns
-- Pattern: Pure data → return dicts with `{error: "msg"}` on failure
-- Pattern: CLI-friendly with `--flags` for variants
+```
+PRE-PUBLISH DISCOVERY (current):
+1. User explores topic manually
+   ↓
+2. /discover TOPIC (keyword extraction)
+   ↓
+3. autocomplete.py → YouTube autocomplete suggestions
+   ↓
+4. intent_mapper.py → classify intent (6 categories)
+   ↓
+5. keywords.db (store keywords with intent)
+```
 
-**Reference Docs (`.claude/REFERENCE/*.md`):**
-- Knowledge base for agents and commands
-- STYLE-GUIDE.md is authoritative for script style
-- Templates for research, scripts, metadata
-- Pattern: Markdown files with structured sections
+### Existing Components (Verified)
 
-**Agents (`.claude/agents/*.md`):**
-- Specialized behaviors for complex tasks
-- script-writer-v2 is main scriptwriting agent
-- Pattern: Agent reads reference docs, applies rules, produces output
+**Database Layer:**
+- `tools/discovery/keywords.db` (SQLite)
+  - Tables: keywords, keyword_intents, keyword_performance
+  - Pattern: Error dict returns (`{'error': 'msg'}` on failure)
+  - ~50KB current size
 
-**Video Projects (`video-projects/_IN_PRODUCTION/`):**
-- Per-video folders with standard file structure
-- 01-VERIFIED-RESEARCH.md, SCRIPT.md, PROJECT-STATUS.md
-- Pattern: Lifecycle folders (_IN_PRODUCTION, _READY_TO_FILM, _ARCHIVED)
+**Discovery Tools:**
+- `autocomplete.py` - YouTube autocomplete suggestions (browser automation)
+- `intent_mapper.py` - 6-category intent classification
+- `database.py` - KeywordDB class with CRUD operations
+- `keywords.py` - CLI for keyword management
 
-### Architecture Strengths
+**Analytics Tools:**
+- `analyze.py` - Post-publish orchestrator
+- `patterns.py` - Cross-video pattern recognition
+- `diagnostics.py` - Discovery issue diagnosis (impressions/CTR)
 
-1. **Separation of concerns:** Commands orchestrate, scripts process data, agents produce content
-2. **Discoverability:** `/help` and `/status` make system navigable
-3. **Reference-driven:** Knowledge in markdown, not hardcoded in agents
-4. **Solo-creator optimized:** Everything runs through Claude Code
-5. **Git-tracked evolution:** Script and style changes tracked without file proliferation
+**Data Structures:**
+- POST-PUBLISH-ANALYSIS.md files (scattered across project folders)
+- keywords.db (centralized keyword storage)
+- TOPIC-ANALYSIS.md (pattern aggregation)
+- TITLE-PATTERNS.md (title/thumbnail correlation)
 
 ### Integration Points Identified
 
 | New Feature | Natural Integration Point | Why |
-|-------------|---------------------------|-----|
-| Script quality improvements | script-writer-v2 agent + STYLE-GUIDE.md | Agent already reads style guide, just needs enhanced rules |
-| Discovery/SEO tools | New Python scripts in tools/youtube-analytics/ | Matches existing pattern (analyze.py, patterns.py) |
-| NotebookLM workflow | /research and /sources slash commands | Already handle research phase, need NotebookLM bridge |
+|-------------|--------------------------|-----|
+| Demand research | Extend keywords.db with `keyword_trends` table | Centralizes all keyword data, enables JOINs |
+| Competition analysis | Extend keywords.db with `competitors`, `competitor_videos` | Relates competition to keywords |
+| Opportunity scoring | Extend keywords.db with `opportunities` table | Connects demand + competition + format |
+| Post-publish validation | Modify analyze.py to check opportunity scores | Closes learning loop |
+| Pattern correlation | Modify patterns.py to compare predictions vs outcomes | Validates scoring accuracy |
 
 ---
 
-## Recommendation 1: Script Quality Improvements
+## Recommended Architecture
 
-### Architecture: Enhance Existing Components
-
-**Don't create:** New script-writer-v3 agent, separate quality-check tool, standalone polish script
-
-**Do enhance:** script-writer-v2 agent, STYLE-GUIDE.md, /script command
-
-### Component Changes
-
-**`.claude/agents/script-writer-v2.md`**
-- Add pre-writing checklist enforcement (verify identity stake, check coverage gaps)
-- Add post-writing quality gates (stumble test, "here's" count, forbidden phrase scan)
-- Add auto-detection for common patterns (transcript snippets → spoken delivery)
-- Keep existing reference-reading pattern
-
-**`.claude/REFERENCE/STYLE-GUIDE.md`**
-- Add "Common Script Issues" section with before/after examples
-- Add "First Draft Quality Checklist" for agents
-- Add "Revision Triggers" (when to apply which fixes)
-- Maintain single-source-of-truth status
-
-**`.claude/commands/script.md`**
-- Add `--quality-gate` flag for strict enforcement mode
-- Add `--polish` flag for teleprompter-ready cleanup
-- Absorb quality checks into existing `--review` flag
-
-### Why This Pattern Works
-
-**Leverage existing authority:** STYLE-GUIDE.md is already the canonical style reference. Adding quality rules there means all future agents inherit them.
-
-**Incremental improvement:** script-writer-v2 already has 13 rules. Adding quality gates is natural extension, not architectural shift.
-
-**No parallel systems:** Don't create separate quality-checker that duplicates script-writer knowledge. Keep quality rules in one agent.
-
-**Matches user workflow:** User runs `/script`, gets better first draft. No new commands to learn.
-
-### Implementation Approach
-
-1. Enhance STYLE-GUIDE.md with quality patterns (LOW confidence items from existing scripts)
-2. Update script-writer-v2 with pre-flight checks and post-generation validation
-3. Test on 3-5 existing scripts to validate improvements
-4. Add `--polish` flag to `/script` for final teleprompter cleanup
-
----
-
-## Recommendation 2: Discovery/SEO Optimization
-
-### Architecture: New Python Scripts + New Slash Command
-
-**Don't create:** API integration to VidIQ (no API available), web scraping for keyword data, complex ML prediction models
-
-**Do create:** New Python scripts following established patterns, new `/discover` slash command
-
-### Component Structure
-
-**New: `tools/youtube-analytics/discovery.py`**
-- Keyword research using YouTube autocomplete API
-- Search volume estimation (relative, not absolute)
-- Competition analysis (existing video count, view distribution)
-- Returns structured data: `{keywords: [...], competition: {...}, recommendations: [...]}`
-
-**New: `tools/youtube-analytics/title_optimizer.py`**
-- Title variant generation following channel DNA patterns
-- CTR prediction based on historical title patterns
-- A/B test suggestions
-- Returns: `{variants: [...], predictions: {...}, test_plan: {...}}`
-
-**New: `.claude/commands/discover.md`**
-- Entry point for discovery workflow
-- Flags: `--keywords TOPIC`, `--titles TOPIC`, `--competition TOPIC`
-- Orchestrates Python scripts, formats output for user
-
-**Enhanced: `channel-data/patterns/TOPIC-ANALYSIS.md`**
-- Discovery tools write findings here
-- Becomes source of truth for "what topics work"
-- Pattern recognition from `/patterns` informs future discovery
-
-### Data Flow
+### System Overview
 
 ```
-User: /discover --keywords "medieval flat earth"
-  ↓
-discover.md command reads request
-  ↓
-Calls discovery.py with topic
-  ↓
-discovery.py queries YouTube autocomplete, analyzes results
-  ↓
-Returns {keywords: [...], volume: {...}, competition: {...}}
-  ↓
-Command formats as markdown, saves to project folder
-  ↓
-User reviews findings, decides to proceed or pivot
+┌─────────────────────────────────────────────────────────────┐
+│                    EXISTING SYSTEM                          │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ┌──────────────┐     ┌──────────────┐                    │
+│  │  YouTube     │     │  Discovery   │                    │
+│  │  Analytics   │     │  Tools       │                    │
+│  │  API         │     │  (current)   │                    │
+│  └──────────────┘     └──────────────┘                    │
+│       ↓                     ↓                               │
+│  ┌──────────────────────────────────┐                     │
+│  │  Post-Publish Analytics          │                     │
+│  │  - /analyze VIDEO_ID             │                     │
+│  │  - Pattern recognition            │                     │
+│  │  - Comment analysis               │                     │
+│  └──────────────────────────────────┘                     │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+                            ↓
+┌─────────────────────────────────────────────────────────────┐
+│                NEW NICHE DISCOVERY LAYER                    │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ┌──────────────┐     ┌──────────────┐     ┌────────────┐ │
+│  │  Demand      │     │  Competition │     │  Competitor│ │
+│  │  Research    │     │  Analysis    │     │  Learning  │ │
+│  └──────────────┘     └──────────────┘     └────────────┘ │
+│       ↓                     ↓                     ↓         │
+│  ┌────────────────────────────────────────────────────┐   │
+│  │         Opportunity Scoring Engine                 │   │
+│  │    (Demand × Gap × Fit / Effort)                   │   │
+│  └────────────────────────────────────────────────────┘   │
+│                            ↓                                │
+│  ┌────────────────────────────────────────────────────┐   │
+│  │         Format Filtering                           │   │
+│  │    (Document-friendly topics)                      │   │
+│  └────────────────────────────────────────────────────┘   │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-### Why This Pattern Works
+### Component Boundaries
 
-**Follows Python script pattern:** Same structure as analyze.py (orchestrator), metrics.py (data fetcher), patterns.py (analyzer)
+| Component | Responsibility | Communicates With | Data Store |
+|-----------|---------------|-------------------|------------|
+| **Existing: YouTube Analytics API** | Post-publish metrics (views, retention, watch time) | analyze.py, patterns.py | YouTube servers |
+| **Existing: Discovery Tools** | Keyword extraction, intent classification, diagnostics | keywords.py, database.py | keywords.db (SQLite) |
+| **Existing: Post-Publish Analytics** | Video performance, pattern recognition, lessons | channel_averages.py, comments.py | POST-PUBLISH-ANALYSIS.md files |
+| **NEW: Demand Research** | Search volume, trending topics, audience questions | YouTube autocomplete, Google Trends API | keywords.db (extend) |
+| **NEW: Competition Analysis** | Who covers what, quality assessment, gap identification | YouTube Data API v3 | keywords.db (extend) |
+| **NEW: Competitor Learning** | Extract techniques from successful channels | Video transcripts, metadata analysis | keywords.db (extend) |
+| **NEW: Format Filtering** | Flag animation-heavy vs document-friendly topics | All niche discovery components | In-memory (no persistence) |
+| **NEW: Opportunity Scorer** | Rank topics by (demand × gap × fit) / effort | All niche discovery components | keywords.db (extend) |
 
-**No external dependencies:** Uses YouTube APIs already authenticated, no new API keys needed
+### Database Schema Extensions
 
-**Graceful degradation:** If YouTube autocomplete unavailable, falls back to manual keyword list + competition check
+**Current schema (keep as-is):**
+```sql
+CREATE TABLE keywords (
+    id INTEGER PRIMARY KEY,
+    keyword TEXT UNIQUE NOT NULL,
+    search_volume INTEGER,
+    competition_score REAL,
+    source TEXT,
+    first_discovered DATE,
+    last_updated DATE
+);
 
-**Integrates with existing workflow:** Discovery findings inform `/research --new` project creation
+CREATE TABLE keyword_intents (
+    id INTEGER PRIMARY KEY,
+    keyword_id INTEGER REFERENCES keywords(id),
+    intent_category TEXT NOT NULL,
+    confidence REAL,
+    is_primary BOOLEAN DEFAULT 0
+);
 
-### API Integration Strategy
-
-**YouTube Data API v3 (already authenticated):**
-- Search API for keyword competition analysis
-- Video metadata for view distribution on topic
-- Channel data for competitor research
-
-**YouTube autocomplete (public endpoint):**
-- No auth required
-- Returns search suggestions for partial queries
-- Proxy for relative search volume
-
-**No VidIQ API:** VidIQ has no public API. Use existing Pro subscription for manual validation only.
-
-### Implementation Approach
-
-1. Create discovery.py with YouTube autocomplete + Data API integration
-2. Create title_optimizer.py using existing title pattern data from TITLE-PATTERNS.md
-3. Add /discover command following /analyze pattern
-4. Test on 5 topics (2 successful videos, 3 hypothetical)
-5. Validate recommendations against VidIQ Pro manual checks
-
----
-
-## Recommendation 3: NotebookLM Workflow Integration
-
-### Architecture: Document Bridge, Not API Integration
-
-**Critical constraint:** NotebookLM has no API (as of Jan 2026). Cannot automate.
-
-**Don't create:** Automated NotebookLM query system, API wrapper, browser automation
-
-**Do create:** Structured prompt library, research template system, manual workflow optimization
-
-### Component Structure
-
-**Enhanced: `.claude/REFERENCE/NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md`**
-- Expand from 5 use cases to 15+ targeted prompts
-- Add copy-paste templates for common queries
-- Add verification prompts (cross-check claims across sources)
-- Add scriptwriting prompts (quote extraction, causal chain identification)
-
-**New: `.claude/templates/NOTEBOOKLM-RESEARCH-WORKFLOW.md`**
-- Step-by-step research process
-- Checklist for each phase (upload → audio overview → targeted queries → verification)
-- Quality gates (when to mark claims ✅ VERIFIED)
-- Examples of good vs bad NotebookLM usage
-
-**Enhanced: `.claude/commands/sources.md`**
-- Add `--notebooklm-prompts` flag to generate targeted prompts for uploaded sources
-- Add `--verification-checklist` flag for cross-checking claims
-- Generate prompts based on video type (territorial dispute, myth-busting, fact-check)
-
-**New: `video-projects/_IN_PRODUCTION/[project]/_research/02-NOTEBOOKLM-SESSION.md`**
-- Track what was asked, what was verified, what remains uncertain
-- Record citation page numbers from NotebookLM citations
-- Log where sources disagree (to address in script)
-
-### NotebookLM → Claude Bridge Strategy
-
-**The manual workflow:**
-
-1. **User uploads sources to NotebookLM** (10-20 PDFs per video)
-2. **Claude generates targeted prompts** via `/sources --notebooklm-prompts`
-3. **User runs prompts in NotebookLM**, clicks citations for page numbers
-4. **User copies findings to 02-NOTEBOOKLM-SESSION.md**
-5. **Claude reads session log**, marks claims ✅ VERIFIED in 01-VERIFIED-RESEARCH.md
-6. **Script-writer-v2 reads verified research**, writes from verified facts only
-
-**Why manual?**
-
-- NotebookLM has no API (confirmed Jan 2026)
-- Browser automation brittle (frequent UI changes)
-- Copy-paste faster than automation for 20-30 queries per video
-- User needs to evaluate source quality anyway
-
-**Where automation helps:**
-
-- Generate optimal prompts for specific source types
-- Parse copied NotebookLM output into structured format
-- Cross-reference verified claims against VERIFIED-CLAIMS-DATABASE.md
-- Detect gaps in verification (LOW confidence items)
-
-### Workflow Optimization Points
-
-**Point 1: Source Upload Prep**
-- `/sources --notebooklm-prep` generates source list with naming convention
-- Identifies optimal sections to upload (not entire 500-page books)
-- Suggests organization strategy (primary sources notebook, academic sources notebook)
-
-**Point 2: Targeted Prompt Generation**
-- `/sources --notebooklm-prompts` reads preliminary research, generates specific queries
-- Customizes prompts by video type (territorial dispute needs treaty excerpts, myth-busting needs historiographical review)
-- Outputs copy-paste ready prompts
-
-**Point 3: Verification Parsing**
-- User copies NotebookLM output to 02-NOTEBOOKLM-SESSION.md
-- `/sources --parse-session` reads session log, extracts verified claims with page numbers
-- Updates 01-VERIFIED-RESEARCH.md with ✅ marks
-
-**Point 4: Gap Detection**
-- Before script writing, `/verify --pre-script` scans research for LOW confidence items
-- Generates additional NotebookLM prompts for gaps
-- Blocks script writing until 90%+ verified
-
-### Why This Pattern Works
-
-**Accepts the constraint:** No API means manual steps. Optimize manual workflow instead of fighting it.
-
-**Reduces cognitive load:** Claude generates prompts, user just runs them. No "what should I ask NotebookLM?"
-
-**Maintains verification rigor:** Copy-paste forces user to read findings, evaluate source quality, check citations.
-
-**Integrates seamlessly:** Fits into existing `/sources` command, uses existing research file structure.
-
-### Implementation Approach
-
-1. Expand NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md from 5 to 15+ use cases
-2. Create NOTEBOOKLM-RESEARCH-WORKFLOW.md template
-3. Add `--notebooklm-prompts` flag to `/sources` command
-4. Add 02-NOTEBOOKLM-SESSION.md to project templates
-5. Test on next 2 videos, refine based on friction points
-
----
-
-## Cross-Feature Integration
-
-### How Features Connect
-
-**Discovery → Research → NotebookLM → Script Quality**
-
-```
-1. DISCOVERY PHASE
-   User: /discover --keywords "medieval literacy rates"
-   Output: Keywords, competition, recommended angle
-   Saves to: PROJECT-STATUS.md "Discovery findings"
-
-2. RESEARCH PHASE
-   User: /research --new "Medieval Literacy Myth"
-   Reads: Discovery findings (if exist)
-   Creates: Project folder, source list, NotebookLM prompt templates
-
-3. NOTEBOOKLM PHASE
-   User uploads sources to NotebookLM
-   User: /sources --notebooklm-prompts
-   Claude generates: 15 targeted prompts
-   User runs prompts, copies findings to 02-NOTEBOOKLM-SESSION.md
-   User: /sources --parse-session
-   Claude updates: 01-VERIFIED-RESEARCH.md with ✅ claims
-
-4. SCRIPT QUALITY PHASE
-   User: /script --new
-   script-writer-v2 reads: Verified research only
-   Applies: Enhanced quality gates from STYLE-GUIDE.md
-   Produces: Better first draft with fewer revision cycles
-   User: /script --review
-   Claude validates: Quality checklist, suggests improvements
+CREATE TABLE keyword_performance (
+    id INTEGER PRIMARY KEY,
+    keyword_id INTEGER REFERENCES keywords(id),
+    video_id TEXT NOT NULL,
+    impressions INTEGER,
+    ctr REAL,
+    views INTEGER,
+    watch_time_minutes INTEGER,
+    measured_date DATE
+);
 ```
 
-### Shared Data Structures
+**NEW tables (add to same database):**
+```sql
+CREATE TABLE keyword_trends (
+    id INTEGER PRIMARY KEY,
+    keyword_id INTEGER REFERENCES keywords(id),
+    trend_direction TEXT,  -- 'rising', 'falling', 'stable'
+    volume_change_pct REAL,
+    measured_date DATE,
+    FOREIGN KEY (keyword_id) REFERENCES keywords(id)
+);
 
-**PROJECT-STATUS.md tracks progression:**
-```markdown
-## Discovery Findings
-- Top keywords: [...] (from /discover)
-- Competition level: Low (from discovery.py)
-- Recommended angle: [...] (from title_optimizer.py)
+CREATE TABLE competitors (
+    id INTEGER PRIMARY KEY,
+    channel_id TEXT UNIQUE NOT NULL,
+    channel_name TEXT,
+    subscriber_count INTEGER,
+    avg_views INTEGER,
+    niche_category TEXT,  -- 'history', 'geopolitics', 'education'
+    added_date DATE
+);
 
-## Research Status
-- Sources uploaded to NotebookLM: 15/20
-- Verified claims: 45/50 (90% - ready for scripting)
-- NotebookLM session: Complete (see _research/02-NOTEBOOKLM-SESSION.md)
+CREATE TABLE competitor_videos (
+    id INTEGER PRIMARY KEY,
+    competitor_id INTEGER REFERENCES competitors(id),
+    video_id TEXT UNIQUE NOT NULL,
+    title TEXT,
+    views INTEGER,
+    published_date DATE,
+    covers_keyword_id INTEGER REFERENCES keywords(id),
+    quality_score REAL,  -- 0-10 based on views, retention proxy
+    FOREIGN KEY (competitor_id) REFERENCES competitors(id),
+    FOREIGN KEY (covers_keyword_id) REFERENCES keywords(id)
+);
 
-## Script Status
-- First draft quality score: 8/10 (from /script --review)
-- Revision needed: Minor (spoken delivery polish)
+CREATE TABLE opportunities (
+    id INTEGER PRIMARY KEY,
+    keyword_id INTEGER REFERENCES keywords(id),
+    demand_score REAL,      -- 0-10 (search volume normalized)
+    gap_score REAL,         -- 0-10 (low competition = high score)
+    fit_score REAL,         -- 0-10 (document-friendly format)
+    effort_estimate TEXT,   -- 'low', 'medium', 'high'
+    overall_score REAL,     -- (demand × gap × fit) / effort
+    calculated_date DATE,
+    FOREIGN KEY (keyword_id) REFERENCES keywords(id)
+);
+
+CREATE TABLE opportunity_validations (
+    id INTEGER PRIMARY KEY,
+    opportunity_id INTEGER REFERENCES opportunities(id),
+    video_id TEXT NOT NULL,
+    predicted_score REAL,
+    actual_views INTEGER,
+    actual_ctr REAL,
+    actual_retention REAL,
+    prediction_accurate BOOLEAN,  -- TRUE if predicted_high == actual_high
+    validated_date DATE,
+    FOREIGN KEY (opportunity_id) REFERENCES opportunities(id)
+);
+
+-- Indexes for performance
+CREATE INDEX idx_keyword_trends_date ON keyword_trends(measured_date DESC);
+CREATE INDEX idx_competitor_videos_keyword ON competitor_videos(covers_keyword_id);
+CREATE INDEX idx_opportunities_score ON opportunities(overall_score DESC);
+CREATE INDEX idx_validations_date ON opportunity_validations(validated_date DESC);
 ```
 
-### Quality Feedback Loop
-
-**Post-publish analysis informs future improvements:**
-
-1. `/analyze VIDEO_ID` produces performance data
-2. `/patterns` identifies what script patterns correlate with performance
-3. Discovery tools use pattern data to recommend topics
-4. Script quality improvements prioritize high-impact fixes
-5. NotebookLM prompts refined based on verification bottlenecks
-
 ---
 
-## Architecture Comparison: Alternatives Considered
+## Patterns to Follow
 
-### Alternative 1: Standalone Script Quality Tool
+### Pattern 1: Database Schema Extensions (Not Replacements)
+**What:** Extend existing keywords.db with new tables, don't create parallel databases
 
-**Approach:** Build separate quality-checker outside script-writer-v2
+**When:** Adding demand research, competition data, or opportunity scoring
 
-**Pros:**
-- Could be run independently on any script
-- Might be faster than agent re-generation
+**Why:**
+- Avoid data fragmentation
+- Leverage existing KeywordDB class patterns
+- Enable JOIN queries across old/new data
 
-**Cons:**
-- Creates parallel system with duplicate knowledge
-- User must remember to run separate tool
-- Quality rules diverge from scriptwriter over time
-- Adds cognitive load (when to use which tool?)
-
-**Verdict:** ❌ Rejected. Violates single-source-of-truth principle.
-
-### Alternative 2: VidIQ API Integration
-
-**Approach:** Integrate VidIQ for keyword research and title optimization
-
-**Pros:**
-- VidIQ has excellent keyword data
-- Already using VidIQ Pro subscription
-
-**Cons:**
-- VidIQ has no public API (confirmed via research)
-- Would require web scraping (brittle, against ToS)
-- Adds external dependency and failure point
-
-**Verdict:** ❌ Rejected. Technical constraint (no API) makes this infeasible.
-
-### Alternative 3: NotebookLM Browser Automation
-
-**Approach:** Use Playwright/Selenium to automate NotebookLM queries
-
-**Pros:**
-- Could eliminate manual copy-paste steps
-- Might seem more "automated"
-
-**Cons:**
-- Brittle (breaks with every UI change)
-- Requires headless browser infrastructure
-- Slower than manual for 20-30 queries
-- User still needs to evaluate source quality
-- Violates ToS (potentially)
-
-**Verdict:** ❌ Rejected. Manual workflow faster and more reliable for this use case.
-
-### Alternative 4: All-New Discovery Command Suite
-
-**Approach:** Create 5 separate commands for discovery (/keywords, /titles, /competition, /trends, /optimize)
-
-**Pros:**
-- Very granular control
-- Each tool does one thing well
-
-**Cons:**
-- Too many commands to remember
-- Fragments workflow (user must remember sequence)
-- Doesn't match existing pattern (single command with flags)
-
-**Verdict:** ❌ Rejected. Violates "simplify workflow" principle from v1.0.
-
----
-
-## Implementation Roadmap
-
-### Phase 1: Script Quality Foundation (Week 1)
-
-**Goal:** Produce better first drafts with fewer revisions
-
-**Tasks:**
-1. Enhance STYLE-GUIDE.md with quality patterns (2 hours)
-2. Update script-writer-v2 with quality gates (4 hours)
-3. Add `--quality-gate` flag to `/script` command (1 hour)
-4. Test on 3 existing scripts, measure revision reduction (2 hours)
-
-**Success metric:** 30% reduction in revision cycles (currently ~3 rounds, target ~2 rounds)
-
-**Files changed:**
-- `.claude/REFERENCE/STYLE-GUIDE.md` (add Quality Patterns section)
-- `.claude/agents/script-writer-v2.md` (add quality gates)
-- `.claude/commands/script.md` (add flag)
-
-### Phase 2: Discovery Tools (Week 2)
-
-**Goal:** Research topics systematically, optimize for discovery
-
-**Tasks:**
-1. Create `tools/youtube-analytics/discovery.py` (6 hours)
-2. Create `tools/youtube-analytics/title_optimizer.py` (4 hours)
-3. Create `.claude/commands/discover.md` (2 hours)
-4. Test on 5 topics (2 successful, 3 hypothetical) (3 hours)
-
-**Success metric:** Discovery recommendations match VidIQ Pro manual analysis 80%+ of time
-
-**Files changed:**
-- `tools/youtube-analytics/discovery.py` (new)
-- `tools/youtube-analytics/title_optimizer.py` (new)
-- `.claude/commands/discover.md` (new)
-- `channel-data/patterns/TOPIC-ANALYSIS.md` (enhanced)
-
-### Phase 3: NotebookLM Integration (Week 3)
-
-**Goal:** Streamline research-to-script pipeline
-
-**Tasks:**
-1. Expand NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md to 15+ use cases (3 hours)
-2. Create NOTEBOOKLM-RESEARCH-WORKFLOW.md template (2 hours)
-3. Add `--notebooklm-prompts` and `--parse-session` to `/sources` (4 hours)
-4. Add 02-NOTEBOOKLM-SESSION.md to project template (1 hour)
-5. Test on next 2 videos, measure time savings (research phase) (4 hours)
-
-**Success metric:** 25% reduction in research phase time (currently ~8 hours, target ~6 hours)
-
-**Files changed:**
-- `.claude/REFERENCE/NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` (expanded)
-- `.claude/templates/NOTEBOOKLM-RESEARCH-WORKFLOW.md` (new)
-- `.claude/commands/sources.md` (enhanced)
-- `.claude/templates/_research/02-NOTEBOOKLM-SESSION.md` (new)
-
-### Phase 4: Integration Testing (Week 4)
-
-**Goal:** Validate end-to-end workflow improvements
-
-**Tasks:**
-1. Full workflow test: Discovery → Research → NotebookLM → Script (8 hours)
-2. Measure time savings vs v1.1 baseline (2 hours)
-3. Collect user friction points, refine (4 hours)
-4. Document lessons learned in .planning/research/LESSONS.md (2 hours)
-
-**Success metric:**
-- Script first-draft quality: 8/10+ (vs current ~6/10)
-- Research-to-script time: <2 weeks (vs current ~3 weeks)
-- User reports workflow feels smoother, not more complex
-
----
-
-## Technical Specifications
-
-### Discovery Tools: API Usage
-
-**YouTube Data API v3:**
-- Search endpoint: `search.list()` with `q=keyword&type=video&maxResults=50`
-- Video metadata: `videos.list()` with `id=VIDEO_IDS&part=statistics,snippet`
-- Quota cost: ~105 units per keyword analysis (search 3 + videos 100 + details 2)
-- Daily quota: 10,000 units = ~95 keyword analyses per day
-
-**YouTube Autocomplete API (unofficial but stable):**
-- Endpoint: `http://suggestqueries.google.com/complete/search?client=youtube&ds=yt&q={query}`
-- No auth required
-- Returns JSON array of suggestions
-- Rate limit: ~1 request per second (be respectful)
-
-**Data structures:**
+**Example:**
 ```python
-# discovery.py output
-{
-  'topic': 'medieval flat earth',
-  'keywords': [
-    {'phrase': 'medieval flat earth myth', 'volume': 'high', 'competition': 'medium'},
-    {'phrase': 'did medieval people believe earth flat', 'volume': 'medium', 'competition': 'low'},
-    ...
-  ],
-  'competition': {
-    'video_count': 45,
-    'top_performer_views': 125000,
-    'avg_views': 8500,
-    'outlier_opportunity': True  # few videos, high best performer
-  },
-  'recommendations': [
-    'Focus on "medieval people knew earth round" (fact-first framing)',
-    'Differentiate with primary sources (manuscripts, quotes)',
-    'Target keywords: medieval scholars, earth spherical, Columbus myth'
-  ]
-}
+# GOOD: Extend existing database
+class KeywordDB:
+    def add_trend(self, keyword_id: int, trend_direction: str, volume_change: float):
+        """Add trend data to existing keyword"""
+        cursor = self._conn.cursor()
+        cursor.execute(
+            """INSERT INTO keyword_trends (keyword_id, trend_direction, volume_change_pct, measured_date)
+               VALUES (?, ?, ?, ?)""",
+            (keyword_id, trend_direction, volume_change, datetime.utcnow().date())
+        )
+        self._conn.commit()
 
-# title_optimizer.py output
-{
-  'topic': 'medieval flat earth',
-  'variants': [
-    {
-      'title': 'Medieval Scholars Knew Earth Was Spherical',
-      'pattern': 'Fact-first (no clickbait)',
-      'predicted_ctr': 4.2,  # based on historical data
-      'channel_dna_match': 'high'
-    },
-    {
-      'title': 'The Flat Earth Myth Medieval People Never Believed',
-      'pattern': 'Myth-negation',
-      'predicted_ctr': 3.8,
-      'channel_dna_match': 'medium'
-    },
-    ...
-  ],
-  'test_plan': {
-    'primary': 'Medieval Scholars Knew Earth Was Spherical',
-    'ab_test': 'The Medieval "Flat Earth" Myth Explained',
-    'test_after': '48 hours'
-  }
-}
+# BAD: Create separate database
+class TrendsDB:
+    def __init__(self):
+        self._conn = sqlite3.connect('trends.db')  # Separate database!
 ```
 
-### Script Quality: Quality Gates
+### Pattern 2: Error Dict Returns (Match Existing)
+**What:** All new modules return `{'error': 'msg'}` on failure, not exceptions
 
-**Pre-writing quality gates (enforced by script-writer-v2):**
+**When:** Writing demand_research.py, competition_analysis.py, etc.
+
+**Why:**
+- Consistent with existing codebase (video_report.py, database.py, autocomplete.py)
+- CLI tools can print helpful messages instead of stack traces
+- Enables graceful degradation (one component fails, others continue)
+
+**Example:**
 ```python
-PRE_FLIGHT_CHECKLIST = [
-    "Identity stake assessed (High/Medium/Low)",
-    "Coverage gap checked (sufficient research in field)",
-    "Both extremes identified (if debunking video)",
-    "Primary sources confirmed (3+ Tier 1 sources)",
-    "Steelman section planned"
-]
+# GOOD (matches existing pattern)
+def fetch_search_volume(keyword: str) -> Dict[str, Any]:
+    """Fetch search volume for keyword"""
+    try:
+        # ... API call
+        return {
+            'keyword': keyword,
+            'volume': 1500,
+            'trend': 'rising'
+        }
+    except Exception as e:
+        return {
+            'error': f'Search volume fetch failed: {type(e).__name__}',
+            'details': str(e)
+        }
+
+# BAD (breaks existing pattern)
+def fetch_search_volume(keyword: str) -> int:
+    # ... API call (raises exception)
+    return 1500  # Caller must catch exceptions
 ```
 
-**Post-writing quality gates (automatic validation):**
+### Pattern 3: CLI + Python API Dual Interface
+**What:** Every module provides both CLI usage and Python import API
+
+**When:** Creating new tools (demand_research.py, competition_analysis.py)
+
+**Why:**
+- Matches existing pattern (autocomplete.py, keywords.py, analyze.py, patterns.py)
+- CLI for manual exploration
+- Python API for orchestrator scripts
+
+**Example:**
 ```python
-POST_GENERATION_CHECKS = {
-    'stumble_test': 'Read aloud without awkward pauses',
-    'heres_count': 'Count "here\'s" - must be 2-4 (not 10+)',
-    'forbidden_phrases': 'Grep for banned phrases',
-    'term_definitions': 'Every technical term defined on first use',
-    'fragments_valid': 'Informational fragments converted to sentences',
-    'contractions_present': 'it\'s not it is, they\'re not they are'
-}
+# Python API (for orchestrator)
+from demand_research import get_search_volume, get_trending_topics
+
+volume = get_search_volume('dark ages myth')
+trending = get_trending_topics(category='history')
+
+# CLI (for manual exploration)
+# $ python demand_research.py "dark ages myth"
+# $ python demand_research.py --trending --category history
+
+if __name__ == '__main__':
+    # CLI interface following existing pattern
+    pass
 ```
 
-**Quality score calculation:**
+### Pattern 4: Orchestrator Command Pattern
+**What:** Create `/discover` orchestrator that coordinates parallel sub-components
+
+**When:** Implementing niche discovery workflow
+
+**Why:**
+- Matches existing `/analyze` pattern (analyze.py orchestrates video_report, comments, channel_averages)
+- User runs ONE command, not five separate scripts
+- Enables intelligent fallback if one component fails
+
+**Example:**
 ```python
-def calculate_quality_score(script: str) -> dict:
+# tools/discovery/discover.py (new orchestrator)
+
+def run_niche_discovery(topic: str) -> Dict[str, Any]:
     """
-    Returns quality score 1-10 and specific issues.
+    Orchestrate all niche discovery components for a topic.
 
-    Scoring:
-    - 9-10: Production ready, minor polish only
-    - 7-8: Good, needs targeted revision (1-2 sections)
-    - 5-6: Needs revision (multiple issues)
-    - 1-4: Major rewrite needed
+    Similar to analyze.py for post-publish analysis.
     """
-    issues = {
-        'critical': [],  # Must fix (forbidden phrases, unverified claims)
-        'important': [],  # Should fix (awkward delivery, repetition)
-        'minor': []  # Nice to fix (style preferences)
-    }
+    errors = []
 
-    # Run checks...
+    # 1. Demand research
+    demand = get_search_volume(topic)
+    if 'error' in demand:
+        errors.append({'source': 'demand', 'message': demand['error']})
+        demand = {'volume': None, 'trend': None}
 
-    score = 10
-    score -= len(issues['critical']) * 2
-    score -= len(issues['important']) * 0.5
-    score -= len(issues['minor']) * 0.2
+    # 2. Competition analysis
+    competitors = analyze_competition(topic)
+    if 'error' in competitors:
+        errors.append({'source': 'competition', 'message': competitors['error']})
+        competitors = {'count': None, 'quality': None}
+
+    # 3. Format filtering
+    format_check = assess_format_requirements(topic)
+
+    # 4. Opportunity scoring
+    score = calculate_opportunity_score(
+        demand=demand,
+        competition=competitors,
+        format_fit=format_check
+    )
 
     return {
-        'score': max(1, min(10, score)),
-        'issues': issues,
-        'verdict': 'ready' if score >= 9 else 'revision_needed'
+        'topic': topic,
+        'demand': demand,
+        'competition': competitors,
+        'format': format_check,
+        'opportunity_score': score,
+        'errors': errors
     }
 ```
 
-### NotebookLM: Prompt Templates
+### Pattern 5: Markdown Report Outputs
+**What:** Generate `.md` files for human review, not just JSON
 
-**Structured prompt generation by video type:**
+**When:** Reporting niche discovery results
 
-```python
-PROMPT_TEMPLATES = {
-    'territorial_dispute': [
-        "Extract all specific boundary descriptions from {source}. Include coordinates, landmarks, and territorial extent.",
-        "What legal principles does {source} cite for territorial claims? Quote exact language.",
-        "Compare {source_a} and {source_b} - where do they disagree on boundaries?",
-        "What were the economic stakes mentioned in {source}? Specific resources, trade routes, etc.",
-        "Who were the decision-makers? Extract names, titles, and institutional affiliations from {source}."
-    ],
-    'myth_busting': [
-        "What primary sources from the period address {myth_topic}? List all mentions with dates.",
-        "How do modern historians interpret {myth}? Summarize {scholar_1}, {scholar_2}, {scholar_3}.",
-        "What evidence contradicts {myth}? Extract specific examples from {source}.",
-        "Why did {myth} originate? What's the historiography of this misconception?",
-        "What do scholars say people ACTUALLY believed about {topic}?"
-    ],
-    'fact_check': [
-        "Did {person} claim {statement}? Find exact quote with source and date.",
-        "What's the historical consensus on {claim}? Check {source_1}, {source_2}, {source_3}.",
-        "What primary sources support or contradict {claim}?",
-        "What context is missing from {claim}? What happened before/after?",
-        "How have historians evaluated {claim}? Any scholarly rebuttals?"
-    ]
-}
+**Why:**
+- Matches existing pattern (POST-PUBLISH-ANALYSIS.md, TOPIC-ANALYSIS.md, TITLE-PATTERNS.md)
+- Easy to version control and review
+- Human-readable with structured data
 
-def generate_notebooklm_prompts(video_type: str, topic: str, sources: list) -> list:
-    """
-    Generate targeted NotebookLM prompts based on video type and sources.
+**Example:**
+```markdown
+# Niche Opportunity Report: Dark Ages Myth
 
-    Returns list of copy-paste ready prompts with placeholders filled.
-    """
-    template = PROMPT_TEMPLATES.get(video_type, PROMPT_TEMPLATES['myth_busting'])
-    prompts = []
+**Topic:** dark ages myth
+**Analyzed:** 2026-01-31
+**Overall Score:** 7.2 / 10
 
-    for prompt_template in template:
-        # Fill in placeholders
-        prompt = prompt_template.format(
-            source=sources[0] if sources else '[SOURCE]',
-            topic=topic,
-            myth_topic=topic
-        )
-        prompts.append(prompt)
+## Recommendation
+**GOOD OPPORTUNITY** - High demand, low competition, excellent format fit
 
-    return prompts
+## Demand Assessment
+- **Search volume:** 1,500/month
+- **Trend:** Rising (+15% past 3 months)
+- **Related queries:** "dark ages myth debunked", "medieval literacy rates"
+
+## Competition Analysis
+- **Videos ranking:** 12 competitors
+- **Average quality:** Medium (4.2/10)
+- **Gap identified:** No video uses primary source manuscripts as evidence
+- **Top competitor:** "Medieval Misconceptions" (850K views, 6min runtime)
+
+## Format Fit
+- **Document availability:** HIGH (✓)
+  - Carolingian manuscripts available on Wikimedia Commons
+  - Chris Wickham's "Inheritance of Rome" has statistical tables
+- **Animation requirement:** LOW (✓)
+  - Topic can be explained with documents + maps
+- **Production complexity:** MEDIUM
+  - Need to source manuscript images
+  - Timeline graphics helpful but not essential
+
+## Opportunity Score Breakdown
+| Factor | Score | Weight | Contribution |
+|--------|-------|--------|--------------|
+| Demand | 6/10 | 30% | 1.8 |
+| Gap | 8/10 | 40% | 3.2 |
+| Format Fit | 9/10 | 30% | 2.7 |
+| **Total** | **7.7/10** | | |
+| Effort Penalty | Medium | -0.5 | |
+| **Final Score** | **7.2/10** | | |
+
+## Recommended Action
+✓ Add to video pipeline - This topic aligns with channel strengths
+
+## Next Steps
+1. Download manuscript images from Wikimedia Commons
+2. Purchase "Inheritance of Rome" for statistics
+3. Verify "dark ages" search volume with Google Trends
 ```
 
 ---
 
-## Risk Assessment
+## Anti-Patterns to Avoid
 
-### Technical Risks
+### Anti-Pattern 1: Separate Database Per Component
+**What goes wrong:** Creating competitors.db, opportunities.db, trends.db as separate files
 
-| Risk | Impact | Likelihood | Mitigation |
-|------|--------|-----------|------------|
-| YouTube API quota exhaustion | HIGH - Discovery tools stop working | LOW - 95 analyses/day is generous | Implement quota monitoring, cache results |
-| YouTube autocomplete endpoint changes | MEDIUM - Keyword research less reliable | MEDIUM - Unofficial endpoint | Graceful fallback to manual keyword input |
-| NotebookLM UI changes | LOW - Workflow still works, just different | HIGH - Google updates frequently | Document visual guides for current UI |
-| Quality gates too strict | MEDIUM - Blocks script progress | MEDIUM - Hard to calibrate | Make gates configurable with `--strict` flag |
+**Why it's bad:**
+- Data fragmentation (can't JOIN across databases easily in SQLite)
+- Inconsistent schemas across files
+- Breaks existing KeywordDB patterns
+- Multiple connection management
 
-### Workflow Risks
+**Instead:** Extend keywords.db with new tables (see Pattern 1)
 
-| Risk | Impact | Likelihood | Mitigation |
-|------|--------|-----------|------------|
-| Discovery tools recommend bad topics | HIGH - Wasted research effort | MEDIUM - Algorithm isn't perfect | Human validation required (don't auto-create projects) |
-| NotebookLM integration adds friction | HIGH - Slows down instead of speeds up | LOW - Careful design | Test on 2 videos before full rollout |
-| Script quality gates feel bureaucratic | MEDIUM - User bypasses them | MEDIUM - Perception issue | Make gates helpful, not punitive (suggest fixes, don't block) |
-| Too many new commands | HIGH - Cognitive overload | LOW - Only 1 new command | Integrate into existing commands where possible |
+### Anti-Pattern 2: Synchronous Serial Execution
+**What goes wrong:** Running demand → competition → learning → scoring sequentially
 
-### Scope Risks
+**Why it's bad:**
+- Slow (demand research 10s + competition 15s + learning 20s = 45s total)
+- Blocks on API rate limits
+- One failure blocks everything downstream
 
-| Risk | Impact | Likelihood | Mitigation |
-|------|--------|-----------|------------|
-| Feature creep (trying to automate too much) | HIGH - Timeline slips, complexity explodes | MEDIUM - Common trap | Stick to manual workflow optimization for NotebookLM |
-| Over-engineering discovery tools | MEDIUM - Diminishing returns | MEDIUM - Easy to add "nice to have" features | Start minimal, add based on user feedback |
-| Script quality becomes AI cargo cult | LOW - Quality improves but for wrong reasons | LOW - User is sophisticated | Focus on spoken delivery and verification, not style rules |
+**Instead:**
+```python
+# GOOD: Parallel execution where possible
+import concurrent.futures
 
----
+def run_niche_discovery(topic: str):
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
+        # Run demand and competition in parallel
+        demand_future = executor.submit(get_search_volume, topic)
+        competition_future = executor.submit(analyze_competition, topic)
 
-## Success Metrics
+        demand = demand_future.result()
+        competition = competition_future.result()
 
-### Script Quality
+    # Then run dependent components
+    format_check = assess_format_requirements(topic)
+    score = calculate_opportunity_score(demand, competition, format_check)
+```
 
-**Baseline (v1.1):**
-- First draft quality: ~6/10 (usually needs 3 revision rounds)
-- Common issues: Telegraph-style fragments, overuse of "here's", unnatural delivery
-- Time to filming-ready script: ~2-3 days after research complete
+### Anti-Pattern 3: Tight Coupling to External APIs
+**What goes wrong:** Hardcoding YouTube Data API calls without abstraction layer
 
-**Target (v1.2):**
-- First draft quality: 8/10+ (1-2 revision rounds max)
-- Common issues reduced by 70%
-- Time to filming-ready script: ~1 day after research complete
+**Why it's bad:**
+- API changes break entire system
+- Can't test without hitting real API
+- Rate limiting affects all components
 
-**Measurement:**
-- Quality score from `/script --review` on first draft
-- Count of revision cycles before `--teleprompter` export
-- User-reported "feels like less rework"
+**Instead:**
+```python
+# GOOD: Abstraction layer
+class CompetitorVideoFetcher:
+    """Abstract interface for fetching competitor videos"""
 
-### Discovery Tools
+    def fetch_videos_for_keyword(self, keyword: str) -> List[Dict]:
+        """Override this in subclasses"""
+        raise NotImplementedError
 
-**Baseline (v1.1):**
-- Topic research: Manual VidIQ browsing, ad-hoc keyword checking
-- No systematic competition analysis
-- Title optimization based on gut feel
+class YouTubeAPIFetcher(CompetitorVideoFetcher):
+    """YouTube Data API v3 implementation"""
+    def fetch_videos_for_keyword(self, keyword: str):
+        # ... API call
+        pass
 
-**Target (v1.2):**
-- Keyword research: 15-20 analyzed keywords per topic in <10 minutes
-- Competition analysis: Automated view distribution, outlier detection
-- Title optimization: 5 variants generated with CTR predictions
+class MockFetcher(CompetitorVideoFetcher):
+    """Mock implementation for testing"""
+    def fetch_videos_for_keyword(self, keyword: str):
+        return [{'video_id': 'test123', 'title': 'Test Video'}]
+```
 
-**Measurement:**
-- Time to complete topic research (target: <30 minutes)
-- Discovery recommendation accuracy vs VidIQ manual analysis (target: 80%+)
-- Title variant CTR performance (A/B test 5 videos)
+### Anti-Pattern 4: Reimplementing Intent Classification
+**What goes wrong:** Creating separate topic classifier when intent_mapper.py already exists
 
-### NotebookLM Integration
+**Why it's bad:**
+- Duplicates existing work
+- Classifications may conflict
+- Wastes development time
 
-**Baseline (v1.1):**
-- Research phase time: ~8 hours per video
-- Common friction: "What should I ask NotebookLM?"
-- Verification incomplete (some claims marked ✅ without page numbers)
+**Instead:** Extend intent_mapper.py with niche-specific categories if needed
 
-**Target (v1.2):**
-- Research phase time: ~6 hours per video (25% reduction)
-- Targeted prompts eliminate "what to ask" friction
-- 95%+ of ✅ claims have page number citations
+### Anti-Pattern 5: Ignoring Post-Publish Feedback Loop
+**What goes wrong:** Niche discovery scores topics, but never learns if scores were accurate
 
-**Measurement:**
-- Time from source upload to 90% verified (tracked in PROJECT-STATUS.md)
-- Count of LOW confidence items at script-writing gate
-- User-reported friction points in research phase
+**Why it's bad:**
+- No way to improve opportunity scoring over time
+- Can't validate "high demand + low competition" claims
+- Breaks learning loop
 
----
+**Instead:**
+```python
+# After video published, compare prediction to reality
+def validate_opportunity_score(topic: str, video_id: str):
+    """
+    Compare niche discovery prediction to actual performance.
 
-## Open Questions
+    Updates opportunity scoring weights based on accuracy.
+    """
+    # 1. Fetch original opportunity score
+    db = KeywordDB()
+    opportunity = db.get_opportunity_for_keyword(topic)
 
-### Discovery Tools
+    # 2. Fetch actual performance
+    actual_performance = get_video_metrics(video_id)
 
-**Q: Should discovery tools auto-create project folders?**
-**A:** No. Discovery should inform, not decide. User validates findings before running `/research --new`.
+    # 3. Calculate prediction accuracy
+    predicted_high = opportunity['overall_score'] > 7.0
+    actual_high = actual_performance['views'] > channel_avg_views
 
-**Q: How to handle niches where YouTube autocomplete has no data?**
-**A:** Fall back to manual keyword list + competition analysis. Tool provides value even without autocomplete.
+    accurate = predicted_high == actual_high
 
-**Q: Should title optimizer consider A/B test history across channel?**
-**A:** Yes, but v1.2 starts with pattern matching only. v1.3 could add cross-video A/B learning.
+    # 4. Store validation result
+    db.add_opportunity_validation(
+        opportunity_id=opportunity['id'],
+        video_id=video_id,
+        predicted_score=opportunity['overall_score'],
+        actual_views=actual_performance['views'],
+        prediction_accurate=accurate
+    )
 
-### Script Quality
-
-**Q: Should quality gates block script generation or just warn?**
-**A:** Warn by default, block with `--strict` flag. Give user control.
-
-**Q: How to avoid quality rules becoming cargo cult (following rules without understanding)?**
-**A:** Every rule in STYLE-GUIDE.md must include "why" explanation. Rules serve spoken delivery, not arbitrary style preferences.
-
-**Q: Should script quality improvements apply to existing scripts retroactively?**
-**A:** Optional. Add `/script --upgrade-quality` flag to apply new rules to old scripts. Don't force.
-
-### NotebookLM Integration
-
-**Q: What if NotebookLM releases an API?**
-**A:** Retrofit existing prompt generation system to call API instead of generating copy-paste templates. Architecture supports this.
-
-**Q: Should session logs be AI-parseable or human-maintained?**
-**A:** Both. Human copies findings to 02-NOTEBOOKLM-SESSION.md, Claude parses for verification status updates.
-
-**Q: How to handle when sources disagree?**
-**A:** Flag in session log, present both positions in script with "Source A says X, Source B says Y" structure. Don't hide contradictions.
-
----
-
-## Sources
-
-**Existing Codebase Analysis:**
-- `.claude/commands/` (12 slash commands)
-- `tools/youtube-analytics/` (10 Python scripts, ~5,000 lines)
-- `.claude/agents/script-writer-v2.md` (1,203 lines, comprehensive rule system)
-- `.claude/REFERENCE/STYLE-GUIDE.md` (559 lines, authoritative style reference)
-
-**External Research:**
-
-**YouTube SEO Tools (2026):**
-- [vidIQ Features](https://vidiq.com/features/keyword-tools/) - Keyword research for YouTube creators
-- [Ahrefs YouTube Keyword Tool](https://ahrefs.com/youtube-keyword-tool) - Free keyword ideas for 171 countries
-- [YouTube SEO Best Practices 2026](https://www.learningrevolution.net/youtube-seo/) - Complete optimization guide
-- [Top YouTube Keyword Research Tools 2026](https://prettyinsights.com/best-youtube-keyword-research-tools/) - Tool comparison
-
-**NotebookLM for Content Creators:**
-- [NotebookLM Research Workflow 2026](https://www.geeky-gadgets.com/notebooklm-research-upgrade-2026/) - Automation features
-- [Deep Research Workflow Guide](https://medium.com/@ferreradaniel/how-to-use-notebooklm-better-than-99-of-people-deep-research-workflow-guide-4e54199c9f82) - Advanced techniques
-- [NotebookLM for YouTube Content Creation](https://medium.com/aimonks/from-research-notes-to-revenue-how-notebooklm-transforms-youtube-content-creation-in-2026-d283abdd73cd) - 2026 content workflow
-- [NotebookLM Complete Guide 2026](https://www.geeky-gadgets.com/notebooklm-complete-guide-2026/) - Work and study applications
-- [NotebookLM Evolution 2023-2026](https://medium.com/@jimmisound/the-cognitive-engine-a-comprehensive-analysis-of-notebooklms-evolution-2023-2026-90b7a7c2df36) - Platform development
+    # 5. Adjust scoring weights if pattern emerges
+    if db.get_validation_count() > 10:
+        recalibrate_opportunity_weights(db)
+```
 
 ---
 
-*Architecture research complete. Ready for implementation planning.*
+## Integration Points with Existing System
+
+### Integration Point 1: Keywords Database Extension
+**Existing:** keywords.db with tables: `keywords`, `keyword_intents`, `keyword_performance`
+
+**Modification:** Add tables to same database
+- `keyword_trends` (demand research data)
+- `competitors` (channel metadata)
+- `competitor_videos` (video coverage analysis)
+- `opportunities` (scored topics)
+- `opportunity_validations` (prediction accuracy tracking)
+
+**Migration:**
+```python
+# tools/discovery/migrate_v2.py
+def migrate_keywords_db_v2():
+    """Add niche discovery tables to existing keywords.db"""
+    db = KeywordDB()
+
+    # Read new schema
+    schema_path = Path(__file__).parent / 'schema_v2.sql'
+    new_tables_sql = schema_path.read_text()
+
+    # Apply migration
+    db._conn.executescript(new_tables_sql)
+    db._conn.commit()
+
+    return {'status': 'migrated', 'version': 2}
+```
+
+### Integration Point 2: Post-Publish Validation
+**Existing:** analyze.py runs after video published
+
+**Modification:** Add opportunity validation to analyze.py
+
+```python
+# tools/youtube-analytics/analyze.py (modify existing)
+
+def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
+    # ... existing code ...
+
+    # NEW: Check if this video was based on a scored opportunity
+    from tools.discovery.database import KeywordDB
+    db = KeywordDB()
+    opportunity = db.find_opportunity_for_video(video_id)
+
+    if opportunity:
+        from tools.discovery.opportunity_scorer import validate_opportunity_score
+        validation = validate_opportunity_score(
+            opportunity_id=opportunity['id'],
+            actual_views=engagement['views'],
+            actual_ctr=ctr['ctr_percent'],
+            actual_retention=retention['avg_retention']
+        )
+
+        analysis['opportunity_validation'] = validation
+
+    return analysis
+```
+
+### Integration Point 3: Pattern Recognition Enhancement
+**Existing:** patterns.py aggregates performance by topic tags
+
+**Modification:** Cross-reference with opportunity scores
+
+```python
+# tools/youtube-analytics/patterns.py (modify existing)
+
+def generate_topic_report() -> str:
+    """Generate TOPIC-ANALYSIS.md with opportunity score correlation"""
+
+    # ... existing code ...
+
+    # NEW: For each topic, show if opportunity score was predictive
+    from tools.discovery.database import KeywordDB
+    db = KeywordDB()
+
+    for topic, stats in topic_stats.items():
+        # Find videos tagged with this topic
+        topic_videos = [v for v in videos if topic in v.get('tags', [])]
+
+        # Check if opportunity scores correlated with performance
+        prediction_accuracy = []
+        for video in topic_videos:
+            opportunity = db.find_opportunity_for_video(video['video_id'])
+            if opportunity:
+                predicted_high = opportunity['overall_score'] > 7.0
+                actual_high = video['views'] > stats['avg_views']
+                prediction_accuracy.append(predicted_high == actual_high)
+
+        if prediction_accuracy:
+            accuracy_rate = sum(prediction_accuracy) / len(prediction_accuracy)
+            # Add to report: "Opportunity scoring accuracy: {accuracy_rate:.1%}"
+```
+
+### Integration Point 4: Command Orchestration
+**Existing:** Slash commands route to specific tools
+
+**New Commands:**
+```bash
+/discover TOPIC              # Run niche discovery analysis
+/discover --trending         # Show trending topics in niche
+/discover --validate VIDEO   # Validate opportunity score vs actual
+```
+
+**Implementation:**
+```python
+# .claude/commands/discover.py (new)
+
+def discover_command(args: List[str]):
+    """
+    Niche discovery orchestrator command.
+
+    Usage:
+        /discover "dark ages myth"
+        /discover --trending
+        /discover --validate VIDEO_ID
+    """
+    if '--trending' in args:
+        from tools.discovery.demand_research import get_trending_topics
+        trending = get_trending_topics(category='history')
+        return format_trending_report(trending)
+
+    elif '--validate' in args:
+        video_id = args[args.index('--validate') + 1]
+        from tools.discovery.opportunity_scorer import validate_opportunity_score
+        validation = validate_opportunity_score(video_id)
+        return format_validation_report(validation)
+
+    else:
+        topic = args[0]
+        from tools.discovery.discover import run_niche_discovery
+        analysis = run_niche_discovery(topic)
+
+        # Save report
+        save_niche_opportunity_report(analysis)
+
+        return format_opportunity_report(analysis)
+```
+
+---
+
+## Build Order Recommendation
+
+### Phase 1: Core Infrastructure (Week 1)
+**Goal:** Extend database, create base patterns
+
+**Components:**
+1. Migrate keywords.db schema v2 (add tables for trends, competitors, opportunities)
+2. Create base classes following error dict pattern
+3. Set up CLI + Python API structure for new modules
+
+**Validation:**
+- Schema migration runs without errors
+- New tables appear in keywords.db
+- Base classes return proper error dicts
+
+**Dependencies:** None (pure additions to existing system)
+
+### Phase 2: Demand Research (Week 2)
+**Goal:** Measure search volume and trends
+
+**Components:**
+1. `demand_research.py` - Fetch search volume (YouTube autocomplete volume proxy)
+2. `trends_tracker.py` - Track keyword trends over time
+3. Integration with keywords.db (store trend data)
+
+**Validation:**
+- `python demand_research.py "dark ages myth"` returns volume estimate
+- Trend data saves to `keyword_trends` table
+- Error handling works (API down → graceful error dict)
+
+**Dependencies:** Phase 1 complete (database schema ready)
+
+### Phase 3: Competition Analysis (Week 3)
+**Goal:** Identify who covers what, assess quality
+
+**Components:**
+1. `competition_analysis.py` - Find competitor videos for keyword
+2. `competitor_scorer.py` - Assess video quality (views, retention proxy)
+3. Integration with keywords.db (store competitor data)
+
+**Validation:**
+- `python competition_analysis.py "dark ages myth"` returns competitor list
+- Quality scores reasonable (high-view videos score higher)
+- Data saves to `competitors` and `competitor_videos` tables
+
+**Dependencies:** Phase 1 complete, YouTube Data API v3 credentials
+
+### Phase 4: Format Filtering (Week 4)
+**Goal:** Flag animation-heavy vs document-friendly topics
+
+**Components:**
+1. `format_filter.py` - Assess if topic requires animation
+2. Document availability checker (can we find primary sources?)
+3. Production complexity estimator
+
+**Validation:**
+- "Battle of Waterloo tactics" → flags as animation-heavy
+- "Sykes-Picot treaty" → flags as document-friendly
+- Complexity estimates align with manual assessment
+
+**Dependencies:** None (operates on topic text only)
+
+### Phase 5: Opportunity Scoring (Week 5)
+**Goal:** Rank topics by (demand × gap × fit) / effort
+
+**Components:**
+1. `opportunity_scorer.py` - Combines demand, competition, format fit
+2. Scoring formula with configurable weights
+3. Integration with all previous components
+
+**Validation:**
+- Score formula produces reasonable results (7.2 / 10 for good opportunities)
+- Scores save to `opportunities` table
+- Can retrieve top opportunities with `get_top_opportunities(limit=10)`
+
+**Dependencies:** Phases 2, 3, 4 complete
+
+### Phase 6: Orchestrator & Reports (Week 6)
+**Goal:** Wrap everything in `/discover` command
+
+**Components:**
+1. `discover.py` - Orchestrator (like analyze.py)
+2. Markdown report generator (NICHE-OPPORTUNITY-REPORT.md)
+3. `/discover` command integration
+
+**Validation:**
+- `/discover "dark ages myth"` runs all components
+- Report saves to `.planning/topics/NICHE-OPPORTUNITY-dark-ages-myth.md`
+- Graceful degradation (one component fails, others continue)
+
+**Dependencies:** Phases 1-5 complete
+
+### Phase 7: Post-Publish Validation Loop (Week 7)
+**Goal:** Learn from actual performance
+
+**Components:**
+1. Modify analyze.py to check for opportunity scores
+2. `validate_opportunity.py` - Compare prediction vs reality
+3. Weight recalibration based on validation results
+
+**Validation:**
+- After publishing video, `/analyze VIDEO_ID` includes validation section
+- Prediction accuracy tracked over time
+- Weights adjust when validation count > 10
+
+**Dependencies:** Phase 6 complete + 3+ videos published from niche discovery
+
+---
+
+## Scalability Considerations
+
+### At 100 videos analyzed
+**Current approach:** SQLite keywords.db (~50KB)
+- Fast queries (<10ms)
+- No performance issues
+- Continue with SQLite
+
+**Niche discovery additions:**
+- keywords.db grows to ~500KB (trends, competitors, opportunities)
+- Still well within SQLite performance envelope
+- No changes needed
+
+### At 1,000 videos analyzed
+**Current approach:** SQLite keywords.db (~500KB)
+- Query performance still <50ms
+- POST-PUBLISH-ANALYSIS.md files scattered across folders
+- patterns.py collects and aggregates (takes ~2-3 seconds)
+
+**Niche discovery additions:**
+- keywords.db grows to ~5MB (larger competitor dataset)
+- Consider indexing:
+  ```sql
+  CREATE INDEX idx_keyword_trends_date ON keyword_trends(measured_date DESC);
+  CREATE INDEX idx_competitor_videos_keyword ON competitor_videos(covers_keyword_id);
+  CREATE INDEX idx_opportunities_score ON opportunities(overall_score DESC);
+  ```
+- Add caching layer for expensive queries (search volume lookups)
+
+### At 10,000+ videos (unlikely for solo creator)
+**If channel grows beyond solo operation:**
+- Consider PostgreSQL migration for complex JOINs
+- Add Redis cache for API responses (search volume, competitor data)
+- Implement background job queue for slow operations (competitor learning)
+- Current architecture supports migration path (abstraction layers enable swapping)
+
+---
+
+## Summary
+
+**Core architectural decisions:**
+1. ✅ Extend keywords.db schema, don't create parallel databases
+2. ✅ Follow error dict pattern consistently
+3. ✅ Provide CLI + Python API for all modules
+4. ✅ Create `/discover` orchestrator matching `/analyze` pattern
+5. ✅ Generate Markdown reports for human review
+6. ✅ Integrate with post-publish analytics for validation loop
+
+**Build order:**
+1. Phase 1: Database schema v2 (1 week)
+2. Phase 2: Demand research (1 week)
+3. Phase 3: Competition analysis (1 week)
+4. Phase 4: Format filtering (1 week)
+5. Phase 5: Opportunity scoring (1 week)
+6. Phase 6: Orchestrator (1 week)
+7. Phase 7: Validation loop (1 week)
+
+**Integration strategy:**
+- New components extend existing patterns (don't replace)
+- Database extensions (not new databases)
+- Post-publish validation closes learning loop
+- Pattern recognition correlates predictions with outcomes
+
+**Technical risks:**
+- LOW: Architecture follows established workspace patterns
+- LOW: SQLite handles expected data volume (<5MB)
+- MEDIUM: API rate limiting (YouTube Data API 10,000 units/day)
+- MEDIUM: Search volume proxies may be inaccurate (validation loop mitigates)
+
+---
+
+*This architecture enables niche discovery without disrupting existing workflows. New components plug into established patterns (error dicts, CLI/API dual interface, Markdown reports). Post-publish validation ensures opportunity scores improve over time.*
