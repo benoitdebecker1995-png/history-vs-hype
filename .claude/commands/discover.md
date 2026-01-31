@@ -13,6 +13,7 @@ Comprehensive keyword research workflow and metadata validation for YouTube disc
 /discover TOPIC                   # Full keyword research workflow
 /discover --autocomplete "phrase" # Extract autocomplete suggestions
 /discover --intent "query"        # Classify search intent
+/discover --demand "keyword"      # Demand analysis with opportunity scoring
 /discover --check FILE            # Pre-publish metadata validation
 /discover --vidiq "topic"         # VidIQ guided workflow
 ```
@@ -23,8 +24,10 @@ Comprehensive keyword research workflow and metadata validation for YouTube disc
 |------|---------|---------|
 | `--autocomplete` | YouTube autocomplete suggestions | `/discover --autocomplete "medieval history"` |
 | `--intent` | Classify search intent | `/discover --intent "dark ages myth"` |
+| `--demand` | Full demand analysis | `/discover --demand "medieval history"` |
 | `--check` | Validate metadata consistency | `/discover --check YOUTUBE-METADATA.md` |
 | `--vidiq` | VidIQ data collection guide | `/discover --vidiq "crusades"` |
+| `--refresh` | Force refresh cached data | `/discover --demand "topic" --refresh` |
 | `--save` | Save results to database | `/discover TOPIC --save` |
 | `--json` | Output JSON format | `/discover --autocomplete "topic" --json` |
 | `-q` | Quiet mode (no status messages) | `/discover TOPIC -q` |
@@ -392,6 +395,96 @@ cd tools/discovery && python vidiq_workflow.py "topic" [--save] [--project-folde
 ```
 
 **Output:** Markdown prompts or saved JSON data (if using `--save`).
+
+---
+
+## DEMAND ANALYSIS (`--demand`)
+
+Quantify demand vs. supply for topic opportunity assessment.
+
+### What It Measures
+
+**Search Volume Proxy (DEM-01):**
+- Autocomplete position score (position 1 = 100, position 10 = 10)
+- Based on SEO research: 23% of users select from autocomplete
+
+**Trend Direction (DEM-02):**
+- Rising (up +X%), Stable (-> X%), Declining (down -X%)
+- From Google Trends via trendspyg
+
+**Related Query Expansion (DEM-03):**
+- 10-20 related queries from autocomplete
+- Identifies long-tail opportunities
+
+**Competition Ratio (DEM-04):**
+- Demand score / video count
+- High: >4x, Medium: 2-4x, Low: <2x
+- Conservative thresholds (4x+) reflect high research overhead
+
+### Usage
+
+```bash
+# Single keyword
+/discover --demand "medieval history"
+
+# Batch keywords
+/discover --demand "dark ages, crusades, colonialism"
+
+# From file
+/discover --demand --file topics.txt
+
+# Force refresh (ignore 7-day cache)
+/discover --demand "topic" --refresh
+
+# JSON output
+/discover --demand "topic" --json
+
+# Verbose with related queries
+/discover --demand "topic" -v
+```
+
+### Example Output
+
+```
+## medieval history
+
+| Metric | Value |
+|--------|-------|
+| Search Volume Proxy | 85 |
+| Trend | up +45% |
+| Competition | 47 videos / 23 channels |
+| **Opportunity** | **4.2x (High Opportunity)** |
+
+### Related Queries
+1. medieval history documentary
+2. medieval history myths
+3. medieval history facts
+...
+```
+
+### Data Freshness
+
+- **Cache:** 7 days (historical topics change slowly)
+- **Staleness warning:** Shown when data >7 days old
+- **Fallback:** Stale data shown on API failure (something > nothing)
+- **Refresh:** Use `--refresh` flag to force fresh data
+
+### Execution
+
+```bash
+cd tools/discovery && python demand.py "keyword" [--refresh] [--json] [-v]
+```
+
+### Requirements
+
+**Python packages:**
+```bash
+pip install trendspyg scrapetube pyppeteer pyppeteer-stealth
+```
+
+**Optional for full functionality:**
+- Chrome/Chromium for autocomplete (auto-downloads via pyppeteer)
+- Internet connection for Google Trends and scrapetube
 
 ---
 
