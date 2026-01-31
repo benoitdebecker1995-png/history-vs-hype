@@ -1,28 +1,28 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-01-30 (v1.2 milestone archived)
+**Last Updated:** 2026-01-31 (v1.3 milestone started)
 
 ## Project Reference
 
-See: `.planning/PROJECT.md` (updated 2026-01-30)
+See: `.planning/PROJECT.md` (updated 2026-01-31)
 
 **Core value:** Every video shows sources on screen — viewers see the evidence themselves
-**Current focus:** v1.2 ARCHIVED — Ready for v1.3 planning or production use
+**Current focus:** v1.3 Niche Discovery — Defining requirements
 
 ## Current Position
 
-**Milestone:** v1.2 Script Quality & Discovery — ARCHIVED
-**Phase:** All phases complete
-**Status:** Ready for next milestone
-**Last activity:** 2026-01-30 — v1.2 archived
+**Milestone:** v1.3 Niche Discovery
+**Phase:** Not started (defining requirements)
+**Status:** Defining requirements
+**Last activity:** 2026-01-31 — Milestone v1.3 started
 
 **Progress:**
 ```
 v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
-v1.3 [                    ]   0% — Not started
+v1.3 [                    ]   0% — Niche Discovery (defining requirements)
 ```
 
 ## Milestone History
@@ -69,16 +69,14 @@ v1.3 [                    ]   0% — Not started
 
 ### Next Session
 
-**Options:**
-1. **Production use** — Use tools for video production
-2. **v1.3 planning** — Run `/gsd:new-milestone` to define next milestone
+**Current work:** Defining requirements for v1.3 Niche Discovery
 
-**v1.2 Deliverables (now available):**
-- Script quality checkers: `tools/script-checkers/`
-- Voice fingerprinting: `tools/script-checkers/voice/`
-- Discovery tools: `tools/discovery/`
-- NotebookLM templates: `.claude/REFERENCE/NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md`
-- Model assignments: `.claude/REFERENCE/MODEL-ASSIGNMENT-GUIDE.md`
+**v1.3 Target features:**
+- Demand research (search volume, trending topics)
+- Competition analysis (who covers what, gaps)
+- Competitor learning (what works for big channels)
+- Format filtering (document-friendly vs animation-required)
+- Opportunity scoring (demand × gap × fit / effort)
 
 ## Accumulated Context
 
@@ -103,4 +101,4 @@ v1.3 [                    ]   0% — Not started
 
 ---
 
-*State updated: 2026-01-30 after v1.2 milestone archived*
+*State updated: 2026-01-31 after v1.3 milestone started*

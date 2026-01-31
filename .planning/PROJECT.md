@@ -8,11 +8,27 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current State (v1.2 Shipped)
+## Current Milestone: v1.3 Niche Discovery
+
+**Goal:** Find high-potential topics with low competition that fit the channel's document-heavy format
+
+**Target features:**
+- Demand research — search volume, trending topics, audience questions
+- Competition analysis — who covers what, quality assessment, gap identification
+- Competitor learning — what works for big channels (techniques to adapt)
+- Format filtering — flag topics needing animation vs. document-friendly
+- Opportunity scoring — rank topics by (demand × gap × fit) / effort
+
+**Production constraints (inputs to filtering):**
+- Visual style: Documents, maps, footage, text overlays (no animation)
+- Research depth: Academic sources required
+- Solo creator: Variable timeline based on topic complexity
+
+## Previous State (v1.2 Shipped)
 
 **Shipped:** 2026-01-30
 
-The workspace now includes comprehensive script quality tools and discovery optimization:
+The workspace includes script quality tools and discovery optimization:
 
 - **Script Quality:** 4 automated checkers (repetition, flow, stumble, scaffolding) + voice fingerprinting
 - **Discovery:** Keyword research, intent classification, pre-publish metadata validation
@@ -133,4 +149,4 @@ The workspace now includes comprehensive script quality tools and discovery opti
 
 ---
 
-*Last updated: 2026-01-30 after v1.2 milestone*
+*Last updated: 2026-01-31 after v1.3 milestone started*
