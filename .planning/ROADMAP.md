@@ -155,8 +155,8 @@ Plans:
 4. User can see competition ratio score showing demand vs. supply balance
 
 Plans:
-- [ ] 15-01-PLAN.md — Schema extension + DemandAnalyzer foundation
-- [ ] 15-02-PLAN.md — External data integration + CLI + /discover --demand
+- [x] 15-01-PLAN.md — Schema extension + DemandAnalyzer foundation
+- [x] 15-02-PLAN.md — External data integration + CLI + /discover --demand
 
 ### Phase 16: Competition Analysis
 **Goal**: User can identify gaps in existing coverage
@@ -218,7 +218,7 @@ Plans:
 | 13. Discovery Tools | v1.2 | 3/3 | Complete | 2026-01-29 |
 | 13.1 Token Optimization | v1.2 | 2/2 | Complete | 2026-01-30 |
 | 14. NotebookLM Workflow | v1.2 | 1/1 | Complete | 2026-01-30 |
-| **15. Database Foundation & Demand Research** | **v1.3** | **0/2** | **Planned** | - |
+| **15. Database Foundation & Demand Research** | **v1.3** | **2/2** | **Complete** | 2026-01-31 |
 | **16. Competition Analysis** | **v1.3** | **0/0** | **Pending** | - |
 | **17. Format Filtering** | **v1.3** | **0/0** | **Pending** | - |
 | **18. Opportunity Scoring & Orchestrator** | **v1.3** | **0/0** | **Pending** | - |

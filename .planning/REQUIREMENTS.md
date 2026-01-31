@@ -9,10 +9,10 @@ Requirements for niche discovery milestone. Each maps to roadmap phases.
 
 ### Demand Research
 
-- [ ] **DEM-01**: User can get search volume estimate for a topic (from autocomplete position proxy)
-- [ ] **DEM-02**: User can see trend direction for a topic (rising, stable, declining)
-- [ ] **DEM-03**: User can expand a seed keyword into related queries
-- [ ] **DEM-04**: User can see competition ratio score (demand vs. supply quantification)
+- [x] **DEM-01**: User can get search volume estimate for a topic (from autocomplete position proxy)
+- [x] **DEM-02**: User can see trend direction for a topic (rising, stable, declining)
+- [x] **DEM-03**: User can expand a seed keyword into related queries
+- [x] **DEM-04**: User can see competition ratio score (demand vs. supply quantification)
 
 ### Competition Analysis
 
@@ -65,14 +65,14 @@ Explicitly excluded. Documented to prevent scope creep.
 
 ## Traceability
 
-Which phases cover which requirements. Updated during roadmap creation.
+Which phases cover which requirements. All v1.3 requirements mapped.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DEM-01 | Phase 15 | Pending |
-| DEM-02 | Phase 15 | Pending |
-| DEM-03 | Phase 15 | Pending |
-| DEM-04 | Phase 15 | Pending |
+| DEM-01 | Phase 15 | Complete |
+| DEM-02 | Phase 15 | Complete |
+| DEM-03 | Phase 15 | Complete |
+| DEM-04 | Phase 15 | Complete |
 | COMP-01 | Phase 16 | Pending |
 | COMP-02 | Phase 16 | Pending |
 | COMP-03 | Phase 16 | Pending |
@@ -93,4 +93,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-01-31*
-*Last updated: 2026-01-31 after initial definition*
+*Last updated: 2026-01-31 after roadmap creation*
