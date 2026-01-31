@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-01-31 (Plan 15-01 complete)
+**Last Updated:** 2026-01-31 (Plan 15-02 complete)
 
 ## Project Reference
 
@@ -14,16 +14,16 @@ See: `.planning/PROJECT.md` (updated 2026-01-31)
 
 **Milestone:** v1.3 Niche Discovery
 **Phase:** 15 - Database Foundation & Demand Research
-**Plan:** 01 of 03 complete
+**Plan:** 02 of 03 complete
 **Status:** In progress
-**Last activity:** 2026-01-31 — Completed 15-01 (schema + DemandAnalyzer foundation)
+**Last activity:** 2026-01-31 — Completed 15-02 (external data integration + CLI)
 
 **Progress:**
 ```
 v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
-v1.3 [##                  ]   8% — Niche Discovery (Plan 15-01 complete)
+v1.3 [####                ]  17% — Niche Discovery (Plan 15-02 complete)
 ```
 
 ## Milestone History
@@ -48,8 +48,9 @@ v1.3 [##                  ]   8% — Niche Discovery (Plan 15-01 complete)
 - `/analyze VIDEO_ID` — post-publish video analysis
 - `/patterns` — cross-video pattern recognition
 
-**Discovery commands (v1.2):**
+**Discovery commands (v1.2 + v1.3):**
 - `/discover TOPIC` — keyword research workflow
+- `/discover --demand "keyword"` — demand analysis with opportunity scoring
 - `/discover --check FILE` — pre-publish metadata validation
 
 **Script quality tools (v1.2):**
@@ -61,24 +62,26 @@ v1.3 [##                  ]   8% — Niche Discovery (Plan 15-01 complete)
 ### Last Session
 
 - **Date:** 2026-01-31
-- **Work:** Executed Plan 15-01 (Database Foundation)
+- **Work:** Executed Plan 15-02 (External Data Integration)
 - **Output:**
-  - Extended schema.sql with 5 new tables + 4 indexes
-  - Added 7 demand methods to KeywordDB
-  - Created DemandAnalyzer module with position/ratio scoring
-  - Commits: c65b2ca, a99710d, ddf581b
+  - Created trends.py with TrendsClient + rate limit handling
+  - Created competition.py with CompetitionAnalyzer + view count parsing
+  - Completed DemandAnalyzer.analyze_keyword() with external data
+  - Added CLI entry point for demand.py
+  - Documented /discover --demand in command reference
+  - Commits: 2b70b9e, 1aac359, ccd6826
 
 ### Next Session
 
-**Current work:** Ready for Plan 15-02 (External Data Sources)
+**Current work:** Ready for Plan 15-03 (Pipeline & Validation)
 
-**Plan 15-02 delivers:**
-- Google autocomplete integration for position scoring
-- trendspyg integration for trend direction
-- YouTube Data API for competition counting
-- Full analyze_keyword() implementation
+**Plan 15-03 delivers:**
+- Batch processing for keyword lists
+- Production constraint filtering
+- Validation framework
+- End-to-end pipeline testing
 
-**Next action:** Run `/gsd:execute-phase` with 15-02-PLAN.md
+**Next action:** Run `/gsd:execute-phase` with 15-03-PLAN.md
 
 ## Accumulated Context
 
@@ -90,6 +93,7 @@ v1.3 [##                  ]   8% — Niche Discovery (Plan 15-01 complete)
 - spaCy requires Python 3.11-3.13 (not 3.14)
 - Voice patterns require user to run `--rebuild-voice` to populate
 - keywords.db schema extended in Phase 15-01 with 5 demand tables
+- External packages (trendspyg, scrapetube) optional - graceful degradation
 
 ### Known Issues
 
@@ -101,6 +105,10 @@ v1.3 [##                  ]   8% — Niche Discovery (Plan 15-01 complete)
 **Voice Fingerprinting Setup:**
 - User must install srt library (`pip install srt`)
 - User must run `--rebuild-voice` to populate patterns from corpus
+
+**External Package Dependencies (Plan 15-02):**
+- trendspyg, scrapetube not installed — demand analysis degrades gracefully
+- Unicode arrows may cause encoding issues on Windows cp1252 console
 
 ### v1.3 Architecture Decisions
 
@@ -115,6 +123,7 @@ v1.3 [##                  ]   8% — Niche Discovery (Plan 15-01 complete)
 - Production constraint filtering FIRST (fail fast on animation-required)
 - Track data staleness (trends expire, competition changes)
 - Log raw candidates before filtering (validate filter accuracy later)
+- Graceful degradation when external packages not installed
 
 ### Plan 15-01 Decisions
 
@@ -123,6 +132,13 @@ v1.3 [##                  ]   8% — Niche Discovery (Plan 15-01 complete)
 - **Linear position scoring:** Position 1=100, Position 10=10, Not found=0
 - **Trend arrow thresholds:** >20% change for rising/declining, otherwise stable
 
+### Plan 15-02 Decisions
+
+- **60-second rate limit cooldown:** After Google Trends rate limit detection
+- **100-video sample size:** Per RESEARCH.md pitfall 5, avoid slow full iteration
+- **Top 20 video caching:** Store first 20 competitor videos to database
+- **PACKAGE_AVAILABLE flags:** Check external package availability at import time
+
 ---
 
-*State updated: 2026-01-31 after Plan 15-01 complete*
+*State updated: 2026-01-31 after Plan 15-02 complete*
