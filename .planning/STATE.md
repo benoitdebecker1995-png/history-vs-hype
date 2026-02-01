@@ -8,22 +8,22 @@
 See: `.planning/PROJECT.md` (updated 2026-01-31)
 
 **Core value:** Find high-potential topics with low competition that fit document-heavy format
-**Current focus:** v1.3 Niche Discovery — Phase 16 (Competition Analysis)
+**Current focus:** v1.3 Niche Discovery — Phase 17 (Format Filtering)
 
 ## Current Position
 
 **Milestone:** v1.3 Niche Discovery
-**Phase:** 16 - Competition Analysis
-**Plan:** 2 of 2
-**Status:** Phase 16 complete (competition analysis with differentiation scoring)
-**Last activity:** 2026-02-01 — Completed 16-02-PLAN.md (quality filtering + gap analysis + CLI)
+**Phase:** 17 - Format Filtering
+**Plan:** Ready to plan
+**Status:** Phase 16 verified complete, Phase 17 ready to plan
+**Last activity:** 2026-02-01 — Phase 16 verified (4/4 COMP requirements met)
 
 **Progress:**
 ```
 v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
-v1.3 [########            ]  40% — Niche Discovery (Phase 15-16 complete)
+v1.3 [##########          ]  50% — Niche Discovery (Phases 15-16 complete)
 ```
 
 ## Milestone History
@@ -74,15 +74,14 @@ v1.3 [########            ]  40% — Niche Discovery (Phase 15-16 complete)
 
 ### Next Session
 
-**Current work:** Phase 16 complete
+**Current work:** Ready to plan Phase 17 (Format Filtering)
 
-**Phase 16 delivered:**
-- Classification foundation (format/angle detection)
-- Quality filtering (percentile-based)
-- Differentiation scoring (gap analysis)
-- CLI tool for manual keyword research
+**Phase 17 delivers:**
+- Animation detection as hard blocks (fail fast before research investment)
+- Document-friendliness scoring (0-4 scale: treaty-heavy = 4, concept-heavy = 0)
+- Academic source availability verification
 
-**Next action:** Continue v1.3 milestone or start new phase (check PROJECT.md roadmap)
+**Next action:** Run `/gsd:plan-phase 17` to create execution plan
 
 ## Accumulated Context
 
