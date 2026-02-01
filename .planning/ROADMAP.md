@@ -185,12 +185,17 @@ Plans:
 2. Topics are scored 0-4 for document-friendliness (treaty-heavy = 4, concept-heavy = 0)
 3. User can verify academic source availability for a topic before committing
 
-**Plans**: Not yet planned
+**Plans**: 2 plans
+
+Plans:
+- [x] 17-01-PLAN.md — Production constraint foundation (animation detection + document scoring)
+- [x] 17-02-PLAN.md — Source hints + CLI for production constraint evaluation
 
 ### Phase 18: Opportunity Scoring & Orchestrator
 **Goal**: User gets ranked topic opportunities with full context
 **Dependencies**: Phases 15, 16, 17 (all data layers)
 **Requirements**: OPP-01, OPP-02, OPP-03, OPP-04, OPP-05
+**Plans**: 2 plans
 
 **Success Criteria:**
 1. User can see combined opportunity score (demand x gap x fit / effort) for any topic
@@ -199,7 +204,9 @@ Plans:
 4. Opportunities track lifecycle status from DISCOVERED through PUBLISHED
 5. User can generate Markdown opportunity report with all decision factors documented
 
-**Plans**: Not yet planned
+Plans:
+- [ ] 18-01-PLAN.md — OpportunityScorer + lifecycle state tracking + Channel DNA filtering
+- [ ] 18-02-PLAN.md — OpportunityOrchestrator + report generation + CLI
 
 </details>
 
@@ -224,5 +231,5 @@ Plans:
 | 14. NotebookLM Workflow | v1.2 | 1/1 | Complete | 2026-01-30 |
 | **15. Database Foundation & Demand Research** | **v1.3** | **2/2** | **Complete** | 2026-01-31 |
 | **16. Competition Analysis** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
-| **17. Format Filtering** | **v1.3** | **0/0** | **Pending** | - |
-| **18. Opportunity Scoring & Orchestrator** | **v1.3** | **0/0** | **Pending** | - |
+| **17. Format Filtering** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
+| **18. Opportunity Scoring & Orchestrator** | **v1.3** | **0/2** | **Planned** | - |
