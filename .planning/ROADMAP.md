@@ -169,7 +169,11 @@ Plans:
 3. User can see what format competitors use (animation vs. documentary, political vs. legal angles)
 4. User can see differentiation score identifying which angles are missing
 
-**Plans**: Not yet planned
+**Plans**: 2 plans
+
+Plans:
+- [ ] 16-01-PLAN.md — Classifiers module + schema extension + database methods
+- [ ] 16-02-PLAN.md — CompetitionAnalyzer extension + quality filtering + differentiation + CLI
 
 ### Phase 17: Format Filtering
 **Goal**: Topics are filtered by production constraints
@@ -219,6 +223,6 @@ Plans:
 | 13.1 Token Optimization | v1.2 | 2/2 | Complete | 2026-01-30 |
 | 14. NotebookLM Workflow | v1.2 | 1/1 | Complete | 2026-01-30 |
 | **15. Database Foundation & Demand Research** | **v1.3** | **2/2** | **Complete** | 2026-01-31 |
-| **16. Competition Analysis** | **v1.3** | **0/0** | **Pending** | - |
+| **16. Competition Analysis** | **v1.3** | **0/2** | **Planned** | - |
 | **17. Format Filtering** | **v1.3** | **0/0** | **Pending** | - |
 | **18. Opportunity Scoring & Orchestrator** | **v1.3** | **0/0** | **Pending** | - |
