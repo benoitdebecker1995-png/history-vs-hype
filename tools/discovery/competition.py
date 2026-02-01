@@ -475,3 +475,104 @@ def get_competition_count(keyword: str, sample_size: int = 100) -> Dict[str, Any
     """
     analyzer = CompetitionAnalyzer(sample_size)
     return analyzer.count_videos(keyword)
+
+
+def main():
+    """CLI entry point for competition analysis."""
+    import argparse
+    import json
+
+    parser = argparse.ArgumentParser(
+        description='Analyze competition for a keyword',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python competition.py "dark ages myth"
+  python competition.py "crusades defensive" --sample-size 50
+  python competition.py "medieval history" --json
+  python competition.py "library of alexandria" -v
+        """
+    )
+
+    parser.add_argument('keyword', help='Keyword to analyze')
+    parser.add_argument('--sample-size', type=int, default=100,
+                        help='Max videos to analyze (default: 100)')
+    parser.add_argument('--quality-only', action='store_true',
+                        help='Show only quality-filtered results')
+    parser.add_argument('--json', action='store_true',
+                        help='Output JSON format')
+    parser.add_argument('-v', '--verbose', action='store_true',
+                        help='Verbose output with details')
+
+    args = parser.parse_args()
+
+    # Run analysis
+    analyzer = CompetitionAnalyzer(sample_size=args.sample_size)
+    result = analyzer.analyze_competition(args.keyword)
+
+    # Handle errors
+    if 'error' in result:
+        print(f"Error: {result['error']}")
+        if 'details' in result:
+            print(f"Details: {result['details']}")
+        return 1
+
+    # JSON output
+    if args.json:
+        print(json.dumps(result, indent=2))
+        return 0
+
+    # Pretty print output
+    print(f"\n{'='*70}")
+    print(f"  Competition Analysis: {result['keyword']}")
+    print(f"{'='*70}\n")
+
+    # Overview
+    print("OVERVIEW")
+    print(f"  Videos analyzed:    {result['video_count']}" + (" (sampled)" if result.get('sampled') else ""))
+    print(f"  Unique channels:    {result['channel_count']}")
+    print(f"  Quality videos:     {result['quality_video_count']}")
+    print(f"  Fetched:            {result['fetched_at']}")
+    print()
+
+    # Format breakdown
+    print("FORMAT BREAKDOWN")
+    format_breakdown = result['format_breakdown']
+    for fmt, count in sorted(format_breakdown.items(), key=lambda x: x[1], reverse=True):
+        pct = (count / result['video_count'] * 100.0) if result['video_count'] > 0 else 0
+        print(f"  {fmt:15s} {count:3d} ({pct:5.1f}%)")
+    print()
+
+    # Angle distribution
+    print("ANGLE DISTRIBUTION")
+    angle_dist = result['angle_distribution']
+    for angle, pct in sorted(angle_dist.items(), key=lambda x: x[1], reverse=True):
+        print(f"  {angle:15s} {pct:5.1f}%")
+    print()
+
+    # Differentiation
+    print("DIFFERENTIATION OPPORTUNITIES")
+    gap_scores = result['gap_scores']
+    for angle, gap in sorted(gap_scores.items(), key=lambda x: x[1], reverse=True):
+        bar_length = int(gap * 20)
+        bar = '█' * bar_length + '░' * (20 - bar_length)
+        print(f"  {angle:15s} {bar} {gap:.2f}")
+    print()
+    print(f"  Recommended angle:  {result['recommended_angle']}")
+    print(f"  Differentiation:    {result['differentiation_score']:.2f}")
+    print()
+
+    # Top competitors
+    if args.verbose and result.get('top_competitors'):
+        print("TOP COMPETITORS")
+        for i, ch in enumerate(result['top_competitors'], 1):
+            print(f"  {i}. {ch['channel_name']}")
+            print(f"     Videos: {ch['video_count']}  |  Total views: {ch['total_views']:,}")
+        print()
+
+    return 0
+
+
+if __name__ == '__main__':
+    import sys
+    sys.exit(main())
