@@ -1,29 +1,29 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-01 (Plan 16-02 complete)
+**Last Updated:** 2026-02-01 (Plan 18-01 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-01-31)
 
 **Core value:** Find high-potential topics with low competition that fit document-heavy format
-**Current focus:** v1.3 Niche Discovery — Phase 17 (Format Filtering)
+**Current focus:** v1.3 Niche Discovery — Phase 18 (Opportunity Scoring)
 
 ## Current Position
 
 **Milestone:** v1.3 Niche Discovery
-**Phase:** 17 - Format Filtering
-**Plan:** Ready to plan
-**Status:** Phase 16 verified complete, Phase 17 ready to plan
-**Last activity:** 2026-02-01 — Phase 16 verified (4/4 COMP requirements met)
+**Phase:** 18 - Opportunity Scoring & Orchestrator
+**Plan:** 18-01 complete (1 of 2 plans)
+**Status:** In progress - Plan 18-01 done, ready for Plan 18-02
+**Last activity:** 2026-02-01 — Completed 18-01-PLAN.md
 
 **Progress:**
 ```
 v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
-v1.3 [##########          ]  50% — Niche Discovery (Phases 15-16 complete)
+v1.3 [#################   ]  85% — Niche Discovery (Phases 15-17 complete, 18-01 done)
 ```
 
 ## Milestone History
@@ -63,25 +63,25 @@ v1.3 [##########          ]  50% — Niche Discovery (Phases 15-16 complete)
 ### Last Session
 
 - **Date:** 2026-02-01
-- **Work:** Executed Plan 16-02 (Differentiation Analysis)
+- **Work:** Completed Plan 18-01 (Opportunity Scoring)
 - **Output:**
-  - Added filter_quality_competition() with percentile-based filtering
-  - Added calculate_differentiation_score() for gap analysis
-  - Extended CompetitionAnalyzer with analyze_competition() method
-  - Created CLI tool with pretty output and JSON mode
-  - Updated discover.md with competition analysis documentation
-  - Commits: c42baa2, 3e4e22f, 9e48653, 9376b50
+  - OpportunityScorer with SAW formula (demand × 0.33 + gap × 0.33 + fit × 0.34)
+  - Channel DNA filtering (blocks clickbait, news-first, politician-focus)
+  - Lifecycle state tracking (DISCOVERED -> ANALYZED -> ... -> PUBLISHED -> ARCHIVED)
+  - Database extended with lifecycle_state, lifecycle_history table
+  - Commits: 6c2c30a, 2de2e86
 
 ### Next Session
 
-**Current work:** Ready to plan Phase 17 (Format Filtering)
+**Current work:** Phase 18 Plan 01 complete, ready for Plan 18-02
 
-**Phase 17 delivers:**
-- Animation detection as hard blocks (fail fast before research investment)
-- Document-friendliness scoring (0-4 scale: treaty-heavy = 4, concept-heavy = 0)
-- Academic source availability verification
+**Plan 18-01 complete:**
+- ✅ OPP-01 partial: Opportunity score calculation implemented
+- ✅ OPP-02: Production constraints weighted in scoring
+- ✅ OPP-03: Channel DNA rules auto-filter topics
+- ✅ OPP-04 partial: Lifecycle states defined and tracked
 
-**Next action:** Run `/gsd:plan-phase 17` to create execution plan
+**Next action:** Execute Plan 18-02 (Orchestrator + CLI + Report Generation)
 
 ## Accumulated Context
 
@@ -163,6 +163,40 @@ v1.3 [##########          ]  50% — Niche Discovery (Phases 15-16 complete)
 - Quality tiers: high (>75th percentile), medium (25-75th), low (<25th)
 - Gap scores: 0-1 where 1.0 = no competition, 0.0 = saturated
 
+### Plan 17-01 Decisions
+
+- **Keyword-based detection over ML:** Simple, deterministic, no external dependencies
+- **Confidence scoring for mixed signals:** Lower confidence (0.5-0.6) when both animation and documentary keywords present
+- **90-day default staleness:** Production constraints change slowly, longer cache than demand data
+- **JSON storage for flexibility:** Can extend constraint fields without schema changes
+- **is_production_blocked flag:** Quick boolean filter for animation-required topics
+
+### Technical Notes (Phase 17)
+
+- format_filters.py: 35+ animation keywords, 40+ documentary-safe keywords
+- DOCUMENT_FRIENDLY_KEYWORDS with point values (+3 for treaty/court, +2 for law/colonial, +1 for war/history)
+- CONCEPT_HEAVY_KEYWORDS with negative values (-2 for philosophy/theory, -1 for ideology)
+- Baseline score 2, adds/subtracts, clamps to 0-4
+- evaluate_production_constraints() combines both checks with recommendation
+
 ---
 
-*State updated: 2026-02-01 after Plan 16-02 complete*
+### Plan 17-02 Decisions
+
+- **Query generation, not API calls:** No HTTP requests; generates search strings for manual use
+- **Site-filtered searches:** Queries include site: filters for academic publishers
+- **Confidence based on specificity:** More document-friendly keywords = higher confidence
+- **ASCII-safe CLI output:** Avoids Unicode issues on Windows console
+
+### Plan 18-01 Decisions
+
+- **SAW formula with equal weights:** demand=0.33, gap=0.33, fit=0.34 (balanced starting point for validation)
+- **Hard constraint pre-filtering:** Animation + channel DNA blocks return score=None (not 0), preventing wasted scoring effort
+- **Lifecycle state machine:** Dictionary-based transition validation, reject invalid state changes
+- **Category thresholds:** Excellent >=70, Good >=50, Fair >=30, Poor <30
+- **Channel DNA violations:** Clickbait keywords, news-first patterns, politician-focus (starting with name only)
+- **Component transparency:** Return normalized values, weights, contributions for each scoring factor
+
+---
+
+*State updated: 2026-02-01 after Plan 18-01 complete*
