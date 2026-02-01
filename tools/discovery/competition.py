@@ -177,6 +177,124 @@ class CompetitionAnalyzer:
 
         return sorted_channels[:limit]
 
+    def analyze_competition(self, keyword: str) -> Dict[str, Any]:
+        """
+        Full competition analysis for a keyword.
+
+        Returns:
+            {
+                'keyword': str,
+                'video_count': int,
+                'channel_count': int,
+                'quality_video_count': int,
+                'format_breakdown': {'animation': 12, 'documentary': 45, 'unknown': 8},
+                'angle_distribution': {'political': 30.5, 'legal': 15.2, ...},
+                'differentiation_score': 0.73,
+                'recommended_angle': 'legal',
+                'gap_scores': {...},
+                'top_competitors': [...],
+                'fetched_at': str,
+                'quality_threshold_used': int
+            }
+            or {'error': msg} on failure
+
+        Example:
+            >>> analyzer = CompetitionAnalyzer(sample_size=50)
+            >>> result = analyzer.analyze_competition("medieval history")
+            >>> result['differentiation_score']
+            0.85
+        """
+        # Import classifiers (graceful degradation if not available)
+        try:
+            from tools.discovery.classifiers import classify_format, classify_angles
+        except ImportError:
+            return {
+                'error': 'classifiers module not available',
+                'details': 'Ensure tools/discovery/classifiers.py exists'
+            }
+
+        # Import database for persistence (optional)
+        try:
+            from tools.discovery.database import KeywordDB
+            db = KeywordDB()
+            db_available = True
+        except (ImportError, Exception):
+            db = None
+            db_available = False
+
+        # Get raw video data
+        raw_result = self.count_videos(keyword)
+
+        if 'error' in raw_result:
+            return raw_result
+
+        videos = raw_result.get('videos', [])
+        if not videos:
+            return {
+                'error': 'No videos found',
+                'keyword': keyword
+            }
+
+        # Classify each video
+        classified_videos = []
+        for video in videos:
+            title = video.get('title', '')
+            channel_name = video.get('channel_name', '')
+
+            # Apply classifications
+            format_type = classify_format(title, channel_name)
+            angles = classify_angles(title)
+
+            # Add to video dict
+            video['format'] = format_type
+            video['angles'] = angles
+
+            classified_videos.append(video)
+
+            # Persist to database if available
+            if db_available and db:
+                try:
+                    video_id = video.get('video_id')
+                    if video_id:
+                        db.update_video_classification(
+                            video_id,
+                            format_type,
+                            angles
+                        )
+                except Exception:
+                    pass  # Graceful degradation - classification still works
+
+        # Filter to quality videos
+        quality_videos = filter_quality_competition(classified_videos, min_views=1000)
+
+        # Calculate format breakdown
+        format_counts = Counter(v.get('format', 'unknown') for v in classified_videos)
+        format_breakdown = dict(format_counts)
+
+        # Calculate differentiation on quality videos only
+        differentiation = calculate_differentiation_score(quality_videos)
+
+        # Get top competitors
+        top_competitors = self.get_top_channels(keyword, limit=5)
+
+        # Build complete result
+        return {
+            'keyword': keyword,
+            'video_count': raw_result.get('video_count_raw', 0),
+            'channel_count': raw_result.get('unique_channels', 0),
+            'quality_video_count': len(quality_videos),
+            'format_breakdown': format_breakdown,
+            'angle_distribution': differentiation['angle_distribution'],
+            'differentiation_score': differentiation['differentiation_score'],
+            'recommended_angle': differentiation['recommended_angle'],
+            'gap_scores': differentiation['gap_scores'],
+            'top_competitors': top_competitors,
+            'fetched_at': raw_result.get('fetched_at'),
+            'quality_threshold_used': 1000,
+            'sampled': raw_result.get('sampled', False),
+            'sample_size': self.sample_size
+        }
+
 
 def filter_quality_competition(
     videos: List[Dict],
