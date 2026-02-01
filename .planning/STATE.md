@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-01 (Plan 18-01 complete)
+**Last Updated:** 2026-02-01 (Phase 18 complete)
 
 ## Project Reference
 
@@ -13,17 +13,17 @@ See: `.planning/PROJECT.md` (updated 2026-01-31)
 ## Current Position
 
 **Milestone:** v1.3 Niche Discovery
-**Phase:** 18 - Opportunity Scoring & Orchestrator
-**Plan:** 18-01 complete (1 of 2 plans)
-**Status:** In progress - Plan 18-01 done, ready for Plan 18-02
-**Last activity:** 2026-02-01 — Completed 18-01-PLAN.md
+**Phase:** 18 - Opportunity Scoring & Orchestrator (COMPLETE)
+**Plan:** 18-02 complete (2 of 2 plans)
+**Status:** Phase complete - Ready for milestone validation
+**Last activity:** 2026-02-01 — Completed 18-02-PLAN.md
 
 **Progress:**
 ```
 v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
-v1.3 [#################   ]  85% — Niche Discovery (Phases 15-17 complete, 18-01 done)
+v1.3 [####################] 100% — Niche Discovery (Phases 15-18 complete)
 ```
 
 ## Milestone History
@@ -51,7 +51,9 @@ v1.3 [#################   ]  85% — Niche Discovery (Phases 15-17 complete, 18-
 **Discovery commands (v1.2 + v1.3):**
 - `/discover TOPIC` — keyword research workflow
 - `/discover --demand "keyword"` — demand analysis with opportunity scoring
+- `/discover --opportunity "topic"` — complete opportunity analysis (demand + competition + production)
 - `/discover --check FILE` — pre-publish metadata validation
+- `python tools/discovery/orchestrator.py "keyword"` — complete niche discovery with Markdown reports
 - `python tools/discovery/competition.py "keyword"` — competition analysis with differentiation
 
 **Script quality tools (v1.2):**
@@ -63,25 +65,26 @@ v1.3 [#################   ]  85% — Niche Discovery (Phases 15-17 complete, 18-
 ### Last Session
 
 - **Date:** 2026-02-01
-- **Work:** Completed Plan 18-01 (Opportunity Scoring)
+- **Work:** Completed Phase 18 (Plan 18-02: Opportunity Orchestrator)
 - **Output:**
-  - OpportunityScorer with SAW formula (demand × 0.33 + gap × 0.33 + fit × 0.34)
-  - Channel DNA filtering (blocks clickbait, news-first, politician-focus)
-  - Lifecycle state tracking (DISCOVERED -> ANALYZED -> ... -> PUBLISHED -> ARCHIVED)
-  - Database extended with lifecycle_state, lifecycle_history table
-  - Commits: 6c2c30a, 2de2e86
+  - OpportunityOrchestrator combining all Phase 15-18 modules
+  - Jinja2 Markdown report template with score visualization
+  - CLI with --report, --json, --refresh, --list-state, --transition flags
+  - /discover command documentation updated
+  - Commits: c47aac9, 8ed038d, 2f14c0c
 
 ### Next Session
 
-**Current work:** Phase 18 Plan 01 complete, ready for Plan 18-02
+**Current work:** Phase 18 complete, v1.3 milestone ready for validation
 
-**Plan 18-01 complete:**
-- ✅ OPP-01 partial: Opportunity score calculation implemented
-- ✅ OPP-02: Production constraints weighted in scoring
-- ✅ OPP-03: Channel DNA rules auto-filter topics
-- ✅ OPP-04 partial: Lifecycle states defined and tracked
+**Phase 18 complete:**
+- ✅ OPP-01: User can see combined opportunity score via orchestrator
+- ✅ OPP-02: Production constraints integrated in scoring pipeline
+- ✅ OPP-03: Channel DNA auto-filtering works end-to-end
+- ✅ OPP-04: Lifecycle state tracking with transition commands
+- ✅ OPP-05: Markdown opportunity reports generated via --report flag
 
-**Next action:** Execute Plan 18-02 (Orchestrator + CLI + Report Generation)
+**Next action:** Milestone validation and archival (v1.3 Niche Discovery complete)
 
 ## Accumulated Context
 
@@ -197,6 +200,14 @@ v1.3 [#################   ]  85% — Niche Discovery (Phases 15-17 complete, 18-
 - **Channel DNA violations:** Clickbait keywords, news-first patterns, politician-focus (starting with name only)
 - **Component transparency:** Return normalized values, weights, contributions for each scoring factor
 
+### Plan 18-02 Decisions
+
+- **Jinja2 for report templates:** Separates logic from presentation, easy to maintain, with graceful fallback to simple formatting
+- **ASCII-safe CLI output:** # and - for progress bars (avoid Unicode encoding issues on Windows cp1252 console)
+- **5-step pipeline:** demand -> competition -> constraints -> scoring -> persistence (with auto-save and lifecycle transition)
+- **Auto-transition to ANALYZED:** After scoring, keywords automatically move from DISCOVERED to ANALYZED state
+- **Orchestrator pattern:** Single class coordinating multiple module calls with data aggregation (facade pattern)
+
 ---
 
-*State updated: 2026-02-01 after Plan 18-01 complete*
+*State updated: 2026-02-01 after Phase 18 complete*
