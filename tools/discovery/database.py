@@ -59,6 +59,8 @@ class KeywordDB:
             else:
                 # Ensure classification columns exist (Phase 16 migration)
                 self._ensure_classification_columns()
+                # Ensure production constraint columns exist (Phase 17 migration)
+                self._ensure_production_columns()
 
     def init_database(self) -> Dict[str, Any]:
         """
@@ -923,6 +925,200 @@ class KeywordDB:
 
         except sqlite3.Error:
             return []
+
+
+    # =========================================================================
+    # PRODUCTION CONSTRAINT METHODS (Phase 17)
+    # =========================================================================
+
+    def _ensure_production_columns(self):
+        """
+        Safely add production constraint columns to keywords if they don't exist.
+
+        This allows existing databases to migrate without manual schema updates.
+        Executes ALTER TABLE statements for each missing column.
+        """
+        try:
+            cursor = self._conn.cursor()
+
+            # Check which columns exist in keywords table
+            cursor.execute("PRAGMA table_info(keywords)")
+            existing_columns = {row[1] for row in cursor.fetchall()}
+
+            # Add missing production constraint columns
+            columns_to_add = {
+                'production_constraints': 'ALTER TABLE keywords ADD COLUMN production_constraints TEXT',
+                'constraint_checked_at': 'ALTER TABLE keywords ADD COLUMN constraint_checked_at DATE',
+                'is_production_blocked': 'ALTER TABLE keywords ADD COLUMN is_production_blocked BOOLEAN DEFAULT 0'
+            }
+
+            for col_name, alter_sql in columns_to_add.items():
+                if col_name not in existing_columns:
+                    cursor.execute(alter_sql)
+
+            # Create index if it doesn't exist
+            cursor.execute(
+                "CREATE INDEX IF NOT EXISTS idx_keywords_blocked ON keywords(is_production_blocked, constraint_checked_at DESC)"
+            )
+
+            self._conn.commit()
+
+        except sqlite3.Error:
+            # If table doesn't exist yet, this is fine (will be created during init)
+            pass
+
+    def store_production_constraints(
+        self,
+        keyword_id: int,
+        animation_required: bool,
+        document_score: int,
+        sources_found: int = 0,
+        source_examples: Optional[List[str]] = None
+    ) -> Dict[str, Any]:
+        """
+        Store production constraint evaluation for a keyword.
+
+        Constraints are stored as JSON for flexibility. Keywords requiring
+        animation are marked as blocked for quick filtering.
+
+        Args:
+            keyword_id: Keyword ID from keywords table
+            animation_required: True if topic requires animation (hard block)
+            document_score: 0-4 document-friendliness score
+            sources_found: Number of academic sources found (0 if not checked)
+            source_examples: Optional list of example source names
+
+        Returns:
+            {'status': 'stored', 'keyword_id': keyword_id} on success
+            {'error': msg} on failure
+
+        Example:
+            db.store_production_constraints(
+                keyword_id=5,
+                animation_required=False,
+                document_score=3,
+                sources_found=5,
+                source_examples=['Cambridge Press Book', 'JSTOR Article']
+            )
+        """
+        try:
+            import json
+
+            cursor = self._conn.cursor()
+            now = datetime.utcnow().date().isoformat()
+
+            # Build constraints JSON
+            constraints = {
+                'animation_required': animation_required,
+                'document_score': document_score,
+                'sources_found': sources_found,
+                'source_examples': source_examples or [],
+                'checked_at': now
+            }
+            constraints_json = json.dumps(constraints)
+
+            # is_production_blocked = True if animation required
+            is_blocked = 1 if animation_required else 0
+
+            cursor.execute(
+                """
+                UPDATE keywords
+                SET production_constraints = ?,
+                    constraint_checked_at = ?,
+                    is_production_blocked = ?
+                WHERE id = ?
+                """,
+                (constraints_json, now, is_blocked, keyword_id)
+            )
+
+            self._conn.commit()
+
+            if cursor.rowcount == 0:
+                return {'error': 'Keyword not found', 'keyword_id': keyword_id}
+
+            return {'status': 'stored', 'keyword_id': keyword_id}
+
+        except sqlite3.Error as e:
+            return {'error': 'Database operation failed', 'details': str(e)}
+
+    def get_production_constraints(
+        self,
+        keyword_id: int,
+        max_age_days: int = 90
+    ) -> Optional[Dict[str, Any]]:
+        """
+        Retrieve production constraint evaluation for a keyword.
+
+        Returns None if not found or too old.
+
+        Args:
+            keyword_id: Keyword ID from keywords table
+            max_age_days: Maximum age of constraint check in days (default 90)
+
+        Returns:
+            {
+                'animation_required': bool,
+                'document_score': int,
+                'sources_found': int,
+                'source_examples': list,
+                'checked_at': str,
+                'is_production_blocked': bool,
+                'data_age_days': int
+            }
+            or None if not found or too old
+
+        Example:
+            constraints = db.get_production_constraints(keyword_id=5)
+            if constraints and constraints['is_production_blocked']:
+                print("Skip this topic - requires animation")
+        """
+        try:
+            import json
+
+            cursor = self._conn.cursor()
+
+            cursor.execute(
+                """
+                SELECT production_constraints,
+                       constraint_checked_at,
+                       is_production_blocked,
+                       CAST((julianday('now') - julianday(constraint_checked_at)) AS INTEGER) AS data_age_days
+                FROM keywords
+                WHERE id = ?
+                  AND constraint_checked_at IS NOT NULL
+                """,
+                (keyword_id,)
+            )
+
+            row = cursor.fetchone()
+
+            if row is None:
+                return None
+
+            data_age_days = row['data_age_days'] or 0
+
+            # Check if too old
+            if data_age_days > max_age_days:
+                return None
+
+            # Parse constraints JSON
+            constraints_json = row['production_constraints']
+            if not constraints_json:
+                return None
+
+            try:
+                constraints = json.loads(constraints_json)
+            except (json.JSONDecodeError, TypeError):
+                return None
+
+            # Add runtime fields
+            constraints['is_production_blocked'] = bool(row['is_production_blocked'])
+            constraints['data_age_days'] = data_age_days
+
+            return constraints
+
+        except sqlite3.Error:
+            return None
 
 
 def init_database(db_path: Optional[str] = None) -> Dict[str, Any]:

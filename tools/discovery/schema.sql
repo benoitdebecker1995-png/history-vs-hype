@@ -174,3 +174,17 @@ ALTER TABLE competitor_videos ADD COLUMN classified_at DATE;
 -- Indexes for Phase 16 competition filtering
 CREATE INDEX IF NOT EXISTS idx_competitor_format ON competitor_videos(keyword_id, format);
 CREATE INDEX IF NOT EXISTS idx_competitor_quality ON competitor_videos(keyword_id, quality_tier);
+
+-- ============================================================================
+-- PRODUCTION CONSTRAINT COLUMNS (Phase 17)
+-- Purpose: Store production feasibility assessments for keywords
+-- ============================================================================
+
+-- Production constraint columns for fail-fast filtering (Phase 17)
+ALTER TABLE keywords ADD COLUMN production_constraints TEXT;  -- JSON: animation_required, document_score, sources_found
+ALTER TABLE keywords ADD COLUMN constraint_checked_at DATE;
+ALTER TABLE keywords ADD COLUMN is_production_blocked BOOLEAN DEFAULT 0;
+
+-- Index for production filtering queries
+CREATE INDEX IF NOT EXISTS idx_keywords_blocked
+  ON keywords(is_production_blocked, constraint_checked_at DESC);
