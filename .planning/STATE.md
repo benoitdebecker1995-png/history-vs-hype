@@ -1,29 +1,29 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-01-31 (Plan 15-02 complete)
+**Last Updated:** 2026-02-01 (Plan 16-01 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-01-31)
 
 **Core value:** Find high-potential topics with low competition that fit document-heavy format
-**Current focus:** v1.3 Niche Discovery — Phase 15 (Database Foundation & Demand Research)
+**Current focus:** v1.3 Niche Discovery — Phase 16 (Competition Analysis)
 
 ## Current Position
 
 **Milestone:** v1.3 Niche Discovery
 **Phase:** 16 - Competition Analysis
-**Plan:** Ready to plan
-**Status:** Phase 15 complete, Phase 16 ready to plan
-**Last activity:** 2026-01-31 — Phase 15 verified complete (demand research foundation)
+**Plan:** 1 of 2
+**Status:** Plan 16-01 complete (classification foundation)
+**Last activity:** 2026-02-01 — Completed 16-01-PLAN.md (format/angle classification + database storage)
 
 **Progress:**
 ```
 v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
-v1.3 [#####               ]  25% — Niche Discovery (Phase 15 complete)
+v1.3 [#######             ]  35% — Niche Discovery (Phase 15 complete, 16-01 complete)
 ```
 
 ## Milestone History
@@ -61,27 +61,26 @@ v1.3 [#####               ]  25% — Niche Discovery (Phase 15 complete)
 
 ### Last Session
 
-- **Date:** 2026-01-31
-- **Work:** Executed Plan 15-02 (External Data Integration)
+- **Date:** 2026-02-01
+- **Work:** Executed Plan 16-01 (Classification Foundation)
 - **Output:**
-  - Created trends.py with TrendsClient + rate limit handling
-  - Created competition.py with CompetitionAnalyzer + view count parsing
-  - Completed DemandAnalyzer.analyze_keyword() with external data
-  - Added CLI entry point for demand.py
-  - Documented /discover --demand in command reference
-  - Commits: 2b70b9e, 1aac359, ccd6826
+  - Created classifiers.py with format and angle detection
+  - Extended schema.sql with classification columns
+  - Extended database.py with classification storage methods
+  - Automatic schema migration for Phase 15 databases
+  - Commits: 479a642, cd8e2b3, c81e3ee
 
 ### Next Session
 
-**Current work:** Ready to plan Phase 16 (Competition Analysis)
+**Current work:** Ready to execute Plan 16-02 (Differentiation Analysis)
 
-**Phase 16 delivers:**
-- Video count and channel count for keywords (extends Phase 15 foundation)
-- Quality filtering for competition (not just quantity)
-- Competitor format and angle analysis
-- Differentiation scoring (what's missing)
+**Plan 16-02 delivers:**
+- Quality tier assignment for competitor videos
+- Differentiation scoring (what angles are missing)
+- Channel format dominance analysis
+- Opportunity filtering (which keywords have gaps)
 
-**Next action:** Run `/gsd:plan-phase 16` to create execution plan
+**Next action:** Run `/gsd:execute-plan 16-02` to analyze competition gaps
 
 ## Accumulated Context
 
@@ -139,6 +138,21 @@ v1.3 [#####               ]  25% — Niche Discovery (Phase 15 complete)
 - **Top 20 video caching:** Store first 20 competitor videos to database
 - **PACKAGE_AVAILABLE flags:** Check external package availability at import time
 
+### Plan 16-01 Decisions
+
+- **Channel-based format detection:** Use channel name as primary signal (stronger than title keywords)
+- **Multi-angle support:** Videos can have multiple angle classifications (legal + historical)
+- **JSON angle storage:** Store angles as JSON array in TEXT column (SQLite lacks native array type)
+- **Automatic schema migration:** _ensure_classification_columns() adds columns if missing (zero-friction upgrade)
+
+### Technical Notes (Plan 16-01)
+
+- keywords.db schema extended with classification columns (format, angles, quality_tier, classified_at)
+- Automatic migration from Phase 15 schema via _ensure_classification_columns()
+- 13 animation channel keywords, 10 documentary channel keywords
+- 5 angle categories with 73 total keywords (political, legal, historical, economic, geographic)
+- JSON storage for angles list (parsed on retrieval)
+
 ---
 
-*State updated: 2026-01-31 after Plan 15-02 complete*
+*State updated: 2026-02-01 after Plan 16-01 complete*
