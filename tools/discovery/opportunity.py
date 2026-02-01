@@ -31,7 +31,11 @@ from typing import Dict, Optional, Any, Tuple
 from datetime import datetime
 
 
-# Channel DNA violations per CLAUDE.md Channel DNA section
+# Channel DNA patterns - WARNING only (not hard blocks)
+# For channels still building audience, these are advisory.
+# Enable hard blocking via CHANNEL_DNA_BLOCK_ENABLED = True once audience is established.
+CHANNEL_DNA_BLOCK_ENABLED = False  # Set True once you know what your audience wants
+
 CHANNEL_DNA_VIOLATIONS = {
     'clickbait': [
         'secret', 'hidden', 'shocking', "you won't believe",
@@ -196,19 +200,23 @@ class OpportunityScorer:
                 'data_age_days': 0
             }
 
-        # Check channel DNA violations
+        # Check channel DNA violations (warning only unless blocking enabled)
         is_violation, vtype, matched = self._violates_channel_dna(keyword)
         if is_violation:
-            return {
-                'keyword': keyword,
-                'opportunity_score': None,
-                'category': 'Blocked',
-                'is_blocked': True,
-                'block_reason': f'Channel DNA violation: {vtype} ("{matched}")',
-                'components': {},
-                'warnings': warnings,
-                'data_age_days': 0
-            }
+            if CHANNEL_DNA_BLOCK_ENABLED:
+                return {
+                    'keyword': keyword,
+                    'opportunity_score': None,
+                    'category': 'Blocked',
+                    'is_blocked': True,
+                    'block_reason': f'Channel DNA violation: {vtype} ("{matched}")',
+                    'components': {},
+                    'warnings': warnings,
+                    'data_age_days': 0
+                }
+            else:
+                # Advisory warning for channels still building audience
+                warnings.append(f'Channel DNA advisory: {vtype} pattern detected ("{matched}") - consider if this fits your channel voice')
 
         # STEP 2: NORMALIZE INPUTS
 
