@@ -5,7 +5,7 @@
 - **v1.0 MVP** - Phases 1-7 (shipped 2026-01-19)
 - **v1.1 Analytics & Learning Loop** - Phases 8-10 (shipped 2026-01-26)
 - **v1.2 Script Quality & Discovery** - Phases 11-14 (shipped 2026-01-30)
-- **v1.3 Niche Discovery** - Phases 15-18 (in progress)
+- **v1.3 Niche Discovery** - Phases 15-18 (shipped 2026-02-01)
 
 ## Phases
 
@@ -139,8 +139,8 @@ Plans:
 
 </details>
 
-<details open>
-<summary>v1.3 Niche Discovery (Phases 15-18) - IN PROGRESS</summary>
+<details>
+<summary>v1.3 Niche Discovery (Phases 15-18) - SHIPPED 2026-02-01</summary>
 
 ### Phase 15: Database Foundation & Demand Research
 **Goal**: User can quantify demand for topics
@@ -205,8 +205,8 @@ Plans:
 5. User can generate Markdown opportunity report with all decision factors documented
 
 Plans:
-- [ ] 18-01-PLAN.md — OpportunityScorer + lifecycle state tracking + Channel DNA filtering
-- [ ] 18-02-PLAN.md — OpportunityOrchestrator + report generation + CLI
+- [x] 18-01-PLAN.md — OpportunityScorer + lifecycle state tracking + Channel DNA filtering
+- [x] 18-02-PLAN.md — OpportunityOrchestrator + report generation + CLI
 
 </details>
 
@@ -232,4 +232,4 @@ Plans:
 | **15. Database Foundation & Demand Research** | **v1.3** | **2/2** | **Complete** | 2026-01-31 |
 | **16. Competition Analysis** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
 | **17. Format Filtering** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
-| **18. Opportunity Scoring & Orchestrator** | **v1.3** | **0/2** | **Planned** | - |
+| **18. Opportunity Scoring & Orchestrator** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |

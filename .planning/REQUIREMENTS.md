@@ -16,24 +16,24 @@ Requirements for niche discovery milestone. Each maps to roadmap phases.
 
 ### Competition Analysis
 
-- [ ] **COMP-01**: User can see video count and channel count for a keyword
-- [ ] **COMP-02**: User can filter competition by quality (not just quantity)
-- [ ] **COMP-03**: User can see competitor format and angle (animation vs. documentary, political vs. legal)
-- [ ] **COMP-04**: User can see differentiation score (what angle is missing in existing coverage)
+- [x] **COMP-01**: User can see video count and channel count for a keyword
+- [x] **COMP-02**: User can filter competition by quality (not just quantity)
+- [x] **COMP-03**: User can see competitor format and angle (animation vs. documentary, political vs. legal)
+- [x] **COMP-04**: User can see differentiation score (what angle is missing in existing coverage)
 
 ### Format Filtering
 
-- [ ] **FMT-01**: Topics requiring animation are flagged as hard blocks
-- [ ] **FMT-02**: Topics are scored for document-friendliness (0-4 scale)
-- [ ] **FMT-03**: User can check academic source availability for a topic
+- [x] **FMT-01**: Topics requiring animation are flagged as hard blocks
+- [x] **FMT-02**: Topics are scored for document-friendliness (0-4 scale)
+- [x] **FMT-03**: User can check academic source availability for a topic
 
 ### Opportunity Scoring
 
-- [ ] **OPP-01**: User can see combined opportunity score (demand × gap × fit / effort)
-- [ ] **OPP-02**: Production constraints are weighted in the scoring formula
-- [ ] **OPP-03**: Channel DNA rules auto-filter topics (reject clickbait, news-first framing)
-- [ ] **OPP-04**: Opportunities track lifecycle status (DISCOVERED → IN_RESEARCH → SCRIPTED → PUBLISHED)
-- [ ] **OPP-05**: User can generate Markdown opportunity report for a topic
+- [x] **OPP-01**: User can see combined opportunity score (demand × gap × fit / effort)
+- [x] **OPP-02**: Production constraints are weighted in the scoring formula
+- [x] **OPP-03**: Channel DNA rules auto-filter topics (reject clickbait, news-first framing)
+- [x] **OPP-04**: Opportunities track lifecycle status (DISCOVERED → IN_RESEARCH → SCRIPTED → PUBLISHED)
+- [x] **OPP-05**: User can generate Markdown opportunity report for a topic
 
 ## Future Requirements (v1.4+)
 
@@ -73,24 +73,24 @@ Which phases cover which requirements. All v1.3 requirements mapped.
 | DEM-02 | Phase 15 | Complete |
 | DEM-03 | Phase 15 | Complete |
 | DEM-04 | Phase 15 | Complete |
-| COMP-01 | Phase 16 | Pending |
-| COMP-02 | Phase 16 | Pending |
-| COMP-03 | Phase 16 | Pending |
-| COMP-04 | Phase 16 | Pending |
-| FMT-01 | Phase 17 | Pending |
-| FMT-02 | Phase 17 | Pending |
-| FMT-03 | Phase 17 | Pending |
-| OPP-01 | Phase 18 | Pending |
-| OPP-02 | Phase 18 | Pending |
-| OPP-03 | Phase 18 | Pending |
-| OPP-04 | Phase 18 | Pending |
-| OPP-05 | Phase 18 | Pending |
+| COMP-01 | Phase 16 | Complete |
+| COMP-02 | Phase 16 | Complete |
+| COMP-03 | Phase 16 | Complete |
+| COMP-04 | Phase 16 | Complete |
+| FMT-01 | Phase 17 | Complete |
+| FMT-02 | Phase 17 | Complete |
+| FMT-03 | Phase 17 | Complete |
+| OPP-01 | Phase 18 | Complete |
+| OPP-02 | Phase 18 | Complete |
+| OPP-03 | Phase 18 | Complete |
+| OPP-04 | Phase 18 | Complete |
+| OPP-05 | Phase 18 | Complete |
 
 **Coverage:**
 - v1.3 requirements: 16 total
 - Mapped to phases: 16
-- Unmapped: 0 ✓
+- Complete: 16/16 ✓
 
 ---
 *Requirements defined: 2026-01-31*
-*Last updated: 2026-01-31 after roadmap creation*
+*Last updated: 2026-02-01 after v1.3 milestone completion*
