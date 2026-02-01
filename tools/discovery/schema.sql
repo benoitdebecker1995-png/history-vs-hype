@@ -159,3 +159,18 @@ CREATE INDEX IF NOT EXISTS idx_trends_keyword_time ON trends(keyword_id, fetched
 CREATE INDEX IF NOT EXISTS idx_trends_fetch_time ON trends(fetched_at DESC);
 CREATE INDEX IF NOT EXISTS idx_opportunity_ratio ON opportunity_scores(opportunity_ratio DESC, calculated_at DESC);
 CREATE INDEX IF NOT EXISTS idx_competitor_videos_keyword ON competitor_videos(keyword_id, discovered_at DESC);
+
+-- ============================================================================
+-- CLASSIFICATION COLUMNS (Phase 16)
+-- Purpose: Store format, angle, and quality classifications for competitor videos
+-- ============================================================================
+
+-- Classification columns for competitor analysis (Phase 16)
+ALTER TABLE competitor_videos ADD COLUMN format TEXT;
+ALTER TABLE competitor_videos ADD COLUMN angles TEXT;
+ALTER TABLE competitor_videos ADD COLUMN quality_tier TEXT;
+ALTER TABLE competitor_videos ADD COLUMN classified_at DATE;
+
+-- Indexes for Phase 16 competition filtering
+CREATE INDEX IF NOT EXISTS idx_competitor_format ON competitor_videos(keyword_id, format);
+CREATE INDEX IF NOT EXISTS idx_competitor_quality ON competitor_videos(keyword_id, quality_tier);
