@@ -56,6 +56,9 @@ class KeywordDB:
             if cursor.fetchone() is None:
                 # Database needs initialization
                 self.init_database()
+            else:
+                # Ensure classification columns exist (Phase 16 migration)
+                self._ensure_classification_columns()
 
     def init_database(self) -> Dict[str, Any]:
         """
@@ -742,6 +745,184 @@ class KeywordDB:
 
         except sqlite3.Error:
             return None
+
+    # =========================================================================
+    # CLASSIFICATION METHODS (Phase 16)
+    # =========================================================================
+
+    def _ensure_classification_columns(self):
+        """
+        Safely add classification columns to competitor_videos if they don't exist.
+
+        This allows existing databases to migrate without manual schema updates.
+        Executes ALTER TABLE statements for each missing column.
+        """
+        try:
+            cursor = self._conn.cursor()
+
+            # Check which columns exist
+            cursor.execute("PRAGMA table_info(competitor_videos)")
+            existing_columns = {row[1] for row in cursor.fetchall()}
+
+            # Add missing classification columns
+            columns_to_add = {
+                'format': 'ALTER TABLE competitor_videos ADD COLUMN format TEXT',
+                'angles': 'ALTER TABLE competitor_videos ADD COLUMN angles TEXT',
+                'quality_tier': 'ALTER TABLE competitor_videos ADD COLUMN quality_tier TEXT',
+                'classified_at': 'ALTER TABLE competitor_videos ADD COLUMN classified_at DATE'
+            }
+
+            for col_name, alter_sql in columns_to_add.items():
+                if col_name not in existing_columns:
+                    cursor.execute(alter_sql)
+
+            # Create indexes if they don't exist
+            cursor.execute(
+                "CREATE INDEX IF NOT EXISTS idx_competitor_format ON competitor_videos(keyword_id, format)"
+            )
+            cursor.execute(
+                "CREATE INDEX IF NOT EXISTS idx_competitor_quality ON competitor_videos(keyword_id, quality_tier)"
+            )
+
+            self._conn.commit()
+
+        except sqlite3.Error:
+            # If table doesn't exist yet, this is fine (will be created during init)
+            pass
+
+    def update_video_classification(
+        self,
+        video_id: str,
+        format_type: str,
+        angles: List[str],
+        quality_tier: Optional[str] = None
+    ) -> Dict[str, Any]:
+        """
+        Update classification data for a competitor video.
+
+        Args:
+            video_id: YouTube video ID
+            format_type: 'animation', 'documentary', or 'unknown'
+            angles: List of angle categories (e.g., ['legal', 'historical'])
+            quality_tier: Optional quality tier ('high', 'medium', 'low')
+
+        Returns:
+            {'status': 'updated'} on success
+            {'error': msg} on failure
+
+        Example:
+            db.update_video_classification(
+                'abc123',
+                'documentary',
+                ['legal', 'historical'],
+                'high'
+            )
+        """
+        try:
+            import json
+
+            cursor = self._conn.cursor()
+            now = datetime.utcnow().date().isoformat()
+
+            # Convert angles list to JSON string
+            angles_json = json.dumps(angles)
+
+            cursor.execute(
+                """
+                UPDATE competitor_videos
+                SET format = ?,
+                    angles = ?,
+                    quality_tier = ?,
+                    classified_at = ?
+                WHERE video_id = ?
+                """,
+                (format_type, angles_json, quality_tier, now, video_id)
+            )
+
+            self._conn.commit()
+
+            if cursor.rowcount == 0:
+                return {'error': 'Video not found', 'video_id': video_id}
+
+            return {'status': 'updated'}
+
+        except sqlite3.Error as e:
+            return {'error': 'Database operation failed', 'details': str(e)}
+
+    def get_classified_videos(
+        self,
+        keyword_id: int,
+        format_filter: Optional[str] = None,
+        quality_filter: Optional[str] = None,
+        max_age_days: int = 30
+    ) -> List[Dict[str, Any]]:
+        """
+        Get classified videos for a keyword with optional filtering.
+
+        Args:
+            keyword_id: Keyword ID
+            format_filter: Optional format to filter by ('animation', 'documentary')
+            quality_filter: Optional quality tier to filter by ('high', 'medium', 'low')
+            max_age_days: Maximum classification age in days
+
+        Returns:
+            List of video dicts with classification data and data_age_days field
+
+        Example:
+            videos = db.get_classified_videos(
+                keyword_id=5,
+                format_filter='documentary',
+                quality_filter='high',
+                max_age_days=7
+            )
+        """
+        try:
+            import json
+
+            cursor = self._conn.cursor()
+
+            # Build query with optional filters
+            query = """
+                SELECT *,
+                    CAST((julianday('now') - julianday(classified_at)) AS INTEGER) AS data_age_days
+                FROM competitor_videos
+                WHERE keyword_id = ?
+                    AND classified_at IS NOT NULL
+            """
+            params = [keyword_id]
+
+            if format_filter:
+                query += " AND format = ?"
+                params.append(format_filter)
+
+            if quality_filter:
+                query += " AND quality_tier = ?"
+                params.append(quality_filter)
+
+            query += " AND julianday('now') - julianday(classified_at) <= ?"
+            params.append(max_age_days)
+
+            query += " ORDER BY classified_at DESC"
+
+            cursor.execute(query, params)
+
+            results = []
+            for row in cursor.fetchall():
+                video_dict = dict(row)
+
+                # Parse angles JSON back to list
+                if video_dict.get('angles'):
+                    try:
+                        video_dict['angles'] = json.loads(video_dict['angles'])
+                    except (json.JSONDecodeError, TypeError):
+                        video_dict['angles'] = []
+
+                results.append(video_dict)
+
+            return results
+
+        except sqlite3.Error:
+            return []
 
 
 def init_database(db_path: Optional[str] = None) -> Dict[str, Any]:
