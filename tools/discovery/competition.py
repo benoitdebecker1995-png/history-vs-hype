@@ -178,6 +178,172 @@ class CompetitionAnalyzer:
         return sorted_channels[:limit]
 
 
+def filter_quality_competition(
+    videos: List[Dict],
+    min_views: int = 1000,
+    min_percentile: int = 25
+) -> List[Dict]:
+    """
+    Filter to quality competition only.
+
+    Quality signals:
+    1. View count > threshold (1K minimum)
+    2. View count > Nth percentile of sample
+    3. Channel appears multiple times (established creator)
+
+    Args:
+        videos: List of video dicts with 'view_count' and 'channel_name'
+        min_views: Minimum view count threshold (default 1000)
+        min_percentile: Minimum percentile threshold (default 25th)
+
+    Returns:
+        Filtered list with quality_signals dict and quality_tier added.
+
+    Example:
+        >>> videos = [{'view_count': 100000, 'channel_name': 'Big Channel'}, ...]
+        >>> filtered = filter_quality_competition(videos, min_views=1000)
+        >>> filtered[0]['quality_tier']
+        'high'
+    """
+    if not videos:
+        return []
+
+    # Calculate percentile threshold from sample
+    view_counts = [v.get('view_count', 0) for v in videos]
+    view_counts.sort()
+
+    percentile_index = int(len(view_counts) * (min_percentile / 100.0))
+    percentile_threshold = view_counts[percentile_index] if percentile_index < len(view_counts) else 0
+
+    # Effective threshold is max of min_views and percentile
+    effective_threshold = max(min_views, percentile_threshold)
+
+    # Count channel occurrences for established creator detection
+    channel_counts = Counter(v.get('channel_name', '') for v in videos if v.get('channel_name'))
+
+    # Calculate quality tiers (75th and 25th percentile)
+    p75_index = int(len(view_counts) * 0.75)
+    p75_threshold = view_counts[p75_index] if p75_index < len(view_counts) else view_counts[-1]
+
+    filtered = []
+    for video in videos:
+        view_count = video.get('view_count', 0)
+        channel_name = video.get('channel_name', '')
+
+        # Apply quality filter
+        if view_count < effective_threshold:
+            continue
+
+        # Build quality signals
+        is_established = channel_counts.get(channel_name, 0) > 1
+
+        quality_signals = {
+            'above_min_views': view_count >= min_views,
+            'above_percentile': view_count >= percentile_threshold,
+            'established_creator': is_established,
+            'view_count': view_count
+        }
+
+        # Assign quality tier
+        if view_count >= p75_threshold:
+            quality_tier = 'high'
+        elif view_count >= effective_threshold:
+            quality_tier = 'medium'
+        else:
+            quality_tier = 'low'
+
+        # Add to filtered list with enrichment
+        enriched_video = video.copy()
+        enriched_video['quality_signals'] = quality_signals
+        enriched_video['quality_tier'] = quality_tier
+        filtered.append(enriched_video)
+
+    return filtered
+
+
+def calculate_differentiation_score(
+    videos: List[Dict],
+    channel_angles: List[str] = None
+) -> Dict[str, Any]:
+    """
+    Calculate differentiation opportunities based on angle frequency.
+
+    Args:
+        videos: List of video dicts with 'angles' key (list of angle categories)
+        channel_angles: Channel's preferred angles (default: ['legal', 'historical'])
+
+    Returns:
+        {
+            'angle_distribution': {'political': 45.2, 'legal': 12.1, ...},
+            'gap_scores': {'legal': 0.73, 'economic': 0.85, ...},
+            'recommended_angle': 'economic',
+            'differentiation_score': 0.85,
+            'total_videos_analyzed': int
+        }
+
+    Example:
+        >>> videos = [{'angles': ['political']}, {'angles': ['political', 'historical']}]
+        >>> result = calculate_differentiation_score(videos)
+        >>> result['gap_scores']['legal']
+        1.0  # No legal angle videos = maximum gap
+    """
+    from tools.discovery.classifiers import ANGLE_KEYWORDS
+
+    if channel_angles is None:
+        channel_angles = ['legal', 'historical']  # Channel DNA default
+
+    if not videos:
+        # No competition = maximum opportunity
+        return {
+            'angle_distribution': {},
+            'gap_scores': {angle: 1.0 for angle in ANGLE_KEYWORDS.keys()},
+            'recommended_angle': channel_angles[0] if channel_angles else 'legal',
+            'differentiation_score': 1.0,
+            'total_videos_analyzed': 0
+        }
+
+    # Count angle occurrences across all videos
+    angle_counts = Counter()
+    total_angle_instances = 0
+
+    for video in videos:
+        angles = video.get('angles', [])
+        for angle in angles:
+            if angle != 'general':  # Exclude generic classification
+                angle_counts[angle] += 1
+                total_angle_instances += 1
+
+    # Calculate angle distribution (percentage)
+    angle_distribution = {}
+    for angle in ANGLE_KEYWORDS.keys():
+        count = angle_counts.get(angle, 0)
+        percentage = (count / total_angle_instances * 100.0) if total_angle_instances > 0 else 0.0
+        angle_distribution[angle] = round(percentage, 1)
+
+    # Calculate gap scores (inverse of frequency, 1.0 = no competition)
+    gap_scores = {}
+    for angle in ANGLE_KEYWORDS.keys():
+        frequency = angle_distribution[angle] / 100.0  # Convert back to 0-1
+        gap_scores[angle] = round(1.0 - frequency, 2)
+
+    # Find best angle from channel_angles based on gap score
+    best_angle = channel_angles[0] if channel_angles else 'legal'
+    best_gap = 0.0
+
+    for angle in channel_angles:
+        if angle in gap_scores and gap_scores[angle] > best_gap:
+            best_gap = gap_scores[angle]
+            best_angle = angle
+
+    return {
+        'angle_distribution': angle_distribution,
+        'gap_scores': gap_scores,
+        'recommended_angle': best_angle,
+        'differentiation_score': best_gap,
+        'total_videos_analyzed': len(videos)
+    }
+
+
 def get_competition_count(keyword: str, sample_size: int = 100) -> Dict[str, Any]:
     """
     Convenience function to count competition for a keyword.
