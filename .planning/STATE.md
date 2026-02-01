@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-01 (Plan 16-01 complete)
+**Last Updated:** 2026-02-01 (Plan 16-02 complete)
 
 ## Project Reference
 
@@ -14,16 +14,16 @@ See: `.planning/PROJECT.md` (updated 2026-01-31)
 
 **Milestone:** v1.3 Niche Discovery
 **Phase:** 16 - Competition Analysis
-**Plan:** 1 of 2
-**Status:** Plan 16-01 complete (classification foundation)
-**Last activity:** 2026-02-01 — Completed 16-01-PLAN.md (format/angle classification + database storage)
+**Plan:** 2 of 2
+**Status:** Phase 16 complete (competition analysis with differentiation scoring)
+**Last activity:** 2026-02-01 — Completed 16-02-PLAN.md (quality filtering + gap analysis + CLI)
 
 **Progress:**
 ```
 v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
-v1.3 [#######             ]  35% — Niche Discovery (Phase 15 complete, 16-01 complete)
+v1.3 [########            ]  40% — Niche Discovery (Phase 15-16 complete)
 ```
 
 ## Milestone History
@@ -52,6 +52,7 @@ v1.3 [#######             ]  35% — Niche Discovery (Phase 15 complete, 16-01 c
 - `/discover TOPIC` — keyword research workflow
 - `/discover --demand "keyword"` — demand analysis with opportunity scoring
 - `/discover --check FILE` — pre-publish metadata validation
+- `python tools/discovery/competition.py "keyword"` — competition analysis with differentiation
 
 **Script quality tools (v1.2):**
 - `python tools/script-checkers/cli.py script.md --all` — run all checkers
@@ -62,25 +63,26 @@ v1.3 [#######             ]  35% — Niche Discovery (Phase 15 complete, 16-01 c
 ### Last Session
 
 - **Date:** 2026-02-01
-- **Work:** Executed Plan 16-01 (Classification Foundation)
+- **Work:** Executed Plan 16-02 (Differentiation Analysis)
 - **Output:**
-  - Created classifiers.py with format and angle detection
-  - Extended schema.sql with classification columns
-  - Extended database.py with classification storage methods
-  - Automatic schema migration for Phase 15 databases
-  - Commits: 479a642, cd8e2b3, c81e3ee
+  - Added filter_quality_competition() with percentile-based filtering
+  - Added calculate_differentiation_score() for gap analysis
+  - Extended CompetitionAnalyzer with analyze_competition() method
+  - Created CLI tool with pretty output and JSON mode
+  - Updated discover.md with competition analysis documentation
+  - Commits: c42baa2, 3e4e22f, 9e48653, 9376b50
 
 ### Next Session
 
-**Current work:** Ready to execute Plan 16-02 (Differentiation Analysis)
+**Current work:** Phase 16 complete
 
-**Plan 16-02 delivers:**
-- Quality tier assignment for competitor videos
-- Differentiation scoring (what angles are missing)
-- Channel format dominance analysis
-- Opportunity filtering (which keywords have gaps)
+**Phase 16 delivered:**
+- Classification foundation (format/angle detection)
+- Quality filtering (percentile-based)
+- Differentiation scoring (gap analysis)
+- CLI tool for manual keyword research
 
-**Next action:** Run `/gsd:execute-plan 16-02` to analyze competition gaps
+**Next action:** Continue v1.3 milestone or start new phase (check PROJECT.md roadmap)
 
 ## Accumulated Context
 
@@ -145,14 +147,23 @@ v1.3 [#######             ]  35% — Niche Discovery (Phase 15 complete, 16-01 c
 - **JSON angle storage:** Store angles as JSON array in TEXT column (SQLite lacks native array type)
 - **Automatic schema migration:** _ensure_classification_columns() adds columns if missing (zero-friction upgrade)
 
-### Technical Notes (Plan 16-01)
+### Plan 16-02 Decisions
+
+- **25th percentile quality threshold:** Balance filtering noise while retaining meaningful competition
+- **Inverse frequency gap scoring:** 1.0 - frequency (higher = bigger opportunity, bounded 0-1)
+- **Default channel angles ['legal', 'historical']:** Matches channel DNA from CLAUDE.md
+- **Graceful degradation for database:** Classification works even if persistence unavailable
+
+### Technical Notes (Phase 16)
 
 - keywords.db schema extended with classification columns (format, angles, quality_tier, classified_at)
 - Automatic migration from Phase 15 schema via _ensure_classification_columns()
 - 13 animation channel keywords, 10 documentary channel keywords
 - 5 angle categories with 73 total keywords (political, legal, historical, economic, geographic)
 - JSON storage for angles list (parsed on retrieval)
+- Quality tiers: high (>75th percentile), medium (25-75th), low (<25th)
+- Gap scores: 0-1 where 1.0 = no competition, 0.0 = saturated
 
 ---
 
-*State updated: 2026-02-01 after Plan 16-01 complete*
+*State updated: 2026-02-01 after Plan 16-02 complete*
