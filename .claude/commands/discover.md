@@ -14,6 +14,7 @@ Comprehensive keyword research workflow and metadata validation for YouTube disc
 /discover --autocomplete "phrase" # Extract autocomplete suggestions
 /discover --intent "query"        # Classify search intent
 /discover --demand "keyword"      # Demand analysis with opportunity scoring
+/discover --opportunity "topic"   # Complete opportunity analysis (demand + competition + production)
 /discover --check FILE            # Pre-publish metadata validation
 /discover --vidiq "topic"         # VidIQ guided workflow
 ```
@@ -25,6 +26,7 @@ Comprehensive keyword research workflow and metadata validation for YouTube disc
 | `--autocomplete` | YouTube autocomplete suggestions | `/discover --autocomplete "medieval history"` |
 | `--intent` | Classify search intent | `/discover --intent "dark ages myth"` |
 | `--demand` | Full demand analysis | `/discover --demand "medieval history"` |
+| `--opportunity` | Complete opportunity scoring | `/discover --opportunity "treaty of versailles"` |
 | `--check` | Validate metadata consistency | `/discover --check YOUTUBE-METADATA.md` |
 | `--vidiq` | VidIQ data collection guide | `/discover --vidiq "crusades"` |
 | `--refresh` | Force refresh cached data | `/discover --demand "topic" --refresh` |
@@ -593,6 +595,138 @@ pip install scrapetube
 **Optional:**
 - Database persistence (automatic if database.py available)
 - Classification requires classifiers.py (always available in this project)
+
+---
+
+## OPPORTUNITY ANALYSIS
+
+Full opportunity scoring combining demand, competition, and production fit.
+
+### CLI Usage
+
+```bash
+# Complete opportunity analysis
+python tools/discovery/orchestrator.py "dark ages myth"
+
+# Generate Markdown report
+python tools/discovery/orchestrator.py "treaty of versailles" --report
+
+# Save report to file
+python tools/discovery/orchestrator.py "topic" --report --output report.md
+
+# Force refresh all cached data
+python tools/discovery/orchestrator.py "topic" --refresh
+
+# List keywords by lifecycle state
+python tools/discovery/orchestrator.py --list-state ANALYZED
+
+# Transition keyword to new state
+python tools/discovery/orchestrator.py --transition "topic" RESEARCHING
+
+# JSON output for automation
+python tools/discovery/orchestrator.py "topic" --json
+```
+
+### Score Interpretation
+
+| Score | Category | Recommendation |
+|-------|----------|----------------|
+| 70-100 | Excellent | Proceed immediately |
+| 50-69 | Good | Proceed with verification |
+| 30-49 | Fair | Consider alternatives |
+| 0-29 | Poor | Skip or reframe |
+| None | Blocked | Cannot produce (animation required or channel DNA violation) |
+
+### Lifecycle States
+
+Topics progress through these states:
+
+1. **DISCOVERED** - Found via keyword research
+2. **ANALYZED** - Opportunity score calculated
+3. **RESEARCHING** - NotebookLM research in progress
+4. **SCRIPTING** - Script being written
+5. **FILMED** - Video recorded
+6. **PUBLISHED** - Live on YouTube
+7. **ARCHIVED** - Completed or abandoned
+
+Transition keywords manually:
+```bash
+python tools/discovery/orchestrator.py --transition "topic" RESEARCHING
+```
+
+### Example Output
+
+```
+======================================================================
+  Opportunity Analysis: treaty of versailles
+======================================================================
+
+VERDICT: EXCELLENT (72.5/100)
+  Score:              [##############------]
+  Document Score:     3/4  [###############-----]
+  Animation Risk:     LOW
+
+COMPONENTS:
+  Demand              70.0  (weight: 33%)  -> 23.1
+  Gap                 80.0  (weight: 33%)  -> 26.4
+  Fit                 75.0  (weight: 34%)  -> 25.5
+
+DEMAND:
+  Search Volume:      70/100
+  Trend:              -> +5%
+  Opportunity Ratio:  3.2x (Medium)
+
+COMPETITION:
+  Total Videos:       45
+  Quality Videos:     12
+  Channels:           23
+  Differentiation:    0.80
+  Recommended Angle:  legal
+
+RECOMMENDATION: Proceed to research phase
+```
+
+### What It Analyzes
+
+**Demand (Phase 15):**
+- Search volume proxy from autocomplete position
+- Google Trends direction (rising/stable/declining)
+- Opportunity ratio (demand vs supply)
+
+**Competition (Phase 16):**
+- Video and channel count
+- Quality filtering (>25th percentile)
+- Format breakdown (animation vs documentary)
+- Angle distribution (political, legal, historical, etc.)
+- Differentiation opportunities
+
+**Production Fit (Phase 17):**
+- Document availability score (0-4)
+- Animation requirements (blocking factor)
+- Source hint generation for Google Scholar
+
+**Opportunity Score (Phase 18):**
+- Weighted SAW formula: demand × 0.33 + gap × 0.33 + fit × 0.34
+- Hard constraint filtering (animation, channel DNA)
+- Category assignment (Excellent/Good/Fair/Poor/Blocked)
+- Lifecycle state tracking
+
+### Execution
+
+```bash
+cd tools/discovery && python orchestrator.py "keyword" [flags]
+```
+
+### Requirements
+
+**Python packages:**
+```bash
+pip install jinja2 tabulate trendspyg scrapetube
+```
+
+**Optional:**
+- Jinja2 for Markdown report generation (falls back to simple formatting)
+- All demand/competition packages from previous sections
 
 ---
 
