@@ -61,6 +61,8 @@ class KeywordDB:
                 self._ensure_classification_columns()
                 # Ensure production constraint columns exist (Phase 17 migration)
                 self._ensure_production_columns()
+                # Ensure lifecycle columns exist (Phase 18 migration)
+                self._ensure_lifecycle_columns()
 
     def init_database(self) -> Dict[str, Any]:
         """
@@ -1124,6 +1126,235 @@ class KeywordDB:
 
         except sqlite3.Error:
             return None
+
+    # =========================================================================
+    # LIFECYCLE STATE METHODS (Phase 18)
+    # =========================================================================
+
+    # Valid lifecycle states and allowed transitions
+    LIFECYCLE_STATES = [
+        'DISCOVERED',
+        'ANALYZED',
+        'RESEARCHING',
+        'SCRIPTING',
+        'FILMED',
+        'PUBLISHED',
+        'ARCHIVED'
+    ]
+
+    LIFECYCLE_TRANSITIONS = {
+        'DISCOVERED': ['ANALYZED', 'ARCHIVED'],
+        'ANALYZED': ['RESEARCHING', 'ARCHIVED'],
+        'RESEARCHING': ['SCRIPTING', 'ARCHIVED'],
+        'SCRIPTING': ['FILMED', 'ARCHIVED'],
+        'FILMED': ['PUBLISHED', 'ARCHIVED'],
+        'PUBLISHED': ['ARCHIVED'],
+        'ARCHIVED': []
+    }
+
+    def _ensure_lifecycle_columns(self):
+        """
+        Safely add lifecycle state columns to keywords if they don't exist.
+
+        This allows existing databases to migrate without manual schema updates.
+        Executes ALTER TABLE statements for each missing column and creates
+        lifecycle_history table.
+        """
+        try:
+            cursor = self._conn.cursor()
+
+            # Check which columns exist in keywords table
+            cursor.execute("PRAGMA table_info(keywords)")
+            existing_columns = {row[1] for row in cursor.fetchall()}
+
+            # Add missing lifecycle columns
+            columns_to_add = {
+                'lifecycle_state': "ALTER TABLE keywords ADD COLUMN lifecycle_state TEXT DEFAULT 'DISCOVERED'",
+                'lifecycle_updated_at': 'ALTER TABLE keywords ADD COLUMN lifecycle_updated_at DATE',
+                'opportunity_score_final': 'ALTER TABLE keywords ADD COLUMN opportunity_score_final REAL',
+                'opportunity_category': 'ALTER TABLE keywords ADD COLUMN opportunity_category TEXT'
+            }
+
+            for col_name, alter_sql in columns_to_add.items():
+                if col_name not in existing_columns:
+                    cursor.execute(alter_sql)
+
+            # Create lifecycle_history table if it doesn't exist
+            cursor.execute(
+                """
+                CREATE TABLE IF NOT EXISTS lifecycle_history (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    keyword_id INTEGER NOT NULL,
+                    from_state TEXT NOT NULL,
+                    to_state TEXT NOT NULL,
+                    transitioned_at DATE NOT NULL,
+                    FOREIGN KEY (keyword_id) REFERENCES keywords(id)
+                )
+                """
+            )
+
+            # Create index if it doesn't exist
+            cursor.execute(
+                "CREATE INDEX IF NOT EXISTS idx_lifecycle_history ON lifecycle_history(keyword_id, transitioned_at DESC)"
+            )
+
+            self._conn.commit()
+
+        except sqlite3.Error:
+            # If table doesn't exist yet, this is fine (will be created during init)
+            pass
+
+    def set_lifecycle_state(self, keyword_id: int, new_state: str) -> Dict[str, Any]:
+        """
+        Transition keyword to new lifecycle state with validation.
+
+        Valid states: DISCOVERED, ANALYZED, RESEARCHING, SCRIPTING, FILMED, PUBLISHED, ARCHIVED
+        Validates transition rules before updating.
+
+        Args:
+            keyword_id: Keyword ID from keywords table
+            new_state: Target lifecycle state
+
+        Returns:
+            {'status': 'transitioned', 'from': str, 'to': str, 'timestamp': str} on success
+            {'error': msg, 'allowed': [str]} on invalid transition
+
+        Example:
+            result = db.set_lifecycle_state(5, 'ANALYZED')
+            # After scoring is complete
+        """
+        try:
+            # Validate new state
+            if new_state not in self.LIFECYCLE_STATES:
+                return {
+                    'error': f'Invalid state: {new_state}',
+                    'allowed': self.LIFECYCLE_STATES
+                }
+
+            cursor = self._conn.cursor()
+
+            # Get current state
+            cursor.execute(
+                "SELECT lifecycle_state FROM keywords WHERE id = ?",
+                (keyword_id,)
+            )
+            row = cursor.fetchone()
+
+            if row is None:
+                return {'error': 'Keyword not found', 'keyword_id': keyword_id}
+
+            current_state = row[0] or 'DISCOVERED'
+
+            # Validate transition
+            allowed_transitions = self.LIFECYCLE_TRANSITIONS.get(current_state, [])
+            if new_state not in allowed_transitions:
+                return {
+                    'error': f'Invalid transition from {current_state} to {new_state}',
+                    'allowed': allowed_transitions,
+                    'current_state': current_state
+                }
+
+            # Update state
+            timestamp = datetime.utcnow().date().isoformat()
+            cursor.execute(
+                """
+                UPDATE keywords
+                SET lifecycle_state = ?,
+                    lifecycle_updated_at = ?
+                WHERE id = ?
+                """,
+                (new_state, timestamp, keyword_id)
+            )
+
+            # Log transition to history
+            cursor.execute(
+                """
+                INSERT INTO lifecycle_history (keyword_id, from_state, to_state, transitioned_at)
+                VALUES (?, ?, ?, ?)
+                """,
+                (keyword_id, current_state, new_state, timestamp)
+            )
+
+            self._conn.commit()
+
+            return {
+                'status': 'transitioned',
+                'from': current_state,
+                'to': new_state,
+                'timestamp': timestamp
+            }
+
+        except sqlite3.Error as e:
+            return {'error': 'Database operation failed', 'details': str(e)}
+
+    def get_lifecycle_state(self, keyword_id: int) -> str:
+        """
+        Get current lifecycle state for a keyword.
+
+        Args:
+            keyword_id: Keyword ID from keywords table
+
+        Returns:
+            Current state string (default 'DISCOVERED' if not set)
+
+        Example:
+            state = db.get_lifecycle_state(5)
+            if state == 'ANALYZED':
+                print("Ready for research phase")
+        """
+        try:
+            cursor = self._conn.cursor()
+
+            cursor.execute(
+                "SELECT lifecycle_state FROM keywords WHERE id = ?",
+                (keyword_id,)
+            )
+            row = cursor.fetchone()
+
+            if row is None or row[0] is None:
+                return 'DISCOVERED'
+
+            return row[0]
+
+        except sqlite3.Error:
+            return 'DISCOVERED'
+
+    def get_keywords_by_lifecycle(self, state: str, limit: int = 50) -> List[Dict[str, Any]]:
+        """
+        Get all keywords in a specific lifecycle state.
+
+        Returns keywords sorted by opportunity_score_final DESC (highest scoring first).
+
+        Args:
+            state: Lifecycle state to filter by
+            limit: Maximum number of keywords to return
+
+        Returns:
+            List of keyword dicts with opportunity scores
+
+        Example:
+            analyzed = db.get_keywords_by_lifecycle('ANALYZED', limit=10)
+            for kw in analyzed:
+                print(f"{kw['keyword']}: {kw['opportunity_score_final']}")
+        """
+        try:
+            cursor = self._conn.cursor()
+
+            cursor.execute(
+                """
+                SELECT *
+                FROM keywords
+                WHERE lifecycle_state = ?
+                ORDER BY opportunity_score_final DESC NULLS LAST
+                LIMIT ?
+                """,
+                (state, limit)
+            )
+
+            return [dict(row) for row in cursor.fetchall()]
+
+        except sqlite3.Error:
+            return []
 
 
 def init_database(db_path: Optional[str] = None) -> Dict[str, Any]:

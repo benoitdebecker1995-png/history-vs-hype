@@ -188,3 +188,28 @@ ALTER TABLE keywords ADD COLUMN is_production_blocked BOOLEAN DEFAULT 0;
 -- Index for production filtering queries
 CREATE INDEX IF NOT EXISTS idx_keywords_blocked
   ON keywords(is_production_blocked, constraint_checked_at DESC);
+
+-- ============================================================================
+-- LIFECYCLE STATE COLUMNS (Phase 18)
+-- Purpose: Track keyword progression from discovery to publication
+-- ============================================================================
+
+-- Lifecycle state columns for keyword progression tracking (Phase 18)
+ALTER TABLE keywords ADD COLUMN lifecycle_state TEXT DEFAULT 'DISCOVERED';
+ALTER TABLE keywords ADD COLUMN lifecycle_updated_at DATE;
+ALTER TABLE keywords ADD COLUMN opportunity_score_final REAL;
+ALTER TABLE keywords ADD COLUMN opportunity_category TEXT;
+
+-- Lifecycle history tracking table
+CREATE TABLE IF NOT EXISTS lifecycle_history (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  keyword_id INTEGER NOT NULL,
+  from_state TEXT NOT NULL,
+  to_state TEXT NOT NULL,
+  transitioned_at DATE NOT NULL,
+  FOREIGN KEY (keyword_id) REFERENCES keywords(id)
+);
+
+-- Index for lifecycle queries
+CREATE INDEX IF NOT EXISTS idx_lifecycle_history
+  ON lifecycle_history(keyword_id, transitioned_at DESC);
