@@ -488,6 +488,114 @@ pip install trendspyg scrapetube pyppeteer pyppeteer-stealth
 
 ---
 
+## COMPETITION ANALYSIS
+
+Analyze competition for a keyword with quality filtering and differentiation scoring.
+
+### What It Measures
+
+**Video and Channel Count (COMP-01):**
+- Total videos in search results (sampled)
+- Unique channels covering the topic
+- Quality-filtered video count (>1K views minimum)
+
+**Quality Filtering (COMP-02):**
+- Filters to videos above 25th percentile view count
+- Identifies established creators (multiple videos on topic)
+- Assigns quality tier: high (>75th percentile), medium, low
+
+**Format Breakdown (COMP-03):**
+- Animation percentage (Kurzgesagt, OverSimplified, etc.)
+- Documentary percentage (Kraut, Knowing Better, etc.)
+- Unknown format percentage
+
+**Angle Distribution (COMP-03):**
+- Political, legal, historical, economic, geographic
+- Percentage breakdown across quality videos
+- Multi-angle support (videos can have multiple angles)
+
+**Differentiation Score (COMP-04):**
+- Gap analysis: which angles are underrepresented
+- 0-1 score where higher = bigger opportunity
+- Recommended angle based on channel DNA (legal/historical default)
+
+### Usage
+
+```bash
+# Full competition analysis
+python tools/discovery/competition.py "dark ages myth"
+
+# With JSON output
+python tools/discovery/competition.py "crusades defensive" --json
+
+# Smaller sample for faster results
+python tools/discovery/competition.py "library of alexandria" --sample-size 50
+
+# Verbose mode with top competitors
+python tools/discovery/competition.py "medieval history" -v
+```
+
+### Example Output
+
+```
+======================================================================
+  Competition Analysis: medieval history
+======================================================================
+
+OVERVIEW
+  Videos analyzed:    100 (sampled)
+  Unique channels:    47
+  Quality videos:     65
+  Fetched:            2026-02-01T08:45:23Z
+
+FORMAT BREAKDOWN
+  documentary      52 ( 52.0%)
+  unknown          35 ( 35.0%)
+  animation        13 ( 13.0%)
+
+ANGLE DISTRIBUTION
+  historical       67.3%
+  political        23.1%
+  economic         15.4%
+  geographic       12.5%
+  legal             8.7%
+
+DIFFERENTIATION OPPORTUNITIES
+  legal           ████████████████████ 0.91
+  geographic      ██████████████░░░░░░ 0.87
+  economic        █████████████░░░░░░░ 0.85
+  political       ███████░░░░░░░░░░░░░ 0.77
+  historical      ██░░░░░░░░░░░░░░░░░░ 0.33
+
+  Recommended angle:  legal
+  Differentiation:    0.91
+```
+
+### Data Freshness
+
+- Real-time scraping via scrapetube (no cache)
+- Sample size default: 100 videos (adjustable)
+- Classifications persisted to database for tracking
+
+### Execution
+
+```bash
+cd tools/discovery && python competition.py "keyword" [--sample-size N] [--json] [-v]
+```
+
+### Requirements
+
+**Python packages:**
+```bash
+pip install scrapetube
+```
+
+**Optional:**
+- Database persistence (automatic if database.py available)
+- Classification requires classifiers.py (always available in this project)
+
+---
+
 ## INTEGRATION WITH WORKFLOW
 
 ### Pre-Production (Topic Planning)
