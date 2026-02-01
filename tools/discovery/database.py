@@ -973,7 +973,8 @@ class KeywordDB:
         animation_required: bool,
         document_score: int,
         sources_found: int = 0,
-        source_examples: Optional[List[str]] = None
+        source_examples: Optional[List[str]] = None,
+        source_hints: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
         """
         Store production constraint evaluation for a keyword.
@@ -987,6 +988,7 @@ class KeywordDB:
             document_score: 0-4 document-friendliness score
             sources_found: Number of academic sources found (0 if not checked)
             source_examples: Optional list of example source names
+            source_hints: Optional dict with search queries and expected types
 
         Returns:
             {'status': 'stored', 'keyword_id': keyword_id} on success
@@ -998,7 +1000,8 @@ class KeywordDB:
                 animation_required=False,
                 document_score=3,
                 sources_found=5,
-                source_examples=['Cambridge Press Book', 'JSTOR Article']
+                source_examples=['Cambridge Press Book', 'JSTOR Article'],
+                source_hints={'queries': [...], 'expected_types': ['monograph']}
             )
         """
         try:
@@ -1013,6 +1016,7 @@ class KeywordDB:
                 'document_score': document_score,
                 'sources_found': sources_found,
                 'source_examples': source_examples or [],
+                'source_hints': source_hints or {},
                 'checked_at': now
             }
             constraints_json = json.dumps(constraints)
@@ -1061,6 +1065,7 @@ class KeywordDB:
                 'document_score': int,
                 'sources_found': int,
                 'source_examples': list,
+                'source_hints': dict,
                 'checked_at': str,
                 'is_production_blocked': bool,
                 'data_age_days': int
