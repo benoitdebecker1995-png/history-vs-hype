@@ -1,5 +1,33 @@
 # Project Milestones: History vs Hype Workspace
 
+## v1.3 Niche Discovery (Shipped: 2026-02-02)
+
+**Delivered:** Complete niche discovery pipeline with demand analysis, competition classification, production constraint filtering, and opportunity scoring with Channel DNA validation.
+
+**Phases completed:** 15-18 (8 plans total)
+
+**Key accomplishments:**
+
+- Database foundation: 5 demand tables, 7 caching methods, DemandAnalyzer class
+- Competition analysis: Format/angle classification, quality tier filtering, differentiation reports
+- Production constraints: Animation detection, document-friendliness scoring, source availability
+- Opportunity scoring: SAW formula (demand × gap × fit), Channel DNA filtering, `/discover` command
+- Jinja2 report templates: Keyword briefs, opportunity analysis, competition reports
+
+**Stats:**
+
+- 4 phases, 8 plans
+- 16/16 requirements delivered
+- ~1,100 lines Python added to tools/discovery/
+
+**Git range:** `2b50a9b` → `3f5e6d1`
+
+**What's next:** Use `/discover TOPIC` for full niche discovery pipeline with opportunity scoring.
+
+**Archive:** `.planning/milestones/v1.3-ROADMAP.md`
+
+---
+
 ## v1.2 Script Quality & Discovery (Shipped: 2026-01-30)
 
 **Delivered:** Automated script quality checking, voice pattern learning, keyword research tools, and streamlined NotebookLM workflows for better scripts and improved discoverability.

@@ -8,16 +8,26 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current Milestone: v1.3 Niche Discovery
+## Current State: v1.3 Shipped
 
-**Goal:** Find high-potential topics with low competition that fit the channel's document-heavy format
+**Shipped:** 2026-02-02
 
-**Target features:**
-- Demand research — search volume, trending topics, audience questions
-- Competition analysis — who covers what, quality assessment, gap identification
-- Competitor learning — what works for big channels (techniques to adapt)
-- Format filtering — flag topics needing animation vs. document-friendly
-- Opportunity scoring — rank topics by (demand × gap × fit) / effort
+The workspace now includes a complete niche discovery pipeline:
+
+- **Demand Analysis:** Position scoring from autocomplete, trend detection, 7-day caching
+- **Competition Analysis:** Format classification (animation/documentary), angle detection (5 categories), quality tiers
+- **Production Constraints:** Animation requirement detection, document-friendliness scoring (0-4)
+- **Opportunity Scoring:** SAW formula (demand × gap × fit), Channel DNA filtering, clickbait/news-first detection
+- **Discovery Command:** `/discover TOPIC` runs full pipeline with Jinja2 reports
+
+**Entry points:**
+- `/discover TOPIC` — full niche discovery pipeline
+- `/status` — project state and next action
+- `/help` — phase-organized command list
+
+## Next Milestone Goals
+
+*To be defined via `/gsd:new-milestone`*
 
 **Production constraints (inputs to filtering):**
 - Visual style: Documents, maps, footage, text overlays (no animation)
@@ -45,6 +55,15 @@ The workspace includes script quality tools and discovery optimization:
 - `python tools/script-checkers/cli.py script.md --all` — script quality check
 
 ## Requirements
+
+### Validated (v1.3)
+
+- Demand research with position scoring and trend detection — v1.3
+- Competition analysis with format/angle classification — v1.3
+- Production constraint filtering (animation vs document-friendly) — v1.3
+- Opportunity scoring with SAW formula — v1.3
+- Channel DNA filtering (clickbait/news-first detection) — v1.3
+- `/discover` command for full niche discovery pipeline — v1.3
 
 ### Validated (v1.2)
 
@@ -149,4 +168,4 @@ The workspace includes script quality tools and discovery optimization:
 
 ---
 
-*Last updated: 2026-01-31 after v1.3 milestone started*
+*Last updated: 2026-02-02 after v1.3 shipped*
