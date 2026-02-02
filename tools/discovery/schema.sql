@@ -213,3 +213,34 @@ CREATE TABLE IF NOT EXISTS lifecycle_history (
 -- Index for lifecycle queries
 CREATE INDEX IF NOT EXISTS idx_lifecycle_history
   ON lifecycle_history(keyword_id, transitioned_at DESC);
+
+-- ============================================================================
+-- VIDEO PERFORMANCE TABLE (Phase 19)
+-- Purpose: Track subscriber conversion and performance metrics for own videos
+-- ============================================================================
+
+-- Video performance tracking for conversion analysis
+CREATE TABLE IF NOT EXISTS video_performance (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    video_id TEXT UNIQUE NOT NULL,
+    title TEXT,
+    views INTEGER,
+    subscribers_gained INTEGER,
+    subscribers_lost INTEGER,
+    conversion_rate REAL,
+    watch_time_minutes REAL,
+    avg_view_duration_seconds INTEGER,
+    likes INTEGER,
+    comments INTEGER,
+    shares INTEGER,
+    topic_type TEXT,
+    angles TEXT,
+    published_at DATE,
+    fetched_at DATE NOT NULL,
+    classified_at DATE
+);
+
+-- Indexes for performance queries
+CREATE INDEX IF NOT EXISTS idx_performance_conversion ON video_performance(conversion_rate DESC);
+CREATE INDEX IF NOT EXISTS idx_performance_topic ON video_performance(topic_type);
+CREATE INDEX IF NOT EXISTS idx_performance_fetched ON video_performance(fetched_at DESC);

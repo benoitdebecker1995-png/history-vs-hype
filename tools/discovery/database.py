@@ -63,6 +63,8 @@ class KeywordDB:
                 self._ensure_production_columns()
                 # Ensure lifecycle columns exist (Phase 18 migration)
                 self._ensure_lifecycle_columns()
+                # Ensure video_performance table exists (Phase 19 migration)
+                self._ensure_performance_table()
 
     def init_database(self) -> Dict[str, Any]:
         """
@@ -1352,6 +1354,452 @@ class KeywordDB:
             )
 
             return [dict(row) for row in cursor.fetchall()]
+
+        except sqlite3.Error:
+            return []
+
+
+    # =========================================================================
+    # VIDEO PERFORMANCE METHODS (Phase 19)
+    # =========================================================================
+
+    def _ensure_performance_table(self):
+        """
+        Safely create video_performance table if it doesn't exist.
+
+        This allows existing databases to migrate without manual schema updates.
+        """
+        try:
+            cursor = self._conn.cursor()
+
+            # Check if table exists
+            cursor.execute(
+                "SELECT name FROM sqlite_master WHERE type='table' AND name='video_performance'"
+            )
+            if cursor.fetchone() is not None:
+                return  # Table exists
+
+            # Create table
+            cursor.execute(
+                """
+                CREATE TABLE IF NOT EXISTS video_performance (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    video_id TEXT UNIQUE NOT NULL,
+                    title TEXT,
+                    views INTEGER,
+                    subscribers_gained INTEGER,
+                    subscribers_lost INTEGER,
+                    conversion_rate REAL,
+                    watch_time_minutes REAL,
+                    avg_view_duration_seconds INTEGER,
+                    likes INTEGER,
+                    comments INTEGER,
+                    shares INTEGER,
+                    topic_type TEXT,
+                    angles TEXT,
+                    published_at DATE,
+                    fetched_at DATE NOT NULL,
+                    classified_at DATE
+                )
+                """
+            )
+
+            # Create indexes
+            cursor.execute(
+                "CREATE INDEX IF NOT EXISTS idx_performance_conversion ON video_performance(conversion_rate DESC)"
+            )
+            cursor.execute(
+                "CREATE INDEX IF NOT EXISTS idx_performance_topic ON video_performance(topic_type)"
+            )
+            cursor.execute(
+                "CREATE INDEX IF NOT EXISTS idx_performance_fetched ON video_performance(fetched_at DESC)"
+            )
+
+            self._conn.commit()
+
+        except sqlite3.Error:
+            # If connection issue, this is fine (will be handled on init)
+            pass
+
+    def add_video_performance(
+        self,
+        video_id: str,
+        title: Optional[str] = None,
+        views: Optional[int] = None,
+        subscribers_gained: Optional[int] = None,
+        subscribers_lost: Optional[int] = None,
+        conversion_rate: Optional[float] = None,
+        watch_time_minutes: Optional[float] = None,
+        avg_view_duration_seconds: Optional[int] = None,
+        likes: Optional[int] = None,
+        comments: Optional[int] = None,
+        shares: Optional[int] = None,
+        topic_type: Optional[str] = None,
+        angles: Optional[List[str]] = None,
+        published_at: Optional[str] = None
+    ) -> Dict[str, Any]:
+        """
+        Add or update video performance data.
+
+        Uses INSERT OR REPLACE to update existing records.
+
+        Args:
+            video_id: YouTube video ID (required, unique)
+            title: Video title
+            views: Total views
+            subscribers_gained: Subscribers gained from this video
+            subscribers_lost: Subscribers lost from this video
+            conversion_rate: (subs_gained / views) * 100
+            watch_time_minutes: Total watch time in minutes
+            avg_view_duration_seconds: Average view duration
+            likes: Like count
+            comments: Comment count
+            shares: Share count
+            topic_type: Primary topic classification
+            angles: List of content angles (stored as JSON)
+            published_at: Video publish date (ISO format)
+
+        Returns:
+            {'status': 'inserted'|'updated', 'video_id': str} on success
+            {'error': msg} on failure
+
+        Example:
+            db.add_video_performance(
+                video_id='abc123',
+                title='Why Borders Matter',
+                views=15000,
+                subscribers_gained=25,
+                subscribers_lost=2,
+                conversion_rate=0.167,
+                topic_type='territorial',
+                angles=['legal', 'historical']
+            )
+        """
+        try:
+            import json
+
+            # Ensure table exists
+            self._ensure_performance_table()
+
+            cursor = self._conn.cursor()
+            now = datetime.utcnow().date().isoformat()
+
+            # Convert angles list to JSON
+            angles_json = json.dumps(angles) if angles else None
+
+            # Check if video exists
+            cursor.execute(
+                "SELECT id FROM video_performance WHERE video_id = ?",
+                (video_id,)
+            )
+            existing = cursor.fetchone()
+
+            if existing:
+                # Update existing record
+                cursor.execute(
+                    """
+                    UPDATE video_performance
+                    SET title = COALESCE(?, title),
+                        views = COALESCE(?, views),
+                        subscribers_gained = COALESCE(?, subscribers_gained),
+                        subscribers_lost = COALESCE(?, subscribers_lost),
+                        conversion_rate = COALESCE(?, conversion_rate),
+                        watch_time_minutes = COALESCE(?, watch_time_minutes),
+                        avg_view_duration_seconds = COALESCE(?, avg_view_duration_seconds),
+                        likes = COALESCE(?, likes),
+                        comments = COALESCE(?, comments),
+                        shares = COALESCE(?, shares),
+                        topic_type = COALESCE(?, topic_type),
+                        angles = COALESCE(?, angles),
+                        published_at = COALESCE(?, published_at),
+                        fetched_at = ?,
+                        classified_at = CASE WHEN ? IS NOT NULL THEN ? ELSE classified_at END
+                    WHERE video_id = ?
+                    """,
+                    (title, views, subscribers_gained, subscribers_lost, conversion_rate,
+                     watch_time_minutes, avg_view_duration_seconds, likes, comments, shares,
+                     topic_type, angles_json, published_at, now, now, now, video_id)
+                )
+                action = 'updated'
+            else:
+                # Insert new record
+                cursor.execute(
+                    """
+                    INSERT INTO video_performance
+                        (video_id, title, views, subscribers_gained, subscribers_lost,
+                         conversion_rate, watch_time_minutes, avg_view_duration_seconds,
+                         likes, comments, shares, topic_type, angles, published_at,
+                         fetched_at, classified_at)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (video_id, title, views, subscribers_gained, subscribers_lost,
+                     conversion_rate, watch_time_minutes, avg_view_duration_seconds,
+                     likes, comments, shares, topic_type, angles_json, published_at,
+                     now, now if (topic_type or angles) else None)
+                )
+                action = 'inserted'
+
+            self._conn.commit()
+
+            return {
+                'status': action,
+                'video_id': video_id
+            }
+
+        except sqlite3.Error as e:
+            return {'error': 'Database operation failed', 'details': str(e)}
+
+    def get_video_performance(self, video_id: str) -> Dict[str, Any]:
+        """
+        Retrieve performance data for a single video.
+
+        Args:
+            video_id: YouTube video ID
+
+        Returns:
+            Video performance dict with angles parsed from JSON
+            {'error': 'not found'} if video not in database
+
+        Example:
+            perf = db.get_video_performance('abc123')
+            if 'error' not in perf:
+                print(f"Conversion rate: {perf['conversion_rate']}%")
+        """
+        try:
+            import json
+
+            # Ensure table exists
+            self._ensure_performance_table()
+
+            cursor = self._conn.cursor()
+
+            cursor.execute(
+                "SELECT * FROM video_performance WHERE video_id = ?",
+                (video_id,)
+            )
+
+            row = cursor.fetchone()
+
+            if row is None:
+                return {'error': 'not found', 'video_id': video_id}
+
+            result = dict(row)
+
+            # Parse angles JSON back to list
+            if result.get('angles'):
+                try:
+                    result['angles'] = json.loads(result['angles'])
+                except (json.JSONDecodeError, TypeError):
+                    result['angles'] = []
+
+            return result
+
+        except sqlite3.Error as e:
+            return {'error': 'Database operation failed', 'details': str(e)}
+
+    def get_all_video_performance(self, limit: int = 100) -> List[Dict[str, Any]]:
+        """
+        Retrieve all video performance records.
+
+        Args:
+            limit: Maximum records to return (default 100)
+
+        Returns:
+            List of video performance dicts, sorted by fetched_at DESC
+
+        Example:
+            all_videos = db.get_all_video_performance(limit=50)
+            for v in all_videos:
+                print(f"{v['title']}: {v['conversion_rate']}% conversion")
+        """
+        try:
+            import json
+
+            # Ensure table exists
+            self._ensure_performance_table()
+
+            cursor = self._conn.cursor()
+
+            cursor.execute(
+                """
+                SELECT * FROM video_performance
+                ORDER BY fetched_at DESC
+                LIMIT ?
+                """,
+                (limit,)
+            )
+
+            results = []
+            for row in cursor.fetchall():
+                video_dict = dict(row)
+
+                # Parse angles JSON
+                if video_dict.get('angles'):
+                    try:
+                        video_dict['angles'] = json.loads(video_dict['angles'])
+                    except (json.JSONDecodeError, TypeError):
+                        video_dict['angles'] = []
+
+                results.append(video_dict)
+
+            return results
+
+        except sqlite3.Error:
+            return []
+
+    def get_performance_by_topic(self, topic_type: str, limit: int = 50) -> List[Dict[str, Any]]:
+        """
+        Get video performance filtered by topic type.
+
+        Args:
+            topic_type: Topic to filter by (e.g., 'territorial', 'ideological')
+            limit: Maximum records to return
+
+        Returns:
+            List of video performance dicts with matching topic_type
+
+        Example:
+            territorial = db.get_performance_by_topic('territorial')
+            avg_conversion = sum(v['conversion_rate'] for v in territorial) / len(territorial)
+        """
+        try:
+            import json
+
+            # Ensure table exists
+            self._ensure_performance_table()
+
+            cursor = self._conn.cursor()
+
+            cursor.execute(
+                """
+                SELECT * FROM video_performance
+                WHERE topic_type = ?
+                ORDER BY conversion_rate DESC NULLS LAST
+                LIMIT ?
+                """,
+                (topic_type, limit)
+            )
+
+            results = []
+            for row in cursor.fetchall():
+                video_dict = dict(row)
+
+                if video_dict.get('angles'):
+                    try:
+                        video_dict['angles'] = json.loads(video_dict['angles'])
+                    except (json.JSONDecodeError, TypeError):
+                        video_dict['angles'] = []
+
+                results.append(video_dict)
+
+            return results
+
+        except sqlite3.Error:
+            return []
+
+    def get_performance_by_angle(self, angle: str, limit: int = 50) -> List[Dict[str, Any]]:
+        """
+        Get video performance filtered by content angle.
+
+        Uses JSON search since angles are stored as JSON array.
+
+        Args:
+            angle: Angle to filter by (e.g., 'legal', 'historical')
+            limit: Maximum records to return
+
+        Returns:
+            List of video performance dicts containing the specified angle
+
+        Example:
+            legal_videos = db.get_performance_by_angle('legal')
+            for v in legal_videos:
+                print(f"{v['title']}: {v['angles']}")
+        """
+        try:
+            import json
+
+            # Ensure table exists
+            self._ensure_performance_table()
+
+            cursor = self._conn.cursor()
+
+            # SQLite JSON search using LIKE on the JSON string
+            # This works because angles are stored as ["angle1", "angle2"]
+            search_pattern = f'%"{angle}"%'
+
+            cursor.execute(
+                """
+                SELECT * FROM video_performance
+                WHERE angles LIKE ?
+                ORDER BY conversion_rate DESC NULLS LAST
+                LIMIT ?
+                """,
+                (search_pattern, limit)
+            )
+
+            results = []
+            for row in cursor.fetchall():
+                video_dict = dict(row)
+
+                if video_dict.get('angles'):
+                    try:
+                        video_dict['angles'] = json.loads(video_dict['angles'])
+                    except (json.JSONDecodeError, TypeError):
+                        video_dict['angles'] = []
+
+                results.append(video_dict)
+
+            return results
+
+        except sqlite3.Error:
+            return []
+
+    def get_top_converters(self, limit: int = 10) -> List[Dict[str, Any]]:
+        """
+        Get videos with highest subscriber conversion rates.
+
+        Args:
+            limit: Number of top videos to return (default 10)
+
+        Returns:
+            List of video performance dicts sorted by conversion_rate DESC
+
+        Example:
+            top = db.get_top_converters(limit=5)
+            for v in top:
+                print(f"{v['title']}: {v['conversion_rate']:.3f}% conversion")
+        """
+        try:
+            import json
+
+            # Ensure table exists
+            self._ensure_performance_table()
+
+            cursor = self._conn.cursor()
+
+            cursor.execute(
+                """
+                SELECT * FROM video_performance
+                WHERE conversion_rate IS NOT NULL
+                ORDER BY conversion_rate DESC
+                LIMIT ?
+                """,
+                (limit,)
+            )
+
+            results = []
+            for row in cursor.fetchall():
+                video_dict = dict(row)
+
+                if video_dict.get('angles'):
+                    try:
+                        video_dict['angles'] = json.loads(video_dict['angles'])
+                    except (json.JSONDecodeError, TypeError):
+                        video_dict['angles'] = []
+
+                results.append(video_dict)
+
+            return results
 
         except sqlite3.Error:
             return []
