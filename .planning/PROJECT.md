@@ -8,26 +8,19 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current State: v1.3 Shipped
+## Current Milestone: v1.4 Learning Loop
 
-**Shipped:** 2026-02-02
+**Goal:** "Based on everything — your performance, competition, skills, and constraints — here are the best topics to make next"
 
-The workspace now includes a complete niche discovery pipeline:
+**Target features:**
+- Performance analysis — Subscriber conversion per video, identify winning patterns
+- Competition integration — Saturated vs underserved, quality gaps
+- Skills/strengths profiling — Document-heavy format, academic sourcing, legal/territorial angles
+- Time/constraint awareness — Solo creator, research overhead, production complexity
+- Existing work filtering — Exclude `_IN_PRODUCTION/` and `_ARCHIVED/` topics
+- Unified recommendation — `/next` command with ranked opportunities
 
-- **Demand Analysis:** Position scoring from autocomplete, trend detection, 7-day caching
-- **Competition Analysis:** Format classification (animation/documentary), angle detection (5 categories), quality tiers
-- **Production Constraints:** Animation requirement detection, document-friendliness scoring (0-4)
-- **Opportunity Scoring:** SAW formula (demand × gap × fit), Channel DNA filtering, clickbait/news-first detection
-- **Discovery Command:** `/discover TOPIC` runs full pipeline with Jinja2 reports
-
-**Entry points:**
-- `/discover TOPIC` — full niche discovery pipeline
-- `/status` — project state and next action
-- `/help` — phase-organized command list
-
-## Next Milestone Goals
-
-*To be defined via `/gsd:new-milestone`*
+**Success metric:** When you ask "what should I make next?", the system returns NEW topics ranked by fit to winning patterns × competition gap × production feasibility — not in-progress projects.
 
 **Production constraints (inputs to filtering):**
 - Visual style: Documents, maps, footage, text overlays (no animation)
@@ -168,4 +161,4 @@ The workspace includes script quality tools and discovery optimization:
 
 ---
 
-*Last updated: 2026-02-02 after v1.3 shipped*
+*Last updated: 2026-02-02 after v1.4 milestone started*

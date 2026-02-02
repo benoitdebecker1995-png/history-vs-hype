@@ -1,29 +1,30 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-01 (Phase 18 complete)
+**Last Updated:** 2026-02-02 (v1.4 milestone started)
 
 ## Project Reference
 
-See: `.planning/PROJECT.md` (updated 2026-01-31)
+See: `.planning/PROJECT.md` (updated 2026-02-02)
 
-**Core value:** Find high-potential topics with low competition that fit document-heavy format
-**Current focus:** v1.3 Niche Discovery — Phase 18 (Opportunity Scoring)
+**Core value:** Every video shows sources on screen
+**Current focus:** v1.4 Learning Loop — Defining requirements
 
 ## Current Position
 
-**Milestone:** v1.3 Niche Discovery
-**Phase:** 18 - Opportunity Scoring & Orchestrator (COMPLETE)
-**Plan:** 18-02 complete (2 of 2 plans)
-**Status:** Phase complete - Ready for milestone validation
-**Last activity:** 2026-02-01 — Completed 18-02-PLAN.md
+**Milestone:** v1.4 Learning Loop
+**Phase:** Not started (defining requirements)
+**Plan:** —
+**Status:** Defining requirements
+**Last activity:** 2026-02-02 — Milestone v1.4 started
 
 **Progress:**
 ```
 v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
-v1.3 [####################] 100% — Niche Discovery (Phases 15-18 complete)
+v1.3 [####################] 100% — Niche Discovery (archived)
+v1.4 [                    ]   0% — Learning Loop (defining requirements)
 ```
 
 ## Milestone History
@@ -33,6 +34,7 @@ v1.3 [####################] 100% — Niche Discovery (Phases 15-18 complete)
 | v1.0 | Workspace Optimization | 0.1, 1-7 | 2026-01-23 |
 | v1.1 | Analytics & Learning Loop | 8-10 | 2026-01-26 |
 | v1.2 | Script Quality & Discovery | 11-14 | 2026-01-30 |
+| v1.3 | Niche Discovery | 15-18 | 2026-02-02 |
 
 **Full history:** `.planning/MILESTONES.md`
 **Archives:** `.planning/milestones/`
@@ -64,27 +66,28 @@ v1.3 [####################] 100% — Niche Discovery (Phases 15-18 complete)
 
 ### Last Session
 
-- **Date:** 2026-02-01
-- **Work:** Completed Phase 18 (Plan 18-02: Opportunity Orchestrator)
+- **Date:** 2026-02-02
+- **Work:** Archived v1.3 milestone, started v1.4 Learning Loop
 - **Output:**
-  - OpportunityOrchestrator combining all Phase 15-18 modules
-  - Jinja2 Markdown report template with score visualization
-  - CLI with --report, --json, --refresh, --list-state, --transition flags
-  - /discover command documentation updated
-  - Commits: c47aac9, 8ed038d, 2f14c0c
+  - v1.3 archived to `.planning/milestones/`
+  - Git tag v1.3 created
+  - PROJECT.md updated with v1.4 goals
 
 ### Next Session
 
-**Current work:** Phase 18 complete, v1.3 milestone ready for validation
+**Current work:** Defining requirements for v1.4 Learning Loop
 
-**Phase 18 complete:**
-- ✅ OPP-01: User can see combined opportunity score via orchestrator
-- ✅ OPP-02: Production constraints integrated in scoring pipeline
-- ✅ OPP-03: Channel DNA auto-filtering works end-to-end
-- ✅ OPP-04: Lifecycle state tracking with transition commands
-- ✅ OPP-05: Markdown opportunity reports generated via --report flag
+**v1.4 Goal:** "Based on everything — your performance, competition, skills, and constraints — here are the best topics to make next"
 
-**Next action:** Milestone validation and archival (v1.3 Niche Discovery complete)
+**Target features:**
+- Performance analysis (subscriber conversion per video, winning patterns)
+- Competition integration (saturated vs underserved, quality gaps)
+- Skills/strengths profiling (document-heavy, academic, legal/territorial)
+- Time/constraint awareness (solo creator, research overhead)
+- Existing work filtering (exclude `_IN_PRODUCTION/` and `_ARCHIVED/`)
+- Unified `/next` command with ranked opportunities
+
+**Next action:** Complete requirements definition, then create roadmap
 
 ## Accumulated Context
 
@@ -210,4 +213,4 @@ v1.3 [####################] 100% — Niche Discovery (Phases 15-18 complete)
 
 ---
 
-*State updated: 2026-02-01 after Phase 18 complete*
+*State updated: 2026-02-02 after v1.4 milestone started*
