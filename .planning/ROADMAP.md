@@ -218,6 +218,7 @@ Plans:
 **Goal**: User can see what's working based on subscriber conversion
 **Dependencies**: Phase 10 (YouTube Analytics API), existing youtube-analytics/ tools
 **Requirements**: PERF-01, PERF-02, PERF-03, INTG-01
+**Plans**: 2 plans
 
 **Success Criteria:**
 1. User can see subscriber conversion per video for entire published catalog
@@ -225,7 +226,9 @@ Plans:
 3. User can see which angles correlate with high conversion
 4. Data pulls from existing YouTube Analytics API integration
 
-**Plans**: TBD
+Plans:
+- [ ] 19-01-PLAN.md — Database schema + performance fetcher + conversion calculator
+- [ ] 19-02-PLAN.md — Aggregation by topic/angle + report generation + CLI
 
 ### Phase 20: Pattern Extraction
 **Goal**: System identifies "winning patterns" from top performers
@@ -278,6 +281,6 @@ Plans:
 | **16. Competition Analysis** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
 | **17. Format Filtering** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
 | **18. Opportunity Scoring & Orchestrator** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
-| **19. Performance Data Foundation** | **v1.4** | **0/?** | **Not Started** | - |
+| **19. Performance Data Foundation** | **v1.4** | **0/2** | **Planned** | - |
 | **20. Pattern Extraction** | **v1.4** | **0/?** | **Not Started** | - |
 | **21. Recommendation Engine** | **v1.4** | **0/?** | **Not Started** | - |
