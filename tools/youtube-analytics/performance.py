@@ -10,6 +10,10 @@ Usage:
         python performance.py --fetch-all           # Fetch all recent videos
         python performance.py --fetch-all -n 20    # Fetch last 20 videos
         python performance.py --top 10              # Show top 10 converters
+        python performance.py --report              # Generate full report
+        python performance.py --report --save       # Generate and save report
+        python performance.py --by-topic            # Show conversion by topic type
+        python performance.py --by-angle            # Show conversion by angle
         python performance.py --help                # Show usage
 
     Python:
@@ -30,6 +34,7 @@ Dependencies:
     - channel_averages.py (Phase 8) for get_recent_video_ids
     - database.py (Phase 15+) for KeywordDB storage
     - classifiers.py (Phase 16) for angle classification
+    - performance_report.py (Phase 19-02) for report generation
 """
 
 import sys
@@ -55,6 +60,18 @@ try:
     CLASSIFIERS_AVAILABLE = True
 except ImportError:
     CLASSIFIERS_AVAILABLE = False
+
+# Import report functions with graceful fallback
+try:
+    from performance_report import (
+        generate_performance_report,
+        aggregate_by_topic,
+        aggregate_by_angle,
+        save_report
+    )
+    REPORT_AVAILABLE = True
+except ImportError:
+    REPORT_AVAILABLE = False
 
 
 # Topic classification vocabulary (from patterns.py TAG_VOCABULARY)
@@ -345,6 +362,116 @@ def get_top_converters(limit: int = 10) -> List[Dict[str, Any]]:
         return []
 
 
+def print_topic_aggregation() -> None:
+    """
+    Print performance aggregated by topic type.
+
+    Fetches all videos from database and shows conversion stats per topic.
+    """
+    if not DATABASE_AVAILABLE:
+        print("Database not available. Run --fetch-all first.")
+        return
+
+    if not REPORT_AVAILABLE:
+        print("Report module not available.")
+        return
+
+    try:
+        db = KeywordDB()
+        videos = db.get_all_video_performance(limit=500)
+        db.close()
+    except Exception as e:
+        print(f"Error fetching data: {e}")
+        return
+
+    if not videos:
+        print("No video performance data found. Run --fetch-all first.")
+        return
+
+    stats = aggregate_by_topic(videos, min_count=1)
+
+    if not stats:
+        print("No topic data available.")
+        return
+
+    # Sort by conversion rate descending
+    sorted_stats = sorted(
+        stats.items(),
+        key=lambda x: x[1]['avg_conversion_rate'],
+        reverse=True
+    )
+
+    print()
+    print(f"{'Topic':<15} {'Videos':>7} {'Avg Conv%':>10} {'Median':>10} {'Total Subs':>10}")
+    print("-" * 55)
+
+    for topic, s in sorted_stats:
+        print(
+            f"{topic:<15} {s['count']:>7} "
+            f"{s['avg_conversion_rate']:>9.3f}% "
+            f"{s['median_conversion_rate']:>9.3f}% "
+            f"{s['total_subscribers_gained']:>10}"
+        )
+
+    print("-" * 55)
+    print()
+
+
+def print_angle_aggregation() -> None:
+    """
+    Print performance aggregated by content angle.
+
+    Fetches all videos from database and shows conversion stats per angle.
+    """
+    if not DATABASE_AVAILABLE:
+        print("Database not available. Run --fetch-all first.")
+        return
+
+    if not REPORT_AVAILABLE:
+        print("Report module not available.")
+        return
+
+    try:
+        db = KeywordDB()
+        videos = db.get_all_video_performance(limit=500)
+        db.close()
+    except Exception as e:
+        print(f"Error fetching data: {e}")
+        return
+
+    if not videos:
+        print("No video performance data found. Run --fetch-all first.")
+        return
+
+    stats = aggregate_by_angle(videos, min_count=1)
+
+    if not stats:
+        print("No angle data available.")
+        return
+
+    # Sort by conversion rate descending
+    sorted_stats = sorted(
+        stats.items(),
+        key=lambda x: x[1]['avg_conversion_rate'],
+        reverse=True
+    )
+
+    print()
+    print(f"{'Angle':<15} {'Videos':>7} {'Avg Conv%':>10} {'Median':>10} {'Total Subs':>10}")
+    print("-" * 55)
+
+    for angle, s in sorted_stats:
+        print(
+            f"{angle:<15} {s['count']:>7} "
+            f"{s['avg_conversion_rate']:>9.3f}% "
+            f"{s['median_conversion_rate']:>9.3f}% "
+            f"{s['total_subscribers_gained']:>10}"
+        )
+
+    print("-" * 55)
+    print()
+
+
 def print_performance_table(videos: List[Dict[str, Any]]) -> None:
     """
     Print performance data as formatted table.
@@ -395,11 +522,28 @@ if __name__ == '__main__':
         description='Fetch video performance metrics and calculate conversion rates.',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog='''
+Usage: python performance.py [OPTIONS]
+
+Fetch and analyze video performance metrics.
+
+Data Commands:
+  VIDEO_ID              Fetch metrics for single video
+  --fetch-all [-n N]    Fetch metrics for all/last N videos
+
+Report Commands:
+  --report [--save]     Generate performance report
+  --top N               Show top N converting videos
+  --by-topic            Show conversion aggregated by topic type
+  --by-angle            Show conversion aggregated by content angle
+
 Examples:
   python performance.py abc123               Fetch single video
   python performance.py --fetch-all          Fetch all recent videos
   python performance.py --fetch-all -n 20    Fetch last 20 videos
   python performance.py --top 10             Show top 10 converters
+  python performance.py --report --save      Generate and save report
+  python performance.py --by-topic           Topic analysis
+  python performance.py --by-angle           Angle analysis
   python performance.py --no-save abc123     Fetch without saving to DB
 
 Data is stored in tools/discovery/keywords.db (video_performance table).
@@ -433,13 +577,73 @@ Data is stored in tools/discovery/keywords.db (video_performance table).
         action='store_true',
         help='Do not save results to database'
     )
+    parser.add_argument(
+        '--report',
+        action='store_true',
+        help='Generate full performance report'
+    )
+    parser.add_argument(
+        '--save',
+        action='store_true',
+        help='Save report to file (use with --report)'
+    )
+    parser.add_argument(
+        '--by-topic',
+        action='store_true',
+        help='Show conversion rates aggregated by topic type'
+    )
+    parser.add_argument(
+        '--by-angle',
+        action='store_true',
+        help='Show conversion rates aggregated by content angle'
+    )
 
     args = parser.parse_args()
 
     # Validate arguments
-    if not args.video_id and not args.fetch_all and args.top is None:
+    has_action = (
+        args.video_id or
+        args.fetch_all or
+        args.top is not None or
+        args.report or
+        args.by_topic or
+        args.by_angle
+    )
+    if not has_action:
         parser.print_help()
         sys.exit(1)
+
+    # Handle --report flag
+    if args.report:
+        if not REPORT_AVAILABLE:
+            print("Error: Report module not available.")
+            sys.exit(1)
+
+        print("Generating performance report...")
+        report = generate_performance_report()
+        print()
+        print(report)
+
+        if args.save:
+            result = save_report(report)
+            if 'error' in result:
+                print(f"Error saving report: {result['error']}")
+            else:
+                print(f"\nReport saved to: {result['saved_to']}")
+
+        sys.exit(0)
+
+    # Handle --by-topic flag
+    if args.by_topic:
+        print("Conversion rates by topic type:")
+        print_topic_aggregation()
+        sys.exit(0)
+
+    # Handle --by-angle flag
+    if args.by_angle:
+        print("Conversion rates by content angle:")
+        print_angle_aggregation()
+        sys.exit(0)
 
     # Handle --top flag
     if args.top is not None:
