@@ -248,15 +248,17 @@ Plans:
 **Goal**: User gets ranked NEW topic recommendations
 **Dependencies**: Phase 20 (patterns), Phase 18 (opportunity scoring)
 **Requirements**: RECD-01, RECD-02, RECD-03, RECD-04, INTG-02, INTG-03
+**Plans**: 1 plan
 
 **Success Criteria:**
 1. `/next` command returns ranked NEW topic recommendations
 2. Recommendations filtered against `_IN_PRODUCTION/` and `_ARCHIVED/` folders
-3. Each recommendation shows reasoning (fit × competition gap × feasibility)
+3. Each recommendation shows reasoning (fit x competition gap x feasibility)
 4. Integrates with existing opportunity scoring from v1.3
 5. Respects production constraints from v1.3 filters
 
-**Plans**: TBD
+Plans:
+- [ ] 21-01-PLAN.md — TopicRecommender module with folder scanning, pattern-weighted scoring, and /next command
 
 </details>
 
@@ -285,4 +287,4 @@ Plans:
 | **18. Opportunity Scoring & Orchestrator** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
 | **19. Performance Data Foundation** | **v1.4** | **2/2** | **Complete** | 2026-02-02 |
 | **20. Pattern Extraction** | **v1.4** | **1/1** | **Complete** | 2026-02-02 |
-| **21. Recommendation Engine** | **v1.4** | **0/?** | **Not Started** | - |
+| **21. Recommendation Engine** | **v1.4** | **0/1** | **Planned** | - |
