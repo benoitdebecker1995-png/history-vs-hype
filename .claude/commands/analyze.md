@@ -89,3 +89,27 @@ CTR may not be available via YouTube Analytics API (known limitation). If unavai
 - `/status` - Check project state
 - `/engage` - Handle comments, corrections
 - `/publish` - YouTube metadata optimization
+
+## Related Tools
+
+After running `/analyze` on multiple videos, use the performance tools to identify patterns:
+
+```bash
+# Fetch performance data for all published videos
+python tools/youtube-analytics/performance.py --fetch-all
+
+# See which topic types convert best
+python tools/youtube-analytics/performance.py --by-topic
+
+# See which angles convert best
+python tools/youtube-analytics/performance.py --by-angle
+
+# Generate full performance report
+python tools/youtube-analytics/performance.py --report --save
+```
+
+The performance report shows:
+- Which topic types (territorial, ideological, colonial) have highest subscriber conversion
+- Which content angles (legal, historical, political) correlate with more subscribers
+- Top converting videos with their topics and angles
+- Recommendations for future content based on patterns
