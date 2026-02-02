@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-02 (v1.4 milestone started)
+**Last Updated:** 2026-02-02 (Phase 19-01 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-02)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v1.4 Learning Loop — Defining requirements
+**Current focus:** v1.4 Learning Loop — Phase 19 in progress
 
 ## Current Position
 
 **Milestone:** v1.4 Learning Loop
-**Phase:** Not started (defining requirements)
-**Plan:** —
-**Status:** Defining requirements
-**Last activity:** 2026-02-02 — Milestone v1.4 started
+**Phase:** 19 of ? (Performance Data Foundation)
+**Plan:** 01 of 02 complete
+**Status:** In progress
+**Last activity:** 2026-02-02 — Completed 19-01-PLAN.md
 
 **Progress:**
 ```
@@ -24,7 +24,7 @@ v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
-v1.4 [                    ]   0% — Learning Loop (defining requirements)
+v1.4 [##                  ]  10% — Learning Loop (Phase 19 started)
 ```
 
 ## Milestone History
@@ -67,27 +67,27 @@ v1.4 [                    ]   0% — Learning Loop (defining requirements)
 ### Last Session
 
 - **Date:** 2026-02-02
-- **Work:** Archived v1.3 milestone, started v1.4 Learning Loop
+- **Work:** Completed Phase 19-01 (Performance Data Foundation)
 - **Output:**
-  - v1.3 archived to `.planning/milestones/`
-  - Git tag v1.3 created
-  - PROJECT.md updated with v1.4 goals
+  - video_performance table added to schema.sql
+  - KeywordDB extended with 7 performance methods
+  - performance.py fetcher module with CLI
 
 ### Next Session
 
-**Current work:** Defining requirements for v1.4 Learning Loop
+**Current work:** Phase 19-02 (Pattern Analysis)
 
 **v1.4 Goal:** "Based on everything — your performance, competition, skills, and constraints — here are the best topics to make next"
 
 **Target features:**
-- Performance analysis (subscriber conversion per video, winning patterns)
+- Performance analysis (subscriber conversion per video, winning patterns) - STARTED
 - Competition integration (saturated vs underserved, quality gaps)
 - Skills/strengths profiling (document-heavy, academic, legal/territorial)
 - Time/constraint awareness (solo creator, research overhead)
 - Existing work filtering (exclude `_IN_PRODUCTION/` and `_ARCHIVED/`)
 - Unified `/next` command with ranked opportunities
 
-**Next action:** Complete requirements definition, then create roadmap
+**Next action:** Execute 19-02-PLAN.md for pattern analysis
 
 ## Accumulated Context
 
@@ -211,6 +211,22 @@ v1.4 [                    ]   0% — Learning Loop (defining requirements)
 - **Auto-transition to ANALYZED:** After scoring, keywords automatically move from DISCOVERED to ANALYZED state
 - **Orchestrator pattern:** Single class coordinating multiple module calls with data aggregation (facade pattern)
 
+### Plan 19-01 Decisions
+
+- **Conversion formula:** (subscribers_gained / views) * 100, returns percentage
+- **Topic classification:** Reuse TAG_VOCABULARY pattern from patterns.py for consistency
+- **Angle classification:** Reuse classify_angles from Phase 16 (code reuse)
+- **JSON angle storage:** Store angles as JSON TEXT (SQLite lacks native array type)
+- **Auto-migration:** _ensure_performance_table() creates table on first access
+
+### Technical Notes (Phase 19)
+
+- video_performance table with indexes on conversion_rate, topic_type, fetched_at
+- performance.py fetcher module integrates metrics.py + channel_averages.py
+- CLI: `python performance.py --fetch-all` to populate database
+- CLI: `python performance.py --top 10` to show top converters
+- Graceful degradation when database unavailable
+
 ---
 
-*State updated: 2026-02-02 after v1.4 milestone started*
+*State updated: 2026-02-02 after 19-01-PLAN.md complete*
