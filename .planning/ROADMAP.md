@@ -5,7 +5,8 @@
 - **v1.0 MVP** - Phases 1-7 (shipped 2026-01-19)
 - **v1.1 Analytics & Learning Loop** - Phases 8-10 (shipped 2026-01-26)
 - **v1.2 Script Quality & Discovery** - Phases 11-14 (shipped 2026-01-30)
-- **v1.3 Niche Discovery** - Phases 15-18 (shipped 2026-02-01)
+- **v1.3 Niche Discovery** - Phases 15-18 (shipped 2026-02-02)
+- **v1.4 Learning Loop** - Phases 19-21 (in progress)
 
 ## Phases
 
@@ -210,6 +211,50 @@ Plans:
 
 </details>
 
+<details open>
+<summary>v1.4 Learning Loop (Phases 19-21) - IN PROGRESS</summary>
+
+### Phase 19: Performance Data Foundation
+**Goal**: User can see what's working based on subscriber conversion
+**Dependencies**: Phase 10 (YouTube Analytics API), existing youtube-analytics/ tools
+**Requirements**: PERF-01, PERF-02, PERF-03, INTG-01
+
+**Success Criteria:**
+1. User can see subscriber conversion per video for entire published catalog
+2. User can see which topic types correlate with high conversion
+3. User can see which angles correlate with high conversion
+4. Data pulls from existing YouTube Analytics API integration
+
+**Plans**: TBD
+
+### Phase 20: Pattern Extraction
+**Goal**: System identifies "winning patterns" from top performers
+**Dependencies**: Phase 19 (performance data)
+**Requirements**: PATN-01, PATN-02, PATN-03
+
+**Success Criteria:**
+1. System extracts winning pattern profile from top 5-10 performers
+2. System identifies channel strengths (document-heavy, academic, legal/territorial)
+3. System tracks shared attributes across top converters
+
+**Plans**: TBD
+
+### Phase 21: Recommendation Engine & `/next` Command
+**Goal**: User gets ranked NEW topic recommendations
+**Dependencies**: Phase 20 (patterns), Phase 18 (opportunity scoring)
+**Requirements**: RECD-01, RECD-02, RECD-03, RECD-04, INTG-02, INTG-03
+
+**Success Criteria:**
+1. `/next` command returns ranked NEW topic recommendations
+2. Recommendations filtered against `_IN_PRODUCTION/` and `_ARCHIVED/` folders
+3. Each recommendation shows reasoning (fit × competition gap × feasibility)
+4. Integrates with existing opportunity scoring from v1.3
+5. Respects production constraints from v1.3 filters
+
+**Plans**: TBD
+
+</details>
+
 ## Progress
 
 | Phase | Milestone | Plans Complete | Status | Completed |
@@ -233,3 +278,6 @@ Plans:
 | **16. Competition Analysis** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
 | **17. Format Filtering** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
 | **18. Opportunity Scoring & Orchestrator** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
+| **19. Performance Data Foundation** | **v1.4** | **0/?** | **Not Started** | - |
+| **20. Pattern Extraction** | **v1.4** | **0/?** | **Not Started** | - |
+| **21. Recommendation Engine** | **v1.4** | **0/?** | **Not Started** | - |
