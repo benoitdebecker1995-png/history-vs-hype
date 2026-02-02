@@ -234,13 +234,15 @@ Plans:
 **Goal**: System identifies "winning patterns" from top performers
 **Dependencies**: Phase 19 (performance data)
 **Requirements**: PATN-01, PATN-02, PATN-03
+**Plans**: 1 plan
 
 **Success Criteria:**
 1. System extracts winning pattern profile from top 5-10 performers
 2. System identifies channel strengths (document-heavy, academic, legal/territorial)
 3. System tracks shared attributes across top converters
 
-**Plans**: TBD
+Plans:
+- [ ] 20-01-PLAN.md — Pattern extractor module + channel strengths + CLI integration
 
 ### Phase 21: Recommendation Engine & `/next` Command
 **Goal**: User gets ranked NEW topic recommendations
@@ -282,5 +284,5 @@ Plans:
 | **17. Format Filtering** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
 | **18. Opportunity Scoring & Orchestrator** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
 | **19. Performance Data Foundation** | **v1.4** | **2/2** | **Complete** | 2026-02-02 |
-| **20. Pattern Extraction** | **v1.4** | **0/?** | **Not Started** | - |
+| **20. Pattern Extraction** | **v1.4** | **0/1** | **Planned** | - |
 | **21. Recommendation Engine** | **v1.4** | **0/?** | **Not Started** | - |
