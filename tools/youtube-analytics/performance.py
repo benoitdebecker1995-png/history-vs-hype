@@ -73,6 +73,17 @@ try:
 except ImportError:
     REPORT_AVAILABLE = False
 
+# Import pattern extractor with graceful fallback
+try:
+    from pattern_extractor import (
+        extract_winning_patterns,
+        generate_winning_patterns_report,
+        calculate_channel_strengths
+    )
+    PATTERNS_AVAILABLE = True
+except ImportError:
+    PATTERNS_AVAILABLE = False
+
 
 # Topic classification vocabulary (from patterns.py TAG_VOCABULARY)
 # Used to classify own videos by primary topic type
@@ -472,6 +483,156 @@ def print_angle_aggregation() -> None:
     print()
 
 
+def print_winning_patterns() -> None:
+    """
+    Print winning patterns extracted from performance data.
+
+    Shows topic ranking, angle ranking, top converter profile,
+    channel strengths, and actionable insights.
+    """
+    if not PATTERNS_AVAILABLE:
+        print("Error: Pattern extractor module not available.")
+        return
+
+    print("Extracting winning patterns...")
+    print()
+
+    profile = extract_winning_patterns()
+
+    if 'error' in profile:
+        print(f"Error: {profile['error']}")
+        return
+
+    print(f"Videos Analyzed: {profile['videos_analyzed']}")
+    print()
+
+    # Topic Ranking
+    print("TOPIC RANKING (by conversion rate)")
+    print("-" * 55)
+    print(f"{'Topic':<15} {'Avg Conv%':>10} {'Videos':>8} {'Total Subs':>12}")
+    print("-" * 55)
+    for t in profile['topic_ranking']:
+        print(
+            f"{t['topic']:<15} {t['avg_conversion']:>9.3f}% "
+            f"{t['count']:>8} {t['total_subs']:>12}"
+        )
+    print()
+
+    # Angle Ranking
+    print("ANGLE RANKING (by conversion rate)")
+    print("-" * 55)
+    print(f"{'Angle':<15} {'Avg Conv%':>10} {'Videos':>8} {'Total Subs':>12}")
+    print("-" * 55)
+    for a in profile['angle_ranking']:
+        print(
+            f"{a['angle']:<15} {a['avg_conversion']:>9.3f}% "
+            f"{a['count']:>8} {a['total_subs']:>12}"
+        )
+    print()
+
+    # Top Converter Profile
+    tp = profile['top_converter_profile']
+    print(f"TOP {tp['n']} CONVERTER PROFILE")
+    print("-" * 55)
+    print(f"Dominant Topic:   {tp['dominant_topic'] or 'N/A'}")
+    print(f"Dominant Angles:  {', '.join(tp['dominant_angles']) if tp['dominant_angles'] else 'N/A'}")
+    print(f"Avg Duration:     {tp['avg_duration_seconds']:.0f} seconds")
+    print(f"Avg Views:        {tp['avg_views']:,.0f}")
+    print(f"Likes/View:       {tp['avg_likes_per_view']:.4f}")
+    print(f"Comments/View:    {tp['avg_comments_per_view']:.5f}")
+    print()
+
+    # Channel Strengths
+    cs = profile['channel_strengths']
+    print("CHANNEL STRENGTHS")
+    print("-" * 55)
+
+    def strength_bar(score: float) -> str:
+        """Generate ASCII bar for strength score."""
+        filled = int(score / 10)
+        empty = 10 - filled
+        return '#' * filled + '-' * empty
+
+    print(f"Document-heavy:    [{strength_bar(cs['document_heavy'])}] {cs['document_heavy']:.1f}")
+    print(f"Academic:          [{strength_bar(cs['academic'])}] {cs['academic']:.1f}")
+    print(f"Legal/Territorial: [{strength_bar(cs['legal_territorial'])}] {cs['legal_territorial']:.1f}")
+    print()
+
+    # Insights
+    print("INSIGHTS")
+    print("-" * 55)
+    for insight in profile['insights']:
+        print(f"  - {insight}")
+    print()
+
+
+def print_channel_strengths() -> None:
+    """
+    Print channel strength scores in focused view.
+
+    Shows strength assessment with ASCII bars for quick overview.
+    """
+    if not PATTERNS_AVAILABLE:
+        print("Error: Pattern extractor module not available.")
+        return
+
+    if not REPORT_AVAILABLE:
+        print("Error: Report module not available.")
+        return
+
+    if not DATABASE_AVAILABLE:
+        print("Database not available. Run --fetch-all first.")
+        return
+
+    try:
+        db = KeywordDB()
+        videos = db.get_all_video_performance(limit=500)
+        db.close()
+    except Exception as e:
+        print(f"Error fetching data: {e}")
+        return
+
+    if not videos:
+        print("No video performance data found. Run --fetch-all first.")
+        return
+
+    # Get aggregated stats for strength calculation
+    topic_stats = aggregate_by_topic(videos, min_count=1)
+    angle_stats = aggregate_by_angle(videos, min_count=1)
+
+    # Calculate strengths
+    strengths = calculate_channel_strengths(topic_stats, angle_stats)
+
+    def strength_bar(score: float) -> str:
+        """Generate ASCII bar for strength score."""
+        filled = int(score / 10)
+        empty = 10 - filled
+        return '#' * filled + '-' * empty
+
+    print()
+    print("CHANNEL STRENGTH ASSESSMENT")
+    print("=" * 50)
+    print(f"Based on {len(videos)} videos analyzed")
+    print()
+    print(f"{'Strength':<20} {'Score':>8} {'Bar':<12}")
+    print("-" * 50)
+    print(f"{'Document-heavy':<20} {strengths['document_heavy']:>7.1f} [{strength_bar(strengths['document_heavy'])}]")
+    print(f"{'Academic':<20} {strengths['academic']:>7.1f} [{strength_bar(strengths['academic'])}]")
+    print(f"{'Legal/Territorial':<20} {strengths['legal_territorial']:>7.1f} [{strength_bar(strengths['legal_territorial'])}]")
+    print("-" * 50)
+    print()
+
+    # Interpretation
+    best_strength = max(strengths.items(), key=lambda x: x[1])
+    strength_names = {
+        'document_heavy': 'Document-heavy format',
+        'academic': 'Academic fact-checking',
+        'legal_territorial': 'Legal/territorial analysis'
+    }
+    print(f"Primary strength: {strength_names.get(best_strength[0], best_strength[0])}")
+    print()
+
+
 def print_performance_table(videos: List[Dict[str, Any]]) -> None:
     """
     Print performance data as formatted table.
@@ -535,6 +696,8 @@ Report Commands:
   --top N               Show top N converting videos
   --by-topic            Show conversion aggregated by topic type
   --by-angle            Show conversion aggregated by content angle
+  --patterns [--save]   Extract winning patterns from performance data
+  --strengths           Show channel strength assessment
 
 Examples:
   python performance.py abc123               Fetch single video
@@ -597,6 +760,16 @@ Data is stored in tools/discovery/keywords.db (video_performance table).
         action='store_true',
         help='Show conversion rates aggregated by content angle'
     )
+    parser.add_argument(
+        '--patterns',
+        action='store_true',
+        help='Extract and display winning patterns from performance data'
+    )
+    parser.add_argument(
+        '--strengths',
+        action='store_true',
+        help='Display channel strength scores'
+    )
 
     args = parser.parse_args()
 
@@ -607,11 +780,35 @@ Data is stored in tools/discovery/keywords.db (video_performance table).
         args.top is not None or
         args.report or
         args.by_topic or
-        args.by_angle
+        args.by_angle or
+        args.patterns or
+        args.strengths
     )
     if not has_action:
         parser.print_help()
         sys.exit(1)
+
+    # Handle --patterns flag
+    if args.patterns:
+        if not PATTERNS_AVAILABLE:
+            print("Error: Pattern extractor module not available.")
+            sys.exit(1)
+        print_winning_patterns()
+        if args.save:
+            result = generate_winning_patterns_report()
+            if result.startswith("Error"):
+                print(result)
+            else:
+                print(f"Report saved to: {result}")
+        sys.exit(0)
+
+    # Handle --strengths flag
+    if args.strengths:
+        if not PATTERNS_AVAILABLE:
+            print("Error: Pattern extractor module not available.")
+            sys.exit(1)
+        print_channel_strengths()
+        sys.exit(0)
 
     # Handle --report flag
     if args.report:
