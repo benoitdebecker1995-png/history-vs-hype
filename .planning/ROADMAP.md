@@ -242,7 +242,7 @@ Plans:
 3. System tracks shared attributes across top converters
 
 Plans:
-- [ ] 20-01-PLAN.md — Pattern extractor module + channel strengths + CLI integration
+- [x] 20-01-PLAN.md — Pattern extractor module + channel strengths + CLI integration
 
 ### Phase 21: Recommendation Engine & `/next` Command
 **Goal**: User gets ranked NEW topic recommendations
@@ -284,5 +284,5 @@ Plans:
 | **17. Format Filtering** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
 | **18. Opportunity Scoring & Orchestrator** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
 | **19. Performance Data Foundation** | **v1.4** | **2/2** | **Complete** | 2026-02-02 |
-| **20. Pattern Extraction** | **v1.4** | **0/1** | **Planned** | - |
+| **20. Pattern Extraction** | **v1.4** | **1/1** | **Complete** | 2026-02-02 |
 | **21. Recommendation Engine** | **v1.4** | **0/?** | **Not Started** | - |
