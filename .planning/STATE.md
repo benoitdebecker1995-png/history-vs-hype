@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-02 (Phase 19 complete)
+**Last Updated:** 2026-02-02 (Phase 20 Plan 01 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-02)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v1.4 Learning Loop — Phase 19 complete, ready for Phase 20
+**Current focus:** v1.4 Learning Loop — Phase 20 Plan 01 complete
 
 ## Current Position
 
 **Milestone:** v1.4 Learning Loop
-**Phase:** 19 of 21 (Performance Data Foundation) — COMPLETE
-**Plan:** 02 of 02 complete
+**Phase:** 20 of 21 (Pattern Extraction) — IN PROGRESS
+**Plan:** 01 of 01 complete
 **Status:** Phase complete
-**Last activity:** 2026-02-02 — Completed Phase 19 (all plans)
+**Last activity:** 2026-02-02 — Completed 20-01-PLAN.md (Pattern Extraction)
 
 **Progress:**
 ```
@@ -24,7 +24,7 @@ v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
-v1.4 [#######             ]  33% — Learning Loop (Phase 19 complete)
+v1.4 [##############      ]  67% — Learning Loop (Phase 20 complete)
 ```
 
 ## Milestone History
@@ -67,29 +67,29 @@ v1.4 [#######             ]  33% — Learning Loop (Phase 19 complete)
 ### Last Session
 
 - **Date:** 2026-02-02
-- **Work:** Completed Phase 19 (Performance Data Foundation)
+- **Work:** Completed Phase 20 Plan 01 (Pattern Extraction)
 - **Output:**
-  - video_performance table added to schema.sql
-  - KeywordDB extended with 7 performance methods
-  - performance.py fetcher module with CLI
-  - performance_report.py report generator
-  - /analyze command updated with performance tools link
+  - pattern_extractor.py with 7 extraction functions
+  - performance.py extended with --patterns and --strengths CLI flags
+  - WINNING-PATTERNS.md report template generated
+  - Channel strength scoring (document_heavy, academic, legal_territorial)
 
 ### Next Session
 
-**Current work:** Plan Phase 20 (Pattern Extraction)
+**Current work:** Plan Phase 21 (Topic Recommendations)
 
 **v1.4 Goal:** "Based on everything — your performance, competition, skills, and constraints — here are the best topics to make next"
 
 **Target features:**
 - Performance analysis (subscriber conversion per video, winning patterns) - COMPLETE
+- Pattern extraction (topic/angle rankings, channel strengths) - COMPLETE
 - Competition integration (saturated vs underserved, quality gaps)
-- Skills/strengths profiling (document-heavy, academic, legal/territorial)
+- Skills/strengths profiling (document-heavy, academic, legal/territorial) - COMPLETE
 - Time/constraint awareness (solo creator, research overhead)
 - Existing work filtering (exclude `_IN_PRODUCTION/` and `_ARCHIVED/`)
 - Unified `/next` command with ranked opportunities
 
-**Next action:** Plan Phase 20 with `/gsd:plan-phase 20`
+**Next action:** Plan Phase 21 with `/gsd:plan-phase 21`
 
 ## Accumulated Context
 
@@ -229,6 +229,21 @@ v1.4 [#######             ]  33% — Learning Loop (Phase 19 complete)
 - CLI: `python performance.py --top 10` to show top converters
 - Graceful degradation when database unavailable
 
+### Plan 20-01 Decisions
+
+- **Strength normalization formula:** min(100, (category_avg / overall_avg) * 50)
+- **Dominant extraction:** Counter.most_common() for finding dominant topics/angles
+- **Insight generation:** Compare best vs average, best vs worst for actionable insights
+- **ASCII progress bars:** # for filled, - for empty (Windows cp1252 safe)
+
+### Technical Notes (Phase 20)
+
+- pattern_extractor.py with 7 functions for pattern extraction
+- Channel strengths: document_heavy, academic, legal_territorial (0-100 scores)
+- CLI: `python performance.py --patterns` to extract and display patterns
+- CLI: `python performance.py --patterns --save` to generate WINNING-PATTERNS.md
+- CLI: `python performance.py --strengths` for focused strength view
+
 ---
 
-*State updated: 2026-02-02 after 19-01-PLAN.md complete*
+*State updated: 2026-02-02 after 20-01-PLAN.md complete*
