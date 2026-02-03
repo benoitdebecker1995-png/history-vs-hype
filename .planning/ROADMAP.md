@@ -270,7 +270,7 @@ Plans:
 **Goal**: Foundation for extracting structure and entities from scripts
 **Dependencies**: None (new capability)
 **Requirements**: BROLL-02 (entity detection foundation)
-**Plans**: TBD
+**Plans**: 1 plan
 
 **Success Criteria:**
 1. User can parse a script markdown file into structured sections (intro, body sections, conclusion)
@@ -370,7 +370,7 @@ Plans:
 | 19. Performance Data Foundation | v1.4 | 2/2 | Complete | 2026-02-02 |
 | 20. Pattern Extraction | v1.4 | 1/1 | Complete | 2026-02-02 |
 | 21. Recommendation Engine | v1.4 | 1/1 | Complete | 2026-02-02 |
-| **22. Script Parser & Entity Detection** | **v1.5** | **0/1** | **Pending** | - |
+| **22. Script Parser & Entity Detection** | **v1.5** | **0/1** | **In Progress** | - |
 | **23. B-Roll Generation** | **v1.5** | **0/1** | **Pending** | - |
 | **24. Edit Guide Generation** | **v1.5** | **0/1** | **Pending** | - |
 | **25. Metadata Draft Generation** | **v1.5** | **0/1** | **Pending** | - |
