@@ -8,7 +8,18 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current State: v1.4 Shipped
+## Current Milestone: v1.5 Production Acceleration
+
+**Goal:** Single command generates complete "filming package" from a finished script, reducing pre-filming prep time.
+
+**Target features:**
+- Script → Teleprompter export (verify existing `/script --teleprompter` works)
+- Script → B-roll shot list with auto-suggested sources (Wikimedia, archive.org, maps)
+- Script → Edit guide with section timing and B-roll cue markers
+- Script → Metadata draft (title options, description template, tags)
+- Unified `/prep --package` command that generates all outputs in one shot
+
+## Previous State: v1.4 Shipped
 
 **Last milestone:** v1.4 Learning Loop (shipped 2026-02-02)
 
@@ -174,4 +185,4 @@ The workspace includes script quality tools and discovery optimization:
 
 ---
 
-*Last updated: 2026-02-02 after v1.4 milestone shipped*
+*Last updated: 2026-02-03 after v1.5 milestone started*

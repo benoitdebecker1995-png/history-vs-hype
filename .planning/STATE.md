@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-02 (v1.4 milestone archived)
+**Last Updated:** 2026-02-03 (v1.5 milestone started)
 
 ## Project Reference
 
-See: `.planning/PROJECT.md` (updated 2026-02-02)
+See: `.planning/PROJECT.md` (updated 2026-02-03)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v1.4 archived — Ready for next milestone
+**Current focus:** v1.5 Production Acceleration — Defining requirements
 
 ## Current Position
 
-**Milestone:** v1.4 Learning Loop — ARCHIVED
-**Phase:** 21 of 21 complete
-**Plan:** All complete
-**Status:** Milestone archived
-**Last activity:** 2026-02-02 — Archived v1.4 milestone
+**Milestone:** v1.5 Production Acceleration
+**Phase:** Not started (defining requirements)
+**Plan:** —
+**Status:** Defining requirements
+**Last activity:** 2026-02-03 — Milestone v1.5 started
 
 **Progress:**
 ```
@@ -24,7 +24,8 @@ v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
-v1.4 [####################] 100% — Learning Loop (COMPLETE)
+v1.4 [####################] 100% — Learning Loop (archived)
+v1.5 [--------------------]   0% — Production Acceleration (ACTIVE)
 ```
 
 ## Milestone History
@@ -84,15 +85,16 @@ v1.4 [####################] 100% — Learning Loop (COMPLETE)
 
 ### Next Session
 
-**Current work:** Ready for next milestone
+**Current work:** v1.5 Production Acceleration — defining requirements
 
-**v1.4 Shipped:**
-- Performance analysis (subscriber conversion per video, topic/angle correlations)
-- Pattern extraction (winning patterns, channel strengths)
-- Recommendation engine (`/next` command with pattern-weighted scoring)
-- Full integration with v1.3 opportunity scoring and production constraints
+**v1.5 Target:**
+- Script → Teleprompter export (verify existing works)
+- Script → B-roll shot list with auto-suggested sources
+- Script → Edit guide with section timing and B-roll cue markers
+- Script → Metadata draft (title options, description, tags)
+- Unified `/prep --package` command
 
-**Next action:** Start next milestone with `/gsd:new-milestone`
+**Next action:** Define requirements, create roadmap
 
 ## Accumulated Context
 
@@ -152,4 +154,4 @@ v1.4 [####################] 100% — Learning Loop (COMPLETE)
 
 ---
 
-*State updated: 2026-02-02 after v1.4 milestone archived*
+*State updated: 2026-02-03 after v1.5 milestone started*
