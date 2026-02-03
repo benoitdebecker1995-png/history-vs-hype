@@ -68,25 +68,25 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TELE-01 | TBD | Pending |
-| BROLL-01 | TBD | Pending |
-| BROLL-02 | TBD | Pending |
-| BROLL-03 | TBD | Pending |
-| BROLL-04 | TBD | Pending |
-| EDIT-01 | TBD | Pending |
-| EDIT-02 | TBD | Pending |
-| EDIT-03 | TBD | Pending |
-| META-01 | TBD | Pending |
-| META-02 | TBD | Pending |
-| META-03 | TBD | Pending |
-| PKG-01 | TBD | Pending |
-| PKG-02 | TBD | Pending |
+| TELE-01 | Phase 26 | Pending |
+| BROLL-01 | Phase 23 | Pending |
+| BROLL-02 | Phase 22 | Pending |
+| BROLL-03 | Phase 23 | Pending |
+| BROLL-04 | Phase 23 | Pending |
+| EDIT-01 | Phase 24 | Pending |
+| EDIT-02 | Phase 24 | Pending |
+| EDIT-03 | Phase 24 | Pending |
+| META-01 | Phase 25 | Pending |
+| META-02 | Phase 25 | Pending |
+| META-03 | Phase 25 | Pending |
+| PKG-01 | Phase 26 | Pending |
+| PKG-02 | Phase 26 | Pending |
 
 **Coverage:**
 - v1.5 requirements: 13 total
-- Mapped to phases: 0
-- Unmapped: 13
+- Mapped to phases: 13
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-03*
-*Last updated: 2026-02-03 after initial definition*
+*Traceability updated: 2026-02-03 after roadmap creation*

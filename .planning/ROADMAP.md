@@ -7,6 +7,7 @@
 - **v1.2 Script Quality & Discovery** - Phases 11-14 (shipped 2026-01-30)
 - **v1.3 Niche Discovery** - Phases 15-18 (shipped 2026-02-02)
 - **v1.4 Learning Loop** - Phases 19-21 (shipped 2026-02-02)
+- **v1.5 Production Acceleration** - Phases 22-26 (in progress)
 
 ## Phases
 
@@ -262,6 +263,87 @@ Plans:
 
 </details>
 
+<details open>
+<summary>v1.5 Production Acceleration (Phases 22-26) - IN PROGRESS</summary>
+
+### Phase 22: Script Parser & Entity Detection
+**Goal**: Foundation for extracting structure and entities from scripts
+**Dependencies**: None (new capability)
+**Requirements**: BROLL-02 (entity detection foundation)
+**Plans**: TBD
+
+**Success Criteria:**
+1. User can parse a script markdown file into structured sections (intro, body sections, conclusion)
+2. System extracts entities from script text (treaties, places, people, documents, dates)
+3. Entities are classified by type for downstream use (person, place, document, event)
+4. Section word counts are calculated for timing estimation
+
+Plans:
+- [ ] 22-01-PLAN.md — Script parser + entity extractor foundation
+
+### Phase 23: B-Roll Generation
+**Goal**: User can generate shot lists with source suggestions from script
+**Dependencies**: Phase 22 (entity detection)
+**Requirements**: BROLL-01, BROLL-03, BROLL-04
+**Plans**: TBD
+
+**Success Criteria:**
+1. User can generate shot list from script with section references
+2. System suggests source URLs for detected entities (Wikimedia Commons, archive.org, map services)
+3. Shots are categorized by visual type (map, document, portrait, event photo)
+4. Shot list includes entity names, types, and suggested sources in markdown format
+
+Plans:
+- [ ] 23-01-PLAN.md — Shot list generator + URL suggester + category assignment
+
+### Phase 24: Edit Guide Generation
+**Goal**: User can generate timing-aware edit guide with B-roll markers
+**Dependencies**: Phase 22 (section parsing), Phase 23 (shot list)
+**Requirements**: EDIT-01, EDIT-02, EDIT-03
+**Plans**: TBD
+
+**Success Criteria:**
+1. User can see section breakdown with estimated durations (words to time at 150 WPM)
+2. User can see inline B-roll markers in script output (`[B-ROLL: description]`)
+3. User can generate timing sheet (section name, cumulative start time, B-roll cues)
+4. Edit guide includes running time totals for pacing review
+
+Plans:
+- [ ] 24-01-PLAN.md — Duration calculator + inline markers + timing sheet generator
+
+### Phase 25: Metadata Draft Generation
+**Goal**: User can generate title, description, and tag suggestions from script
+**Dependencies**: Phase 22 (entity detection, section parsing)
+**Requirements**: META-01, META-02, META-03
+**Plans**: TBD
+
+**Success Criteria:**
+1. System extracts 3-5 title candidates from script (opening hook, key claims, closing thesis)
+2. System generates description template with section timestamps from edit guide
+3. System suggests 15-20 tags based on script entities and existing channel patterns
+4. Metadata draft follows established YOUTUBE-METADATA.md format
+
+Plans:
+- [ ] 25-01-PLAN.md — Title extractor + description generator + tag suggester
+
+### Phase 26: Package Command & Integration
+**Goal**: User can generate all production outputs with single command
+**Dependencies**: Phases 22-25 (all generation capabilities)
+**Requirements**: PKG-01, PKG-02, TELE-01
+**Plans**: TBD
+
+**Success Criteria:**
+1. User can run `/prep --package` to generate all outputs in one command
+2. Package outputs saved to project folder (B-ROLL-CHECKLIST.md, EDIT-GUIDE.md, METADATA-DRAFT.md)
+3. User can export script to clean teleprompter text (no markdown, read-aloud format)
+4. Package command validates script exists before running
+5. All outputs use consistent entity detection from single parse pass
+
+Plans:
+- [ ] 26-01-PLAN.md — Package orchestrator + teleprompter export + file writer
+
+</details>
+
 ## Progress
 
 | Phase | Milestone | Plans Complete | Status | Completed |
@@ -281,10 +363,15 @@ Plans:
 | 13. Discovery Tools | v1.2 | 3/3 | Complete | 2026-01-29 |
 | 13.1 Token Optimization | v1.2 | 2/2 | Complete | 2026-01-30 |
 | 14. NotebookLM Workflow | v1.2 | 1/1 | Complete | 2026-01-30 |
-| **15. Database Foundation & Demand Research** | **v1.3** | **2/2** | **Complete** | 2026-01-31 |
-| **16. Competition Analysis** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
-| **17. Format Filtering** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
-| **18. Opportunity Scoring & Orchestrator** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
-| **19. Performance Data Foundation** | **v1.4** | **2/2** | **Complete** | 2026-02-02 |
-| **20. Pattern Extraction** | **v1.4** | **1/1** | **Complete** | 2026-02-02 |
-| **21. Recommendation Engine** | **v1.4** | **1/1** | **Complete** | 2026-02-02 |
+| 15. Database Foundation & Demand Research | v1.3 | 2/2 | Complete | 2026-01-31 |
+| 16. Competition Analysis | v1.3 | 2/2 | Complete | 2026-02-01 |
+| 17. Format Filtering | v1.3 | 2/2 | Complete | 2026-02-01 |
+| 18. Opportunity Scoring & Orchestrator | v1.3 | 2/2 | Complete | 2026-02-01 |
+| 19. Performance Data Foundation | v1.4 | 2/2 | Complete | 2026-02-02 |
+| 20. Pattern Extraction | v1.4 | 1/1 | Complete | 2026-02-02 |
+| 21. Recommendation Engine | v1.4 | 1/1 | Complete | 2026-02-02 |
+| **22. Script Parser & Entity Detection** | **v1.5** | **0/1** | **Pending** | - |
+| **23. B-Roll Generation** | **v1.5** | **0/1** | **Pending** | - |
+| **24. Edit Guide Generation** | **v1.5** | **0/1** | **Pending** | - |
+| **25. Metadata Draft Generation** | **v1.5** | **0/1** | **Pending** | - |
+| **26. Package Command & Integration** | **v1.5** | **0/1** | **Pending** | - |

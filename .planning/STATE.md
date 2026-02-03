@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-03 (v1.5 milestone started)
+**Last Updated:** 2026-02-03 (v1.5 roadmap created)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-03)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v1.5 Production Acceleration — Defining requirements
+**Current focus:** v1.5 Production Acceleration — Phase 22 Script Parser & Entity Detection
 
 ## Current Position
 
 **Milestone:** v1.5 Production Acceleration
-**Phase:** Not started (defining requirements)
-**Plan:** —
-**Status:** Defining requirements
-**Last activity:** 2026-02-03 — Milestone v1.5 started
+**Phase:** 22 - Script Parser & Entity Detection
+**Plan:** Not started
+**Status:** Ready for planning
+**Last activity:** 2026-02-03 — v1.5 roadmap created
 
 **Progress:**
 ```
@@ -26,6 +26,11 @@ v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
 v1.4 [####################] 100% — Learning Loop (archived)
 v1.5 [--------------------]   0% — Production Acceleration (ACTIVE)
+     Phase 22: Script Parser [----] 0%
+     Phase 23: B-Roll Gen    [----] 0%
+     Phase 24: Edit Guide    [----] 0%
+     Phase 25: Metadata      [----] 0%
+     Phase 26: Package Cmd   [----] 0%
 ```
 
 ## Milestone History
@@ -75,26 +80,29 @@ v1.5 [--------------------]   0% — Production Acceleration (ACTIVE)
 
 ### Last Session
 
-- **Date:** 2026-02-02
-- **Work:** Completed Phase 21 Plan 01 (Recommendation Engine)
+- **Date:** 2026-02-03
+- **Work:** Created v1.5 Production Acceleration roadmap
 - **Output:**
-  - recommender.py with TopicRecommender class and folder scanning
-  - /next command documentation (`.claude/commands/next.md`)
-  - Pattern-weighted scoring (1.0-1.5x multiplier based on winning patterns)
-  - Exclusion of existing `_IN_PRODUCTION/` and `_ARCHIVED/` topics
+  - Updated ROADMAP.md with phases 22-26
+  - Updated REQUIREMENTS.md with traceability (13/13 mapped)
+  - Updated STATE.md with current phase
 
 ### Next Session
 
-**Current work:** v1.5 Production Acceleration — defining requirements
+**Current work:** Phase 22 - Script Parser & Entity Detection
 
-**v1.5 Target:**
-- Script → Teleprompter export (verify existing works)
-- Script → B-roll shot list with auto-suggested sources
-- Script → Edit guide with section timing and B-roll cue markers
-- Script → Metadata draft (title options, description, tags)
-- Unified `/prep --package` command
+**Phase 22 Goal:** Foundation for extracting structure and entities from scripts
 
-**Next action:** Define requirements, create roadmap
+**Requirements in Phase 22:**
+- BROLL-02: System auto-detects entities (treaties, places, people, documents) from script text
+
+**Success Criteria:**
+1. User can parse a script markdown file into structured sections
+2. System extracts entities from script text (treaties, places, people, documents, dates)
+3. Entities are classified by type for downstream use
+4. Section word counts are calculated for timing estimation
+
+**Next action:** Create 22-01-PLAN.md with implementation details
 
 ## Accumulated Context
 
@@ -152,6 +160,14 @@ v1.5 [--------------------]   0% — Production Acceleration (ACTIVE)
 - recommender.py scans video-projects/ folders and excludes existing topics
 - `/next` command documentation at `.claude/commands/next.md`
 
+### v1.5 Architecture Notes (Pending)
+
+Phase 22 will establish:
+- Script parser module location (likely tools/production/)
+- Entity extraction approach (regex vs NLP vs hybrid)
+- Data structures for sections and entities
+- Integration pattern for downstream phases
+
 ---
 
-*State updated: 2026-02-03 after v1.5 milestone started*
+*State updated: 2026-02-03 after v1.5 roadmap created*
