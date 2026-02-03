@@ -8,24 +8,21 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current Milestone: v1.4 Learning Loop
+## Current State: v1.4 Shipped
 
-**Goal:** "Based on everything — your performance, competition, skills, and constraints — here are the best topics to make next"
+**Last milestone:** v1.4 Learning Loop (shipped 2026-02-02)
 
-**Target features:**
-- Performance analysis — Subscriber conversion per video, identify winning patterns
-- Competition integration — Saturated vs underserved, quality gaps
-- Skills/strengths profiling — Document-heavy format, academic sourcing, legal/territorial angles
-- Time/constraint awareness — Solo creator, research overhead, production complexity
-- Existing work filtering — Exclude `_IN_PRODUCTION/` and `_ARCHIVED/` topics
-- Unified recommendation — `/next` command with ranked opportunities
+The workspace now includes a complete topic recommendation system:
 
-**Success metric:** When you ask "what should I make next?", the system returns NEW topics ranked by fit to winning patterns × competition gap × production feasibility — not in-progress projects.
+- **Performance Analysis:** Subscriber conversion per video, topic/angle correlations
+- **Pattern Extraction:** Winning patterns, channel strengths (0-100 scores)
+- **Recommendation Engine:** `/next` command with pattern-weighted scoring
+- **Integration:** Uses v1.3 opportunity scoring and production constraints
 
-**Production constraints (inputs to filtering):**
-- Visual style: Documents, maps, footage, text overlays (no animation)
-- Research depth: Academic sources required
-- Solo creator: Variable timeline based on topic complexity
+**Entry points:**
+- `/next` — get ranked topic recommendations based on winning patterns
+- `/discover TOPIC` — full niche discovery pipeline with opportunity scoring
+- `python tools/youtube-analytics/performance.py --patterns` — extract winning patterns
 
 ## Previous State (v1.2 Shipped)
 
@@ -48,6 +45,18 @@ The workspace includes script quality tools and discovery optimization:
 - `python tools/script-checkers/cli.py script.md --all` — script quality check
 
 ## Requirements
+
+### Validated (v1.4)
+
+- Subscriber conversion tracking per video — v1.4
+- Topic type correlation analysis (territorial, legal, ideological) — v1.4
+- Angle correlation analysis (document-heavy, academic, legal) — v1.4
+- Winning pattern extraction from top performers — v1.4
+- Channel strength scores (0-100 by category) — v1.4
+- `/next` command for ranked topic recommendations — v1.4
+- Folder scanning to exclude existing work — v1.4
+- Pattern-weighted scoring (1.0-1.5x multiplier) — v1.4
+- Integration with v1.3 opportunity scoring — v1.4
 
 ### Validated (v1.3)
 
@@ -123,12 +132,12 @@ The workspace includes script quality tools and discovery optimization:
 - Discovery diagnostics standalone (not auto-integrated into /analyze)
 
 **Tech stack:**
-- ~5,000 lines Python (tools/youtube-analytics/)
+- ~7,700 lines Python (tools/youtube-analytics/) — includes performance.py, pattern_extractor.py
 - ~2,600 lines Python (tools/script-checkers/)
-- ~1,300 lines Python (tools/discovery/)
+- ~1,800 lines Python (tools/discovery/) — includes recommender.py
 - YouTube Analytics API v2 + YouTube Data API v3
 - OAuth2 authentication with token refresh
-- SQLite database for keywords
+- SQLite database for keywords and performance
 
 **Existing codebase map:** `.planning/codebase/` (7 documents, 1600+ lines)
 
@@ -158,7 +167,11 @@ The workspace includes script quality tools and discovery optimization:
 | Word-level diff | Avoids O(n^2) character-level performance | Good (v1.2) |
 | 6-category intent classification | Tailored to history niche | Good (v1.2) |
 | Haiku/Sonnet/Opus model tiering | Cost optimization without quality loss | Good (v1.2) |
+| Conversion formula (subs/views × 100) | Percentage makes comparison intuitive | Good (v1.4) |
+| Word-level topic matching | Prevents false positives in exclusion | Good (v1.4) |
+| Pattern multiplier cap (1.5x) | Prevents overwhelming opportunity score | Good (v1.4) |
+| JSON angle storage | SQLite lacks native array type | Good (v1.4) |
 
 ---
 
-*Last updated: 2026-02-02 after v1.4 milestone started*
+*Last updated: 2026-02-02 after v1.4 milestone shipped*

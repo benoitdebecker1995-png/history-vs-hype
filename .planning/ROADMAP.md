@@ -6,7 +6,7 @@
 - **v1.1 Analytics & Learning Loop** - Phases 8-10 (shipped 2026-01-26)
 - **v1.2 Script Quality & Discovery** - Phases 11-14 (shipped 2026-01-30)
 - **v1.3 Niche Discovery** - Phases 15-18 (shipped 2026-02-02)
-- **v1.4 Learning Loop** - Phases 19-21 (in progress)
+- **v1.4 Learning Loop** - Phases 19-21 (shipped 2026-02-02)
 
 ## Phases
 
@@ -211,8 +211,8 @@ Plans:
 
 </details>
 
-<details open>
-<summary>v1.4 Learning Loop (Phases 19-21) - IN PROGRESS</summary>
+<details>
+<summary>v1.4 Learning Loop (Phases 19-21) - SHIPPED 2026-02-02</summary>
 
 ### Phase 19: Performance Data Foundation
 **Goal**: User can see what's working based on subscriber conversion

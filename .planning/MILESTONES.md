@@ -1,5 +1,32 @@
 # Project Milestones: History vs Hype Workspace
 
+## v1.4 Learning Loop (Shipped: 2026-02-02)
+
+**Delivered:** Topic recommendation system combining winning patterns with opportunity scores to suggest NEW topics, excluding in-progress projects.
+
+**Phases completed:** 19-21 (4 plans total)
+
+**Key accomplishments:**
+
+- Performance data foundation: video_performance table, conversion tracking, topic/angle aggregation
+- Pattern extraction: Winning patterns, channel strengths (0-100), top converter profile, insights
+- Recommendation engine: `/next` command with folder scanning and pattern-weighted scoring
+- Full integration: Uses v1.3 opportunity scoring and production constraints
+
+**Stats:**
+
+- 3 phases, 4 plans
+- 12/12 requirements delivered
+- ~2,700 lines Python added (performance.py, pattern_extractor.py, recommender.py)
+
+**Git range:** `2aa8034` → `5ccd6e4`
+
+**What's next:** Run `/next` to get ranked topic recommendations based on your winning patterns.
+
+**Archive:** `.planning/milestones/v1.4-ROADMAP.md`
+
+---
+
 ## v1.3 Niche Discovery (Shipped: 2026-02-02)
 
 **Delivered:** Complete niche discovery pipeline with demand analysis, competition classification, production constraint filtering, and opportunity scoring with Channel DNA validation.
