@@ -258,7 +258,7 @@ Plans:
 5. Respects production constraints from v1.3 filters
 
 Plans:
-- [ ] 21-01-PLAN.md — TopicRecommender module with folder scanning, pattern-weighted scoring, and /next command
+- [x] 21-01-PLAN.md — TopicRecommender module with folder scanning, pattern-weighted scoring, and /next command
 
 </details>
 
@@ -287,4 +287,4 @@ Plans:
 | **18. Opportunity Scoring & Orchestrator** | **v1.3** | **2/2** | **Complete** | 2026-02-01 |
 | **19. Performance Data Foundation** | **v1.4** | **2/2** | **Complete** | 2026-02-02 |
 | **20. Pattern Extraction** | **v1.4** | **1/1** | **Complete** | 2026-02-02 |
-| **21. Recommendation Engine** | **v1.4** | **0/1** | **Planned** | - |
+| **21. Recommendation Engine** | **v1.4** | **1/1** | **Complete** | 2026-02-02 |
