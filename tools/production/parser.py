@@ -309,6 +309,10 @@ if __name__ == "__main__":
     # Edit guide mode: generate edit guide and exit
     if editguide_mode:
         from tools.production import EditGuideGenerator
+        # Set stdout to UTF-8 encoding for unicode characters
+        if sys.platform == 'win32':
+            import codecs
+            sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'strict')
         project_name = script_path.parent.name
         broll_gen = BRollGenerator(project_name=project_name)
         shots = broll_gen.generate(entities, sections)
