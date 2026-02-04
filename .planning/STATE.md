@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-03 (v1.5 roadmap created)
+**Last Updated:** 2026-02-04 (Phase 22-01 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-03)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v1.5 Production Acceleration — Phase 22 Script Parser & Entity Detection
+**Current focus:** v1.5 Production Acceleration — Phase 22 complete, ready for Phase 23
 
 ## Current Position
 
 **Milestone:** v1.5 Production Acceleration
 **Phase:** 22 - Script Parser & Entity Detection
-**Plan:** Not started
-**Status:** Ready for planning
-**Last activity:** 2026-02-03 — v1.5 roadmap created
+**Plan:** 01 complete
+**Status:** Phase 22 complete
+**Last activity:** 2026-02-04 — Completed 22-01-PLAN.md (Script Parser & Entity Detection)
 
 **Progress:**
 ```
@@ -25,8 +25,8 @@ v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
 v1.4 [####################] 100% — Learning Loop (archived)
-v1.5 [--------------------]   0% — Production Acceleration (ACTIVE)
-     Phase 22: Script Parser [----] 0%
+v1.5 [####----------------]  20% — Production Acceleration (ACTIVE)
+     Phase 22: Script Parser [####] 100%
      Phase 23: B-Roll Gen    [----] 0%
      Phase 24: Edit Guide    [----] 0%
      Phase 25: Metadata      [----] 0%
@@ -76,33 +76,37 @@ v1.5 [--------------------]   0% — Production Acceleration (ACTIVE)
 - `python tools/script-checkers/cli.py script.md --all` — run all checkers
 - `python tools/script-checkers/cli.py script.md --voice` — apply voice patterns
 
+**Production tools (v1.5 - NEW):**
+- `python tools/production/parser.py script.md` — parse script, show sections and entities
+
 ## Session Continuity
 
 ### Last Session
 
-- **Date:** 2026-02-03
-- **Work:** Created v1.5 Production Acceleration roadmap
+- **Date:** 2026-02-04
+- **Work:** Completed Phase 22-01 Script Parser & Entity Detection
 - **Output:**
-  - Updated ROADMAP.md with phases 22-26
-  - Updated REQUIREMENTS.md with traceability (13/13 mapped)
-  - Updated STATE.md with current phase
+  - tools/production/ module with ScriptParser and EntityExtractor
+  - Section dataclass for structured script sections
+  - Entity dataclass for named entity tracking
+  - CLI for testing: `python tools/production/parser.py script.md`
 
 ### Next Session
 
-**Current work:** Phase 22 - Script Parser & Entity Detection
+**Current work:** Phase 23 - B-Roll Generation
 
-**Phase 22 Goal:** Foundation for extracting structure and entities from scripts
+**Phase 23 Goal:** Generate B-roll checklists from parsed scripts and entities
 
-**Requirements in Phase 22:**
-- BROLL-02: System auto-detects entities (treaties, places, people, documents) from script text
+**Requirements in Phase 23:**
+- BROLL-01: System generates B-roll checklist from script sections
+- BROLL-02: Entities from Phase 22 inform B-roll suggestions (documents, maps, people)
 
-**Success Criteria:**
-1. User can parse a script markdown file into structured sections
-2. System extracts entities from script text (treaties, places, people, documents, dates)
-3. Entities are classified by type for downstream use
-4. Section word counts are calculated for timing estimation
+**Dependencies available:**
+- ScriptParser: `from tools.production import ScriptParser`
+- EntityExtractor: `from tools.production import EntityExtractor`
+- Section/Entity dataclasses for structured data
 
-**Next action:** Create 22-01-PLAN.md with implementation details
+**Next action:** Create 23-01-PLAN.md for B-roll generation implementation
 
 ## Accumulated Context
 
@@ -160,14 +164,21 @@ v1.5 [--------------------]   0% — Production Acceleration (ACTIVE)
 - recommender.py scans video-projects/ folders and excludes existing topics
 - `/next` command documentation at `.claude/commands/next.md`
 
-### v1.5 Architecture Notes (Pending)
+### v1.5 Architecture Decisions
 
-Phase 22 will establish:
-- Script parser module location (likely tools/production/)
-- Entity extraction approach (regex vs NLP vs hybrid)
-- Data structures for sections and entities
-- Integration pattern for downstream phases
+**Phase 22-01 Decisions:**
+- **Module location:** tools/production/ for all production acceleration tools
+- **Entity extraction approach:** Hybrid regex + optional spaCy (use_spacy=True)
+- **Section type inference:** Position-based (first=intro, last=conclusion) with keyword override
+- **Word count calculation:** Strip all B-roll markers before counting spoken words
+- **Entity deduplication:** Normalize (lowercase, strip "the ", collapse whitespace), merge by key
+- **Person blocklist:** Filter marker-derived false positives (talking head, text on screen, etc.)
+
+**Phase 22-01 Patterns Established:**
+- Lazy spaCy loading with graceful fallback to regex-only
+- Domain-specific keyword dictionaries for classification
+- Marker stripping before both word count and entity extraction
 
 ---
 
-*State updated: 2026-02-03 after v1.5 roadmap created*
+*State updated: 2026-02-04 after Phase 22-01 complete*
