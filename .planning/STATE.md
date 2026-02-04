@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-04 (Phase 23-01 complete)
+**Last Updated:** 2026-02-04 (Phase 24-01 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-03)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v1.5 Production Acceleration — Phase 23 complete, ready for Phase 24
+**Current focus:** v1.5 Production Acceleration — Phase 24 complete, ready for Phase 25
 
 ## Current Position
 
 **Milestone:** v1.5 Production Acceleration
-**Phase:** 23 - B-Roll Generation
+**Phase:** 24 - Edit Guide Generation
 **Plan:** 01 complete
-**Status:** Phase 23 complete
-**Last activity:** 2026-02-04 — Completed 23-01-PLAN.md (B-Roll Generation)
+**Status:** Phase 24 complete
+**Last activity:** 2026-02-04 — Completed 24-01-PLAN.md (Edit Guide Generation)
 
 **Progress:**
 ```
@@ -25,10 +25,10 @@ v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
 v1.4 [####################] 100% — Learning Loop (archived)
-v1.5 [########------------]  40% — Production Acceleration (ACTIVE)
+v1.5 [##########----------]  50% — Production Acceleration (ACTIVE)
      Phase 22: Script Parser [####] 100%
      Phase 23: B-Roll Gen    [####] 100%
-     Phase 24: Edit Guide    [----] 0%
+     Phase 24: Edit Guide    [####] 100%
      Phase 25: Metadata      [----] 0%
      Phase 26: Package Cmd   [----] 0%
 ```
@@ -79,33 +79,37 @@ v1.5 [########------------]  40% — Production Acceleration (ACTIVE)
 **Production tools (v1.5 - NEW):**
 - `python tools/production/parser.py script.md` — parse script, show sections and entities
 - `python tools/production/parser.py script.md --broll` — generate B-roll checklist from script
+- `python tools/production/parser.py script.md --edit-guide` — generate EDITING-GUIDE.md with timing
 
 ## Session Continuity
 
 ### Last Session
 
 - **Date:** 2026-02-04
-- **Work:** Completed Phase 23-01 B-Roll Generation
+- **Work:** Completed Phase 24-01 Edit Guide Generation
 - **Output:**
-  - BRollGenerator class converts entities to shot lists with source URLs
-  - Shot dataclass with visual_type, priority, source_urls, diy_instructions
-  - Archive hierarchy by topic (holocaust, legal, medieval, colonial, general)
-  - CLI: `python tools/production/parser.py script.md --broll`
-  - Markdown output matching B-ROLL-DOWNLOAD-LINKS.md format
+  - EditGuideGenerator class generates complete EDITING-GUIDE.md format
+  - Duration calculation at 150 WPM with 10-second minimum
+  - Cumulative timing with MM:SS formatted start/end times
+  - Shot-by-shot breakdown grouping B-roll and talking head entries
+  - Visual assets checklist auto-generated from shot priorities
+  - CLI: `python tools/production/parser.py script.md --edit-guide`
+  - Integration tested: Chagos script (91 shots, 10:53 runtime, 12 sections)
 
 ### Next Session
 
-**Current work:** Phase 24 - Edit Guide Generation
+**Current work:** Phase 25 - Metadata Generation
 
-**Phase 24 Goal:** Generate editing guides from scripts with shot-by-shot instructions
+**Phase 25 Goal:** Generate YouTube metadata (titles, descriptions, tags) from scripts
 
 **Dependencies available:**
 - ScriptParser: `from tools.production import ScriptParser`
 - EntityExtractor: `from tools.production import EntityExtractor`
 - BRollGenerator: `from tools.production import BRollGenerator`
-- Section/Entity/Shot dataclasses for structured data
+- EditGuideGenerator: `from tools.production import EditGuideGenerator`
+- Section/Entity/Shot/SectionTiming dataclasses for structured data
 
-**Next action:** Create 24-01-PLAN.md for edit guide generation implementation
+**Next action:** Create 25-01-PLAN.md for metadata generation implementation
 
 ## Accumulated Context
 
@@ -191,6 +195,21 @@ v1.5 [########------------]  40% — Production Acceleration (ACTIVE)
 - Priority assignment: Type-specific thresholds based on mention counts
 - Markdown output: Group by visual type, include DIY instructions, priority checklist at end
 
+**Phase 24-01 Decisions:**
+- **150 WPM timing standard:** Industry standard speaking rate for video narration
+- **10-second minimum:** Prevents unrealistic sub-10-second estimates for brief transitions
+- **MM:SS formatting:** Matches video editing software conventions
+- **UTF-8 encoding on Windows:** Platform-specific stdout setup to handle unicode characters
+- **Section-to-shot mapping:** Uses BRollGenerator section_references field for logical grouping
+
+**Phase 24-01 Patterns Established:**
+- SectionTiming dataclass tracks cumulative start/end times for each section
+- Shot-by-shot breakdown groups shots by section for logical flow
+- Visual assets checklist auto-generated from shot priorities
+- Edit guide format matches existing EDITING-GUIDE.md structure
+- calculate_duration_seconds(word_count) → estimated seconds at 150 WPM
+- format_time(seconds) → MM:SS string
+
 ---
 
-*State updated: 2026-02-04 after Phase 23-01 complete*
+*State updated: 2026-02-04 after Phase 24-01 complete*
