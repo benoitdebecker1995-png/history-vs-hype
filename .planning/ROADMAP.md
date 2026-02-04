@@ -309,7 +309,7 @@ Plans:
 4. Edit guide includes running time totals for pacing review
 
 Plans:
-- [ ] 24-01-PLAN.md — EditGuideGenerator + duration calculation + timing sheet + CLI flag
+- [x] 24-01-PLAN.md — EditGuideGenerator + duration calculation + timing sheet + CLI flag
 
 ### Phase 25: Metadata Draft Generation
 **Goal**: User can generate title, description, and tag suggestions from script
@@ -372,6 +372,6 @@ Plans:
 | 21. Recommendation Engine | v1.4 | 1/1 | Complete | 2026-02-02 |
 | **22. Script Parser & Entity Detection** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
 | **23. B-Roll Generation** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
-| **24. Edit Guide Generation** | **v1.5** | **0/1** | **Pending** | - |
+| **24. Edit Guide Generation** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
 | **25. Metadata Draft Generation** | **v1.5** | **0/1** | **Pending** | - |
 | **26. Package Command & Integration** | **v1.5** | **0/1** | **Pending** | - |

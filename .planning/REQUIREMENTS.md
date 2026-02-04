@@ -22,9 +22,9 @@ Requirements for Production Acceleration milestone. Each maps to roadmap phases.
 
 ### Edit Guide
 
-- [ ] **EDIT-01**: User can see section breakdown with estimated durations (words → time)
-- [ ] **EDIT-02**: User can see inline B-roll markers in script (`[B-ROLL: description]`)
-- [ ] **EDIT-03**: User can generate timing sheet (section name, start time estimate, B-roll cues)
+- [x] **EDIT-01**: User can see section breakdown with estimated durations (words → time)
+- [x] **EDIT-02**: User can see inline B-roll markers in script (`[B-ROLL: description]`)
+- [x] **EDIT-03**: User can generate timing sheet (section name, start time estimate, B-roll cues)
 
 ### Metadata Draft
 
@@ -73,9 +73,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BROLL-02 | Phase 22 | Complete |
 | BROLL-03 | Phase 23 | Complete |
 | BROLL-04 | Phase 23 | Complete |
-| EDIT-01 | Phase 24 | Pending |
-| EDIT-02 | Phase 24 | Pending |
-| EDIT-03 | Phase 24 | Pending |
+| EDIT-01 | Phase 24 | Complete |
+| EDIT-02 | Phase 24 | Complete |
+| EDIT-03 | Phase 24 | Complete |
 | META-01 | Phase 25 | Pending |
 | META-02 | Phase 25 | Pending |
 | META-03 | Phase 25 | Pending |
@@ -89,4 +89,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-03*
-*Traceability updated: 2026-02-04 after Phase 22 completion*
+*Traceability updated: 2026-02-04 after Phase 24 completion*
