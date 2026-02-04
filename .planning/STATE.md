@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-04 (Phase 22-01 complete)
+**Last Updated:** 2026-02-04 (Phase 23-01 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-03)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v1.5 Production Acceleration — Phase 22 complete, ready for Phase 23
+**Current focus:** v1.5 Production Acceleration — Phase 23 complete, ready for Phase 24
 
 ## Current Position
 
 **Milestone:** v1.5 Production Acceleration
-**Phase:** 22 - Script Parser & Entity Detection
+**Phase:** 23 - B-Roll Generation
 **Plan:** 01 complete
-**Status:** Phase 22 complete
-**Last activity:** 2026-02-04 — Completed 22-01-PLAN.md (Script Parser & Entity Detection)
+**Status:** Phase 23 complete
+**Last activity:** 2026-02-04 — Completed 23-01-PLAN.md (B-Roll Generation)
 
 **Progress:**
 ```
@@ -25,9 +25,9 @@ v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
 v1.4 [####################] 100% — Learning Loop (archived)
-v1.5 [####----------------]  20% — Production Acceleration (ACTIVE)
+v1.5 [########------------]  40% — Production Acceleration (ACTIVE)
      Phase 22: Script Parser [####] 100%
-     Phase 23: B-Roll Gen    [----] 0%
+     Phase 23: B-Roll Gen    [####] 100%
      Phase 24: Edit Guide    [----] 0%
      Phase 25: Metadata      [----] 0%
      Phase 26: Package Cmd   [----] 0%
@@ -78,35 +78,34 @@ v1.5 [####----------------]  20% — Production Acceleration (ACTIVE)
 
 **Production tools (v1.5 - NEW):**
 - `python tools/production/parser.py script.md` — parse script, show sections and entities
+- `python tools/production/parser.py script.md --broll` — generate B-roll checklist from script
 
 ## Session Continuity
 
 ### Last Session
 
 - **Date:** 2026-02-04
-- **Work:** Completed Phase 22-01 Script Parser & Entity Detection
+- **Work:** Completed Phase 23-01 B-Roll Generation
 - **Output:**
-  - tools/production/ module with ScriptParser and EntityExtractor
-  - Section dataclass for structured script sections
-  - Entity dataclass for named entity tracking
-  - CLI for testing: `python tools/production/parser.py script.md`
+  - BRollGenerator class converts entities to shot lists with source URLs
+  - Shot dataclass with visual_type, priority, source_urls, diy_instructions
+  - Archive hierarchy by topic (holocaust, legal, medieval, colonial, general)
+  - CLI: `python tools/production/parser.py script.md --broll`
+  - Markdown output matching B-ROLL-DOWNLOAD-LINKS.md format
 
 ### Next Session
 
-**Current work:** Phase 23 - B-Roll Generation
+**Current work:** Phase 24 - Edit Guide Generation
 
-**Phase 23 Goal:** Generate B-roll checklists from parsed scripts and entities
-
-**Requirements in Phase 23:**
-- BROLL-01: System generates B-roll checklist from script sections
-- BROLL-02: Entities from Phase 22 inform B-roll suggestions (documents, maps, people)
+**Phase 24 Goal:** Generate editing guides from scripts with shot-by-shot instructions
 
 **Dependencies available:**
 - ScriptParser: `from tools.production import ScriptParser`
 - EntityExtractor: `from tools.production import EntityExtractor`
-- Section/Entity dataclasses for structured data
+- BRollGenerator: `from tools.production import BRollGenerator`
+- Section/Entity/Shot dataclasses for structured data
 
-**Next action:** Create 23-01-PLAN.md for B-roll generation implementation
+**Next action:** Create 24-01-PLAN.md for edit guide generation implementation
 
 ## Accumulated Context
 
@@ -179,6 +178,19 @@ v1.5 [####----------------]  20% — Production Acceleration (ACTIVE)
 - Domain-specific keyword dictionaries for classification
 - Marker stripping before both word count and entity extraction
 
+**Phase 23-01 Decisions:**
+- **Source URLs:** Use search URLs instead of fabricated file paths (safe, always valid)
+- **Archive hierarchy:** Organized by topic category (holocaust, legal, medieval, colonial, general)
+- **Priority thresholds:** 3+ mentions for documents, 5+ mentions for maps/portraits → Priority 1
+- **DIY instructions:** MapChart.net for maps (free, zero-budget friendly)
+- **Visual type classification:** Keyword detection (maritime → strategic_map, territory → map)
+
+**Phase 23-01 Patterns Established:**
+- Shot dataclass pattern: entity + visual_type + priority + source_urls + diy_instructions + section_references
+- Topic detection: Aggregate entity text, check keyword matches, return category
+- Priority assignment: Type-specific thresholds based on mention counts
+- Markdown output: Group by visual type, include DIY instructions, priority checklist at end
+
 ---
 
-*State updated: 2026-02-04 after Phase 22-01 complete*
+*State updated: 2026-02-04 after Phase 23-01 complete*
