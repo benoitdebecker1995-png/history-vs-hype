@@ -279,7 +279,7 @@ Plans:
 4. Section word counts are calculated for timing estimation
 
 Plans:
-- [ ] 22-01-PLAN.md — Script parser + entity extractor foundation
+- [x] 22-01-PLAN.md — Script parser + entity extractor foundation
 
 ### Phase 23: B-Roll Generation
 **Goal**: User can generate shot lists with source suggestions from script
@@ -370,7 +370,7 @@ Plans:
 | 19. Performance Data Foundation | v1.4 | 2/2 | Complete | 2026-02-02 |
 | 20. Pattern Extraction | v1.4 | 1/1 | Complete | 2026-02-02 |
 | 21. Recommendation Engine | v1.4 | 1/1 | Complete | 2026-02-02 |
-| **22. Script Parser & Entity Detection** | **v1.5** | **0/1** | **In Progress** | - |
+| **22. Script Parser & Entity Detection** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
 | **23. B-Roll Generation** | **v1.5** | **0/1** | **Pending** | - |
 | **24. Edit Guide Generation** | **v1.5** | **0/1** | **Pending** | - |
 | **25. Metadata Draft Generation** | **v1.5** | **0/1** | **Pending** | - |
