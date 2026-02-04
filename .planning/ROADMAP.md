@@ -285,7 +285,7 @@ Plans:
 **Goal**: User can generate shot lists with source suggestions from script
 **Dependencies**: Phase 22 (entity detection)
 **Requirements**: BROLL-01, BROLL-03, BROLL-04
-**Plans**: TBD
+**Plans**: 1 plan
 
 **Success Criteria:**
 1. User can generate shot list from script with section references
@@ -294,7 +294,7 @@ Plans:
 4. Shot list includes entity names, types, and suggested sources in markdown format
 
 Plans:
-- [ ] 23-01-PLAN.md — Shot list generator + URL suggester + category assignment
+- [x] 23-01-PLAN.md — Shot list generator + URL suggester + category assignment
 
 ### Phase 24: Edit Guide Generation
 **Goal**: User can generate timing-aware edit guide with B-roll markers
@@ -371,7 +371,7 @@ Plans:
 | 20. Pattern Extraction | v1.4 | 1/1 | Complete | 2026-02-02 |
 | 21. Recommendation Engine | v1.4 | 1/1 | Complete | 2026-02-02 |
 | **22. Script Parser & Entity Detection** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
-| **23. B-Roll Generation** | **v1.5** | **0/1** | **Pending** | - |
+| **23. B-Roll Generation** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
 | **24. Edit Guide Generation** | **v1.5** | **0/1** | **Pending** | - |
 | **25. Metadata Draft Generation** | **v1.5** | **0/1** | **Pending** | - |
 | **26. Package Command & Integration** | **v1.5** | **0/1** | **Pending** | - |

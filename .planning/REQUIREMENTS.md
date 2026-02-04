@@ -15,10 +15,10 @@ Requirements for Production Acceleration milestone. Each maps to roadmap phases.
 
 ### B-Roll Generation
 
-- [ ] **BROLL-01**: User can generate shot list from script with timestamps/sections
-- [ ] **BROLL-02**: System auto-detects entities (treaties, places, people, documents) from script text
-- [ ] **BROLL-03**: System suggests source URLs for detected entities (Wikimedia Commons, archive.org, map services)
-- [ ] **BROLL-04**: Shots are categorized by type (map, document, portrait, event photo)
+- [x] **BROLL-01**: User can generate shot list from script with timestamps/sections
+- [x] **BROLL-02**: System auto-detects entities (treaties, places, people, documents) from script text
+- [x] **BROLL-03**: System suggests source URLs for detected entities (Wikimedia Commons, archive.org, map services)
+- [x] **BROLL-04**: Shots are categorized by type (map, document, portrait, event photo)
 
 ### Edit Guide
 
@@ -69,10 +69,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | TELE-01 | Phase 26 | Pending |
-| BROLL-01 | Phase 23 | Pending |
+| BROLL-01 | Phase 23 | Complete |
 | BROLL-02 | Phase 22 | Complete |
-| BROLL-03 | Phase 23 | Pending |
-| BROLL-04 | Phase 23 | Pending |
+| BROLL-03 | Phase 23 | Complete |
+| BROLL-04 | Phase 23 | Complete |
 | EDIT-01 | Phase 24 | Pending |
 | EDIT-02 | Phase 24 | Pending |
 | EDIT-03 | Phase 24 | Pending |
