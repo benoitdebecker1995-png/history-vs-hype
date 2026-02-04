@@ -300,7 +300,7 @@ Plans:
 **Goal**: User can generate timing-aware edit guide with B-roll markers
 **Dependencies**: Phase 22 (section parsing), Phase 23 (shot list)
 **Requirements**: EDIT-01, EDIT-02, EDIT-03
-**Plans**: TBD
+**Plans**: 1 plan
 
 **Success Criteria:**
 1. User can see section breakdown with estimated durations (words to time at 150 WPM)
@@ -309,7 +309,7 @@ Plans:
 4. Edit guide includes running time totals for pacing review
 
 Plans:
-- [ ] 24-01-PLAN.md — Duration calculator + inline markers + timing sheet generator
+- [ ] 24-01-PLAN.md — EditGuideGenerator + duration calculation + timing sheet + CLI flag
 
 ### Phase 25: Metadata Draft Generation
 **Goal**: User can generate title, description, and tag suggestions from script
