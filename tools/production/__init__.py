@@ -27,5 +27,6 @@ Usage:
 from .parser import ScriptParser, Section
 from .entities import EntityExtractor, Entity
 from .broll import BRollGenerator, Shot
+from .editguide import EditGuideGenerator, SectionTiming
 
-__all__ = ['ScriptParser', 'Section', 'EntityExtractor', 'Entity', 'BRollGenerator', 'Shot']
+__all__ = ['ScriptParser', 'Section', 'EntityExtractor', 'Entity', 'BRollGenerator', 'Shot', 'EditGuideGenerator', 'SectionTiming']

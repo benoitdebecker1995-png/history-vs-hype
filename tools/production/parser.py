@@ -263,14 +263,18 @@ class ScriptParser:
 if __name__ == "__main__":
     import sys
 
-    # Check for --broll flag
+    # Check for flags
     broll_mode = '--broll' in sys.argv
+    editguide_mode = '--edit-guide' in sys.argv
     if broll_mode:
         sys.argv.remove('--broll')
+    if editguide_mode:
+        sys.argv.remove('--edit-guide')
 
     if len(sys.argv) < 2:
-        print("Usage: python parser.py <script.md> [--broll]")
-        print("  --broll: Generate B-roll checklist instead of entity summary")
+        print("Usage: python parser.py <script.md> [--broll] [--edit-guide]")
+        print("  --broll: Generate B-roll checklist")
+        print("  --edit-guide: Generate EDITING-GUIDE.md with timing")
         sys.exit(1)
 
     from pathlib import Path
@@ -300,6 +304,17 @@ if __name__ == "__main__":
         generator = BRollGenerator(project_name=project_name)
         checklist = generator.generate_checklist(entities, sections)
         print(checklist)
+        sys.exit(0)
+
+    # Edit guide mode: generate edit guide and exit
+    if editguide_mode:
+        from tools.production import EditGuideGenerator
+        project_name = script_path.parent.name
+        broll_gen = BRollGenerator(project_name=project_name)
+        shots = broll_gen.generate(entities, sections)
+        editguide_gen = EditGuideGenerator(project_name=project_name)
+        guide = editguide_gen.generate_edit_guide(sections, shots, entities)
+        print(guide)
         sys.exit(0)
 
     # Default mode: entity summary
