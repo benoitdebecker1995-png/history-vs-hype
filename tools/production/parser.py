@@ -263,12 +263,24 @@ class ScriptParser:
 if __name__ == "__main__":
     import sys
 
+    # Check for --broll flag
+    broll_mode = '--broll' in sys.argv
+    if broll_mode:
+        sys.argv.remove('--broll')
+
     if len(sys.argv) < 2:
-        print("Usage: python parser.py <script.md>")
+        print("Usage: python parser.py <script.md> [--broll]")
+        print("  --broll: Generate B-roll checklist instead of entity summary")
         sys.exit(1)
 
     from pathlib import Path
-    from entities import EntityExtractor
+    import os
+
+    # Add project root to path for imports to work
+    project_root = Path(__file__).parent.parent.parent
+    sys.path.insert(0, str(project_root))
+
+    from tools.production import EntityExtractor, BRollGenerator
 
     script_path = Path(sys.argv[1])
     if not script_path.exists():
@@ -279,7 +291,18 @@ if __name__ == "__main__":
     extractor = EntityExtractor()
 
     sections = parser.parse_file(script_path)
+    entities = extractor.extract_from_sections(sections)
 
+    # B-roll mode: generate checklist and exit
+    if broll_mode:
+        # Extract project name from path (e.g., "14-chagos-islands-2025")
+        project_name = script_path.parent.name
+        generator = BRollGenerator(project_name=project_name)
+        checklist = generator.generate_checklist(entities, sections)
+        print(checklist)
+        sys.exit(0)
+
+    # Default mode: entity summary
     print(f"\n=== SECTIONS ({len(sections)}) ===")
     total_words = 0
     for i, section in enumerate(sections, 1):
@@ -289,8 +312,6 @@ if __name__ == "__main__":
 
     print(f"\nTotal words: {total_words}")
     print(f"Est. runtime: {total_words / 150:.1f} min @ 150 WPM")
-
-    entities = extractor.extract_from_sections(sections)
 
     print(f"\n=== ENTITIES ({len(entities)}) ===")
     for etype in ['document', 'place', 'person', 'date', 'organization']:

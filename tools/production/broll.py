@@ -265,3 +265,222 @@ def assign_priority(entity: Entity, visual_type: str) -> int:
 
     # Everything else -> Priority 3
     return 3
+
+
+class BRollGenerator:
+    """
+    Generates B-roll shot lists and markdown checklists from extracted entities.
+
+    Converts script entities into production-ready B-roll checklists matching
+    existing B-ROLL-DOWNLOAD-LINKS.md format.
+    """
+
+    def __init__(self, project_name: str = "Untitled"):
+        """
+        Initialize the B-roll generator.
+
+        Args:
+            project_name: Project identifier (e.g., "14-chagos-islands-2025")
+        """
+        self.project_name = project_name
+
+    def generate(self, entities: List[Entity], sections: Optional[List['Section']] = None) -> List[Shot]:
+        """
+        Convert entities to shots with sources and priorities.
+
+        Args:
+            entities: List of Entity objects from EntityExtractor
+            sections: Optional list of Section objects for section references
+
+        Returns:
+            List of Shot objects
+        """
+        # Detect topic from entities
+        topic = detect_topic_category(entities)
+
+        shots = []
+
+        for entity in entities:
+            # Filter low-importance entities (< 2 mentions, unless document)
+            if entity.mentions < 2 and entity.entity_type != 'document':
+                continue
+
+            # Classify visual type
+            visual_type = classify_visual_type(entity)
+
+            # Assign priority
+            priority = assign_priority(entity, visual_type)
+
+            # Get source URLs
+            source_urls = get_source_urls(entity, visual_type, topic)
+
+            # Get DIY instructions if applicable
+            diy_instructions = None
+            if visual_type in DIY_INSTRUCTIONS:
+                diy_instructions = DIY_INSTRUCTIONS[visual_type]
+
+            # Get section references (if sections provided)
+            section_refs = []
+            if sections:
+                for section in sections:
+                    # Check if entity appears in section content
+                    if entity.normalized in section.content.lower():
+                        section_refs.append(section.heading)
+
+            shot = Shot(
+                entity=entity.text,
+                visual_type=visual_type,
+                priority=priority,
+                source_urls=source_urls,
+                diy_instructions=diy_instructions,
+                section_references=section_refs
+            )
+            shots.append(shot)
+
+        return shots
+
+    def generate_checklist(self, entities: List[Entity], sections: Optional[List['Section']] = None) -> str:
+        """
+        Generate full markdown checklist matching B-ROLL-DOWNLOAD-LINKS.md format.
+
+        Args:
+            entities: List of Entity objects from EntityExtractor
+            sections: Optional list of Section objects for section references
+
+        Returns:
+            Markdown-formatted checklist string
+        """
+        shots = self.generate(entities, sections)
+
+        # Group shots by visual category
+        grouped = self._group_shots_by_type(shots)
+
+        # Build markdown
+        today = date.today().strftime('%Y-%m-%d')
+        md = [
+            f"# {self.project_name} - B-ROLL CHECKLIST",
+            "",
+            f"**Project:** {self.project_name}",
+            f"**Date Created:** {today}",
+            f"**Entities Detected:** {len(entities)}",
+            "",
+            "---",
+            ""
+        ]
+
+        # PRIMARY SOURCE DOCUMENTS section
+        if grouped.get('primary_source_document'):
+            md.append("## PRIMARY SOURCE DOCUMENTS")
+            md.append("")
+            for shot in grouped['primary_source_document']:
+                md.append(f"### {shot.entity}")
+                for url in shot.source_urls:
+                    md.append(f"- **Source:** {url}")
+                if shot.diy_instructions:
+                    md.append(f"- **Create in Canva:** Use document template with aged paper styling")
+                md.append("- [ ] Downloaded/Created")
+                md.append("")
+            md.append("---")
+            md.append("")
+
+        # MAPS section
+        map_shots = grouped.get('map', []) + grouped.get('strategic_map', [])
+        if map_shots:
+            md.append("## MAPS")
+            md.append("")
+            for shot in map_shots:
+                md.append(f"### {shot.entity}")
+                for url in shot.source_urls:
+                    md.append(f"- **Source:** {url}")
+                if shot.diy_instructions:
+                    md.append(f"- **DIY Instructions:**")
+                    for line in shot.diy_instructions.split('\n'):
+                        md.append(f"  {line}")
+                md.append("- [ ] Downloaded/Created")
+                md.append("")
+            md.append("---")
+            md.append("")
+
+        # HISTORICAL PHOTOS section
+        photo_shots = grouped.get('historical_photo', []) + grouped.get('portrait', [])
+        if photo_shots:
+            md.append("## HISTORICAL PHOTOS")
+            md.append("")
+            for shot in photo_shots:
+                md.append(f"### {shot.entity}")
+                for url in shot.source_urls:
+                    md.append(f"- **Source:** {url}")
+                md.append("- [ ] Downloaded")
+                md.append("")
+            md.append("---")
+            md.append("")
+
+        # LOGOS/BUILDINGS section
+        if grouped.get('logo_or_building'):
+            md.append("## LOGOS & INSTITUTIONAL IMAGERY")
+            md.append("")
+            for shot in grouped['logo_or_building']:
+                md.append(f"### {shot.entity}")
+                for url in shot.source_urls:
+                    md.append(f"- **Source:** {url}")
+                md.append("- [ ] Downloaded")
+                md.append("")
+            md.append("---")
+            md.append("")
+
+        # GRAPHICS TO CREATE section
+        if grouped.get('timeline_graphic'):
+            md.append("## GRAPHICS TO CREATE")
+            md.append("")
+            for shot in grouped['timeline_graphic']:
+                md.append(f"### Timeline: {shot.entity}")
+                if shot.diy_instructions:
+                    md.append(f"**Instructions:**")
+                    for line in shot.diy_instructions.split('\n'):
+                        md.append(f"{line}")
+                md.append("- [ ] Created")
+                md.append("")
+            md.append("---")
+            md.append("")
+
+        # DOWNLOAD CHECKLIST (by priority)
+        md.append("## DOWNLOAD CHECKLIST")
+        md.append("")
+
+        priority_shots = {1: [], 2: [], 3: []}
+        for shot in shots:
+            priority_shots[shot.priority].append(shot)
+
+        if priority_shots[1]:
+            md.append("### Priority 1 - Must Have")
+            for shot in priority_shots[1]:
+                md.append(f"- [ ] {shot.entity} ({shot.visual_type})")
+            md.append("")
+
+        if priority_shots[2]:
+            md.append("### Priority 2 - Important")
+            for shot in priority_shots[2]:
+                md.append(f"- [ ] {shot.entity} ({shot.visual_type})")
+            md.append("")
+
+        if priority_shots[3]:
+            md.append("### Priority 3 - Nice to Have")
+            for shot in priority_shots[3]:
+                md.append(f"- [ ] {shot.entity} ({shot.visual_type})")
+            md.append("")
+
+        return '\n'.join(md)
+
+    def _group_shots_by_type(self, shots: List[Shot]) -> Dict[str, List[Shot]]:
+        """Group shots by visual type."""
+        grouped = {}
+        for shot in shots:
+            if shot.visual_type not in grouped:
+                grouped[shot.visual_type] = []
+            grouped[shot.visual_type].append(shot)
+
+        # Sort each group by priority, then by entity name
+        for visual_type in grouped:
+            grouped[visual_type].sort(key=lambda s: (s.priority, s.entity.lower()))
+
+        return grouped
