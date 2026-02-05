@@ -482,52 +482,71 @@ class MetadataGenerator:
         tags: List[str] = []
         seen: Set[str] = set()
 
-        # Primary: Entity names (prioritize by mentions)
+        # Primary: Entity names (prioritize by mentions, filter by type and length)
         sorted_entities = sorted(entities, key=lambda x: x.mentions, reverse=True)
 
         for entity in sorted_entities:
             # Use entity text as tag
-            tag = entity.text
+            tag = entity.text.strip()
             tag_normalized = tag.lower()
 
-            if tag_normalized not in seen and len(tag) > 2:
-                tags.append(tag)
-                seen.add(tag_normalized)
+            # Skip if:
+            # - Too short (less than 3 chars)
+            # - Too long (more than 50 chars - likely a sentence fragment)
+            # - Contains parentheses or brackets (likely metadata)
+            # - Already seen
+            if (len(tag) < 3 or len(tag) > 50 or
+                '(' in tag or ')' in tag or '[' in tag or ']' in tag or
+                tag_normalized in seen):
+                continue
+
+            # Skip date entities that are just years
+            if entity.entity_type == 'date' and tag.isdigit():
+                if len(tag) != 4:  # Skip unless it's a year
+                    continue
+
+            tags.append(tag)
+            seen.add(tag_normalized)
 
             if len(tags) >= 15:
                 break
 
-        # Secondary: Broader terms from section headings
-        for section in sections[:5]:
-            # Extract key terms from headings
-            heading_words = section.heading.split()
-            for word in heading_words:
-                # Skip common words
-                if word.lower() in ['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for']:
-                    continue
+        # Secondary: Broader terms from section headings (only if needed)
+        if len(tags) < 10:
+            for section in sections[:5]:
+                # Extract key terms from headings
+                heading_words = section.heading.split()
+                for word in heading_words:
+                    # Clean up word
+                    word = word.strip('.,;:()[]')
 
-                word_normalized = word.lower()
-                if word_normalized not in seen and len(word) > 3:
-                    tags.append(word)
-                    seen.add(word_normalized)
+                    # Skip common words and short words
+                    if (word.lower() in ['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'act', 'section'] or
+                        len(word) < 4):
+                        continue
+
+                    word_normalized = word.lower()
+                    if word_normalized not in seen:
+                        tags.append(word)
+                        seen.add(word_normalized)
+
+                    if len(tags) >= 20:
+                        break
 
                 if len(tags) >= 20:
                     break
 
-            if len(tags) >= 20:
-                break
-
         # Ensure we have at least some tags
         if len(tags) < 5:
-            tags.extend(['History', 'Geopolitics', 'Documentary'])
+            fallback_tags = ['History', 'Geopolitics', 'Documentary', 'International Relations']
+            for fallback in fallback_tags:
+                if fallback.lower() not in seen:
+                    tags.append(fallback)
+                    seen.add(fallback.lower())
+                if len(tags) >= 10:
+                    break
 
-        # Deduplicate and format
-        final_tags = []
-        for tag in tags:
-            if tag not in final_tags:
-                final_tags.append(tag)
-
-        return ', '.join(final_tags[:20])
+        return ', '.join(tags[:20])
 
 
 if __name__ == "__main__":

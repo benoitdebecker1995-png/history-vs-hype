@@ -266,15 +266,19 @@ if __name__ == "__main__":
     # Check for flags
     broll_mode = '--broll' in sys.argv
     editguide_mode = '--edit-guide' in sys.argv
+    metadata_mode = '--metadata' in sys.argv
     if broll_mode:
         sys.argv.remove('--broll')
     if editguide_mode:
         sys.argv.remove('--edit-guide')
+    if metadata_mode:
+        sys.argv.remove('--metadata')
 
     if len(sys.argv) < 2:
-        print("Usage: python parser.py <script.md> [--broll] [--edit-guide]")
+        print("Usage: python parser.py <script.md> [--broll] [--edit-guide] [--metadata]")
         print("  --broll: Generate B-roll checklist")
         print("  --edit-guide: Generate EDITING-GUIDE.md with timing")
+        print("  --metadata: Generate METADATA-DRAFT.md")
         sys.exit(1)
 
     from pathlib import Path
@@ -319,6 +323,26 @@ if __name__ == "__main__":
         editguide_gen = EditGuideGenerator(project_name=project_name)
         guide = editguide_gen.generate_edit_guide(sections, shots, entities)
         print(guide)
+        sys.exit(0)
+
+    # Metadata mode: generate metadata draft and exit
+    if metadata_mode:
+        from tools.production import MetadataGenerator, EditGuideGenerator
+        # Set stdout to UTF-8 encoding for unicode characters
+        if sys.platform == 'win32':
+            import codecs
+            sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'strict')
+        project_name = script_path.parent.name
+        # Generate shots for section references
+        broll_gen = BRollGenerator(project_name=project_name)
+        shots = broll_gen.generate(entities, sections)
+        # Calculate timings
+        editguide_gen = EditGuideGenerator(project_name=project_name)
+        timings = editguide_gen.calculate_timing(sections, shots)
+        # Generate metadata
+        metadata_gen = MetadataGenerator(project_name=project_name)
+        metadata = metadata_gen.generate_metadata_draft(sections, entities, timings)
+        print(metadata)
         sys.exit(0)
 
     # Default mode: entity summary
