@@ -20,6 +20,100 @@ from pathlib import Path
 from typing import List, Tuple, Optional
 
 
+def strip_for_teleprompter(text: str) -> str:
+    """
+    Strip markdown and B-roll markers for clean teleprompter text.
+
+    Removes:
+    - YAML frontmatter
+    - Markdown headers (# ## ###)
+    - Bold/italic markers (** * __ _)
+    - B-roll markers ([B-ROLL: ...])
+    - All bracketed markers ([TEXT ON SCREEN: ...], [MAP: ...], etc.)
+    - Source citations
+    - Image links
+    - Horizontal rules
+    - List markers
+
+    Preserves:
+    - Paragraph breaks for pacing
+    - Actual spoken text
+
+    Args:
+        text: Raw script markdown text
+
+    Returns:
+        Clean text for teleprompter
+    """
+    import re
+
+    # Strip YAML frontmatter
+    text = re.sub(r'^---\s*\n.*?\n---\s*\n', '', text, flags=re.DOTALL)
+
+    # Strip all bracketed markers (B-roll, maps, documents, etc.)
+    text = re.sub(r'\*\*\[.*?\]\*\*', '', text)  # **[ON-CAMERA]**, etc.
+    text = re.sub(r'\[B-ROLL:.*?\]', '', text)
+    text = re.sub(r'\[MAP:.*?\]', '', text)
+    text = re.sub(r'\[DOCUMENT.*?\]', '', text)
+    text = re.sub(r'\[TEXT ON SCREEN:.*?\]', '', text)
+    text = re.sub(r'\[NEWS.*?\]', '', text)
+    text = re.sub(r'\[QUOTE.*?\]', '', text)
+    text = re.sub(r'\[PRIMARY SOURCE.*?\]', '', text)
+    text = re.sub(r'\[TALKING HEAD\]', '', text)
+    text = re.sub(r'\[CAVEAT\]', '', text)
+    text = re.sub(r'\[STAKES.*?\]', '', text)
+    text = re.sub(r'\[AUTHORITY.*?\]', '', text)
+    text = re.sub(r'\[PAYOFF.*?\]', '', text)
+    text = re.sub(r'\[RETURN TO EXTREMES\]', '', text)
+    text = re.sub(r'\[SOURCE:.*?\]', '', text)
+
+    # Strip any remaining bracketed content
+    text = re.sub(r'\[[^\]]+\]', '', text)
+
+    # Strip markdown headers (but keep the text)
+    text = re.sub(r'^#+\s+', '', text, flags=re.MULTILINE)
+
+    # Strip bold/italic markers (keep text)
+    text = re.sub(r'\*\*([^*]+)\*\*', r'\1', text)
+    text = re.sub(r'\*([^*]+)\*', r'\1', text)
+    text = re.sub(r'__([^_]+)__', r'\1', text)
+    text = re.sub(r'_([^_]+)_', r'\1', text)
+
+    # Strip image links
+    text = re.sub(r'!\[.*?\]\(.*?\)', '', text)
+
+    # Strip links (keep link text)
+    text = re.sub(r'\[([^\]]+)\]\(.*?\)', r'\1', text)
+
+    # Strip horizontal rules
+    text = re.sub(r'^---+$', '', text, flags=re.MULTILINE)
+    text = re.sub(r'^\*\*\*+$', '', text, flags=re.MULTILINE)
+
+    # Strip list markers
+    text = re.sub(r'^\s*[-*+]\s+', '', text, flags=re.MULTILINE)
+    text = re.sub(r'^\s*\d+\.\s+', '', text, flags=re.MULTILINE)
+
+    # Strip code blocks
+    text = re.sub(r'```.*?```', '', text, flags=re.DOTALL)
+    text = re.sub(r'`[^`]+`', '', text)
+
+    # Strip HTML comments
+    text = re.sub(r'<!--.*?-->', '', text, flags=re.DOTALL)
+
+    # Clean up excessive whitespace
+    text = re.sub(r'\n{3,}', '\n\n', text)  # Max 2 newlines
+    text = re.sub(r'[ \t]+', ' ', text)     # Collapse spaces
+
+    # Strip leading/trailing whitespace from each line
+    lines = [line.strip() for line in text.split('\n')]
+    text = '\n'.join(lines)
+
+    # Remove empty lines at start/end
+    text = text.strip()
+
+    return text
+
+
 @dataclass
 class Section:
     """A parsed section from a script file."""
@@ -267,18 +361,26 @@ if __name__ == "__main__":
     broll_mode = '--broll' in sys.argv
     editguide_mode = '--edit-guide' in sys.argv
     metadata_mode = '--metadata' in sys.argv
+    teleprompter_mode = '--teleprompter' in sys.argv
+    package_mode = '--package' in sys.argv
     if broll_mode:
         sys.argv.remove('--broll')
     if editguide_mode:
         sys.argv.remove('--edit-guide')
     if metadata_mode:
         sys.argv.remove('--metadata')
+    if teleprompter_mode:
+        sys.argv.remove('--teleprompter')
+    if package_mode:
+        sys.argv.remove('--package')
 
     if len(sys.argv) < 2:
-        print("Usage: python parser.py <script.md> [--broll] [--edit-guide] [--metadata]")
+        print("Usage: python parser.py <script.md> [--broll] [--edit-guide] [--metadata] [--teleprompter] [--package]")
         print("  --broll: Generate B-roll checklist")
         print("  --edit-guide: Generate EDITING-GUIDE.md with timing")
         print("  --metadata: Generate METADATA-DRAFT.md")
+        print("  --teleprompter: Export clean text for filming (no markdown)")
+        print("  --package: Generate all outputs and save to project folder")
         sys.exit(1)
 
     from pathlib import Path
@@ -343,6 +445,112 @@ if __name__ == "__main__":
         metadata_gen = MetadataGenerator(project_name=project_name)
         metadata = metadata_gen.generate_metadata_draft(sections, entities, timings)
         print(metadata)
+        sys.exit(0)
+
+    # Package mode: generate all outputs and write to project folder
+    if package_mode:
+        from tools.production import BRollGenerator, EditGuideGenerator, MetadataGenerator
+
+        # Set stdout to UTF-8 encoding for unicode characters
+        if sys.platform == 'win32':
+            import codecs
+            sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'strict')
+
+        project_dir = script_path.parent
+        project_name = project_dir.name
+
+        print(f"Generating production package for: {project_name}")
+        print(f"Script: {script_path}")
+        print()
+
+        # All generators use same parsed sections and entities (single parse pass)
+        # sections and entities already parsed above
+
+        # Generate B-roll checklist
+        print("1. Generating B-roll checklist...")
+        broll_gen = BRollGenerator(project_name=project_name)
+        shots = broll_gen.generate(entities, sections)
+        broll_checklist = broll_gen.generate_checklist(entities, sections)
+        broll_path = project_dir / "B-ROLL-CHECKLIST.md"
+        broll_path.write_text(broll_checklist, encoding='utf-8')
+        print(f"   Saved: {broll_path.name} ({len(shots)} shots)")
+
+        # Generate edit guide
+        print("2. Generating edit guide...")
+        editguide_gen = EditGuideGenerator(project_name=project_name)
+        timings = editguide_gen.calculate_timing(sections, shots)
+        edit_guide = editguide_gen.generate_edit_guide(sections, shots, entities)
+        editguide_path = project_dir / "EDIT-GUIDE.md"
+        editguide_path.write_text(edit_guide, encoding='utf-8')
+        total_seconds = sum(t.duration_seconds for t in timings)
+        print(f"   Saved: {editguide_path.name} ({total_seconds // 60}:{total_seconds % 60:02d} estimated)")
+
+        # Generate metadata draft
+        print("3. Generating metadata draft...")
+        metadata_gen = MetadataGenerator(project_name=project_name)
+        metadata = metadata_gen.generate_metadata_draft(sections, entities, timings)
+        metadata_path = project_dir / "METADATA-DRAFT.md"
+        metadata_path.write_text(metadata, encoding='utf-8')
+        print(f"   Saved: {metadata_path.name} (3 title variants)")
+
+        # Generate teleprompter text
+        print("4. Generating teleprompter text...")
+        try:
+            raw_text = script_path.read_text(encoding='utf-8')
+        except UnicodeDecodeError:
+            raw_text = script_path.read_text(encoding='cp1252')
+        clean_text = strip_for_teleprompter(raw_text)
+        words = len(clean_text.split())
+        teleprompter_path = project_dir / "SCRIPT-TELEPROMPTER.txt"
+        teleprompter_path.write_text(clean_text, encoding='utf-8')
+        print(f"   Saved: {teleprompter_path.name} ({words} words)")
+
+        # Summary
+        print()
+        print("=" * 50)
+        print("PACKAGE COMPLETE")
+        print("=" * 50)
+        print()
+        print("Files created:")
+        print(f"  - {broll_path.name}")
+        print(f"  - {editguide_path.name}")
+        print(f"  - {metadata_path.name}")
+        print(f"  - {teleprompter_path.name}")
+        print()
+        print(f"Estimated runtime: {total_seconds // 60}:{total_seconds % 60:02d} at 150 WPM")
+        print(f"Total words: {words}")
+        print()
+        print("Next steps:")
+        print("  1. Review title variants in METADATA-DRAFT.md")
+        print("  2. Check B-ROLL-CHECKLIST.md for missing assets")
+        print("  3. Load SCRIPT-TELEPROMPTER.txt into your teleprompter app")
+        print("  4. Film!")
+
+        sys.exit(0)
+
+    # Teleprompter mode: export clean text
+    if teleprompter_mode:
+        # Set stdout to UTF-8 encoding for unicode characters
+        if sys.platform == 'win32':
+            import codecs
+            sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'strict')
+
+        # Read raw text and strip for teleprompter
+        try:
+            raw_text = script_path.read_text(encoding='utf-8')
+        except UnicodeDecodeError:
+            raw_text = script_path.read_text(encoding='cp1252')
+
+        clean_text = strip_for_teleprompter(raw_text)
+
+        # Calculate word count and estimated runtime
+        words = len(clean_text.split())
+        runtime_min = words / 150
+
+        print(clean_text)
+        print(f"\n---\n")
+        print(f"Word count: {words}")
+        print(f"Estimated runtime: {runtime_min:.1f} minutes at 150 WPM")
         sys.exit(0)
 
     # Default mode: entity summary
