@@ -315,7 +315,7 @@ Plans:
 **Goal**: User can generate title, description, and tag suggestions from script
 **Dependencies**: Phase 22 (entity detection, section parsing)
 **Requirements**: META-01, META-02, META-03
-**Plans**: TBD
+**Plans**: 1 plan
 
 **Success Criteria:**
 1. System extracts 3-5 title candidates from script (opening hook, key claims, closing thesis)
@@ -324,7 +324,7 @@ Plans:
 4. Metadata draft follows established YOUTUBE-METADATA.md format
 
 Plans:
-- [ ] 25-01-PLAN.md — Title extractor + description generator + tag suggester
+- [ ] 25-01-PLAN.md — MetadataGenerator + title extraction + description template + tag generation + CLI
 
 ### Phase 26: Package Command & Integration
 **Goal**: User can generate all production outputs with single command
