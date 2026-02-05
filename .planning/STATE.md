@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-05 (Phase 25-01 complete)
+**Last Updated:** 2026-02-05 (Phase 26-01 complete - v1.5 milestone shipped)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-03)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v1.5 Production Acceleration — Phase 25 complete, ready for Phase 26
+**Current focus:** v1.5 Production Acceleration — COMPLETE
 
 ## Current Position
 
 **Milestone:** v1.5 Production Acceleration
-**Phase:** 25 - Metadata Draft Generation
+**Phase:** 26 - Package Command
 **Plan:** 01 complete
-**Status:** Phase 25 complete
-**Last activity:** 2026-02-05 — Completed 25-01-PLAN.md (Metadata Draft Generation)
+**Status:** v1.5 COMPLETE
+**Last activity:** 2026-02-05 — Completed 26-01-PLAN.md (Package Command)
 
 **Progress:**
 ```
@@ -25,12 +25,12 @@ v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
 v1.4 [####################] 100% — Learning Loop (archived)
-v1.5 [################----]  80% — Production Acceleration (ACTIVE)
+v1.5 [####################] 100% — Production Acceleration (COMPLETE)
      Phase 22: Script Parser [####] 100%
      Phase 23: B-Roll Gen    [####] 100%
      Phase 24: Edit Guide    [####] 100%
      Phase 25: Metadata      [####] 100%
-     Phase 26: Package Cmd   [----] 0%
+     Phase 26: Package Cmd   [####] 100%
 ```
 
 ## Milestone History
@@ -42,6 +42,7 @@ v1.5 [################----]  80% — Production Acceleration (ACTIVE)
 | v1.2 | Script Quality & Discovery | 11-14 | 2026-01-30 |
 | v1.3 | Niche Discovery | 15-18 | 2026-02-02 |
 | v1.4 | Learning Loop | 19-21 | 2026-02-02 |
+| v1.5 | Production Acceleration | 22-26 | 2026-02-05 |
 
 **Full history:** `.planning/MILESTONES.md`
 **Archives:** `.planning/milestones/`
@@ -76,43 +77,48 @@ v1.5 [################----]  80% — Production Acceleration (ACTIVE)
 - `python tools/script-checkers/cli.py script.md --all` — run all checkers
 - `python tools/script-checkers/cli.py script.md --voice` — apply voice patterns
 
-**Production tools (v1.5 - NEW):**
+**Production tools (v1.5):**
 - `python tools/production/parser.py script.md` — parse script, show sections and entities
 - `python tools/production/parser.py script.md --broll` — generate B-roll checklist from script
 - `python tools/production/parser.py script.md --edit-guide` — generate EDITING-GUIDE.md with timing
 - `python tools/production/parser.py script.md --metadata` — generate METADATA-DRAFT.md with titles/tags
+- `python tools/production/parser.py script.md --teleprompter` — export clean text for filming (no markdown)
+- `python tools/production/parser.py script.md --package` — generate all outputs in one command
 
 ## Session Continuity
 
 ### Last Session
 
 - **Date:** 2026-02-05
-- **Work:** Completed Phase 25-01 Metadata Draft Generation
+- **Work:** Completed Phase 26-01 Package Command (v1.5 milestone complete)
 - **Output:**
-  - MetadataGenerator class generates complete METADATA-DRAFT.md format
-  - 3 title variants (mechanism, document, paradox) with tone filtering
-  - Documentary tone filter rejects clickbait patterns (SHOCKING, all-caps emphasis)
-  - Description template with KEY DOCUMENTS section from entities
-  - Chapters from SectionTiming with MM:SS timestamps
-  - Tags from entity extraction (15-20 tags, filtered for quality)
-  - CLI: `python tools/production/parser.py script.md --metadata`
-  - Integration tested: Chagos script (3 title variants, all pass tone filter)
+  - Single-command production package: `--package` flag generates all 4 outputs
+  - Teleprompter export: `--teleprompter` flag strips all markdown/markers for clean filming text
+  - Single parse pass for efficiency (sections/entities computed once, reused by all generators)
+  - Package outputs: B-ROLL-CHECKLIST.md, EDIT-GUIDE.md, METADATA-DRAFT.md, SCRIPT-TELEPROMPTER.txt
+  - Summary with file list, runtime estimate, and next steps
+  - Integration tested: Chagos script (all 4 files generated in 1 command)
 
 ### Next Session
 
-**Current work:** Phase 26 - Package Command
+**Current work:** v1.5 milestone complete - ready to plan v1.6
 
-**Phase 26 Goal:** Combine all production tools into single `--package` command
+**v1.5 Production Acceleration achievements:**
+- Phase 22: Script parser with entity extraction
+- Phase 23: B-roll checklist generation with search URLs
+- Phase 24: Edit guide with shot-by-shot timing
+- Phase 25: Metadata draft with 3 title variants
+- Phase 26: Package command combining all tools
 
-**Dependencies available:**
-- ScriptParser: `from tools.production import ScriptParser`
-- EntityExtractor: `from tools.production import EntityExtractor`
-- BRollGenerator: `from tools.production import BRollGenerator`
-- EditGuideGenerator: `from tools.production import EditGuideGenerator`
-- MetadataGenerator: `from tools.production import MetadataGenerator`
-- Section/Entity/Shot/SectionTiming/TitleVariant dataclasses for structured data
+**Time savings per video:** ~2-3 hours manual work → 30 seconds automated
 
-**Next action:** Create 26-01-PLAN.md for package command integration
+**Possible v1.6 directions:**
+- Automated asset download (fetch B-roll from search URLs)
+- Thumbnail generation (text overlay on images)
+- Advanced metadata optimization (SEO analysis)
+- User will choose direction based on priorities
+
+**Next action:** Await user direction for v1.6 planning
 
 ## Accumulated Context
 
