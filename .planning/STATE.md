@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-04 (Phase 24-01 complete)
+**Last Updated:** 2026-02-05 (Phase 25-01 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-03)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v1.5 Production Acceleration — Phase 24 complete, ready for Phase 25
+**Current focus:** v1.5 Production Acceleration — Phase 25 complete, ready for Phase 26
 
 ## Current Position
 
 **Milestone:** v1.5 Production Acceleration
-**Phase:** 24 - Edit Guide Generation
+**Phase:** 25 - Metadata Draft Generation
 **Plan:** 01 complete
-**Status:** Phase 24 complete
-**Last activity:** 2026-02-04 — Completed 24-01-PLAN.md (Edit Guide Generation)
+**Status:** Phase 25 complete
+**Last activity:** 2026-02-05 — Completed 25-01-PLAN.md (Metadata Draft Generation)
 
 **Progress:**
 ```
@@ -25,11 +25,11 @@ v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
 v1.4 [####################] 100% — Learning Loop (archived)
-v1.5 [##########----------]  50% — Production Acceleration (ACTIVE)
+v1.5 [################----]  80% — Production Acceleration (ACTIVE)
      Phase 22: Script Parser [####] 100%
      Phase 23: B-Roll Gen    [####] 100%
      Phase 24: Edit Guide    [####] 100%
-     Phase 25: Metadata      [----] 0%
+     Phase 25: Metadata      [####] 100%
      Phase 26: Package Cmd   [----] 0%
 ```
 
@@ -80,36 +80,39 @@ v1.5 [##########----------]  50% — Production Acceleration (ACTIVE)
 - `python tools/production/parser.py script.md` — parse script, show sections and entities
 - `python tools/production/parser.py script.md --broll` — generate B-roll checklist from script
 - `python tools/production/parser.py script.md --edit-guide` — generate EDITING-GUIDE.md with timing
+- `python tools/production/parser.py script.md --metadata` — generate METADATA-DRAFT.md with titles/tags
 
 ## Session Continuity
 
 ### Last Session
 
-- **Date:** 2026-02-04
-- **Work:** Completed Phase 24-01 Edit Guide Generation
+- **Date:** 2026-02-05
+- **Work:** Completed Phase 25-01 Metadata Draft Generation
 - **Output:**
-  - EditGuideGenerator class generates complete EDITING-GUIDE.md format
-  - Duration calculation at 150 WPM with 10-second minimum
-  - Cumulative timing with MM:SS formatted start/end times
-  - Shot-by-shot breakdown grouping B-roll and talking head entries
-  - Visual assets checklist auto-generated from shot priorities
-  - CLI: `python tools/production/parser.py script.md --edit-guide`
-  - Integration tested: Chagos script (91 shots, 10:53 runtime, 12 sections)
+  - MetadataGenerator class generates complete METADATA-DRAFT.md format
+  - 3 title variants (mechanism, document, paradox) with tone filtering
+  - Documentary tone filter rejects clickbait patterns (SHOCKING, all-caps emphasis)
+  - Description template with KEY DOCUMENTS section from entities
+  - Chapters from SectionTiming with MM:SS timestamps
+  - Tags from entity extraction (15-20 tags, filtered for quality)
+  - CLI: `python tools/production/parser.py script.md --metadata`
+  - Integration tested: Chagos script (3 title variants, all pass tone filter)
 
 ### Next Session
 
-**Current work:** Phase 25 - Metadata Generation
+**Current work:** Phase 26 - Package Command
 
-**Phase 25 Goal:** Generate YouTube metadata (titles, descriptions, tags) from scripts
+**Phase 26 Goal:** Combine all production tools into single `--package` command
 
 **Dependencies available:**
 - ScriptParser: `from tools.production import ScriptParser`
 - EntityExtractor: `from tools.production import EntityExtractor`
 - BRollGenerator: `from tools.production import BRollGenerator`
 - EditGuideGenerator: `from tools.production import EditGuideGenerator`
-- Section/Entity/Shot/SectionTiming dataclasses for structured data
+- MetadataGenerator: `from tools.production import MetadataGenerator`
+- Section/Entity/Shot/SectionTiming/TitleVariant dataclasses for structured data
 
-**Next action:** Create 25-01-PLAN.md for metadata generation implementation
+**Next action:** Create 26-01-PLAN.md for package command integration
 
 ## Accumulated Context
 
@@ -210,6 +213,21 @@ v1.5 [##########----------]  50% — Production Acceleration (ACTIVE)
 - calculate_duration_seconds(word_count) → estimated seconds at 150 WPM
 - format_time(seconds) → MM:SS string
 
+**Phase 25-01 Decisions:**
+- **3 title variants:** Mechanism (A), document (B), paradox (C) for A/B/C testing
+- **Documentary tone filter:** Automated rejection of clickbait patterns from VIDIQ-CHANNEL-DNA-FILTER.md
+- **60-70 char title length:** Mobile-first optimization with word-boundary truncation
+- **Tag filtering:** Reject entities >50 chars, parentheses, brackets (sentence fragments)
+- **Allowed acronyms:** ICJ, UN, CIA, etc. can be all-caps without triggering clickbait filter
+
+**Phase 25-01 Patterns Established:**
+- TitleVariant dataclass: variant letter + title + focus description + length
+- Clickbait pattern matching with allowed acronym exceptions
+- Title generation from opening hook (first 2-3 sentences)
+- Description template: hook + KEY DOCUMENTS + SOURCES + hashtags
+- Tag generation: entity names (primary) + section keywords (secondary)
+- Chapter generation from SectionTiming cumulative times
+
 ---
 
-*State updated: 2026-02-04 after Phase 24-01 complete*
+*State updated: 2026-02-05 after Phase 25-01 complete*
