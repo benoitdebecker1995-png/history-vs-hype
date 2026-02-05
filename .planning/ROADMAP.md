@@ -324,13 +324,13 @@ Plans:
 4. Metadata draft follows established YOUTUBE-METADATA.md format
 
 Plans:
-- [ ] 25-01-PLAN.md — MetadataGenerator + title extraction + description template + tag generation + CLI
+- [x] 25-01-PLAN.md — MetadataGenerator + title extraction + description template + tag generation + CLI
 
 ### Phase 26: Package Command & Integration
 **Goal**: User can generate all production outputs with single command
 **Dependencies**: Phases 22-25 (all generation capabilities)
 **Requirements**: PKG-01, PKG-02, TELE-01
-**Plans**: TBD
+**Plans**: 1 plan
 
 **Success Criteria:**
 1. User can run `/prep --package` to generate all outputs in one command
@@ -373,5 +373,5 @@ Plans:
 | **22. Script Parser & Entity Detection** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
 | **23. B-Roll Generation** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
 | **24. Edit Guide Generation** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
-| **25. Metadata Draft Generation** | **v1.5** | **0/1** | **Pending** | - |
+| **25. Metadata Draft Generation** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
 | **26. Package Command & Integration** | **v1.5** | **0/1** | **Pending** | - |
