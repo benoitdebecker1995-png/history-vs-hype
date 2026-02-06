@@ -65,6 +65,10 @@ class KeywordDB:
                 self._ensure_lifecycle_columns()
                 # Ensure video_performance table exists (Phase 19 migration)
                 self._ensure_performance_table()
+                # Ensure Phase 27 tables exist
+                self._ensure_variant_tables()
+                self._ensure_ctr_snapshots_table()
+                self._ensure_feedback_tables()
 
     def init_database(self) -> Dict[str, Any]:
         """
@@ -1503,6 +1507,198 @@ class KeywordDB:
             if self._conn is None:
                 self._ensure_connection()
             return None
+
+    def _ensure_variant_tables(self):
+        """
+        Create Phase 27 variant tracking tables if they don't exist.
+
+        Creates:
+        - thumbnail_variants: stores thumbnail file paths and visual pattern tags
+        - title_variants: stores title text and formula tags
+
+        Includes backup and schema version tracking.
+        """
+        try:
+            # Check if already migrated
+            if self.get_schema_version() >= 27:
+                return
+
+            print("[Phase 27] Migrating database: adding variant tracking tables...")
+
+            # Backup before migration (without reopening connection)
+            import shutil
+            from pathlib import Path
+
+            backup_dir = Path(__file__).parent / 'backups'
+            backup_dir.mkdir(exist_ok=True)
+            timestamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S')
+            backup_filename = f'keywords_pre_v27_{timestamp}.db'
+            backup_path = backup_dir / backup_filename
+
+            # Close connection temporarily for backup
+            self._conn.close()
+            shutil.copy2(self.db_path, backup_path)
+            # Reopen connection WITHOUT triggering _ensure_connection recursion
+            self._conn = sqlite3.connect(self.db_path)
+            self._conn.row_factory = sqlite3.Row
+
+            print(f"[Phase 27] Database backed up to: {backup_path}")
+
+            cursor = self._conn.cursor()
+
+            # Create thumbnail_variants table
+            cursor.execute(
+                """
+                CREATE TABLE IF NOT EXISTS thumbnail_variants (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    video_id TEXT NOT NULL,
+                    variant_letter TEXT NOT NULL,
+                    file_path TEXT NOT NULL,
+                    perceptual_hash TEXT,
+                    visual_pattern_tags TEXT,
+                    created_at DATE NOT NULL,
+                    FOREIGN KEY (video_id) REFERENCES video_performance(video_id)
+                )
+                """
+            )
+
+            # Create indexes for thumbnail_variants
+            cursor.execute(
+                "CREATE INDEX IF NOT EXISTS idx_thumbnail_video ON thumbnail_variants(video_id)"
+            )
+            cursor.execute(
+                "CREATE INDEX IF NOT EXISTS idx_thumbnail_hash ON thumbnail_variants(perceptual_hash)"
+            )
+
+            # Create title_variants table
+            cursor.execute(
+                """
+                CREATE TABLE IF NOT EXISTS title_variants (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    video_id TEXT NOT NULL,
+                    variant_letter TEXT NOT NULL,
+                    title_text TEXT NOT NULL,
+                    character_count INTEGER NOT NULL,
+                    formula_tags TEXT,
+                    created_at DATE NOT NULL,
+                    FOREIGN KEY (video_id) REFERENCES video_performance(video_id)
+                )
+                """
+            )
+
+            # Create index for title_variants
+            cursor.execute(
+                "CREATE INDEX IF NOT EXISTS idx_title_video ON title_variants(video_id)"
+            )
+
+            self._conn.commit()
+
+            print("[Phase 27] Variant tables created (thumbnail_variants, title_variants)")
+
+            # Set schema version to 27
+            self.set_schema_version(27)
+
+        except sqlite3.Error:
+            pass
+
+    def _ensure_ctr_snapshots_table(self):
+        """
+        Create Phase 27 CTR snapshot tracking table if it doesn't exist.
+
+        Creates:
+        - ctr_snapshots: stores monthly CTR snapshots with active variant references
+        """
+        try:
+            cursor = self._conn.cursor()
+
+            # Check if table already exists
+            cursor.execute(
+                "SELECT name FROM sqlite_master WHERE type='table' AND name='ctr_snapshots'"
+            )
+            if cursor.fetchone() is not None:
+                return
+
+            # Create ctr_snapshots table
+            cursor.execute(
+                """
+                CREATE TABLE IF NOT EXISTS ctr_snapshots (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    video_id TEXT NOT NULL,
+                    snapshot_date DATE NOT NULL,
+                    ctr_percent REAL NOT NULL,
+                    impression_count INTEGER NOT NULL,
+                    view_count INTEGER NOT NULL,
+                    active_thumbnail_id INTEGER,
+                    active_title_id INTEGER,
+                    is_late_entry BOOLEAN DEFAULT 0,
+                    recorded_at DATE NOT NULL,
+                    FOREIGN KEY (video_id) REFERENCES video_performance(video_id),
+                    FOREIGN KEY (active_thumbnail_id) REFERENCES thumbnail_variants(id),
+                    FOREIGN KEY (active_title_id) REFERENCES title_variants(id)
+                )
+                """
+            )
+
+            # Create index
+            cursor.execute(
+                "CREATE INDEX IF NOT EXISTS idx_ctr_video_date ON ctr_snapshots(video_id, snapshot_date DESC)"
+            )
+
+            self._conn.commit()
+
+        except sqlite3.Error:
+            pass
+
+    def _ensure_feedback_tables(self):
+        """
+        Create Phase 27 feedback storage tables and columns if they don't exist.
+
+        Creates:
+        - Feedback columns on video_performance (retention_drop_point, discovery_issues, lessons_learned)
+        - section_feedback table: stores section-level retention notes
+        """
+        try:
+            cursor = self._conn.cursor()
+
+            # Check which columns exist in video_performance
+            cursor.execute("PRAGMA table_info(video_performance)")
+            existing_columns = {row[1] for row in cursor.fetchall()}
+
+            # Add missing feedback columns
+            columns_to_add = {
+                'retention_drop_point': 'ALTER TABLE video_performance ADD COLUMN retention_drop_point INTEGER',
+                'discovery_issues': 'ALTER TABLE video_performance ADD COLUMN discovery_issues TEXT',
+                'lessons_learned': 'ALTER TABLE video_performance ADD COLUMN lessons_learned TEXT'
+            }
+
+            for col_name, alter_sql in columns_to_add.items():
+                if col_name not in existing_columns:
+                    cursor.execute(alter_sql)
+
+            # Create section_feedback table
+            cursor.execute(
+                """
+                CREATE TABLE IF NOT EXISTS section_feedback (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    video_id TEXT NOT NULL,
+                    section_name TEXT NOT NULL,
+                    retention_percent REAL,
+                    notes TEXT,
+                    created_at DATE,
+                    FOREIGN KEY (video_id) REFERENCES video_performance(video_id)
+                )
+                """
+            )
+
+            # Create index
+            cursor.execute(
+                "CREATE INDEX IF NOT EXISTS idx_section_feedback_video ON section_feedback(video_id)"
+            )
+
+            self._conn.commit()
+
+        except sqlite3.Error:
+            pass
 
     def add_video_performance(
         self,

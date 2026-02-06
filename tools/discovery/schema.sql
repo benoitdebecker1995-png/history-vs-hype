@@ -244,3 +244,79 @@ CREATE TABLE IF NOT EXISTS video_performance (
 CREATE INDEX IF NOT EXISTS idx_performance_conversion ON video_performance(conversion_rate DESC);
 CREATE INDEX IF NOT EXISTS idx_performance_topic ON video_performance(topic_type);
 CREATE INDEX IF NOT EXISTS idx_performance_fetched ON video_performance(fetched_at DESC);
+
+-- ============================================================================
+-- VARIANT TRACKING TABLES (Phase 27)
+-- Purpose: Store thumbnail/title variants for A/B testing and CTR tracking
+-- ============================================================================
+
+-- Thumbnail variant storage
+CREATE TABLE IF NOT EXISTS thumbnail_variants (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    video_id TEXT NOT NULL,
+    variant_letter TEXT NOT NULL,
+    file_path TEXT NOT NULL,
+    perceptual_hash TEXT,
+    visual_pattern_tags TEXT,
+    created_at DATE NOT NULL,
+    FOREIGN KEY (video_id) REFERENCES video_performance(video_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_thumbnail_video ON thumbnail_variants(video_id);
+CREATE INDEX IF NOT EXISTS idx_thumbnail_hash ON thumbnail_variants(perceptual_hash);
+
+-- Title variant storage
+CREATE TABLE IF NOT EXISTS title_variants (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    video_id TEXT NOT NULL,
+    variant_letter TEXT NOT NULL,
+    title_text TEXT NOT NULL,
+    character_count INTEGER NOT NULL,
+    formula_tags TEXT,
+    created_at DATE NOT NULL,
+    FOREIGN KEY (video_id) REFERENCES video_performance(video_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_title_video ON title_variants(video_id);
+
+-- CTR snapshot tracking (monthly)
+CREATE TABLE IF NOT EXISTS ctr_snapshots (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    video_id TEXT NOT NULL,
+    snapshot_date DATE NOT NULL,
+    ctr_percent REAL NOT NULL,
+    impression_count INTEGER NOT NULL,
+    view_count INTEGER NOT NULL,
+    active_thumbnail_id INTEGER,
+    active_title_id INTEGER,
+    is_late_entry BOOLEAN DEFAULT 0,
+    recorded_at DATE NOT NULL,
+    FOREIGN KEY (video_id) REFERENCES video_performance(video_id),
+    FOREIGN KEY (active_thumbnail_id) REFERENCES thumbnail_variants(id),
+    FOREIGN KEY (active_title_id) REFERENCES title_variants(id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_ctr_video_date ON ctr_snapshots(video_id, snapshot_date DESC);
+
+-- ============================================================================
+-- FEEDBACK STORAGE (Phase 27)
+-- Purpose: Track video performance feedback and section-level notes
+-- ============================================================================
+
+-- Feedback columns on video_performance
+ALTER TABLE video_performance ADD COLUMN retention_drop_point INTEGER;
+ALTER TABLE video_performance ADD COLUMN discovery_issues TEXT;
+ALTER TABLE video_performance ADD COLUMN lessons_learned TEXT;
+
+-- Section-level feedback
+CREATE TABLE IF NOT EXISTS section_feedback (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    video_id TEXT NOT NULL,
+    section_name TEXT NOT NULL,
+    retention_percent REAL,
+    notes TEXT,
+    created_at DATE,
+    FOREIGN KEY (video_id) REFERENCES video_performance(video_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_section_feedback_video ON section_feedback(video_id);
