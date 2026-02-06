@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Clip Tool</title>
+    <link rel="stylesheet" href="wizard.css">
+</head>
+<body>
+    <!-- Progress Indicator -->
+    <div class="progress-bar">
+        <div class="step" id="step-indicator-1">
+            <div class="step-circle">1</div>
+            <div class="step-label">Upload</div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" id="step-indicator-2">
+            <div class="step-circle">2</div>
+            <div class="step-label">Transcribe</div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" id="step-indicator-3">
+            <div class="step-circle">3</div>
+            <div class="step-label">Review</div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" id="step-indicator-4">
+            <div class="step-circle">4</div>
+            <div class="step-label">Export</div>
+        </div>
+    </div>
+
+    <!-- Wizard Container -->
+    <div class="wizard-container">
+
+        <!-- Step 1: Upload -->
+        <div class="wizard-step" id="step-1">
+            <h1>Upload Your Video</h1>
+            <p class="subtitle">Start by uploading the video you want to clip</p>
+
+            <div class="upload-zone" id="upload-zone">
+                <div class="upload-icon">📁</div>
+                <div class="upload-text">Drop your video here or click to browse</div>
+                <div class="upload-formats">Supports MP4, MOV, MKV</div>
+                <input type="file" id="video-file-input" accept="video/*" hidden>
+            </div>
+
+            <div class="upload-success" id="upload-success" style="display: none;">
+                <div class="success-icon">✓</div>
+                <div class="success-info">
+                    <div class="filename" id="uploaded-filename"></div>
+                    <div class="file-meta" id="uploaded-meta"></div>
+                </div>
+            </div>
+
+            <div class="wizard-actions">
+                <button class="btn-primary" id="btn-continue-upload" disabled>Continue</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Transcribe -->
+        <div class="wizard-step" id="step-2" style="display: none;">
+            <h1>Transcribe Your Video</h1>
+            <p class="subtitle">Convert speech to text for clip detection</p>
+
+            <div class="transcribe-options">
+                <label class="radio-option">
+                    <input type="radio" name="model" value="base" checked>
+                    <div class="radio-content">
+                        <div class="radio-title">Fast (recommended)</div>
+                        <div class="radio-desc">Good accuracy, about 5 minutes per hour of video</div>
+                    </div>
+                </label>
+
+                <label class="radio-option">
+                    <input type="radio" name="model" value="medium">
+                    <div class="radio-content">
+                        <div class="radio-title">More accurate</div>
+                        <div class="radio-desc">Higher accuracy, about 15 minutes per hour of video</div>
+                    </div>
+                </label>
+            </div>
+
+            <div class="transcribe-progress" id="transcribe-progress" style="display: none;">
+                <div class="progress-message">Transcribing your video...</div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="transcribe-progress-fill"></div>
+                </div>
+                <div class="progress-note">This may take a few minutes</div>
+            </div>
+
+            <div class="wizard-actions">
+                <button class="btn-secondary" id="btn-back-transcribe">Back</button>
+                <button class="btn-primary" id="btn-start-transcribe">Start Transcription</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Review Clips -->
+        <div class="wizard-step" id="step-3" style="display: none;">
+            <h1>Review Suggested Clips</h1>
+            <p class="subtitle" id="clips-found-message">Found 0 potential clips</p>
+
+            <div class="selectivity-control">
+                <label for="selectivity-slider">How selective should we be?</label>
+                <input type="range" id="selectivity-slider" min="1" max="3" value="2" step="1">
+                <div class="selectivity-labels">
+                    <span>Keep more</span>
+                    <span>Keep only the best</span>
+                </div>
+            </div>
+
+            <div class="clips-grid" id="clips-grid">
+                <!-- Clip cards will be inserted here -->
+            </div>
+
+            <div class="wizard-actions">
+                <button class="btn-secondary" id="btn-back-review">Back</button>
+                <button class="btn-primary" id="btn-export-selected" disabled>Export Selected</button>
+            </div>
+        </div>
+
+        <!-- Step 4: Export -->
+        <div class="wizard-step" id="step-4" style="display: none;">
+            <h1>Export Your Clips</h1>
+            <p class="subtitle">Choose export settings</p>
+
+            <div class="export-options">
+                <label>Where will you post these clips?</label>
+                <div class="platform-options">
+                    <label class="radio-option">
+                        <input type="radio" name="platform" value="youtube" checked>
+                        <div class="radio-content">
+                            <div class="radio-title">YouTube Shorts</div>
+                            <div class="radio-desc">9:16 vertical format</div>
+                        </div>
+                    </label>
+
+                    <label class="radio-option">
+                        <input type="radio" name="platform" value="instagram">
+                        <div class="radio-content">
+                            <div class="radio-title">Instagram Reels</div>
+                            <div class="radio-desc">9:16 vertical format</div>
+                        </div>
+                    </label>
+
+                    <label class="radio-option">
+                        <input type="radio" name="platform" value="tiktok">
+                        <div class="radio-content">
+                            <div class="radio-title">TikTok</div>
+                            <div class="radio-desc">9:16 vertical format</div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="caption-info">
+                    <strong>Captions:</strong> Academic style (clean, professional)
+                </div>
+            </div>
+
+            <div class="export-progress" id="export-progress" style="display: none;">
+                <div class="progress-message">Exporting clips...</div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="export-progress-fill"></div>
+                </div>
+                <div class="progress-count" id="export-progress-count">0 of 0 complete</div>
+            </div>
+
+            <div class="export-success" id="export-success" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h2>Exported successfully!</h2>
+                <div class="export-location">
+                    <strong>Saved to:</strong><br>
+                    <code id="export-path"></code>
+                </div>
+                <div class="export-files" id="export-files"></div>
+            </div>
+
+            <div class="wizard-actions">
+                <button class="btn-secondary" id="btn-back-export">Back</button>
+                <button class="btn-primary" id="btn-start-export">Export <span id="export-count">0</span> Clips</button>
+                <button class="btn-primary" id="btn-done" style="display: none;">Done</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="wizard.js"></script>
+</body>
+</html>

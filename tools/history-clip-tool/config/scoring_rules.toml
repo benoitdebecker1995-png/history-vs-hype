@@ -1,0 +1,36 @@
+# Scoring Rules Configuration
+# All values are tunable - adjust based on your content preferences
+
+[evidence_markers]
+# Points awarded for academic/historical language
+primary_source_reference = 20      # "treaty", "census", "archival", "manuscript"
+date_reference = 10                # Specific years (1916, 800 CE, etc.)
+citation_language = 15             # "according to X", "page Y", "Chapter Z"
+quantitative_data = 15             # Statistics, percentages, counts
+legal_language = 10                # "estoppel", "sovereignty", "jurisdiction"
+
+[argument_structure]
+# Points for complete rhetorical units
+causal_explanation = 15            # "consequently", "thereby", "which meant that"
+myth_debunk_pattern = 20           # "actually", "contrary to popular belief"
+comparison = 10                    # "while in X..., in Y..."
+conclusion_signal = 10             # "this is why", "what this means"
+
+[penalties]
+# Deduct points for non-academic language
+clickbait_words = -25              # "SHOCKING", "SECRET", "You won't believe"
+emotional_exaggeration = -15       # "DESTROYED", "ANNIHILATED" (unless quoting)
+vague_attribution = -10            # "some say", "many believe" (without source)
+incomplete_thought = -20           # Starts mid-sentence or cuts off
+
+[segment_quality]
+optimal_duration_min = 20          # seconds
+optimal_duration_max = 90
+min_viable_duration = 15
+max_silence_gap = 2.0              # seconds of silence allowed within clip
+
+[weights]
+# How much each category contributes to final score (must sum to 1.0)
+evidence_weight = 0.40
+argument_weight = 0.35
+completeness_weight = 0.25

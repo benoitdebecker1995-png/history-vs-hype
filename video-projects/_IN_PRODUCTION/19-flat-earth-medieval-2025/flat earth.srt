@@ -1,0 +1,2080 @@
+1
+00:00:00,033 --> 00:00:01,966
+<b>Open Anderson's Popular History of the</b>
+
+2
+00:00:01,966 --> 00:00:04,633
+<b>United States from 1880. Look up what it</b>
+
+3
+00:00:04,633 --> 00:00:05,733
+<b>says about Columbus.</b>
+
+4
+00:00:06,833 --> 00:00:08,500
+<b>Columbus believed the earth to be round.</b>
+
+5
+00:00:09,033 --> 00:00:09,766
+<b>Now open the same</b>
+
+6
+00:00:09,766 --> 00:00:11,666
+<b>author's textbook from 1898.</b>
+
+7
+00:00:12,400 --> 00:00:15,033
+<b>Just 18 years later, the earth was flat</b>
+
+8
+00:00:15,033 --> 00:00:16,566
+<b>as a plate. One of the most</b>
+
+9
+00:00:16,566 --> 00:00:17,933
+<b>successful lies in western</b>
+
+10
+00:00:17,966 --> 00:00:20,766
+<b>history was manufactured in just 18 years</b>
+
+11
+00:00:20,766 --> 00:00:22,666
+<b>by textbook authors</b>
+
+12
+00:00:22,666 --> 00:00:23,966
+<b>rewriting their own books.</b>
+
+13
+00:00:23,966 --> 00:00:26,766
+<b>I went through the medieval manuscripts.</b>
+
+14
+00:00:27,366 --> 00:00:27,633
+<b>"Bede's</b>
+
+15
+00:00:27,633 --> 00:00:29,099
+<b>Reckoning of Time" from 725.</b>
+
+16
+00:00:30,300 --> 00:00:32,500
+<b>"Johannes de Sacrobosco's Sphere", the</b>
+
+17
+00:00:32,500 --> 00:00:33,500
+<b>standard university</b>
+
+18
+00:00:33,500 --> 00:00:35,800
+<b>astronomy textbook from 1230,</b>
+
+19
+00:00:36,300 --> 00:00:39,099
+<b>used for 400 years, surviving in hundreds</b>
+
+20
+00:00:39,099 --> 00:00:40,866
+<b>of manuscripts. They</b>
+
+21
+00:00:40,866 --> 00:00:42,466
+<b>all explicitly describe a</b>
+
+22
+00:00:42,466 --> 00:00:45,699
+<b>spherical earth. The flat earth myth was</b>
+
+23
+00:00:45,699 --> 00:00:47,066
+<b>invented by three specific</b>
+
+24
+00:00:47,066 --> 00:00:49,300
+<b>men to win cultural wars after</b>
+
+25
+00:00:49,400 --> 00:00:52,800
+<b>Darwin. Washington Irving in 1828, a</b>
+
+26
+00:00:52,800 --> 00:00:54,099
+<b>novelist who fabricated a</b>
+
+27
+00:00:54,099 --> 00:00:55,699
+<b>dramatic scene for his Columbus</b>
+
+28
+00:00:55,733 --> 00:00:59,833
+<b>biography. John Williams Draper in 1874,</b>
+
+29
+00:01:00,666 --> 00:01:01,300
+<b>angry at the Catholic</b>
+
+30
+00:01:01,300 --> 00:01:03,599
+<b>Church, turned fiction into</b>
+
+31
+00:01:03,599 --> 00:01:06,699
+<b>anti-religious propaganda. And Andrew</b>
+
+32
+00:01:06,699 --> 00:01:10,466
+<b>Dickinson White in 1896, he buried the</b>
+
+33
+00:01:10,466 --> 00:01:11,566
+<b>lie under a mountain</b>
+
+34
+00:01:11,566 --> 00:01:13,266
+<b>of footnotes and got it into every</b>
+
+35
+00:01:13,266 --> 00:01:16,000
+<b>textbook. Between 1870 and</b>
+
+36
+00:01:16,000 --> 00:01:18,400
+<b>1920, this fabrication entered</b>
+
+37
+00:01:18,466 --> 00:01:20,266
+<b>the curriculum and it's still being</b>
+
+38
+00:01:20,266 --> 00:01:22,599
+<b>thought today, despite historians</b>
+
+39
+00:01:22,599 --> 00:01:24,666
+<b>debunking it for 30 years.</b>
+
+40
+00:01:25,266 --> 00:01:27,066
+<b>Here's how they did it and why it</b>
+
+41
+00:01:27,066 --> 00:01:29,199
+<b>persists. And here's what's</b>
+
+42
+00:01:29,199 --> 00:01:30,866
+<b>at stake when we get medieval</b>
+
+43
+00:01:30,933 --> 00:01:33,466
+<b>history this wrong. The knowledge that</b>
+
+44
+00:01:33,466 --> 00:01:35,066
+<b>the earth is a sphere didn't</b>
+
+45
+00:01:35,066 --> 00:01:36,733
+<b>start in the middle ages. It</b>
+
+46
+00:01:36,733 --> 00:01:39,366
+<b>started with the ancient Greeks and they</b>
+
+47
+00:01:39,366 --> 00:01:40,866
+<b>didn't just theorize it,</b>
+
+48
+00:01:41,099 --> 00:01:42,933
+<b>they measured it. In 240 BC,</b>
+
+49
+00:01:43,166 --> 00:01:45,800
+<b>Eratosthenes of Cyrene used sticks and</b>
+
+50
+00:01:45,800 --> 00:01:47,866
+<b>shadows to calculate the earth's</b>
+
+51
+00:01:47,866 --> 00:01:49,699
+<b>circumference. We know this</b>
+
+52
+00:01:49,699 --> 00:01:52,433
+<b>from later Greek writers like Cleomedes</b>
+
+53
+00:01:52,433 --> 00:01:53,966
+<b>and Strabo who preserved his</b>
+
+54
+00:01:53,966 --> 00:01:55,766
+<b>method. At noon on the summer</b>
+
+55
+00:01:55,766 --> 00:01:59,000
+<b>solstice in Syene, modern Aswan, a</b>
+
+56
+00:01:59,000 --> 00:02:01,833
+<b>vertical stick cast no shadow. The sun</b>
+
+57
+00:02:01,833 --> 00:02:02,900
+<b>was directly overhead.</b>
+
+58
+00:02:03,433 --> 00:02:05,833
+<b>But in Alexandria, at the same exact</b>
+
+59
+00:02:05,833 --> 00:02:09,533
+<b>time, a stick cast a shadow at 7.2</b>
+
+60
+00:02:09,533 --> 00:02:11,366
+<b>degrees. If the sun's rays</b>
+
+61
+00:02:11,500 --> 00:02:13,966
+<b>are parallel, the only reason for</b>
+
+62
+00:02:13,966 --> 00:02:16,033
+<b>different shadow angles is the curvature</b>
+
+63
+00:02:16,033 --> 00:02:17,233
+<b>of the earth's surface.</b>
+
+64
+00:02:18,033 --> 00:02:21,800
+<b>7.2 degrees is 1 50th of a circle. So the</b>
+
+65
+00:02:21,800 --> 00:02:22,699
+<b>distance between the two</b>
+
+66
+00:02:22,699 --> 00:02:24,866
+<b>cities, about 5,000 stadia,</b>
+
+67
+00:02:25,166 --> 00:02:27,599
+<b>is 1 50th of the earth's circumference.</b>
+
+68
+00:02:28,666 --> 00:02:30,633
+<b>Total circumference, 250</b>
+
+69
+00:02:30,633 --> 00:02:33,966
+<b>000 stadia. Roughly 29,000</b>
+
+70
+00:02:34,166 --> 00:02:39,000
+<b>miles. The actual circumference 24,901</b>
+
+71
+00:02:39,000 --> 00:02:42,099
+<b>miles. In 240 BC, using sticks and</b>
+
+72
+00:02:42,099 --> 00:02:43,333
+<b>shadows, he got within</b>
+
+73
+00:02:43,333 --> 00:02:44,433
+<b>15%. This wasn't secret knowledge, this</b>
+
+74
+00:02:44,433 --> 00:02:44,599
+<b>15%. This wasn't secret knowledge, this</b>
+
+75
+00:02:44,599 --> 00:02:46,333
+<b>was standard geography</b>
+
+76
+00:02:46,333 --> 00:02:47,599
+<b>thought throughout the classical</b>
+
+77
+00:02:47,666 --> 00:02:48,633
+<b>world and inherited by medieval scholars.</b>
+
+78
+00:02:48,633 --> 00:02:50,500
+<b>world and inherited by medieval scholars.</b>
+
+79
+00:02:51,033 --> 00:02:53,000
+<b>Jump to the year 630, the</b>
+
+80
+00:02:53,000 --> 00:02:55,000
+<b>dark ages have supposedly begun.</b>
+
+81
+00:02:55,699 --> 00:02:57,699
+<b>Isidore of Seville writes the</b>
+
+82
+00:02:57,699 --> 00:02:59,066
+<b>etymologies, the</b>
+
+83
+00:02:59,066 --> 00:03:00,766
+<b>encyclopedia of the medieval ages.</b>
+
+84
+00:03:01,966 --> 00:03:03,166
+<b>Isidore defines day and</b>
+
+85
+00:03:03,166 --> 00:03:05,266
+<b>night in book 3 chapter 51.</b>
+
+86
+00:03:06,000 --> 00:03:08,133
+<b>When the sun rises it creates the day,</b>
+
+87
+00:03:08,366 --> 00:03:09,400
+<b>and when it sets it</b>
+
+88
+00:03:09,400 --> 00:03:10,733
+<b>brings on the night, for</b>
+
+89
+00:03:11,066 --> 00:03:13,433
+<b>day is the sun over the earth, and night</b>
+
+90
+00:03:13,433 --> 00:03:14,633
+<b>is the sun under the</b>
+
+91
+00:03:14,633 --> 00:03:17,033
+<b>earth. The sun under the earth.</b>
+
+92
+00:03:17,533 --> 00:03:19,933
+<b>If the earth were a flat disk, how would</b>
+
+93
+00:03:19,933 --> 00:03:21,800
+<b>you explain night? The</b>
+
+94
+00:03:21,800 --> 00:03:23,099
+<b>sun goes behind a mountain,</b>
+
+95
+00:03:23,699 --> 00:03:26,233
+<b>gets extinguished, it doesn't go under</b>
+
+96
+00:03:26,233 --> 00:03:26,900
+<b>the ground you're</b>
+
+97
+00:03:26,900 --> 00:03:29,000
+<b>standing on. For the sun to pass</b>
+
+98
+00:03:29,000 --> 00:03:31,166
+<b>under the earth, the earth has to be</b>
+
+99
+00:03:31,166 --> 00:03:32,666
+<b>three-dimensional, it</b>
+
+100
+00:03:32,666 --> 00:03:34,233
+<b>requires a globe. Isidore</b>
+
+101
+00:03:34,233 --> 00:03:35,233
+<b>that it didn't need defending. Now jump</b>
+
+102
+00:03:35,233 --> 00:03:38,800
+<b>to 1230. Johannes de Sacrobosco writes</b>
+
+103
+00:03:38,800 --> 00:03:40,566
+<b>"Tractatus de Sphaera",</b>
+
+104
+00:03:40,833 --> 00:03:42,699
+<b>"Treatise on the Sphere". Here's the</b>
+
+105
+00:03:42,699 --> 00:03:44,366
+<b>critical thing, this was the</b>
+
+106
+00:03:44,366 --> 00:03:45,833
+<b>standard astronomy textbook</b>
+
+107
+00:03:45,833 --> 00:03:48,866
+<b>for 400 years. Required reading at every</b>
+
+108
+00:03:48,866 --> 00:03:50,333
+<b>university in Europe. How</b>
+
+109
+00:03:50,333 --> 00:03:51,066
+<b>manuscripts. What did it</b>
+
+110
+00:03:51,066 --> 00:03:53,766
+<b>teach? Chapter 1 provides sensory</b>
+
+111
+00:03:54,066 --> 00:03:56,666
+<b>proofs for the globe. The most famous,</b>
+
+112
+00:03:57,366 --> 00:03:58,033
+<b>the ship and mast</b>
+
+113
+00:03:58,033 --> 00:04:00,733
+<b>observation. Sacrobosco writes</b>
+
+114
+00:04:01,033 --> 00:04:03,366
+<b>"When a ship approaches land, a signal on</b>
+
+115
+00:04:03,366 --> 00:04:04,433
+<b>shore is visible from</b>
+
+116
+00:04:04,433 --> 00:04:06,033
+<b>the masthead, after it has</b>
+
+117
+00:04:06,233 --> 00:04:08,066
+<b>disappeared from the sight of someone at</b>
+
+118
+00:04:08,066 --> 00:04:09,566
+<b>the foot of the mast". And</b>
+
+119
+00:04:09,566 --> 00:04:10,333
+<b>there's no other explanation</b>
+
+120
+00:04:10,333 --> 00:04:12,166
+<b>of this thing than the bulge of the</b>
+
+121
+00:04:12,166 --> 00:04:14,266
+<b>water. Medieval students</b>
+
+122
+00:04:14,266 --> 00:04:15,633
+<b>weren't debating whether the</b>
+
+123
+00:04:15,633 --> 00:04:17,366
+<b>earth was round. They were learning</b>
+
+124
+00:04:17,366 --> 00:04:18,833
+<b>spherical geometry. How</b>
+
+125
+00:04:18,833 --> 00:04:20,666
+<b>latitude changes which stars you</b>
+
+126
+00:04:20,733 --> 00:04:22,666
+<b>see. How does the celestial equator</b>
+
+127
+00:04:22,666 --> 00:04:24,866
+<b>intersect the horizon differently in</b>
+
+128
+00:04:24,866 --> 00:04:25,833
+<b>Cairo versus London?</b>
+
+129
+00:04:26,633 --> 00:04:28,133
+<b>You cannot explain these observations</b>
+
+130
+00:04:28,133 --> 00:04:29,599
+<b>without a precise</b>
+
+131
+00:04:29,599 --> 00:04:31,333
+<b>three-dimensional model of a spherical</b>
+
+132
+00:04:31,500 --> 00:04:34,433
+<b>earth. But maybe you're thinking "okay,</b>
+
+133
+00:04:34,433 --> 00:04:35,833
+<b>scholars knew, what about regular</b>
+
+134
+00:04:35,833 --> 00:04:38,133
+<b>people?" It was public</b>
+
+135
+00:04:38,133 --> 00:04:40,699
+<b>knowledge. Literally in the king's hand.</b>
+
+136
+00:04:41,266 --> 00:04:43,466
+<b>This is the globus cruseger, the royal</b>
+
+137
+00:04:43,466 --> 00:04:45,233
+<b>orb, a golden sphere</b>
+
+138
+00:04:45,366 --> 00:04:48,166
+<b>surmounted by a cross. Medieval kings</b>
+
+139
+00:04:48,166 --> 00:04:49,466
+<b>held this in coronation</b>
+
+140
+00:04:49,466 --> 00:04:51,199
+<b>ceremonies from the 11th century</b>
+
+141
+00:04:51,199 --> 00:04:54,666
+<b>onwards. What did it represent?</b>
+
+142
+00:04:54,666 --> 00:04:55,933
+<b>Isidore of Seville explained:</b>
+
+143
+00:04:56,733 --> 00:04:58,099
+<b>Augustus is said to have</b>
+
+144
+00:04:58,099 --> 00:05:00,366
+<b>established the orb as a standard so that</b>
+
+145
+00:05:00,366 --> 00:05:01,866
+<b>he might the more display</b>
+
+146
+00:05:01,866 --> 00:05:03,066
+<b>the figure of the globe.</b>
+
+147
+00:05:03,633 --> 00:05:06,099
+<b>The sphere represents the earth. The</b>
+
+148
+00:05:06,099 --> 00:05:06,866
+<b>cross represented</b>
+
+149
+00:05:06,866 --> 00:05:08,533
+<b>Christ's sovereignty over it.</b>
+
+150
+00:05:08,866 --> 00:05:10,366
+<b>Were there any medieval writers who</b>
+
+151
+00:05:10,366 --> 00:05:12,733
+<b>thought the earth was flat? Yes, of</b>
+
+152
+00:05:12,733 --> 00:05:14,099
+<b>course. Two marginal</b>
+
+153
+00:05:14,333 --> 00:05:17,066
+<b>figures. Lactantius in the 4th century</b>
+
+154
+00:05:17,066 --> 00:05:18,833
+<b>and Cosmas Indicopleustes</b>
+
+155
+00:05:18,833 --> 00:05:20,500
+<b>in the 6th. As historian</b>
+
+156
+00:05:20,500 --> 00:05:23,333
+<b>Jeffrey Burton Russell put it, "Cosmos</b>
+
+157
+00:05:23,333 --> 00:05:24,333
+<b>had no followers</b>
+
+158
+00:05:24,333 --> 00:05:27,233
+<b>whatsoever. They were outliers,</b>
+
+159
+00:05:27,433 --> 00:05:30,033
+<b>ignored by the mainstream. The consensus</b>
+
+160
+00:05:30,033 --> 00:05:31,800
+<b>was clear." Most people</b>
+
+161
+00:05:31,800 --> 00:05:33,033
+<b>have heard some version of</b>
+
+162
+00:05:33,033 --> 00:05:34,233
+<b>the same story. Columbus standing in</b>
+
+163
+00:05:34,233 --> 00:05:35,500
+<b>the same story. Columbus standing in</b>
+
+164
+00:05:35,500 --> 00:05:36,633
+<b>front of churchmen who</b>
+
+165
+00:05:36,633 --> 00:05:37,900
+<b>insist the earth is flat,</b>
+
+166
+00:05:38,233 --> 00:05:39,433
+<b>of the world. That scene is usually</b>
+
+167
+00:05:39,433 --> 00:05:40,533
+<b>presented as medieval</b>
+
+168
+00:05:40,666 --> 00:05:43,533
+<b>ignorance versus modern thinking. What</b>
+
+169
+00:05:43,533 --> 00:05:45,066
+<b>almost nobody has told is</b>
+
+170
+00:05:45,066 --> 00:05:46,133
+<b>that this scene is supposed</b>
+
+171
+00:05:46,133 --> 00:05:48,766
+<b>to have a specific setting. A meeting in</b>
+
+172
+00:05:48,766 --> 00:05:50,666
+<b>1486 known as the Council</b>
+
+173
+00:05:50,666 --> 00:05:52,699
+<b>of Salamanca. And once you</b>
+
+174
+00:05:52,699 --> 00:05:54,966
+<b>know that, an obvious question follows.</b>
+
+175
+00:05:55,633 --> 00:05:56,533
+<b>If medieval scholars</b>
+
+176
+00:05:56,533 --> 00:05:58,133
+<b>already knew the earth was round,</b>
+
+177
+00:05:58,566 --> 00:06:00,433
+<b>what was Columbus actually arguing about</b>
+
+178
+00:06:00,433 --> 00:06:02,199
+<b>at Salamanca? Not</b>
+
+179
+00:06:02,199 --> 00:06:05,333
+<b>shape, size. Columbus made a</b>
+
+180
+00:06:05,333 --> 00:06:07,300
+<b>catastrophic double error, and we know</b>
+
+181
+00:06:07,300 --> 00:06:08,833
+<b>this from his own writings and</b>
+
+182
+00:06:08,833 --> 00:06:10,000
+<b>navigational logs that survive.</b>
+
+183
+00:06:10,633 --> 00:06:12,599
+<b>Error number one, he thought the earth</b>
+
+184
+00:06:12,599 --> 00:06:14,233
+<b>was smaller. Columbus's</b>
+
+185
+00:06:14,233 --> 00:06:15,733
+<b>estimate was about 20,000</b>
+
+186
+00:06:15,733 --> 00:06:17,800
+<b>miles circumference. How did he come to</b>
+
+187
+00:06:17,800 --> 00:06:19,400
+<b>this calculation? He used</b>
+
+188
+00:06:19,400 --> 00:06:20,433
+<b>measurements from a medieval</b>
+
+189
+00:06:20,599 --> 00:06:23,033
+<b>Persian geographer named Alfraganus who</b>
+
+190
+00:06:23,033 --> 00:06:24,800
+<b>said one degree equals 56</b>
+
+191
+00:06:24,800 --> 00:06:26,733
+<b>and two-thirds of a mile.</b>
+
+192
+00:06:27,500 --> 00:06:30,066
+<b>But Columbus thought Alfraganus meant the</b>
+
+193
+00:06:30,066 --> 00:06:31,733
+<b>Roman mile. Alfraganus</b>
+
+194
+00:06:31,733 --> 00:06:33,233
+<b>actually meant the Arabic mile,</b>
+
+195
+00:06:33,433 --> 00:06:36,533
+<b>which was nearly 50% longer. This</b>
+
+196
+00:06:36,533 --> 00:06:39,333
+<b>compounded his error. Columbus estimated</b>
+
+197
+00:06:39,333 --> 00:06:40,733
+<b>the voyage at about 20%</b>
+
+198
+00:06:41,066 --> 00:06:43,433
+<b>of its actual length. Error number two,</b>
+
+199
+00:06:43,833 --> 00:06:46,433
+<b>he thought Asia was bigger. He wildly</b>
+
+200
+00:06:46,433 --> 00:06:47,766
+<b>overestimated how far</b>
+
+201
+00:06:47,766 --> 00:06:51,400
+<b>Asia extended east. Consequently,</b>
+
+202
+00:06:51,400 --> 00:06:53,199
+<b>Columbus thought the distance from Spain</b>
+
+203
+00:06:53,199 --> 00:06:55,066
+<b>to Japan was maybe 2,500</b>
+
+204
+00:06:55,300 --> 00:06:57,566
+<b>miles. The scholars at Salamanca</b>
+
+205
+00:06:57,566 --> 00:06:59,000
+<b>correctly calculated it</b>
+
+206
+00:06:59,000 --> 00:07:01,266
+<b>was closer to 12,500 miles.</b>
+
+207
+00:07:01,766 --> 00:07:04,233
+<b>The Royal Commission at Salamanca wasn't</b>
+
+208
+00:07:04,233 --> 00:07:05,133
+<b>a panel of ignorant</b>
+
+209
+00:07:05,133 --> 00:07:06,500
+<b>monks citing the Bible.</b>
+
+210
+00:07:06,966 --> 00:07:08,900
+<b>It was headed by Hernando de Talavera,</b>
+
+211
+00:07:09,300 --> 00:07:10,066
+<b>Queen Isabella's</b>
+
+212
+00:07:10,066 --> 00:07:12,199
+<b>confessor. The commission included</b>
+
+213
+00:07:12,266 --> 00:07:14,599
+<b>professors of astronomy, geography,</b>
+
+214
+00:07:15,366 --> 00:07:17,300
+<b>mathematics, including the Jewish</b>
+
+215
+00:07:17,300 --> 00:07:18,966
+<b>astronomer Rabbi Abraham</b>
+
+216
+00:07:18,966 --> 00:07:21,900
+<b>Zaccuto. How do we know what they argued?</b>
+
+217
+00:07:22,466 --> 00:07:24,333
+<b>We know from the two main sources,</b>
+
+218
+00:07:25,000 --> 00:07:26,300
+<b>Bartolomé de las Casas,</b>
+
+219
+00:07:26,800 --> 00:07:29,233
+<b>the Spanish historian and Dominican friar</b>
+
+220
+00:07:29,233 --> 00:07:31,566
+<b>who had access to Columbus's papers and</b>
+
+221
+00:07:31,866 --> 00:07:34,633
+<b>interviewed people who were there, and</b>
+
+222
+00:07:34,633 --> 00:07:36,000
+<b>Ferdinand Columbus,</b>
+
+223
+00:07:36,699 --> 00:07:38,166
+<b>Christopher's own son who wrote a</b>
+
+224
+00:07:38,199 --> 00:07:41,066
+<b>biography of his father. According to</b>
+
+225
+00:07:41,066 --> 00:07:41,966
+<b>these accounts, the</b>
+
+226
+00:07:41,966 --> 00:07:43,666
+<b>commission told Columbus his</b>
+
+227
+00:07:43,666 --> 00:07:45,800
+<b>numbers were wrong. Not that the earth</b>
+
+228
+00:07:45,800 --> 00:07:49,133
+<b>was flat, that it was too big. They</b>
+
+229
+00:07:49,133 --> 00:07:50,500
+<b>correctly argued that if</b>
+
+230
+00:07:50,500 --> 00:07:53,166
+<b>the ocean was 12,500 miles wide,</b>
+
+231
+00:07:53,900 --> 00:07:54,933
+<b>Columbus's ships couldn't</b>
+
+232
+00:07:54,933 --> 00:07:56,366
+<b>carry enough food and water.</b>
+
+233
+00:07:57,000 --> 00:08:00,066
+<b>His crew would starve. And they were</b>
+
+234
+00:08:00,066 --> 00:08:01,566
+<b>right. Columbus was</b>
+
+235
+00:08:01,566 --> 00:08:03,599
+<b>saved by dumb luck. If the</b>
+
+236
+00:08:03,633 --> 00:08:05,633
+<b>Americans hadn't been setting exactly</b>
+
+237
+00:08:05,633 --> 00:08:07,500
+<b>where he thought Asia was,</b>
+
+238
+00:08:07,766 --> 00:08:08,966
+<b>his voyage would have been a</b>
+
+239
+00:08:08,966 --> 00:08:11,300
+<b>complete disaster. But history doesn't</b>
+
+240
+00:08:11,300 --> 00:08:12,366
+<b>like stories about</b>
+
+241
+00:08:12,366 --> 00:08:14,300
+<b>optimistic failures who get lucky.</b>
+
+242
+00:08:15,066 --> 00:08:17,199
+<b>History likes heroes battling ignorance.</b>
+
+243
+00:08:17,933 --> 00:08:20,300
+<b>Washington Irving gave history that hero.</b>
+
+244
+00:08:20,866 --> 00:08:24,300
+<b>In 1828, he invented an entire scene,</b>
+
+245
+00:08:25,000 --> 00:08:26,733
+<b>Columbus at the Council of Salamanca,</b>
+
+246
+00:08:27,366 --> 00:08:28,266
+<b>arguing with foolish</b>
+
+247
+00:08:28,399 --> 00:08:30,399
+<b>churchmen who insisted the earth must be</b>
+
+248
+00:08:30,399 --> 00:08:32,466
+<b>flat, pounding tables,</b>
+
+249
+00:08:32,666 --> 00:08:34,600
+<b>citing scripture, a scene that</b>
+
+250
+00:08:34,600 --> 00:08:37,633
+<b>never happened. Historian Samuel Elliott</b>
+
+251
+00:08:37,633 --> 00:08:38,899
+<b>Morrison later debunked</b>
+
+252
+00:08:38,899 --> 00:08:41,266
+<b>it. This is pure moonshine.</b>
+
+253
+00:08:41,966 --> 00:08:44,000
+<b>Washington Irving, sending his</b>
+
+254
+00:08:44,000 --> 00:08:46,066
+<b>opportunity for a picturesque and moving</b>
+
+255
+00:08:46,066 --> 00:08:47,666
+<b>scene, took a fictitious</b>
+
+256
+00:08:47,866 --> 00:08:50,399
+<b>account and let his imagination go</b>
+
+257
+00:08:50,399 --> 00:08:53,766
+<b>completely. But it was a bestseller. The</b>
+
+258
+00:08:53,766 --> 00:08:54,666
+<b>dramatic scene burned</b>
+
+259
+00:08:54,833 --> 00:08:56,766
+<b>into the public imagination as historical</b>
+
+260
+00:08:56,766 --> 00:08:58,899
+<b>fact. Irving gave the</b>
+
+261
+00:08:58,899 --> 00:09:00,033
+<b>world a simple story.</b>
+
+262
+00:09:00,699 --> 00:09:02,600
+<b>Enlightened Columbus versus flat-earth</b>
+
+263
+00:09:02,600 --> 00:09:04,300
+<b>religious zealots. It was</b>
+
+264
+00:09:04,300 --> 00:09:06,766
+<b>fiction, but it was useful fiction</b>
+
+265
+00:09:06,766 --> 00:09:08,300
+<b>and that brings us to the perpetrators.</b>
+
+266
+00:09:09,300 --> 00:09:11,699
+<b>Washington Irving was a novelist, not a</b>
+
+267
+00:09:11,699 --> 00:09:12,366
+<b>historian. In 1828, he published A</b>
+
+268
+00:09:12,366 --> 00:09:12,699
+<b>Voyages of Christopher Columbus. He was</b>
+
+269
+00:09:12,699 --> 00:09:14,733
+<b>writing a romantic epic for a young</b>
+
+270
+00:09:14,733 --> 00:09:15,933
+<b>American nation looking</b>
+
+271
+00:09:15,933 --> 00:09:18,966
+<b>for heroic founding figures. But every</b>
+
+272
+00:09:18,966 --> 00:09:21,166
+<b>hero needs a villain. And a dry</b>
+
+273
+00:09:21,166 --> 00:09:22,699
+<b>logistical debate about the</b>
+
+274
+00:09:22,699 --> 00:09:24,966
+<b>earth's circumference? Not so very</b>
+
+275
+00:09:24,966 --> 00:09:27,733
+<b>dramatic. So he fabricated the Salamanca</b>
+
+276
+00:09:27,733 --> 00:09:29,800
+<b>confrontation. Columbus</b>
+
+277
+00:09:29,899 --> 00:09:32,033
+<b>forced to argue against ignorant clerics</b>
+
+278
+00:09:32,033 --> 00:09:34,800
+<b>insisting the earth was flat. It sold</b>
+
+279
+00:09:34,800 --> 00:09:36,766
+<b>10,000 copies immediately.</b>
+
+280
+00:09:37,600 --> 00:09:39,933
+<b>Irving created the story. But why did it</b>
+
+281
+00:09:39,933 --> 00:09:41,233
+<b>have such a staying power?</b>
+
+282
+00:09:41,866 --> 00:09:43,133
+<b>Because it was waiting for someone</b>
+
+283
+00:09:43,133 --> 00:09:46,566
+<b>to weaponize it. 46 years later, John</b>
+
+284
+00:09:46,566 --> 00:09:49,199
+<b>William Draper takes Irving's account and</b>
+
+285
+00:09:49,199 --> 00:09:50,366
+<b>turns it into a weapon.</b>
+
+286
+00:09:50,666 --> 00:09:54,366
+<b>In 1874, Draper publishes History of the</b>
+
+287
+00:09:54,366 --> 00:09:55,333
+<b>Conflict Between Religion</b>
+
+288
+00:09:55,333 --> 00:09:58,100
+<b>and Science. That title says it</b>
+
+289
+00:09:58,199 --> 00:10:00,666
+<b>all. This book was designed to prove that</b>
+
+290
+00:10:00,666 --> 00:10:01,899
+<b>science and religion are</b>
+
+291
+00:10:01,899 --> 00:10:03,000
+<b>fundamentally incompatible,</b>
+
+292
+00:10:03,633 --> 00:10:06,699
+<b>locked in perpetual war. And to prove</b>
+
+293
+00:10:06,699 --> 00:10:08,933
+<b>this massive thesis, Draper needed</b>
+
+294
+00:10:08,933 --> 00:10:10,100
+<b>historical evidence,</b>
+
+295
+00:10:10,666 --> 00:10:12,733
+<b>smoking guns showing religion actively</b>
+
+296
+00:10:12,733 --> 00:10:14,766
+<b>suppressing scientific truth. Irving's</b>
+
+297
+00:10:14,766 --> 00:10:15,500
+<b>sitting there, waiting. Draper was</b>
+
+298
+00:10:15,500 --> 00:10:17,733
+<b>writing with a very specific target, the</b>
+
+299
+00:10:17,733 --> 00:10:18,833
+<b>Roman Catholic Church.</b>
+
+300
+00:10:19,633 --> 00:10:21,666
+<b>His book came out just four years after</b>
+
+301
+00:10:21,666 --> 00:10:22,666
+<b>the Vatican declared</b>
+
+302
+00:10:22,666 --> 00:10:24,500
+<b>papal infallibility in 1870,</b>
+
+303
+00:10:25,399 --> 00:10:27,266
+<b>a decision that caused massive backlash</b>
+
+304
+00:10:27,266 --> 00:10:28,366
+<b>amongst liberal</b>
+
+305
+00:10:28,366 --> 00:10:31,566
+<b>intellectuals. Draper seized the moment.</b>
+
+306
+00:10:31,966 --> 00:10:34,600
+<b>He used the flat earth myth as exhibit A.</b>
+
+307
+00:10:35,066 --> 00:10:35,866
+<b>The church had</b>
+
+308
+00:10:35,866 --> 00:10:37,766
+<b>systematically opposed scientific</b>
+
+309
+00:10:37,800 --> 00:10:40,300
+<b>progress throughout history. The Council</b>
+
+310
+00:10:40,300 --> 00:10:41,466
+<b>of Salamanca was his</b>
+
+311
+00:10:41,466 --> 00:10:43,666
+<b>star witness. The book again</b>
+
+312
+00:10:43,866 --> 00:10:46,699
+<b>was a bestseller. It went through over 50</b>
+
+313
+00:10:46,699 --> 00:10:49,233
+<b>printings and it armed a whole generation</b>
+
+314
+00:10:49,233 --> 00:10:51,300
+<b>of secular thinkers with what they</b>
+
+315
+00:10:51,300 --> 00:10:52,433
+<b>thought was undeniable</b>
+
+316
+00:10:52,433 --> 00:10:53,566
+<b>historical ammunition.</b>
+
+317
+00:10:54,500 --> 00:10:57,033
+<b>Irving created the story. Draper provided</b>
+
+318
+00:10:57,033 --> 00:10:58,266
+<b>the ideological engine.</b>
+
+319
+00:10:59,166 --> 00:11:00,866
+<b>And then, 22 years later,</b>
+
+320
+00:11:01,433 --> 00:11:03,500
+<b>Andrew Dickinson White provides the final</b>
+
+321
+00:11:03,500 --> 00:11:05,000
+<b>piece, Institutional</b>
+
+322
+00:11:05,000 --> 00:11:07,566
+<b>Backing. White's massive two-volume</b>
+
+323
+00:11:07,699 --> 00:11:09,766
+<b>work, The History of the Warfare of</b>
+
+324
+00:11:09,766 --> 00:11:10,966
+<b>Science with Theology in</b>
+
+325
+00:11:10,966 --> 00:11:13,199
+<b>Christendom, came out in 1896.</b>
+
+326
+00:11:13,933 --> 00:11:16,166
+<b>Modern historians call it more propaganda</b>
+
+327
+00:11:16,166 --> 00:11:17,766
+<b>than history. White was</b>
+
+328
+00:11:17,766 --> 00:11:18,899
+<b>the co-founder and first</b>
+
+329
+00:11:19,000 --> 00:11:21,633
+<b>president of Cornell University, a major</b>
+
+330
+00:11:21,633 --> 00:11:23,366
+<b>force in the movement for secular</b>
+
+331
+00:11:23,366 --> 00:11:24,600
+<b>education in America.</b>
+
+332
+00:11:25,300 --> 00:11:28,733
+<b>His technique, sheer volume, he buried</b>
+
+333
+00:11:28,733 --> 00:11:30,000
+<b>the flat earth story in</b>
+
+334
+00:11:30,000 --> 00:11:30,166
+<b>an avalanche of footnotes</b>
+
+335
+00:11:30,166 --> 00:11:31,233
+<b>an avalanche of footnotes</b>
+
+336
+00:11:31,233 --> 00:11:33,366
+<b>and historical anecdotes. Many</b>
+
+337
+00:11:33,366 --> 00:11:34,866
+<b>cherry-picked, misleading,</b>
+
+338
+00:11:35,133 --> 00:11:37,066
+<b>or just wrong. He created an</b>
+
+339
+00:11:37,066 --> 00:11:38,899
+<b>impression of overwhelming scholarly</b>
+
+340
+00:11:38,899 --> 00:11:41,899
+<b>evidence. By citing Irving and Draper,</b>
+
+341
+00:11:42,500 --> 00:11:43,199
+<b>White gave the fiction</b>
+
+342
+00:11:43,366 --> 00:11:45,899
+<b>an air of academic respectability. And</b>
+
+343
+00:11:45,899 --> 00:11:47,500
+<b>thereby, the life flows</b>
+
+344
+00:11:47,500 --> 00:11:49,600
+<b>from popular book to scholarly</b>
+
+345
+00:11:49,666 --> 00:11:52,066
+<b>framework to textbook to common</b>
+
+346
+00:11:52,066 --> 00:11:53,866
+<b>knowledge. Why did this</b>
+
+347
+00:11:53,866 --> 00:11:55,333
+<b>specific myth become orthodoxy?</b>
+
+348
+00:11:55,966 --> 00:11:58,333
+<b>Why did it beat out 70 years of solid</b>
+
+349
+00:11:58,333 --> 00:12:00,133
+<b>historical evidence to the contrary?</b>
+
+350
+00:12:00,600 --> 00:12:01,500
+<b>Because it fulfilled a</b>
+
+351
+00:12:01,500 --> 00:12:04,000
+<b>powerful cultural need. In the late</b>
+
+352
+00:12:04,000 --> 00:12:06,033
+<b>1800s, intellectual elites</b>
+
+353
+00:12:06,033 --> 00:12:07,500
+<b>were fighting a cultural war.</b>
+
+354
+00:12:08,133 --> 00:12:09,966
+<b>Darwin's origin of species came out in</b>
+
+355
+00:12:09,966 --> 00:12:12,300
+<b>1859. The Catholic Church</b>
+
+356
+00:12:12,300 --> 00:12:13,833
+<b>declared papal infallibility</b>
+
+357
+00:12:14,166 --> 00:12:17,566
+<b>in 1870. Draper and White were neutral</b>
+
+358
+00:12:17,566 --> 00:12:19,933
+<b>historians. They were aggressive</b>
+
+359
+00:12:19,933 --> 00:12:21,800
+<b>participants. They used the</b>
+
+360
+00:12:21,800 --> 00:12:24,333
+<b>flat earth myth to prove a dethronement</b>
+
+361
+00:12:24,333 --> 00:12:26,399
+<b>narrative. That brave science</b>
+
+362
+00:12:26,399 --> 00:12:28,000
+<b>overcomes backward religion.</b>
+
+363
+00:12:28,600 --> 00:12:30,533
+<b>The flat earth story was the perfect</b>
+
+364
+00:12:30,533 --> 00:12:33,566
+<b>weapon. It was simple, dramatic,</b>
+
+365
+00:12:34,100 --> 00:12:35,000
+<b>emotionally satisfying.</b>
+
+366
+00:12:35,533 --> 00:12:37,199
+<b>It served the secular story of</b>
+
+367
+00:12:37,199 --> 00:12:38,800
+<b>redemption, contrasting</b>
+
+368
+00:12:38,800 --> 00:12:40,766
+<b>the dark ages with the sunlit</b>
+
+369
+00:12:40,800 --> 00:12:43,800
+<b>uplands of modern reason. And once it</b>
+
+370
+00:12:43,800 --> 00:12:45,166
+<b>entered textbooks, it became nearly</b>
+
+371
+00:12:45,166 --> 00:12:45,766
+<b>entered textbooks, it became nearly</b>
+
+372
+00:12:45,766 --> 00:12:46,933
+<b>impossible to remove.</b>
+
+373
+00:12:47,699 --> 00:12:49,366
+<b>Which brings us to the question, if</b>
+
+374
+00:12:49,366 --> 00:12:51,533
+<b>historians debunked this 30 years ago,</b>
+
+375
+00:12:51,899 --> 00:12:53,966
+<b>why is this still being thought? Here's</b>
+
+376
+00:12:53,966 --> 00:12:54,466
+<b>the chronological</b>
+
+377
+00:12:54,466 --> 00:12:56,233
+<b>disparity that illustrates how</b>
+
+378
+00:12:56,233 --> 00:12:58,899
+<b>misinformation works. Historian Jeffrey</b>
+
+379
+00:12:58,899 --> 00:13:00,500
+<b>Burton Russell surveyed</b>
+
+380
+00:13:00,500 --> 00:13:02,000
+<b>19th century American history</b>
+
+381
+00:13:02,233 --> 00:13:05,866
+<b>textbooks. Before 1870, very few</b>
+
+382
+00:13:05,866 --> 00:13:08,433
+<b>mentioned the flat earth myth. After</b>
+
+383
+00:13:08,433 --> 00:13:10,800
+<b>1880, almost all of them</b>
+
+384
+00:13:10,833 --> 00:13:12,066
+<b>featured the legend. What changed? The</b>
+
+385
+00:13:12,066 --> 00:13:12,566
+<b>featured the legend. What changed? The</b>
+
+386
+00:13:12,566 --> 00:13:13,566
+<b>lie entered the culture</b>
+
+387
+00:13:13,566 --> 00:13:16,166
+<b>between 1828 and 1896.</b>
+
+388
+00:13:16,833 --> 00:13:17,366
+<b>Irving, Draper, White. By the time</b>
+
+389
+00:13:17,366 --> 00:13:18,066
+<b>historians started</b>
+
+390
+00:13:18,066 --> 00:13:20,833
+<b>debunking it seriously in the 1990s,</b>
+
+391
+00:13:20,833 --> 00:13:23,100
+<b>the lie had a 150 year head start.</b>
+
+392
+00:13:23,600 --> 00:13:25,333
+<b>Jeffrey Burton Russell's Inventing the</b>
+
+393
+00:13:25,333 --> 00:13:26,433
+<b>Flat Earth came out in</b>
+
+394
+00:13:26,433 --> 00:13:29,899
+<b>1991. That should have ended it. It</b>
+
+395
+00:13:29,899 --> 00:13:32,066
+<b>didn't. The truth never reached the</b>
+
+396
+00:13:32,066 --> 00:13:33,466
+<b>textbooks or culture at</b>
+
+397
+00:13:33,466 --> 00:13:35,966
+<b>large. Why? Because the lie is more</b>
+
+398
+00:13:35,966 --> 00:13:38,333
+<b>exciting than the truth. The truth is</b>
+
+399
+00:13:38,333 --> 00:13:39,233
+<b>that the medieval period</b>
+
+400
+00:13:39,233 --> 00:13:41,733
+<b>was intellectually complex. The Roman</b>
+
+401
+00:13:41,733 --> 00:13:43,600
+<b>Catholic Church never even</b>
+
+402
+00:13:43,600 --> 00:13:44,899
+<b>took an official stance on</b>
+
+403
+00:13:44,899 --> 00:13:48,333
+<b>the earth shape. That's boring. The lie</b>
+
+404
+00:13:48,333 --> 00:13:49,933
+<b>is that brave Columbus fought</b>
+
+405
+00:13:49,933 --> 00:13:51,633
+<b>ignorant priests who thought</b>
+
+406
+00:13:51,733 --> 00:13:53,233
+<b>he'd sail off the edge of the world.</b>
+
+407
+00:13:53,866 --> 00:13:55,733
+<b>That's dramatic. It fits a</b>
+
+408
+00:13:55,733 --> 00:13:57,300
+<b>bigger story we want to believe.</b>
+
+409
+00:13:57,833 --> 00:13:59,933
+<b>The lone genius against the ignorant mob.</b>
+
+410
+00:14:00,466 --> 00:14:01,766
+<b>The story feels more true</b>
+
+411
+00:14:01,766 --> 00:14:03,233
+<b>than the truth. And that's</b>
+
+412
+00:14:03,233 --> 00:14:05,533
+<b>the systemic weakness. This is a case</b>
+
+413
+00:14:05,533 --> 00:14:07,566
+<b>study in the lag between academic</b>
+
+414
+00:14:07,566 --> 00:14:09,266
+<b>knowledge and public knowledge.</b>
+
+415
+00:14:10,433 --> 00:14:12,166
+<b>Powerful, emotionally satisfying stories</b>
+
+416
+00:14:12,166 --> 00:14:13,666
+<b>are sticky. They're</b>
+
+417
+00:14:13,666 --> 00:14:14,933
+<b>impervious to evidence,</b>
+
+418
+00:14:15,166 --> 00:14:17,733
+<b>which is a huge lesson for right now.</b>
+
+419
+00:14:18,066 --> 00:14:20,466
+<b>Between 2020 and 2023,</b>
+
+420
+00:14:21,033 --> 00:14:22,699
+<b>trust in science dropped 15%.</b>
+
+421
+00:14:24,000 --> 00:14:27,433
+<b>Today, 27% of Americans have little to no</b>
+
+422
+00:14:27,433 --> 00:14:28,100
+<b>confidence in</b>
+
+423
+00:14:28,100 --> 00:14:30,433
+<b>scientists. And one of the tools</b>
+
+424
+00:14:30,433 --> 00:14:32,366
+<b>in reminding that trust is this exact</b>
+
+425
+00:14:32,366 --> 00:14:35,433
+<b>myth. Modern flat earthers claim the</b>
+
+426
+00:14:35,433 --> 00:14:36,833
+<b>church used to teach that</b>
+
+427
+00:14:36,833 --> 00:14:39,466
+<b>the earth was flat as proof that experts</b>
+
+428
+00:14:39,466 --> 00:14:41,500
+<b>suppress the truth. They</b>
+
+429
+00:14:41,500 --> 00:14:42,866
+<b>use this to justify rejecting</b>
+
+430
+00:14:43,166 --> 00:14:45,966
+<b>climate science, vaccine research, and</b>
+
+431
+00:14:45,966 --> 00:14:48,933
+<b>evolution. Research shows a gateway</b>
+
+432
+00:14:48,933 --> 00:14:50,533
+<b>effect. Believe in one</b>
+
+433
+00:14:50,533 --> 00:14:52,800
+<b>historical myth makes it easier to</b>
+
+434
+00:14:52,800 --> 00:14:53,766
+<b>believe contemporary</b>
+
+435
+00:14:53,766 --> 00:14:56,133
+<b>conspiracies. Once you believe</b>
+
+436
+00:14:56,133 --> 00:14:58,533
+<b>historians fabricated the flat earthed</b>
+
+437
+00:14:58,533 --> 00:14:59,966
+<b>story, it's easier to</b>
+
+438
+00:14:59,966 --> 00:15:01,500
+<b>believe scientists are fabricating</b>
+
+439
+00:15:01,500 --> 00:15:05,366
+<b>climate data, or vaccine efficacy, or</b>
+
+440
+00:15:05,366 --> 00:15:07,433
+<b>evolution evidence. Here's</b>
+
+441
+00:15:07,433 --> 00:15:08,866
+<b>the profound irony that reveals</b>
+
+442
+00:15:09,033 --> 00:15:11,666
+<b>how misinformation gets repurposed. In</b>
+
+443
+00:15:11,666 --> 00:15:12,766
+<b>the 19th century, this myth</b>
+
+444
+00:15:12,766 --> 00:15:14,166
+<b>was created by academic elites</b>
+
+445
+00:15:14,533 --> 00:15:17,199
+<b>for high-minded and anti-clerical reasons.</b>
+
+446
+00:15:17,666 --> 00:15:18,766
+<b>They used it to promote</b>
+
+447
+00:15:18,766 --> 00:15:20,866
+<b>rationality, to professionalize</b>
+
+448
+00:15:20,933 --> 00:15:23,566
+<b>science, to give science more authority</b>
+
+449
+00:15:23,566 --> 00:15:24,199
+<b>over religious</b>
+
+450
+00:15:24,199 --> 00:15:26,866
+<b>institutions. It was a tool to build</b>
+
+451
+00:15:26,866 --> 00:15:29,933
+<b>up the expert elite. Today, modern</b>
+
+452
+00:15:29,933 --> 00:15:31,300
+<b>populist movements have</b>
+
+453
+00:15:31,300 --> 00:15:32,733
+<b>inherited that exact myth,</b>
+
+454
+00:15:33,333 --> 00:15:35,766
+<b>but they flipped it. Now some use it to</b>
+
+455
+00:15:35,766 --> 00:15:36,966
+<b>oppose the expert elite,</b>
+
+456
+00:15:37,266 --> 00:15:39,166
+<b>to attack orthodox science,</b>
+
+457
+00:15:39,833 --> 00:15:41,699
+<b>to justify distrust of NASA,</b>
+
+458
+00:15:42,333 --> 00:15:43,933
+<b>universities, the scientific</b>
+
+459
+00:15:43,933 --> 00:15:46,166
+<b>establishment. They appeal to</b>
+
+460
+00:15:46,166 --> 00:15:48,000
+<b>common sense against what they call</b>
+
+461
+00:15:48,000 --> 00:15:50,433
+<b>mystifying theories. Their</b>
+
+462
+00:15:50,433 --> 00:15:52,433
+<b>argument, if they lied to you</b>
+
+463
+00:15:52,433 --> 00:15:54,066
+<b>about Columbus and the medieval church</b>
+
+464
+00:15:54,066 --> 00:15:55,633
+<b>back then, why wouldn't they</b>
+
+465
+00:15:55,633 --> 00:15:57,466
+<b>be lying to you now about NASA,</b>
+
+466
+00:15:57,966 --> 00:16:00,000
+<b>about the photos from space, about</b>
+
+467
+00:16:00,000 --> 00:16:02,433
+<b>climate change? Same lie,</b>
+
+468
+00:16:02,899 --> 00:16:04,133
+<b>first used to build up the</b>
+
+469
+00:16:04,133 --> 00:16:06,699
+<b>authority of science, now used to tear it</b>
+
+470
+00:16:06,699 --> 00:16:08,766
+<b>down. This isn't just about medieval</b>
+
+471
+00:16:08,766 --> 00:16:10,333
+<b>history. The failure</b>
+
+472
+00:16:10,333 --> 00:16:12,966
+<b>to debunk this old lie isn't really about</b>
+
+473
+00:16:12,966 --> 00:16:15,366
+<b>the facts. The facts are clear. It's</b>
+
+474
+00:16:15,366 --> 00:16:16,133
+<b>about the narrative's</b>
+
+475
+00:16:16,133 --> 00:16:18,566
+<b>emotional power, its utility. It's</b>
+
+476
+00:16:18,566 --> 00:16:18,800
+<b>utility in propping up an</b>
+
+477
+00:16:18,800 --> 00:16:19,466
+<b>utility in propping up an</b>
+
+478
+00:16:20,166 --> 00:16:21,066
+<b>identity. The identity of the</b>
+
+479
+00:16:21,066 --> 00:16:24,000
+<b>brave skeptic who trusts their own eyes</b>
+
+480
+00:16:24,000 --> 00:16:25,966
+<b>over the experts. And you</b>
+
+481
+00:16:25,966 --> 00:16:27,666
+<b>see the exact same mechanism in</b>
+
+482
+00:16:27,666 --> 00:16:29,766
+<b>anti-vaccine movements and climate</b>
+
+483
+00:16:29,766 --> 00:16:32,666
+<b>denial. It's the same playbook. Old</b>
+
+484
+00:16:32,666 --> 00:16:33,833
+<b>misinformation becomes</b>
+
+485
+00:16:33,833 --> 00:16:36,699
+<b>the foundation for new distrust. That's</b>
+
+486
+00:16:36,699 --> 00:16:38,100
+<b>why this matters. We</b>
+
+487
+00:16:38,100 --> 00:16:39,699
+<b>opened with two textbooks,</b>
+
+488
+00:16:40,066 --> 00:16:40,366
+<b>Anderson 1880 versus Anderson in 1898. In</b>
+
+489
+00:16:40,366 --> 00:16:42,333
+<b>18 years, the same author</b>
+
+490
+00:16:42,333 --> 00:16:43,733
+<b>rewrote his own textbook.</b>
+
+491
+00:16:44,399 --> 00:16:46,266
+<b>And one of the most successful lies in</b>
+
+492
+00:16:46,266 --> 00:16:47,466
+<b>Western history was</b>
+
+493
+00:16:47,466 --> 00:16:48,633
+<b>embedded in the curriculum.</b>
+
+494
+00:16:49,333 --> 00:16:51,866
+<b>The evidence proves medieval scholars</b>
+
+495
+00:16:51,866 --> 00:16:53,466
+<b>knew the earth was a sphere.</b>
+
+496
+00:16:53,800 --> 00:16:54,866
+<b>royal orb. Columbus wasn't</b>
+
+497
+00:16:54,866 --> 00:16:56,966
+<b>arguing about shape, but size.</b>
+
+498
+00:16:57,566 --> 00:17:00,100
+<b>And he was wrong. The flat earth myth</b>
+
+499
+00:17:00,100 --> 00:17:00,866
+<b>was deliberately</b>
+
+500
+00:17:00,866 --> 00:17:03,266
+<b>fabricated by three men across 70</b>
+
+501
+00:17:03,300 --> 00:17:05,966
+<b>years for political reasons. It entered</b>
+
+502
+00:17:05,966 --> 00:17:07,166
+<b>textbooks to serve</b>
+
+503
+00:17:07,166 --> 00:17:08,733
+<b>19th century culture wars.</b>
+
+504
+00:17:09,166 --> 00:17:12,100
+<b>It persists because it's useful. First</b>
+
+505
+00:17:12,100 --> 00:17:13,766
+<b>for rationalists, now</b>
+
+506
+00:17:13,766 --> 00:17:15,100
+<b>for conspiracy theorists.</b>
+
+507
+00:17:15,800 --> 00:17:17,766
+<b>The only defense is what we've done here.</b>
+
+508
+00:17:18,266 --> 00:17:19,966
+<b>Go back to the primary sources,</b>
+
+509
+00:17:20,600 --> 00:17:22,800
+<b>check the medieval documents, see what</b>
+
+510
+00:17:22,800 --> 00:17:24,899
+<b>they actually wrote. Because if</b>
+
+511
+00:17:24,899 --> 00:17:26,500
+<b>historians and propagandists</b>
+
+512
+00:17:26,733 --> 00:17:28,666
+<b>successfully fabricated this universally</b>
+
+513
+00:17:28,666 --> 00:17:31,866
+<b>accepted myth for over a century, what</b>
+
+514
+00:17:31,866 --> 00:17:33,199
+<b>other facts we think</b>
+
+515
+00:17:33,199 --> 00:17:34,899
+<b>we know might also be carefully</b>
+
+516
+00:17:34,899 --> 00:17:35,966
+<b>constructed historical</b>
+
+517
+00:17:35,966 --> 00:17:38,266
+<b>fictions. Check the sources,</b>
+
+518
+00:17:39,133 --> 00:17:41,866
+<b>question the narratives, demand evidence,</b>
+
+519
+00:17:42,566 --> 00:17:43,433
+<b>not just for medieval</b>
+
+520
+00:17:43,433 --> 00:17:45,233
+<b>history, for everything.</b>
+

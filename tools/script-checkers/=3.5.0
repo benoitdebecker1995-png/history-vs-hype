@@ -1,0 +1,19 @@
+Collecting srt
+  Downloading srt-3.5.3.tar.gz (28 kB)
+  Installing build dependencies: started
+  Installing build dependencies: still running...
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: still running...
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: srt
+  Building wheel for srt (pyproject.toml): started
+  Building wheel for srt (pyproject.toml): still running...
+  Building wheel for srt (pyproject.toml): finished with status 'done'
+  Created wheel for srt: filename=srt-3.5.3-py3-none-any.whl size=22646 sha256=40b400db74cc4a9aa1d4017cbe4a921d8b34af1822c5d743830aeca2f1f49c69
+  Stored in directory: c:\users\benoi\appdata\local\pip\cache\wheels\86\92\fd\8078b899ab1c6a806c9e45e8fa431fe6b191d747df9df838c6
+Successfully built srt
+Installing collected packages: srt
+Successfully installed srt-3.5.3

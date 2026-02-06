@@ -1,0 +1,53 @@
+# Caption Style Presets
+
+[academic]
+# Clean, neutral academic styling (DEFAULT)
+font = "Arial"
+font_size = 24
+font_color = "white"
+background_color = "black"
+background_opacity = 0.7
+position = "bottom"  # top, center, bottom
+margin = 50  # pixels from edge
+max_chars_per_line = 42
+all_caps = false
+emojis = false
+
+[minimal]
+# Minimal styling for maximum readability
+font = "Helvetica"
+font_size = 28
+font_color = "white"
+background_color = "none"
+background_opacity = 0
+position = "bottom"
+margin = 40
+max_chars_per_line = 40
+all_caps = false
+emojis = false
+
+[shorts_friendly]
+# Larger text optimized for mobile viewing
+font = "Arial Bold"
+font_size = 32
+font_color = "yellow"
+background_color = "black"
+background_opacity = 0.8
+position = "center"
+margin = 60
+max_chars_per_line = 35
+all_caps = true
+emojis = false
+
+[documentary]
+# Traditional documentary subtitle style
+font = "Georgia"
+font_size = 22
+font_color = "white"
+background_color = "black"
+background_opacity = 0.6
+position = "bottom"
+margin = 45
+max_chars_per_line = 45
+all_caps = false
+emojis = false
