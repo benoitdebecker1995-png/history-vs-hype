@@ -73,35 +73,36 @@ Explicitly excluded from v1.6.
 
 ## Traceability
 
-Which phases cover which requirements. Updated during roadmap creation.
+Which phases cover which requirements.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AB-01 | TBD | Pending |
-| AB-02 | TBD | Pending |
-| AB-03 | TBD | Pending |
-| AB-04 | TBD | Pending |
-| AB-05 | TBD | Pending |
-| AB-06 | TBD | Pending |
-| PACE-01 | TBD | Pending |
-| PACE-02 | TBD | Pending |
-| PACE-03 | TBD | Pending |
-| PACE-04 | TBD | Pending |
-| PACE-05 | TBD | Pending |
-| PACE-06 | TBD | Pending |
-| FEED-01 | TBD | Pending |
-| FEED-02 | TBD | Pending |
-| FEED-03 | TBD | Pending |
-| FEED-04 | TBD | Pending |
-| FEED-05 | TBD | Pending |
-| MOD-01 | TBD | Pending |
-| MOD-02 | TBD | Pending |
+| AB-01 | Phase 29 | Pending |
+| AB-02 | Phase 29 | Pending |
+| AB-03 | Phase 29 | Pending |
+| AB-04 | Phase 29 | Pending |
+| AB-05 | Phase 30 | Pending |
+| AB-06 | Phase 30 | Pending |
+| PACE-01 | Phase 28 | Pending |
+| PACE-02 | Phase 28 | Pending |
+| PACE-03 | Phase 28 | Pending |
+| PACE-04 | Phase 28 | Pending |
+| PACE-05 | Phase 28 | Pending |
+| PACE-06 | Phase 28 | Pending |
+| FEED-01 | Phase 31 | Pending |
+| FEED-02 | Phase 31 | Pending |
+| FEED-03 | Phase 31 | Pending |
+| FEED-04 | Phase 31 | Pending |
+| FEED-05 | Phase 31 | Pending |
+| MOD-01 | Phase 32 | Pending |
+| MOD-02 | Phase 32 | Pending |
 
 **Coverage:**
 - v1.6 requirements: 19 total
-- Mapped to phases: 0
-- Unmapped: 19
+- Mapped to phases: 19
+- Unmapped: 0
+- **Coverage: 100% ✓**
 
 ---
 *Requirements defined: 2026-02-06*
-*Last updated: 2026-02-06 after initial definition*
+*Last updated: 2026-02-06 after roadmap creation*

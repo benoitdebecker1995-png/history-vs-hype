@@ -8,6 +8,7 @@
 - **v1.3 Niche Discovery** - Phases 15-18 (shipped 2026-02-02)
 - **v1.4 Learning Loop** - Phases 19-21 (shipped 2026-02-02)
 - **v1.5 Production Acceleration** - Phases 22-26 (shipped 2026-02-05)
+- **v1.6 Click & Keep** - Phases 27-32 (in progress)
 
 ## Phases
 
@@ -344,6 +345,87 @@ Plans:
 
 </details>
 
+### v1.6 Click & Keep (Phases 27-32) - IN PROGRESS
+
+### Phase 27: Database Foundation
+**Goal**: Schema extensions enable CTR tracking and feedback storage
+**Dependencies**: None (extends existing keywords.db)
+**Requirements**: AB-01 (partial - storage), AB-02 (storage), AB-03 (storage), AB-04 (storage), FEED-01 (partial - storage)
+**Plans**: TBD
+
+**Success Criteria:**
+1. User can store thumbnail variants with file paths and visual pattern tags
+2. User can store title variants with formula tags and timestamps
+3. System can track CTR snapshots at multiple intervals per variant
+4. User can store feedback data from POST-PUBLISH-ANALYSIS files in database
+5. Database migration completes with zero breaking changes to existing tools
+
+### Phase 28: Pacing Analysis
+**Goal**: User can detect script complexity issues before filming
+**Dependencies**: Phase 27 (database ready for pacing metrics)
+**Requirements**: PACE-01, PACE-02, PACE-03, PACE-04, PACE-05, PACE-06
+**Plans**: TBD
+
+**Success Criteria:**
+1. User can see sentence length variance per section with threshold warnings
+2. User can detect readability complexity spikes between adjacent sections
+3. User can identify entity density hotspots (walls of proper nouns)
+4. User can see combined complexity score per section (0-100 scale)
+5. System flags sections missing modern relevance hooks or pattern interrupts
+6. User can visualize energy arc across full script showing pacing rhythm
+
+### Phase 29: Thumbnail & Title Tracking
+**Goal**: User can track variant performance with manual CTR entry
+**Dependencies**: Phase 27 (database schema)
+**Requirements**: AB-01, AB-02, AB-03, AB-04
+**Plans**: TBD
+
+**Success Criteria:**
+1. User can enter CTR from YouTube Studio via CLI prompt
+2. User can register thumbnail files with visual pattern tags
+3. User can register title variants with formula tags
+4. System captures CTR snapshots at 48h, 7d, 14d intervals automatically
+5. All variant data stored in database for pattern analysis
+
+### Phase 30: CTR Analysis & Benchmarks
+**Goal**: User can determine winning variants and channel-specific benchmarks
+**Dependencies**: Phase 29 (tracked variant data)
+**Requirements**: AB-05, AB-06
+**Plans**: TBD
+
+**Success Criteria:**
+1. User can calculate statistical significance between two variants
+2. System prevents false positives by requiring minimum impression thresholds
+3. User can see channel-specific CTR benchmarks by topic category
+4. User can compare variant performance to category baselines
+5. System provides confidence intervals and sample size recommendations
+
+### Phase 31: Feedback Loop Integration
+**Goal**: Past performance insights surface automatically during creation
+**Dependencies**: Phase 27 (database schema), Phase 28 (pacing metrics)
+**Requirements**: FEED-01, FEED-02, FEED-03, FEED-04, FEED-05
+**Plans**: TBD
+
+**Success Criteria:**
+1. System parses POST-PUBLISH-ANALYSIS markdown files into structured database records
+2. User can query past insights for similar topics before starting new video
+3. System identifies success patterns from high-performing videos automatically
+4. System identifies failure patterns from low-performing videos automatically
+5. Relevant insights surface during /script generation without manual lookup
+
+### Phase 32: Model Assignment Refresh
+**Goal**: All commands use current Claude 4.x model IDs
+**Dependencies**: None (independent update)
+**Requirements**: MOD-01, MOD-02
+**Plans**: TBD
+
+**Success Criteria:**
+1. All 13 slash command files updated to Claude 4.x model IDs
+2. Agent model assignments updated to current lineup
+3. Model routing verified (commands execute with correct model tier)
+4. Documentation updated with current model ID reference
+5. No breaking changes to existing command functionality
+
 ## Progress
 
 | Phase | Milestone | Plans Complete | Status | Completed |
@@ -370,8 +452,14 @@ Plans:
 | 19. Performance Data Foundation | v1.4 | 2/2 | Complete | 2026-02-02 |
 | 20. Pattern Extraction | v1.4 | 1/1 | Complete | 2026-02-02 |
 | 21. Recommendation Engine | v1.4 | 1/1 | Complete | 2026-02-02 |
-| **22. Script Parser & Entity Detection** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
-| **23. B-Roll Generation** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
-| **24. Edit Guide Generation** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
-| **25. Metadata Draft Generation** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
-| **26. Package Command & Integration** | **v1.5** | **1/1** | **Complete** | **2026-02-05** |
+| 22. Script Parser & Entity Detection | v1.5 | 1/1 | Complete | 2026-02-04 |
+| 23. B-Roll Generation | v1.5 | 1/1 | Complete | 2026-02-04 |
+| 24. Edit Guide Generation | v1.5 | 1/1 | Complete | 2026-02-04 |
+| 25. Metadata Draft Generation | v1.5 | 1/1 | Complete | 2026-02-04 |
+| 26. Package Command & Integration | v1.5 | 1/1 | Complete | 2026-02-05 |
+| **27. Database Foundation** | **v1.6** | **0/0** | **Pending** | **-** |
+| **28. Pacing Analysis** | **v1.6** | **0/0** | **Pending** | **-** |
+| **29. Thumbnail & Title Tracking** | **v1.6** | **0/0** | **Pending** | **-** |
+| **30. CTR Analysis & Benchmarks** | **v1.6** | **0/0** | **Pending** | **-** |
+| **31. Feedback Loop Integration** | **v1.6** | **0/0** | **Pending** | **-** |
+| **32. Model Assignment Refresh** | **v1.6** | **0/0** | **Pending** | **-** |
