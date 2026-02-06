@@ -175,3 +175,116 @@ class OutputFormatter:
             JSON string
         """
         return json.dumps(results, indent=2)
+
+    @staticmethod
+    def format_pacing_report(pacing_result: Dict[str, Any], verbose: bool = False) -> str:
+        """
+        Format pacing analysis results as markdown report.
+
+        Default mode shows problems-only (sections with score < 75).
+        Verbose mode shows full section-by-section breakdown.
+
+        Args:
+            pacing_result: Pacing checker output dict with 'stats', 'issues', 'all_sections', 'advisories'
+            verbose: If True, show full metrics table for all sections
+
+        Returns:
+            Markdown-formatted pacing report
+        """
+        stats = pacing_result.get('stats', {})
+        verdict = stats.get('verdict', 'UNKNOWN')
+        avg_score = stats.get('average_score', 0)
+        energy_arc = stats.get('energy_arc', '')
+        flat_zones = stats.get('flat_zones', [])
+        flagged_count = stats.get('flagged_sections', 0)
+        total_count = stats.get('total_sections', 0)
+
+        lines = ["# Pacing Analysis", ""]
+
+        # Handle SKIPPED verdict
+        if verdict == 'SKIPPED':
+            lines.append(f"**Verdict: {verdict}** — single-section script (no multi-section structure to analyze)")
+            lines.append("")
+            return "\n".join(lines)
+
+        # Verdict and energy arc (always shown)
+        lines.append(f"**Verdict: {verdict}** (avg score: {avg_score:.0f}/100)")
+        if energy_arc:
+            lines.append(f"**Energy arc:** {energy_arc}")
+        lines.append("")
+
+        # Short form for PASS with no verbose flag
+        if verdict == 'PASS' and not verbose:
+            lines.append("No sections flagged.")
+            lines.append("")
+            lines.append("---")
+            lines.append(f"*{flagged_count} of {total_count} sections flagged | Threshold: score < 75*")
+            lines.append("")
+            return "\n".join(lines)
+
+        # Verbose mode: show full metrics table
+        if verbose:
+            all_sections = pacing_result.get('all_sections', [])
+            if all_sections:
+                lines.append("## All Sections")
+                lines.append("")
+                lines.append("| Section | Score | Variance | Flesch | Flesch Delta | Entity Density |")
+                lines.append("|---------|-------|----------|--------|--------------|----------------|")
+
+                for section in all_sections:
+                    name = section.get('section', 'Unknown')
+                    score = section.get('score', 0)
+                    variance = section.get('variance', 0)
+                    flesch = section.get('flesch', 0)
+                    flesch_delta = section.get('flesch_delta', 0)
+                    entity_density = section.get('entity_density', 0)
+
+                    # Format flesch_delta (em-dash for first section)
+                    if flesch_delta == 0 and section == all_sections[0]:
+                        delta_str = '—'
+                    else:
+                        delta_str = f"{flesch_delta:.1f}"
+
+                    lines.append(f"| {name} | {score:.0f} | {variance:.1f} | {flesch:.1f} | {delta_str} | {entity_density:.2f} |")
+
+                lines.append("")
+
+        # Flagged sections (problems-only)
+        issues = pacing_result.get('issues', [])
+        if issues:
+            lines.append("## Flagged Sections")
+            lines.append("")
+
+            for issue in issues:
+                section_name = issue.get('section', 'Unknown')
+                score = issue.get('score', 0)
+                reasons = issue.get('reasons', [])
+
+                lines.append(f"### Section: \"{section_name}\" (score: {score:.0f}/100)")
+
+                for reason in reasons:
+                    lines.append(f"- {reason}")
+
+                lines.append("")
+
+        # Energy notes (flat zones)
+        if flat_zones:
+            lines.append("## Energy Notes")
+            for zone in flat_zones:
+                lines.append(f"- {zone}")
+            lines.append("")
+
+        # Advisories (hooks, B-roll variety)
+        advisories = pacing_result.get('advisories', [])
+        if advisories:
+            lines.append("## Advisories")
+            for advisory in advisories:
+                lines.append(f"- {advisory}")
+            lines.append("")
+
+        # Footer
+        lines.append("---")
+        lines.append(f"*{flagged_count} of {total_count} sections flagged | Threshold: score < 75*")
+        lines.append("")
+
+        return "\n".join(lines)

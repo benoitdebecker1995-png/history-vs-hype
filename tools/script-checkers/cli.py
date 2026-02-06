@@ -12,9 +12,11 @@ Usage:
         --scaffolding      Run scaffolding checker only
         --repetition       Run repetition checker only
         --flow             Run flow checker only
+        --pacing           Run pacing analysis (sentence variance, readability, entity density)
         --all              Run all available checkers (default)
         --json             Output JSON instead of Markdown
         --no-annotate      Summary only, no annotated script
+        --verbose          Show full section-by-section breakdown (used with --pacing)
 
         --voice            Apply learned voice patterns to script
         --show-voice-changes   Show what voice modifications were made
@@ -24,6 +26,7 @@ Usage:
     Examples:
         python cli.py script.md
         python cli.py script.md --flow --repetition
+        python cli.py script.md --pacing --verbose
         python cli.py script.md --all --json
         python cli.py script.md --scaffolding --no-annotate
         python cli.py script.md --voice --show-voice-changes
@@ -135,6 +138,19 @@ def run_checkers(text: str, config: Config, checker_flags: Dict[str, bool]) -> D
         checker = ScaffoldingChecker(config)
         results['scaffolding'] = checker.check(text)
 
+    # SCRIPT-05: Pacing Analysis (section-level complexity and rhythm)
+    if checker_flags.get('pacing', False):
+        try:
+            from checkers.pacing import PacingChecker
+            checker = PacingChecker(config)
+            results['pacing'] = checker.check(text)
+        except RuntimeError as e:
+            print(f"ERROR: {e}", file=sys.stderr)
+            sys.exit(3)
+        except ImportError as e:
+            print(f"WARNING: Pacing checker unavailable: {e}", file=sys.stderr)
+            print("Install with: pip install textstat", file=sys.stderr)
+
     return results
 
 
@@ -192,6 +208,15 @@ def determine_exit_code(results: Dict[str, Any]) -> int:
     has_errors = False
 
     for checker_name, data in results.items():
+        # Check pacing verdict (PASS/NEEDS WORK/FAIL)
+        if checker_name == 'pacing':
+            pacing_verdict = data.get('stats', {}).get('verdict', '')
+            if pacing_verdict == 'FAIL':
+                has_errors = True
+            elif pacing_verdict == 'NEEDS WORK':
+                has_warnings = True
+            continue
+
         severity = data.get('stats', {}).get('severity', 'ok')
 
         if severity == 'error':
@@ -227,6 +252,8 @@ Examples:
   python cli.py script.md --repetition       # Only repetition detection
   python cli.py script.md --stumble          # Only stumble test
   python cli.py script.md --scaffolding      # Only scaffolding counter
+  python cli.py script.md --pacing           # Only pacing analysis
+  python cli.py script.md --pacing --verbose # Pacing with full section breakdown
   python cli.py script.md --json             # JSON output
   python cli.py script.md --no-annotate      # Summary only
 
@@ -242,9 +269,11 @@ Exit codes:
     parser.add_argument('--repetition', action='store_true', help='Run repetition checker only')
     parser.add_argument('--stumble', action='store_true', help='Run stumble checker only')
     parser.add_argument('--scaffolding', action='store_true', help='Run scaffolding checker only')
+    parser.add_argument('--pacing', action='store_true', help='Run pacing analysis (sentence variance, readability, entity density)')
     parser.add_argument('--all', action='store_true', help='Run all checkers (default)')
     parser.add_argument('--json', action='store_true', help='Output JSON instead of Markdown')
     parser.add_argument('--no-annotate', action='store_true', help='Summary only, no annotated script')
+    parser.add_argument('--verbose', action='store_true', help='Show full section-by-section breakdown (used with --pacing)')
 
     # Voice pattern flags
     parser.add_argument('--voice', action='store_true', help='Apply learned voice patterns to script')
@@ -309,13 +338,14 @@ Exit codes:
     # Determine which checkers to run
     checker_flags = {}
 
-    if args.all or not (args.flow or args.repetition or args.stumble or args.scaffolding):
+    if args.all or not (args.flow or args.repetition or args.stumble or args.scaffolding or args.pacing):
         # Default: run all checkers
         checker_flags = {
             'flow': True,
             'repetition': True,
             'stumble': True,
-            'scaffolding': True
+            'scaffolding': True,
+            'pacing': True
         }
     else:
         # Run selected checkers
@@ -327,6 +357,8 @@ Exit codes:
             checker_flags['stumble'] = True
         if args.scaffolding:
             checker_flags['scaffolding'] = True
+        if args.pacing:
+            checker_flags['pacing'] = True
 
     # Read script file
     try:
@@ -368,8 +400,25 @@ Exit codes:
     if args.json:
         output = OutputFormatter.format_json(results)
     else:
-        include_annotated = not args.no_annotate
-        output = OutputFormatter.format_full_report(script, results, include_annotated)
+        # Check if only pacing was run (special formatting)
+        if 'pacing' in results and len(results) == 1:
+            # Pacing-only output
+            output = OutputFormatter.format_pacing_report(
+                results['pacing'],
+                verbose=getattr(args, 'verbose', False)
+            )
+        else:
+            # Standard multi-checker report
+            include_annotated = not args.no_annotate
+            output = OutputFormatter.format_full_report(script, results, include_annotated)
+
+            # Append pacing report if pacing was run alongside other checkers
+            if 'pacing' in results:
+                pacing_output = OutputFormatter.format_pacing_report(
+                    results['pacing'],
+                    verbose=getattr(args, 'verbose', False)
+                )
+                output = output + "\n\n" + pacing_output
 
     # Prepend voice changes if requested
     if args.show_voice_changes and voice_changes:
