@@ -49,11 +49,13 @@ from .stumble import StumbleChecker
 from .scaffolding import ScaffoldingChecker
 from .repetition import RepetitionChecker
 from .flow import FlowChecker
+from .pacing import PacingChecker
 
 __all__ = [
     'BaseChecker',
     'StumbleChecker',
     'ScaffoldingChecker',
     'RepetitionChecker',
-    'FlowChecker'
+    'FlowChecker',
+    'PacingChecker'
 ]
