@@ -1421,6 +1421,89 @@ class KeywordDB:
             # If connection issue, this is fine (will be handled on init)
             pass
 
+    def get_schema_version(self) -> int:
+        """
+        Get current schema version from SQLite user_version pragma.
+
+        Returns:
+            Schema version integer (0 if never set)
+
+        Example:
+            version = db.get_schema_version()
+            if version < 27:
+                print("Migration needed")
+        """
+        try:
+            cursor = self._conn.cursor()
+            cursor.execute("PRAGMA user_version")
+            row = cursor.fetchone()
+            return row[0] if row else 0
+        except sqlite3.Error:
+            return 0
+
+    def set_schema_version(self, version: int):
+        """
+        Set schema version in SQLite user_version pragma.
+
+        Args:
+            version: Schema version to set
+
+        Example:
+            db.set_schema_version(27)
+        """
+        try:
+            cursor = self._conn.cursor()
+            cursor.execute(f"PRAGMA user_version = {version}")
+            self._conn.commit()
+        except sqlite3.Error:
+            pass
+
+    def _backup_database(self) -> Optional[str]:
+        """
+        Create timestamped backup of database before migration.
+
+        Backup location: tools/discovery/backups/
+        Backup format: keywords_pre_v27_{YYYYMMDD_HHMMSS}.db
+
+        Returns:
+            Backup file path on success, None on failure
+
+        Example:
+            backup_path = db._backup_database()
+            if backup_path:
+                print(f"Backed up to: {backup_path}")
+        """
+        try:
+            import shutil
+            from pathlib import Path
+
+            # Create backup directory
+            backup_dir = Path(__file__).parent / 'backups'
+            backup_dir.mkdir(exist_ok=True)
+
+            # Generate timestamped filename
+            timestamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S')
+            backup_filename = f'keywords_pre_v27_{timestamp}.db'
+            backup_path = backup_dir / backup_filename
+
+            # Close connection, copy, reopen
+            self._conn.close()
+            self._conn = None
+
+            shutil.copy2(self.db_path, backup_path)
+
+            # Reopen connection
+            self._ensure_connection()
+
+            print(f"[Phase 27] Database backed up to: {backup_path}")
+            return str(backup_path)
+
+        except Exception:
+            # Reopen connection if it was closed
+            if self._conn is None:
+                self._ensure_connection()
+            return None
+
     def add_video_performance(
         self,
         video_id: str,
