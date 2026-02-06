@@ -367,7 +367,11 @@ Plans:
 **Goal**: User can detect script complexity issues before filming
 **Dependencies**: Phase 27 (database ready for pacing metrics)
 **Requirements**: PACE-01, PACE-02, PACE-03, PACE-04, PACE-05, PACE-06
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 28-01-PLAN.md — PacingChecker engine (TDD: metrics, scoring, sparkline, flat zones, hook advisory)
+- [ ] 28-02-PLAN.md — CLI integration (--pacing flag, config thresholds, output formatting)
 
 **Success Criteria:**
 1. User can see sentence length variance per section with threshold warnings
@@ -461,7 +465,7 @@ Plans:
 | 25. Metadata Draft Generation | v1.5 | 1/1 | Complete | 2026-02-04 |
 | 26. Package Command & Integration | v1.5 | 1/1 | Complete | 2026-02-05 |
 | 27. Database Foundation | v1.6 | 1/1 | Complete | 2026-02-06 |
-| **28. Pacing Analysis** | **v1.6** | **0/0** | **Pending** | **-** |
+| **28. Pacing Analysis** | **v1.6** | **0/2** | **Planned** | **-** |
 | **29. Thumbnail & Title Tracking** | **v1.6** | **0/0** | **Pending** | **-** |
 | **30. CTR Analysis & Benchmarks** | **v1.6** | **0/0** | **Pending** | **-** |
 | **31. Feedback Loop Integration** | **v1.6** | **0/0** | **Pending** | **-** |
