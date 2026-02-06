@@ -18,12 +18,12 @@ Requirements for Click & Keep milestone. Each maps to roadmap phases.
 
 ### Script Pacing Analysis
 
-- [ ] **PACE-01**: User can check sentence length variance per section and get flagged when variance exceeds threshold
-- [ ] **PACE-02**: User can detect readability delta between sections (Flesch Reading Ease drop >20 points flagged)
-- [ ] **PACE-03**: User can detect entity density hotspots (sections with >25% proper nouns flagged as "wall of nouns")
-- [ ] **PACE-04**: System generates complexity score per section (0-100) combining variance, readability, and entity density
-- [ ] **PACE-05**: System flags gaps >150 words without modern relevance hook or pattern interrupt
-- [ ] **PACE-06**: User can see energy arc visualization showing pacing rhythm across full script
+- [x] **PACE-01**: User can check sentence length variance per section and get flagged when variance exceeds threshold
+- [x] **PACE-02**: User can detect readability delta between sections (Flesch Reading Ease drop >20 points flagged)
+- [x] **PACE-03**: User can detect entity density hotspots (sections with >25% proper nouns flagged as "wall of nouns")
+- [x] **PACE-04**: System generates complexity score per section (0-100) combining variance, readability, and entity density
+- [x] **PACE-05**: System flags gaps >150 words without modern relevance hook or pattern interrupt
+- [x] **PACE-06**: User can see energy arc visualization showing pacing rhythm across full script
 
 ### Feedback Loop Integration
 
@@ -83,12 +83,12 @@ Which phases cover which requirements.
 | AB-04 | Phase 29 | Pending |
 | AB-05 | Phase 30 | Pending |
 | AB-06 | Phase 30 | Pending |
-| PACE-01 | Phase 28 | Pending |
-| PACE-02 | Phase 28 | Pending |
-| PACE-03 | Phase 28 | Pending |
-| PACE-04 | Phase 28 | Pending |
-| PACE-05 | Phase 28 | Pending |
-| PACE-06 | Phase 28 | Pending |
+| PACE-01 | Phase 28 | Complete |
+| PACE-02 | Phase 28 | Complete |
+| PACE-03 | Phase 28 | Complete |
+| PACE-04 | Phase 28 | Complete |
+| PACE-05 | Phase 28 | Complete |
+| PACE-06 | Phase 28 | Complete |
 | FEED-01 | Phase 31 | Pending |
 | FEED-02 | Phase 31 | Pending |
 | FEED-03 | Phase 31 | Pending |
@@ -105,4 +105,4 @@ Which phases cover which requirements.
 
 ---
 *Requirements defined: 2026-02-06*
-*Last updated: 2026-02-06 after roadmap creation*
+*Last updated: 2026-02-06 after Phase 28 completion*
