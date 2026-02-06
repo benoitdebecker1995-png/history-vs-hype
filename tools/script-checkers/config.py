@@ -59,6 +59,15 @@ class Config:
         "in fact", "indeed", "thus", "hence", "thereby", "which meant that"
     ])
 
+    # SCRIPT-05: Pacing Analysis
+    pacing_variance_threshold: float = 15.0    # Sentence length stdev flagged above this
+    pacing_flesch_delta_threshold: float = 20.0 # Flesch Reading Ease drop flagged above this
+    pacing_entity_density_threshold: float = 0.4 # Proper noun ratio flagged above this
+    pacing_pass_threshold: float = 75.0         # Average section score >= this = PASS
+    pacing_fail_threshold: float = 50.0         # Average section score < this = FAIL
+    pacing_flat_zone_window: int = 3            # Consecutive similar sections to flag
+    pacing_flat_zone_tolerance: float = 10.0    # Score difference within this = "similar"
+
 
 def calculate_threshold(word_count: int, base_rate: float, min_val: int = 1) -> int:
     """
