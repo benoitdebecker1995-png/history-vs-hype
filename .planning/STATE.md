@@ -234,6 +234,17 @@ v1.5 [####################] 100% — Production Acceleration (COMPLETE)
 - Tag generation: entity names (primary) + section keywords (secondary)
 - Chapter generation from SectionTiming cumulative times
 
+**Phase 26-01 Decisions:**
+- **Single parse pass:** Sections/entities computed once before mode handlers, reused by all generators
+- **Package mode writes files:** Files written to project folder (not stdout) for convenience
+- **Teleprompter preserves pacing:** Paragraph breaks maintained (3+ newlines → 2 newlines)
+- **Comprehensive marker stripping:** All bracketed markers, markdown formatting, code blocks removed
+
+**Phase 26-01 Patterns Established:**
+- strip_for_teleprompter(): Module-level utility for clean text export
+- Package summary format: File list, runtime estimate, next steps
+- Single entry point for all production outputs (`--package` flag)
+
 ---
 
-*State updated: 2026-02-05 after Phase 25-01 complete*
+*State updated: 2026-02-05 after Phase 26-01 complete (v1.5 shipped)*

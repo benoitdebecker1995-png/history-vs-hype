@@ -9,7 +9,7 @@ Requirements for Production Acceleration milestone. Each maps to roadmap phases.
 
 ### Teleprompter
 
-- [ ] **TELE-01**: User can export script to clean teleprompter text (no markdown, read-aloud format)
+- [x] **TELE-01**: User can export script to clean teleprompter text (no markdown, read-aloud format)
 
 *Note: Verify existing `/script --teleprompter` functionality — may just need documentation.*
 
@@ -28,14 +28,14 @@ Requirements for Production Acceleration milestone. Each maps to roadmap phases.
 
 ### Metadata Draft
 
-- [ ] **META-01**: System extracts title candidates from script (opening hook, key claims)
-- [ ] **META-02**: System generates description template with section timestamps
-- [ ] **META-03**: System suggests tags based on script content and existing patterns
+- [x] **META-01**: System extracts title candidates from script (opening hook, key claims)
+- [x] **META-02**: System generates description template with section timestamps
+- [x] **META-03**: System suggests tags based on script content and existing patterns
 
 ### Package Command
 
-- [ ] **PKG-01**: User can run single `/prep --package` command to generate all outputs
-- [ ] **PKG-02**: Package outputs saved to project folder (B-ROLL-CHECKLIST.md, EDIT-GUIDE.md, METADATA-DRAFT.md)
+- [x] **PKG-01**: User can run single `/prep --package` command to generate all outputs
+- [x] **PKG-02**: Package outputs saved to project folder (B-ROLL-CHECKLIST.md, EDIT-GUIDE.md, METADATA-DRAFT.md)
 
 ## Future Requirements
 
@@ -68,7 +68,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TELE-01 | Phase 26 | Pending |
+| TELE-01 | Phase 26 | Complete |
 | BROLL-01 | Phase 23 | Complete |
 | BROLL-02 | Phase 22 | Complete |
 | BROLL-03 | Phase 23 | Complete |
@@ -76,11 +76,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | EDIT-01 | Phase 24 | Complete |
 | EDIT-02 | Phase 24 | Complete |
 | EDIT-03 | Phase 24 | Complete |
-| META-01 | Phase 25 | Pending |
-| META-02 | Phase 25 | Pending |
-| META-03 | Phase 25 | Pending |
-| PKG-01 | Phase 26 | Pending |
-| PKG-02 | Phase 26 | Pending |
+| META-01 | Phase 25 | Complete |
+| META-02 | Phase 25 | Complete |
+| META-03 | Phase 25 | Complete |
+| PKG-01 | Phase 26 | Complete |
+| PKG-02 | Phase 26 | Complete |
 
 **Coverage:**
 - v1.5 requirements: 13 total
@@ -89,4 +89,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-03*
-*Traceability updated: 2026-02-04 after Phase 24 completion*
+*Traceability updated: 2026-02-05 after Phase 26 completion (v1.5 complete)*

@@ -7,7 +7,7 @@
 - **v1.2 Script Quality & Discovery** - Phases 11-14 (shipped 2026-01-30)
 - **v1.3 Niche Discovery** - Phases 15-18 (shipped 2026-02-02)
 - **v1.4 Learning Loop** - Phases 19-21 (shipped 2026-02-02)
-- **v1.5 Production Acceleration** - Phases 22-26 (in progress)
+- **v1.5 Production Acceleration** - Phases 22-26 (shipped 2026-02-05)
 
 ## Phases
 
@@ -263,8 +263,8 @@ Plans:
 
 </details>
 
-<details open>
-<summary>v1.5 Production Acceleration (Phases 22-26) - IN PROGRESS</summary>
+<details>
+<summary>v1.5 Production Acceleration (Phases 22-26) - SHIPPED 2026-02-05</summary>
 
 ### Phase 22: Script Parser & Entity Detection
 **Goal**: Foundation for extracting structure and entities from scripts
@@ -340,7 +340,7 @@ Plans:
 5. All outputs use consistent entity detection from single parse pass
 
 Plans:
-- [ ] 26-01-PLAN.md — Package orchestrator + teleprompter export + file writer
+- [x] 26-01-PLAN.md — Package orchestrator + teleprompter export + file writer
 
 </details>
 
@@ -374,4 +374,4 @@ Plans:
 | **23. B-Roll Generation** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
 | **24. Edit Guide Generation** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
 | **25. Metadata Draft Generation** | **v1.5** | **1/1** | **Complete** | **2026-02-04** |
-| **26. Package Command & Integration** | **v1.5** | **0/1** | **Pending** | - |
+| **26. Package Command & Integration** | **v1.5** | **1/1** | **Complete** | **2026-02-05** |
