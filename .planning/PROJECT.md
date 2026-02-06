@@ -8,54 +8,42 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current Milestone: v1.5 Production Acceleration
+## Current Milestone: v1.6 Click & Keep
 
-**Goal:** Single command generates complete "filming package" from a finished script, reducing pre-filming prep time.
+**Goal:** Systematically improve click-through rate and retention by tracking what works across thumbnails, titles, and script structure — so each video is better than the last.
 
 **Target features:**
-- Script → Teleprompter export (verify existing `/script --teleprompter` works)
-- Script → B-roll shot list with auto-suggested sources (Wikimedia, archive.org, maps)
-- Script → Edit guide with section timing and B-roll cue markers
-- Script → Metadata draft (title options, description template, tags)
-- Unified `/prep --package` command that generates all outputs in one shot
+- Thumbnail/title A/B tracking with pattern analysis (which visual styles and title formulas drive CTR)
+- Script structure analysis (catch pacing issues and energy dips before filming)
+- Tighter feedback loop from `/analyze` back into creation tools
+- Model assignment refresh for current Claude 4.5/4.6 lineup
 
-## Previous State: v1.4 Shipped
+## Previous State: v1.5 Shipped
 
-**Last milestone:** v1.4 Learning Loop (shipped 2026-02-02)
+**Last milestone:** v1.5 Production Acceleration (shipped 2026-02-05)
 
-The workspace now includes a complete topic recommendation system:
+Single-command production package from finished scripts:
 
-- **Performance Analysis:** Subscriber conversion per video, topic/angle correlations
-- **Pattern Extraction:** Winning patterns, channel strengths (0-100 scores)
-- **Recommendation Engine:** `/next` command with pattern-weighted scoring
-- **Integration:** Uses v1.3 opportunity scoring and production constraints
-
-**Entry points:**
-- `/next` — get ranked topic recommendations based on winning patterns
-- `/discover TOPIC` — full niche discovery pipeline with opportunity scoring
-- `python tools/youtube-analytics/performance.py --patterns` — extract winning patterns
-
-## Previous State (v1.2 Shipped)
-
-**Shipped:** 2026-01-30
-
-The workspace includes script quality tools and discovery optimization:
-
-- **Script Quality:** 4 automated checkers (repetition, flow, stumble, scaffolding) + voice fingerprinting
-- **Discovery:** Keyword research, intent classification, pre-publish metadata validation
-- **Token Optimization:** Model assignments for cost-effective AI usage
-- **NotebookLM:** 17 prompt templates, session logging, citation extraction
-- **Commands:** 13 commands total
+- **Script Parser:** Entity extraction (treaties, places, people, documents)
+- **B-Roll Generation:** Shot lists with source URLs (Wikimedia, archive.org, maps)
+- **Edit Guide:** Section timing at 150 WPM with B-roll cue markers
+- **Metadata Draft:** 3 title variants, description template, tags
+- **Package Command:** `--package` generates all outputs in one command
 
 **Entry points:**
-- `/status` — project state and next action
-- `/help` — phase-organized command list
-- `/research --new` — start new video project
-- `/analyze VIDEO_ID` — post-publish video analysis
-- `/discover TOPIC` — keyword research and metadata validation
-- `python tools/script-checkers/cli.py script.md --all` — script quality check
+- `python tools/production/parser.py script.md --package` — generate all production outputs
+- `python tools/production/parser.py script.md --teleprompter` — clean text for filming
 
 ## Requirements
+
+### Validated (v1.5)
+
+- Script parsing with entity extraction (treaties, places, people, documents) — v1.5
+- B-roll shot list generation with source URLs — v1.5
+- Edit guide with section timing and B-roll cue markers — v1.5
+- Metadata draft with 3 title variants, description, tags — v1.5
+- Teleprompter export (clean text, no markdown) — v1.5
+- Single `--package` command for all production outputs — v1.5
 
 ### Validated (v1.4)
 
@@ -185,4 +173,4 @@ The workspace includes script quality tools and discovery optimization:
 
 ---
 
-*Last updated: 2026-02-03 after v1.5 milestone started*
+*Last updated: 2026-02-06 after v1.6 milestone started*

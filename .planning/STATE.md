@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-05 (Phase 26-01 complete - v1.5 milestone shipped)
+**Last Updated:** 2026-02-06 (Milestone v1.6 Click & Keep started)
 
 ## Project Reference
 
-See: `.planning/PROJECT.md` (updated 2026-02-03)
+See: `.planning/PROJECT.md` (updated 2026-02-06)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v1.5 Production Acceleration — COMPLETE
+**Current focus:** v1.6 Click & Keep — Defining requirements
 
 ## Current Position
 
-**Milestone:** v1.5 Production Acceleration
-**Phase:** 26 - Package Command
-**Plan:** 01 complete
-**Status:** v1.5 COMPLETE
-**Last activity:** 2026-02-05 — Completed 26-01-PLAN.md (Package Command)
+**Milestone:** v1.6 Click & Keep
+**Phase:** Not started (defining requirements)
+**Plan:** —
+**Status:** Defining requirements
+**Last activity:** 2026-02-06 — Milestone v1.6 started
 
 **Progress:**
 ```
@@ -25,12 +25,8 @@ v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
 v1.4 [####################] 100% — Learning Loop (archived)
-v1.5 [####################] 100% — Production Acceleration (COMPLETE)
-     Phase 22: Script Parser [####] 100%
-     Phase 23: B-Roll Gen    [####] 100%
-     Phase 24: Edit Guide    [####] 100%
-     Phase 25: Metadata      [####] 100%
-     Phase 26: Package Cmd   [####] 100%
+v1.5 [####################] 100% — Production Acceleration (archived)
+v1.6 [                    ]   0% — Click & Keep
 ```
 
 ## Milestone History
@@ -43,6 +39,7 @@ v1.5 [####################] 100% — Production Acceleration (COMPLETE)
 | v1.3 | Niche Discovery | 15-18 | 2026-02-02 |
 | v1.4 | Learning Loop | 19-21 | 2026-02-02 |
 | v1.5 | Production Acceleration | 22-26 | 2026-02-05 |
+| v1.6 | Click & Keep | TBD | — |
 
 **Full history:** `.planning/MILESTONES.md`
 **Archives:** `.planning/milestones/`
@@ -89,36 +86,14 @@ v1.5 [####################] 100% — Production Acceleration (COMPLETE)
 
 ### Last Session
 
-- **Date:** 2026-02-05
-- **Work:** Completed Phase 26-01 Package Command (v1.5 milestone complete)
-- **Output:**
-  - Single-command production package: `--package` flag generates all 4 outputs
-  - Teleprompter export: `--teleprompter` flag strips all markdown/markers for clean filming text
-  - Single parse pass for efficiency (sections/entities computed once, reused by all generators)
-  - Package outputs: B-ROLL-CHECKLIST.md, EDIT-GUIDE.md, METADATA-DRAFT.md, SCRIPT-TELEPROMPTER.txt
-  - Summary with file list, runtime estimate, and next steps
-  - Integration tested: Chagos script (all 4 files generated in 1 command)
+- **Date:** 2026-02-06
+- **Work:** Started milestone v1.6 Click & Keep
+- **Goals:** CTR optimization, script pacing analysis, tighter feedback loop, model refresh
 
 ### Next Session
 
-**Current work:** v1.5 milestone complete - ready to plan v1.6
-
-**v1.5 Production Acceleration achievements:**
-- Phase 22: Script parser with entity extraction
-- Phase 23: B-roll checklist generation with search URLs
-- Phase 24: Edit guide with shot-by-shot timing
-- Phase 25: Metadata draft with 3 title variants
-- Phase 26: Package command combining all tools
-
-**Time savings per video:** ~2-3 hours manual work → 30 seconds automated
-
-**Possible v1.6 directions:**
-- Automated asset download (fetch B-roll from search URLs)
-- Thumbnail generation (text overlay on images)
-- Advanced metadata optimization (SEO analysis)
-- User will choose direction based on priorities
-
-**Next action:** Await user direction for v1.6 planning
+**Current work:** v1.6 Click & Keep — defining requirements and roadmap
+**Next action:** Research → Requirements → Roadmap
 
 ## Accumulated Context
 
@@ -247,4 +222,4 @@ v1.5 [####################] 100% — Production Acceleration (COMPLETE)
 
 ---
 
-*State updated: 2026-02-05 after Phase 26-01 complete (v1.5 shipped)*
+*State updated: 2026-02-06 after milestone v1.6 Click & Keep started*
