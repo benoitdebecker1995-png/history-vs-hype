@@ -351,14 +351,17 @@ Plans:
 **Goal**: Schema extensions enable CTR tracking and feedback storage
 **Dependencies**: None (extends existing keywords.db)
 **Requirements**: AB-01 (partial - storage), AB-02 (storage), AB-03 (storage), AB-04 (storage), FEED-01 (partial - storage)
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [x] 27-01-PLAN.md — Schema migration: variant tables, CTR snapshots, feedback storage
 
 **Success Criteria:**
-1. User can store thumbnail variants with file paths and visual pattern tags
-2. User can store title variants with formula tags and timestamps
-3. System can track CTR snapshots at multiple intervals per variant
-4. User can store feedback data from POST-PUBLISH-ANALYSIS files in database
-5. Database migration completes with zero breaking changes to existing tools
+1. ~~User can store thumbnail variants with file paths and visual pattern tags~~ ✓
+2. ~~User can store title variants with formula tags and timestamps~~ ✓
+3. ~~System can track CTR snapshots at multiple intervals per variant~~ ✓
+4. ~~User can store feedback data from POST-PUBLISH-ANALYSIS files in database~~ ✓
+5. ~~Database migration completes with zero breaking changes to existing tools~~ ✓
 
 ### Phase 28: Pacing Analysis
 **Goal**: User can detect script complexity issues before filming
@@ -457,7 +460,7 @@ Plans:
 | 24. Edit Guide Generation | v1.5 | 1/1 | Complete | 2026-02-04 |
 | 25. Metadata Draft Generation | v1.5 | 1/1 | Complete | 2026-02-04 |
 | 26. Package Command & Integration | v1.5 | 1/1 | Complete | 2026-02-05 |
-| **27. Database Foundation** | **v1.6** | **0/0** | **Pending** | **-** |
+| 27. Database Foundation | v1.6 | 1/1 | Complete | 2026-02-06 |
 | **28. Pacing Analysis** | **v1.6** | **0/0** | **Pending** | **-** |
 | **29. Thumbnail & Title Tracking** | **v1.6** | **0/0** | **Pending** | **-** |
 | **30. CTR Analysis & Benchmarks** | **v1.6** | **0/0** | **Pending** | **-** |
