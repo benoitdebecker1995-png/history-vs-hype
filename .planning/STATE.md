@@ -13,10 +13,10 @@ See: `.planning/PROJECT.md` (updated 2026-02-06)
 ## Current Position
 
 **Milestone:** v1.6 Click & Keep
-**Phase:** Phase 27: Database Foundation (1/1 plans complete)
-**Plan:** 27-01 complete
-**Status:** Phase 27 complete, ready for Phase 28
-**Last activity:** 2026-02-06 — Completed 27-01-PLAN.md (database schema migration)
+**Phase:** Phase 28: Pacing Analysis (1/3 plans complete)
+**Plan:** 28-01 complete
+**Status:** In progress
+**Last activity:** 2026-02-06 — Completed 28-01-PLAN.md (PacingChecker engine with TDD)
 
 **Progress:**
 ```
@@ -26,7 +26,7 @@ v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
 v1.4 [####################] 100% — Learning Loop (archived)
 v1.5 [####################] 100% — Production Acceleration (archived)
-v1.6 [███                 ]  17% — Click & Keep (6 phases: 27-32)
+v1.6 [████                ]  20% — Click & Keep (6 phases: 27-32)
 ```
 
 ## Milestone History
@@ -87,13 +87,13 @@ v1.6 [███                 ]  17% — Click & Keep (6 phases: 27-32)
 ### Last Session
 
 - **Date:** 2026-02-06
-- **Work:** Completed Phase 27 Plan 01 (database schema migration)
-- **Output:** 4 new tables, 3 feedback columns, schema version 27, automatic migration with backup
+- **Work:** Completed Phase 28 Plan 01 (PacingChecker engine with TDD)
+- **Output:** PacingChecker class, 24 unit tests, sparkline/flat zone detection, hook advisories
 
 ### Next Session
 
-**Current work:** v1.6 Click & Keep — Phase 28: Pacing Analysis
-**Next action:** Plan Phase 28 (script pacing metrics and readability analysis)
+**Current work:** v1.6 Click & Keep — Phase 28: Pacing Analysis (Plan 02: Config Integration)
+**Next action:** Add pacing thresholds to config.py and verify checker can load them
 
 ## Accumulated Context
 
@@ -111,12 +111,20 @@ v1.6 [███                 ]  17% — Click & Keep (6 phases: 27-32)
 - Migration guard prevents duplicate migrations (idempotent)
 - Backup logic inline to avoid recursive connection reopening
 
-**Phase 28 Approach (Pacing Analysis):**
-- Extends existing script-checkers (tools/script-checkers/)
-- Integrates with cli.py following established checker pattern
-- Quantitative metrics: sentence variance per window, Flesch delta, entity density
-- Contextual warnings with root cause explanations (not just numbers)
-- Config thresholds: variance >15, Flesch delta >20, entity density >0.4
+**Phase 28 Decisions (Pacing Analysis - Plan 01 COMPLETE):**
+- TDD workflow: RED commit (tests) then GREEN commit (implementation) following proper TDD protocol
+- PacingChecker implements BaseChecker interface with check(text) -> dict
+- Lazy-loaded dependencies: spaCy for NLP, textstat for Flesch Reading Ease
+- B-roll marker stripping before all NLP analysis (reuses ScriptParser.MARKER_PATTERNS)
+- Composite scoring: Start at 100, deduct capped penalties (variance 30pts, delta 35pts, density 35pts)
+- Sparkline visualization: Inverts scores to complexity (low score = high complexity = tall bar)
+- Flat zone detection: 3+ consecutive sections within 10 points = energy plateau
+- Hook detection: Advisory-only (time keywords + B-roll markers), not included in composite score
+- Single-section scripts return SKIPPED verdict gracefully
+- Config thresholds accessed via getattr() with defaults for standalone testing
+- Module-level functions (generate_sparkline, detect_flat_zones) for independent testing
+- Verdict thresholds: PASS >= 75, NEEDS WORK 50-74, FAIL < 50, SKIPPED = 1 section
+- Python 3.14 limitation: spaCy 3.8 depends on Pydantic v1 (incompatible), works on Python 3.11-3.13
 
 **Phase 29 Design (Thumbnail & Title Tracking):**
 - Manual CTR entry UI (API doesn't provide CTR)
