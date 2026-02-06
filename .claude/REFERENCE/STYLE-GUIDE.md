@@ -510,6 +510,21 @@ Let documents deliver moral judgment. Avoid personal pronouncements.
 - [ ] **Page numbers included** where possible
 - [ ] **Documents shown, not just described**
 
+### Pre-Filming Polish (NEW - 2026-01)
+
+*Apply these before filming. Source: Iran Part 1 script-to-delivery analysis.*
+
+- [ ] **Academic attributions:** Lead with story, not citations (move "According to X" to evidence display)
+- [ ] **Rhetorical emphasis cut:** Remove "Do you see what this means?" phrases
+- [ ] **Setup questions cut:** Go direct to information (not "So what did they do? They...")
+- [ ] **Lists as prose:** Convert numbered lists to flowing sentences
+- [ ] **Pause markers removed:** Let delivery find natural rhythm
+- [ ] **Personal framing cut:** Remove "When I first read this..." statements
+- [ ] **Hedging words removed:** No "essentially," "basically," "kind of"
+- [ ] **Structure tightened:** Start with point, then explain (not setup → context → point)
+
+**Full reference:** `.claude/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md`
+
 ---
 
 ## Captured Preferences

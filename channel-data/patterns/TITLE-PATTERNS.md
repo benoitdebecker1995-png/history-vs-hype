@@ -1,7 +1,7 @@
 # Title & Thumbnail Pattern Analysis
 
-**Generated:** 2026-01-26 18:05 UTC
-**Videos analyzed:** 0
+**Generated:** 2026-02-03 13:50 UTC
+**Videos analyzed:** 5
 
 ## Key Insights
 
@@ -15,17 +15,23 @@
 
 ### By Attribute
 
-*Insufficient data for title attribute analysis - need 2+ videos per group*
+| Attribute | With | Without | CTR Delta | Retention Delta |
+|-----------|------|---------|-----------|-----------------|
+| Country name | N/A (n=2) | N/A (n=2) | N/A | -59.3% |
 
 ### By Title Pattern
 
-*Insufficient data for pattern analysis*
+| Pattern | Count | Avg Views | Avg CTR | Avg Retention | Example |
+|---------|-------|-----------|---------|---------------|---------|
+| [Topic]: [Subtitle] | 2 | 1,386 | N/A | 79.8% | Venezuela vs Guyana: The Oil War Over Es |
 
 ## Thumbnail Patterns
 
 ### By Type
 
-*Insufficient data for thumbnail type analysis*
+| Type | Count | Avg Views | Avg CTR | Avg Retention |
+|------|-------|-----------|---------|---------------|
+| unknown | 3 | 10,559 | N/A | 41.5% |
 
 ### By Attribute
 
@@ -57,7 +63,7 @@ High CTR (>4.0%)
     |  Fix Both      | Optimize CTR
     |  (Both low)    | (Retention ok, CTR low)
     |
-                        High Retention (>30%)
+                        High Retention (>62%)
 ```
 
 Videos in each quadrant:
@@ -68,5 +74,5 @@ Videos in each quadrant:
 - **Fix Both:** None
 
 ---
-*Analysis based on 0 videos. Patterns with fewer than 2 videos are excluded.*
+*Analysis based on 5 videos. Patterns with fewer than 2 videos are excluded.*
 *CTR data may be incomplete (API limitations) - use YouTube Studio for definitive numbers.*

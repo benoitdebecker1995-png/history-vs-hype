@@ -1,8 +1,8 @@
 # Project Status: Iran - 200 Years of Fighting for Sovereignty
 
 **Created:** 2026-01-11
-**Updated:** 2026-01-15
-**Current Phase:** Phase 3 - READY FOR FILMING
+**Updated:** 2026-02-04
+**Current Phase:** Phase 4 - POST-PRODUCTION (Part 2 edited)
 **Target Audience:** Iranian diaspora in US + history audience
 
 ---
@@ -152,11 +152,21 @@ Iran has been trapped in a 120-year cycle: constitutional demands vs. authoritar
 ### Scripts Ready
 | Script | Runtime | Coverage | Status |
 |--------|---------|----------|--------|
-| Part 1 | ~25-29 min | 1906-1953 (Constitutional Revolution → CIA Coup) | ✅ APPROVED |
-| Part 2 | ~20 min | 1979-2025 (Revolution → Current Protests) | ✅ APPROVED |
+| Part 1 | ~25-29 min | 1906-1953 (Constitutional Revolution → CIA Coup) | ✅ FILMED |
+| Part 2 | ~20-22 min | 1979-2025 (Revolution → Current Protests) | ✅ UPGRADED (V4 FINAL) |
+
+### Part 2 Script Upgrade (2026-01-26)
+- V3 analyzed by structure-checker: Grade B-, 32% predicted retention
+- V4 complete rewrite with "deleted draft" mystery hook
+- V4 verified by structure-checker: Grade A-, 52-56% predicted retention
+- FINAL polish applied: 5 additional retention improvements
+- Teleprompter export created
 
 ### Pending
-- [ ] Generate YouTube metadata
+- [x] Part 2: YouTube metadata - ✅ Complete (YOUTUBE-METADATA-PART2.md)
+- [x] Part 2: Subtitles corrected - ✅ Complete (iran part2.srt)
+- [ ] Part 2: Publish
+- [ ] Part 2: Thumbnail concepts (A/B testing options in metadata)
 
 ---
 
@@ -269,11 +279,21 @@ Iran has been trapped in a 120-year cycle: constitutional demands vs. authoritar
 | 01-VERIFIED-RESEARCH.md | Verified claims (93 total) | ✅ Complete |
 | NOTEBOOKLM-SOURCE-LIST-COMPREHENSIVE.md | Books to buy/download | ✅ Created |
 | NOTEBOOKLM-VERIFICATION-PROMPTS.md | Research prompts | ✅ Created |
-| 02-SCRIPT-DRAFT-V2.md | Full 49-min script (reference) | ✅ Complete |
-| 02-SCRIPT-PART1-1906-1953.md | Part 1 script (25-29 min) | ✅ APPROVED |
-| 02-SCRIPT-PART2-1979-2025.md | Part 2 script (20 min) | ✅ APPROVED |
+| **PART 1 FILES** | | |
+| 02-SCRIPT-PART1-1906-1953.md | Part 1 script (25-29 min) | ✅ FILMED |
 | 03-FACT-CHECK-PART1.md | Part 1 verification report | ✅ Complete |
+| YOUTUBE-METADATA.md | Part 1 metadata | ✅ Complete |
+| EDITING-GUIDE.md | Part 1 editing guide | ✅ Complete |
+| iran part 1.srt | Part 1 subtitles | ✅ Complete |
+| **PART 2 FILES** | | |
+| SCRIPT-PART2-FINAL.md | Part 2 final script (20-22 min) | ✅ READY TO FILM |
+| SCRIPT-PART2-TELEPROMPTER.txt | Part 2 teleprompter export | ✅ Created 2026-01-26 |
+| SCRIPT-PART2-V4.md | V4 with structure-checker analysis | ✅ Archive |
 | 03-FACT-CHECK-PART2.md | Part 2 verification report | ✅ Complete |
+| GSD-PART2-IMPROVEMENT-PHASE.md | Part 2 improvement tracker | ✅ Created |
+| **REFERENCE/ARCHIVE** | | |
+| 02-SCRIPT-DRAFT-V2.md | Full 49-min script (reference) | Archive |
+| 02-SCRIPT-PART2-1979-2025.md | Original Part 2 script | Archive |
 
 ---
 
@@ -293,3 +313,81 @@ Iran has been trapped in a 120-year cycle: constitutional demands vs. authoritar
 ---
 
 *This video explains HOW Iran's system works, not just WHAT happened. That's what competitors miss.*
+
+---
+
+## Script-to-Delivery Lessons (Part 2)
+
+**Analysis Date:** 2026-02-04
+**Final Runtime:** 13:42 (vs script target 20-22 min = ~35% shorter)
+
+### What Changed During Filming
+
+1. **Rhetorical Questions → Declarative Statements**
+   - Script: "How many Supreme Leaders in the first draft? Zero. Guardian Councils? None."
+   - Filmed: "Zero supreme leaders, no guardian council."
+   - **Lesson:** Rhetorical questions can feel awkward on delivery. Declarative punchlines land better.
+
+2. **Significant Condensation**
+   - Script: ~20-22 min estimated
+   - Final: ~13:42 (35% shorter)
+   - Many explanatory sections trimmed for pacing
+   - **Lesson:** Written scripts often overestimate what can fit. Budget 30% overage.
+
+3. **Vocabulary Section Cut**
+   - Script had Abrahamian quote about demokrasi, shahrvandi terminology
+   - Likely cut for pacing—academic aside that didn't drive narrative
+   - **Lesson:** Academic asides that don't advance plot get cut first
+
+4. **Academic Quotes Reduced**
+   - Script had more direct quotes with page numbers
+   - Final relied more on paraphrase with key stats retained
+   - **Lesson:** Stats stick (99%, 3400 killed), academic citations less sticky on camera
+
+5. **Protest Timeline Compressed**
+   - Script had detailed 2009, 2019, 2022, 2025 sections
+   - Final streamlined with faster transitions between protests
+   - **Lesson:** Pattern repetition works better than individual deep dives
+
+### Patterns to Apply to Future Scripts
+
+| Pattern | Script Tendency | Delivery Reality | Fix |
+|---------|----------------|------------------|-----|
+| Length | Over-estimate | -30-35% | Plan for cuts |
+| Rhetorical Qs | Sound clever | Feel awkward | Use declarative |
+| Academic quotes | Feel rigorous | Slow delivery | Keep stats, cut citations |
+| Section transitions | Write full bridges | Deliver quick cuts | Script tighter |
+| Academic asides | Feel important | Get cut | Only if essential |
+
+### What Worked Well
+
+1. **"Deleted draft" mystery hook** - Landed as written
+2. **Guardian Council mechanism** - Clear explanation preserved
+3. **"Theatre since 1979"** - Memorable line kept
+4. **Basaaris turn** - Current events hook retained
+5. **Both narratives wrong** - Core thesis intact
+
+### Auto-Transcription Errors to Watch
+
+| Commonly Misheard | Correct |
+|-------------------|---------|
+| fetos | vetoes |
+| machlis | Majlis |
+| Velle Ade Fakir | Velayat-e Faqih |
+| bastion | Basij |
+| Marzah | Mahsa |
+| real collapses | rial collapses |
+| Iran rods | iron rods |
+| guarding | garden |
+
+**Recommendation:** Add Persian/Arabic terms to custom subtitle dictionary for DaVinci Resolve.
+
+---
+
+## Files Updated (2026-02-04)
+
+| File | Action |
+|------|--------|
+| iran part2.srt | ✅ Corrected 11 transcription errors + timestamp offset |
+| YOUTUBE-METADATA-PART2.md | ✅ Created with titles, description, chapters, clips |
+| PROJECT-STATUS.md | ✅ Updated phase, added lessons learned |

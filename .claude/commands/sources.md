@@ -75,6 +75,51 @@ Generate 20-30 authoritative sources (up to 50 if essential) organized by tier.
 - Critical editions for primary sources
 - **Budget is UNLIMITED** - recommend best sources regardless of price
 
+### ⛔ QUALITY GATE: Academic Source Verification
+
+**BEFORE generating any source list, Claude MUST verify:**
+
+| Check | Requirement | Fail Action |
+|-------|-------------|-------------|
+| Primary Sources | 3+ treaties/court rulings/official documents | Add more before proceeding |
+| Academic Sources | 3+ university press books OR peer-reviewed articles | Add more before proceeding |
+| Wikipedia/News | NOT listed as academic citations | Remove or move to "Reference Only" |
+| Think tanks | Listed as "Expert/Policy" NOT "Academic" | Reclassify |
+
+**Source list header MUST include this table:**
+
+```markdown
+## SOURCE QUALITY CHECK
+
+| Requirement | Status |
+|-------------|--------|
+| 3+ Primary Sources | ✅/❌ [count] identified |
+| 3+ University Press Academic Sources | ✅/❌ [count] identified |
+| Total 10+ Sources | ✅/❌ [count] sources |
+| Wikipedia/News as citations | ❌ Excluded (reference only) |
+```
+
+**If any check fails:** Do NOT proceed. Add required sources first.
+
+**Acceptable Academic Publishers:**
+- Cambridge University Press
+- Oxford University Press
+- University of Chicago Press
+- Harvard University Press
+- Yale University Press
+- Princeton University Press
+- Palgrave Macmillan (academic imprint)
+- Routledge (academic titles)
+- Cornell University Press
+- University of [State] Press
+- Museum Tusculanum Press (Nordic)
+
+**NOT Academic Sources (move to Expert/Policy or Reference):**
+- CSIS, Brookings, Atlantic Council, CFR → "Expert/Policy Sources"
+- DIIS → "Research Institute" (acceptable but not primary academic)
+- Wikipedia, news articles → "Reference Only - NOT for NotebookLM"
+- Library of Congress blogs → "Government Analysis"
+
 ### Output Location
 
 `video-projects/[project]/_research/00-NOTEBOOKLM-SOURCE-LIST.md`
