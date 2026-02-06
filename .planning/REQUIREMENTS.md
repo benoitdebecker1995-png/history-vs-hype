@@ -1,66 +1,75 @@
-# Requirements: History vs Hype Workspace v1.5
+# Requirements: History vs Hype Workspace v1.6
 
-**Defined:** 2026-02-03
+**Defined:** 2026-02-06
 **Core Value:** Every video shows sources on screen
 
-## v1.5 Requirements
+## v1.6 Requirements
 
-Requirements for Production Acceleration milestone. Each maps to roadmap phases.
+Requirements for Click & Keep milestone. Each maps to roadmap phases.
 
-### Teleprompter
+### A/B Test Tracking
 
-- [x] **TELE-01**: User can export script to clean teleprompter text (no markdown, read-aloud format)
+- [ ] **AB-01**: User can enter CTR from YouTube Studio via CLI prompt and store in database
+- [ ] **AB-02**: User can register thumbnail variants with file paths and visual pattern tags (map, face, text, document)
+- [ ] **AB-03**: User can register title variants with formula tags (mechanism, document, paradox)
+- [ ] **AB-04**: System tracks CTR snapshots at meaningful intervals (48h, 7d, 14d) per variant
+- [ ] **AB-05**: User can calculate statistical significance between two variants given impressions and CTR
+- [ ] **AB-06**: User can see channel-specific CTR benchmarks by topic category (territorial, ideological, legal)
 
-*Note: Verify existing `/script --teleprompter` functionality — may just need documentation.*
+### Script Pacing Analysis
 
-### B-Roll Generation
+- [ ] **PACE-01**: User can check sentence length variance per section and get flagged when variance exceeds threshold
+- [ ] **PACE-02**: User can detect readability delta between sections (Flesch Reading Ease drop >20 points flagged)
+- [ ] **PACE-03**: User can detect entity density hotspots (sections with >25% proper nouns flagged as "wall of nouns")
+- [ ] **PACE-04**: System generates complexity score per section (0-100) combining variance, readability, and entity density
+- [ ] **PACE-05**: System flags gaps >150 words without modern relevance hook or pattern interrupt
+- [ ] **PACE-06**: User can see energy arc visualization showing pacing rhythm across full script
 
-- [x] **BROLL-01**: User can generate shot list from script with timestamps/sections
-- [x] **BROLL-02**: System auto-detects entities (treaties, places, people, documents) from script text
-- [x] **BROLL-03**: System suggests source URLs for detected entities (Wikimedia Commons, archive.org, map services)
-- [x] **BROLL-04**: Shots are categorized by type (map, document, portrait, event photo)
+### Feedback Loop Integration
 
-### Edit Guide
+- [ ] **FEED-01**: System parses POST-PUBLISH-ANALYSIS markdown files and stores structured data in database
+- [ ] **FEED-02**: User can query past performance insights for similar topics before creating new video
+- [ ] **FEED-03**: System extracts success patterns from videos with CTR >8% or retention >35%
+- [ ] **FEED-04**: System extracts failure patterns from videos with impressions <500 or retention <25%
+- [ ] **FEED-05**: System automatically surfaces relevant insights during /script generation for matching topics
 
-- [x] **EDIT-01**: User can see section breakdown with estimated durations (words → time)
-- [x] **EDIT-02**: User can see inline B-roll markers in script (`[B-ROLL: description]`)
-- [x] **EDIT-03**: User can generate timing sheet (section name, start time estimate, B-roll cues)
+### Model Assignment Refresh
 
-### Metadata Draft
-
-- [x] **META-01**: System extracts title candidates from script (opening hook, key claims)
-- [x] **META-02**: System generates description template with section timestamps
-- [x] **META-03**: System suggests tags based on script content and existing patterns
-
-### Package Command
-
-- [x] **PKG-01**: User can run single `/prep --package` command to generate all outputs
-- [x] **PKG-02**: Package outputs saved to project folder (B-ROLL-CHECKLIST.md, EDIT-GUIDE.md, METADATA-DRAFT.md)
+- [ ] **MOD-01**: All 13 slash command files updated from Claude 3.5 tier names to Claude 4.x model IDs
+- [ ] **MOD-02**: Agent model assignments updated to current Claude 4.5/4.6 lineup
 
 ## Future Requirements
 
 Deferred to later milestones.
 
-### DaVinci Integration (v1.6+)
+### Retention Prediction (v2.0+)
+
+- **RET-01**: System predicts retention curve shape from script features (requires 30+ videos with retention data)
+- **RET-02**: System correlates specific script features with retention drop points
+
+### Advanced Thumbnail Analysis (v2.0+)
+
+- **THUMB-01**: System auto-categorizes thumbnails using perceptual hash clustering without manual tags
+- **THUMB-02**: System estimates competitor CTR from public view velocity data
+
+### DaVinci Integration (v2.0+)
 
 - **DAV-01**: Export markers in DaVinci-compatible format
 - **DAV-02**: Import shot list as timeline markers
 
-### Thumbnail Pipeline (v1.6+)
-
-- **THUMB-01**: Generate thumbnail concepts from script key frames
-- **THUMB-02**: A/B test tracking with performance correlation
-
 ## Out of Scope
 
-Explicitly excluded from v1.5.
+Explicitly excluded from v1.6.
 
 | Feature | Reason |
 |---------|--------|
-| Actual image downloading | Complexity, copyright concerns — suggest URLs only |
-| DaVinci Resolve import | Future milestone, needs format research |
-| Thumbnail generation | Different domain, separate milestone |
-| Video editing automation | Out of workspace scope entirely |
+| Real-time CTR dashboard | Low volume (1-2 videos/month), creates anxiety without actionable insights |
+| AI auto-generated thumbnails | Channel differentiator is evidence-based thumbnails in Photoshop |
+| Automated title optimization | Channel DNA requires factual accuracy over clickbait optimization |
+| Browser automation for YouTube Studio | High maintenance, CTR manual entry takes 10 seconds |
+| Generic YouTube "best practices" enforcement | Channel data contradicts generic advice (maps > faces) |
+| Retention heatmap prediction | Insufficient training data (~15 videos, need 30+) |
+| Batch processing / multi-video automation | Solo creator workflow, 1-2 videos/month |
 
 ## Traceability
 
@@ -68,25 +77,31 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TELE-01 | Phase 26 | Complete |
-| BROLL-01 | Phase 23 | Complete |
-| BROLL-02 | Phase 22 | Complete |
-| BROLL-03 | Phase 23 | Complete |
-| BROLL-04 | Phase 23 | Complete |
-| EDIT-01 | Phase 24 | Complete |
-| EDIT-02 | Phase 24 | Complete |
-| EDIT-03 | Phase 24 | Complete |
-| META-01 | Phase 25 | Complete |
-| META-02 | Phase 25 | Complete |
-| META-03 | Phase 25 | Complete |
-| PKG-01 | Phase 26 | Complete |
-| PKG-02 | Phase 26 | Complete |
+| AB-01 | TBD | Pending |
+| AB-02 | TBD | Pending |
+| AB-03 | TBD | Pending |
+| AB-04 | TBD | Pending |
+| AB-05 | TBD | Pending |
+| AB-06 | TBD | Pending |
+| PACE-01 | TBD | Pending |
+| PACE-02 | TBD | Pending |
+| PACE-03 | TBD | Pending |
+| PACE-04 | TBD | Pending |
+| PACE-05 | TBD | Pending |
+| PACE-06 | TBD | Pending |
+| FEED-01 | TBD | Pending |
+| FEED-02 | TBD | Pending |
+| FEED-03 | TBD | Pending |
+| FEED-04 | TBD | Pending |
+| FEED-05 | TBD | Pending |
+| MOD-01 | TBD | Pending |
+| MOD-02 | TBD | Pending |
 
 **Coverage:**
-- v1.5 requirements: 13 total
-- Mapped to phases: 13
-- Unmapped: 0
+- v1.6 requirements: 19 total
+- Mapped to phases: 0
+- Unmapped: 19
 
 ---
-*Requirements defined: 2026-02-03*
-*Traceability updated: 2026-02-05 after Phase 26 completion (v1.5 complete)*
+*Requirements defined: 2026-02-06*
+*Last updated: 2026-02-06 after initial definition*
