@@ -1,207 +1,233 @@
-# Feature Landscape: Script Quality, Discovery, and NotebookLM Workflow
+# Feature Landscape: CTR Optimization, A/B Testing, and Script Pacing
 
-**Domain:** YouTube content production workspace
-**Focus:** Script quality improvements, discovery/SEO optimization, NotebookLM workflow automation
-**Researched:** 2026-01-27
-**Confidence:** MEDIUM (based on current system analysis, user pain points, and 2026 YouTube ecosystem research)
+**Domain:** YouTube content production workflow (solo creator)
+**Focus:** Thumbnail/title A/B tracking, script pacing analysis, post-publish feedback integration
+**Researched:** 2026-02-06
+**Confidence:** HIGH (YouTube ecosystem 2026 + existing workspace architecture verified)
 
 ---
 
 ## Executive Summary
 
-Research reveals three distinct feature categories needed to address current bottlenecks in the History vs Hype production workflow:
+Research reveals three feature categories for v1.6 Click & Keep milestone:
 
-1. **Script Quality (Revision Reduction)** - AI-generated scripts require 3-5 revision passes due to repetition, awkward topic introductions, and unnatural flow. YouTube is actively combating "AI slop" in 2026, making natural-sounding scripts critical.
+1. **A/B Test Tracking** - YouTube now offers native Test & Compare for titles/thumbnails (rolled out globally late 2025). Solo creators need lightweight tracking that integrates with manual testing workflows, not enterprise automation.
 
-2. **Discovery/SEO (Low Impressions Problem)** - Videos aren't being discovered despite high retention (30-35%). Low impressions = SEO problem, particularly with long-tail keyword optimization and search-intent alignment.
+2. **Script Pacing Analysis** - Existing script checkers catch mechanical issues (repetition, flow, stumbles). New need: quantitative pacing metrics that predict energy dips and dropout points before filming.
 
-3. **NotebookLM Workflow (Manual Copy-Paste Burden)** - Current workflow requires manual extraction of quotes/citations from NotebookLM interface. NotebookLM Enterprise API launched in 2026 but workflow integration not yet built.
+3. **Feedback Loop Integration** - Post-publish analysis files exist but insights don't flow back into creation. Missing: queryable pattern database that surfaces learnings during script/metadata generation.
 
-**Key Finding:** The biggest ROI comes from script quality improvements (reduces 5.5-hour process to potentially 3-4 hours) and discovery optimization (unlocks existing quality content to broader audience).
+**Key Finding:** Table stakes features are simpler than typical YouTube tools assume. This channel has 197 subscribers and publishes 1-2 videos/month. Needs are data tracking + pattern recognition, not enterprise automation.
+
+**Channel Context:**
+- 82K+ views, 30-35% avg retention (excellent for educational content)
+- Manual A/B testing log exists (`AB-TESTING-LOG.md`)
+- Map-focused thumbnails outperform face-focused 26x despite lower VidIQ scores
+- CTR data not available via API (requires manual entry from YouTube Studio)
+- Videos 10-30+ min (as long as needed, no arbitrary caps)
 
 ---
 
 ## Table Stakes Features
 
-These features are essential for meaningful improvement. Without them, the workflow remains bottlenecked.
+Features essential for meaningful workflow improvement. Without these, A/B tracking and pacing analysis remain manual guesswork.
 
-### Script Quality Domain
-
-| Feature | Problem Solved | Complexity | Notes |
-|---------|---------------|------------|-------|
-| **Repetition Detection** | AI scripts repeat same facts/phrases 3+ times | Medium | Scan for identical/near-identical phrases, flag when crossing threshold |
-| **Flow Analyzer** | Topics introduced awkwardly without setup | Medium | Check narrative flow rules: terms defined before use, bridges between transitions |
-| **Stumble Test Automation** | Lines that work written but not when spoken | Low | Identify sentences >25 words, complex subordinate clauses, written-style colons |
-| **"Here's" Counter** | Overuse of scaffolding language (10+ per script) | Low | Ctrl+F automation with recommendations when >4 instances found |
-| **Fragment Classifier** | Can't distinguish rhetorical vs informational fragments | Medium | Rhetorical (keep): emphasis, dramatic beats. Informational (fix): compressed prose |
-
-**Why Table Stakes:** Without these, every script needs 3-5 manual revision passes. They catch 80% of quality issues automatically.
-
-### Discovery/SEO Domain
+### A/B Test Tracking Domain
 
 | Feature | Problem Solved | Complexity | Notes |
 |---------|---------------|------------|-------|
-| **Long-Tail Keyword Extractor** | Videos target broad terms, not search queries | Medium | Extract 3-4 word phrases from topic, cross-reference with YouTube autocomplete |
-| **Search Intent Mapper** | Titles don't match what people actually search | Medium | "Why X?" vs "How X happened" vs "What is X?" - different search intents |
-| **Impression Diagnostic** | Can't tell if SEO or CTR is the problem | Low | If impressions <500 in 7 days → SEO issue. If CTR <2% → thumbnail/title issue |
-| **Metadata Consistency Check** | Title/description/tags misaligned | Low | Keywords in title must appear in description/tags for algorithm confidence |
+| **Manual CTR Entry UI** | CTR not available via YouTube Analytics API | Low | Simple prompt: "Video uploaded. Enter CTR from YouTube Studio Analytics > Reach tab." Store in keywords.db video_performance table. |
+| **Thumbnail Variant Storage** | Can't correlate visual patterns with CTR | Low | Store thumbnail file paths (Thumbnail A.png, B.png, C.png) with CTR/impressions. Manual correlation initially. |
+| **Title Variant Tracking** | Testing multiple titles but forgetting which was used when | Low | Log title variants with timestamps. Track which title was active during impression/CTR measurement windows. |
+| **Test Window Definition** | Don't know when to measure results (48h? 7d?) | Low | YouTube's Test & Compare runs max 2 weeks. Track: initial 48h CTR, 7-day CTR, 14-day CTR. Allow comparison at equal impression levels. |
+| **Pattern Tagging (Manual)** | Can't categorize thumbnails for pattern analysis | Low | Manual tags: "map-focused", "face-focused", "text-heavy", "document-evidence". Enable GROUP BY queries later. |
 
-**Why Table Stakes:** Low impressions = content never gets tested. These features get videos in front of searchers.
+**Why Table Stakes:** Without systematic tracking, A/B testing is just "trying stuff." These features convert manual testing into data collection that reveals patterns.
 
-### NotebookLM Integration Domain
+### Script Pacing Analysis Domain
 
 | Feature | Problem Solved | Complexity | Notes |
 |---------|---------------|------------|-------|
-| **Citation Extraction** | Manual copy-paste of page numbers | High | Uses NotebookLM Enterprise API to pull citations programmatically |
-| **Quote Export** | Copy-pasting verified quotes from chat interface | High | API query → formatted markdown with [SOURCE: Author, page X] |
-| **Batch Query Runner** | Manual prompting for each fact to verify | Medium | Load verification checklist → run all queries → consolidate results |
+| **Sentence Length Variance** | Rushed delivery in dense segments goes undetected | Low | Calculate std dev of sentence length per 100-word window. Flag variance >15 words. Uses existing spaCy sentence parsing. |
+| **Readability Delta Detection** | Complexity spikes between sections cause dropout | Low | Run Flesch Reading Ease per section. Flag drops >10 points between adjacent sections. Uses textstat (already in requirements.txt). |
+| **Entity Density Heatmap** | "Wall of nouns" syndrome (too many names/places) | Medium | Count named entities per paragraph using spaCy NER. Flag density >25% (1 in 4 words is a proper noun). |
+| **Pattern Interrupt Timer** | Videos need modern hooks every 90-120 seconds | Low | Scan for modern relevance phrases ("today", "currently", "2025", "recent"). Flag gaps >150 words without pattern interrupt. |
+| **Complexity Score Per Section** | Can't identify which sections will lose viewers | Medium | Combine: sentence length variance + readability + entity density → complexity score 0-100. Flag sections >70. |
 
-**Why Table Stakes:** Current workflow is 40% manual labor. Automation frees time for research/writing.
+**Why Table Stakes:** Existing script checkers are qualitative (flow, repetition). Pacing analysis needs quantitative metrics that predict retention issues before filming.
+
+### Feedback Loop Integration Domain
+
+| Feature | Problem Solved | Complexity | Notes |
+|---------|---------------|------------|-------|
+| **POST-PUBLISH-ANALYSIS Parser** | Analysis files exist but aren't queryable | Low | Parse `channel-data/analyses/*.md` → extract CTR, retention drop points, discovery issues → store in video_performance table. |
+| **Pattern Database Consolidation** | Insights scattered across multiple markdown files | Medium | Centralize: TOPIC-ANALYSIS.md + TITLE-PATTERNS.md + POST-PUBLISH-ANALYSIS.md → keywords.db for SQL queries. |
+| **Pre-Creation Insight Lookup** | Past learnings not surfaced during new video creation | Low | Before generating script/metadata: query similar topics, surface retention drop points, CTR patterns, discovery issues. |
+| **Success Pattern Extraction** | Don't know what worked in past videos | Medium | Identify videos with CTR >8% or retention >35% → extract: title formula, thumbnail pattern, topic type, script structure. |
+| **Failure Pattern Flagging** | Repeat same mistakes (e.g., SEO issues, complexity spikes) | Low | Identify videos with impressions <500 or retention <25% → flag: SEO gaps, pacing issues, topic-audience mismatches. |
+
+**Why Table Stakes:** Post-publish analysis is useless if insights die in markdown files. Feedback loop closes learning cycle: analyze → learn → apply → create.
 
 ---
 
 ## Differentiator Features
 
-These would significantly improve the workflow but aren't strictly necessary. "Nice to have."
+Features that would significantly improve workflow but aren't strictly necessary for v1.6 MVP. "Nice to have."
 
-### Script Quality Domain
-
-| Feature | Value Proposition | Complexity | Notes |
-|---------|-------------------|------------|-------|
-| **Voice Fingerprinting** | Learn user's actual speech patterns from transcripts | High | Analyze Somaliland/Bir Tawil transcripts → build pattern library → flag violations |
-| **Transition Suggester** | Auto-generate bridge sentences between sections | High | Given Section A topic + Section B topic → suggest "This would be tested on..." |
-| **Quote Integration Checker** | Verify Setup → Quote → Implication structure | Medium | Flags quotes without context or implications |
-| **Causal Chain Detector** | Identify missing "consequently/thereby/which meant that" | Low | Scans for causal language density (minimum 3 per script) |
-| **Retention Heatmap Preview** | Predict dropout zones before filming | High | ML model trained on 30 published videos → predict retention curve from script |
-| **Academic Attribution Optimizer** | Move citations to evidence display (not flow-breaking) | Medium | Pattern: "According to X, [fact]" → "[Fact]. [SOURCE: X]" |
-
-**Best ROI:** Voice Fingerprinting (learns from user's actual delivery, eliminates whole categories of errors). Retention Heatmap (prevents 0-8 second dropout, worth filming better scripts).
-
-### Discovery/SEO Domain
+### A/B Test Tracking Domain
 
 | Feature | Value Proposition | Complexity | Notes |
 |---------|-------------------|------------|-------|
-| **Title A/B Test Manager** | Track which title patterns drive impressions | Medium | 3 variants per video → track impressions first 48 hours → log winners |
-| **Competitor Title Scraper** | Auto-update competitor title database | Medium | Scrape Kraut/Knowing Better/Shaun new uploads → extract patterns |
-| **Search Volume Estimator** | Predict impressions before publishing | High | Historical data + keyword search volume → forecast range |
-| **Evergreen Potential Scorer** | Flag videos likely to grow over time vs decay | Medium | "JD Vance fact-check" (temporal) vs "Medieval flat earth myth" (evergreen) |
-| **YouTube Autocomplete Watcher** | Monitor when search predictions change | Medium | Track "[topic]" autocomplete weekly → alert when new queries appear |
-| **Google AI Overview Optimizer** | Format content for AI citation | High | YouTube now cited in AI Overviews - structure for snippet extraction |
+| **Thumbnail Visual Pattern Analysis** | Auto-categorize thumbnails without manual tagging | High | Use ImageHash (perceptual hashing) to cluster visually similar thumbnails. Correlate clusters with CTR. Discovers patterns like "maps in upper-left corner" or "red text on dark background." |
+| **YouTube Native Test & Compare Integration** | Auto-fetch A/B test results from YouTube Studio | High | YouTube's Test & Compare API is desktop-only, no public API documented. Would require browser automation or manual CSV export. Low ROI for 1-2 videos/month. |
+| **Statistical Significance Calculator** | Know when test results are reliable vs noise | Medium | Given CTR1, CTR2, impressions1, impressions2 → calculate p-value. Flag: "Need 200 more impressions for 95% confidence." Prevents premature conclusions. |
+| **Channel-Specific CTR Benchmarks** | Compare test results to channel baseline, not generic YouTube averages | Low | Track: avg CTR by topic category (territorial disputes vs ideological myths). Flag: "8.2% CTR is 2x your territorial dispute average." |
+| **Competitor CTR Estimation** | Understand competitive landscape for topic | High | Scrape competitor videos for views + upload date → estimate CTR (view velocity). Compare to your performance. Ethics concern: respect rate limits, public data only. |
+| **Title Formula Pattern Extractor** | Learn which title structures drive CTR | Medium | Analyze high-CTR titles with regex: "Fact-Checking [Person]: [Claim]" vs "[Event] from [Year] is still [Consequence]". Recommend formulas for new topics. |
 
-**Best ROI:** Title A/B Test Manager (empirical data on what works). Search Volume Estimator (prioritize topics with discovery potential).
+**Best ROI:** Statistical Significance Calculator (prevents "looks good but is noise" decisions). Channel-Specific CTR Benchmarks (contextualizes results: is 6% good for this topic type?).
 
-### NotebookLM Integration Domain
+### Script Pacing Analysis Domain
 
 | Feature | Value Proposition | Complexity | Notes |
 |---------|-------------------|------------|-------|
-| **Smart Source Chunker** | Auto-split 500-page books into uploadable sections | Medium | Identify relevant chapters → extract → name appropriately |
-| **Cross-Source Synthesizer** | "How do these 3 sources compare on [claim]?" | High | API queries across multiple sources → side-by-side comparison |
-| **Contradiction Detector** | Flag when sources disagree | High | Run same query across all sources → highlight divergent answers |
-| **Interactive Transcript Generator** | Audio Overview → timestamped transcript with quotes | Medium | Transcribe customized overview → link quotes to source pages |
-| **Research Dashboard** | Visual progress: verified claims, outstanding questions | Medium | Track which sections of VERIFIED-RESEARCH.md complete, which need work |
+| **Retention Heatmap Prediction** | Predict where viewers will drop before filming | High | Train ML model on 30+ published videos: script features (complexity, pacing, entity density) → actual retention curve. Requires sufficient training data (currently ~15 videos with retention data). Defer until 30+ videos. |
+| **Energy Arc Visualization** | Show pacing rhythm across full script | Medium | Visualize: sentence length variance + readability + entity density as line graph. Shows "energy dips" and "complexity walls" at a glance. Output as ASCII art or save as PNG. |
+| **Hook Strength Scorer** | Quantify opening hook quality | High | Analyze first 30 seconds for: question framing, modern relevance, specificity, promise clarity. Score 0-100. Correlate with actual 0-30 second retention (when data available). |
+| **Transition Quality Checker** | Flag weak bridges between sections | High | Extend existing flow checker to score transition strength: topic continuity, causal language ("consequently", "thereby"), modern relevance connection. Current flow checker is binary (good/bad), this adds gradient scoring. |
+| **Competitor Script Pattern Analysis** | Learn pacing patterns from successful history channels | High | Scrape transcripts (Kraut, Knowing Better, Shaun) → analyze: avg sentence length, section duration, hook frequency. Compare to your scripts. Ethical concern: respect copyright, analysis only (no copying). |
+| **Retention Target Recommendation** | Suggest ideal pacing based on video length and topic | Medium | Given: video length (15 min), topic type (territorial dispute) → recommend: pattern interrupt frequency (every 90s), max complexity section length (2 min), entity density ceiling (20%). |
 
-**Best ROI:** Cross-Source Synthesizer (handles "Plutarch says X but Pausanias says Y" automatically). Contradiction Detector (flags intellectual honesty opportunities).
+**Best ROI:** Energy Arc Visualization (makes abstract pacing metrics tangible). Retention Target Recommendation (gives concrete targets: "add modern hook by line 45").
+
+### Feedback Loop Integration Domain
+
+| Feature | Value Proposition | Complexity | Notes |
+|---------|-------------------|------------|-------|
+| **Automated Insight Prompting** | Surface relevant learnings during creation without manual query | Medium | When `/script` runs: auto-query similar topics, insert insights as comments in script draft. Example: `<!-- WARNING: Previous medieval topic had 42% retention drop at 3:15 due to complexity spike. Check lines 80-95. -->` |
+| **A/B Test Outcome Validation** | Compare predictions vs actual results | Low | After A/B test completes: compare predicted winner (VidIQ score, manual guess) vs actual winner (CTR data). Log: "VidIQ predicted A (score 85), actual winner was B (8.2% vs 4.1%). Pattern: Map thumbnails outperform despite lower scores." |
+| **Topic Success Probability Estimator** | Predict if topic will perform before researching | High | Given: topic type, search volume (if known), competition level → estimate: impressions range, CTR range, retention range. Based on historical channel data. Requires 20+ videos for meaningful predictions. |
+| **Retention Drop Cause Correlation** | Learn what script features predict specific retention drops | High | Correlate retention drop points with script features: complexity spike at drop, entity density, section length. Discover: "Videos with 3+ min sections without modern hook → 18% avg drop." Requires retention data for 15+ videos. |
+| **Discovery Issue Root Cause Library** | Categorize why videos get low impressions | Medium | Analyze low-impression videos: missing keywords, weak title SEO, niche topic, high competition. Build library: "SEO weakness detected → add long-tail keywords to description (fixed 3/5 past cases)." |
+| **Success Playbook Generator** | Auto-generate best practices from high-performers | High | Identify top 20% videos by CTR/retention → extract common patterns → generate: "Territorial dispute playbook: map thumbnail (8.2% avg CTR), 'How [Decision] Created [Conflict]' title formula, modern news hook in first 30 sec." |
+
+**Best ROI:** Automated Insight Prompting (zero-friction way to apply learnings). A/B Test Outcome Validation (builds pattern database empirically, not from generic advice).
 
 ---
 
 ## Anti-Features
 
-Features to deliberately NOT build. Common mistakes or requests that violate channel DNA.
+Features to deliberately NOT build. Common mistakes or requests that violate channel DNA or solo creator workflow constraints.
 
-### Anti-Feature 1: Generic YouTube Hook Generator
-**What it is:** AI tool that suggests "You won't BELIEVE..." / "SHOCKING..." / "This will change EVERYTHING" hooks
+### Anti-Feature 1: Real-Time CTR Dashboard
+**What it is:** Live-updating CTR tracker with notifications every hour
 
 **Why avoid:**
-- Violates documentary tone (channel value #1)
-- YouTube combating "AI slop" in 2026 - clickbait flagged
-- User explicitly rejects clickbait language (see STYLE-GUIDE.md forbidden phrases)
+- Solo creator publishes 1-2 videos/month, not daily
+- CTR fluctuates heavily in first 48 hours (noise, not signal)
+- YouTube's Test & Compare already runs for 2 weeks (proper measurement window)
+- Creates anxiety without actionable insights ("CTR dropped from 6.2% to 5.9%" → so what?)
 
 **What to do instead:**
-Document-first hooks ("This is the map they ignored. This is what they drew instead.") and both-extremes framing ("One side says X. Other says Y. Both oversimplify.")
+Scheduled CTR snapshots at meaningful intervals: 48 hours (early signal), 7 days (pattern stabilizes), 14 days (final measurement). Manual entry is fine for low-volume channel.
 
 ---
 
-### Anti-Feature 2: Auto-Script Generator (One-Click)
-**What it is:** "Enter topic → get complete script" with no human review
+### Anti-Feature 2: AI Auto-Generated Thumbnails
+**What it is:** One-click thumbnail generator from script keywords
 
 **Why avoid:**
-- Quality control violation - scripts need fact verification
-- Produces exactly the "AI slop" YouTube is targeting
-- Channel differentiator is academic rigor, not speed
-- Ethical issue: unverified claims would reach audience
+- Channel differentiator is evidence-based thumbnails (primary source documents, maps)
+- Generic AI templates = generic results (defeats map-focused strategy that works)
+- User's Photoshop workflow is already efficient (15-20 min per thumbnail)
+- Thumbnails are strategic decisions (requires understanding of topic context)
 
 **What to do instead:**
-Script reviewer that ASSISTS writing (catches issues) rather than replacing it. Human remains author, AI is editor.
+Thumbnail testing framework that validates decisions (A/B tracking), not replaces them. User creates variants manually, system measures which performs better.
 
 ---
 
-### Anti-Feature 3: Viral Title Optimizer
-**What it is:** Recommends titles based on highest CTR potential alone
+### Anti-Feature 3: Retention Prediction Without Training Data
+**What it is:** ML model that predicts retention before having 30+ videos with retention data
 
 **Why avoid:**
-- Optimizes wrong metric (CTR without retention = clickbait)
-- Channel DNA: factual accuracy > virality
-- YouTube 2026 algorithm weighs retention more heavily than CTR
-- "High CTR + low retention" = algorithm penalty
+- ML requires sufficient training data (~30 examples minimum for meaningful patterns)
+- Channel currently has ~15 videos with retention data
+- Predictions from insufficient data are worse than human intuition (false confidence)
+- Retention depends on topic, audience, length → needs category-specific models
 
 **What to do instead:**
-Title optimizer that balances CTR + search intent + factual accuracy. Flag when title makes claims script doesn't support.
+Build foundation first: pacing metrics + feedback loop. Collect 15 more videos of data. Revisit retention prediction in v2.0 when training data sufficient.
 
 ---
 
-### Anti-Feature 4: Comment Auto-Responder
-**What it is:** AI generates comment responses without human review
+### Anti-Feature 4: Automated Title Optimization
+**What it is:** AI rewrites titles for max CTR based on keyword density formulas
 
 **Why avoid:**
-- Brand voice is "evidence-based referee" - can't be automated
-- Comments often require nuanced fact-checking
-- Risk of confidently wrong responses (damages credibility)
-- Intellectual honesty requires admitting "I need to research this"
-
-**What to do instead:**
-Comment research assistant - pulls relevant quotes from VERIFIED-RESEARCH.md, suggests response structure, but user writes final reply.
-
----
-
-### Anti-Feature 5: Batch Thumbnail Generator
-**What it is:** Auto-generate thumbnails from script keywords + stock images
-
-**Why avoid:**
-- Thumbnails are strategic (map-focused thumbnails outperform despite lower VidIQ scores)
-- Generic templates = generic results
-- User's Photoshop workflow is already efficient
-- Brand recognizability requires consistent human design sense
-
-**What to do instead:**
-Thumbnail testing framework - A/B test variants, track which styles drive impressions for different topics.
-
----
-
-### Anti-Feature 6: Keyword Stuffing Tool
-**What it is:** Maximize keyword density in title/description/tags
-
-**Why avoid:**
+- Channel DNA: factual accuracy > clickbait optimization
+- "Best" title per generic SEO ≠ best title for documentary history audience
 - YouTube 2026 algorithm penalizes keyword stuffing
-- Reduces readability (humans read descriptions)
-- Documentary tone incompatible with SEO spam
-- "Natural language" is now ranking factor
+- Risk: AI suggests "You Won't BELIEVE What Happened to Somaliland" (violates tone)
 
 **What to do instead:**
-Semantic keyword clustering - group related terms naturally. "1916 agreement, Sykes-Picot, Middle East borders" flows better than repeating "Sykes Picot" 15 times.
+Title formula pattern extractor (differentiator feature) that learns from channel's own high-CTR titles, not generic YouTube formulas. Suggests formulas, user writes final title.
 
 ---
 
-### Anti-Feature 7: Script Length Trimmer
-**What it is:** Auto-cut scripts to target duration (e.g., "make this 8 minutes")
+### Anti-Feature 5: Browser Automation for YouTube Studio
+**What it is:** Selenium/Puppeteer scripts to auto-fetch CTR from YouTube Studio
 
 **Why avoid:**
-- Channel philosophy: "as long as needed" (see CLAUDE.md)
-- Kraut runs 30-45 min with strong retention
-- Arbitrary cuts sacrifice completeness
-- Watch time > video count for algorithm
+- YouTube Studio frequently changes UI (high maintenance burden)
+- Rate limiting and anti-automation measures (account risk)
+- CTR manually entered in 30 seconds (not a bottleneck)
+- Complexity (browser automation, session management) >> value (typing 3 numbers)
 
 **What to do instead:**
-Retention risk identifier - flag 3+ min sections without pattern interrupts, suggest where to add modern hooks. Optimize density, not duration.
+Simple CLI prompt: "Enter CTR from YouTube Studio > Analytics > Reach tab: ____" Store in database. Total time: 10 seconds per video.
+
+---
+
+### Anti-Feature 6: Generic YouTube "Best Practices" Enforcement
+**What it is:** Checker that enforces rules like "thumbnail must have face," "title must be <50 chars," "upload Tuesday 10 AM"
+
+**Why avoid:**
+- Channel's data contradicts generic advice (map thumbnails > face thumbnails)
+- Educational content has different best practices than entertainment
+- Low-volume channel (1-2/month) makes scheduling optimization irrelevant
+- Risk: system enforces wrong patterns, hurts performance
+
+**What to do instead:**
+Channel-specific pattern learning. Let data reveal what works for this audience, not enforce generic creator advice.
+
+---
+
+### Anti-Feature 7: Competitor Content Scraping for Derivative Videos
+**What it is:** Auto-scrape competitor scripts/topics to create similar videos
+
+**Why avoid:**
+- Ethical issue: plagiarism risk, copyright violation
+- Channel differentiator is original research (NotebookLM + academic sources)
+- YouTube algorithm penalizes derivative content in 2026
+- Brand value is intellectual honesty (can't copy competitors and maintain credibility)
+
+**What to do instead:**
+Competitor pattern analysis for techniques (pacing, structure, hooks), not content. "Kraut uses 3-part structure" is OK. "Copy Kraut's Somaliland script" is not.
+
+---
+
+### Anti-Feature 8: Batch Processing / Multi-Video Automation
+**What it is:** Tools designed for high-volume creators (10+ videos/month)
+
+**Why avoid:**
+- Solo creator workflow: 1-2 videos/month (each 10-30 min, research-intensive)
+- Batch operations (e.g., "optimize 20 thumbnails at once") have no use case
+- Automation complexity adds maintenance burden without time savings
+- Quality > quantity (one well-researched video > five rushed videos)
+
+**What to do instead:**
+Per-video workflows with strong feedback loops. Each video is learning opportunity, not throughput target.
 
 ---
 
@@ -210,60 +236,101 @@ Retention risk identifier - flag 3+ min sections without pattern interrupts, sug
 Understanding what needs to be built in what order.
 
 ```
-Foundation Layer (Build First):
-├─ Repetition Detection
-├─ Flow Analyzer
-└─ Long-Tail Keyword Extractor
+Foundation Layer (Build First - v1.6 MVP):
+├─ Manual CTR Entry UI
+├─ Thumbnail Variant Storage
+├─ Title Variant Tracking
+├─ POST-PUBLISH-ANALYSIS Parser
+├─ Sentence Length Variance Checker
+└─ Readability Delta Detection
      │
-     ├─> Script Quality Layer:
-     │   ├─ Stumble Test Automation
-     │   ├─ Fragment Classifier
-     │   └─ Voice Fingerprinting (learns from above)
+     ├─> A/B Tracking Layer (v1.6):
+     │   ├─ Test Window Definition (depends on CTR entry)
+     │   ├─ Pattern Tagging Manual (depends on variant storage)
+     │   └─ Statistical Significance Calculator (depends on CTR data + test windows)
      │
-     ├─> Discovery Layer:
-     │   ├─ Search Intent Mapper
-     │   ├─ Impression Diagnostic
-     │   └─ Title A/B Test Manager (requires diagnostic)
+     ├─> Pacing Analysis Layer (v1.6):
+     │   ├─ Entity Density Heatmap (depends on sentence variance)
+     │   ├─ Pattern Interrupt Timer (depends on readability)
+     │   ├─ Complexity Score (depends on all pacing metrics)
+     │   └─ Energy Arc Visualization (depends on complexity score)
      │
-     └─> NotebookLM Layer:
-         ├─ Citation Extraction (requires API)
-         ├─ Quote Export
-         └─ Cross-Source Synthesizer (requires both above)
+     ├─> Feedback Loop Layer (v1.6):
+     │   ├─ Pattern Database Consolidation (depends on parser)
+     │   ├─ Pre-Creation Insight Lookup (depends on pattern DB)
+     │   └─ Success Pattern Extraction (depends on CTR + retention data)
+     │
+     └─> Advanced Layer (v2.0 - defer):
+         ├─ Thumbnail Visual Pattern Analysis (requires ImageHash library + 20+ thumbnails)
+         ├─ Retention Heatmap Prediction (requires ML + 30+ videos with retention data)
+         ├─ Topic Success Probability Estimator (requires 20+ videos)
+         └─ Retention Drop Cause Correlation (requires 15+ videos with retention data)
 ```
 
-**Critical path:** Repetition Detection + Flow Analyzer → Voice Fingerprinting (biggest quality improvement). Long-Tail Keyword Extractor → Search Intent Mapper → Title A/B Test Manager (biggest discovery improvement).
+**Critical path for v1.6:**
+1. Manual CTR Entry → Test Window Definition → Statistical Significance (complete A/B tracking)
+2. Sentence Variance → Readability Delta → Complexity Score (complete pacing analysis)
+3. POST-PUBLISH Parser → Pattern DB → Pre-Creation Lookup (complete feedback loop)
+
+**Defer to v2.0 (insufficient data currently):**
+- Retention prediction (need 30+ videos, currently ~15)
+- Topic success probability (need 20+ videos)
+- Thumbnail visual analysis (need 20+ thumbnails with CTR data)
 
 ---
 
 ## MVP Recommendation
 
-For initial implementation (next milestone), prioritize:
+For v1.6 Click & Keep milestone, prioritize:
 
-### Phase 1: Quick Wins (1-2 weeks)
-1. **"Here's" Counter** - Instant feedback, catches 30% of revision issues
-2. **Stumble Test Automation** - Flags sentences >25 words, written-style colons
-3. **Long-Tail Keyword Extractor** - Pull from YouTube autocomplete
-4. **Impression Diagnostic** - Simple math: impressions <500 in 7 days = SEO issue
+### Phase 1: Data Collection Foundation (Week 1)
+**Goal:** Enable systematic A/B tracking and pacing analysis
 
-**Why:** Low complexity, high user visibility, immediate workflow improvement.
+1. **Manual CTR Entry UI** - CLI prompt, store in video_performance table
+2. **Thumbnail/Title Variant Storage** - File paths + manual tags (map/face/text/document)
+3. **Test Window Snapshots** - Track CTR at 48h, 7d, 14d
+4. **Sentence Length Variance** - Extend flow checker, flag >15 std dev
+5. **Readability Delta** - Run Flesch Reading Ease per section, flag >10 point drops
 
-### Phase 2: Core Quality (2-3 weeks)
-1. **Repetition Detection** - Scan for identical/similar phrases
-2. **Flow Analyzer** - Check narrative flow rules (terms before use, transitions)
-3. **Search Intent Mapper** - Match title to query type
-4. **Metadata Consistency Check** - Align title/description/tags
+**Why:** Low complexity, immediate value. Converts manual A/B testing from guesswork to data collection.
 
-**Why:** Addresses core bottlenecks (revision cycles, low impressions).
+### Phase 2: Pattern Recognition (Week 2)
+**Goal:** Surface learnings from past videos during creation
 
-### Phase 3: Advanced (Post-MVP)
-1. **Voice Fingerprinting** - Analyze transcripts, build pattern library
-2. **Title A/B Test Manager** - Empirical testing framework
-3. **NotebookLM Citation Extraction** - API integration (if Enterprise API access)
+1. **POST-PUBLISH-ANALYSIS Parser** - Extract CTR, retention drops, SEO issues from markdown
+2. **Pattern Database Consolidation** - Centralize insights in keywords.db
+3. **Pre-Creation Insight Lookup** - Query similar topics before generating script/metadata
+4. **Entity Density Heatmap** - Flag "wall of nouns" (>25% proper nouns per paragraph)
+5. **Complexity Score Per Section** - Combine pacing metrics → 0-100 score, flag >70
 
-**Defer to Post-MVP:**
-- Retention Heatmap Preview (requires ML training on 30+ videos)
-- Cross-Source Synthesizer (complex NLP, marginal improvement over manual)
-- Google AI Overview Optimizer (nascent feature, ROI unclear)
+**Why:** Closes feedback loop. Past learnings inform new videos automatically.
+
+### Phase 3: A/B Validation (Week 3)
+**Goal:** Understand what actually works for this channel
+
+1. **Statistical Significance Calculator** - Know when CTR difference is real vs noise
+2. **Channel-Specific CTR Benchmarks** - Compare to your territorial dispute avg, not generic YouTube
+3. **A/B Test Outcome Validation** - Log predictions vs results (builds empirical pattern library)
+4. **Pattern Interrupt Timer** - Flag gaps >150 words without modern relevance hook
+5. **Success Pattern Extraction** - Identify common features of top 20% videos
+
+**Why:** Empirical validation. Discover channel-specific patterns (e.g., map thumbnails > faces).
+
+### Defer to Post-MVP (v2.0)
+
+**Insufficient Training Data:**
+- Retention Heatmap Prediction (need 30+ videos, have ~15)
+- Topic Success Probability (need 20+ videos)
+- Retention Drop Cause Correlation (need 15+ videos)
+
+**High Complexity, Marginal ROI:**
+- Thumbnail Visual Pattern Analysis (ImageHash library, perceptual hashing)
+- YouTube Native Test & Compare Integration (browser automation, fragile)
+- Competitor Script Pattern Analysis (scraping ethics, maintenance burden)
+
+**Wait for Feature Maturity:**
+- YouTube Test & Compare API (no public API yet)
+- Hook Strength Scorer (needs retention data correlation)
 
 ---
 
@@ -273,46 +340,73 @@ For initial implementation (next milestone), prioritize:
 
 | Feature | Constraint | Mitigation |
 |---------|-----------|------------|
-| NotebookLM API features | Requires Enterprise API access ($$$) | Start with free tier, evaluate ROI before upgrade |
-| Voice Fingerprinting | Needs transcripts of user's actual speech | Use existing .srt files (Somaliland, Bir Tawil, Iran Part 1) |
-| Retention Heatmap | Requires ML training data | Need 30+ videos with retention data - won't work until channel grows |
-| Competitor Scraping | YouTube ToS concerns | Respect rate limits, use public data only |
+| CTR Data | Not available via YouTube Analytics API | Manual entry from YouTube Studio Analytics > Reach tab (10 sec/video) |
+| Retention Data | API provides retention curve but requires OAuth scope expansion | Add scope: `https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Thumbnail Analysis | Computer vision requires heavy libraries (TensorFlow, PyTorch) | Use lightweight ImageHash (perceptual hashing) for pattern clustering |
+| Training Data | Only ~15 videos with full retention data | Defer ML features to v2.0, focus on rule-based metrics for v1.6 |
+| Test Volume | 1-2 videos/month = slow data accumulation | Maximize learning per video (comprehensive tracking + pattern extraction) |
 
 ### User Workflow Integration
 
-**Current workflow (5.5 hours):**
+**Current workflow (5.5 hours per video):**
 1. Research (NotebookLM) → 01-VERIFIED-RESEARCH.md (2 hours)
-2. Script draft → multiple revisions (3 hours)
+2. Script draft → quality checks + revisions (3 hours)
 3. Fact-check verification (30 min)
+4. Thumbnail creation (Photoshop) (15-20 min)
+5. Publish → manual analysis 7 days later
 
-**With features (estimated 3-4 hours):**
-1. Research (NotebookLM API) → auto-export citations (1.5 hours)
-2. Script draft → quality checks catch issues (1.5 hours)
-3. Automated fact-check cross-reference (30 min)
-4. Metadata optimization with keyword tools (30 min)
+**With v1.6 features (estimated 5 hours, with better outcomes):**
+1. Pre-creation insight lookup (3 min) → surfaces past learnings for similar topics
+2. Research (NotebookLM) → 01-VERIFIED-RESEARCH.md (2 hours)
+3. Script draft → quality checks + **pacing analysis** (2.5 hours) - catches complexity spikes before filming
+4. Fact-check verification (30 min)
+5. Thumbnail creation → **3 variants** with pattern tags (25 min) - systematic A/B testing
+6. Publish → **CTR tracking at 48h, 7d, 14d** → auto-feeds pattern database
 
-**Key insight:** Automation reduces manual labor (40% time savings) but maintains quality gates. Human remains decision-maker.
+**Key improvements:**
+- Pacing analysis prevents re-filming due to energy dips (saves 1-2 hours in worst case)
+- Systematic A/B tracking builds empirical pattern library (compounds over time)
+- Automated insight prompting prevents repeating past mistakes (SEO gaps, complexity issues)
+
+**Time investment:** +15 min per video (data entry + variant creation)
+**Time savings:** -30 min average (fewer revisions + fewer re-films)
+**Learning multiplier:** Each video contributes to pattern database (ROI increases over time)
 
 ---
 
 ## Competitive Landscape
 
-**What competitors use (Kraut, Knowing Better, Shaun):**
-- Manual scriptwriting (no AI assistance observed)
-- VidIQ for keyword research (standard)
-- Unknown fact-checking workflow
-- Human thumbnail design
+**What similar creators use (Kraut, Knowing Better, Shaun, RealLifeLore):**
 
-**Differentiator opportunities:**
-1. **Hybrid AI-human workflow** - AI catches mechanical issues (repetition, flow), human handles nuance
-2. **Academic source integration** - NotebookLM workflow competitors don't have
-3. **Empirical title testing** - Most creators guess, we could test systematically
-4. **Retention prediction** - ML model trained on own videos (not generic advice)
+**A/B Testing:**
+- Manual testing (upload one thumbnail, wait, swap, compare)
+- VidIQ for keyword research and title scoring
+- No evidence of systematic A/B tracking (based on public statements)
 
-**What NOT to copy:**
-- Generic YouTube optimization advice ("put keyword in first 3 words")
-- Clickbait title patterns (violates channel DNA)
-- One-size-fits-all retention formulas (educational content differs from entertainment)
+**Script Analysis:**
+- Manual editing and revision
+- Unknown if using automated quality checkers
+- Likely human intuition for pacing (based on experience)
+
+**Feedback Loops:**
+- Manual review of analytics dashboard
+- Unknown if insights systematically feed back into creation
+
+**Differentiator Opportunities for History vs Hype:**
+
+1. **Empirical A/B Pattern Library** - Most creators test randomly. You could build category-specific insights: "Territorial disputes: map thumbnails 8.2% avg CTR. Ideological myths: document-evidence thumbnails 6.5% avg CTR."
+
+2. **Quantitative Pacing Metrics** - Most creators rely on "feels too dense" intuition. You could flag complexity spikes with objective metrics before filming.
+
+3. **Systematic Feedback Integration** - Most creators review analytics but don't build queryable pattern databases. You could surface "previous medieval topic had retention drop at 3:15 due to complexity" during script generation.
+
+4. **Channel-Specific Benchmarks** - Generic advice: "good CTR is 10%." Your insight: "6% CTR is 2x your territorial dispute average, test is successful."
+
+**What NOT to copy from competitors:**
+- Daily upload schedules (quality > quantity for research-based content)
+- Clickbait title formulas (violates documentary tone)
+- Generic thumbnail templates (your evidence-based approach is differentiator)
+- Broad topic coverage (your niche focus builds authority)
 
 ---
 
@@ -320,62 +414,74 @@ For initial implementation (next milestone), prioritize:
 
 | Area | Confidence | Reason |
 |------|------------|--------|
-| Script Quality Needs | HIGH | Direct evidence from user pain points, existing style guide shows revision burden |
-| Discovery/SEO Issues | MEDIUM | Low impressions documented, but specific keywords/search terms not yet tested |
-| NotebookLM Workflow | MEDIUM | API newly launched (2026), integration patterns emerging but not standardized |
-| Feature Complexity Estimates | MEDIUM | Based on similar tool development, but actual implementation may reveal surprises |
-| ROI Projections | LOW | Time savings estimated, but actual adoption/usage patterns uncertain |
+| A/B Tracking Needs | HIGH | Existing AB-TESTING-LOG.md shows manual tracking burden. YouTube Test & Compare rolled out 2025, well-documented. CTR API limitation confirmed. |
+| Script Pacing Requirements | HIGH | Existing script checkers (flow.py, repetition.py) validate need. WebSearch confirmed pacing is retention driver (45-75 sec dropout common). |
+| Feedback Loop Integration | HIGH | POST-PUBLISH-ANALYSIS files exist but unused. Architecture research confirmed keywords.db integration points. |
+| Feature Complexity Estimates | MEDIUM | Based on existing codebase (spaCy, textstat, SQLite all present). ImageHash new library but well-documented. Defer ML features (low confidence without training data). |
+| ROI Projections | MEDIUM | Time savings estimated from user pain points. Compounding value (pattern database) harder to quantify. Conservative estimates used. |
+| YouTube Ecosystem 2026 | HIGH | Test & Compare rollout confirmed by multiple sources. Algorithm emphasis on watch time over CTR documented. Small creator advantages (broader testing) confirmed. |
 
 ---
 
 ## Open Questions
 
-**Script Quality:**
-- [ ] What percentage of revisions are caught by automated checks vs require human judgment?
-- [ ] Can voice fingerprinting learn user's style from 3 transcript samples, or need more?
-- [ ] Are there script quality issues NOT captured by current style guide rules?
+**A/B Tracking:**
+- [ ] How many test cycles needed before patterns stabilize? (Estimate: 10-15 videos with systematic tracking)
+- [ ] Do thumbnail patterns generalize across topic types, or category-specific? (Unknown until data collected)
+- [ ] Statistical significance threshold for low-volume channel? (May need relaxed p-value <0.1 vs typical 0.05)
 
-**Discovery/SEO:**
-- [ ] Which long-tail keywords actually drive traffic for educational history content?
-- [ ] Do title A/B tests need 48 hours or 7 days to determine winner?
-- [ ] Is search volume predictable for niche historical topics?
+**Script Pacing:**
+- [ ] What complexity score threshold predicts retention drops for this channel? (Unknown: need correlation analysis)
+- [ ] Do pacing metrics generalize from educational content research, or channel-specific? (Start with research-based thresholds, adjust empirically)
+- [ ] Which pacing metric is strongest retention predictor? (Unknown: readability vs sentence variance vs entity density)
 
-**NotebookLM Integration:**
-- [ ] Does Enterprise API provide enough value to justify cost?
-- [ ] Can citation extraction handle non-standard source formats (manuscripts, archives)?
-- [ ] What's the error rate for automated quote extraction vs manual?
+**Feedback Loop:**
+- [ ] How far back should pattern database look? (Last 10 videos? All videos? Topic-filtered?)
+- [ ] Threshold for "similar topic" when surfacing insights? (Keyword overlap? Category match? Manual tagging?)
+- [ ] Balance between automation (auto-prompt insights) vs manual query (user asks)? (Start manual, automate once patterns proven valuable)
 
 **Phase-Specific Research Needed:**
-When building retention prediction (Phase 3+), will need:
-- Retention data for 30+ videos across different topics
-- Correlation analysis: which script features predict retention curves
-- Validation: does prediction match actual performance?
+
+**When building retention prediction (v2.0):**
+- Collect 15 more videos with full retention data (currently ~15, need 30 minimum)
+- Correlation analysis: which script features predict retention curve shape?
+- Validation: does prediction match actual performance on holdout set?
+- Category-specific models: territorial disputes vs ideological myths retention patterns differ?
+
+**When expanding A/B tracking (v2.0):**
+- 20+ thumbnails with CTR data for visual pattern analysis
+- 15+ title tests for formula pattern extraction
+- Competitor CTR estimation (if ethically sourced) for benchmarking
 
 ---
 
 ## Sources
 
-### YouTube Ecosystem (2026)
-- [YouTube chief says managing AI slop is priority for 2026](https://www.cnbc.com/2026/01/21/youtube-chief-says-managing-ai-slop-is-a-priority-for-2026-.html) - CNBC
-- [YouTube SEO Optimization Techniques 2026 Guide](https://influenceflow.io/resources/youtube-seo-optimization-techniques-the-complete-2026-guide/) - InfluenceFlow
-- [YouTube Audience Retention 2026: Benchmarks & Analysis](https://socialrails.com/blog/youtube-audience-retention-complete-guide) - SocialRails
-- [YouTube is no longer optional for SEO in age of AI Overviews](https://searchengineland.com/youtube-seo-ai-overviews-467253) - Search Engine Land
+### YouTube A/B Testing & CTR Optimization (2026)
+- [YouTube Title A/B Testing Rolls Out Globally To Creators](https://www.searchenginejournal.com/youtube-title-a-b-testing-rolls-out-globally-to-creators/562571/) - Search Engine Journal
+- [A/B testing YouTube metadata with AI: how to boost CTR](https://air.io/en/youtube-hacks/how-to-ab-test-metadata-with-ai-to-boost-ctr) - AIR Media-Tech
+- [YouTube "Test & Compare" Thumbnails: Native A/B for CTR Lift](https://influencermarketinghub.com/youtube-test-compare/) - Influencer Marketing Hub
+- [YouTube Thumbnail Best Practices & Statistics: Best Ways to Increase CTR In 2026](https://awisee.com/blog/youtube-thumbnail-best-practices/) - Awisee
+- [Best tools for split testing on YouTube](https://air.io/en/youtube-hacks/7-tools-for-ab-testing-on-youtube) - AIR Media-Tech
+- [10 Best YouTube Thumbnail A/B Testing Tools for Creators](https://www.opus.pro/blog/best-youtube-thumbnail-ab-testing-tools) - OpusClip
+- [How to A/B Test on YouTube: YouTube A/B Testing Tools and Strategies](https://www.tubebuddy.com/blog/how-to-a-b-test-on-youtube-youtube-a-b-testing-tools-and-strategies/) - TubeBuddy
 
-### Script Quality & Flow
-- [6 Reasons Your YouTube Videos Are Not Getting Views + Solutions](https://recurpost.com/blog/youtube-videos-are-not-getting-views/) - RecurPost
+### Script Pacing & Retention Analysis (2026)
+- [Best YouTube Video Analyzer AI 2026 | Free & Paid Tools Compared](https://outlierkit.com/blog/best-youtube-video-analyzer-tools) - OutlierKit
 - [How to Skyrocket Your YouTube Retention with the Right Video Script](https://key-g.com/blog/how-to-skyrocket-your-youtube-retention-with-the-right-video-script-a-proven-step-by-step-guide/) - Key-G
-- [Advanced retention editing: cutting strategies](https://air.io/en/youtube-hacks/advanced-retention-editing-cutting-patterns-that-keep-viewers-past-minute-8) - AIR Media-Tech
+- [YouTube Audience Retention 2026: Benchmarks, Analysis & How to Improve](https://socialrails.com/blog/youtube-audience-retention-complete-guide) - SocialRails
+- [Best YouTube Analytics Tools 2026: Free and Paid](https://outlierkit.com/blog/best-youtube-analytics-tools) - OutlierKit
 
-### Long-Tail Keywords & Discovery
-- [How to Find Long Tail Keywords for YouTube](https://tuberanker.com/blog/how-to-find-long-tail-keywords-for-youtube) - TubeRanker
-- [YouTube Keyword Tool](https://www.keywordtooldominator.com/youtube-keyword-tool) - Keyword Tool Dominator
-- [How To Rank Higher in YouTube Search with Long Tail Keywords](https://medium.com/@DylanSwainAU/how-to-rank-higher-in-youtube-search-with-long-tail-keywords-46b744927758) - Medium
+### Feedback Loop & Workflow Integration (2026)
+- [Content Workflow Management: The Essential Guide for 2025](https://www.activepieces.com/blog/content-workflow-management) - Activepieces
+- [AI Content Creation Workflow: Step-by-Step Guide 2026](https://inspace.io/blog/ai-content-creation-workflow-step-by-step) - InSpace
+- [Streamline Your Content Creation: Design Your 2026 Production System in a Day](https://www.podcastvideos.com/articles/content-production-system-guide-2026/) - Podcast Videos
+- [How to Build an AI Driven Content Workflow [2026 Guide]](https://www.clickrank.ai/ai-driven-content-workflow/) - ClickRank
 
-### NotebookLM Integration
-- [NotebookLM Enterprise API Documentation](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks) - Google Cloud
-- [NotebookLM plus n8n workflow automation](https://scalevise.com/resources/notebooklm-with-n8n/) - Scalevise
-- [NotebookLM Enterprise API programmatic workflow](https://www.communeify.com/en/blog/notebooklm-enterprise-api-programmatic-notes-workflow/) - Communeify
-- [NotebookLM-py CLI Tool](https://medium.com/@tentenco/notebooklm-py-the-cli-tool-that-unlocks-google-notebooklm-1de7106fd7ca) - Medium
+### YouTube Algorithm & Creator Ecosystem (2026)
+- [How does the YouTube algorithm work in 2026?](https://socialbee.com/blog/youtube-algorithm/) - SocialBee
+- [YouTube Algorithm Guide 2026: How to Rank, Retain, and Grow](https://influencerdb.net/social-media-platform-playbooks/youtube-algorithm-guide-2026/) - InfluencerDB
+- [How to get discovered on YouTube: Why new creators are being pushed in 2026](https://www.tubebuddy.com/blog/how-to-get-discovered-on-youtube-why-new-creators-are-being-pushed-in-2025/) - TubeBuddy
 
 ---
 

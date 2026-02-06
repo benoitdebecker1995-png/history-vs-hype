@@ -1,416 +1,389 @@
-# Domain Pitfalls: Script Quality, Discovery/SEO, and NotebookLM Workflow
+# Domain Pitfalls: Click & Keep Features
 
-**Domain:** YouTube content production with AI-assisted scriptwriting, SEO optimization, and research workflows
-**Researched:** 2026-01-27
-**Context:** Solo creator adding script quality, discovery, and NotebookLM features to existing workspace
-
----
-
-## Executive Summary
-
-When adding script quality improvements, discovery/SEO optimization, and NotebookLM workflow automation to an existing content production system, the primary risks are: **voice dilution** (AI makes scripts generic), **over-optimization** (chasing metrics at expense of channel DNA), **manual workarounds that don't scale** (NotebookLM file limits), and **scope creep** (new features breaking existing workflows). The creator already has 543 lines of documented voice patterns in STYLE-GUIDE.md - the challenge is enhancing quality WITHOUT losing what already works.
-
-**Critical insight:** 52% of projects experience scope creep when adding features to existing systems. The user's repetition analysis shows scripts need LESS intervention (trim 10% from first drafts), not MORE prompting complexity.
+**Domain:** YouTube CTR tracking, A/B testing, script pacing analysis, and post-publish feedback loops for solo creators
+**Researched:** 2026-02-06
+**Focus:** Common mistakes when ADDING these features to an existing YouTube production system
 
 ---
 
-## Critical Pitfalls (Cause Rewrites or Abandon Features)
+## Critical Pitfalls
 
-### Pitfall 1: The Voice Dilution Trap
+Mistakes that cause rewrites, wasted effort, or incorrect conclusions.
 
-**What goes wrong:**
-AI tools improve "quality" metrics (grammar, flow, clarity) while destroying creator voice. Scripts become indistinguishable from generic YouTube educational content. The 543-line STYLE-GUIDE.md becomes useless because AI "corrects" intentional patterns.
+### Pitfall 1: Small Sample Size Fallacy (A/B Testing)
+**What goes wrong:** Testing thumbnail/title variants with too few impressions leads to false positives. Even at 95% confidence level, you can be wrong 26.4% of the time with small samples. The creator sees "statistically significant" results after 100 impressions and declares a winner, then the pattern doesn't hold as more data comes in.
 
 **Why it happens:**
-- AI writing tools are trained on "good writing" from billions of sources, creating a gravitational pull toward median/generic patterns
-- [Common AI writing mistakes](https://www.yomu.ai/resources/common-ai-writing-mistakes-and-how-to-avoid-them) include overly repetitive language, obvious keyword stuffing, and bland, abstract text
-- AI cannot access emotional experience or express vulnerability authentically - [what matters most must be purely human](https://rivereditor.com/guides/how-to-use-ai-writing-tools-without-losing-voice-2026)
-- Prompts like "improve clarity" or "make more engaging" flatten unique voice patterns
-
-**Real example from this channel:**
-- STYLE-GUIDE.md mandates: "It's not" (contraction), "On June 16th, 2014" (ordinal dates), 2-4 uses of "here's" per script
-- Generic AI correction: "It is not" (formal), "June 16, 2014" (AP style), eliminates "here's" as "repetitive filler"
-- Result: Script sounds like every other documentary, loses conversational authority that drives 42.6% retention
+- Small channel (197 subs) = naturally small impression volumes
+- Impatience to see results quickly
+- Misunderstanding what "statistical significance" actually means
+- YouTube's native A/B testing doesn't explain sample size requirements
 
 **Consequences:**
-- Retention drops (viewers subscribed for "intellectual competence" delivered in specific voice)
-- Creator spends MORE time reverting AI changes than original writing took
-- Audience notices quality change: "This doesn't sound like you anymore"
-- Competitive advantage (Kraut + Alex O'Connor voice fusion) lost
+- Creator optimizes thumbnails based on noise, not signal
+- False confidence in "winning" patterns that don't actually exist
+- Wasted time creating thumbnails in styles that don't perform better
+- Decision paralysis when patterns contradict across tests
 
 **Prevention:**
-1. **Use AI as analyzer, not writer** - Ask it to flag unclear sections, then YOU fix them your way ([recommended by voice preservation experts](https://www.thetransmitter.org/from-bench-to-bot/keeping-it-personal-how-to-preserve-your-voice-when-using-ai/))
-2. **Custom instruction files** - Feed STYLE-GUIDE.md to AI with explicit "preserve these patterns" prompts
-3. **Targeted requests only** - "Scan for repetitive phrases" NOT "improve this section"
-4. **Voice-first editing protocol:**
-   ```
-   Before accepting ANY AI suggestion:
-   - Read aloud - does it sound like YOU?
-   - Check against STYLE-GUIDE.md - violates documented patterns?
-   - If yes to either → reject or heavily modify
-   ```
-5. **Vulnerable sections = human only** - Opening hooks, conclusions, steelmanning moments must be creator-written
+- **Minimum threshold:** Require 1,000+ impressions per variant before declaring a winner
+- **Time-boxed testing:** Run tests for 7-14 days minimum (source: YouTube recommendation for solid results)
+- **Effect size requirement:** Don't just check p-value, require meaningful difference (e.g., 2+ percentage points CTR difference)
+- **Pattern validation:** Require 3+ tests showing same pattern before updating "what works" guidelines
+- Store impression count with each A/B test result in database - make it visible, not hidden
 
 **Detection:**
-Early warning signs AI is diluting voice:
-- Scripts pass quality checks but "feel off" when reading
-- Contractions becoming formal ("it is" replacing "it's")
-- Signature phrases disappearing ("The reality is...", "If we're being fair...")
-- Transitions becoming formal ("However," "Nevertheless" instead of "But," "So")
-- User finds themselves saying "this doesn't sound like me" repeatedly
+- Warning signs in AB-TESTING-LOG.md: "Winner declared after 2 days with 150 impressions"
+- Database query: `SELECT * FROM thumbnail_variants WHERE impressions < 1000 AND declared_winner = 1`
+- Pattern contradictions: Map thumbnails win in Test 1, face thumbnails win in Test 2 (with low impressions)
+
+**Phase to address:** Phase 17 (Format Filtering) - A/B tracking implementation must include sample size validation BEFORE declaring winners.
+
+**Sources:**
+- [Statistical Significance in A/B Testing – a Complete Guide](https://blog.analytics-toolkit.com/2017/statistical-significance-ab-testing-complete-guide/)
+- [How to avoid common data accuracy pitfalls in A/B testing](https://www.kameleoon.com/blog/data-accuracy-pitfalls-ab-testing)
+- [YouTube Title A/B Testing Rolls Out Globally](https://www.searchenginejournal.com/youtube-title-a-b-testing-rolls-out-globally-to-creators/562571/)
 
 ---
 
-### Pitfall 2: SEO Over-Optimization Death Spiral
-
-**What goes wrong:**
-Chasing keywords and CTR metrics transforms documentary channel into clickbait. VidIQ suggests "SHOCKING Truth About X" titles - creator accepts because "data says it works" - audience who subscribed for intellectual rigor leaves.
+### Pitfall 2: Sequential Testing Treated as Simultaneous A/B
+**What goes wrong:** Creator publishes with thumbnail A, gets CTR data for 2 days, swaps to thumbnail B, gets CTR for 2 days, then directly compares percentages. But Day 1-2 impressions (subscriber feed, search) have different baseline CTR than Day 3-4 impressions (browse features, suggested videos). The comparison is apples-to-oranges.
 
 **Why it happens:**
-- [YouTube SEO tools optimize for clicks](https://www.keywordtooldominator.com/youtube-seo), not audience fit
-- Keyword stuffing titles like "YouTube SEO 2026 Tips Tricks Free Tools Optimization Ranking" are instant red flags but tools recommend them
-- [Over-optimization prioritizes clicks over credibility](https://seosherpa.com/youtube-seo/) - Algorithm weighs viewer satisfaction equally with keywords
-- Creator sees competitors getting higher CTR with clickbait, feels pressure to compete
-
-**Real example from this channel:**
-- VidIQ recommended: "The SHOCKING Truth About Belize That Guatemala Doesn't Want You To Know!" (emotional manipulation, all-caps, vague pronouns)
-- Channel DNA requires: "Belize's 1859 Treaty: Why Guatemala's ICJ Case Will Fail" (documentary tone, specific, evidence-based)
-- User correctly rejected via VIDIQ-CHANNEL-DNA-FILTER.md: "Would this work on PBS documentary? No → Reject"
+- YouTube doesn't offer true simultaneous A/B testing (can't show variant A to 50% of impressions, variant B to 50%)
+- Manual swapping is the only option for solo creators without expensive tools
+- Impression sources change over video lifecycle - early impressions come from subscribers, later from browse/suggested
+- Creator treats sequential data as if it was randomized controlled trial
 
 **Consequences:**
-- High CTR, terrible retention (clickbait attracts wrong audience)
-- Subscriber quality drops (people expecting drama, getting academic analysis)
-- Algorithm deprioritizes content (retention matters more than CTR)
-- Creator burnout from constantly fighting tool suggestions
-- Channel DNA erosion over time ("just this once" becomes pattern)
+- Thumbnail B looks like it "won" but it's because browse traffic has naturally higher CTR than subscriber feed
+- Pattern extracted: "Text-heavy thumbnails win" when reality is "Day 3-4 traffic has higher CTR regardless"
+- Future videos optimized for wrong visual pattern
+- Can't trust any A/B test conclusions
 
 **Prevention:**
-1. **Auto-reject rules BEFORE seeing suggestions** - Implement VIDIQ-CHANNEL-DNA-FILTER.md's AUTO-REJECT list:
-   - Emotional manipulation: "You won't BELIEVE...", "SHOCKING..."
-   - All-caps emphasis words (except acronyms)
-   - Vague pronouns: "Why THEY Lied..."
-   - Listicle formats: "Top 10...", "5 Reasons..."
-2. **Channel DNA litmus tests:**
-   ```
-   For every SEO suggestion, ask:
-   - Would this work on PBS documentary? (If no → reject)
-   - Does this accurately represent content? (If no → reject)
-   - Would this mislead viewers? (If yes → reject)
-   - Does this prioritize clicks over credibility? (If yes → reject)
-   ```
-3. **Keyword integration without corruption:**
-   - One clear primary keyword + one benefit
-   - NOT: "YouTube SEO 2026 Tips Tricks Free"
-   - YES: "YouTube SEO 2026: Rank #1 Without Paying for Ads"
-4. **Performance tracking against channel values:**
-   - Track: CTR, retention, subscriber quality, watch time
-   - If high CTR + low retention → over-optimized, roll back
-   - Channel philosophy: "Fewer clicks from right audience > more clicks from wrong audience"
-5. **Separate discovery from integrity:**
-   - Keywords in description/tags (technical SEO) = optimize freely
-   - Title/thumbnail (editorial) = channel DNA rules apply strictly
+- **Track impression sources:** Store not just CTR, but WHERE impressions came from (YouTube API provides: Browse features, Suggested videos, YouTube search, Playlist, Other)
+- **Normalize by source:** Calculate CTR per impression source, compare apples-to-apples
+- **Alternative: Extended test windows:** Run A for 7 days (full lifecycle), then B for 7 days (full lifecycle), compare full lifecycle CTR
+- **Document in AB-TESTING-LOG.md:** Add "Impression Sources" column showing distribution
+- **Consider TubeBuddy:** Auto-switches thumbnails every 24h while tracking source-normalized CTR ($4.50/month)
 
 **Detection:**
-You've over-optimized when:
-- Comments section fills with "this isn't what I expected"
-- Retention dropping despite higher CTR
-- Subscribers increasingly disengaged (views per subscriber declining)
-- You feel uncomfortable with own titles
-- Core audience comments: "What happened to your channel?"
+- Warning sign: Variant B always wins when it's tested second
+- Impression source analysis shows Day 1-2 primarily "Subscriptions", Day 3-4 primarily "Browse features"
+- CTR delta correlates with days-since-publish, not thumbnail variant
+
+**Phase to address:** Phase 17 (Format Filtering) - A/B tracking must store impression source distribution, not just total CTR.
+
+**Sources:**
+- [A/B Testing for YouTube CTR: Boost Click Rates](https://www.tubebuddy.com/blog/a-b-testing-youtube-ctr/)
+- [YouTube "Test & Compare" Thumbnails: Native A/B for CTR Lift](https://influencermarketinghub.com/youtube-test-compare/)
 
 ---
 
-### Pitfall 3: NotebookLM Manual Workarounds That Collapse
-
-**What goes wrong:**
-Creator develops workarounds for NotebookLM's 50-source limit (merging PDFs, splitting across notebooks). Works for one video. Collapses at scale when managing 5+ videos with 20+ sources each. Citations break, file organization destroyed, hours wasted on manual file manipulation.
+### Pitfall 3: Pacing Analysis Detects Symptoms, Not Causes
+**What goes wrong:** Script pacing checker flags "sentence length variance spike at lines 45-52" but doesn't explain WHY variance spiked. Creator gets a list of warnings but no guidance on root cause - is it rushed delivery? Wall of nouns? Complexity spike? They fix the wrong thing or ignore the warning entirely.
 
 **Why it happens:**
-- NotebookLM Enterprise API exists but NOT available to consumer users ([no official public API](https://autocontentapi.com/blog/does-notebooklm-have-an-api))
-- [Workarounds have serious drawbacks](https://elephas.app/blog/how-to-upload-more-files-notebooklm): consume significant time, reduce citation accuracy, destroy document organization
-- File merging destroys original structure while splitting across notebooks becomes unmanageable for larger projects
-- [Manual processes requiring file conversion with extra software](https://medium.com/@ferreradaniel/how-to-use-notebooklm-better-than-99-of-people-deep-research-workflow-guide-4e54199c9f82) don't scale
-- Creator invests weeks perfecting workaround, then can't maintain it across multiple projects
-
-**Real example scenarios:**
-- Video 1: 15 sources, manually merge to fit limit, works fine
-- Video 2-4: 45+ sources total, now managing merged files across 3 notebooks
-- Need to verify cross-video claim: Which merged PDF has that source? Which notebook?
-- Citation says "Source 3, page 47" but Source 3 is actually pages 120-180 of merged file
-- 2 hours of research time wasted hunting for one citation
+- Quantitative metrics (sentence length variance, Flesch-Kincaid) detect patterns but don't diagnose intent
+- Script checkers built in isolation from retention data - no connection to actual drop-off patterns
+- Creator hasn't been trained to interpret readability metrics in context of spoken delivery
+- Warnings presented as separate issues, not connected to underlying structural problems
 
 **Consequences:**
-- [Invalid citations where source references become incorrect](https://medium.com/@ferreradaniel/how-to-use-notebooklm-better-than-99-of-people-deep-research-workflow-guide-4e54199c9f82)
-- Loss of file organization where original structure and document names disappear
-- Topic confusion from mixed subjects in merged files
-- Research quality degradation (can't find sources to verify claims)
-- Workaround maintenance becomes full-time job
-- Eventually abandon NotebookLM entirely, lose benefits
+- Creator sees 8 pacing warnings, feels overwhelmed, ignores them all
+- "Fix" is superficial: break one long sentence into two short sentences, variance normalizes but pacing still feels wrong
+- Script checker becomes "boy who cried wolf" - flags too many issues, loses credibility
+- Real pacing problems (emotional monotone, lack of stakes escalation) aren't detected
 
 **Prevention:**
-1. **Accept the constraint, design around it:**
-   - 10-20 sources per video (focused, not exhaustive) per NOTEBOOKLM-SOURCE-STANDARDS.md
-   - Prioritize Tier 1 (primary) and Tier 2 (academic) sources only
-   - One notebook per video, strict 50-source ceiling
-2. **External citation management:**
-   - Maintain VERIFIED-RESEARCH.md as single source of truth
-   - Record page numbers FROM NotebookLM citations immediately
-   - Don't rely on NotebookLM for long-term citation storage
-3. **Source quality over quantity:**
-   - 15 excellent sources &gt; 50 mediocre sources
-   - Use NotebookLM Study Guides to extract maximum value from fewer sources
-   - Academic monographs (500+ pages) COUNT AS ONE but contain multiple chapters worth of material
-4. **No heroic workarounds:**
-   - If you're considering PDF merging → stop, reconsider source selection instead
-   - If you need 3rd-party scripts → you're fighting the tool, not using it
-   - Manual processes requiring &gt;30 min setup per video won't survive at scale
-5. **Alternative tools for different needs:**
-   - NotebookLM: Deep synthesis of 10-20 focused sources
-   - Zotero/Mendeley: Citation management for 100+ sources
-   - Don't force NotebookLM to be citation database
+- **Contextual warnings:** Don't just report variance, explain what it means
+  - Good: "Sentence variance 18.3 at lines 45-52. Caused by: 3 short sentences (5-8 words) followed by 1 long sentence (42 words). Pattern indicates rushed setup → dense explanation. Consider: break dense explanation into 2 segments with transition."
+  - Bad: "Sentence variance 18.3 at lines 45-52. Warning threshold: 15.0."
+- **Root cause categories:** Tag each warning with cause type (entity density, complexity spike, transition missing, scaffolding overload)
+- **Severity scoring:** Not all warnings are equal. Sentence variance of 16 is barely over threshold. Variance of 25 is severe.
+- **Actionable fix suggestions:** "Consider X" not just "Warning: Y"
 
 **Detection:**
-Workarounds are failing when:
-- Spending &gt;20% of research time on file management vs. actual research
-- Citations require "detective work" to trace back to original sources
-- Anxiety about losing track of which notebook has which merged file
-- Considering building custom scripts to manage NotebookLM organization
-- Research quality declining because verification is "too hard"
+- Warning sign: Script has 12 pacing flags but creator doesn't know which to fix first
+- User asks "What does sentence variance mean in practice?"
+- Warnings include quantitative data but no qualitative interpretation
+
+**Phase to address:** Phase 23 (B-roll Generation) - Pacing analysis should output diagnostic messages with context, not just numbers.
+
+**Sources:**
+- [What Is Script Pacing and Why It Matters to You?](https://glcoverage.com/2024/10/25/script-pacing/)
+- [3 Simple Tips to Speed Up Script Pacing](https://screencraft.org/blog/script-pacing/)
+- [How's Your Pacing: Rushing Or Dragging?](https://www.thestorydepartment.com/rhythm-pacing/)
 
 ---
 
-### Pitfall 4: Prompt Over-Engineering Paralysis
-
-**What goes wrong:**
-Creator writes 2,000-token mega-prompts trying to capture every nuance of STYLE-GUIDE.md. AI output is worse than simple prompts because model gets lost in complexity. [Poorly optimized prompts burn capital across millions of API calls when 500 tokens would suffice](https://bigblue.academy/en/the-death-of-prompt-engineering-and-its-ruthless-resurrection-navigating-ai-orchestration-in-2026-and-beyond).
+### Pitfall 4: Dead-End Insights (Feedback Loop Integration)
+**What goes wrong:** `/analyze` generates POST-PUBLISH-ANALYSIS.md with valuable insights: "Major drop-off at 3:15 due to pacing spike", "Map thumbnails outperform face 2:1". File saved to `channel-data/analyses/`. Creator reads it once, nods, closes file. Insight never surfaces again. Next video, same pacing mistake at 3:30. Feedback loop is one-way: data → markdown file, not markdown file → production tools.
 
 **Why it happens:**
-- STYLE-GUIDE.md is 543 lines - creator tries to cram entire guide into every prompt
-- [Making prompts overly complex](https://treyworks.com/common-prompt-engineering-mistakes-to-avoid/) by trying to cover too many topics at once
-- Mistaken belief: more detailed prompt = better output
-- Each script revision requires tweaking 2,000-token prompt, becomes unmaintainable
-
-**Real example pattern:**
-```
-BAD MEGA-PROMPT (2,000 tokens):
-"You are a YouTube script editor for History vs Hype channel.
-Voice profile: Calm Prosecutor, emotionally low, intellectually high.
-Style patterns: Use contractions (it's not it is), ordinal dates
-(On June 16th not June 16), define terms immediately (estoppel -
-a legal rule that...), limit here's to 2-4 uses, use But/So not
-However/Nevertheless, fragments only for emphasis not information,
-steelman opposing arguments, cite sources with author names,
-use Kraut causal chains (consequently, thereby), Alex O'Connor
-intellectual honesty (That's fair. But...), Shaun document-first...
-[continues for 2,000 tokens]
-
-Now improve this script section..."
-
-Result: AI overwhelmed, defaults to generic patterns,
-ignores most instructions.
-```
+- **Data fragmentation:** POST-PUBLISH-ANALYSIS.md is separate from script generation, thumbnail creation, metadata drafting
+- **No queryable storage:** Insights trapped in markdown, not in SQLite where tools can access them
+- **Human memory fails:** Creator forgets lesson from 3 videos ago when writing new script
+- **Integration-Analysis Gap:** Collecting feedback ≠ acting on feedback
 
 **Consequences:**
-- [Overloading prompts should be fixed by breaking tasks into simpler, focused steps](https://www.mygreatlearning.com/blog/prompt-engineering-beginners-mistakes/)
-- AI performance WORSE with complex prompts (model attention diluted)
-- Creator can't maintain prompts (each script needs prompt debugging)
-- Expensive at scale (2,000 tokens × 50 script sections × $X per token)
-- False precision: most of prompt ignored anyway
+- Patterns repeat across videos: every video has pacing drop at 3min mark, never fixed
+- Thumbnail optimization stalls: creator knows "maps win" but forgets when designing next thumbnail
+- Post-publish analysis becomes performative: generates reports that nobody uses
+- Channel improvement velocity stalls: same mistakes, no learning curve
 
 **Prevention:**
-1. **Task-specific micro-prompts:**
-   ```
-   GOOD MICRO-PROMPT (150 tokens):
-   "Scan this script section for:
-   1. Repetitive phrases (same phrase 3+ times)
-   2. Unclear transitions between topics
-   3. Paragraphs that could be cut entirely
-
-   List issues only, don't rewrite."
-
-   Then: Creator fixes issues in their own voice.
-   ```
-2. **Layered approach:**
-   - Layer 1: Detection ("Find repetitions")
-   - Layer 2: Analysis ("Why is this repetitive?")
-   - Layer 3: Creator decides fix
-   - NOT: One mega-prompt trying to do everything
-3. **Reference files, don't embed:**
-   - Upload STYLE-GUIDE.md as reference document
-   - Prompt: "Following style guide, identify violations"
-   - NOT: Copy entire style guide into every prompt
-4. **Ruthlessly eliminate unnecessary verbosity:**
-   - [2026 sophisticated practitioners treat prompt optimization as cost-reduction](https://bigblue.academy/en/the-death-of-prompt-engineering-and-its-ruthless-resurrection-navigating-ai-orchestration-in-2026-and-beyond)
-   - Monitor inference costs
-   - Target: 500 tokens or less per prompt
-5. **Specific over comprehensive:**
-   - "Flag uses of 'However' and 'Nevertheless'" &gt; "Apply all transition rules from style guide"
+- **Parse markdown → database:** Create `tools/production/feedback_loader.py` that extracts structured data from POST-PUBLISH-ANALYSIS.md and stores in `video_performance` table (already exists per Phase 19 migration)
+- **Query during production:** When `/script` runs, query previous videos with similar topics and surface retention warnings
+  - "Similar videos (Belize, Bir Tawil) had pacing drops at 3min mark - review script structure at that point"
+- **Thumbnail brief integration:** When creating thumbnail brief, query: "Previous 5 territorial dispute videos: map thumbnails averaged 8.2% CTR, face thumbnails 4.1% CTR"
+- **Automated pattern extraction:** Don't rely on creator to remember - tools should query database and surface relevant patterns
 
 **Detection:**
-Prompts are over-engineered when:
-- Takes longer to write prompt than to do task manually
-- AI outputs ignore most of your instructions
-- You're maintaining a "prompt library" with versions
-- Token costs becoming significant
-- Each new script requires prompt debugging session
+- Warning sign: POST-PUBLISH-ANALYSIS.md files exist but never referenced in production
+- Pattern: Same pacing issue flagged in 3+ analyses, never addressed in subsequent scripts
+- No database entries in `video_performance` table despite analysis files existing
+
+**Phase to address:** Phase 25 (Metadata Draft Generation) - Metadata generation should query past performance patterns, not generate in isolation.
+
+**Sources:**
+- [The Ultimate Customer Feedback Loop Guide](https://getthematic.com/insights/customer-feedback-loop-guide)
+- [Overcoming challenges in AI feedback loop integration](https://www.glean.com/perspectives/overcoming-challenges-in-ai-feedback-loop-integration)
+- [How to Create a User Feedback Loop](https://getthematic.com/insights/building-effective-user-feedback-loops-for-continuous-improvement)
 
 ---
 
-## Moderate Pitfalls (Cause Delays or Technical Debt)
+## Moderate Pitfalls
 
-### Pitfall 5: Breaking Existing Workflows with "Improvements"
+Mistakes that cause delays, confusion, or suboptimal decisions but are recoverable.
 
-**What goes wrong:**
-New script quality tool requires reformatting all scripts to JSON schema. Breaks existing `/script` command. Creator spends week on migration, realizes old workflow was actually better for their use case.
+### Pitfall 5: Perceptual Hash Collision (Thumbnail Pattern Analysis)
+**What goes wrong:** ImageHash perceptual hashing groups visually similar thumbnails by Hamming distance. Threshold set too loose (distance < 15): thumbnails with different visual strategies (map vs face) get clustered together. Threshold set too tight (distance < 5): visually similar thumbnails (same map, different text) treated as separate patterns. Creator can't trust pattern analysis results.
 
 **Why it happens:**
-- [52% of projects experience scope creep](https://projectmanagementacademy.net/resources/blog/pmp-scope-creep/) when adding features
-- [Changing requirements and poor definition](https://www.projectmanager.com/blog/5-ways-to-avoid-scope-creep) cause additions without proper evaluation
-- New tool solves problem that didn't exist, creates problems that did
-- Sunk cost fallacy: invested time in setup, feel obligated to use it
+- ImageHash provides 3 hash types (average_hash, perceptual_hash, difference_hash) with no guidance on which to use
+- Hamming distance threshold is arbitrary - no universal "right" value
+- Visual similarity is subjective: humans see "map thumbnail" as coherent category, but pHash might cluster by color palette instead
+- No ground truth labels to validate clustering quality
 
-**Real example from user context:**
-- Current workflow: Write in Markdown, read aloud, manual fact-check against VERIFIED-RESEARCH.md
-- "Improvement" idea: Automated fact-checking tool that cross-references database
-- Reality: Tool requires structured data format user doesn't have, manual conversion takes longer than original fact-check process
+**Consequences:**
+- Pattern analysis reports: "High-performing cluster includes 4 videos" but cluster includes mix of maps and faces
+- Creator can't trust pattern recommendations: "Use this visual style" but style is incoherent
+- Debugging is hard: Hamming distance of 8 vs 12 looks similar to human, clusters completely differently
+- Time wasted tuning threshold values with no validation metric
 
 **Prevention:**
-1. **Minimum viable addition:**
-   - Add ONE feature at a time
-   - Test with ONE video before rolling out
-   - If it doesn't save &gt;20% time or improve quality measurably → don't adopt
-2. **Backwards compatibility requirement:**
-   - New tool must work with existing files/format
-   - If requires migration → probably wrong tool
-3. **Kill switch planning:**
-   - Before adopting: document how to revert
-   - Test reversion process
-   - Keep old workflow available for 3-5 videos before deprecating
-4. **Actual problem definition:**
-   ```
-   Before adding feature, write:
-   - Current problem: [specific issue]
-   - Success criteria: [measurable improvement]
-   - If success criteria not met after 3 videos → kill feature
-   ```
+- **Multi-hash strategy:** Use all 3 hash types (average, perceptual, difference), cluster only if 2/3 agree
+- **Manual validation:** First 10 videos, manually tag thumbnails (map, face, text-heavy, document) and validate clusters match tags
+- **Conservative threshold:** Start with strict threshold (distance < 8), gradually loosen if clusters too fragmented
+- **Visual review:** When pattern extracted, display thumbnails side-by-side for human confirmation
+- **Fallback to manual tagging:** If hash-based clustering proves unreliable, add manual "visual_category" field to thumbnail_variants table
 
 **Detection:**
-- Spending more time configuring tools than creating content
-- Workarounds accumulating to make new tool compatible with old process
-- Nostalgia for "simpler times" before improvement
-- Decreased output (fewer videos completed since adding feature)
+- Warning sign: Pattern report says "Map thumbnails outperform" but example thumbnails include faces
+- Hamming distance distribution bimodal: most pairs are <5 or >15, few in middle range
+- Creator questions pattern validity: "These don't look similar to me"
+
+**Phase to address:** Phase 17 (Format Filtering) - Thumbnail pattern analysis must include validation step against manual labels.
 
 ---
 
-### Pitfall 6: The Repetition Over-Correction Trap
-
-**What goes wrong:**
-Creator reads REPETITION-ANALYSIS showing "deportation records, statistical reports" used 4 times. Implements rule: "Never repeat ANY phrase more than twice." Scripts become thesaurus-driven gibberish where every mention uses different synonym, confusing viewers.
+### Pitfall 6: Over-Indexing on Outliers (Pattern Extraction)
+**What goes wrong:** Channel has 30 videos. One video (Essequibo) got 1,905 views (12x baseline). Pattern analysis concludes: "Territorial disputes + map thumbnails = success". Creator makes 5 territorial dispute videos with map thumbnails. They get 150-200 views (baseline). The pattern wasn't pattern, it was outlier luck.
 
 **Why it happens:**
-- Misunderstanding the problem: [AI repetition is about identical phrasing](https://the7eagles.com/common-mistakes-of-ai-writing/), not concept reinforcement
-- Over-applying feedback (fix said "vary language," interpreted as "never repeat ever")
-- Losing sight of goal: clarity for viewers, not variety for variety's sake
+- Small sample size (30 videos) makes outliers statistically significant when they shouldn't be
+- N=1 for "territorial dispute + map thumbnail + modern news hook" combination
+- Regression to the mean not accounted for - exceptional performance unlikely to repeat
+- Pattern extraction weights recent outliers heavily
 
-**Real example:**
-```
-ORIGINAL (repetitive):
-"Deportation records showed X. Statistical reports confirmed Y.
-The deportation records proved Z. These statistical reports..."
-
-OVER-CORRECTED (confusing):
-"Transportation logs showed X. Census data confirmed Y.
-The removal documentation proved Z. These numeric analyses..."
-
-Result: Viewer thinks these are different sources,
-gets confused about what evidence exists.
-```
-
-**Better correction:**
-```
-"Deportation records and statistical reports showed X.
-The Nazi paperwork confirmed Y. [Show document on screen]
-As you can see, these numbers prove Z."
-
-Result: Varies phrasing while maintaining clarity.
-```
+**Consequences:**
+- Topic pipeline filled with territorial disputes expecting 12x performance
+- Disappointment when videos perform at baseline
+- Creator loses trust in pattern analysis: "It said this would work"
+- Opportunity cost: time spent on "pattern topics" instead of experimenting with new angles
 
 **Prevention:**
-1. **Clarity > Variety:**
-   - Technical terms SHOULD be consistent ("Guardian Council" not "Guardian Council → oversight body → clerical committee")
-   - Vary delivery, not terminology
-2. **Show, don't say:**
-   - If document is on screen, you can repeat its name - visual variety compensates
-   - "The Höfle Telegram shows... [cut to document] ...As you can see..." = not repetitive
-3. **Concept vs. phrasing:**
-   - OK to reference "this constitutional problem" 3 times (concept)
-   - NOT OK to say "the constitutional problem that undermines democracy" 3 times (identical phrasing)
+- **Minimum sample size:** Require N≥3 videos in pattern category before declaring pattern
+- **Performance bands, not absolutes:** Report "Territorial disputes average 3x baseline (range: 1.2x-12x, N=4)" not "Territorial disputes = 12x"
+- **Regression caveat:** Flag outlier patterns with warning: "Essequibo (12x) is outlier. Median territorial dispute: 2.8x. Expect median, not outlier."
+- **Multi-factor analysis:** Don't attribute success to single factor. Essequibo = territorial dispute + map thumbnail + active news hook + border visualization. Require ALL factors present for pattern match.
+- **Confidence intervals:** Report mean + standard deviation, not just mean
+
+**Detection:**
+- Warning sign: Pattern with N=1 or N=2 presented as reliable
+- High standard deviation (3x ± 8x) not reported, only mean shown
+- Subsequent videos following "pattern" underperform expectation
+
+**Phase to address:** Phase 16 (Competition Analysis) - Pattern extraction must include sample size validation and confidence intervals.
 
 ---
 
-### Pitfall 7: Discovery Optimization Tunnel Vision
-
-**What goes wrong:**
-Creator sees "Belize territorial dispute" has 210 searches, "Guatemala controversy" has 8,900. Pivots entire video to controversy framing. Gets clicks from people expecting scandal, delivers academic border dispute analysis. Retention tanks.
+### Pitfall 7: Pacing Metrics Disconnected from Retention Reality
+**What goes wrong:** Script pacing checker flags "complexity spike" at 3:15 based on Flesch-Kincaid readability drop. But when video publishes, retention drop happens at 5:20, not 3:15. Creator questions tool accuracy: "It flagged the wrong section." Pacing analysis becomes distrusted.
 
 **Why it happens:**
-- [Keyword volume data doesn't show intent or audience quality](https://www.keywordtooldominator.com/youtube-seo)
-- High-volume keywords often have wrong audience
-- SEO tools can't measure channel DNA fit
+- **Script timing ≠ video timing:** 150 WPM estimate used, but creator slows down during complex sections or speeds up during familiar sections
+- **B-roll affects retention:** Retention drop at 5:20 caused by boring B-roll (static maps), not script complexity
+- **On-camera energy matters:** Creator's facial expression and vocal energy affect retention more than script readability metrics
+- **Pacing checker analyzes script in isolation** from delivery context
+
+**Consequences:**
+- Creator ignores pacing warnings: "They're never accurate anyway"
+- False negatives: real pacing issue at 5:20 not flagged because script readability was fine
+- Wasted time fixing flagged sections that weren't causing retention drops
+- Tool credibility damaged
 
 **Prevention:**
-1. **Audience quality over keyword volume:**
-   - 210 searches from right audience &gt; 8,900 from wrong audience
-   - Track: views per subscriber, not just total views
-2. **Middle path keyword pivoting:**
-   - ORIGINAL: "Belize territorial dispute" (210 searches, perfect fit)
-   - VIDIQ: "Guatemala controversy" (8,900 searches, wrong audience)
-   - MIDDLE: "Guatemala Belize border dispute" (4,200 searches, acceptable fit)
-3. **Performance tracking by keyword type:**
-   - Track retention by which keyword attracted viewer
-   - If "controversy" keywords = low retention → avoid regardless of volume
+- **Post-publish validation loop:** After video publishes, compare flagged pacing issues to actual retention drops
+  - Query: retention.py data for drop-off points
+  - Compare: pacing warnings at 3:15 vs retention drop at 5:20
+  - Log mismatch: "Pacing warning at 3:15 (script) did NOT correlate with retention drop"
+- **Calibration over time:** Adjust warning thresholds based on hit rate
+  - If Flesch delta >20 predicts retention drop 70% of time, keep threshold
+  - If Flesch delta >20 predicts retention drop 30% of time, raise threshold to 30
+- **Delivery context integration:** Combine script metrics with edit guide cues
+  - If B-roll at 5:20 is "static map for 45 seconds", flag as pacing risk even if script readability is fine
+- **Conservative warnings:** Only flag HIGH confidence issues. Better to miss some problems than cry wolf on false positives.
+
+**Detection:**
+- Warning sign: 10 pacing warnings per script, but retention drops don't correlate with warnings
+- Creator feedback: "Pacing checker isn't helpful"
+- Post-publish analysis shows retention drop sections had no pacing warnings
+
+**Phase to address:** Phase 23 (B-roll Generation) - Pacing analysis should validate against historical retention data, not just script metrics.
 
 ---
 
-## Minor Pitfalls (Cause Annoyance but Fixable)
+### Pitfall 8: Thumbnail Variant Naming Chaos
+**What goes wrong:** Creator saves thumbnails as `thumbnail.png`, `thumbnail-test.png`, `new-thumbnail.png`, `final-thumbnail-v2.png`. When running thumbnail_tracker.py to compute hashes, script can't determine which variant is A, B, or C. Manual renaming required for every video. A/B tracking becomes tedious, creator abandons it.
 
-### Pitfall 8: NotebookLM Source Quality Drift
+**Why it happens:**
+- No enforced naming convention for thumbnail files
+- Creator works in Photoshop, saves files ad-hoc during iteration
+- Different projects use different naming patterns (historical inconsistency)
+- thumbnail_tracker.py doesn't know how to parse arbitrary filenames
 
-**What goes wrong:**
-Creator starts with academic monographs, gradually adds blog posts and news articles to meet source count targets. Research quality degrades silently.
+**Consequences:**
+- Manual effort: creator must rename files before running tracker
+- Inconsistent tracking: some videos have A/B/C labeled, others have arbitrary names
+- Database pollution: thumbnail_variants table has inconsistent variant_label values
+- Pattern analysis fails: can't group "variant A" across videos when labeling is inconsistent
 
 **Prevention:**
-- NOTEBOOKLM-SOURCE-STANDARDS.md enforces academic quality: university presses ONLY
-- Budget is UNLIMITED for quality sources - buy what you need
-- Better 8 excellent sources than 20 mediocre ones
+- **Standard naming convention:** `[project-folder]/THUMBNAIL-[A/B/C].png` (already used in Iran 1953 project)
+- **Validation in thumbnail_tracker.py:** Reject files that don't match naming pattern
+- **Template PSD files:** Provide `THUMBNAIL-TEMPLATE-A.psd`, `THUMBNAIL-TEMPLATE-B.psd`, `THUMBNAIL-TEMPLATE-C.psd` in each project
+- **Pre-commit hook (optional):** Warn if thumbnail files don't match naming pattern
+- **Documentation:** Add to FOLDER-STRUCTURE-GUIDE.md: "Thumbnail variants MUST be named THUMBNAIL-[A/B/C].png"
+
+**Detection:**
+- Warning sign: Project folder contains `thumbnail.png`, `thumbnail2.png`, `test.png`
+- Database query: `SELECT DISTINCT variant_label FROM thumbnail_variants` returns inconsistent values
+- Creator manually renames files every time before running tracker
+
+**Phase to address:** Phase 17 (Format Filtering) - Thumbnail tracking must validate file naming before processing.
 
 ---
 
-### Pitfall 9: Metadata Template Ossification
+## Minor Pitfalls
 
-**What goes wrong:**
-Creator builds perfect metadata template, uses same structure for every video. Discovery suffers because template doesn't adapt to different video types (territorial vs. ideological myth).
+Mistakes that cause annoyance or minor inefficiency but are easily fixable.
+
+### Pitfall 9: Model Assignment Mismatch (Stale Model IDs)
+**What goes wrong:** Phase 13.1 assigned models using Claude 3.5 naming (Haiku, Sonnet, Opus). Anthropic released Claude 4.x lineup (Haiku 4.5, Sonnet 4.5, Opus 4.6). Slash command frontmatter still references `model: haiku` which routing logic doesn't recognize. Command defaults to wrong model or fails entirely.
+
+**Why it happens:**
+- Model lineup changes faster than documentation updates
+- Tier names (haiku/sonnet/opus) vs full model IDs (claude-haiku-4-5) used inconsistently
+- No automated check for stale model references
+- Routing logic may accept old names as aliases or may reject them
+
+**Consequences:**
+- Commands run with wrong model (Opus task runs on Haiku, costs less but quality suffers)
+- Commands fail with "unknown model" error
+- Inconsistent behavior across commands (some use old names, some use new)
+- Confusion during debugging: "Why isn't this working?"
 
 **Prevention:**
-- Templates are starting points, not rigid formats
-- Each video type needs different hook:
-  - Territorial: Document + modern stakes
-  - Ideological: Myth + who believes it today
-  - Fact-check: Claim + evidence reveal
+- **Update YAML frontmatter:** Change `model: haiku` → `model: claude-haiku-4-5` in all command files
+- **Model ID validation:** Add validation step in command routing that checks model ID against current Anthropic API
+- **Centralized model config:** Store model tier → ID mapping in single config file, reference in commands
+- **Documentation update:** Update .planning/research/STACK.md with current model IDs
+
+**Detection:**
+- Warning sign: Command runs but uses unexpected model
+- Error log: "Model 'haiku' not recognized"
+- Performance: Opus-tier task completes suspiciously fast (ran on Haiku instead)
+
+**Phase to address:** Phase 13.1 (Token Optimization - Model Assignment) - Straightforward find-replace in YAML frontmatter.
+
+**Sources:**
+- STACK.md already documents new model lineup: Haiku 4.5, Sonnet 4.5, Opus 4.6
 
 ---
 
-### Pitfall 10: Verification Theater
+### Pitfall 10: Feedback Loader Parsing Brittleness
+**What goes wrong:** feedback_loader.py parses POST-PUBLISH-ANALYSIS.md markdown to extract CTR, retention drop points, discovery issues. Markdown format changes slightly (heading levels, table structure, bullet formatting). Parser breaks. Feedback loop fails silently - database not updated but no error shown.
 
-**What goes wrong:**
-Creator implements 3-phase verification process (VERIFIED-RESEARCH.md → SCRIPT → FACT-CHECK). Spends 2 hours verifying trivial facts ("France is in Europe"), skips verification of contested claims because "running out of time."
+**Why it happens:**
+- Markdown is human-readable but machine-parsing is brittle
+- POST-PUBLISH-ANALYSIS.md format evolved over time (Phase 8 → Phase 11 added discovery section)
+- Parser uses exact string matching ("## CTR") which breaks if format changes to "## Click-Through Rate"
+- No schema validation on markdown structure
+
+**Consequences:**
+- Feedback loop silently fails: POST-PUBLISH-ANALYSIS.md exists but data not in database
+- Production tools query database, find no feedback, can't surface insights
+- Creator doesn't notice broken parser until manually checks database
+- Debugging is hard: markdown "looks fine" to human, parser can't parse it
 
 **Prevention:**
-- Triage verification effort:
-  - HIGH priority: Contested claims, statistics, direct quotes
-  - MEDIUM priority: Historical events with multiple interpretations
-  - LOW priority: Widely accepted facts
-- Verification depth should match claim controversy
+- **Flexible parsing:** Use regex patterns instead of exact string matching
+  - Match: `##\s*(CTR|Click-Through Rate|Click Through Rate)` not just `## CTR`
+- **Fallback gracefully:** If section not found, log warning but continue parsing other sections
+- **Validation logging:** Log what was extracted: "Extracted CTR: 8.2%, Retention: 35%, Drop-offs: 3"
+- **Schema versioning:** Add `<!-- FORMAT_VERSION: 2.0 -->` comment to markdown, parser checks version
+- **Error visibility:** If parsing fails, print clear error to console, don't fail silently
+
+**Detection:**
+- Warning sign: POST-PUBLISH-ANALYSIS.md exists but `video_performance` table empty for that video
+- Manual query shows data in markdown but not in database
+- feedback_loader.py runs without errors but extracts zero fields
+
+**Phase to address:** Phase 25 (Metadata Draft Generation) - Feedback loader must be robust to format variations.
+
+---
+
+### Pitfall 11: Pacing Analysis False Negatives (Emotional Monotone)
+**What goes wrong:** Script passes all pacing checks (sentence variance normal, Flesch readability consistent, entity density reasonable). Video publishes. Retention drops at 4:30. Reason: emotional monotone - 3 minutes of dry legal explanation with no stakes escalation. Pacing checker didn't detect it because metrics measure complexity, not emotional energy.
+
+**Why it happens:**
+- Readability metrics don't measure stakes/tension/emotional progression
+- Script could be perfectly readable but emotionally flat
+- Pacing checker doesn't understand narrative arc - setup → complication → resolution
+- Solo creator's talking head delivery relies on emotional energy, not just script complexity
+
+**Consequences:**
+- False confidence: "Script passed pacing check, should be fine"
+- Retention drop surprise: "Pacing was good, why did viewers leave?"
+- Missed opportunity: Could have added pattern interrupt at 4:30 (rhetorical question, stakes reminder)
+
+**Prevention:**
+- **Acknowledge limitation:** Pacing checker output includes: "Note: This checks sentence complexity and readability. Emotional pacing and stakes escalation require human review."
+- **Hybrid approach:** Quantitative checks (variance, readability) + qualitative checklist for creator
+  - "Does each 2-minute segment escalate stakes or answer a question?"
+  - "Is there a pattern interrupt every 3 minutes (question, visual shift, stakes reminder)?"
+- **Learn from retention data:** After videos publish, note retention drops that pacing checker didn't predict, add new heuristics
+  - Example: If 3+ paragraphs without question mark, flag as "potential monotone risk"
+- **Don't oversell capability:** Tool is "script complexity checker" not "script pacing validator"
+
+**Detection:**
+- Warning sign: Script passes pacing check but retention drops in section with legal/technical explanation
+- Post-publish analysis: "Section felt flat" but no pacing warning
+
+**Phase to address:** Phase 23 (B-roll Generation) - Set realistic expectations for pacing analysis scope.
 
 ---
 
@@ -418,82 +391,79 @@ Creator implements 3-phase verification process (VERIFIED-RESEARCH.md → SCRIPT
 
 | Phase Topic | Likely Pitfall | Mitigation |
 |-------------|---------------|------------|
-| Script Quality Setup | Voice dilution from AI "improvements" | Use AI as analyzer only, creator fixes issues in own voice |
-| Discovery/SEO Integration | Over-optimization breaking channel DNA | Implement VIDIQ-CHANNEL-DNA-FILTER.md AUTO-REJECT rules first |
-| NotebookLM Workflow | Manual workarounds that don't scale | Accept 50-source limit, design around it with quality over quantity |
-| Prompt Engineering | Over-complex mega-prompts | Micro-prompts (150 tokens) for specific tasks only |
-| Workflow Integration | Breaking existing working system | Add ONE feature at a time, test with ONE video |
-| Repetition Detection | Over-correction creating confusion | Vary phrasing, not terminology; clarity &gt; variety |
-| Keyword Research | High-volume wrong-audience keywords | Track retention by keyword source, optimize for fit not volume |
-| Source Management | Quality drift toward easier/cheaper sources | Academic quality standards non-negotiable, budget unlimited |
-| Template Usage | Rigid templates preventing adaptation | Templates as starting points for each video type |
-| Verification Process | Spending time on trivial, skipping critical | Triage by claim controversy level |
+| **Phase 17: Format Filtering** | Small sample size fallacy in A/B tracking | Require 1,000+ impressions before declaring winner. Validate with sample size check in database schema. |
+| **Phase 17: Format Filtering** | Sequential testing treated as simultaneous A/B | Store impression source distribution (Browse, Search, Subscriptions). Normalize CTR by source or use extended test windows (7+ days per variant). |
+| **Phase 17: Format Filtering** | Perceptual hash collision in thumbnail clustering | Use multi-hash strategy (2/3 hash types must agree). Manually validate first 10 videos. Conservative threshold (distance < 8). |
+| **Phase 17: Format Filtering** | Thumbnail naming chaos | Enforce naming convention: `THUMBNAIL-[A/B/C].png`. Validate in tracker script. Provide PSD templates. |
+| **Phase 23: B-roll Generation** | Pacing analysis detects symptoms, not causes | Contextual warnings explaining root cause. Severity scoring. Actionable fix suggestions. |
+| **Phase 23: B-roll Generation** | Pacing metrics disconnected from retention reality | Post-publish validation loop comparing warnings to actual retention drops. Calibrate thresholds based on hit rate. |
+| **Phase 23: B-roll Generation** | Emotional monotone false negatives | Acknowledge limitation. Hybrid approach (quantitative + qualitative checklist). Set realistic expectations. |
+| **Phase 25: Metadata Draft Generation** | Dead-end insights (feedback loop integration) | Parse POST-PUBLISH-ANALYSIS.md → database. Query during production. Surface relevant patterns automatically. |
+| **Phase 25: Metadata Draft Generation** | Feedback loader parsing brittleness | Flexible regex parsing. Fallback gracefully. Validation logging. Schema versioning. |
+| **Phase 16: Competition Analysis** | Over-indexing on outliers in pattern extraction | Require N≥3 for pattern. Report mean + std dev + confidence intervals. Flag outliers explicitly. |
+| **Phase 13.1: Model Assignment** | Stale model IDs after Anthropic lineup change | Update YAML frontmatter to claude-haiku-4-5, claude-sonnet-4-5, claude-opus-4-6. Centralized model config. |
 
 ---
 
-## Integration Checklist (Before Adding Any Feature)
+## Integration-Specific Warnings
 
-**Use this checklist BEFORE implementing script quality, SEO, or NotebookLM features:**
+### YouTube API Limitations
+- **CTR not available via API:** Must use manual entry (`--ctr` flag) or YouTube Studio manual checks
+- **Impression sources delayed:** May take 48h for source breakdown to populate
+- **Native A/B testing limited:** Max 3 variants, titles/thumbnails only, not available for all channels
 
-### Problem Definition
-- [ ] Can state problem in one sentence
-- [ ] Problem affects &gt;50% of videos
-- [ ] Problem costs &gt;1 hour per video currently
-- [ ] Solution would save time OR measurably improve quality
+### Small Channel Constraints
+- **Low impression volume:** 197 subs = naturally small samples, harder to reach 1,000+ impressions per variant
+- **Longer test windows required:** May need 14+ days to accumulate sufficient data
+- **High variance in traffic sources:** Subscriber CTR differs from browse CTR by 3-5x, makes sequential testing unreliable
 
-### Solution Validation
-- [ ] Solution preserves creator voice (passes STYLE-GUIDE.md compatibility test)
-- [ ] Solution respects channel DNA (passes VIDIQ-CHANNEL-DNA-FILTER.md litmus tests)
-- [ ] Solution scales (works for 1 video AND 20 videos with similar effort)
-- [ ] Solution has kill switch (can revert to old workflow if needed)
+### Solo Creator Workflow Constraints
+- **Manual thumbnail swapping tedious:** Consider TubeBuddy ($4.50/month) for automated switching if A/B testing becomes regular workflow
+- **No dedicated QA:** Pacing analysis and feedback parsing errors may go unnoticed without validation checks
+- **Context switching cost:** Switching between script writing, thumbnail design, and A/B tracking analysis increases cognitive load
 
-### Scope Control
-- [ ] Adding ONE feature, not feature bundle
-- [ ] Can test with ONE video before rolling out
-- [ ] Doesn't require reformatting existing files
-- [ ] Doesn't break existing commands/workflows
+---
 
-### Success Criteria
-- [ ] Defined measurable improvement target
-- [ ] Defined timeline for evaluation (e.g., 3 videos)
-- [ ] Defined failure condition (when to abandon feature)
+## Validation Checklist
 
-### If ANY checkbox is unchecked → HIGH RISK, reconsider addition.
+Before shipping Click & Keep features:
+
+- [ ] A/B tracking enforces 1,000+ impressions minimum before declaring winner
+- [ ] Thumbnail tracker validates file naming convention (THUMBNAIL-[A/B/C].png)
+- [ ] Perceptual hash clustering includes manual validation step
+- [ ] Pacing warnings include contextual explanations, not just metric values
+- [ ] Post-publish feedback loader parses markdown → database
+- [ ] Metadata generation queries video_performance table for patterns
+- [ ] Model IDs updated to current Claude 4.x lineup
+- [ ] Pattern extraction reports sample size and confidence intervals
+- [ ] Sequential testing tracks impression sources or uses extended windows
+- [ ] Pacing analysis acknowledges limitations (doesn't detect emotional monotone)
 
 ---
 
 ## Sources
 
-### AI Script Writing Pitfalls
-- [Common AI Writing Mistakes and How to Avoid Them](https://www.yomu.ai/resources/common-ai-writing-mistakes-and-how-to-avoid-them) - Repetition, awkward flow, generic patterns
-- [Common Mistakes of AI Writing](https://the7eagles.com/common-mistakes-of-ai-writing/) - Lack of big-picture context, word-by-word generation issues
-- [Weaknesses of AI-Generated Writing](https://www.wordrake.com/resources/weaknesses-of-ai-generated-writing) - Bland, abstract, repetitive patterns
+**A/B Testing & Statistical Significance:**
+- [Statistical Significance in A/B Testing – a Complete Guide](https://blog.analytics-toolkit.com/2017/statistical-significance-ab-testing-complete-guide/)
+- [How to avoid common data accuracy pitfalls in A/B testing](https://www.kameleoon.com/blog/data-accuracy-pitfalls-ab-testing)
+- [PM 101: Pitfalls of A/B Testing](https://jefago.medium.com/pm-101-pitfalls-of-a-b-testing-d50919df6552)
+- [Four Common Mistakes When A/B Testing](https://towardsdatascience.com/four-common-mistakes-when-a-b-testing-and-how-to-solve-them-384072b57d75/)
+- [10 Common A/B Testing Mistakes To Avoid](https://contentsquare.com/guides/ab-testing/mistakes/)
 
-### Creator Voice Preservation
-- [How to Use AI Writing Tools Without Losing Your Voice (2026)](https://rivereditor.com/guides/how-to-use-ai-writing-tools-without-losing-voice-2026) - Use AI as analyzer, not writer
-- [Keeping it Personal: How to Preserve Your Voice When Using AI](https://www.thetransmitter.org/from-bench-to-bot/keeping-it-personal-how-to-preserve-your-voice-when-using-ai/) - Targeted requests, custom instructions
-- [The Authenticity Deficit: Is AI Diluting Your Voice](https://medium.com/@adnanmasood/the-authenticity-deficit-is-ai-diluting-your-voice-54bd53afe01b) - Boundary maintenance
+**YouTube CTR & Thumbnail Testing:**
+- [A/B Testing for YouTube CTR: Boost Click Rates](https://www.tubebuddy.com/blog/a-b-testing-youtube-ctr/)
+- [YouTube Title A/B Testing Rolls Out Globally](https://www.searchenginejournal.com/youtube-title-a-b-testing-rolls-out-globally-to-creators/562571/)
+- [YouTube "Test & Compare" Thumbnails: Native A/B for CTR Lift](https://influencermarketinghub.com/youtube-test-compare/)
+- [A/B testing YouTube metadata with AI: how to boost CTR](https://air.io/en/youtube-hacks/how-to-ab-test-metadata-with-ai-to-boost-ctr)
 
-### YouTube SEO Pitfalls
-- [Ultimate YouTube SEO Guide (2026)](https://www.keywordtooldominator.com/youtube-seo) - Keyword stuffing remains major problem
-- [YouTube SEO: Rank Higher and Grow Your Channel in 2026](https://seosherpa.com/youtube-seo/) - Algorithm weighs satisfaction equally with keywords
-- [SEO Mistakes and Common Errors to Avoid in 2026](https://content-whale.com/blog/seo-mistakes-and-common-errors-to-avoid-in-2026/) - Over-optimization dangers
+**Script Pacing:**
+- [What Is Script Pacing and Why It Matters to You?](https://glcoverage.com/2024/10/25/script-pacing/)
+- [3 Simple Tips to Speed Up Script Pacing](https://screencraft.org/blog/script-pacing/)
+- [How's Your Pacing: Rushing Or Dragging?](https://www.thestorydepartment.com/rhythm-pacing/)
+- [Mastering Audience Retention for Youtube Creators](https://www.clipflow.co/blog/5e9sOGFtXajthKfIiooruV/mastering-audience-retention-for-youtube-creators-how-to-read-the-graph)
 
-### NotebookLM Workflow Issues
-- [How to Upload More Files to NotebookLM? Quick Fixes and Better Alternatives (2026)](https://elephas.app/blog/how-to-upload-more-files-notebooklm) - Workarounds have serious drawbacks
-- [How To Use NotebookLM Better Than 99% Of People](https://medium.com/@ferreradaniel/how-to-use-notebooklm-better-than-99-of-people-deep-research-workflow-guide-4e54199c9f82) - Manual process problems
-- [Does NotebookLM Have an API?](https://autocontentapi.com/blog/does-notebooklm-have-an-api) - No public API, Enterprise only
-
-### Prompt Engineering
-- [Top Prompt Engineering Pitfalls & Mistakes to Avoid in 2026](https://treyworks.com/common-prompt-engineering-mistakes-to-avoid/) - Over-complication issues
-- [Death of Prompt Engineering: AI Orchestration in 2026](https://bigblue.academy/en/the-death-of-prompt-engineering-and-its-ruthless-resurrection-navigating-ai-orchestration-in-2026-and-beyond) - Ruthlessly eliminate verbosity
-- [5 Prompt Engineering Mistakes Beginners Make](https://www.mygreatlearning.com/blog/prompt-engineering-beginners-mistakes/) - Overloading prompts
-
-### Scope Creep
-- [Understanding and Managing Scope Creep In Project Management](https://projectmanagementacademy.net/resources/blog/pmp-scope-creep/) - 52% of projects experience it
-- [What Is Scope Creep and How Can I Avoid It?](https://www.projectmanager.com/blog/5-ways-to-avoid-scope-creep) - Prevention strategies
-- [What is scope creep in project management](https://miro.com/project-management/what-is-scope-creep/) - Common causes
-
----
-
-*Research complete. Ready for roadmap creation.*
+**Feedback Loop Integration:**
+- [The Ultimate Customer Feedback Loop Guide](https://getthematic.com/insights/customer-feedback-loop-guide)
+- [Overcoming challenges in AI feedback loop integration](https://www.glean.com/perspectives/overcoming-challenges-in-ai-feedback-loop-integration)
+- [How to Create a User Feedback Loop](https://getthematic.com/insights/building-effective-user-feedback-loops-for-continuous-improvement)
+- [Marketing Feedback Loops: Strategies for Optimization](https://getthematic.com/insights/feedback-loop-in-marketing)
