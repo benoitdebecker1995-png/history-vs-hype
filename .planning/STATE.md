@@ -13,10 +13,10 @@ See: `.planning/PROJECT.md` (updated 2026-02-06)
 ## Current Position
 
 **Milestone:** v1.6 Click & Keep
-**Phase:** Phase 28: Pacing Analysis (1/3 plans complete)
-**Plan:** 28-01 complete
+**Phase:** Phase 28: Pacing Analysis (2/3 plans complete)
+**Plan:** 28-02 complete
 **Status:** In progress
-**Last activity:** 2026-02-06 — Completed 28-01-PLAN.md (PacingChecker engine with TDD)
+**Last activity:** 2026-02-06 — Completed 28-02-PLAN.md (CLI integration and output formatting)
 
 **Progress:**
 ```
@@ -26,7 +26,7 @@ v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
 v1.4 [####################] 100% — Learning Loop (archived)
 v1.5 [####################] 100% — Production Acceleration (archived)
-v1.6 [████                ]  20% — Click & Keep (6 phases: 27-32)
+v1.6 [█████               ]  27% — Click & Keep (6 phases: 27-32)
 ```
 
 ## Milestone History
@@ -87,13 +87,13 @@ v1.6 [████                ]  20% — Click & Keep (6 phases: 27-32)
 ### Last Session
 
 - **Date:** 2026-02-06
-- **Work:** Completed Phase 28 Plan 01 (PacingChecker engine with TDD)
-- **Output:** PacingChecker class, 24 unit tests, sparkline/flat zone detection, hook advisories
+- **Work:** Completed Phase 28 Plan 02 (CLI integration and output formatting)
+- **Output:** --pacing flag, format_pacing_report(), config thresholds, exit code mapping
 
 ### Next Session
 
-**Current work:** v1.6 Click & Keep — Phase 28: Pacing Analysis (Plan 02: Config Integration)
-**Next action:** Add pacing thresholds to config.py and verify checker can load them
+**Current work:** v1.6 Click & Keep — Phase 28: Pacing Analysis (Plan 03 next)
+**Next action:** Check 28-03-PLAN.md for next integration task
 
 ## Accumulated Context
 
@@ -111,7 +111,9 @@ v1.6 [████                ]  20% — Click & Keep (6 phases: 27-32)
 - Migration guard prevents duplicate migrations (idempotent)
 - Backup logic inline to avoid recursive connection reopening
 
-**Phase 28 Decisions (Pacing Analysis - Plan 01 COMPLETE):**
+**Phase 28 Decisions (Pacing Analysis):**
+
+Plan 01 (Engine - COMPLETE):
 - TDD workflow: RED commit (tests) then GREEN commit (implementation) following proper TDD protocol
 - PacingChecker implements BaseChecker interface with check(text) -> dict
 - Lazy-loaded dependencies: spaCy for NLP, textstat for Flesch Reading Ease
@@ -125,6 +127,15 @@ v1.6 [████                ]  20% — Click & Keep (6 phases: 27-32)
 - Module-level functions (generate_sparkline, detect_flat_zones) for independent testing
 - Verdict thresholds: PASS >= 75, NEEDS WORK 50-74, FAIL < 50, SKIPPED = 1 section
 - Python 3.14 limitation: spaCy 3.8 depends on Pydantic v1 (incompatible), works on Python 3.11-3.13
+
+Plan 02 (CLI Integration - COMPLETE):
+- Problems-only default: --pacing shows only flagged sections unless --verbose passed
+- Standalone vs. appended: pacing-only run uses pacing format exclusively, mixed runs append pacing report
+- Exit code mapping: pacing verdict (PASS/NEEDS WORK/FAIL) maps to standard exit codes (0/1/2)
+- Verdict-first layout: verdict and energy arc displayed before section details for immediate go/no-go
+- Advisories separate from scores: hook and B-roll advisories shown as separate section, not scored
+- Config thresholds: 7 fields in Config dataclass (variance, delta, density, pass/fail, flat zone window/tolerance)
+- Checker-specific output: specialized formatters for checkers with unique report structures
 
 **Phase 29 Design (Thumbnail & Title Tracking):**
 - Manual CTR entry UI (API doesn't provide CTR)
