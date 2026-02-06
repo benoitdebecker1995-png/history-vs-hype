@@ -13,10 +13,10 @@ See: `.planning/PROJECT.md` (updated 2026-02-06)
 ## Current Position
 
 **Milestone:** v1.6 Click & Keep
-**Phase:** Phase 27: Database Foundation
-**Plan:** —
-**Status:** Ready to plan
-**Last activity:** 2026-02-06 — Roadmap created for v1.6
+**Phase:** Phase 27: Database Foundation (1/1 plans complete)
+**Plan:** 27-01 complete
+**Status:** Phase 27 complete, ready for Phase 28
+**Last activity:** 2026-02-06 — Completed 27-01-PLAN.md (database schema migration)
 
 **Progress:**
 ```
@@ -26,7 +26,7 @@ v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
 v1.4 [####################] 100% — Learning Loop (archived)
 v1.5 [####################] 100% — Production Acceleration (archived)
-v1.6 [                    ]   0% — Click & Keep (6 phases: 27-32)
+v1.6 [███                 ]  17% — Click & Keep (6 phases: 27-32)
 ```
 
 ## Milestone History
@@ -87,24 +87,29 @@ v1.6 [                    ]   0% — Click & Keep (6 phases: 27-32)
 ### Last Session
 
 - **Date:** 2026-02-06
-- **Work:** Created roadmap for v1.6 Click & Keep
-- **Output:** 6 phases (27-32) covering A/B tracking, pacing analysis, feedback loop, model refresh
+- **Work:** Completed Phase 27 Plan 01 (database schema migration)
+- **Output:** 4 new tables, 3 feedback columns, schema version 27, automatic migration with backup
 
 ### Next Session
 
-**Current work:** v1.6 Click & Keep — Phase 27: Database Foundation
-**Next action:** Plan Phase 27 (schema extensions for variant tracking and feedback storage)
+**Current work:** v1.6 Click & Keep — Phase 28: Pacing Analysis
+**Next action:** Plan Phase 28 (script pacing metrics and readability analysis)
 
 ## Accumulated Context
 
 ### v1.6 Architecture (Phase 27-32)
 
-**Phase 27 Decisions (Database Foundation):**
+**Phase 27 Decisions (Database Foundation - COMPLETE):**
 - Extends existing keywords.db with auto-migration pattern (zero breaking changes)
-- thumbnail_variants table: stores file paths, visual pattern tags, CTR snapshots
-- Title variant tracking: formula tags, timestamps for test window comparison
-- Feedback columns in video_performance: retention_drop_points, discovery_issues, lessons (JSON)
-- Two new library additions: ImageHash 4.3.2, textstat 0.7.12 upgrade
+- Schema version tracking via PRAGMA user_version (version 27 set)
+- Automatic database backup before migration (timestamped backups/ directory)
+- thumbnail_variants table: stores file paths, visual pattern tags, perceptual hashes
+- title_variants table: stores title text, character count, formula tags
+- ctr_snapshots table: stores monthly CTR data with variant foreign keys
+- section_feedback table: stores section-level retention notes
+- Feedback columns in video_performance: retention_drop_point, discovery_issues, lessons_learned (JSON)
+- Migration guard prevents duplicate migrations (idempotent)
+- Backup logic inline to avoid recursive connection reopening
 
 **Phase 28 Approach (Pacing Analysis):**
 - Extends existing script-checkers (tools/script-checkers/)
