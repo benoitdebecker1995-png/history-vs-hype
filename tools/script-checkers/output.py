@@ -234,10 +234,11 @@ class OutputFormatter:
                 for section in all_sections:
                     name = section.get('section', 'Unknown')
                     score = section.get('score', 0)
-                    variance = section.get('variance', 0)
-                    flesch = section.get('flesch', 0)
-                    flesch_delta = section.get('flesch_delta', 0)
-                    entity_density = section.get('entity_density', 0)
+                    metrics = section.get('metrics', {})
+                    variance = metrics.get('sentence_variance', 0)
+                    flesch = metrics.get('flesch_score', 0)
+                    flesch_delta = metrics.get('flesch_delta', 0)
+                    entity_density = metrics.get('entity_density', 0)
 
                     # Format flesch_delta (em-dash for first section)
                     if flesch_delta == 0 and section == all_sections[0]:
