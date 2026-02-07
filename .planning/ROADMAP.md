@@ -381,6 +381,28 @@ Plans:
 5. ~~System flags sections missing modern relevance hooks or pattern interrupts~~ ✓
 6. ~~User can visualize energy arc across full script showing pacing rhythm~~ ✓
 
+### Phase 28.1: Multi-Model Token Optimization (INSERTED)
+**Goal**: Audit token usage and route lightweight tasks to free/local models
+**Dependencies**: Phase 28 (current tooling baseline)
+**Plans**: 2 plans
+
+**Context:**
+- Claude Code Router for automatic request routing (primary approach)
+- OpenRouter free tier as secondary provider (hardware constrains local models)
+- Claude subscription reserved for heavy lifting (script writing, analysis, planning)
+- 14.9GB RAM / no GPU rules out Ollama 32B locally
+
+**Success Criteria:**
+1. Token usage audit identifies which tasks/agents consume most tokens
+2. Task classification maps each command/agent to model tier (Claude vs free)
+3. Routing strategy documented (which tool: Wave vs Router vs native Ollama)
+4. At least one routing approach tested and validated end-to-end
+5. Estimated token savings quantified per session
+
+Plans:
+- [ ] 28.1-01-PLAN.md — Token audit + routing classification (audit all 19 tasks, classify by routing tier)
+- [ ] 28.1-02-PLAN.md — Routing setup + quality validation (install router, test with real commands)
+
 ### Phase 29: Thumbnail & Title Tracking
 **Goal**: User can track variant performance with manual CTR entry
 **Dependencies**: Phase 27 (database schema)
@@ -470,6 +492,7 @@ Plans:
 | 26. Package Command & Integration | v1.5 | 1/1 | Complete | 2026-02-05 |
 | 27. Database Foundation | v1.6 | 1/1 | Complete | 2026-02-06 |
 | 28. Pacing Analysis | v1.6 | 2/2 | Complete | 2026-02-06 |
+| **28.1 Multi-Model Token Optimization** | **v1.6** | **0/2** | **Planned** | **-** |
 | **29. Thumbnail & Title Tracking** | **v1.6** | **0/2** | **Planned** | **-** |
 | **30. CTR Analysis & Benchmarks** | **v1.6** | **0/0** | **Pending** | **-** |
 | **31. Feedback Loop Integration** | **v1.6** | **0/0** | **Pending** | **-** |
