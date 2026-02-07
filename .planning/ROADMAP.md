@@ -385,7 +385,11 @@ Plans:
 **Goal**: User can track variant performance with manual CTR entry
 **Dependencies**: Phase 27 (database schema)
 **Requirements**: AB-01, AB-02, AB-03, AB-04
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 29-01-PLAN.md — Database CRUD methods + variant management CLI
+- [ ] 29-02-PLAN.md — /analyze integration with variant display
 
 **Success Criteria:**
 1. User can enter CTR from YouTube Studio via CLI prompt
@@ -466,7 +470,7 @@ Plans:
 | 26. Package Command & Integration | v1.5 | 1/1 | Complete | 2026-02-05 |
 | 27. Database Foundation | v1.6 | 1/1 | Complete | 2026-02-06 |
 | 28. Pacing Analysis | v1.6 | 2/2 | Complete | 2026-02-06 |
-| **29. Thumbnail & Title Tracking** | **v1.6** | **0/0** | **Pending** | **-** |
+| **29. Thumbnail & Title Tracking** | **v1.6** | **0/2** | **Planned** | **-** |
 | **30. CTR Analysis & Benchmarks** | **v1.6** | **0/0** | **Pending** | **-** |
 | **31. Feedback Loop Integration** | **v1.6** | **0/0** | **Pending** | **-** |
 | **32. Model Assignment Refresh** | **v1.6** | **0/0** | **Pending** | **-** |
