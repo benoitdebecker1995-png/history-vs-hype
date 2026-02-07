@@ -2083,6 +2083,421 @@ class KeywordDB:
         except sqlite3.Error:
             return []
 
+    # =========================================================================
+    # VARIANT TRACKING METHODS (Phase 29)
+    # =========================================================================
+
+    def add_thumbnail_variant(
+        self,
+        video_id: str,
+        variant_letter: str,
+        file_path: str,
+        visual_patterns: List[str],
+        perceptual_hash: Optional[str] = None
+    ) -> Dict[str, Any]:
+        """
+        Register a thumbnail variant for a video.
+
+        Args:
+            video_id: YouTube video ID
+            variant_letter: Single uppercase letter (A-Z)
+            file_path: Path to thumbnail file
+            visual_patterns: List of visual pattern tags (e.g., ['map', 'face', 'text'])
+            perceptual_hash: Optional perceptual hash (hex string from ImageHash)
+
+        Returns:
+            Success: {'status': 'inserted', 'variant_id': int}
+            Failure: {'error': str}
+
+        Example:
+            result = db.add_thumbnail_variant(
+                'TEST123', 'A', '/path/to/thumb.jpg', ['map', 'text'], 'abc123def456'
+            )
+        """
+        try:
+            import json
+            from datetime import datetime
+
+            # Validate variant_letter
+            if not variant_letter or len(variant_letter) != 1 or not variant_letter.isupper():
+                return {'error': 'variant_letter must be a single uppercase letter (A-Z)'}
+
+            if variant_letter < 'A' or variant_letter > 'Z':
+                return {'error': 'variant_letter must be between A and Z'}
+
+            cursor = self._conn.cursor()
+
+            cursor.execute(
+                """
+                INSERT INTO thumbnail_variants
+                (video_id, variant_letter, file_path, visual_pattern_tags, perceptual_hash, created_at)
+                VALUES (?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    video_id,
+                    variant_letter,
+                    file_path,
+                    json.dumps(visual_patterns),
+                    perceptual_hash,
+                    datetime.utcnow().date().isoformat()
+                )
+            )
+
+            self._conn.commit()
+            return {'status': 'inserted', 'variant_id': cursor.lastrowid}
+
+        except sqlite3.Error as e:
+            return {'error': f'Database error: {str(e)}'}
+
+    def add_title_variant(
+        self,
+        video_id: str,
+        variant_letter: str,
+        title_text: str,
+        formula_tags: List[str]
+    ) -> Dict[str, Any]:
+        """
+        Register a title variant for a video.
+
+        Args:
+            video_id: YouTube video ID
+            variant_letter: Single uppercase letter (A-Z)
+            title_text: The title text
+            formula_tags: List of formula tags (e.g., ['mechanism', 'document'])
+
+        Returns:
+            Success: {'status': 'inserted', 'variant_id': int}
+            Failure: {'error': str}
+
+        Example:
+            result = db.add_title_variant(
+                'TEST123', 'A', 'How Colonial Borders Still Kill Today', ['mechanism']
+            )
+        """
+        try:
+            import json
+            from datetime import datetime
+
+            # Validate variant_letter
+            if not variant_letter or len(variant_letter) != 1 or not variant_letter.isupper():
+                return {'error': 'variant_letter must be a single uppercase letter (A-Z)'}
+
+            if variant_letter < 'A' or variant_letter > 'Z':
+                return {'error': 'variant_letter must be between A and Z'}
+
+            cursor = self._conn.cursor()
+
+            cursor.execute(
+                """
+                INSERT INTO title_variants
+                (video_id, variant_letter, title_text, character_count, formula_tags, created_at)
+                VALUES (?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    video_id,
+                    variant_letter,
+                    title_text,
+                    len(title_text),
+                    json.dumps(formula_tags),
+                    datetime.utcnow().date().isoformat()
+                )
+            )
+
+            self._conn.commit()
+            return {'status': 'inserted', 'variant_id': cursor.lastrowid}
+
+        except sqlite3.Error as e:
+            return {'error': f'Database error: {str(e)}'}
+
+    def add_ctr_snapshot(
+        self,
+        video_id: str,
+        ctr_percent: float,
+        impression_count: int,
+        view_count: int,
+        active_thumbnail_id: Optional[int] = None,
+        active_title_id: Optional[int] = None,
+        snapshot_date: Optional[str] = None,
+        is_late_entry: bool = False
+    ) -> Dict[str, Any]:
+        """
+        Record a CTR snapshot for a video.
+
+        Args:
+            video_id: YouTube video ID
+            ctr_percent: CTR percentage (0-100)
+            impression_count: Number of impressions
+            view_count: Number of views
+            active_thumbnail_id: ID of active thumbnail variant (optional)
+            active_title_id: ID of active title variant (optional)
+            snapshot_date: Date of snapshot (YYYY-MM-DD), defaults to today
+            is_late_entry: Whether this is a late data entry (default False)
+
+        Returns:
+            Success: {'status': 'inserted', 'snapshot_id': int}
+            Failure: {'error': str}
+
+        Example:
+            result = db.add_ctr_snapshot('TEST123', 4.5, 1000, 45)
+        """
+        try:
+            from datetime import datetime
+
+            # Validate ctr_percent
+            if ctr_percent < 0 or ctr_percent > 100:
+                return {'error': 'ctr_percent must be between 0 and 100'}
+
+            # Validate counts
+            if impression_count < 0 or view_count < 0:
+                return {'error': 'impression_count and view_count must be non-negative'}
+
+            # Set dates
+            if snapshot_date is None:
+                snapshot_date = datetime.utcnow().date().isoformat()
+
+            recorded_at = datetime.utcnow().date().isoformat()
+
+            cursor = self._conn.cursor()
+
+            cursor.execute(
+                """
+                INSERT INTO ctr_snapshots
+                (video_id, snapshot_date, ctr_percent, impression_count, view_count,
+                 active_thumbnail_id, active_title_id, recorded_at, is_late_entry)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    video_id,
+                    snapshot_date,
+                    ctr_percent,
+                    impression_count,
+                    view_count,
+                    active_thumbnail_id,
+                    active_title_id,
+                    recorded_at,
+                    1 if is_late_entry else 0
+                )
+            )
+
+            self._conn.commit()
+            return {'status': 'inserted', 'snapshot_id': cursor.lastrowid}
+
+        except sqlite3.Error as e:
+            return {'error': f'Database error: {str(e)}'}
+
+    def get_thumbnail_variants(self, video_id: str) -> List[Dict[str, Any]]:
+        """
+        Get all thumbnail variants for a video.
+
+        Args:
+            video_id: YouTube video ID
+
+        Returns:
+            List of thumbnail variant dicts (empty list if none found)
+
+        Example:
+            variants = db.get_thumbnail_variants('TEST123')
+            for v in variants:
+                print(f"{v['variant_letter']}: {v['visual_pattern_tags']}")
+        """
+        try:
+            import json
+
+            cursor = self._conn.cursor()
+            cursor.execute(
+                """
+                SELECT * FROM thumbnail_variants
+                WHERE video_id = ?
+                ORDER BY variant_letter
+                """,
+                (video_id,)
+            )
+
+            results = []
+            for row in cursor.fetchall():
+                variant_dict = dict(row)
+
+                # Parse visual_pattern_tags from JSON
+                if variant_dict.get('visual_pattern_tags'):
+                    try:
+                        variant_dict['visual_pattern_tags'] = json.loads(variant_dict['visual_pattern_tags'])
+                    except (json.JSONDecodeError, TypeError):
+                        variant_dict['visual_pattern_tags'] = []
+
+                results.append(variant_dict)
+
+            return results
+
+        except sqlite3.Error:
+            return []
+
+    def get_title_variants(self, video_id: str) -> List[Dict[str, Any]]:
+        """
+        Get all title variants for a video.
+
+        Args:
+            video_id: YouTube video ID
+
+        Returns:
+            List of title variant dicts (empty list if none found)
+
+        Example:
+            variants = db.get_title_variants('TEST123')
+            for v in variants:
+                print(f"{v['variant_letter']}: {v['title_text']} ({v['character_count']} chars)")
+        """
+        try:
+            import json
+
+            cursor = self._conn.cursor()
+            cursor.execute(
+                """
+                SELECT * FROM title_variants
+                WHERE video_id = ?
+                ORDER BY variant_letter
+                """,
+                (video_id,)
+            )
+
+            results = []
+            for row in cursor.fetchall():
+                variant_dict = dict(row)
+
+                # Parse formula_tags from JSON
+                if variant_dict.get('formula_tags'):
+                    try:
+                        variant_dict['formula_tags'] = json.loads(variant_dict['formula_tags'])
+                    except (json.JSONDecodeError, TypeError):
+                        variant_dict['formula_tags'] = []
+
+                results.append(variant_dict)
+
+            return results
+
+        except sqlite3.Error:
+            return []
+
+    def get_ctr_snapshots(self, video_id: str) -> List[Dict[str, Any]]:
+        """
+        Get all CTR snapshots for a video, ordered by snapshot date.
+
+        Args:
+            video_id: YouTube video ID
+
+        Returns:
+            List of CTR snapshot dicts (empty list if none found)
+
+        Example:
+            snapshots = db.get_ctr_snapshots('TEST123')
+            for s in snapshots:
+                print(f"{s['snapshot_date']}: {s['ctr_percent']}% CTR")
+        """
+        try:
+            cursor = self._conn.cursor()
+            cursor.execute(
+                """
+                SELECT * FROM ctr_snapshots
+                WHERE video_id = ?
+                ORDER BY snapshot_date ASC
+                """,
+                (video_id,)
+            )
+
+            return [dict(row) for row in cursor.fetchall()]
+
+        except sqlite3.Error:
+            return []
+
+    def get_variant_summary(self, video_id: str) -> Dict[str, Any]:
+        """
+        Get summary counts of variants and snapshots for a video.
+
+        Args:
+            video_id: YouTube video ID
+
+        Returns:
+            Dict with thumbnail_count, title_count, snapshot_count
+
+        Example:
+            summary = db.get_variant_summary('TEST123')
+            print(f"Video has {summary['thumbnails']} thumbnails, {summary['titles']} titles")
+        """
+        try:
+            cursor = self._conn.cursor()
+
+            # Count thumbnails
+            cursor.execute(
+                "SELECT COUNT(*) as count FROM thumbnail_variants WHERE video_id = ?",
+                (video_id,)
+            )
+            thumb_count = cursor.fetchone()['count']
+
+            # Count titles
+            cursor.execute(
+                "SELECT COUNT(*) as count FROM title_variants WHERE video_id = ?",
+                (video_id,)
+            )
+            title_count = cursor.fetchone()['count']
+
+            # Count snapshots
+            cursor.execute(
+                "SELECT COUNT(*) as count FROM ctr_snapshots WHERE video_id = ?",
+                (video_id,)
+            )
+            snapshot_count = cursor.fetchone()['count']
+
+            return {
+                'video_id': video_id,
+                'thumbnails': thumb_count,
+                'titles': title_count,
+                'snapshots': snapshot_count
+            }
+
+        except sqlite3.Error as e:
+            return {
+                'video_id': video_id,
+                'thumbnails': 0,
+                'titles': 0,
+                'snapshots': 0,
+                'error': str(e)
+            }
+
+    def get_latest_ctr(self, video_id: str) -> Dict[str, Any]:
+        """
+        Get the most recent CTR snapshot for a video.
+
+        Args:
+            video_id: YouTube video ID
+
+        Returns:
+            Latest CTR snapshot dict, or {'error': 'not found'}
+
+        Example:
+            latest = db.get_latest_ctr('TEST123')
+            if 'error' not in latest:
+                print(f"Latest CTR: {latest['ctr_percent']}%")
+        """
+        try:
+            cursor = self._conn.cursor()
+            cursor.execute(
+                """
+                SELECT * FROM ctr_snapshots
+                WHERE video_id = ?
+                ORDER BY snapshot_date DESC
+                LIMIT 1
+                """,
+                (video_id,)
+            )
+
+            row = cursor.fetchone()
+            if row:
+                return dict(row)
+            else:
+                return {'error': 'not found'}
+
+        except sqlite3.Error as e:
+            return {'error': f'Database error: {str(e)}'}
+
 
 def init_database(db_path: Optional[str] = None) -> Dict[str, Any]:
     """
