@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-06 (Phase 28 Pacing Analysis complete)
+**Last Updated:** 2026-02-07 (Phase 28.1 Plan 01 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-06)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v1.6 Click & Keep — Phase 28: Pacing Analysis (complete)
+**Current focus:** v1.6 Click & Keep — Phase 28.1: Multi-Model Token Optimization (in progress)
 
 ## Current Position
 
 **Milestone:** v1.6 Click & Keep
-**Phase:** Phase 28: Pacing Analysis (2/2 plans complete)
-**Plan:** All plans complete
-**Status:** Phase 28 complete, ready for Phase 29
-**Last activity:** 2026-02-06 — Completed Phase 28 (pacing analysis engine + CLI integration)
+**Phase:** Phase 28.1: Multi-Model Token Optimization (1/2 plans complete)
+**Plan:** 28.1-01 complete, 28.1-02 next
+**Status:** Token audit complete, ready for routing validation
+**Last activity:** 2026-02-07 — Completed 28.1-01 (token audit + routing classification)
 
 **Progress:**
 ```
@@ -88,14 +88,14 @@ v1.6 [███████             ]  33% — Click & Keep (6 phases: 27-32
 
 ### Last Session
 
-- **Date:** 2026-02-06
-- **Work:** Completed Phase 28 Pacing Analysis (all plans)
-- **Output:** PacingChecker engine + CLI integration (--pacing, --verbose, 7 config thresholds)
+- **Date:** 2026-02-07
+- **Work:** Completed Phase 28.1-01 (Token Audit + Routing Classification)
+- **Output:** TOKEN-AUDIT.md (Opus = 84.9% of costs), ROUTING-CLASSIFICATION.md (10 routable tasks)
 
 ### Next Session
 
-**Current work:** v1.6 Click & Keep — Phase 29: Thumbnail & Title Tracking
-**Next action:** Plan Phase 29 (manual CTR entry, variant tracking)
+**Current work:** v1.6 Click & Keep — Phase 28.1: Multi-Model Token Optimization
+**Next action:** Execute 28.1-02 (Routing validation: test free models on 10 routable tasks)
 
 ## Accumulated Context
 
@@ -162,6 +162,25 @@ Plan 02 (CLI Integration - COMPLETE):
 - Model IDs: claude-haiku-4-5, claude-sonnet-4-5, claude-opus-4-6
 - YAML frontmatter updates in .claude/commands/*.md files
 - Agent model assignments update in .claude/agents/
+
+### Roadmap Evolution
+
+- Phase 28.1 inserted after Phase 28: Multi-Model Token Optimization (IN PROGRESS)
+  - Plan 01 COMPLETE: Token audit + routing classification
+  - Plan 02 NEXT: Routing validation and implementation
+
+**Phase 28.1-01 Decisions (Token Optimization - COMPLETE):**
+- Routing strategy: Native /model command for manual routing (68 invocations/month too low for automation)
+- OpenRouter free tier sufficient: 2 req/day usage vs 50/day limit (25x headroom)
+- Local models rejected: 14.9GB RAM insufficient for Qwen 32B (20-24GB) or Llama 70B (40GB)
+- Hardware: AMD Radeon integrated GPU (not NVIDIA), blocks local model routing
+- Opus dominance: 84.9% of costs ($473.51/month) from /script and script-writer-v2
+- Pareto analysis: Top 3 commands (script, script-writer-v2, research) = 65% of tokens
+- 10 of 19 tasks routable: All Haiku-tier mechanical tasks (status, help, fix, sources, prep, discover + 3 agents)
+- 9 tasks stay Claude-Only: Opus quality-critical + Sonnet reasoning tasks
+- Estimated savings: $12-21/month (2-4% of costs, main benefit is friction removal not cost)
+- Free model targets: google/gemini-2.0-flash-exp:free (primary), meta-llama/llama-3.3-70b-instruct:free (secondary)
+- Validation approach: 3-week rollout (high-frequency simple → mechanical → agents)
 
 ### Technical Notes
 
