@@ -33,30 +33,30 @@
 
 ## Classification Table (All 19 Tasks)
 
-| Command/Agent | Phase 13.1 Tier | Routing Tier | Free Model Target | Quality Risk | Est. Monthly Savings |
-|---------------|-----------------|--------------|-------------------|--------------|---------------------|
-| **COMMANDS (13)** | | | | | |
-| `/script` | Opus | Claude-Only | N/A | N/A | $0 |
-| `/research` | Sonnet | Claude-Only | N/A | N/A | $0 |
-| `/verify` | Sonnet | Claude-Only | N/A | N/A | $0 |
-| `/analyze` | Sonnet | Claude-Only | N/A | N/A | $0 |
-| `/patterns` | Sonnet | Claude-Only | N/A | N/A | $0 |
-| `/publish` | Sonnet | Claude-Only | N/A | N/A | $0 |
-| `/engage` | Sonnet | Claude-Only | N/A | N/A | $0 |
-| `/status` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | VERY LOW | $2-3 |
-| `/help` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | VERY LOW | $0.50 |
-| `/fix` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $0.50 |
-| `/sources` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $1-2 |
-| `/prep` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $2-3 |
-| `/discover` | Haiku | **Routable-Free** | `meta-llama/llama-3.3-70b-instruct:free` | LOW | $2-4 |
-| **AGENTS (6)** | | | | | |
-| `script-writer-v2` | Opus | Claude-Only | N/A | N/A | $0 |
-| `fact-checker` | Sonnet | Claude-Only | N/A | N/A | $0 |
-| `structure-checker-v2` | Sonnet | Claude-Only | N/A | N/A | $0 |
-| `research-organizer` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $1-2 |
-| `claims-extractor` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $2-3 |
-| `diy-asset-creator` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $0.50-1 |
-| | | | | **TOTAL** | **$12-21/month** |
+| Command/Agent | Phase 13.1 Tier | Routing Tier | Free Model Target | Quality Risk | Est. Monthly Savings | Validation Status |
+|---------------|-----------------|--------------|-------------------|--------------|---------------------|-------------------|
+| **COMMANDS (13)** | | | | | | |
+| `/script` | Opus | Claude-Only | N/A | N/A | $0 | N/A |
+| `/research` | Sonnet | Claude-Only | N/A | N/A | $0 | N/A |
+| `/verify` | Sonnet | Claude-Only | N/A | N/A | $0 | N/A |
+| `/analyze` | Sonnet | Claude-Only | N/A | N/A | $0 | N/A |
+| `/patterns` | Sonnet | Claude-Only | N/A | N/A | $0 | N/A |
+| `/publish` | Sonnet | Claude-Only | N/A | N/A | $0 | N/A |
+| `/engage` | Sonnet | Claude-Only | N/A | N/A | $0 | N/A |
+| `/status` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | VERY LOW | $2-3 | ⏳ PENDING |
+| `/help` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | VERY LOW | $0.50 | ⏳ PENDING |
+| `/fix` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $0.50 | UNTESTED |
+| `/sources` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $1-2 | UNTESTED |
+| `/prep` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $2-3 | ⏳ PENDING |
+| `/discover` | Haiku | **Routable-Free** | `meta-llama/llama-3.3-70b-instruct:free` | LOW | $2-4 | UNTESTED |
+| **AGENTS (6)** | | | | | | |
+| `script-writer-v2` | Opus | Claude-Only | N/A | N/A | $0 | N/A |
+| `fact-checker` | Sonnet | Claude-Only | N/A | N/A | $0 | N/A |
+| `structure-checker-v2` | Sonnet | Claude-Only | N/A | N/A | $0 | N/A |
+| `research-organizer` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $1-2 | UNTESTED |
+| `claims-extractor` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $2-3 | UNTESTED |
+| `diy-asset-creator` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $0.50-1 | UNTESTED |
+| | | | | **TOTAL** | **$12-21/month** | |
 
 ## Claude-Only Tasks (DO NOT ROUTE)
 
@@ -87,6 +87,22 @@
 - Nuance and empathy (comment responses, balanced argumentation)
 - Pattern synthesis (cross-video insights, not just aggregation)
 - Creative + structured (metadata generation with tone constraints)
+
+### Validation Status Legend
+
+| Status | Meaning | Action |
+|--------|---------|--------|
+| N/A | Claude-Only task, no validation needed | Keep on Claude |
+| ⏳ PENDING | Validation protocol defined, awaiting user testing | See VALIDATION-RESULTS.md |
+| UNTESTED | Routable candidate, validation protocol not yet created | Defer to later validation rounds |
+| ✅ VALIDATED | Tested and scored PASS or ACCEPTABLE | Safe to route |
+| ❌ FAILED | Tested and scored FAIL | Keep on Claude, remove from routable list |
+
+**Current validation focus (Plan 02):** 3 tasks marked ⏳ PENDING (`/status`, `/help`, `/prep`)
+
+**Next validation rounds:** Remaining 7 tasks marked UNTESTED will be validated after initial 3 tasks pass
+
+---
 
 ## Routable Tasks (7 commands + 3 agents)
 
