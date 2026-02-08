@@ -424,7 +424,11 @@ Plans:
 **Goal**: User can determine winning variants and channel-specific benchmarks
 **Dependencies**: Phase 29 (tracked variant data)
 **Requirements**: AB-05, AB-06
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 30-01-PLAN.md — Core benchmarks engine: verdict calculation + benchmark aggregation (TDD)
+- [ ] 30-02-PLAN.md — CLI interface + /analyze integration with dual entry points
 
 **Success Criteria:**
 1. User can calculate statistical significance between two variants
@@ -494,6 +498,6 @@ Plans:
 | 28. Pacing Analysis | v1.6 | 2/2 | Complete | 2026-02-06 |
 | **28.1 Multi-Model Token Optimization** | **v1.6** | **0/2** | **Planned** | **-** |
 | 29. Thumbnail & Title Tracking | v1.6 | 2/2 | Complete | 2026-02-07 |
-| **30. CTR Analysis & Benchmarks** | **v1.6** | **0/0** | **Pending** | **-** |
+| **30. CTR Analysis & Benchmarks** | **v1.6** | **0/2** | **Planned** | **-** |
 | **31. Feedback Loop Integration** | **v1.6** | **0/0** | **Pending** | **-** |
 | **32. Model Assignment Refresh** | **v1.6** | **0/0** | **Pending** | **-** |
