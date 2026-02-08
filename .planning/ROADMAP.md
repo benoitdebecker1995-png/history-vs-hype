@@ -427,8 +427,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 30-01-PLAN.md — Core benchmarks engine: verdict calculation + benchmark aggregation (TDD)
-- [ ] 30-02-PLAN.md — CLI interface + /analyze integration with dual entry points
+- [x] 30-01-PLAN.md — Core benchmarks engine: verdict calculation + benchmark aggregation (TDD)
+- [x] 30-02-PLAN.md — CLI interface + /analyze integration with dual entry points
 
 **Success Criteria:**
 1. User can calculate statistical significance between two variants
@@ -441,7 +441,12 @@ Plans:
 **Goal**: Past performance insights surface automatically during creation
 **Dependencies**: Phase 27 (database schema), Phase 28 (pacing metrics)
 **Requirements**: FEED-01, FEED-02, FEED-03, FEED-04, FEED-05
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 31-01-PLAN.md — Feedback parser + database CRUD + canonical template (FEED-01)
+- [ ] 31-02-PLAN.md — Query interface + pattern extraction + CLI (FEED-02, FEED-03, FEED-04)
+- [ ] 31-03-PLAN.md — analyze.py integration + slash command insight surfacing (FEED-05)
 
 **Success Criteria:**
 1. System parses POST-PUBLISH-ANALYSIS markdown files into structured database records
@@ -498,6 +503,6 @@ Plans:
 | 28. Pacing Analysis | v1.6 | 2/2 | Complete | 2026-02-06 |
 | **28.1 Multi-Model Token Optimization** | **v1.6** | **0/2** | **Planned** | **-** |
 | 29. Thumbnail & Title Tracking | v1.6 | 2/2 | Complete | 2026-02-07 |
-| **30. CTR Analysis & Benchmarks** | **v1.6** | **0/2** | **Planned** | **-** |
-| **31. Feedback Loop Integration** | **v1.6** | **0/0** | **Pending** | **-** |
+| 30. CTR Analysis & Benchmarks | v1.6 | 2/2 | Complete | 2026-02-08 |
+| **31. Feedback Loop Integration** | **v1.6** | **0/3** | **Planned** | **-** |
 | **32. Model Assignment Refresh** | **v1.6** | **0/0** | **Pending** | **-** |
