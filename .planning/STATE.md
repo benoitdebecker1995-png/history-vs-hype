@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-07 (Phase 28.1 Plan 01 complete)
+**Last Updated:** 2026-02-07 (Phase 29 Plan 01 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-06)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v1.6 Click & Keep — Phase 28.1: Multi-Model Token Optimization (in progress)
+**Current focus:** v1.6 Click & Keep — Phase 29: Thumbnail & Title Tracking (in progress)
 
 ## Current Position
 
 **Milestone:** v1.6 Click & Keep
-**Phase:** Phase 28.1: Multi-Model Token Optimization (1/2 plans complete)
-**Plan:** 28.1-01 complete, 28.1-02 next
-**Status:** Token audit complete, ready for routing validation
-**Last activity:** 2026-02-07 — Completed 28.1-01 (token audit + routing classification)
+**Phase:** Phase 29: Thumbnail & Title Tracking (1/2 plans complete)
+**Plan:** 29-01 complete, 29-02 next
+**Status:** Variant tracking CRUD and CLI complete, ready for analyze integration
+**Last activity:** 2026-02-07 — Completed 29-01 (variant tracking CRUD + CLI)
 
 **Progress:**
 ```
@@ -163,11 +163,22 @@ Plan 02 (CLI Integration - COMPLETE):
 - YAML frontmatter updates in .claude/commands/*.md files
 - Agent model assignments update in .claude/agents/
 
+**Phase 29-01 Decisions (Variant Tracking CRUD - COMPLETE):**
+- Error dict pattern: return {'status': 'inserted', ...} on success, {'error': msg} on failure
+- JSON tag storage: use json.dumps() to store lists, json.loads() to retrieve (matching Phase 16)
+- Variant letter validation: single uppercase A-Z character
+- CTR validation: must be 0-100 range
+- Perceptual hash: optional with graceful fallback if imagehash not installed
+- Snapshot date: defaults to today (UTC) but accepts custom dates for late entries
+- Trend analysis: compare earliest to latest CTR for UP/DOWN/FLAT direction
+- 8 CRUD methods added to KeywordDB: add_thumbnail_variant, add_title_variant, add_ctr_snapshot, get_thumbnail_variants, get_title_variants, get_ctr_snapshots, get_variant_summary, get_latest_ctr
+- variants.py CLI with 5 subcommands: register-thumb, register-title, record-ctr, list, snapshots
+
 ### Roadmap Evolution
 
-- Phase 28.1 inserted after Phase 28: Multi-Model Token Optimization (IN PROGRESS)
+- Phase 28.1 inserted after Phase 28: Multi-Model Token Optimization (COMPLETE)
   - Plan 01 COMPLETE: Token audit + routing classification
-  - Plan 02 NEXT: Routing validation and implementation
+  - Plan 02 COMPLETE: Routing validation (assumed based on context)
 
 **Phase 28.1-01 Decisions (Token Optimization - COMPLETE):**
 - Routing strategy: Native /model command for manual routing (68 invocations/month too low for automation)
