@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-07 (Phase 29 Plan 01 complete)
+**Last Updated:** 2026-02-08 (Phase 29 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-06)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v1.6 Click & Keep — Phase 29: Thumbnail & Title Tracking (in progress)
+**Current focus:** v1.6 Click & Keep — Phase 30: CTR Analysis (next)
 
 ## Current Position
 
 **Milestone:** v1.6 Click & Keep
-**Phase:** Phase 29: Thumbnail & Title Tracking (1/2 plans complete)
-**Plan:** 29-01 complete, 29-02 next
-**Status:** Variant tracking CRUD and CLI complete, ready for analyze integration
-**Last activity:** 2026-02-07 — Completed 29-01 (variant tracking CRUD + CLI)
+**Phase:** Phase 29: Thumbnail & Title Tracking (COMPLETE)
+**Plan:** 29-02 complete (2/2 plans)
+**Status:** Variant tracking system complete and integrated into /analyze workflow
+**Last activity:** 2026-02-08 — Completed 29-02 (variant-aware /analyze output)
 
 **Progress:**
 ```
@@ -26,7 +26,7 @@ v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
 v1.4 [####################] 100% — Learning Loop (archived)
 v1.5 [####################] 100% — Production Acceleration (archived)
-v1.6 [███████             ]  33% — Click & Keep (6 phases: 27-32)
+v1.6 [██████████          ]  50% — Click & Keep (6 phases: 27-32)
 ```
 
 ## Milestone History
@@ -88,14 +88,14 @@ v1.6 [███████             ]  33% — Click & Keep (6 phases: 27-32
 
 ### Last Session
 
-- **Date:** 2026-02-07
-- **Work:** Completed Phase 28.1-01 (Token Audit + Routing Classification)
-- **Output:** TOKEN-AUDIT.md (Opus = 84.9% of costs), ROUTING-CLASSIFICATION.md (10 routable tasks)
+- **Date:** 2026-02-08
+- **Work:** Completed Phase 29-02 (Variant tracking /analyze integration)
+- **Output:** analyze.py displays variant tables and CTR history alongside performance data
 
 ### Next Session
 
-**Current work:** v1.6 Click & Keep — Phase 28.1: Multi-Model Token Optimization
-**Next action:** Execute 28.1-02 (Routing validation: test free models on 10 routable tasks)
+**Current work:** v1.6 Click & Keep — Phase 30: CTR Analysis
+**Next action:** Review Phase 30 research and plan for statistical significance calculator
 
 ## Accumulated Context
 
@@ -163,7 +163,9 @@ Plan 02 (CLI Integration - COMPLETE):
 - YAML frontmatter updates in .claude/commands/*.md files
 - Agent model assignments update in .claude/agents/
 
-**Phase 29-01 Decisions (Variant Tracking CRUD - COMPLETE):**
+**Phase 29 Decisions (Thumbnail & Title Tracking - COMPLETE):**
+
+Plan 29-01 (Variant Tracking CRUD):
 - Error dict pattern: return {'status': 'inserted', ...} on success, {'error': msg} on failure
 - JSON tag storage: use json.dumps() to store lists, json.loads() to retrieve (matching Phase 16)
 - Variant letter validation: single uppercase A-Z character
@@ -173,6 +175,14 @@ Plan 02 (CLI Integration - COMPLETE):
 - Trend analysis: compare earliest to latest CTR for UP/DOWN/FLAT direction
 - 8 CRUD methods added to KeywordDB: add_thumbnail_variant, add_title_variant, add_ctr_snapshot, get_thumbnail_variants, get_title_variants, get_ctr_snapshots, get_variant_summary, get_latest_ctr
 - variants.py CLI with 5 subcommands: register-thumb, register-title, record-ctr, list, snapshots
+
+Plan 29-02 (Analyze Integration):
+- VARIANTS_AVAILABLE flag for graceful import degradation (matches DISCOVERY_AVAILABLE pattern)
+- Variant section displays after Discovery Diagnostics, before Errors in markdown output
+- Section only appears when variant data exists (graceful absence pattern)
+- CTR trend calculation: compares first and last snapshots for UP/DOWN/FLAT direction with delta
+- Table truncation: hash truncated to 8 chars, title to 50 chars for readability
+- Variant section structure: summary counts → thumbnail table → title table → CTR history → trend
 
 ### Roadmap Evolution
 
