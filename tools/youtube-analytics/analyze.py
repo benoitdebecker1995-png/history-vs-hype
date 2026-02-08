@@ -58,6 +58,13 @@ try:
 except ImportError:
     DISCOVERY_AVAILABLE = False
 
+# Try to import variant tracking (may not be available)
+try:
+    from database import KeywordDB
+    VARIANTS_AVAILABLE = True
+except ImportError:
+    VARIANTS_AVAILABLE = False
+
 
 # Determine project root (2 levels up from tools/youtube-analytics/)
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -414,6 +421,26 @@ def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
                 'message': f'Discovery diagnostics failed: {str(e)}'
             })
 
+    # 7. Fetch variant tracking data if available
+    variant_data = None
+    if VARIANTS_AVAILABLE:
+        try:
+            db = KeywordDB()
+            summary = db.get_variant_summary(video_id)
+            if summary['thumbnails'] > 0 or summary['titles'] > 0 or summary['snapshots'] > 0:
+                variant_data = {
+                    'summary': summary,
+                    'thumbnails': db.get_thumbnail_variants(video_id),
+                    'titles': db.get_title_variants(video_id),
+                    'snapshots': db.get_ctr_snapshots(video_id)
+                }
+            db.close()
+        except Exception as e:
+            errors.append({
+                'source': 'variants',
+                'message': f'Variant tracking query failed: {str(e)}'
+            })
+
     return {
         'video_id': video_id,
         'title': title,
@@ -425,6 +452,7 @@ def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
         'comments': comments,
         'lessons': lessons,
         'discovery': discovery_diagnosis,
+        'variants': variant_data,
         'errors': errors
     }
 
@@ -942,6 +970,80 @@ def format_analysis_markdown(analysis: dict) -> str:
                 apply_to = learn.get('apply_to', '')
                 lines.append(f"- {insight}")
                 lines.append(f"  - *Apply to:* {apply_to}")
+            lines.append("")
+
+    # --- Variant Tracking Section ---
+    variant_data = analysis.get('variants')
+    if variant_data:
+        lines.append("## Variant Tracking")
+        lines.append("")
+
+        summary = variant_data.get('summary', {})
+        lines.append(f"**Thumbnails:** {summary.get('thumbnails', 0)} registered")
+        lines.append(f"**Titles:** {summary.get('titles', 0)} registered")
+        lines.append(f"**CTR Snapshots:** {summary.get('snapshots', 0)} recorded")
+        lines.append("")
+
+        # Thumbnail variants table
+        thumbnails = variant_data.get('thumbnails', [])
+        if thumbnails:
+            lines.append("### Thumbnail Variants")
+            lines.append("")
+            lines.append("| Variant | Tags | Hash | Registered |")
+            lines.append("|---------|------|------|------------|")
+            for thumb in thumbnails:
+                letter = thumb.get('variant_letter', '?')
+                tags = thumb.get('visual_pattern_tags', [])
+                tags_str = ', '.join(tags) if isinstance(tags, list) else str(tags)
+                hash_val = thumb.get('perceptual_hash', 'N/A')
+                hash_short = hash_val[:8] + '...' if hash_val and len(hash_val) > 8 else (hash_val or 'N/A')
+                created = thumb.get('created_at', 'Unknown')
+                lines.append(f"| {letter} | {tags_str} | {hash_short} | {created} |")
+            lines.append("")
+
+        # Title variants table
+        titles = variant_data.get('titles', [])
+        if titles:
+            lines.append("### Title Variants")
+            lines.append("")
+            lines.append("| Variant | Title | Chars | Tags |")
+            lines.append("|---------|-------|-------|------|")
+            for title_var in titles:
+                letter = title_var.get('variant_letter', '?')
+                title_text = title_var.get('title_text', '')
+                title_display = title_text[:50] + '...' if len(title_text) > 50 else title_text
+                chars = title_var.get('character_count', 0)
+                tags = title_var.get('formula_tags', [])
+                tags_str = ', '.join(tags) if isinstance(tags, list) else str(tags)
+                lines.append(f"| {letter} | {title_display} | {chars} | {tags_str} |")
+            lines.append("")
+
+        # CTR snapshots table
+        snapshots = variant_data.get('snapshots', [])
+        if snapshots:
+            lines.append("### CTR History")
+            lines.append("")
+            lines.append("| Date | CTR | Impressions | Views |")
+            lines.append("|------|-----|-------------|-------|")
+            for snap in snapshots:
+                snap_date = snap.get('snapshot_date', 'Unknown')
+                ctr_val = snap.get('ctr_percent', 0)
+                impressions = snap.get('impression_count', 0)
+                views = snap.get('view_count', 0)
+                lines.append(f"| {snap_date} | {ctr_val}% | {impressions:,} | {views:,} |")
+            lines.append("")
+
+            # CTR trend (if multiple snapshots)
+            if len(snapshots) >= 2:
+                first_ctr = snapshots[0].get('ctr_percent', 0)
+                last_ctr = snapshots[-1].get('ctr_percent', 0)
+                delta = last_ctr - first_ctr
+                direction = "up" if delta > 0 else "down" if delta < 0 else "flat"
+                lines.append(f"**CTR Trend:** {direction} ({first_ctr}% -> {last_ctr}%, delta: {delta:+.1f}%)")
+                lines.append("")
+
+        if not thumbnails and not titles and not snapshots:
+            lines.append("*No variant details available*")
             lines.append("")
 
     # --- Errors Section ---
