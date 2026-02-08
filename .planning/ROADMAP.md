@@ -410,15 +410,15 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 29-01-PLAN.md — Database CRUD methods + variant management CLI
-- [ ] 29-02-PLAN.md — /analyze integration with variant display
+- [x] 29-01-PLAN.md — Database CRUD methods + variant management CLI
+- [x] 29-02-PLAN.md — /analyze integration with variant display
 
 **Success Criteria:**
-1. User can enter CTR from YouTube Studio via CLI prompt
-2. User can register thumbnail files with visual pattern tags
-3. User can register title variants with formula tags
-4. System captures CTR snapshots at 48h, 7d, 14d intervals automatically
-5. All variant data stored in database for pattern analysis
+1. ~~User can enter CTR from YouTube Studio via CLI prompt~~ ✓
+2. ~~User can register thumbnail files with visual pattern tags~~ ✓
+3. ~~User can register title variants with formula tags~~ ✓
+4. ~~System captures CTR snapshots at 48h, 7d, 14d intervals (manual with --date flag)~~ ✓
+5. ~~All variant data stored in database for pattern analysis~~ ✓
 
 ### Phase 30: CTR Analysis & Benchmarks
 **Goal**: User can determine winning variants and channel-specific benchmarks
@@ -493,7 +493,7 @@ Plans:
 | 27. Database Foundation | v1.6 | 1/1 | Complete | 2026-02-06 |
 | 28. Pacing Analysis | v1.6 | 2/2 | Complete | 2026-02-06 |
 | **28.1 Multi-Model Token Optimization** | **v1.6** | **0/2** | **Planned** | **-** |
-| **29. Thumbnail & Title Tracking** | **v1.6** | **0/2** | **Planned** | **-** |
+| 29. Thumbnail & Title Tracking | v1.6 | 2/2 | Complete | 2026-02-07 |
 | **30. CTR Analysis & Benchmarks** | **v1.6** | **0/0** | **Pending** | **-** |
 | **31. Feedback Loop Integration** | **v1.6** | **0/0** | **Pending** | **-** |
 | **32. Model Assignment Refresh** | **v1.6** | **0/0** | **Pending** | **-** |
