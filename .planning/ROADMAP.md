@@ -444,16 +444,16 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 31-01-PLAN.md — Feedback parser + database CRUD + canonical template (FEED-01)
-- [ ] 31-02-PLAN.md — Query interface + pattern extraction + CLI (FEED-02, FEED-03, FEED-04)
-- [ ] 31-03-PLAN.md — analyze.py integration + slash command insight surfacing (FEED-05)
+- [x] 31-01-PLAN.md — Feedback parser + database CRUD + canonical template (FEED-01)
+- [x] 31-02-PLAN.md — Query interface + pattern extraction + CLI (FEED-02, FEED-03, FEED-04)
+- [x] 31-03-PLAN.md — analyze.py integration + slash command insight surfacing (FEED-05)
 
 **Success Criteria:**
-1. System parses POST-PUBLISH-ANALYSIS markdown files into structured database records
-2. User can query past insights for similar topics before starting new video
-3. System identifies success patterns from high-performing videos automatically
-4. System identifies failure patterns from low-performing videos automatically
-5. Relevant insights surface during /script generation without manual lookup
+1. ~~System parses POST-PUBLISH-ANALYSIS markdown files into structured database records~~ ✓
+2. ~~User can query past insights for similar topics before starting new video~~ ✓
+3. ~~System identifies success patterns from high-performing videos automatically~~ ✓
+4. ~~System identifies failure patterns from low-performing videos automatically~~ ✓
+5. ~~Relevant insights surface during /script generation without manual lookup~~ ✓
 
 ### Phase 32: Model Assignment Refresh
 **Goal**: All commands use current Claude 4.x model IDs
@@ -504,5 +504,5 @@ Plans:
 | **28.1 Multi-Model Token Optimization** | **v1.6** | **0/2** | **Planned** | **-** |
 | 29. Thumbnail & Title Tracking | v1.6 | 2/2 | Complete | 2026-02-07 |
 | 30. CTR Analysis & Benchmarks | v1.6 | 2/2 | Complete | 2026-02-08 |
-| **31. Feedback Loop Integration** | **v1.6** | **0/3** | **Planned** | **-** |
+| 31. Feedback Loop Integration | v1.6 | 3/3 | Complete | 2026-02-09 |
 | **32. Model Assignment Refresh** | **v1.6** | **0/0** | **Pending** | **-** |
