@@ -35,8 +35,8 @@ Requirements for Click & Keep milestone. Each maps to roadmap phases.
 
 ### Model Assignment Refresh
 
-- [ ] **MOD-01**: All 14 slash command files verified using current Claude 4.x model aliases
-- [ ] **MOD-02**: Agent model assignments verified using current Claude 4.5/4.6 lineup
+- [x] **MOD-01**: All 14 slash command files verified using current Claude 4.x model aliases
+- [x] **MOD-02**: Agent model assignments verified using current Claude 4.5/4.6 lineup
 
 ## Future Requirements
 

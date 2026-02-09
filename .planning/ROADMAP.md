@@ -41,9 +41,16 @@ Plans:
 - [x] 03-02: Create VERIFIED-CLAIMS-DATABASE.md
 - [x] 03-03: Template NotebookLM session logs
 
-### Phase 4: Workflow Simplification (DEFERRED)
+### Phase 4: Workflow Simplification (CLOSED — Superseded)
 **Goal**: Fewer commands, better discovery
-**Status**: Deferred to after slash command implementation
+**Status**: Closed — Superseded by Phases 7, 13, 18
+
+**Assessment:** Phase 4's goals were fully superseded:
+- Phase 7 delivered: 10 phase-organized commands (now 14 with later additions)
+- Phase 13 delivered: Discovery tools (/discover command)
+- Phase 18 delivered: Opportunity orchestrator for topic recommendations
+
+Phase 4's workflow simplification and discovery goals achieved through subsequent phases.
 
 ### Phase 5: Competitive Intelligence
 **Goal**: Track what works in the niche
@@ -400,8 +407,10 @@ Plans:
 5. Estimated token savings quantified per session
 
 Plans:
-- [ ] 28.1-01-PLAN.md — Token audit + routing classification (audit all 19 tasks, classify by routing tier)
-- [ ] 28.1-02-PLAN.md — Routing setup + quality validation (install router, test with real commands)
+- [x] 28.1-01-PLAN.md — Token audit + routing classification
+- [skipped] 28.1-02-PLAN.md — Routing setup (deliberately skipped — hardware constraints make OpenRouter routing not worth complexity)
+
+**Note:** Plan 02 deliberately skipped. Token audit complete; OpenRouter routing not worth complexity given 14.9GB RAM limitation, AMD integrated GPU, and Claude Code's existing model tier system. Phase closed as complete.
 
 ### Phase 29: Thumbnail & Title Tracking
 **Goal**: User can track variant performance with manual CTR entry
@@ -456,20 +465,20 @@ Plans:
 5. ~~Relevant insights surface during /script generation without manual lookup~~ ✓
 
 ### Phase 32: Model Assignment Refresh
-**Goal**: All commands use current Claude 4.x model IDs
+**Goal**: Update documentation to reflect current Claude 4.x lineup
 **Dependencies**: None (independent update)
 **Requirements**: MOD-01, MOD-02
 **Plans**: 1 plan
 
 Plans:
-- [ ] 32-01-PLAN.md — Documentation refresh + roadmap cleanup (model naming, Phase 28.1 closure, Phase 4 resolution)
+- [ ] 32-01-PLAN.md — Documentation refresh + roadmap cleanup
 
 **Success Criteria:**
 1. All 14 slash command files verified using current Claude 4.x model aliases
-2. Agent model assignments updated to current lineup
-3. Model routing verified (commands execute with correct model tier)
-4. Documentation updated with current model ID reference
-5. No breaking changes to existing command functionality
+2. Agent model assignments verified with current lineup
+3. Documentation updated with current Claude 4.x references (Opus 4.6, Sonnet 4.5, Haiku 4.5)
+4. Phase 28.1 closed with Plan 02 marked skipped
+5. Phase 4 status resolved (closed as superseded)
 
 ## Progress
 
@@ -478,7 +487,7 @@ Plans:
 | 1. File Cleanup | v1.0 | 3/3 | Complete | 2026-01-19 |
 | 2. Style Consolidation | v1.0 | 2/2 | Complete | 2026-01-19 |
 | 3. Research Structure | v1.0 | 3/3 | Complete | 2026-01-19 |
-| 4. Workflow Simplification | v1.0 | 0/0 | Deferred | - |
+| 4. Workflow Simplification | v1.0 | 0/0 | Closed (superseded) | - |
 | 5. Competitive Intelligence | v1.0 | 0/0 | Covered by Phase 6 | - |
 | 6. Pattern Extraction | v1.0 | 1/1 | Complete | 2026-01-19 |
 | 7. Slash Commands | v1.0 | 1/1 | Complete | 2026-01-19 |
@@ -504,8 +513,8 @@ Plans:
 | 26. Package Command & Integration | v1.5 | 1/1 | Complete | 2026-02-05 |
 | 27. Database Foundation | v1.6 | 1/1 | Complete | 2026-02-06 |
 | 28. Pacing Analysis | v1.6 | 2/2 | Complete | 2026-02-06 |
-| **28.1 Multi-Model Token Optimization** | **v1.6** | **0/2** | **Planned** | **-** |
+| **28.1 Multi-Model Token Optimization** | **v1.6** | **1/1** | **Complete** | **2026-02-09** |
 | 29. Thumbnail & Title Tracking | v1.6 | 2/2 | Complete | 2026-02-07 |
 | 30. CTR Analysis & Benchmarks | v1.6 | 2/2 | Complete | 2026-02-08 |
 | 31. Feedback Loop Integration | v1.6 | 3/3 | Complete | 2026-02-09 |
-| **32. Model Assignment Refresh** | **v1.6** | **0/0** | **Pending** | **-** |
+| **32. Model Assignment Refresh** | **v1.6** | **1** | **In Progress** | **-** |
