@@ -65,6 +65,21 @@ try:
 except ImportError:
     VARIANTS_AVAILABLE = False
 
+# Try to import CTR analysis (Phase 30)
+try:
+    from benchmarks import compare_variants_for_video, get_benchmarks_report
+    BENCHMARKS_AVAILABLE = True
+except ImportError:
+    BENCHMARKS_AVAILABLE = False
+
+# Try to import feedback storage (Phase 31)
+try:
+    from feedback_parser import parse_analysis_file
+    from feedback_queries import get_insights_preamble
+    FEEDBACK_AVAILABLE = True
+except ImportError:
+    FEEDBACK_AVAILABLE = False
+
 
 # Determine project root (2 levels up from tools/youtube-analytics/)
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -207,9 +222,34 @@ def save_analysis(analysis: dict, output_path: str = None) -> dict:
     with open(save_path, 'w', encoding='utf-8') as f:
         f.write(final_content)
 
+    # Auto-store feedback in database (Phase 31)
+    feedback_stored = False
+    if FEEDBACK_AVAILABLE:
+        try:
+            parsed = parse_analysis_file(str(save_path))
+            if 'error' not in parsed:
+                # Import KeywordDB for storage
+                from database import KeywordDB
+                db = KeywordDB()
+                store_result = db.store_video_feedback(
+                    parsed.get('video_id', video_id),
+                    {
+                        'biggest_drop_position': parsed.get('drop_points', [{}])[0].get('position_pct') if parsed.get('drop_points') else None,
+                        'observations': parsed.get('observations', []),
+                        'actionable': parsed.get('actionable', []),
+                        'discovery': parsed.get('discovery')
+                    }
+                )
+                db.close()
+                if 'status' in store_result and store_result['status'] in ('inserted', 'updated'):
+                    feedback_stored = True
+        except Exception:
+            pass  # Non-blocking: feedback storage failure should not affect save
+
     return {
         'saved_to': str(save_path),
-        'project_folder_found': project_folder_found
+        'project_folder_found': project_folder_found,
+        'feedback_stored': feedback_stored
     }
 
 
@@ -441,6 +481,24 @@ def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
                 'message': f'Variant tracking query failed: {str(e)}'
             })
 
+    # 8. Run CTR analysis if available
+    ctr_analysis = None
+    if BENCHMARKS_AVAILABLE and variant_data:
+        try:
+            benchmarks_data = get_benchmarks_report()
+            thumb_verdict = compare_variants_for_video(video_id, 'thumbnail', benchmarks_data.get('overall', {}))
+            title_verdict = compare_variants_for_video(video_id, 'title', benchmarks_data.get('overall', {}))
+            ctr_analysis = {
+                'thumbnail_verdict': thumb_verdict,
+                'title_verdict': title_verdict,
+                'benchmarks': benchmarks_data
+            }
+        except Exception as e:
+            errors.append({
+                'source': 'ctr_analysis',
+                'message': f'CTR analysis failed: {str(e)}'
+            })
+
     return {
         'video_id': video_id,
         'title': title,
@@ -453,6 +511,7 @@ def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
         'lessons': lessons,
         'discovery': discovery_diagnosis,
         'variants': variant_data,
+        'ctr_analysis': ctr_analysis,
         'errors': errors
     }
 
@@ -1045,6 +1104,96 @@ def format_analysis_markdown(analysis: dict) -> str:
         if not thumbnails and not titles and not snapshots:
             lines.append("*No variant details available*")
             lines.append("")
+
+    # --- CTR Analysis Section (Phase 30) ---
+    ctr_analysis = analysis.get('ctr_analysis')
+    if ctr_analysis:
+        lines.append("### CTR Analysis")
+        lines.append("")
+
+        # Status badges for verdicts
+        status_badges = {
+            'winner_found': 'WINNER',
+            'edge': 'EDGE',
+            'no_clear_winner': 'TIE',
+            'insufficient_data': 'WAIT',
+            'single_variant': 'NOTE',
+            'no_data': 'NO DATA'
+        }
+
+        # Thumbnail verdict
+        thumb = ctr_analysis.get('thumbnail_verdict', {})
+        thumb_verdict = thumb.get('verdict', {})
+        thumb_status = thumb_verdict.get('status', 'no_data')
+        thumb_badge = status_badges.get(thumb_status, thumb_status.upper())
+        thumb_rec = thumb_verdict.get('recommendation', 'No data')
+        lines.append(f"**Thumbnail:** [{thumb_badge}] {thumb_rec}")
+
+        # Title verdict
+        title = ctr_analysis.get('title_verdict', {})
+        title_verdict = title.get('verdict', {})
+        title_status = title_verdict.get('status', 'no_data')
+        title_badge = status_badges.get(title_status, title_status.upper())
+        title_rec = title_verdict.get('recommendation', 'No data')
+        lines.append(f"**Title:** [{title_badge}] {title_rec}")
+
+        lines.append("")
+
+        # Benchmark context
+        benchmarks_data = ctr_analysis.get('benchmarks', {})
+        overall = benchmarks_data.get('overall', {})
+        by_category = benchmarks_data.get('by_category', {})
+        category = thumb.get('category') or title.get('category')
+
+        if overall.get('video_count', 0) > 0:
+            lines.append(f"**Channel avg CTR:** {overall.get('avg_ctr', 0):.2f}%")
+        if category and category in by_category:
+            cat_data = by_category[category]
+            sample_note = " *(low sample)*" if cat_data.get('low_sample') else ""
+            lines.append(f"**Category ({category}) avg CTR:** {cat_data.get('avg_ctr', 0):.2f}% (n={cat_data.get('video_count', 0)} videos){sample_note}")
+
+        lines.append("")
+
+        # Attribution rate (from thumbnail verdict metadata)
+        if thumb.get('attribution_rate'):
+            lines.append(f"_Data: {thumb['attribution_rate']}_")
+            lines.append("")
+
+        # Freshness warning
+        if thumb.get('freshness_warning'):
+            lines.append(f"> **Warning:** {thumb['freshness_warning']}")
+            lines.append("")
+
+    # --- Feedback Insights Section (Phase 31) ---
+    if FEEDBACK_AVAILABLE:
+        try:
+            # Determine topic type from video performance data
+            topic_type = None
+            if VARIANTS_AVAILABLE:
+                try:
+                    from database import KeywordDB
+                    db = KeywordDB()
+                    cursor = db._conn.cursor()
+                    cursor.execute(
+                        "SELECT topic_type FROM video_performance WHERE video_id = ?",
+                        (analysis.get('video_id'),)
+                    )
+                    row = cursor.fetchone()
+                    if row and row[0]:
+                        topic_type = row[0]
+                    db.close()
+                except Exception:
+                    pass
+
+            if topic_type:
+                preamble = get_insights_preamble(topic_type, 'script')
+                if preamble:
+                    lines.append("## Past Performance Insights")
+                    lines.append("")
+                    lines.append(preamble)
+                    lines.append("")
+        except Exception:
+            pass  # Non-blocking
 
     # --- Errors Section ---
     errors = analysis.get('errors', [])
