@@ -471,14 +471,14 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 32-01-PLAN.md — Documentation refresh + roadmap cleanup
+- [x] 32-01-PLAN.md — Documentation refresh + roadmap cleanup (model naming, Phase 28.1 closure, Phase 4 resolution)
 
 **Success Criteria:**
-1. All 14 slash command files verified using current Claude 4.x model aliases
-2. Agent model assignments verified with current lineup
-3. Documentation updated with current Claude 4.x references (Opus 4.6, Sonnet 4.5, Haiku 4.5)
-4. Phase 28.1 closed with Plan 02 marked skipped
-5. Phase 4 status resolved (closed as superseded)
+1. ~~All 14 slash command files verified using current Claude 4.x model aliases~~ ✓
+2. ~~Agent model assignments verified with current lineup~~ ✓
+3. ~~Documentation updated with current Claude 4.x references (Opus 4.6, Sonnet 4.5, Haiku 4.5)~~ ✓
+4. ~~Phase 28.1 closed with Plan 02 marked skipped~~ ✓
+5. ~~Phase 4 status resolved (closed as superseded)~~ ✓
 
 ## Progress
 
@@ -517,4 +517,4 @@ Plans:
 | 29. Thumbnail & Title Tracking | v1.6 | 2/2 | Complete | 2026-02-07 |
 | 30. CTR Analysis & Benchmarks | v1.6 | 2/2 | Complete | 2026-02-08 |
 | 31. Feedback Loop Integration | v1.6 | 3/3 | Complete | 2026-02-09 |
-| **32. Model Assignment Refresh** | **v1.6** | **1** | **In Progress** | **-** |
+| 32. Model Assignment Refresh | v1.6 | 1/1 | Complete | 2026-02-09 |

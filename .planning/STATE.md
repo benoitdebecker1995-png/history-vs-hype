@@ -19,7 +19,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-06)
 **Last activity:** 2026-02-09 — Completed 32-01 (documentation refresh and roadmap cleanup)
 
 **Progress:**
-[██████████] 96%
+[██████████] 100%
 v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
@@ -39,7 +39,7 @@ v1.6 [####################] 100% — Click & Keep (6 phases: 27-32) ✓
 | v1.3 | Niche Discovery | 15-18 | 2026-02-02 |
 | v1.4 | Learning Loop | 19-21 | 2026-02-02 |
 | v1.5 | Production Acceleration | 22-26 | 2026-02-05 |
-| v1.6 | Click & Keep | 27-32 | In progress |
+| v1.6 | Click & Keep | 27-32 | 2026-02-09 |
 
 **Full history:** `.planning/MILESTONES.md`
 **Archives:** `.planning/milestones/`
