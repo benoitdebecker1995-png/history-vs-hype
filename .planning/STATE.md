@@ -1,32 +1,32 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-08 (Phase 29 complete)
+**Last Updated:** 2026-02-08 (Phase 30 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-06)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v1.6 Click & Keep — Phase 30: CTR Analysis (next)
+**Current focus:** v1.6 Click & Keep — Phase 31: Feedback Loop Integration (next)
 
 ## Current Position
 
 **Milestone:** v1.6 Click & Keep
-**Phase:** Phase 29: Thumbnail & Title Tracking (COMPLETE)
-**Plan:** 29-02 complete (2/2 plans)
-**Status:** Variant tracking system complete and integrated into /analyze workflow
-**Last activity:** 2026-02-08 — Completed 29-02 (variant-aware /analyze output)
+**Phase:** Phase 31: Feedback Loop Integration (IN PROGRESS)
+**Plan:** 31-01 complete (1/3 plans)
+**Status:** Feedback parser and database storage layer complete
+**Last activity:** 2026-02-09 — Completed 31-01 (feedback parser and CRUD methods)
 
 **Progress:**
-```
+[█████████░] 93%
 v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
 v1.4 [####################] 100% — Learning Loop (archived)
 v1.5 [####################] 100% — Production Acceleration (archived)
-v1.6 [██████████          ]  50% — Click & Keep (6 phases: 27-32)
+v1.6 [█████████████████   ]  72% — Click & Keep (6 phases: 27-32)
 ```
 
 ## Milestone History
@@ -89,13 +89,13 @@ v1.6 [██████████          ]  50% — Click & Keep (6 phases:
 ### Last Session
 
 - **Date:** 2026-02-08
-- **Work:** Completed Phase 29-02 (Variant tracking /analyze integration)
-- **Output:** analyze.py displays variant tables and CTR history alongside performance data
+- **Work:** Completed Phase 30 (CTR Analysis & Benchmarks)
+- **Output:** benchmarks.py CLI with verdict engine, analyze.py integration with CTR Analysis section
 
 ### Next Session
 
-**Current work:** v1.6 Click & Keep — Phase 30: CTR Analysis
-**Next action:** Review Phase 30 research and plan for statistical significance calculator
+**Current work:** v1.6 Click & Keep — Phase 31: Feedback Loop Integration
+**Next action:** Create Phase 31 context and plan for parsing POST-PUBLISH-ANALYSIS files
 
 ## Accumulated Context
 
@@ -157,6 +157,19 @@ Plan 02 (CLI Integration - COMPLETE):
 - /script command queries feedback automatically during generation
 - Success/failure pattern extraction from top/bottom performers
 
+**Phase 31 Integration (Feedback Loop - IN PROGRESS):**
+
+Plan 31-01 (Parser & Storage - COMPLETE):
+- Regex-based markdown extraction for POST-PUBLISH-ANALYSIS files (8 functions)
+- Best-effort parsing with heuristic fallbacks for older formats
+- Extracts: video_id, metrics (retention, CTR, views, subs), lessons (observations, actionable), drop points, discovery diagnosis
+- 4 KeywordDB CRUD methods: store_video_feedback, get_video_feedback, get_feedback_by_topic, has_feedback
+- JSON column storage for qualitative insights (discovery_issues, lessons_learned)
+- backfill_all command processes all 7 existing analysis files with progress output
+- Canonical POST-PUBLISH-ANALYSIS-TEMPLATE.md for consistent future parsing
+- Error dict pattern: returns {'error': msg} on failure, never raises exceptions
+- All stdlib dependencies (re, pathlib, datetime, json, sys)
+
 **Phase 32 Refresh (Model Assignment):**
 - Update 13 slash command files from Claude 3.5 names to 4.x IDs
 - Model IDs: claude-haiku-4-5, claude-sonnet-4-5, claude-opus-4-6
@@ -183,6 +196,27 @@ Plan 29-02 (Analyze Integration):
 - CTR trend calculation: compares first and last snapshots for UP/DOWN/FLAT direction with delta
 - Table truncation: hash truncated to 8 chars, title to 50 chars for readability
 - Variant section structure: summary counts → thumbnail table → title table → CTR history → trend
+
+**Phase 30 Decisions (CTR Analysis - COMPLETE):**
+
+Plan 30-01 (Benchmarks Engine):
+- Heuristic thresholds (not statistical tests): appropriate for small channel (~10 videos)
+- Impression tiers: <200 (low), 200-499 (medium), 500+ (high confidence)
+- CTR difference thresholds: <0.5pp (tie), 0.5-1.5pp (edge), 1.5-3.0pp (winner), 3.0+ (clear winner)
+- Freshness warning: 60 days threshold for stale data
+- Category benchmark: min 2 videos for reliable, below marks low_sample flag
+- calculate_verdict() pure function with no DB dependency
+- get_variant_ctr_summary() groups by active_thumbnail_id or active_title_id
+- get_channel_ctr_benchmarks() uses latest snapshot per video strategy
+
+Plan 30-02 (CLI and Integration):
+- Dual entry points: standalone CLI and /analyze integration
+- BENCHMARKS_AVAILABLE flag for graceful import degradation
+- analyze_video_ctr() orchestrates both thumbnail and title verdicts in one call
+- CTR Analysis subsection within Variant Tracking (after CTR History, before Errors)
+- Both overall channel and category-specific averages shown (locked decision)
+- --markdown flag saves to project folder or channel-data/ directory
+- Verdict badges: WINNER/EDGE/TIE/WAIT/NOTE for clear status indication
 
 ### Roadmap Evolution
 
