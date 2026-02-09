@@ -94,8 +94,8 @@ Which phases cover which requirements.
 | FEED-03 | Phase 31 | Pending |
 | FEED-04 | Phase 31 | Pending |
 | FEED-05 | Phase 31 | Pending |
-| MOD-01 | Phase 32 | Pending |
-| MOD-02 | Phase 32 | Pending |
+| MOD-01 | Phase 32 | Complete |
+| MOD-02 | Phase 32 | Complete |
 
 **Coverage:**
 - v1.6 requirements: 19 total
@@ -105,4 +105,4 @@ Which phases cover which requirements.
 
 ---
 *Requirements defined: 2026-02-06*
-*Last updated: 2026-02-06 after Phase 28 completion*
+*Last updated: 2026-02-09 after Phase 32 completion*
