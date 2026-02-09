@@ -1,25 +1,25 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-08 (Phase 30 complete)
+**Last Updated:** 2026-02-09 (Phase 31 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-06)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v1.6 Click & Keep — Phase 31: Feedback Loop Integration (next)
+**Current focus:** v1.6 Click & Keep — Phase 32: Model Assignment Refresh (next)
 
 ## Current Position
 
 **Milestone:** v1.6 Click & Keep
-**Phase:** Phase 31: Feedback Loop Integration (IN PROGRESS)
-**Plan:** 31-02 complete (2/3 plans)
-**Status:** Query interface and pattern extraction complete
-**Last activity:** 2026-02-09 — Completed 31-02 (feedback query interface and pattern extraction)
+**Phase:** Phase 31: Feedback Loop Integration (COMPLETE)
+**Plan:** 31-03 complete (3/3 plans)
+**Status:** Auto-store feedback on /analyze, insights surface in /script /prep /publish /patterns
+**Last activity:** 2026-02-09 — Completed 31-03 (slash command integration and auto-store)
 
 **Progress:**
-[█████████░] 94%
+[██████████] 96%
 v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
@@ -184,6 +184,19 @@ Plan 31-02 (Query Interface - COMPLETE):
 - Command filtering: script=retention/pacing, prep=B-roll/visuals, publish=CTR/titles
 - Exit codes: 0 success, 1 no results, 2 error
 - Graceful empty data handling with helpful backfill suggestions
+
+Plan 31-03 (Slash Command Integration - COMPLETE):
+- FEEDBACK_AVAILABLE flag for graceful import degradation (matches BENCHMARKS_AVAILABLE pattern)
+- Auto-store feedback in save_analysis() after file write (non-blocking)
+- "Past Performance Insights" section in format_analysis_markdown() displays before Errors
+- /script surfaces content/pacing insights automatically before generation
+- /prep surfaces production insights automatically before generation
+- /publish surfaces CTR/title insights automatically before generation
+- /patterns extended with FEEDBACK-PATTERNS.md output and feedback subcommands
+- Command-type filtering: script=retention/pacing, prep=B-roll/visuals, publish=CTR/titles
+- Topic type detection from video_performance table for category-specific insights
+- Graceful empty data handling: skip silently if no insights available
+- All feedback operations wrapped in try/except (non-blocking)
 
 **Phase 32 Refresh (Model Assignment):**
 - Update 13 slash command files from Claude 3.5 names to 4.x IDs
