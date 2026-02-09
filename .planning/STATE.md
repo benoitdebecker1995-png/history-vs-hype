@@ -199,10 +199,11 @@ Plan 31-03 (Slash Command Integration - COMPLETE):
 - All feedback operations wrapped in try/except (non-blocking)
 
 **Phase 32 Refresh (Model Assignment):**
-- Update 13 slash command files from Claude 3.5 names to 4.x IDs
-- Model IDs: claude-haiku-4-5, claude-sonnet-4-5, claude-opus-4-6
-- YAML frontmatter updates in .claude/commands/*.md files
-- Agent model assignments update in .claude/agents/
+- Update documentation to reflect current Claude 4.x lineup (Haiku 4.5, Sonnet 4.5, Opus 4.6)
+- Clarify tier aliases (haiku/sonnet/opus) auto-map to latest versions
+- MODEL-ASSIGNMENT-GUIDE.md updated with current lineup and 14 commands (includes /next)
+- Planning docs updated: STACK.md, PITFALLS.md, SUMMARY.md, REQUIREMENTS.md reflect Claude 4.x
+- Close Phase 28.1 (Plan 02 deliberately skipped) and resolve Phase 4 status in ROADMAP.md
 
 **Phase 29 Decisions (Thumbnail & Title Tracking - COMPLETE):**
 

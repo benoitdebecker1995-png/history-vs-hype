@@ -292,35 +292,35 @@ Mistakes that cause delays, confusion, or suboptimal decisions but are recoverab
 Mistakes that cause annoyance or minor inefficiency but are easily fixable.
 
 ### Pitfall 9: Model Assignment Mismatch (Stale Model IDs)
-**What goes wrong:** Phase 13.1 assigned models using Claude 3.5 naming (Haiku, Sonnet, Opus). Anthropic released Claude 4.x lineup (Haiku 4.5, Sonnet 4.5, Opus 4.6). Slash command frontmatter still references `model: haiku` which routing logic doesn't recognize. Command defaults to wrong model or fails entirely.
+**What goes wrong:** Phase 13.1 assigned models using tier aliases (haiku/sonnet/opus). Documentation referenced "Claude 3.5 naming" which became outdated when Anthropic released Claude 4.x lineup (Haiku 4.5, Sonnet 4.5, Opus 4.6). While the tier aliases auto-map correctly, documentation mismatch created confusion.
 
 **Why it happens:**
 - Model lineup changes faster than documentation updates
-- Tier names (haiku/sonnet/opus) vs full model IDs (claude-haiku-4-5) used inconsistently
-- No automated check for stale model references
-- Routing logic may accept old names as aliases or may reject them
+- Tier aliases (haiku/sonnet/opus) provide automatic mapping, but docs lag behind
+- No automated check for stale documentation references
+- Phase 13.1 documentation mentioned "Claude 3.5" despite using correct tier aliases
 
 **Consequences:**
-- Commands run with wrong model (Opus task runs on Haiku, costs less but quality suffers)
-- Commands fail with "unknown model" error
-- Inconsistent behavior across commands (some use old names, some use new)
-- Confusion during debugging: "Why isn't this working?"
+- Documentation confusion about which models are actually being used
+- Uncertainty about whether YAML needs updates (it doesn't - tier aliases work correctly)
+- Wasted time investigating non-existent routing problems
 
 **Prevention:**
-- **Update YAML frontmatter:** Change `model: haiku` → `model: claude-haiku-4-5` in all command files
-- **Model ID validation:** Add validation step in command routing that checks model ID against current Anthropic API
-- **Centralized model config:** Store model tier → ID mapping in single config file, reference in commands
-- **Documentation update:** Update .planning/research/STACK.md with current model IDs
+- **Clarify tier aliases in documentation:** Document that tier names auto-map to latest versions
+- **Update version references:** Change "Claude 3.5 naming" to "Claude tier aliases mapping to 4.x lineup"
+- **Centralized version tracking:** MODEL-ASSIGNMENT-GUIDE.md shows current lineup explicitly
+- **Documentation audit:** Grep for stale version references and update
 
 **Detection:**
-- Warning sign: Command runs but uses unexpected model
-- Error log: "Model 'haiku' not recognized"
-- Performance: Opus-tier task completes suspiciously fast (ran on Haiku instead)
+- Warning sign: Documentation mentions "Claude 3.5" but system uses Claude 4.x
+- Confusion: "Do I need to update YAML frontmatter?"
+- Mismatch: MODEL-ASSIGNMENT-GUIDE says one thing, other docs say another
 
-**Phase to address:** Phase 13.1 (Token Optimization - Model Assignment) - Straightforward find-replace in YAML frontmatter.
+**Phase to address:** Phase 32 (Model Assignment Refresh) - Documentation update, not code changes.
 
 **Sources:**
-- STACK.md already documents new model lineup: Haiku 4.5, Sonnet 4.5, Opus 4.6
+- STACK.md documents current model lineup: Haiku 4.5, Sonnet 4.5, Opus 4.6
+- Tier aliases verified as working correctly with auto-mapping
 
 ---
 

@@ -12,7 +12,7 @@
 
 **Why minimal additions:** The workspace already has analytics fetching (ctr.py), database infrastructure (keywords.db with performance tracking), and NLP tools (spaCy for script analysis). New features are integration work, not new capabilities.
 
-**Model assignment refresh:** Phase 13.1 used Claude 3.5 naming. Update to current lineup: Haiku 4.5, Sonnet 4.5, Opus 4.6.
+**Model assignment refresh:** Phase 13.1 used tier aliases (haiku/sonnet/opus), now mapping to Claude 4.x lineup (Haiku 4.5, Sonnet 4.5, Opus 4.6).
 
 ---
 
@@ -184,35 +184,35 @@ python -m spacy validate
 
 ## Model Assignment Refresh (Phase 13.1 Update)
 
-**Current status:** Phase 13.1 assigned models using Claude 3.5 naming (Haiku, Sonnet, Opus).
+**Current status:** Phase 13.1 assigned models using tier aliases (haiku/sonnet/opus) which auto-map to current model versions.
 
-**Required update:** Anthropic released new lineup. Update model IDs in slash command frontmatter.
+**Documentation update:** Update references to reflect current Claude 4.x lineup (documentation only - YAML already uses correct tier aliases).
 
-### Model ID Mapping
+### Model Tier Mapping
 
-| Tier | Old Name (3.5) | New Name (4.x) | Model ID Pattern | Use Case |
-|------|----------------|----------------|------------------|----------|
-| Fast/Cheap | Claude 3.5 Haiku | Claude Haiku 4.5 | `claude-haiku-4-5` | Simple tasks (status, help, fix, sources, prep, discover) |
-| Balanced | Claude 3.5 Sonnet | Claude Sonnet 4.5 | `claude-sonnet-4-5` | Standard tasks (verify, publish, engage, analyze, patterns, research) |
-| Best | Claude 3.5 Opus | Claude Opus 4.6 | `claude-opus-4-6` | Complex creative (script generation) |
+| Tier | Current Model | Use Case |
+|------|---------------|----------|
+| haiku | Claude Haiku 4.5 | Simple tasks (status, help, fix, sources, prep, discover, next) |
+| sonnet | Claude Sonnet 4.5 | Standard tasks (verify, publish, engage, analyze, patterns, research) |
+| opus | Claude Opus 4.6 | Complex creative (script generation) |
 
-### Files to Update
+### YAML Frontmatter (Already Correct)
 
-Update YAML frontmatter in `.claude/commands/*.md`:
+Slash commands in `.claude/commands/*.md` already use tier aliases:
 
-**Haiku tier (6 files):**
-- status.md, help.md, fix.md, sources.md, prep.md, discover.md
-- Change: `model: haiku` → `model: claude-haiku-4-5`
+**Haiku tier (7 files):**
+- status.md, help.md, fix.md, sources.md, prep.md, discover.md, next.md
+- Already uses: `model: haiku` (maps to current Haiku 4.5)
 
 **Sonnet tier (6 files):**
 - verify.md, publish.md, engage.md, analyze.md, patterns.md, research.md
-- Change: `model: sonnet` → `model: claude-sonnet-4-5`
+- Already uses: `model: sonnet` (maps to current Sonnet 4.5)
 
 **Opus tier (1 file):**
 - script.md
-- Change: `model: opus` → `model: claude-opus-4-6`
+- Already uses: `model: opus` (maps to current Opus 4.6)
 
-**Note:** If command routing uses tier names (haiku/sonnet/opus) instead of full IDs, update routing logic to map tier → current model ID.
+**Note:** Tier aliases auto-map to latest model versions. Routing works correctly without YAML changes.
 
 ---
 

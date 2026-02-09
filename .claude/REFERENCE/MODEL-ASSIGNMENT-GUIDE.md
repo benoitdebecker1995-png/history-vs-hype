@@ -4,17 +4,24 @@ This document explains how models are assigned to skills (slash commands) and ag
 
 ## Overview
 
-Model assignment optimizes token usage by matching model capability to task complexity:
+Model assignment optimizes token usage by matching model capability to task complexity.
 
-| Model | Cost | Speed | Best For |
-|-------|------|-------|----------|
-| **Haiku** | Lowest | Fastest | Simple, templated, mechanical tasks |
-| **Sonnet** | Medium | Balanced | Reasoning, analysis, verification tasks |
-| **Opus** | Highest | Slowest | Complex creative, retention engineering |
+**Current lineup (as of February 2026):**
+- **Opus 4.6** — Latest flagship model (extended thinking automatic)
+- **Sonnet 4.5** — Balanced reasoning and speed
+- **Haiku 4.5** — Fast, efficient for simple tasks
 
-## Skill Assignments (13 Commands)
+Commands use short aliases (`model: opus`) which automatically map to latest versions.
 
-### Haiku (6 skills) - Simple/Fast Tasks
+| Model Tier | Current Model | Cost | Speed | Best For |
+|------------|---------------|------|-------|----------|
+| **Haiku** | Haiku 4.5 | Lowest | Fastest | Simple, templated, mechanical tasks |
+| **Sonnet** | Sonnet 4.5 | Medium | Balanced | Reasoning, analysis, verification tasks |
+| **Opus** | Opus 4.6 | Highest | Slowest | Complex creative, retention engineering |
+
+## Skill Assignments (14 Commands)
+
+### Haiku (7 skills) - Simple/Fast Tasks
 
 | Skill | Description | Why Haiku |
 |-------|-------------|-----------|
@@ -24,6 +31,7 @@ Model assignment optimizes token usage by matching model capability to task comp
 | `/sources` | Source recommendations | Template-based, no synthesis |
 | `/prep` | Filming preparation | Template-based guides |
 | `/discover` | Keyword research workflow | Orchestration, mostly templated |
+| `/next` | Topic recommendations | Simple orchestration, reads existing data |
 
 ### Sonnet (6 skills) - Reasoning/Analysis Tasks
 
@@ -117,10 +125,10 @@ model: haiku|sonnet|opus
 
 | Model | Skills | Agents | Total |
 |-------|--------|--------|-------|
-| Haiku | 6 | 3 | 9 |
+| Haiku | 7 | 3 | 10 |
 | Sonnet | 6 | 2 | 8 |
 | Opus | 1 | 1 | 2 |
-| **Total** | **13** | **6** | **19** |
+| **Total** | **14** | **6** | **20** |
 
 ## Maintenance Notes
 
@@ -129,7 +137,8 @@ model: haiku|sonnet|opus
 - If a Haiku task consistently needs escalation, consider upgrading
 - If a Sonnet/Opus task is underutilized, consider downgrading
 - Document any changes in this guide
+- **Note:** Extended thinking is automatic for Opus 4.6 (no config flags needed)
 
 ---
 
-*Last updated: 2026-01-29 (Phase 13.1 Token Optimization)*
+*Last updated: 2026-02-09 (Phase 32 Model Assignment Refresh)*

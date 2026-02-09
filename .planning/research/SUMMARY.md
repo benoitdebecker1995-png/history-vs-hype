@@ -7,9 +7,9 @@
 
 ## Executive Summary
 
-The v1.6 Click & Keep milestone extends an existing YouTube production system (197 subs, 82K views, 30-35% retention) with three integrated features: thumbnail/title A/B tracking, script pacing analysis, and post-publish feedback loops. Research reveals this is fundamentally an **integration project**, not a greenfield build. The workspace already has analytics fetching (ctr.py, retention.py), database infrastructure (keywords.db with auto-migration), and NLP tools (spaCy, textstat). New features require only two library additions (ImageHash 4.3.2 for thumbnail pattern analysis, textstat upgrade to 0.7.12 for readability metrics) and primarily involve wiring existing components together.
+The v1.6 Click & Keep milestone extends an existing YouTube production system (197 subs, 82K views, 30-35% retention) with three integrated features: thumbnail/title A/B tracking, script pacing analysis, and post-publish feedback loops. Research reveals this is fundamentally an **integration project**, not a greenfield build. The workspace already has analytics fetching (ctr.py, retention.py), database infrastructure (keywords.db with auto-migration), NLP tools (spaCy, textstat), and model tier assignments (Phase 13.1 tier aliases auto-map to Claude 4.x lineup). New features require only two library additions (ImageHash 4.3.2 for thumbnail pattern analysis, textstat upgrade to 0.7.12 for readability metrics) and primarily involve wiring existing components together.
 
-The recommended approach leverages the workspace's established patterns: error dict returns, auto-migrating SQLite schema, lazy imports for optional dependencies, and markdown report outputs. Build order prioritizes database schema extensions first (enables parallel development), then tracking/analysis modules, then feedback integration closing the learning loop. The critical architectural insight: don't build new capabilities, extend existing ones. Thumbnail tracking extends video_performance table and /analyze command. Pacing analysis extends flow.py checker. Feedback integration parses existing POST-PUBLISH-ANALYSIS.md files into queryable database for /script command.
+The recommended approach leverages the workspace's established patterns: error dict returns, auto-migrating SQLite schema, lazy imports for optional dependencies, and markdown report outputs. Build order prioritizes database schema extensions first (enables parallel development), then tracking/analysis modules, then feedback integration closing the learning loop. The critical architectural insight: don't build new capabilities, extend existing ones. Thumbnail tracking extends video_performance table and /analyze command. Pacing analysis extends flow.py checker. Feedback integration parses existing POST-PUBLISH-ANALYSIS.md files into queryable database for /script command. Phase 32 updates documentation to reflect current Claude 4.x lineup (Haiku 4.5, Sonnet 4.5, Opus 4.6).
 
 Key risks center on small sample size statistics (197 subs = low impression volume), sequential testing treated as simultaneous A/B (impression sources change over video lifecycle), and pacing metrics disconnected from retention reality. Mitigation: enforce 1,000+ impression minimums before declaring winners, track impression source distribution, validate pacing warnings against actual retention drops post-publish. The channel's low volume (1-2 videos/month) makes this a **learning-per-video** optimization challenge, not a high-throughput automation problem. Design for data collection quality over speed.
 
@@ -25,6 +25,7 @@ The existing stack handles 95% of requirements. Only two additions needed: Image
 - **SQLite (existing)**: Database extensions via auto-migration pattern — thumbnail_variants table, feedback columns in video_performance. Zero breaking changes.
 - **spaCy 3.8+ (existing)**: Sentence parsing, entity recognition, NER — foundation for pacing analysis (entity density, sentence variance).
 - **YouTube Analytics API v2 (existing)**: CTR, retention, impression sources — note CTR requires manual entry (not available via API).
+- **Claude 4.x lineup (existing)**: Tier aliases (haiku/sonnet/opus) auto-map to Haiku 4.5, Sonnet 4.5, Opus 4.6.
 
 **What NOT to add:**
 - Computer vision APIs (Google Vision, AWS Rekognition) — ImageHash perceptual hashing sufficient
@@ -209,7 +210,7 @@ Based on research, suggested 5-phase structure optimizes for learning-per-video 
 ---
 
 ### Phase 5: Model Assignment Refresh (Week 4)
-**Rationale:** Independent of other phases. Phase 13.1 used Claude 3.5 names (haiku/sonnet/opus), Anthropic released 4.x lineup. Simple YAML frontmatter updates in 13 command files.
+**Rationale:** Independent of other phases. Phase 13.1 used tier aliases (haiku/sonnet/opus) which auto-map to current lineup. Documentation update to reflect Claude 4.x versions explicitly (14 commands total including /next added in Phase 21).
 
 **Delivers:**
 - 6 Haiku files updated: status.md, help.md, fix.md, sources.md, prep.md, discover.md
