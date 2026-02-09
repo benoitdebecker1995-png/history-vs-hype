@@ -1,5 +1,63 @@
 # Project Milestones: History vs Hype Workspace
 
+## v1.6 Click & Keep (Shipped: 2026-02-09)
+
+**Delivered:** Systematic CTR and retention improvement system — track what works across thumbnails, titles, and script structure so each video is better than the last.
+
+**Phases completed:** 27-32 including 28.1 (12 plans total)
+
+**Key accomplishments:**
+
+- Database schema for CTR tracking and feedback: variant tables, CTR snapshots, section feedback columns (Phase 27)
+- Script pacing analysis: PacingChecker with sentence variance, readability delta, entity density, sparkline energy arc (Phase 28)
+- Thumbnail & title A/B tracking: CLI for registering variants, recording CTR, trend analysis, `/analyze` integration (Phases 29-30)
+- CTR benchmarks engine: Verdict calculator with impression thresholds, channel-specific benchmarks by topic category (Phase 30)
+- Feedback loop integration: Auto-parse POST-PUBLISH-ANALYSIS files, store insights, surface in `/script`, `/prep`, `/publish` (Phase 31)
+- Model assignment refresh: 14 commands and 6 agents verified on Claude 4.x, documentation updated (Phase 32)
+
+**Stats:**
+
+- 7 phases, 12 plans
+- ~54 commits over 4 days
+- 19/19 requirements delivered
+- ~4,600 lines added (tools/youtube-analytics/, tools/script-checkers/)
+
+**Git range:** `bbb011a` → `2b8a57f`
+
+**What's next:** Use `/analyze VIDEO_ID` to see full variant tracking + CTR analysis + feedback insights. Run `--pacing` on scripts before filming.
+
+**Archive:** `.planning/milestones/v1.6-ROADMAP.md`
+
+---
+
+## v1.5 Production Acceleration (Shipped: 2026-02-05)
+
+**Delivered:** Single-command production package from finished scripts — B-roll shot lists, edit guides with timing, metadata drafts, and teleprompter export.
+
+**Phases completed:** 22-26 (5 plans total)
+
+**Key accomplishments:**
+
+- Script parser with entity extraction (treaties, places, people, documents)
+- B-roll shot list generation with source URLs (Wikimedia, archive.org, maps)
+- Edit guide with section timing at 150 WPM and B-roll cue markers
+- Metadata draft with 3 title variants, description template, tags
+- Package command: `--package` generates all outputs in one command
+- Teleprompter export: clean text with no markdown
+
+**Stats:**
+
+- 5 phases, 5 plans
+- ~2,100 lines Python added (tools/production/)
+
+**Git range:** `5ccd6e4` → `2bc3cc2`
+
+**What's next:** Run `python tools/production/parser.py script.md --package` for all production outputs.
+
+**Archive:** `.planning/milestones/v1.5-ROADMAP.md`
+
+---
+
 ## v1.4 Learning Loop (Shipped: 2026-02-02)
 
 **Delivered:** Topic recommendation system combining winning patterns with opportunity scores to suggest NEW topics, excluding in-progress projects.

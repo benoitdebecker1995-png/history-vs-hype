@@ -8,33 +8,42 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current Milestone: v1.6 Click & Keep
+## Current State: v1.6 Shipped
 
-**Goal:** Systematically improve click-through rate and retention by tracking what works across thumbnails, titles, and script structure — so each video is better than the last.
+**Last milestone:** v1.6 Click & Keep (shipped 2026-02-09)
 
-**Target features:**
-- Thumbnail/title A/B tracking with pattern analysis (which visual styles and title formulas drive CTR)
-- Script structure analysis (catch pacing issues and energy dips before filming)
-- Tighter feedback loop from `/analyze` back into creation tools
-- Model assignment refresh for current Claude 4.5/4.6 lineup
+Systematic CTR and retention improvement system — track what works across thumbnails, titles, and script structure so each video is better than the last.
 
-## Previous State: v1.5 Shipped
-
-**Last milestone:** v1.5 Production Acceleration (shipped 2026-02-05)
-
-Single-command production package from finished scripts:
-
-- **Script Parser:** Entity extraction (treaties, places, people, documents)
-- **B-Roll Generation:** Shot lists with source URLs (Wikimedia, archive.org, maps)
-- **Edit Guide:** Section timing at 150 WPM with B-roll cue markers
-- **Metadata Draft:** 3 title variants, description template, tags
-- **Package Command:** `--package` generates all outputs in one command
+- **Database Foundation:** Variant tables, CTR snapshots, section feedback columns
+- **Script Pacing Analysis:** PacingChecker with sentence variance, readability delta, entity density, sparkline energy arc
+- **Thumbnail & Title A/B Tracking:** CLI for registering variants, recording CTR, trend analysis, `/analyze` integration
+- **CTR Benchmarks Engine:** Verdict calculator with impression thresholds, channel-specific benchmarks by topic category
+- **Feedback Loop Integration:** Auto-parse POST-PUBLISH-ANALYSIS files, store insights, surface in `/script`, `/prep`, `/publish`
+- **Model Assignment Refresh:** 14 commands and 6 agents verified on Claude 4.x, documentation updated
 
 **Entry points:**
-- `python tools/production/parser.py script.md --package` — generate all production outputs
-- `python tools/production/parser.py script.md --teleprompter` — clean text for filming
+- `/analyze VIDEO_ID` — full variant tracking + CTR analysis + feedback insights
+- `python tools/script-checkers/cli.py script.md --pacing` — pacing analysis before filming
+- `python tools/youtube-analytics/variants.py register-thumb VIDEO_ID A path.jpg` — register thumbnail variant
+- `python tools/youtube-analytics/feedback.py backfill` — import POST-PUBLISH-ANALYSIS data
 
 ## Requirements
+
+### Validated (v1.6)
+
+- Database schema for CTR tracking and feedback storage — v1.6
+- Script pacing analysis (sentence variance, readability delta, entity density) — v1.6
+- Energy arc visualization showing pacing rhythm across full script — v1.6
+- Thumbnail variant registration with file paths and visual pattern tags — v1.6
+- Title variant registration with formula tags — v1.6
+- CTR snapshot tracking at meaningful intervals per variant — v1.6
+- Statistical significance calculation between variants with impression thresholds — v1.6
+- Channel-specific CTR benchmarks by topic category — v1.6
+- POST-PUBLISH-ANALYSIS parsing and structured database storage — v1.6
+- Past performance insight queries for similar topics — v1.6
+- Success/failure pattern extraction from high/low performers — v1.6
+- Automatic insight surfacing during /script, /prep, /publish generation — v1.6
+- Model assignment refresh for Claude 4.x lineup (14 commands, 6 agents) — v1.6
 
 ### Validated (v1.5)
 
@@ -120,8 +129,11 @@ Single-command production package from finished scripts:
 - Commands are discoverable (/help, /status)
 - Analytics integration provides learning feedback
 - Pattern recognition surfaces what's working
-- Script quality checkers catch issues before filming
+- Script quality checkers catch issues before filming (including pacing analysis)
 - Voice fingerprinting learns personal delivery patterns
+- A/B tracking for thumbnails and titles with CTR trend analysis
+- Feedback loop auto-surfaces past insights during content creation
+- Model assignments verified for Claude 4.x lineup
 
 **Known tech debt:**
 - Library folder (728 files) needs manual cleanup
@@ -131,12 +143,12 @@ Single-command production package from finished scripts:
 - Discovery diagnostics standalone (not auto-integrated into /analyze)
 
 **Tech stack:**
-- ~7,700 lines Python (tools/youtube-analytics/) — includes performance.py, pattern_extractor.py
-- ~2,600 lines Python (tools/script-checkers/)
+- ~12,300 lines Python (tools/youtube-analytics/) — includes variants.py, benchmarks.py, feedback.py
+- ~3,200 lines Python (tools/script-checkers/) — includes pacing_checker.py
 - ~1,800 lines Python (tools/discovery/) — includes recommender.py
 - YouTube Analytics API v2 + YouTube Data API v3
 - OAuth2 authentication with token refresh
-- SQLite database for keywords and performance
+- SQLite database for keywords, performance, variants, CTR, and feedback
 
 **Existing codebase map:** `.planning/codebase/` (7 documents, 1600+ lines)
 
@@ -170,7 +182,14 @@ Single-command production package from finished scripts:
 | Word-level topic matching | Prevents false positives in exclusion | Good (v1.4) |
 | Pattern multiplier cap (1.5x) | Prevents overwhelming opportunity score | Good (v1.4) |
 | JSON angle storage | SQLite lacks native array type | Good (v1.4) |
+| Auto-migration with PRAGMA user_version | Schema version tracking, zero breaking changes | Good (v1.6) |
+| Composite pacing score (100 - penalties) | Intuitive 0-100 scale with capped deductions | Good (v1.6) |
+| Sparkline energy arc visualization | Quick pacing rhythm check without verbose output | Good (v1.6) |
+| Heuristic CTR verdicts (not statistical tests) | Appropriate for small channel (~10 videos) | Good (v1.6) |
+| Feature flags (VARIANTS/BENCHMARKS/FEEDBACK_AVAILABLE) | Graceful degradation when modules unavailable | Good (v1.6) |
+| Regex-based markdown parsing for feedback | All-stdlib, no external dependencies | Good (v1.6) |
+| Short model aliases (opus/sonnet/haiku) | Auto-map to latest versions, no version churn | Good (v1.6) |
 
 ---
 
-*Last updated: 2026-02-06 after v1.6 milestone started*
+*Last updated: 2026-02-09 after v1.6 milestone shipped*
