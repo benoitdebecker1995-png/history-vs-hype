@@ -459,10 +459,13 @@ Plans:
 **Goal**: All commands use current Claude 4.x model IDs
 **Dependencies**: None (independent update)
 **Requirements**: MOD-01, MOD-02
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 32-01-PLAN.md — Documentation refresh + roadmap cleanup (model naming, Phase 28.1 closure, Phase 4 resolution)
 
 **Success Criteria:**
-1. All 13 slash command files updated to Claude 4.x model IDs
+1. All 14 slash command files verified using current Claude 4.x model aliases
 2. Agent model assignments updated to current lineup
 3. Model routing verified (commands execute with correct model tier)
 4. Documentation updated with current model ID reference
