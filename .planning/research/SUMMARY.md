@@ -17,7 +17,7 @@ Key risks center on small sample size statistics (197 subs = low impression volu
 
 ### Recommended Stack
 
-The existing stack handles 95% of requirements. Only two additions needed: ImageHash 4.3.2 for thumbnail pattern analysis and textstat 0.7.12 upgrade for enhanced readability metrics. The workspace already has Python 3.11-3.13, SQLite with video_performance table (Phase 19), YouTube Analytics API integration (ctr.py, retention.py), spaCy 3.8+ for NLP, and production pipeline (parser.py with --package flag). Phase 13.1 model assignments need refresh from Claude 3.5 names (haiku/sonnet/opus) to current 4.x lineup (claude-haiku-4-5, claude-sonnet-4-5, claude-opus-4-6).
+The existing stack handles 95% of requirements. Only two additions needed: ImageHash 4.3.2 for thumbnail pattern analysis and textstat 0.7.12 upgrade for enhanced readability metrics. The workspace already has Python 3.11-3.13, SQLite with video_performance table (Phase 19), YouTube Analytics API integration (ctr.py, retention.py), spaCy 3.8+ for NLP, and production pipeline (parser.py with --package flag). Phase 13.1 tier aliases (haiku/sonnet/opus) auto-map to current Claude 4.x lineup (Haiku 4.5, Sonnet 4.5, Opus 4.6).
 
 **Core technologies:**
 - **ImageHash 4.3.2**: Perceptual hash generation for thumbnail pattern clustering — enables pattern extraction (map vs face, text vs image) without computer vision APIs or manual tagging. Pure Python, uses existing Pillow dependency.
