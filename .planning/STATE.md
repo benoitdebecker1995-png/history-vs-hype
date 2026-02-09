@@ -14,12 +14,12 @@ See: `.planning/PROJECT.md` (updated 2026-02-06)
 
 **Milestone:** v1.6 Click & Keep
 **Phase:** Phase 31: Feedback Loop Integration (IN PROGRESS)
-**Plan:** 31-01 complete (1/3 plans)
-**Status:** Feedback parser and database storage layer complete
-**Last activity:** 2026-02-09 — Completed 31-01 (feedback parser and CRUD methods)
+**Plan:** 31-02 complete (2/3 plans)
+**Status:** Query interface and pattern extraction complete
+**Last activity:** 2026-02-09 — Completed 31-02 (feedback query interface and pattern extraction)
 
 **Progress:**
-[█████████░] 93%
+[█████████░] 94%
 v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
@@ -169,6 +169,21 @@ Plan 31-01 (Parser & Storage - COMPLETE):
 - Canonical POST-PUBLISH-ANALYSIS-TEMPLATE.md for consistent future parsing
 - Error dict pattern: returns {'error': msg} on failure, never raises exceptions
 - All stdlib dependencies (re, pathlib, datetime, json, sys)
+
+Plan 31-02 (Query Interface - COMPLETE):
+- feedback_queries.py module with 10 functions for insight retrieval and pattern extraction
+- get_insights_for_topic: category-specific insights with command filtering (script/prep/publish)
+- get_universal_insights: cross-video patterns from high-performers
+- get_insights_preamble: formatted text for /script, /prep, /publish workflows
+- extract_success_patterns: adaptive threshold pattern extraction (topic average if 3+ videos, channel fallback)
+- extract_failure_patterns: below-average pattern identification with adaptive thresholds
+- generate_patterns_report: comprehensive report combining success, failure, winning patterns
+- format_patterns_markdown/terminal: dual output modes (ASCII-only terminal, full markdown)
+- format_query_terminal/markdown: query result formatters for topic and video queries
+- feedback.py CLI with 3 subcommands: backfill, query, patterns
+- Command filtering: script=retention/pacing, prep=B-roll/visuals, publish=CTR/titles
+- Exit codes: 0 success, 1 no results, 2 error
+- Graceful empty data handling with helpful backfill suggestions
 
 **Phase 32 Refresh (Model Assignment):**
 - Update 13 slash command files from Claude 3.5 names to 4.x IDs
