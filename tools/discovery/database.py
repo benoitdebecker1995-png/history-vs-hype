@@ -15,6 +15,7 @@ Database location: tools/discovery/keywords.db (relative to module)
 """
 
 import sqlite3
+import json
 from pathlib import Path
 from datetime import datetime
 from typing import Optional, Dict, List, Any
@@ -2497,6 +2498,417 @@ class KeywordDB:
 
         except sqlite3.Error as e:
             return {'error': f'Database error: {str(e)}'}
+
+    # =========================================================================
+    # PHASE 30: CTR ANALYSIS METHODS
+    # =========================================================================
+
+    def get_variant_ctr_summary(
+        self,
+        video_id: str,
+        variant_type: str = 'thumbnail'
+    ) -> List[Dict[str, Any]]:
+        """
+        Get CTR summary grouped by variant for a video.
+
+        Aggregates CTR snapshots by active variant, returning average CTR,
+        total impressions, and snapshot count per variant.
+
+        Args:
+            video_id: YouTube video ID
+            variant_type: 'thumbnail' or 'title'
+
+        Returns:
+            List of dicts with keys:
+                - variant_id: int
+                - variant_letter: str
+                - avg_ctr: float
+                - total_impressions: int
+                - snapshot_count: int
+            Empty list if no attributed snapshots found.
+
+        Example:
+            summary = db.get_variant_ctr_summary('TEST123', 'thumbnail')
+            for v in summary:
+                print(f"Variant {v['variant_letter']}: {v['avg_ctr']:.1f}%")
+        """
+        try:
+            cursor = self._conn.cursor()
+
+            if variant_type == 'thumbnail':
+                cursor.execute(
+                    """
+                    SELECT
+                        s.active_thumbnail_id as variant_id,
+                        t.variant_letter,
+                        AVG(s.ctr_percent) as avg_ctr,
+                        SUM(s.impression_count) as total_impressions,
+                        COUNT(*) as snapshot_count
+                    FROM ctr_snapshots s
+                    JOIN thumbnail_variants t ON s.active_thumbnail_id = t.id
+                    WHERE s.video_id = ? AND s.active_thumbnail_id IS NOT NULL
+                    GROUP BY s.active_thumbnail_id, t.variant_letter
+                    ORDER BY avg_ctr DESC
+                    """,
+                    (video_id,)
+                )
+            else:
+                cursor.execute(
+                    """
+                    SELECT
+                        s.active_title_id as variant_id,
+                        t.variant_letter,
+                        AVG(s.ctr_percent) as avg_ctr,
+                        SUM(s.impression_count) as total_impressions,
+                        COUNT(*) as snapshot_count
+                    FROM ctr_snapshots s
+                    JOIN title_variants t ON s.active_title_id = t.id
+                    WHERE s.video_id = ? AND s.active_title_id IS NOT NULL
+                    GROUP BY s.active_title_id, t.variant_letter
+                    ORDER BY avg_ctr DESC
+                    """,
+                    (video_id,)
+                )
+
+            results = []
+            for row in cursor.fetchall():
+                results.append({
+                    'variant_id': row[0],
+                    'variant_letter': row[1],
+                    'avg_ctr': row[2],
+                    'total_impressions': row[3],
+                    'snapshot_count': row[4]
+                })
+
+            return results
+
+        except sqlite3.Error:
+            return []
+
+    def get_channel_ctr_benchmarks(self) -> Dict[str, Any]:
+        """
+        Get channel-wide CTR benchmarks by category.
+
+        Uses the latest CTR snapshot per video to avoid bias from
+        videos with more frequent snapshots. Groups by video_performance
+        topic_type for category breakdown.
+
+        Returns:
+            Dict with keys:
+                - overall: {avg_ctr, video_count, date_range: {earliest, latest}}
+                - by_category: {category: {avg_ctr, video_count}}
+
+        Example:
+            benchmarks = db.get_channel_ctr_benchmarks()
+            print(f"Overall avg: {benchmarks['overall']['avg_ctr']:.1f}%")
+        """
+        try:
+            import statistics as stats
+
+            cursor = self._conn.cursor()
+
+            # Get latest snapshot per video with topic_type
+            cursor.execute(
+                """
+                SELECT
+                    s.video_id,
+                    s.ctr_percent,
+                    s.snapshot_date,
+                    COALESCE(vp.topic_type, 'general') as topic_type
+                FROM ctr_snapshots s
+                LEFT JOIN video_performance vp ON s.video_id = vp.video_id
+                WHERE s.snapshot_date = (
+                    SELECT MAX(snapshot_date) FROM ctr_snapshots
+                    WHERE video_id = s.video_id
+                )
+                """
+            )
+
+            rows = cursor.fetchall()
+
+            if not rows:
+                return {
+                    'overall': {
+                        'avg_ctr': 0,
+                        'video_count': 0,
+                        'date_range': {'earliest': None, 'latest': None}
+                    },
+                    'by_category': {}
+                }
+
+            # Aggregate data
+            all_ctrs = []
+            all_dates = []
+            by_category = {}
+
+            for row in rows:
+                video_id, ctr, date, topic_type = row
+                all_ctrs.append(ctr)
+                all_dates.append(date)
+
+                if topic_type not in by_category:
+                    by_category[topic_type] = {'ctrs': [], 'count': 0}
+                by_category[topic_type]['ctrs'].append(ctr)
+                by_category[topic_type]['count'] += 1
+
+            # Calculate overall stats
+            overall_avg = stats.mean(all_ctrs) if all_ctrs else 0
+            dates_sorted = sorted([d for d in all_dates if d])
+
+            # Calculate per-category stats
+            category_stats = {}
+            for cat, data in by_category.items():
+                category_stats[cat] = {
+                    'avg_ctr': stats.mean(data['ctrs']) if data['ctrs'] else 0,
+                    'video_count': data['count']
+                }
+
+            return {
+                'overall': {
+                    'avg_ctr': overall_avg,
+                    'video_count': len(all_ctrs),
+                    'date_range': {
+                        'earliest': dates_sorted[0] if dates_sorted else None,
+                        'latest': dates_sorted[-1] if dates_sorted else None
+                    }
+                },
+                'by_category': category_stats
+            }
+
+        except Exception:
+            return {
+                'overall': {
+                    'avg_ctr': 0,
+                    'video_count': 0,
+                    'date_range': {'earliest': None, 'latest': None}
+                },
+                'by_category': {}
+            }
+
+    # =========================================================================
+    # PHASE 31: FEEDBACK LOOP METHODS
+    # =========================================================================
+
+    def store_video_feedback(self, video_id: str, feedback_data: dict) -> dict:
+        """
+        Store parsed feedback from POST-PUBLISH-ANALYSIS file into video_performance table.
+
+        Updates feedback columns with parsed insights:
+        - retention_drop_point: biggest drop position percentage
+        - discovery_issues: JSON-encoded discovery diagnostics
+        - lessons_learned: JSON-encoded observations and actionable items
+
+        Args:
+            video_id: YouTube video ID
+            feedback_data: Dict with keys:
+                - biggest_drop_position: int (position percentage)
+                - observations: list[str]
+                - actionable: list[str]
+                - discovery: dict (optional)
+
+        Returns:
+            {'status': 'updated', 'video_id': video_id} on success
+            {'status': 'no_match', 'video_id': video_id} if video not in performance table
+            {'error': msg} on failure
+
+        Example:
+            result = db.store_video_feedback('XbGl1Kcspt4', {
+                'biggest_drop_position': 3,
+                'observations': ['Strong retention'],
+                'actionable': ['Consider similar content'],
+                'discovery': {'primary_issue': 'NONE', 'severity': 'LOW'}
+            })
+        """
+        try:
+            cursor = self._conn.cursor()
+
+            # Prepare JSON fields
+            discovery = feedback_data.get('discovery', {})
+            discovery_json = json.dumps(discovery) if discovery else None
+
+            lessons = {
+                'observations': feedback_data.get('observations', []),
+                'actionable': feedback_data.get('actionable', [])
+            }
+            lessons_json = json.dumps(lessons)
+
+            # Update video_performance row
+            cursor.execute(
+                """
+                UPDATE video_performance
+                SET retention_drop_point = ?,
+                    discovery_issues = ?,
+                    lessons_learned = ?
+                WHERE video_id = ?
+                """,
+                (
+                    feedback_data.get('biggest_drop_position'),
+                    discovery_json,
+                    lessons_json,
+                    video_id
+                )
+            )
+
+            self._conn.commit()
+
+            if cursor.rowcount == 0:
+                return {'status': 'no_match', 'video_id': video_id}
+
+            return {'status': 'updated', 'video_id': video_id}
+
+        except sqlite3.Error as e:
+            return {'error': f'Database error: {str(e)}'}
+
+    def get_video_feedback(self, video_id: str) -> dict:
+        """
+        Retrieve feedback for a specific video.
+
+        Args:
+            video_id: YouTube video ID
+
+        Returns:
+            Dict with video info and feedback data:
+                - video_id, title, topic_type, conversion_rate
+                - drop_point: int or None
+                - discovery: dict or None (parsed from JSON)
+                - lessons: dict with observations/actionable lists (parsed from JSON)
+            {'error': 'not_found'} if video not in table
+            {'error': msg} on failure
+
+        Example:
+            feedback = db.get_video_feedback('XbGl1Kcspt4')
+            if 'error' not in feedback:
+                print(f"Observations: {feedback['lessons']['observations']}")
+        """
+        try:
+            cursor = self._conn.cursor()
+            cursor.execute(
+                """
+                SELECT video_id, title, topic_type, conversion_rate,
+                       retention_drop_point, discovery_issues, lessons_learned
+                FROM video_performance
+                WHERE video_id = ?
+                """,
+                (video_id,)
+            )
+
+            row = cursor.fetchone()
+            if not row:
+                return {'error': 'not_found'}
+
+            # Parse JSON columns with null-safety
+            discovery_issues = json.loads(row[5]) if row[5] else None
+            lessons_learned = json.loads(row[6]) if row[6] else None
+
+            return {
+                'video_id': row[0],
+                'title': row[1],
+                'topic_type': row[2],
+                'conversion_rate': row[3],
+                'drop_point': row[4],
+                'discovery': discovery_issues,
+                'lessons': lessons_learned
+            }
+
+        except sqlite3.Error as e:
+            return {'error': f'Database error: {str(e)}'}
+        except json.JSONDecodeError as e:
+            return {'error': f'JSON parse error: {str(e)}'}
+
+    def get_feedback_by_topic(self, topic_type: str, limit: int = 10) -> dict:
+        """
+        Retrieve feedback from videos in a specific topic category.
+
+        Queries videos with lessons_learned data, ordered by conversion_rate descending
+        (highest performing videos first).
+
+        Args:
+            topic_type: Topic category ('territorial', 'ideological', 'legal', etc.)
+            limit: Maximum number of videos to return
+
+        Returns:
+            Dict with:
+                - videos: list of video dicts with feedback
+                - count: number of videos returned
+                - topic: topic_type queried
+
+        Example:
+            result = db.get_feedback_by_topic('territorial', limit=5)
+            for video in result['videos']:
+                print(f"{video['title']}: {video['lessons']['observations']}")
+        """
+        try:
+            cursor = self._conn.cursor()
+            cursor.execute(
+                """
+                SELECT video_id, title, topic_type, conversion_rate,
+                       retention_drop_point, lessons_learned
+                FROM video_performance
+                WHERE topic_type = ? AND lessons_learned IS NOT NULL
+                ORDER BY conversion_rate DESC
+                LIMIT ?
+                """,
+                (topic_type, limit)
+            )
+
+            rows = cursor.fetchall()
+            videos = []
+
+            for row in rows:
+                # Parse lessons_learned JSON with null-safety
+                lessons = json.loads(row[5]) if row[5] else {'observations': [], 'actionable': []}
+
+                videos.append({
+                    'video_id': row[0],
+                    'title': row[1],
+                    'topic_type': row[2],
+                    'conversion_rate': row[3],
+                    'drop_point': row[4],
+                    'lessons': lessons
+                })
+
+            return {
+                'videos': videos,
+                'count': len(videos),
+                'topic': topic_type
+            }
+
+        except sqlite3.Error as e:
+            return {'error': f'Database error: {str(e)}'}
+        except json.JSONDecodeError as e:
+            return {'error': f'JSON parse error: {str(e)}'}
+
+    def has_feedback(self, video_id: str) -> bool:
+        """
+        Check if video has feedback stored.
+
+        Quick boolean check for whether lessons_learned is populated.
+
+        Args:
+            video_id: YouTube video ID
+
+        Returns:
+            True if video has lessons_learned data, False otherwise
+
+        Example:
+            if db.has_feedback('XbGl1Kcspt4'):
+                print("Feedback available")
+        """
+        try:
+            cursor = self._conn.cursor()
+            cursor.execute(
+                """
+                SELECT lessons_learned
+                FROM video_performance
+                WHERE video_id = ? AND lessons_learned IS NOT NULL
+                """,
+                (video_id,)
+            )
+
+            return cursor.fetchone() is not None
+
+        except sqlite3.Error:
+            return False
 
 
 def init_database(db_path: Optional[str] = None) -> Dict[str, Any]:
