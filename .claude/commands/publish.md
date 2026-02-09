@@ -58,6 +58,29 @@ Generate YouTube metadata, test titles, or identify clip-worthy moments. Everyth
 
 ---
 
+## Feedback Insights (Automatic)
+
+Before generating metadata, surface past CTR and title insights.
+
+**Run automatically:**
+```bash
+cd tools/youtube-analytics && python -c "
+from feedback_queries import get_insights_preamble
+topic = '{topic_type}'
+preamble = get_insights_preamble(topic, 'publish')
+if preamble:
+    print(preamble)
+else:
+    print('No past performance insights available. Run: python feedback.py backfill')
+"
+```
+
+**Display the insights preamble** before generating metadata. If no insights, skip silently.
+
+**Insight types for /publish:** CTR and title insights (which title formulas worked, thumbnail styles, metadata patterns).
+
+---
+
 ## METADATA GENERATION (`--metadata` or default)
 
 ### Step 1: Read Context FIRST

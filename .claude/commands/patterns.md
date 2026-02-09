@@ -29,6 +29,7 @@ Analyze patterns across all published videos to identify what's working.
 2. **Tags** videos automatically by topic (territorial, ideological, colonial, etc.)
 3. **Aggregates** performance metrics by topic, title structure, thumbnail type
 4. **Generates** insights-first reports with actionable recommendations
+5. **Surfaces** feedback loop insights from POST-PUBLISH-ANALYSIS parsed data
 
 ## Reports Generated
 
@@ -49,6 +50,13 @@ Analyze patterns across all published videos to identify what's working.
 - Best performer highlight
 - Topic breakdown for the month
 - All videos listed
+
+### FEEDBACK-PATTERNS.md (NEW - Phase 31)
+- Success patterns from high-performing videos (above-average conversion by topic)
+- Failure patterns from low-performing videos (below-average)
+- Content attribute analysis (topic type, angles, retention)
+- Production attribute analysis (thumbnails, titles, pacing)
+- Recommendations based on pattern extraction
 
 ## Examples
 
@@ -72,19 +80,28 @@ Reports saved to: `channel-data/patterns/`
 
 ## Execution
 
-When user runs `/patterns`, execute:
+When user runs `/patterns` (no flags), run both existing patterns and feedback patterns:
 
 ```bash
 cd tools/youtube-analytics && python patterns.py --all
 ```
 
-Display the key insights from each report in the response.
+Then also run feedback patterns:
+```bash
+cd tools/youtube-analytics && python feedback.py patterns
+```
+
+Display the key insights from all reports in the response.
 
 For specific options:
 - `/patterns --topic` -> `python patterns.py --topic-report`
 - `/patterns --title` -> `python patterns.py --title-report`
 - `/patterns --monthly` -> `python patterns.py --monthly`
 - `/patterns --last 30` -> `python patterns.py --last 30 --all`
+
+For feedback patterns specifically:
+- `/patterns --feedback` -> `cd tools/youtube-analytics && python feedback.py patterns`
+- `/patterns --feedback --markdown` -> `cd tools/youtube-analytics && python feedback.py patterns --markdown`
 
 ## Related Commands
 

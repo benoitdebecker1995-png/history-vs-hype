@@ -26,6 +26,29 @@ Generate editing guides, B-roll plans, and asset creation guides. Everything nee
 
 ---
 
+## Feedback Insights (Automatic)
+
+Before generating prep materials, surface past production insights.
+
+**Run automatically:**
+```bash
+cd tools/youtube-analytics && python -c "
+from feedback_queries import get_insights_preamble
+topic = '{topic_type}'
+preamble = get_insights_preamble(topic, 'prep')
+if preamble:
+    print(preamble)
+else:
+    print('No past performance insights available. Run: python feedback.py backfill')
+"
+```
+
+**Display the insights preamble** before generating prep outputs. If no insights, skip silently.
+
+**Insight types for /prep:** Production insights (B-roll density, edit pacing, visual evidence patterns).
+
+---
+
 ## EDIT GUIDE (`--edit-guide`)
 
 Generate comprehensive shot-by-shot editing guide from filmed A-roll.

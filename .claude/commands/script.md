@@ -49,6 +49,31 @@ Generate a script using the script-writer-v2 agent.
 - **`.claude/REFERENCE/CREATOR-PHRASE-LIBRARY.md`** - Natural language from Kraut, Knowing Better, Shaun, Alex O'Connor
 - **`.claude/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md`** - **NEW** Pre-filming polish (Iran Part 1 lessons)
 
+## Feedback Insights (Automatic)
+
+Before writing the script, surface past performance insights relevant to this topic.
+
+**Run this automatically (do not ask user):**
+```bash
+cd tools/youtube-analytics && python -c "
+from feedback_queries import get_insights_preamble
+topic = '{topic_type}'  # Determine from user's topic (territorial, ideological, colonial, legal)
+preamble = get_insights_preamble(topic, 'script')
+if preamble:
+    print(preamble)
+else:
+    print('No past performance insights available yet. Run: python feedback.py backfill')
+"
+```
+
+**Topic type detection:** When user describes their topic, classify into: territorial, ideological, colonial, legal, general. Use this classification for the query.
+
+**Display the insights preamble** at the start of your response before proceeding with script generation. This gives the user context about what worked/failed in similar past videos.
+
+**If no insights available:** Skip silently. Do not block script generation.
+
+**Insight types for /script:** Content and pacing insights (retention drops, section structure, hook effectiveness).
+
 ## Format Template Selection (NEW - 2026-01-04)
 
 **Before gathering information, identify if topic fits a signature format:**
