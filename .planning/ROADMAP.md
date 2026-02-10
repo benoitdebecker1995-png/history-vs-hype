@@ -9,6 +9,7 @@
 - **v1.4 Learning Loop** - Phases 19-21 (shipped 2026-02-02)
 - **v1.5 Production Acceleration** - Phases 22-26 (shipped 2026-02-05)
 - **v1.6 Click & Keep** - Phases 27-32 (shipped 2026-02-09)
+- **v2.0 Channel Intelligence** - Phases 33-35 (in progress)
 
 ## Phases
 
@@ -483,6 +484,49 @@ Plans:
 
 </details>
 
+## v2.0 Channel Intelligence (In Progress)
+
+**Milestone Goal:** Transform generic AI tools into channel-aware intelligence that knows creator voice, audience patterns, and research workflow — so every output matches production needs
+
+### Phase 33: Voice Pattern Library
+**Goal**: Scripts match creator's proven voice patterns from high-performing videos
+**Dependencies**: None (reference document expansion)
+**Requirements**: VOICE-01, VOICE-02, VOICE-03, VOICE-04
+**Plans**: TBD
+
+**Success Criteria:**
+1. User can see documented voice patterns extracted from top-performing transcripts (Belize 23K views, Vance 42.6% retention)
+2. STYLE-GUIDE.md Part 6 includes Kraut-style causal chains, Alex O'Connor transitions, and creator's proven phrases
+3. Script-writer-v2 agent applies voice patterns to generate scripts matching calm prosecutor tone
+4. Generated scripts pass validation for forbidden phrases, missing term definitions, and channel DNA violations before output
+5. User can validate script against voice patterns without manual cross-checking
+
+### Phase 34: NotebookLM Research Bridge
+**Goal**: Research workflow connects NotebookLM sources to verified research pipeline
+**Dependencies**: None (independent tooling)
+**Requirements**: NLMB-01, NLMB-02, NLMB-03
+**Plans**: TBD
+
+**Success Criteria:**
+1. User can generate academic source list for a topic with university press titles, authors, ISBNs, and purchase/download links
+2. User can parse NotebookLM chat output and extract citations into VERIFIED-RESEARCH.md format with page numbers
+3. User can access structured NotebookLM prompts for efficient fact extraction (targeted queries for claims, quotes, counter-evidence)
+4. Source list generation completes in under 5 minutes for typical history topic
+5. Citation extraction reduces manual copy-paste time by 5x
+
+### Phase 35: Actionable Analytics
+**Goal**: Analytics provide concrete fixes, not just data — retention drops mapped to script sections with recommendations
+**Dependencies**: Phase 33 (voice patterns for retention recommendations)
+**Requirements**: ACTN-01, ACTN-02, ACTN-03, ACTN-04
+**Plans**: TBD
+
+**Success Criteria:**
+1. User can see retention drop points mapped to specific script sections with root cause analysis
+2. User receives concrete fix recommendations referencing specific lines, sentences, or sections (not just metrics)
+3. User can access topic strategy analysis showing which video types perform best with specific next steps
+4. Past performance insights surface automatically before /script generation without manual lookup
+5. Retention recommendations reference voice patterns and channel DNA (e.g., "add Kraut-style causal chain here")
+
 ## Progress
 
 | Phase | Milestone | Plans Complete | Status | Completed |
@@ -521,3 +565,6 @@ Plans:
 | 30. CTR Analysis & Benchmarks | v1.6 | 2/2 | Complete | 2026-02-08 |
 | 31. Feedback Loop Integration | v1.6 | 3/3 | Complete | 2026-02-09 |
 | 32. Model Assignment Refresh | v1.6 | 1/1 | Complete | 2026-02-09 |
+| 33. Voice Pattern Library | v2.0 | 0/TBD | Not started | - |
+| 34. NotebookLM Research Bridge | v2.0 | 0/TBD | Not started | - |
+| 35. Actionable Analytics | v2.0 | 0/TBD | Not started | - |

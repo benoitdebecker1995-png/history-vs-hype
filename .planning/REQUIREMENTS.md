@@ -73,23 +73,28 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| VOICE-01 | TBD | Pending |
-| VOICE-02 | TBD | Pending |
-| VOICE-03 | TBD | Pending |
-| VOICE-04 | TBD | Pending |
-| NLMB-01 | TBD | Pending |
-| NLMB-02 | TBD | Pending |
-| NLMB-03 | TBD | Pending |
-| ACTN-01 | TBD | Pending |
-| ACTN-02 | TBD | Pending |
-| ACTN-03 | TBD | Pending |
-| ACTN-04 | TBD | Pending |
+| VOICE-01 | Phase 33 | Pending |
+| VOICE-02 | Phase 33 | Pending |
+| VOICE-03 | Phase 33 | Pending |
+| VOICE-04 | Phase 33 | Pending |
+| NLMB-01 | Phase 34 | Pending |
+| NLMB-02 | Phase 34 | Pending |
+| NLMB-03 | Phase 34 | Pending |
+| ACTN-01 | Phase 35 | Pending |
+| ACTN-02 | Phase 35 | Pending |
+| ACTN-03 | Phase 35 | Pending |
+| ACTN-04 | Phase 35 | Pending |
 
 **Coverage:**
 - v2.0 requirements: 11 total
-- Mapped to phases: 0
-- Unmapped: 11 (roadmap pending)
+- Mapped to phases: 11
+- Unmapped: 0
+
+**Phase breakdown:**
+- Phase 33 (Voice Pattern Library): 4 requirements
+- Phase 34 (NotebookLM Research Bridge): 3 requirements
+- Phase 35 (Actionable Analytics): 4 requirements
 
 ---
 *Requirements defined: 2026-02-09*
-*Last updated: 2026-02-09 after initial definition*
+*Last updated: 2026-02-10 after roadmap creation*

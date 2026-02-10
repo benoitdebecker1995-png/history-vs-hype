@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-09 (v2.0 Channel Intelligence milestone started)
+**Last Updated:** 2026-02-10 (v2.0 roadmap created)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-09)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v2.0 Channel Intelligence — defining requirements
+**Current focus:** Phase 33 - Voice Pattern Library
 
 ## Current Position
 
 **Milestone:** v2.0 Channel Intelligence
-**Phase:** Not started (defining requirements)
-**Plan:** —
-**Status:** Defining requirements
-**Last activity:** 2026-02-09 — Milestone v2.0 started
+**Phase:** 33 of 35 (Voice Pattern Library)
+**Plan:** Planning phase
+**Status:** Ready to plan
+**Last activity:** 2026-02-10 — v2.0 roadmap created with 3 phases (33-35)
 
 **Progress:**
 v1.0 [####################] 100% — Workspace Optimization (archived)
@@ -26,6 +26,7 @@ v1.3 [####################] 100% — Niche Discovery (archived)
 v1.4 [####################] 100% — Learning Loop (archived)
 v1.5 [####################] 100% — Production Acceleration (archived)
 v1.6 [####################] 100% — Click & Keep (archived)
+v2.0 [                    ] 0% — Channel Intelligence (0/3 phases)
 
 ## Milestone History
 
@@ -86,16 +87,33 @@ v1.6 [####################] 100% — Click & Keep (archived)
 
 ### Last Session
 
-- **Date:** 2026-02-09
-- **Work:** Started v2.0 Channel Intelligence milestone
-- **Output:** PROJECT.md updated, requirements definition in progress
+- **Date:** 2026-02-10
+- **Work:** Created v2.0 roadmap with 3 phases
+- **Output:** ROADMAP.md updated, STATE.md refreshed
 
 ### Next Session
 
-**Current work:** v2.0 Channel Intelligence — defining requirements
-**Next action:** Complete requirements → create roadmap → `/gsd:plan-phase 33`
+**Current work:** v2.0 Channel Intelligence — Phase 33 Voice Pattern Library
+**Next action:** `/gsd:plan-phase 33` to begin voice pattern implementation
 
 ## Accumulated Context
+
+### v2.0 Roadmap Overview
+
+**Phase 33: Voice Pattern Library** (VOICE-01 to VOICE-04)
+- Goal: Scripts match creator's proven voice patterns
+- Approach: Reference document expansion (STYLE-GUIDE.md Part 6)
+- Zero new code required
+
+**Phase 34: NotebookLM Research Bridge** (NLMB-01 to NLMB-03)
+- Goal: Research workflow connects NotebookLM to verified research
+- Approach: Format converters and source recommenders
+- No API automation (manual workflow preserved)
+
+**Phase 35: Actionable Analytics** (ACTN-01 to ACTN-04)
+- Goal: Retention mapping with concrete fixes
+- Approach: Map drops to script sections, generate recommendations
+- Depends on Phase 33 (voice patterns for recommendations)
 
 ### Technical Notes
 
@@ -114,10 +132,12 @@ v1.6 [####################] 100% — Click & Keep (archived)
 - spaCy 3.8 dependency (Pydantic v1) incompatible with Python 3.14.2
 - Stumble and flow checkers work on Python 3.11-3.13
 - Scaffolding and repetition checkers work on all Python versions
+- **v2.0 blocker:** Python 3.14 → 3.13 downgrade required before Phase 34/35 development
 
 **Voice Fingerprinting Setup:**
 - User must install srt library (`pip install srt`)
 - User must run `--rebuild-voice` to populate patterns from corpus
+- **v2.0 note:** Voice pattern extraction requires ≥5 transcripts for reliability
 
 **External Package Dependencies:**
 - trendspyg, scrapetube not installed — demand analysis degrades gracefully
@@ -125,4 +145,4 @@ v1.6 [####################] 100% — Click & Keep (archived)
 
 ---
 
-*State updated: 2026-02-09 after v2.0 milestone started*
+*State updated: 2026-02-10 after v2.0 roadmap creation*
