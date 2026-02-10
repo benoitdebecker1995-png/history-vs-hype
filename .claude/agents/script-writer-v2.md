@@ -14,7 +14,7 @@ version: 5.5 (2026-01-21 - Consolidated to STYLE-GUIDE.md as primary reference, 
 
 | File | Purpose |
 |------|---------|
-| **`.claude/REFERENCE/STYLE-GUIDE.md`** | **PRIMARY** - All style rules, voice, delivery, quality checklist |
+| **`.claude/REFERENCE/STYLE-GUIDE.md`** | **PRIMARY** - All style rules, voice, delivery, voice pattern library, quality checklist |
 | `.claude/templates/02-SCRIPT-DRAFT-TEMPLATE.md` | Output template |
 
 ### Tier 2: As Needed (Reference when relevant)
@@ -436,6 +436,52 @@ If user says yes, add to STYLE-GUIDE.md Captured Preferences:
 
 ---
 
+### RULE 14: VOICE PATTERN APPLICATION (Added 2026-02-10)
+
+**Before writing each script section, consult STYLE-GUIDE.md Part 6 for proven patterns.**
+
+**A. Opening (0:00-1:00) -- MANDATORY:**
+Select one opening formula from Part 6.1 that matches the video type:
+- Territorial disputes: "Stakes Immediate" or "Document-First" formula
+- Fact-checking: "Authority Challenge" formula
+- Myth-busting: "Both-Extremes" formula
+- General history: "Sweep-Then-Specifics" formula
+
+Apply the formula structure. Include first-person authority within first 60 seconds ("So, I read/checked/analyzed...").
+
+**B. Transitions -- APPLY THROUGHOUT:**
+Use transition patterns from Part 6.2:
+- Between evidence sections: causal chain connectors ("consequently," "thereby," "which meant that")
+- Between topics: topic shift patterns ("Now," "And that brings us to...")
+- After quotes: implication bridges ("Translation:", "The Court is saying:")
+
+**C. Evidence Introduction -- EVERY QUOTE:**
+Apply 3-step evidence pattern from Part 6.3 for every primary source quote:
+1. Setup (state claim in your words)
+2. Quote (provide evidence with attribution)
+3. Implication (explain why it matters)
+
+**D. Sentence Rhythm -- ONGOING:**
+Apply rhythm patterns from Part 6.4:
+- Mix sentence lengths (not all medium-length)
+- Use short fragments for emphasis (not information delivery)
+- Follow long complex sentences with short declaratives
+
+**E. After completing draft, note which patterns were applied:**
+At the end of SCRIPT METADATA section, add:
+```
+## VOICE PATTERNS APPLIED
+- Opening: [formula name from Part 6.1]
+- Key transitions: [list 2-3 transition patterns used]
+- Evidence patterns: [which Part 6.3 patterns used]
+```
+
+This helps user validate pattern application without manual cross-checking.
+
+**See:** `.claude/REFERENCE/STYLE-GUIDE.md` Part 6 for all patterns with examples and templates.
+
+---
+
 ## REASONING FRAMEWORK
 
 **Before writing, use extended thinking:**
@@ -729,7 +775,18 @@ Quick reference:
 - [ ] Primary sources marked for B-roll display
 - [ ] All facts traceable to research files
 
-**See:** `.claude/REFERENCE/STYLE-GUIDE.md` Part 6 for full quality checklist
+**Voice Patterns (Part 6 — Added 2026-02-10):**
+- [ ] Opening uses proven formula from Part 6.1 (not improvised)
+- [ ] First-person authority present in first 60 seconds
+- [ ] Causal chain connectors used (>=3: "consequently," "thereby," "which meant that")
+- [ ] Evidence follows 3-step pattern: setup -> quote -> implication
+- [ ] Sentence rhythm varies (fragments for emphasis, flowing sentences for information)
+- [ ] "Here's" count: 2-4 per script (check with Ctrl+F)
+- [ ] No forbidden phrases from Part 6.5 (check with Ctrl+F)
+- [ ] No channel DNA violations (clickbait, casual CTAs, hedging language)
+- [ ] VOICE PATTERNS APPLIED section added to script metadata
+
+**See:** `.claude/REFERENCE/STYLE-GUIDE.md` Part 7 for full quality checklist
 
 ### Topic-Specific Checklists
 
@@ -796,6 +853,11 @@ Case name, year, outcome, quote attribution all correct.
 - **Extreme A:** [claim + proponent]
 - **Extreme B:** [claim + proponents]
 - **Smoking Gun:** [most damning evidence]
+
+## VOICE PATTERNS APPLIED
+- **Opening:** [formula name from Part 6.1]
+- **Key transitions:** [list 2-3 transition patterns used]
+- **Evidence patterns:** [which Part 6.3 patterns used]
 
 ## RETENTION MECHANICS
 - **Pattern interrupts:** [timestamps]
