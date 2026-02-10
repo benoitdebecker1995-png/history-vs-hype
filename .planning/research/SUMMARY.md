@@ -1,343 +1,337 @@
 # Project Research Summary
 
-**Project:** History vs Hype YouTube Workspace v1.6 Click & Keep
-**Domain:** YouTube Content Production Workflow - Analytics Integration & Script Quality
-**Researched:** 2026-02-06
+**Project:** v2.0 Channel Intelligence for History vs Hype YouTube Channel
+**Domain:** AI-assisted YouTube content production with channel-aware capabilities
+**Researched:** 2026-02-09
 **Confidence:** HIGH
 
 ## Executive Summary
 
-The v1.6 Click & Keep milestone extends an existing YouTube production system (197 subs, 82K views, 30-35% retention) with three integrated features: thumbnail/title A/B tracking, script pacing analysis, and post-publish feedback loops. Research reveals this is fundamentally an **integration project**, not a greenfield build. The workspace already has analytics fetching (ctr.py, retention.py), database infrastructure (keywords.db with auto-migration), NLP tools (spaCy, textstat), and model tier assignments (Phase 13.1 tier aliases auto-map to Claude 4.x lineup). New features require only two library additions (ImageHash 4.3.2 for thumbnail pattern analysis, textstat upgrade to 0.7.12 for readability metrics) and primarily involve wiring existing components together.
+v2.0 transforms generic AI tools into channel-aware intelligence by adding three capabilities to an existing 17,300 LOC Python system: (1) script generation that matches creator voice patterns, (2) research workflow integration with NotebookLM, and (3) actionable analytics that provide concrete fixes, not just data. The key insight from research: most failures come from building MORE features when the problem is making EXISTING features produce output that matches creator needs.
 
-The recommended approach leverages the workspace's established patterns: error dict returns, auto-migrating SQLite schema, lazy imports for optional dependencies, and markdown report outputs. Build order prioritizes database schema extensions first (enables parallel development), then tracking/analysis modules, then feedback integration closing the learning loop. The critical architectural insight: don't build new capabilities, extend existing ones. Thumbnail tracking extends video_performance table and /analyze command. Pacing analysis extends flow.py checker. Feedback integration parses existing POST-PUBLISH-ANALYSIS.md files into queryable database for /script command. Phase 32 updates documentation to reflect current Claude 4.x lineup (Haiku 4.5, Sonnet 4.5, Opus 4.6).
+The recommended approach is reference-document expansion over code proliferation. Voice pattern enforcement requires NO new code — only expanding STYLE-GUIDE.md Part 6 with voice patterns from high-performing transcripts (Belize: 23K views, Vance: 42.6% retention). The script-writer-v2 agent already reads this reference; enhancement happens through better documentation, not tool rewrites. NotebookLM integration must embrace manual workflow reality (no API exists) — build format converters and source recommenders, not brittle automation. Analytics need diagnostic messages with root causes ("retention dropped due to 45-second static map during legal explanation — add pattern interrupt") instead of raw metrics ("retention dropped 15% at 3:42").
 
-Key risks center on small sample size statistics (197 subs = low impression volume), sequential testing treated as simultaneous A/B (impression sources change over video lifecycle), and pacing metrics disconnected from retention reality. Mitigation: enforce 1,000+ impression minimums before declaring winners, track impression source distribution, validate pacing warnings against actual retention drops post-publish. The channel's low volume (1-2 videos/month) makes this a **learning-per-video** optimization challenge, not a high-throughput automation problem. Design for data collection quality over speed.
+The primary risk is Empty Patterns Syndrome: extracting voice patterns from <5 videos produces statistical noise, not signal. With only ~15 published videos, pattern confidence will be LOW-MEDIUM across all features. Mitigation: explicit confidence warnings, graceful degradation (hybrid manual+corpus patterns), and minimum corpus validation before extraction. The second risk is building features that don't get used (project context shows "tools exist but output doesn't match what creator needs"). Prevention: ship MINIMUM features solving ONE pain point completely, validate usage before building next phase, enforce complexity budget (max 20 commands, 10 agents, 25K LOC).
 
 ## Key Findings
 
 ### Recommended Stack
 
-The existing stack handles 95% of requirements. Only two additions needed: ImageHash 4.3.2 for thumbnail pattern analysis and textstat 0.7.12 upgrade for enhanced readability metrics. The workspace already has Python 3.11-3.13, SQLite with video_performance table (Phase 19), YouTube Analytics API integration (ctr.py, retention.py), spaCy 3.8+ for NLP, and production pipeline (parser.py with --package flag). Phase 13.1 tier aliases (haiku/sonnet/opus) auto-map to current Claude 4.x lineup (Haiku 4.5, Sonnet 4.5, Opus 4.6).
+Core requirement: enhance existing Python 3.x stack (~17,300 LOC) with channel intelligence libraries. CRITICAL BLOCKER IDENTIFIED: Python 3.14.2 is incompatible with spaCy (no wheels available as of 2026-02-09). Downgrade to Python 3.13.x is MANDATORY before v2.0 development starts.
 
-**Core technologies:**
-- **ImageHash 4.3.2**: Perceptual hash generation for thumbnail pattern clustering — enables pattern extraction (map vs face, text vs image) without computer vision APIs or manual tagging. Pure Python, uses existing Pillow dependency.
-- **textstat 0.7.12 (upgrade from 0.7.3)**: Readability and sentence complexity metrics — adds quantitative pacing detection (Flesch-Kincaid, sentence variance) beyond spaCy's qualitative flow checking.
-- **SQLite (existing)**: Database extensions via auto-migration pattern — thumbnail_variants table, feedback columns in video_performance. Zero breaking changes.
-- **spaCy 3.8+ (existing)**: Sentence parsing, entity recognition, NER — foundation for pacing analysis (entity density, sentence variance).
-- **YouTube Analytics API v2 (existing)**: CTR, retention, impression sources — note CTR requires manual entry (not available via API).
-- **Claude 4.x lineup (existing)**: Tier aliases (haiku/sonnet/opus) auto-map to Haiku 4.5, Sonnet 4.5, Opus 4.6.
+**Core technologies (NEW for v2.0):**
+- **anthropic SDK** (>=1.87.1): Claude Opus 4.6 API integration for channel-aware script generation — official Python SDK with async/sync interfaces, streaming support
+- **sentence-transformers** (>=3.1.0): Semantic similarity and text embeddings for voice pattern matching, finding similar past videos — industry standard with 15K+ models, runs locally (no API costs)
+- **chromadb** (>=0.5.29): Local vector database for research embeddings, script patterns, performance data — lightweight DuckDB backend, <10ms query latency for 1K vectors
+- **markitdown** (>=0.0.1a2): Document-to-markdown conversion for NotebookLM source extraction — Microsoft's LLM-focused converter, handles PDF/DOCX/PPTX
 
-**What NOT to add:**
-- Computer vision APIs (Google Vision, AWS Rekognition) — ImageHash perceptual hashing sufficient
-- NLTK — redundant with spaCy, adds 1.5GB
-- Hugging Face Transformers — overkill for readability metrics, 500MB+ models
-- pandas — SQLite handles analytics aggregation
-- Separate A/B testing frameworks — YouTube doesn't offer true simultaneous A/B, sequential testing uses simple timestamp tracking
+**Supporting libraries:**
+- **jinja2** (>=3.1.5): Prompt template management for dynamic Claude API prompts
+- **tiktoken** (>=0.8.0): Token counting to prevent 200K context window overflow
+- **faststylometry** (>=0.1.0): Text style fingerprinting for voice pattern comparison (blocked by spaCy 3.14 incompatibility)
+- **pydantic** (>=2.10.4): Data validation for API responses
+
+**CRITICAL PATH:** Python version downgrade (3.14 → 3.13) must complete BEFORE installing v2.0 dependencies. Total new code estimate: ~950 lines (5% of existing codebase). Total disk space: ~600MB (sentence-transformers model: 420MB, other libraries: 180MB).
 
 ### Expected Features
 
-Research confirms three feature domains with clear table stakes vs differentiator boundaries. The channel's context (solo creator, 1-2 videos/month, 197 subs) drives requirements toward **data tracking + pattern recognition**, not enterprise automation.
+Research reveals feature landscape divided into three tiers: table stakes (users expect), differentiators (competitive advantage), and anti-features (commonly requested but problematic).
 
 **Must have (table stakes):**
-- **Manual CTR Entry UI** — CTR not available via API, 10-second prompt per video
-- **Thumbnail Variant Storage** — file paths + manual pattern tags (map/face/text/document)
-- **Title Variant Tracking** — log variants with timestamps for test window comparison
-- **Sentence Length Variance** — detect rushed delivery in dense script segments (>15 std dev)
-- **Readability Delta Detection** — flag complexity spikes between sections (>10 point Flesch drops)
-- **POST-PUBLISH-ANALYSIS Parser** — extract CTR, retention drops, SEO issues from markdown to database
+- Script generation from verified research (EXISTS but needs voice pattern integration)
+- Analytics data access (EXISTS via /analyze)
+- Source citation tracking (EXISTS in VERIFIED-RESEARCH.md)
+- Retention drop detection (EXISTS via retention.py)
+- Quality checkers (EXISTS: stumble, flow, scaffolding)
 
-**Should have (competitive):**
-- **Statistical Significance Calculator** — know when CTR difference is real vs noise (prevents false positives)
-- **Channel-Specific CTR Benchmarks** — compare to territorial dispute average, not generic YouTube
-- **Entity Density Heatmap** — detect "wall of nouns" syndrome (>25% proper nouns per paragraph)
-- **Complexity Score Per Section** — combine variance + readability + entity density → 0-100 score
-- **Pre-Creation Insight Lookup** — query similar topics before script generation, surface past retention warnings
+**Should have (differentiators):**
+- **Voice pattern library** — Scripts match creator's proven voice (Belize 23K views, Vance 42.6% retention), not generic AI. Patterns documented in STYLE-GUIDE.md, enforced by script-writer-v2 agent. HIGH value, MEDIUM complexity.
+- **Academic source preparation for NotebookLM** — Bridge from "need sources for topic" to "here are 10 university press books ready for upload." Addresses research bottleneck (2-4 hours identifying sources). MEDIUM complexity.
+- **NotebookLM extraction prompts** — Structured chat templates that extract verified facts with page numbers into VERIFIED-RESEARCH.md format. 5x faster than manual copy-paste. LOW complexity.
+- **Retention-script correlation** — Map retention drops to script sections with actionable fixes ("3 videos dropped at 3min during legal explanations — add pattern interrupt"). Closes learning loop. MEDIUM complexity.
+- **Feedback-aware script generation** — /script queries past performance before writing, applies lessons automatically. Prevents repeating mistakes. LOW complexity (v1.6 builds database foundation).
 
-**Defer (v2.0 — insufficient training data):**
-- **Retention Heatmap Prediction** — requires 30+ videos with retention data (currently ~15)
-- **Thumbnail Visual Pattern Analysis (ImageHash clustering)** — requires 20+ tracked thumbnails
-- **Topic Success Probability Estimator** — requires 20+ videos for meaningful predictions
-- **Hook Strength Scorer** — needs retention correlation data
+**Defer (v2+):**
+- Thumbnail pattern analysis (wait for v1.6 Click & Keep foundation)
+- Evidence display timing validator (requires video timeline integration)
+- Topic success predictor (requires 30+ videos for reliability)
+- Competitor analysis (nice to have, not essential)
 
 **Anti-features (deliberately avoid):**
-- Real-time CTR dashboard — creates anxiety without actionable insights for low-volume channel
-- AI auto-generated thumbnails — defeats evidence-based strategy (maps/documents)
-- Automated title optimization — risks clickbait that violates documentary tone
-- Browser automation for YouTube Studio — high maintenance, account risk, not a bottleneck
+- Auto-generate thumbnails from B-roll (defeats evidence-based strategy)
+- AI voice cloning (talking head channel needs on-camera authority)
+- Real-time CTR dashboard (creates anxiety without actionable insights for 1-2 videos/month)
+- Automated title optimization (risks clickbait violations of documentary tone)
+- Script auto-revision (removes creator voice)
 
 ### Architecture Approach
 
-v1.6 extends existing architecture through data layer additions and component integration, not refactoring. The workspace follows established patterns: error dict returns (graceful degradation), CLI + Python API dual interface (supports /commands and direct imports), auto-migration schema (zero manual SQL), lazy loading for optional dependencies (tools work without full stack), and markdown report outputs (human-readable, version-controllable, Claude-parseable).
+Integration strategy follows existing patterns: markdown-first data flow, tool-assisted manual workflow, extend-don't-replace, reference hierarchy over code logic. NO database schema changes required (v27 sufficient). Focus on reference document expansion, not tool proliferation.
 
 **Major components:**
 
-1. **Database Extensions** — Add thumbnail_variants table and feedback columns to video_performance via auto-migration pattern (_ensure_thumbnail_table, _ensure_feedback_columns). Enables parallel development of trackers and feedback modules.
+1. **Voice Pattern Enhancement (Channel-Aware Scripts)** — Expand STYLE-GUIDE.md Part 6 with voice patterns from high-performing transcripts. Update script-writer-v2 agent to emphasize Part 6. NO new code needed — pure reference document expansion.
 
-2. **Thumbnail Tracking** — New thumbnail_tracker.py computes ImageHash perceptual hashes (average, perceptual, difference), stores with CTR metrics. New thumbnail_patterns.py clusters similar thumbnails via Hamming distance, correlates with CTR. Integrates with existing /analyze command.
+2. **Research Bridge (NotebookLM Integration)** — New tools/research/ modules: notebooklm_bridge.py (~300 LOC) generates academic source lists, citation_extractor.py (~200 LOC) parses NotebookLM output to VERIFIED-RESEARCH.md format. Extends /sources command with --notebooklm-prep and --extract-citations flags.
 
-3. **Pacing Analysis** — New checkers/pacing.py extends script-checkers with quantitative metrics (sentence variance per 100-word window, Flesch delta between sections, entity density per paragraph). Integrates with existing cli.py and flow.py checker orchestration.
+3. **Actionable Analytics (Retention Mapping)** — New tools/youtube-analytics/ modules: retention_mapper.py (~250 LOC) maps drop points to script sections, insights_generator.py (~200 LOC) generates concrete recommendations. Extends analyze.py orchestrator and adds --actionable flag to /analyze command.
 
-4. **Feedback Loop** — New feedback_loader.py parses POST-PUBLISH-ANALYSIS markdown files, extracts CTR/retention/discovery data, stores in video_performance table. /script command queries feedback before generation to surface relevant lessons automatically.
+**Integration points:**
+- Voice patterns: STYLE-GUIDE.md → script-writer-v2 agent (existing read pattern)
+- Research bridge: /sources command → format converters (manual upload/download preserved)
+- Analytics: analyze.py → retention mapper → insights generator → POST-PUBLISH-ANALYSIS.md
 
-5. **Model Assignment Refresh** — Update YAML frontmatter in 13 .claude/commands/*.md files from Phase 13.1 names (haiku/sonnet/opus) to current IDs (claude-haiku-4-5, claude-sonnet-4-5, claude-opus-4-6).
+**Build order:**
+- Phase A: Voice patterns (3-5 hours, LOW risk, reference docs only)
+- Phase B: NotebookLM bridge (6-8 hours, MEDIUM risk, manual workflow dependency)
+- Phase C: Actionable analytics (8-10 hours, MEDIUM risk, depends on script parsing accuracy)
 
-**Data flow integration:**
-```
-Creation → Script (queries past feedback) → Pacing check → Filming
-         → Thumbnails A/B/C → Track variants → Hash computation
-
-Publishing → /analyze → POST-PUBLISH-ANALYSIS.md → feedback_loader.py
-          → Database storage → Pattern extraction → /patterns report
-
-Next video → /script queries feedback → Lessons applied automatically
-```
+Total new code: ~950 lines (5% of existing 17,300 LOC codebase).
 
 ### Critical Pitfalls
 
-Five critical pitfalls emerged from research, all solvable with design decisions in implementation:
+Research identified seven pitfalls, three CRITICAL (block progress), four MODERATE (reduce value).
 
-1. **Small Sample Size Fallacy (A/B Testing)** — Testing with too few impressions leads to false positives. Even at 95% confidence, 26.4% chance of being wrong with small samples. Channel has 197 subs = naturally low impression volume. **Prevention:** Require 1,000+ impressions per variant before declaring winner. Run tests 7-14 days minimum. Require 2+ percentage point CTR difference (effect size), not just statistical significance. Validate patterns across 3+ tests before updating guidelines.
+**CRITICAL:**
 
-2. **Sequential Testing Treated as Simultaneous A/B** — Creator publishes with thumbnail A (Day 1-2), swaps to B (Day 3-4), compares CTR directly. But impression sources change over video lifecycle (subscribers → browse → suggested), creating apples-to-oranges comparison. **Prevention:** Track impression source distribution (Browse, Search, Subscriptions, Playlist via YouTube API). Normalize CTR by source or use extended test windows (7+ days per variant for full lifecycle).
+1. **Empty Patterns Syndrome (Voice Fingerprinting)** — Extracting voice patterns from <5 videos produces statistical noise, not signal. Pattern confidence thresholds misaligned (HIGH = freq ≥5, but with 3 videos no patterns reach HIGH). Creator sees 0-3 changes per script despite 1,500 words, perceives feature as broken, abandons it. **Prevention:** Validate corpus size ≥5 videos before extraction OR show LOW confidence warning. Graceful degradation with fallback to manual rules. One-command rebuild (/voice --rebuild) to reduce friction. Hybrid approach: manual overrides + corpus patterns.
 
-3. **Pacing Analysis Detects Symptoms, Not Causes** — Checker flags "sentence variance 18.3 at lines 45-52" without explaining WHY or HOW to fix. Creator gets list of warnings without guidance. **Prevention:** Contextual warnings explaining root cause ("3 short sentences followed by 1 long sentence → rushed setup + dense explanation. Consider: break dense segment with transition"). Severity scoring (variance 16 vs 25). Actionable fix suggestions.
+2. **Generic Output Despite Channel Context (Brand Fragmentation)** — Script-writer-v2 agent has access to 50+ reference files but doesn't consistently apply rules. Output contains forbidden phrases despite style guide. Creator spends 2-3 hours editing "channel-aware" output. Training data (generic YouTube) overpowers channel-specific context. **Prevention:** Validation layer with three tiers (HARD BLOCKS = must pass before output shown, STYLE RULES = validate against STYLE-GUIDE.md, CHANNEL DNA = verify documentary tone). Two-pass generation: draft → validation → regenerate if violations → final check. Modular context injection (only relevant context per task, not dumping all 50 files). Pre-flight checklist automation (forbidden phrases, term definitions, contractions, both-extremes framework).
 
-4. **Dead-End Insights (Feedback Loop Integration)** — /analyze generates POST-PUBLISH-ANALYSIS.md with valuable lessons ("drop at 3:15 due to pacing"), file saved, never referenced again. Next video repeats same mistake. **Prevention:** Parse markdown → database (feedback_loader.py). Query during /script generation automatically. Surface: "Similar videos had pacing drop at 3min — review structure." Close the learning loop.
+3. **NotebookLM "Bridge" Adds Friction Instead of Reducing It** — NotebookLM has no API. "Bridge" features add manual export steps instead of eliminating them. Manual steps: 8 before bridge, 9 after bridge. Creator tries feature once, abandons it. Real bottleneck is source identification (2-4 hours), not citation formatting (15 min). **Prevention:** Define "bridge" realistically as formatting helper, not automation. Document manual steps explicitly with [MANUAL] tags. Focus on source recommendation (academic book lists with ISBNs, download links) over citation formatting. Wait for official NotebookLM API (Google announced enterprise version 2026) instead of brittle browser automation.
 
-5. **Pacing Metrics Disconnected from Retention Reality** — Script checker flags complexity spike at 3:15, but actual retention drop happens at 5:20 (caused by boring B-roll, not script). Tool credibility damaged. **Prevention:** Post-publish validation loop comparing pacing warnings to actual retention drops. Calibrate thresholds based on hit rate (if Flesch delta >20 predicts drop 70% of time, keep threshold; if 30%, raise to 30). Conservative warnings (flag HIGH confidence issues only).
+**MODERATE:**
+
+4. **Actionable Analytics That Produce Data, Not Decisions** — Analytics show "retention dropped 15% at 3:42, pacing score 18.3" but no guidance on WHAT to fix or HOW. Creator stares at dashboard, doesn't change behavior. Same mistakes repeated across videos. **Prevention:** Diagnostic messages with root cause analysis ("retention dropped due to 45-second static map during legal explanation — break into 20-second segments with zoom/highlight"). Decision-focused output format (structured around "Should we use this style again?" not raw metrics). Integration with production commands (surface insights WHERE decisions are made, not end of report). Pattern extraction with confidence scoring (N≥3 for patterns, report sample size and confidence intervals).
+
+5. **Over-Engineering for 1-2 Videos/Month Workflow** — Feature roadmap includes automated A/B testing scheduler, variant recommendation engine, thumbnail clustering, multi-platform publishing. Solo creator publishes 1-2 videos/month. 80% of features never used. Pattern from project context: "Risk is building MORE tools that don't get used." **Prevention:** Ship minimum viable solution (manual CTR entry sufficient, not automated scheduler). One pain point solved completely > many pain points partially addressed. Feature gating by usage metrics (don't build Phase N+1 until Phase N features used ≥3 times). Complexity budget: max 20 commands (current: 14), 10 agents (current: 6), 25K LOC (current: 17,300).
+
+6. **Small Dataset False Patterns** — With 15 videos, pattern analysis identifies "videos with <30 sec hooks have 8% higher retention." Creator applies pattern, retention doesn't improve. Pattern was statistical noise (confounding variables ignored, regression to mean not accounted for). **Prevention:** Minimum sample size requirements (N≥5 for patterns, N≥10 for topic-specific patterns). Report ranges not single numbers (retention: 35.2% average, range: 28.1%-42.6%, ±6.2% SD). Multi-factor analysis accounting for confounding variables (hook length + thumbnail type + topic type combined). Flag outliers explicitly (Essequibo 1,905 views is outlier with unique news hook, don't expect replication).
+
+7. **Manual Workflow Automation That Isn't** — Feature promised: "Automated feedback loop." Reality: Creator still runs separate commands (analyze.py VIDEO_ID, then slash_commands.py script TOPIC), manually reads POST-PUBLISH-ANALYSIS.md, manually applies lessons. Automation didn't eliminate steps, just moved them. **Prevention:** Workflow consolidation (one command queries past performance automatically, not two separate commands). Proactive surfacing not passive embedding (show insights BEFORE script generation with "acknowledge to continue" prompt). Integration at decision points (surface during generation, not after). Enforce workflow dependencies (can't skip insight review).
 
 ## Implications for Roadmap
 
-Based on research, suggested 5-phase structure optimizes for learning-per-video (not throughput) and closes feedback loop early:
+Based on research, v2.0 should follow three-phase structure prioritizing reference enhancement over code proliferation. Total implementation: 3-4 weeks (17-23 hours estimated).
 
-### Phase 1: Database Foundation (Week 1)
-**Rationale:** Database schema extensions enable parallel development of all tracking/analysis modules. Following established auto-migration pattern from v1.3-v1.5 means zero breaking changes to existing tools.
+### Phase 1: Voice Pattern Library (Channel-Aware Scripts)
+**Rationale:** Highest value, lowest risk. No code changes needed — pure reference document expansion. Script-writer-v2 agent already reads STYLE-GUIDE.md, just needs better voice patterns documented in Part 6. Addresses primary pain point from project context: "Scripts are generic despite channel-aware agent."
 
 **Delivers:**
-- thumbnail_variants table with perceptual hash storage
-- Feedback columns in video_performance table (retention_drop_points, discovery_issues, lessons as JSON)
-- Auto-migration methods (_ensure_thumbnail_table, _ensure_feedback_columns)
+- STYLE-GUIDE.md Part 6 expanded with voice patterns from high-performing transcripts (Belize, Vance)
+- Sentence structure templates (Kraut causal chains: "consequently," "thereby," "which meant that")
+- Phrase library (Alex O'Connor transitions, creator's proven phrases)
+- script-writer-v2 agent frontmatter updated to emphasize Part 6
 
-**Addresses:** Foundation for A/B tracking (FEATURES.md: thumbnail variant storage) and feedback loop (FEATURES.md: POST-PUBLISH-ANALYSIS parser)
+**Addresses features:**
+- Voice pattern library (differentiator)
+- Script generation from verified research (table stakes enhancement)
 
-**Avoids:** Breaking Existing Database Schema pitfall (PITFALLS.md Anti-Patterns) — uses nullable columns, no NOT NULL constraints
+**Avoids pitfalls:**
+- Empty Patterns Syndrome: Extract patterns from existing transcripts (≥5 videos), validate corpus size, show confidence warnings
+- Generic Output Despite Context: Validation layer added (forbidden phrases, style rules, channel DNA checks before output shown)
 
-**Research flag:** SKIP RESEARCH-PHASE — SQLite schema extension well-documented, auto-migration pattern proven in v1.3-v1.5
+**Research flags:** SKIP research-phase. Voice pattern extraction is well-documented (corpus linguistics, authorship attribution). Templates available in existing STYLE-GUIDE.md structure.
+
+**Estimated effort:** 3-5 hours
 
 ---
 
-### Phase 2A: Thumbnail Tracking (Week 2 - Parallel)
-**Rationale:** With database ready, thumbnail tracking can develop independently. ImageHash library mature (4.3.2 stable, 20M+ PyPI downloads). Integration point with existing /analyze command is clean extension.
+### Phase 2: NotebookLM Research Bridge
+**Rationale:** Addresses research bottleneck (2-4 hours identifying academic sources). Builds format converters and source recommenders, NOT automation (NotebookLM has no API). Tool-assisted manual workflow matches existing architecture pattern.
 
 **Delivers:**
-- thumbnail_tracker.py computing perceptual hashes (average, perceptual, difference)
-- Manual CTR entry UI (CLI prompt, 10 seconds per video)
-- Storage in thumbnail_variants table with test window snapshots (48h, 7d, 14d)
+- tools/research/notebooklm_bridge.py: Generate academic source lists (university press titles, ISBNs, download links)
+- tools/research/citation_extractor.py: Parse NotebookLM output to VERIFIED-RESEARCH.md format
+- /sources command extended with --notebooklm-prep and --extract-citations flags
+- NOTEBOOKLM-SOURCE-STANDARDS.md workflow documentation with explicit [MANUAL] step tags
 
-**Uses:** ImageHash 4.3.2 (STACK.md: perceptual hashing), Pillow 12.0+ (existing), SQLite (STACK.md: existing infrastructure)
+**Uses stack elements:**
+- markitdown (>=0.0.1a2): Document-to-markdown conversion
+- jinja2 (>=3.1.5): Source list template generation
 
-**Implements:** Data collection foundation (FEATURES.md: table stakes features)
+**Implements architecture:**
+- Tool-assisted manual workflow pattern (tools prepare/parse, human does critical work)
+- Markdown-first data flow (NOTEBOOKLM-SOURCE-LIST.md, VERIFIED-RESEARCH.md)
+- Extend-don't-replace (/sources command gets new flags, not new command)
 
-**Avoids:**
-- Small Sample Size Fallacy (PITFALLS.md #1) — enforces 1,000+ impression minimum via validation
-- Thumbnail Naming Chaos (PITFALLS.md #8) — validates THUMBNAIL-[A/B/C].png naming convention
+**Addresses features:**
+- Academic source preparation for NotebookLM (differentiator)
+- NotebookLM extraction prompts (differentiator)
+- Source citation tracking (table stakes enhancement)
 
-**Research flag:** SKIP RESEARCH-PHASE — ImageHash documentation comprehensive, pattern clustering well-established technique
+**Avoids pitfalls:**
+- NotebookLM Bridge Friction: Build format converters, not automation. Document manual steps explicitly. Focus on source recommendation (2-4 hour bottleneck) over citation formatting (15 min task). Wait for official API instead of brittle workarounds.
+
+**Research flags:** SKIP research-phase for source list generation (standard prompt engineering). LIGHT research for citation extraction format (NotebookLM output structure varies, may need adjustment during implementation).
+
+**Estimated effort:** 6-8 hours
 
 ---
 
-### Phase 2B: Pacing Analysis (Week 2 - Parallel)
-**Rationale:** Independent of database changes, extends existing script-checkers. textstat already in requirements.txt (upgrade to 0.7.12), spaCy 3.8+ operational. Integration with cli.py follows established checker pattern.
+### Phase 3: Actionable Analytics with Retention Mapping
+**Rationale:** Closes learning loop — retention patterns mapped to script sections with concrete fixes. Builds on v1.6 feedback database foundation. Prevents repeating mistakes (retention drops at 3min in multiple videos despite being flagged).
 
 **Delivers:**
-- checkers/pacing.py with sentence variance, Flesch delta, entity density metrics
-- Contextual warnings with root cause explanations (not just numbers)
-- --pacing flag in cli.py for optional execution
-- Config thresholds (variance >15, Flesch delta >20, entity density >0.4)
+- tools/youtube-analytics/retention_mapper.py: Map drop points to script sections (correlate timestamps with script structure)
+- tools/youtube-analytics/insights_generator.py: Generate concrete recommendations ("break 42-word sentence at line 47 into two segments")
+- feedback_queries.py extended with get_actionable_insights() method
+- analyze.py orchestrator integrates mapping + insights
+- /analyze command gets --actionable flag for insights-first output
+- POST-PUBLISH-ANALYSIS template updated with "WHAT to fix" and "HOW to fix it" sections
 
-**Uses:** textstat 0.7.12 (STACK.md: readability metrics), spaCy 3.8+ (STACK.md: existing NLP), established checker orchestration pattern
+**Uses stack elements:**
+- sentence-transformers (>=3.1.0): Compare script sections to high-retention examples
+- chromadb (>=0.5.29): Store retention patterns by topic type (territorial, ideological, legal)
+- faststylometry (>=0.1.0): Detect voice drift in AI-generated sections (if corpus sufficient)
+- spacy (existing): Extract linguistic features (entity density, sentence variance)
 
-**Implements:** Script pacing analysis foundation (FEATURES.md: table stakes quantitative metrics)
+**Implements architecture:**
+- Extend-don't-replace (analyze.py gets retention mapping, doesn't rewrite existing metrics)
+- Integration at decision points (insights surfaced during /script generation, not just in reports)
+- Proactive surfacing (show insights BEFORE generation with acknowledgment prompt)
 
-**Avoids:**
-- Pacing Symptoms Not Causes (PITFALLS.md #3) — contextual warnings, severity scoring, actionable suggestions
-- Pacing False Negatives (PITFALLS.md #11) — acknowledges limitations, doesn't oversell capability
+**Addresses features:**
+- Retention-script correlation (differentiator)
+- Feedback-aware script generation (differentiator)
+- Retention drop detection (table stakes enhancement)
+- Channel-specific CTR benchmarks (differentiator)
 
-**Research flag:** SKIP RESEARCH-PHASE — textstat + spaCy metrics straightforward, established threshold research available
+**Avoids pitfalls:**
+- Data Without Decisions: Diagnostic messages with root causes, decision-focused output, integration with production commands, pattern extraction with confidence scoring
+- Small Dataset False Patterns: Minimum sample size validation (N≥5 for patterns, N≥10 for topic-specific), report ranges not single numbers, multi-factor analysis, flag outliers explicitly
+- Manual Workflow Automation: Proactive surfacing (before script generation), workflow enforcement (acknowledge to continue), integration at decision points (not end of output)
 
----
+**Research flags:** MEDIUM research needed for script section parsing accuracy (depends on production/parser.py capabilities). Retention timestamp mapping may require manual calibration per video (SRT timestamps vs YouTube Analytics timestamps alignment). Pattern extraction confidence thresholds need empirical validation with actual video data.
 
-### Phase 3: Thumbnail Pattern Analysis (Week 3)
-**Rationale:** Requires Phase 2A complete (need tracked thumbnails with CTR data). Hamming distance clustering is computationally simple but requires validation strategy to avoid hash collision pitfall.
-
-**Delivers:**
-- thumbnail_patterns.py clustering visually similar thumbnails
-- CTR correlation: "Map-focused thumbnails (7 videos) avg 8.2% CTR"
-- Integration with /patterns command for cross-video insights
-- Statistical significance calculator (prevents false positives)
-
-**Uses:** ImageHash (STACK.md: perceptual hashing), SQLite GROUP BY queries (STACK.md: analytics aggregation)
-
-**Implements:** Pattern recognition layer (FEATURES.md: differentiator features — channel-specific benchmarks)
-
-**Avoids:**
-- Perceptual Hash Collision (PITFALLS.md #5) — multi-hash strategy (2/3 agree), manual validation first 10 videos
-- Over-Indexing on Outliers (PITFALLS.md #6) — requires N≥3 for pattern, reports mean + std dev + confidence intervals
-
-**Research flag:** LIGHT RESEARCH — Hamming distance threshold tuning may need experimentation (start at <8, adjust based on validation)
-
----
-
-### Phase 4: Feedback Loop Integration (Week 3-4)
-**Rationale:** Database columns ready (Phase 1), analysis files exist. Pure integration work — parse markdown, store structured data, query during production. Closes learning loop: analyze → learn → apply → create.
-
-**Delivers:**
-- feedback_loader.py parsing POST-PUBLISH-ANALYSIS markdown to database
-- Pre-creation insight lookup in /script command
-- Success pattern extraction (identify top 20% videos, extract common features)
-- Automated prompting: "Similar videos had pacing drop at 3:15 — review structure"
-
-**Uses:** Markdown parsing (Python stdlib), SQLite queries (STACK.md: video_performance table exists), existing /script command
-
-**Implements:** Feedback loop closure (FEATURES.md: differentiator — automated insight prompting)
-
-**Avoids:**
-- Dead-End Insights (PITFALLS.md #4) — parses markdown to queryable database, surfaces automatically
-- Feedback Loader Brittleness (PITFALLS.md #10) — flexible regex parsing, graceful fallbacks, validation logging
-
-**Research flag:** SKIP RESEARCH-PHASE — Markdown parsing straightforward, POST-PUBLISH-ANALYSIS.md format known
-
----
-
-### Phase 5: Model Assignment Refresh (Week 4)
-**Rationale:** Independent of other phases. Phase 13.1 used tier aliases (haiku/sonnet/opus) which auto-map to current lineup. Documentation update to reflect Claude 4.x versions explicitly (14 commands total including /next added in Phase 21).
-
-**Delivers:**
-- 6 Haiku files updated: status.md, help.md, fix.md, sources.md, prep.md, discover.md
-- 6 Sonnet files updated: verify.md, publish.md, engage.md, analyze.md, patterns.md, research.md
-- 1 Opus file updated: script.md
-- Model IDs: claude-haiku-4-5, claude-sonnet-4-5, claude-opus-4-6
-
-**Uses:** STACK.md model ID mapping (verified via Anthropic announcements)
-
-**Avoids:** Model Assignment Mismatch (PITFALLS.md #9) — explicit model IDs, not tier aliases
-
-**Research flag:** SKIP RESEARCH-PHASE — Model IDs verified, straightforward find-replace
+**Estimated effort:** 8-10 hours
 
 ---
 
 ### Phase Ordering Rationale
 
-- **Database first (Phase 1)** enables parallel development of tracking (2A) and pacing (2B), minimizing critical path
-- **Parallel Phase 2A/2B** maximizes development velocity, no dependencies between thumbnail tracking and script analysis
-- **Pattern analysis after tracking (Phase 3)** requires data collection period, can't extract patterns without CTR data
-- **Feedback loop mid-build (Phase 4)** closes learning loop ASAP, enables insight collection during later phase execution
-- **Model refresh last (Phase 5)** has no dependencies, can run anytime, placed at end for flexibility
+**Phase 1 first (Voice Patterns):**
+- Zero code risk (reference docs only)
+- Immediate value (scripts match proven voice)
+- Establishes quality baseline for later phases
+- Validates agent's ability to apply reference patterns before building more complex features
 
-**Dependency graph:**
+**Phase 2 second (NotebookLM Bridge):**
+- Addresses research bottleneck (2-4 hours identifying sources)
+- Independent of Phase 1 (can develop in parallel if needed)
+- Manual workflow matches reality (no API)
+- Format converters useful immediately (even with small corpus)
+
+**Phase 3 last (Actionable Analytics):**
+- Depends on Phase 1 completion (retention recommendations reference voice patterns)
+- Requires script section parsing (depends on production/parser.py)
+- Benefits from multiple videos published with Phase 1/2 enhancements (more data for patterns)
+- Most complex integration (analytics + script generation + feedback database)
+
+**Dependency chain:**
 ```
-Phase 1 (Database) → Phase 2A (Thumbnail Tracking) → Phase 3 (Pattern Analysis)
-                  → Phase 2B (Pacing Analysis) ───────┐
-                  → Phase 4 (Feedback Loop) ──────────┤ (no blocking dependencies)
-Phase 5 (Model Refresh) ────────────────────────────┘
+Phase 1 (Voice Patterns)
+    └──enables──> Phase 3 (retention recommendations reference voice patterns)
+
+Phase 2 (NotebookLM Bridge)
+    └──independent──> Can develop in parallel
+
+Phase 3 (Actionable Analytics)
+    └──requires──> Phase 1 complete (voice baseline established)
+    └──requires──> Multiple videos published (pattern validation)
 ```
 
-**Integration testing (Week 4)** runs cross-component scenarios:
-- New video workflow: Create script → pacing check → film → publish → track thumbnails → analyze CTR
-- Feedback loop: Analyze video → parse feedback → create new script → verify lessons applied
-- Pattern extraction: /patterns shows thumbnail + script patterns together
+**How this avoids pitfalls:**
+- Empty Patterns Syndrome mitigated in Phase 1 with corpus validation
+- Generic Output prevented in Phase 1 with validation layer
+- NotebookLM friction avoided in Phase 2 with format converters (not automation)
+- Over-engineering prevented by complexity budget enforcement (3 phases, ~950 new LOC, 6 new command flags vs. building 14 new commands)
+- Small dataset false patterns addressed in Phase 3 with minimum sample size requirements
+- Manual workflow automation achieved in Phase 3 with proactive surfacing
 
 ### Research Flags
 
 **Phases needing deeper research during planning:**
-- **Phase 3 (Thumbnail Pattern Analysis):** Hamming distance threshold tuning requires experimentation. Start conservative (<8), validate against manual tags first 10 videos, adjust based on cluster quality. May need 5-7 test cycles to stabilize threshold.
+- **Phase 3 (Actionable Analytics):** Script section parsing accuracy depends on production/parser.py capabilities. SRT timestamp alignment with YouTube Analytics timestamps may need manual calibration. Pattern extraction confidence thresholds require empirical validation with actual video data. Recommend /gsd:research-phase for retention mapping algorithm design.
 
 **Phases with standard patterns (skip research-phase):**
-- **Phase 1 (Database Foundation):** SQLite schema extension well-documented, auto-migration pattern proven in v1.3-v1.5
-- **Phase 2A (Thumbnail Tracking):** ImageHash library mature, perceptual hashing established technique
-- **Phase 2B (Pacing Analysis):** textstat + spaCy metrics straightforward, thresholds from education research
-- **Phase 4 (Feedback Loop):** Markdown parsing standard, POST-PUBLISH-ANALYSIS format known
-- **Phase 5 (Model Refresh):** YAML frontmatter find-replace, model IDs verified
-
-**Phase-specific validation requirements:**
-- **Phase 2A:** Require 1,000+ impressions before declaring A/B winner (small sample size mitigation)
-- **Phase 2B:** Validate pacing warnings against post-publish retention drops (calibrate thresholds)
-- **Phase 3:** Manual validation of perceptual hash clusters (first 10 videos confirm clustering quality)
-- **Phase 4:** Flexible markdown parsing (handle format variations gracefully)
+- **Phase 1 (Voice Patterns):** Corpus linguistics and authorship attribution are well-documented. Template structure exists in STYLE-GUIDE.md. Extract patterns, document in markdown, agent applies naturally.
+- **Phase 2 (NotebookLM Bridge):** Format conversion and prompt engineering are standard patterns. NotebookLM output structure may vary but adapts during implementation (not research-blocking).
 
 ## Confidence Assessment
 
 | Area | Confidence | Notes |
 |------|------------|-------|
-| Stack | **HIGH** | 95% of requirements met by existing stack. Two additions (ImageHash, textstat upgrade) are mature libraries with 20M+ downloads. Versions verified via PyPI 2026-02-06. |
-| Features | **HIGH** | YouTube ecosystem 2026 well-researched (Test & Compare rollout confirmed, CTR API limitations documented). Table stakes vs differentiator boundaries clear from channel context (197 subs, 1-2 videos/month). |
-| Architecture | **HIGH** | Extends existing patterns (error dict, auto-migration, lazy loading) proven in v1.1-v1.5. Integration points identified in codebase inspection. Zero breaking changes design. |
-| Pitfalls | **HIGH** | Critical pitfalls (small sample size, sequential testing, feedback loops) well-documented in A/B testing literature. Prevention strategies proven (sample size validation, impression source tracking). |
-| Model IDs | **MEDIUM** | Model IDs verified via Anthropic announcements (Opus 4.6 released Feb 2026), but exact SDK routing patterns unconfirmed. Tier aliases (haiku/sonnet/opus) may work if SDK maintains mappings. |
+| Stack | HIGH | All libraries verified available (except Python 3.14 blocker identified with resolution path). Existing similar projects validate technical feasibility. Official SDKs from Anthropic, Microsoft, ChromaDB. |
+| Features | HIGH | Table stakes identified from existing codebase analysis. Differentiators validated from channel performance data (Belize 23K, Vance 42.6%). Anti-features discovered from competitor research and project context. |
+| Architecture | HIGH | Integration patterns match existing codebase (markdown-first, tool-assisted manual, extend-don't-replace, reference hierarchy). No schema changes needed. Total new code <6% of existing. |
+| Pitfalls | HIGH | Critical pitfalls validated from multiple sources: corpus linguistics research (Empty Patterns), AI content generation studies (Generic Output), NotebookLM ecosystem analysis (Bridge Friction). Moderate pitfalls from project context and v1.x lessons learned. |
 
 **Overall confidence:** HIGH
 
+Caveat: Confidence assumes Python 3.14 → 3.13 downgrade completes successfully. If downgrade blocked (organizational constraint, dependency conflicts), spaCy incompatibility blocks faststylometry (voice matching) and existing script-checkers. Alternative: wait for spaCy 3.14 wheels (timeline unknown) or build from source on Windows (high effort, error-prone).
+
 ### Gaps to Address
 
-Research revealed three areas requiring validation during implementation:
+**Gap 1: NotebookLM output format variability**
+- **What's unknown:** NotebookLM export format may vary by source type (PDF vs DOCX vs URL). Citation extraction regex patterns may need adaptation.
+- **How to handle:** Build citation_extractor.py with flexible parsing patterns. Test with multiple NotebookLM exports during Phase 2 implementation. Document known format variations.
 
-- **Hamming distance threshold tuning (Phase 3):** Optimal threshold for perceptual hash clustering unknown until tested with channel's thumbnails. Start conservative (<8), validate against manual tags, adjust iteratively. Budget 5-7 test cycles.
+**Gap 2: Script section parsing accuracy**
+- **What's unknown:** Existing production/parser.py may not provide section-level granularity needed for retention mapping. SRT timestamps may not align precisely with YouTube Analytics retention curve timestamps.
+- **How to handle:** Validate parser.py capabilities during Phase 3 planning. If insufficient, extend with section boundary detection. Add manual timestamp calibration option if automatic alignment unreliable.
 
-- **Pacing metric calibration (Phase 2B):** Sentence variance >15, Flesch delta >20, entity density >0.4 thresholds from education research may not predict retention for this channel's format (10-30 min educational, talking head + B-roll). Validate post-publish by comparing warnings to actual retention drops. Adjust thresholds based on hit rate.
+**Gap 3: Pattern confidence thresholds with small dataset**
+- **What's unknown:** With ~15 videos, empirically determining "HIGH confidence = freq ≥X" thresholds is uncertain. Standard corpus linguistics uses 5-10 documents minimum, but channel context may differ.
+- **How to handle:** Start with conservative thresholds (HIGH = freq ≥5, MEDIUM = freq ≥3, LOW = freq ≥2). Track pattern reliability as corpus grows. Adjust thresholds based on false positive/negative rates in production.
 
-- **Model routing verification (Phase 5):** Model IDs (claude-haiku-4-5, claude-sonnet-4-5, claude-opus-4-6) verified via Anthropic API docs, but exact SDK routing pattern unconfirmed. Test small command (e.g., /help with haiku) before bulk update. If full IDs rejected, check if tier aliases (haiku/sonnet/opus) maintained by SDK.
+**Gap 4: Voice pattern extraction completeness**
+- **What's unknown:** High-performing transcripts (Belize, Vance) may not cover all creator voice patterns (e.g., patterns specific to ideological myth-busting vs territorial disputes). Extracted patterns may be topic-specific, not universal voice.
+- **How to handle:** Extract patterns from diverse video types (territorial, ideological, legal). Flag topic-specific patterns explicitly. Build general voice baseline + topic-specific overlays. Validate with creator review during Phase 1.
 
-**Handling strategy:**
-- **Threshold tuning:** Implement conservative defaults, add config override flags, log metrics to enable adjustment without code changes
-- **Post-publish validation:** Build feedback loop (Phase 4) to automatically validate pacing warnings against retention drops, surface calibration recommendations
-- **Model ID testing:** Verify with single command update before bulk changes, document routing pattern for future updates
+**Gap 5: Feedback loop closure validation**
+- **What's unknown:** Proactive surfacing in Phase 3 may not guarantee insight application. Creator may acknowledge warnings but forget during script writing. Application rate >60% target may not be achievable without stronger enforcement.
+- **How to handle:** Track insight application rate post-Phase 3. If <60%, consider stronger enforcement (e.g., "Apply recommended fix or explain why not applicable" prompt). Balance enforcement with creator autonomy (don't block workflow, just encourage compliance).
 
 ## Sources
 
 ### Primary (HIGH confidence)
 
-**Library Versions & Documentation:**
-- [google-api-python-client 2.189.0 on PyPI](https://pypi.org/project/google-api-python-client/) — Released 2026-02-03
-- [ImageHash 4.3.2 on PyPI](https://pypi.org/project/ImageHash/) — Perceptual hashing, 20M+ downloads
-- [textstat 0.7.12 on PyPI](https://pypi.org/project/textstat/) — Readability metrics
-- [spaCy 3.8.11 on PyPI](https://pypi.org/project/spacy/) — NLP toolkit
-- [GitHub - JohannesBuchner/imagehash](https://github.com/JohannesBuchner/imagehash) — Perceptual hashing documentation
+**Stack Research:**
+- [anthropics/anthropic-sdk-python](https://github.com/anthropics/anthropic-sdk-python) — Official Python SDK, version 1.87.1 features
+- [SentenceTransformers Documentation](https://sbert.net/) — Semantic similarity implementation, model selection
+- [ChromaDB Official Site](https://www.trychroma.com/) — Local vector database architecture, performance benchmarks
+- [microsoft/markitdown](https://github.com/microsoft/markitdown) — Document conversion capabilities, format support
+- [spaCy Issue #13885](https://github.com/explosion/spaCy/issues/13885) — Python 3.14 incompatibility confirmation
 
-**YouTube Ecosystem 2026:**
-- [YouTube Title A/B Testing Rolls Out Globally](https://www.searchenginejournal.com/youtube-title-a-b-testing-rolls-out-globally-to-creators/562571/) — Test & Compare native feature
-- [YouTube Analytics API Documentation](https://developers.google.com/youtube/analytics) — CTR limitations, impression sources
-- [YouTube API Python samples](https://github.com/youtube/api-samples/tree/master/python) — Implementation patterns
+**Architecture Research:**
+- Existing codebase analysis: .planning/codebase/ARCHITECTURE.md, tools/youtube-analytics/, .claude/agents/
+- [SQLite DB Migrations with PRAGMA user_version](https://levlaz.org/sqlite-db-migrations-with-pragma-user_version/) — Auto-migration pattern
+- [Python CLI Design Patterns](https://cli-guide.readthedocs.io/en/latest/design/patterns.html) — Error dict pattern, feature flags
 
-**Claude Models:**
-- [Anthropic launches Claude Opus 4.6](https://www.cnbc.com/2026/02/05/anthropic-claude-opus-4-6-vibe-working.html) — Released Feb 2026
-- [Claude Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) — Model IDs
-- [Introducing Claude Haiku 4.5](https://www.anthropic.com/news/claude-haiku-4-5) — Haiku tier
+**Pitfalls Research:**
+- [Cold Start Problem in Machine Learning](https://spotintelligence.com/2024/02/08/cold-start-problem-machine-learning/) — Small dataset challenges
+- [NotebookLM API Official Documentation](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks) — API status (enterprise only, manual workflow required)
+- Project context: User feedback on existing tool usage, v1.x lessons learned
 
 ### Secondary (MEDIUM confidence)
 
-**A/B Testing Best Practices:**
-- [Statistical Significance in A/B Testing – Complete Guide](https://blog.analytics-toolkit.com/2017/statistical-significance-ab-testing-complete-guide/) — Sample size requirements
-- [How to avoid common data accuracy pitfalls in A/B testing](https://www.kameleoon.com/blog/data-accuracy-pitfalls-ab-testing) — Sequential testing issues
-- [Four Common Mistakes When A/B Testing](https://towardsdatascience.com/four-common-mistakes-when-a-b-testing-and-how-to-solve-them-384072b57d75/) — Outlier over-indexing
+**Feature Research:**
+- [10 Best AI Tools for YouTube Creators in 2026](https://aitoolsforcontentcreators.com/best-ai-tools-youtube-2026) — Competitive landscape
+- [YouTube Retention Graphs Explained](https://www.opus.pro/blog/youtube-retention-graphs-explained) — Retention analysis patterns
+- [NotebookLM Guide: 25 Pro Tips](https://atalupadhyay.wordpress.com/2025/08/09/notebooklm-guide-25-pro-tips-for-research-excellence/) — Workflow integration strategies
 
-**Script Pacing Research:**
-- [How to Skyrocket Your YouTube Retention with the Right Video Script](https://key-g.com/blog/how-to-skyrocket-your-youtube-retention-with-the-right-video-script-a-proven-step-by-step-guide/) — Pacing retention impact
-- [YouTube Audience Retention 2026: Benchmarks, Analysis & How to Improve](https://socialrails.com/blog/youtube-audience-retention-complete-guide) — Retention analysis
-- [What Is Script Pacing and Why It Matters to You?](https://glcoverage.com/2024/10/25/script-pacing/) — Pacing definitions
+**Pitfalls Research:**
+- [Use Generative AI Without Losing Brand Authenticity](https://www.aprimo.com/blog/use-generative-ai-for-content-creation-without-losing-brand-authenticity) — Generic output prevention
+- [The Hidden Cost of Over-Engineering](https://dev.to/alisamir/the-hidden-cost-of-over-engineering-in-software-development-4dnk) — Feature bloat risks
+- [Google Analytics Actionable Insights: 2026 Complete Guide](https://almcorp.com/blog/google-analytics-actionable-insights-complete-guide-2026/) — Decision-focused analytics
 
-**Feedback Loop Integration:**
-- [The Ultimate Customer Feedback Loop Guide](https://getthematic.com/insights/customer-feedback-loop-guide) — Loop closure patterns
-- [Overcoming challenges in AI feedback loop integration](https://www.glean.com/perspectives/overcoming-challenges-in-ai-feedback-loop-integration) — Integration challenges
+### Tertiary (LOW confidence)
 
-### Tertiary (LOW confidence, requires validation)
-
-**Perceptual Hashing:**
-- [Duplicate image detection with perceptual hashing](https://benhoyt.com/writings/duplicate-image-detection/) — Hamming distance thresholds (needs validation with channel thumbnails)
-- [ImageHash library tutorial](https://pythonhow.com/what/imagehash-library-tutorial/) — Clustering strategies (thresholds require tuning)
-
-**Readability Metrics:**
-- Educational research consensus on Flesch-Kincaid thresholds (validated for written text, may need calibration for spoken video scripts)
+**Voice Pattern Research:**
+- [Best AI Voice Cloning Tools in 2026](https://fish.audio/blog/best-ai-voice-cloning-tools/) — Voice matching approaches (audio-focused, adapted for text patterns)
+- [Introduction to stylometry with Python](https://programminghistorian.org/en/lessons/introduction-to-stylometry-with-python) — Authorship attribution techniques
 
 ---
-*Research completed: 2026-02-06*
+*Research completed: 2026-02-09*
 *Ready for roadmap: yes*

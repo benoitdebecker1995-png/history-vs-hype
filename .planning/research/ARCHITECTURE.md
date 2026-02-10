@@ -1,1172 +1,662 @@
-# Architecture Integration: v1.6 Click & Keep
+# Architecture Research: v2.0 Channel Intelligence Integration
 
-**Domain:** YouTube Channel Analytics & Production Workflow Extension
-**Researched:** 2026-02-06
-**Confidence:** HIGH
+**Domain:** YouTube content production workspace — channel-aware AI features
+**Researched:** 2026-02-09
+**Confidence:** HIGH (existing codebase analysis complete)
 
----
+## Integration Context
 
-## Executive Summary
+**Problem:** v1.0-v1.6 built ~17K lines of tooling, but outputs don't match production needs. Script generation is generic, research tools and NotebookLM are disconnected, analytics show data without actionable next steps.
 
-**v1.6 Click & Keep integrates with existing architecture through data layer extensions, not major refactoring.**
+**Solution:** Three channel-aware features that integrate with existing architecture:
+1. **Channel-aware script generation** — voice/style data into script-writer-v2 agent
+2. **Research-to-NotebookLM bridge** — tools connect with manual NotebookLM workflow
+3. **Actionable analytics** — retention patterns mapped to script sections
 
-The workspace already has:
-- Analytics fetching (ctr.py, retention.py, performance.py)
-- Database infrastructure (keywords.db with auto-migration pattern)
-- Script quality checking (cli.py with checker orchestration)
-- Production pipeline (parser.py with --package flag)
-
-New features ADD capabilities to existing components:
-
-1. **Thumbnail/Title A/B Tracking** → Extends `tools/discovery/database.py` schema + new `tools/youtube-analytics/thumbnail_tracker.py`
-2. **Script Pacing Analysis** → Extends `tools/script-checkers/checkers/flow.py` + new pacing metrics module
-3. **Post-Publish Feedback Loop** → New `tools/production/feedback_loader.py` + query integration in `/script` command
-4. **Model Assignments Refresh** → Update YAML frontmatter in 13 `.claude/commands/*.md` files
-
-**Build order:** Database schema first (enables parallel development), then trackers/analyzers, then feedback integration, finally model assignments.
+**Critical constraint:** NotebookLM has NO API — all integration must support manual upload/download workflow.
 
 ---
 
-## Current Architecture (v1.5 Baseline)
+## Existing Architecture (v1.6 Baseline)
 
 ### System Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                     User Interface Layer                         │
-│  ┌────────────────────────────────────────────────────────────┐  │
-│  │  Slash Commands (.claude/commands/*.md)                    │  │
-│  │  /research /script /verify /prep /analyze /patterns        │  │
-│  └────────────────────────────────────────────────────────────┘  │
+│                      CONFIGURATION LAYER                         │
+│  .claude/ (agents, commands, reference docs, templates)         │
 ├─────────────────────────────────────────────────────────────────┤
-│                     Application Layer                            │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐             │
-│  │  Discovery  │  │Script Check │  │ Production  │             │
-│  │  (1800 LOC) │  │ (2600 LOC)  │  │  (800 LOC)  │             │
-│  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘             │
-│         │                │                │                     │
-│         │                │                │                     │
-│  ┌──────┴────────────────┴────────────────┴──────┐             │
-│  │  YouTube Analytics (7700 LOC)                 │             │
-│  │  metrics.py, ctr.py, retention.py,            │             │
-│  │  performance.py, pattern_extractor.py         │             │
-│  └───────────────────────────────────────────────┘             │
+│                        COMMAND LAYER                             │
+│  14 slash commands (research, script, prep, publish, etc.)      │
 ├─────────────────────────────────────────────────────────────────┤
-│                       Data Layer                                 │
+│                         AGENT LAYER                              │
+│  6 specialized agents (script-writer-v2, fact-checker, etc.)    │
+├─────────────────────────────────────────────────────────────────┤
+│                        TOOL LAYER                                │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
-│  │ keywords.db  │  │ Markdown     │  │  OAuth2      │          │
-│  │ (SQLite)     │  │ Reports      │  │  token.json  │          │
+│  │ youtube-     │  │ script-      │  │ discovery/   │          │
+│  │ analytics/   │  │ checkers/    │  │              │          │
+│  │ (~12.3K LOC) │  │ (~3.2K LOC)  │  │ (~1.8K LOC)  │          │
 │  └──────────────┘  └──────────────┘  └──────────────┘          │
+│  ┌──────────────┐                                                │
+│  │ production/  │                                                │
+│  │ (~2.1K LOC)  │                                                │
+│  └──────────────┘                                                │
 ├─────────────────────────────────────────────────────────────────┤
-│                    External Services                             │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
-│  │ YouTube      │  │ YouTube      │  │  spaCy       │          │
-│  │ Analytics v2 │  │ Data API v3  │  │  NLP Models  │          │
-│  └──────────────┘  └──────────────┘  └──────────────┘          │
+│                        DATA LAYER                                │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │ keywords.db (SQLite) — PRAGMA user_version = 27          │   │
+│  │ - keywords, opportunities, video_performance             │   │
+│  │ - thumbnail_variants, title_variants, ctr_snapshots      │   │
+│  │ - video_feedback, what_worked, what_failed               │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │ video-projects/ (markdown-first project folders)         │   │
+│  │ - _IN_PRODUCTION/, _READY_TO_FILM/, _ARCHIVED/           │   │
+│  └──────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### Component Responsibilities
+### Existing Component Responsibilities
 
-| Component | Responsibility | Files |
-|-----------|----------------|-------|
-| **Slash Commands** | User-facing entry points, route to Python tools | `.claude/commands/*.md` (13 files) |
-| **Discovery** | Keyword research, demand analysis, competition scoring | `tools/discovery/*.py` (14 files) |
-| **Script Checkers** | Quality checks (stumble, scaffolding, repetition, flow) | `tools/script-checkers/*.py` (12 files) |
-| **Production** | Script parsing, B-roll, edit guides, metadata | `tools/production/*.py` (6 files) |
-| **YouTube Analytics** | Metrics fetching, retention analysis, pattern extraction | `tools/youtube-analytics/*.py` (11 files) |
-| **Database** | Persistent storage, auto-migration schema | `tools/discovery/database.py` + `keywords.db` |
-| **OAuth2** | YouTube API authentication | `credentials/token.json` managed by `auth.py` |
+| Component | Responsibility | Implementation |
+|-----------|----------------|----------------|
+| **keywords.db** | Central data store with auto-migration | SQLite + PRAGMA user_version pattern |
+| **youtube-analytics/** | Performance tracking, CTR, feedback, retention | Python modules with error dict pattern |
+| **script-checkers/** | Quality checks (pacing, flow, repetition, voice) | Python modules with configurable thresholds |
+| **discovery/** | Topic research, competition analysis, recommendations | Python modules with database integration |
+| **production/** | Script parsing, B-roll generation, metadata, teleprompter | Python parser module |
+| **.claude/agents/** | Specialized AI agents for complex tasks | Markdown configs with frontmatter |
+| **.claude/commands/** | Slash command entry points | YAML frontmatter + markdown |
+| **.claude/REFERENCE/** | Style guides, workflow docs | Markdown reference files (STYLE-GUIDE.md primary) |
 
-### Established Patterns
+### Existing Patterns
 
-**1. Error Dict Pattern** (established v1.1)
+**1. Error Dict Pattern** (universal across all tools):
 ```python
-def fetch_data(video_id: str) -> Dict[str, Any]:
-    try:
-        # ... operation ...
-        return {'status': 'ok', 'data': results}
-    except Exception as e:
-        return {'error': 'Failed to fetch', 'details': str(e)}
+# NEVER raise exceptions
+# Always return {'error': msg} on failure
+def some_function():
+    if problem:
+        return {'error': 'Description of problem'}
+    return {'status': 'success', 'data': results}
 ```
-- **Used in:** All `tools/discovery/*.py`, `tools/youtube-analytics/*.py`
-- **Why:** Graceful degradation, no exception propagation to CLI
 
-**2. CLI + Python API Dual Interface** (established v1.2)
+**2. Auto-Migration Pattern** (keywords.db):
 ```python
-def analyze_script(text: str, config: Config) -> Dict[str, Any]:
-    # Core logic - callable from Python or CLI
-    ...
-
-def main():
-    parser = argparse.ArgumentParser(...)
-    # CLI wrapper around core function
-```
-- **Used in:** `cli.py`, `performance.py`, `competition.py`, all major modules
-- **Why:** Supports both `/command` workflows and direct Python imports
-
-**3. Auto-Migration Schema** (established v1.3)
-```python
-def _ensure_classification_columns(self):
-    """Add Phase 16 columns if missing"""
-    cursor = self._conn.cursor()
-    cursor.execute("PRAGMA table_info(videos)")
-    # Check if columns exist, add if missing
-```
-- **Used in:** `database.py` (`_ensure_*_columns` methods)
-- **Why:** No manual migration scripts, zero-friction upgrades
-
-**4. Lazy Loading for Optional Dependencies** (established v1.2)
-```python
-try:
-    import spacy
-    SPACY_AVAILABLE = True
-except ImportError:
-    SPACY_AVAILABLE = False
-```
-- **Used in:** `stumble.py`, `flow.py`, `performance.py`
-- **Why:** Tools work without full dependency stack, graceful feature gates
-
-**5. Markdown Report Output** (established v1.1)
-```python
-def generate_report(data: Dict) -> str:
-    # Return markdown string
-    return markdown_content
-
-# Save to project folder
-report_path = project_dir / 'POST-PUBLISH-ANALYSIS.md'
-report_path.write_text(report, encoding='utf-8')
-```
-- **Used in:** `analyze.py`, `performance_report.py`, `pattern_extractor.py`
-- **Why:** Human-readable, version-controllable, Claude-parseable
-
----
-
-## v1.6 Architecture Extensions
-
-### Feature 1: Thumbnail/Title A/B Tracking
-
-**Integration Strategy:** Extend database schema + new tracking module + pattern analysis module
-
-#### New Components
-
-| Component | Purpose | LOC Estimate |
-|-----------|---------|--------------|
-| `tools/youtube-analytics/thumbnail_tracker.py` | Compute thumbnail hashes, store with CTR | ~200 LOC |
-| `tools/youtube-analytics/thumbnail_patterns.py` | Cluster similar thumbnails, correlate CTR | ~300 LOC |
-| Database schema extension | `thumbnail_variants` table in keywords.db | SQL migration |
-
-#### Data Flow
-
-```
-1. User creates variants in Photoshop
-   ├─ Thumbnail A.png
-   ├─ Thumbnail B.png
-   └─ Thumbnail C.png
-        ↓
-2. thumbnail_tracker.py computes perceptual hashes
-   - average_hash (rough similarity, fast)
-   - perceptual_hash (rotation/scale resistant)
-   - difference_hash (edge detection)
-        ↓
-3. Store in thumbnail_variants table
-   - video_id, variant_label ('A', 'B', 'C')
-   - hash_avg, hash_phash, hash_dhash (16-char hex strings)
-   - ctr_percent, impressions (from YouTube Analytics)
-        ↓
-4. ctr.py fetches CTR for video (EXISTING)
-        ↓
-5. thumbnail_patterns.py correlates hashes with CTR
-   - Cluster by Hamming distance (similar thumbnails)
-   - Report: "Map-focused (7 videos) avg 8.2% CTR"
-```
-
-#### Database Schema Extension
-
-**New table: `thumbnail_variants`**
-```sql
-CREATE TABLE IF NOT EXISTS thumbnail_variants (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    video_id TEXT NOT NULL,
-    variant_label TEXT NOT NULL,  -- 'A', 'B', 'C'
-    hash_avg TEXT,                 -- 16-char hex from average_hash
-    hash_phash TEXT,               -- 16-char hex from perceptual_hash
-    hash_dhash TEXT,               -- 16-char hex from difference_hash
-    ctr_percent REAL,              -- From YouTube Analytics or manual entry
-    impressions INTEGER,           -- From YouTube Analytics
-    upload_date TEXT,              -- ISO 8601 timestamp
-    thumbnail_path TEXT,           -- Relative path to image file
-    is_active INTEGER DEFAULT 1,   -- Which variant is currently live
-    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE(video_id, variant_label)
-);
-
-CREATE INDEX IF NOT EXISTS idx_thumbnail_video_id ON thumbnail_variants(video_id);
-CREATE INDEX IF NOT EXISTS idx_thumbnail_active ON thumbnail_variants(is_active);
-```
-
-**Migration pattern (auto-runs on first import):**
-```python
-# In database.py
-def _ensure_thumbnail_table(self):
-    """Phase v1.6: Add thumbnail_variants table"""
-    cursor = self._conn.cursor()
-    cursor.execute("""
-        SELECT name FROM sqlite_master
-        WHERE type='table' AND name='thumbnail_variants'
-    """)
+# PRAGMA user_version = 27
+# Auto-detect schema version and migrate on connection
+def _ensure_connection(self):
     if cursor.fetchone() is None:
-        # Execute CREATE TABLE SQL from above
-        ...
+        self.init_database()
+    else:
+        self._ensure_classification_columns()  # Phase 16
+        self._ensure_production_columns()      # Phase 17
+        self._ensure_variant_tables()          # Phase 27
 ```
 
-#### Integration Points
-
-**With existing `/analyze` command:**
+**3. Feature Flag Pattern** (optional dependencies):
 ```python
-# In analyze.py (existing)
-def analyze_video(video_id: str) -> Dict[str, Any]:
-    # ... existing CTR fetch ...
+# Graceful degradation when modules unavailable
+try:
+    from variants import register_variant
+    VARIANTS_AVAILABLE = True
+except ImportError:
+    VARIANTS_AVAILABLE = False
 
-    # NEW: Check for thumbnail variants
-    from thumbnail_tracker import get_thumbnail_variants
-    variants = get_thumbnail_variants(video_id)
-    if variants:
-        analysis['thumbnail_variants'] = variants
-        analysis['thumbnail_recommendation'] = determine_best_variant(variants)
+# Later in code
+if VARIANTS_AVAILABLE:
+    display_variant_data()
 ```
 
-**With existing `/patterns` command:**
-```python
-# In patterns.py (existing)
-def extract_patterns() -> Dict[str, Any]:
-    # ... existing pattern extraction ...
+**4. Reference Hierarchy Pattern** (agent context):
+```
+Tier 1 (MANDATORY): Read for every invocation
+  - .claude/REFERENCE/STYLE-GUIDE.md (single source of truth)
+  - .claude/templates/[TASK]-TEMPLATE.md
 
-    # NEW: Include thumbnail patterns
-    from thumbnail_patterns import analyze_thumbnail_patterns
-    patterns['thumbnail_patterns'] = analyze_thumbnail_patterns()
-    # Returns: {'map_focused': {'count': 7, 'avg_ctr': 8.2}, ...}
+Tier 2 (AS NEEDED): Reference when relevant
+  - .claude/REFERENCE/OPENING-HOOK-TEMPLATES.md
+  - .claude/REFERENCE/creator-techniques.md
 ```
 
-#### CLI Entry Points
-
-**New command: `/thumbnails` (optional convenience wrapper)**
-```bash
-# Track new thumbnail variant
-python tools/youtube-analytics/thumbnail_tracker.py VIDEO_ID path/to/thumbnail.png --variant A
-
-# Analyze patterns across all videos
-python tools/youtube-analytics/thumbnail_patterns.py --report
-
-# JSON output for programmatic use
-python tools/youtube-analytics/thumbnail_patterns.py --json
+**5. Single Source of Truth Pattern** (verified research):
 ```
-
-**Integrated into existing `/analyze`:**
-```bash
-# Existing command automatically includes thumbnail analysis if variants exist
-/analyze VIDEO_ID
+Per-project: video-projects/.../01-VERIFIED-RESEARCH.md
+Cross-project: .claude/VERIFIED-CLAIMS-DATABASE.md
+Quality gate: Can't write script until 90% claims verified
 ```
 
 ---
 
-### Feature 2: Script Pacing Analysis
+## v2.0 Integration Architecture
 
-**Integration Strategy:** Extend existing `flow.py` checker + new quantitative metrics module
+### Feature 1: Channel-Aware Script Generation
+
+**Goal:** Script-writer-v2 agent outputs sound like creator's voice, integrate verified research automatically.
 
 #### New Components
 
-| Component | Purpose | LOC Estimate |
-|-----------|---------|--------------|
-| `tools/script-checkers/checkers/pacing.py` | Quantitative pacing metrics (sentence variance, readability) | ~250 LOC |
-| Extension to `cli.py` | Add `--pacing` flag | ~20 LOC |
+**NONE** — Pure reference document expansion.
+
+#### Modified Components
+
+| Component | Modification | Why |
+|-----------|--------------|-----|
+| **.claude/REFERENCE/STYLE-GUIDE.md** | Add Part 6: Voice Patterns (sentence structures, causal chain templates, phrase library) | Agent already reads this — no code changes |
+| **.claude/REFERENCE/CREATOR-PHRASE-LIBRARY.md** | Expand with copy-paste natural language extracted from transcripts | Existing reference file, add corpus |
+| **.claude/agents/script-writer-v2.md** | Update Tier 1 references to include new voice pattern sections | Agent config update only |
 
 #### Data Flow
 
 ```
-1. User writes script → SCRIPT.md (EXISTING)
-        ↓
-2. parser.py extracts text (EXISTING)
-        ↓
-3. flow.py analyzes qualitatively (EXISTING)
-   - Undefined terms
-   - Abrupt transitions
-        ↓
-4. NEW: pacing.py analyzes quantitatively
-   - Sentence length variance per 100-word window
-   - Flesch Reading Ease delta between sections
-   - Entity density per paragraph
-        ↓
-5. Output warnings in standard checker format
-   [PACING WARNING: Lines 45-52 variance 18.3 > 15 - rushed delivery risk]
+Existing:
+  script-writer-v2 reads STYLE-GUIDE.md
+    ↓
+  Writes script to 02-SCRIPT-DRAFT.md
+
+v2.0 Enhancement:
+  script-writer-v2 reads STYLE-GUIDE.md (now with voice patterns)
+    ↓
+  Applies sentence structure templates from Part 6
+    ↓
+  Uses phrase library for natural transitions
+    ↓
+  Writes script matching creator voice to 02-SCRIPT-DRAFT.md
 ```
 
-#### Pacing Metrics Implementation
+**Integration points:**
+- Agent invocation: UNCHANGED (still reads STYLE-GUIDE.md)
+- Output format: UNCHANGED (still writes markdown script)
+- Quality checks: Existing voice_checker.py validates output
 
-```python
-# tools/script-checkers/checkers/pacing.py
-
-import spacy
-import textstat
-from typing import Dict, List, Any
-
-def check_pacing(text: str, config: Config) -> Dict[str, Any]:
-    """
-    Detect pacing issues via quantitative metrics.
-
-    Flags:
-    - Sentence length variance > 15 (rushed delivery)
-    - Flesch delta > 20 between sections (complexity spike)
-    - Entity density > 0.4 per sentence (wall of nouns)
-
-    Returns:
-        {
-            'issues': [
-                {
-                    'type': 'high_variance',
-                    'severity': 'warning',
-                    'line_start': 45,
-                    'line_end': 52,
-                    'variance': 18.3,
-                    'message': 'Sentence rhythm inconsistent - may sound rushed'
-                }
-            ],
-            'metrics': {
-                'avg_sentence_length': 18.2,
-                'sentence_variance': 12.1,
-                'flesch_reading_ease': 62.3
-            }
-        }
-    """
-    nlp = spacy.load("en_core_web_sm")
-    doc = nlp(text)
-
-    issues = []
-
-    # 1. Sentence length variance per 100-word window
-    windows = sliding_windows(doc, window_size=100)
-    for window in windows:
-        variance = calculate_sentence_variance(window)
-        if variance > config.pacing_variance_threshold:  # Default: 15
-            issues.append({
-                'type': 'high_variance',
-                'severity': 'warning',
-                'line_start': window.start_line,
-                'line_end': window.end_line,
-                'variance': variance,
-                'message': f'Sentence rhythm inconsistent (var={variance:.1f}) - may sound rushed'
-            })
-
-    # 2. Flesch Reading Ease delta between sections
-    sections = split_by_headers(text)
-    for i in range(len(sections) - 1):
-        flesch_curr = textstat.flesch_reading_ease(sections[i])
-        flesch_next = textstat.flesch_reading_ease(sections[i+1])
-        delta = abs(flesch_curr - flesch_next)
-        if delta > config.pacing_flesch_delta:  # Default: 20
-            issues.append({
-                'type': 'complexity_spike',
-                'severity': 'warning',
-                'section': i + 1,
-                'delta': delta,
-                'message': f'Readability drops {delta:.1f} points - complexity wall'
-            })
-
-    # 3. Entity density (nouns per sentence)
-    for sent in doc.sents:
-        entities = [token for token in sent if token.pos_ in ['PROPN', 'NOUN']]
-        density = len(entities) / max(len(list(sent)), 1)
-        if density > config.pacing_entity_density:  # Default: 0.4
-            issues.append({
-                'type': 'noun_wall',
-                'severity': 'info',
-                'line': sent.start_line,
-                'density': density,
-                'message': f'Dense nouns ({density:.1%}) - consider simplifying'
-            })
-
-    return {
-        'issues': issues,
-        'metrics': {
-            'avg_sentence_length': calculate_avg_sentence_length(doc),
-            'sentence_variance': calculate_overall_variance(doc),
-            'flesch_reading_ease': textstat.flesch_reading_ease(text)
-        }
-    }
-```
-
-#### Integration with Existing Flow Checker
-
-**Option A: Separate checker (recommended)**
-```python
-# In cli.py
-checkers = {
-    'stumble': check_stumble,
-    'scaffolding': check_scaffolding,
-    'repetition': check_repetition,
-    'flow': check_flow,
-    'pacing': check_pacing  # NEW
-}
-
-# Run with: python cli.py script.md --pacing
-```
-
-**Option B: Integrated into flow.py**
-```python
-# In flow.py
-def check_flow(text: str, config: Config) -> Dict[str, Any]:
-    # ... existing flow checks ...
-
-    # Add pacing analysis
-    from checkers.pacing import check_pacing
-    pacing_results = check_pacing(text, config)
-
-    results['pacing_issues'] = pacing_results['issues']
-    results['pacing_metrics'] = pacing_results['metrics']
-
-    return results
-```
-
-**Recommendation: Option A (separate checker)** for cleaner separation of concerns and optional execution.
-
-#### Configuration Additions
-
-```python
-# In config.py
-class Config:
-    # ... existing config ...
-
-    # Pacing thresholds (v1.6)
-    pacing_variance_threshold: float = 15.0      # Sentence length variance
-    pacing_flesch_delta: float = 20.0            # Readability drop between sections
-    pacing_entity_density: float = 0.4           # Nouns per sentence threshold
-```
+**Build order:**
+1. Extract voice patterns from existing transcripts (corpus analysis)
+2. Document patterns in STYLE-GUIDE.md Part 6 (reference expansion)
+3. Update script-writer-v2 frontmatter to emphasize Part 6 (config update)
+4. Test with existing `/script` command (no tool changes needed)
 
 ---
 
-### Feature 3: Post-Publish Feedback Loop
+### Feature 2: Research-to-NotebookLM Bridge
 
-**Integration Strategy:** New parser module + database storage + query integration in `/script` command
+**Goal:** Tools prepare sources for NotebookLM upload, extract verified research back into 01-VERIFIED-RESEARCH.md.
+
+**Critical constraint:** NotebookLM has NO API. All integration is manual upload/download with tool assistance.
 
 #### New Components
 
-| Component | Purpose | LOC Estimate |
-|-----------|---------|--------------|
-| `tools/production/feedback_loader.py` | Parse POST-PUBLISH-ANALYSIS markdown files | ~200 LOC |
-| Extension to `/script` command | Query feedback before script generation | ~50 LOC |
+| Component | Purpose | Location |
+|-----------|---------|----------|
+| **notebooklm_bridge.py** | Generate source list from keywords, create upload checklist, parse NotebookLM output | tools/research/ |
+| **citation_extractor.py** | Extract page numbers and quotes from NotebookLM responses | tools/research/ |
+
+#### Modified Components
+
+| Component | Modification | Why |
+|-----------|--------------|-----|
+| **/sources command** | Add --notebooklm-prep flag to generate NOTEBOOKLM-SOURCE-LIST.md | Entry point for bridge |
+| **.claude/REFERENCE/NOTEBOOKLM-SOURCE-STANDARDS.md** | Add workflow section for bridge usage | User guidance |
+
+#### Data Flow (Manual Steps Explicit)
+
+```
+Phase 1: Source Preparation
+  User runs: /sources --notebooklm-prep
+    ↓
+  notebooklm_bridge.generate_source_list(topic, keywords)
+    ↓
+  Writes: NOTEBOOKLM-SOURCE-LIST.md
+    - Recommended books (university press titles)
+    - Where to find (JSTOR, Internet Archive, buy links)
+    - Upload checklist [ ] Book 1, [ ] Book 2...
+
+Phase 2: Manual Upload (USER ACTION)
+  User downloads PDFs
+    ↓
+  User uploads to NotebookLM
+    ↓
+  User runs NotebookLM queries
+    ↓
+  User saves NotebookLM responses to local files
+
+Phase 3: Extract Verified Research
+  User runs: /sources --extract-citations NOTEBOOKLM-RESPONSE.txt
+    ↓
+  citation_extractor.parse_response(file)
+    ↓
+  Extracts:
+    - Exact quotes with page numbers
+    - Source attribution
+    - Confidence markers
+    ↓
+  Writes: 01-VERIFIED-RESEARCH.md (formatted entries)
+```
+
+**Integration points:**
+- Entry: `/sources` command with new flags
+- Output: Markdown files (SOURCE-LIST, VERIFIED-RESEARCH)
+- No database changes (markdown-first pattern)
+
+**Build order:**
+1. Create tools/research/ directory
+2. Build notebooklm_bridge.py (source list generator)
+3. Build citation_extractor.py (response parser)
+4. Add --notebooklm-prep and --extract-citations flags to /sources
+5. Document workflow in NOTEBOOKLM-SOURCE-STANDARDS.md
+
+---
+
+### Feature 3: Actionable Analytics
+
+**Goal:** Retention patterns mapped to specific script sections, concrete next steps from data.
+
+#### New Components
+
+| Component | Purpose | Location |
+|-----------|---------|----------|
+| **retention_mapper.py** | Map retention drop points to script sections | tools/youtube-analytics/ |
+| **insights_generator.py** | Generate actionable recommendations from patterns | tools/youtube-analytics/ |
+
+#### Modified Components
+
+| Component | Modification | Why |
+|-----------|--------------|-----|
+| **analyze.py** | Add retention section mapping, integrate insights generation | Enhance existing orchestrator |
+| **feedback_queries.py** | Add get_actionable_insights() method | Query interface expansion |
+| **/analyze command** | Add --actionable flag for insights-first output | CLI entry point |
 
 #### Data Flow
 
 ```
-1. /analyze generates POST-PUBLISH-ANALYSIS-{id}.md (EXISTING)
-   Saved to: channel-data/analyses/*.md or project folder
-        ↓
-2. feedback_loader.py parses markdown
-   - Extracts: CTR vs channel avg, retention drops, discovery issues
-   - Parses structured sections: "## Lessons", "## Discovery Diagnostics"
-        ↓
-3. Stores in video_performance table (EXISTING TABLE from Phase 19)
-   - New columns: retention_drop_points (JSON), discovery_issues (JSON)
-        ↓
-4. /script command queries feedback BEFORE script generation
-   - "Similar videos had pacing issues at 3:15"
-   - "Map thumbnails outperform face 2:1"
-        ↓
-5. Script generation incorporates lessons
-   - Avoid patterns that caused drops
-   - Replicate patterns that worked
+Existing v1.6:
+  analyze.py fetches retention curve
+    ↓
+  Displays drop points as timestamps
+    ↓
+  User manually correlates to script
+
+v2.0 Enhancement:
+  analyze.py fetches retention curve
+    ↓
+  retention_mapper.map_to_sections(script_path, drop_points)
+    ↓
+  Identifies: "30% drop at Section 3 (Historical Background)"
+    ↓
+  insights_generator.generate_recommendations(section, patterns)
+    ↓
+  Outputs:
+    - "Add modern relevance hook at 4:20"
+    - "Entity density 35% (threshold 25%) — add explanatory sentence"
+    - "Similar videos with <30s hooks retained 42% vs 28%"
 ```
 
-#### Feedback Parser Implementation
+**Integration points:**
+- Existing: analyze.py orchestrator, feedback database
+- New: Section mapping logic, recommendation engine
+- Output: Enhanced markdown report with actionable section
 
-```python
-# tools/production/feedback_loader.py
+**Database changes:**
 
-from pathlib import Path
-import re
-import json
-from typing import Dict, List, Any
-from datetime import datetime
-
-def parse_analysis_file(filepath: Path) -> Dict[str, Any]:
-    """
-    Parse POST-PUBLISH-ANALYSIS markdown file.
-
-    Extracts:
-    - Video ID from filename and frontmatter
-    - CTR vs channel average (from Quick Summary)
-    - Retention drop points (from Retention Analysis)
-    - Discovery issues (from Discovery Diagnostics)
-    - Lessons (from Lessons section)
-
-    Returns:
-        {
-            'video_id': str,
-            'analyzed_at': str (ISO 8601),
-            'ctr_percent': float or None,
-            'ctr_vs_avg': str ('above', 'below', 'at'),
-            'retention_drop_points': [
-                {'timestamp': '3:15', 'percentage': 42.3, 'severity': 'significant'}
-            ],
-            'discovery_issues': [
-                {'issue': 'LOW_IMPRESSIONS', 'severity': 'HIGH', 'fix': '...'}
-            ],
-            'lessons': {
-                'observations': [str],
-                'actionable_items': [str]
-            }
-        }
-        or {'error': msg}
-    """
-    try:
-        content = filepath.read_text(encoding='utf-8')
-
-        # Extract video ID from filename: POST-PUBLISH-ANALYSIS-{video_id}.md
-        match = re.search(r'POST-PUBLISH-ANALYSIS-([a-zA-Z0-9_-]+)\.md', filepath.name)
-        if not match:
-            return {'error': 'Could not extract video ID from filename'}
-
-        video_id = match.group(1)
-
-        # Parse analyzed timestamp
-        analyzed_match = re.search(r'\*\*Analyzed:\*\* (.+)', content)
-        analyzed_at = analyzed_match.group(1) if analyzed_match else None
-
-        # Extract CTR
-        ctr_match = re.search(r'\*\*CTR:\*\* ([\d.]+)%', content)
-        ctr_percent = float(ctr_match.group(1)) if ctr_match else None
-
-        # Determine CTR vs average
-        ctr_vs_avg = None
-        if 'above channel average' in content.lower():
-            ctr_vs_avg = 'above'
-        elif 'below channel average' in content.lower():
-            ctr_vs_avg = 'below'
-        elif 'at channel average' in content.lower():
-            ctr_vs_avg = 'at'
-
-        # Parse retention drop points
-        retention_section = extract_section(content, '## Retention Analysis')
-        drop_points = parse_retention_drops(retention_section)
-
-        # Parse discovery issues
-        discovery_section = extract_section(content, '## Discovery Diagnostics')
-        issues = parse_discovery_issues(discovery_section)
-
-        # Parse lessons
-        lessons_section = extract_section(content, '## Lessons')
-        lessons = parse_lessons(lessons_section)
-
-        return {
-            'video_id': video_id,
-            'analyzed_at': analyzed_at,
-            'ctr_percent': ctr_percent,
-            'ctr_vs_avg': ctr_vs_avg,
-            'retention_drop_points': drop_points,
-            'discovery_issues': issues,
-            'lessons': lessons
-        }
-
-    except Exception as e:
-        return {'error': f'Failed to parse {filepath.name}', 'details': str(e)}
-
-
-def store_feedback(data: Dict[str, Any]) -> Dict[str, Any]:
-    """
-    Store parsed feedback in video_performance table.
-
-    Extends Phase 19 table with JSON columns for structured data.
-    """
-    from tools.discovery.database import KeywordDB
-
-    db = KeywordDB()
-
-    # Ensure feedback columns exist (auto-migration)
-    db._ensure_feedback_columns()
-
-    cursor = db._conn.cursor()
-    cursor.execute("""
-        UPDATE video_performance
-        SET
-            retention_drop_points = ?,
-            discovery_issues = ?,
-            lessons_observations = ?,
-            lessons_actionable = ?,
-            feedback_updated_at = CURRENT_TIMESTAMP
-        WHERE video_id = ?
-    """, (
-        json.dumps(data['retention_drop_points']),
-        json.dumps(data['discovery_issues']),
-        json.dumps(data['lessons'].get('observations', [])),
-        json.dumps(data['lessons'].get('actionable_items', [])),
-        data['video_id']
-    ))
-
-    db._conn.commit()
-    db.close()
-
-    return {'status': 'stored', 'video_id': data['video_id']}
-
-
-def load_feedback_for_topic(topic_keywords: List[str]) -> Dict[str, Any]:
-    """
-    Query feedback for videos matching topic keywords.
-
-    Used by /script command to find relevant past performance data.
-
-    Args:
-        topic_keywords: List of keywords (e.g., ['territorial', 'dispute'])
-
-    Returns:
-        {
-            'relevant_videos': [
-                {
-                    'video_id': str,
-                    'title': str,
-                    'ctr_percent': float,
-                    'retention_drop_points': list,
-                    'lessons': dict
-                }
-            ],
-            'patterns': {
-                'avg_ctr': float,
-                'common_drop_points': [str],  # e.g., ['3:15', '5:42']
-                'successful_patterns': [str]
-            }
-        }
-    """
-    # Query video_performance table for matching topics
-    # Aggregate patterns across similar videos
-    ...
-```
-
-#### Database Schema Extension
-
-**New columns in existing `video_performance` table:**
 ```sql
-ALTER TABLE video_performance ADD COLUMN retention_drop_points TEXT;  -- JSON array
-ALTER TABLE video_performance ADD COLUMN discovery_issues TEXT;       -- JSON array
-ALTER TABLE video_performance ADD COLUMN lessons_observations TEXT;   -- JSON array
-ALTER TABLE video_performance ADD COLUMN lessons_actionable TEXT;     -- JSON array
-ALTER TABLE video_performance ADD COLUMN feedback_updated_at TEXT;    -- ISO timestamp
+-- No new tables needed
+-- Use existing: video_feedback, what_worked, what_failed
+-- Queries join retention data + script sections + past patterns
 ```
 
-**Auto-migration in database.py:**
-```python
-def _ensure_feedback_columns(self):
-    """Phase v1.6: Add feedback columns to video_performance"""
-    cursor = self._conn.cursor()
-    cursor.execute("PRAGMA table_info(video_performance)")
-    columns = {row[1] for row in cursor.fetchall()}
-
-    if 'retention_drop_points' not in columns:
-        cursor.execute("ALTER TABLE video_performance ADD COLUMN retention_drop_points TEXT")
-    if 'discovery_issues' not in columns:
-        cursor.execute("ALTER TABLE video_performance ADD COLUMN discovery_issues TEXT")
-    if 'lessons_observations' not in columns:
-        cursor.execute("ALTER TABLE video_performance ADD COLUMN lessons_observations TEXT")
-    if 'lessons_actionable' not in columns:
-        cursor.execute("ALTER TABLE video_performance ADD COLUMN lessons_actionable TEXT")
-    if 'feedback_updated_at' not in columns:
-        cursor.execute("ALTER TABLE video_performance ADD COLUMN feedback_updated_at TEXT")
-
-    self._conn.commit()
-```
-
-#### Integration with `/script` Command
-
-**Extend `.claude/commands/script.md`:**
-
-```markdown
-## NEW: Query Past Performance (v1.6)
-
-Before writing, query feedback from similar videos:
-
-1. Identify topic type (territorial, ideological, legal)
-2. Load feedback for similar videos
-3. Display lessons:
-   - **CTR patterns:** "Map thumbnails avg 8.2% vs face 4.1%"
-   - **Retention warnings:** "3 videos had drop at 3:15 (pacing spike)"
-   - **Discovery lessons:** "Videos with long-tail keywords got 2x impressions"
-
-Ask user: "Apply these lessons to new script? (Y/n)"
-```
-
-**Python implementation in script-writer-v2 agent:**
-```python
-# At start of script generation workflow
-from tools.production.feedback_loader import load_feedback_for_topic
-
-topic_keywords = ['territorial', 'dispute']  # Derived from user input
-feedback = load_feedback_for_topic(topic_keywords)
-
-if feedback['relevant_videos']:
-    print("\n## Past Performance Insights\n")
-    print(f"Analyzed {len(feedback['relevant_videos'])} similar videos:")
-    print(f"- Average CTR: {feedback['patterns']['avg_ctr']:.1f}%")
-
-    if feedback['patterns']['common_drop_points']:
-        print(f"- Common retention drops: {', '.join(feedback['patterns']['common_drop_points'])}")
-
-    if feedback['patterns']['successful_patterns']:
-        print("\nSuccessful patterns:")
-        for pattern in feedback['patterns']['successful_patterns']:
-            print(f"  - {pattern}")
-
-    apply = input("\nApply these lessons? (Y/n): ")
-    if apply.lower() != 'n':
-        # Incorporate lessons into script generation prompts
-        ...
-```
+**Build order:**
+1. Create retention_mapper.py (section correlation logic)
+2. Create insights_generator.py (recommendation templates)
+3. Extend feedback_queries.py with actionable insights method
+4. Modify analyze.py to integrate mapping + insights
+5. Add --actionable flag to /analyze command
+6. Update POST-PUBLISH-ANALYSIS template with insights section
 
 ---
 
-### Feature 4: Model Assignment Refresh
+## Integration Points Summary
 
-**Integration Strategy:** Update YAML frontmatter in slash command files
+### New Components Needed
 
-#### Current State (Phase 13.1)
+| Component | Lines Est. | Purpose | Dependencies |
+|-----------|------------|---------|--------------|
+| tools/research/notebooklm_bridge.py | ~300 | Generate source lists | None |
+| tools/research/citation_extractor.py | ~200 | Parse NotebookLM output | None |
+| tools/youtube-analytics/retention_mapper.py | ~250 | Map retention to sections | production/parser.py |
+| tools/youtube-analytics/insights_generator.py | ~200 | Generate recommendations | feedback_queries.py |
 
-```yaml
-# .claude/commands/script.md
----
-description: Write, revise, review, or export scripts
-model: opus
----
-```
+**Total new code:** ~950 lines (5% of existing codebase)
 
-**Problem:** Uses tier names (haiku, sonnet, opus) instead of full model IDs. May work if Claude SDK aliases these, but unclear.
+### Modified Components
 
-#### Target State (v1.6)
+| Component | Change Type | Impact |
+|-----------|-------------|--------|
+| .claude/REFERENCE/STYLE-GUIDE.md | Content expansion (Part 6) | HIGH (affects script quality) |
+| .claude/REFERENCE/CREATOR-PHRASE-LIBRARY.md | Corpus expansion | MEDIUM |
+| .claude/commands/sources.md | Add 2 flags | LOW (backward compatible) |
+| .claude/commands/analyze.md | Add 1 flag | LOW (backward compatible) |
+| .claude/agents/script-writer-v2.md | Reference update | LOW (config only) |
+| tools/youtube-analytics/analyze.py | Add mapping + insights | MEDIUM (existing orchestrator) |
+| tools/youtube-analytics/feedback_queries.py | Add insights method | LOW (extends existing API) |
 
-```yaml
-# .claude/commands/script.md
----
-description: Write, revise, review, or export scripts
-model: claude-opus-4-6
----
-```
+### NO Changes Required
 
-#### Model ID Mapping
-
-| Current (Phase 13.1) | Target (v1.6) | Model ID | Use Case |
-|---------------------|---------------|----------|----------|
-| `model: haiku` | `model: claude-haiku-4-5` | `claude-haiku-4-5-20250926` (inferred) | Simple tasks (6 files) |
-| `model: sonnet` | `model: claude-sonnet-4-5` | `claude-sonnet-4-5-20250929` (confirmed) | Standard tasks (6 files) |
-| `model: opus` | `model: claude-opus-4-6` | `claude-opus-4-6-20260205` (confirmed) | Complex creative (1 file) |
-
-**Note:** Exact version timestamps (YYYYMMDD suffix) may vary. Use base IDs (claude-haiku-4-5) if SDK supports version-agnostic routing.
-
-#### Files to Update (13 total)
-
-**Haiku tier (6 files):**
-- `.claude/commands/status.md`
-- `.claude/commands/help.md`
-- `.claude/commands/fix.md`
-- `.claude/commands/sources.md`
-- `.claude/commands/prep.md`
-- `.claude/commands/discover.md`
-
-**Sonnet tier (6 files):**
-- `.claude/commands/verify.md`
-- `.claude/commands/publish.md`
-- `.claude/commands/engage.md`
-- `.claude/commands/analyze.md`
-- `.claude/commands/patterns.md`
-- `.claude/commands/research.md`
-
-**Opus tier (1 file):**
-- `.claude/commands/script.md`
-
-#### Verification Strategy
-
-**Option 1: Direct model ID (recommended)**
-```yaml
-model: claude-sonnet-4-5
-```
-- Explicit, no ambiguity
-- Requires SDK supports these IDs
-
-**Option 2: Tier alias with fallback**
-```yaml
-model: sonnet  # Maps to current best Sonnet model
-```
-- Simpler, auto-upgrades to latest
-- Requires SDK maintains tier mappings
-
-**Recommendation:** Use Option 1 (full IDs) for explicit control, verify with small test before bulk update.
-
-#### Integration with Agent System
-
-**If `.claude/agents/*.md` files also have model assignments:**
-- Follow same mapping (haiku → claude-haiku-4-5, etc.)
-- Check if agents inherit from command model or specify independently
-- Update agent docs if Phase 13.1-02 created agent-specific model fields
+- Database schema (v27 sufficient)
+- Existing tool modules (youtube-analytics, script-checkers, discovery)
+- Slash command infrastructure
+- Agent invocation mechanism
+- Error dict pattern
+- Auto-migration pattern
+- Feature flag pattern
 
 ---
 
 ## Recommended Build Order
 
-### Phase 1: Database Foundation (Week 1)
-**Why first:** Enables parallel development of tracking and feedback modules
+### Phase A: Voice Patterns (Channel-Aware Scripts)
+**Goal:** Script outputs match creator voice
+**Risk:** LOW (no tool changes, only reference docs)
+**Effort:** 3-5 hours
 
-1. Extend `database.py` with auto-migration methods:
-   - `_ensure_thumbnail_table()`
-   - `_ensure_feedback_columns()`
-2. Test migration on clean and existing databases
-3. Verify error dict pattern maintained
+1. Extract voice patterns from existing transcripts
+   - Analyze sentence structures (Kraut causal chains)
+   - Build phrase library (Alex O'Connor transitions)
+   - Document patterns in STYLE-GUIDE.md Part 6
+2. Update script-writer-v2.md frontmatter
+3. Test with `/script` command on existing project
+4. Validate with voice_checker.py
 
-**Deliverable:** Database schema ready, zero breaking changes to existing tools
-
----
-
-### Phase 2A: Thumbnail Tracking (Week 2 - Parallel Track)
-**Dependencies:** Phase 1 complete
-
-1. Implement `thumbnail_tracker.py`:
-   - Hash computation (ImageHash)
-   - Database storage
-   - CLI entry points
-2. Test with sample thumbnail files
-3. Integrate with existing `/analyze` command
-
-**Deliverable:** Users can track thumbnail variants, hashes stored in database
+**Success criteria:** Script output uses documented patterns, passes voice checks
 
 ---
 
-### Phase 2B: Pacing Analysis (Week 2 - Parallel Track)
-**Dependencies:** None (extends existing script-checkers)
+### Phase B: NotebookLM Bridge (Research Integration)
+**Goal:** Tools assist manual NotebookLM workflow
+**Risk:** MEDIUM (new module, manual workflow dependency)
+**Effort:** 6-8 hours
 
-1. Implement `checkers/pacing.py`:
-   - Sentence variance calculation
-   - Flesch delta detection
-   - Entity density checks
-2. Extend `cli.py` with `--pacing` flag
-3. Add config thresholds to `config.py`
-4. Test on existing scripts
+1. Create tools/research/ directory
+2. Build notebooklm_bridge.py
+   - generate_source_list(topic, keywords)
+   - create_upload_checklist(sources)
+   - Returns markdown formatted list
+3. Build citation_extractor.py
+   - parse_response(text) → extract quotes + page numbers
+   - format_for_verified_research(citations)
+   - Returns markdown formatted entries
+4. Extend /sources command
+   - Add --notebooklm-prep flag (calls bridge.generate_source_list)
+   - Add --extract-citations flag (calls extractor.parse_response)
+5. Document workflow in NOTEBOOKLM-SOURCE-STANDARDS.md
+6. Test with real NotebookLM session
 
-**Deliverable:** Users can run pacing checks before filming
-
----
-
-### Phase 3: Thumbnail Pattern Analysis (Week 3)
-**Dependencies:** Phase 2A complete (need tracked thumbnails)
-
-1. Implement `thumbnail_patterns.py`:
-   - Hamming distance clustering
-   - CTR correlation
-   - Pattern reporting
-2. Integrate with `/patterns` command
-3. Test with real thumbnail history (requires 5+ tracked videos)
-
-**Deliverable:** Users see which thumbnail styles correlate with high CTR
+**Success criteria:** Source list generates, citations extract correctly, manual workflow smooth
 
 ---
 
-### Phase 4: Feedback Loop Integration (Week 3-4)
-**Dependencies:** Phase 1 complete
+### Phase C: Actionable Analytics (Retention Mapping)
+**Goal:** Analytics provide concrete script fixes
+**Risk:** MEDIUM (depends on script section parsing accuracy)
+**Effort:** 8-10 hours
 
-1. Implement `feedback_loader.py`:
-   - Markdown parsing
-   - Database storage
-   - Query functions
-2. Extend `/script` command to query feedback
-3. Test with existing analysis files in `channel-data/analyses/`
+1. Build retention_mapper.py
+   - map_to_sections(script_path, retention_data)
+   - Correlate timestamps to script sections
+   - Return section-level drop analysis
+2. Build insights_generator.py
+   - generate_recommendations(section, patterns, feedback_db)
+   - Query past patterns for similar topics
+   - Return actionable fixes with specificity
+3. Extend feedback_queries.py
+   - Add get_actionable_insights(video_id)
+   - Join retention + sections + patterns
+4. Modify analyze.py
+   - Integrate retention_mapper after fetching curve
+   - Call insights_generator for recommendations
+   - Add insights section to markdown output
+5. Add --actionable flag to /analyze command
+6. Test with video that has retention data
 
-**Deliverable:** Script generation incorporates past performance lessons
-
----
-
-### Phase 5: Model Assignment Refresh (Week 4)
-**Dependencies:** None (independent update)
-
-1. Verify model ID format with small test
-2. Bulk update 13 command files
-3. Test each command tier (haiku, sonnet, opus)
-4. Update agent files if needed
-
-**Deliverable:** All commands use current Claude 4.x model lineup
-
----
-
-### Phase 6: Integration Testing (Week 4)
-**Test scenarios:**
-
-1. **New video workflow:**
-   - Create script → Run pacing check → Film → Publish
-   - Create thumbnails → Track variants → Analyze CTR → Extract patterns
-
-2. **Feedback loop:**
-   - Analyze published video → Parse feedback → Create new script → Verify lessons applied
-
-3. **Cross-component:**
-   - `/patterns` shows thumbnail patterns + script patterns
-   - `/analyze` includes thumbnail variant comparison
-   - `/script` queries feedback automatically
-
-**Deliverable:** All v1.6 features integrated, zero regressions
+**Success criteria:** Drop points map to script sections, recommendations are specific and actionable
 
 ---
 
-## Data Flow Integration Points
+## Architectural Patterns Followed
 
-### Creation → Analysis → Feedback Loop
+### Pattern 1: Markdown-First Data Flow
 
+**What:** Reference documents and project files are primary data store, not database.
+
+**Where used:**
+- Voice patterns → STYLE-GUIDE.md
+- Source lists → NOTEBOOKLM-SOURCE-LIST.md
+- Verified research → 01-VERIFIED-RESEARCH.md
+
+**Why:** Matches existing architecture (document-driven content production pipeline).
+
+**Trade-offs:**
+- ✅ No schema changes needed
+- ✅ Human-readable and versionable (git)
+- ❌ Harder to query programmatically
+- ✅ But: Tools generate markdown, agents read markdown (existing pattern)
+
+---
+
+### Pattern 2: Tool-Assisted Manual Workflow
+
+**What:** Tools prepare and parse, human does the critical work.
+
+**Where used:** NotebookLM bridge (no API, must be manual).
+
+**Why:** Reflects reality — NotebookLM has no API, waiting for Enterprise version.
+
+**Trade-offs:**
+- ✅ Works today (no API blockers)
+- ✅ Human verifies quality (academic sources)
+- ❌ Not fully automated
+- ✅ But: Tools reduce friction (source lists, citation extraction)
+
+**Example:**
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  CREATION PHASE                                              │
-├─────────────────────────────────────────────────────────────┤
-│  /script (queries past feedback)                            │
-│    ↓                                                         │
-│  Script generated with lessons applied                      │
-│    ↓                                                         │
-│  /prep --package (generates B-roll, edit guide, metadata)   │
-│    ↓                                                         │
-│  Create thumbnails A/B/C in Photoshop                       │
-│    ↓                                                         │
-│  thumbnail_tracker.py (compute hashes, store variants)      │
-└─────────────────────────────────────────────────────────────┘
-                            ↓
-                     [FILMING & PUBLISHING]
-                            ↓
-┌─────────────────────────────────────────────────────────────┐
-│  ANALYSIS PHASE                                              │
-├─────────────────────────────────────────────────────────────┤
-│  /analyze VIDEO_ID (fetches CTR, retention, comments)       │
-│    ↓                                                         │
-│  Generates POST-PUBLISH-ANALYSIS.md                         │
-│    ↓                                                         │
-│  feedback_loader.py (parses markdown)                       │
-│    ↓                                                         │
-│  Stores in video_performance table                          │
-└─────────────────────────────────────────────────────────────┘
-                            ↓
-                    [PATTERN EXTRACTION]
-                            ↓
-┌─────────────────────────────────────────────────────────────┐
-│  LEARNING PHASE                                              │
-├─────────────────────────────────────────────────────────────┤
-│  /patterns (cross-video analysis)                           │
-│    ↓                                                         │
-│  thumbnail_patterns.py (correlate hashes with CTR)          │
-│    ↓                                                         │
-│  pattern_extractor.py (topic/angle patterns)                │
-│    ↓                                                         │
-│  Generates insights: "Map thumbnails avg 8.2% CTR"          │
-└─────────────────────────────────────────────────────────────┘
-                            ↓
-                      [FEEDS BACK TO /script]
-                            ↓
-                      (loop continues)
-```
-
-### Database Query Patterns
-
-**Thumbnail pattern query:**
-```python
-# In thumbnail_patterns.py
-def get_ctr_by_visual_pattern():
-    db = KeywordDB()
-    cursor = db._conn.cursor()
-
-    # Group thumbnails by perceptual hash similarity
-    cursor.execute("""
-        SELECT
-            hash_phash,
-            COUNT(*) as variant_count,
-            AVG(ctr_percent) as avg_ctr,
-            GROUP_CONCAT(video_id) as video_ids
-        FROM thumbnail_variants
-        WHERE is_active = 1 AND ctr_percent IS NOT NULL
-        GROUP BY hash_phash
-        ORDER BY avg_ctr DESC
-    """)
-
-    patterns = []
-    for row in cursor.fetchall():
-        # Cluster by Hamming distance to find visually similar groups
-        ...
-
-    return patterns
-```
-
-**Feedback query for topic:**
-```python
-# In feedback_loader.py
-def load_feedback_for_topic(topic_keywords: List[str]):
-    db = KeywordDB()
-    cursor = db._conn.cursor()
-
-    # Find videos matching topic keywords
-    keyword_query = " OR ".join([f"title LIKE '%{kw}%'" for kw in topic_keywords])
-
-    cursor.execute(f"""
-        SELECT
-            video_id,
-            title,
-            ctr_percent,
-            retention_drop_points,
-            lessons_observations,
-            lessons_actionable
-        FROM video_performance
-        WHERE ({keyword_query})
-        AND retention_drop_points IS NOT NULL
-        ORDER BY conversion_rate DESC
-        LIMIT 10
-    """)
-
-    # Aggregate patterns across results
-    ...
+Manual step: Download PDFs and upload to NotebookLM
+Tool assists: Generate list of WHICH PDFs to get and WHERE
+Manual step: Run NotebookLM queries
+Tool assists: Parse output into VERIFIED-RESEARCH.md format
 ```
 
 ---
 
-## Anti-Patterns to Avoid
+### Pattern 3: Extend, Don't Replace
 
-### Anti-Pattern 1: Breaking Existing Database Schema
+**What:** Add capabilities to existing components rather than rewriting.
 
-**What people do:** Add columns with NOT NULL constraint without default value
-```sql
-ALTER TABLE video_performance ADD COLUMN new_field TEXT NOT NULL;
--- Breaks on existing rows
-```
+**Where used:**
+- analyze.py gets retention mapping (doesn't replace existing metrics)
+- feedback_queries.py gets insights method (doesn't replace existing queries)
+- STYLE-GUIDE.md gets Part 6 (doesn't invalidate existing parts)
 
-**Why it's wrong:** Existing tools crash when querying table
+**Why:** Preserves v1.6 functionality, reduces regression risk.
 
-**Do this instead:** Use nullable columns with auto-migration
-```python
-def _ensure_feedback_columns(self):
-    cursor.execute("ALTER TABLE video_performance ADD COLUMN new_field TEXT")
-    # Nullable by default, no crash on existing data
-```
+**Trade-offs:**
+- ✅ Backward compatible
+- ✅ Existing workflows unaffected
+- ❌ Component complexity increases
+- ✅ But: Complexity is managed (feature flags, optional parameters)
 
-### Anti-Pattern 2: Tight Coupling Between New and Existing Modules
+---
 
-**What people do:** Import thumbnail_tracker directly in analyze.py
-```python
-# In analyze.py
-from thumbnail_tracker import get_variants  # Hard dependency
-```
+### Pattern 4: Reference Hierarchy Over Code Logic
 
-**Why it's wrong:** analyze.py now fails if thumbnail_tracker has import errors (e.g., ImageHash not installed)
+**What:** Encode knowledge in reference documents, not hard-coded rules.
 
-**Do this instead:** Lazy import with graceful degradation
-```python
-# In analyze.py
-try:
-    from thumbnail_tracker import get_variants
-    THUMBNAILS_AVAILABLE = True
-except ImportError:
-    THUMBNAILS_AVAILABLE = False
+**Where used:**
+- Voice patterns in STYLE-GUIDE.md (not Python rules)
+- Phrase library in markdown (not code templates)
+- Source standards in NOTEBOOKLM-SOURCE-STANDARDS.md (not validator rules)
 
-def analyze_video(video_id):
-    # ... existing analysis ...
+**Why:** Easier to update without code changes, agents read naturally.
 
-    if THUMBNAILS_AVAILABLE:
-        variants = get_variants(video_id)
-        # ... use variants ...
-```
-
-### Anti-Pattern 3: Storing Images in Database
-
-**What people do:** Store thumbnail PNG as BLOB in SQLite
-```sql
-CREATE TABLE thumbnails (
-    id INTEGER PRIMARY KEY,
-    image_data BLOB  -- 500KB+ per image
-);
-```
-
-**Why it's wrong:** Database bloat, slow queries, backup issues
-
-**Do this instead:** Store file paths, keep images on filesystem
-```sql
-CREATE TABLE thumbnail_variants (
-    id INTEGER PRIMARY KEY,
-    thumbnail_path TEXT,  -- "Thumbnail A.png"
-    hash_phash TEXT       -- 16-char hex string
-);
-```
-
-### Anti-Pattern 4: Synchronous Feedback Loading on Every Script Generation
-
-**What people do:** Parse all analysis files every time `/script` runs
-```python
-def generate_script():
-    # Parse 30+ markdown files on every run
-    for file in analysis_dir.glob('*.md'):
-        parse_and_analyze(file)  # Slow
-```
-
-**Why it's wrong:** Script generation takes 10+ seconds before starting
-
-**Do this instead:** Parse once when analysis is created, query database
-```python
-# In /analyze command (runs once per video)
-feedback_loader.store_feedback(parsed_data)
-
-# In /script command (runs many times)
-feedback = db.query_feedback_for_topic(keywords)  # Fast SQL query
-```
+**Trade-offs:**
+- ✅ Non-technical editing (markdown)
+- ✅ Agents already read reference docs
+- ❌ Harder to enforce programmatically
+- ✅ But: Quality checks validate (voice_checker.py, fact-checker)
 
 ---
 
 ## Scaling Considerations
 
-| Scale | Current | With v1.6 | Notes |
-|-------|---------|-----------|-------|
-| **10 videos** | All features work | All features work | Minimal data, patterns may be noisy |
-| **50 videos** | Good performance | Good performance | Thumbnail patterns become meaningful |
-| **200 videos** | Good performance | Possible SQLite query lag | Consider index optimization |
-| **500+ videos** | N/A (channel at ~30) | May need query optimization | Add indexes on video_id, ctr_percent, is_active |
+| Scale | Current (v1.6) | v2.0 Changes | Architecture Adjustments |
+|-------|----------------|--------------|--------------------------|
+| **15 videos** | Works fine | All features functional | None needed |
+| **50 videos** | Pattern analysis improves with data | Insights more accurate | Consider feedback database indexing |
+| **100+ videos** | Database queries slow | Retention mapping at scale | Add section-level retention cache table |
 
-### Optimization Priorities
+### Scaling Priorities
 
-**1. First bottleneck: Thumbnail pattern clustering (200+ videos)**
-- **Symptom:** `/patterns` command takes 5+ seconds
-- **Fix:** Pre-compute clusters on `/analyze`, store cluster IDs in database
-- **Cost:** 50 LOC, negligible complexity
+**1. First bottleneck: Retention mapping at 50+ videos**
+- Current: O(n) script parsing on every /analyze call
+- Fix: Cache section boundaries in database (new table: script_sections)
+- When: After 40-50 published videos
 
-**2. Second bottleneck: Feedback query with many keywords (500+ videos)**
-- **Symptom:** `/script` feedback query takes 3+ seconds
-- **Fix:** Full-text search index on title/description
-- **Cost:** SQLite FTS5 extension, ~100 LOC
+**2. Second bottleneck: Voice pattern corpus at 100+ transcripts**
+- Current: Manual extraction from transcripts
+- Fix: Automated pattern detection using spaCy
+- When: When manual corpus exceeds 100 examples
 
-**Note:** Unlikely to hit these limits with current channel size (~30 videos). Optimize only when proven slow.
+**3. Not a bottleneck: Reference document size**
+- STYLE-GUIDE.md can grow to 10K+ lines
+- Agents handle large context (Claude Opus 200K tokens)
+- No action needed
 
 ---
 
-## Confidence Assessment
+## Anti-Patterns to Avoid
 
-| Component | Confidence | Reason |
-|-----------|------------|--------|
-| Database extensions | **HIGH** | Follows established auto-migration pattern from v1.3-v1.5 |
-| Thumbnail tracking | **HIGH** | ImageHash is mature library, perceptual hashing is proven technique |
-| Pacing analysis | **HIGH** | textstat + spaCy are production-ready, metrics well-defined |
-| Feedback loop | **HIGH** | Pure integration work, markdown parsing is straightforward |
-| Model assignments | **MEDIUM** | Model IDs verified, but exact SDK routing pattern unconfirmed |
-| Build order | **HIGH** | Parallelizable phases, clear dependency graph |
-| Integration | **HIGH** | Extends existing patterns without breaking changes |
+### Anti-Pattern 1: Trying to Automate NotebookLM Workflow
+
+**What people might do:** Build scraper to auto-download NotebookLM responses.
+
+**Why it's wrong:** NotebookLM has no API, scraping violates ToS, manual verification is the quality gate.
+
+**Do this instead:** Build tools that assist manual steps (source lists, citation extraction), accept human-in-loop.
+
+---
+
+### Anti-Pattern 2: Hard-Coding Voice Patterns in Script Generator
+
+**What people might do:** Add Python logic like "if sentence_type == 'causal': insert 'consequently'"
+
+**Why it's wrong:** Agent already reads reference docs, hard-coding creates two sources of truth, harder to update.
+
+**Do this instead:** Document patterns in STYLE-GUIDE.md, let agent apply naturally, validate with voice_checker.py.
+
+---
+
+### Anti-Pattern 3: Creating New Database Tables for Voice Patterns
+
+**What people might do:** Store sentence templates in keywords.db.
+
+**Why it's wrong:** Reference documents are primary data store (existing pattern), agents don't query databases directly.
+
+**Do this instead:** Keep patterns in markdown, version control with git, agents read files.
+
+---
+
+### Anti-Pattern 4: Building "Smart" Retention Predictor
+
+**What people might do:** ML model to predict retention from script features.
+
+**Why it's wrong:** ~15 videos insufficient for training, prediction creates false confidence, actionable insights > predictions.
+
+**Do this instead:** Pattern matching from past videos (descriptive), concrete recommendations based on what worked.
+
+---
+
+## Integration Testing Strategy
+
+### Test 1: Voice Pattern Application
+**Input:** Existing script without voice patterns
+**Process:** Run `/script` with enhanced STYLE-GUIDE.md
+**Expected:** Output uses documented patterns (causal chains, phrase library)
+**Validation:** voice_checker.py passes, manual review confirms style match
+
+### Test 2: NotebookLM Bridge End-to-End
+**Input:** Topic "Treaty of Tordesillas" + keywords
+**Process:**
+1. Run `/sources --notebooklm-prep`
+2. Manually download suggested PDFs
+3. Upload to NotebookLM
+4. Run queries, save responses
+5. Run `/sources --extract-citations RESPONSE.txt`
+**Expected:** SOURCE-LIST.md generated, citations extracted to VERIFIED-RESEARCH.md format
+**Validation:** Citations have page numbers, sources match SOURCE-LIST
+
+### Test 3: Retention Mapping
+**Input:** Video with retention data + script file
+**Process:** Run `/analyze VIDEO_ID --actionable`
+**Expected:** Retention drops mapped to sections, recommendations specific
+**Validation:** Section correlations accurate (±30s), recommendations reference past patterns
+
+---
+
+## Dependencies and Constraints
+
+### External Dependencies
+
+| Dependency | Current Version | v2.0 Impact |
+|------------|-----------------|-------------|
+| Python | 3.11-3.13 | No change (avoid 3.14 for spaCy) |
+| spaCy | 3.x | No change (existing for stumble checker) |
+| SQLite | 3.x | No change (schema v27 sufficient) |
+| YouTube Analytics API | v2 | No change (existing integration) |
+| NotebookLM | Web UI (no API) | Manual workflow dependency |
+
+### Internal Dependencies
+
+| Component | Depends On | v2.0 Change |
+|-----------|------------|-------------|
+| retention_mapper.py | production/parser.py | NEW dependency (section parsing) |
+| insights_generator.py | feedback_queries.py | NEW dependency (pattern queries) |
+| citation_extractor.py | None | Standalone (text parsing) |
+| notebooklm_bridge.py | None | Standalone (markdown generation) |
+
+### Constraints
+
+**1. NotebookLM Has No API**
+- Impact: All integration must support manual upload/download
+- Mitigation: Tool-assisted workflow, not automation
+
+**2. Small Dataset (~15 Videos)**
+- Impact: Pattern analysis limited, no ML predictions
+- Mitigation: Descriptive patterns only, no predictive models
+
+**3. Solo Creator Workflow**
+- Impact: Tools must be single-user friendly
+- Mitigation: CLI-based, no collaboration features needed
+
+**4. Backward Compatibility Required**
+- Impact: Can't break existing v1.6 workflows
+- Mitigation: Feature flags, optional parameters, extend not replace
 
 ---
 
 ## Sources
 
 **Architecture Patterns:**
-- Existing codebase patterns (error dict, auto-migration, lazy loading) - verified via code inspection
-- Python SQLite best practices - [SQLite Documentation](https://www.sqlite.org/lang_altertable.html)
-- CLI design patterns - [Click documentation](https://click.palletsprojects.com/)
+- [Python CLI Design Patterns](https://cli-guide.readthedocs.io/en/latest/design/patterns.html)
+- [Things I've learned about building CLI tools in Python](https://simonwillison.net/2023/Sep/30/cli-tools-python/)
+- [SQLite DB Migrations with PRAGMA user_version](https://levlaz.org/sqlite-db-migrations-with-pragma-user_version/)
+- [Simple declarative schema migration for SQLite](https://david.rothlis.net/declarative-schema-migration-for-sqlite/)
 
-**Database Design:**
-- SQLite JSON support - [JSON Functions](https://www.sqlite.org/json1.html)
-- Database migration strategies - [Alembic Documentation](https://alembic.sqlalchemy.org/)
-
-**Integration Patterns:**
-- Plugin architecture - [Python Import System](https://docs.python.org/3/reference/import.html)
-- Feature flags - [LaunchDarkly Best Practices](https://docs.launchdarkly.com/home/getting-started/feature-flags)
+**Existing Codebase:**
+- .planning/codebase/ARCHITECTURE.md (v1.6 baseline)
+- tools/youtube-analytics/analyze.py (orchestrator pattern)
+- tools/discovery/database.py (auto-migration pattern)
+- .claude/agents/script-writer-v2.md (reference hierarchy)
+- .claude/REFERENCE/STYLE-GUIDE.md (single source of truth)
 
 ---
 
-*Architecture research for: History vs Hype v1.6 Click & Keep*
-*Researched: 2026-02-06*
-*Confidence: HIGH*
+*Architecture research for: v2.0 Channel Intelligence Integration*
+*Researched: 2026-02-09*
