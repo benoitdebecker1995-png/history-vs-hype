@@ -509,7 +509,7 @@ Plans:
 **Goal**: Research workflow connects NotebookLM sources to verified research pipeline
 **Dependencies**: None (independent tooling)
 **Requirements**: NLMB-01, NLMB-02, NLMB-03
-**Plans**: TBD
+**Plans**: 2 plans
 
 **Success Criteria:**
 1. User can generate academic source list for a topic with university press titles, authors, ISBNs, and purchase/download links
@@ -517,6 +517,10 @@ Plans:
 3. User can access structured NotebookLM prompts for efficient fact extraction (targeted queries for claims, quotes, counter-evidence)
 4. Source list generation completes in under 5 minutes for typical history topic
 5. Citation extraction reduces manual copy-paste time by 5x
+
+Plans:
+- [ ] 34-01-PLAN.md — Source list generator (notebooklm_bridge.py + /sources --generate)
+- [ ] 34-02-PLAN.md — Citation extractor + prompt library (citation_extractor.py + prompts + /verify --extract-nlm)
 
 ### Phase 35: Actionable Analytics
 **Goal**: Analytics provide concrete fixes, not just data — retention drops mapped to script sections with recommendations
@@ -570,5 +574,5 @@ Plans:
 | 31. Feedback Loop Integration | v1.6 | 3/3 | Complete | 2026-02-09 |
 | 32. Model Assignment Refresh | v1.6 | 1/1 | Complete | 2026-02-09 |
 | 33. Voice Pattern Library | v2.0 | 2/2 | Complete | 2026-02-10 |
-| 34. NotebookLM Research Bridge | v2.0 | 0/TBD | Not started | - |
+| 34. NotebookLM Research Bridge | v2.0 | 0/2 | Not started | - |
 | 35. Actionable Analytics | v2.0 | 0/TBD | Not started | - |
