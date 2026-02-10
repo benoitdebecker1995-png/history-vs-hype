@@ -8,24 +8,23 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current State: v1.6 Shipped
+## Current Milestone: v2.0 Channel Intelligence
+
+**Goal:** Transform generic tools into channel-aware AI that knows your voice, audience, performance data, and research workflow — so every output is specific to History vs Hype, not generic YouTube advice.
+
+**Target features:**
+- Script generation that sounds like you (calm prosecutor voice, Kraut-style causal chains, real quotes with page numbers)
+- Research-to-NotebookLM bridge (tools that prepare sources and pull verified research back into scripts)
+- Actionable analytics (concrete script fixes from retention drops, thumbnail/title recommendations, topic strategy)
+
+**Problem statement:** v1.0-v1.6 built ~17K lines of tooling covering the full production cycle, but tool outputs don't match what's actually needed during production. Scripts don't sound like the creator, research tools and NotebookLM are disconnected, and analytics show data without actionable next steps.
+
+## Previous State: v1.6 Shipped
 
 **Last milestone:** v1.6 Click & Keep (shipped 2026-02-09)
 
-Systematic CTR and retention improvement system — track what works across thumbnails, titles, and script structure so each video is better than the last.
-
-- **Database Foundation:** Variant tables, CTR snapshots, section feedback columns
-- **Script Pacing Analysis:** PacingChecker with sentence variance, readability delta, entity density, sparkline energy arc
-- **Thumbnail & Title A/B Tracking:** CLI for registering variants, recording CTR, trend analysis, `/analyze` integration
-- **CTR Benchmarks Engine:** Verdict calculator with impression thresholds, channel-specific benchmarks by topic category
-- **Feedback Loop Integration:** Auto-parse POST-PUBLISH-ANALYSIS files, store insights, surface in `/script`, `/prep`, `/publish`
-- **Model Assignment Refresh:** 14 commands and 6 agents verified on Claude 4.x, documentation updated
-
-**Entry points:**
-- `/analyze VIDEO_ID` — full variant tracking + CTR analysis + feedback insights
-- `python tools/script-checkers/cli.py script.md --pacing` — pacing analysis before filming
-- `python tools/youtube-analytics/variants.py register-thumb VIDEO_ID A path.jpg` — register thumbnail variant
-- `python tools/youtube-analytics/feedback.py backfill` — import POST-PUBLISH-ANALYSIS data
+- CTR tracking, pacing analysis, feedback loop, model refresh
+- See `.planning/milestones/v1.6-ROADMAP.md` for details
 
 ## Requirements
 
@@ -127,13 +126,14 @@ Systematic CTR and retention improvement system — track what works across thum
 - Academic sourcing approach is the competitive advantage
 - Style is now consistent (STYLE-GUIDE.md authoritative)
 - Commands are discoverable (/help, /status)
-- Analytics integration provides learning feedback
-- Pattern recognition surfaces what's working
-- Script quality checkers catch issues before filming (including pacing analysis)
-- Voice fingerprinting learns personal delivery patterns
-- A/B tracking for thumbnails and titles with CTR trend analysis
-- Feedback loop auto-surfaces past insights during content creation
-- Model assignments verified for Claude 4.x lineup
+- Full production pipeline exists (research → script → production → publish → analyze)
+- Database infrastructure for performance, variants, CTR, feedback
+
+**What doesn't work well (v2.0 drivers):**
+- Script generation output doesn't match creator voice or integrate verified research
+- Research/discovery tools and NotebookLM workflow are disconnected
+- Analytics show data but don't provide actionable next steps
+- Tools exist but outputs don't match what's needed during actual production
 
 **Known tech debt:**
 - Library folder (728 files) needs manual cleanup
@@ -192,4 +192,4 @@ Systematic CTR and retention improvement system — track what works across thum
 
 ---
 
-*Last updated: 2026-02-09 after v1.6 milestone shipped*
+*Last updated: 2026-02-09 after v2.0 milestone started*
