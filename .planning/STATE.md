@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-11 (Phase 34 complete: NotebookLM Research Bridge)
+**Last Updated:** 2026-02-11 (Phase 35 Plan 02 complete: Topic Strategy & Pre-Script Insights)
 
 ## Project Reference
 
@@ -13,13 +13,13 @@ See: `.planning/PROJECT.md` (updated 2026-02-09)
 ## Current Position
 
 **Milestone:** v2.0 Channel Intelligence
-**Phase:** 34 of 35 (NotebookLM Research Bridge)
-**Plan:** 02 of 02 complete
-**Status:** Phase complete
-**Last activity:** 2026-02-11 — Completed Phase 34: NotebookLM Research Bridge (source generator + citation extractor + prompt library)
+**Phase:** 35 of 35 (Actionable Analytics)
+**Plan:** 02 of 03 complete
+**Status:** In progress
+**Last activity:** 2026-02-11 — Completed 35-02: Topic Strategy Aggregation & Pre-Script Insights (topic_strategy.py + extended feedback_queries.py)
 
 **Progress:**
-v1.0 [####################] 100% — Workspace Optimization (archived)
+[█████████░] 94%
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
@@ -93,13 +93,24 @@ v2.0 [#############       ] 67% — Channel Intelligence (Phase 34 complete: 2/3
 ### Last Session
 
 - **Date:** 2026-02-11
-- **Work:** Completed Phase 34 (NotebookLM Research Bridge — both plans)
-- **Output:** notebooklm_bridge.py, citation_extractor.py, NOTEBOOKLM-RESEARCH-PROMPTS.md, command updates
+- **Work:** Completed Phase 35 Plan 02 (Topic Strategy Aggregation & Pre-Script Insights)
+- **Output:** topic_strategy.py, extended feedback_queries.py with get_pre_script_insights()
 
 ### Next Session
 
 **Current work:** v2.0 Channel Intelligence — Phase 35 Actionable Analytics
-**Next action:** Plan Phase 35 (`/gsd:plan-phase 35`)
+**Next action:** Execute Plan 35-03 (Command Integration)
+
+**Phase 35 Progress (IN PROGRESS):**
+- ✅ 35-01 complete: Retention Mapper & Section Diagnostics
+  - retention_mapper.py — Maps retention curve to script sections
+  - Commit: 3e19cba
+- ✅ 35-02 complete: Topic Strategy & Pre-Script Insights
+  - topic_strategy.py (537 LOC) — Aggregates performance by topic with confidence flags
+  - feedback_queries.py extended (+242 lines) — get_pre_script_insights()
+  - Commits: 952bc13, 799efde
+- ⏳ 35-03 pending: Command Integration
+  - Wire topic_strategy and pre-script insights into /analyze and /script
 
 **Phase 34 Progress (COMPLETE):**
 - ✅ 34-01 complete: Academic Source List Generator
