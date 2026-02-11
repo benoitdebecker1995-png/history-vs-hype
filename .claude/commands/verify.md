@@ -14,6 +14,7 @@ Fact-check scripts, extract claims from transcripts, or run simplification detec
 /verify --script [project]   # Fact-check a script
 /verify --extract [file]     # Extract claims from transcript
 /verify --simplify [project] # Run simplification detection only
+/verify --extract-nlm [file] # Extract citations from NotebookLM output
 ```
 
 ## Flags
@@ -24,6 +25,7 @@ Fact-check scripts, extract claims from transcripts, or run simplification detec
 | `--extract` | Extract claims from YouTube transcript | `/verify --extract transcript.vtt` |
 | `--simplify` | Simplification detection only | `/verify --simplify 19-flat-earth-medieval-2025` |
 | `--from-transcript` | Extract + fact-check workflow | `/verify --from-transcript video-url` |
+| `--extract-nlm` | Extract citations from NotebookLM output | `/verify --extract-nlm nlm-output.txt` |
 
 ---
 
@@ -242,6 +244,71 @@ Extract factual claims from YouTube video transcript for systematic fact-checkin
 ### Output Location
 
 `video-projects/[project]/CLAIMS-TO-VERIFY.md`
+
+---
+
+## NOTEBOOKLM CITATION EXTRACTION (`--extract-nlm`)
+
+Extract structured citations from NotebookLM chat output using the Python CLI tool.
+
+### Usage
+
+```bash
+python tools/citation_extractor.py INPUT_FILE [--output FILE] [--format detailed|compact] [--stats-only]
+```
+
+### Process
+
+1. User copies NotebookLM chat response into a `.txt` or `.md` file
+2. Tool parses citation markers ([1], [2]) and source references
+3. Produces NOTEBOOKLM-EXTRACTIONS.md with claims in VERIFIED-RESEARCH.md format
+4. User reviews extractions and copies verified claims to 01-VERIFIED-RESEARCH.md
+
+### Arguments
+
+| Argument | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `input` | Yes | - | Path to file with pasted NotebookLM output |
+| `--output` | No | Same dir as input | Output file path |
+| `--format` | No | detailed | Output format: detailed (full checklist) or compact (table) |
+| `--stats-only` | No | - | Print stats without writing file |
+
+### Output Format
+
+Each extracted citation includes:
+- Claim text (cleaned of citation markers)
+- Source with page number
+- Verification status (starts as NEEDS REVIEW)
+- Checklist for verification steps
+
+**Example output:**
+```markdown
+### Claim 1
+**Claim:** Roman literacy rates were approximately 10-15% of the population
+**Source:** Harris, William V, Ancient Literacy, p. 22
+**Status:** NEEDS REVIEW
+
+**Verification:**
+- [ ] Verify claim accuracy against source
+- [ ] Confirm page number
+- [ ] Update status: VERIFIED / UNVERIFIABLE / PARTIALLY TRUE
+- [ ] Copy to 01-VERIFIED-RESEARCH.md when verified
+```
+
+### Supported Citation Formats
+
+The tool recognizes multiple NotebookLM output formats:
+- **[1], [2] markers** with source legend at bottom (most common)
+- **SOURCES:** section with numbered list
+- **Inline parenthetical** citations
+
+### Optimized Prompts
+
+For best extraction results, use prompts from `.claude/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md` — designed to produce extractor-compatible output with [N] citation markers and page numbers.
+
+### Output Location
+
+`NOTEBOOKLM-EXTRACTIONS.md` in same directory as input file (or custom path with `--output`)
 
 ---
 
