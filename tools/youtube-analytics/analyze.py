@@ -80,6 +80,16 @@ try:
 except ImportError:
     FEEDBACK_AVAILABLE = False
 
+# Try to import diagnostics (Phase 35)
+try:
+    from retention_mapper import map_retention_to_sections, format_mapped_drops_table
+    from section_diagnostics import diagnose_all_drops, format_diagnostics_markdown
+    sys.path.insert(0, str(Path(__file__).parent.parent / 'production'))
+    from parser import ScriptParser
+    DIAGNOSTICS_AVAILABLE = True
+except ImportError:
+    DIAGNOSTICS_AVAILABLE = False
+
 
 # Determine project root (2 levels up from tools/youtube-analytics/)
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -251,6 +261,78 @@ def save_analysis(analysis: dict, output_path: str = None) -> dict:
         'project_folder_found': project_folder_found,
         'feedback_stored': feedback_stored
     }
+
+
+def generate_section_diagnostics(video_id: str, script_path: str) -> dict:
+    """
+    Generate section-level retention diagnostics for a video.
+
+    Maps retention drop points to specific script sections and generates
+    actionable recommendations based on anti-pattern detection.
+
+    Args:
+        video_id: YouTube video ID
+        script_path: Path to script markdown file
+
+    Returns:
+        dict with:
+            'status': 'success' or 'error'
+            'mapped_drops': [...] - List of mapped drop dicts (if success)
+            'diagnostics': [...] - List of diagnosis dicts (if success)
+            'summary_table': str - Formatted markdown table (if success)
+            'error': str - Error message (if error)
+    """
+    if not DIAGNOSTICS_AVAILABLE:
+        return {'error': 'Diagnostics modules not available (retention_mapper or section_diagnostics not imported)'}
+
+    try:
+        # Check script file exists
+        script_file = Path(script_path)
+        if not script_file.exists():
+            return {'error': f'Script file not found: {script_path}'}
+
+        # Get retention data
+        from retention import get_retention_data, find_drop_off_points
+        retention_data = get_retention_data(video_id)
+
+        if 'error' in retention_data:
+            return {'error': f'Could not fetch retention data: {retention_data["error"]}'}
+
+        # Find drop-off points
+        data_points = retention_data.get('data_points', [])
+        drops = find_drop_off_points(data_points)
+
+        if not drops:
+            return {'error': 'No retention drops detected'}
+
+        # Parse script
+        parser = ScriptParser()
+        sections = parser.parse_file(str(script_file))
+
+        if not sections:
+            return {'error': 'Could not parse script sections'}
+
+        # Map drops to sections
+        mapped_drops = map_retention_to_sections(drops, sections)
+
+        if not mapped_drops:
+            return {'error': 'Could not map drops to sections'}
+
+        # Generate diagnostics
+        diagnostics = diagnose_all_drops(mapped_drops, sections)
+
+        # Format summary table
+        summary_table = format_mapped_drops_table(mapped_drops)
+
+        return {
+            'status': 'success',
+            'mapped_drops': mapped_drops,
+            'diagnostics': diagnostics,
+            'summary_table': summary_table
+        }
+
+    except Exception as e:
+        return {'error': f'Section diagnostics failed: {str(e)}'}
 
 
 def extract_video_id(url_or_id: str) -> str:
@@ -1164,6 +1246,29 @@ def format_analysis_markdown(analysis: dict) -> str:
             lines.append(f"> **Warning:** {thumb['freshness_warning']}")
             lines.append("")
 
+    # --- Section-Level Retention Diagnostics (Phase 35) ---
+    section_diagnostics = analysis.get('section_diagnostics')
+    if section_diagnostics and section_diagnostics.get('status') == 'success':
+        lines.append("## Section-Level Retention Analysis")
+        lines.append("")
+
+        # Retention Drop Map
+        lines.append("### Retention Drop Map")
+        lines.append("")
+        summary_table = section_diagnostics.get('summary_table', '')
+        if summary_table:
+            lines.append(summary_table)
+        lines.append("")
+
+        # Diagnostics
+        diagnostics_list = section_diagnostics.get('diagnostics', [])
+        if diagnostics_list:
+            lines.append("### Diagnostics")
+            lines.append("")
+            diagnostics_md = format_diagnostics_markdown(diagnostics_list)
+            lines.append(diagnostics_md)
+        lines.append("")
+
     # --- Feedback Insights Section (Phase 31) ---
     if FEEDBACK_AVAILABLE:
         try:
@@ -1219,6 +1324,7 @@ if __name__ == '__main__':
         print("  --ctr VALUE     Provide manual CTR (e.g., --ctr 4.5)")
         print("  --save          Save analysis to file (project folder or fallback)")
         print("  --output PATH   Save to specific path (implies --save)")
+        print("  --script PATH   Add section-level retention diagnostics with script mapping")
         print("")
         print("Examples:")
         print("  python analyze.py wCFReiCGiks")
@@ -1227,6 +1333,7 @@ if __name__ == '__main__':
         print("  python analyze.py wCFReiCGiks --save --output ./custom/analysis.md")
         print("  python analyze.py https://youtu.be/wCFReiCGiks")
         print("  python analyze.py wCFReiCGiks --ctr 4.5 --markdown --save")
+        print("  python analyze.py wCFReiCGiks --script path/to/script.md --save")
         sys.exit(1)
 
     # Parse arguments
@@ -1235,8 +1342,9 @@ if __name__ == '__main__':
     do_save = '--save' in sys.argv
     manual_ctr = None
     output_path = None
+    script_path = None
 
-    # Parse --ctr and --output arguments
+    # Parse --ctr, --output, and --script arguments
     args = sys.argv[2:]
     for i, arg in enumerate(args):
         if arg == '--ctr' and i + 1 < len(args):
@@ -1253,9 +1361,27 @@ if __name__ == '__main__':
         elif arg == '--output' and i + 1 < len(args):
             output_path = args[i + 1]
             do_save = True  # --output implies --save
+        elif arg == '--script' and i + 1 < len(args):
+            script_path = args[i + 1]
 
     # Run analysis
     analysis = run_analysis(video_input, manual_ctr=manual_ctr)
+
+    # Run section diagnostics if --script provided
+    section_diagnostics_result = None
+    if script_path:
+        try:
+            video_id = extract_video_id(video_input)
+            section_diagnostics_result = generate_section_diagnostics(video_id, script_path)
+
+            if 'error' in section_diagnostics_result:
+                print(f"\nWarning: Section diagnostics failed: {section_diagnostics_result['error']}")
+                section_diagnostics_result = None
+            else:
+                # Add to analysis for markdown formatting
+                analysis['section_diagnostics'] = section_diagnostics_result
+        except Exception as e:
+            print(f"\nWarning: Section diagnostics error: {str(e)}")
 
     # Output to stdout
     if output_markdown or do_save:
