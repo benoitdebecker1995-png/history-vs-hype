@@ -49,18 +49,47 @@ Generate a script using the script-writer-v2 agent.
 - **`.claude/REFERENCE/CREATOR-PHRASE-LIBRARY.md`** - Natural language from Kraut, Knowing Better, Shaun, Alex O'Connor
 - **`.claude/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md`** - **NEW** Pre-filming polish (Iran Part 1 lessons)
 
-## Feedback Insights (Automatic)
+## PRE-SCRIPT INTELLIGENCE
 
-Before writing the script, surface past performance insights relevant to this topic.
+Before generating a script, the system automatically surfaces relevant past performance insights.
+
+### Automatic Display
+
+When topic type is known (territorial, ideological, fact-check, general), the system displays:
+- **Topic Performance:** How this topic type has performed historically (retention, conversion)
+- **Retention Lessons:** What caused viewer drop-offs in similar past videos
+- **Suggested Patterns:** Which STYLE-GUIDE.md Part 6 voice patterns work best for this topic type
+
+### How to Use
+
+The pre-script intelligence block appears automatically before script generation begins.
+Use these insights to inform structure decisions:
+- If past territorial videos lost viewers during treaty text → show treaty on screen instead
+- If causal chains correlated with high retention → prioritize "which meant that" transitions
+- If topic type has low sample size → insights flagged as "low confidence"
+
+### Technical Details
+
+Insights come from:
+- `tools/youtube-analytics/feedback_queries.py` → `get_pre_script_insights(topic_type)`
+- `tools/youtube-analytics/topic_strategy.py` → `generate_topic_strategy()`
+- Past POST-PUBLISH-ANALYSIS data stored in keywords.db
+
+### Requirements
+
+- At least 1 past video of the same topic type must exist in the feedback database
+- Run `python tools/youtube-analytics/feedback.py backfill` to populate feedback data
+
+### Implementation (For Claude)
 
 **Run this automatically (do not ask user):**
 ```bash
 cd tools/youtube-analytics && python -c "
-from feedback_queries import get_insights_preamble
+from feedback_queries import get_pre_script_insights
 topic = '{topic_type}'  # Determine from user's topic (territorial, ideological, colonial, legal)
-preamble = get_insights_preamble(topic, 'script')
-if preamble:
-    print(preamble)
+insights = get_pre_script_insights(topic)
+if insights:
+    print(insights)
 else:
     print('No past performance insights available yet. Run: python feedback.py backfill')
 "
@@ -68,11 +97,9 @@ else:
 
 **Topic type detection:** When user describes their topic, classify into: territorial, ideological, colonial, legal, general. Use this classification for the query.
 
-**Display the insights preamble** at the start of your response before proceeding with script generation. This gives the user context about what worked/failed in similar past videos.
+**Display the insights block** at the start of your response before proceeding with script generation. This gives the user context about what worked/failed in similar past videos.
 
 **If no insights available:** Skip silently. Do not block script generation.
-
-**Insight types for /script:** Content and pacing insights (retention drops, section structure, hook effectiveness).
 
 ## Format Template Selection (NEW - 2026-01-04)
 
@@ -156,7 +183,17 @@ After classifying video type, check `.claude/REFERENCE/coverage-audit.md` Covera
 
 ## Write the Script
 
-Use the script-writer-v2 agent guidelines:
+### Workflow Steps
+
+1. **Surface pre-script intelligence** (automatic)
+   - Determine topic type from user input or project metadata
+   - Call `get_pre_script_insights(topic_type)` to load past lessons
+   - Display intelligence block to user before proceeding with script generation
+   - Use insights to inform structure, pacing, and pattern choices
+
+2. **Gather information and context** (see sections above)
+
+3. **Generate script** using script-writer-v2 agent guidelines below
 
 ### Hard Constraints
 - **VERBATIM facts only** - Copy exactly from research
