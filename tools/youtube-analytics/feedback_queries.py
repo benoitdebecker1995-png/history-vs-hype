@@ -38,6 +38,13 @@ try:
 except ImportError:
     PATTERN_EXTRACTOR_AVAILABLE = False
 
+# Optional topic_strategy integration
+try:
+    from topic_strategy import generate_topic_strategy
+    TOPIC_STRATEGY_AVAILABLE = True
+except ImportError:
+    TOPIC_STRATEGY_AVAILABLE = False
+
 
 # =========================================================================
 # INSIGHT RETRIEVAL FUNCTIONS
@@ -531,6 +538,241 @@ def generate_patterns_report() -> dict:
         'winning': winning,
         'generated_at': datetime.utcnow().isoformat()
     }
+
+
+# =========================================================================
+# PRE-SCRIPT INSIGHT SURFACING
+# =========================================================================
+
+def get_pre_script_insights(topic_type: str, limit: int = 5) -> dict:
+    """
+    Get comprehensive pre-script insights combining multiple sources.
+
+    Surfaces retention lessons, topic strategy summary, and pattern suggestions
+    BEFORE /script generation. Replaces get_insights_preamble for /script context.
+
+    Args:
+        topic_type: Topic category (territorial, ideological, colonial, legal, general)
+        limit: Max number of past videos to reference for retention lessons
+
+    Returns:
+        Dict with structured insights:
+            {
+                'topic_type': str,
+                'video_count': int,
+                'confidence': 'high' | 'medium' | 'low',
+                'retention_lessons': [
+                    {
+                        'lesson': 'Lost 12% viewers at treaty text section',
+                        'recommendation': 'Show treaty on screen, don\'t read aloud',
+                        'source_video': 'Belize (2025-01-15)',
+                        'drop_magnitude': 0.12
+                    }
+                ],
+                'topic_strategy_summary': str,
+                'pattern_suggestions': [str],
+                'display_text': str
+            }
+    """
+    # Get topic-specific feedback
+    topic_insights = get_insights_for_topic(topic_type, command='script', limit=limit)
+    video_count = topic_insights.get('count', 0)
+
+    # Determine confidence based on video count
+    if video_count >= 5:
+        confidence = 'high'
+    elif video_count >= 3:
+        confidence = 'medium'
+    else:
+        confidence = 'low'
+
+    # Extract retention lessons from topic insights
+    retention_lessons = []
+    for insight in topic_insights.get('insights', []):
+        observation = insight.get('observation', '')
+        video_title = insight.get('title', 'Unknown')
+
+        # Parse retention-related observations
+        # Look for patterns like "lost X%", "drop", "retention", etc.
+        if any(kw in observation.lower() for kw in ['lost', 'drop', 'retention', 'viewers left']):
+            # Try to extract drop magnitude if present
+            drop_magnitude = 0.0
+            obs_lower = observation.lower()
+            # Simple regex-free extraction: look for "XX%" patterns
+            words = obs_lower.replace('%', ' % ').split()
+            for i, word in enumerate(words):
+                if word == '%' and i > 0:
+                    try:
+                        drop_magnitude = float(words[i-1]) / 100
+                        break
+                    except:
+                        pass
+
+            # Extract recommendation if present (after "should", "could", "try")
+            recommendation = ''
+            for marker in [' should ', ' could ', ' try ', ' recommend ']:
+                if marker in obs_lower:
+                    parts = observation.split(marker, 1)
+                    if len(parts) > 1:
+                        recommendation = parts[1].strip()
+                        break
+
+            if not recommendation:
+                recommendation = 'Review section for engagement issues'
+
+            retention_lessons.append({
+                'lesson': observation,
+                'recommendation': recommendation,
+                'source_video': video_title,
+                'drop_magnitude': drop_magnitude
+            })
+
+    # Get topic strategy summary if available
+    topic_strategy_summary = ''
+    if TOPIC_STRATEGY_AVAILABLE:
+        try:
+            strategy = generate_topic_strategy()
+            if 'error' not in strategy:
+                # Find stats for this topic type
+                for stat in strategy.get('topic_stats', []):
+                    if stat['topic'] == topic_type:
+                        topic_strategy_summary = (
+                            f"{topic_type}: {stat['avg_conversion']:.2f}% conversion, "
+                            f"{stat['avg_retention']:.1f}% retention "
+                            f"({stat['confidence']} confidence, {stat['video_count']} videos)"
+                        )
+                        break
+        except:
+            pass  # Fail gracefully
+
+    # Generate pattern suggestions based on topic type
+    pattern_suggestions = _generate_pattern_suggestions(topic_type, retention_lessons)
+
+    # Build display text
+    display_text = format_pre_script_display({
+        'topic_type': topic_type,
+        'video_count': video_count,
+        'confidence': confidence,
+        'retention_lessons': retention_lessons[:3],  # Top 3
+        'topic_strategy_summary': topic_strategy_summary,
+        'pattern_suggestions': pattern_suggestions
+    })
+
+    return {
+        'topic_type': topic_type,
+        'video_count': video_count,
+        'confidence': confidence,
+        'retention_lessons': retention_lessons,
+        'topic_strategy_summary': topic_strategy_summary,
+        'pattern_suggestions': pattern_suggestions,
+        'display_text': display_text
+    }
+
+
+def _generate_pattern_suggestions(topic_type: str, retention_lessons: List[dict]) -> List[str]:
+    """
+    Generate pattern suggestions based on topic type and retention lessons.
+
+    Args:
+        topic_type: Video topic category
+        retention_lessons: List of retention lesson dicts
+
+    Returns:
+        List of pattern suggestion strings
+    """
+    suggestions = []
+
+    # Topic-specific pattern suggestions (referencing STYLE-GUIDE.md Part 6)
+    topic_patterns = {
+        'territorial': [
+            'Use zero-impact moments for dramatic numerical reveals (STYLE-GUIDE Part 6.4 Pattern 2)',
+            'Show treaties/maps on screen rather than describing (STYLE-GUIDE Part 3)'
+        ],
+        'ideological': [
+            'Apply intellectual honesty pattern when addressing opposing views (STYLE-GUIDE Part 6.2 Pattern 1)',
+            'Use causal chains to show historical consequences (STYLE-GUIDE Part 6.1 Pattern 3)'
+        ],
+        'legal': [
+            'Display legal documents as primary evidence (STYLE-GUIDE Part 3)',
+            'Use precise legal terminology with immediate definitions (STYLE-GUIDE Part 6.1 Pattern 5)'
+        ],
+        'colonial': [
+            'Emphasize causal chains between colonial actions and modern consequences (STYLE-GUIDE Part 6.1 Pattern 3)',
+            'Use comparative framing to show patterns across regions (STYLE-GUIDE Part 6.3 Pattern 1)'
+        ]
+    }
+
+    # Add topic-specific patterns
+    if topic_type in topic_patterns:
+        suggestions.extend(topic_patterns[topic_type][:2])  # Max 2 per topic
+
+    # Add retention-driven suggestions
+    if retention_lessons:
+        # Check for common drop patterns
+        early_drops = [l for l in retention_lessons if l['drop_magnitude'] > 0.10]
+        if early_drops:
+            suggestions.append(
+                'Consider adding pattern interrupt (rhetorical question, document reveal) '
+                'to prevent early viewer drop (STYLE-GUIDE Part 6.4)'
+            )
+
+    return suggestions[:3]  # Max 3 suggestions
+
+
+def format_pre_script_display(insights: dict) -> str:
+    """
+    Format pre-script insights as compact, readable block for display.
+
+    Args:
+        insights: Dict with topic_type, confidence, retention_lessons,
+                 topic_strategy_summary, pattern_suggestions
+
+    Returns:
+        Pre-formatted text block ready to display, or empty string if no insights
+    """
+    topic = insights.get('topic_type', 'unknown')
+    confidence = insights.get('confidence', 'low')
+    video_count = insights.get('video_count', 0)
+    retention_lessons = insights.get('retention_lessons', [])
+    strategy_summary = insights.get('topic_strategy_summary', '')
+    pattern_suggestions = insights.get('pattern_suggestions', [])
+
+    # If no data, return empty
+    if not (retention_lessons or strategy_summary or pattern_suggestions):
+        return ''
+
+    lines = [
+        f"--- Pre-Script Intelligence ({topic}, {confidence} confidence) ---",
+        ''
+    ]
+
+    # Topic performance summary
+    if strategy_summary:
+        lines.append(f"Topic Performance: {strategy_summary}")
+        lines.append('')
+
+    # Retention lessons
+    if retention_lessons:
+        lines.append(f"Retention Lessons ({video_count} past video{'s' if video_count != 1 else ''}):")
+        for lesson in retention_lessons:
+            source = lesson.get('source_video', 'Unknown')
+            observation = lesson.get('lesson', '')[:80]  # Truncate
+            recommendation = lesson.get('recommendation', '')[:60]
+            lines.append(f"- [{source}]: {observation}")
+            if recommendation:
+                lines.append(f"  -> {recommendation}")
+        lines.append('')
+
+    # Pattern suggestions
+    if pattern_suggestions:
+        lines.append('Suggested Patterns:')
+        for suggestion in pattern_suggestions:
+            lines.append(f"- {suggestion}")
+        lines.append('')
+
+    lines.append('---')
+
+    return '\n'.join(lines)
 
 
 # =========================================================================
