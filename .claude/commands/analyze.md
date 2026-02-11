@@ -10,12 +10,13 @@ Run comprehensive performance analysis for a published video with automated less
 ## Usage
 
 ```
-/analyze VIDEO_ID_OR_URL [--ctr VALUE]
+/analyze VIDEO_ID_OR_URL [--ctr VALUE] [--script PATH]
 ```
 
 **Arguments:**
 - `VIDEO_ID_OR_URL`: YouTube video ID or full URL (required)
 - `--ctr VALUE`: Manually provide CTR percentage from YouTube Studio (optional)
+- `--script PATH`: Path to script file for section-level retention analysis (optional)
 
 ## What It Does
 
@@ -47,6 +48,7 @@ Run comprehensive performance analysis for a published video with automated less
 /analyze wCFReiCGiks
 /analyze https://youtu.be/wCFReiCGiks
 /analyze wCFReiCGiks --ctr 4.2
+/analyze wCFReiCGiks --script video-projects/_ARCHIVED/1-belize-2025/SCRIPT.md
 ```
 
 ## Output
@@ -76,6 +78,52 @@ Then:
 
 - YouTube Analytics API configured (Phase 7)
 - OAuth token valid (`tools/youtube-analytics/credentials/token.json`)
+
+## SECTION-LEVEL RETENTION DIAGNOSTICS (`--script`)
+
+When a script file is provided, the system maps retention drops to specific script sections and provides actionable fix recommendations.
+
+### How It Works
+
+1. Fetches retention curve from YouTube Analytics API
+2. Parses script into H2 sections with word counts
+3. Maps retention drop points to sections using word-count-based timing (150 WPM)
+4. Diagnoses root causes for each drop
+5. Recommends specific voice patterns from STYLE-GUIDE.md Part 6
+
+### Output
+
+- **Retention Drop Map:** Table showing which sections lost viewers, with magnitude and severity
+- **Section Diagnostics:** Root cause analysis with specific pattern recommendations
+- Each recommendation references exact STYLE-GUIDE.md Part 6 patterns
+
+### Requirements
+
+- Video must have retention data (published and >48 hours old)
+- Script file must be a markdown file with H2 section headings
+
+### Example
+
+```bash
+/analyze wCFReiCGiks --script video-projects/_ARCHIVED/1-belize-2025/SCRIPT.md
+```
+
+Output includes:
+- Retention Drop Map table (sorted by severity: HIGH > MEDIUM > LOW)
+- Diagnostics with root causes (abstract opening, missing causal chains, no evidence introduction, etc.)
+- Recommended fixes with specific voice patterns to apply
+- Insertion hints for where to add patterns
+
+### Anti-Patterns Detected
+
+- Abstract opening (starts with "The concept", "To understand")
+- Missing causal chains (no "consequently", "thereby", "which meant that")
+- No evidence introduction (no "according to", page numbers, quotes)
+- Missing modern relevance (no "today", "2024", "2025", etc.)
+- Long sections without pacing variation
+- Weak opening hook (section-specific for intro drops)
+
+---
 
 ## Note on CTR
 
