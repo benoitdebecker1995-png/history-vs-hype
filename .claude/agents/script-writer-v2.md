@@ -467,13 +467,20 @@ Apply rhythm patterns from Part 6.4:
 - Use short fragments for emphasis (not information delivery)
 - Follow long complex sentences with short declaratives
 
-**E. After completing draft, note which patterns were applied:**
+**E. Closing -- FINAL SECTION:**
+Select one closing pattern from Part 6.5 that matches the video type:
+- Territorial disputes: "Return to Overlooked Stakeholders" (end with excluded group)
+- Document discovery: "Unanswered Question" (pivot from past to present)
+- General/myth-busting: "Modern Relevance Closing" (connect to current discourse)
+
+**F. After completing draft, note which patterns were applied:**
 At the end of SCRIPT METADATA section, add:
 ```
 ## VOICE PATTERNS APPLIED
 - Opening: [formula name from Part 6.1]
 - Key transitions: [list 2-3 transition patterns used]
 - Evidence patterns: [which Part 6.3 patterns used]
+- Closing: [formula name from Part 6.5]
 ```
 
 This helps user validate pattern application without manual cross-checking.
@@ -782,7 +789,8 @@ Quick reference:
 - [ ] Evidence follows 3-step pattern: setup -> quote -> implication
 - [ ] Sentence rhythm varies (fragments for emphasis, flowing sentences for information)
 - [ ] "Here's" count: 2-4 per script (check with Ctrl+F)
-- [ ] No forbidden phrases from Part 6.5 (check with Ctrl+F)
+- [ ] Closing uses proven formula from Part 6.5 (not generic sign-off)
+- [ ] No forbidden phrases from Part 6.6 (check with Ctrl+F)
 - [ ] No channel DNA violations (clickbait, casual CTAs, hedging language)
 - [ ] VOICE PATTERNS APPLIED section added to script metadata
 
@@ -858,6 +866,7 @@ Case name, year, outcome, quote attribution all correct.
 - **Opening:** [formula name from Part 6.1]
 - **Key transitions:** [list 2-3 transition patterns used]
 - **Evidence patterns:** [which Part 6.3 patterns used]
+- **Closing:** [formula name from Part 6.5]
 
 ## RETENTION MECHANICS
 - **Pattern interrupts:** [timestamps]
