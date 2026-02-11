@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-11 (34-01 complete: Academic Source List Generator)
+**Last Updated:** 2026-02-11 (Phase 34 complete: NotebookLM Research Bridge)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-09)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** Phase 33 - Voice Pattern Library
+**Current focus:** v2.0 Channel Intelligence — Phase 35 next
 
 ## Current Position
 
 **Milestone:** v2.0 Channel Intelligence
 **Phase:** 34 of 35 (NotebookLM Research Bridge)
-**Plan:** 01 of 02 complete
-**Status:** In progress
-**Last activity:** 2026-02-11 — Completed 34-01: Academic Source List Generator (notebooklm_bridge.py CLI tool)
+**Plan:** 02 of 02 complete
+**Status:** Phase complete
+**Last activity:** 2026-02-11 — Completed Phase 34: NotebookLM Research Bridge (source generator + citation extractor + prompt library)
 
 **Progress:**
 v1.0 [####################] 100% — Workspace Optimization (archived)
@@ -26,7 +26,7 @@ v1.3 [####################] 100% — Niche Discovery (archived)
 v1.4 [####################] 100% — Learning Loop (archived)
 v1.5 [####################] 100% — Production Acceleration (archived)
 v1.6 [####################] 100% — Click & Keep (archived)
-v2.0 [########            ] 40% — Channel Intelligence (Phase 34 in progress: 1/2 plans)
+v2.0 [#############       ] 67% — Channel Intelligence (Phase 34 complete: 2/3 phases done)
 
 ## Milestone History
 
@@ -83,29 +83,42 @@ v2.0 [########            ] 40% — Channel Intelligence (Phase 34 in progress: 
 - `python tools/youtube-analytics/feedback.py query --topic territorial` — query insights
 - `python tools/youtube-analytics/feedback.py patterns` — feedback pattern report
 
+**NotebookLM Research Bridge (v2.0):**
+- `python tools/notebooklm_bridge.py "TOPIC" --type TYPE --output DIR` — generate academic source list
+- `python tools/citation_extractor.py nlm-output.txt --format detailed` — extract NotebookLM citations
+- `.claude/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md` — copy-paste research prompts
+
 ## Session Continuity
 
 ### Last Session
 
 - **Date:** 2026-02-11
-- **Work:** Completed 34-01 (Academic Source List Generator)
-- **Output:** notebooklm_bridge.py CLI tool, /sources --generate command
+- **Work:** Completed Phase 34 (NotebookLM Research Bridge — both plans)
+- **Output:** notebooklm_bridge.py, citation_extractor.py, NOTEBOOKLM-RESEARCH-PROMPTS.md, command updates
 
 ### Next Session
 
-**Current work:** v2.0 Channel Intelligence — Phase 34 NotebookLM Research Bridge
-**Next action:** Begin 34-02 (Citation extraction from NotebookLM responses)
+**Current work:** v2.0 Channel Intelligence — Phase 35 Actionable Analytics
+**Next action:** Plan Phase 35 (`/gsd:plan-phase 35`)
+
+**Phase 34 Progress (COMPLETE):**
+- ✅ 34-01 complete: Academic Source List Generator
+  - notebooklm_bridge.py (316 LOC) — Claude API source generation
+  - /sources --generate command added
+  - Commits: fc7c4d1, 0880481
+- ✅ 34-02 complete: Citation Extractor + Prompt Library
+  - citation_extractor.py (356 LOC) — regex-based NotebookLM parsing
+  - NOTEBOOKLM-RESEARCH-PROMPTS.md (404 lines) — 5+ core prompts
+  - /verify --extract-nlm command added
+  - Commits: 98ee560, 1e82cf0, 402139d
 
 **Phase 33 Progress (COMPLETE):**
 - ✅ 33-01 complete: Voice Pattern Library extracted
   - 22 patterns documented with formulas, examples, templates
-  - Patterns from Belize (23K views), Vance (42.6% retention)
   - STYLE-GUIDE.md Part 6 created, Part 7 renumbered
   - Commit: 6e404b5
 - ✅ 33-02 complete: Agent integration
   - script-writer-v2 Rule 14 added (Part 6 pattern application)
-  - 9-item voice pattern checklist in pre-output validation
-  - VOICE PATTERNS APPLIED metadata section
   - Commit: a395c6d
 
 ## Accumulated Context
@@ -116,13 +129,12 @@ v2.0 [########            ] 40% — Channel Intelligence (Phase 34 in progress: 
 - Goal: Scripts match creator's proven voice patterns
 - Approach: Reference document expansion (STYLE-GUIDE.md Part 6)
 - Zero new code required
-- Status: 100% complete (2 of 2 plans done)
 - Output: 22 patterns + agent integration
 
-**Phase 34: NotebookLM Research Bridge** (NLMB-01 to NLMB-03)
+**Phase 34: NotebookLM Research Bridge** (NLMB-01 to NLMB-03) ✅ COMPLETE
 - Goal: Research workflow connects NotebookLM to verified research
-- Approach: Format converters and source recommenders
-- No API automation (manual workflow preserved)
+- Approach: Python CLI tools + reference doc + command updates
+- Output: notebooklm_bridge.py + citation_extractor.py + prompt library
 
 **Phase 35: Actionable Analytics** (ACTN-01 to ACTN-04)
 - Goal: Retention mapping with concrete fixes
@@ -139,6 +151,7 @@ v2.0 [########            ] 40% — Channel Intelligence (Phase 34 in progress: 
 - keywords.db schema version 27 (auto-migration with PRAGMA user_version)
 - External packages (trendspyg, scrapetube) optional - graceful degradation
 - Feature flags: VARIANTS_AVAILABLE, BENCHMARKS_AVAILABLE, FEEDBACK_AVAILABLE for graceful import
+- anthropic SDK required for notebooklm_bridge.py (`pip install anthropic>=0.40.0`)
 
 ### Known Issues
 
@@ -146,7 +159,6 @@ v2.0 [########            ] 40% — Channel Intelligence (Phase 34 in progress: 
 - spaCy 3.8 dependency (Pydantic v1) incompatible with Python 3.14.2
 - Stumble and flow checkers work on Python 3.11-3.13
 - Scaffolding and repetition checkers work on all Python versions
-- **v2.0 blocker:** Python 3.14 → 3.13 downgrade required before Phase 34/35 development
 
 **Voice Fingerprinting Setup:**
 - User must install srt library (`pip install srt`)
@@ -159,4 +171,4 @@ v2.0 [########            ] 40% — Channel Intelligence (Phase 34 in progress: 
 
 ---
 
-*State updated: 2026-02-10 after v2.0 roadmap creation*
+*State updated: 2026-02-11 after Phase 34 completion*

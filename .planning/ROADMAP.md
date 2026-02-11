@@ -519,8 +519,8 @@ Plans:
 5. Citation extraction reduces manual copy-paste time by 5x
 
 Plans:
-- [ ] 34-01-PLAN.md — Source list generator (notebooklm_bridge.py + /sources --generate)
-- [ ] 34-02-PLAN.md — Citation extractor + prompt library (citation_extractor.py + prompts + /verify --extract-nlm)
+- [x] 34-01-PLAN.md — Source list generator (notebooklm_bridge.py + /sources --generate)
+- [x] 34-02-PLAN.md — Citation extractor + prompt library (citation_extractor.py + prompts + /verify --extract-nlm)
 
 ### Phase 35: Actionable Analytics
 **Goal**: Analytics provide concrete fixes, not just data — retention drops mapped to script sections with recommendations
@@ -574,5 +574,5 @@ Plans:
 | 31. Feedback Loop Integration | v1.6 | 3/3 | Complete | 2026-02-09 |
 | 32. Model Assignment Refresh | v1.6 | 1/1 | Complete | 2026-02-09 |
 | 33. Voice Pattern Library | v2.0 | 2/2 | Complete | 2026-02-10 |
-| 34. NotebookLM Research Bridge | v2.0 | 0/2 | Not started | - |
+| 34. NotebookLM Research Bridge | v2.0 | 2/2 | Complete | 2026-02-11 |
 | 35. Actionable Analytics | v2.0 | 0/TBD | Not started | - |
