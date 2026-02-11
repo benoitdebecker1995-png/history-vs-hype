@@ -454,79 +454,99 @@ Let documents deliver moral judgment. Avoid personal pronouncements.
 
 ---
 
-## Part 6: Voice Pattern Library
+## Part 6: Voice Pattern Library (EXPANDED)
 
-*Extracted from top-performing videos: Belize (23K views), Vance (42.6% retention). Last updated: 2026-02-10.*
+*Extracted from top-performing videos: Belize (23K views, best performer), Essequibo (1.9K views, 35.6% retention), Vance (42.6% retention benchmark), Almada (well-structured script). Last updated: 2026-02-11.*
 
-*Purpose: Copy-paste patterns for script-writer-v2 agent. Each pattern has formula + example + template.*
+*Purpose: Copy-paste patterns for script-writer-v2 agent. Each pattern includes formula + real example + fill-in template.*
 
 ### 6.1 Opening Formulas
 
-#### Opening: Visual Contrast Hook (Belize Pattern)
+#### Opening: Visual Contrast Hook (Belize Pattern - 23K views)
 
-**When to use:** Territorial disputes with map contradictions
+**When to use:** Territorial disputes with map contradictions, competing claims
+
+**Performance insight:** Top-performing video. Map contradiction creates immediate cognitive dissonance.
 
 **Formula:** [Action: Open map A] → [What you see] → [Action: Open opposing map B] → [Contradiction revealed] → [Stakes statement]
 
-**Example from Belize (23K views):**
+**Example from Belize:**
 > "Open a map of Central America, you see Belize, a small country on the Caribbean coast. Now open a Guatemalan map. Belize disappears, instead you see Territorio de Belize. Guatemala claims this entire country as their own. Both sides point to an 1859 treaty to prove who's right."
 
 **Copy-paste template:**
 > "Open a map of [region], you see [entity], [brief description]. Now open a [opposing party]'s map. [Entity] disappears, instead you see [their claim name]. [Opposing party] claims [territory description] as their own. Both sides point to [document/year] to prove who's right."
 
-#### Opening: Current Event Hook (Essequibo Pattern)
+#### Opening: Current Event Hook with Precise Details (Essequibo Pattern)
 
-**When to use:** Active territorial disputes with military dimension
+**When to use:** Active territorial disputes with military dimension, ongoing crisis
 
-**Formula:** [Specific date/time] → [Military action with precise details] → [Quote/radio transmission] → [Context of dispute] → "To understand what's really happening..."
+**Performance insight:** 35.6% retention. Specific numbers (700 meters, 200,000 barrels) create urgency.
 
-**Example from Essequibo (1.9K views):**
-> "March 1st, 2025, 7am, a Venezuelan warship sails within 700 meters of an American oil platform, producing over 200,000 barrels daily. Over the radio, 'you are operating in Venezuelan waters,' but the warship is deep inside territory Guyana has controlled since 1899."
+**Formula:** [Specific date/time] → [Military action with precise details] → [Quote/radio transmission] → [Contradiction/context] → "To understand what's really happening, I went to [sources]..."
+
+**Example from Essequibo:**
+> "March 1st, 2025, 7am, a Venezuelan warship sails within 700 meters of an American oil platform, producing over 200,000 barrels daily. Over the radio, 'you are operating in Venezuelan waters,' but the warship is deep inside territory Guyana has controlled since 1899. To understand what's really happening, I went through the original 1899 arbitration records."
 
 **Copy-paste template:**
-> "[Specific date], [time], [military/diplomatic action with exact numbers]. [Quote or dialogue]. But [contradiction/dispute fact]. To understand what's really happening, I went to [primary source type]."
+> "[Specific date], [time], [military/diplomatic action with exact numbers]. [Quote or dialogue]. But [contradiction - what's actually true]. To understand what's really happening, I went to [primary source type: treaty/records/archives]."
 
-#### Opening: Fact-Check Declaration (Vance Pattern)
+#### Opening: Fact-Check Declaration (Vance Pattern - 42.6% retention)
 
-**When to use:** Political figure fact-checks
+**When to use:** Political figure fact-checks, myth-busting claims from public figures
+
+**Performance insight:** 42.6% retention (channel benchmark). Direct contradiction of authority figure drives engagement.
 
 **Formula:** [Quote from figure] → "I fact-checked [name]'s claims with [source type]." → "Here's what [authority] actually says."
 
-**Example from Vance (42.6% retention):**
+**Example from Vance:**
 > "What did the Christian settlers find when they came to the New World? They found a lot of civilizations that were murdering babies in weird religious rituals. I fact-checked VP Vance's claims about colonialism with original sources. Here's what historians actually say."
 
 **Copy-paste template:**
-> "[Quote from political figure making historical claim]. I fact-checked [name]'s claims with [academic sources/primary documents]. Here's what [historians/documents] actually say."
+> "[Quote from political figure making historical claim]. I fact-checked [name]'s claims with [academic sources/primary documents/archaeological evidence]. Here's what [historians/archaeologists/documents] actually say."
 
-#### Opening: Personal Research Authority (Belize Variant)
+#### Opening: Personal Research Authority (Belize Variant - ~25 sec)
 
-**When to use:** Establishing documentary evidence early
+**When to use:** Establishing documentary evidence early, treaty disputes
+
+**Performance insight:** First-person "I read" at 25 seconds establishes credibility before 1:11 dropout.
 
 **Formula:** [Dispute statement] → "So, I read that [document]." → [What one side claims] → [What document actually says] → [Stakes/current status]
 
-**Example from Belize (~25 sec in):**
-> "Both sides point to an 1859 treaty to prove who's right. So, I read that treaty. Guatemala says it's void because Britain violated it. But the treaty itself doesn't make the boundary conditional on Britain's obligations."
+**Example from Belize:**
+> "Both sides point to an 1859 treaty to prove who's right. So, I read that treaty. Guatemala says it's void because Britain violated it. But the treaty itself doesn't make the boundary conditional on Britain's obligations. So who's telling the truth? Right now the International Court of Justice is deciding whether Belize should even exist."
 
 **Copy-paste template:**
-> "Both sides cite [document/treaty] to prove their case. So, I read that [document]. [Side A] says [claim]. But the [document] actually [what it says]. [Current stakes or modern consequence]."
+> "Both sides cite [document/treaty] to prove their case. So, I read that [document]. [Side A] says [claim]. But the [document] actually [what it says]. [Current stakes: ongoing case/modern consequence]."
 
 #### Opening: Escalation Timeline (Essequibo Variant)
 
-**When to use:** Diplomatic crisis with recent confrontation
+**When to use:** Diplomatic crisis with recent high-level confrontation
 
-**Formula:** [Initial incident] → [Timeline advance: X days later] → [High-level response] → [Quote from official] → [Counter-response] → [Who lives there]
+**Formula:** [Initial incident] → [Timeline: X days later] → [High-level response] → [Quote from official] → [Counter-response] → [Who actually lives there]
 
 **Example from Essequibo:**
-> "26 days after that warship confrontation, US Secretary of State Marco Rubio lands in Georgetown. At the joint press conference... Rubio stares into the camera. 'It would be a very bad day for the Venezuelan regime if they were to attack Guyana or Exxon Mobil.' Within hours Maduro fires back. 'There goes the imbecile Marco Rubio, threatening Venezuela from Guyana.'"
+> "26 days after that warship confrontation, US Secretary of State Marco Rubio lands in Georgetown. At the joint press conference with Guyana's president, Rubio stares into the camera. 'It would be a very bad day for the Venezuelan regime if they were to attack Guyana or Exxon Mobil. We have a big navy. It would not end well for them.' Within hours Maduro fires back. 'There goes the imbecile Marco Rubio, threatening Venezuela from Guyana.' That confrontation made global headlines. But let me tell you who actually lives in the territory they're fighting over."
 
 **Copy-paste template:**
-> "[X days/weeks] after [incident], [high-level official] [action]. [Quote showing escalation]. [Counter-party] responds: '[escalation quote].' That confrontation made global headlines. But let me tell you who actually lives in the territory they're fighting over."
+> "[X days/weeks] after [incident], [high-level official] [action]. [Quote showing escalation]. [Counter-party] responds: '[escalation quote].' That confrontation made global headlines. But let me tell you who actually lives in/what's really at stake in [the disputed territory/issue]."
+
+#### Opening: Mystery Hook (Almada Pattern)
+
+**When to use:** Stories about discovered documents, investigative reveals
+
+**Formula:** [What was dismissed] → [Who found it] → [What they found] → [Why it matters]
+
+**Example from Almada:**
+> "For decades it was dismissed as a paranoid fantasy. Six South American dictatorships secretly coordinating assassinations across borders with CIA support. Anyone who said it out loud was written off as a conspiracy theorist. Then a school teacher, tortured for four years, whose wife was killed by a phone call, walked into a police station basement and found the receipts."
+
+**Copy-paste template:**
+> "For [timeframe] it was dismissed as [how it was framed]. [Extreme claim]. Anyone who said it out loud was [how they were treated]. Then [unlikely person with personal stakes] [action] and found [evidence type]."
 
 ### 6.2 Transition Sequences
 
 #### Transition: Kraut-Style Causal Chain
 
-**When to use:** Explaining multi-step causation
+**When to use:** Explaining multi-step causation, showing domino effects
 
 **Formula:** [Event A] → [connector: consequently/thereby/which meant that] → [Result B] → [connector] → [Result C]
 
@@ -534,33 +554,45 @@ Let documents deliver moral judgment. Avoid personal pronouncements.
 > "The 1850 Clayton-Bulwer Treaty with the United States said Britain couldn't grab new Central American territory after 1850. But Britain had already pushed past their limits. Guatemala meanwhile faced an existential threat. An American mercenary named William Walker had made himself president of Nicaragua in 1856, backed by American investors. Guatemala genuinely believed they were next. They needed British weapons and backing or they could be conquered by Walker's private army."
 
 **Copy-paste template:**
-> "[Event A] happened, which meant that [Result B], consequently [Result C]. This created [final outcome]."
+> "[Event A] happened, which meant that [Result B], consequently [Result C]. This created [final outcome/why parties acted as they did]."
 
-**Connector words:** consequently, thereby, which meant that, which created, as a result
+**Connector words:** consequently, thereby, which meant that, which created, as a result, this meant
 
 #### Transition: Temporal Jump with "Now"
 
-**When to use:** Contrasting two perspectives or time periods
+**When to use:** Contrasting two perspectives or time periods, revealing contradictions
 
 **Formula:** [Complete section] → "Now" + [new topic/time period] → [bridging sentence explaining relevance]
 
 **Example from Belize:**
-> "Open a map of Central America, you see Belize, a small country on the Caribbean coast. Now open a Guatemalan map. Belize disappears..."
+> "Open a map of Central America, you see Belize, a small country on the Caribbean coast. Now open a Guatemalan map. Belize disappears, instead you see Territorio de Belize."
 
 **Copy-paste template:**
-> "[Establish context]. Now [shift to contrasting view/time/location]. [Connection sentence explaining why this matters]."
+> "[Establish context from one perspective]. Now [shift to contrasting view/time/location]. [What changes or contradicts]."
 
 #### Transition: "So how did we get here?"
 
-**When to use:** Pivoting from modern consequence to historical chronology
+**When to use:** Pivoting from modern consequence to historical chronology, answering causation
 
 **Formula:** [Present consequence described] → "So how did we get here?" → [Historical chronology begins]
 
 **Example from Belize:**
-> "Britain says the border is permanent regardless. So how did we get here? Spain claimed this territory since the 1494 Treaty of Tordesillas. Britain started logging in the 1600s..."
+> "Guatemala says the border is void. Britain, in now Belize, says the border is permanent regardless. So how did we get here? Spain claimed this territory since the 1494 Treaty of Tordesillas. Britain started logging in the 1600s. For 150 years, Spain tried to expel British loggers..."
 
 **Copy-paste template:**
-> "[Modern dispute framed]. So how did we get here? [Begin historical chronology with earliest relevant event]."
+> "[Modern dispute framed with competing claims]. So how did we get here? [Begin historical chronology with earliest relevant event that created the conditions]."
+
+#### Transition: "Then suddenly..." (Date Shift)
+
+**When to use:** Showing unexpected policy reversal or dramatic change after long period
+
+**Formula:** [Long period of status quo] → "Then suddenly, [specific date]," → [Change announced] → "What changed?"
+
+**Example from Essequibo:**
+> "For 63 years, they don't just accept this ruling, they actively implement it. [Details of implementation]. In 1941, Venezuela's foreign minister calls the frontier well-defined and a closed issue. Then suddenly, on February 14th 1962, Venezuela tells the UN there's a dispute. What changed?"
+
+**Copy-paste template:**
+> "For [X years], [party] [consistent behavior]. [Evidence of acceptance]. Then suddenly, on [specific date], [party] [reversal]. What changed? [Reveal catalyst]."
 
 #### Transition: "But here's where it gets interesting" (LIMIT: 1x per script)
 
@@ -572,19 +604,19 @@ Let documents deliver moral judgment. Avoid personal pronouncements.
 > "Child sacrifice did occur in Aztec, Maya and Inca societies. Recent archaeological work confirms this. There's a 2024 DNA study in Nature about it. But here's where it gets interesting. Mexican archaeologists found 126 individuals at the Templo Mayor site, across all types of sacrifice. Spanish chronicler Diego Durán claimed over 80,000 victims in a single 1487 ceremony at that complex."
 
 **Copy-paste template:**
-> "[Establish initial fact that seems to support common narrative]. But here's where it gets interesting. [Introduce evidence that complicates or contradicts that interpretation]."
+> "[Establish initial fact that seems to support common narrative]. But here's where it gets interesting. [Introduce evidence that complicates or contradicts: lower actual numbers, missing context, etc.]."
 
 #### Transition: "Look at what just happened"
 
 **When to use:** Revealing pattern or manipulation in a sequence of events
 
-**Formula:** [Series of events described] → "Look at what just happened." → [Interpretation/implication drawn from sequence]
+**Formula:** [Series of events described neutrally] → "Look at what just happened." → [Interpretation/implication]
 
 **Example from Belize:**
-> "[Treaty details about boundaries and dates described]. Look at what just happened. The 1786 treaties had Britain's southern limit at the Sibun River. But Britain had pushed 60 miles further south to the Sarstoon River. This new treaty recognizes that unauthorized expansion."
+> "The 1786 treaties had Britain's southern limit at the Sibun River. But Britain had pushed 60 miles further south to the Sarstoon River. This new treaty recognizes that unauthorized expansion. Look at what just happened. Guatemala legally recognized British control over territory Britain had taken without permission. They signed because they were desperate for protection from Walker."
 
 **Copy-paste template:**
-> "[Describe sequence of actions neutrally]. Look at what just happened. [Reveal the pattern, manipulation, or significance that wasn't obvious during the narration]."
+> "[Describe sequence of actions neutrally without interpretation]. Look at what just happened. [Reveal the pattern, manipulation, or significance that wasn't obvious: land grab legitimized, unequal bargaining, etc.]."
 
 #### Transition: "Which brings us to..." / "And that brings us to..."
 
@@ -592,8 +624,8 @@ Let documents deliver moral judgment. Avoid personal pronouncements.
 
 **Formula:** [Context/background complete] → "Which brings us to [key moment/document]" → [New section begins]
 
-**Example from Vance (structure):**
-> "[Background on Spanish exaggeration pattern]. Which brings us to a question. Why does anyone in 2025 care about rehabilitating these myths?"
+**Example from Vance:**
+> "Historian Matthew Restall documents this pattern. Spanish conquistadors consistently inflated accounts of indigenous practices to justify what they were about to do. Which brings us to a question. Why does anyone in 2025 care about rehabilitating these myths?"
 
 **Copy-paste template:**
 > "[Background or context established]. Which brings us to [pivotal moment/document/question]. [Begin new section that builds on previous context]."
@@ -602,25 +634,40 @@ Let documents deliver moral judgment. Avoid personal pronouncements.
 
 **When to use:** Moving chronologically through sequence of events
 
-**Formula:** [Narrative flow] → [DATE.] → [New event] → [Causal connection]
+**Formula:** [Narrative flow] → [DATE.] → [New event] → [Causal connection to previous]
 
 **Example from Belize:**
-> "Still, no road. August 1863. Britain and Guatemala try again. New deal. Britain would pay 50,000 pounds..."
+> "Britain ratified it immediately. But Guatemala's congress delayed, missing the ratification deadline. When they finally ratified it in 1865, they added conditions saying Britain still owed the original road obligation. Britain refused. The deal collapsed. No road was ever built, not even with Guatemala's own money. But here's what Britain did do. As early as 1860 and 1861, they surveyed and marked the boundary line with stone monuments. Then, in 1867 and 1869, they sent diplomatic notes..."
 
 **Copy-paste template:**
-> "[Previous section conclusion]. [Specific date]. [New development]. [How it connects to previous events]."
+> "[Previous section conclusion]. [Specific date]. [New development]. [How it connects to or contradicts previous events]."
 
 #### Transition: Contrast Pair (Competing Perspectives)
 
 **When to use:** Showing how two sides interpret same events differently
 
-**Formula:** [Side A perspective] → [Side B with "X saw it completely different"] → [Explanation of divergence]
+**Formula:** [Side A perspective + conclusion] → "[Side B] saw it completely different." → [Side B perspective + conclusion]
 
 **Example from Belize:**
 > "From Britain's perspective, the boundary provisions in Articles 1-6 were separate from the road provision in Article 7. The road was a nice bonus that didn't work out. The boundary? That was permanent. Guatemala saw it completely different. The road was the point. Essential compensation for giving up territory. No road meant no deal."
 
 **Copy-paste template:**
-> "From [Side A]'s perspective, [their interpretation]. [Their conclusion]. [Side B] saw it completely different. [Their interpretation]. [Their conclusion]. [Why this divergence matters]."
+> "From [Side A]'s perspective, [their interpretation]. [Their conclusion]. [Side B] saw it completely different. [Their interpretation]. [Their conclusion]."
+
+#### Transition: "Here's what nobody talks about"
+
+**When to use:** Introducing overlooked stakeholders (usually indigenous peoples, civilians)
+
+**Formula:** [Geopolitical framing complete] → "Here's what nobody talks about." → [Human dimension: who lives there, who's affected]
+
+**Example from Belize:**
+> "[Oil stakes, ICJ case described]. Here's what nobody talks about. Census data shows about 26 to 32 thousand Maya people live in the disputed areas today, mostly K'ekchi and Mopan Maya in southern Belize."
+
+**Example from Essequibo:**
+> "[Rubio/Maduro confrontation described]. That confrontation made global headlines. But let me tell you who actually lives in the territory they're fighting over. 125,000 people, 90% of them indigenous."
+
+**Copy-paste template:**
+> "[Political/military/legal framing established]. Here's what nobody talks about. / But let me tell you who actually lives in [disputed territory]. [Population numbers, demographics, indigenous communities affected]."
 
 ### 6.3 Evidence Introduction Patterns
 
@@ -634,58 +681,85 @@ Let documents deliver moral judgment. Avoid personal pronouncements.
 > "Spanish conquistadors consistently inflated accounts of indigenous practices. Spanish chronicler Diego Durán claimed over 80,000 victims in a single 1487 ceremony at that complex. The Codex Telleriano-Remensis, written by elderly Aztec informants, reports about 4,000 victims for that ceremony. That's 20 times inflation. Still horrific, but the Spanish accounts were exaggerating four to eight times."
 
 **Copy-paste template:**
-> "[Context: what the debate is about]. [Authority figure] claimed [inflated/disputed number or fact]. [More reliable source with credentials] reports [actual finding]. That's [calculation of discrepancy]. [Implication: why this exaggeration/error matters]."
+> "[Context: what the debate is about]. [Authority figure] claimed [inflated/disputed number or fact]. [More reliable source with credentials] reports [actual finding]. That's [calculation of discrepancy]. [Implication: still serious, but shows pattern of exaggeration]."
 
 #### Evidence: "Notice this specific phrase"
 
 **When to use:** Close-reading treaty/document language for hidden significance
 
-**Formula:** [Document shown] → "Notice this specific phrase." → [Quote exact text] → [Explain why wording matters]
+**Formula:** [Document context] → "Notice this specific phrase." → [Quote exact text] → "That [word/date] isn't random." → [Explain significance]
 
 **Example from Belize:**
 > "Notice this specific phrase in the treaty. 'Boundaries that existed previous to and on the first day of January 1850.' That date isn't random. By dating the boundary to January 1st 1850, the day before the Clayton-Bulwer treaty banned new acquisitions, Britain could tell Washington: We're not acquiring new territory. We're just recognizing boundaries that already existed."
 
 **Copy-paste template:**
-> "Notice this specific phrase. '[Exact text from document].' That [word/date/phrasing] isn't random. [Explain significance: what it reveals about intent, what it legally allows, what it conceals]."
+> "Notice this specific phrase. '[Exact text from document].' That [word/date/phrasing] isn't random. [Explain significance: what it reveals about intent, what it legally allows, what it conceals from other parties]."
 
 #### Evidence: "Here's what [X] actually says" (2-4x per script max)
 
-**When to use:** Document reveal (B-roll moment)
+**When to use:** Document reveal (B-roll moment), primary source display
 
 **Formula:** "Here's what [document/person] actually says." → [Display document/quote] → [Key phrase emphasized] → [Interpretation]
 
 **Example from Belize:**
-> "Here's what the 1859 treaty actually says. Article 7. The two parties will use their best efforts for establishing the easiest communication between the Atlantic and Pacific oceans..."
+> "Here's what the 1859 treaty actually says. Article 7. The two parties will use their best efforts for establishing the easiest communication between the Atlantic and Pacific oceans. They will contribute towards the construction of a cart road."
 
 **Example from Vance:**
-> "Here's what historians actually say. [Launches into archaeological evidence]"
+> "Here's what historians actually say. [Launches into archaeological evidence about groups English settlers actually encountered]"
 
 **Copy-paste template:**
 > "Here's what [document/treaty/historian] actually says. [Show evidence with key phrase]. [Emphasize critical detail]. [What this means for the competing narratives]."
 
+#### Evidence: Credentials Before Quote (Almada Pattern)
+
+**When to use:** Building authority for lesser-known sources
+
+**Formula:** [Person's name and credentials] → [What they found/said] → [Quote or specific finding]
+
+**Example from Essequibo:**
+> "Jean La Rose is a Lokono woman who won the Goldman Environmental Prize in 2002 for coordinating Guyana's first indigenous land rights lawsuit. In April 2024 she wrote, 'We do not recognize borders. We recognize the river that gets us to one place. We recognize the mountain we must cross to get to one place.'"
+
+**Copy-paste template:**
+> "[Name] is/was [credentials: position, awards, expertise]. In [date/publication], [they] [action: wrote/testified/found]: '[Quote]'."
+
 #### Evidence: "Reading directly from..."
 
-**When to use:** Formal document language needs exact quoting
+**When to use:** Formal document language needs exact quoting, legal texts
 
 **Formula:** "Reading directly from [source]:" → [Exact quote] → [Plain language translation if needed]
 
-**Example from Belize:**
-> "Article 7. The two parties will use their best efforts for establishing the easiest communication between the Atlantic and Pacific oceans. They will contribute towards the construction of a cart road. [Then explains what this meant in practice]"
+**Example from Almada:**
+> "They found the founding charter of Operation Condor. Signed November 28th, 1975, the charter bore the signatures of five intelligence chiefs from Argentina, Bolivia, Chile, Paraguay and Uruguay. They found the stated purpose of the alliance. The founders wanted to create, in their own words, something similar to Interpol, but dedicated to subversion. In other words, a continental assassination network."
 
 **Copy-paste template:**
 > "Reading directly from [source]: '[Exact legal/technical language with archaic phrasing].' In other words, [plain language version that viewers can understand]."
 
 #### Evidence: Quote Stacking (Authority Stack)
 
-**When to use:** Multiple sources confirm same fact, building credibility
+**When to use:** Multiple sources confirm same fact, debunking requires building credibility
 
-**Formula:** [State disputed claim] → [Authority 1] + credentials + quote → [Authority 2] + credentials + quote → "So what's going on?"
+**Formula:** [State disputed claim] → [Authority 1] + credentials + finding → [Authority 2] + different credentials + confirming finding → [Authority 3 meta-commentary] → "So what's going on?"
 
 **Example from Vance (debunking brothel infanticide):**
-> "2014 DNA analysis of Yewden Villa. Balanced male to female ratio. All from different mothers. No trauma, proper burial, 97 infant deaths over 300 years of occupation. That's 0.32 per year. Normal infant mortality for the period. 2015 Cambridge University. 'We trust that this evidence disposes once and for all with the suggestion that infanticide was the norm in Roman Britain.' Bioarchaeologist Sian Halcrow in 2017 specifically called this out. 'Whole cemeteries of unwanted brothel babies. These are sensational research stories that capture headlines but misrepresent archaeological evidence.'"
+> "2014 DNA analysis of Yewden Villa. Balanced male to female ratio. All from different mothers. No trauma, proper burial, 97 infant deaths over 300 years of occupation. That's 0.32 per year. Normal infant mortality for the period. 2015 Cambridge University. 'We trust that this evidence disposes once and for all with the suggestion that infanticide was the norm in Roman Britain.' Bioarchaeologist Sian Halcrow in 2017 specifically called this out. 'Whole cemeteries of unwanted brothel babies. These are sensational research stories that capture headlines but misrepresent archaeological evidence.' Vance is repeating headlines that modern science has rejected."
 
 **Copy-paste template:**
-> "[Claim to debunk]. [Authority 1] who was [credentials] found: '[key finding]'. [Authority 2 with different credentials] stated: '[confirming or expanding finding]'. [Authority 3] specifically called this out: '[meta-commentary on the misinterpretation]'. So what's going on?"
+> "[Claim to debunk]. [Authority 1] who [credentials] found: '[key finding with specific numbers]'. [Authority 2 with different credentials] stated: '[confirming or expanding finding]'. [Authority 3] specifically called this out: '[meta-commentary on the misinterpretation pattern]'. [Verdict: repeating debunked claims / outdated research]."
+
+#### Evidence: Numerical Precision for Impact
+
+**When to use:** Establishing scale, showing exaggeration, demonstrating credibility
+
+**Formula:** [Context] → [Precise number with units] → [Comparison or calculation for context]
+
+**Example from Essequibo:**
+> "March 1st, 2025, 7am, a Venezuelan warship sails within 700 meters of an American oil platform, producing over 200,000 barrels daily."
+
+**Example from Belize:**
+> "A British surveyor estimated 157 miles through dense jungle, costing around 145 pounds, around 18 million in today's money."
+
+**Copy-paste template:**
+> "[Event/claim]. [Precise number with units: meters, barrels, dollars, years]. [Context: comparison to modern equivalent, what this number meant at the time]."
 
 ### 6.4 Sentence Rhythm Patterns
 
@@ -698,6 +772,9 @@ Let documents deliver moral judgment. Avoid personal pronouncements.
 
 **Example from Belize:**
 > "The Maya built this around 800, a thousand years before this treaty. When Wyke and Aycinena signed in 1859, there were two European powers carving up lands the Maya had built civilizations on. Were any Maya leaders consulted? No."
+
+**Example from Almada:**
+> "The men who signed those orders died believing their secrets were safe. They were wrong."
 
 **Copy-paste template:**
 > "[Long sentence with multiple details, commas, specific numbers building context and stakes]. [Short 2-5 word declarative sentence delivering verdict or key fact]."
@@ -714,31 +791,44 @@ Let documents deliver moral judgment. Avoid personal pronouncements.
 > "Archaeological surveys of these societies shows that there's zero evidence of child sacrifice."
 > "Three claims checked, none held up."
 
+**Example from Essequibo:**
+> "126 years ago, when European powers decided who owned their land, not a single indigenous person had a say in that decision."
+
 **Copy-paste template:**
 > "[Question about inclusion/representation/evidence]? Zero. / None. / [Single emphatic word]."
+
+OR (declarative version):
+
+> "[Context]. Not a single [excluded group] [was included/had say/was consulted]."
 
 #### Rhythm: Fragment for Verdict
 
 **Effect:** Delivers moral or factual judgment with weight
 
 **Example from Vance:**
-> "[Description of Haitian revolution defeating French, British, Spanish armies]. They won."
+> "The Haitian revolution was enslaved people fighting against Christian empires that wanted to maintain slavery. They won."
 
 **Example from Belize:**
 > "Years went by and Britain built nothing. Colonial conflicts in India and China took priority. The road was expensive and would help Guatemala, but offer Britain nothing. So Britain just didn't do it."
 
+**Example from Almada:**
+> "This wasn't a conspiracy theory. It was a filing system."
+
 **Copy-paste template:**
-> "[Context paragraph building tension or expectation]. [2-5 word declarative sentence]. [Continue with implications]."
+> "[Context paragraph building tension or expectation]. [2-5 word declarative sentence]. [Optional: Continue with implications]."
 
-#### Rhythm: Contrast Pair (This vs. That)
+#### Rhythm: Contrast Pair (Parallel Structure)
 
-**Effect:** Highlights contradiction or competing perspectives in parallel structure
+**Effect:** Highlights contradiction or competing perspectives in balanced phrasing
 
 **Example from Belize:**
 > "Britain treated the boundary as settled. Guatemala treated it as theft."
 
 **Example from Vance:**
 > "Christians didn't just abolish slavery. Christians also defended slavery for centuries using the Bible."
+
+**Example from Belize:**
+> "One country's occupied territory is another country's homeland."
 
 **Copy-paste template:**
 > "[Side A] [verb] it as [interpretation]. [Side B] [verb] it as [opposite interpretation]."
@@ -747,14 +837,72 @@ OR:
 
 > "[Group] didn't just [positive action]. [Same group] also [contradictory action] for [timeframe]."
 
-### 6.5 Forbidden Pattern Detection
+OR:
+
+> "One [party]'s [framing] is another [party]'s [opposite framing]."
+
+#### Rhythm: Repetition for Emphasis
+
+**Effect:** Drives home key point through intentional repetition
+
+**Example from Essequibo:**
+> "That 1859 boundary line cut straight through Maya territories that had existed for centuries. Villages that had been trading and intermarrying for generations suddenly found themselves in different countries."
+
+**Example from Almada:**
+> "They thought the files would never be found. They were wrong."
+
+**Copy-paste template:**
+> "[Statement with key concept]. [Restatement using different framing but same key concept]. [Optional: Short verdict]."
+
+### 6.5 Closing Patterns
+
+#### Closing: Return to Overlooked Stakeholders
+
+**When to use:** Ending with human cost, indigenous exclusion
+
+**Formula:** [Big-picture stakes] → [Return to who's actually affected] → [Timeline contrast: then vs. now] → [Final exclusion statement]
+
+**Example from Belize:**
+> "If Guatemala wins, Belize could lose territory, lose maritime zones or get forced into splitting oil revenue. If Belize wins, Guatemala's 165-year-old claim ends permanently. And dozens of other disputed colonial borders around the world, places like Kashmir and Western Sahara, they're all watching this. Britain signed a treaty promising a road. Britain never built the road. Guatemala says the border is void. Britain, in now Belize, says the border is permanent regardless. One country's occupied territory is another country's homeland. And 26,000 Maya people caught in the middle never got a vote."
+
+**Copy-paste template:**
+> "If [Side A] wins, [consequences]. If [Side B] wins, [consequences]. And [broader implications: other cases watching, precedent]. [Restate core dispute]. [Final line: excluded group still has no voice]."
+
+#### Closing: Unanswered Question (Almada Pattern)
+
+**When to use:** Stories about discovered secrets, when the pattern could repeat
+
+**Formula:** [What was found] → [What perpetrators believed] → "So the question isn't just [historical question]" → "It's [present-tense question about current world]"
+
+**Example from Almada:**
+> "For years, the Archives of Terror sat in a police station basement, because everyone who mattered assumed they would never be found. The men who signed those orders died believing their secrets were safe. So the question isn't just 'how could this happen?' It's 'who is sitting on the next archive?'"
+
+**Copy-paste template:**
+> "For [timeframe], [evidence] sat in [location], because [those responsible] assumed [it would never be found/they'd never face consequences]. [What they believed]. So the question isn't just '[historical question].' It's '[present-tense question that applies today].' They thought [what they believed]. They were wrong."
+
+#### Closing: Modern Relevance (Vance Pattern)
+
+**When to use:** Political fact-checks, myth rehabilitation
+
+**Formula:** [Summarize myth-busting] → "Why does anyone in [current year] care about rehabilitating these myths?" → [Modern policy connection] → [Final statement of pattern]
+
+**Example from Vance:**
+> "Three claims checked, none held up. Part 2 drops on Thursday. I'm fact checking his claims about human rights, religious freedom and whether Christian civilization is the most moral in history."
+
+**Alternative structure (from earlier in video):**
+> "Why does anyone in 2025 care about rehabilitating these myths? Because Vance isn't just talking about history. In January 2025, he used what he calls 'ordo amores', a hierarchical ordering of love, to justify cutting foreign aid. His explanation? You love your family first, then your neighbor, then your community. This is the same hierarchical logic. We are superior, they are far away, therefore we decide what they deserve. When politicians rehabilitate colonial propaganda, they're not teaching bad history for fun. They're building a worldview where exploitation is justified."
+
+**Copy-paste template:**
+> "[X claims checked, Y held up]. Why does anyone in [current year] care about [historical myth]? Because [politician/movement] isn't just talking about history. [Show recent policy/rhetoric using same logic]. This is the same [pattern]. When [group] rehabilitate [historical narrative], they're not [innocent explanation]. They're [actual purpose: justifying policy, building ideology]."
+
+### 6.6 Forbidden Pattern Detection
 
 **Pre-output validation checklist (run before delivering any script):**
 
 #### Channel DNA Violations
 
 - [ ] **No clickbait language:** Check for "shocking," "you won't believe," "secret," "hidden," "they don't want you to know" | **Fix:** Documentary tone - state facts directly
-- [ ] **No generic CTAs:** Check for "drop your thoughts below," "smash that subscribe," "hit that like button" | **Fix:** "Please subscribe" or cut CTA entirely
+- [ ] **No generic CTAs:** Check for "drop your thoughts below," "smash that subscribe," "hit that like button" | **Fix:** "Please subscribe" or "Subscribe so you don't miss it"
 - [ ] **No YouTube cliches:** Check for "buckle up," "stay with me here," "let me show you something" | **Fix:** See approved phrases list (Part 1)
 - [ ] **No essay language:** Check for "in this video we will," "it's important to note that," "in conclusion" | **Fix:** Conversational alternatives from approved list
 
@@ -788,9 +936,71 @@ OR:
 - [ ] **Missing attributions:** Check for factual claims without named source | **Fix:** "According to [historian name]..." or "The [document] states..."
 - [ ] **Documents described not shown:** Check for references to treaties/reports without B-roll cue | **Fix:** Add "[SHOW document]" marker for editor
 
+### 6.7 Additional High-Performance Patterns
+
+#### Pattern: Immediate Contradiction
+
+**When to use:** Opening seconds, revealing hypocrisy or gap between claim and reality
+
+**Formula:** [What is claimed/shown publicly] → "But" → [What actually exists/happened]
+
+**Example from Belize:**
+> "Open a map of Central America, you see Belize, a small country on the Caribbean coast. Now open a Guatemalan map. Belize disappears..."
+
+**Example from Essequibo:**
+> "Over the radio, 'you are operating in Venezuelan waters,' but the warship is deep inside territory Guyana has controlled since 1899."
+
+**Copy-paste template:**
+> "[Public claim/official map/stated position]. But [contradicting reality/alternative perspective/what actually exists]."
+
+#### Pattern: Specific Stakeholder Quote
+
+**When to use:** Giving voice to affected populations, indigenous perspectives
+
+**Formula:** [Name] is [credentials/position]. [What they said with exact quote]
+
+**Example from Essequibo:**
+> "Lloyd Pereira is the Toshao, that's the chief of Wakapoa village on the Pomeroon River. When Venezuela held a referendum claiming his home, he told Al Jazeera, 'Even as a small boy, I remember hearing Venezuela saying, Essequibo is theirs. But I also know I live in Essequibo. And as an indigenous person, Essequibo is ours.'"
+
+**Copy-paste template:**
+> "[Name] is [position/credentials]. [When/where they spoke], [they] [said/wrote]: '[Exact quote showing personal stakes and perspective]'."
+
+#### Pattern: Bureaucratic Detail as Horror
+
+**When to use:** Showing how authoritarian regimes document their crimes
+
+**Formula:** [What was found] → [Specific bureaucratic details] → [Understated conclusion about what this means]
+
+**Example from Almada:**
+> "It was 593,000 pages of documentation. The bureaucratic memory of a dictatorship that believed it would never be held accountable. Mixed in with the interrogation reports and prisoner files, they found the founding charter of Operation Condor."
+
+**Copy-paste template:**
+> "They found [specific quantity] of [document type]. The [characterization: bureaucratic memory, filing system] of [regime/organization] that believed [they'd never face consequences]. Mixed in with [routine documents], they found [evidence of crimes]."
+
+#### Pattern: Timeline Acceleration
+
+**When to use:** Showing rushed or suspicious timing
+
+**Formula:** [Normal timeframe for comparison] → [Actual timeframe] → [What this timing reveals]
+
+**Example from Belize:**
+> "For context, Wyke's boundary treaties with Nicaragua and Honduras took months. This one took three weeks."
+
+**Example from Essequibo:**
+> "May 20th, 2015. Exxon Mobil announces a major discovery... Initial estimate is 800 million to 1.4 billion barrels. Seven days later, May 27th, 2015, Venezuela issues a decree extending maritime claims over the disputed area. The timing is not a coincidence."
+
+**Copy-paste template:**
+> "[Comparable process] took [normal timeframe]. This one took [abbreviated timeframe]. [What the speed reveals: desperation, suspicious timing, predetermined outcome]."
+
+OR:
+
+> "[Date of trigger event]. [What happened]. [X days/weeks later], [date], [response]. The timing is not a coincidence."
+
 ---
 
 ## Part 7: Quality Checklist (Unified)
+
+*Formerly Part 6 - renumbered 2026-02-11 after Voice Pattern Library expansion*
 
 ### Pre-Script
 
