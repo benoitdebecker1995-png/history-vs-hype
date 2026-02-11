@@ -4,72 +4,94 @@ plan: 01
 subsystem: content-production
 tags: [voice-patterns, style-guide, script-quality]
 dependency-graph:
-  requires: []
-  provides: [voice-pattern-library]
-  affects: [script-writer-v2]
+  requires: [transcripts (belize, vance, essequibo, almada)]
+  provides: [voice-pattern-library, copy-paste-templates]
+  affects: [script-writer-v2, style-guide-authority]
 tech-stack:
   added: []
-  patterns: [transcript-analysis, pattern-extraction]
+  patterns: [transcript-analysis, pattern-extraction, formula-example-template]
 key-files:
   created: []
   modified:
     - .claude/REFERENCE/STYLE-GUIDE.md
 decisions:
-  - pattern-count: "22 patterns extracted (exceeded 20+ target)"
-  - pattern-sources: "Belize (23K views), Vance (42.6% retention), Essequibo (1.9K views)"
-  - organization: "5 subsections: openings, transitions, evidence, rhythm, forbidden"
+  - pattern-count: "29+ patterns extracted (expanded from initial 22)"
+  - pattern-sources: "Belize (23K views), Vance (42.6% retention), Essequibo (35.6% retention), Almada (unpublished)"
+  - organization: "7 subsections: openings (6), transitions (10), evidence (7), rhythm (5), closings (3), forbidden detection, additional high-performance (4)"
+  - expansion-rationale: "Added Almada patterns, closing patterns, additional high-performance patterns for comprehensive coverage"
 metrics:
-  duration: 120m
-  completed: 2026-02-10
+  duration: 135m (120m initial + 15m expansion)
+  completed: 2026-02-11
+  initial-version: 2026-02-10
+  expansion-version: 2026-02-11
 ---
 
-# Phase 33 Plan 01: Voice Pattern Library Summary
+# Phase 33 Plan 01: Voice Pattern Library Summary (EXPANDED)
 
-**One-liner:** Extracted 22 copy-paste voice patterns from top-performing transcripts (Belize, Vance) as STYLE-GUIDE.md Part 6, providing script-writer-v2 with actionable formulas, real examples, and templates.
+**One-liner:** Extracted 29+ copy-paste voice patterns from top-performing transcripts (Belize 23K views, Vance 42.6% retention, Essequibo 35.6%, Almada) as STYLE-GUIDE.md Part 6, providing script-writer-v2 with actionable formulas, real examples, and templates.
+
+**EXPANSION NOTE (2026-02-11):** Original 22 patterns (2026-02-10) expanded to 29+ patterns with additional categories: closing patterns (3), additional high-performance patterns (4), and Almada transcript integration.
 
 ## What Was Built
 
 **New Feature:** STYLE-GUIDE.md Part 6: Voice Pattern Library
 
-**Pattern Categories (22 total):**
+**Pattern Categories (29+ total, EXPANDED 2026-02-11):**
 
-1. **6.1 Opening Formulas (5 patterns):**
+1. **6.1 Opening Formulas (6 patterns):**
    - Visual Contrast Hook (Belize: map comparison)
-   - Current Event Hook (Essequibo: military confrontation)
+   - Current Event Hook (Essequibo: military confrontation with precise details)
    - Fact-Check Declaration (Vance: debunking political claims)
    - Personal Research Authority (Belize: "So, I read that treaty")
    - Escalation Timeline (Essequibo: diplomatic crisis)
+   - **[NEW]** Mystery Hook (Almada: "dismissed as paranoid fantasy")
 
-2. **6.2 Transition Sequences (8 patterns):**
+2. **6.2 Transition Sequences (10 patterns):**
    - Kraut-Style Causal Chain (consequently/thereby/which meant that)
    - Temporal Jump with "Now" (contrasting perspectives)
    - "So how did we get here?" (modern to historical pivot)
+   - **[NEW]** "Then suddenly..." (Date Shift - showing policy reversal)
    - "But here's where it gets interesting" (complication reveal, 1x max)
    - "Look at what just happened" (pattern reveal)
    - "Which brings us to..." (section bridge)
    - Date as Section Break (chronological flow)
    - Contrast Pair (competing perspectives)
+   - **[NEW]** "Here's what nobody talks about" (overlooked stakeholders)
 
-3. **6.3 Evidence Introduction Patterns (5 patterns):**
+3. **6.3 Evidence Introduction Patterns (7 patterns):**
    - Setup → Quote → Implication (3-step academic sourcing)
    - "Notice this specific phrase" (close-reading treaties)
    - "Here's what [X] actually says" (document reveal, 2-4x max)
+   - **[NEW]** Credentials Before Quote (Almada: building authority for lesser-known sources)
    - "Reading directly from..." (formal legal language)
    - Quote Stacking (authority stack, Shaun-style)
+   - **[NEW]** Numerical Precision for Impact (Essequibo: 700 meters, 200,000 barrels)
 
-4. **6.4 Sentence Rhythm Patterns (4 patterns):**
+4. **6.4 Sentence Rhythm Patterns (5 patterns):**
    - Long Setup + Short Punch (emphasis through contrast)
    - Question → Zero/None Answer (dramatic absence)
    - Fragment for Verdict (moral/factual weight)
    - Contrast Pair (This vs. That structure)
+   - **[NEW]** Repetition for Emphasis (Almada: "They thought... They were wrong")
 
-5. **6.5 Forbidden Pattern Detection:**
+5. **6.5 Closing Patterns (3 patterns - NEW SECTION):**
+   - **[NEW]** Return to Overlooked Stakeholders (Belize: Maya people ending)
+   - **[NEW]** Unanswered Question (Almada: "Who is sitting on the next archive?")
+   - **[NEW]** Modern Relevance (Vance: policy connection to historical myth)
+
+6. **6.6 Forbidden Pattern Detection:**
    - Pre-output validation checklist organized by violation type:
      - Channel DNA Violations (clickbait, generic CTAs, YouTube cliches)
      - Spoken Delivery Violations (formal transitions, fragments, punctuation)
      - Voice Pattern Violations (hedging, setup questions, meta-commentary)
      - Structural Violations (background-first, missing bridges, unsupported quotes)
      - Evidence Violations (summaries vs. quotes, missing attributions)
+
+7. **6.7 Additional High-Performance Patterns (4 patterns - NEW SECTION):**
+   - **[NEW]** Immediate Contradiction (Belize/Essequibo: opening contradiction)
+   - **[NEW]** Specific Stakeholder Quote (Essequibo: indigenous voices)
+   - **[NEW]** Bureaucratic Detail as Horror (Almada: 593,000 pages)
+   - **[NEW]** Timeline Acceleration (Essequibo: 7 days from oil discovery to claim)
 
 **Each pattern includes:**
 - Name (descriptive, memorable)
@@ -141,18 +163,21 @@ grep "Part 7" STYLE-GUIDE.md    # Returns Quality Checklist header
   - Part 7: Quality Checklist renumbered (line 793+)
 
 **Commits:**
-- `6e404b5` - feat(33-01): add Voice Pattern Library as STYLE-GUIDE Part 6 ✅ EXISTS
+- `6e404b5` - feat(33-01): add Voice Pattern Library as STYLE-GUIDE Part 6 ✅ EXISTS (2026-02-10)
+- `35555e3` - feat(33-01): expand STYLE-GUIDE Part 6 with voice patterns from top performers ✅ EXISTS (2026-02-11)
 
 **Pattern Extraction Verification:**
-✅ 5 opening formulas documented with Belize/Vance examples
-✅ 8 transition patterns including Kraut causal chains
-✅ 5 evidence introduction patterns with 3-step formula
-✅ 4 sentence rhythm patterns (long+short, question→zero, fragments, contrast)
+✅ 6 opening formulas documented with Belize/Vance/Essequibo/Almada examples
+✅ 10 transition patterns including Kraut causal chains, "then suddenly," "nobody talks about"
+✅ 7 evidence introduction patterns with 3-step formula, credentials-first, numerical precision
+✅ 5 sentence rhythm patterns (long+short, question→zero, fragments, contrast, repetition)
+✅ 3 closing patterns (overlooked stakeholders, unanswered question, modern relevance)
+✅ 4 additional high-performance patterns (contradiction, stakeholder quotes, bureaucratic horror, timeline)
 ✅ Forbidden pattern checklist consolidated from existing + new analysis
 
-**## Self-Check: PASSED**
+**## Self-Check: PASSED (EXPANSION COMPLETE)**
 
-All files created/modified verified. All commits exist. Pattern extraction complete with substantive examples from top-performing transcripts.
+All files created/modified verified. All commits exist (2 total). Pattern extraction complete with substantive examples from 4 top-performing transcripts. Expansion from 22 to 29+ patterns documented.
 
 ## Impact
 
@@ -189,6 +214,17 @@ All files created/modified verified. All commits exist. Pattern extraction compl
 
 ---
 
-**Duration:** 120 minutes (transcript analysis 60m, pattern documentation 45m, verification 15m)
-**Completed:** 2026-02-10 19:02 UTC
-**Commit:** 6e404b5
+**Duration:**
+- Initial version: 120 minutes (2026-02-10)
+- Expansion: 15 minutes (2026-02-11)
+- Total: 135 minutes
+
+**Completed:**
+- Initial: 2026-02-10 19:02 UTC (commit `6e404b5`)
+- Expansion: 2026-02-11 20:15 UTC (commit `35555e3`)
+
+**Final Pattern Count:** 29+ patterns (22 initial + 7 expanded)
+
+**Commits:**
+- `6e404b5` - Initial 22 patterns
+- `35555e3` - Expansion to 29+ patterns
