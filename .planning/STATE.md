@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-11 (Phase 35 Plan 02 complete: Topic Strategy & Pre-Script Insights)
+**Last Updated:** 2026-02-11 (Phase 35 complete: Actionable Analytics)
 
 ## Project Reference
 
@@ -14,19 +14,19 @@ See: `.planning/PROJECT.md` (updated 2026-02-09)
 
 **Milestone:** v2.0 Channel Intelligence
 **Phase:** 35 of 35 (Actionable Analytics)
-**Plan:** 02 of 03 complete (01 and 02 complete)
-**Status:** In progress
-**Last activity:** 2026-02-11 — Completed 35-01: Retention Mapper & Section Diagnostics (retention_mapper.py + section_diagnostics.py with 22 voice patterns)
+**Plan:** 03 of 03 complete (all plans complete)
+**Status:** Complete
+**Last activity:** 2026-02-11 — Completed 35-03: Command Integration (wired retention diagnostics into /analyze --script and pre-script insights into /script)
 
 **Progress:**
-[█████████░] 94%
+[██████████] 100%
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
 v1.4 [####################] 100% — Learning Loop (archived)
 v1.5 [####################] 100% — Production Acceleration (archived)
 v1.6 [####################] 100% — Click & Keep (archived)
-v2.0 [#############       ] 67% — Channel Intelligence (Phase 34 complete: 2/3 phases done)
+v2.0 [####################] 100% — Channel Intelligence (all 3 phases complete)
 
 ## Milestone History
 
@@ -39,6 +39,7 @@ v2.0 [#############       ] 67% — Channel Intelligence (Phase 34 complete: 2/3
 | v1.4 | Learning Loop | 19-21 | 2026-02-02 |
 | v1.5 | Production Acceleration | 22-26 | 2026-02-05 |
 | v1.6 | Click & Keep | 27-32 | 2026-02-09 |
+| v2.0 | Channel Intelligence | 33-35 | 2026-02-11 |
 
 **Full history:** `.planning/MILESTONES.md`
 **Archives:** `.planning/milestones/`
@@ -51,8 +52,9 @@ v2.0 [#############       ] 67% — Channel Intelligence (Phase 34 complete: 2/3
 - `/research --new` — start new video project
 - `/next` — get ranked topic recommendations based on winning patterns
 
-**Analytics commands (v1.1+v1.6):**
-- `/analyze VIDEO_ID` — post-publish video analysis (+ variant tracking + CTR analysis + feedback insights)
+**Analytics commands (v1.1+v1.6+v2.0):**
+- `/analyze VIDEO_ID` — post-publish video analysis (+ variant tracking + CTR analysis + feedback insights + section diagnostics)
+- `/analyze VIDEO_ID --script PATH` — section-level retention diagnostics with voice pattern recommendations
 - `/patterns` — cross-video pattern recognition (+ feedback patterns)
 
 **Discovery commands (v1.2 + v1.3):**
@@ -88,6 +90,12 @@ v2.0 [#############       ] 67% — Channel Intelligence (Phase 34 complete: 2/3
 - `python tools/citation_extractor.py nlm-output.txt --format detailed` — extract NotebookLM citations
 - `.claude/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md` — copy-paste research prompts
 
+**Actionable Analytics (v2.0):**
+- `python tools/youtube-analytics/retention_mapper.py` — map retention drops to script sections
+- `python tools/youtube-analytics/section_diagnostics.py` — diagnose retention drops with pattern recommendations
+- `python tools/youtube-analytics/topic_strategy.py` — aggregate performance by topic type
+- `python tools/youtube-analytics/feedback_queries.py` — query pre-script insights
+
 ## Session Continuity
 
 ### Last Session
@@ -98,19 +106,23 @@ v2.0 [#############       ] 67% — Channel Intelligence (Phase 34 complete: 2/3
 
 ### Next Session
 
-**Current work:** v2.0 Channel Intelligence — Phase 35 Actionable Analytics
-**Next action:** Execute Plan 35-03 (Command Integration)
+**Current work:** v2.0 Channel Intelligence milestone complete
+**Next action:** Ship v2.0 or start new milestone with `/gsd:new-milestone`
 
-**Phase 35 Progress (IN PROGRESS):**
+**Phase 35 Progress (COMPLETE):**
 - ✅ 35-01 complete: Retention Mapper & Section Diagnostics
-  - retention_mapper.py — Maps retention curve to script sections
-  - Commit: 3e19cba
+  - retention_mapper.py (275 LOC) — Maps retention drops to script sections
+  - section_diagnostics.py (448 LOC) — Diagnoses anti-patterns, recommends patterns
+  - Commits: 3e19cba, 0872f64
 - ✅ 35-02 complete: Topic Strategy & Pre-Script Insights
   - topic_strategy.py (537 LOC) — Aggregates performance by topic with confidence flags
   - feedback_queries.py extended (+242 lines) — get_pre_script_insights()
   - Commits: 952bc13, 799efde
-- ⏳ 35-03 pending: Command Integration
-  - Wire topic_strategy and pre-script insights into /analyze and /script
+- ✅ 35-03 complete: Command Integration
+  - analyze.py extended (+127 LOC) — generate_section_diagnostics with --script flag
+  - .claude/commands/analyze.md — SECTION-LEVEL RETENTION DIAGNOSTICS documentation
+  - .claude/commands/script.md — PRE-SCRIPT INTELLIGENCE documentation
+  - Commits: 3edc5aa, 1899527, 61f9ed5
 
 **Phase 34 Progress (COMPLETE):**
 - ✅ 34-01 complete: Academic Source List Generator
@@ -147,7 +159,7 @@ v2.0 [#############       ] 67% — Channel Intelligence (Phase 34 complete: 2/3
 - Approach: Python CLI tools + reference doc + command updates
 - Output: notebooklm_bridge.py + citation_extractor.py + prompt library
 
-**Phase 35: Actionable Analytics** (ACTN-01 to ACTN-04) 🚧 IN PROGRESS
+**Phase 35: Actionable Analytics** (ACTN-01 to ACTN-04) ✅ COMPLETE
 - Goal: Retention mapping with concrete fixes
 - Approach: Map drops to script sections, generate recommendations
 - Depends on Phase 33 (voice patterns for recommendations)
@@ -158,8 +170,13 @@ v2.0 [#############       ] 67% — Channel Intelligence (Phase 34 complete: 2/3
   - Severity: HIGH >10%, MEDIUM 5-10%, LOW <5%
   - Commits: 3e19cba, 0872f64
 - ✅ 35-02 complete: Topic Strategy & Pre-Script Insights
-  - topic_strategy.py + extended feedback_queries.py
-  - Commits: (see previous session)
+  - topic_strategy.py (537 LOC) — Aggregates performance by topic with confidence flags
+  - feedback_queries.py extended (+242 lines) — get_pre_script_insights()
+  - Commits: 952bc13, 799efde
+- ✅ 35-03 complete: Command Integration
+  - analyze.py extended (+127 LOC) — generate_section_diagnostics with --script flag
+  - /analyze --script documentation, /script pre-intelligence documentation
+  - Commits: 3edc5aa, 1899527, 61f9ed5
 
 ### Technical Notes
 
