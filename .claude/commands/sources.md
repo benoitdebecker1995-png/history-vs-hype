@@ -21,9 +21,51 @@ Get source recommendations, generate NotebookLM prompts, or format citations. Th
 | Flag | Purpose | Example |
 |------|---------|---------|
 | `--recommend` | Get 20-30 academic source recommendations | `/sources --recommend "Library of Alexandria"` |
+| `--generate` | Generate source list via Python CLI tool | `/sources --generate "Library of Alexandria"` |
 | `--prompts` | Generate NotebookLM verification prompts | `/sources --prompts 19-flat-earth-medieval-2025` |
 | `--format` | Format sources for YouTube description | `/sources --format` |
 | `--all` | Full workflow: recommend → prompts → format | `/sources --all [topic]` |
+
+---
+
+## AUTOMATED SOURCE GENERATION (`--generate`)
+
+Generate an academic source list using the Python CLI tool (Claude API-backed).
+
+### Usage
+
+```bash
+python tools/notebooklm_bridge.py "TOPIC" --type TYPE --output DIR
+```
+
+### Arguments
+
+| Argument | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `topic` | Yes | - | Video topic (e.g., "Library of Alexandria") |
+| `--type` | No | general | Video type: territorial, ideological, fact-check, general |
+| `--output` | No | current dir | Output directory for NOTEBOOKLM-SOURCE-LIST.md |
+| `--sources` | No | 15 | Number of sources to request (10-20) |
+| `--dry-run` | No | - | Print to stdout instead of writing file |
+
+### Output
+
+Creates `NOTEBOOKLM-SOURCE-LIST.md` with:
+- SOURCE QUALITY CHECK table (primary/academic source counts)
+- Tier 1: Primary Sources with [P1], [P2] naming
+- Tier 2: Academic Monographs with [A1], [A2] naming
+- Tier 3: Supplementary Sources
+- Full citation details (title, author, publisher, ISBN, price, purchase link)
+
+### Requirements
+
+- `ANTHROPIC_API_KEY` environment variable must be set
+- `pip install anthropic>=0.40.0`
+
+### When to Use
+
+- **`/sources --recommend`** (existing): Claude generates recommendations interactively during conversation
+- **`/sources --generate`** (new): Python tool generates standalone file via Claude API, useful for batch preparation or consistent formatting
 
 ---
 
@@ -240,12 +282,13 @@ Run complete source workflow:
 ### Typical Sequence
 
 ```
-/research --new [topic]     # Creates project, preliminary research
-/sources --recommend        # Gets academic sources to download
+/research --new [topic]      # Creates project, preliminary research
+/sources --recommend         # OR: Gets academic sources interactively
+/sources --generate "topic"  # OR: Generate source list via CLI tool
 [User downloads sources, uploads to NotebookLM]
-/sources --prompts          # Generates verification prompts
+/sources --prompts           # Generates verification prompts
 [User runs prompts, updates 01-VERIFIED-RESEARCH.md]
-/script                     # Ready when 90%+ verified
+/script                      # Ready when 90%+ verified
 ```
 
 ### Quality Gate Connection
