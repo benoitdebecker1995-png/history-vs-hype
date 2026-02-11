@@ -14,9 +14,9 @@ See: `.planning/PROJECT.md` (updated 2026-02-09)
 
 **Milestone:** v2.0 Channel Intelligence
 **Phase:** 35 of 35 (Actionable Analytics)
-**Plan:** 02 of 03 complete
+**Plan:** 02 of 03 complete (01 and 02 complete)
 **Status:** In progress
-**Last activity:** 2026-02-11 — Completed 35-02: Topic Strategy Aggregation & Pre-Script Insights (topic_strategy.py + extended feedback_queries.py)
+**Last activity:** 2026-02-11 — Completed 35-01: Retention Mapper & Section Diagnostics (retention_mapper.py + section_diagnostics.py with 22 voice patterns)
 
 **Progress:**
 [█████████░] 94%
@@ -147,10 +147,19 @@ v2.0 [#############       ] 67% — Channel Intelligence (Phase 34 complete: 2/3
 - Approach: Python CLI tools + reference doc + command updates
 - Output: notebooklm_bridge.py + citation_extractor.py + prompt library
 
-**Phase 35: Actionable Analytics** (ACTN-01 to ACTN-04)
+**Phase 35: Actionable Analytics** (ACTN-01 to ACTN-04) 🚧 IN PROGRESS
 - Goal: Retention mapping with concrete fixes
 - Approach: Map drops to script sections, generate recommendations
 - Depends on Phase 33 (voice patterns for recommendations)
+- ✅ 35-01 complete: Retention Mapper & Section Diagnostics
+  - retention_mapper.py (275 LOC) — Maps retention drops to script sections via word-count timing
+  - section_diagnostics.py (448 LOC) — Diagnoses anti-patterns, recommends STYLE-GUIDE.md Part 6 patterns
+  - Hardcoded 22 voice patterns for stability (5 openings, 8 transitions, 5 evidence, 4 rhythm)
+  - Severity: HIGH >10%, MEDIUM 5-10%, LOW <5%
+  - Commits: 3e19cba, 0872f64
+- ✅ 35-02 complete: Topic Strategy & Pre-Script Insights
+  - topic_strategy.py + extended feedback_queries.py
+  - Commits: (see previous session)
 
 ### Technical Notes
 
@@ -163,6 +172,8 @@ v2.0 [#############       ] 67% — Channel Intelligence (Phase 34 complete: 2/3
 - External packages (trendspyg, scrapetube) optional - graceful degradation
 - Feature flags: VARIANTS_AVAILABLE, BENCHMARKS_AVAILABLE, FEEDBACK_AVAILABLE for graceful import
 - anthropic SDK required for notebooklm_bridge.py (`pip install anthropic>=0.40.0`)
+- Retention mapping uses fixed 150 WPM for word-count timing (good enough for diagnostics)
+- Section diagnostics hardcode 22 voice patterns from STYLE-GUIDE.md Part 6 (stable, no runtime parsing)
 
 ### Known Issues
 
