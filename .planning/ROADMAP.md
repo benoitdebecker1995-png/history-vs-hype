@@ -526,7 +526,7 @@ Plans:
 **Goal**: Analytics provide concrete fixes, not just data — retention drops mapped to script sections with recommendations
 **Dependencies**: Phase 33 (voice patterns for retention recommendations)
 **Requirements**: ACTN-01, ACTN-02, ACTN-03, ACTN-04
-**Plans**: TBD
+**Plans**: 3 plans
 
 **Success Criteria:**
 1. User can see retention drop points mapped to specific script sections with root cause analysis
@@ -534,6 +534,11 @@ Plans:
 3. User can access topic strategy analysis showing which video types perform best with specific next steps
 4. Past performance insights surface automatically before /script generation without manual lookup
 5. Retention recommendations reference voice patterns and channel DNA (e.g., "add Kraut-style causal chain here")
+
+Plans:
+- [ ] 35-01-PLAN.md — Retention mapper + section diagnostics (retention_mapper.py + section_diagnostics.py with TDD)
+- [ ] 35-02-PLAN.md — Topic strategy + pre-script insights (topic_strategy.py + feedback_queries.py extension)
+- [ ] 35-03-PLAN.md — Command integration (analyze.py --script + /analyze + /script pre-script intelligence)
 
 ## Progress
 
@@ -575,4 +580,4 @@ Plans:
 | 32. Model Assignment Refresh | v1.6 | 1/1 | Complete | 2026-02-09 |
 | 33. Voice Pattern Library | v2.0 | 2/2 | Complete | 2026-02-10 |
 | 34. NotebookLM Research Bridge | v2.0 | 2/2 | Complete | 2026-02-11 |
-| 35. Actionable Analytics | v2.0 | 0/TBD | Not started | - |
+| 35. Actionable Analytics | v2.0 | 0/3 | Not started | - |
