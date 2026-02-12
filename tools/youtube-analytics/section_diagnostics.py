@@ -35,7 +35,7 @@ def load_voice_patterns():
             'rhythm': {...}
         }
 
-    Note: Hardcoded from STYLE-GUIDE.md Part 6 (stable, documented patterns)
+    Note: Hardcoded from STYLE-GUIDE.md Part 6 (29 patterns across 6 categories)
     """
     return {
         'openings': {
@@ -177,6 +177,52 @@ def load_voice_patterns():
                 'when': 'Highlights contradiction in parallel structure',
                 'style_guide_ref': 'Part 6.4 Pattern 4'
             }
+        },
+        'closings': {
+            'overlooked_stakeholders': {
+                'name': 'Return to Overlooked Stakeholders',
+                'formula': '[Big-picture stakes] → [Return to who\'s actually affected] → [Timeline contrast] → [Final exclusion statement]',
+                'when': 'Ending with human cost, indigenous exclusion',
+                'style_guide_ref': 'Part 6.5 Pattern 1'
+            },
+            'unanswered_question': {
+                'name': 'Unanswered Question (Almada Pattern)',
+                'formula': '[What was found] → [What perpetrators believed] → "So the question isn\'t just [historical]" → "It\'s [present-tense question]"',
+                'when': 'Stories about discovered secrets, when the pattern could repeat',
+                'style_guide_ref': 'Part 6.5 Pattern 2'
+            },
+            'modern_relevance_closing': {
+                'name': 'Modern Relevance (Vance Pattern)',
+                'formula': '[Summarize myth-busting] → "Why does anyone in [year] care?" → [Modern policy connection] → [Final pattern statement]',
+                'when': 'Political fact-checks, myth rehabilitation',
+                'style_guide_ref': 'Part 6.5 Pattern 3'
+            }
+        },
+        'additional': {
+            'immediate_contradiction': {
+                'name': 'Immediate Contradiction',
+                'formula': '[What is claimed/shown publicly] → "But" → [What actually exists/happened]',
+                'when': 'Opening seconds, revealing hypocrisy or gap between claim and reality',
+                'style_guide_ref': 'Part 6.7 Pattern 1'
+            },
+            'specific_stakeholder_quote': {
+                'name': 'Specific Stakeholder Quote',
+                'formula': '[Name] is [credentials/position]. [What they said with exact quote]',
+                'when': 'Giving voice to affected populations, indigenous perspectives',
+                'style_guide_ref': 'Part 6.7 Pattern 2'
+            },
+            'bureaucratic_detail_horror': {
+                'name': 'Bureaucratic Detail as Horror',
+                'formula': '[What was found] → [Specific bureaucratic details] → [Understated conclusion]',
+                'when': 'Showing how authoritarian regimes document their crimes',
+                'style_guide_ref': 'Part 6.7 Pattern 3'
+            },
+            'timeline_acceleration': {
+                'name': 'Timeline Acceleration',
+                'formula': '[Normal timeframe] → [Actual timeframe] → [What timing reveals]',
+                'when': 'Showing rushed or suspicious timing',
+                'style_guide_ref': 'Part 6.7 Pattern 4'
+            }
         }
     }
 
@@ -281,7 +327,20 @@ def diagnose_section_drop(section_text, section_heading, section_type, drop_magn
                     'insertion_hint': 'After long buildup, add short declarative: "They didn\'t." or "How many? Zero."'
                 })
 
-        # Check 6: Section-type specific
+        # Check 6: Conclusion-specific checks
+        if section_type == 'conclusion':
+            # Check for weak ending (no stakeholder reference, no forward question, no modern connection)
+            closing_markers = ['today', 'still', 'watching', 'question', 'who', 'never got', 'why does']
+            if not any(marker in text_lower for marker in closing_markers):
+                root_causes.append('Weak closing - no forward-looking statement or stakeholder reference')
+                recommendations.append({
+                    'fix': 'Apply a proven closing pattern from Part 6.5',
+                    'pattern': 'Return to Overlooked Stakeholders or Unanswered Question',
+                    'pattern_ref': 'STYLE-GUIDE.md Part 6.5 Pattern 1-2',
+                    'insertion_hint': 'End with: "And [affected group] never got a vote." or "So the question isn\'t [historical]. It\'s [present-tense]."'
+                })
+
+        # Check 7: Section-type specific
         if section_type == 'intro' and position_in_section < 0.3:
             # Intro drop early = weak hook
             if not any(text_lower[:100].startswith(hook) for hook in ['open a map', 'on ', 'march ', 'in ']):

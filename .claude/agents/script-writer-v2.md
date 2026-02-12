@@ -473,7 +473,16 @@ Select one closing pattern from Part 6.5 that matches the video type:
 - Document discovery: "Unanswered Question" (pivot from past to present)
 - General/myth-busting: "Modern Relevance Closing" (connect to current discourse)
 
-**F. After completing draft, note which patterns were applied:**
+**F. Additional High-Performance Patterns -- AS OPPORTUNITIES ARISE:**
+Consult Part 6.7 for situational patterns that strengthen specific moments:
+- Immediate Contradiction: opening reveals where claim vs. reality diverge
+- Specific Stakeholder Quote: give voice to affected populations with named individuals
+- Bureaucratic Detail as Horror: let administrative language reveal regime crimes
+- Timeline Acceleration: expose suspicious timing by comparing normal vs. actual timeframes
+
+These are not mandatory per section — apply when the script moment naturally calls for them.
+
+**G. After completing draft, note which patterns were applied:**
 At the end of SCRIPT METADATA section, add:
 ```
 ## VOICE PATTERNS APPLIED
@@ -481,11 +490,12 @@ At the end of SCRIPT METADATA section, add:
 - Key transitions: [list 2-3 transition patterns used]
 - Evidence patterns: [which Part 6.3 patterns used]
 - Closing: [formula name from Part 6.5]
+- Additional: [any Part 6.7 patterns used, or "none"]
 ```
 
 This helps user validate pattern application without manual cross-checking.
 
-**See:** `.claude/REFERENCE/STYLE-GUIDE.md` Part 6 for all patterns with examples and templates.
+**See:** `.claude/REFERENCE/STYLE-GUIDE.md` Part 6 (6.1-6.7) for all patterns with examples and templates.
 
 ---
 
