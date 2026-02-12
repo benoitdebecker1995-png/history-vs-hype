@@ -1,5 +1,36 @@
 # Project Milestones: History vs Hype Workspace
 
+## v2.0 Channel Intelligence (Shipped: 2026-02-11)
+
+**Delivered:** Channel-aware AI intelligence — scripts match creator voice via 29 documented patterns, NotebookLM research bridge generates source lists and extracts citations, analytics map retention drops to specific script sections with concrete fix recommendations.
+
+**Phases completed:** 33-35 (7 plans total)
+
+**Key accomplishments:**
+
+- Voice Pattern Library: 29 copy-paste patterns extracted from top performers (Belize 23K views, Vance 42.6% retention, Essequibo, Almada) as STYLE-GUIDE.md Part 6 (Phase 33)
+- Script-writer-v2 integration: Rule 14 applies Part 6 patterns (6.1-6.7) during generation with VOICE PATTERNS APPLIED metadata (Phase 33)
+- Academic source list generator: Claude API-backed tool creates tiered source lists with ISBNs and purchase links for NotebookLM upload (Phase 34)
+- Citation extractor: Regex-based parser converts NotebookLM chat output to VERIFIED-RESEARCH.md format with page numbers (Phase 34)
+- Retention mapper: Maps YouTube retention drops to specific script sections via word-count timing (Phase 35)
+- Section diagnostics: Diagnoses drop root causes (abstract openings, missing causal chains) and recommends Part 6 voice patterns (Phase 35)
+- Pre-script intelligence: Topic strategy + feedback insights surface automatically before /script generation (Phase 35)
+
+**Stats:**
+
+- 3 phases, 7 plans
+- ~32 commits over 2 days
+- 11/11 requirements delivered
+- ~2,300 lines added (tools/youtube-analytics/, tools/, .claude/REFERENCE/)
+
+**Git range:** `6e404b5` → `4b8e3f9`
+
+**What's next:** Use `/analyze VIDEO_ID --script PATH` for section-level retention diagnostics. Pre-script intelligence surfaces automatically via `/script`.
+
+**Archive:** `.planning/milestones/v2.0-ROADMAP.md`
+
+---
+
 ## v1.6 Click & Keep (Shipped: 2026-02-09)
 
 **Delivered:** Systematic CTR and retention improvement system — track what works across thumbnails, titles, and script structure so each video is better than the last.
@@ -201,3 +232,4 @@
 ---
 
 *Milestones log created: 2026-01-23*
+

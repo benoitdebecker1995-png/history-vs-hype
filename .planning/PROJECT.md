@@ -8,25 +8,34 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current Milestone: v2.0 Channel Intelligence
+## Current State: v2.0 Shipped
 
-**Goal:** Transform generic tools into channel-aware AI that knows your voice, audience, performance data, and research workflow — so every output is specific to History vs Hype, not generic YouTube advice.
+**Last milestone:** v2.0 Channel Intelligence (shipped 2026-02-11)
 
-**Target features:**
-- Script generation that sounds like you (calm prosecutor voice, Kraut-style causal chains, real quotes with page numbers)
-- Research-to-NotebookLM bridge (tools that prepare sources and pull verified research back into scripts)
-- Actionable analytics (concrete script fixes from retention drops, thumbnail/title recommendations, topic strategy)
+**What v2.0 delivered:**
+- Script generation matches creator voice via 29 documented patterns (STYLE-GUIDE.md Part 6)
+- NotebookLM research bridge: source list generation + citation extraction
+- Actionable analytics: retention drops mapped to script sections with Part 6 pattern recommendations
+- Pre-script intelligence surfaces automatically before /script generation
 
-**Problem statement:** v1.0-v1.6 built ~17K lines of tooling covering the full production cycle, but tool outputs don't match what's actually needed during production. Scripts don't sound like the creator, research tools and NotebookLM are disconnected, and analytics show data without actionable next steps.
-
-## Previous State: v1.6 Shipped
-
-**Last milestone:** v1.6 Click & Keep (shipped 2026-02-09)
-
-- CTR tracking, pacing analysis, feedback loop, model refresh
-- See `.planning/milestones/v1.6-ROADMAP.md` for details
+**Previous milestones:** v1.0-v1.6 (shipped 2026-01-19 to 2026-02-09)
+- See `.planning/milestones/` for archives
 
 ## Requirements
+
+### Validated (v2.0)
+
+- Voice pattern extraction from top-performing transcripts (29 patterns) — v2.0
+- STYLE-GUIDE.md Part 6 Voice Pattern Library with formulas, examples, templates — v2.0
+- Script-writer-v2 applies Part 6 voice patterns via Rule 14 — v2.0
+- Script validation for forbidden phrases, missing definitions, DNA violations — v2.0
+- Academic source list generation with ISBNs and purchase links — v2.0
+- NotebookLM citation extraction to VERIFIED-RESEARCH.md format — v2.0
+- Structured NotebookLM prompts for fact extraction — v2.0
+- Retention drops mapped to script sections with root cause analysis — v2.0
+- Concrete fix recommendations referencing specific sections and Part 6 patterns — v2.0
+- Topic strategy analysis with confidence flags and concrete next steps — v2.0
+- Pre-script intelligence surfaces automatically before /script generation — v2.0
 
 ### Validated (v1.6)
 
@@ -124,29 +133,29 @@ Every video shows sources on screen. Viewers see the evidence themselves and can
 **What works:**
 - Verified workflow produces videos
 - Academic sourcing approach is the competitive advantage
-- Style is now consistent (STYLE-GUIDE.md authoritative)
+- Style is now consistent (STYLE-GUIDE.md authoritative, Part 6 voice patterns)
 - Commands are discoverable (/help, /status)
 - Full production pipeline exists (research → script → production → publish → analyze)
 - Database infrastructure for performance, variants, CTR, feedback
-
-**What doesn't work well (v2.0 drivers):**
-- Script generation output doesn't match creator voice or integrate verified research
-- Research/discovery tools and NotebookLM workflow are disconnected
-- Analytics show data but don't provide actionable next steps
-- Tools exist but outputs don't match what's needed during actual production
+- Script generation matches creator voice (29 Part 6 patterns via Rule 14)
+- NotebookLM research bridge generates source lists and extracts citations
+- Analytics map retention drops to script sections with concrete fix recommendations
+- Pre-script intelligence surfaces automatically before /script generation
 
 **Known tech debt:**
 - Library folder (728 files) needs manual cleanup
 - Python 3.14 + spaCy compatibility (use Python 3.11-3.13 for now)
 - datetime.utcnow() deprecation warning in intent_mapper.py
 - Voice patterns empty until user runs --rebuild-voice
-- Discovery diagnostics standalone (not auto-integrated into /analyze)
+- anthropic SDK required for notebooklm_bridge.py (pip install anthropic>=0.40.0)
 
 **Tech stack:**
-- ~12,300 lines Python (tools/youtube-analytics/) — includes variants.py, benchmarks.py, feedback.py
+- ~14,600 lines Python (tools/youtube-analytics/) — includes retention_mapper.py, section_diagnostics.py, topic_strategy.py
 - ~3,200 lines Python (tools/script-checkers/) — includes pacing_checker.py
 - ~1,800 lines Python (tools/discovery/) — includes recommender.py
+- ~700 lines Python (tools/) — notebooklm_bridge.py, citation_extractor.py
 - YouTube Analytics API v2 + YouTube Data API v3
+- Anthropic SDK for notebooklm_bridge.py (Claude Sonnet 4 for source generation)
 - OAuth2 authentication with token refresh
 - SQLite database for keywords, performance, variants, CTR, and feedback
 
@@ -189,7 +198,15 @@ Every video shows sources on screen. Viewers see the evidence themselves and can
 | Feature flags (VARIANTS/BENCHMARKS/FEEDBACK_AVAILABLE) | Graceful degradation when modules unavailable | Good (v1.6) |
 | Regex-based markdown parsing for feedback | All-stdlib, no external dependencies | Good (v1.6) |
 | Short model aliases (opus/sonnet/haiku) | Auto-map to latest versions, no version churn | Good (v1.6) |
+| Reference doc expansion over code proliferation | Voice patterns as STYLE-GUIDE Part 6, not new Python modules | Good (v2.0) |
+| Claude API for source generation | Claude has academic knowledge without needing external APIs | Good (v2.0) |
+| Regex-based citation extraction (not LLM) | NotebookLM output is predictable; regex is fast, free, deterministic | Good (v2.0) |
+| Static prompt library as reference doc | Prompts are stable templates, always available without dynamic generation | Good (v2.0) |
+| Hardcoded voice patterns in diagnostics | 29 patterns are stable; avoids runtime markdown parsing complexity | Good (v2.0) |
+| 150 WPM fixed rate for retention mapping | Good enough for diagnostic section boundaries | Good (v2.0) |
+| Confidence flags on topic strategy | Small dataset (~15 videos) requires explicit confidence signaling | Good (v2.0) |
+| DIAGNOSTICS_AVAILABLE feature flag | Graceful degradation if retention mapper not available | Good (v2.0) |
 
 ---
 
-*Last updated: 2026-02-09 after v2.0 milestone started*
+*Last updated: 2026-02-11 after v2.0 milestone shipped*
