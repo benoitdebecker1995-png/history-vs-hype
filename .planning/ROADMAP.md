@@ -550,7 +550,7 @@ Plans:
 **Goal**: Retention playbook synthesized from channel data exists as STYLE-GUIDE Part 9
 **Dependencies**: Phase 35 (retention analytics tools)
 **Requirements**: RET-01, RET-02, RET-03
-**Plans**: TBD
+**Plans**: 3 plans
 
 **Success Criteria:**
 1. User can read retention playbook as STYLE-GUIDE.md Part 9 with section-level guidance derived from published video data
@@ -560,7 +560,9 @@ Plans:
 5. Part 9 playbook updates automatically as new videos publish and retention data accumulates
 
 Plans:
-- [ ] 36-01: [TBD during phase planning]
+- [ ] 36-01-PLAN.md — Playbook synthesizer + STYLE-GUIDE.md Part 9 generation (RET-01)
+- [ ] 36-02-PLAN.md — Retention scorer with predictive section scoring (TDD) (RET-02, RET-03)
+- [ ] 36-03-PLAN.md — Integration: script-writer-v2 Rule 15 + /script warnings + /analyze auto-update
 
 #### Phase 37: Creator Transcript Analysis
 **Goal**: Technique library built from 80+ creator transcripts and surfaced during script generation
@@ -635,6 +637,6 @@ Plans:
 | 33. Voice Pattern Library | v2.0 | 2/2 | Complete | 2026-02-10 |
 | 34. NotebookLM Research Bridge | v2.0 | 2/2 | Complete | 2026-02-11 |
 | 35. Actionable Analytics | v2.0 | 3/3 | Complete | 2026-02-11 |
-| 36. Retention Science | v3.0 | 0/TBD | Not started | - |
+| 36. Retention Science | v3.0 | 0/3 | In progress | - |
 | 37. Creator Transcript Analysis | v3.0 | 0/TBD | Not started | - |
 | 38. Structured Choice Architecture | v3.0 | 0/TBD | Not started | - |
