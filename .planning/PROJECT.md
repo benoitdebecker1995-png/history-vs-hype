@@ -8,17 +8,16 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current State: v2.0 Shipped
+## Current Milestone: v3.0 Adaptive Scriptwriter
 
-**Last milestone:** v2.0 Channel Intelligence (shipped 2026-02-11)
+**Goal:** Build the best YouTube scriptwriter available — learns from top creators and retention science, adapts to the creator's natural voice through edit-based feedback, and offers structured choices that get smarter over time.
 
-**What v2.0 delivered:**
-- Script generation matches creator voice via 29 documented patterns (STYLE-GUIDE.md Part 6)
-- NotebookLM research bridge: source list generation + citation extraction
-- Actionable analytics: retention drops mapped to script sections with Part 6 pattern recommendations
-- Pre-script intelligence surfaces automatically before /script generation
+**Target features:**
+- Creator & retention intelligence: systematic transcript analysis + YouTube retention science baked into scriptwriting
+- Edit-based learning loop: captures delta between generated and edited scripts, builds preference model over time
+- Structured choice architecture: multiple hook variants, structural approaches per script; choices feed back into learning
 
-**Previous milestones:** v1.0-v1.6 (shipped 2026-01-19 to 2026-02-09)
+**Previous milestones:** v1.0-v1.6, v2.0 (shipped 2026-01-19 to 2026-02-11)
 - See `.planning/milestones/` for archives
 
 ## Requirements
@@ -209,4 +208,4 @@ Every video shows sources on screen. Viewers see the evidence themselves and can
 
 ---
 
-*Last updated: 2026-02-11 after v2.0 milestone shipped*
+*Last updated: 2026-02-12 after v3.0 milestone started*
