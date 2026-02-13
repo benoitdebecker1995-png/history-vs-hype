@@ -67,11 +67,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CRE-02 | Phase 37 | Pending |
 | CRE-03 | Phase 37 | Pending |
 | CRE-04 | Phase 37 | Pending |
+| INT-01 | Phase 37 | Pending |
 | CHO-01 | Phase 38 | Pending |
 | CHO-02 | Phase 38 | Pending |
 | CHO-03 | Phase 38 | Pending |
 | CHO-04 | Phase 38 | Pending |
-| INT-01 | Phase 37 | Pending |
 | INT-02 | Phase 38 | Pending |
 | INT-03 | Phase 38 | Pending |
 
@@ -82,4 +82,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-12*
-*Last updated: 2026-02-12 after initial definition*
+*Last updated: 2026-02-13 after roadmap creation*

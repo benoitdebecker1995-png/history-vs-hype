@@ -10,6 +10,7 @@
 - **v1.5 Production Acceleration** - Phases 22-26 (shipped 2026-02-05)
 - **v1.6 Click & Keep** - Phases 27-32 (shipped 2026-02-09)
 - **v2.0 Channel Intelligence** - Phases 33-35 (shipped 2026-02-11)
+- **v3.0 Adaptive Scriptwriter** - Phases 36-38 (planned)
 
 ## Phases
 
@@ -541,6 +542,58 @@ Plans:
 
 </details>
 
+### v3.0 Adaptive Scriptwriter (In Progress)
+
+**Milestone Goal:** Build the best YouTube scriptwriter available — learns from top creators and retention science, adapts to creator's natural voice through edit-based feedback, and offers structured choices that get smarter over time.
+
+#### Phase 36: Retention Science
+**Goal**: Retention playbook synthesized from channel data exists as STYLE-GUIDE Part 9
+**Dependencies**: Phase 35 (retention analytics tools)
+**Requirements**: RET-01, RET-02, RET-03
+**Plans**: TBD
+
+**Success Criteria:**
+1. User can read retention playbook as STYLE-GUIDE.md Part 9 with section-level guidance derived from published video data
+2. Script-writer-v2 references Part 9 retention rules during generation to avoid known drop patterns
+3. User can see predicted retention scores for script sections before filming based on length, evidence density, and modern relevance proximity
+4. Retention warnings flag risky script sections during /script generation based on encoded drop patterns from published videos
+5. Part 9 playbook updates automatically as new videos publish and retention data accumulates
+
+Plans:
+- [ ] 36-01: [TBD during phase planning]
+
+#### Phase 37: Creator Transcript Analysis
+**Goal**: Technique library built from 80+ creator transcripts and surfaced during script generation
+**Dependencies**: Phase 36 (Part 9 retention context)
+**Requirements**: CRE-01, CRE-02, CRE-03, CRE-04, INT-01
+**Plans**: TBD
+
+**Success Criteria:**
+1. User can see structural patterns extracted from 80+ transcripts in transcripts/ folder (hooks, transitions, pacing, evidence presentation)
+2. System identifies universal best practices appearing across 3+ successful creators and stores as STYLE-GUIDE.md Part 8
+3. Creator technique library is searchable by technique type (opening hooks, causal chains, source integration, pattern interrupts)
+4. Script-writer-v2 reads Part 8 techniques and applies relevant ones during generation via new Rule 17
+5. Database migrated to schema v28 with creator_techniques table for structured technique storage
+
+Plans:
+- [ ] 37-01: [TBD during phase planning]
+
+#### Phase 38: Structured Choice Architecture
+**Goal**: Script-writer-v2 generates hook and structure variants, learns from user choices
+**Dependencies**: Phase 37 (technique library and DB v28)
+**Requirements**: CHO-01, CHO-02, CHO-03, CHO-04, INT-02, INT-03
+**Plans**: TBD
+
+**Success Criteria:**
+1. User can generate 2-3 opening hook variants before full script when using /script --variants flag
+2. User can see 2 structural approaches proposed per video (chronological vs payoff-first, evidence-first vs narrative-first)
+3. User's hook and structure choices are logged to database with project context for pattern recognition
+4. After 5+ logged choices, system recommends preferred option based on past choice patterns automatically
+5. Script-writer-v2 agent prompt consolidated within 1,500 line budget (Rules 13 simplified, Rules 15-17 added for retention, techniques, and choice generation)
+
+Plans:
+- [ ] 38-01: [TBD during phase planning]
+
 ## Progress
 
 | Phase | Milestone | Plans Complete | Status | Completed |
@@ -582,3 +635,6 @@ Plans:
 | 33. Voice Pattern Library | v2.0 | 2/2 | Complete | 2026-02-10 |
 | 34. NotebookLM Research Bridge | v2.0 | 2/2 | Complete | 2026-02-11 |
 | 35. Actionable Analytics | v2.0 | 3/3 | Complete | 2026-02-11 |
+| 36. Retention Science | v3.0 | 0/TBD | Not started | - |
+| 37. Creator Transcript Analysis | v3.0 | 0/TBD | Not started | - |
+| 38. Structured Choice Architecture | v3.0 | 0/TBD | Not started | - |
