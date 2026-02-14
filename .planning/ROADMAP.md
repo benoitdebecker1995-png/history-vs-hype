@@ -568,7 +568,7 @@ Plans:
 **Goal**: Technique library built from 80+ creator transcripts and surfaced during script generation
 **Dependencies**: Phase 36 (Part 9 retention context)
 **Requirements**: CRE-01, CRE-02, CRE-03, CRE-04, INT-01
-**Plans**: TBD
+**Plans**: 3 plans
 
 **Success Criteria:**
 1. User can see structural patterns extracted from 80+ transcripts in transcripts/ folder (hooks, transitions, pacing, evidence presentation)
@@ -578,7 +578,9 @@ Plans:
 5. Database migrated to schema v28 with creator_techniques table for structured technique storage
 
 Plans:
-- [ ] 37-01: [TBD during phase planning]
+- [ ] 37-01-PLAN.md — Transcript analyzer pipeline + technique library DB (schema v28)
+- [ ] 37-02-PLAN.md — Cross-creator pattern synthesis + STYLE-GUIDE.md Part 8 generation
+- [ ] 37-03-PLAN.md — Script-writer-v2 Rule 17 integration
 
 #### Phase 38: Structured Choice Architecture
 **Goal**: Script-writer-v2 generates hook and structure variants, learns from user choices
