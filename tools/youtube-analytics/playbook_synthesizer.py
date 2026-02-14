@@ -840,7 +840,7 @@ def main():
             print(f"Error: {result['error']}", file=sys.stderr)
             return 1
 
-        print(f"✓ Part 9 written to {result['path']}")
+        print(f"Part 9 written to {result['path']}")
         return 0
     else:
         # Dry run - print to stdout
