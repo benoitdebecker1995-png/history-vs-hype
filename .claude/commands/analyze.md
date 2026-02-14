@@ -123,6 +123,19 @@ Output includes:
 - Long sections without pacing variation
 - Weak opening hook (section-specific for intro drops)
 
+### PLAYBOOK UPDATE (Auto-Update Part 9)
+
+After each video analysis with the --script flag, the retention playbook (STYLE-GUIDE.md Part 9) is automatically updated:
+
+```bash
+# Manual update (standalone)
+python tools/youtube-analytics/playbook_synthesizer.py --update
+```
+
+This re-synthesizes Part 9 from all available retention data, incorporating patterns from the newly analyzed video.
+
+**Automatic trigger:** analyze.py automatically updates Part 9 after `/analyze VIDEO_ID --script PATH` completes section diagnostics. No separate flag needed.
+
 ---
 
 ## Note on CTR

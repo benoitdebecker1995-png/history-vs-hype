@@ -90,6 +90,13 @@ try:
 except ImportError:
     DIAGNOSTICS_AVAILABLE = False
 
+# Try to import playbook synthesizer (Phase 36)
+try:
+    from playbook_synthesizer import synthesize_part9, write_part9_to_style_guide
+    PLAYBOOK_AVAILABLE = True
+except ImportError:
+    PLAYBOOK_AVAILABLE = False
+
 
 # Determine project root (2 levels up from tools/youtube-analytics/)
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -1380,6 +1387,18 @@ if __name__ == '__main__':
             else:
                 # Add to analysis for markdown formatting
                 analysis['section_diagnostics'] = section_diagnostics_result
+
+                # Auto-update retention playbook (Part 9) after section diagnostics
+                if PLAYBOOK_AVAILABLE:
+                    try:
+                        print("\nUpdating retention playbook (STYLE-GUIDE.md Part 9)...")
+                        result = write_part9_to_style_guide(synthesize_part9())
+                        if 'error' in result:
+                            print(f"Warning: Playbook update failed: {result['error']}")
+                        else:
+                            print("Part 9 updated.")
+                    except Exception as e:
+                        print(f"Warning: Playbook update error: {str(e)}")
         except Exception as e:
             print(f"\nWarning: Section diagnostics error: {str(e)}")
 

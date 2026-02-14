@@ -101,6 +101,50 @@ else:
 
 **If no insights available:** Skip silently. Do not block script generation.
 
+### RETENTION SCORING (Post-Generation)
+
+After script generation is complete, run retention scoring on the output:
+
+1. Parse the generated script with ScriptParser
+2. Import and call `score_all_sections(sections, topic_type)` from retention_scorer.py
+3. Call `format_retention_warnings(scored_sections)` to get formatted warnings
+4. Display warnings to user BEFORE finalizing script
+
+**Output format:**
+```
+## RETENTION RISK ASSESSMENT
+
+| Section | Risk | Score | Top Warning |
+|---------|------|-------|-------------|
+| Introduction | LOW | 0.82 | - |
+| The Treaty of 1859 | HIGH | 0.38 | Section 280 words exceeds territorial avg 150 |
+| Modern Consequences | LOW | 0.91 | - |
+
+**HIGH RISK sections should be revised before filming.**
+```
+
+**Implementation for Claude:**
+```python
+import sys
+sys.path.insert(0, 'tools/youtube-analytics')
+try:
+    from retention_scorer import score_all_sections, format_retention_warnings
+    SCORER_AVAILABLE = True
+except ImportError:
+    SCORER_AVAILABLE = False
+
+# After script generation:
+if SCORER_AVAILABLE:
+    from tools.production.parser import ScriptParser
+    parser = ScriptParser()
+    sections = parser.parse_file(script_path)
+    scored = score_all_sections(sections, topic_type)
+    warnings = format_retention_warnings(scored)
+    # Display warnings to user
+```
+
+If retention_scorer not available, skip silently (graceful degradation).
+
 ## Format Template Selection (NEW - 2026-01-04)
 
 **Before gathering information, identify if topic fits a signature format:**
@@ -194,6 +238,8 @@ After classifying video type, check `.claude/REFERENCE/coverage-audit.md` Covera
 2. **Gather information and context** (see sections above)
 
 3. **Generate script** using script-writer-v2 agent guidelines below
+
+4. **Run retention scoring** on completed script and display risk assessment
 
 ### Hard Constraints
 - **VERBATIM facts only** - Copy exactly from research
