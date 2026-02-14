@@ -14,9 +14,9 @@ See: `.planning/PROJECT.md` (updated 2026-02-12)
 
 **Milestone:** v3.0 Adaptive Scriptwriter
 **Phase:** 36 of 38 (Retention Science)
-**Plan:** 1 of 3 complete (36-01 ✓, 36-02, 36-03)
+**Plan:** 2 of 3 complete (36-01 ✓, 36-02 ✓, 36-03)
 **Status:** In progress — executing Wave 1
-**Last activity:** 2026-02-14 — Completed 36-01 (playbook synthesizer + Part 9 generation)
+**Last activity:** 2026-02-14 — Completed 36-02 (retention scorer TDD implementation)
 
 **Progress:**
 v1.0 [####################] 100% — Workspace Optimization (archived)
@@ -98,18 +98,27 @@ v3.0 [███░░░░░░░░░░░░░░░░░░] 11% — A
 - `python tools/youtube-analytics/playbook_synthesizer.py --update` — regenerate STYLE-GUIDE.md Part 9 from latest retention data
 - `python tools/youtube-analytics/playbook_synthesizer.py --json` — output raw pattern data for debugging
 
+**Retention Scoring (v3.0 Phase 36):**
+- `python tools/youtube-analytics/retention_scorer.py SCRIPT_PATH --topic TYPE` — score script sections for retention risk
+- Score thresholds: HIGH (<0.5), MEDIUM (0.5-0.7), LOW (>0.7)
+- Scoring weights: evidence 35%, relevance 40%, length 20%, patterns +20% cap
+- Topic baselines: 3-video threshold for topic-specific, falls back to channel avg or defaults
+- Modern relevance markers use word boundaries to avoid false positives
+
 ## Session Continuity
 
 ### Last Session
 
 - **Date:** 2026-02-14
-- **Work:** Executed Plan 36-01: Playbook Synthesizer
-- **Output:** playbook_synthesizer.py (852 LOC), STYLE-GUIDE.md Part 9 (retention playbook)
-- **Commits:** e1de2b4, 935fff8
+- **Work:** Executed Plans 36-01 and 36-02
+- **Output:**
+  - 36-01: playbook_synthesizer.py (852 LOC), STYLE-GUIDE.md Part 9
+  - 36-02: retention_scorer.py (674 LOC), test_retention_scorer.py (296 LOC, 13 tests passing)
+- **Commits:** e1de2b4, 935fff8 (36-01), 54ec88d, d69a67c (36-02)
 
 ### Next Session
 
-**Next action:** `/gsd:execute-plan 36-02` to build retention_scorer.py (TDD workflow)
+**Next action:** `/gsd:execute-plan 36-03` to integrate retention scorer into analytics workflow
 
 ## Technical Notes
 
@@ -120,7 +129,7 @@ v3.0 [███░░░░░░░░░░░░░░░░░░] 11% — A
 - Voice patterns require user to run `--rebuild-voice` to populate
 - keywords.db schema version 27 (auto-migration with PRAGMA user_version)
 - External packages (trendspyg, scrapetube) optional - graceful degradation
-- Feature flags: VARIANTS_AVAILABLE, BENCHMARKS_AVAILABLE, FEEDBACK_AVAILABLE, DIAGNOSTICS_AVAILABLE, TOPIC_STRATEGY_AVAILABLE, PLAYBOOK_AVAILABLE
+- Feature flags: VARIANTS_AVAILABLE, BENCHMARKS_AVAILABLE, FEEDBACK_AVAILABLE, DIAGNOSTICS_AVAILABLE, TOPIC_STRATEGY_AVAILABLE, PLAYBOOK_AVAILABLE, SCORER_AVAILABLE
 - anthropic SDK required for notebooklm_bridge.py (`pip install anthropic>=0.40.0`)
 - Retention mapping uses fixed 150 WPM for word-count timing
 - Section diagnostics hardcode 29 voice patterns from STYLE-GUIDE.md Part 6
