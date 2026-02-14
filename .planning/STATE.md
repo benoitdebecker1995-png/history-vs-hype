@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-13 (v3.0 roadmap created)
+**Last Updated:** 2026-02-14 (Phase 36 planned)
 
 ## Project Reference
 
@@ -14,9 +14,9 @@ See: `.planning/PROJECT.md` (updated 2026-02-12)
 
 **Milestone:** v3.0 Adaptive Scriptwriter
 **Phase:** 36 of 38 (Retention Science)
-**Plan:** Ready to plan
-**Status:** Ready to plan Phase 36
-**Last activity:** 2026-02-13 — v3.0 roadmap created
+**Plan:** 1 of 3 complete (36-01 ✓, 36-02, 36-03)
+**Status:** In progress — executing Wave 1
+**Last activity:** 2026-02-14 — Completed 36-01 (playbook synthesizer + Part 9 generation)
 
 **Progress:**
 v1.0 [####################] 100% — Workspace Optimization (archived)
@@ -27,7 +27,7 @@ v1.4 [####################] 100% — Learning Loop (archived)
 v1.5 [####################] 100% — Production Acceleration (archived)
 v1.6 [####################] 100% — Click & Keep (archived)
 v2.0 [####################] 100% — Channel Intelligence (archived)
-v3.0 [░░░░░░░░░░░░░░░░░░░░] 0% — Adaptive Scriptwriter (in progress)
+v3.0 [███░░░░░░░░░░░░░░░░░░] 11% — Adaptive Scriptwriter (in progress)
 
 ## Milestone History
 
@@ -93,17 +93,23 @@ v3.0 [░░░░░░░░░░░░░░░░░░░░] 0% — Adapt
 - `python tools/youtube-analytics/topic_strategy.py` — aggregate performance by topic type
 - `python tools/youtube-analytics/feedback_queries.py` — query pre-script insights
 
+**Retention Playbook (v3.0 Phase 36):**
+- `python tools/youtube-analytics/playbook_synthesizer.py` — dry run (print Part 9 to stdout)
+- `python tools/youtube-analytics/playbook_synthesizer.py --update` — regenerate STYLE-GUIDE.md Part 9 from latest retention data
+- `python tools/youtube-analytics/playbook_synthesizer.py --json` — output raw pattern data for debugging
+
 ## Session Continuity
 
 ### Last Session
 
-- **Date:** 2026-02-13
-- **Work:** Created v3.0 roadmap
-- **Output:** ROADMAP.md updated with Phases 36-38, REQUIREMENTS.md traceability updated
+- **Date:** 2026-02-14
+- **Work:** Executed Plan 36-01: Playbook Synthesizer
+- **Output:** playbook_synthesizer.py (852 LOC), STYLE-GUIDE.md Part 9 (retention playbook)
+- **Commits:** e1de2b4, 935fff8
 
 ### Next Session
 
-**Next action:** `/gsd:plan-phase 36` to create Phase 36 plan
+**Next action:** `/gsd:execute-plan 36-02` to build retention_scorer.py (TDD workflow)
 
 ## Technical Notes
 
@@ -114,10 +120,12 @@ v3.0 [░░░░░░░░░░░░░░░░░░░░] 0% — Adapt
 - Voice patterns require user to run `--rebuild-voice` to populate
 - keywords.db schema version 27 (auto-migration with PRAGMA user_version)
 - External packages (trendspyg, scrapetube) optional - graceful degradation
-- Feature flags: VARIANTS_AVAILABLE, BENCHMARKS_AVAILABLE, FEEDBACK_AVAILABLE, DIAGNOSTICS_AVAILABLE, TOPIC_STRATEGY_AVAILABLE
+- Feature flags: VARIANTS_AVAILABLE, BENCHMARKS_AVAILABLE, FEEDBACK_AVAILABLE, DIAGNOSTICS_AVAILABLE, TOPIC_STRATEGY_AVAILABLE, PLAYBOOK_AVAILABLE
 - anthropic SDK required for notebooklm_bridge.py (`pip install anthropic>=0.40.0`)
 - Retention mapping uses fixed 150 WPM for word-count timing
 - Section diagnostics hardcode 29 voice patterns from STYLE-GUIDE.md Part 6
+- Playbook synthesizer generates Part 9 from video_performance.lessons_learned (requires 3+ videos for patterns)
+- STYLE-GUIDE.md Part 9 auto-updated with `python tools/youtube-analytics/playbook_synthesizer.py --update`
 
 ## Known Issues
 
@@ -136,4 +144,4 @@ v3.0 [░░░░░░░░░░░░░░░░░░░░] 0% — Adapt
 
 ---
 
-*State updated: 2026-02-13 after v3.0 roadmap created*
+*State updated: 2026-02-14 after Phase 36 planned*
