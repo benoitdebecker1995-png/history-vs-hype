@@ -14,7 +14,7 @@ version: 5.5 (2026-01-21 - Consolidated to STYLE-GUIDE.md as primary reference, 
 
 | File | Purpose |
 |------|---------|
-| **`.claude/REFERENCE/STYLE-GUIDE.md`** | **PRIMARY** - All style rules, voice, delivery, voice pattern library, quality checklist |
+| **`.claude/REFERENCE/STYLE-GUIDE.md`** | **PRIMARY** - All style rules, voice, delivery, Parts 1-7 style + Part 6 voice patterns + **Part 9 retention playbook** |
 | `.claude/templates/02-SCRIPT-DRAFT-TEMPLATE.md` | Output template |
 
 ### Tier 2: As Needed (Reference when relevant)
@@ -496,6 +496,42 @@ At the end of SCRIPT METADATA section, add:
 This helps user validate pattern application without manual cross-checking.
 
 **See:** `.claude/REFERENCE/STYLE-GUIDE.md` Part 6 (6.1-6.7) for all patterns with examples and templates.
+
+---
+
+### RULE 15: RETENTION PLAYBOOK APPLICATION
+
+**Before writing, read STYLE-GUIDE.md Part 9 for data-driven retention rules.**
+
+Part 9 is auto-generated from published video retention data. It contains:
+- Opening retention rules per topic type (Part 9.1)
+- Section pacing guidelines with length thresholds (Part 9.2)
+- Modern relevance proximity rules (Part 9.3)
+- Voice pattern effectiveness ranking (Part 9.4)
+- Topic-type baselines (Part 9.5)
+
+**Application during writing:**
+
+A. **Before starting:** Check Part 9.5 for topic-type baseline. Note avg section length and confidence level.
+
+B. **Each section:** Keep section word count within topic-type avg + 1 std dev (from Part 9.2). If section runs long, add pattern interrupt or split.
+
+C. **Modern relevance:** Ensure no gap exceeds the topic-type threshold from Part 9.3. If writing a long historical sequence, insert "which is why today..." bridge before exceeding threshold.
+
+D. **Evidence density:** Maintain at least 1 evidence marker per 200 words (quote, "according to", page reference). Part 9.4 shows which evidence patterns correlate with highest retention.
+
+E. **After completing draft:** Note which Part 9 rules were applied in VOICE PATTERNS APPLIED section:
+```
+## RETENTION RULES APPLIED
+- Topic baseline: [topic_type] (Part 9.5)
+- Max section length: [X words] (Part 9.2)
+- Modern relevance gap limit: [X words] (Part 9.3)
+- Sections flagged: [any sections that exceeded thresholds]
+```
+
+**If Part 9 shows "insufficient data":** Fall back to default thresholds (150 words/section, 100-word modern relevance gap) and note "Part 9 insufficient data - using defaults" in metadata.
+
+**See:** `.claude/REFERENCE/STYLE-GUIDE.md` Part 9 for current retention playbook.
 
 ---
 
