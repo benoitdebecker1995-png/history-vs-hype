@@ -14,9 +14,9 @@ See: `.planning/PROJECT.md` (updated 2026-02-12)
 
 **Milestone:** v3.0 Adaptive Scriptwriter
 **Phase:** 36 of 38 (Retention Science)
-**Plan:** 2 of 3 complete (36-01 ✓, 36-02 ✓, 36-03)
-**Status:** In progress — executing Wave 1
-**Last activity:** 2026-02-14 — Completed 36-02 (retention scorer TDD implementation)
+**Plan:** 3 of 3 complete (36-01 ✓, 36-02 ✓, 36-03 ✓)
+**Status:** Phase complete — ready for Phase 37
+**Last activity:** 2026-02-14 — Completed 36-03 (feedback loop integration)
 
 **Progress:**
 v1.0 [####################] 100% — Workspace Optimization (archived)
@@ -27,7 +27,7 @@ v1.4 [####################] 100% — Learning Loop (archived)
 v1.5 [####################] 100% — Production Acceleration (archived)
 v1.6 [####################] 100% — Click & Keep (archived)
 v2.0 [####################] 100% — Channel Intelligence (archived)
-v3.0 [███░░░░░░░░░░░░░░░░░░] 11% — Adaptive Scriptwriter (in progress)
+v3.0 [██████░░░░░░░░░░░░░░░] 33% — Adaptive Scriptwriter (in progress)
 
 ## Milestone History
 
@@ -110,15 +110,16 @@ v3.0 [███░░░░░░░░░░░░░░░░░░] 11% — A
 ### Last Session
 
 - **Date:** 2026-02-14
-- **Work:** Executed Plans 36-01 and 36-02
+- **Work:** Executed Plans 36-01, 36-02, and 36-03 (Phase 36 complete)
 - **Output:**
   - 36-01: playbook_synthesizer.py (852 LOC), STYLE-GUIDE.md Part 9
   - 36-02: retention_scorer.py (674 LOC), test_retention_scorer.py (296 LOC, 13 tests passing)
-- **Commits:** e1de2b4, 935fff8 (36-01), 54ec88d, d69a67c (36-02)
+  - 36-03: Feedback loop integration (script-writer-v2 Rule 15, /script retention scoring, /analyze playbook auto-update)
+- **Commits:** e1de2b4, 935fff8 (36-01), 54ec88d, d69a67c (36-02), ba2aa81, c4b4ddd (36-03)
 
 ### Next Session
 
-**Next action:** `/gsd:execute-plan 36-03` to integrate retention scorer into analytics workflow
+**Next action:** `/gsd:plan-phase 37` to plan next phase in v3.0 milestone
 
 ## Technical Notes
 
