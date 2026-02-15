@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-15 (Phase 38 Plan 01 complete)
+**Last Updated:** 2026-02-15 (Phase 38 Plan 02 complete)
 
 ## Project Reference
 
@@ -14,12 +14,12 @@ See: `.planning/PROJECT.md` (updated 2026-02-12)
 
 **Milestone:** v3.0 Adaptive Scriptwriter
 **Phase:** 38 of 38 (Structured Choice Architecture)
-**Plan:** 1 of 3 complete (38-01 ✓)
-**Status:** In progress — ready for Plan 38-02
-**Last activity:** 2026-02-15 — Completed 38-01 (choice storage & recommendation foundation)
+**Plan:** 2 of 3 complete (38-01 ✓, 38-02 ✓)
+**Status:** In progress — ready for Plan 38-03 (optional)
+**Last activity:** 2026-02-15 — Completed 38-02 (variant generation workflow integration)
 
 **Progress:**
-[█████████░] 94%
+[██████████] 95%
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
@@ -27,7 +27,7 @@ v1.4 [####################] 100% — Learning Loop (archived)
 v1.5 [####################] 100% — Production Acceleration (archived)
 v1.6 [####################] 100% — Click & Keep (archived)
 v2.0 [####################] 100% — Channel Intelligence (archived)
-v3.0 [███████████░░░░░░░░░] 56% — Adaptive Scriptwriter (in progress)
+v3.0 [██████████████░░░░░░] 67% — Adaptive Scriptwriter (in progress)
 
 ## Milestone History
 
@@ -123,17 +123,17 @@ v3.0 [███████████░░░░░░░░░] 56% — Adap
 ### Last Session
 
 - **Date:** 2026-02-15
-- **Work:** Executed Plan 38-01 (choice storage & recommendation foundation)
+- **Work:** Executed Plan 38-02 (variant generation workflow integration)
 - **Output:**
-  - Schema v29 migration: script_choices table with choice logging
-  - CRUD methods: log_choice, get_choices, get_choice_stats
-  - Recommendation engine: three-tier fallback with exponential decay
-  - CLI tools: --choices and --choice-stats flags
-- **Commits:** 7407d1d
+  - Rule 16 in script-writer-v2: hook/structure variant generation with choice logging
+  - /script --variants flag: sequential choice flow (hooks → structure)
+  - Choice surfacing: past pattern display in PRE-SCRIPT INTELLIGENCE
+  - CLI documentation: --choices review commands
+- **Commits:** 1e11c15, 49fce11
 
 ### Next Session
 
-**Next action:** Plan 38-02 (Variant Generation) — extend script-writer-v2 with Rule 16 for hook/structure variants
+**Next action:** Plan 38-03 (Agent Consolidation - OPTIONAL) — condense Rule 16, consider merging overlapping rules
 
 ## Technical Notes
 
