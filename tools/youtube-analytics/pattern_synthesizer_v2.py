@@ -165,10 +165,11 @@ def run_full_pipeline(transcripts_dir: Optional[Path] = None, db_path: Optional[
     # Step 1: Analyze all transcripts
     analyses = analyze_all_transcripts(transcripts_dir)
 
-    if 'error' in analyses:
+    # analyses is a list of analysis dicts
+    if isinstance(analyses, dict) and 'error' in analyses:
         return {'error': f'Transcript analysis failed: {analyses["error"]}'}
 
-    transcripts_analyzed = len(analyses.get('transcripts', []))
+    transcripts_analyzed = len(analyses)
     print(f"[1/3] ✓ Analyzed {transcripts_analyzed} transcripts", file=sys.stderr)
 
     # Step 2: Store results in database
