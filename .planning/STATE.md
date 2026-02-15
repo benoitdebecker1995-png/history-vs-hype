@@ -14,12 +14,12 @@ See: `.planning/PROJECT.md` (updated 2026-02-12)
 
 **Milestone:** v3.0 Adaptive Scriptwriter
 **Phase:** 38 of 38 (Structured Choice Architecture)
-**Plan:** 2 of 3 complete (38-01 ✓, 38-02 ✓)
-**Status:** In progress — ready for Plan 38-03 (optional)
-**Last activity:** 2026-02-15 — Completed 38-02 (variant generation workflow integration)
+**Plan:** 3 of 3 complete (38-01 ✓, 38-02 ✓, 38-03 ✓)
+**Status:** Complete — Phase 38 finished, v3.0 ready to ship
+**Last activity:** 2026-02-15 — Completed 38-03 (agent consolidation)
 
 **Progress:**
-[██████████] 95%
+[██████████] 100%
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
@@ -27,7 +27,7 @@ v1.4 [####################] 100% — Learning Loop (archived)
 v1.5 [####################] 100% — Production Acceleration (archived)
 v1.6 [####################] 100% — Click & Keep (archived)
 v2.0 [####################] 100% — Channel Intelligence (archived)
-v3.0 [██████████████░░░░░░] 67% — Adaptive Scriptwriter (in progress)
+v3.0 [####################] 100% — Adaptive Scriptwriter (complete)
 
 ## Milestone History
 
@@ -41,7 +41,7 @@ v3.0 [██████████████░░░░░░] 67% — Adap
 | v1.5 | Production Acceleration | 22-26 | 2026-02-05 |
 | v1.6 | Click & Keep | 27-32 | 2026-02-09 |
 | v2.0 | Channel Intelligence | 33-35 | 2026-02-11 |
-| v3.0 | Adaptive Scriptwriter | 36-38 | In progress |
+| v3.0 | Adaptive Scriptwriter | 36-38 | 2026-02-15 |
 
 **Full history:** `.planning/MILESTONES.md`
 **Archives:** `.planning/milestones/`
@@ -123,17 +123,18 @@ v3.0 [██████████████░░░░░░] 67% — Adap
 ### Last Session
 
 - **Date:** 2026-02-15
-- **Work:** Executed Plan 38-02 (variant generation workflow integration)
+- **Work:** Executed Plan 38-03 (agent consolidation)
 - **Output:**
-  - Rule 16 in script-writer-v2: hook/structure variant generation with choice logging
-  - /script --variants flag: sequential choice flow (hooks → structure)
-  - Choice surfacing: past pattern display in PRE-SCRIPT INTELLIGENCE
-  - CLI documentation: --choices review commands
-- **Commits:** 1e11c15, 49fce11
+  - Consolidated script-writer-v2: 1,398 → 788 lines (43.6% reduction)
+  - Merged Rules 6+7+8 into single "Spoken Delivery & Validation" rule
+  - Condensed Rule 13 to checklist format
+  - Replaced verbose examples with STYLE-GUIDE.md cross-references
+  - All functionality preserved, calm prosecutor voice identity intact
+- **Commits:** 7975834
 
 ### Next Session
 
-**Next action:** Plan 38-03 (Agent Consolidation - OPTIONAL) — condense Rule 16, consider merging overlapping rules
+**Next action:** Ship v3.0 Adaptive Scriptwriter milestone — create milestone summary, update ROADMAP.md
 
 ## Technical Notes
 
@@ -168,4 +169,4 @@ v3.0 [██████████████░░░░░░] 67% — Adap
 
 ---
 
-*State updated: 2026-02-14 after Phase 36 planned*
+*State updated: 2026-02-15 after Phase 38 Plan 03 complete*
