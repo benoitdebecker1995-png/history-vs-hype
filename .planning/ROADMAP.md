@@ -586,7 +586,7 @@ Plans:
 **Goal**: Script-writer-v2 generates hook and structure variants, learns from user choices
 **Dependencies**: Phase 37 (technique library and DB v28)
 **Requirements**: CHO-01, CHO-02, CHO-03, CHO-04, INT-02, INT-03
-**Plans**: TBD
+**Plans**: 3 plans
 
 **Success Criteria:**
 1. User can generate 2-3 opening hook variants before full script when using /script --variants flag
@@ -596,7 +596,9 @@ Plans:
 5. Script-writer-v2 agent prompt consolidated within 1,500 line budget (Rules 13 simplified, Rules 15-17 added for retention, techniques, and choice generation)
 
 Plans:
-- [ ] 38-01: [TBD during phase planning]
+- [ ] 38-01-PLAN.md — Choice storage + recommendation engine (schema v29, CRUD, exponential decay)
+- [ ] 38-02-PLAN.md — Variant generation integration (Rule 16, --variants flag, choice surfacing)
+- [ ] 38-03-PLAN.md — Agent prompt consolidation (merge overlapping rules, compress to budget)
 
 ## Progress
 
@@ -641,4 +643,4 @@ Plans:
 | 35. Actionable Analytics | v2.0 | 3/3 | Complete | 2026-02-11 |
 | 36. Retention Science | v3.0 | 3/3 | Complete | 2026-02-14 |
 | 37. Creator Transcript Analysis | v3.0 | 3/3 | Complete | 2026-02-14 |
-| 38. Structured Choice Architecture | v3.0 | 0/TBD | Not started | - |
+| 38. Structured Choice Architecture | v3.0 | 0/3 | Not started | - |
