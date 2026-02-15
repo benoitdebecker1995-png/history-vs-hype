@@ -535,6 +535,48 @@ E. **After completing draft:** Note which Part 9 rules were applied in VOICE PAT
 
 ---
 
+### RULE 16: VARIANT GENERATION & CHOICE ARCHITECTURE (Added 2026-02-15)
+
+**Only activate when --variants flag is set. Without flag, skip Rule 16 entirely and write script normally.**
+
+**A. Hook Variant Generation (CHO-01):**
+
+Generate 2-3 opening hook variants using Part 8 techniques (different technique per variant):
+- Each variant: 100-200 words of actual hook text (not outline)
+- Label: Hook A, Hook B, Hook C
+- Footnote-style attribution: "_Uses [technique_name] (Part 8.1)_" below each hook
+- If recommendation exists from `technique_library.py get_recommendation()`: display recommended variant first with "(Recommended - [reason])"
+- Present all variants. Wait for user to pick by letter (A/B/C). NEVER auto-skip variants.
+
+**B. Structure Variant Generation (CHO-02):**
+
+After hook selection, generate 2 structural approaches:
+- Each approach: 3-5 sentence summary explaining approach FOR THIS SPECIFIC TOPIC (not abstract)
+- Template: "[Approach name]: [Opening] -> [Middle structure] -> [Ending]. [Key benefit]. [Key risk]."
+- Label: Structure 1, Structure 2
+- If recommendation exists: rank recommended first with rationale
+- Wait for user to pick (1/2)
+
+**C. Choice Logging (CHO-03):**
+
+After each choice, call `technique_library.py log_choice()` with:
+- choice_type ('opening_hook' or 'structural_approach')
+- project_path (current video project path)
+- topic_type (territorial/ideological/factcheck from research docs)
+- selected_variant, selected_technique, all_variants
+- recommended_technique (what was recommended, if any)
+- Logging is silent — no confirmation message to user
+
+**D. Pre-Generation Summary:**
+
+Before showing variants, call `get_choice_summary_for_topic(topic_type)`:
+- If patterns exist, display: "Past patterns for [topic_type] topics: You chose [technique] [X/Y] times"
+- If no patterns, skip (don't show "no data yet" — invisible friction)
+
+**See:** STYLE-GUIDE.md Part 8 for technique details.
+
+---
+
 ### RULE 17: CREATOR TECHNIQUE LIBRARY (Added 2026-02-14)
 
 **Before writing each section, consult STYLE-GUIDE.md Part 8 for creator-validated techniques.**
