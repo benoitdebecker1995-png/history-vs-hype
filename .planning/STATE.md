@@ -1,22 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-14 (Phase 36 planned)
+**Last Updated:** 2026-02-15 (Phase 37 in progress)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-12)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** Phase 36 - Retention Science
+**Current focus:** Phase 37 - Creator Transcript Analysis
 
 ## Current Position
 
 **Milestone:** v3.0 Adaptive Scriptwriter
-**Phase:** 36 of 38 (Retention Science)
-**Plan:** 3 of 3 complete (36-01 ✓, 36-02 ✓, 36-03 ✓)
-**Status:** Phase complete — ready for Phase 37
-**Last activity:** 2026-02-14 — Completed 36-03 (feedback loop integration)
+**Phase:** 37 of 38 (Creator Transcript Analysis)
+**Plan:** 1 of 3 complete (37-01 ✓)
+**Status:** Plan 37-01 complete — ready for Plan 37-02
+**Last activity:** 2026-02-15 — Completed 37-01 (transcript analysis pipeline)
 
 **Progress:**
 v1.0 [####################] 100% — Workspace Optimization (archived)
@@ -27,7 +27,7 @@ v1.4 [####################] 100% — Learning Loop (archived)
 v1.5 [####################] 100% — Production Acceleration (archived)
 v1.6 [####################] 100% — Click & Keep (archived)
 v2.0 [####################] 100% — Channel Intelligence (archived)
-v3.0 [██████░░░░░░░░░░░░░░░] 33% — Adaptive Scriptwriter (in progress)
+v3.0 [█████████░░░░░░░░░░░░] 44% — Adaptive Scriptwriter (in progress)
 
 ## Milestone History
 
@@ -105,21 +105,31 @@ v3.0 [██████░░░░░░░░░░░░░░░] 33% — A
 - Topic baselines: 3-video threshold for topic-specific, falls back to channel avg or defaults
 - Modern relevance markers use word boundaries to avoid false positives
 
+**Creator Transcript Analysis (v3.0 Phase 37):**
+- `python tools/youtube-analytics/transcript_analyzer.py --analyze-all` — batch analyze all transcripts (83 files)
+- `python tools/youtube-analytics/transcript_analyzer.py --analyze FILE` — single file analysis
+- `python tools/youtube-analytics/transcript_analyzer.py --stats` — transcript distribution stats
+- `python tools/youtube-analytics/technique_library.py --store-from FILE` — store analysis results
+- `python tools/youtube-analytics/technique_library.py --list [CATEGORY]` — list techniques
+- `python tools/youtube-analytics/technique_library.py --search QUERY` — search techniques
+- `python tools/youtube-analytics/technique_library.py --stats` — database statistics
+
 ## Session Continuity
 
 ### Last Session
 
-- **Date:** 2026-02-14
-- **Work:** Executed Plans 36-01, 36-02, and 36-03 (Phase 36 complete)
+- **Date:** 2026-02-15
+- **Work:** Executed Plan 37-01 (transcript analysis pipeline)
 - **Output:**
-  - 36-01: playbook_synthesizer.py (852 LOC), STYLE-GUIDE.md Part 9
-  - 36-02: retention_scorer.py (674 LOC), test_retention_scorer.py (296 LOC, 13 tests passing)
-  - 36-03: Feedback loop integration (script-writer-v2 Rule 15, /script retention scoring, /analyze playbook auto-update)
-- **Commits:** e1de2b4, 935fff8 (36-01), 54ec88d, d69a67c (36-02), ba2aa81, c4b4ddd (36-03)
+  - transcript_analyzer.py (381 LOC) - parse .srt/.vtt/.txt, extract patterns
+  - technique_library.py (534 LOC) - database CRUD with schema v28 migration
+  - test_transcript_analyzer.py (348 LOC, 22 tests passing)
+  - Schema v28: creator_techniques table with indexes
+- **Commits:** eaa7577, d0a2216
 
 ### Next Session
 
-**Next action:** `/gsd:plan-phase 37` to plan next phase in v3.0 milestone
+**Next action:** Execute Plan 37-02 (cross-creator synthesis)
 
 ## Technical Notes
 
@@ -128,7 +138,7 @@ v3.0 [██████░░░░░░░░░░░░░░░] 33% — A
 - CTR not available via API — graceful fallback prompts for manual entry
 - spaCy requires Python 3.11-3.13 (not 3.14)
 - Voice patterns require user to run `--rebuild-voice` to populate
-- keywords.db schema version 27 (auto-migration with PRAGMA user_version)
+- keywords.db schema version 28 (auto-migration with PRAGMA user_version)
 - External packages (trendspyg, scrapetube) optional - graceful degradation
 - Feature flags: VARIANTS_AVAILABLE, BENCHMARKS_AVAILABLE, FEEDBACK_AVAILABLE, DIAGNOSTICS_AVAILABLE, TOPIC_STRATEGY_AVAILABLE, PLAYBOOK_AVAILABLE, SCORER_AVAILABLE
 - anthropic SDK required for notebooklm_bridge.py (`pip install anthropic>=0.40.0`)
