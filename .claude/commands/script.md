@@ -36,6 +36,9 @@ Generate a script using the script-writer-v2 agent.
 
 **Read these reference files:**
 - `.claude/REFERENCE/STYLE-GUIDE.md` - **AUTHORITATIVE** style reference (voice, delivery, patterns)
+  - **Part 6:** Voice patterns (proven History vs Hype patterns)
+  - **Part 8:** Creator technique library (cross-validated patterns from 80+ transcripts) — auto-updated with `python tools/youtube-analytics/pattern_synthesizer_v2.py --update`
+  - **Part 9:** Retention playbook (data-driven retention rules) — auto-updated with `python tools/youtube-analytics/playbook_synthesizer.py --update`
 - `.claude/REFERENCE/PROVEN-TECHNIQUES-LIBRARY.md` - Hook formulas and retention techniques
 - `.claude/REFERENCE/channel-values.md` - Brand DNA
 - `.claude/USER-PREFERENCES.md` - Natural speaking patterns

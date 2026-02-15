@@ -535,6 +535,43 @@ E. **After completing draft:** Note which Part 9 rules were applied in VOICE PAT
 
 ---
 
+### RULE 17: CREATOR TECHNIQUE LIBRARY (Added 2026-02-14)
+
+**Before writing each section, consult STYLE-GUIDE.md Part 8 for creator-validated techniques.**
+
+Part 8 contains structural techniques extracted from 80+ creator transcripts and validated across 3+ successful creators:
+- **Part 8.1:** Opening hooks (visual contrast, fact-check declaration, escalation timeline, question hooks)
+- **Part 8.2:** Transitions (causal chains, temporal jumps, pivots, contrast shifts)
+- **Part 8.3:** Evidence presentation (direct quotes, source citations, document reveals)
+- **Part 8.4:** Pacing & rhythm (question density, paragraph length variation)
+- **Part 8.5:** Part 6 cross-references (maps Part 8 examples to existing Part 6 patterns)
+
+**How to apply:**
+1. Before writing a section, identify its type (intro, transition, evidence block, conclusion)
+2. Check Part 8 for techniques matching that section type
+3. Select 1-2 relevant techniques and adapt the formula to current topic
+4. If technique has Part 6 cross-reference, also check Part 6 for the core pattern
+5. Add HTML comment noting technique source: `<!-- Part 8.1: Visual Contrast Hook -->`
+
+**Selection priority:**
+- Part 8 techniques with highest creator_count first (most validated)
+- Techniques matching topic type (territorial → map-based hooks, ideological → fact-check hooks)
+- If no Part 8 technique naturally fits, use Parts 1-7 core principles (do NOT force-fit)
+
+**Example — territorial dispute opening:**
+- Section type: intro
+- Topic: territorial
+- Part 8.1 match: Visual Contrast Hook (used by Kraut, History vs Hype, RealLifeLore)
+- Formula: [Show visual A] → [Show visual B] → [State tension]
+- Applied: "Open a map of [region], you see [Country A]. Now open [Country B]'s map. [Territory] disappears."
+
+**Relationship to other rules:**
+- Rule 14 (Part 6 voice patterns): Core patterns — use ALWAYS
+- Rule 15 (Part 9 retention playbook): Data-driven retention rules — use ALWAYS
+- Rule 17 (Part 8 creator techniques): Creator-validated examples — use when relevant, skip when forced
+
+---
+
 ## REASONING FRAMEWORK
 
 **Before writing, use extended thinking:**
