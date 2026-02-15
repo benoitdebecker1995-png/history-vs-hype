@@ -1,25 +1,25 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-15 (Phase 37 complete, Phase 38 ready)
+**Last Updated:** 2026-02-15 (Phase 38 Plan 01 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-12)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** Phase 37 - Creator Transcript Analysis
+**Current focus:** Phase 38 - Structured Choice Architecture
 
 ## Current Position
 
 **Milestone:** v3.0 Adaptive Scriptwriter
-**Phase:** 37 of 38 (Creator Transcript Analysis)
-**Plan:** 3 of 3 complete (37-01 ✓, 37-02 ✓, 37-03 ✓)
-**Status:** Phase 37 complete — ready for Phase 38
-**Last activity:** 2026-02-15 — Completed 37-03 (script-writer integration, Rule 17)
+**Phase:** 38 of 38 (Structured Choice Architecture)
+**Plan:** 1 of 3 complete (38-01 ✓)
+**Status:** In progress — ready for Plan 38-02
+**Last activity:** 2026-02-15 — Completed 38-01 (choice storage & recommendation foundation)
 
 **Progress:**
-v1.0 [####################] 100% — Workspace Optimization (archived)
+[█████████░] 94%
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
@@ -114,21 +114,26 @@ v3.0 [███████████░░░░░░░░░] 56% — Adap
 - `python tools/youtube-analytics/technique_library.py --search QUERY` — search techniques
 - `python tools/youtube-analytics/technique_library.py --stats` — database statistics
 
+**Choice Architecture (v3.0 Phase 38):**
+- `python tools/youtube-analytics/technique_library.py --choices [TOPIC]` — view logged script choices
+- `python tools/youtube-analytics/technique_library.py --choice-stats` — choice statistics by type/topic
+
 ## Session Continuity
 
 ### Last Session
 
 - **Date:** 2026-02-15
-- **Work:** Executed Plan 37-03 (script-writer integration)
+- **Work:** Executed Plan 38-01 (choice storage & recommendation foundation)
 - **Output:**
-  - Rule 17 added to script-writer-v2.md (Part 8 creator technique application)
-  - /script command updated with Part 8 reference
-  - Part 8 techniques optional, not mandatory (fallback to Parts 1-7)
-- **Commits:** cddc2f6
+  - Schema v29 migration: script_choices table with choice logging
+  - CRUD methods: log_choice, get_choices, get_choice_stats
+  - Recommendation engine: three-tier fallback with exponential decay
+  - CLI tools: --choices and --choice-stats flags
+- **Commits:** 7407d1d
 
 ### Next Session
 
-**Next action:** Phase 37 complete. Ready for Phase 38 (Adaptive Scriptwriter Intelligence)
+**Next action:** Plan 38-02 (Variant Generation) — extend script-writer-v2 with Rule 16 for hook/structure variants
 
 ## Technical Notes
 
@@ -137,7 +142,7 @@ v3.0 [███████████░░░░░░░░░] 56% — Adap
 - CTR not available via API — graceful fallback prompts for manual entry
 - spaCy requires Python 3.11-3.13 (not 3.14)
 - Voice patterns require user to run `--rebuild-voice` to populate
-- keywords.db schema version 28 (auto-migration with PRAGMA user_version)
+- keywords.db schema version 29 (auto-migration with PRAGMA user_version)
 - External packages (trendspyg, scrapetube) optional - graceful degradation
 - Feature flags: VARIANTS_AVAILABLE, BENCHMARKS_AVAILABLE, FEEDBACK_AVAILABLE, DIAGNOSTICS_AVAILABLE, TOPIC_STRATEGY_AVAILABLE, PLAYBOOK_AVAILABLE, SCORER_AVAILABLE
 - anthropic SDK required for notebooklm_bridge.py (`pip install anthropic>=0.40.0`)
