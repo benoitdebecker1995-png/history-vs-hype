@@ -12,6 +12,8 @@ Write new scripts, revise existing ones, review for issues, or export for telepr
 ```
 /script                      # Interactive: write new or work on existing
 /script --new [project]      # Write new script for project
+/script --variants [project] # Generate hook/structure variants, then write script
+/script --new --variants [project]  # Combine: new script with variant generation
 /script --revise [project]   # Revise existing script
 /script --review [project]   # Review script for issues
 /script --teleprompter [project]  # Export clean text for filming
@@ -25,6 +27,7 @@ Write new scripts, revise existing ones, review for issues, or export for telepr
 | `--revise` | Revise existing SCRIPT.md | `/script --revise 19-flat-earth-medieval-2025` |
 | `--review` | Comprehensive quality review | `/script --review 19-flat-earth-medieval-2025` |
 | `--teleprompter` | Export clean text for filming | `/script --teleprompter 19-flat-earth-medieval-2025` |
+| `--variants` | Generate hook and structure variants before full script | `/script --variants 35-gibraltar-treaty-utrecht-2026` |
 
 ---
 
@@ -62,6 +65,7 @@ When topic type is known (territorial, ideological, fact-check, general), the sy
 - **Topic Performance:** How this topic type has performed historically (retention, conversion)
 - **Retention Lessons:** What caused viewer drop-offs in similar past videos
 - **Suggested Patterns:** Which STYLE-GUIDE.md Part 6 voice patterns work best for this topic type
+- **Past hook and structure choice patterns** for this topic type (from variant history)
 
 ### How to Use
 
@@ -303,6 +307,31 @@ Ask the user:
 4. Ready for fact-checking?
 
 **Proactive suggestion:** "Script complete. Run `/verify` to fact-check before filming."
+
+---
+
+## VARIANT GENERATION (`--variants`)
+
+Generate opening hook and structural approach variants before writing full script.
+
+### Flow
+1. Surface past choice patterns for topic type (if any exist)
+2. Generate 2-3 opening hook variants (labeled A/B/C)
+3. User picks hook by letter
+4. Generate 2 structural approach variants (labeled 1/2)
+5. User picks structure by number
+6. Proceed with full script generation using selected hook + structure
+
+### Choice Logging
+Choices are automatically logged to database for pattern recognition.
+After 5+ choices, the system recommends preferred options based on your past patterns.
+
+### Review Past Choices
+```
+python tools/youtube-analytics/technique_library.py --choices
+python tools/youtube-analytics/technique_library.py --choices territorial
+python tools/youtube-analytics/technique_library.py --choice-stats
+```
 
 ---
 
