@@ -578,9 +578,9 @@ Plans:
 5. Database migrated to schema v28 with creator_techniques table for structured technique storage
 
 Plans:
-- [ ] 37-01-PLAN.md — Transcript analyzer pipeline + technique library DB (schema v28)
-- [ ] 37-02-PLAN.md — Cross-creator pattern synthesis + STYLE-GUIDE.md Part 8 generation
-- [ ] 37-03-PLAN.md — Script-writer-v2 Rule 17 integration
+- [x] 37-01-PLAN.md — Transcript analyzer pipeline + technique library DB (schema v28)
+- [x] 37-02-PLAN.md — Cross-creator pattern synthesis + STYLE-GUIDE.md Part 8 generation
+- [x] 37-03-PLAN.md — Script-writer-v2 Rule 17 integration
 
 #### Phase 38: Structured Choice Architecture
 **Goal**: Script-writer-v2 generates hook and structure variants, learns from user choices
@@ -640,5 +640,5 @@ Plans:
 | 34. NotebookLM Research Bridge | v2.0 | 2/2 | Complete | 2026-02-11 |
 | 35. Actionable Analytics | v2.0 | 3/3 | Complete | 2026-02-11 |
 | 36. Retention Science | v3.0 | 3/3 | Complete | 2026-02-14 |
-| 37. Creator Transcript Analysis | v3.0 | 0/TBD | Not started | - |
+| 37. Creator Transcript Analysis | v3.0 | 3/3 | Complete | 2026-02-14 |
 | 38. Structured Choice Architecture | v3.0 | 0/TBD | Not started | - |
