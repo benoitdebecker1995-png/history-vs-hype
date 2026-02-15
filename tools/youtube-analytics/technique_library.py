@@ -477,6 +477,42 @@ class TechniqueLibrary:
         except sqlite3.Error as e:
             return {'error': f'Stats query failed: {e}'}
 
+    def get_statistics(self) -> Dict[str, Any]:
+        """Alias for get_stats() for compatibility with pattern_synthesizer_v2."""
+        return self.get_stats()
+
+    def _update_technique_universal_status(
+        self,
+        technique_id: int,
+        is_universal: bool,
+        style_guide_ref: Optional[str] = None
+    ) -> Dict[str, Any]:
+        """
+        Update technique universal status and Part 6 cross-reference.
+
+        Args:
+            technique_id: Technique ID to update
+            is_universal: Whether technique is universal (3+ creators)
+            style_guide_ref: Part 6 cross-reference (e.g., "Part 6.1: Visual Contrast Hook")
+
+        Returns:
+            {'success': True} or {'error': str}
+        """
+        try:
+            cursor = self._conn.cursor()
+            cursor.execute("""
+                UPDATE creator_techniques
+                SET is_universal = ?,
+                    style_guide_ref = ?
+                WHERE id = ?
+            """, (is_universal, style_guide_ref, technique_id))
+
+            self._conn.commit()
+            return {'success': True}
+
+        except sqlite3.Error as e:
+            return {'error': f'Update failed: {e}'}
+
 
 def main():
     parser = argparse.ArgumentParser(description='Technique Library - Creator technique storage')
