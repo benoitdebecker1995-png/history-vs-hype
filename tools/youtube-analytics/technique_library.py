@@ -846,9 +846,12 @@ class TechniqueLibrary:
                     reverse=True
                 )
                 if sorted_techs:
+                    top = sorted_techs[0]
+                    tech_name = top.get('name') or top.get('technique_name', 'unknown')
+                    creator_count = top.get('creator_count', 0)
                     return {
-                        'recommended': sorted_techs[0]['technique_name'],
-                        'reason': f'most validated by creators ({sorted_techs[0]["creator_count"]} creators)',
+                        'recommended': tech_name,
+                        'reason': f'most validated by creators ({creator_count} creators)',
                         'confidence': 'LOW',
                         'source': 'part8'
                     }
