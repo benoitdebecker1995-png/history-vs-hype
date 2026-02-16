@@ -2,20 +2,21 @@
 
 ## Milestones
 
-- **v1.0 MVP** - Phases 1-7 (shipped 2026-01-19)
-- **v1.1 Analytics & Learning Loop** - Phases 8-10 (shipped 2026-01-26)
-- **v1.2 Script Quality & Discovery** - Phases 11-14 (shipped 2026-01-30)
-- **v1.3 Niche Discovery** - Phases 15-18 (shipped 2026-02-02)
-- **v1.4 Learning Loop** - Phases 19-21 (shipped 2026-02-02)
-- **v1.5 Production Acceleration** - Phases 22-26 (shipped 2026-02-05)
-- **v1.6 Click & Keep** - Phases 27-32 (shipped 2026-02-09)
-- **v2.0 Channel Intelligence** - Phases 33-35 (shipped 2026-02-11)
-- **v3.0 Adaptive Scriptwriter** - Phases 36-38 (shipped 2026-02-15)
+- ✅ **v1.0 MVP** - Phases 1-7 (shipped 2026-01-19)
+- ✅ **v1.1 Analytics & Learning Loop** - Phases 8-10 (shipped 2026-01-26)
+- ✅ **v1.2 Script Quality & Discovery** - Phases 11-14 (shipped 2026-01-30)
+- ✅ **v1.3 Niche Discovery** - Phases 15-18 (shipped 2026-02-02)
+- ✅ **v1.4 Learning Loop** - Phases 19-21 (shipped 2026-02-02)
+- ✅ **v1.5 Production Acceleration** - Phases 22-26 (shipped 2026-02-05)
+- ✅ **v1.6 Click & Keep** - Phases 27-32 (shipped 2026-02-09)
+- ✅ **v2.0 Channel Intelligence** - Phases 33-35 (shipped 2026-02-11)
+- ✅ **v3.0 Adaptive Scriptwriter** - Phases 36-38 (shipped 2026-02-15)
+- 🚧 **v4.0 Untranslated Evidence Pipeline** - Phases 39-41 (in progress)
 
 ## Phases
 
 <details>
-<summary>v1.0 MVP (Phases 1-7) - SHIPPED 2026-01-19</summary>
+<summary>✅ v1.0 MVP (Phases 1-7) - SHIPPED 2026-01-19</summary>
 
 ### Phase 1: File Cleanup
 **Goal**: Remove redundant files and establish clean baseline
@@ -75,7 +76,7 @@ Plans:
 </details>
 
 <details>
-<summary>v1.1 Analytics & Learning Loop (Phases 8-10) - SHIPPED 2026-01-26</summary>
+<summary>✅ v1.1 Analytics & Learning Loop (Phases 8-10) - SHIPPED 2026-01-26</summary>
 
 ### Phase 8: API Foundation
 **Goal**: YouTube Analytics API integration
@@ -107,7 +108,7 @@ Plans:
 </details>
 
 <details>
-<summary>v1.2 Script Quality & Discovery (Phases 11-14) - SHIPPED 2026-01-30</summary>
+<summary>✅ v1.2 Script Quality & Discovery (Phases 11-14) - SHIPPED 2026-01-30</summary>
 
 ### Phase 11: Script Quality Checkers
 **Goal**: Automated quality checks for spoken-delivery scripts
@@ -152,7 +153,7 @@ Plans:
 </details>
 
 <details>
-<summary>v1.3 Niche Discovery (Phases 15-18) - SHIPPED 2026-02-01</summary>
+<summary>✅ v1.3 Niche Discovery (Phases 15-18) - SHIPPED 2026-02-01</summary>
 
 ### Phase 15: Database Foundation & Demand Research
 **Goal**: User can quantify demand for topics
@@ -223,7 +224,7 @@ Plans:
 </details>
 
 <details>
-<summary>v1.4 Learning Loop (Phases 19-21) - SHIPPED 2026-02-02</summary>
+<summary>✅ v1.4 Learning Loop (Phases 19-21) - SHIPPED 2026-02-02</summary>
 
 ### Phase 19: Performance Data Foundation
 **Goal**: User can see what's working based on subscriber conversion
@@ -274,7 +275,7 @@ Plans:
 </details>
 
 <details>
-<summary>v1.5 Production Acceleration (Phases 22-26) - SHIPPED 2026-02-05</summary>
+<summary>✅ v1.5 Production Acceleration (Phases 22-26) - SHIPPED 2026-02-05</summary>
 
 ### Phase 22: Script Parser & Entity Detection
 **Goal**: Foundation for extracting structure and entities from scripts
@@ -355,7 +356,7 @@ Plans:
 </details>
 
 <details>
-<summary>v1.6 Click & Keep (Phases 27-32) - SHIPPED 2026-02-09</summary>
+<summary>✅ v1.6 Click & Keep (Phases 27-32) - SHIPPED 2026-02-09</summary>
 
 ### Phase 27: Database Foundation
 **Goal**: Schema extensions enable CTR tracking and feedback storage
@@ -486,7 +487,7 @@ Plans:
 </details>
 
 <details>
-<summary>v2.0 Channel Intelligence (Phases 33-35) - SHIPPED 2026-02-11</summary>
+<summary>✅ v2.0 Channel Intelligence (Phases 33-35) - SHIPPED 2026-02-11</summary>
 
 ### Phase 33: Voice Pattern Library
 **Goal**: Scripts match creator's proven voice patterns from high-performing videos
@@ -543,7 +544,7 @@ Plans:
 </details>
 
 <details>
-<summary>v3.0 Adaptive Scriptwriter (Phases 36-38) - SHIPPED 2026-02-15</summary>
+<summary>✅ v3.0 Adaptive Scriptwriter (Phases 36-38) - SHIPPED 2026-02-15</summary>
 
 ### Phase 36: Retention Science
 **Goal**: Retention playbook synthesized from channel data exists as STYLE-GUIDE Part 9
@@ -573,6 +574,62 @@ Plans:
 - [x] 38-03-PLAN.md — Agent prompt consolidation (merge overlapping rules, compress to budget)
 
 </details>
+
+### 🚧 v4.0 Untranslated Evidence Pipeline (In Progress)
+
+**Milestone Goal:** Build the document translation-to-video pipeline — gap verification, AI translation with cross-checking, translation verification, document-structured scriptwriting, and split-screen production prep.
+
+#### Phase 39: Document Discovery & Format Guide
+**Goal**: User can discover untranslated documents and verify translation gaps, plus reference guide for series format
+**Depends on**: None (new capability)
+**Requirements**: DISC-01, DISC-02, DISC-03, SCPT-03
+**Success Criteria** (what must be TRUE):
+  1. User can verify if an English translation exists for a specified document by checking academic databases, sourcebooks, and archives
+  2. User can assess document structure (article count, clause count) and estimate video length from original-language text
+  3. User can locate digitized originals via automated archive lookup (Légifrance, Wikisource, Internet Archive, national archives)
+  4. User has reference guide documenting Untranslated Evidence series format, style standards, and quality expectations
+**Plans**: TBD
+
+Plans:
+- [ ] 39-01: TBD
+- [ ] 39-02: TBD
+
+#### Phase 40: Translation Pipeline
+**Goal**: User can generate AI translations with cross-checking, legal term annotations, and paired formatting for split-screen display
+**Depends on**: Phase 39 (document sourcing foundation)
+**Requirements**: TRAN-01, TRAN-02, TRAN-03, TRAN-04, TRAN-05
+**Success Criteria** (what must be TRUE):
+  1. User can generate AI translation of original-language document using Claude as primary translator
+  2. System automatically cross-checks Claude translation against DeepL API and flags discrepancies above threshold
+  3. Legal and technical terms are annotated with dictionary definitions and alternative translations for accuracy verification
+  4. System identifies "surprise" clauses where translation contradicts common English narratives about the document
+  5. Output is formatted as clause-by-clause paired original/translation suitable for split-screen video display
+**Plans**: TBD
+
+Plans:
+- [ ] 40-01: TBD
+- [ ] 40-02: TBD
+- [ ] 40-03: TBD
+
+#### Phase 41: Verification & Production Integration
+**Goal**: Translation verification integrated into /verify command, document-structured script generation in script-writer-v2, and split-screen edit guides via /prep
+**Depends on**: Phase 40 (translation output format)
+**Requirements**: VERF-01, VERF-02, VERF-03, SCPT-01, SCPT-02, PROD-01, PROD-02, PROD-03
+**Success Criteria** (what must be TRUE):
+  1. User can run `/verify --translation` to cross-reference translation against multiple AI tools and flag divergences
+  2. Translation verification checks key terms against legal/historical dictionaries for the source language
+  3. Verification report compares translated provisions against scholarly descriptions of the same law/decree
+  4. Script-writer-v2 supports document-structured mode where script backbone follows clause-by-clause order
+  5. Each clause section follows pattern: context setup → read original → translate → explain significance → connect to myth
+  6. User can run `/prep` with split-screen edit guide format showing dual-panel staging (original left, translation right)
+  7. Edit guide includes clause-by-clause timing, highlight cue markers, and talking-head transition points
+  8. Asset sourcing guide identifies document scans, archive screenshots, and supporting visuals needed
+**Plans**: TBD
+
+Plans:
+- [ ] 41-01: TBD
+- [ ] 41-02: TBD
+- [ ] 41-03: TBD
 
 ## Progress
 
@@ -618,3 +675,6 @@ Plans:
 | 36. Retention Science | v3.0 | 3/3 | Complete | 2026-02-14 |
 | 37. Creator Transcript Analysis | v3.0 | 3/3 | Complete | 2026-02-14 |
 | 38. Structured Choice Architecture | v3.0 | 3/3 | Complete | 2026-02-15 |
+| **39. Document Discovery & Format Guide** | **v4.0** | **0/?** | **Not started** | **-** |
+| **40. Translation Pipeline** | **v4.0** | **0/?** | **Not started** | **-** |
+| **41. Verification & Production Integration** | **v4.0** | **0/?** | **Not started** | **-** |

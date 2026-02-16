@@ -61,13 +61,29 @@ Requirements for the Untranslated Evidence Pipeline. Each maps to roadmap phases
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (To be filled by roadmapper) | | |
+| DISC-01 | Phase 39 | Pending |
+| DISC-02 | Phase 39 | Pending |
+| DISC-03 | Phase 39 | Pending |
+| SCPT-03 | Phase 39 | Pending |
+| TRAN-01 | Phase 40 | Pending |
+| TRAN-02 | Phase 40 | Pending |
+| TRAN-03 | Phase 40 | Pending |
+| TRAN-04 | Phase 40 | Pending |
+| TRAN-05 | Phase 40 | Pending |
+| VERF-01 | Phase 41 | Pending |
+| VERF-02 | Phase 41 | Pending |
+| VERF-03 | Phase 41 | Pending |
+| SCPT-01 | Phase 41 | Pending |
+| SCPT-02 | Phase 41 | Pending |
+| PROD-01 | Phase 41 | Pending |
+| PROD-02 | Phase 41 | Pending |
+| PROD-03 | Phase 41 | Pending |
 
 **Coverage:**
 - v4.0 requirements: 16 total
-- Mapped to phases: 0
-- Unmapped: 16
+- Mapped to phases: 16
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-16*
-*Last updated: 2026-02-16 after initial definition*
+*Last updated: 2026-02-16 after roadmap creation*

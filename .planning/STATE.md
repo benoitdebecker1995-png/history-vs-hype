@@ -1,21 +1,22 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-16 (v4.0 started)
+**Last Updated:** 2026-02-16 (v4.0 roadmap created)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-16)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v4.0 Untranslated Evidence Pipeline
+**Current focus:** v4.0 Untranslated Evidence Pipeline - Phase 39
 
 ## Current Position
 
 **Milestone:** v4.0 Untranslated Evidence Pipeline
-**Phase:** Not started (defining requirements)
-**Status:** Defining requirements
-**Last activity:** 2026-02-16 — Milestone v4.0 started
+**Phase:** 39 of 41 (Document Discovery & Format Guide)
+**Plan:** Ready to plan
+**Status:** Roadmap complete, awaiting Phase 39 planning
+**Last activity:** 2026-02-16 — Roadmap created for v4.0 (3 phases, 16 requirements)
 
 **Progress:**
 v1.0 [####################] 100% — Workspace Optimization (archived)
@@ -26,7 +27,8 @@ v1.4 [####################] 100% — Learning Loop (archived)
 v1.5 [####################] 100% — Production Acceleration (archived)
 v1.6 [####################] 100% — Click & Keep (archived)
 v2.0 [####################] 100% — Channel Intelligence (archived)
-v3.0 [####################] 100% — Adaptive Scriptwriter (complete)
+v3.0 [####################] 100% — Adaptive Scriptwriter (shipped 2026-02-15)
+v4.0 [░░░░░░░░░░░░░░░░░░░░] 0% — Untranslated Evidence Pipeline (in progress)
 
 ## Milestone History
 
@@ -41,9 +43,31 @@ v3.0 [####################] 100% — Adaptive Scriptwriter (complete)
 | v1.6 | Click & Keep | 27-32 | 2026-02-09 |
 | v2.0 | Channel Intelligence | 33-35 | 2026-02-11 |
 | v3.0 | Adaptive Scriptwriter | 36-38 | 2026-02-15 |
+| v4.0 | Untranslated Evidence Pipeline | 39-41 | In progress |
 
 **Full history:** `.planning/MILESTONES.md`
 **Archives:** `.planning/milestones/`
+
+## v4.0 Roadmap Summary
+
+**Milestone Goal:** Build the document translation-to-video pipeline for "Untranslated Evidence" series
+
+**Phase Structure:**
+- **Phase 39**: Document Discovery & Format Guide (4 requirements: DISC-01,02,03 + SCPT-03)
+  - Success: Verify translation gaps, assess document structure, locate digitized originals, reference guide created
+- **Phase 40**: Translation Pipeline (5 requirements: TRAN-01,02,03,04,05)
+  - Success: Claude translation + DeepL cross-check + legal term annotation + surprise clause detection + split-screen formatting
+- **Phase 41**: Verification & Production Integration (8 requirements: VERF-01,02,03 + SCPT-01,02 + PROD-01,02,03)
+  - Success: /verify --translation mode, document-structured script generation, split-screen edit guides
+
+**Coverage:** 16/16 requirements mapped (100%)
+
+**Key Decisions:**
+- Phase 39: Foundation for document sourcing, gap verification, and series format standards
+- Phase 40: Core new capability — AI translation pipeline with multi-tool cross-checking
+- Phase 41: Integration into existing commands (/verify, /script, /prep)
+
+**Next action:** Plan Phase 39 — document discovery tools and format reference guide
 
 ## What's Available
 
@@ -121,19 +145,33 @@ v3.0 [####################] 100% — Adaptive Scriptwriter (complete)
 
 ### Last Session
 
-- **Date:** 2026-02-15
-- **Work:** Executed Plan 38-03 (agent consolidation)
+- **Date:** 2026-02-16
+- **Work:** Created v4.0 roadmap
 - **Output:**
-  - Consolidated script-writer-v2: 1,398 → 788 lines (43.6% reduction)
-  - Merged Rules 6+7+8 into single "Spoken Delivery & Validation" rule
-  - Condensed Rule 13 to checklist format
-  - Replaced verbose examples with STYLE-GUIDE.md cross-references
-  - All functionality preserved, calm prosecutor voice identity intact
-- **Commits:** 7975834
+  - 3 phases derived from 16 requirements (Discovery, Translation, Verification categories)
+  - Phase 39: Document Discovery & Format Guide (4 requirements)
+  - Phase 40: Translation Pipeline (5 requirements)
+  - Phase 41: Verification & Production Integration (8 requirements)
+  - 100% requirement coverage validated
+  - Success criteria: 2-5 observable behaviors per phase
+  - Files written: ROADMAP.md, REQUIREMENTS.md (traceability), STATE.md
+- **Coverage:** 16/16 requirements mapped (100%)
 
 ### Next Session
 
-**Next action:** Ship v3.0 Adaptive Scriptwriter milestone — create milestone summary, update ROADMAP.md
+**Next action:** Plan Phase 39 — Document Discovery & Format Guide
+
+**Phase 39 scope:**
+- DISC-01: Translation gap verification (search existing English translations)
+- DISC-02: Document structure assessment (article count, clause count, video length estimation)
+- DISC-03: Archive database lookup (Légifrance, Wikisource, Internet Archive, national archives)
+- SCPT-03: Format reference guide for Untranslated Evidence series
+
+**Success criteria to deliver:**
+1. User can verify if English translation exists
+2. User can assess document structure and estimate video length
+3. User can locate digitized originals via automated lookup
+4. User has series format reference guide
 
 ## Technical Notes
 
@@ -168,4 +206,4 @@ v3.0 [####################] 100% — Adaptive Scriptwriter (complete)
 
 ---
 
-*State updated: 2026-02-15 after Phase 38 Plan 03 complete*
+*State updated: 2026-02-16 after v4.0 roadmap creation*
