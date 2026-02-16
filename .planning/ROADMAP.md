@@ -588,11 +588,11 @@ Plans:
   2. User can assess document structure (article count, clause count) and estimate video length from original-language text
   3. User can locate digitized originals via automated archive lookup (Légifrance, Wikisource, Internet Archive, national archives)
   4. User has reference guide documenting Untranslated Evidence series format, style standards, and quality expectations
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 39-01: TBD
-- [ ] 39-02: TBD
+- [ ] 39-01-PLAN.md — Document discovery toolkit (gap checker, archive lookup, structure assessor, CLI)
+- [ ] 39-02-PLAN.md — Untranslated Evidence format reference guide
 
 #### Phase 40: Translation Pipeline
 **Goal**: User can generate AI translations with cross-checking, legal term annotations, and paired formatting for split-screen display
