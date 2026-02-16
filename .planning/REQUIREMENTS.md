@@ -1,0 +1,73 @@
+# Requirements: History vs Hype Workspace
+
+**Defined:** 2026-02-16
+**Core Value:** Every video shows sources on screen
+
+## v4.0 Requirements
+
+Requirements for the Untranslated Evidence Pipeline. Each maps to roadmap phases.
+
+### Discovery
+
+- [ ] **DISC-01**: User can run translation gap check that searches for existing English translations of a specified document across academic databases, sourcebook sites, and archives
+- [ ] **DISC-02**: User can assess document structure (article count, clause count, estimated video length) from original-language text
+- [ ] **DISC-03**: User can locate digitized originals via archive database lookup (Légifrance, Wikisource variants, Internet Archive, national archives)
+
+### Translation
+
+- [ ] **TRAN-01**: User can generate AI translation of a document from original language using Claude as primary translator
+- [ ] **TRAN-02**: System cross-checks Claude translation against DeepL API for discrepancy detection
+- [ ] **TRAN-03**: Legal/technical terms are annotated with dictionary definitions and alternative translations
+- [ ] **TRAN-04**: System flags "surprise" clauses where translation contradicts common English-language narratives about the document
+- [ ] **TRAN-05**: Output is formatted as paired original/translation suitable for split-screen display (clause-by-clause alignment)
+
+### Verification
+
+- [ ] **VERF-01**: `/verify --translation` mode cross-references translation against multiple AI tools and flags divergences
+- [ ] **VERF-02**: Translation verification checks key terms against legal/historical dictionaries for the source language
+- [ ] **VERF-03**: Verification report compares translated provisions against scholarly descriptions of the same law/decree
+
+### Script
+
+- [ ] **SCPT-01**: Script-writer-v2 supports document-structured mode where the script backbone follows clause-by-clause order
+- [ ] **SCPT-02**: Each clause section follows the pattern: context setup → read original → translate → explain significance → connect to myth
+- [ ] **SCPT-03**: Format reference guide documents the Untranslated Evidence series style, structure, and quality standards
+
+### Production
+
+- [ ] **PROD-01**: `/prep` supports split-screen edit guide format with dual-panel staging (original left, translation right)
+- [ ] **PROD-02**: Edit guide includes clause-by-clause timing, highlight cue markers, and talking-head transition points
+- [ ] **PROD-03**: Asset sourcing guide identifies document scans, archive screenshots, and supporting context visuals needed
+
+## Future Requirements
+
+### Series Management (v5.0+)
+
+- **SERI-01**: Document candidate database tracking status, language, topic, gap confidence, episode assignment
+- **SERI-02**: Cross-episode continuity tracking (recurring themes, progressive complexity)
+- **SERI-03**: Viewer engagement tracking per series episode (which documents drive most interest)
+
+## Out of Scope
+
+| Feature | Reason |
+|---------|--------|
+| Automated document OCR from scans | Most target documents are already digitized as text |
+| Real-time translation during filming | Post-production workflow, not live |
+| Multi-language subtitle generation | DaVinci Resolve handles subtitles |
+| DeepL API paid tier | Free tier sufficient for cross-checking; Claude is primary |
+| Full archive API integrations | Manual sourcing + web search sufficient for document volumes |
+
+## Traceability
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| (To be filled by roadmapper) | | |
+
+**Coverage:**
+- v4.0 requirements: 16 total
+- Mapped to phases: 0
+- Unmapped: 16
+
+---
+*Requirements defined: 2026-02-16*
+*Last updated: 2026-02-16 after initial definition*
