@@ -8,19 +8,34 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current Milestone: v3.0 Adaptive Scriptwriter
+## Current State
 
-**Goal:** Build the best YouTube scriptwriter available — learns from top creators and retention science, adapts to the creator's natural voice through edit-based feedback, and offers structured choices that get smarter over time.
+**Shipped:** v3.0 Adaptive Scriptwriter (2026-02-15)
+**Previous milestones:** v1.0-v2.0 (shipped 2026-01-19 to 2026-02-11)
+**Archives:** `.planning/milestones/`
 
-**Target features:**
-- Creator & retention intelligence: systematic transcript analysis + YouTube retention science baked into scriptwriting
-- Edit-based learning loop: captures delta between generated and edited scripts, builds preference model over time
-- Structured choice architecture: multiple hook variants, structural approaches per script; choices feed back into learning
+v3.0 delivered retention science (Part 9 playbook + section scorer), creator technique library (83 transcripts → Part 8), and structured choice architecture (variant generation + preference learning). Agent consolidated from 1,398→788 lines.
 
-**Previous milestones:** v1.0-v1.6, v2.0 (shipped 2026-01-19 to 2026-02-11)
-- See `.planning/milestones/` for archives
+**No active milestone.** Run `/gsd:new-milestone` to start next.
 
 ## Requirements
+
+### Validated (v3.0)
+
+- Retention playbook synthesized from channel data as STYLE-GUIDE.md Part 9 — v3.0
+- Script sections scored for predicted retention (evidence, relevance, length) — v3.0
+- Retention drop patterns encoded as warnings during /script generation — v3.0
+- Transcript analysis pipeline parses 80+ transcripts for structural patterns — v3.0
+- Cross-creator synthesis identifies universal patterns across 3+ creators as Part 8 — v3.0
+- Creator technique library stored in DB, searchable by type — v3.0
+- Script-writer-v2 reads Part 8 techniques via Rule 17 during generation — v3.0
+- 2-3 opening hook variants generated with --variants flag — v3.0
+- 2 structural approaches proposed per video — v3.0
+- Hook and structure choices logged to database with project context — v3.0
+- After 5+ choices, system recommends preferred option based on patterns — v3.0
+- /script supports --variants flag for variant generation — v3.0
+- Database migrated to schema v29 with script_choices table — v3.0
+- Agent prompt consolidated to 788 lines (43.6% reduction) — v3.0
 
 ### Validated (v2.0)
 
@@ -140,6 +155,10 @@ Every video shows sources on screen. Viewers see the evidence themselves and can
 - NotebookLM research bridge generates source lists and extracts citations
 - Analytics map retention drops to script sections with concrete fix recommendations
 - Pre-script intelligence surfaces automatically before /script generation
+- Retention playbook (Part 9) + scorer predict section-level risk before filming
+- Creator technique library (Part 8) from 83 transcripts feeds script generation
+- Variant generation offers hook/structure choices that learn from user patterns
+- Agent prompt consolidated to 788 lines (43.6% reduction, all functionality preserved)
 
 **Known tech debt:**
 - Library folder (728 files) needs manual cleanup
@@ -149,7 +168,7 @@ Every video shows sources on screen. Viewers see the evidence themselves and can
 - anthropic SDK required for notebooklm_bridge.py (pip install anthropic>=0.40.0)
 
 **Tech stack:**
-- ~14,600 lines Python (tools/youtube-analytics/) — includes retention_mapper.py, section_diagnostics.py, topic_strategy.py
+- ~19,700 lines Python (tools/youtube-analytics/) — includes playbook_synthesizer.py, retention_scorer.py, transcript_analyzer.py, technique_library.py
 - ~3,200 lines Python (tools/script-checkers/) — includes pacing_checker.py
 - ~1,800 lines Python (tools/discovery/) — includes recommender.py
 - ~700 lines Python (tools/) — notebooklm_bridge.py, citation_extractor.py
@@ -205,7 +224,14 @@ Every video shows sources on screen. Viewers see the evidence themselves and can
 | 150 WPM fixed rate for retention mapping | Good enough for diagnostic section boundaries | Good (v2.0) |
 | Confidence flags on topic strategy | Small dataset (~15 videos) requires explicit confidence signaling | Good (v2.0) |
 | DIAGNOSTICS_AVAILABLE feature flag | Graceful degradation if retention mapper not available | Good (v2.0) |
+| 3-video threshold for topic baselines | Falls back to channel avg if insufficient topic data | Good (v3.0) |
+| Word boundaries for relevance markers | Prevents false positives in modern relevance detection | Good (v3.0) |
+| Exponential decay for choice weighting (0.9) | Tracks preference shifts better than linear weighting | Good (v3.0) |
+| Three-tier recommendation fallback | Topic-specific (3+) → global (5+) → Part 8 creator_count | Good (v3.0) |
+| Sequential choice flow (hooks then structure) | Reduces cognitive load vs simultaneous 6-option presentation | Good (v3.0) |
+| Merge rules by function not keywords | Preserves nuance when consolidating overlapping agent rules | Good (v3.0) |
+| STYLE-GUIDE cross-references over inline duplication | Keeps agent prompt lean while referencing authoritative source | Good (v3.0) |
 
 ---
 
-*Last updated: 2026-02-12 after v3.0 milestone started*
+*Last updated: 2026-02-15 after v3.0 milestone shipped*
