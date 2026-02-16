@@ -16,7 +16,7 @@ Requirements for the Untranslated Evidence Pipeline. Each maps to roadmap phases
 ### Translation
 
 - [ ] **TRAN-01**: User can generate AI translation of a document from original language using Claude as primary translator
-- [ ] **TRAN-02**: System cross-checks Claude translation against DeepL API for discrepancy detection
+- [ ] **TRAN-02**: System cross-checks primary translation against at least one independent translation source (DeepL, Google Translate, or second AI model) for discrepancy detection
 - [ ] **TRAN-03**: Legal/technical terms are annotated with dictionary definitions and alternative translations
 - [ ] **TRAN-04**: System flags "surprise" clauses where translation contradicts common English-language narratives about the document
 - [ ] **TRAN-05**: Output is formatted as paired original/translation suitable for split-screen display (clause-by-clause alignment)
