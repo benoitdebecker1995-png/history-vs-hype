@@ -19,7 +19,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-12)
 **Last activity:** 2026-02-15 — Completed 38-03 (agent consolidation)
 
 **Progress:**
-[██████████] 100%
+v1.0 [####################] 100% — Workspace Optimization (archived)
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)

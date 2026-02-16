@@ -596,9 +596,9 @@ Plans:
 5. Script-writer-v2 agent prompt consolidated within 1,500 line budget (Rules 13 simplified, Rules 15-17 added for retention, techniques, and choice generation)
 
 Plans:
-- [ ] 38-01-PLAN.md — Choice storage + recommendation engine (schema v29, CRUD, exponential decay)
-- [ ] 38-02-PLAN.md — Variant generation integration (Rule 16, --variants flag, choice surfacing)
-- [ ] 38-03-PLAN.md — Agent prompt consolidation (merge overlapping rules, compress to budget)
+- [x] 38-01-PLAN.md — Choice storage + recommendation engine (schema v29, CRUD, exponential decay)
+- [x] 38-02-PLAN.md — Variant generation integration (Rule 16, --variants flag, choice surfacing)
+- [x] 38-03-PLAN.md — Agent prompt consolidation (merge overlapping rules, compress to budget)
 
 ## Progress
 
@@ -643,4 +643,4 @@ Plans:
 | 35. Actionable Analytics | v2.0 | 3/3 | Complete | 2026-02-11 |
 | 36. Retention Science | v3.0 | 3/3 | Complete | 2026-02-14 |
 | 37. Creator Transcript Analysis | v3.0 | 3/3 | Complete | 2026-02-14 |
-| 38. Structured Choice Architecture | v3.0 | 0/3 | Not started | - |
+| 38. Structured Choice Architecture | v3.0 | 3/3 | Complete | 2026-02-15 |
