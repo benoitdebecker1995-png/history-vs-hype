@@ -8,15 +8,24 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current State
+## Current Milestone: v4.0 Untranslated Evidence Pipeline
+
+**Goal:** Build the document translation-to-video pipeline for the "Untranslated Evidence" series — document discovery with gap verification, AI translation with multi-tool cross-checking, translation-specific verification, document-structured scriptwriting, and split-screen production prep.
+
+**Target features:**
+- Document discovery and translation gap verification workflow
+- AI translation pipeline (Claude primary + DeepL cross-check + legal term annotation)
+- Translation verification (accuracy checking, not fact-checking)
+- Document-structured script generation (clause-by-clause backbone)
+- Split-screen edit guide and production prep
+
+## Previous State
 
 **Shipped:** v3.0 Adaptive Scriptwriter (2026-02-15)
 **Previous milestones:** v1.0-v2.0 (shipped 2026-01-19 to 2026-02-11)
 **Archives:** `.planning/milestones/`
 
 v3.0 delivered retention science (Part 9 playbook + section scorer), creator technique library (83 transcripts → Part 8), and structured choice architecture (variant generation + preference learning). Agent consolidated from 1,398→788 lines.
-
-**No active milestone.** Run `/gsd:new-milestone` to start next.
 
 ## Requirements
 
@@ -131,6 +140,16 @@ v3.0 delivered retention science (Part 9 playbook + section scorer), creator tec
 - Scriptwriter produces spoken-delivery scripts — v1.0
 - Competitive intelligence tracking — v1.0
 
+### Active (v4.0)
+
+- [ ] Document discovery workflow with translation gap verification
+- [ ] AI translation pipeline (Claude + DeepL cross-check + annotation)
+- [ ] Translation-specific verification checklist (accuracy, not facts)
+- [ ] Document-structured script generation (clause-by-clause backbone)
+- [ ] Split-screen edit guide format for dual-panel staging
+- [ ] Untranslated Evidence format reference guide
+- [ ] Series pipeline tracking (document candidates, status, episodes)
+
 ### Out of Scope
 
 - Building a new channel or brand — improving existing workspace
@@ -234,4 +253,4 @@ v3.0 delivered retention science (Part 9 playbook + section scorer), creator tec
 
 ---
 
-*Last updated: 2026-02-15 after v3.0 milestone shipped*
+*Last updated: 2026-02-16 after v4.0 milestone started*

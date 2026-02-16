@@ -1,21 +1,21 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-15 (v3.0 shipped)
+**Last Updated:** 2026-02-16 (v4.0 started)
 
 ## Project Reference
 
-See: `.planning/PROJECT.md` (updated 2026-02-15)
+See: `.planning/PROJECT.md` (updated 2026-02-16)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** No active milestone — v3.0 shipped
+**Current focus:** v4.0 Untranslated Evidence Pipeline
 
 ## Current Position
 
-**Milestone:** None active — v3.0 shipped 2026-02-15
-**Phase:** N/A
-**Status:** Between milestones
-**Last activity:** 2026-02-15 — Shipped v3.0 Adaptive Scriptwriter
+**Milestone:** v4.0 Untranslated Evidence Pipeline
+**Phase:** Not started (defining requirements)
+**Status:** Defining requirements
+**Last activity:** 2026-02-16 — Milestone v4.0 started
 
 **Progress:**
 v1.0 [####################] 100% — Workspace Optimization (archived)
