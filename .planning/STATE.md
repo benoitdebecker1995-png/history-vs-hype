@@ -1,25 +1,25 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-17 (Phase 39 complete)
+**Last Updated:** 2026-02-17 (Phase 40 Plan 01 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-16)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v4.0 Untranslated Evidence Pipeline - Phase 39
+**Current focus:** v4.0 Untranslated Evidence Pipeline - Phase 40
 
 ## Current Position
 
 **Milestone:** v4.0 Untranslated Evidence Pipeline
-**Phase:** 39 of 41 (Document Discovery & Format Guide) - COMPLETE
-**Plan:** Ready for Phase 40
-**Status:** Milestone complete
-**Last activity:** 2026-02-17 — Completed 39-02: Format reference guide (712 lines, 4 sections, episode structure + visual standards + quality bar + tone rules)
+**Phase:** 40 of 41 (Translation Pipeline) - IN PROGRESS
+**Plan:** 1 of 3 complete
+**Status:** Active
+**Last activity:** 2026-02-17 — Completed 40-01: Core translation engine (structure detector, Claude translator, formatter, CLI - 1,122 lines)
 
 **Progress:**
-[██████████] 97%
+[██████████] 95%
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
@@ -149,34 +149,39 @@ v4.0 [█████░░░░░░░░░░░░░░░] 25% — Untr
 - Video length estimates reflect channel philosophy: "As long as needed — optimize for completeness, not brevity"
 - Full vs excerpt flexibility: both full-document and excerpt-based estimates provided
 
+**Phase 40 Plan 01 (Core Translation Engine):**
+- Clause-by-clause translation (one API call per article/section) for accuracy over token cost
+- Full document context sent with each clause (highlighted with >>> TRANSLATE THIS CLAUSE <<< markers)
+- Auto-detection with --dry-run confirmation before committing to API calls
+- Lower temperature (0.3) for translation consistency
+- Paragraph fallback when no article markers detected (handles unstructured documents)
+
 ## Session Continuity
 
 ### Last Session
 
 - **Date:** 2026-02-17
-- **Work:** Completed Phase 39 (Document Discovery & Format Guide)
+- **Work:** Completed Phase 40 Plan 01 (Core Translation Engine)
 - **Output:**
-  - **Plan 39-01:** Document discovery toolkit (gap checker, structure assessor, archive lookup)
-  - **Plan 39-02:** Format reference guide (712 lines, 4 sections)
-  - Translation gap verification module (searches Google Scholar, JSTOR, Academia.edu)
-  - Document structure assessment (article counting, video length estimation)
-  - Archive lookup with 14+ sources (Légifrance, Wikisource, IA, national archives, HathiTrust, etc.)
-  - Episode structure template: 5-part flow (hook, intro, walkthrough, synthesis, relevance)
-  - Split-screen visual approach without locked layout
-  - Translation cross-check protocol (Claude + DeepL/Google)
-  - Commits: ce2dd3c (39-01), f664262 (39-02)
-- **Delivered:** All 4 Phase 39 requirements (DISC-01, DISC-02, DISC-03, SCPT-03)
+  - **Plan 40-01:** Core translation engine (1,122 lines across 5 files)
+  - Structure detector: multi-language article/clause boundary detection (French, Spanish, German, Latin)
+  - Claude translator: clause-by-clause translation with full document context
+  - Formatter: split-screen paired original/translation markdown output
+  - CLI: detect (structure preview) and translate (full pipeline) subcommands
+  - Input modes: --file, stdin (-), direct text argument
+  - --dry-run shows plan before API calls
+  - Commits: c8703b3 (structure + formatter), 3696ae4 (translator + CLI)
+- **Delivered:** 2 of 5 Phase 40 requirements (TRAN-01, TRAN-05 partial)
 
 ### Next Session
 
-**Next action:** Plan Phase 40 — Translation Pipeline
+**Next action:** Plan 40-02 — Cross-check & Legal Term Annotation
 
-**Phase 40 scope:**
-- TRAN-01: Primary translation (Claude/LLM with context awareness)
-- TRAN-02: Cross-check verification (DeepL, Google Translate comparison)
-- TRAN-03: Legal term annotation (historical dictionaries, etymology)
-- TRAN-04: Surprise clause detection (compare to English-language narratives)
-- TRAN-05: Split-screen formatting (parallel display output for editing)
+**Plan 40-02 scope:**
+- TRAN-02: Cross-check verification (DeepL, Google Translate comparison, semantic diff flagging)
+- TRAN-03: Legal term annotation (historical dictionaries, etymology, mistranslation flagging)
+- CLI integration: crosscheck and annotate subcommands
+- Enhance translate to auto-run crosscheck if API keys available
 
 **Success criteria to deliver:**
 1. User can translate documents with Claude maintaining legal/historical context
