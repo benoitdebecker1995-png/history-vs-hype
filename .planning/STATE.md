@@ -15,7 +15,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-16)
 **Milestone:** v4.0 Untranslated Evidence Pipeline
 **Phase:** 39 of 41 (Document Discovery & Format Guide) - COMPLETE
 **Plan:** Ready for Phase 40
-**Status:** Phase 39 complete - Document Discovery & Format Guide shipped
+**Status:** Milestone complete
 **Last activity:** 2026-02-17 — Completed 39-02: Format reference guide (712 lines, 4 sections, episode structure + visual standards + quality bar + tone rules)
 
 **Progress:**

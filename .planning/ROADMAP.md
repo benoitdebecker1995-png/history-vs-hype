@@ -591,8 +591,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 39-01-PLAN.md — Document discovery toolkit (gap checker, archive lookup, structure assessor, CLI)
-- [ ] 39-02-PLAN.md — Untranslated Evidence format reference guide
+- [x] 39-01-PLAN.md — Document discovery toolkit (gap checker, archive lookup, structure assessor, CLI)
+- [x] 39-02-PLAN.md — Untranslated Evidence format reference guide
 
 #### Phase 40: Translation Pipeline
 **Goal**: User can generate AI translations with cross-checking, legal term annotations, and paired formatting for split-screen display
@@ -675,6 +675,6 @@ Plans:
 | 36. Retention Science | v3.0 | 3/3 | Complete | 2026-02-14 |
 | 37. Creator Transcript Analysis | v3.0 | 3/3 | Complete | 2026-02-14 |
 | 38. Structured Choice Architecture | v3.0 | 3/3 | Complete | 2026-02-15 |
-| **39. Document Discovery & Format Guide** | **v4.0** | **0/?** | **Not started** | **-** |
+| **39. Document Discovery & Format Guide** | **v4.0** | **2/2** | **Complete** | **2026-02-17** |
 | **40. Translation Pipeline** | **v4.0** | **0/?** | **Not started** | **-** |
 | **41. Verification & Production Integration** | **v4.0** | **0/?** | **Not started** | **-** |
