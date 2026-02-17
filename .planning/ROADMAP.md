@@ -607,9 +607,9 @@ Plans:
 **Plans**: 3 plans in 2 waves
 
 Plans:
-- [ ] 40-01-PLAN.md — Core translation engine (structure detection, Claude translator, split-screen formatter, CLI)
-- [ ] 40-02-PLAN.md — Cross-checking and legal annotations (DeepL/free fallback, term annotation with footnotes)
-- [ ] 40-03-PLAN.md — Surprise clause detection (narrative comparison, severity tiers, script beats)
+- [x] 40-01-PLAN.md — Core translation engine (structure detection, Claude translator, split-screen formatter, CLI)
+- [x] 40-02-PLAN.md — Cross-checking and legal annotations (DeepL/free fallback, term annotation with footnotes)
+- [x] 40-03-PLAN.md — Surprise clause detection (narrative comparison, severity tiers, script beats)
 
 #### Phase 41: Verification & Production Integration
 **Goal**: Translation verification integrated into /verify command, document-structured script generation in script-writer-v2, and split-screen edit guides via /prep
