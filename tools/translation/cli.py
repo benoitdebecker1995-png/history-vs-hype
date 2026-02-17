@@ -420,13 +420,18 @@ def cmd_full(args):
         else:
             print("3. Annotate: SKIPPED", file=sys.stderr)
 
-        print("4. Format: Split-screen markdown output", file=sys.stderr)
+        if not args.skip_surprise and (args.narrative or args.narrative_file):
+            print(f"4. Surprise: {structure['section_count']} clause analyses (Claude)", file=sys.stderr)
+        else:
+            print("4. Surprise: SKIPPED", file=sys.stderr)
+
+        print("5. Format: Split-screen markdown output", file=sys.stderr)
 
         print("\nTo proceed, remove --dry-run flag", file=sys.stderr)
         return 0
 
     # Step 2: Translate
-    print("\nStep 2/4: Translating...", file=sys.stderr)
+    print("\nStep 2/5: Translating...", file=sys.stderr)
     translator = Translator()
 
     if translator.error:
@@ -453,7 +458,7 @@ def cmd_full(args):
     # Step 3: Cross-check (optional)
     crosscheck_results = None
     if not args.skip_crosscheck:
-        print("\nStep 3/4: Cross-checking...", file=sys.stderr)
+        print("\nStep 3/5: Cross-checking...", file=sys.stderr)
         checker = CrossChecker()
 
         if checker.error:
@@ -481,12 +486,12 @@ def cmd_full(args):
                 summary = crosscheck_results['summary']
                 print(f"  Cross-check complete ({summary['discrepancies_found']} discrepancies)", file=sys.stderr)
     else:
-        print("\nStep 3/4: Cross-checking SKIPPED", file=sys.stderr)
+        print("\nStep 3/5: Cross-checking SKIPPED", file=sys.stderr)
 
     # Step 4: Annotate (optional)
     annotation_results = None
     if not args.skip_annotate:
-        print("\nStep 4/4: Annotating legal terms...", file=sys.stderr)
+        print("\nStep 4/5: Annotating legal terms...", file=sys.stderr)
         annotator = LegalAnnotator()
 
         if annotator.error:
@@ -509,16 +514,116 @@ def cmd_full(args):
 
             print(f"  Annotation complete ({annotation_results['total_annotations']} terms)", file=sys.stderr)
     else:
-        print("\nStep 4/4: Annotation SKIPPED", file=sys.stderr)
+        print("\nStep 4/5: Annotation SKIPPED", file=sys.stderr)
+
+    # Step 5: Surprise detection (optional)
+    surprise_results = None
+    if not args.skip_surprise:
+        # Check for narrative
+        narrative = None
+        if args.narrative and args.narrative_file:
+            print("ERROR: Cannot specify both --narrative and --narrative-file", file=sys.stderr)
+            return 1
+        elif args.narrative:
+            narrative = args.narrative
+        elif args.narrative_file:
+            try:
+                with open(args.narrative_file, 'r', encoding='utf-8') as f:
+                    narrative = f.read().strip()
+            except Exception as e:
+                print(f"ERROR: Failed to read narrative file: {str(e)}", file=sys.stderr)
+                return 1
+
+        if narrative:
+            print("\nStep 5/5: Detecting surprise clauses...", file=sys.stderr)
+            detector_obj = SurpriseDetector()
+
+            if detector_obj.error:
+                print(f"WARNING: SurpriseDetector initialization failed: {detector_obj.error}", file=sys.stderr)
+                print("  Skipping surprise detection step", file=sys.stderr)
+            else:
+                def on_surprise_progress(current, total, clause_id):
+                    print(f"  Analyzing clause {current}/{total}... ({clause_id})", file=sys.stderr)
+
+                # Use annotated sections if available, otherwise use translated sections
+                sections_for_surprise = annotation_results['sections'] if annotation_results else translation_result['sections']
+
+                surprise_results = detector_obj.detect_surprises(
+                    sections=sections_for_surprise,
+                    narrative=narrative,
+                    source_language=args.language,
+                    document_context=args.context,
+                    on_progress=on_surprise_progress
+                )
+
+                if 'error' in surprise_results:
+                    print(f"ERROR: Surprise detection failed: {surprise_results['error']}", file=sys.stderr)
+                    return 1
+
+                print(f"  Surprise detection complete ({surprise_results['surprise_count']} surprises)", file=sys.stderr)
+        else:
+            print("\nStep 5/5: Surprise detection SKIPPED (no --narrative provided)", file=sys.stderr)
+    else:
+        print("\nStep 5/5: Surprise detection SKIPPED", file=sys.stderr)
 
     # Format output
     print("\nFormatting output...", file=sys.stderr)
     formatter = Formatter()
 
-    # Use annotated sections if available, otherwise use translated sections
+    # Merge surprise data into sections if available
     sections_to_format = annotation_results['sections'] if annotation_results else translation_result['sections']
 
-    output = formatter.format_paired(sections_to_format, output_format='markdown')
+    if surprise_results:
+        detector_obj = SurpriseDetector()
+        sections_to_format = detector_obj.update_sections_with_surprises(
+            sections_to_format,
+            surprise_results['surprises']
+        )
+
+    # Format with surprise markers
+    output_lines = []
+    for section in sections_to_format:
+        # Section heading
+        heading = section.get('heading', section.get('id', 'Unknown'))
+        output_lines.append(f"## {heading}\n")
+
+        # Original
+        output_lines.append("### Original")
+        output_lines.append(f"> {section.get('original', '')}\n")
+
+        # Translation
+        output_lines.append("### Translation")
+        output_lines.append(f"{section.get('translation', '')}\n")
+
+        # Surprise marker (if present)
+        surprise = section.get('surprise')
+        if surprise and surprise.get('severity'):
+            severity = surprise['severity'].upper()
+            script_beat = surprise.get('script_beat', '')
+            output_lines.append(f"> **SURPRISE ({severity}):** {script_beat}\n")
+
+        # Notes (if present)
+        notes = section.get('notes', [])
+        if notes and any(notes):
+            output_lines.append("**Notes:**")
+            for i, note in enumerate(notes, 1):
+                if note and note.strip():
+                    output_lines.append(f"{i}. {note}")
+            output_lines.append("")
+
+        # Annotations (if present)
+        annotations = section.get('annotations', [])
+        if annotations:
+            output_lines.append("**Legal Terms:**")
+            for i, ann in enumerate(annotations, 1):
+                term = ann.get('term', '')
+                definition = ann.get('definition', '')
+                output_lines.append(f"{i}. **{term}**: {definition}")
+            output_lines.append("")
+
+        output_lines.append("---\n")
+
+    output = '\n'.join(output_lines)
 
     # Append cross-check report if available
     if crosscheck_results:
@@ -546,6 +651,8 @@ def cmd_full(args):
         print(f"Cross-checked: {summary['discrepancies_found']} discrepancies found", file=sys.stderr)
     if annotation_results:
         print(f"Annotated: {annotation_results['total_annotations']} legal terms", file=sys.stderr)
+    if surprise_results:
+        print(f"Surprises: {surprise_results['surprise_count']} found ({surprise_results['by_severity']['major']} major, {surprise_results['by_severity']['notable']} notable, {surprise_results['by_severity']['minor']} minor)", file=sys.stderr)
 
     return 0
 
@@ -695,15 +802,18 @@ def main():
     surprise_parser.add_argument('--json', action='store_true', help='Output as JSON')
 
     # full pipeline subcommand
-    full_parser = subparsers.add_parser('full', help='Complete pipeline (detect + translate + crosscheck + annotate)')
+    full_parser = subparsers.add_parser('full', help='Complete pipeline (detect + translate + crosscheck + annotate + surprise)')
     full_parser.add_argument('text', nargs='?', help='Document text or "-" for stdin')
     full_parser.add_argument('--file', help='Read from file')
     full_parser.add_argument('--language', required=True, help='Source language (french, spanish, german, latin, etc.)')
     full_parser.add_argument('--type', help='Override document type')
     full_parser.add_argument('--context', help='Document context for better translation')
     full_parser.add_argument('--output', help='Write output to file (default: stdout)')
+    full_parser.add_argument('--narrative', help='Narrative baseline for surprise detection')
+    full_parser.add_argument('--narrative-file', help='Read narrative from file')
     full_parser.add_argument('--skip-crosscheck', action='store_true', help='Skip cross-checking step')
     full_parser.add_argument('--skip-annotate', action='store_true', help='Skip annotation step')
+    full_parser.add_argument('--skip-surprise', action='store_true', help='Skip surprise detection step')
     full_parser.add_argument('--dry-run', action='store_true', help='Show plan without executing')
 
     args = parser.parse_args()
