@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-17 (Phase 40 Plan 01 complete)
+**Last Updated:** 2026-02-17 (Phase 40 Plan 03 complete)
 
 ## Project Reference
 
@@ -13,13 +13,13 @@ See: `.planning/PROJECT.md` (updated 2026-02-16)
 ## Current Position
 
 **Milestone:** v4.0 Untranslated Evidence Pipeline
-**Phase:** 40 of 41 (Translation Pipeline) - IN PROGRESS
-**Plan:** 1 of 3 complete
+**Phase:** 40 of 41 (Translation Pipeline) - COMPLETE
+**Plan:** 3 of 3 complete
 **Status:** Active
-**Last activity:** 2026-02-17 — Completed 40-01: Core translation engine (structure detector, Claude translator, formatter, CLI - 1,122 lines)
+**Last activity:** 2026-02-17 — Completed 40-03: Surprise clause detector (narrative analysis, three-tier severity, script beat suggestions, full pipeline integration - 528 lines)
 
 **Progress:**
-[██████████] 95%
+[██████████] 97%
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
@@ -28,7 +28,7 @@ v1.5 [####################] 100% — Production Acceleration (archived)
 v1.6 [####################] 100% — Click & Keep (archived)
 v2.0 [####################] 100% — Channel Intelligence (archived)
 v3.0 [####################] 100% — Adaptive Scriptwriter (shipped 2026-02-15)
-v4.0 [█████░░░░░░░░░░░░░░░] 25% — Untranslated Evidence Pipeline (in progress)
+v4.0 [███████████░░░░░░░░░] 55% — Untranslated Evidence Pipeline (in progress)
 
 ## Milestone History
 
@@ -161,32 +161,32 @@ v4.0 [█████░░░░░░░░░░░░░░░] 25% — Untr
 ### Last Session
 
 - **Date:** 2026-02-17
-- **Work:** Completed Phase 40 Plan 01 (Core Translation Engine)
+- **Work:** Completed Phase 40 Plan 03 (Surprise Clause Detection)
 - **Output:**
-  - **Plan 40-01:** Core translation engine (1,122 lines across 5 files)
-  - Structure detector: multi-language article/clause boundary detection (French, Spanish, German, Latin)
-  - Claude translator: clause-by-clause translation with full document context
-  - Formatter: split-screen paired original/translation markdown output
-  - CLI: detect (structure preview) and translate (full pipeline) subcommands
-  - Input modes: --file, stdin (-), direct text argument
-  - --dry-run shows plan before API calls
-  - Commits: c8703b3 (structure + formatter), 3696ae4 (translator + CLI)
-- **Delivered:** 2 of 5 Phase 40 requirements (TRAN-01, TRAN-05 partial)
+  - **Plan 40-03:** Surprise clause detector (528 lines across 2 files)
+  - SurpriseDetector class: narrative baseline comparison with three-tier severity
+  - Major/Notable/Minor classification based on contradiction level
+  - Script beat suggestions (1-2 sentences per surprise for video presentation)
+  - CLI surprise subcommand: --narrative or --narrative-file input
+  - Full pipeline Step 5/5: optional surprise detection with --skip-surprise flag
+  - Surprise markers injected into formatted output with severity tags
+  - Modular design: re-run with different narratives without retranslating
+  - Commit: 4f19b21
+- **Delivered:** All 5 Phase 40 requirements complete (TRAN-01 through TRAN-05)
 
 ### Next Session
 
-**Next action:** Plan 40-02 — Cross-check & Legal Term Annotation
+**Next action:** Plan Phase 41 — Verification & Production Integration
 
-**Plan 40-02 scope:**
-- TRAN-02: Cross-check verification (DeepL, Google Translate comparison, semantic diff flagging)
-- TRAN-03: Legal term annotation (historical dictionaries, etymology, mistranslation flagging)
-- CLI integration: crosscheck and annotate subcommands
-- Enhance translate to auto-run crosscheck if API keys available
+**Phase 41 scope:**
+- VERF-01-03: `/verify --translation` mode (cross-check + annotation + surprise detection)
+- SCPT-01-02: `/script` integration (document-structured script generation, surprise beats as sections)
+- PROD-01-03: `/prep` integration (split-screen edit guide, B-roll for surprise moments, asset lists)
 
 **Success criteria to deliver:**
-1. User can translate documents with Claude maintaining legal/historical context
-2. User can cross-check translations against multiple independent sources
-3. User can annotate legal/technical terms with historical definitions
+1. User can verify translated documents via `/verify --translation` command
+2. User can generate document-structured scripts with surprise highlights
+3. User can produce split-screen edit guides for video production
 4. User can detect clauses that contradict common English narratives
 5. User can generate split-screen formatted output for video editing
 
