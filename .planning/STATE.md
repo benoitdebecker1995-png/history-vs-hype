@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-16 (v4.0 roadmap created)
+**Last Updated:** 2026-02-17 (Phase 39 complete)
 
 ## Project Reference
 
@@ -13,13 +13,13 @@ See: `.planning/PROJECT.md` (updated 2026-02-16)
 ## Current Position
 
 **Milestone:** v4.0 Untranslated Evidence Pipeline
-**Phase:** 39 of 41 (Document Discovery & Format Guide)
-**Plan:** Ready to plan
-**Status:** Roadmap complete, awaiting Phase 39 planning
-**Last activity:** 2026-02-16 — Roadmap created for v4.0 (3 phases, 16 requirements)
+**Phase:** 39 of 41 (Document Discovery & Format Guide) - COMPLETE
+**Plan:** Ready for Phase 40
+**Status:** Phase 39 complete - Document Discovery & Format Guide shipped
+**Last activity:** 2026-02-17 — Completed 39-02: Format reference guide (712 lines, 4 sections, episode structure + visual standards + quality bar + tone rules)
 
 **Progress:**
-v1.0 [####################] 100% — Workspace Optimization (archived)
+[██████████] 97%
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
@@ -28,7 +28,7 @@ v1.5 [####################] 100% — Production Acceleration (archived)
 v1.6 [####################] 100% — Click & Keep (archived)
 v2.0 [####################] 100% — Channel Intelligence (archived)
 v3.0 [####################] 100% — Adaptive Scriptwriter (shipped 2026-02-15)
-v4.0 [░░░░░░░░░░░░░░░░░░░░] 0% — Untranslated Evidence Pipeline (in progress)
+v4.0 [█████░░░░░░░░░░░░░░░] 25% — Untranslated Evidence Pipeline (in progress)
 
 ## Milestone History
 
@@ -141,37 +141,49 @@ v4.0 [░░░░░░░░░░░░░░░░░░░░] 0% — Untra
 - `python tools/youtube-analytics/technique_library.py --choices [TOPIC]` — view logged script choices
 - `python tools/youtube-analytics/technique_library.py --choice-stats` — choice statistics by type/topic
 
+## Decisions
+
+**Phase 39 Plan 01 (Document Discovery Toolkit):**
+- Language-agnostic design from the start (works for French, Spanish, Latin, German documents)
+- Academic editions prioritized in archive lookups (critical editions with scholarly apparatus preferred)
+- Video length estimates reflect channel philosophy: "As long as needed — optimize for completeness, not brevity"
+- Full vs excerpt flexibility: both full-document and excerpt-based estimates provided
+
 ## Session Continuity
 
 ### Last Session
 
-- **Date:** 2026-02-16
-- **Work:** Created v4.0 roadmap
+- **Date:** 2026-02-17
+- **Work:** Completed Phase 39 (Document Discovery & Format Guide)
 - **Output:**
-  - 3 phases derived from 16 requirements (Discovery, Translation, Verification categories)
-  - Phase 39: Document Discovery & Format Guide (4 requirements)
-  - Phase 40: Translation Pipeline (5 requirements)
-  - Phase 41: Verification & Production Integration (8 requirements)
-  - 100% requirement coverage validated
-  - Success criteria: 2-5 observable behaviors per phase
-  - Files written: ROADMAP.md, REQUIREMENTS.md (traceability), STATE.md
-- **Coverage:** 16/16 requirements mapped (100%)
+  - **Plan 39-01:** Document discovery toolkit (gap checker, structure assessor, archive lookup)
+  - **Plan 39-02:** Format reference guide (712 lines, 4 sections)
+  - Translation gap verification module (searches Google Scholar, JSTOR, Academia.edu)
+  - Document structure assessment (article counting, video length estimation)
+  - Archive lookup with 14+ sources (Légifrance, Wikisource, IA, national archives, HathiTrust, etc.)
+  - Episode structure template: 5-part flow (hook, intro, walkthrough, synthesis, relevance)
+  - Split-screen visual approach without locked layout
+  - Translation cross-check protocol (Claude + DeepL/Google)
+  - Commits: ce2dd3c (39-01), f664262 (39-02)
+- **Delivered:** All 4 Phase 39 requirements (DISC-01, DISC-02, DISC-03, SCPT-03)
 
 ### Next Session
 
-**Next action:** Plan Phase 39 — Document Discovery & Format Guide
+**Next action:** Plan Phase 40 — Translation Pipeline
 
-**Phase 39 scope:**
-- DISC-01: Translation gap verification (search existing English translations)
-- DISC-02: Document structure assessment (article count, clause count, video length estimation)
-- DISC-03: Archive database lookup (Légifrance, Wikisource, Internet Archive, national archives)
-- SCPT-03: Format reference guide for Untranslated Evidence series
+**Phase 40 scope:**
+- TRAN-01: Primary translation (Claude/LLM with context awareness)
+- TRAN-02: Cross-check verification (DeepL, Google Translate comparison)
+- TRAN-03: Legal term annotation (historical dictionaries, etymology)
+- TRAN-04: Surprise clause detection (compare to English-language narratives)
+- TRAN-05: Split-screen formatting (parallel display output for editing)
 
 **Success criteria to deliver:**
-1. User can verify if English translation exists
-2. User can assess document structure and estimate video length
-3. User can locate digitized originals via automated lookup
-4. User has series format reference guide
+1. User can translate documents with Claude maintaining legal/historical context
+2. User can cross-check translations against multiple independent sources
+3. User can annotate legal/technical terms with historical definitions
+4. User can detect clauses that contradict common English narratives
+5. User can generate split-screen formatted output for video editing
 
 ## Technical Notes
 
