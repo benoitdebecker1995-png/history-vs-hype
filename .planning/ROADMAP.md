@@ -604,12 +604,12 @@ Plans:
   3. Legal and technical terms are annotated with dictionary definitions and alternative translations for accuracy verification
   4. System identifies "surprise" clauses where translation contradicts common English narratives about the document
   5. Output is formatted as clause-by-clause paired original/translation suitable for split-screen video display
-**Plans**: TBD
+**Plans**: 3 plans in 2 waves
 
 Plans:
-- [ ] 40-01: TBD
-- [ ] 40-02: TBD
-- [ ] 40-03: TBD
+- [ ] 40-01-PLAN.md — Core translation engine (structure detection, Claude translator, split-screen formatter, CLI)
+- [ ] 40-02-PLAN.md — Cross-checking and legal annotations (DeepL/free fallback, term annotation with footnotes)
+- [ ] 40-03-PLAN.md — Surprise clause detection (narrative comparison, severity tiers, script beats)
 
 #### Phase 41: Verification & Production Integration
 **Goal**: Translation verification integrated into /verify command, document-structured script generation in script-writer-v2, and split-screen edit guides via /prep
