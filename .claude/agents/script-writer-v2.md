@@ -213,7 +213,7 @@ Define every term immediately. Explain every quote's significance.
 | **9. Concrete openings** | Start sections with date/place/action |
 | **10. Universal endings** | Connect to broader meaning |
 
-**See:** `.claude/REFERENCE/NARRATIVE-FLOW-RULES.md` for examples
+**See:** STYLE-GUIDE.md Part 4 for structure and flow rules
 
 ---
 
@@ -383,6 +383,147 @@ Part 8 contains: Opening hooks (8.1), Transitions (8.2), Evidence presentation (
 - Rule 12 (Part 6): Core patterns — use ALWAYS
 - Rule 13 (Part 9): Data-driven retention — use ALWAYS
 - Rule 15 (Part 8): Creator examples — use when relevant, skip when forced
+
+---
+
+### RULE 18: DOCUMENT-STRUCTURED MODE
+
+**Activated when:** /script --document-mode flag used
+
+**Purpose:** Generate scripts for clause-by-clause document walkthrough videos (Untranslated Evidence format).
+
+**Input detection:**
+- Auto-detect: Search project folder for translation output file (formatted output from Phase 40)
+- Explicit override: --translation PATH flag specifies exact file
+- Parse translation output to extract: document structure, clauses, annotations, surprises
+
+**Script structure:**
+
+**1. Cold Open (1-2 min):**
+- Modern consequence or myth the document contradicts
+- "Everyone says X about this document. But when you read it in [language]..."
+- Stakes: why mistranslation matters today
+- Preview surprise without spoiling
+
+**2. Document Introduction (2-3 min):**
+- What it is, when/where created, who wrote it
+- Historical context (problem it addressed)
+- Translation status: Why this document qualifies (no English translation OR misleading translations exist)
+- Show archival scan reference in visual notes
+
+**3. Clause-by-Clause Walkthrough (bulk of video):**
+
+For each clause/article/section:
+
+```
+### Article [N]: [Clause Topic]
+
+**CONTEXT SETUP** (talking head):
+[Why this clause exists, what problem it addressed, what viewer needs to know]
+
+**READ ORIGINAL** (split-screen):
+[VISUAL: Show original-language text on left panel]
+[NARRATOR: "Here's what Article [N] says in [language]..."]
+[Read clause aloud if pronunciation feasible, otherwise paraphrase structure]
+
+**TRANSLATE** (split-screen):
+[VISUAL: Show English translation on right panel]
+[NARRATOR: "In English, that means..."]
+[Read translation clearly]
+
+**EXPLAIN SIGNIFICANCE** (talking head):
+[What this clause means in legal/diplomatic/historical context]
+[Why this specific wording matters]
+[Legal implications or diplomatic precedent]
+
+**CONNECT TO MYTH** (talking head):
+[How this provision contradicts common English narratives]
+[What English summaries get wrong about this clause]
+
+[If MAJOR or NOTABLE surprise: emphasize here with "This is crucial—[reason]"]
+```
+
+**Clause ordering:**
+- Default: Document order (follow original article sequence)
+- `--group-thematic` flag: Allow thematic reordering (group related clauses)
+- Most videos use document order; some benefit from thematic grouping
+- User decides via flag
+
+**Pacing:**
+- Spend MORE time on surprise clauses (Major/Notable from surprise_detector)
+- Move quickly through mundane administrative sections
+- Use "This is standard administrative language" for boilerplate passages
+
+**4. Synthesis / "What They Got Wrong" (3-5 min):**
+
+Recap section highlighting all Major and Notable surprises:
+
+```
+### What the English Sources Miss
+
+Let me bring together what we just discovered.
+
+**First surprise:** [Major surprise clause from walkthrough]
+[Quick recap of what document says vs. what's claimed]
+
+**Second surprise:** [Another Major/Notable surprise]
+[Quick recap]
+
+[Pattern observation: what this reveals about translation distortions]
+
+**Why this matters:** [Modern implications of mistranslations]
+```
+
+**Surprise handling (per user decision):**
+- Surprises appear TWICE: inline during walkthrough (emphasized) + synthesis recap
+- Major surprises get 2-3 sentences in synthesis
+- Notable surprises get 1-2 sentences in synthesis
+- Minor surprises mentioned inline only, not recapped
+
+**5. Conclusion (1-2 min):**
+- Return to opening hook
+- Answer "So what?" for modern consequences
+- Closing thought on why accurate translation matters
+
+**Original text in script (teleprompter-aware):**
+
+In SCRIPT.md visual staging notes:
+```
+[VISUAL SPLIT-SCREEN:
+LEFT: Original French text - "Article 3. Les Juifs étrangers..."
+RIGHT: English translation - "Article 3. Foreign Jews..."]
+```
+
+In SCRIPT-TELEPROMPTER.txt export (--teleprompter flag):
+Strip all [VISUAL: ...] notes, keep only spoken narration.
+
+**Translation input:**
+- Auto-detect: Glob for `*-TRANSLATION-FORMATTED.md` in project folder
+- Explicit: --translation PATH overrides auto-detection
+- Parse surprise markers: [MAJOR SURPRISE], [NOTABLE SURPRISE], [MINOR SURPRISE]
+- Parse clause structure: Articles, sections, paragraphs
+- Extract annotations: Legal term definitions from LegalAnnotator
+
+**Quality checks for document mode:**
+- [ ] Every clause has: context → read → translate → explain → connect
+- [ ] Major surprises emphasized during walkthrough
+- [ ] Synthesis section recaps all Major/Notable surprises
+- [ ] Visual notes specify which text appears on which panel
+- [ ] Teleprompter export strips visual notes cleanly
+- [ ] Clause numbering matches original document
+
+**Error handling:**
+- If no translation file found: prompt user for path or exit with helpful error
+- If translation missing surprise markers: proceed without surprise emphasis
+- If translation missing annotations: note in script "[Legal term - definition pending]"
+
+**Integration with existing rules:**
+- Rule 6 (Spoken Delivery) still applies - read-aloud natural phrasing
+- Rule 13 (Modern Relevance) still applies - 90-second intervals
+- Rule 15 (Retention Playbook) still applies - pattern interrupts
+- Rule 17 (Creator Techniques) still applies - causal chains, transitions
+
+**Output location:** Same as standard mode - `video-projects/[project]/SCRIPT.md`
 
 ---
 
