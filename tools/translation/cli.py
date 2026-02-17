@@ -33,6 +33,9 @@ sys.path.insert(0, str(Path(__file__).parent))
 from structure_detector import StructureDetector
 from translator import Translator
 from formatter import Formatter
+from cross_checker import CrossChecker
+from legal_annotator import LegalAnnotator
+from surprise_detector import SurpriseDetector
 
 
 def read_input(text_arg: Optional[str], file_path: Optional[str]) -> dict:
@@ -213,23 +216,432 @@ def cmd_translate(args):
 
 
 def cmd_crosscheck(args):
-    """Placeholder for Plan 40-02."""
-    print("Cross-checking will be available after Plan 40-02 is complete.", file=sys.stderr)
-    print("This feature will compare Claude translations against DeepL/Google Translate.", file=sys.stderr)
+    """Cross-check translation against independent sources."""
+    # Read translated JSON input
+    if not args.file:
+        print("ERROR: --file required (path to translated JSON output)", file=sys.stderr)
+        return 1
+
+    try:
+        with open(args.file, 'r', encoding='utf-8') as f:
+            translation_data = json.load(f)
+    except FileNotFoundError:
+        print(f"ERROR: Translation file not found: {args.file}", file=sys.stderr)
+        return 1
+    except json.JSONDecodeError as e:
+        print(f"ERROR: Invalid JSON in translation file: {str(e)}", file=sys.stderr)
+        return 1
+    except Exception as e:
+        print(f"ERROR: Failed to read translation file: {str(e)}", file=sys.stderr)
+        return 1
+
+    # Extract sections from translation data
+    sections = translation_data.get('sections', [])
+    if not sections:
+        print("ERROR: No sections found in translation file", file=sys.stderr)
+        return 1
+
+    # Validate language
+    if not args.language:
+        print("ERROR: --language required (e.g., french, spanish, german)", file=sys.stderr)
+        return 1
+
+    # Initialize cross-checker
+    checker = CrossChecker()
+
+    if checker.error:
+        print(f"ERROR: CrossChecker initialization failed: {checker.error}", file=sys.stderr)
+        return 1
+
+    # Progress callback
+    def on_progress(current, total, clause_id):
+        print(f"Cross-checking clause {current}/{total}... ({clause_id})", file=sys.stderr)
+
+    # Run cross-check
+    print(f"Cross-checking {len(sections)} clauses...", file=sys.stderr)
+
+    results = checker.check_document(
+        sections=sections,
+        source_language=args.language,
+        on_progress=on_progress
+    )
+
+    if 'error' in results:
+        if results.get('skipped', False):
+            # Backend unavailable - not a fatal error, just inform
+            print(f"WARNING: {results['error']}", file=sys.stderr)
+            return 0
+        else:
+            print(f"ERROR: Cross-check failed: {results['error']}", file=sys.stderr)
+            return 1
+
+    # Format output
+    if args.json:
+        # JSON output
+        print(json.dumps(results, indent=2, ensure_ascii=False))
+    else:
+        # Markdown report
+        report = checker.format_report(results)
+        print(report)
+
+    summary = results['summary']
+    print(f"\nCross-check complete. {summary['discrepancies_found']} discrepancies found.", file=sys.stderr)
     return 0
 
 
 def cmd_annotate(args):
-    """Placeholder for Plan 40-02."""
-    print("Legal term annotation will be available after Plan 40-02 is complete.", file=sys.stderr)
-    print("This feature will annotate terms with no direct English equivalent.", file=sys.stderr)
+    """Annotate legal/technical terms."""
+    # Read translated JSON input
+    if not args.file:
+        print("ERROR: --file required (path to translated JSON output)", file=sys.stderr)
+        return 1
+
+    try:
+        with open(args.file, 'r', encoding='utf-8') as f:
+            translation_data = json.load(f)
+    except FileNotFoundError:
+        print(f"ERROR: Translation file not found: {args.file}", file=sys.stderr)
+        return 1
+    except json.JSONDecodeError as e:
+        print(f"ERROR: Invalid JSON in translation file: {str(e)}", file=sys.stderr)
+        return 1
+    except Exception as e:
+        print(f"ERROR: Failed to read translation file: {str(e)}", file=sys.stderr)
+        return 1
+
+    # Extract sections from translation data
+    sections = translation_data.get('sections', [])
+    if not sections:
+        print("ERROR: No sections found in translation file", file=sys.stderr)
+        return 1
+
+    # Validate language
+    if not args.language:
+        print("ERROR: --language required (e.g., french, spanish, german)", file=sys.stderr)
+        return 1
+
+    # Initialize annotator
+    annotator = LegalAnnotator()
+
+    if annotator.error:
+        print(f"ERROR: LegalAnnotator initialization failed: {annotator.error}", file=sys.stderr)
+        return 1
+
+    # Progress callback
+    def on_progress(current, total, clause_id):
+        print(f"Annotating clause {current}/{total}... ({clause_id})", file=sys.stderr)
+
+    # Run annotation
+    print(f"Annotating {len(sections)} clauses...", file=sys.stderr)
+
+    results = annotator.annotate_document(
+        sections=sections,
+        source_language=args.language,
+        document_context=args.context,
+        on_progress=on_progress
+    )
+
+    if 'error' in results:
+        print(f"ERROR: Annotation failed: {results['error']}", file=sys.stderr)
+        return 1
+
+    # Format output
+    if args.json:
+        # JSON output
+        print(json.dumps(results, indent=2, ensure_ascii=False))
+    else:
+        # Markdown report with footnotes
+        report = "# Legal Term Annotations\n\n"
+        report += f"**Total Annotations:** {results['total_annotations']}\n"
+        report += f"**Mistranslation Flags:** {results['mistranslation_flags']}\n\n"
+
+        for section in results['sections']:
+            report += f"## {section.get('heading', section.get('id', 'Unknown'))}\n\n"
+
+            # Show translation
+            report += "### Translation\n"
+            report += f"{section.get('translation', 'N/A')}\n\n"
+
+            # Show footnotes
+            if section.get('footnotes'):
+                report += "### Annotations\n\n"
+                for i, footnote in enumerate(section['footnotes'], 1):
+                    report += f"{i}. {footnote}\n\n"
+
+        print(report)
+
+    print(f"\nAnnotation complete. {results['total_annotations']} terms annotated.", file=sys.stderr)
+    return 0
+
+
+def cmd_full(args):
+    """Complete translation pipeline: detect + translate + crosscheck + annotate + surprise."""
+    # Read input
+    input_result = read_input(args.text, args.file)
+    if 'error' in input_result:
+        print(f"ERROR: {input_result['error']}", file=sys.stderr)
+        return 1
+
+    text = input_result['text']
+
+    # Validate language
+    if not args.language:
+        print("ERROR: --language required (e.g., french, spanish, german, latin)", file=sys.stderr)
+        return 1
+
+    # Detect structure
+    print("Step 1/5: Detecting structure...", file=sys.stderr)
+    detector = StructureDetector()
+    structure = detector.detect_structure(text, args.type)
+
+    if 'error' in structure:
+        print(f"ERROR: Structure detection failed: {structure['error']}", file=sys.stderr)
+        return 1
+
+    print(f"  Detected {structure['section_count']} sections", file=sys.stderr)
+
+    # Dry run - show plan without executing
+    if args.dry_run:
+        print("\n# Full Pipeline Plan (Dry Run)\n", file=sys.stderr)
+        print(f"**Source Language:** {args.language}", file=sys.stderr)
+        print(f"**Detected Type:** {structure['detected_type']}", file=sys.stderr)
+        print(f"**Section Count:** {structure['section_count']}\n", file=sys.stderr)
+
+        print("## Pipeline Steps:\n", file=sys.stderr)
+        print(f"1. Translate: {structure['section_count']} API calls (Claude)", file=sys.stderr)
+
+        if not args.skip_crosscheck:
+            print(f"2. Cross-check: {structure['section_count']} comparisons (DeepL/Google)", file=sys.stderr)
+        else:
+            print("2. Cross-check: SKIPPED", file=sys.stderr)
+
+        if not args.skip_annotate:
+            print(f"3. Annotate: {structure['section_count']} legal term analyses (Claude)", file=sys.stderr)
+        else:
+            print("3. Annotate: SKIPPED", file=sys.stderr)
+
+        print("4. Format: Split-screen markdown output", file=sys.stderr)
+
+        print("\nTo proceed, remove --dry-run flag", file=sys.stderr)
+        return 0
+
+    # Step 2: Translate
+    print("\nStep 2/4: Translating...", file=sys.stderr)
+    translator = Translator()
+
+    if translator.error:
+        print(f"ERROR: Translator initialization failed: {translator.error}", file=sys.stderr)
+        return 1
+
+    def on_translate_progress(current, total, clause_id):
+        print(f"  Translating clause {current}/{total}... ({clause_id})", file=sys.stderr)
+
+    translation_result = translator.translate_document(
+        sections=structure['sections'],
+        source_language=args.language,
+        full_text=text,
+        document_context=args.context,
+        on_progress=on_translate_progress
+    )
+
+    if 'error' in translation_result:
+        print(f"ERROR: Translation failed: {translation_result['error']}", file=sys.stderr)
+        return 1
+
+    print(f"  Translation complete ({translation_result['clause_count']} clauses)", file=sys.stderr)
+
+    # Step 3: Cross-check (optional)
+    crosscheck_results = None
+    if not args.skip_crosscheck:
+        print("\nStep 3/4: Cross-checking...", file=sys.stderr)
+        checker = CrossChecker()
+
+        if checker.error:
+            print(f"WARNING: CrossChecker initialization failed: {checker.error}", file=sys.stderr)
+            print("  Skipping cross-check step", file=sys.stderr)
+        else:
+            def on_check_progress(current, total, clause_id):
+                print(f"  Checking clause {current}/{total}... ({clause_id})", file=sys.stderr)
+
+            crosscheck_results = checker.check_document(
+                sections=translation_result['sections'],
+                source_language=args.language,
+                on_progress=on_check_progress
+            )
+
+            if 'error' in crosscheck_results:
+                if crosscheck_results.get('skipped', False):
+                    print(f"WARNING: {crosscheck_results['error']}", file=sys.stderr)
+                    print("  Skipping cross-check step", file=sys.stderr)
+                    crosscheck_results = None
+                else:
+                    print(f"ERROR: Cross-check failed: {crosscheck_results['error']}", file=sys.stderr)
+                    return 1
+            else:
+                summary = crosscheck_results['summary']
+                print(f"  Cross-check complete ({summary['discrepancies_found']} discrepancies)", file=sys.stderr)
+    else:
+        print("\nStep 3/4: Cross-checking SKIPPED", file=sys.stderr)
+
+    # Step 4: Annotate (optional)
+    annotation_results = None
+    if not args.skip_annotate:
+        print("\nStep 4/4: Annotating legal terms...", file=sys.stderr)
+        annotator = LegalAnnotator()
+
+        if annotator.error:
+            print(f"WARNING: LegalAnnotator initialization failed: {annotator.error}", file=sys.stderr)
+            print("  Skipping annotation step", file=sys.stderr)
+        else:
+            def on_annotate_progress(current, total, clause_id):
+                print(f"  Annotating clause {current}/{total}... ({clause_id})", file=sys.stderr)
+
+            annotation_results = annotator.annotate_document(
+                sections=translation_result['sections'],
+                source_language=args.language,
+                document_context=args.context,
+                on_progress=on_annotate_progress
+            )
+
+            if 'error' in annotation_results:
+                print(f"ERROR: Annotation failed: {annotation_results['error']}", file=sys.stderr)
+                return 1
+
+            print(f"  Annotation complete ({annotation_results['total_annotations']} terms)", file=sys.stderr)
+    else:
+        print("\nStep 4/4: Annotation SKIPPED", file=sys.stderr)
+
+    # Format output
+    print("\nFormatting output...", file=sys.stderr)
+    formatter = Formatter()
+
+    # Use annotated sections if available, otherwise use translated sections
+    sections_to_format = annotation_results['sections'] if annotation_results else translation_result['sections']
+
+    output = formatter.format_paired(sections_to_format, output_format='markdown')
+
+    # Append cross-check report if available
+    if crosscheck_results:
+        output += "\n\n---\n\n"
+        output += checker.format_report(crosscheck_results)
+
+    # Write output
+    if args.output:
+        try:
+            with open(args.output, 'w', encoding='utf-8') as f:
+                f.write(output)
+            print(f"\nPipeline complete. Output written to: {args.output}", file=sys.stderr)
+        except Exception as e:
+            print(f"ERROR: Failed to write output file: {str(e)}", file=sys.stderr)
+            return 1
+    else:
+        # Print to stdout
+        print(output)
+
+    # Summary
+    print("\n=== Pipeline Summary ===", file=sys.stderr)
+    print(f"Translated: {translation_result['clause_count']} clauses", file=sys.stderr)
+    if crosscheck_results:
+        summary = crosscheck_results['summary']
+        print(f"Cross-checked: {summary['discrepancies_found']} discrepancies found", file=sys.stderr)
+    if annotation_results:
+        print(f"Annotated: {annotation_results['total_annotations']} legal terms", file=sys.stderr)
+
     return 0
 
 
 def cmd_surprise(args):
-    """Placeholder for Plan 40-03."""
-    print("Surprise clause detection will be available after Plan 40-03 is complete.", file=sys.stderr)
-    print("This feature will identify clauses that contradict common narratives.", file=sys.stderr)
+    """Run surprise clause detection on translated output."""
+    # Validate narrative input
+    narrative = None
+    if args.narrative and args.narrative_file:
+        print("ERROR: Cannot specify both --narrative and --narrative-file", file=sys.stderr)
+        return 1
+    elif args.narrative:
+        narrative = args.narrative
+    elif args.narrative_file:
+        try:
+            with open(args.narrative_file, 'r', encoding='utf-8') as f:
+                narrative = f.read().strip()
+        except FileNotFoundError:
+            print(f"ERROR: Narrative file not found: {args.narrative_file}", file=sys.stderr)
+            return 1
+        except Exception as e:
+            print(f"ERROR: Failed to read narrative file: {str(e)}", file=sys.stderr)
+            return 1
+    else:
+        print("ERROR: Either --narrative or --narrative-file required", file=sys.stderr)
+        return 1
+
+    if not narrative:
+        print("ERROR: Narrative cannot be empty", file=sys.stderr)
+        return 1
+
+    # Read translated JSON input
+    if not args.file:
+        print("ERROR: --file required (path to translated JSON output)", file=sys.stderr)
+        return 1
+
+    try:
+        with open(args.file, 'r', encoding='utf-8') as f:
+            translation_data = json.load(f)
+    except FileNotFoundError:
+        print(f"ERROR: Translation file not found: {args.file}", file=sys.stderr)
+        return 1
+    except json.JSONDecodeError as e:
+        print(f"ERROR: Invalid JSON in translation file: {str(e)}", file=sys.stderr)
+        return 1
+    except Exception as e:
+        print(f"ERROR: Failed to read translation file: {str(e)}", file=sys.stderr)
+        return 1
+
+    # Extract sections from translation data
+    sections = translation_data.get('sections', [])
+    if not sections:
+        print("ERROR: No sections found in translation file", file=sys.stderr)
+        return 1
+
+    # Validate language
+    if not args.language:
+        print("ERROR: --language required (e.g., french, spanish, german)", file=sys.stderr)
+        return 1
+
+    # Initialize detector
+    detector = SurpriseDetector()
+
+    if detector.error:
+        print(f"ERROR: Detector initialization failed: {detector.error}", file=sys.stderr)
+        return 1
+
+    # Progress callback
+    def on_progress(current, total, clause_id):
+        print(f"Analyzing clause {current}/{total}... ({clause_id})", file=sys.stderr)
+
+    # Run detection
+    print(f"Analyzing {len(sections)} clauses against narrative...", file=sys.stderr)
+
+    results = detector.detect_surprises(
+        sections=sections,
+        narrative=narrative,
+        source_language=args.language,
+        document_context=args.context,
+        on_progress=on_progress
+    )
+
+    if 'error' in results:
+        print(f"ERROR: Surprise detection failed: {results['error']}", file=sys.stderr)
+        return 1
+
+    # Format output
+    if args.json:
+        # JSON output
+        print(json.dumps(results, indent=2, ensure_ascii=False))
+    else:
+        # Markdown report
+        report = detector.format_report(results)
+        print(report)
+
+    print(f"\nAnalysis complete. {results['surprise_count']} surprises found.", file=sys.stderr)
     return 0
 
 
@@ -260,10 +672,39 @@ def main():
     translate_parser.add_argument('--format', choices=['markdown', 'json'], default='markdown', help='Output format')
     translate_parser.add_argument('--dry-run', action='store_true', help='Show plan without translating')
 
-    # Placeholder subcommands
-    crosscheck_parser = subparsers.add_parser('crosscheck', help='Cross-check translation (Plan 40-02)')
-    annotate_parser = subparsers.add_parser('annotate', help='Annotate legal terms (Plan 40-02)')
-    surprise_parser = subparsers.add_parser('surprise', help='Detect surprise clauses (Plan 40-03)')
+    # crosscheck subcommand
+    crosscheck_parser = subparsers.add_parser('crosscheck', help='Cross-check translation against independent sources')
+    crosscheck_parser.add_argument('--file', required=True, help='Translated JSON file (from translate --format json)')
+    crosscheck_parser.add_argument('--language', required=True, help='Source language (french, spanish, german, etc.)')
+    crosscheck_parser.add_argument('--json', action='store_true', help='Output as JSON')
+
+    # annotate subcommand
+    annotate_parser = subparsers.add_parser('annotate', help='Annotate legal/technical terms')
+    annotate_parser.add_argument('--file', required=True, help='Translated JSON file (from translate --format json)')
+    annotate_parser.add_argument('--language', required=True, help='Source language (french, spanish, german, etc.)')
+    annotate_parser.add_argument('--context', help='Optional document context for better annotation')
+    annotate_parser.add_argument('--json', action='store_true', help='Output as JSON')
+
+    # surprise subcommand
+    surprise_parser = subparsers.add_parser('surprise', help='Detect surprise clauses')
+    surprise_parser.add_argument('--file', required=True, help='Translated JSON file (from translate --format json)')
+    surprise_parser.add_argument('--language', required=True, help='Source language (french, spanish, german, etc.)')
+    surprise_parser.add_argument('--narrative', help='Inline narrative baseline (what people commonly believe)')
+    surprise_parser.add_argument('--narrative-file', help='Read narrative from file')
+    surprise_parser.add_argument('--context', help='Optional document context')
+    surprise_parser.add_argument('--json', action='store_true', help='Output as JSON')
+
+    # full pipeline subcommand
+    full_parser = subparsers.add_parser('full', help='Complete pipeline (detect + translate + crosscheck + annotate)')
+    full_parser.add_argument('text', nargs='?', help='Document text or "-" for stdin')
+    full_parser.add_argument('--file', help='Read from file')
+    full_parser.add_argument('--language', required=True, help='Source language (french, spanish, german, latin, etc.)')
+    full_parser.add_argument('--type', help='Override document type')
+    full_parser.add_argument('--context', help='Document context for better translation')
+    full_parser.add_argument('--output', help='Write output to file (default: stdout)')
+    full_parser.add_argument('--skip-crosscheck', action='store_true', help='Skip cross-checking step')
+    full_parser.add_argument('--skip-annotate', action='store_true', help='Skip annotation step')
+    full_parser.add_argument('--dry-run', action='store_true', help='Show plan without executing')
 
     args = parser.parse_args()
 
@@ -282,6 +723,8 @@ def main():
         return cmd_annotate(args)
     elif args.command == 'surprise':
         return cmd_surprise(args)
+    elif args.command == 'full':
+        return cmd_full(args)
     else:
         parser.print_help()
         return 1
