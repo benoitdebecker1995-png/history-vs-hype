@@ -624,12 +624,12 @@ Plans:
   6. User can run `/prep` with split-screen edit guide format showing dual-panel staging (original left, translation right)
   7. Edit guide includes clause-by-clause timing, highlight cue markers, and talking-head transition points
   8. Asset sourcing guide identifies document scans, archive screenshots, and supporting visuals needed
-**Plans**: TBD
+**Plans**: 3 plans in 1 wave
 
 Plans:
-- [ ] 41-01: TBD
-- [ ] 41-02: TBD
-- [ ] 41-03: TBD
+- [ ] 41-01-PLAN.md — Translation verification engine (/verify --translation mode, audit/fresh modes, scholarly comparison, GREEN/YELLOW/RED verdicts)
+- [ ] 41-02-PLAN.md — Document-structured scriptwriting (script-writer-v2 Rule 18, /script --document-mode, clause-by-clause structure, surprise handling)
+- [ ] 41-03-PLAN.md — Split-screen edit guides (/prep --split-screen mode, clause timing, transition markers, asset sourcing, surprise emphasis)
 
 ## Progress
 
