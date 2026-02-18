@@ -15,6 +15,7 @@ Fact-check scripts, extract claims from transcripts, or run simplification detec
 /verify --extract [file]     # Extract claims from transcript
 /verify --simplify [project] # Run simplification detection only
 /verify --extract-nlm [file] # Extract citations from NotebookLM output
+/verify --translation [project] # Verify translated documents
 ```
 
 ## Flags
@@ -26,6 +27,7 @@ Fact-check scripts, extract claims from transcripts, or run simplification detec
 | `--simplify` | Simplification detection only | `/verify --simplify 19-flat-earth-medieval-2025` |
 | `--from-transcript` | Extract + fact-check workflow | `/verify --from-transcript video-url` |
 | `--extract-nlm` | Extract citations from NotebookLM output | `/verify --extract-nlm nlm-output.txt` |
+| `--translation` | Verify translated documents before filming | `/verify --translation 37-vichy-statute` |
 
 ---
 
@@ -309,6 +311,100 @@ For best extraction results, use prompts from `.claude/REFERENCE/NOTEBOOKLM-RESE
 ### Output Location
 
 `NOTEBOOKLM-EXTRACTIONS.md` in same directory as input file (or custom path with `--output`)
+
+---
+
+## TRANSLATION VERIFICATION (`--translation`)
+
+Verify translated documents before filming to catch discrepancies and missing annotations.
+
+### Usage
+
+```
+/verify --translation [project]           # Audit existing translation output
+/verify --translation [project] --fresh   # Re-run cross-check and annotation
+/verify --translation [project] --scholarly-summary FILE  # Compare against scholarly description
+```
+
+### Modes
+
+**Audit mode (default):** Reads existing translation output and checks completeness.
+- Cross-check results present
+- Legal annotations exist
+- Surprise detection complete (if enabled)
+- No pending placeholders
+
+**Fresh mode (--fresh):** Re-runs cross-checker, annotator, and surprise detector from scratch. Use when:
+- Translation was updated after initial cross-check
+- Different DeepL/Claude versions want to be tested
+- Narrative baseline changed for surprise detection
+
+**Scholarly comparison:** Optional verification against academic descriptions of the document.
+- `--scholarly-summary FILE`: User provides file with scholarly description (e.g., "Article 3 establishes X, Article 5 prohibits Y")
+- System compares translation output against scholarly baseline
+- Flags omissions or contradictions
+
+### Process
+
+1. Locate translation output file in project folder (formatted output from Phase 40)
+2. Run TranslationVerifier in specified mode
+3. Generate TRANSLATION-VERIFICATION.md with full findings
+4. Print condensed summary to terminal
+
+### Output Format
+
+Terminal summary:
+```
+TRANSLATION VERIFICATION: [Document Name]
+VERDICT: GREEN / YELLOW / RED
+
+Top issues:
+1. [Issue description]
+2. [Issue description]
+3. [Issue description]
+
+Full report: video-projects/[project]/TRANSLATION-VERIFICATION.md
+```
+
+Full report sections:
+- **Verdict:** GREEN/YELLOW/RED with reasoning
+- **Completeness Check:** Cross-check status, annotation coverage, surprise detection status
+- **Discrepancy Analysis:** HIGH/MEDIUM/LOW severity issues from cross-check
+- **Annotation Coverage:** % of legal terms with definitions, missing terms list
+- **Scholarly Comparison:** (if --scholarly-summary used) Alignment check, omissions, contradictions
+- **Recommendation:** Proceed to filming / Revise translation / Major issues - retranslate
+
+### Verdict Interpretation
+
+| Verdict | Meaning | Next Step |
+|---------|---------|-----------|
+| GREEN | No significant issues | Proceed to script generation |
+| YELLOW | Minor discrepancies or gaps | Review flagged sections, decide if acceptable |
+| RED | Significant problems | Revise translation before filming |
+
+### Output Location
+
+`video-projects/[project]/TRANSLATION-VERIFICATION.md`
+
+### After Completion
+
+**When verification returns GREEN:**
+> "Translation verified! No significant issues found.
+> Next steps:
+> 1. `/script --document-mode` - Generate document-structured script
+> 2. `/prep --split-screen` - Create split-screen edit guide
+>
+> Ready to write script? Run `/script --document-mode`"
+
+**When verification returns YELLOW:**
+> "Translation verification found minor issues (see TRANSLATION-VERIFICATION.md).
+> Review flagged sections and decide if acceptable for filming.
+> To proceed: `/script --document-mode`"
+
+**When verification returns RED:**
+> "Translation verification found significant problems.
+> See TRANSLATION-VERIFICATION.md for details.
+> Revise translation before proceeding to script generation."
 
 ---
 
