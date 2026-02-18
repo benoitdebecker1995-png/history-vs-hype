@@ -35,9 +35,9 @@ Requirements for the Untranslated Evidence Pipeline. Each maps to roadmap phases
 
 ### Production
 
-- [ ] **PROD-01**: `/prep` supports split-screen edit guide format with dual-panel staging (original left, translation right)
-- [ ] **PROD-02**: Edit guide includes clause-by-clause timing, highlight cue markers, and talking-head transition points
-- [ ] **PROD-03**: Asset sourcing guide identifies document scans, archive screenshots, and supporting context visuals needed
+- [x] **PROD-01**: `/prep` supports split-screen edit guide format with dual-panel staging (original left, translation right)
+- [x] **PROD-02**: Edit guide includes clause-by-clause timing, highlight cue markers, and talking-head transition points
+- [x] **PROD-03**: Asset sourcing guide identifies document scans, archive screenshots, and supporting context visuals needed
 
 ## Future Requirements
 
@@ -75,9 +75,9 @@ Requirements for the Untranslated Evidence Pipeline. Each maps to roadmap phases
 | VERF-03 | Phase 41 | Complete |
 | SCPT-01 | Phase 41 | Complete |
 | SCPT-02 | Phase 41 | Complete |
-| PROD-01 | Phase 41 | Pending |
-| PROD-02 | Phase 41 | Pending |
-| PROD-03 | Phase 41 | Pending |
+| PROD-01 | Phase 41 | Complete |
+| PROD-02 | Phase 41 | Complete |
+| PROD-03 | Phase 41 | Complete |
 
 **Coverage:**
 - v4.0 requirements: 16 total
