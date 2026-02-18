@@ -23,9 +23,9 @@ Requirements for the Untranslated Evidence Pipeline. Each maps to roadmap phases
 
 ### Verification
 
-- [ ] **VERF-01**: `/verify --translation` mode cross-references translation against multiple AI tools and flags divergences
-- [ ] **VERF-02**: Translation verification checks key terms against legal/historical dictionaries for the source language
-- [ ] **VERF-03**: Verification report compares translated provisions against scholarly descriptions of the same law/decree
+- [x] **VERF-01**: `/verify --translation` mode cross-references translation against multiple AI tools and flags divergences
+- [x] **VERF-02**: Translation verification checks key terms against legal/historical dictionaries for the source language
+- [x] **VERF-03**: Verification report compares translated provisions against scholarly descriptions of the same law/decree
 
 ### Script
 
@@ -70,9 +70,9 @@ Requirements for the Untranslated Evidence Pipeline. Each maps to roadmap phases
 | TRAN-03 | Phase 40 | Pending |
 | TRAN-04 | Phase 40 | Pending |
 | TRAN-05 | Phase 40 | Pending |
-| VERF-01 | Phase 41 | Pending |
-| VERF-02 | Phase 41 | Pending |
-| VERF-03 | Phase 41 | Pending |
+| VERF-01 | Phase 41 | Complete |
+| VERF-02 | Phase 41 | Complete |
+| VERF-03 | Phase 41 | Complete |
 | SCPT-01 | Phase 41 | Complete |
 | SCPT-02 | Phase 41 | Complete |
 | PROD-01 | Phase 41 | Pending |
