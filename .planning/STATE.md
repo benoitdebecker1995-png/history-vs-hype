@@ -1,25 +1,25 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-17 (Phase 40 Plan 03 complete)
+**Last Updated:** 2026-02-18 (Phase 41 Plan 02 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-16)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v4.0 Untranslated Evidence Pipeline - Phase 40
+**Current focus:** v4.0 Untranslated Evidence Pipeline - Phase 41
 
 ## Current Position
 
 **Milestone:** v4.0 Untranslated Evidence Pipeline
-**Phase:** 40 of 41 (Translation Pipeline) - COMPLETE
-**Plan:** 3 of 3 complete
-**Status:** Active
-**Last activity:** 2026-02-17 — Completed 40-03: Surprise clause detector (narrative analysis, three-tier severity, script beat suggestions, full pipeline integration - 528 lines)
+**Phase:** 41 of 41 (Verification & Production Integration) - IN PROGRESS
+**Plan:** 2 of 3 complete
+**Status:** Phase in progress
+**Last activity:** 2026-02-18 — Completed 41-02: Document-structured script generation (Rule 18 in script-writer-v2, /script --document-mode flag, clause-by-clause walkthrough format, surprise handling)
 
 **Progress:**
-[██████████] 97%
+[██████████] 95%
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
@@ -156,32 +156,36 @@ v4.0 [███████████░░░░░░░░░] 55% — Untr
 - Lower temperature (0.3) for translation consistency
 - Paragraph fallback when no article markers detected (handles unstructured documents)
 
+**Phase 41 Plan 02 (Document-Structured Script Generation):**
+- Surprise handling appears twice: inline emphasis during walkthrough + synthesis recap (retention and comprehension)
+- Auto-detect translation file vs explicit path: Glob for `*-TRANSLATION-FORMATTED.md` with --translation override
+- Document order by default, --group-thematic flag allows reordering (preserves authenticity, enables flexibility)
+
 ## Session Continuity
 
 ### Last Session
 
-- **Date:** 2026-02-17
-- **Work:** Completed Phase 40 Plan 03 (Surprise Clause Detection)
+- **Date:** 2026-02-18
+- **Work:** Completed Phase 41 Plan 02 (Document-Structured Script Generation)
 - **Output:**
-  - **Plan 40-03:** Surprise clause detector (528 lines across 2 files)
-  - SurpriseDetector class: narrative baseline comparison with three-tier severity
-  - Major/Notable/Minor classification based on contradiction level
-  - Script beat suggestions (1-2 sentences per surprise for video presentation)
-  - CLI surprise subcommand: --narrative or --narrative-file input
-  - Full pipeline Step 5/5: optional surprise detection with --skip-surprise flag
-  - Surprise markers injected into formatted output with severity tags
-  - Modular design: re-run with different narratives without retranslating
-  - Commit: 4f19b21
-- **Delivered:** All 5 Phase 40 requirements complete (TRAN-01 through TRAN-05)
+  - **Plan 41-02:** Document-structured script generation (2 tasks, 2 commits)
+  - Rule 18 added to script-writer-v2: Document-structured mode for clause-by-clause walkthroughs
+  - /script --document-mode flag: Auto-detect translation, generate 5-part script structure
+  - 5-element clause pattern: context → read → translate → explain → connect
+  - Surprise handling: inline emphasis + synthesis recap (appears twice)
+  - Teleprompter-aware visual staging: [VISUAL: ...] notes stripped for export
+  - Integration with Phase 40 translation pipeline output
+  - Commits: eeabf97, 66adf2d
+- **Delivered:** SCPT-01, SCPT-02 requirements complete (2 of 8 Phase 41 requirements)
 
 ### Next Session
 
-**Next action:** Plan Phase 41 — Verification & Production Integration
+**Next action:** Execute Phase 41 Plan 03 — Production Integration
 
-**Phase 41 scope:**
-- VERF-01-03: `/verify --translation` mode (cross-check + annotation + surprise detection)
-- SCPT-01-02: `/script` integration (document-structured script generation, surprise beats as sections)
+**Phase 41 Plan 03 scope:**
 - PROD-01-03: `/prep` integration (split-screen edit guide, B-roll for surprise moments, asset lists)
+- Complete remaining 6 Phase 41 requirements (VERF-03, PROD-01-03)
+- Final phase of v4.0 milestone
 
 **Success criteria to deliver:**
 1. User can verify translated documents via `/verify --translation` command

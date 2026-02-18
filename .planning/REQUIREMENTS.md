@@ -29,8 +29,8 @@ Requirements for the Untranslated Evidence Pipeline. Each maps to roadmap phases
 
 ### Script
 
-- [ ] **SCPT-01**: Script-writer-v2 supports document-structured mode where the script backbone follows clause-by-clause order
-- [ ] **SCPT-02**: Each clause section follows the pattern: context setup → read original → translate → explain significance → connect to myth
+- [x] **SCPT-01**: Script-writer-v2 supports document-structured mode where the script backbone follows clause-by-clause order
+- [x] **SCPT-02**: Each clause section follows the pattern: context setup → read original → translate → explain significance → connect to myth
 - [ ] **SCPT-03**: Format reference guide documents the Untranslated Evidence series style, structure, and quality standards
 
 ### Production
@@ -73,8 +73,8 @@ Requirements for the Untranslated Evidence Pipeline. Each maps to roadmap phases
 | VERF-01 | Phase 41 | Pending |
 | VERF-02 | Phase 41 | Pending |
 | VERF-03 | Phase 41 | Pending |
-| SCPT-01 | Phase 41 | Pending |
-| SCPT-02 | Phase 41 | Pending |
+| SCPT-01 | Phase 41 | Complete |
+| SCPT-02 | Phase 41 | Complete |
 | PROD-01 | Phase 41 | Pending |
 | PROD-02 | Phase 41 | Pending |
 | PROD-03 | Phase 41 | Pending |
