@@ -14,6 +14,7 @@ Write new scripts, revise existing ones, review for issues, or export for telepr
 /script --new [project]      # Write new script for project
 /script --variants [project] # Generate hook/structure variants, then write script
 /script --new --variants [project]  # Combine: new script with variant generation
+/script --document-mode [project]  # Document-structured script (clause-by-clause walkthrough)
 /script --revise [project]   # Revise existing script
 /script --review [project]   # Review script for issues
 /script --teleprompter [project]  # Export clean text for filming
@@ -24,6 +25,7 @@ Write new scripts, revise existing ones, review for issues, or export for telepr
 | Flag | Purpose | Example |
 |------|---------|---------|
 | `--new` | Write new script from verified research | `/script --new 19-flat-earth-medieval-2025` |
+| `--document-mode` | Generate clause-by-clause document walkthrough script | `/script --document-mode 35-gibraltar-treaty-utrecht-2026` |
 | `--revise` | Revise existing SCRIPT.md | `/script --revise 19-flat-earth-medieval-2025` |
 | `--review` | Comprehensive quality review | `/script --review 19-flat-earth-medieval-2025` |
 | `--teleprompter` | Export clean text for filming | `/script --teleprompter 19-flat-earth-medieval-2025` |
@@ -332,6 +334,120 @@ python tools/youtube-analytics/technique_library.py --choices
 python tools/youtube-analytics/technique_library.py --choices territorial
 python tools/youtube-analytics/technique_library.py --choice-stats
 ```
+
+---
+
+## DOCUMENT-STRUCTURED MODE (`--document-mode`)
+
+Generate scripts for clause-by-clause document walkthrough videos (Untranslated Evidence format).
+
+### When to Use
+
+Use document mode when:
+- Video centers on untranslated or mistranslated primary document
+- Goal is to reveal what document says in original language vs. English summaries
+- Script should follow document's clause-by-clause order
+- Visual format is split-screen (original left, translation right)
+
+**Format reference:** `.claude/REFERENCE/UNTRANSLATED-EVIDENCE-FORMAT-GUIDE.md`
+
+### Prerequisites
+
+1. **Translation output exists:** Phase 40 translation pipeline completed
+   - Formatted output file: `*-TRANSLATION-FORMATTED.md` in project folder
+   - Cross-check complete (or explicitly skipped)
+   - Legal annotations present
+   - Surprise detection complete (optional)
+
+2. **Translation verified:** `/verify --translation` returned GREEN or YELLOW verdict
+
+### Workflow
+
+**Step 1: Locate translation**
+- Auto-detect: Search project folder for `*-TRANSLATION-FORMATTED.md`
+- Override: Use `--translation PATH` to specify exact file
+
+**Step 2: Parse document structure**
+- Extract clauses (articles, sections, paragraphs)
+- Identify surprise markers (MAJOR, NOTABLE, MINOR from surprise_detector)
+- Load legal term annotations
+- Determine clause ordering (document order or thematic grouping)
+
+**Step 3: Generate script following format:**
+
+**Structure:**
+1. Cold Open (1-2 min) - Modern hook, stakes, preview
+2. Document Introduction (2-3 min) - Context, translation status
+3. Clause-by-Clause Walkthrough (bulk) - For each clause:
+   - Context setup (talking head)
+   - Read original (split-screen left)
+   - Translate (split-screen right)
+   - Explain significance (talking head)
+   - Connect to myth (talking head)
+4. Synthesis "What They Got Wrong" (3-5 min) - Recap surprises
+5. Conclusion (1-2 min) - Return to hook, modern consequences
+
+**Surprise handling:**
+- Major/Notable surprises emphasized during walkthrough: "This is crucial—[reason]"
+- All Major/Notable surprises recapped in Synthesis section
+- Minor surprises mentioned inline only
+
+**Original text in visual notes:**
+```
+[VISUAL SPLIT-SCREEN:
+LEFT: Original [language] text - "[exact text]"
+RIGHT: English translation - "[exact translation]"]
+```
+
+**Step 4: Quality checks**
+- Every clause has 5 elements (context, read, translate, explain, connect)
+- Surprises appear twice (inline + synthesis)
+- Visual notes specify panel layout
+- Spoken narration is natural and read-aloud friendly
+
+### Flags
+
+| Flag | Purpose |
+|------|---------|
+| `--translation PATH` | Specify translation file (overrides auto-detect) |
+| `--group-thematic` | Allow thematic clause grouping instead of document order |
+| `--teleprompter` | Export clean text after generation (strips visual notes) |
+
+### Output
+
+- **SCRIPT.md:** Full script with visual staging notes
+- **SCRIPT-TELEPROMPTER.txt:** (if --teleprompter used) Clean spoken text only
+
+### After Generation
+
+**Proactive suggestion:**
+> "Document-structured script complete. Next steps:
+> 1. `/verify --script` - Fact-check before filming
+> 2. `/prep --split-screen` - Generate split-screen edit guide
+>
+> Ready to verify? Run `/verify --script`"
+
+### Example Usage
+
+```bash
+# Auto-detect translation in project folder
+/script --document-mode 37-vichy-statut-juifs-2026
+
+# Specify translation file explicitly
+/script --document-mode 37-vichy-statut-juifs-2026 --translation path/to/translation.md
+
+# Thematic grouping instead of document order
+/script --document-mode 35-gibraltar-utrecht-2026 --group-thematic
+
+# Generate script and export teleprompter text
+/script --document-mode 37-vichy-statut-juifs-2026 --teleprompter
+```
+
+### Reference Files
+
+- **Format guide:** `.claude/REFERENCE/UNTRANSLATED-EVIDENCE-FORMAT-GUIDE.md`
+- **Agent rules:** `.claude/agents/script-writer-v2.md` Rule 18
+- **Translation pipeline:** `tools/translation/cli.py`
 
 ---
 
