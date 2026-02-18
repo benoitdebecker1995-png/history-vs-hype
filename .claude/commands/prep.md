@@ -14,6 +14,7 @@ Generate editing guides, B-roll plans, and asset creation guides. Everything nee
 /prep --edit-guide [project] # Generate shot-by-shot editing guide
 /prep --assets [project]     # Generate zero-budget asset guide
 /prep --full [project]       # Both edit guide + assets
+/prep --split-screen [project] # Split-screen edit guide for document walkthrough
 ```
 
 ## Flags
@@ -23,6 +24,7 @@ Generate editing guides, B-roll plans, and asset creation guides. Everything nee
 | `--edit-guide` | Shot-by-shot visual staging guide | `/prep --edit-guide 19-flat-earth-medieval-2025` |
 | `--assets` | Zero-budget DIY B-roll guide | `/prep --assets 19-flat-earth-medieval-2025` |
 | `--full` | Both guides in one workflow | `/prep --full 19-flat-earth-medieval-2025` |
+| `--split-screen` | Split-screen edit guide for document videos | `/prep --split-screen 37-vichy-statut-juifs-2026` |
 
 ---
 
@@ -295,6 +297,161 @@ Run both edit guide and assets generation:
 
 [Continue for all assets...]
 ```
+
+---
+
+## SPLIT-SCREEN EDIT GUIDE (`--split-screen`)
+
+Generate editing guide for document walkthrough videos with split-screen staging.
+
+### When to Use
+
+Use split-screen mode when:
+- Video is clause-by-clause document walkthrough (Untranslated Evidence format)
+- Visual format is original-language text LEFT, English translation RIGHT
+- Script generated with `/script --document-mode`
+- Need editor-ready timing and transition markers
+
+### Prerequisites
+
+1. **Translation output exists:** Phase 40 translation pipeline completed
+2. **Script exists:** `/script --document-mode` generated SCRIPT.md
+3. **Translation verified:** `/verify --translation` returned GREEN or YELLOW
+
+### Process
+
+**Step 1: Locate files**
+- Translation output: Auto-detect `*-TRANSLATION-FORMATTED.md` in project folder
+- Script: Read `SCRIPT.md` from project folder
+- Archive lookup results: Check for document URLs from Phase 39 (optional)
+
+**Step 2: Parse structure**
+- Extract clause breakdown from translation output
+- Match script sections to clauses
+- Calculate word counts per clause segment
+- Identify surprise markers (MAJOR, NOTABLE)
+
+**Step 3: Generate timing estimates**
+
+Per-clause breakdown (at 150 WPM):
+- Context setup (talking head): [X] sec
+- Read original (split-screen): [X] sec + 2-3 sec pause
+- Translate (split-screen): [X] sec + 2-3 sec pause
+- Explain significance (talking head): [X] sec
+- Connect to myth (talking head): [X] sec
+
+Section-level totals:
+- Articles 1-5: 8 min 30 sec (cumulative: 00:00 - 08:30)
+- Articles 6-10: 7 min 15 sec (cumulative: 08:30 - 15:45)
+
+**Step 4: Add transition markers**
+
+**Explicit key transitions:**
+```
+[00:05:23] SWITCH TO SPLIT-SCREEN for Article 3 reading
+[00:05:45] RETURN TO TALKING HEAD for significance explanation
+```
+
+**Ratio guidance per section:**
+```
+Section: Articles 1-5
+Visual Ratio: 40% talking head, 60% split-screen
+```
+
+**Step 5: Source assets**
+
+**Auto-sourced from archive lookup:**
+- Document scans: Direct URLs from Légifrance, Wikisource, Internet Archive
+- Archival versions: National archives, university repositories
+
+**Manual placeholders:**
+- Maps: `[NEEDED] - Map showing [context]`
+- Photos: `[NEEDED] - Photo of [subject]`
+- Charts: `[NEEDED] - Timeline showing [events]`
+
+**Step 6: Flag surprise clauses**
+
+Major surprises (must highlight):
+```
+⚠️ MAJOR SURPRISE - Article 7 (12:45)
+EDITOR NOTE: Contradicts common narrative
+Suggestion: Slow zoom on key phrase, highlight box
+```
+
+Notable surprises (worth highlighting):
+```
+📍 NOTABLE SURPRISE - Article 12 (18:20)
+EDITOR NOTE: Adds important nuance
+Suggestion: Brief hold on key phrase
+```
+
+### Output Format
+
+**File:** `SPLIT-SCREEN-EDIT-GUIDE.md` in project folder
+
+**Sections:**
+1. **Overview:** Total duration, visual format, section count
+2. **Section-by-section breakdown:** Clause timing, visual staging, transition markers
+3. **Surprise markers:** Editor emphasis notes for MAJOR/NOTABLE surprises
+4. **Asset checklist:** Auto-sourced URLs + manual creation placeholders
+5. **Pacing notes:** Section-specific guidance (opening, middle, synthesis)
+6. **Synthesis section:** Recap structure with B-roll timing
+7. **Conclusion:** Closing guidance
+
+### Flags
+
+| Flag | Purpose |
+|------|---------|
+| `--translation PATH` | Specify translation file (overrides auto-detect) |
+| `--script PATH` | Specify script file (overrides SCRIPT.md default) |
+
+### Output Location
+
+`video-projects/[project]/SPLIT-SCREEN-EDIT-GUIDE.md`
+
+### After Generation
+
+**Proactive suggestion:**
+> "Split-screen edit guide complete.
+> - Total duration: [X] min [Y] sec
+> - [X] clauses with timing breakdowns
+> - [X] assets auto-sourced, [X] manual creation needed
+>
+> Edit guide saved to SPLIT-SCREEN-EDIT-GUIDE.md.
+> Asset checklist includes:
+> - Auto-sourced: [list archive URLs]
+> - Manual creation: [list needed assets]
+>
+> Ready to film and edit!"
+
+### Example Usage
+
+```bash
+# Auto-detect translation and script in project folder
+/prep --split-screen 37-vichy-statut-juifs-2026
+
+# Specify files explicitly
+/prep --split-screen 37-vichy-statut-juifs-2026 --translation path/to/translation.md --script path/to/script.md
+```
+
+### Integration with Split-Screen Workflow
+
+**Typical sequence:**
+```
+Phase 40: python tools/translation/cli.py full --language french ...
+/verify --translation [project]
+/script --document-mode [project]
+/verify --script [project]
+/prep --split-screen [project]  ← You are here
+[User films + edits with split-screen guide]
+/publish
+```
+
+### Reference Files
+
+- **Format guide:** `.claude/REFERENCE/UNTRANSLATED-EVIDENCE-FORMAT-GUIDE.md`
+- **Translation pipeline:** `tools/translation/cli.py`
+- **Split-screen generator:** `tools/production/split_screen_guide.py`
 
 ---
 
