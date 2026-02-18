@@ -1,5 +1,37 @@
 # Project Milestones: History vs Hype Workspace
 
+## v4.0 Untranslated Evidence Pipeline (Shipped: 2026-02-18)
+
+**Delivered:** Full document translation-to-video pipeline — discover untranslated documents, generate AI translations with cross-checking, verify translation quality, write document-structured scripts, and produce split-screen edit guides.
+
+**Phases completed:** 39-41 (8 plans total)
+
+**Key accomplishments:**
+
+- Document discovery toolkit: Gap checker verifies if English translation exists, archive lookup finds digitized originals (Légifrance, Wikisource, Internet Archive), structure assessor estimates video length (Phase 39)
+- Untranslated Evidence format guide: Series structure standards, clause-by-clause walkthrough format, split-screen staging conventions (Phase 39)
+- AI translation engine: Claude-powered clause-by-clause translator with full-document context, structure detection, split-screen formatted output (Phase 40)
+- Cross-checking and annotation: DeepL/free fallback cross-check with discrepancy detection, legal term annotation with dictionary definitions and alternatives (Phase 40)
+- Surprise clause detection: Narrative baseline comparison identifies where translations contradict common English claims, three-tier severity (Major/Notable/Minor), script beat suggestions (Phase 40)
+- Translation verification: Audit/fresh modes check completeness, scholarly comparison, GREEN/YELLOW/RED verdicts via `/verify --translation` (Phase 41)
+- Document-structured scriptwriting: Rule 18 in script-writer-v2 generates clause-by-clause walkthrough scripts with 5-element pattern (context → read → translate → explain → connect), surprise emphasis (Phase 41)
+- Split-screen edit guides: Per-clause timing at 150 WPM, talking-head ↔ document transition markers, archive asset auto-sourcing, surprise emphasis flags via `/prep --split-screen` (Phase 41)
+
+**Stats:**
+
+- 3 phases, 8 plans
+- 22 commits over 2 days
+- 16/16 requirements delivered
+- +6,170 lines added (tools/translation/, tools/document_discovery/, tools/production/, .claude/REFERENCE/, .claude/agents/, .claude/commands/)
+
+**Git range:** `ce2dd3c` → `efaa8d8`
+
+**What's next:** Use the full pipeline: `python tools/translation/cli.py full --language french ...` → `/verify --translation` → `/script --document-mode` → `/prep --split-screen`. First target: Vichy Statut des Juifs (video 37).
+
+**Archive:** `.planning/milestones/v4.0-ROADMAP.md`
+
+---
+
 ## v3.0 Adaptive Scriptwriter (Shipped: 2026-02-15)
 
 **Delivered:** The best YouTube scriptwriter available — learns from top creators and retention science, generates hook and structure variants that adapt to creator preferences, and consolidates agent prompt for efficient generation.
@@ -262,32 +294,4 @@
 ---
 
 *Milestones log created: 2026-01-23*
-
-**Delivered:** The best YouTube scriptwriter available — learns from top creators and retention science, generates hook and structure variants that adapt to creator preferences, and consolidates agent prompt for efficient generation.
-
-**Phases completed:** 36-38 (9 plans total)
-
-**Key accomplishments:**
-
-- Retention playbook: STYLE-GUIDE.md Part 9 auto-synthesized from channel retention data, referenced by script-writer-v2 Rule 15 (Phase 36)
-- Retention scorer: Predictive section-level scoring (evidence 35%, relevance 40%, length 20%, patterns +20% cap) with HIGH/MEDIUM/LOW risk flags (Phase 36)
-- Transcript analyzer: 83 creator transcripts parsed for structural patterns (hooks, transitions, pacing, evidence presentation) (Phase 37)
-- Creator technique library: Cross-creator synthesis identifies universal patterns across 3+ creators, stored in DB schema v28 as STYLE-GUIDE.md Part 8 (Phase 37)
-- Variant generation: `/script --variants` generates 2-3 hook variants + 2 structural approaches, logs choices to database with exponential decay recommendation engine (Phase 38)
-- Agent consolidation: script-writer-v2.md reduced 1,398→788 lines (43.6% reduction) by merging overlapping rules and replacing duplicated content with STYLE-GUIDE.md cross-references (Phase 38)
-
-**Stats:**
-
-- 3 phases, 9 plans
-- 32 commits over 2 days
-- 14/14 requirements delivered
-- +5,079 lines added (tools/youtube-analytics/, .claude/agents/, .claude/REFERENCE/)
-
-**Git range:** `e1de2b4` → `dee6fe5`
-
-**What's next:** Use `/script --variants` for hook/structure variants. Run `python tools/youtube-analytics/technique_library.py --choices` to review past patterns. Part 9 auto-updates with `playbook_synthesizer.py --update`.
-
-**Archive:** `.planning/milestones/v3.0-ROADMAP.md`
-
----
 

@@ -8,26 +8,34 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current Milestone: v4.0 Untranslated Evidence Pipeline
+## Current State
 
-**Goal:** Build the document translation-to-video pipeline for the "Untranslated Evidence" series — document discovery with gap verification, AI translation with multi-tool cross-checking, translation-specific verification, document-structured scriptwriting, and split-screen production prep.
-
-**Target features:**
-- Document discovery and translation gap verification workflow
-- AI translation pipeline (Claude primary + DeepL cross-check + legal term annotation)
-- Translation verification (accuracy checking, not fact-checking)
-- Document-structured script generation (clause-by-clause backbone)
-- Split-screen edit guide and production prep
-
-## Previous State
-
-**Shipped:** v3.0 Adaptive Scriptwriter (2026-02-15)
-**Previous milestones:** v1.0-v2.0 (shipped 2026-01-19 to 2026-02-11)
+**Shipped:** v4.0 Untranslated Evidence Pipeline (2026-02-18)
+**Previous milestones:** v1.0-v3.0 (shipped 2026-01-19 to 2026-02-15)
 **Archives:** `.planning/milestones/`
 
-v3.0 delivered retention science (Part 9 playbook + section scorer), creator technique library (83 transcripts → Part 8), and structured choice architecture (variant generation + preference learning). Agent consolidated from 1,398→788 lines.
+v4.0 delivered the full document translation-to-video pipeline — gap verification, AI translation with cross-checking, legal term annotation, surprise clause detection, translation verification, document-structured scriptwriting (Rule 18), and split-screen edit guides. ~6,170 new lines across tools/translation/, tools/document_discovery/, tools/production/.
 
 ## Requirements
+
+### Validated (v4.0)
+
+- Document discovery with translation gap verification (academic DBs, sourcebooks, archives) — v4.0
+- Document structure assessment (article/clause count, video length estimation) — v4.0
+- Archive lookup for digitized originals (Légifrance, Wikisource, Internet Archive) — v4.0
+- Untranslated Evidence format reference guide (series standards) — v4.0
+- AI translation via Claude with clause-by-clause accuracy and full-document context — v4.0
+- Cross-check against DeepL/free fallback with discrepancy detection — v4.0
+- Legal/technical term annotation with dictionary definitions — v4.0
+- Surprise clause detection (narrative contradiction analysis, three-tier severity) — v4.0
+- Split-screen formatted output (paired original/translation) — v4.0
+- Translation verification with audit/fresh modes and GREEN/YELLOW/RED verdicts — v4.0
+- Key term verification against legal/historical dictionaries — v4.0
+- Scholarly comparison for translation accuracy — v4.0
+- Document-structured script generation (clause-by-clause backbone, Rule 18) — v4.0
+- 5-element clause pattern (context → read → translate → explain → connect) — v4.0
+- Split-screen edit guide with per-clause timing and transition markers — v4.0
+- Asset sourcing from Phase 39 archive lookup integration — v4.0
 
 ### Validated (v3.0)
 
@@ -140,15 +148,9 @@ v3.0 delivered retention science (Part 9 playbook + section scorer), creator tec
 - Scriptwriter produces spoken-delivery scripts — v1.0
 - Competitive intelligence tracking — v1.0
 
-### Active (v4.0)
+### Active
 
-- [ ] Document discovery workflow with translation gap verification
-- [ ] AI translation pipeline (Claude + DeepL cross-check + annotation)
-- [ ] Translation-specific verification checklist (accuracy, not facts)
-- [ ] Document-structured script generation (clause-by-clause backbone)
-- [ ] Split-screen edit guide format for dual-panel staging
-- [ ] Untranslated Evidence format reference guide
-- [ ] Series pipeline tracking (document candidates, status, episodes)
+(No active milestone — planning next)
 
 ### Out of Scope
 
@@ -178,6 +180,10 @@ v3.0 delivered retention science (Part 9 playbook + section scorer), creator tec
 - Creator technique library (Part 8) from 83 transcripts feeds script generation
 - Variant generation offers hook/structure choices that learn from user patterns
 - Agent prompt consolidated to 788 lines (43.6% reduction, all functionality preserved)
+- Translation pipeline: gap check → archive lookup → translate → cross-check → annotate → format
+- Translation verification with scholarly comparison before filming
+- Document-structured scriptwriting (Rule 18) for clause-by-clause videos
+- Split-screen edit guides with per-clause timing and asset sourcing
 
 **Known tech debt:**
 - Library folder (728 files) needs manual cleanup
@@ -190,6 +196,9 @@ v3.0 delivered retention science (Part 9 playbook + section scorer), creator tec
 - ~19,700 lines Python (tools/youtube-analytics/) — includes playbook_synthesizer.py, retention_scorer.py, transcript_analyzer.py, technique_library.py
 - ~3,200 lines Python (tools/script-checkers/) — includes pacing_checker.py
 - ~1,800 lines Python (tools/discovery/) — includes recommender.py
+- ~3,600 lines Python (tools/translation/) — translator, cross_checker, legal_annotator, surprise_detector, verification, formatter, cli
+- ~1,100 lines Python (tools/document_discovery/) — gap_checker, archive_lookup, structure_assessor, cli
+- ~750 lines Python (tools/production/split_screen_guide.py) — split-screen edit guide generator
 - ~700 lines Python (tools/) — notebooklm_bridge.py, citation_extractor.py
 - YouTube Analytics API v2 + YouTube Data API v3
 - Anthropic SDK for notebooklm_bridge.py (Claude Sonnet 4 for source generation)
@@ -250,7 +259,14 @@ v3.0 delivered retention science (Part 9 playbook + section scorer), creator tec
 | Sequential choice flow (hooks then structure) | Reduces cognitive load vs simultaneous 6-option presentation | Good (v3.0) |
 | Merge rules by function not keywords | Preserves nuance when consolidating overlapping agent rules | Good (v3.0) |
 | STYLE-GUIDE cross-references over inline duplication | Keeps agent prompt lean while referencing authoritative source | Good (v3.0) |
+| Clause-by-clause translation (one API call per article) | Accuracy over token cost; full document context per call | Good (v4.0) |
+| Auto-detection with --dry-run confirmation | Prevents accidental API spend; user confirms before translating | Good (v4.0) |
+| Lower temperature (0.3) for translation | Consistency over creativity for legal/historical text | Good (v4.0) |
+| Language-agnostic design from start | Works for French, Spanish, Latin, German without refactoring | Good (v4.0) |
+| Hybrid transition markers (explicit + ratio) | Tactical timestamps + strategic section guidance for editors | Good (v4.0) |
+| Surprise emphasis only for Major/Notable | Avoids noise — minor surprises left to editor judgment | Good (v4.0) |
+| Three-tier severity for surprises (Major/Notable/Minor) | Graduated emphasis prevents every clause feeling "surprising" | Good (v4.0) |
 
 ---
 
-*Last updated: 2026-02-16 after v4.0 milestone started*
+*Last updated: 2026-02-18 after v4.0 milestone shipped*

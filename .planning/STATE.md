@@ -1,25 +1,23 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-18 (Phase 41 Plan 03 complete)
+**Last Updated:** 2026-02-18 (v4.0 milestone shipped)
 
 ## Project Reference
 
-See: `.planning/PROJECT.md` (updated 2026-02-16)
+See: `.planning/PROJECT.md` (updated 2026-02-18)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v4.0 Untranslated Evidence Pipeline - Phase 41
+**Current focus:** No active milestone — planning next
 
 ## Current Position
 
-**Milestone:** v4.0 Untranslated Evidence Pipeline
-**Phase:** 41 of 41 (Verification & Production Integration) - COMPLETE
-**Plan:** 3 of 3 complete
-**Status:** Milestone complete
-**Last activity:** 2026-02-18 — Completed 41-03: Split-screen edit guide generation with /prep --split-screen (clause timing, transitions, asset sourcing, surprise emphasis)
+**Milestone:** None active — v4.0 shipped 2026-02-18
+**Status:** Between milestones
+**Last activity:** 2026-02-18 — Shipped v4.0 Untranslated Evidence Pipeline (16/16 requirements, 3 phases, 8 plans)
 
 **Progress:**
-[██████████] 97%
+[██████████] 100%
 v1.1 [####################] 100% — Analytics & Learning Loop (archived)
 v1.2 [####################] 100% — Script Quality & Discovery (archived)
 v1.3 [####################] 100% — Niche Discovery (archived)
@@ -28,7 +26,7 @@ v1.5 [####################] 100% — Production Acceleration (archived)
 v1.6 [####################] 100% — Click & Keep (archived)
 v2.0 [####################] 100% — Channel Intelligence (archived)
 v3.0 [####################] 100% — Adaptive Scriptwriter (shipped 2026-02-15)
-v4.0 [███████████░░░░░░░░░] 55% — Untranslated Evidence Pipeline (in progress)
+v4.0 [####################] 100% — Untranslated Evidence Pipeline (shipped 2026-02-18)
 
 ## Milestone History
 
@@ -43,31 +41,12 @@ v4.0 [███████████░░░░░░░░░] 55% — Untr
 | v1.6 | Click & Keep | 27-32 | 2026-02-09 |
 | v2.0 | Channel Intelligence | 33-35 | 2026-02-11 |
 | v3.0 | Adaptive Scriptwriter | 36-38 | 2026-02-15 |
-| v4.0 | Untranslated Evidence Pipeline | 39-41 | In progress |
+| v4.0 | Untranslated Evidence Pipeline | 39-41 | 2026-02-18 |
 
 **Full history:** `.planning/MILESTONES.md`
 **Archives:** `.planning/milestones/`
 
 ## v4.0 Roadmap Summary
-
-**Milestone Goal:** Build the document translation-to-video pipeline for "Untranslated Evidence" series
-
-**Phase Structure:**
-- **Phase 39**: Document Discovery & Format Guide (4 requirements: DISC-01,02,03 + SCPT-03)
-  - Success: Verify translation gaps, assess document structure, locate digitized originals, reference guide created
-- **Phase 40**: Translation Pipeline (5 requirements: TRAN-01,02,03,04,05)
-  - Success: Claude translation + DeepL cross-check + legal term annotation + surprise clause detection + split-screen formatting
-- **Phase 41**: Verification & Production Integration (8 requirements: VERF-01,02,03 + SCPT-01,02 + PROD-01,02,03)
-  - Success: /verify --translation mode, document-structured script generation, split-screen edit guides
-
-**Coverage:** 16/16 requirements mapped (100%)
-
-**Key Decisions:**
-- Phase 39: Foundation for document sourcing, gap verification, and series format standards
-- Phase 40: Core new capability — AI translation pipeline with multi-tool cross-checking
-- Phase 41: Integration into existing commands (/verify, /script, /prep)
-
-**Next action:** Plan Phase 39 — document discovery tools and format reference guide
 
 ## What's Available
 
@@ -141,6 +120,21 @@ v4.0 [███████████░░░░░░░░░] 55% — Untr
 - `python tools/youtube-analytics/technique_library.py --choices [TOPIC]` — view logged script choices
 - `python tools/youtube-analytics/technique_library.py --choice-stats` — choice statistics by type/topic
 
+**Untranslated Evidence Pipeline (v4.0):**
+- `python tools/document_discovery/cli.py gap-check "Document Name" --language french` — verify translation gap
+- `python tools/document_discovery/cli.py archive-lookup "Document Name" --language french` — find digitized originals
+- `python tools/document_discovery/cli.py assess "source.txt" --language french` — assess structure + estimate video length
+- `python tools/translation/cli.py full --language french --input source.txt --output DIR` — full translation pipeline
+- `python tools/translation/cli.py translate --language french --input source.txt` — translate only
+- `python tools/translation/cli.py cross-check --input source.txt --translation output.md` — cross-check only
+- `python tools/translation/cli.py annotate --input source.txt --language french` — annotate legal terms only
+- `python tools/translation/cli.py surprise --translation output.md --narrative "common claims"` — detect surprises only
+- `python tools/translation/verification.py --help` — translation verification
+- `python tools/production/split_screen_guide.py --help` — split-screen edit guide generation
+- `/verify --translation PROJECT` — verify translation before filming
+- `/script --document-mode PROJECT` — generate clause-by-clause document walkthrough script
+- `/prep --split-screen PROJECT` — generate split-screen edit guide with timing
+
 ## Decisions
 
 **Phase 39 Plan 01 (Document Discovery Toolkit):**
@@ -166,33 +160,19 @@ v4.0 [███████████░░░░░░░░░] 55% — Untr
 ### Last Session
 
 - **Date:** 2026-02-18
-- **Work:** Completed Phase 41 Plan 02 (Document-Structured Script Generation)
+- **Work:** Shipped v4.0 Untranslated Evidence Pipeline
 - **Output:**
-  - **Plan 41-02:** Document-structured script generation (2 tasks, 2 commits)
-  - Rule 18 added to script-writer-v2: Document-structured mode for clause-by-clause walkthroughs
-  - /script --document-mode flag: Auto-detect translation, generate 5-part script structure
-  - 5-element clause pattern: context → read → translate → explain → connect
-  - Surprise handling: inline emphasis + synthesis recap (appears twice)
-  - Teleprompter-aware visual staging: [VISUAL: ...] notes stripped for export
-  - Integration with Phase 40 translation pipeline output
-  - Commits: eeabf97, 66adf2d
-- **Delivered:** SCPT-01, SCPT-02 requirements complete (2 of 8 Phase 41 requirements)
+  - Phase 41 executed (3 plans, 1 wave, all parallel)
+  - 41-01: TranslationVerifier (804 lines) — audit/fresh modes, scholarly comparison, GREEN/YELLOW/RED verdicts
+  - 41-02: Rule 18 in script-writer-v2 — document-structured mode, 5-element clause pattern, surprise handling
+  - 41-03: SplitScreenGuide (742 lines) — per-clause timing, transition markers, asset sourcing
+  - Milestone archived to .planning/milestones/v4.0-ROADMAP.md
+  - 16/16 requirements delivered, git tagged v4.0
+- **Delivered:** v4.0 complete — full document translation-to-video pipeline
 
 ### Next Session
 
-**Next action:** Execute Phase 41 Plan 03 — Production Integration
-
-**Phase 41 Plan 03 scope:**
-- PROD-01-03: `/prep` integration (split-screen edit guide, B-roll for surprise moments, asset lists)
-- Complete remaining 6 Phase 41 requirements (VERF-03, PROD-01-03)
-- Final phase of v4.0 milestone
-
-**Success criteria to deliver:**
-1. User can verify translated documents via `/verify --translation` command
-2. User can generate document-structured scripts with surprise highlights
-3. User can produce split-screen edit guides for video production
-4. User can detect clauses that contradict common English narratives
-5. User can generate split-screen formatted output for video editing
+**Next action:** `/gsd:new-milestone` — plan next milestone, or use the pipeline on first video (Vichy Statut des Juifs)
 
 ## Technical Notes
 
@@ -227,4 +207,4 @@ v4.0 [███████████░░░░░░░░░] 55% — Untr
 
 ---
 
-*State updated: 2026-02-16 after v4.0 roadmap creation*
+*State updated: 2026-02-18 after v4.0 milestone shipped*
