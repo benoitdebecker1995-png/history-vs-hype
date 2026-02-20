@@ -18,7 +18,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-19)
 **Last activity:** 2026-02-20 — NLM ingestion tool built (nlm_ingest.py), /research --ingest command documented
 
 **Progress:**
-[██████████] 97%
+[██████████] 96%
 
 ## Milestone History
 
@@ -73,6 +73,8 @@ Recent decisions affecting current work:
 - [Phase 42]: Smoke test uses real API calls (not mocks) to validate actual connectivity
 - [Phase 42]: Hybrid NLM parsing: structured bullet detection first, freeform sentence-splitting fallback — handles both NLM output modes without user configuration
 - [Phase 42]: Error dict API pattern (never raise) for nlm_ingest.py — keeps slash command integration simple with consistent error checking
+- [Phase 42.1]: Keep TRANSLATION_SYSTEM_PROMPT in Python (domain knowledge stays with data layer, per RESEARCH.md Pitfall 1 option b)
+- [Phase 42.1]: Smoke test rewritten as 4-step pure Python health check — module imports + payload builder + response parser, no API calls
 
 ## Session Continuity
 
@@ -81,7 +83,7 @@ Recent decisions affecting current work:
 - **Date:** 2026-02-20
 - **Work:** Executed 42-02-PLAN.md — NLM ingestion tool (nlm_ingest.py), /research --ingest workflow
 - **Output:** tools/research/nlm_ingest.py, tools/research/__init__.py, .claude/commands/research.md updated
-- **Stopped at:** Phase 42.1 planned (2 plans, 2 waves, verified)
+- **Stopped at:** Completed 42.1-01-PLAN.md
 
 ### Next Session
 

@@ -435,7 +435,7 @@ Plans:
 
 **Goal:** Translation pipeline uses Claude Code's native LLM layer instead of direct Anthropic API calls, eliminating API key requirement for Pro plan users
 **Depends on:** Phase 42
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 
 Plans:
 - [ ] 42.1-01-PLAN.md — Refactor translator.py to pure data processor + create /translate command + delete env_loader.py
