@@ -114,16 +114,47 @@ print(json.dumps(result))
 "
 ```
 
-**3b. Compare semantically** using Claude Code natively (model: claude-sonnet-4-6):
+**3b. Build the comparison payload:**
 
-Ask Claude: "Are these two translations of the same [language] source text semantically equivalent? If not, what is the nature and severity of the difference?
+```bash
+python -c "
+import sys, json
+sys.path.insert(0, 'tools/translation')
+from cross_checker import CrossChecker
+checker = CrossChecker()
+payload = checker.build_comparison_payload(
+    claude_translation='[CLAUDE_TRANSLATION]',
+    backend_translation='[BACKEND_TRANSLATION]',
+    original_text='[ORIGINAL_TEXT]',
+    clause_id='[CLAUSE_ID]',
+    source_language='[LANGUAGE]',
+    backend='[BACKEND_NAME]'
+)
+print(json.dumps(payload))
+"
+```
 
-Claude translation: [CLAUDE_TRANSLATION]
-Secondary translation: [BACKEND_TRANSLATION]
+**3c. Execute using Claude Code natively** (model: claude-sonnet-4-6):
 
-Rate severity: 'minor' (word choice only) or 'significant' (meaning differs)."
+Use `payload['system_prompt']` and `payload['user_prompt']` to call Claude natively.
 
-**3c. If severity = 'significant': HALT AND ASK USER**
+**3d. Parse the response:**
+
+```bash
+python -c "
+import sys, json
+sys.path.insert(0, 'tools/translation')
+from cross_checker import CrossChecker
+checker = CrossChecker()
+result = checker.parse_comparison_response(
+    response_text='[CLAUDE_RESPONSE_TEXT]',
+    clause_id='[CLAUSE_ID]'
+)
+print(json.dumps(result))
+"
+```
+
+**3e. If severity = 'significant': HALT AND ASK USER**
 
 > "Cross-check found a significant discrepancy in [clause_id]:
 >
@@ -144,34 +175,95 @@ Wait for user response before continuing to the next clause.
 
 For each section, identify and annotate legal terminology, archaic terms, and jurisdiction-specific language.
 
-For each section, call Claude natively (model: claude-sonnet-4-6) with this prompt:
+**4a. Build the annotation payload:**
 
-> "Identify legal terms, archaic language, and jurisdiction-specific phrases in this translated clause. For each term:
-> - Term: [original term]
-> - Definition: [legal/historical definition]
-> - Context: [why it matters for this document]
->
-> Translation: [CLAUSE_TRANSLATION]
-> Original: [CLAUSE_ORIGINAL]"
+```bash
+python -c "
+import sys, json
+sys.path.insert(0, 'tools/translation')
+from legal_annotator import LegalAnnotator
+annotator = LegalAnnotator()
+payload = annotator.build_annotation_payload(
+    clause_text='[ORIGINAL_CLAUSE_TEXT]',
+    translation='[CLAUSE_TRANSLATION]',
+    clause_id='[CLAUSE_ID]',
+    source_language='[LANGUAGE]',
+    document_context='[DOCUMENT_CONTEXT_IF_ANY]'
+)
+print(json.dumps(payload))
+"
+```
 
-Attach annotations to the corresponding translation result.
+**4b. Execute using Claude Code natively** (model: claude-sonnet-4-6):
+
+Use `payload['system_prompt']` and `payload['user_prompt']` to call Claude natively.
+
+**4c. Parse the response:**
+
+```bash
+python -c "
+import sys, json
+sys.path.insert(0, 'tools/translation')
+from legal_annotator import LegalAnnotator
+annotator = LegalAnnotator()
+result = annotator.parse_annotation_response(
+    response_text='[CLAUDE_RESPONSE_TEXT]',
+    clause_id='[CLAUSE_ID]'
+)
+print(json.dumps(result))
+"
+```
+
+Attach `result['footnotes']` to the corresponding translation result.
 
 ### Step 5: Surprise Detection (if --narrative provided)
 
 For each section, detect clauses that contradict or complicate the expected narrative.
 
-Call Claude natively (model: claude-sonnet-4-6) with this prompt:
+**5a. Build the surprise detection payload:**
 
-> "Given the expected narrative: '[NARRATIVE]'
->
-> Does this translated clause contain any surprising, contradictory, or complicating content that challenges that narrative?
->
-> Clause: [CLAUSE_TRANSLATION]
->
-> Rate severity: 'none', 'minor', or 'high'. For 'high' severity, explain what makes this surprising."
+```bash
+python -c "
+import sys, json
+sys.path.insert(0, 'tools/translation')
+from surprise_detector import SurpriseDetector
+detector = SurpriseDetector()
+payload = detector.build_surprise_payload(
+    clause_text='[ORIGINAL_CLAUSE_TEXT]',
+    translation='[CLAUSE_TRANSLATION]',
+    narrative_baseline='[NARRATIVE]',
+    clause_id='[CLAUSE_ID]',
+    source_language='[LANGUAGE]',
+    document_context='[DOCUMENT_CONTEXT_IF_ANY]'
+)
+print(json.dumps(payload))
+"
+```
 
-Flag HIGH severity surprises to user immediately:
-> "Surprise detected in [clause_id] (HIGH severity): [explanation]. Continuing..."
+**5b. Execute using Claude Code natively** (model: claude-sonnet-4-6):
+
+Use `payload['system_prompt']` and `payload['user_prompt']` to call Claude natively.
+
+**5c. Parse the response:**
+
+```bash
+python -c "
+import sys, json
+sys.path.insert(0, 'tools/translation')
+from surprise_detector import SurpriseDetector
+detector = SurpriseDetector()
+result = detector.parse_surprise_response(
+    response_text='[CLAUDE_RESPONSE_TEXT]',
+    clause_id='[CLAUSE_ID]',
+    original='[ORIGINAL_CLAUSE_TEXT]',
+    translation='[CLAUSE_TRANSLATION]'
+)
+print(json.dumps(result))
+"
+```
+
+Flag MAJOR severity surprises to user immediately:
+> "Surprise detected in [clause_id] (MAJOR severity): [explanation]. Continuing..."
 
 ### Step 6: Format and Save Output
 

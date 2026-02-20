@@ -321,35 +321,51 @@ Verify translated documents before filming to catch discrepancies and missing an
 ### Usage
 
 ```
-/verify --translation [project]           # Audit existing translation output
-/verify --translation [project] --fresh   # Re-run cross-check and annotation
+/verify --translation [project]                           # Audit existing translation output
 /verify --translation [project] --scholarly-summary FILE  # Compare against scholarly description
+/verify --translation [project] --document-name "Name"   # Compare against Claude's knowledge
 ```
 
 ### Modes
 
 **Audit mode (default):** Reads existing translation output and checks completeness.
+- Pure Python analysis — no API key needed
 - Cross-check results present
 - Legal annotations exist
 - Surprise detection complete (if enabled)
 - No pending placeholders
 
-**Fresh mode (--fresh):** Re-runs cross-checker, annotator, and surprise detector from scratch. Use when:
-- Translation was updated after initial cross-check
-- Different DeepL/Claude versions want to be tested
-- Narrative baseline changed for surprise detection
-
 **Scholarly comparison:** Optional verification against academic descriptions of the document.
 - `--scholarly-summary FILE`: User provides file with scholarly description (e.g., "Article 3 establishes X, Article 5 prohibits Y")
-- System compares translation output against scholarly baseline
+- Claude Code (this command itself) executes the LLM comparison natively — no API key needed
 - Flags omissions or contradictions
+- Uses `TranslationVerifier.build_scholarly_comparison_payload()` to build prompt, then Claude Code executes it
+
+**Knowledge comparison:** Optional verification against Claude's training knowledge.
+- `--document-name "Name"`: Claude Code compares translation against known scholarly descriptions
+- Uses `TranslationVerifier.build_knowledge_comparison_payload()` to build prompt, then Claude Code executes it
 
 ### Process
 
-1. Locate translation output file in project folder (formatted output from Phase 40)
-2. Run TranslationVerifier in specified mode
-3. Generate TRANSLATION-VERIFICATION.md with full findings
-4. Print condensed summary to terminal
+1. Locate translation output file in project folder (formatted output from /translate)
+2. Instantiate TranslationVerifier (no API key or model argument needed):
+   ```python
+   from tools.translation.verification import TranslationVerifier
+   verifier = TranslationVerifier()
+   ```
+3. Run audit mode (pure Python):
+   ```python
+   result = verifier.verify_translation(translation_file='[path]', mode='audit')
+   ```
+4. For scholarly comparison: build payload, execute LLM call natively as Claude Code, pass result back:
+   ```python
+   payload = verifier.build_scholarly_comparison_payload(translation_text, scholarly_summary)
+   # Claude Code executes LLM call using payload['system_prompt'] and payload['user_prompt']
+   scholarly_result = verifier.parse_scholarly_comparison_response(claude_response)
+   result = verifier.verify_translation(translation_file='[path]', scholarly_result=scholarly_result)
+   ```
+5. Generate TRANSLATION-VERIFICATION.md with full findings
+6. Print condensed summary to terminal
 
 ### Output Format
 
