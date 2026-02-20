@@ -1,16 +1,16 @@
 """
 Translation Pipeline Smoke Test (PIPE-03)
 
-End-to-end validation of the full translation pipeline in a single command.
-Makes real API calls (intentional) to validate actual connectivity.
+Validates the translation pipeline Python modules (pure data processing layer).
+No API calls. No credentials needed. Tests module imports and data flow.
 
 Usage:
     python tools/translation/cli.py smoketest
     python tools/translation/smoke_test.py
 
 Output format:
-    [1/5] Step name........... PASS (details)
-    [2/5] Step name........... FAIL (error + fix suggestion)
+    [1/4] Step name........... PASS (details)
+    [2/4] Step name........... FAIL (error + fix suggestion)
 
 Exit code 0 if all steps pass, 1 if any step fails.
 """
@@ -18,12 +18,10 @@ Exit code 0 if all steps pass, 1 if any step fails.
 import sys
 import time
 from pathlib import Path
-from typing import Dict, Any, Tuple
+from typing import Dict, Any, Tuple, Optional
 
 # Ensure tools/translation is on path when run directly
 sys.path.insert(0, str(Path(__file__).parent))
-
-from env_loader import load_api_key
 
 # Test document: short 3-clause French legal snippet (fabricated, realistic)
 TEST_DOCUMENT = """DECRET portant organisation des services publics
@@ -59,32 +57,55 @@ def _print_step(step_num: int, total: int, name: str, status: str, detail: str) 
     print(f"[{step_num}/{total}] {padded} {status} ({detail})")
 
 
-def step1_credential_check() -> Tuple[bool, str, str]:
+def step1_module_health_check() -> Tuple[bool, str, str]:
     """
-    Step 1: Verify API key is available.
+    Step 1: Verify all pipeline modules import correctly.
+
+    Checks that TranslationDataBuilder, StructureDetector, and Formatter
+    all import successfully — validating the pure Python data processing layer.
 
     Returns:
         (passed, detail_on_pass, error_on_fail)
     """
-    result = load_api_key()
+    modules_checked = []
+    errors = []
 
-    if 'error' in result:
-        error_msg = result['error']
+    # Check TranslationDataBuilder
+    try:
+        from translator import TranslationDataBuilder
+        builder = TranslationDataBuilder()
+        modules_checked.append('TranslationDataBuilder')
+    except ImportError as e:
+        errors.append(f"translator.TranslationDataBuilder: {e}")
+    except Exception as e:
+        errors.append(f"translator.TranslationDataBuilder (init): {e}")
+
+    # Check StructureDetector
+    try:
+        from structure_detector import StructureDetector
+        _ = StructureDetector()
+        modules_checked.append('StructureDetector')
+    except ImportError as e:
+        errors.append(f"structure_detector.StructureDetector: {e}")
+    except Exception as e:
+        errors.append(f"structure_detector.StructureDetector (init): {e}")
+
+    # Check Formatter
+    try:
+        from formatter import Formatter
+        _ = Formatter()
+        modules_checked.append('Formatter')
+    except ImportError as e:
+        errors.append(f"formatter.Formatter: {e}")
+    except Exception as e:
+        errors.append(f"formatter.Formatter (init): {e}")
+
+    if errors:
+        error_msg = '; '.join(errors)
         return False, '', error_msg
 
-    key = result['key']
-    # Show partial key for confirmation (first 10 chars + masked rest)
-    if len(key) > 10:
-        key_display = key[:10] + '...' + key[-4:]
-    else:
-        key_display = key[:4] + '...'
-
-    source = 'env var'
-    env_path = Path(__file__).parent.parent.parent / '.env'
-    if env_path.exists():
-        source = '.env file'
-
-    return True, f"API key loaded from {source} ({key_display})", ''
+    detail = f"{', '.join(modules_checked)} imported OK"
+    return True, detail, ''
 
 
 def step2_structure_detection() -> Tuple[bool, str, str, Any]:
@@ -123,176 +144,141 @@ def step2_structure_detection() -> Tuple[bool, str, str, Any]:
         return False, '', f"Structure detection raised exception: {e}", None
 
 
-def step3_translation(sections: list) -> Tuple[bool, str, str, Any]:
+def step3_payload_builder(sections: list) -> Tuple[bool, str, str, Any]:
     """
-    Step 3: Translate the detected sections.
+    Step 3: Verify TranslationDataBuilder builds valid payloads (no LLM calls).
 
     Returns:
-        (passed, detail, error, translated_sections)
+        (passed, detail, error, sample_payload)
     """
     try:
-        from translator import Translator
+        from translator import TranslationDataBuilder
     except ImportError as e:
-        return False, '', f"Could not import Translator: {e}", None
-
-    start = time.time()
+        return False, '', f"Could not import TranslationDataBuilder: {e}", None
 
     try:
-        translator = Translator()
+        builder = TranslationDataBuilder()
 
-        if translator.error:
-            return False, '', translator.error, None
+        # Use first non-empty section
+        test_section = None
+        for section in sections:
+            if section.get('body', '').strip():
+                test_section = section
+                break
 
-        result = translator.translate_document(
-            sections=sections,
+        if test_section is None:
+            return False, '', "No non-empty sections found in test document", None
+
+        payload = builder.build_translation_payload(
+            clause_text=test_section['body'],
+            full_document=TEST_DOCUMENT,
             source_language='french',
-            full_text=TEST_DOCUMENT
+            clause_id=test_section.get('id', 'section-1')
         )
 
-        elapsed = time.time() - start
+        if 'error' in payload:
+            return False, '', f"build_translation_payload returned error: {payload['error']}", None
 
-        if 'error' in result:
-            return False, '', result['error'], None
-
-        translated = result.get('sections', [])
-
-        # Verify each section has a non-empty translation
-        missing = [
-            s.get('id', f'section-{i+1}')
-            for i, s in enumerate(translated)
-            if not s.get('translation', '').strip()
-            and not s.get('error')  # allow sections that explicitly errored
-        ]
-
+        # Validate payload structure
+        required_keys = ['clause_id', 'original', 'system_prompt', 'user_prompt']
+        missing = [k for k in required_keys if k not in payload]
         if missing:
-            return (
-                False,
-                '',
-                f"Sections missing translations: {', '.join(missing)}",
-                None
-            )
+            return False, '', f"Payload missing required keys: {missing}", None
 
-        clause_count = result.get('clause_count', len(translated))
-        return True, f"{clause_count} clauses translated, {elapsed:.1f}s", '', translated
+        if not payload['system_prompt']:
+            return False, '', "system_prompt is empty", None
+
+        if not payload['user_prompt']:
+            return False, '', "user_prompt is empty", None
+
+        detail = f"payload built for {payload['clause_id']} ({len(payload['user_prompt'])} chars)"
+        return True, detail, '', payload
 
     except Exception as e:
-        return False, '', f"Translation raised exception: {e}", None
+        return False, '', f"Payload builder raised exception: {e}", None
 
 
-def step4_formatting(translated_sections: list) -> Tuple[bool, str, str]:
+def step4_response_parser() -> Tuple[bool, str, str]:
     """
-    Step 4: Format translated sections to markdown.
+    Step 4: Verify parse_response() handles formatted LLM output correctly.
 
     Returns:
         (passed, detail, error)
     """
     try:
-        from formatter import Formatter
+        from translator import TranslationDataBuilder
     except ImportError as e:
-        return False, '', f"Could not import Formatter: {e}"
+        return False, '', f"Could not import TranslationDataBuilder: {e}"
 
     try:
-        formatter = Formatter()
-        output = formatter.format_paired(translated_sections, output_format='markdown')
+        builder = TranslationDataBuilder()
 
-        if not output or not output.strip():
-            return False, '', "Formatter returned empty output"
+        # Simulate a well-formed Claude response
+        mock_response = """TRANSLATION:
+The Government of the Republic, considering the necessity of organizing public services in order to ensure the proper functioning of administration and the protection of citizens' interests, decrees the following.
 
-        if '##' not in output:
-            return (
-                False,
-                '',
-                "Formatter output missing expected '##' markdown headers. "
-                "Check formatter.format_paired() output."
-            )
+NOTES:
+- "décrète ce qui suit" is a standard French administrative formula ("decrees the following")
+- "bon fonctionnement" literally "good functioning" — "proper functioning" preserves register"""
 
-        line_count = len(output.strip().splitlines())
-        return True, f"markdown output generated ({line_count} lines)", ''
+        result = builder.parse_response(
+            response_text=mock_response,
+            clause_id='preamble',
+            original_text='Le Gouvernement de la République...'
+        )
+
+        required_keys = ['clause_id', 'original', 'translation', 'notes']
+        missing = [k for k in required_keys if k not in result]
+        if missing:
+            return False, '', f"parse_response result missing keys: {missing}"
+
+        if not result['translation']:
+            return False, '', "parse_response returned empty translation"
+
+        if not isinstance(result['notes'], list):
+            return False, '', f"notes should be a list, got {type(result['notes'])}"
+
+        note_count = len(result['notes'])
+        return True, f"translation extracted, {note_count} notes parsed", ''
 
     except Exception as e:
-        return False, '', f"Formatting raised exception: {e}"
-
-
-def step5_pipeline_integrity(
-    sections: list,
-    translated_sections: list
-) -> Tuple[bool, str, str]:
-    """
-    Step 5: Verify pipeline data integrity end-to-end.
-
-    Checks that input section IDs match output section IDs
-    and translations are non-empty for non-preamble sections.
-
-    Returns:
-        (passed, detail, error)
-    """
-    if not sections or not translated_sections:
-        return False, '', "No sections or translated sections to validate"
-
-    input_ids = {s.get('id', f'section-{i+1}') for i, s in enumerate(sections)}
-    output_ids = {s.get('id', f'section-{i+1}') for i, s in enumerate(translated_sections)}
-
-    missing_in_output = input_ids - output_ids
-    if missing_in_output:
-        return (
-            False,
-            '',
-            f"Section IDs in input not found in output: {missing_in_output}"
-        )
-
-    # Verify no translation is entirely the error placeholder
-    error_sections = [
-        s.get('id', 'unknown')
-        for s in translated_sections
-        if s.get('translation', '').startswith('[Translation failed:')
-    ]
-
-    if error_sections:
-        return (
-            False,
-            '',
-            f"Translation failed for sections: {', '.join(error_sections)}"
-        )
-
-    return True, f"all {len(translated_sections)} steps connected", ''
+        return False, '', f"Response parser raised exception: {e}"
 
 
 def run_smoke_test() -> int:
     """
-    Run the full 5-step smoke test.
+    Run the full 4-step smoke test.
 
     Returns:
         Exit code: 0 (all pass) or 1 (any failure)
     """
     print("\n=== Translation Pipeline Smoke Test ===\n")
 
-    total_steps = 5
+    total_steps = 4
     all_passed = True
     failures = []
     test_start = time.time()
 
-    # Step 1: Credential check
-    step_start = time.time()
-    passed, detail, error = step1_credential_check()
-    step_elapsed = time.time() - step_start
+    # Step 1: Module health check
+    passed, detail, error = step1_module_health_check()
 
     if passed:
-        _print_step(1, total_steps, "Credential check", "PASS", detail)
+        _print_step(1, total_steps, "Module health check", "PASS", detail)
     else:
-        _print_step(1, total_steps, "Credential check", "FAIL",
-                    "see fix instructions below")
+        _print_step(1, total_steps, "Module health check", "FAIL",
+                    "see details below")
         all_passed = False
         failures.append({
             'step': 1,
-            'name': 'Credential check',
+            'name': 'Module health check',
             'error': error,
             'fix': (
-                "Run: echo ANTHROPIC_API_KEY=sk-ant-... >> "
-                "\"G:/History vs Hype/.env\"\n"
-                "Or: export ANTHROPIC_API_KEY=sk-ant-..."
+                "Verify all translation modules are present:\n"
+                "  tools/translation/translator.py\n"
+                "  tools/translation/structure_detector.py\n"
+                "  tools/translation/formatter.py"
             )
         })
-        # Cannot proceed without credentials
         _print_results(all_passed, failures, test_start)
         return 1
 
@@ -317,64 +303,45 @@ def run_smoke_test() -> int:
         _print_results(all_passed, failures, test_start)
         return 1
 
-    # Step 3: Translation
-    passed, detail, error, translated_sections = step3_translation(sections)
+    # Step 3: Payload builder
+    passed, detail, error, payload = step3_payload_builder(sections)
 
     if passed:
-        _print_step(3, total_steps, "Translation", "PASS", detail)
+        _print_step(3, total_steps, "Payload builder", "PASS", detail)
     else:
-        _print_step(3, total_steps, "Translation", "FAIL",
+        _print_step(3, total_steps, "Payload builder", "FAIL",
                     "see details below")
         all_passed = False
         failures.append({
             'step': 3,
-            'name': 'Translation',
+            'name': 'Payload builder',
             'error': error,
             'fix': (
-                "Check your API key is valid.\n"
-                "Run: python -c \"from tools.translation.env_loader import load_api_key; "
-                "print(load_api_key())\""
+                "Check tools/translation/translator.py\n"
+                "Verify TranslationDataBuilder.build_translation_payload() returns\n"
+                "dict with keys: clause_id, original, system_prompt, user_prompt"
             )
         })
         _print_results(all_passed, failures, test_start)
         return 1
 
-    # Step 4: Formatting
-    passed, detail, error = step4_formatting(translated_sections)
+    # Step 4: Response parser
+    passed, detail, error = step4_response_parser()
 
     if passed:
-        _print_step(4, total_steps, "Formatting", "PASS", detail)
+        _print_step(4, total_steps, "Response parser", "PASS", detail)
     else:
-        _print_step(4, total_steps, "Formatting", "FAIL",
+        _print_step(4, total_steps, "Response parser", "FAIL",
                     "see details below")
         all_passed = False
         failures.append({
             'step': 4,
-            'name': 'Formatting',
+            'name': 'Response parser',
             'error': error,
             'fix': (
-                "Check tools/translation/formatter.py format_paired() method."
-            )
-        })
-        _print_results(all_passed, failures, test_start)
-        return 1
-
-    # Step 5: Pipeline integrity
-    passed, detail, error = step5_pipeline_integrity(sections, translated_sections)
-
-    if passed:
-        _print_step(5, total_steps, "Pipeline integrity", "PASS", detail)
-    else:
-        _print_step(5, total_steps, "Pipeline integrity", "FAIL",
-                    "see details below")
-        all_passed = False
-        failures.append({
-            'step': 5,
-            'name': 'Pipeline integrity',
-            'error': error,
-            'fix': (
-                "Check that section IDs flow correctly through the pipeline:\n"
-                "structure_detector -> translator -> formatter"
+                "Check tools/translation/translator.py\n"
+                "Verify TranslationDataBuilder.parse_response() handles\n"
+                "TRANSLATION: and NOTES: markers correctly."
             )
         })
 
@@ -385,7 +352,7 @@ def run_smoke_test() -> int:
 def _print_results(all_passed: bool, failures: list, test_start: float) -> None:
     """Print final summary and any failure details."""
     total_elapsed = time.time() - test_start
-    total_steps = 5
+    total_steps = 4
     passed_count = total_steps - len(failures)
 
     print()
