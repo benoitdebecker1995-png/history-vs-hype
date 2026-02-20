@@ -25,6 +25,8 @@ Start a new video project or research an existing topic. This command consolidat
 | `--new` | Create project folder + full setup | `/research --new "Library of Alexandria"` |
 | `--topic-only` | Research only, no project creation | `/research --topic-only "Chagos Islands"` |
 | `--existing` | Add research to existing project | `/research --existing 19-flat-earth-medieval-2025` |
+| `--ingest` | Ingest NLM output into verified research | `/research --ingest --existing 31-bermeja-island-2025` |
+| `--apply-review` | Apply reviewed claims to VERIFIED-RESEARCH.md | `/research --apply-review path/to/review.md` |
 
 ---
 
@@ -176,6 +178,96 @@ Add research to an existing project:
 5. **Update 01-VERIFIED-RESEARCH.md** with new findings
 
 **Use when:** Adding research to in-progress project
+
+---
+
+## NLM INGESTION WORKFLOW (`--ingest`)
+
+Ingest NotebookLM chat output into structured verified claims.
+
+### Prerequisites
+- Project must exist (use `/research --new` first)
+- `01-VERIFIED-RESEARCH.md` must exist in the project folder
+
+### Step 1: Get NLM Output
+
+Ask the user for NotebookLM output:
+1. **Paste directly** — for short outputs (< 50 lines), ask user to paste into chat
+2. **File path** — for long outputs, ask user to save as a `.txt` or `.md` file and provide the path
+
+### Step 2: Locate Project Folder
+
+Use Glob to find the project folder, then verify `01-VERIFIED-RESEARCH.md` exists inside it.
+
+### Step 3: Parse and Extract
+
+Run `nlm_ingest.ingest()` with the input text and project path:
+
+```python
+import sys
+sys.path.insert(0, 'tools/research')
+from nlm_ingest import ingest
+result = ingest(input_text=text, project_path=project_folder)
+```
+
+Or, if user saved NLM output to a file:
+```python
+result = ingest(input_file=file_path, project_path=project_folder)
+```
+
+Display extraction stats to the user:
+```
+Parsed NLM output: 45 lines → 12 claims extracted
+
+By type:
+- Statistics: 4
+- Quotes: 3
+- Events: 3
+- Definitions: 1
+- General Claims: 1
+
+Review file created: video-projects/_IN_PRODUCTION/31-bermeja-island-2025/_research/_NLM-REVIEW-2026-02-20-1342.md
+```
+
+### Step 4: User Reviews Claims
+
+Tell the user:
+
+> "I've created a review file at `[path]`. Open it and:
+> - Check `[x]` next to claims you want to approve
+> - Leave `[ ]` next to claims you want to reject
+> - Edit any text or citation text directly before approving
+>
+> When done, run `/research --apply-review [path]`"
+
+### Step 5: Apply Approved Claims (`--apply-review`)
+
+When the user returns with the reviewed file path:
+
+```python
+import sys
+sys.path.insert(0, 'tools/research')
+from nlm_ingest import apply_review
+result = apply_review(
+    review_path=path,
+    verified_research_path=vr_path
+)
+```
+
+Display results to the user:
+```
+Applied 8/12 claims to 01-VERIFIED-RESEARCH.md
+
+Sections updated:
+- KEY STATISTICS: 3 claims added
+- KEY QUOTES: 2 claims added
+- TIMELINE: 2 claims added
+- INGESTED CLAIMS (Unsorted): 1 claim added
+
+Rejected: 4 claims skipped
+```
+
+**IMPORTANT:** This command orchestrates the flow but actual parsing and writing happens in `tools/research/nlm_ingest.py`. Claude reads this command, then runs the Python tool via Bash. Do NOT attempt to import Python directly from the command file — run it as a subprocess or Bash execution.
 
 ---
 
