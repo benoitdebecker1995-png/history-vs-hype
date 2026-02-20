@@ -1,15 +1,17 @@
 """
 Translation Verification Module (VERF-01)
 
+Pure data processor. LLM calls handled by Claude Code via /verify command.
+
 Verifies translation quality before filming by checking:
 1. Completeness (cross-check done, annotations present, surprises detected)
 2. Discrepancy severity (HIGH/MEDIUM/LOW flags from cross-checker)
 3. Annotation coverage (% of legal terms with definitions)
-4. Scholarly comparison (against user's summary or Claude's knowledge)
+4. Scholarly comparison (payload builders for Claude Code to execute)
 
 Two modes:
-- Audit mode (default): Read existing translation output, check completeness
-- Fresh mode (--fresh): Re-run cross-checker, annotator, surprise detector
+- Audit mode (default): Read existing translation output, check completeness (pure Python)
+- Scholarly mode: Provides payload builders for Claude Code to run LLM comparisons
 
 Output:
 - Full report to TRANSLATION-VERIFICATION.md
@@ -24,39 +26,19 @@ import re
 from pathlib import Path
 from typing import Dict, Any, List, Optional
 
-try:
-    import anthropic
-except ImportError:
-    anthropic = None
-
-try:
-    from env_loader import load_api_key, wrap_api_error
-except ImportError:
-    sys.path.insert(0, str(Path(__file__).parent))
-    from env_loader import load_api_key, wrap_api_error
-
-# Import Phase 40 modules
-try:
-    from tools.translation.cross_checker import CrossChecker
-    from tools.translation.legal_annotator import LegalAnnotator
-    from tools.translation.surprise_detector import SurpriseDetector
-except ImportError:
-    # Handle relative imports
-    sys.path.insert(0, str(Path(__file__).parent.parent.parent))
-    from tools.translation.cross_checker import CrossChecker
-    from tools.translation.legal_annotator import LegalAnnotator
-    from tools.translation.surprise_detector import SurpriseDetector
-
 
 class TranslationVerifier:
     """
     Verify translation quality before filming.
 
-    Two verification modes:
-    1. Audit (default): Check existing output for completeness
-    2. Fresh (--fresh): Re-run cross-check and annotation tools
+    Pure data processor — no Anthropic SDK or API key needed.
 
-    Optional scholarly comparison against academic descriptions or Claude knowledge.
+    Two verification modes:
+    1. Audit (default): Check existing output for completeness — pure Python, no LLM
+    2. Scholarly: Provides payload builders for Claude Code to execute LLM comparisons
+
+    The /verify command (Claude Code itself) orchestrates LLM calls using payloads
+    from build_scholarly_comparison_payload() and build_knowledge_comparison_payload().
 
     Produces GREEN/YELLOW/RED verdict based on:
     - Discrepancy severity
@@ -64,46 +46,25 @@ class TranslationVerifier:
     - Scholarly alignment
     """
 
-    def __init__(self, model: str = 'claude-sonnet-4-20250514'):
+    def __init__(self, project_dir: Optional[str] = None):
         """
-        Initialize verifier with Claude API client.
+        Initialize verifier.
 
         Args:
-            model: Claude model to use for scholarly comparison
+            project_dir: Optional project directory path (used when writing reports)
         """
-        self.model = model
-        self.client = None
-        self.error = None
-
-        # Check for anthropic SDK
-        if anthropic is None:
-            self.error = "anthropic package not installed. Run: pip install anthropic>=0.40.0"
-            return
-
-        # Check for API key (reads from .env file or environment variable)
-        key_result = load_api_key()
-        if 'error' in key_result:
-            self.error = key_result['error']
-            return
-        api_key = key_result['key']
-
-        # Initialize client
-        try:
-            self.client = anthropic.Anthropic(api_key=api_key)
-        except Exception as e:
-            self.error = f"Failed to initialize Anthropic client: {str(e)}"
+        self.project_dir = project_dir
 
     def verify_translation(self, translation_file: str, mode: str = 'audit',
-                          scholarly_file: Optional[str] = None,
-                          document_name: Optional[str] = None) -> Dict[str, Any]:
+                          scholarly_result: Optional[Dict] = None) -> Dict[str, Any]:
         """
         Verify translation quality.
 
         Args:
             translation_file: Path to translation output file
-            mode: 'audit' (check existing) or 'fresh' (re-run tools)
-            scholarly_file: Optional path to scholarly summary file
-            document_name: Optional document name for Claude comparison
+            mode: 'audit' (check existing, pure Python)
+            scholarly_result: Optional pre-computed scholarly comparison result
+                              (passed in by Claude Code after executing the payload)
 
         Returns:
             {
@@ -115,9 +76,6 @@ class TranslationVerifier:
 
             Or {'error': msg} on failure
         """
-        if self.error:
-            return {'error': self.error}
-
         # Validate translation file exists
         if not os.path.exists(translation_file):
             return {'error': f'Translation file not found: {translation_file}'}
@@ -130,32 +88,18 @@ class TranslationVerifier:
             return {'error': f'Failed to read translation file: {str(e)}'}
 
         # Determine project directory
-        project_dir = os.path.dirname(translation_file)
+        project_dir = self.project_dir or os.path.dirname(translation_file)
 
         if mode == 'audit':
-            # Audit mode: check existing output
+            # Audit mode: check existing output (pure Python)
             verification_result = self._audit_existing_output(content, translation_file)
-        elif mode == 'fresh':
-            # Fresh mode: re-run tools
-            verification_result = self._run_fresh_verification(content, translation_file)
         else:
-            return {'error': f'Invalid mode: {mode}. Use "audit" or "fresh"'}
+            return {'error': f'Invalid mode: {mode}. Use "audit". For fresh/scholarly mode, use /verify command which provides Claude Code LLM integration.'}
 
         if 'error' in verification_result:
             return verification_result
 
-        # Scholarly comparison (if requested)
-        scholarly_result = None
-        if scholarly_file:
-            scholarly_result = self._compare_against_scholarly_summary(
-                content, scholarly_file, document_name
-            )
-        elif document_name:
-            scholarly_result = self._compare_against_claude_knowledge(
-                content, document_name
-            )
-
-        # Merge scholarly results
+        # Merge scholarly results if provided (Claude Code executed the payload and passed results back)
         if scholarly_result and 'error' not in scholarly_result:
             verification_result['scholarly_comparison'] = scholarly_result
 
@@ -185,6 +129,8 @@ class TranslationVerifier:
     def _audit_existing_output(self, content: str, file_path: str) -> Dict[str, Any]:
         """
         Audit existing translation output for completeness.
+
+        Pure Python regex parsing — no LLM calls.
 
         Args:
             content: Translation file content
@@ -247,96 +193,6 @@ class TranslationVerifier:
 
         return result
 
-    def _run_fresh_verification(self, content: str, file_path: str) -> Dict[str, Any]:
-        """
-        Re-run cross-checker and annotator from scratch.
-
-        Args:
-            content: Translation file content
-            file_path: Path to file
-
-        Returns:
-            Fresh verification results
-        """
-        # Parse sections from content
-        sections = self._parse_sections_from_output(content)
-
-        if not sections:
-            return {'error': 'No sections found in translation output'}
-
-        # Extract source language from content
-        source_language = self._extract_source_language(content)
-        if not source_language:
-            source_language = 'french'  # Default fallback
-
-        result = {
-            'completeness': {},
-            'discrepancies': {},
-            'annotations': {},
-            'mode': 'fresh'
-        }
-
-        # Run CrossChecker
-        print("Running cross-check...")
-        checker = CrossChecker()
-        if checker.error:
-            result['completeness']['cross_check_status'] = f'Error: {checker.error}'
-            result['discrepancies'] = {'high': 0, 'medium': 0, 'low': 0, 'error': checker.error}
-        else:
-            check_results = checker.check_document(sections, source_language)
-
-            if 'error' in check_results:
-                result['completeness']['cross_check_status'] = f'Error: {check_results["error"]}'
-                result['discrepancies'] = {'high': 0, 'medium': 0, 'low': 0, 'error': check_results['error']}
-            else:
-                result['completeness']['cross_check_present'] = True
-                result['completeness']['cross_check_status'] = 'Complete'
-
-                # Count discrepancies by severity
-                high_count = sum(1 for r in check_results['results']
-                               if r.get('has_discrepancy') and r.get('severity') == 'significant')
-                medium_count = sum(1 for r in check_results['results']
-                                 if r.get('has_discrepancy') and r.get('severity') == 'minor')
-
-                result['discrepancies'] = {
-                    'high': high_count,
-                    'medium': medium_count,
-                    'low': 0,
-                    'backend': check_results.get('backend_used', 'unknown')
-                }
-
-        # Run LegalAnnotator
-        print("Running legal annotation...")
-        annotator = LegalAnnotator()
-        if annotator.error:
-            result['annotations'] = {
-                'present': False,
-                'count': 0,
-                'error': annotator.error
-            }
-        else:
-            annotation_results = annotator.annotate_document(sections, source_language)
-
-            if 'error' in annotation_results:
-                result['annotations'] = {
-                    'present': False,
-                    'count': 0,
-                    'error': annotation_results['error']
-                }
-            else:
-                result['annotations'] = {
-                    'present': True,
-                    'count': annotation_results['total_annotations'],
-                    'mistranslation_flags': annotation_results['mistranslation_flags']
-                }
-
-        result['completeness']['all_sections_present'] = (
-            result['completeness'].get('cross_check_present', False) and
-            result['annotations'].get('present', False)
-        )
-
-        return result
-
     def _parse_sections_from_output(self, content: str) -> List[Dict]:
         """
         Parse sections from formatted translation output.
@@ -347,7 +203,6 @@ class TranslationVerifier:
         sections = []
 
         # Look for article/section markers
-        # Pattern: Article markers followed by original and translation
         article_pattern = r'(?:Article|Section|Clause)\s+(\d+|[IVX]+)'
 
         # Split by article markers
@@ -363,7 +218,6 @@ class TranslationVerifier:
                     section_content = parts[i + 1]
 
                     # Try to extract original and translation
-                    # Assuming format: **Original:** text **Translation:** text
                     original_match = re.search(r'\*\*Original.*?\*\*\s*(.+?)(?=\*\*Translation|\*\*Cross-Check|$)',
                                               section_content, re.DOTALL)
                     translation_match = re.search(r'\*\*Translation.*?\*\*\s*(.+?)(?=\*\*Cross-Check|\*\*Annotations|$)',
@@ -394,36 +248,33 @@ class TranslationVerifier:
 
         return None
 
-    def _compare_against_scholarly_summary(self, content: str, scholarly_file: str,
-                                          document_name: Optional[str]) -> Dict[str, Any]:
+    def build_scholarly_comparison_payload(self, translation_text: str,
+                                           scholarly_summary: str,
+                                           document_name: Optional[str] = None) -> Dict[str, Any]:
         """
-        Compare translation against user-provided scholarly summary.
+        Build a Claude Code payload for comparing translation against a scholarly summary.
+
+        Claude Code executes the LLM call using this payload.
 
         Args:
-            content: Translation content
-            scholarly_file: Path to scholarly summary
-            document_name: Optional document name
+            translation_text: The translation output content
+            scholarly_summary: Content of the scholarly summary file
+            document_name: Optional document name for context
 
         Returns:
             {
-                'omissions': List[str],
-                'contradictions': List[str],
-                'alignment_score': float (0-1)
+                'system_prompt': str,
+                'user_prompt': str
             }
         """
-        # Read scholarly summary
-        try:
-            with open(scholarly_file, 'r', encoding='utf-8') as f:
-                scholarly_summary = f.read()
-        except Exception as e:
-            return {'error': f'Failed to read scholarly summary: {str(e)}'}
-
-        # Use Claude to compare
         system_prompt = """You are a historical document analyst comparing a translation against scholarly descriptions.
 
 Your task: Identify key provisions mentioned in the scholarly summary and check if they appear in the translation.
 
 Respond in JSON format."""
+
+        content_preview = translation_text[:5000]
+        ellipsis = "..." if len(translation_text) > 5000 else ""
 
         user_prompt = f"""# Scholarly Summary
 
@@ -431,7 +282,7 @@ Respond in JSON format."""
 
 # Translation Output
 
-{content[:5000]}{"..." if len(content) > 5000 else ""}
+{content_preview}{ellipsis}
 
 # Task
 
@@ -448,40 +299,54 @@ Respond in JSON:
     "explanation": "Brief explanation of alignment assessment"
 }}"""
 
-        try:
-            response = self.client.messages.create(
-                model=self.model,
-                max_tokens=1500,
-                temperature=0.3,
-                system=system_prompt,
-                messages=[{'role': 'user', 'content': user_prompt}]
-            )
+        return {
+            'system_prompt': system_prompt,
+            'user_prompt': user_prompt
+        }
 
-            result_text = response.content[0].text
-
-            # Extract JSON
-            if '```json' in result_text:
-                result_text = result_text.split('```json')[1].split('```')[0].strip()
-            elif '```' in result_text:
-                result_text = result_text.split('```')[1].split('```')[0].strip()
-
-            result = json.loads(result_text)
-            return result
-
-        except Exception as e:
-            return {'error': f'Scholarly comparison failed: {str(e)}'}
-
-    def _compare_against_claude_knowledge(self, content: str,
-                                         document_name: str) -> Dict[str, Any]:
+    def parse_scholarly_comparison_response(self, response_text: str) -> Dict[str, Any]:
         """
-        Compare translation against Claude's knowledge of the document.
+        Parse Claude Code's scholarly comparison response.
 
         Args:
-            content: Translation content
-            document_name: Document name
+            response_text: Raw text response from Claude Code
 
         Returns:
-            Comparison results similar to scholarly summary comparison
+            {
+                'omissions': List[str],
+                'contradictions': List[str],
+                'alignment_score': float,
+                'explanation': str
+            }
+            {'error': str} on parse failure
+        """
+        text = response_text.strip()
+        if '```json' in text:
+            text = text.split('```json')[1].split('```')[0].strip()
+        elif '```' in text:
+            text = text.split('```')[1].split('```')[0].strip()
+
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError as e:
+            return {'error': f'Failed to parse scholarly comparison response: {str(e)}'}
+
+    def build_knowledge_comparison_payload(self, translation_text: str,
+                                           document_name: str) -> Dict[str, Any]:
+        """
+        Build a Claude Code payload for comparing translation against Claude's knowledge.
+
+        Claude Code executes the LLM call using this payload.
+
+        Args:
+            translation_text: The translation output content
+            document_name: Document name (Claude uses its training knowledge)
+
+        Returns:
+            {
+                'system_prompt': str,
+                'user_prompt': str
+            }
         """
         system_prompt = """You are a historical document analyst with knowledge of key historical documents.
 
@@ -489,13 +354,16 @@ Your task: Based on your training knowledge about the specified document, identi
 
 Respond in JSON format."""
 
+        content_preview = translation_text[:5000]
+        ellipsis = "..." if len(translation_text) > 5000 else ""
+
         user_prompt = f"""# Document
 
 {document_name}
 
 # Translation Output
 
-{content[:5000]}{"..." if len(content) > 5000 else ""}
+{content_preview}{ellipsis}
 
 # Task
 
@@ -515,28 +383,32 @@ Respond in JSON:
     "explanation": "Brief explanation"
 }}"""
 
+        return {
+            'system_prompt': system_prompt,
+            'user_prompt': user_prompt
+        }
+
+    def parse_knowledge_comparison_response(self, response_text: str) -> Dict[str, Any]:
+        """
+        Parse Claude Code's knowledge comparison response.
+
+        Args:
+            response_text: Raw text response from Claude Code
+
+        Returns:
+            Parsed comparison result dict
+            {'error': str} on parse failure
+        """
+        text = response_text.strip()
+        if '```json' in text:
+            text = text.split('```json')[1].split('```')[0].strip()
+        elif '```' in text:
+            text = text.split('```')[1].split('```')[0].strip()
+
         try:
-            response = self.client.messages.create(
-                model=self.model,
-                max_tokens=1500,
-                temperature=0.3,
-                system=system_prompt,
-                messages=[{'role': 'user', 'content': user_prompt}]
-            )
-
-            result_text = response.content[0].text
-
-            # Extract JSON
-            if '```json' in result_text:
-                result_text = result_text.split('```json')[1].split('```')[0].strip()
-            elif '```' in result_text:
-                result_text = result_text.split('```')[1].split('```')[0].strip()
-
-            result = json.loads(result_text)
-            return result
-
-        except Exception as e:
-            return {'error': f'Claude knowledge comparison failed: {str(e)}'}
+            return json.loads(text)
+        except json.JSONDecodeError as e:
+            return {'error': f'Failed to parse knowledge comparison response: {str(e)}'}
 
     def _calculate_verdict(self, verification_result: Dict) -> Dict[str, Any]:
         """
@@ -548,7 +420,7 @@ Respond in JSON:
         - RED: Any HIGH discrepancies, >10% annotation gap, alignment <0.7
 
         Args:
-            verification_result: Results from audit or fresh verification
+            verification_result: Results from audit verification
 
         Returns:
             {
@@ -770,28 +642,18 @@ def main():
         description='Verify translation quality before filming'
     )
     parser.add_argument('translation_file', help='Path to translation output file')
-    parser.add_argument('--mode', choices=['audit', 'fresh'], default='audit',
-                       help='Verification mode (default: audit)')
-    parser.add_argument('--scholarly-summary', dest='scholarly_file',
-                       help='Path to scholarly summary file for comparison')
-    parser.add_argument('--document-name', dest='document_name',
-                       help='Document name for Claude knowledge comparison')
+    parser.add_argument('--mode', choices=['audit'], default='audit',
+                       help='Verification mode (default: audit). For scholarly comparison, use /verify command.')
 
     args = parser.parse_args()
 
-    # Initialize verifier
+    # Initialize verifier (no API key needed)
     verifier = TranslationVerifier()
-
-    if verifier.error:
-        print(f"ERROR: {verifier.error}", file=sys.stderr)
-        sys.exit(1)
 
     # Run verification
     result = verifier.verify_translation(
         translation_file=args.translation_file,
-        mode=args.mode,
-        scholarly_file=args.scholarly_file,
-        document_name=args.document_name
+        mode=args.mode
     )
 
     if 'error' in result:

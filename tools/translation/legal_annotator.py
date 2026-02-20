@@ -1,15 +1,15 @@
 """
 Legal Term Annotator (TRAN-03)
 
+Pure data processor. LLM calls handled by Claude Code via /translate command.
+
 Identifies legal/technical terms with no direct English equivalent and provides
-dictionary definitions, historical context, and mistranslation flags.
+payload builders for annotation via Claude Code, plus response parsers.
 
 Approach:
-- Uses Claude API to identify terms requiring annotation
+- Provides build_annotation_payload() for Claude Code to execute LLM annotation
+- Provides parse_annotation_response() to parse Claude's structured response
 - Focuses on terms with genuine translation difficulty (not every legal term)
-- Provides source-language definitions and English equivalents
-- Notes when historical meaning differs from modern usage
-- Flags common mistranslations in English-language sources
 - Formats as footnotes for clean split-screen display
 """
 
@@ -18,17 +18,13 @@ import sys
 import json
 from typing import Dict, Any, List, Optional, Callable
 
-try:
-    import anthropic
-except ImportError:
-    anthropic = None
-
-from env_loader import load_api_key, wrap_api_error
-
 
 class LegalAnnotator:
     """
     Annotate legal/technical terms in translated documents.
+
+    Pure data processor — no Anthropic SDK or API key needed.
+    Claude Code executes LLM calls using payloads from build_annotation_payload().
 
     Identifies terms with no direct English equivalent and provides:
     - Source-language dictionary definition
@@ -38,73 +34,28 @@ class LegalAnnotator:
     - Mistranslation flags for common errors
     """
 
-    def __init__(self, model: str = 'claude-sonnet-4-20250514'):
+    def build_annotation_payload(self, clause_text: str, translation: str,
+                                 clause_id: str, source_language: str = 'unknown',
+                                 document_context: Optional[str] = None) -> Dict[str, Any]:
         """
-        Initialize annotator with Claude API client.
+        Build a Claude Code payload for legal term annotation.
+
+        Claude Code executes the LLM call using this payload.
 
         Args:
-            model: Claude model to use for annotation
-        """
-        self.model = model
-        self.client = None
-        self.error = None
-
-        # Check for anthropic SDK
-        if anthropic is None:
-            self.error = "anthropic package not installed. Run: pip install anthropic>=0.40.0"
-            return
-
-        # Check for API key (reads from .env file or environment variable)
-        key_result = load_api_key()
-        if 'error' in key_result:
-            self.error = key_result['error']
-            return
-        api_key = key_result['key']
-
-        # Initialize client
-        try:
-            self.client = anthropic.Anthropic(api_key=api_key)
-        except Exception as e:
-            self.error = f"Failed to initialize Anthropic client: {str(e)}"
-
-    def annotate_clause(self, original: str, translation: str, source_language: str,
-                       clause_id: str, document_context: Optional[str] = None) -> Dict[str, Any]:
-        """
-        Annotate legal/technical terms in a single clause.
-
-        Args:
-            original: Original text
-            translation: English translation
-            source_language: Source language name
-            clause_id: Clause identifier
+            clause_text: Original source-language clause text
+            translation: English translation of the clause
+            clause_id: Clause identifier (e.g., 'article-1')
+            source_language: Source language name (for prompt context)
             document_context: Optional document context (e.g., "1940 Vichy statute")
 
         Returns:
             {
                 'clause_id': str,
-                'annotations': List[{
-                    'original_term': str,
-                    'source_language_definition': str,
-                    'english_equivalent': str,
-                    'alternatives': List[str],
-                    'historical_context': str|None,
-                    'commonly_mistranslated': bool,
-                    'common_mistranslation': str|None,
-                    'note': str
-                }],
-                'annotation_count': int
+                'system_prompt': str,
+                'user_prompt': str
             }
-            {'error': msg} on failure
         """
-        if self.error:
-            return {'error': self.error}
-
-        if not original or not original.strip():
-            return {'error': 'Original text cannot be empty'}
-
-        if not translation or not translation.strip():
-            return {'error': 'Translation text cannot be empty'}
-
         system_prompt = """You are a legal and historical terminology expert.
 
 Analyze the original-language legal text and its English translation.
@@ -131,7 +82,7 @@ Respond in JSON format."""
         context_info = f"\n\nDocument context: {document_context}" if document_context else ""
 
         user_prompt = f"""Original ({source_language}):
-{original}
+{clause_text}
 
 Translation (English):
 {translation}{context_info}
@@ -154,110 +105,50 @@ Identify terms with no direct English equivalent. Respond in JSON:
 
 If no terms require annotation, return {{"annotations": []}}"""
 
-        try:
-            response = self.client.messages.create(
-                model=self.model,
-                max_tokens=1500,
-                temperature=0.3,
-                system=system_prompt,
-                messages=[{'role': 'user', 'content': user_prompt}]
-            )
+        return {
+            'clause_id': clause_id,
+            'system_prompt': system_prompt,
+            'user_prompt': user_prompt
+        }
 
-            # Parse JSON response
-            result_text = response.content[0].text
-
-            # Extract JSON from response (may be wrapped in markdown code block)
-            if '```json' in result_text:
-                result_text = result_text.split('```json')[1].split('```')[0].strip()
-            elif '```' in result_text:
-                result_text = result_text.split('```')[1].split('```')[0].strip()
-
-            result = json.loads(result_text)
-
-            # Validate format
-            if 'annotations' not in result:
-                return {'error': 'Invalid response format from Claude API'}
-
-            annotations = result['annotations']
-
-            return {
-                'clause_id': clause_id,
-                'annotations': annotations,
-                'annotation_count': len(annotations)
-            }
-
-        except json.JSONDecodeError as e:
-            return {'error': f'Failed to parse Claude response as JSON: {str(e)}'}
-        except Exception as e:
-            return {'error': wrap_api_error(e)}
-
-    def annotate_document(self, sections: List[Dict], source_language: str,
-                         document_context: Optional[str] = None,
-                         on_progress: Optional[Callable] = None) -> Dict[str, Any]:
+    def parse_annotation_response(self, response_text: str, clause_id: str) -> Dict[str, Any]:
         """
-        Annotate all translated sections.
+        Parse Claude Code's annotation response into a structured result.
 
         Args:
-            sections: List of section dicts with 'id', 'original', 'translation' keys
-            source_language: Source language name
-            document_context: Optional document context
-            on_progress: Optional callback(current, total, clause_id)
+            response_text: Raw text response from Claude Code
+            clause_id: Clause identifier
 
         Returns:
             {
-                'sections': List[Dict],  # sections with 'footnotes' field added
-                'total_annotations': int,
-                'mistranslation_flags': int
+                'clause_id': str,
+                'annotations': List[Dict],
+                'footnotes': List[str]
             }
-            {'error': msg} on failure
+            {'clause_id': str, 'error': str} on parse failure
         """
-        if self.error:
-            return {'error': self.error}
+        # Extract JSON from response (may be wrapped in markdown code block)
+        text = response_text.strip()
+        if '```json' in text:
+            text = text.split('```json')[1].split('```')[0].strip()
+        elif '```' in text:
+            text = text.split('```')[1].split('```')[0].strip()
 
-        annotated_sections = []
-        total = len(sections)
-        total_annotations = 0
-        mistranslation_flags = 0
+        try:
+            result = json.loads(text)
+        except json.JSONDecodeError as e:
+            return {'clause_id': clause_id, 'error': f'Failed to parse response as JSON: {str(e)}'}
 
-        for i, section in enumerate(sections, 1):
-            if on_progress:
-                on_progress(i, total, section.get('id', f'section-{i}'))
+        if 'annotations' not in result:
+            return {'clause_id': clause_id, 'error': 'Response missing annotations field'}
 
-            # Annotate clause
-            annotation_result = self.annotate_clause(
-                section.get('original', ''),
-                section.get('translation', ''),
-                source_language,
-                section.get('id', f'section-{i}'),
-                document_context
-            )
-
-            # Copy section data
-            annotated_section = section.copy()
-
-            if 'error' in annotation_result:
-                # Individual clause failure - record but continue
-                annotated_section['footnotes'] = [f"ERROR: {annotation_result['error']}"]
-                annotated_section['annotation_count'] = 0
-            else:
-                # Format footnotes
-                footnotes = self.format_footnotes(annotation_result['annotations'])
-                annotated_section['footnotes'] = footnotes
-                annotated_section['annotation_count'] = annotation_result['annotation_count']
-
-                # Update totals
-                total_annotations += annotation_result['annotation_count']
-                mistranslation_flags += sum(
-                    1 for a in annotation_result['annotations']
-                    if a.get('commonly_mistranslated', False)
-                )
-
-            annotated_sections.append(annotated_section)
+        annotations = result['annotations']
+        footnotes = self.format_footnotes(annotations)
 
         return {
-            'sections': annotated_sections,
-            'total_annotations': total_annotations,
-            'mistranslation_flags': mistranslation_flags
+            'clause_id': clause_id,
+            'annotations': annotations,
+            'footnotes': footnotes
         }
 
     def format_footnotes(self, annotations: List[Dict]) -> List[str]:

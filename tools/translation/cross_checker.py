@@ -1,13 +1,16 @@
 """
 Translation Cross-Checker (TRAN-02)
 
+Pure data processor. LLM calls handled by Claude Code via /translate command.
+
 Validates Claude translations against independent sources (DeepL API, googletrans, deep_translator)
-and identifies semantic discrepancies that affect meaning or legal implications.
+and provides payload builders for semantic discrepancy detection via Claude Code.
 
 Approach:
 - Uses DeepL API if DEEPL_AUTH_KEY available (priority)
 - Falls back to googletrans or deep_translator (free alternatives)
-- Compares translations using Claude API for semantic difference detection
+- Provides build_comparison_payload() for Claude Code to execute semantic comparison
+- Provides parse_comparison_response() to parse Claude's structured response
 - Filters out stylistic differences (shall/will, word order variations)
 - Produces both inline flags per clause and summary report
 """
@@ -16,13 +19,6 @@ import os
 import sys
 import json
 from typing import Dict, Any, List, Optional, Callable
-
-try:
-    import anthropic
-except ImportError:
-    anthropic = None
-
-from env_loader import load_api_key, wrap_api_error
 
 try:
     import requests
@@ -47,12 +43,13 @@ class CrossChecker:
     """
     Cross-check Claude translations against independent sources.
 
-    Priority order:
+    Priority order for independent translation:
     1. DeepL API (if DEEPL_AUTH_KEY set)
     2. googletrans library (free)
     3. deep_translator library (free)
 
-    Semantic comparison uses Claude API to filter stylistic differences.
+    Semantic comparison is done by Claude Code via build_comparison_payload().
+    This class is a pure data processor — no Anthropic SDK or API key needed.
     """
 
     def __init__(self, deepl_api_key: Optional[str] = None):
@@ -62,28 +59,8 @@ class CrossChecker:
         Args:
             deepl_api_key: DeepL API key (or reads from DEEPL_AUTH_KEY env var)
         """
-        # Check for DeepL API key
+        # Check for DeepL API key (not Anthropic — DeepL is the independent backend)
         self.deepl_key = deepl_api_key or os.environ.get('DEEPL_AUTH_KEY')
-
-        # Initialize Claude client for semantic comparison
-        self.client = None
-        self.error = None
-
-        if anthropic is None:
-            self.error = "anthropic package not installed. Run: pip install anthropic>=0.40.0"
-            return
-
-        # Check for API key (reads from .env file or environment variable)
-        key_result = load_api_key()
-        if 'error' in key_result:
-            self.error = key_result['error']
-            return
-        api_key = key_result['key']
-
-        try:
-            self.client = anthropic.Anthropic(api_key=api_key)
-        except Exception as e:
-            self.error = f"Failed to initialize Anthropic client: {str(e)}"
 
     def _get_available_backends(self) -> List[str]:
         """
@@ -155,15 +132,18 @@ class CrossChecker:
             return google_map.get(language, 'en')
 
     def _translate_with_backend(self, text: str, source_lang: str,
-                               target_lang: str = 'en', backend: str = 'deepl') -> Dict[str, Any]:
+                               target_lang: str = 'en', backend: str = None) -> Dict[str, Any]:
         """
-        Translate text using specified backend.
+        Translate text using specified backend (DeepL/googletrans — NOT Anthropic).
+
+        This is the independent translation source for cross-checking.
 
         Args:
             text: Text to translate
             source_lang: Source language name
             target_lang: Target language (default 'en')
-            backend: Backend to use ('deepl', 'googletrans', 'deep_translator')
+            backend: Backend to use ('deepl', 'googletrans', 'deep_translator').
+                     If None, uses first available backend.
 
         Returns:
             {'translation': str, 'backend': str} on success
@@ -171,6 +151,13 @@ class CrossChecker:
         """
         if not text or not text.strip():
             return {'error': 'Text cannot be empty'}
+
+        # Auto-select backend if not specified
+        if backend is None:
+            backends = self._get_available_backends()
+            if not backends:
+                return {'error': 'No translation backends available'}
+            backend = backends[0]
 
         try:
             if backend == 'deepl':
@@ -231,26 +218,30 @@ class CrossChecker:
         except Exception as e:
             return {'error': f'{backend} translation failed: {str(e)}'}
 
-    def _compare_translations(self, original: str, claude_translation: str,
-                            independent_translation: str, source_language: str,
-                            backend: str) -> Dict[str, Any]:
+    def build_comparison_payload(self, claude_translation: str, backend_translation: str,
+                                 original_text: str, clause_id: str,
+                                 source_language: str = 'unknown',
+                                 backend: str = 'independent') -> Dict[str, Any]:
         """
-        Compare two translations using Claude API for semantic difference detection.
+        Build a Claude Code payload for semantic comparison of two translations.
+
+        Claude Code executes the LLM call using this payload.
 
         Args:
-            original: Original text
-            claude_translation: Claude's translation
-            independent_translation: Independent backend's translation
-            source_language: Source language name
-            backend: Backend name used
+            claude_translation: Claude's translation of the clause
+            backend_translation: Independent backend's translation
+            original_text: The original source-language text
+            clause_id: Clause identifier (e.g., 'article-1')
+            source_language: Source language name (for prompt context)
+            backend: Backend name used for independent translation (for prompt context)
 
         Returns:
-            {'has_discrepancy': bool, 'severity': str, 'explanation': str, 'recommendation': str}
-            {'error': msg} on failure
+            {
+                'clause_id': str,
+                'system_prompt': str,
+                'user_prompt': str
+            }
         """
-        if self.error:
-            return {'error': self.error}
-
         system_prompt = """You are a translation quality assessor. Compare two translations of the same text.
 
 Identify SEMANTIC differences only — changes in meaning, missing information, altered legal implications.
@@ -265,13 +256,13 @@ IGNORE stylistic differences:
 Respond in JSON format."""
 
         user_prompt = f"""Original ({source_language}):
-{original}
+{original_text}
 
 Translation A (Claude):
 {claude_translation}
 
 Translation B ({backend}):
-{independent_translation}
+{backend_translation}
 
 Are there semantic differences? Respond in JSON:
 {{
@@ -281,186 +272,53 @@ Are there semantic differences? Respond in JSON:
   "recommendation": "what to do about it (accept Claude/accept {backend}/needs review)"
 }}"""
 
-        try:
-            response = self.client.messages.create(
-                model='claude-sonnet-4-20250514',
-                max_tokens=500,
-                temperature=0.3,
-                system=system_prompt,
-                messages=[{'role': 'user', 'content': user_prompt}]
-            )
+        return {
+            'clause_id': clause_id,
+            'system_prompt': system_prompt,
+            'user_prompt': user_prompt
+        }
 
-            # Parse JSON response
-            result_text = response.content[0].text
-
-            # Extract JSON from response (may be wrapped in markdown code block)
-            if '```json' in result_text:
-                result_text = result_text.split('```json')[1].split('```')[0].strip()
-            elif '```' in result_text:
-                result_text = result_text.split('```')[1].split('```')[0].strip()
-
-            result = json.loads(result_text)
-
-            # Validate required fields
-            if not all(k in result for k in ['has_discrepancy', 'severity', 'explanation', 'recommendation']):
-                return {'error': 'Invalid response format from Claude API'}
-
-            return result
-
-        except json.JSONDecodeError as e:
-            return {'error': f'Failed to parse Claude response as JSON: {str(e)}'}
-        except Exception as e:
-            return {'error': wrap_api_error(e)}
-
-    def check_clause(self, original: str, claude_translation: str,
-                    source_language: str, clause_id: str) -> Dict[str, Any]:
+    def parse_comparison_response(self, response_text: str, clause_id: str) -> Dict[str, Any]:
         """
-        Cross-check a single clause translation.
+        Parse Claude Code's comparison response into a structured result.
 
         Args:
-            original: Original text
-            claude_translation: Claude's translation
-            source_language: Source language name
-            clause_id: Clause identifier (e.g., 'article-1')
+            response_text: Raw text response from Claude Code
+            clause_id: Clause identifier
 
         Returns:
             {
                 'clause_id': str,
                 'has_discrepancy': bool,
-                'severity': str,
-                'claude_translation': str,
-                'independent_translation': str,
-                'backend': str,
+                'severity': str,  # 'none'|'minor'|'significant'
                 'explanation': str,
                 'recommendation': str
             }
-            {'error': msg} on failure
+            {'clause_id': str, 'error': str} on parse failure
         """
-        if self.error:
-            return {'error': self.error}
+        # Extract JSON from response (may be wrapped in markdown code block)
+        text = response_text.strip()
+        if '```json' in text:
+            text = text.split('```json')[1].split('```')[0].strip()
+        elif '```' in text:
+            text = text.split('```')[1].split('```')[0].strip()
 
-        # Get available backends
-        backends = self._get_available_backends()
-        if not backends:
-            return {'error': 'No cross-check backends available'}
+        try:
+            result = json.loads(text)
+        except json.JSONDecodeError as e:
+            return {'clause_id': clause_id, 'error': f'Failed to parse response as JSON: {str(e)}'}
 
-        # Use first available backend
-        backend = backends[0]
+        # Validate required fields
+        required = ['has_discrepancy', 'severity', 'explanation', 'recommendation']
+        if not all(k in result for k in required):
+            return {'clause_id': clause_id, 'error': 'Response missing required fields'}
 
-        # Get independent translation
-        translation_result = self._translate_with_backend(original, source_language, 'en', backend)
-
-        if 'error' in translation_result:
-            return translation_result
-
-        independent_translation = translation_result['translation']
-
-        # Compare translations
-        comparison_result = self._compare_translations(
-            original, claude_translation, independent_translation,
-            source_language, backend
-        )
-
-        if 'error' in comparison_result:
-            return comparison_result
-
-        # Combine results
         return {
             'clause_id': clause_id,
-            'has_discrepancy': comparison_result['has_discrepancy'],
-            'severity': comparison_result['severity'],
-            'claude_translation': claude_translation,
-            'independent_translation': independent_translation,
-            'backend': backend,
-            'explanation': comparison_result['explanation'],
-            'recommendation': comparison_result['recommendation']
-        }
-
-    def check_document(self, sections: List[Dict], source_language: str,
-                      on_progress: Optional[Callable] = None) -> Dict[str, Any]:
-        """
-        Cross-check all translated sections.
-
-        Args:
-            sections: List of section dicts with 'id', 'original', 'translation' keys
-            source_language: Source language name
-            on_progress: Optional callback(current, total, clause_id)
-
-        Returns:
-            {
-                'results': List[Dict],
-                'summary': {
-                    'total_clauses': int,
-                    'discrepancies_found': int,
-                    'significant_count': int,
-                    'minor_count': int
-                },
-                'backend_used': str
-            }
-            {'error': msg, 'skipped': True} if no backends available
-        """
-        if self.error:
-            return {'error': self.error}
-
-        # Check available backends
-        backends = self._get_available_backends()
-        if not backends:
-            return {
-                'error': 'No cross-check backends available. Install googletrans (pip install googletrans==4.0.0-rc1) or set DEEPL_AUTH_KEY.',
-                'skipped': True
-            }
-
-        backend_used = backends[0]
-        results = []
-        total = len(sections)
-
-        discrepancies_found = 0
-        significant_count = 0
-        minor_count = 0
-
-        for i, section in enumerate(sections, 1):
-            if on_progress:
-                on_progress(i, total, section.get('id', f'section-{i}'))
-
-            # Check clause
-            check_result = self.check_clause(
-                section.get('original', ''),
-                section.get('translation', ''),
-                source_language,
-                section.get('id', f'section-{i}')
-            )
-
-            if 'error' in check_result:
-                # Individual clause failure - record but continue
-                check_result = {
-                    'clause_id': section.get('id', f'section-{i}'),
-                    'has_discrepancy': False,
-                    'severity': 'error',
-                    'explanation': check_result['error'],
-                    'recommendation': 'Manual review required'
-                }
-
-            results.append(check_result)
-
-            # Update counts
-            if check_result.get('has_discrepancy', False):
-                discrepancies_found += 1
-                if check_result.get('severity') == 'significant':
-                    significant_count += 1
-                elif check_result.get('severity') == 'minor':
-                    minor_count += 1
-
-        summary = {
-            'total_clauses': total,
-            'discrepancies_found': discrepancies_found,
-            'significant_count': significant_count,
-            'minor_count': minor_count
-        }
-
-        return {
-            'results': results,
-            'summary': summary,
-            'backend_used': backend_used
+            'has_discrepancy': result['has_discrepancy'],
+            'severity': result['severity'],
+            'explanation': result['explanation'],
+            'recommendation': result['recommendation']
         }
 
     def format_report(self, check_results: Dict) -> str:
@@ -468,7 +326,7 @@ Are there semantic differences? Respond in JSON:
         Format cross-check results as markdown.
 
         Args:
-            check_results: Output from check_document()
+            check_results: Dict with 'results', 'summary', 'backend_used' keys
 
         Returns:
             Markdown-formatted report
@@ -502,6 +360,6 @@ Are there semantic differences? Respond in JSON:
                 report += f"**Difference:** {result.get('explanation', 'N/A')}\n\n"
                 report += f"**Recommendation:** {result.get('recommendation', 'N/A')}\n\n"
             else:
-                report += f"**{clause_id}** — ✓ No discrepancy\n\n"
+                report += f"**{clause_id}** — No discrepancy\n\n"
 
         return report
