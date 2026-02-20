@@ -48,13 +48,6 @@ Plans:
 **Goal**: Fewer commands, better discovery
 **Status**: Closed — Superseded by Phases 7, 13, 18
 
-**Assessment:** Phase 4's goals were fully superseded:
-- Phase 7 delivered: 10 phase-organized commands (now 14 with later additions)
-- Phase 13 delivered: Discovery tools (/discover command)
-- Phase 18 delivered: Opportunity orchestrator for topic recommendations
-
-Phase 4's workflow simplification and discovery goals achieved through subsequent phases.
-
 ### Phase 5: Competitive Intelligence
 **Goal**: Track what works in the niche
 **Plans**: Not executed (covered by Phase 6)
@@ -157,15 +150,7 @@ Plans:
 
 ### Phase 15: Database Foundation & Demand Research
 **Goal**: User can quantify demand for topics
-**Dependencies**: Phase 13 (keywords.db schema)
-**Requirements**: DEM-01, DEM-02, DEM-03, DEM-04
 **Plans**: 2 plans
-
-**Success Criteria:**
-1. User can input a seed keyword and get search volume proxy (autocomplete position score)
-2. User can see trend direction for a keyword (rising/stable/declining with percentage change)
-3. User can expand a seed keyword into 10-20 related queries
-4. User can see competition ratio score showing demand vs. supply balance
 
 Plans:
 - [x] 15-01-PLAN.md — Schema extension + DemandAnalyzer foundation
@@ -173,15 +158,6 @@ Plans:
 
 ### Phase 16: Competition Analysis
 **Goal**: User can identify gaps in existing coverage
-**Dependencies**: Phase 15 (demand data foundation)
-**Requirements**: COMP-01, COMP-02, COMP-03, COMP-04
-
-**Success Criteria:**
-1. User can see video count and unique channel count for a keyword
-2. User can filter out low-quality content to see real competition
-3. User can see what format competitors use (animation vs. documentary, political vs. legal angles)
-4. User can see differentiation score identifying which angles are missing
-
 **Plans**: 2 plans
 
 Plans:
@@ -190,14 +166,6 @@ Plans:
 
 ### Phase 17: Format Filtering
 **Goal**: Topics are filtered by production constraints
-**Dependencies**: Phase 16 (competition data)
-**Requirements**: FMT-01, FMT-02, FMT-03
-
-**Success Criteria:**
-1. Topics requiring animation are flagged as hard blocks before research investment
-2. Topics are scored 0-4 for document-friendliness (treaty-heavy = 4, concept-heavy = 0)
-3. User can verify academic source availability for a topic before committing
-
 **Plans**: 2 plans
 
 Plans:
@@ -206,16 +174,7 @@ Plans:
 
 ### Phase 18: Opportunity Scoring & Orchestrator
 **Goal**: User gets ranked topic opportunities with full context
-**Dependencies**: Phases 15, 16, 17 (all data layers)
-**Requirements**: OPP-01, OPP-02, OPP-03, OPP-04, OPP-05
 **Plans**: 2 plans
-
-**Success Criteria:**
-1. User can see combined opportunity score (demand x gap x fit / effort) for any topic
-2. Production constraints are weighted in scoring (animation-required topics score 0 regardless of demand)
-3. Channel DNA rules auto-reject topics (clickbait language, news-first framing automatically filtered)
-4. Opportunities track lifecycle status from DISCOVERED through PUBLISHED
-5. User can generate Markdown opportunity report with all decision factors documented
 
 Plans:
 - [x] 18-01-PLAN.md — OpportunityScorer + lifecycle state tracking + Channel DNA filtering
@@ -228,15 +187,7 @@ Plans:
 
 ### Phase 19: Performance Data Foundation
 **Goal**: User can see what's working based on subscriber conversion
-**Dependencies**: Phase 10 (YouTube Analytics API), existing youtube-analytics/ tools
-**Requirements**: PERF-01, PERF-02, PERF-03, INTG-01
 **Plans**: 2 plans
-
-**Success Criteria:**
-1. User can see subscriber conversion per video for entire published catalog
-2. User can see which topic types correlate with high conversion
-3. User can see which angles correlate with high conversion
-4. Data pulls from existing YouTube Analytics API integration
 
 Plans:
 - [x] 19-01-PLAN.md — Database schema + performance fetcher + conversion calculator
@@ -244,30 +195,14 @@ Plans:
 
 ### Phase 20: Pattern Extraction
 **Goal**: System identifies "winning patterns" from top performers
-**Dependencies**: Phase 19 (performance data)
-**Requirements**: PATN-01, PATN-02, PATN-03
 **Plans**: 1 plan
-
-**Success Criteria:**
-1. System extracts winning pattern profile from top 5-10 performers
-2. System identifies channel strengths (document-heavy, academic, legal/territorial)
-3. System tracks shared attributes across top converters
 
 Plans:
 - [x] 20-01-PLAN.md — Pattern extractor module + channel strengths + CLI integration
 
 ### Phase 21: Recommendation Engine & `/next` Command
 **Goal**: User gets ranked NEW topic recommendations
-**Dependencies**: Phase 20 (patterns), Phase 18 (opportunity scoring)
-**Requirements**: RECD-01, RECD-02, RECD-03, RECD-04, INTG-02, INTG-03
 **Plans**: 1 plan
-
-**Success Criteria:**
-1. `/next` command returns ranked NEW topic recommendations
-2. Recommendations filtered against `_IN_PRODUCTION/` and `_ARCHIVED/` folders
-3. Each recommendation shows reasoning (fit x competition gap x feasibility)
-4. Integrates with existing opportunity scoring from v1.3
-5. Respects production constraints from v1.3 filters
 
 Plans:
 - [x] 21-01-PLAN.md — TopicRecommender module with folder scanning, pattern-weighted scoring, and /next command
@@ -279,76 +214,35 @@ Plans:
 
 ### Phase 22: Script Parser & Entity Detection
 **Goal**: Foundation for extracting structure and entities from scripts
-**Dependencies**: None (new capability)
-**Requirements**: BROLL-02 (entity detection foundation)
 **Plans**: 1 plan
-
-**Success Criteria:**
-1. User can parse a script markdown file into structured sections (intro, body sections, conclusion)
-2. System extracts entities from script text (treaties, places, people, documents, dates)
-3. Entities are classified by type for downstream use (person, place, document, event)
-4. Section word counts are calculated for timing estimation
 
 Plans:
 - [x] 22-01-PLAN.md — Script parser + entity extractor foundation
 
 ### Phase 23: B-Roll Generation
 **Goal**: User can generate shot lists with source suggestions from script
-**Dependencies**: Phase 22 (entity detection)
-**Requirements**: BROLL-01, BROLL-03, BROLL-04
 **Plans**: 1 plan
-
-**Success Criteria:**
-1. User can generate shot list from script with section references
-2. System suggests source URLs for detected entities (Wikimedia Commons, archive.org, map services)
-3. Shots are categorized by visual type (map, document, portrait, event photo)
-4. Shot list includes entity names, types, and suggested sources in markdown format
 
 Plans:
 - [x] 23-01-PLAN.md — Shot list generator + URL suggester + category assignment
 
 ### Phase 24: Edit Guide Generation
 **Goal**: User can generate timing-aware edit guide with B-roll markers
-**Dependencies**: Phase 22 (section parsing), Phase 23 (shot list)
-**Requirements**: EDIT-01, EDIT-02, EDIT-03
 **Plans**: 1 plan
-
-**Success Criteria:**
-1. User can see section breakdown with estimated durations (words to time at 150 WPM)
-2. User can see inline B-roll markers in script output (`[B-ROLL: description]`)
-3. User can generate timing sheet (section name, cumulative start time, B-roll cues)
-4. Edit guide includes running time totals for pacing review
 
 Plans:
 - [x] 24-01-PLAN.md — EditGuideGenerator + duration calculation + timing sheet + CLI flag
 
 ### Phase 25: Metadata Draft Generation
 **Goal**: User can generate title, description, and tag suggestions from script
-**Dependencies**: Phase 22 (entity detection, section parsing)
-**Requirements**: META-01, META-02, META-03
 **Plans**: 1 plan
-
-**Success Criteria:**
-1. System extracts 3-5 title candidates from script (opening hook, key claims, closing thesis)
-2. System generates description template with section timestamps from edit guide
-3. System suggests 15-20 tags based on script entities and existing channel patterns
-4. Metadata draft follows established YOUTUBE-METADATA.md format
 
 Plans:
 - [x] 25-01-PLAN.md — MetadataGenerator + title extraction + description template + tag generation + CLI
 
 ### Phase 26: Package Command & Integration
 **Goal**: User can generate all production outputs with single command
-**Dependencies**: Phases 22-25 (all generation capabilities)
-**Requirements**: PKG-01, PKG-02, TELE-01
 **Plans**: 1 plan
-
-**Success Criteria:**
-1. User can run `/prep --package` to generate all outputs in one command
-2. Package outputs saved to project folder (B-ROLL-CHECKLIST.md, EDIT-GUIDE.md, METADATA-DRAFT.md)
-3. User can export script to clean teleprompter text (no markdown, read-aloud format)
-4. Package command validates script exists before running
-5. All outputs use consistent entity detection from single parse pass
 
 Plans:
 - [x] 26-01-PLAN.md — Package orchestrator + teleprompter export + file writer
@@ -360,100 +254,45 @@ Plans:
 
 ### Phase 27: Database Foundation
 **Goal**: Schema extensions enable CTR tracking and feedback storage
-**Dependencies**: None (extends existing keywords.db)
-**Requirements**: AB-01 (partial - storage), AB-02 (storage), AB-03 (storage), AB-04 (storage), FEED-01 (partial - storage)
 **Plans**: 1 plan
 
 Plans:
 - [x] 27-01-PLAN.md — Schema migration: variant tables, CTR snapshots, feedback storage
 
-**Success Criteria:**
-1. ~~User can store thumbnail variants with file paths and visual pattern tags~~ ✓
-2. ~~User can store title variants with formula tags and timestamps~~ ✓
-3. ~~System can track CTR snapshots at multiple intervals per variant~~ ✓
-4. ~~User can store feedback data from POST-PUBLISH-ANALYSIS files in database~~ ✓
-5. ~~Database migration completes with zero breaking changes to existing tools~~ ✓
-
 ### Phase 28: Pacing Analysis
 **Goal**: User can detect script complexity issues before filming
-**Dependencies**: Phase 27 (database ready for pacing metrics)
-**Requirements**: PACE-01, PACE-02, PACE-03, PACE-04, PACE-05, PACE-06
 **Plans**: 2 plans
 
 Plans:
 - [x] 28-01-PLAN.md — PacingChecker engine (TDD: metrics, scoring, sparkline, flat zones, hook advisory)
 - [x] 28-02-PLAN.md — CLI integration (--pacing flag, config thresholds, output formatting)
 
-**Success Criteria:**
-1. ~~User can see sentence length variance per section with threshold warnings~~ ✓
-2. ~~User can detect readability complexity spikes between adjacent sections~~ ✓
-3. ~~User can identify entity density hotspots (walls of proper nouns)~~ ✓
-4. ~~User can see combined complexity score per section (0-100 scale)~~ ✓
-5. ~~System flags sections missing modern relevance hooks or pattern interrupts~~ ✓
-6. ~~User can visualize energy arc across full script showing pacing rhythm~~ ✓
-
 ### Phase 28.1: Multi-Model Token Optimization (INSERTED)
 **Goal**: Audit token usage and route lightweight tasks to free/local models
-**Dependencies**: Phase 28 (current tooling baseline)
 **Plans**: 2 plans
-
-**Context:**
-- Claude Code Router for automatic request routing (primary approach)
-- OpenRouter free tier as secondary provider (hardware constrains local models)
-- Claude subscription reserved for heavy lifting (script writing, analysis, planning)
-- 14.9GB RAM / no GPU rules out Ollama 32B locally
-
-**Success Criteria:**
-1. Token usage audit identifies which tasks/agents consume most tokens
-2. Task classification maps each command/agent to model tier (Claude vs free)
-3. Routing strategy documented (which tool: Wave vs Router vs native Ollama)
-4. At least one routing approach tested and validated end-to-end
-5. Estimated token savings quantified per session
 
 Plans:
 - [x] 28.1-01-PLAN.md — Token audit + routing classification
-- [skipped] 28.1-02-PLAN.md — Routing setup (deliberately skipped — hardware constraints make OpenRouter routing not worth complexity)
-
-**Note:** Plan 02 deliberately skipped. Token audit complete; OpenRouter routing not worth complexity given 14.9GB RAM limitation, AMD integrated GPU, and Claude Code's existing model tier system. Phase closed as complete.
+- [skipped] 28.1-02-PLAN.md — Routing setup (deliberately skipped)
 
 ### Phase 29: Thumbnail & Title Tracking
 **Goal**: User can track variant performance with manual CTR entry
-**Dependencies**: Phase 27 (database schema)
-**Requirements**: AB-01, AB-02, AB-03, AB-04
 **Plans**: 2 plans
 
 Plans:
 - [x] 29-01-PLAN.md — Database CRUD methods + variant management CLI
 - [x] 29-02-PLAN.md — /analyze integration with variant display
 
-**Success Criteria:**
-1. ~~User can enter CTR from YouTube Studio via CLI prompt~~ ✓
-2. ~~User can register thumbnail files with visual pattern tags~~ ✓
-3. ~~User can register title variants with formula tags~~ ✓
-4. ~~System captures CTR snapshots at 48h, 7d, 14d intervals (manual with --date flag)~~ ✓
-5. ~~All variant data stored in database for pattern analysis~~ ✓
-
 ### Phase 30: CTR Analysis & Benchmarks
 **Goal**: User can determine winning variants and channel-specific benchmarks
-**Dependencies**: Phase 29 (tracked variant data)
-**Requirements**: AB-05, AB-06
 **Plans**: 2 plans
 
 Plans:
 - [x] 30-01-PLAN.md — Core benchmarks engine: verdict calculation + benchmark aggregation (TDD)
 - [x] 30-02-PLAN.md — CLI interface + /analyze integration with dual entry points
 
-**Success Criteria:**
-1. User can calculate statistical significance between two variants
-2. System prevents false positives by requiring minimum impression thresholds
-3. User can see channel-specific CTR benchmarks by topic category
-4. User can compare variant performance to category baselines
-5. System provides confidence intervals and sample size recommendations
-
 ### Phase 31: Feedback Loop Integration
 **Goal**: Past performance insights surface automatically during creation
-**Dependencies**: Phase 27 (database schema), Phase 28 (pacing metrics)
-**Requirements**: FEED-01, FEED-02, FEED-03, FEED-04, FEED-05
 **Plans**: 3 plans
 
 Plans:
@@ -461,28 +300,12 @@ Plans:
 - [x] 31-02-PLAN.md — Query interface + pattern extraction + CLI (FEED-02, FEED-03, FEED-04)
 - [x] 31-03-PLAN.md — analyze.py integration + slash command insight surfacing (FEED-05)
 
-**Success Criteria:**
-1. ~~System parses POST-PUBLISH-ANALYSIS markdown files into structured database records~~ ✓
-2. ~~User can query past insights for similar topics before starting new video~~ ✓
-3. ~~System identifies success patterns from high-performing videos automatically~~ ✓
-4. ~~System identifies failure patterns from low-performing videos automatically~~ ✓
-5. ~~Relevant insights surface during /script generation without manual lookup~~ ✓
-
 ### Phase 32: Model Assignment Refresh
 **Goal**: Update documentation to reflect current Claude 4.x lineup
-**Dependencies**: None (independent update)
-**Requirements**: MOD-01, MOD-02
 **Plans**: 1 plan
 
 Plans:
-- [x] 32-01-PLAN.md — Documentation refresh + roadmap cleanup (model naming, Phase 28.1 closure, Phase 4 resolution)
-
-**Success Criteria:**
-1. ~~All 14 slash command files verified using current Claude 4.x model aliases~~ ✓
-2. ~~Agent model assignments verified with current lineup~~ ✓
-3. ~~Documentation updated with current Claude 4.x references (Opus 4.6, Sonnet 4.5, Haiku 4.5)~~ ✓
-4. ~~Phase 28.1 closed with Plan 02 marked skipped~~ ✓
-5. ~~Phase 4 status resolved (closed as superseded)~~ ✓
+- [x] 32-01-PLAN.md — Documentation refresh + roadmap cleanup
 
 </details>
 
@@ -491,16 +314,7 @@ Plans:
 
 ### Phase 33: Voice Pattern Library
 **Goal**: Scripts match creator's proven voice patterns from high-performing videos
-**Dependencies**: None (reference document expansion)
-**Requirements**: VOICE-01, VOICE-02, VOICE-03, VOICE-04
 **Plans**: 2 plans
-
-**Success Criteria:**
-1. User can see documented voice patterns extracted from top-performing transcripts (Belize 23K views, Vance 42.6% retention)
-2. STYLE-GUIDE.md Part 6 includes Kraut-style causal chains, Alex O'Connor transitions, and creator's proven phrases
-3. Script-writer-v2 agent applies voice patterns to generate scripts matching calm prosecutor tone
-4. Generated scripts pass validation for forbidden phrases, missing term definitions, and channel DNA violations before output
-5. User can validate script against voice patterns without manual cross-checking
 
 Plans:
 - [x] 33-01-PLAN.md — Extract voice patterns from transcripts + write STYLE-GUIDE.md Part 6 Voice Pattern Library
@@ -508,38 +322,20 @@ Plans:
 
 ### Phase 34: NotebookLM Research Bridge
 **Goal**: Research workflow connects NotebookLM sources to verified research pipeline
-**Dependencies**: None (independent tooling)
-**Requirements**: NLMB-01, NLMB-02, NLMB-03
 **Plans**: 2 plans
-
-**Success Criteria:**
-1. User can generate academic source list for a topic with university press titles, authors, ISBNs, and purchase/download links
-2. User can parse NotebookLM chat output and extract citations into VERIFIED-RESEARCH.md format with page numbers
-3. User can access structured NotebookLM prompts for efficient fact extraction (targeted queries for claims, quotes, counter-evidence)
-4. Source list generation completes in under 5 minutes for typical history topic
-5. Citation extraction reduces manual copy-paste time by 5x
 
 Plans:
 - [x] 34-01-PLAN.md — Source list generator (notebooklm_bridge.py + /sources --generate)
 - [x] 34-02-PLAN.md — Citation extractor + prompt library (citation_extractor.py + prompts + /verify --extract-nlm)
 
 ### Phase 35: Actionable Analytics
-**Goal**: Analytics provide concrete fixes, not just data — retention drops mapped to script sections with recommendations
-**Dependencies**: Phase 33 (voice patterns for retention recommendations)
-**Requirements**: ACTN-01, ACTN-02, ACTN-03, ACTN-04
+**Goal**: Analytics provide concrete fixes, not just data
 **Plans**: 3 plans
 
-**Success Criteria:**
-1. User can see retention drop points mapped to specific script sections with root cause analysis
-2. User receives concrete fix recommendations referencing specific lines, sentences, or sections (not just metrics)
-3. User can access topic strategy analysis showing which video types perform best with specific next steps
-4. Past performance insights surface automatically before /script generation without manual lookup
-5. Retention recommendations reference voice patterns and channel DNA (e.g., "add Kraut-style causal chain here")
-
 Plans:
-- [x] 35-01-PLAN.md — Retention mapper + section diagnostics (retention_mapper.py + section_diagnostics.py with TDD)
-- [x] 35-02-PLAN.md — Topic strategy + pre-script insights (topic_strategy.py + feedback_queries.py extension)
-- [x] 35-03-PLAN.md — Command integration (analyze.py --script + /analyze + /script pre-script intelligence)
+- [x] 35-01-PLAN.md — Retention mapper + section diagnostics
+- [x] 35-02-PLAN.md — Topic strategy + pre-script insights
+- [x] 35-03-PLAN.md — Command integration
 
 </details>
 
@@ -600,13 +396,84 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [x] 41-01-PLAN.md — Translation verification engine (/verify --translation mode, audit/fresh modes, scholarly comparison, GREEN/YELLOW/RED verdicts)
-- [x] 41-02-PLAN.md — Document-structured scriptwriting (script-writer-v2 Rule 18, /script --document-mode, clause-by-clause structure, surprise handling)
-- [x] 41-03-PLAN.md — Split-screen edit guides (/prep --split-screen mode, clause timing, transition markers, asset sourcing, surprise emphasis)
+- [x] 41-01-PLAN.md — Translation verification engine
+- [x] 41-02-PLAN.md — Document-structured scriptwriting (script-writer-v2 Rule 18)
+- [x] 41-03-PLAN.md — Split-screen edit guides (/prep --split-screen mode)
 
 </details>
 
+### v5.0 Production Intelligence (In Progress)
+
+**Milestone Goal:** Make the pipeline work end-to-end without manual workarounds, add a YouTube intelligence engine that keeps tooling current on algorithm and niche trends, and close the analytics feedback loop.
+
+- [ ] **Phase 42: Pipeline Hardening & Research Ingestion** - Translation CLI reliability + NLM paste-to-verified-research flow
+- [ ] **Phase 43: YouTube Intelligence Engine** - Algorithm knowledge base + niche pattern tracking + web refresh + competitor monitoring
+- [ ] **Phase 44: Analytics Backfill & Feedback Loop** - Populate analytics DB from existing data + auto-surface insights during production
+- [ ] **Phase 45: Hook Optimization & Intelligence Integration** - Rule 19 algorithm-aware hooks + intelligence surfacing during /script, /prep, /publish
+- [ ] **Phase 46: Project Dashboard** - Multi-project status with priority ranking and time-sensitive topic flagging
+
+## Phase Details
+
+### Phase 42: Pipeline Hardening & Research Ingestion
+**Goal**: Translation CLI works reliably with proper credential management, and user can paste NotebookLM output to get structured verified claims
+**Depends on**: Nothing (independent fixes and new capability)
+**Requirements**: PIPE-01, PIPE-02, PIPE-03, RES-01, RES-02, RES-03
+**Success Criteria** (what must be TRUE):
+  1. User can run translation CLI with API key stored in .env file without setting environment variables manually
+  2. User sees clear, actionable error messages when API key is missing, network fails, or rate limit is hit (not stack traces)
+  3. User can run a single smoke test command that validates the full translation pipeline end-to-end
+  4. User can paste raw NotebookLM chat output and get back a list of extracted claims with citations
+  5. User can approve or reject each extracted claim individually before any writes happen
+  6. Approved claims are written to 01-VERIFIED-RESEARCH.md in the correct section format without manual formatting
+**Plans**: TBD
+
+### Phase 43: YouTube Intelligence Engine
+**Goal**: Local knowledge base of YouTube algorithm mechanics and history niche patterns exists and stays current through automated refresh
+**Depends on**: Nothing (new capability, independent)
+**Requirements**: INTEL-01, INTEL-02, INTEL-03, INTEL-04
+**Success Criteria** (what must be TRUE):
+  1. User can query a local knowledge base for current YouTube algorithm mechanics (AVD weighting, CTR thresholds, satisfaction signals, browse vs search priorities)
+  2. User can query niche-specific patterns showing what history/edu formats, lengths, and hooks are performing right now
+  3. User can run a refresh command that scrapes authoritative sources (Creator Insider, Think Media, vidIQ blog) and updates the knowledge base
+  4. User can see what competitor history/edu channels have published recently, with viral content and format trend flags
+**Plans**: TBD
+
+### Phase 44: Analytics Backfill & Feedback Loop
+**Goal**: Analytics DB is populated from all existing channel data, and channel-specific insights surface automatically during video production
+**Depends on**: Nothing (uses existing analytics infrastructure)
+**Requirements**: ANLYT-01, ANLYT-02, ANLYT-03
+**Success Criteria** (what must be TRUE):
+  1. User can run a single backfill command that imports all existing POST-PUBLISH-ANALYSIS files and YouTube API data into the analytics DB
+  2. During /script generation, channel-specific insights (what works for YOUR channel) surface automatically without manual lookup
+  3. Topic recommendations incorporate updated performance patterns from backfilled data
+**Plans**: TBD
+
+### Phase 45: Hook Optimization & Intelligence Integration
+**Goal**: Script-writer generates algorithm-optimized hooks informed by current YouTube intelligence, and intelligence auto-surfaces during all production commands
+**Depends on**: Phase 43 (YouTube Intelligence Engine must exist for HOOK-02 and INTEL-05)
+**Requirements**: HOOK-01, HOOK-02, HOOK-03, INTEL-05
+**Success Criteria** (what must be TRUE):
+  1. Script-writer-v2 Rule 19 generates an optimized first 60 seconds following cold fact, myth, contradiction, payoff structure
+  2. Hook generation references current YouTube Intelligence Engine data for best practices (not hardcoded assumptions)
+  3. Generated hooks include retention triggers: information gap, visual carrot, and authority signals
+  4. Relevant YouTube intelligence insights auto-surface during /script, /prep, and /publish generation without manual lookup
+**Plans**: TBD
+
+### Phase 46: Project Dashboard
+**Goal**: User gets a single-command overview of all projects in production with priority ranking and time-sensitive alerts
+**Depends on**: Phase 43 (YouTube Intelligence Engine for time-sensitive topic flagging)
+**Requirements**: DASH-01, DASH-02, DASH-03
+**Success Criteria** (what must be TRUE):
+  1. /status shows all projects in _IN_PRODUCTION/ with current phase, next action, and days since last activity
+  2. Projects are ranked by priority: filming-ready first, then research phase, then ideas
+  3. Dashboard flags time-sensitive topics (treaty deadlines, upcoming votes, expiring relevance) using YouTube Intelligence Engine data
+**Plans**: TBD
+
 ## Progress
+
+**Execution Order:**
+Phases execute in numeric order: 42 → 43 → 44 → 45 → 46
+Note: Phases 42, 43, and 44 have no dependencies on each other and could execute in parallel.
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
@@ -653,3 +520,8 @@ Plans:
 | **39. Document Discovery & Format Guide** | **v4.0** | **2/2** | **Complete** | **2026-02-17** |
 | **40. Translation Pipeline** | **v4.0** | **3/3** | **Complete** | **2026-02-17** |
 | **41. Verification & Production Integration** | **v4.0** | **3/3** | **Complete** | **2026-02-18** |
+| 42. Pipeline Hardening & Research Ingestion | v5.0 | 0/? | Not started | - |
+| 43. YouTube Intelligence Engine | v5.0 | 0/? | Not started | - |
+| 44. Analytics Backfill & Feedback Loop | v5.0 | 0/? | Not started | - |
+| 45. Hook Optimization & Intelligence Integration | v5.0 | 0/? | Not started | - |
+| 46. Project Dashboard | v5.0 | 0/? | Not started | - |

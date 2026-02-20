@@ -25,6 +25,9 @@ Requirements for v5.0 Production Intelligence. Each maps to roadmap phases.
 - [ ] **INTEL-02**: Knowledge base stores niche-specific patterns (what history/edu formats, lengths, hooks are performing)
 - [ ] **INTEL-03**: Web scraper refreshes algorithm knowledge from authoritative sources (Creator Insider, Think Media, vidIQ blog, etc.)
 - [ ] **INTEL-04**: Competitor tracker monitors top history/edu channels for viral content and format trends
+
+### Intelligence Surfacing
+
 - [ ] **INTEL-05**: Intelligence auto-surfaces relevant insights during /script, /prep, /publish generation
 
 ### Hook Optimization
@@ -71,32 +74,32 @@ Deferred to future release.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| PIPE-01 | TBD | Pending |
-| PIPE-02 | TBD | Pending |
-| PIPE-03 | TBD | Pending |
-| RES-01 | TBD | Pending |
-| RES-02 | TBD | Pending |
-| RES-03 | TBD | Pending |
-| INTEL-01 | TBD | Pending |
-| INTEL-02 | TBD | Pending |
-| INTEL-03 | TBD | Pending |
-| INTEL-04 | TBD | Pending |
-| INTEL-05 | TBD | Pending |
-| HOOK-01 | TBD | Pending |
-| HOOK-02 | TBD | Pending |
-| HOOK-03 | TBD | Pending |
-| ANLYT-01 | TBD | Pending |
-| ANLYT-02 | TBD | Pending |
-| ANLYT-03 | TBD | Pending |
-| DASH-01 | TBD | Pending |
-| DASH-02 | TBD | Pending |
-| DASH-03 | TBD | Pending |
+| PIPE-01 | Phase 42 | Pending |
+| PIPE-02 | Phase 42 | Pending |
+| PIPE-03 | Phase 42 | Pending |
+| RES-01 | Phase 42 | Pending |
+| RES-02 | Phase 42 | Pending |
+| RES-03 | Phase 42 | Pending |
+| INTEL-01 | Phase 43 | Pending |
+| INTEL-02 | Phase 43 | Pending |
+| INTEL-03 | Phase 43 | Pending |
+| INTEL-04 | Phase 43 | Pending |
+| INTEL-05 | Phase 45 | Pending |
+| HOOK-01 | Phase 45 | Pending |
+| HOOK-02 | Phase 45 | Pending |
+| HOOK-03 | Phase 45 | Pending |
+| ANLYT-01 | Phase 44 | Pending |
+| ANLYT-02 | Phase 44 | Pending |
+| ANLYT-03 | Phase 44 | Pending |
+| DASH-01 | Phase 46 | Pending |
+| DASH-02 | Phase 46 | Pending |
+| DASH-03 | Phase 46 | Pending |
 
 **Coverage:**
 - v5.0 requirements: 20 total
-- Mapped to phases: 0
-- Unmapped: 20 ⚠️
+- Mapped to phases: 20
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-19*
-*Last updated: 2026-02-19 after initial definition*
+*Last updated: 2026-02-19 after roadmap creation*
