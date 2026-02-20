@@ -15,9 +15,9 @@ Requirements for v5.0 Production Intelligence. Each maps to roadmap phases.
 
 ### Research Ingestion
 
-- [ ] **RES-01**: User can paste NLM output and tool extracts claims with citations into structured format
-- [ ] **RES-02**: Extracted claims shown for review with approve/reject per claim
-- [ ] **RES-03**: Approved claims auto-write to 01-VERIFIED-RESEARCH.md in correct section format
+- [x] **RES-01**: User can paste NLM output and tool extracts claims with citations into structured format
+- [x] **RES-02**: Extracted claims shown for review with approve/reject per claim
+- [x] **RES-03**: Approved claims auto-write to 01-VERIFIED-RESEARCH.md in correct section format
 
 ### YouTube Intelligence Engine
 
@@ -77,9 +77,9 @@ Deferred to future release.
 | PIPE-01 | Phase 42 | Complete |
 | PIPE-02 | Phase 42 | Complete |
 | PIPE-03 | Phase 42 | Complete |
-| RES-01 | Phase 42 | Pending |
-| RES-02 | Phase 42 | Pending |
-| RES-03 | Phase 42 | Pending |
+| RES-01 | Phase 42 | Complete |
+| RES-02 | Phase 42 | Complete |
+| RES-03 | Phase 42 | Complete |
 | INTEL-01 | Phase 43 | Pending |
 | INTEL-02 | Phase 43 | Pending |
 | INTEL-03 | Phase 43 | Pending |

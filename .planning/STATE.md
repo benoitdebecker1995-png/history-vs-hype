@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-19 (v5.0 roadmap created)
+**Last Updated:** 2026-02-20 (42-02 NLM ingestion tool completed)
 
 ## Project Reference
 
@@ -14,8 +14,8 @@ See: `.planning/PROJECT.md` (updated 2026-02-19)
 
 **Milestone:** v5.0 Production Intelligence
 **Phase:** 42 of 46 (Pipeline Hardening & Research Ingestion)
-**Status:** Ready to plan
-**Last activity:** 2026-02-19 — Roadmap created for v5.0 (5 phases, 20 requirements)
+**Status:** In progress — Plan 02 of 02 complete for Phase 42
+**Last activity:** 2026-02-20 — NLM ingestion tool built (nlm_ingest.py), /research --ingest command documented
 
 **Progress:**
 [██████████] 97%
@@ -73,13 +73,14 @@ Recent decisions affecting current work:
 
 ### Last Session
 
-- **Date:** 2026-02-19
-- **Work:** Created v5.0 roadmap (5 phases, 20 requirements mapped)
-- **Output:** ROADMAP.md updated with Phases 42-46, REQUIREMENTS.md traceability updated
+- **Date:** 2026-02-20
+- **Work:** Executed 42-02-PLAN.md — NLM ingestion tool (nlm_ingest.py), /research --ingest workflow
+- **Output:** tools/research/nlm_ingest.py, tools/research/__init__.py, .claude/commands/research.md updated
+- **Stopped at:** Completed 42-02-PLAN.md
 
 ### Next Session
 
-**Next action:** `/gsd:plan-phase 42` — plan Pipeline Hardening & Research Ingestion
+**Next action:** `/gsd:plan-phase 43` — plan next v5.0 phase
 
 ## Technical Notes
 
