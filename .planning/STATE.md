@@ -1,20 +1,20 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-18 (v4.0 milestone shipped)
+**Last Updated:** 2026-02-19 (v5.0 milestone started)
 
 ## Project Reference
 
-See: `.planning/PROJECT.md` (updated 2026-02-18)
+See: `.planning/PROJECT.md` (updated 2026-02-19)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** No active milestone — planning next
+**Current focus:** v5.0 Production Intelligence
 
 ## Current Position
 
-**Milestone:** None active — v4.0 shipped 2026-02-18
-**Status:** Between milestones
-**Last activity:** 2026-02-18 — Shipped v4.0 Untranslated Evidence Pipeline (16/16 requirements, 3 phases, 8 plans)
+**Milestone:** v5.0 Production Intelligence
+**Status:** Defining requirements
+**Last activity:** 2026-02-19 — Milestone v5.0 started
 
 **Progress:**
 [██████████] 100%

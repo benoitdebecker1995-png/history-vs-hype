@@ -150,7 +150,17 @@ v4.0 delivered the full document translation-to-video pipeline — gap verificat
 
 ### Active
 
-(No active milestone — planning next)
+## Current Milestone: v5.0 Production Intelligence
+
+**Goal:** Make the pipeline work end-to-end without manual workarounds, add a YouTube intelligence engine that keeps tooling current on algorithm and niche trends, and close the analytics feedback loop.
+
+**Target features:**
+- Translation CLI reliability (.env support, API key validation)
+- NLM ingestion with review gate (paste → extract → review → write)
+- YouTube Intelligence Engine (algorithm mechanics + niche tracking, monthly refresh)
+- Algorithm-aware hook optimization pass (Rule 19 in script-writer)
+- Analytics backfill + auto-surfacing during production
+- Multi-project status dashboard
 
 ### Out of Scope
 
