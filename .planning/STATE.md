@@ -59,6 +59,11 @@ See: `.planning/PROJECT.md` (updated 2026-02-19)
 
 **Full command list:** Run `/help`
 
+## Accumulated Context
+
+### Roadmap Evolution
+- Phase 42.1 inserted after Phase 42: Translation Pipeline Claude Code Integration (URGENT) — refactor translation modules to use Claude Code's LLM layer instead of direct Anthropic API calls, enabling Pro plan users without API keys
+
 ## Decisions
 
 Recent decisions affecting current work:
@@ -76,7 +81,7 @@ Recent decisions affecting current work:
 - **Date:** 2026-02-20
 - **Work:** Executed 42-02-PLAN.md — NLM ingestion tool (nlm_ingest.py), /research --ingest workflow
 - **Output:** tools/research/nlm_ingest.py, tools/research/__init__.py, .claude/commands/research.md updated
-- **Stopped at:** Completed 42-02-PLAN.md
+- **Stopped at:** Phase 42.1 context gathered
 
 ### Next Session
 
