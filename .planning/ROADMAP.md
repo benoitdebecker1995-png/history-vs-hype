@@ -431,6 +431,16 @@ Plans:
 - [ ] 42-01-PLAN.md — Pipeline hardening: .env credential management, actionable errors, smoke test
 - [ ] 42-02-PLAN.md — NLM ingestion: claim parser, review checklist, VERIFIED-RESEARCH writer
 
+### Phase 42.1: Translation Pipeline Claude Code Integration (INSERTED)
+
+**Goal:** Translation pipeline uses Claude Code's native LLM layer instead of direct Anthropic API calls, eliminating API key requirement for Pro plan users
+**Depends on:** Phase 42
+**Plans:** 2 plans
+
+Plans:
+- [ ] 42.1-01-PLAN.md — Refactor translator.py to pure data processor + create /translate command + delete env_loader.py
+- [ ] 42.1-02-PLAN.md — Apply pattern to remaining 4 modules + update cli.py + update verify.md
+
 ### Phase 43: YouTube Intelligence Engine
 **Goal**: Local knowledge base of YouTube algorithm mechanics and history niche patterns exists and stays current through automated refresh
 **Depends on**: Nothing (new capability, independent)
