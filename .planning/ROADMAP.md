@@ -425,7 +425,11 @@ Plans:
   4. User can paste raw NotebookLM chat output and get back a list of extracted claims with citations
   5. User can approve or reject each extracted claim individually before any writes happen
   6. Approved claims are written to 01-VERIFIED-RESEARCH.md in the correct section format without manual formatting
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 42-01-PLAN.md — Pipeline hardening: .env credential management, actionable errors, smoke test
+- [ ] 42-02-PLAN.md — NLM ingestion: claim parser, review checklist, VERIFIED-RESEARCH writer
 
 ### Phase 43: YouTube Intelligence Engine
 **Goal**: Local knowledge base of YouTube algorithm mechanics and history niche patterns exists and stays current through automated refresh
@@ -520,7 +524,7 @@ Note: Phases 42, 43, and 44 have no dependencies on each other and could execute
 | **39. Document Discovery & Format Guide** | **v4.0** | **2/2** | **Complete** | **2026-02-17** |
 | **40. Translation Pipeline** | **v4.0** | **3/3** | **Complete** | **2026-02-17** |
 | **41. Verification & Production Integration** | **v4.0** | **3/3** | **Complete** | **2026-02-18** |
-| 42. Pipeline Hardening & Research Ingestion | v5.0 | 0/? | Not started | - |
+| 42. Pipeline Hardening & Research Ingestion | v5.0 | 0/2 | Planned | - |
 | 43. YouTube Intelligence Engine | v5.0 | 0/? | Not started | - |
 | 44. Analytics Backfill & Feedback Loop | v5.0 | 0/? | Not started | - |
 | 45. Hook Optimization & Intelligence Integration | v5.0 | 0/? | Not started | - |
