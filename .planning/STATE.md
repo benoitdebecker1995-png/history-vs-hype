@@ -18,7 +18,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-19)
 **Last activity:** 2026-02-19 — Roadmap created for v5.0 (5 phases, 20 requirements)
 
 **Progress:**
-v5.0 [....................] 0%
+[██████████] 97%
 
 ## Milestone History
 
@@ -62,7 +62,12 @@ v5.0 [....................] 0%
 ## Decisions
 
 Recent decisions affecting current work:
-- None yet for v5.0
+- for v5.0
+- [Phase 42]: Pure Python .env parsing (no dotenv): minimizes dependencies, 15-line implementation
+- [Phase 42]: wrap_api_error uses duck-typed exception matching to avoid circular imports in env_loader
+- [Phase 42]: Smoke test uses real API calls (not mocks) to validate actual connectivity
+- [Phase 42]: Hybrid NLM parsing: structured bullet detection first, freeform sentence-splitting fallback — handles both NLM output modes without user configuration
+- [Phase 42]: Error dict API pattern (never raise) for nlm_ingest.py — keeps slash command integration simple with consistent error checking
 
 ## Session Continuity
 

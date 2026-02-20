@@ -9,9 +9,9 @@ Requirements for v5.0 Production Intelligence. Each maps to roadmap phases.
 
 ### Pipeline Reliability
 
-- [ ] **PIPE-01**: Translation CLI reads API keys from .env file (falls back to environment variable)
-- [ ] **PIPE-02**: Translation CLI provides actionable error messages when API key missing, network fails, or rate limited
-- [ ] **PIPE-03**: End-to-end pipeline smoke test validates full flow (detect → translate → cross-check → annotate → format)
+- [x] **PIPE-01**: Translation CLI reads API keys from .env file (falls back to environment variable)
+- [x] **PIPE-02**: Translation CLI provides actionable error messages when API key missing, network fails, or rate limited
+- [x] **PIPE-03**: End-to-end pipeline smoke test validates full flow (detect → translate → cross-check → annotate → format)
 
 ### Research Ingestion
 
@@ -74,9 +74,9 @@ Deferred to future release.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| PIPE-01 | Phase 42 | Pending |
-| PIPE-02 | Phase 42 | Pending |
-| PIPE-03 | Phase 42 | Pending |
+| PIPE-01 | Phase 42 | Complete |
+| PIPE-02 | Phase 42 | Complete |
+| PIPE-03 | Phase 42 | Complete |
 | RES-01 | Phase 42 | Pending |
 | RES-02 | Phase 42 | Pending |
 | RES-03 | Phase 42 | Pending |
