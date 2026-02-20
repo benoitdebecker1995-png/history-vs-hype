@@ -29,6 +29,12 @@ try:
 except ImportError:
     anthropic = None
 
+try:
+    from env_loader import load_api_key, wrap_api_error
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).parent))
+    from env_loader import load_api_key, wrap_api_error
+
 # Import Phase 40 modules
 try:
     from tools.translation.cross_checker import CrossChecker
@@ -74,11 +80,12 @@ class TranslationVerifier:
             self.error = "anthropic package not installed. Run: pip install anthropic>=0.40.0"
             return
 
-        # Check for API key
-        api_key = os.environ.get('ANTHROPIC_API_KEY')
-        if not api_key:
-            self.error = "ANTHROPIC_API_KEY not set. Export your API key: export ANTHROPIC_API_KEY=sk-..."
+        # Check for API key (reads from .env file or environment variable)
+        key_result = load_api_key()
+        if 'error' in key_result:
+            self.error = key_result['error']
             return
+        api_key = key_result['key']
 
         # Initialize client
         try:

@@ -23,6 +23,8 @@ try:
 except ImportError:
     anthropic = None
 
+from env_loader import load_api_key, wrap_api_error
+
 
 class SurpriseDetector:
     """
@@ -52,11 +54,12 @@ class SurpriseDetector:
             self.error = "anthropic package not installed. Run: pip install anthropic>=0.40.0"
             return
 
-        # Check for API key
-        api_key = os.environ.get('ANTHROPIC_API_KEY')
-        if not api_key:
-            self.error = "ANTHROPIC_API_KEY not set. Export your API key: export ANTHROPIC_API_KEY=sk-..."
+        # Check for API key (reads from .env file or environment variable)
+        key_result = load_api_key()
+        if 'error' in key_result:
+            self.error = key_result['error']
             return
+        api_key = key_result['key']
 
         # Initialize client
         try:
@@ -286,7 +289,7 @@ Respond in JSON format:
         except json.JSONDecodeError as e:
             return {'error': f'Failed to parse Claude response as JSON: {str(e)}'}
         except Exception as e:
-            return {'error': f'API call failed: {str(e)}'}
+            return {'error': wrap_api_error(e)}
 
     def format_report(self, results: Dict) -> str:
         """
