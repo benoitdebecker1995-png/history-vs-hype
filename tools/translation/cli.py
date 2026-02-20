@@ -13,12 +13,15 @@ Usage:
     python tools/translation/cli.py translate "text" --language spanish --context "1940 statute"
     cat doc.txt | python tools/translation/cli.py translate - --language french --output translation.md
 
+    python tools/translation/cli.py smoketest
+
 Subcommands:
     detect      - Detect document structure (preview before translating)
     translate   - Full translation pipeline (detect + translate + format)
     crosscheck  - Cross-check translation (Plan 40-02)
     annotate    - Annotate legal terms (Plan 40-02)
     surprise    - Detect surprise clauses (Plan 40-03)
+    smoketest   - End-to-end pipeline validation (credentials + structure + translation + format)
 """
 
 import sys
@@ -36,6 +39,7 @@ from formatter import Formatter
 from cross_checker import CrossChecker
 from legal_annotator import LegalAnnotator
 from surprise_detector import SurpriseDetector
+from smoke_test import run_smoke_test
 
 
 def read_input(text_arg: Optional[str], file_path: Optional[str]) -> dict:
@@ -752,6 +756,11 @@ def cmd_surprise(args):
     return 0
 
 
+def cmd_smoketest(args):
+    """Run end-to-end pipeline smoke test."""
+    return run_smoke_test()
+
+
 def main():
     """Main CLI entry point."""
     parser = argparse.ArgumentParser(
@@ -801,6 +810,12 @@ def main():
     surprise_parser.add_argument('--context', help='Optional document context')
     surprise_parser.add_argument('--json', action='store_true', help='Output as JSON')
 
+    # smoketest subcommand
+    subparsers.add_parser(
+        'smoketest',
+        help='End-to-end pipeline validation (credentials + structure + translation + format)'
+    )
+
     # full pipeline subcommand
     full_parser = subparsers.add_parser('full', help='Complete pipeline (detect + translate + crosscheck + annotate + surprise)')
     full_parser.add_argument('text', nargs='?', help='Document text or "-" for stdin')
@@ -835,6 +850,8 @@ def main():
         return cmd_surprise(args)
     elif args.command == 'full':
         return cmd_full(args)
+    elif args.command == 'smoketest':
+        return cmd_smoketest(args)
     else:
         parser.print_help()
         return 1
