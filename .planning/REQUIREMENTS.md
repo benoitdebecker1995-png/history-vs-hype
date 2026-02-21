@@ -22,7 +22,7 @@ Requirements for v5.0 Production Intelligence. Each maps to roadmap phases.
 ### YouTube Intelligence Engine
 
 - [x] **INTEL-01**: Local knowledge base stores algorithm mechanics (AVD, CTR, satisfaction signals, browse vs search priorities)
-- [ ] **INTEL-02**: Knowledge base stores niche-specific patterns (what history/edu formats, lengths, hooks are performing)
+- [x] **INTEL-02**: Knowledge base stores niche-specific patterns (what history/edu formats, lengths, hooks are performing)
 - [x] **INTEL-03**: Web scraper refreshes algorithm knowledge from authoritative sources (Creator Insider, Think Media, vidIQ blog, etc.)
 - [x] **INTEL-04**: Competitor tracker monitors top history/edu channels for viral content and format trends
 
@@ -81,7 +81,7 @@ Deferred to future release.
 | RES-02 | Phase 42 | Complete |
 | RES-03 | Phase 42 | Complete |
 | INTEL-01 | Phase 43 | Complete |
-| INTEL-02 | Phase 43 | Pending |
+| INTEL-02 | Phase 43 | Complete |
 | INTEL-03 | Phase 43 | Complete |
 | INTEL-04 | Phase 43 | Complete |
 | INTEL-05 | Phase 45 | Pending |
