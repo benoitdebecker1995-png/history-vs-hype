@@ -465,7 +465,11 @@ Plans:
   1. User can run a single backfill command that imports all existing POST-PUBLISH-ANALYSIS files and YouTube API data into the analytics DB
   2. During /script generation, channel-specific insights (what works for YOUR channel) surface automatically without manual lookup
   3. Topic recommendations incorporate updated performance patterns from backfilled data
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 44-01-PLAN.md — Backfill module: JSON import, markdown parsing, topic reclassification, channel insights report, CLI
+- [ ] 44-02-PLAN.md — Command integration: channel insights in /prep, /publish, /research; --backfill flag; auto-regeneration after /analyze
 
 ### Phase 45: Hook Optimization & Intelligence Integration
 **Goal**: Script-writer generates algorithm-optimized hooks informed by current YouTube intelligence, and intelligence auto-surfaces during all production commands
@@ -541,6 +545,6 @@ Note: Phases 42, 43, and 44 have no dependencies on each other and could execute
 | **41. Verification & Production Integration** | **v4.0** | **3/3** | **Complete** | **2026-02-18** |
 | 42. Pipeline Hardening & Research Ingestion | 2/2 | Complete    | 2026-02-20 | - |
 | 43. YouTube Intelligence Engine | 3/3 | Complete    | 2026-02-21 | - |
-| 44. Analytics Backfill & Feedback Loop | v5.0 | 0/? | Not started | - |
+| 44. Analytics Backfill & Feedback Loop | v5.0 | 0/2 | Planned | - |
 | 45. Hook Optimization & Intelligence Integration | v5.0 | 0/? | Not started | - |
 | 46. Project Dashboard | v5.0 | 0/? | Not started | - |
