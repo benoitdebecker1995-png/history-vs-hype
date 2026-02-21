@@ -1,5 +1,7 @@
 # Script Structure Analysis: What to Steal from Top Creators
 
+> **DEPRECATED:** This file has been superseded by the YouTube Intelligence Engine. Run `/intel --niche` for current niche patterns. Data from this file has been absorbed into `channel-data/youtube-intelligence.md`.
+
 **Created:** 2025-12-26
 **Purpose:** Concrete techniques to improve History vs Hype scripts
 

@@ -1,5 +1,7 @@
 # Competitor Title Database - Documentary/History Niche
 
+> **DEPRECATED:** This file has been superseded by the YouTube Intelligence Engine. Run `/intel --competitors` for current competitor data. Live competitor tracking is now automated via `/intel --refresh`.
+
 **Created:** 2025-12-26
 **Purpose:** Extract proven title patterns from successful channels in your niche
 

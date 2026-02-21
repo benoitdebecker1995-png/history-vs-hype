@@ -32,6 +32,38 @@ Start a new video project or research an existing topic. This command consolidat
 
 ## NEW PROJECT WORKFLOW (`--new` or default)
 
+### Step 0: YouTube Intelligence KB Staleness Check
+
+Before starting research, check whether the YouTube Intelligence knowledge base is current:
+
+```python
+import sys
+sys.path.insert(0, '.')
+from tools.intel.kb_store import KBStore
+from pathlib import Path
+
+if Path('tools/intel/intel.db').exists():
+    s = KBStore()
+    status = 'STALE' if s.is_stale() else 'CURRENT'
+    print(status)
+else:
+    print('NOT_INITIALIZED')
+```
+
+**If STALE or NOT_INITIALIZED:** Inform user and run refresh automatically:
+
+```python
+import sys
+sys.path.insert(0, '.')
+from tools.intel.refresh import run_refresh, get_refresh_summary
+result = run_refresh(force=True)
+print(get_refresh_summary(result))
+```
+
+Show a brief refresh summary to the user before continuing. This ensures competitor and algorithm data is current before planning research angles.
+
+**If CURRENT:** Continue silently (no output).
+
 ### Step 1: Gather Project Information
 
 Ask the user:

@@ -689,8 +689,9 @@ Make academic research accessible while maintaining historical integrity. The go
 - Topic ideas pipeline: `.claude/OUTLIER-TOPIC-IDEAS.md`
 - Source standards: `.claude/NOTEBOOKLM-SOURCE-STANDARDS.md`
 - Creator transcripts: `transcripts/` (Kraut, Knowing Better, Shaun, etc.)
-- **Competitor title database:** `channel-data/COMPETITOR-TITLE-DATABASE.md` (title formulas, VidIQ analysis)
-- **Script structure analysis:** `channel-data/SCRIPT-STRUCTURE-ANALYSIS.md` (opening formulas, transcript breakdowns)
+- **Competitor title database:** `channel-data/COMPETITOR-TITLE-DATABASE.md` (title formulas, VidIQ analysis) *(superseded by /intel)*
+- **Script structure analysis:** `channel-data/SCRIPT-STRUCTURE-ANALYSIS.md` (opening formulas, transcript breakdowns) *(superseded by /intel)*
+- **YouTube Intelligence Engine:** `/intel` — live competitor tracking, algorithm mechanics, niche patterns (runs `tools/intel/`)
 - **YouTube transcript extractor:** `get-transcript.py` (automatic transcript fetching)
 
 **Ready to create your next video?** Start with `/research --new`

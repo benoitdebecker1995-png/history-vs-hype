@@ -37,6 +37,58 @@ Write new scripts, revise existing ones, review for issues, or export for telepr
 
 Generate a script using the script-writer-v2 agent.
 
+## YouTube Intelligence Check (Auto-run Before Every Script)
+
+Before generating any script, run the intelligence staleness check and load the KB:
+
+### Step 1: Staleness Check
+
+```python
+import sys
+sys.path.insert(0, '.')
+from tools.intel.kb_store import KBStore
+from pathlib import Path
+
+if Path('tools/intel/intel.db').exists():
+    s = KBStore()
+    is_stale = s.is_stale()
+    if is_stale:
+        print('STALE')
+else:
+    is_stale = True
+    print('NOT_INITIALIZED')
+```
+
+If stale or not initialized, run refresh before proceeding:
+
+```python
+import sys
+sys.path.insert(0, '.')
+from tools.intel.refresh import run_refresh, get_refresh_summary
+result = run_refresh(force=True)
+print(get_refresh_summary(result))
+```
+
+### Step 2: Load YouTube Intelligence KB
+
+Read `channel-data/youtube-intelligence.md` for current algorithm and niche intelligence:
+
+```python
+from pathlib import Path
+kb_path = Path('channel-data/youtube-intelligence.md')
+if kb_path.exists():
+    kb_content = kb_path.read_text(encoding='utf-8')
+    print(kb_content)
+```
+
+Use the KB to inform script structure decisions:
+- **Algorithm Mechanics:** What satisfaction signals does YouTube reward? What matters for longform?
+- **Niche Patterns:** What duration is working in the niche? What title formulas dominate?
+- **Competitor Landscape:** What topics are competitors covering now? What gaps exist?
+- **Outlier Analysis:** What made the outlier videos succeed? Can that pattern be applied here?
+
+**Do NOT display the KB dump to the user** — use it as internal context for structure and hook decisions.
+
 ## Before Writing
 
 **Read these reference files:**
