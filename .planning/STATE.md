@@ -18,7 +18,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-19)
 **Last activity:** 2026-02-20 — NLM ingestion tool built (nlm_ingest.py), /research --ingest command documented
 
 **Progress:**
-[██████████] 99%
+[██████████] 98%
 
 ## Milestone History
 
@@ -81,6 +81,9 @@ Recent decisions affecting current work:
 - [Phase 43-youtube-intelligence-engine]: 10-phase refresh orchestrator: errors collected and returned, pipeline continues on individual phase failure
 - [Phase 43-youtube-intelligence-engine]: query.py returns formatted Markdown strings (not raw dicts) — display-ready output simplifies /intel command logic
 - [Phase 43-youtube-intelligence-engine]: PRE-SCRIPT INTELLIGENCE in script-writer-v2 is light integration (read as context, do not display) — Phase 45 will deepen with Rule 19
+- [Phase 44-analytics-backfill-feedback-loop]: avg_retention_pct added via migration in backfill.py (not database.py) — keeps Phase 44 self-contained without modifying core DB layer
+- [Phase 44-analytics-backfill-feedback-loop]: Own-channel filtering uses both JSON pre-fetch files as authoritative ID set (40 IDs) — prevents competitor data contaminating channel insights
+- [Phase 44-analytics-backfill-feedback-loop]: Composite score weights: views 0.4, retention 0.35, conversion 0.25 — normalized 0-1 against channel max per user decision
 
 ## Session Continuity
 
@@ -89,7 +92,7 @@ Recent decisions affecting current work:
 - **Date:** 2026-02-20
 - **Work:** Executed 42-02-PLAN.md — NLM ingestion tool (nlm_ingest.py), /research --ingest workflow
 - **Output:** tools/research/nlm_ingest.py, tools/research/__init__.py, .claude/commands/research.md updated
-- **Stopped at:** Phase 44 context gathered
+- **Stopped at:** Completed 44-01-PLAN.md
 
 ### Next Session
 
