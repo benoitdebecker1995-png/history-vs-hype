@@ -1,0 +1,66 @@
+{
+  "_comment": "Channel IDs sourced from YouTube channel pages. Verify by visiting https://www.youtube.com/channel/CHANNEL_ID",
+  "_note": "IDs from RESEARCH.md — approximate. HIGH confidence: Kraut, Fall of Civilizations, RealLifeLore, Kings and Generals, Wendover. MEDIUM: Shaun, Knowing Better, Historia Civilis, HistoryMarche, Toldinstone. Verify before production use.",
+  "channels": [
+    {
+      "id": "UCIjc5FMDlQj2PEyFjqBQRTw",
+      "name": "Kraut",
+      "category": "style-match",
+      "notes": "Deep causal chains, comparative analysis — primary style reference"
+    },
+    {
+      "id": "UCpW4cR0RF0mVzCzBo8PXQBA",
+      "name": "Fall of Civilizations",
+      "category": "style-match",
+      "notes": "Systems collapse framing, evidence stacking — primary style reference"
+    },
+    {
+      "id": "UCNjln6WWND4Ks-lbXGFMBhA",
+      "name": "Shaun",
+      "category": "style-match",
+      "notes": "Document-first argumentation, chronological precision — primary style reference"
+    },
+    {
+      "id": "UCrPSeQVnJLJL9CWDlm3UCiQ",
+      "name": "Knowing Better",
+      "category": "style-match",
+      "notes": "Forensic source verification, translation skepticism — primary style reference"
+    },
+    {
+      "id": "UC-LDY-f9VH3Hbj8bHVs5Blw",
+      "name": "Historia Civilis",
+      "category": "style-match",
+      "notes": "Roman history, minimalist, intellectual — strong channel DNA overlap"
+    },
+    {
+      "id": "UCQeRaTukNYft1_6AZPACnog",
+      "name": "RealLifeLore",
+      "category": "broad-history",
+      "notes": "Geography/maps, same 25-44 male demographic"
+    },
+    {
+      "id": "UCMmaBzfCCwZ2KqaBJjkj0fw",
+      "name": "Kings and Generals",
+      "category": "broad-history",
+      "notes": "Military history, animated — format reference"
+    },
+    {
+      "id": "UCyEqailAaj8e2dCuhB2CfhA",
+      "name": "Wendover Productions",
+      "category": "broad-history",
+      "notes": "Logistics/systems — audience overlap with History vs Hype"
+    },
+    {
+      "id": "UCXqRJ7f3VoRHvJRrHEVa7rg",
+      "name": "Johnny Harris",
+      "category": "geopolitics",
+      "notes": "Geopolitics journalism — monitor for format innovations"
+    },
+    {
+      "id": "UCHa2IaUVA07YSZrkiDO4XUQ",
+      "name": "HistoryMarche",
+      "category": "broad-history",
+      "notes": "Military animated history — Tier 3 watch for format innovations"
+    }
+  ]
+}
