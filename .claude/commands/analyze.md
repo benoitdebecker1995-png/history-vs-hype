@@ -11,12 +11,14 @@ Run comprehensive performance analysis for a published video with automated less
 
 ```
 /analyze VIDEO_ID_OR_URL [--ctr VALUE] [--script PATH]
+/analyze --backfill
 ```
 
 **Arguments:**
-- `VIDEO_ID_OR_URL`: YouTube video ID or full URL (required)
+- `VIDEO_ID_OR_URL`: YouTube video ID or full URL (required, unless --backfill)
 - `--ctr VALUE`: Manually provide CTR percentage from YouTube Studio (optional)
 - `--script PATH`: Path to script file for section-level retention analysis (optional)
+- `--backfill`: Run full analytics backfill (imports JSON + markdown + reclassifies + generates insights)
 
 ## What It Does
 
@@ -73,6 +75,44 @@ Then:
 1. Display the markdown output to user
 2. Confirm where file was saved
 3. If CTR unavailable, suggest: "Add CTR with: /analyze VIDEO_ID --ctr VALUE"
+
+## BACKFILL ANALYTICS (`--backfill`)
+
+Run the full analytics backfill pipeline to populate the DB from all existing channel data.
+
+```python
+import sys
+sys.path.insert(0, '.')
+from pathlib import Path
+from tools.youtube_analytics.backfill import run_backfill
+
+project_root = Path('.')
+result = run_backfill(project_root)
+
+print(f"JSON import: {result['imported_json']} videos")
+print(f"Markdown import: {result['imported_md']} analyses")
+print(f"Reclassified: {result['reclassified']} topics")
+print(f"Insights saved to: {result.get('insights_path', 'N/A')}")
+```
+
+This is safe to re-run anytime (idempotent upsert design).
+
+---
+
+## Auto-Regenerate Channel Insights
+
+After saving any analysis, regenerate the channel insights report to keep it current:
+
+```python
+from tools.youtube_analytics.backfill import generate_channel_insights_report
+result = generate_channel_insights_report(Path('.'))
+if 'error' not in result:
+    print(f"Channel insights updated: {result['saved_to']}")
+```
+
+This runs automatically after each `/analyze VIDEO_ID --save`. No separate flag needed.
+
+---
 
 ## Requirements
 

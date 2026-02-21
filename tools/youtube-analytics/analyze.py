@@ -263,6 +263,17 @@ def save_analysis(analysis: dict, output_path: str = None) -> dict:
         except Exception:
             pass  # Non-blocking: feedback storage failure should not affect save
 
+    # Auto-regenerate channel insights after saving analysis
+    try:
+        from backfill import generate_channel_insights_report
+        insights_result = generate_channel_insights_report(PROJECT_ROOT)
+        if 'error' not in insights_result:
+            print(f"  Channel insights updated: {insights_result['saved_to']}")
+    except ImportError:
+        pass  # backfill.py not yet available — graceful degradation
+    except Exception as e:
+        print(f"  Warning: Could not regenerate insights: {e}")
+
     return {
         'saved_to': str(save_path),
         'project_folder_found': project_folder_found,
