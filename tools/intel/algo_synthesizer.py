@@ -162,22 +162,40 @@ def _count_keyword_hits(text: str, keywords: list) -> int:
     return sum(1 for kw in keywords if kw.lower() in text_lower)
 
 
+def _is_noise_sentence(sentence: str) -> bool:
+    """
+    Return True if the sentence looks like JSON-LD, CSS, or HTML noise
+    rather than readable algorithm content.
+    """
+    s = sentence.strip()
+    # Starts with JSON object/array or CSS block (from scraped pages)
+    if s.startswith(("{", "[", "}", "]", "*", ".", "#")):
+        return True
+    # Extremely long "sentences" are usually schema blobs
+    if len(s) > 400:
+        return True
+    # More than 3 braces suggests JSON blob
+    if s.count("{") + s.count("}") > 3:
+        return True
+    return False
+
+
 def _extract_sentences_with_keywords(text: str, keywords: list, max_sentences: int = 3) -> list:
     """
     Extract up to max_sentences sentences that contain at least one keyword.
 
+    Skips sentences that look like JSON-LD / CSS / HTML noise.
     Returns list of cleaned sentence strings.
     """
     # Split on sentence boundaries (period, exclamation, question mark + space/newline)
     sentences = re.split(r"(?<=[.!?])\s+", text)
     hits = []
-    text_lower = text.lower()
     for sent in sentences:
         sent_lower = sent.lower()
         if any(kw.lower() in sent_lower for kw in keywords):
             clean = sent.strip()
-            if len(clean) > 20:  # Skip very short fragments
-                hits.append(clean)
+            if len(clean) > 20 and not _is_noise_sentence(clean):
+                hits.append(clean[:250])  # Truncate for conciseness
         if len(hits) >= max_sentences:
             break
     return hits
