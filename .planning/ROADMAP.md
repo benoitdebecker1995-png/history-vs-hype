@@ -450,7 +450,12 @@ Plans:
   2. User can query niche-specific patterns showing what history/edu formats, lengths, and hooks are performing right now
   3. User can run a refresh command that scrapes authoritative sources (Creator Insider, Think Media, vidIQ blog) and updates the knowledge base
   4. User can see what competitor history/edu channels have published recently, with viral content and format trend flags
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 43-01-PLAN.md — Foundation: SQLite storage layer, algorithm scraper, competitor tracker (RSS + API)
+- [ ] 43-02-PLAN.md — Synthesis: algorithm synthesizer, outlier detection, KB exporter, refresh orchestrator
+- [ ] 43-03-PLAN.md — Interface: /intel command, pre-production integration, file migration
 
 ### Phase 44: Analytics Backfill & Feedback Loop
 **Goal**: Analytics DB is populated from all existing channel data, and channel-specific insights surface automatically during video production
