@@ -30,6 +30,29 @@ Start a new video project or research an existing topic. This command consolidat
 
 ---
 
+## Channel Insights Context (Auto-run)
+
+Before generating output, check for own-channel performance context:
+
+1. Read `channel-data/channel-insights.md` if it exists
+2. Use as **internal context** for decisions — do NOT dump full file to user
+3. Display a brief 2-3 line advisory block:
+
+```
+--- Channel Performance Context ---
+[Extract 2-3 most relevant lines from channel-insights.md for this workflow]
+Example: Top format: territorial (avg 1,950 views). Best retention: 42.0%.
+Low signal: ~15 videos — experiment freely.
+---
+```
+
+4. If file does not exist, skip silently — NEVER block generation on missing analytics
+5. Insights are advisory — guide experimentation, never dictate choices
+
+**For /research --new:** Focus on topic opportunity insights (what topic types perform well, what's underexplored)
+
+---
+
 ## NEW PROJECT WORKFLOW (`--new` or default)
 
 ### Step 0: YouTube Intelligence KB Staleness Check
