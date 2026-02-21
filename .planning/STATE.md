@@ -18,7 +18,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-19)
 **Last activity:** 2026-02-20 — NLM ingestion tool built (nlm_ingest.py), /research --ingest command documented
 
 **Progress:**
-[██████████] 97%
+[██████████] 98%
 
 ## Milestone History
 
@@ -77,6 +77,8 @@ Recent decisions affecting current work:
 - [Phase 42.1]: Smoke test rewritten as 4-step pure Python health check — module imports + payload builder + response parser, no API calls
 - [Phase 43-youtube-intelligence-engine]: feedparser only new dependency; No BeautifulSoup needed — LLM synthesis handles messy text
 - [Phase 43-youtube-intelligence-engine]: Graceful RSS-only fallback when YouTube API auth fails; competitor enrichment non-fatal
+- [Phase 43-youtube-intelligence-engine]: Text-analysis mode is primary synthesis path for automated refresh; SYNTHESIS_PROMPT constant reserved for /intel command in Claude Code agent context
+- [Phase 43-youtube-intelligence-engine]: 10-phase refresh orchestrator: errors collected and returned, pipeline continues on individual phase failure
 
 ## Session Continuity
 
@@ -85,7 +87,7 @@ Recent decisions affecting current work:
 - **Date:** 2026-02-20
 - **Work:** Executed 42-02-PLAN.md — NLM ingestion tool (nlm_ingest.py), /research --ingest workflow
 - **Output:** tools/research/nlm_ingest.py, tools/research/__init__.py, .claude/commands/research.md updated
-- **Stopped at:** Completed 43-01-PLAN.md (SQLite storage layer + algo scraper + competitor tracker)
+- **Stopped at:** Completed 43-02-PLAN.md (synthesis pipeline + KB export + refresh orchestrator)
 
 ### Next Session
 
