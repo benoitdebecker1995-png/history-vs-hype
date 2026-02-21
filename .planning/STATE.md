@@ -18,7 +18,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-19)
 **Last activity:** 2026-02-20 — NLM ingestion tool built (nlm_ingest.py), /research --ingest command documented
 
 **Progress:**
-[██████████] 96%
+[██████████] 97%
 
 ## Milestone History
 
@@ -75,6 +75,8 @@ Recent decisions affecting current work:
 - [Phase 42]: Error dict API pattern (never raise) for nlm_ingest.py — keeps slash command integration simple with consistent error checking
 - [Phase 42.1]: Keep TRANSLATION_SYSTEM_PROMPT in Python (domain knowledge stays with data layer, per RESEARCH.md Pitfall 1 option b)
 - [Phase 42.1]: Smoke test rewritten as 4-step pure Python health check — module imports + payload builder + response parser, no API calls
+- [Phase 43-youtube-intelligence-engine]: feedparser only new dependency; No BeautifulSoup needed — LLM synthesis handles messy text
+- [Phase 43-youtube-intelligence-engine]: Graceful RSS-only fallback when YouTube API auth fails; competitor enrichment non-fatal
 
 ## Session Continuity
 
@@ -83,7 +85,7 @@ Recent decisions affecting current work:
 - **Date:** 2026-02-20
 - **Work:** Executed 42-02-PLAN.md — NLM ingestion tool (nlm_ingest.py), /research --ingest workflow
 - **Output:** tools/research/nlm_ingest.py, tools/research/__init__.py, .claude/commands/research.md updated
-- **Stopped at:** Phase 43 context gathered
+- **Stopped at:** Completed 43-01-PLAN.md (SQLite storage layer + algo scraper + competitor tracker)
 
 ### Next Session
 
