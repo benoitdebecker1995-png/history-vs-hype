@@ -91,45 +91,41 @@ def ensure_channels_loaded(store: KBStore) -> None:
 # Summary helpers
 # ---------------------------------------------------------------------------
 
-def get_refresh_summary(store: KBStore) -> dict:
+def get_refresh_summary(refresh_result: dict) -> dict:
     """
-    Return a concise summary of current KB state for display after refresh.
+    Return a concise summary from a run_refresh() result dict.
+
+    Args:
+        refresh_result: The dict returned by run_refresh(), containing keys like
+            channels_fetched, videos_total, outliers_found, algo_sources_scraped,
+            kb_exported_to, errors, refreshed, skipped, etc.
 
     Returns:
         {
-            'channels_loaded': int,
-            'videos_stored':   int,
-            'outliers_stored': int,
-            'algo_snapshot':   bool,
-            'niche_snapshot':  bool,
-            'last_refresh':    str | None,
+            'channels_fetched':    int,
+            'videos_total':        int,
+            'outliers_found':      int,
+            'algo_sources_scraped': int,
+            'kb_exported_to':      str | None,
+            'errors':              list,
+            'refreshed':           bool,
         }
     """
-    try:
-        channels = store.get_active_channels() or []
-        all_videos = store.get_competitor_videos(limit=1000) or []
-        outliers = store.get_competitor_videos(outliers_only=True, limit=1000) or []
+    if not isinstance(refresh_result, dict):
+        return {"error": f"get_refresh_summary expects a dict, got {type(refresh_result).__name__}"}
 
-        if isinstance(channels, dict):
-            channels = []
-        if isinstance(all_videos, dict):
-            all_videos = []
-        if isinstance(outliers, dict):
-            outliers = []
+    if "error" in refresh_result:
+        return refresh_result
 
-        algo = store.get_latest_algo_snapshot()
-        niche = store.get_latest_niche_snapshot()
-
-        return {
-            "channels_loaded": len(channels),
-            "videos_stored":   len(all_videos),
-            "outliers_stored": len(outliers),
-            "algo_snapshot":   algo is not None and "error" not in (algo or {}),
-            "niche_snapshot":  niche is not None and "error" not in (niche or {}),
-            "last_refresh":    store.get_last_refresh(),
-        }
-    except Exception as exc:
-        return {"error": f"get_refresh_summary failed: {exc}"}
+    return {
+        "channels_fetched":     refresh_result.get("channels_fetched", 0),
+        "videos_total":         refresh_result.get("videos_total", 0),
+        "outliers_found":       refresh_result.get("outliers_found", 0),
+        "algo_sources_scraped": refresh_result.get("algo_sources_scraped", 0),
+        "kb_exported_to":       refresh_result.get("kb_exported_to"),
+        "errors":               refresh_result.get("errors", []),
+        "refreshed":            refresh_result.get("refreshed", False),
+    }
 
 
 # ---------------------------------------------------------------------------
