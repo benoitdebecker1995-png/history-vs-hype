@@ -18,7 +18,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-19)
 **Last activity:** 2026-02-20 — NLM ingestion tool built (nlm_ingest.py), /research --ingest command documented
 
 **Progress:**
-[██████████] 98%
+[██████████] 99%
 
 ## Milestone History
 
@@ -88,6 +88,8 @@ Recent decisions affecting current work:
 - [Phase 44-analytics-backfill-feedback-loop]: analyze.py uses PROJECT_ROOT constant for generate_channel_insights_report() — avoids CWD ambiguity when invoked from different directories
 - [Phase 45-hook-optimization-intelligence-integration]: YouTube Intelligence advisory placed after Channel Insights in prep/publish — keeps own-channel vs algorithm/niche data sources visually separate
 - [Phase 45-hook-optimization-intelligence-integration]: Workflow-specific focus lines per command: /script=hooks/algorithm, /prep=format/B-roll, /publish=titles/CTR
+- [Phase 45-hook-optimization-intelligence-integration]: Rule 19 supersedes Rule 9 Section A (Opening Hook Selection) for first 60 seconds — Rule 9 hook types become subsets of 4-beat formula
+- [Phase 45-hook-optimization-intelligence-integration]: STEP 8 in REASONING FRAMEWORK updated to reference Rule 19 directly, replacing old Part 4 formula reference
 
 ## Session Continuity
 
@@ -96,7 +98,7 @@ Recent decisions affecting current work:
 - **Date:** 2026-02-20
 - **Work:** Executed 42-02-PLAN.md — NLM ingestion tool (nlm_ingest.py), /research --ingest workflow
 - **Output:** tools/research/nlm_ingest.py, tools/research/__init__.py, .claude/commands/research.md updated
-- **Stopped at:** Completed 45-02-PLAN.md
+- **Stopped at:** Completed 45-01-PLAN.md
 
 ### Next Session
 

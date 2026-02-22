@@ -32,9 +32,9 @@ Requirements for v5.0 Production Intelligence. Each maps to roadmap phases.
 
 ### Hook Optimization
 
-- [ ] **HOOK-01**: Rule 19 in script-writer generates algorithm-optimized first 60 seconds (cold fact → myth → contradiction → payoff)
-- [ ] **HOOK-02**: Hook pass references YouTube Intelligence Engine data for current best practices
-- [ ] **HOOK-03**: Hook includes retention triggers (information gap, visual carrot, authority signals)
+- [x] **HOOK-01**: Rule 19 in script-writer generates algorithm-optimized first 60 seconds (cold fact → myth → contradiction → payoff)
+- [x] **HOOK-02**: Hook pass references YouTube Intelligence Engine data for current best practices
+- [x] **HOOK-03**: Hook includes retention triggers (information gap, visual carrot, authority signals)
 
 ### Analytics Feedback Loop
 
@@ -85,9 +85,9 @@ Deferred to future release.
 | INTEL-03 | Phase 43 | Complete |
 | INTEL-04 | Phase 43 | Complete |
 | INTEL-05 | Phase 45 | Complete |
-| HOOK-01 | Phase 45 | Pending |
-| HOOK-02 | Phase 45 | Pending |
-| HOOK-03 | Phase 45 | Pending |
+| HOOK-01 | Phase 45 | Complete |
+| HOOK-02 | Phase 45 | Complete |
+| HOOK-03 | Phase 45 | Complete |
 | ANLYT-01 | Phase 44 | Complete |
 | ANLYT-02 | Phase 44 | Complete |
 | ANLYT-03 | Phase 44 | Complete |
