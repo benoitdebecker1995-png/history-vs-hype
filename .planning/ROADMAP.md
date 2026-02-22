@@ -480,7 +480,11 @@ Plans:
   2. Hook generation references current YouTube Intelligence Engine data for best practices (not hardcoded assumptions)
   3. Generated hooks include retention triggers: information gap, visual carrot, and authority signals
   4. Relevant YouTube intelligence insights auto-surface during /script, /prep, and /publish generation without manual lookup
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 45-01-PLAN.md — Rule 19: Algorithm-aware hook optimization (cold fact → myth → contradiction → payoff) with YouTube intelligence integration
+- [ ] 45-02-PLAN.md — YouTube intelligence advisory surfacing in /script, /prep, /publish commands
 
 ### Phase 46: Project Dashboard
 **Goal**: User gets a single-command overview of all projects in production with priority ranking and time-sensitive alerts
