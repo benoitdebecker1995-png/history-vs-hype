@@ -18,7 +18,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-19)
 **Last activity:** 2026-02-20 — NLM ingestion tool built (nlm_ingest.py), /research --ingest command documented
 
 **Progress:**
-[██████████] 99%
+[██████████] 98%
 
 ## Milestone History
 
@@ -86,6 +86,8 @@ Recent decisions affecting current work:
 - [Phase 44-analytics-backfill-feedback-loop]: Composite score weights: views 0.4, retention 0.35, conversion 0.25 — normalized 0-1 against channel max per user decision
 - [Phase 44-analytics-backfill-feedback-loop]: Channel insights section placed after Flags table in all three commands — consistent insertion point before first workflow section
 - [Phase 44-analytics-backfill-feedback-loop]: analyze.py uses PROJECT_ROOT constant for generate_channel_insights_report() — avoids CWD ambiguity when invoked from different directories
+- [Phase 45-hook-optimization-intelligence-integration]: YouTube Intelligence advisory placed after Channel Insights in prep/publish — keeps own-channel vs algorithm/niche data sources visually separate
+- [Phase 45-hook-optimization-intelligence-integration]: Workflow-specific focus lines per command: /script=hooks/algorithm, /prep=format/B-roll, /publish=titles/CTR
 
 ## Session Continuity
 
@@ -94,7 +96,7 @@ Recent decisions affecting current work:
 - **Date:** 2026-02-20
 - **Work:** Executed 42-02-PLAN.md — NLM ingestion tool (nlm_ingest.py), /research --ingest workflow
 - **Output:** tools/research/nlm_ingest.py, tools/research/__init__.py, .claude/commands/research.md updated
-- **Stopped at:** Completed 44-02-PLAN.md
+- **Stopped at:** Completed 45-02-PLAN.md
 
 ### Next Session
 

@@ -28,7 +28,7 @@ Requirements for v5.0 Production Intelligence. Each maps to roadmap phases.
 
 ### Intelligence Surfacing
 
-- [ ] **INTEL-05**: Intelligence auto-surfaces relevant insights during /script, /prep, /publish generation
+- [x] **INTEL-05**: Intelligence auto-surfaces relevant insights during /script, /prep, /publish generation
 
 ### Hook Optimization
 
@@ -84,7 +84,7 @@ Deferred to future release.
 | INTEL-02 | Phase 43 | Complete |
 | INTEL-03 | Phase 43 | Complete |
 | INTEL-04 | Phase 43 | Complete |
-| INTEL-05 | Phase 45 | Pending |
+| INTEL-05 | Phase 45 | Complete |
 | HOOK-01 | Phase 45 | Pending |
 | HOOK-02 | Phase 45 | Pending |
 | HOOK-03 | Phase 45 | Pending |
