@@ -549,6 +549,77 @@ Strip all [VISUAL: ...] notes, keep only spoken narration.
 
 ---
 
+### RULE 19: ALGORITHM-AWARE HOOK OPTIMIZATION
+
+**Purpose:** The opening 60 seconds determine whether viewers stay or leave. This rule codifies a proven hook formula informed by live algorithm intelligence, not hardcoded assumptions.
+
+**A. Hook Formula (First 60 Seconds):**
+
+The hook follows a 4-beat structure. Each beat has a purpose and timing target:
+
+| Beat | Timing | Purpose | Example (Territorial) | Example (Ideological) | Example (Untranslated) |
+|------|--------|---------|----------------------|----------------------|------------------------|
+| **1. Cold Fact** | 0:00-0:10 | Concrete, specific, surprising detail | "In 1897, Mexico published an atlas showing an island at 22°33'N." | "In 1492, every university in Europe taught that the earth was round." | "Article 3 of the 1940 Vichy Statute has never been translated into English." |
+| **2. Myth** | 0:10-0:20 | State what people believe (the wrong version) | "Most maps today show nothing there." | "Most people think Columbus proved the earth wasn't flat." | "English summaries say it 'restricted Jewish professions.'" |
+| **3. Contradiction** | 0:20-0:40 | Evidence that shatters the myth | "So I pulled the original Mexican naval surveys..." | "So I read what Columbus actually argued about — and it wasn't the shape." | "But when you read the original French, it says something much more specific..." |
+| **4. Payoff Preview** | 0:40-1:00 | Why this matters NOW + what viewer will learn | "...and what they show explains a $100 billion oil dispute happening right now." | "...and that distinction matters because the flat earth myth is still shaping education policy today." | "...and that distinction changes how we understand Vichy collaboration entirely." |
+
+**B. Retention Triggers (Embed in Every Hook):**
+
+Each hook MUST contain all three retention triggers:
+
+1. **Information Gap:** Create a question the viewer needs answered. The contradiction beat naturally creates this — the viewer wonders "what DID the evidence show?" Do NOT close the gap in the hook. The payoff preview promises the answer without delivering it.
+
+2. **Visual Carrot:** Promise or show a specific piece of evidence. Use phrases like "So I pulled the original [document/map/survey]..." or "Here's what Article [N] actually says in [language]..." In B-roll notes, mark the visual that accompanies the contradiction beat: `[B-ROLL: Show [specific document/map] zooming to [specific detail]]`
+
+3. **Authority Signal:** Establish personal credibility within first 60 seconds. Use first-person ownership: "So I read that treaty" / "I pulled the original naval surveys" / "I found the academic edition." This follows the channel's proven pattern (Belize: "So, I read that treaty" at ~25 seconds).
+
+**C. YouTube Intelligence Integration:**
+
+Before writing the hook, consult `channel-data/youtube-intelligence.md` (loaded in PRE-SCRIPT INTELLIGENCE section):
+
+- **Algorithm Mechanics → Satisfaction Signals:** If satisfaction weight is "very_high", ensure hook promises depth, not just a reveal. Prefer "Here's what the evidence actually shows" over "You won't believe what I found."
+- **Algorithm Mechanics → Signal Weights:** If AVD weight is "high", front-load the strongest evidence tease in the first 10 seconds to maximize early retention.
+- **Niche Patterns → Format Trends:** If the niche shows 20-30min videos dominating, the hook should promise a thorough investigation, not a quick answer.
+- **Outlier Analysis:** If an outlier video used a specific hook pattern (e.g., "legal fiction exposed"), consider whether the current topic fits that frame.
+
+**If youtube-intelligence.md is missing or stale (>30 days):** Note staleness internally. Use the 4-beat formula with sensible defaults (satisfaction-first, depth-promising hooks). Do NOT block script generation.
+
+**If no intel data at all:** Fall back entirely to the 4-beat formula without algorithm-specific tuning.
+
+**D. Video Type Adaptation:**
+
+| Type | Cold Fact Focus | Myth Focus | Contradiction Focus | Payoff Focus |
+|------|----------------|------------|---------------------|--------------|
+| **Territorial** | Geographic detail, treaty date, specific measurement | "Most maps show..." / "The border was supposed to be..." | Original document/survey evidence | Active dispute, ICJ case, economic stakes |
+| **Ideological** | Historical quote, statistic, date | "Most people think..." / "You've probably heard..." | Academic source contradiction | Modern belief/debate this myth still fuels |
+| **Untranslated** | Specific article/clause number, language | "English summaries say..." / "The official translation claims..." | Original language reveals different meaning | How mistranslation shapes current understanding |
+| **Fact-Check** | What the person claimed (specific quote + date) | Why people believed it / virality | Primary source evidence against claim | Why the truth matters for current debate |
+
+**E. Integration with Existing Rules:**
+
+- **Rule 1 (Verbatim Facts):** All hook facts must come from research files. If cold fact not in research, flag `[NEEDS VERIFICATION]`.
+- **Rule 6 (Spoken Delivery):** Hook must pass stumble test. Natural phrasing, contractions, conversational.
+- **Rule 9 (Proven Techniques):** Rule 19 supersedes Rule 9 Section A (Opening Hook Selection) for the first 60 seconds. Rule 9's hook types (Data Comparison, Common Knowledge Trap, etc.) are now subsets of the Rule 19 structure — each maps to a variation of the 4-beat formula.
+- **Rule 12 (Voice Patterns):** Rule 19 Section A (Opening 0:00-1:00) is now governed by Rule 19. Part 6.1 formulas remain valid as implementation examples within the 4-beat structure.
+- **Rule 14 (Variant Generation):** When --variants flag is set, generate 2-3 hook variants. Each variant uses the 4-beat structure but varies the Cold Fact selection, Contradiction framing, or Payoff angle.
+
+**F. Quality Checklist Addition:**
+
+The following items apply to the Pre-Output Checklist (MANDATORY) under QUALITY CHECKLIST below:
+
+**Hook (Rule 19):**
+- [ ] Cold fact is specific and surprising (not generic)
+- [ ] Myth states what viewers actually believe
+- [ ] Contradiction references specific evidence
+- [ ] Payoff connects to modern stakes
+- [ ] Information gap is open (not closed in hook)
+- [ ] Visual carrot promises specific evidence
+- [ ] Authority signal uses first-person ownership
+- [ ] youtube-intelligence.md consulted (or noted as unavailable)
+
+---
+
 ## REASONING FRAMEWORK
 
 **Before writing, use extended thinking:**
@@ -598,12 +669,19 @@ For EVERY claim about what someone said/did: Exact source location, exact wordin
 
 Where will viewers click away? What pattern interrupts keep them? Which evidence has "smoking gun" impact?
 
-### STEP 8: Hook Strategy
+### STEP 8: Hook Strategy (Rule 19)
 
-**See STYLE-GUIDE.md Part 4 for opening formulas.**
-- 0:00-0:05: Direct thesis OR "You've probably heard" + confrontation
-- 0:05-0:15: Who believes myth + stakes
-- 0:15-0:30: Evidence promise + "I went to the primary sources"
+**Apply Rule 19's 4-beat structure for the first 60 seconds.**
+
+Before writing the hook:
+1. Check youtube-intelligence.md for current algorithm priorities
+2. Identify video type (territorial/ideological/untranslated/fact-check)
+3. Select Cold Fact from research (most surprising, specific detail)
+4. Frame Myth (what viewers currently believe)
+5. Plan Contradiction (what evidence shows instead)
+6. Connect Payoff to modern stakes
+
+**See Rule 19 for complete hook formula, retention triggers, and video type adaptations.**
 
 ---
 
@@ -710,6 +788,16 @@ Where will viewers click away? What pattern interrupts keep them? Which evidence
 **Run these checks BEFORE outputting script.**
 
 ### Pre-Output Checklist (MANDATORY)
+
+**Hook (Rule 19):**
+- [ ] Cold fact is specific and surprising (not generic)
+- [ ] Myth states what viewers actually believe
+- [ ] Contradiction references specific evidence
+- [ ] Payoff connects to modern stakes
+- [ ] Information gap is open (not closed in hook)
+- [ ] Visual carrot promises specific evidence
+- [ ] Authority signal uses first-person ownership
+- [ ] youtube-intelligence.md consulted (or noted as unavailable)
 
 **Spoken Delivery (Core Non-Negotiable):**
 - [ ] Read aloud without stumbling (stumble test)
