@@ -14,7 +14,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-19)
 
 **Milestone:** v5.0 Production Intelligence
 **Phase:** 42 of 46 (Pipeline Hardening & Research Ingestion)
-**Status:** Milestone complete
+**Status:** Ready to plan
 **Last activity:** 2026-02-20 — NLM ingestion tool built (nlm_ingest.py), /research --ingest command documented
 
 **Progress:**
