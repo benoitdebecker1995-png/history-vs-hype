@@ -10,8 +10,8 @@ Show current project state and suggest the logical next action. This command det
 ## Usage
 
 ```
-/status                      # Auto-detect project and suggest next action
-/status [project]            # Check specific project
+/status                      # Dashboard: all projects overview
+/status [project]            # Single project: detailed status + next action
 ```
 
 Also responds to natural language:
@@ -19,10 +19,38 @@ Also responds to natural language:
 - "What's next?"
 - "Where am I?"
 - "Project status"
+- "Show all projects"
+- "Project dashboard"
+- "What's in production"
+
+---
+
+## DASHBOARD MODE (No Arguments)
+
+**Trigger condition:** User runs `/status` with no arguments, or says "show all projects", "project dashboard", "what's in production"
+
+**Action:** Run the following Python code block:
+
+```python
+import sys
+sys.path.insert(0, '.')
+from tools.dashboard.project_scanner import scan_projects, format_dashboard
+
+data = scan_projects('.')
+print(format_dashboard(data))
+```
+
+**Display:** Show the output directly to the user. The formatted dashboard IS the response — no additional processing needed.
+
+**After displaying:** Ask "Which project would you like to work on?" to guide the user to a specific project action.
 
 ---
 
 ## DETECTION LOGIC
+
+### Step 0: Check for Dashboard Mode
+
+**If no arguments provided** (user ran `/status` with no project name) → Run **DASHBOARD MODE** (above) instead of the detection logic below.
 
 ### Step 1: Find Active Project
 
