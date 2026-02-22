@@ -44,9 +44,9 @@ Requirements for v5.0 Production Intelligence. Each maps to roadmap phases.
 
 ### Project Dashboard
 
-- [ ] **DASH-01**: /status shows all projects in production with current phase, next action, and days since last activity
-- [ ] **DASH-02**: Projects ranked by priority (filming-ready first, then research phase, then ideas)
-- [ ] **DASH-03**: Dashboard integrates with YouTube Intelligence Engine to flag time-sensitive topics
+- [x] **DASH-01**: /status shows all projects in production with current phase, next action, and days since last activity
+- [x] **DASH-02**: Projects ranked by priority (filming-ready first, then research phase, then ideas)
+- [x] **DASH-03**: Dashboard integrates with YouTube Intelligence Engine to flag time-sensitive topics
 
 ## Future Requirements
 
@@ -91,9 +91,9 @@ Deferred to future release.
 | ANLYT-01 | Phase 44 | Complete |
 | ANLYT-02 | Phase 44 | Complete |
 | ANLYT-03 | Phase 44 | Complete |
-| DASH-01 | Phase 46 | Pending |
-| DASH-02 | Phase 46 | Pending |
-| DASH-03 | Phase 46 | Pending |
+| DASH-01 | Phase 46 | Complete |
+| DASH-02 | Phase 46 | Complete |
+| DASH-03 | Phase 46 | Complete |
 
 **Coverage:**
 - v5.0 requirements: 20 total

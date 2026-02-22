@@ -90,6 +90,9 @@ Recent decisions affecting current work:
 - [Phase 45-hook-optimization-intelligence-integration]: Workflow-specific focus lines per command: /script=hooks/algorithm, /prep=format/B-roll, /publish=titles/CTR
 - [Phase 45-hook-optimization-intelligence-integration]: Rule 19 supersedes Rule 9 Section A (Opening Hook Selection) for first 60 seconds — Rule 9 hook types become subsets of 4-beat formula
 - [Phase 45-hook-optimization-intelligence-integration]: STEP 8 in REASONING FRAMEWORK updated to reference Rule 19 directly, replacing old Part 4 formula reference
+- [Phase 46-project-dashboard]: time.time() - st_mtime for days-since calculation: avoids timezone-aware/naive mixing on Windows
+- [Phase 46-project-dashboard]: DASHBOARD MODE placed before DETECTION LOGIC for logical flow: no-arg check first, then project detection
+- [Phase 46-project-dashboard]: Step 0 routing in DETECTION LOGIC makes no-arg -> dashboard path explicit and unambiguous
 
 ## Session Continuity
 
@@ -98,7 +101,7 @@ Recent decisions affecting current work:
 - **Date:** 2026-02-20
 - **Work:** Executed 42-02-PLAN.md — NLM ingestion tool (nlm_ingest.py), /research --ingest workflow
 - **Output:** tools/research/nlm_ingest.py, tools/research/__init__.py, .claude/commands/research.md updated
-- **Stopped at:** Completed 45-01-PLAN.md
+- **Stopped at:** Completed 46-02-PLAN.md
 
 ### Next Session
 
