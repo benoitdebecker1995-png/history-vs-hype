@@ -494,7 +494,11 @@ Plans:
   1. /status shows all projects in _IN_PRODUCTION/ with current phase, next action, and days since last activity
   2. Projects are ranked by priority: filming-ready first, then research phase, then ideas
   3. Dashboard flags time-sensitive topics (treaty deadlines, upcoming votes, expiring relevance) using YouTube Intelligence Engine data
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 46-01-PLAN.md — Project scanner module: scan, classify, rank, format dashboard
+- [ ] 46-02-PLAN.md — /status command integration with dashboard mode
 
 ## Progress
 
@@ -551,4 +555,4 @@ Note: Phases 42, 43, and 44 have no dependencies on each other and could execute
 | 43. YouTube Intelligence Engine | 3/3 | Complete    | 2026-02-21 | - |
 | 44. Analytics Backfill & Feedback Loop | 2/2 | Complete    | 2026-02-21 | - |
 | 45. Hook Optimization & Intelligence Integration | 2/2 | Complete    | 2026-02-22 | - |
-| 46. Project Dashboard | v5.0 | 0/? | Not started | - |
+| 46. Project Dashboard | v5.0 | 0/2 | Planned | - |
