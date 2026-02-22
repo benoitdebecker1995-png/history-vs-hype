@@ -52,6 +52,34 @@ Low signal: ~15 videos — experiment freely.
 
 ---
 
+## YouTube Intelligence Context (Auto-run)
+
+Before generating output, check for YouTube algorithm and niche intelligence:
+
+1. Read `channel-data/youtube-intelligence.md` if it exists
+2. Use as **internal context** for metadata decisions — do NOT dump full file to user
+3. Display a brief 2-3 line advisory block:
+
+```
+--- YouTube Intelligence Context ---
+[Extract 2-3 most relevant lines from youtube-intelligence.md for this workflow]
+Example: Title pattern from outliers: specific mechanism titles ("How X deleted Y") > vague framing.
+Algorithm: CTR weight is "high" — thumbnail/title alignment critical.
+---
+```
+
+4. If file does not exist, skip silently — NEVER block generation on missing intelligence
+5. If last refresh date is >30 days old, add note: "(Intel last refreshed [date] — consider running /intel --refresh)"
+6. Intelligence is advisory — inform title and metadata decisions, never dictate
+
+**For /publish:** Focus on:
+- **Title patterns:** What title formulas are working in outlier videos (mechanism titles, question titles, etc.)
+- **CTR signals:** What the algorithm currently weights for CTR and how it affects discovery
+- **Competitor title trends:** What title patterns competitors are using (avoid/differentiate)
+- **Niche topic clusters:** What topics are trending in the niche (tag relevance)
+
+---
+
 ## PRE-PUBLISH QUALITY GATES
 
 **Before generating final metadata, run validation checks:**

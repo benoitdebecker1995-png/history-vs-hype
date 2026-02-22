@@ -51,6 +51,33 @@ Low signal: ~15 videos — experiment freely.
 
 ---
 
+## YouTube Intelligence Context (Auto-run)
+
+Before generating output, check for YouTube algorithm and niche intelligence:
+
+1. Read `channel-data/youtube-intelligence.md` if it exists
+2. Use as **internal context** for production decisions — do NOT dump full file to user
+3. Display a brief 2-3 line advisory block:
+
+```
+--- YouTube Intelligence Context ---
+[Extract 2-3 most relevant lines from youtube-intelligence.md for this workflow]
+Example: Niche trend: 20-30min docs with evidence B-roll outperforming shorter formats.
+Competitor gap: No channels covering [topic angle] — differentiation opportunity.
+---
+```
+
+4. If file does not exist, skip silently — NEVER block generation on missing intelligence
+5. If last refresh date is >30 days old, add note: "(Intel last refreshed [date] — consider running /intel --refresh)"
+6. Intelligence is advisory — inform production decisions, never dictate
+
+**For /prep:** Focus on:
+- **Format/length insights:** What video lengths and formats are performing in the niche
+- **B-roll patterns:** What visual styles correlate with outlier performance (evidence on screen, maps, documents)
+- **Competitor production patterns:** What production approaches competitors are using
+
+---
+
 ## Feedback Insights (Automatic)
 
 Before generating prep materials, surface past production insights.
