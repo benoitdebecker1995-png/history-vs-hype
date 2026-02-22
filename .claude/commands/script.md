@@ -89,6 +89,34 @@ Use the KB to inform script structure decisions:
 
 **Do NOT display the KB dump to the user** — use it as internal context for structure and hook decisions.
 
+**Advisory Display:** After loading the KB, display a brief 2-3 line advisory summarizing the most relevant intelligence for this script. Focus on algorithm priorities, niche patterns, and any outlier hook patterns. See "YouTube Intelligence Context (Auto-run)" section below for format.
+
+## YouTube Intelligence Context (Auto-run)
+
+Before generating output, check for YouTube algorithm and niche intelligence:
+
+1. Read `channel-data/youtube-intelligence.md` if it exists
+2. Use as **internal context** for hook and structure decisions — do NOT dump full file to user
+3. Display a brief 2-3 line advisory block:
+
+```
+--- YouTube Intelligence Context ---
+[Extract 2-3 most relevant lines from youtube-intelligence.md for this workflow]
+Example: Algorithm priority: viewer satisfaction (very_high weight). Niche trend: 20-30min docs dominating.
+Hook pattern from outliers: "legal fiction exposed" frame drove 4x median views.
+---
+```
+
+4. If file does not exist, skip silently — NEVER block generation on missing intelligence
+5. If last refresh date is >30 days old, add note: "(Intel last refreshed [date] — consider running /intel --refresh)"
+6. Intelligence is advisory — inform hook and structure decisions, never dictate
+
+**For /script:** Focus on:
+- **Algorithm signals:** What satisfaction signals matter most right now (AVD, CTR, satisfaction surveys)
+- **Hook patterns:** What hook types are working in outlier videos (from Outlier Analysis section)
+- **Niche format trends:** What video lengths and formats are performing (from Niche Patterns section)
+- **Competitor gaps:** What topics competitors are NOT covering (differentiation opportunities)
+
 ## Before Writing
 
 **Read these reference files:**
