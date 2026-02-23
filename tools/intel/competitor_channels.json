@@ -1,33 +1,33 @@
 {
-  "_comment": "Channel IDs sourced from YouTube channel pages. Verify by visiting https://www.youtube.com/channel/CHANNEL_ID",
-  "_note": "IDs from RESEARCH.md — approximate. HIGH confidence: Kraut, Fall of Civilizations, RealLifeLore, Kings and Generals, Wendover. MEDIUM: Shaun, Knowing Better, Historia Civilis, HistoryMarche, Toldinstone. Verify before production use.",
+  "_comment": "Channel IDs verified against YouTube RSS feeds 2026-02-23. Verify by visiting https://www.youtube.com/channel/CHANNEL_ID",
+  "_note": "All IDs confirmed working via https://www.youtube.com/feeds/videos.xml?channel_id=ID",
   "channels": [
     {
-      "id": "UCIjc5FMDlQj2PEyFjqBQRTw",
+      "id": "UCr_Q-bPpcw5fJ-Oow1BW1NQ",
       "name": "Kraut",
       "category": "style-match",
       "notes": "Deep causal chains, comparative analysis — primary style reference"
     },
     {
-      "id": "UCpW4cR0RF0mVzCzBo8PXQBA",
+      "id": "UCT6Y5JJPKe_JDMivpKgVXew",
       "name": "Fall of Civilizations",
       "category": "style-match",
       "notes": "Systems collapse framing, evidence stacking — primary style reference"
     },
     {
-      "id": "UCNjln6WWND4Ks-lbXGFMBhA",
+      "id": "UCJ6o36XL0CpYb6U5dNBiXHQ",
       "name": "Shaun",
       "category": "style-match",
       "notes": "Document-first argumentation, chronological precision — primary style reference"
     },
     {
-      "id": "UCrPSeQVnJLJL9CWDlm3UCiQ",
+      "id": "UC8XjmAEDVZSCQjI150cb4QA",
       "name": "Knowing Better",
       "category": "style-match",
       "notes": "Forensic source verification, translation skepticism — primary style reference"
     },
     {
-      "id": "UC-LDY-f9VH3Hbj8bHVs5Blw",
+      "id": "UCv_vLHiWVBh_FR9vbeuiY-A",
       "name": "Historia Civilis",
       "category": "style-match",
       "notes": "Roman history, minimalist, intellectual — strong channel DNA overlap"
@@ -45,19 +45,19 @@
       "notes": "Military history, animated — format reference"
     },
     {
-      "id": "UCyEqailAaj8e2dCuhB2CfhA",
+      "id": "UC9RM-iSvTu1uPJb8X5yp3EQ",
       "name": "Wendover Productions",
       "category": "broad-history",
       "notes": "Logistics/systems — audience overlap with History vs Hype"
     },
     {
-      "id": "UCXqRJ7f3VoRHvJRrHEVa7rg",
+      "id": "UCmGSJVG3mCRXVOP4yZrU1Dw",
       "name": "Johnny Harris",
       "category": "geopolitics",
       "notes": "Geopolitics journalism — monitor for format innovations"
     },
     {
-      "id": "UCHa2IaUVA07YSZrkiDO4XUQ",
+      "id": "UC8MX9ECowgDMTOnFTE8EUJw",
       "name": "HistoryMarche",
       "category": "broad-history",
       "notes": "Military animated history — Tier 3 watch for format innovations"

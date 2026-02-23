@@ -153,7 +153,17 @@ def fetch_channel_rss(channel_id: str, channel_name: str) -> dict:
 
     url = YOUTUBE_RSS_URL.format(channel_id=channel_id)
     try:
-        feed = feedparser.parse(url)
+        # Fetch with requests first for HTTP status visibility, then parse
+        try:
+            import requests as _req
+            resp = _req.get(url, timeout=15, headers={"User-Agent": "Mozilla/5.0"})
+            if resp.status_code == 404:
+                return {"error": f"RSS 404 for '{channel_name}': channel ID '{channel_id}' not found — verify at https://www.youtube.com/channel/{channel_id}"}
+            if resp.status_code != 200:
+                return {"error": f"RSS HTTP {resp.status_code} for '{channel_name}'"}
+            feed = feedparser.parse(resp.text)
+        except ImportError:
+            feed = feedparser.parse(url)
 
         # bozo flag means the feed was malformed, but may still have entries
         if feed.bozo and not feed.entries:

@@ -41,10 +41,10 @@ YOUTUBE_RSS_URL = "https://www.youtube.com/feeds/videos.xml?channel_id={channel_
 # ---------------------------------------------------------------------------
 # Authoritative algorithm sources
 # ---------------------------------------------------------------------------
-# Creator Insider channel ID: UCr-pWa7LMHX71Uhr7D4wqMQ
-#   Source: https://www.youtube.com/c/CreatorInsider
-#   NOTE: Verify by visiting https://www.youtube.com/channel/UCr-pWa7LMHX71Uhr7D4wqMQ
-#   This is YouTube's official creator-facing channel. ID is HIGH confidence.
+# Creator Insider channel ID: UCkRfArvrzheW2E7b6SVT7vQ
+#   Source: https://www.youtube.com/@YouTube Creators (formerly Creator Insider)
+#   NOTE: Verify by visiting https://www.youtube.com/channel/UCkRfArvrzheW2E7b6SVT7vQ
+#   Verified against RSS feed 2026-02-23. Old ID UCr-pWa7LMHX71Uhr7D4wqMQ was 404.
 ALGO_SOURCES = [
     {
         "name": "vidIQ Algorithm Guide",
@@ -62,7 +62,7 @@ ALGO_SOURCES = [
     },
     {
         "name": "Creator Insider YouTube",
-        "channel_id": "UCr-pWa7LMHX71Uhr7D4wqMQ",
+        "channel_id": "UCkRfArvrzheW2E7b6SVT7vQ",
         "type": "rss",
         "authority": "highest",
         "notes": "YouTube's own official creator-facing channel — primary algorithm source",
@@ -146,7 +146,16 @@ def scrape_source(source: dict) -> dict:
             return {"error": f"RSS source '{name}' missing channel_id"}
         url = YOUTUBE_RSS_URL.format(channel_id=channel_id)
         try:
-            feed = feedparser.parse(url)
+            # Fetch with requests first for HTTP status visibility, then parse
+            if REQUESTS_AVAILABLE:
+                resp = requests.get(url, timeout=15, headers={"User-Agent": "Mozilla/5.0"})
+                if resp.status_code == 404:
+                    return {"error": f"RSS 404 for '{name}': channel ID '{channel_id}' not found"}
+                if resp.status_code != 200:
+                    return {"error": f"RSS HTTP {resp.status_code} for '{name}'"}
+                feed = feedparser.parse(resp.text)
+            else:
+                feed = feedparser.parse(url)
             if feed.bozo and not feed.entries:
                 bozo_exc = getattr(feed, "bozo_exception", "unknown parse error")
                 return {"error": f"RSS parse failed for '{name}': {bozo_exc}"}
