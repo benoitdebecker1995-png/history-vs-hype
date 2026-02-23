@@ -411,6 +411,7 @@ Plans:
 - [x] **Phase 44: Analytics Backfill & Feedback Loop** - Populate analytics DB from existing data + auto-surface insights during production (completed 2026-02-21)
 - [x] **Phase 45: Hook Optimization & Intelligence Integration** - Rule 19 algorithm-aware hooks + intelligence surfacing during /script, /prep, /publish (completed 2026-02-22)
 - [x] **Phase 46: Project Dashboard** - Multi-project status with priority ranking and time-sensitive topic flagging (completed 2026-02-22)
+- [ ] **Phase 47: v5.0 Gap Closure** - Wire channel insights into /script, fix backfill import path, update .env.example
 
 ## Phase Details
 
@@ -500,10 +501,24 @@ Plans:
 - [ ] 46-01-PLAN.md — Project scanner module: scan, classify, rank, format dashboard
 - [ ] 46-02-PLAN.md — /status command integration with dashboard mode
 
+### Phase 47: v5.0 Gap Closure
+**Goal**: Close all integration gaps identified by milestone audit
+**Depends on**: Phase 44, Phase 46 (gap fixes for their deliverables)
+**Requirements**: ANLYT-02 (fix), ANLYT-01 (fix), PIPE-01 (docs fix)
+**Gap Closure**: Closes GAP-01, GAP-02, GAP-03 from v5.0-MILESTONE-AUDIT.md
+**Success Criteria** (what must be TRUE):
+  1. Channel insights advisory appears in /script command output (same pattern as /prep and /publish)
+  2. `/analyze --backfill` inline Python import path matches actual directory name
+  3. `.env.example` comment accurately reflects current translation pipeline requirements
+**Plans**: 1 plan
+
+Plans:
+- [ ] 47-01-PLAN.md — Fix all 3 audit gaps: script.md channel insights, analyze.md import path, .env.example comment
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 42 → 43 → 44 → 45 → 46
+Phases execute in numeric order: 42 → 43 → 44 → 45 → 46 → 47
 Note: Phases 42, 43, and 44 have no dependencies on each other and could execute in parallel.
 
 | Phase | Milestone | Plans Complete | Status | Completed |
@@ -556,3 +571,4 @@ Note: Phases 42, 43, and 44 have no dependencies on each other and could execute
 | 44. Analytics Backfill & Feedback Loop | 2/2 | Complete    | 2026-02-21 | - |
 | 45. Hook Optimization & Intelligence Integration | 2/2 | Complete    | 2026-02-22 | - |
 | 46. Project Dashboard | 2/2 | Complete    | 2026-02-22 | - |
+| 47. v5.0 Gap Closure | 0/1 | Planned    | - | - |
