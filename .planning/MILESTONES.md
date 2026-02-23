@@ -1,5 +1,36 @@
 # Project Milestones: History vs Hype Workspace
 
+## v5.0 Production Intelligence (Shipped: 2026-02-22)
+
+**Delivered:** End-to-end production pipeline with YouTube intelligence engine, analytics feedback loop, algorithm-optimized hooks, and multi-project dashboard — making every production command smarter with real-time algorithm and channel data.
+
+**Phases completed:** 42-47 (14 plans total)
+
+**Key accomplishments:**
+
+- Translation pipeline hardened with .env credential management, actionable errors, and E2E smoke test; then refactored to Claude Code native LLM layer eliminating API key requirement (Phase 42 + 42.1)
+- NLM paste-to-verified-research flow: paste raw NotebookLM output, review/approve claims, auto-write to 01-VERIFIED-RESEARCH.md in correct format (Phase 42)
+- YouTube Intelligence Engine: local SQLite KB of algorithm mechanics (AVD, CTR, satisfaction signals), niche patterns, competitor tracking via RSS + YouTube API, and automated 10-phase refresh from 5+ authoritative sources (Phase 43)
+- Analytics backfill pipeline: imports all existing POST-PUBLISH-ANALYSIS files and YouTube API data into analytics DB; generates channel-insights.md with topic performance, format analysis, and recommendations (Phase 44)
+- Channel insights and YouTube intelligence auto-surface during /script, /prep, /publish, and /research — brief 2-3 line advisories with workflow-specific focus, skip silently if missing (Phase 44 + 45)
+- Rule 19 Algorithm-Aware Hook Optimization: 4-beat formula (cold fact → myth → contradiction → payoff) with retention triggers (information gap, visual carrot, authority signal), informed by YouTube Intelligence Engine data (Phase 45)
+- Project dashboard in /status: scans 38+ projects in _IN_PRODUCTION/, ranks by priority (filming-ready first), flags stale projects (>14 days), cross-references trending topics from intelligence engine (Phase 46)
+
+**Stats:**
+
+- 7 phases (including 42.1 inserted + 47 gap closure), 14 plans
+- 69 commits over 4 days (2026-02-19 → 2026-02-22)
+- 20/20 requirements delivered
+- ~47,930 Python LOC in tools/ (cumulative)
+
+**Git range:** `d4dc727` → `733f6b1`
+
+**What's next:** Use the production intelligence pipeline: `/intel --refresh` to update algorithm KB → `/status` for project dashboard → `/script` with auto-surfacing intelligence → `/prep` and `/publish` with channel insights context.
+
+**Archive:** `.planning/milestones/v5.0-ROADMAP.md`
+
+---
+
 ## v4.0 Untranslated Evidence Pipeline (Shipped: 2026-02-18)
 
 **Delivered:** Full document translation-to-video pipeline — discover untranslated documents, generate AI translations with cross-checking, verify translation quality, write document-structured scripts, and produce split-screen edit guides.
@@ -294,4 +325,14 @@
 ---
 
 *Milestones log created: 2026-01-23*
+
+
+## v5.0 Production Intelligence (Shipped: 2026-02-23)
+
+**Phases completed:** 50 phases, 106 plans, 46 tasks
+
+**Key accomplishments:**
+- (none recorded)
+
+---
 

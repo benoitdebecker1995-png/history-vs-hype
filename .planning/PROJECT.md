@@ -10,11 +10,11 @@ Every video shows sources on screen. Viewers see the evidence themselves and can
 
 ## Current State
 
-**Shipped:** v4.0 Untranslated Evidence Pipeline (2026-02-18)
-**Previous milestones:** v1.0-v3.0 (shipped 2026-01-19 to 2026-02-15)
+**Shipped:** v5.0 Production Intelligence (2026-02-22)
+**Previous milestones:** v1.0-v4.0 (shipped 2026-01-19 to 2026-02-18)
 **Archives:** `.planning/milestones/`
 
-v4.0 delivered the full document translation-to-video pipeline — gap verification, AI translation with cross-checking, legal term annotation, surprise clause detection, translation verification, document-structured scriptwriting (Rule 18), and split-screen edit guides. ~6,170 new lines across tools/translation/, tools/document_discovery/, tools/production/.
+v5.0 delivered end-to-end production intelligence — YouTube algorithm KB with automated refresh, analytics backfill with channel insights auto-surfacing, Rule 19 algorithm-aware hooks, NLM paste-to-research flow, and multi-project dashboard. Translation pipeline refactored to Claude Code native LLM (no API key needed). 7 phases, 20 requirements, 69 commits.
 
 ## Requirements
 
@@ -148,19 +148,20 @@ v4.0 delivered the full document translation-to-video pipeline — gap verificat
 - Scriptwriter produces spoken-delivery scripts — v1.0
 - Competitive intelligence tracking — v1.0
 
+### Validated (v5.0)
+
+- Translation pipeline hardened with .env + refactored to Claude Code native LLM (no API key) — v5.0
+- NLM paste-to-verified-research flow with approve/reject per claim — v5.0
+- YouTube Intelligence Engine: algorithm KB, niche patterns, competitor tracking, automated refresh — v5.0
+- Intelligence auto-surfaces during /script, /prep, /publish with workflow-specific advisories — v5.0
+- Rule 19 algorithm-aware hooks (4-beat formula with retention triggers) — v5.0
+- Analytics backfill from existing POST-PUBLISH-ANALYSIS files and YouTube API — v5.0
+- Channel-specific insights surface automatically during production commands — v5.0
+- Multi-project dashboard in /status with priority ranking and trending topic flags — v5.0
+
 ### Active
 
-## Current Milestone: v5.0 Production Intelligence
-
-**Goal:** Make the pipeline work end-to-end without manual workarounds, add a YouTube intelligence engine that keeps tooling current on algorithm and niche trends, and close the analytics feedback loop.
-
-**Target features:**
-- Translation CLI reliability (.env support, API key validation)
-- NLM ingestion with review gate (paste → extract → review → write)
-- YouTube Intelligence Engine (algorithm mechanics + niche tracking, monthly refresh)
-- Algorithm-aware hook optimization pass (Rule 19 in script-writer)
-- Analytics backfill + auto-surfacing during production
-- Multi-project status dashboard
+(No active requirements — next milestone not yet defined)
 
 ### Out of Scope
 
@@ -194,26 +195,26 @@ v4.0 delivered the full document translation-to-video pipeline — gap verificat
 - Translation verification with scholarly comparison before filming
 - Document-structured scriptwriting (Rule 18) for clause-by-clause videos
 - Split-screen edit guides with per-clause timing and asset sourcing
+- YouTube Intelligence Engine with automated refresh from 5+ authoritative sources
+- Channel insights and YouTube intelligence auto-surface during all production commands
+- Rule 19 algorithm-aware hooks with 4-beat formula informed by intelligence data
+- NLM paste-to-research flow (paste → parse → review → approve → write to VERIFIED-RESEARCH)
+- Multi-project dashboard in /status ranks 38+ projects by priority with stale/trending flags
 
 **Known tech debt:**
 - Library folder (728 files) needs manual cleanup
 - Python 3.14 + spaCy compatibility (use Python 3.11-3.13 for now)
 - datetime.utcnow() deprecation warning in intent_mapper.py
 - Voice patterns empty until user runs --rebuild-voice
-- anthropic SDK required for notebooklm_bridge.py (pip install anthropic>=0.40.0)
+- intel.db test data resolves on next clean refresh
+- token.json absent — YouTube API enrichment falls back to RSS-only
 
 **Tech stack:**
-- ~19,700 lines Python (tools/youtube-analytics/) — includes playbook_synthesizer.py, retention_scorer.py, transcript_analyzer.py, technique_library.py
-- ~3,200 lines Python (tools/script-checkers/) — includes pacing_checker.py
-- ~1,800 lines Python (tools/discovery/) — includes recommender.py
-- ~3,600 lines Python (tools/translation/) — translator, cross_checker, legal_annotator, surprise_detector, verification, formatter, cli
-- ~1,100 lines Python (tools/document_discovery/) — gap_checker, archive_lookup, structure_assessor, cli
-- ~750 lines Python (tools/production/split_screen_guide.py) — split-screen edit guide generator
-- ~700 lines Python (tools/) — notebooklm_bridge.py, citation_extractor.py
+- ~47,930 lines Python total across tools/
 - YouTube Analytics API v2 + YouTube Data API v3
 - Anthropic SDK for notebooklm_bridge.py (Claude Sonnet 4 for source generation)
 - OAuth2 authentication with token refresh
-- SQLite database for keywords, performance, variants, CTR, and feedback
+- SQLite databases: keywords.db (schema v29), intel.db, analytics.db
 
 **Existing codebase map:** `.planning/codebase/` (7 documents, 1600+ lines)
 
@@ -276,7 +277,14 @@ v4.0 delivered the full document translation-to-video pipeline — gap verificat
 | Hybrid transition markers (explicit + ratio) | Tactical timestamps + strategic section guidance for editors | Good (v4.0) |
 | Surprise emphasis only for Major/Notable | Avoids noise — minor surprises left to editor judgment | Good (v4.0) |
 | Three-tier severity for surprises (Major/Notable/Minor) | Graduated emphasis prevents every clause feeling "surprising" | Good (v4.0) |
+| Claude Code native LLM for translation | Eliminates API key requirement for Pro plan users | Good (v5.0) |
+| Hybrid NLM parsing (structured + freeform fallback) | Handles both NLM output modes without config | Good (v5.0) |
+| feedparser as only new dependency for intel | No BeautifulSoup — LLM synthesis handles messy text | Good (v5.0) |
+| Graceful RSS-only fallback for competitors | Works without YouTube API auth; enrichment non-fatal | Good (v5.0) |
+| 10-phase refresh orchestrator for intel | Errors collected, pipeline continues on individual failure | Good (v5.0) |
+| time.time() - st_mtime for dashboard activity | Avoids timezone-aware/naive mixing on Windows | Good (v5.0) |
+| Rule 19 supersedes Rule 9 Section A for hooks | 4-beat formula is superset of old hook selection | Good (v5.0) |
 
 ---
 
-*Last updated: 2026-02-18 after v4.0 milestone shipped*
+*Last updated: 2026-02-22 after v5.0 milestone shipped*
