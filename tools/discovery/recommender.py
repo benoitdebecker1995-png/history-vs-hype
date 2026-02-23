@@ -48,6 +48,15 @@ try:
 except ImportError:
     PATTERNS_AVAILABLE = False
 
+# Intel-based topic scoring (competitor + algo + trending + gap)
+try:
+    sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+    from tools.intel.topic_scorer import score_topic as _intel_score_topic
+    INTEL_SCORER_AVAILABLE = Path(__file__).parent.parent / 'intel' / 'intel.db'
+    INTEL_SCORER_AVAILABLE = INTEL_SCORER_AVAILABLE.exists()
+except ImportError:
+    INTEL_SCORER_AVAILABLE = False
+
 
 def get_existing_topics() -> List[str]:
     """
@@ -372,8 +381,24 @@ class TopicRecommender:
                 keyword, topic_type, angles, patterns
             )
 
-            # Calculate final score (capped at 100)
-            final_score = min(100, opportunity_score * pattern_multiplier)
+            # Intel score: competitor + algo + trending + gap (0-100)
+            intel_score = None
+            intel_grade = None
+            if INTEL_SCORER_AVAILABLE:
+                try:
+                    intel_result = _intel_score_topic(keyword)
+                    if isinstance(intel_result, dict) and 'error' not in intel_result:
+                        intel_score = intel_result.get('total_score', 0)
+                        intel_grade = intel_result.get('grade', '?')
+                except Exception:
+                    pass
+
+            # Calculate final score: blend opportunity (60%) + intel (40%) if available
+            if intel_score is not None:
+                blended_base = opportunity_score * 0.6 + intel_score * 0.4
+                final_score = min(100, blended_base * pattern_multiplier)
+            else:
+                final_score = min(100, opportunity_score * pattern_multiplier)
 
             # Apply topic filter if specified
             if topic_filter and topic_type:
@@ -391,6 +416,8 @@ class TopicRecommender:
                 'topic_type': topic_type,
                 'angles': angles,
                 'pattern_multiplier': pattern_multiplier,
+                'intel_score': intel_score,
+                'intel_grade': intel_grade,
                 'final_score': final_score,
                 'reasons': reasons,
                 'action': f'python orchestrator.py "{keyword}" --report'
@@ -435,6 +462,8 @@ class TopicRecommender:
         lines.append("| Metric | Value |")
         lines.append("|--------|-------|")
         lines.append(f"| Opportunity Score | {rec['opportunity_score']:.1f} |")
+        if rec.get('intel_score') is not None:
+            lines.append(f"| Intel Score | {rec['intel_score']:.1f} (Grade {rec.get('intel_grade', '?')}) |")
         lines.append(f"| Pattern Multiplier | {rec['pattern_multiplier']:.2f}x |")
 
         if rec.get('topic_type'):
@@ -496,19 +525,34 @@ class TopicRecommender:
                 lines.append("")
 
         # Summary table
-        lines.extend([
-            "## Recommendations Summary",
-            "",
-            "| Rank | Keyword | Score | Category | Multiplier |",
-            "|------|---------|-------|----------|------------|"
-        ])
-
-        for rec in recommendations:
-            lines.append(
-                f"| {rec['rank']} | {rec['keyword'][:30]} | "
-                f"{rec['final_score']:.1f} | {rec['opportunity_category']} | "
-                f"{rec['pattern_multiplier']:.2f}x |"
-            )
+        has_intel = any(rec.get('intel_score') is not None for rec in recommendations)
+        if has_intel:
+            lines.extend([
+                "## Recommendations Summary",
+                "",
+                "| Rank | Keyword | Score | Intel | Category | Multiplier |",
+                "|------|---------|-------|-------|----------|------------|"
+            ])
+            for rec in recommendations:
+                intel_col = f"{rec['intel_score']:.0f} ({rec.get('intel_grade', '?')})" if rec.get('intel_score') is not None else "—"
+                lines.append(
+                    f"| {rec['rank']} | {rec['keyword'][:30]} | "
+                    f"{rec['final_score']:.1f} | {intel_col} | {rec['opportunity_category']} | "
+                    f"{rec['pattern_multiplier']:.2f}x |"
+                )
+        else:
+            lines.extend([
+                "## Recommendations Summary",
+                "",
+                "| Rank | Keyword | Score | Category | Multiplier |",
+                "|------|---------|-------|----------|------------|"
+            ])
+            for rec in recommendations:
+                lines.append(
+                    f"| {rec['rank']} | {rec['keyword'][:30]} | "
+                    f"{rec['final_score']:.1f} | {rec['opportunity_category']} | "
+                    f"{rec['pattern_multiplier']:.2f}x |"
+                )
 
         lines.append("")
 

@@ -481,6 +481,54 @@ def add_competitor_channel(
         return f"Error adding channel: {exc}"
 
 
+def get_pattern_report(db_path: str | None = None) -> str:
+    """
+    Return competitor pattern analysis report (topic clusters, formulas, gaps).
+
+    Args:
+        db_path: Optional path to intel.db
+
+    Returns:
+        Formatted Markdown string ready for display
+    """
+    if not _db_exists(db_path):
+        return _no_data_message("Competitor pattern analysis")
+
+    try:
+        from tools.intel.competitor_patterns import get_pattern_report as _get_patterns
+        resolved = db_path or _DEFAULT_DB_PATH
+        report = _get_patterns(resolved)
+        staleness = get_staleness_status(db_path)
+        return f"{report}\n{staleness}\n"
+    except Exception as exc:
+        return f"Error loading pattern report: {exc}"
+
+
+def get_topic_score(topic_text: str, db_path: str | None = None) -> str:
+    """
+    Score a topic idea and return formatted Markdown report.
+
+    Args:
+        topic_text: Topic title or description to score
+        db_path:    Optional path to intel.db
+
+    Returns:
+        Formatted Markdown string with score breakdown
+    """
+    if not _db_exists(db_path):
+        return _no_data_message("Topic scoring")
+
+    try:
+        from tools.intel.topic_scorer import score_topic, format_score_report
+        resolved = db_path or _DEFAULT_DB_PATH
+        result = score_topic(topic_text, resolved)
+        report = format_score_report(result)
+        staleness = get_staleness_status(db_path)
+        return f"{report}\n{staleness}\n"
+    except Exception as exc:
+        return f"Error scoring topic: {exc}"
+
+
 # ---------------------------------------------------------------------------
 # Private helpers
 # ---------------------------------------------------------------------------

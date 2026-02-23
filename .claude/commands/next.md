@@ -51,11 +51,19 @@ The `/next` command analyzes your ANALYZED keywords and recommends NEW topics by
 ### Final Score Calculation
 
 ```
-final_score = opportunity_score × pattern_multiplier
+# With Intel Engine available:
+blended_base = opportunity_score × 0.6 + intel_score × 0.4
+final_score  = blended_base × pattern_multiplier
+
+# Without Intel Engine:
+final_score  = opportunity_score × pattern_multiplier
 ```
 
 - **Opportunity Score** (0-100): From Phase 18 analysis (demand, competition, production feasibility)
+- **Intel Score** (0-100): From YouTube Intelligence Engine (competitor outlier rates, algo alignment, trending, gaps)
 - **Pattern Multiplier** (1.0-1.5): Boost based on winning pattern match
+
+The Intel Score is automatically included when `intel.db` exists. It adds competitor signal data, algorithm alignment heuristics, trending topic overlap, and gap opportunity analysis to each recommendation.
 
 ### Pattern Multiplier Breakdown
 

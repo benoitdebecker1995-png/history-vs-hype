@@ -15,6 +15,8 @@ Query the YouTube Intelligence knowledge base for algorithm mechanics, competito
 /intel --competitors            — Competitor channel activity and recent uploads
 /intel --outliers               — Viral/outlier videos detected (>= 3x channel median)
 /intel --niche                  — Niche format and pattern analysis
+/intel --patterns               — Competitor topic cluster + title formula performance + gap analysis
+/intel --score "topic title"    — Score a topic idea 0-100 (own channel + competitor + algo + trending + gap)
 /intel --refresh                — Force refresh (runs full 10-phase pipeline)
 /intel --add-channel CHANNEL_ID NAME CATEGORY  — Add channel to tracking list
 /intel --query "question"       — Natural language query against KB
@@ -29,6 +31,8 @@ Query the YouTube Intelligence knowledge base for algorithm mechanics, competito
 | `--competitors` | Tracked channel table + recent uploads | `/intel --competitors` |
 | `--outliers` | Viral outlier videos detected at >= 3x channel median | `/intel --outliers` |
 | `--niche` | Duration distribution, title formulas, trending topics | `/intel --niche` |
+| `--patterns` | Topic cluster performance, title formula analysis, gap opportunities | `/intel --patterns` |
+| `--score` | Score a topic idea 0-100 with 5-component breakdown | `/intel --score "How Britain Lost the Falklands"` |
 | `--refresh` | Force full refresh regardless of staleness | `/intel --refresh` |
 | `--add-channel` | Add channel to competitor tracking | `/intel --add-channel UCxxxxxx "Channel Name" style-match` |
 | `--query` | Natural language question against KB | `/intel --query "what title formulas work best?"` |
@@ -137,6 +141,43 @@ sys.path.insert(0, '.')
 from tools.intel.query import get_niche_report
 print(get_niche_report())
 ```
+
+---
+
+### --patterns — Competitor Topic Cluster + Formula + Gap Analysis
+
+```python
+import sys
+sys.path.insert(0, '.')
+from tools.intel.query import get_pattern_report
+print(get_pattern_report())
+```
+
+Displays:
+1. **Topic Cluster Performance** — avg views, outlier rate, avg duration per cluster
+2. **Title Formula Performance** — which formulas (how/why, question, colon-split) drive highest views
+3. **Gap Opportunities** — topics competitors cover heavily but you don't (yet)
+4. **Top Outlier Videos by Cluster** — highest-performing videos per topic
+
+---
+
+### --score "topic title" — Score a Topic Idea 0-100
+
+Parse the topic text from the user's command (everything after `--score`).
+
+```python
+import sys
+sys.path.insert(0, '.')
+from tools.intel.query import get_topic_score
+print(get_topic_score('<TOPIC_TEXT>'))
+```
+
+Displays:
+1. **Total score** (0-100) with letter grade (A-F)
+2. **5-component breakdown** — Own Channel (30%), Competitor Signal (30%), Algorithm Alignment (20%), Trending (10%), Gap Opportunity (10%)
+3. **Recommendations** — target duration, title formula suggestions, comparable outlier videos
+
+Multiple topics can be scored in sequence: `/intel --score "topic 1" --score "topic 2"`
 
 ---
 
