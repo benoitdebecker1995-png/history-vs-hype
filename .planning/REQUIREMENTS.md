@@ -38,8 +38,8 @@ Requirements for v5.0 Production Intelligence. Each maps to roadmap phases.
 
 ### Analytics Feedback Loop
 
-- [ ] **ANLYT-01**: Backfill command populates analytics DB from existing POST-PUBLISH-ANALYSIS files and YouTube API
-- [ ] **ANLYT-02**: Channel-specific insights surface automatically during /script generation (what works for YOUR channel)
+- [x] **ANLYT-01**: Backfill command populates analytics DB from existing POST-PUBLISH-ANALYSIS files and YouTube API
+- [x] **ANLYT-02**: Channel-specific insights surface automatically during /script generation (what works for YOUR channel)
 - [x] **ANLYT-03**: Analytics data feeds into topic recommendations with updated performance patterns
 
 ### Project Dashboard
@@ -88,8 +88,8 @@ Deferred to future release.
 | HOOK-01 | Phase 45 | Complete |
 | HOOK-02 | Phase 45 | Complete |
 | HOOK-03 | Phase 45 | Complete |
-| ANLYT-01 | Phase 44 → 47 (import fix) | Pending |
-| ANLYT-02 | Phase 44 → 47 (wiring fix) | Pending |
+| ANLYT-01 | Phase 44 + 47 (import fix) | Complete |
+| ANLYT-02 | Phase 44 + 47 (wiring fix) | Complete |
 | ANLYT-03 | Phase 44 | Complete |
 | DASH-01 | Phase 46 | Complete |
 | DASH-02 | Phase 46 | Complete |
@@ -98,8 +98,7 @@ Deferred to future release.
 **Coverage:**
 - v5.0 requirements: 20 total
 - Mapped to phases: 20
-- Satisfied: 18
-- Pending (gap closure): 2 (ANLYT-01, ANLYT-02)
+- Satisfied: 20
 - Unmapped: 0
 
 ---

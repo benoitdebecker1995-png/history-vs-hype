@@ -411,7 +411,7 @@ Plans:
 - [x] **Phase 44: Analytics Backfill & Feedback Loop** - Populate analytics DB from existing data + auto-surface insights during production (completed 2026-02-21)
 - [x] **Phase 45: Hook Optimization & Intelligence Integration** - Rule 19 algorithm-aware hooks + intelligence surfacing during /script, /prep, /publish (completed 2026-02-22)
 - [x] **Phase 46: Project Dashboard** - Multi-project status with priority ranking and time-sensitive topic flagging (completed 2026-02-22)
-- [ ] **Phase 47: v5.0 Gap Closure** - Wire channel insights into /script, fix backfill import path, update .env.example
+- [x] **Phase 47: v5.0 Gap Closure** - Wire channel insights into /script, fix backfill import path, update .env.example (completed 2026-02-22)
 
 ## Phase Details
 
@@ -571,4 +571,4 @@ Note: Phases 42, 43, and 44 have no dependencies on each other and could execute
 | 44. Analytics Backfill & Feedback Loop | 2/2 | Complete    | 2026-02-21 | - |
 | 45. Hook Optimization & Intelligence Integration | 2/2 | Complete    | 2026-02-22 | - |
 | 46. Project Dashboard | 2/2 | Complete    | 2026-02-22 | - |
-| 47. v5.0 Gap Closure | 0/1 | Planned    | - | - |
+| 47. v5.0 Gap Closure | 1/1 | Complete    | 2026-02-22 | - |

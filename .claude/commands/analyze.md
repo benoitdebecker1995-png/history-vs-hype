@@ -83,8 +83,9 @@ Run the full analytics backfill pipeline to populate the DB from all existing ch
 ```python
 import sys
 sys.path.insert(0, '.')
+sys.path.insert(0, 'tools/youtube-analytics')
 from pathlib import Path
-from tools.youtube_analytics.backfill import run_backfill
+from backfill import run_backfill
 
 project_root = Path('.')
 result = run_backfill(project_root)
@@ -104,7 +105,7 @@ This is safe to re-run anytime (idempotent upsert design).
 After saving any analysis, regenerate the channel insights report to keep it current:
 
 ```python
-from tools.youtube_analytics.backfill import generate_channel_insights_report
+from backfill import generate_channel_insights_report
 result = generate_channel_insights_report(Path('.'))
 if 'error' not in result:
     print(f"Channel insights updated: {result['saved_to']}")

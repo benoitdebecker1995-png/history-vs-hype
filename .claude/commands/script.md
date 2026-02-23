@@ -91,6 +91,29 @@ Use the KB to inform script structure decisions:
 
 **Advisory Display:** After loading the KB, display a brief 2-3 line advisory summarizing the most relevant intelligence for this script. Focus on algorithm priorities, niche patterns, and any outlier hook patterns. See "YouTube Intelligence Context (Auto-run)" section below for format.
 
+## Channel Insights Context (Auto-run)
+
+Before generating output, check for own-channel performance context:
+
+1. Read `channel-data/channel-insights.md` if it exists
+2. Use as **internal context** for decisions — do NOT dump full file to user
+3. Display a brief 2-3 line advisory block:
+
+```
+--- Channel Performance Context ---
+[Extract 2-3 most relevant lines from channel-insights.md for this workflow]
+Example: Top format: territorial (avg 1,950 views). Best retention: 42.0%.
+Low signal: ~15 videos — experiment freely.
+---
+```
+
+4. If file does not exist, skip silently — NEVER block generation on missing analytics
+5. Insights are advisory — guide experimentation, never dictate choices
+
+**For /script:** Focus on what formats and topics perform best for YOUR channel (view counts, retention rates, subscriber conversion)
+
+---
+
 ## YouTube Intelligence Context (Auto-run)
 
 Before generating output, check for YouTube algorithm and niche intelligence:
