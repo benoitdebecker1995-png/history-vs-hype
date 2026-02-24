@@ -14,7 +14,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 
 **Milestone:** v5.1 Codebase Hardening
 **Phase:** 48 of 53 (Package Structure & Dependencies)
-**Status:** Complete — All 3 plans done (PKG-01, PKG-02, PKG-03 + DEP-01, DEP-02, DEP-03)
+**Status:** Milestone complete
 **Last activity:** 2026-02-24 — 48-02 complete: all 37+ sys.path hacks replaced with proper absolute/relative imports; 4 smoke tests pass
 
 **Progress:**
