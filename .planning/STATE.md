@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-24 (48-03 complete — pyproject.toml created, 3 requirements.txt files deleted)
+**Last Updated:** 2026-02-24 (48-02 complete — all sys.path hacks removed, proper absolute/relative imports installed)
 
 ## Project Reference
 
@@ -14,11 +14,11 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 
 **Milestone:** v5.1 Codebase Hardening
 **Phase:** 48 of 53 (Package Structure & Dependencies)
-**Status:** In Progress — Plans 01 and 03 complete, Plan 02 next (or phase complete if 02 done)
-**Last activity:** 2026-02-24 — 48-03 complete: root pyproject.toml created (history-vs-hype-tools v5.1.0), 3 per-package requirements.txt files deleted
+**Status:** Complete — All 3 plans done (PKG-01, PKG-02, PKG-03 + DEP-01, DEP-02, DEP-03)
+**Last activity:** 2026-02-24 — 48-02 complete: all 37+ sys.path hacks replaced with proper absolute/relative imports; 4 smoke tests pass
 
 **Progress:**
-[██████████] 98%
+[██████████] 99%
 
 ## Milestone History
 
@@ -61,6 +61,8 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 48-01]: python -m tools.youtube_analytics.X is the new invocation pattern for all tools
 - [Phase 48-03]: Used trendspyg (not trendspy) — confirmed from actual import in tools/discovery/trends.py
 - [Phase 48-03]: pyproject.toml is the single source of dependency truth — three per-package requirements.txt files deleted
+- [Phase 48]: Lazy import pattern used for discovery/diagnostics.py and discovery/recommender.py to break youtube_analytics circular dependency
+- [Phase 48]: All cross-package imports now use absolute tools.* syntax; same-package imports use relative from .module syntax
 
 ### Pending Todos
 
@@ -75,21 +77,21 @@ None at roadmap time.
 ### Last Session
 
 - **Date:** 2026-02-24
-- **Work:** Executed 48-03 — created root pyproject.toml with 8 extras groups, deleted 3 per-package requirements.txt files
-- **Output:** 48-03-SUMMARY.md created, commits c82db03 and a380c34, DEP-01+DEP-02+DEP-03 requirements marked complete
+- **Work:** Executed 48-02 — removed all 37+ sys.path hacks from 35 files; implemented lazy import pattern for circular dependency; 4 smoke tests pass
+- **Output:** 48-02-SUMMARY.md created, commit 54c5b6f, PKG-02 requirement marked complete
 
 ### Next Session
 
-**Next action:** Execute 48-02 (import rewrites — replace sys.path hacks with proper absolute imports)
+**Next action:** Execute Phase 49 (Dead Code Cleanup — remove _competitor_fetch.py, _csv_backfill.py, other dead files)
 
 ## Technical Notes
 
 - keywords.db schema version 29 (auto-migration with PRAGMA user_version)
 - intel.db and analytics.db need same PRAGMA versioning (Phase 52)
-- sys.path.insert hacks in tools/youtube_analytics/ and elsewhere (Plan 02 target — directories renamed in 48-01)
+- sys.path.insert hacks REMOVED — all tools use proper absolute tools.* or relative imports (completed in 48-02)
 - spaCy requires Python 3.11-3.13 (not 3.14)
 - Feature flags: VARIANTS_AVAILABLE, BENCHMARKS_AVAILABLE, FEEDBACK_AVAILABLE, DIAGNOSTICS_AVAILABLE, TOPIC_STRATEGY_AVAILABLE, PLAYBOOK_AVAILABLE, SCORER_AVAILABLE
 
 ---
 
-*State updated: 2026-02-24 after 48-03 execution complete*
+*State updated: 2026-02-24 after 48-02 execution complete*
