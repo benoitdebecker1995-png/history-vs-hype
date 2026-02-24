@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-24 (v5.1 roadmap created)
+**Last Updated:** 2026-02-24 (48-01 complete — directories renamed, __init__.py files added)
 
 ## Project Reference
 
@@ -14,11 +14,11 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 
 **Milestone:** v5.1 Codebase Hardening
 **Phase:** 48 of 53 (Package Structure & Dependencies)
-**Status:** Ready to plan
-**Last activity:** 2026-02-24 — v5.1 roadmap created (6 phases, 28 requirements mapped)
+**Status:** In Progress — Plan 01 complete, Plan 02 next
+**Last activity:** 2026-02-24 — 48-01 complete: directories renamed, 4 __init__.py files added, 24+ references swept
 
 **Progress:**
-[░░░░░░░░░░] 0% (0/6 phases complete)
+[██████████] 97%
 
 ## Milestone History
 
@@ -57,6 +57,8 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 v5.0 decisions archived in PROJECT.md Key Decisions table. See `.planning/milestones/v5.0-ROADMAP.md`.
 
 v5.1 ordering rationale: Package structure first (proper imports unblock everything else), dead code before error handling (don't harden code that's being deleted), logging+CLI paired (both wire --verbose/--quiet), DB hardening parallel to error/logging work, testing last (verifies final state of all changes).
+- [Phase 48-01]: git mv used for directory renames to preserve file history (R100 similarity)
+- [Phase 48-01]: python -m tools.youtube_analytics.X is the new invocation pattern for all tools
 
 ### Pending Todos
 
@@ -71,21 +73,21 @@ None at roadmap time.
 ### Last Session
 
 - **Date:** 2026-02-24
-- **Work:** v5.1 roadmap created — 6 phases, 28 requirements, 100% coverage
-- **Output:** ROADMAP.md updated, STATE.md updated, REQUIREMENTS.md traceability filled
+- **Work:** Executed 48-01 — renamed youtube-analytics/script-checkers directories, added 4 __init__.py files, swept 24+ codebase references
+- **Output:** 48-01-SUMMARY.md created, commits b6e9cb6 and 3208fdc, PKG-01+PKG-03 requirements marked complete
 
 ### Next Session
 
-**Next action:** `/gsd:plan-phase 48` — plan Package Structure & Dependencies
+**Next action:** Execute 48-02 (import rewrites — replace sys.path hacks with proper imports)
 
 ## Technical Notes
 
 - keywords.db schema version 29 (auto-migration with PRAGMA user_version)
 - intel.db and analytics.db need same PRAGMA versioning (Phase 52)
-- sys.path.insert hacks in tools/youtube-analytics/ and elsewhere (Phase 48 target)
+- sys.path.insert hacks in tools/youtube_analytics/ and elsewhere (Plan 02 target — directories renamed in 48-01)
 - spaCy requires Python 3.11-3.13 (not 3.14)
 - Feature flags: VARIANTS_AVAILABLE, BENCHMARKS_AVAILABLE, FEEDBACK_AVAILABLE, DIAGNOSTICS_AVAILABLE, TOPIC_STRATEGY_AVAILABLE, PLAYBOOK_AVAILABLE, SCORER_AVAILABLE
 
 ---
 
-*State updated: 2026-02-24 after v5.1 roadmap created*
+*State updated: 2026-02-24 after 48-01 execution complete*

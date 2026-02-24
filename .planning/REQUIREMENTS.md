@@ -31,9 +31,9 @@ Requirements for v5.1 Codebase Hardening. Each maps to roadmap phases.
 
 ### Package Structure
 
-- [ ] **PKG-01**: `__init__.py` files added to all tool directories
+- [x] **PKG-01**: `__init__.py` files added to all tool directories
 - [ ] **PKG-02**: All `sys.path.insert` hacks eliminated via proper package imports
-- [ ] **PKG-03**: Tools importable as `tools.discovery`, `tools.intel`, etc.
+- [x] **PKG-03**: Tools importable as `tools.discovery`, `tools.intel`, etc.
 
 ### Dependencies
 
@@ -100,9 +100,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TEST-05 | Phase 53 | Pending |
 | TEST-06 | Phase 53 | Pending |
 | TEST-07 | Phase 53 | Pending |
-| PKG-01 | Phase 48 | Pending |
+| PKG-01 | Phase 48 | Complete |
 | PKG-02 | Phase 48 | Pending |
-| PKG-03 | Phase 48 | Pending |
+| PKG-03 | Phase 48 | Complete |
 | DEP-01 | Phase 48 | Pending |
 | DEP-02 | Phase 48 | Pending |
 | DEP-03 | Phase 48 | Pending |
