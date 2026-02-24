@@ -432,7 +432,12 @@ Plans:
   3. `pip install -e .` installs the workspace and all production dependencies in one command
   4. Running `pip install -e .[dev,test]` adds dev and test dependencies without error
   5. All actually-used packages (feedparser, anthropic, spacy, etc.) appear in pyproject.toml
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 48-01-PLAN.md — Rename directories (youtube_analytics, script_checkers) + add __init__.py files
+- [ ] 48-02-PLAN.md — Replace all sys.path hacks with proper absolute and relative imports
+- [ ] 48-03-PLAN.md — Create root pyproject.toml + delete per-package requirements.txt files
 
 #### Phase 49: Dead Code Cleanup
 **Goal**: The codebase contains only code that is actively used
@@ -505,7 +510,12 @@ Plans:
   3. `pip install -e .` installs the workspace and all production dependencies in one command
   4. Running `pip install -e .[dev,test]` adds dev and test dependencies without error
   5. All actually-used packages (feedparser, anthropic, spacy, etc.) appear in pyproject.toml
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 48-01-PLAN.md — Rename directories (youtube_analytics, script_checkers) + add __init__.py files
+- [ ] 48-02-PLAN.md — Replace all sys.path hacks with proper absolute and relative imports
+- [ ] 48-03-PLAN.md — Create root pyproject.toml + delete per-package requirements.txt files
 
 ### Phase 49: Dead Code Cleanup
 **Goal**: The codebase contains only code that is actively used
@@ -615,7 +625,7 @@ Plans:
 | 45. Hook Optimization & Intelligence Integration | v5.0 | 2/2 | Complete | 2026-02-22 |
 | 46. Project Dashboard | v5.0 | 2/2 | Complete | 2026-02-22 |
 | 47. v5.0 Gap Closure | v5.0 | 1/1 | Complete | 2026-02-22 |
-| 48. Package Structure & Dependencies | v5.1 | 0/TBD | Not started | - |
+| 48. Package Structure & Dependencies | v5.1 | 0/3 | Not started | - |
 | 49. Dead Code Cleanup | v5.1 | 0/TBD | Not started | - |
 | 50. Error Handling | v5.1 | 0/TBD | Not started | - |
 | 51. Logging & CLI Standardization | v5.1 | 0/TBD | Not started | - |
