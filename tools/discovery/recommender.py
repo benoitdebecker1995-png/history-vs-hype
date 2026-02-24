@@ -33,8 +33,8 @@ from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, List, Any, Optional, Tuple
 
-# Add parent directory to path for youtube-analytics imports
-sys.path.insert(0, str(Path(__file__).parent.parent / 'youtube-analytics'))
+# Add parent directory to path for youtube_analytics imports
+sys.path.insert(0, str(Path(__file__).parent.parent / 'youtube_analytics'))
 
 try:
     from database import KeywordDB

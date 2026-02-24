@@ -83,25 +83,25 @@ Reports saved to: `channel-data/patterns/`
 When user runs `/patterns` (no flags), run both existing patterns and feedback patterns:
 
 ```bash
-cd tools/youtube-analytics && python patterns.py --all
+python -m tools.youtube_analytics.patterns --all
 ```
 
 Then also run feedback patterns:
 ```bash
-cd tools/youtube-analytics && python feedback.py patterns
+python -m tools.youtube_analytics.feedback patterns
 ```
 
 Display the key insights from all reports in the response.
 
 For specific options:
-- `/patterns --topic` -> `python patterns.py --topic-report`
-- `/patterns --title` -> `python patterns.py --title-report`
-- `/patterns --monthly` -> `python patterns.py --monthly`
-- `/patterns --last 30` -> `python patterns.py --last 30 --all`
+- `/patterns --topic` -> `python -m tools.youtube_analytics.patterns --topic-report`
+- `/patterns --title` -> `python -m tools.youtube_analytics.patterns --title-report`
+- `/patterns --monthly` -> `python -m tools.youtube_analytics.patterns --monthly`
+- `/patterns --last 30` -> `python -m tools.youtube_analytics.patterns --last 30 --all`
 
 For feedback patterns specifically:
-- `/patterns --feedback` -> `cd tools/youtube-analytics && python feedback.py patterns`
-- `/patterns --feedback --markdown` -> `cd tools/youtube-analytics && python feedback.py patterns --markdown`
+- `/patterns --feedback` -> `python -m tools.youtube_analytics.feedback patterns`
+- `/patterns --feedback --markdown` -> `python -m tools.youtube_analytics.feedback patterns --markdown`
 
 ## Related Commands
 

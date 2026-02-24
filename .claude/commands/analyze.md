@@ -68,7 +68,7 @@ Creates `POST-PUBLISH-ANALYSIS.md` containing:
 When user runs `/analyze VIDEO_ID`, execute:
 
 ```bash
-cd tools/youtube-analytics && python analyze.py VIDEO_ID --save --markdown
+python -m tools.youtube_analytics.analyze VIDEO_ID --save --markdown
 ```
 
 Then:
@@ -83,7 +83,7 @@ Run the full analytics backfill pipeline to populate the DB from all existing ch
 ```python
 import sys
 sys.path.insert(0, '.')
-sys.path.insert(0, 'tools/youtube-analytics')
+sys.path.insert(0, 'tools/youtube_analytics')
 from pathlib import Path
 from backfill import run_backfill
 
@@ -118,7 +118,7 @@ This runs automatically after each `/analyze VIDEO_ID --save`. No separate flag 
 ## Requirements
 
 - YouTube Analytics API configured (Phase 7)
-- OAuth token valid (`tools/youtube-analytics/credentials/token.json`)
+- OAuth token valid (`tools/youtube_analytics/credentials/token.json`)
 
 ## SECTION-LEVEL RETENTION DIAGNOSTICS (`--script`)
 
@@ -170,7 +170,7 @@ After each video analysis with the --script flag, the retention playbook (STYLE-
 
 ```bash
 # Manual update (standalone)
-python tools/youtube-analytics/playbook_synthesizer.py --update
+python -m tools.youtube_analytics.playbook_synthesizer --update
 ```
 
 This re-synthesizes Part 9 from all available retention data, incorporating patterns from the newly analyzed video.
@@ -198,16 +198,16 @@ After running `/analyze` on multiple videos, use the performance tools to identi
 
 ```bash
 # Fetch performance data for all published videos
-python tools/youtube-analytics/performance.py --fetch-all
+python -m tools.youtube_analytics.performance --fetch-all
 
 # See which topic types convert best
-python tools/youtube-analytics/performance.py --by-topic
+python -m tools.youtube_analytics.performance --by-topic
 
 # See which angles convert best
-python tools/youtube-analytics/performance.py --by-angle
+python -m tools.youtube_analytics.performance --by-angle
 
 # Generate full performance report
-python tools/youtube-analytics/performance.py --report --save
+python -m tools.youtube_analytics.performance --report --save
 ```
 
 The performance report shows:

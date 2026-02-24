@@ -54,7 +54,7 @@ from collections import defaultdict
 from statistics import mean
 
 
-# Determine project root (2 levels up from tools/youtube-analytics/)
+# Determine project root (2 levels up from tools/youtube_analytics/)
 SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent.parent
 

@@ -83,16 +83,16 @@ Competitor gap: No channels covering [topic angle] — differentiation opportuni
 Before generating prep materials, surface past production insights.
 
 **Run automatically:**
-```bash
-cd tools/youtube-analytics && python -c "
+```python
+import sys
+sys.path.insert(0, 'tools/youtube_analytics')
 from feedback_queries import get_insights_preamble
 topic = '{topic_type}'
 preamble = get_insights_preamble(topic, 'prep')
 if preamble:
     print(preamble)
 else:
-    print('No past performance insights available. Run: python feedback.py backfill')
-"
+    print('No past performance insights available. Run: python -m tools.youtube_analytics.feedback backfill')
 ```
 
 **Display the insights preamble** before generating prep outputs. If no insights, skip silently.

@@ -26,7 +26,7 @@ try:
 except ImportError:
     FEEDPARSER_AVAILABLE = False
 
-# requests is already installed (tools/youtube-analytics uses it)
+# requests is already installed (tools/youtube_analytics uses it)
 try:
     import requests
     REQUESTS_AVAILABLE = True

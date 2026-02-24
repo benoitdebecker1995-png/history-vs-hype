@@ -145,8 +145,8 @@ Hook pattern from outliers: "legal fiction exposed" frame drove 4x median views.
 **Read these reference files:**
 - `.claude/REFERENCE/STYLE-GUIDE.md` - **AUTHORITATIVE** style reference (voice, delivery, patterns)
   - **Part 6:** Voice patterns (proven History vs Hype patterns)
-  - **Part 8:** Creator technique library (cross-validated patterns from 80+ transcripts) — auto-updated with `python tools/youtube-analytics/pattern_synthesizer_v2.py --update`
-  - **Part 9:** Retention playbook (data-driven retention rules) — auto-updated with `python tools/youtube-analytics/playbook_synthesizer.py --update`
+  - **Part 8:** Creator technique library (cross-validated patterns from 80+ transcripts) — auto-updated with `python -m tools.youtube_analytics.pattern_synthesizer_v2 --update`
+  - **Part 9:** Retention playbook (data-driven retention rules) — auto-updated with `python -m tools.youtube_analytics.playbook_synthesizer --update`
 - `.claude/REFERENCE/PROVEN-TECHNIQUES-LIBRARY.md` - Hook formulas and retention techniques
 - `.claude/REFERENCE/channel-values.md` - Brand DNA
 - `.claude/USER-PREFERENCES.md` - Natural speaking patterns
@@ -183,28 +183,28 @@ Use these insights to inform structure decisions:
 ### Technical Details
 
 Insights come from:
-- `tools/youtube-analytics/feedback_queries.py` → `get_pre_script_insights(topic_type)`
-- `tools/youtube-analytics/topic_strategy.py` → `generate_topic_strategy()`
+- `tools/youtube_analytics/feedback_queries.py` → `get_pre_script_insights(topic_type)`
+- `tools/youtube_analytics/topic_strategy.py` → `generate_topic_strategy()`
 - Past POST-PUBLISH-ANALYSIS data stored in keywords.db
 
 ### Requirements
 
 - At least 1 past video of the same topic type must exist in the feedback database
-- Run `python tools/youtube-analytics/feedback.py backfill` to populate feedback data
+- Run `python -m tools.youtube_analytics.feedback backfill` to populate feedback data
 
 ### Implementation (For Claude)
 
 **Run this automatically (do not ask user):**
-```bash
-cd tools/youtube-analytics && python -c "
+```python
+import sys
+sys.path.insert(0, 'tools/youtube_analytics')
 from feedback_queries import get_pre_script_insights
 topic = '{topic_type}'  # Determine from user's topic (territorial, ideological, colonial, legal)
 insights = get_pre_script_insights(topic)
 if insights:
     print(insights)
 else:
-    print('No past performance insights available yet. Run: python feedback.py backfill')
-"
+    print('No past performance insights available yet. Run: python -m tools.youtube_analytics.feedback backfill')
 ```
 
 **Topic type detection:** When user describes their topic, classify into: territorial, ideological, colonial, legal, general. Use this classification for the query.
@@ -238,7 +238,7 @@ After script generation is complete, run retention scoring on the output:
 **Implementation for Claude:**
 ```python
 import sys
-sys.path.insert(0, 'tools/youtube-analytics')
+sys.path.insert(0, 'tools/youtube_analytics')
 try:
     from retention_scorer import score_all_sections, format_retention_warnings
     SCORER_AVAILABLE = True
@@ -433,9 +433,9 @@ After 5+ choices, the system recommends preferred options based on your past pat
 
 ### Review Past Choices
 ```
-python tools/youtube-analytics/technique_library.py --choices
-python tools/youtube-analytics/technique_library.py --choices territorial
-python tools/youtube-analytics/technique_library.py --choice-stats
+python -m tools.youtube_analytics.technique_library --choices
+python -m tools.youtube_analytics.technique_library --choices territorial
+python -m tools.youtube_analytics.technique_library --choice-stats
 ```
 
 ---

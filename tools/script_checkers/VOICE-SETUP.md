@@ -7,8 +7,7 @@ The voice fingerprinting module requires the `srt` library for parsing subtitle 
 ### Install dependencies:
 
 ```bash
-cd tools/script-checkers
-pip install -r requirements.txt
+pip install -r tools/script_checkers/requirements.txt
 ```
 
 If `srt` fails to install automatically, install it manually:
@@ -27,9 +26,9 @@ python -c "import srt; print('srt version:', srt.__version__)"
 
 ### Build pattern library from existing videos:
 
-```bash
-cd tools/script-checkers
-python -c "
+```python
+import sys
+sys.path.insert(0, 'tools/script_checkers')
 from pathlib import Path
 from voice import build_pattern_library
 

@@ -41,8 +41,8 @@ video-projects/
 └── USER-PREFERENCES.md # Working style, efficiency expectations
 
 tools/
-├── youtube-analytics/  # Channel analytics tools
-└── script-checkers/    # Script validation
+├── youtube_analytics/  # Channel analytics tools
+└── script_checkers/    # Script validation
 ```
 
 ### Standard Project Files

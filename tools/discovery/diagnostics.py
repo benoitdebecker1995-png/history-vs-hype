@@ -32,7 +32,7 @@ from typing import Dict, List, Any, Optional
 
 # Import channel averages module
 try:
-    sys.path.insert(0, str(Path(__file__).parent.parent / 'youtube-analytics'))
+    sys.path.insert(0, str(Path(__file__).parent.parent / 'youtube_analytics'))
     from channel_averages import get_channel_averages
     from metrics import get_video_metrics
 except ImportError:
@@ -385,7 +385,7 @@ if __name__ == '__main__':
     # Check dependencies
     if get_video_metrics is None or get_channel_averages is None:
         print("Error: Required dependencies not available")
-        print("Ensure youtube-analytics/metrics.py and channel_averages.py are present")
+        print("Ensure youtube_analytics/metrics.py and channel_averages.py are present")
         sys.exit(1)
 
     # Parse arguments

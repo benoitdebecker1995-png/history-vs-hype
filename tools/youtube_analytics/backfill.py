@@ -15,10 +15,10 @@ Pipeline:
   Stage 4 — Channel insights report generation (channel-data/channel-insights.md)
 
 Usage:
-    python tools/youtube-analytics/backfill.py               # Full pipeline
-    python tools/youtube-analytics/backfill.py --force       # Re-import all data
-    python tools/youtube-analytics/backfill.py --json-only   # Skip markdown stage
-    python tools/youtube-analytics/backfill.py --insights-only  # Skip all imports
+    python -m tools.youtube_analytics.backfill               # Full pipeline
+    python -m tools.youtube_analytics.backfill --force       # Re-import all data
+    python -m tools.youtube_analytics.backfill --json-only   # Skip markdown stage
+    python -m tools.youtube_analytics.backfill --insights-only  # Skip all imports
 
 Anti-patterns (from RESEARCH.md):
     - Do NOT use analytics.db (empty). Use keywords.db via KeywordDB exclusively.
@@ -29,16 +29,16 @@ Anti-patterns (from RESEARCH.md):
 Dependencies:
     - stdlib only: json, pathlib, datetime, sys, argparse, statistics
     - tools/discovery/database.py (KeywordDB)
-    - tools/youtube-analytics/feedback_parser.py (backfill_all)
-    - tools/youtube-analytics/performance.py (classify_topic_type, classify_own_video)
-    - tools/youtube-analytics/topic_strategy.py (generate_topic_strategy)
+    - tools/youtube_analytics/feedback_parser.py (backfill_all)
+    - tools/youtube_analytics/performance.py (classify_topic_type, classify_own_video)
+    - tools/youtube_analytics/topic_strategy.py (generate_topic_strategy)
 """
 
 import sys
 import json
 import argparse
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 from statistics import mean
 from typing import Dict, List, Any, Optional, Set
 
@@ -51,7 +51,7 @@ try:
 except ImportError:
     DB_AVAILABLE = False
 
-# Add youtube-analytics to path for sibling imports
+# Add youtube_analytics to path for sibling imports
 sys.path.insert(0, str(Path(__file__).parent))
 
 try:
@@ -82,7 +82,7 @@ def _load_own_channel_ids(project_root: Path) -> Set[str]:
     Returns:
         Set of video ID strings
     """
-    analytics_dir = project_root / 'tools' / 'youtube-analytics'
+    analytics_dir = project_root / 'tools' / 'youtube_analytics'
     own_ids = set()
 
     for json_name in ['_longform_enriched.json', '_longform_metrics.json']:
@@ -167,7 +167,7 @@ def import_from_json_prefetch(project_root: Path) -> Dict[str, Any]:
     if not DB_AVAILABLE:
         return {'error': 'KeywordDB not available', 'imported': 0, 'skipped': 0, 'errors': []}
 
-    analytics_dir = project_root / 'tools' / 'youtube-analytics'
+    analytics_dir = project_root / 'tools' / 'youtube_analytics'
     enriched_path = analytics_dir / '_longform_enriched.json'
     metrics_path = analytics_dir / '_longform_metrics.json'
 
@@ -294,16 +294,24 @@ def import_from_analysis_files(project_root: Path, force: bool = False) -> Dict[
 # Expanded vocabulary beyond performance.py TAG_VOCABULARY
 EXPANDED_TOPIC_RULES = {
     'legal': ['constitution', 'constitutional', 'democratic', 'statute', 'legislation',
-              'referendum', 'loophole', 'provision', 'clause', 'article', 'mandate'],
+              'referendum', 'loophole', 'provision', 'clause', 'article', 'mandate',
+              'court', 'ruling', 'legal'],
     'ideological': ['myth', 'dark ages', 'flat earth', 'propaganda', 'narrative',
-                    'debunk', 'fact-check', 'lie', 'misconception', 'rewriting'],
+                    'debunk', 'fact-check', 'lie', 'misconception', 'rewriting',
+                    'hero', 'erased', 'weaponized', 'kgb', 'nato promised',
+                    'christmas', 'sol invictus', 'stalin', 'putin'],
     'factcheck': ['fact-check', 'fact check', 'claims', 'checking', 'verified'],
     'colonial': ['colonial', 'colony', 'empire', 'imperial', 'independence',
                  'decolonization', 'partition', 'somaliland', 'haiti', 'occupied',
-                 'protectorate'],
+                 'protectorate', 'french control', 'coups ended', 'stock exchange funded',
+                 'leave or starve', 'emptied an island'],
     'territorial': ['dispute', 'border', 'territory', 'claim', 'annex', 'occupation',
                     'sovereignty', 'bir tawil', 'chagos', 'essequibo', 'bermeja',
-                    'gibraltar', 'treaty', 'icj', 'disappear', 'disappeared'],
+                    'gibraltar', 'treaty', 'icj', 'disappear', 'disappeared',
+                    'islands', 'island', 'wall', 'divided capital', 'cyprus',
+                    'kashmir', 'ukraine', 'taiwan', 'china sea', 'south china',
+                    'georgia', 'armenia', 'turkey', 'greece', 'morocco',
+                    'map', 'cited this map', 'map error'],
 }
 
 
@@ -394,7 +402,7 @@ def reclassify_topics(project_root: Path) -> int:
                     SET topic_type = ?, classified_at = ?
                     WHERE video_id = ?
                     """,
-                    (new_type, datetime.utcnow().date().isoformat(), video_id)
+                    (new_type, datetime.now(timezone.utc).date().isoformat(), video_id)
                 )
                 reclassified += 1
 
@@ -577,7 +585,7 @@ def generate_channel_insights_report(project_root: Path) -> Dict[str, Any]:
     channel_avg_ret = mean(r['avg_retention_pct'] or 0 for r in rows)
     total_videos = len(rows)
 
-    now_str = datetime.utcnow().strftime('%Y-%m-%d %H:%M')
+    now_str = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')
 
     # Build recommendations
     recommendations = _build_recommendations(topic_stats, channel_avg_conv, channel_avg_ret)
@@ -588,7 +596,7 @@ def generate_channel_insights_report(project_root: Path) -> Dict[str, Any]:
         '',
         f'> Generated: {now_str} UTC',
         f'> Videos analyzed: {total_videos} own-channel videos',
-        '> Auto-generated. Do not edit manually. Re-run: `python tools/youtube-analytics/backfill.py --insights-only`',
+        '> Auto-generated. Do not edit manually. Re-run: `python -m tools.youtube_analytics.backfill --insights-only`',
         '',
         '---',
         '',
@@ -876,10 +884,10 @@ if __name__ == '__main__':
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python tools/youtube-analytics/backfill.py              Full pipeline
-  python tools/youtube-analytics/backfill.py --force      Re-import all (update mode)
-  python tools/youtube-analytics/backfill.py --json-only  JSON import only, skip markdown
-  python tools/youtube-analytics/backfill.py --insights-only  Skip all imports, regenerate report
+  python -m tools.youtube_analytics.backfill              Full pipeline
+  python -m tools.youtube_analytics.backfill --force      Re-import all (update mode)
+  python -m tools.youtube_analytics.backfill --json-only  JSON import only, skip markdown
+  python -m tools.youtube_analytics.backfill --insights-only  Skip all imports, regenerate report
 
 Data source priority:
   1. _longform_enriched.json (20 videos, has CTR + retention)

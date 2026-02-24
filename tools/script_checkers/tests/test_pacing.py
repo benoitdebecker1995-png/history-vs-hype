@@ -12,8 +12,7 @@ Tests cover:
 - Multi-section verdict logic
 
 Usage:
-    cd tools/script-checkers/tests
-    python test_pacing.py
+    python -m tools.script_checkers.tests.test_pacing
 """
 
 import unittest
@@ -22,7 +21,7 @@ import sys
 
 # Add parent directory to path for imports
 _file_path = Path(__file__).resolve()
-_script_checkers_dir = _file_path.parent.parent  # tools/script-checkers/
+_script_checkers_dir = _file_path.parent.parent  # tools/script_checkers/
 sys.path.insert(0, str(_script_checkers_dir))
 
 from checkers.pacing import (

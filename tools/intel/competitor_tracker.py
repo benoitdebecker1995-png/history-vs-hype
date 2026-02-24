@@ -9,7 +9,7 @@ Tracks competitor channels by:
        NEVER uses search.list (100 units) — see RESEARCH.md Pitfall 4
 
 Channel registry is loaded from competitor_channels.json (same directory).
-Auth reuses the existing tools/youtube-analytics/auth.py pattern.
+Auth reuses the existing tools/youtube_analytics/auth.py pattern.
 
 All public functions follow the error-dict pattern: return {'error': msg}
 on failure, never raise.
@@ -209,7 +209,7 @@ def enrich_videos_with_metadata(video_ids: list[str]) -> dict:
     Uses YouTube Data API videos.list (1 quota unit per call, 50 IDs max).
     NEVER uses search.list (100 units each) — see RESEARCH.md Pitfall 4.
 
-    Auth uses the existing tools/youtube-analytics/auth.py pattern.
+    Auth uses the existing tools/youtube_analytics/auth.py pattern.
     If auth fails (no token, no client_secret.json), returns graceful error
     so caller can proceed with RSS-only data.
 
@@ -232,9 +232,9 @@ def enrich_videos_with_metadata(video_ids: list[str]) -> dict:
     if not video_ids:
         return {}
 
-    # Auth: reuse tools/youtube-analytics/auth.py (same pattern as analyze.py)
+    # Auth: reuse tools/youtube_analytics/auth.py (same pattern as analyze.py)
     try:
-        _auth_dir = Path(__file__).parent.parent / "youtube-analytics"
+        _auth_dir = Path(__file__).parent.parent / "youtube_analytics"
         if str(_auth_dir) not in sys.path:
             sys.path.insert(0, str(_auth_dir))
         from auth import get_authenticated_service  # noqa: F401

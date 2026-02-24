@@ -154,7 +154,7 @@ Before `/next` works, you need:
 
 2. **Performance data for pattern extraction**
    ```bash
-   cd tools/youtube-analytics && python performance.py --fetch-all
+   python -m tools.youtube_analytics.performance --fetch-all
    ```
 
 ## Execution

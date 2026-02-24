@@ -4,8 +4,7 @@ Test YouTube Analytics API connection.
 Run this after setting up credentials to verify everything works.
 
 Usage:
-    cd tools/youtube-analytics
-    python test_connection.py
+    python -m tools.youtube_analytics.test_connection
 """
 
 from datetime import datetime, timedelta

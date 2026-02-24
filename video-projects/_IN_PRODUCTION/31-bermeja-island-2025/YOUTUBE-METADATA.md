@@ -1,66 +1,40 @@
 # YOUTUBE METADATA - Bermeja Island
 
 **Project:** 31-bermeja-island-2025
-**Date:** 2026-01-30
+**Date:** 2026-02-16 (finalized)
+**Video Duration:** ~8:12
 
 ---
 
-## TITLE OPTIONS (A/B Test Candidates)
+## TITLE (A/B/C Test)
 
-### Tier 1: Primary Contenders
+| Variant | Title | Chars | Angle | Keywords |
+|---------|-------|-------|-------|----------|
+| **A** | **Mexico's Phantom Island: A 400-Year Map Error** | 47 | Mechanism | phantom island (58), map error (37), Mexico |
+| **B** | **The Phantom Island That Was on Maps for 400 Years** | 50 | Mystery | phantom island (58), maps (--) |
+| **C** | **How a Phantom Island Changed Mexico's Oil Rights** | 49 | Consequence | phantom island (58), oil rights (24), Mexico |
 
-| Title | Characters | Pattern | Notes |
-|-------|------------|---------|-------|
-| **The Island That Cost Mexico $22 Billion (It Never Existed)** | 54 | Stakes + Twist | Clear value prop, parenthetical hook |
-| **The 500-Year Typo Worth 22 Billion Barrels of Oil** | 48 | Mechanism + Stakes | "Typo" = specific, intriguing |
-| **Mexico Lost $22 Billion to a Cartographic Error** | 47 | Loss + Mechanism | Direct, factual |
-
-### Tier 2: Alternative Angles
-
-| Title | Characters | Pattern | Notes |
-|-------|------------|---------|-------|
-| **The Island on Maps for 400 Years That Never Existed** | 50 | Duration + Twist | Emphasizes longevity of error |
-| **How a 1539 Typo Cost Mexico Billions in Oil Rights** | 50 | Date + Stakes | Historical anchor |
-| **The CIA Didn't Blow Up This Island (It Was Never There)** | 55 | Conspiracy debunk | Addresses the theory directly |
-
-### Tier 3: Question Format
-
-| Title | Characters | Pattern | Notes |
-|-------|------------|---------|-------|
-| **Did the CIA Destroy Mexico's $22 Billion Island?** | 48 | Question + Stakes | Clickable but risks clickbait feel |
-| **Why Is This Island on Every Map for 400 Years?** | 47 | Mystery | Less specific about stakes |
-
-**RECOMMENDED FOR TESTING:** Titles 1 and 2 from Tier 1
+**Start with:** A (best keyword density + geographic anchor)
+**Rotate at:** 48h → B, 96h → C (or based on impression volume)
 
 ---
 
 ## DESCRIPTION
 
-### First 3 Lines (Above the Fold)
+### Copy-Paste (Full)
 
-In 1539, a Spanish cartographer drew an island off the Yucatan coast. For 382 years, every mapmaker copied it without checking if it was real. When Mexico needed that island to claim 22 billion barrels of Gulf oil in 2000... it wasn't there.
+Bermeja is a phantom island off Mexico's Yucatan coast that appeared on maps for 382 years — from the 1539 Santa Cruz atlas to Mexico's official charts in 2009. It was never there.
 
-This is the story of Bermeja: the most expensive cartographic error in history.
+When Mexico needed Bermeja to anchor its maritime boundary and claim oil fields in the Gulf's "donut hole," the Navy sailed to its coordinates and found nothing but deep ocean. The US-Mexico treaty was signed without it. Mexican senators accused the CIA of destroying the island. UNAM's 2009 expedition proved no island had existed at those coordinates for over 5,300 years.
 
-### Full Description
-
-In 1539, a Spanish cartographer drew an island off the Yucatan coast. For 382 years, every mapmaker copied it without checking if it was real. When Mexico needed that island to claim 22 billion barrels of Gulf oil in 2000... it wasn't there.
-
-This is the story of Bermeja: the most expensive cartographic error in history.
+This is the story of the most expensive cartographic error in history.
 
 **What you'll see in this video:**
-• The 1539 atlas that created the phantom island
-• The 2000 US-Mexico treaty that divided the oil
-• The 2009 scientific expedition that proved it never existed
-• Why the "CIA blew it up" conspiracy doesn't work (geology says no)
-
-**Key documents shown:**
-0:00 - The $22 billion question
-0:45 - The 1539 Santa Cruz Atlas
-3:30 - The "Donut Hole" oil reserves
-6:00 - The CIA conspiracy theory
-8:00 - UNAM's 2009 verdict
-10:30 - Why this still matters
+- The 1539 atlas that created the phantom island
+- How 16th-century navigation errors became permanent map features
+- The 2000 US-Mexico treaty that divided the Gulf oil
+- The CIA conspiracy theory — and the geology that kills it
+- UNAM's 2009 deep-sea expedition and the sediment evidence
 
 ---
 
@@ -84,71 +58,63 @@ Nah & Perono Cacciafoco. "Ex-Isles: Islands that Disappeared" *Review of Histori
 **FURTHER READING:**
 
 Brooke-Hitching, Edward. *The Phantom Atlas* (2016) - Comprehensive guide to nonexistent islands
-- The UNAM bathymetric study details
-- The 62/38% treaty division calculation
 
 Guinness World Records recognizes Bermeja as the "longest-lived phantom island" (382 years on maps)
 
 ---
 
-#bermeja #phantomisland #mexico #gulfofmexico #oilrights #cartography #maps #history #geopolitics #treaty #unam
+#bermeja #phantomisland #mexico #gulfofmexico #cartography #maps #history #geopolitics #lostislands #maperror #unam
 
 ---
 
 ## TAGS (Copy-Paste Ready)
 
-Bermeja Island, phantom island, Mexico oil rights, Gulf of Mexico oil, Western Gap treaty, US Mexico treaty 2000, cartographic error, Santa Cruz atlas 1539, UNAM 2009, donut hole oil, Exclusive Economic Zone, EEZ, maritime boundary, CIA conspiracy debunked, phantom atlas, lost islands, map errors, history of cartography, Mexico United States relations, oil reserves Gulf of Mexico, Alonso de Santa Cruz, Cosmographer Mayor, dead reckoning navigation, Sandy Island, phantom geography
+Bermeja, Bermeja Island, phantom island, lost islands, map errors history, cartographic error, Mexico phantom island, Bermeja island that never existed, Santa Cruz atlas 1539, UNAM 2009, Gulf of Mexico oil, donut hole oil, Western Gap treaty, US Mexico treaty 2000, Exclusive Economic Zone, EEZ, maritime boundary, CIA conspiracy debunked, phantom atlas, islands that don't exist, history of cartography, Mexico United States relations, Alonso de Santa Cruz, dead reckoning navigation, Sandy Island, phantom geography, fake islands on maps, Mexico oil rights
 
 ---
 
-## THUMBNAIL CONCEPTS
+## THUMBNAILS (A/B/C Test)
 
-### Concept A: Map Comparison
-- Left side: 1539 atlas showing Bermeja (warm sepia tones)
-- Right side: Modern bathymetric data showing empty ocean (blue/cold)
-- Text overlay: "$22B" or "NEVER EXISTED"
-- Split composition, before/after feel
+| Variant | Concept | Text Overlay | Tags |
+|---------|---------|-------------|------|
+| **1** | **Map vs Reality split** — 1539 atlas (sepia, island circled) left / empty blue ocean right | "400 YEARS" | map, split, text |
+| **2** | **Old map closeup** — Tight crop on atlas with Bermeja circled in red, modern "NOT FOUND" stamp overlay | "MAPPED" / "MISSING" | map, document, text |
+| **3** | **Gulf map with hole** — Modern Gulf of Mexico map showing EEZ donut hole, ghosted/transparent island at Bermeja's coordinates | No text (clean map) | map, territory, clean |
 
-### Concept B: Oil + Ghost Island
-- Gulf of Mexico map with oil rig silhouettes
-- Ghost/transparent island overlay at Bermeja's coordinates
-- Red X or "?" over the island location
-- Text: "22 BILLION BARRELS"
+**Start with:** 1 (split comparison = proven format for this channel)
+**Rotate at:** 48h → 2, 96h → 3 (or based on impression volume)
 
-### Concept C: The Document Reveal
-- Aged parchment/atlas aesthetic
-- Highlight/circle around Bermeja on old map
-- Modern zoom-in showing "NOTHING HERE"
-- Documentary/investigation feel
+**NOTE:** Map-focused thumbnails outperform face thumbnails 26x on this channel.
 
-### Concept D: Treaty Focus
-- 2000 Treaty document as background
-- Gulf of Mexico map overlay
-- Red zone showing "lost" territory
-- Text: "THE ISLAND MEXICO COULDN'T FIND"
+### Registration (After Upload)
 
-**RECOMMENDED:** Concept A or C (map-focused thumbnails outperform face thumbnails for this channel per VidIQ data)
+```bash
+# Replace VIDEO_ID and paths after upload
+python -m tools.youtube_analytics.variants register-title VIDEO_ID A "Mexico's Phantom Island: A 400-Year Map Error" --tags mechanism,phantom-island,mexico
+python -m tools.youtube_analytics.variants register-title VIDEO_ID B "The Phantom Island That Was on Maps for 400 Years" --tags mystery,phantom-island,duration
+python -m tools.youtube_analytics.variants register-title VIDEO_ID C "How a Phantom Island Changed Mexico's Oil Rights" --tags consequence,phantom-island,oil-rights
+
+python -m tools.youtube_analytics.variants register-thumb VIDEO_ID 1 thumbnail-1.jpg --tags map,split,text
+python -m tools.youtube_analytics.variants register-thumb VIDEO_ID 2 thumbnail-2.jpg --tags map,document,text
+python -m tools.youtube_analytics.variants register-thumb VIDEO_ID 3 thumbnail-3.jpg --tags map,territory,clean
+```
 
 ---
 
-## CHAPTERS (Adjust After Final Edit)
+## CHAPTERS (From Final SRT Timestamps)
 
-0:00 The $22 Billion Question
-0:45 The 1539 Atlas
-2:00 How Map Errors Persist
-3:30 The Donut Hole
-5:00 The 1997 Search
-6:00 The CIA Theory
-7:30 The Scientific Response
-8:00 UNAM's 2009 Expedition
-9:30 The 5,300 Year Verdict
-10:30 Why This Still Matters
+0:00 The Phantom Island
+0:44 The 1539 Error
+2:39 Then Came the Oil
+3:56 The CIA Theory
+4:25 The Scientific Debunk
+6:23 The Verdict
 
 ---
 
 ## PINNED COMMENT
 
-📚 **Sources for this video:**
+**Sources for this video:**
 
 The 1539 Santa Cruz atlas is held at the Library of Congress. The 2000 Treaty is available on the State Department website. The UNAM 2009 findings are from their official press release (in Spanish).
 
@@ -158,17 +124,78 @@ If you spot any errors, let me know with timestamps and sources - I'll add corre
 
 ---
 
-## END SCREEN SUGGESTIONS
+## SUBTITLES
 
-**Related videos to link:**
-- Bir Tawil (unclaimed territory theme)
-- Belize-Guatemala (maritime/territorial dispute theme)
-- Any future "phantom geography" videos
-
-**Card placement suggestions:**
-- At 3:30 (donut hole explanation) → link to EEZ explainer if available
-- At 10:30 (Sandy Island mention) → link to future phantom island video if planned
+- **English:** `bermeja.srt` (corrected from auto-transcription)
+- **Spanish:** `bermeja-es.srt` (manual translation)
 
 ---
 
-*Metadata prepared: 2026-01-30*
+## END SCREEN SUGGESTIONS
+
+**Related videos to link:**
+- Belize-Guatemala (territorial dispute theme)
+- Essequibo (territorial dispute theme)
+- Any future "phantom geography" videos
+
+**Card placement suggestions:**
+- At 2:39 (oil stakes begin) — link to Essequibo if available
+- At 7:04 (Sandy Island mention) — link to future phantom island video if planned
+
+---
+
+## SPANISH METADATA (YouTube Multi-Language)
+
+*For YouTube Studio > Subtitles > Spanish > Add Title & Description*
+
+### Título (match English variant)
+
+| Variant | Spanish Title |
+|---------|---------------|
+| **A** | **La isla fantasma de México: un error cartográfico de 400 años** |
+| **B** | **La isla fantasma que estuvo en los mapas durante 400 años** |
+| **C** | **Cómo una isla fantasma cambió los derechos petroleros de México** |
+
+### Descripción
+
+Bermeja es una isla fantasma frente a la costa de Yucatán que apareció en mapas durante 382 años — desde el atlas de Santa Cruz de 1539 hasta las cartas oficiales de México en 2009. Nunca existió.
+
+Cuando México necesitó a Bermeja para anclar su frontera marítima y reclamar campos petroleros en el "hoyo de dona" del Golfo, la Armada navegó hasta sus coordenadas y no encontró nada más que océano profundo. El tratado con EE.UU. se firmó sin ella. Senadores mexicanos acusaron a la CIA de destruir la isla. La expedición de la UNAM en 2009 demostró que no había existido ninguna isla en esas coordenadas durante más de 5,300 años.
+
+Esta es la historia del error cartográfico más caro de la historia.
+
+**Lo que verás en este video:**
+- El atlas de 1539 que creó la isla fantasma
+- Cómo los errores de navegación del siglo XVI se convirtieron en rasgos permanentes de los mapas
+- El tratado EE.UU.-México del 2000 que dividió el petróleo del Golfo
+- La teoría de conspiración de la CIA — y la geología que la destruye
+- La expedición submarina de la UNAM en 2009 y la evidencia del sedimento
+
+---
+
+**FUENTES PRIMARIAS:**
+
+Santa Cruz, Alonso de. *Islario General de Todas las Islas del Mundo* (1539), reimpreso 1918, p. 518
+- Biblioteca del Congreso: https://www.loc.gov/item/2021668468/
+
+Departamento de Estado de EE.UU. "Tratado sobre la Delimitación de la Plataforma Continental en el Golfo de México Occidental" (2000)
+- State Dept: https://www.state.gov/wp-content/uploads/2020/02/US_Mexico_2000_withExtension.pdf
+
+Boletín UNAM. "Concluye la UNAM que no existe la Isla Bermeja" (23 de junio de 2009)
+- Boletín UNAM-DGCS-374: https://www.dgcs.unam.mx/boletin/bdboletin/2009_374.html
+
+Nah & Perono Cacciafoco. "Ex-Isles: Islands that Disappeared" *Review of Historical Geography and Toponomastics* (2018)
+
+*Mexican Law Review*, Vol. V, No. 2 (2012), pp. 446-449
+
+---
+
+#bermeja #islafantasma #méxico #golfodeméxico #cartografía #mapas #historia #geopolítica #islasperdidas #errorcartográfico #unam #islabermeja
+
+### Tags (Spanish)
+
+Bermeja, Isla Bermeja, isla fantasma, islas perdidas, errores en mapas, error cartográfico, México isla fantasma, Bermeja isla que nunca existió, atlas Santa Cruz 1539, UNAM 2009, petróleo Golfo de México, hoyo de dona, tratado EE.UU. México 2000, zona económica exclusiva, frontera marítima, conspiración CIA desmentida, atlas fantasma, islas que no existen, historia de la cartografía, relaciones México Estados Unidos, Alonso de Santa Cruz, navegación a estima, Sandy Island, geografía fantasma, islas ficticias en mapas, derechos petroleros México
+
+---
+
+*Metadata finalized: 2026-02-16*

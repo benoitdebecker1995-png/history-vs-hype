@@ -4,7 +4,7 @@ Test Retention Scorer Module
 TDD test suite for retention_scorer.py covering all scoring contracts.
 These tests define the expected behavior before implementation.
 
-Run: python tools/youtube-analytics/test_retention_scorer.py
+Run: python -m tools.youtube_analytics.test_retention_scorer
 """
 
 import unittest
