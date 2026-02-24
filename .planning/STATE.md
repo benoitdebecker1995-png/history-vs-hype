@@ -1,7 +1,7 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-24 (48-01 complete — directories renamed, __init__.py files added)
+**Last Updated:** 2026-02-24 (48-03 complete — pyproject.toml created, 3 requirements.txt files deleted)
 
 ## Project Reference
 
@@ -14,11 +14,11 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 
 **Milestone:** v5.1 Codebase Hardening
 **Phase:** 48 of 53 (Package Structure & Dependencies)
-**Status:** In Progress — Plan 01 complete, Plan 02 next
-**Last activity:** 2026-02-24 — 48-01 complete: directories renamed, 4 __init__.py files added, 24+ references swept
+**Status:** In Progress — Plans 01 and 03 complete, Plan 02 next (or phase complete if 02 done)
+**Last activity:** 2026-02-24 — 48-03 complete: root pyproject.toml created (history-vs-hype-tools v5.1.0), 3 per-package requirements.txt files deleted
 
 **Progress:**
-[██████████] 97%
+[██████████] 98%
 
 ## Milestone History
 
@@ -59,6 +59,8 @@ v5.0 decisions archived in PROJECT.md Key Decisions table. See `.planning/milest
 v5.1 ordering rationale: Package structure first (proper imports unblock everything else), dead code before error handling (don't harden code that's being deleted), logging+CLI paired (both wire --verbose/--quiet), DB hardening parallel to error/logging work, testing last (verifies final state of all changes).
 - [Phase 48-01]: git mv used for directory renames to preserve file history (R100 similarity)
 - [Phase 48-01]: python -m tools.youtube_analytics.X is the new invocation pattern for all tools
+- [Phase 48-03]: Used trendspyg (not trendspy) — confirmed from actual import in tools/discovery/trends.py
+- [Phase 48-03]: pyproject.toml is the single source of dependency truth — three per-package requirements.txt files deleted
 
 ### Pending Todos
 
@@ -73,12 +75,12 @@ None at roadmap time.
 ### Last Session
 
 - **Date:** 2026-02-24
-- **Work:** Executed 48-01 — renamed youtube-analytics/script-checkers directories, added 4 __init__.py files, swept 24+ codebase references
-- **Output:** 48-01-SUMMARY.md created, commits b6e9cb6 and 3208fdc, PKG-01+PKG-03 requirements marked complete
+- **Work:** Executed 48-03 — created root pyproject.toml with 8 extras groups, deleted 3 per-package requirements.txt files
+- **Output:** 48-03-SUMMARY.md created, commits c82db03 and a380c34, DEP-01+DEP-02+DEP-03 requirements marked complete
 
 ### Next Session
 
-**Next action:** Execute 48-02 (import rewrites — replace sys.path hacks with proper imports)
+**Next action:** Execute 48-02 (import rewrites — replace sys.path hacks with proper absolute imports)
 
 ## Technical Notes
 
@@ -90,4 +92,4 @@ None at roadmap time.
 
 ---
 
-*State updated: 2026-02-24 after 48-01 execution complete*
+*State updated: 2026-02-24 after 48-03 execution complete*

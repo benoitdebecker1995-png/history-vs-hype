@@ -30,15 +30,12 @@ from datetime import datetime
 from statistics import mean, stdev
 from typing import Dict, List, Any, Optional
 
-# Add discovery to path for KeywordDB import
-sys.path.insert(0, str(Path(__file__).parent.parent / 'discovery'))
-
 # Feature flag for availability detection
 PLAYBOOK_AVAILABLE = False
 
 try:
-    from database import KeywordDB
-    from section_diagnostics import load_voice_patterns
+    from tools.discovery.database import KeywordDB
+    from .section_diagnostics import load_voice_patterns
     PLAYBOOK_AVAILABLE = True
 except ImportError as e:
     print(f"Warning: Playbook synthesizer dependencies unavailable: {e}", file=sys.stderr)

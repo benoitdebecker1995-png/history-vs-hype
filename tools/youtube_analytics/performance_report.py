@@ -35,11 +35,8 @@ from collections import defaultdict
 from statistics import mean, median
 from typing import Dict, List, Any, Optional
 
-# Add discovery to path for database
-sys.path.insert(0, str(Path(__file__).parent.parent / 'discovery'))
-
 try:
-    from database import KeywordDB
+    from tools.discovery.database import KeywordDB
     DATABASE_AVAILABLE = True
 except ImportError:
     DATABASE_AVAILABLE = False

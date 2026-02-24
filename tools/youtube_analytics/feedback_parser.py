@@ -25,7 +25,7 @@ import re
 import json
 import sys
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional, Dict, List, Any
 
 
@@ -256,7 +256,7 @@ def parse_analysis_file(filepath: str) -> Dict[str, Any]:
         # Combine into complete result
         result = {
             'video_id': video_id,
-            'parsed_at': datetime.utcnow().isoformat(),
+            'parsed_at': datetime.now(timezone.utc).isoformat(),
             'filepath': filepath,
             **metrics,  # avg_retention, final_retention, ctr, impressions, views, subscribers_gained
             'observations': lessons['observations'],
@@ -317,8 +317,7 @@ def backfill_all(project_root: Path, force: bool = False) -> Dict[str, Any]:
     """
     # Try to import KeywordDB for storage
     try:
-        sys.path.insert(0, str(project_root / 'tools' / 'discovery'))
-        from database import KeywordDB
+        from tools.discovery.database import KeywordDB
         db = KeywordDB()
     except ImportError:
         return {

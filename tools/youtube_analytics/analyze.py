@@ -45,54 +45,52 @@ from datetime import datetime, timezone
 from urllib.parse import urlparse, parse_qs
 from pathlib import Path
 
-from video_report import generate_video_report
-from comments import fetch_and_categorize_comments
-from channel_averages import get_channel_averages, compare_to_channel
-from metrics import get_video_metrics
+from .video_report import generate_video_report
+from .comments import fetch_and_categorize_comments
+from .channel_averages import get_channel_averages, compare_to_channel
+from .metrics import get_video_metrics
 
 # Try to import discovery diagnostics (may not be available)
 try:
-    sys.path.insert(0, str(Path(__file__).parent.parent / 'discovery'))
-    from diagnostics import diagnose_discovery, format_diagnosis_markdown
+    from tools.discovery.diagnostics import diagnose_discovery, format_diagnosis_markdown
     DISCOVERY_AVAILABLE = True
 except ImportError:
     DISCOVERY_AVAILABLE = False
 
 # Try to import variant tracking (may not be available)
 try:
-    from database import KeywordDB
+    from tools.discovery.database import KeywordDB
     VARIANTS_AVAILABLE = True
 except ImportError:
     VARIANTS_AVAILABLE = False
 
 # Try to import CTR analysis (Phase 30)
 try:
-    from benchmarks import compare_variants_for_video, get_benchmarks_report
+    from .benchmarks import compare_variants_for_video, get_benchmarks_report
     BENCHMARKS_AVAILABLE = True
 except ImportError:
     BENCHMARKS_AVAILABLE = False
 
 # Try to import feedback storage (Phase 31)
 try:
-    from feedback_parser import parse_analysis_file
-    from feedback_queries import get_insights_preamble
+    from .feedback_parser import parse_analysis_file
+    from .feedback_queries import get_insights_preamble
     FEEDBACK_AVAILABLE = True
 except ImportError:
     FEEDBACK_AVAILABLE = False
 
 # Try to import diagnostics (Phase 35)
 try:
-    from retention_mapper import map_retention_to_sections, format_mapped_drops_table
-    from section_diagnostics import diagnose_all_drops, format_diagnostics_markdown
-    sys.path.insert(0, str(Path(__file__).parent.parent / 'production'))
-    from parser import ScriptParser
+    from .retention_mapper import map_retention_to_sections, format_mapped_drops_table
+    from .section_diagnostics import diagnose_all_drops, format_diagnostics_markdown
+    from tools.production.parser import ScriptParser
     DIAGNOSTICS_AVAILABLE = True
 except ImportError:
     DIAGNOSTICS_AVAILABLE = False
 
 # Try to import playbook synthesizer (Phase 36)
 try:
-    from playbook_synthesizer import synthesize_part9, write_part9_to_style_guide
+    from .playbook_synthesizer import synthesize_part9, write_part9_to_style_guide
     PLAYBOOK_AVAILABLE = True
 except ImportError:
     PLAYBOOK_AVAILABLE = False

@@ -38,8 +38,7 @@ SCORER_AVAILABLE = True
 
 # Try to import KeywordDB for topic baseline data
 try:
-    sys.path.insert(0, str(Path(__file__).parent.parent / 'discovery'))
-    from database import KeywordDB
+    from tools.discovery.database import KeywordDB
 except ImportError:
     SCORER_AVAILABLE = False
     KeywordDB = None
@@ -648,8 +647,7 @@ if __name__ == '__main__':
 
     # Try to import ScriptParser
     try:
-        sys.path.insert(0, str(Path(__file__).parent.parent / 'production'))
-        from parser import ScriptParser
+        from tools.production.parser import ScriptParser
 
         parser_obj = ScriptParser()
         sections = parser_obj.parse_file(args.script_path)

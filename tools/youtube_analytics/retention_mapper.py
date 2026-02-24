@@ -19,14 +19,11 @@ Usage:
     mapped = map_retention_to_sections(drops, sections)
 """
 
-import sys
 from pathlib import Path
 
 # Import ScriptParser from production tools
-sys.path.insert(0, str(Path(__file__).parent.parent / 'production'))
-
 try:
-    from parser import Section, ScriptParser
+    from tools.production.parser import Section, ScriptParser
 except ImportError:
     # Fallback for test environment
     from dataclasses import dataclass

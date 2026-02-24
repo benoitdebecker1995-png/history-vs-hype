@@ -4,10 +4,6 @@ Tests for retention_mapper.py
 Tests retention-to-script section mapping without API calls.
 """
 
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent / 'production'))
-
 import pytest
 from dataclasses import dataclass
 

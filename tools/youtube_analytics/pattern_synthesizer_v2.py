@@ -35,12 +35,9 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 from collections import defaultdict
 
-# Add parent directory to path for imports
-sys.path.insert(0, str(Path(__file__).parent))
-
 try:
-    from technique_library import TechniqueLibrary
-    from transcript_analyzer import analyze_all_transcripts
+    from .technique_library import TechniqueLibrary
+    from .transcript_analyzer import analyze_all_transcripts
 except ImportError as e:
     print(f"Error: Required dependencies not found: {e}", file=sys.stderr)
     sys.exit(1)

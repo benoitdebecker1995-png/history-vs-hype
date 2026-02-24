@@ -30,17 +30,15 @@ Dependencies:
 import sys
 import json
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 from statistics import mean, median
 from typing import Dict, List, Any, Optional
 
-# Add discovery to path for KeywordDB
-sys.path.insert(0, str(Path(__file__).parent.parent / 'discovery'))
-from database import KeywordDB
+from tools.discovery.database import KeywordDB
 
 # Import TAG_VOCABULARY from performance.py
 try:
-    from performance import TAG_VOCABULARY
+    from .performance import TAG_VOCABULARY
 except ImportError:
     # Fallback if performance.py not available
     TAG_VOCABULARY = {
@@ -213,7 +211,7 @@ def generate_topic_strategy() -> Dict[str, Any]:
             'concrete_next_steps': next_steps,
             'channel_average_conversion': channel_avg_conversion,
             'total_videos': len(rows),
-            'generated_at': datetime.utcnow().isoformat() + 'Z'
+            'generated_at': datetime.now(timezone.utc).isoformat() + 'Z'
         }
 
     except Exception as e:

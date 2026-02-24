@@ -38,17 +38,14 @@ from collections import Counter
 from statistics import mean
 from typing import Dict, List, Any, Optional
 
-# Add discovery to path for database
-sys.path.insert(0, str(Path(__file__).parent.parent / 'discovery'))
-
 try:
-    from database import KeywordDB
+    from tools.discovery.database import KeywordDB
     DATABASE_AVAILABLE = True
 except ImportError:
     DATABASE_AVAILABLE = False
 
 try:
-    from performance_report import aggregate_by_topic, aggregate_by_angle
+    from .performance_report import aggregate_by_topic, aggregate_by_angle
     REPORT_AVAILABLE = True
 except ImportError:
     REPORT_AVAILABLE = False

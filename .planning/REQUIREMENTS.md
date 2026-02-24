@@ -37,9 +37,9 @@ Requirements for v5.1 Codebase Hardening. Each maps to roadmap phases.
 
 ### Dependencies
 
-- [ ] **DEP-01**: `pyproject.toml` at repo root with all production dependencies pinned
-- [ ] **DEP-02**: Optional dependency groups defined (dev, test)
-- [ ] **DEP-03**: All actually-imported packages listed (feedparser, anthropic, spacy, etc.)
+- [x] **DEP-01**: `pyproject.toml` at repo root with all production dependencies pinned
+- [x] **DEP-02**: Optional dependency groups defined (dev, test)
+- [x] **DEP-03**: All actually-imported packages listed (feedparser, anthropic, spacy, etc.)
 
 ### Database
 
@@ -103,9 +103,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PKG-01 | Phase 48 | Complete |
 | PKG-02 | Phase 48 | Pending |
 | PKG-03 | Phase 48 | Complete |
-| DEP-01 | Phase 48 | Pending |
-| DEP-02 | Phase 48 | Pending |
-| DEP-03 | Phase 48 | Pending |
+| DEP-01 | Phase 48 | Complete |
+| DEP-02 | Phase 48 | Complete |
+| DEP-03 | Phase 48 | Complete |
 | DB-01 | Phase 52 | Pending |
 | DB-02 | Phase 52 | Pending |
 | DB-03 | Phase 52 | Pending |

@@ -25,9 +25,7 @@ import argparse
 from pathlib import Path
 from typing import Optional, List, Dict, Any
 
-# Add tools/discovery to path for KeywordDB import
-sys.path.insert(0, str(Path(__file__).parent.parent / 'discovery'))
-from database import KeywordDB
+from tools.discovery.database import KeywordDB
 
 # Try to import imagehash for perceptual hash generation
 try:

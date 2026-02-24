@@ -42,20 +42,14 @@ from datetime import datetime, timezone
 from statistics import mean
 from typing import Dict, List, Any, Optional, Set
 
-# Add discovery module to path
-sys.path.insert(0, str(Path(__file__).parent.parent / 'discovery'))
-
 try:
-    from database import KeywordDB
+    from tools.discovery.database import KeywordDB
     DB_AVAILABLE = True
 except ImportError:
     DB_AVAILABLE = False
 
-# Add youtube_analytics to path for sibling imports
-sys.path.insert(0, str(Path(__file__).parent))
-
 try:
-    from performance import classify_topic_type, classify_own_video
+    from .performance import classify_topic_type, classify_own_video
     PERFORMANCE_AVAILABLE = True
 except ImportError:
     PERFORMANCE_AVAILABLE = False
@@ -280,7 +274,7 @@ def import_from_analysis_files(project_root: Path, force: bool = False) -> Dict[
         Dict from backfill_all() with 'processed', 'skipped', 'errors' keys
     """
     try:
-        from feedback_parser import backfill_all
+        from .feedback_parser import backfill_all
     except ImportError:
         return {'error': 'feedback_parser not available', 'processed': 0, 'skipped': 0, 'errors': 0}
 

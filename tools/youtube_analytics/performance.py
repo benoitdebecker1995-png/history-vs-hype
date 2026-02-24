@@ -39,31 +39,28 @@ Dependencies:
 
 import sys
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional, Dict, List, Any
 
-# Add discovery to path for database and classifiers
-sys.path.insert(0, str(Path(__file__).parent.parent / 'discovery'))
-
-from metrics import get_video_metrics
-from channel_averages import get_recent_video_ids
+from .metrics import get_video_metrics
+from .channel_averages import get_recent_video_ids
 
 # Import database and classifiers with graceful fallback
 try:
-    from database import KeywordDB
+    from tools.discovery.database import KeywordDB
     DATABASE_AVAILABLE = True
 except ImportError:
     DATABASE_AVAILABLE = False
 
 try:
-    from classifiers import classify_angles
+    from tools.discovery.classifiers import classify_angles
     CLASSIFIERS_AVAILABLE = True
 except ImportError:
     CLASSIFIERS_AVAILABLE = False
 
 # Import report functions with graceful fallback
 try:
-    from performance_report import (
+    from .performance_report import (
         generate_performance_report,
         aggregate_by_topic,
         aggregate_by_angle,
@@ -75,7 +72,7 @@ except ImportError:
 
 # Import pattern extractor with graceful fallback
 try:
-    from pattern_extractor import (
+    from .pattern_extractor import (
         extract_winning_patterns,
         generate_winning_patterns_report,
         calculate_channel_strengths
@@ -269,7 +266,7 @@ def fetch_video_performance(video_id: str, save_to_db: bool = True) -> Dict[str,
         'shares': metrics.get('shares', 0),
         'topic_type': classification['topic_type'],
         'angles': classification['angles'],
-        'fetched_at': datetime.utcnow().isoformat() + 'Z',
+        'fetched_at': datetime.now(timezone.utc).isoformat() + 'Z',
         'saved_to_db': False
     }
 

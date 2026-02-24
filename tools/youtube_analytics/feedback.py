@@ -22,19 +22,17 @@ import sys
 import argparse
 from pathlib import Path
 
-# Add modules to path
+# Project root (3 levels up from tools/youtube_analytics/)
 project_root = Path(__file__).parent.parent.parent
-sys.path.insert(0, str(project_root / 'tools' / 'youtube_analytics'))
-sys.path.insert(0, str(project_root / 'tools' / 'discovery'))
 
 try:
-    from feedback_parser import backfill_all
+    from .feedback_parser import backfill_all
     PARSER_AVAILABLE = True
 except ImportError:
     PARSER_AVAILABLE = False
 
 try:
-    from feedback_queries import (
+    from .feedback_queries import (
         get_insights_for_topic,
         get_insights_preamble,
         generate_patterns_report,
@@ -48,7 +46,7 @@ except ImportError:
     QUERIES_AVAILABLE = False
 
 try:
-    from database import KeywordDB
+    from tools.discovery.database import KeywordDB
     DATABASE_AVAILABLE = True
 except ImportError:
     DATABASE_AVAILABLE = False
