@@ -8,6 +8,20 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
+## Current Milestone: v5.1 Codebase Hardening
+
+**Goal:** Make 47K lines of Python production-grade with unified error handling, structured logging, integration tests, and clean package structure.
+
+**Target features:**
+- Unified error handling (replace bare excepts, standardize error dict pattern)
+- Structured logging (replace print() calls with leveled logging to stderr)
+- Integration test suite (pytest from root, covering all major pipelines)
+- Package structure (__init__.py, eliminate sys.path.insert hacks)
+- Dependency management (pinned requirements or pyproject.toml)
+- DB migration hardening (schema versioning for intel.db + analytics.db)
+- CLI standardization (argparse everywhere, consistent --help)
+- Dead code cleanup
+
 ## Current State
 
 **Shipped:** v5.0 Production Intelligence (2026-02-22)
@@ -161,7 +175,14 @@ v5.0 delivered end-to-end production intelligence — YouTube algorithm KB with 
 
 ### Active
 
-(No active requirements — next milestone not yet defined)
+- [ ] Unified error handling across all tool modules
+- [ ] Structured logging replacing print() statements
+- [ ] Integration test suite with pytest
+- [ ] Clean package structure with __init__.py
+- [ ] Pinned dependency management
+- [ ] DB schema versioning for all databases
+- [ ] Standardized CLI interfaces
+- [ ] Dead code and artifact cleanup
 
 ### Out of Scope
 
@@ -287,4 +308,4 @@ v5.0 delivered end-to-end production intelligence — YouTube algorithm KB with 
 
 ---
 
-*Last updated: 2026-02-22 after v5.0 milestone shipped*
+*Last updated: 2026-02-24 after v5.1 milestone started*

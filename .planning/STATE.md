@@ -1,24 +1,24 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-22 (v5.0 milestone shipped)
+**Last Updated:** 2026-02-24 (v5.1 milestone started)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-22)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** Planning next milestone
+**Current focus:** v5.1 Codebase Hardening
 
 ## Current Position
 
-**Milestone:** v5.0 Production Intelligence — SHIPPED
-**Phase:** Complete (47 phases total, 7 in v5.0)
-**Status:** Milestone shipped, ready for next milestone
-**Last activity:** 2026-02-22 — v5.0 shipped with 20/20 requirements, audit passed
+**Milestone:** v5.1 Codebase Hardening
+**Phase:** Not started (defining requirements)
+**Status:** Defining requirements
+**Last activity:** 2026-02-24 — Milestone v5.1 started
 
 **Progress:**
-[██████████] 100%
+[░░░░░░░░░░] 0%
 
 ## Milestone History
 
@@ -68,13 +68,13 @@ v5.0 decisions archived in PROJECT.md Key Decisions table. See `.planning/milest
 
 ### Last Session
 
-- **Date:** 2026-02-22
-- **Work:** Completed v5.0 milestone — Phases 45-47 executed, audit passed, milestone archived
-- **Output:** All v5.0 artifacts shipped, MILESTONES.md updated, PROJECT.md evolved
+- **Date:** 2026-02-24
+- **Work:** Started v5.1 Codebase Hardening milestone — requirements and roadmap definition
+- **Output:** PROJECT.md and STATE.md updated for v5.1
 
 ### Next Session
 
-**Next action:** `/gsd:new-milestone` — define next milestone
+**Next action:** `/gsd:plan-phase 48` — plan first phase
 
 ## Technical Notes
 
