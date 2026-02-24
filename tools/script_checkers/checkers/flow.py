@@ -10,7 +10,7 @@ Aims for 80% accuracy with high-confidence flagging. User makes final decisions.
 
 import re
 from typing import Dict, List, Any, Set, Tuple
-from checkers import BaseChecker
+from . import BaseChecker
 
 
 class FlowChecker(BaseChecker):

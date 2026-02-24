@@ -48,8 +48,8 @@ import argparse
 from pathlib import Path
 from typing import Dict, Any
 
-from config import Config
-from output import OutputFormatter
+from .config import Config
+from .output import OutputFormatter
 
 
 def read_script_file(filepath: str) -> str:
@@ -105,7 +105,7 @@ def run_checkers(text: str, config: Config, checker_flags: Dict[str, bool]) -> D
     # SCRIPT-02: Flow Analysis (check definitions before content)
     if checker_flags.get('flow', False):
         try:
-            from checkers.flow import FlowChecker
+            from .checkers.flow import FlowChecker
             checker = FlowChecker(config)
             results['flow'] = checker.check(text)
         except RuntimeError as e:
@@ -116,14 +116,14 @@ def run_checkers(text: str, config: Config, checker_flags: Dict[str, bool]) -> D
 
     # SCRIPT-01: Repetition Detection (content issues)
     if checker_flags.get('repetition', False):
-        from checkers.repetition import RepetitionChecker
+        from .checkers.repetition import RepetitionChecker
         checker = RepetitionChecker(config)
         results['repetition'] = checker.check(text)
 
     # SCRIPT-03: Stumble Test (delivery complexity)
     if checker_flags.get('stumble', False):
         try:
-            from checkers.stumble import StumbleChecker
+            from .checkers.stumble import StumbleChecker
             checker = StumbleChecker(config)
             results['stumble'] = checker.check(text)
         except RuntimeError as e:
@@ -134,14 +134,14 @@ def run_checkers(text: str, config: Config, checker_flags: Dict[str, bool]) -> D
 
     # SCRIPT-04: Scaffolding Counter (delivery phrases)
     if checker_flags.get('scaffolding', False):
-        from checkers.scaffolding import ScaffoldingChecker
+        from .checkers.scaffolding import ScaffoldingChecker
         checker = ScaffoldingChecker(config)
         results['scaffolding'] = checker.check(text)
 
     # SCRIPT-05: Pacing Analysis (section-level complexity and rhythm)
     if checker_flags.get('pacing', False):
         try:
-            from checkers.pacing import PacingChecker
+            from .checkers.pacing import PacingChecker
             checker = PacingChecker(config)
             results['pacing'] = checker.check(text)
         except RuntimeError as e:
@@ -304,7 +304,7 @@ Exit codes:
             sys.exit(1)
 
         try:
-            from voice import build_pattern_library
+            from .voice import build_pattern_library
         except ImportError as e:
             print("ERROR: srt library not installed. Required for corpus analysis.", file=sys.stderr)
             print("Install with: pip install srt", file=sys.stderr)
@@ -374,7 +374,7 @@ Exit codes:
     # Apply voice patterns if requested (BEFORE checkers)
     voice_changes = []
     if args.voice:
-        from voice import apply_voice_patterns
+        from .voice import apply_voice_patterns
 
         patterns_path = None
         if args.voice_patterns:

@@ -16,15 +16,8 @@ Usage:
 """
 
 import unittest
-from pathlib import Path
-import sys
 
-# Add parent directory to path for imports
-_file_path = Path(__file__).resolve()
-_script_checkers_dir = _file_path.parent.parent  # tools/script_checkers/
-sys.path.insert(0, str(_script_checkers_dir))
-
-from checkers.pacing import (
+from tools.script_checkers.checkers.pacing import (
     PacingChecker,
     generate_sparkline,
     detect_flat_zones

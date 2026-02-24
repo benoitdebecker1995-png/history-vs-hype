@@ -18,16 +18,9 @@ Uses ScriptParser for section detection.
 from typing import Dict, List, Any
 import re
 import statistics
-from pathlib import Path
-import sys
 
-# Add parent directories to path for imports (tools/ directory)
-_file_path = Path(__file__).resolve()
-_tools_dir = _file_path.parent.parent.parent  # Go up to tools/
-sys.path.insert(0, str(_tools_dir))
-
-from production.parser import ScriptParser
-from checkers import BaseChecker
+from tools.production.parser import ScriptParser
+from . import BaseChecker
 
 
 def generate_sparkline(scores: List[float]) -> str:

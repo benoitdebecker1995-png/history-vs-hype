@@ -11,8 +11,8 @@ Special handling:
 
 import re
 from typing import Dict, List, Any, Tuple
-from checkers import BaseChecker
-from config import calculate_threshold
+from . import BaseChecker
+from tools.script_checkers.config import calculate_threshold
 
 
 class ScaffoldingChecker(BaseChecker):

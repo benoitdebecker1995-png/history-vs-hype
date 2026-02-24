@@ -32,12 +32,9 @@ import argparse
 from pathlib import Path
 from typing import Optional
 
-# Add current directory to path for imports
-sys.path.insert(0, str(Path(__file__).parent))
-
-from structure_detector import StructureDetector
-from formatter import Formatter
-from smoke_test import run_smoke_test
+from .structure_detector import StructureDetector
+from .formatter import Formatter
+from .smoke_test import run_smoke_test
 
 
 def read_input(text_arg: Optional[str], file_path: Optional[str]) -> dict:

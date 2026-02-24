@@ -234,10 +234,7 @@ def enrich_videos_with_metadata(video_ids: list[str]) -> dict:
 
     # Auth: reuse tools/youtube_analytics/auth.py (same pattern as analyze.py)
     try:
-        _auth_dir = Path(__file__).parent.parent / "youtube_analytics"
-        if str(_auth_dir) not in sys.path:
-            sys.path.insert(0, str(_auth_dir))
-        from auth import get_authenticated_service  # noqa: F401
+        from tools.youtube_analytics.auth import get_authenticated_service
         youtube = get_authenticated_service("youtube", "v3")
     except FileNotFoundError as exc:
         return {"error": f"YouTube API not authenticated: {exc}"}

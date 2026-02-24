@@ -17,7 +17,7 @@ Redundant patterns (FLAGGED):
 import re
 from difflib import SequenceMatcher
 from typing import List, Dict, Any, Tuple
-from checkers import BaseChecker
+from . import BaseChecker
 
 
 class RepetitionChecker(BaseChecker):

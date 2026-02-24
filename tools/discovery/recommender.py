@@ -33,24 +33,26 @@ from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, List, Any, Optional, Tuple
 
-# Add parent directory to path for youtube_analytics imports
-sys.path.insert(0, str(Path(__file__).parent.parent / 'youtube_analytics'))
-
 try:
-    from database import KeywordDB
+    from .database import KeywordDB
     DATABASE_AVAILABLE = True
 except ImportError:
     DATABASE_AVAILABLE = False
 
-try:
-    from pattern_extractor import extract_winning_patterns
-    PATTERNS_AVAILABLE = True
-except ImportError:
-    PATTERNS_AVAILABLE = False
+
+def _load_pattern_extractor():
+    """Lazy import of extract_winning_patterns to avoid circular import at module level."""
+    try:
+        from tools.youtube_analytics.pattern_extractor import extract_winning_patterns
+        return extract_winning_patterns
+    except ImportError:
+        return None
+
+
+PATTERNS_AVAILABLE = _load_pattern_extractor() is not None
 
 # Intel-based topic scoring (competitor + algo + trending + gap)
 try:
-    sys.path.insert(0, str(Path(__file__).parent.parent.parent))
     from tools.intel.topic_scorer import score_topic as _intel_score_topic
     INTEL_SCORER_AVAILABLE = Path(__file__).parent.parent / 'intel' / 'intel.db'
     INTEL_SCORER_AVAILABLE = INTEL_SCORER_AVAILABLE.exists()
@@ -315,9 +317,10 @@ class TopicRecommender:
             On error: {'error': msg}
         """
         # Load winning patterns
-        if PATTERNS_AVAILABLE:
+        _extract_winning_patterns = _load_pattern_extractor()
+        if _extract_winning_patterns is not None:
             try:
-                patterns = extract_winning_patterns()
+                patterns = _extract_winning_patterns()
             except Exception as e:
                 patterns = {'error': str(e)}
         else:

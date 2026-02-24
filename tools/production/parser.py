@@ -386,10 +386,6 @@ if __name__ == "__main__":
     from pathlib import Path
     import os
 
-    # Add project root to path for imports to work
-    project_root = Path(__file__).parent.parent.parent
-    sys.path.insert(0, str(project_root))
-
     from tools.production import EntityExtractor, BRollGenerator
 
     script_path = Path(sys.argv[1])

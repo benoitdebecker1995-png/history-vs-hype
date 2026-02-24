@@ -30,14 +30,22 @@ import json
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
-# Import channel averages module
-try:
-    sys.path.insert(0, str(Path(__file__).parent.parent / 'youtube_analytics'))
-    from channel_averages import get_channel_averages
-    from metrics import get_video_metrics
-except ImportError:
-    get_channel_averages = None
-    get_video_metrics = None
+def _load_channel_averages():
+    """Lazy import of get_channel_averages to avoid circular import at module level."""
+    try:
+        from tools.youtube_analytics.channel_averages import get_channel_averages
+        return get_channel_averages
+    except ImportError:
+        return None
+
+
+def _load_video_metrics():
+    """Lazy import of get_video_metrics to avoid circular import at module level."""
+    try:
+        from tools.youtube_analytics.metrics import get_video_metrics
+        return get_video_metrics
+    except ImportError:
+        return None
 
 
 def get_diagnostic_thresholds(channel_averages: Dict[str, Any]) -> Dict[str, Any]:
@@ -381,6 +389,10 @@ if __name__ == '__main__':
         print("  python diagnostics.py wCFReiCGiks --ctr 3.5")
         print("  python diagnostics.py wCFReiCGiks --json")
         sys.exit(0)
+
+    # Load dependencies lazily
+    get_video_metrics = _load_video_metrics()
+    get_channel_averages = _load_channel_averages()
 
     # Check dependencies
     if get_video_metrics is None or get_channel_averages is None:

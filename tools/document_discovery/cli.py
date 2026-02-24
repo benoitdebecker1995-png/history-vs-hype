@@ -23,12 +23,9 @@ import json
 import argparse
 from pathlib import Path
 
-# Add parent directory to path for imports
-sys.path.insert(0, str(Path(__file__).parent))
-
-from gap_checker import GapChecker
-from structure_assessor import StructureAssessor
-from archive_lookup import ArchiveLookup
+from .gap_checker import GapChecker
+from .structure_assessor import StructureAssessor
+from .archive_lookup import ArchiveLookup
 
 
 def format_markdown_gap(result: dict) -> str:

@@ -105,10 +105,7 @@ class StructureDetector:
         # Optional integration with Phase 39 structure assessor for video length estimates
         timing_estimates = None
         try:
-            import sys
-            from pathlib import Path
-            sys.path.insert(0, str(Path(__file__).parent.parent / 'document_discovery'))
-            from structure_assessor import StructureAssessor
+            from tools.document_discovery.structure_assessor import StructureAssessor
             assessor = StructureAssessor()
             timing_estimates = assessor.TIMING_ESTIMATES.get(detected_type or 'other')
         except (ImportError, Exception):

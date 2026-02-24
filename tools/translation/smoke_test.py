@@ -20,8 +20,6 @@ import time
 from pathlib import Path
 from typing import Dict, Any, Tuple, Optional
 
-# Ensure tools/translation is on path when run directly
-sys.path.insert(0, str(Path(__file__).parent))
 
 # Test document: short 3-clause French legal snippet (fabricated, realistic)
 TEST_DOCUMENT = """DECRET portant organisation des services publics
@@ -72,7 +70,7 @@ def step1_module_health_check() -> Tuple[bool, str, str]:
 
     # Check TranslationDataBuilder
     try:
-        from translator import TranslationDataBuilder
+        from tools.translation.translator import TranslationDataBuilder
         builder = TranslationDataBuilder()
         modules_checked.append('TranslationDataBuilder')
     except ImportError as e:
@@ -82,7 +80,7 @@ def step1_module_health_check() -> Tuple[bool, str, str]:
 
     # Check StructureDetector
     try:
-        from structure_detector import StructureDetector
+        from tools.translation.structure_detector import StructureDetector
         _ = StructureDetector()
         modules_checked.append('StructureDetector')
     except ImportError as e:
@@ -92,7 +90,7 @@ def step1_module_health_check() -> Tuple[bool, str, str]:
 
     # Check Formatter
     try:
-        from formatter import Formatter
+        from tools.translation.formatter import Formatter
         _ = Formatter()
         modules_checked.append('Formatter')
     except ImportError as e:
@@ -116,7 +114,7 @@ def step2_structure_detection() -> Tuple[bool, str, str, Any]:
         (passed, detail, error, sections_for_next_step)
     """
     try:
-        from structure_detector import StructureDetector
+        from tools.translation.structure_detector import StructureDetector
     except ImportError as e:
         return False, '', f"Could not import StructureDetector: {e}", None
 
@@ -152,7 +150,7 @@ def step3_payload_builder(sections: list) -> Tuple[bool, str, str, Any]:
         (passed, detail, error, sample_payload)
     """
     try:
-        from translator import TranslationDataBuilder
+        from tools.translation.translator import TranslationDataBuilder
     except ImportError as e:
         return False, '', f"Could not import TranslationDataBuilder: {e}", None
 
@@ -206,7 +204,7 @@ def step4_response_parser() -> Tuple[bool, str, str]:
         (passed, detail, error)
     """
     try:
-        from translator import TranslationDataBuilder
+        from tools.translation.translator import TranslationDataBuilder
     except ImportError as e:
         return False, '', f"Could not import TranslationDataBuilder: {e}"
 

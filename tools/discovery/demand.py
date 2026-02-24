@@ -25,14 +25,14 @@ Usage:
 Returns aggregated demand data with staleness warnings per CONTEXT.md decisions.
 """
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, List, Optional
 import asyncio
 
-from database import KeywordDB
-from trends import get_trend_direction, TRENDSPYG_AVAILABLE
-from competition import get_competition_count, SCRAPETUBE_AVAILABLE
-from autocomplete import get_autocomplete_suggestions
+from .database import KeywordDB
+from .trends import get_trend_direction, TRENDSPYG_AVAILABLE
+from .competition import get_competition_count, SCRAPETUBE_AVAILABLE
+from .autocomplete import get_autocomplete_suggestions
 
 
 class DemandAnalyzer:
@@ -201,7 +201,7 @@ class DemandAnalyzer:
             'opportunity_category': opportunity['category'],
             'data_age_days': max(data_age_trend, data_age_comp),
             'warnings': warnings if warnings else None,
-            'fetched_at': datetime.utcnow().isoformat() + 'Z'
+            'fetched_at': datetime.now(timezone.utc).isoformat() + 'Z'
         }
 
     def calculate_position_score(self, keyword: str, suggestions: List[str]) -> int:

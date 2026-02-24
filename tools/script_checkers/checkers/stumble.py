@@ -9,7 +9,7 @@ Uses spaCy for accurate sentence parsing and dependency analysis.
 """
 
 from typing import Dict, List, Any
-from checkers import BaseChecker
+from . import BaseChecker
 
 
 class StumbleChecker(BaseChecker):

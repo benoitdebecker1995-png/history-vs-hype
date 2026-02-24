@@ -30,7 +30,7 @@ import argparse
 from typing import Dict, List, Any, Optional
 from pathlib import Path
 
-from database import KeywordDB
+from .database import KeywordDB
 
 
 def add_keyword(

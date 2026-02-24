@@ -27,16 +27,13 @@ import argparse
 import json
 from pathlib import Path
 from typing import Dict, Optional, Any, List
-from datetime import datetime
+from datetime import datetime, timezone
 
-# Add parent directory to path for imports
-sys.path.insert(0, str(Path(__file__).parent))
-
-from database import KeywordDB
-from demand import DemandAnalyzer
-from competition import CompetitionAnalyzer
-from format_filters import evaluate_production_constraints
-from opportunity import OpportunityScorer
+from .database import KeywordDB
+from .demand import DemandAnalyzer
+from .competition import CompetitionAnalyzer
+from .format_filters import evaluate_production_constraints
+from .opportunity import OpportunityScorer
 
 
 class OpportunityOrchestrator:
@@ -112,10 +109,10 @@ class OpportunityOrchestrator:
                 """
                 UPDATE keywords
                 SET production_constraints = ?,
-                    production_constraints_updated_at = ?
+                    constraint_checked_at = ?
                 WHERE id = ?
                 """,
-                (json.dumps(constraints), datetime.utcnow().date().isoformat(), keyword_id)
+                (json.dumps(constraints), datetime.now(timezone.utc).date().isoformat(), keyword_id)
             )
             self.db._conn.commit()
 
@@ -164,7 +161,7 @@ class OpportunityOrchestrator:
             'lifecycle_state': self.db.get_lifecycle_state(keyword_id),
             'data_age_days': score_result.get('data_age_days', 0),
             'warnings': score_result.get('warnings', []),
-            'fetched_at': datetime.utcnow().isoformat() + 'Z'
+            'fetched_at': datetime.now(timezone.utc).isoformat() + 'Z'
         }
 
         return result
