@@ -1,24 +1,24 @@
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-24 (v5.1 milestone started)
+**Last Updated:** 2026-02-24 (v5.1 roadmap created)
 
 ## Project Reference
 
-See: `.planning/PROJECT.md` (updated 2026-02-22)
+See: `.planning/PROJECT.md` (updated 2026-02-24)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v5.1 Codebase Hardening
+**Current focus:** v5.1 Codebase Hardening — Phase 48: Package Structure & Dependencies
 
 ## Current Position
 
 **Milestone:** v5.1 Codebase Hardening
-**Phase:** Not started (defining requirements)
-**Status:** Defining requirements
-**Last activity:** 2026-02-24 — Milestone v5.1 started
+**Phase:** 48 of 53 (Package Structure & Dependencies)
+**Status:** Ready to plan
+**Last activity:** 2026-02-24 — v5.1 roadmap created (6 phases, 28 requirements mapped)
 
 **Progress:**
-[░░░░░░░░░░] 0%
+[░░░░░░░░░░] 0% (0/6 phases complete)
 
 ## Milestone History
 
@@ -39,58 +39,53 @@ See: `.planning/PROJECT.md` (updated 2026-02-22)
 **Full history:** `.planning/MILESTONES.md`
 **Archives:** `.planning/milestones/`
 
-## What's Available
+## v5.1 Phase Order
 
-**Workspace commands:**
-- `/status` — project state and next action
-- `/help` — phase-organized command list
-- `/research --new` — start new video project
-- `/next` — get ranked topic recommendations based on winning patterns
-
-**Analytics commands (v1.1+v1.6+v2.0):**
-- `/analyze VIDEO_ID` — post-publish video analysis (+ variant tracking + CTR analysis + feedback insights + section diagnostics)
-- `/analyze VIDEO_ID --script PATH` — section-level retention diagnostics with voice pattern recommendations
-- `/patterns` — cross-video pattern recognition (+ feedback patterns)
-
-**Discovery commands (v1.2 + v1.3):**
-- `/discover TOPIC` — keyword research workflow
-- `/discover --demand "keyword"` — demand analysis with opportunity scoring
-- `/discover --opportunity "topic"` — complete opportunity analysis (demand + competition + production)
-- `/discover --check FILE` — pre-publish metadata validation
-
-**Full command list:** Run `/help`
+| Phase | Name | Requirements | Depends On |
+|-------|------|-------------|------------|
+| 48 | Package Structure & Dependencies | PKG-01..03, DEP-01..03 | v5.0 done |
+| 49 | Dead Code Cleanup | CLEAN-01..03 | Phase 48 |
+| 50 | Error Handling | ERR-01..03 | Phase 49 |
+| 51 | Logging & CLI Standardization | LOG-01..03, CLI-01..03 | Phase 50 |
+| 52 | Database Hardening | DB-01..03 | Phase 48 |
+| 53 | Integration Testing | TEST-01..07 | Phases 48-52 |
 
 ## Accumulated Context
 
-v5.0 decisions archived in PROJECT.md Key Decisions table. See `.planning/milestones/v5.0-ROADMAP.md` for full phase details.
+### Decisions
+
+v5.0 decisions archived in PROJECT.md Key Decisions table. See `.planning/milestones/v5.0-ROADMAP.md`.
+
+v5.1 ordering rationale: Package structure first (proper imports unblock everything else), dead code before error handling (don't harden code that's being deleted), logging+CLI paired (both wire --verbose/--quiet), DB hardening parallel to error/logging work, testing last (verifies final state of all changes).
+
+### Pending Todos
+
+None.
+
+### Blockers/Concerns
+
+None at roadmap time.
 
 ## Session Continuity
 
 ### Last Session
 
 - **Date:** 2026-02-24
-- **Work:** Started v5.1 Codebase Hardening milestone — requirements and roadmap definition
-- **Output:** PROJECT.md and STATE.md updated for v5.1
+- **Work:** v5.1 roadmap created — 6 phases, 28 requirements, 100% coverage
+- **Output:** ROADMAP.md updated, STATE.md updated, REQUIREMENTS.md traceability filled
 
 ### Next Session
 
-**Next action:** `/gsd:plan-phase 48` — plan first phase
+**Next action:** `/gsd:plan-phase 48` — plan Package Structure & Dependencies
 
 ## Technical Notes
 
-- YouTube Analytics API requires Google Cloud project (configured)
-- OAuth2 token auto-refreshes (saved in credentials/token.json)
 - keywords.db schema version 29 (auto-migration with PRAGMA user_version)
-- Feature flags: VARIANTS_AVAILABLE, BENCHMARKS_AVAILABLE, FEEDBACK_AVAILABLE, DIAGNOSTICS_AVAILABLE, TOPIC_STRATEGY_AVAILABLE, PLAYBOOK_AVAILABLE, SCORER_AVAILABLE
-- anthropic SDK required for notebooklm_bridge.py (`pip install anthropic>=0.40.0`)
+- intel.db and analytics.db need same PRAGMA versioning (Phase 52)
+- sys.path.insert hacks in tools/youtube-analytics/ and elsewhere (Phase 48 target)
 - spaCy requires Python 3.11-3.13 (not 3.14)
-
-## Known Issues
-
-- Python 3.14 + spaCy incompatibility (use 3.11-3.13)
-- Voice patterns empty until user runs --rebuild-voice
-- trendspyg, scrapetube not installed (graceful degradation)
+- Feature flags: VARIANTS_AVAILABLE, BENCHMARKS_AVAILABLE, FEEDBACK_AVAILABLE, DIAGNOSTICS_AVAILABLE, TOPIC_STRATEGY_AVAILABLE, PLAYBOOK_AVAILABLE, SCORER_AVAILABLE
 
 ---
 
-*State updated: 2026-02-19 after v5.0 roadmap created*
+*State updated: 2026-02-24 after v5.1 roadmap created*

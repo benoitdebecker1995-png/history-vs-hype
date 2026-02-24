@@ -87,40 +87,40 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ERR-01 | — | Pending |
-| ERR-02 | — | Pending |
-| ERR-03 | — | Pending |
-| LOG-01 | — | Pending |
-| LOG-02 | — | Pending |
-| LOG-03 | — | Pending |
-| TEST-01 | — | Pending |
-| TEST-02 | — | Pending |
-| TEST-03 | — | Pending |
-| TEST-04 | — | Pending |
-| TEST-05 | — | Pending |
-| TEST-06 | — | Pending |
-| TEST-07 | — | Pending |
-| PKG-01 | — | Pending |
-| PKG-02 | — | Pending |
-| PKG-03 | — | Pending |
-| DEP-01 | — | Pending |
-| DEP-02 | — | Pending |
-| DEP-03 | — | Pending |
-| DB-01 | — | Pending |
-| DB-02 | — | Pending |
-| DB-03 | — | Pending |
-| CLI-01 | — | Pending |
-| CLI-02 | — | Pending |
-| CLI-03 | — | Pending |
-| CLEAN-01 | — | Pending |
-| CLEAN-02 | — | Pending |
-| CLEAN-03 | — | Pending |
+| ERR-01 | Phase 50 | Pending |
+| ERR-02 | Phase 50 | Pending |
+| ERR-03 | Phase 50 | Pending |
+| LOG-01 | Phase 51 | Pending |
+| LOG-02 | Phase 51 | Pending |
+| LOG-03 | Phase 51 | Pending |
+| TEST-01 | Phase 53 | Pending |
+| TEST-02 | Phase 53 | Pending |
+| TEST-03 | Phase 53 | Pending |
+| TEST-04 | Phase 53 | Pending |
+| TEST-05 | Phase 53 | Pending |
+| TEST-06 | Phase 53 | Pending |
+| TEST-07 | Phase 53 | Pending |
+| PKG-01 | Phase 48 | Pending |
+| PKG-02 | Phase 48 | Pending |
+| PKG-03 | Phase 48 | Pending |
+| DEP-01 | Phase 48 | Pending |
+| DEP-02 | Phase 48 | Pending |
+| DEP-03 | Phase 48 | Pending |
+| DB-01 | Phase 52 | Pending |
+| DB-02 | Phase 52 | Pending |
+| DB-03 | Phase 52 | Pending |
+| CLI-01 | Phase 51 | Pending |
+| CLI-02 | Phase 51 | Pending |
+| CLI-03 | Phase 51 | Pending |
+| CLEAN-01 | Phase 49 | Pending |
+| CLEAN-02 | Phase 49 | Pending |
+| CLEAN-03 | Phase 49 | Pending |
 
 **Coverage:**
 - v5.1 requirements: 28 total
-- Mapped to phases: 0
-- Unmapped: 28
+- Mapped to phases: 28
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-24*
-*Last updated: 2026-02-24 after initial definition*
+*Last updated: 2026-02-24 after roadmap creation — all 28 requirements mapped*

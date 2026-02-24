@@ -13,6 +13,7 @@
 - ✅ **v3.0 Adaptive Scriptwriter** - Phases 36-38 (shipped 2026-02-15)
 - ✅ **v4.0 Untranslated Evidence Pipeline** - Phases 39-41 (shipped 2026-02-18)
 - ✅ **v5.0 Production Intelligence** - Phases 42-47 (shipped 2026-02-22)
+- 🚧 **v5.1 Codebase Hardening** - Phases 48-53 (in progress)
 
 ## Phases
 
@@ -416,6 +417,150 @@ Plans:
 
 </details>
 
+### 🚧 v5.1 Codebase Hardening (In Progress)
+
+**Milestone Goal:** Make 47K lines of Python production-grade — unified error handling, structured logging, clean package structure, integration tests, and dependency management.
+
+#### Phase 48: Package Structure & Dependencies
+**Goal**: All tool packages are properly structured and their dependencies are explicitly declared
+**Depends on**: Phase 47 (v5.0 complete)
+**Requirements**: PKG-01, PKG-02, PKG-03, DEP-01, DEP-02, DEP-03
+**Audit**: `.planning/audits/48-package-structure.md` — 37 sys.path hacks in 27 files, 4 missing __init__.py, 13 third-party deps (5 unlisted), youtube-analytics hyphen rename needed
+**Success Criteria** (what must be TRUE):
+  1. `from tools.discovery import orchestrator` works from repo root without sys.path manipulation
+  2. `from tools.intel import kb_store` works from repo root without sys.path manipulation
+  3. `pip install -e .` installs the workspace and all production dependencies in one command
+  4. Running `pip install -e .[dev,test]` adds dev and test dependencies without error
+  5. All actually-used packages (feedparser, anthropic, spacy, etc.) appear in pyproject.toml
+**Plans**: TBD
+
+#### Phase 49: Dead Code Cleanup
+**Goal**: The codebase contains only code that is actively used
+**Depends on**: Phase 48 (package structure in place so dead files are clearly identifiable)
+**Requirements**: CLEAN-01, CLEAN-02, CLEAN-03
+**Audit**: `.planning/audits/49-dead-code.md` — 7 dead files confirmed, 0 datetime.utcnow() (already fixed), prompt_evaluation.py possibly unused
+**Success Criteria** (what must be TRUE):
+  1. Files _csv_backfill.py, _competitor_fetch.py, _longform_*.json, and _backfill_ids.txt are gone from the repo
+  2. Running the tools produces no datetime.utcnow() deprecation warnings in Python 3.12+
+  3. No unreachable functions remain in active modules (verified by manual audit or static analysis)
+**Plans**: TBD
+
+#### Phase 50: Error Handling
+**Goal**: All tool modules fail predictably with structured, actionable error information
+**Depends on**: Phase 49 (dead code removed so error handling only added to live code)
+**Requirements**: ERR-01, ERR-02, ERR-03
+**Audit**: `.planning/audits/50-error-handling.md` — 12 bare excepts in 7 files, ~10 problematic None returns, 198 existing error dict uses (pattern is dominant)
+**Success Criteria** (what must be TRUE):
+  1. No bare `except:` or `except Exception: pass` blocks exist anywhere in tools/ (grep confirms zero matches)
+  2. Every module-level function that can fail returns `{'error': msg}` rather than None or raising unexpectedly
+  3. Error dicts include module name, operation, and details fields so callers know where and why failure occurred
+**Plans**: TBD
+
+#### Phase 51: Logging & CLI Standardization
+**Goal**: Users can control output verbosity and all tools expose consistent command-line interfaces
+**Depends on**: Phase 50 (error handling complete; logging replaces print() consistently)
+**Requirements**: LOG-01, LOG-02, LOG-03, CLI-01, CLI-02, CLI-03
+**Audit**: `.planning/audits/51-logging-cli.md` — 1,454 print() calls (73 files), ~750 to convert, ~600 intentional output; 28 files have argparse (0 with --verbose), 13 use manual sys.argv
+**Success Criteria** (what must be TRUE):
+  1. Running any tool with `--quiet` produces no output to stdout or stderr unless there is an error
+  2. Running any tool with `--verbose` shows DEBUG-level log lines to stderr, not stdout
+  3. Every tool entry point responds to `--help` with a description and argument list
+  4. Error conditions always exit with code 1 and print the error message to stderr (not stdout)
+  5. No print() calls remain in tools/ module code (grep confirms zero matches outside of CLI entry points)
+**Plans**: TBD
+
+#### Phase 52: Database Hardening
+**Goal**: All three databases track their schema version and migrate atomically
+**Depends on**: Phase 48 (package structure — db modules import cleanly)
+**Requirements**: DB-01, DB-02, DB-03
+**Audit**: `.planning/audits/52-database.md` — intel.db has NO versioning (5 tables), analytics.db at v2 (good model), keywords.db at v29 but migrations not atomic
+**Success Criteria** (what must be TRUE):
+  1. `PRAGMA user_version` on intel.db returns a non-zero version number matching the current schema
+  2. `PRAGMA user_version` on analytics.db returns a non-zero version number matching the current schema
+  3. A migration that fails mid-way leaves the database unchanged (transaction rollback verified by test)
+**Plans**: TBD
+
+#### Phase 53: Integration Testing
+**Goal**: The five major pipelines are covered by runnable tests that catch regressions
+**Depends on**: Phases 48-52 (all code changes complete — tests verify final state)
+**Requirements**: TEST-01, TEST-02, TEST-03, TEST-04, TEST-05, TEST-06, TEST-07
+**Audit**: `.planning/audits/53-testing.md` — 8 existing test files (all have sys.path hacks), no pytest config, 5 pipelines need integration tests, fixture specs defined
+**Success Criteria** (what must be TRUE):
+  1. `pytest` run from repo root discovers and runs tests without configuration errors
+  2. Discovery pipeline test passes end-to-end: orchestrator runs, returns opportunity data, no sys.path hacks needed
+  3. Intel pipeline test passes: KB refresh runs, query returns data, competitor fetch degrades gracefully without API auth
+  4. Translation pipeline test passes: translate + cross-check + annotate chain completes on a fixture document
+  5. Analytics pipeline test passes: backfill reads fixture POST-PUBLISH-ANALYSIS, stores to in-memory DB, patterns query returns data
+**Plans**: TBD
+
+## Phase Details
+
+### Phase 48: Package Structure & Dependencies
+**Goal**: All tool packages are properly structured and their dependencies are explicitly declared
+**Depends on**: Phase 47 (v5.0 complete)
+**Requirements**: PKG-01, PKG-02, PKG-03, DEP-01, DEP-02, DEP-03
+**Success Criteria** (what must be TRUE):
+  1. `from tools.discovery import orchestrator` works from repo root without sys.path manipulation
+  2. `from tools.intel import kb_store` works from repo root without sys.path manipulation
+  3. `pip install -e .` installs the workspace and all production dependencies in one command
+  4. Running `pip install -e .[dev,test]` adds dev and test dependencies without error
+  5. All actually-used packages (feedparser, anthropic, spacy, etc.) appear in pyproject.toml
+**Plans**: TBD
+
+### Phase 49: Dead Code Cleanup
+**Goal**: The codebase contains only code that is actively used
+**Depends on**: Phase 48
+**Requirements**: CLEAN-01, CLEAN-02, CLEAN-03
+**Success Criteria** (what must be TRUE):
+  1. Files _csv_backfill.py, _competitor_fetch.py, _longform_*.json, and _backfill_ids.txt are gone from the repo
+  2. Running the tools produces no datetime.utcnow() deprecation warnings in Python 3.12+
+  3. No unreachable functions remain in active modules (verified by manual audit or static analysis)
+**Plans**: TBD
+
+### Phase 50: Error Handling
+**Goal**: All tool modules fail predictably with structured, actionable error information
+**Depends on**: Phase 49
+**Requirements**: ERR-01, ERR-02, ERR-03
+**Success Criteria** (what must be TRUE):
+  1. No bare `except:` or `except Exception: pass` blocks exist anywhere in tools/ (grep confirms zero matches)
+  2. Every module-level function that can fail returns `{'error': msg}` rather than None or raising unexpectedly
+  3. Error dicts include module name, operation, and details fields so callers know where and why failure occurred
+**Plans**: TBD
+
+### Phase 51: Logging & CLI Standardization
+**Goal**: Users can control output verbosity and all tools expose consistent command-line interfaces
+**Depends on**: Phase 50
+**Requirements**: LOG-01, LOG-02, LOG-03, CLI-01, CLI-02, CLI-03
+**Success Criteria** (what must be TRUE):
+  1. Running any tool with `--quiet` produces no output to stdout or stderr unless there is an error
+  2. Running any tool with `--verbose` shows DEBUG-level log lines to stderr, not stdout
+  3. Every tool entry point responds to `--help` with a description and argument list
+  4. Error conditions always exit with code 1 and print the error message to stderr (not stdout)
+  5. No print() calls remain in tools/ module code (grep confirms zero matches outside of CLI entry points)
+**Plans**: TBD
+
+### Phase 52: Database Hardening
+**Goal**: All three databases track their schema version and migrate atomically
+**Depends on**: Phase 48
+**Requirements**: DB-01, DB-02, DB-03
+**Success Criteria** (what must be TRUE):
+  1. `PRAGMA user_version` on intel.db returns a non-zero version number matching the current schema
+  2. `PRAGMA user_version` on analytics.db returns a non-zero version number matching the current schema
+  3. A migration that fails mid-way leaves the database unchanged (transaction rollback verified by test)
+**Plans**: TBD
+
+### Phase 53: Integration Testing
+**Goal**: The five major pipelines are covered by runnable tests that catch regressions
+**Depends on**: Phases 48-52
+**Requirements**: TEST-01, TEST-02, TEST-03, TEST-04, TEST-05, TEST-06, TEST-07
+**Success Criteria** (what must be TRUE):
+  1. `pytest` run from repo root discovers and runs tests without configuration errors
+  2. Discovery pipeline test passes end-to-end: orchestrator runs, returns opportunity data, no sys.path hacks needed
+  3. Intel pipeline test passes: KB refresh runs, query returns data, competitor fetch degrades gracefully without API auth
+  4. Translation pipeline test passes: translate + cross-check + annotate chain completes on a fixture document
+  5. Analytics pipeline test passes: backfill reads fixture POST-PUBLISH-ANALYSIS, stores to in-memory DB, patterns query returns data
+**Plans**: TBD
+
 ## Progress
 
 | Phase | Milestone | Plans Complete | Status | Completed |
@@ -470,3 +615,9 @@ Plans:
 | 45. Hook Optimization & Intelligence Integration | v5.0 | 2/2 | Complete | 2026-02-22 |
 | 46. Project Dashboard | v5.0 | 2/2 | Complete | 2026-02-22 |
 | 47. v5.0 Gap Closure | v5.0 | 1/1 | Complete | 2026-02-22 |
+| 48. Package Structure & Dependencies | v5.1 | 0/TBD | Not started | - |
+| 49. Dead Code Cleanup | v5.1 | 0/TBD | Not started | - |
+| 50. Error Handling | v5.1 | 0/TBD | Not started | - |
+| 51. Logging & CLI Standardization | v5.1 | 0/TBD | Not started | - |
+| 52. Database Hardening | v5.1 | 0/TBD | Not started | - |
+| 53. Integration Testing | v5.1 | 0/TBD | Not started | - |
