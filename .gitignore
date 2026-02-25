@@ -89,3 +89,10 @@ library/
 # YouTube Analytics credentials (belt and suspenders)
 tools/youtube-analytics/credentials/client_secret.json
 tools/youtube-analytics/credentials/token.json
+
+# Scratch/temporary files in youtube_analytics (backfill artifacts)
+tools/youtube_analytics/_longform_*.json
+tools/youtube_analytics/_backfill_ids.txt
+
+# Database migration backups (auto-generated, not source)
+tools/discovery/backups/
