@@ -2,38 +2,38 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Codebase Hardening
-status: completed
-last_updated: "2026-02-25T14:00:47.450Z"
-last_activity: "2026-02-24 — 48-02 complete: all 37+ sys.path hacks replaced with proper absolute/relative imports; 4 smoke tests pass"
+status: executing
+last_updated: "2026-02-25T14:13:24.992Z"
+last_activity: "2026-02-25 — 49-01 complete: 7 untracked scratch files deleted from youtube_analytics/, prompt_evaluation.py removed (953 lines), .gitignore patterns added, skill files updated; CLEAN-01 + CLEAN-03 satisfied"
 progress:
   total_phases: 52
-  completed_phases: 49
+  completed_phases: 50
   total_plans: 111
-  completed_plans: 109
-  percent: 98
+  completed_plans: 110
+  percent: 99
 ---
 
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-25 (49-01 complete — 8 dead files deleted, .gitignore hardened, prompt_evaluation.py removed, CLEAN-01 + CLEAN-03 satisfied)
+**Last Updated:** 2026-02-25 (49-02 complete — function-level audit done, get_youtube_metadata() removed from patterns.py, CLEAN-02 satisfied; Phase 49 complete)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-24)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v5.1 Codebase Hardening — Phase 49: Dead Code Cleanup
+**Current focus:** v5.1 Codebase Hardening — Phase 50: Error Handling
 
 ## Current Position
 
 **Milestone:** v5.1 Codebase Hardening
-**Phase:** 49 of 53 (Dead Code Cleanup)
-**Status:** In Progress (49-01 complete, 49-02 pending — function-level audit)
-**Last activity:** 2026-02-25 — 49-01 complete: 7 untracked scratch files deleted from youtube_analytics/, prompt_evaluation.py removed (953 lines), .gitignore patterns added, skill files updated; CLEAN-01 + CLEAN-03 satisfied
+**Phase:** 49 complete, 50 next (Error Handling)
+**Status:** Phase 49 Complete — CLEAN-01 + CLEAN-02 + CLEAN-03 all satisfied
+**Last activity:** 2026-02-25 — 49-02 complete: get_youtube_metadata() removed from patterns.py (47 lines, zero callers); database.py/backfill.py/analyze.py audited, all functions confirmed active; CLEAN-02 satisfied
 
 **Progress:**
-[██████████] 98%
+[██████████] 99%
 
 ## Milestone History
 
@@ -80,6 +80,8 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 48]: All cross-package imports now use absolute tools.* syntax; same-package imports use relative from .module syntax
 - [Phase 49-dead-code-cleanup]: prompt_evaluation.py deleted: zero Python callers, channel_voice_check CLI arg was never real (just a dict key), stale file paths from v3.0, superseded by script-writer-v2 + script_checkers/ + STYLE-GUIDE Part 6
 - [Phase 49-dead-code-cleanup]: backups/ gitignored not deleted: database.py still writes to it during v27 migration for fresh installs; production DB at v29 so directory auto-creates on demand
+- [Phase 49-dead-code-cleanup]: get_youtube_metadata() deleted from patterns.py: zero callers codebase-wide, not in module docstring public API, superseded by find_project_folder_for_video()
+- [Phase 49-dead-code-cleanup]: video_report.py bare imports (from metrics/retention/ctr) are pre-existing Phase 48-02 miss: deferred to Phase 50 per scope boundary rule
 
 ### Pending Todos
 
@@ -94,12 +96,12 @@ None at roadmap time.
 ### Last Session
 
 - **Date:** 2026-02-25
-- **Work:** Executed 49-01 — deleted 7 untracked scratch files from youtube_analytics/, removed prompt_evaluation.py (tracked, 953 lines), added 3 .gitignore patterns, updated 2 skill files to use script-writer-v2 for voice check
-- **Output:** 49-01-SUMMARY.md created, commits c2a45b5 + bcbf1e5, CLEAN-01 + CLEAN-03 requirements marked complete
+- **Work:** Executed 49-02 — audited patterns.py (removed get_youtube_metadata, 47 lines), database.py (9 private methods all confirmed active), backfill.py, analyze.py; logged video_report.py bare import issue to deferred-items.md
+- **Output:** 49-02-SUMMARY.md created, commits 544c740 + 3eee96d, CLEAN-02 requirement marked complete
 
 ### Next Session
 
-**Next action:** Execute Phase 49-02 (Function-level dead code audit — patterns.py, database.py, other large modules for zero-caller functions)
+**Next action:** Execute Phase 50 (Error Handling — ERR-01, ERR-02, ERR-03)
 
 ## Technical Notes
 
@@ -111,4 +113,4 @@ None at roadmap time.
 
 ---
 
-*State updated: 2026-02-25 after 49-01 execution complete*
+*State updated: 2026-02-25 after 49-02 execution complete*
