@@ -663,7 +663,7 @@ Ask user:
 **After prompts are run in NotebookLM:**
 1. User provides NotebookLM output → Save to `01-VERIFIED-RESEARCH.md`
 2. Run **script-generator** skill (`.claude/skills/script-generator.md`) to write script
-3. Run **voice check** (`tools/prompt_evaluation.py` channel_voice_check) to verify style
+3. Run **voice check** via script-writer-v2 agent (19 rules covering voice, style, and retention) to verify style
 4. Run **script-reviewer** skill for credibility check
 5. Run **fact-checker** skill for final verification
 6. Script ready for production → Move to `_READY_TO_FILM/`

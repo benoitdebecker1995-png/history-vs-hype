@@ -652,7 +652,7 @@ Before sending review, verify:
 ## Integration with Other Skills
 
 **Before script-reviewer:**
-- Run **voice check** (`tools/prompt_evaluation.py` channel_voice_check) to verify style patterns
+- Run **voice check** via script-writer-v2 agent (19 rules covering voice, style, and retention) to verify style patterns
 
 **After review, offer:**
 - Run **fact-checker** to validate all claims
