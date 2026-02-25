@@ -448,7 +448,11 @@ Plans:
   1. Files _csv_backfill.py, _competitor_fetch.py, _longform_*.json, and _backfill_ids.txt are gone from the repo
   2. Running the tools produces no datetime.utcnow() deprecation warnings in Python 3.12+
   3. No unreachable functions remain in active modules (verified by manual audit or static analysis)
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 49-01-PLAN.md — Delete dead files + .gitignore patterns + prompt_evaluation.py removal
+- [ ] 49-02-PLAN.md — Function-level dead code audit (patterns.py, database.py, other large modules)
 
 #### Phase 50: Error Handling
 **Goal**: All tool modules fail predictably with structured, actionable error information
@@ -525,7 +529,11 @@ Plans:
   1. Files _csv_backfill.py, _competitor_fetch.py, _longform_*.json, and _backfill_ids.txt are gone from the repo
   2. Running the tools produces no datetime.utcnow() deprecation warnings in Python 3.12+
   3. No unreachable functions remain in active modules (verified by manual audit or static analysis)
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 49-01-PLAN.md — Delete dead files + .gitignore patterns + prompt_evaluation.py removal
+- [ ] 49-02-PLAN.md — Function-level dead code audit (patterns.py, database.py, other large modules)
 
 ### Phase 50: Error Handling
 **Goal**: All tool modules fail predictably with structured, actionable error information
