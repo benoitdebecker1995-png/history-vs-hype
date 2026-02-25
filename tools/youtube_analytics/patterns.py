@@ -593,55 +593,6 @@ def enrich_video_data(videos: list[dict]) -> list[dict]:
     return videos
 
 
-def get_youtube_metadata(video_title: str) -> str | None:
-    """
-    Try to find YOUTUBE-METADATA.md for a video based on title matching.
-
-    Search strategy:
-    1. Extract significant words from title (>3 chars)
-    2. Search video-projects/*/* for folders containing those words
-    3. Look for YOUTUBE-METADATA.md in matched folder
-    4. Return file path if found, None otherwise
-
-    Args:
-        video_title: Video title to match
-
-    Returns:
-        Path to YOUTUBE-METADATA.md if found, None otherwise
-    """
-    if not video_title:
-        return None
-
-    # Extract significant words (>3 chars) from title
-    words = re.sub(r'[^a-z0-9]+', ' ', video_title.lower()).split()
-    significant_words = [w for w in words if len(w) > 3]
-
-    if not significant_words:
-        return None
-
-    # Search project folders
-    search_paths = [
-        PROJECT_ROOT / 'video-projects' / '_IN_PRODUCTION' / '*',
-        PROJECT_ROOT / 'video-projects' / '_READY_TO_FILM' / '*',
-        PROJECT_ROOT / 'video-projects' / '_ARCHIVED' / '*',
-    ]
-
-    for pattern in search_paths:
-        for folder in glob_module.glob(str(pattern)):
-            if not Path(folder).is_dir():
-                continue
-
-            folder_name = Path(folder).name.lower()
-
-            # Check if any significant word from title appears in folder name
-            if any(word in folder_name for word in significant_words):
-                metadata_path = Path(folder) / 'YOUTUBE-METADATA.md'
-                if metadata_path.exists():
-                    return str(metadata_path)
-
-    return None
-
-
 def aggregate_by_topic(videos: list[dict], min_count: int = 3) -> dict:
     """
     Aggregate metrics by topic tag with minimum sample size enforcement.
