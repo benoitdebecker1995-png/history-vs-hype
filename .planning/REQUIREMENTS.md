@@ -55,9 +55,9 @@ Requirements for v5.1 Codebase Hardening. Each maps to roadmap phases.
 
 ### Cleanup
 
-- [ ] **CLEAN-01**: Dead code files removed (_csv_backfill.py, _competitor_fetch.py, _longform_*.json, _backfill_ids.txt)
-- [ ] **CLEAN-02**: Unused functions identified and removed from active modules
-- [ ] **CLEAN-03**: datetime.utcnow() deprecation warnings fixed
+- [x] **CLEAN-01**: Dead code files removed (_csv_backfill.py, _competitor_fetch.py, _longform_*.json, _backfill_ids.txt)
+- [x] **CLEAN-02**: Unused functions identified and removed from active modules
+- [x] **CLEAN-03**: datetime.utcnow() deprecation warnings fixed
 
 ## Future Requirements
 
@@ -112,9 +112,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CLI-01 | Phase 51 | Pending |
 | CLI-02 | Phase 51 | Pending |
 | CLI-03 | Phase 51 | Pending |
-| CLEAN-01 | Phase 49 | Pending |
-| CLEAN-02 | Phase 49 | Pending |
-| CLEAN-03 | Phase 49 | Pending |
+| CLEAN-01 | Phase 49 | Complete |
+| CLEAN-02 | Phase 49 | Complete |
+| CLEAN-03 | Phase 49 | Complete |
 
 **Coverage:**
 - v5.1 requirements: 28 total
