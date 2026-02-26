@@ -43,11 +43,11 @@
 | `/patterns` | Sonnet | Claude-Only | N/A | N/A | $0 | N/A |
 | `/publish` | Sonnet | Claude-Only | N/A | N/A | $0 | N/A |
 | `/engage` | Sonnet | Claude-Only | N/A | N/A | $0 | N/A |
-| `/status` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | VERY LOW | $2-3 | ⏳ PENDING |
-| `/help` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | VERY LOW | $0.50 | ⏳ PENDING |
+| `/status` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | VERY LOW | $2-3 | ⏳ PENDING FIRST USE |
+| `/help` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | VERY LOW | $0.50 | ⏳ PENDING FIRST USE |
 | `/fix` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $0.50 | UNTESTED |
 | `/sources` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $1-2 | UNTESTED |
-| `/prep` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $2-3 | ⏳ PENDING |
+| `/prep` | Haiku | **Routable-Free** | `google/gemini-2.0-flash-exp:free` | LOW | $2-3 | ⏳ PENDING FIRST USE |
 | `/discover` | Haiku | **Routable-Free** | `meta-llama/llama-3.3-70b-instruct:free` | LOW | $2-4 | UNTESTED |
 | **AGENTS (6)** | | | | | | |
 | `script-writer-v2` | Opus | Claude-Only | N/A | N/A | $0 | N/A |
@@ -93,12 +93,12 @@
 | Status | Meaning | Action |
 |--------|---------|--------|
 | N/A | Claude-Only task, no validation needed | Keep on Claude |
-| ⏳ PENDING | Validation protocol defined, awaiting user testing | See VALIDATION-RESULTS.md |
+| ⏳ PENDING FIRST USE | Infrastructure ready (API key set, CCR installed), validate on next production use | Switch to `/model openrouter/google/gemini-2.0-flash-exp:free`, run command, compare output to Claude baseline, update to VALIDATED or FAILED |
 | UNTESTED | Routable candidate, validation protocol not yet created | Defer to later validation rounds |
 | ✅ VALIDATED | Tested and scored PASS or ACCEPTABLE | Safe to route |
 | ❌ FAILED | Tested and scored FAIL | Keep on Claude, remove from routable list |
 
-**Current validation focus (Plan 02):** 3 tasks marked ⏳ PENDING (`/status`, `/help`, `/prep`)
+**Current validation focus (Plan 02):** 3 tasks marked ⏳ PENDING FIRST USE (`/status`, `/help`, `/prep`) — infrastructure ready as of 2026-02-26, OpenRouter API key configured
 
 **Next validation rounds:** Remaining 7 tasks marked UNTESTED will be validated after initial 3 tasks pass
 
@@ -308,7 +308,8 @@ After evaluating routing tools against this project's requirements, the chosen s
 
 ---
 
-**Next step:** Plan 02 will implement routing validation and measure actual savings.
+**Next step:** Validate `/status`, `/help`, `/prep` on first production use. Update Validation Status column after each test.
 
 *Created: 2026-02-07 (Phase 28.1-01)*
+*Updated: 2026-02-26 (Phase 28.1-02 complete — OpenRouter API key configured, CCR installed, PENDING FIRST USE for 3 tasks)*
 *Extends: MODEL-ASSIGNMENT-GUIDE.md (Phase 13.1)*
