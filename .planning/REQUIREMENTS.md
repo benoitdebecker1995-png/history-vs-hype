@@ -9,9 +9,9 @@ Requirements for v5.1 Codebase Hardening. Each maps to roadmap phases.
 
 ### Error Handling
 
-- [ ] **ERR-01**: All bare `except:` and `except Exception: pass` replaced with specific exception types and error dict returns
-- [ ] **ERR-02**: All tool modules return `{'error': msg}` on failure (not None, not exceptions for expected errors)
-- [ ] **ERR-03**: Error dicts include structured context (module name, operation, details)
+- [x] **ERR-01**: All bare `except:` and `except Exception: pass` replaced with specific exception types and error dict returns
+- [x] **ERR-02**: All tool modules return `{'error': msg}` on failure (not None, not exceptions for expected errors)
+- [x] **ERR-03**: Error dicts include structured context (module name, operation, details)
 
 ### Logging
 
@@ -87,9 +87,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ERR-01 | Phase 50 | Pending |
-| ERR-02 | Phase 50 | Pending |
-| ERR-03 | Phase 50 | Pending |
+| ERR-01 | Phase 50 | Complete |
+| ERR-02 | Phase 50 | Complete |
+| ERR-03 | Phase 50 | Complete |
 | LOG-01 | Phase 51 | Pending |
 | LOG-02 | Phase 51 | Pending |
 | LOG-03 | Phase 51 | Pending |

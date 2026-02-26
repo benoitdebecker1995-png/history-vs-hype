@@ -2,21 +2,21 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Codebase Hardening
-status: completed
-last_updated: "2026-02-25T18:05:50.002Z"
-last_activity: "2026-02-25 — 49-02 complete: get_youtube_metadata() removed from patterns.py (47 lines, zero callers); database.py/backfill.py/analyze.py audited, all functions confirmed active; CLEAN-02 satisfied"
+status: planning
+last_updated: "2026-02-26T13:17:12.932Z"
+last_activity: "2026-02-25 — 50-02 complete: 10 files narrowed from broad/bare excepts; split_screen_guide._parse_script() returns ERR-03 structured error dict; ERR-01 satisfied for intel/discovery/production/dashboard/history-clip-tool"
 progress:
-  total_phases: 52
-  completed_phases: 50
-  total_plans: 111
-  completed_plans: 110
+  total_phases: 54
+  completed_phases: 51
+  total_plans: 113
+  completed_plans: 112
   percent: 99
 ---
 
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-25 (49-02 complete — function-level audit done, get_youtube_metadata() removed from patterns.py, CLEAN-02 satisfied; Phase 49 complete)
+**Last Updated:** 2026-02-25 (50-02 complete — 10 files in intel/, discovery/, production/, dashboard/, history-clip-tool/ narrowed from broad/bare excepts to specific types; ERR-02 + ERR-03 satisfied)
 
 ## Project Reference
 
@@ -28,9 +28,9 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 ## Current Position
 
 **Milestone:** v5.1 Codebase Hardening
-**Phase:** 49 complete, 50 next (Error Handling)
-**Status:** Milestone complete
-**Last activity:** 2026-02-25 — 49-02 complete: get_youtube_metadata() removed from patterns.py (47 lines, zero callers); database.py/backfill.py/analyze.py audited, all functions confirmed active; CLEAN-02 satisfied
+**Phase:** 50 in progress (Plan 02 complete; Plan 01 Task 2 still pending — analyze.py, benchmarks.py, backfill.py, video_report.py)
+**Status:** Ready to plan
+**Last activity:** 2026-02-25 — 50-02 complete: 10 files narrowed from broad/bare excepts; split_screen_guide._parse_script() returns ERR-03 structured error dict; ERR-01 satisfied for intel/discovery/production/dashboard/history-clip-tool
 
 **Progress:**
 [██████████] 99%
@@ -64,6 +64,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 | 51 | Logging & CLI Standardization | LOG-01..03, CLI-01..03 | Phase 50 |
 | 52 | Database Hardening | DB-01..03 | Phase 48 |
 | 53 | Integration Testing | TEST-01..07 | Phases 48-52 |
+| 54 | External Intelligence Synthesis | TBD | Phase 53 |
 
 ## Accumulated Context
 
@@ -82,6 +83,12 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 49-dead-code-cleanup]: backups/ gitignored not deleted: database.py still writes to it during v27 migration for fresh installs; production DB at v29 so directory auto-creates on demand
 - [Phase 49-dead-code-cleanup]: get_youtube_metadata() deleted from patterns.py: zero callers codebase-wide, not in module docstring public API, superseded by find_project_folder_for_video()
 - [Phase 49-dead-code-cleanup]: video_report.py bare imports (from metrics/retention/ctr) are pre-existing Phase 48-02 miss: deferred to Phase 50 per scope boundary rule
+- [Phase 50-error-handling]: split_screen_guide method _parse_script (not _read_file) fixed for ERR-02; ERR-03 scoped to modified files only; analyze.py Plan 01 Task 2 still pending
+- [Phase 50]: video_report.py bare imports fixed: from metrics/retention/ctr → tools.youtube_analytics.*; downstream metrics.py→auth.py bare import is pre-existing out-of-scope issue
+
+### Roadmap Evolution
+
+- Phase 54 added: External Intelligence Synthesis — automated VidIQ/Gemini prompt generation, response parsing, metadata synthesis, moderation scoring, thumbnail blueprints
 
 ### Pending Todos
 
@@ -96,12 +103,12 @@ None at roadmap time.
 ### Last Session
 
 - **Date:** 2026-02-25
-- **Work:** Executed 49-02 — audited patterns.py (removed get_youtube_metadata, 47 lines), database.py (9 private methods all confirmed active), backfill.py, analyze.py; logged video_report.py bare import issue to deferred-items.md
-- **Output:** 49-02-SUMMARY.md created, commits 544c740 + 3eee96d, CLEAN-02 requirement marked complete
+- **Work:** Executed 50-02 — 10 files in intel/, discovery/, production/, dashboard/, history-clip-tool/ narrowed from broad/bare excepts to specific types; split_screen_guide._parse_script() upgraded to return ERR-03 structured error dict; caller updated for new return type
+- **Output:** 50-02-SUMMARY.md created, commits b5a3d66 + 47c81ae, ERR-01/ERR-02/ERR-03 requirements marked complete
 
 ### Next Session
 
-**Next action:** Execute Phase 50 (Error Handling — ERR-01, ERR-02, ERR-03)
+**Next action:** Complete Plan 50-01 Task 2 (analyze.py, benchmarks.py, backfill.py, video_report.py) — then Phase 51 (Logging & CLI Standardization)
 
 ## Technical Notes
 
