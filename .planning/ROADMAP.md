@@ -480,7 +480,12 @@ Plans:
   3. Every tool entry point responds to `--help` with a description and argument list
   4. Error conditions always exit with code 1 and print the error message to stderr (not stdout)
   5. No print() calls remain in tools/ module code (grep confirms zero matches outside of CLI entry points)
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 51-01-PLAN.md — Logging infrastructure (logging_config.py) + CLI standardization (argparse conversions + --verbose/--quiet)
+- [ ] 51-02-PLAN.md — print()-to-logging conversion for youtube_analytics/ + error exit standardization
+- [ ] 51-03-PLAN.md — print()-to-logging conversion for discovery/ + intel/ + production/ + translation/ + other packages
 
 #### Phase 52: Database Hardening
 **Goal**: All three databases track their schema version and migrate atomically
@@ -563,7 +568,12 @@ Plans:
   3. Every tool entry point responds to `--help` with a description and argument list
   4. Error conditions always exit with code 1 and print the error message to stderr (not stdout)
   5. No print() calls remain in tools/ module code (grep confirms zero matches outside of CLI entry points)
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 51-01-PLAN.md — Logging infrastructure (logging_config.py) + CLI standardization (argparse conversions + --verbose/--quiet)
+- [ ] 51-02-PLAN.md — print()-to-logging conversion for youtube_analytics/ + error exit standardization
+- [ ] 51-03-PLAN.md — print()-to-logging conversion for discovery/ + intel/ + production/ + translation/ + other packages
 
 ### Phase 52: Database Hardening
 **Goal**: All three databases track their schema version and migrate atomically
