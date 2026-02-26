@@ -181,7 +181,7 @@ def extract_intel_topics(intel_path: Path) -> list:
                         topics.append(parts[0].lower())
 
         return topics
-    except Exception:
+    except (OSError, UnicodeDecodeError):
         return []
 
 

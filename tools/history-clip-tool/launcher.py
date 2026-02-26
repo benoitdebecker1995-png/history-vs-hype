@@ -125,7 +125,7 @@ def wait_for_server(max_attempts=30):
 
             if result == 0:
                 return True
-        except:
+        except OSError:
             pass
 
         time.sleep(0.5)

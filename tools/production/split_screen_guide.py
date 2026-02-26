@@ -97,6 +97,8 @@ class SplitScreenGuide:
         if script_file:
             script_data = self._parse_script(script_file)
             # Script errors are non-fatal - fall back to translation-only timing
+            if isinstance(script_data, dict) and 'error' in script_data:
+                script_data = None
 
         # Extract project name
         if not project_name:
@@ -250,8 +252,13 @@ class SplitScreenGuide:
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 content = f.read()
-        except:
-            return None
+        except (OSError, UnicodeDecodeError) as e:
+            return {
+                'error': f'Failed to read file: {file_path}',
+                'module': 'split_screen_guide',
+                'operation': '_parse_script',
+                'details': str(e)
+            }
 
         # Simple word count extraction - this is a rough estimate
         # Script structure may vary, so we count all words in proximity to section headings
