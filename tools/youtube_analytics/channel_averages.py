@@ -38,8 +38,11 @@ import sys
 import json
 from datetime import datetime, timezone
 
+from tools.logging_config import get_logger
 from tools.youtube_analytics.auth import get_authenticated_service
 from tools.youtube_analytics.metrics import get_video_metrics
+
+logger = get_logger(__name__)
 
 try:
     from googleapiclient.errors import HttpError

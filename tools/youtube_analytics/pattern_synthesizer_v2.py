@@ -35,11 +35,15 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 from collections import defaultdict
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 try:
     from .technique_library import TechniqueLibrary
     from .transcript_analyzer import analyze_all_transcripts
 except ImportError as e:
-    print(f"Error: Required dependencies not found: {e}", file=sys.stderr)
+    logger.error("Required dependencies not found: %s", e)
     sys.exit(1)
 
 
@@ -156,8 +160,8 @@ def run_full_pipeline(transcripts_dir: Optional[Path] = None, db_path: Optional[
         repo_root = Path(__file__).parent.parent.parent
         transcripts_dir = repo_root / 'transcripts'
 
-    print(f"[Pattern Synthesizer v2] Running full pipeline...", file=sys.stderr)
-    print(f"[1/3] Analyzing all transcripts from {transcripts_dir}...", file=sys.stderr)
+    logger.info("[Pattern Synthesizer v2] Running full pipeline...")
+    logger.info("[1/3] Analyzing all transcripts from %s...", transcripts_dir)
 
     # Step 1: Analyze all transcripts
     analyses = analyze_all_transcripts(transcripts_dir)
@@ -167,10 +171,10 @@ def run_full_pipeline(transcripts_dir: Optional[Path] = None, db_path: Optional[
         return {'error': f'Transcript analysis failed: {analyses["error"]}'}
 
     transcripts_analyzed = len(analyses)
-    print(f"[1/3] ✓ Analyzed {transcripts_analyzed} transcripts", file=sys.stderr)
+    logger.info("[1/3] Analyzed %d transcripts", transcripts_analyzed)
 
     # Step 2: Store results in database
-    print(f"[2/3] Storing techniques in database...", file=sys.stderr)
+    logger.info("[2/3] Storing techniques in database...")
     lib = TechniqueLibrary(db_path)
     store_result = lib.store_analysis_results(analyses)
 
@@ -178,17 +182,17 @@ def run_full_pipeline(transcripts_dir: Optional[Path] = None, db_path: Optional[
         return {'error': f'Database storage failed: {store_result["error"]}'}
 
     techniques_stored = store_result.get('techniques_added', 0)
-    print(f"[2/3] ✓ Stored {techniques_stored} techniques", file=sys.stderr)
+    logger.info("[2/3] Stored %d techniques", techniques_stored)
 
     # Step 3: Synthesize universal patterns
-    print(f"[3/3] Synthesizing universal patterns (3+ creators)...", file=sys.stderr)
+    logger.info("[3/3] Synthesizing universal patterns (3+ creators)...")
     universal_patterns = synthesize_universal_patterns(lib)
 
     if 'error' in universal_patterns:
         return {'error': f'Synthesis failed: {universal_patterns["error"]}'}
 
     universal_count = sum(len(patterns) for patterns in universal_patterns.values())
-    print(f"[3/3] ✓ Identified {universal_count} universal patterns", file=sys.stderr)
+    logger.info("[3/3] Identified %d universal patterns", universal_count)
 
     return {
         'transcripts_analyzed': transcripts_analyzed,
@@ -222,7 +226,7 @@ def synthesize_universal_patterns(lib: TechniqueLibrary) -> Dict[str, List[Dict]
     part6_patterns = load_part6_patterns()
 
     if 'error' in part6_patterns:
-        print(f"Warning: Could not load Part 6 patterns: {part6_patterns['error']}", file=sys.stderr)
+        logger.warning("Could not load Part 6 patterns: %s", part6_patterns['error'])
         part6_patterns = {}
 
     # Get all techniques from database

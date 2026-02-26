@@ -38,6 +38,10 @@ from collections import Counter
 from statistics import mean
 from typing import Dict, List, Any, Optional
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 try:
     from tools.discovery.database import KeywordDB
     DATABASE_AVAILABLE = True
@@ -666,11 +670,11 @@ def generate_winning_patterns_report() -> str:
 
 if __name__ == '__main__':
     # Quick test
-    print("Extracting winning patterns...")
+    logger.info("Extracting winning patterns...")
     profile = extract_winning_patterns()
 
     if 'error' in profile:
-        print(f"Error: {profile['error']}")
+        print(f"Error: {profile['error']}", file=sys.stderr)
     else:
         print(f"Analyzed {profile['videos_analyzed']} videos")
         print(f"\nTop topics:")

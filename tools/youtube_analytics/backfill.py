@@ -43,6 +43,10 @@ from datetime import datetime, timezone
 from statistics import mean
 from typing import Dict, List, Any, Optional, Set
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 try:
     from tools.discovery.database import KeywordDB
     DB_AVAILABLE = True
@@ -182,8 +186,7 @@ def import_from_json_prefetch(project_root: Path) -> Dict[str, Any]:
     skipped = 0
     errors = []
 
-    print(f"  Found {total} videos in {json_path.name}")
-    print()
+    logger.info("Found %d videos in %s", total, json_path.name)
 
     db = KeywordDB()
     _ensure_avg_retention_column(db)
@@ -193,11 +196,11 @@ def import_from_json_prefetch(project_root: Path) -> Dict[str, Any]:
         title = video.get('title') or 'Unknown'
         title_short = title[:40]
 
-        print(f"  Importing {title_short} ({i}/{total})...", end=' ', flush=True)
+        logger.debug("Importing %s (%d/%d)...", title_short, i, total)
 
         if not video_id:
             errors.append({'index': i, 'error': 'Missing video_id'})
-            print("ERROR (no video_id)")
+            logger.warning("Missing video_id for item %d", i)
             continue
 
         # Classify by title
@@ -234,7 +237,7 @@ def import_from_json_prefetch(project_root: Path) -> Dict[str, Any]:
 
         if 'error' in result:
             errors.append({'video_id': video_id, 'error': result['error']})
-            print(f"ERROR: {result['error']}")
+            logger.warning("Import error for %s: %s", video_id, result['error'])
         else:
             # Store avg_retention_pct separately (not in add_video_performance signature)
             avg_retention_raw = video.get('avg_retention')
@@ -244,12 +247,11 @@ def import_from_json_prefetch(project_root: Path) -> Dict[str, Any]:
                 _update_avg_retention(db, video_id, avg_retention_pct)
 
             imported += 1
-            print("done")
+            logger.debug("Imported: %s", title_short)
 
     db.close()
 
-    print()
-    print(f"  JSON import: {imported} imported, {skipped} skipped, {len(errors)} errors")
+    logger.info("JSON import complete: %d imported, %d skipped, %d errors", imported, skipped, len(errors))
 
     return {'imported': imported, 'skipped': skipped, 'errors': errors}
 
@@ -822,49 +824,36 @@ def run_backfill(project_root: Path, force: bool = False, skip_markdown: bool = 
     }
 
     # Stage 1: JSON import
-    print("=" * 60)
-    print("Stage 1: Importing from JSON pre-fetches")
-    print("=" * 60)
+    logger.info("Stage 1: Importing from JSON pre-fetches")
     json_result = import_from_json_prefetch(project_root)
     results['json_import'] = json_result
     if json_result.get('errors'):
         results['errors'].extend(json_result['errors'])
-    print()
 
     # Stage 2: Markdown import (optional)
     if not skip_markdown:
-        print("=" * 60)
-        print("Stage 2: Parsing POST-PUBLISH-ANALYSIS files")
-        print("=" * 60)
+        logger.info("Stage 2: Parsing POST-PUBLISH-ANALYSIS files")
         md_result = import_from_analysis_files(project_root, force=force)
         results['markdown_import'] = md_result
-        print()
     else:
-        print("Stage 2: Skipped (--json-only)")
-        print()
+        logger.info("Stage 2: Skipped (--json-only)")
 
     # Stage 3: Reclassify topics
-    print("=" * 60)
-    print("Stage 3: Reclassifying topic types")
-    print("=" * 60)
+    logger.info("Stage 3: Reclassifying topic types")
     reclassified = reclassify_topics(project_root)
     results['reclassified'] = reclassified
-    print(f"  Reclassified {reclassified} videos from 'general' to specific topic types")
-    print()
+    logger.info("Reclassified %d videos from 'general' to specific topic types", reclassified)
 
     # Stage 4: Generate insights report
-    print("=" * 60)
-    print("Stage 4: Generating channel insights report")
-    print("=" * 60)
+    logger.info("Stage 4: Generating channel insights report")
     insights_result = generate_channel_insights_report(project_root)
     if 'error' in insights_result:
         results['errors'].append({'stage': 4, 'error': insights_result['error']})
-        print(f"  WARNING: Could not generate insights: {insights_result['error']}")
+        logger.warning("Could not generate insights: %s", insights_result['error'])
     else:
         results['insights_path'] = insights_result['saved_to']
-        print(f"  Channel insights saved to: {insights_result['saved_to']}")
-        print(f"  Videos analyzed: {insights_result['video_count']}")
-    print()
+        logger.info("Channel insights saved to: %s", insights_result['saved_to'])
+        logger.info("Videos analyzed: %d", insights_result['video_count'])
 
     return results
 
@@ -927,12 +916,10 @@ Output: tools/discovery/keywords.db (video_performance table)
     print()
 
     if args.insights_only:
-        print("=" * 60)
-        print("Insights-only mode: regenerating channel-insights.md")
-        print("=" * 60)
+        logger.info("Insights-only mode: regenerating channel-insights.md")
         result = generate_channel_insights_report(project_root)
         if 'error' in result:
-            print(f"ERROR: {result['error']}")
+            print(f"ERROR: {result['error']}", file=sys.stderr)
             sys.exit(1)
         print(f"Channel insights saved to: {result['saved_to']}")
         print(f"Videos analyzed: {result['video_count']}")

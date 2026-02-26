@@ -30,9 +30,12 @@ import sys
 import json
 from datetime import datetime, timezone, date
 
+from tools.logging_config import get_logger
 from tools.youtube_analytics.metrics import get_video_metrics
 from tools.youtube_analytics.retention import get_retention_data
 from tools.youtube_analytics.ctr import get_ctr_metrics
+
+logger = get_logger(__name__)
 
 
 def generate_video_report(video_id: str, start_date: str = None, end_date: str = None) -> dict:

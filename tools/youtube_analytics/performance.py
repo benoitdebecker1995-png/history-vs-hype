@@ -42,8 +42,11 @@ from pathlib import Path
 from datetime import datetime, timezone
 from typing import Optional, Dict, List, Any
 
+from tools.logging_config import get_logger
 from .metrics import get_video_metrics
 from .channel_averages import get_recent_video_ids
+
+logger = get_logger(__name__)
 
 # Import database and classifiers with graceful fallback
 try:
@@ -331,14 +334,14 @@ def fetch_catalog_metrics(max_videos: int = 50, save_to_db: bool = True) -> List
     results = []
 
     for i, video_id in enumerate(video_ids):
-        print(f"Fetching {i+1}/{len(video_ids)}: {video_id}...", end=' ', flush=True)
+        logger.info("Fetching %d/%d: %s", i + 1, len(video_ids), video_id)
 
         result = fetch_video_performance(video_id, save_to_db=save_to_db)
 
         if 'error' in result:
-            print(f"ERROR: {result['error']}")
+            logger.warning("Error fetching %s: %s", video_id, result['error'])
         else:
-            print(f"OK ({result['conversion_rate']:.3f}% conversion)")
+            logger.debug("Fetched %s: %.3f%% conversion", video_id, result['conversion_rate'])
 
         results.append(result)
 
@@ -357,7 +360,7 @@ def get_top_converters(limit: int = 10) -> List[Dict[str, Any]]:
         Empty list if database unavailable or no data
     """
     if not DATABASE_AVAILABLE:
-        print("Database not available. Run --fetch-all first.")
+        logger.warning("Database not available. Run --fetch-all first.")
         return []
 
     try:
@@ -366,7 +369,7 @@ def get_top_converters(limit: int = 10) -> List[Dict[str, Any]]:
         db.close()
         return results
     except Exception as e:
-        print(f"Error: {e}")
+        logger.error("Error querying top converters: %s", e)
         return []
 
 
@@ -377,11 +380,11 @@ def print_topic_aggregation() -> None:
     Fetches all videos from database and shows conversion stats per topic.
     """
     if not DATABASE_AVAILABLE:
-        print("Database not available. Run --fetch-all first.")
+        logger.warning("Database not available. Run --fetch-all first.")
         return
 
     if not REPORT_AVAILABLE:
-        print("Report module not available.")
+        logger.warning("Report module not available.")
         return
 
     try:
@@ -389,11 +392,11 @@ def print_topic_aggregation() -> None:
         videos = db.get_all_video_performance(limit=500)
         db.close()
     except Exception as e:
-        print(f"Error fetching data: {e}")
+        logger.error("Error fetching data: %s", e)
         return
 
     if not videos:
-        print("No video performance data found. Run --fetch-all first.")
+        logger.warning("No video performance data found. Run --fetch-all first.")
         return
 
     stats = aggregate_by_topic(videos, min_count=1)
@@ -432,11 +435,11 @@ def print_angle_aggregation() -> None:
     Fetches all videos from database and shows conversion stats per angle.
     """
     if not DATABASE_AVAILABLE:
-        print("Database not available. Run --fetch-all first.")
+        logger.warning("Database not available. Run --fetch-all first.")
         return
 
     if not REPORT_AVAILABLE:
-        print("Report module not available.")
+        logger.warning("Report module not available.")
         return
 
     try:
@@ -444,17 +447,17 @@ def print_angle_aggregation() -> None:
         videos = db.get_all_video_performance(limit=500)
         db.close()
     except Exception as e:
-        print(f"Error fetching data: {e}")
+        logger.error("Error fetching data: %s", e)
         return
 
     if not videos:
-        print("No video performance data found. Run --fetch-all first.")
+        logger.warning("No video performance data found. Run --fetch-all first.")
         return
 
     stats = aggregate_by_angle(videos, min_count=1)
 
     if not stats:
-        print("No angle data available.")
+        logger.warning("No angle data available.")
         return
 
     # Sort by conversion rate descending
@@ -488,16 +491,15 @@ def print_winning_patterns() -> None:
     channel strengths, and actionable insights.
     """
     if not PATTERNS_AVAILABLE:
-        print("Error: Pattern extractor module not available.")
+        logger.error("Pattern extractor module not available.")
         return
 
-    print("Extracting winning patterns...")
-    print()
+    logger.info("Extracting winning patterns...")
 
     profile = extract_winning_patterns()
 
     if 'error' in profile:
-        print(f"Error: {profile['error']}")
+        logger.error("Pattern extraction failed: %s", profile['error'])
         return
 
     print(f"Videos Analyzed: {profile['videos_analyzed']}")
@@ -570,15 +572,15 @@ def print_channel_strengths() -> None:
     Shows strength assessment with ASCII bars for quick overview.
     """
     if not PATTERNS_AVAILABLE:
-        print("Error: Pattern extractor module not available.")
+        logger.error("Pattern extractor module not available.")
         return
 
     if not REPORT_AVAILABLE:
-        print("Error: Report module not available.")
+        logger.error("Report module not available.")
         return
 
     if not DATABASE_AVAILABLE:
-        print("Database not available. Run --fetch-all first.")
+        logger.warning("Database not available. Run --fetch-all first.")
         return
 
     try:
@@ -586,11 +588,11 @@ def print_channel_strengths() -> None:
         videos = db.get_all_video_performance(limit=500)
         db.close()
     except Exception as e:
-        print(f"Error fetching data: {e}")
+        logger.error("Error fetching data: %s", e)
         return
 
     if not videos:
-        print("No video performance data found. Run --fetch-all first.")
+        logger.warning("No video performance data found. Run --fetch-all first.")
         return
 
     # Get aggregated stats for strength calculation
@@ -795,13 +797,13 @@ Data is stored in tools/discovery/keywords.db (video_performance table).
     # Handle --patterns flag
     if args.patterns:
         if not PATTERNS_AVAILABLE:
-            print("Error: Pattern extractor module not available.")
+            print("ERROR: Pattern extractor module not available.", file=sys.stderr)
             sys.exit(1)
         print_winning_patterns()
         if args.save:
             result = generate_winning_patterns_report()
             if result.startswith("Error"):
-                print(result)
+                print(result, file=sys.stderr)
             else:
                 print(f"Report saved to: {result}")
         sys.exit(0)
@@ -809,7 +811,7 @@ Data is stored in tools/discovery/keywords.db (video_performance table).
     # Handle --strengths flag
     if args.strengths:
         if not PATTERNS_AVAILABLE:
-            print("Error: Pattern extractor module not available.")
+            print("ERROR: Pattern extractor module not available.", file=sys.stderr)
             sys.exit(1)
         print_channel_strengths()
         sys.exit(0)
@@ -817,10 +819,10 @@ Data is stored in tools/discovery/keywords.db (video_performance table).
     # Handle --report flag
     if args.report:
         if not REPORT_AVAILABLE:
-            print("Error: Report module not available.")
+            print("ERROR: Report module not available.", file=sys.stderr)
             sys.exit(1)
 
-        print("Generating performance report...")
+        logger.info("Generating performance report...")
         report = generate_performance_report()
         print()
         print(report)
@@ -828,7 +830,7 @@ Data is stored in tools/discovery/keywords.db (video_performance table).
         if args.save:
             result = save_report(report)
             if 'error' in result:
-                print(f"Error saving report: {result['error']}")
+                print(f"ERROR: {result['error']}", file=sys.stderr)
             else:
                 print(f"\nReport saved to: {result['saved_to']}")
 
@@ -836,27 +838,26 @@ Data is stored in tools/discovery/keywords.db (video_performance table).
 
     # Handle --by-topic flag
     if args.by_topic:
-        print("Conversion rates by topic type:")
+        logger.info("Generating conversion rates by topic type...")
         print_topic_aggregation()
         sys.exit(0)
 
     # Handle --by-angle flag
     if args.by_angle:
-        print("Conversion rates by content angle:")
+        logger.info("Generating conversion rates by content angle...")
         print_angle_aggregation()
         sys.exit(0)
 
     # Handle --top flag
     if args.top is not None:
-        print(f"Top {args.top} videos by conversion rate:")
+        logger.info("Fetching top %d videos by conversion rate...", args.top)
         videos = get_top_converters(limit=args.top)
         print_performance_table(videos)
         sys.exit(0)
 
     # Handle --fetch-all flag
     if args.fetch_all:
-        print(f"Fetching metrics for last {args.max_videos} videos...")
-        print()
+        logger.info("Fetching metrics for last %d videos...", args.max_videos)
         results = fetch_catalog_metrics(
             max_videos=args.max_videos,
             save_to_db=not args.no_save
@@ -872,17 +873,16 @@ Data is stored in tools/discovery/keywords.db (video_performance table).
 
     # Handle single video ID
     if args.video_id:
-        print(f"Fetching metrics for video: {args.video_id}")
-        print()
+        logger.info("Fetching metrics for video: %s", args.video_id)
         result = fetch_video_performance(
             args.video_id,
             save_to_db=not args.no_save
         )
 
         if 'error' in result:
-            print(f"Error: {result['error']}")
+            print(f"ERROR: {result['error']}", file=sys.stderr)
             if 'details' in result:
-                print(f"Details: {result['details']}")
+                print(f"Details: {result['details']}", file=sys.stderr)
             sys.exit(1)
 
         # Print detailed result

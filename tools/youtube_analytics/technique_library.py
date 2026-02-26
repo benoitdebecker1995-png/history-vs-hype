@@ -23,6 +23,10 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 import argparse
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 class TechniqueLibrary:
     """
@@ -86,7 +90,7 @@ class TechniqueLibrary:
         if self._get_schema_version() >= 28:
             return  # Already migrated
 
-        print("[Phase 37] Migrating database to v28: adding creator_techniques table...", file=sys.stderr)
+        logger.info("[Phase 37] Migrating database to v28: adding creator_techniques table...")
 
         try:
             cursor = self._conn.cursor()
@@ -123,10 +127,10 @@ class TechniqueLibrary:
             self._set_schema_version(28)
 
             self._conn.commit()
-            print("[Phase 37] Schema migrated to v28 successfully", file=sys.stderr)
+            logger.info("[Phase 37] Schema migrated to v28 successfully")
 
         except sqlite3.Error as e:
-            print(f"[Phase 37] Migration failed: {e}", file=sys.stderr)
+            logger.error("[Phase 37] Migration failed: %s", e)
             return {'error': f'Schema migration failed: {e}'}
 
     def _ensure_schema_v29(self):
@@ -140,7 +144,7 @@ class TechniqueLibrary:
         if self._get_schema_version() >= 29:
             return  # Already migrated
 
-        print("[Phase 38] Migrating database to v29: adding script_choices table...", file=sys.stderr)
+        logger.info("[Phase 38] Migrating database to v29: adding script_choices table...")
 
         try:
             cursor = self._conn.cursor()
@@ -176,10 +180,10 @@ class TechniqueLibrary:
             self._set_schema_version(29)
 
             self._conn.commit()
-            print("[Phase 38] Schema migrated to v29 successfully", file=sys.stderr)
+            logger.info("[Phase 38] Schema migrated to v29 successfully")
 
         except sqlite3.Error as e:
-            print(f"[Phase 38] Migration failed: {e}", file=sys.stderr)
+            logger.error("[Phase 38] Migration failed: %s", e)
             return {'error': f'Schema migration failed: {e}'}
 
     def add_technique(

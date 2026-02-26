@@ -25,7 +25,10 @@ import argparse
 from pathlib import Path
 from typing import Optional, List, Dict, Any
 
+from tools.logging_config import get_logger
 from tools.discovery.database import KeywordDB
+
+logger = get_logger(__name__)
 
 # Try to import imagehash for perceptual hash generation
 try:
@@ -51,13 +54,12 @@ def generate_thumbnail_hash(file_path: str) -> Optional[str]:
         Hex string of perceptual hash, or None if unavailable/error
     """
     if not IMAGEHASH_AVAILABLE:
-        print("Warning: imagehash not installed, skipping hash generation")
-        print("Install with: pip install imagehash pillow")
+        logger.warning("imagehash not installed, skipping hash generation. Install with: pip install imagehash pillow")
         return None
 
     path = Path(file_path)
     if not path.exists():
-        print(f"Warning: File not found: {file_path}")
+        logger.warning("File not found: %s", file_path)
         return None
 
     try:
@@ -65,7 +67,7 @@ def generate_thumbnail_hash(file_path: str) -> Optional[str]:
             hash_value = imagehash.phash(img)
             return str(hash_value)
     except Exception as e:
-        print(f"Warning: Could not generate hash: {e}")
+        logger.warning("Could not generate hash: %s", e)
         return None
 
 
@@ -113,17 +115,17 @@ def cmd_register_thumb(args):
         variant_letter = args.variant_letter.upper().strip()
 
         if len(variant_letter) != 1 or variant_letter < 'A' or variant_letter > 'Z':
-            print(f"Error: variant_letter must be a single uppercase letter (A-Z), got: {variant_letter}")
+            print(f"ERROR: variant_letter must be a single uppercase letter (A-Z), got: {variant_letter}", file=sys.stderr)
             sys.exit(1)
 
         file_path = args.file_path
         if not Path(file_path).exists():
-            print(f"Error: File not found: {file_path}")
+            print(f"ERROR: File not found: {file_path}", file=sys.stderr)
             sys.exit(1)
 
         visual_patterns = validate_tags(args.tags)
         if not visual_patterns:
-            print("Error: --tags required (e.g., 'map,face,text')")
+            print("ERROR: --tags required (e.g., 'map,face,text')", file=sys.stderr)
             sys.exit(1)
 
         # Generate perceptual hash
@@ -137,7 +139,7 @@ def cmd_register_thumb(args):
         db.close()
 
         if 'error' in result:
-            print(f"Error: {result['error']}")
+            print(f"ERROR: {result['error']}", file=sys.stderr)
             sys.exit(1)
 
         print(f"Registered thumbnail variant {variant_letter} for {video_id}")
@@ -149,7 +151,7 @@ def cmd_register_thumb(args):
             print(f"  Hash: (not generated)")
 
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"ERROR: {e}", file=sys.stderr)
         sys.exit(1)
 
 
@@ -160,13 +162,13 @@ def cmd_register_title(args):
         variant_letter = args.variant_letter.upper().strip()
 
         if len(variant_letter) != 1 or variant_letter < 'A' or variant_letter > 'Z':
-            print(f"Error: variant_letter must be a single uppercase letter (A-Z), got: {variant_letter}")
+            print(f"ERROR: variant_letter must be a single uppercase letter (A-Z), got: {variant_letter}", file=sys.stderr)
             sys.exit(1)
 
         title_text = args.title_text
         formula_tags = validate_tags(args.tags)
         if not formula_tags:
-            print("Error: --tags required (e.g., 'mechanism,paradox')")
+            print("ERROR: --tags required (e.g., 'mechanism,paradox')", file=sys.stderr)
             sys.exit(1)
 
         # Register in database
@@ -175,7 +177,7 @@ def cmd_register_title(args):
         db.close()
 
         if 'error' in result:
-            print(f"Error: {result['error']}")
+            print(f"ERROR: {result['error']}", file=sys.stderr)
             sys.exit(1)
 
         print(f"Registered title variant {variant_letter}: '{title_text}'")
@@ -183,7 +185,7 @@ def cmd_register_title(args):
         print(f"  Tags: {', '.join(formula_tags)}")
 
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"ERROR: {e}", file=sys.stderr)
         sys.exit(1)
 
 
@@ -210,7 +212,7 @@ def cmd_record_ctr(args):
         db.close()
 
         if 'error' in result:
-            print(f"Error: {result['error']}")
+            print(f"ERROR: {result['error']}", file=sys.stderr)
             sys.exit(1)
 
         print(f"Recorded CTR snapshot: {ctr_percent}% ({impression_count} impressions, {view_count} views)")
@@ -224,7 +226,7 @@ def cmd_record_ctr(args):
             print(f"  Marked as late entry")
 
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"ERROR: {e}", file=sys.stderr)
         sys.exit(1)
 
 
@@ -284,7 +286,7 @@ def cmd_list_variants(args):
                 print()
 
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"ERROR: {e}", file=sys.stderr)
         sys.exit(1)
 
 
@@ -326,7 +328,7 @@ def cmd_show_snapshots(args):
                   f"({delta:+.2f}% {direction})")
 
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"ERROR: {e}", file=sys.stderr)
         sys.exit(1)
 
 

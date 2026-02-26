@@ -53,6 +53,9 @@ from datetime import datetime, timezone
 from collections import defaultdict
 from statistics import mean
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
 
 # Determine project root (2 levels up from tools/youtube_analytics/)
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -1876,8 +1879,7 @@ Data sources: POST-PUBLISH-ANALYSIS files in channel-data/analyses/ and video-pr
     last_days = args.last
 
     if args.all:
-        print("Generating all pattern reports...")
-        print()
+        logger.info("Generating all pattern reports...")
         reports = generate_all_reports()
         print()
         print("All reports generated:")
@@ -1885,8 +1887,7 @@ Data sources: POST-PUBLISH-ANALYSIS files in channel-data/analyses/ and video-pr
             print(f"  - {name}: {path}")
 
     elif args.topic_report:
-        print("Generating topic performance report...")
-        print()
+        logger.info("Generating topic performance report...")
         output_path = generate_topic_report()
         with open(output_path, 'r', encoding='utf-8') as f:
             print(f.read())
@@ -1894,8 +1895,7 @@ Data sources: POST-PUBLISH-ANALYSIS files in channel-data/analyses/ and video-pr
         print(f"Report saved to: {output_path}")
 
     elif args.title_report:
-        print("Generating title and thumbnail pattern report...")
-        print()
+        logger.info("Generating title and thumbnail pattern report...")
         output_path = generate_title_patterns_report()
         with open(output_path, 'r', encoding='utf-8') as f:
             print(f.read())
@@ -1924,8 +1924,7 @@ Data sources: POST-PUBLISH-ANALYSIS files in channel-data/analyses/ and video-pr
         target_month = target_month or now.month
         target_year = target_year or now.year
 
-        print(f"Generating monthly summary for {target_year}-{target_month:02d}...")
-        print()
+        logger.info("Generating monthly summary for %d-%02d...", target_year, target_month)
 
         report = generate_monthly_summary(month=target_month, year=target_year)
 
@@ -1939,8 +1938,7 @@ Data sources: POST-PUBLISH-ANALYSIS files in channel-data/analyses/ and video-pr
         print(f"Report saved to: {output_path}")
 
     elif args.tags:
-        print("Collecting and tagging video data...")
-        print()
+        logger.info("Collecting and tagging video data...")
 
         videos = collect_video_data()
         videos = enrich_video_data(videos)
@@ -1964,8 +1962,7 @@ Data sources: POST-PUBLISH-ANALYSIS files in channel-data/analyses/ and video-pr
 
     else:
         # Default: show collected video data
-        print("Collecting video data from POST-PUBLISH-ANALYSIS files...")
-        print()
+        logger.info("Collecting video data from POST-PUBLISH-ANALYSIS files...")
 
         videos = collect_video_data()
 

@@ -46,10 +46,13 @@ from datetime import datetime, timezone
 from urllib.parse import urlparse, parse_qs
 from pathlib import Path
 
+from tools.logging_config import get_logger
 from .video_report import generate_video_report
 from .comments import fetch_and_categorize_comments
 from .channel_averages import get_channel_averages, compare_to_channel
 from .metrics import get_video_metrics
+
+logger = get_logger(__name__)
 
 # Try to import discovery diagnostics (may not be available)
 try:
@@ -271,7 +274,7 @@ def save_analysis(analysis: dict, output_path: str = None) -> dict:
     except ImportError:
         pass  # backfill.py not yet available — graceful degradation
     except Exception as e:
-        print(f"  Warning: Could not regenerate insights: {e}")
+        logger.warning("Could not regenerate insights: %s", e)
 
     return {
         'saved_to': str(save_path),
@@ -1397,7 +1400,7 @@ if __name__ == '__main__':
             section_diagnostics_result = generate_section_diagnostics(video_id, args.script)
 
             if 'error' in section_diagnostics_result:
-                print(f"\nWarning: Section diagnostics failed: {section_diagnostics_result['error']}")
+                logger.warning("Section diagnostics failed: %s", section_diagnostics_result['error'])
             else:
                 # Add to analysis for markdown formatting
                 analysis['section_diagnostics'] = section_diagnostics_result
@@ -1405,16 +1408,16 @@ if __name__ == '__main__':
                 # Auto-update retention playbook (Part 9) after section diagnostics
                 if PLAYBOOK_AVAILABLE:
                     try:
-                        print("\nUpdating retention playbook (STYLE-GUIDE.md Part 9)...")
+                        logger.info("Updating retention playbook (STYLE-GUIDE.md Part 9)...")
                         result = write_part9_to_style_guide(synthesize_part9())
                         if 'error' in result:
-                            print(f"Warning: Playbook update failed: {result['error']}")
+                            logger.warning("Playbook update failed: %s", result['error'])
                         else:
-                            print("Part 9 updated.")
+                            logger.info("Part 9 updated.")
                     except Exception as e:
-                        print(f"Warning: Playbook update error: {str(e)}")
+                        logger.warning("Playbook update error: %s", e)
         except Exception as e:
-            print(f"\nWarning: Section diagnostics error: {str(e)}")
+            logger.warning("Section diagnostics error: %s", e)
 
     # Output to stdout
     if args.markdown or do_save:

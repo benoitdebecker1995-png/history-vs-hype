@@ -28,6 +28,10 @@ from pathlib import Path
 from datetime import datetime, timezone
 from typing import Optional, Dict, List, Any
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 def extract_video_id(content: str, filepath: str = '') -> Optional[str]:
     """
@@ -337,18 +341,17 @@ def backfill_all(project_root: Path, force: bool = False) -> Dict[str, Any]:
     files = find_analysis_files(project_root)
     total = len(files)
 
-    print(f"Found {total} analysis files to process")
-    print()
+    logger.info("Found %d analysis files to process", total)
 
     for i, filepath in enumerate(files, 1):
         filename = filepath.name
-        print(f"[{i}/{total}] Parsing: {filename}...", end=' ')
+        logger.debug("[%d/%d] Parsing: %s...", i, total, filename)
 
         # Parse file
         parsed = parse_analysis_file(str(filepath))
 
         if 'error' in parsed:
-            print(f"ERROR: {parsed['error']}")
+            logger.warning("Parse error for %s: %s", filename, parsed['error'])
             results['errors'] += 1
             results['details'].append({
                 'file': filename,
@@ -361,7 +364,7 @@ def backfill_all(project_root: Path, force: bool = False) -> Dict[str, Any]:
 
         # Check if already has feedback (unless force=True)
         if not force and db.has_feedback(video_id):
-            print("SKIP (already has feedback)")
+            logger.debug("SKIP %s (already has feedback)", filename)
             results['skipped'] += 1
             results['details'].append({
                 'file': filename,
@@ -381,7 +384,7 @@ def backfill_all(project_root: Path, force: bool = False) -> Dict[str, Any]:
         store_result = db.store_video_feedback(video_id, feedback_data)
 
         if 'error' in store_result:
-            print(f"ERROR: {store_result['error']}")
+            logger.warning("Store error for %s: %s", filename, store_result['error'])
             results['errors'] += 1
             results['details'].append({
                 'file': filename,
@@ -390,7 +393,7 @@ def backfill_all(project_root: Path, force: bool = False) -> Dict[str, Any]:
                 'message': store_result['error']
             })
         elif store_result.get('status') == 'no_match':
-            print("SKIP (video not in performance table)")
+            logger.debug("SKIP %s (video not in performance table)", filename)
             results['skipped'] += 1
             results['details'].append({
                 'file': filename,
@@ -398,7 +401,7 @@ def backfill_all(project_root: Path, force: bool = False) -> Dict[str, Any]:
                 'status': 'no_match'
             })
         else:
-            print("OK")
+            logger.debug("OK: %s", filename)
             results['processed'] += 1
             results['details'].append({
                 'file': filename,
@@ -408,8 +411,8 @@ def backfill_all(project_root: Path, force: bool = False) -> Dict[str, Any]:
 
     db.close()
 
-    print()
-    print(f"Complete: {results['processed']} processed, {results['skipped']} skipped, {results['errors']} errors")
+    logger.info("Complete: %d processed, %d skipped, %d errors",
+                results['processed'], results['skipped'], results['errors'])
 
     return results
 
