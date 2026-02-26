@@ -28,9 +28,9 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 ## Current Position
 
 **Milestone:** v5.1 Codebase Hardening
-**Phase:** 50 in progress (Plan 02 complete; Plan 01 Task 2 still pending — analyze.py, benchmarks.py, backfill.py, video_report.py)
-**Status:** Ready to plan
-**Last activity:** 2026-02-25 — 50-02 complete: 10 files narrowed from broad/bare excepts; split_screen_guide._parse_script() returns ERR-03 structured error dict; ERR-01 satisfied for intel/discovery/production/dashboard/history-clip-tool
+**Phase:** 51 complete (Plan 01 complete)
+**Status:** Ready to plan phase 52
+**Last activity:** 2026-02-26 — 51-01 complete: logging_config.py created, all 40 CLI entry points converted to argparse with --verbose/--quiet, setup_logging() wired end-to-end
 
 **Progress:**
 [██████████] 100%
@@ -87,6 +87,9 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 50]: video_report.py bare imports fixed: from metrics/retention/ctr → tools.youtube_analytics.*; downstream metrics.py→auth.py bare import is pre-existing out-of-scope issue
 - [Phase 28.1-multi-model-token-optimization]: Quality validation deferred to first production use — /model switching requires interactive Claude Code session, not automatable
 - [Phase 28.1-multi-model-token-optimization]: CCR v1.0.32 installed + OpenRouter API key configured — routing infrastructure fully ready as of 2026-02-26
+- [Phase 51-logging-cli]: Configure logging.getLogger("tools") not root logger — library-safe hierarchy; NullHandler in tools/__init__.py prevents No-handlers warnings
+- [Phase 51-logging-cli]: setup_logging() called in __main__ blocks only, never at module import time — logging is a CLI concern, not a library concern
+- [Phase 51-logging-cli]: editguide.py, metadata.py, intel/query.py excluded from argparse conversion — smoke-test __main__ blocks with no user arguments are not real CLI entry points
 
 ### Roadmap Evolution
 
@@ -105,12 +108,12 @@ None at roadmap time.
 ### Last Session
 
 - **Date:** 2026-02-26
-- **Work:** Executed 28.1-02 — CCR v1.0.32 installed, OpenRouter API key configured (sk-or-v1-...), VALIDATION-RESULTS.md updated to INFRASTRUCTURE READY, ROUTING-CLASSIFICATION.md updated with PENDING FIRST USE for /status, /help, /prep
-- **Output:** 28.1-02-SUMMARY.md created, commits 9c1954b + ca93334, routing infrastructure complete
+- **Work:** Executed 51-01 — created tools/logging_config.py with setup_logging()/get_logger(), updated tools/__init__.py with NullHandler, converted 12 sys.argv files to argparse, added --verbose/--quiet to all 40 CLI entry points, wired setup_logging() into every __main__ block. Fixed 3 auto-detected issues (bare relative imports in 5 files, Unicode in help text, missing setup_logging call).
+- **Output:** 51-01-SUMMARY.md created, commits 1941697 (Task 1) + 7adf1b4 (Task 2)
 
 ### Next Session
 
-**Next action:** Complete Plan 50-01 Task 2 (analyze.py, benchmarks.py, backfill.py, video_report.py) — then Phase 51 (Logging & CLI Standardization)
+**Next action:** Phase 52 — Database Hardening (DB-01..03)
 
 ## Technical Notes
 
@@ -122,4 +125,4 @@ None at roadmap time.
 
 ---
 
-*State updated: 2026-02-26 after 28.1-02 execution complete*
+*State updated: 2026-02-26 after 51-01 execution complete*
