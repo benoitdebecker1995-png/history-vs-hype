@@ -3,24 +3,94 @@
 **Phase:** 28.1-multi-model-token-optimization
 **Plan:** 02
 **Created:** 2026-02-07
+**Updated:** 2026-02-26 (Task 1 complete — CCR installed and configured)
 **Purpose:** Document routing tool setup and validate free model quality vs Claude baseline
 
 ---
 
 ## Setup Status
 
-### Routing Tool: Native Claude Code `/model` Command
+### Routing Tool: Two Options Available
 
-**Status:** ✅ AVAILABLE (built into Claude Code, no installation needed)
+**Option A (Primary): Claude Code Native `/model` Command**
+
+**Status:** Built into Claude Code, no installation needed
 
 **Verification:**
-- The `/model` command is a native Claude Code feature
+- Native Claude Code feature (no package required)
 - Allows per-conversation model switching
 - Syntax: `/model openrouter/google/gemini-2.0-flash-exp:free`
+- Requires OPENROUTER_API_KEY to be set in environment
+
+---
+
+**Option B (Installed): Claude Code Router (`ccr`) v1.0.32**
+
+**Status:** Installed via `npm install -g @datartech/claude-code-router`
+
+**Installation details:**
+- Package: `@datartech/claude-code-router` v1.0.32
+- Binary: `ccr` (available as `C:\Users\benoi\AppData\Roaming\npm\ccr`)
+- Config location: `~/.claude-code-router/config.json`
+- Config created: 2026-02-26
+
+**Verification:**
+```bash
+$ "C:/Users/benoi/AppData/Roaming/npm/ccr" -v
+claude-code-router version: 1.0.32
+```
+
+**CCR Start commands:**
+```bash
+# Start the routing server
+"C:/Users/benoi/AppData/Roaming/npm/ccr" start
+
+# Check server status
+"C:/Users/benoi/AppData/Roaming/npm/ccr" status
+
+# Stop the server
+"C:/Users/benoi/AppData/Roaming/npm/ccr" stop
+```
+
+**Config file:** `~/.claude-code-router/config.json`
+```json
+{
+  "LOG": false,
+  "API_TIMEOUT_MS": 300000,
+  "Providers": [
+    {
+      "name": "anthropic",
+      "api_base_url": "https://api.anthropic.com/v1/messages",
+      "api_key": "${ANTHROPIC_API_KEY}",
+      "models": ["claude-opus-4-6", "claude-sonnet-4-5", "claude-haiku-4-5"]
+    },
+    {
+      "name": "openrouter",
+      "api_base_url": "https://openrouter.ai/api/v1/chat/completions",
+      "api_key": "${OPENROUTER_API_KEY}",
+      "models": [
+        "google/gemini-2.0-flash-exp:free",
+        "meta-llama/llama-3.3-70b-instruct:free",
+        "alibaba/qwen-2.5-72b-instruct:free"
+      ],
+      "transformer": { "use": ["openrouter"] }
+    }
+  ],
+  "Router": {
+    "default": "anthropic,claude-sonnet-4-5",
+    "think": "anthropic,claude-opus-4-6",
+    "background": "openrouter,google/gemini-2.0-flash-exp:free"
+  }
+}
+```
+
+**Note:** Anthropic provider is configured and ready. OpenRouter provider is configured but requires `OPENROUTER_API_KEY` environment variable to be set before activation.
+
+---
 
 ### OpenRouter API Key Configuration
 
-**Status:** ❌ NOT CONFIGURED
+**Status:** NOT CONFIGURED — requires user action
 
 **Current environment check:**
 ```bash
@@ -39,25 +109,20 @@ $ echo $OPENROUTER_API_KEY
    - Generate new API key (starts with `sk-or-v1-...`)
    - Copy the key
 
-3. **Set environment variable (Windows):**
+3. **Set environment variable (Windows Git Bash):**
 
-   **For current session (temporary):**
-   ```bash
-   export OPENROUTER_API_KEY="sk-or-v1-YOUR_KEY_HERE"
-   ```
-
-   **For permanent setup (Git Bash ~/.bashrc):**
+   **For permanent setup (~/.bashrc — recommended):**
    ```bash
    echo 'export OPENROUTER_API_KEY="sk-or-v1-YOUR_KEY_HERE"' >> ~/.bashrc
    source ~/.bashrc
    ```
 
-   **For PowerShell:**
-   ```powershell
-   $env:OPENROUTER_API_KEY = "sk-or-v1-YOUR_KEY_HERE"
+   **For current session only (temporary):**
+   ```bash
+   export OPENROUTER_API_KEY="sk-or-v1-YOUR_KEY_HERE"
    ```
 
-   **For permanent PowerShell (profile):**
+   **For PowerShell (permanent):**
    ```powershell
    Add-Content $PROFILE "`n`$env:OPENROUTER_API_KEY = 'sk-or-v1-YOUR_KEY_HERE'"
    ```
@@ -74,7 +139,7 @@ $ echo $OPENROUTER_API_KEY
    /status
    ```
 
-**Free tier limits:** 50 requests/day (sufficient for 2 req/day usage, 25x headroom)
+**Free tier limits:** 50 requests/day (sufficient for ~2 req/day usage, 25x headroom)
 
 **Optional upgrade:** Add $10 credits for 1000 req/day limit (not needed initially)
 
@@ -107,9 +172,9 @@ Based on ROUTING-CLASSIFICATION.md, we'll validate 3 commands representing diffe
 
 | Score | Definition | Action |
 |-------|------------|--------|
-| **PASS** | Free model output identical or better than Claude | ✅ Route immediately |
-| **ACCEPTABLE** | Minor formatting differences, core content correct | ✅ Route with monitoring |
-| **FAIL** | Missing content, incorrect logic, or broken formatting | ❌ Keep on Claude |
+| **PASS** | Free model output identical or better than Claude | Route immediately |
+| **ACCEPTABLE** | Minor formatting differences, core content correct | Route with monitoring |
+| **FAIL** | Missing content, incorrect logic, or broken formatting | Keep on Claude |
 
 ### Detailed Validation Tests
 
@@ -118,9 +183,9 @@ Based on ROUTING-CLASSIFICATION.md, we'll validate 3 commands representing diffe
 **Input:** Current project state (no parameters)
 
 **Claude baseline expectations:**
-- Shows current milestone (v1.6 Click & Keep)
-- Shows current phase (28.1-multi-model-token-optimization)
-- Shows plan status (Plan 01 complete, Plan 02 in progress)
+- Shows current milestone (v5.1 Codebase Hardening)
+- Shows current phase (28.1-multi-model-token-optimization or 50)
+- Shows plan status
 - Lists available commands by category
 - Suggests next action
 
@@ -225,10 +290,10 @@ Based on ROUTING-CLASSIFICATION.md, we'll validate 3 commands representing diffe
 
 ### Test 1: `/status`
 
-**Status:** ⏳ PENDING USER TESTING
+**Status:** PENDING USER TESTING
 
 **Instructions:**
-1. Set OPENROUTER_API_KEY environment variable (see setup section)
+1. Set OPENROUTER_API_KEY environment variable (see setup section above)
 2. Run Claude baseline: `/status`
 3. Switch to free model: `/model openrouter/google/gemini-2.0-flash-exp:free`
 4. Run test: `/status`
@@ -244,7 +309,7 @@ Based on ROUTING-CLASSIFICATION.md, we'll validate 3 commands representing diffe
 
 ### Test 2: `/help`
 
-**Status:** ⏳ PENDING USER TESTING
+**Status:** PENDING USER TESTING
 
 **Instructions:**
 1. Run Claude baseline: `/help`
@@ -262,10 +327,10 @@ Based on ROUTING-CLASSIFICATION.md, we'll validate 3 commands representing diffe
 
 ### Test 3: `/prep`
 
-**Status:** ⏳ PENDING USER TESTING
+**Status:** PENDING USER TESTING
 
 **Instructions:**
-1. Identify a test script (suggest: any script in _READY_TO_FILM/)
+1. Identify a test script (suggest: any script in `video-projects/_IN_PRODUCTION/`)
 2. Run Claude baseline: `/prep [path-to-script]`
 3. Switch to free model: `/model openrouter/google/gemini-2.0-flash-exp:free`
 4. Run test: `/prep [path-to-script]`
@@ -295,19 +360,19 @@ Based on ROUTING-CLASSIFICATION.md, we'll validate 3 commands representing diffe
 _[To be completed after user testing]_
 
 **If all tests PASS or ACCEPTABLE:**
-- ✅ Proceed with routing 10 tasks from ROUTING-CLASSIFICATION.md
+- Proceed with routing 10 tasks from ROUTING-CLASSIFICATION.md
 - Estimated savings: $12-21/month
 - Risk level: LOW
 - Rollout: Gradual (high-frequency simple → mechanical → agents)
 
 **If any test FAILS:**
-- ❌ Remove failed task from routable list
+- Remove failed task from routable list
 - Document failure reason
 - Update ROUTING-CLASSIFICATION.md with FAILED validation status
 - Recalculate savings estimate
 
 **If all tests FAIL:**
-- ❌ Keep all tasks on Claude
+- Keep all tasks on Claude
 - Phase still succeeds (documentation value)
 - Finding: Free models not suitable for this workflow
 - Estimated savings: $0/month
@@ -341,20 +406,35 @@ Actual savings = (Routable tasks with PASS/ACCEPTABLE scores) × (Est. monthly c
 
 ---
 
-## Next Steps
+## Quick-Start Reference (After OPENROUTER_API_KEY Is Set)
 
-1. **User action required:** Set OPENROUTER_API_KEY environment variable
-2. **User action required:** Run validation tests (3 commands)
-3. **User action required:** Document scores in this file
-4. **Claude action:** Update ROUTING-CLASSIFICATION.md with validation_status column
-5. **Claude action:** Calculate final savings estimate
-6. **User decision:** Approve routing strategy or request changes
+### Model switching (native Claude Code):
+```bash
+# Route a lightweight task to free model
+/model openrouter/google/gemini-2.0-flash-exp:free
+/status
 
-**Estimated testing time:** 15-20 minutes
+# Route mechanical task
+/model openrouter/google/gemini-2.0-flash-exp:free
+/prep
 
-**Decision criteria:** Is the token savings worth the complexity of maintaining model switching?
+# Reset to Claude default
+/model default
+```
+
+### Claude Code Router (ccr) alternative:
+```bash
+# Start the router server
+"C:/Users/benoi/AppData/Roaming/npm/ccr" start
+
+# Stop
+"C:/Users/benoi/AppData/Roaming/npm/ccr" stop
+
+# Config file: ~/.claude-code-router/config.json
+```
 
 ---
 
 *Setup documented: 2026-02-07*
-*Awaiting user validation testing*
+*Task 1 complete: 2026-02-26 — CCR v1.0.32 installed, config.json created, native /model command confirmed available*
+*Awaiting user validation testing (OpenRouter API key required)*
