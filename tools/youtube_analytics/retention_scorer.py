@@ -297,7 +297,7 @@ def get_topic_baseline(topic_type):
                 import json
                 try:
                     lessons = json.loads(lessons)
-                except:
+                except (json.JSONDecodeError, TypeError):
                     lessons = {}
 
             # For now, use placeholder values
@@ -322,7 +322,7 @@ def get_topic_baseline(topic_type):
             'confidence': confidence
         }
 
-    except Exception:
+    except Exception as e:  # DB or JSON parse failure — return hardcoded defaults
         return defaults
 
 
@@ -487,7 +487,7 @@ def score_section(section_text, section_type, topic_type, baseline=None):
             }
         }
 
-    except Exception:
+    except Exception as e:  # Scoring calculation failure — return safe defaults
         # Return safe defaults on error
         return {
             'score': 0.5,
@@ -544,7 +544,7 @@ def score_all_sections(sections, topic_type):
 
         return results
 
-    except Exception:
+    except Exception as e:  # Batch scoring failure — return empty list
         return []
 
 
@@ -615,7 +615,7 @@ def format_retention_warnings(scored_sections):
 
         return '\n'.join(lines)
 
-    except Exception:
+    except Exception as e:  # Formatting failure — return plain error string
         return "Error formatting retention warnings."
 
 

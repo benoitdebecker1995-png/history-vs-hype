@@ -24,7 +24,7 @@ import sys
 import json
 from pathlib import Path
 from datetime import datetime, timezone
-from statistics import mean
+from statistics import mean, StatisticsError
 from typing import Dict, List, Any, Optional
 
 from tools.discovery.database import KeywordDB
@@ -266,7 +266,7 @@ def _calculate_threshold(videos: List[dict], topic_type: Optional[str] = None) -
             rates = [v.get('conversion_rate', 0) or 0 for v in topic_videos]
             try:
                 return mean(rates), 'topic_average'
-            except:
+            except StatisticsError:
                 pass  # Fall through to channel average
 
     # Fallback to channel average
@@ -274,7 +274,7 @@ def _calculate_threshold(videos: List[dict], topic_type: Optional[str] = None) -
     if rates:
         try:
             return mean(rates), 'channel_average'
-        except:
+        except StatisticsError:
             pass
 
     return 0.0, 'default'
@@ -527,7 +527,7 @@ def generate_patterns_report() -> dict:
     if PATTERN_EXTRACTOR_AVAILABLE:
         try:
             winning = extract_winning_patterns()
-        except:
+        except Exception as e:  # External function — unknown exception types; Phase 51 adds logger
             winning = None
 
     return {
@@ -603,7 +603,7 @@ def get_pre_script_insights(topic_type: str, limit: int = 5) -> dict:
                     try:
                         drop_magnitude = float(words[i-1]) / 100
                         break
-                    except:
+                    except (ValueError, IndexError):
                         pass
 
             # Extract recommendation if present (after "should", "could", "try")
@@ -640,8 +640,8 @@ def get_pre_script_insights(topic_type: str, limit: int = 5) -> dict:
                             f"({stat['confidence']} confidence, {stat['video_count']} videos)"
                         )
                         break
-        except:
-            pass  # Fail gracefully
+        except Exception as e:  # External function — graceful degradation; Phase 51 adds logger
+            pass
 
     # Generate pattern suggestions based on topic type
     pattern_suggestions = _generate_pattern_suggestions(topic_type, retention_lessons)

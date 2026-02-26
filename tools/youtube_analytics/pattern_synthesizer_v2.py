@@ -352,7 +352,7 @@ def generate_part8(lib: TechniqueLibrary, part6_patterns: Optional[Dict] = None)
             if isinstance(examples, str):
                 try:
                     examples = json.loads(examples)
-                except:
+                except (json.JSONDecodeError, TypeError):
                     examples = []
             for ex in examples:
                 if isinstance(ex, dict):
@@ -490,7 +490,7 @@ def _format_technique_entry(technique: Dict) -> List[str]:
     if isinstance(examples, str):
         try:
             examples = json.loads(examples)
-        except:
+        except (json.JSONDecodeError, TypeError):
             examples = []
 
     if examples:

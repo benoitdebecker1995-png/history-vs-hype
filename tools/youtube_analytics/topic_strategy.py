@@ -141,7 +141,7 @@ def generate_topic_strategy() -> Dict[str, Any]:
                     lessons_obj = json.loads(lessons)
                     observations = lessons_obj.get('observations', [])
                     by_topic[topic]['observations'].extend(observations)
-                except:
+                except (json.JSONDecodeError, TypeError, AttributeError, KeyError):
                     pass
 
         # Calculate channel average
