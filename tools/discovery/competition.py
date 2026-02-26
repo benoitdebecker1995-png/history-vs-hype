@@ -19,7 +19,7 @@ Installation:
     pip install scrapetube
 """
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, List, Optional
 from collections import Counter
 
@@ -109,7 +109,7 @@ class CompetitionAnalyzer:
                 'sampled': sampled,
                 'sample_size': self.sample_size,
                 'videos': results,
-                'fetched_at': datetime.utcnow().isoformat() + 'Z'
+                'fetched_at': datetime.now(timezone.utc).isoformat() + 'Z'
             }
 
         except Exception as e:
@@ -261,7 +261,7 @@ class CompetitionAnalyzer:
                             format_type,
                             angles
                         )
-                except Exception:
+                except (ValueError, AttributeError, TypeError):
                     pass  # Graceful degradation - classification still works
 
         # Filter to quality videos

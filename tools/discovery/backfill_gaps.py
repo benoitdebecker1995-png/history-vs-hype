@@ -19,6 +19,7 @@ Usage:
 import sys
 import argparse
 import re
+import sqlite3
 import time
 from pathlib import Path
 from datetime import datetime
@@ -369,7 +370,7 @@ def cleanup_dead_tables():
             cursor.execute(f"DROP TABLE IF EXISTS [{table}]")
             print(f"    Dropped {table} ({count} rows)")
             dropped += 1
-        except Exception as e:
+        except sqlite3.Error as e:
             print(f"    ERROR dropping {table}: {e}")
 
     # Clean orphaned competitor_videos (channel_id=0, not from intel.db)
@@ -440,7 +441,7 @@ def _print_census():
             count = cursor.fetchone()[0]
             status = '  EMPTY' if count == 0 else ''
             print(f"    {t}: {count} rows{status}")
-        except Exception:
+        except sqlite3.Error:
             pass
 
     db.close()

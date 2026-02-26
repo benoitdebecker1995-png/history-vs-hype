@@ -95,6 +95,8 @@ class KBStore:
     def __init__(self, db_path: str | Path | None = None):
         self.db_path = Path(db_path) if db_path else DB_PATH
         self._init_schema()
+        self._ensure_topic_cluster_column()
+        self._ensure_outlier_ratio_column()
 
     # ------------------------------------------------------------------
     # Internal helpers
@@ -117,6 +119,30 @@ class KBStore:
         except Exception as exc:
             # Schema errors are surfaced here only; callers get error dicts
             raise RuntimeError(f"KBStore schema init failed: {exc}") from exc
+
+    def _ensure_topic_cluster_column(self) -> None:
+        """Add topic_cluster TEXT column to competitor_videos if missing."""
+        try:
+            conn = self._connect()
+            cols = [r[1] for r in conn.execute("PRAGMA table_info(competitor_videos)").fetchall()]
+            if "topic_cluster" not in cols:
+                conn.execute("ALTER TABLE competitor_videos ADD COLUMN topic_cluster TEXT")
+                conn.commit()
+            conn.close()
+        except sqlite3.OperationalError:
+            pass  # Non-fatal — column may already exist (expected on re-runs)
+
+    def _ensure_outlier_ratio_column(self) -> None:
+        """Add outlier_ratio REAL column to competitor_videos if missing."""
+        try:
+            conn = self._connect()
+            cols = [r[1] for r in conn.execute("PRAGMA table_info(competitor_videos)").fetchall()]
+            if "outlier_ratio" not in cols:
+                conn.execute("ALTER TABLE competitor_videos ADD COLUMN outlier_ratio REAL")
+                conn.commit()
+            conn.close()
+        except sqlite3.OperationalError:
+            pass  # Non-fatal — column may already exist (expected on re-runs)
 
     @staticmethod
     def _now() -> str:
@@ -468,6 +494,52 @@ class KBStore:
         except Exception as exc:
             return {"error": f"set_last_refresh failed: {exc}"}
 
+    def update_video_topic(self, video_id: str, topic_cluster_json: str) -> dict:
+        """
+        Update the topic_cluster column for a single competitor video.
+
+        Args:
+            video_id:            YouTube video ID
+            topic_cluster_json:  JSON string of topic clusters (e.g. '["territorial","legal"]')
+
+        Returns:
+            {'updated': True} or {'error': str}
+        """
+        try:
+            conn = self._connect()
+            conn.execute(
+                "UPDATE competitor_videos SET topic_cluster = ? WHERE video_id = ?",
+                (topic_cluster_json, video_id),
+            )
+            conn.commit()
+            conn.close()
+            return {"updated": True}
+        except Exception as exc:
+            return {"error": f"update_video_topic failed: {exc}"}
+
+    def update_video_outlier_ratio(self, video_id: str, ratio: float) -> dict:
+        """
+        Update the outlier_ratio column for a single competitor video.
+
+        Args:
+            video_id: YouTube video ID
+            ratio:    Outlier ratio (views / channel median)
+
+        Returns:
+            {'updated': True} or {'error': str}
+        """
+        try:
+            conn = self._connect()
+            conn.execute(
+                "UPDATE competitor_videos SET outlier_ratio = ? WHERE video_id = ?",
+                (ratio, video_id),
+            )
+            conn.commit()
+            conn.close()
+            return {"updated": True}
+        except Exception as exc:
+            return {"error": f"update_video_outlier_ratio failed: {exc}"}
+
     def is_stale(self, max_age_days: int = 7) -> bool:
         """
         Return True if the knowledge base needs a refresh.
@@ -492,6 +564,6 @@ class KBStore:
                 last_dt = last_dt.replace(tzinfo=timezone.utc)
             age_days = (now - last_dt).days
             return age_days >= max_age_days
-        except Exception:
+        except (ValueError, TypeError, sqlite3.Error):
             # Conservative: if we can't determine staleness, assume stale
             return True

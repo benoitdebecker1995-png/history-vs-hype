@@ -121,7 +121,7 @@ def _score_own_channel(topic_clusters: list[str], keywords_db: str) -> tuple[flo
 
         return round(ret_score * 0.6 + conv_score * 0.4, 1), info
 
-    except Exception:
+    except (sqlite3.Error, KeyError, TypeError, ValueError):
         return 50.0, info
 
 
@@ -157,7 +157,7 @@ def _score_competitor(topic_clusters: list[str], db_path: str) -> tuple[float, d
         score = min(outlier_rate / 0.20 * 100, 100)
         return round(score, 1), info
 
-    except Exception:
+    except (sqlite3.Error, json.JSONDecodeError, KeyError, TypeError, ValueError):
         return 50.0, info
 
 
@@ -207,7 +207,7 @@ def _score_algo_alignment(title: str, db_path: str) -> tuple[float, dict]:
             if any("depth" in s.lower() or "detail" in s.lower() for s in satisfaction if isinstance(s, str)):
                 score += 5
                 info["signals_matched"].append("depth_satisfaction")
-    except Exception:
+    except (sqlite3.Error, json.JSONDecodeError, KeyError, TypeError, ValueError):
         pass
 
     return round(min(max(score, 0), 100), 1), info
@@ -239,7 +239,7 @@ def _score_trending(topic_clusters: list[str], db_path: str) -> tuple[float, dic
         score = min(len(matches) * 35, 100)
         return round(score, 1), info
 
-    except Exception:
+    except (sqlite3.Error, json.JSONDecodeError, KeyError, TypeError, ValueError):
         return 50.0, info
 
 
@@ -287,7 +287,7 @@ def _score_gap(topic_clusters: list[str], db_path: str, keywords_db: str) -> tup
         else:
             return 30.0, info
 
-    except Exception:
+    except (sqlite3.Error, json.JSONDecodeError, KeyError, TypeError, ValueError):
         return 50.0, info
 
 
@@ -359,7 +359,7 @@ def score_topic(topic_text: str, db_path: str = None, keywords_db_path: str = No
             cluster_perf = analyze_cluster_performance(resolved_db)
             if isinstance(cluster_perf, dict) and p_topic in cluster_perf:
                 duration_rec = cluster_perf[p_topic].get("avg_duration_min", 20.0)
-        except Exception:
+        except (ImportError, KeyError, TypeError, ValueError):
             pass
 
         # Formula recommendation
@@ -386,7 +386,7 @@ def score_topic(topic_text: str, db_path: str = None, keywords_db_path: str = No
                     })
                     if len(comparable) >= 5:
                         break
-        except Exception:
+        except (sqlite3.Error, json.JSONDecodeError, KeyError, TypeError, ValueError):
             pass
 
         return {

@@ -93,7 +93,7 @@ def _render_algo_section(snapshot: dict | None) -> str:
         import json
         try:
             algo_model = json.loads(algo_model)
-        except Exception:
+        except (json.JSONDecodeError, TypeError):
             algo_model = {}
 
     # Pipeline mechanics

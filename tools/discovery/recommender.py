@@ -393,8 +393,8 @@ class TopicRecommender:
                     if isinstance(intel_result, dict) and 'error' not in intel_result:
                         intel_score = intel_result.get('total_score', 0)
                         intel_grade = intel_result.get('grade', '?')
-                except Exception:
-                    pass
+                except Exception as e:  # noqa: BLE001 — broad catch: intel scoring is non-blocking
+                    pass  # Intel score unavailable — fall back to opportunity-only scoring
 
             # Calculate final score: blend opportunity (60%) + intel (40%) if available
             if intel_score is not None:

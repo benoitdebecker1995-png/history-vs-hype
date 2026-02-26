@@ -17,7 +17,7 @@ Database location: tools/discovery/keywords.db (relative to module)
 import sqlite3
 import json
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional, Dict, List, Any
 
 
@@ -137,7 +137,7 @@ class KeywordDB:
         """
         try:
             cursor = self._conn.cursor()
-            now = datetime.utcnow().date().isoformat()
+            now = datetime.now(timezone.utc).date().isoformat()
 
             # Check if keyword exists
             cursor.execute("SELECT id, first_discovered FROM keywords WHERE keyword = ?", (keyword,))
@@ -383,7 +383,7 @@ class KeywordDB:
         """
         try:
             cursor = self._conn.cursor()
-            now = datetime.utcnow().date().isoformat()
+            now = datetime.now(timezone.utc).date().isoformat()
 
             cursor.execute(
                 """
@@ -476,7 +476,7 @@ class KeywordDB:
         """
         try:
             cursor = self._conn.cursor()
-            now = datetime.utcnow().isoformat()
+            now = datetime.now(timezone.utc).isoformat()
 
             cursor.execute(
                 """
@@ -602,14 +602,14 @@ class KeywordDB:
         """
         try:
             cursor = self._conn.cursor()
-            now = datetime.utcnow().date().isoformat()
+            now = datetime.now(timezone.utc).date().isoformat()
 
             # Calculate video age if published_at is provided
             video_age_days = None
             if published_at:
                 try:
                     pub_date = datetime.fromisoformat(published_at.replace('Z', '+00:00'))
-                    video_age_days = (datetime.utcnow() - pub_date.replace(tzinfo=None)).days
+                    video_age_days = (datetime.now(timezone.utc) - pub_date.replace(tzinfo=None)).days
                 except (ValueError, TypeError):
                     pass
 
@@ -696,7 +696,7 @@ class KeywordDB:
         """
         try:
             cursor = self._conn.cursor()
-            now = datetime.utcnow().date().isoformat()
+            now = datetime.now(timezone.utc).date().isoformat()
 
             cursor.execute(
                 """
@@ -833,7 +833,7 @@ class KeywordDB:
             import json
 
             cursor = self._conn.cursor()
-            now = datetime.utcnow().date().isoformat()
+            now = datetime.now(timezone.utc).date().isoformat()
 
             # Convert angles list to JSON string
             angles_json = json.dumps(angles)
@@ -1017,7 +1017,7 @@ class KeywordDB:
             import json
 
             cursor = self._conn.cursor()
-            now = datetime.utcnow().date().isoformat()
+            now = datetime.now(timezone.utc).date().isoformat()
 
             # Build constraints JSON
             constraints = {
@@ -1262,7 +1262,7 @@ class KeywordDB:
                 }
 
             # Update state
-            timestamp = datetime.utcnow().date().isoformat()
+            timestamp = datetime.now(timezone.utc).date().isoformat()
             cursor.execute(
                 """
                 UPDATE keywords
@@ -1487,7 +1487,7 @@ class KeywordDB:
             backup_dir.mkdir(exist_ok=True)
 
             # Generate timestamped filename
-            timestamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S')
+            timestamp = datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')
             backup_filename = f'keywords_pre_v27_{timestamp}.db'
             backup_path = backup_dir / backup_filename
 
@@ -1503,7 +1503,7 @@ class KeywordDB:
             print(f"[Phase 27] Database backed up to: {backup_path}")
             return str(backup_path)
 
-        except Exception:
+        except (OSError, sqlite3.Error) as e:  # noqa: F841 — e unused; backup failure is non-critical
             # Reopen connection if it was closed
             if self._conn is None:
                 self._ensure_connection()
@@ -1532,7 +1532,7 @@ class KeywordDB:
 
             backup_dir = Path(__file__).parent / 'backups'
             backup_dir.mkdir(exist_ok=True)
-            timestamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S')
+            timestamp = datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')
             backup_filename = f'keywords_pre_v27_{timestamp}.db'
             backup_path = backup_dir / backup_filename
 
@@ -1762,7 +1762,7 @@ class KeywordDB:
             self._ensure_performance_table()
 
             cursor = self._conn.cursor()
-            now = datetime.utcnow().date().isoformat()
+            now = datetime.now(timezone.utc).date().isoformat()
 
             # Convert angles list to JSON
             angles_json = json.dumps(angles) if angles else None
@@ -2117,7 +2117,7 @@ class KeywordDB:
         """
         try:
             import json
-            from datetime import datetime
+            from datetime import datetime, timezone
 
             # Validate variant_letter
             if not variant_letter or len(variant_letter) != 1 or not variant_letter.isupper():
@@ -2140,7 +2140,7 @@ class KeywordDB:
                     file_path,
                     json.dumps(visual_patterns),
                     perceptual_hash,
-                    datetime.utcnow().date().isoformat()
+                    datetime.now(timezone.utc).date().isoformat()
                 )
             )
 
@@ -2177,7 +2177,7 @@ class KeywordDB:
         """
         try:
             import json
-            from datetime import datetime
+            from datetime import datetime, timezone
 
             # Validate variant_letter
             if not variant_letter or len(variant_letter) != 1 or not variant_letter.isupper():
@@ -2200,7 +2200,7 @@ class KeywordDB:
                     title_text,
                     len(title_text),
                     json.dumps(formula_tags),
-                    datetime.utcnow().date().isoformat()
+                    datetime.now(timezone.utc).date().isoformat()
                 )
             )
 
@@ -2242,7 +2242,7 @@ class KeywordDB:
             result = db.add_ctr_snapshot('TEST123', 4.5, 1000, 45)
         """
         try:
-            from datetime import datetime
+            from datetime import datetime, timezone
 
             # Validate ctr_percent
             if ctr_percent < 0 or ctr_percent > 100:
@@ -2254,9 +2254,9 @@ class KeywordDB:
 
             # Set dates
             if snapshot_date is None:
-                snapshot_date = datetime.utcnow().date().isoformat()
+                snapshot_date = datetime.now(timezone.utc).date().isoformat()
 
-            recorded_at = datetime.utcnow().date().isoformat()
+            recorded_at = datetime.now(timezone.utc).date().isoformat()
 
             cursor = self._conn.cursor()
 
@@ -2675,7 +2675,7 @@ class KeywordDB:
                 'by_category': category_stats
             }
 
-        except Exception:
+        except (sqlite3.Error, KeyError, TypeError, ZeroDivisionError) as e:  # noqa: F841
             return {
                 'overall': {
                     'avg_ctr': 0,
