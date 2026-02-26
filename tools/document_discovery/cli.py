@@ -231,7 +231,14 @@ Examples:
     parser_archive.add_argument('--language', help='Language hint (french, spanish, german, latin, etc.)')
     parser_archive.add_argument('--json', action='store_true', help='Output as JSON')
 
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
     args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
 
     if not args.command:
         parser.print_help()

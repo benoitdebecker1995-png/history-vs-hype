@@ -1822,66 +1822,123 @@ def generate_all_reports() -> dict:
 
 
 if __name__ == '__main__':
-    # CLI interface
-    args = sys.argv[1:]
+    import argparse
 
-    # Parse --last N flag (can combine with other flags)
-    last_days = None
-    if '--last' in args:
-        idx = args.index('--last')
-        if idx + 1 < len(args):
+    parser = argparse.ArgumentParser(
+        description="Cross-video pattern analysis for YouTube channel optimization.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Examples:
+  python -m tools.youtube_analytics.patterns
+  python -m tools.youtube_analytics.patterns --tags
+  python -m tools.youtube_analytics.patterns --last 30 --tags
+  python -m tools.youtube_analytics.patterns --topic-report
+  python -m tools.youtube_analytics.patterns --title-report
+  python -m tools.youtube_analytics.patterns --monthly
+  python -m tools.youtube_analytics.patterns --monthly 1 2026
+  python -m tools.youtube_analytics.patterns --all
+
+Data sources: POST-PUBLISH-ANALYSIS files in channel-data/analyses/ and video-projects/""",
+    )
+    parser.add_argument(
+        "--tags", action="store_true",
+        help="Show videos with auto-detected topic tags",
+    )
+    parser.add_argument(
+        "--last", type=int, metavar="N",
+        help="Filter to videos from the last N days",
+    )
+    parser.add_argument(
+        "--topic-report", action="store_true",
+        help="Generate TOPIC-ANALYSIS.md topic performance report",
+    )
+    parser.add_argument(
+        "--title-report", action="store_true",
+        help="Generate TITLE-PATTERNS.md title/thumbnail pattern report",
+    )
+    parser.add_argument(
+        "--monthly", nargs="*", metavar=("MONTH", "YEAR"),
+        help="Generate monthly summary; optionally specify MONTH (1-12) and YEAR",
+    )
+    parser.add_argument(
+        "--all", action="store_true",
+        help="Generate all pattern reports (topic, title, monthly)",
+    )
+
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
+    args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
+
+    last_days = args.last
+
+    if args.all:
+        print("Generating all pattern reports...")
+        print()
+        reports = generate_all_reports()
+        print()
+        print("All reports generated:")
+        for name, path in reports.items():
+            print(f"  - {name}: {path}")
+
+    elif args.topic_report:
+        print("Generating topic performance report...")
+        print()
+        output_path = generate_topic_report()
+        with open(output_path, 'r', encoding='utf-8') as f:
+            print(f.read())
+        print()
+        print(f"Report saved to: {output_path}")
+
+    elif args.title_report:
+        print("Generating title and thumbnail pattern report...")
+        print()
+        output_path = generate_title_patterns_report()
+        with open(output_path, 'r', encoding='utf-8') as f:
+            print(f.read())
+        print()
+        print(f"Report saved to: {output_path}")
+
+    elif args.monthly is not None:
+        target_month = None
+        target_year = None
+
+        monthly_args = args.monthly  # list of 0, 1, or 2 items
+        if len(monthly_args) >= 1:
             try:
-                last_days = int(args[idx + 1])
-                args = args[:idx] + args[idx + 2:]  # Remove --last and N
+                target_month = int(monthly_args[0])
             except ValueError:
-                print("Error: --last requires a number (e.g., --last 30)")
+                print(f"Error: Invalid month '{monthly_args[0]}'. Use a number 1-12.", file=sys.stderr)
                 sys.exit(1)
-        else:
-            print("Error: --last requires a number (e.g., --last 30)")
-            sys.exit(1)
+        if len(monthly_args) >= 2:
+            try:
+                target_year = int(monthly_args[1])
+            except ValueError:
+                print(f"Error: Invalid year '{monthly_args[1]}'.", file=sys.stderr)
+                sys.exit(1)
 
-    if len(args) == 0:
-        # No args: show collected video data
-        print("Collecting video data from POST-PUBLISH-ANALYSIS files...")
+        now = datetime.now()
+        target_month = target_month or now.month
+        target_year = target_year or now.year
+
+        print(f"Generating monthly summary for {target_year}-{target_month:02d}...")
         print()
 
-        videos = collect_video_data()
+        report = generate_monthly_summary(month=target_month, year=target_year)
 
-        if last_days:
-            videos = enrich_video_data(videos)
-            videos = get_videos_for_period(videos, days=last_days)
-            print(f"Filtered to last {last_days} days")
-            print()
+        output_dir = PROJECT_ROOT / 'channel-data' / 'patterns'
+        output_dir.mkdir(parents=True, exist_ok=True)
+        output_path = output_dir / f'MONTHLY-{target_year}-{target_month:02d}.md'
+        output_path.write_text(report, encoding='utf-8')
 
-        if not videos:
-            print("No POST-PUBLISH-ANALYSIS files found.")
-            print()
-            print("To generate analysis files, run:")
-            print("  python analyze.py VIDEO_ID --save")
-            print()
-            print("Search locations:")
-            print("  - channel-data/analyses/POST-PUBLISH-ANALYSIS-*.md")
-            print("  - video-projects/_IN_PRODUCTION/*/POST-PUBLISH-ANALYSIS.md")
-            print("  - video-projects/_READY_TO_FILM/*/POST-PUBLISH-ANALYSIS.md")
-            print("  - video-projects/_ARCHIVED/*/POST-PUBLISH-ANALYSIS.md")
-        else:
-            print(f"Found {len(videos)} analyzed videos:")
-            print()
-            for v in videos:
-                title = v.get('title', v.get('video_id', 'Unknown'))
-                views = v.get('views', 'N/A')
-                views_str = f"{views:,}" if isinstance(views, int) else views
-                print(f"  - {title}: {views_str} views")
+        print(report)
+        print()
+        print(f"Report saved to: {output_path}")
 
-            print()
-            print("Run with --tags to see topic classifications")
-            print("Run with --topic-report to generate TOPIC-ANALYSIS.md")
-            print("Run with --title-report to generate TITLE-PATTERNS.md")
-            print("Run with --monthly to generate monthly summary")
-            print("Run with --all to generate all reports")
-
-    elif args[0] == '--tags':
-        # Show videos with auto-tags
+    elif args.tags:
         print("Collecting and tagging video data...")
         print()
 
@@ -1905,117 +1962,42 @@ if __name__ == '__main__':
                 print(f"    Tags: {tags}")
                 print()
 
-    elif args[0] == '--topic-report':
-        # Generate TOPIC-ANALYSIS.md
-        print("Generating topic performance report...")
-        print()
-
-        output_path = generate_topic_report()
-
-        # Also print report to stdout
-        with open(output_path, 'r', encoding='utf-8') as f:
-            print(f.read())
-
-        print()
-        print(f"Report saved to: {output_path}")
-
-    elif args[0] == '--title-report':
-        # Generate TITLE-PATTERNS.md
-        print("Generating title and thumbnail pattern report...")
-        print()
-
-        output_path = generate_title_patterns_report()
-
-        # Also print report to stdout
-        with open(output_path, 'r', encoding='utf-8') as f:
-            print(f.read())
-
-        print()
-        print(f"Report saved to: {output_path}")
-
-    elif args[0] == '--monthly':
-        # Generate monthly summary
-        target_month = None
-        target_year = None
-
-        if len(args) >= 2:
-            try:
-                target_month = int(args[1])
-            except ValueError:
-                print(f"Error: Invalid month '{args[1]}'. Use a number 1-12.")
-                sys.exit(1)
-
-        if len(args) >= 3:
-            try:
-                target_year = int(args[2])
-            except ValueError:
-                print(f"Error: Invalid year '{args[2]}'.")
-                sys.exit(1)
-
-        now = datetime.now()
-        target_month = target_month or now.month
-        target_year = target_year or now.year
-
-        print(f"Generating monthly summary for {target_year}-{target_month:02d}...")
-        print()
-
-        report = generate_monthly_summary(month=target_month, year=target_year)
-
-        # Save report
-        output_dir = PROJECT_ROOT / 'channel-data' / 'patterns'
-        output_dir.mkdir(parents=True, exist_ok=True)
-        output_path = output_dir / f'MONTHLY-{target_year}-{target_month:02d}.md'
-        output_path.write_text(report, encoding='utf-8')
-
-        # Print report
-        print(report)
-        print()
-        print(f"Report saved to: {output_path}")
-
-    elif args[0] == '--all':
-        # Generate all reports
-        print("Generating all pattern reports...")
-        print()
-
-        reports = generate_all_reports()
-
-        print()
-        print("All reports generated:")
-        for name, path in reports.items():
-            print(f"  - {name}: {path}")
-
-    elif args[0] in ('--help', '-h'):
-        print("Usage: python patterns.py [OPTIONS]")
-        print()
-        print("Cross-video pattern analysis for YouTube channel optimization.")
-        print()
-        print("Data Commands:")
-        print("  (no args)           Show collected video data")
-        print("  --tags              Show videos with auto-detected topic tags")
-        print("  --last N            Filter to last N days")
-        print()
-        print("Report Commands:")
-        print("  --topic-report      Generate topic performance analysis")
-        print("  --title-report      Generate title/thumbnail pattern analysis")
-        print("  --monthly [M Y]     Generate monthly summary (current month if no args)")
-        print("  --all               Generate all reports")
-        print()
-        print("Reports are saved to channel-data/patterns/")
-        print()
-        print("Examples:")
-        print("  python patterns.py --all                    # Generate all reports")
-        print("  python patterns.py --monthly 1 2026         # January 2026 summary")
-        print("  python patterns.py --last 30 --tags         # Last 30 days with tags")
-        print("  python patterns.py --last 90                # Videos from last 90 days")
-        print()
-        print("Data sources:")
-        print("  POST-PUBLISH-ANALYSIS files are searched in:")
-        print("  - channel-data/analyses/")
-        print("  - video-projects/_IN_PRODUCTION/*/")
-        print("  - video-projects/_READY_TO_FILM/*/")
-        print("  - video-projects/_ARCHIVED/*/")
-
     else:
-        print(f"Unknown option: {args[0]}")
-        print("Run 'python patterns.py --help' for usage information")
-        sys.exit(1)
+        # Default: show collected video data
+        print("Collecting video data from POST-PUBLISH-ANALYSIS files...")
+        print()
+
+        videos = collect_video_data()
+
+        if last_days:
+            videos = enrich_video_data(videos)
+            videos = get_videos_for_period(videos, days=last_days)
+            print(f"Filtered to last {last_days} days")
+            print()
+
+        if not videos:
+            print("No POST-PUBLISH-ANALYSIS files found.")
+            print()
+            print("To generate analysis files, run:")
+            print("  python -m tools.youtube_analytics.analyze VIDEO_ID --save")
+            print()
+            print("Search locations:")
+            print("  - channel-data/analyses/POST-PUBLISH-ANALYSIS-*.md")
+            print("  - video-projects/_IN_PRODUCTION/*/POST-PUBLISH-ANALYSIS.md")
+            print("  - video-projects/_READY_TO_FILM/*/POST-PUBLISH-ANALYSIS.md")
+            print("  - video-projects/_ARCHIVED/*/POST-PUBLISH-ANALYSIS.md")
+        else:
+            print(f"Found {len(videos)} analyzed videos:")
+            print()
+            for v in videos:
+                title = v.get('title', v.get('video_id', 'Unknown'))
+                views = v.get('views', 'N/A')
+                views_str = f"{views:,}" if isinstance(views, int) else views
+                print(f"  - {title}: {views_str} views")
+
+            print()
+            print("Run with --tags to see topic classifications")
+            print("Run with --topic-report to generate TOPIC-ANALYSIS.md")
+            print("Run with --title-report to generate TITLE-PATTERNS.md")
+            print("Run with --monthly to generate monthly summary")
+            print("Run with --all to generate all reports")

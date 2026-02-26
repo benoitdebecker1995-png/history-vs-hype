@@ -389,24 +389,39 @@ def format_as_markdown(report: dict) -> str:
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print("Usage: python video_report.py VIDEO_ID [--json|--markdown]")
-        print("")
-        print("Options:")
-        print("  --json      Output as JSON (default)")
-        print("  --markdown  Output as human-readable Markdown")
-        print("")
-        print("Example:")
-        print("  python video_report.py dQw4w9WgXcQ")
-        print("  python video_report.py dQw4w9WgXcQ --markdown")
-        sys.exit(1)
+    import argparse
 
-    video_id = sys.argv[1]
-    output_format = sys.argv[2] if len(sys.argv) > 2 else '--json'
+    parser = argparse.ArgumentParser(
+        description="Generate a comprehensive performance report for a YouTube video.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Examples:
+  python -m tools.youtube_analytics.video_report dQw4w9WgXcQ
+  python -m tools.youtube_analytics.video_report dQw4w9WgXcQ --markdown""",
+    )
+    parser.add_argument("video_id", help="YouTube video ID")
 
-    report = generate_video_report(video_id)
+    fmt_group = parser.add_mutually_exclusive_group()
+    fmt_group.add_argument(
+        "--json", action="store_true", default=True,
+        help="Output as JSON (default)",
+    )
+    fmt_group.add_argument(
+        "--markdown", action="store_true",
+        help="Output as human-readable Markdown",
+    )
 
-    if output_format == '--markdown':
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
+    args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
+
+    report = generate_video_report(args.video_id)
+
+    if args.markdown:
         print(format_as_markdown(report))
     else:
         print(json.dumps(report, indent=2))

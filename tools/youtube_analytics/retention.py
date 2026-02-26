@@ -19,8 +19,12 @@ import sys
 import json
 from datetime import datetime, date, timezone
 
-from auth import get_authenticated_service
-from googleapiclient.errors import HttpError
+from tools.youtube_analytics.auth import get_authenticated_service
+
+try:
+    from googleapiclient.errors import HttpError
+except ImportError:
+    HttpError = Exception
 
 
 def get_retention_data(video_id, start_date=None, end_date=None):
@@ -200,35 +204,34 @@ def _get_position_hint(position):
 
 
 if __name__ == '__main__':
-    # CLI interface
-    if len(sys.argv) < 2:
-        print("Usage: python retention.py VIDEO_ID [--threshold 0.05]")
-        print("")
-        print("Options:")
-        print("  --threshold  Minimum drop to flag as significant (default: 0.05 = 5%)")
-        print("")
-        print("Example:")
-        print("  python retention.py dQw4w9WgXcQ")
-        print("  python retention.py dQw4w9WgXcQ --threshold 0.03")
-        sys.exit(1)
+    import argparse
 
-    video_id = sys.argv[1]
+    parser = argparse.ArgumentParser(
+        description="Fetch audience retention curve and drop-off points for a YouTube video.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Examples:
+  python -m tools.youtube_analytics.retention dQw4w9WgXcQ
+  python -m tools.youtube_analytics.retention dQw4w9WgXcQ --threshold 0.03""",
+    )
+    parser.add_argument("video_id", help="YouTube video ID")
+    parser.add_argument(
+        "--threshold", type=float, default=0.05, metavar="FLOAT",
+        help="Minimum retention drop to flag as significant (default: 0.05 = 5%%)",
+    )
 
-    # Parse optional threshold
-    threshold = 0.05
-    if '--threshold' in sys.argv:
-        try:
-            idx = sys.argv.index('--threshold')
-            threshold = float(sys.argv[idx + 1])
-        except (IndexError, ValueError):
-            print("Error: --threshold requires a number (e.g., --threshold 0.03)")
-            sys.exit(1)
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
 
-    # Fetch and display
-    result = get_retention_data(video_id)
+    args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
+
+    result = get_retention_data(args.video_id)
 
     # Re-run drop-off detection with custom threshold if specified
-    if threshold != 0.05 and "data_points" in result:
-        result["drop_off_points"] = find_drop_off_points(result["data_points"], threshold)
+    if args.threshold != 0.05 and "data_points" in result:
+        result["drop_off_points"] = find_drop_off_points(result["data_points"], args.threshold)
 
     print(json.dumps(result, indent=2))

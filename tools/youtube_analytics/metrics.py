@@ -28,9 +28,9 @@ Dependencies:
 
 import sys
 import json
-from datetime import datetime, date
+from datetime import datetime, timezone, date
 
-from auth import get_authenticated_service
+from tools.youtube_analytics.auth import get_authenticated_service
 
 try:
     from googleapiclient.errors import HttpError
@@ -153,7 +153,7 @@ def get_video_metrics(video_id: str, start_date: str = None, end_date: str = Non
                 'start': start_date,
                 'end': end_date
             },
-            'fetched_at': datetime.utcnow().isoformat() + 'Z'
+            'fetched_at': datetime.now(timezone.utc).isoformat() + 'Z'
         }
 
         return result
@@ -195,26 +195,33 @@ def get_video_metrics(video_id: str, start_date: str = None, end_date: str = Non
 
 
 if __name__ == '__main__':
-    # CLI interface
-    if len(sys.argv) < 2:
-        print("Usage: python metrics.py VIDEO_ID [--start-date YYYY-MM-DD] [--end-date YYYY-MM-DD]")
-        print("\nExample:")
-        print("  python metrics.py dQw4w9WgXcQ")
-        print("  python metrics.py dQw4w9WgXcQ --start-date 2025-01-01 --end-date 2025-12-31")
-        sys.exit(1)
+    import argparse
 
-    video_id = sys.argv[1]
+    parser = argparse.ArgumentParser(
+        description="Fetch engagement metrics for a YouTube video.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Examples:
+  python -m tools.youtube_analytics.metrics dQw4w9WgXcQ
+  python -m tools.youtube_analytics.metrics dQw4w9WgXcQ --start-date 2025-01-01 --end-date 2025-12-31""",
+    )
+    parser.add_argument("video_id", help="YouTube video ID")
+    parser.add_argument(
+        "--start-date", metavar="YYYY-MM-DD",
+        help="Start date for metrics window (default: 2020-01-01)",
+    )
+    parser.add_argument(
+        "--end-date", metavar="YYYY-MM-DD",
+        help="End date for metrics window (default: today)",
+    )
 
-    # Parse optional date arguments
-    start_date = None
-    end_date = None
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
 
-    args = sys.argv[2:]
-    for i, arg in enumerate(args):
-        if arg == '--start-date' and i + 1 < len(args):
-            start_date = args[i + 1]
-        elif arg == '--end-date' and i + 1 < len(args):
-            end_date = args[i + 1]
+    args = parser.parse_args()
 
-    result = get_video_metrics(video_id, start_date, end_date)
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
+
+    result = get_video_metrics(args.video_id, args.start_date, args.end_date)
     print(json.dumps(result, indent=2))

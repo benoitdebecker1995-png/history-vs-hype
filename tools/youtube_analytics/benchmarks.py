@@ -723,7 +723,14 @@ Note: Only record CTR for long-form videos. Shorts are excluded from analysis.
     parser.add_argument('--benchmarks', action='store_true', help='Show channel CTR benchmarks')
     parser.add_argument('--markdown', action='store_true', help='Output/save as markdown')
 
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
     args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
 
     if args.benchmarks:
         # Channel benchmarks mode

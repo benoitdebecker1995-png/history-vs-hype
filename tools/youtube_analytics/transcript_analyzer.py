@@ -374,7 +374,14 @@ def main():
     parser.add_argument('--transcripts-dir', metavar='DIR',
                         help='Override transcripts directory (default: ../../transcripts)')
 
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
     args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
 
     # Default transcripts directory (relative to script location)
     if args.transcripts_dir:

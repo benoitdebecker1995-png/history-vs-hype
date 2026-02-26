@@ -374,21 +374,43 @@ def format_diagnosis_markdown(diagnosis: Dict[str, Any]) -> str:
 
 
 if __name__ == '__main__':
-    # CLI interface
-    if len(sys.argv) < 2 or sys.argv[1] in ['--help', '-h']:
-        print("Usage: python diagnostics.py VIDEO_ID [OPTIONS]")
-        print("")
-        print("Diagnose discovery issues for a video.")
-        print("")
-        print("Options:")
-        print("  --ctr VALUE     Provide CTR percentage (e.g., --ctr 3.5)")
-        print("  --json          Output as JSON (default: human-readable)")
-        print("")
-        print("Examples:")
-        print("  python diagnostics.py wCFReiCGiks")
-        print("  python diagnostics.py wCFReiCGiks --ctr 3.5")
-        print("  python diagnostics.py wCFReiCGiks --json")
-        sys.exit(0)
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Diagnose discovery issues for a YouTube video.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Examples:
+  python -m tools.discovery.diagnostics wCFReiCGiks
+  python -m tools.discovery.diagnostics wCFReiCGiks --ctr 3.5
+  python -m tools.discovery.diagnostics wCFReiCGiks --json""",
+    )
+    parser.add_argument("video_id", help="YouTube video ID")
+    parser.add_argument(
+        "--ctr", type=float, metavar="VALUE",
+        help="Provide manual CTR percentage (e.g., --ctr 3.5); must be 0-100",
+    )
+    parser.add_argument(
+        "--json", action="store_true",
+        help="Output as JSON (default: human-readable Markdown)",
+    )
+
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
+    args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
+
+    # Validate CTR range
+    manual_ctr = None
+    if args.ctr is not None:
+        if 0 <= args.ctr <= 100:
+            manual_ctr = args.ctr
+        else:
+            print(f"Error: --ctr must be between 0 and 100, got {args.ctr}", file=sys.stderr)
+            sys.exit(1)
 
     # Load dependencies lazily
     get_video_metrics = _load_video_metrics()
@@ -396,51 +418,29 @@ if __name__ == '__main__':
 
     # Check dependencies
     if get_video_metrics is None or get_channel_averages is None:
-        print("Error: Required dependencies not available")
-        print("Ensure youtube_analytics/metrics.py and channel_averages.py are present")
+        print("Error: Required dependencies not available", file=sys.stderr)
+        print("Ensure youtube_analytics/metrics.py and channel_averages.py are present", file=sys.stderr)
         sys.exit(1)
 
-    # Parse arguments
-    video_id = sys.argv[1]
-    output_json = '--json' in sys.argv
-    manual_ctr = None
-
-    # Parse --ctr argument
-    args = sys.argv[2:]
-    for i, arg in enumerate(args):
-        if arg == '--ctr' and i + 1 < len(args):
-            try:
-                ctr_value = float(args[i + 1])
-                if 0 <= ctr_value <= 100:
-                    manual_ctr = ctr_value
-                else:
-                    print(f"Error: --ctr must be between 0 and 100, got {ctr_value}")
-                    sys.exit(1)
-            except ValueError:
-                print(f"Error: --ctr must be a number, got '{args[i + 1]}'")
-                sys.exit(1)
-
     # Fetch video metrics
-    print(f"Fetching metrics for video: {video_id}...", file=sys.stderr)
-    video_metrics = get_video_metrics(video_id)
+    video_metrics = get_video_metrics(args.video_id)
 
     if 'error' in video_metrics:
-        print(f"Error fetching video metrics: {video_metrics['error']}")
+        print(f"Error fetching video metrics: {video_metrics['error']}", file=sys.stderr)
         sys.exit(1)
 
     # Fetch channel averages
-    print("Fetching channel averages...", file=sys.stderr)
     channel_averages = get_channel_averages()
 
     if 'error' in channel_averages:
-        print(f"Error fetching channel averages: {channel_averages['error']}")
+        print(f"Error fetching channel averages: {channel_averages['error']}", file=sys.stderr)
         sys.exit(1)
 
     # Run diagnosis
     diagnosis = diagnose_discovery(video_metrics, channel_averages, ctr=manual_ctr)
 
     # Output
-    if output_json:
+    if args.json:
         print(json.dumps(diagnosis, indent=2))
     else:
         print(format_diagnosis_markdown(diagnosis))

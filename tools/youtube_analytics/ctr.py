@@ -33,7 +33,7 @@ import sys
 import json
 from datetime import datetime, date, timezone
 
-from auth import get_authenticated_service
+from tools.youtube_analytics.auth import get_authenticated_service
 
 try:
     from googleapiclient.errors import HttpError
@@ -199,14 +199,36 @@ def get_ctr_metrics(video_id: str, start_date: str = None, end_date: str = None)
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print("Usage: python ctr.py VIDEO_ID")
-        print("\nExample:")
-        print("  python ctr.py dQw4w9WgXcQ")
-        print("\nNote: CTR metrics may not be available via API for all videos.")
-        print("If unavailable, returns structured fallback with note to check YouTube Studio.")
-        sys.exit(1)
+    import argparse
 
-    video_id = sys.argv[1]
-    result = get_ctr_metrics(video_id)
+    parser = argparse.ArgumentParser(
+        description="Fetch CTR (click-through rate) metrics for a YouTube video.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Examples:
+  python -m tools.youtube_analytics.ctr dQw4w9WgXcQ
+  python -m tools.youtube_analytics.ctr dQw4w9WgXcQ --start-date 2025-01-01
+
+Note: CTR metrics may not be available via API for all videos.
+If unavailable, returns a structured fallback with a note to check YouTube Studio.""",
+    )
+    parser.add_argument("video_id", help="YouTube video ID")
+    parser.add_argument(
+        "--start-date", metavar="YYYY-MM-DD",
+        help="Start date for metrics window (default: 2020-01-01)",
+    )
+    parser.add_argument(
+        "--end-date", metavar="YYYY-MM-DD",
+        help="End date for metrics window (default: today)",
+    )
+
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
+    args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
+
+    result = get_ctr_metrics(args.video_id, args.start_date, args.end_date)
     print(json.dumps(result, indent=2))

@@ -396,7 +396,14 @@ Suggested title tags: mechanism, document, paradox, question, comparison
     snap_parser = subparsers.add_parser('snapshots', help='Show CTR snapshot history')
     snap_parser.add_argument('video_id', help='YouTube video ID')
 
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
     args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
 
     if not args.command:
         parser.print_help()

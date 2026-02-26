@@ -356,42 +356,49 @@ class ScriptParser:
 
 if __name__ == "__main__":
     import sys
-
-    # Check for flags
-    broll_mode = '--broll' in sys.argv
-    editguide_mode = '--edit-guide' in sys.argv
-    metadata_mode = '--metadata' in sys.argv
-    teleprompter_mode = '--teleprompter' in sys.argv
-    package_mode = '--package' in sys.argv
-    if broll_mode:
-        sys.argv.remove('--broll')
-    if editguide_mode:
-        sys.argv.remove('--edit-guide')
-    if metadata_mode:
-        sys.argv.remove('--metadata')
-    if teleprompter_mode:
-        sys.argv.remove('--teleprompter')
-    if package_mode:
-        sys.argv.remove('--package')
-
-    if len(sys.argv) < 2:
-        print("Usage: python parser.py <script.md> [--broll] [--edit-guide] [--metadata] [--teleprompter] [--package]")
-        print("  --broll: Generate B-roll checklist")
-        print("  --edit-guide: Generate EDITING-GUIDE.md with timing")
-        print("  --metadata: Generate METADATA-DRAFT.md")
-        print("  --teleprompter: Export clean text for filming (no markdown)")
-        print("  --package: Generate all outputs and save to project folder")
-        sys.exit(1)
-
+    import argparse
     from pathlib import Path
     import os
 
+    arg_parser = argparse.ArgumentParser(
+        description="Parse a script file and generate production assets.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Examples:
+  python -m tools.production.parser path/to/02-SCRIPT-DRAFT.md
+  python -m tools.production.parser path/to/02-SCRIPT-DRAFT.md --broll
+  python -m tools.production.parser path/to/02-SCRIPT-DRAFT.md --edit-guide
+  python -m tools.production.parser path/to/02-SCRIPT-DRAFT.md --metadata
+  python -m tools.production.parser path/to/02-SCRIPT-DRAFT.md --teleprompter
+  python -m tools.production.parser path/to/02-SCRIPT-DRAFT.md --package""",
+    )
+    arg_parser.add_argument("script", metavar="SCRIPT_PATH", help="Path to the script Markdown file")
+    arg_parser.add_argument("--broll", action="store_true", help="Generate B-roll checklist")
+    arg_parser.add_argument("--edit-guide", action="store_true", dest="edit_guide", help="Generate EDITING-GUIDE.md with timing")
+    arg_parser.add_argument("--metadata", action="store_true", help="Generate METADATA-DRAFT.md")
+    arg_parser.add_argument("--teleprompter", action="store_true", help="Export clean text for filming (no markdown)")
+    arg_parser.add_argument("--package", action="store_true", help="Generate all outputs and save to project folder")
+
+    verbosity = arg_parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
+    args = arg_parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
+
     from tools.production import EntityExtractor, BRollGenerator
 
-    script_path = Path(sys.argv[1])
+    script_path = Path(args.script)
     if not script_path.exists():
-        print(f"File not found: {script_path}")
+        print(f"File not found: {script_path}", file=sys.stderr)
         sys.exit(1)
+
+    broll_mode = args.broll
+    editguide_mode = args.edit_guide
+    metadata_mode = args.metadata
+    teleprompter_mode = args.teleprompter
+    package_mode = args.package
 
     parser = ScriptParser()
     extractor = EntityExtractor()

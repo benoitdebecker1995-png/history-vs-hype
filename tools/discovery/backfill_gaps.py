@@ -454,7 +454,14 @@ if __name__ == '__main__':
     parser.add_argument('--trends', action='store_true', help='Task 3 only')
     parser.add_argument('--cleanup', action='store_true', help='Tasks 4+5 only')
 
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
     args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
 
     # If no specific flag, run all
     if not any([args.intents, args.performance, args.trends, args.cleanup]):

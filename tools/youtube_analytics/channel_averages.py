@@ -36,10 +36,10 @@ Dependencies:
 
 import sys
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 
-from auth import get_authenticated_service
-from metrics import get_video_metrics
+from tools.youtube_analytics.auth import get_authenticated_service
+from tools.youtube_analytics.metrics import get_video_metrics
 
 try:
     from googleapiclient.errors import HttpError
@@ -169,7 +169,7 @@ def get_channel_averages(last_n_videos: int = 10) -> dict:
         'avg_subscribers_lost': sum(m['subscribers_lost'] for m in metrics_list) / n,
         'avg_view_duration_seconds': sum(m['avg_view_duration_seconds'] for m in metrics_list) / n,
         'video_ids_sampled': [m['video_id'] for m in metrics_list],
-        'fetched_at': datetime.utcnow().isoformat() + 'Z'
+        'fetched_at': datetime.now(timezone.utc).isoformat() + 'Z'
     }
 
     # Add note about failed videos if any
@@ -280,72 +280,53 @@ def compare_to_channel(video_metrics: dict, channel_averages: dict) -> dict:
         'comparisons': comparisons,
         'summary': summary,
         'sample_size': channel_averages.get('sample_size'),
-        'compared_at': datetime.utcnow().isoformat() + 'Z'
+        'compared_at': datetime.now(timezone.utc).isoformat() + 'Z'
     }
 
 
 if __name__ == '__main__':
-    # CLI interface
-    if len(sys.argv) == 1:
-        # No args: show channel averages
-        print("Fetching channel averages from recent videos...")
-        result = get_channel_averages()
-        print(json.dumps(result, indent=2))
+    import argparse
 
-    elif sys.argv[1] == '--help' or sys.argv[1] == '-h':
-        print("Usage: python channel_averages.py [OPTIONS]")
-        print("\nCalculates channel benchmark averages from recent videos.")
-        print("\nOptions:")
-        print("  (no args)              Show channel averages")
-        print("  --compare VIDEO_ID     Compare video to channel averages")
-        print("  --last-n N             Use last N videos for averages (default 10)")
-        print("\nExamples:")
-        print("  python channel_averages.py")
-        print("  python channel_averages.py --compare wCFReiCGiks")
-        print("  python channel_averages.py --last-n 5 --compare wCFReiCGiks")
+    parser = argparse.ArgumentParser(
+        description="Calculate channel benchmark averages from recent videos.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Examples:
+  python -m tools.youtube_analytics.channel_averages
+  python -m tools.youtube_analytics.channel_averages --compare wCFReiCGiks
+  python -m tools.youtube_analytics.channel_averages --last-n 5 --compare wCFReiCGiks""",
+    )
+    parser.add_argument(
+        "--compare", metavar="VIDEO_ID",
+        help="Compare a video to channel averages",
+    )
+    parser.add_argument(
+        "--last-n", type=int, default=10, metavar="N",
+        help="Use last N videos for averages (default: 10)",
+    )
 
-    else:
-        # Parse arguments
-        compare_video_id = None
-        last_n = 10
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
 
-        args = sys.argv[1:]
-        i = 0
-        while i < len(args):
-            if args[i] == '--compare' and i + 1 < len(args):
-                compare_video_id = args[i + 1]
-                i += 2
-            elif args[i] == '--last-n' and i + 1 < len(args):
-                try:
-                    last_n = int(args[i + 1])
-                except ValueError:
-                    print(f"Error: --last-n must be a number, got '{args[i + 1]}'")
-                    sys.exit(1)
-                i += 2
-            else:
-                # Unknown arg, might be video ID for comparison
-                compare_video_id = args[i]
-                i += 1
+    args = parser.parse_args()
 
-        # Get channel averages
-        print(f"Fetching channel averages from last {last_n} videos...")
-        averages = get_channel_averages(last_n)
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
 
-        if 'error' in averages:
-            print(json.dumps(averages, indent=2))
+    averages = get_channel_averages(args.last_n)
+
+    if 'error' in averages:
+        print(json.dumps(averages, indent=2))
+        sys.exit(1)
+
+    if args.compare:
+        video_metrics = get_video_metrics(args.compare)
+
+        if 'error' in video_metrics:
+            print(json.dumps(video_metrics, indent=2))
             sys.exit(1)
 
-        if compare_video_id:
-            # Compare specific video to averages
-            print(f"Fetching metrics for video: {compare_video_id}...")
-            video_metrics = get_video_metrics(compare_video_id)
-
-            if 'error' in video_metrics:
-                print(json.dumps(video_metrics, indent=2))
-                sys.exit(1)
-
-            comparison = compare_to_channel(video_metrics, averages)
-            print(json.dumps(comparison, indent=2))
-        else:
-            # Just show averages
-            print(json.dumps(averages, indent=2))
+        comparison = compare_to_channel(video_metrics, averages)
+        print(json.dumps(comparison, indent=2))
+    else:
+        print(json.dumps(averages, indent=2))

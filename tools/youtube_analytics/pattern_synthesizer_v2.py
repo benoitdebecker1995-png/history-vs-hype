@@ -588,7 +588,7 @@ def main():
     parser.add_argument(
         '--synthesize',
         action='store_true',
-        help='Run full pipeline (analyze transcripts → store → synthesize → generate Part 8)'
+        help='Run full pipeline (analyze transcripts -> store -> synthesize -> generate Part 8)'
     )
 
     parser.add_argument(
@@ -621,7 +621,14 @@ def main():
         help='Override database path'
     )
 
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
     args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
 
     # Default action: dry run
     if not any([args.synthesize, args.update, args.dry_run, args.json]):

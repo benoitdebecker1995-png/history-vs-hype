@@ -439,10 +439,17 @@ Examples:
     parser.add_argument('topic', help='Topic to evaluate')
     parser.add_argument('--json', action='store_true',
                         help='Output JSON format')
-    parser.add_argument('-v', '--verbose', action='store_true',
-                        help='Verbose output with details')
+
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument('-v', '--verbose', action='store_true',
+                           help='Show debug output on stderr and verbose result details')
+    verbosity.add_argument('--quiet', '-q', action='store_true',
+                           help='Only show errors on stderr')
 
     args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
 
     # Run evaluation
     result = evaluate_production_constraints(args.topic)

@@ -273,7 +273,11 @@ Exit codes:
     parser.add_argument('--all', action='store_true', help='Run all checkers (default)')
     parser.add_argument('--json', action='store_true', help='Output JSON instead of Markdown')
     parser.add_argument('--no-annotate', action='store_true', help='Summary only, no annotated script')
-    parser.add_argument('--verbose', action='store_true', help='Show full section-by-section breakdown (used with --pacing)')
+    # Verbosity flags (mutually exclusive)
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument('--verbose', '-v', action='store_true',
+                           help='Show debug output on stderr and full section-by-section breakdown (used with --pacing)')
+    verbosity.add_argument('--quiet', '-q', action='store_true', help='Only show errors on stderr')
 
     # Voice pattern flags
     parser.add_argument('--voice', action='store_true', help='Apply learned voice patterns to script')
@@ -282,6 +286,9 @@ Exit codes:
     parser.add_argument('--rebuild-voice', action='store_true', help='Rebuild voice-patterns.json from all available script+transcript pairs')
 
     args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
 
     # Handle --rebuild-voice (exits after completion)
     if args.rebuild_voice:

@@ -415,18 +415,38 @@ def backfill_all(project_root: Path, force: bool = False) -> Dict[str, Any]:
 
 
 if __name__ == '__main__':
-    # CLI usage for testing
-    if len(sys.argv) > 1:
-        if sys.argv[1] == 'backfill':
-            project_root = Path(__file__).parent.parent.parent
-            force = '--force' in sys.argv
-            result = backfill_all(project_root, force=force)
-            sys.exit(0 if result['errors'] == 0 else 1)
-        else:
-            # Parse single file
-            result = parse_analysis_file(sys.argv[1])
-            print(json.dumps(result, indent=2))
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Parse POST-PUBLISH-ANALYSIS markdown files into structured data.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Examples:
+  python -m tools.youtube_analytics.feedback_parser path/to/POST-PUBLISH-ANALYSIS.md
+  python -m tools.youtube_analytics.feedback_parser backfill
+  python -m tools.youtube_analytics.feedback_parser backfill --force""",
+    )
+    parser.add_argument(
+        "target",
+        help="Path to a POST-PUBLISH-ANALYSIS.md file, or 'backfill' to process all files",
+    )
+    parser.add_argument(
+        "--force", action="store_true",
+        help="Re-process files that have already been stored (only applies to backfill mode)",
+    )
+
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
+    args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
+
+    if args.target == 'backfill':
+        project_root = Path(__file__).parent.parent.parent
+        result = backfill_all(project_root, force=args.force)
+        sys.exit(0 if result['errors'] == 0 else 1)
     else:
-        print("Usage:")
-        print("  python feedback_parser.py <path-to-analysis-file>")
-        print("  python feedback_parser.py backfill [--force]")
+        result = parse_analysis_file(args.target)
+        print(json.dumps(result, indent=2))

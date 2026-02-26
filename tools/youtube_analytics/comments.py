@@ -42,9 +42,9 @@ Dependencies:
 import sys
 import json
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 
-from auth import get_authenticated_service
+from tools.youtube_analytics.auth import get_authenticated_service
 
 try:
     from googleapiclient.errors import HttpError
@@ -287,37 +287,34 @@ def fetch_and_categorize_comments(video_id: str, max_comments: int = 100) -> dic
             'requests': len(categories['requests']),
             'other': len(categories['other'])
         },
-        'fetched_at': datetime.utcnow().isoformat() + 'Z'
+        'fetched_at': datetime.now(timezone.utc).isoformat() + 'Z'
     }
 
 
 if __name__ == '__main__':
-    # CLI interface
-    if len(sys.argv) < 2:
-        print("Usage: python comments.py VIDEO_ID [--max-comments N]")
-        print("\nFetches and categorizes YouTube video comments.")
-        print("\nExample:")
-        print("  python comments.py wCFReiCGiks")
-        print("  python comments.py wCFReiCGiks --max-comments 50")
-        print("\nCategories:")
-        print("  - questions: Comments with questions")
-        print("  - objections: Comments with disagreement/corrections")
-        print("  - requests: Comments requesting new content")
-        print("  - other: General comments")
-        sys.exit(1)
+    import argparse
 
-    video_id = sys.argv[1]
+    parser = argparse.ArgumentParser(
+        description="Fetch and categorize comments for a YouTube video.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Examples:
+  python -m tools.youtube_analytics.comments wCFReiCGiks
+  python -m tools.youtube_analytics.comments wCFReiCGiks --max-comments 50""",
+    )
+    parser.add_argument("video_id", help="YouTube video ID")
+    parser.add_argument(
+        "--max-comments", type=int, default=100, metavar="N",
+        help="Maximum number of comments to fetch (default: 100)",
+    )
 
-    # Parse optional max-comments argument
-    max_comments = 100
-    args = sys.argv[2:]
-    for i, arg in enumerate(args):
-        if arg == '--max-comments' and i + 1 < len(args):
-            try:
-                max_comments = int(args[i + 1])
-            except ValueError:
-                print(f"Error: --max-comments must be a number, got '{args[i + 1]}'")
-                sys.exit(1)
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
 
-    result = fetch_and_categorize_comments(video_id, max_comments)
+    args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
+
+    result = fetch_and_categorize_comments(args.video_id, args.max_comments)
     print(json.dumps(result, indent=2))

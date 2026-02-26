@@ -305,7 +305,14 @@ Examples:
     parser.add_argument('--save', action='store_true', help='Interactive data collection mode')
     parser.add_argument('--json', action='store_true', help='Output prompts as JSON')
 
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
     args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
 
     if args.save:
         # Interactive collection

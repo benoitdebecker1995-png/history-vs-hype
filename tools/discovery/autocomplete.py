@@ -41,12 +41,13 @@ Dependencies:
 """
 
 import asyncio
+import os
 import random
 import time
 import json
 import sys
 import argparse
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
@@ -84,6 +85,10 @@ async def get_autocomplete_suggestions(seed_keyword: str, max_suggestions: int =
         # Launch headless browser with stealth
         browser = await launch({
             'headless': True,
+            'executablePath': os.environ.get(
+                'PYPPETEER_EXECUTABLE_PATH',
+                r'C:\Program Files\Google\Chrome\Application\chrome.exe'
+            ),
             'args': [
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
@@ -123,20 +128,34 @@ async def get_autocomplete_suggestions(seed_keyword: str, max_suggestions: int =
         await asyncio.sleep(1.5)
 
         # Extract suggestions from dropdown
-        # YouTube autocomplete uses specific selectors
+        # YouTube autocomplete uses several possible selectors depending on version
         suggestions = await page.evaluate('''() => {
-            const elements = document.querySelectorAll(
-                'ytd-search-sub-menu-renderer .sbdd_b li, ' +
-                '#search-suggestions li, ' +
-                'ytd-search-suggestions-renderer li'
-            );
+            // Try multiple selector strategies for YouTube autocomplete
+            const selectors = [
+                'ytd-search-suggestion-renderer span',
+                'ytd-search-suggestion-renderer .style-scope',
+                '.sbdd_b li .sbqs_c',
+                '.sbdd_b ul li',
+                'ul.sbdd_b li',
+                '#search-suggestions li',
+                'ytd-search-suggestions-renderer li',
+                '.gsfs_e',
+                '[role="listbox"] [role="option"]',
+                'li.sbsb_c',
+                '.sbsb_a li .sbqs_c',
+                '.sbsb_a li',
+            ];
 
             const results = [];
-            for (const el of elements) {
-                const text = el.textContent.trim();
-                if (text && text.length > 0 && !results.includes(text)) {
-                    results.push(text);
+            for (const selector of selectors) {
+                const elements = document.querySelectorAll(selector);
+                for (const el of elements) {
+                    const text = el.textContent.trim();
+                    if (text && text.length > 2 && !results.includes(text)) {
+                        results.push(text);
+                    }
                 }
+                if (results.length > 0) break;
             }
             return results;
         }''')
@@ -152,7 +171,7 @@ async def get_autocomplete_suggestions(seed_keyword: str, max_suggestions: int =
             'keyword': seed_keyword,
             'suggestions': filtered,
             'count': len(filtered),
-            'fetched_at': datetime.utcnow().isoformat() + 'Z'
+            'fetched_at': datetime.now(timezone.utc).isoformat() + 'Z'
         }
 
     except Exception as e:
@@ -285,7 +304,14 @@ Rate Limiting:
     parser.add_argument('--json', action='store_true', help='Output JSON format')
     parser.add_argument('--max-suggestions', type=int, default=10, help='Max suggestions per seed (default 10)')
 
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
     args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
 
     # Check pyppeteer availability
     if not PYPPETEER_AVAILABLE:

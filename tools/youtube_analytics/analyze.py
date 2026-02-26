@@ -1330,70 +1330,74 @@ def format_analysis_markdown(analysis: dict) -> str:
 
 
 if __name__ == '__main__':
-    # CLI interface
-    if len(sys.argv) < 2:
-        print("Usage: python analyze.py VIDEO_ID_OR_URL [OPTIONS]")
-        print("")
-        print("Complete post-publish analysis with benchmarks and lessons.")
-        print("")
-        print("Options:")
-        print("  --markdown      Output as human-readable Markdown (default: JSON)")
-        print("  --ctr VALUE     Provide manual CTR (e.g., --ctr 4.5)")
-        print("  --save          Save analysis to file (project folder or fallback)")
-        print("  --output PATH   Save to specific path (implies --save)")
-        print("  --script PATH   Add section-level retention diagnostics with script mapping")
-        print("")
-        print("Examples:")
-        print("  python analyze.py wCFReiCGiks")
-        print("  python analyze.py wCFReiCGiks --markdown")
-        print("  python analyze.py wCFReiCGiks --save")
-        print("  python analyze.py wCFReiCGiks --save --output ./custom/analysis.md")
-        print("  python analyze.py https://youtu.be/wCFReiCGiks")
-        print("  python analyze.py wCFReiCGiks --ctr 4.5 --markdown --save")
-        print("  python analyze.py wCFReiCGiks --script path/to/script.md --save")
-        sys.exit(1)
+    import argparse
 
-    # Parse arguments
-    video_input = sys.argv[1]
-    output_markdown = '--markdown' in sys.argv
-    do_save = '--save' in sys.argv
+    parser = argparse.ArgumentParser(
+        description="Run complete post-publish analysis for a YouTube video.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Examples:
+  python -m tools.youtube_analytics.analyze wCFReiCGiks
+  python -m tools.youtube_analytics.analyze wCFReiCGiks --markdown
+  python -m tools.youtube_analytics.analyze wCFReiCGiks --save
+  python -m tools.youtube_analytics.analyze wCFReiCGiks --save --output ./custom/analysis.md
+  python -m tools.youtube_analytics.analyze https://youtu.be/wCFReiCGiks
+  python -m tools.youtube_analytics.analyze wCFReiCGiks --ctr 4.5 --markdown --save
+  python -m tools.youtube_analytics.analyze wCFReiCGiks --script path/to/script.md --save""",
+    )
+    parser.add_argument("video", metavar="VIDEO_ID_OR_URL", help="YouTube video ID or URL")
+    parser.add_argument(
+        "--markdown", action="store_true",
+        help="Output as human-readable Markdown (default: JSON)",
+    )
+    parser.add_argument(
+        "--ctr", type=float, metavar="VALUE",
+        help="Provide manual CTR percentage (e.g., --ctr 4.5); must be 0-100",
+    )
+    parser.add_argument(
+        "--save", action="store_true",
+        help="Save analysis to file (project folder or fallback location)",
+    )
+    parser.add_argument(
+        "--output", metavar="PATH",
+        help="Save to specific path (implies --save)",
+    )
+    parser.add_argument(
+        "--script", metavar="PATH",
+        help="Add section-level retention diagnostics with script mapping",
+    )
+
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
+    args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
+
+    # Validate CTR range
     manual_ctr = None
-    output_path = None
-    script_path = None
+    if args.ctr is not None:
+        if 0 <= args.ctr <= 100:
+            manual_ctr = args.ctr
+        else:
+            print(f"Error: --ctr must be between 0 and 100, got {args.ctr}", file=sys.stderr)
+            sys.exit(1)
 
-    # Parse --ctr, --output, and --script arguments
-    args = sys.argv[2:]
-    for i, arg in enumerate(args):
-        if arg == '--ctr' and i + 1 < len(args):
-            try:
-                ctr_value = float(args[i + 1])
-                if 0 <= ctr_value <= 100:
-                    manual_ctr = ctr_value
-                else:
-                    print(f"Error: --ctr must be between 0 and 100, got {ctr_value}")
-                    sys.exit(1)
-            except ValueError:
-                print(f"Error: --ctr must be a number, got '{args[i + 1]}'")
-                sys.exit(1)
-        elif arg == '--output' and i + 1 < len(args):
-            output_path = args[i + 1]
-            do_save = True  # --output implies --save
-        elif arg == '--script' and i + 1 < len(args):
-            script_path = args[i + 1]
+    # --output implies --save
+    do_save = args.save or (args.output is not None)
 
     # Run analysis
-    analysis = run_analysis(video_input, manual_ctr=manual_ctr)
+    analysis = run_analysis(args.video, manual_ctr=manual_ctr)
 
     # Run section diagnostics if --script provided
-    section_diagnostics_result = None
-    if script_path:
+    if args.script:
         try:
-            video_id = extract_video_id(video_input)
-            section_diagnostics_result = generate_section_diagnostics(video_id, script_path)
+            video_id = extract_video_id(args.video)
+            section_diagnostics_result = generate_section_diagnostics(video_id, args.script)
 
             if 'error' in section_diagnostics_result:
                 print(f"\nWarning: Section diagnostics failed: {section_diagnostics_result['error']}")
-                section_diagnostics_result = None
             else:
                 # Add to analysis for markdown formatting
                 analysis['section_diagnostics'] = section_diagnostics_result
@@ -1413,14 +1417,14 @@ if __name__ == '__main__':
             print(f"\nWarning: Section diagnostics error: {str(e)}")
 
     # Output to stdout
-    if output_markdown or do_save:
+    if args.markdown or do_save:
         print(format_analysis_markdown(analysis))
     else:
         print(json.dumps(analysis, indent=2))
 
     # Save to file if requested
     if do_save:
-        save_result = save_analysis(analysis, output_path=output_path)
+        save_result = save_analysis(analysis, output_path=args.output)
         print("")
         print("---")
         print(f"Analysis saved to: {save_result['saved_to']}")

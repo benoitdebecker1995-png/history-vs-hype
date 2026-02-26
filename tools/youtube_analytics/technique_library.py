@@ -987,7 +987,14 @@ def main():
     parser.add_argument('--db', metavar='PATH',
                         help='Override database path')
 
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
+
     args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
 
     # Initialize library
     lib = TechniqueLibrary(db_path=args.db)

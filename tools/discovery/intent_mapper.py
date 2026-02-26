@@ -26,7 +26,7 @@ Dependencies:
 import sys
 import json
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional, Dict, List, Any
 from pathlib import Path
 
@@ -165,7 +165,7 @@ def classify_intent(query: str, min_confidence: float = 0.3) -> Dict[str, Any]:
         'primary': primary,
         'secondary': secondary,
         'all_matches': qualifying_matches,
-        'classified_at': datetime.utcnow().isoformat() + 'Z'
+        'classified_at': datetime.now(timezone.utc).isoformat() + 'Z'
     }
 
     if not primary:
@@ -420,41 +420,47 @@ def format_classification_text(classification: Dict[str, Any]) -> str:
 
 
 if __name__ == '__main__':
-    # CLI interface
-    if len(sys.argv) < 2 or sys.argv[1] in ['--help', '-h']:
-        print("Usage: python intent_mapper.py QUERY [OPTIONS]")
-        print("")
-        print("Classify search intent and calculate channel DNA fit.")
-        print("")
-        print("Options:")
-        print("  --json          Output as JSON (default: human-readable text)")
-        print("  --batch QUERIES Classify multiple queries (comma-separated)")
-        print("")
-        print("Examples:")
-        print("  python intent_mapper.py \"dark ages myth\"")
-        print("  python intent_mapper.py \"why crusades were defensive\" --json")
-        print("  python intent_mapper.py --batch \"dark ages, crusades, colonialism\"")
-        sys.exit(0)
+    import argparse
 
-    # Parse arguments
-    output_json = '--json' in sys.argv
-    batch_mode = '--batch' in sys.argv
+    parser = argparse.ArgumentParser(
+        description="Classify search intent and calculate channel DNA fit.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Examples:
+  python -m tools.discovery.intent_mapper "dark ages myth"
+  python -m tools.discovery.intent_mapper "why crusades were defensive" --json
+  python -m tools.discovery.intent_mapper --batch "dark ages, crusades, colonialism" """,
+    )
+    parser.add_argument(
+        "query", nargs="?",
+        help="Query or title to classify (omit when using --batch)",
+    )
+    parser.add_argument(
+        "--json", action="store_true",
+        help="Output as JSON (default: human-readable text)",
+    )
+    parser.add_argument(
+        "--batch", metavar="QUERIES",
+        help="Classify multiple queries (comma-separated list)",
+    )
 
-    if batch_mode:
-        # Find queries argument
-        batch_idx = sys.argv.index('--batch')
-        if batch_idx + 1 >= len(sys.argv):
-            print("Error: --batch requires comma-separated queries")
-            sys.exit(1)
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument("--verbose", "-v", action="store_true", help="Show debug output on stderr")
+    verbosity.add_argument("--quiet", "-q", action="store_true", help="Only show errors on stderr")
 
-        queries = [q.strip() for q in sys.argv[batch_idx + 1].split(',')]
+    args = parser.parse_args()
+
+    from tools.logging_config import setup_logging
+    setup_logging(args.verbose, args.quiet)
+
+    if args.batch:
+        queries = [q.strip() for q in args.batch.split(',')]
         results = []
 
         for query in queries:
             result = classify_title(query)
             results.append(result)
 
-        if output_json:
+        if args.json:
             print(json.dumps(results, indent=2))
         else:
             for i, result in enumerate(results):
@@ -462,14 +468,14 @@ if __name__ == '__main__':
                     print("\n" + "="*60 + "\n")
                 print(format_classification_text(result))
 
-    else:
-        # Single query mode
-        query = sys.argv[1]
+    elif args.query:
+        result = classify_title(args.query)
 
-        # Full classification with DNA fit
-        result = classify_title(query)
-
-        if output_json:
+        if args.json:
             print(json.dumps(result, indent=2))
         else:
             print(format_classification_text(result))
+
+    else:
+        parser.print_help()
+        sys.exit(1)
