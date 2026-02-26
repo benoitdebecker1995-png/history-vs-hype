@@ -36,6 +36,7 @@ Dependencies:
 
 import sys
 import json
+import sqlite3
 import argparse
 from pathlib import Path
 from datetime import datetime, timezone
@@ -112,8 +113,8 @@ def _ensure_avg_retention_column(db: 'KeywordDB') -> None:
                 "ALTER TABLE video_performance ADD COLUMN avg_retention_pct REAL"
             )
             db._conn.commit()
-    except Exception:
-        pass  # Non-fatal: topic_strategy will return 0 for missing retention
+    except sqlite3.OperationalError:
+        pass  # Non-fatal: column may already exist (expected on re-runs)
 
 
 def _update_avg_retention(db: 'KeywordDB', video_id: str, avg_retention_pct: float) -> None:
@@ -138,8 +139,8 @@ def _update_avg_retention(db: 'KeywordDB', video_id: str, avg_retention_pct: flo
             (avg_retention_pct, video_id)
         )
         db._conn.commit()
-    except Exception:
-        pass  # Non-fatal
+    except sqlite3.Error:
+        pass  # Non-fatal: retention update failure does not block import
 
 
 # =========================================================================
@@ -402,8 +403,8 @@ def reclassify_topics(project_root: Path) -> int:
 
         db._conn.commit()
 
-    except Exception:
-        pass
+    except (sqlite3.Error, KeyError, ValueError) as e:
+        pass  # Non-blocking: reclassification failure does not block pipeline
 
     db.close()
     return reclassified

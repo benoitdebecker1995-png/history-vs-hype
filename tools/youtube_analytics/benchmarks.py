@@ -17,6 +17,7 @@ Output:
     confidence level, and recommendation.
 """
 
+import sqlite3
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from typing import Optional, List, Dict, Any
@@ -255,8 +256,8 @@ def compare_variants_for_video(
             row = cursor.fetchone()
             if row and row[0]:
                 category = row[0]
-        except Exception:
-            pass
+        except sqlite3.Error:
+            pass  # Non-blocking: metadata enrichment only
 
         # Get benchmarks if not provided
         if benchmarks is None:
@@ -292,8 +293,8 @@ def compare_variants_for_video(
                 days_old = (datetime.now(timezone.utc) - latest_date).days
                 if days_old > FRESHNESS_DAYS:
                     freshness_warning = f"Data is {days_old} days old. Consider recording fresh CTR snapshots."
-        except Exception:
-            pass
+        except (sqlite3.Error, ValueError):
+            pass  # Non-blocking: freshness check failure does not affect verdict
 
         # Calculate attribution rate
         attribution_rate = None
@@ -309,8 +310,8 @@ def compare_variants_for_video(
                 total = row[0]
                 attributed = row[1] or 0
                 attribution_rate = f"{attributed} of {total} snapshots have variant attribution"
-        except Exception:
-            pass
+        except sqlite3.Error:
+            pass  # Non-blocking: metadata enrichment only
 
         db.close()
 
@@ -362,8 +363,8 @@ def get_benchmarks_report() -> Dict[str, Any]:
                 days_old = (datetime.now(timezone.utc) - latest_date).days
                 if days_old > FRESHNESS_DAYS:
                     freshness_warning = f"Most recent data is {days_old} days old. Consider updating CTR snapshots."
-            except Exception:
-                pass
+            except ValueError:
+                pass  # Non-blocking: date parse failure does not affect benchmarks
 
         return {
             'overall': benchmarks.get('overall', {}),
@@ -426,8 +427,8 @@ def analyze_video_ctr(video_id: str) -> Dict[str, Any]:
                 try:
                     latest_date = datetime.strptime(latest, '%Y-%m-%d')
                     days_old = (datetime.now(timezone.utc) - latest_date).days
-                except Exception:
-                    pass
+                except ValueError:
+                    pass  # Non-blocking: date parse failure does not affect snapshot info
             snapshot_info = {
                 'total': total,
                 'attributed': attributed,
@@ -435,8 +436,8 @@ def analyze_video_ctr(video_id: str) -> Dict[str, Any]:
                 'days_old': days_old
             }
         db.close()
-    except Exception:
-        pass
+    except sqlite3.Error:
+        pass  # Non-blocking: snapshot info enrichment only
 
     return {
         'video_id': video_id,
@@ -697,8 +698,8 @@ def find_project_folder(video_id: str) -> Optional[Path]:
                             content = f.read_text(encoding='utf-8')
                             if video_id in content:
                                 return project
-                        except Exception:
-                            pass
+                        except (OSError, UnicodeDecodeError):
+                            pass  # Non-blocking: file read failure skips this file
     return None
 
 

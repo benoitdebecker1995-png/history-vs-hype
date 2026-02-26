@@ -41,6 +41,7 @@ import json
 import re
 import os
 import glob
+import sqlite3
 from datetime import datetime, timezone
 from urllib.parse import urlparse, parse_qs
 from pathlib import Path
@@ -258,7 +259,7 @@ def save_analysis(analysis: dict, output_path: str = None) -> dict:
                 db.close()
                 if 'status' in store_result and store_result['status'] in ('inserted', 'updated'):
                     feedback_stored = True
-        except Exception:
+        except (sqlite3.Error, OSError) as e:
             pass  # Non-blocking: feedback storage failure should not affect save
 
     # Auto-regenerate channel insights after saving analysis
@@ -1303,8 +1304,8 @@ def format_analysis_markdown(analysis: dict) -> str:
                     if row and row[0]:
                         topic_type = row[0]
                     db.close()
-                except Exception:
-                    pass
+                except sqlite3.Error:
+                    pass  # Non-blocking: topic lookup failure skips insights preamble
 
             if topic_type:
                 preamble = get_insights_preamble(topic_type, 'script')
@@ -1313,7 +1314,7 @@ def format_analysis_markdown(analysis: dict) -> str:
                     lines.append("")
                     lines.append(preamble)
                     lines.append("")
-        except Exception:
+        except Exception as e:  # Feedback insights block — broad catch acceptable; Phase 51 adds logger
             pass  # Non-blocking
 
     # --- Errors Section ---
