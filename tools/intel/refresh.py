@@ -23,6 +23,10 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 # ---------------------------------------------------------------------------
 # Module imports (all collected here for easy error surfacing)
 # ---------------------------------------------------------------------------
@@ -45,8 +49,8 @@ def _now_iso() -> str:
 
 
 def _print_phase(phase_num: int, description: str) -> None:
-    """Print phase progress to stdout."""
-    print(f"  [{phase_num}/10] {description}...")
+    """Log phase progress."""
+    logger.info("  [%d/10] %s...", phase_num, description)
 
 
 # ---------------------------------------------------------------------------
@@ -69,7 +73,7 @@ def ensure_channels_loaded(store: KBStore) -> None:
 
         channels = load_channel_config(_DEFAULT_CONFIG_PATH)
         if isinstance(channels, dict) and "error" in channels:
-            print(f"  [WARNING] Could not load channel config: {channels['error']}")
+            logger.warning("Could not load channel config: %s", channels['error'])
             return
 
         for channel in channels:
@@ -84,7 +88,7 @@ def ensure_channels_loaded(store: KBStore) -> None:
                 )
     except Exception as exc:
         # Non-fatal — proceed even if bootstrap fails
-        print(f"  [WARNING] ensure_channels_loaded failed: {exc}")
+        logger.warning("ensure_channels_loaded failed: %s", exc)
 
 
 # ---------------------------------------------------------------------------
@@ -169,7 +173,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
         is_stale = store.is_stale()
         if not is_stale:
             last = store.get_last_refresh()
-            print("  KB is current — skipping refresh. Use force=True to override.")
+            logger.info("KB is current — skipping refresh. Use force=True to override.")
             return {
                 "refreshed":  False,
                 "skipped":    True,
@@ -183,7 +187,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
                 "errors": [],
             }
 
-    print("Starting YouTube Intelligence Engine refresh...")
+    logger.info("Starting YouTube Intelligence Engine refresh...")
 
     # -----------------------------------------------------------------------
     # Phase 1: Scrape algorithm sources
@@ -196,7 +200,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
         failed_scrapes = [r for r in scraped_results if "error" in r]
         for r in failed_scrapes:
             errors.append(f"Scrape failed: {r['error']}")
-        print(f"     Scraped {len(successful_scrapes)}/{len(scraped_results)} sources")
+        logger.info("     Scraped %d/%d sources", len(successful_scrapes), len(scraped_results))
     except Exception as exc:
         errors.append(f"Phase 1 (scrape) failed: {exc}")
         scraped_results = []
@@ -214,7 +218,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
             errors.append(f"Phase 2 (synthesize) failed: {synthesis_result['error']}")
             synthesis_result = {}
         else:
-            print(f"     Confidence: {synthesis_result.get('confidence', 'unknown')}")
+            logger.info("     Confidence: %s", synthesis_result.get('confidence', 'unknown'))
     except Exception as exc:
         errors.append(f"Phase 2 (synthesize) failed: {exc}")
 
@@ -235,7 +239,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
             if "error" in save_result:
                 errors.append(f"Phase 3 (save algo) failed: {save_result['error']}")
             else:
-                print(f"     Snapshot id={save_result.get('id')}")
+                logger.info("     Snapshot id=%s", save_result.get('id'))
         else:
             errors.append("Phase 3 skipped: no synthesis result to save")
     except Exception as exc:
@@ -256,8 +260,9 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
         else:
             for err in competitor_result.get("errors", []):
                 errors.append(f"Competitor fetch: {err}")
-            print(f"     Fetched {competitor_result.get('channels_fetched', 0)} channels, "
-                  f"{competitor_result.get('videos_total', 0)} videos")
+            logger.info("     Fetched %d channels, %d videos",
+                        competitor_result.get('channels_fetched', 0),
+                        competitor_result.get('videos_total', 0))
     except Exception as exc:
         errors.append(f"Phase 4 (fetch competitors) failed: {exc}")
 
@@ -273,7 +278,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
         if "error" in purge_result:
             errors.append(f"Phase 5 (purge) failed: {purge_result['error']}")
         else:
-            print(f"     Purged {purge_result.get('deleted', 0)} old videos")
+            logger.info("     Purged %d old videos", purge_result.get('deleted', 0))
     except Exception as exc:
         errors.append(f"Phase 5 (purge) failed: {exc}")
 
@@ -304,9 +309,9 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
             if "error" in save_result:
                 errors.append(f"Phase 6 (save videos) failed: {save_result['error']}")
             else:
-                print(f"     Saved {save_result.get('saved', 0)} videos")
+                logger.info("     Saved %d videos", save_result.get('saved', 0))
         else:
-            print("     No videos to save")
+            logger.info("     No videos to save")
     except Exception as exc:
         errors.append(f"Phase 6 (save videos) failed: {exc}")
 
@@ -328,17 +333,34 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
             if isinstance(annotated, dict) and "error" in annotated:
                 errors.append(f"Phase 7 (detect outliers) failed: {annotated['error']}")
             else:
-                # Update is_outlier flags in DB for outlier videos
+                # Update is_outlier flags and outlier_ratio in DB
                 outlier_videos = [v for v in annotated if v.get("is_outlier")]
                 outliers_found = len(outlier_videos)
                 if outlier_videos:
-                    # Re-save outlier videos with updated flags
                     for v in outlier_videos:
                         v["outlier_reason"] = f"Views={v.get('views')}, ratio={v.get('outlier_ratio', 0):.1f}x median"
                     store.save_competitor_videos(outlier_videos)
-                print(f"     Found {outliers_found} outlier(s)")
+                # Persist outlier_ratio for all videos (not just outliers)
+                for v in annotated:
+                    if v.get("video_id") and v.get("outlier_ratio") is not None:
+                        store.update_video_outlier_ratio(v["video_id"], v["outlier_ratio"])
+                logger.info("     Found %d outlier(s)", outliers_found)
     except Exception as exc:
         errors.append(f"Phase 7 (detect outliers) failed: {exc}")
+
+    # -----------------------------------------------------------------------
+    # Phase 7b: Classify competitor videos by topic cluster
+    # -----------------------------------------------------------------------
+    _print_phase(7, "Classifying videos by topic cluster (7b)")
+    try:
+        from tools.intel.competitor_patterns import classify_all_videos
+        classify_result = classify_all_videos(resolved_db)
+        if isinstance(classify_result, dict) and "error" in classify_result:
+            errors.append(f"Phase 7b (classify) failed: {classify_result['error']}")
+        else:
+            logger.info("     Classified %d videos", classify_result.get('classified', 0))
+    except Exception as exc:
+        errors.append(f"Phase 7b (classify) failed: {exc}")
 
     # -----------------------------------------------------------------------
     # Phase 8: Extract niche patterns + save snapshot
@@ -360,7 +382,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
                 errors.append(f"Phase 8 (save niche) failed: {snap_result['error']}")
             else:
                 fmt = niche_patterns.get("format_patterns", {})
-                print(f"     Patterns from {fmt.get('video_count', 0)} videos")
+                logger.info("     Patterns from %d videos", fmt.get('video_count', 0))
     except Exception as exc:
         errors.append(f"Phase 8 (extract patterns) failed: {exc}")
 
@@ -375,7 +397,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
             errors.append(f"Phase 9 (export) failed: {export_result['error']}")
         else:
             kb_exported_to = export_result.get("written_to", "")
-            print(f"     Written to {kb_exported_to} ({export_result.get('word_count', 0)} words)")
+            logger.info("     Written to %s (%d words)", kb_exported_to, export_result.get('word_count', 0))
     except Exception as exc:
         errors.append(f"Phase 9 (export) failed: {exc}")
 
@@ -388,11 +410,14 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
         if "error" in ts_result:
             errors.append(f"Phase 10 (set refresh) failed: {ts_result['error']}")
         else:
-            print(f"     Timestamp: {ts_result.get('last_refresh', '—')[:19]}")
+            logger.info("     Timestamp: %s", ts_result.get('last_refresh', '—')[:19])
     except Exception as exc:
         errors.append(f"Phase 10 (set refresh) failed: {exc}")
 
-    print(f"Refresh complete. {len(errors)} error(s)." if errors else "Refresh complete.")
+    if errors:
+        logger.info("Refresh complete. %d error(s).", len(errors))
+    else:
+        logger.info("Refresh complete.")
 
     return {
         "refreshed":             True,

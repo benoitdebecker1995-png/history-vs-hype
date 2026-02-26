@@ -39,6 +39,10 @@ try:
 except ImportError:
     DATABASE_AVAILABLE = False
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 def _load_pattern_extractor():
     """Lazy import of extract_winning_patterns to avoid circular import at module level."""

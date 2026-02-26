@@ -34,6 +34,9 @@ from .demand import DemandAnalyzer
 from .competition import CompetitionAnalyzer
 from .format_filters import evaluate_production_constraints
 from .opportunity import OpportunityScorer
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
 
 
 class OpportunityOrchestrator:
@@ -75,7 +78,7 @@ class OpportunityOrchestrator:
             Complete opportunity analysis dict or error dict
         """
         # STEP 1: Demand analysis
-        print(f"\n[1/5] Running demand analysis for '{keyword}'...")
+        logger.info("[1/5] Running demand analysis for '%s'...", keyword)
         demand_data = self.demand.analyze_keyword(keyword, force_refresh=force_refresh)
 
         if 'error' in demand_data:
@@ -89,14 +92,14 @@ class OpportunityOrchestrator:
         keyword_id = keyword_record['id']
 
         # STEP 3: Competition analysis
-        print(f"[2/5] Running competition analysis...")
+        logger.info("[2/5] Running competition analysis...")
         comp_data = self.competition.analyze_competition(keyword)
 
         if 'error' in comp_data:
             return comp_data
 
         # STEP 4: Get/evaluate production constraints
-        print(f"[3/5] Evaluating production constraints...")
+        logger.info("[3/5] Evaluating production constraints...")
         constraints = self.db.get_production_constraints(keyword_id)
 
         if constraints is None:
@@ -117,7 +120,7 @@ class OpportunityOrchestrator:
             self.db._conn.commit()
 
         # STEP 5: Score opportunity
-        print(f"[4/5] Calculating opportunity score...")
+        logger.info("[4/5] Calculating opportunity score...")
         score_result = self.scorer.score_opportunity(
             keyword_id=keyword_id,
             demand_data=demand_data,
@@ -126,11 +129,11 @@ class OpportunityOrchestrator:
         )
 
         # STEP 6: Save score and update lifecycle
-        print(f"[5/5] Saving results...")
+        logger.info("[5/5] Saving results...")
         save_result = self.scorer.save_opportunity_score(keyword_id, score_result)
 
         if 'error' in save_result:
-            print(f"Warning: Failed to save score: {save_result['error']}")
+            logger.warning("Failed to save score: %s", save_result['error'])
 
         # STEP 7: Build complete result dict
         result = {
@@ -231,7 +234,7 @@ class OpportunityOrchestrator:
             # Write to file if path provided
             if output_path:
                 Path(output_path).write_text(markdown, encoding='utf-8')
-                print(f"\nReport saved to: {output_path}")
+                logger.info("Report saved to: %s", output_path)
 
             return markdown
 
@@ -329,7 +332,7 @@ class OpportunityOrchestrator:
 
         if output_path:
             Path(output_path).write_text(markdown, encoding='utf-8')
-            print(f"\nReport saved to: {output_path}")
+            logger.info("Report saved to: %s", output_path)
 
         return markdown
 

@@ -31,6 +31,9 @@ from typing import Dict, List, Any, Optional
 from pathlib import Path
 
 from .database import KeywordDB
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
 
 
 def add_keyword(

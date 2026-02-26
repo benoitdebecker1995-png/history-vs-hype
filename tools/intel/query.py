@@ -20,6 +20,10 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 # Resolve paths relative to this file's location
 _INTEL_DIR = Path(__file__).parent
 _DEFAULT_DB_PATH = str(_INTEL_DIR / "intel.db")

@@ -30,6 +30,10 @@ try:
 except ImportError:
     SCRAPETUBE_AVAILABLE = False
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 class CompetitionAnalyzer:
     """

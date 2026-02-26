@@ -15,6 +15,10 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from collections import Counter
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 def infer_primary_keyword(title: str) -> str:
     """

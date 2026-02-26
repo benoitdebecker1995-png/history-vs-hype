@@ -14,6 +14,10 @@ from pathlib import Path
 from datetime import datetime
 from typing import Dict, Optional
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 def generate_vidiq_prompts(topic: str, project_folder: Optional[str] = None) -> Dict:
     """

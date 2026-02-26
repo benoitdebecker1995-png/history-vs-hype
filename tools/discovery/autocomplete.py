@@ -51,6 +51,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 try:
     from pyppeteer import launch
     from pyppeteer_stealth import stealth
@@ -218,7 +222,7 @@ def extract_keywords_batch(seeds: List[str], delay_seconds: float = 2.0) -> List
     backoff = 1.0
 
     for i, seed in enumerate(seeds):
-        print(f"Processing {i+1}/{len(seeds)}: {seed}", file=sys.stderr)
+        logger.info("Processing %d/%d: %s", i + 1, len(seeds), seed)
 
         # Run async function
         result = asyncio.run(get_autocomplete_suggestions(seed))
@@ -226,7 +230,7 @@ def extract_keywords_batch(seeds: List[str], delay_seconds: float = 2.0) -> List
 
         # Check for rate limit error
         if 'error' in result and 'rate limit' in result['error'].lower():
-            print(f"Rate limited. Backing off {backoff}s...", file=sys.stderr)
+            logger.warning("Rate limited. Backing off %.1fs...", backoff)
             time.sleep(backoff)
             backoff = min(backoff * 2, 8.0)  # Exponential backoff, max 8s
         else:
@@ -236,7 +240,7 @@ def extract_keywords_batch(seeds: List[str], delay_seconds: float = 2.0) -> List
         # Delay before next request (not on last item)
         if i < len(seeds) - 1:
             jitter = random.uniform(delay_seconds, delay_seconds * 2)
-            print(f"Waiting {jitter:.1f}s before next request...", file=sys.stderr)
+            logger.debug("Waiting %.1fs before next request...", jitter)
             time.sleep(jitter)
 
     return results
@@ -254,7 +258,7 @@ def save_to_database(suggestions_result: Dict[str, Any], db_path: Optional[str] 
         Count of new keywords added (0 if error or no new keywords)
     """
     if 'error' in suggestions_result:
-        print(f"Cannot save: {suggestions_result['error']}", file=sys.stderr)
+        logger.error("Cannot save: %s", suggestions_result['error'])
         return 0
 
     try:
@@ -272,10 +276,10 @@ def save_to_database(suggestions_result: Dict[str, Any], db_path: Optional[str] 
         return count
 
     except ImportError:
-        print("ERROR: database module not found. Cannot save to database.", file=sys.stderr)
+        logger.error("database module not found. Cannot save to database.")
         return 0
     except Exception as e:
-        print(f"ERROR saving to database: {e}", file=sys.stderr)
+        logger.error("Error saving to database: %s", e)
         return 0
 
 
@@ -359,7 +363,7 @@ Rate Limiting:
             saved = save_to_database(result)
             total_saved += saved
 
-        print(f"\nSaved {total_saved} new keywords to database", file=sys.stderr)
+        logger.info("Saved %d new keywords to database", total_saved)
 
     # Output results
     if args.json:

@@ -28,7 +28,11 @@ Usage:
 """
 
 from typing import Dict, Optional, Any, Tuple
-from datetime import datetime
+from datetime import datetime, timezone
+
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
 
 
 # Channel DNA patterns - WARNING only (not hard blocks)
@@ -314,7 +318,7 @@ class OpportunityScorer:
         """
         try:
             cursor = self.db._conn.cursor()
-            now = datetime.utcnow().date().isoformat()
+            now = datetime.now(timezone.utc).date().isoformat()
 
             # Update keywords table with final score
             cursor.execute(

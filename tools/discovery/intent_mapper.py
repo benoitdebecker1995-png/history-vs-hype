@@ -30,6 +30,10 @@ from datetime import datetime, timezone
 from typing import Optional, Dict, List, Any
 from pathlib import Path
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 # Intent categories with pattern matching
 INTENT_CATEGORIES = {
     'MYTH_BUSTING': {

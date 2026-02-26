@@ -33,6 +33,9 @@ from .database import KeywordDB
 from .trends import get_trend_direction, TRENDSPYG_AVAILABLE
 from .competition import get_competition_count, SCRAPETUBE_AVAILABLE
 from .autocomplete import get_autocomplete_suggestions
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
 
 
 class DemandAnalyzer:

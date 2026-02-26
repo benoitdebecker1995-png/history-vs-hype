@@ -23,6 +23,10 @@ from datetime import datetime
 from typing import Dict, Any, Optional
 import time
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 # Check for trendspyg availability
 try:
     from trendspyg import download_google_trends_csv
@@ -79,7 +83,6 @@ class TrendsClient:
                 geo=self.region,
                 hours=hours,
                 output_format='dataframe',
-                cache=True  # 5-minute TTL
             )
 
             if df is None or df.empty:

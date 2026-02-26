@@ -20,6 +20,10 @@ from pathlib import Path
 from datetime import datetime, timezone
 from typing import Optional, Dict, List, Any
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 class KeywordDB:
     """
@@ -1500,7 +1504,7 @@ class KeywordDB:
             # Reopen connection
             self._ensure_connection()
 
-            print(f"[Phase 27] Database backed up to: {backup_path}")
+            logger.info("[Phase 27] Database backed up to: %s", backup_path)
             return str(backup_path)
 
         except (OSError, sqlite3.Error) as e:  # noqa: F841 — e unused; backup failure is non-critical
@@ -1524,7 +1528,7 @@ class KeywordDB:
             if self.get_schema_version() >= 27:
                 return
 
-            print("[Phase 27] Migrating database: adding variant tracking tables...")
+            logger.info("[Phase 27] Migrating database: adding variant tracking tables...")
 
             # Backup before migration (without reopening connection)
             import shutil
@@ -1543,7 +1547,7 @@ class KeywordDB:
             self._conn = sqlite3.connect(self.db_path)
             self._conn.row_factory = sqlite3.Row
 
-            print(f"[Phase 27] Database backed up to: {backup_path}")
+            logger.info("[Phase 27] Database backed up to: %s", backup_path)
 
             cursor = self._conn.cursor()
 
@@ -1594,7 +1598,7 @@ class KeywordDB:
 
             self._conn.commit()
 
-            print("[Phase 27] Variant tables created (thumbnail_variants, title_variants)")
+            logger.info("[Phase 27] Variant tables created (thumbnail_variants, title_variants)")
 
             # Set schema version to 27
             self.set_schema_version(27)

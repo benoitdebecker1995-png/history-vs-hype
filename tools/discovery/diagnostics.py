@@ -30,6 +30,10 @@ import json
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 def _load_channel_averages():
     """Lazy import of get_channel_averages to avoid circular import at module level."""
     try:

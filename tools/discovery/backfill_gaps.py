@@ -26,6 +26,9 @@ from datetime import datetime
 from typing import Dict, List, Tuple, Optional
 
 from .database import KeywordDB
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
 
 
 # =========================================================================
@@ -105,8 +108,7 @@ def populate_keyword_intents():
     cursor.execute('SELECT id, keyword FROM keywords ORDER BY id')
     keywords = cursor.fetchall()
 
-    print(f"  Classifying {len(keywords)} keywords...")
-    print()
+    logger.info("Classifying %d keywords...", len(keywords))
 
     classified = 0
     for row in keywords:
@@ -117,17 +119,16 @@ def populate_keyword_intents():
             is_primary = (i == 0)
             result = db.set_intent(kid, category, confidence, is_primary)
             if 'error' in result:
-                print(f"    ERROR: {kw} -> {category}: {result['error']}")
+                logger.error("Intent set failed: %s -> %s: %s", kw, category, result['error'])
 
         primary = intents[0] if intents else ('UNKNOWN', 0)
         secondaries = [f"{c}({conf:.2f})" for c, conf in intents[1:]]
         sec_str = f" + {', '.join(secondaries)}" if secondaries else ''
-        print(f"    {kw[:50]:50s} -> {primary[0]}({primary[1]:.2f}){sec_str}")
+        logger.debug("  %s -> %s(%.2f)%s", kw[:50], primary[0], primary[1], sec_str)
         classified += 1
 
     db.close()
-    print()
-    print(f"  Classified {classified} keywords into intents")
+    logger.info("Classified %d keywords into intents", classified)
     return classified
 
 
@@ -187,8 +188,7 @@ def populate_keyword_performance():
     """)
     videos = cursor.fetchall()
 
-    print(f"  Matching {len(keywords)} keywords against {len(videos)} long-form videos...")
-    print()
+    logger.info("Matching %d keywords against %d long-form videos...", len(keywords), len(videos))
 
     links_created = 0
     for krow in keywords:
@@ -236,11 +236,10 @@ def populate_keyword_performance():
 
             if 'error' not in result:
                 links_created += 1
-                print(f"    {kw[:35]:35s} <-> {title[:40]:40s} (score={score:.2f}, views={views})")
+                logger.debug("  %s <-> %s (score=%.2f, views=%s)", kw[:35], title[:40], score, views)
 
     db.close()
-    print()
-    print(f"  Created {links_created} keyword-video performance links")
+    logger.info("Created %d keyword-video performance links", links_created)
     return links_created
 
 
@@ -253,12 +252,11 @@ def populate_trends():
     try:
         from trends import TrendsClient, TRENDSPYG_AVAILABLE
     except ImportError:
-        print("  ERROR: trends module not available")
+        logger.error("trends module not available")
         return 0
 
     if not TRENDSPYG_AVAILABLE:
-        print("  ERROR: trendspyg not installed. Install with: pip install trendspyg")
-        print("  Skipping trends fetch — creating stable baseline entries instead.")
+        logger.warning("trendspyg not installed. Skipping trends fetch — creating stable baseline entries instead.")
         return _create_baseline_trends()
 
     db = KeywordDB()
@@ -270,8 +268,7 @@ def populate_trends():
     fetched = 0
     errors = 0
 
-    print(f"  Fetching trends for {len(keywords)} keywords...")
-    print()
+    logger.info("Fetching trends for %d keywords...", len(keywords))
 
     for row in keywords:
         kid, kw = row[0], row[1]
@@ -279,21 +276,21 @@ def populate_trends():
         # Check if we already have recent data
         cached = db.get_cached_trend(kid, max_age_days=7)
         if cached:
-            print(f"    {kw[:45]:45s} -> cached ({cached.get('trend_direction', '?')})")
+            logger.debug("  %s -> cached (%s)", kw[:45], cached.get('trend_direction', '?'))
             continue
 
         result = client.get_interest_over_time(kw)
 
         if 'error' in result:
             if result.get('retry_after'):
-                print(f"    Rate limited — waiting {result['retry_after']}s...")
+                logger.warning("Rate limited — waiting %ds...", result['retry_after'])
                 time.sleep(result['retry_after'] + 5)
                 result = client.get_interest_over_time(kw)
 
             if 'error' in result:
                 # Store as stable/0 for niche keywords not in trending
                 db.add_trend(kid, 0, 'stable', 0.0, 'US')
-                print(f"    {kw[:45]:45s} -> stable (niche/not trending)")
+                logger.debug("  %s -> stable (niche/not trending)", kw[:45])
                 fetched += 1
                 continue
 
@@ -302,15 +299,14 @@ def populate_trends():
         pct_change = result.get('percent_change', 0.0)
 
         db.add_trend(kid, interest, direction, pct_change, 'US')
-        print(f"    {kw[:45]:45s} -> {direction} (interest={interest}, change={pct_change:+.1f}%)")
+        logger.debug("  %s -> %s (interest=%d, change=%+.1f%%)", kw[:45], direction, interest, pct_change)
         fetched += 1
 
         # Be polite to Google
         time.sleep(0.5)
 
     db.close()
-    print()
-    print(f"  Trends: {fetched} fetched, {errors} errors")
+    logger.info("Trends: %d fetched, %d errors", fetched, errors)
     return fetched
 
 
@@ -342,12 +338,11 @@ def _create_baseline_trends():
             interest, direction, pct = 15, 'stable', 0.0
 
         db.add_trend(kid, interest, direction, pct, 'US')
-        print(f"    {kw[:45]:45s} -> {direction} (baseline interest={interest})")
+        logger.debug("  %s -> %s (baseline interest=%d)", kw[:45], direction, interest)
         created += 1
 
     db.close()
-    print()
-    print(f"  Created {created} baseline trend entries")
+    logger.info("Created %d baseline trend entries", created)
     return created
 
 
@@ -368,10 +363,10 @@ def cleanup_dead_tables():
             cursor.execute(f"SELECT COUNT(*) FROM [{table}]")
             count = cursor.fetchone()[0]
             cursor.execute(f"DROP TABLE IF EXISTS [{table}]")
-            print(f"    Dropped {table} ({count} rows)")
+            logger.info("Dropped %s (%d rows)", table, count)
             dropped += 1
         except sqlite3.Error as e:
-            print(f"    ERROR dropping {table}: {e}")
+            logger.error("Error dropping %s: %s", table, e)
 
     # Clean orphaned competitor_videos (channel_id=0, not from intel.db)
     cursor.execute("SELECT COUNT(*) FROM competitor_videos WHERE channel_id = 0")
@@ -379,13 +374,12 @@ def cleanup_dead_tables():
 
     if orphaned > 0:
         cursor.execute("DELETE FROM competitor_videos WHERE channel_id = 0")
-        print(f"    Deleted {orphaned} orphaned competitor_videos (channel_id=0)")
+        logger.info("Deleted %d orphaned competitor_videos (channel_id=0)", orphaned)
 
     db._conn.commit()
     db.close()
 
-    print()
-    print(f"  Dropped {dropped} dead tables, cleaned {orphaned} orphaned rows")
+    logger.info("Dropped %d dead tables, cleaned %d orphaned rows", dropped, orphaned)
     return dropped, orphaned
 
 
