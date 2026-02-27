@@ -2,8 +2,8 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Codebase Hardening
-status: completed
-last_updated: "2026-02-27T13:57:10.926Z"
+status: planning
+last_updated: "2026-02-27T14:44:29.218Z"
 last_activity: "2026-02-27 — 51-03 complete: diagnostic print() converted to logging across discovery/ (15 files), intel/, production/, translation/, script_checkers/, document_discovery/, root tools; 108 get_logger usages total; LOG-02 + CLI-02 satisfied"
 progress:
   total_phases: 55
@@ -29,7 +29,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 
 **Milestone:** v5.1 Codebase Hardening
 **Phase:** 51 complete (Plans 01, 03 complete; Plan 02 covered youtube_analytics)
-**Status:** Phase 51 done — ready for Phase 52 (Database Hardening)
+**Status:** Ready to plan
 **Last activity:** 2026-02-27 — 51-03 complete: diagnostic print() converted to logging across discovery/ (15 files), intel/, production/, translation/, script_checkers/, document_discovery/, root tools; 108 get_logger usages total; LOG-02 + CLI-02 satisfied
 
 **Progress:**
