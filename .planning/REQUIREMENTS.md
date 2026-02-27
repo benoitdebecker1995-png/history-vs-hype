@@ -16,7 +16,7 @@ Requirements for v5.1 Codebase Hardening. Each maps to roadmap phases.
 ### Logging
 
 - [x] **LOG-01**: Logging module configured with module-level loggers across all tool directories
-- [ ] **LOG-02**: All print() calls in tool modules replaced with appropriate log level (DEBUG/INFO/WARNING/ERROR)
+- [x] **LOG-02**: All print() calls in tool modules replaced with appropriate log level (DEBUG/INFO/WARNING/ERROR)
 - [x] **LOG-03**: Log output goes to stderr with configurable verbosity (--verbose/--quiet flags)
 
 ### Testing
@@ -50,7 +50,7 @@ Requirements for v5.1 Codebase Hardening. Each maps to roadmap phases.
 ### CLI
 
 - [x] **CLI-01**: All CLI entry points use argparse with --help
-- [ ] **CLI-02**: Consistent error output format across all tools (stderr, exit code 1)
+- [x] **CLI-02**: Consistent error output format across all tools (stderr, exit code 1)
 - [x] **CLI-03**: Standard --verbose/--quiet flags wired to logging levels
 
 ### Cleanup
@@ -91,7 +91,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ERR-02 | Phase 50 | Complete |
 | ERR-03 | Phase 50 | Complete |
 | LOG-01 | Phase 51 | Complete |
-| LOG-02 | Phase 51 | Pending |
+| LOG-02 | Phase 51 | Complete |
 | LOG-03 | Phase 51 | Complete |
 | TEST-01 | Phase 53 | Pending |
 | TEST-02 | Phase 53 | Pending |
@@ -110,7 +110,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DB-02 | Phase 52 | Pending |
 | DB-03 | Phase 52 | Pending |
 | CLI-01 | Phase 51 | Complete |
-| CLI-02 | Phase 51 | Pending |
+| CLI-02 | Phase 51 | Complete |
 | CLI-03 | Phase 51 | Complete |
 | CLEAN-01 | Phase 49 | Complete |
 | CLEAN-02 | Phase 49 | Complete |

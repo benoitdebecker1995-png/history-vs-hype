@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Codebase Hardening
 status: planning
-last_updated: "2026-02-26T14:01:17.751Z"
-last_activity: "2026-02-25 — 50-02 complete: 10 files narrowed from broad/bare excepts; split_screen_guide._parse_script() returns ERR-03 structured error dict; ERR-01 satisfied for intel/discovery/production/dashboard/history-clip-tool"
+last_updated: "2026-02-27T14:25:00Z"
+last_activity: "2026-02-27 — 51-03 complete: diagnostic print() converted to logging across discovery/ (15 files), intel/, production/, translation/, script_checkers/, document_discovery/, root tools; 108 get_logger usages total; LOG-02 + CLI-02 satisfied"
 progress:
-  total_phases: 54
+  total_phases: 55
   completed_phases: 52
-  total_plans: 113
-  completed_plans: 113
-  percent: 100
+  total_plans: 116
+  completed_plans: 115
+  percent: 99
 ---
 
 # State: History vs Hype Workspace
@@ -28,12 +28,12 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 ## Current Position
 
 **Milestone:** v5.1 Codebase Hardening
-**Phase:** 51 complete (Plan 01 complete)
-**Status:** Ready to plan phase 52
-**Last activity:** 2026-02-26 — 51-01 complete: logging_config.py created, all 40 CLI entry points converted to argparse with --verbose/--quiet, setup_logging() wired end-to-end
+**Phase:** 51 complete (Plans 01, 03 complete; Plan 02 covered youtube_analytics)
+**Status:** Phase 51 done — ready for Phase 52 (Database Hardening)
+**Last activity:** 2026-02-27 — 51-03 complete: diagnostic print() converted to logging across discovery/ (15 files), intel/, production/, translation/, script_checkers/, document_discovery/, root tools; 108 get_logger usages total; LOG-02 + CLI-02 satisfied
 
 **Progress:**
-[██████████] 100%
+[██████████] 99%
 
 ## Milestone History
 
@@ -90,6 +90,8 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 51-logging-cli]: Configure logging.getLogger("tools") not root logger — library-safe hierarchy; NullHandler in tools/__init__.py prevents No-handlers warnings
 - [Phase 51-logging-cli]: setup_logging() called in __main__ blocks only, never at module import time — logging is a CLI concern, not a library concern
 - [Phase 51-logging-cli]: editguide.py, metadata.py, intel/query.py excluded from argparse conversion — smoke-test __main__ blocks with no user arguments are not real CLI entry points
+- [Phase 51-logging-cli-standardization]: Intentional CLI output (reports, tables, interactive prompts) preserved as print() - discriminator: user needs this output to use the tool
+- [Phase 51-logging-cli-standardization]: intel/refresh.py _print_phase() helper removed - replaced with direct logger.info calls per phase step, cleaner and consistent with module pattern
 
 ### Roadmap Evolution
 
@@ -107,9 +109,9 @@ None at roadmap time.
 
 ### Last Session
 
-- **Date:** 2026-02-26
-- **Work:** Executed 51-01 — created tools/logging_config.py with setup_logging()/get_logger(), updated tools/__init__.py with NullHandler, converted 12 sys.argv files to argparse, added --verbose/--quiet to all 40 CLI entry points, wired setup_logging() into every __main__ block. Fixed 3 auto-detected issues (bare relative imports in 5 files, Unicode in help text, missing setup_logging call).
-- **Output:** 51-01-SUMMARY.md created, commits 1941697 (Task 1) + 7adf1b4 (Task 2)
+- **Date:** 2026-02-27
+- **Work:** Executed 51-03 — converted diagnostic print() to logging across discovery/ (15 files), intel/refresh.py (removed _print_phase() helper, 18 phase prints -> logger.info), intel/query.py, production/split_screen_guide.py, translation/cli.py + verification.py, script_checkers/cli.py + voice/ subpackage, notebooklm_bridge.py, citation_extractor.py. Fixed 1 auto-detected issue (5 files with error prints going to stdout instead of stderr). 108 total get_logger usages. LOG-02 + CLI-02 fully satisfied.
+- **Output:** 51-03-SUMMARY.md created, commits 993a109 (Task 1) + 0e8f076 (Task 2) + 7ee639d (fix)
 
 ### Next Session
 
@@ -125,4 +127,4 @@ None at roadmap time.
 
 ---
 
-*State updated: 2026-02-26 after 51-01 execution complete*
+*State updated: 2026-02-27 after 51-03 execution complete*
