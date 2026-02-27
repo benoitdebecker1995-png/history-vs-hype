@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Codebase Hardening
-status: planning
-last_updated: "2026-02-27T14:25:00Z"
+status: completed
+last_updated: "2026-02-27T13:57:10.926Z"
 last_activity: "2026-02-27 — 51-03 complete: diagnostic print() converted to logging across discovery/ (15 files), intel/, production/, translation/, script_checkers/, document_discovery/, root tools; 108 get_logger usages total; LOG-02 + CLI-02 satisfied"
 progress:
   total_phases: 55
-  completed_phases: 52
+  completed_phases: 53
   total_plans: 116
-  completed_plans: 115
-  percent: 99
+  completed_plans: 116
+  percent: 100
 ---
 
 # State: History vs Hype Workspace
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 **Last activity:** 2026-02-27 — 51-03 complete: diagnostic print() converted to logging across discovery/ (15 files), intel/, production/, translation/, script_checkers/, document_discovery/, root tools; 108 get_logger usages total; LOG-02 + CLI-02 satisfied
 
 **Progress:**
-[██████████] 99%
+[██████████] 100%
 
 ## Milestone History
 
@@ -92,6 +92,7 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 51-logging-cli]: editguide.py, metadata.py, intel/query.py excluded from argparse conversion — smoke-test __main__ blocks with no user arguments are not real CLI entry points
 - [Phase 51-logging-cli-standardization]: Intentional CLI output (reports, tables, interactive prompts) preserved as print() - discriminator: user needs this output to use the tool
 - [Phase 51-logging-cli-standardization]: intel/refresh.py _print_phase() helper removed - replaced with direct logger.info calls per phase step, cleaner and consistent with module pattern
+- [Phase 51]: Decision rule for print() vs logger: if output is the RESULT the user ran command to see, keep as print(); if narration/progress, convert to logger
 
 ### Roadmap Evolution
 
