@@ -23,7 +23,10 @@ from datetime import datetime, timezone, timedelta
 from typing import Optional, List, Dict, Any
 import statistics
 
+from tools.logging_config import get_logger
 from tools.discovery.database import KeywordDB
+
+logger = get_logger(__name__)
 
 
 # =========================================================================

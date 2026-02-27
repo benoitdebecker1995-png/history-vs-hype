@@ -27,7 +27,10 @@ from datetime import datetime, timezone
 from statistics import mean, StatisticsError
 from typing import Dict, List, Any, Optional
 
+from tools.logging_config import get_logger
 from tools.discovery.database import KeywordDB
+
+logger = get_logger(__name__)
 
 # Optional pattern_extractor integration
 try:

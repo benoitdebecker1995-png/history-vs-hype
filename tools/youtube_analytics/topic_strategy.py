@@ -34,7 +34,10 @@ from datetime import datetime, timezone
 from statistics import mean, median
 from typing import Dict, List, Any, Optional
 
+from tools.logging_config import get_logger
 from tools.discovery.database import KeywordDB
+
+logger = get_logger(__name__)
 
 # Import TAG_VOCABULARY from performance.py
 try:
@@ -514,7 +517,7 @@ if __name__ == '__main__':
     strategy = generate_topic_strategy()
 
     if 'error' in strategy:
-        print(f"Error: {strategy['error']}")
+        print(f"ERROR: {strategy['error']}", file=sys.stderr)
         sys.exit(1)
 
     # Output based on flags

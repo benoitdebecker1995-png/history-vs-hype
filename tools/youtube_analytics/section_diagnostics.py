@@ -21,6 +21,10 @@ Usage:
 
 import re
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 def load_voice_patterns():
     """

@@ -21,6 +21,10 @@ Usage:
 
 from pathlib import Path
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 # Import ScriptParser from production tools
 try:
     from tools.production.parser import Section, ScriptParser

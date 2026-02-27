@@ -30,6 +30,10 @@ from datetime import datetime
 from statistics import mean, stdev
 from typing import Dict, List, Any, Optional
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 # Feature flag for availability detection
 PLAYBOOK_AVAILABLE = False
 
@@ -38,7 +42,7 @@ try:
     from .section_diagnostics import load_voice_patterns
     PLAYBOOK_AVAILABLE = True
 except ImportError as e:
-    print(f"Warning: Playbook synthesizer dependencies unavailable: {e}", file=sys.stderr)
+    logger.warning("Playbook synthesizer dependencies unavailable: %s", e)
 
 
 # =========================================================================
@@ -100,7 +104,7 @@ def get_all_video_retention_data() -> List[Dict[str, Any]]:
         return videos
 
     except Exception as e:
-        print(f"Error fetching retention data: {e}", file=sys.stderr)
+        logger.error("Error fetching retention data: %s", e)
         return []
 
 
@@ -332,7 +336,7 @@ def rank_voice_patterns(videos: List[Dict]) -> List[Dict[str, Any]]:
     try:
         all_patterns = load_voice_patterns()
     except Exception as e:
-        print(f"Warning: Could not load voice patterns: {e}", file=sys.stderr)
+        logger.warning("Could not load voice patterns: %s", e)
         return []
 
     # Flatten patterns into list
@@ -808,8 +812,7 @@ def main():
     setup_logging(args.verbose, args.quiet)
 
     if not PLAYBOOK_AVAILABLE:
-        print("Error: Playbook synthesizer dependencies unavailable.", file=sys.stderr)
-        print("Ensure KeywordDB and section_diagnostics are importable.", file=sys.stderr)
+        logger.error("Playbook synthesizer dependencies unavailable. Ensure KeywordDB and section_diagnostics are importable.")
         return 1
 
     if args.json:
@@ -841,7 +844,7 @@ def main():
         result = write_part9_to_style_guide(part9_text)
 
         if 'error' in result:
-            print(f"Error: {result['error']}", file=sys.stderr)
+            print(f"ERROR: {result['error']}", file=sys.stderr)
             return 1
 
         print(f"Part 9 written to {result['path']}")

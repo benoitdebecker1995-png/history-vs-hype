@@ -11,10 +11,13 @@ Usage:
 import os
 from pathlib import Path
 
+from tools.logging_config import get_logger
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
+
+logger = get_logger(__name__)
 
 # API scopes - analytics readonly + video/channel metadata readonly
 SCOPES = [
@@ -56,10 +59,10 @@ def get_credentials():
     # Refresh or get new credentials
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            print("Refreshing expired token...")
+            logger.info("Refreshing expired token...")
             creds.refresh(Request())
         else:
-            print("Opening browser for authorization...")
+            logger.info("Opening browser for authorization...")
             flow = InstalledAppFlow.from_client_secrets_file(
                 str(CLIENT_SECRET_PATH),
                 SCOPES
@@ -69,7 +72,7 @@ def get_credentials():
         # Save for next run
         with open(TOKEN_PATH, 'w') as token_file:
             token_file.write(creds.to_json())
-        print(f"Token saved to {TOKEN_PATH}")
+        logger.info("Token saved to %s", TOKEN_PATH)
 
     return creds
 

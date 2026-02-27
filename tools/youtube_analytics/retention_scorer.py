@@ -33,6 +33,10 @@ import re
 from pathlib import Path
 from statistics import mean, stdev
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 # Feature flag for KeywordDB availability
 SCORER_AVAILABLE = True
 
@@ -660,7 +664,7 @@ if __name__ == '__main__':
         sections = parser_obj.parse_file(args.script_path)
 
         if not sections:
-            print("Error: No sections found in script")
+            print("ERROR: No sections found in script", file=sys.stderr)
             sys.exit(1)
 
         # Score all sections
@@ -670,10 +674,10 @@ if __name__ == '__main__':
         print(format_retention_warnings(results))
 
     except ImportError:
-        print("Error: ScriptParser not available")
-        print("Install production tools or use as library:")
-        print("  from retention_scorer import score_section")
+        print("ERROR: ScriptParser not available", file=sys.stderr)
+        print("Install production tools or use as library:", file=sys.stderr)
+        print("  from retention_scorer import score_section", file=sys.stderr)
         sys.exit(1)
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"ERROR: {e}", file=sys.stderr)
         sys.exit(1)

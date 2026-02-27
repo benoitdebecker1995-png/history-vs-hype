@@ -21,6 +21,10 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 import argparse
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 def read_transcript(file_path: Path) -> str:
     """
@@ -327,15 +331,15 @@ def analyze_all_transcripts(transcripts_dir: Path) -> List[Dict[str, Any]]:
     for ext in extensions:
         files.extend(transcripts_dir.rglob(f'*{ext}'))
 
-    print(f"Discovered {len(files)} transcript files", file=sys.stderr)
+    logger.info("Discovered %d transcript files", len(files))
 
     results = []
     for i, file_path in enumerate(files, 1):
-        print(f"[{i}/{len(files)}] Analyzing {file_path.name}...", file=sys.stderr)
+        logger.debug("[%d/%d] Analyzing %s...", i, len(files), file_path.name)
         analysis = analyze_transcript_file(file_path)
         results.append(analysis)
 
-    print(f"Analysis complete: {len(results)} files processed", file=sys.stderr)
+    logger.info("Analysis complete: %d files processed", len(results))
     return results
 
 
