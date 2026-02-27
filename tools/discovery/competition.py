@@ -523,9 +523,9 @@ Examples:
 
     # Handle errors
     if 'error' in result:
-        print(f"Error: {result['error']}")
+        print(f"Error: {result['error']}", file=sys.stderr)
         if 'details' in result:
-            print(f"Details: {result['details']}")
+            print(f"Details: {result['details']}", file=sys.stderr)
         return 1
 
     # JSON output

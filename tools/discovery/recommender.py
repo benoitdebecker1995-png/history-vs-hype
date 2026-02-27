@@ -626,7 +626,7 @@ Examples:
 
     # Check dependencies
     if not DATABASE_AVAILABLE:
-        print("Error: database.py module not available.")
+        print("Error: database.py module not available.", file=sys.stderr)
         sys.exit(1)
 
     # Initialize
@@ -640,9 +640,9 @@ Examples:
     )
 
     if 'error' in result:
-        print(f"Error: {result['error']}")
+        print(f"Error: {result['error']}", file=sys.stderr)
         if result.get('help'):
-            print(f"Help: {result['help']}")
+            print(f"Help: {result['help']}", file=sys.stderr)
         sys.exit(1)
 
     # Output format

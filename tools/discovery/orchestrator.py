@@ -469,7 +469,7 @@ def main():
         result = orch.transition_keyword(keyword, new_state)
 
         if 'error' in result:
-            print(f"Error: {result['error']}")
+            print(f"Error: {result['error']}", file=sys.stderr)
             sys.exit(1)
         else:
             print(f"Transitioned '{keyword}' from {result['from']} to {result['to']}")
@@ -492,7 +492,7 @@ def main():
     result = orch.analyze_opportunity(args.keyword, force_refresh=args.refresh)
 
     if 'error' in result:
-        print(f"Error: {result['error']}")
+        print(f"Error: {result['error']}", file=sys.stderr)
         sys.exit(1)
 
     # Output format

@@ -421,7 +421,7 @@ Examples:
     # Get metadata from file or command line
     if args.file:
         if not args.file.exists():
-            print(f"Error: File not found: {args.file}")
+            print(f"Error: File not found: {args.file}", file=sys.stderr)
             return 1
         metadata = parse_metadata_file(args.file)
     elif args.title and args.description:
