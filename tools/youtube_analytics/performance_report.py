@@ -35,6 +35,10 @@ from collections import defaultdict
 from statistics import mean, median
 from typing import Dict, List, Any, Optional
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 try:
     from tools.discovery.database import KeywordDB
     DATABASE_AVAILABLE = True
@@ -479,6 +483,6 @@ def save_report(report: str, path: Optional[str] = None) -> Dict[str, Any]:
 
 if __name__ == '__main__':
     # Quick test
-    print("Generating performance report...")
+    logger.info("Generating performance report...")
     report = generate_performance_report()
     print(report)

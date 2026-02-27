@@ -909,11 +909,9 @@ Output: tools/discovery/keywords.db (video_performance table)
 
     project_root = Path(__file__).parent.parent.parent
 
-    print()
-    print("Analytics Backfill")
-    print(f"Project root: {project_root}")
-    print(f"Database: {project_root / 'tools' / 'discovery' / 'keywords.db'}")
-    print()
+    logger.info("Analytics Backfill")
+    logger.info("Project root: %s", project_root)
+    logger.info("Database: %s", project_root / 'tools' / 'discovery' / 'keywords.db')
 
     if args.insights_only:
         logger.info("Insights-only mode: regenerating channel-insights.md")

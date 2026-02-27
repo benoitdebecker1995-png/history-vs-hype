@@ -270,7 +270,7 @@ def save_analysis(analysis: dict, output_path: str = None) -> dict:
         from backfill import generate_channel_insights_report
         insights_result = generate_channel_insights_report(PROJECT_ROOT)
         if 'error' not in insights_result:
-            print(f"  Channel insights updated: {insights_result['saved_to']}")
+            logger.info("Channel insights updated: %s", insights_result['saved_to'])
     except ImportError:
         pass  # backfill.py not yet available — graceful degradation
     except Exception as e:

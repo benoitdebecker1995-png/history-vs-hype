@@ -657,10 +657,10 @@ def main():
             print(f"Error writing Part 8: {write_result['error']}", file=sys.stderr)
             sys.exit(1)
 
-        print(f"\n✓ Part 8 generated and written to STYLE-GUIDE.md", file=sys.stderr)
-        print(f"  Transcripts analyzed: {result['transcripts_analyzed']}")
-        print(f"  Techniques stored: {result['techniques_stored']}")
-        print(f"  Universal patterns: {sum(len(p) for p in result['universal_patterns'].values())}")
+        logger.info("Part 8 generated and written to STYLE-GUIDE.md")
+        logger.info("  Transcripts analyzed: %d", result['transcripts_analyzed'])
+        logger.info("  Techniques stored: %d", result['techniques_stored'])
+        logger.info("  Universal patterns: %d", sum(len(p) for p in result['universal_patterns'].values()))
 
     elif args.update:
         # Regenerate from DB
@@ -673,7 +673,7 @@ def main():
             print(f"Error writing Part 8: {write_result['error']}", file=sys.stderr)
             sys.exit(1)
 
-        print(f"✓ Part 8 regenerated from database and written to STYLE-GUIDE.md", file=sys.stderr)
+        logger.info("Part 8 regenerated from database and written to STYLE-GUIDE.md")
 
     elif args.dry_run:
         # Print to stdout
