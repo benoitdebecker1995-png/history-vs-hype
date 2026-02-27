@@ -32,9 +32,12 @@ import argparse
 from pathlib import Path
 from typing import Optional
 
+from tools.logging_config import get_logger
 from .structure_detector import StructureDetector
 from .formatter import Formatter
 from .smoke_test import run_smoke_test
+
+logger = get_logger(__name__)
 
 
 def read_input(text_arg: Optional[str], file_path: Optional[str]) -> dict:
@@ -81,7 +84,7 @@ def cmd_detect(args):
     # Read input
     input_result = read_input(args.text, args.file)
     if 'error' in input_result:
-        print(f"ERROR: {input_result['error']}", file=sys.stderr)
+        logger.error("Input error: %s", input_result['error'])
         return 1
 
     text = input_result['text']
@@ -91,7 +94,7 @@ def cmd_detect(args):
     result = detector.detect_structure(text, args.type)
 
     if 'error' in result:
-        print(f"ERROR: {result['error']}", file=sys.stderr)
+        logger.error("Structure detection failed: %s", result['error'])
         return 1
 
     # Output

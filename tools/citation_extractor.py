@@ -16,6 +16,10 @@ from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Any
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 def parse_citations(content: str) -> List[Dict]:
     """
@@ -320,7 +324,7 @@ Examples:
 
     # Handle errors
     if 'error' in result:
-        print(f"ERROR: {result['error']}", file=sys.stderr)
+        logger.error("Citation extraction failed: %s", result['error'])
         sys.exit(1)
 
     # Print stats
@@ -329,9 +333,8 @@ Examples:
 
     # Print warnings
     if result['warnings']:
-        print("\nWarnings:")
         for warning in result['warnings']:
-            print(f"  - {warning}")
+            logger.warning("%s", warning)
 
     # Stats only mode
     if args.stats_only:

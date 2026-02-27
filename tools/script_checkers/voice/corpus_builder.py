@@ -18,6 +18,10 @@ from typing import List, Dict, Tuple
 from difflib import SequenceMatcher
 import srt
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 def extract_script_body(markdown_text: str) -> str:
     """Remove markdown formatting and stage directions from script.
@@ -83,7 +87,7 @@ def parse_srt_to_text(srt_path: Path) -> str:
             continue
         except srt.SRTParseError as e:
             # Log warning but continue - may be malformed SRT
-            print(f"Warning: Malformed SRT at {srt_path}: {e}")
+            logger.warning("Malformed SRT at %s: %s", srt_path, e)
             return ""
 
     raise UnicodeDecodeError(f"Could not decode {srt_path} with any common encoding")
@@ -130,8 +134,8 @@ def compare_script_to_transcript(script_path: Path, srt_path: Path) -> List[Dict
 
     length_ratio = max(len(script_words), len(transcript_words)) / min(len(script_words), len(transcript_words))
     if length_ratio > 1.5:
-        print(f"Warning: Script/transcript length mismatch ({len(script_words)} vs {len(transcript_words)} words)")
-        print(f"  Ratio: {length_ratio:.2f} - may be wrong pair")
+        logger.warning("Script/transcript length mismatch (%d vs %d words)", len(script_words), len(transcript_words))
+        logger.warning("  Ratio: %.2f - may be wrong pair", length_ratio)
 
     # Word-level sequence matching
     matcher = SequenceMatcher(None, script_words, transcript_words)

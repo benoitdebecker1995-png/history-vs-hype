@@ -26,6 +26,10 @@ import re
 from pathlib import Path
 from typing import Dict, Any, List, Optional
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 class TranslationVerifier:
     """
@@ -664,7 +668,7 @@ def main():
     )
 
     if 'error' in result:
-        print(f"ERROR: {result['error']}", file=sys.stderr)
+        logger.error("Verification failed: %s", result['error'])
         sys.exit(1)
 
     # Print summary

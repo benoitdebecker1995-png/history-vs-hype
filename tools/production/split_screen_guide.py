@@ -23,6 +23,10 @@ import json
 from typing import Dict, Any, List, Optional, Tuple
 from datetime import datetime
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 # Fixed words-per-minute rate for timing calculations
 WPM = 150
@@ -737,7 +741,7 @@ def main():
     )
 
     if 'error' in result:
-        print(f"ERROR: {result['error']}", file=sys.stderr)
+        logger.error("Split-screen guide generation failed: %s", result['error'])
         sys.exit(1)
 
     print(f"Split-screen edit guide generated successfully!")

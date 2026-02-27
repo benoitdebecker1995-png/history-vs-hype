@@ -48,8 +48,11 @@ import argparse
 from pathlib import Path
 from typing import Dict, Any
 
+from tools.logging_config import get_logger
 from .config import Config
 from .output import OutputFormatter
+
+logger = get_logger(__name__)
 
 
 def read_script_file(filepath: str) -> str:
@@ -110,8 +113,8 @@ def run_checkers(text: str, config: Config, checker_flags: Dict[str, bool]) -> D
             results['flow'] = checker.check(text)
         except RuntimeError as e:
             # spaCy model not installed
-            print(f"ERROR: {e}", file=sys.stderr)
-            print("Install with: python -m spacy download en_core_web_sm", file=sys.stderr)
+            logger.error("%s", e)
+            logger.error("Install with: python -m spacy download en_core_web_sm")
             sys.exit(3)
 
     # SCRIPT-01: Repetition Detection (content issues)
@@ -128,8 +131,8 @@ def run_checkers(text: str, config: Config, checker_flags: Dict[str, bool]) -> D
             results['stumble'] = checker.check(text)
         except RuntimeError as e:
             # spaCy model not installed
-            print(f"ERROR: {e}", file=sys.stderr)
-            print("Install with: python -m spacy download en_core_web_sm", file=sys.stderr)
+            logger.error("%s", e)
+            logger.error("Install with: python -m spacy download en_core_web_sm")
             sys.exit(3)
 
     # SCRIPT-04: Scaffolding Counter (delivery phrases)
@@ -145,11 +148,11 @@ def run_checkers(text: str, config: Config, checker_flags: Dict[str, bool]) -> D
             checker = PacingChecker(config)
             results['pacing'] = checker.check(text)
         except RuntimeError as e:
-            print(f"ERROR: {e}", file=sys.stderr)
+            logger.error("%s", e)
             sys.exit(3)
         except ImportError as e:
-            print(f"WARNING: Pacing checker unavailable: {e}", file=sys.stderr)
-            print("Install with: pip install textstat", file=sys.stderr)
+            logger.warning("Pacing checker unavailable: %s", e)
+            logger.warning("Install with: pip install textstat")
 
     return results
 
@@ -306,16 +309,16 @@ Exit codes:
         output_path = Path(__file__).parent / 'voice-patterns.json'
 
         if not projects_dir.exists():
-            print(f"ERROR: Projects directory not found: {projects_dir}", file=sys.stderr)
-            print("Provide a script path from your video project, or ensure video-projects/ is in expected location", file=sys.stderr)
+            logger.error("Projects directory not found: %s", projects_dir)
+            logger.error("Provide a script path from your video project, or ensure video-projects/ is in expected location")
             sys.exit(1)
 
         try:
             from .voice import build_pattern_library
         except ImportError as e:
-            print("ERROR: srt library not installed. Required for corpus analysis.", file=sys.stderr)
-            print("Install with: pip install srt", file=sys.stderr)
-            print("See: VOICE-SETUP.md for details", file=sys.stderr)
+            logger.error("srt library not installed. Required for corpus analysis.")
+            logger.error("Install with: pip install srt")
+            logger.error("See: VOICE-SETUP.md for details")
             sys.exit(1)
 
         print(f"Rebuilding voice patterns from: {projects_dir}")
@@ -338,7 +341,7 @@ Exit codes:
 
     # Require script_path for all other operations
     if not args.script_path:
-        print("ERROR: script_path is required (unless using --rebuild-voice)", file=sys.stderr)
+        logger.error("script_path is required (unless using --rebuild-voice)")
         parser.print_help()
         sys.exit(1)
 
@@ -371,11 +374,11 @@ Exit codes:
     try:
         script = read_script_file(args.script_path)
     except FileNotFoundError as e:
-        print(f"ERROR: {e}", file=sys.stderr)
+        logger.error("%s", e)
         sys.exit(1)
     except ValueError as e:
-        print(f"ERROR: {e}", file=sys.stderr)
-        print("No content to check", file=sys.stderr)
+        logger.error("%s", e)
+        logger.error("No content to check")
         sys.exit(0)
 
     # Apply voice patterns if requested (BEFORE checkers)
@@ -394,8 +397,8 @@ Exit codes:
                 show_changes=args.show_voice_changes
             )
         except FileNotFoundError:
-            print("WARNING: No voice patterns found. Run corpus analysis first to build voice-patterns.json", file=sys.stderr)
-            print("See: VOICE-SETUP.md for setup instructions", file=sys.stderr)
+            logger.warning("No voice patterns found. Run corpus analysis first to build voice-patterns.json")
+            logger.warning("See: VOICE-SETUP.md for setup instructions")
 
     # Initialize config
     config = Config()

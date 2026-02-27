@@ -25,6 +25,10 @@ except ImportError:
     print("ERROR: anthropic package not installed. Run: pip install anthropic>=0.40.0", file=sys.stderr)
     sys.exit(1)
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 def generate_source_list(topic: str, video_type: str = "general", num_sources: int = 15) -> Dict[str, Any]:
     """
@@ -275,7 +279,7 @@ Requirements:
 
     # Validate sources count
     if args.sources < 10 or args.sources > 20:
-        print("WARNING: --sources should be in range 10-20 for optimal results", file=sys.stderr)
+        logger.warning("--sources should be in range 10-20 for optimal results")
 
     # Generate source list
     print(f"Generating source list for: {args.topic}")
@@ -287,7 +291,7 @@ Requirements:
 
     # Handle errors
     if 'error' in result:
-        print(f"ERROR: {result['error']}", file=sys.stderr)
+        logger.error("Source list generation failed: %s", result['error'])
         sys.exit(1)
 
     # Dry run - print to stdout
@@ -301,7 +305,7 @@ Requirements:
     write_result = write_source_list(result['content'], args.output, args.topic)
 
     if 'error' in write_result:
-        print(f"ERROR: {write_result['error']}", file=sys.stderr)
+        logger.error("Failed to write source list: %s", write_result['error'])
         sys.exit(1)
 
     # Success output

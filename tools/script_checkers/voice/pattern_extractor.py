@@ -19,6 +19,10 @@ from pathlib import Path
 from typing import List, Dict, Tuple
 from collections import Counter, defaultdict
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 from .corpus_builder import find_video_pairs, compare_script_to_transcript
 
 
@@ -258,7 +262,7 @@ def build_pattern_library(projects_dir: Path, output_path: Path) -> Dict:
     pairs = find_video_pairs(projects_dir)
 
     if len(pairs) < 5:
-        print(f"Warning: Only {len(pairs)} video pairs found. Minimum 5 recommended for statistical significance.")
+        logger.warning("Only %d video pairs found. Minimum 5 recommended for statistical significance.", len(pairs))
 
     # Collect modifications from all videos
     all_modifications = []
@@ -271,7 +275,7 @@ def build_pattern_library(projects_dir: Path, output_path: Path) -> Dict:
         video_date = _extract_video_date(folder_name)
         video_metadata[folder_name] = video_date
 
-        print(f"Analyzing: {folder_name}")
+        logger.info("Analyzing: %s", folder_name)
 
         # Compare script to transcript
         modifications = compare_script_to_transcript(script_path, srt_path)
