@@ -1549,62 +1549,61 @@ class KeywordDB:
 
             logger.info("[Phase 27] Database backed up to: %s", backup_path)
 
-            cursor = self._conn.cursor()
+            with self._conn:
+                cursor = self._conn.cursor()
 
-            # Create thumbnail_variants table
-            cursor.execute(
-                """
-                CREATE TABLE IF NOT EXISTS thumbnail_variants (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    video_id TEXT NOT NULL,
-                    variant_letter TEXT NOT NULL,
-                    file_path TEXT NOT NULL,
-                    perceptual_hash TEXT,
-                    visual_pattern_tags TEXT,
-                    created_at DATE NOT NULL,
-                    FOREIGN KEY (video_id) REFERENCES video_performance(video_id)
+                # Create thumbnail_variants table
+                cursor.execute(
+                    """
+                    CREATE TABLE IF NOT EXISTS thumbnail_variants (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        video_id TEXT NOT NULL,
+                        variant_letter TEXT NOT NULL,
+                        file_path TEXT NOT NULL,
+                        perceptual_hash TEXT,
+                        visual_pattern_tags TEXT,
+                        created_at DATE NOT NULL,
+                        FOREIGN KEY (video_id) REFERENCES video_performance(video_id)
+                    )
+                    """
                 )
-                """
-            )
 
-            # Create indexes for thumbnail_variants
-            cursor.execute(
-                "CREATE INDEX IF NOT EXISTS idx_thumbnail_video ON thumbnail_variants(video_id)"
-            )
-            cursor.execute(
-                "CREATE INDEX IF NOT EXISTS idx_thumbnail_hash ON thumbnail_variants(perceptual_hash)"
-            )
-
-            # Create title_variants table
-            cursor.execute(
-                """
-                CREATE TABLE IF NOT EXISTS title_variants (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    video_id TEXT NOT NULL,
-                    variant_letter TEXT NOT NULL,
-                    title_text TEXT NOT NULL,
-                    character_count INTEGER NOT NULL,
-                    formula_tags TEXT,
-                    created_at DATE NOT NULL,
-                    FOREIGN KEY (video_id) REFERENCES video_performance(video_id)
+                # Create indexes for thumbnail_variants
+                cursor.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_thumbnail_video ON thumbnail_variants(video_id)"
                 )
-                """
-            )
+                cursor.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_thumbnail_hash ON thumbnail_variants(perceptual_hash)"
+                )
 
-            # Create index for title_variants
-            cursor.execute(
-                "CREATE INDEX IF NOT EXISTS idx_title_video ON title_variants(video_id)"
-            )
+                # Create title_variants table
+                cursor.execute(
+                    """
+                    CREATE TABLE IF NOT EXISTS title_variants (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        video_id TEXT NOT NULL,
+                        variant_letter TEXT NOT NULL,
+                        title_text TEXT NOT NULL,
+                        character_count INTEGER NOT NULL,
+                        formula_tags TEXT,
+                        created_at DATE NOT NULL,
+                        FOREIGN KEY (video_id) REFERENCES video_performance(video_id)
+                    )
+                    """
+                )
 
-            self._conn.commit()
+                # Create index for title_variants
+                cursor.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_title_video ON title_variants(video_id)"
+                )
 
             logger.info("[Phase 27] Variant tables created (thumbnail_variants, title_variants)")
 
-            # Set schema version to 27
+            # Set schema version to 27 — after DDL succeeds
             self.set_schema_version(27)
 
-        except sqlite3.Error:
-            pass
+        except sqlite3.Error as e:
+            logger.error("Migration to v27 failed: %s", e)
 
     def _ensure_ctr_snapshots_table(self):
         """
@@ -1623,36 +1622,37 @@ class KeywordDB:
             if cursor.fetchone() is not None:
                 return
 
-            # Create ctr_snapshots table
-            cursor.execute(
-                """
-                CREATE TABLE IF NOT EXISTS ctr_snapshots (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    video_id TEXT NOT NULL,
-                    snapshot_date DATE NOT NULL,
-                    ctr_percent REAL NOT NULL,
-                    impression_count INTEGER NOT NULL,
-                    view_count INTEGER NOT NULL,
-                    active_thumbnail_id INTEGER,
-                    active_title_id INTEGER,
-                    is_late_entry BOOLEAN DEFAULT 0,
-                    recorded_at DATE NOT NULL,
-                    FOREIGN KEY (video_id) REFERENCES video_performance(video_id),
-                    FOREIGN KEY (active_thumbnail_id) REFERENCES thumbnail_variants(id),
-                    FOREIGN KEY (active_title_id) REFERENCES title_variants(id)
+            with self._conn:
+                cursor = self._conn.cursor()
+
+                # Create ctr_snapshots table
+                cursor.execute(
+                    """
+                    CREATE TABLE IF NOT EXISTS ctr_snapshots (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        video_id TEXT NOT NULL,
+                        snapshot_date DATE NOT NULL,
+                        ctr_percent REAL NOT NULL,
+                        impression_count INTEGER NOT NULL,
+                        view_count INTEGER NOT NULL,
+                        active_thumbnail_id INTEGER,
+                        active_title_id INTEGER,
+                        is_late_entry BOOLEAN DEFAULT 0,
+                        recorded_at DATE NOT NULL,
+                        FOREIGN KEY (video_id) REFERENCES video_performance(video_id),
+                        FOREIGN KEY (active_thumbnail_id) REFERENCES thumbnail_variants(id),
+                        FOREIGN KEY (active_title_id) REFERENCES title_variants(id)
+                    )
+                    """
                 )
-                """
-            )
 
-            # Create index
-            cursor.execute(
-                "CREATE INDEX IF NOT EXISTS idx_ctr_video_date ON ctr_snapshots(video_id, snapshot_date DESC)"
-            )
+                # Create index
+                cursor.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_ctr_video_date ON ctr_snapshots(video_id, snapshot_date DESC)"
+                )
 
-            self._conn.commit()
-
-        except sqlite3.Error:
-            pass
+        except sqlite3.Error as e:
+            logger.error("Migration ctr_snapshots failed: %s", e)
 
     def _ensure_feedback_tables(self):
         """
@@ -1676,34 +1676,35 @@ class KeywordDB:
                 'lessons_learned': 'ALTER TABLE video_performance ADD COLUMN lessons_learned TEXT'
             }
 
-            for col_name, alter_sql in columns_to_add.items():
-                if col_name not in existing_columns:
-                    cursor.execute(alter_sql)
+            with self._conn:
+                cursor = self._conn.cursor()
 
-            # Create section_feedback table
-            cursor.execute(
-                """
-                CREATE TABLE IF NOT EXISTS section_feedback (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    video_id TEXT NOT NULL,
-                    section_name TEXT NOT NULL,
-                    retention_percent REAL,
-                    notes TEXT,
-                    created_at DATE,
-                    FOREIGN KEY (video_id) REFERENCES video_performance(video_id)
+                for col_name, alter_sql in columns_to_add.items():
+                    if col_name not in existing_columns:
+                        cursor.execute(alter_sql)
+
+                # Create section_feedback table
+                cursor.execute(
+                    """
+                    CREATE TABLE IF NOT EXISTS section_feedback (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        video_id TEXT NOT NULL,
+                        section_name TEXT NOT NULL,
+                        retention_percent REAL,
+                        notes TEXT,
+                        created_at DATE,
+                        FOREIGN KEY (video_id) REFERENCES video_performance(video_id)
+                    )
+                    """
                 )
-                """
-            )
 
-            # Create index
-            cursor.execute(
-                "CREATE INDEX IF NOT EXISTS idx_section_feedback_video ON section_feedback(video_id)"
-            )
+                # Create index
+                cursor.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_section_feedback_video ON section_feedback(video_id)"
+                )
 
-            self._conn.commit()
-
-        except sqlite3.Error:
-            pass
+        except sqlite3.Error as e:
+            logger.error("Migration feedback tables failed: %s", e)
 
     def add_video_performance(
         self,
