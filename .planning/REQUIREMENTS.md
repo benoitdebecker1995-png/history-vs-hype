@@ -61,8 +61,8 @@ Requirements for v5.1 Codebase Hardening. Each maps to roadmap phases.
 
 ### External Intelligence Synthesis
 
-- [ ] **EIS-01**: `/publish --prompts` generates tailored VidIQ Pro Coach + Gemini prompts from script analysis with auto-adapted script context
-- [ ] **EIS-02**: `/publish --intake` auto-classifies pasted VidIQ/Gemini responses and persists to EXTERNAL-INTELLIGENCE.json
+- [x] **EIS-01**: `/publish --prompts` generates tailored VidIQ Pro Coach + Gemini prompts from script analysis with auto-adapted script context
+- [x] **EIS-02**: `/publish --intake` auto-classifies pasted VidIQ/Gemini responses and persists to EXTERNAL-INTELLIGENCE.json
 - [ ] **EIS-03**: Synthesis engine merges internal + external intelligence into 3 ranked title+thumbnail pairings (keyword/curiosity/authority)
 - [ ] **EIS-04**: Content moderation scorer flags trigger words in titles, description, tags, and thumbnail concepts with safe alternatives
 - [ ] **EIS-05**: Thumbnail blueprints include composition guides, per-element AI-generation tagging with copy-paste prompts

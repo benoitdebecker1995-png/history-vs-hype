@@ -669,7 +669,7 @@ Plans:
 | 51. Logging & CLI Standardization | 3/3 | Complete    | 2026-02-27 | - |
 | 52. Database Hardening | 2/2 | Complete    | 2026-02-28 | - |
 | 53. Integration Testing | 2/2 | Complete    | 2026-02-28 | - |
-| 54. External Intelligence Synthesis | v5.1 | 0/2 | Not started | - |
+| 54. External Intelligence Synthesis | 1/2 | In Progress|  | - |
 
 ### Phase 54: External Intelligence Synthesis
 **Goal**: `/publish --prompts` generates tailored VidIQ/Gemini prompts from script analysis; `/publish --intake` parses their responses into structured data; synthesis engine merges internal + external intelligence into ranked metadata packages with content moderation scoring and Photoshop-ready thumbnail blueprints

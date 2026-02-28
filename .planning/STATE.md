@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
 status: planning
-last_updated: "2026-02-28T16:43:08.349Z"
+last_updated: "2026-02-28T21:35:01.281Z"
 last_activity: "2026-02-28 — 53-02 complete: 5 integration smoke test files (37 tests) for all 5 pipelines; 122 pass, 18 skip, 0 fail (TEST-02 through TEST-06 satisfied)"
 progress:
   total_phases: 57
   completed_phases: 55
-  total_plans: 120
-  completed_plans: 120
-  percent: 100
+  total_plans: 122
+  completed_plans: 121
+  percent: 99
 ---
 
 # State: History vs Hype Workspace
@@ -28,12 +28,12 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 ## Current Position
 
 **Milestone:** v5.1 Codebase Hardening
-**Phase:** 53 complete (Plan 01: infrastructure + unit test migration; Plan 02: 5 pipeline smoke test files)
-**Status:** Ready to plan
-**Last activity:** 2026-02-28 — 53-02 complete: 5 integration smoke test files (37 tests) for all 5 pipelines; 122 pass, 18 skip, 0 fail (TEST-02 through TEST-06 satisfied)
+**Phase:** 54-external-intelligence-synthesis (Plan 01 complete, Plan 02 pending)
+**Status:** Executing
+**Last activity:** 2026-02-28 — 54-01 complete: prompt_generator.py (VidIQ + Gemini prompts) + intake_parser.py (5-type auto-classifier with JSON persistence)
 
 **Progress:**
-[██████████] 100%
+[██████████] 99%
 
 ## Milestone History
 
@@ -103,6 +103,8 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 53-integration-testing]: OpportunityOrchestrator full-pipeline smoke tests also mock db.get_keyword + scorer — demand mock alone insufficient; DB lookup follows immediately after demand analysis
 - [Phase 53-integration-testing]: feedparser patch at tools.intel.algo_scraper.feedparser.parse AND tools.intel.competitor_tracker.feedparser.parse — both modules import feedparser independently at top-level
 - [Phase 53-integration-testing]: TranslationDataBuilder.parse_response third param is original_text not source_language — test must match actual interface
+- [Phase 54]: VIDIQ_CHAR_LIMIT=2000 as configurable constant for VidIQ Pro Coach prompt context
+- [Phase 54]: Regex-scoring classifier for 5 response types — transparent and testable, no new dependencies
 
 ### Roadmap Evolution
 
@@ -121,12 +123,12 @@ None at roadmap time.
 ### Last Session
 
 - **Date:** 2026-02-28
-- **Work:** Executed 53-02 — wrote 5 integration smoke test files (test_discovery.py, test_intel.py, test_translation.py, test_production.py, test_analytics.py); 37 new tests; fixed orchestrator KeyError by patching db.get_keyword; confirmed feedparser patch targets at use sites. 122 pass, 18 skip, 0 fail. TEST-02 through TEST-06 satisfied.
-- **Output:** 53-02-SUMMARY.md created, commits 79e604e (Task 1) + 0f34e90 (Task 2)
+- **Work:** Executed 54-01 — created prompt_generator.py (4 VidIQ + 1 Gemini prompt, auto-adapted to script length) and intake_parser.py (regex-scoring classifier for 5 response types, JSON persistence with parseable_ratio tracking)
+- **Output:** 54-01-SUMMARY.md created, commits 6ad105b (Task 1) + b873216 (Task 2)
 
 ### Next Session
 
-**Next action:** Phase 54 — External Intelligence Synthesis (v5.1 milestone final phase)
+**Next action:** Phase 54 Plan 02 — Synthesis engine (reads EXTERNAL-INTELLIGENCE.json, produces ranked metadata packages)
 
 ## Technical Notes
 
@@ -138,4 +140,4 @@ None at roadmap time.
 
 ---
 
-*State updated: 2026-02-28 after 53-02 execution complete*
+*State updated: 2026-02-28 after 54-01 execution complete*
