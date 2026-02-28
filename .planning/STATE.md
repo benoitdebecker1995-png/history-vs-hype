@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
-status: planning
-last_updated: "2026-02-28T16:33:03.988Z"
-last_activity: "2026-02-28 — 52-02 complete: wrapped keywords.db _ensure_* migration methods in with self._conn: atomic transactions; fixed version-before-commit ordering in technique_library.py; DB-02 + DB-03 satisfied"
+status: executing
+last_updated: "2026-02-28T16:39:52.313Z"
+last_activity: "2026-02-28 — 53-02 complete: 5 integration smoke test files (37 tests) for all 5 pipelines; 122 pass, 18 skip, 0 fail (TEST-02 through TEST-06 satisfied)"
 progress:
   total_phases: 57
-  completed_phases: 54
+  completed_phases: 55
   total_plans: 120
-  completed_plans: 119
-  percent: 99
+  completed_plans: 120
+  percent: 100
 ---
 
 # State: History vs Hype Workspace
@@ -28,12 +28,12 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 ## Current Position
 
 **Milestone:** v5.1 Codebase Hardening
-**Phase:** 53 in progress (Plan 01 complete — pytest infrastructure + 6 migrated unit tests; Plan 02 pending)
+**Phase:** 53 complete (Plan 01: infrastructure + unit test migration; Plan 02: 5 pipeline smoke test files)
 **Status:** In progress
-**Last activity:** 2026-02-28 — 53-01 complete: tests/ directory tree created, conftest.py fixtures, 6 test files migrated to absolute imports, pyproject.toml updated; 85 pass, 18 skip, 0 fail (TEST-01, TEST-07 satisfied)
+**Last activity:** 2026-02-28 — 53-02 complete: 5 integration smoke test files (37 tests) for all 5 pipelines; 122 pass, 18 skip, 0 fail (TEST-02 through TEST-06 satisfied)
 
 **Progress:**
-[██████████] 99%
+[██████████] 100%
 
 ## Milestone History
 
@@ -100,6 +100,9 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 53-integration-testing]: spaCy-dependent pacing tests use @requires_nlp skip — spaCy is optional [nlp] dep, skip keeps CI clean
 - [Phase 53-integration-testing]: KBStore fixture uses real tmp_path file (not :memory:) — per-call _connect() pattern requires real file for cross-call persistence
 - [Phase 53-integration-testing]: pyproject.toml testpaths=[tests] — pytest discovery now targets tests/ tree, not tools/
+- [Phase 53-integration-testing]: OpportunityOrchestrator full-pipeline smoke tests also mock db.get_keyword + scorer — demand mock alone insufficient; DB lookup follows immediately after demand analysis
+- [Phase 53-integration-testing]: feedparser patch at tools.intel.algo_scraper.feedparser.parse AND tools.intel.competitor_tracker.feedparser.parse — both modules import feedparser independently at top-level
+- [Phase 53-integration-testing]: TranslationDataBuilder.parse_response third param is original_text not source_language — test must match actual interface
 
 ### Roadmap Evolution
 
@@ -118,12 +121,12 @@ None at roadmap time.
 ### Last Session
 
 - **Date:** 2026-02-28
-- **Work:** Executed 53-01 — created tests/ directory tree (conftest.py, 4 fixtures, __init__.py files); migrated 6 test files from tools/ to tests/unit/ with absolute imports; added @requires_nlp skip for spaCy-dependent pacing tests; fixed section_diagnostics assertion; updated pyproject.toml testpaths. TEST-01 + TEST-07 satisfied.
-- **Output:** 53-01-SUMMARY.md created, commits 37774a4 (Task 1) + f652438 (Task 2)
+- **Work:** Executed 53-02 — wrote 5 integration smoke test files (test_discovery.py, test_intel.py, test_translation.py, test_production.py, test_analytics.py); 37 new tests; fixed orchestrator KeyError by patching db.get_keyword; confirmed feedparser patch targets at use sites. 122 pass, 18 skip, 0 fail. TEST-02 through TEST-06 satisfied.
+- **Output:** 53-02-SUMMARY.md created, commits 79e604e (Task 1) + 0f34e90 (Task 2)
 
 ### Next Session
 
-**Next action:** Phase 53 Plan 02 — Integration tests for all 5 pipelines (TEST-02 through TEST-06)
+**Next action:** Phase 54 — External Intelligence Synthesis (v5.1 milestone final phase)
 
 ## Technical Notes
 
@@ -135,4 +138,4 @@ None at roadmap time.
 
 ---
 
-*State updated: 2026-02-27 after 51-03 execution complete*
+*State updated: 2026-02-28 after 53-02 execution complete*
