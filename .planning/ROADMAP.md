@@ -513,7 +513,11 @@ Plans:
   3. Intel pipeline test passes: KB refresh runs, query returns data, competitor fetch degrades gracefully without API auth
   4. Translation pipeline test passes: translate + cross-check + annotate chain completes on a fixture document
   5. Analytics pipeline test passes: backfill reads fixture POST-PUBLISH-ANALYSIS, stores to in-memory DB, patterns query returns data
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 53-01-PLAN.md — pytest config + conftest.py + fixtures + migrate 7 existing tests to tests/unit/
+- [ ] 53-02-PLAN.md — 5 pipeline integration smoke tests (discovery, intel, translation, production, analytics)
 
 ## Phase Details
 
@@ -664,7 +668,7 @@ Plans:
 | 50. Error Handling | 2/2 | Complete    | 2026-02-26 | - |
 | 51. Logging & CLI Standardization | 3/3 | Complete    | 2026-02-27 | - |
 | 52. Database Hardening | 2/2 | Complete    | 2026-02-28 | - |
-| 53. Integration Testing | v5.1 | 0/TBD | Not started | - |
+| 53. Integration Testing | v5.1 | 0/2 | Not started | - |
 | 54. External Intelligence Synthesis | v5.1 | 0/TBD | Not started | - |
 
 ### Phase 54: External Intelligence Synthesis
