@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
 status: planning
-last_updated: "2026-02-28T12:03:12.651Z"
+last_updated: "2026-02-28T16:33:03.988Z"
 last_activity: "2026-02-28 — 52-02 complete: wrapped keywords.db _ensure_* migration methods in with self._conn: atomic transactions; fixed version-before-commit ordering in technique_library.py; DB-02 + DB-03 satisfied"
 progress:
-  total_phases: 56
+  total_phases: 57
   completed_phases: 54
-  total_plans: 118
-  completed_plans: 118
-  percent: 100
+  total_plans: 120
+  completed_plans: 119
+  percent: 99
 ---
 
 # State: History vs Hype Workspace
@@ -28,12 +28,12 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 ## Current Position
 
 **Milestone:** v5.1 Codebase Hardening
-**Phase:** 52 in progress (Plans 01 complete; Plan 02 complete — DB-02 + DB-03 satisfied)
-**Status:** Ready to plan
-**Last activity:** 2026-02-28 — 52-02 complete: wrapped keywords.db _ensure_* migration methods in with self._conn: atomic transactions; fixed version-before-commit ordering in technique_library.py; DB-02 + DB-03 satisfied
+**Phase:** 53 in progress (Plan 01 complete — pytest infrastructure + 6 migrated unit tests; Plan 02 pending)
+**Status:** In progress
+**Last activity:** 2026-02-28 — 53-01 complete: tests/ directory tree created, conftest.py fixtures, 6 test files migrated to absolute imports, pyproject.toml updated; 85 pass, 18 skip, 0 fail (TEST-01, TEST-07 satisfied)
 
 **Progress:**
-[██████████] 100%
+[██████████] 99%
 
 ## Milestone History
 
@@ -97,6 +97,9 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 52-database-hardening]: Migration pattern: version set AFTER with self._conn: block succeeds, never inside — if DDL fails, version stays at old value and migration re-runs on next startup
 - [Phase 52-database-hardening]: autocommit=False required for Python 3.12+ sqlite3 DDL rollback in migration connections
 - [Phase 52-database-hardening]: CURRENT_SCHEMA_VERSION = 2 module constant; _migrate_schema() is single entry point for intel.db schema management
+- [Phase 53-integration-testing]: spaCy-dependent pacing tests use @requires_nlp skip — spaCy is optional [nlp] dep, skip keeps CI clean
+- [Phase 53-integration-testing]: KBStore fixture uses real tmp_path file (not :memory:) — per-call _connect() pattern requires real file for cross-call persistence
+- [Phase 53-integration-testing]: pyproject.toml testpaths=[tests] — pytest discovery now targets tests/ tree, not tools/
 
 ### Roadmap Evolution
 
@@ -115,12 +118,12 @@ None at roadmap time.
 ### Last Session
 
 - **Date:** 2026-02-28
-- **Work:** Executed 52-02 — wrapped _ensure_variant_tables, _ensure_ctr_snapshots_table, _ensure_feedback_tables in database.py with `with self._conn:` atomic transactions; fixed version-before-commit ordering bug in technique_library.py _ensure_schema_v28/_ensure_schema_v29; replaced all bare except-pass in migration methods with logger.error(). DB-02 + DB-03 satisfied.
-- **Output:** 52-02-SUMMARY.md created, commits 6d5e05f (Task 1) + 9d3eb60 (Task 2)
+- **Work:** Executed 53-01 — created tests/ directory tree (conftest.py, 4 fixtures, __init__.py files); migrated 6 test files from tools/ to tests/unit/ with absolute imports; added @requires_nlp skip for spaCy-dependent pacing tests; fixed section_diagnostics assertion; updated pyproject.toml testpaths. TEST-01 + TEST-07 satisfied.
+- **Output:** 53-01-SUMMARY.md created, commits 37774a4 (Task 1) + f652438 (Task 2)
 
 ### Next Session
 
-**Next action:** Phase 52 Plan 03 (if exists) or Phase 53 — Integration Testing (TEST-01..07)
+**Next action:** Phase 53 Plan 02 — Integration tests for all 5 pipelines (TEST-02 through TEST-06)
 
 ## Technical Notes
 

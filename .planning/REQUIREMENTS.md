@@ -21,13 +21,13 @@ Requirements for v5.1 Codebase Hardening. Each maps to roadmap phases.
 
 ### Testing
 
-- [ ] **TEST-01**: pytest configuration at repo root with conftest.py and test discovery
+- [x] **TEST-01**: pytest configuration at repo root with conftest.py and test discovery
 - [ ] **TEST-02**: Integration test for discovery pipeline (orchestrator end-to-end)
 - [ ] **TEST-03**: Integration test for intel pipeline (refresh, query, KB operations)
 - [ ] **TEST-04**: Integration test for translation pipeline (translate, cross-check, annotate)
 - [ ] **TEST-05**: Integration test for production pipeline (parser, edit guide, metadata)
 - [ ] **TEST-06**: Integration test for analytics pipeline (backfill, analyze, patterns)
-- [ ] **TEST-07**: DB fixtures for test setup/teardown (in-memory SQLite)
+- [x] **TEST-07**: DB fixtures for test setup/teardown (in-memory SQLite)
 
 ### Package Structure
 
@@ -93,13 +93,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | LOG-01 | Phase 51 | Complete |
 | LOG-02 | Phase 51 | Complete |
 | LOG-03 | Phase 51 | Complete |
-| TEST-01 | Phase 53 | Pending |
+| TEST-01 | Phase 53 | Complete |
 | TEST-02 | Phase 53 | Pending |
 | TEST-03 | Phase 53 | Pending |
 | TEST-04 | Phase 53 | Pending |
 | TEST-05 | Phase 53 | Pending |
 | TEST-06 | Phase 53 | Pending |
-| TEST-07 | Phase 53 | Pending |
+| TEST-07 | Phase 53 | Complete |
 | PKG-01 | Phase 48 | Complete |
 | PKG-02 | Phase 48 | Complete |
 | PKG-03 | Phase 48 | Complete |
