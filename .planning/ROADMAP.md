@@ -494,13 +494,13 @@ Plans:
 **Audit**: `.planning/audits/52-database.md` — intel.db has NO versioning (5 tables), analytics.db at v2 (good model), keywords.db at v29 but migrations not atomic
 **Success Criteria** (what must be TRUE):
   1. `PRAGMA user_version` on intel.db returns a non-zero version number matching the current schema
-  2. `PRAGMA user_version` on analytics.db returns a non-zero version number matching the current schema
+  2. `PRAGMA user_version` on keywords.db returns a non-zero version number matching the current schema (keywords.db is the active analytics database; analytics.db is unused)
   3. A migration that fails mid-way leaves the database unchanged (transaction rollback verified by test)
 **Plans**: 2 plans
 
 Plans:
-- [ ] 52-01-PLAN.md — Add PRAGMA user_version schema tracking + atomic migration chain to intel.db (kb_store.py)
-- [ ] 52-02-PLAN.md — Wrap keywords.db and technique_library.py migrations in atomic transactions
+- [x] 52-01-PLAN.md — Add PRAGMA user_version schema tracking + atomic migration chain to intel.db (kb_store.py)
+- [x] 52-02-PLAN.md — Wrap keywords.db and technique_library.py migrations in atomic transactions
 
 #### Phase 53: Integration Testing
 **Goal**: The five major pipelines are covered by runnable tests that catch regressions
@@ -585,13 +585,13 @@ Plans:
 **Requirements**: DB-01, DB-02, DB-03
 **Success Criteria** (what must be TRUE):
   1. `PRAGMA user_version` on intel.db returns a non-zero version number matching the current schema
-  2. `PRAGMA user_version` on analytics.db returns a non-zero version number matching the current schema
+  2. `PRAGMA user_version` on keywords.db returns a non-zero version number matching the current schema (keywords.db is the active analytics database; analytics.db is unused)
   3. A migration that fails mid-way leaves the database unchanged (transaction rollback verified by test)
 **Plans**: 2 plans
 
 Plans:
-- [ ] 52-01-PLAN.md — Add PRAGMA user_version schema tracking + atomic migration chain to intel.db (kb_store.py)
-- [ ] 52-02-PLAN.md — Wrap keywords.db and technique_library.py migrations in atomic transactions
+- [x] 52-01-PLAN.md — Add PRAGMA user_version schema tracking + atomic migration chain to intel.db (kb_store.py)
+- [x] 52-02-PLAN.md — Wrap keywords.db and technique_library.py migrations in atomic transactions
 
 ### Phase 53: Integration Testing
 **Goal**: The five major pipelines are covered by runnable tests that catch regressions
@@ -663,7 +663,7 @@ Plans:
 | 49. Dead Code Cleanup | 2/2 | Complete    | 2026-02-25 | - |
 | 50. Error Handling | 2/2 | Complete    | 2026-02-26 | - |
 | 51. Logging & CLI Standardization | 3/3 | Complete    | 2026-02-27 | - |
-| 52. Database Hardening | 2/2 | Complete   | 2026-02-28 | - |
+| 52. Database Hardening | 2/2 | Complete    | 2026-02-28 | - |
 | 53. Integration Testing | v5.1 | 0/TBD | Not started | - |
 | 54. External Intelligence Synthesis | v5.1 | 0/TBD | Not started | - |
 

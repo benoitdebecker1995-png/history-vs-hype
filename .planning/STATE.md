@@ -2,8 +2,8 @@
 gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
-status: Ready for 52-03 or Phase 53
-last_updated: "2026-02-28T11:57:56.012Z"
+status: planning
+last_updated: "2026-02-28T12:03:12.651Z"
 last_activity: "2026-02-28 — 52-02 complete: wrapped keywords.db _ensure_* migration methods in with self._conn: atomic transactions; fixed version-before-commit ordering in technique_library.py; DB-02 + DB-03 satisfied"
 progress:
   total_phases: 56
@@ -29,7 +29,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 
 **Milestone:** v5.1 Codebase Hardening
 **Phase:** 52 in progress (Plans 01 complete; Plan 02 complete — DB-02 + DB-03 satisfied)
-**Status:** Ready for 52-03 or Phase 53
+**Status:** Ready to plan
 **Last activity:** 2026-02-28 — 52-02 complete: wrapped keywords.db _ensure_* migration methods in with self._conn: atomic transactions; fixed version-before-commit ordering in technique_library.py; DB-02 + DB-03 satisfied
 
 **Progress:**
