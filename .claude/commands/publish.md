@@ -15,6 +15,9 @@ Generate YouTube metadata, test titles, or identify clip-worthy moments. Everyth
 /publish --titles [project]  # Generate title variants for A/B testing
 /publish --clips [project]   # Identify clip-worthy moments for Shorts
 /publish --full [project]    # All publishing preparation
+/publish --prompts [project]     # Generate VidIQ/Gemini prompts from script
+/publish --intake [project]      # Parse tool responses into structured data
+/publish --synthesize [project]  # Re-run synthesis on existing intake data
 ```
 
 ## Flags
@@ -26,6 +29,9 @@ Generate YouTube metadata, test titles, or identify clip-worthy moments. Everyth
 | `--clips` | Clip suggestions for Shorts/TikTok | `/publish --clips 19-flat-earth-medieval-2025` |
 | `--full` | All three workflows | `/publish --full 19-flat-earth-medieval-2025` |
 | `--evaluate` | Technique effectiveness evaluation | `/publish --evaluate somaliland-2025` |
+| `--prompts` | Generate external tool prompts | `/publish --prompts 35-gibraltar-treaty-utrecht-2026` |
+| `--intake` | Parse VidIQ/Gemini responses | `/publish --intake 35-gibraltar-treaty-utrecht-2026` |
+| `--synthesize` | Re-run synthesis engine | `/publish --synthesize 35-gibraltar-treaty-utrecht-2026` |
 
 ---
 
@@ -378,6 +384,116 @@ Run complete publishing preparation:
 
 ---
 
+## EXTERNAL INTELLIGENCE PROMPTS (`--prompts`)
+
+Generate tailored, copy-paste-ready prompts for VidIQ Pro Coach and Google Gemini.
+
+### How It Works
+
+1. Reads the project script (02-SCRIPT-DRAFT.md or FINAL-SCRIPT.md)
+2. Analyzes topic, entities (places, people, documents), and script structure
+3. Loads competitor context from intel.db (if available — run /intel --refresh first for best results)
+4. Generates 4 sequenced VidIQ Pro Coach prompts + 1 Gemini creative brief
+5. Saves to EXTERNAL-PROMPTS.md in the project folder
+
+### Workflow
+
+```python
+from tools.production.prompt_generator import generate_prompts
+result = generate_prompts(project_path, script_path)
+# Returns {'output_path': str} or {'error': str}
+```
+
+### Output: EXTERNAL-PROMPTS.md
+
+Numbered prompts with explicit instructions:
+- Step 1: Keyword Research -> VidIQ Pro Coach
+- Step 2: Title Optimization -> VidIQ Pro Coach
+- Step 3: Tag Strategy -> VidIQ Pro Coach
+- Step 4: Description -> VidIQ Pro Coach
+- Step 5: Creative Brief -> Google Gemini
+
+Each prompt is copy-paste ready. Follow the numbered sequence — each builds on the previous response.
+
+### After Running --prompts
+
+Follow the steps in EXTERNAL-PROMPTS.md, then run `/publish --intake` to parse the responses.
+
+---
+
+## INTAKE PARSING (`--intake`)
+
+Parse pasted VidIQ/Gemini responses into structured data for synthesis.
+
+### Session Flow
+
+1. System prompts: "Paste your VidIQ/Gemini response"
+2. User pastes raw text
+3. System auto-detects type (keyword data, titles, thumbnails, description, tags)
+4. System shows preview: "Detected: keyword data (8 keywords). First: 'gibraltar history (12,000 vol)'. Confirm? [y/n]"
+5. User confirms -> saved to EXTERNAL-INTELLIGENCE.json
+6. System prompts for next paste, or user types 'done'
+7. On 'done': auto-runs synthesis engine
+
+### Workflow
+
+```python
+from tools.production.intake_parser import classify_paste, save_session, load_or_create_intelligence
+from tools.production.synthesis_engine import synthesize
+
+# For each paste:
+classified = classify_paste(pasted_text)
+# Show preview to user, get confirmation
+save_session(project_path, source='vidiq_pro_coach', classified=classified, raw_text=pasted_text)
+
+# After 'done':
+result = synthesize(project_path, script_path)
+```
+
+### Auto-Detection Types
+
+| Type | Detected By | Example Signal |
+|------|-------------|----------------|
+| keyword_data | Volume/competition numbers | "search volume: 12,000" |
+| title_suggestions | Numbered title lists (40-70 chars) | "1. Spain's 300-Year Trap..." |
+| thumbnail_concepts | Visual/compositional language | "Split screen with map overlay" |
+| description_draft | Multi-paragraph YouTube prose | Paragraphs with hashtags |
+| tag_set | Comma-separated keyword phrases | "gibraltar, treaty, spain, ..." |
+
+### Source Labeling
+
+When prompting for paste, ask which tool the response came from:
+- "vidiq_pro_coach" (Steps 1-4 from --prompts)
+- "gemini" (Step 5 from --prompts)
+
+---
+
+## SYNTHESIS (`--synthesize`)
+
+Re-run synthesis on existing EXTERNAL-INTELLIGENCE.json (e.g., after adding more intake data).
+
+### Workflow
+
+```python
+from tools.production.synthesis_engine import synthesize
+result = synthesize(project_path, script_path)
+# Returns {'output_path': str} or {'error': str}
+```
+
+### Output: METADATA-SYNTHESIS.md
+
+3 title+thumbnail pairings designed for A/B testing:
+
+| Variant | Test Hypothesis | Optimized For |
+|---------|-----------------|---------------|
+| A: Keyword-Optimized | Search discoverability | VidIQ keyword data |
+| B: Curiosity Gap | Click-through intrigue | Gemini creative angles |
+| C: Authority Angle | Intellectual credibility | Script entities + evidence |
+
+Plus: one optimized description, one tag set, moderation scoring, thumbnail blueprints.
+
+---
+
 ## Integration with Production Workflow
 
 ### Typical Sequence
@@ -388,6 +504,17 @@ Run complete publishing preparation:
 /publish --titles [project]    # Title variants for testing
 [User uploads to YouTube]
 /publish --clips [project]     # Identify clips for promotion
+```
+
+### External Intelligence Workflow (NEW)
+
+```
+[Script is ready]
+/publish --prompts [project]     # Generate VidIQ/Gemini prompts
+[User follows EXTERNAL-PROMPTS.md steps, copies responses]
+/publish --intake [project]      # Parse responses -> auto-synthesizes
+[Review METADATA-SYNTHESIS.md — 3 variants ready for A/B testing]
+/publish --metadata [project]    # Generate final metadata (now informed by synthesis)
 ```
 
 ### VidIQ Integration
@@ -407,6 +534,9 @@ Run complete publishing preparation:
 - **Technique library:** `.claude/REFERENCE/PROVEN-TECHNIQUES-LIBRARY.md`
 - **Technique log:** `channel-data/TECHNIQUE-USAGE-LOG.md`
 - **Metadata checker:** `tools/discovery/metadata_checker.py`
+- **Prompt generator:** `tools/production/prompt_generator.py`
+- **Intake parser:** `tools/production/intake_parser.py`
+- **Synthesis engine:** `tools/production/synthesis_engine.py`
 
 ---
 
