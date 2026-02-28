@@ -11,6 +11,7 @@ Manages tools/intel/intel.db with 5 tables:
 All public methods follow the error-dict pattern: return {'error': msg}
 on failure; never raise. JSON columns use json.dumps/json.loads.
 Schema auto-creates on first connection (keywords.db pattern).
+Schema versioning via PRAGMA user_version (DB-01, DB-03).
 """
 
 import json
@@ -18,8 +19,15 @@ import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 # Database lives alongside this file
 DB_PATH = Path(__file__).parent / "intel.db"
+
+# Current schema version — increment when adding new migrations below
+CURRENT_SCHEMA_VERSION = 2
 
 _SCHEMA_SQL = """
 -- Algorithm knowledge: one snapshot per refresh
@@ -94,9 +102,7 @@ class KBStore:
 
     def __init__(self, db_path: str | Path | None = None):
         self.db_path = Path(db_path) if db_path else DB_PATH
-        self._init_schema()
-        self._ensure_topic_cluster_column()
-        self._ensure_outlier_ratio_column()
+        self._migrate_schema()
 
     # ------------------------------------------------------------------
     # Internal helpers
@@ -108,41 +114,105 @@ class KBStore:
         conn.row_factory = sqlite3.Row
         return conn
 
-    def _init_schema(self) -> None:
-        """Create tables and indexes if they don't exist yet."""
+    def _get_schema_version(self) -> int:
+        """Read PRAGMA user_version from the database. Returns 0 if never set or on error."""
         try:
-            self.db_path.parent.mkdir(parents=True, exist_ok=True)
             conn = self._connect()
-            conn.executescript(_SCHEMA_SQL)
-            conn.commit()
+            version = conn.execute("PRAGMA user_version").fetchone()[0]
             conn.close()
-        except Exception as exc:
-            # Schema errors are surfaced here only; callers get error dicts
-            raise RuntimeError(f"KBStore schema init failed: {exc}") from exc
+            logger.debug("intel.db schema version: %d", version)
+            return version
+        except sqlite3.Error:
+            return 0
 
-    def _ensure_topic_cluster_column(self) -> None:
-        """Add topic_cluster TEXT column to competitor_videos if missing."""
-        try:
-            conn = self._connect()
-            cols = [r[1] for r in conn.execute("PRAGMA table_info(competitor_videos)").fetchall()]
-            if "topic_cluster" not in cols:
-                conn.execute("ALTER TABLE competitor_videos ADD COLUMN topic_cluster TEXT")
-                conn.commit()
-            conn.close()
-        except sqlite3.OperationalError:
-            pass  # Non-fatal — column may already exist (expected on re-runs)
+    def _set_schema_version(self, version: int) -> None:
+        """Write PRAGMA user_version to the database."""
+        conn = self._connect()
+        conn.execute(f"PRAGMA user_version = {version}")
+        conn.commit()
+        conn.close()
+        logger.debug("intel.db schema version set to %d", version)
 
-    def _ensure_outlier_ratio_column(self) -> None:
-        """Add outlier_ratio REAL column to competitor_videos if missing."""
-        try:
+    def _migrate_schema(self) -> None:
+        """
+        Run all pending schema migrations in version order.
+
+        Version gates are idempotent — each gate only runs when the current
+        version is below the target. Version is stamped AFTER the DDL block
+        succeeds, so a failed migration reruns on next startup.
+
+        All DDL inside each gate is wrapped in `with conn:` for atomic rollback.
+        Note: executescript() is NOT used inside `with conn:` blocks because it
+        issues an implicit COMMIT that defeats rollback. Individual conn.execute()
+        calls are used instead.
+        """
+        self.db_path.parent.mkdir(parents=True, exist_ok=True)
+        version = self._get_schema_version()
+
+        # ----------------------------------------------------------------
+        # Version 1: initial schema (5 tables + 3 indexes)
+        # ----------------------------------------------------------------
+        if version < 1:
             conn = self._connect()
-            cols = [r[1] for r in conn.execute("PRAGMA table_info(competitor_videos)").fetchall()]
-            if "outlier_ratio" not in cols:
-                conn.execute("ALTER TABLE competitor_videos ADD COLUMN outlier_ratio REAL")
-                conn.commit()
+            try:
+                has_tables = conn.execute(
+                    "SELECT name FROM sqlite_master WHERE type='table' AND name='algo_snapshots'"
+                ).fetchone() is not None
+
+                if not has_tables:
+                    # Fresh database — create all tables and indexes atomically.
+                    # Split _SCHEMA_SQL into individual statements and execute
+                    # each separately so `with conn:` rollback actually works.
+                    # Note: executescript() is NOT used here because it issues an
+                    # implicit COMMIT that defeats the `with conn:` rollback.
+                    logger.info("intel.db: creating initial schema (version 1)")
+                    try:
+                        with conn:
+                            for stmt in _SCHEMA_SQL.strip().split(";\n"):
+                                # Strip leading comment lines, keep the SQL part
+                                sql_lines = [
+                                    line for line in stmt.splitlines()
+                                    if line.strip() and not line.strip().startswith("--")
+                                ]
+                                sql = "\n".join(sql_lines).strip()
+                                if sql:
+                                    conn.execute(sql)
+                    except Exception as exc:
+                        conn.close()
+                        raise RuntimeError(f"KBStore schema init failed: {exc}") from exc
+                else:
+                    # Pre-versioning database — tables already exist, skip DDL
+                    logger.info("intel.db: existing pre-v1 database detected, bootstrapping to version 1")
+
+                conn.close()
+            except RuntimeError:
+                raise
+            except Exception as exc:
+                conn.close()
+                raise RuntimeError(f"KBStore schema init failed: {exc}") from exc
+
+            self._set_schema_version(1)
+            version = 1
+
+        # ----------------------------------------------------------------
+        # Version 2: add topic_cluster + outlier_ratio columns
+        # ----------------------------------------------------------------
+        if version < 2:
+            logger.info("intel.db: migrating to version 2 (adding topic_cluster, outlier_ratio columns)")
+            conn = self._connect()
+            try:
+                cols = [r[1] for r in conn.execute("PRAGMA table_info(competitor_videos)").fetchall()]
+                with conn:
+                    if "topic_cluster" not in cols:
+                        conn.execute("ALTER TABLE competitor_videos ADD COLUMN topic_cluster TEXT")
+                    if "outlier_ratio" not in cols:
+                        conn.execute("ALTER TABLE competitor_videos ADD COLUMN outlier_ratio REAL")
+            except Exception as exc:
+                conn.close()
+                raise RuntimeError(f"KBStore migration to v2 failed: {exc}") from exc
             conn.close()
-        except sqlite3.OperationalError:
-            pass  # Non-fatal — column may already exist (expected on re-runs)
+            self._set_schema_version(2)
+            logger.info("intel.db: migration to version 2 complete")
 
     @staticmethod
     def _now() -> str:
