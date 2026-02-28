@@ -153,7 +153,10 @@ class KBStore:
         # Version 1: initial schema (5 tables + 3 indexes)
         # ----------------------------------------------------------------
         if version < 1:
-            conn = self._connect()
+            # Use autocommit=False so the `with conn:` context manager issues a
+            # real BEGIN and rolls back on exception (atomic schema creation).
+            conn = sqlite3.connect(str(self.db_path), autocommit=False)
+            conn.row_factory = sqlite3.Row
             try:
                 has_tables = conn.execute(
                     "SELECT name FROM sqlite_master WHERE type='table' AND name='algo_snapshots'"
@@ -199,7 +202,11 @@ class KBStore:
         # ----------------------------------------------------------------
         if version < 2:
             logger.info("intel.db: migrating to version 2 (adding topic_cluster, outlier_ratio columns)")
-            conn = self._connect()
+            # Use autocommit=False so the `with conn:` context manager issues a
+            # real BEGIN and rolls back on exception. The default isolation_level=''
+            # does not roll back DDL (ALTER TABLE) reliably in Python 3.12+.
+            conn = sqlite3.connect(str(self.db_path), autocommit=False)
+            conn.row_factory = sqlite3.Row
             try:
                 cols = [r[1] for r in conn.execute("PRAGMA table_info(competitor_videos)").fetchall()]
                 with conn:
