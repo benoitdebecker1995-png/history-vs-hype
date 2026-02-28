@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
-status: planning
-last_updated: "2026-02-28T11:56:35.099Z"
+status: Ready for 52-03 or Phase 53
+last_updated: "2026-02-28T11:57:56.012Z"
 last_activity: "2026-02-28 — 52-02 complete: wrapped keywords.db _ensure_* migration methods in with self._conn: atomic transactions; fixed version-before-commit ordering in technique_library.py; DB-02 + DB-03 satisfied"
 progress:
   total_phases: 56
-  completed_phases: 53
+  completed_phases: 54
   total_plans: 118
-  completed_plans: 117
-  percent: 99
+  completed_plans: 118
+  percent: 100
 ---
 
 # State: History vs Hype Workspace
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 **Last activity:** 2026-02-28 — 52-02 complete: wrapped keywords.db _ensure_* migration methods in with self._conn: atomic transactions; fixed version-before-commit ordering in technique_library.py; DB-02 + DB-03 satisfied
 
 **Progress:**
-[██████████] 99%
+[██████████] 100%
 
 ## Milestone History
 
@@ -95,6 +95,8 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 51]: Decision rule for print() vs logger: if output is the RESULT the user ran command to see, keep as print(); if narration/progress, convert to logger
 - [Phase 52-database-hardening]: DB-02 resolution: technique_library.py operates on keywords.db (not analytics.db) — PRAGMA user_version tracking is correct and atomic on the database it actually owns
 - [Phase 52-database-hardening]: Migration pattern: version set AFTER with self._conn: block succeeds, never inside — if DDL fails, version stays at old value and migration re-runs on next startup
+- [Phase 52-database-hardening]: autocommit=False required for Python 3.12+ sqlite3 DDL rollback in migration connections
+- [Phase 52-database-hardening]: CURRENT_SCHEMA_VERSION = 2 module constant; _migrate_schema() is single entry point for intel.db schema management
 
 ### Roadmap Evolution
 

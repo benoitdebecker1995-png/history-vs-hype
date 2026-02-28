@@ -43,9 +43,9 @@ Requirements for v5.1 Codebase Hardening. Each maps to roadmap phases.
 
 ### Database
 
-- [ ] **DB-01**: intel.db has PRAGMA user_version schema tracking matching keywords.db pattern
-- [ ] **DB-02**: analytics.db has PRAGMA user_version schema tracking
-- [ ] **DB-03**: Migration functions are atomic (transaction-wrapped, rollback on failure)
+- [x] **DB-01**: intel.db has PRAGMA user_version schema tracking matching keywords.db pattern
+- [x] **DB-02**: analytics.db has PRAGMA user_version schema tracking
+- [x] **DB-03**: Migration functions are atomic (transaction-wrapped, rollback on failure)
 
 ### CLI
 
@@ -106,9 +106,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DEP-01 | Phase 48 | Complete |
 | DEP-02 | Phase 48 | Complete |
 | DEP-03 | Phase 48 | Complete |
-| DB-01 | Phase 52 | Pending |
-| DB-02 | Phase 52 | Pending |
-| DB-03 | Phase 52 | Pending |
+| DB-01 | Phase 52 | Complete |
+| DB-02 | Phase 52 | Complete |
+| DB-03 | Phase 52 | Complete |
 | CLI-01 | Phase 51 | Complete |
 | CLI-02 | Phase 51 | Complete |
 | CLI-03 | Phase 51 | Complete |
