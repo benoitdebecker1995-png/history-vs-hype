@@ -59,6 +59,14 @@ Requirements for v5.1 Codebase Hardening. Each maps to roadmap phases.
 - [x] **CLEAN-02**: Unused functions identified and removed from active modules
 - [x] **CLEAN-03**: datetime.utcnow() deprecation warnings fixed
 
+### External Intelligence Synthesis
+
+- [ ] **EIS-01**: `/publish --prompts` generates tailored VidIQ Pro Coach + Gemini prompts from script analysis with auto-adapted script context
+- [ ] **EIS-02**: `/publish --intake` auto-classifies pasted VidIQ/Gemini responses and persists to EXTERNAL-INTELLIGENCE.json
+- [ ] **EIS-03**: Synthesis engine merges internal + external intelligence into 3 ranked title+thumbnail pairings (keyword/curiosity/authority)
+- [ ] **EIS-04**: Content moderation scorer flags trigger words in titles, description, tags, and thumbnail concepts with safe alternatives
+- [ ] **EIS-05**: Thumbnail blueprints include composition guides, per-element AI-generation tagging with copy-paste prompts
+
 ## Future Requirements
 
 ### Linting & Formatting
@@ -116,9 +124,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CLEAN-02 | Phase 49 | Complete |
 | CLEAN-03 | Phase 49 | Complete |
 
+| EIS-01 | Phase 54 | Not started |
+| EIS-02 | Phase 54 | Not started |
+| EIS-03 | Phase 54 | Not started |
+| EIS-04 | Phase 54 | Not started |
+| EIS-05 | Phase 54 | Not started |
+
 **Coverage:**
-- v5.1 requirements: 28 total
-- Mapped to phases: 28
+- v5.1 requirements: 33 total (28 hardening + 5 external intelligence)
+- Mapped to phases: 33
 - Unmapped: 0
 
 ---

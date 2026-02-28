@@ -64,7 +64,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 | 51 | Logging & CLI Standardization | LOG-01..03, CLI-01..03 | Phase 50 |
 | 52 | Database Hardening | DB-01..03 | Phase 48 |
 | 53 | Integration Testing | TEST-01..07 | Phases 48-52 |
-| 54 | External Intelligence Synthesis | TBD | Phase 53 |
+| 54 | External Intelligence Synthesis | EIS-01..05 | Phase 53 |
 
 ## Accumulated Context
 

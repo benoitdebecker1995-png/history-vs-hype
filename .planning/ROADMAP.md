@@ -669,12 +669,12 @@ Plans:
 | 51. Logging & CLI Standardization | 3/3 | Complete    | 2026-02-27 | - |
 | 52. Database Hardening | 2/2 | Complete    | 2026-02-28 | - |
 | 53. Integration Testing | 2/2 | Complete    | 2026-02-28 | - |
-| 54. External Intelligence Synthesis | v5.1 | 0/TBD | Not started | - |
+| 54. External Intelligence Synthesis | v5.1 | 0/2 | Not started | - |
 
 ### Phase 54: External Intelligence Synthesis
 **Goal**: `/publish --prompts` generates tailored VidIQ/Gemini prompts from script analysis; `/publish --intake` parses their responses into structured data; synthesis engine merges internal + external intelligence into ranked metadata packages with content moderation scoring and Photoshop-ready thumbnail blueprints
 **Depends on**: Phase 53 (integration testing complete — new module follows hardened patterns)
-**Requirements**: TBD (define during planning)
+**Requirements**: EIS-01, EIS-02, EIS-03, EIS-04, EIS-05
 **Context**: Manual workflow for Gibraltar (#35) and Vichy (#37) metadata took ~2 hours each. This phase automates the repeatable parts: prompt generation, response parsing, conflicting-advice synthesis, moderation risk scoring, thumbnail layer-stack generation.
 **Success Criteria** (what must be TRUE):
   1. Running `/publish --prompts [project]` generates VidIQ and Gemini prompts tailored to the project's script, topic cluster, and channel stats
@@ -682,7 +682,8 @@ Plans:
   3. Synthesis engine ranks titles by composite score (keyword data + strategic advice + channel patterns) and flags conflicting recommendations
   4. Content moderation risk scorer identifies trigger words in title/description/tags and suggests safe alternatives
   5. Thumbnail blueprint generator outputs Photoshop layer-stack guides with asset sources, fonts, colors, and coordinates
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] TBD (run /gsd:plan-phase 54 to break down)
+- [ ] 54-01-PLAN.md — Prompt generator (VidIQ + Gemini) + intake parser (auto-classification + JSON persistence)
+- [ ] 54-02-PLAN.md — Synthesis engine (3-variant ranking + moderation scoring + thumbnail blueprints) + /publish command wiring
