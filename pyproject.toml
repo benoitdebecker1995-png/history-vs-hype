@@ -97,7 +97,7 @@ all = [
 packages = ["tools"]
 
 [tool.pytest.ini_options]
-testpaths = ["tools"]
-python_files = ["test_*.py", "*_test.py"]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
