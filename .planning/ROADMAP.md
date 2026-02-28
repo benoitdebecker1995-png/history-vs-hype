@@ -496,7 +496,11 @@ Plans:
   1. `PRAGMA user_version` on intel.db returns a non-zero version number matching the current schema
   2. `PRAGMA user_version` on analytics.db returns a non-zero version number matching the current schema
   3. A migration that fails mid-way leaves the database unchanged (transaction rollback verified by test)
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 52-01-PLAN.md — Add PRAGMA user_version schema tracking + atomic migration chain to intel.db (kb_store.py)
+- [ ] 52-02-PLAN.md — Wrap keywords.db and technique_library.py migrations in atomic transactions
 
 #### Phase 53: Integration Testing
 **Goal**: The five major pipelines are covered by runnable tests that catch regressions
@@ -583,7 +587,11 @@ Plans:
   1. `PRAGMA user_version` on intel.db returns a non-zero version number matching the current schema
   2. `PRAGMA user_version` on analytics.db returns a non-zero version number matching the current schema
   3. A migration that fails mid-way leaves the database unchanged (transaction rollback verified by test)
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 52-01-PLAN.md — Add PRAGMA user_version schema tracking + atomic migration chain to intel.db (kb_store.py)
+- [ ] 52-02-PLAN.md — Wrap keywords.db and technique_library.py migrations in atomic transactions
 
 ### Phase 53: Integration Testing
 **Goal**: The five major pipelines are covered by runnable tests that catch regressions
@@ -655,7 +663,7 @@ Plans:
 | 49. Dead Code Cleanup | 2/2 | Complete    | 2026-02-25 | - |
 | 50. Error Handling | 2/2 | Complete    | 2026-02-26 | - |
 | 51. Logging & CLI Standardization | 3/3 | Complete    | 2026-02-27 | - |
-| 52. Database Hardening | v5.1 | 0/TBD | Not started | - |
+| 52. Database Hardening | 1/2 | In Progress|  | - |
 | 53. Integration Testing | v5.1 | 0/TBD | Not started | - |
 | 54. External Intelligence Synthesis | v5.1 | 0/TBD | Not started | - |
 

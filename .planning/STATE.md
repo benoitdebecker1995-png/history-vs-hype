@@ -1,16 +1,16 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.0
+milestone: v5.1
 milestone_name: Codebase Hardening
 status: planning
-last_updated: "2026-02-27T14:44:29.218Z"
-last_activity: "2026-02-27 — 51-03 complete: diagnostic print() converted to logging across discovery/ (15 files), intel/, production/, translation/, script_checkers/, document_discovery/, root tools; 108 get_logger usages total; LOG-02 + CLI-02 satisfied"
+last_updated: "2026-02-28T11:56:35.099Z"
+last_activity: "2026-02-28 — 52-02 complete: wrapped keywords.db _ensure_* migration methods in with self._conn: atomic transactions; fixed version-before-commit ordering in technique_library.py; DB-02 + DB-03 satisfied"
 progress:
-  total_phases: 55
+  total_phases: 56
   completed_phases: 53
-  total_plans: 116
-  completed_plans: 116
-  percent: 100
+  total_plans: 118
+  completed_plans: 117
+  percent: 99
 ---
 
 # State: History vs Hype Workspace
@@ -28,12 +28,12 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 ## Current Position
 
 **Milestone:** v5.1 Codebase Hardening
-**Phase:** 51 complete (Plans 01, 03 complete; Plan 02 covered youtube_analytics)
-**Status:** Ready to plan
-**Last activity:** 2026-02-27 — 51-03 complete: diagnostic print() converted to logging across discovery/ (15 files), intel/, production/, translation/, script_checkers/, document_discovery/, root tools; 108 get_logger usages total; LOG-02 + CLI-02 satisfied
+**Phase:** 52 in progress (Plans 01 complete; Plan 02 complete — DB-02 + DB-03 satisfied)
+**Status:** Ready for 52-03 or Phase 53
+**Last activity:** 2026-02-28 — 52-02 complete: wrapped keywords.db _ensure_* migration methods in with self._conn: atomic transactions; fixed version-before-commit ordering in technique_library.py; DB-02 + DB-03 satisfied
 
 **Progress:**
-[██████████] 100%
+[██████████] 99%
 
 ## Milestone History
 
@@ -93,6 +93,8 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 51-logging-cli-standardization]: Intentional CLI output (reports, tables, interactive prompts) preserved as print() - discriminator: user needs this output to use the tool
 - [Phase 51-logging-cli-standardization]: intel/refresh.py _print_phase() helper removed - replaced with direct logger.info calls per phase step, cleaner and consistent with module pattern
 - [Phase 51]: Decision rule for print() vs logger: if output is the RESULT the user ran command to see, keep as print(); if narration/progress, convert to logger
+- [Phase 52-database-hardening]: DB-02 resolution: technique_library.py operates on keywords.db (not analytics.db) — PRAGMA user_version tracking is correct and atomic on the database it actually owns
+- [Phase 52-database-hardening]: Migration pattern: version set AFTER with self._conn: block succeeds, never inside — if DDL fails, version stays at old value and migration re-runs on next startup
 
 ### Roadmap Evolution
 
@@ -110,13 +112,13 @@ None at roadmap time.
 
 ### Last Session
 
-- **Date:** 2026-02-27
-- **Work:** Executed 51-03 — converted diagnostic print() to logging across discovery/ (15 files), intel/refresh.py (removed _print_phase() helper, 18 phase prints -> logger.info), intel/query.py, production/split_screen_guide.py, translation/cli.py + verification.py, script_checkers/cli.py + voice/ subpackage, notebooklm_bridge.py, citation_extractor.py. Fixed 1 auto-detected issue (5 files with error prints going to stdout instead of stderr). 108 total get_logger usages. LOG-02 + CLI-02 fully satisfied.
-- **Output:** 51-03-SUMMARY.md created, commits 993a109 (Task 1) + 0e8f076 (Task 2) + 7ee639d (fix)
+- **Date:** 2026-02-28
+- **Work:** Executed 52-02 — wrapped _ensure_variant_tables, _ensure_ctr_snapshots_table, _ensure_feedback_tables in database.py with `with self._conn:` atomic transactions; fixed version-before-commit ordering bug in technique_library.py _ensure_schema_v28/_ensure_schema_v29; replaced all bare except-pass in migration methods with logger.error(). DB-02 + DB-03 satisfied.
+- **Output:** 52-02-SUMMARY.md created, commits 6d5e05f (Task 1) + 9d3eb60 (Task 2)
 
 ### Next Session
 
-**Next action:** Phase 52 — Database Hardening (DB-01..03)
+**Next action:** Phase 52 Plan 03 (if exists) or Phase 53 — Integration Testing (TEST-01..07)
 
 ## Technical Notes
 
