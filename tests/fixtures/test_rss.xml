@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Test Channel Feed</title>
+  <id>https://example.com/feed</id>
+  <updated>2026-02-28T12:00:00Z</updated>
+  <entry>
+    <id>https://www.youtube.com/watch?v=test123</id>
+    <title>Test Video: Colonial Borders Explained</title>
+    <published>2026-02-27T10:00:00Z</published>
+    <updated>2026-02-27T10:00:00Z</updated>
+    <link rel="alternate" href="https://www.youtube.com/watch?v=test123"/>
+    <author><name>Test Channel</name></author>
+  </entry>
+</feed>
