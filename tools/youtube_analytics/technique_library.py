@@ -76,8 +76,8 @@ class TechniqueLibrary:
             cursor = self._conn.cursor()
             cursor.execute(f"PRAGMA user_version = {version}")
             self._conn.commit()
-        except sqlite3.Error:
-            pass
+        except sqlite3.Error as e:
+            logger.error("Failed to set schema version %d: %s", version, e)
 
     def _ensure_schema_v28(self):
         """
@@ -93,40 +93,39 @@ class TechniqueLibrary:
         logger.info("[Phase 37] Migrating database to v28: adding creator_techniques table...")
 
         try:
-            cursor = self._conn.cursor()
+            with self._conn:
+                cursor = self._conn.cursor()
 
-            # Create creator_techniques table
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS creator_techniques (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    technique_category TEXT NOT NULL,
-                    technique_name TEXT NOT NULL,
-                    formula TEXT,
-                    when_to_use TEXT,
-                    creator_examples TEXT,
-                    creator_count INTEGER DEFAULT 1,
-                    is_universal BOOLEAN DEFAULT 0,
-                    style_guide_ref TEXT,
-                    created_at DATE NOT NULL,
-                    UNIQUE(technique_category, technique_name)
-                )
-            """)
+                # Create creator_techniques table
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS creator_techniques (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        technique_category TEXT NOT NULL,
+                        technique_name TEXT NOT NULL,
+                        formula TEXT,
+                        when_to_use TEXT,
+                        creator_examples TEXT,
+                        creator_count INTEGER DEFAULT 1,
+                        is_universal BOOLEAN DEFAULT 0,
+                        style_guide_ref TEXT,
+                        created_at DATE NOT NULL,
+                        UNIQUE(technique_category, technique_name)
+                    )
+                """)
 
-            # Create indexes for efficient querying
-            cursor.execute("""
-                CREATE INDEX IF NOT EXISTS idx_technique_category
-                ON creator_techniques(technique_category)
-            """)
+                # Create indexes for efficient querying
+                cursor.execute("""
+                    CREATE INDEX IF NOT EXISTS idx_technique_category
+                    ON creator_techniques(technique_category)
+                """)
 
-            cursor.execute("""
-                CREATE INDEX IF NOT EXISTS idx_technique_universal_count
-                ON creator_techniques(is_universal DESC, creator_count DESC)
-            """)
+                cursor.execute("""
+                    CREATE INDEX IF NOT EXISTS idx_technique_universal_count
+                    ON creator_techniques(is_universal DESC, creator_count DESC)
+                """)
 
-            # Bump schema version to 28
+            # Bump schema version to 28 — after DDL succeeds
             self._set_schema_version(28)
-
-            self._conn.commit()
             logger.info("[Phase 37] Schema migrated to v28 successfully")
 
         except sqlite3.Error as e:
@@ -147,39 +146,38 @@ class TechniqueLibrary:
         logger.info("[Phase 38] Migrating database to v29: adding script_choices table...")
 
         try:
-            cursor = self._conn.cursor()
+            with self._conn:
+                cursor = self._conn.cursor()
 
-            # Create script_choices table
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS script_choices (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    choice_type TEXT NOT NULL,
-                    project_path TEXT NOT NULL,
-                    topic_type TEXT,
-                    selected_variant TEXT NOT NULL,
-                    selected_technique TEXT,
-                    rejected_variants TEXT,
-                    recommended_technique TEXT,
-                    choice_date DATE NOT NULL,
-                    UNIQUE(choice_type, project_path)
-                )
-            """)
+                # Create script_choices table
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS script_choices (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        choice_type TEXT NOT NULL,
+                        project_path TEXT NOT NULL,
+                        topic_type TEXT,
+                        selected_variant TEXT NOT NULL,
+                        selected_technique TEXT,
+                        rejected_variants TEXT,
+                        recommended_technique TEXT,
+                        choice_date DATE NOT NULL,
+                        UNIQUE(choice_type, project_path)
+                    )
+                """)
 
-            # Create indexes for efficient querying
-            cursor.execute("""
-                CREATE INDEX IF NOT EXISTS idx_choice_type_topic
-                ON script_choices(choice_type, topic_type)
-            """)
+                # Create indexes for efficient querying
+                cursor.execute("""
+                    CREATE INDEX IF NOT EXISTS idx_choice_type_topic
+                    ON script_choices(choice_type, topic_type)
+                """)
 
-            cursor.execute("""
-                CREATE INDEX IF NOT EXISTS idx_choice_date
-                ON script_choices(choice_date DESC)
-            """)
+                cursor.execute("""
+                    CREATE INDEX IF NOT EXISTS idx_choice_date
+                    ON script_choices(choice_date DESC)
+                """)
 
-            # Bump schema version to 29
+            # Bump schema version to 29 — after DDL succeeds
             self._set_schema_version(29)
-
-            self._conn.commit()
             logger.info("[Phase 38] Schema migrated to v29 successfully")
 
         except sqlite3.Error as e:

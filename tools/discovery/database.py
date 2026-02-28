@@ -1464,8 +1464,8 @@ class KeywordDB:
             cursor = self._conn.cursor()
             cursor.execute(f"PRAGMA user_version = {version}")
             self._conn.commit()
-        except sqlite3.Error:
-            pass
+        except sqlite3.Error as e:
+            logger.error("Failed to set schema version %d: %s", version, e)
 
     def _backup_database(self) -> Optional[str]:
         """
