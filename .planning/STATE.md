@@ -2,8 +2,8 @@
 gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
-status: executing
-last_updated: "2026-02-28T16:39:52.313Z"
+status: planning
+last_updated: "2026-02-28T16:43:08.349Z"
 last_activity: "2026-02-28 — 53-02 complete: 5 integration smoke test files (37 tests) for all 5 pipelines; 122 pass, 18 skip, 0 fail (TEST-02 through TEST-06 satisfied)"
 progress:
   total_phases: 57
@@ -29,7 +29,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 
 **Milestone:** v5.1 Codebase Hardening
 **Phase:** 53 complete (Plan 01: infrastructure + unit test migration; Plan 02: 5 pipeline smoke test files)
-**Status:** In progress
+**Status:** Ready to plan
 **Last activity:** 2026-02-28 — 53-02 complete: 5 integration smoke test files (37 tests) for all 5 pipelines; 122 pass, 18 skip, 0 fail (TEST-02 through TEST-06 satisfied)
 
 **Progress:**
