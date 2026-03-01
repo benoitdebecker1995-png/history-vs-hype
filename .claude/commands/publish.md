@@ -241,6 +241,32 @@ Generate 5-10 title variants optimized for VidIQ A/B testing.
 - Excessive punctuation
 - Misleading promises
 
+### CTR Intelligence (Auto-run)
+
+Before presenting title variants, run CTR predictions on all candidates:
+
+```python
+from tools.youtube_analytics.title_intelligence import TitleIntelligence
+
+ti = TitleIntelligence()
+# Rank all candidate titles by predicted CTR
+ranked = ti.rank_title_variants(["Title A", "Title B", ...], topic="territorial")
+# Each result includes: predicted_ctr, vs_avg, confidence, factors
+```
+
+**Display alongside each title:**
+- Predicted CTR and vs channel avg (e.g., "Predicted: 5.3% CTR (+1.2%)")
+- Key factors driving prediction (format, length, features)
+- Flag titles with negative CTR signals (questions, starting with "The", years in title)
+
+**Also run keyword gap check:**
+```python
+gaps = ti.keyword_gaps()
+# Check if any high-demand keywords could be woven into titles
+```
+
+If the title intelligence module is unavailable (import error), skip silently and generate titles without predictions.
+
 ### Output: 10 Title Variants
 
 **Category 1: Fact-Check Frame (3 titles)**
@@ -270,9 +296,10 @@ Format: "Did [X] Really [Y]?"
 ## RECOMMENDED TITLES
 
 ### Category 1: Fact-Check Frame
-1. [Title] (XX characters)
+1. [Title] (XX characters) — **Predicted CTR: X.X% (+X.X%)**
    - Hook: [Why this works]
    - Risk: [Potential issue]
+   - CTR factors: [key positive/negative signals]
 
 [Continue for all categories...]
 
