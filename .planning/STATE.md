@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
-status: planning
-last_updated: "2026-02-28T21:35:01.281Z"
-last_activity: "2026-02-28 — 53-02 complete: 5 integration smoke test files (37 tests) for all 5 pipelines; 122 pass, 18 skip, 0 fail (TEST-02 through TEST-06 satisfied)"
+status: completed
+last_updated: "2026-03-01T04:44:11.402Z"
+last_activity: "2026-02-28 — 54-01 complete: prompt_generator.py (VidIQ + Gemini prompts) + intake_parser.py (5-type auto-classifier with JSON persistence)"
 progress:
   total_phases: 57
-  completed_phases: 55
+  completed_phases: 56
   total_plans: 122
-  completed_plans: 121
-  percent: 99
+  completed_plans: 122
+  percent: 100
 ---
 
 # State: History vs Hype Workspace
@@ -29,11 +29,11 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 
 **Milestone:** v5.1 Codebase Hardening
 **Phase:** 54-external-intelligence-synthesis (Plan 01 complete, Plan 02 pending)
-**Status:** Executing
+**Status:** Milestone complete
 **Last activity:** 2026-02-28 — 54-01 complete: prompt_generator.py (VidIQ + Gemini prompts) + intake_parser.py (5-type auto-classifier with JSON persistence)
 
 **Progress:**
-[██████████] 99%
+[██████████] 100%
 
 ## Milestone History
 
@@ -105,6 +105,8 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 53-integration-testing]: TranslationDataBuilder.parse_response third param is original_text not source_language — test must match actual interface
 - [Phase 54]: VIDIQ_CHAR_LIMIT=2000 as configurable constant for VidIQ Pro Coach prompt context
 - [Phase 54]: Regex-scoring classifier for 5 response types — transparent and testable, no new dependencies
+- [Phase 54]: Source weighting matrix: VidIQ 0.9 for keyword variant, Gemini 0.9 for curiosity, entities 0.9 for authority
+- [Phase 54]: Moderation informational not blocking — HIGH flags with safe alternatives never prevent publishing
 
 ### Roadmap Evolution
 
