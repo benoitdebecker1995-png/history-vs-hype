@@ -671,11 +671,11 @@ Plans:
 | 52. Database Hardening | 2/2 | Complete    | 2026-02-28 | - |
 | 53. Integration Testing | 2/2 | Complete    | 2026-02-28 | - |
 | 54. External Intelligence Synthesis | 2/2 | Complete    | 2026-03-01 | - |
-| 55. Analytics Data Foundation | v5.2 | 0/? | Not started | - |
-| 56. Title & CTR Intelligence | v5.2 | 0/? | Not started | - |
-| 57. Competitor Gap Analyzer | v5.2 | 0/? | Not started | - |
-| 58. Retention Pattern Decoder | v5.2 | 0/? | Not started | - |
-| 59. Growth Dashboard | v5.2 | 0/? | Not started | - |
+| 55. Analytics Data Foundation | v5.2 | 1/1 | Complete | 2026-03-01 |
+| 56. Title & CTR Intelligence | v5.2 | 1/1 | Complete | 2026-03-01 |
+| 57. Competitor Gap Analyzer | v5.2 | 1/1 | Complete | 2026-03-01 |
+| 58. Retention Pattern Decoder | v5.2 | 1/1 | Complete | 2026-03-01 |
+| 59. Growth Dashboard | v5.2 | 1/1 | Complete | 2026-03-01 |
 
 ### Phase 54: External Intelligence Synthesis
 **Goal**: `/publish --prompts` generates tailored VidIQ/Gemini prompts from script analysis; `/publish --intake` parses their responses into structured data; synthesis engine merges internal + external intelligence into ranked metadata packages with content moderation scoring and Photoshop-ready thumbnail blueprints
