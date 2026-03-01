@@ -8,24 +8,21 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current Milestone: v5.1 Codebase Hardening
+## Current Milestone: v5.2 Growth Engine
 
-**Goal:** Make 47K lines of Python production-grade with unified error handling, structured logging, integration tests, and clean package structure.
+**Goal:** Use YouTube Analytics API data to optimize topic selection, script quality, and CTR — turning channel data into actionable growth decisions.
 
 **Target features:**
-- Unified error handling (replace bare excepts, standardize error dict pattern)
-- Structured logging (replace print() calls with leveled logging to stderr)
-- Integration test suite (pytest from root, covering all major pipelines)
-- Package structure (__init__.py, eliminate sys.path.insert hacks)
-- Dependency management (pinned requirements or pyproject.toml)
-- DB migration hardening (schema versioning for intel.db + analytics.db)
-- CLI standardization (argparse everywhere, consistent --help)
-- Dead code cleanup
+- Full analytics backfill from YouTube API (per-video metrics, traffic sources, publish timestamps)
+- Title pattern → CTR correlation engine with predictive scoring
+- Competitor gap analyzer (topic × angle matrix, uncovered opportunities)
+- Retention pattern decoder (script structure → retention correlation)
+- Growth trajectory dashboard with monetization countdown
 
 ## Current State
 
-**Shipped:** v5.0 Production Intelligence (2026-02-22)
-**Previous milestones:** v1.0-v4.0 (shipped 2026-01-19 to 2026-02-18)
+**Shipped:** v5.1 Codebase Hardening (2026-03-01)
+**Previous milestones:** v1.0-v5.0 (shipped 2026-01-19 to 2026-02-22)
 **Archives:** `.planning/milestones/`
 
 v5.0 delivered end-to-end production intelligence — YouTube algorithm KB with automated refresh, analytics backfill with channel insights auto-surfacing, Rule 19 algorithm-aware hooks, NLM paste-to-research flow, and multi-project dashboard. Translation pipeline refactored to Claude Code native LLM (no API key needed). 7 phases, 20 requirements, 69 commits.

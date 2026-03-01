@@ -1,140 +1,109 @@
 # Requirements: History vs Hype Workspace
 
-**Defined:** 2026-02-24
+**Defined:** 2026-03-01
 **Core Value:** Every video shows sources on screen
 
-## v5.1 Requirements
+## v5.2 Requirements
 
-Requirements for v5.1 Codebase Hardening. Each maps to roadmap phases.
+Requirements for v5.2 Growth Engine. Each maps to roadmap phases.
 
-### Error Handling
+### Title & CTR Optimization
 
-- [x] **ERR-01**: All bare `except:` and `except Exception: pass` replaced with specific exception types and error dict returns
-- [x] **ERR-02**: All tool modules return `{'error': msg}` on failure (not None, not exceptions for expected errors)
-- [x] **ERR-03**: Error dicts include structured context (module name, operation, details)
+- [ ] **CTR-01**: Title pattern analyzer correlates title structure (length, keywords, format) with actual CTR from YouTube Analytics API
+- [ ] **CTR-02**: Title scorer predicts CTR for new title variants based on own-channel historical patterns
+- [ ] **CTR-03**: Published title tracked in DB with resulting CTR, closing the feedback loop
+- [ ] **CTR-04**: `/publish --titles` ranks generated variants by predicted CTR with confidence interval
 
-### Logging
+### Search & Discovery
 
-- [x] **LOG-01**: Logging module configured with module-level loggers across all tool directories
-- [x] **LOG-02**: All print() calls in tool modules replaced with appropriate log level (DEBUG/INFO/WARNING/ERROR)
-- [x] **LOG-03**: Log output goes to stderr with configurable verbosity (--verbose/--quiet flags)
+- [ ] **SEO-01**: Video titles audited against search keywords — flags titles with low keyword overlap vs search demand
+- [ ] **SEO-02**: Search traffic percentage tracked per video (YouTube Analytics API insightTrafficSourceType)
+- [ ] **SEO-03**: Keyword gap detection — high-demand keywords where channel has no video or underperforms
 
-### Testing
+### Competitor Gap Analysis
 
-- [x] **TEST-01**: pytest configuration at repo root with conftest.py and test discovery
-- [x] **TEST-02**: Integration test for discovery pipeline (orchestrator end-to-end)
-- [x] **TEST-03**: Integration test for intel pipeline (refresh, query, KB operations)
-- [x] **TEST-04**: Integration test for translation pipeline (translate, cross-check, annotate)
-- [x] **TEST-05**: Integration test for production pipeline (parser, edit guide, metadata)
-- [x] **TEST-06**: Integration test for analytics pipeline (backfill, analyze, patterns)
-- [x] **TEST-07**: DB fixtures for test setup/teardown (in-memory SQLite)
+- [ ] **GAP-01**: 870+ competitor videos classified by topic AND angle (document-first, narrative, legal, explainer)
+- [ ] **GAP-02**: Cross-reference with own videos to identify uncovered topic-angle combinations
+- [ ] **GAP-03**: Gap scoring formula: demand signal × competitor absence × channel competitive advantage
+- [ ] **GAP-04**: `/next` surfaces top gaps with "No competitor covers [X] from [angle]" recommendations
 
-### Package Structure
+### Retention Intelligence
 
-- [x] **PKG-01**: `__init__.py` files added to all tool directories
-- [x] **PKG-02**: All `sys.path.insert` hacks eliminated via proper package imports
-- [x] **PKG-03**: Tools importable as `tools.discovery`, `tools.intel`, etc.
+- [ ] **RET-01**: Per-video retention percentage pulled from YouTube Analytics API and stored in DB
+- [ ] **RET-02**: Retention correlated with script structure (hook type, section count, evidence density, video length)
+- [ ] **RET-03**: Opening hook type → first-30-second retention mapping (the algorithm gate signal)
+- [ ] **RET-04**: Script-writer-v2 Rule 20 encodes retention findings as generation constraints
 
-### Dependencies
+### Growth Dashboard
 
-- [x] **DEP-01**: `pyproject.toml` at repo root with all production dependencies pinned
-- [x] **DEP-02**: Optional dependency groups defined (dev, test)
-- [x] **DEP-03**: All actually-imported packages listed (feedparser, anthropic, spacy, etc.)
+- [ ] **GROW-01**: Subscriber velocity trend calculated (monthly growth rate, acceleration/deceleration detection)
+- [ ] **GROW-02**: Per-video ROI ranking: views, subs gained, conversion rate, CTR — sortable
+- [ ] **GROW-03**: Traffic source breakdown per video (search, suggested, browse, external)
+- [ ] **GROW-04**: Monetization countdown projections (1K subs, 4K watch hours)
+- [ ] **GROW-05**: Monthly growth report accessible via `/growth` command
 
-### Database
+### Data Foundation
 
-- [x] **DB-01**: intel.db has PRAGMA user_version schema tracking matching keywords.db pattern
-- [x] **DB-02**: analytics.db has PRAGMA user_version schema tracking
-- [x] **DB-03**: Migration functions are atomic (transaction-wrapped, rollback on failure)
-
-### CLI
-
-- [x] **CLI-01**: All CLI entry points use argparse with --help
-- [x] **CLI-02**: Consistent error output format across all tools (stderr, exit code 1)
-- [x] **CLI-03**: Standard --verbose/--quiet flags wired to logging levels
-
-### Cleanup
-
-- [x] **CLEAN-01**: Dead code files removed (_csv_backfill.py, _competitor_fetch.py, _longform_*.json, _backfill_ids.txt)
-- [x] **CLEAN-02**: Unused functions identified and removed from active modules
-- [x] **CLEAN-03**: datetime.utcnow() deprecation warnings fixed
-
-### External Intelligence Synthesis
-
-- [x] **EIS-01**: `/publish --prompts` generates tailored VidIQ Pro Coach + Gemini prompts from script analysis with auto-adapted script context
-- [x] **EIS-02**: `/publish --intake` auto-classifies pasted VidIQ/Gemini responses and persists to EXTERNAL-INTELLIGENCE.json
-- [x] **EIS-03**: Synthesis engine merges internal + external intelligence into 3 ranked title+thumbnail pairings (keyword/curiosity/authority)
-- [x] **EIS-04**: Content moderation scorer flags trigger words in titles, description, tags, and thumbnail concepts with safe alternatives
-- [x] **EIS-05**: Thumbnail blueprints include composition guides, per-element AI-generation tagging with copy-paste prompts
+- [ ] **DATA-01**: Full analytics backfill from YouTube Analytics API into analytics.db (all long-form videos)
+- [ ] **DATA-02**: Publish timestamps stored for all videos
+- [ ] **DATA-03**: Traffic source data stored per video
+- [ ] **DATA-04**: Automated refresh command pulls latest analytics on demand
 
 ## Future Requirements
 
-### Linting & Formatting
+### Thumbnail Optimization
 
-- **LINT-01**: Pre-commit hooks for linting (flake8/ruff, isort, black)
-- **LINT-02**: Consistent docstring format across modules
+- **THUMB-01**: Thumbnail style correlation with CTR (map vs face vs document)
+- **THUMB-02**: A/B testing framework for thumbnail variants
 
-### Configuration
+### Publish Timing
 
-- **CFG-01**: Central config.yaml or settings module replacing hardcoded constants
-- **CFG-02**: Externalized voice pattern count, WPM rate, confidence thresholds
+- **TIME-01**: Day-of-week + time-of-day correlation with first-7-day performance
+- **TIME-02**: Competitor publish schedule awareness
 
 ## Out of Scope
 
 | Feature | Reason |
 |---------|--------|
-| Full unit test coverage | Diminishing returns for solo creator tooling — integration tests provide safety net |
-| CI/CD pipeline | No deployment target; tests run locally |
-| Type checking (mypy) | Large retrofit cost, low ROI for scripts |
-| Code reformatting (black) | Cosmetic churn on 47K lines, deferred to v6.0 |
-| Performance optimization | Not a bottleneck; correctness first |
+| VidIQ API integration | No public API available — use manual VidIQ + /publish --prompts workflow |
+| Automated publishing | Risk too high for solo creator — always publish manually |
+| Comment sentiment analysis | Low ROI at current scale (21 comments/month) |
+| Shorts optimization | Channel growth strategy is long-form first |
+| Thumbnail A/B testing | YouTube native A/B testing requires 10K+ views/video |
 
 ## Traceability
 
-Which phases cover which requirements. Updated during roadmap creation.
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ERR-01 | Phase 50 | Complete |
-| ERR-02 | Phase 50 | Complete |
-| ERR-03 | Phase 50 | Complete |
-| LOG-01 | Phase 51 | Complete |
-| LOG-02 | Phase 51 | Complete |
-| LOG-03 | Phase 51 | Complete |
-| TEST-01 | Phase 53 | Complete |
-| TEST-02 | Phase 53 | Complete |
-| TEST-03 | Phase 53 | Complete |
-| TEST-04 | Phase 53 | Complete |
-| TEST-05 | Phase 53 | Complete |
-| TEST-06 | Phase 53 | Complete |
-| TEST-07 | Phase 53 | Complete |
-| PKG-01 | Phase 48 | Complete |
-| PKG-02 | Phase 48 | Complete |
-| PKG-03 | Phase 48 | Complete |
-| DEP-01 | Phase 48 | Complete |
-| DEP-02 | Phase 48 | Complete |
-| DEP-03 | Phase 48 | Complete |
-| DB-01 | Phase 52 | Complete |
-| DB-02 | Phase 52 | Complete |
-| DB-03 | Phase 52 | Complete |
-| CLI-01 | Phase 51 | Complete |
-| CLI-02 | Phase 51 | Complete |
-| CLI-03 | Phase 51 | Complete |
-| CLEAN-01 | Phase 49 | Complete |
-| CLEAN-02 | Phase 49 | Complete |
-| CLEAN-03 | Phase 49 | Complete |
-
-| EIS-01 | Phase 54 | Not started |
-| EIS-02 | Phase 54 | Not started |
-| EIS-03 | Phase 54 | Not started |
-| EIS-04 | Phase 54 | Not started |
-| EIS-05 | Phase 54 | Not started |
+| DATA-01 | Phase 55 | Not started |
+| DATA-02 | Phase 55 | Not started |
+| DATA-03 | Phase 55 | Not started |
+| DATA-04 | Phase 55 | Not started |
+| CTR-01 | Phase 56 | Not started |
+| CTR-02 | Phase 56 | Not started |
+| CTR-03 | Phase 56 | Not started |
+| CTR-04 | Phase 56 | Not started |
+| SEO-01 | Phase 56 | Not started |
+| SEO-02 | Phase 56 | Not started |
+| SEO-03 | Phase 56 | Not started |
+| GAP-01 | Phase 57 | Not started |
+| GAP-02 | Phase 57 | Not started |
+| GAP-03 | Phase 57 | Not started |
+| GAP-04 | Phase 57 | Not started |
+| RET-01 | Phase 58 | Not started |
+| RET-02 | Phase 58 | Not started |
+| RET-03 | Phase 58 | Not started |
+| RET-04 | Phase 58 | Not started |
+| GROW-01 | Phase 59 | Not started |
+| GROW-02 | Phase 59 | Not started |
+| GROW-03 | Phase 59 | Not started |
+| GROW-04 | Phase 59 | Not started |
+| GROW-05 | Phase 59 | Not started |
 
 **Coverage:**
-- v5.1 requirements: 33 total (28 hardening + 5 external intelligence)
-- Mapped to phases: 33
+- v5.2 requirements: 24 total
+- Mapped to phases: 24
 - Unmapped: 0
 
 ---
-*Requirements defined: 2026-02-24*
-*Last updated: 2026-02-24 after roadmap creation — all 28 requirements mapped*
+*Requirements defined: 2026-03-01*
