@@ -126,6 +126,38 @@ TOP RECOMMENDATION: treaty of versailles territorial
 | 30-49 | Low | Low priority - skip or reframe significantly |
 | Below 30 | Poor | Not recommended - find alternatives |
 
+## Competitor Gap Analysis (Auto-run)
+
+After showing keyword-based recommendations, surface competitor gap opportunities:
+
+```python
+from tools.youtube_analytics.gap_analyzer import GapAnalyzer
+
+ga = GapAnalyzer()
+gaps = ga.get_gap_recommendations(limit=5)
+# Each gap includes: topic, angle, gap_score, reasoning, competitor_videos, own_videos
+```
+
+**Display as a separate section after the main recommendations:**
+
+```
+------------------------------------------------------------
+COMPETITOR GAPS — uncovered topic-angle combinations
+------------------------------------------------------------
+#1  war / document-first (score: 85.0)
+    No competitor covers war from document-first angle.
+    101 competitor videos exist. Strong channel advantage (1.5x).
+
+#2  archaeological / document-first (score: 81.0)
+    ...
+```
+
+**Integration with keyword scores:**
+- If a keyword recommendation overlaps with a high-scoring gap, note the alignment
+- Gaps with channel_advantage > 1.2x should be flagged as "strong fit"
+
+If the gap analyzer module is unavailable (import error), skip silently.
+
 ## Integration with Workflow
 
 After `/next`, typical workflow:
