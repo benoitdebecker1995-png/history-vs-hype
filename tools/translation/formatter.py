@@ -6,7 +6,7 @@ split-screen video display. Supports footnote annotations for legal terms.
 """
 
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, List, Optional
 
 
@@ -132,7 +132,7 @@ class Formatter:
         lines.append(f"**Source Language:** {metadata.get('source_language', 'Unknown')}")
         lines.append(f"**Section Count:** {len(sections)}")
 
-        translation_date = metadata.get('translation_date', datetime.utcnow().strftime('%Y-%m-%d'))
+        translation_date = metadata.get('translation_date', datetime.now(timezone.utc).strftime('%Y-%m-%d'))
         lines.append(f"**Translation Date:** {translation_date}")
 
         model = metadata.get('model', 'Unknown')

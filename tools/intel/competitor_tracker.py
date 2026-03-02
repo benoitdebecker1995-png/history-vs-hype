@@ -270,10 +270,97 @@ def enrich_videos_with_metadata(video_ids: list[str]) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# Uploads playlist fetcher (playlistItems.list — 1 quota unit per 50 results)
+# ---------------------------------------------------------------------------
+
+def fetch_channel_uploads(channel_id: str, channel_name: str, max_results: int = 100) -> dict:
+    """
+    Fetch recent uploads via YouTube playlistItems.list API.
+
+    Uses the channel's uploads playlist (channel ID with UC→UU prefix).
+    Costs 1 quota unit per page of 50 results — much cheaper than search.list.
+
+    Args:
+        channel_id:   YouTube channel ID (starts with UC)
+        channel_name: Human-readable name
+        max_results:  Max videos to fetch (default 100, capped at 200)
+
+    Returns:
+        Same format as fetch_channel_rss: {channel_id, channel_name, videos: [...]}
+        or {'error': str}
+    """
+    max_results = min(max_results, 200)
+
+    # Uploads playlist ID = channel ID with UC → UU
+    if not channel_id.startswith("UC"):
+        return {"error": f"Channel ID '{channel_id}' doesn't start with UC — can't derive uploads playlist"}
+    uploads_playlist_id = "UU" + channel_id[2:]
+
+    try:
+        from tools.youtube_analytics.auth import get_authenticated_service
+        youtube = get_authenticated_service("youtube", "v3")
+    except FileNotFoundError as exc:
+        return {"error": f"YouTube API not authenticated: {exc}"}
+    except Exception as exc:
+        return {"error": f"YouTube API auth failed: {exc}"}
+
+    videos = []
+    page_token = None
+    fetched = 0
+
+    try:
+        while fetched < max_results:
+            page_size = min(50, max_results - fetched)
+            request = youtube.playlistItems().list(
+                part="snippet",
+                playlistId=uploads_playlist_id,
+                maxResults=page_size,
+                pageToken=page_token,
+            )
+            response = request.execute()
+
+            for item in response.get("items", []):
+                snippet = item.get("snippet", {})
+                video_id = snippet.get("resourceId", {}).get("videoId")
+                if not video_id:
+                    continue
+                videos.append({
+                    "video_id": video_id,
+                    "title": snippet.get("title", ""),
+                    "published": snippet.get("publishedAt", ""),
+                    "description": (snippet.get("description") or "")[:500],
+                    "channel_id": channel_id,
+                    "channel_name": channel_name,
+                })
+                fetched += 1
+
+            page_token = response.get("nextPageToken")
+            if not page_token:
+                break
+
+    except Exception as exc:
+        # Return what we have so far + log the error
+        if videos:
+            return {
+                "channel_id": channel_id,
+                "channel_name": channel_name,
+                "videos": videos,
+                "_warning": f"Partial fetch for '{channel_name}': {exc}",
+            }
+        return {"error": f"playlistItems fetch failed for '{channel_name}': {exc}"}
+
+    return {
+        "channel_id": channel_id,
+        "channel_name": channel_name,
+        "videos": videos,
+    }
+
+
+# ---------------------------------------------------------------------------
 # Main orchestrator
 # ---------------------------------------------------------------------------
 
-def fetch_all_competitors(config_path: str | Path | None = None) -> dict:
+def fetch_all_competitors(config_path: str | Path | None = None, max_per_channel: int = 100) -> dict:
     """
     Fetch RSS feeds for all configured competitor channels and enrich
     with YouTube API metadata.
@@ -322,7 +409,8 @@ def fetch_all_competitors(config_path: str | Path | None = None) -> dict:
     all_videos = []
     channels_fetched = 0
 
-    # 2. Fetch RSS for each channel
+    # 2. Fetch uploads for each channel
+    # Try playlistItems API first (50-100 videos), fall back to RSS (15 videos)
     for channel in channels:
         channel_id = channel.get("id")
         channel_name = channel.get("name", channel_id)
@@ -331,10 +419,21 @@ def fetch_all_competitors(config_path: str | Path | None = None) -> dict:
             errors.append(f"Channel entry missing 'id' field: {channel}")
             continue
 
+        # Try API-based fetch first
+        api_result = fetch_channel_uploads(channel_id, channel_name, max_results=max_per_channel)
+
+        if "error" not in api_result:
+            if "_warning" in api_result:
+                errors.append(api_result["_warning"])
+            all_videos.extend(api_result.get("videos", []))
+            channels_fetched += 1
+            continue
+
+        # Fall back to RSS (15 videos only, but no auth required)
         rss_result = fetch_channel_rss(channel_id, channel_name)
 
         if "error" in rss_result:
-            errors.append(f"{channel_name}: {rss_result['error']}")
+            errors.append(f"{channel_name}: API={api_result['error']}; RSS={rss_result['error']}")
             continue
 
         all_videos.extend(rss_result.get("videos", []))

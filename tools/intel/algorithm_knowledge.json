@@ -1,0 +1,40 @@
+{
+  "_comment": "Curated YouTube algorithm knowledge. Update manually when YouTube changes signals. Replaces fragile blog scraping.",
+  "_last_reviewed": "2026-03-01",
+  "signal_weights": {
+    "satisfaction": "very_high",
+    "ctr": "high",
+    "avd": "high",
+    "session_continuation": "high",
+    "upload_consistency": "medium"
+  },
+  "pipeline_mechanics": {
+    "browse_feed": "Personalised recommendations on homepage. Driven by viewer watch history, topic affinity, and session signals. New channels enter via topic match, not subscriber count.",
+    "search": "Keyword matching + engagement signals. Title, description, tags all indexed. Watch time after click is the strongest ranking signal for search results.",
+    "suggested": "Sidebar and end-screen recommendations. Driven by co-watch patterns (viewers who watched X also watched Y). Most important discovery surface for small channels."
+  },
+  "longform_insights": [
+    "Videos over 8 minutes qualify for mid-roll ads — YouTube actively promotes content that enables this",
+    "AVD matters more than total watch time for algorithm ranking",
+    "Returning viewers signal high satisfaction — the algorithm weights repeat viewership heavily",
+    "First 30 seconds determine whether YouTube continues promoting a video",
+    "Session continuation (viewer watches another video after yours) is a strong positive signal"
+  ],
+  "satisfaction_signals": [
+    "Likes, shares, and comments relative to views",
+    "Survey responses (YouTube occasionally surveys viewers about satisfaction)",
+    "Low dislike-to-view ratio",
+    "Viewers adding video to playlists",
+    "Depth of engagement (comments with substance vs. spam)"
+  ],
+  "small_channel_notes": "YouTube tests new channels via small audience samples. If the test group shows strong CTR + AVD, the algorithm expands reach. A 462-sub channel can reach millions if per-impression metrics are strong. Focus on CTR (thumbnail + title) and first-30-second retention.",
+  "avd_thresholds": "No fixed percentage — relative to similar content in the topic niche. Aim for top quartile of similar-length videos in your topic.",
+  "ctr_thresholds": "4-10% is typical. Above 10% is exceptional. Below 2% signals thumbnail/title mismatch. CTR naturally decreases as reach expands beyond core audience.",
+  "sources_used": [
+    "YouTube Creator Academy (official)",
+    "Creator Insider channel (official)",
+    "Todd Beaupré (YouTube discovery team) public talks",
+    "VidIQ algorithm analysis",
+    "Channel performance data (History vs Hype)"
+  ]
+}

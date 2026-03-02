@@ -29,12 +29,19 @@ logger = get_logger(__name__)
 # If VidIQ truncates your prompt, reduce this value.
 VIDIQ_CHAR_LIMIT = 2000
 
+# Section headings to skip when falling back to script-based topic extraction
+_STRUCTURAL_HEADINGS = {
+    'cold open', 'act 1', 'act 2', 'act 3', 'act 4', 'intro', 'introduction',
+    'conclusion', 'outro', 'opening', 'closing', 'hook',
+}
+
 
 def generate_prompts(project_path: str, script_path: str) -> dict:
     """Generate EXTERNAL-PROMPTS.md with VidIQ + Gemini prompts.
 
-    Parses the script for sections and entities, builds auto-adapted
-    script context, and writes sequenced prompts to the project folder.
+    Checks project metadata files (YOUTUBE-METADATA.md, PROJECT-STATUS.md,
+    01-VERIFIED-RESEARCH.md) first for curated context. Falls back to
+    script entity extraction when metadata files are unavailable.
 
     Args:
         project_path: Path to the video project folder.
@@ -61,10 +68,15 @@ def generate_prompts(project_path: str, script_path: str) -> dict:
             return {'error': 'prompt_generator.generate_prompts: script produced no sections'}
 
         project_name = project.name
-        hook_text = sections[0].content[:500] if sections else ""
+
+        # --- Project context from metadata files (preferred) ---
+        project_files = _discover_project_files(project)
+        project_ctx = _load_project_context(project_files)
+        has_project_ctx = project_ctx.get('topic') is not None
+        logger.info("Project metadata context: %s", 'available' if has_project_ctx else 'falling back to script')
 
         # --- Build script context (auto-adapted to char limit) ---
-        script_context = _build_script_context(sections, entities)
+        script_context = _build_script_context(sections, entities, project_ctx)
         logger.info("Script context: %d chars (limit %d)", len(script_context), VIDIQ_CHAR_LIMIT)
 
         # --- Competitor context (graceful degradation) ---
@@ -72,14 +84,14 @@ def generate_prompts(project_path: str, script_path: str) -> dict:
         logger.info("Competitor context available: %s", competitor['available'])
 
         # --- Build prompts ---
-        topic_summary = _extract_topic_summary(sections, entities)
+        topic_summary = _extract_topic_summary(sections, entities, project_ctx)
         outlier_titles = competitor.get('outlier_titles', [])
         outlier_block = _format_outlier_titles(outlier_titles)
 
         vidiq_prompts = _build_vidiq_prompts(
             topic_summary, script_context, outlier_block
         )
-        gemini_prompt = _build_gemini_prompt(topic_summary, entities)
+        gemini_prompt = _build_gemini_prompt(topic_summary, entities, project_ctx)
 
         # --- Write EXTERNAL-PROMPTS.md ---
         output_path = project / "EXTERNAL-PROMPTS.md"
@@ -126,12 +138,245 @@ def _analyze_script(script_path: Path):
     return sections, entities, total_words
 
 
-def _build_script_context(sections, entities) -> str:
+def _discover_project_files(project: Path) -> dict:
+    """Check which metadata files exist in the project folder."""
+    candidates = {
+        'metadata': project / 'YOUTUBE-METADATA.md',
+        'status': project / 'PROJECT-STATUS.md',
+        'research': project / '01-VERIFIED-RESEARCH.md',
+    }
+    return {k: v if v.exists() else None for k, v in candidates.items()}
+
+
+def _load_project_context(project_files: dict) -> dict:
+    """Read project metadata files and extract curated context.
+
+    Returns a dict with keys: topic, core_question, myth, modern_hook,
+    people, places, documents, hook_text, titles. All values may be None.
+    """
+    ctx = {
+        'topic': None, 'core_question': None, 'myth': None,
+        'modern_hook': None, 'people': [], 'places': [], 'documents': [],
+        'hook_text': None, 'titles': [],
+    }
+
+    # --- YOUTUBE-METADATA.md (priority 1: project name + strategy + titles) ---
+    if project_files.get('metadata'):
+        try:
+            text = project_files['metadata'].read_text(encoding='utf-8')
+            lines = text.splitlines()
+
+            # Project name from H1
+            for line in lines[:5]:
+                if line.startswith('# '):
+                    raw = line[2:].strip()
+                    # Strip "YOUTUBE METADATA: " prefix if present
+                    if raw.upper().startswith('YOUTUBE METADATA:'):
+                        raw = raw.split(':', 1)[1].strip()
+                    ctx['topic'] = raw
+                    break
+
+            # Strategy line
+            for line in lines[:15]:
+                if line.lower().startswith('**strategy:**'):
+                    ctx['modern_hook'] = line.split(':', 1)[1].strip().rstrip('*')
+                    break
+
+            # Title options (first 2 code-fenced titles)
+            in_title_section = False
+            for line in lines:
+                if '## TITLE' in line.upper():
+                    in_title_section = True
+                    continue
+                if in_title_section and line.startswith('## '):
+                    break
+                if in_title_section and line.startswith('```') and len(ctx['titles']) < 2:
+                    # Next non-empty line after ``` is the title
+                    continue
+                if in_title_section and line.strip() and not line.startswith('```') and not line.startswith('#') and not line.startswith('-') and not line.startswith('*') and not line.startswith('>'):
+                    candidate = line.strip()
+                    # Filter out metadata lines and comments
+                    if '(' in candidate and candidate.endswith(')') and 'chars' in candidate.lower():
+                        # This is a title with char count like "Title Text (61 chars)"
+                        candidate = re.sub(r'\s*\(\d+\s*chars?\)\s*$', '', candidate).strip()
+                    if candidate and len(ctx['titles']) < 2 and len(candidate) > 15 and len(candidate) < 100:
+                        ctx['titles'].append(candidate)
+        except Exception as e:
+            logger.debug("Failed to parse YOUTUBE-METADATA.md: %s", e)
+
+    # --- PROJECT-STATUS.md (priority 2: concept + core question) ---
+    if project_files.get('status'):
+        try:
+            text = project_files['status'].read_text(encoding='utf-8')
+            lines = text.splitlines()
+
+            in_concept = False
+            concept_lines = []
+            for line in lines:
+                if line.strip().lower().startswith('## concept'):
+                    in_concept = True
+                    continue
+                if in_concept and line.startswith('## '):
+                    break
+                if in_concept:
+                    # Extract core question
+                    if '**core question:**' in line.lower():
+                        raw = line.split('**core question:**', 1)[-1] if '**core question:**' in line.lower() else line.split(':', 1)[1]
+                        # Split on "Core question:" case-insensitively
+                        for marker in ('**Core question:**', '**core question:**', '**Core Question:**'):
+                            if marker in line:
+                                raw = line.split(marker, 1)[1]
+                                break
+                        ctx['core_question'] = raw.strip().strip('"*').strip()
+                    elif line.strip() and not line.startswith('**') and not concept_lines:
+                        concept_lines.append(line.strip())
+
+            # Use concept paragraph as topic fallback
+            if concept_lines and not ctx['topic']:
+                ctx['topic'] = concept_lines[0][:200]
+        except Exception as e:
+            logger.debug("Failed to parse PROJECT-STATUS.md: %s", e)
+
+    # --- 01-VERIFIED-RESEARCH.md (priority 3: myth + hook + entities) ---
+    if project_files.get('research'):
+        try:
+            text = project_files['research'].read_text(encoding='utf-8')
+            lines = text.splitlines()
+
+            in_hook_analysis = False
+            in_hook_text = False
+            hook_lines = []
+            for line in lines:
+                if '## MODERN HOOK ANALYSIS' in line.upper():
+                    in_hook_analysis = True
+                    continue
+                if in_hook_analysis and line.startswith('## ') and 'MODERN HOOK' not in line.upper():
+                    break
+                if not in_hook_analysis:
+                    continue
+
+                # Myth
+                if '**the myth:**' in line.lower():
+                    for marker in ('**The myth:**', '**the myth:**', '**THE MYTH:**'):
+                        if marker in line:
+                            raw = line.split(marker, 1)[1]
+                            break
+                    else:
+                        raw = line.split(':', 1)[1]
+                    ctx['myth'] = raw.strip().strip('"*').strip()
+
+                # Modern consequence (always prefer this over strategy line)
+                if line.lower().startswith('**modern consequence:**'):
+                    ctx['modern_hook'] = line.split(':', 1)[1].strip().strip('*').strip()
+
+                # Script opening hook
+                if 'script opening hook' in line.lower():
+                    in_hook_text = True
+                    continue
+                if in_hook_text:
+                    stripped = line.strip().lstrip('> ').strip('"')
+                    if stripped:
+                        hook_lines.append(stripped)
+                    elif hook_lines:
+                        in_hook_text = False
+
+            if hook_lines:
+                ctx['hook_text'] = ' '.join(hook_lines)
+
+            # Extract people, places, documents from VERIFIED CLAIMS section
+            _extract_entities_from_research(text, ctx)
+        except Exception as e:
+            logger.debug("Failed to parse 01-VERIFIED-RESEARCH.md: %s", e)
+
+    return ctx
+
+
+def _extract_entities_from_research(text: str, ctx: dict):
+    """Extract entity names from verified research text.
+
+    Looks for repeated proper nouns in claim headings and source citations.
+    """
+    # People: names in "Claim:" lines and source attributions
+    people = set()
+    places = set()
+    documents = set()
+
+    for line in text.splitlines():
+        # Source lines like: "1. Marrus & Paxton (Tier 1) — *Vichy France and the Jews*"
+        m = re.match(r'\d+\.\s+(.+?)\s*\(Tier\s*\d\)', line)
+        if m:
+            author = m.group(1).strip()
+            # Clean "Marrus & Paxton" → individual names
+            for name in re.split(r'\s*[&,]\s*', author):
+                name = name.strip()
+                if name and len(name) > 2:
+                    people.add(name)
+
+        # Document titles in single-italics from source lines: *Title Here*
+        # Exclude bold markers (**text**) by requiring non-* before/after
+        if re.match(r'^\s*(?:\d+\.|[-•])\s', line):
+            for doc_match in re.finditer(r'(?<!\*)\*([A-Z][^*]{5,60})\*(?!\*)', line):
+                doc = doc_match.group(1).strip()
+                if doc and not doc.startswith('Tier') and ':' not in doc[:15]:
+                    documents.add(doc)
+
+    # Claim headings: "### Claim: The Statut des Juifs was a French initiative"
+    for m in re.finditer(r'###\s*Claim:\s*(.+)', text):
+        claim_text = m.group(1)
+        # Extract capitalized multi-word names as potential entities
+        for name_m in re.finditer(r'[A-Z][a-zéèêëàâùûîïôç]+(?:\s+(?:des?|du|la|le|von|van|al-|el-)\s+)?[A-Z][a-zéèêëàâùûîïôç]+(?:\s+[A-Z][a-zéèêëàâùûîïôç]+)?', claim_text):
+            candidate = name_m.group(0).strip()
+            if len(candidate) > 3:
+                # Heuristic: if it looks like a document/law name, add to documents
+                if any(kw in candidate.lower() for kw in ('statut', 'law', 'treaty', 'act', 'decree', 'loi', 'accord')):
+                    documents.add(candidate)
+
+    # NOTEBOOKLM SOURCES section for places
+    sources_section = re.search(r'## NOTEBOOKLM SOURCES.*?(?=\n## |\Z)', text, re.DOTALL)
+    if sources_section:
+        src_text = sources_section.group(0)
+        # Look for place names in source titles
+        for place_m in re.finditer(r'(?:France|Algeria|Germany|Italy|Spain|Argentina|Chile|Paraguay|Uruguay|Brazil|Congo|Belgium|Britain|England|Scotland|Ireland|Israel|Palestine|Egypt|Syria|Iraq|Jordan|Lebanon|Turkey|Russia|Soviet|China|Japan|India|Mexico|Cuba|Vietnam|Korea|Antarctica|Gibraltar|Belize|Guatemala|Bermeja|Panama)', src_text):
+            places.add(place_m.group(0))
+
+    # Also check the MODERN HOOK section for places
+    hook_section = re.search(r'## MODERN HOOK ANALYSIS.*?(?=\n## |\Z)', text, re.DOTALL)
+    if hook_section:
+        hook_text = hook_section.group(0)
+        for place_m in re.finditer(r'(?:France|Vichy France|Algeria|French colonial empire|Germany|Italy|Spain|Argentina|Chile|Paraguay|Uruguay|Brazil|Congo|Belgium|Britain|Gibraltar|Belize|Guatemala|Bermeja|Panama)', hook_text):
+            places.add(place_m.group(0))
+
+    # Deduplicate documents: drop shorter titles that are substrings of longer ones
+    deduped_docs = set()
+    sorted_docs = sorted(documents, key=len, reverse=True)
+    for doc in sorted_docs:
+        if not any(doc != existing and doc in existing for existing in deduped_docs):
+            deduped_docs.add(doc)
+
+    # Merge into context (don't overwrite if already populated)
+    if people and not ctx['people']:
+        ctx['people'] = sorted(people)[:5]
+    if places and not ctx['places']:
+        ctx['places'] = sorted(places)[:5]
+    if deduped_docs and not ctx['documents']:
+        ctx['documents'] = sorted(deduped_docs)[:5]
+
+
+def _build_script_context(sections, entities, project_ctx: dict = None) -> str:
     """Auto-adapt script context to fit within VIDIQ_CHAR_LIMIT.
 
-    If the hook/intro text (first 2 sections) fits, include full text.
-    Otherwise, generate a topic summary with key entities.
+    Prefers project metadata context. Falls back to hook/intro text or
+    topic summary with key entities.
     """
+    if project_ctx is None:
+        project_ctx = {}
+
+    # Best: use project metadata context
+    if project_ctx.get('topic'):
+        summary = _extract_topic_summary(sections, entities, project_ctx)
+        if len(summary) <= VIDIQ_CHAR_LIMIT:
+            return summary
+
     # Try full hook/intro
     intro_parts = [s.content for s in sections[:2]]
     full_intro = "\n\n".join(intro_parts)
@@ -140,26 +385,67 @@ def _build_script_context(sections, entities) -> str:
         return full_intro
 
     # Fall back to topic summary with key entities
-    return _extract_topic_summary(sections, entities)
+    return _extract_topic_summary(sections, entities, project_ctx)
 
 
-def _extract_topic_summary(sections, entities) -> str:
-    """Generate a concise topic summary with key entities."""
-    places = [e.text for e in entities if e.entity_type == 'place'][:3]
-    people = [e.text for e in entities if e.entity_type == 'person'][:3]
-    documents = [e.text for e in entities if e.entity_type == 'document'][:3]
+def _extract_topic_summary(sections, entities, project_ctx: dict = None) -> str:
+    """Generate a concise topic summary with key entities.
 
-    # Use first section heading + first 200 chars of content for topic
-    if sections:
-        heading = sections[0].heading
-        core_claim = sections[0].content[:200].strip()
+    Prefers curated context from project metadata files. Falls back to
+    script-based extraction (section headings + EntityExtractor output).
+    """
+    if project_ctx is None:
+        project_ctx = {}
+
+    # --- Entity sourcing: prefer project context, fall back to EntityExtractor ---
+    if project_ctx.get('places'):
+        places = project_ctx['places'][:3]
     else:
-        heading = "Unknown topic"
-        core_claim = ""
+        places = [e.text for e in entities if e.entity_type == 'place'][:3]
 
-    parts = [f"Topic: {heading}"]
-    if core_claim:
-        parts.append(f"Core claim: {core_claim}")
+    if project_ctx.get('people'):
+        people = project_ctx['people'][:3]
+    else:
+        people = [e.text for e in entities if e.entity_type == 'person'][:3]
+
+    if project_ctx.get('documents'):
+        documents = project_ctx['documents'][:3]
+    else:
+        documents = [e.text for e in entities if e.entity_type == 'document'][:3]
+
+    # --- Topic line: prefer project context ---
+    if project_ctx.get('topic'):
+        topic = project_ctx['topic']
+    elif sections:
+        # Skip structural headings (COLD OPEN, ACT 1, etc.)
+        topic = "Unknown topic"
+        for s in sections:
+            heading_lower = re.sub(r'\s*\([\d:–-]+\)\s*$', '', s.heading).strip().lower()
+            if heading_lower not in _STRUCTURAL_HEADINGS:
+                topic = s.heading
+                break
+    else:
+        topic = "Unknown topic"
+
+    parts = [f"Topic: {topic}"]
+
+    # Core question from PROJECT-STATUS.md
+    if project_ctx.get('core_question'):
+        parts.append(f"Core question: {project_ctx['core_question']}")
+
+    # Myth + modern hook from VERIFIED-RESEARCH.md
+    if project_ctx.get('myth'):
+        parts.append(f"Myth being debunked: {project_ctx['myth']}")
+    if project_ctx.get('modern_hook'):
+        parts.append(f"Modern relevance: {project_ctx['modern_hook']}")
+
+    # Fallback: script core claim (only if no project context available)
+    if not project_ctx.get('core_question') and not project_ctx.get('myth'):
+        if sections:
+            core_claim = sections[0].content[:200].strip()
+            if core_claim:
+                parts.append(f"Core claim: {core_claim}")
+
     if places:
         parts.append(f"Key places: {', '.join(places)}")
     if people:
@@ -295,11 +581,26 @@ def _build_vidiq_prompts(topic_summary, script_context, outlier_block) -> list:
     return prompts
 
 
-def _build_gemini_prompt(topic_summary, entities) -> dict:
+def _build_gemini_prompt(topic_summary, entities, project_ctx: dict = None) -> dict:
     """Build one comprehensive Gemini creative brief."""
-    places = [e.text for e in entities if e.entity_type == 'place'][:3]
-    people = [e.text for e in entities if e.entity_type == 'person'][:3]
-    documents = [e.text for e in entities if e.entity_type == 'document'][:3]
+    if project_ctx is None:
+        project_ctx = {}
+
+    # Prefer project context entities, fall back to EntityExtractor
+    if project_ctx.get('places'):
+        places = project_ctx['places'][:3]
+    else:
+        places = [e.text for e in entities if e.entity_type == 'place'][:3]
+
+    if project_ctx.get('people'):
+        people = project_ctx['people'][:3]
+    else:
+        people = [e.text for e in entities if e.entity_type == 'person'][:3]
+
+    if project_ctx.get('documents'):
+        documents = project_ctx['documents'][:3]
+    else:
+        documents = [e.text for e in entities if e.entity_type == 'document'][:3]
 
     entity_block = []
     if places:
@@ -311,13 +612,26 @@ def _build_gemini_prompt(topic_summary, entities) -> dict:
 
     entities_str = "\n".join(entity_block) if entity_block else "No specific entities extracted."
 
+    # Build debunking angle block from project context
+    angle_block = ""
+    if project_ctx.get('myth') or project_ctx.get('hook_text'):
+        angle_parts = []
+        if project_ctx.get('myth'):
+            angle_parts.append(f"Myth being debunked: {project_ctx['myth']}")
+        if project_ctx.get('core_question'):
+            angle_parts.append(f"Core question: {project_ctx['core_question']}")
+        if project_ctx.get('hook_text'):
+            angle_parts.append(f"Draft hook: \"{project_ctx['hook_text'][:300]}\"")
+        angle_block = "\n\nDebunking angle:\n" + "\n".join(angle_parts) + "\n"
+
     text = (
         f"I'm creating a YouTube video for a small educational history channel "
         f"(under 500 subscribers, educated international audience aged 25-44). "
         f"The video uses primary sources and academic research — it's evidence-based "
         f"myth-busting, not political commentary.\n\n"
         f"Topic summary:\n{topic_summary[:500]}\n\n"
-        f"Key entities:\n{entities_str}\n\n"
+        f"Key entities:\n{entities_str}\n"
+        f"{angle_block}\n"
         f"Please address all of the following:\n\n"
         f"1. **Hook psychology:** What emotional or intellectual hook would make an "
         f"educated viewer click on this video? What's the knowledge gap?\n\n"

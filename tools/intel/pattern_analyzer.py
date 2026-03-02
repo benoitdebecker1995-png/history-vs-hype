@@ -245,11 +245,25 @@ def extract_niche_patterns(videos: list) -> dict:
         }
 
         # --- Topic extraction ---
+        # Prefer topic_cluster column (set by Phase 7b using UNIFIED_TOPICS)
+        # Fall back to title-based extraction for raw video dicts without it
         topic_counter: Counter = Counter()
         for video in videos:
-            title = video.get("title", "")
-            for topic in _extract_topics(title):
-                topic_counter[topic] += 1
+            cluster = video.get("topic_cluster")
+            if cluster:
+                # topic_cluster is stored as JSON string: '["territorial", "colonial"]'
+                import json as _json
+                try:
+                    topics = _json.loads(cluster) if isinstance(cluster, str) else cluster
+                except (_json.JSONDecodeError, TypeError):
+                    topics = []
+                for topic in topics:
+                    if topic and topic != "general":
+                        topic_counter[topic] += 1
+            else:
+                title = video.get("title", "")
+                for topic in _extract_topics(title):
+                    topic_counter[topic] += 1
 
         total_videos = len(videos) if videos else 1
         trending_topics = [

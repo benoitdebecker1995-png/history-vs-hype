@@ -190,60 +190,41 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
     logger.info("Starting YouTube Intelligence Engine refresh...")
 
     # -----------------------------------------------------------------------
-    # Phase 1: Scrape algorithm sources
+    # Phase 1-3: Load curated algorithm knowledge
+    # (Replaces fragile blog scraping + keyword-counting synthesis)
     # -----------------------------------------------------------------------
-    _print_phase(1, "Scraping algorithm sources")
-    scraped_results = []
+    _print_phase(1, "Loading curated algorithm knowledge")
+    algo_sources_scraped = 0
+    algo_knowledge_path = _INTEL_DIR / "algorithm_knowledge.json"
     try:
-        scraped_results = scrape_all_sources()
-        successful_scrapes = [r for r in scraped_results if "error" not in r]
-        failed_scrapes = [r for r in scraped_results if "error" in r]
-        for r in failed_scrapes:
-            errors.append(f"Scrape failed: {r['error']}")
-        logger.info("     Scraped %d/%d sources", len(successful_scrapes), len(scraped_results))
-    except Exception as exc:
-        errors.append(f"Phase 1 (scrape) failed: {exc}")
-        scraped_results = []
-
-    algo_sources_scraped = len([r for r in scraped_results if "error" not in r])
-
-    # -----------------------------------------------------------------------
-    # Phase 2: Synthesize algorithm knowledge
-    # -----------------------------------------------------------------------
-    _print_phase(2, "Synthesizing algorithm knowledge (text-analysis mode)")
-    synthesis_result = {}
-    try:
-        synthesis_result = synthesize_with_text_analysis(scraped_results)
-        if "error" in synthesis_result:
-            errors.append(f"Phase 2 (synthesize) failed: {synthesis_result['error']}")
-            synthesis_result = {}
-        else:
-            logger.info("     Confidence: %s", synthesis_result.get('confidence', 'unknown'))
-    except Exception as exc:
-        errors.append(f"Phase 2 (synthesize) failed: {exc}")
-
-    # -----------------------------------------------------------------------
-    # Phase 3: Save algorithm snapshot
-    # -----------------------------------------------------------------------
-    _print_phase(3, "Saving algorithm snapshot")
-    try:
-        if synthesis_result and "algorithm_model" in synthesis_result:
-            algo_model = synthesis_result["algorithm_model"]
+        if algo_knowledge_path.exists():
+            algo_data = json.loads(algo_knowledge_path.read_text(encoding='utf-8'))
+            algo_model = {
+                "pipeline_mechanics": algo_data.get("pipeline_mechanics", {}),
+                "longform_specific": algo_data.get("longform_insights", []),
+                "satisfaction_signals": algo_data.get("satisfaction_signals", []),
+                "avd_thresholds": algo_data.get("avd_thresholds"),
+                "ctr_thresholds": algo_data.get("ctr_thresholds"),
+                "small_channel_notes": algo_data.get("small_channel_notes"),
+                "sources_used": algo_data.get("sources_used", []),
+            }
             save_result = store.save_algo_snapshot(
-                source_names=synthesis_result.get("sources_used", []),
+                source_names=algo_data.get("sources_used", []),
                 algorithm_model=algo_model,
-                signal_weights=synthesis_result.get("signal_weights"),
-                longform_insights=synthesis_result.get("longform_insights"),
-                confidence=synthesis_result.get("confidence", "low"),
+                signal_weights=algo_data.get("signal_weights", {}),
+                longform_insights=algo_data.get("longform_insights"),
+                confidence="high",
             )
             if "error" in save_result:
-                errors.append(f"Phase 3 (save algo) failed: {save_result['error']}")
+                errors.append(f"Phase 1-3 (save algo) failed: {save_result['error']}")
             else:
-                logger.info("     Snapshot id=%s", save_result.get('id'))
+                algo_sources_scraped = len(algo_data.get("sources_used", []))
+                logger.info("     Loaded curated knowledge (%d sources, snapshot id=%s)",
+                            algo_sources_scraped, save_result.get('id'))
         else:
-            errors.append("Phase 3 skipped: no synthesis result to save")
+            errors.append("Phase 1-3: algorithm_knowledge.json not found — skipping")
     except Exception as exc:
-        errors.append(f"Phase 3 (save algo) failed: {exc}")
+        errors.append(f"Phase 1-3 (algo knowledge) failed: {exc}")
 
     # -----------------------------------------------------------------------
     # Phase 4: Bootstrap channels + fetch competitor feeds
@@ -271,16 +252,23 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
 
     # -----------------------------------------------------------------------
     # Phase 5: Purge old competitor videos (purge-and-replace)
+    # Safety: only purge if Phase 4 returned enough new videos to replace them.
+    # If fetch failed (OAuth expired, network error), keep existing data.
     # -----------------------------------------------------------------------
     _print_phase(5, "Purging old competitor videos")
-    try:
-        purge_result = store.purge_competitor_videos()
-        if "error" in purge_result:
-            errors.append(f"Phase 5 (purge) failed: {purge_result['error']}")
-        else:
-            logger.info("     Purged %d old videos", purge_result.get('deleted', 0))
-    except Exception as exc:
-        errors.append(f"Phase 5 (purge) failed: {exc}")
+    min_videos_for_purge = 5
+    if len(raw_videos) >= min_videos_for_purge:
+        try:
+            purge_result = store.purge_competitor_videos()
+            if "error" in purge_result:
+                errors.append(f"Phase 5 (purge) failed: {purge_result['error']}")
+            else:
+                logger.info("     Purged %d old videos", purge_result.get('deleted', 0))
+        except Exception as exc:
+            errors.append(f"Phase 5 (purge) failed: {exc}")
+    else:
+        logger.info("     Skipping purge — Phase 4 returned only %d videos (need >= %d)",
+                     len(raw_videos), min_videos_for_purge)
 
     # -----------------------------------------------------------------------
     # Phase 6: Save new competitor videos
@@ -367,8 +355,13 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
     # -----------------------------------------------------------------------
     _print_phase(8, "Extracting niche patterns")
     try:
-        # Use the annotated video list if available, fall back to raw_videos
-        pattern_input = raw_videos if raw_videos else []
+        # Use classified DB videos (with topic_cluster from Phase 7b) instead
+        # of raw_videos which would use the old vocabulary
+        pattern_input = store.get_competitor_videos(limit=1000)
+        if isinstance(pattern_input, dict) and "error" in pattern_input:
+            pattern_input = raw_videos if raw_videos else []
+        elif not pattern_input:
+            pattern_input = raw_videos if raw_videos else []
         niche_patterns = extract_niche_patterns(pattern_input)
         if isinstance(niche_patterns, dict) and "error" in niche_patterns:
             errors.append(f"Phase 8 (extract patterns) failed: {niche_patterns['error']}")

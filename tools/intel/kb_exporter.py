@@ -170,14 +170,18 @@ def _render_competitor_section(channels: list, videos: list) -> str:
         return "\n".join(lines) + "\n"
 
     # Recent outlier videos table
-    outliers = [v for v in videos if v.get("is_outlier")]
+    outliers = sorted(
+        [v for v in videos if v.get("is_outlier")],
+        key=lambda v: v.get("views", 0),
+        reverse=True,
+    )
     if outliers:
         lines.append("\n### Outlier Videos (3x+ channel median)\n")
         lines.append("| Title | Channel | Views | Ratio | Duration |")
         lines.append("| ----- | ------- | ----- | ----- | -------- |")
         for vid in outliers[:10]:
             title = (vid.get("title") or "—")[:50]
-            channel = vid.get("channel_id", "—")
+            channel = vid.get("channel_name", vid.get("channel_id", "—"))
             views = _fmt_views(vid.get("views"))
             ratio = f"{vid.get('outlier_ratio', 0):.1f}x"
             dur = _fmt_duration(vid.get("duration_seconds"))
@@ -197,7 +201,7 @@ def _render_competitor_section(channels: list, videos: list) -> str:
         lines.append("| ----- | ------- | --------- | -------- |")
         for vid in recent:
             title = (vid.get("title") or "—")[:50]
-            channel = vid.get("channel_id", "—")
+            channel = vid.get("channel_name", vid.get("channel_id", "—"))
             pub = (vid.get("published_at") or "—")[:10]
             dur = _fmt_duration(vid.get("duration_seconds"))
             lines.append(f"| {title} | {channel} | {pub} | {dur} |")
@@ -326,9 +330,15 @@ def export_kb_to_markdown(db_path: str = None, output_path: str = None) -> dict:
         if isinstance(channels, dict):
             channels = []  # Error from get_active_channels — treat as empty
 
-        videos = store.get_competitor_videos(limit=200) or []
+        videos = store.get_competitor_videos(limit=500) or []
         if isinstance(videos, dict):
             videos = []
+
+        # Build channel_id → channel_name lookup for readable tables
+        channel_names = {ch.get('channel_id'): ch.get('channel_name', '—') for ch in channels}
+        for v in videos:
+            if 'channel_name' not in v:
+                v['channel_name'] = channel_names.get(v.get('channel_id'), v.get('channel_id', '—'))
 
         niche_snapshot = store.get_latest_niche_snapshot()
 
