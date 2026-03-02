@@ -1,8 +1,8 @@
-# Post-Publish Analysis: oDK52GwjTIo
+# Post-Publish Analysis: Q5Pfv_dPubU
 
-**Video ID:** oDK52GwjTIo
-**Analyzed:** 2026-02-11T20:04:01.454788+00:00
-**Saved to:** G:\History vs Hype\channel-data\analyses\POST-PUBLISH-ANALYSIS-oDK52GwjTIo.md
+**Video ID:** Q5Pfv_dPubU
+**Analyzed:** 2026-02-12T01:04:54.799075+00:00
+**Saved to:** G:\History vs Hype\channel-data\analyses\POST-PUBLISH-ANALYSIS-Q5Pfv_dPubU.md
 
 ---
 ## Quick Summary
@@ -15,7 +15,9 @@
 
 ## Click-Through Rate
 
-*CTR data unavailable*
+**CTR:** Not available via API
+
+*Check YouTube Studio > Analytics > Reach tab for CTR data*
 
 ## Retention Analysis
 
@@ -72,8 +74,6 @@
 
 ## Errors
 
-- **metrics:** Unexpected error: RefreshError
-- **ctr:** Unexpected error: RefreshError
-- **retention:** Unexpected error: RefreshError
-- **comments:** Unexpected error: RefreshError
-- **channel_averages:** Unexpected error: RefreshError
+- **metrics:** No data found for video
+- **retention:** No retention data found for video
+- **comments:** API quota exceeded or permission denied
