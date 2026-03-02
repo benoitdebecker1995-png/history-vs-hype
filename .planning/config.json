@@ -3,5 +3,8 @@
   "depth": "comprehensive",
   "parallelization": true,
   "created": "2025-01-19",
-  "model_profile": "balanced"
+  "model_profile": "balanced",
+  "workflow": {
+    "research": true
+  }
 }

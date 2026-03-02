@@ -14,7 +14,7 @@
 - ✅ **v4.0 Untranslated Evidence Pipeline** - Phases 39-41 (shipped 2026-02-18)
 - ✅ **v5.0 Production Intelligence** - Phases 42-47 (shipped 2026-02-22)
 - ✅ **v5.1 Codebase Hardening** - Phases 48-54 (shipped 2026-03-01)
-- 🚧 **v5.2 Growth Engine** - Phases 55-59 (in progress)
+- ✅ **v5.2 Growth Engine** - Phases 55-59 (shipped 2026-03-01)
 
 ## Phases
 
@@ -694,7 +694,7 @@ Plans:
 - [x] 54-01-PLAN.md — Prompt generator (VidIQ + Gemini) + intake parser (auto-classification + JSON persistence)
 - [x] 54-02-PLAN.md — Synthesis engine (3-variant ranking + moderation scoring + thumbnail blueprints) + /publish command wiring
 
-### 🚧 v5.2 Growth Engine (In Progress)
+### ✅ v5.2 Growth Engine (Shipped 2026-03-01)
 
 **Milestone Goal:** Use YouTube Analytics API data to optimize topic selection, script quality, and CTR — turning channel data into actionable growth decisions.
 
