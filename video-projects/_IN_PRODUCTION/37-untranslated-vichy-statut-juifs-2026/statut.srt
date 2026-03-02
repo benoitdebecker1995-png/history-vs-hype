@@ -1,0 +1,1220 @@
+1
+01:00:00,000 --> 01:00:01,599
+<b>This is a law that stripped French</b>
+
+2
+01:00:01,599 --> 01:00:04,166
+<b>citizens of their jobs, their rights and</b>
+
+3
+01:00:04,166 --> 01:00:06,733
+<b>their place in public life, based on</b>
+
+4
+01:00:06,733 --> 01:00:07,833
+<b>their grandparents' race.</b>
+
+5
+01:00:08,699 --> 01:00:10,866
+<b>It was written in French and if you don't</b>
+
+6
+01:00:10,866 --> 01:00:11,900
+<b>read French you've</b>
+
+7
+01:00:11,900 --> 01:00:13,166
+<b>probably never read it.</b>
+
+8
+01:00:13,633 --> 01:00:15,199
+<b>The United States Holocaust Memorial</b>
+
+9
+01:00:15,199 --> 01:00:17,166
+<b>Museum describes its provisions.</b>
+
+10
+01:00:17,766 --> 01:00:19,266
+<b>Yad Vashem summarizes them.</b>
+
+11
+01:00:19,933 --> 01:00:22,133
+<b>Academic books quote sections of it.</b>
+
+12
+01:00:22,400 --> 01:00:24,633
+<b>But a readable, clause-by-clause English</b>
+
+13
+01:00:24,633 --> 01:00:26,133
+<b>translation of the full text?</b>
+
+14
+01:00:26,733 --> 01:00:29,266
+<b>I couldn't find one, so I made one.</b>
+
+15
+01:00:29,633 --> 01:00:30,833
+<b>And then there's something else.</b>
+
+16
+01:00:31,266 --> 01:00:33,433
+<b>A draft of this law, covered in</b>
+
+17
+01:00:33,433 --> 01:00:35,133
+<b>handwritten annotations from the French</b>
+
+18
+01:00:35,133 --> 01:00:36,266
+<b>head of state himself.</b>
+
+19
+01:00:37,099 --> 01:00:38,566
+<b>Those annotations have never been</b>
+
+20
+01:00:38,566 --> 01:00:41,066
+<b>translated or walked through in English.</b>
+
+21
+01:00:42,066 --> 01:00:44,333
+<b>They proved he didn't just sign this law.</b>
+
+22
+01:00:44,866 --> 01:00:46,866
+<b>He personally made it worse.</b>
+
+23
+01:00:47,500 --> 01:00:50,133
+<b>They proved, but was not the hero that</b>
+
+24
+01:00:50,133 --> 01:00:51,566
+<b>most people make him out to be.</b>
+
+25
+01:00:51,866 --> 01:00:53,000
+<b>I'm going to show you both.</b>
+
+26
+01:00:53,666 --> 01:00:56,566
+<b>On October 3rd, 1940, the Vichy</b>
+
+27
+01:00:56,566 --> 01:00:59,266
+<b>government published the Statute des</b>
+
+28
+01:00:59,266 --> 01:01:01,166
+<b>Juifs, the Jewish Statute.</b>
+
+29
+01:01:01,733 --> 01:01:03,233
+<b>It created a racial</b>
+
+30
+01:01:03,233 --> 01:01:05,266
+<b>definition of who counted as Jewish.</b>
+
+31
+01:01:05,900 --> 01:01:08,566
+<b>It banned Jews from almost every position</b>
+
+32
+01:01:08,566 --> 01:01:09,699
+<b>of public influence.</b>
+
+33
+01:01:10,466 --> 01:01:12,199
+<b>And it applied those bans across the</b>
+
+34
+01:01:12,199 --> 01:01:13,466
+<b>entire French Empire.</b>
+
+35
+01:01:14,033 --> 01:01:15,933
+<b>For decades the official French position</b>
+
+36
+01:01:15,933 --> 01:01:17,833
+<b>was that Germany imposed this.</b>
+
+37
+01:01:18,566 --> 01:01:20,900
+<b>After the war, Vichy's own justice</b>
+
+38
+01:01:20,900 --> 01:01:22,566
+<b>minister, a man named</b>
+
+39
+01:01:22,566 --> 01:01:25,500
+<b>Joseph Barthélemy, said, and this</b>
+
+40
+01:01:25,500 --> 01:01:28,233
+<b>is a direct quote, "This legislation is</b>
+
+41
+01:01:28,233 --> 01:01:29,466
+<b>not a French initiative.</b>
+
+42
+01:01:29,833 --> 01:01:31,633
+<b>It is entirely of German origin."</b>
+
+43
+01:01:32,733 --> 01:01:34,766
+<b>The archives proved that was a lie.</b>
+
+44
+01:01:35,599 --> 01:01:37,533
+<b>We know this because of three things.</b>
+
+45
+01:01:38,266 --> 01:01:40,566
+<b>First, the armistice France signed with</b>
+
+46
+01:01:40,566 --> 01:01:42,400
+<b>Germany in June 1940</b>
+
+47
+01:01:42,400 --> 01:01:44,133
+<b>said nothing about Jews.</b>
+
+48
+01:01:45,599 --> 01:01:47,733
+<b>Historians Marrus and Paxton went through</b>
+
+49
+01:01:47,733 --> 01:01:49,666
+<b>both the German and French archives.</b>
+
+50
+01:01:50,433 --> 01:01:53,133
+<b>Their conclusion, close study of German</b>
+
+51
+01:01:53,133 --> 01:01:54,366
+<b>and French archives,</b>
+
+52
+01:01:54,833 --> 01:01:56,433
+<b>reveals no German demand</b>
+
+53
+01:01:56,433 --> 01:01:58,533
+<b>in 1940 that Vichy</b>
+
+54
+01:01:58,533 --> 01:02:00,699
+<b>adopt an anti-Jewish policy.</b>
+
+55
+01:02:01,466 --> 01:02:03,833
+<b>Second, France was already passing</b>
+
+56
+01:02:03,833 --> 01:02:05,133
+<b>anti-Jewish measures</b>
+
+57
+01:02:05,133 --> 01:02:06,833
+<b>before Germany issued anything.</b>
+
+58
+01:02:07,366 --> 01:02:09,933
+<b>In July 1940, they restricted public</b>
+
+59
+01:02:09,933 --> 01:02:11,333
+<b>service jobs to people</b>
+
+60
+01:02:11,333 --> 01:02:12,533
+<b>born of French fathers.</b>
+
+61
+01:02:13,733 --> 01:02:14,733
+<b>In August, they</b>
+
+62
+01:02:14,733 --> 01:02:16,233
+<b>restricted the medical profession.</b>
+
+63
+01:02:16,833 --> 01:02:19,000
+<b>In late August, they repealed the</b>
+
+64
+01:02:19,000 --> 01:02:21,333
+<b>Marchandeau law, the law that had made</b>
+
+65
+01:02:21,333 --> 01:02:22,433
+<b>anti-Semitic attacks</b>
+
+66
+01:02:22,433 --> 01:02:23,599
+<b>in the press illegal.</b>
+
+67
+01:02:24,099 --> 01:02:25,433
+<b>All of this before any</b>
+
+68
+01:02:25,433 --> 01:02:26,766
+<b>German ordinance on Jews.</b>
+
+69
+01:02:27,666 --> 01:02:30,400
+<b>And thirdly, when Germany finally did act</b>
+
+70
+01:02:30,400 --> 01:02:32,066
+<b>on September 27,</b>
+
+71
+01:02:32,766 --> 01:02:34,833
+<b>1940, what they did demand</b>
+
+72
+01:02:35,033 --> 01:02:35,733
+<b>was limited.</b>
+
+73
+01:02:36,233 --> 01:02:39,033
+<b>A census and property registration, only</b>
+
+74
+01:02:39,033 --> 01:02:40,266
+<b>in the occupied zone.</b>
+
+75
+01:02:41,000 --> 01:02:41,866
+<b>And they used a religious</b>
+
+76
+01:02:41,866 --> 01:02:43,466
+<b>definition of who was Jewish.</b>
+
+77
+01:02:44,533 --> 01:02:46,566
+<b>Six days later, France responded with</b>
+
+78
+01:02:46,566 --> 01:02:48,933
+<b>something far broader, a racial</b>
+
+79
+01:02:48,933 --> 01:02:51,033
+<b>definition, a full professional</b>
+
+80
+01:02:51,199 --> 01:02:53,133
+<b>purge applied across</b>
+
+81
+01:02:53,133 --> 01:02:54,566
+<b>the entire French empire.</b>
+
+82
+01:02:56,000 --> 01:02:57,333
+<b>France didn't just follow Germany.</b>
+
+83
+01:02:58,433 --> 01:02:59,166
+<b>France went further.</b>
+
+84
+01:02:59,833 --> 01:03:00,666
+<b>The first thing the law</b>
+
+85
+01:03:00,666 --> 01:03:02,433
+<b>does is define its target.</b>
+
+86
+01:03:03,166 --> 01:03:05,000
+<b>And the word it uses is</b>
+
+87
+01:03:05,000 --> 01:03:06,966
+<b>"race", not "religion".</b>
+
+88
+01:03:07,566 --> 01:03:09,733
+<b>"Race juive", the Jewish race.</b>
+
+89
+01:03:10,533 --> 01:03:12,533
+<b>If you had three Jewish grandparents, you</b>
+
+90
+01:03:12,533 --> 01:03:13,599
+<b>were counted as a Jew.</b>
+
+91
+01:03:14,599 --> 01:03:15,466
+<b>It didn't matter if you</b>
+
+92
+01:03:15,466 --> 01:03:16,533
+<b>were baptized Catholic.</b>
+
+93
+01:03:17,166 --> 01:03:18,233
+<b>It didn't matter if you'd</b>
+
+94
+01:03:18,233 --> 01:03:19,633
+<b>never set foot in a synagogue.</b>
+
+95
+01:03:20,233 --> 01:03:22,166
+<b>If you had two Jewish grandparents, you</b>
+
+96
+01:03:22,166 --> 01:03:23,400
+<b>could escape the definition.</b>
+
+97
+01:03:24,133 --> 01:03:27,133
+<b>Unless your spouse was Jewish, then you</b>
+
+98
+01:03:27,133 --> 01:03:28,800
+<b>were fully Jewish under the law.</b>
+
+99
+01:03:29,866 --> 01:03:32,699
+<b>And notice, the law never defines what</b>
+
+100
+01:03:32,699 --> 01:03:34,233
+<b>makes a grandparent Jewish.</b>
+
+101
+01:03:34,699 --> 01:03:35,933
+<b>The definition is circular.</b>
+
+102
+01:03:36,766 --> 01:03:38,066
+<b>That's not sloppy drafting.</b>
+
+103
+01:03:38,566 --> 01:03:40,099
+<b>A vague definition gave</b>
+
+104
+01:03:40,099 --> 01:03:41,866
+<b>authorities maximum discretion.</b>
+
+105
+01:03:43,266 --> 01:03:44,666
+<b>Marrus and Paxton again.</b>
+
+106
+01:03:45,466 --> 01:03:47,933
+<b>Vichy's "Statut des juifs" went further than</b>
+
+107
+01:03:47,933 --> 01:03:48,866
+<b>the German ordinance.</b>
+
+108
+01:03:49,533 --> 01:03:51,533
+<b>Whereas the German ordinance spoke only</b>
+
+109
+01:03:51,533 --> 01:03:53,166
+<b>of religion, the Vichy</b>
+
+110
+01:03:53,166 --> 01:03:54,933
+<b>law spoke openly of race.</b>
+
+111
+01:03:56,366 --> 01:03:57,733
+<b>Article 2 is the ban list.</b>
+
+112
+01:03:58,366 --> 01:03:59,300
+<b>And when you read it,</b>
+
+113
+01:03:59,533 --> 01:04:00,733
+<b>you understand the scale.</b>
+
+114
+01:04:01,300 --> 01:04:03,400
+<b>Jews were banned from head of state,</b>
+
+115
+01:04:03,766 --> 01:04:05,133
+<b>every court from the</b>
+
+116
+01:04:05,133 --> 01:04:06,500
+<b>Supreme Court down to the local</b>
+
+117
+01:04:06,633 --> 01:04:09,933
+<b>magistrate, every elected assembly, all</b>
+
+118
+01:04:09,933 --> 01:04:12,966
+<b>prefects, all police, all</b>
+
+119
+01:04:12,966 --> 01:04:15,466
+<b>diplomats, all colonial governors,</b>
+
+120
+01:04:16,266 --> 01:04:19,966
+<b>all military officers, all teachers, any</b>
+
+121
+01:04:19,966 --> 01:04:20,900
+<b>director of a company</b>
+
+122
+01:04:20,900 --> 01:04:22,233
+<b>receiving public money.</b>
+
+123
+01:04:23,066 --> 01:04:23,966
+<b>That's not a ban on a</b>
+
+124
+01:04:23,966 --> 01:04:25,333
+<b>few senior positions.</b>
+
+125
+01:04:25,733 --> 01:04:27,666
+<b>That's a systematic removal from every</b>
+
+126
+01:04:27,666 --> 01:04:28,866
+<b>institution that exercises</b>
+
+127
+01:04:28,866 --> 01:04:31,099
+<b>authority, shapes culture or</b>
+
+128
+01:04:31,099 --> 01:04:32,033
+<b>controls information.</b>
+
+129
+01:04:33,233 --> 01:04:37,099
+<b>By 1942, roughly 3,400 public servants</b>
+
+130
+01:04:37,099 --> 01:04:38,933
+<b>had been dismissed in mainland France,</b>
+
+131
+01:04:39,533 --> 01:04:41,599
+<b>another 2,500 in Algeria.</b>
+
+132
+01:04:42,400 --> 01:04:45,733
+<b>Article 5 bans Jews without condition or</b>
+
+133
+01:04:45,733 --> 01:04:48,966
+<b>reservation, from directing, managing or</b>
+
+134
+01:04:48,966 --> 01:04:50,366
+<b>editing any newspaper,</b>
+
+135
+01:04:51,066 --> 01:04:52,666
+<b>magazine or periodical.</b>
+
+136
+01:04:53,533 --> 01:04:56,099
+<b>Then cinema, directors, producers,</b>
+
+137
+01:04:56,666 --> 01:04:58,666
+<b>screenwriters, then radio.</b>
+
+138
+01:04:59,333 --> 01:05:00,500
+<b>No war hero exceptions.</b>
+
+139
+01:05:01,466 --> 01:05:02,699
+<b>No exemptions at all.</b>
+
+140
+01:05:03,233 --> 01:05:05,033
+<b>The only thing Jews could still publish</b>
+
+141
+01:05:05,033 --> 01:05:06,366
+<b>was scientific journals.</b>
+
+142
+01:05:07,833 --> 01:05:09,533
+<b>That one exception tells you everything</b>
+
+143
+01:05:09,533 --> 01:05:10,866
+<b>about the law's purpose.</b>
+
+144
+01:05:11,766 --> 01:05:13,699
+<b>A Jewish journalist isn't banned because</b>
+
+145
+01:05:13,699 --> 01:05:14,866
+<b>they're bad at their job.</b>
+
+146
+01:05:15,666 --> 01:05:17,566
+<b>They're banned because they shape what</b>
+
+147
+01:05:17,566 --> 01:05:18,633
+<b>French people think.</b>
+
+148
+01:05:19,366 --> 01:05:21,266
+<b>This is about controlling who tells</b>
+
+149
+01:05:21,266 --> 01:05:22,333
+<b>France its stories.</b>
+
+150
+01:05:23,500 --> 01:05:25,633
+<b>With one sentence, they extended the law</b>
+
+151
+01:05:25,633 --> 01:05:27,233
+<b>across the entire French empire.</b>
+
+152
+01:05:28,099 --> 01:05:31,533
+<b>In Morocco, 32 of 37 Jewish lawyers were</b>
+
+153
+01:05:31,533 --> 01:05:32,466
+<b>removed from the bar.</b>
+
+154
+01:05:33,266 --> 01:05:35,699
+<b>Four days after this statute, a separate</b>
+
+155
+01:05:35,699 --> 01:05:36,533
+<b>law stripped over</b>
+
+156
+01:05:36,533 --> 01:05:39,233
+<b>100,000 Algerian Jews of the</b>
+
+157
+01:05:39,233 --> 01:05:41,400
+<b>citizenship they'd held for 70 years.</b>
+
+158
+01:05:42,466 --> 01:05:44,233
+<b>But it didn't stop in North Africa.</b>
+
+159
+01:05:44,900 --> 01:05:46,666
+<b>French administrators applied this law</b>
+
+160
+01:05:46,666 --> 01:05:49,033
+<b>everywhere, including territories</b>
+
+161
+01:05:49,033 --> 01:05:50,400
+<b>thousands of miles from</b>
+
+162
+01:05:50,400 --> 01:05:51,733
+<b>the nearest German soldier.</b>
+
+163
+01:05:52,133 --> 01:05:53,266
+<b>In French Indochina,</b>
+
+164
+01:05:53,566 --> 01:05:55,199
+<b>they counted 140 Jews.</b>
+
+165
+01:05:56,133 --> 01:05:58,066
+<b>French West Africa, 110.</b>
+
+166
+01:05:58,666 --> 01:05:59,966
+<b>Martinique, 36.</b>
+
+167
+01:06:00,633 --> 01:06:01,766
+<b>Guadeloupe, 22.</b>
+
+168
+01:06:02,366 --> 01:06:03,666
+<b>Madagascar, 26.</b>
+
+169
+01:06:04,333 --> 01:06:06,433
+<b>There was no military requirement to</b>
+
+170
+01:06:06,433 --> 01:06:08,466
+<b>register 22 people in Guadeloupe.</b>
+
+171
+01:06:09,033 --> 01:06:09,766
+<b>There were no German</b>
+
+172
+01:06:09,766 --> 01:06:11,099
+<b>troops in Martinique.</b>
+
+173
+01:06:11,933 --> 01:06:13,099
+<b>This wasn't geopolitics.</b>
+
+174
+01:06:13,466 --> 01:06:15,300
+<b>This was administrative zeal.</b>
+
+175
+01:06:16,366 --> 01:06:18,066
+<b>Marrus and Paxton call this the</b>
+
+176
+01:06:18,066 --> 01:06:19,866
+<b>definitive proof that Vichy's</b>
+
+177
+01:06:19,866 --> 01:06:21,366
+<b>antisemitism was indigenous.</b>
+
+178
+01:06:23,066 --> 01:06:23,699
+<b>That's the law.</b>
+
+179
+01:06:24,300 --> 01:06:25,666
+<b>Now I want to show you something that was</b>
+
+180
+01:06:25,666 --> 01:06:27,133
+<b>hidden for 70 years.</b>
+
+181
+01:06:28,133 --> 01:06:31,400
+<b>In 2010, 70 years to the day after the</b>
+
+182
+01:06:31,400 --> 01:06:33,066
+<b>statute was signed, a</b>
+
+183
+01:06:33,066 --> 01:06:34,966
+<b>lawyer, a Nazi hunter named</b>
+
+184
+01:06:35,033 --> 01:06:37,966
+<b>Serge Klarsfeld, held a press conference</b>
+
+185
+01:06:37,966 --> 01:06:40,699
+<b>at the Memorial de la Shoah in Paris.</b>
+
+186
+01:06:41,133 --> 01:06:43,166
+<b>He had a typed draft of the statute,</b>
+
+187
+01:06:43,766 --> 01:06:45,433
+<b>stamped "DOCUMENT</b>
+
+188
+01:06:45,433 --> 01:06:47,800
+<b>CONFIDENTIEL", covered in handwritten</b>
+
+189
+01:06:47,966 --> 01:06:48,666
+<b>annotations.</b>
+
+190
+01:06:49,933 --> 01:06:51,766
+<b>Handwriting experts confirmed they</b>
+
+191
+01:06:51,766 --> 01:06:52,266
+<b>were Philippe</b>
+
+192
+01:06:52,266 --> 01:06:54,199
+<b>Pétain's, the head of the Vichy</b>
+
+193
+01:06:54,566 --> 01:06:54,633
+<b>state.</b>
+
+194
+01:06:55,766 --> 01:06:56,733
+<b>I have this document.</b>
+
+195
+01:06:57,333 --> 01:06:58,933
+<b>I have translated his notes.</b>
+
+196
+01:06:59,933 --> 01:07:02,066
+<b>The typed draft listed specific</b>
+
+197
+01:07:02,066 --> 01:07:03,433
+<b>educational administrators,</b>
+
+198
+01:07:04,366 --> 01:07:06,366
+<b>directors, inspectors, school</b>
+
+199
+01:07:06,800 --> 01:07:06,900
+<b>directors.</b>
+
+200
+01:07:08,033 --> 01:07:10,733
+<b>Pétain wrote in the margin "tout personnel</b>
+
+201
+01:07:10,733 --> 01:07:12,666
+<b>enseignant", all</b>
+
+202
+01:07:12,666 --> 01:07:14,866
+<b>teaching personnel, not just</b>
+
+203
+01:07:14,866 --> 01:07:17,400
+<b>the people who run the schools, every</b>
+
+204
+01:07:17,400 --> 01:07:18,866
+<b>teacher at every level.</b>
+
+205
+01:07:19,533 --> 01:07:20,933
+<b>The typed draft banned Jews</b>
+
+206
+01:07:20,933 --> 01:07:22,833
+<b>from specific named institutions.</b>
+
+207
+01:07:23,833 --> 01:07:26,833
+<b>Pétain added "toutes assemblées issues</b>
+
+208
+01:07:26,833 --> 01:07:29,066
+<b>de l'élection" all</b>
+
+209
+01:07:29,066 --> 01:07:30,466
+<b>assemblies arising from</b>
+
+210
+01:07:30,533 --> 01:07:34,133
+<b>elections, every municipal council, every</b>
+
+211
+01:07:34,133 --> 01:07:35,633
+<b>departmental council,</b>
+
+212
+01:07:36,333 --> 01:07:37,466
+<b>every elected body in</b>
+
+213
+01:07:37,466 --> 01:07:38,633
+<b>France and its empire.</b>
+
+214
+01:07:39,666 --> 01:07:40,766
+<b>The draft banned Jews</b>
+
+215
+01:07:40,766 --> 01:07:41,833
+<b>from the high courts.</b>
+
+216
+01:07:42,833 --> 01:07:45,800
+<b>Pétain extended it to "justices de paix",</b>
+
+217
+01:07:45,800 --> 01:07:48,400
+<b>the village magistrate courts, the lowest</b>
+
+218
+01:07:48,533 --> 01:07:49,933
+<b>level of French justice.</b>
+
+219
+01:07:50,633 --> 01:07:51,400
+<b>And then there's the</b>
+
+220
+01:07:51,400 --> 01:07:52,733
+<b>change that matters most.</b>
+
+221
+01:07:53,466 --> 01:07:56,666
+<b>The typed draft, already harsh, had a</b>
+
+222
+01:07:56,666 --> 01:07:57,533
+<b>protection clause,</b>
+
+223
+01:07:58,099 --> 01:08:00,766
+<b>condition A, read "être descendant</b>
+
+224
+01:08:00,766 --> 01:08:02,333
+<b>de Juifs nés français ou</b>
+
+225
+01:08:02,333 --> 01:08:03,433
+<b>naturalisés avant</b>
+
+226
+01:08:03,433 --> 01:08:05,666
+<b>l'année 1860" to</b>
+
+227
+01:08:05,666 --> 01:08:08,266
+<b>be a descendant of Jews born French or</b>
+
+228
+01:08:08,266 --> 01:08:10,366
+<b>naturalized before the year 1860.</b>
+
+229
+01:08:11,400 --> 01:08:13,333
+<b>That's an 80-year grandfather clause.</b>
+
+230
+01:08:14,033 --> 01:08:15,933
+<b>If your family had been French since</b>
+
+231
+01:08:15,933 --> 01:08:18,066
+<b>Napoleon III, you were protected.</b>
+
+232
+01:08:18,899 --> 01:08:20,800
+<b>These were France's most established,</b>
+
+233
+01:08:21,300 --> 01:08:23,199
+<b>most assimilated Jewish families.</b>
+
+234
+01:08:23,866 --> 01:08:24,533
+<b>Families who had been</b>
+
+235
+01:08:24,533 --> 01:08:25,766
+<b>French for generations.</b>
+
+236
+01:08:26,600 --> 01:08:27,833
+<b>Pétain drew a line</b>
+
+237
+01:08:27,833 --> 01:08:29,000
+<b>through the whole sentence.</b>
+
+238
+01:08:30,133 --> 01:08:31,466
+<b>With one pen stroke, he</b>
+
+239
+01:08:31,466 --> 01:08:33,133
+<b>erased 80 years of citizenship.</b>
+
+240
+01:08:33,933 --> 01:08:34,899
+<b>It didn't matter if your</b>
+
+241
+01:08:34,899 --> 01:08:36,833
+<b>great-grandfather fought for France.</b>
+
+242
+01:08:37,366 --> 01:08:38,500
+<b>If you fit the racial</b>
+
+243
+01:08:38,500 --> 01:08:40,333
+<b>definition, you were out.</b>
+
+244
+01:08:40,966 --> 01:08:42,066
+<b>Not a single annotation on</b>
+
+245
+01:08:42,066 --> 01:08:43,699
+<b>this document softened the law.</b>
+
+246
+01:08:44,433 --> 01:08:47,199
+<b>Every remark expanded who had targeted or</b>
+
+247
+01:08:47,199 --> 01:08:48,199
+<b>removed the protection.</b>
+
+248
+01:08:48,733 --> 01:08:49,833
+<b>He added professions.</b>
+
+249
+01:08:50,466 --> 01:08:51,433
+<b>He closed loopholes.</b>
+
+250
+01:08:52,033 --> 01:08:53,666
+<b>He erased the one clause that would</b>
+
+251
+01:08:53,666 --> 01:08:56,100
+<b>protect France's oldest Jewish families.</b>
+
+252
+01:08:56,866 --> 01:08:59,766
+<b>Klarsfeld noted "The main argument of</b>
+
+253
+01:08:59,766 --> 01:09:01,133
+<b>Pétain defenders was</b>
+
+254
+01:09:01,133 --> 01:09:02,433
+<b>to say that he protected</b>
+
+255
+01:09:02,433 --> 01:09:03,366
+<b>French Jews.</b>
+
+256
+01:09:04,399 --> 01:09:06,066
+<b>This argument has now fallen."</b>
+
+257
+01:09:06,733 --> 01:09:09,066
+<b>After the war, Charles de Gaulle, the</b>
+
+258
+01:09:09,066 --> 01:09:09,899
+<b>leader of the Free</b>
+
+259
+01:09:09,899 --> 01:09:12,266
+<b>French Resistance and France's</b>
+
+260
+01:09:12,266 --> 01:09:15,466
+<b>first post-war president, declared all of</b>
+
+261
+01:09:15,466 --> 01:09:17,266
+<b>Vichy's laws null and void.</b>
+
+262
+01:09:17,699 --> 01:09:18,966
+<b>His position was simple.</b>
+
+263
+01:09:19,633 --> 01:09:21,433
+<b>Vichy was never the real France.</b>
+
+264
+01:09:21,833 --> 01:09:23,666
+<b>The Republic had just been interrupted.</b>
+
+265
+01:09:24,133 --> 01:09:26,433
+<b>And if Vichy wasn't the real France, then</b>
+
+266
+01:09:26,433 --> 01:09:27,899
+<b>France bore no responsibility.</b>
+
+267
+01:09:28,500 --> 01:09:29,366
+<b>That was the official</b>
+
+268
+01:09:29,366 --> 01:09:31,033
+<b>position for 50 years.</b>
+
+269
+01:09:31,833 --> 01:09:33,666
+<b>It held until 1995.</b>
+
+270
+01:09:34,766 --> 01:09:36,866
+<b>Jacques Chirac, standing at the site</b>
+
+271
+01:09:36,866 --> 01:09:38,466
+<b>where French police had</b>
+
+272
+01:09:38,466 --> 01:09:40,033
+<b>arrested over 13,000 Jews</b>
+
+273
+01:09:40,033 --> 01:09:42,366
+<b>in 1942, said what no</b>
+
+274
+01:09:42,366 --> 01:09:44,100
+<b>French president had said before.</b>
+
+275
+01:09:45,199 --> 01:09:47,600
+<b>France, the home of the Enlightenment and</b>
+
+276
+01:09:47,600 --> 01:09:48,300
+<b>of the rights of</b>
+
+277
+01:09:48,300 --> 01:09:50,399
+<b>man, delivered those she</b>
+
+278
+01:09:50,399 --> 01:09:51,233
+<b>should have protected</b>
+
+279
+01:09:51,233 --> 01:09:52,633
+<b>to their executioners.</b>
+
+280
+01:09:52,966 --> 01:09:53,699
+<b>Not Vichy.</b>
+
+281
+01:09:54,533 --> 01:09:54,833
+<b>France.</b>
+
+282
+01:09:56,133 --> 01:09:57,699
+<b>I want to be fair about one thing.</b>
+
+283
+01:09:58,166 --> 01:10:00,100
+<b>75% of Jews living in</b>
+
+284
+01:10:00,100 --> 01:10:01,866
+<b>France survived the war.</b>
+
+285
+01:10:02,633 --> 01:10:04,233
+<b>That's a higher rate than almost any</b>
+
+286
+01:10:04,233 --> 01:10:05,633
+<b>other occupied country.</b>
+
+287
+01:10:06,433 --> 01:10:07,033
+<b>But that survival</b>
+
+288
+01:10:07,033 --> 01:10:08,366
+<b>wasn't because of this law.</b>
+
+289
+01:10:08,766 --> 01:10:11,166
+<b>It was because of ordinary French people</b>
+
+290
+01:10:11,166 --> 01:10:12,166
+<b>who chose to protect</b>
+
+291
+01:10:12,166 --> 01:10:13,699
+<b>their neighbors, despite</b>
+
+292
+01:10:13,699 --> 01:10:15,100
+<b>what their government was doing.</b>
+
+293
+01:10:16,166 --> 01:10:17,100
+<b>The law we just read</b>
+
+294
+01:10:17,100 --> 01:10:18,533
+<b>didn't protect anyone.</b>
+
+295
+01:10:19,600 --> 01:10:21,166
+<b>I've linked the full translation and the</b>
+
+296
+01:10:21,166 --> 01:10:22,133
+<b>original French text</b>
+
+297
+01:10:22,133 --> 01:10:23,500
+<b>in the description so</b>
+
+298
+01:10:23,500 --> 01:10:24,933
+<b>you can read the whole thing yourself.</b>
+
+299
+01:10:26,000 --> 01:10:27,833
+<b>That's what this series is trying to do,</b>
+
+300
+01:10:28,166 --> 01:10:29,133
+<b>translating historic</b>
+
+301
+01:10:29,133 --> 01:10:30,166
+<b>sources that were never</b>
+
+302
+01:10:30,233 --> 01:10:31,533
+<b>made accessible in English.</b>
+
+303
+01:10:32,733 --> 01:10:34,066
+<b>If you want to see more of these,</b>
+
+304
+01:10:34,833 --> 01:10:36,433
+<b>subscribe, there's a lot</b>
+
+305
+01:10:36,433 --> 01:10:37,833
+<b>more documents to translate.</b>
+
