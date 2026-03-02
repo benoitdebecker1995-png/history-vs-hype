@@ -125,6 +125,63 @@ TOPIC_NORMALIZE = {
     'general': 'general',
 }
 
+# ── Keyword-to-topic mapping ──────────────────────────────────────
+# Maps topic categories to keyword fragments that indicate search demand
+# for that topic. Used to cross-reference keywords.db with topic clusters.
+TOPIC_KEYWORD_MAP = {
+    'territorial': [
+        'border', 'territory', 'dispute', 'island', 'strait', 'sea',
+        'annex', 'claim', 'sovereignty', 'map', 'partition', 'treaty',
+        'icj', 'maritime', 'zone', 'occupation', 'crimea', 'kashmir',
+        'gibraltar', 'belize', 'guatemala', 'guyana', 'essequibo',
+        'chagos', 'bermeja', 'ceuta', 'melilla', 'tordesillas',
+        'scramble', 'berlin conference',
+    ],
+    'colonial': [
+        'colonial', 'colony', 'empire', 'imperialism', 'scramble',
+        'africa', 'partition', 'berlin conference', 'decolonization',
+        'mandate', 'protectorate', 'condor', 'monroe doctrine',
+        'latin america', 'south america',
+    ],
+    'war': [
+        'war', 'battle', 'invasion', 'military', 'army', 'siege',
+        'nuclear', 'weapon', 'condor', 'operation',
+    ],
+    'ideological': [
+        'myth', 'misconception', 'propaganda', 'ideology', 'communism',
+        'fascism', 'nationalism', 'dark ages', 'viking', 'crusade',
+        'library of alexandria', 'burning', 'destruction',
+    ],
+    'medieval': [
+        'medieval', 'middle ages', 'dark ages', 'viking', 'crusade',
+        'byzantine', 'roman', 'feudal', 'monastery',
+    ],
+    'religion': [
+        'religion', 'church', 'crusade', 'islamic', 'christian',
+        'jewish', 'temple', 'holy',
+    ],
+    'legal': [
+        'treaty', 'law', 'court', 'icj', 'ruling', 'constitution',
+        'doctrine', 'monroe doctrine', 'tordesillas',
+    ],
+    'archaeological': [
+        'archaeolog', 'ancient', 'ruins', 'excavat', 'artifact',
+        'library of alexandria', 'sumerian', 'roman',
+    ],
+    'revolution': [
+        'revolution', 'uprising', 'revolt', 'independence', 'coup',
+        'condor',
+    ],
+    'trade': [
+        'trade', 'economic', 'commerce', 'merchant', 'silk road',
+        'spice',
+    ],
+    'politician': [
+        'president', 'leader', 'politician', 'minister', 'dictator',
+        'putin', 'trump', 'stalin',
+    ],
+}
+
 # Channel's competitive advantages (for scoring)
 CHANNEL_ADVANTAGES = {
     'document-first': 1.5,   # Core differentiator: primary sources on screen
@@ -290,10 +347,15 @@ class GapAnalyzer:
 
         for topic in all_topics:
             # Find demand signal for this topic from keywords
+            # Use TOPIC_KEYWORD_MAP fragments to match keywords to topics
             topic_demand = 0
+            topic_fragments = TOPIC_KEYWORD_MAP.get(topic, [topic.lower()])
             for kw, vol in search_demand.items():
-                if topic.lower() in kw.lower():
-                    topic_demand = max(topic_demand, vol)
+                kw_lower = kw.lower()
+                for fragment in topic_fragments:
+                    if fragment in kw_lower:
+                        topic_demand = max(topic_demand, vol)
+                        break
 
             for angle in all_angles:
                 cell = coverage[topic].get(angle, {
