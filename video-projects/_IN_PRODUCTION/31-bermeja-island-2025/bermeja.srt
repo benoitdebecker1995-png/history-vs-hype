@@ -1,0 +1,808 @@
+1
+01:00:00,000 --> 01:00:03,541
+<b>In 2000, Mexico signed away access to 22</b>
+
+2
+01:00:03,541 --> 01:00:05,208
+<b>billion barrels of oil.</b>
+
+3
+01:00:05,666 --> 01:00:08,166
+<b>The reason? An island that appeared on</b>
+
+4
+01:00:08,166 --> 01:00:11,583
+<b>maps for 382 years didn't</b>
+
+5
+01:00:11,583 --> 01:00:14,625
+<b>exist. It had never existed.</b>
+
+6
+01:00:15,333 --> 01:00:17,583
+<b>Some people are convinced the CIA blew it</b>
+
+7
+01:00:17,583 --> 01:00:19,333
+<b>up. Mexican senators</b>
+
+8
+01:00:19,333 --> 01:00:20,750
+<b>launched an investigation.</b>
+
+9
+01:00:21,625 --> 01:00:23,916
+<b>A politician who opposed the treaty died</b>
+
+10
+01:00:23,916 --> 01:00:25,500
+<b>in a suspicious car crash.</b>
+
+11
+01:00:26,416 --> 01:00:28,708
+<b>So I went to the Library of Congress</b>
+
+12
+01:00:28,708 --> 01:00:32,375
+<b>archive. The actual 1539 Atlas.</b>
+
+13
+01:00:33,041 --> 01:00:35,583
+<b>Then I read the treaty and then the</b>
+
+14
+01:00:35,583 --> 01:00:36,666
+<b>scientific report that</b>
+
+15
+01:00:36,666 --> 01:00:37,625
+<b>settled the question.</b>
+
+16
+01:00:38,666 --> 01:00:40,958
+<b>This is Bermeja, the most expensive</b>
+
+17
+01:00:40,958 --> 01:00:42,791
+<b>cartographic error in history.</b>
+
+18
+01:00:44,000 --> 01:00:47,208
+<b>In 1539, Spain's chief cartographer</b>
+
+19
+01:00:47,208 --> 01:00:48,625
+<b>Alonso de Santa Cruz</b>
+
+20
+01:00:48,625 --> 01:00:50,875
+<b>compiled reports from every ship</b>
+
+21
+01:00:50,875 --> 01:00:52,833
+<b>returning from the New World into a</b>
+
+22
+01:00:52,833 --> 01:00:54,666
+<b>single atlas. In his</b>
+
+23
+01:00:54,666 --> 01:00:57,083
+<b>Islario General, the general</b>
+
+24
+01:00:57,083 --> 01:00:59,500
+<b>atlas of all the islands, he drew an</b>
+
+25
+01:00:59,500 --> 01:01:02,250
+<b>island of the Yucatan coast. Reading</b>
+
+26
+01:01:02,250 --> 01:01:03,958
+<b>directly from the atlas,</b>
+
+27
+01:01:05,750 --> 01:01:15,208
+<b>20 Leagues distance is another island</b>
+
+28
+01:01:15,208 --> 01:01:16,958
+<b>called Bermeja, as it</b>
+
+29
+01:01:16,958 --> 01:01:18,500
+<b>appears to be of such color.</b>
+
+30
+01:01:19,041 --> 01:01:23,375
+<b>Bermeja, from bermejo, reddish. A</b>
+
+31
+01:01:23,375 --> 01:01:24,625
+<b>sailor saw something on</b>
+
+32
+01:01:24,625 --> 01:01:26,208
+<b>the horizon that looked red,</b>
+
+33
+01:01:26,583 --> 01:01:29,458
+<b>so Santa Cruz wrote it down. But Santa</b>
+
+34
+01:01:29,458 --> 01:01:30,875
+<b>Cruz wasn't in the Gulf of</b>
+
+35
+01:01:30,875 --> 01:01:32,916
+<b>Mexico. He was in Seville,</b>
+
+36
+01:01:33,375 --> 01:01:35,583
+<b>compiling reports from sailors who had no</b>
+
+37
+01:01:35,583 --> 01:01:37,583
+<b>reliable way to measure longitude.</b>
+
+38
+01:01:37,833 --> 01:01:40,333
+<b>Their main tool was dead reckoning. You</b>
+
+39
+01:01:40,333 --> 01:01:41,916
+<b>drop a log overboard,</b>
+
+40
+01:01:42,416 --> 01:01:43,750
+<b>count how fast the rope unspools,</b>
+
+41
+01:01:43,833 --> 01:01:46,041
+<b>and estimate how far you've</b>
+
+42
+01:01:46,041 --> 01:01:48,875
+<b>traveled. But the method only measures</b>
+
+43
+01:01:48,875 --> 01:01:50,333
+<b>speed in one direction.</b>
+
+44
+01:01:51,041 --> 01:01:52,916
+<b>If an ocean current pushes the ship</b>
+
+45
+01:01:52,916 --> 01:01:56,458
+<b>sideways, the navigator has no idea. You</b>
+
+46
+01:01:56,458 --> 01:01:57,791
+<b>could end up 100 miles</b>
+
+47
+01:01:57,791 --> 01:02:00,083
+<b>from where you think you are. So a sailor</b>
+
+48
+01:02:00,083 --> 01:02:01,958
+<b>sees a real island, logs</b>
+
+49
+01:02:01,958 --> 01:02:03,208
+<b>it at the wrong coordinates,</b>
+
+50
+01:02:03,833 --> 01:02:05,750
+<b>Santa Cruz draws it as a new discovery.</b>
+
+51
+01:02:06,250 --> 01:02:07,458
+<b>Bermeja was born as a</b>
+
+52
+01:02:07,458 --> 01:02:09,500
+<b>duplicate entry in a 16th century</b>
+
+53
+01:02:09,625 --> 01:02:14,041
+<b>database. And there it stayed, for 382</b>
+
+54
+01:02:14,041 --> 01:02:16,375
+<b>years. Ortelius copied it</b>
+
+55
+01:02:16,375 --> 01:02:19,458
+<b>in 1564. Mexico's official</b>
+
+56
+01:02:19,500 --> 01:02:23,333
+<b>atlas showed it in 1921. Nobody deleted</b>
+
+57
+01:02:23,333 --> 01:02:24,208
+<b>it, because in</b>
+
+58
+01:02:24,208 --> 01:02:26,666
+<b>cartography deleting is dangerous.</b>
+
+59
+01:02:27,208 --> 01:02:29,416
+<b>If you are wrong, ships run aground.</b>
+
+60
+01:02:30,000 --> 01:02:31,208
+<b>Usually copying an</b>
+
+61
+01:02:31,208 --> 01:02:32,375
+<b>error is just embarrassing,</b>
+
+62
+01:02:33,083 --> 01:02:35,791
+<b>but this error was about to cost Mexico</b>
+
+63
+01:02:35,791 --> 01:02:39,083
+<b>billions. For 450 years,</b>
+
+64
+01:02:39,083 --> 01:02:40,083
+<b>Bermeja was a footnote.</b>
+
+65
+01:02:41,041 --> 01:02:44,333
+<b>Then came the oil. Under maritime law,</b>
+
+66
+01:02:44,791 --> 01:02:45,750
+<b>every nation controls</b>
+
+67
+01:02:45,750 --> 01:02:47,875
+<b>water 200 miles from its coast.</b>
+
+68
+01:02:48,750 --> 01:02:50,708
+<b>The United States measures south from</b>
+
+69
+01:02:50,708 --> 01:02:53,000
+<b>Texas. Mexico measures</b>
+
+70
+01:02:53,000 --> 01:02:54,666
+<b>north from the Yucatán.</b>
+
+71
+01:02:55,166 --> 01:02:57,208
+<b>In the deep central gulf, a wedge of</b>
+
+72
+01:02:57,208 --> 01:02:59,208
+<b>international water opens up, where</b>
+
+73
+01:02:59,208 --> 01:03:01,416
+<b>neither zone reaches. This</b>
+
+74
+01:03:01,458 --> 01:03:05,000
+<b>is the donut hole, and by 2010 Mexican</b>
+
+75
+01:03:05,000 --> 01:03:06,416
+<b>senators were estimating</b>
+
+76
+01:03:06,416 --> 01:03:08,750
+<b>more than 22 billion barrels of</b>
+
+77
+01:03:08,750 --> 01:03:11,416
+<b>oil sitting beneath it. If Bermeja</b>
+
+78
+01:03:11,416 --> 01:03:14,708
+<b>exists at its historical location, it's</b>
+
+79
+01:03:14,708 --> 01:03:16,000
+<b>Mexico's northernmost</b>
+
+80
+01:03:16,000 --> 01:03:19,208
+<b>territory. Mexico's 200 mile zone would</b>
+
+81
+01:03:19,208 --> 01:03:20,791
+<b>start there, not the</b>
+
+82
+01:03:20,791 --> 01:03:22,916
+<b>mainland. That would push their</b>
+
+83
+01:03:22,916 --> 01:03:26,916
+<b>boundary north by 15%, giving Mexico sole</b>
+
+84
+01:03:26,916 --> 01:03:29,000
+<b>ownership of oil fields currently in</b>
+
+85
+01:03:29,000 --> 01:03:30,125
+<b>international waters.</b>
+
+86
+01:03:30,875 --> 01:03:34,583
+<b>In 1997, the Mexican navy sent a ship to</b>
+
+87
+01:03:34,583 --> 01:03:37,166
+<b>find a strategic asset and plant a flag.</b>
+
+88
+01:03:38,083 --> 01:03:40,500
+<b>They came back with nothing. The island</b>
+
+89
+01:03:40,500 --> 01:03:43,541
+<b>wasn't there. On June 9th,</b>
+
+90
+01:03:43,541 --> 01:03:45,666
+<b>2000, the US and Mexico signed</b>
+
+91
+01:03:45,666 --> 01:03:49,291
+<b>a treaty dividing the donut hole. Mexico</b>
+
+92
+01:03:49,291 --> 01:03:53,458
+<b>got 62%, the US 38. Mexico</b>
+
+93
+01:03:53,458 --> 01:03:54,875
+<b>signed without Bermeja as a</b>
+
+94
+01:03:54,875 --> 01:03:56,791
+<b>baseline. That's when the question</b>
+
+95
+01:03:56,791 --> 01:03:59,583
+<b>started. Senator Jose Angel</b>
+
+96
+01:03:59,583 --> 01:04:01,250
+<b>Concello had been the loudest</b>
+
+97
+01:04:01,250 --> 01:04:04,458
+<b>voice opposing negotiations. He warned of</b>
+
+98
+01:04:04,458 --> 01:04:05,750
+<b>a secret plan to give</b>
+
+99
+01:04:05,750 --> 01:04:08,291
+<b>away Mexico's oil. In 1998,</b>
+
+100
+01:04:08,958 --> 01:04:11,500
+<b>he died in a car accident. The official</b>
+
+101
+01:04:11,500 --> 01:04:14,250
+<b>cause was mechanical failure. His</b>
+
+102
+01:04:14,250 --> 01:04:15,416
+<b>supporters called it an</b>
+
+103
+01:04:15,416 --> 01:04:18,625
+<b>assassination. By 2008, the theory had</b>
+
+104
+01:04:18,625 --> 01:04:21,166
+<b>reached the Mexican parliament. The CIA</b>
+
+105
+01:04:21,166 --> 01:04:22,458
+<b>had destroyed Bermeja</b>
+
+106
+01:04:22,583 --> 01:04:25,208
+<b>island to steal Mexican oil. There's only</b>
+
+107
+01:04:25,208 --> 01:04:26,500
+<b>one problem with this</b>
+
+108
+01:04:26,500 --> 01:04:29,291
+<b>theory. Bermeja was reportedly</b>
+
+109
+01:04:29,458 --> 01:04:32,125
+<b>80 square kilometers. That's about the</b>
+
+110
+01:04:32,125 --> 01:04:34,166
+<b>size of Manhattan. You can't</b>
+
+111
+01:04:34,166 --> 01:04:35,583
+<b>secretly blow up Manhattan.</b>
+
+112
+01:04:36,250 --> 01:04:38,958
+<b>According to Jaime Urrutia of Unam and</b>
+
+113
+01:04:38,958 --> 01:04:40,083
+<b>Saúl Millán of the</b>
+
+114
+01:04:40,083 --> 01:04:41,708
+<b>National Polytechnic Institute,</b>
+
+115
+01:04:42,125 --> 01:04:44,000
+<b>to obliterate an island of Bermeja's</b>
+
+116
+01:04:44,000 --> 01:04:45,708
+<b>size, a hydrogen bomb</b>
+
+117
+01:04:45,708 --> 01:04:47,833
+<b>would be required. A hydrogen</b>
+
+118
+01:04:48,083 --> 01:04:50,041
+<b>bomb in the middle of the Gulf of Mexico</b>
+
+119
+01:04:50,041 --> 01:04:52,708
+<b>and nobody noticed. German</b>
+
+120
+01:04:52,708 --> 01:04:54,666
+<b>oceanographer Hans Werner</b>
+
+121
+01:04:54,708 --> 01:04:57,083
+<b>Schenke pointed out that modern marine</b>
+
+122
+01:04:57,083 --> 01:05:00,500
+<b>data shows no geological scars, no</b>
+
+123
+01:05:00,500 --> 01:05:03,083
+<b>rubble, no debris and no</b>
+
+124
+01:05:03,083 --> 01:05:06,208
+<b>underwater plateau. Zero evidence of a</b>
+
+125
+01:05:06,208 --> 01:05:09,458
+<b>destroyed island. In 2009, the Mexican</b>
+
+126
+01:05:09,458 --> 01:05:10,583
+<b>parliament commissioned</b>
+
+127
+01:05:10,625 --> 01:05:13,166
+<b>Unam, the national autonomous university,</b>
+
+128
+01:05:13,541 --> 01:05:14,625
+<b>to settle this once and</b>
+
+129
+01:05:14,625 --> 01:05:16,375
+<b>for all. Seven university</b>
+
+130
+01:05:16,666 --> 01:05:19,833
+<b>institutes, a research vessel called the</b>
+
+131
+01:05:19,833 --> 01:05:21,833
+<b>"Justo Sierra", two navy</b>
+
+132
+01:05:21,833 --> 01:05:24,250
+<b>support ships, aerial surveys</b>
+
+133
+01:05:24,333 --> 01:05:27,833
+<b>taking 933 photographs and bathymetry,</b>
+
+134
+01:05:28,541 --> 01:05:30,208
+<b>deep sea sonar mapping the</b>
+
+135
+01:05:30,208 --> 01:05:33,666
+<b>ocean floor. From March 21st to</b>
+
+136
+01:05:33,666 --> 01:05:36,791
+<b>the 27th, they searched more than 10,000</b>
+
+137
+01:05:36,791 --> 01:05:38,125
+<b>square kilometers around</b>
+
+138
+01:05:38,125 --> 01:05:39,083
+<b>the official coordinates.</b>
+
+139
+01:05:39,708 --> 01:05:43,875
+<b>They found water, 1400 meters deep,</b>
+
+140
+01:05:44,333 --> 01:05:46,958
+<b>nearly a mile of ocean. But here's the</b>
+
+141
+01:05:46,958 --> 01:05:47,833
+<b>finding that kills the</b>
+
+142
+01:05:47,833 --> 01:05:50,833
+<b>theory completely. The Unam team analyzed</b>
+
+143
+01:05:50,833 --> 01:05:53,500
+<b>sediment on the ocean floor. Deep sea</b>
+
+144
+01:05:53,500 --> 01:05:54,833
+<b>sediment accumulates</b>
+
+145
+01:05:54,833 --> 01:05:57,583
+<b>slowly, layer by layer over thousands of</b>
+
+146
+01:05:57,583 --> 01:05:59,666
+<b>years. If an island had been there</b>
+
+147
+01:05:59,666 --> 01:06:01,166
+<b>recently and destroyed,</b>
+
+148
+01:06:01,666 --> 01:06:04,083
+<b>the top layer would be chaotic, rocky</b>
+
+149
+01:06:04,083 --> 01:06:06,166
+<b>debris, a geological mess.</b>
+
+150
+01:06:06,833 --> 01:06:09,000
+<b>It wasn't, it was undisturbed,</b>
+
+151
+01:06:09,458 --> 01:06:12,041
+<b>perfectly stratified. Their conclusion,</b>
+
+152
+01:06:12,666 --> 01:06:14,875
+<b>no island has existed at those</b>
+
+153
+01:06:14,875 --> 01:06:16,875
+<b>coordinates for more than 5,300</b>
+
+154
+01:06:17,208 --> 01:06:20,041
+<b>years. The island wasn't blown up, it</b>
+
+155
+01:06:20,041 --> 01:06:22,791
+<b>wasn't eroded, it just was never there.</b>
+
+156
+01:06:23,291 --> 01:06:25,791
+<b>So what did the sailor see in 1539?</b>
+
+157
+01:06:26,583 --> 01:06:28,750
+<b>Most cartographic historians believe</b>
+
+158
+01:06:28,750 --> 01:06:30,500
+<b>Bermeja was a misidentified</b>
+
+159
+01:06:30,500 --> 01:06:32,625
+<b>sighting of Cayo Arenas or the</b>
+
+160
+01:06:32,625 --> 01:06:35,208
+<b>Alacranes Reef, logged at the wrong</b>
+
+161
+01:06:35,208 --> 01:06:37,125
+<b>coordinates due to 16th century</b>
+
+162
+01:06:37,125 --> 01:06:39,416
+<b>navigation limits. To be fair,</b>
+
+163
+01:06:39,916 --> 01:06:43,291
+<b>UNAM's Dr. Irasema Alcántara Ayala noted</b>
+
+164
+01:06:43,291 --> 01:06:44,791
+<b>the historical descriptions</b>
+
+165
+01:06:44,791 --> 01:06:47,250
+<b>were precise and detailed,</b>
+
+166
+01:06:47,250 --> 01:06:49,416
+<b>suggesting someone really did see</b>
+
+167
+01:06:49,416 --> 01:06:51,708
+<b>something, just not where they thought</b>
+
+168
+01:06:51,708 --> 01:06:53,666
+<b>they were. A reddish blur</b>
+
+169
+01:06:53,666 --> 01:06:56,625
+<b>in the horizon, tired sailor, a</b>
+
+170
+01:06:56,625 --> 01:06:57,916
+<b>bureaucrat in Seville who</b>
+
+171
+01:06:57,916 --> 01:06:59,166
+<b>didn't want to delete anything,</b>
+
+172
+01:06:59,833 --> 01:07:04,291
+<b>and 382 years of copying. Bermeja isn't</b>
+
+173
+01:07:04,291 --> 01:07:06,291
+<b>unique. In 2012, an</b>
+
+174
+01:07:06,291 --> 01:07:07,583
+<b>Australian research ship</b>
+
+175
+01:07:07,666 --> 01:07:09,791
+<b>sailed to Sandy Island near New</b>
+
+176
+01:07:09,791 --> 01:07:12,666
+<b>Caledonia, an island on Google Maps and</b>
+
+177
+01:07:12,666 --> 01:07:14,458
+<b>found nothing but deep</b>
+
+178
+01:07:14,500 --> 01:07:18,750
+<b>water. It had been on charts since 1876,</b>
+
+179
+01:07:19,708 --> 01:07:20,833
+<b>probably a raft of</b>
+
+180
+01:07:20,833 --> 01:07:22,791
+<b>floating pumice mistaken for land.</b>
+
+181
+01:07:23,666 --> 01:07:25,833
+<b>Sandy Island was removed from Google Maps</b>
+
+182
+01:07:25,833 --> 01:07:27,958
+<b>within days. Bermeja</b>
+
+183
+01:07:27,958 --> 01:07:29,708
+<b>stayed on official Mexican maps</b>
+
+184
+01:07:30,083 --> 01:07:33,750
+<b>until 2009, because in the analog era,</b>
+
+185
+01:07:34,166 --> 01:07:35,041
+<b>nobody profits from</b>
+
+186
+01:07:35,041 --> 01:07:36,458
+<b>admitting the map was wrong.</b>
+
+187
+01:07:37,458 --> 01:07:39,583
+<b>We've mapped Mars in higher resolution</b>
+
+188
+01:07:39,583 --> 01:07:41,791
+<b>than we've mapped our own ocean floor.</b>
+
+189
+01:07:42,375 --> 01:07:44,083
+<b>Some of those charts are still echoing</b>
+
+190
+01:07:44,083 --> 01:07:46,583
+<b>data from the 1800s. The</b>
+
+191
+01:07:46,583 --> 01:07:48,000
+<b>Bermeja case proved something</b>
+
+192
+01:07:48,166 --> 01:07:50,458
+<b>uncomfortable. Maps aren't objective</b>
+
+193
+01:07:50,458 --> 01:07:51,750
+<b>pictures of the Earth,</b>
+
+194
+01:07:52,458 --> 01:07:54,083
+<b>they're historical documents.</b>
+
+195
+01:07:54,875 --> 01:07:56,625
+<b>They carry the errors of every</b>
+
+196
+01:07:56,625 --> 01:07:57,666
+<b>cartographer who came</b>
+
+197
+01:07:57,666 --> 01:08:00,375
+<b>before. The map is not a territory.</b>
+
+198
+01:08:01,208 --> 01:08:03,666
+<b>Sometimes the map is just a very old,</b>
+
+199
+01:08:04,041 --> 01:08:05,541
+<b>very expensive typo.</b>
+
+200
+01:08:06,125 --> 01:08:06,958
+<b>If you want to see more</b>
+
+201
+01:08:07,000 --> 01:08:09,333
+<b>videos about how historical errors shape</b>
+
+202
+01:08:09,333 --> 01:08:12,541
+<b>modern geopolitics, please subscribe.</b>
+

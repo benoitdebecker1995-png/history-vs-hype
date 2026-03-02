@@ -1,8 +1,8 @@
 # Post-Publish Analysis: Guatemala vs Belize Dispute: What 3 ICJ Cases Show
 
 **Video ID:** XbGl1Kcspt4
-**Analyzed:** 2026-02-03T13:52:33.878417+00:00
-**Saved to:** D:\History vs Hype\video-projects\_IN_PRODUCTION\12-guatemala-maya-claims-2025\POST-PUBLISH-ANALYSIS.md
+**Analyzed:** 2026-02-12T01:07:08.058392+00:00
+**Saved to:** G:\History vs Hype\video-projects\_IN_PRODUCTION\12-guatemala-maya-claims-2025\POST-PUBLISH-ANALYSIS.md
 
 ---
 ## Quick Summary
@@ -13,11 +13,11 @@
 
 | Metric | This Video | Channel Avg | vs Avg |
 |--------|-----------|-------------|--------|
-| Views | 5,088 | 628 | +710% |
-| Watch Time (min) | 21,695 | 64 | +33874% |
-| Likes | 115 | 6 | +1863% |
-| Comments | 27 | 0 | +9350% |
-| Subscribers | +51 | +1 | +5000% |
+| Views | 5,091 | 372 | +1268% |
+| Watch Time (min) | 21,707 | 77 | +28143% |
+| Likes | 115 | 3 | +3254% |
+| Comments | 27 | 0 | +100% |
+| Subscribers | +51 | +0 | +35600% |
 
 *Channel averages based on last 7 videos*
 
@@ -69,7 +69,7 @@
 - Strong retention (39.4%) - hook and pacing working well
 - Strong subscriber conversion (1.00 per 100 views)
 - Good engagement (2.8%)
-- Outperforming channel average by 710%
+- Outperforming channel average by 1268%
 
 ### Actionable Items
 

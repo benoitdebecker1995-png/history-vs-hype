@@ -1,0 +1,807 @@
+1
+01:00:00,000 --> 01:00:03,541
+<b>En el año 2000, México cedió acceso a 22</b>
+
+2
+01:00:03,541 --> 01:00:05,208
+<b>mil millones de barriles de petróleo.</b>
+
+3
+01:00:05,666 --> 01:00:08,166
+<b>La razón: una isla que apareció en</b>
+
+4
+01:00:08,166 --> 01:00:11,583
+<b>mapas durante 382 años no</b>
+
+5
+01:00:11,583 --> 01:00:14,625
+<b>existía. Nunca había existido.</b>
+
+6
+01:00:15,333 --> 01:00:17,583
+<b>Hay quienes están convencidos de que la CIA</b>
+
+7
+01:00:17,583 --> 01:00:19,333
+<b>la voló. Senadores mexicanos</b>
+
+8
+01:00:19,333 --> 01:00:20,750
+<b>abrieron una investigación.</b>
+
+9
+01:00:21,625 --> 01:00:23,916
+<b>Un político que se opuso al tratado murió</b>
+
+10
+01:00:23,916 --> 01:00:25,500
+<b>en un sospechoso accidente de auto.</b>
+
+11
+01:00:26,416 --> 01:00:28,708
+<b>Así que fui al archivo de la Biblioteca</b>
+
+12
+01:00:28,708 --> 01:00:32,375
+<b>del Congreso. El Atlas real de 1539.</b>
+
+13
+01:00:33,041 --> 01:00:35,583
+<b>Después leí el tratado y luego el</b>
+
+14
+01:00:35,583 --> 01:00:36,666
+<b>informe científico que</b>
+
+15
+01:00:36,666 --> 01:00:37,625
+<b>resolvió la cuestión.</b>
+
+16
+01:00:38,666 --> 01:00:40,958
+<b>Esta es Bermeja, el error</b>
+
+17
+01:00:40,958 --> 01:00:42,791
+<b>cartográfico más caro de la historia.</b>
+
+18
+01:00:44,000 --> 01:00:47,208
+<b>En 1539, el cartógrafo principal de España,</b>
+
+19
+01:00:47,208 --> 01:00:48,625
+<b>Alonso de Santa Cruz,</b>
+
+20
+01:00:48,625 --> 01:00:50,875
+<b>recopiló informes de cada barco</b>
+
+21
+01:00:50,875 --> 01:00:52,833
+<b>que regresaba del Nuevo Mundo en un</b>
+
+22
+01:00:52,833 --> 01:00:54,666
+<b>solo atlas. En su</b>
+
+23
+01:00:54,666 --> 01:00:57,083
+<b>Islario General, el atlas</b>
+
+24
+01:00:57,083 --> 01:00:59,500
+<b>general de todas las islas, dibujó una</b>
+
+25
+01:00:59,500 --> 01:01:02,250
+<b>isla frente a la costa de Yucatán. Leyendo</b>
+
+26
+01:01:02,250 --> 01:01:03,958
+<b>directamente del atlas,</b>
+
+27
+01:01:05,750 --> 01:01:15,208
+<b>A 20 leguas de distancia hay otra isla</b>
+
+28
+01:01:15,208 --> 01:01:16,958
+<b>llamada Bermeja, porque</b>
+
+29
+01:01:16,958 --> 01:01:18,500
+<b>parece ser de tal color.</b>
+
+30
+01:01:19,041 --> 01:01:23,375
+<b>Bermeja, de bermejo, rojizo. Un</b>
+
+31
+01:01:23,375 --> 01:01:24,625
+<b>marinero vio algo en</b>
+
+32
+01:01:24,625 --> 01:01:26,208
+<b>el horizonte que parecía rojo,</b>
+
+33
+01:01:26,583 --> 01:01:29,458
+<b>y Santa Cruz lo anotó. Pero Santa</b>
+
+34
+01:01:29,458 --> 01:01:30,875
+<b>Cruz no estaba en el Golfo de</b>
+
+35
+01:01:30,875 --> 01:01:32,916
+<b>México. Estaba en Sevilla,</b>
+
+36
+01:01:33,375 --> 01:01:35,583
+<b>compilando informes de marineros que no</b>
+
+37
+01:01:35,583 --> 01:01:37,583
+<b>tenían forma confiable de medir longitud.</b>
+
+38
+01:01:37,833 --> 01:01:40,333
+<b>Su herramienta era la navegación a estima.</b>
+
+39
+01:01:40,333 --> 01:01:41,916
+<b>Lanzas un tronco al agua,</b>
+
+40
+01:01:42,416 --> 01:01:43,750
+<b>cuentas qué tan rápido se suelta la cuerda</b>
+
+41
+01:01:43,833 --> 01:01:46,041
+<b>y calculas cuánto has</b>
+
+42
+01:01:46,041 --> 01:01:48,875
+<b>viajado. Pero el método solo mide</b>
+
+43
+01:01:48,875 --> 01:01:50,333
+<b>velocidad en una dirección.</b>
+
+44
+01:01:51,041 --> 01:01:52,916
+<b>Si una corriente oceánica empuja el barco</b>
+
+45
+01:01:52,916 --> 01:01:56,458
+<b>de lado, el navegante no se entera. Podrías</b>
+
+46
+01:01:56,458 --> 01:01:57,791
+<b>terminar a 160 kilómetros</b>
+
+47
+01:01:57,791 --> 01:02:00,083
+<b>de donde crees estar. Así que un marinero</b>
+
+48
+01:02:00,083 --> 01:02:01,958
+<b>ve una isla real, la registra</b>
+
+49
+01:02:01,958 --> 01:02:03,208
+<b>en las coordenadas equivocadas,</b>
+
+50
+01:02:03,833 --> 01:02:05,750
+<b>y Santa Cruz la dibuja como un descubrimiento.</b>
+
+51
+01:02:06,250 --> 01:02:07,458
+<b>Bermeja nació como una</b>
+
+52
+01:02:07,458 --> 01:02:09,500
+<b>entrada duplicada en una base de datos</b>
+
+53
+01:02:09,625 --> 01:02:14,041
+<b>del siglo XVI. Y ahí se quedó, por 382</b>
+
+54
+01:02:14,041 --> 01:02:16,375
+<b>años. Ortelius la copió</b>
+
+55
+01:02:16,375 --> 01:02:19,458
+<b>en 1564. El atlas oficial</b>
+
+56
+01:02:19,500 --> 01:02:23,333
+<b>de México la mostraba en 1921. Nadie la borró</b>
+
+57
+01:02:23,333 --> 01:02:24,208
+<b>porque en</b>
+
+58
+01:02:24,208 --> 01:02:26,666
+<b>cartografía, borrar es peligroso.</b>
+
+59
+01:02:27,208 --> 01:02:29,416
+<b>Si te equivocas, los barcos encallan.</b>
+
+60
+01:02:30,000 --> 01:02:31,208
+<b>Normalmente copiar un</b>
+
+61
+01:02:31,208 --> 01:02:32,375
+<b>error solo es vergonzoso,</b>
+
+62
+01:02:33,083 --> 01:02:35,791
+<b>pero este error estaba a punto de costarle</b>
+
+63
+01:02:35,791 --> 01:02:39,083
+<b>miles de millones a México. Durante 450 años,</b>
+
+64
+01:02:39,083 --> 01:02:40,083
+<b>Bermeja fue una nota al pie.</b>
+
+65
+01:02:41,041 --> 01:02:44,333
+<b>Luego llegó el petróleo. Bajo el derecho</b>
+
+66
+01:02:44,791 --> 01:02:45,750
+<b>marítimo, cada nación</b>
+
+67
+01:02:45,750 --> 01:02:47,875
+<b>controla 200 millas desde su costa.</b>
+
+68
+01:02:48,750 --> 01:02:50,708
+<b>Estados Unidos mide hacia el sur desde</b>
+
+69
+01:02:50,708 --> 01:02:53,000
+<b>Texas. México mide</b>
+
+70
+01:02:53,000 --> 01:02:54,666
+<b>hacia el norte desde Yucatán.</b>
+
+71
+01:02:55,166 --> 01:02:57,208
+<b>En el centro profundo del golfo, una cuña</b>
+
+72
+01:02:57,208 --> 01:02:59,208
+<b>de aguas internacionales se abre, donde</b>
+
+73
+01:02:59,208 --> 01:03:01,416
+<b>ninguna zona alcanza. Este</b>
+
+74
+01:03:01,458 --> 01:03:05,000
+<b>es el hoyo de dona, y para 2010 senadores</b>
+
+75
+01:03:05,000 --> 01:03:06,416
+<b>mexicanos estimaban</b>
+
+76
+01:03:06,416 --> 01:03:08,750
+<b>más de 22 mil millones de barriles de</b>
+
+77
+01:03:08,750 --> 01:03:11,416
+<b>petróleo debajo. Si Bermeja</b>
+
+78
+01:03:11,416 --> 01:03:14,708
+<b>existe en su ubicación histórica, es el</b>
+
+79
+01:03:14,708 --> 01:03:16,000
+<b>territorio más al norte</b>
+
+80
+01:03:16,000 --> 01:03:19,208
+<b>de México. La zona de 200 millas de México</b>
+
+81
+01:03:19,208 --> 01:03:20,791
+<b>empezaría ahí, no desde</b>
+
+82
+01:03:20,791 --> 01:03:22,916
+<b>tierra firme. Eso empujaría su</b>
+
+83
+01:03:22,916 --> 01:03:26,916
+<b>frontera un 15% al norte, dándole a México</b>
+
+84
+01:03:26,916 --> 01:03:29,000
+<b>propiedad exclusiva de campos petroleros</b>
+
+85
+01:03:29,000 --> 01:03:30,125
+<b>en aguas internacionales.</b>
+
+86
+01:03:30,875 --> 01:03:34,583
+<b>En 1997, la armada mexicana envió un barco</b>
+
+87
+01:03:34,583 --> 01:03:37,166
+<b>a buscar un activo estratégico y plantar bandera.</b>
+
+88
+01:03:38,083 --> 01:03:40,500
+<b>Regresaron con nada. La isla</b>
+
+89
+01:03:40,500 --> 01:03:43,541
+<b>no estaba ahí. El 9 de junio</b>
+
+90
+01:03:43,541 --> 01:03:45,666
+<b>de 2000, EE.UU. y México firmaron</b>
+
+91
+01:03:45,666 --> 01:03:49,291
+<b>un tratado dividiendo el hoyo de dona. México</b>
+
+92
+01:03:49,291 --> 01:03:53,458
+<b>obtuvo el 62%, EE.UU. el 38. México</b>
+
+93
+01:03:53,458 --> 01:03:54,875
+<b>firmó sin Bermeja como</b>
+
+94
+01:03:54,875 --> 01:03:56,791
+<b>punto de referencia. Ahí empezó la</b>
+
+95
+01:03:56,791 --> 01:03:59,583
+<b>pregunta. El senador Jose Angel</b>
+
+96
+01:03:59,583 --> 01:04:01,250
+<b>Conchello había sido la voz más</b>
+
+97
+01:04:01,250 --> 01:04:04,458
+<b>fuerte oponiéndose a las negociaciones. Advirtió</b>
+
+98
+01:04:04,458 --> 01:04:05,750
+<b>de un plan secreto para</b>
+
+99
+01:04:05,750 --> 01:04:08,291
+<b>regalar el petróleo de México. En 1998,</b>
+
+100
+01:04:08,958 --> 01:04:11,500
+<b>murió en un accidente de auto. La causa</b>
+
+101
+01:04:11,500 --> 01:04:14,250
+<b>oficial fue una falla mecánica. Sus</b>
+
+102
+01:04:14,250 --> 01:04:15,416
+<b>seguidores lo llamaron un</b>
+
+103
+01:04:15,416 --> 01:04:18,625
+<b>asesinato. Para 2008, la teoría había</b>
+
+104
+01:04:18,625 --> 01:04:21,166
+<b>llegado al parlamento mexicano. La CIA</b>
+
+105
+01:04:21,166 --> 01:04:22,458
+<b>había destruido la isla</b>
+
+106
+01:04:22,583 --> 01:04:25,208
+<b>Bermeja para robar petróleo mexicano. Solo hay</b>
+
+107
+01:04:25,208 --> 01:04:26,500
+<b>un problema con esta</b>
+
+108
+01:04:26,500 --> 01:04:29,291
+<b>teoría. Se reportaba que Bermeja medía</b>
+
+109
+01:04:29,458 --> 01:04:32,125
+<b>80 kilómetros cuadrados. Eso es más o menos</b>
+
+110
+01:04:32,125 --> 01:04:34,166
+<b>el tamaño de Manhattan. No puedes</b>
+
+111
+01:04:34,166 --> 01:04:35,583
+<b>volar Manhattan en secreto.</b>
+
+112
+01:04:36,250 --> 01:04:38,958
+<b>Según Jaime Urrutia de la UNAM y</b>
+
+113
+01:04:38,958 --> 01:04:40,083
+<b>Saúl Millán del</b>
+
+114
+01:04:40,083 --> 01:04:41,708
+<b>Instituto Politécnico Nacional,</b>
+
+115
+01:04:42,125 --> 01:04:44,000
+<b>para destruir una isla del tamaño de</b>
+
+116
+01:04:44,000 --> 01:04:45,708
+<b>Bermeja, se necesitaría una</b>
+
+117
+01:04:45,708 --> 01:04:47,833
+<b>bomba de hidrógeno. Una bomba</b>
+
+118
+01:04:48,083 --> 01:04:50,041
+<b>de hidrógeno en medio del Golfo de México</b>
+
+119
+01:04:50,041 --> 01:04:52,708
+<b>y nadie se dio cuenta. El oceanógrafo</b>
+
+120
+01:04:52,708 --> 01:04:54,666
+<b>alemán Hans Werner</b>
+
+121
+01:04:54,708 --> 01:04:57,083
+<b>Schenke señaló que los datos marinos</b>
+
+122
+01:04:57,083 --> 01:05:00,500
+<b>modernos no muestran cicatrices geológicas,</b>
+
+123
+01:05:00,500 --> 01:05:03,083
+<b>ni escombros, ni restos y ninguna</b>
+
+124
+01:05:03,083 --> 01:05:06,208
+<b>meseta submarina. Cero evidencia de una</b>
+
+125
+01:05:06,208 --> 01:05:09,458
+<b>isla destruida. En 2009, el parlamento</b>
+
+126
+01:05:09,458 --> 01:05:10,583
+<b>mexicano comisionó a</b>
+
+127
+01:05:10,625 --> 01:05:13,166
+<b>la UNAM, la universidad nacional autónoma,</b>
+
+128
+01:05:13,541 --> 01:05:14,625
+<b>para resolver esto de una</b>
+
+129
+01:05:14,625 --> 01:05:16,375
+<b>vez por todas. Siete institutos</b>
+
+130
+01:05:16,666 --> 01:05:19,833
+<b>universitarios, un buque de investigación</b>
+
+131
+01:05:19,833 --> 01:05:21,833
+<b>llamado "Justo Sierra", dos barcos</b>
+
+132
+01:05:21,833 --> 01:05:24,250
+<b>de apoyo de la armada, estudios aéreos</b>
+
+133
+01:05:24,333 --> 01:05:27,833
+<b>con 933 fotografías y batimetría,</b>
+
+134
+01:05:28,541 --> 01:05:30,208
+<b>sonar de aguas profundas mapeando</b>
+
+135
+01:05:30,208 --> 01:05:33,666
+<b>el fondo marino. Del 21 al</b>
+
+136
+01:05:33,666 --> 01:05:36,791
+<b>27 de marzo, buscaron en más de 10,000</b>
+
+137
+01:05:36,791 --> 01:05:38,125
+<b>kilómetros cuadrados alrededor</b>
+
+138
+01:05:38,125 --> 01:05:39,083
+<b>de las coordenadas oficiales.</b>
+
+139
+01:05:39,708 --> 01:05:43,875
+<b>Encontraron agua, a 1400 metros de profundidad,</b>
+
+140
+01:05:44,333 --> 01:05:46,958
+<b>casi un kilómetro y medio de océano. Pero este</b>
+
+141
+01:05:46,958 --> 01:05:47,833
+<b>es el hallazgo que destruye</b>
+
+142
+01:05:47,833 --> 01:05:50,833
+<b>la teoría por completo. El equipo de la UNAM</b>
+
+143
+01:05:50,833 --> 01:05:53,500
+<b>analizó el sedimento del fondo marino. El</b>
+
+144
+01:05:53,500 --> 01:05:54,833
+<b>sedimento de aguas profundas</b>
+
+145
+01:05:54,833 --> 01:05:57,583
+<b>se acumula lentamente, capa por capa durante</b>
+
+146
+01:05:57,583 --> 01:05:59,666
+<b>miles de años. Si una isla hubiera estado</b>
+
+147
+01:05:59,666 --> 01:06:01,166
+<b>ahí recientemente y fue destruida,</b>
+
+148
+01:06:01,666 --> 01:06:04,083
+<b>la capa superior sería caótica, escombros</b>
+
+149
+01:06:04,083 --> 01:06:06,166
+<b>rocosos, un desastre geológico.</b>
+
+150
+01:06:06,833 --> 01:06:09,000
+<b>No lo era. Estaba inalterado,</b>
+
+151
+01:06:09,458 --> 01:06:12,041
+<b>perfectamente estratificado. Su conclusión:</b>
+
+152
+01:06:12,666 --> 01:06:14,875
+<b>ninguna isla ha existido en esas</b>
+
+153
+01:06:14,875 --> 01:06:16,875
+<b>coordenadas en más de 5,300</b>
+
+154
+01:06:17,208 --> 01:06:20,041
+<b>años. La isla no fue volada, no</b>
+
+155
+01:06:20,041 --> 01:06:22,791
+<b>fue erosionada, simplemente nunca estuvo ahí.</b>
+
+156
+01:06:23,291 --> 01:06:25,791
+<b>Entonces, ¿qué vio el marinero en 1539?</b>
+
+157
+01:06:26,583 --> 01:06:28,750
+<b>La mayoría de historiadores cartográficos</b>
+
+158
+01:06:28,750 --> 01:06:30,500
+<b>creen que Bermeja fue un avistamiento</b>
+
+159
+01:06:30,500 --> 01:06:32,625
+<b>mal identificado de Cayo Arenas o el</b>
+
+160
+01:06:32,625 --> 01:06:35,208
+<b>arrecife Alacranes, registrado en</b>
+
+161
+01:06:35,208 --> 01:06:37,125
+<b>coordenadas erróneas por los límites</b>
+
+162
+01:06:37,125 --> 01:06:39,416
+<b>de la navegación del siglo XVI. Para ser justo,</b>
+
+163
+01:06:39,916 --> 01:06:43,291
+<b>la Dra. Irasema Alcántara Ayala de la UNAM</b>
+
+164
+01:06:43,291 --> 01:06:44,791
+<b>señaló que las descripciones</b>
+
+165
+01:06:44,791 --> 01:06:47,250
+<b>históricas eran precisas y detalladas,</b>
+
+166
+01:06:47,250 --> 01:06:49,416
+<b>sugiriendo que alguien realmente vio</b>
+
+167
+01:06:49,416 --> 01:06:51,708
+<b>algo, solo que no donde creían</b>
+
+168
+01:06:51,708 --> 01:06:53,666
+<b>estar. Una mancha rojiza</b>
+
+169
+01:06:53,666 --> 01:06:56,625
+<b>en el horizonte, un marinero cansado, un</b>
+
+170
+01:06:56,625 --> 01:06:57,916
+<b>burócrata en Sevilla que</b>
+
+171
+01:06:57,916 --> 01:06:59,166
+<b>no quería borrar nada,</b>
+
+172
+01:06:59,833 --> 01:07:04,291
+<b>y 382 años de copiar. Bermeja no es</b>
+
+173
+01:07:04,291 --> 01:07:06,291
+<b>un caso único. En 2012, un</b>
+
+174
+01:07:06,291 --> 01:07:07,583
+<b>barco de investigación</b>
+
+175
+01:07:07,666 --> 01:07:09,791
+<b>australiano navegó a Sandy Island cerca de</b>
+
+176
+01:07:09,791 --> 01:07:12,666
+<b>Nueva Caledonia, una isla en Google Maps, y</b>
+
+177
+01:07:12,666 --> 01:07:14,458
+<b>no encontraron más que aguas</b>
+
+178
+01:07:14,500 --> 01:07:18,750
+<b>profundas. Había estado en cartas desde 1876,</b>
+
+179
+01:07:19,708 --> 01:07:20,833
+<b>probablemente una balsa de</b>
+
+180
+01:07:20,833 --> 01:07:22,791
+<b>piedra pómez flotante confundida con tierra.</b>
+
+181
+01:07:23,666 --> 01:07:25,833
+<b>Sandy Island fue eliminada de Google Maps</b>
+
+182
+01:07:25,833 --> 01:07:27,958
+<b>en días. Bermeja</b>
+
+183
+01:07:27,958 --> 01:07:29,708
+<b>se quedó en mapas oficiales mexicanos</b>
+
+184
+01:07:30,083 --> 01:07:33,750
+<b>hasta 2009, porque en la era análoga,</b>
+
+185
+01:07:34,166 --> 01:07:35,041
+<b>a nadie le conviene</b>
+
+186
+01:07:35,041 --> 01:07:36,458
+<b>admitir que el mapa estaba mal.</b>
+
+187
+01:07:37,458 --> 01:07:39,583
+<b>Hemos mapeado Marte en mayor resolución</b>
+
+188
+01:07:39,583 --> 01:07:41,791
+<b>de la que tenemos de nuestro propio fondo marino.</b>
+
+189
+01:07:42,375 --> 01:07:44,083
+<b>Algunas de esas cartas siguen repitiendo</b>
+
+190
+01:07:44,083 --> 01:07:46,583
+<b>datos del siglo XIX. El</b>
+
+191
+01:07:46,583 --> 01:07:48,000
+<b>caso Bermeja demostró algo</b>
+
+192
+01:07:48,166 --> 01:07:50,458
+<b>incómodo. Los mapas no son retratos</b>
+
+193
+01:07:50,458 --> 01:07:51,750
+<b>objetivos de la Tierra,</b>
+
+194
+01:07:52,458 --> 01:07:54,083
+<b>son documentos históricos.</b>
+
+195
+01:07:54,875 --> 01:07:56,625
+<b>Cargan los errores de cada</b>
+
+196
+01:07:56,625 --> 01:07:57,666
+<b>cartógrafo que vino</b>
+
+197
+01:07:57,666 --> 01:08:00,375
+<b>antes. El mapa no es el territorio.</b>
+
+198
+01:08:01,208 --> 01:08:03,666
+<b>A veces el mapa es solo un error tipográfico</b>
+
+199
+01:08:04,041 --> 01:08:05,541
+<b>muy viejo y muy caro.</b>
+
+200
+01:08:06,125 --> 01:08:06,958
+<b>Si quieres ver más</b>
+
+201
+01:08:07,000 --> 01:08:09,333
+<b>videos sobre cómo los errores históricos dan forma</b>
+
+202
+01:08:09,333 --> 01:08:12,541
+<b>a la geopolítica moderna, suscríbete.</b>

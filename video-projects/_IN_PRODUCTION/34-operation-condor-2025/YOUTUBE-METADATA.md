@@ -1,7 +1,7 @@
 # YOUTUBE METADATA: The Man Who Found the Receipts
 
 **Project:** 34-operation-condor-2025
-**Video Length:** 7 minutes
+**Video Length:** ~5 minutes
 **Primary Keyword:** "Operation Condor CIA" (VidIQ: 61/100 opportunity)
 **Secondary Keyword:** "Archives of Terror" (VidIQ: 66/100 opportunity - hidden gem)
 **Date Created:** 2026-02-05
@@ -116,11 +116,11 @@ In 1998, Spanish judge Baltasar Garzón used documents from the Archives of Terr
 
 In 2016, a federal court in Buenos Aires convicted 15 officers and recognized Operation Condor as a criminal conspiracy for the first time. Former Argentine dictator Reynaldo Bignone received 20 years. Uruguayan Colonel Manuel Cordero received 25 years—the first foreign official ever extradited to Argentina for human rights crimes.
 
-Italian courts sentenced perpetrators to life imprisonment in 2021.
+Italian courts have handed down life sentences, including as recently as October 2025.
 
 As of 2024: 107 convictions across 45 trials. 262 victims have received some measure of justice. Eleven cases remain pending in Uruguay, Italy, Argentina, Chile, and Peru.
 
-Martín Almada died in April 2024. He spent his final decades as a human rights lawyer, using the archives he discovered to pursue justice for other victims.
+Martín Almada died in March 2024. He spent his final decades as a human rights lawyer, using the archives he discovered to pursue justice for other victims.
 
 On November 28, 2025, Operation Condor turns fifty years old. Cases are still pending. Perpetrators are still being convicted.
 
@@ -133,13 +133,10 @@ They were wrong.
 TIMESTAMPS
 
 0:00 - The Denial
-0:45 - Martín Almada's Story
-2:00 - The Discovery (December 22, 1992)
-3:20 - The Archives of Terror
-3:45 - The Founding Charter
-5:00 - The Reckoning
-6:30 - 50 Years Later
-7:15 - What Other Archives Exist?
+0:14 - Martín Almada's Story
+0:59 - The Discovery
+1:48 - Operation Condor Revealed
+2:56 - The Reckoning
 
 ---
 
@@ -173,6 +170,8 @@ Subscribe for evidence-based history using primary sources and academic research
 If you want to know more about what was IN those files—the assassinations, the Kissinger cables, the death flights—let me know in the comments.
 
 ---
+
+Subtítulos en español disponibles / Spanish subtitles available.
 
 This is a History vs Hype production.
 ```
@@ -241,7 +240,7 @@ operation condor, operation condor cia, cia latin america, archives of terror, m
 - Documentary investigation format
 
 **Video Format:**
-- Short documentary (7 minutes)
+- Short documentary (~5 minutes)
 - Detective story frame (not lecture)
 - Evidence-based reveal
 
@@ -320,8 +319,7 @@ operation condor, operation condor cia, cia latin america, archives of terror, m
 - [ ] **Recording location:** [Your location]
 
 ### Cards & End Screens
-- [ ] Card at 6:00 - "More about Operation Condor" (link to future full video when published)
-- [ ] End screen at 7:15:
+- [ ] End screen at 4:25:
   - Subscribe button (left)
   - Best for viewer (center)
   - Playlist or latest upload (right)
@@ -513,6 +511,26 @@ If this video performs well (6%+ CTR, 50%+ retention):
 
 ---
 
+## SPANISH TRANSLATION (YouTube Studio → Subtitles → Add Language → Spanish)
+
+### Translated Title
+```
+El Documento de la CIA Que Probó la Operación Cóndor
+```
+
+### Translated Description (First 3 lines)
+```
+Una investigación documental sobre los documentos de la CIA sobre la Operación Cóndor descubiertos en Paraguay.
+El 22 de diciembre de 1992, un maestro de escuela llamado Martín Almada encontró 593.000 páginas de archivos clasificados en el sótano de una comisaría.
+Usando fuentes primarias de los Archivos del Terror y documentos desclasificados de EE.UU., rastreamos cómo la búsqueda de un hombre por su propio expediente expuso toda una red continental de asesinatos.
+```
+
+### Subtitle File
+- English: `almada.srt`
+- Spanish: `almada-es.srt`
+
+---
+
 ## NEXT STEPS
 
 1. **Create thumbnail** using Concept 2 (map-based) in Photoshop or Canva
@@ -527,4 +545,5 @@ If this video performs well (6%+ CTR, 50%+ retention):
 *Metadata created: 2026-02-05*
 *Primary keyword: Operation Condor CIA (61/100)*
 *Secondary keyword: Archives of Terror (66/100)*
+*Updated: 2026-02-10 (timestamps from final edit, Spanish translation added)*
 *Status: Ready to publish*

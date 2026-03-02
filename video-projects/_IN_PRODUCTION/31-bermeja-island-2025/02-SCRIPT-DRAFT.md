@@ -3,8 +3,8 @@
 **Project:** 31-bermeja-island-2025
 **Title:** "The Island That Cost Mexico $22 Billion (It Never Existed)"
 **Target Length:** 10-12 minutes
-**Draft:** V4 (VidIQ restructured)
-**Date:** 2026-02-05
+**Draft:** V5 (spoken delivery pass)
+**Date:** 2026-02-12
 
 ---
 
@@ -42,7 +42,7 @@ This is Bermeja. The most expensive cartographic error in history.
 
 In 1539, Spain's chief cartographer Alonso de Santa Cruz compiled reports from every ship returning from the New World into a single atlas.
 
-**[VISUAL: Show the Islario General, El Yucatán section]**
+**[VISUAL: Show the Islario General, El Yucatan section]**
 
 In his *Islario General*—"The General Atlas of All the Islands"—he drew an island off the Yucatan coast.
 
@@ -56,13 +56,13 @@ Reading directly from the atlas:
 
 **[VISUAL: Etymology - bermejo = reddish]**
 
-Bermeja. From *bermejo*—reddish. A sailor saw something on the horizon that looked red. Santa Cruz wrote it down.
+Bermeja. From *bermejo*—reddish. A sailor saw something on the horizon that looked red so Santa Cruz wrote it down.
 
 ### The Copy-Paste Problem
 
 **[VISUAL: Map chain animation - errors replicating]**
 
-But Santa Cruz wasn't in the Gulf of Mexico. He was in Seville, receiving reports from sailors who couldn't measure longitude. They used dead reckoning—throw a log overboard, time the rope. If a current pushed them sideways, they could be off by 100 miles.
+But Santa Cruz wasn't in the Gulf of Mexico. He was in Seville, compiling reports from sailors who had no reliable way to measure longitude. Their main tool was dead reckoning—you drop a log overboard, count how fast the rope unspools, and estimate how far you've traveled. But the method only measures speed in one direction. If an ocean current pushes the ship sideways, the navigator has no idea. You could end up 100 miles from where you think you are.
 
 **[VISUAL: Cayo Arenas and Alacranes Reef on modern map]**
 
@@ -94,7 +94,7 @@ Under maritime law, every nation controls water 200 miles from its coast. The US
 
 **[VISUAL: Highlight the donut hole, then oil rig footage]**
 
-This is the "donut hole." And by the 1990s, geologists were saying: there's 22 billion barrels of oil down there.
+This is the "donut hole." And by 2010, Mexican senators were estimating more than 22 billion barrels of oil sitting beneath it.
 
 **[VISUAL: Bermeja's coordinates on map, EEZ line shifting north]**
 
@@ -102,9 +102,9 @@ If Bermeja exists at its historical coordinates, it's Mexico's northernmost terr
 
 **[VISUAL: Mexican Navy vessel]**
 
-In 1997, the Mexican Navy sent a ship to plant a flag on this strategic asset.
+In 1997, the Mexican Navy sent a ship to find this strategic asset and plant a flag.
 
-They found waves. Deep blue water. Nothing.
+They came back with nothing. The island wasn't there.
 
 ### The Treaty and the Suspicion
 
@@ -116,15 +116,15 @@ On June 9th, 2000, the US and Mexico signed the treaty dividing the donut hole. 
 
 But this wasn't just percentages. These reserves are worth more than Venezuela's annual GDP. And Mexico signed without Bermeja as a baseline.
 
-**[VISUAL: Senator José Angel Conchello]**
+**[VISUAL: Senator Jose Angel Conchello]**
 
 That's when the questions started.
 
-Senator José Angel Conchello had been the loudest voice opposing negotiations. He warned of a secret plan to give away Mexico's oil.
+Senator Jose Angel Conchello had been the loudest voice opposing negotiations. He warned of a secret plan to give away Mexico's oil.
 
 **[VISUAL: Car crash headlines, 1998]**
 
-In 1998, he died in a car accident. Official cause: mechanical failure.
+In 1998, he died in a car accident. The official cause was mechanical failure.
 
 **[VISUAL: 2008 Senate inquiry headlines]**
 
@@ -148,13 +148,13 @@ According to Jaime Urrutia of UNAM and Saul Millan of the National Polytechnic I
 
 > "To obliterate an island of Bermeja's size, a hydrogen bomb would be required."
 
-A hydrogen bomb. In the middle of the Gulf of Mexico. And nobody noticed.
+A hydrogen bomb in the middle of the Gulf of Mexico. And nobody noticed.
 
 **[VISUAL: Seafloor with no debris]**
 
 German oceanographer Hans-Werner Schenke pointed out that modern marine data shows no geological scars. No rubble. No debris. No underwater plateau.
 
-Vestiges of a destroyed island? Zero. Not a single rock.
+Zero evidence of a destroyed island.
 
 ### The 2009 Investigation
 
@@ -162,7 +162,7 @@ Vestiges of a destroyed island? Zero. Not a single rock.
 
 In 2009, the Mexican Parliament commissioned UNAM—the National Autonomous University—to settle this once and for all.
 
-Seven university institutes. The research vessel Justo Sierra. Two Navy support ships. Aerial surveys capturing 933 photographs. And bathymetry—deep-sea sonar mapping the ocean floor.
+Seven university institutes. A research vessel called the Justo Sierra. Two Navy support ships. Aerial surveys taking 933 photographs. And bathymetry—deep-sea sonar mapping the ocean floor.
 
 **[VISUAL: Bathymetric data visualization]**
 
@@ -170,7 +170,7 @@ From March 21st to the 27th, they searched 10,488 square kilometers around the o
 
 **[VISUAL: Show depth reading: 1,472 meters]**
 
-What they found: water. 1,472 meters deep. Nearly a mile of ocean.
+They found water. 1,472 meters deep. Nearly a mile of ocean.
 
 ### The Finding That Kills the Conspiracy
 
@@ -192,7 +192,7 @@ Their conclusion:
 
 5,300 years. That predates the CIA. That predates the United States. That predates the Spanish Empire. It predates the invention of the map itself.
 
-The island wasn't blown up. It wasn't eroded. It was never there.
+The island wasn't blown up. It wasn't eroded. It just was never there.
 
 ---
 
@@ -206,9 +206,9 @@ So what did that sailor see in 1539?
 
 Most cartographic historians believe Bermeja was a misidentified sighting of Cayo Arenas or the Alacranes Reef, logged at wrong coordinates due to 16th-century navigation limits.
 
-**[VISUAL: Dr. Irasema Alcántara Ayala quote]**
+**[VISUAL: Dr. Irasema Alcantara Ayala quote]**
 
-To be fair, UNAM's Dr. Irasema Alcántara Ayala noted the historical descriptions were "precise" and "detailed"—suggesting someone really did see something. Just not where they thought they were.
+To be fair, UNAM's Dr. Irasema Alcantara Ayala noted the historical descriptions were "precise" and "detailed"—suggesting someone really did see something. Just not where they thought they were.
 
 A reddish blur on the horizon. A tired sailor. A bureaucrat in Seville who didn't want to delete anything. And 382 years of copying.
 
@@ -236,10 +236,6 @@ The case of Bermeja proves something uncomfortable: maps aren't objective pictur
 
 **[VISUAL: Santa Cruz atlas, then modern bathymetry side by side]**
 
-Alonso de Santa Cruz drew a reddish island in 1539. For 461 years, everyone assumed it was real because it was on the map. Nobody checked until there was 22 billion barrels of oil at stake.
-
-**[VISUAL: Final shot - empty ocean at Bermeja coordinates]**
-
 The map is not the territory. Sometimes, the map is just a very old, very expensive typo.
 
 ---
@@ -254,7 +250,7 @@ If you want to see more videos about how historical errors shape modern geopolit
 
 ## SCRIPT STATS
 
-- **Word count:** ~1,850 words
+- **Word count:** ~1,800 words
 - **Estimated runtime:** 10-11 minutes at natural pace
 - **Primary sources cited:** 4 (Santa Cruz 1539, State Dept Letter, Mexican Law Review, UNAM 2009)
 - **On-screen quotes:** 4
@@ -263,52 +259,23 @@ If you want to see more videos about how historical errors shape modern geopolit
 
 ---
 
-## V4 REVISION LOG (VidIQ Restructure)
+## V5 REVISION LOG (Spoken Delivery Pass)
 
-| VidIQ Feedback | Change Made |
-|----------------|-------------|
-| Tease conspiracy in hook | Added "Some people are convinced the CIA blew it up" + senator death at 0:30 |
-| Mechanism too long (2:45) | Compressed to 90 seconds (0:45-2:15) |
-| Conspiracy at 6:00 too late | Moved full conspiracy to 2:15-4:30 |
-| Stakes callback needed | Added "this error was about to cost Mexico billions" at 2:00 |
-| EEZ section risk of legalese | Simplified to "200 miles from coast" + visual anchors |
-
-**Structure comparison:**
-
-| Section | V3 Timing | V4 Timing |
-|---------|-----------|-----------|
-| Hook | 0:00-0:45 | 0:00-0:45 (+ conspiracy tease) |
-| Mechanism | 0:45-3:30 | 0:45-2:15 (compressed) |
-| EEZ/Treaty | 3:30-6:00 | 2:15-3:30 (trimmed) |
-| Conspiracy | 6:00-8:00 | 3:30-4:30 (moved up) |
-| Debunk | — | 4:30-7:30 (expanded) |
-| UNAM/Verdict | 8:00-10:30 | 7:30-9:30 |
-| Closing | 10:30-11:30 | 9:30-10:30 |
-
-**Net result:** Conspiracy now at 3:30 instead of 6:00. Viewer knows the stakes AND the theory by minute 4.
+| Issue | V4 | V5 | Reason |
+|-------|----|----|--------|
+| Fragment periods | "red. Santa Cruz wrote it down." | "red so Santa Cruz wrote it down." | One thought, one breath |
+| Colon formatting | "Official cause: mechanical failure." | "The official cause was mechanical failure." | Can't speak colons |
+| Staccato fragments | "A hydrogen bomb. In the middle..." | "A hydrogen bomb in the middle..." | Flows naturally when read aloud |
+| Pretentious vocabulary | "Vestiges of a destroyed island? Zero. Not a single rock." | "Zero evidence of a destroyed island." | Direct, no theatrical question |
+| Assumed familiarity | "The research vessel Justo Sierra" | "A research vessel called the Justo Sierra" | Viewer doesn't know this ship |
+| Formal diction | "Aerial surveys capturing 933 photographs" | "Aerial surveys taking 933 photographs" | How people talk |
+| Colon formatting | "What they found: water." | "They found water." | Natural sentence |
+| Missing softener | "It was never there." | "It just was never there." | Conversational, understated |
+| Dead reckoning unclear | "throw a log overboard, time the rope" | Full explanation of why currents cause errors | Missing causal link: sideways drift |
+| Unsourced oil claim | "geologists were saying" | "Mexican senators were estimating" | Matches verified source (senators 2010, not geologists) |
+| Dramatic Navy finding | "They found waves. Deep blue water. Nothing." | "They came back with nothing. The island wasn't there." | Natural delivery, not theatrical |
+| Redundant closing | Full Santa Cruz recap | Cut to final line | Viewer knows the story by 9:30 |
 
 ---
 
-## QUALITY CHECKLIST (V4)
-
-- [x] Opens with stakes ($22 billion)
-- [x] Conspiracy teased in hook (0:30)
-- [x] First-person ownership by 0:45 ("So I went to...")
-- [x] Mechanism compressed to 90 seconds
-- [x] Stakes callback at 2:00
-- [x] Full conspiracy by 3:30-4:00
-- [x] Shows primary documents on screen
-- [x] Real quotes with attributions
-- [x] Conspiracy presented fairly then debunked with science
-- [x] Named experts (Urrutia, Millan, Schenke, Alcántara Ayala)
-- [x] "You can't secretly blow up Manhattan" casual aside
-- [x] Steelmanning present ("to be fair" + Alcántara Ayala)
-- [x] Modern parallel (Sandy Island 2012)
-- [x] Stakes callback in closing ("22 billion barrels")
-- [x] Final line synthesis ("map is not the territory")
-- [x] No unverified claims
-- [x] All numbers from verified research file
-
----
-
-*Draft V4 completed: 2026-02-05 (VidIQ restructured)*
+*Draft V5 completed: 2026-02-12 (spoken delivery pass)*
