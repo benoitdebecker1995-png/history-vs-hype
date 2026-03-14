@@ -258,11 +258,64 @@ Do NOT generate candidates or create any files.
 
 ---
 
+## SWAP LOG INJECTION ("swaps executed" trigger)
+
+After the user runs `/retitle`, executes all title and thumbnail swaps in YouTube Studio, and says **"swaps executed"** (or similar), Claude injects a SWAP LOG section into each video's POST-PUBLISH-ANALYSIS file.
+
+**IMPORTANT rules:**
+- NEVER overwrite existing SWAP LOG entries. ALWAYS append new rows.
+- If `## SWAP LOG` section already exists in the file: append a new row to the existing table only.
+- If no `## SWAP LOG` section exists: create it at the end of the file with header row + data row.
+- If no POST-PUBLISH-ANALYSIS file exists for a video at all: create a minimal one at `channel-data/analyses/POST-PUBLISH-ANALYSIS-[video_id].md` with just the SWAP LOG section.
+
+### Injection Process
+
+For each video in the most recent SWAP-CHECKLIST.md batch:
+
+1. Determine the POST-PUBLISH-ANALYSIS file path:
+   - Check `channel-data/analyses/POST-PUBLISH-ANALYSIS-[video_id].md`
+   - If not found: check `VIDEO_PROJECT_MAP` → `video-projects/_IN_PRODUCTION/[project]/POST-PUBLISH-ANALYSIS.md`
+   - If neither exists: create `channel-data/analyses/POST-PUBLISH-ANALYSIS-[video_id].md`
+
+2. Inject or append the SWAP LOG row:
+   ```markdown
+   ## SWAP LOG
+
+   | Date | Type | Old Value | New Value | Pre-CTR | Post-CTR | Result |
+   |------|------|-----------|-----------|---------|---------|--------|
+   | [today] | title | "[old title from SWAP-CHECKLIST]" | "[new title from SWAP-CHECKLIST]" | [pre-CTR from SWAP-CHECKLIST]% | TBD | pending |
+   ```
+
+3. If thumbnail was also swapped (Status = "SWAP NEEDED"), add a second row:
+   ```markdown
+   | [today] | thumbnail | "[old type/concept description]" | "[new type: split-map/arrow-flow/etc]" | [pre-CTR]% | TBD | pending |
+   ```
+
+4. Confirm injection to user: "SWAP LOG injected for [N] videos. Run `/retitle --check [id]` on [today + 7 days] for each."
+
+---
+
 ## POST-SWAP MEASUREMENT (`--check [video-id]`)
 
-### Step 1: Verify Measurement Window
+### Step 1: Locate POST-PUBLISH-ANALYSIS File
 
-Read `channel-data/analyses/POST-PUBLISH-ANALYSIS-[video_id].md`. Find the SWAP LOG section. Check the swap date.
+Search in order:
+1. `channel-data/analyses/POST-PUBLISH-ANALYSIS-[video_id].md`
+2. If not found: check `tools/retitle_gen.py` `VIDEO_PROJECT_MAP` for the project folder, then look for `video-projects/_IN_PRODUCTION/[project]/POST-PUBLISH-ANALYSIS.md`
+
+If no POST-PUBLISH-ANALYSIS file found: "No POST-PUBLISH-ANALYSIS file found for [video_id]. Run `/retitle` to generate a SWAP-CHECKLIST, execute swaps in YouTube Studio, then tell me 'swaps executed' to inject SWAP LOGs."
+
+### Step 2: Verify Measurement Window
+
+Find the SWAP LOG section in the file.
+
+If no SWAP LOG section found:
+```
+No swap recorded for this video. Run /retitle first to generate a swap, then add SWAP LOG after executing the swap in YouTube Studio. (Or tell me "swaps executed" after running /retitle and executing the swaps.)
+```
+Stop. Do not proceed.
+
+If SWAP LOG exists, find the most recent row with `Result = pending`. Check the swap date.
 
 If swap was < 7 days ago:
 ```
@@ -272,13 +325,13 @@ Check back on [swap_date + 7 days] for reliable data — older videos need 7 day
 
 Stop. Do not proceed.
 
-### Step 2: Collect Post-Swap CTR
+### Step 3: Collect Post-Swap CTR
 
 Ask the user: "What CTR is showing in YouTube Studio for [video title] right now?"
 
 (User opens YouTube Studio > Content > click video > Analytics > Impressions click-through rate)
 
-### Step 3: Evaluate Result
+### Step 4: Evaluate Result
 
 ```
 Pre-swap CTR:  [X.XX]%
@@ -291,15 +344,19 @@ Delta:         [+/- X.XX]%
 **If SUCCESS (+0.5% or more):**
 1. Update SWAP LOG in POST-PUBLISH-ANALYSIS.md: change `TBD` → `[post_ctr]%` and `pending` → `+[delta]% SUCCESS`
 2. Update the video's CTR in `channel-data/patterns/CROSS-VIDEO-SYNTHESIS.md`
-3. Run CTR feedback ingestion:
+3. Run CTR feedback ingestion — but first check if the file exists:
    ```python
-   from tools.ctr_ingest import ingest_synthesis_ctr
-   from tools.discovery.database import KeywordDB
-   from pathlib import Path
-   result = ingest_synthesis_ctr(Path('channel-data/patterns/CROSS-VIDEO-SYNTHESIS.md'), KeywordDB())
-   print(f"CTR data ingested: {result['written']} written, {result['skipped']} skipped")
+   import os
+   if os.path.exists('tools/ctr_ingest.py'):
+       from tools.ctr_ingest import ingest_synthesis_ctr
+       from tools.discovery.database import KeywordDB
+       from pathlib import Path
+       result = ingest_synthesis_ctr(Path('channel-data/patterns/CROSS-VIDEO-SYNTHESIS.md'), KeywordDB())
+       print(f"CTR data ingested: {result['written']} written, {result['skipped']} skipped")
+   else:
+       print("ctr_ingest.py not found — skip automated feedback. Update keywords.db manually if needed.")
    ```
-4. Report: "SUCCESS — CTR improved +[delta]%. Title swap data ingested for future scoring calibration."
+4. Report: "SUCCESS — CTR improved +[delta]%. Feedback loop closed — title_scorer scores updated." (or "ctr_ingest.py not found — update keywords.db manually" if file absent)
 
 **If FLAT or NEGATIVE (< +0.5%):**
 1. Update SWAP LOG: change `pending` → `flat REVERTED` (or `[delta]% REVERTED`)
@@ -314,7 +371,10 @@ Delta:         [+/- X.XX]%
 
 ## REVERT (`--revert [video-id]`)
 
-1. Read `channel-data/analyses/POST-PUBLISH-ANALYSIS-[video_id].md`
+1. Locate the POST-PUBLISH-ANALYSIS file:
+   - Check `channel-data/analyses/POST-PUBLISH-ANALYSIS-[video_id].md`
+   - If not found: check `VIDEO_PROJECT_MAP` → `video-projects/_IN_PRODUCTION/[project]/POST-PUBLISH-ANALYSIS.md`
+   - If neither found: "No POST-PUBLISH-ANALYSIS file found for [video_id]. Cannot revert without SWAP LOG."
 2. Find the most recent SWAP LOG entry for this video
 3. Display old title for immediate copy-paste:
 
