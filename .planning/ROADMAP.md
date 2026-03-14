@@ -770,7 +770,7 @@ Plans:
 **Goal:** Title scoring pipeline uses live CTR data from keywords.db instead of static hardcoded constants; greenlight and preflight gates automatically benefit from accumulated performance data; feedback loop closes when user runs ctr_ingest after updating CROSS-VIDEO-SYNTHESIS.md
 **Requirements**: GATE-01, GATE-02, GATE-03, GATE-04, GATE-05
 **Depends on:** Phase 60
-**Plans:** 3 plans
+**Plans:** 1/3 plans executed
 
 Plans:
 - [ ] 61-01-PLAN.md — TitleCTRStore module + title_scorer DB integration (core scoring logic with TDD)

@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
 status: completed
-last_updated: "2026-03-01T04:44:11.402Z"
+last_updated: "2026-03-14T12:41:32.350Z"
 last_activity: "2026-02-28 — 54-01 complete: prompt_generator.py (VidIQ + Gemini prompts) + intake_parser.py (5-type auto-classifier with JSON persistence)"
 progress:
   total_phases: 57
-  completed_phases: 56
-  total_plans: 122
-  completed_plans: 122
-  percent: 100
+  completed_phases: 49
+  total_plans: 110
+  completed_plans: 108
+  percent: 98
 ---
 
 # State: History vs Hype Workspace
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 **Last activity:** 2026-02-28 — 54-01 complete: prompt_generator.py (VidIQ + Gemini prompts) + intake_parser.py (5-type auto-classifier with JSON persistence)
 
 **Progress:**
-[██████████] 100%
+[██████████] 98%
 
 ## Milestone History
 
@@ -107,10 +107,15 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 54]: Regex-scoring classifier for 5 response types — transparent and testable, no new dependencies
 - [Phase 54]: Source weighting matrix: VidIQ 0.9 for keyword variant, Gemini 0.9 for curiosity, entities 0.9 for authority
 - [Phase 54]: Moderation informational not blocking — HIGH flags with safe alternatives never prevent publishing
+- [Phase 61]: Title matching uses LIKE on first 40 chars — synthesis table uses descriptive titles, video_performance stores YouTube API titles
+- [Phase 61]: is_late_entry=True and snapshot_date=2026-02-23 for all ingest rows — marks historical backfill clearly
+- [Phase 61]: dry_run parameter added to ingest_synthesis_ctr() — safe preview before DB mutation
 
 ### Roadmap Evolution
 
 - Phase 54 added: External Intelligence Synthesis — automated VidIQ/Gemini prompt generation, response parsing, metadata synthesis, moderation scoring, thumbnail blueprints
+- Phase 60 added: Retitle and rethumb underperforming videos with impressions but low CTR
+- Phase 61 added: Data-driven packaging gate for new videos — title scorer reads real CTR from DB, greenlight enforces minimum score, feedback loop closes automatically
 
 ### Pending Todos
 
