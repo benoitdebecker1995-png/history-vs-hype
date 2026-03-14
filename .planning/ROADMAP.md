@@ -754,3 +754,25 @@ Plans:
   4. Monetization countdown: projected date for 1K subs and 4K watch hours
   5. `/growth` command outputs the full dashboard
 **Plans**: TBD
+
+### Phase 60: Retitle and rethumb underperforming videos with impressions but low CTR
+
+**Goal:** [To be planned]
+**Requirements**: TBD
+**Depends on:** Phase 59
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd:plan-phase 60 to break down)
+
+### Phase 61: Data-driven packaging gate for new videos — title scorer reads real CTR from DB, greenlight enforces minimum score, feedback loop closes automatically
+
+**Goal:** Title scoring pipeline uses live CTR data from keywords.db instead of static hardcoded constants; greenlight and preflight gates automatically benefit from accumulated performance data; feedback loop closes when user runs ctr_ingest after updating CROSS-VIDEO-SYNTHESIS.md
+**Requirements**: GATE-01, GATE-02, GATE-03, GATE-04, GATE-05
+**Depends on:** Phase 60
+**Plans:** 3 plans
+
+Plans:
+- [ ] 61-01-PLAN.md — TitleCTRStore module + title_scorer DB integration (core scoring logic with TDD)
+- [ ] 61-02-PLAN.md — CTR ingestion from CROSS-VIDEO-SYNTHESIS.md into keywords.db
+- [ ] 61-03-PLAN.md — Greenlight/preflight/CLI wiring + feedback loop documentation
