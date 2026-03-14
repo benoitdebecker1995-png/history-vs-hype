@@ -3,8 +3,12 @@ phase: 61-data-driven-packaging-gate
 verified: 2026-03-14T00:00:00Z
 status: passed
 score: 10/10 must-haves verified
-re_verification: false
-gaps: []
+re_verification:
+  previous_status: passed
+  previous_score: 10/10
+  gaps_closed: []
+  gaps_remaining: []
+  regressions: []
 human_verification:
   - test: "Run /greenlight with a real topic and confirm the verdict box shows 'DB-enriched' in the title line when keywords.db has CTR rows"
     expected: "TITLE: GO (score/grade — pattern, DB-enriched) displayed in the verdict box"
@@ -17,7 +21,18 @@ human_verification:
 
 **Verified:** 2026-03-14
 **Status:** PASSED
-**Re-verification:** No — initial verification
+**Re-verification:** Yes — regression check after initial pass
+
+---
+
+## Re-verification Summary
+
+Previous status was `passed` (10/10). This run confirms no regressions:
+
+- All 9 artifacts still exist at expected paths
+- All 30 phase 61 tests pass (10 unit + 12 scorer-db unit + 8 integration)
+- All 7 key wiring links still present in source
+- Line counts unchanged: title_ctr_store.py (118), test_title_ctr_store.py (250), test_title_scorer_db.py (215), ctr_ingest.py (233), test_ctr_ingest.py (158)
 
 ---
 
@@ -36,7 +51,7 @@ human_verification:
 | 7 | CTR data from CROSS-VIDEO-SYNTHESIS.md can be ingested into keywords.db | VERIFIED | `test_ingest_writes_correct_rows`, `test_ctr_values_written_to_db` pass; 8/8 integration tests pass |
 | 8 | Videos without CTR or without matching video_id are skipped gracefully | VERIFIED | `test_ingest_skips_missing_ctr`, `test_ingest_counts_unmatched_titles` pass |
 | 9 | Running ingest twice does not error (idempotent) | VERIFIED | `test_ingest_idempotent` passes |
-| 10 | greenlight command passes db_path to score_title(); preflight scorer passes db_path; title_scorer CLI shows DB enrichment status | VERIFIED | greenlight.md Step 2 has `score_title("...", db_path=db.db_path)`; scorer.py lines 451-466 load KeywordDB and pass `db_path=db_path`; title_scorer.py `format_result()` has source line; `--db` and `--ingest` flags present |
+| 10 | greenlight command passes db_path to score_title(); preflight scorer passes db_path; title_scorer CLI shows DB enrichment status | VERIFIED | greenlight.md line 63 has `score_title("...", db_path=db.db_path)`; scorer.py line 466 has `_score_title(t, db_path=db_path)`; title_scorer.py `get_pattern_ctr_from_db` import at lines 140-141 |
 
 **Score:** 10/10 truths verified
 
@@ -46,15 +61,15 @@ human_verification:
 
 | Artifact | Expected | Status | Details |
 |----------|----------|--------|---------|
-| `tools/title_ctr_store.py` | DB-backed pattern CTR lookup, exports `get_pattern_ctr_from_db` | VERIFIED | 119 lines; function present; SQL join, min_sample filter, ctr*17 calibration all implemented |
+| `tools/title_ctr_store.py` | DB-backed pattern CTR lookup, exports `get_pattern_ctr_from_db` | VERIFIED | 118 lines; function present; SQL join, min_sample filter, ctr*17 calibration all implemented |
 | `tests/unit/test_title_ctr_store.py` | Unit tests for CTR store (min 60 lines) | VERIFIED | 250 lines, 10 tests |
 | `tests/unit/test_title_scorer_db.py` | Unit tests for score_title with db_path (min 40 lines) | VERIFIED | 215 lines, 12 tests |
-| `tools/ctr_ingest.py` | CLI tool to ingest CTR from synthesis table, exports `ingest_synthesis_ctr` | VERIFIED | 234 lines; function present; argparse CLI with --dry-run, --synthesis, --verbose, --quiet |
+| `tools/ctr_ingest.py` | CLI tool to ingest CTR from synthesis table, exports `ingest_synthesis_ctr` | VERIFIED | 233 lines; function present; argparse CLI with --dry-run, --synthesis, --verbose, --quiet |
 | `tests/integration/test_ctr_ingest.py` | Integration test for synthesis-to-DB pipeline (min 40 lines) | VERIFIED | 158 lines, 8 tests |
-| `.claude/commands/greenlight.md` | DB-enriched greenlight gate, contains db_path | VERIFIED | Step 2 explicitly calls `score_title("...", db_path=db.db_path)` with DB-enriched display format |
-| `tools/preflight/scorer.py` | DB-enriched preflight title gate, contains db_path | VERIFIED | Lines 449-466: KeywordDB loaded, `db_path = _db.db_path`, passed to `_score_title(t, db_path=db_path)` |
-| `tools/title_scorer.py` | score_title() accepts db_path; CLI has --db/--ingest flags; format_result() shows Source line | VERIFIED | All three elements present; argparse CLI with both flags; `format_result()` outputs "DB-enriched" vs "static scores" |
-| `tools/PACKAGING_MANDATE.md` | Documents the feedback loop | VERIFIED | "Feedback Loop (Phase 61)" section present at line 156, covers 3-step workflow, min-sample logic, convenience shortcut |
+| `.claude/commands/greenlight.md` | DB-enriched greenlight gate, contains db_path | VERIFIED | Line 63 explicitly calls `score_title("...", db_path=db.db_path)` |
+| `tools/preflight/scorer.py` | DB-enriched preflight title gate, contains db_path | VERIFIED | Line 466: `_score_title(t, db_path=db_path)` with db_path from KeywordDB |
+| `tools/title_scorer.py` | score_title() accepts db_path; CLI has --db/--ingest flags; format_result() shows Source line | VERIFIED | All three elements present; lazy import at lines 140-141; argparse CLI with both flags |
+| `tools/PACKAGING_MANDATE.md` | Documents the feedback loop | VERIFIED | "Feedback Loop (Phase 61)" section present at line 156 |
 
 ---
 
@@ -62,11 +77,11 @@ human_verification:
 
 | From | To | Via | Status | Details |
 |------|----|-----|--------|---------|
-| `tools/title_ctr_store.py` | `tools/discovery/database.py` schema | `sqlite3` query on `ctr_snapshots JOIN video_performance` | VERIFIED | SQL at lines 66-80: `JOIN ctr_snapshots cs ON cs.video_id = vp.video_id WHERE cs.ctr_percent > 0` |
+| `tools/title_ctr_store.py` | `tools/discovery/database.py` schema | `sqlite3` query on `ctr_snapshots JOIN video_performance` | VERIFIED | SQL confirmed: `JOIN ctr_snapshots cs ON cs.video_id = vp.video_id WHERE cs.ctr_percent > 0` |
 | `tools/title_scorer.py` | `tools/title_ctr_store.py` | lazy import of `get_pattern_ctr_from_db` inside `score_title()` | VERIFIED | Lines 140-141: `from tools.title_ctr_store import get_pattern_ctr_from_db` inside try block |
 | `tools/ctr_ingest.py` | `tools/retitle_audit.py` | `import _parse_synthesis_table` | VERIFIED | Line 23: `from tools.retitle_audit import _parse_synthesis_table`; called at line 60 |
 | `tools/ctr_ingest.py` | `tools/discovery/database.py` | `KeywordDB.add_ctr_snapshot()` | VERIFIED | Lines 100-107: `db.add_ctr_snapshot(video_id=video_id, ctr_percent=ctr, ...)` |
-| `.claude/commands/greenlight.md` | `tools/title_scorer.py` | `score_title(title, db_path=db.db_path)` | VERIFIED | Step 2 code block shows `result = score_title("...", db_path=db.db_path)` |
+| `.claude/commands/greenlight.md` | `tools/title_scorer.py` | `score_title(title, db_path=db.db_path)` | VERIFIED | Line 63 code block shows `result = score_title("...", db_path=db.db_path)` |
 | `tools/preflight/scorer.py` | `tools/title_scorer.py` | `score_title(title, db_path=db_path)` | VERIFIED | Line 466: `ts_result = _score_title(t, db_path=db_path)` with db_path from KeywordDB |
 | `tools/title_scorer.py` | `tools/title_ctr_store.py` | `get_pattern_ctr_from_db(db_path)` inside `score_title()` | VERIFIED | Line 141: `db_overrides = get_pattern_ctr_from_db(db_path)` |
 
@@ -79,10 +94,10 @@ human_verification:
 | GATE-01 | 61-01 | TitleCTRStore: `get_pattern_ctr_from_db()` returns DB-derived pattern scores | SATISFIED | Module exists, 10 tests pass, correct SQL and calibration |
 | GATE-02 | 61-01 | `score_title()` accepts optional `db_path`, uses DB scores when available | SATISFIED | Function signature verified, 12 tests pass, `db_enriched` flag in return dict |
 | GATE-03 | 61-02 | CTR ingest tool reads synthesis table and writes to `ctr_snapshots` | SATISFIED | `ctr_ingest.py` exists, 8 integration tests pass |
-| GATE-04 | 61-03 | Greenlight and preflight pass `db_path` to `score_title()` | SATISFIED | Both wiring paths confirmed in source; greenlight.md Step 2 and scorer.py lines 449-466 |
+| GATE-04 | 61-03 | Greenlight and preflight pass `db_path` to `score_title()` | SATISFIED | Both wiring paths confirmed in source; greenlight.md line 63 and scorer.py line 466 |
 | GATE-05 | 61-03 | Feedback loop documented and title_scorer CLI supports `--db`/`--ingest` | SATISFIED | PACKAGING_MANDATE.md Feedback Loop section confirmed; CLI flags present and working |
 
-**Orphaned requirements note:** GATE-01 through GATE-05 are referenced in ROADMAP.md for Phase 61 but are NOT defined as tracked items in `.planning/REQUIREMENTS.md`. The global REQUIREMENTS.md tracks CTR-01/CTR-02/CTR-03 (mapped to Phase 56) which overlap in intent. This is a documentation gap only — the implementation is complete. No action required for phase verification; recommend adding GATE IDs to REQUIREMENTS.md traceability table in a housekeeping pass.
+**Orphaned requirements note:** GATE-01 through GATE-05 are referenced in ROADMAP.md for Phase 61 and plan frontmatter but are NOT defined as tracked items in `.planning/REQUIREMENTS.md`. The global REQUIREMENTS.md tracks CTR-01/CTR-02/CTR-03 (mapped to Phase 56) which overlap in intent. This is a documentation gap only — the implementation is complete. No action required for phase verification.
 
 ---
 
@@ -103,7 +118,7 @@ All 30 phase 61 tests pass:
 - `tests/unit/test_title_scorer_db.py` — 12/12
 - `tests/integration/test_ctr_ingest.py` — 8/8
 
-Pre-existing failures in `tests/unit/test_pacing.py` and `tests/test_intel.py` are unrelated to Phase 61 (confirmed pre-existing per 61-01-SUMMARY.md).
+No regressions. Pre-existing failures in `tests/unit/test_pacing.py` and `tests/test_intel.py` are unrelated to Phase 61 (confirmed pre-existing per 61-01-SUMMARY.md).
 
 ---
 
@@ -119,11 +134,11 @@ Pre-existing failures in `tests/unit/test_pacing.py` and `tests/test_intel.py` a
 
 ### Gaps Summary
 
-No gaps found. All must-haves are verified at all three levels (exists, substantive, wired). The one human verification item is a confirmation test, not a gap.
+No gaps. All must-haves verified at all three levels (exists, substantive, wired). Re-verification confirms no regressions since initial pass.
 
-The only structural note is that GATE-01 through GATE-05 requirement IDs exist in ROADMAP.md and plan frontmatter but are absent from REQUIREMENTS.md. This is a documentation hygiene issue, not a delivery failure.
+The GATE-01 through GATE-05 requirement IDs are not tracked in `.planning/REQUIREMENTS.md` — documentation hygiene issue only, not a delivery failure.
 
 ---
 
-_Verified: 2026-03-14_
+_Verified: 2026-03-14 (re-verification)_
 _Verifier: Claude (gsd-verifier)_
