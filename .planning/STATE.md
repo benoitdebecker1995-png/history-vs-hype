@@ -1,36 +1,36 @@
 ---
 gsd_state_version: 1.0
-milestone: v5.1
-milestone_name: Codebase Hardening
+milestone: v6.0
+milestone_name: Packaging Pipeline
 status: completed
-last_updated: "2026-03-14T23:37:43.933Z"
-last_activity: "2026-02-28 — 54-01 complete: prompt_generator.py (VidIQ + Gemini prompts) + intake_parser.py (5-type auto-classifier with JSON persistence)"
+last_updated: "2026-03-14"
+last_activity: "2026-03-14 — Phase 61 verified: data-driven packaging gate complete, all 5 requirements satisfied"
 progress:
-  total_phases: 57
-  completed_phases: 51
-  total_plans: 112
-  completed_plans: 112
+  total_phases: 2
+  completed_phases: 2
+  total_plans: 5
+  completed_plans: 5
   percent: 100
 ---
 
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-02-26 (28.1-02 complete — CCR v1.0.32 installed, OpenRouter API key configured, routing infrastructure ready, quality validation deferred to first production use)
+**Last Updated:** 2026-03-14 (v6.0 Packaging Pipeline complete — retitle pipeline + data-driven scoring gate)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-02-24)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v5.1 Codebase Hardening — Phase 50: Error Handling
+**Current focus:** v6.0 complete — packaging bottleneck addressed
 
 ## Current Position
 
-**Milestone:** v5.1 Codebase Hardening
-**Phase:** 54-external-intelligence-synthesis (Plan 01 complete, Plan 02 pending)
+**Milestone:** v6.0 Packaging Pipeline
+**Phase:** All phases complete (60-61)
 **Status:** Milestone complete
-**Last activity:** 2026-02-28 — 54-01 complete: prompt_generator.py (VidIQ + Gemini prompts) + intake_parser.py (5-type auto-classifier with JSON persistence)
+**Last activity:** 2026-03-14 — Phase 61 verified: data-driven packaging gate complete, all 5 requirements satisfied
 
 **Progress:**
 [██████████] 100%
@@ -50,9 +50,19 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 | v3.0 | Adaptive Scriptwriter | 36-38 | 2026-02-15 |
 | v4.0 | Untranslated Evidence Pipeline | 39-41 | 2026-02-18 |
 | v5.0 | Production Intelligence | 42-47 | 2026-02-22 |
+| v5.1 | Codebase Hardening | 48-54 | 2026-03-01 |
+| v5.2 | Growth Engine | 55-59 | 2026-03-01 |
+| v6.0 | Packaging Pipeline | 60-61 | 2026-03-14 |
 
 **Full history:** `.planning/MILESTONES.md`
 **Archives:** `.planning/milestones/`
+
+## v6.0 Phase Order
+
+| Phase | Name | Requirements | Depends On |
+|-------|------|-------------|------------|
+| 60 | Retitle & Rethumb Pipeline | RETITLE-01..06 | Phase 59 |
+| 61 | Data-driven Packaging Gate | GATE-01..05 | Phase 60 |
 
 ## v5.1 Phase Order
 

@@ -15,6 +15,7 @@
 - ✅ **v5.0 Production Intelligence** - Phases 42-47 (shipped 2026-02-22)
 - ✅ **v5.1 Codebase Hardening** - Phases 48-54 (shipped 2026-03-01)
 - ✅ **v5.2 Growth Engine** - Phases 55-59 (shipped 2026-03-01)
+- ✅ **v6.0 Packaging Pipeline** - Phases 60-61 (shipped 2026-03-14)
 
 ## Phases
 
@@ -676,7 +677,8 @@ Plans:
 | 57. Competitor Gap Analyzer | v5.2 | 1/1 | Complete | 2026-03-01 |
 | 58. Retention Pattern Decoder | v5.2 | 1/1 | Complete | 2026-03-01 |
 | 59. Growth Dashboard | v5.2 | 1/1 | Complete | 2026-03-01 |
-| 60. Retitle & Rethumb Pipeline | 2/2 | Complete    | 2026-03-14 | - |
+| 60. Retitle & Rethumb Pipeline | v6.0 | 2/2 | Complete | 2026-03-14 |
+| 61. Data-driven Packaging Gate | v6.0 | 3/3 | Complete | 2026-03-14 |
 
 ### Phase 54: External Intelligence Synthesis
 **Goal**: `/publish --prompts` generates tailored VidIQ/Gemini prompts from script analysis; `/publish --intake` parses their responses into structured data; synthesis engine merges internal + external intelligence into ranked metadata packages with content moderation scoring and Photoshop-ready thumbnail blueprints
@@ -756,7 +758,11 @@ Plans:
   5. `/growth` command outputs the full dashboard
 **Plans**: TBD
 
-### Phase 60: Retitle and rethumb underperforming videos with impressions but low CTR
+### ✅ v6.0 Packaging Pipeline (Shipped 2026-03-14)
+
+**Milestone Goal:** Fix the channel's #1 growth bottleneck — packaging, not content quality. Audit revealed most videos got <100 impressions despite 30-35% retention. Bad titles killed distribution. This milestone builds the retitle pipeline for existing videos and a data-driven scoring gate for new ones, closing the feedback loop between real CTR data and title generation.
+
+#### Phase 60: Retitle and rethumb underperforming videos with impressions but low CTR
 
 **Goal:** Repeatable /retitle pipeline audits underperforming videos by wasted impressions with retention weighting, generates script-based title candidates, checks thumbnail compliance, outputs SWAP-CHECKLIST.md for YouTube Studio execution, and measures 7-day post-swap CTR with feedback loop into title_scorer DB
 **Requirements**: RETITLE-01, RETITLE-02, RETITLE-03, RETITLE-04, RETITLE-05, RETITLE-06
@@ -764,10 +770,10 @@ Plans:
 **Plans:** 2/2 plans complete
 
 Plans:
-- [ ] 60-01-PLAN.md — /retitle slash command + SWAP-CHECKLIST.md output (audit, generate, score, thumbnail check)
-- [ ] 60-02-PLAN.md — --check/--revert flags + SWAP LOG tracking in POST-PUBLISH-ANALYSIS
+- [x] 60-01-PLAN.md — /retitle slash command + SWAP-CHECKLIST.md output (audit, generate, score, thumbnail check)
+- [x] 60-02-PLAN.md — --check/--revert flags + SWAP LOG tracking in POST-PUBLISH-ANALYSIS
 
-### Phase 61: Data-driven packaging gate for new videos — title scorer reads real CTR from DB, greenlight enforces minimum score, feedback loop closes automatically
+#### Phase 61: Data-driven packaging gate for new videos — title scorer reads real CTR from DB, greenlight enforces minimum score, feedback loop closes automatically
 
 **Goal:** Title scoring pipeline uses live CTR data from keywords.db instead of static hardcoded constants; greenlight and preflight gates automatically benefit from accumulated performance data; feedback loop closes when user runs ctr_ingest after updating CROSS-VIDEO-SYNTHESIS.md
 **Requirements**: GATE-01, GATE-02, GATE-03, GATE-04, GATE-05
@@ -775,6 +781,6 @@ Plans:
 **Plans:** 3/3 plans complete
 
 Plans:
-- [ ] 61-01-PLAN.md — TitleCTRStore module + title_scorer DB integration (core scoring logic with TDD)
-- [ ] 61-02-PLAN.md — CTR ingestion from CROSS-VIDEO-SYNTHESIS.md into keywords.db
-- [ ] 61-03-PLAN.md — Greenlight/preflight/CLI wiring + feedback loop documentation
+- [x] 61-01-PLAN.md — TitleCTRStore module + title_scorer DB integration (core scoring logic with TDD)
+- [x] 61-02-PLAN.md — CTR ingestion from CROSS-VIDEO-SYNTHESIS.md into keywords.db
+- [x] 61-03-PLAN.md — Greenlight/preflight/CLI wiring + feedback loop documentation
