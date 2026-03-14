@@ -676,6 +676,7 @@ Plans:
 | 57. Competitor Gap Analyzer | v5.2 | 1/1 | Complete | 2026-03-01 |
 | 58. Retention Pattern Decoder | v5.2 | 1/1 | Complete | 2026-03-01 |
 | 59. Growth Dashboard | v5.2 | 1/1 | Complete | 2026-03-01 |
+| 60. Retitle & Rethumb Pipeline | - | 0/2 | Planned | - |
 
 ### Phase 54: External Intelligence Synthesis
 **Goal**: `/publish --prompts` generates tailored VidIQ/Gemini prompts from script analysis; `/publish --intake` parses their responses into structured data; synthesis engine merges internal + external intelligence into ranked metadata packages with content moderation scoring and Photoshop-ready thumbnail blueprints
@@ -757,13 +758,14 @@ Plans:
 
 ### Phase 60: Retitle and rethumb underperforming videos with impressions but low CTR
 
-**Goal:** [To be planned]
-**Requirements**: TBD
+**Goal:** Repeatable /retitle pipeline audits underperforming videos by wasted impressions with retention weighting, generates script-based title candidates, checks thumbnail compliance, outputs SWAP-CHECKLIST.md for YouTube Studio execution, and measures 7-day post-swap CTR with feedback loop into title_scorer DB
+**Requirements**: RETITLE-01, RETITLE-02, RETITLE-03, RETITLE-04, RETITLE-05, RETITLE-06
 **Depends on:** Phase 59
-**Plans:** 0 plans
+**Plans:** 2 plans
 
 Plans:
-- [ ] TBD (run /gsd:plan-phase 60 to break down)
+- [ ] 60-01-PLAN.md — /retitle slash command + SWAP-CHECKLIST.md output (audit, generate, score, thumbnail check)
+- [ ] 60-02-PLAN.md — --check/--revert flags + SWAP LOG tracking in POST-PUBLISH-ANALYSIS
 
 ### Phase 61: Data-driven packaging gate for new videos — title scorer reads real CTR from DB, greenlight enforces minimum score, feedback loop closes automatically
 

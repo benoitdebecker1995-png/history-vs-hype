@@ -49,6 +49,15 @@ Requirements for v5.2 Growth Engine. Each maps to roadmap phases.
 - [ ] **DATA-03**: Traffic source data stored per video
 - [ ] **DATA-04**: Automated refresh command pulls latest analytics on demand
 
+### Retitle & Rethumb Pipeline
+
+- [ ] **RETITLE-01**: `/retitle` command audits underperformers ranked by wasted impressions with retention weighting (min 500 impressions, top 5)
+- [ ] **RETITLE-02**: `/retitle` generates script-based title candidates scored by title_scorer, outputs SWAP-CHECKLIST.md with old title, new title, new description, thumbnail concept
+- [ ] **RETITLE-03**: `/retitle --audit` shows ranked underperformer list without generating candidates
+- [ ] **RETITLE-04**: `/retitle --check [video-id]` measures 7-day post-swap CTR, enforces minimum wait, triggers ctr_ingest on success
+- [ ] **RETITLE-05**: `/retitle --revert [video-id]` surfaces old title from SWAP LOG for copy-paste revert
+- [ ] **RETITLE-06**: SWAP LOG section in POST-PUBLISH-ANALYSIS.md tracks swap history per video (date, old/new title, pre/post CTR, result)
+
 ## Future Requirements
 
 ### Thumbnail Optimization
@@ -99,11 +108,18 @@ Requirements for v5.2 Growth Engine. Each maps to roadmap phases.
 | GROW-03 | Phase 59 | Not started |
 | GROW-04 | Phase 59 | Not started |
 | GROW-05 | Phase 59 | Not started |
+| RETITLE-01 | Phase 60 | Not started |
+| RETITLE-02 | Phase 60 | Not started |
+| RETITLE-03 | Phase 60 | Not started |
+| RETITLE-04 | Phase 60 | Not started |
+| RETITLE-05 | Phase 60 | Not started |
+| RETITLE-06 | Phase 60 | Not started |
 
 **Coverage:**
 - v5.2 requirements: 24 total
-- Mapped to phases: 24
+- Phase 60 requirements: 6 total
+- Mapped to phases: 30
 - Unmapped: 0
 
 ---
-*Requirements defined: 2026-03-01*
+*Requirements updated: 2026-03-14*
