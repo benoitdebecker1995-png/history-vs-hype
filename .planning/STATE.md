@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
 status: completed
-last_updated: "2026-03-14T23:15:03.731Z"
+last_updated: "2026-03-14T23:18:36.723Z"
 last_activity: "2026-02-28 — 54-01 complete: prompt_generator.py (VidIQ + Gemini prompts) + intake_parser.py (5-type auto-classifier with JSON persistence)"
 progress:
   total_phases: 57
-  completed_phases: 50
+  completed_phases: 51
   total_plans: 112
-  completed_plans: 111
-  percent: 99
+  completed_plans: 112
+  percent: 100
 ---
 
 # State: History vs Hype Workspace
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 **Last activity:** 2026-02-28 — 54-01 complete: prompt_generator.py (VidIQ + Gemini prompts) + intake_parser.py (5-type auto-classifier with JSON persistence)
 
 **Progress:**
-[██████████] 99%
+[██████████] 100%
 
 ## Milestone History
 
@@ -117,6 +117,8 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 61-03]: format_result() Source line shows DB-enriched vs static scores — user gets clear feedback on data source without inspecting internals
 - [Phase 60-01]: Retention weighting formula: priority = wasted_impressions × (1 + retention_bonus) — surfaces content-quality packaging failures over dual packaging+content failures
 - [Phase 60-01]: SWAP-CHECKLIST.md is ephemeral (regenerated each run); SWAP LOG in POST-PUBLISH-ANALYSIS.md is permanent record with 7-day measurement window
+- [Phase 60]: ctr_ingest.py is optional — existence check before invocation, graceful degradation to manual instructions if absent
+- [Phase 60]: POST-PUBLISH-ANALYSIS search order: channel-data/analyses/ primary, video-projects/ secondary
 
 ### Roadmap Evolution
 
