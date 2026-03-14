@@ -51,9 +51,9 @@ Requirements for v5.2 Growth Engine. Each maps to roadmap phases.
 
 ### Retitle & Rethumb Pipeline
 
-- [ ] **RETITLE-01**: `/retitle` command audits underperformers ranked by wasted impressions with retention weighting (min 500 impressions, top 5)
-- [ ] **RETITLE-02**: `/retitle` generates script-based title candidates scored by title_scorer, outputs SWAP-CHECKLIST.md with old title, new title, new description, thumbnail concept
-- [ ] **RETITLE-03**: `/retitle --audit` shows ranked underperformer list without generating candidates
+- [x] **RETITLE-01**: `/retitle` command audits underperformers ranked by wasted impressions with retention weighting (min 500 impressions, top 5)
+- [x] **RETITLE-02**: `/retitle` generates script-based title candidates scored by title_scorer, outputs SWAP-CHECKLIST.md with old title, new title, new description, thumbnail concept
+- [x] **RETITLE-03**: `/retitle --audit` shows ranked underperformer list without generating candidates
 - [ ] **RETITLE-04**: `/retitle --check [video-id]` measures 7-day post-swap CTR, enforces minimum wait, triggers ctr_ingest on success
 - [ ] **RETITLE-05**: `/retitle --revert [video-id]` surfaces old title from SWAP LOG for copy-paste revert
 - [ ] **RETITLE-06**: SWAP LOG section in POST-PUBLISH-ANALYSIS.md tracks swap history per video (date, old/new title, pre/post CTR, result)

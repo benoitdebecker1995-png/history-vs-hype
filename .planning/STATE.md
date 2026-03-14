@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
 status: completed
-last_updated: "2026-03-14T18:38:23.733Z"
+last_updated: "2026-03-14T23:15:03.731Z"
 last_activity: "2026-02-28 — 54-01 complete: prompt_generator.py (VidIQ + Gemini prompts) + intake_parser.py (5-type auto-classifier with JSON persistence)"
 progress:
   total_phases: 57
   completed_phases: 50
-  total_plans: 110
-  completed_plans: 110
-  percent: 100
+  total_plans: 112
+  completed_plans: 111
+  percent: 99
 ---
 
 # State: History vs Hype Workspace
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 **Last activity:** 2026-02-28 — 54-01 complete: prompt_generator.py (VidIQ + Gemini prompts) + intake_parser.py (5-type auto-classifier with JSON persistence)
 
 **Progress:**
-[██████████] 100%
+[██████████] 99%
 
 ## Milestone History
 
@@ -115,6 +115,8 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 61-01]: db_enriched=False when pattern not in DB results — accurate signal to callers without inspecting internals
 - [Phase 61-03]: greenlight.md and scorer.py use KeywordDB().db_path by default — DB enrichment is always attempted, falls back silently to static scores
 - [Phase 61-03]: format_result() Source line shows DB-enriched vs static scores — user gets clear feedback on data source without inspecting internals
+- [Phase 60-01]: Retention weighting formula: priority = wasted_impressions × (1 + retention_bonus) — surfaces content-quality packaging failures over dual packaging+content failures
+- [Phase 60-01]: SWAP-CHECKLIST.md is ephemeral (regenerated each run); SWAP LOG in POST-PUBLISH-ANALYSIS.md is permanent record with 7-day measurement window
 
 ### Roadmap Evolution
 
