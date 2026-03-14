@@ -19,6 +19,8 @@ Usage:
     python -m tools.title_scorer "Your Title Here"
     python -m tools.title_scorer "Title A" "Title B" "Title C"
     python -m tools.title_scorer --file titles.txt
+    python -m tools.title_scorer "Title Here" --db           # DB-enriched scoring
+    python -m tools.title_scorer --ingest                    # Ingest CTR from synthesis file
 """
 
 import re
@@ -240,11 +242,18 @@ def format_result(result: dict) -> str:
             lines.append(f"  REASON: {reason}")
         lines.append("")
 
+    # DB enrichment status line
+    if result.get('db_enriched'):
+        source_line = f"  Source:  DB-enriched (base score from live CTR data)"
+    else:
+        source_line = "  Source:  static scores (run python -m tools.ctr_ingest first)"
+
     lines.extend([
         f"  Title:   {result['title']}",
         f"  Score:   {result['score']}/100 ({result['grade']})",
         f"  Pattern: {result['pattern']} (base: {result['base_score']})",
         f"  Length:  {result['length']} chars",
+        source_line,
     ])
 
     if result['penalties']:
@@ -264,26 +273,84 @@ def format_result(result: dict) -> str:
 
 
 if __name__ == '__main__':
-    titles = []
+    import argparse
 
-    if '--file' in sys.argv:
-        idx = sys.argv.index('--file')
-        if idx + 1 < len(sys.argv):
-            path = Path(sys.argv[idx + 1])
-            titles = [line.strip() for line in path.read_text().splitlines() if line.strip()]
-    else:
-        titles = [arg for arg in sys.argv[1:] if not arg.startswith('-')]
+    parser = argparse.ArgumentParser(
+        description='Title Scorer — History vs Hype',
+        epilog=(
+            'Examples:\n'
+            '  python -m tools.title_scorer "France vs Haiti"\n'
+            '  python -m tools.title_scorer "Title A" "Title B" --db\n'
+            '  python -m tools.title_scorer --file titles.txt --db\n'
+            '  python -m tools.title_scorer --ingest\n'
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument('titles', nargs='*', help='Title candidates to score')
+    parser.add_argument('--file', help='File with one title per line')
+    parser.add_argument(
+        '--db',
+        action='store_true',
+        help='Use DB-enriched scoring (reads keywords.db for live CTR pattern scores)',
+    )
+    parser.add_argument(
+        '--ingest',
+        action='store_true',
+        help='Ingest CTR data from CROSS-VIDEO-SYNTHESIS.md into keywords.db, then exit',
+    )
+    args = parser.parse_args()
 
-    if not titles:
-        print("Usage: python -m tools.title_scorer \"Title A\" \"Title B\"")
-        print("       python -m tools.title_scorer --file titles.txt")
+    # --ingest: run ctr_ingest and exit
+    if args.ingest:
+        from tools.ctr_ingest import ingest_synthesis_ctr
+        from tools.discovery.database import KeywordDB
+        synthesis = Path('channel-data/patterns/CROSS-VIDEO-SYNTHESIS.md')
+        if not synthesis.exists():
+            print(f"ERROR: Synthesis file not found: {synthesis}")
+            sys.exit(1)
+        db = KeywordDB()
+        result = ingest_synthesis_ctr(synthesis, db)
+        db.close()
+        print(f"\nCTR Ingest complete:")
+        print(f"  Written:   {result['written']}")
+        print(f"  Skipped:   {result['skipped']}  (no CTR data)")
+        print(f"  Unmatched: {result['unmatched']}  (title not in video_performance)")
+        if result['errors']:
+            print(f"  Errors:    {len(result['errors'])}")
+            for err in result['errors']:
+                print(f"    - {err}")
         sys.exit(0)
 
-    results = [score_title(t) for t in titles]
+    # Resolve db_path when --db is requested
+    db_path = None
+    if args.db:
+        default_db = Path(__file__).parent / 'discovery' / 'keywords.db'
+        if default_db.exists():
+            db_path = str(default_db)
+        else:
+            print(f"WARNING: keywords.db not found at {default_db} — falling back to static scores")
+
+    # Collect titles
+    titles = []
+    if args.file:
+        file_path = Path(args.file)
+        if not file_path.exists():
+            print(f"ERROR: File not found: {args.file}")
+            sys.exit(1)
+        titles = [line.strip() for line in file_path.read_text().splitlines() if line.strip()]
+    elif args.titles:
+        titles = args.titles
+
+    if not titles:
+        parser.print_help()
+        sys.exit(0)
+
+    results = [score_title(t, db_path=db_path) for t in titles]
     results.sort(key=lambda x: -x['score'])
 
+    db_label = " (DB-enriched)" if db_path else " (static scores)"
     print("\n" + "=" * 60)
-    print("  TITLE SCORER — History vs Hype")
+    print(f"  TITLE SCORER — History vs Hype{db_label}")
     print("=" * 60)
 
     for i, r in enumerate(results, 1):
