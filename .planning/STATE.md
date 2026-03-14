@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
 status: completed
-last_updated: "2026-03-14T12:42:26.252Z"
+last_updated: "2026-03-14T18:34:57.448Z"
 last_activity: "2026-02-28 — 54-01 complete: prompt_generator.py (VidIQ + Gemini prompts) + intake_parser.py (5-type auto-classifier with JSON persistence)"
 progress:
   total_phases: 57
-  completed_phases: 49
+  completed_phases: 50
   total_plans: 110
-  completed_plans: 109
-  percent: 98
+  completed_plans: 110
+  percent: 100
 ---
 
 # State: History vs Hype Workspace
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 **Last activity:** 2026-02-28 — 54-01 complete: prompt_generator.py (VidIQ + Gemini prompts) + intake_parser.py (5-type auto-classifier with JSON persistence)
 
 **Progress:**
-[██████████] 98%
+[██████████] 100%
 
 ## Milestone History
 
@@ -113,6 +113,8 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 61-01]: Lazy import pattern in title_ctr_store.py breaks circular import with title_scorer.py
 - [Phase 61-01]: score = min(100, max(0, int(ctr_percent * 17))) calibration maps 3.8% CTR to 64 (near static declarative baseline of 65)
 - [Phase 61-01]: db_enriched=False when pattern not in DB results — accurate signal to callers without inspecting internals
+- [Phase 61-03]: greenlight.md and scorer.py use KeywordDB().db_path by default — DB enrichment is always attempted, falls back silently to static scores
+- [Phase 61-03]: format_result() Source line shows DB-enriched vs static scores — user gets clear feedback on data source without inspecting internals
 
 ### Roadmap Evolution
 
