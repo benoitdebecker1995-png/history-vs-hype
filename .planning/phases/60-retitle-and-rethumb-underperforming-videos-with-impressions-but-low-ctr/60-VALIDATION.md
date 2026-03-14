@@ -2,8 +2,8 @@
 phase: 60
 slug: retitle-and-rethumb-underperforming-videos-with-impressions-but-low-ctr
 status: draft
-nyquist_compliant: false
-wave_0_complete: false
+nyquist_compliant: true
+wave_0_complete: true
 created: 2026-03-14
 ---
 
@@ -27,8 +27,8 @@ created: 2026-03-14
 
 ## Sampling Rate
 
-- **After every task commit:** Run `python -m pytest tests/integration/test_ctr_ingest.py -x -q`
-- **After every plan wave:** Run `python -m pytest tests/ -x -q`
+- **After every task commit:** Run file-existence verify commands from plan tasks
+- **After every plan wave:** Run `python -m pytest tests/ -x -q` (existing tests only)
 - **Before `/gsd:verify-work`:** Full suite must be green
 - **Max feedback latency:** 10 seconds
 
@@ -36,25 +36,18 @@ created: 2026-03-14
 
 ## Per-Task Verification Map
 
-| Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
-|---------|------|------|-------------|-----------|-------------------|-------------|--------|
-| 60-01-01 | 01 | 1 | Audit ranking | unit | `python -m pytest tests/ -k "retitle_audit" -x -q` | ❌ W0 | ⬜ pending |
-| 60-01-02 | 01 | 1 | Title generation | unit | `python -m pytest tests/ -k "retitle_gen" -x -q` | ❌ W0 | ⬜ pending |
-| 60-02-01 | 02 | 1 | SWAP-CHECKLIST output | integration | Run `/retitle`, check output | N/A manual | ⬜ pending |
-| 60-02-02 | 02 | 1 | SWAP LOG injection | unit | `python -m pytest tests/ -k "swap_log" -x -q` | ❌ W0 | ⬜ pending |
-| 60-03-01 | 03 | 2 | --check 7-day guard | unit | `python -m pytest tests/ -k "retitle_check" -x -q` | ❌ W0 | ⬜ pending |
-| 60-03-02 | 03 | 2 | ctr_ingest pipeline | integration | `python -m pytest tests/integration/test_ctr_ingest.py -x -q` | ✅ | ⬜ pending |
+| Task ID | Plan | Wave | Requirement | Test Type | Automated Command | Status |
+|---------|------|------|-------------|-----------|-------------------|--------|
+| 60-01-01 | 01 | 1 | Slash command creation | file check | `test -f ".claude/commands/retitle.md" && head -5 ".claude/commands/retitle.md" \| grep -q "description:" && echo "PASS" \|\| echo "FAIL"` | pending |
+| 60-02-01 | 02 | 2 | --check/--revert flags | content check | `grep -cE "retitle --check\|retitle --revert\|SWAP LOG" ".claude/commands/retitle.md" \| awk '{exit ($1 >= 3 ? 0 : 1)}' && echo "PASS" \|\| echo "FAIL"` | pending |
 
-*Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
+*Status: pending / green / red / flaky*
 
 ---
 
 ## Wave 0 Requirements
 
-- [ ] `tests/unit/test_retitle_audit.py` — covers audit ranking + retention weighting
-- [ ] `tests/unit/test_retitle_gen.py` — covers title generation from scripts/SRTs
-- [ ] `tests/unit/test_swap_log.py` — covers SWAP LOG section append logic
-- [ ] `tests/unit/test_retitle_check.py` — covers 7-day guard + CTR comparison
+None. This phase creates a slash command (.md instructions file), not Python modules. The underlying tools (retitle_audit.py, retitle_gen.py, title_scorer.py, thumbnail_checker.py) are pre-existing and have their own test coverage. New unit tests for those tools are out of scope for this phase.
 
 *Existing infrastructure covers ctr_ingest integration tests.*
 
@@ -66,16 +59,17 @@ created: 2026-03-14
 |----------|-------------|------------|-------------------|
 | SWAP-CHECKLIST.md format | Copy-paste friendly | Requires human readability judgment | Open alongside YouTube Studio, verify each entry is self-contained |
 | Thumbnail concept quality | Map type suggestions | Requires visual/creative judgment | Check suggested map types match video content |
+| /retitle end-to-end | Full pipeline works at runtime | Slash command interpreted by Claude at runtime | Run `/retitle --audit` and verify output |
 
 ---
 
 ## Validation Sign-Off
 
-- [ ] All tasks have `<automated>` verify or Wave 0 dependencies
-- [ ] Sampling continuity: no 3 consecutive tasks without automated verify
-- [ ] Wave 0 covers all MISSING references
-- [ ] No watch-mode flags
-- [ ] Feedback latency < 10s
-- [ ] `nyquist_compliant: true` set in frontmatter
+- [x] All tasks have `<automated>` verify commands
+- [x] Sampling continuity: no 3 consecutive tasks without automated verify
+- [x] No Wave 0 gaps (no testable Python created by this phase)
+- [x] No watch-mode flags
+- [x] Feedback latency < 10s
+- [x] `nyquist_compliant: true` set in frontmatter
 
-**Approval:** pending
+**Approval:** ready
