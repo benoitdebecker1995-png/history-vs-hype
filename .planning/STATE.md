@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
 status: completed
-last_updated: "2026-03-14T12:41:32.350Z"
+last_updated: "2026-03-14T12:42:26.252Z"
 last_activity: "2026-02-28 — 54-01 complete: prompt_generator.py (VidIQ + Gemini prompts) + intake_parser.py (5-type auto-classifier with JSON persistence)"
 progress:
   total_phases: 57
   completed_phases: 49
   total_plans: 110
-  completed_plans: 108
+  completed_plans: 109
   percent: 98
 ---
 
@@ -110,6 +110,9 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 61]: Title matching uses LIKE on first 40 chars — synthesis table uses descriptive titles, video_performance stores YouTube API titles
 - [Phase 61]: is_late_entry=True and snapshot_date=2026-02-23 for all ingest rows — marks historical backfill clearly
 - [Phase 61]: dry_run parameter added to ingest_synthesis_ctr() — safe preview before DB mutation
+- [Phase 61-01]: Lazy import pattern in title_ctr_store.py breaks circular import with title_scorer.py
+- [Phase 61-01]: score = min(100, max(0, int(ctr_percent * 17))) calibration maps 3.8% CTR to 64 (near static declarative baseline of 65)
+- [Phase 61-01]: db_enriched=False when pattern not in DB results — accurate signal to callers without inspecting internals
 
 ### Roadmap Evolution
 
