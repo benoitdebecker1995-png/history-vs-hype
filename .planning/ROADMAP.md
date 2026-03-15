@@ -804,10 +804,7 @@ Plans:
 **Requirements**: RETITLE-02, GATE-02 (integration wiring)
 **Depends on:** Phase 62
 **Gap Closure:** Closes gaps from v6.0-MILESTONE-AUDIT.md
-**Plans:** TBD
+**Plans:** 1 plan
 
-Tasks:
-- [ ] Wire `db_path` to `score_title()` in retitle.md Step 4c (INT-01 fix)
-- [ ] Fix `ctr_ingest.py` line 147: replace `db._conn.cursor()` with public API
-- [ ] Fill SUMMARY frontmatter gaps (60-02, 61-02, 61-03 `requirements_completed`)
-- [ ] Update REQUIREMENTS.md traceability table (stale "Not started" → "Complete")
+Plans:
+- [ ] 63-01-PLAN.md — Wire DB-enriched scoring into /retitle + fix ctr_ingest private access + SUMMARY frontmatter + REQUIREMENTS.md traceability
