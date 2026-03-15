@@ -680,7 +680,7 @@ Plans:
 | 60. Retitle & Rethumb Pipeline | v6.0 | 2/2 | Complete | 2026-03-14 |
 | 61. Data-driven Packaging Gate | v6.0 | 3/3 | Complete | 2026-03-14 |
 | 62. Proactive Topic Discovery | 2/2 | Complete    | 2026-03-15 | - |
-| 63. v6.0 Gap Closure & Tech Debt | v6.0 | 0/1 | Not started | - |
+| 63. v6.0 Gap Closure & Tech Debt | 1/1 | Complete   | 2026-03-15 | - |
 
 ### Phase 54: External Intelligence Synthesis
 **Goal**: `/publish --prompts` generates tailored VidIQ/Gemini prompts from script analysis; `/publish --intake` parses their responses into structured data; synthesis engine merges internal + external intelligence into ranked metadata packages with content moderation scoring and Photoshop-ready thumbnail blueprints
@@ -804,7 +804,7 @@ Plans:
 **Requirements**: RETITLE-02, GATE-02 (integration wiring)
 **Depends on:** Phase 62
 **Gap Closure:** Closes gaps from v6.0-MILESTONE-AUDIT.md
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 Plans:
 - [ ] 63-01-PLAN.md — Wire DB-enriched scoring into /retitle + fix ctr_ingest private access + SUMMARY frontmatter + REQUIREMENTS.md traceability

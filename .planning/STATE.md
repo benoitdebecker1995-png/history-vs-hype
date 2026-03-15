@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
 status: completed
-last_updated: "2026-03-15T11:57:18.516Z"
+last_updated: "2026-03-15T20:00:27.846Z"
 last_activity: "2026-03-14 — Phase 62 added: proactive topic discovery"
 progress:
-  total_phases: 58
-  completed_phases: 52
-  total_plans: 114
-  completed_plans: 114
+  total_phases: 59
+  completed_phases: 53
+  total_plans: 115
+  completed_plans: 115
   percent: 100
 ---
 
@@ -134,6 +134,8 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 62-proactive-topic-discovery]: CHANNEL_AVG_VIEWS_FALLBACK=1000 (conservative median, not 4234 mean skewed by outliers)
 - [Phase 62-proactive-topic-discovery]: Feature flags must be patched alongside callables in tests: patch TRENDSPYG_AVAILABLE=True AND TrendsClient
 - [Phase 62-02]: --scan section placed after flags table, before FULL KEYWORD RESEARCH — natural reading order for command reference
+- [Phase 63-v6-gap-closure]: search_video_performance_by_title() added to KeywordDB as public method — ctr_ingest delegates entirely, eliminating private _conn access
+- [Phase 63-v6-gap-closure]: retitle.md Step 4c now matches greenlight.md and scorer.py pattern: KeywordDB().db_path passed to score_title()
 
 ### Roadmap Evolution
 
