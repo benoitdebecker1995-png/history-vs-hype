@@ -679,7 +679,7 @@ Plans:
 | 59. Growth Dashboard | v5.2 | 1/1 | Complete | 2026-03-01 |
 | 60. Retitle & Rethumb Pipeline | v6.0 | 2/2 | Complete | 2026-03-14 |
 | 61. Data-driven Packaging Gate | v6.0 | 3/3 | Complete | 2026-03-14 |
-| 62. Proactive Topic Discovery | v6.0 | TBD | Not started | - |
+| 62. Proactive Topic Discovery | v6.0 | 0/2 | In progress | - |
 
 ### Phase 54: External Intelligence Synthesis
 **Goal**: `/publish --prompts` generates tailored VidIQ/Gemini prompts from script analysis; `/publish --intake` parses their responses into structured data; synthesis engine merges internal + external intelligence into ranked metadata packages with content moderation scoring and Photoshop-ready thumbnail blueprints
@@ -791,4 +791,8 @@ Plans:
 **Goal:** Automated scanning finds high-demand topics matching the channel's strengths before competitors notice them. YouTube autocomplete reveals what people actually search for, competitor tracker spots coverage gaps, Google Trends detects rising interest, and a unified discovery feed ranks new opportunities by the Belize formula (demand + map angle + news hook + no competitor coverage).
 **Requirements**: DISC-01, DISC-02, DISC-03, DISC-04, DISC-05
 **Depends on:** Phase 61
-**Plans:** TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 62-01-PLAN.md — DiscoveryScanner module + test suite (autocomplete, competitor gaps, trends, scoring, dedup)
+- [ ] 62-02-PLAN.md — /discover --scan command wiring + end-to-end verification
