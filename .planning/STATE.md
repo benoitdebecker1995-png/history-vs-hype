@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
 status: executing
-last_updated: "2026-03-15T00:45:07.610Z"
+last_updated: "2026-03-15T11:53:54.819Z"
 last_activity: "2026-03-14 — Phase 62 added: proactive topic discovery"
 progress:
   total_phases: 58
-  completed_phases: 51
+  completed_phases: 52
   total_plans: 114
-  completed_plans: 113
-  percent: 99
+  completed_plans: 114
+  percent: 100
 ---
 
 # State: History vs Hype Workspace
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 **Last activity:** 2026-03-14 — Phase 62 added: proactive topic discovery
 
 **Progress:**
-[██████████] 99%
+[██████████] 100%
 
 ## Milestone History
 
@@ -133,6 +133,7 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 62-proactive-topic-discovery]: 15 seeds for autocomplete runtime balance (<90s vs 3+ min for 20-30 seeds)
 - [Phase 62-proactive-topic-discovery]: CHANNEL_AVG_VIEWS_FALLBACK=1000 (conservative median, not 4234 mean skewed by outliers)
 - [Phase 62-proactive-topic-discovery]: Feature flags must be patched alongside callables in tests: patch TRENDSPYG_AVAILABLE=True AND TrendsClient
+- [Phase 62-02]: --scan section placed after flags table, before FULL KEYWORD RESEARCH — natural reading order for command reference
 
 ### Roadmap Evolution
 
