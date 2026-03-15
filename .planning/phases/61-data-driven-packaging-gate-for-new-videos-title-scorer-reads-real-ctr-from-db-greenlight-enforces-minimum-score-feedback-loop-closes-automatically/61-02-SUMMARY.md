@@ -3,6 +3,7 @@ phase: 61-data-driven-packaging-gate
 plan: 02
 subsystem: tools
 tags: [ctr-ingest, database, integration-test, tdd]
+requirements_completed: [GATE-03]
 dependency_graph:
   requires:
     - tools/retitle_audit.py (_parse_synthesis_table)

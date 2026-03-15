@@ -3,6 +3,7 @@ phase: 60-retitle-and-rethumb-underperforming-videos-with-impressions-but-low-ct
 plan: 02
 subsystem: workflow
 tags: [retitle, ctr-measurement, swap-log, feedback-loop, slash-command]
+requirements_completed: [RETITLE-04, RETITLE-05, RETITLE-06]
 
 # Dependency graph
 requires:

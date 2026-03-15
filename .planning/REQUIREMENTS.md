@@ -9,45 +9,45 @@ Requirements for v5.2 Growth Engine. Each maps to roadmap phases.
 
 ### Title & CTR Optimization
 
-- [ ] **CTR-01**: Title pattern analyzer correlates title structure (length, keywords, format) with actual CTR from YouTube Analytics API
-- [ ] **CTR-02**: Title scorer predicts CTR for new title variants based on own-channel historical patterns
-- [ ] **CTR-03**: Published title tracked in DB with resulting CTR, closing the feedback loop
-- [ ] **CTR-04**: `/publish --titles` ranks generated variants by predicted CTR with confidence interval
+- [x] **CTR-01**: Title pattern analyzer correlates title structure (length, keywords, format) with actual CTR from YouTube Analytics API
+- [x] **CTR-02**: Title scorer predicts CTR for new title variants based on own-channel historical patterns
+- [x] **CTR-03**: Published title tracked in DB with resulting CTR, closing the feedback loop
+- [x] **CTR-04**: `/publish --titles` ranks generated variants by predicted CTR with confidence interval
 
 ### Search & Discovery
 
-- [ ] **SEO-01**: Video titles audited against search keywords — flags titles with low keyword overlap vs search demand
-- [ ] **SEO-02**: Search traffic percentage tracked per video (YouTube Analytics API insightTrafficSourceType)
-- [ ] **SEO-03**: Keyword gap detection — high-demand keywords where channel has no video or underperforms
+- [x] **SEO-01**: Video titles audited against search keywords — flags titles with low keyword overlap vs search demand
+- [x] **SEO-02**: Search traffic percentage tracked per video (YouTube Analytics API insightTrafficSourceType)
+- [x] **SEO-03**: Keyword gap detection — high-demand keywords where channel has no video or underperforms
 
 ### Competitor Gap Analysis
 
-- [ ] **GAP-01**: 870+ competitor videos classified by topic AND angle (document-first, narrative, legal, explainer)
-- [ ] **GAP-02**: Cross-reference with own videos to identify uncovered topic-angle combinations
-- [ ] **GAP-03**: Gap scoring formula: demand signal × competitor absence × channel competitive advantage
-- [ ] **GAP-04**: `/next` surfaces top gaps with "No competitor covers [X] from [angle]" recommendations
+- [x] **GAP-01**: 870+ competitor videos classified by topic AND angle (document-first, narrative, legal, explainer)
+- [x] **GAP-02**: Cross-reference with own videos to identify uncovered topic-angle combinations
+- [x] **GAP-03**: Gap scoring formula: demand signal × competitor absence × channel competitive advantage
+- [x] **GAP-04**: `/next` surfaces top gaps with "No competitor covers [X] from [angle]" recommendations
 
 ### Retention Intelligence
 
-- [ ] **RET-01**: Per-video retention percentage pulled from YouTube Analytics API and stored in DB
-- [ ] **RET-02**: Retention correlated with script structure (hook type, section count, evidence density, video length)
-- [ ] **RET-03**: Opening hook type → first-30-second retention mapping (the algorithm gate signal)
-- [ ] **RET-04**: Script-writer-v2 Rule 20 encodes retention findings as generation constraints
+- [x] **RET-01**: Per-video retention percentage pulled from YouTube Analytics API and stored in DB
+- [x] **RET-02**: Retention correlated with script structure (hook type, section count, evidence density, video length)
+- [x] **RET-03**: Opening hook type → first-30-second retention mapping (the algorithm gate signal)
+- [x] **RET-04**: Script-writer-v2 Rule 20 encodes retention findings as generation constraints
 
 ### Growth Dashboard
 
-- [ ] **GROW-01**: Subscriber velocity trend calculated (monthly growth rate, acceleration/deceleration detection)
-- [ ] **GROW-02**: Per-video ROI ranking: views, subs gained, conversion rate, CTR — sortable
-- [ ] **GROW-03**: Traffic source breakdown per video (search, suggested, browse, external)
-- [ ] **GROW-04**: Monetization countdown projections (1K subs, 4K watch hours)
-- [ ] **GROW-05**: Monthly growth report accessible via `/growth` command
+- [x] **GROW-01**: Subscriber velocity trend calculated (monthly growth rate, acceleration/deceleration detection)
+- [x] **GROW-02**: Per-video ROI ranking: views, subs gained, conversion rate, CTR — sortable
+- [x] **GROW-03**: Traffic source breakdown per video (search, suggested, browse, external)
+- [x] **GROW-04**: Monetization countdown projections (1K subs, 4K watch hours)
+- [x] **GROW-05**: Monthly growth report accessible via `/growth` command
 
 ### Data Foundation
 
-- [ ] **DATA-01**: Full analytics backfill from YouTube Analytics API into analytics.db (all long-form videos)
-- [ ] **DATA-02**: Publish timestamps stored for all videos
-- [ ] **DATA-03**: Traffic source data stored per video
-- [ ] **DATA-04**: Automated refresh command pulls latest analytics on demand
+- [x] **DATA-01**: Full analytics backfill from YouTube Analytics API into analytics.db (all long-form videos)
+- [x] **DATA-02**: Publish timestamps stored for all videos
+- [x] **DATA-03**: Traffic source data stored per video
+- [x] **DATA-04**: Automated refresh command pulls latest analytics on demand
 
 ### Retitle & Rethumb Pipeline
 
@@ -92,30 +92,30 @@ Requirements for v5.2 Growth Engine. Each maps to roadmap phases.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DATA-01 | Phase 55 | Not started |
-| DATA-02 | Phase 55 | Not started |
-| DATA-03 | Phase 55 | Not started |
-| DATA-04 | Phase 55 | Not started |
-| CTR-01 | Phase 56 | Not started |
-| CTR-02 | Phase 56 | Not started |
-| CTR-03 | Phase 56 | Not started |
-| CTR-04 | Phase 56 | Not started |
-| SEO-01 | Phase 56 | Not started |
-| SEO-02 | Phase 56 | Not started |
-| SEO-03 | Phase 56 | Not started |
-| GAP-01 | Phase 57 | Not started |
-| GAP-02 | Phase 57 | Not started |
-| GAP-03 | Phase 57 | Not started |
-| GAP-04 | Phase 57 | Not started |
-| RET-01 | Phase 58 | Not started |
-| RET-02 | Phase 58 | Not started |
-| RET-03 | Phase 58 | Not started |
-| RET-04 | Phase 58 | Not started |
-| GROW-01 | Phase 59 | Not started |
-| GROW-02 | Phase 59 | Not started |
-| GROW-03 | Phase 59 | Not started |
-| GROW-04 | Phase 59 | Not started |
-| GROW-05 | Phase 59 | Not started |
+| DATA-01 | Phase 55 | Complete |
+| DATA-02 | Phase 55 | Complete |
+| DATA-03 | Phase 55 | Complete |
+| DATA-04 | Phase 55 | Complete |
+| CTR-01 | Phase 56 | Complete |
+| CTR-02 | Phase 56 | Complete |
+| CTR-03 | Phase 56 | Complete |
+| CTR-04 | Phase 56 | Complete |
+| SEO-01 | Phase 56 | Complete |
+| SEO-02 | Phase 56 | Complete |
+| SEO-03 | Phase 56 | Complete |
+| GAP-01 | Phase 57 | Complete |
+| GAP-02 | Phase 57 | Complete |
+| GAP-03 | Phase 57 | Complete |
+| GAP-04 | Phase 57 | Complete |
+| RET-01 | Phase 58 | Complete |
+| RET-02 | Phase 58 | Complete |
+| RET-03 | Phase 58 | Complete |
+| RET-04 | Phase 58 | Complete |
+| GROW-01 | Phase 59 | Complete |
+| GROW-02 | Phase 59 | Complete |
+| GROW-03 | Phase 59 | Complete |
+| GROW-04 | Phase 59 | Complete |
+| GROW-05 | Phase 59 | Complete |
 | RETITLE-01 | Phase 60 | Complete |
 | RETITLE-02 | Phase 60 | Complete |
 | RETITLE-03 | Phase 60 | Complete |

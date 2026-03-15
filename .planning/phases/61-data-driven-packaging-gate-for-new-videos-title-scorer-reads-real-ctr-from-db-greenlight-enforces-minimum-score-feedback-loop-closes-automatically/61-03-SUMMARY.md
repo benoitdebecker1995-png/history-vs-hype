@@ -3,6 +3,7 @@ phase: 61-data-driven-packaging-gate
 plan: "03"
 subsystem: packaging-gate
 tags: [title-scoring, ctr, greenlight, preflight, feedback-loop, cli]
+requirements_completed: [GATE-04, GATE-05]
 dependency_graph:
   requires:
     - 61-01  # TitleCTRStore + score_title(db_path)
