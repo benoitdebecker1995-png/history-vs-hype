@@ -45,7 +45,7 @@ re_verification: false
 
 | From | To | Via | Status | Details |
 |------|----|-----|--------|---------|
-| `tools/youtube_analytics/ctr_tracker.py` | `tools/youtube_analytics/ctr.py` | `get_ctr_metrics()` call in CTR fetch loop | WIRED | Imported at line 36 (`from tools.youtube_analytics.ctr import get_ctr_metrics`); called at line 243 (`result = get_ctr_metrics(vid)`) inside the per-video loop |
+| `tools/youtube_analytics/ctr_tracker.py` | YouTube Reporting API | `fetch_ctr_from_reach_reports()` bulk CSV download | WIRED | Internal function fetches `channel_reach_basic_a1` reports, parses `video_thumbnail_impressions` and `video_thumbnail_impressions_ctr` columns, aggregates per-video weighted CTR. Replaced per-video `get_ctr_metrics()` after discovering YouTube Analytics API does not expose CTR metrics (Google Issue Tracker #254665034). |
 | `tools/youtube_analytics/ctr_tracker.py` | `tools/title_ctr_store.py` | `get_pattern_ctr_from_db()` call in end-of-run summary | WIRED | Imported at line 37 (`from tools.title_ctr_store import get_pattern_ctr_from_db`); called at line 283 (`pattern_scores = get_pattern_ctr_from_db(str(DB_PATH))`) |
 | `ctr_snapshots table` | `tools/title_ctr_store.py` | SQL query on `MAX(snapshot_date) WHERE ctr_percent > 0` | WIRED | `MAX(snapshot_date)` appears at lines 65 and 85 in ctr_tracker.py; the downstream `title_ctr_store.py` was verified to already use this pattern (per phase 61 dependency) — no source column added, correct by design |
 
