@@ -487,10 +487,19 @@ def main():
     parser = argparse.ArgumentParser(
         description='Track view velocity across snapshots.',
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
+        epilog=r"""
 Examples:
   python -m tools.youtube_analytics.ctr_tracker              Take snapshot + report
   python -m tools.youtube_analytics.ctr_tracker --report-only  Compare existing snapshots
+
+Scheduled execution (Windows Task Scheduler):
+  schtasks /Create /TN "HistoryVsHype\CTRTracker" ^
+    /TR "cmd /c cd /D \"D:\History vs Hype\" && python -m tools.youtube_analytics.ctr_tracker >> logs\ctr_tracker.log 2>&1" ^
+    /SC WEEKLY /D MON /ST 09:00 /F
+
+The scheduled task runs weekly on Monday at 09:00. OAuth token auto-refreshes
+as long as the task runs at least once every 6 months. If the token expires,
+run `python -m tools.youtube_analytics.auth` interactively to re-authorize.
         """
     )
     parser.add_argument(
