@@ -15,6 +15,7 @@ Usage:
 """
 
 import json
+import re
 import argparse
 import sys
 from datetime import datetime, timezone
@@ -199,7 +200,10 @@ class DiscoveryScanner:
         all_candidates = autocomplete_candidates + competitor_candidates
         logger.info("Merged %d candidates before dedup", len(all_candidates))
 
-        # --- Deduplication ---
+        # --- Inter-candidate dedup (same topic from multiple competitors) ---
+        all_candidates = self._dedup_candidates(all_candidates)
+
+        # --- Pipeline deduplication (against existing projects + keywords.db) ---
         try:
             deduped = self._deduplicate(all_candidates)
             logger.info("%d candidates after dedup (%d removed)",
@@ -341,8 +345,10 @@ class DiscoveryScanner:
                 logger.debug("Competitor gap dedup: '%s' matches existing topic", title[:50])
                 continue
 
-            # This is a coverage gap
-            keyword = title.lower()
+            # This is a coverage gap — normalize title into topic keyword
+            keyword = self._normalize_title(title)
+            if not keyword:
+                continue
             candidates.append({
                 "keyword": keyword,
                 "source": "competitor_gap",
@@ -717,6 +723,95 @@ class DiscoveryScanner:
         except Exception:
             pass
         return set()
+
+    # Meta/reaction video patterns — not actual historical topics
+    _META_PATTERNS = re.compile(
+        r'^(?:how .+ lies|everything wrong with|response to|reacting to|'
+        r'debunking .+ video|why .+ is wrong about|i watched)',
+        re.IGNORECASE,
+    )
+
+    @staticmethod
+    def _normalize_title(title: str) -> str:
+        """
+        Clean competitor video titles into topic keywords.
+
+        Strips episode numbers ("20. "), pipe-delimited suffixes,
+        series markers, hashtags, and trailing noise.
+        Returns empty string for Shorts and meta/reaction videos.
+        """
+        t = title.strip().lower()
+        # Filter out Shorts
+        if '#short' in t:
+            return ''
+        # Filter out meta/reaction videos (about other creators, not topics)
+        if DiscoveryScanner._META_PATTERNS.search(t):
+            return ''
+        # Strip leading episode numbers: "20. ", "EP 5: ", "#3 - "
+        t = re.sub(r'^(?:ep\.?\s*)?#?\d+[\.\)\-:]\s*', '', t)
+        # Strip pipe-delimited suffixes: " | series name | channel"
+        # Keep only the first segment before any pipe
+        if ' | ' in t:
+            t = t.split(' | ')[0].strip()
+        # Strip series markers in brackets/parens: "[Part 1]", "(Full Documentary)"
+        t = re.sub(r'\s*[\[\(][^\]\)]*[\]\)]', '', t)
+        # Strip hashtags
+        t = re.sub(r'#\w+', '', t)
+        # Strip trailing " - subtitle" for very long titles (likely channel/series suffix)
+        if len(t) > 60:
+            t = re.sub(r'\s*-\s*[^-]{0,30}$', '', t)
+        # Collapse whitespace
+        t = re.sub(r'\s+', ' ', t).strip()
+        # Strip leading "the " for better dedup matching
+        t = re.sub(r'^the\s+', '', t)
+        return t
+
+    @staticmethod
+    def _extract_topic_words(keyword: str) -> set:
+        """Extract significant words from a keyword for overlap matching."""
+        stop = {'the', 'a', 'an', 'of', 'in', 'on', 'at', 'to', 'for', 'and',
+                'or', 'is', 'was', 'by', 'from', 'with', 'its', 'how', 'why',
+                'what', 'when', 'this', 'that', 'first', 'new', 'full'}
+        words = set(re.findall(r'[a-z]+', keyword.lower()))
+        return words - stop
+
+    def _dedup_candidates(self, candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Deduplicate candidates against each other using word-overlap matching.
+
+        Two candidates are considered duplicates if they share 2+ significant
+        words (same logic as topic_matches_existing). Keeps the one with the
+        highest competitor_views or demand_score.
+        """
+        kept: List[Dict[str, Any]] = []
+        kept_words: List[set] = []
+
+        # Sort by signal strength so we keep the best version first
+        by_signal = sorted(
+            candidates,
+            key=lambda c: (c.get("competitor_views", 0), c.get("demand_score", 0)),
+            reverse=True,
+        )
+
+        for c in by_signal:
+            words = self._extract_topic_words(c.get("keyword", ""))
+            if len(words) < 2:
+                continue
+            # Check overlap against already-kept candidates
+            is_dup = False
+            for kw in kept_words:
+                overlap = words & kw
+                if len(overlap) >= 2:
+                    is_dup = True
+                    break
+            if not is_dup:
+                kept.append(c)
+                kept_words.append(words)
+
+        removed = len(candidates) - len(kept)
+        if removed > 0:
+            logger.info("Inter-candidate dedup: %d duplicates removed", removed)
+        return kept
 
     def _detect_channel_suggestions(
         self,
