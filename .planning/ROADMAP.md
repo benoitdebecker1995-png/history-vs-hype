@@ -816,3 +816,13 @@ Plans:
 Plans:
 - [ ] 64-01-PLAN.md — Install and verify ADOPT-tier MCP servers (Firecrawl + Context7)
 - [ ] 64-02-PLAN.md — Test EVALUATE-tier tools (YouTube MCP + Windsor AI) + write final DECISION.md
+
+### Phase 65: Automated CTR feedback loop — wire YouTube Analytics API into title scorer so CTR data updates automatically instead of manual snapshots
+
+**Goal:** ctr_tracker.py fetches real CTR from YouTube Analytics API for all long-form videos, stores in ctr_snapshots table, and the title_ctr_store -> title_scorer -> greenlight chain automatically uses fresh data. Windows Task Scheduler runs this weekly without user intervention.
+**Requirements**: CTR-LOOP-01, CTR-LOOP-02, CTR-LOOP-03
+**Depends on:** Phase 64
+**Plans:** 1 plan
+
+Plans:
+- [ ] 65-01-PLAN.md — Extend ctr_tracker with CTR fetch loop + tests + scheduler setup
