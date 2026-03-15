@@ -15,7 +15,7 @@
 - ✅ **v5.0 Production Intelligence** - Phases 42-47 (shipped 2026-02-22)
 - ✅ **v5.1 Codebase Hardening** - Phases 48-54 (shipped 2026-03-01)
 - ✅ **v5.2 Growth Engine** - Phases 55-59 (shipped 2026-03-01)
-- ✅ **v6.0 Packaging Pipeline** - Phases 60-61 (shipped 2026-03-14)
+- **v6.0 Packaging Pipeline** - Phases 60-62
 
 ## Phases
 
@@ -679,6 +679,7 @@ Plans:
 | 59. Growth Dashboard | v5.2 | 1/1 | Complete | 2026-03-01 |
 | 60. Retitle & Rethumb Pipeline | v6.0 | 2/2 | Complete | 2026-03-14 |
 | 61. Data-driven Packaging Gate | v6.0 | 3/3 | Complete | 2026-03-14 |
+| 62. Proactive Topic Discovery | v6.0 | TBD | Not started | - |
 
 ### Phase 54: External Intelligence Synthesis
 **Goal**: `/publish --prompts` generates tailored VidIQ/Gemini prompts from script analysis; `/publish --intake` parses their responses into structured data; synthesis engine merges internal + external intelligence into ranked metadata packages with content moderation scoring and Photoshop-ready thumbnail blueprints
@@ -758,9 +759,9 @@ Plans:
   5. `/growth` command outputs the full dashboard
 **Plans**: TBD
 
-### ✅ v6.0 Packaging Pipeline (Shipped 2026-03-14)
+### v6.0 Packaging Pipeline
 
-**Milestone Goal:** Fix the channel's #1 growth bottleneck — packaging, not content quality. Audit revealed most videos got <100 impressions despite 30-35% retention. Bad titles killed distribution. This milestone builds the retitle pipeline for existing videos and a data-driven scoring gate for new ones, closing the feedback loop between real CTR data and title generation.
+**Milestone Goal:** Fix the channel's #1 growth bottleneck — packaging, not content quality. Audit revealed most videos got <100 impressions despite 30-35% retention. Bad titles killed distribution. This milestone builds the retitle pipeline for existing videos, a data-driven scoring gate for new ones, and proactive topic discovery to find videos that will actually get views.
 
 #### Phase 60: Retitle and rethumb underperforming videos with impressions but low CTR
 
@@ -784,3 +785,10 @@ Plans:
 - [x] 61-01-PLAN.md — TitleCTRStore module + title_scorer DB integration (core scoring logic with TDD)
 - [x] 61-02-PLAN.md — CTR ingestion from CROSS-VIDEO-SYNTHESIS.md into keywords.db
 - [x] 61-03-PLAN.md — Greenlight/preflight/CLI wiring + feedback loop documentation
+
+#### Phase 62: Proactive topic discovery — autocomplete mining, competitor tracking, Google Trends pulse, discovery feed
+
+**Goal:** Automated scanning finds high-demand topics matching the channel's strengths before competitors notice them. YouTube autocomplete reveals what people actually search for, competitor tracker spots coverage gaps, Google Trends detects rising interest, and a unified discovery feed ranks new opportunities by the Belize formula (demand + map angle + news hook + no competitor coverage).
+**Requirements**: DISC-01, DISC-02, DISC-03, DISC-04, DISC-05
+**Depends on:** Phase 61
+**Plans:** TBD

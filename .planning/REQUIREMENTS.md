@@ -58,6 +58,14 @@ Requirements for v5.2 Growth Engine. Each maps to roadmap phases.
 - [x] **RETITLE-05**: `/retitle --revert [video-id]` surfaces old title from SWAP LOG for copy-paste revert
 - [x] **RETITLE-06**: SWAP LOG section in POST-PUBLISH-ANALYSIS.md tracks swap history per video (date, old/new title, pre/post CTR, result)
 
+### Proactive Topic Discovery
+
+- [ ] **DISC-01**: YouTube autocomplete miner scans channel niches (territorial disputes, colonial history, border conflicts, ideological myths) and surfaces search suggestions NOT already in the topic pipeline or production folders
+- [ ] **DISC-02**: Competitor release tracker monitors target channels (RealLifeLore, Wendover, Kraut, Knowing Better, etc.), detects new uploads, and flags coverage gaps where competitors got views but the channel has no video
+- [ ] **DISC-03**: Google Trends pulse detects rising search interest in channel-relevant topics before competitors notice, with breakout detection and 30/90-day trend direction
+- [ ] **DISC-04**: Discovery feed command (`/discover --scan`) combines autocomplete, competitor, and trends signals into ranked opportunities scored by the Belize formula (demand + map angle + news hook + no competitor coverage)
+- [ ] **DISC-05**: Discovery feed deduplicates against existing pipeline (`keywords.db`, `_IN_PRODUCTION/`, `_ARCHIVED/`) so only genuinely new opportunities surface
+
 ## Future Requirements
 
 ### Thumbnail Optimization
@@ -114,11 +122,21 @@ Requirements for v5.2 Growth Engine. Each maps to roadmap phases.
 | RETITLE-04 | Phase 60 | Not started |
 | RETITLE-05 | Phase 60 | Not started |
 | RETITLE-06 | Phase 60 | Not started |
+| GATE-01 | Phase 61 | Complete |
+| GATE-02 | Phase 61 | Complete |
+| GATE-03 | Phase 61 | Complete |
+| GATE-04 | Phase 61 | Complete |
+| GATE-05 | Phase 61 | Complete |
+| DISC-01 | Phase 62 | Not started |
+| DISC-02 | Phase 62 | Not started |
+| DISC-03 | Phase 62 | Not started |
+| DISC-04 | Phase 62 | Not started |
+| DISC-05 | Phase 62 | Not started |
 
 **Coverage:**
 - v5.2 requirements: 24 total
-- Phase 60 requirements: 6 total
-- Mapped to phases: 30
+- v6.0 requirements: 16 total (RETITLE 6 + GATE 5 + DISC 5)
+- Mapped to phases: 40
 - Unmapped: 0
 
 ---
