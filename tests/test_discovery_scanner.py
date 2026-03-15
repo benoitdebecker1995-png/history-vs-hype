@@ -63,6 +63,7 @@ class TestAutocompleteDedup:
         from tools.discovery.discovery_scanner import DiscoveryScanner
 
         with patch("tools.discovery.discovery_scanner.extract_keywords_batch", return_value=MOCK_AUTOCOMPLETE_RESULTS), \
+             patch("tools.discovery.discovery_scanner.AUTOCOMPLETE_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.get_existing_topics", return_value=[
                  "india pakistan partition",
                  "dark ages",
@@ -139,6 +140,7 @@ class TestCompetitorGapDetection:
         from tools.discovery.discovery_scanner import DiscoveryScanner
 
         with patch("tools.discovery.discovery_scanner.fetch_all_competitors", return_value=MOCK_COMPETITOR_RESULT), \
+             patch("tools.discovery.discovery_scanner.COMPETITOR_TRACKER_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.get_existing_topics", return_value=[
                  "india pakistan partition",
              ]), \
@@ -174,6 +176,7 @@ class TestCompetitorGapDetection:
         }
 
         with patch("tools.discovery.discovery_scanner.fetch_all_competitors", return_value=low_view_result), \
+             patch("tools.discovery.discovery_scanner.COMPETITOR_TRACKER_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.get_existing_topics", return_value=[]), \
              patch("tools.discovery.discovery_scanner.topic_matches_existing", return_value=False):
 
@@ -215,7 +218,8 @@ class TestTrendsBreakout:
         mock_trends = MagicMock()
         mock_trends.return_value.get_interest_over_time.side_effect = mock_get_interest
 
-        with patch("tools.discovery.discovery_scanner.TrendsClient", mock_trends):
+        with patch("tools.discovery.discovery_scanner.TrendsClient", mock_trends), \
+             patch("tools.discovery.discovery_scanner.TRENDSPYG_AVAILABLE", True):
             scanner = DiscoveryScanner(output_dir=str(tmp_path))
             enriched = scanner._run_trends_pulse(candidates)
 
@@ -245,7 +249,8 @@ class TestTrendsBreakout:
         mock_trends = MagicMock()
         mock_trends.return_value.get_interest_over_time.side_effect = mock_get_interest
 
-        with patch("tools.discovery.discovery_scanner.TrendsClient", mock_trends):
+        with patch("tools.discovery.discovery_scanner.TrendsClient", mock_trends), \
+             patch("tools.discovery.discovery_scanner.TRENDSPYG_AVAILABLE", True):
             scanner = DiscoveryScanner(output_dir=str(tmp_path))
             enriched = scanner._run_trends_pulse(candidates)
 
@@ -267,15 +272,15 @@ class TestExtendedBelizeScoring:
         Known candidate values → verify score matches manual calculation.
 
         Weights: demand=0.25, map_angle=0.20, news_hook=0.15, no_competitor=0.20, conversion=0.20
-        Candidate: demand=80, map_angle=YES(100), news_hook=HIGH(100), no_competitor=YES(100), conversion=ideological(100)
-        Raw = 0.25*80 + 0.20*100 + 0.15*100 + 0.20*100 + 0.20*100
-            = 20 + 20 + 15 + 20 + 20 = 95
+        Candidate: demand=80, map_angle=YES(100 — territorial), news_hook=HIGH(100 — icj), no_competitor=YES(100), conversion=territorial(28)
+        Raw = 0.25*80 + 0.20*100 + 0.15*100 + 0.20*100 + 0.20*28
+            = 20 + 20 + 15 + 20 + 5.6 = 80.6
         No breakout boost.
         """
         from tools.discovery.discovery_scanner import DiscoveryScanner
 
         candidate = {
-            "keyword": "history myth debunked icj",
+            "keyword": "icj ruling border dispute",
             "source": "autocomplete",
             "demand_score": 80,
             "is_breakout": False,
@@ -283,7 +288,7 @@ class TestExtendedBelizeScoring:
             "gap_confirmed": True,
         }
 
-        with patch("tools.discovery.discovery_scanner.classify_topic", return_value="ideological"), \
+        with patch("tools.discovery.discovery_scanner.classify_topic", return_value="territorial"), \
              patch("tools.discovery.discovery_scanner.NEWS_HOOK_KEYWORDS", {
                  "high_urgency": ["icj"],
                  "medium_urgency": ["court"],
@@ -291,8 +296,8 @@ class TestExtendedBelizeScoring:
             scanner = DiscoveryScanner(output_dir=str(tmp_path))
             score = scanner._score_extended_belize(candidate)
 
-        # Expected: 0.25*80 + 0.20*100 + 0.15*100 + 0.20*100 + 0.20*100 = 95
-        assert score == pytest.approx(95.0, abs=1.0)
+        # Expected: 0.25*80 + 0.20*100 + 0.15*100 + 0.20*100 + 0.20*28 = 80.6
+        assert score == pytest.approx(80.6, abs=1.0)
 
     def test_missing_signal_scores_at_neutral_midpoint(self, tmp_path):
         """Missing demand score → 50 neutral midpoint."""
@@ -494,8 +499,11 @@ class TestScanProducesReport:
         }
 
         with patch("tools.discovery.discovery_scanner.extract_keywords_batch", return_value=MOCK_AUTOCOMPLETE_RESULTS), \
+             patch("tools.discovery.discovery_scanner.AUTOCOMPLETE_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.fetch_all_competitors", return_value=MOCK_COMPETITOR_RESULT), \
+             patch("tools.discovery.discovery_scanner.COMPETITOR_TRACKER_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.TrendsClient") as mock_tc, \
+             patch("tools.discovery.discovery_scanner.TRENDSPYG_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.get_existing_topics", return_value=[]), \
              patch("tools.discovery.discovery_scanner.topic_matches_existing", return_value=False), \
              patch("tools.discovery.discovery_scanner.KeywordDB") as mock_db_cls, \
@@ -529,14 +537,14 @@ class TestScanProducesReport:
         from tools.discovery.discovery_scanner import DiscoveryScanner
 
         with patch("tools.discovery.discovery_scanner.extract_keywords_batch", return_value=MOCK_AUTOCOMPLETE_RESULTS), \
+             patch("tools.discovery.discovery_scanner.AUTOCOMPLETE_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.fetch_all_competitors", return_value={"channels_fetched": 0, "videos_total": 0, "videos": [], "errors": []}), \
-             patch("tools.discovery.discovery_scanner.TrendsClient") as mock_tc, \
+             patch("tools.discovery.discovery_scanner.COMPETITOR_TRACKER_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.get_existing_topics", return_value=[]), \
              patch("tools.discovery.discovery_scanner.topic_matches_existing", return_value=False), \
              patch("tools.discovery.discovery_scanner.KeywordDB") as mock_db_cls, \
              patch("tools.discovery.discovery_scanner.classify_topic", return_value="general"):
 
-            mock_tc.return_value.get_interest_over_time.return_value = {"direction": "stable", "percent_change": 0, "interest": 0}
             mock_db = MagicMock()
             mock_db.get_keyword.return_value = {"error": "not found"}
             mock_db_cls.return_value = mock_db
@@ -554,14 +562,14 @@ class TestScanProducesReport:
         from tools.discovery.discovery_scanner import DiscoveryScanner
 
         with patch("tools.discovery.discovery_scanner.extract_keywords_batch", side_effect=RuntimeError("Chrome not installed")), \
+             patch("tools.discovery.discovery_scanner.AUTOCOMPLETE_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.fetch_all_competitors", return_value=MOCK_COMPETITOR_RESULT), \
-             patch("tools.discovery.discovery_scanner.TrendsClient") as mock_tc, \
+             patch("tools.discovery.discovery_scanner.COMPETITOR_TRACKER_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.get_existing_topics", return_value=[]), \
              patch("tools.discovery.discovery_scanner.topic_matches_existing", return_value=False), \
              patch("tools.discovery.discovery_scanner.KeywordDB") as mock_db_cls, \
              patch("tools.discovery.discovery_scanner.classify_topic", return_value="territorial"):
 
-            mock_tc.return_value.get_interest_over_time.return_value = {"direction": "stable", "percent_change": 0}
             mock_db = MagicMock()
             mock_db.get_keyword.return_value = {"error": "not found"}
             mock_db_cls.return_value = mock_db
