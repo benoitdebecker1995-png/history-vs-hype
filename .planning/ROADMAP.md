@@ -15,7 +15,7 @@
 - ✅ **v5.0 Production Intelligence** - Phases 42-47 (shipped 2026-02-22)
 - ✅ **v5.1 Codebase Hardening** - Phases 48-54 (shipped 2026-03-01)
 - ✅ **v5.2 Growth Engine** - Phases 55-59 (shipped 2026-03-01)
-- **v6.0 Packaging Pipeline** - Phases 60-62
+- **v6.0 Packaging Pipeline** - Phases 60-63
 
 ## Phases
 
@@ -680,6 +680,7 @@ Plans:
 | 60. Retitle & Rethumb Pipeline | v6.0 | 2/2 | Complete | 2026-03-14 |
 | 61. Data-driven Packaging Gate | v6.0 | 3/3 | Complete | 2026-03-14 |
 | 62. Proactive Topic Discovery | 2/2 | Complete    | 2026-03-15 | - |
+| 63. v6.0 Gap Closure & Tech Debt | v6.0 | 0/1 | Not started | - |
 
 ### Phase 54: External Intelligence Synthesis
 **Goal**: `/publish --prompts` generates tailored VidIQ/Gemini prompts from script analysis; `/publish --intake` parses their responses into structured data; synthesis engine merges internal + external intelligence into ranked metadata packages with content moderation scoring and Photoshop-ready thumbnail blueprints
@@ -796,3 +797,17 @@ Plans:
 Plans:
 - [ ] 62-01-PLAN.md — DiscoveryScanner module + test suite (autocomplete, competitor gaps, trends, scoring, dedup)
 - [ ] 62-02-PLAN.md — /discover --scan command wiring + end-to-end verification
+
+#### Phase 63: v6.0 Gap Closure & Tech Debt
+
+**Goal:** Close the single integration gap (INT-01) so /retitle uses DB-enriched title scores instead of static scores, fix SUMMARY frontmatter gaps, repair private attribute access in ctr_ingest.py, and update stale REQUIREMENTS.md traceability table
+**Requirements**: RETITLE-02, GATE-02 (integration wiring)
+**Depends on:** Phase 62
+**Gap Closure:** Closes gaps from v6.0-MILESTONE-AUDIT.md
+**Plans:** TBD
+
+Tasks:
+- [ ] Wire `db_path` to `score_title()` in retitle.md Step 4c (INT-01 fix)
+- [ ] Fix `ctr_ingest.py` line 147: replace `db._conn.cursor()` with public API
+- [ ] Fill SUMMARY frontmatter gaps (60-02, 61-02, 61-03 `requirements_completed`)
+- [ ] Update REQUIREMENTS.md traceability table (stale "Not started" → "Complete")
