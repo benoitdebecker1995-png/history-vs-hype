@@ -145,38 +145,10 @@ def ingest_synthesis_ctr(
 
 
 def _lookup_video_id(db, title: str) -> str | None:
-    """
-    Look up video_id by matching title against video_performance table.
-
-    Uses LIKE on the first 40 characters, case-insensitive. Returns the
-    first match found, or None if no match.
-
-    Args:
-        db:    KeywordDB instance
-        title: Title string from synthesis table
-
-    Returns:
-        video_id string if matched, None otherwise
-    """
+    """Look up video_id by matching title against video_performance table."""
     if not title:
         return None
-
-    # Use first 40 chars for LIKE match — handles minor formatting differences
-    prefix = title[:40].replace("'", "''")
-
-    try:
-        cursor = db._conn.cursor()
-        cursor.execute(
-            "SELECT video_id FROM video_performance WHERE title LIKE ? COLLATE NOCASE LIMIT 1",
-            (f"%{prefix}%",),
-        )
-        row = cursor.fetchone()
-        if row:
-            return row[0]
-    except Exception as exc:
-        logger.warning("DB lookup error for title '%s': %s", title, exc)
-
-    return None
+    return db.search_video_performance_by_title(title)
 
 
 def main() -> None:

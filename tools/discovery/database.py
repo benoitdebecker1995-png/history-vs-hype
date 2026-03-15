@@ -1369,6 +1369,78 @@ class KeywordDB:
 
 
     # =========================================================================
+    # OPPORTUNITY SCORE METHODS
+    # =========================================================================
+
+    def save_opportunity_score(
+        self,
+        keyword_id: int,
+        opportunity_score: float,
+        category: str,
+        components: Optional[Dict[str, Any]] = None,
+        is_blocked: bool = False
+    ) -> Dict[str, Any]:
+        """
+        Save opportunity score to database and optionally transition lifecycle.
+
+        Updates keywords table with opportunity_score_final and opportunity_category.
+        If components provided, saves detailed breakdown to opportunity_scores table.
+        Transitions lifecycle to 'ANALYZED' if currently 'DISCOVERED'.
+
+        Args:
+            keyword_id: Keyword ID from keywords table
+            opportunity_score: Final score (0-100) or None if blocked
+            category: Score category ('Excellent', 'Good', 'Fair', 'Poor', 'Blocked')
+            components: Optional breakdown dict with 'demand' and 'gap' sub-dicts
+            is_blocked: Whether the topic was blocked by hard constraints
+
+        Returns:
+            {'status': 'saved', 'keyword_id': int} on success
+            {'error': msg, 'details': str} on failure
+        """
+        try:
+            cursor = self._conn.cursor()
+            now = datetime.now(timezone.utc).date().isoformat()
+
+            cursor.execute(
+                """
+                UPDATE keywords
+                SET opportunity_score_final = ?,
+                    opportunity_category = ?
+                WHERE id = ?
+                """,
+                (opportunity_score, category, keyword_id)
+            )
+
+            if not is_blocked and components:
+                demand_score = components.get('demand', {}).get('normalized', 0)
+                gap_score = components.get('gap', {}).get('normalized', 0)
+                opportunity_ratio = (opportunity_score or 0) / 100.0
+
+                cursor.execute(
+                    """
+                    INSERT INTO opportunity_scores
+                        (keyword_id, demand_score, competition_score,
+                         opportunity_ratio, opportunity_category, calculated_at)
+                    VALUES (?, ?, ?, ?, ?, ?)
+                    """,
+                    (keyword_id, demand_score, gap_score,
+                     opportunity_ratio, category, now)
+                )
+
+            self._conn.commit()
+
+            # Transition lifecycle state if currently DISCOVERED
+            current_state = self.get_lifecycle_state(keyword_id)
+            if current_state == 'DISCOVERED':
+                self.set_lifecycle_state(keyword_id, 'ANALYZED')
+
+            return {'status': 'saved', 'keyword_id': keyword_id}
+
+        except sqlite3.Error as e:
+            return {'error': 'Failed to save opportunity score', 'details': str(e)}
+
+    # =========================================================================
     # VIDEO PERFORMANCE METHODS (Phase 19)
     # =========================================================================
 
@@ -1881,6 +1953,25 @@ class KeywordDB:
 
         except sqlite3.Error as e:
             return {'error': 'Database operation failed', 'details': str(e)}
+
+    def search_video_performance_by_title(self, title_prefix: str) -> str | None:
+        """Look up video_id by title prefix using case-insensitive LIKE match."""
+        if not title_prefix:
+            return None
+        try:
+            self._ensure_performance_table()
+            prefix = title_prefix[:40]
+            cursor = self._conn.cursor()
+            cursor.execute(
+                "SELECT video_id FROM video_performance "
+                "WHERE title LIKE ? COLLATE NOCASE LIMIT 1",
+                (f"%{prefix}%",),
+            )
+            row = cursor.fetchone()
+            return row[0] if row else None
+        except Exception as exc:
+            logger.warning("DB lookup error for '%s': %s", title_prefix, exc)
+            return None
 
     def get_all_video_performance(self, limit: int = 100) -> List[Dict[str, Any]]:
         """

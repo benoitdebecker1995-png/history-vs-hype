@@ -95,11 +95,14 @@ script_titles = generate_script_titles(video_id, current_title)
 
 ```python
 from tools.title_scorer import score_title
+from tools.discovery.database import KeywordDB
 
 # Deduplicate, preserve order
 all_options = list(dict.fromkeys(script_titles + manual_options))
 
-scored = [(t, score_title(t)) for t in all_options]
+_db = KeywordDB()
+scored = [(t, score_title(t, db_path=_db.db_path)) for t in all_options]
+_db.close()
 scored.sort(key=lambda x: -x[1]['score'])
 
 # Filter: block REJECTED grade and score < 65
