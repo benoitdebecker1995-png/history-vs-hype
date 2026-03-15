@@ -515,11 +515,7 @@ Plans:
   3. Intel pipeline test passes: KB refresh runs, query returns data, competitor fetch degrades gracefully without API auth
   4. Translation pipeline test passes: translate + cross-check + annotate chain completes on a fixture document
   5. Analytics pipeline test passes: backfill reads fixture POST-PUBLISH-ANALYSIS, stores to in-memory DB, patterns query returns data
-**Plans**: 2 plans
-
-Plans:
-- [ ] 53-01-PLAN.md — pytest config + conftest.py + fixtures + migrate 7 existing tests to tests/unit/
-- [ ] 53-02-PLAN.md — 5 pipeline integration smoke tests (discovery, intel, translation, production, analytics)
+**Plans**: TBD
 
 ## Phase Details
 
@@ -681,6 +677,7 @@ Plans:
 | 61. Data-driven Packaging Gate | v6.0 | 3/3 | Complete | 2026-03-14 |
 | 62. Proactive Topic Discovery | 2/2 | Complete    | 2026-03-15 | - |
 | 63. v6.0 Gap Closure & Tech Debt | 1/1 | Complete    | 2026-03-15 | - |
+| 64. MCP Server Evaluation | - | 0/2 | Planned | - |
 
 ### Phase 54: External Intelligence Synthesis
 **Goal**: `/publish --prompts` generates tailored VidIQ/Gemini prompts from script analysis; `/publish --intake` parses their responses into structured data; synthesis engine merges internal + external intelligence into ranked metadata packages with content moderation scoring and Photoshop-ready thumbnail blueprints
@@ -808,3 +805,14 @@ Plans:
 
 Plans:
 - [ ] 63-01-PLAN.md — Wire DB-enriched scoring into /retitle + fix ctr_ingest private access + SUMMARY frontmatter + REQUIREMENTS.md traceability
+
+### Phase 64: Evaluate YouTube MCP servers and packaging plugins for adoption
+
+**Goal:** Test-install candidate MCP servers and plugins, verify Windows compatibility and functionality, produce evidence-based adopt/skip/defer verdicts for 11 tools across 3 tiers. Adopt tools with no workflow overlap and immediate value (Firecrawl, Context7). Evaluate borderline candidates (YouTube MCP, Windsor AI). Skip tools with workflow conflicts or stability risks.
+**Requirements**: EVAL-ADOPT-01, EVAL-ADOPT-02, EVAL-EVALUATE-01, EVAL-EVALUATE-02, EVAL-DECISION
+**Depends on:** Phase 63
+**Plans:** 2 plans
+
+Plans:
+- [ ] 64-01-PLAN.md — Install and verify ADOPT-tier MCP servers (Firecrawl + Context7)
+- [ ] 64-02-PLAN.md — Test EVALUATE-tier tools (YouTube MCP + Windsor AI) + write final DECISION.md
