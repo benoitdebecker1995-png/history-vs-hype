@@ -3,6 +3,21 @@ gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
 status: completed
+last_updated: "2026-03-15T23:23:21.141Z"
+last_activity: "2026-03-14 — Phase 62 added: proactive topic discovery"
+progress:
+  total_phases: 61
+  completed_phases: 55
+  total_plans: 118
+  completed_plans: 118
+  percent: 100
+---
+
+---
+gsd_state_version: 1.0
+milestone: v5.1
+milestone_name: Codebase Hardening
+status: completed
 last_updated: "2026-03-15T22:32:13.549Z"
 last_activity: "2026-03-14 — Phase 62 added: proactive topic discovery"
 progress:
@@ -140,6 +155,9 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 64-02]: Windsor AI SKIP: cloud-only OAuth connector, no installable MCP package, data coverage identical to existing tools/youtube_analytics/
 - [Phase 64-02]: No YouTube transcript MCP: both tested options broken (ZubeidHendricks npm + DannySubsense pip); yt-dlp.exe remains the stable extraction path
 - [Phase 64-02]: Phase 64 final: 2 ADOPT (Context7 + Playwright), 9 SKIP, 0 DEFER — DECISION.md locked 2026-03-15
+- [Phase 65]: store_snapshot() extended with optional kwargs (ctr_percent=0.0, impression_count=0) — backward-compatible, existing callers unchanged
+- [Phase 65]: NonClosingConnection wrapper used in tests — sqlite3.Connection.close is read-only at C level, cannot be patched
+- [Phase 65]: logs/*.log in .gitignore (was logs/) — allows logs/.gitkeep to be tracked while ignoring generated log files
 
 ### Roadmap Evolution
 
@@ -147,6 +165,7 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - Phase 60 added: Retitle and rethumb underperforming videos with impressions but low CTR
 - Phase 61 added: Data-driven packaging gate for new videos — title scorer reads real CTR from DB, greenlight enforces minimum score, feedback loop closes automatically
 - Phase 64 added: Evaluate YouTube MCP servers and packaging plugins for adoption
+- Phase 65 added: Automated CTR feedback loop — wire YouTube Analytics API into title scorer so CTR data updates automatically instead of manual snapshots
 
 ### Pending Todos
 

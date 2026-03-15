@@ -822,7 +822,7 @@ Plans:
 **Goal:** ctr_tracker.py fetches real CTR from YouTube Analytics API for all long-form videos, stores in ctr_snapshots table, and the title_ctr_store -> title_scorer -> greenlight chain automatically uses fresh data. Windows Task Scheduler runs this weekly without user intervention.
 **Requirements**: CTR-LOOP-01, CTR-LOOP-02, CTR-LOOP-03
 **Depends on:** Phase 64
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 Plans:
 - [ ] 65-01-PLAN.md — Extend ctr_tracker with CTR fetch loop + tests + scheduler setup
