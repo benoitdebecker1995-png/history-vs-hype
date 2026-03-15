@@ -33,6 +33,83 @@ Comprehensive keyword research workflow and metadata validation for YouTube disc
 | `--save` | Save results to database | `/discover TOPIC --save` |
 | `--json` | Output JSON format | `/discover --autocomplete "topic" --json` |
 | `-q` | Quiet mode (no status messages) | `/discover TOPIC -q` |
+| `--scan` | Proactive topic discovery scan | `/discover --scan` |
+
+---
+
+## PROACTIVE DISCOVERY SCAN (`--scan`)
+
+**When to use:** Proactive scanning for high-demand topics matching channel strengths — run weekly to surface new opportunities before committing to research.
+
+### Purpose
+
+Automates the topic discovery loop: instead of waiting for inspiration, `--scan` mines 15 channel-DNA seed keywords via YouTube autocomplete, checks competitor coverage gaps across tracked channels, and pulses Google Trends for breakout signals — then ranks everything by the extended Belize formula and writes a ranked report to `channel-data/DISCOVERY-FEED.md`.
+
+### Usage
+
+```bash
+# Standard scan — top 10 opportunities
+/discover --scan
+
+# More results
+/discover --scan --limit 20
+
+# JSON output to stdout (machine-readable)
+/discover --scan --json
+
+# Verbose (shows per-seed autocomplete progress)
+/discover --scan --verbose
+```
+
+### Execution Command
+
+```bash
+python -m tools.discovery.discovery_scanner [--limit N] [--json] [--verbose]
+```
+
+**Runtime:** ~90-120 seconds (autocomplete requires browser automation with rate limiting between seed keywords)
+
+### What It Does
+
+1. **Autocomplete mining** — Runs 15 channel-DNA seeds through YouTube autocomplete, scoring each suggestion by position (position 1 = demand score 100, position 10 = 60)
+2. **Competitor gap detection** — Pulls recent videos from tracked competitor channels; flags any topic with competitor views ≥ 2x channel average that the channel has not yet covered
+3. **Google Trends pulse** — Enriches candidates with breakout/rising flags (>5000% = breakout +15 score boost, >100% = rising)
+4. **Deduplication** — Removes topics already in `_IN_PRODUCTION/` or `_ARCHIVED/` folders and any keyword in `SCRIPTING/FILMED/PUBLISHED/ARCHIVED` states in keywords.db
+5. **Extended Belize scoring** — Ranks by 5-factor formula: demand (25%) + map angle (20%) + news hook (15%) + no competitor (20%) + conversion potential (20%)
+6. **Writes DISCOVERY-FEED.md** — Ranked table + per-opportunity details + signal quality transparency
+
+### Extended Belize Formula
+
+| Factor | Weight | Scoring |
+|--------|--------|---------|
+| Demand | 25% | Autocomplete position → 60-100; competitor views proxy |
+| Map angle | 20% | 100 if territorial/colonial topic; 0 otherwise |
+| News hook | 15% | High urgency keyword = 100; medium = 50; none = 0 |
+| No competitor | 20% | 100 if confirmed competitor gap; 0 if covered |
+| Conversion | 20% | ideological=100, colonial=65, legal=50, medieval=40, territorial=28 |
+| Breakout boost | +15 | Applied if Google Trends >5000% change |
+
+### Example Output (DISCOVERY-FEED.md)
+
+```markdown
+# Discovery Feed
+
+**Scanned:** 2026-03-15 10:30
+**Seeds:** 15 | **Opportunities:** 10
+
+| Rank | Score | Topic | Demand | Map | Hook | No Comp | Conversion | Flags |
+|------|-------|-------|--------|-----|------|---------|------------|-------|
+| 1    | 78    | colonial history propaganda | 80 | YES | none | NO | colonial | - |
+| 2    | 71    | scramble for africa myth | 76 | YES | none | NO | colonial | RISING |
+| 3    | 65    | history misconception ideological | 72 | NO  | none | NO | ideological | - |
+```
+
+### Integration Notes
+
+- **Separate from TOPIC-PIPELINE.md** — `--scan` generates a fresh snapshot feed; `TOPIC-PIPELINE.md` is the curated production backlog. Promote manually from feed to pipeline.
+- **`/next` reads DISCOVERY-FEED.md** — if available, `/next` incorporates top feed opportunities when suggesting next project
+- **No persistence** — DISCOVERY-FEED.md is regenerated fresh each run (not cumulative). Run weekly to catch new signals.
+- **Seeds are editable** — `CHANNEL_SEEDS` constant in `tools/discovery/discovery_scanner.py` can be extended without code changes
 
 ---
 
