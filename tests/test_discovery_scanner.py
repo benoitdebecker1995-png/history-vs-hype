@@ -15,6 +15,13 @@ import pytest
 from pathlib import Path
 from unittest.mock import patch, MagicMock
 
+# All tests that exercise _run_autocomplete need to suppress the HTTP path
+# so mocked extract_keywords_batch is used instead.
+_EMPTY_HTTP = patch(
+    "tools.discovery.discovery_scanner.DiscoveryScanner._http_autocomplete",
+    return_value=[],
+)
+
 
 # ---------------------------------------------------------------------------
 # Fixtures
@@ -62,7 +69,8 @@ class TestAutocompleteDedup:
         """Mock extract_keywords_batch with 5 suggestions, 2 match existing. Verify 3 remain."""
         from tools.discovery.discovery_scanner import DiscoveryScanner
 
-        with patch("tools.discovery.discovery_scanner.extract_keywords_batch", return_value=MOCK_AUTOCOMPLETE_RESULTS), \
+        with _EMPTY_HTTP, \
+             patch("tools.discovery.discovery_scanner.extract_keywords_batch", return_value=MOCK_AUTOCOMPLETE_RESULTS), \
              patch("tools.discovery.discovery_scanner.AUTOCOMPLETE_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.get_existing_topics", return_value=[
                  "india pakistan partition",
@@ -498,7 +506,8 @@ class TestScanProducesReport:
             "interest": 50,
         }
 
-        with patch("tools.discovery.discovery_scanner.extract_keywords_batch", return_value=MOCK_AUTOCOMPLETE_RESULTS), \
+        with _EMPTY_HTTP, \
+             patch("tools.discovery.discovery_scanner.extract_keywords_batch", return_value=MOCK_AUTOCOMPLETE_RESULTS), \
              patch("tools.discovery.discovery_scanner.AUTOCOMPLETE_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.fetch_all_competitors", return_value=MOCK_COMPETITOR_RESULT), \
              patch("tools.discovery.discovery_scanner.COMPETITOR_TRACKER_AVAILABLE", True), \
@@ -536,7 +545,8 @@ class TestScanProducesReport:
         """scan() returns opportunities sorted by score descending."""
         from tools.discovery.discovery_scanner import DiscoveryScanner
 
-        with patch("tools.discovery.discovery_scanner.extract_keywords_batch", return_value=MOCK_AUTOCOMPLETE_RESULTS), \
+        with _EMPTY_HTTP, \
+             patch("tools.discovery.discovery_scanner.extract_keywords_batch", return_value=MOCK_AUTOCOMPLETE_RESULTS), \
              patch("tools.discovery.discovery_scanner.AUTOCOMPLETE_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.fetch_all_competitors", return_value={"channels_fetched": 0, "videos_total": 0, "videos": [], "errors": []}), \
              patch("tools.discovery.discovery_scanner.COMPETITOR_TRACKER_AVAILABLE", True), \
@@ -561,7 +571,8 @@ class TestScanProducesReport:
         """If autocomplete fails, scan continues with competitor + trends only."""
         from tools.discovery.discovery_scanner import DiscoveryScanner
 
-        with patch("tools.discovery.discovery_scanner.extract_keywords_batch", side_effect=RuntimeError("Chrome not installed")), \
+        with _EMPTY_HTTP, \
+             patch("tools.discovery.discovery_scanner.extract_keywords_batch", side_effect=RuntimeError("Chrome not installed")), \
              patch("tools.discovery.discovery_scanner.AUTOCOMPLETE_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.fetch_all_competitors", return_value=MOCK_COMPETITOR_RESULT), \
              patch("tools.discovery.discovery_scanner.COMPETITOR_TRACKER_AVAILABLE", True), \

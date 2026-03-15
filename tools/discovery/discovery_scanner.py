@@ -18,6 +18,9 @@ import json
 import re
 import argparse
 import sys
+import urllib.parse
+import urllib.request
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -260,19 +263,23 @@ class DiscoveryScanner:
         """
         Run autocomplete mining against CHANNEL_SEEDS.
 
+        Uses YouTube's public suggest API (HTTP) first. Falls back to
+        pyppeteer browser automation if available.
+
         Returns candidate dicts with demand_score based on suggestion position.
         Position 0 = highest relevance (score 100), position N = lower (score 60).
-        Wrap in try/except — on failure returns [].
         """
-        if not AUTOCOMPLETE_AVAILABLE or extract_keywords_batch is None:
-            logger.info("Autocomplete unavailable (pyppeteer not installed)")
-            return []
+        # Try HTTP-based suggest API first (no dependencies needed)
+        results = self._http_autocomplete(CHANNEL_SEEDS)
 
-        try:
-            results = extract_keywords_batch(CHANNEL_SEEDS)
-        except Exception as exc:
-            logger.warning("extract_keywords_batch failed: %s", exc)
-            return []
+        # Fall back to pyppeteer if HTTP returned nothing
+        if not any(r.get("suggestions") for r in results):
+            if AUTOCOMPLETE_AVAILABLE and extract_keywords_batch is not None:
+                logger.info("HTTP autocomplete empty, falling back to pyppeteer")
+                try:
+                    results = extract_keywords_batch(CHANNEL_SEEDS)
+                except Exception as exc:
+                    logger.warning("pyppeteer fallback failed: %s", exc)
 
         candidates = []
         for result in results:
@@ -286,7 +293,6 @@ class DiscoveryScanner:
                 if not suggestion:
                     continue
                 # Position-based demand score: position 0=100, position 9=60
-                # Linear scale from 100 (first) down to 60 (10th)
                 demand_score = max(60, 100 - i * 4)
                 candidates.append({
                     "keyword": suggestion.lower().strip(),
@@ -297,6 +303,48 @@ class DiscoveryScanner:
 
         logger.info("Autocomplete: %d candidates from %d seeds", len(candidates), len(CHANNEL_SEEDS))
         return candidates
+
+    @staticmethod
+    def _http_autocomplete(seeds: List[str], delay: float = 0.5) -> List[Dict[str, Any]]:
+        """
+        Fetch YouTube autocomplete suggestions via the public suggest API.
+
+        No browser or pyppeteer needed — plain HTTP GET to Google's
+        suggestqueries endpoint with client=youtube.
+        """
+        _SUGGEST_URL = "https://suggestqueries-clients6.youtube.com/complete/search"
+        results = []
+
+        for i, seed in enumerate(seeds):
+            try:
+                params = urllib.parse.urlencode({"client": "youtube", "ds": "yt", "q": seed})
+                url = f"{_SUGGEST_URL}?{params}"
+                req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+                resp = urllib.request.urlopen(req, timeout=10)
+                raw = resp.read().decode("utf-8")
+
+                # Response is JSONP: window.google.ac.h([...])
+                start = raw.index("(") + 1
+                end = raw.rindex(")")
+                data = json.loads(raw[start:end])
+                suggestions = [item[0] for item in data[1] if item[0] != seed]
+
+                results.append({
+                    "keyword": seed,
+                    "suggestions": suggestions,
+                    "count": len(suggestions),
+                })
+                logger.debug("HTTP autocomplete '%s': %d suggestions", seed, len(suggestions))
+
+            except Exception as exc:
+                logger.debug("HTTP autocomplete failed for '%s': %s", seed, exc)
+                results.append({"keyword": seed, "error": str(exc), "suggestions": []})
+
+            # Rate limit — light delay between requests
+            if i < len(seeds) - 1:
+                time.sleep(delay)
+
+        return results
 
     def _run_competitor_gaps(self) -> List[Dict[str, Any]]:
         """
@@ -731,6 +779,14 @@ class DiscoveryScanner:
         re.IGNORECASE,
     )
 
+    # Non-history brand/business/entertainment terms
+    _NON_HISTORY_TERMS = frozenset({
+        'red bull', 'netflix', 'amazon', 'tesla', 'spacex', 'apple', 'google',
+        'microsoft', 'uber', 'airbnb', 'spotify', 'disney', 'marvel', 'star wars',
+        'cinemasins', 'cinema sins', 'movie', 'film review', 'video essay',
+        'tier list', 'gaming', 'minecraft', 'fortnite', 'podcast clip',
+    })
+
     @staticmethod
     def _normalize_title(title: str) -> str:
         """
@@ -746,6 +802,9 @@ class DiscoveryScanner:
             return ''
         # Filter out meta/reaction videos (about other creators, not topics)
         if DiscoveryScanner._META_PATTERNS.search(t):
+            return ''
+        # Filter out non-history content (business, entertainment, gaming)
+        if any(term in t for term in DiscoveryScanner._NON_HISTORY_TERMS):
             return ''
         # Strip leading episode numbers: "20. ", "EP 5: ", "#3 - "
         t = re.sub(r'^(?:ep\.?\s*)?#?\d+[\.\)\-:]\s*', '', t)
