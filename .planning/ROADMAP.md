@@ -677,7 +677,7 @@ Plans:
 | 61. Data-driven Packaging Gate | v6.0 | 3/3 | Complete | 2026-03-14 |
 | 62. Proactive Topic Discovery | 2/2 | Complete    | 2026-03-15 | - |
 | 63. v6.0 Gap Closure & Tech Debt | 1/1 | Complete    | 2026-03-15 | - |
-| 64. MCP Server Evaluation | - | 0/2 | Planned | - |
+| 64. MCP Server Evaluation | 1/2 | In Progress|  | - |
 
 ### Phase 54: External Intelligence Synthesis
 **Goal**: `/publish --prompts` generates tailored VidIQ/Gemini prompts from script analysis; `/publish --intake` parses their responses into structured data; synthesis engine merges internal + external intelligence into ranked metadata packages with content moderation scoring and Photoshop-ready thumbnail blueprints
@@ -811,7 +811,7 @@ Plans:
 **Goal:** Test-install candidate MCP servers and plugins, verify Windows compatibility and functionality, produce evidence-based adopt/skip/defer verdicts for 11 tools across 3 tiers. Adopt tools with no workflow overlap and immediate value (Firecrawl, Context7). Evaluate borderline candidates (YouTube MCP, Windsor AI). Skip tools with workflow conflicts or stability risks.
 **Requirements**: EVAL-ADOPT-01, EVAL-ADOPT-02, EVAL-EVALUATE-01, EVAL-EVALUATE-02, EVAL-DECISION
 **Depends on:** Phase 63
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 
 Plans:
 - [ ] 64-01-PLAN.md — Install and verify ADOPT-tier MCP servers (Firecrawl + Context7)

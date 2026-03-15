@@ -142,6 +142,7 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - Phase 54 added: External Intelligence Synthesis — automated VidIQ/Gemini prompt generation, response parsing, metadata synthesis, moderation scoring, thumbnail blueprints
 - Phase 60 added: Retitle and rethumb underperforming videos with impressions but low CTR
 - Phase 61 added: Data-driven packaging gate for new videos — title scorer reads real CTR from DB, greenlight enforces minimum score, feedback loop closes automatically
+- Phase 64 added: Evaluate YouTube MCP servers and packaging plugins for adoption
 
 ### Pending Todos
 
