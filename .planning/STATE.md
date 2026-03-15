@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v5.1
 milestone_name: Codebase Hardening
 status: completed
-last_updated: "2026-03-15T20:03:30.779Z"
+last_updated: "2026-03-15T22:26:10.432Z"
 last_activity: "2026-03-14 — Phase 62 added: proactive topic discovery"
 progress:
-  total_phases: 59
-  completed_phases: 53
-  total_plans: 115
-  completed_plans: 115
+  total_phases: 60
+  completed_phases: 54
+  total_plans: 117
+  completed_plans: 117
   percent: 100
 ---
 
@@ -136,6 +136,10 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 62-02]: --scan section placed after flags table, before FULL KEYWORD RESEARCH — natural reading order for command reference
 - [Phase 63-v6-gap-closure]: search_video_performance_by_title() added to KeywordDB as public method — ctr_ingest delegates entirely, eliminating private _conn access
 - [Phase 63-v6-gap-closure]: retitle.md Step 4c now matches greenlight.md and scorer.py pattern: KeywordDB().db_path passed to score_title()
+- [Phase 64-02]: ZubeidHendricks YouTube MCP SKIP: broken npm package — MCP SDK restructured dist/cjs/index.js path, package incompatible with current SDK
+- [Phase 64-02]: Windsor AI SKIP: cloud-only OAuth connector, no installable MCP package, data coverage identical to existing tools/youtube_analytics/
+- [Phase 64-02]: No YouTube transcript MCP: both tested options broken (ZubeidHendricks npm + DannySubsense pip); yt-dlp.exe remains the stable extraction path
+- [Phase 64-02]: Phase 64 final: 2 ADOPT (Context7 + Playwright), 9 SKIP, 0 DEFER — DECISION.md locked 2026-03-15
 
 ### Roadmap Evolution
 
