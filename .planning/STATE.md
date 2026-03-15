@@ -1,16 +1,16 @@
 ---
 gsd_state_version: 1.0
-milestone: v6.0
-milestone_name: Packaging Pipeline
-status: in_progress
-last_updated: "2026-03-14"
-last_activity: "2026-03-14 — Phase 62 added: proactive topic discovery (autocomplete, competitor tracking, trends, discovery feed)"
+milestone: v5.1
+milestone_name: Codebase Hardening
+status: executing
+last_updated: "2026-03-15T00:45:07.610Z"
+last_activity: "2026-03-14 — Phase 62 added: proactive topic discovery"
 progress:
-  total_phases: 3
-  completed_phases: 2
-  total_plans: 5
-  completed_plans: 5
-  percent: 67
+  total_phases: 58
+  completed_phases: 51
+  total_plans: 114
+  completed_plans: 113
+  percent: 99
 ---
 
 # State: History vs Hype Workspace
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-02-24)
 **Last activity:** 2026-03-14 — Phase 62 added: proactive topic discovery
 
 **Progress:**
-[██████████] 100%
+[██████████] 99%
 
 ## Milestone History
 
@@ -130,6 +130,9 @@ v5.1 ordering rationale: Package structure first (proper imports unblock everyth
 - [Phase 60-01]: SWAP-CHECKLIST.md is ephemeral (regenerated each run); SWAP LOG in POST-PUBLISH-ANALYSIS.md is permanent record with 7-day measurement window
 - [Phase 60]: ctr_ingest.py is optional — existence check before invocation, graceful degradation to manual instructions if absent
 - [Phase 60]: POST-PUBLISH-ANALYSIS search order: channel-data/analyses/ primary, video-projects/ secondary
+- [Phase 62-proactive-topic-discovery]: 15 seeds for autocomplete runtime balance (<90s vs 3+ min for 20-30 seeds)
+- [Phase 62-proactive-topic-discovery]: CHANNEL_AVG_VIEWS_FALLBACK=1000 (conservative median, not 4234 mean skewed by outliers)
+- [Phase 62-proactive-topic-discovery]: Feature flags must be patched alongside callables in tests: patch TRENDSPYG_AVAILABLE=True AND TrendsClient
 
 ### Roadmap Evolution
 

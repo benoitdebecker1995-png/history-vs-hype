@@ -60,11 +60,11 @@ Requirements for v5.2 Growth Engine. Each maps to roadmap phases.
 
 ### Proactive Topic Discovery
 
-- [ ] **DISC-01**: YouTube autocomplete miner scans channel niches (territorial disputes, colonial history, border conflicts, ideological myths) and surfaces search suggestions NOT already in the topic pipeline or production folders
-- [ ] **DISC-02**: Competitor release tracker monitors target channels (RealLifeLore, Wendover, Kraut, Knowing Better, etc.), detects new uploads, and flags coverage gaps where competitors got views but the channel has no video
-- [ ] **DISC-03**: Google Trends pulse detects rising search interest in channel-relevant topics before competitors notice, with breakout detection and 30/90-day trend direction
-- [ ] **DISC-04**: Discovery feed command (`/discover --scan`) combines autocomplete, competitor, and trends signals into ranked opportunities scored by the Belize formula (demand + map angle + news hook + no competitor coverage)
-- [ ] **DISC-05**: Discovery feed deduplicates against existing pipeline (`keywords.db`, `_IN_PRODUCTION/`, `_ARCHIVED/`) so only genuinely new opportunities surface
+- [x] **DISC-01**: YouTube autocomplete miner scans channel niches (territorial disputes, colonial history, border conflicts, ideological myths) and surfaces search suggestions NOT already in the topic pipeline or production folders
+- [x] **DISC-02**: Competitor release tracker monitors target channels (RealLifeLore, Wendover, Kraut, Knowing Better, etc.), detects new uploads, and flags coverage gaps where competitors got views but the channel has no video
+- [x] **DISC-03**: Google Trends pulse detects rising search interest in channel-relevant topics before competitors notice, with breakout detection and 30/90-day trend direction
+- [x] **DISC-04**: Discovery feed command (`/discover --scan`) combines autocomplete, competitor, and trends signals into ranked opportunities scored by the Belize formula (demand + map angle + news hook + no competitor coverage)
+- [x] **DISC-05**: Discovery feed deduplicates against existing pipeline (`keywords.db`, `_IN_PRODUCTION/`, `_ARCHIVED/`) so only genuinely new opportunities surface
 
 ## Future Requirements
 
