@@ -205,6 +205,142 @@ def save_session(project_path: str, source: str, classified: dict, raw_text: str
 
 
 # ---------------------------------------------------------------------------
+# Bulk paste functions
+# ---------------------------------------------------------------------------
+
+def split_bulk_paste(text: str) -> list:
+    """Split a bulk-pasted multi-step response into individual segments.
+
+    Uses step markers from EXTERNAL-PROMPTS.md as boundaries. Tries four
+    strategies in order:
+        (a) Markdown headings: ### Step N:
+        (b) Plain step labels: Step N:
+        (c) Triple-dash dividers: ---
+        (d) Double-newline separated blocks of 50+ chars
+
+    Uses the first strategy that produces 3 or more matches.
+
+    Args:
+        text: Raw bulk-pasted text containing multiple VidIQ/Gemini responses.
+
+    Returns:
+        List of non-empty text segments (each at least 20 characters).
+    """
+    if not text or not text.strip():
+        return []
+
+    method_name = None
+    segments = []
+
+    # Strategy (a): Markdown step headings "### Step N:"
+    pattern_a = re.compile(r'(?=^#{1,3}\s*Step\s+\d+:)', re.MULTILINE | re.IGNORECASE)
+    parts_a = pattern_a.split(text)
+    parts_a = [p.strip() for p in parts_a if p.strip() and len(p.strip()) >= 20]
+    if len(parts_a) >= 3:
+        segments = parts_a
+        method_name = "markdown_step_headings"
+    else:
+        # Strategy (b): Plain "Step N:" (without heading markers)
+        pattern_b = re.compile(r'(?=^Step\s+\d+:)', re.MULTILINE | re.IGNORECASE)
+        parts_b = pattern_b.split(text)
+        parts_b = [p.strip() for p in parts_b if p.strip() and len(p.strip()) >= 20]
+        if len(parts_b) >= 3:
+            segments = parts_b
+            method_name = "plain_step_labels"
+        else:
+            # Strategy (c): Triple-dash dividers "---"
+            pattern_c = re.compile(r'\n-{3,}\n')
+            parts_c = pattern_c.split(text)
+            parts_c = [p.strip() for p in parts_c if p.strip() and len(p.strip()) >= 20]
+            if len(parts_c) >= 3:
+                segments = parts_c
+                method_name = "triple_dash_dividers"
+            else:
+                # Strategy (d): Double-newline separated blocks of 50+ chars
+                parts_d = re.split(r'\n\s*\n', text)
+                parts_d = [p.strip() for p in parts_d if p.strip() and len(p.strip()) >= 50]
+                segments = parts_d
+                method_name = "double_newline_blocks"
+
+    logger.info("Split bulk paste into %d segments (method: %s)", len(segments), method_name)
+    return segments
+
+
+def classify_bulk_paste(text: str) -> list:
+    """Split a bulk paste into segments and classify each independently.
+
+    Args:
+        text: Raw bulk-pasted text containing multiple VidIQ/Gemini responses.
+
+    Returns:
+        List of classification dicts (output of classify_paste), each augmented
+        with 'segment_index' (0-based).
+    """
+    segments = split_bulk_paste(text)
+    results = []
+    for i, segment in enumerate(segments):
+        classification = classify_paste(segment)
+        classification['segment_index'] = i
+        results.append(classification)
+
+    logger.info(
+        "Bulk classification: %d segments, types: %s",
+        len(results),
+        [r['type'] for r in results],
+    )
+    return results
+
+
+def save_batch(
+    project_path: str,
+    source: str,
+    classifications: list,
+    segments: list,
+) -> dict:
+    """Save multiple classified segments to EXTERNAL-INTELLIGENCE.json in one batch.
+
+    Iterates over (classification, segment) pairs and calls save_session for
+    each. Continues even if individual saves fail, collecting errors.
+
+    Args:
+        project_path: Path to the video project folder.
+        source: 'vidiq_pro_coach' or 'gemini'.
+        classifications: List of classification dicts (output of classify_bulk_paste).
+        segments: List of raw text segments matching classifications by index.
+
+    Returns:
+        {
+            'saved_count': int,
+            'session_ids': list[str],
+            'saved_to': str,
+            'errors': list[str],  # present only if any save failed
+        }
+    """
+    session_ids = []
+    errors = []
+    saved_to = None
+
+    for classification, segment in zip(classifications, segments):
+        result = save_session(project_path, source, classification, segment)
+        if 'error' in result:
+            errors.append(result['error'])
+        else:
+            session_ids.append(result['session_id'])
+            if saved_to is None:
+                saved_to = result['saved_to']
+
+    out = {
+        'saved_count': len(session_ids),
+        'session_ids': session_ids,
+        'saved_to': saved_to or '',
+    }
+    if errors:
+        out['errors'] = errors
+
+    return out
+
+
+# ---------------------------------------------------------------------------
 # Scoring helpers
 # ---------------------------------------------------------------------------
 
