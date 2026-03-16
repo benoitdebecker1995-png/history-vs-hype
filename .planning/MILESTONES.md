@@ -1,5 +1,35 @@
 # Project Milestones: History vs Hype Workspace
 
+## v6.0 Packaging Pipeline (Shipped: 2026-03-16)
+
+**Delivered:** Fixed the channel's #1 growth bottleneck — packaging. Built retitle pipeline for existing videos, data-driven scoring gate for new ones, proactive topic discovery, MCP server evaluation, and automated CTR feedback loop closing the full packaging data cycle.
+
+**Phases completed:** 60-65 (11 plans total)
+
+**Key accomplishments:**
+
+- `/retitle` pipeline: audit underperformers by wasted impressions with retention weighting, generate script-based title candidates, output SWAP-CHECKLIST.md for YouTube Studio, measure 7-day post-swap CTR with --check/--revert and feedback loop closure (Phase 60)
+- Data-driven packaging gate: title_scorer reads live CTR from keywords.db via TitleCTRStore, greenlight/preflight gates use DB-enriched scores automatically, ctr_ingest closes feedback loop from CROSS-VIDEO-SYNTHESIS.md (Phase 61)
+- Proactive topic discovery: DiscoveryScanner with YouTube autocomplete mining (15 seeds), competitor gap detection, Google Trends pulse with breakout detection, Belize 5-factor scoring, pipeline dedup, `/discover --scan` command (Phase 62)
+- Gap closure: wired DB-enriched scoring into /retitle Step 4c, fixed ctr_ingest private attribute access with public KeywordDB method, updated REQUIREMENTS.md traceability (Phase 63)
+- MCP server evaluation: adopted Context7 (live docs) + Playwright (browser automation), skipped 9 tools including broken YouTube MCPs and cloud-only Windsor AI, evidence-based DECISION.md (Phase 64)
+- Automated CTR feedback loop: ctr_tracker fetches real CTR from YouTube Analytics API for all long-form videos, stores in ctr_snapshots table, Windows Task Scheduler weekly automation (Phase 65)
+
+**Stats:**
+
+- 6 phases, 11 plans
+- 72 commits over 15 days (2026-03-01 → 2026-03-15)
+- 16/16 v6.0 requirements delivered (+ EVAL and CTR-LOOP requirements)
+- Milestone audit: all requirements satisfied, 7 non-critical tech debt items
+
+**Git range:** `8520de2` → `aeb24e9`
+
+**What's next:** Use `/retitle` to fix underperforming titles, `/greenlight` before any new video (DB-enriched scores), `/discover --scan` for proactive topic discovery. CTR updates weekly via Task Scheduler.
+
+**Archive:** `.planning/milestones/v6.0-ROADMAP.md`
+
+---
+
 ## v5.0 Production Intelligence (Shipped: 2026-02-22)
 
 **Delivered:** End-to-end production pipeline with YouTube intelligence engine, analytics feedback loop, algorithm-optimized hooks, and multi-project dashboard — making every production command smarter with real-time algorithm and channel data.
@@ -325,14 +355,3 @@
 ---
 
 *Milestones log created: 2026-01-23*
-
-
-## v5.0 Production Intelligence (Shipped: 2026-02-23)
-
-**Phases completed:** 50 phases, 106 plans, 46 tasks
-
-**Key accomplishments:**
-- (none recorded)
-
----
-

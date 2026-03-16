@@ -8,24 +8,13 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
-## Current Milestone: v5.2 Growth Engine
-
-**Goal:** Use YouTube Analytics API data to optimize topic selection, script quality, and CTR — turning channel data into actionable growth decisions.
-
-**Target features:**
-- Full analytics backfill from YouTube API (per-video metrics, traffic sources, publish timestamps)
-- Title pattern → CTR correlation engine with predictive scoring
-- Competitor gap analyzer (topic × angle matrix, uncovered opportunities)
-- Retention pattern decoder (script structure → retention correlation)
-- Growth trajectory dashboard with monetization countdown
-
 ## Current State
 
-**Shipped:** v5.1 Codebase Hardening (2026-03-01)
-**Previous milestones:** v1.0-v5.0 (shipped 2026-01-19 to 2026-02-22)
+**Shipped:** v6.0 Packaging Pipeline (2026-03-16)
+**Previous milestones:** v1.0-v5.2 (shipped 2026-01-19 to 2026-03-01)
 **Archives:** `.planning/milestones/`
 
-v5.0 delivered end-to-end production intelligence — YouTube algorithm KB with automated refresh, analytics backfill with channel insights auto-surfacing, Rule 19 algorithm-aware hooks, NLM paste-to-research flow, and multi-project dashboard. Translation pipeline refactored to Claude Code native LLM (no API key needed). 7 phases, 20 requirements, 69 commits.
+v6.0 fixed the channel's #1 growth bottleneck — packaging. Built `/retitle` pipeline for existing underperformers, data-driven title scoring gate with live CTR from DB, proactive topic discovery via `/discover --scan`, MCP server evaluation (adopted Context7 + Playwright), and automated CTR feedback loop via Windows Task Scheduler. 6 phases, 11 plans, 72 commits.
 
 ## Requirements
 
@@ -159,6 +148,27 @@ v5.0 delivered end-to-end production intelligence — YouTube algorithm KB with 
 - Scriptwriter produces spoken-delivery scripts — v1.0
 - Competitive intelligence tracking — v1.0
 
+### Validated (v6.0)
+
+- `/retitle` pipeline: audit underperformers, generate candidates, SWAP-CHECKLIST, 7-day CTR measurement — v6.0
+- Data-driven title scoring: live CTR from keywords.db via TitleCTRStore, greenlight/preflight DB-enriched — v6.0
+- CTR ingestion from CROSS-VIDEO-SYNTHESIS.md into keywords.db — v6.0
+- Proactive topic discovery: autocomplete mining, competitor gaps, Google Trends pulse, `/discover --scan` — v6.0
+- MCP server evaluation: Context7 + Playwright adopted, 9 tools skipped with evidence — v6.0
+- Automated CTR feedback loop: ctr_tracker.py + YouTube Analytics API + Windows Task Scheduler — v6.0
+
+### Validated (v5.1)
+
+- Unified error handling across all tool modules — v5.1
+- Structured logging replacing print() statements — v5.1
+- Integration test suite with pytest — v5.1
+- Clean package structure with __init__.py — v5.1
+- Pinned dependency management (pyproject.toml) — v5.1
+- DB schema versioning for all databases — v5.1
+- Standardized CLI interfaces — v5.1
+- Dead code and artifact cleanup — v5.1
+- External intelligence synthesis (/publish --prompts, --intake, synthesis engine) — v5.1
+
 ### Validated (v5.0)
 
 - Translation pipeline hardened with .env + refactored to Claude Code native LLM (no API key) — v5.0
@@ -172,14 +182,7 @@ v5.0 delivered end-to-end production intelligence — YouTube algorithm KB with 
 
 ### Active
 
-- [ ] Unified error handling across all tool modules
-- [ ] Structured logging replacing print() statements
-- [ ] Integration test suite with pytest
-- [ ] Clean package structure with __init__.py
-- [ ] Pinned dependency management
-- [ ] DB schema versioning for all databases
-- [ ] Standardized CLI interfaces
-- [ ] Dead code and artifact cleanup
+(None — define in next milestone via `/gsd:new-milestone`)
 
 ### Out of Scope
 
@@ -222,17 +225,19 @@ v5.0 delivered end-to-end production intelligence — YouTube algorithm KB with 
 **Known tech debt:**
 - Library folder (728 files) needs manual cleanup
 - Python 3.14 + spaCy compatibility (use Python 3.11-3.13 for now)
-- datetime.utcnow() deprecation warning in intent_mapper.py
 - Voice patterns empty until user runs --rebuild-voice
-- intel.db test data resolves on next clean refresh
 - token.json absent — YouTube API enrichment falls back to RSS-only
+- classify_topic() may over-classify non-history topics as "colonial" (upstream)
+- Nyquist validation incomplete for phases 61, 62
 
 **Tech stack:**
-- ~47,930 lines Python total across tools/
+- ~48K+ lines Python total across tools/
 - YouTube Analytics API v2 + YouTube Data API v3
 - Anthropic SDK for notebooklm_bridge.py (Claude Sonnet 4 for source generation)
 - OAuth2 authentication with token refresh
-- SQLite databases: keywords.db (schema v29), intel.db, analytics.db
+- SQLite databases: keywords.db (schema v29), intel.db (schema v2)
+- MCP servers: Context7 (library docs), Playwright (browser automation)
+- Windows Task Scheduler: weekly CTR refresh via ctr_tracker.py
 
 **Existing codebase map:** `.planning/codebase/` (7 documents, 1600+ lines)
 
@@ -302,7 +307,17 @@ v5.0 delivered end-to-end production intelligence — YouTube algorithm KB with 
 | 10-phase refresh orchestrator for intel | Errors collected, pipeline continues on individual failure | Good (v5.0) |
 | time.time() - st_mtime for dashboard activity | Avoids timezone-aware/naive mixing on Windows | Good (v5.0) |
 | Rule 19 supersedes Rule 9 Section A for hooks | 4-beat formula is superset of old hook selection | Good (v5.0) |
+| pyproject.toml as single dependency source | Deleted 3 per-package requirements.txt files | Good (v5.1) |
+| Lazy imports to break circular dependencies | discovery/diagnostics.py, recommender.py, title_ctr_store.py | Good (v5.1) |
+| logging.getLogger("tools") not root logger | Library-safe hierarchy; NullHandler prevents warnings | Good (v5.1) |
+| PRAGMA user_version for all DBs | intel.db v2, keywords.db v29 — atomic migrations | Good (v5.1) |
+| Retention weighting for retitle priority | priority = wasted_impressions × (1 + retention_bonus) | Good (v6.0) |
+| SWAP-CHECKLIST ephemeral, SWAP LOG permanent | Regenerated each run vs persistent in POST-PUBLISH-ANALYSIS | Good (v6.0) |
+| score = min(100, max(0, int(ctr_percent * 17))) | Maps 3.8% CTR to 64, near static declarative baseline of 65 | Good (v6.0) |
+| 15 autocomplete seeds for scan balance | <90s runtime vs 3+ min for 20-30 seeds | Good (v6.0) |
+| Context7 + Playwright MCP adoption | Free, unlimited, local — skipped 9 broken/cloud-only tools | Good (v6.0) |
+| Weekly Task Scheduler for CTR refresh | Automated without user intervention; logs to logs/ | Good (v6.0) |
 
 ---
 
-*Last updated: 2026-02-24 after v5.1 milestone started*
+*Last updated: 2026-03-16 after v6.0 milestone archived*
