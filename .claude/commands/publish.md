@@ -90,7 +90,43 @@ Algorithm: CTR weight is "high" — thumbnail/title alignment critical.
 
 **Before generating final metadata, run validation checks:**
 
-### Metadata Consistency Check
+### Gate 1: Title Score Gate (HARD BLOCK)
+
+**Run BEFORE finalizing any title candidates.** Every title option must pass `title_scorer.py`.
+
+```python
+import sys
+sys.path.insert(0, '.')
+from tools.title_scorer import score_title
+
+candidates = ["Title Option A", "Title Option B", "Title Option C"]
+for t in candidates:
+    result = score_title(t)
+    print(f"  {result['score']}/{result['grade']}  {t}")
+    if result.get('penalties'):
+        for p in result['penalties']:
+            print(f"    PENALTY: {p}")
+```
+
+**Rules:**
+- **Score < 65 → BLOCKED.** Do not include in YOUTUBE-METADATA.md. Generate a replacement.
+- **Grade = REJECTED → HARD BLOCK.** Title contains a year, colon, or "The X That Y" pattern. Rewrite immediately.
+- **All 3 title options must score 65+.** If none pass, keep generating until 3 do.
+- **Display scores to user** so they can make an informed pick.
+
+**Output format in YOUTUBE-METADATA.md:**
+
+```
+### Title Options
+
+| # | Title | Score | Grade |
+|---|-------|-------|-------|
+| 1 | India vs Pakistan. Britain Drew the Border in 5 Weeks. | 85 | A |
+| 2 | Britain Split India in 5 Weeks. The Map That Started 4 Wars. | 75 | B |
+| 3 | How One Lawyer Split 88 Million People in 5 Weeks. | 70 | B |
+```
+
+### Gate 2: Metadata Consistency Check
 
 ```bash
 /discover --check YOUTUBE-METADATA.md
@@ -151,13 +187,15 @@ else:
 
 ### Step 2: Generate Metadata
 
-#### 1. Title Options (3 variations)
+#### 1. Title Options (3 variations — ALL must pass Gate 1)
 
 **Requirements:**
 - 50-60 characters (mobile-friendly)
 - Factually accurate
 - Documentary tone
 - Include main hook/myth
+- **Score 65+ on title_scorer.py** (run Gate 1 before finalizing)
+- **No years, colons, or "The X That Y"** (auto-REJECTED by scorer)
 
 **SEO Keyword Pivoting:**
 - If primary keyword has zero search volume, pivot to related high-volume terms
@@ -452,28 +490,38 @@ Follow the steps in EXTERNAL-PROMPTS.md, then run `/publish --intake` to parse t
 
 Parse pasted VidIQ/Gemini responses into structured data for synthesis.
 
-### Session Flow
+### Session Flow (Bulk Mode — Recommended)
 
-1. System prompts: "Paste your VidIQ/Gemini response"
-2. User pastes raw text
-3. System auto-detects type (keyword data, titles, thumbnails, description, tags)
-4. System shows preview: "Detected: keyword data (8 keywords). First: 'gibraltar history (12,000 vol)'. Confirm? [y/n]"
-5. User confirms -> saved to EXTERNAL-INTELLIGENCE.json
-6. System prompts for next paste, or user types 'done'
-7. On 'done': auto-runs synthesis engine
+1. System prompts: "Paste all your VidIQ/Gemini responses at once (or type 'single' for one-at-a-time mode)"
+2. User pastes all responses (separated by step headers or --- dividers)
+3. System auto-splits into segments and classifies each independently
+4. System shows summary: "Detected 5 segments: keyword_data, title_suggestions, tag_set, description_draft, thumbnail_concepts. Confirm? [y/n]"
+5. User confirms -> all saved to EXTERNAL-INTELLIGENCE.json
+6. Auto-runs synthesis engine
+
+### Session Flow (Single Mode — Fallback)
+
+1. User types 'single' when prompted
+2. System prompts: "Paste your VidIQ/Gemini response"
+3-7. (Same as before: classify, preview, confirm, next or done)
 
 ### Workflow
 
 ```python
-from tools.production.intake_parser import classify_paste, save_session, load_or_create_intelligence
+from tools.production.intake_parser import classify_bulk_paste, save_batch, classify_paste, save_session
 from tools.production.synthesis_engine import synthesize
 
-# For each paste:
+# Bulk mode (recommended):
+results = classify_bulk_paste(pasted_text)
+segments = split_bulk_paste(pasted_text)
+# Show summary to user, get confirmation
+save_batch(project_path, source='vidiq_pro_coach', classifications=results, segments=segments)
+
+# Single mode (fallback):
 classified = classify_paste(pasted_text)
-# Show preview to user, get confirmation
 save_session(project_path, source='vidiq_pro_coach', classified=classified, raw_text=pasted_text)
 
-# After 'done':
+# After either mode:
 result = synthesize(project_path, script_path)
 ```
 
