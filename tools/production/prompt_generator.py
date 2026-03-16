@@ -22,6 +22,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from tools.logging_config import get_logger
+from tools.production.synthesis_engine import MODERATION_TRIGGERS, SAFE_ALTERNATIVES, score_moderation
 
 logger = get_logger(__name__)
 
@@ -83,15 +84,20 @@ def generate_prompts(project_path: str, script_path: str) -> dict:
         competitor = _get_competitor_context()
         logger.info("Competitor context available: %s", competitor['available'])
 
+        # --- Moderation scoring on full script text ---
+        script_text = script.read_text(encoding='utf-8')
+        moderation = score_moderation(script_text)
+        logger.info("Script moderation: %s", moderation['level'])
+
         # --- Build prompts ---
         topic_summary = _extract_topic_summary(sections, entities, project_ctx)
         outlier_titles = competitor.get('outlier_titles', [])
         outlier_block = _format_outlier_titles(outlier_titles)
 
         vidiq_prompts = _build_vidiq_prompts(
-            topic_summary, script_context, outlier_block
+            topic_summary, script_context, outlier_block, moderation=moderation
         )
-        gemini_prompt = _build_gemini_prompt(topic_summary, entities, project_ctx)
+        gemini_prompt = _build_gemini_prompt(topic_summary, entities, project_ctx, moderation=moderation)
 
         # --- Write EXTERNAL-PROMPTS.md ---
         output_path = project / "EXTERNAL-PROMPTS.md"
@@ -514,7 +520,7 @@ def _format_outlier_titles(titles) -> str:
     return "\n".join(lines)
 
 
-def _build_vidiq_prompts(topic_summary, script_context, outlier_block) -> list:
+def _build_vidiq_prompts(topic_summary, script_context, outlier_block, moderation=None) -> list:
     """Build 4 sequenced VidIQ Pro Coach prompts."""
     prompts = []
 
@@ -544,6 +550,20 @@ def _build_vidiq_prompts(topic_summary, script_context, outlier_block) -> list:
     ]
     if outlier_block:
         title_parts.append(f"\nStyle references from successful videos in this niche:\n{outlier_block}\n")
+    if moderation is not None and moderation.get('level') in ('HIGH', 'MEDIUM'):
+        trigger_terms = [t['term'] for t in moderation.get('triggers', [])]
+        safe_alts = {t: SAFE_ALTERNATIVES[t] for t in trigger_terms if t in SAFE_ALTERNATIVES}
+        safe_alts_str = (
+            ', '.join(f"'{k}' → '{v}'" for k, v in safe_alts.items())
+            if safe_alts else 'see YouTube advertiser guidelines'
+        )
+        title_parts.append(
+            f"\nIMPORTANT: This topic contains sensitive content "
+            f"({moderation['level']} risk: {', '.join(trigger_terms)}).\n"
+            f"YouTube may restrict monetization for titles containing these terms.\n"
+            f"Suggest titles that convey the topic accurately without using trigger words.\n"
+            f"Safe alternatives: {safe_alts_str}.\n"
+        )
     prompts.append({
         'step': 2,
         'title': 'Title Optimization',
@@ -581,7 +601,7 @@ def _build_vidiq_prompts(topic_summary, script_context, outlier_block) -> list:
     return prompts
 
 
-def _build_gemini_prompt(topic_summary, entities, project_ctx: dict = None) -> dict:
+def _build_gemini_prompt(topic_summary, entities, project_ctx: dict = None, moderation=None) -> dict:
     """Build one comprehensive Gemini creative brief."""
     if project_ctx is None:
         project_ctx = {}
@@ -644,6 +664,22 @@ def _build_gemini_prompt(topic_summary, entities, project_ctx: dict = None) -> d
         f"25-44 male, internationally educated audience? What emotional response drives "
         f"sharing — surprise, indignation, intellectual satisfaction?"
     )
+
+    if moderation is not None and moderation.get('level') in ('HIGH', 'MEDIUM'):
+        trigger_terms = [t['term'] for t in moderation.get('triggers', [])]
+        safe_alts = {t: SAFE_ALTERNATIVES[t] for t in trigger_terms if t in SAFE_ALTERNATIVES}
+        safe_alts_str = (
+            '\n'.join(f"   - '{k}' → '{v}'" for k, v in safe_alts.items())
+            if safe_alts else '   - See YouTube advertiser guidelines'
+        )
+        text += (
+            f"\n\n5. **Monetization-safe framing:** This topic involves sensitive content "
+            f"({moderation['level']} risk: {', '.join(trigger_terms)}).\n"
+            f"YouTube may limit monetization for metadata containing these terms.\n"
+            f"How can titles, descriptions, and thumbnail text convey the gravity of this "
+            f"topic while remaining advertiser-friendly?\n"
+            f"Suggest specific alternative phrasings for:\n{safe_alts_str}"
+        )
 
     return {
         'step': 5,
