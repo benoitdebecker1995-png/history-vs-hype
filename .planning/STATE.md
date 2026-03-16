@@ -1,38 +1,36 @@
 ---
 gsd_state_version: 1.0
-milestone: v6.0
-milestone_name: Packaging Pipeline
-status: completed
+milestone: v7.0
+milestone_name: Packaging & Hooks Overhaul
+status: defining_requirements
 last_updated: "2026-03-16"
-last_activity: "2026-03-16 — v6.0 milestone archived"
+last_activity: "2026-03-16 — Milestone v7.0 started"
 progress:
   total_phases: 65
   completed_phases: 65
   total_plans: 132
   completed_plans: 132
-  percent: 100
+  percent: 0
 ---
 
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-03-16 (v6.0 Packaging Pipeline archived)
+**Last Updated:** 2026-03-16 (v7.0 Packaging & Hooks Overhaul started)
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-03-16)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** Planning next milestone
+**Current focus:** v7.0 — Packaging & Hooks Overhaul
 
 ## Current Position
 
-**Milestone:** v6.0 Packaging Pipeline — SHIPPED
-**Status:** Complete, archived
-**Last activity:** 2026-03-16 — v6.0 milestone archived
-
-**Progress:**
-[██████████] 100%
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-03-16 — Milestone v7.0 started
 
 ## Milestone History
 

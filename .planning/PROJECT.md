@@ -8,6 +8,17 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
+## Current Milestone: v7.0 Packaging & Hooks Overhaul
+
+**Goal:** Research what actually drives clicks/impressions on edu/history YouTube, then rewrite tooling (title scorer, hook generator, metadata, greenlight) to produce output that matches proven patterns.
+
+**Target features:**
+- Research-backed hook, title, and metadata best practices from top edu/history channels
+- Rewritten title scorer trained on what actually works (not just own low-CTR history)
+- Improved hook generation grounded in proven patterns
+- Better metadata and packaging tooling
+- Reingest fresh view data to validate improvements
+
 ## Current State
 
 **Shipped:** v6.0 Packaging Pipeline (2026-03-16)
@@ -182,7 +193,7 @@ v6.0 fixed the channel's #1 growth bottleneck — packaging. Built `/retitle` pi
 
 ### Active
 
-(None — define in next milestone via `/gsd:new-milestone`)
+(Defining in v7.0 — see REQUIREMENTS.md)
 
 ### Out of Scope
 
