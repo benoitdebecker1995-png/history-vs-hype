@@ -64,7 +64,7 @@ MODERATION_TRIGGERS = {
 }
 
 # Safe alternatives for HIGH-risk terms in titles (informational suggestions)
-_SAFE_ALTERNATIVES = {
+SAFE_ALTERNATIVES = {
     'genocide': 'mass atrocity',
     'massacre': 'mass killing',
     'nazi': 'Third Reich',
@@ -182,7 +182,7 @@ def synthesize(project_path: str, script_path: str = None) -> dict:
 
         # --- Moderation scoring for each variant ---
         for variant in [variant_a, variant_b, variant_c]:
-            variant['moderation'] = _score_moderation(variant['title'])
+            variant['moderation'] = score_moderation(variant['title'])
 
         # --- Thumbnail blueprints ---
         variant_a['thumbnail'] = _build_thumbnail_blueprint(
@@ -197,10 +197,10 @@ def synthesize(project_path: str, script_path: str = None) -> dict:
 
         # --- Description + tags ---
         merged_description = _merge_description(all_descriptions, sections, internal_entities)
-        desc_moderation = _score_moderation(merged_description)
+        desc_moderation = score_moderation(merged_description)
         merged_tags = _merge_tags(all_tags, internal_entities, sections)
         tags_str = ', '.join(merged_tags)
-        tags_moderation = _score_moderation(tags_str)
+        tags_moderation = score_moderation(tags_str)
 
         # --- Conflict flagging ---
         conflicts = _detect_conflicts(all_titles, all_concepts, outlier_titles, sessions)
@@ -439,7 +439,7 @@ def _ensure_distinct(variants: list):
 # Moderation scoring
 # ---------------------------------------------------------------------------
 
-def _score_moderation(text: str) -> dict:
+def score_moderation(text: str) -> dict:
     """Scan text for moderation triggers. Returns risk level + details.
 
     Moderation is informational, NOT blocking. HIGH = flag with note + alternatives.
@@ -464,7 +464,7 @@ def _score_moderation(text: str) -> dict:
 
                 # Generate context-aware notes
                 if level == 'HIGH':
-                    safe_alt = _SAFE_ALTERNATIVES.get(trigger)
+                    safe_alt = SAFE_ALTERNATIVES.get(trigger)
                     note = f"Contains '{trigger}' — YouTube may restrict monetization. Standard for historical/educational content."
                     if safe_alt:
                         note += f" Safe alternative: '{safe_alt}'"
@@ -550,7 +550,7 @@ def _build_thumbnail_blueprint(variant_type: str, variant: dict, concepts: list,
         concept += f". External suggestion: {ext_concept}"
 
     # Moderation risk for thumbnail
-    thumb_mod = _score_moderation(concept)
+    thumb_mod = score_moderation(concept)
 
     return {
         'concept': concept,
