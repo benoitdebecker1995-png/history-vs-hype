@@ -39,7 +39,10 @@ PLAYBOOK_AVAILABLE = False
 
 try:
     from tools.discovery.database import KeywordDB
-    from .section_diagnostics import load_voice_patterns
+    try:
+        from .section_diagnostics import load_voice_patterns
+    except ImportError:
+        from tools.youtube_analytics.section_diagnostics import load_voice_patterns
     PLAYBOOK_AVAILABLE = True
 except ImportError as e:
     logger.warning("Playbook synthesizer dependencies unavailable: %s", e)
@@ -72,10 +75,11 @@ def get_all_video_retention_data() -> List[Dict[str, Any]]:
         cursor.execute(
             """
             SELECT video_id, title, topic_type, conversion_rate,
-                   retention_drop_point, lessons_learned, avg_view_duration_seconds
+                   retention_drop_point, lessons_learned, avg_view_duration_seconds,
+                   avg_retention_pct
             FROM video_performance
             WHERE lessons_learned IS NOT NULL
-            ORDER BY conversion_rate DESC
+            ORDER BY avg_retention_pct DESC
             """
         )
 
@@ -90,15 +94,29 @@ def get_all_video_retention_data() -> List[Dict[str, Any]]:
             # Parse lessons_learned JSON
             lessons = json.loads(row[5]) if row[5] else {'observations': [], 'actionable': []}
 
+            # avg_retention_pct is the real retention (e.g. 36.4),
+            # conversion_rate is subscriber conversion (different metric)
+            avg_retention_pct = row[7] or 0.0
+            avg_duration_sec = row[6] or 0
+
+            # Estimate biggest drop position in seconds from retention_drop_point
+            # retention_drop_point stores a curve index; convert to seconds
+            # using video duration and typical 100-point curve
+            drop_index = row[4] or 0
+            if avg_duration_sec and drop_index:
+                biggest_drop_seconds = int(drop_index * avg_duration_sec / 100)
+            else:
+                biggest_drop_seconds = 0
+
             videos.append({
                 'video_id': row[0],
                 'title': row[1],
                 'topic_type': row[2] or 'general',
-                'avg_retention': row[3] or 0.0,
-                'biggest_drop_position': row[4],
+                'avg_retention': avg_retention_pct,
+                'biggest_drop_position': biggest_drop_seconds,
                 'lessons_learned': lessons,
                 'conversion_rate': row[3] or 0.0,
-                'avg_duration_seconds': row[6]
+                'avg_duration_seconds': avg_duration_sec
             })
 
         return videos
@@ -173,31 +191,68 @@ def extract_opening_patterns(videos: List[Dict]) -> Dict[str, Any]:
     return results
 
 
+_retention_cache: Dict[str, Any] = {}
+
+
+def _find_mid_video_drops(video_id: str, duration_seconds: int) -> List[int]:
+    """
+    Find significant retention drops AFTER the intro settle (position > 0.15).
+
+    Returns list of drop positions in seconds.
+    Uses in-memory cache to avoid repeated API calls (~12s each).
+    """
+    try:
+        from tools.youtube_analytics.retention import get_retention_data
+
+        if video_id in _retention_cache:
+            data = _retention_cache[video_id]
+        else:
+            data = get_retention_data(video_id)
+            _retention_cache[video_id] = data
+
+        if not data or 'data_points' not in data:
+            return []
+
+        points = data['data_points']
+        drops = []
+
+        for i in range(1, len(points)):
+            pos = points[i]['position']
+            if pos <= 0.15:  # Skip intro settle
+                continue
+
+            prev_ret = points[i - 1]['retention']
+            curr_ret = points[i]['retention']
+            drop_magnitude = prev_ret - curr_ret
+
+            # Significant drop = >2% retention loss in one step
+            if drop_magnitude > 0.02:
+                drop_seconds = int(pos * duration_seconds)
+                drops.append(drop_seconds)
+
+        return drops
+    except Exception:
+        return []
+
+
 def calculate_pacing_thresholds(videos: List[Dict]) -> Dict[str, Any]:
     """
-    Extract pacing-related insights from lessons_learned observations.
+    Calculate pacing thresholds from mid-video retention drops.
 
-    Calculates per-topic thresholds for section length and pattern interrupt intervals.
-    Falls back to channel average when topic has <3 videos.
+    Uses actual retention curve data to find where viewers leave AFTER the
+    intro settles. Converts drop positions to word counts (150 WPM) for
+    script-level guidance.
 
     Args:
         videos: List of video dicts from get_all_video_retention_data()
 
     Returns:
-        Dict mapping topic_type to pacing thresholds:
-        {
-            'territorial': {
-                'avg_section_length': 180,
-                'max_section_before_drop': 250,
-                'pattern_interrupt_interval': 120,
-                'confidence': 'high',
-                'video_count': 12
-            },
-            ...
-        }
+        Dict mapping topic_type to pacing thresholds with word counts.
     """
     if not videos:
         return {}
+
+    WPM = 150  # Words per minute speaking rate
 
     # Group by topic_type
     by_topic = {}
@@ -207,34 +262,65 @@ def calculate_pacing_thresholds(videos: List[Dict]) -> Dict[str, Any]:
             by_topic[topic] = []
         by_topic[topic].append(video)
 
-    results = {}
-
-    # Calculate channel-wide average as fallback
-    all_drops = [v['biggest_drop_position'] for v in videos if v['biggest_drop_position']]
-    channel_avg_drop = int(mean(all_drops)) if all_drops else 150
-
+    # Collect mid-video drops per topic
+    # Note: each API call takes ~12s. For 56 videos this takes ~11 minutes.
+    total_api_calls = sum(1 for v in videos if v.get('avg_duration_seconds', 0) > 0)
+    api_call_count = 0
+    topic_drop_intervals = {}
     for topic, topic_videos in by_topic.items():
-        drops = [v['biggest_drop_position'] for v in topic_videos if v['biggest_drop_position']]
+        all_intervals = []
+        for video in topic_videos:
+            duration = video.get('avg_duration_seconds', 0)
+            if not duration:
+                continue
+            api_call_count += 1
+            if total_api_calls > 5:
+                print(f"\r  Fetching retention data... {api_call_count}/{total_api_calls}", end='', file=sys.stderr, flush=True)
+            drops = _find_mid_video_drops(video['video_id'], duration)
+            if len(drops) >= 2:
+                # Calculate intervals between consecutive drops
+                for j in range(1, len(drops)):
+                    interval_sec = drops[j] - drops[j - 1]
+                    if interval_sec > 10:  # Filter out noise
+                        all_intervals.append(interval_sec)
+            elif drops:
+                # Single drop: use time from intro settle to first drop
+                intro_end_sec = int(0.15 * duration)
+                interval = drops[0] - intro_end_sec
+                if interval > 10:
+                    all_intervals.append(interval)
 
-        if len(drops) >= 3:
-            avg_drop = int(mean(drops))
-            std = stdev(drops) if len(drops) > 1 else 50
-            max_before_drop = int(avg_drop + std)
+        topic_drop_intervals[topic] = all_intervals
+
+    if total_api_calls > 5:
+        print('', file=sys.stderr)  # newline after progress
+
+    # Channel-wide fallback from all intervals
+    all_channel_intervals = []
+    for intervals in topic_drop_intervals.values():
+        all_channel_intervals.extend(intervals)
+    channel_avg_interval = int(mean(all_channel_intervals)) if all_channel_intervals else 120
+
+    results = {}
+    for topic, topic_videos in by_topic.items():
+        intervals = topic_drop_intervals.get(topic, [])
+
+        if len(intervals) >= 3:
+            avg_interval_sec = int(mean(intervals))
+            max_interval_sec = int(avg_interval_sec + (stdev(intervals) if len(intervals) > 1 else 30))
         else:
-            # Fallback to channel average
-            avg_drop = channel_avg_drop
-            max_before_drop = channel_avg_drop + 50
+            avg_interval_sec = channel_avg_interval
+            max_interval_sec = channel_avg_interval + 30
 
-        # Heuristic: recommend pattern interrupt at 60% of avg drop position
-        pattern_interrupt_interval = int(avg_drop * 0.6)
-
-        # Estimate avg section length (150 WPM * avg_drop_seconds / 60)
-        avg_section_length = int(pattern_interrupt_interval * 2.5)  # Rough estimate
+        # Convert seconds to words (150 WPM = 2.5 words/second)
+        avg_section_words = int(avg_interval_sec * WPM / 60)
+        max_section_words = int(max_interval_sec * WPM / 60)
+        interrupt_words = int(avg_section_words * 0.75)  # Interrupt before avg drop
 
         results[topic] = {
-            'avg_section_length': avg_section_length,
-            'max_section_before_drop': max_before_drop,
-            'pattern_interrupt_interval': pattern_interrupt_interval,
+            'avg_section_length': avg_section_words,
+            'max_section_before_drop': max_section_words,
+            'pattern_interrupt_interval': interrupt_words,
             'confidence': calculate_confidence(len(topic_videos)),
             'video_count': len(topic_videos)
         }
@@ -474,7 +560,7 @@ def synthesize_part9(min_confidence_videos: int = 3) -> str:
 
             part9 += f"""
 **{topic.title()} Topics{confidence_flag}**
-- Average opening retention: {data['avg_opening_retention']:.1%}
+- Average opening retention: {data['avg_opening_retention']:.1f}%
 - Recommended patterns:
 """
             for pattern in data['recommended_patterns']:
@@ -591,7 +677,7 @@ def synthesize_part9(min_confidence_videos: int = 3) -> str:
             avg_drop = int(mean(drops)) if drops else 0
             confidence = calculate_confidence(len(topic_videos))
 
-            part9 += f"| {topic.title()} | {avg_ret:.1%} | {avg_drop}s | {len(topic_videos)} | {confidence} |\n"
+            part9 += f"| {topic.title()} | {avg_ret:.1f}% | {avg_drop}s | {len(topic_videos)} | {confidence} |\n"
     else:
         part9 += "\n| Topic Type | Avg Retention | Avg Drop Position | Videos | Confidence |\n"
         part9 += "|------------|---------------|-------------------|--------|------------|\n"

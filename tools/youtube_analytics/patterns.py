@@ -46,6 +46,12 @@ Dependencies:
 
 import re
 import sys
+import io
+
+# Fix Windows cp1252 encoding crash on non-ASCII characters in video titles
+if sys.stdout.encoding and sys.stdout.encoding.lower() not in ('utf-8', 'utf8'):
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 import json
 import glob as glob_module
 from pathlib import Path
@@ -63,10 +69,31 @@ PROJECT_ROOT = SCRIPT_DIR.parent.parent
 
 
 # Fixed vocabulary for consistent topic tagging
+# NOTE: Matching is substring-based (kw in text.lower()), so use specific phrases
+# to avoid false positives (e.g., 'claim' matches 'claims' in politician titles)
 TAG_VOCABULARY = {
-    'territorial': ['dispute', 'border', 'territory', 'claim', 'annex', 'occupation', 'icj', 'sovereignty'],
-    'ideological': ['myth', 'debunk', 'fact-check', 'propaganda', 'narrative', 'lie'],
-    'colonial': ['colonial', 'empire', 'independence', 'decolonization', 'imperial'],
+    'territorial': [
+        'dispute', 'border', 'territory', 'territorial', 'annex', 'occupation',
+        'icj', 'sovereignty', 'islands', 'island', 'taiwan', 'essequibo',
+        'aegean', 'chagos', 'bermeja', 'gibraltar', 'agree on',
+    ],
+    'ideological': [
+        'myth', 'debunk', 'fact-check', 'propaganda', 'narrative', 'busted',
+        'shocking truth', 'weaponized', 'destroy the', 'primary sources',
+    ],
+    'colonial': [
+        'colonial', 'empire', 'independence', 'decolonization', 'imperial',
+        'british', 'betrayal', 'crushed', 'ajax', 'coup', 'sykes-picot',
+        'mandate', 'condor', 'operation',
+    ],
+    'intelligence': [
+        'kgb', 'cia', 'intelligence', 'espionage', 'weaponized', 'ajax',
+        'condor', 'operation',
+    ],
+    'legal': [
+        'law', 'statute', 'treaty', 'legal', 'court', 'ruling', 'translated',
+        'vichy', 'statut', 'untranslated',
+    ],
     'politician': ['vance', 'netanyahu', 'trump', 'fuentes', 'reagan', 'politician'],
     'archaeological': ['dna', 'excavation', 'artifact', 'manuscript', 'archaeology'],
     'medieval': ['medieval', 'dark ages', 'crusade', 'viking', 'middle ages'],
@@ -245,6 +272,7 @@ def parse_analysis_file(filepath: str) -> dict | None:
         'watch_time_minutes': None,
         'avg_retention': None,
         'ctr_percent': None,
+        'impressions': None,
         'analyzed_date': None,
         'source_file': filepath,
     }
@@ -285,9 +313,30 @@ def parse_analysis_file(filepath: str) -> dict | None:
     if ctr_match:
         data['ctr_percent'] = float(ctr_match.group(1))
     else:
-        # Check for "Not available" indication
-        if re.search(r'\*\*CTR:\*\*\s*Not available', content, re.IGNORECASE):
+        # Fallback: extract most recent CTR from CTR History table
+        # Format: | date | X.XX% | impressions | views |
+        ctr_history_matches = re.findall(
+            r'\|\s*\d{4}-\d{2}-\d{2}\s*\|\s*([\d.]+)%', content
+        )
+        if ctr_history_matches:
+            # Use the last (most recent) snapshot
+            data['ctr_percent'] = float(ctr_history_matches[-1])
+        elif re.search(r'\*\*CTR:\*\*\s*Not available', content, re.IGNORECASE):
             data['ctr_percent'] = None
+
+    # Extract impressions from CTR History table or Performance table
+    # Format: | date | X.XX% | 11,331 | views |
+    impressions_matches = re.findall(
+        r'\|\s*\d{4}-\d{2}-\d{2}\s*\|\s*[\d.]+%\s*\|\s*([\d,]+)', content
+    )
+    if impressions_matches:
+        # Use the last (most recent) snapshot
+        data['impressions'] = int(impressions_matches[-1].replace(',', ''))
+    else:
+        # Try Performance table: | Impressions | X |
+        imp_match = re.search(r'\|\s*Impressions\s*\|\s*([\d,]+)', content, re.IGNORECASE)
+        if imp_match:
+            data['impressions'] = int(imp_match.group(1).replace(',', ''))
 
     # Extract analyzed_date from "**Analyzed:**" line
     analyzed_match = re.search(r'\*\*Analyzed:\*\*\s*(\S+)', content)
@@ -1779,7 +1828,7 @@ def generate_monthly_summary(month: int = None, year: int = None) -> str:
     ])
     for v in sorted(month_videos, key=lambda x: x.get('views', 0) or 0, reverse=True):
         title = v.get('title', 'Unknown')[:40]
-        views = v.get('views', 0)
+        views = v.get('views') or 0
         ctr = f"{v['ctr_percent']:.1f}%" if v.get('ctr_percent') else 'N/A'
         ret = f"{v['avg_retention']*100:.1f}%" if v.get('avg_retention') else 'N/A'
         lines.append(f"| {title} | {views:,} | {ctr} | {ret} |")
