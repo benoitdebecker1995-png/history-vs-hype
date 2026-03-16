@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v7.0
 milestone_name: Packaging & Hooks Overhaul
 status: completed
-last_updated: "2026-03-16T21:47:42.149Z"
+last_updated: "2026-03-16T21:48:31.983Z"
 last_activity: 2026-03-16 — v7.0 roadmap created, Phases 66-70 defined
 progress:
   total_phases: 5
@@ -96,6 +96,7 @@ Key v7.0 design decisions (from research):
 - CLICKBAIT_PATTERNS vs active_verbs inconsistency (metadata.py vs title_scorer.py) to be reconciled in Phase 70
 - [Phase 54]: 4-strategy cascade for bulk paste splitting (markdown heading > plain step > triple-dash > double-newline)
 - [Phase 54]: save_batch() continues on individual save errors rather than aborting batch
+- [Phase 54-external-intelligence-synthesis]: Renamed _score_moderation -> score_moderation and _SAFE_ALTERNATIVES -> SAFE_ALTERNATIVES for public import from synthesis_engine.py
 
 ### Pending Todos
 
