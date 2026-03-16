@@ -2,11 +2,11 @@
 gsd_state_version: 1.0
 milestone: v7.0
 milestone_name: Packaging & Hooks Overhaul
-status: defining_requirements
+status: roadmap_complete
 last_updated: "2026-03-16"
-last_activity: "2026-03-16 — Milestone v7.0 started"
+last_activity: "2026-03-16 — v7.0 roadmap created, Phases 66-70 defined"
 progress:
-  total_phases: 65
+  total_phases: 70
   completed_phases: 65
   total_plans: 132
   completed_plans: 132
@@ -16,7 +16,7 @@ progress:
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-03-16 (v7.0 Packaging & Hooks Overhaul started)
+**Last Updated:** 2026-03-16 (v7.0 roadmap created)
 
 ## Project Reference
 
@@ -27,10 +27,12 @@ See: `.planning/PROJECT.md` (updated 2026-03-16)
 
 ## Current Position
 
-Phase: Not started (defining requirements)
+Phase: 66 — External Benchmark Research
 Plan: —
-Status: Defining requirements
-Last activity: 2026-03-16 — Milestone v7.0 started
+Status: Roadmap complete, ready for Phase 66 planning
+Last activity: 2026-03-16 — v7.0 roadmap created, Phases 66-70 defined
+
+Progress: ░░░░░░░░░░ 0% (0/5 phases complete)
 
 ## Milestone History
 
@@ -54,47 +56,60 @@ Last activity: 2026-03-16 — Milestone v7.0 started
 **Full history:** `.planning/MILESTONES.md`
 **Archives:** `.planning/milestones/`
 
+## v7.0 Phase Map
+
+| Phase | Name | Requirements | Status |
+|-------|------|--------------|--------|
+| 66 | External Benchmark Research | (prerequisite — unblocks all) | Not started |
+| 67 | Title Scorer Recalibration | BENCH-01, BENCH-02, BENCH-03 | Not started |
+| 68 | Title Generation Upgrade | TITLE-01, TITLE-02, TITLE-03 | Not started |
+| 69 | Hook Quality Upgrade | HOOK-01, HOOK-02 | Not started |
+| 70 | Metadata & Packaging Integration | META-01, META-02, META-03 | Not started |
+
 ## Accumulated Context
 
 ### Decisions
 
 v6.0 decisions archived in `.planning/milestones/v6.0-ROADMAP.md`.
 
-Key v6.0 decisions:
-- Retention weighting formula: priority = wasted_impressions × (1 + retention_bonus)
-- SWAP-CHECKLIST.md is ephemeral; SWAP LOG in POST-PUBLISH-ANALYSIS.md is permanent
-- 15 autocomplete seeds for runtime balance (<90s)
-- Context7 + Playwright MCP adopted; 9 tools skipped (broken YouTube MCPs, cloud-only Windsor AI)
-- ctr_tracker weekly via Windows Task Scheduler
+Key v7.0 design decisions (from research):
+- Phase 66 is a research deliverable only — zero code should reference niche_benchmark.json or HOOK-PATTERN-LIBRARY.md before they are authored
+- Benchmark data is advisory, not a hard gate — own-channel score remains primary; niche percentile is additive context
+- All new features must extend existing commands (/publish, /greenlight, /script) — no new standalone invocation points
+- benchmark_store.py requires graceful None fallback so missing niche_benchmark.json never blocks existing workflows
+- Hook scoring runs after agent generation, not inside the agent (avoids circular feedback loop)
+- CLICKBAIT_PATTERNS vs active_verbs inconsistency (metadata.py vs title_scorer.py) to be reconciled in Phase 70
 
 ### Pending Todos
 
-None.
+- Run ctr_tracker.py before starting Phase 67 to confirm CTR snapshot freshness (all snapshots currently dated 2026-02-23)
+- Audit Rules 19-22 in script-writer-v2 before adding Rule 23 in Phase 69 (prior v3.0 consolidation precedent)
 
 ### Blockers/Concerns
 
-None.
+None. Phase 66 is a manual research task — no external dependencies.
 
 ## Session Continuity
 
 ### Last Session
 
 - **Date:** 2026-03-16
-- **Work:** Completed v6.0 milestone archival
+- **Work:** v7.0 roadmap created, Phases 66-70 defined, REQUIREMENTS.md traceability updated
 
 ### Next Session
 
-**Next action:** `/gsd:new-milestone` — define next milestone with fresh requirements
+**Next action:** `/gsd:plan-phase 66` — plan Phase 66 (External Benchmark Research)
 
 ## Technical Notes
 
 - keywords.db schema version 29 (auto-migration with PRAGMA user_version)
-- intel.db schema version 2 (PRAGMA user_version tracking + atomic migrations)
+- intel.db schema version 2 — Phase 69 will migrate to v3 (competitor_hooks table)
 - sys.path.insert hacks REMOVED — all tools use proper absolute tools.* or relative imports
 - spaCy requires Python 3.11-3.13 (not 3.14)
 - MCP servers installed: Context7, Playwright
 - CTR feedback loop: ctr_tracker.py + Windows Task Scheduler (weekly)
+- One new dependency in v7.0: Pillow>=10.0.0 in [thumbnails] extras in pyproject.toml (Phase 70)
 
 ---
 
-*State updated: 2026-03-16 after v6.0 milestone archived*
+*State updated: 2026-03-16 after v7.0 roadmap created*

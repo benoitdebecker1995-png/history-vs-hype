@@ -65,23 +65,23 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| BENCH-01 | — | Pending |
-| BENCH-02 | — | Pending |
-| BENCH-03 | — | Pending |
-| TITLE-01 | — | Pending |
-| TITLE-02 | — | Pending |
-| TITLE-03 | — | Pending |
-| HOOK-01 | — | Pending |
-| HOOK-02 | — | Pending |
-| META-01 | — | Pending |
-| META-02 | — | Pending |
-| META-03 | — | Pending |
+| BENCH-01 | Phase 67 | Pending |
+| BENCH-02 | Phase 67 | Pending |
+| BENCH-03 | Phase 67 | Pending |
+| TITLE-01 | Phase 68 | Pending |
+| TITLE-02 | Phase 68 | Pending |
+| TITLE-03 | Phase 68 | Pending |
+| HOOK-01 | Phase 69 | Pending |
+| HOOK-02 | Phase 69 | Pending |
+| META-01 | Phase 70 | Pending |
+| META-02 | Phase 70 | Pending |
+| META-03 | Phase 70 | Pending |
 
 **Coverage:**
 - v7.0 requirements: 11 total
-- Mapped to phases: 0
-- Unmapped: 11
+- Mapped to phases: 11
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-16*
-*Last updated: 2026-03-16 after initial definition*
+*Last updated: 2026-03-16 after v7.0 roadmap creation (traceability complete)*
