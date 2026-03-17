@@ -459,17 +459,27 @@ def _score_title_metadata(metadata: str, titles: List[str], topic_type: str) -> 
     best_title = titles[0]
     best_pattern = 'unknown'
 
-    # Try DB-enriched scoring via title_scorer first
+    # Normalize topic_type for score_title() (benchmark_store taxonomy)
+    _normalized_topic = topic_type
+    try:
+        from tools.benchmark_store import normalize_topic_type as _norm_tt
+        _normalized_topic = _norm_tt(topic_type) if topic_type else None
+    except Exception:
+        pass
+
+    # Try DB-enriched scoring via title_scorer (with niche context propagation)
+    _best_ts_result = None
     try:
         from tools.title_scorer import score_title as _score_title
         for t in titles:
-            ts_result = _score_title(t, db_path=db_path)
+            ts_result = _score_title(t, db_path=db_path, topic_type=_normalized_topic)
             # Use the score directly from title_scorer (handles hard rejects etc.)
             ts_score = ts_result['score']
             if ts_score > best_score:
                 best_score = ts_score
                 best_title = t
                 best_pattern = ts_result['pattern']
+                _best_ts_result = ts_result
                 # Propagate hard reject issues and suggestions
                 issues_from_scorer = list(ts_result.get('hard_rejects', []))
                 issues_from_scorer += [s for s in ts_result.get('suggestions', [])
@@ -479,6 +489,17 @@ def _score_title_metadata(metadata: str, titles: List[str], topic_type: str) -> 
             sub_scores.append(best_score)
             result['best_title'] = best_title
             result['title_pattern'] = best_pattern
+            # Propagate niche context into notes (BENCH-01/02/03)
+            if _best_ts_result is not None:
+                niche_label = _best_ts_result.get('niche_percentile_label', '')
+                if niche_label:
+                    result['notes'].append(f"Niche position: {niche_label}")
+                fallback_warn = _best_ts_result.get('fallback_warning')
+                if fallback_warn:
+                    result['notes'].append(fallback_warn)
+                gap_msg = (_best_ts_result.get('topic_type_target') or {}).get('gap_message', '')
+                if gap_msg:
+                    result['notes'].append(f"Topic target: {gap_msg}")
     except Exception as e:
         result['notes'].append(f"title_scorer unavailable: {e} — using internal classifier")
         # Fallback to internal classifier
