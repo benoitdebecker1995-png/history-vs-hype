@@ -460,10 +460,15 @@ def score_title(title: str, db_path: str = None, topic_type: str = None) -> dict
 
 
 def format_result(result: dict) -> str:
-    """Format a single title score as readable output."""
+    """Format a single title score as readable output.
+
+    Uses .get() with defaults throughout for backward compatibility — callers
+    passing result dicts from older code paths (missing new Phase 67 keys) will
+    still get clean output without KeyError.
+    """
     lines = []
 
-    if result['hard_rejects']:
+    if result.get('hard_rejects'):
         lines.append("  " + "!" * 50)
         lines.append("  *** REJECTED — DO NOT PUBLISH ***")
         lines.append("  " + "!" * 50)
@@ -471,48 +476,49 @@ def format_result(result: dict) -> str:
             lines.append(f"  REASON: {reason}")
         lines.append("")
 
-    # DB / niche enrichment status
-    if result.get('niche_enriched'):
-        source_line = (
-            f"  Source:  niche benchmark (fallback — {result['fallback_warning']})"
-        )
-    elif result.get('db_enriched'):
-        source_line = "  Source:  DB-enriched (base score from live CTR data)"
-    else:
-        source_line = "  Source:  static scores (run python -m tools.ctr_ingest first)"
-
-    topic_target = result.get('topic_type_target', {})
-    topic_line = (
-        f"  Topic:   {result.get('detected_topic', '?')} "
-        f"(pass={topic_target.get('pass', '?')}, good={topic_target.get('good', '?')})"
-    )
+    # Score line — append niche percentile label when present (BENCH-01)
+    niche_label = result.get('niche_percentile_label', '')
+    score_line = f"  Score:   {result['score']}/100 ({result['grade']})"
+    if niche_label:
+        score_line = f"{score_line} — {niche_label}"
 
     lines.extend([
         f"  Title:   {result['title']}",
-        f"  Score:   {result['score']}/100 ({result['grade']})",
-        f"  Pattern: {result['pattern']} (base: {result['base_score']})",
-        f"  Length:  {result['length']} chars",
-        topic_line,
-        source_line,
+        score_line,
+        f"  Pattern: {result['pattern']} (base: {result.get('base_score', '?')})",
+        f"  Length:  {result.get('length', len(result['title']))} chars",
     ])
 
-    niche_label = result.get('niche_percentile_label', '')
-    if niche_label:
-        lines.append(f"  Niche:   {niche_label}")
+    # Topic line — only when there is a gap to show (grade below B) (BENCH-03)
+    topic_target = result.get('topic_type_target', {})
+    gap_msg = topic_target.get('gap_message', '')
+    if gap_msg:
+        detected_topic = result.get('detected_topic', '?')
+        lines.append(f"  Topic:   {detected_topic} — {gap_msg}")
 
-    if result['penalties']:
+    # Source line — DB takes priority label over niche (BENCH-02)
+    if result.get('db_enriched'):
+        source_line = "  Source:  DB-enriched (base score from live CTR data)"
+    elif result.get('niche_enriched'):
+        source_line = "  Source:  niche benchmark (competitor data)"
+    else:
+        source_line = "  Source:  static scores (run python -m tools.ctr_ingest first)"
+    lines.append(source_line)
+
+    # Fallback warning — separate Notice line after Source (BENCH-02)
+    fallback_warning = result.get('fallback_warning')
+    if fallback_warning:
+        lines.append(f"  Notice:  {fallback_warning}")
+
+    if result.get('penalties'):
         for desc, val in result['penalties']:
             lines.append(f"  Penalty: {desc} ({val:+d})")
 
-    if result['bonuses']:
+    if result.get('bonuses'):
         for desc, val in result['bonuses']:
             lines.append(f"  Bonus:   {desc} ({val:+d})")
 
-    gap_msg = topic_target.get('gap_message', '')
-    if gap_msg:
-        lines.append(f"  Gap:     {gap_msg}")
-
-    if result['suggestions']:
+    if result.get('suggestions'):
         lines.append("  Fix:")
         for s in result['suggestions']:
             lines.append(f"    - {s}")
@@ -606,8 +612,9 @@ if __name__ == '__main__':
     results.sort(key=lambda x: -x['score'])
 
     db_label = " (DB-enriched)" if db_path else " (static scores)"
+    topic_label = f", topic: {args.topic}" if args.topic else ""
     print("\n" + "=" * 60)
-    print(f"  TITLE SCORER — History vs Hype{db_label}")
+    print(f"  TITLE SCORER — History vs Hype{db_label}{topic_label}")
     print("=" * 60)
 
     for i, r in enumerate(results, 1):
