@@ -11,11 +11,10 @@
 
 Across 4 format-matched channels, 22 verified hooks were extracted from outlier and high-performing videos (2x+ median views).
 
+- **contextual_opening**: 8 examples
 - **cold_fact**: 7 examples
-- **contextual_opening**: 5 examples
 - **myth_contradiction**: 4 examples
-- **other**: 4 examples
-- **specificity_bomb**: 2 examples
+- **specificity_bomb**: 3 examples
 
 **Key finding:** 4 of Kraut's high-performing videos open with sponsor reads — the actual hook is delayed. This means the algorithm-facing hook (title + thumbnail) does all the work before the video-level hook engages.
 
@@ -65,15 +64,19 @@ Across 4 format-matched channels, 22 verified hooks were extracted from outlier 
 
 **Description:** Opens with a hyper-specific named detail — a place, a person, a document — that signals primary source access.
 
-**Topic distribution:** territorial (2)
+**Topic distribution:** territorial (3)
 
 ### First-sentence examples (verified from YouTube transcripts)
 
-1. **Channel:** Toldinstone (690,177 views, 6.2x median)
+1. **Channel:** Kraut (1,930,770 views, 2.8x median)
+   **Video:** The Mexican American Border | A Tale of two Colonies
+   **Hook:** "in arizona's southern county of santa cruz you will find the city of nogales at first glance an average american city with a population of slightly over twenty thousand most of these are families of which the median income lies at almost thirty thousand dollars a year the average age is thirty four"
+
+2. **Channel:** Toldinstone (690,177 views, 6.2x median)
    **Video:** How did the Egyptians forget Hieroglyphs?
    **Hook:** "Here in the temple of Isis at Fel is the last hieroglyphic inscription ever written. It reads, "Before Mandulus, son of Horus, by the hand of Nesmetar, son of Nesmet, the second priest of Isis for all time and eternity. Words spoken by Mandulus, Lord of the Abaton, great God." The demonic panel bene"
 
-2. **Channel:** Toldinstone (330,401 views, 3.0x median)
+3. **Channel:** Toldinstone (330,401 views, 3.0x median)
    **Video:** Why isn't Roman Concrete used today?
    **Hook:** "I'm Garrett Ryan this is toen Stone Roman concrete redefined architecture it allowed towering apartment blocks to rise with Incredible speed it made break Waters that defied the waves it supported the Colossal vaults of the Imperial bads and the Dome of the pantheon all of this was made possible by"
 
@@ -109,7 +112,7 @@ Across 4 format-matched channels, 22 verified hooks were extracted from outlier 
 
 **Description:** Opens with a broad contextual question or observation that sets the frame before narrowing.
 
-**Topic distribution:** ideological (2), territorial (2), political_fact_check (1)
+**Topic distribution:** ideological (4), territorial (3), political_fact_check (1)
 
 ### First-sentence examples (verified from YouTube transcripts)
 
@@ -129,33 +132,19 @@ Across 4 format-matched channels, 22 verified hooks were extracted from outlier 
    **Video:** India & Pakistan - A continuing Story
    **Hook:** "cars dominate the world of personal transport the industry sectors built around them are so large that they are their own category of geopolitical power players for the first half of the 20th century the americans dominated that market they invented the concept of the assembly line at which the car"
 
-5. **Channel:** Kraut (1,847,881 views, 2.7x median)
-   **Video:** The Origins of Russian Authoritarianism
-   **Hook:** "nomadic empires were some of the most fascinating entities in human history originating from the steps of central asia most lived in isolation unbothered by neighbouring empires who saw their lands as worthless this isolation allowed many nomadic tribes to specialize increasingly in nomadic life and"
-
----
-
-## Pattern: other
-
-**Description:** Hooks that don't fit neatly into the above categories.
-
-**Topic distribution:** territorial (2), ideological (2)
-
-### First-sentence examples (verified from YouTube transcripts)
-
-1. **Channel:** Knowing Better (2,541,338 views, 3.2x median)
+5. **Channel:** Knowing Better (2,541,338 views, 3.2x median)
    **Video:** They Were Just in the Way | Indian Removal
    **Hook:** "Well, it’s that time of year again, the kids are back in school and are learning about Columbus, the Pilgrims, and the founding of our nation. Growing up in the United States and then becoming a high school history teacher, I’ve both learned and taught that story at least a dozen times over the cour"
 
-2. **Channel:** Kraut (1,930,770 views, 2.8x median)
-   **Video:** The Mexican American Border | A Tale of two Colonies
-   **Hook:** "in arizona's southern county of santa cruz you will find the city of nogales at first glance an average american city with a population of slightly over twenty thousand most of these are families of which the median income lies at almost thirty thousand dollars a year the average age is thirty four"
-
-3. **Channel:** Knowing Better (1,871,615 views, 2.4x median)
+6. **Channel:** Knowing Better (1,871,615 views, 2.4x median)
    **Video:** Temporary Residents in this World | Jehovah's Witnesses
    **Hook:** "Youtube gurus like to- [Clears throat] Youtube gurus often target smaller channels with promises of exponential channel growth. [Skype ringtone] Who even uses Skype anymore? What?... Hello?"
 
-4. **Channel:** Knowing Better (1,728,976 views, 2.2x median)
+7. **Channel:** Kraut (1,847,881 views, 2.7x median)
+   **Video:** The Origins of Russian Authoritarianism
+   **Hook:** "nomadic empires were some of the most fascinating entities in human history originating from the steps of central asia most lived in isolation unbothered by neighbouring empires who saw their lands as worthless this isolation allowed many nomadic tribes to specialize increasingly in nomadic life and"
+
+8. **Channel:** Knowing Better (1,728,976 views, 2.2x median)
    **Video:** God's Alternative Medicine | Christian Science
    **Hook:** "Over the course of this channel’s existence, I’ve become something of a scholar of American-born religions, and one in particular seems to keep popping up in those discussions. So, today – Hey! The people have spoken, it’s time for another religion video."
 

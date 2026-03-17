@@ -100,12 +100,18 @@ def classify_hook_pattern(hook_text):
     if any(m in h[:200] for m in contradiction_markers):
         return "myth_contradiction"
 
-    # authority_challenge: Names specific authority and challenges
+    # authority_challenge: Names specific authority, opens with bold claim, or quotes authority figure
     if re.search(r'(historians|economists|experts|scholars|scientists).*(wrong|incomplete|arguing|failure)', h[:300]):
         return "authority_challenge"
+    # Bold opening claims that challenge consensus (e.g., Orwell quote)
+    if re.match(r'^(pacifism is|the standard case|every serious)', h):
+        return "authority_challenge"
 
-    # specificity_bomb: Opens with hyper-specific named detail
+    # specificity_bomb: Opens with hyper-specific named detail (place, person, document)
     if re.match(r'^(here in |london,|i\'m standing|the (sykes|aztec|cookbook|federal))', h):
+        return "specificity_bomb"
+    # Named geographic locations as opening anchor
+    if re.match(r'^in [a-z]+\'?s?\s+(southern|northern|eastern|western|central)', h):
         return "specificity_bomb"
 
     # Check for proper nouns in first sentence
@@ -113,8 +119,9 @@ def classify_hook_pattern(hook_text):
     if re.search(r'[A-Z][a-z]+\s+[A-Z][a-z]+', hook_text[:100]):  # Two+ proper nouns
         return "specificity_bomb"
 
-    # Default: check if it opens with context/abstract
-    if h.startswith(("what ", "when you ", "somewhere ", "cars ", "nomadic ", "pacifism ")):
+    # contextual_opening: Broad philosophical/contextual frame before narrowing
+    if h.startswith(("what ", "when you ", "somewhere ", "cars ", "nomadic ",
+                     "well,", "over the course", "youtube gurus")):
         return "contextual_opening"
 
     return "other"
