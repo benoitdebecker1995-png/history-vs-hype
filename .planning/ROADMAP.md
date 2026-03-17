@@ -145,7 +145,7 @@
 - [x] Phase 51: Logging & CLI Standardization (3/3 plans)
 - [x] Phase 52: Database Hardening (2/2 plans)
 - [x] Phase 53: Integration Testing (2/2 plans)
-- [x] Phase 54: External Intelligence Synthesis (2/4 plans — gap closure) (completed 2026-03-16)
+- [x] Phase 54: External Intelligence Synthesis (2/4 plans — gap closure) (completed 2026-03-16)
 
 </details>
 
@@ -191,7 +191,9 @@
   2. `channel-data/niche-hook-patterns.md` documents first-sentence linguistic examples from outlier videos, distinguishing click triggers from documentary narration
   3. `.claude/REFERENCE/HOOK-PATTERN-LIBRARY.md` exists structured for agent consumption with examples drawn at least 50% from channels with 100K+ subscribers
   4. ctr_tracker.py has been run and CTR snapshots are confirmed fresh (post-2026-03-01 collection date) before any scorer rewrite begins
-**Plans**: TBD
+**Plans:** 1 plan
+Plans:
+- [ ] 66-01-PLAN.md — CTR refresh, channel discovery, benchmark JSON, hook pattern analysis, and user review
 
 ### Phase 67: Title Scorer Recalibration
 **Goal**: Users get a title score anchored to what top edu/history channels actually achieve, breaking the self-referential loop where "passing" was calibrated against the channel's own low-CTR data
@@ -306,7 +308,7 @@
 | 63. v6.0 Gap Closure & Tech Debt | v6.0 | 1/1 | Complete | 2026-03-15 |
 | 64. MCP Server Evaluation | v6.0 | 2/2 | Complete | 2026-03-15 |
 | 65. Automated CTR Feedback Loop | v6.0 | 1/1 | Complete | 2026-03-15 |
-| 66. External Benchmark Research | v7.0 | 0/? | Not started | - |
+| 66. External Benchmark Research | v7.0 | 0/1 | Planning complete | - |
 | 67. Title Scorer Recalibration | v7.0 | 0/? | Not started | - |
 | 68. Title Generation Upgrade | v7.0 | 0/? | Not started | - |
 | 69. Hook Quality Upgrade | v7.0 | 0/? | Not started | - |
