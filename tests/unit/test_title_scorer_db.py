@@ -112,12 +112,15 @@ class TestScoreTitleDbPath:
 
     def test_uses_db_derived_score_when_pattern_in_db(self):
         """
-        score_title() with db_path uses DB-derived base score when pattern has data.
+        score_title() with db_path uses DB-derived base score when pattern has enough data.
+        Phase 67: threshold raised to 5 samples (niche fallback triggers for n < 5).
+        Use n=5 to ensure own-channel data is used directly.
         """
         from tools.title_scorer import score_title
 
         # Create DB with declarative titles at 5.0% CTR -> score = int(5.0 * 17) = 85
-        path = _create_test_db_with_data(declarative_ctr=5.0, n_declarative=3)
+        # Use n=5 so own-channel sample count meets the threshold (>= 5 = no niche fallback)
+        path = _create_test_db_with_data(declarative_ctr=5.0, n_declarative=5)
         try:
             result = score_title("France Conquered Haiti Debt Payment", db_path=path)
             assert result["db_enriched"] is True
@@ -149,17 +152,20 @@ class TestScoreTitleDbPath:
 
     def test_invalid_db_path_falls_back_silently(self):
         """
-        score_title() with invalid/non-existent db_path uses static scores (no crash).
+        score_title() with invalid/non-existent db_path uses static or niche scores (no crash).
+        Phase 67: with invalid db_path, own_sample_count=0 (<5), so niche fallback kicks in
+        if niche_benchmark.json is present. db_enriched stays False (no DB used).
         """
-        from tools.title_scorer import score_title, PATTERN_SCORES
+        from tools.title_scorer import score_title
 
         result = score_title(
             "France Conquered Haiti Debt Payment",
             db_path="/nonexistent/path/db.db"
         )
         assert result["pattern"] == "declarative"
-        assert result["base_score"] == PATTERN_SCORES["declarative"]
+        # db_enriched is always False when DB path is invalid
         assert result["db_enriched"] is False
+        # No crash — function returns gracefully
 
     def test_hard_rejects_still_apply_with_db_path(self):
         """
@@ -201,10 +207,12 @@ class TestScoreTitleDbPath:
         assert required_keys.issubset(result.keys())
 
     def test_db_base_score_populated_when_db_used(self):
-        """db_base_score is the DB-derived score (not None) when DB data available."""
+        """db_base_score is the DB-derived score (not None) when DB data available.
+        Phase 67: use n=5 to meet own-channel sample threshold (>= 5 = no niche fallback).
+        """
         from tools.title_scorer import score_title
 
-        path = _create_test_db_with_data(declarative_ctr=4.0, n_declarative=3)
+        path = _create_test_db_with_data(declarative_ctr=4.0, n_declarative=5)
         try:
             result = score_title("France Conquered Haiti Debt Payment", db_path=path)
             assert result["db_enriched"] is True

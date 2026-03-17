@@ -15,17 +15,27 @@ Scores titles 0-100 based on measured CTR from POST-PUBLISH-ANALYSIS files.
     All CTR snapshots are from a single collection date (2026-02-23).
     Use for directional guidance, not precision targeting.
 
+Phase 67 recalibration:
+    - Added niche benchmark layer (Phase 66 competitor data from channel-data/niche_benchmark.json)
+    - Added topic-type grade thresholds (territorial pass=50, political_fact_check pass=75)
+    - Added small-sample fallback: when own-channel n < 5, substitute niche benchmark base score
+    - Added niche percentile label for context display
+    - Grade thresholds now topic-aware (via benchmark_store.TOPIC_GRADE_THRESHOLDS)
+    - Backward compatible: no new required args, no existing keys renamed
+
 Usage:
     python -m tools.title_scorer "Your Title Here"
     python -m tools.title_scorer "Title A" "Title B" "Title C"
     python -m tools.title_scorer --file titles.txt
     python -m tools.title_scorer "Title Here" --db           # DB-enriched scoring
+    python -m tools.title_scorer "Title Here" --db --topic territorial  # Topic-aware grading
     python -m tools.title_scorer --ingest                    # Ingest CTR from synthesis file
 """
 
 import re
 import sys
 from pathlib import Path
+from typing import Optional
 
 
 # =============================================================================
@@ -50,6 +60,10 @@ PATTERN_SCORES = {
     'the_x_that': 10,    # No current data — assumed worst from prior retitling
 }
 
+# Re-export for consumers who import from title_scorer
+# (benchmark_store is the authoritative source; this is a convenience alias)
+from tools.benchmark_store import TOPIC_GRADE_THRESHOLDS  # noqa: E402
+
 # Penalty/bonus modifiers (all measured from real channel data)
 YEAR_PENALTY = -50          # HARD REJECT: Year in title = -45.6% CTR (n=6 vs n=27)
 COLON_PENALTY = -50         # HARD REJECT: Colon structure = -28.1% CTR (n=9 vs n=26)
@@ -59,6 +73,9 @@ LENGTH_PENALTY_SHORT = -5   # Too short = vague
 LENGTH_PENALTY_LONG = -10   # Too long = truncated on mobile
 SPECIFIC_NUMBER_BONUS = 10  # Specific numbers in title improve CTR
 ACTIVE_VERB_BONUS = 5       # Active verbs = +4.5% CTR (n=4 vs n=29, weak but positive)
+
+# Minimum own-channel sample count before niche fallback is triggered (BENCH-02)
+_OWN_CHANNEL_MIN_SAMPLE = 5
 
 
 def detect_pattern(title: str) -> str:
@@ -112,28 +129,156 @@ def has_active_verb(title: str) -> bool:
     return any(v in t for v in active_verbs)
 
 
-def score_title(title: str, db_path: str = None) -> dict:
+def _get_pattern_sample_count(db_path: str, pattern: str) -> int:
     """
-    Score a title candidate 0-100.
+    Return the number of own-channel videos in the DB for a given title pattern.
+
+    Uses the same query logic as title_ctr_store: joins ctr_snapshots with
+    video_performance, picks latest non-zero CTR snapshot per video, then
+    detects the pattern for each title.
+
+    Returns 0 on any failure (missing DB, schema error, import error, etc.).
+    Never raises.
+    """
+    try:
+        import sqlite3
+        conn = sqlite3.connect(db_path)
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        cursor.execute(
+            """
+            SELECT vp.title
+            FROM video_performance vp
+            JOIN ctr_snapshots cs ON cs.video_id = vp.video_id
+            WHERE cs.ctr_percent > 0
+              AND vp.title IS NOT NULL
+              AND cs.snapshot_date = (
+                  SELECT MAX(cs2.snapshot_date)
+                  FROM ctr_snapshots cs2
+                  WHERE cs2.video_id = vp.video_id
+                    AND cs2.ctr_percent > 0
+              )
+            """
+        )
+        rows = cursor.fetchall()
+        conn.close()
+    except Exception:
+        return 0
+
+    count = sum(1 for row in rows if detect_pattern(row["title"]) == pattern)
+    return count
+
+
+def _niche_percentile_label(final: int, pattern: str, niche_data: Optional[dict]) -> str:
+    """
+    Compare final score against niche median for the pattern.
+
+    Returns a human-readable label describing where the title falls in the niche.
+    Returns empty string if niche_data is None or pattern not found.
+
+    Labels:
+        "top third of niche"     — final >= 1.5x niche median score
+        "above niche median"     — final >= niche median score
+        "below niche median"     — final >= 0.5x niche median score
+        "bottom quartile of niche" — final < 0.5x niche median score
+    """
+    if niche_data is None:
+        return ""
+
+    by_pattern = niche_data.get("by_pattern", {})
+    entry = by_pattern.get(pattern)
+    if entry is None:
+        return ""
+
+    try:
+        from tools.benchmark_store import _vps_to_score
+        median_score = _vps_to_score(entry["median_vps"])
+    except Exception:
+        return ""
+
+    if median_score <= 0:
+        return ""
+
+    if final >= int(median_score * 1.5):
+        return "top third of niche"
+    elif final >= median_score:
+        return "above niche median"
+    elif final >= int(median_score * 0.5):
+        return "below niche median"
+    else:
+        return "bottom quartile of niche"
+
+
+def score_title(title: str, db_path: str = None, topic_type: str = None) -> dict:
+    """
+    Score a title candidate 0-100 with niche benchmark context and topic-type grading.
 
     Args:
-        title: YouTube title candidate string.
-        db_path: Optional path to keywords.db. When provided, pattern base scores
-                 are sourced from real CTR data (if sufficient samples exist).
-                 Falls back silently to static PATTERN_SCORES when DB is unavailable
-                 or the pattern has insufficient data. Pass None (default) for
-                 fully static scoring — backward-compatible behavior.
+        title:      YouTube title candidate string.
+        db_path:    Optional path to keywords.db. When provided, pattern base scores
+                    are sourced from real CTR data (if sufficient samples exist).
+                    When own-channel sample count < 5 for this pattern AND niche data
+                    is available, the niche benchmark score is substituted as base
+                    (BENCH-02: small-sample fallback). Falls back silently to static
+                    PATTERN_SCORES when DB unavailable. Pass None (default) for
+                    fully static scoring — backward-compatible behavior.
+        topic_type: Optional topic type string (e.g., 'territorial',
+                    'political_fact_check'). When None, auto-detected from title
+                    using classify_topic_type() from performance.py, then normalized
+                    via benchmark_store.normalize_topic_type(). Pass explicitly to
+                    override auto-detection.
 
     Returns:
-        Dict with score, breakdown, and suggestions. Includes two additional keys
-        vs the static-only version:
-        - db_enriched (bool): True if a DB-derived base score was used.
-        - db_base_score (int|None): The DB-derived score, or None if not used.
+        Dict with score, breakdown, and suggestions. New keys vs Phase 66:
+        - niche_enriched (bool): True if niche benchmark base score was used.
+        - niche_base_score (int|None): The niche-derived score, or None.
+        - fallback_warning (str|None): Message when niche substitution happened.
+        - detected_topic (str): Normalized topic type used for grading.
+        - topic_type_target (dict): {'pass', 'good', 'gap_message'} for the topic.
+        - niche_percentile_label (str): Where title falls in niche, or empty str.
+
+    Backward-compatibility note:
+        When db_path=None and topic_type=None, grade thresholds use 'general'
+        defaults (pass=60, good=70) mapping to A=85+, B=70+, C=60+, D=45+.
+        This is a slight shift from v1 (A=80, B=65, C=50, D=35) and is an
+        intentional recalibration per BENCH-01 (raise bar to niche standard).
     """
     title = title.strip()
     pattern = detect_pattern(title)
 
-    # Attempt to load DB overrides when db_path is provided
+    # ------------------------------------------------------------------
+    # 1. Topic type detection
+    # ------------------------------------------------------------------
+    from tools.benchmark_store import (
+        normalize_topic_type,
+        get_topic_thresholds,
+        get_niche_score,
+        load as _bs_load,
+    )
+
+    if topic_type is not None:
+        # Caller-supplied: normalize to niche taxonomy
+        normalized_topic = normalize_topic_type(topic_type)
+    else:
+        # Auto-detect using performance.py classify_topic_type()
+        try:
+            from tools.youtube_analytics.performance import classify_topic_type
+            raw_topic = classify_topic_type(title)
+        except Exception:
+            raw_topic = 'general'
+        normalized_topic = normalize_topic_type(raw_topic)
+
+    thresholds = get_topic_thresholds(normalized_topic)
+
+    # ------------------------------------------------------------------
+    # 2. Load niche benchmark data (for base score and percentile label)
+    # ------------------------------------------------------------------
+    niche_data = _bs_load()
+    niche_base_score_for_pattern = get_niche_score(pattern, niche_data)
+
+    # ------------------------------------------------------------------
+    # 3. Own-channel DB lookup (existing logic)
+    # ------------------------------------------------------------------
     db_overrides = {}
     if db_path is not None:
         try:
@@ -144,8 +289,40 @@ def score_title(title: str, db_path: str = None) -> dict:
 
     db_base_score = db_overrides.get(pattern)  # None if not in DB
     db_enriched = db_base_score is not None
-    base = db_base_score if db_enriched else PATTERN_SCORES.get(pattern, 50)
 
+    # ------------------------------------------------------------------
+    # 4. Small-sample fallback (BENCH-02)
+    #    When db_path provided AND own-channel n < _OWN_CHANNEL_MIN_SAMPLE
+    #    AND niche base score is available: substitute niche score as base.
+    # ------------------------------------------------------------------
+    fallback_warning: Optional[str] = None
+    niche_enriched = False
+    niche_base_score = niche_base_score_for_pattern  # informational (may be None)
+
+    if db_path is not None:
+        own_sample_count = _get_pattern_sample_count(db_path, pattern)
+        if own_sample_count < _OWN_CHANNEL_MIN_SAMPLE and niche_base_score_for_pattern is not None:
+            # Substitute niche benchmark as base score
+            base = niche_base_score_for_pattern
+            niche_enriched = True
+            fallback_warning = (
+                f"Using niche benchmark (only {own_sample_count} internal examples, "
+                f"need {_OWN_CHANNEL_MIN_SAMPLE})"
+            )
+            # Override db_enriched: own-channel base is being replaced by niche
+            db_enriched = False
+            db_base_score = None
+        elif db_enriched:
+            base = db_base_score
+        else:
+            base = PATTERN_SCORES.get(pattern, 50)
+    else:
+        # Static mode (no db_path): use PATTERN_SCORES; niche data is context only
+        base = PATTERN_SCORES.get(pattern, 50)
+
+    # ------------------------------------------------------------------
+    # 5. Penalties, bonuses, hard rejects
+    # ------------------------------------------------------------------
     penalties = []
     bonuses = []
     hard_rejects = []
@@ -156,6 +333,9 @@ def score_title(title: str, db_path: str = None) -> dict:
         penalties.append(('HARD REJECT: Year in title', YEAR_PENALTY))
 
     # HARD REJECT: Colon in title
+    # NOTE: Do NOT use niche colon data (0.776 VPS) to soften this penalty.
+    # That figure is inflated by pipe-style titles (Knowing Better/Kraut).
+    # Own-channel measurement = -28.1% CTR penalty (HIGH confidence, n=9).
     if ':' in title:
         hard_rejects.append('COLON detected — -28.1% CTR. Use period or em-dash.')
         penalties.append(('HARD REJECT: Colon in title', COLON_PENALTY if pattern == 'colon' else COLON_PENALTY // 2))
@@ -180,26 +360,68 @@ def score_title(title: str, db_path: str = None) -> dict:
     if has_active_verb(title):
         bonuses.append(('Active verb (creates tension)', ACTIVE_VERB_BONUS))
 
-    # Calculate final score
+    # ------------------------------------------------------------------
+    # 6. Final score
+    # ------------------------------------------------------------------
     total_penalties = sum(p[1] for p in penalties)
     total_bonuses = sum(b[1] for b in bonuses)
     final = max(0, min(100, base + total_penalties + total_bonuses))
 
-    # Grade — hard rejects override everything
+    # ------------------------------------------------------------------
+    # 7. Topic-aware grade
+    #
+    # Grade boundaries (all relative to topic thresholds):
+    #   REJECTED: hard_rejects present — overrides everything
+    #   A:        final >= thresholds['good'] + 15  (aspirational high)
+    #   B:        final >= thresholds['good']
+    #   C:        final >= thresholds['pass']
+    #   D:        final >= thresholds['pass'] - 15
+    #   F:        below D
+    #
+    # territorial:          A=80, B=65, C=50, D=35
+    # ideological:          A=85, B=70, C=60, D=45
+    # political_fact_check: A=100, B=85, C=75, D=60
+    # general:              A=85, B=70, C=60, D=45
+    # ------------------------------------------------------------------
+    _pass = thresholds['pass']
+    _good = thresholds['good']
+
     if hard_rejects:
         grade = 'REJECTED'
-    elif final >= 80:
+    elif final >= _good + 15:
         grade = 'A'
-    elif final >= 65:
+    elif final >= _good:
         grade = 'B'
-    elif final >= 50:
+    elif final >= _pass:
         grade = 'C'
-    elif final >= 35:
+    elif final >= _pass - 15:
         grade = 'D'
     else:
         grade = 'F'
 
-    # Suggestions
+    # Gap message: shown when title is below B grade
+    if grade in ('C', 'D', 'F'):
+        gap_message = (
+            f"{normalized_topic} topics need score {_good}+ for B "
+            f"(currently {final})"
+        )
+    else:
+        gap_message = ""
+
+    topic_type_target = {
+        'pass': _pass,
+        'good': _good,
+        'gap_message': gap_message,
+    }
+
+    # ------------------------------------------------------------------
+    # 8. Niche percentile label (BENCH-01)
+    # ------------------------------------------------------------------
+    niche_percentile_label = _niche_percentile_label(final, pattern, niche_data)
+
+    # ------------------------------------------------------------------
+    # 9. Suggestions
+    # ------------------------------------------------------------------
     suggestions = []
     if has_year(title):
         suggestions.append('Remove the year — 43.7% CTR penalty')
@@ -227,6 +449,13 @@ def score_title(title: str, db_path: str = None) -> dict:
         'hard_rejects': hard_rejects,
         'db_enriched': db_enriched,
         'db_base_score': db_base_score,
+        # New in Phase 67
+        'niche_enriched': niche_enriched,
+        'niche_base_score': niche_base_score,
+        'fallback_warning': fallback_warning,
+        'detected_topic': normalized_topic,
+        'topic_type_target': topic_type_target,
+        'niche_percentile_label': niche_percentile_label,
     }
 
 
@@ -242,19 +471,34 @@ def format_result(result: dict) -> str:
             lines.append(f"  REASON: {reason}")
         lines.append("")
 
-    # DB enrichment status line
-    if result.get('db_enriched'):
-        source_line = f"  Source:  DB-enriched (base score from live CTR data)"
+    # DB / niche enrichment status
+    if result.get('niche_enriched'):
+        source_line = (
+            f"  Source:  niche benchmark (fallback — {result['fallback_warning']})"
+        )
+    elif result.get('db_enriched'):
+        source_line = "  Source:  DB-enriched (base score from live CTR data)"
     else:
         source_line = "  Source:  static scores (run python -m tools.ctr_ingest first)"
+
+    topic_target = result.get('topic_type_target', {})
+    topic_line = (
+        f"  Topic:   {result.get('detected_topic', '?')} "
+        f"(pass={topic_target.get('pass', '?')}, good={topic_target.get('good', '?')})"
+    )
 
     lines.extend([
         f"  Title:   {result['title']}",
         f"  Score:   {result['score']}/100 ({result['grade']})",
         f"  Pattern: {result['pattern']} (base: {result['base_score']})",
         f"  Length:  {result['length']} chars",
+        topic_line,
         source_line,
     ])
+
+    niche_label = result.get('niche_percentile_label', '')
+    if niche_label:
+        lines.append(f"  Niche:   {niche_label}")
 
     if result['penalties']:
         for desc, val in result['penalties']:
@@ -263,6 +507,10 @@ def format_result(result: dict) -> str:
     if result['bonuses']:
         for desc, val in result['bonuses']:
             lines.append(f"  Bonus:   {desc} ({val:+d})")
+
+    gap_msg = topic_target.get('gap_message', '')
+    if gap_msg:
+        lines.append(f"  Gap:     {gap_msg}")
 
     if result['suggestions']:
         lines.append("  Fix:")
@@ -281,6 +529,7 @@ if __name__ == '__main__':
             'Examples:\n'
             '  python -m tools.title_scorer "France vs Haiti"\n'
             '  python -m tools.title_scorer "Title A" "Title B" --db\n'
+            '  python -m tools.title_scorer "France Divided Haiti" --db --topic territorial\n'
             '  python -m tools.title_scorer --file titles.txt --db\n'
             '  python -m tools.title_scorer --ingest\n'
         ),
@@ -292,6 +541,14 @@ if __name__ == '__main__':
         '--db',
         action='store_true',
         help='Use DB-enriched scoring (reads keywords.db for live CTR pattern scores)',
+    )
+    parser.add_argument(
+        '--topic',
+        default=None,
+        help=(
+            'Topic type for grade thresholds: territorial, ideological, '
+            'political_fact_check, general (auto-detected when omitted)'
+        ),
     )
     parser.add_argument(
         '--ingest',
@@ -345,7 +602,7 @@ if __name__ == '__main__':
         parser.print_help()
         sys.exit(0)
 
-    results = [score_title(t, db_path=db_path) for t in titles]
+    results = [score_title(t, db_path=db_path, topic_type=args.topic) for t in titles]
     results.sort(key=lambda x: -x['score'])
 
     db_label = " (DB-enriched)" if db_path else " (static scores)"
