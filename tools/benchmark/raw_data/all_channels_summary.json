@@ -1,0 +1,72 @@
+{
+  "Kraut": {
+    "subscriber_count": 604000,
+    "format_match": "HIGH",
+    "videos_analyzed": 48,
+    "median_views": 685859,
+    "outlier_count": 4,
+    "outlier_titles": [
+      "Trump's Biggest Failure",
+      "How Vodka ruined Russia",
+      "The Turkish Century | From Hittites to Atat\u00fcrk",
+      "India & Pakistan - A continuing Story"
+    ],
+    "hooks_extracted": 0,
+    "hooks_failed": 4
+  },
+  "Knowing Better": {
+    "subscriber_count": 952000,
+    "format_match": "HIGH",
+    "videos_analyzed": 50,
+    "median_views": 787808,
+    "outlier_count": 3,
+    "outlier_titles": [
+      "The Part of History You've Always Skipped | Neoslavery",
+      "American Exceptionalism but as a Religion | Mormons",
+      "They Were Just in the Way | Indian Removal"
+    ],
+    "hooks_extracted": 0,
+    "hooks_failed": 3
+  },
+  "Toldinstone": {
+    "subscriber_count": 619000,
+    "format_match": "HIGH",
+    "videos_analyzed": 50,
+    "median_views": 111540,
+    "outlier_count": 2,
+    "outlier_titles": [
+      "Why Roman Cities were Abandoned in the Middle Ages",
+      "How did the Egyptians forget Hieroglyphs?"
+    ],
+    "hooks_extracted": 0,
+    "hooks_failed": 2
+  },
+  "Fall of Civilizations": {
+    "subscriber_count": 1460000,
+    "format_match": "HIGH",
+    "videos_analyzed": 43,
+    "median_views": 3319199,
+    "outlier_count": 5,
+    "outlier_titles": [
+      "8. The Sumerians - Fall of the First Cities",
+      "13. The Assyrians - Empire of Iron",
+      "18. Egypt - Fall of the Pharaohs",
+      "17. Carthage - Empire of the Phoenicians",
+      "7. The Songhai Empire - Africa's Age of Gold"
+    ],
+    "hooks_extracted": 0,
+    "hooks_failed": 5
+  },
+  "RealLifeLore": {
+    "subscriber_count": 7910000,
+    "format_match": "TITLE_PATTERN_ONLY",
+    "videos_analyzed": 50,
+    "median_views": 1496052,
+    "outlier_count": 1,
+    "outlier_titles": [
+      "Why You Can't Travel Between Hawaii's Islands by Boat"
+    ],
+    "hooks_extracted": 0,
+    "hooks_failed": 0
+  }
+}

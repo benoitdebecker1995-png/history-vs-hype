@@ -1,0 +1,539 @@
+{
+  "name": "Kraut",
+  "subscriber_count": 604000,
+  "format_match": "HIGH",
+  "notes": "Talking head + animated maps, documentary essay",
+  "videos_analyzed": 48,
+  "median_views": 685859,
+  "outlier_threshold": 2057577,
+  "all_videos": [
+    {
+      "id": "BMs1Eq4ss-s",
+      "title": "A History of Hungary - From Nomads to Kings",
+      "view_count": 183057,
+      "like_count": 11643,
+      "duration": 1876,
+      "upload_date": "20251205",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "BE6kJoSc8j0",
+      "title": "A Critique of Cultural Determinism",
+      "view_count": 306248,
+      "like_count": 10413,
+      "duration": 10968,
+      "upload_date": "20251031",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "XPk-efest5M",
+      "title": "The Difference between Cultures and Institutions",
+      "view_count": 153994,
+      "like_count": 6538,
+      "duration": 2819,
+      "upload_date": "20250711",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "p6uxLHWVYRg",
+      "title": "Nuclear Weapons in the Trump/Putin Era",
+      "view_count": 297729,
+      "like_count": 15720,
+      "duration": 1902,
+      "upload_date": "20250526",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "TdSCf-tyBu4",
+      "title": "Poland confronts Belarus and Russia",
+      "view_count": 213078,
+      "like_count": 10739,
+      "duration": 1046,
+      "upload_date": "20250411",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "TYzd3QTekrE",
+      "title": "Poland builds an Alliance in Central Europe",
+      "view_count": 205006,
+      "like_count": 10671,
+      "duration": 1268,
+      "upload_date": "20250403",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "bWJeNVzqBZI",
+      "title": "The Failure of Ostpolitik",
+      "view_count": 195875,
+      "like_count": 11010,
+      "duration": 761,
+      "upload_date": "20250310",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "EgKMyou0YTY",
+      "title": "The Origins of Polish Realism",
+      "view_count": 165220,
+      "like_count": 9895,
+      "duration": 776,
+      "upload_date": "20250307",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "XjvrbnEMNVk",
+      "title": "The Origins of Ostpolitik",
+      "view_count": 199322,
+      "like_count": 10849,
+      "duration": 1151,
+      "upload_date": "20250227",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "RPri_ezfQaY",
+      "title": "The Triumph of German Bureaucracy",
+      "view_count": 221100,
+      "like_count": 11540,
+      "duration": 1291,
+      "upload_date": "20250211",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "oRBBoZdUyxY",
+      "title": "Germany | Bureaucracy and Militarism",
+      "view_count": 376499,
+      "like_count": 18017,
+      "duration": 1337,
+      "upload_date": "20240815",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "I5krZBe0Dck",
+      "title": "Estonia | The Digital State",
+      "view_count": 412369,
+      "like_count": 24523,
+      "duration": 1380,
+      "upload_date": "20240530",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "uVXgqZIsViI",
+      "title": "Eastern Europe is not real",
+      "view_count": 591411,
+      "like_count": 32549,
+      "duration": 1336,
+      "upload_date": "20240425",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "xD7MJcxQzKU",
+      "title": "The Origins of French Centralisation",
+      "view_count": 363976,
+      "like_count": 15929,
+      "duration": 1625,
+      "upload_date": "20240403",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "w5P1ailny8M",
+      "title": "Why Postwar matters",
+      "view_count": 265512,
+      "like_count": 16502,
+      "duration": 530,
+      "upload_date": "20240107",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "hA6y4o0-1XY",
+      "title": "After the War: Europe and Ukrainian Agriculture",
+      "view_count": 404281,
+      "like_count": 23777,
+      "duration": 751,
+      "upload_date": "20231130",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "rqs3ToZFpF8",
+      "title": "Can Poland into Space?",
+      "view_count": 316023,
+      "like_count": 17864,
+      "duration": 980,
+      "upload_date": "20231102",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "Iqe6VVdK4c8",
+      "title": "Neutrality in Europe after 2022",
+      "view_count": 995094,
+      "like_count": 42412,
+      "duration": 1823,
+      "upload_date": "20230511",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "XXmwyyKcBLk",
+      "title": "A Critique of Realism",
+      "view_count": 1400123,
+      "like_count": 46432,
+      "duration": 5428,
+      "upload_date": "20230217",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "KlF5ZQlC-Mg",
+      "title": "Imperial Legacies | From the Tomb of Alexander",
+      "view_count": 408111,
+      "like_count": 22696,
+      "duration": 801,
+      "upload_date": "20230120",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "vtymaSR3T48",
+      "title": "What even is Europe?",
+      "view_count": 759012,
+      "like_count": 34782,
+      "duration": 1116,
+      "upload_date": "20221230",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "NMP8yQHl6A8",
+      "title": "A Christmas giveaway with XPPen",
+      "view_count": 30244,
+      "like_count": 1756,
+      "duration": 299,
+      "upload_date": "20221220",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "YmP7HP-Tnfk",
+      "title": "The Danube and Europe's Future",
+      "view_count": 766028,
+      "like_count": 33805,
+      "duration": 1527,
+      "upload_date": "20221202",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "sdFtqa54TuM",
+      "title": "The Ideology of Putin's Russia",
+      "view_count": 1719520,
+      "like_count": 62354,
+      "duration": 3227,
+      "upload_date": "20221101",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "tzAcuVuk-2Q",
+      "title": "The Limits of Geographic Determinism",
+      "view_count": 449805,
+      "like_count": 23485,
+      "duration": 1080,
+      "upload_date": "20221028",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "TO7dvuDslJk",
+      "title": "The Myth of Racial Political Development",
+      "view_count": 492984,
+      "like_count": 30099,
+      "duration": 829,
+      "upload_date": "20221017",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "FmQd1doR_R4",
+      "title": "#\u0645\u0647\u0633\u0627_\u0627\u0645\u06cc\u0646\u06cc   #mahsaamini A message from Iran",
+      "view_count": 300862,
+      "like_count": 27247,
+      "duration": 548,
+      "upload_date": "20221002",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "wim0yAkEnOQ",
+      "title": "Why Saudi Arabia is doomed",
+      "view_count": 1669584,
+      "like_count": 66388,
+      "duration": 859,
+      "upload_date": "20220822",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "H03H73tdh6s",
+      "title": "How Christianity Destroyed the Tribal Family",
+      "view_count": 591729,
+      "like_count": 26576,
+      "duration": 1400,
+      "upload_date": "20220726",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "w38t-NhrADM",
+      "title": "The Folly of Liberal History",
+      "view_count": 878188,
+      "like_count": 38096,
+      "duration": 1940,
+      "upload_date": "20220630",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "NdKmOGMrzuM",
+      "title": "Kekkonens Nightmare",
+      "view_count": 685859,
+      "like_count": 36166,
+      "duration": 822,
+      "upload_date": "20220325",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "404IeUzGNZ4",
+      "title": "The Origins of the Greek debt crisis",
+      "view_count": 997854,
+      "like_count": 38875,
+      "duration": 1554,
+      "upload_date": "20220217",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "mExN99kHMB0",
+      "title": "How Denmark invented Social Democracy",
+      "view_count": 924233,
+      "like_count": 41644,
+      "duration": 1996,
+      "upload_date": "20211216",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "VCcX_xTLDIY",
+      "title": "Why Noam Chomsky is garbage",
+      "view_count": 884173,
+      "like_count": 47168,
+      "duration": 2471,
+      "upload_date": "20211026",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "7c4uO9ZGfbc",
+      "title": "China vs India | The State and the Society",
+      "view_count": 1698658,
+      "like_count": 55826,
+      "duration": 2978,
+      "upload_date": "20210930",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "f8ZqBLcIvw0",
+      "title": "The Origins of Russian Authoritarianism",
+      "view_count": 1847881,
+      "like_count": 69509,
+      "duration": 1268,
+      "upload_date": "20210820",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "3RD72deHti0",
+      "title": "How the Greeks created the first European State",
+      "view_count": 519485,
+      "like_count": 30116,
+      "duration": 1054,
+      "upload_date": "20210729",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "Uek04Jw15kY",
+      "title": "The Mexican American Border | From War to Wall",
+      "view_count": 1640307,
+      "like_count": 38239,
+      "duration": 7397,
+      "upload_date": "20210624",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "qmebxS8uQFk",
+      "title": "The Mexican American Border | Manifest Destinies",
+      "view_count": 1070445,
+      "like_count": 35560,
+      "duration": 4080,
+      "upload_date": "20210417",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "SPs6tjXsf7M",
+      "title": "The Mexican American Border | A Tale of two Colonies",
+      "view_count": 1930770,
+      "like_count": 65243,
+      "duration": 3978,
+      "upload_date": "20201230",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "KQQP2O6A9O4",
+      "title": "The Turkish Century | New Beginnings",
+      "view_count": 920285,
+      "like_count": 37569,
+      "duration": 3643,
+      "upload_date": "20200928",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "XgjiJHV8P0w",
+      "title": "The Turkish Century | From Hittites to Atat\u00fcrk",
+      "view_count": 3223249,
+      "like_count": 71714,
+      "duration": 6403,
+      "upload_date": "20200326",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "1kJf4krMY4A",
+      "title": "India & Pakistan - A continuing Story",
+      "view_count": 2715073,
+      "like_count": 74155,
+      "duration": 2879,
+      "upload_date": "20191230",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "uhXFgKEkwbU",
+      "title": "America's foreign Entanglement",
+      "view_count": 1654449,
+      "like_count": 56834,
+      "duration": 1420,
+      "upload_date": "20191127",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "hhMAt3BluAU",
+      "title": "Trump's Biggest Failure",
+      "view_count": 5375616,
+      "like_count": 190802,
+      "duration": 4162,
+      "upload_date": "20191016",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "L1iQUF1gQmI",
+      "title": "The Origins of American Gun Culture",
+      "view_count": 1650591,
+      "like_count": 68977,
+      "duration": 435,
+      "upload_date": "20190830",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "-TxSuYKxuNo",
+      "title": "illiberal democracies explained",
+      "view_count": 903346,
+      "like_count": 34538,
+      "duration": 993,
+      "upload_date": "20190810",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "vK7l55ZOVIc",
+      "title": "How Vodka ruined Russia",
+      "view_count": 4779695,
+      "like_count": 175435,
+      "duration": 587,
+      "upload_date": "20190802",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    }
+  ],
+  "outliers": [
+    {
+      "id": "hhMAt3BluAU",
+      "title": "Trump's Biggest Failure",
+      "view_count": 5375616,
+      "like_count": 190802,
+      "duration": 4162,
+      "upload_date": "20191016",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "vK7l55ZOVIc",
+      "title": "How Vodka ruined Russia",
+      "view_count": 4779695,
+      "like_count": 175435,
+      "duration": 587,
+      "upload_date": "20190802",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "XgjiJHV8P0w",
+      "title": "The Turkish Century | From Hittites to Atat\u00fcrk",
+      "view_count": 3223249,
+      "like_count": 71714,
+      "duration": 6403,
+      "upload_date": "20200326",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    },
+    {
+      "id": "1kJf4krMY4A",
+      "title": "India & Pakistan - A continuing Story",
+      "view_count": 2715073,
+      "like_count": 74155,
+      "duration": 2879,
+      "upload_date": "20191230",
+      "channel": "Kraut",
+      "channel_subscriber_count": 604000
+    }
+  ],
+  "hooks": {
+    "hhMAt3BluAU": null,
+    "vK7l55ZOVIc": null,
+    "XgjiJHV8P0w": null,
+    "1kJf4krMY4A": null
+  }
+}

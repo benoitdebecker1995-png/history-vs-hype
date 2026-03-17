@@ -1,0 +1,292 @@
+{
+  "metadata": {
+    "collected_date": "2026-03-17",
+    "channels_sampled": [
+      "Fall of Civilizations",
+      "Knowing Better",
+      "Kraut",
+      "RealLifeLore",
+      "Toldinstone"
+    ],
+    "format_matched_channels": [
+      "Fall of Civilizations",
+      "Knowing Better",
+      "Kraut",
+      "Toldinstone"
+    ],
+    "title_pattern_only_channels": [
+      "RealLifeLore"
+    ],
+    "total_videos_analyzed": 239,
+    "refresh_after": "2026-06-17",
+    "methodology": "views/subscriber ratio computed from real YouTube data (yt-dlp extraction, 2026-03-17). NOT actual CTR. Outlier threshold: 3x channel median views. Transcripts extracted via youtube-transcript-api where available.",
+    "data_source": "yt-dlp metadata extraction + youtube-transcript-api transcripts. All view counts and subscriber counts are real YouTube data, not estimates."
+  },
+  "by_pattern": {
+    "versus": {
+      "min_vps": 2.812,
+      "max_vps": 2.812,
+      "median_vps": 2.812,
+      "sample_count": 1,
+      "confidence": "LOW",
+      "example_titles": [
+        "China vs India | The State and the Society"
+      ],
+      "note": "views/subscriber ratio — NOT actual CTR. Directional proxy only."
+    },
+    "declarative": {
+      "min_vps": 0.074,
+      "max_vps": 26.183,
+      "median_vps": 0.565,
+      "sample_count": 104,
+      "confidence": "HIGH",
+      "example_titles": [
+        "8. The Sumerians - Fall of the First Cities",
+        "13. The Assyrians - Empire of Iron",
+        "18. Egypt - Fall of the Pharaohs",
+        "17. Carthage - Empire of the Phoenicians",
+        "7. The Songhai Empire - Africa's Age of Gold"
+      ],
+      "note": "views/subscriber ratio — NOT actual CTR. Directional proxy only."
+    },
+    "how_why": {
+      "min_vps": 0.044,
+      "max_vps": 7.913,
+      "median_vps": 0.226,
+      "sample_count": 61,
+      "confidence": "HIGH",
+      "example_titles": [
+        "Why You Can't Travel Between Hawaii's Islands by Boat",
+        "How Vodka ruined Russia",
+        "Why The US & Venezuela Are On The Brink of War",
+        "How The US & Iran Became Arch-Enemies",
+        "Why This Part of Africa is Erased on Every Map You See"
+      ],
+      "note": "views/subscriber ratio — NOT actual CTR. Directional proxy only."
+    },
+    "question": {
+      "min_vps": 0.05,
+      "max_vps": 1.257,
+      "median_vps": 0.268,
+      "sample_count": 8,
+      "confidence": "MEDIUM",
+      "example_titles": [
+        "What Russia Doesn’t Want You to Know About Your History",
+        "What's Hidden Under the Jungles of New Guinea?",
+        "What even is Europe?",
+        "What a US Invasion of Greenland Would Actually Look Like",
+        "Can Poland into Space?"
+      ],
+      "note": "views/subscriber ratio — NOT actual CTR. Directional proxy only."
+    },
+    "colon": {
+      "min_vps": 0.051,
+      "max_vps": 6.33,
+      "median_vps": 0.776,
+      "sample_count": 65,
+      "confidence": "HIGH",
+      "example_titles": [
+        "The Part of History You've Always Skipped | Neoslavery",
+        "The Best-Run Dictatorship in History: Singapore",
+        "The Turkish Century | From Hittites to Atatürk",
+        "American Exceptionalism but as a Religion | Mormons",
+        "They Were Just in the Way | Indian Removal"
+      ],
+      "note": "views/subscriber ratio — NOT actual CTR. Directional proxy only."
+    }
+  },
+  "by_topic_type": {
+    "territorial": {
+      "vps_range": [
+        0.044,
+        26.183
+      ],
+      "median_vps": 0.373,
+      "sample_count": 191,
+      "confidence": "HIGH",
+      "note": "views/subscriber ratio — NOT actual CTR. Directional proxy only."
+    },
+    "ideological": {
+      "vps_range": [
+        0.148,
+        7.913
+      ],
+      "median_vps": 1.362,
+      "sample_count": 24,
+      "confidence": "HIGH",
+      "note": "views/subscriber ratio — NOT actual CTR. Directional proxy only."
+    },
+    "political_fact_check": {
+      "vps_range": [
+        0.086,
+        8.9
+      ],
+      "median_vps": 0.557,
+      "sample_count": 24,
+      "confidence": "HIGH",
+      "note": "views/subscriber ratio — NOT actual CTR. Directional proxy only."
+    }
+  },
+  "channel_breakdown": {
+    "Fall of Civilizations": {
+      "subscriber_count": 1460000,
+      "format_match": "HIGH",
+      "notes": "Cinematic narration, primary sources, long-form",
+      "videos_analyzed": 43,
+      "median_views": 3319199,
+      "outlier_threshold_3x": 9957597,
+      "outlier_count": 5,
+      "outliers": [
+        {
+          "title": "8. The Sumerians - Fall of the First Cities",
+          "view_count": 38227619,
+          "ratio": 11.5,
+          "pattern": "declarative",
+          "topic": "territorial"
+        },
+        {
+          "title": "13. The Assyrians - Empire of Iron",
+          "view_count": 21313326,
+          "ratio": 6.4,
+          "pattern": "declarative",
+          "topic": "territorial"
+        },
+        {
+          "title": "18. Egypt - Fall of the Pharaohs",
+          "view_count": 11995193,
+          "ratio": 3.6,
+          "pattern": "declarative",
+          "topic": "territorial"
+        },
+        {
+          "title": "17. Carthage - Empire of the Phoenicians",
+          "view_count": 11626608,
+          "ratio": 3.5,
+          "pattern": "declarative",
+          "topic": "territorial"
+        },
+        {
+          "title": "7. The Songhai Empire - Africa's Age of Gold",
+          "view_count": 10392859,
+          "ratio": 3.1,
+          "pattern": "declarative",
+          "topic": "territorial"
+        }
+      ]
+    },
+    "Knowing Better": {
+      "subscriber_count": 952000,
+      "format_match": "HIGH",
+      "notes": "Talking head, maps, source-heavy, 15-40 min",
+      "videos_analyzed": 50,
+      "median_views": 787808,
+      "outlier_threshold_3x": 2363424,
+      "outlier_count": 3,
+      "outliers": [
+        {
+          "title": "The Part of History You've Always Skipped | Neoslavery",
+          "view_count": 6026235,
+          "ratio": 7.6,
+          "pattern": "colon",
+          "topic": "territorial"
+        },
+        {
+          "title": "American Exceptionalism but as a Religion | Mormons",
+          "view_count": 2569419,
+          "ratio": 3.3,
+          "pattern": "colon",
+          "topic": "ideological"
+        },
+        {
+          "title": "They Were Just in the Way | Indian Removal",
+          "view_count": 2541338,
+          "ratio": 3.2,
+          "pattern": "colon",
+          "topic": "territorial"
+        }
+      ]
+    },
+    "Kraut": {
+      "subscriber_count": 604000,
+      "format_match": "HIGH",
+      "notes": "Talking head + animated maps, documentary essay",
+      "videos_analyzed": 48,
+      "median_views": 685859,
+      "outlier_threshold_3x": 2057577,
+      "outlier_count": 4,
+      "outliers": [
+        {
+          "title": "Trump's Biggest Failure",
+          "view_count": 5375616,
+          "ratio": 7.8,
+          "pattern": "declarative",
+          "topic": "political_fact_check"
+        },
+        {
+          "title": "How Vodka ruined Russia",
+          "view_count": 4779695,
+          "ratio": 7.0,
+          "pattern": "how_why",
+          "topic": "ideological"
+        },
+        {
+          "title": "The Turkish Century | From Hittites to Atatürk",
+          "view_count": 3223249,
+          "ratio": 4.7,
+          "pattern": "colon",
+          "topic": "territorial"
+        },
+        {
+          "title": "India & Pakistan - A continuing Story",
+          "view_count": 2715073,
+          "ratio": 4.0,
+          "pattern": "declarative",
+          "topic": "territorial"
+        }
+      ]
+    },
+    "RealLifeLore": {
+      "subscriber_count": 7910000,
+      "format_match": "TITLE_PATTERN_ONLY",
+      "notes": "Animated geography — title patterns only, NOT hooks",
+      "videos_analyzed": 50,
+      "median_views": 1496052,
+      "outlier_threshold_3x": 4488156,
+      "outlier_count": 1,
+      "outliers": [
+        {
+          "title": "Why You Can't Travel Between Hawaii's Islands by Boat",
+          "view_count": 6393398,
+          "ratio": 4.3,
+          "pattern": "how_why",
+          "topic": "territorial"
+        }
+      ]
+    },
+    "Toldinstone": {
+      "subscriber_count": 619000,
+      "format_match": "HIGH",
+      "notes": "Talking head, primary source focus, ancient history",
+      "videos_analyzed": 50,
+      "median_views": 111540,
+      "outlier_threshold_3x": 334620,
+      "outlier_count": 2,
+      "outliers": [
+        {
+          "title": "Why Roman Cities were Abandoned in the Middle Ages",
+          "view_count": 796349,
+          "ratio": 7.1,
+          "pattern": "how_why",
+          "topic": "territorial"
+        },
+        {
+          "title": "How did the Egyptians forget Hieroglyphs?",
+          "view_count": 690177,
+          "ratio": 6.2,
+          "pattern": "how_why",
+          "topic": "territorial"
+        }
+      ]
+    }
+  }
+}

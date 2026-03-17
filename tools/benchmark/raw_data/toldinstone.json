@@ -1,0 +1,537 @@
+{
+  "name": "Toldinstone",
+  "subscriber_count": 619000,
+  "format_match": "HIGH",
+  "notes": "Talking head, primary source focus, ancient history",
+  "videos_analyzed": 50,
+  "median_views": 111540,
+  "outlier_threshold": 334620,
+  "all_videos": [
+    {
+      "id": "76GCu5x74-I",
+      "title": "How Accurate is Shakespeare's Julius Caesar?",
+      "view_count": 38037,
+      "like_count": 2680,
+      "duration": 623,
+      "upload_date": "20260306",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "yvWpzEwdFEg",
+      "title": "The Decline and Fall of Sparta",
+      "view_count": 73880,
+      "like_count": 4953,
+      "duration": 662,
+      "upload_date": "20260225",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "9urhV9lwZVQ",
+      "title": "Ancient Rome and the American Revolution",
+      "view_count": 59864,
+      "like_count": 3830,
+      "duration": 507,
+      "upload_date": "20260206",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "uJOFY_p0rIM",
+      "title": "The Largest Temple Ever Built",
+      "view_count": 62331,
+      "like_count": 3496,
+      "duration": 571,
+      "upload_date": "20260123",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "PcEMgywyVtg",
+      "title": "The Persian View of the Greco-Persian Wars",
+      "view_count": 157791,
+      "like_count": 7280,
+      "duration": 678,
+      "upload_date": "20260114",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "ZozylDvOnVE",
+      "title": "Robbing the Tombs of the Pharaohs",
+      "view_count": 90873,
+      "like_count": 4453,
+      "duration": 637,
+      "upload_date": "20251219",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "YqYGvSckTnI",
+      "title": "Why Athenian Democracy Failed",
+      "view_count": 91453,
+      "like_count": 5230,
+      "duration": 574,
+      "upload_date": "20251205",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "JLg7QxK-aoc",
+      "title": "Europe Before Latin",
+      "view_count": 76544,
+      "like_count": 4262,
+      "duration": 524,
+      "upload_date": "20251121",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "4-eqMGKNS4E",
+      "title": "The Lighthouse of Alexandria | The Tallest Ancient Tower",
+      "view_count": 55355,
+      "like_count": 3645,
+      "duration": 540,
+      "upload_date": "20251107",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "9ZHFdn-dhXo",
+      "title": "The Temple of Artemis at Ephesus | Lost for 1,500 Years",
+      "view_count": 111540,
+      "like_count": 4946,
+      "duration": 742,
+      "upload_date": "20251024",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "WOB0jORIltY",
+      "title": "The Mausoleum at Halicarnassus | Reconstructing a Wonder",
+      "view_count": 73863,
+      "like_count": 3928,
+      "duration": 654,
+      "upload_date": "20251010",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "yR5P_Fc0_Uc",
+      "title": "How a Syrian Desert Town Rewrote Roman History",
+      "view_count": 78806,
+      "like_count": 4172,
+      "duration": 627,
+      "upload_date": "20250926",
+      "channel": "toldinstone",
+      "channel_subscriber_count": null
+    },
+    {
+      "id": "jkTy0t1snZw",
+      "title": "The Road to G\u00f6bekli Tepe | 1,000 Miles in Eastern Turkey",
+      "view_count": 31594,
+      "like_count": 1778,
+      "duration": 1440,
+      "upload_date": "20250921",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "yqEz7DodkwE",
+      "title": "Why Couldn't Trajan Conquer the Parthians?",
+      "view_count": 84225,
+      "like_count": 4498,
+      "duration": 658,
+      "upload_date": "20250905",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "TtBOCBI433w",
+      "title": "The Destruction of Rome's Pagan Temples",
+      "view_count": 85739,
+      "like_count": 4899,
+      "duration": 606,
+      "upload_date": "20250822",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "9FMoWxQWHUE",
+      "title": "How Expensive was Purple in Ancient Rome?",
+      "view_count": 109759,
+      "like_count": 5732,
+      "duration": 553,
+      "upload_date": "20250808",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "qqFCHxacUww",
+      "title": "Why Roman Cities were Abandoned in the Middle Ages",
+      "view_count": 796349,
+      "like_count": 25027,
+      "duration": 569,
+      "upload_date": "20250725",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "q6f9aCiQm-0",
+      "title": "How the Greeks built Temples",
+      "view_count": 184777,
+      "like_count": 6814,
+      "duration": 710,
+      "upload_date": "20250711",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "MQxyMCm7_TU",
+      "title": "Was there a Middle Class in Ancient Rome?",
+      "view_count": 100356,
+      "like_count": 5245,
+      "duration": 650,
+      "upload_date": "20250701",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "ztmndDy9-s4",
+      "title": "Why 60% of English words come from Latin",
+      "view_count": 58893,
+      "like_count": 3596,
+      "duration": 629,
+      "upload_date": "20250606",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "QEK-7txqu0o",
+      "title": "How \"Roman\" is Times New Roman?",
+      "view_count": 87628,
+      "like_count": 4805,
+      "duration": 580,
+      "upload_date": "20250524",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "seDM2XkVs2M",
+      "title": "How to NOT elect a pope",
+      "view_count": 103686,
+      "like_count": 4334,
+      "duration": 480,
+      "upload_date": "20250509",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "TsWsDwn7mlA",
+      "title": "How did the Egyptians forget Hieroglyphs?",
+      "view_count": 690177,
+      "like_count": 17770,
+      "duration": 653,
+      "upload_date": "20250425",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "2XKgWEwxHi4",
+      "title": "Taxes and Tariffs in Ancient Rome",
+      "view_count": 82082,
+      "like_count": 4173,
+      "duration": 528,
+      "upload_date": "20250411",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "LhDeGcRsBRw",
+      "title": "Could Potatoes have Saved the Roman Empire?",
+      "view_count": 147742,
+      "like_count": 6631,
+      "duration": 568,
+      "upload_date": "20250401",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "iLkdWhqbqgY",
+      "title": "Why the Romans Stopped Reading Books",
+      "view_count": 208520,
+      "like_count": 8482,
+      "duration": 626,
+      "upload_date": "20250321",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "ZRn9JVS55c4",
+      "title": "Why Scotland and Sri Lanka use Roman Law",
+      "view_count": 102882,
+      "like_count": 4664,
+      "duration": 696,
+      "upload_date": "20250307",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "hKYxV1w29qs",
+      "title": "The Last Castles on the Roman Frontier",
+      "view_count": 149150,
+      "like_count": 6631,
+      "duration": 636,
+      "upload_date": "20250221",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "CG6ZoMpgIqM",
+      "title": "The Welfare Program that Fed a Million Romans",
+      "view_count": 171429,
+      "like_count": 7935,
+      "duration": 670,
+      "upload_date": "20250207",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "YLpJyWj7Fec",
+      "title": "Where Every Roman Emperor was Buried",
+      "view_count": 303914,
+      "like_count": 9253,
+      "duration": 833,
+      "upload_date": "20250124",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "SGs33n95pXQ",
+      "title": "Ancient Roman Customs in Modern Italy",
+      "view_count": 121944,
+      "like_count": 6353,
+      "duration": 766,
+      "upload_date": "20241228",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "kC6KbLIyoNk",
+      "title": "The Longest Construction Projects in History",
+      "view_count": 237106,
+      "like_count": 8336,
+      "duration": 563,
+      "upload_date": "20241220",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "5Y4_2glCPH0",
+      "title": "Why didn't Roman Emperors build Pyramids?",
+      "view_count": 139721,
+      "like_count": 5126,
+      "duration": 655,
+      "upload_date": "20241206",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "3Ntby51uttE",
+      "title": "How Christianity Almost Vanished in 303 AD",
+      "view_count": 283955,
+      "like_count": 11399,
+      "duration": 645,
+      "upload_date": "20241129",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "U7TDtrvV_yg",
+      "title": "Roman Historian Reacts to Gladiator II",
+      "view_count": 185280,
+      "like_count": 7867,
+      "duration": 598,
+      "upload_date": "20241123",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "k50Y_rvA0pw",
+      "title": "Getting Elected in Ancient Rome",
+      "view_count": 55035,
+      "like_count": 3041,
+      "duration": 662,
+      "upload_date": "20241108",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "Huy-gGZHW1s",
+      "title": "Roman Tombstones and Epitaphs",
+      "view_count": 45905,
+      "like_count": 3307,
+      "duration": 599,
+      "upload_date": "20241030",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "K0PA_hX8fVs",
+      "title": "How much weight could a Roman bridge carry?",
+      "view_count": 124309,
+      "like_count": 6872,
+      "duration": 465,
+      "upload_date": "20241018",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "cugsFydx4DE",
+      "title": "Why isn't Roman Concrete used today?",
+      "view_count": 330401,
+      "like_count": 12190,
+      "duration": 504,
+      "upload_date": "20241004",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "BAUVCAQCA4o",
+      "title": "Why the Roman and Greek Gods were Different",
+      "view_count": 153860,
+      "like_count": 8793,
+      "duration": 514,
+      "upload_date": "20240913",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "1cJVyHo61M0",
+      "title": "Why 24 Roman Statues Were Found in a Hot Spring | Old News Ep.1",
+      "view_count": 47126,
+      "like_count": 5293,
+      "duration": 310,
+      "upload_date": "20240906",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "jyljmHkv2oU",
+      "title": "Finding an Apartment in Ancient Rome",
+      "view_count": 206438,
+      "like_count": 12328,
+      "duration": 585,
+      "upload_date": "20240827",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "OkMHSrd99eA",
+      "title": "It's time for a change",
+      "view_count": 69169,
+      "like_count": 7631,
+      "duration": 256,
+      "upload_date": "20240823",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "ZBIFej2y01s",
+      "title": "Bars and Restaurants in Ancient Rome",
+      "view_count": 126565,
+      "like_count": 6394,
+      "duration": 542,
+      "upload_date": "20240806",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "fHliC84vX4U",
+      "title": "Three (more) Forgotten Roman Megaprojects",
+      "view_count": 220343,
+      "like_count": 8778,
+      "duration": 577,
+      "upload_date": "20240719",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "A9WdbAV_91w",
+      "title": "Secrets of the Herculaneum Papyri",
+      "view_count": 97466,
+      "like_count": 5426,
+      "duration": 482,
+      "upload_date": "20240705",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "hh6QxFTExL0",
+      "title": "Rome's Mountain of Ancient Garbage",
+      "view_count": 240791,
+      "like_count": 9416,
+      "duration": 792,
+      "upload_date": "20240625",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "4MYf4G4INzo",
+      "title": "How did Roman Baths work?",
+      "view_count": 207854,
+      "like_count": 7321,
+      "duration": 709,
+      "upload_date": "20240607",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "yv09o_dZv54",
+      "title": "Timgad: the Pompeii of Africa",
+      "view_count": 155473,
+      "like_count": 6895,
+      "duration": 675,
+      "upload_date": "20240515",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "BkXKYGaNeo4",
+      "title": "The Colosseum After the Fall of Rome",
+      "view_count": 208111,
+      "like_count": 7902,
+      "duration": 648,
+      "upload_date": "20240426",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    }
+  ],
+  "outliers": [
+    {
+      "id": "qqFCHxacUww",
+      "title": "Why Roman Cities were Abandoned in the Middle Ages",
+      "view_count": 796349,
+      "like_count": 25027,
+      "duration": 569,
+      "upload_date": "20250725",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    },
+    {
+      "id": "TsWsDwn7mlA",
+      "title": "How did the Egyptians forget Hieroglyphs?",
+      "view_count": 690177,
+      "like_count": 17770,
+      "duration": 653,
+      "upload_date": "20250425",
+      "channel": "toldinstone",
+      "channel_subscriber_count": 619000
+    }
+  ],
+  "hooks": {
+    "qqFCHxacUww": null,
+    "TsWsDwn7mlA": null
+  }
+}

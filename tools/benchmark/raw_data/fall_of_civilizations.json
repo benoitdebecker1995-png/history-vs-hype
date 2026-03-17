@@ -1,0 +1,500 @@
+{
+  "name": "Fall of Civilizations",
+  "subscriber_count": 1460000,
+  "format_match": "HIGH",
+  "notes": "Cinematic narration, primary sources, long-form",
+  "videos_analyzed": 43,
+  "median_views": 3319199,
+  "outlier_threshold": 9957597,
+  "all_videos": [
+    {
+      "id": "CAsKpXoxZAQ",
+      "title": "20. Persia - An Empire in Ashes",
+      "view_count": 653765,
+      "like_count": 14298,
+      "duration": 19760,
+      "upload_date": "20251216",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "qRYdivPIWh4",
+      "title": "20. Persia - An Empire in Ashes",
+      "view_count": 488918,
+      "like_count": 12493,
+      "duration": 19719,
+      "upload_date": "20251112",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "PdFwMDuAnS4",
+      "title": "19. The Mongols - Terror of the Steppe",
+      "view_count": 1633055,
+      "like_count": 30595,
+      "duration": 24480,
+      "upload_date": "20250402",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "YyqS9V7yHQA",
+      "title": "19. The Mongols - Terror of the Steppe",
+      "view_count": 1075007,
+      "like_count": 18124,
+      "duration": 24341,
+      "upload_date": "20241204",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "YpKej05RgsY",
+      "title": "18. Egypt - Fall of the Pharaohs",
+      "view_count": 11995193,
+      "like_count": 64591,
+      "duration": 14293,
+      "upload_date": "20240430",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "2cuh1oxLHDU",
+      "title": "18. Egypt - Fall of the Pharaohs",
+      "view_count": 7711456,
+      "like_count": 34403,
+      "duration": 14304,
+      "upload_date": "20240201",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "6dbdVhVSat8",
+      "title": "17. Carthage - Empire of the Phoenicians",
+      "view_count": 11626608,
+      "like_count": 58403,
+      "duration": 13144,
+      "upload_date": "20230618",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "2mqX9twdyYo",
+      "title": "17. Carthage - Empire of the Phoenicians",
+      "view_count": 5824979,
+      "like_count": 28742,
+      "duration": 13092,
+      "upload_date": "20230411",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "0MtIVJ2lcu8",
+      "title": "16. Bagan - City of Temples",
+      "view_count": 2315033,
+      "like_count": 22666,
+      "duration": 7626,
+      "upload_date": "20221103",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "ZR48gFySJoM",
+      "title": "16. Bagan - City of Temples",
+      "view_count": 658338,
+      "like_count": 7142,
+      "duration": 7626,
+      "upload_date": "20221003",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "qSfFq02pK4s",
+      "title": "15. The Nabataeans - The Last Days Of Petra",
+      "view_count": 5900923,
+      "like_count": 51269,
+      "duration": 7295,
+      "upload_date": "20220717",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "uFU7--7Zy9s",
+      "title": "15. The Nabataeans - The Final Days Of Petra",
+      "view_count": 919167,
+      "like_count": 10274,
+      "duration": 7277,
+      "upload_date": "20220615",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "nlMpxUYKTcU",
+      "title": "14. Vijayanagara - The Last Emperors of South India",
+      "view_count": 5057813,
+      "like_count": 41077,
+      "duration": 11639,
+      "upload_date": "20220422",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "GV2piw94DpM",
+      "title": "14. Vijayanagara - The Last Emperors of South India",
+      "view_count": 1694832,
+      "like_count": 11989,
+      "duration": 11634,
+      "upload_date": "20220218",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "jpAphcaVJIs",
+      "title": "13. The Assyrians - Empire of Iron",
+      "view_count": 21313326,
+      "like_count": 128964,
+      "duration": 11124,
+      "upload_date": "20211016",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "2GkNOT2Q2hk",
+      "title": "12. The Inca - Cities in the Cloud (Part 2 of 2)",
+      "view_count": 1461206,
+      "like_count": 17760,
+      "duration": 5725,
+      "upload_date": "20210731",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "BRB9dJmZhVk",
+      "title": "12. The Inca - Cities in the Cloud (Part 1 of 2)",
+      "view_count": 6621189,
+      "like_count": 51415,
+      "duration": 6462,
+      "upload_date": "20210725",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "Qr4FiT0ks7I",
+      "title": "13. The Assyrians - Empire of Iron",
+      "view_count": 3858037,
+      "like_count": 24339,
+      "duration": 11073,
+      "upload_date": "20210614",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "MC83SpIS49g",
+      "title": "11. Byzantium - Last of the Romans (Part 2 of 2)",
+      "view_count": 2122797,
+      "like_count": 26961,
+      "duration": 6394,
+      "upload_date": "20210206",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "2JHCfe86A8U",
+      "title": "11. Byzantium - Last of the Romans (Part 1 of 2)",
+      "view_count": 4487246,
+      "like_count": 48390,
+      "duration": 5975,
+      "upload_date": "20210131",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "P6BQb1dQiGU",
+      "title": "12. The Inca - Cities in the Cloud",
+      "view_count": 4610527,
+      "like_count": 20841,
+      "duration": 12054,
+      "upload_date": "20210112",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "FwEkp4I75OA",
+      "title": "10. The Han Dynasty - The First Empire in Flames",
+      "view_count": 7066528,
+      "like_count": 50594,
+      "duration": 10318,
+      "upload_date": "20201205",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "cDdKZrvg1pE",
+      "title": "9. The Aztecs - A Clash of Worlds (Part 2 of 2)",
+      "view_count": 3132604,
+      "like_count": 28936,
+      "duration": 8899,
+      "upload_date": "20201028",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "f8JVdpWCKeM",
+      "title": "9. The Aztecs - A Clash of Worlds (Part 1 of 2)",
+      "view_count": 3784459,
+      "like_count": 39278,
+      "duration": 6267,
+      "upload_date": "20201028",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "d2lJUOv0hLA",
+      "title": "8. The Sumerians - Fall of the First Cities",
+      "view_count": 38227619,
+      "like_count": 299788,
+      "duration": 8868,
+      "upload_date": "20200816",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "GfUT6LhBBYs",
+      "title": "7. The Songhai Empire - Africa's Age of Gold",
+      "view_count": 10392859,
+      "like_count": 67687,
+      "duration": 8168,
+      "upload_date": "20200719",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "HvzoAfpCvbw",
+      "title": "11. Byzantium - Last of the Romans",
+      "view_count": 7077101,
+      "like_count": 30660,
+      "duration": 12451,
+      "upload_date": "20200714",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "7j08gxUcBgc",
+      "title": "6. Easter Island - Where Giants Walked",
+      "view_count": 4045198,
+      "like_count": 52115,
+      "duration": 6192,
+      "upload_date": "20200605",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "ghmjIBD2Fd4",
+      "title": "5. The Khmer Empire - Fall of the God Kings",
+      "view_count": 3497509,
+      "like_count": 39913,
+      "duration": 5888,
+      "upload_date": "20200504",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "lmbY-GrM8pI",
+      "title": "4. The Greenland Vikings - Land of the Midnight Sun",
+      "view_count": 5008952,
+      "like_count": 59676,
+      "duration": 4923,
+      "upload_date": "20200414",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "z9YwfTerAdA",
+      "title": "3. The Mayans - Ruins Among the Trees",
+      "view_count": 3319199,
+      "like_count": 43311,
+      "duration": 4118,
+      "upload_date": "20200409",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "B965f8AcNbw",
+      "title": "2. The Bronze Age Collapse - Mediterranean Apocalypse",
+      "view_count": 7703611,
+      "like_count": 90964,
+      "duration": 3825,
+      "upload_date": "20200408",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "glKe9njOB24",
+      "title": "1. Roman Britain  - The Work of Giants Crumbled",
+      "view_count": 4842811,
+      "like_count": 82223,
+      "duration": 3809,
+      "upload_date": "20200408",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "U9W7cOMGXyA",
+      "title": "10. China's Han Dynasty - The First Empire in Flames",
+      "view_count": 1743232,
+      "like_count": 10118,
+      "duration": 10418,
+      "upload_date": "20200224",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "56WPMRERgxg",
+      "title": "9. The Aztecs - A Clash of Worlds",
+      "view_count": 741833,
+      "like_count": 8591,
+      "duration": 15287,
+      "upload_date": "20191216",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "cq1g8czIBJY",
+      "title": "8. The Sumerians - Fall of the First Cities",
+      "view_count": 2458319,
+      "like_count": 17115,
+      "duration": 8960,
+      "upload_date": "20191025",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "SXNbXfA-pgM",
+      "title": "7. The Songhai Empire -  Africa's Age of Gold",
+      "view_count": 825282,
+      "like_count": 6471,
+      "duration": 8188,
+      "upload_date": "20190829",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "nCyzrie_les",
+      "title": "6. Easter Island - Where Giants Walked",
+      "view_count": 498920,
+      "like_count": 5709,
+      "duration": 6225,
+      "upload_date": "20190629",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "cfmm13lrjL4",
+      "title": "5. The Khmer Empire - Fall of the God Kings",
+      "view_count": 464517,
+      "like_count": 4895,
+      "duration": 5922,
+      "upload_date": "20190503",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "dep69ARBNpE",
+      "title": "4. The Greenland Vikings - Land of the Midnight Sun",
+      "view_count": 515238,
+      "like_count": 5658,
+      "duration": 4941,
+      "upload_date": "20190325",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "SnFaRXeep5Y",
+      "title": "3. The Mayan Collapse - Ruins Among the Trees",
+      "view_count": 478375,
+      "like_count": 5132,
+      "duration": 4196,
+      "upload_date": "20190207",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "prlK8iY7blk",
+      "title": "2. The Bronze Age Collapse  - Mediterranean Apocalypse",
+      "view_count": 528441,
+      "like_count": 7740,
+      "duration": 3886,
+      "upload_date": "20190121",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "1whRd_c_irk",
+      "title": "1. Roman Britain  - The Work of Giants Crumbled",
+      "view_count": 948611,
+      "like_count": 13498,
+      "duration": 3819,
+      "upload_date": "20190120",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    }
+  ],
+  "outliers": [
+    {
+      "id": "d2lJUOv0hLA",
+      "title": "8. The Sumerians - Fall of the First Cities",
+      "view_count": 38227619,
+      "like_count": 299788,
+      "duration": 8868,
+      "upload_date": "20200816",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "jpAphcaVJIs",
+      "title": "13. The Assyrians - Empire of Iron",
+      "view_count": 21313326,
+      "like_count": 128964,
+      "duration": 11124,
+      "upload_date": "20211016",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "YpKej05RgsY",
+      "title": "18. Egypt - Fall of the Pharaohs",
+      "view_count": 11995193,
+      "like_count": 64591,
+      "duration": 14293,
+      "upload_date": "20240430",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "6dbdVhVSat8",
+      "title": "17. Carthage - Empire of the Phoenicians",
+      "view_count": 11626608,
+      "like_count": 58403,
+      "duration": 13144,
+      "upload_date": "20230618",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    },
+    {
+      "id": "GfUT6LhBBYs",
+      "title": "7. The Songhai Empire - Africa's Age of Gold",
+      "view_count": 10392859,
+      "like_count": 67687,
+      "duration": 8168,
+      "upload_date": "20200719",
+      "channel": "Fall of Civilizations",
+      "channel_subscriber_count": 1460000
+    }
+  ],
+  "hooks": {
+    "d2lJUOv0hLA": null,
+    "jpAphcaVJIs": null,
+    "YpKej05RgsY": null,
+    "6dbdVhVSat8": null,
+    "GfUT6LhBBYs": null
+  }
+}

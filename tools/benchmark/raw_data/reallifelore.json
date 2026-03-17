@@ -1,0 +1,524 @@
+{
+  "name": "RealLifeLore",
+  "subscriber_count": 7910000,
+  "format_match": "TITLE_PATTERN_ONLY",
+  "notes": "Animated geography \u2014 title patterns only, NOT hooks",
+  "videos_analyzed": 50,
+  "median_views": 1496052,
+  "outlier_threshold": 4488156,
+  "all_videos": [
+    {
+      "id": "qZXpB0lHmd8",
+      "title": "The Middle East's Next War After Iran",
+      "view_count": 677497,
+      "like_count": 17664,
+      "duration": 2172,
+      "upload_date": "20260313",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "TBHryws39sc",
+      "title": "The Nightmare Geography Glitch Hiding in New Hampshire",
+      "view_count": 677294,
+      "like_count": 18950,
+      "duration": 1383,
+      "upload_date": "20260226",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "c3C9gxWwzTg",
+      "title": "Why Cuba is the Fastest Dying Country on Earth",
+      "view_count": 996506,
+      "like_count": 21908,
+      "duration": 3399,
+      "upload_date": "20260220",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "5iy1qcy6XkY",
+      "title": "Why Spain Still Controls Cities Hidden in Africa",
+      "view_count": 349995,
+      "like_count": 10698,
+      "duration": 1973,
+      "upload_date": "20260218",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "e8RFxahD7hQ",
+      "title": "What a US Invasion of Greenland Would Actually Look Like",
+      "view_count": 395954,
+      "like_count": 10985,
+      "duration": 2458,
+      "upload_date": "20260130",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "z-qp5Z7F4XQ",
+      "title": "Why NOTHING About Maduro's Kidnapping Makes Sense",
+      "view_count": 811340,
+      "like_count": 19722,
+      "duration": 2759,
+      "upload_date": "20260124",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "IgD7zmJN3_A",
+      "title": "How The UAE Just Got Wrecked In Yemen",
+      "view_count": 483374,
+      "like_count": 12714,
+      "duration": 1921,
+      "upload_date": "20260114",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "r_RnzEDln8w",
+      "title": "What's Hidden Under the Jungles of New Guinea?",
+      "view_count": 1624990,
+      "like_count": 27094,
+      "duration": 2539,
+      "upload_date": "20251224",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "RACRUkkdJgQ",
+      "title": "Why The Worst Border Gore on Earth Exists",
+      "view_count": 555043,
+      "like_count": 13704,
+      "duration": 1982,
+      "upload_date": "20251219",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "QOUBqb1jHsA",
+      "title": "How Japan is Preparing for War With China",
+      "view_count": 1383865,
+      "like_count": 29335,
+      "duration": 2972,
+      "upload_date": "20251212",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "iMVGVJFyggY",
+      "title": "The Worst Horror On Earth You Aren't Being Told About",
+      "view_count": 1553472,
+      "like_count": 59612,
+      "duration": 2796,
+      "upload_date": "20251128",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "pGKyL7YPnSQ",
+      "title": "Why 90% of Japan is \"Empty\"",
+      "view_count": 621573,
+      "like_count": 17866,
+      "duration": 1426,
+      "upload_date": "20251119",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "n8kSGH4I8Ps",
+      "title": "Why the Iranian Regime is Failing",
+      "view_count": 1527072,
+      "like_count": 33491,
+      "duration": 2344,
+      "upload_date": "20251111",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "A-2bCKakP7c",
+      "title": "Why The 2-State Solution Has Become Impossible Now",
+      "view_count": 563740,
+      "like_count": 16631,
+      "duration": 2371,
+      "upload_date": "20251031",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "jq0FhcfAbG0",
+      "title": "Why Utah\u2019s Great Salt Lake is Dying",
+      "view_count": 800331,
+      "like_count": 18311,
+      "duration": 1805,
+      "upload_date": "20251017",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "O-9SE9mf2Rc",
+      "title": "Why Israel & Turkey Are Heading To War Over Syria",
+      "view_count": 861666,
+      "like_count": 21335,
+      "duration": 2447,
+      "upload_date": "20251011",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "sgQesoA7rcU",
+      "title": "Every Time The World Map Has Changed Since 2000",
+      "view_count": 816363,
+      "like_count": 16395,
+      "duration": 3235,
+      "upload_date": "20250930",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "d-Mh-ndtqAY",
+      "title": "Why The US & Venezuela Are On The Brink of War",
+      "view_count": 3871345,
+      "like_count": 52625,
+      "duration": 2345,
+      "upload_date": "20250922",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "NVxI4nlRDBQ",
+      "title": "Why Tourists Are Flocking to Afghanistan Now",
+      "view_count": 754909,
+      "like_count": 19526,
+      "duration": 1452,
+      "upload_date": "20250911",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "iVx_bvyBhDM",
+      "title": "Why The US Southeast Coast is Absurdly Empty",
+      "view_count": 1801857,
+      "like_count": 29456,
+      "duration": 2054,
+      "upload_date": "20250829",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "RdNQWHc5a4E",
+      "title": "Why The ICC Is The World\u2019s Biggest Joke",
+      "view_count": 830510,
+      "like_count": 22470,
+      "duration": 2928,
+      "upload_date": "20250822",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "if6uRH13ZCg",
+      "title": "Why Cambodia & Thailand Are Moving Towards War",
+      "view_count": 992552,
+      "like_count": 17274,
+      "duration": 2282,
+      "upload_date": "20250819",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "Fjjy0aNEA4w",
+      "title": "Why Myanmar is Dying",
+      "view_count": 1883179,
+      "like_count": 36177,
+      "duration": 2582,
+      "upload_date": "20250731",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "3rBRdzf1fYo",
+      "title": "Why The World's Most Segregated Metro Exists",
+      "view_count": 1184935,
+      "like_count": 27372,
+      "duration": 1490,
+      "upload_date": "20250723",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "j3l5bCGjqLE",
+      "title": "Why It\u2019s So Hard to Defeat Iran Militarily",
+      "view_count": 866957,
+      "like_count": 18912,
+      "duration": 2087,
+      "upload_date": "20250716",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "1taDYPj8Sbc",
+      "title": "How Satellites Reveal China's Taiwan Invasion Plans",
+      "view_count": 2506182,
+      "like_count": 36549,
+      "duration": 2311,
+      "upload_date": "20250630",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "fJHkHeHFuhg",
+      "title": "The Most Dangerous Lake on Earth",
+      "view_count": 1909222,
+      "like_count": 30046,
+      "duration": 2030,
+      "upload_date": "20250625",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "dmvB7KW7WJA",
+      "title": "How The US & Iran Became Arch-Enemies",
+      "view_count": 3387613,
+      "like_count": 62181,
+      "duration": 1587,
+      "upload_date": "20250621",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "vSKLWZ90LJE",
+      "title": "Chechnya: The Insane North Korea of Europe",
+      "view_count": 1403877,
+      "like_count": 27906,
+      "duration": 3118,
+      "upload_date": "20250613",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "hbPnJKFJ1vo",
+      "title": "How One of Libya\u2019s Biggest Cities Vanished in Minutes",
+      "view_count": 1257350,
+      "like_count": 24780,
+      "duration": 2072,
+      "upload_date": "20250530",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "ffwHDeLd3m4",
+      "title": "The Most Absurdly Overcrowded Island on Earth",
+      "view_count": 1136626,
+      "like_count": 18803,
+      "duration": 2481,
+      "upload_date": "20250524",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "DtHl6M7Ey5g",
+      "title": "Why Kashmir Is The World\u2019s Most Dangerous Border Dispute",
+      "view_count": 1561528,
+      "like_count": 23122,
+      "duration": 3458,
+      "upload_date": "20250516",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "ES1KMDHEUFM",
+      "title": "Why Cambodia & Laos Are Absurdly Empty",
+      "view_count": 2396395,
+      "like_count": 43073,
+      "duration": 2319,
+      "upload_date": "20250430",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "9e-fJ9V2a3M",
+      "title": "Why America\u2019s Next War is Heading to Mexico",
+      "view_count": 1714608,
+      "like_count": 34092,
+      "duration": 2346,
+      "upload_date": "20250426",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "lZe1RFwtxgw",
+      "title": "The Bizarre History of Tourism to North Korea",
+      "view_count": 1496052,
+      "like_count": 25705,
+      "duration": 2827,
+      "upload_date": "20250416",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "A5aLyQaNf_Y",
+      "title": "How China\u2019s New Mega-Dam Will Change Asia\u2019s Map Forever",
+      "view_count": 2243509,
+      "like_count": 30302,
+      "duration": 1737,
+      "upload_date": "20250331",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "n5sDa2q-I3U",
+      "title": "The Grim Truth About Ukraine Nobody Wants to Tell You",
+      "view_count": 1331606,
+      "like_count": 32112,
+      "duration": 2221,
+      "upload_date": "20250321",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "c-sOqHD6Pw4",
+      "title": "Why the Iron Curtain Still Keeps Germany Divided",
+      "view_count": 2947718,
+      "like_count": 30057,
+      "duration": 2406,
+      "upload_date": "20250315",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "PPiZLXI1sWs",
+      "title": "Israel\u2019s Apocalyptic Endgame for Gaza",
+      "view_count": 1264966,
+      "like_count": 39314,
+      "duration": 2910,
+      "upload_date": "20250228",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "0N34UFbWpFk",
+      "title": "How Rwanda is Conquering Their 100x Larger Neighbor",
+      "view_count": 2377900,
+      "like_count": 63363,
+      "duration": 1985,
+      "upload_date": "20250221",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "QFd1dNq2xtQ",
+      "title": "Why Trump Wants to Retake the Panama Canal Again",
+      "view_count": 738020,
+      "like_count": 18283,
+      "duration": 2249,
+      "upload_date": "20250214",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "x8j2uWw3WfU",
+      "title": "The Real Reason Trump is Threatening to Seize Greenland",
+      "view_count": 2328122,
+      "like_count": 42639,
+      "duration": 2382,
+      "upload_date": "20250131",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "oytfhLUy0Fg",
+      "title": "How Israel Checkmated Iran",
+      "view_count": 1965351,
+      "like_count": 39305,
+      "duration": 2639,
+      "upload_date": "20250125",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "0o7DCqciH2E",
+      "title": "The Best-Run Dictatorship in History: Singapore",
+      "view_count": 3635436,
+      "like_count": 50961,
+      "duration": 3208,
+      "upload_date": "20250118",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "lWK_euAwrMk",
+      "title": "What Russia Doesn\u2019t Want You to Know About Your History",
+      "view_count": 2117662,
+      "like_count": 59941,
+      "duration": 2334,
+      "upload_date": "20241220",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "t6DxjTn8NeM",
+      "title": "Why This Part of Africa is Erased on Every Map You See",
+      "view_count": 3123401,
+      "like_count": 51455,
+      "duration": 2433,
+      "upload_date": "20241214",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "7YjQLHCezOo",
+      "title": "How Italy Became the Most Divided Country in Europe",
+      "view_count": 2347468,
+      "like_count": 36412,
+      "duration": 1751,
+      "upload_date": "20241209",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "wZmB1eCiaNs",
+      "title": "How Trump's 2nd Term Will Change Europe Forever",
+      "view_count": 2163573,
+      "like_count": 45523,
+      "duration": 2162,
+      "upload_date": "20241129",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "Y8m95sCDEf0",
+      "title": "How Africa\u2019s Geography Traps it in Endless Poverty",
+      "view_count": 3015304,
+      "like_count": 55072,
+      "duration": 3252,
+      "upload_date": "20241123",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    },
+    {
+      "id": "34Ojnyi9xLw",
+      "title": "Why You Can't Travel Between Hawaii's Islands by Boat",
+      "view_count": 6393398,
+      "like_count": 75053,
+      "duration": 1484,
+      "upload_date": "20241108",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    }
+  ],
+  "outliers": [
+    {
+      "id": "34Ojnyi9xLw",
+      "title": "Why You Can't Travel Between Hawaii's Islands by Boat",
+      "view_count": 6393398,
+      "like_count": 75053,
+      "duration": 1484,
+      "upload_date": "20241108",
+      "channel": "RealLifeLore",
+      "channel_subscriber_count": 7910000
+    }
+  ],
+  "hooks": {}
+}

@@ -1,0 +1,548 @@
+{
+  "name": "Knowing Better",
+  "subscriber_count": 952000,
+  "format_match": "HIGH",
+  "notes": "Talking head, maps, source-heavy, 15-40 min",
+  "videos_analyzed": 50,
+  "median_views": 787808,
+  "outlier_threshold": 2363424,
+  "all_videos": [
+    {
+      "id": "hEEIyg_J2g0",
+      "title": "Paranoid Protestants | Seventh-day Adventists",
+      "view_count": 1297087,
+      "like_count": 31746,
+      "duration": 10251,
+      "upload_date": "20240911",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "Uy_j66_RZFo",
+      "title": "Steampunk KB Mission Archive | SDA Lore Recap",
+      "view_count": 57762,
+      "like_count": 3758,
+      "duration": 518,
+      "upload_date": "20240810",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "hZ4ES8mOzYg",
+      "title": "Four Times a Day | John Harvey Kellogg",
+      "view_count": 686840,
+      "like_count": 19822,
+      "duration": 3645,
+      "upload_date": "20231122",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "0ens0WjAyOc",
+      "title": "The Cure for Literally Everything | Vegetarianism",
+      "view_count": 841776,
+      "like_count": 30274,
+      "duration": 4564,
+      "upload_date": "20231002",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "YaOZoA0tH3g",
+      "title": "The All-New King-Sized Knowing Better Notebook",
+      "view_count": 31835,
+      "like_count": 1245,
+      "duration": 88,
+      "upload_date": "20230619",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "E7RT4wNhiYQ",
+      "title": "God's Alternative Medicine | Christian Science",
+      "view_count": 1728976,
+      "like_count": 43320,
+      "duration": 8665,
+      "upload_date": "20230430",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "l5wMdJXpYAE",
+      "title": "Geronimo: The Quintessential American Indian | Indian Removal Bonus",
+      "view_count": 217816,
+      "like_count": 11534,
+      "duration": 974,
+      "upload_date": "20230301",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "iihVxjJjY9Q",
+      "title": "The Story We Tell Ourselves | Pilgrims and Thanksgiving",
+      "view_count": 965670,
+      "like_count": 34025,
+      "duration": 4358,
+      "upload_date": "20230104",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "zqXwiljEKVM",
+      "title": "The War to Save the Buffalo | Indian Removal Bonus",
+      "view_count": 171879,
+      "like_count": 9335,
+      "duration": 670,
+      "upload_date": "20221119",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "A5P6vJs1jmY",
+      "title": "They Were Just in the Way | Indian Removal",
+      "view_count": 2541338,
+      "like_count": 77568,
+      "duration": 8799,
+      "upload_date": "20221107",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "RhTbrCCmhME",
+      "title": "Indigenously Aboriginal Native American Terms | Indian Removal Bonus",
+      "view_count": 135552,
+      "like_count": 8826,
+      "duration": 239,
+      "upload_date": "20221106",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "GMOyNgLSX2g",
+      "title": "Light up a Torch of Freedom | Cigarettes",
+      "view_count": 1375734,
+      "like_count": 49470,
+      "duration": 5380,
+      "upload_date": "20220705",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "j4kI2h3iotA",
+      "title": "The Part of History You've Always Skipped | Neoslavery",
+      "view_count": 6026235,
+      "like_count": 231229,
+      "duration": 4616,
+      "upload_date": "20220404",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "1rzFyBdKLvU",
+      "title": "Un-American and yet, totally American | Company Towns",
+      "view_count": 1353224,
+      "like_count": 47129,
+      "duration": 3136,
+      "upload_date": "20220123",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "JSg6eOmgvW8",
+      "title": "If Veterans Ruled the World | Starship Troopers",
+      "view_count": 2287663,
+      "like_count": 86720,
+      "duration": 3587,
+      "upload_date": "20211113",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "gENRqiaS8xM",
+      "title": "What Are You So Afraid Of? | Self-Help and NXIVM",
+      "view_count": 1197028,
+      "like_count": 36508,
+      "duration": 3425,
+      "upload_date": "20211001",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "pIDQwhaeXBs",
+      "title": "Temporary Residents in this World | Jehovah's Witnesses",
+      "view_count": 1871615,
+      "like_count": 48854,
+      "duration": 4110,
+      "upload_date": "20210810",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "fopqgLvfv9o",
+      "title": "Segregation by Any Other Name | American Education",
+      "view_count": 1129212,
+      "like_count": 46078,
+      "duration": 3484,
+      "upload_date": "20210531",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "xPNA9RlpkdI",
+      "title": "Graduating to the Next Level | Ancient Aliens and Heaven's Gate",
+      "view_count": 1056841,
+      "like_count": 39366,
+      "duration": 1829,
+      "upload_date": "20210401",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "8kWjJPQXCyc",
+      "title": "Redefining American Capitalism | Libertarianism and Ayn Rand",
+      "view_count": 1240325,
+      "like_count": 48169,
+      "duration": 2948,
+      "upload_date": "20210228",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "Pl8B55MqOQo",
+      "title": "American Exceptionalism but as a Religion | Mormons",
+      "view_count": 2569419,
+      "like_count": 73093,
+      "duration": 3232,
+      "upload_date": "20201231",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "Lg-nUy2DalM",
+      "title": "A Veteran's Warning | Smedley Butler",
+      "view_count": 1347335,
+      "like_count": 52749,
+      "duration": 1811,
+      "upload_date": "20201111",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "NvtMYOYptl0",
+      "title": "The Price of Being Poor | Banking Services",
+      "view_count": 738538,
+      "like_count": 31365,
+      "duration": 1548,
+      "upload_date": "20200927",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "YLyU1WCQQ8A",
+      "title": "Delivering our Democracy | US Postal Service",
+      "view_count": 540624,
+      "like_count": 24756,
+      "duration": 1554,
+      "upload_date": "20200731",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "n7Rm3tuMFTI",
+      "title": "The Quartering of Troops | Police Militarization",
+      "view_count": 1261264,
+      "like_count": 60785,
+      "duration": 2006,
+      "upload_date": "20200702",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "7kLYqyThX_4",
+      "title": "Extracting Black Gold | History of Oil",
+      "view_count": 821532,
+      "like_count": 27268,
+      "duration": 1919,
+      "upload_date": "20200527",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "52rDpeC6JL0",
+      "title": "Climate Policy | The Complete Moderate's Guide",
+      "view_count": 611326,
+      "like_count": 30722,
+      "duration": 1513,
+      "upload_date": "20200428",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "Xdz6jxscD0w",
+      "title": "Manufacturing a Better Foot | Running Shoes",
+      "view_count": 732279,
+      "like_count": 25814,
+      "duration": 2240,
+      "upload_date": "20200329",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "Rhpy1uzOvrY",
+      "title": "Influencing an Election | Campaign Finance",
+      "view_count": 530575,
+      "like_count": 19077,
+      "duration": 1543,
+      "upload_date": "20191229",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "LMbuUUlSQ5w",
+      "title": "Obeying Authority | Unethical Psychology",
+      "view_count": 690739,
+      "like_count": 28928,
+      "duration": 1545,
+      "upload_date": "20191208",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "JNm0NRWTgPc",
+      "title": "A Veteran's Story on Veterans Day | Knowing Better",
+      "view_count": 716360,
+      "like_count": 39557,
+      "duration": 2076,
+      "upload_date": "20191111",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "44mvkMqrW4U",
+      "title": "Healthcare | The Complete Moderate's Guide",
+      "view_count": 674972,
+      "like_count": 26354,
+      "duration": 2014,
+      "upload_date": "20191023",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "LhHhZ3b9akU",
+      "title": "Building Your Pyramid | Multi-Level Marketing",
+      "view_count": 1375330,
+      "like_count": null,
+      "duration": 1886,
+      "upload_date": "20190923",
+      "channel": null,
+      "channel_subscriber_count": null
+    },
+    {
+      "id": "r2zEqDOwzW0",
+      "title": "Denying Your History | Armenian Genocide",
+      "view_count": 1503019,
+      "like_count": 62779,
+      "duration": 1368,
+      "upload_date": "20190825",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "6UiIpiV0P0M",
+      "title": "Accidentally Inspiring Colonialism | Marco Polo",
+      "view_count": 475086,
+      "like_count": 17054,
+      "duration": 889,
+      "upload_date": "20190728",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "PfUlNppW9FY",
+      "title": "Asking Better 4: The Revenge",
+      "view_count": 199802,
+      "like_count": 10099,
+      "duration": 1334,
+      "upload_date": "20190713",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "CDrJo8d45gc",
+      "title": "Taking on the Red Pill | Men's Rights Activism",
+      "view_count": 1251123,
+      "like_count": 48271,
+      "duration": 1788,
+      "upload_date": "20190630",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "DJ-x2KvgLsk",
+      "title": "Losing Paradise | Angels and Demons",
+      "view_count": 783395,
+      "like_count": 28166,
+      "duration": 1814,
+      "upload_date": "20190609",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "geSfK9PzEDw",
+      "title": "Hitting Rock Bottom | Just World and Shattered Assumptions",
+      "view_count": 488648,
+      "like_count": 21673,
+      "duration": 1016,
+      "upload_date": "20190519",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "DMB785atM7k",
+      "title": "The Straight White Man's Guide to Feminism and Social Justice",
+      "view_count": 787808,
+      "like_count": 36489,
+      "duration": 2429,
+      "upload_date": "20190428",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "U4LSnc1DPr8",
+      "title": "Abandoning All Hope | Heaven and Hell",
+      "view_count": 1111969,
+      "like_count": 39368,
+      "duration": 1842,
+      "upload_date": "20190324",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "3HF8iR_GB8A",
+      "title": "Privatizing Public Services | Prisons and Schools",
+      "view_count": 1001945,
+      "like_count": 36944,
+      "duration": 1503,
+      "upload_date": "20190303",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "SXI_YMF2hgU",
+      "title": "The Oregon Trail of the Southwest | US Camel Corps",
+      "view_count": 316509,
+      "like_count": 12378,
+      "duration": 982,
+      "upload_date": "20190203",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "Vmzh5MBhYuQ",
+      "title": "Making Imaginary Friends | Parasocial Relationships",
+      "view_count": 419261,
+      "like_count": 18030,
+      "duration": 810,
+      "upload_date": "20190120",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "s4EuaMxL--s",
+      "title": "Welfare | The Complete Moderate's Guide",
+      "view_count": 757518,
+      "like_count": 26651,
+      "duration": 1788,
+      "upload_date": "20190106",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "RxY_xl5IQB0",
+      "title": "Buying Happiness | Cognitive Dissonance",
+      "view_count": 392322,
+      "like_count": 17036,
+      "duration": 664,
+      "upload_date": "20181209",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "4_kbkQipgJo",
+      "title": "Governing Paper People | Sovereign Citizens",
+      "view_count": 598320,
+      "like_count": 19415,
+      "duration": 750,
+      "upload_date": "20181118",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "jI25YYZURGk",
+      "title": "Suppressing the Vote | Disenfranchisement",
+      "view_count": 439616,
+      "like_count": 16429,
+      "duration": 902,
+      "upload_date": "20181104",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "ujYhAGJCswA",
+      "title": "Predicting the End | Eschatology",
+      "view_count": 759552,
+      "like_count": 23149,
+      "duration": 839,
+      "upload_date": "20181021",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "xSlYVGNQiFs",
+      "title": "Clearing the Planet | Scientology",
+      "view_count": 2188040,
+      "like_count": 54955,
+      "duration": 1855,
+      "upload_date": "20180930",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    }
+  ],
+  "outliers": [
+    {
+      "id": "j4kI2h3iotA",
+      "title": "The Part of History You've Always Skipped | Neoslavery",
+      "view_count": 6026235,
+      "like_count": 231229,
+      "duration": 4616,
+      "upload_date": "20220404",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "Pl8B55MqOQo",
+      "title": "American Exceptionalism but as a Religion | Mormons",
+      "view_count": 2569419,
+      "like_count": 73093,
+      "duration": 3232,
+      "upload_date": "20201231",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    },
+    {
+      "id": "A5P6vJs1jmY",
+      "title": "They Were Just in the Way | Indian Removal",
+      "view_count": 2541338,
+      "like_count": 77568,
+      "duration": 8799,
+      "upload_date": "20221107",
+      "channel": "Knowing Better",
+      "channel_subscriber_count": 952000
+    }
+  ],
+  "hooks": {
+    "j4kI2h3iotA": null,
+    "Pl8B55MqOQo": null,
+    "A5P6vJs1jmY": null
+  }
+}
