@@ -175,10 +175,14 @@ class TestGetNicheScore:
         score = get_niche_score("nonexistent_pattern", data)
         assert score is None
 
-    def test_returns_none_when_data_is_none(self):
-        """get_niche_score returns None when data=None (file missing scenario)."""
-        from tools.benchmark_store import get_niche_score
-        score = get_niche_score("declarative", None)
+    def test_returns_none_when_data_is_none(self, tmp_path):
+        """get_niche_score returns None when explicit None data is passed in (file missing scenario)."""
+        from tools.benchmark_store import load, get_niche_score
+        # Simulate a failed load (missing file) — load() returns None
+        missing_result = load(path=str(tmp_path / "no_such_file.json"))
+        assert missing_result is None
+        # Passing that None result to get_niche_score should return None
+        score = get_niche_score("declarative", missing_result)
         assert score is None
 
     def test_returns_none_for_low_confidence_small_sample(self, tmp_path):
