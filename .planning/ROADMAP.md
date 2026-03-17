@@ -204,7 +204,7 @@ Plans:
   2. When fewer than 5 internal examples support a pattern score, the scorer displays a fallback warning and substitutes competitor benchmark data instead of silently using a weak internal sample
   3. A territorial dispute topic and a political fact-check topic scoring the same raw title receive different CTR targets (3%+ vs 5%+ respectively) with the difference visible in tool output
   4. `tools/benchmark_store.py` exists with graceful None fallback when niche_benchmark.json is absent, so existing workflows are not blocked if benchmark file is missing
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 Plans:
 - [ ] 67-01-PLAN.md — benchmark_store.py + score_title() recalibration (niche layer, topic types, small-sample fallback)
 - [ ] 67-02-PLAN.md — format_result() display, CLI --topic flag, preflight/scorer.py integration
@@ -312,7 +312,7 @@ Plans:
 | 64. MCP Server Evaluation | v6.0 | 2/2 | Complete | 2026-03-15 |
 | 65. Automated CTR Feedback Loop | v6.0 | 1/1 | Complete | 2026-03-15 |
 | 66. External Benchmark Research | 0/1 | Complete    | 2026-03-17 | - |
-| 67. Title Scorer Recalibration | v7.0 | 0/2 | Not started | - |
+| 67. Title Scorer Recalibration | 1/2 | In Progress|  | - |
 | 68. Title Generation Upgrade | v7.0 | 0/? | Not started | - |
 | 69. Hook Quality Upgrade | v7.0 | 0/? | Not started | - |
 | 70. Metadata & Packaging Integration | v7.0 | 0/? | Not started | - |

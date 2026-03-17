@@ -9,9 +9,9 @@ Requirements for Packaging & Hooks Overhaul. Each maps to roadmap phases.
 
 ### Benchmarking
 
-- [ ] **BENCH-01**: Title scorer anchors "passing" (65/100) to 4%+ CTR based on edu/history competitor norms, not own-channel baseline
-- [ ] **BENCH-02**: Scorer flags when a pattern score is based on fewer than 5 examples and falls back to competitor benchmarks
-- [ ] **BENCH-03**: Scorer applies different CTR targets by topic type (territorial 3%+, political fact-check 5%+, ideological 4%+)
+- [x] **BENCH-01**: Title scorer anchors "passing" (65/100) to 4%+ CTR based on edu/history competitor norms, not own-channel baseline
+- [x] **BENCH-02**: Scorer flags when a pattern score is based on fewer than 5 examples and falls back to competitor benchmarks
+- [x] **BENCH-03**: Scorer applies different CTR targets by topic type (territorial 3%+, political fact-check 5%+, ideological 4%+)
 
 ### Title Generation
 
@@ -65,9 +65,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| BENCH-01 | Phase 67 | Pending |
-| BENCH-02 | Phase 67 | Pending |
-| BENCH-03 | Phase 67 | Pending |
+| BENCH-01 | Phase 67 | Complete |
+| BENCH-02 | Phase 67 | Complete |
+| BENCH-03 | Phase 67 | Complete |
 | TITLE-01 | Phase 68 | Pending |
 | TITLE-02 | Phase 68 | Pending |
 | TITLE-03 | Phase 68 | Pending |

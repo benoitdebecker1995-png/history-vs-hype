@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v7.0
 milestone_name: Packaging & Hooks Overhaul
 status: in_progress
-last_updated: "2026-03-17T12:55:54.249Z"
+last_updated: "2026-03-17T22:39:43.711Z"
 last_activity: 2026-03-16 — v7.0 roadmap created, Phases 66-70 defined
 progress:
   total_phases: 5
   completed_phases: 1
-  total_plans: 1
-  completed_plans: 1
+  total_plans: 3
+  completed_plans: 2
 ---
 
 ---
@@ -61,12 +61,12 @@ See: `.planning/PROJECT.md` (updated 2026-03-16)
 
 ## Current Position
 
-Phase: 66 — External Benchmark Research
-Plan: —
-Status: Roadmap complete, ready for Phase 66 planning
-Last activity: 2026-03-16 — v7.0 roadmap created, Phases 66-70 defined
+Phase: 67 — Title Scorer Recalibration
+Plan: 01 complete, 02 pending
+Status: Phase 67 Plan 01 complete — benchmark_store.py + score_title() recalibrated
+Last activity: 2026-03-17 — Phase 67 plan 01 complete (niche benchmark layer, topic-type grades)
 
-Progress: ░░░░░░░░░░ 0% (0/5 phases complete)
+Progress: [██████████] 99% (137/138 plans complete)
 
 ## Milestone History
 
@@ -116,6 +116,9 @@ Key v7.0 design decisions (from research):
 - [Phase 54]: 4-strategy cascade for bulk paste splitting (markdown heading > plain step > triple-dash > double-newline)
 - [Phase 54]: save_batch() continues on individual save errors rather than aborting batch
 - [Phase 54-external-intelligence-synthesis]: Renamed _score_moderation -> score_moderation and _SAFE_ALTERNATIVES -> SAFE_ALTERNATIVES for public import from synthesis_engine.py
+- [Phase 67]: Colon hard-reject kept despite niche colon VPS 0.776 (inflated by pipe-style titles from Knowing Better/Kraut)
+- [Phase 67]: _OWN_CHANNEL_MIN_SAMPLE=5: niche substitution triggers when own-channel n < 5
+- [Phase 67]: Grade thresholds intentionally recalibrated: general pass=60/good=70 raises bar vs old pass=50/good=65
 
 ### Pending Todos
 
