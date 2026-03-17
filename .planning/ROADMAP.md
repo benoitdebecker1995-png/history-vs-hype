@@ -174,7 +174,7 @@
 
 ### v7.0 Packaging & Hooks Overhaul (Phases 66-70)
 
-- [ ] **Phase 66: External Benchmark Research** - Research deliverable: competitor CTR norms, hook pattern library, data freshness check
+- [x] **Phase 66: External Benchmark Research** - Research deliverable: competitor CTR norms, hook pattern library, data freshness check (completed 2026-03-17)
 - [ ] **Phase 67: Title Scorer Recalibration** - Anchor passing threshold to external niche data, expose benchmark context in scoring output
 - [ ] **Phase 68: Title Generation Upgrade** - Script-grounded title extraction, versus variant generation, hard-reject pattern enforcement
 - [ ] **Phase 69: Hook Quality Upgrade** - Hook scorer with title-fulfillment check, hook style recommender by topic type
@@ -191,7 +191,7 @@
   2. `channel-data/niche-hook-patterns.md` documents first-sentence linguistic examples from outlier videos, distinguishing click triggers from documentary narration
   3. `.claude/REFERENCE/HOOK-PATTERN-LIBRARY.md` exists structured for agent consumption with examples drawn at least 50% from channels with 100K+ subscribers
   4. ctr_tracker.py has been run and CTR snapshots are confirmed fresh (post-2026-03-01 collection date) before any scorer rewrite begins
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 Plans:
 - [ ] 66-01-PLAN.md — CTR refresh, channel discovery, benchmark JSON, hook pattern analysis, and user review
 
@@ -308,7 +308,7 @@ Plans:
 | 63. v6.0 Gap Closure & Tech Debt | v6.0 | 1/1 | Complete | 2026-03-15 |
 | 64. MCP Server Evaluation | v6.0 | 2/2 | Complete | 2026-03-15 |
 | 65. Automated CTR Feedback Loop | v6.0 | 1/1 | Complete | 2026-03-15 |
-| 66. External Benchmark Research | v7.0 | 0/1 | Planning complete | - |
+| 66. External Benchmark Research | 1/1 | Complete   | 2026-03-17 | - |
 | 67. Title Scorer Recalibration | v7.0 | 0/? | Not started | - |
 | 68. Title Generation Upgrade | v7.0 | 0/? | Not started | - |
 | 69. Hook Quality Upgrade | v7.0 | 0/? | Not started | - |
