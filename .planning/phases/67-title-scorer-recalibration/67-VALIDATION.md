@@ -19,16 +19,16 @@ created: 2026-03-17
 |----------|-------|
 | **Framework** | pytest |
 | **Config file** | pyproject.toml or pytest.ini (check existing) |
-| **Quick run command** | `pytest tools/tests/test_title_scorer.py -x -q` |
-| **Full suite command** | `pytest tools/tests/ -q` |
+| **Quick run command** | `pytest tests/unit/test_title_scorer_niche.py -x -q` |
+| **Full suite command** | `pytest tests/unit/ -q` |
 | **Estimated runtime** | ~5 seconds |
 
 ---
 
 ## Sampling Rate
 
-- **After every task commit:** Run `pytest tools/tests/test_title_scorer.py -x -q`
-- **After every plan wave:** Run `pytest tools/tests/ -q`
+- **After every task commit:** Run `pytest tests/unit/test_title_scorer_niche.py -x -q`
+- **After every plan wave:** Run `pytest tests/unit/ -q`
 - **Before `/gsd:verify-work`:** Full suite must be green
 - **Max feedback latency:** 5 seconds
 
@@ -38,13 +38,10 @@ created: 2026-03-17
 
 | Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|-----------|-------------------|-------------|--------|
-| 67-01-01 | 01 | 1 | BENCH-01 | unit | `pytest tools/tests/test_benchmark_store.py::test_graceful_none -x` | ❌ W0 | ⬜ pending |
-| 67-01-02 | 01 | 1 | BENCH-01 | unit | `pytest tools/tests/test_title_scorer.py::test_niche_percentile_label -x` | ❌ W0 | ⬜ pending |
-| 67-02-01 | 02 | 1 | BENCH-02 | unit | `pytest tools/tests/test_title_scorer.py::test_small_sample_fallback -x` | ❌ W0 | ⬜ pending |
-| 67-02-02 | 02 | 1 | BENCH-02 | unit | `pytest tools/tests/test_title_scorer.py::test_no_fallback_sufficient_sample -x` | ❌ W0 | ⬜ pending |
-| 67-03-01 | 03 | 1 | BENCH-03 | unit | `pytest tools/tests/test_title_scorer.py::test_topic_grade_territorial -x` | ❌ W0 | ⬜ pending |
-| 67-03-02 | 03 | 1 | BENCH-03 | unit | `pytest tools/tests/test_title_scorer.py::test_topic_grade_political -x` | ❌ W0 | ⬜ pending |
-| 67-03-03 | 03 | 1 | BENCH-03 | unit | `pytest tools/tests/test_title_scorer.py::test_same_title_different_topics -x` | ❌ W0 | ⬜ pending |
+| 67-01-01 | 01 | 1 | BENCH-01 | unit | `pytest tests/unit/test_benchmark_store.py::test_graceful_none -x` | ❌ W0 | ⬜ pending |
+| 67-01-02 | 01 | 1 | BENCH-01, BENCH-02, BENCH-03 | unit | `pytest tests/unit/test_title_scorer_niche.py -x -q` | ❌ W0 | ⬜ pending |
+| 67-02-01 | 02 | 2 | BENCH-01, BENCH-02 | integration | `python -m tools.title_scorer "France Divided Haiti" --topic territorial --db tools/intel/intel.db` | N/A | ⬜ pending |
+| 67-02-02 | 02 | 2 | BENCH-01 | integration | `python -c "from tools.preflight.scorer import _score_title_metadata; r = _score_title_metadata(...); assert any('niche' in n.lower() for n in r['notes'])"` | N/A | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 
@@ -52,8 +49,8 @@ created: 2026-03-17
 
 ## Wave 0 Requirements
 
-- [ ] `tools/tests/test_title_scorer.py` — stubs for BENCH-01, BENCH-02, BENCH-03
-- [ ] `tools/tests/test_benchmark_store.py` — covers BENCH-01 graceful None fallback
+- [ ] `tests/unit/test_benchmark_store.py` — covers BENCH-01 graceful None fallback
+- [ ] `tests/unit/test_title_scorer_niche.py` — covers BENCH-01 niche percentile, BENCH-02 small-sample fallback, BENCH-03 topic-type thresholds
 
 *Existing infrastructure covers pytest framework.*
 
