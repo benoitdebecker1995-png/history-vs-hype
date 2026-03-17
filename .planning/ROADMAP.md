@@ -174,7 +174,7 @@
 
 ### v7.0 Packaging & Hooks Overhaul (Phases 66-70)
 
-- [x] **Phase 66: External Benchmark Research** - Research deliverable: competitor CTR norms, hook pattern library, data freshness check (completed 2026-03-17)
+- [x] **Phase 66: External Benchmark Research** - Research deliverable: competitor CTR norms, hook pattern library, data freshness check (completed 2026-03-17)
 - [ ] **Phase 67: Title Scorer Recalibration** - Anchor passing threshold to external niche data, expose benchmark context in scoring output
 - [ ] **Phase 68: Title Generation Upgrade** - Script-grounded title extraction, versus variant generation, hard-reject pattern enforcement
 - [ ] **Phase 69: Hook Quality Upgrade** - Hook scorer with title-fulfillment check, hook style recommender by topic type
@@ -193,7 +193,7 @@
   4. ctr_tracker.py has been run and CTR snapshots are confirmed fresh (post-2026-03-01 collection date) before any scorer rewrite begins
 **Plans:** 1/1 plans complete
 Plans:
-- [ ] 66-01-PLAN.md — CTR refresh, channel discovery, benchmark JSON, hook pattern analysis, and user review
+- [x] 66-01-PLAN.md — CTR refresh, channel discovery, benchmark JSON, hook pattern analysis, and user review
 
 ### Phase 67: Title Scorer Recalibration
 **Goal**: Users get a title score anchored to what top edu/history channels actually achieve, breaking the self-referential loop where "passing" was calibrated against the channel's own low-CTR data
@@ -204,7 +204,10 @@ Plans:
   2. When fewer than 5 internal examples support a pattern score, the scorer displays a fallback warning and substitutes competitor benchmark data instead of silently using a weak internal sample
   3. A territorial dispute topic and a political fact-check topic scoring the same raw title receive different CTR targets (3%+ vs 5%+ respectively) with the difference visible in tool output
   4. `tools/benchmark_store.py` exists with graceful None fallback when niche_benchmark.json is absent, so existing workflows are not blocked if benchmark file is missing
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 67-01-PLAN.md — benchmark_store.py + score_title() recalibration (niche layer, topic types, small-sample fallback)
+- [ ] 67-02-PLAN.md — format_result() display, CLI --topic flag, preflight/scorer.py integration
 
 ### Phase 68: Title Generation Upgrade
 **Goal**: Users receive title candidates grounded in the script's actual specific material, with low-performing structural patterns blocked before any candidate reaches the user
@@ -309,7 +312,7 @@ Plans:
 | 64. MCP Server Evaluation | v6.0 | 2/2 | Complete | 2026-03-15 |
 | 65. Automated CTR Feedback Loop | v6.0 | 1/1 | Complete | 2026-03-15 |
 | 66. External Benchmark Research | 0/1 | Complete    | 2026-03-17 | - |
-| 67. Title Scorer Recalibration | v7.0 | 0/? | Not started | - |
+| 67. Title Scorer Recalibration | v7.0 | 0/2 | Not started | - |
 | 68. Title Generation Upgrade | v7.0 | 0/? | Not started | - |
 | 69. Hook Quality Upgrade | v7.0 | 0/? | Not started | - |
 | 70. Metadata & Packaging Integration | v7.0 | 0/? | Not started | - |
