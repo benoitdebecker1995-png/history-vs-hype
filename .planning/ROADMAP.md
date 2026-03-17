@@ -312,7 +312,7 @@ Plans:
 | 64. MCP Server Evaluation | v6.0 | 2/2 | Complete | 2026-03-15 |
 | 65. Automated CTR Feedback Loop | v6.0 | 1/1 | Complete | 2026-03-15 |
 | 66. External Benchmark Research | 0/1 | Complete    | 2026-03-17 | - |
-| 67. Title Scorer Recalibration | 2/2 | Complete   | 2026-03-17 | - |
+| 67. Title Scorer Recalibration | 2/2 | Complete    | 2026-03-17 | - |
 | 68. Title Generation Upgrade | v7.0 | 0/? | Not started | - |
 | 69. Hook Quality Upgrade | v7.0 | 0/? | Not started | - |
 | 70. Metadata & Packaging Integration | v7.0 | 0/? | Not started | - |
