@@ -175,7 +175,7 @@
 ### v7.0 Packaging & Hooks Overhaul (Phases 66-70)
 
 - [x] **Phase 66: External Benchmark Research** - Research deliverable: competitor CTR norms, hook pattern library, data freshness check (completed 2026-03-17)
-- [x] **Phase 67: Title Scorer Recalibration** - Anchor passing threshold to external niche data, expose benchmark context in scoring output (completed 2026-03-17)
+- [x] **Phase 67: Title Scorer Recalibration** - Anchor passing threshold to external niche data, expose benchmark context in scoring output (completed 2026-03-17)
 - [x] **Phase 68: Title Generation Upgrade** - Script-grounded title extraction, versus variant generation, hard-reject pattern enforcement (completed 2026-03-18)
 - [ ] **Phase 69: Hook Quality Upgrade** - Hook scorer with title-fulfillment check, hook style recommender by topic type
 - [ ] **Phase 70: Metadata & Packaging Integration** - Description template enforcement, thumbnail concept generation, metadata coherence check
@@ -232,8 +232,8 @@ Plans:
   3. For a territorial dispute topic, the hook scorer recommends cold_fact style; for an ideological myth-busting topic it recommends myth-contradiction style — the recommendation is visible in output and references the topic type classification
 **Plans:** 2 plans
 Plans:
-- [ ] 68-01-PLAN.md — Title material extraction engine (TitleMaterialExtractor, versus detection, candidate generation)
-- [ ] 68-02-PLAN.md — Wire into metadata.py, ranked output format, penalty warnings
+- [ ] 69-01-PLAN.md — Upgrade hook_scorer.py (framework detection, fulfillment check, style recommendation, tests)
+- [ ] 69-02-PLAN.md — Rewrite /script --hooks command (LLM variants, fulfillment display, style banner)
 
 ### Phase 70: Metadata & Packaging Integration
 **Goal**: Users produce a metadata bundle where description, thumbnail concept, and title all reinforce the same hook element, enforced by tool output rather than manual checklist
@@ -245,8 +245,8 @@ Plans:
   3. The metadata bundle output explicitly flags when title, thumbnail concept, and description do not all reference the same hook element — the flag names which element is misaligned
 **Plans:** 2 plans
 Plans:
-- [ ] 68-01-PLAN.md — Title material extraction engine (TitleMaterialExtractor, versus detection, candidate generation)
-- [ ] 68-02-PLAN.md — Wire into metadata.py, ranked output format, penalty warnings
+- [ ] 70-01-PLAN.md — [To be planned]
+- [ ] 70-02-PLAN.md — [To be planned]
 
 ## Progress
 
@@ -323,5 +323,5 @@ Plans:
 | 66. External Benchmark Research | 0/1 | Complete    | 2026-03-17 | - |
 | 67. Title Scorer Recalibration | 2/2 | Complete    | 2026-03-17 | - |
 | 68. Title Generation Upgrade | 2/2 | Complete    | 2026-03-18 | - |
-| 69. Hook Quality Upgrade | v7.0 | 0/? | Not started | - |
+| 69. Hook Quality Upgrade | v7.0 | 0/2 | Not started | - |
 | 70. Metadata & Packaging Integration | v7.0 | 0/? | Not started | - |
