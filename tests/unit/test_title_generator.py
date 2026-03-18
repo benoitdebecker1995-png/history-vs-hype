@@ -496,5 +496,141 @@ Contrary to popular belief, it was not a clean split.
         self.assertGreater(len(results), 0, "Expected candidates from SRT input")
 
 
+class TestFormatTitleCandidates(unittest.TestCase):
+    """Tests for format_title_candidates() — ranked table output with warning labels."""
+
+    def _make_candidate(self, title: str, score: int, grade: str = "B",
+                        pattern: str = "declarative", hard_rejects: list = None) -> dict:
+        """Build a minimal candidate dict for formatting tests."""
+        return {
+            "title": title,
+            "score": score,
+            "grade": grade,
+            "pattern": pattern,
+            "penalties": [],
+            "hard_rejects": hard_rejects or [],
+        }
+
+    def test_format_ranked_table(self):
+        """4 candidate dicts -> output contains header, markdown table with correct columns."""
+        with patch(PATCH_TARGET, side_effect=_stub_score_title):
+            from tools.production.title_generator import format_title_candidates
+
+        candidates = [
+            self._make_candidate("Haiti Changed History", 75, "A", "declarative"),
+            self._make_candidate("Why Haiti History Is Wrong", 65, "B", "how_why"),
+            self._make_candidate("Spain vs Haiti", 70, "B+", "versus"),
+            self._make_candidate("Haiti and the myth", 60, "B-", "curiosity"),
+        ]
+
+        output = format_title_candidates(candidates)
+
+        self.assertIn("Title Candidates (ranked by score)", output)
+        self.assertIn("| # | Title | Score | Grade | Pattern |", output)
+        # Top scorer should appear first (rank 1)
+        lines = output.splitlines()
+        table_rows = [l for l in lines if l.startswith("|") and "Haiti Changed History" in l]
+        self.assertTrue(table_rows, "Top candidate should appear in table")
+        # Check rank 1 is the highest score (75)
+        rank1_row = [l for l in lines if l.startswith("| 1 |")]
+        self.assertTrue(rank1_row, "Rank 1 row should be present")
+        self.assertIn("Haiti Changed History", rank1_row[0])
+
+    def test_penalized_candidates_show_warning(self):
+        """Candidate with hard_rejects=['year in title'] -> warning line in output."""
+        with patch(PATCH_TARGET, side_effect=_stub_score_title):
+            from tools.production.title_generator import format_title_candidates
+
+        candidates = [
+            self._make_candidate("Haiti Changed History", 75, "A", "declarative"),
+            self._make_candidate("Haiti 1804 Revolution", 25, "D", "declarative",
+                                 hard_rejects=["year in title"]),
+        ]
+
+        output = format_title_candidates(candidates)
+
+        self.assertIn("penalized:", output.lower())
+        self.assertIn("year in title", output)
+
+    def test_all_candidates_shown(self):
+        """5 candidates including 2 with hard_rejects -> all 5 appear in table (none dropped)."""
+        with patch(PATCH_TARGET, side_effect=_stub_score_title):
+            from tools.production.title_generator import format_title_candidates
+
+        candidates = [
+            self._make_candidate("Haiti Changed History", 75, "A", "declarative"),
+            self._make_candidate("Why Haiti", 70, "A-", "how_why"),
+            self._make_candidate("Spain vs Portugal", 65, "B", "versus"),
+            self._make_candidate("Haiti 1804", 25, "D", "declarative",
+                                 hard_rejects=["year in title"]),
+            self._make_candidate("The Haiti: Story", 30, "D", "declarative",
+                                 hard_rejects=["colon in title"]),
+        ]
+
+        output = format_title_candidates(candidates)
+
+        # All 5 titles should appear in the output
+        for candidate in candidates:
+            self.assertIn(candidate["title"], output,
+                          f"Candidate '{candidate['title']}' was silently dropped")
+
+    def test_year_candidate_ranked_last(self):
+        """Candidate with low score (from year penalty) appears at bottom of ranked table."""
+        with patch(PATCH_TARGET, side_effect=_stub_score_title):
+            from tools.production.title_generator import format_title_candidates
+
+        candidates = [
+            self._make_candidate("Haiti Changed History", 75, "A", "declarative"),
+            self._make_candidate("Why Haiti History Is Wrong", 65, "B", "how_why"),
+            self._make_candidate("Haiti 1804: The Revolution", 15, "F", "declarative",
+                                 hard_rejects=["year in title", "colon in title"]),
+        ]
+
+        output = format_title_candidates(candidates)
+
+        lines = output.splitlines()
+        # Find the row indices for the year-penalized candidate and the top candidate
+        haiti_row_idx = None
+        year_row_idx = None
+        for i, line in enumerate(lines):
+            if "Haiti Changed History" in line and line.startswith("|"):
+                haiti_row_idx = i
+            if "Haiti 1804" in line and line.startswith("|"):
+                year_row_idx = i
+
+        self.assertIsNotNone(haiti_row_idx, "Top candidate not found in table")
+        self.assertIsNotNone(year_row_idx, "Year-penalized candidate not found in table")
+        self.assertLess(haiti_row_idx, year_row_idx,
+                        "Top candidate should appear before year-penalized candidate in table")
+
+    def test_output_replaces_abc(self):
+        """generate_metadata_draft output contains 'Title Candidates', not 'Title A/B/C Test Variants'."""
+        from tools.production.parser import Section
+        from tools.production.entities import Entity
+
+        section = Section(
+            heading="Opening",
+            content=(
+                "Spain and Portugal competed for colonial dominance. "
+                "They divided the world by the Treaty of Tordesillas. "
+                "Contrary to popular belief, the division was never truly enforced."
+            ),
+            word_count=30,
+            start_line=1,
+            section_type="intro",
+        )
+        entity = Entity(text="Spain", entity_type="place", mentions=2,
+                        positions=[1, 2], normalized="spain")
+
+        with patch(PATCH_TARGET, side_effect=_stub_score_title):
+            from tools.production.metadata import MetadataGenerator
+            gen = MetadataGenerator("test-project")
+            output = gen.generate_metadata_draft([section], [entity], [])
+
+        self.assertIn("Title Candidates", output)
+        self.assertNotIn("Title A/B/C Test Variants", output)
+        self.assertNotIn("**Recommendation:** Test A vs B first", output)
+
+
 if __name__ == "__main__":
     unittest.main()

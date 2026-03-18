@@ -13,11 +13,13 @@ Usage:
         TitleCandidateGenerator,
         detect_versus_signal,
         generate_title_candidates,
+        format_title_candidates,
     )
 
     parser = ScriptParser()
     sections = parser.parse_file(path)
     candidates = generate_title_candidates(sections=sections)
+    print(format_title_candidates(candidates))
 """
 
 import re
@@ -695,6 +697,54 @@ class TitleCandidateGenerator:
 # ---------------------------------------------------------------------------
 # Convenience function
 # ---------------------------------------------------------------------------
+
+def format_title_candidates(candidates: List[Dict[str, Any]]) -> str:
+    """
+    Format a list of scored title candidates into a ranked markdown table.
+
+    Candidates are sorted by score descending. The output includes:
+      - A header "## Title Candidates (ranked by score)"
+      - A markdown table with columns: #, Title, Score, Grade, Pattern
+      - Warning lines below the table for any candidate with hard_rejects
+
+    Args:
+        candidates: List of score_title() result dicts (each must have
+                    'title', 'score', 'grade', 'pattern', 'hard_rejects').
+
+    Returns:
+        Complete markdown string with ranked table and penalty warnings.
+    """
+    # Sort descending by score (candidates may already be sorted, but enforce it)
+    sorted_candidates = sorted(candidates, key=lambda c: -c.get("score", 0))
+
+    lines = [
+        "## Title Candidates (ranked by score)",
+        "",
+        "| # | Title | Score | Grade | Pattern |",
+        "|---|-------|-------|-------|---------|",
+    ]
+
+    for rank, candidate in enumerate(sorted_candidates, start=1):
+        title = candidate.get("title", "")
+        score = candidate.get("score", 0)
+        grade = candidate.get("grade", "?")
+        pattern = candidate.get("pattern", "unknown")
+        lines.append(f"| {rank} | {title} | {score} | {grade} | {pattern} |")
+
+    # Append warning lines for penalized candidates
+    warnings = []
+    for rank, candidate in enumerate(sorted_candidates, start=1):
+        hard_rejects = candidate.get("hard_rejects", [])
+        if hard_rejects:
+            for reason in hard_rejects:
+                warnings.append(f"\n[warning] #{rank} penalized: {reason}")
+
+    if warnings:
+        lines.append("")
+        lines.extend(warnings)
+
+    return "\n".join(lines)
+
 
 def generate_title_candidates(
     sections: Optional[List[Section]] = None,

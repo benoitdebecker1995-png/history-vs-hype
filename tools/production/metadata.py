@@ -15,12 +15,14 @@ Usage:
     metadata = generator.generate_metadata_draft(sections, entities, timings)
 """
 
+import os
 import re
 from dataclasses import dataclass
-from typing import List, Set, Tuple
+from typing import List, Optional, Set, Tuple
 from .parser import Section
 from .entities import Entity
 from .editguide import SectionTiming, format_time
+from .title_generator import generate_title_candidates, format_title_candidates
 
 
 # Clickbait patterns to reject (from VIDIQ-CHANNEL-DNA-FILTER.md)
@@ -49,7 +51,12 @@ TARGET_TAG_COUNT = (15, 20)
 
 @dataclass
 class TitleVariant:
-    """A generated title variant with focus description."""
+    """
+    A generated title variant with focus description.
+
+    DEPRECATED: Replaced by ranked scored candidates from title_generator.
+    Kept for backward compatibility with any external references.
+    """
     variant: str        # 'A', 'B', 'C'
     title: str          # Title text
     focus: str          # What this variant emphasizes
@@ -64,14 +71,25 @@ class MetadataGenerator:
     chapters from section timings, and entity-based tags.
     """
 
-    def __init__(self, project_name: str = "Untitled"):
+    def __init__(self, project_name: str = "Untitled", db_path: Optional[str] = None):
         """
         Initialize the metadata generator.
 
         Args:
             project_name: Project identifier (e.g., "14-chagos-islands-2025")
+            db_path:      Optional path to keywords.db for DB-enriched title scoring.
+                          If None, auto-resolves to tools/discovery/keywords.db when present.
         """
         self.project_name = project_name
+        # Auto-resolve db_path to the standard keywords.db location if not provided
+        if db_path is None:
+            default_db = os.path.join(
+                os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+                "tools", "discovery", "keywords.db",
+            )
+            if os.path.exists(default_db):
+                db_path = default_db
+        self._db_path = db_path
 
     def generate_metadata_draft(
         self,
@@ -91,7 +109,8 @@ class MetadataGenerator:
             Complete markdown string in YOUTUBE-METADATA.md format
         """
         # Generate components
-        title_variants = self._generate_title_variants(sections, entities)
+        title_candidates = self._generate_title_variants(sections, entities)
+        title_section = format_title_candidates(title_candidates)
         description = self._generate_description(sections, entities)
         chapters = self._generate_chapters(timings)
         tags = self._generate_tags(entities, sections)
@@ -100,18 +119,7 @@ class MetadataGenerator:
         md = [
             f"# YouTube Metadata: {self.project_name}",
             "",
-            "## Title A/B/C Test Variants",
-            "",
-            "| Variant | Title | Focus |",
-            "|---------|-------|-------|"
-        ]
-
-        for variant in title_variants:
-            md.append(f"| **{variant.variant}** | {variant.title} | {variant.focus} |")
-
-        md.extend([
-            "",
-            "**Recommendation:** Test A vs B first. Use C if neither performs.",
+            title_section,
             "",
             "---",
             "",
@@ -148,7 +156,7 @@ class MetadataGenerator:
             "## VidIQ Research Notes",
             "",
             "[PLACEHOLDER: Add VidIQ keyword research here]",
-        ])
+        ]
 
         return '\n'.join(md)
 
@@ -156,43 +164,39 @@ class MetadataGenerator:
         self,
         sections: List[Section],
         entities: List[Entity]
-    ) -> List[TitleVariant]:
+    ) -> List[dict]:
         """
-        Generate 3 title variants from script opening.
+        Generate ranked scored title candidates from the full script.
+
+        Delegates to generate_title_candidates() from title_generator.py,
+        which extracts material from the full script (not just the opening hook)
+        and auto-scores every candidate via title_scorer.score_title().
 
         Args:
             sections: Script sections
-            entities: Extracted entities
+            entities: Extracted entities (unused — title_generator re-extracts
+                      from sections for position-weighted scoring)
 
         Returns:
-            List of 3 TitleVariant objects (A, B, C)
+            List of scored candidate dicts sorted by score descending.
+            Each dict has: title, score, grade, pattern, penalties, hard_rejects, ...
         """
         if not sections:
-            return [
-                TitleVariant('A', 'Untitled Video', 'No content available', 0),
-                TitleVariant('B', 'Untitled Video', 'No content available', 0),
-                TitleVariant('C', 'Untitled Video', 'No content available', 0)
-            ]
+            # Fallback: return a single minimal candidate for empty input
+            return [{
+                "title": "Untitled Video",
+                "score": 0,
+                "grade": "F",
+                "pattern": "unknown",
+                "penalties": [],
+                "hard_rejects": [],
+            }]
 
-        # Extract opening hook (first 2-3 sentences from first section)
-        opening = sections[0].content
-        hook = self._extract_hook(opening)
-
-        # Get top entities
-        top_places = [e for e in sorted(entities, key=lambda x: x.mentions, reverse=True) if e.entity_type == 'place'][:3]
-        top_documents = [e for e in sorted(entities, key=lambda x: x.mentions, reverse=True) if e.entity_type == 'document'][:3]
-        top_people = [e for e in sorted(entities, key=lambda x: x.mentions, reverse=True) if e.entity_type == 'person'][:3]
-
-        # Variant A: Mechanism-focused
-        variant_a = self._generate_mechanism_title(hook, top_places, entities)
-
-        # Variant B: Document-focused
-        variant_b = self._generate_document_title(hook, top_documents, entities)
-
-        # Variant C: Paradox/curiosity-focused
-        variant_c = self._generate_paradox_title(hook, top_places, entities)
-
-        return [variant_a, variant_b, variant_c]
+        return generate_title_candidates(
+            sections=sections,
+            topic_type=None,
+            db_path=self._db_path,
+        )
 
     def _extract_hook(self, text: str) -> str:
         """Extract first 2-3 sentences from opening text."""
