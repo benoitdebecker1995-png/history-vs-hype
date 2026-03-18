@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v7.0
 milestone_name: Packaging & Hooks Overhaul
 status: in_progress
-last_updated: "2026-03-17T23:08:07.188Z"
+last_updated: "2026-03-18T11:20:21.757Z"
 last_activity: 2026-03-17 — Phase 67 plan 02 complete (niche display, --topic flag, preflight integration)
 progress:
   total_phases: 5
   completed_phases: 2
-  total_plans: 3
-  completed_plans: 3
+  total_plans: 5
+  completed_plans: 4
 ---
 
 ---
@@ -149,6 +149,9 @@ Key v7.0 design decisions (from research):
 - [Phase 67]: _OWN_CHANNEL_MIN_SAMPLE=5: niche substitution triggers when own-channel n < 5
 - [Phase 67]: Grade thresholds intentionally recalibrated: general pass=60/good=70 raises bar vs old pass=50/good=65
 - [Phase 67]: Topic line only shown when gap_message present (grade below B) — cleaner output
+- [Phase 68-title-generation-upgrade]: Supplementary _extract_named_documents() added for Treaty-of-X patterns that entities.py misses
+- [Phase 68-title-generation-upgrade]: detect_versus_signal: 100-word co-occurrence window, score=hits/3.0 capped at 1.0
+- [Phase 68-title-generation-upgrade]: SRT positional heuristic: first/last 20% words get intro/conclusion weights
 
 ### Pending Todos
 
