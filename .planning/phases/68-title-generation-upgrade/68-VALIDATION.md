@@ -38,19 +38,18 @@ created: 2026-03-17
 
 | Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|-----------|-------------------|-------------|--------|
-| 68-01-01 | 01 | 0 | TITLE-01, TITLE-02, TITLE-03 | unit stubs | `pytest tests/unit/test_title_generator.py -x` | ❌ W0 | ⬜ pending |
-| 68-02-01 | 02 | 1 | TITLE-01 | unit | `pytest tests/unit/test_title_generator.py::test_extracts_number_from_body -x` | ❌ W0 | ⬜ pending |
-| 68-02-02 | 02 | 1 | TITLE-01 | unit | `pytest tests/unit/test_title_generator.py::test_extracts_document_name -x` | ❌ W0 | ⬜ pending |
-| 68-02-03 | 02 | 1 | TITLE-01 | unit | `pytest tests/unit/test_title_generator.py::test_extracts_contradiction -x` | ❌ W0 | ⬜ pending |
-| 68-02-04 | 02 | 1 | TITLE-01 | unit | `pytest tests/unit/test_title_generator.py::test_srt_input_extracts_material -x` | ❌ W0 | ⬜ pending |
-| 68-02-05 | 02 | 1 | TITLE-01 | unit | `pytest tests/unit/test_title_generator.py::test_position_weighting -x` | ❌ W0 | ⬜ pending |
-| 68-03-01 | 03 | 1 | TITLE-02 | unit | `pytest tests/unit/test_title_generator.py::test_versus_auto_detection -x` | ❌ W0 | ⬜ pending |
-| 68-03-02 | 03 | 1 | TITLE-02 | unit | `pytest tests/unit/test_title_generator.py::test_declarative_always_generated -x` | ❌ W0 | ⬜ pending |
-| 68-03-03 | 03 | 1 | TITLE-02 | unit | `pytest tests/unit/test_title_generator.py::test_versus_weak_signal_not_primary -x` | ❌ W0 | ⬜ pending |
-| 68-04-01 | 04 | 2 | TITLE-03 | unit | `pytest tests/unit/test_title_generator.py::test_year_candidate_ranked_last -x` | ❌ W0 | ⬜ pending |
-| 68-04-02 | 04 | 2 | TITLE-03 | unit | `pytest tests/unit/test_title_generator.py::test_colon_candidate_ranked_last -x` | ❌ W0 | ⬜ pending |
-| 68-04-03 | 04 | 2 | TITLE-03 | unit | `pytest tests/unit/test_title_generator.py::test_all_candidates_shown -x` | ❌ W0 | ⬜ pending |
-| 68-04-04 | 04 | 2 | TITLE-03 | unit | `pytest tests/unit/test_title_generator.py::test_output_is_ranked_table -x` | ❌ W0 | ⬜ pending |
+| 68-01-01 | 01 | 1 | TITLE-01 | unit | `pytest tests/unit/test_title_generator.py::test_extracts_number_from_body -x` | ❌ W0 | ⬜ pending |
+| 68-01-02 | 01 | 1 | TITLE-01 | unit | `pytest tests/unit/test_title_generator.py::test_extracts_document_name -x` | ❌ W0 | ⬜ pending |
+| 68-01-03 | 01 | 1 | TITLE-01 | unit | `pytest tests/unit/test_title_generator.py::test_extracts_contradiction -x` | ❌ W0 | ⬜ pending |
+| 68-01-04 | 01 | 1 | TITLE-01 | unit | `pytest tests/unit/test_title_generator.py::test_srt_input_extracts_material -x` | ❌ W0 | ⬜ pending |
+| 68-01-05 | 01 | 1 | TITLE-01 | unit | `pytest tests/unit/test_title_generator.py::test_position_weighting -x` | ❌ W0 | ⬜ pending |
+| 68-01-06 | 01 | 1 | TITLE-02 | unit | `pytest tests/unit/test_title_generator.py::test_versus_auto_detection -x` | ❌ W0 | ⬜ pending |
+| 68-01-07 | 01 | 1 | TITLE-02 | unit | `pytest tests/unit/test_title_generator.py::test_declarative_always_generated -x` | ❌ W0 | ⬜ pending |
+| 68-01-08 | 01 | 1 | TITLE-02 | unit | `pytest tests/unit/test_title_generator.py::test_versus_weak_signal_not_primary -x` | ❌ W0 | ⬜ pending |
+| 68-02-01 | 02 | 2 | TITLE-03 | unit | `pytest tests/unit/test_title_generator.py::test_year_candidate_ranked_last -x` | ❌ W0 | ⬜ pending |
+| 68-02-02 | 02 | 2 | TITLE-03 | unit | `pytest tests/unit/test_title_generator.py::test_colon_candidate_ranked_last -x` | ❌ W0 | ⬜ pending |
+| 68-02-03 | 02 | 2 | TITLE-03 | unit | `pytest tests/unit/test_title_generator.py::test_all_candidates_shown -x` | ❌ W0 | ⬜ pending |
+| 68-02-04 | 02 | 2 | TITLE-03 | unit | `pytest tests/unit/test_title_generator.py::test_output_is_ranked_table -x` | ❌ W0 | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 

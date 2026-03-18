@@ -17,7 +17,7 @@ Requirements for Packaging & Hooks Overhaul. Each maps to roadmap phases.
 
 - [ ] **TITLE-01**: `/publish --titles` reads the script and extracts specific numbers, document names, and contradictions as raw material for title candidates
 - [ ] **TITLE-02**: Title generation produces versus and declarative variants as default output when topic has two competing entities
-- [ ] **TITLE-03**: Tool auto-rejects titles with year (-46% CTR), colon (-28%), "The X That Y" (1.2% CTR), and question (-36%) patterns before presenting to user
+- [ ] **TITLE-03**: Titles with year (-46% CTR), colon (-28%), "The X That Y" (1.2% CTR), and question (-36%) patterns receive heavy score penalties and are shown ranked last with warning labels — never silently dropped (reinterpreted per Phase 68 CONTEXT.md: data-driven scoring, not blind rejection)
 
 ### Hook Quality
 
