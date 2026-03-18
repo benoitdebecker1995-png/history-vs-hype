@@ -25,6 +25,8 @@ Write new scripts, revise existing ones, review for issues, or export for telepr
 | Flag | Purpose | Example |
 |------|---------|---------|
 | `--new` | Write new script from verified research | `/script --new 19-flat-earth-medieval-2025` |
+| `--hooks` | Score existing hook, generate LLM variants, rank with fulfillment check | `/script --hooks 42-why-brazil-speaks-portuguese-2026 --title "Why Brazil Speaks Portuguese"` |
+| `--title "Title Text"` | Video title — enables title-fulfillment check in --hooks (entity echo + promise-type). If omitted, fulfillment check is skipped. | `/script --hooks 42-why-brazil-2026 --title "Why Brazil Speaks Portuguese"` |
 | `--document-mode` | Generate clause-by-clause document walkthrough script | `/script --document-mode 35-gibraltar-treaty-utrecht-2026` |
 | `--revise` | Revise existing SCRIPT.md | `/script --revise 19-flat-earth-medieval-2025` |
 | `--review` | Comprehensive quality review | `/script --review 19-flat-earth-medieval-2025` |
@@ -152,13 +154,9 @@ Hook pattern from outliers: "legal fiction exposed" frame drove 4x median views.
 - `.claude/USER-PREFERENCES.md` - Natural speaking patterns
 - `.claude/REFERENCE/SCRIPTWRITING-DEBUNKING-FRAMEWORK.md` - Debunking psychology + public history
 - `.claude/REFERENCE/NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` - Prompts for your uploaded books
-- **`.claude/REFERENCE/NARRATIVE-FLOW-RULES.md`** - **MANDATORY** 10 rules for narrative flow
-- **`.claude/REFERENCE/USER-VOICE-PROFILE.md`** - **MANDATORY** Forbidden/approved phrases from user's actual speech
-- **`.claude/REFERENCE/SCRIPTWRITING-QUICK-REFERENCE.md`** - One-page cheat sheet (print this)
 - **`.claude/REFERENCE/OPENING-HOOK-TEMPLATES.md`** - Fill-in-the-blank templates for first 60 seconds
 - **`.claude/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md`** - Fill-in-the-blank templates for final 60-90 seconds
-- **`.claude/REFERENCE/CREATOR-PHRASE-LIBRARY.md`** - Natural language from Kraut, Knowing Better, Shaun, Alex O'Connor
-- **`.claude/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md`** - **NEW** Pre-filming polish (Iran Part 1 lessons)
+- **`.claude/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md`** - Pre-filming polish (Iran Part 1 lessons)
 
 ## PRE-SCRIPT INTELLIGENCE
 
@@ -412,6 +410,192 @@ Ask the user:
 4. Ready for fact-checking?
 
 **Proactive suggestion:** "Script complete. Run `/verify` to fact-check before filming."
+
+---
+
+## HOOK VARIANT GENERATION (`--hooks`)
+
+Score the existing hook, show a style recommendation banner, generate LLM variants grounded in actual script material, auto-score each with title-fulfillment check, and rank.
+
+**Flags:**
+- `--title "Title Text"` — enables title-fulfillment check (entity echo + promise-type). Skip and fulfillment check is omitted.
+- `--topic [type]` — override auto-detected topic type. One of: `territorial`, `ideological`, `political_fact_check`, `general`.
+
+### Process
+
+**Step 1: Locate project and read script**
+
+Find SCRIPT.md in the project folder. Extract the first ~300 spoken words as the "existing hook":
+
+```python
+from tools.production.parser import strip_for_teleprompter
+from pathlib import Path
+
+script_text = Path(script_path).read_text(encoding='utf-8')
+clean_text = strip_for_teleprompter(script_text)
+existing_hook = ' '.join(clean_text.split()[:300])
+```
+
+**Step 2: Auto-detect topic type from script content**
+
+```python
+from tools.research.hook_scorer import detect_topic_from_script
+
+topic_type = detect_topic_from_script(clean_text)
+# --topic flag overrides auto-detection if provided by user
+```
+
+**Step 3: Score the existing hook with fulfillment check**
+
+```python
+from tools.research.hook_scorer import score_hook, rank_hooks, format_hook_ranking
+
+title = user_provided_title  # from --title flag, or None
+result = score_hook(existing_hook, label='Current Hook', title=title, topic_type=topic_type)
+```
+
+**Step 4: Display style recommendation banner FIRST (before score)**
+
+```
+--- Style Recommendation ---
+Topic type: {topic_type} -> Recommended style: {result['style_recommendation']['recommended']}
+Confidence: {HIGH/MEDIUM/LOW} ({N} examples in library)
+
+Examples from top channels:
+- "{example_1}"
+- "{example_2}"
+---
+```
+
+**Step 5: Display existing hook score with fulfillment result**
+
+```
+## Current Hook Score: {total}/100
+
+| Dimension | Score | Details |
+|-----------|-------|---------|
+| Framework | {framework_score}/40 | anomaly: {score}/15, stakes: {score}/15, inciting: {score}/10 |
+| Pattern   | {pattern_score}/30  | specific number, shocking verb, visual detail |
+| Authority | {authority_score}/15 | first-person I read/found/checked |
+| Gap       | {gap_score}/15      | contradiction / curiosity opener |
+
+Title Fulfillment: {PASS/FAIL}
+- Entity echo: {PASS/FAIL} ({matched_entities})
+- Promise type: {PASS/FAIL} ({title_type} vs {hook_type})
+{If FAIL: "Mismatch: {fix_suggestion}"}
+```
+
+(Fulfillment is displayed separately — it is not added to the 100-point score total.)
+
+**Step 6: Determine urgency**
+
+| Condition | Urgency |
+|-----------|---------|
+| Score >= 70 AND fulfillment passed | LOW — current hook is solid |
+| Score >= 50 OR fulfillment failed | MEDIUM — alternatives recommended |
+| Score < 50 | HIGH — hook needs rework |
+
+**Step 7: Generate alternative hook variants (LLM-generated, not template-based)**
+
+Read the full script to extract key material: specific numbers, named documents, contradictions, named entities (the same material TitleMaterialExtractor uses). Then write 3-5 variants using the **Document Reveal** framework as structural guidance:
+
+- **Layer 1:** Start with a specific, localized anomaly — a line on a map, a telegram, a redacted sentence
+- **Layer 2:** Connect the anomaly to a massive systemic consequence
+- **Layer 3:** Insert an inciting incident or pivot within ~45 seconds
+
+**Brand voice:** "Forensic, intelligent, skeptical. Bureaucratic Horror — high stakes hidden in dry documents, maps, and administrative failures."
+
+**Variant guidance:**
+- Lead with the recommended style for the detected topic type (e.g., `cold_fact` for territorial, `myth_contradiction` for ideological)
+- Include 2-3 additional style variants (e.g., `specificity_bomb`, `myth_contradiction`)
+- Variant count is proportional to script material richness — 3-5 variants is typical
+- Output spoken text only — NO `[VISUAL]`, `[AUDIO]`, or `[B-ROLL]` cues
+- Every variant should be 3-8 sentences (style-dependent)
+
+**Step 8: Auto-score each generated variant**
+
+```python
+hooks = [
+    {'label': f'{style}: {brief_description}', 'text': variant_text}
+    for style, brief_description, variant_text in generated_variants
+]
+ranked = rank_hooks(hooks, title=title, topic_type=topic_type)
+report = format_hook_ranking(ranked)
+```
+
+**Step 9: Display ranked comparison table with fulfillment column**
+
+```
+# Hook Variant Comparison
+
+| Rank | Label | Score | Framework | Fulfillment | Pattern | Authority | Gap | Key Issue |
+|------|-------|-------|-----------|-------------|---------|-----------|-----|-----------|
+| 1 | cold_fact: Treaty line | **82** | 35/40 | E:Y P:Y | 20 | 15 | 12 | None |
+| 2 | myth_contradiction: Standard answer | **75** | 30/40 | E:Y P:N | 20 | 10 | 15 | Promise type mismatch |
+| 3 | specificity_bomb: Named document | **68** | 28/40 | E:N P:Y | 15 | 10 | 15 | Entity echo missing |
+...
+
+Pick a hook (1/2/3/...):
+```
+
+### Scoring Criteria
+
+| Dimension | Max Points | What It Measures |
+|-----------|-----------|-----------------|
+| Framework | 40 | Anomaly (0-15) + stakes (0-15) + inciting incident (0-10) — Document Reveal |
+| Pattern match | 30 | Specific number, shocking verb, visual detail (not abstract) |
+| Authority signal | 15 | First-person "I read/found/checked" marker |
+| Information gap | 15 | Contradiction that opens curiosity |
+| Style modifier | +/-5 | Match/mismatch with recommended style (HIGH confidence only: 7+ examples) |
+| **Total** | **100** | (capped at 100) |
+| Fulfillment | PASS/FAIL | Entity echo + promise-type alignment — displayed separately, NOT in 100-pt score |
+
+### Example Output
+
+```
+--- Style Recommendation ---
+Topic type: territorial -> Recommended style: cold_fact
+Confidence: HIGH (9 examples in library)
+
+Examples from top channels:
+- "Open a language map of South America. Every country speaks Spanish. Except one."
+- "In 1494, two countries divided a world they had never mapped."
+---
+
+## Current Hook Score: 58/100
+
+| Dimension | Score | Details |
+|-----------|-------|---------|
+| Framework | 22/40 | anomaly: 15/15, stakes: 7/15, inciting: 0/10 |
+| Pattern   | 20/30 | specific number present, no shocking verb |
+| Authority | 10/15 | first-person signal present |
+| Gap       | 6/15  | weak contradiction |
+
+Title Fulfillment: FAIL
+- Entity echo: PASS (Portugal, Brazil)
+- Promise type: FAIL (title promises mechanism, hook opens with context)
+Mismatch: Title promises mechanism content but hook opens with contextual background. Try: open with the specific document or mechanism.
+
+Urgency: MEDIUM — alternatives recommended.
+
+# Hook Variant Comparison
+
+| Rank | Label | Score | Framework | Fulfillment | Pattern | Authority | Gap | Key Issue |
+|------|-------|-------|-----------|-------------|---------|-----------|-----|-----------|
+| 1 | cold_fact: Treaty line | **82** | 35/40 | E:Y P:Y | 20 | 15 | 12 | None |
+| 2 | myth_contradiction: Standard answer | **75** | 30/40 | E:Y P:N | 20 | 10 | 15 | Promise type mismatch |
+| 3 | specificity_bomb: Named document | **68** | 28/40 | E:N P:Y | 15 | 10 | 15 | Entity echo missing |
+
+Pick a hook (1/2/3):
+```
+
+### After Selection
+
+If the project has a SCRIPT.md:
+> "Apply hook 1 to the script? This will replace the current opening. [Y/N]"
+
+If no script yet:
+> "Hook 1 saved. When you run `/script --new`, this hook will be used as the opening."
 
 ---
 
@@ -685,11 +869,8 @@ Export SCRIPT.md to clean text for filming.
 
 - **Authoritative style guide:** `.claude/REFERENCE/STYLE-GUIDE.md`
 - **Script template:** `.claude/templates/02-SCRIPT-DRAFT-TEMPLATE.md`
-- **Narrative flow rules:** `.claude/REFERENCE/NARRATIVE-FLOW-RULES.md`
-- **Voice profile:** `.claude/REFERENCE/USER-VOICE-PROFILE.md`
 - **Opening templates:** `.claude/REFERENCE/OPENING-HOOK-TEMPLATES.md`
 - **Closing templates:** `.claude/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md`
-- **Creator phrases:** `.claude/REFERENCE/CREATOR-PHRASE-LIBRARY.md`
 
 ---
 
