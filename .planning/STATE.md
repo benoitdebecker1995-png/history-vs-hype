@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v7.0
 milestone_name: Packaging & Hooks Overhaul
 status: in_progress
-last_updated: "2026-03-18T11:20:21.757Z"
+last_updated: "2026-03-18T11:26:28.768Z"
 last_activity: 2026-03-17 — Phase 67 plan 02 complete (niche display, --topic flag, preflight integration)
 progress:
   total_phases: 5
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 5
-  completed_plans: 4
+  completed_plans: 5
 ---
 
 ---
@@ -152,6 +152,8 @@ Key v7.0 design decisions (from research):
 - [Phase 68-title-generation-upgrade]: Supplementary _extract_named_documents() added for Treaty-of-X patterns that entities.py misses
 - [Phase 68-title-generation-upgrade]: detect_versus_signal: 100-word co-occurrence window, score=hits/3.0 capped at 1.0
 - [Phase 68-title-generation-upgrade]: SRT positional heuristic: first/last 20% words get intro/conclusion weights
+- [Phase 68]: format_title_candidates() appends warning lines below table for hard_rejects to preserve table parse-ability
+- [Phase 68]: MetadataGenerator._db_path auto-resolves to tools/discovery/keywords.db at __init__ time; TitleVariant kept as deprecated for backward compat
 
 ### Pending Todos
 
