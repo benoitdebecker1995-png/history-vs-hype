@@ -245,8 +245,8 @@ Plans:
   3. The metadata bundle output explicitly flags when title, thumbnail concept, and description do not all reference the same hook element — the flag names which element is misaligned
 **Plans:** 2 plans
 Plans:
-- [ ] 70-01-PLAN.md — [To be planned]
-- [ ] 70-02-PLAN.md — [To be planned]
+- [ ] 70-01-PLAN.md — CLICKBAIT consolidation + description template enforcement + thumbnail concept generation
+- [ ] 70-02-PLAN.md — Coherence check, generate_metadata_draft wiring, publish.md update
 
 ## Progress
 
