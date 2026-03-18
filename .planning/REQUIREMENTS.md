@@ -21,8 +21,8 @@ Requirements for Packaging & Hooks Overhaul. Each maps to roadmap phases.
 
 ### Hook Quality
 
-- [ ] **HOOK-01**: Hook scorer verifies first sentence/5 seconds matches the title's promise (catches the 17% dropout from title-fulfillment mismatch)
-- [ ] **HOOK-02**: Hook generator recommends style based on topic type (cold_fact for territorial, myth-contradiction for ideological, specific-claim for political fact-check)
+- [x] **HOOK-01**: Hook scorer verifies first sentence/5 seconds matches the title's promise (catches the 17% dropout from title-fulfillment mismatch)
+- [x] **HOOK-02**: Hook generator recommends style based on topic type (cold_fact for territorial, myth-contradiction for ideological, specific-claim for political fact-check)
 
 ### Metadata & Thumbnails
 
@@ -71,8 +71,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TITLE-01 | Phase 68 | Complete |
 | TITLE-02 | Phase 68 | Complete |
 | TITLE-03 | Phase 68 | Complete |
-| HOOK-01 | Phase 69 | Pending |
-| HOOK-02 | Phase 69 | Pending |
+| HOOK-01 | Phase 69 | Complete |
+| HOOK-02 | Phase 69 | Complete |
 | META-01 | Phase 70 | Pending |
 | META-02 | Phase 70 | Pending |
 | META-03 | Phase 70 | Pending |

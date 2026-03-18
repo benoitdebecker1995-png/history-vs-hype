@@ -230,7 +230,7 @@ Plans:
   1. After hook generation, each variant shows a title-fulfillment check result: whether the first sentence or first 5 seconds delivers on the title's specific promise, with a pass/fail flag and the specific mismatch called out if it fails
   2. Running `/script --hooks` (currently unimplemented) now produces scored hook variants rather than an error or silent skip
   3. For a territorial dispute topic, the hook scorer recommends cold_fact style; for an ideological myth-busting topic it recommends myth-contradiction style — the recommendation is visible in output and references the topic type classification
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 Plans:
 - [ ] 69-01-PLAN.md — Upgrade hook_scorer.py (framework detection, fulfillment check, style recommendation, tests)
 - [ ] 69-02-PLAN.md — Rewrite /script --hooks command (LLM variants, fulfillment display, style banner)
@@ -323,5 +323,5 @@ Plans:
 | 66. External Benchmark Research | 0/1 | Complete    | 2026-03-17 | - |
 | 67. Title Scorer Recalibration | 2/2 | Complete    | 2026-03-17 | - |
 | 68. Title Generation Upgrade | 2/2 | Complete    | 2026-03-18 | - |
-| 69. Hook Quality Upgrade | v7.0 | 0/2 | Not started | - |
+| 69. Hook Quality Upgrade | 1/2 | In Progress|  | - |
 | 70. Metadata & Packaging Integration | v7.0 | 0/? | Not started | - |

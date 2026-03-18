@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v7.0
 milestone_name: Packaging & Hooks Overhaul
 status: in_progress
-last_updated: "2026-03-18T11:30:06.804Z"
+last_updated: "2026-03-18T21:12:52.836Z"
 last_activity: 2026-03-17 — Phase 67 plan 02 complete (niche display, --topic flag, preflight integration)
 progress:
   total_phases: 5
   completed_phases: 3
-  total_plans: 5
-  completed_plans: 5
+  total_plans: 7
+  completed_plans: 6
 ---
 
 ---
@@ -154,6 +154,9 @@ Key v7.0 design decisions (from research):
 - [Phase 68-title-generation-upgrade]: SRT positional heuristic: first/last 20% words get intro/conclusion weights
 - [Phase 68]: format_title_candidates() appends warning lines below table for hard_rejects to preserve table parse-ability
 - [Phase 68]: MetadataGenerator._db_path auto-resolves to tools/discovery/keywords.db at __init__ time; TitleVariant kept as deprecated for backward compat
+- [Phase 69]: Framework detection: binary full/partial scoring — anomaly 15/10, stakes tiered by hit count, inciting 10/7/0
+- [Phase 69]: Fulfillment check is pass/fail display only — not added to 100-point total_score (per Research pitfall #2)
+- [Phase 69]: Style score modifier +5/-5 only at HIGH confidence (7+ examples); advisory-only at <5 examples
 
 ### Pending Todos
 
