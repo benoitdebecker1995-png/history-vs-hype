@@ -22,13 +22,42 @@ from typing import List, Optional, Set, Tuple
 from .parser import Section
 from .entities import Entity
 from .editguide import SectionTiming, format_time
-from .title_generator import generate_title_candidates, format_title_candidates
+from .title_generator import generate_title_candidates, format_title_candidates, TitleMaterialExtractor
 from tools.title_scorer import CLICKBAIT_PATTERNS, ALLOWED_ACRONYMS
 
 # Title constraints
 MAX_TITLE_LENGTH = 70
 TARGET_TITLE_LENGTH = (60, 70)
 TARGET_TAG_COUNT = (15, 20)
+
+# ---------------------------------------------------------------------------
+# Citation extraction patterns (META-01)
+# ---------------------------------------------------------------------------
+# Pattern 1: "According to Chris Wickham in The Inheritance of Rome, page 147"
+_CITATION_PATTERN_ACCORDING_TO = re.compile(
+    r'(?:According to|per)\s+'
+    r'([A-Z][a-z]+(?:\s+[A-Z]\.?\s*[A-Za-z]+)*)\s+'
+    r'in\s+[*"]?([A-Z][^,\n"*]{3,80}?)[*"]?,\s*'
+    r'(?:pages?|pp?\.?)\s*(\d+)',
+    re.IGNORECASE,
+)
+# Pattern 2: "Harris's *Ancient Literacy*, p. 23"
+_CITATION_PATTERN_POSSESSIVE = re.compile(
+    r"([A-Z][a-z]+(?:'s)?)\s+"
+    r'[*"]([A-Z][^"*\n]{3,60})[*"][,\s]+'
+    r'(?:pages?|pp?\.?)\s*(\d+)',
+    re.IGNORECASE,
+)
+
+# ---------------------------------------------------------------------------
+# Thumbnail pattern → concept templates (META-02)
+# ---------------------------------------------------------------------------
+THUMBNAIL_PATTERNS = {
+    'territorial': ['split_map_conflict', 'document_on_map', 'geo_plus_evidence'],
+    'ideological': ['myth_vs_reality', 'document_reveal', 'timeline_contrast'],
+    'political_fact_check': ['document_on_map', 'quote_vs_reality', 'map_timeline'],
+    'general': ['split_map_conflict', 'document_on_map', 'geo_plus_evidence'],
+}
 
 
 @dataclass
@@ -346,43 +375,129 @@ class MetadataGenerator:
 
         return truncated.rstrip('.,;:')
 
+    def _extract_citations(self, sections: List[Section]) -> List[str]:
+        """
+        Extract academic citation strings from script sections.
+
+        Finds two patterns:
+          1. "According to X in Y, page N" / "per X in Y, page N"
+          2. "X's *Y*, p. N"
+
+        Returns:
+            Deduplicated list of formatted strings: "Author, *Title*, p. N"
+        """
+        full_text = " ".join(s.content for s in sections)
+        citations: List[str] = []
+        seen: Set[str] = set()
+
+        for pattern in [_CITATION_PATTERN_ACCORDING_TO, _CITATION_PATTERN_POSSESSIVE]:
+            for m in pattern.finditer(full_text):
+                author = m.group(1).strip()
+                # Strip possessive 's suffix if present (e.g., "Harris's" → "Harris")
+                if author.endswith("'s"):
+                    author = author[:-2]
+                book = m.group(2).strip()
+                page = m.group(3).strip()
+                citation = f"{author}, *{book}*, p. {page}"
+                key = citation.lower()
+                if key not in seen:
+                    seen.add(key)
+                    citations.append(citation)
+
+        return citations
+
     def _generate_description(
         self,
         sections: List[Section],
-        entities: List[Entity]
+        entities: List[Entity],
+        timings: List[SectionTiming] = None,
+        material: Optional[dict] = None,
     ) -> str:
         """
-        Generate YouTube description.
+        Generate YouTube description with SEO first line, auto-extracted citations,
+        chapters, and warning block for missing elements.
 
-        Includes:
-        - Opening hook (rephrased for reading)
-        - KEY DOCUMENTS section
-        - SOURCES section
-        - Hashtags from top entities
+        The description ALWAYS outputs content — missing elements produce ⚠️ warnings
+        appended at the end, but never hard-block the output.
 
         Args:
-            sections: Script sections
-            entities: Extracted entities
+            sections:  Script sections
+            entities:  Extracted entities
+            timings:   SectionTiming list for chapter generation (None = no chapters)
+            material:  Optional pre-computed TitleMaterialExtractor dict
 
         Returns:
-            Description text
+            Complete description string
         """
-        lines = []
+        if timings is None:
+            timings = []
 
-        # Opening hook (first 2-3 sentences, rephrased)
+        lines: List[str] = []
+        warnings: List[str] = []
+
+        # ------------------------------------------------------------------
+        # 1. SEO first line — keyword-rich, NOT "In this video"
+        # ------------------------------------------------------------------
+        # Detect topic type for phrasing
+        try:
+            from tools.youtube_analytics.performance import classify_topic_type
+            # Build a rough "title" from primary entity + first section heading
+            first_section_text = sections[0].content[:200] if sections else ""
+            raw_topic = classify_topic_type(description=first_section_text)
+        except Exception:
+            raw_topic = "general"
+
+        topic_verb_map = {
+            "territorial": "territorial history of",
+            "ideological": "myth-busting analysis of",
+            "political_fact_check": "fact-check of",
+            "general": "primary-source analysis of",
+        }
+        topic_verb = topic_verb_map.get(raw_topic, "primary-source analysis of")
+
+        # Get primary entity: try material, then entities, then first section heading
+        primary_entity = None
+        if material is not None:
+            for ent, _w in material.get("entities", []):
+                if hasattr(ent, "entity_type") and ent.entity_type != "date" and len(ent.text) >= 3:
+                    primary_entity = ent.text
+                    break
+        if primary_entity is None:
+            for ent in entities:
+                if hasattr(ent, "entity_type") and ent.entity_type != "date" and len(ent.text) >= 3:
+                    primary_entity = ent.text
+                    break
+        if primary_entity is None and sections:
+            # Fall back: extract first capitalized word/phrase from first section content
+            caps_match = re.search(r'\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\b', sections[0].content)
+            if caps_match:
+                primary_entity = caps_match.group(1)
+
+        if primary_entity:
+            seo_line = f"{primary_entity} — a {topic_verb} {primary_entity} using primary sources and academic research."
+        else:
+            seo_line = f"A {topic_verb} this topic using primary sources and academic research."
+            warnings.append("SEO first line keyword unclear — verify primary keyword")
+
+        lines.append(seo_line)
+        lines.append("")
+
+        # ------------------------------------------------------------------
+        # 2. Video summary (2-3 sentences from section headings)
+        # ------------------------------------------------------------------
         if sections:
-            hook = self._extract_hook(sections[0].content)
-            # Rephrase for reading (remove verbal markers)
-            hook = hook.replace('Here\'s', 'This video shows')
-            hook = hook.replace('We\'ll', 'The video will')
-            hook = hook.replace('Let me', 'This video will')
-            lines.append(hook)
-            lines.append("")
+            heading_names = [s.heading for s in sections[:4] if s.heading and s.heading.lower() not in ("intro", "introduction", "conclusion", "outro", "body")]
+            if heading_names:
+                summary = "This video covers: " + ", ".join(heading_names[:3]) + "."
+                lines.append(summary)
+                lines.append("")
 
         lines.append("—")
         lines.append("")
 
-        # KEY DOCUMENTS section
+        # ------------------------------------------------------------------
+        # 3. Key documents section
+        # ------------------------------------------------------------------
         documents = [e for e in entities if e.entity_type == 'document']
         if documents:
             lines.append("📜 KEY DOCUMENTS REFERENCED:")
@@ -390,27 +505,240 @@ class MetadataGenerator:
                 lines.append(f"• {doc.text}")
             lines.append("")
 
-        # SOURCES section (placeholder - would need source extraction)
-        lines.append("📚 SOURCES:")
-        lines.append("[PLACEHOLDER: Add academic sources from script]")
+        # ------------------------------------------------------------------
+        # 4. Auto-extracted citations
+        # ------------------------------------------------------------------
+        citations = self._extract_citations(sections)
+        if citations:
+            lines.append("📚 SOURCES:")
+            for cite in citations:
+                lines.append(f"• {cite}")
+            lines.append("")
+        else:
+            lines.append("📚 SOURCES:")
+            lines.append("[Add academic sources from script]")
+            lines.append("")
+            warnings.append("No source citations found in script — add academic source references")
+
+        lines.append("—")
+        lines.append("")
+
+        # ------------------------------------------------------------------
+        # 5. Chapters (if timings provided)
+        # ------------------------------------------------------------------
+        if timings:
+            chapters = self._generate_chapters(timings)
+            if chapters:
+                lines.append("⏱️ CHAPTERS:")
+                lines.append(chapters)
+                lines.append("")
+        else:
+            warnings.append("No timestamps — run EditGuideGenerator to generate SectionTiming data")
+
+        # ------------------------------------------------------------------
+        # 6. Related videos placeholder
+        # ------------------------------------------------------------------
+        lines.append("🌍 MORE FROM HISTORY VS HYPE:")
+        lines.append("[Related video links]")
         lines.append("")
 
         lines.append("—")
         lines.append("")
 
-        # Related videos placeholder
-        lines.append("🌍 MORE ON [TOPIC TYPE]:")
-        lines.append("[PLACEHOLDER: Related video links]")
-        lines.append("")
-
-        lines.append("—")
-        lines.append("")
-
-        # Hashtags from top entities
+        # ------------------------------------------------------------------
+        # 7. Hashtags from top entities
+        # ------------------------------------------------------------------
         hashtags = self._generate_hashtags(entities)
         lines.append(hashtags)
 
+        # ------------------------------------------------------------------
+        # 8. Warning block (appended, never hard-blocks)
+        # ------------------------------------------------------------------
+        if warnings:
+            lines.append("")
+            lines.append("⚠️ MISSING ELEMENTS:")
+            for w in warnings:
+                lines.append(f"• {w}")
+
         return '\n'.join(lines)
+
+    def _generate_thumbnail_concepts(
+        self,
+        material: dict,
+        entities: List[Entity],
+        topic_type: Optional[str] = None,
+    ) -> str:
+        """
+        Generate 3 script-grounded thumbnail concepts with thumbnail_checker badges.
+
+        Args:
+            material:    Output of TitleMaterialExtractor.extract_from_sections()
+            entities:    Entity list (for fallback lookups)
+            topic_type:  Optional override. When None, auto-detects from material.
+
+        Returns:
+            Formatted markdown string with 3 **Concept A/B/C** blocks, each with
+            a ✅/⚠️ badge (score/100) from thumbnail_checker, and Issues line if any.
+        """
+        from tools.preflight.thumbnail_checker import check_thumbnail
+
+        # Auto-detect topic type from material entities if not supplied
+        if topic_type is None:
+            try:
+                from tools.youtube_analytics.performance import classify_topic_type
+                # Build a small text from top entities to guess topic
+                entity_names = " ".join(
+                    ent.text for ent, _w in material.get("entities", [])[:5]
+                    if hasattr(ent, "text")
+                )
+                topic_type = classify_topic_type(description=entity_names) or "general"
+            except Exception:
+                topic_type = "general"
+
+        # Normalize to known keys
+        patterns_for_topic = THUMBNAIL_PATTERNS.get(topic_type, THUMBNAIL_PATTERNS["general"])
+
+        concept_labels = ["A", "B", "C"]
+        concept_names = {
+            'split_map_conflict': 'Split-Map Conflict',
+            'document_on_map': 'Document on Map',
+            'geo_plus_evidence': 'Geo + Evidence',
+            'myth_vs_reality': 'Myth vs Reality',
+            'document_reveal': 'Document Reveal',
+            'timeline_contrast': 'Timeline Contrast',
+            'quote_vs_reality': 'Quote vs Reality',
+            'map_timeline': 'Map Timeline',
+        }
+
+        output_lines: List[str] = []
+
+        for label, pattern in zip(concept_labels, patterns_for_topic):
+            concept_text = self._fill_template(pattern, material, entities)
+            result = check_thumbnail(concept_text)
+            badge = "✅" if result['verdict'] == 'PASS' else "⚠️"
+            score = result['score']
+            display_name = concept_names.get(pattern, pattern.replace('_', ' ').title())
+
+            output_lines.append(
+                f"**Concept {label}** {badge} ({score}/100) — {display_name}"
+            )
+            output_lines.append(concept_text)
+            if result.get('issues'):
+                output_lines.append("Issues: " + ", ".join(result['issues'][:3]))
+            output_lines.append("")
+
+        return "\n".join(output_lines)
+
+    def _fill_template(
+        self,
+        pattern: str,
+        material: dict,
+        entities: List[Entity],
+    ) -> str:
+        """
+        Fill a thumbnail pattern template with script-specific extracted values.
+
+        Falls back to neutral defaults when material is sparse.
+        Always includes map/geographic signal and "No face, no text overlay."
+        so thumbnail_checker can score correctly.
+        """
+        # Extract primary values from material
+        primary_place = "the disputed region"
+        primary_doc = None
+        primary_number = None
+
+        for ent, _w in material.get("entities", []):
+            if hasattr(ent, "entity_type") and ent.entity_type == "place" and len(ent.text) >= 3:
+                primary_place = ent.text
+                break
+
+        # Fallback: try non-date entity for place
+        if primary_place == "the disputed region":
+            for ent, _w in material.get("entities", []):
+                if hasattr(ent, "entity_type") and ent.entity_type != "date" and len(ent.text) >= 3:
+                    primary_place = ent.text
+                    break
+
+        docs = material.get("documents", [])
+        if docs:
+            doc_ent, _w = docs[0]
+            primary_doc = doc_ent.text if hasattr(doc_ent, "text") else str(doc_ent)
+
+        numbers = material.get("numbers", [])
+        if numbers:
+            primary_number = numbers[0][0]
+
+        doc_str = primary_doc or "primary source document"
+
+        if pattern == 'split_map_conflict':
+            base = f"Map of {primary_place} split down the middle. "
+            if primary_number:
+                base += f"Dividing line at {primary_number}. "
+            base += "Warm (gold/red) vs cool (blue) color halves. No face, no text overlay."
+            return base
+
+        elif pattern == 'document_on_map':
+            return (
+                f"{doc_str} overlaid on faded map of {primary_place}. "
+                "Document edges visible, handwritten text legible. "
+                "Rich color on document, faded blue map background. "
+                "No face, no text overlay."
+            )
+
+        elif pattern == 'geo_plus_evidence':
+            return (
+                f"Map of {primary_place} split between two territories. "
+                f"Document fragment ({doc_str}) as corner overlay. "
+                "Warm amber and cool blue opposing halves. "
+                "No face, no text overlay."
+            )
+
+        elif pattern == 'myth_vs_reality':
+            return (
+                f"Split map: left half faded and grey (myth), right half bright and detailed (reality). "
+                f"Geographic overlay of {primary_place}. "
+                "Bold contrast between washed-out and vivid halves. "
+                "No face, no text overlay."
+            )
+
+        elif pattern == 'document_reveal':
+            return (
+                f"{doc_str} partially unfolded on a map background of {primary_place}. "
+                "Document reveals highlighted text. Geographic split visible behind. "
+                "Red and gold color contrast. No face, no text overlay."
+            )
+
+        elif pattern == 'timeline_contrast':
+            return (
+                f"Two-panel split on map of {primary_place}: "
+                "left panel faded historical (myth era), right panel sharp modern (reality). "
+                "Blue-to-amber color gradient across the split. "
+                "No face, no text overlay."
+            )
+
+        elif pattern == 'quote_vs_reality':
+            return (
+                f"Map of {primary_place} as background. "
+                f"Document ({doc_str}) in foreground with key passage visible. "
+                "Dark dramatic background, document brightly lit. "
+                "No face, no text overlay."
+            )
+
+        elif pattern == 'map_timeline':
+            return (
+                f"Map of {primary_place} with timeline overlay. "
+                "Geographic boundaries clearly visible. "
+                "Red dividing line shows territorial change. "
+                "No face, no text overlay."
+            )
+
+        else:
+            # Generic fallback
+            return (
+                f"Map of {primary_place} showing geographic context. "
+                "High-contrast colors, clear boundary lines. "
+                "No face, no text overlay."
+            )
 
     def _generate_hashtags(self, entities: List[Entity]) -> str:
         """Generate hashtag string from top entities."""
