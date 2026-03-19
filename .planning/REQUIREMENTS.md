@@ -26,8 +26,8 @@ Requirements for Packaging & Hooks Overhaul. Each maps to roadmap phases.
 
 ### Metadata & Thumbnails
 
-- [ ] **META-01**: `/publish` enforces description template: keyword-rich first sentence + specific document/claim + source citations + timestamps
-- [ ] **META-02**: Thumbnail concept generator reads script, outputs 3 concepts (split-map conflict, document-on-map, geo+evidence) with specific visual elements
+- [x] **META-01**: `/publish` enforces description template: keyword-rich first sentence + specific document/claim + source citations + timestamps
+- [x] **META-02**: Thumbnail concept generator reads script, outputs 3 concepts (split-map conflict, document-on-map, geo+evidence) with specific visual elements
 - [ ] **META-03**: Metadata bundle coherence check verifies title + thumbnail concept + description all reference the same hook element
 
 ## Future Requirements
@@ -73,8 +73,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TITLE-03 | Phase 68 | Complete |
 | HOOK-01 | Phase 69 | Complete |
 | HOOK-02 | Phase 69 | Complete |
-| META-01 | Phase 70 | Pending |
-| META-02 | Phase 70 | Pending |
+| META-01 | Phase 70 | Complete |
+| META-02 | Phase 70 | Complete |
 | META-03 | Phase 70 | Pending |
 
 **Coverage:**

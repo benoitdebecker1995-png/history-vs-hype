@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v7.0
 milestone_name: Packaging & Hooks Overhaul
 status: in_progress
-last_updated: "2026-03-18T21:19:59.529Z"
+last_updated: "2026-03-19T01:11:43.953Z"
 last_activity: 2026-03-17 — Phase 67 plan 02 complete (niche display, --topic flag, preflight integration)
 progress:
   total_phases: 5
   completed_phases: 4
-  total_plans: 7
-  completed_plans: 7
+  total_plans: 9
+  completed_plans: 8
 ---
 
 ---
@@ -90,12 +90,12 @@ See: `.planning/PROJECT.md` (updated 2026-03-16)
 
 ## Current Position
 
-Phase: 67 — Title Scorer Recalibration
-Plan: 02 complete — Phase 67 complete
-Status: Phase 67 complete — niche display wired into format_result() and /greenlight
-Last activity: 2026-03-17 — Phase 67 plan 02 complete (niche display, --topic flag, preflight integration)
+Phase: 70 — Metadata & Packaging Integration
+Plan: 01 complete — CLICKBAIT consolidation + description template + thumbnail concepts
+Status: Phase 70 in progress — plan 01 of 2 complete
+Last activity: 2026-03-19 — Phase 70 plan 01 complete (CLICKBAIT consolidation, compute_tone_score, _extract_citations, _generate_description, _generate_thumbnail_concepts)
 
-Progress: [██████████] 100% (138/138 plans complete)
+Progress: [██████████] 99% (143/144 plans complete)
 
 ## Milestone History
 
@@ -127,7 +127,7 @@ Progress: [██████████] 100% (138/138 plans complete)
 | 67 | Title Scorer Recalibration | BENCH-01, BENCH-02, BENCH-03 | Not started |
 | 68 | Title Generation Upgrade | TITLE-01, TITLE-02, TITLE-03 | Not started |
 | 69 | Hook Quality Upgrade | HOOK-01, HOOK-02 | Not started |
-| 70 | Metadata & Packaging Integration | META-01, META-02, META-03 | Not started |
+| 70 | Metadata & Packaging Integration | META-01, META-02, META-03 | In progress (01/02 done) |
 
 ## Accumulated Context
 
@@ -159,6 +159,9 @@ Key v7.0 design decisions (from research):
 - [Phase 69]: Style score modifier +5/-5 only at HIGH confidence (7+ examples); advisory-only at <5 examples
 - [Phase 69]: --title flag is optional: omitting silently skips fulfillment check
 - [Phase 69]: Urgency thresholds: score>=70 AND fulfillment pass=LOW; >=50 OR fail=MEDIUM; <50=HIGH
+- [Phase 70-01]: CLICKBAIT_PATTERNS consolidated to title_scorer.py as single authoritative source; metadata.py imports only
+- [Phase 70-01]: compute_tone_score() uses _TONE_SIGNALS dict combining active verbs (+5) and clickbait patterns (-10 each)
+- [Phase 70-01]: SEO description first line never starts with 'In this video' — uses entity + topic_verb from classify_topic_type()
 
 ### Pending Todos
 
@@ -178,7 +181,7 @@ None. Phase 66 is a manual research task — no external dependencies.
 
 ### Next Session
 
-**Next action:** `/gsd:plan-phase 66` — plan Phase 66 (External Benchmark Research)
+**Next action:** Execute `70-02-PLAN.md` — Phase 70 plan 02 (metadata coherence check + format_title_candidates coherence column)
 
 ## Technical Notes
 
