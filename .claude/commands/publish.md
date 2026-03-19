@@ -32,6 +32,8 @@ Generate YouTube metadata, test titles, or identify clip-worthy moments. Everyth
 | `--prompts` | Generate external tool prompts | `/publish --prompts 35-gibraltar-treaty-utrecht-2026` |
 | `--intake` | Parse VidIQ/Gemini responses | `/publish --intake 35-gibraltar-treaty-utrecht-2026` |
 | `--synthesize` | Re-run synthesis engine | `/publish --synthesize 35-gibraltar-treaty-utrecht-2026` |
+| `--topic` | Override topic type for thumbnail pattern selection and coherence check | `/publish --metadata 41-treaty-tordesillas-2026 --topic territorial` |
+| `--thumbs` | Generate thumbnail concepts only | `/publish --thumbs 41-treaty-tordesillas-2026` |
 
 ---
 
@@ -236,24 +238,44 @@ We read the medieval chronicles (Fulcher of Chartres, Raymond d'Aguilers) to see
 - Long-tail (niche)
 - If VidIQ data available, prioritize their recommendations
 
-#### 5. Thumbnail Strategy Notes
+#### 5. Thumbnail Concepts (Auto-Generated)
 
-**For VidIQ thumbnail generation, document:**
+Thumbnail concepts are now **auto-generated** from script content via `MetadataGenerator._generate_thumbnail_concepts()`.
 
-1. Core topic (specific event/dispute)
-2. Video format (Short or longform)
-3. Visual assets available:
-   - Maps (which regions)
-   - Primary documents
-   - Modern hooks
-   - Face vs. no face preference
-4. Working title/main keywords
-5. Channel's thumbnail style:
-   - Best performers
-   - Clean documentary aesthetic
-   - Color palette
+**Each concept is validated** with a ✅/⚠️ badge (score/100) from `thumbnail_checker.py`. A PASS badge confirms the concept follows PACKAGING_MANDATE rules (map/geographic signal, no face, no text overlay).
 
-**DO NOT generate actual thumbnail mockups.**
+**To override topic type for pattern selection:**
+```
+/publish --metadata [project] --topic territorial
+/publish --metadata [project] --topic ideological
+/publish --metadata [project] --topic political_fact_check
+```
+
+Valid topic types: `territorial`, `ideological`, `political_fact_check` (default: auto-detected from script).
+
+**To generate thumbnail concepts only:**
+```
+/publish --thumbs [project]
+```
+
+#### 6. Coherence Check (Auto-Generated)
+
+The metadata bundle now includes an automatic coherence check in the title table and a detail section.
+
+**What it checks:** Whether the primary script entity (e.g., "Spain") appears in:
+- Each title candidate
+- The description first line
+- At least one thumbnail concept
+
+**Title table coherence column:**
+
+| # | Title | Score | Grade | Pattern | Coherence |
+|---|-------|-------|-------|---------|-----------|
+| 1 | Spain vs Portugal | 78 | B+ | versus | 3/3 ✅ |
+| 2 | How Two Countries... | 71 | B | how_why | 2/3 ⚠️ |
+| 3 | The Pope Drew... | 68 | B- | declarative | 1/3 ❌ |
+
+**Ranking impact:** Annotation only — coherence does NOT influence title ranking order.
 
 ### Output Location
 
