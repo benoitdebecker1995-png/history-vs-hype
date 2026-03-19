@@ -23,25 +23,7 @@ from .parser import Section
 from .entities import Entity
 from .editguide import SectionTiming, format_time
 from .title_generator import generate_title_candidates, format_title_candidates
-
-
-# Clickbait patterns to reject (from VIDIQ-CHANNEL-DNA-FILTER.md)
-CLICKBAIT_PATTERNS = [
-    'SHOCKING', 'You won\'t believe', 'You won\'t BELIEVE',
-    'This will BLOW your mind', 'What THEY don\'t want you to know',
-    'INSANE', 'MIND-BLOWING', 'EXPOSED', 'The TRUTH About',
-    'DESTROYED by Facts', 'What IT Really Means', 'How THIS Changed',
-    'Top 10', '5 Reasons Why', '3 Things You Didn\'t Know',
-    'LIED About', 'The Truth They HID'
-]
-
-# Allowed acronyms (can be all-caps without being clickbait)
-ALLOWED_ACRONYMS = [
-    'ICJ', 'UN', 'CIA', 'AU', 'EU', 'NATO', 'UNESCO', 'WHO',
-    'IMF', 'USSR', 'UK', 'US', 'USA', 'WTO', 'ICC', 'ECHR',
-    'OPEC', 'BRICS', 'ASEAN', 'OAS', 'FCDO', 'BIOT', 'PDF',
-    'DIY', 'GPS', 'GDP', 'CEO', 'FBI', 'NSA', 'NASA'
-]
+from tools.title_scorer import CLICKBAIT_PATTERNS, ALLOWED_ACRONYMS
 
 # Title constraints
 MAX_TITLE_LENGTH = 70

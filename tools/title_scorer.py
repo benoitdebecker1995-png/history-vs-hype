@@ -39,6 +39,60 @@ from typing import Optional
 
 
 # =============================================================================
+# TONE SIGNALS — Moved here from metadata.py as authoritative source (Phase 70)
+# metadata.py imports CLICKBAIT_PATTERNS and ALLOWED_ACRONYMS from this module.
+# =============================================================================
+
+# Clickbait patterns to filter/penalise (from VIDIQ-CHANNEL-DNA-FILTER.md)
+CLICKBAIT_PATTERNS = [
+    'SHOCKING', "You won't believe", "You won't BELIEVE",
+    'This will BLOW your mind', "What THEY don't want you to know",
+    'INSANE', 'MIND-BLOWING', 'EXPOSED', 'The TRUTH About',
+    'DESTROYED by Facts', 'What IT Really Means', 'How THIS Changed',
+    'Top 10', '5 Reasons Why', "3 Things You Didn't Know",
+    'LIED About', 'The Truth They HID',
+]
+
+# Allowed acronyms (all-caps but NOT clickbait — used in _apply_tone_filter)
+ALLOWED_ACRONYMS = [
+    'ICJ', 'UN', 'CIA', 'AU', 'EU', 'NATO', 'UNESCO', 'WHO',
+    'IMF', 'USSR', 'UK', 'US', 'USA', 'WTO', 'ICC', 'ECHR',
+    'OPEC', 'BRICS', 'ASEAN', 'OAS', 'FCDO', 'BIOT', 'PDF',
+    'DIY', 'GPS', 'GDP', 'CEO', 'FBI', 'NSA', 'NASA',
+]
+
+# Unified tone signals dict — positive (active verbs) and negative (clickbait)
+_TONE_SIGNALS = {
+    'positive': [
+        'destroyed', 'erased', 'redrew', 'deleted', 'stole', 'conquered',
+        'invaded', 'betrayed', 'exposed', 'revealed', 'weaponized', 'carved',
+        'divided', 'partitioned', 'annexed', 'ruled', 'fought', 'claimed',
+        'debunked', 'proved', 'disproved', 'lied', 'fabricated',
+    ],
+    'negative': CLICKBAIT_PATTERNS,
+}
+
+
+def compute_tone_score(title: str) -> int:
+    """
+    Return a tone score for a title.
+
+    +ACTIVE_VERB_BONUS (+5) for each active verb found.
+    -10 per clickbait pattern found.
+
+    Neutral title (no active verb, no clickbait) → 0.
+    """
+    score = 0
+    t = title.lower()
+    if any(v in t for v in _TONE_SIGNALS['positive']):
+        score += ACTIVE_VERB_BONUS
+    for pattern in _TONE_SIGNALS['negative']:
+        if pattern.lower() in t:
+            score -= 10
+    return score
+
+
+# =============================================================================
 # CTR DATA — Measured from 33 videos with CTR (2026-03-07)
 # Source: collect_video_data() → POST-PUBLISH-ANALYSIS files
 # =============================================================================
