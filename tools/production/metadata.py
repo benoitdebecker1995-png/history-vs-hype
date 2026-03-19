@@ -106,27 +106,70 @@ class MetadataGenerator:
         self,
         sections: List[Section],
         entities: List[Entity],
-        timings: List[SectionTiming]
+        timings: List[SectionTiming],
+        topic_type: Optional[str] = None,
     ) -> str:
         """
         Generate complete METADATA-DRAFT.md matching existing format.
 
         Args:
-            sections: List of Section objects from ScriptParser
-            entities: List of Entity objects from EntityExtractor
-            timings: List of SectionTiming objects from EditGuideGenerator
+            sections:    List of Section objects from ScriptParser
+            entities:    List of Entity objects from EntityExtractor
+            timings:     List of SectionTiming objects from EditGuideGenerator
+            topic_type:  Optional topic type override (territorial, ideological,
+                         political_fact_check). When None, auto-detected.
 
         Returns:
-            Complete markdown string in YOUTUBE-METADATA.md format
+            Complete markdown string in YOUTUBE-METADATA.md format.
+            Section order (locked): Titles → Description → Chapters → Tags →
+            Thumbnail Concepts → Coherence Check → VidIQ Research Notes
         """
-        # Generate components
-        title_candidates = self._generate_title_variants(sections, entities)
-        title_section = format_title_candidates(title_candidates)
-        description = self._generate_description(sections, entities)
+        # ------------------------------------------------------------------
+        # 1. Extract material once; reused for description + thumbnails + coherence
+        # ------------------------------------------------------------------
+        material = TitleMaterialExtractor().extract_from_sections(sections) if sections else {
+            "entities": [], "documents": [], "numbers": [], "contradictions": []
+        }
+
+        # Set primary entity for coherence check (first non-date entity with 4+ chars)
+        self._primary_entity = None
+        for ent, _w in material.get("entities", []):
+            if (hasattr(ent, "entity_type") and ent.entity_type != "date"
+                    and len(ent.text) >= 4):
+                self._primary_entity = ent.text
+                break
+
+        # ------------------------------------------------------------------
+        # 2. Generate all components
+        # ------------------------------------------------------------------
+        title_candidates = self._generate_title_variants(sections, entities, topic_type)
+        description = self._generate_description(sections, entities, timings, material)
         chapters = self._generate_chapters(timings)
         tags = self._generate_tags(entities, sections)
+        thumbnail_concepts = self._generate_thumbnail_concepts(material, entities, topic_type)
 
-        # Build complete metadata document
+        # ------------------------------------------------------------------
+        # 3. Run coherence check (annotates candidate dicts in-place)
+        # ------------------------------------------------------------------
+        coherence_section = self._coherence_check(title_candidates, thumbnail_concepts, description)
+
+        # ------------------------------------------------------------------
+        # 4. Parse thumbnail concept strings for format_title_candidates
+        # ------------------------------------------------------------------
+        concept_strings = re.split(r'\*\*Concept\s+[ABC]\*\*', thumbnail_concepts)
+        concept_strings = [c.strip() for c in concept_strings if c.strip()]
+
+        desc_first_line = description.splitlines()[0] if description else ""
+
+        title_section = format_title_candidates(
+            title_candidates,
+            thumbnail_concepts=concept_strings if concept_strings else None,
+            desc_first_line=desc_first_line if desc_first_line else None,
+        )
+
+        # ------------------------------------------------------------------
+        # 5. Assemble in locked section order
+        # ------------------------------------------------------------------
         md = [
             f"# YouTube Metadata: {self.project_name}",
             "",
@@ -160,7 +203,13 @@ class MetadataGenerator:
             "",
             "## Thumbnail Concepts",
             "",
-            "[PLACEHOLDER: To be added manually based on video content]",
+            thumbnail_concepts,
+            "",
+            "---",
+            "",
+            "## Coherence Check",
+            "",
+            coherence_section if coherence_section else "_No coherence issues detected._",
             "",
             "---",
             "",
@@ -174,7 +223,8 @@ class MetadataGenerator:
     def _generate_title_variants(
         self,
         sections: List[Section],
-        entities: List[Entity]
+        entities: List[Entity],
+        topic_type: Optional[str] = None,
     ) -> List[dict]:
         """
         Generate ranked scored title candidates from the full script.
@@ -205,7 +255,7 @@ class MetadataGenerator:
 
         return generate_title_candidates(
             sections=sections,
-            topic_type=None,
+            topic_type=topic_type,
             db_path=self._db_path,
         )
 
@@ -628,6 +678,87 @@ class MetadataGenerator:
             output_lines.append("")
 
         return "\n".join(output_lines)
+
+    def _coherence_check(
+        self,
+        candidates: List[dict],
+        thumbnail_concepts_text: str,
+        description: str,
+    ) -> str:
+        """
+        Check coherence between each title candidate, thumbnail concepts, and description.
+
+        Uses self._primary_entity (set during generate_metadata_draft) as the shared
+        hook element. For each candidate:
+          - Check: primary_entity.lower() in title.lower()
+          - Check: primary_entity.lower() in desc_first_line.lower()
+          - Check: primary_entity.lower() in any concept string
+
+        Annotates each candidate dict in-place with candidate["coherence"] = "N/3 badge".
+        Returns a markdown detail section for mismatched candidates (count < 3).
+
+        Badge:
+            3/3 -> ✅
+            2/3 -> ⚠️
+            1/3 or 0/3 -> ❌
+
+        Args:
+            candidates:              List of title candidate dicts (mutated in-place).
+            thumbnail_concepts_text: Raw thumbnail concepts markdown string.
+            description:             Full description string.
+
+        Returns:
+            Markdown string with "## Coherence Check" header + detail for mismatches.
+            Returns "" if candidates is empty.
+        """
+        if not candidates:
+            return ""
+
+        if self._primary_entity is None:
+            return "warning: No primary entity detected for coherence check."
+
+        entity_lower = self._primary_entity.lower()
+
+        # Parse thumbnail concept strings (split on **Concept A/B/C** headers)
+        concept_strings = re.split(r'\*\*Concept\s+[ABC]\*\*', thumbnail_concepts_text)
+        concept_strings = [c.strip() for c in concept_strings if c.strip()]
+
+        # Description first line for coherence check
+        desc_first_line = description.splitlines()[0].lower() if description else ""
+
+        badges = {3: "✅", 2: "⚠️", 1: "❌", 0: "❌"}
+
+        detail_lines: List[str] = []
+
+        for candidate in candidates:
+            title_lower = candidate.get("title", "").lower()
+
+            in_title = entity_lower in title_lower
+            in_desc = entity_lower in desc_first_line
+            in_thumb = any(entity_lower in c.lower() for c in concept_strings)
+
+            count = sum([in_title, in_desc, in_thumb])
+            badge = badges.get(count, "❌")
+            candidate["coherence"] = f"{count}/3 {badge}"
+
+            # Detail only for mismatches
+            if count < 3:
+                rank = candidates.index(candidate) + 1
+                detail_lines.append(f"### #{rank}: {candidate.get('title', '')}")
+                detail_lines.append(
+                    f"{'✅' if in_title else '❌'} Title contains '{self._primary_entity}'"
+                )
+                detail_lines.append(
+                    f"{'✅' if in_desc else '❌'} Description first line contains '{self._primary_entity}'"
+                )
+                detail_lines.append(
+                    f"{'✅' if in_thumb else '❌'} Thumbnail concepts contain '{self._primary_entity}'"
+                )
+                detail_lines.append("")
+
+        if detail_lines:
+            return "**Coherence Detail** (mismatches only):\n\n" + "\n".join(detail_lines)
+        return ""
 
     def _fill_template(
         self,

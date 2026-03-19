@@ -698,38 +698,64 @@ class TitleCandidateGenerator:
 # Convenience function
 # ---------------------------------------------------------------------------
 
-def format_title_candidates(candidates: List[Dict[str, Any]]) -> str:
+def format_title_candidates(
+    candidates: List[Dict[str, Any]],
+    thumbnail_concepts: Optional[List[str]] = None,
+    desc_first_line: Optional[str] = None,
+) -> str:
     """
     Format a list of scored title candidates into a ranked markdown table.
 
     Candidates are sorted by score descending. The output includes:
       - A header "## Title Candidates (ranked by score)"
       - A markdown table with columns: #, Title, Score, Grade, Pattern
+        (and optional Coherence column when thumbnail_concepts + desc_first_line provided)
       - Warning lines below the table for any candidate with hard_rejects
 
     Args:
-        candidates: List of score_title() result dicts (each must have
-                    'title', 'score', 'grade', 'pattern', 'hard_rejects').
+        candidates:         List of score_title() result dicts (each must have
+                            'title', 'score', 'grade', 'pattern', 'hard_rejects').
+        thumbnail_concepts: Optional list of thumbnail concept strings. When provided
+                            together with desc_first_line, adds a Coherence column.
+        desc_first_line:    Optional description first line string. When provided
+                            together with thumbnail_concepts, adds a Coherence column.
 
     Returns:
         Complete markdown string with ranked table and penalty warnings.
     """
+    # Determine whether to show coherence column
+    show_coherence = (thumbnail_concepts is not None) and (desc_first_line is not None)
+
     # Sort descending by score (candidates may already be sorted, but enforce it)
     sorted_candidates = sorted(candidates, key=lambda c: -c.get("score", 0))
 
-    lines = [
-        "## Title Candidates (ranked by score)",
-        "",
-        "| # | Title | Score | Grade | Pattern |",
-        "|---|-------|-------|-------|---------|",
-    ]
-
-    for rank, candidate in enumerate(sorted_candidates, start=1):
-        title = candidate.get("title", "")
-        score = candidate.get("score", 0)
-        grade = candidate.get("grade", "?")
-        pattern = candidate.get("pattern", "unknown")
-        lines.append(f"| {rank} | {title} | {score} | {grade} | {pattern} |")
+    if show_coherence:
+        lines = [
+            "## Title Candidates (ranked by score)",
+            "",
+            "| # | Title | Score | Grade | Pattern | Coherence |",
+            "|---|-------|-------|-------|---------|-----------|",
+        ]
+        for rank, candidate in enumerate(sorted_candidates, start=1):
+            title = candidate.get("title", "")
+            score = candidate.get("score", 0)
+            grade = candidate.get("grade", "?")
+            pattern = candidate.get("pattern", "unknown")
+            coherence = candidate.get("coherence", "---")
+            lines.append(f"| {rank} | {title} | {score} | {grade} | {pattern} | {coherence} |")
+    else:
+        lines = [
+            "## Title Candidates (ranked by score)",
+            "",
+            "| # | Title | Score | Grade | Pattern |",
+            "|---|-------|-------|-------|---------|",
+        ]
+        for rank, candidate in enumerate(sorted_candidates, start=1):
+            title = candidate.get("title", "")
+            score = candidate.get("score", 0)
+            grade = candidate.get("grade", "?")
+            pattern = candidate.get("pattern", "unknown")
+            lines.append(f"| {rank} | {title} | {score} | {grade} | {pattern} |")
 
     # Append warning lines for penalized candidates
     warnings = []
