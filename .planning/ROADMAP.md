@@ -178,7 +178,7 @@
 - [x] **Phase 67: Title Scorer Recalibration** - Anchor passing threshold to external niche data, expose benchmark context in scoring output (completed 2026-03-17)
 - [x] **Phase 68: Title Generation Upgrade** - Script-grounded title extraction, versus variant generation, hard-reject pattern enforcement (completed 2026-03-18)
 - [x] **Phase 69: Hook Quality Upgrade** - Hook scorer with title-fulfillment check, hook style recommender by topic type (completed 2026-03-18)
-- [ ] **Phase 70: Metadata & Packaging Integration** - Description template enforcement, thumbnail concept generation, metadata coherence check
+- [x] **Phase 70: Metadata & Packaging Integration** - Description template enforcement, thumbnail concept generation, metadata coherence check (completed 2026-03-19)
 
 ## Phase Details
 
@@ -243,7 +243,7 @@ Plans:
   1. `/publish` output enforces a description that leads with a keyword-rich first sentence, names the specific document or claim, includes source citations, and includes timestamps — any description missing these elements is flagged before the user can copy it to YouTube Studio
   2. Running the metadata command on any script produces exactly 3 thumbnail concepts with specific visual elements named (not generic instructions), drawn from the split-map-conflict, document-on-map, and geo-plus-evidence patterns
   3. The metadata bundle output explicitly flags when title, thumbnail concept, and description do not all reference the same hook element — the flag names which element is misaligned
-**Plans:** 1/2 plans executed
+**Plans:** 2/2 plans complete
 Plans:
 - [ ] 70-01-PLAN.md — CLICKBAIT consolidation + description template enforcement + thumbnail concept generation
 - [ ] 70-02-PLAN.md — Coherence check, generate_metadata_draft wiring, publish.md update
@@ -324,4 +324,4 @@ Plans:
 | 67. Title Scorer Recalibration | 2/2 | Complete    | 2026-03-17 | - |
 | 68. Title Generation Upgrade | 2/2 | Complete    | 2026-03-18 | - |
 | 69. Hook Quality Upgrade | 2/2 | Complete    | 2026-03-18 | - |
-| 70. Metadata & Packaging Integration | 1/2 | In Progress|  | - |
+| 70. Metadata & Packaging Integration | 2/2 | Complete   | 2026-03-19 | - |

@@ -3,10 +3,25 @@ gsd_state_version: 1.0
 milestone: v7.0
 milestone_name: Packaging & Hooks Overhaul
 status: in_progress
+last_updated: "2026-03-19T01:28:33.471Z"
+last_activity: 2026-03-19 — Phase 70 plan 01 complete (CLICKBAIT consolidation, compute_tone_score, _extract_citations, _generate_description, _generate_thumbnail_concepts)
+progress:
+  total_phases: 5
+  completed_phases: 5
+  total_plans: 9
+  completed_plans: 9
+  percent: 100
+---
+
+---
+gsd_state_version: 1.0
+milestone: v7.0
+milestone_name: Packaging & Hooks Overhaul
+status: in_progress
 last_updated: "2026-03-19T01:11:43.953Z"
 last_activity: 2026-03-17 — Phase 67 plan 02 complete (niche display, --topic flag, preflight integration)
 progress:
-  total_phases: 5
+  [██████████] 100%
   completed_phases: 4
   total_plans: 9
   completed_plans: 8
@@ -90,12 +105,12 @@ See: `.planning/PROJECT.md` (updated 2026-03-16)
 
 ## Current Position
 
-Phase: 70 — Metadata & Packaging Integration
-Plan: 01 complete — CLICKBAIT consolidation + description template + thumbnail concepts
-Status: Phase 70 in progress — plan 01 of 2 complete
-Last activity: 2026-03-19 — Phase 70 plan 01 complete (CLICKBAIT consolidation, compute_tone_score, _extract_citations, _generate_description, _generate_thumbnail_concepts)
+Phase: 70 — Metadata & Packaging Integration — COMPLETE
+Plan: 02 complete — coherence check (META-03), topic_type passthrough, locked section order
+Status: Phase 70 complete — all 2 plans done — v7.0 milestone COMPLETE
+Last activity: 2026-03-19 — Phase 70 plan 02 complete (_coherence_check, format_title_candidates coherence column, generate_metadata_draft topic_type + locked section order)
 
-Progress: [██████████] 99% (143/144 plans complete)
+Progress: [██████████] 100% (144/144 plans complete)
 
 ## Milestone History
 
@@ -162,6 +177,9 @@ Key v7.0 design decisions (from research):
 - [Phase 70-01]: CLICKBAIT_PATTERNS consolidated to title_scorer.py as single authoritative source; metadata.py imports only
 - [Phase 70-01]: compute_tone_score() uses _TONE_SIGNALS dict combining active verbs (+5) and clickbait patterns (-10 each)
 - [Phase 70-01]: SEO description first line never starts with 'In this video' — uses entity + topic_verb from classify_topic_type()
+- [Phase 70-02]: _primary_entity uses 4+ char minimum to exclude short tokens; coherence annotation-only (no ranking impact); format_title_candidates backward compat via both params required
+- [Phase 70-02]: _coherence_check() annotates candidate dicts in-place with N/3 badge; detail section only for count < 3 candidates
+- [Phase 70]: [Phase 70-02]: _primary_entity uses 4+ char minimum to exclude short tokens; coherence annotation-only (no ranking impact); format_title_candidates backward compat via both params required
 
 ### Pending Todos
 
@@ -181,7 +199,7 @@ None. Phase 66 is a manual research task — no external dependencies.
 
 ### Next Session
 
-**Next action:** Execute `70-02-PLAN.md` — Phase 70 plan 02 (metadata coherence check + format_title_candidates coherence column)
+**Next action:** v7.0 milestone complete — all 5 phases (66-70) done. Run `/status` for next steps.
 
 ## Technical Notes
 
