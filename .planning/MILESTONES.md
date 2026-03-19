@@ -1,5 +1,36 @@
 # Project Milestones: History vs Hype Workspace
 
+## v7.0 Packaging & Hooks Overhaul (Shipped: 2026-03-18)
+
+**Delivered:** Researched what actually drives clicks/impressions on edu/history YouTube (388 videos across 8 channels), then rewrote tooling (title scorer, hook generator, metadata, greenlight) to produce output that matches proven niche patterns. Strategic pivot from "versus is best" to "declarative is the safe bet, versus is unproven."
+
+**Phases completed:** 66-70 (9 plans total)
+
+**Key accomplishments:**
+
+- External benchmark research: 388 videos across 8 channels (WonderWhy, CaspianReport, History Matters, Knowing Better, Kraut, RealLifeLore, Toldinstone, Fall of Civilizations), 42 hooks extracted, niche_benchmark.json + HOOK-PATTERN-LIBRARY.md (Phase 66)
+- Title scorer recalibration: benchmark_store.py with niche layer, topic-type CTR targets (territorial 3%+, political 5%+), small-sample fallback, 80 tests (Phase 67)
+- Title generation upgrade: TitleMaterialExtractor reads script for specific numbers/documents/contradictions, versus detection, penalty patterns ranked last with warnings, 806 lines + 23 tests (Phase 68)
+- Hook quality upgrade: hook_scorer.py rewritten (897 lines), framework detection, fulfillment check, topic-to-style mapping (territorial→cold_fact, ideological→myth_contradiction, untranslated→specificity_bomb), 31 tests (Phase 69)
+- Metadata & packaging integration: description template enforcement, thumbnail concept generator (3 script-grounded concepts), coherence check (title + thumbnail + description alignment), 57 tests (Phase 70)
+- Strategic updates: authority_challenge removed from all recommendation paths (0/42 in niche), versus reframed as "differentiation bet" (1/388), niche findings wired into CLAUDE.md, STYLE-GUIDE.md, script-writer-v2, research-organizer, memory
+
+**Stats:**
+
+- 5 phases, 9 plans
+- 75 commits over 3 days (2026-03-16 → 2026-03-18)
+- 11/11 v7.0 requirements delivered
+- 191 new tests added (80 + 23 + 31 + 57), 348 total green
+- Milestone audit: all requirements satisfied, all tech debt resolved
+
+**Git range:** `aeb24e9` → `e13b41f`
+
+**What's next:** Use niche-validated tooling: `/publish --titles` for script-grounded title candidates, `/script --hooks` for topic-matched hook variants, `/greenlight` with niche percentile context. Declarative titles are the default; versus is a differentiation bet.
+
+**Archive:** `.planning/milestones/v7.0-ROADMAP.md`
+
+---
+
 ## v6.0 Packaging Pipeline (Shipped: 2026-03-16)
 
 **Delivered:** Fixed the channel's #1 growth bottleneck — packaging. Built retitle pipeline for existing videos, data-driven scoring gate for new ones, proactive topic discovery, MCP server evaluation, and automated CTR feedback loop closing the full packaging data cycle.
