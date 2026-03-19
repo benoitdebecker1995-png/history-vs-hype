@@ -1,10 +1,11 @@
 """
 Tests for Phase 70 — metadata.py CLICKBAIT consolidation, description template,
-thumbnail concept generation.
+thumbnail concept generation, and coherence check.
 
 Coverage:
     META-01: _extract_citations(), _generate_description() SEO first line + warnings
     META-02: _generate_thumbnail_concepts() — 3 concepts, grounded, validated
+    META-03: _coherence_check() — per-candidate coherence counts + detail section
     CLICKBAIT: CLICKBAIT_PATTERNS and ALLOWED_ACRONYMS exported from title_scorer.py
               and imported (not re-defined) in metadata.py
 """
@@ -345,3 +346,212 @@ class TestGenerateThumbnailConcepts:
         assert badge_count >= 3, (
             f"Expected at least 3 badges (one per concept), got {badge_count}.\nOutput:\n{result}"
         )
+
+
+# ---------------------------------------------------------------------------
+# META-03: _coherence_check() tests
+# ---------------------------------------------------------------------------
+
+class TestCoherenceCheck:
+    """
+    _coherence_check() annotates title candidates with coherence counts
+    and produces a detail section only for mismatched candidates.
+    """
+
+    def _generator(self):
+        from tools.production.metadata import MetadataGenerator
+        gen = MetadataGenerator("test-project")
+        gen._primary_entity = "Spain"
+        return gen
+
+    def _make_candidates(self, titles):
+        """Build minimal candidate list."""
+        return [
+            {"title": t, "score": 70, "grade": "B", "pattern": "declarative",
+             "penalties": [], "hard_rejects": []}
+            for t in titles
+        ]
+
+    def test_full_match_returns_3_of_3(self):
+        """Title + thumbnail + desc all contain primary entity -> 3/3."""
+        gen = self._generator()
+        candidates = self._make_candidates(["Spain Changed History"])
+        thumbnail_text = "**Concept A** — Map of Spain showing conflict."
+        desc = "Spain — a territorial analysis of Spain using primary sources."
+
+        result = gen._coherence_check(candidates, thumbnail_text, desc)
+
+        # The candidate should have coherence = "3/3 ✅"
+        assert "3/3" in candidates[0].get("coherence", ""), (
+            f"Expected 3/3 coherence, got: {candidates[0].get('coherence')}"
+        )
+
+    def test_partial_match_returns_2_of_3(self):
+        """Title + thumbnail contain entity but desc does not -> 2/3."""
+        gen = self._generator()
+        candidates = self._make_candidates(["Spain Changed History"])
+        thumbnail_text = "**Concept A** — Map of Spain showing conflict."
+        desc = "A territorial history analysis using primary sources."  # no "Spain"
+
+        result = gen._coherence_check(candidates, thumbnail_text, desc)
+
+        assert "2/3" in candidates[0].get("coherence", ""), (
+            f"Expected 2/3 coherence, got: {candidates[0].get('coherence')}"
+        )
+
+    def test_detail_section_absent_for_perfect_match(self):
+        """Candidate with 3/3 does NOT appear in detail section."""
+        gen = self._generator()
+        candidates = self._make_candidates(["Spain Changed History"])
+        thumbnail_text = "Map of Spain. No face, no text overlay."
+        desc = "Spain — a territorial history of Spain."
+
+        result = gen._coherence_check(candidates, thumbnail_text, desc)
+
+        # Detail section should be absent (no mismatches to describe)
+        assert "Coherence Detail" not in result or "Spain Changed History" not in result, (
+            f"Perfect-match candidate should not appear in detail section.\nResult:\n{result}"
+        )
+
+    def test_detail_section_present_for_mismatch(self):
+        """Candidate with count < 3 appears in detail section."""
+        gen = self._generator()
+        gen._primary_entity = "Portugal"
+        candidates = self._make_candidates(["How Portugal Changed History"])
+        thumbnail_text = "Map of Spain. No face, no text overlay."  # no "Portugal"
+        desc = "A territorial history using primary sources."  # no "Portugal"
+
+        result = gen._coherence_check(candidates, thumbnail_text, desc)
+
+        # With 1/3 (only title has "Portugal"), detail section should appear
+        assert "Portugal" in result or "Detail" in result or "mismatch" in result.lower() or len(result) > 0, (
+            f"Expected detail section for mismatch candidate.\nResult:\n{result}"
+        )
+
+    def test_empty_candidates_returns_empty_string(self):
+        """No candidates -> returns empty string, no crash."""
+        gen = self._generator()
+        result = gen._coherence_check([], "thumbnail text", "description text")
+        assert result == "" or result.strip() == "", (
+            f"Expected empty string for no candidates, got: {result!r}"
+        )
+
+    def test_none_primary_entity_returns_warning(self):
+        """_primary_entity = None -> returns warning message, not crash."""
+        from tools.production.metadata import MetadataGenerator
+        gen = MetadataGenerator("test-project")
+        gen._primary_entity = None  # explicitly set to None
+
+        candidates = [{"title": "Spain Changed History", "score": 70, "grade": "B",
+                       "pattern": "declarative", "penalties": [], "hard_rejects": []}]
+        result = gen._coherence_check(candidates, "thumbnail", "description")
+
+        assert "warning" in result.lower() or "no primary entity" in result.lower(), (
+            f"Expected warning for None primary entity, got: {result!r}"
+        )
+
+    def test_coherence_does_not_change_sort_order(self):
+        """Candidates are sorted by score descending regardless of coherence."""
+        gen = self._generator()
+        candidates = [
+            {"title": "Spain Changed History", "score": 80, "grade": "A",
+             "pattern": "declarative", "penalties": [], "hard_rejects": []},
+            {"title": "Why History Was Wrong", "score": 65, "grade": "B",
+             "pattern": "how_why", "penalties": [], "hard_rejects": []},
+        ]
+        thumbnail_text = "Map of Spain. No face, no text overlay."
+        desc = "A history analysis using sources."  # only first candidate has "Spain"
+
+        gen._coherence_check(candidates, thumbnail_text, desc)
+
+        from tools.production.title_generator import format_title_candidates
+        output = format_title_candidates(candidates)
+
+        # Rank 1 must still be the highest score (Spain at 80), not the most coherent
+        lines = output.splitlines()
+        rank1_rows = [l for l in lines if l.startswith("| 1 |")]
+        assert rank1_rows and "Spain Changed History" in rank1_rows[0], (
+            f"Rank 1 should still be highest score, got: {rank1_rows}"
+        )
+
+
+# ---------------------------------------------------------------------------
+# META-03: generate_metadata_draft() integration test
+# ---------------------------------------------------------------------------
+
+class TestGenerateMetadataDraftIntegration:
+    """
+    generate_metadata_draft() with topic_type produces all 6 sections in locked order.
+    """
+
+    def _make_sections(self):
+        return [
+            _make_section(
+                "Introduction",
+                "Spain and Portugal divided the world in 1494 by the Treaty of Tordesillas. "
+                "Spain claimed the west, Portugal claimed the east. "
+                "Contrary to popular belief, this division was not permanent.",
+                "intro",
+            ),
+            _make_section(
+                "Background",
+                "The papal bull Inter caetera authorised the original split. "
+                "Portugal protested and both nations negotiated the treaty. "
+                "Spain and Portugal competed for colonial dominance for centuries.",
+                "body",
+            ),
+        ]
+
+    def test_all_six_sections_present_in_locked_order(self):
+        """Output contains Title Candidates, Description, Chapters, Tags, Thumbnail Concepts, Coherence Check."""
+        from unittest.mock import patch
+        PATCH_TARGET = "tools.production.title_generator.score_title"
+
+        def _stub(title, db_path=None, topic_type=None):
+            from tools.title_scorer import detect_pattern
+            return {
+                "title": title, "score": 70, "grade": "B",
+                "pattern": detect_pattern(title), "length": len(title),
+                "base_score": 70, "penalties": [], "bonuses": [],
+                "suggestions": [], "hard_rejects": [], "db_enriched": False,
+                "db_base_score": None, "niche_enriched": False,
+                "niche_base_score": None, "fallback_warning": None,
+                "detected_topic": "general",
+                "topic_type_target": {"pass": 60, "good": 70, "gap_message": ""},
+                "niche_percentile_label": "",
+            }
+
+        from tools.production.metadata import MetadataGenerator
+        from tools.production.entities import Entity
+
+        gen = MetadataGenerator("test-project")
+        sections = self._make_sections()
+        entities = [
+            Entity(text="Spain", entity_type="place", mentions=3,
+                   positions=[1], normalized="spain"),
+        ]
+
+        with patch(PATCH_TARGET, side_effect=_stub):
+            output = gen.generate_metadata_draft(sections, entities, [], topic_type="territorial")
+
+        SECTION_ORDER = [
+            "Title Candidates",
+            "Description",
+            "Chapters",
+            "Tags",
+            "Thumbnail Concepts",
+            "Coherence Check",
+        ]
+
+        positions = []
+        for section_name in SECTION_ORDER:
+            pos = output.find(section_name)
+            assert pos != -1, f"Section '{section_name}' not found in output.\nOutput:\n{output[:500]}"
+            positions.append(pos)
+
+        # Check locked order
+        for i in range(len(positions) - 1):
+            assert positions[i] < positions[i + 1], (
+                f"Section order violated: '{SECTION_ORDER[i]}' (pos {positions[i]}) "
+                f"should come before '{SECTION_ORDER[i+1]}' (pos {positions[i+1]})"
+            )

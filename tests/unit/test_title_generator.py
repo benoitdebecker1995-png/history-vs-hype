@@ -632,5 +632,93 @@ class TestFormatTitleCandidates(unittest.TestCase):
         self.assertNotIn("**Recommendation:** Test A vs B first", output)
 
 
+class TestFormatTitleCandidatesCoherenceColumn(unittest.TestCase):
+    """Tests for format_title_candidates() coherence column — META-03."""
+
+    def _make_candidate(self, title: str, score: int, coherence: str = None) -> dict:
+        c = {
+            "title": title,
+            "score": score,
+            "grade": "B",
+            "pattern": "declarative",
+            "penalties": [],
+            "hard_rejects": [],
+        }
+        if coherence is not None:
+            c["coherence"] = coherence
+        return c
+
+    def test_backward_compat_no_coherence_column(self):
+        """format_title_candidates with no extra args -> no Coherence column."""
+        with patch(PATCH_TARGET, side_effect=_stub_score_title):
+            from tools.production.title_generator import format_title_candidates
+
+        candidates = [
+            self._make_candidate("Spain Changed History", 75),
+        ]
+        output = format_title_candidates(candidates)
+
+        self.assertNotIn("Coherence", output,
+                         "Coherence column must NOT appear when called without coherence args")
+
+    def test_coherence_column_appears_when_provided(self):
+        """format_title_candidates with thumbnail_concepts + desc_first_line -> Coherence column."""
+        with patch(PATCH_TARGET, side_effect=_stub_score_title):
+            from tools.production.title_generator import format_title_candidates
+
+        candidates = [
+            self._make_candidate("Spain Changed History", 75, coherence="3/3 ✅"),
+            self._make_candidate("Why History Was Wrong", 65, coherence="2/3 ⚠️"),
+        ]
+        output = format_title_candidates(
+            candidates,
+            thumbnail_concepts=["Map of Spain. No face, no text overlay."],
+            desc_first_line="Spain — a territorial analysis."
+        )
+
+        self.assertIn("Coherence", output,
+                      "Coherence column must appear when thumbnail_concepts and desc_first_line provided")
+        self.assertIn("3/3", output, "Coherence value 3/3 should appear in table")
+        self.assertIn("2/3", output, "Coherence value 2/3 should appear in table")
+
+    def test_sort_order_unchanged_by_coherence(self):
+        """Candidates remain sorted by score descending regardless of coherence value."""
+        with patch(PATCH_TARGET, side_effect=_stub_score_title):
+            from tools.production.title_generator import format_title_candidates
+
+        # Low-coherence candidate has higher score; it should still rank #1
+        candidates = [
+            self._make_candidate("Spain Changed History", 80, coherence="1/3 ❌"),
+            self._make_candidate("Why History Was Wrong", 60, coherence="3/3 ✅"),
+        ]
+        output = format_title_candidates(
+            candidates,
+            thumbnail_concepts=["Map of Spain."],
+            desc_first_line="Spain analysis."
+        )
+
+        lines = output.splitlines()
+        rank1_rows = [l for l in lines if l.startswith("| 1 |")]
+        self.assertTrue(rank1_rows and "Spain Changed History" in rank1_rows[0],
+                        f"Highest-score candidate must be rank 1 regardless of coherence. Got: {rank1_rows}")
+
+    def test_coherence_column_uses_candidate_dict_value(self):
+        """Coherence column value comes from candidate['coherence'], not recomputed."""
+        with patch(PATCH_TARGET, side_effect=_stub_score_title):
+            from tools.production.title_generator import format_title_candidates
+
+        candidates = [
+            self._make_candidate("Spain Changed History", 75, coherence="3/3 ✅"),
+        ]
+        output = format_title_candidates(
+            candidates,
+            thumbnail_concepts=["some thumbnail text"],
+            desc_first_line="some description first line"
+        )
+
+        self.assertIn("3/3 ✅", output,
+                      "Coherence value from candidate dict must appear verbatim in table")
+
+
 if __name__ == "__main__":
     unittest.main()
