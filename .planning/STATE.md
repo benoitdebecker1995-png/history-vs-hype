@@ -2,14 +2,15 @@
 gsd_state_version: 1.0
 milestone: v8.0
 milestone_name: Pipeline Quality Gates
-status: roadmap_created
-last_updated: "2026-04-14"
-last_activity: "2026-04-14 — Roadmap created, 4 phases defined (71-74), 11/11 requirements mapped"
+status: planning
+last_updated: "2026-04-15T12:19:34.938Z"
+last_activity: 2026-04-14 — Roadmap created, phases 71-74 defined, 11/11 requirements mapped
 progress:
-  total_phases: 74
-  completed_phases: 70
-  total_plans: 144
-  completed_plans: 144
+  total_phases: 4
+  completed_phases: 1
+  total_plans: 1
+  completed_plans: 1
+  percent: 0
 ---
 
 # State: History vs Hype Workspace
@@ -39,7 +40,9 @@ Progress: [░░░░░░░░░░] 0% (v8.0 milestone)
 
 v7.0 decisions archived in `.planning/milestones/v7.0-ROADMAP.md`.
 
-v8.0 decisions pending (none yet — roadmap just created).
+v8.0 decisions pending (— roadmap just created).
+- [Phase 71]: Gate applies only to --new/default modes; --revise/--review/etc bypass it
+- [Phase 71]: Missing 01-VERIFIED-RESEARCH.md warns and proceeds rather than blocking
 
 ### Pending Todos
 

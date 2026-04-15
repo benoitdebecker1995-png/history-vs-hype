@@ -9,13 +9,13 @@ Close 3 critical silent-failure gaps + bridge test + NotebookLM auto-queries. Ba
 
 ### Verification Gates
 
-- [ ] **GATE-01**: `/script` reads `01-VERIFIED-RESEARCH.md`, counts checkmark vs pending/failed markers, and BLOCKS with clear message if <90% verified
-- [ ] **GATE-02**: `/script` displays verification summary (X/Y claims verified, Z%) before proceeding when >= 90%
+- [x] **GATE-01**: `/script` reads `01-VERIFIED-RESEARCH.md`, counts checkmark vs pending/failed markers, and BLOCKS with clear message if <90% verified
+- [x] **GATE-02**: `/script` displays verification summary (X/Y claims verified, Z%) before proceeding when >= 90%
 
 ### Structure Validation
 
-- [ ] **STRUCT-01**: After `/script` generates a script, `structure-checker-v2` agent auto-runs against the output and reports CRITICAL/WARNING/INFO findings
-- [ ] **STRUCT-02**: CRITICAL structure findings block progression (user must acknowledge or fix before `/verify`)
+- [x] **STRUCT-01**: After `/script` generates a script, `structure-checker-v2` agent auto-runs against the output and reports CRITICAL/WARNING/INFO findings
+- [x] **STRUCT-02**: CRITICAL structure findings block progression (user must acknowledge or fix before `/verify`)
 
 ### Fact-Check Enforcement
 
@@ -50,10 +50,10 @@ None deferred from this milestone.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| GATE-01 | Phase 71 | Pending |
-| GATE-02 | Phase 71 | Pending |
-| STRUCT-01 | Phase 71 | Pending |
-| STRUCT-02 | Phase 71 | Pending |
+| GATE-01 | Phase 71 | Complete |
+| GATE-02 | Phase 71 | Complete |
+| STRUCT-01 | Phase 71 | Complete |
+| STRUCT-02 | Phase 71 | Complete |
 | FACT-01 | Phase 72 | Pending |
 | FACT-02 | Phase 72 | Pending |
 | BRIDGE-01 | Phase 73 | Pending |
