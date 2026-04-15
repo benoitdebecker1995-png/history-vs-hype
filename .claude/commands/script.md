@@ -15,6 +15,7 @@ Write new scripts, revise existing ones, review for issues, or export for telepr
 /script --variants [project] # Generate hook/structure variants, then write script
 /script --new --variants [project]  # Combine: new script with variant generation
 /script --document-mode [project]  # Document-structured script (clause-by-clause walkthrough)
+/script --collaborate [project]  # Collaborative editing: you draft, Claude refines
 /script --revise [project]   # Revise existing script
 /script --review [project]   # Review script for issues
 /script --teleprompter [project]  # Export clean text for filming
@@ -28,6 +29,7 @@ Write new scripts, revise existing ones, review for issues, or export for telepr
 | `--hooks` | Score existing hook, generate LLM variants, rank with fulfillment check | `/script --hooks 42-why-brazil-speaks-portuguese-2026 --title "Why Brazil Speaks Portuguese"` |
 | `--title "Title Text"` | Video title — enables title-fulfillment check in --hooks (entity echo + promise-type). If omitted, fulfillment check is skipped. | `/script --hooks 42-why-brazil-2026 --title "Why Brazil Speaks Portuguese"` |
 | `--document-mode` | Generate clause-by-clause document walkthrough script | `/script --document-mode 35-gibraltar-treaty-utrecht-2026` |
+| `--collaborate` | Collaborative editing — you draft, Claude refines | `/script --collaborate 50-thermopylae-sources-2026` |
 | `--revise` | Revise existing SCRIPT.md | `/script --revise 19-flat-earth-medieval-2025` |
 | `--review` | Comprehensive quality review | `/script --review 19-flat-earth-medieval-2025` |
 | `--teleprompter` | Export clean text for filming | `/script --teleprompter 19-flat-earth-medieval-2025` |
@@ -142,6 +144,68 @@ Hook pattern from outliers: "legal fiction exposed" frame drove 4x median views.
 - **Niche format trends:** What video lengths and formats are performing (from Niche Patterns section)
 - **Competitor gaps:** What topics competitors are NOT covering (differentiation opportunities)
 
+## Research Verification Gate (MANDATORY — Runs Before Script Generation)
+
+**Applies to:** `--new` and default (interactive write) modes ONLY. Skip for `--revise`, `--review`, `--teleprompter`, `--hooks`, `--collaborate` — these work on existing scripts, not new generation from research.
+
+**Step 1: Locate the verified research file.**
+
+Glob for `video-projects/**/[project]/01-VERIFIED-RESEARCH.md`. If the file is not found, emit a one-line warning — "No verified research file found — skipping verification gate" — and proceed normally. Do NOT block on a missing file.
+
+**Step 2: Count verification markers in the file.**
+
+Scan the file content for these status markers:
+- `✅` or the word `VERIFIED` = verified claim
+- `⏳` or the word `RESEARCHING` = pending claim
+- `❌` or the word `UNVERIFIABLE` = failed claim
+
+Count total = verified + pending + failed. Calculate percentage: `verified / total * 100`. If no markers are found at all, skip the gate and proceed.
+
+**Step 3: Apply gate logic.**
+
+**If percentage < 90%:** BLOCK. Display the message below and STOP. Do not proceed to script generation.
+
+```
+--- RESEARCH VERIFICATION GATE: BLOCKED ---
+Project: [project-name]
+Verified: X/Y claims (Z%)
+Pending: N claims (⏳)
+Failed: M claims (❌)
+
+Cannot proceed: Research must be >=90% verified before scripting.
+Fix: Complete verification in 01-VERIFIED-RESEARCH.md, then re-run /script.
+---
+```
+
+**If percentage >= 90%:** PASS. Display the message below, then proceed normally to the Duration & Structure Gate and script generation.
+
+```
+--- Research Verification Gate: PASSED ---
+Verified: X/Y claims (Z%)
+[If any claims are still pending or failed: "Note: N claims still pending/failed — verify before filming"]
+---
+```
+
+## Duration & Structure Gate (MANDATORY — Check Before Writing)
+
+**Before writing ANY script, confirm these two parameters with the user:**
+
+1. **Target duration:** Default is 10 minutes. Hard cap at 12 minutes (Rule 32). Only exceed with explicit user approval AND all 4 exception criteria met (10K+/mo search demand, all 4 breakout factors, every section earns its place, user explicitly approves).
+
+2. **Structure type:** For non-territorial videos, myth-first structure is MANDATORY (Rule 33). State this to user:
+   - "This is a [territorial/ideological/colonial/fact-check] video. Using [myth-first/chronological] structure."
+   - If non-territorial and user hasn't specified: default to myth-first.
+
+**Display at script start:**
+```
+--- Duration & Structure Gate ---
+Target: [X] min (hard cap: 12 min)
+Structure: [MYTH-FIRST / CHRONOLOGICAL]
+Turn target: [15-25%] of runtime = [Y:YY-Z:ZZ]
+Max script words: [N] (target × 250 WPM × 1.80)
+---
+```
+
 ## Before Writing
 
 **Read these reference files:**
@@ -254,6 +318,54 @@ if SCORER_AVAILABLE:
 ```
 
 If retention_scorer not available, skip silently (graceful degradation).
+
+### Retention Prediction (Post-Draft)
+
+After the full script is generated, run the retention predictor to identify drop-risk sections:
+
+```python
+from tools.youtube_analytics.retention_predictor import predict_from_file
+result = predict_from_file(script_path)
+# Shows: predicted curve, per-section deltas, flagged risk zones
+# Key insight: statistics sections = retention gold (+0.061), modern relevance bridges may disrupt (-0.010)
+```
+
+If predicted retention is below channel average (27.8%), flag specific sections for revision. The predictor uses empirical content-type deltas from 42 videos and 4,200 data points.
+
+## Automatic Structure Check (Post-Generation)
+
+After the script has been generated and saved to `SCRIPT.md`, AND after retention scoring and retention prediction have run, automatically invoke the `structure-checker-v2` agent by reading `.claude/agents/structure-checker-v2.md` and following its instructions against the generated script file.
+
+**How to invoke:** Read `.claude/agents/structure-checker-v2.md` in full, then apply its constraints and checklist to the generated script. The agent reads the script and analyzes it for structural compliance — no external tool call needed, Claude does this natively.
+
+**Display findings organized by severity:**
+
+```
+--- Automatic Structure Check ---
+
+CRITICAL (must fix before /verify):
+- [finding 1]
+- [finding 2]
+
+WARNING:
+- [finding 1]
+
+INFO:
+- [finding 1]
+
+[If no CRITICAL findings: "No critical issues found. Proceed to /verify when ready."]
+---
+```
+
+**CRITICAL finding handling:** When ANY CRITICAL-level findings are present, append this explicit block AFTER the findings:
+
+```
+*** CRITICAL ISSUES DETECTED ***
+Fix the CRITICAL items above or explicitly acknowledge them before running /verify.
+The structure checker found issues that historically correlate with retention drops.
+```
+
+**Graceful degradation:** If the structure-checker-v2 agent file is missing or unavailable for any reason, emit a one-line note — "Structure check skipped — run `/script --review` manually" — and proceed. Never block on a failed check.
 
 ## Format Template Selection (NEW - 2026-01-04)
 
@@ -408,8 +520,9 @@ Ask the user:
 2. Does the steelmanning feel fair to the other side?
 3. Should I expand any section?
 4. Ready for fact-checking?
+5. Any structure check findings you want to address first?
 
-**Proactive suggestion:** "Script complete. Run `/verify` to fact-check before filming."
+**Proactive suggestion:** "Script complete. Review structure check findings above, then run `/verify` to fact-check before filming."
 
 ---
 
@@ -735,6 +848,77 @@ RIGHT: English translation - "[exact translation]"]
 - **Format guide:** `.claude/REFERENCE/UNTRANSLATED-EVIDENCE-FORMAT-GUIDE.md`
 - **Agent rules:** `.claude/agents/script-writer-v2.md` Rule 18
 - **Translation pipeline:** `tools/translation/cli.py`
+
+---
+
+## COLLABORATIVE EDITING (`--collaborate`)
+
+You draft, Claude refines. The preferred workflow for scripts where your voice and personal takes matter.
+
+**Trigger:** User pastes a draft with inline comments, says "read my changes," or runs `--collaborate`.
+
+### Process
+
+**Step 1: Read and Parse**
+
+1. Read the user's draft (pasted in chat or from SCRIPT.md)
+2. Read `01-VERIFIED-RESEARCH.md` from the project folder
+3. Detect inline comments: anything in parentheses, `??`, incomplete sentences, `(why)`, `(how)`, questions
+4. Detect rewrites: compare against previous SCRIPT.md if one exists
+
+**Step 2: Respond to Comments**
+
+For each inline comment:
+- **Factual questions** ("why??", "how?"): Answer from verified research with source citations
+- **Corrections** ("eh, they can no?"): Check the user's correction against sources — they may be right
+- **Incomplete thoughts** (trailing off mid-sentence): Interpret intent, propose completion, ask if correct
+- **Uncertainty markers** ("I think", "maybe"): Verify the claim, confirm or correct
+
+**Step 3: Identify Voice Patterns**
+
+If the user has made rewrites, identify 5-6 concrete patterns in their changes:
+- Word choice shifts (precision, cadence, formality)
+- Structural preferences (first person, declarative, fragments vs sentences)
+- What they cut (dead weight, redundancy)
+- What they add (emphasis words, spoken flow)
+
+State these briefly. Purpose: confirm you're tracking their voice so they can trust the edits.
+
+**Step 4: Personal Take Questions**
+
+Ask 3-5 questions focused on the user's REACTION to the material:
+- "What surprised you when you read this source?"
+- "Do you have a personal take on [specific claim]?"
+- "This detail [X] — did you find it moving or intellectually interesting? Delivery changes based on which."
+- "Is there a moment in this script where you want the audience to feel something specific?"
+
+Do NOT ask about logistics, filming setup, or on-screen graphics. Those are separate concerns.
+
+**Step 5: Integrate and Audit**
+
+1. Apply the user's answers as script edits
+2. **Accuracy audit:** Cross-check EVERY addition against `01-VERIFIED-RESEARCH.md`
+3. Flag claims NOT in verified research — do not silently include them
+4. For flagged claims: run targeted NotebookLM queries (not blanket re-verification)
+5. **Primary source preference:** When a secondary source (Cartledge, Green, Matthews) summarizes a primary source, check if the primary source (Herodotus, Diodorus, treaty text) says it more powerfully. If yes, use the primary source with the historian's interpretation alongside.
+
+**Step 6: Iterate**
+
+Make small edits, one round at a time. Present changes, wait for feedback. Do not batch all edits into one massive rewrite.
+
+### What This Mode Is NOT
+
+- NOT `/script --new` — you don't generate from scratch
+- NOT `/script --revise` — you don't apply mechanical fixes
+- NOT `/script --review` — you don't run checklists
+- This is a conversation about the script where you act as editor, fact-checker, and sounding board
+
+### When to Use
+
+- User has written a draft and wants refinement
+- User has annotated an existing script with comments
+- User says "read my changes" or "I made some edits"
+- Any time the user's voice and personal takes are the product
 
 ---
 
