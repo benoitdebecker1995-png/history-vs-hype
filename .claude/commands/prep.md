@@ -101,6 +101,91 @@ else:
 
 ---
 
+## Fact-Check Verification Gate (MANDATORY — Runs Before All Prep Output)
+
+**Applies to:** ALL modes — `--edit-guide`, `--assets`, `--full`, `--split-screen`, and interactive (no mode specified). No exceptions — all prep modes are pre-filming and require verified facts.
+
+**Step 1: Locate the fact-check file.**
+
+Glob for `video-projects/**/[project]/03-FACT-CHECK-VERIFICATION.md`. If the file is not found, BLOCK — display the message below and STOP. Do NOT proceed.
+
+```
+--- FACT-CHECK VERIFICATION GATE: BLOCKED ---
+Project: [project-name]
+Status: No fact-check file found
+
+Cannot proceed: 03-FACT-CHECK-VERIFICATION.md does not exist.
+Run /verify first to generate the fact-check report, then re-run /prep.
+---
+```
+
+**Step 2: Scan for verdict line.**
+
+Search the file for lines containing "Verdict:" (case-insensitive). Check if the word "APPROVED" appears anywhere on that line.
+
+- If NO line contains "Verdict:" at all — treat as placeholder/incomplete file. BLOCK:
+
+```
+--- FACT-CHECK VERIFICATION GATE: BLOCKED ---
+Project: [project-name]
+Status: Fact-check file exists but contains no verdict
+
+Cannot proceed: 03-FACT-CHECK-VERIFICATION.md has no verdict line.
+Complete the fact-check with /verify, then re-run /prep.
+---
+```
+
+- If a verdict line exists but does NOT contain "APPROVED" — BLOCK. Extract the actual verdict text for display. Also scan the file for severity markers to build an issue summary:
+  - Count lines/sections containing red circle emoji or "REQUIRED FIX" = required fixes
+  - Count lines/sections containing yellow circle emoji or "SIMPLIFICATION" = simplification flags
+  - Count lines/sections containing warning emoji or "NEEDS CLARIFICATION" or "Needs clarification" = clarification items
+
+```
+--- FACT-CHECK VERIFICATION GATE: BLOCKED ---
+Project: [project-name]
+Verdict: [extracted verdict text from the verdict line]
+Required fixes: N
+Clarification needed: N
+Simplification flags: N
+
+Cannot proceed: Fact-check verdict is not APPROVED.
+Address the issues in 03-FACT-CHECK-VERIFICATION.md, re-run /verify, then re-run /prep.
+---
+```
+
+After the bordered block, list each outstanding item with a one-line description. Format:
+```
+Outstanding items:
+- [RED CIRCLE] [item title]: [one-line description from the file]
+- [WARNING] [item title]: [one-line description]
+```
+
+**Step 3: Handle APPROVED verdict.**
+
+If the verdict line contains "APPROVED":
+
+First, check if any required fix sections still exist in the file (lines with red circle emoji or "REQUIRED FIX"). If yes, PASS but with a WARNING:
+
+```
+--- Fact-Check Verification Gate: PASSED (with warnings) ---
+Verdict: [extracted verdict text]
+Note: N required fix(es) still listed — verify these are resolved before filming.
+---
+```
+
+If APPROVED with no outstanding required fixes, clean PASS. Extract summary stats from the executive summary table if present (total claims, verified count):
+
+```
+--- Fact-Check Verification Gate: PASSED ---
+Verdict: [extracted verdict text]
+Claims: X verified of Y total
+---
+```
+
+Then proceed normally to the prep output generation.
+
+---
+
 ## EDIT GUIDE (`--edit-guide`)
 
 Generate comprehensive shot-by-shot editing guide from filmed A-roll.
