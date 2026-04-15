@@ -6,7 +6,7 @@
 <domain>
 ## Phase Boundary
 
-Auto-run a title-vs-hook alignment check during `/publish` that flags mismatches before the video goes live. This is a warning system, not a blocking gate. The check compares what the title promises against what the script's first 30 seconds deliver.
+Auto-run a full pipeline alignment check during `/publish` that blocks on mismatches before the video goes live. The check traces the full viewer pipeline: thumbnail visual → title promise → hook delivery, and blocks publishing when alignment is weak.
 
 </domain>
 
@@ -22,21 +22,22 @@ Auto-run a title-vs-hook alignment check during `/publish` that flags mismatches
 ### Scoring system
 - Reuse existing TIGHT/ADEQUATE/GAP/NONE verdict system from `/publish` (lines 437-441)
 - WEAK = GAP or NONE. STRONG = TIGHT or ADEQUATE
-- Check title promise vs hook delivery: extract core promise from title (entity, claim, question), verify hook addresses it within 30 seconds
-- Title-only check (no thumbnail overlay) — thumbnails are handled separately in manual bridge analysis
-- Flag with explanation: "WEAK ALIGNMENT: Title promises X but hook opens with Y instead." — specific, actionable gap identification
+- Full pipeline check: thumbnail visual → title promise → hook delivery → turn. Check all three connections
+- Require thumbnail concepts to exist before running. If no thumbnail concepts generated yet, skip bridge test silently
+- Flag with fix suggestion: "WEAK ALIGNMENT: Title promises X but hook opens with Y instead. Suggestion: lead with X in first sentence." — specific gap + actionable fix
 
 ### Output format
 - Bordered block inline, consistent with Phase 71-72 gate visual language
 - STRONG: brief one-line confirmation ("Bridge Test: STRONG — Title delivers on hook within 15s")
 - WEAK: bordered warning block with explanation of the gap
-- Warn only — do NOT block. This is advisory, not a quality gate. User decides whether to fix
+- BLOCK on WEAK alignment. WEAK bridge = stop. Can't publish with a title/hook mismatch. Matches Phase 71-72 blocking gate pattern
 - Check ALL title variants when multiple are generated (A/B testing). Flag any WEAK ones individually
 
 ### Claude's Discretion
 - Exact method for extracting "core promise" from title
 - How to determine which part of hook "delivers" on the promise
 - Formatting of multi-variant bridge results table
+- How to handle cases where thumbnail concepts exist but have no overlay text
 
 </decisions>
 
@@ -44,8 +45,8 @@ Auto-run a title-vs-hook alignment check during `/publish` that flags mismatches
 ## Specific Ideas
 
 - Existing bridge analysis in `/publish` (lines 424-443) already defines the TIGHT/ADEQUATE/GAP/NONE verdict system with specific timing thresholds — auto-bridge should use the same criteria
-- The existing manual bridge test checks thumbnail overlay + title + hook. Auto-bridge simplifies to title + hook only, keeping the manual analysis as the comprehensive check
-- Phase 72's bordered message pattern (BLOCKED/PASSED) should inform the visual style, but use STRONG/WEAK instead of PASSED/BLOCKED since this is advisory
+- Full pipeline: thumbnail visual → title promise → hook delivery. Auto-bridge now matches the comprehensive manual analysis scope
+- Phase 72's bordered message pattern (BLOCKED/PASSED) should inform the visual style. Use BLOCKED for WEAK, PASSED for STRONG — this is a blocking gate like Phase 71-72
 
 </specifics>
 
@@ -63,9 +64,10 @@ Auto-run a title-vs-hook alignment check during `/publish` that flags mismatches
 - Bridge analysis section already exists in manual thumbnail pairing workflow
 
 ### Integration Points
-- New section in `.claude/commands/publish.md` — runs after title generation, before final metadata output
+- New section in `.claude/commands/publish.md` — runs after title + thumbnail generation, before final metadata output
 - Reads `02-SCRIPT-DRAFT.md` for hook text (first 30 seconds)
-- Tests each generated title variant individually
+- Reads thumbnail concepts for overlay text
+- Tests each generated title variant individually against thumbnail + hook
 
 </code_context>
 
