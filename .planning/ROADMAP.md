@@ -206,7 +206,7 @@
   4. When CRITICAL findings are present, the output explicitly states the user must fix or acknowledge before running `/verify`
 **Plans**: 1 plan
 Plans:
-- [ ] 71-01-PLAN.md — Research verification gate + post-generation structure check
+- [x] 71-01-PLAN.md — Research verification gate + post-generation structure check
 
 ### Phase 72: Prep Gate
 **Goal**: Users cannot enter filming prep on a video that has not passed the fact-check quality gate
@@ -218,7 +218,7 @@ Plans:
   3. Running `/prep` on a project with verdict APPROVED proceeds normally with no interruption
 **Plans**: 1 plan
 Plans:
-- [ ] 71-01-PLAN.md — Research verification gate + post-generation structure check
+- [ ] 72-01-PLAN.md — Fact-check verification gate for /prep
 
 ### Phase 73: Bridge Test
 **Goal**: Publishing surfaces any mismatch between what the title promises and what the hook delivers, before the video goes live
@@ -230,7 +230,7 @@ Plans:
   3. When alignment is strong, a brief confirmation appears and execution continues normally
 **Plans**: 1 plan
 Plans:
-- [ ] 71-01-PLAN.md — Research verification gate + post-generation structure check
+- [ ] 73-01-PLAN.md — Title/hook bridge test for /publish
 
 ### Phase 74: NotebookLM Auto-Queries
 **Goal**: At three key workflow moments, relevant NotebookLM notebook queries fire automatically via MCP — with a ready-to-paste prompt as fallback when MCP is unavailable
@@ -242,7 +242,7 @@ Plans:
   3. For user-flagged high-stakes or ideological videos, an Article Workshop notebook query fires via MCP for prose critique — or a formatted paste prompt appears if MCP is unavailable
 **Plans**: 1 plan
 Plans:
-- [ ] 71-01-PLAN.md — Research verification gate + post-generation structure check
+- [ ] 74-01-PLAN.md — NotebookLM MCP auto-queries at three workflow moments
 
 ## Progress
 
@@ -323,7 +323,7 @@ Plans:
 | 68. Title Generation Upgrade | v7.0 | 2/2 | Complete | 2026-03-18 |
 | 69. Hook Quality Upgrade | v7.0 | 2/2 | Complete | 2026-03-18 |
 | 70. Metadata & Packaging Integration | v7.0 | 2/2 | Complete | 2026-03-19 |
-| 71. Script Entry Gates | 1/1 | Complete    | 2026-04-15 | - |
-| 72. Prep Gate | v8.0 | 0/TBD | Not started | - |
+| 71. Script Entry Gates | v8.0 | 1/1 | Complete | 2026-04-15 |
+| 72. Prep Gate | v8.0 | 0/1 | Not started | - |
 | 73. Bridge Test | v8.0 | 0/TBD | Not started | - |
 | 74. NotebookLM Auto-Queries | v8.0 | 0/TBD | Not started | - |
