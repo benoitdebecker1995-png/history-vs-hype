@@ -204,7 +204,9 @@
   2. Running `/script` on a project with >=90% verified claims shows a verification summary (X/Y claims, Z%) before generation proceeds
   3. After `/script` generates output, `structure-checker-v2` runs automatically and prints CRITICAL/WARNING/INFO findings inline
   4. When CRITICAL findings are present, the output explicitly states the user must fix or acknowledge before running `/verify`
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 71-01-PLAN.md — Research verification gate + post-generation structure check
 
 ### Phase 72: Prep Gate
 **Goal**: Users cannot enter filming prep on a video that has not passed the fact-check quality gate
@@ -214,7 +216,9 @@
   1. Running `/prep` on a project where `03-FACT-CHECK-VERIFICATION.md` verdict is not APPROVED stops with a block message
   2. The block message displays the actual verdict found and any outstanding revision items listed in the file
   3. Running `/prep` on a project with verdict APPROVED proceeds normally with no interruption
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 71-01-PLAN.md — Research verification gate + post-generation structure check
 
 ### Phase 73: Bridge Test
 **Goal**: Publishing surfaces any mismatch between what the title promises and what the hook delivers, before the video goes live
@@ -224,7 +228,9 @@
   1. Running `/publish` automatically scores the title against the script's first 30 seconds without any extra flags or steps from the user
   2. When the title promises something the hook does not deliver, the output flags it as WEAK ALIGNMENT with a specific explanation of the gap
   3. When alignment is strong, a brief confirmation appears and execution continues normally
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 71-01-PLAN.md — Research verification gate + post-generation structure check
 
 ### Phase 74: NotebookLM Auto-Queries
 **Goal**: At three key workflow moments, relevant NotebookLM notebook queries fire automatically via MCP — with a ready-to-paste prompt as fallback when MCP is unavailable
@@ -234,7 +240,9 @@
   1. After `/script` generation, a Competitor notebook query fires via MCP comparing hook pattern, turn placement, evidence pacing, and closing type — or a formatted paste prompt appears if MCP is unavailable
   2. During `/greenlight` title evaluation, a Competitor notebook query fires via MCP checking the title against outlier patterns — or a formatted paste prompt appears if MCP is unavailable
   3. For user-flagged high-stakes or ideological videos, an Article Workshop notebook query fires via MCP for prose critique — or a formatted paste prompt appears if MCP is unavailable
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 71-01-PLAN.md — Research verification gate + post-generation structure check
 
 ## Progress
 
@@ -315,7 +323,7 @@
 | 68. Title Generation Upgrade | v7.0 | 2/2 | Complete | 2026-03-18 |
 | 69. Hook Quality Upgrade | v7.0 | 2/2 | Complete | 2026-03-18 |
 | 70. Metadata & Packaging Integration | v7.0 | 2/2 | Complete | 2026-03-19 |
-| 71. Script Entry Gates | v8.0 | 0/TBD | Not started | - |
+| 71. Script Entry Gates | v8.0 | 0/1 | Planning complete | - |
 | 72. Prep Gate | v8.0 | 0/TBD | Not started | - |
 | 73. Bridge Test | v8.0 | 0/TBD | Not started | - |
 | 74. NotebookLM Auto-Queries | v8.0 | 0/TBD | Not started | - |
