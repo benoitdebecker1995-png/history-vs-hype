@@ -17,6 +17,7 @@
 - ✅ **v5.2 Growth Engine** - Phases 55-59 (shipped 2026-03-01)
 - ✅ **v6.0 Packaging Pipeline** - Phases 60-65 (shipped 2026-03-16)
 - ✅ **v7.0 Packaging & Hooks Overhaul** - Phases 66-70 (shipped 2026-03-18)
+- 🚧 **v8.0 Pipeline Quality Gates** - Phases 71-74 (in progress)
 
 ## Phases
 
@@ -145,7 +146,7 @@
 - [x] Phase 51: Logging & CLI Standardization (3/3 plans)
 - [x] Phase 52: Database Hardening (2/2 plans)
 - [x] Phase 53: Integration Testing (2/2 plans)
-- [x] Phase 54: External Intelligence Synthesis (2/4 plans — gap closure) (completed 2026-03-16)
+- [x] Phase 54: External Intelligence Synthesis (4/4 plans)
 
 </details>
 
@@ -163,27 +164,81 @@
 <details>
 <summary>✅ v6.0 Packaging Pipeline (Phases 60-65) - SHIPPED 2026-03-16</summary>
 
-- [x] Phase 60: Retitle & Rethumb Pipeline (2/2 plans) — completed 2026-03-14
-- [x] Phase 61: Data-driven Packaging Gate (3/3 plans) — completed 2026-03-14
-- [x] Phase 62: Proactive Topic Discovery (2/2 plans) — completed 2026-03-15
-- [x] Phase 63: v6.0 Gap Closure & Tech Debt (1/1 plan) — completed 2026-03-15
-- [x] Phase 64: MCP Server Evaluation (2/2 plans) — completed 2026-03-15
-- [x] Phase 65: Automated CTR Feedback Loop (1/1 plan) — completed 2026-03-15
+- [x] Phase 60: Retitle & Rethumb Pipeline (2/2 plans)
+- [x] Phase 61: Data-driven Packaging Gate (3/3 plans)
+- [x] Phase 62: Proactive Topic Discovery (2/2 plans)
+- [x] Phase 63: v6.0 Gap Closure & Tech Debt (1/1 plan)
+- [x] Phase 64: MCP Server Evaluation (2/2 plans)
+- [x] Phase 65: Automated CTR Feedback Loop (1/1 plan)
 
 </details>
 
 <details>
 <summary>✅ v7.0 Packaging & Hooks Overhaul (Phases 66-70) - SHIPPED 2026-03-18</summary>
 
-- [x] Phase 66: External Benchmark Research (1/1 plans) — completed 2026-03-17
-- [x] Phase 67: Title Scorer Recalibration (2/2 plans) — completed 2026-03-17
-- [x] Phase 68: Title Generation Upgrade (2/2 plans) — completed 2026-03-18
-- [x] Phase 69: Hook Quality Upgrade (2/2 plans) — completed 2026-03-18
-- [x] Phase 70: Metadata & Packaging Integration (2/2 plans) — completed 2026-03-19
+- [x] Phase 66: External Benchmark Research (1/1 plan)
+- [x] Phase 67: Title Scorer Recalibration (2/2 plans)
+- [x] Phase 68: Title Generation Upgrade (2/2 plans)
+- [x] Phase 69: Hook Quality Upgrade (2/2 plans)
+- [x] Phase 70: Metadata & Packaging Integration (2/2 plans)
 
 </details>
 
+### 🚧 v8.0 Pipeline Quality Gates (In Progress)
+
+**Milestone Goal:** Close 3 critical silent-failure gaps identified by the 2026-04-14 workflow audit. Every video that enters `/script` exits with a verified research check and structure validation. Every video that enters `/prep` has a passed fact-check verdict. Publishing adds a title/hook bridge test. NotebookLM queries fire automatically via MCP at three key workflow moments.
+
+- [ ] **Phase 71: Script Entry Gates** - Verification block before `/script` runs + structure check after output
+- [ ] **Phase 72: Prep Gate** - `/prep` blocks on missing or failed fact-check verdict
+- [ ] **Phase 73: Bridge Test** - Title/hook/thumbnail alignment check wired into `/publish`
+- [ ] **Phase 74: NotebookLM Auto-Queries** - MCP queries at `/script`, `/greenlight`, and `/prep` with paste fallback
+
+## Phase Details
+
+### Phase 71: Script Entry Gates
+**Goal**: Users cannot start writing a script on under-verified research, and the script they produce is immediately checked for structural problems
+**Depends on**: Nothing (first phase of v8.0 milestone)
+**Requirements**: GATE-01, GATE-02, STRUCT-01, STRUCT-02
+**Success Criteria** (what must be TRUE):
+  1. Running `/script` on a project with <90% verified claims in `01-VERIFIED-RESEARCH.md` stops with a clear block message showing the exact count and percentage
+  2. Running `/script` on a project with >=90% verified claims shows a verification summary (X/Y claims, Z%) before generation proceeds
+  3. After `/script` generates output, `structure-checker-v2` runs automatically and prints CRITICAL/WARNING/INFO findings inline
+  4. When CRITICAL findings are present, the output explicitly states the user must fix or acknowledge before running `/verify`
+**Plans**: TBD
+
+### Phase 72: Prep Gate
+**Goal**: Users cannot enter filming prep on a video that has not passed the fact-check quality gate
+**Depends on**: Phase 71
+**Requirements**: FACT-01, FACT-02
+**Success Criteria** (what must be TRUE):
+  1. Running `/prep` on a project where `03-FACT-CHECK-VERIFICATION.md` verdict is not APPROVED stops with a block message
+  2. The block message displays the actual verdict found and any outstanding revision items listed in the file
+  3. Running `/prep` on a project with verdict APPROVED proceeds normally with no interruption
+**Plans**: TBD
+
+### Phase 73: Bridge Test
+**Goal**: Publishing surfaces any mismatch between what the title promises and what the hook delivers, before the video goes live
+**Depends on**: Phase 72
+**Requirements**: BRIDGE-01, BRIDGE-02
+**Success Criteria** (what must be TRUE):
+  1. Running `/publish` automatically scores the title against the script's first 30 seconds without any extra flags or steps from the user
+  2. When the title promises something the hook does not deliver, the output flags it as WEAK ALIGNMENT with a specific explanation of the gap
+  3. When alignment is strong, a brief confirmation appears and execution continues normally
+**Plans**: TBD
+
+### Phase 74: NotebookLM Auto-Queries
+**Goal**: At three key workflow moments, relevant NotebookLM notebook queries fire automatically via MCP — with a ready-to-paste prompt as fallback when MCP is unavailable
+**Depends on**: Phase 73
+**Requirements**: NLM-01, NLM-02, NLM-03
+**Success Criteria** (what must be TRUE):
+  1. After `/script` generation, a Competitor notebook query fires via MCP comparing hook pattern, turn placement, evidence pacing, and closing type — or a formatted paste prompt appears if MCP is unavailable
+  2. During `/greenlight` title evaluation, a Competitor notebook query fires via MCP checking the title against outlier patterns — or a formatted paste prompt appears if MCP is unavailable
+  3. For user-flagged high-stakes or ideological videos, an Article Workshop notebook query fires via MCP for prose critique — or a formatted paste prompt appears if MCP is unavailable
+**Plans**: TBD
+
 ## Progress
+
+**Execution Order:** 71 → 72 → 73 → 74
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
@@ -260,3 +315,7 @@
 | 68. Title Generation Upgrade | v7.0 | 2/2 | Complete | 2026-03-18 |
 | 69. Hook Quality Upgrade | v7.0 | 2/2 | Complete | 2026-03-18 |
 | 70. Metadata & Packaging Integration | v7.0 | 2/2 | Complete | 2026-03-19 |
+| 71. Script Entry Gates | v8.0 | 0/TBD | Not started | - |
+| 72. Prep Gate | v8.0 | 0/TBD | Not started | - |
+| 73. Bridge Test | v8.0 | 0/TBD | Not started | - |
+| 74. NotebookLM Auto-Queries | v8.0 | 0/TBD | Not started | - |

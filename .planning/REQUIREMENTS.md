@@ -50,23 +50,23 @@ None deferred from this milestone.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| GATE-01 | TBD | Pending |
-| GATE-02 | TBD | Pending |
-| STRUCT-01 | TBD | Pending |
-| STRUCT-02 | TBD | Pending |
-| FACT-01 | TBD | Pending |
-| FACT-02 | TBD | Pending |
-| BRIDGE-01 | TBD | Pending |
-| BRIDGE-02 | TBD | Pending |
-| NLM-01 | TBD | Pending |
-| NLM-02 | TBD | Pending |
-| NLM-03 | TBD | Pending |
+| GATE-01 | Phase 71 | Pending |
+| GATE-02 | Phase 71 | Pending |
+| STRUCT-01 | Phase 71 | Pending |
+| STRUCT-02 | Phase 71 | Pending |
+| FACT-01 | Phase 72 | Pending |
+| FACT-02 | Phase 72 | Pending |
+| BRIDGE-01 | Phase 73 | Pending |
+| BRIDGE-02 | Phase 73 | Pending |
+| NLM-01 | Phase 74 | Pending |
+| NLM-02 | Phase 74 | Pending |
+| NLM-03 | Phase 74 | Pending |
 
 **Coverage:**
 - v8.0 requirements: 11 total
-- Mapped to phases: 0
-- Unmapped: 11 (roadmap pending)
+- Mapped to phases: 11
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-04-14*
-*Last updated: 2026-04-14 after initial definition*
+*Last updated: 2026-04-14 after roadmap created (phases 71-74)*
