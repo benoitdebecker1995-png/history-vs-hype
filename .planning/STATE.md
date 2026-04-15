@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v8.0
 milestone_name: Pipeline Quality Gates
 status: planning
-last_updated: "2026-04-15T12:21:42.677Z"
+last_updated: "2026-04-15T22:18:58.475Z"
 last_activity: 2026-04-14 — Roadmap created, phases 71-74 defined, 11/11 requirements mapped
 progress:
   total_phases: 4
-  completed_phases: 1
-  total_plans: 1
-  completed_plans: 1
+  completed_phases: 2
+  total_plans: 2
+  completed_plans: 2
   percent: 0
 ---
 
@@ -27,12 +27,12 @@ See: `.planning/PROJECT.md` (updated 2026-04-14)
 
 ## Current Position
 
-Phase: 71 of 74 (Script Entry Gates — not started)
-Plan: —
-Status: Ready to plan
-Last activity: 2026-04-14 — Roadmap created, phases 71-74 defined, 11/11 requirements mapped
+Phase: 72 of 74 (Prep Gate — plan 01 complete)
+Plan: 01 of 01 (complete)
+Status: Phase 72 complete
+Last activity: 2026-04-15 — Fact-check verification gate added to /prep
 
-Progress: [░░░░░░░░░░] 0% (v8.0 milestone)
+Progress: [██████████] 100% (v8.0 milestone)
 
 ## Accumulated Context
 
@@ -43,6 +43,8 @@ v7.0 decisions archived in `.planning/milestones/v7.0-ROADMAP.md`.
 v8.0 decisions pending (— roadmap just created).
 - [Phase 71]: Gate applies only to --new/default modes; --revise/--review/etc bypass it
 - [Phase 71]: Missing 01-VERIFIED-RESEARCH.md warns and proceeds rather than blocking
+- [Phase 72]: Gate applies to ALL /prep modes with no exceptions (all are pre-filming)
+- [Phase 72]: Missing fact-check file = hard BLOCK (not warning) since verification was entirely skipped
 
 ### Pending Todos
 
@@ -56,12 +58,12 @@ None.
 
 ### Last Session
 
-- **Date:** 2026-04-14
-- **Work:** Workflow audit completed, v8.0 requirements defined, roadmap created (phases 71-74).
+- **Date:** 2026-04-15
+- **Work:** Phase 72 Plan 01 executed — fact-check verification gate added to /prep command.
 
 ### Next Session
 
-**Next action:** `/gsd:plan-phase 71` — Script Entry Gates (GATE-01, GATE-02, STRUCT-01, STRUCT-02)
+**Next action:** `/gsd:plan-phase 73` — Publish Guard (META-01, META-02)
 
 ## Technical Notes
 

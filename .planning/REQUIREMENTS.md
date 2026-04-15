@@ -19,8 +19,8 @@ Close 3 critical silent-failure gaps + bridge test + NotebookLM auto-queries. Ba
 
 ### Fact-Check Enforcement
 
-- [ ] **FACT-01**: `/prep` reads `03-FACT-CHECK-VERIFICATION.md` and BLOCKS if verdict is not APPROVED
-- [ ] **FACT-02**: `/prep` displays the verdict and any outstanding revision items when blocking
+- [x] **FACT-01**: `/prep` reads `03-FACT-CHECK-VERIFICATION.md` and BLOCKS if verdict is not APPROVED
+- [x] **FACT-02**: `/prep` displays the verdict and any outstanding revision items when blocking
 
 ### Bridge Test
 
@@ -54,8 +54,8 @@ None deferred from this milestone.
 | GATE-02 | Phase 71 | Complete |
 | STRUCT-01 | Phase 71 | Complete |
 | STRUCT-02 | Phase 71 | Complete |
-| FACT-01 | Phase 72 | Pending |
-| FACT-02 | Phase 72 | Pending |
+| FACT-01 | Phase 72 | Complete |
+| FACT-02 | Phase 72 | Complete |
 | BRIDGE-01 | Phase 73 | Pending |
 | BRIDGE-02 | Phase 73 | Pending |
 | NLM-01 | Phase 74 | Pending |

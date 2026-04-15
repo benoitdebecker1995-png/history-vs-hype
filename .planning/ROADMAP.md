@@ -189,7 +189,7 @@
 **Milestone Goal:** Close 3 critical silent-failure gaps identified by the 2026-04-14 workflow audit. Every video that enters `/script` exits with a verified research check and structure validation. Every video that enters `/prep` has a passed fact-check verdict. Publishing adds a title/hook bridge test. NotebookLM queries fire automatically via MCP at three key workflow moments.
 
 - [x] **Phase 71: Script Entry Gates** - Verification block before `/script` runs + structure check after output (completed 2026-04-15)
-- [ ] **Phase 72: Prep Gate** - `/prep` blocks on missing or failed fact-check verdict
+- [x] **Phase 72: Prep Gate** - `/prep` blocks on missing or failed fact-check verdict (completed 2026-04-15)
 - [ ] **Phase 73: Bridge Test** - Title/hook/thumbnail alignment check wired into `/publish`
 - [ ] **Phase 74: NotebookLM Auto-Queries** - MCP queries at `/script`, `/greenlight`, and `/prep` with paste fallback
 
@@ -324,6 +324,6 @@ Plans:
 | 69. Hook Quality Upgrade | v7.0 | 2/2 | Complete | 2026-03-18 |
 | 70. Metadata & Packaging Integration | v7.0 | 2/2 | Complete | 2026-03-19 |
 | 71. Script Entry Gates | v8.0 | 1/1 | Complete | 2026-04-15 |
-| 72. Prep Gate | v8.0 | 0/1 | Not started | - |
+| 72. Prep Gate | 1/1 | Complete   | 2026-04-15 | - |
 | 73. Bridge Test | v8.0 | 0/TBD | Not started | - |
 | 74. NotebookLM Auto-Queries | v8.0 | 0/TBD | Not started | - |
