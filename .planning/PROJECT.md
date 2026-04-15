@@ -194,9 +194,11 @@ v7.0 researched what actually drives clicks/impressions on edu/history YouTube (
 - Thumbnail concept generator outputs 3 script-grounded concepts — v7.0
 - Coherence check: title + thumbnail + description alignment — v7.0
 
-### Active
+### Active (v8.0 Pipeline Quality Gates)
 
-(Next milestone not yet started — run `/gsd:new-milestone`)
+- [ ] `/script` blocks if `01-VERIFIED-RESEARCH.md` has <90% verified claims (✅ vs ⏳/❌)
+- [ ] Auto structure check runs after `/script` generation via `structure-checker-v2` agent
+- [ ] `/prep` blocks if `03-FACT-CHECK-VERIFICATION.md` verdict ≠ APPROVED
 
 ### Out of Scope
 
@@ -347,4 +349,4 @@ v7.0 researched what actually drives clicks/impressions on edu/history YouTube (
 
 ---
 
-*Last updated: 2026-03-18 after v7.0 milestone archived*
+*Last updated: 2026-04-14 after v8.0 milestone started*

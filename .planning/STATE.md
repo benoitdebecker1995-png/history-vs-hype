@@ -1,10 +1,10 @@
 ---
 gsd_state_version: 1.0
-milestone: none
-milestone_name: (next milestone not started)
-status: between_milestones
-last_updated: "2026-03-18"
-last_activity: "2026-03-18 — v7.0 milestone archived"
+milestone: v8.0
+milestone_name: Pipeline Quality Gates
+status: defining_requirements
+last_updated: "2026-04-14"
+last_activity: "2026-04-14 — Milestone v8.0 started"
 progress:
   total_phases: 70
   completed_phases: 70
@@ -15,22 +15,21 @@ progress:
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-03-18 (v7.0 milestone archived)
+**Last Updated:** 2026-04-14 (v8.0 milestone started)
 
 ## Project Reference
 
-See: `.planning/PROJECT.md` (updated 2026-03-18)
+See: `.planning/PROJECT.md` (updated 2026-04-14)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** Next milestone not yet started — run `/gsd:new-milestone`
+**Current focus:** v8.0 Pipeline Quality Gates — enforce verification %, structure check, and fact-check verdict gates
 
 ## Current Position
 
-Phase: None active
-Status: v7.0 milestone SHIPPED — between milestones
-Last activity: 2026-03-18 — v7.0 milestone archived
-
-Progress: [██████████] 100% (144/144 plans complete across 15 milestones)
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-04-14 — Milestone v8.0 started
 
 ## Milestone History
 
@@ -73,12 +72,12 @@ None.
 
 ### Last Session
 
-- **Date:** 2026-03-18
-- **Work:** v7.0 milestone completed and archived
+- **Date:** 2026-04-14
+- **Work:** Workflow audit completed, Wave 1 cleanup done (10 dead refs, 1 contradiction, 3 cross-links, 4 archives). v8.0 milestone started.
 
 ### Next Session
 
-**Next action:** Start next milestone with `/gsd:new-milestone` or use existing tooling for video production.
+**Next action:** Continue v8.0 requirements → roadmap → `/gsd:plan-phase 71`
 
 ## Technical Notes
 
@@ -93,4 +92,4 @@ None.
 
 ---
 
-*State updated: 2026-03-18 after v7.0 milestone archived*
+*State updated: 2026-04-14 after v8.0 milestone started*
