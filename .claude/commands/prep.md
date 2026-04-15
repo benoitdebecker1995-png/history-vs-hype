@@ -606,9 +606,9 @@ Phase 40: python tools/translation/cli.py full --language french ...
 
 ### Prerequisites
 
+- Fact-check APPROVED in 03-FACT-CHECK-VERIFICATION.md (ALL modes — enforced by gate)
 - SCRIPT.md exists (for --assets)
 - SRT file exists (for --edit-guide with runtime comparison)
-- Fact-check APPROVED (for --full)
 
 ---
 
