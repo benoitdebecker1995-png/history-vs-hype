@@ -4,11 +4,13 @@ Scheduled prompt — fires once per day. Scans LIM/CUZ/LPB → MAD/LHR/BRU/AMS/C
 
 ## Steps
 
+> **Cloud execution note:** runs in Anthropic CCR with a fresh git clone of `history-vs-hype`. Paths are repo-relative. `TRAVELPAYOUTS_TOKEN` is exported by the trigger prompt before this routine runs.
+
 1. Run the scanner and save today's raw output:
    ```bash
-   cd "D:/History vs Hype/flight-deals"
+   cd flight-deals
    mkdir -p scans
-   python check_flights.py > "scans/$(date +%Y-%m-%d).json"
+   python check_flights.py > "scans/$(date -u +%Y-%m-%d).json"
    ```
 
 2. Read `scans/<today>.json`. Append one summary line to `scans/_log.md`:
@@ -27,18 +29,19 @@ Scheduled prompt — fires once per day. Scans LIM/CUZ/LPB → MAD/LHR/BRU/AMS/C
    - **Manual check**: bulleted list of all 15 routes with their `manual_verification_links` so you can spot-check pairs that returned no API data
    - **Diagnostics**: `cache_pool_hits` per endpoint + error count
 
-5. Send via Gmail MCP (`mcp__claude_ai_Gmail__*`). To: `benoit.debecker1995@gmail.com`. If auth fails, write `scans/_auth-needed.md` with the date and stop — do not retry.
+5. Create a Gmail draft via `mcp__Gmail__create_draft`. To: `benoit.debecker1995@gmail.com`. From: yourself. The body is the markdown from step 4 (Gmail renders markdown poorly — convert to plain HTML or keep markdown as plaintext, your call). If the draft tool fails, write `scans/_draft-failed.md` with the error and stop — do not retry. The user reviews the draft in Gmail and sends manually (no auto-send by design).
 
 ## Hard constraints
 
 - MUST NOT modify `check_flights.py`
 - MUST NOT change the threshold, airport list, or date window without explicit approval
 - MUST NOT send more than one email per mode per day
-- MUST stop after one Gmail auth failure — never retry in-loop
+- MUST stop after one Gmail draft failure — never retry in-loop
+- MUST create a DRAFT, never auto-send — user reviews in Gmail before sending
 - MUST overwrite today's scan JSON if it already exists
 - DAILY-DIGEST mode fires on Mondays only — verify `date +%u == 1` before sending
 
 ## Done when
 - ✅ `scans/YYYY-MM-DD.json` exists for today
 - ✅ `scans/_log.md` has today's line
-- ✅ Email sent IF deals/close-calls/digest-day/errors warrant it, otherwise silent
+- ✅ Gmail draft created IF deals/close-calls/digest-day/errors warrant it, otherwise silent
