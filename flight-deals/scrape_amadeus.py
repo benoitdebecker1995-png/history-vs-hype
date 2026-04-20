@@ -34,9 +34,10 @@ import sys
 from datetime import date
 
 ORIGINS = ["LIM", "CUZ", "LPB"]
-DESTINATIONS = ["MAD", "LHR", "BRU", "AMS", "CDG"]
+DESTINATIONS = ["MAD", "LHR", "BRU", "AMS", "CDG",
+                "LGW", "STN", "BCN", "FCO", "LIS", "OPO", "FRA", "MUC"]
 DEPART_START_ISO = "2026-07-01"
-DEPART_END_ISO = "2026-07-07"
+DEPART_END_ISO = "2026-07-09"  # user constraint: must arrive before July 10
 MAX_OFFERS_PER_PAIR = 5
 NON_STOP_ONLY = False  # SA->EU routes rarely have direct service
 

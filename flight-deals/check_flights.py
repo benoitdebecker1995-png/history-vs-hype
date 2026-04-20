@@ -34,14 +34,18 @@ import urllib.request
 from datetime import date, timedelta
 
 ORIGINS = ["LIM", "CUZ", "LPB"]
-DESTINATIONS = ["MAD", "LHR", "BRU", "AMS", "CDG"]
+# Primary destinations + alt EU entry points. Cheap LCC entries (LGW/STN/BCN/FCO/
+# LIS/OPO/FRA/MUC) often undercut the big 5 by €50-100; user can hop onwards by
+# rail or budget carrier. All are within SA<->EU legacy carrier routes.
+DESTINATIONS = ["MAD", "LHR", "BRU", "AMS", "CDG",
+                "LGW", "STN", "BCN", "FCO", "LIS", "OPO", "FRA", "MUC"]
 # Hubs where Travelpayouts cache has both leg1 (SA->hub) and leg2 (hub->EU) coverage.
 # PTY/BOG removed — zero leg1 coverage from LIM/CUZ/LPB in 2026-07 cache.
 # MIA/GRU/MEX/EZE/JFK have live leg1 data; LIS added for leg2 variety (cheap EU terminal).
 HUBS = ["MIA", "GRU", "MEX", "EZE", "JFK", "LIS"]
 DEPART_MONTH = "2026-07"
 DEPART_START = date(2026, 7, 1)
-DEPART_END = date(2026, 7, 7)
+DEPART_END = date(2026, 7, 9)  # user constraint: must arrive before July 10
 CURRENCY = "eur"
 THRESHOLD = float(os.getenv("FLIGHT_THRESHOLD_EUR", "500"))
 MAX_GAP_DAYS = int(os.getenv("SELF_TRANSFER_MAX_GAP_DAYS", "2"))

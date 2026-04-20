@@ -25,9 +25,10 @@ import time
 from datetime import date, timedelta
 
 ORIGINS = ["LIM", "CUZ", "LPB"]
-DESTINATIONS = ["MAD", "LHR", "BRU", "AMS", "CDG"]
+DESTINATIONS = ["MAD", "LHR", "BRU", "AMS", "CDG",
+                "LGW", "STN", "BCN", "FCO", "LIS", "OPO", "FRA", "MUC"]
 DEPART_START = date(2026, 7, 1)
-DEPART_END = date(2026, 7, 7)
+DEPART_END = date(2026, 7, 9)  # user constraint: must arrive before July 10
 MAX_RETRIES = 2
 
 try:
