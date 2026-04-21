@@ -1,38 +1,36 @@
 ---
 gsd_state_version: 1.0
-milestone: v8.0
-milestone_name: Pipeline Quality Gates
-status: completed
-last_updated: "2026-04-15T22:21:36.203Z"
-last_activity: 2026-04-15 — Fact-check verification gate added to /prep
+milestone: v9.0
+milestone_name: Lean Agent-Orchestrated Workflow
+status: defining
+last_updated: "2026-04-21T00:00:00.000Z"
+last_activity: 2026-04-21 — v9.0 milestone started, research phase
 progress:
-  total_phases: 4
-  completed_phases: 2
-  total_plans: 2
-  completed_plans: 2
-  percent: 100
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # State: History vs Hype Workspace
 
 **Initialized:** 2025-01-19
-**Last Updated:** 2026-04-14 (v8.0 roadmap created)
+**Last Updated:** 2026-04-21 (v9.0 milestone started)
 
 ## Project Reference
 
-See: `.planning/PROJECT.md` (updated 2026-04-14)
+See: `.planning/PROJECT.md` (updated 2026-04-21)
 
 **Core value:** Every video shows sources on screen
-**Current focus:** v8.0 Pipeline Quality Gates — phases 71-74, starting with Phase 71 (Script Entry Gates)
+**Current focus:** v9.0 Lean Agent-Orchestrated Workflow — defining requirements after research
 
 ## Current Position
 
-Phase: 72 of 74 (Prep Gate — plan 01 complete)
-Plan: 01 of 01 (complete)
-Status: Phase 72 complete
-Last activity: 2026-04-15 — Fact-check verification gate added to /prep
-
-Progress: [██████████] 100% (v8.0 milestone)
+Phase: Not started (researching + defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-04-21 — Milestone v9.0 started, 4 parallel researchers spawning
 
 ## Accumulated Context
 

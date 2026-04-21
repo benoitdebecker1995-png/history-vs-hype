@@ -8,11 +8,27 @@ A content production workspace for History vs Hype, a YouTube channel focused on
 
 Every video shows sources on screen. Viewers see the evidence themselves and can evaluate the interpretation. This is what separates the channel from competitors who just narrate over stock footage.
 
+## Current Milestone: v9.0 Lean Agent-Orchestrated Workflow
+
+**Goal:** Cut main-context token burn, delegate heavy work to sub-agents, make workflow conversational not scripted, kill dead surface area, finish v8.0's remaining quality gates — all in service of shipping better videos.
+
+**Target features:**
+- Agent delegation expansion (main = orchestrator, agents = workers)
+- Command consolidation (25 → ~12, kill overlaps)
+- Reference consolidation (fix 10 broken refs, merge style/voice dupes, resolve 1 contradiction)
+- Python tool triage (100+ files → only what earns keep; aggressive deletion)
+- Conversational checkpoints (AskUserQuestion mid-flow, not silent autopilot)
+- Finish v8.0 carry-over (BRIDGE-01/02 publish bridge test, NLM-01/02/03 NotebookLM auto-queries)
+- Explicit token-saving measures (per-command budgets, spawn patterns documented)
+
 ## Current State
 
-**Shipped:** v7.0 Packaging & Hooks Overhaul (2026-03-18)
+**Shipped:** v8.0 Pipeline Quality Gates — partial (phases 71-72 of 74; 6/11 requirements validated 2026-04-15)
+**Previous shipped:** v7.0 Packaging & Hooks Overhaul (2026-03-18)
 **Previous milestones:** v1.0-v6.0 (shipped 2026-01-19 to 2026-03-16)
 **Archives:** `.planning/milestones/`
+
+v8.0 phases 71-72 shipped verification + structure + fact-check gates. Phases 73-74 (bridge test, NLM auto-queries) deferred into v9.0 scope.
 
 v7.0 researched what actually drives clicks/impressions on edu/history YouTube (388 videos across 8 channels), then rewrote tooling to match proven niche patterns. Title scorer now anchored to niche benchmarks, hook generator recommends by topic type (territorial→cold_fact, ideological→myth_contradiction), metadata enforces description templates + thumbnail concepts + coherence checks. 5 phases, 9 plans, 75 commits, 191 new tests, 348 total green.
 
@@ -194,11 +210,15 @@ v7.0 researched what actually drives clicks/impressions on edu/history YouTube (
 - Thumbnail concept generator outputs 3 script-grounded concepts — v7.0
 - Coherence check: title + thumbnail + description alignment — v7.0
 
-### Active (v8.0 Pipeline Quality Gates)
+### Validated (v8.0 partial — phases 71-72)
 
-- [ ] `/script` blocks if `01-VERIFIED-RESEARCH.md` has <90% verified claims (✅ vs ⏳/❌)
-- [ ] Auto structure check runs after `/script` generation via `structure-checker-v2` agent
-- [ ] `/prep` blocks if `03-FACT-CHECK-VERIFICATION.md` verdict ≠ APPROVED
+- `/script` blocks if `01-VERIFIED-RESEARCH.md` has <90% verified claims (✅ vs ⏳/❌) — v8.0
+- Auto structure check runs after `/script` generation via `structure-checker-v2` agent — v8.0
+- `/prep` blocks if `03-FACT-CHECK-VERIFICATION.md` verdict ≠ APPROVED — v8.0
+
+### Active (v9.0 Lean Agent-Orchestrated Workflow)
+
+Scoping via requirements step — see `.planning/REQUIREMENTS.md` after research completes.
 
 ### Out of Scope
 
@@ -349,4 +369,4 @@ v7.0 researched what actually drives clicks/impressions on edu/history YouTube (
 
 ---
 
-*Last updated: 2026-04-14 after v8.0 milestone started*
+*Last updated: 2026-04-21 after v9.0 milestone started (Lean Agent-Orchestrated Workflow)*
