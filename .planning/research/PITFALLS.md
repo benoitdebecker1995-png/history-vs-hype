@@ -1,253 +1,212 @@
-# Domain Pitfalls: v7.0 Packaging & Hooks Overhaul
+# PITFALLS — v9.0 Lean Agent-Orchestrated Workflow
 
-**Domain:** Adding improved hook generation, title/packaging scoring, and metadata optimization to an existing YouTube content production system
-**Researched:** 2026-03-16
-**Confidence:** HIGH (grounded in this channel's own audited data and prior milestone retrospectives)
+**Researched:** 2026-04-21
+**Domain:** Refactoring an existing Claude Code workspace (25 commands, 9 agents, 35 refs, 100+ Python files) for lean main context, heavy agent delegation, conversational flow, aggressive deletion.
 
-**Context:** Channel has 48 videos, 43,757 total views, only 3 videos >2K. Retention is healthy (30-35%). Bottleneck is impressions, not watch time. v6.0 built the scoring infrastructure; v7.0 must fix what the scorer is actually measuring against.
-
----
-
-## Executive Summary
-
-The most dangerous failure mode for v7.0 is not building the wrong features — it is building technically correct features that perpetuate the existing packaging failure. The channel already has a title scorer, a hook formula (Rule 19), and a packaging mandate. Yet CTR is still mediocre. The tools are not the bottleneck. **What the tools are trained on is the bottleneck.**
-
-Three compounding problems create a closed feedback loop:
-
-1. The title scorer learns from the channel's own low-CTR historical data.
-2. The hook generator produces hooks grounded in this channel's past work (83 transcripts from a struggling channel).
-3. The metadata generator filters out "clickbait" in ways that also filter out the emotional/curiosity triggers that actually drive clicks on YouTube.
-
-Breaking this loop requires injecting external signal: what works on channels with 100K-1M+ subscribers in the edu/history niche, not what scored best relative to this channel's own weak baseline.
-
-The secondary risk is over-engineering: adding scoring complexity (more signals, composite formulas, weighting systems) when the problem is input quality, not formula precision.
+**Context:** Prior "simplification" milestone (v1.0 Phase 05) did not stick — surface area grew back. This milestone must address the REASON it didn't stick, not just repeat the cleanup.
 
 ---
 
-## Critical Pitfalls
+## Executive summary
 
-### Pitfall 1: The Self-Referential Scoring Loop
+The dangerous failure mode for v9.0 is **regression by accretion**: finishing the milestone with a lean workspace, then watching it re-bloat over the next three months because the forces that caused bloat in the first place were never named or neutralized. The Python tool count, reference count, and command count grew organically between v1.0 and v9.0 because every new need was met by adding a file rather than extending an existing one. Without codified rules that redirect "add" pressure into "extend" or "consolidate" pressure, any cleanup is temporary.
 
-**What goes wrong:** The title scorer's pattern base scores (PATTERN_SCORES in title_scorer.py) are derived from the channel's own CTR data. "Declarative" scores 65 because it averaged 3.8% CTR on this channel. But 3.8% is a weak channel average. Top edu/history channels average 6-12% CTR. Scoring against own data means the "A" grade ceiling is calibrated to mediocrity.
+The secondary risk is **token-heavy cleanup**: this milestone itself is the kind of workflow-refactor work that burns main-context tokens fastest (reading every command to refactor it, every reference to merge it, every Python tool to classify it). The milestone will embarrass its own goal if executed in main context instead of via agents.
 
-**Why it happens:** The v6.0 audit correctly identified this as "directional guidance, not precision targeting" — but the implementation still uses these numbers as the scoring baseline. The feedback loop closes when new videos are scored against a benchmark derived from past weak performance, then those new videos add their CTR to the dataset, which moves the benchmark by tiny amounts.
+---
 
-**Consequences:**
-- A title scoring 78/100 ("A" grade) may still be significantly below what the niche actually clicks
-- The gap between "passing our gate" and "actually working" remains invisible
-- Incremental CTR improvement is possible but transformation is not — you can't break out of a weak baseline by optimizing against it
+## Refactor Pitfalls
+
+### Pitfall 1 — Regression by Accretion (root cause of v1.0 Phase 05 failure)
+
+**What goes wrong:** v9.0 ships clean, but three months later the workspace looks like it did in March 2026 — 35+ refs, 100+ Python files, overlapping commands. User adds a new need, adds a new file, nobody notices until the next audit.
+
+**Why it happens:**
+1. **Additive pressure** — every new requirement seems easier to satisfy with a new file than by extending an existing one.
+2. **Reference doc accretion** — refs get written when a pattern is discovered, never pruned when that pattern consolidates.
+3. **Python tooling growth** — a new scorer, a new fetcher, a new analyzer each feels like the right primitive, accruing as siblings.
+4. **Command convenience additions** — "I need a shortcut for X" → new command instead of a flag on an existing one.
+
+**Prevention (codify in `.claude/AGENT-ORCHESTRATION.md` and CLAUDE.md):**
+- **Extend, don't add** as a default design rule: new needs get a flag on an existing command, a section in an existing ref, or a function in an existing tool before they get a new file.
+- **Monthly surface-area check**: `/status --surface` shows command count, ref count, Python file count, agent count. Compare to v9.0 baseline.
+- **Deletion as first-class work**: every phase should have at least one deletion target, not just additions.
+- **Reference lifecycle tag**: each ref has a "last used by" annotation (Category 3 differentiator in FEATURES.md). Unused >60 days = deletion candidate.
+
+**Warning signs:** Command count rising. New ref created with "notes" or "thoughts" in filename. Python file with no caller. Ref with 0 `.claude/` mentions outside its own file.
+
+**Phase to address:** Phase 73 (Foundation) codifies the rules. Phase 79 (Token Instrumentation) adds the monthly surface-area check.
+
+---
+
+### Pitfall 2 — Refactor in Main Context (the milestone embarrasses its own goal)
+
+**What goes wrong:** v9.0 executes with main context reading every command file, every reference, every Python tool to decide what to cut. Rate limits hit mid-milestone. User frustrated.
+
+**Why it happens:** Refactor work feels like it requires "seeing everything at once." The natural impulse is to Read the whole file tree. But this is the exact pattern v9.0 exists to kill.
 
 **Prevention:**
-- The benchmark for a "passing" title should be derived from what top channels in the edu/history niche achieve, not from the channel's own history
-- External benchmark = research what 3-5 top channels (Kraut, Knowing Better, History Matters, Toldinstone) actually average in CTR, then calibrate the scoring gate against that
-- Internally measured penalties (colon: -28%, year: -46%) remain valid as relative modifiers — these are measured against the channel's own distribution and capture real pattern differences
-- The absolute baseline (what counts as "passing") needs external calibration
+- Every phase MUST spawn a sub-agent for any scan of >3 files. Main reads only the agent's summary + the files the agent flags as requiring main-context decisions.
+- Use Glob + Grep before Read. Cheap discovery beats expensive reading.
+- Sequential agent spawning (not 4-parallel) — this session's rate limit failure is direct evidence.
 
-**Warning signs:**
-- Every new title the scorer rates "B" or better still gets <2% CTR after publishing
-- The title scoring gate approves titles, but impressions remain low
-- Retitled videos (via /retitle) improve CTR by 10-20% but remain below 4%
+**Warning sign:** A single main-context turn reads >10 files. Stop and delegate.
 
-**Phase to address:** Phase addressing title scorer rewrite — calibrate absolute thresholds against external niche data, not internal CTR average.
+**Phase to address:** All phases. Codified in Phase 73 output.
 
 ---
 
-### Pitfall 2: Hook Formula Without Emotional Specificity
+### Pitfall 3 — Consolidation Without Content Audit
 
-**What goes wrong:** Rule 19's 4-beat structure (Cold Fact → Myth → Contradiction → Payoff) is sound architecture. The problem is what fills the beats. The existing templates fill beats with academically interesting content ("In 1897, Mexico published an atlas..."). YouTube hooks that drive clicks are emotionally loaded, not just intellectually interesting. There is a difference between a hook that makes a historian nod and a hook that makes a non-subscriber click.
+**What goes wrong:** STYLE-GUIDE + VOICE-PROFILE + creator-techniques get merged by concatenation. The new doc is 3× the length, contradictions remain, agents still load the whole thing.
 
-**Why it happens:** This channel's creator technique library (Part 8) is synthesized from 83 transcripts — 80 of which come from a channel getting <500 views per video. The "proven patterns" are proven to produce watchable videos, not proven to produce clicks. Additionally, the metadata filter in `tools/production/metadata.py` has a CLICKBAIT_PATTERNS list that blocks "EXPOSED," "SHOCKING," "The TRUTH About" — but some words that feel adjacent to clickbait are actually legitimate curiosity triggers (e.g. "deleted," "erased," "stole").
-
-**Consequences:**
-- Hook generator outputs hooks that sound like good documentary narration but fail the 3-second thumbnail scan test
-- Hooks that are genuinely curious-making to someone already watching do not necessarily make a stranger click
-- The channel's best performer (Belize, 23K views) hooks with a mystery that implies stakes; the template version of that hook often loses the emotional charge
+**Why it happens:** Merging is easier than synthesizing. File-level merge (cat A B C > D) feels done.
 
 **Prevention:**
-- Separate "hook quality for viewers already watching" from "hook quality for getting the click in the first place" — these are not the same optimization
-- Research what top edu/history channel hooks look like in their first 15 seconds — specifically the videos that hit 500K+ views
-- The 4-beat structure should remain, but the fill instructions need emotional charge requirements: "Cold Fact must be surprising to someone who knows nothing about this topic, not just academically notable"
-- The CLICKBAIT_PATTERNS filter in metadata.py should be audited: "EXPOSED" might be filtered when it's clickbait, but "Why France Deleted a Country" uses "deleted" (an allowed active verb) to create the same emotional charge legitimately
+- Consolidation = re-writing, not concatenation. A merged ref must be shorter than the sum of its parts (target: ~70% of total).
+- Resolve contradictions explicitly (e.g., the known "It's important to note that..." disagreement between STYLE-GUIDE and VOICE-PROFILE) — don't leave both rules.
+- Tier the merged doc: core rules up front, edge cases later, examples last. Agents that need rules don't load examples.
 
-**Warning signs:**
-- Generated hooks read well but get low impressions on the first 24 hours
-- Hooks describe what happened accurately but don't create urgency or curiosity
-- The channel's best-performing hook phrases ("The documents prove it," "Here's what they actually said") aren't appearing in generated hooks
+**Warning signs:** Merged ref longer than original total. Same rule stated twice with different words. "See [deleted file]" links.
 
-**Phase to address:** Hook generation rewrite phase — research external examples before rewriting templates, add emotional specificity criteria to fill instructions.
+**Phase to address:** Phase 74 (Reference Consolidation).
 
 ---
 
-### Pitfall 3: Improving the Scorer Without Improving the Training Data
+### Pitfall 4 — Deletion Without Dependency Graph (Python tooling)
 
-**What goes wrong:** v7.0 adds "research-backed" scoring. The trap is defining "research-backed" as "more signals from the same data source." Adding tag scoring, description length scoring, chapter structure scoring — all derived from the channel's own ~48 videos — does not break the self-referential loop. It just adds more dimensions to the same weak baseline.
+**What goes wrong:** A "dead" Python file is deleted. A command or an agent breaks silently because the agent's prompt says `python tools/X.py` and X.py is gone.
 
-**Why it happens:** It's much easier to add new scoring dimensions to existing data (which is accessible and structured) than to acquire and parse external niche data (which requires scraping, manual work, or API calls). The natural implementation path leads to more internal signals, not better external calibration.
-
-**Consequences:**
-- Scoring system grows more complex and outputs more numbers, creating an illusion of precision
-- The system penalizes things the channel does wrong (correctly) but cannot reward things the channel has never tried
-- Over-engineered scoring with 8-10 signals creates more friction for the creator and more potential for false confidence
+**Why it happens:** Static dependency analysis misses dynamic invocations (subprocess calls, prompt-embedded commands, task scheduler entries).
 
 **Prevention:**
-- The highest-leverage change to the scoring system is not new signals — it is better calibration of the existing signals against external data
-- Before adding any new signal to the scorer, ask: "Does this signal come from external niche data or internal channel history?" If internal only, it extends the loop; if external, it breaks it
-- Budget: add at most 2-3 new signals in v7.0. Focus effort on calibrating what exists.
-- The 65-point threshold is a "policy constant, not data-derived" (per PACKAGING_MANDATE.md) — this is actually correct and should remain a policy floor derived from external niche research, not a calculated cutoff from internal data
+- Before any Python deletion phase: build a dependency graph covering (a) Python `import` statements, (b) subprocess/os.system calls, (c) `.claude/` mentions in agent/command prompts, (d) scripts in `tasks/` or Windows Task Scheduler.
+- Test: run every command in the test list after deletion. Silent failures = prompt-embedded reference to deleted file.
+- Soft-delete first: move to `_GRAVEYARD/` directory for one week; hard-delete only if nothing broke.
 
-**Warning signs:**
-- Plans call for adding title scoring signals before completing external benchmark research
-- Score output grows from 3 fields to 8+ fields with no corresponding improvement in CTR
-- Phases are added to improve metadata scoring, description scoring, tag scoring before the core title calibration is done
-
-**Phase to address:** All scoring phases — establish the "external calibration first" rule before any scoring expansion.
+**Phase to address:** Phase 78 (Python Tool Triage).
 
 ---
 
-## Moderate Pitfalls
+## Token / Context Pitfalls
 
-### Pitfall 4: Metadata Generator's Clickbait Filter Over-Fires
+### Pitfall 5 — Agents That Return Everything
 
-**What goes wrong:** `tools/production/metadata.py` has a CLICKBAIT_PATTERNS list that blocks phrases like "EXPOSED," "The TRUTH About," "SHOCKED." This is appropriate for protecting channel DNA. However, the filter is string-matching, not context-aware. It can block legitimate emotional language that is not clickbait: "France Exposed Haiti's Debt Documents" is not clickbait, but "EXPOSED" would trigger the filter. The channel's active verbs list in title_scorer.py includes "exposed" as acceptable — inconsistency between the two tools.
+**What goes wrong:** A sub-agent is spawned to "read the script draft and check style compliance." It returns the full script plus comments. Main context bloats as if the agent never ran.
 
-**Why it happens:** The metadata generator and title scorer were built at different milestones with different authors (effectively) and no cross-check of their filter logic.
+**Why it happens:** Agent prompts don't enforce the return contract. Agents default to being "thorough" (verbose).
 
 **Prevention:**
-- Audit the CLICKBAIT_PATTERNS list against the ACTIVE_VERB list in title_scorer.py before v7.0 ships
-- Add context-sensitive filtering: block all-caps EXPOSED, allow mixed-case "exposed" in declarative statements
-- The clickbait test should be "does this phrase promise something the video cannot deliver?" not "does this phrase appear on clickbait YouTube channels?"
+- Every agent prompt ends with the return contract block (ARCHITECTURE.md §4). ≤200 words. File path + verdict + top findings + blocker. No raw quotes.
+- If main genuinely needs the content, agent writes it to disk; main Reads only the span needed (offset + limit).
+- Orchestrator audit: any agent summary >300 words is a contract violation — fix the agent prompt.
 
-**Warning signs:**
-- Metadata generator rejects titles that title_scorer.py approves
-- Generated descriptions strip emotional language that the script's hook correctly uses
-- Creator manually overrides metadata generator output regularly
-
-**Phase to address:** Metadata generation phase — reconcile filter logic across tools.
+**Phase to address:** Phase 73 (codify contract), Phase 75 (refactor 4 heavy commands' agents).
 
 ---
 
-### Pitfall 5: Hook Research Confirms Existing Assumptions
+### Pitfall 6 — Reference Pre-Loading by Main
 
-**What goes wrong:** Research for v7.0 asks "what works for edu/history YouTube?" and finds evidence supporting what the channel already does (academic sources, document reveals, causal chains). This is confirmation research, not discovery research. The channel already knows its content quality is strong. The research question should be "what visual, linguistic, and structural patterns make someone click on a video they haven't seen before?"
+**What goes wrong:** A command file says "Read STYLE-GUIDE.md before running." Main reads it every invocation. 8k tokens × every /script call.
 
-**Why it happens:** Researching what top channels do in their scripts (content quality) is easier than researching what makes their thumbnails and hooks drive clicks (packaging triggers). The former requires watching videos; the latter requires analyzing what patterns correlate with high impressions in the first 48 hours.
-
-**Consequences:**
-- Research produces a better script-writing reference but the actual CTR bottleneck (thumbnail + hook clickability) remains unaddressed
-- v7.0 ships with better hooks that more reliably follow the 4-beat structure, but the 4-beat structure was not the bottleneck
+**Why it happens:** The old pattern was "prep main with everything it might need." v9.0 reverses this: main loads only the command file; agents load Tier-2 refs.
 
 **Prevention:**
-- Scope research explicitly to packaging triggers, not content quality
-- Specific research questions: What are the first 3 words of top-performing hooks on channels like Kraut, History Matters, Toldinstone? What emotional triggers appear in their highest-impression titles? How do their thumbnail text elements (if any) differ from no-text?
-- Separate "what makes a good video" research (not needed) from "what makes someone click" research (needed)
+- Audit every command file for "Read X.md" instructions in main-context language. Move those into the agent's `<files_to_read>` block.
+- Command files state: "Main reads only this file + user answers. Agents read refs."
 
-**Phase to address:** Research phase — define research questions before starting, constrain to packaging/click triggers only.
+**Phase to address:** Phase 75 (Command Delegation Refactor).
 
 ---
 
-### Pitfall 6: Academic-Voice Tension with Click Triggers
+### Pitfall 7 — AskUserQuestion Becoming a Token Hog
 
-**What goes wrong:** The channel's competitive advantage is academic rigor. The impulse when improving packaging will be to maintain that voice throughout — including in titles and hooks. But YouTube click psychology and academic register are genuinely in tension. "The Treaty of Tordesillas and Its Modern Territorial Consequences" is academically accurate. "Spain and Portugal Split the World in Half. The Line Is Still There." is what actually gets clicked.
+**What goes wrong:** AskUserQuestion prompts become long freeform elicitations ("please describe in detail what you want to do, including X Y Z and any preferences about A B C"). The token savings from agent isolation get eaten by chatty prompts.
 
-**Why it happens:** The creator is academically trained (or oriented). The natural instinct is to make packaging reflect the content's depth. This feels like integrity but functions as a CTR suppressor. The channel's STYLE-GUIDE.md correctly identifies this tension and resolves it: the title is the hook, the body is where the academic rigor lives. But the tools (especially hook generator and metadata generator) may re-introduce academic register into packaging.
-
-**Consequences:**
-- Hook generator produces hooks that read like video abstracts rather than click-bait-free emotional triggers
-- Title suggestions from `/publish` maintain academic framing ("documents reveal," "historical evidence suggests") when the winning pattern is active-verb declarative ("France Took Haiti's Money for 122 Years")
-- Metadata descriptions explain the video academically rather than promising something compelling
+**Why it happens:** Writing clear options is harder than writing open questions.
 
 **Prevention:**
-- The "calm prosecutor" voice applies to the script body, not the title and first 10 seconds
-- Titles and hooks should be as emotionally compelling as possible while remaining factually accurate
-- "France Deleted a Country" is not clickbait — it is an accurate, emotionally loaded claim that the video substantiates. The existing active_verbs list in title_scorer.py captures this correctly.
-- Hook generation rules should explicitly state: "Write for someone scrolling YouTube, not for someone who has already clicked"
+- Option-based questions only (3-4 options, each ≤8 words).
+- First option is always the recommended path (consistent with existing memory rule).
+- Freeform allowed only when the answer space is truly unbounded (project name, paste content).
+- Skip the question entirely when the default can be safely inferred.
 
-**Phase to address:** Hook generation and metadata phases — add a "click trigger vs viewer trigger" distinction to generation rules.
+**Phase to address:** Phase 75 — each refactored command has its checkpoint positions + option lists documented.
 
 ---
 
-### Pitfall 7: Retention Data Driving Packaging Decisions
+## Deletion Pitfalls
 
-**What goes wrong:** The channel has detailed retention data: 30-35% average, specific drop points mapped to script sections, breakout audit of Belize pattern. There will be a temptation to use this data to optimize hooks and titles. Retention data is relevant for keeping viewers watching — it has limited relevance for making them click in the first place.
+### Pitfall 8 — Aggressive Deletion of In-Progress Work
 
-**Why it happens:** Retention data is accessible and well-structured in this workspace (CROSS-VIDEO-SYNTHESIS.md, retention mapper, breakout-retention-audit.md). It is the most detailed performance data available. It is natural to apply it broadly.
+**What goes wrong:** 19 projects in `video-projects/_IN_PRODUCTION/`. Triage deletes "old" ones. User realizes one was about to be revived.
 
-**Consequences:**
-- Hooks optimized for 30-second retention may not be optimized for the 3-second click decision
-- Title patterns that "feel like" the content that retains well may not be the patterns that generate impressions
-- Conflating retention optimization (retention is already good at 30-35%) with impression optimization (the actual bottleneck) leads to improving the wrong metric
+**Why it happens:** "In production" as a folder name loses signal when half the folder is stalled.
 
 **Prevention:**
-- Keep retention optimization strictly in the scriptwriting layer (Rules 1-18 in script-writer-v2)
-- Keep packaging optimization (title, hook opening, thumbnail) strictly in the click-trigger layer
-- Rule of thumb: "Would this change affect whether someone clicks? Or whether they keep watching after clicking?" Only click-trigger changes belong in v7.0 packaging work.
+- Python tool / ref deletion is in scope for v9.0. `video-projects/` content is NOT — out of scope.
+- Any workflow-level file deletion is soft-delete first (`_GRAVEYARD/`, 7-day quarantine).
+- Git history is the real safety net — every deletion is one commit, easy to revert.
 
-**Phase to address:** All phases — explicitly scope each deliverable as "click optimization" or "watch optimization."
+**Phase to address:** All phases — apply soft-delete as the default.
 
 ---
 
-## Minor Pitfalls
+### Pitfall 9 — Merging Commands That Serve Different Mental Models
 
-### Pitfall 8: Versus Pattern Over-Recommendation
+**What goes wrong:** `/research` and `/sources` are merged because "both are discovery." But `/research` is Phase 1 (landscape) and `/sources` is Phase 2 (academic verification). User loses the mental gate between them; NotebookLM Phase 2 gets skipped.
 
-**What goes wrong:** "Versus" titles score 75/100 in title_scorer.py — the highest base score of any pattern. v7.0 improvement work may push the scorer to recommend versus framing more aggressively, or the hook generator may default to conflict framing to score well. But many History vs Hype topics do not have a genuine bilateral conflict structure. Forced versus framing on non-bilateral topics produces clickbait.
+**Why it happens:** File-level similarity (both about finding things) masks workflow-level distinction (gate between them).
 
 **Prevention:**
-- Maintain the pattern recommendation as conditional: "versus works when two entities have competing claims"
-- The hook generator should not default to conflict framing when the topic is ideological myth-busting or mechanism explanation
-- "Spain vs Portugal" is genuine versus; "Why France Taxed Haiti" is not versus — don't force it
+- Merge only commands that serve the same user intent at the same workflow stage.
+- If two commands share files or flags but represent different workflow gates, keep them separate or merge with explicit mode flags that preserve the gate.
+- User consultation before any command merge (AskUserQuestion in Phase 76).
 
-**Phase to address:** Title generation phase — add topic-type conditions to pattern recommendations.
+**Phase to address:** Phase 76 (Command Consolidation).
 
 ---
 
-### Pitfall 9: Single-Collection-Date CTR Data Freezes Scores
+### Pitfall 10 — Quality Gates That Aren't Actionable
 
-**What goes wrong:** PACKAGING_MANDATE.md explicitly notes "All CTR snapshots are from a single collection date (2026-02-23)." If v7.0 does not refresh CTR data before rebuilding the scorer, the new scorer will be calibrated against a single-snapshot baseline. Videos published since then (or previously measured at a bad time in their lifecycle) will not be reflected.
+**What goes wrong:** BRIDGE-01 (title/thumb/hook alignment) flags "weak alignment" but gives no direction. User is told they failed the gate with no fix in hand. User overrides; next time the gate fires, they skip reading the warning.
+
+**Why it happens:** Detection is cheaper to build than remediation. Gates ship with the "flag" step but not the "here's how to fix" step.
 
 **Prevention:**
-- Run the automated CTR refresh (ctr_tracker.py via Task Scheduler) and validate data freshness before any v7.0 scorer rewrite
-- The data-driven baseline for any new external benchmark comparison should use multi-date CTR snapshots, not a single collection
-- Per PACKAGING_MANDATE.md: the colon and year penalties are high confidence (n=5-9 vs n=26-30) and should remain as hard rejects; pattern base scores are medium confidence and are the ones needing external calibration
+- Every gate output = verdict + specific gap + concrete next step. "Title promises 'exposed' but hook delivers 'academic overview' → rewrite hook first 10s to include the reveal the title promises. See HOOK-PATTERNS.md §3."
+- Gates that can't produce a concrete next step are not ready to ship — ship without the gate, don't ship a noisy gate.
 
-**Phase to address:** First phase of v7.0 — data freshness check before any scoring work.
-
----
-
-### Pitfall 10: Tool Count Creep
-
-**What goes wrong:** v7.0 adds "metadata optimization" as a feature. The natural implementation is a new tool or new command. But the workspace already has: `title_scorer.py`, `thumbnail_checker.py`, `metadata.py`, `demand_checker.py`, `/greenlight`, `/preflight`, `/publish --titles`, and `SWAP-PROTOCOL.md`. Each new tool the creator must know about and run reduces adoption of existing tools.
-
-**Prevention:**
-- New packaging features should extend existing commands (e.g., new flags on `/publish` or `/preflight`) rather than adding new standalone tools
-- If a new scorer or generator exists, it should replace an existing one, not sit alongside it
-- Solo creator constraint: every tool that requires a separate command invocation costs adoption. The best packaging improvements are invisible — they make existing commands produce better output.
-
-**Phase to address:** All implementation phases — apply "extend, don't add" as a design rule.
+**Phase to address:** Phase 77 (Quality Gates v8.0 carry-over).
 
 ---
 
-## Phase-Specific Warnings
+## Meta-Pitfall: This Milestone Itself
 
-| Phase Topic | Likely Pitfall | Mitigation |
-|-------------|---------------|------------|
-| External niche research | Confirming existing assumptions (Pitfall 5) | Define specific research questions before starting: click triggers, not content quality |
-| Title scorer rewrite | Self-referential loop (Pitfall 1) | Separate internal relative modifiers (penalties) from external absolute calibration (threshold) |
-| Hook generation rewrite | Academic voice in click-trigger context (Pitfall 6) | Add "scrolling stranger, not already-watching viewer" framing criterion |
-| Hook pattern library | Hooks trained on struggling channel data (Pitfall 2) | Source minimum 50% of hook examples from channels with 100K+ subscribers |
-| Metadata generator update | Clickbait filter over-fires (Pitfall 4) | Audit CLICKBAIT_PATTERNS against active_verbs before v7.0 ships |
-| Any scoring expansion | More signals from same weak data (Pitfall 3) | External calibration gate: no new signals until threshold is externally derived |
-| All phases | Retention data misapplied to click optimization (Pitfall 7) | Label every deliverable: "click-trigger" or "watch-trigger" |
-| Implementation | Tool count creep (Pitfall 10) | Extend /publish and /preflight flags, do not add standalone tools |
+**Direct evidence from this session:** 4 parallel `gsd-project-researcher` agents spawned in this very session ALL hit rate limits. The fallback was to write research files in main context — the exact thing v9.0 exists to prevent.
+
+**Root causes observed in this session:**
+1. Parallel agent spawning on a rate-limited account — lesson: default to sequential, detect 429, serialize.
+2. Main context doing work agents should have done — lesson: spawn first, main reads summary.
+3. Missing rate-limit resilience in orchestrator — lesson: Phase 79's Rate-Limit Resilience deliverable is not optional.
+
+**Preventions for the milestone execution:**
+- Every v9.0 phase uses sequential agent spawning by default. Parallel only when the user explicitly OKs it AND the phase says "independent, non-competing agents."
+- Every phase's PLAN.md has a "token budget" line (e.g., "main context <15k tokens through plan") and a rate-limit fallback.
+- If a v9.0 phase finds itself reading >10 files in main, stop and re-plan.
 
 ---
 
 ## The One Overriding Risk
 
-**All other pitfalls compound from this root cause:** The v7.0 packaging improvements will be validated against the same data they were trained on. If a new title scores 78/100 on the rewritten scorer and that scorer is still calibrated against the channel's own 3.8% average, the improvement is illusory.
+**Root risk:** The milestone achieves the clean state and then doesn't hold it.
 
-The single highest-leverage action in v7.0 is not building better tools — it is establishing an **external benchmark**: what CTR do the top 5 edu/history channels with comparable content achieve? That number becomes the true passing threshold. Everything else is optimization inside that frame.
+v1.0 Phase 05 "workflow-simplification" happened. The repo was cleaned. 15 months later, 35 refs + 100+ Python files. Simplification didn't stick because **no rules kept it simple**.
+
+v9.0 must ship (a) the clean state AND (b) the rules that keep it clean — codified in `.claude/AGENT-ORCHESTRATION.md`, enforced by the monthly surface-area check, defended by the "extend, don't add" default.
+
+If Phase 73 (Foundation) is rushed — if the rules are vague, not codified, or not referenced by later phases — the entire milestone is a short-term win and a long-term repeat.
 
 ---
 
-*Researched: 2026-03-16 for v7.0 Packaging & Hooks Overhaul milestone*
+*Researched 2026-04-21 in main context due to rate limit — the meta-pitfall demonstrated itself.*
