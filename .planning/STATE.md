@@ -2,11 +2,11 @@
 gsd_state_version: 1.0
 milestone: v9.0
 milestone_name: Lean Agent-Orchestrated Workflow
-status: defining
-last_updated: "2026-04-21T00:00:00.000Z"
-last_activity: 2026-04-21 — v9.0 milestone started, research phase
+status: ready_to_plan
+last_updated: "2026-04-22T00:00:00.000Z"
+last_activity: 2026-04-22 — v9.0 roadmap committed (10 sub-phases, 30/30 requirements mapped). Ready for /gsd-plan-phase 73.
 progress:
-  total_phases: 0
+  total_phases: 10
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -27,10 +27,10 @@ See: `.planning/PROJECT.md` (updated 2026-04-21)
 
 ## Current Position
 
-Phase: Not started (researching + defining requirements)
+Phase: Not started (roadmap committed, ready to plan Phase 73)
 Plan: —
-Status: Defining requirements
-Last activity: 2026-04-21 — Milestone v9.0 started, 4 parallel researchers spawning
+Status: Ready to plan Phase 73 (Foundation)
+Last activity: 2026-04-22 — v9.0 roadmap committed. 10 sub-phases (73, 74, 75a-d, 76, 77, 78, 79). 30/30 requirements mapped.
 
 ## Accumulated Context
 
@@ -61,7 +61,15 @@ None.
 
 ### Next Session
 
-**Next action:** `/gsd:plan-phase 73` — Publish Guard (META-01, META-02)
+**Next action:** `/gsd-plan-phase 73` — Foundation (AGENT-01: write `.claude/AGENT-ORCHESTRATION.md` rules doc)
+
+**v9.0 execution order:** 73 → 74 → 75a → 75b → 75c → 75d → 76 → 77 → 78 → 79
+
+**Decisions locked (2026-04-21):**
+- Scope: all 7 categories IN (full v9.0, ~18 phase-days across 10 sub-phases)
+- Deletion: aggressive with _GRAVEYARD/ 7-day quarantine
+- Phase 75 split 75a/b/c/d (one command per sub-phase — /research as pilot establishes pattern)
+- v8.0 carry-overs (BRIDGE-01/02, NLM-01/02/03) folded into Phase 77
 
 ## Technical Notes
 
