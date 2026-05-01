@@ -314,6 +314,258 @@ SAME FORMAT FOR ALL THREE
 
 ---
 
+## Template #6: QUOTE CHECK
+
+### When to Use:
+- Famous quote attributed to wrong person
+- Viral misquote shaping modern debate
+- Quote taken out of context
+- Can trace quote's actual origin
+
+### Structure (8-12 minutes):
+
+**ACT 1: THE QUOTE (0:00-0:30)**
+```
+OPENING HOOK (10 sec):
+"[Famous quote]." Attributed to [PERSON]. They never said this.
+
+STAKES (20 sec):
+- How this quote is used today (policy, debate, memes)
+- Who repeats it and why it matters
+```
+
+**ACT 2: THE PAPER TRAIL (0:30-2:00)**
+```
+TRACE BACKWARDS:
+1. Where the quote appears TODAY (viral posts, articles, books)
+2. First traceable print appearance (date, publication)
+3. What the cited source ACTUALLY says
+4. The gap between attribution and evidence
+
+VISUAL: Show search results → earliest source → actual text
+```
+
+**ACT 3: THE REAL ORIGIN (2:00-5:00)**
+```
+WHO ACTUALLY SAID IT (or closest equivalent):
+1. The real source (if one exists)
+2. How misattribution happened
+3. The telephone game: Source A → misquoted by B → viral via C
+
+SHOW PRIMARY SOURCES:
+- Original text where quote first appears
+- Side-by-side: attributed version vs. actual text
+```
+
+**ACT 4: WHY THE MYTH STUCK (5:00-7:00)**
+```
+PSYCHOLOGY OF MISATTRIBUTION:
+- Why this person was a believable author
+- What agenda the misquote serves
+- How confirmation bias keeps it alive
+
+MODERN EXAMPLES:
+- Who still uses this quote and for what purpose
+```
+
+**ACT 5: WHAT THEY ACTUALLY SAID (7:00-9:00)**
+```
+THE REAL QUOTE (if exists):
+- Show what the person actually said about this topic
+- Often MORE interesting than the fake quote
+- Primary source displayed on screen
+
+IF NO REAL QUOTE:
+- Why they never addressed this topic
+- What that silence tells us
+```
+
+**ACT 6: CLOSE (9:00-10:00)**
+```
+PAYOFF:
+- Return to the viral quote
+- "Next time you see this quote, you'll know..."
+- Why accurate attribution matters
+```
+
+### Series Branding:
+- **Title Formula:** "Did [Person] Really Say '[Quote]'?"
+- **Thumbnail:** Quote text with red X or question mark over portrait
+- **Intro:** "A quote you've seen a thousand times. Let's find out who actually said it."
+
+### Episode Examples:
+1. Did Churchill Really Say "History Is Written by the Victors"?
+2. Did Gandhi Really Say "Be the Change"?
+3. Did Einstein Really Say "Insanity Is Doing the Same Thing"?
+4. Did Voltaire Really Say "I Disapprove of What You Say"?
+
+---
+
+## Template #7: PILOT EPISODE (New — 2026-03-29)
+
+### When to Use:
+- Testing a NEW topic area, geographic audience, or genre before committing to deep research
+- Exploring whether a format/angle has audience interest
+- First video in a potential series or bucket
+- Any topic where search demand exists but channel has zero track record
+
+### Philosophy:
+Pilot episodes test market interest with MINIMUM investment. They use Phase 1 research only (no book purchases, no 2-week NotebookLM deep dives). If the pilot performs (>30% retention AND >2x avg views), THEN commit to the full Phase 2 pipeline.
+
+### Structure (8-10 minutes STRICT — the shortest format):
+
+**ACT 1: THE HOOK + MYTH STATEMENT (0:00-1:30)**
+```
+COLD FACT or MYTH CONTRADICTION (15 sec):
+[Specific number, date, or claim that contradicts common belief]
+
+STANDARD MYTH NARRATION (45 sec):
+"Here's what most people are taught about [topic]..."
+[Tell the wrong version — make it compelling]
+
+THE TURN (1:00-1:30):
+"But when you look at [specific document/source], the story falls apart."
+[First piece of evidence that cracks the myth]
+```
+
+**ACT 2: THE EVIDENCE (1:30-6:00)**
+```
+3 EVIDENCE BLOCKS (each ~90 sec):
+For each block:
+1. Claim being challenged (one sentence)
+2. Primary source or academic quote (credential chain)
+3. What the evidence actually shows
+4. Verdict sentence (≤8 words)
+
+KEEP TIGHT: No secondary examples. No extended context.
+Every sentence earns its place or gets cut.
+```
+
+**ACT 3: WHY IT MATTERS + CTA (6:00-8:00)**
+```
+MODERN RELEVANCE (60 sec):
+- Why this myth/truth matters today
+- Active dispute, ongoing debate, or modern consequence
+
+THE ASK (30 sec):
+"If you want me to go deeper on [this topic/region/series], let me know in the comments."
+[This is the PILOT TEST — gauge demand from engagement]
+
+CLOSE (30 sec):
+- Return to opening claim
+- Verdict sentence
+- Subscribe CTA
+```
+
+### Why This Format Works for Pilots:
+- **8-10 min = sweet spot duration** (29.6% avg retention)
+- **Myth-first structure** built in (Rule 33 compliant)
+- **Turn at 12-18% of runtime** (Rule 26 compliant)
+- **Phase 1 research only** — no book purchases until pilot proves demand
+- **Explicit audience signal collection** via "want me to go deeper?" CTA
+- **Low production cost** — 1 week max from concept to publish
+
+### Success Criteria (When to Commit to Deep Dive):
+- **GO:** >30% retention AND >2x channel avg views → Full Phase 2 + series
+- **MAYBE:** 25-30% retention OR >1.5x views → One more pilot with different angle
+- **STOP:** <25% retention AND <1x views → Archive topic, don't invest further
+
+### Pilot Queue Integration:
+Tag pilot episodes in PROJECT-STATUS.md with `[PILOT]`. After 2 weeks of data:
+1. Run `/analyze` on the pilot
+2. Compare against success criteria
+3. Decision: COMMIT / RETRY / ARCHIVE
+
+### Episode Examples (Current Pipeline):
+1. [PILOT] Bakassi Peninsula — testing Nigerian geographic monopoly
+2. [PILOT] Manhattan Purchase — testing American myth-busting audience
+3. [PILOT] Sabah Dispute — testing Filipino geographic monopoly
+4. [PILOT] Operation Legacy — testing "destroyed documents" angle
+5. [PILOT] Hamoodur Rahman — testing Pakistani audience
+6. [PILOT] Code Noir — testing "Untranslated Evidence" series demand
+
+---
+
+## Template #8: HISTORIOGRAPHY EXPOSÉ (New — 2026-03-29)
+
+### When to Use:
+- Multiple topics across the channel share the SAME legal pattern, document trick, or historical mechanism
+- Cross-notebook query reveals connections between 3+ separate videos
+- The "meta" insight is more interesting than any individual case
+- Audience has seen 2+ videos in the pattern already
+
+### Philosophy:
+This is the "intellectual competence" video that converts subscribers. It proves you understand SYSTEMS, not just individual cases. It leverages the cross-notebook academic graph (47 notebooks, 800+ sources) that no competitor can replicate.
+
+### Structure (10-12 minutes):
+
+**ACT 1: THE PATTERN (0:00-2:00)**
+```
+HOOK (15 sec):
+"Every colonial treaty I've translated uses the same three legal tricks."
+or "I've read 12 border treaties. They all contain the same lie."
+
+SHOW THE PATTERN (90 sec):
+- Name 3-4 specific cases the viewer may already know
+- Show quick clips/thumbnails of previous videos
+- "I didn't notice until I put them side by side."
+
+THE QUESTION (15 sec):
+"So I went back to the original documents. And the pattern is worse than I thought."
+```
+
+**ACT 2: THE MECHANISM (2:00-8:00)**
+```
+LEGAL TRICK #1 (2 min):
+- Name the trick (e.g., "effective occupation," "terra nullius," "papal bull")
+- Show it in Document A (e.g., Berlin Conference)
+- Show it in Document B (e.g., Bakassi treaty)
+- Show it in Document C (e.g., Tordesillas)
+- Credential chain: [Historian] explains why this pattern exists
+
+LEGAL TRICK #2 (2 min):
+[Same structure, different pattern]
+
+LEGAL TRICK #3 (2 min):
+[Same structure, different pattern]
+
+Each trick uses the Artifact as Witness format (Rule 31):
+Physical description → zoom to key phrase → explain what it means
+```
+
+**ACT 3: WHY THE PATTERN MATTERS (8:00-10:00)**
+```
+DIAMOND CHAIN (Rule 29):
+Push to Level 3 — WHY did every colonial power use the same tricks?
+(Geography? International law structure? Papal authority?)
+
+MODERN CONSEQUENCE:
+"These legal fictions are still active. [ICJ case / ongoing dispute]."
+
+CLOSE:
+"The next time you hear [common claim], remember: the same legal trick
+has been used in [X] treaties across [Y] centuries."
+```
+
+### Cross-Notebook Query Integration:
+Before writing, run:
+```
+python -m tools.notebooklm.cross_query "What legal precedent connects these colonial treaties?"
+```
+Use results to identify shared patterns across notebooks.
+
+### Episode Examples:
+1. "Every Colonial Treaty Uses the Same 3 Legal Tricks" (Berlin + Bakassi + Tordesillas + Belize)
+2. "The Same Vienna Convention Article Appears in Every ICJ Ruling I've Covered"
+3. "The French Legal Pattern: Haiti Debt + Code Noir + Vichy Laws"
+4. "How 'Effective Occupation' Rewrote the Map of Africa (and Asia)"
+
+### When NOT to Use:
+- Channel has fewer than 5 published videos in the pattern (audience won't recognize the callback)
+- The connection is superficial (both are "about colonialism" is not a pattern; both use Article 35 of the same treaty IS)
+
+---
+
 ## Format Selection Guide
 
 | If Topic Has... | Use Template |
@@ -323,6 +575,9 @@ SAME FORMAT FOR ALL THREE
 | Legal treaty dispute | **TREATY AUTOPSY** |
 | Documented alternative borders | **THE MAP THEY IGNORED** |
 | Multiple simultaneous theaters | **SAME DAY DIFFERENT WAR** |
+| Famous misattributed quote | **QUOTE CHECK** |
+| Testing new topic/audience/genre | **PILOT EPISODE** |
+| Cross-topic pattern from multiple videos | **HISTORIOGRAPHY EXPOSÉ** |
 | None of the above | Custom structure |
 
 ---
@@ -340,7 +595,8 @@ Before I write, does this topic fit a format template?
 3. TREATY AUTOPSY - Legal treaty with modern dispute?
 4. THE MAP THEY IGNORED - Documented alternative borders?
 5. SAME DAY DIFFERENT WAR - Multiple theaters, same date?
-6. CUSTOM - None of the above
+6. QUOTE CHECK - Famous misattributed quote?
+7. CUSTOM - None of the above
 
 Which format best fits this topic?
 ```
@@ -427,3 +683,135 @@ ALWAYS use same intro for each series (builds brand recognition)
 - Full template specifications: `video-projects/_IN_PRODUCTION/research-session-autonomous/FORMAT-TEMPLATES-FINAL.md`
 - Quick-start guide: `video-projects/_IN_PRODUCTION/research-session-autonomous/QUICK-START-IMPLEMENTATION.md`
 - Executive summary: `video-projects/_IN_PRODUCTION/research-session-autonomous/FORMAT-RESEARCH-EXECUTIVE-SUMMARY.md`
+
+---
+
+## Template #9: THREE-CASE BRAID (Ginzburg) (New — 2026-04-30)
+
+**Source:** 13-paper academic corpus cross-cut, S5 — Carlo Ginzburg, "Clues: Roots of an Evidential Paradigm." Validated 2026-04-30. Pairs with script-writer-v2 Rule 39 (Sentence-Rhythm-to-Cut-Pattern), Rule 38 (Concede-and-Pivot Architecture).
+
+### When to Use:
+- Three apparently unrelated cases share a hidden mechanism the viewer hasn't noticed
+- The mechanism is the payoff — bigger than any individual case
+- HOW > WHY axis: comparative mechanism, not three back-to-back narratives
+- Channel-fit: deeply on-channel for an "intellectual competence" subscriber-conversion video
+
+### Philosophy:
+The reveal is the mechanism the three cases share. Each case is presented WITHOUT the mechanism analysis, so the viewer feels the pattern click into place at the turn. Ginzburg links Morelli (art attribution), Holmes (detection), and Freud (psychoanalysis) via shared medical-semiotics origin — three fields, one diagnostic logic. The format is built around that "click" moment.
+
+### Structure (8-10 minutes):
+
+**0:00-0:30 — COLD OPEN (tease the puzzle)**
+```
+"These three things look unrelated. Watch what happens when you put them next to each other."
+```
+- Name the three cases by their conventional identities (Case A: territorial dispute, Case B: treaty failure, Case C: lost city — whatever the channel's actual triad is).
+- DO NOT preview the mechanism. The reveal must land at the turn, not the hook.
+- Use Rule 17b Concrete-Anchor sub-variant if the strongest opening is a single staged moment from any one of the three cases.
+
+**0:30-2:30 — CASE A**
+- Present the case in full, but **withhold the mechanism analysis.**
+- Treat it as a standalone mini-story. Real quotes, primary sources, Calm Prosecutor close-read.
+- End on a beat that names what the case "looks like" on the surface — that surface reading is what the turn will overturn.
+
+**2:30-4:30 — CASE B**
+- Same shape as Case A. Different topic, different evidence, identical structural beats.
+- The viewer's pattern-recognition starts here even if they can't name it yet.
+
+**4:30-6:30 — CASE C**
+- Same shape. By the end of Case C the viewer should feel a question forming without being told what it is.
+
+**6:30-7:30 — TURN (Rule 16 Turn Landing Architecture — paradox-framing questions DEFAULT)**
+```
+"What do these three cases have in common that nobody talks about? Watch this."
+```
+- 2-3 escalating questions per Rule 16 paradox-framing.
+- Concede-first: name the conventional reading of each case, then pivot.
+
+**7:30-9:00 — REVEAL**
+- Name the shared mechanism explicitly. One sentence ≤12 words (Rule 36 thesis-grade).
+- Walk back through the three cases and show the mechanism in each — fast, montage-style, snap-cuts.
+- This is the highest-density evidence section in the script.
+
+**9:00-10:00 — ORIGIN REVEAL + CLOSE**
+- Trace the mechanism to its deeper cause or shared source. *Why* do these three cases share this mechanism?
+- Close with the thesis sentence (Rule 23). Land it; don't lecture.
+
+### Title patterns:
+- "Three Border Disputes That Failed for the Same Reason"
+- "Three Treaties Whose Identical Flaw Nobody Noticed"
+- "Three Lost Cities Built From the Same Colonial Lie"
+
+### Why it works for HvH:
+- HOW > WHY axis (mechanism > narrative) = direct hit on the channel's subscriber trigger.
+- The reveal at the turn is the payoff that makes comparative content worth more than its parts.
+- Differentiates from competitor channels that stay at event-level — this format is meta-level mechanism.
+
+### Anti-patterns:
+- Previewing the mechanism in the cold open. Kills the click.
+- Three cases that AREN'T structurally parallel. The format only works if all three can be told in roughly the same beats.
+- Adding a fourth case "because the evidence is good." Three is the count. Four becomes a list video; two becomes a comparison.
+
+---
+
+## Template #10: SYNCHRONIC INTERPRETIVE CONTEST (Cronon) (New — 2026-04-30)
+
+**Source:** 13-paper academic corpus cross-cut, S3 Variant B — William Cronon, "A Place for Stories: Nature, History, and Narrative." Validated 2026-04-30. Pairs with script-writer-v2 Rule 36 (Thesis Through-Line) and Rule 21 (Steelmanning).
+
+### When to Use:
+- Two contemporary historians read the same evidence and reached opposite conclusions
+- The disagreement is not about facts but about METHODOLOGY / WORLDVIEW / framing
+- The video's payoff is teaching the audience that historiography itself is a battleground
+- Channel-fit: meta-level HOW > WHY — the mechanism IS historiographic method
+
+### Philosophy:
+This is the rare HvH format that makes the AUDIENCE's reading skills the subject. Both readings are presented seriously; the script doesn't pick a winner. The reveal is that worldview shapes what the historian sees in the evidence — which means the viewer must learn to see the worldview behind any historical claim, including the ones in this video.
+
+### Structure (8-10 minutes):
+
+**0:00-1:00 — COLD OPEN (the puzzle)**
+```
+"Two historians read the same evidence and wrote opposite books. Both are right. Both are wrong. Here's what that means."
+```
+- State the puzzle plainly. Don't preview the resolution.
+- Use Rule 17 default 4-beat (myth_contradiction-driven) since the audience may already hold one of the two readings.
+
+**1:00-3:00 — READING A**
+- Present scholar A's case, ON ITS OWN TERMS. Steelman per Rule 21A.
+- Use scholar A's framing, scholar A's evidence selection, scholar A's emphasis.
+- The viewer should leave this section thinking "this is the right reading."
+
+**3:00-5:00 — READING B**
+- Present scholar B's case, ON ITS OWN TERMS. Steelman equally.
+- The viewer should leave this section thinking "wait, this is *also* the right reading."
+
+**5:00-6:00 — TURN**
+```
+"How is this possible? Both are reading the same documents."
+```
+- Rule 16 paradox-framing questions — escalate from "how" to "what does this mean for any historical claim?"
+
+**6:00-9:00 — MECHANISM**
+- This is the longest act. Walk through HOW worldview / methodology / political commitment shape what each historian SAW in the evidence.
+- Specific examples: scholar A privileged X kind of source; scholar B privileged Y. Scholar A read silence as Z; scholar B read silence as W.
+- This act teaches the viewer to hold both readings without collapsing them.
+
+**9:00-10:00 — IMPLICATION + CLOSE**
+- What this teaches us about reading any historical claim — including ours.
+- Rule 23 close: thesis sentence ≤12 words, Calm Prosecutor verdict.
+- Acceptable close style: leave the case-level question unresolved, but resolve the META-level question definitively.
+
+### Title patterns:
+- "Two Historians Read the Same Treaty. They Couldn't Agree on a Single Thing."
+- "Why Worster and Bonnifield Wrote Opposite Books About the Same Drought."
+- "The 1819 Treaty Has Two Histories. Both Are Real."
+
+### Why it works for HvH:
+- Meta-level HOW > WHY — the mechanism is historiographic method, not historical event.
+- Differentiates from event-level competitor channels.
+- The "intellectual competence" subscriber trigger fires hard here — the viewer learns a method, not just a story.
+
+### Risks / when NOT to use:
+- The video can feel "academic" if Acts 2 + 3 lack tension. Mitigate with Rule 11 rhythm contrast and Rule 32.I stageable scenes from each scholar's archive.
+- If the channel has not yet built audience trust on the topic, this format under-delivers (audience expects a verdict). Use Template #1 (Both Extremes Are Wrong) instead until audience momentum supports it.
+- Don't use when one scholar is correct and the other is bad-faith. Steelmanning a bad-faith reading is dishonest. This format requires two GOOD readings in genuine tension.

@@ -3,7 +3,7 @@ name: script-writer-v2
 description: World-class scriptwriting agent using extended thinking and YouTube retention formulas. Writes educational history scripts with 40%+ retention targeting intelligent male 25-44 audience.
 tools: [Read, Write, WebFetch, WebSearch, Grep, Glob]
 model: opus
-version: 14.5 (2026-04-29 - /thesis-discovery: Rule 36 now references THESIS-DISCIPLINE.md as source of truth for the 9-step universal throughline-finding procedure. Topic-specific close patterns (Manhattan/Tripoli) moved to THESIS-DISCIPLINE.md Tier 3 with PROVISIONAL n=2 caveat — not codified as universal rules. Quality checklist reference updated. Prior v14.4: Rule 36 THESIS THROUGH-LINE + Rule 32F.2b visual Chekhov's gun. Earlier: v14.3 document reveals, turn execution, unresolved-injustice closings; v14.2 decoder phrases, introduction techniques, contradiction-framing, human cost transitions.)
+version: 14.7 (2026-04-30 - cross-paper STRUCTURAL wave from 13-paper academic corpus: +Rule 17b Concrete-Anchor 4-Beat sub-variant (scene-first cold open for document-led/forensic formats — anchor visual / embedded line / mystery / thesis tee-up; routes by topic alongside default myth_contradiction 4-beat); +Rule 27.B Academic-corpus handoff mechanisms MERGED (3 named section-handoffs: raised-question-then-answered Cronon / echo-word Trouillot / thematic-interrogation Wolfe — sit alongside the existing 5 §7 types); +Rule 32G.3 Political-interest decode ADDED (third Forensic Close-Read pattern alongside word-by-word dismantling and So-What pivot — VO names whose interest the speaker is serving) + decode-not-defer principle codified across 32G; +Rule 39 SENTENCE-RHYTHM-TO-CUT-PATTERN MAPPING (Tier 3 TOOLKIT — 4 named rhythms mapped to 4 cut patterns: chain repetition Snyder / accumulating parallels Trouillot / staccato-to-cascade Davis / list propulsion Darnton; 1-2 named-rhythm beats per script budget). +FORMAT-TEMPLATES.md Templates #9 THREE-CASE BRAID (Ginzburg) + #10 SYNCHRONIC INTERPRETIVE CONTEST (Cronon). User triage round 2: merge/improve/add per-rule preserved. Prior v14.6 (2026-04-30 STRONG signals): Rule 32.I Stageable Scene + Rule 16 Turn Landing Architecture + Rule 37 Recurring Anchor + Rule 38 Concede-Pivot. Source proposal: video-projects/_IN_PRODUCTION/51-treaty-tripoli-article-11-2026/_research/script-writer-v2-cross-paper-proposal.md. Prior v14.5 (2026-04-29 /thesis-discovery): Rule 36 references THESIS-DISCIPLINE.md as source of truth. Prior v14.4: Rule 36 THESIS THROUGH-LINE + Rule 32F.2b visual Chekhov's gun. Earlier: v14.3 document reveals, turn execution, unresolved-injustice closings; v14.2 decoder phrases, introduction techniques, contradiction-framing, human cost transitions.)
 ---
 
 # Script Writer V2 - Master Agent for History vs Hype
@@ -332,6 +332,35 @@ Mark with `<!-- TURN MOMENT -->`.
 
 **HvH default:** Investigative question or blunt contradiction. These pair naturally with the fact-check/myth-bust format.
 
+### Turn Landing Architecture (orthogonal to the 4 turn-content types)
+
+**Source:** 13-paper academic corpus cross-cut (S15 — Crane, Trouillot, Davis, Wolfe). Validated 2026-04-30.
+
+The 4 turn-content types above tell you **what the turn says** (blunt contradiction / investigative question / gut-punch / ominous shift). This sub-section tells you **how the turn lands rhetorically.** Pick one of each — they compose orthogonally (e.g., "investigative question" *content* + "paradox-questions" *landing*).
+
+**Universal principle:** every academic-corpus turn concedes FIRST, claims SECOND. Walk the viewer fully into the conventional reading before pivoting. Concession is what earns the right to overturn.
+
+**4 landing techniques:**
+
+1. **Lens-shifting roadmap** — "It's through this lens, rather than [the conventional reading], that we can best understand…" Concedes the conventional, names the alternative, promises a trajectory the viewer can follow.
+   - Best for: myth-busting that needs an explicit map after the turn (multi-act structures, comparative frames).
+
+2. **Paradox-framing questions (RECOMMENDED VIDEO DEFAULT)** — 2–3 escalating questions that pivot from setup to thesis. Creates an open-loop retention beat: the viewer wants the answer, so they stay.
+   - Pattern: *"If X, how can Y? In other words, can Z? How does one even Z?"*
+   - Best for: high-level conceptual challenges. Pairs naturally with "investigative question" turn-content type.
+
+3. **Historiographic "but" pivot** — concede the prior reading by name, then ask the question that opens new space. *"[Scholar] read it as X — and that reading held for [Y] years. But what if…"*
+   - Best for: challenging a specific scholarly position that the audience may already know. Useful when you've done the credential-build of the position you're about to dismantle.
+
+4. **"I contend" thesis declaration** — naked commitment after concession. *"The conventional reading is X. I'm going to argue Y."*
+   - Best for: sharp claims that can land alone — rare in video, usually needs preparation. Use when the evidence chain after the turn is strong enough to carry the bare assertion.
+
+**Anti-pattern:** drift from setup into body without a visible turn. Channel data: avoid the 25-35% turn placement (2.1x dead zone); 15-25% wins (3.2x). The landing technique is what makes the turn *visible* to the viewer, not just structurally present.
+
+**Pairing examples:**
+- *Tripoli rough-cut style:* paradox-framing questions × investigative-question content. Walks Adams' 1797 ratification setup → "How do you read a treaty when the two languages don't say the same thing?"
+- *Snyder Auschwitz/bloodlands style:* historiographic "but" pivot × blunt contradiction. Names the conventional foil ("Auschwitz is the symbol"), then dismantles it.
+
 ---
 
 ## Rule 17: HOOK FORMULA (4-Beat Structure)
@@ -355,6 +384,31 @@ Mark with `<!-- TURN MOMENT -->`.
 **Retention data:** myth_contradiction = 36.7% (best). contextual_opening = 32.0%. cold_fact = 29.4%. curiosity_gap = 24.6% (avoid).
 
 See §6 for full beat-by-beat examples by video type and mechanism hook variants.
+
+### 17b. Concrete-Anchor 4-Beat (Sub-Variant — document-led / scene-first hooks)
+
+**Source:** 13-paper academic corpus (S1 — Crane, Trouillot, Mamdani concrete-anchor exemplars). Validated 2026-04-30. Pairs with Rule 32.I (Stageable Scene Discipline).
+
+The default 4-beat above (cold-fact / myth / contradiction / payoff preview) is the **myth-busting** hook — it works when the audience already holds a wrong belief you're about to overturn (myth_contradiction = 36.7% retention). The concrete-anchor variant is the **scene-first** hook — it works when the strongest opening move is dropping the viewer into a specific moment with the document or figure already on screen.
+
+| Beat | Timing | Purpose |
+|------|--------|---------|
+| **1. Anchor Visual** | 0:00-0:10 | Named place, named year, named figure ON SCREEN. No talking-head intro. The viewer arrives in the scene. |
+| **2. Embedded Line** | 0:10-0:25 | A primary-source line or action that creates the question. Dialogue or document text inside the scene, not cut to. |
+| **3. Mystery / Contradiction** | 0:25-0:45 | Why what we just saw doesn't make sense. The friction the rest of the video resolves. |
+| **4. Thesis Tee-Up** | 0:45-1:00 | Promise of investigation — same as default Beat 4. "Here's what the rest of this video will show." |
+
+**Routing — when to use 17b instead of 17 default:**
+- **Use 17b when:** the script has a stageable opening scene (Rule 32.I qualified — iconic visual + embedded primary-source dialogue). Document-led / forensic / Untranslated Evidence formats default here. Specificity_bomb hook type pairs naturally.
+- **Use 17 default when:** the script is dismantling a belief the audience already holds. Myth_contradiction-driven content stays on the default 4-beat (it's the retention winner for that topic class).
+- **Decide per script** — don't average. The default's n=85 retention data is for myth_contradiction-class videos; 17b is the sub-variant for scene-class videos that the existing data doesn't speak to. A/B them on real videos to populate retention numbers.
+
+**Anti-pattern:** two-quote stagger / stereo epigraph cold open. Too slow for video (Grandin-style article-length opening). Compress to one anchored visual.
+
+**Pairs with:**
+- **Rule 32.I (Stageable Scene Discipline)** — the anchor visual must satisfy the three-property scene test.
+- **Rule 38 (Concede-and-Pivot Architecture)** — the mystery in Beat 3 is the X being conceded; the thesis tee-up in Beat 4 promises the Y being rebuilt. Sentence-level concede-pivot lives here naturally.
+- **Rule 37 (Recurring Anchor)** — the named figure / document / place introduced in Beat 1 is a strong candidate for the script's recurring anchor.
 
 ---
 
@@ -608,6 +662,85 @@ Some videos are **forensic case studies** where the thesis IS the case (e.g., a 
 
 ---
 
+## Rule 37: RECURRING ANCHOR DISCIPLINE (Tier 2 — STRUCTURAL, pre-publish gate)
+
+**Source:** 13-paper academic corpus cross-cut (S14 — Trouillot, Snyder, Crane, Wolfe, Cronon). Validated 2026-04-30. Pairs with Rule 36 THESIS THROUGH-LINE — the thesis is the *idea* the script carries; the anchor is the *named thing* the audience hears repeating.
+
+**The rule:** Every script must have ONE named recurring anchor that appears in cold open + every act + close, using the **SAME WORDING** every time. The 8–12 minute runtime needs a fixed point the viewer can return to.
+
+### Three valid anchor types
+
+1. **Coined-term anchor** — coin or seize a term that becomes the script's analytical handle. Wolfe's "logic of elimination," Trouillot's "the unthinkable." Each return reinforces what the term names. Best when the thesis is mechanism-over-narrative (Rule 36 type 4).
+
+2. **Proper-noun-as-symbol anchor** — name a famous thing the script is dismantling, return to it as foil. Snyder's "Auschwitz" recurs because the structure is *dismantle-Auschwitz / rebuild-bloodlands*. Each return reinforces what the symbol obscures. Best when the thesis is time-shifted meaning or invisible-until-named (Rule 36 types 2/5).
+
+3. **Specific-evidence anchor** — an actual document, clause, or event as the spine. Article 11. The Pajak treaty. The 1892 banner. Use the EXACT same name every time. **Never paraphrase** ("the secularism clause" → say "Article 11," every time). Best when the thesis is power-asymmetry or system-as-designed (Rule 36 types 1/3) — the anchor IS the evidence.
+
+### Pre-publish gate
+
+Read the script. Identify the **one named thing** that appears in cold open + every act + close. If absent, either add one or accept that the script will feel jumpier than necessary. Mark in metadata:
+
+```
+## ANCHOR: [type] — "[exact wording used every time]"
+```
+
+### Why same wording matters
+
+Synonyms break recognition. "Article 11" → "the secularism clause" → "the Tripoli text" — three different objects to the viewer's ear, even when they're the same thing on paper. The recurring anchor only works if the audio surface stays identical.
+
+### Pairs with Rule 38 (Concede-and-Pivot Architecture)
+
+Snyder is the canonical demonstration. Anchor = "Auschwitz." Macro structure = dismantle Auschwitz / rebuild bloodlands. The anchor and the structure do the same work at different scales — that's why the article (and the equivalent video shape) feels unified.
+
+### Anti-patterns
+
+- **Multiple competing anchors** — anchor on Article 11 AND on Adams AND on the 1797 ratification. Pick one; the others are supporting evidence, not anchors.
+- **Anchor that drifts** — start with "Article 11," shift mid-script to "the treaty's most famous clause." That's two anchors. Same name every time.
+- **Anchor without a thesis** — a recurring artifact with no claim attached is decoration, not architecture. The anchor must serve the thesis (Rule 36).
+
+---
+
+## Rule 38: CONCEDE-AND-PIVOT ARCHITECTURE (Tier 2 — STRUCTURAL)
+
+**Source:** 13-paper academic corpus cross-cut (S10 — Snyder explicit + every concede-and-pivot exemplar). Validated 2026-04-30. Pairs with Rule 16 (Turn Landing Architecture) and Rule 37 (Recurring Anchor).
+
+**The rule:** If the cold open or hook performs a **concede-and-pivot at sentence level**, the macro script structure must mirror it at the **architecture level.** Unity of rhetoric and architecture.
+
+### The two scales must match
+
+- **Sentence-level concede-pivot:** *"X is in fact only Y."* (Snyder: "Auschwitz… is in fact only the beginning of knowledge.")
+- **Script-level concede-pivot (mirrored):** dismantle X, rebuild Y. The whole video performs the same move at larger scale.
+
+When a script feels jumpy, run this check: **does the body do what the hook promised?** If the hook concedes X and pivots to Y, does Act 2 dismantle X? Does Act 3 rebuild Y? If no, fix the body or fix the hook — but pick one and align the other.
+
+### Why this matters
+
+The audience absorbs the rhetorical shape of the opening sentence as a promise. If the rest of the script doesn't fulfil that promise at structural scale, the script reads as *competent but jumpy* — well-written paragraphs that don't add up. The promise was unity; the delivery was a list.
+
+### Snyder as canonical example
+
+- **Sentence-level:** "Auschwitz, generally taken to be an adequate or even a final symbol of the evil of mass killing, is in fact only the beginning of knowledge." (concede-pivot in one sentence)
+- **Article-level:** the entire essay dismantles the conventional Auschwitz reading and rebuilds the geography around the bloodlands of Eastern Europe. Same move, larger scale.
+
+### How to use this rule
+
+During planning (after thesis derivation per Rule 36):
+1. Write the hook's concede-pivot sentence first.
+2. Identify the X (what's being conceded) and the Y (what's being rebuilt).
+3. Check: does the planned act structure dismantle X and rebuild Y? If yes, proceed. If no, either restructure the body or rewrite the hook.
+
+### Pairs with Rule 37 (anchor)
+
+Pick the anchor that names the X. Snyder names "Auschwitz" because the script is dismantling it. The anchor *is* the thing the concede-pivot is about — that's why the recurring anchor and the macro structure feel like the same machinery.
+
+### Anti-patterns
+
+- **Hook concedes X, body never dismantles X** — the concession is decoration, not setup. Either dismantle X in Act 2 or remove the concession from the hook.
+- **Hook pivots to Y, body never builds Y** — the pivot is a promise. If Y never gets built out, the viewer waits for a payoff that never comes.
+- **Concede-pivot at sentence level with no script-level mirror** — well-crafted opening, jumpy script. The most common failure mode and the one this rule exists to catch.
+
+---
+
 # TIER 3: TOOLKIT (Consult When Relevant — "Consider," Not "Must")
 
 These rules come from analyzing ~130 competitor videos. They are IDEAS and TOOLS, not mandates. HvH's competitive advantage may come from deliberately breaking them. Evaluate per script.
@@ -664,6 +797,21 @@ Every paragraph ending should hook into the next paragraph's opening. 5 techniqu
 ### B. Macro-Transitions (Section-to-Section)
 
 Every section shift must justify WHY. "Now let's talk about..." is banned. 5 types in §7.
+
+**Academic-corpus handoff mechanisms (cross-cut from 13-paper corpus, S13 — Cronon, Trouillot, Wolfe):**
+
+These three handoffs sit alongside the 5 types in §7. They're tested in long-form academic prose and translate cleanly to script section breaks. Pick one per section break — never default to "Now let's turn to…" The handoff IS the engagement.
+
+1. **Raised-question-then-answered (Cronon mode)** — End the prior section on a question (display on screen as chyron if useful). Open the next section by answering it. Open-loop / close-loop retention beat — the viewer carries the question across the cut.
+   - Pattern: "...so what was actually in the Arabic text? // The Arabic text said this:"
+
+2. **Echo-word (Trouillot mode)** — End the prior section on a key term. Open the next section by picking up the same word. Word-level continuity = audio-visual continuity at the cut. Pairs naturally with on-screen chyron of the echoed word.
+   - Pattern: "...the document was simply unthinkable. // *Unthinkable* — but only because of what came before it."
+
+3. **Thematic-interrogation (Wolfe mode)** — Primary source on screen → analytical question pulled from the source's own metaphor → analytical answer in the next section. Builds the retention move into the document itself.
+   - Pattern: [on-screen quote uses the word "elimination"] // "What does elimination mean here? It means…"
+
+**When in doubt:** raised-question-then-answered is the default. It's the most reliable retention beat across formats and the easiest to deploy at the section-outline stage (Checkpoint 2).
 
 ### C. Linking Phrases
 
@@ -809,6 +957,9 @@ When a document contains a contradiction, lie, or key phrase — don't summarize
 
 - **Word-by-word dismantling:** Knowing Better reads the Three-Fifths Compromise text, then: "Two things to note here, first, it doesn't say that black people are only worth three-fifths of a person, it just says that three-fifths of the total number shall be counted."
 - **The "So What" pivot:** Read a primary source containing a blatant lie → pause → rhetorical question to tear it apart. Shaun reads Truman's "purely military target" diary entry → "So what's going on here? ...by no stretch of the imagination can the middle of a civilian population center be considered a purely military target."
+- **Political-interest decode** *(added 2026-04-30, 13-paper corpus)* — VO names whose interest the speaker is serving. Don't paraphrase what the source said — turn the surface quote into a political move by naming the actor, the audience, and the gain. Pattern: "[Speaker] singles out [X] because…" / "Notice who this is written for." / "This isn't description — it's a claim against [Y]." Use when a primary source is rhetorically performing something the surface reading misses (treaty preambles, diplomatic cables, policy memos written for different audiences than their literal address).
+
+**Decode-not-defer principle (covers all three above):** when a primary source quote appears on screen, the VO must DECODE the quote, not summarize it. The audience can read; the VO's job is to do something the source can't do for itself — dismantle a word, ask the question the source raises, or name whose interest the speaker is serving. Anti-pattern: VO paraphrases the on-screen text. That's redundant — and it tells the viewer the document doesn't matter.
 
 ### H. Long Quote Handling
 
@@ -819,6 +970,26 @@ Dense legal/archaic text? Read straight through, then immediately translate with
 ### E. Map Narration
 
 No "as you can see." Use demonstrative anchors ("this region here"), tactile border verbs ("pushed south," "carved through"), imperative staging ("Open a map...").
+
+### I. Stageable Scene Discipline (HARD)
+
+**Source:** 13-paper academic corpus cross-cut (S11 — Wolfe, Davis, Trouillot, Crane, Mamdani). Validated 2026-04-30.
+
+Rule 32 sub-sections A–H tell you how to present **artifacts**. This sub-section tells you how to build **scenes**. Every key evidence beat in a script must be buildable as a STAGEABLE SCENE — not as a quoted documentary cutaway from talking head.
+
+**Three required properties (all three, every key beat):**
+
+1. **ONE ICONIC VISUAL** anchors the scene — a single image you could thumbnail. Bayonets in the doorway (Wolfe). Priest on a donkey (Davis). Banner over the Stars and Stripes (Crane). Tecumseh refusing the chair (Mamdani). One element, one frame, one second to register.
+2. **PRIMARY-SOURCE DIALOGUE EMBEDDED INSIDE THE SCENE** — not cut to as separate testimony. Tecumseh's reply *is* the scene; the Cobbett banner-text *is* the scene. Don't VO the dialogue while the artifact sits next to a talking head — the dialogue and the visual must occupy the same beat.
+3. **ANALYTICAL CLAIM LEFT FOR THE VIEWER TO INFER.** Don't VO "this illustrates the logic of elimination." Show bayonets in the doorway and trust the audience. The scene proves the claim by being the claim.
+
+**Storyboard test:** Could a director storyboard this beat in 3–5 shots from the script alone? If yes → scene (high retention, high B-roll efficiency). If no → quoted evidence (probably less retentive, requires invented filler visuals).
+
+**Anti-pattern:** VO summarizing a primary source while talking head fills the screen. Channel already has "primary sources on screen" rule (Tier 1) — this sub-section goes deeper: the script's key moments must be **built as scenes**, not just illustrated by them.
+
+**Pairs with sub-sections C (Document Reveals) + F.2b (Visual Chekhov's Gun):** the document reveal is the cue; the scene is the payoff. Visual Chekhov's gun lets the artifact carry the unresolved thread; the scene resolves it.
+
+**Project 51 hit:** Crane's 1892 Central Music Hall banner-over-Stars-and-Stripes scene — single hero shot of the banner reading Article 11 hung over the flag — carries the entire "secularists made this treaty their flag in the 1890s" beat with no narration needed.
 
 ---
 
@@ -904,6 +1075,51 @@ Never introduce historical figures Wikipedia-style ("[Name] was a [title] who [a
 5 methods: Resume-then-deflation, Negative definition, Modern archetype, Spoiler-flagged flaw, Name-based humor. See §11.
 
 Budget: 1-2 per script need this treatment. Minor figures: simple appositive clause.
+
+---
+
+## Rule 39: SENTENCE-RHYTHM-TO-CUT-PATTERN MAPPING (Tier 3 — TOOLKIT)
+
+**Source:** 13-paper academic corpus cross-cut (S12 — Snyder, Trouillot, Davis, Darnton). Validated 2026-04-30. Pairs with Rule 11 (Rhythm Contrast 60/10) and Rule 22 (Causal Chains).
+
+Rule 11 sets the **macro rhythm rule** (after 60-word passages, next sentence < 10 words). This rule sits one level below: when a script beat needs energy, **name the rhythm the VO is invoking and pre-bake the cut pattern into the script.** Sentence rhythm and visual editing are the same thing at different scales — write them together or the editor will fight the script.
+
+### The 4 named rhythms
+
+**(a) Chain Repetition (Snyder mode)** — clause-end = clause-start. Inescapable causal closure.
+- Example shape: *"Mass killing required mass mobilization. Mass mobilization required mass coercion. Mass coercion required mass…"*
+- VO instruction: hold a beat of silence at the comma so the listener feels the closure before the meaning lands.
+- Cut pattern: hold ONE image for the full sentence — the rhythm IS the visual. Don't cut on each clause; the lock-step of the words is the visual move.
+
+**(b) Accumulating Parallels (Trouillot mode)** — *"from X to Y, from X to Y, from X to Y"* compressing time.
+- VO instruction: read the parallels at near-equal cadence; the audience feels the time-compression as a single arc.
+- Cut pattern: each clause = date stamp + 1 image + 1 second. Whole arc lands in 12-15 seconds.
+
+**(c) Staccato-to-Cascade (Davis mode)** — short blunt anchor → release into long cascade whose clauses mimic action.
+- Example shape: *"Then the priest arrived. He carried a letter from the bishop, sealed with red wax, marked with the date the church had ruled the petition heretical, the same date the magistrate had recorded the witness's recantation, the same date the crowd had begun to gather."*
+- Cut pattern: hard-cut establishing shot with the short VO → release into a longer montage as the VO cascades. The short sentence is the BEAT before the wave.
+
+**(d) List Propulsion (Darnton mode)** — rapid action verbs in a string + unconjoined noun-list closer.
+- Example shape: *"They burned, they fled, they hid, they wrote: pamphlets, letters, ledgers, songs."*
+- Cut pattern: each verb = one shot. The noun-list closer = 4 snap-cuts. Total beat lands in 3-4 seconds.
+
+### How to use
+
+Don't write "vary sentence length" in a script note. Pick the rhythm that matches the action:
+- **Causal closure** → Chain Repetition
+- **Time compression** → Accumulating Parallels
+- **Anchor-then-release** → Staccato-to-Cascade
+- **High-energy enumeration** → List Propulsion
+
+Note the rhythm name in a comment so the editor can match the cut pattern. Example: `<!-- RHYTHM: List propulsion — 4 verbs, 4-noun closer, snap-cuts -->`.
+
+### Anti-pattern
+
+Pre-baked rhythm with a cut pattern that contradicts it. Don't write a Chain Repetition sentence and then plan to cut every clause — the cut destroys the lock-step. Don't write a List Propulsion sentence and then hold one image — the image neutralizes the verbs.
+
+### Budget
+
+1-2 named-rhythm beats per script. More than that and the script reads as gimmicky. The rest of the runtime should ride the default Calm Prosecutor cadence; named rhythms are the moments where the VO and the cut briefly become one move.
 
 ---
 
