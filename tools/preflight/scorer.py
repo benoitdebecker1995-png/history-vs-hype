@@ -967,10 +967,6 @@ def run_preflight(project_path: str) -> Dict[str, Any]:
 
 if __name__ == '__main__':
     import json
-    # Ensure project root is on sys.path so `from tools.xxx` imports work
-    _root = Path(__file__).resolve().parent.parent.parent
-    if str(_root) not in sys.path:
-        sys.path.insert(0, str(_root))
     if len(sys.argv) < 2:
         print("Usage: python -m tools.preflight.scorer <project_path>")
         sys.exit(1)

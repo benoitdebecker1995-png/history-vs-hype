@@ -27,10 +27,8 @@ python -c "import srt; print('srt version:', srt.__version__)"
 ### Build pattern library from existing videos:
 
 ```python
-import sys
-sys.path.insert(0, 'tools/script_checkers')
 from pathlib import Path
-from voice import build_pattern_library
+from tools.script_checkers.voice import build_pattern_library
 
 patterns = build_pattern_library(
     projects_dir=Path('../../video-projects'),

@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-03 (B4)
+**Last advanced:** 2026-05-03 (B5)
 **Total steps:** 47
-**Done:** 8 (A1/B1/B2/B3/B6 reconciled; A2/B4 executed 2026-05-03)
+**Done:** 9 (A1/B1/B2/B3/B6 reconciled; A2/B4/B5 executed 2026-05-03)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -275,7 +275,7 @@ Mark B4 [DONE].
 
 ---
 
-## B5 [TODO] Convert sys.path.insert hacks in `discovery/`, `translation/`, `document_discovery/`, `script_checkers/`, `production/`
+## B5 [DONE] Convert sys.path.insert hacks in `discovery/`, `translation/`, `document_discovery/`, `script_checkers/`, `production/`
 
 > **Reconciled 2026-05-03:** Scope drastically reduced. The only in-scope file still containing `sys.path.insert` outside `youtube_analytics/` is `tools/preflight/scorer.py`. The original target packages (`discovery/`, `translation/`, `document_discovery/`, `script_checkers/`, `production/`) are already clean. Two files in `tools/history-clip-tool/` (launcher.py, run.py) remain dirty but stay out of scope per the original B5 note. Action: clean `tools/preflight/scorer.py` per the original procedure. Verify: `grep -r "sys\.path\.insert" tools/ --include="*.py"` returns matches only in `tools/history-clip-tool/`.
 
@@ -1297,3 +1297,13 @@ Commits: `88aa367 refactor: block A1` (now superseded), `<this commit> refactor:
 Removed the single remaining `sys.path.insert` in `tools/youtube_analytics/` (`retention_by_topic.py:26`). Replaced cross-package import with relative import (`from .retention_analysis import ...`). Also removed now-unused `import sys`.
 
 **Drift not fixed (out of scope for B4):** `retention_by_topic.py` has no `argparse` — `--help` runs `main()` instead of showing help. Pre-existing. Belongs in scope of E2 (add `--verbose`/`--quiet` to argparse CLIs) or E3 (convert manual-argv files to argparse). Should be added to one of those tables when those steps execute.
+
+### 2026-05-03 — B5 execution: scope-reduced fix + doc snippet update
+
+Removed the single remaining `sys.path.insert` block in `tools/preflight/scorer.py:970-973` (inside `__main__` guard — became dead code once `pyproject.toml` editable install landed in B3). The runtime `from tools.logging_config import get_logger` at top of file already worked without it.
+
+Also updated `tools/script_checkers/VOICE-SETUP.md:30-31` doc-snippet that showed users a `sys.path.insert` example — replaced with `from tools.script_checkers.voice import build_pattern_library`. In-spirit with B5 (verify clause `rg "sys.path.insert" tools/` doesn't filter `.md`).
+
+**Pre-existing warning (not introduced by B5):** `python -m tools.preflight.scorer` emits `RuntimeWarning: 'tools.preflight.scorer' found in sys.modules after import of package 'tools.preflight'`. Indicates `tools/preflight/__init__.py` imports scorer. Worth a follow-up at some point (E5 or earlier) — not blocking.
+
+Remaining `sys.path.insert` matches in `tools/`: `history-clip-tool/run.py`, `history-clip-tool/launcher.py` — both explicitly out of scope per original B5 note.
