@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-03 (A–B reconciliation audit)
+**Last advanced:** 2026-05-03 (A2)
 **Total steps:** 47
-**Done:** 6 (A1, B1, B2, B3, B6 vacuously satisfied by ad-hoc work pre-dating the plan; reconciled 2026-05-03)
+**Done:** 7 (A1/B1/B2/B3/B6 reconciled; A2 executed 2026-05-03)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -125,9 +125,9 @@ Stop after the commit.
 
 ---
 
-## A2 [TODO] Review and clean `tools/discovery/backups/`
+## A2 [DONE] Review and clean `tools/discovery/backups/`
 
-> **Reconciled 2026-05-03:** Confirmed live. Two files present: `keywords_pre_v27_20260206_180405.db` and `keywords_pre_v27_20260206_180406.db`, both mtime 2026-02-03 (~89 days old as of audit — at the borderline, treat as deletable per "older than 90 days" rule given naming says 2026-02-06). No callers reference these paths. Action remains as written.
+> **Executed 2026-05-03:** Deleted `keywords_pre_v27_20260206_180405.db` and `keywords_pre_v27_20260206_180406.db` (both ~89 days old, naming says 2026-02-06). Directory now empty. `.gitignore` already excluded `tools/discovery/backups/` (line 98) — no .gitignore change needed. Files were untracked + gitignored, so deletion is invisible to git history; only this plan flip is in the commit.
 
 **Prompt:**
 ```
