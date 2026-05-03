@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>133 Years — Tripoli Article 11 Timeline</title>
+<link rel="stylesheet" href="_shared.css">
+<style>
+  .timeline-frame {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    padding: 100px 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 56px;
+    font-weight: 400;
+    color: #F4EDE0;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .title em {
+    font-style: italic;
+    color: #E8D9A8;
+  }
+  .subtitle {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8A7B66;
+  }
+
+  .timeline {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    display: flex;
+    align-items: center;
+  }
+
+  .axis-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #5A4F3F;
+  }
+
+  .axis-line.silent {
+    background: repeating-linear-gradient(
+      90deg,
+      #3A322A 0px, #3A322A 8px,
+      transparent 8px, transparent 16px
+    );
+  }
+
+  .clusters {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+  }
+
+  .cluster {
+    display: flex;
+    align-items: center;
+    gap: 110px;
+    padding: 0 20px;
+    background: #14110F;
+    z-index: 3;
+  }
+
+  .silence-zone {
+    flex: 1;
+    position: relative;
+    text-align: center;
+    margin: 0 40px;
+  }
+  .silence-label {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 64px;
+    font-weight: 400;
+    color: #E8D9A8;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .silence-sublabel {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #6F6354;
+    margin-top: 18px;
+  }
+
+  .event {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+  }
+
+  .event .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #E8D9A8;
+    box-shadow: 0 0 0 4px rgba(232, 217, 168, 0.12);
+    margin-bottom: 24px;
+  }
+  .event.muted .dot {
+    background: #8A7B66;
+    box-shadow: 0 0 0 4px rgba(138, 123, 102, 0.10);
+  }
+  .event.today .dot {
+    background: #F4EDE0;
+    box-shadow: 0 0 0 6px rgba(244, 237, 224, 0.18);
+  }
+
+  .event .stem-up,
+  .event .stem-down {
+    position: absolute;
+    left: 50%;
+    width: 1px;
+    background: #5A4F3F;
+    transform: translateX(-0.5px);
+  }
+  .event .stem-up { bottom: 50%; height: 90px; margin-bottom: 8px; }
+  .event .stem-down { top: 50%; height: 90px; margin-top: 8px; }
+
+  .event .label {
+    position: absolute;
+    width: 240px;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .event .label.up {
+    bottom: 50%;
+    margin-bottom: 110px;
+  }
+  .event .label.down {
+    top: 50%;
+    margin-top: 110px;
+  }
+
+  .event .date {
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-size: 18px;
+    font-weight: 500;
+    color: #E8D9A8;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .event.muted .date { color: #A89882; }
+
+  .event .text {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #F4EDE0;
+    line-height: 1.3;
+  }
+  .event.muted .text { color: #B8A88E; }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .legend {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #5A4F3F;
+  }
+</style>
+</head>
+<body>
+  <div class="timeline-frame">
+
+    <div>
+      <div class="subtitle">The strangest part isn't the missing text</div>
+      <div class="title">It's what happened in the <em>133 years</em> before anyone noticed.</div>
+    </div>
+
+    <div class="timeline">
+      <div class="axis-line"></div>
+
+      <div class="clusters">
+
+        <!-- LEFT CLUSTER: 1796-1797 -->
+        <div class="cluster">
+          <div class="event">
+            <div class="dot"></div>
+            <div class="label up">
+              <div class="date">Nov 4, 1796</div>
+              <div class="text">Treaty signed at Tripoli</div>
+            </div>
+          </div>
+          <div class="event">
+            <div class="dot"></div>
+            <div class="label down">
+              <div class="date">Jun 7, 1797</div>
+              <div class="text">Senate ratifies Article 11</div>
+            </div>
+          </div>
+          <div class="event muted">
+            <div class="dot"></div>
+            <div class="label up">
+              <div class="date">Jun 23, 1797</div>
+              <div class="text">Cobbett: "trampling&nbsp;upon the cross"</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SILENCE -->
+        <div class="silence-zone">
+          <div class="silence-label">133 years of silence</div>
+          <div class="silence-sublabel">No scholar opens the file</div>
+        </div>
+
+        <!-- RIGHT CLUSTER: 1930-2026 -->
+        <div class="cluster">
+          <div class="event">
+            <div class="dot"></div>
+            <div class="label up">
+              <div class="date">1930</div>
+              <div class="text">Hurgronje examines the Arabic</div>
+            </div>
+          </div>
+          <div class="event">
+            <div class="dot"></div>
+            <div class="label down">
+              <div class="date">1931</div>
+              <div class="text">Miller publishes the gap</div>
+            </div>
+          </div>
+          <div class="event muted">
+            <div class="dot"></div>
+            <div class="label up">
+              <div class="date">2020</div>
+              <div class="text">Crane: secular reading is a re-reading</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="legend">1796 &nbsp;·&nbsp; 1797 &nbsp;·&nbsp; &nbsp;·&nbsp; &nbsp;·&nbsp; &nbsp;·&nbsp; 1930 &nbsp;·&nbsp; 1931 &nbsp;·&nbsp; 2020 &nbsp;·&nbsp; today</div>
+      <div class="legend">History vs Hype</div>
+    </div>
+
+  </div>
+</body>
+</html>

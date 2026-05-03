@@ -7,26 +7,32 @@
 
 ---
 
-## TITLE (APPROVED)
+## TITLE (APPROVED — Updated 2026-03-12)
 
 **Primary Title:**
 ```
+Why Is Haiti So Poor? France Collected for 122 Years
+```
+- **Characters:** 52
+- **VidIQ Score:** 89
+- **title_scorer.py:** 65/B (how_why base + number bonus)
+- **Search keyword match:** "why is haiti so poor" (4,299/mo) — verbatim in title
+- **Rationale:** At 476 subs, search discovery > browse CTR. This title matches the exact query people type. "122 Years" creates curiosity gap.
+
+**Backup Titles (for A/B testing):**
+```
+France vs Haiti. 122 Years of Forced Payments.
+```
+- **VidIQ Score:** 89 (tied)
+- **title_scorer.py:** 85/A (versus pattern)
+- **Use if:** CTR underperforms at 48h. Versus pattern = 4.0% avg CTR. Switch if search positioning isn't working.
+
+```
 Haiti Paid France for 122 Years. Here's Every Receipt.
 ```
-- **Characters:** 54
-- **VidIQ Score:** 92
-- **Channel DNA Alignment:** ✅ APPROVED
-  - Factual, documentary tone
-  - "Every Receipt" = evidence promise (channel differentiator)
-  - No clickbait language
-  - Clear value proposition
-
-**Backup Title (for A/B testing):**
-```
-France Made Haiti Pay for Freedom. The Receipts Are Devastating.
-```
-- **Characters:** 58
-- **Rationale:** Slightly more emotional, still evidence-focused
+- **VidIQ Score:** 92 (previous primary)
+- **title_scorer.py:** 75/B
+- **Use if:** Need evidence-promise framing
 
 ---
 
@@ -102,30 +108,38 @@ Haiti France debt, Haiti independence debt, Haiti reparations, 1825 ordinance, F
 
 ## THUMBNAIL
 
-**APPROVED CONCEPT: Document Reveal**
+**APPROVED CONCEPT (Updated 2026-03-12): Map-Based — per PACKAGING_MANDATE.md**
 
-**Primary Elements:**
-- 1825 Ordinance document filling 60% of frame
-- Red highlight/circle on "150 million francs" text
-- Small France flag in corner (optional)
-- Dark, dramatic lighting (archival documentary feel)
+**Concept A (PRIMARY): Atlantic Extraction Map**
+- Caribbean/Atlantic view: France (top-right) and Haiti (center-left)
+- Bold gold arrows flowing FROM Haiti TO France across the Atlantic
+- Haiti in warm/faded color, France in rich blue
+- No text overlay, no face, no document
+- Clean, high-contrast, geographic
 
-**Why This Works:**
-- Shows actual evidence (channel differentiator)
-- Different from competitor thumbnails (maps, faces, stock poverty footage)
-- Matches title promise ("Every Receipt")
-- Channel data: Document-focused outperforms face-focused 26x for this audience
+**Concept B (BACKUP): Split Comparison Map**
+- Left half: France (large, rich blue, Eiffel Tower silhouette on map)
+- Right half: Haiti (small island, faded/drained color)
+- Dividing line down the middle
+- Scale difference tells the story visually
+
+**Concept C (BACKUP): Document on Map**
+- Caribbean map as background
+- 1825 Ordinance document overlaid at angle
+- Red highlight on "150 million francs"
+- Geographic context + document evidence
+
+**PACKAGING MANDATE compliance:**
+- ✅ Map-based (26x multiplier)
+- ✅ No text overlay (3.3% vs 2.0% CTR)
+- ✅ No face (3.3% vs 1.9% CTR)
+- ✅ Color contrast showing opposing sides
 
 **DO NOT USE:**
 - Stock photos of Haiti poverty
 - Modern politicians
-- Generic map of Haiti
-- Clickbait face expressions
-
-**Alternative Concept (for A/B testing):**
-- Money flow diagram: France ← arrows ← Haiti
-- "122 YEARS" text overlay
-- Document texture background
+- Face-focused thumbnails
+- Document-only (no geographic context)
 
 ---
 
@@ -153,7 +167,7 @@ Haiti France debt, Haiti independence debt, Haiti reparations, 1825 ordinance, F
 
 ## PUBLISHING CHECKLIST
 
-- [ ] Title: "Haiti Paid France for 122 Years. Here's Every Receipt."
+- [ ] Title: "Why Is Haiti So Poor? France Collected for 122 Years"
 - [ ] Thumbnail: Document reveal concept
 - [ ] Description: Copy from above
 - [ ] Tags: Copy from above
@@ -175,7 +189,7 @@ Haiti France debt, Haiti independence debt, Haiti reparations, 1825 ordinance, F
 | 1825 Haiti | 480 | Very Low |
 | France owes Haiti | 720 | Low |
 
-**Strategy:** Target "Haiti France debt" and "1825 Haiti" (low competition, high relevance). Let "Why is Haiti poor" be secondary discovery.
+**Strategy (Updated 2026-03-12):** "Why is Haiti so poor" (4,299/mo) is NOW the primary keyword — it's in the title verbatim. "Haiti France debt" and "Haiti reparations" are secondary. All long-tail variants tested zero volume — demand sits on the root query.
 
 ---
 

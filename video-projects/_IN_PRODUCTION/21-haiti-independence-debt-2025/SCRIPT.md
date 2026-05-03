@@ -20,7 +20,7 @@
 
 **[V.O.]**
 
-This isn't an invoice. It's a ransom note.
+This isn't an invoice. It's a ransom note. And it's the single most important document for understanding why Haiti is the poorest country in the Western Hemisphere.
 
 **[ZOOM: Key French text]**
 
@@ -54,7 +54,7 @@ And France still needed 14 warships to collect it.
 
 **[TALKING HEAD]**
 
-Marlene Daut—professor at the University of Virginia, winner of the Frederick Douglass Book Prize for her work on Haiti—called this "the greatest heist in history."
+Historian Marlene Daut called this "the greatest heist in history."
 
 Not because of the amount. Because of who robbed whom.
 
@@ -80,25 +80,7 @@ Here's how the heist worked.
 
 ---
 
-## STRUCTURE TELEGRAPH - The Score (1:15-1:30)
-
-**[TALKING HEAD]**
-
-Here's the plan.
-
-**The Setup:** How France cornered Haiti with 14 warships and secret instructions.
-
-**The Inside Man:** How Boyer betrayed his own commission to accept the terms.
-
-**The Take:** Step by step, how France designed a system to drain Haiti for over a century.
-
-**The Getaway:** How America took over the scheme in 1914.
-
-**And finally:** Does France owe Haiti billions?
-
----
-
-## ACT 1: THE SETUP (1:30-5:30)
+## ACT 1: THE SETUP (1:15-5:15)
 
 **[ON SCREEN TEXT: "THE SETUP"]**
 

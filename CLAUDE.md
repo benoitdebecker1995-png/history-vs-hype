@@ -27,11 +27,11 @@
 ## Quick Start Commands
 
 **Pre-production:** `/greenlight` (FIRST) → `/research` → `/sources`
-**Production:** `/script` → `/verify` → `/prep` → `/preflight`
+**Production:** `/script` → `/verify` → `/prep` → `/thumbnail`
 **Post-production:** `/publish` → `/fix` → `/engage`
 **Navigation:** `/status` | `/help` | `/next` | `/intel`
-**Newsletter:** `/newsletter` (--convert, --write, --edit, --score, --subjects, --package)
-**Analytics:** `/analyze` | `/deep-analytics` | `/patterns` | `/growth` | `/retitle`
+**Article writing:** `article-writer` agent (CONVERT / WRITE / EDIT / WORKSHOP modes — invoke directly)
+**Analytics:** `/analyze` | `/patterns` | `/growth` | `/retitle`
 
 ---
 
@@ -75,7 +75,7 @@ See: `.claude/FOLDER-STRUCTURE-GUIDE.md`
 
 ## Script Writing
 
-**Authoritative reference:** `.claude/REFERENCE/STYLE-GUIDE.md` — READ BEFORE WRITING ANY SCRIPT.
+**Authoritative reference:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` — READ BEFORE WRITING ANY SCRIPT (PARTS 1-5 script-side).
 
 **Voice:** "Calm Prosecutor" — emotionally low, intellectually high. Evidence-based referee.
 
@@ -137,7 +137,7 @@ See: `tools/PACKAGING_MANDATE.md` | `.claude/REFERENCE/TITLE-GENERATION-PROTOCOL
 3. **ACADEMIC SOURCES ONLY** — university presses, top scholars. Budget UNLIMITED
 4. **REAL QUOTES with page numbers** — not summaries
 5. **Primary sources ON SCREEN** — non-optional
-6. **Read STYLE-GUIDE.md before scripts** — voice, delivery, patterns, checklist
+6. **Read WRITING-VOICE-AND-STYLE.md before scripts** — voice, delivery, patterns, checklist (PARTS 1-5)
 7. **Write for spoken delivery** — contractions, natural phrasing
 8. **Deep causal chains** — explain WHY (consequently, thereby, which meant that)
 9. **Intellectual honesty** — acknowledge what opposing side gets right
@@ -150,9 +150,25 @@ See: `tools/PACKAGING_MANDATE.md` | `.claude/REFERENCE/TITLE-GENERATION-PROTOCOL
 
 ---
 
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues for `benoitdebecker1995-png/history-vs-hype`, accessed via `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default canonical labels: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context layout — `CONTEXT.md` and `docs/adr/` at repo root. See `docs/agents/domain.md`.
+
+---
+
 ## Key References
 
-- **Style:** `.claude/REFERENCE/STYLE-GUIDE.md` (authoritative)
+- **Style:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` (authoritative)
 - **Commands:** `.claude/commands/` | **Agents:** `.claude/agents/`
 - **Reference index:** `.claude/REFERENCE/INDEX.md`
 - **Packaging:** `tools/PACKAGING_MANDATE.md`

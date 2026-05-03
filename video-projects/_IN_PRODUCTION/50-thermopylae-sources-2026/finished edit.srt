@@ -1,0 +1,1268 @@
+1
+00:00:00,116 --> 00:00:02,416
+<b>You've seen or heard this phrase.</b>
+
+2
+00:00:02,883 --> 00:00:03,633
+<b>"Molon labe"</b>
+
+3
+00:00:04,116 --> 00:00:05,300
+<b>Come and take them.</b>
+
+4
+00:00:05,500 --> 00:00:07,633
+<b>Supposedly said by King Leonidas to the</b>
+
+5
+00:00:07,633 --> 00:00:09,916
+<b>Persian emperor Xerxes at Thermopylae.</b>
+
+6
+00:00:10,316 --> 00:00:11,333
+<b>On bumper stickers,</b>
+
+7
+00:00:11,616 --> 00:00:13,000
+<b>rifle grips and t-shirts.</b>
+
+8
+00:00:13,633 --> 00:00:14,599
+<b>One of the most famous</b>
+
+9
+00:00:14,599 --> 00:00:16,216
+<b>quotes in military history.</b>
+
+10
+00:00:16,683 --> 00:00:17,683
+<b>There's just one problem.</b>
+
+11
+00:00:18,083 --> 00:00:19,883
+<b>It doesn't appear anywhere in the</b>
+
+12
+00:00:19,883 --> 00:00:21,400
+<b>earliest account of the battle.</b>
+
+13
+00:00:22,216 --> 00:00:23,166
+<b>Three ancient writers</b>
+
+14
+00:00:23,166 --> 00:00:24,400
+<b>describe Thermopylae.</b>
+
+15
+00:00:24,833 --> 00:00:26,616
+<b>They don't agree on the armies, the</b>
+
+16
+00:00:26,616 --> 00:00:28,683
+<b>ending or who betrayed the Greeks.</b>
+
+17
+00:00:29,783 --> 00:00:32,533
+<b>First though, Herodotus of Halicarnassus.</b>
+
+18
+00:00:33,066 --> 00:00:36,416
+<b>Born around 484 BC, four</b>
+
+19
+00:00:36,416 --> 00:00:37,466
+<b>years after the battle.</b>
+
+20
+00:00:37,900 --> 00:00:38,933
+<b>He wrote his account</b>
+
+21
+00:00:38,933 --> 00:00:40,583
+<b>roughly 40 years later,</b>
+
+22
+00:00:41,083 --> 00:00:42,266
+<b>based on interviews with</b>
+
+23
+00:00:42,266 --> 00:00:43,800
+<b>people who were actually there.</b>
+
+24
+00:00:44,283 --> 00:00:46,416
+<b>By the time he's writing, these veterans</b>
+
+25
+00:00:46,416 --> 00:00:48,466
+<b>are in their 60s and 70s.</b>
+
+26
+00:00:49,199 --> 00:00:50,983
+<b>He's considered the first person to</b>
+
+27
+00:00:50,983 --> 00:00:52,833
+<b>systematically collect evidence and</b>
+
+28
+00:00:53,199 --> 00:00:54,883
+<b>try to write down what actually happened.</b>
+
+29
+00:00:55,666 --> 00:00:57,266
+<b>That's why ancient critics</b>
+
+30
+00:00:57,266 --> 00:00:58,616
+<b>call him the father of history.</b>
+
+31
+00:00:59,516 --> 00:01:01,833
+<b>They also called him the father of lies,</b>
+
+32
+00:01:02,266 --> 00:01:04,800
+<b>because he regularly includes things that</b>
+
+33
+00:01:04,800 --> 00:01:07,083
+<b>are clearly exaggerated or impossible.</b>
+
+34
+00:01:07,666 --> 00:01:08,099
+<b>As Cambridge</b>
+
+35
+00:01:08,099 --> 00:01:10,333
+<b>historian Paul Cartledge put it,</b>
+
+36
+00:01:10,333 --> 00:01:12,616
+<b>"We either write a history of Thermopylae</b>
+
+37
+00:01:12,616 --> 00:01:14,283
+<b>with Herodotus, or we</b>
+
+38
+00:01:14,283 --> 00:01:15,366
+<b>don't write one at all."</b>
+
+39
+00:01:16,349 --> 00:01:18,183
+<b>The Thermopylae section is in book 7.</b>
+
+40
+00:01:18,900 --> 00:01:19,733
+<b>One thing that immediately</b>
+
+41
+00:01:19,733 --> 00:01:21,316
+<b>jumps out are the numbers.</b>
+
+42
+00:01:22,016 --> 00:01:23,933
+<b>Herodotus says that the Persian land army</b>
+
+43
+00:01:23,933 --> 00:01:25,599
+<b>was 1.7 million men.</b>
+
+44
+00:01:25,900 --> 00:01:26,733
+<b>He's not randomly</b>
+
+45
+00:01:26,733 --> 00:01:27,966
+<b>inventing a large number.</b>
+
+46
+00:01:28,666 --> 00:01:29,900
+<b>He's getting the wrong</b>
+
+47
+00:01:29,900 --> 00:01:31,416
+<b>answer very carefully.</b>
+
+48
+00:01:32,366 --> 00:01:35,216
+<b>As historian Hans Delbrück calculated,</b>
+
+49
+00:01:35,483 --> 00:01:36,316
+<b>a column that large</b>
+
+50
+00:01:36,316 --> 00:01:37,916
+<b>would stretch 2,000 miles.</b>
+
+51
+00:01:38,400 --> 00:01:40,766
+<b>The front would reach Greece while the</b>
+
+52
+00:01:40,766 --> 00:01:41,783
+<b>back was still in Iran.</b>
+
+53
+00:01:42,933 --> 00:01:45,016
+<b>Modern historians put the Persian army</b>
+
+54
+00:01:45,016 --> 00:01:48,566
+<b>somewhere between 150 and 300,000,</b>
+
+55
+00:01:48,866 --> 00:01:50,183
+<b>but not 1.7 million.</b>
+
+56
+00:01:50,783 --> 00:01:51,816
+<b>Now the Greeks.</b>
+
+57
+00:01:52,583 --> 00:01:55,183
+<b>Herodotus says about 7,000 held the pass.</b>
+
+58
+00:01:56,183 --> 00:01:56,783
+<b>Not 300.</b>
+
+59
+00:01:57,949 --> 00:02:01,166
+<b>7,000, including 300 Spartan citizens</b>
+
+60
+00:02:01,166 --> 00:02:03,333
+<b>plus allies from Thespiae,</b>
+
+61
+00:02:03,900 --> 00:02:05,316
+<b>Thebes and other cities.</b>
+
+62
+00:02:06,283 --> 00:02:07,416
+<b>And Herodotus doesn't</b>
+
+63
+00:02:07,416 --> 00:02:08,733
+<b>describe a wall of muscle.</b>
+
+64
+00:02:09,199 --> 00:02:11,000
+<b>He describes a real army.</b>
+
+65
+00:02:12,083 --> 00:02:13,283
+<b>Then the Medes rushed</b>
+
+66
+00:02:13,283 --> 00:02:15,383
+<b>forward and charged the Greeks.</b>
+
+67
+00:02:16,250 --> 00:02:18,300
+<b>They fell in vast numbers.</b>
+
+68
+00:02:18,900 --> 00:02:19,733
+<b>Others, however, took</b>
+
+69
+00:02:19,733 --> 00:02:20,800
+<b>the places of the slain</b>
+
+70
+00:02:20,983 --> 00:02:22,883
+<b>and would not be beaten off, though they</b>
+
+71
+00:02:22,883 --> 00:02:24,066
+<b>suffered terrible losses.</b>
+
+72
+00:02:24,916 --> 00:02:27,283
+<b>In this way it became clear to all, and</b>
+
+73
+00:02:27,283 --> 00:02:28,199
+<b>especially to the king,</b>
+
+74
+00:02:28,599 --> 00:02:30,333
+<b>that though he had plenty of combatants,</b>
+
+75
+00:02:30,816 --> 00:02:32,599
+<b>he had but very few warriors.</b>
+
+76
+00:02:33,266 --> 00:02:35,233
+<b>If anything in Herodotus sounds a bit like</b>
+
+77
+00:02:35,233 --> 00:02:37,300
+<b>the movie, this is probably it.</b>
+
+78
+00:02:37,550 --> 00:02:39,366
+<b>Then someone betrayed the force.</b>
+
+79
+00:02:40,166 --> 00:02:41,699
+<b>Ephialtes, the son of</b>
+
+80
+00:02:41,699 --> 00:02:43,316
+<b>Eurydemus, a man of Malis,</b>
+
+81
+00:02:43,666 --> 00:02:44,800
+<b>came to him and was</b>
+
+82
+00:02:44,800 --> 00:02:45,966
+<b>admitted to a conference.</b>
+
+83
+00:02:47,016 --> 00:02:48,633
+<b>Stirred by the hope of receiving a rich</b>
+
+84
+00:02:48,633 --> 00:02:50,233
+<b>reward at the king's hands,</b>
+
+85
+00:02:50,616 --> 00:02:52,199
+<b>he had come to tell him of the pathway</b>
+
+86
+00:02:52,616 --> 00:02:53,533
+<b>which led across the</b>
+
+87
+00:02:53,533 --> 00:02:54,783
+<b>mountain to Thermopylae.</b>
+
+88
+00:02:55,466 --> 00:02:56,633
+<b>The Persians used that</b>
+
+89
+00:02:56,633 --> 00:02:58,183
+<b>path to encircle the Greeks.</b>
+
+90
+00:02:59,199 --> 00:03:00,566
+<b>When Leonidas found out the</b>
+
+91
+00:03:00,566 --> 00:03:01,699
+<b>flanking force was coming,</b>
+
+92
+00:03:02,199 --> 00:03:04,216
+<b>he told most of the allies to retreat.</b>
+
+93
+00:03:05,083 --> 00:03:06,433
+<b>He stayed behind with men</b>
+
+94
+00:03:06,433 --> 00:03:08,016
+<b>he'd picked specifically</b>
+
+95
+00:03:08,099 --> 00:03:09,400
+<b>because they had living sons.</b>
+
+96
+00:03:10,199 --> 00:03:12,400
+<b>He knew this was a one-way mission.</b>
+
+97
+00:03:13,166 --> 00:03:14,983
+<b>Their job was to cover the retreat.</b>
+
+98
+00:03:15,699 --> 00:03:16,383
+<b>Here they defended</b>
+
+99
+00:03:16,383 --> 00:03:18,183
+<b>themselves to the last.</b>
+
+100
+00:03:18,716 --> 00:03:20,916
+<b>Such as still had swords using them</b>
+
+101
+00:03:21,199 --> 00:03:22,266
+<b>and the others resisting</b>
+
+102
+00:03:22,266 --> 00:03:23,699
+<b>with their hands and teeth.</b>
+
+103
+00:03:24,849 --> 00:03:25,466
+<b>If you know about</b>
+
+104
+00:03:25,466 --> 00:03:27,416
+<b>Thermopylae from popular media,</b>
+
+105
+00:03:27,933 --> 00:03:29,433
+<b>that's this version.</b>
+
+106
+00:03:30,033 --> 00:03:32,466
+<b>One source, written 40 years after the</b>
+
+107
+00:03:32,466 --> 00:03:34,833
+<b>fact, based on oral testimony.</b>
+
+108
+00:03:35,383 --> 00:03:38,216
+<b>Roughly 400 years after the battle,</b>
+
+109
+00:03:38,216 --> 00:03:40,166
+<b>Diodorus Siculus wrote his version.</b>
+
+110
+00:03:40,716 --> 00:03:42,033
+<b>He drew heavily from a</b>
+
+111
+00:03:42,033 --> 00:03:44,283
+<b>lost historian named Ephorus,</b>
+
+112
+00:03:44,566 --> 00:03:45,866
+<b>who worked about 150</b>
+
+113
+00:03:45,866 --> 00:03:47,866
+<b>years after Thermopylae.</b>
+
+114
+00:03:48,266 --> 00:03:50,133
+<b>Ephorus' history is completely lost.</b>
+
+115
+00:03:50,583 --> 00:03:53,066
+<b>We only know what he said because</b>
+
+116
+00:03:53,066 --> 00:03:54,166
+<b>Diodorus copied him.</b>
+
+117
+00:03:54,383 --> 00:03:56,800
+<b>And Ephorus, through Diodorus, tells</b>
+
+118
+00:03:56,800 --> 00:03:57,866
+<b>the story differently.</b>
+
+119
+00:03:58,666 --> 00:04:01,000
+<b>His Persian army is 800,000.</b>
+
+120
+00:04:01,300 --> 00:04:03,716
+<b>His Spartan force, Leonidas announced</b>
+
+121
+00:04:03,716 --> 00:04:06,066
+<b>that only 1,000 men should follow him.</b>
+
+122
+00:04:06,516 --> 00:04:07,966
+<b>There were then, of the</b>
+
+123
+00:04:07,966 --> 00:04:10,066
+<b>Lacedaemonians, 1,000.</b>
+
+124
+00:04:10,483 --> 00:04:11,866
+<b>And with them 300</b>
+
+125
+00:04:11,866 --> 00:04:14,833
+<b>Spartiates, 1,000 Lacedaemonians,</b>
+
+126
+00:04:15,416 --> 00:04:18,166
+<b>300 full citizens, plus 700 others.</b>
+
+127
+00:04:18,683 --> 00:04:21,400
+<b>Both sources agree on 300 Spartiates.</b>
+
+128
+00:04:22,066 --> 00:04:24,500
+<b>They disagree on how many came with them.</b>
+
+129
+00:04:25,000 --> 00:04:27,083
+<b>The betrayer was not named specifically.</b>
+
+130
+00:04:27,383 --> 00:04:28,833
+<b>There came to the king a certain</b>
+
+131
+00:04:28,833 --> 00:04:31,083
+<b>Trachinian, a native of the region.</b>
+
+132
+00:04:32,099 --> 00:04:33,800
+<b>A nameless local, not</b>
+
+133
+00:04:33,800 --> 00:04:35,783
+<b>Herodotus's named traitor.</b>
+
+134
+00:04:36,166 --> 00:04:36,883
+<b>And the ending?</b>
+
+135
+00:04:37,166 --> 00:04:38,583
+<b>The other one says the Greeks</b>
+
+136
+00:04:38,583 --> 00:04:40,366
+<b>didn't die defending a hill.</b>
+
+137
+00:04:41,333 --> 00:04:42,216
+<b>They launched a</b>
+
+138
+00:04:42,216 --> 00:04:43,966
+<b>night raid on the Persian camp.</b>
+
+139
+00:04:45,083 --> 00:04:47,083
+<b>The Greeks broke into the pavilion and</b>
+
+140
+00:04:47,083 --> 00:04:48,400
+<b>slew almost to a man,</b>
+
+141
+00:04:48,883 --> 00:04:50,183
+<b>all whom they caught there.</b>
+
+142
+00:04:50,516 --> 00:04:52,683
+<b>So long as it was night, they wandered</b>
+
+143
+00:04:52,683 --> 00:04:53,616
+<b>throughout the entire</b>
+
+144
+00:04:53,616 --> 00:04:55,033
+<b>camp seeking Xerxes.</b>
+
+145
+00:04:56,433 --> 00:04:59,716
+<b>a suicide assassination attempt not found</b>
+
+146
+00:04:59,716 --> 00:05:01,266
+<b>in Herodotus at all.</b>
+
+147
+00:05:02,083 --> 00:05:03,616
+<b>Modern historians call it almost</b>
+
+148
+00:05:03,616 --> 00:05:04,800
+<b>certainly fictional,</b>
+
+149
+00:05:05,716 --> 00:05:07,616
+<b>probably an invention from Ephorus,</b>
+
+150
+00:05:08,083 --> 00:05:10,683
+<b>adding drama 150 years later.</b>
+
+151
+00:05:11,349 --> 00:05:13,383
+<b>Our third source writes closer to the</b>
+
+152
+00:05:13,383 --> 00:05:14,183
+<b>battle and should</b>
+
+153
+00:05:14,183 --> 00:05:15,466
+<b>therefore be more reliable.</b>
+
+154
+00:05:16,400 --> 00:05:17,483
+<b>Ctesias of Cnidus,</b>
+
+155
+00:05:18,116 --> 00:05:20,166
+<b>a Greek physician working at the Persian</b>
+
+156
+00:05:20,166 --> 00:05:22,183
+<b>royal court for 17 years,</b>
+
+157
+00:05:22,733 --> 00:05:24,949
+<b>writing about 80 years after the battle.</b>
+
+158
+00:05:25,933 --> 00:05:27,166
+<b>He called Herodotus a</b>
+
+159
+00:05:27,166 --> 00:05:29,550
+<b>liar and a writer of fables.</b>
+
+160
+00:05:30,116 --> 00:05:31,266
+<b>He claimed access to</b>
+
+161
+00:05:31,266 --> 00:05:32,466
+<b>Persian royal records.</b>
+
+162
+00:05:33,066 --> 00:05:34,849
+<b>We don't even have his original text.</b>
+
+163
+00:05:35,949 --> 00:05:36,816
+<b>Just like Diodorus,</b>
+
+164
+00:05:37,216 --> 00:05:38,383
+<b>what survives is a summary,</b>
+
+165
+00:05:38,949 --> 00:05:40,066
+<b>this time by Photius,</b>
+
+166
+00:05:40,483 --> 00:05:41,300
+<b>a church father</b>
+
+167
+00:05:41,300 --> 00:05:43,750
+<b>writing 1,300 years later who</b>
+
+168
+00:05:43,949 --> 00:05:46,166
+<b>preserved fragments of ancient work that</b>
+
+169
+00:05:46,166 --> 00:05:47,800
+<b>would otherwise have been lost entirely.</b>
+
+170
+00:05:48,266 --> 00:05:50,516
+<b>The great Persian horde was cut down</b>
+
+171
+00:05:50,516 --> 00:05:51,766
+<b>while only two or</b>
+
+172
+00:05:51,766 --> 00:05:53,083
+<b>three Spartans were killed.</b>
+
+173
+00:05:53,833 --> 00:05:56,316
+<b>Then Xerxes ordered them to attack with</b>
+
+174
+00:05:56,316 --> 00:05:59,016
+<b>20,000 men and these were defeated too.</b>
+
+175
+00:05:59,366 --> 00:06:00,266
+<b>Two or three dead</b>
+
+176
+00:06:00,266 --> 00:06:03,000
+<b>Spartans versus 20,000 Persians.</b>
+
+177
+00:06:03,766 --> 00:06:05,400
+<b>These are fantasy numbers.</b>
+
+178
+00:06:05,783 --> 00:06:08,216
+<b>But Ctesias matters for one reason.</b>
+
+179
+00:06:08,800 --> 00:06:10,349
+<b>Ephialtes, the traitor,</b>
+
+180
+00:06:10,800 --> 00:06:12,166
+<b>the man who personalized</b>
+
+181
+00:06:12,166 --> 00:06:13,500
+<b>the betrayal at Thermopylae,</b>
+
+182
+00:06:13,866 --> 00:06:15,066
+<b>doesn't appear by name.</b>
+
+183
+00:06:15,733 --> 00:06:17,900
+<b>Ctesias names different guides entirely,</b>
+
+184
+00:06:18,366 --> 00:06:19,683
+<b>the leaders of the Trachinians.</b>
+
+185
+00:06:20,416 --> 00:06:22,699
+<b>The central plot point of Herodotus'</b>
+
+186
+00:06:22,699 --> 00:06:23,866
+<b>version is completely</b>
+
+187
+00:06:23,866 --> 00:06:25,216
+<b>absent from the account</b>
+
+188
+00:06:25,216 --> 00:06:26,983
+<b>written closest to the Persian court.</b>
+
+189
+00:06:27,616 --> 00:06:28,783
+<b>Three accounts and</b>
+
+190
+00:06:28,783 --> 00:06:29,983
+<b>three different stories.</b>
+
+191
+00:06:30,583 --> 00:06:31,083
+<b>And I haven't</b>
+
+192
+00:06:31,083 --> 00:06:32,449
+<b>mentioned the biggest problem.</b>
+
+193
+00:06:32,849 --> 00:06:34,349
+<b>All three accounts are Greek.</b>
+
+194
+00:06:35,016 --> 00:06:36,816
+<b>The Persian Empire, the</b>
+
+195
+00:06:36,816 --> 00:06:38,816
+<b>largest empire on earth at the time,</b>
+
+196
+00:06:39,283 --> 00:06:40,266
+<b>didn't leave a single</b>
+
+197
+00:06:40,266 --> 00:06:41,883
+<b>narrative about Thermopylae.</b>
+
+198
+00:06:42,166 --> 00:06:42,966
+<b>Paul Cartledge,</b>
+
+199
+00:06:43,400 --> 00:06:45,083
+<b>Achaemenid Persia had scribes,</b>
+
+200
+00:06:45,383 --> 00:06:47,449
+<b>many of them, but not one historian.</b>
+
+201
+00:06:48,099 --> 00:06:50,566
+<b>Persian inscriptions recorded victories.</b>
+
+202
+00:06:51,166 --> 00:06:52,466
+<b>They didn't record defeats.</b>
+
+203
+00:06:53,366 --> 00:06:54,566
+<b>Every number we cite,</b>
+
+204
+00:06:54,983 --> 00:06:56,616
+<b>every Persian quote,</b>
+
+205
+00:06:57,199 --> 00:06:58,916
+<b>all of it comes from Greek sources.</b>
+
+206
+00:06:59,466 --> 00:07:00,983
+<b>Which brings us back to the quotes.</b>
+
+207
+00:07:01,716 --> 00:07:04,316
+<b>Molon labe was first recorded by Plutarch</b>
+
+208
+00:07:04,316 --> 00:07:06,483
+<b>600 years after the battle,</b>
+
+209
+00:07:07,000 --> 00:07:08,050
+<b>not in Herodotus.</b>
+
+210
+00:07:08,966 --> 00:07:11,483
+<b>Tonight we dine in Hades 430</b>
+
+211
+00:07:11,483 --> 00:07:14,716
+<b>years after, not in Herodotus.</b>
+
+212
+00:07:15,000 --> 00:07:17,150
+<b>The one quote with actual evidence.</b>
+
+213
+00:07:17,466 --> 00:07:19,816
+<b>The famous Spartan answer to the remark.</b>
+
+214
+00:07:20,150 --> 00:07:23,050
+<b>Our arrows will blot out the sun.</b>
+
+215
+00:07:23,300 --> 00:07:24,550
+<b>Then we will fight in the shade.</b>
+
+216
+00:07:25,933 --> 00:07:27,650
+<b>That is in Herodotus.</b>
+
+217
+00:07:28,183 --> 00:07:29,266
+<b>He attributes it to a</b>
+
+218
+00:07:29,266 --> 00:07:31,316
+<b>soldier named Dienekes,</b>
+
+219
+00:07:31,566 --> 00:07:32,783
+<b>whom he calls the</b>
+
+220
+00:07:32,783 --> 00:07:34,250
+<b>bravest of all the Spartans.</b>
+
+221
+00:07:34,800 --> 00:07:36,666
+<b>And the quote with the most evidence,</b>
+
+222
+00:07:37,449 --> 00:07:40,116
+<b>an inscription in physical stone recorded</b>
+
+223
+00:07:40,116 --> 00:07:41,683
+<b>by Herodotus at the site.</b>
+
+224
+00:07:42,500 --> 00:07:45,216
+<b>"Go tell the Spartans, passerby,</b>
+
+225
+00:07:46,599 --> 00:07:51,066
+<b>that here by Spartan law we lie."</b>
+
+226
+00:07:52,233 --> 00:07:53,900
+<b>Carved within years of the battle,</b>
+
+227
+00:07:54,266 --> 00:07:55,116
+<b>commissioned by the</b>
+
+228
+00:07:55,116 --> 00:07:57,150
+<b>Amphictyonic League of Delphi,</b>
+
+229
+00:07:57,150 --> 00:07:58,183
+<b>a political body</b>
+
+230
+00:07:58,183 --> 00:07:59,966
+<b>representing Greek city states,</b>
+
+231
+00:08:00,416 --> 00:08:01,949
+<b>the closest thing to a</b>
+
+232
+00:08:01,949 --> 00:08:03,349
+<b>primary source we have.</b>
+
+233
+00:08:04,099 --> 00:08:04,966
+<b>And it frames their</b>
+
+234
+00:08:04,966 --> 00:08:07,216
+<b>death as obedience to Sparta,</b>
+
+235
+00:08:07,283 --> 00:08:09,316
+<b>not as a strategic rearguard,</b>
+
+236
+00:08:09,316 --> 00:08:11,266
+<b>not as a panhellenic defense.</b>
+
+237
+00:08:12,133 --> 00:08:14,366
+<b>A military defeat repackaged</b>
+
+238
+00:08:14,366 --> 00:08:16,366
+<b>as Spartan honor and ferocity.</b>
+
+239
+00:08:17,216 --> 00:08:19,199
+<b>The ancients were already building a</b>
+
+240
+00:08:19,199 --> 00:08:20,666
+<b>mythos around this event.</b>
+
+241
+00:08:21,266 --> 00:08:23,016
+<b>The same way we still do today.</b>
+
+242
+00:08:23,466 --> 00:08:24,166
+<b>There's a companion</b>
+
+243
+00:08:24,166 --> 00:08:25,483
+<b>inscription at the site.</b>
+
+244
+00:08:26,149 --> 00:08:27,283
+<b>4,000 from the</b>
+
+245
+00:08:27,283 --> 00:08:29,983
+<b>Peloponnese once fought 3 million.</b>
+
+246
+00:08:31,016 --> 00:08:32,850
+<b>4,000 Greeks against</b>
+
+247
+00:08:32,850 --> 00:08:33,983
+<b>an overwhelming horde.</b>
+
+248
+00:08:34,583 --> 00:08:36,416
+<b>That's not entirely a neutral record.</b>
+
+249
+00:08:36,699 --> 00:08:39,350
+<b>That's an us versus them story carved in</b>
+
+250
+00:08:39,350 --> 00:08:41,100
+<b>stone within years of the battle.</b>
+
+251
+00:08:41,966 --> 00:08:43,800
+<b>If this kind of analysis is useful to</b>
+
+252
+00:08:43,800 --> 00:08:45,699
+<b>you, please subscribe.</b>
+
+253
+00:08:46,683 --> 00:08:47,683
+<b>One last thing.</b>
+
+254
+00:08:48,566 --> 00:08:50,699
+<b>700 Thespians stayed at the</b>
+
+255
+00:08:50,699 --> 00:08:52,616
+<b>pass alongside the 300 Spartans.</b>
+
+256
+00:08:53,500 --> 00:08:55,483
+<b>They also fought to the last man.</b>
+
+257
+00:08:56,100 --> 00:08:57,750
+<b>The following year at Plataea,</b>
+
+258
+00:08:58,283 --> 00:09:00,483
+<b>Herodotus records that 1,800</b>
+
+259
+00:09:00,483 --> 00:09:02,266
+<b>Thespians showed up to fight,</b>
+
+260
+00:09:03,216 --> 00:09:05,250
+<b>but not wearing armor.</b>
+
+261
+00:09:06,216 --> 00:09:07,366
+<b>The city had more men.</b>
+
+262
+00:09:07,783 --> 00:09:08,699
+<b>They just didn't have</b>
+
+263
+00:09:08,699 --> 00:09:10,000
+<b>hoplite equipment anymore.</b>
+
+264
+00:09:10,816 --> 00:09:13,850
+<b>The 700 who died at Thermopylae had been</b>
+
+265
+00:09:13,850 --> 00:09:15,666
+<b>their entire armored force.</b>
+
+266
+00:09:16,166 --> 00:09:18,183
+<b>Herodotus names several individual</b>
+
+267
+00:09:18,183 --> 00:09:19,816
+<b>Spartans for their bravery.</b>
+
+268
+00:09:20,566 --> 00:09:21,399
+<b>Among the 700</b>
+
+269
+00:09:21,399 --> 00:09:23,616
+<b>Thespians, he only names one.</b>
+
+270
+00:09:24,383 --> 00:09:26,466
+<b>Dithyrambus, son of Harmatides.</b>
+
+271
+00:09:26,883 --> 00:09:28,050
+<b>There is a monument to</b>
+
+272
+00:09:28,050 --> 00:09:29,683
+<b>the Spartans at Thermopylae,</b>
+
+273
+00:09:30,183 --> 00:09:31,949
+<b>and there is one for the Thespians too,</b>
+
+274
+00:09:32,466 --> 00:09:34,550
+<b>but it wasn't unveiled until 1997.</b>
+
+275
+00:09:35,699 --> 00:09:38,116
+<b>It depicts Eros, the</b>
+
+276
+00:09:38,116 --> 00:09:40,283
+<b>god Thespiae was famous for,</b>
+
+277
+00:09:40,633 --> 00:09:42,266
+<b>with a broken wing</b>
+
+278
+00:09:42,266 --> 00:09:43,899
+<b>for voluntary sacrifice,</b>
+
+279
+00:09:44,316 --> 00:09:45,550
+<b>and a missing head for</b>
+
+280
+00:09:45,550 --> 00:09:46,683
+<b>their anonymous death.</b>
+
+281
+00:09:47,616 --> 00:09:49,366
+<b>The front reads "In</b>
+
+282
+00:09:49,366 --> 00:09:51,050
+<b>memory of the 700 Thespians".</b>
+
+283
+00:09:52,350 --> 00:09:54,616
+<b>The epitaph says the Spartans died</b>
+
+284
+00:09:54,616 --> 00:09:56,166
+<b>obedient to their orders.</b>
+
+285
+00:09:57,366 --> 00:09:59,600
+<b>The Thespians, Herodotus</b>
+
+286
+00:09:59,600 --> 00:10:01,550
+<b>says they refused to leave.</b>
+
+287
+00:10:02,116 --> 00:10:04,966
+<b>We remember the 300 from this battle.</b>
+
+288
+00:10:05,300 --> 00:10:08,000
+<b>In my opinion, these Thespians deserve the</b>
+
+289
+00:10:08,000 --> 00:10:08,616
+<b>same amount of</b>
+
+290
+00:10:08,616 --> 00:10:10,500
+<b>romanticization that Spartans get.</b>
+
+291
+00:10:10,816 --> 00:10:11,449
+<b>The fact that we</b>
+
+292
+00:10:11,449 --> 00:10:13,883
+<b>glorified the 300 Spartans,</b>
+
+293
+00:10:14,116 --> 00:10:15,816
+<b>but seem to forget about the</b>
+
+294
+00:10:15,816 --> 00:10:18,016
+<b>Thespians, is not modern bias.</b>
+
+295
+00:10:18,500 --> 00:10:20,083
+<b>The ancient sources were already</b>
+
+296
+00:10:20,083 --> 00:10:22,216
+<b>romanticizing Spartans' society.</b>
+
+297
+00:10:23,283 --> 00:10:25,083
+<b>So what can we actually say happened?</b>
+
+298
+00:10:26,016 --> 00:10:28,050
+<b>All three sources agree on the basics.</b>
+
+299
+00:10:28,716 --> 00:10:30,716
+<b>A massive Persian army invaded Greece.</b>
+
+300
+00:10:31,466 --> 00:10:33,983
+<b>A Greek coalition force marched out to</b>
+
+301
+00:10:33,983 --> 00:10:35,316
+<b>hold them at a narrow pass.</b>
+
+302
+00:10:36,183 --> 00:10:38,966
+<b>And at the very end, Spartans and</b>
+
+303
+00:10:38,966 --> 00:10:40,899
+<b>Thespians stayed behind to</b>
+
+304
+00:10:40,899 --> 00:10:42,183
+<b>hold up the Persian army.</b>
+
+305
+00:10:42,466 --> 00:10:44,983
+<b>The flanking path, the betrayer, the</b>
+
+306
+00:10:44,983 --> 00:10:46,583
+<b>ending, all of that</b>
+
+307
+00:10:46,583 --> 00:10:48,216
+<b>depends on which source you read.</b>
+
+308
+00:10:48,716 --> 00:10:49,783
+<b>Then the Persian side</b>
+
+309
+00:10:49,783 --> 00:10:51,350
+<b>left us nothing at all.</b>
+
+310
+00:10:52,250 --> 00:10:53,083
+<b>That's not a flaw,</b>
+
+311
+00:10:53,350 --> 00:10:54,916
+<b>that's how history works.</b>
+
+312
+00:10:55,649 --> 00:10:58,149
+<b>Three witnesses who disagree, an ancient</b>
+
+313
+00:10:58,149 --> 00:10:59,800
+<b>quote on modern bumper stickers</b>
+
+314
+00:10:59,949 --> 00:11:00,850
+<b>that doesn't appear</b>
+
+315
+00:11:00,850 --> 00:11:01,983
+<b>in the earliest source.</b>
+
+316
+00:11:02,683 --> 00:11:05,949
+<b>And your job, the historian's job, is to</b>
+
+317
+00:11:05,949 --> 00:11:07,899
+<b>figure out what survives the comparison.</b>
+

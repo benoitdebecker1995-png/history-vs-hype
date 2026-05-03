@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>English vs Arabic — side by side</title>
+<link rel="stylesheet" href="_shared.css">
+<style>
+  body { background: #0E0C0A; }
+
+  .split-frame {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    background: #0E0C0A;
+  }
+
+  .panel {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 60px;
+  }
+
+  .panel img {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.5));
+  }
+
+  /* Fallback placeholder when image is missing */
+  .placeholder {
+    width: 80%;
+    height: 80%;
+    border: 1px dashed #5A4F3F;
+    background: #1A1612;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6F6354;
+    line-height: 1.6;
+  }
+
+  .seam {
+    position: absolute;
+    top: 80px;
+    bottom: 80px;
+    left: 50%;
+    width: 1px;
+    background: #3A322A;
+    transform: translateX(-0.5px);
+  }
+
+  .panel-label {
+    position: absolute;
+    top: 80px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #A89882;
+  }
+  .panel-label.left { left: 100px; }
+  .panel-label.right { right: 100px; text-align: right; }
+
+  .panel-caption {
+    position: absolute;
+    bottom: 80px;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #B8A88E;
+    line-height: 1.4;
+    max-width: 380px;
+  }
+  .panel-caption.left { left: 100px; }
+  .panel-caption.right { right: 100px; text-align: right; }
+
+  .center-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #14110F;
+    border: 1px solid #5A4F3F;
+    padding: 24px 56px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #F4EDE0;
+    z-index: 10;
+    /* To use the clean version (no overlay), comment out the next line */
+    display: block;
+  }
+
+  .center-overlay .accent {
+    color: #E8D9A8;
+  }
+
+  .wordmark {
+    bottom: 40px;
+    right: 60px;
+  }
+</style>
+</head>
+<body>
+  <div class="split-frame">
+
+    <div class="panel">
+      <span class="panel-label left">English &mdash; Senate-ratified text</span>
+      <!-- SWAP THIS IMG SRC for the real HathiTrust Hunter Miller vol. 2 scan of the English Article 11 page -->
+      <!-- File path example: <img src="../_research/documents/scans/miller-vol2-english-article-11.jpg"> -->
+      <div class="placeholder">
+        Drop English Article 11 scan here<br>
+        <span style="font-size:13px;color:#5A4F3F;">(HathiTrust Hunter Miller Vol. 2, Tripoli section)</span>
+      </div>
+      <div class="panel-caption left">
+        Article 11, Treaty of Tripoli<br>
+        Ratified Wed, June 7, 1797
+      </div>
+    </div>
+
+    <div class="seam"></div>
+
+    <div class="panel">
+      <span class="panel-label right">Arabic &mdash; opposite that article</span>
+      <!-- SWAP THIS IMG SRC for the real HathiTrust Hunter Miller vol. 2 scan of the Arabic facsimile page -->
+      <!-- File path example: <img src="../_research/documents/scans/miller-vol2-arabic-letter-page.jpg"> -->
+      <div class="placeholder">
+        Drop Arabic manuscript scan here<br>
+        <span style="font-size:13px;color:#5A4F3F;">(HathiTrust Hunter Miller Vol. 2, Tripoli section &mdash; Arabic facsimile)</span>
+      </div>
+      <div class="panel-caption right">
+        Letter from Hassan Pasha of Algiers<br>
+        to Yussuf Pasha of Tripoli
+      </div>
+    </div>
+
+    <div class="center-overlay">
+      Missing <span class="accent">in Arabic</span>
+    </div>
+
+  </div>
+
+  <div class="wordmark">History vs Hype</div>
+</body>
+</html>

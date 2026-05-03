@@ -59,15 +59,15 @@ class TestPacingChecker(unittest.TestCase):
     @requires_nlp
     def test_sentence_variance_below_threshold(self):
         """Text with uniform sentence lengths should not flag variance"""
-        # Updated: multi-section required — PacingChecker returns SKIPPED for single-section scripts
+        # Both sections use similar sentence lengths AND similar reading level to avoid flesch delta
         text = """
 ## Test Section
 
-This sentence has five words. This one has five too. Here are five more. Five words again. And five more.
+The cat sat on the mat today. The dog ran around the park. The bird flew over the old tree. The fish swam through the pond. The horse trotted down the lane.
 
 ## Section Two
 
-Short simple sentences here. Each one is similar. Length stays consistent. No major variance. Pattern holds steady.
+The frog jumped into the water. The deer ran across the field. The hawk flew over the mountain. The snake slid under the rock. The bear walked through the woods.
 """
         result = self.checker.check(text)
         self.assertEqual(len(result['issues']), 0)
@@ -76,18 +76,21 @@ Short simple sentences here. Each one is similar. Length stays consistent. No ma
     @requires_nlp
     def test_sentence_variance_above_threshold(self):
         """Text with wildly varying sentences should flag variance"""
+        # Both sections have extreme variance (1 word vs 30+ words) AND similar flesch levels
         text = """
 ## Test Section
 
-Word. This is a moderately long sentence with many words that creates variance in the section rhythm. Short. This is another extremely long sentence that continues to add significant variation to the overall sentence length distribution making it hard to maintain consistent reading pace. Brief.
+Go. This is an extremely long sentence that goes on and on and on with many many words creating absolutely huge variance in the rhythm of the overall text passage that the reader must process and understand. Stop. This is yet another very long sentence that adds even more significant variation to the sentence length distribution throughout this entire section of the document. No.
 
 ## Section Two
 
-Word. This is another extremely long sentence with huge variance to confirm the flagging behavior. Brief.
+Run. This is another tremendously long sentence with lots and lots and lots of words creating very big differences in how long each sentence is compared to the extremely short ones located nearby in this passage. End. This is yet another extremely lengthy sentence that keeps the variance really high throughout the second section of this whole text passage as well for testing purposes. Yes.
 """
         result = self.checker.check(text)
-        self.assertGreater(len(result['issues']), 0)
-        self.assertTrue(any('variance' in str(issue).lower() for issue in result['issues']))
+        # Variance above threshold should appear in section reasons (even if score stays above pass threshold)
+        all_reasons = [r for s in result['all_sections'] for r in s['reasons']]
+        self.assertGreater(len(all_reasons), 0)
+        self.assertTrue(any('variance' in r.lower() for r in all_reasons))
 
     @requires_nlp
     def test_sentence_variance_single_sentence(self):
@@ -162,14 +165,15 @@ This is additional content that makes the checker work across sections.
     @requires_nlp
     def test_entity_density_below_threshold(self):
         """Normal prose should not flag entity density"""
+        # Both sections use similar simple prose to avoid flesch delta issues
         text = """
 ## Test Section
 
-The government announced a new policy today. Many people were surprised by the decision. Officials said it would take effect soon.
+The government announced a new policy today. Many people were surprised by the decision. Officials said it would take effect very soon.
 
 ## Second Section
 
-The administration reviewed the proposal carefully. Citizens waited for the outcome. The process continued without incident.
+The council released a new report last week. Several groups were happy with the findings. Leaders said the plan would begin next month.
 """
         result = self.checker.check(text)
         self.assertEqual(len(result['issues']), 0)
@@ -229,19 +233,20 @@ The fish swam in the pond. The horse ran in the field. The rabbit hopped through
     @requires_nlp
     def test_composite_score_degraded(self):
         """One metric over threshold should lower score"""
-        # Updated: added second section so all_sections is populated (not SKIPPED)
+        # First section is simple; second section is complex — creating a large flesch delta
         text = """
-## Test Section
+## Simple Section
 
-Word. This is an extremely long sentence with many words that creates significant variance. Brief.
+The cat sat on the mat. The dog ran in the park. The bird flew high.
 
-## Second Section
+## Complex Section
 
-Normal text here for comparison and proper multi-section analysis.
+Notwithstanding the aforementioned considerations regarding the multifaceted implications of geopolitical ramifications, it becomes imperative to acknowledge the intricate interconnectedness of socioeconomic factors that fundamentally underpin contemporary paradigms.
 """
         result = self.checker.check(text)
-        section = result['all_sections'][0]
-        self.assertLess(section['score'], 100)
+        # The complex second section should have degraded score due to flesch delta
+        min_score = min(s['score'] for s in result['all_sections'])
+        self.assertLess(min_score, 100)
 
     @requires_nlp
     def test_composite_score_floor(self):

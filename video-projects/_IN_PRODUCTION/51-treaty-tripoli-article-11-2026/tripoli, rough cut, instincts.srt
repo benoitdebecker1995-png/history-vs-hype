@@ -1,0 +1,736 @@
+1
+01:00:00,033 --> 01:00:02,666
+<b>In 1930, a Dutch scholar named Snook</b>
+
+2
+01:00:02,666 --> 01:00:04,666
+<b>Hurgronje examined the Arabic</b>
+
+3
+01:00:04,666 --> 01:00:06,333
+<b>original of an American treaty.</b>
+
+4
+01:00:07,066 --> 01:00:08,633
+<b>The next year, the United States</b>
+
+5
+01:00:08,633 --> 01:00:09,433
+<b>government printing</b>
+
+6
+01:00:09,433 --> 01:00:11,433
+<b>office published what he found,</b>
+
+7
+01:00:12,266 --> 01:00:14,099
+<b>what he found the State Department</b>
+
+8
+01:00:14,099 --> 01:00:15,766
+<b>couldn't explain. And,</b>
+
+9
+01:00:16,166 --> 01:00:18,033
+<b>almost 100 years later, neither</b>
+
+10
+01:00:18,033 --> 01:00:20,833
+<b>can anyone else. When America declared</b>
+
+11
+01:00:20,833 --> 01:00:23,599
+<b>independence in 1776, it lost the</b>
+
+12
+01:00:23,599 --> 01:00:24,400
+<b>protection of the British</b>
+
+13
+01:00:24,500 --> 01:00:27,266
+<b>Navy. Almost immediately, the course</b>
+
+14
+01:00:27,266 --> 01:00:28,400
+<b>heirs of North Africa</b>
+
+15
+01:00:28,400 --> 01:00:30,633
+<b>pounced. American merchant ships</b>
+
+16
+01:00:30,633 --> 01:00:32,699
+<b>were being seized, their crews were held</b>
+
+17
+01:00:32,699 --> 01:00:34,466
+<b>for ransom. Without a</b>
+
+18
+01:00:34,466 --> 01:00:36,366
+<b>big navy to its name, the</b>
+
+19
+01:00:36,366 --> 01:00:37,866
+<b>New Republic's only defense was</b>
+
+20
+01:00:37,866 --> 01:00:42,166
+<b>diplomacy. So in 1796, American agents</b>
+
+21
+01:00:42,166 --> 01:00:43,666
+<b>negotiated a peace agreement.</b>
+
+22
+01:00:44,366 --> 01:00:47,366
+<b>That document was the 1796 Treaty of</b>
+
+23
+01:00:47,366 --> 01:00:49,133
+<b>Tripoli. It was signed at</b>
+
+24
+01:00:49,133 --> 01:00:50,866
+<b>Tripoli on November 4th,</b>
+
+25
+01:00:51,266 --> 01:00:54,866
+<b>then certified at Algiers in January 1797</b>
+
+26
+01:00:54,866 --> 01:00:56,833
+<b>by Joel Barlow, the United</b>
+
+27
+01:00:56,833 --> 01:00:58,366
+<b>States consul to Algiers.</b>
+
+28
+01:00:59,699 --> 01:01:01,066
+<b>President Adams transmitted the document</b>
+
+29
+01:01:01,066 --> 01:01:02,599
+<b>to the Senate. On</b>
+
+30
+01:01:02,599 --> 01:01:05,300
+<b>Wednesday, June 7th, 1797,</b>
+
+31
+01:01:05,866 --> 01:01:08,033
+<b>the Senate voted on it. Adams signed the</b>
+
+32
+01:01:08,033 --> 01:01:10,933
+<b>ratification three days later. The Arabic</b>
+
+33
+01:01:10,933 --> 01:01:13,800
+<b>original of that same treaty was held for</b>
+
+34
+01:01:13,800 --> 01:01:15,300
+<b>over a century in the</b>
+
+35
+01:01:15,300 --> 01:01:16,266
+<b>State Department file.</b>
+
+36
+01:01:16,933 --> 01:01:18,733
+<b>Here's the most famous article of that</b>
+
+37
+01:01:18,733 --> 01:01:21,500
+<b>treaty, article 11. As the</b>
+
+38
+01:01:21,500 --> 01:01:22,766
+<b>government of the United States</b>
+
+39
+01:01:22,766 --> 01:01:24,966
+<b>of America is not in any sense founded on</b>
+
+40
+01:01:24,966 --> 01:01:25,933
+<b>the Christian religion,</b>
+
+41
+01:01:26,333 --> 01:01:27,833
+<b>as it has in itself no</b>
+
+42
+01:01:27,933 --> 01:01:29,800
+<b>character of enmity against the laws,</b>
+
+43
+01:01:30,066 --> 01:01:31,300
+<b>religion or tranquility of</b>
+
+44
+01:01:31,300 --> 01:01:33,566
+<b>Muslim, the Senate voted yes.</b>
+
+45
+01:01:34,400 --> 01:01:36,333
+<b>The Senate Journal records it on page</b>
+
+46
+01:01:36,333 --> 01:01:39,300
+<b>244. But here's what</b>
+
+47
+01:01:39,300 --> 01:01:41,566
+<b>Horgronie found. In 1930,</b>
+
+48
+01:01:42,066 --> 01:01:44,133
+<b>the United States Department hired a</b>
+
+49
+01:01:44,133 --> 01:01:45,833
+<b>Dutch scholar, Dr. Snook</b>
+
+50
+01:01:45,833 --> 01:01:47,533
+<b>Horgronie of the University of</b>
+
+51
+01:01:47,533 --> 01:01:49,833
+<b>Leiden, to examine the Arabic original.</b>
+
+52
+01:01:50,433 --> 01:01:51,733
+<b>He produced an annotated</b>
+
+53
+01:01:51,733 --> 01:01:53,900
+<b>translation. The US Government</b>
+
+54
+01:01:54,000 --> 01:01:55,766
+<b>Printing Office published it the next</b>
+
+55
+01:01:55,766 --> 01:01:57,933
+<b>year in volume two of a</b>
+
+56
+01:01:57,933 --> 01:01:59,566
+<b>multi-volume work edited by the</b>
+
+57
+01:01:59,566 --> 01:02:01,666
+<b>State Department historian Hunter Miller.</b>
+
+58
+01:02:02,533 --> 01:02:03,966
+<b>And on page 371,</b>
+
+59
+01:02:04,433 --> 01:02:06,766
+<b>Horgronie wrote this. "The 11th</b>
+
+60
+01:02:06,833 --> 01:02:09,333
+<b>article of the Barlow Translation has no</b>
+
+61
+01:02:09,333 --> 01:02:10,733
+<b>equivalent whatever in</b>
+
+62
+01:02:10,733 --> 01:02:12,400
+<b>the Arabic. The Arabic</b>
+
+63
+01:02:12,400 --> 01:02:14,900
+<b>text opposite that article is a letter</b>
+
+64
+01:02:14,900 --> 01:02:16,133
+<b>from Hassan Pasha of</b>
+
+65
+01:02:16,133 --> 01:02:18,266
+<b>Algiers to Jusuf Pasha of Tripoli.</b>
+
+66
+01:02:19,500 --> 01:02:21,833
+<b>The Arabic version of the treaty does not</b>
+
+67
+01:02:21,833 --> 01:02:23,566
+<b>contain article 11, it</b>
+
+68
+01:02:23,566 --> 01:02:25,333
+<b>was not mistranslated or</b>
+
+69
+01:02:25,333 --> 01:02:28,033
+<b>paraphrased. The Arabic texts simply</b>
+
+70
+01:02:28,033 --> 01:02:29,366
+<b>didn't contain the article.</b>
+
+71
+01:02:29,900 --> 01:02:31,266
+<b>This letter wasn't a secret</b>
+
+72
+01:02:31,366 --> 01:02:33,466
+<b>Islamic manifesto. When Horgronie</b>
+
+73
+01:02:33,466 --> 01:02:35,766
+<b>translated the text, he found a letter</b>
+
+74
+01:02:35,766 --> 01:02:36,966
+<b>drawn up by a stupid</b>
+
+75
+01:02:36,966 --> 01:02:39,166
+<b>secretary who just knew a certain number</b>
+
+76
+01:02:39,166 --> 01:02:40,766
+<b>of domestic words but</b>
+
+77
+01:02:40,766 --> 01:02:42,366
+<b>entirely failed to catch</b>
+
+78
+01:02:42,366 --> 01:02:45,133
+<b>their real meaning. A piece of literal</b>
+
+79
+01:02:45,133 --> 01:02:47,966
+<b>nonsense." So if the Arabic is a</b>
+
+80
+01:02:47,966 --> 01:02:49,233
+<b>different document entirely,</b>
+
+81
+01:02:49,833 --> 01:02:52,800
+<b>what exactly did the Senate ratify? They</b>
+
+82
+01:02:52,800 --> 01:02:55,300
+<b>ratified the English text. As Hunter</b>
+
+83
+01:02:55,300 --> 01:02:56,599
+<b>Miller noted in 1931,</b>
+
+84
+01:02:57,133 --> 01:02:59,566
+<b>it has always been deemed the text of the</b>
+
+85
+01:02:59,566 --> 01:03:01,266
+<b>treaty. The Christian</b>
+
+86
+01:03:01,266 --> 01:03:03,099
+<b>religion language is real,</b>
+
+87
+01:03:03,466 --> 01:03:06,000
+<b>it was ratified and it carries the force</b>
+
+88
+01:03:06,000 --> 01:03:07,866
+<b>of law. No serious</b>
+
+89
+01:03:07,866 --> 01:03:09,500
+<b>historian disputes that.</b>
+
+90
+01:03:10,133 --> 01:03:12,066
+<b>So how did this clerical mistake get</b>
+
+91
+01:03:12,066 --> 01:03:13,266
+<b>bound in place of one of</b>
+
+92
+01:03:13,266 --> 01:03:14,966
+<b>the most debated articles in</b>
+
+93
+01:03:14,966 --> 01:03:18,599
+<b>American diplomatic history? Very simple,</b>
+
+94
+01:03:18,966 --> 01:03:20,133
+<b>because the American who</b>
+
+95
+01:03:20,133 --> 01:03:21,766
+<b>signed it couldn't read it.</b>
+
+96
+01:03:21,933 --> 01:03:23,966
+<b>As historian Denise Spellberg notes,</b>
+
+97
+01:03:24,466 --> 01:03:26,233
+<b>"Neither Joel Barlow nor</b>
+
+98
+01:03:26,233 --> 01:03:27,533
+<b>his American colleagues could</b>
+
+99
+01:03:27,533 --> 01:03:29,833
+<b>read Arabic. They relied on the Spanish</b>
+
+100
+01:03:29,833 --> 01:03:31,033
+<b>consul to verify the</b>
+
+101
+01:03:31,033 --> 01:03:33,633
+<b>seals. Barlow attested to the</b>
+
+102
+01:03:33,633 --> 01:03:35,533
+<b>accuracy of the document, but in</b>
+
+103
+01:03:35,533 --> 01:03:37,666
+<b>Spellberg's phrasing, he probably never</b>
+
+104
+01:03:37,666 --> 01:03:38,900
+<b>knew that article 11</b>
+
+105
+01:03:39,133 --> 01:03:41,133
+<b>never existed in an Arabic translation.</b>
+
+106
+01:03:41,933 --> 01:03:43,933
+<b>It wasn't a forgery or a big</b>
+
+107
+01:03:43,933 --> 01:03:45,966
+<b>hoax, it was a translation gap</b>
+
+108
+01:03:46,000 --> 01:03:48,699
+<b>that nobody in 1797 was equipped to</b>
+
+109
+01:03:48,699 --> 01:03:51,966
+<b>catch. Which is why in 1797</b>
+
+110
+01:03:51,966 --> 01:03:54,366
+<b>this article was not a big deal.</b>
+
+111
+01:03:55,099 --> 01:03:56,500
+<b>Adams didn't say anything publicly,</b>
+
+112
+01:03:57,233 --> 01:03:58,366
+<b>Jefferson and then vice</b>
+
+113
+01:03:58,366 --> 01:04:00,366
+<b>president didn't comment on it.</b>
+
+114
+01:04:00,900 --> 01:04:02,966
+<b>The Senate journal records no debate on</b>
+
+115
+01:04:02,966 --> 01:04:06,266
+<b>article 11. Historians point to two</b>
+
+116
+01:04:06,266 --> 01:04:07,199
+<b>preserved reactions.</b>
+
+117
+01:04:07,633 --> 01:04:09,733
+<b>The first came from William Cobbett, a</b>
+
+118
+01:04:09,733 --> 01:04:10,833
+<b>federalist editor in</b>
+
+119
+01:04:10,833 --> 01:04:12,766
+<b>Philadelphia in the Porcupine Gazette</b>
+
+120
+01:04:13,500 --> 01:04:17,266
+<b>on June 23rd, 1797. Cobbett wrote that</b>
+
+121
+01:04:17,266 --> 01:04:18,400
+<b>the article certainly</b>
+
+122
+01:04:18,400 --> 01:04:19,966
+<b>looks a little like trampling</b>
+
+123
+01:04:20,000 --> 01:04:22,466
+<b>upon the cross. The other was deeply</b>
+
+124
+01:04:22,466 --> 01:04:24,966
+<b>personal. The diplomat who signed the</b>
+
+125
+01:04:24,966 --> 01:04:26,533
+<b>treaty, Joel Barlow,</b>
+
+126
+01:04:26,833 --> 01:04:28,833
+<b>had once been the star student of Timothy</b>
+
+127
+01:04:28,833 --> 01:04:29,866
+<b>Dwight, the</b>
+
+128
+01:04:29,866 --> 01:04:31,433
+<b>conservative president of Yale.</b>
+
+129
+01:04:32,400 --> 01:04:34,599
+<b>Disgusted by his former protege's radical</b>
+
+130
+01:04:34,599 --> 01:04:36,366
+<b>turn, Dwight publicly</b>
+
+131
+01:04:36,366 --> 01:04:37,933
+<b>denounced him and ordered</b>
+
+132
+01:04:38,500 --> 01:04:39,866
+<b>Barlow's portrait stripped</b>
+
+133
+01:04:39,866 --> 01:04:41,333
+<b>from the walls of the university.</b>
+
+134
+01:04:42,266 --> 01:04:44,833
+<b>Hurgrenia read both languages. He noticed</b>
+
+135
+01:04:44,833 --> 01:04:47,133
+<b>the gap. Hunter Miller on</b>
+
+136
+01:04:47,133 --> 01:04:50,000
+<b>page 384 of his 1931 volume</b>
+
+137
+01:04:50,400 --> 01:04:53,233
+<b>called it "most extraordinary and wholly</b>
+
+138
+01:04:53,233 --> 01:04:55,566
+<b>unexplained." No scholar</b>
+
+139
+01:04:55,566 --> 01:04:57,166
+<b>since has explained it.</b>
+
+140
+01:04:57,500 --> 01:04:58,766
+<b>But the strangest part of this</b>
+
+141
+01:04:58,766 --> 01:05:01,733
+<b>discrepancy isn't the missing text, it's</b>
+
+142
+01:05:01,733 --> 01:05:03,533
+<b>what happened in the 133</b>
+
+143
+01:05:04,033 --> 01:05:07,500
+<b>years before anyone noticed. Today this</b>
+
+144
+01:05:07,500 --> 01:05:09,166
+<b>passage sits at the center of the</b>
+
+145
+01:05:09,166 --> 01:05:10,133
+<b>argument about whether</b>
+
+146
+01:05:10,133 --> 01:05:11,733
+<b>America was founded as a Christian</b>
+
+147
+01:05:11,733 --> 01:05:15,433
+<b>nation. In those 133 years before</b>
+
+148
+01:05:15,433 --> 01:05:16,933
+<b>Hurgrenia or Miller even</b>
+
+149
+01:05:16,933 --> 01:05:19,099
+<b>saw the file, something was already</b>
+
+150
+01:05:19,099 --> 01:05:20,966
+<b>happening. Historian Jacob</b>
+
+151
+01:05:20,966 --> 01:05:23,266
+<b>Crane argues that Americans did</b>
+
+152
+01:05:23,266 --> 01:05:25,666
+<b>not immediately view article 11 as</b>
+
+153
+01:05:25,666 --> 01:05:27,766
+<b>definitive proof of secular founding.</b>
+
+154
+01:05:28,233 --> 01:05:29,733
+<b>Instead, that modern</b>
+
+155
+01:05:29,866 --> 01:05:32,333
+<b>interpretation developed slowly over the</b>
+
+156
+01:05:32,333 --> 01:05:35,066
+<b>19th and 20th centuries. As</b>
+
+157
+01:05:35,066 --> 01:05:36,533
+<b>the country grappled with new</b>
+
+158
+01:05:36,533 --> 01:05:38,533
+<b>domestic controversies that had nothing</b>
+
+159
+01:05:38,533 --> 01:05:40,033
+<b>to do with Tripoli, such</b>
+
+160
+01:05:40,033 --> 01:05:41,800
+<b>as whether to publicly fund</b>
+
+161
+01:05:41,800 --> 01:05:44,500
+<b>Christian clergy or ban Sunday alcohol</b>
+
+162
+01:05:44,500 --> 01:05:46,566
+<b>sales, activists began</b>
+
+163
+01:05:46,566 --> 01:05:48,199
+<b>repurposing the treaty's language</b>
+
+164
+01:05:48,199 --> 01:05:51,066
+<b>to support their own political arguments.</b>
+
+165
+01:05:51,833 --> 01:05:52,966
+<b>Therefore, the</b>
+
+166
+01:05:52,966 --> 01:05:54,266
+<b>secular reading of the text</b>
+
+167
+01:05:54,666 --> 01:05:58,266
+<b>wasn't an original 1797 concept, but a</b>
+
+168
+01:05:58,266 --> 01:06:00,166
+<b>later invention pieced together by</b>
+
+169
+01:06:00,166 --> 01:06:01,233
+<b>generations fighting</b>
+
+170
+01:06:01,233 --> 01:06:04,666
+<b>local culture wars. Crane writes on page</b>
+
+171
+01:06:04,666 --> 01:06:06,933
+<b>405 "the language of</b>
+
+172
+01:06:06,933 --> 01:06:08,800
+<b>article 11 was wielded as</b>
+
+173
+01:06:08,800 --> 01:06:11,233
+<b>often by Christian nationalists as by</b>
+
+174
+01:06:11,233 --> 01:06:14,033
+<b>militant secularists." Today</b>
+
+175
+01:06:14,033 --> 01:06:15,933
+<b>this English text is wielded</b>
+
+176
+01:06:15,933 --> 01:06:17,433
+<b>as the ultimate weapon in a modern</b>
+
+177
+01:06:17,433 --> 01:06:21,233
+<b>culture war. Article 11 meant almost</b>
+
+178
+01:06:21,233 --> 01:06:23,166
+<b>nothing until 19th century</b>
+
+179
+01:06:23,300 --> 01:06:25,933
+<b>activists started arguing over the public</b>
+
+180
+01:06:25,933 --> 01:06:27,033
+<b>funding of the Christian</b>
+
+181
+01:06:27,033 --> 01:06:29,866
+<b>clergy. The text itself didn't</b>
+
+182
+01:06:29,866 --> 01:06:33,466
+<b>change, but the culture did. People</b>
+
+183
+01:06:33,466 --> 01:06:35,433
+<b>simply projected their new cultural</b>
+
+184
+01:06:35,433 --> 01:06:37,766
+<b>divide onto an old piece of paper.</b>
+

@@ -1,7 +1,8 @@
 # Pétain's Handwritten Annotations on the Draft Statut des Juifs
 
-**Source:** Two-page typed draft with handwritten annotations, discovered by Serge Klarsfeld, announced October 3, 2010 at the Mémorial de la Shoah.
-**Images:** `documents/Statut_des_Juifs_-_page_1.jpg`, `documents/Statut_des_Juifs_-_page_2.jpg`
+**Source:** Five-page typed draft with handwritten annotations, discovered by Serge Klarsfeld, announced October 3, 2010 at the Mémorial de la Shoah.
+**Images:** `documents/Statut_des_Juifs_-_page_1.jpg` through `documents/Statut_des_Juifs_-_page_5.png`
+**Pages:** Page 1 (Articles 1–2, heavily annotated), Page 2 (Articles 3–5 draft numbering, heavily annotated), Pages 3–5 (Articles 5–10 final numbering + signatories, no significant annotations)
 
 ---
 

@@ -152,8 +152,10 @@ def test_ctr_partial_failure():
                return_value=FAKE_METADATA[:2]), \
          patch("tools.youtube_analytics.ctr_tracker.fetch_view_counts",
                return_value={"vid001": 1000, "vid002": 2000}), \
-         patch("tools.youtube_analytics.ctr_tracker.get_ctr_metrics",
-               side_effect=fake_ctr_metrics), \
+         patch("tools.youtube_analytics.ctr_tracker.fetch_ctr_from_reach_reports",
+               return_value={
+                   "vid002": {"ctr_percent": 3.5, "impression_count": 3000},
+               }), \
          patch("tools.youtube_analytics.ctr_tracker.get_pattern_ctr_from_db",
                return_value={}), \
          patch("tools.youtube_analytics.ctr_tracker.DB_PATH", "ignored"):
@@ -202,8 +204,11 @@ def test_summary_output(capsys):
                return_value=FAKE_METADATA), \
          patch("tools.youtube_analytics.ctr_tracker.fetch_view_counts",
                return_value=FAKE_VIEW_COUNTS), \
-         patch("tools.youtube_analytics.ctr_tracker.get_ctr_metrics",
-               side_effect=lambda vid: ctr_responses[vid]), \
+         patch("tools.youtube_analytics.ctr_tracker.fetch_ctr_from_reach_reports",
+               return_value={
+                   "vid001": {"ctr_percent": 4.2, "impression_count": 5000},
+                   "vid003": {"ctr_percent": 3.5, "impression_count": 3000},
+               }), \
          patch("tools.youtube_analytics.ctr_tracker.get_pattern_ctr_from_db",
                return_value={"declarative": 64}), \
          patch("tools.youtube_analytics.ctr_tracker.DB_PATH", "ignored"):

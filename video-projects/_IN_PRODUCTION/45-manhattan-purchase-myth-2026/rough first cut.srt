@@ -1,0 +1,1144 @@
+1
+01:00:00,099 --> 01:00:01,666
+<b>This is Inwood Hill Park at</b>
+
+2
+01:00:01,666 --> 01:00:03,066
+<b>the northern tip of Manhattan.</b>
+
+3
+01:00:03,733 --> 01:00:06,400
+<b>A bronze plaque sits here on a rock. It</b>
+
+4
+01:00:06,400 --> 01:00:07,133
+<b>commemorates the</b>
+
+5
+01:00:07,133 --> 01:00:08,566
+<b>purchase of Manhattan for</b>
+
+6
+01:00:08,800 --> 01:00:10,966
+<b>trinkets and beads worth about 60</b>
+
+7
+01:00:10,966 --> 01:00:13,566
+<b>guilders. The city's official record</b>
+
+8
+01:00:13,566 --> 01:00:14,666
+<b>begins with a warning.</b>
+
+9
+01:00:15,199 --> 01:00:16,966
+<b>The plaque states the story happened</b>
+
+10
+01:00:16,966 --> 01:00:18,033
+<b>according to legend.</b>
+
+11
+01:00:19,333 --> 01:00:22,199
+<b>This monument was dedicated in 1954 by</b>
+
+12
+01:00:22,199 --> 01:00:23,066
+<b>the American Legion.</b>
+
+13
+01:00:24,366 --> 01:00:26,866
+<b>It admits the story is made up. The only</b>
+
+14
+01:00:26,866 --> 01:00:27,900
+<b>reason this legend could</b>
+
+15
+01:00:27,900 --> 01:00:29,333
+<b>be manufactured is because</b>
+
+16
+01:00:29,366 --> 01:00:31,866
+<b>the archival evidence is missing. To</b>
+
+17
+01:00:31,866 --> 01:00:32,900
+<b>understand why we have no</b>
+
+18
+01:00:32,900 --> 01:00:34,300
+<b>historical sources about the</b>
+
+19
+01:00:34,300 --> 01:00:36,433
+<b>founding of New York, we must go back to</b>
+
+20
+01:00:36,433 --> 01:00:40,166
+<b>1821. In 1821, the</b>
+
+21
+01:00:40,166 --> 01:00:41,333
+<b>government of the Netherlands had</b>
+
+22
+01:00:41,333 --> 01:00:44,033
+<b>a storage problem. They decided to clear</b>
+
+23
+01:00:44,033 --> 01:00:44,733
+<b>out their colonial</b>
+
+24
+01:00:44,733 --> 01:00:47,933
+<b>archives. They sold about 80,000</b>
+
+25
+01:00:47,933 --> 01:00:50,433
+<b>pounds of records to scrap paper dealers.</b>
+
+26
+01:00:51,233 --> 01:00:52,733
+<b>These documents covered the</b>
+
+27
+01:00:52,733 --> 01:00:54,566
+<b>colonial past before 1700.</b>
+
+28
+01:00:55,533 --> 01:00:57,833
+<b>This act erased the primary evidence of</b>
+
+29
+01:00:57,833 --> 01:00:59,633
+<b>the city's birth. Only</b>
+
+30
+01:00:59,633 --> 01:01:01,266
+<b>one document mentioning the</b>
+
+31
+01:01:01,300 --> 01:01:05,199
+<b>purchase of Manhattan survived. It is</b>
+
+32
+01:01:05,199 --> 01:01:06,400
+<b>called the Schärgen letter.</b>
+
+33
+01:01:06,966 --> 01:01:08,633
+<b>It is not a deed or a contract.</b>
+
+34
+01:01:09,033 --> 01:01:10,733
+<b>It is a cargo report for company</b>
+
+35
+01:01:10,733 --> 01:01:12,666
+<b>directors. Most of the</b>
+
+36
+01:01:12,666 --> 01:01:14,766
+<b>letter inventories animal pelts.</b>
+
+37
+01:01:15,199 --> 01:01:20,199
+<b>It lists 700,246 beaver skins. It also</b>
+
+38
+01:01:20,199 --> 01:01:22,833
+<b>lists almost 180 otter skins.</b>
+
+39
+01:01:23,500 --> 01:01:25,400
+<b>One sentence is buried beneath the animal</b>
+
+40
+01:01:25,400 --> 01:01:27,733
+<b>cargo. It states the</b>
+
+41
+01:01:27,733 --> 01:01:29,099
+<b>settlers purchased the island</b>
+
+42
+01:01:29,099 --> 01:01:31,733
+<b>Manhattan from the Indians for the value</b>
+
+43
+01:01:31,733 --> 01:01:33,733
+<b>of 60 guilders. The</b>
+
+44
+01:01:33,733 --> 01:01:35,266
+<b>document does not name the sellers.</b>
+
+45
+01:01:35,866 --> 01:01:38,633
+<b>It also doesn't include how the purchase</b>
+
+46
+01:01:38,633 --> 01:01:40,833
+<b>was made. The 1626</b>
+
+47
+01:01:40,833 --> 01:01:42,933
+<b>record is a single sentence in</b>
+
+48
+01:01:42,933 --> 01:01:45,633
+<b>a ledger of dead beavers. Every other</b>
+
+49
+01:01:45,633 --> 01:01:47,366
+<b>detail was engineered later.</b>
+
+50
+01:01:48,199 --> 01:01:49,900
+<b>The legend claims the Dutch</b>
+
+51
+01:01:50,000 --> 01:01:53,633
+<b>purchased Manhattan for exactly $24. This</b>
+
+52
+01:01:53,633 --> 01:01:54,933
+<b>figure appears in textbooks</b>
+
+53
+01:01:54,933 --> 01:01:56,199
+<b>and lives in the collective</b>
+
+54
+01:01:56,233 --> 01:01:59,933
+<b>memory. But the $24 figure is a 19th</b>
+
+55
+01:01:59,933 --> 01:02:01,733
+<b>century invention. A</b>
+
+56
+01:02:01,733 --> 01:02:03,466
+<b>journalist named Edmund Bailey</b>
+
+57
+01:02:03,466 --> 01:02:05,966
+<b>O'Callaghan manufactured his conversion.</b>
+
+58
+01:02:07,099 --> 01:02:09,233
+<b>In 1844, he found the</b>
+
+59
+01:02:09,233 --> 01:02:11,133
+<b>Schärgen letter and saw the 60</b>
+
+60
+01:02:11,133 --> 01:02:14,066
+<b>guilder price tag. O'Callaghan used the</b>
+
+61
+01:02:14,066 --> 01:02:15,333
+<b>exchange rate of his own</b>
+
+62
+01:02:15,333 --> 01:02:18,133
+<b>time to create a $24 figure.</b>
+
+63
+01:02:18,800 --> 01:02:20,666
+<b>This was a mathematical fallacy.</b>
+
+64
+01:02:21,699 --> 01:02:22,800
+<b>Converting a 1626</b>
+
+65
+01:02:22,800 --> 01:02:25,833
+<b>transaction using 1844 exchange rates</b>
+
+66
+01:02:25,833 --> 01:02:28,466
+<b>is meaningless. It ignores the shifting</b>
+
+67
+01:02:28,466 --> 01:02:30,199
+<b>value of currency over two</b>
+
+68
+01:02:30,199 --> 01:02:32,900
+<b>centuries. The number tells us</b>
+
+69
+01:02:32,900 --> 01:02:34,599
+<b>what a journalist wanted his readers to</b>
+
+70
+01:02:34,599 --> 01:02:37,133
+<b>see in 1844. It tells</b>
+
+71
+01:02:37,133 --> 01:02:39,000
+<b>us nothing about 1626.</b>
+
+72
+01:02:40,199 --> 01:02:43,133
+<b>Historian Russell Shortome notes that 60</b>
+
+73
+01:02:43,133 --> 01:02:45,800
+<b>guilders was a significant sum in 1626.</b>
+
+74
+01:02:46,400 --> 01:02:48,400
+<b>The soldier for the West India Company</b>
+
+75
+01:02:48,400 --> 01:02:50,366
+<b>earned about 100 guilders</b>
+
+76
+01:02:50,366 --> 01:02:52,633
+<b>a year. Manhattan cost more</b>
+
+77
+01:02:52,633 --> 01:02:54,733
+<b>than half a year's salary for a colonial</b>
+
+78
+01:02:54,733 --> 01:02:57,233
+<b>employee. In 1638,</b>
+
+79
+01:02:57,866 --> 01:02:59,266
+<b>100 acres on Long Island</b>
+
+80
+01:02:59,599 --> 01:03:01,933
+<b>sold between Dutch colonists for 52</b>
+
+81
+01:03:01,933 --> 01:03:03,966
+<b>guilders. Wilderness</b>
+
+82
+01:03:03,966 --> 01:03:05,300
+<b>land was simply cheap.</b>
+
+83
+01:03:06,599 --> 01:03:09,066
+<b>O'Callaghan completely ignored 200 years</b>
+
+84
+01:03:09,066 --> 01:03:10,500
+<b>of inflation to make</b>
+
+85
+01:03:10,500 --> 01:03:11,733
+<b>the price sound absurd.</b>
+
+86
+01:03:12,633 --> 01:03:15,699
+<b>That 1844 number is still the figure most</b>
+
+87
+01:03:15,699 --> 01:03:17,500
+<b>people carry in their hands today.</b>
+
+88
+01:03:18,300 --> 01:03:20,633
+<b>I hope I've demonstrated why the $24</b>
+
+89
+01:03:20,633 --> 01:03:22,866
+<b>number is wrong. Now let's</b>
+
+90
+01:03:22,866 --> 01:03:24,000
+<b>look at the forged visible</b>
+
+91
+01:03:24,000 --> 01:03:27,633
+<b>evidence. The legend claims Peter Minowit</b>
+
+92
+01:03:27,633 --> 01:03:29,033
+<b>sealed the deal by handing</b>
+
+93
+01:03:29,033 --> 01:03:30,666
+<b>over a chest of glass beads.</b>
+
+94
+01:03:31,433 --> 01:03:34,266
+<b>The 1626 Schärgen letter does not</b>
+
+95
+01:03:34,266 --> 01:03:35,900
+<b>mention beads. It provides</b>
+
+96
+01:03:35,900 --> 01:03:37,633
+<b>no inventory of goods at all.</b>
+
+97
+01:03:38,300 --> 01:03:40,800
+<b>The visual of the glass beads traces to</b>
+
+98
+01:03:40,800 --> 01:03:41,933
+<b>be a single painting from</b>
+
+99
+01:03:41,933 --> 01:03:44,833
+<b>1853. The artist of that</b>
+
+100
+01:03:44,900 --> 01:03:47,233
+<b>painting was a man named William Ranney.</b>
+
+101
+01:03:48,033 --> 01:03:49,666
+<b>Before this painting, no</b>
+
+102
+01:03:49,666 --> 01:03:51,066
+<b>record mentioned beads.</b>
+
+103
+01:03:52,033 --> 01:03:53,366
+<b>Ranney manufactured the visual</b>
+
+104
+01:03:53,366 --> 01:03:54,800
+<b>iconography of the purchase</b>
+
+105
+01:03:54,800 --> 01:03:56,733
+<b>two centuries after the event.</b>
+
+106
+01:03:57,233 --> 01:03:58,599
+<b>He did this through mechanical</b>
+
+107
+01:03:58,599 --> 01:04:01,133
+<b>plagiarism. Ranney copied</b>
+
+108
+01:04:01,133 --> 01:04:02,333
+<b>the composition of a famous</b>
+
+109
+01:04:02,400 --> 01:04:06,633
+<b>7071 painting by Benjamin West. West's</b>
+
+110
+01:04:06,633 --> 01:04:08,000
+<b>painting depicted William</b>
+
+111
+01:04:08,000 --> 01:04:09,533
+<b>Penn's treaty with the Indians</b>
+
+112
+01:04:09,599 --> 01:04:12,833
+<b>in Pennsylvania. Ranney stole specific</b>
+
+113
+01:04:12,833 --> 01:04:14,433
+<b>visual elements from West.</b>
+
+114
+01:04:15,099 --> 01:04:16,266
+<b>The large elm tree on the</b>
+
+115
+01:04:16,266 --> 01:04:18,033
+<b>right side of the canvas is identical.</b>
+
+116
+01:04:18,633 --> 01:04:19,400
+<b>The kneeling figure</b>
+
+117
+01:04:19,400 --> 01:04:21,066
+<b>examining the goods is identical.</b>
+
+118
+01:04:21,933 --> 01:04:23,533
+<b>The open chest in the center of the group</b>
+
+119
+01:04:23,533 --> 01:04:26,533
+<b>is identical. Ranney</b>
+
+120
+01:04:26,533 --> 01:04:27,733
+<b>took a famous painting of</b>
+
+121
+01:04:27,733 --> 01:04:29,900
+<b>Pennsylvania and rebranded it as</b>
+
+122
+01:04:29,900 --> 01:04:32,400
+<b>Manhattan. He added the chest of beads to</b>
+
+123
+01:04:32,400 --> 01:04:33,566
+<b>the center of the frame.</b>
+
+124
+01:04:34,500 --> 01:04:37,699
+<b>In 1875, a historian named Martau Lam</b>
+
+125
+01:04:37,699 --> 01:04:40,500
+<b>wrote these beads into history. She was</b>
+
+126
+01:04:40,500 --> 01:04:41,699
+<b>not citing a primary</b>
+
+127
+01:04:41,833 --> 01:04:44,433
+<b>source. She was simply describing William</b>
+
+128
+01:04:44,433 --> 01:04:47,400
+<b>Ranney's fictional painting. Another</b>
+
+129
+01:04:47,400 --> 01:04:48,733
+<b>popular legend claims</b>
+
+130
+01:04:48,733 --> 01:04:50,766
+<b>the Canersee tribe pulled off a real</b>
+
+131
+01:04:50,766 --> 01:04:53,099
+<b>estate scam. The story says</b>
+
+132
+01:04:53,099 --> 01:04:55,099
+<b>the Canersee actually lived in</b>
+
+133
+01:04:55,133 --> 01:04:57,666
+<b>Brooklyn. They allegedly sold Manhattan</b>
+
+134
+01:04:57,666 --> 01:04:59,199
+<b>to the Dutch despite not</b>
+
+135
+01:04:59,199 --> 01:05:00,466
+<b>owning the ground themselves.</b>
+
+136
+01:05:02,233 --> 01:05:05,199
+<b>The 1626 Skuygen letter does not name a</b>
+
+137
+01:05:05,199 --> 01:05:07,300
+<b>specific tribe. It</b>
+
+138
+01:05:07,300 --> 01:05:09,000
+<b>refers only to the Indians.</b>
+
+139
+01:05:10,033 --> 01:05:11,699
+<b>No 17th century document</b>
+
+140
+01:05:11,699 --> 01:05:13,533
+<b>identifies the sellers by name.</b>
+
+141
+01:05:14,633 --> 01:05:16,800
+<b>Anthropologist Robert Grumit confirms the</b>
+
+142
+01:05:16,800 --> 01:05:18,166
+<b>identity of the Native Americans</b>
+
+143
+01:05:18,400 --> 01:05:20,000
+<b>who sold the island is completely</b>
+
+144
+01:05:20,000 --> 01:05:23,333
+<b>unknown. The Canersee trickster story is</b>
+
+145
+01:05:23,333 --> 01:05:24,300
+<b>a modern fabrication.</b>
+
+146
+01:05:25,466 --> 01:05:27,400
+<b>Historians trace the earliest account of</b>
+
+147
+01:05:27,400 --> 01:05:30,099
+<b>it to a 1959 article by</b>
+
+148
+01:05:30,099 --> 01:05:32,400
+<b>Nathaniel Benchley. Benchley</b>
+
+149
+01:05:32,400 --> 01:05:34,733
+<b>wrote a story for a magazine article. He</b>
+
+150
+01:05:34,733 --> 01:05:36,366
+<b>provided no archival</b>
+
+151
+01:05:36,366 --> 01:05:38,533
+<b>evidence for his claim. It is a</b>
+
+152
+01:05:38,866 --> 01:05:41,900
+<b>mid-20th century invention designed to</b>
+
+153
+01:05:41,900 --> 01:05:43,000
+<b>make a land grab look</b>
+
+154
+01:05:43,000 --> 01:05:44,133
+<b>like a harmless prank.</b>
+
+155
+01:05:45,433 --> 01:05:47,900
+<b>The actual record shows this was no joke.</b>
+
+156
+01:05:48,500 --> 01:05:50,633
+<b>The 1626 letter did not</b>
+
+157
+01:05:50,633 --> 01:05:52,199
+<b>name the tribe. The true</b>
+
+158
+01:05:52,233 --> 01:05:54,466
+<b>inhabitants of the region were Delenape.</b>
+
+159
+01:05:55,099 --> 01:05:56,500
+<b>They had lived on the lands that would</b>
+
+160
+01:05:56,500 --> 01:05:57,566
+<b>become New York City</b>
+
+161
+01:05:57,566 --> 01:06:00,333
+<b>for thousands of years. When the Dutch</b>
+
+162
+01:06:00,333 --> 01:06:01,866
+<b>arrived, they attempted to</b>
+
+163
+01:06:01,866 --> 01:06:03,599
+<b>secure this territory using</b>
+
+164
+01:06:03,599 --> 01:06:06,166
+<b>European contracts. Delenape didn't</b>
+
+165
+01:06:06,166 --> 01:06:07,433
+<b>recognize the earth as</b>
+
+166
+01:06:07,433 --> 01:06:09,666
+<b>private property. This conflict</b>
+
+167
+01:06:09,666 --> 01:06:11,633
+<b>between the Dutch and Delenape was a</b>
+
+168
+01:06:11,633 --> 01:06:12,433
+<b>complete mechanical</b>
+
+169
+01:06:12,433 --> 01:06:14,933
+<b>failure of legal systems. The two</b>
+
+170
+01:06:14,933 --> 01:06:16,699
+<b>sites were operating under entirely</b>
+
+171
+01:06:16,699 --> 01:06:19,199
+<b>different rules. The Dutch</b>
+
+172
+01:06:19,199 --> 01:06:20,733
+<b>followed a statutory system</b>
+
+173
+01:06:20,800 --> 01:06:23,833
+<b>called Fisimple. This is the European</b>
+
+174
+01:06:23,833 --> 01:06:26,566
+<b>concept of absolute permanent private</b>
+
+175
+01:06:26,566 --> 01:06:28,266
+<b>property. Under this</b>
+
+176
+01:06:28,266 --> 01:06:31,199
+<b>system, land was a commodity. You buy the</b>
+
+177
+01:06:31,199 --> 01:06:32,333
+<b>land and you own it</b>
+
+178
+01:06:32,333 --> 01:06:34,433
+<b>forever. The Dutch believed they</b>
+
+179
+01:06:34,433 --> 01:06:36,400
+<b>were acquiring exclusive rights to the</b>
+
+180
+01:06:36,400 --> 01:06:38,733
+<b>island. They expected the original</b>
+
+181
+01:06:38,733 --> 01:06:39,833
+<b>inhabitants to leave.</b>
+
+182
+01:06:40,266 --> 01:06:42,099
+<b>The Delenape operated under a customary</b>
+
+183
+01:06:42,099 --> 01:06:43,666
+<b>system called Usselfrucht.</b>
+
+184
+01:06:44,000 --> 01:06:45,333
+<b>This system grants the right</b>
+
+185
+01:06:45,333 --> 01:06:47,866
+<b>to use the land only as long as it is</b>
+
+186
+01:06:47,866 --> 01:06:49,833
+<b>actively utilized. To</b>
+
+187
+01:06:49,833 --> 01:06:51,699
+<b>Delenape, the transaction was a</b>
+
+188
+01:06:51,699 --> 01:06:54,599
+<b>temporary shared use alliance. They saw</b>
+
+189
+01:06:54,599 --> 01:06:56,000
+<b>the Dutch as new roommates.</b>
+
+190
+01:06:56,333 --> 01:06:57,833
+<b>They did not see them as the</b>
+
+191
+01:06:57,900 --> 01:07:00,833
+<b>permanent new owners. We have direct</b>
+
+192
+01:07:00,833 --> 01:07:02,233
+<b>testimony explaining this</b>
+
+193
+01:07:02,233 --> 01:07:04,933
+<b>perspective. Delenape elder</b>
+
+194
+01:07:05,266 --> 01:07:08,133
+<b>Hittakonach Neulachsk stated that the</b>
+
+195
+01:07:08,133 --> 01:07:10,500
+<b>land was like air or sunlight. It was</b>
+
+196
+01:07:10,500 --> 01:07:12,166
+<b>necessary for survival.</b>
+
+197
+01:07:12,633 --> 01:07:14,633
+<b>It could not be permanently sold away</b>
+
+198
+01:07:14,633 --> 01:07:15,833
+<b>from the community.</b>
+
+199
+01:07:16,433 --> 01:07:17,933
+<b>Delenape thought they were simply</b>
+
+200
+01:07:17,933 --> 01:07:20,199
+<b>giving the settlers land to live on for a</b>
+
+201
+01:07:20,199 --> 01:07:21,699
+<b>while. Robert Grumit</b>
+
+202
+01:07:21,699 --> 01:07:23,400
+<b>explains exactly why this collision</b>
+
+203
+01:07:23,599 --> 01:07:25,800
+<b>happened. Delenape were facing</b>
+
+204
+01:07:25,800 --> 01:07:28,033
+<b>devastating new diseases and threats from</b>
+
+205
+01:07:28,033 --> 01:07:29,166
+<b>rival tribes like the</b>
+
+206
+01:07:29,166 --> 01:07:31,766
+<b>Mohawk. They accepted metal tools and</b>
+
+207
+01:07:31,766 --> 01:07:32,966
+<b>goods to secure powerful</b>
+
+208
+01:07:32,966 --> 01:07:35,066
+<b>military allies. They were not</b>
+
+209
+01:07:35,066 --> 01:07:37,233
+<b>selling the ground. They were building a</b>
+
+210
+01:07:37,233 --> 01:07:38,300
+<b>strategic alliance to</b>
+
+211
+01:07:38,300 --> 01:07:40,599
+<b>survive. Only the Dutch viewed the</b>
+
+212
+01:07:40,633 --> 01:07:43,599
+<b>deal as a final permanent sale. The</b>
+
+213
+01:07:43,599 --> 01:07:44,833
+<b>history of Manhattan is</b>
+
+214
+01:07:44,833 --> 01:07:45,800
+<b>built on these mechanical</b>
+
+215
+01:07:45,833 --> 01:07:49,033
+<b>misunderstandings and missing records. If</b>
+
+216
+01:07:49,033 --> 01:07:49,666
+<b>you value this</b>
+
+217
+01:07:49,666 --> 01:07:51,033
+<b>forensic approach to history,</b>
+
+218
+01:07:51,699 --> 01:07:54,233
+<b>please subscribe to my channel. I try to</b>
+
+219
+01:07:54,233 --> 01:07:55,800
+<b>rely on primary sources to</b>
+
+220
+01:07:55,800 --> 01:07:57,233
+<b>dismantle historical legends.</b>
+
+221
+01:07:57,933 --> 01:07:59,833
+<b>You might be asking why people created</b>
+
+222
+01:07:59,833 --> 01:08:01,633
+<b>this myth. These myths were</b>
+
+223
+01:08:01,633 --> 01:08:03,000
+<b>built by commercial elites,</b>
+
+224
+01:08:03,533 --> 01:08:05,599
+<b>like a lawyer named Simeon DeWitt</b>
+
+225
+01:08:05,599 --> 01:08:07,933
+<b>Bloodgood. In 1844,</b>
+
+226
+01:08:08,599 --> 01:08:10,133
+<b>Bloodgood delivered a speech at a New</b>
+
+227
+01:08:10,233 --> 01:08:13,099
+<b>York Historical Society. He argued that</b>
+
+228
+01:08:13,099 --> 01:08:14,366
+<b>the Manhattan Purchase</b>
+
+229
+01:08:14,366 --> 01:08:16,166
+<b>placed New York on as high</b>
+
+230
+01:08:16,166 --> 01:08:18,100
+<b>ground of justice as the land of William</b>
+
+231
+01:08:18,100 --> 01:08:20,633
+<b>Penn. This speech reveals</b>
+
+232
+01:08:20,633 --> 01:08:22,500
+<b>their exact motive. The New</b>
+
+233
+01:08:22,500 --> 01:08:24,899
+<b>York elite felt inferior to New England</b>
+
+234
+01:08:24,899 --> 01:08:26,533
+<b>and Pennsylvania. They</b>
+
+235
+01:08:26,533 --> 01:08:27,733
+<b>desperately needed an honest</b>
+
+236
+01:08:27,733 --> 01:08:29,699
+<b>business deal to serve as a noble origin</b>
+
+237
+01:08:29,699 --> 01:08:31,733
+<b>story. They wanted a</b>
+
+238
+01:08:31,733 --> 01:08:33,733
+<b>peaceful foundation to rival William</b>
+
+239
+01:08:33,733 --> 01:08:36,833
+<b>Penn's famous treaty in Pennsylvania. But</b>
+
+240
+01:08:36,833 --> 01:08:37,466
+<b>when they looked for</b>
+
+241
+01:08:37,466 --> 01:08:39,199
+<b>evidence, they found the archive</b>
+
+242
+01:08:39,333 --> 01:08:41,500
+<b>almost completely empty. The original</b>
+
+243
+01:08:41,500 --> 01:08:43,300
+<b>documents had been sold for scrap paper</b>
+
+244
+01:08:43,300 --> 01:08:45,833
+<b>in 1821. This missing</b>
+
+245
+01:08:45,833 --> 01:08:48,500
+<b>archive provided a perfect cover. These</b>
+
+246
+01:08:48,500 --> 01:08:49,800
+<b>men acted as tactical</b>
+
+247
+01:08:49,800 --> 01:08:51,933
+<b>engineers of a new civic identity.</b>
+
+248
+01:08:52,633 --> 01:08:55,033
+<b>They systematically projected their own</b>
+
+249
+01:08:55,033 --> 01:08:56,800
+<b>19th century capitalist </b>
+
+250
+01:08:56,866 --> 01:08:58,566
+<b>ids backward onto that void.</b>
+
+251
+01:08:59,433 --> 01:09:00,933
+<b>They needed to prove that Manhattan was</b>
+
+252
+01:09:00,933 --> 01:09:03,433
+<b>not taken by force. They needed to prove</b>
+
+253
+01:09:03,433 --> 01:09:04,766
+<b>it was bought fairly.</b>
+
+254
+01:09:05,433 --> 01:09:07,399
+<b>They manufactured a modern business</b>
+
+255
+01:09:07,399 --> 01:09:09,866
+<b>transaction to create moral and legal</b>
+
+256
+01:09:09,866 --> 01:09:10,933
+<b>legitimacy for their</b>
+
+257
+01:09:10,933 --> 01:09:14,000
+<b>rapidly growing city. This is exactly why</b>
+
+258
+01:09:14,000 --> 01:09:15,633
+<b>William Raney plagiarized</b>
+
+259
+01:09:15,633 --> 01:09:17,000
+<b>the painting of Penn's Treaty</b>
+
+260
+01:09:17,666 --> 01:09:20,233
+<b>and why the $24 and the glass beads were</b>
+
+261
+01:09:20,233 --> 01:09:21,966
+<b>invented to fill this</b>
+
+262
+01:09:21,966 --> 01:09:23,433
+<b>specific ideological need.</b>
+
+263
+01:09:24,300 --> 01:09:26,000
+<b>I recognize this pattern of retrofitting</b>
+
+264
+01:09:26,000 --> 01:09:28,433
+<b>history. I am Belgian and I currently</b>
+
+265
+01:09:28,433 --> 01:09:29,633
+<b>live in South America.</b>
+
+266
+01:09:30,399 --> 01:09:32,733
+<b>In Belgium, the brutal exploitation of</b>
+
+267
+01:09:32,733 --> 01:09:34,933
+<b>the Congo was rewritten. It was covered</b>
+
+268
+01:09:34,933 --> 01:09:36,133
+<b>up with a story about</b>
+
+269
+01:09:36,399 --> 01:09:39,233
+<b>a noble civilizing mission. The Spanish</b>
+
+270
+01:09:39,233 --> 01:09:40,533
+<b>repackaged the extreme</b>
+
+271
+01:09:40,533 --> 01:09:42,100
+<b>violence of the South American</b>
+
+272
+01:09:42,133 --> 01:09:45,333
+<b>conquest as a heroic discovery. The</b>
+
+273
+01:09:45,333 --> 01:09:47,300
+<b>mechanism of erasure is almost exactly</b>
+
+274
+01:09:47,300 --> 01:09:49,199
+<b>the same. Nations do not</b>
+
+275
+01:09:49,199 --> 01:09:52,033
+<b>like boring or ugly history. Real history</b>
+
+276
+01:09:52,033 --> 01:09:53,399
+<b>is usually just dry,</b>
+
+277
+01:09:54,199 --> 01:09:55,966
+<b>boring bureaucracy. It is a</b>
+
+278
+01:09:56,000 --> 01:09:58,233
+<b>record of incompatible legal systems and</b>
+
+279
+01:09:58,233 --> 01:10:00,600
+<b>forgotten paperwork. People</b>
+
+280
+01:10:00,600 --> 01:10:02,000
+<b>would much rather print a good</b>
+
+281
+01:10:02,000 --> 01:10:05,699
+<b>story. In 1626, the story was a single</b>
+
+282
+01:10:05,699 --> 01:10:07,000
+<b>line of ink about dead</b>
+
+283
+01:10:07,000 --> 01:10:10,800
+<b>beavers. In 1821, the archives were</b>
+
+284
+01:10:10,800 --> 01:10:13,166
+<b>sold for scrap paper. In the centuries</b>
+
+285
+01:10:13,166 --> 01:10:15,566
+<b>since, people filled that silence with</b>
+
+286
+01:10:15,566 --> 01:10:19,000
+<b>$24, glass beads and legends.</b>
+

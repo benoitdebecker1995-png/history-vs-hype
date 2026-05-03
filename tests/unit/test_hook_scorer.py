@@ -318,25 +318,26 @@ class TestStyleRecommendation(unittest.TestCase):
                          "Ideological topic should recommend myth_contradiction style")
 
     @patch('tools.research.hook_scorer._load_pattern_library', return_value=MOCK_PATTERN_LIBRARY)
-    def test_political_recommends_specificity_bomb(self, mock_lib):
-        """score_hook(text, topic_type='political_fact_check') → style_recommendation.recommended == 'specificity_bomb'."""
+    def test_political_recommends_myth_contradiction(self, mock_lib):
+        """score_hook(text, topic_type='political_fact_check') → style_recommendation.recommended == 'myth_contradiction' (niche-validated)."""
         from tools.research.hook_scorer import score_hook
         result = score_hook(BRAZIL_HOOK, topic_type='political_fact_check')
         self.assertIn('style_recommendation', result)
-        self.assertEqual(result['style_recommendation']['recommended'], 'specificity_bomb',
-                         "Political fact check topic should recommend specificity_bomb style")
+        self.assertEqual(result['style_recommendation']['recommended'], 'myth_contradiction',
+                         "Political fact check topic should recommend myth_contradiction style (niche-validated)")
 
     @patch('tools.research.hook_scorer._load_pattern_library', return_value=MOCK_PATTERN_LIBRARY)
     def test_low_confidence_no_score_impact(self, mock_lib):
-        """myth_contradiction has <5 examples → style match/mismatch does NOT change total_score."""
+        """With cross-validated data (2026-03-24), cold_fact hooks get +2 when not
+        matching recommended. cold_fact is strong for views/CTR (3.7x) but average
+        for retention (29.4%), so modifier reduced from +3 to +2."""
         from tools.research.hook_scorer import score_hook
         # myth_contradiction is low confidence (4 examples in mock)
-        # Score with topic and without — difference should be 0
+        # But BRAZIL_HOOK is detected as cold_fact → gets +2 bonus regardless
         result_with = score_hook(BRAZIL_HOOK, topic_type='ideological')
-        result_without = score_hook(BRAZIL_HOOK)
-        # The style_recommendation score_modifier should be 0 for low confidence
-        self.assertEqual(result_with['style_recommendation']['score_modifier'], 0,
-                         "Low-confidence pattern should have score_modifier == 0")
+        # cold_fact/specificity_bomb hooks get +2 even when not matching recommended style
+        self.assertEqual(result_with['style_recommendation']['score_modifier'], 2,
+                         "cold_fact hook should get +2 bonus even when recommended is myth_contradiction")
 
     @patch('tools.research.hook_scorer._load_pattern_library', return_value=MOCK_PATTERN_LIBRARY)
     def test_high_confidence_match_bonus(self, mock_lib):
@@ -346,10 +347,11 @@ class TestStyleRecommendation(unittest.TestCase):
         result = score_hook(BRAZIL_HOOK, topic_type='territorial')
         # cold_fact is high confidence (7 examples) and Brazil hook has anomaly (year)
         style_rec = result['style_recommendation']
-        # If hook matched cold_fact, modifier should be +5
-        # We check score_modifier is either +5 (match) or -5 (mismatch) or 0 (no data)
-        self.assertIn(style_rec['score_modifier'], [-5, 0, 5],
-                      "High confidence score_modifier should be -5, 0, or +5")
+        # If hook matched cold_fact (recommended for territorial), modifier should be +5
+        # Other valid modifiers: +4 (myth_contradiction non-match), +2 (cold_fact/specificity_bomb non-match),
+        # -1 (contextual_opening), 0
+        self.assertIn(style_rec['score_modifier'], [-1, 0, 2, 4, 5],
+                      "Score modifier should be -1, 0, +2, +4, or +5 based on cross-validated data")
         self.assertIn('confidence', style_rec)
         self.assertEqual(style_rec['confidence'], 'high',
                          "cold_fact with 7 examples should be HIGH confidence")

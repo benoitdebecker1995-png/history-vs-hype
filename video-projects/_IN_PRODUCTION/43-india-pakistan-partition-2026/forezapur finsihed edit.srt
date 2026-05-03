@@ -1,0 +1,1152 @@
+1
+01:00:00,033 --> 01:00:04,233
+<b>On August 8th 1947, a draft map was sent</b>
+
+2
+01:00:04,233 --> 01:00:06,699
+<b>from the Viceroy's office in New Delhi to</b>
+
+3
+01:00:06,699 --> 01:00:07,833
+<b>the governor of Punjab.</b>
+
+4
+01:00:08,833 --> 01:00:10,033
+<b>It showed the new border</b>
+
+5
+01:00:10,033 --> 01:00:11,566
+<b>between India and Pakistan.</b>
+
+6
+01:00:12,033 --> 01:00:14,333
+<b>Ferozepur, a district that was 55%</b>
+
+7
+01:00:14,733 --> 01:00:17,133
+<b>Muslim, containing the canal headworks</b>
+
+8
+01:00:17,133 --> 01:00:19,066
+<b>that controlled irrigation for millions</b>
+
+9
+01:00:19,066 --> 01:00:21,000
+<b>of acres of Pakistani farmland,</b>
+
+10
+01:00:21,766 --> 01:00:23,133
+<b>was on the Pakistani side.</b>
+
+11
+01:00:23,933 --> 01:00:25,366
+<b>Three days later, a</b>
+
+12
+01:00:25,366 --> 01:00:27,066
+<b>single coded message arrived.</b>
+
+13
+01:00:28,033 --> 01:00:28,633
+<b>Two words.</b>
+
+14
+01:00:29,566 --> 01:00:31,133
+<b>Eliminate salient.</b>
+
+15
+01:00:31,866 --> 01:00:33,633
+<b>Ferozepur was now Indian.</b>
+
+16
+01:00:34,433 --> 01:00:36,599
+<b>And with it, the valve controlling</b>
+
+17
+01:00:36,599 --> 01:00:38,133
+<b>Pakistan's water supply.</b>
+
+18
+01:00:39,033 --> 01:00:40,599
+<b>No census data changed.</b>
+
+19
+01:00:41,133 --> 01:00:42,599
+<b>No infrastructure moved.</b>
+
+20
+01:00:43,266 --> 01:00:45,033
+<b>No new evidence was submitted.</b>
+
+21
+01:00:46,000 --> 01:00:47,400
+<b>The man who drew the border,</b>
+
+22
+01:00:48,199 --> 01:00:50,433
+<b>a British chancery lawyer who had never</b>
+
+23
+01:00:50,433 --> 01:00:51,566
+<b>been east of Gibraltar,</b>
+
+24
+01:00:52,433 --> 01:00:54,500
+<b>who was simultaneously drawing a second</b>
+
+25
+01:00:54,500 --> 01:00:57,333
+<b>border for Bengal from a desk in Simla,</b>
+
+26
+01:00:57,833 --> 01:00:59,300
+<b>using maps he later</b>
+
+27
+01:00:59,300 --> 01:01:00,633
+<b>admitted were incorrect,</b>
+
+28
+01:01:01,433 --> 01:01:02,466
+<b>burned every working</b>
+
+29
+01:01:02,466 --> 01:01:04,333
+<b>paper and left India forever.</b>
+
+30
+01:01:05,733 --> 01:01:07,933
+<b>So, I read the actual documents.</b>
+
+31
+01:01:08,400 --> 01:01:09,333
+<b>The Radcliffe Award.</b>
+
+32
+01:01:09,933 --> 01:01:11,733
+<b>The Boundary Commission proceedings.</b>
+
+33
+01:01:12,500 --> 01:01:14,066
+<b>The transfer of power files.</b>
+
+34
+01:01:14,699 --> 01:01:16,833
+<b>And what they show is a three-day window</b>
+
+35
+01:01:16,833 --> 01:01:19,099
+<b>where the most consequential border in</b>
+
+36
+01:01:19,099 --> 01:01:21,366
+<b>modern South Asian history was redrawn.</b>
+
+37
+01:01:22,000 --> 01:01:23,433
+<b>And nobody can prove why.</b>
+
+38
+01:01:24,199 --> 01:01:25,933
+<b>Here's who they choose to draw the line.</b>
+
+39
+01:01:26,900 --> 01:01:27,933
+<b>Cyril Radcliffe.</b>
+
+40
+01:01:28,566 --> 01:01:29,966
+<b>48 years old.</b>
+
+41
+01:01:30,300 --> 01:01:31,333
+<b>A chancery lawyer.</b>
+
+42
+01:01:31,733 --> 01:01:32,966
+<b>His career was trusts,</b>
+
+43
+01:01:33,400 --> 01:01:35,166
+<b>estates, corporate structures.</b>
+
+44
+01:01:35,966 --> 01:01:38,133
+<b>His wartime job was Director General of</b>
+
+45
+01:01:38,133 --> 01:01:39,366
+<b>the Ministry of Information.</b>
+
+46
+01:01:40,066 --> 01:01:42,266
+<b>He'd never adjudicated a border dispute.</b>
+
+47
+01:01:42,966 --> 01:01:44,266
+<b>He'd never studied demographics.</b>
+
+48
+01:01:45,199 --> 01:01:47,000
+<b>He'd never even set foot in Asia.</b>
+
+49
+01:01:47,500 --> 01:01:48,333
+<b>According to Stanley</b>
+
+50
+01:01:48,333 --> 01:01:50,633
+<b>Wolpert in Jinnah of Pakistan,</b>
+
+51
+01:01:51,533 --> 01:01:53,533
+<b>Radcliffe, who had never even visited</b>
+
+52
+01:01:53,533 --> 01:01:55,199
+<b>India and expressed no</b>
+
+53
+01:01:55,199 --> 01:01:56,900
+<b>known opinions on its problems,</b>
+
+54
+01:01:57,500 --> 01:01:59,766
+<b>was unanimously accepted and would soon</b>
+
+55
+01:01:59,766 --> 01:02:01,366
+<b>decide the destiny of millions</b>
+
+56
+01:02:01,366 --> 01:02:03,900
+<b>of Hindus, Sikhs and Muslims.</b>
+
+57
+01:02:04,933 --> 01:02:06,033
+<b>That was the qualification.</b>
+
+58
+01:02:07,233 --> 01:02:08,033
+<b>Total ignorance.</b>
+
+59
+01:02:09,066 --> 01:02:09,933
+<b>A man with no</b>
+
+60
+01:02:09,933 --> 01:02:13,166
+<b>attachments, no opinions, no stake.</b>
+
+61
+01:02:13,833 --> 01:02:14,866
+<b>Supposedly impartial.</b>
+
+62
+01:02:15,766 --> 01:02:17,533
+<b>Precisely because he knew nothing.</b>
+
+63
+01:02:18,666 --> 01:02:20,566
+<b>He arrived on July 8th.</b>
+
+64
+01:02:20,666 --> 01:02:22,133
+<b>He had until mid-August.</b>
+
+65
+01:02:23,133 --> 01:02:25,000
+<b>36 days to draw a border</b>
+
+66
+01:02:25,000 --> 01:02:26,800
+<b>for 400 million people.</b>
+
+67
+01:02:27,833 --> 01:02:28,533
+<b>And here's the part</b>
+
+68
+01:02:28,533 --> 01:02:29,800
+<b>that rarely gets mentioned.</b>
+
+69
+01:02:30,166 --> 01:02:32,300
+<b>He wasn't drawing one border.</b>
+
+70
+01:02:32,966 --> 01:02:34,666
+<b>He was chairing two boundary</b>
+
+71
+01:02:34,666 --> 01:02:36,266
+<b>commissions simultaneously.</b>
+
+72
+01:02:37,400 --> 01:02:38,400
+<b>Punjab and Bengal.</b>
+
+73
+01:02:39,133 --> 01:02:41,033
+<b>He couldn't physically attend the Punjab</b>
+
+74
+01:02:41,033 --> 01:02:43,300
+<b>public hearings in Lahore because he was</b>
+
+75
+01:02:43,300 --> 01:02:45,733
+<b>processing Bengal paperwork from Delhi.</b>
+
+76
+01:02:46,766 --> 01:02:48,133
+<b>As Yasmin Khan writes,</b>
+
+77
+01:02:48,566 --> 01:02:51,433
+<b>"The border was devised from a distance.</b>
+
+78
+01:02:51,933 --> 01:02:54,233
+<b>The land, villages and communities to be</b>
+
+79
+01:02:54,233 --> 01:02:57,166
+<b>divided were not visited or inspected by</b>
+
+80
+01:02:57,166 --> 01:02:58,633
+<b>the imperial map maker."</b>
+
+81
+01:02:59,433 --> 01:03:00,466
+<b>He later told the</b>
+
+82
+01:03:00,466 --> 01:03:01,866
+<b>journalist Kuldip Nayar</b>
+
+83
+01:03:02,633 --> 01:03:04,833
+<b>"Even district maps were not available</b>
+
+84
+01:03:04,833 --> 01:03:07,133
+<b>and the ones there were were incorrect."</b>
+
+85
+01:03:07,533 --> 01:03:09,900
+<b>His official instructions, the terms of</b>
+
+86
+01:03:09,900 --> 01:03:11,766
+<b>reference, said this.</b>
+
+87
+01:03:11,766 --> 01:03:13,933
+<b>"The boundary commission is instructed to</b>
+
+88
+01:03:13,933 --> 01:03:15,833
+<b>demarcate the boundaries on the basis of</b>
+
+89
+01:03:15,900 --> 01:03:17,766
+<b>ascertaining the contiguous majority</b>
+
+90
+01:03:17,766 --> 01:03:20,066
+<b>areas of Muslims and non-Muslims.</b>
+
+91
+01:03:20,866 --> 01:03:23,066
+<b>In doing so, it will also take into</b>
+
+92
+01:03:23,066 --> 01:03:25,099
+<b>account other factors."</b>
+
+93
+01:03:26,000 --> 01:03:29,166
+<b>Other factors never defined. It could</b>
+
+94
+01:03:29,166 --> 01:03:31,966
+<b>mean railways, canals, economic</b>
+
+95
+01:03:31,966 --> 01:03:33,800
+<b>viability, anything.</b>
+
+96
+01:03:34,633 --> 01:03:35,833
+<b>So the mandate was</b>
+
+97
+01:03:35,833 --> 01:03:37,333
+<b>follow the demographics.</b>
+
+98
+01:03:38,033 --> 01:03:40,033
+<b>Unless you decide not to.</b>
+
+99
+01:03:40,500 --> 01:03:41,599
+<b>And the demographic data</b>
+
+100
+01:03:41,599 --> 01:03:43,266
+<b>was from a 1941 census.</b>
+
+101
+01:03:44,000 --> 01:03:46,766
+<b>Six years out of date Radcliffe chaired a</b>
+
+102
+01:03:46,766 --> 01:03:49,133
+<b>four-member commission. Two judges</b>
+
+103
+01:03:49,133 --> 01:03:50,633
+<b>nominated by the Muslim League.</b>
+
+104
+01:03:51,033 --> 01:03:52,933
+<b>Two by congress and the Sikhs.</b>
+
+105
+01:03:53,433 --> 01:03:54,866
+<b>They deadlocked on every</b>
+
+106
+01:03:54,866 --> 01:03:57,066
+<b>issue. Two against two.</b>
+
+107
+01:03:57,866 --> 01:03:58,466
+<b>So the Indian</b>
+
+108
+01:03:58,466 --> 01:04:01,133
+<b>Independence Act was amended so that</b>
+
+109
+01:04:01,366 --> 01:04:02,733
+<b>award meant the</b>
+
+110
+01:04:02,733 --> 01:04:04,166
+<b>decision of the chairman alone.</b>
+
+111
+01:04:04,933 --> 01:04:06,533
+<b>One man making all the calls.</b>
+
+112
+01:04:07,500 --> 01:04:09,666
+<b>Patrick French in Liberty or Death</b>
+
+113
+01:04:10,133 --> 01:04:12,233
+<b>documents what happened on August 8th.</b>
+
+114
+01:04:12,733 --> 01:04:14,166
+<b>On 8th August,</b>
+
+115
+01:04:14,666 --> 01:04:16,933
+<b>George Abell sent a rough map featuring</b>
+
+116
+01:04:16,933 --> 01:04:19,066
+<b>the Ferozepur salient to the private</b>
+
+117
+01:04:19,066 --> 01:04:20,933
+<b>office officer, Evan Jenkins.</b>
+
+118
+01:04:21,833 --> 01:04:24,233
+<b>An accompanying letter by Abell said</b>
+
+119
+01:04:24,233 --> 01:04:25,800
+<b>"there will not be any great</b>
+
+120
+01:04:25,800 --> 01:04:27,400
+<b>changes from this boundary".</b>
+
+121
+01:04:27,933 --> 01:04:28,766
+<b>Abell was Lord</b>
+
+122
+01:04:28,766 --> 01:04:30,666
+<b>Mountbatten's private secretary.</b>
+
+123
+01:04:31,433 --> 01:04:33,033
+<b>Jenkins was the governor of Punjab.</b>
+
+124
+01:04:33,966 --> 01:04:36,033
+<b>He'd been begging for advance information</b>
+
+125
+01:04:36,033 --> 01:04:38,233
+<b>so he could deploy police before the</b>
+
+126
+01:04:38,233 --> 01:04:39,266
+<b>border was announced.</b>
+
+127
+01:04:39,666 --> 01:04:40,933
+<b>But here's why the August</b>
+
+128
+01:04:40,933 --> 01:04:43,433
+<b>8th map made geographic sense.</b>
+
+129
+01:04:44,000 --> 01:04:47,166
+<b>Ferozepur Tehsil was 55% Muslim.</b>
+
+130
+01:04:47,666 --> 01:04:50,566
+<b>Zira Tehsil was 65% Muslim. The</b>
+
+131
+01:04:50,566 --> 01:04:51,533
+<b>demographic mandate</b>
+
+132
+01:04:51,533 --> 01:04:53,366
+<b>pointed clearly to Pakistan.</b>
+
+133
+01:04:54,300 --> 01:04:56,433
+<b>But these Tehsils weren't just farmland.</b>
+
+134
+01:04:57,033 --> 01:04:58,866
+<b>They contained the headworks of the Sutlej</b>
+
+135
+01:04:58,866 --> 01:05:00,666
+<b>Valley canal system.</b>
+
+136
+01:05:01,066 --> 01:05:02,833
+<b>The physical infrastructure that</b>
+
+137
+01:05:02,833 --> 01:05:04,633
+<b>controlled water flow to millions of</b>
+
+138
+01:05:04,633 --> 01:05:06,633
+<b>acres of irrigated land downstream.</b>
+
+139
+01:05:07,433 --> 01:05:09,199
+<b>Land that after</b>
+
+140
+01:05:09,199 --> 01:05:11,166
+<b>partition would be in Pakistan.</b>
+
+141
+01:05:12,266 --> 01:05:13,366
+<b>Think of it as a valve.</b>
+
+142
+01:05:14,166 --> 01:05:16,800
+<b>Whoever held Ferozepur held a tap.</b>
+
+143
+01:05:17,866 --> 01:05:20,566
+<b>And the August 8th draft gave the tap to</b>
+
+144
+01:05:20,566 --> 01:05:22,300
+<b>the same country that needed the water.</b>
+
+145
+01:05:23,300 --> 01:05:24,900
+<b>The letter said "there will</b>
+
+146
+01:05:24,900 --> 01:05:26,233
+<b>not be any great changes".</b>
+
+147
+01:05:27,266 --> 01:05:29,233
+<b>Then something changed.</b>
+
+148
+01:05:29,833 --> 01:05:32,266
+<b>Two or three days later Jenkins received</b>
+
+149
+01:05:32,266 --> 01:05:33,833
+<b>a coded telephone message. A</b>
+
+150
+01:05:34,000 --> 01:05:35,466
+<b>Secraphone call from the</b>
+
+151
+01:05:35,466 --> 01:05:37,433
+<b>Viceroy's house. French again.</b>
+
+152
+01:05:38,133 --> 01:05:40,133
+<b>Jenkins received a Secraphone message</b>
+
+153
+01:05:40,133 --> 01:05:42,766
+<b>telling him to eliminate salient.</b>
+
+154
+01:05:43,599 --> 01:05:45,166
+<b>Meaning that the whole of Ferozepur</b>
+
+155
+01:05:45,166 --> 01:05:47,400
+<b>district would now remain in India.</b>
+
+156
+01:05:48,133 --> 01:05:50,733
+<b>48 000 Muslim residents according to the</b>
+
+157
+01:05:50,733 --> 01:05:53,966
+<b>1941 census. This now became Indian.</b>
+
+158
+01:05:54,533 --> 01:05:55,733
+<b>Erased from Pakistan's</b>
+
+159
+01:05:55,733 --> 01:05:57,366
+<b>side with a single phone call.</b>
+
+160
+01:05:57,933 --> 01:06:00,400
+<b>And with them the canal headworks.</b>
+
+161
+01:06:01,033 --> 01:06:01,933
+<b>The valve shut.</b>
+
+162
+01:06:02,666 --> 01:06:04,966
+<b>Within months India would unilaterally</b>
+
+163
+01:06:04,966 --> 01:06:07,466
+<b>cut off water to Pakistani canals.</b>
+
+164
+01:06:07,966 --> 01:06:09,833
+<b>Triggering an irrigation crisis that took</b>
+
+165
+01:06:09,833 --> 01:06:11,266
+<b>12 years to resolve.</b>
+
+166
+01:06:12,533 --> 01:06:14,000
+<b>So what happened between</b>
+
+167
+01:06:14,000 --> 01:06:16,300
+<b>August 8th and August 10th?</b>
+
+168
+01:06:16,300 --> 01:06:19,366
+<b>On August 9th Radcliffe met Lord Ismay.</b>
+
+169
+01:06:19,866 --> 01:06:22,400
+<b>Mountbatten's chief of staff for an evening</b>
+
+170
+01:06:22,400 --> 01:06:24,133
+<b>drink at the Viceroy's estate.</b>
+
+171
+01:06:24,666 --> 01:06:25,433
+<b>The meeting is</b>
+
+172
+01:06:25,433 --> 01:06:27,733
+<b>documented but as Khan writes</b>
+
+173
+01:06:28,166 --> 01:06:30,266
+<b>"there is no contemporary record of it</b>
+
+174
+01:06:30,266 --> 01:06:32,466
+<b>and the recollections of the three</b>
+
+175
+01:06:32,466 --> 01:06:33,566
+<b>participants differ".</b>
+
+176
+01:06:34,566 --> 01:06:36,833
+<b>Years later Christopher Beaumont,</b>
+
+177
+01:06:37,500 --> 01:06:38,533
+<b>Radcliffe's own private</b>
+
+178
+01:06:38,533 --> 01:06:40,533
+<b>secretary gave testimony.</b>
+
+179
+01:06:41,166 --> 01:06:45,500
+<b>In 1989 and again in 1992 Beaumont stated</b>
+
+180
+01:06:45,500 --> 01:06:47,800
+<b>that Mountbatten allegedly</b>
+
+181
+01:06:47,800 --> 01:06:49,433
+<b>under pressure from Nehru</b>
+
+182
+01:06:49,833 --> 01:06:51,566
+<b>persuaded Radcliffe to change the</b>
+
+183
+01:06:51,566 --> 01:06:53,566
+<b>Punjab's border line in India's favor.</b>
+
+184
+01:06:54,566 --> 01:06:57,066
+<b>And there's more. John Christie,</b>
+
+185
+01:06:57,666 --> 01:06:59,033
+<b>Mountbatten's joint private</b>
+
+186
+01:06:59,033 --> 01:07:00,766
+<b>secretary, kept a diary.</b>
+
+187
+01:07:01,633 --> 01:07:04,766
+<b>His entry for August 9th says Mountbatten</b>
+
+188
+01:07:04,766 --> 01:07:07,566
+<b>was in a tired flap and had to be</b>
+
+189
+01:07:07,599 --> 01:07:09,666
+<b>strenuously dissuaded from asking</b>
+
+190
+01:07:09,666 --> 01:07:11,366
+<b>Radcliffe to alter his award.</b>
+
+191
+01:07:12,033 --> 01:07:15,033
+<b>Strenuously dissuaded. Meaning someone</b>
+
+192
+01:07:15,033 --> 01:07:16,633
+<b>had to talk him out of it.</b>
+
+193
+01:07:16,699 --> 01:07:19,166
+<b>Which suggests he was trying to do it.</b>
+
+194
+01:07:19,933 --> 01:07:22,433
+<b>If we're being fair, the evidence against</b>
+
+195
+01:07:22,433 --> 01:07:23,566
+<b>intervention is real.</b>
+
+196
+01:07:24,333 --> 01:07:25,166
+<b>Mountbatten maintained</b>
+
+197
+01:07:25,166 --> 01:07:27,033
+<b>that he and Radcliffe were</b>
+
+198
+01:07:27,266 --> 01:07:30,066
+<b>"mutually most careful never to have any</b>
+
+199
+01:07:30,066 --> 01:07:31,533
+<b>discussions about the boundaries".</b>
+
+200
+01:07:32,400 --> 01:07:34,766
+<b>Radcliffe himself called his award the</b>
+
+201
+01:07:34,766 --> 01:07:37,033
+<b>result of his own unfettered judgment.</b>
+
+202
+01:07:37,866 --> 01:07:40,433
+<b>And the "other factors clause" does</b>
+
+203
+01:07:40,433 --> 01:07:41,933
+<b>provide a legitimate rationale.</b>
+
+204
+01:07:42,866 --> 01:07:44,666
+<b>Radcliffe wrote "I have</b>
+
+205
+01:07:44,666 --> 01:07:46,533
+<b>hesitated long over those not</b>
+
+206
+01:07:46,666 --> 01:07:48,066
+<b>in considerable areas</b>
+
+207
+01:07:48,066 --> 01:07:49,733
+<b>east of the Sutlej River.</b>
+
+208
+01:07:50,233 --> 01:07:52,066
+<b>I have come to the conclusion that there</b>
+
+209
+01:07:52,066 --> 01:07:53,333
+<b>are factors such as</b>
+
+210
+01:07:53,333 --> 01:07:54,433
+<b>the disruption of railway</b>
+
+211
+01:07:54,466 --> 01:07:57,333
+<b>communications and water systems that</b>
+
+212
+01:07:57,333 --> 01:07:59,066
+<b>ought in this instance to</b>
+
+213
+01:07:59,066 --> 01:08:00,766
+<b>displace the primary claims of</b>
+
+214
+01:08:00,766 --> 01:08:03,666
+<b>contiguous majorities. Canal headworks,</b>
+
+215
+01:08:04,266 --> 01:08:06,366
+<b>railway networks, these are real</b>
+
+216
+01:08:06,366 --> 01:08:07,633
+<b>infrastructure concerns.</b>
+
+217
+01:08:08,433 --> 01:08:11,366
+<b>So you could read these two ways. Either</b>
+
+218
+01:08:11,366 --> 01:08:12,400
+<b>Mountbatten pressured</b>
+
+219
+01:08:12,400 --> 01:08:13,666
+<b>Radcliffe to change the line</b>
+
+220
+01:08:14,133 --> 01:08:16,366
+<b>and Radcliffe retrospectively justified</b>
+
+221
+01:08:16,366 --> 01:08:18,399
+<b>it. Or Radcliffe</b>
+
+222
+01:08:18,399 --> 01:08:20,233
+<b>genuinely reconsidered his draft</b>
+
+223
+01:08:20,233 --> 01:08:21,233
+<b>and reached a different</b>
+
+224
+01:08:21,233 --> 01:08:23,066
+<b>conclusion on legitimate grounds.</b>
+
+225
+01:08:23,433 --> 01:08:24,666
+<b>We won't know for sure</b>
+
+226
+01:08:24,666 --> 01:08:26,333
+<b>because of what happened next.</b>
+
+227
+01:08:26,833 --> 01:08:28,533
+<b>Radcliffe signed the complete award on</b>
+
+228
+01:08:28,533 --> 01:08:29,899
+<b>August 12th. It was</b>
+
+229
+01:08:29,899 --> 01:08:31,899
+<b>published on August 17th.</b>
+
+230
+01:08:31,899 --> 01:08:33,966
+<b>Two days after both India and Pakistan</b>
+
+231
+01:08:33,966 --> 01:08:35,399
+<b>celebrated independence.</b>
+
+232
+01:08:36,366 --> 01:08:38,600
+<b>People in borderland villages didn't know</b>
+
+233
+01:08:38,600 --> 01:08:40,033
+<b>which country they lived in</b>
+
+234
+01:08:40,033 --> 01:08:41,733
+<b>until two days after their</b>
+
+235
+01:08:41,733 --> 01:08:43,033
+<b>countries already existed.</b>
+
+236
+01:08:43,833 --> 01:08:46,666
+<b>And then Radcliffe destroyed everything.</b>
+
+237
+01:08:47,266 --> 01:08:48,966
+<b>Aloys Arthur Michel confirms.</b>
+
+238
+01:08:49,733 --> 01:08:52,533
+<b>Sir Cyril's personal notes, memoranda and</b>
+
+239
+01:08:52,533 --> 01:08:54,733
+<b>drafts were all destroyed at that time.</b>
+
+240
+01:08:55,533 --> 01:08:56,766
+<b>Every working paper,</b>
+
+241
+01:08:57,233 --> 01:08:58,633
+<b>every draft map gone.</b>
+
+242
+01:08:59,233 --> 01:09:02,066
+<b>He refused his salary. He never returned</b>
+
+243
+01:09:02,066 --> 01:09:03,066
+<b>to the subcontinent.</b>
+
+244
+01:09:03,733 --> 01:09:06,766
+<b>Months before his death in 1977 someone</b>
+
+245
+01:09:06,766 --> 01:09:08,633
+<b>asked if he'd ever go back.</b>
+
+246
+01:09:09,366 --> 01:09:10,233
+<b>His answer?</b>
+
+247
+01:09:11,433 --> 01:09:13,733
+<b>God forbid. Not even if they asked me.</b>
+
+248
+01:09:14,166 --> 01:09:15,333
+<b>I suspect they'd shoot me</b>
+
+249
+01:09:15,333 --> 01:09:16,966
+<b>out of hand. Both sides.</b>
+
+250
+01:09:18,600 --> 01:09:20,466
+<b>Ferozepur gets the most attention.</b>
+
+251
+01:09:20,933 --> 01:09:21,466
+<b>But the bigger</b>
+
+252
+01:09:21,466 --> 01:09:23,266
+<b>consequence may be Gurdaspur.</b>
+
+253
+01:09:23,833 --> 01:09:26,733
+<b>Gurdaspur contains the Pathankot Road, the</b>
+
+254
+01:09:26,733 --> 01:09:29,233
+<b>only land corridor from India to Kashmir.</b>
+
+255
+01:09:29,833 --> 01:09:32,466
+<b>Michel is direct. Had Radcliffe awarded</b>
+
+256
+01:09:32,466 --> 01:09:33,733
+<b>Gurdaspur to Pakistan,</b>
+
+257
+01:09:34,133 --> 01:09:35,366
+<b>there would have been no land</b>
+
+258
+01:09:35,366 --> 01:09:36,433
+<b>communication between</b>
+
+259
+01:09:36,433 --> 01:09:38,266
+<b>India and Jammu Kashmir.</b>
+
+260
+01:09:38,666 --> 01:09:41,466
+<b>In 1965, 18 years after</b>
+
+261
+01:09:41,466 --> 01:09:43,733
+<b>drawing the line, Radcliffe said,</b>
+
+262
+01:09:44,333 --> 01:09:46,266
+<b>"I wouldn't dream of defending some of</b>
+
+263
+01:09:46,266 --> 01:09:47,066
+<b>the decisions in</b>
+
+264
+01:09:47,066 --> 01:09:48,666
+<b>detail I made at the time.</b>
+
+265
+01:09:49,133 --> 01:09:50,266
+<b>I was not aware of the</b>
+
+266
+01:09:50,266 --> 01:09:51,333
+<b>Kashmir thing at all."</b>
+
+267
+01:09:51,633 --> 01:09:52,466
+<b>He says he wasn't</b>
+
+268
+01:09:52,466 --> 01:09:53,866
+<b>even thinking of Kashmir.</b>
+
+269
+01:09:54,533 --> 01:09:56,166
+<b>If that's true, the road</b>
+
+270
+01:09:56,166 --> 01:09:57,399
+<b>corridor was an accident.</b>
+
+271
+01:09:57,866 --> 01:09:59,699
+<b>If it's not, it was the most</b>
+
+272
+01:09:59,699 --> 01:10:01,600
+<b>consequential geographic decision in</b>
+
+273
+01:10:01,600 --> 01:10:03,133
+<b>modern South Asian history.</b>
+
+274
+01:10:03,500 --> 01:10:05,399
+<b>The scholarly consensus is that this</b>
+
+275
+01:10:05,399 --> 01:10:06,633
+<b>wasn't a grand conspiracy.</b>
+
+276
+01:10:07,233 --> 01:10:10,133
+<b>It was a shoddy implementation of a</b>
+
+277
+01:10:10,133 --> 01:10:12,600
+<b>wafer-thin plan, exhaustion,</b>
+
+278
+01:10:13,100 --> 01:10:15,566
+<b>haste and a desire to escape liability.</b>
+
+279
+01:10:16,766 --> 01:10:18,100
+<b>But here's what bothers me.</b>
+
+280
+01:10:18,500 --> 01:10:19,933
+<b>We'll never know for certain what</b>
+
+281
+01:10:19,933 --> 01:10:22,199
+<b>happened on August 9th, 1947.</b>
+
+282
+01:10:23,199 --> 01:10:24,533
+<b>Because the only man who could have</b>
+
+283
+01:10:24,533 --> 01:10:27,300
+<b>settled it burned the evidence and took</b>
+
+284
+01:10:27,300 --> 01:10:28,500
+<b>the answer to his grave.</b>
+
+285
+01:10:29,833 --> 01:10:30,766
+<b>Those are the documents.</b>
+
+286
+01:10:31,433 --> 01:10:33,866
+<b>What you conclude from them is up to you.</b>
+
+287
+01:10:34,166 --> 01:10:35,566
+<b>Full sources in the description.</b>
+
+288
+01:10:36,366 --> 01:10:37,100
+<b>Thank you for watching.</b>
+

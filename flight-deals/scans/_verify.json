@@ -1,0 +1,332 @@
+{
+  "scan_date": "2026-04-20",
+  "threshold_eur": 500.0,
+  "sources_available": {
+    "travelpayouts": true,
+    "gflights": false,
+    "skyscanner": false,
+    "amadeus": false
+  },
+  "source_counts": {
+    "v3.prices_for_dates": 3,
+    "travelpayouts.self_transfer": 2
+  },
+  "cheap_count": 0,
+  "close_call_count": 0,
+  "total_offers_in_window": 5,
+  "cheap_deals": [],
+  "close_call_deals": [],
+  "top_5_overall": [
+    {
+      "price_eur": 576.0,
+      "origin": "LIM",
+      "destination": "MAD",
+      "departure_date": "2026-07-01",
+      "depart_time": "2026-07-01T23:00:00-05:00",
+      "airline": "AM",
+      "flight_number": "AM19",
+      "stops": 2,
+      "duration_min": 1810,
+      "source_endpoint": "v3.prices_for_dates",
+      "verify_links": {
+        "google_flights": "https://www.google.com/travel/flights?q=Flights+from+LIM+to+MAD+on+2026-07-01+one-way",
+        "skyscanner": "https://www.skyscanner.net/transport/flights/lim/mad/260701/",
+        "kiwi": "https://www.kiwi.com/en/search/results/LIM/MAD/2026-07-01/no-return"
+      },
+      "route_type": "direct",
+      "unified_price_eur": 576.0,
+      "unified_source": "v3.prices_for_dates",
+      "unified_route_type": "direct"
+    },
+    {
+      "price_eur": 590.0,
+      "origin": "LIM",
+      "destination": "MAD",
+      "departure_date": "2026-07-02",
+      "depart_time": "2026-07-02T01:47:00-05:00",
+      "airline": "DM",
+      "flight_number": "DM6775",
+      "stops": 2,
+      "duration_min": 1643,
+      "source_endpoint": "v3.prices_for_dates",
+      "verify_links": {
+        "google_flights": "https://www.google.com/travel/flights?q=Flights+from+LIM+to+MAD+on+2026-07-02+one-way",
+        "skyscanner": "https://www.skyscanner.net/transport/flights/lim/mad/260702/",
+        "kiwi": "https://www.kiwi.com/en/search/results/LIM/MAD/2026-07-02/no-return"
+      },
+      "route_type": "direct",
+      "unified_price_eur": 590.0,
+      "unified_source": "v3.prices_for_dates",
+      "unified_route_type": "direct"
+    },
+    {
+      "price_eur": 610.0,
+      "origin": "LIM",
+      "destination": "MAD",
+      "departure_date": "2026-07-05",
+      "depart_time": "2026-07-05T07:30:00-05:00",
+      "airline": "AV",
+      "flight_number": "AV102",
+      "stops": 2,
+      "duration_min": 2020,
+      "source_endpoint": "v3.prices_for_dates",
+      "verify_links": {
+        "google_flights": "https://www.google.com/travel/flights?q=Flights+from+LIM+to+MAD+on+2026-07-05+one-way",
+        "skyscanner": "https://www.skyscanner.net/transport/flights/lim/mad/260705/",
+        "kiwi": "https://www.kiwi.com/en/search/results/LIM/MAD/2026-07-05/no-return"
+      },
+      "route_type": "direct",
+      "unified_price_eur": 610.0,
+      "unified_source": "v3.prices_for_dates",
+      "unified_route_type": "direct"
+    },
+    {
+      "price_eur": 614.0,
+      "origin": "LIM",
+      "destination": "CDG",
+      "hub": "MIA",
+      "departure_date": "2026-07-06",
+      "arrive_hub_date": "2026-07-06",
+      "leg2_date": "2026-07-07",
+      "total_price_eur": 614.0,
+      "leg1": {
+        "route": "LIM->MIA",
+        "price_eur": 201.0,
+        "airline": "H2",
+        "stops": 0,
+        "source_endpoint": "v3.prices_for_dates"
+      },
+      "leg2": {
+        "route": "MIA->CDG",
+        "price_eur": 413.0,
+        "airline": "NK",
+        "stops": 2,
+        "source_endpoint": "v3.prices_for_dates"
+      },
+      "verify_links": {
+        "leg1": {
+          "google_flights": "https://www.google.com/travel/flights?q=Flights+from+LIM+to+MIA+on+2026-07-06+one-way",
+          "skyscanner": "https://www.skyscanner.net/transport/flights/lim/mia/260706/",
+          "kiwi": "https://www.kiwi.com/en/search/results/LIM/MIA/2026-07-06/no-return"
+        },
+        "leg2": {
+          "google_flights": "https://www.google.com/travel/flights?q=Flights+from+MIA+to+CDG+on+2026-07-07+one-way",
+          "skyscanner": "https://www.skyscanner.net/transport/flights/mia/cdg/260707/",
+          "kiwi": "https://www.kiwi.com/en/search/results/MIA/CDG/2026-07-07/no-return"
+        }
+      },
+      "route_type": "self_transfer",
+      "unified_price_eur": 614.0,
+      "unified_source": "travelpayouts.self_transfer",
+      "unified_route_type": "self_transfer"
+    },
+    {
+      "price_eur": 1033.0,
+      "origin": "LIM",
+      "destination": "MAD",
+      "hub": "MIA",
+      "departure_date": "2026-07-06",
+      "arrive_hub_date": "2026-07-06",
+      "leg2_date": "2026-07-08",
+      "total_price_eur": 1033.0,
+      "leg1": {
+        "route": "LIM->MIA",
+        "price_eur": 201.0,
+        "airline": "H2",
+        "stops": 0,
+        "source_endpoint": "v3.prices_for_dates"
+      },
+      "leg2": {
+        "route": "MIA->MAD",
+        "price_eur": 832.0,
+        "airline": "TP",
+        "stops": 1,
+        "source_endpoint": "v1.calendar"
+      },
+      "verify_links": {
+        "leg1": {
+          "google_flights": "https://www.google.com/travel/flights?q=Flights+from+LIM+to+MIA+on+2026-07-06+one-way",
+          "skyscanner": "https://www.skyscanner.net/transport/flights/lim/mia/260706/",
+          "kiwi": "https://www.kiwi.com/en/search/results/LIM/MIA/2026-07-06/no-return"
+        },
+        "leg2": {
+          "google_flights": "https://www.google.com/travel/flights?q=Flights+from+MIA+to+MAD+on+2026-07-08+one-way",
+          "skyscanner": "https://www.skyscanner.net/transport/flights/mia/mad/260708/",
+          "kiwi": "https://www.kiwi.com/en/search/results/MIA/MAD/2026-07-08/no-return"
+        }
+      },
+      "route_type": "self_transfer",
+      "unified_price_eur": 1033.0,
+      "unified_source": "travelpayouts.self_transfer",
+      "unified_route_type": "self_transfer"
+    }
+  ],
+  "raw": {
+    "travelpayouts": {
+      "available": true,
+      "total": 5,
+      "self_transfers": 2,
+      "cache_pool_hits": {
+        "v3.prices_for_dates": 50,
+        "v3.grouped_prices": 50,
+        "v2.prices_latest": 0,
+        "v1.calendar": 44,
+        "v1.cheap": 10
+      },
+      "errors": [
+        {
+          "origin": "LPB",
+          "dest": "MEX",
+          "error": "The read operation timed out"
+        },
+        {
+          "origin": "GRU",
+          "dest": "BRU",
+          "error": "The read operation timed out"
+        }
+      ],
+      "manual_verification_links": [
+        {
+          "route": "LIM->MAD",
+          "links": {
+            "google_flights": "https://www.google.com/travel/flights?q=Flights+from+LIM+to+MAD+in+July+2026+one-way",
+            "skyscanner": "https://www.skyscanner.net/transport/flights/lim/mad/260701/",
+            "kiwi": "https://www.kiwi.com/en/search/results/LIM/MAD/2026-07-01_2026-07-07/no-return"
+          }
+        },
+        {
+          "route": "LIM->LHR",
+          "links": {
+            "google_flights": "https://www.google.com/travel/flights?q=Flights+from+LIM+to+LHR+in+July+2026+one-way",
+            "skyscanner": "https://www.skyscanner.net/transport/flights/lim/lhr/260701/",
+            "kiwi": "https://www.kiwi.com/en/search/results/LIM/LHR/2026-07-01_2026-07-07/no-return"
+          }
+        },
+        {
+          "route": "LIM->BRU",
+          "links": {
+            "google_flights": "https://www.google.com/travel/flights?q=Flights+from+LIM+to+BRU+in+July+2026+one-way",
+            "skyscanner": "https://www.skyscanner.net/transport/flights/lim/bru/260701/",
+            "kiwi": "https://www.kiwi.com/en/search/results/LIM/BRU/2026-07-01_2026-07-07/no-return"
+          }
+        },
+        {
+          "route": "LIM->AMS",
+          "links": {
+            "google_flights": "https://www.google.com/travel/flights?q=Flights+from+LIM+to+AMS+in+July+2026+one-way",
+            "skyscanner": "https://www.skyscanner.net/transport/flights/lim/ams/260701/",
+            "kiwi": "https://www.kiwi.com/en/search/results/LIM/AMS/2026-07-01_2026-07-07/no-return"
+          }
+        },
+        {
+          "route": "LIM->CDG",
+          "links": {
+            "google_flights": "https://www.google.com/travel/flights?q=Flights+from+LIM+to+CDG+in+July+2026+one-way",
+            "skyscanner": "https://www.skyscanner.net/transport/flights/lim/cdg/260701/",
+            "kiwi": "https://www.kiwi.com/en/search/results/LIM/CDG/2026-07-01_2026-07-07/no-return"
+          }
+        },
+        {
+          "route": "CUZ->MAD",
+          "links": {
+            "google_flights": "https://www.google.com/travel/flights?q=Flights+from+CUZ+to+MAD+in+July+2026+one-way",
+            "skyscanner": "https://www.skyscanner.net/transport/flights/cuz/mad/260701/",
+            "kiwi": "https://www.kiwi.com/en/search/results/CUZ/MAD/2026-07-01_2026-07-07/no-return"
+          }
+        },
+        {
+          "route": "CUZ->LHR",
+          "links": {
+            "google_flights": "https://www.google.com/travel/flights?q=Flights+from+CUZ+to+LHR+in+July+2026+one-way",
+            "skyscanner": "https://www.skyscanner.net/transport/flights/cuz/lhr/260701/",
+            "kiwi": "https://www.kiwi.com/en/search/results/CUZ/LHR/2026-07-01_2026-07-07/no-return"
+          }
+        },
+        {
+          "route": "CUZ->BRU",
+          "links": {
+            "google_flights": "https://www.google.com/travel/flights?q=Flights+from+CUZ+to+BRU+in+July+2026+one-way",
+            "skyscanner": "https://www.skyscanner.net/transport/flights/cuz/bru/260701/",
+            "kiwi": "https://www.kiwi.com/en/search/results/CUZ/BRU/2026-07-01_2026-07-07/no-return"
+          }
+        },
+        {
+          "route": "CUZ->AMS",
+          "links": {
+            "google_flights": "https://www.google.com/travel/flights?q=Flights+from+CUZ+to+AMS+in+July+2026+one-way",
+            "skyscanner": "https://www.skyscanner.net/transport/flights/cuz/ams/260701/",
+            "kiwi": "https://www.kiwi.com/en/search/results/CUZ/AMS/2026-07-01_2026-07-07/no-return"
+          }
+        },
+        {
+          "route": "CUZ->CDG",
+          "links": {
+            "google_flights": "https://www.google.com/travel/flights?q=Flights+from+CUZ+to+CDG+in+July+2026+one-way",
+            "skyscanner": "https://www.skyscanner.net/transport/flights/cuz/cdg/260701/",
+            "kiwi": "https://www.kiwi.com/en/search/results/CUZ/CDG/2026-07-01_2026-07-07/no-return"
+          }
+        },
+        {
+          "route": "LPB->MAD",
+          "links": {
+            "google_flights": "https://www.google.com/travel/flights?q=Flights+from+LPB+to+MAD+in+July+2026+one-way",
+            "skyscanner": "https://www.skyscanner.net/transport/flights/lpb/mad/260701/",
+            "kiwi": "https://www.kiwi.com/en/search/results/LPB/MAD/2026-07-01_2026-07-07/no-return"
+          }
+        },
+        {
+          "route": "LPB->LHR",
+          "links": {
+            "google_flights": "https://www.google.com/travel/flights?q=Flights+from+LPB+to+LHR+in+July+2026+one-way",
+            "skyscanner": "https://www.skyscanner.net/transport/flights/lpb/lhr/260701/",
+            "kiwi": "https://www.kiwi.com/en/search/results/LPB/LHR/2026-07-01_2026-07-07/no-return"
+          }
+        },
+        {
+          "route": "LPB->BRU",
+          "links": {
+            "google_flights": "https://www.google.com/travel/flights?q=Flights+from+LPB+to+BRU+in+July+2026+one-way",
+            "skyscanner": "https://www.skyscanner.net/transport/flights/lpb/bru/260701/",
+            "kiwi": "https://www.kiwi.com/en/search/results/LPB/BRU/2026-07-01_2026-07-07/no-return"
+          }
+        },
+        {
+          "route": "LPB->AMS",
+          "links": {
+            "google_flights": "https://www.google.com/travel/flights?q=Flights+from+LPB+to+AMS+in+July+2026+one-way",
+            "skyscanner": "https://www.skyscanner.net/transport/flights/lpb/ams/260701/",
+            "kiwi": "https://www.kiwi.com/en/search/results/LPB/AMS/2026-07-01_2026-07-07/no-return"
+          }
+        },
+        {
+          "route": "LPB->CDG",
+          "links": {
+            "google_flights": "https://www.google.com/travel/flights?q=Flights+from+LPB+to+CDG+in+July+2026+one-way",
+            "skyscanner": "https://www.skyscanner.net/transport/flights/lpb/cdg/260701/",
+            "kiwi": "https://www.kiwi.com/en/search/results/LPB/CDG/2026-07-01_2026-07-07/no-return"
+          }
+        }
+      ],
+      "reason_missing": null
+    },
+    "gflights": {
+      "available": false,
+      "total": 0,
+      "reason_missing": "scrape_gflights.py timed out after 600s",
+      "errors": []
+    },
+    "skyscanner": {
+      "available": false,
+      "total": 0,
+      "reason_missing": "Skyscanner serves PerimeterX CAPTCHA on first navigation; headless scraping is blocked. Use Amadeus instead (scrape_amadeus.py) or expand Travelpayouts endpoints.",
+      "errors": []
+    },
+    "amadeus": {
+      "available": false,
+      "total": 0,
+      "hostname": null,
+      "reason_missing": "AMADEUS_CLIENT_ID/SECRET env vars not set \u2014 get them free at developers.amadeus.com",
+      "errors": []
+    }
+  }
+}

@@ -1,296 +1,203 @@
 # Video Projects Status Tracker
 
-**Last Updated:** 2025-12-22
-**Active Projects:** 15
-**Ready to Film:** 2
-**Total Subscribers:** 197
-**Total Views:** 82K+
-**Watch Time:** 590+ hours
-**Target:** Quality over quantity, always
+**Last Updated:** 2026-03-23
+**Channel Stats:** 475 subscribers, 199K+ views, 307+ videos
+**Average Retention:** 30-35%
+**Strategy:** Rapid-fire testing (1/week, 8-10 min) → deep dive on winners
 
 ---
 
-## Quick Status Overview
+## Quick Status Overview (Ranked by Search Volume)
 
-| # | Project | Hook Type | Phase | Priority | Status |
-|---|---------|-----------|-------|----------|--------|
-| 1 | Sykes-Picot | Territorial | Ready to Film | HIGH | Ready |
-| 2 | Heritage/Protocols | Ideological | Research Done | Medium | On Hold |
-| 3 | Fuentes Fact-Check | Ideological | Script Done | Medium-High | Ready |
-| 4 | Crusades (Hegseth) | Ideological | Script Done | HIGH | Ready |
-| 5 | Netanyahu Map | Territorial | Deprioritized | LOW | On Hold |
-| 6 | Bir Tawil | Territorial | Script Done | HIGH | Ready |
-| 7 | Genocide Definition | Ideological | Early Research | Medium | Planning |
-| 8 | Medieval Women | Ideological | Early Research | Medium | Planning |
-| 9 | Communism Definition | Ideological | Script Done | Medium | Ready |
-| 10 | Dark Ages | Ideological | Script Done | Medium | Ready |
-| 11 | Industrial Revolution | Ideological | Script Done | Medium | Ready |
-| 12 | Guatemala Maya | Territorial | Early Research | Low | Planning |
-| 13 | Belize ICJ | Territorial | Script V3 Done | HIGH | Ready |
-| 14 | Christmas Origins | Ideological | Script Done | URGENT | Ready |
-| - | Vance Part 2 | Ideological | Script Done | Medium | On Hold |
-
----
-
-## READY TO FILM
-
-### 1. Sykes-Picot Agreement Myths
-**Location:** `_READY_TO_FILM/1-sykes-picot-2025/`
-**Hook Type:** Territorial
-**Status:** Ready to Film
-**Modern Hook:** Politicians blame Sykes-Picot for modern Middle East conflicts
-
-**Files Ready:**
-- Script verified
-- B-roll checklist
-- YouTube metadata
-- Editing guide (shot-by-shot)
-
-**Next Action:** Film
+| # | Project | Status | Search Vol | Views | Notes |
+|---|---------|--------|-----------|-------|-------|
+| 40 | Berlin Conference 1884 | PUBLISHED | 11,648 | TBD | Published ~March 2026, monitoring |
+| 33 | Greenland Independence | RESEARCHING | 8,100 | — | "trump buy greenland" = high demand |
+| 36 | Panama Canal DeConcini | RESEARCHING | 6,600 | — | |
+| 41 | Treaty of Tordesillas | SCRIPT APPROVED | 2,703 | — | Ready to film |
+| 39 | Adwa-Wuchale Treaty | RESEARCHING | 2,900 | — | 68% verified, needs sources |
+| 37 | Vichy Statut des Juifs | PUBLISHED | 2,400 | 40+ | Published 2026-03-05 |
+| 35 | Gibraltar Treaty | PUBLISHED | ~1,500 | 31 | Title swap queued |
+| 34 | Operation Condor | PUBLISHED | 1,309 | 34 | |
+| 9 | Communism Definition | SCRIPT APPROVED | ~1,800 | — | Ready to film |
+| 21 | Haiti Independence Debt | SCRIPT APPROVED | ~1,200 | — | Ready to film |
+| 31 | Bermeja Island | PUBLISHED | <500 | 11 | Title/thumb swapped 2026-03-05 |
+| 25 | Iran Protests/Constitution | PUBLISHED | <500 | 58 | |
+| 24 | Iran 1953 Coup | PUBLISHED | <500 | 34 | |
+| 38 | Spanish Colonial Law | RESEARCHING | <500 | — | Early research |
+| 11 | Industrial Revolution | SCRIPT APPROVED | ~900 | — | Lower priority |
 
 ---
 
-### 14. Christmas Origins (Sol Invictus)
-**Location:** `_IN_PRODUCTION/4-christmas-origins-2025/`
-**Hook Type:** Ideological
-**Status:** Ready to Film - URGENT (Thursday publish deadline)
-**Modern Hook:** "Christmas is pagan" claim resurfaces every December
+## RECENTLY PUBLISHED (Monitoring)
 
-**Files Ready:**
-- 01-VERIFIED-RESEARCH.md (NotebookLM fact-checked)
-- 02-SCRIPT-DRAFT.md (VidIQ optimized)
-- YOUTUBE-METADATA.md
+### 37. Vichy Statut des Juifs — Untranslated Evidence Ep. 1
+**Folder:** `_IN_PRODUCTION/37-untranslated-vichy-statut-juifs-2026/`
+**Video ID:** imPn_OxLYlk (10:36) | **Short:** kGDneu1LUxs (1:53)
+**Published:** 2026-03-05 | **Views:** 40 (8h)
+**Title:** Vichy France: The Anti-Jewish Law Nobody Translated
+**Like ratio:** 22% (best on channel)
+**Action:** Re-analyze at 48h (March 7) for CTR/retention decision
 
-**Title:** Sol Invictus: The 274 AD Mistake That Changed Christmas
-**Next Action:** Film Thursday, publish before Christmas
+### 35. Gibraltar — Treaty of Utrecht
+**Folder:** `_IN_PRODUCTION/35-gibraltar-treaty-utrecht-2026/`
+**Video ID:** WZnCxVPNF7A (14:05) | **Shorts:** 6+ published
+**Published:** 2026-02-26 | **Views:** 31 | **Retention:** 32.5%
+**Title:** The 1713 Document That Still Controls Gibraltar's Borders
+**Issue:** Low impressions, document-style thumbnail underperforming
+**Action:** Swap title to "Spain's 300-Year Trap: Why They Can't Reclaim Gibraltar" + map thumbnail if no improvement by March 12
 
----
+### 31. Bermeja Island
+**Folder:** `_IN_PRODUCTION/31-bermeja-island-2025/`
+**Video ID:** P6yalauLDic (8:15) | **Shorts:** 5 published
+**Published:** 2026-02-19 | **Views:** 11 | **CTR:** 1.83%
+**Title (swapped 2026-03-05):** Mexico's Missing Island: The Map Error That Cost $22 Billion
+**Action:** Check CTR at 48h post-swap (March 7)
 
-## SCRIPTS COMPLETED (Need to Move to Ready)
-
-### 4. Crusades Fact-Check (Hegseth Connection)
-**Location:** `_IN_PRODUCTION/4-crusades-fact-check-2025/`
-**Hook Type:** Ideological
-**Modern Hook:** Pete Hegseth's "Crusades were defensive" claims
-**Hook Strength:** 5/5 (Defense Secretary, active discourse)
-
-**Files:** FINAL-SCRIPT.md, B-ROLL-CHECKLIST.md, EDITING-GUIDE.md
-**Next Action:** Final review, then move to _READY_TO_FILM
-
----
-
-### 6. Bir Tawil - Only Unclaimed Land
-**Location:** `_IN_PRODUCTION/6-bir-tawil-2025/`
-**Hook Type:** Territorial
-**Modern Hook:** Viral curiosity ("land nobody owns")
-**Hook Strength:** 4/5 (evergreen interest, viral potential)
-
-**Files:** SCRIPT-V4-FINAL.md (needs rename to FINAL-SCRIPT.md)
-**Breakout Potential:** High (3K-8K views, possibly viral)
-**Next Action:** Rename script, move to _READY_TO_FILM
+### 34. Operation Condor
+**Folder:** `_IN_PRODUCTION/34-operation-condor-2025/`
+**Video ID:** (short-form only — check if long-form published)
+**Shorts:** 7+ published (avg 500-1100 views each)
 
 ---
 
-### 3. Fuentes Fact-Check (Holocaust Math + Jan 6)
-**Location:** `_IN_PRODUCTION/3-fuentes-fact-check-2025/`
-**Hook Type:** Ideological
-**Modern Hook:** Tucker Carlson interview (20M views)
-**Hook Strength:** 4/5 (viral misinformation counter)
+## PUBLISHED (All Long-Form — Performance Reference)
 
-**Files:** FINAL-SCRIPT.md, YOUTUBE-METADATA.md, B-ROLL-CHECKLIST.md
-**Demonetization Risk:** 60-70%
-**Next Action:** Review for filming readiness
-
----
-
-### 13. Belize ICJ Endgame
-**Location:** `_IN_PRODUCTION/13-belize-icj-endgame-2025/`
-**Hook Type:** Territorial
-**Modern Hook:** Ongoing ICJ case, territorial dispute resolution
-
-**Files:** FINAL-SCRIPT-V3.md (needs cleanup - multiple versions exist)
-**Issue:** Has V1, V2, V3 - need to consolidate
-**Next Action:** Clean up versions, move to _READY_TO_FILM
-
----
-
-### 9. Communism Definition
-**Location:** `_IN_PRODUCTION/9-communism-definition-2025/`
-**Hook Type:** Ideological
-**Modern Hook:** Political debates misuse the term
-**Hook Strength:** 4/5 (constant political discourse)
-
-**Files:** FINAL-SCRIPT-V2-EDITED.md (needs rename)
-**Next Action:** Rename to FINAL-SCRIPT.md
+| Published | Views | Title | Project # |
+|-----------|-------|-------|-----------|
+| 2025-10-27 | 28,955 | The Country That Might Disappear: Guatemala vs Belize | 12 |
+| 2025-12-04 | 5,112 | Guatemala vs Belize Dispute: What 3 ICJ Cases Show | 13 |
+| 2025-10-19 | 1,962 | Venezuela vs Guyana: The Oil War Over Essequibo | — |
+| 2025-11-04 | 1,127 | JD Vance Claims Christians Found Child Sacrifice | — |
+| 2025-08-27 | 923 | Why TURKEY and GREECE Can't Agree on these islands | 14 |
+| 2025-11-27 | 669 | Primary Sources Destroy the 'Awesome Crusades' Narrative | 4 |
+| 2025-07-29 | 627 | 5 Big Myths About Israel and Palestine Busted! | — |
+| 2026-01-01 | 393 | Somaliland's Legal Independence Problem | 1 |
+| 2025-09-25 | 277 | How the KGB Weaponized Palestinian Resistance | — |
+| 2025-08-23 | 255 | The SHOCKING Truth About China's TAIWAN History | Taiwan |
+| 2025-08-14 | 224 | I Investigated the SHOCKING Sale of Kashmir | — |
+| 2026-01-15 | 206 | The Flat Earth Myth Was Invented in 1828 | 19 |
+| 2025-12-25 | 194 | Did Pagans Actually Copy Christmas? | 18 |
+| 2025-11-20 | 168 | Fact-Checking Nick Fuentes | 3 |
+| — | 158 | Why Trump Walked Back the Armenian Genocide | 7 |
+| 2025-12-18 | 110 | The Dark Ages: What Americans Believe vs Evidence | 10 |
+| 2025-10-16 | 105 | Morocco's 1,700-Mile Wall | — |
+| 2025-08-07 | 105 | The 200-Year-Old Tariff Myth | Tariffs |
+| 2025-09-12 | 118 | London's Stock Exchange Funded a Genocide | — |
+| 2025-11-13 | 96 | ISIS Cited This Map. It Never Decided Anything. | 1 |
+| — | 69 | Why Egypt and Sudan Both Reject Bir Tawil | 6 |
+| 2026-02-05 | 58 | Iran Wrote a Democratic Constitution. Then Deleted It. | 25 |
+| — | 46 | Was Lagertha Real? DNA Says Female Viking Warriors Existed | 17 |
+| — | 46 | Why Spain Didn't "Civilize" Peru: The 500-Year Lie | 27 |
+| — | — | The 1922 Loophole That Dissolved the Soviet Union | 30 |
 
 ---
 
-### 10. Dark Ages Myth
-**Location:** `_IN_PRODUCTION/10-dark-ages-2025/`
-**Hook Type:** Ideological
-**Modern Hook:** Western civilization narratives
-**Hook Strength:** 3/5 (evergreen ideological)
+## TEST VIDEO QUEUE — Rapid-Fire (Greenlit 2026-03-23)
 
-**Files:** FINAL-SCRIPT-V2-EDITED.md (needs rename)
-**Next Action:** Rename to FINAL-SCRIPT.md
+All 6 passed `/greenlight`. Zero competition across the board. 1 per week starting April 7.
 
----
+| # | Topic | Week | Best Title (Score) | Thumbnail | Audience |
+|---|-------|------|--------------------|-----------|----------|
+| 44 | Bakassi Peninsula | Apr 7 | Nigeria vs Cameroon. The Peninsula That Changed Hands. (80/B) | Map: Nigeria-Cameroon | 220M (Nigeria) |
+| 45 | Manhattan Purchase Myth | Apr 14 | Manhattan Was Never Sold. Here Are 5 Myths That Say Otherwise. (80/B) | Map + "$24?" | American + global |
+| 46 | Sabah Dispute | Apr 21 | Philippines vs Malaysia. A 15 Billion Dollar Word. (95/A) | Map: Borneo/Sabah | 113M (Philippines) |
+| 47 | Operation Legacy | Apr 28 | Britain Destroyed 8,800 Colonial Files. Here's What Survived. (85/A) | Burning docs | 55M (Kenya) + UK |
+| 48 | Hamoodur Rahman | May 5 | Pakistan Found Its Own War Crimes. Then Destroyed 11 Copies. (85/A) | Classified stamp | 300M (South Asia) |
+| 49 | Code Noir (Untranslated Ep. 2) | May 12 | France Made Slavery Legal in 60 Articles. Here's Every One. (85/A) | Document | Global |
 
-### 11. Industrial Revolution
-**Location:** `_IN_PRODUCTION/11-industrial-revolution-2025/`
-**Hook Type:** Ideological
-**Modern Hook:** Economic system debates
-**Hook Strength:** 3/5 (evergreen ideological)
-
-**Files:** FINAL-SCRIPT-V2-REVISED.md (needs rename)
-**Next Action:** Rename to FINAL-SCRIPT.md
+**⚠️ Manhattan is TIME-SENSITIVE** — 400th anniversary May 2026. Must publish by early May.
 
 ---
 
-## ON HOLD
+## IN RESEARCH (Not Yet Scripted)
 
-### Vance Part 2 - Christian Civilization
-**Location:** `_IN_PRODUCTION/vance-part-2-review/`
-**Hook Type:** Ideological
-**Status:** Script ready, timing decision needed
+### 39. Adwa-Wuchale Treaty (Untranslated Evidence series)
+**Folder:** `_IN_PRODUCTION/39-adwa-wuchale-2026/`
+**Status:** 68% verified — needs Jonas book (~$28) + more sources
+**Hook:** Italian "mistranslation" that triggered the Battle of Adwa
 
-**Issue:** Multiple script versions (FINAL_YOUR_VOICE_SCRIPT.md, FINAL_PRODUCTION_SCRIPT.md)
-**Decision Needed:** Which version is final? Publication timing?
+### 38. Spanish Colonial Law (Untranslated Evidence series)
+**Folder:** `_IN_PRODUCTION/38-spanish-colonial-law-untranslated-2026/`
+**Status:** Early research, 0/7 steps complete
+**Hook:** The law that governed 300 years of colonialism
 
----
+### 36. Panama Canal — DeConcini Reservation
+**Folder:** `_IN_PRODUCTION/36-panama-canal-deconcini-2026/`
+**Status:** Research phase
 
-### 2. Heritage Foundation / Protocols
-**Location:** `_IN_PRODUCTION/2-heritage-protocols-2025/`
-**Hook Type:** Ideological
-**Modern Hook:** Heritage Foundation controversy
-**Demonetization Risk:** 70-80% (HIGH)
-
-**Status:** Research complete, awaiting scripting
-**Next Action:** Script when demonetization strategy decided
-
----
-
-### 5. Netanyahu Map
-**Location:** `_IN_PRODUCTION/5-netanyahu-map-2025/`
-**Hook Type:** Territorial
-**Status:** Deprioritized - feels too modern geopolitics
-
-**Decision:** May repurpose research for Lebanon borders video
+### 33. Greenland Independence
+**Folder:** `_IN_PRODUCTION/33-greenland-independence-2026/`
+**Status:** Research phase
 
 ---
 
-## EARLY RESEARCH
+## SCRIPTS COMPLETE (Not Yet Filmed)
 
-### 7. Genocide Definition
-**Location:** `_IN_PRODUCTION/7-genocide-definition-2025/`
-**Hook Type:** Ideological
-**Modern Hook:** Legal/moral framework debates
-**Files:** PROJECT-BRIEF.md, SCRIPT-OUTLINE.md
-
----
-
-### 8. Medieval Women
-**Location:** `_IN_PRODUCTION/8-medieval-women-2025/`
-**Hook Type:** Ideological
-**Modern Hook:** Gender discourse, misconceptions
-**Files:** PROJECT-BRIEF.md, SCRIPT-OUTLINE.md
+| # | Project | Script File | Notes |
+|---|---------|-------------|-------|
+| 41 | Treaty of Tordesillas | `_IN_PRODUCTION/41-treaty-tordesillas-2026/` | Fact-check APPROVED, ready to film |
+| 9 | Communism Definition | `_IN_PRODUCTION/9-communism-definition-2025/` | Evergreen |
+| 11 | Industrial Revolution | `_IN_PRODUCTION/11-industrial-revolution-2025/` | Evergreen |
+| 21 | Haiti Independence Debt | `_IN_PRODUCTION/21-haiti-independence-debt-2025/` | Ready to film, 37 verified claims |
 
 ---
 
-### 12. Guatemala Maya Claims
-**Location:** `_IN_PRODUCTION/12-guatemala-maya-claims-2025/`
-**Hook Type:** Territorial
-**Files:** PROJECT-BRIEF.md
+## ON HOLD / DEPRIORITIZED
+
+| # | Project | Reason |
+|---|---------|--------|
+| 2 | Heritage/Protocols | 70-80% demonetization risk |
+| 5 | Netanyahu Map | Too modern geopolitics |
+| 28 | Vance Part 2 | Multiple script versions, timing unclear |
 
 ---
 
-## CONTENT BALANCE ANALYSIS
+## EARLY RESEARCH / PLANNING
 
-### Current Pipeline by Hook Type
-
-**Territorial (conflicts/borders):** 5 projects
-- Sykes-Picot (ready)
-- Bir Tawil (ready)
-- Belize ICJ (ready)
-- Netanyahu (on hold)
-- Guatemala Maya (early)
-
-**Ideological (myths/opinions):** 9 projects
-- Crusades/Hegseth (ready)
-- Fuentes (ready)
-- Communism (ready)
-- Dark Ages (ready)
-- Industrial Revolution (ready)
-- Heritage/Protocols (on hold)
-- Vance Part 2 (on hold)
-- Genocide Definition (early)
-- Medieval Women (early)
-
-### Recommended Filming Order (Hook Strength)
-
-1. **Crusades/Hegseth** - Hook 5/5, Defense Secretary in news
-2. **Sykes-Picot** - Hook 4/5, ready to film
-3. **Bir Tawil** - Hook 4/5, viral potential
-4. **Fuentes** - Hook 4/5, counter misinformation
-5. **Belize ICJ** - Hook 3/5, timely territorial
-6. **Communism** - Hook 4/5, constant discourse
+| # | Project | Status |
+|---|---------|--------|
+| 8 | Medieval Women | Brief + outline only |
+| 15 | Library of Alexandria | Planning |
+| 16 | Pyramid Builders (Merer) | Planning |
+| 20 | Guadalupe Hidalgo | Planning |
+| 23 | Christmas Origins | Has script + editing materials, not published |
+| 26 | Czechoslovakia Velvet Divorce | Research plan only |
+| 29 | Format Research | Internal |
+| 32 | Pyramid Merer Diary | Planning |
 
 ---
 
-## CLEANUP NEEDED
+## PERFORMANCE INSIGHTS
 
-### Script Version Consolidation
+### What Works (Top 5 by Views)
+1. **Guatemala/Belize** (28,955 + 5,112) — territorial dispute, map thumbnail, ICJ deadline
+2. **Venezuela/Guyana** (1,962) — territorial, oil stakes, active dispute
+3. **JD Vance** (1,127) — political fact-check, timely hook
+4. **Turkey/Greece** (923) — territorial, island disputes
+5. **Crusades** (669) — ideological, primary sources
 
-| Project | Issue | Action Needed |
-|---------|-------|---------------|
-| vance-part-2 | 2 "final" scripts | Decide which is THE final |
-| 6-bir-tawil | SCRIPT-V4-FINAL.md | Rename to FINAL-SCRIPT.md |
-| 9-communism | FINAL-SCRIPT-V2-EDITED.md | Rename to FINAL-SCRIPT.md |
-| 10-dark-ages | FINAL-SCRIPT-V2-EDITED.md | Rename to FINAL-SCRIPT.md |
-| 11-industrial | FINAL-SCRIPT-V2-REVISED.md | Rename to FINAL-SCRIPT.md |
-| 13-belize-icj | V1, V2, V3 exist | Keep V3, archive others |
+### Patterns Confirmed
+- **Territorial disputes + active legal cases = best performers**
+- **Colon titles:** 2x views, +62% retention vs non-colon
+- **Map thumbnails >> document thumbnails** at this channel size
+- **Stakes in title** (dollar amounts, deadlines, consequences) improve CTR
+- **Shorts generate 500-1200 views** but don't reliably drive long-form traffic
 
----
-
-## CHANNEL STRATEGY
-
-### What's Working
-- Territorial disputes with modern news hooks
-- Ideological fact-checking (highest CTR)
-- Primary source evidence on screen
-- 6-8 minute format
-- 30-35% retention
-
-### Content Mix Target
-- 40% Territorial (proven format)
-- 40% Ideological (growing format, high engagement)
-- 20% Political fact-checks (viral potential, but timing sensitive)
-
-### Key Insight
-**Hook strength matters more than topic type.** A strong ideological hook (Hegseth's Crusades claims) outperforms a weak territorial hook.
+### Biggest Lesson (2026)
+Long-form discovery is the bottleneck. Shorts are performing well independently but the pipeline to long-form is weak. Title/thumbnail optimization on long-form videos is the highest-leverage fix.
 
 ---
 
 ## NEXT ACTIONS
 
-### Immediate (This Week)
-1. Film Crusades (Hegseth hook is strong NOW)
-2. Clean up script versions across projects
-3. Move Bir Tawil to _READY_TO_FILM
-
-### Short Term (2 Weeks)
-1. Film Sykes-Picot
-2. Film Bir Tawil (viral candidate)
-3. Decide on Fuentes timing (demonetization risk)
-
-### Pipeline Building
-1. Complete Medieval Women research (ideological)
-2. Complete Genocide Definition research (ideological)
-3. Consider Lebanon borders (territorial, connects to Sykes-Picot)
+1. **This week:** Publish Forezapur (India-Pakistan)
+2. **Next week (Mar 31):** Film + publish Sapodilla Cayes Update (proven Belize topic)
+3. **Apr 7:** Start Bakassi (#44) — Phase 2 research + script + film
+4. **Apr 14:** Manhattan (#45) — TIME-SENSITIVE for May anniversary
+5. **Ongoing:** 1 test video per week through May 12
+6. **Decision points:** Check each test at 1 month. 20K+ = deep dive immediately.
 
 ---
 
-**Update this file:**
-- After each filming decision
-- When projects move between stages
-- Weekly minimum for status review
+*Update this file after each publish and monthly minimum.*

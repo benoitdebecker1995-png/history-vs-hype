@@ -1,7 +1,9 @@
 # Project 37: Untranslated Evidence — Vichy Statut des Juifs
 
 **Series:** Untranslated Evidence (Pilot Episode)
-**Status:** ✅ READY TO FILM — Script complete, fact-check APPROVED
+**Status:** ✅ PUBLISHED — 2026-03-05
+**Video ID:** imPn_OxLYlk
+**Short ID:** kGDneu1LUxs
 **Created:** 2026-02-16
 
 ## Concept
@@ -74,7 +76,8 @@ Take the Vichy France "Statut des Juifs" (October 3, 1940), translate it clause-
 6. ✅ Pétain draft obtained (images from NotebookLM sources)
 7. ✅ All draft annotations translated and verified
 8. ✅ Fact-check complete — **APPROVED FOR FILMING**
-9. ⬜ Run `/prep --edit-guide` for shot-by-shot filming guide
-10. ⬜ Run `/prep --split-screen` for split-screen edit guide (French/English display)
-11. ⬜ Film video
-12. ⬜ Run `/publish` for YouTube metadata after filming
+9. ✅ Filmed and edited
+10. ✅ Published 2026-03-05 (Title 1: colon format)
+11. ✅ Short clip published (Petain's Handwriting)
+12. ⬜ Re-run `/analyze imPn_OxLYlk` at 48h mark (March 7) for full retention/CTR
+13. ⬜ Evaluate series viability based on 30-day performance

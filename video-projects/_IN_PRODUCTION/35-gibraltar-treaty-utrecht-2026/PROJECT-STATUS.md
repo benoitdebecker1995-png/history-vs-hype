@@ -4,18 +4,20 @@
 **Working Title:** "The 1713 Clause Spain Wants Britain to Honor"
 **Target Length:** 8-11 minutes
 
-## Status: PHASE 1 - PRELIMINARY RESEARCH
+## Status: PUBLISHED
+
+**Published:** 2026-02-26
+**Long-form Video ID:** WZnCxVPNF7A — "The 1713 Document That Still Controls Gibraltar's Borders" (14:05)
+**Shorts published:** 6 (ORQu4BLgIP4, Vrkbzp8g53E, H2WP5NLvgqg, ewbHISYOH1g, I1HsEzGJ9SM, + twpC_IcbrSU Cadiz, + EpLPCRZWGEo Franco)
 
 - [x] Preliminary internet research
 - [x] NotebookLM academic sources identified
 - [x] Audio Overview transcript received (3 overviews: Treaty/Legal, Identity, Ethnogenesis)
 - [x] Research verification (94% verified — 75/80 claims)
-- [ ] Script draft (02-SCRIPT-DRAFT.md)
-- [ ] YouTube metadata (YOUTUBE-METADATA.md)
-- [ ] B-roll checklist (B-ROLL-CHECKLIST.md)
-- [ ] Fact-check verification (03-FACT-CHECK-VERIFICATION.md)
-- [ ] Teleprompter export
-- [ ] Filming
+- [x] Script draft (02-SCRIPT-DRAFT.md)
+- [x] YouTube metadata (YOUTUBE-METADATA.md)
+- [x] Filmed and published
+- [x] Post-publish analysis created (2026-03-05)
 
 ## Project Brief
 

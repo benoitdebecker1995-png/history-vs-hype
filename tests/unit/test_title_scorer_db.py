@@ -184,15 +184,28 @@ class TestScoreTitleDbPath:
             os.unlink(path)
 
     def test_colon_hard_reject_with_db_path(self):
-        """Colon penalty still produces REJECTED grade even when DB scores are high."""
+        """Colon as 'Topic: Subtitle' still produces REJECTED even when DB scores high.
+
+        v4 recalibration: versus+colon gets reduced penalty, not hard reject.
+        Use a pure colon title to test the hard reject path.
+        """
         from tools.title_scorer import score_title
 
         path = _create_test_db_with_data(declarative_ctr=5.0, n_declarative=3)
         try:
-            result = score_title("France vs Haiti: The Forced Debt", db_path=path)
+            result = score_title("Dark Ages: What Americans Believe", db_path=path)
             assert result["grade"] == "REJECTED"
         finally:
             os.unlink(path)
+
+    def test_colon_after_versus_not_hard_rejected(self):
+        """v4: Colon after versus pattern gets reduced penalty, not REJECTED."""
+        from tools.title_scorer import score_title
+
+        result = score_title("France vs Haiti: The Forced Debt")
+        assert result["grade"] != "REJECTED", (
+            "Versus+colon should not be hard rejected (4.3% CTR on Venezuela vs Guyana: Essequibo)"
+        )
 
     def test_return_dict_has_required_keys(self):
         """Return dict includes all original keys plus db_enriched and db_base_score."""

@@ -1,0 +1,1496 @@
+1
+00:00:00,166 --> 00:00:02,000
+<b>Abra um mapa linguístico da América do Sul.</b>
+
+2
+00:00:02,633 --> 00:00:03,333
+<b>Quase todo o</b>
+
+3
+00:00:03,333 --> 00:00:04,833
+<b>continente fala espanhol.</b>
+
+4
+00:00:05,366 --> 00:00:06,666
+<b>Um país não fala,</b>
+
+5
+00:00:06,666 --> 00:00:08,266
+<b>e é o maior de todos.</b>
+
+6
+00:00:09,199 --> 00:00:10,933
+<b>A fronteira entre a América do Sul</b>
+
+7
+00:00:10,933 --> 00:00:12,633
+<b>que fala espanhol e a que fala português</b>
+
+8
+00:00:12,966 --> 00:00:14,833
+<b>não é uma cordilheira nem um rio.</b>
+
+9
+00:00:15,233 --> 00:00:16,000
+<b>Ela segue uma linha</b>
+
+10
+00:00:16,000 --> 00:00:17,966
+<b>quase perfeita de norte a sul.</b>
+
+11
+00:00:18,800 --> 00:00:20,099
+<b>Essa linha é um tratado.</b>
+
+12
+00:00:20,866 --> 00:00:24,099
+<b>Assinado em 7 de junho de 1494, em uma pequena</b>
+
+13
+00:00:24,099 --> 00:00:26,000
+<b>cidade espanhola chamada Tordesilhas.</b>
+
+14
+00:00:26,800 --> 00:00:28,900
+<b>Dois países traçaram uma linha por um mundo</b>
+
+15
+00:00:28,900 --> 00:00:29,966
+<b>que nunca tinham mapeado.</b>
+
+16
+00:00:31,166 --> 00:00:33,066
+<b>A resposta padrão é: é por isso</b>
+
+17
+00:00:33,066 --> 00:00:34,433
+<b>que o Brasil fala português.</b>
+
+18
+00:00:35,066 --> 00:00:36,133
+<b>Um tratado traçou uma linha,</b>
+
+19
+00:00:36,666 --> 00:00:38,633
+<b>Portugal ficou com o leste, pronto.</b>
+
+20
+00:00:39,566 --> 00:00:40,833
+<b>Essa resposta é incompleta.</b>
+
+21
+00:00:41,599 --> 00:00:44,599
+<b>Porque em 1494, ninguém conseguia realmente</b>
+
+22
+00:00:44,599 --> 00:00:46,366
+<b>medir onde essa linha estava.</b>
+
+23
+00:00:46,966 --> 00:00:48,466
+<b>Porque a maior parte do Brasil moderno</b>
+
+24
+00:00:48,466 --> 00:00:50,133
+<b>fica do lado errado dela.</b>
+
+25
+00:00:50,599 --> 00:00:52,500
+<b>E porque durante dois séculos, as pessoas</b>
+
+26
+00:00:52,500 --> 00:00:53,599
+<b>que viviam ali não</b>
+
+27
+00:00:53,599 --> 00:00:54,900
+<b>falavam português.</b>
+
+28
+00:00:55,400 --> 00:00:56,066
+<b>Até que um decreto</b>
+
+29
+00:00:56,066 --> 00:00:58,866
+<b>governamental em 1757 os obrigou.</b>
+
+30
+00:00:59,666 --> 00:01:01,066
+<b>Eis o que realmente aconteceu.</b>
+
+31
+00:01:01,666 --> 00:01:03,099
+<b>Tudo começou com um padrão de ventos.</b>
+
+32
+00:01:03,599 --> 00:01:05,133
+<b>E um compromisso que acidentalmente</b>
+
+33
+00:01:05,133 --> 00:01:06,533
+<b>incluiu um continente</b>
+
+34
+00:01:06,533 --> 00:01:08,733
+<b>que ninguém na Europa sabia que existia.</b>
+
+35
+00:01:09,333 --> 00:01:11,566
+<b>Em 1493, Colombo tinha acabado</b>
+
+36
+00:01:11,566 --> 00:01:12,633
+<b>de voltar do Caribe.</b>
+
+37
+00:01:13,800 --> 00:01:15,800
+<b>Ele navegou sob a bandeira espanhola, mas</b>
+
+38
+00:01:15,800 --> 00:01:16,933
+<b>Portugal já vinha</b>
+
+39
+00:01:16,933 --> 00:01:18,833
+<b>explorando o Atlântico havia décadas.</b>
+
+40
+00:01:19,333 --> 00:01:20,566
+<b>Eles tinham postos comerciais</b>
+
+41
+00:01:20,566 --> 00:01:22,066
+<b>ao longo da costa africana,</b>
+
+42
+00:01:22,066 --> 00:01:24,566
+<b>e bulas papais dos anos 1450 que lhes davam</b>
+
+43
+00:01:24,566 --> 00:01:25,866
+<b>os direitos exclusivos</b>
+
+44
+00:01:25,933 --> 00:01:26,966
+<b>sobre novos territórios</b>
+
+45
+00:01:26,966 --> 00:01:28,366
+<b>ao sul de uma certa linha.</b>
+
+46
+00:01:29,266 --> 00:01:31,300
+<b>Então, quando Colombo voltou reivindicando</b>
+
+47
+00:01:31,300 --> 00:01:33,766
+<b>novas terras para a Espanha, Portugal protestou.</b>
+
+48
+00:01:34,766 --> 00:01:36,666
+<b>Os dois países acreditavam ter os</b>
+
+49
+00:01:36,666 --> 00:01:38,633
+<b>direitos legais sobre o mesmo oceano.</b>
+
+50
+00:01:39,766 --> 00:01:40,866
+<b>Eles precisavam de um árbitro.</b>
+
+51
+00:01:41,233 --> 00:01:43,166
+<b>E no século XV, o Papa</b>
+
+52
+00:01:43,166 --> 00:01:44,866
+<b>funcionava como a autoridade suprema</b>
+
+53
+00:01:45,033 --> 00:01:48,000
+<b>em disputas entre monarcas cristãos.</b>
+
+54
+00:01:48,466 --> 00:01:49,900
+<b>Tanto a Espanha quanto Portugal</b>
+
+55
+00:01:49,900 --> 00:01:51,133
+<b>eram reinos católicos.</b>
+
+56
+00:01:51,933 --> 00:01:54,233
+<b>Ambos aceitavam a jurisdição papal sobre</b>
+
+57
+00:01:54,233 --> 00:01:56,166
+<b>reivindicações territoriais envolvendo</b>
+
+58
+00:01:56,166 --> 00:01:57,233
+<b>terras não cristãs.</b>
+
+59
+00:01:57,866 --> 00:02:00,466
+<b>Então pediram ao Papa para traçar uma linha.</b>
+
+60
+00:02:00,833 --> 00:02:03,633
+<b>O Papa na época era Alexandre VI, um</b>
+
+61
+00:02:03,633 --> 00:02:06,333
+<b>espanhol nascido Rodrigo Bórgia.</b>
+
+62
+00:02:06,766 --> 00:02:08,733
+<b>E a linha que ele traçou favoreceu a Espanha.</b>
+
+63
+00:02:09,333 --> 00:02:10,633
+<b>Ele a colocou a 100 léguas</b>
+
+64
+00:02:10,633 --> 00:02:12,766
+<b>a oeste das ilhas de Cabo Verde,</b>
+
+65
+00:02:13,233 --> 00:02:14,633
+<b>um arquipélago português</b>
+
+66
+00:02:14,633 --> 00:02:16,166
+<b>na costa oeste da África.</b>
+
+67
+00:02:16,933 --> 00:02:17,800
+<b>Tudo a oeste</b>
+
+68
+00:02:17,800 --> 00:02:19,000
+<b>dessa linha ia para a Espanha.</b>
+
+69
+00:02:19,533 --> 00:02:21,666
+<b>Tudo a leste ia para Portugal.</b>
+
+70
+00:02:22,466 --> 00:02:23,366
+<b>Portugal olhou para essa</b>
+
+71
+00:02:23,366 --> 00:02:24,666
+<b>linha e viu um problema.</b>
+
+72
+00:02:25,133 --> 00:02:26,533
+<b>Não apenas que não era justa.</b>
+
+73
+00:02:27,199 --> 00:02:28,733
+<b>O problema era prático.</b>
+
+74
+00:02:30,066 --> 00:02:31,733
+<b>Os navegadores portugueses tinham passado décadas</b>
+
+75
+00:02:31,733 --> 00:02:33,366
+<b>dominando os ventos do Atlântico.</b>
+
+76
+00:02:34,099 --> 00:02:36,566
+<b>Eles haviam dominado uma técnica chamada</b>
+
+77
+00:02:36,566 --> 00:02:38,866
+<b>Volta do Mar, o retorno pelo mar.</b>
+
+78
+00:02:39,466 --> 00:02:41,500
+<b>Ao navegar de volta da costa africana,</b>
+
+79
+00:02:42,033 --> 00:02:43,533
+<b>eles não podiam simplesmente ir direto para o norte.</b>
+
+80
+00:02:44,400 --> 00:02:46,466
+<b>Os ventos alísios sopravam contra eles,</b>
+
+81
+00:02:46,466 --> 00:02:47,900
+<b>então desviavam seus navios bem</b>
+
+82
+00:02:47,900 --> 00:02:49,566
+<b>para o oeste, em pleno Atlântico.</b>
+
+83
+00:02:50,133 --> 00:02:52,599
+<b>Às vezes por semanas, até pegarem</b>
+
+84
+00:02:52,599 --> 00:02:54,500
+<b>os ventos de oeste em latitudes mais altas.</b>
+
+85
+00:02:55,400 --> 00:02:57,233
+<b>Esses ventos os levavam em um grande</b>
+
+86
+00:02:57,233 --> 00:02:58,833
+<b>arco de volta a Lisboa.</b>
+
+87
+00:02:59,300 --> 00:03:01,333
+<b>O historiador de Cambridge, Anthony Disney,</b>
+
+88
+00:03:01,333 --> 00:03:03,133
+<b>documenta isso com precisão.</b>
+
+89
+00:03:04,066 --> 00:03:05,766
+<b>Os navegadores portugueses conseguiam fixar sua</b>
+
+90
+00:03:05,766 --> 00:03:07,599
+<b>latitude com margem de meio grau.</b>
+
+91
+00:03:08,133 --> 00:03:10,500
+<b>Mas aquele arco de retorno ia bem para o oeste.</b>
+
+92
+00:03:11,266 --> 00:03:13,066
+<b>A 100 léguas de Cabo Verde,</b>
+
+93
+00:03:13,400 --> 00:03:15,099
+<b>a linha do Papa colocaria navios portugueses</b>
+
+94
+00:03:15,099 --> 00:03:17,433
+<b>em águas espanholas durante viagens</b>
+
+95
+00:03:17,433 --> 00:03:18,900
+<b>rotineiras de volta da África.</b>
+
+96
+00:03:19,466 --> 00:03:22,300
+<b>Não hipoteticamente — em cada viagem.</b>
+
+97
+00:03:22,566 --> 00:03:25,400
+<b>Então, quando o rei de Portugal, D. João II, enviou</b>
+
+98
+00:03:25,400 --> 00:03:27,066
+<b>diplomatas para renegociar,</b>
+
+99
+00:03:27,366 --> 00:03:28,599
+<b>não era uma conquista territorial.</b>
+
+100
+00:03:29,066 --> 00:03:30,599
+<b>A rota comercial portuguesa no Atlântico,</b>
+
+101
+00:03:30,966 --> 00:03:31,466
+<b>toda a sua</b>
+
+102
+00:03:31,466 --> 00:03:33,066
+<b>linha vital de comércio com a África,</b>
+
+103
+00:03:33,800 --> 00:03:35,666
+<b>dependia de ter espaço marítimo suficiente para</b>
+
+104
+00:03:35,666 --> 00:03:37,866
+<b>executar a Volta do Mar.</b>
+
+105
+00:03:38,466 --> 00:03:40,433
+<b>E Portugal tinha a marinha mais forte do</b>
+
+106
+00:03:40,433 --> 00:03:41,666
+<b>Atlântico naquela época.</b>
+
+107
+00:03:42,333 --> 00:03:44,666
+<b>Disney nota que D. João já havia</b>
+
+108
+00:03:44,666 --> 00:03:46,566
+<b>demonstrado isso interceptando navios espanhóis</b>
+
+109
+00:03:46,566 --> 00:03:48,133
+<b>na costa africana.</b>
+
+110
+00:03:48,966 --> 00:03:51,599
+<b>A Espanha sabia que um acordo que Portugal rejeitasse</b>
+
+111
+00:03:51,599 --> 00:03:54,099
+<b>era um acordo que teriam de impor por mar,</b>
+
+112
+00:03:54,433 --> 00:03:56,333
+<b>contra uma marinha que não podiam vencer.</b>
+
+113
+00:03:56,666 --> 00:03:58,866
+<b>As negociações aconteceram em Tordesilhas,</b>
+
+114
+00:03:59,466 --> 00:04:01,166
+<b>uma cidade em Castela, ao longo de</b>
+
+115
+00:04:01,166 --> 00:04:03,666
+<b>várias semanas na primavera de 1494.</b>
+
+116
+00:04:04,433 --> 00:04:07,633
+<b>O compromisso moveu a linha para 370</b>
+
+117
+00:04:07,633 --> 00:04:10,099
+<b>léguas a oeste das ilhas de Cabo Verde.</b>
+
+118
+00:04:11,000 --> 00:04:13,033
+<b>Isso deu a Portugal oceano suficiente para</b>
+
+119
+00:04:13,033 --> 00:04:15,099
+<b>executar a Volta do Mar com segurança.</b>
+
+120
+00:04:15,599 --> 00:04:18,199
+<b>E por acidente, cortou a</b>
+
+121
+00:04:18,199 --> 00:04:20,466
+<b>ponta mais oriental de um continente que ninguém</b>
+
+122
+00:04:20,466 --> 00:04:21,866
+<b>na Europa sabia que existia.</b>
+
+123
+00:04:22,166 --> 00:04:24,133
+<b>Eu rastreei o texto original do tratado.</b>
+
+124
+00:04:24,500 --> 00:04:25,300
+<b>Está disponível no</b>
+
+125
+00:04:25,300 --> 00:04:26,599
+<b>Avalon Project de Yale.</b>
+
+126
+00:04:27,066 --> 00:04:27,733
+<b>E a parte que</b>
+
+127
+00:04:27,733 --> 00:04:29,866
+<b>normalmente é omitida é esta.</b>
+
+128
+00:04:30,433 --> 00:04:33,833
+<b>Em 1494, ninguém conseguia realmente medir</b>
+
+129
+00:04:33,833 --> 00:04:35,033
+<b>onde essa linha estava.</b>
+
+130
+00:04:36,133 --> 00:04:37,133
+<b>Os marinheiros portugueses</b>
+
+131
+00:04:37,133 --> 00:04:38,566
+<b>conseguiam medir latitude.</b>
+
+132
+00:04:38,933 --> 00:04:40,900
+<b>Quão ao norte ou ao sul estavam.</b>
+
+133
+00:04:41,266 --> 00:04:43,066
+<b>Usavam o astrolábio náutico,</b>
+
+134
+00:04:43,366 --> 00:04:45,233
+<b>um instrumento portátil para medir o</b>
+
+135
+00:04:45,233 --> 00:04:47,233
+<b>ângulo do sol acima do horizonte.</b>
+
+136
+00:04:47,699 --> 00:04:49,666
+<b>Cruzavam essas leituras com</b>
+
+137
+00:04:49,666 --> 00:04:50,833
+<b>tabelas de declinação</b>
+
+138
+00:04:50,833 --> 00:04:52,599
+<b>compiladas por Abraão Zacuto,</b>
+
+139
+00:04:53,133 --> 00:04:54,033
+<b>um astrônomo judeu</b>
+
+140
+00:04:54,033 --> 00:04:56,333
+<b>que trabalhava para a coroa portuguesa,</b>
+
+141
+00:04:56,900 --> 00:04:57,800
+<b>que corrigiam a</b>
+
+142
+00:04:57,800 --> 00:04:59,133
+<b>posição sazonal do sol.</b>
+
+143
+00:05:00,033 --> 00:05:01,266
+<b>Essa tecnologia funcionava.</b>
+
+144
+00:05:02,266 --> 00:05:02,966
+<b>Mas a linha de</b>
+
+145
+00:05:02,966 --> 00:05:04,666
+<b>Tordesilhas corre de norte a sul.</b>
+
+146
+00:05:05,699 --> 00:05:06,599
+<b>Isso é longitude.</b>
+
+147
+00:05:06,966 --> 00:05:08,966
+<b>Quão a leste ou a oeste você está.</b>
+
+148
+00:05:09,300 --> 00:05:12,400
+<b>E em 1494, não havia uma forma confiável de</b>
+
+149
+00:05:12,400 --> 00:05:13,733
+<b>medir longitude no mar.</b>
+
+150
+00:05:14,566 --> 00:05:16,766
+<b>Os principais métodos disponíveis — distâncias</b>
+
+151
+00:05:16,766 --> 00:05:19,833
+<b>lunares, eclipses, navegação estimada —</b>
+
+152
+00:05:20,466 --> 00:05:22,800
+<b>eram ou imprecisos demais ou</b>
+
+153
+00:05:22,800 --> 00:05:23,933
+<b>infrequentes demais para serem</b>
+
+154
+00:05:23,933 --> 00:05:25,266
+<b>práticos em um navio em movimento.</b>
+
+155
+00:05:26,133 --> 00:05:27,733
+<b>O que realmente se precisava era de um relógio que</b>
+
+156
+00:05:27,733 --> 00:05:29,233
+<b>mantivesse a hora perfeita em</b>
+
+157
+00:05:29,233 --> 00:05:30,599
+<b>um convés balançando por meses.</b>
+
+158
+00:05:31,566 --> 00:05:34,199
+<b>Esse relógio, o cronômetro marítimo</b>
+
+159
+00:05:34,199 --> 00:05:35,666
+<b>de John Harrison, não</b>
+
+160
+00:05:35,666 --> 00:05:37,699
+<b>existiria por quase 250 anos.</b>
+
+161
+00:05:38,033 --> 00:05:39,900
+<b>O tratado até reconhecia o problema.</b>
+
+162
+00:05:40,366 --> 00:05:42,000
+<b>Ele determinou uma expedição conjunta.</b>
+
+163
+00:05:42,366 --> 00:05:44,133
+<b>O texto especifica duas a</b>
+
+164
+00:05:44,133 --> 00:05:46,433
+<b>quatro caravelas de cada lado</b>
+
+165
+00:05:46,633 --> 00:05:47,966
+<b>para se encontrar em 10 meses</b>
+
+166
+00:05:47,966 --> 00:05:49,433
+<b>e localizar fisicamente a linha.</b>
+
+167
+00:05:50,566 --> 00:05:52,199
+<b>Essa expedição nunca aconteceu.</b>
+
+168
+00:05:52,933 --> 00:05:54,766
+<b>Eles dividiram o planeta usando uma</b>
+
+169
+00:05:54,766 --> 00:05:56,666
+<b>medição que ainda não existia.</b>
+
+170
+00:05:57,633 --> 00:05:59,033
+<b>Seis anos depois, em</b>
+
+171
+00:05:59,033 --> 00:06:01,166
+<b>1500, uma frota portuguesa,</b>
+
+172
+00:06:01,433 --> 00:06:03,633
+<b>liderada por Pedro Álvares Cabral, aportou</b>
+
+173
+00:06:03,633 --> 00:06:04,666
+<b>na costa do que</b>
+
+174
+00:06:04,666 --> 00:06:05,566
+<b>hoje é o Brasil.</b>
+
+175
+00:06:06,233 --> 00:06:07,966
+<b>Se foi acidental ou</b>
+
+176
+00:06:07,966 --> 00:06:09,866
+<b>deliberado ainda é debatido.</b>
+
+177
+00:06:10,566 --> 00:06:12,933
+<b>Disney escreve que "durante alguns</b>
+
+178
+00:06:12,933 --> 00:06:14,666
+<b>anos antes da viagem começar,</b>
+
+179
+00:06:15,133 --> 00:06:16,666
+<b>a coroa já sabia, ou</b>
+
+180
+00:06:16,666 --> 00:06:18,166
+<b>pelo menos suspeitava fortemente,</b>
+
+181
+00:06:18,733 --> 00:06:19,366
+<b>que uma massa</b>
+
+182
+00:06:19,366 --> 00:06:21,500
+<b>continental a sudoeste existia</b>
+
+183
+00:06:21,833 --> 00:06:22,800
+<b>e que eles</b>
+
+184
+00:06:22,800 --> 00:06:25,233
+<b>deliberadamente mantiveram o assunto em segredo."</b>
+
+185
+00:06:25,666 --> 00:06:27,633
+<b>O que não é debatido é que o desembarque de Cabral</b>
+
+186
+00:06:27,633 --> 00:06:28,733
+<b>caiu do lado</b>
+
+187
+00:06:28,733 --> 00:06:29,933
+<b>português da linha.</b>
+
+188
+00:06:30,566 --> 00:06:31,800
+<b>Portugal o reivindicou.</b>
+
+189
+00:06:32,033 --> 00:06:34,533
+<b>Construíram postos comerciais ao longo da costa.</b>
+
+190
+00:06:35,133 --> 00:06:36,733
+<b>E quando navios franceses começaram</b>
+
+191
+00:06:36,733 --> 00:06:37,800
+<b>a ignorar o tratado</b>
+
+192
+00:06:37,800 --> 00:06:39,166
+<b>e a extrair pau-brasil,</b>
+
+193
+00:06:39,633 --> 00:06:41,766
+<b>uma madeira tintorial vermelha tão valiosa que</b>
+
+194
+00:06:41,766 --> 00:06:43,166
+<b>deu ao território seu nome,</b>
+
+195
+00:06:44,033 --> 00:06:46,133
+<b>Portugal respondeu estabelecendo</b>
+
+196
+00:06:46,133 --> 00:06:47,199
+<b>assentamentos permanentes</b>
+
+197
+00:06:47,199 --> 00:06:48,300
+<b>para defender a reivindicação.</b>
+
+198
+00:06:48,733 --> 00:06:50,766
+<b>Essa é a resposta dos livros didáticos.</b>
+
+199
+00:06:51,433 --> 00:06:54,199
+<b>Um papa, um padrão de ventos e um tratado deram</b>
+
+200
+00:06:54,199 --> 00:06:55,366
+<b>a Portugal um ponto de apoio na</b>
+
+201
+00:06:55,366 --> 00:06:56,733
+<b>costa da América do Sul.</b>
+
+202
+00:06:57,833 --> 00:06:58,800
+<b>Mas olhe para o Brasil moderno.</b>
+
+203
+00:06:59,533 --> 00:07:00,366
+<b>É enorme.</b>
+
+204
+00:07:00,766 --> 00:07:02,500
+<b>E a maior parte dele fica bem</b>
+
+205
+00:07:02,500 --> 00:07:04,000
+<b>a oeste da linha de Tordesilhas.</b>
+
+206
+00:07:04,933 --> 00:07:05,833
+<b>Então como um ponto de apoio</b>
+
+207
+00:07:05,833 --> 00:07:07,666
+<b>costeiro se tornou metade de um continente?</b>
+
+208
+00:07:08,766 --> 00:07:10,766
+<b>Em 1580, as coroas espanhola e portuguesa</b>
+
+209
+00:07:10,766 --> 00:07:13,066
+<b>se fundiram sob o mesmo rei.</b>
+
+210
+00:07:13,699 --> 00:07:14,733
+<b>Filipe II da Espanha</b>
+
+211
+00:07:14,733 --> 00:07:16,566
+<b>herdou o trono português.</b>
+
+212
+00:07:17,400 --> 00:07:21,733
+<b>Durante 60 anos, de 1580 a 1640, Espanha</b>
+
+213
+00:07:21,733 --> 00:07:22,599
+<b>e Portugal eram</b>
+
+214
+00:07:22,599 --> 00:07:23,800
+<b>efetivamente um só reino,</b>
+
+215
+00:07:24,233 --> 00:07:25,366
+<b>o que significava que não havia</b>
+
+216
+00:07:25,366 --> 00:07:26,533
+<b>fronteira para impor.</b>
+
+217
+00:07:27,400 --> 00:07:29,133
+<b>A linha de Tordesilhas se tornou letra</b>
+
+218
+00:07:29,133 --> 00:07:30,866
+<b>morta — não formalmente</b>
+
+219
+00:07:30,866 --> 00:07:32,566
+<b>abolida, apenas ignorada.</b>
+
+220
+00:07:33,300 --> 00:07:35,566
+<b>Colonos portugueses de São Paulo, chamados</b>
+
+221
+00:07:35,566 --> 00:07:36,833
+<b>bandeirantes, avançaram</b>
+
+222
+00:07:36,833 --> 00:07:38,000
+<b>para o oeste, rumo ao interior.</b>
+
+223
+00:07:38,933 --> 00:07:40,466
+<b>Eles buscavam escravos indígenas,</b>
+
+224
+00:07:40,933 --> 00:07:42,900
+<b>ouro e qualquer coisa de valor.</b>
+
+225
+00:07:43,833 --> 00:07:46,466
+<b>Disney escreve que eles "se vestiam em parte</b>
+
+226
+00:07:46,466 --> 00:07:47,966
+<b>à moda ameríndia, em parte</b>
+
+227
+00:07:47,966 --> 00:07:49,833
+<b>à moda portuguesa, e falavam</b>
+
+228
+00:07:49,933 --> 00:07:51,466
+<b>tupi-guarani com</b>
+
+229
+00:07:51,466 --> 00:07:52,633
+<b>seus seguidores nativos."</b>
+
+230
+00:07:52,966 --> 00:07:55,166
+<b>Não eram exatamente representantes da</b>
+
+231
+00:07:55,166 --> 00:07:56,933
+<b>alta sociedade de Lisboa,</b>
+
+232
+00:07:56,933 --> 00:07:58,699
+<b>mas cobriram distâncias enormes.</b>
+
+233
+00:07:59,533 --> 00:08:01,366
+<b>Uma expedição liderada por um soldado</b>
+
+234
+00:08:01,366 --> 00:08:03,133
+<b>português chamado Pedro</b>
+
+235
+00:08:03,133 --> 00:08:04,866
+<b>Teixeira viajou de Belém,</b>
+
+236
+00:08:04,866 --> 00:08:07,266
+<b>na costa amazônica, até Quito,</b>
+
+237
+00:08:07,266 --> 00:08:09,333
+<b>nos Andes, em 1637,</b>
+
+238
+00:08:10,066 --> 00:08:11,366
+<b>atravessando todo o continente,</b>
+
+239
+00:08:12,033 --> 00:08:14,166
+<b>bem a oeste da linha de Tordesilhas.</b>
+
+240
+00:08:15,133 --> 00:08:17,766
+<b>Disney nota que a notícia causou muita</b>
+
+241
+00:08:17,766 --> 00:08:19,399
+<b>indignação no Conselho</b>
+
+242
+00:08:19,399 --> 00:08:20,266
+<b>das Índias da Espanha,</b>
+
+243
+00:08:20,733 --> 00:08:22,233
+<b>mas não havia nada</b>
+
+244
+00:08:22,233 --> 00:08:23,666
+<b>que a Espanha pudesse fazer.</b>
+
+245
+00:08:24,500 --> 00:08:26,333
+<b>Os dois reinos ainda compartilhavam a coroa.</b>
+
+246
+00:08:26,666 --> 00:08:28,466
+<b>Não havia a quem reclamar</b>
+
+247
+00:08:28,466 --> 00:08:31,366
+<b>e nenhuma fronteira a defender.</b>
+
+248
+00:08:32,033 --> 00:08:33,766
+<b>Quando as coroas finalmente se separaram em</b>
+
+249
+00:08:33,766 --> 00:08:36,166
+<b>1640, Portugal simplesmente</b>
+
+250
+00:08:36,166 --> 00:08:37,733
+<b>se recusou a devolver a terra.</b>
+
+251
+00:08:38,266 --> 00:08:42,233
+<b>Mais de um século depois, em 1750, os dois lados</b>
+
+252
+00:08:42,233 --> 00:08:43,833
+<b>sentaram para resolver a confusão.</b>
+
+253
+00:08:44,433 --> 00:08:46,933
+<b>O resultado foi o Tratado de Madrid, um</b>
+
+254
+00:08:46,933 --> 00:08:48,000
+<b>acordo formal para</b>
+
+255
+00:08:48,000 --> 00:08:49,366
+<b>abandonar a linha de Tordesilhas</b>
+
+256
+00:08:49,366 --> 00:08:51,199
+<b>inteiramente e substituí-la por um novo</b>
+
+257
+00:08:51,199 --> 00:08:53,333
+<b>princípio: "Uti possidetis."</b>
+
+258
+00:08:54,000 --> 00:08:56,933
+<b>É um conceito jurídico que significa: você fica</b>
+
+259
+00:08:56,933 --> 00:08:58,066
+<b>com o que efetivamente possui.</b>
+
+260
+00:08:58,933 --> 00:09:00,500
+<b>Se seus colonos viviam ali,</b>
+
+261
+00:09:01,000 --> 00:09:02,966
+<b>cultivavam ali, construíam ali,</b>
+
+262
+00:09:03,366 --> 00:09:05,600
+<b>a terra era sua, independentemente de onde</b>
+
+263
+00:09:05,600 --> 00:09:06,733
+<b>a velha linha tinha sido.</b>
+
+264
+00:09:07,133 --> 00:09:08,433
+<b>Disney escreve que sob esse novo</b>
+
+265
+00:09:08,433 --> 00:09:10,833
+<b>arranjo, o Brasil havia adquirido um território</b>
+
+266
+00:09:10,833 --> 00:09:12,266
+<b>muito maior do que</b>
+
+267
+00:09:12,399 --> 00:09:14,433
+<b>aquele a que teria direito</b>
+
+268
+00:09:14,433 --> 00:09:15,533
+<b>sob qualquer interpretação razoável</b>
+
+269
+00:09:15,533 --> 00:09:17,000
+<b>do Tratado de</b>
+
+270
+00:09:17,000 --> 00:09:19,433
+<b>Tordesilhas. Portugal não empurrou a</b>
+
+271
+00:09:19,433 --> 00:09:20,833
+<b>linha um pouco — eles</b>
+
+272
+00:09:20,833 --> 00:09:22,366
+<b>quase dobraram o país.</b>
+
+273
+00:09:22,666 --> 00:09:25,633
+<b>O tratado deu a Portugal um ponto de apoio. 60</b>
+
+274
+00:09:25,633 --> 00:09:26,366
+<b>anos de monarquia</b>
+
+275
+00:09:26,366 --> 00:09:28,333
+<b>compartilhada lhe deram um continente.</b>
+
+276
+00:09:28,933 --> 00:09:30,833
+<b>Mas o controle de Portugal sobre o território</b>
+
+277
+00:09:30,833 --> 00:09:31,933
+<b>não significava que as pessoas</b>
+
+278
+00:09:31,933 --> 00:09:33,666
+<b>que viviam ali falavam português.</b>
+
+279
+00:09:34,800 --> 00:09:37,033
+<b>Durante cerca de dois séculos, a língua</b>
+
+280
+00:09:37,033 --> 00:09:38,066
+<b>dominante em grande parte do</b>
+
+281
+00:09:38,066 --> 00:09:40,166
+<b>Brasil colonial não era o português.</b>
+
+282
+00:09:40,833 --> 00:09:43,066
+<b>Era a "Língua Geral", uma</b>
+
+283
+00:09:43,066 --> 00:09:44,733
+<b>versão simplificada do "Tupi",</b>
+
+284
+00:09:45,300 --> 00:09:46,366
+<b>a língua das comunidades</b>
+
+285
+00:09:46,366 --> 00:09:47,899
+<b>indígenas ao longo da costa.</b>
+
+286
+00:09:48,899 --> 00:09:49,966
+<b>Os colonos a adotaram,</b>
+
+287
+00:09:50,333 --> 00:09:51,466
+<b>os missionários ensinavam nela,</b>
+
+288
+00:09:51,966 --> 00:09:52,966
+<b>famílias mestiças criavam</b>
+
+289
+00:09:52,966 --> 00:09:54,233
+<b>seus filhos nela.</b>
+
+290
+00:09:54,833 --> 00:09:56,766
+<b>O português era para documentos oficiais,</b>
+
+291
+00:09:56,766 --> 00:09:57,933
+<b>para correspondência</b>
+
+292
+00:09:57,933 --> 00:10:00,033
+<b>com Lisboa. No terreno,</b>
+
+293
+00:10:00,666 --> 00:10:02,166
+<b>nos assentamentos e no</b>
+
+294
+00:10:02,166 --> 00:10:04,466
+<b>interior, as pessoas falavam tupi.</b>
+
+295
+00:10:04,899 --> 00:10:06,899
+<b>E as missões jesuítas, que eram as</b>
+
+296
+00:10:06,899 --> 00:10:07,833
+<b>maiores instituições</b>
+
+297
+00:10:07,833 --> 00:10:09,833
+<b>organizadas no interior colonial,</b>
+
+298
+00:10:10,333 --> 00:10:12,633
+<b>funcionavam inteiramente em línguas indígenas.</b>
+
+299
+00:10:13,033 --> 00:10:14,433
+<b>Educavam em tupi.</b>
+
+300
+00:10:14,766 --> 00:10:15,933
+<b>Pregavam em tupi.</b>
+
+301
+00:10:16,233 --> 00:10:17,366
+<b>Publicavam gramáticas</b>
+
+302
+00:10:17,366 --> 00:10:18,733
+<b>e dicionários de tupi.</b>
+
+303
+00:10:19,233 --> 00:10:21,166
+<b>Para os jesuítas, falar a língua</b>
+
+304
+00:10:21,166 --> 00:10:22,533
+<b>local não era opcional.</b>
+
+305
+00:10:23,000 --> 00:10:23,933
+<b>Era o método deles de</b>
+
+306
+00:10:23,933 --> 00:10:26,533
+<b>conversão. Então o que mudou?</b>
+
+307
+00:10:27,533 --> 00:10:30,433
+<b>Na década de 1750, o ministro mais poderoso</b>
+
+308
+00:10:30,433 --> 00:10:33,333
+<b>de Portugal, o Marquês de Pombal,</b>
+
+309
+00:10:34,133 --> 00:10:35,766
+<b>essencialmente o primeiro-ministro sob o Rei</b>
+
+310
+00:10:35,766 --> 00:10:37,699
+<b>D. José I, olhou para o</b>
+
+311
+00:10:37,699 --> 00:10:39,966
+<b>interior colonial e viu um problema.</b>
+
+312
+00:10:40,366 --> 00:10:41,800
+<b>Os jesuítas controlavam a maior</b>
+
+313
+00:10:41,800 --> 00:10:43,233
+<b>rede de assentamentos no Brasil.</b>
+
+314
+00:10:44,133 --> 00:10:46,399
+<b>Dirigiam aldeias indígenas, administravam</b>
+
+315
+00:10:46,399 --> 00:10:47,766
+<b>mão de obra e operavam quase</b>
+
+316
+00:10:47,766 --> 00:10:49,233
+<b>independentemente da coroa.</b>
+
+317
+00:10:49,866 --> 00:10:51,466
+<b>E faziam tudo numa língua que Lisboa</b>
+
+318
+00:10:51,466 --> 00:10:52,500
+<b>não entendia.</b>
+
+319
+00:10:53,000 --> 00:10:55,633
+<b>Disney escreve que Pombal concluiu: "A</b>
+
+320
+00:10:55,633 --> 00:10:57,300
+<b>presença dos jesuítas no Brasil</b>
+
+321
+00:10:57,600 --> 00:10:59,600
+<b>constituía um desafio fundamental à</b>
+
+322
+00:10:59,600 --> 00:11:00,533
+<b>soberania portuguesa."</b>
+
+323
+00:11:01,199 --> 00:11:05,266
+<b>Então Pombal agiu. O Diretório dos</b>
+
+324
+00:11:05,266 --> 00:11:06,666
+<b>Índios de 1757,</b>
+
+325
+00:11:06,666 --> 00:11:08,633
+<b>retirou dos jesuítas o</b>
+
+326
+00:11:08,633 --> 00:11:10,633
+<b>controle sobre as aldeias indígenas,</b>
+
+327
+00:11:11,166 --> 00:11:12,566
+<b>substituiu-os por diretores</b>
+
+328
+00:11:12,566 --> 00:11:14,199
+<b>governamentais seculares, e</b>
+
+329
+00:11:14,566 --> 00:11:15,800
+<b>determinou que o português</b>
+
+330
+00:11:15,800 --> 00:11:17,300
+<b>fosse falado em todo assentamento.</b>
+
+331
+00:11:17,766 --> 00:11:21,166
+<b>Dois anos depois, em 1759, Pombal expulsou</b>
+
+332
+00:11:21,166 --> 00:11:22,733
+<b>os jesuítas de todos os territórios</b>
+
+333
+00:11:22,733 --> 00:11:24,066
+<b>portugueses.</b>
+
+334
+00:11:24,566 --> 00:11:26,733
+<b>O português não se espalhou naturalmente. Foi</b>
+
+335
+00:11:26,733 --> 00:11:28,000
+<b>imposto pela coroa.</b>
+
+336
+00:11:28,533 --> 00:11:30,466
+<b>E sem esse decreto, o Brasil poderia</b>
+
+337
+00:11:30,466 --> 00:11:32,333
+<b>ainda falar uma língua tupi hoje.</b>
+
+338
+00:11:32,666 --> 00:11:34,733
+<b>Então a verdadeira resposta para "Por que</b>
+
+339
+00:11:34,733 --> 00:11:36,033
+<b>o Brasil fala português?"</b>
+
+340
+00:11:36,666 --> 00:11:38,300
+<b>não é apenas o Tratado de Tordesilhas.</b>
+
+341
+00:11:39,100 --> 00:11:40,466
+<b>É um padrão de ventos</b>
+
+342
+00:11:40,466 --> 00:11:42,066
+<b>que forçou os navios para o oeste.</b>
+
+343
+00:11:42,699 --> 00:11:45,433
+<b>Uma linha no papel que favorecia a Espanha. Um</b>
+
+344
+00:11:45,433 --> 00:11:46,166
+<b>compromisso que</b>
+
+345
+00:11:46,166 --> 00:11:47,933
+<b>acidentalmente incluiu um continente.</b>
+
+346
+00:11:48,600 --> 00:11:50,800
+<b>60 anos de monarquia compartilhada que transformaram</b>
+
+347
+00:11:50,800 --> 00:11:51,966
+<b>a faixa costeira em</b>
+
+348
+00:11:51,966 --> 00:11:53,233
+<b>metade da América do Sul.</b>
+
+349
+00:11:53,533 --> 00:11:56,766
+<b>E o ministro em 1757 que</b>
+
+350
+00:11:56,766 --> 00:11:57,466
+<b>matou a língua</b>
+
+351
+00:11:57,466 --> 00:11:58,666
+<b>que as pessoas realmente falavam.</b>
+
+352
+00:11:59,000 --> 00:12:00,233
+<b>A linha desse tratado deixou</b>
+
+353
+00:12:00,233 --> 00:12:01,833
+<b>marcas que vão além da língua.</b>
+
+354
+00:12:02,466 --> 00:12:05,966
+<b>Em 2023, os economistas Humberto Laudares e</b>
+
+355
+00:12:05,966 --> 00:12:06,933
+<b>Felipe Valencia</b>
+
+356
+00:12:06,933 --> 00:12:08,933
+<b>Caicedo publicaram um estudo</b>
+
+357
+00:12:08,933 --> 00:12:10,933
+<b>no Journal of Development Economics.</b>
+
+358
+00:12:11,466 --> 00:12:12,733
+<b>Eles pegaram o meridiano</b>
+
+359
+00:12:12,733 --> 00:12:14,933
+<b>de Tordesilhas, a velha linha do tratado,</b>
+
+360
+00:12:15,199 --> 00:12:17,333
+<b>e o mapearam contra dados do censo brasileiro</b>
+
+361
+00:12:17,333 --> 00:12:19,699
+<b>de 2010. O que descobriram é que a</b>
+
+362
+00:12:19,699 --> 00:12:21,066
+<b>desigualdade de renda é</b>
+
+363
+00:12:21,066 --> 00:12:23,333
+<b>mensuravelmente maior no lado português</b>
+
+364
+00:12:23,333 --> 00:12:25,166
+<b>da linha do que no lado espanhol.</b>
+
+365
+00:12:25,399 --> 00:12:28,466
+<b>Uma fronteira traçada em 1494 por homens que</b>
+
+366
+00:12:28,466 --> 00:12:30,666
+<b>não conseguiam medir onde ela estava, ainda</b>
+
+367
+00:12:30,666 --> 00:12:31,566
+<b>aparece em dados econômicos</b>
+
+368
+00:12:31,666 --> 00:12:34,966
+<b>mais de 500 anos depois. Estou</b>
+
+369
+00:12:34,966 --> 00:12:35,866
+<b>trabalhando em um mergulho</b>
+
+370
+00:12:35,866 --> 00:12:37,166
+<b>profundo no tratado em si.</b>
+
+371
+00:12:38,133 --> 00:12:39,433
+<b>O que ele diz, o que</b>
+
+372
+00:12:39,433 --> 00:12:41,466
+<b>não diz, e por que ainda importa.</b>
+
+373
+00:12:42,133 --> 00:12:42,733
+<b>Se você achou isso</b>
+
+374
+00:12:42,733 --> 00:12:45,033
+<b>útil, por favor se inscreva.</b>
+

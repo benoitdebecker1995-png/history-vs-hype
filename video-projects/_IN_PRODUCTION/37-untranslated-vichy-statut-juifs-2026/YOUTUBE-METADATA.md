@@ -10,59 +10,73 @@
 
 ---
 
-## TITLE OPTIONS (Revised 2026-03-01 — Search-Optimized)
+## TITLE OPTIONS (Revised 2026-03-03 — Data-Backed)
 
 **SEO Context:** "Vichy regime" scored 51/100 (only viable safe keyword). "Vichy france" 54/100 but dominated by 1M+ channels. "Petain" 48/100. All specific law-related keywords ("statut des juifs," "vichy france laws") have zero search volume.
 
-**Growth Analysis Insight:** Recent document-focused videos (Gibraltar 21 views, Bermeja 11 views) bombed because titles don't match what people search for. This video MUST capture search traffic from the "vichy france" / "vichy regime" clusters. The title needs to communicate STAKES (anti-Jewish law, French agency) not just FORMAT (translating, reading).
+**Pattern Data (13 videos analyzed, 2026-03-03):**
+- Colon titles: 1,280 avg views, 53.5% retention, 4.3% CTR (n=4)
+- Non-colon titles: 610 avg views, 32.9% retention, 4.8% CTR (n=7)
+- **Key insight:** Colon format gets slightly lower CTR but 2x views and +62.5% retention. It attracts the right audience — people who actually watch. Retention drives algorithmic promotion.
+- Channel winner (KGB video): 5.3% CTR, 44.8% retention — clean title, no country name, no gimmicks
+- Anti-pattern: Country names in title correlate with -47.8% CTR
 
-**Title 1: RECOMMENDED (CTR 5.3% predicted — highest)**
+**Title 1: RECOMMENDED — Colon + Stakes (retention-optimized)**
+```
+Vichy France: The Anti-Jewish Law Nobody Translated (51 chars)
+```
+- **Why:** Colon format matches 2x view / +62% retention pattern. "Vichy France" frontloaded for search. "Nobody Translated" communicates unique value (only-here promise). 51 chars = fully visible on mobile.
+- **Data support:** Colon pattern averages 1,280 views and 53.5% retention on this channel.
+
+**Title 2: Colon + Thesis (retention-optimized)**
+```
+Vichy France: The Law Germany Never Asked For (46 chars)
+```
+- **Why:** Colon format. Communicates the core thesis (French agency) in the subtitle. Clean, documentary tone. 46 chars = never truncates.
+- **Risk:** Doesn't signal the translation/document format.
+
+**Title 3: Colon + Document Focus (retention-optimized)**
+```
+Vichy's Anti-Jewish Law: A Clause-by-Clause Translation (55 chars)
+```
+- **Why:** Colon format. Signals both the topic AND the unique format. "Clause-by-Clause" is systems-thinker catnip (mechanism > narrative). Appeals to the Wendover/RealLifeLore overlap audience.
+- **Risk:** "Clause-by-Clause" may feel academic to browse audience.
+
+**Title 4: Two-Sentence Punch (CTR-optimized, non-colon)**
 ```
 Vichy France Wrote Its Own Anti-Jewish Law. I Translated It. (60 chars)
 ```
-- **Why:** "Vichy France" frontloaded for search. Two-sentence punch: first communicates the thesis (France did this voluntarily), second communicates the unique format. 60 chars = mobile-safe.
-- **Risk:** "Anti-Jewish" is direct but educational — matches what people actually search ("vichy france anti jewish laws"). Not clickbait.
+- **Why:** "Vichy France" frontloaded for search. Two-sentence punch: thesis + unique format. Highest expected CTR based on direct statement pattern.
+- **Data note:** Non-colon titles average 4.8% CTR but only 610 views and 32.9% retention. May get more clicks but fewer sustained viewers.
 
-**Title 2: Personal Authority (CTR 5.3% predicted)**
-```
-I Translated the Law Vichy France Wrote Against Its Own Jews (60 chars)
-```
-- **Why:** "I Translated" frontloaded = unique format signal + personal authority. "Vichy France" in second position. "Against Its Own Jews" communicates French agency.
-- **Risk:** "I" at start may lower browse CTR (less authoritative for cold audience). Strong for Suggested placement.
-
-**Title 3: France-First Hook (CTR 5.3% predicted)**
+**Title 5: France-First Hook (CTR-optimized, non-colon)**
 ```
 France Banned Its Own Jews Before Germany Asked. Here Is the Law. (65 chars)
 ```
-- **Why:** "France" frontloaded = broader search capture. Strongest narrative hook — communicates the entire thesis in one sentence. "Here Is the Law" = format signal.
-- **Risk:** "France" is too broad a keyword (diluted search intent). "Banned Its Own Jews" is direct — may trigger moderation.
+- **Why:** Strongest narrative hook — entire thesis in one sentence. "Here Is the Law" = format signal.
+- **Risk:** "France" too broad for search. "Banned Its Own Jews" may trigger moderation. Country name in title correlates with -47.8% CTR on this channel.
 
-**Title 4: Safe Moderation (CTR 4.3% predicted — fallback)**
+**PREVIOUS TITLES (Retained for reference — deprioritized):**
+
+**Title 6: Personal Authority (original Title 2)**
 ```
-Vichy France: The Anti-Jewish Law Germany Never Asked For (57 chars)
+I Translated the Law Vichy France Wrote Against Its Own Jews (60 chars)
 ```
-- **Why:** Clean keyword:subtitle format. "Vichy France" frontloaded. Safe moderation framing. Short.
-- **Risk:** Colon format is generic — looks like every other history video.
+- Deprioritized: "I" at start = lower authority for cold audience.
 
-**PREVIOUS TITLES (Retained for reference — lower CTR predicted):**
-
-**Title 5: Forensic Authority (CTR 3.1% — original Title 1)**
+**Title 7: Forensic Authority (original Title 5)**
 ```
 Vichy Regime's Forgotten Law — Translating France's 1940 Citizenship Statute (76 chars)
 ```
-- Deprioritized: 76 chars truncates on mobile. "Citizenship Statute" is too clinical — doesn't communicate stakes.
+- Deprioritized: 76 chars truncates on mobile. "Citizenship Statute" too clinical.
 
-**Title 6: Curiosity Hook (CTR 4.7% — original Title 2)**
+**Title 8: Curiosity Hook (original Title 6)**
 ```
 The Law the Nazis Didn't Ask For (Vichy 1940) (46 chars)
 ```
-- Deprioritized: "Nazis" moderation risk. "Vichy" buried in parenthetical — weak for search.
+- Deprioritized: "Nazis" moderation risk. "Vichy" buried in parenthetical.
 
-**Title 7: Systems-Thinker (CTR 3.5% — original Title 3)**
-```
-What Vichy France Actually Wrote in 1940 — Reading the Original Statute (71 chars)
-```
-- Deprioritized: 71 chars truncates. Generic — could be any history explainer.
+**RECOMMENDED STRATEGY:** Start with Title 1 (colon, retention-optimized). If CTR < 4% after 48h, swap to Title 4 (two-sentence, CTR-optimized). The colon format's retention advantage should drive algorithmic promotion even with slightly lower initial CTR.
 
 ---
 
@@ -304,17 +318,28 @@ This is the first episode of Untranslated Evidence — a series translating hist
 
 ---
 
-## TITLE/THUMBNAIL TEST MATRIX (Revised 2026-03-01)
+## TITLE/THUMBNAIL TEST MATRIX (Revised 2026-03-03 — 3 Simultaneous Combos)
 
-| Combo | Title | Thumbnail | Test When |
-|-------|-------|-----------|-----------|
-| **Start** | Title 1 (Wrote Its Own Law. I Translated It.) | Thumb A (Smoking Gun) | Launch |
-| Swap 1 | Title 3 (France Banned Before Germany Asked) | Thumb A (Smoking Gun) | If CTR < 5% after 48h |
-| Swap 2 | Title 1 (Wrote Its Own Law) | Thumb B (Definition) | If CTR still < 5% |
-| Swap 3 | Title 2 (I Translated the Law) | Thumb B (Definition) | If CTR still < 5% |
-| Swap 4 | Title 4 (Safe: Germany Never Asked For) | Thumb C (Case File) | Last resort / moderation fallback |
+**Strategy:** Test 3 title/thumbnail combos simultaneously. Each thumb tells a different story, each title completes that story. Rotate every 48h based on CTR + retention.
 
-**Logic:** Start with highest-CTR title + strongest visual. Title 1 balances search keywords ("Vichy France") with stakes ("Anti-Jewish Law") and format ("I Translated It"). If moderation flags, fall back to Title 4. Isolate variables — change one thing at a time.
+| Combo | Thumbnail | Title | Story |
+|-------|-----------|-------|-------|
+| **A** | Thumb A (Petain + draft: "TYPED DRAFT" / "HIS NOTES") | `Vichy France: The Anti-Jewish Law Nobody Translated` | WHO did it + only-here promise |
+| **B** | Thumb B (flowchart: "CITIZENSHIP LAW" / "de race juive") | `Vichy's Anti-Jewish Law: A Clause-by-Clause Translation` | HOW the system worked + forensic breakdown |
+| **C** | Thumb C (document: "UNTRANSLATED SOURCE") | `Vichy France Wrote Its Own Anti-Jewish Law. I Translated It.` | Unseen document + personal delivery |
+
+### Rotation Plan
+
+1. **Launch with Combo A** — colon format (2x views, +62% retention on this channel) + strongest visual (Petain face draws eye)
+2. **48h check:** If CTR < 4%, swap to **Combo C** — two-sentence punch has higher CTR pattern (4.8% avg), "UNTRANSLATED SOURCE" thumb reinforces the "I Translated It" payoff
+3. **96h check:** If CTR still < 4%, swap to **Combo B** — systems-thinker angle, flowchart is unique among WW2 thumbnails
+4. **After 1 week:** Keep whichever combo has best CTR x retention product (not just CTR alone — retention drives algorithmic push)
+
+### Data Backing
+- Colon titles (Combos A, B): 1,280 avg views, 53.5% retention, 4.3% CTR
+- Non-colon titles (Combo C): 610 avg views, 32.9% retention, 4.8% CTR
+- Country names in title correlate with -47.8% CTR (Combos A, C have "Vichy France" — but as a proper noun/keyword, not a standalone country name)
+- Channel winner pattern (KGB video): clean title, no gimmicks, 5.3% CTR, 44.8% retention
 
 ---
 
@@ -343,6 +368,87 @@ This is the first episode of Untranslated Evidence — a series translating hist
 1. **Untranslated Evidence Ep. 2: Leyes de Indias** — Spanish colonial law that governed the Americas. Ties into "Spanish History" (66/100) Trojan horse strategy.
 2. **The Second Statute (June 1941)** — Vichy's even harsher replacement law. Natural sequel.
 3. **Ceuta/Melilla Untranslated** — Spanish legal opinions on North African territories (connects to Gibraltar video).
+
+---
+
+## FRENCH TRANSLATION (YouTube Multi-Language Metadata)
+
+### Titre (French Title)
+
+**Option 1 (RECOMMANDÉ) — Correspond au Title 1 anglais :**
+```
+La France de Vichy a écrit sa propre loi antijuive. Je l'ai traduite.
+```
+
+**Option 2 — Correspond au Title 3 anglais :**
+```
+La France a exclu ses propres Juifs avant que l'Allemagne ne le demande. Voici la loi.
+```
+
+**Option 3 — Format sobre :**
+```
+Vichy : la loi antijuive que l'Allemagne n'a jamais demandée
+```
+
+### Description (French Description)
+
+```
+En 1940, le régime de Vichy a promulgué une loi qui redéfinissait qui comptait comme français. L'Allemagne ne l'avait pas exigé.
+Cette vidéo est une traduction article par article du Statut des Juifs original — la loi qui a interdit à des milliers de personnes l'exercice de leur profession en raison de la race de leurs grands-parents — ainsi que les annotations manuscrites prouvant que le chef de l'État l'a personnellement aggravée.
+Aucune traduction anglaise du brouillon annoté n'existait en ligne. C'est la première.
+
+Nous traduisons et analysons :
+• Article 1 — La définition raciale : comment trois grands-parents déterminaient votre statut juridique
+• Article 2 — La purge professionnelle : juges, enseignants, policiers, militaires, diplomates — tous exclus
+• Article 5 — Le verrouillage culturel : l'interdiction faite aux Juifs de la presse, du cinéma et de la radio
+• Article 9 — Une phrase qui étend la loi à tout l'empire français
+• Les annotations manuscrites de Pétain — chaque marque élargissait la portée de la loi ou supprimait une protection
+
+Chaque affirmation est sourcée à partir de publications universitaires (Stanford, Oxford, Columbia, NYU, Brandeis). Le texte original français est affiché à l'écran aux côtés d'une traduction anglaise intégrale.
+
+---
+
+HORODATAGE
+
+0:00 - Le document que personne n'a traduit
+0:53 - Pourquoi cette loi compte (ce n'était pas l'idée de l'Allemagne)
+2:59 - Article 1 : la définition raciale
+3:56 - Article 2 : la purge professionnelle
+4:42 - Article 5 : qui raconte les histoires
+5:23 - Article 9 : l'empire
+6:24 - Le brouillon caché (découvert en 2010)
+6:59 - Les annotations de Pétain : chaque enseignant, chaque tribunal
+7:51 - La ligne qu'il a rayée
+9:06 - Le déni de la France pendant 50 ans
+10:19 - Pourquoi la traduction compte
+
+---
+
+SOURCES
+
+Sources universitaires :
+• Marrus & Paxton, « Vichy France and the Jews » (Stanford University Press, 1995)
+• Jackson, « France: The Dark Years, 1940-1944 » (Oxford University Press, 2001)
+• Paxton, « Vichy France: Old Guard and New Order » (Columbia University Press, 2001)
+• Poznanski, « Jews in France during World War II » (Brandeis University Press, 2001)
+• Weisberg, « Vichy Law and the Holocaust in France » (NYU Press, 1996)
+
+Documents primaires :
+• Loi du 3 octobre 1940 portant statut des Juifs (Journal Officiel, 18 octobre 1940)
+• Brouillon annoté de Pétain — rendu public par Serge Klarsfeld, octobre 2010
+• Ordonnance allemande du 27 septembre 1940 (Verordnungsblatt)
+
+Discours :
+• Jacques Chirac, commémoration du Vel d'Hiv, 16 juillet 1995
+
+---
+
+Abonnez-vous pour des analyses fondées sur les sources primaires et les documents historiques jamais traduits.
+
+---
+
+#VichyFrance #RégimeDeVichy #StatutDesJuifs #Pétain #HistoireDeFrance #Shoah #SecondGuerreMondiale #SourcesPrimaires
+```
 
 ---
 

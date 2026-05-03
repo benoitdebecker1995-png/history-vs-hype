@@ -3,7 +3,11 @@
 **Topic:** The phantom island that cost Mexico $22 billion in oil rights
 **Working Title:** "The Island That Appeared on Maps for 400 Years... Doesn't Exist"
 
-## Status: PHASE 3 - SCRIPT V2 COMPLETE, READY FOR FACT-CHECK
+## Status: PUBLISHED
+
+**Published:** 2026-02-22
+**Long-form Video ID:** P6yalauLDic — "The Phantom Island That Was on Maps for 400 Years" (8:15)
+**Shorts published:** 5 (xT6lIs7daG8, _S7j2vog3MM, nag13cReLxM, 3a4cBEmbA8U, ogj-IXDvrr0)
 
 - [x] Preliminary internet research
 - [x] NotebookLM academic sources (verified 2026-01-30)
@@ -12,9 +16,10 @@
 - [x] YouTube metadata (YOUTUBE-METADATA.md)
 - [x] B-roll checklist (B-ROLL-CHECKLIST.md)
 - [x] Script revision - V2 complete (2026-01-30)
-- [ ] Fact-check verification (03-FACT-CHECK-VERIFICATION.md)
-- [ ] Teleprompter export
-- [ ] Filming
+- [x] Fact-check verification (03-FACT-CHECK-VERIFICATION.md)
+- [x] Teleprompter export
+- [x] Filmed and published
+- [x] Post-publish analysis created (2026-03-05)
 
 ## Project Brief
 
@@ -101,11 +106,10 @@ Existing YouTube coverage:
 8. [x] Create YouTube metadata (YOUTUBE-METADATA.md)
 9. [x] Create B-roll checklist (B-ROLL-CHECKLIST.md)
 
-**CURRENT:**
-10. [ ] Review script - user approval or revision notes
-11. [ ] Final fact-check verification (03-FACT-CHECK-VERIFICATION.md)
-12. [ ] Gather B-roll assets
-13. [ ] Create thumbnails
+**COMPLETED:**
+10. [x] Filmed and edited
+11. [x] Published (long-form + 5 Shorts)
+12. [x] Post-publish analysis — 11 views, 28.2% retention, 1.83% CTR (12 days)
 
 ## Notes
 

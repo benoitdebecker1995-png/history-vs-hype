@@ -1,0 +1,944 @@
+1
+00:00:00,000 --> 00:00:02,800
+<b>In just three months, 14 countries</b>
+
+2
+00:00:02,800 --> 00:00:05,333
+<b>divided an entire continent that none of</b>
+
+3
+00:00:05,333 --> 00:00:06,433
+<b>them actually ruled.</b>
+
+4
+00:00:06,733 --> 00:00:10,000
+<b>That was 1884 and the borders they drew,</b>
+
+5
+00:00:10,366 --> 00:00:13,533
+<b>using rivers, rulers and latitude lines,</b>
+
+6
+00:00:14,266 --> 00:00:17,566
+<b>ended up splitting 229 ethnic groups</b>
+
+7
+00:00:17,566 --> 00:00:19,000
+<b>across multiple countries.</b>
+
+8
+00:00:20,033 --> 00:00:22,333
+<b>Those groups, they're still fighting over</b>
+
+9
+00:00:22,333 --> 00:00:23,733
+<b>those exact lines today.</b>
+
+10
+00:00:24,966 --> 00:00:27,733
+<b>So, I went back and read the general act</b>
+
+11
+00:00:27,733 --> 00:00:28,966
+<b>of the Berlin Conference.</b>
+
+12
+00:00:29,599 --> 00:00:30,766
+<b>The actual treaty.</b>
+
+13
+00:00:31,466 --> 00:00:33,199
+<b>Then I found the map they ignored.</b>
+
+14
+00:00:33,833 --> 00:00:35,666
+<b>The one that shows what Africa really</b>
+
+15
+00:00:35,666 --> 00:00:37,566
+<b>looked like before they drew it.</b>
+
+16
+00:00:38,066 --> 00:00:40,266
+<b>It explains why 12 million people are</b>
+
+17
+00:00:40,266 --> 00:00:42,400
+<b>displaced in Sudan right now.</b>
+
+18
+00:00:42,500 --> 00:00:44,900
+<b>Why Rwanda just invaded eastern Congo.</b>
+
+19
+00:00:45,633 --> 00:00:48,666
+<b>Why every African leader who tried to fix</b>
+
+20
+00:00:48,666 --> 00:00:51,066
+<b>these borders eventually gave up.</b>
+
+21
+00:00:51,766 --> 00:00:53,166
+<b>That's what the documents show.</b>
+
+22
+00:00:53,699 --> 00:00:57,000
+<b>On November 15th, 1884, representatives</b>
+
+23
+00:00:57,000 --> 00:00:59,866
+<b>from 14 countries met at Bismarck's</b>
+
+24
+00:00:59,866 --> 00:01:00,833
+<b>residence in Berlin.</b>
+
+25
+00:01:01,766 --> 00:01:03,400
+<b>The big players were all there.</b>
+
+26
+00:01:04,233 --> 00:01:06,699
+<b>Britain, France, Germany, Belgium,</b>
+
+27
+00:01:07,633 --> 00:01:09,500
+<b>Portugal, plus Russia, the</b>
+
+28
+00:01:09,500 --> 00:01:11,300
+<b>Ottoman Empire and even the US.</b>
+
+29
+00:01:11,699 --> 00:01:13,933
+<b>The British representatives, Sir Edward</b>
+
+30
+00:01:13,933 --> 00:01:15,533
+<b>Malet, actually said</b>
+
+31
+00:01:15,533 --> 00:01:16,833
+<b>this during the meeting.</b>
+
+32
+00:01:17,699 --> 00:01:19,933
+<b>"I cannot forget that the natives are not</b>
+
+33
+00:01:19,933 --> 00:01:21,166
+<b>represented among us,</b>
+
+34
+00:01:21,466 --> 00:01:23,533
+<b>and that the decisions we make will have</b>
+
+35
+00:01:23,533 --> 00:01:25,233
+<b>extreme importance for them."</b>
+
+36
+00:01:25,633 --> 00:01:26,866
+<b>He said that.</b>
+
+37
+00:01:27,366 --> 00:01:29,766
+<b>And then they kept going anyway, without</b>
+
+38
+00:01:29,766 --> 00:01:30,833
+<b>inviting a single</b>
+
+39
+00:01:30,833 --> 00:01:32,300
+<b>African ruler or government.</b>
+
+40
+00:01:33,166 --> 00:01:35,133
+<b>So why did Bismarck call this meeting?</b>
+
+41
+00:01:35,900 --> 00:01:37,833
+<b>Publicly, he said it was humanitarian.</b>
+
+42
+00:01:38,466 --> 00:01:40,533
+<b>He talked about bringing commerce and</b>
+
+43
+00:01:40,533 --> 00:01:42,233
+<b>civilization to the interior.</b>
+
+44
+00:01:42,966 --> 00:01:45,566
+<b>But in private, Bismarck was blunter.</b>
+
+45
+00:01:46,300 --> 00:01:48,533
+<b>He once said, "All this</b>
+
+46
+00:01:48,533 --> 00:01:50,166
+<b>colonial business is a sham,</b>
+
+47
+00:01:50,500 --> 00:01:52,033
+<b>but we need it for elections."</b>
+
+48
+00:01:53,400 --> 00:01:54,833
+<b>Africa wasn't the point.</b>
+
+49
+00:01:55,433 --> 00:01:56,866
+<b>Africa was the chessboard.</b>
+
+50
+00:01:57,400 --> 00:01:59,366
+<b>When a German explorer asked about his</b>
+
+51
+00:01:59,366 --> 00:02:01,566
+<b>Africa strategy, Bismarck said,</b>
+
+52
+00:02:02,133 --> 00:02:04,866
+<b>"Here is Russia, and here is France, with</b>
+
+53
+00:02:04,866 --> 00:02:05,833
+<b>Germany in the middle.</b>
+
+54
+00:02:06,433 --> 00:02:08,066
+<b>That is my map of Africa."</b>
+
+55
+00:02:09,133 --> 00:02:10,666
+<b>They used the continent to</b>
+
+56
+00:02:10,666 --> 00:02:12,266
+<b>settle European rivalries.</b>
+
+57
+00:02:12,966 --> 00:02:14,166
+<b>And that logic set a</b>
+
+58
+00:02:14,166 --> 00:02:16,066
+<b>template for every border they drew.</b>
+
+59
+00:02:16,566 --> 00:02:19,666
+<b>It wasn't for Africa, it was for Europe.</b>
+
+60
+00:02:20,433 --> 00:02:21,599
+<b>The conference produced</b>
+
+61
+00:02:21,599 --> 00:02:23,133
+<b>the General Act of Berlin,</b>
+
+62
+00:02:23,666 --> 00:02:25,866
+<b>a binding international treaty signed</b>
+
+63
+00:02:25,866 --> 00:02:28,633
+<b>February 26th, 1885.</b>
+
+64
+00:02:29,666 --> 00:02:30,633
+<b>But the clause that changed</b>
+
+65
+00:02:30,633 --> 00:02:32,466
+<b>everything was Article 35,</b>
+
+66
+00:02:33,166 --> 00:02:34,933
+<b>the Doctrine of Effective Occupation.</b>
+
+67
+00:02:35,533 --> 00:02:37,699
+<b>It meant any power claiming African</b>
+
+68
+00:02:37,699 --> 00:02:39,333
+<b>territory had to prove</b>
+
+69
+00:02:39,333 --> 00:02:40,866
+<b>it actually controlled it.</b>
+
+70
+00:02:41,166 --> 00:02:43,366
+<b>And if you didn't move fast, someone else</b>
+
+71
+00:02:43,366 --> 00:02:44,199
+<b>would claim it first.</b>
+
+72
+00:02:45,000 --> 00:02:46,800
+<b>The result was a race to plant flags</b>
+
+73
+00:02:46,800 --> 00:02:47,966
+<b>before rivals could.</b>
+
+74
+00:02:48,500 --> 00:02:50,000
+<b>The conference didn't start a scramble</b>
+
+75
+00:02:50,000 --> 00:02:52,233
+<b>for Africa, that was already underway,</b>
+
+76
+00:02:52,766 --> 00:02:54,699
+<b>but it wrote the rules that turned the</b>
+
+77
+00:02:54,699 --> 00:02:55,866
+<b>scramble into a sprint.</b>
+
+78
+00:02:56,733 --> 00:02:58,900
+<b>As historian Wesseling put it,</b>
+
+79
+00:02:58,900 --> 00:03:00,466
+<b>"In Europe, conquest</b>
+
+80
+00:03:00,466 --> 00:03:02,599
+<b>preceded the drawing of maps.</b>
+
+81
+00:03:03,300 --> 00:03:06,099
+<b>In Africa, the map was drawn, and then it</b>
+
+82
+00:03:06,099 --> 00:03:07,733
+<b>was decided what was going to happen."</b>
+
+83
+00:03:09,366 --> 00:03:11,066
+<b>There's a popular version of this story</b>
+
+84
+00:03:11,066 --> 00:03:12,800
+<b>that treats pre-colonial</b>
+
+85
+00:03:12,800 --> 00:03:14,566
+<b>Africa like a blank slate,</b>
+
+86
+00:03:15,266 --> 00:03:16,366
+<b>in empty space.</b>
+
+87
+00:03:17,300 --> 00:03:18,466
+<b>But the academic sources</b>
+
+88
+00:03:18,466 --> 00:03:19,800
+<b>tell a different story.</b>
+
+89
+00:03:20,766 --> 00:03:22,833
+<b>Before the Berlin Conference, most</b>
+
+90
+00:03:22,833 --> 00:03:24,266
+<b>African states were sovereign.</b>
+
+91
+00:03:25,166 --> 00:03:26,433
+<b>They had recognized rulers.</b>
+
+92
+00:03:27,266 --> 00:03:28,833
+<b>Sokoto Caliphate was the</b>
+
+93
+00:03:28,833 --> 00:03:30,300
+<b>largest state in West Africa.</b>
+
+94
+00:03:31,000 --> 00:03:33,366
+<b>The Kingdom of Benin had 10,000</b>
+
+95
+00:03:33,366 --> 00:03:35,066
+<b>kilometers of earth boundaries.</b>
+
+96
+00:03:35,966 --> 00:03:39,666
+<b>The historian Adu Boahen describes Africa</b>
+
+97
+00:03:39,666 --> 00:03:42,366
+<b>in 1880 as "far from</b>
+
+98
+00:03:42,366 --> 00:03:43,766
+<b>primitive or static".</b>
+
+99
+00:03:44,300 --> 00:03:46,333
+<b>He says the continent was in a mood of</b>
+
+100
+00:03:46,333 --> 00:03:47,533
+<b>change and revolution.</b>
+
+101
+00:03:48,500 --> 00:03:50,599
+<b>So when Europeans called Africa empty,</b>
+
+102
+00:03:51,433 --> 00:03:53,133
+<b>they were creating a legal fiction.</b>
+
+103
+00:03:54,433 --> 00:03:56,833
+<b>Terra Nullius, nobody's land.</b>
+
+104
+00:03:57,333 --> 00:03:59,233
+<b>It was a way to claim territory that</b>
+
+105
+00:03:59,233 --> 00:04:01,433
+<b>millions of people already lived on.</b>
+
+106
+00:04:02,099 --> 00:04:03,099
+<b>And look at the cost.</b>
+
+107
+00:04:03,933 --> 00:04:07,900
+<b>In 2016, economists Michalopoulos and</b>
+
+108
+00:04:07,900 --> 00:04:11,633
+<b>Papaioannou finally put numbers on it.</b>
+
+109
+00:04:11,900 --> 00:04:15,033
+<b>They overlaid a map of ethnic homelands</b>
+
+110
+00:04:15,033 --> 00:04:17,066
+<b>on top of modern national borders.</b>
+
+111
+00:04:18,066 --> 00:04:18,566
+<b>The result?</b>
+
+112
+00:04:19,800 --> 00:04:22,333
+<b>229 ethnic groups were partitioned across</b>
+
+113
+00:04:22,333 --> 00:04:23,633
+<b>at least two countries.</b>
+
+114
+00:04:24,099 --> 00:04:25,699
+<b>That's nearly 30% of</b>
+
+115
+00:04:25,699 --> 00:04:26,833
+<b>the groups they sampled.</b>
+
+116
+00:04:27,366 --> 00:04:28,166
+<b>In those specific</b>
+
+117
+00:04:28,166 --> 00:04:31,099
+<b>homelands, conflict is 40% higher.</b>
+
+118
+00:04:32,066 --> 00:04:34,733
+<b>Political violence is 57% higher.</b>
+
+119
+00:04:35,533 --> 00:04:36,933
+<b>Take the Somali people.</b>
+
+120
+00:04:37,633 --> 00:04:38,400
+<b>One ethnic group.</b>
+
+121
+00:04:38,866 --> 00:04:39,433
+<b>One language.</b>
+
+122
+00:04:40,233 --> 00:04:41,733
+<b>But they were divided across four</b>
+
+123
+00:04:41,733 --> 00:04:42,833
+<b>different countries.</b>
+
+124
+00:04:43,633 --> 00:04:46,599
+<b>Somalia, Ethiopia, Kenya and Djibouti.</b>
+
+125
+00:04:47,433 --> 00:04:49,800
+<b>If you look at the Somali flag, that</b>
+
+126
+00:04:49,800 --> 00:04:52,033
+<b>five-pointed star represents those five</b>
+
+127
+00:04:52,033 --> 00:04:53,066
+<b>partitioned regions.</b>
+
+128
+00:04:53,933 --> 00:04:56,566
+<b>That single partition caused three wars.</b>
+
+129
+00:04:57,199 --> 00:04:59,033
+<b>All driven by the desire to bring</b>
+
+130
+00:04:59,033 --> 00:05:00,599
+<b>separate people back together.</b>
+
+131
+00:05:01,566 --> 00:05:03,300
+<b>Communities that existed for centuries</b>
+
+132
+00:05:03,300 --> 00:05:04,800
+<b>were fractured by people</b>
+
+133
+00:05:04,800 --> 00:05:06,366
+<b>who had never even been there.</b>
+
+134
+00:05:06,733 --> 00:05:08,033
+<b>But the biggest thing to come out of</b>
+
+135
+00:05:08,033 --> 00:05:09,500
+<b>Berlin wasn't a border.</b>
+
+136
+00:05:09,766 --> 00:05:10,966
+<b>It was the conference</b>
+
+137
+00:05:10,966 --> 00:05:13,966
+<b>giving one man an entire country.</b>
+
+138
+00:05:14,733 --> 00:05:18,533
+<b>In 1876, King Leopold II of Belgium told</b>
+
+139
+00:05:18,533 --> 00:05:21,766
+<b>the world, "I am guided by no egotism."</b>
+
+140
+00:05:22,233 --> 00:05:23,666
+<b>But a year later, in a</b>
+
+141
+00:05:23,666 --> 00:05:24,900
+<b>private letter, he wrote,</b>
+
+142
+00:05:25,333 --> 00:05:27,133
+<b>"I don't want to risk losing a fine</b>
+
+143
+00:05:27,133 --> 00:05:29,033
+<b>chance to secure a slice of this</b>
+
+144
+00:05:29,033 --> 00:05:30,633
+<b>magnificent African cake."</b>
+
+145
+00:05:31,233 --> 00:05:32,300
+<b>The conference gave</b>
+
+146
+00:05:32,300 --> 00:05:34,066
+<b>Leopold the Congo Free State.</b>
+
+147
+00:05:34,566 --> 00:05:36,333
+<b>Two and a half million square kilometers.</b>
+
+148
+00:05:37,133 --> 00:05:38,566
+<b>It wasn't a Belgian colony.</b>
+
+149
+00:05:38,966 --> 00:05:40,800
+<b>It was his personal property.</b>
+
+150
+00:05:41,566 --> 00:05:44,766
+<b>What he did there, the rubber quotas, the</b>
+
+151
+00:05:44,766 --> 00:05:46,166
+<b>severed hands, a</b>
+
+152
+00:05:46,166 --> 00:05:48,366
+<b>population cut by at least half.</b>
+
+153
+00:05:49,000 --> 00:05:50,766
+<b>That's another video on its own.</b>
+
+154
+00:05:51,366 --> 00:05:53,566
+<b>But his final words tell you everything.</b>
+
+155
+00:05:54,099 --> 00:05:55,966
+<b>When he was forced to hand the Congo over</b>
+
+156
+00:05:55,966 --> 00:05:59,833
+<b>to the Belgian state in 1908, he said,</b>
+
+157
+00:06:00,233 --> 00:06:02,900
+<b>"I will give them my Congo, but they have</b>
+
+158
+00:06:02,900 --> 00:06:04,766
+<b>no right to know what I did there."</b>
+
+159
+00:06:05,766 --> 00:06:09,133
+<b>Then his staff burned the archives for</b>
+
+160
+00:06:09,133 --> 00:06:10,466
+<b>eight days straight.</b>
+
+161
+00:06:11,666 --> 00:06:14,033
+<b>The conference ended in 1885.</b>
+
+162
+00:06:14,733 --> 00:06:16,666
+<b>But 141 years later,</b>
+
+163
+00:06:17,133 --> 00:06:18,800
+<b>those borders haven't moved.</b>
+
+164
+00:06:19,633 --> 00:06:21,166
+<b>In Sudan, the civil war has</b>
+
+165
+00:06:21,166 --> 00:06:22,833
+<b>displaced 12 million people.</b>
+
+166
+00:06:23,333 --> 00:06:25,366
+<b>It's being fought across a racial line</b>
+
+167
+00:06:25,366 --> 00:06:26,900
+<b>that was literally drawn by</b>
+
+168
+00:06:26,900 --> 00:06:28,699
+<b>a colonial census in 1929.</b>
+
+169
+00:06:29,833 --> 00:06:31,833
+<b>A British administrator named Harold</b>
+
+170
+00:06:31,833 --> 00:06:34,266
+<b>MacMichael categorized their forest by</b>
+
+171
+00:06:34,266 --> 00:06:35,833
+<b>race rather than culture.</b>
+
+172
+00:06:36,633 --> 00:06:38,599
+<b>55% spoke Arabic at home.</b>
+
+173
+00:06:39,166 --> 00:06:42,233
+<b>The census classified only 28% as Arab.</b>
+
+174
+00:06:42,866 --> 00:06:44,966
+<b>The rest were labeled, and this is the</b>
+
+175
+00:06:44,966 --> 00:06:47,966
+<b>actual term, "other Negroid Westerners."</b>
+
+176
+00:06:48,933 --> 00:06:51,633
+<b>That label, from a century ago, is still</b>
+
+177
+00:06:51,633 --> 00:06:52,566
+<b>how the world describes</b>
+
+178
+00:06:52,566 --> 00:06:53,633
+<b>their forced violence.</b>
+
+179
+00:06:54,466 --> 00:06:56,400
+<b>Arab militias against African farmers.</b>
+
+180
+00:06:57,199 --> 00:06:58,933
+<b>It's a colonial fiction being</b>
+
+181
+00:06:58,933 --> 00:07:00,900
+<b>replayed as modern civil war.</b>
+
+182
+00:07:01,766 --> 00:07:04,466
+<b>In the Congo, Rwanda-backed rebels are</b>
+
+183
+00:07:04,466 --> 00:07:06,266
+<b>still fighting over territory that</b>
+
+184
+00:07:06,266 --> 00:07:07,166
+<b>Belgian administrators</b>
+
+185
+00:07:07,666 --> 00:07:08,599
+<b>sliced up without</b>
+
+186
+00:07:08,599 --> 00:07:10,266
+<b>understanding who lived there.</b>
+
+187
+00:07:11,333 --> 00:07:14,699
+<b>In January 2025, Rwanda-backed rebels</b>
+
+188
+00:07:14,699 --> 00:07:16,400
+<b>captured Goma, the</b>
+
+189
+00:07:16,400 --> 00:07:17,766
+<b>capital of eastern Congo,</b>
+
+190
+00:07:18,466 --> 00:07:20,000
+<b>the city of a million people.</b>
+
+191
+00:07:21,266 --> 00:07:22,966
+<b>Belgian administrators drew the</b>
+
+192
+00:07:22,966 --> 00:07:24,133
+<b>Congo-Rwanda border</b>
+
+193
+00:07:24,133 --> 00:07:25,466
+<b>through territory that</b>
+
+194
+00:07:25,933 --> 00:07:27,133
+<b>Rwandan kingdoms had</b>
+
+195
+00:07:27,133 --> 00:07:28,333
+<b>historically controlled.</b>
+
+196
+00:07:29,733 --> 00:07:31,366
+<b>Rwanda's president has publicly</b>
+
+197
+00:07:31,366 --> 00:07:33,366
+<b>questioned those colonial borders,</b>
+
+198
+00:07:33,366 --> 00:07:35,266
+<b>claiming parts of eastern Congo were</b>
+
+199
+00:07:35,266 --> 00:07:36,433
+<b>always Rwandan land.</b>
+
+200
+00:07:37,233 --> 00:07:39,900
+<b>In March 2026, the United States</b>
+
+201
+00:07:39,900 --> 00:07:40,966
+<b>sanctioned Rwanda's</b>
+
+202
+00:07:40,966 --> 00:07:42,533
+<b>military over this conflict.</b>
+
+203
+00:07:43,166 --> 00:07:45,266
+<b>You might wonder, why didn't African</b>
+
+204
+00:07:45,266 --> 00:07:47,366
+<b>leaders just fix this after independence?</b>
+
+205
+00:07:48,066 --> 00:07:50,599
+<b>Julius Nyerere, the first president of</b>
+
+206
+00:07:50,599 --> 00:07:52,533
+<b>Tanzania, explained it best.</b>
+
+207
+00:07:53,266 --> 00:07:56,066
+<b>He said, "Precisely because African</b>
+
+208
+00:07:56,066 --> 00:07:58,400
+<b>boundaries were so absurd, it was</b>
+
+209
+00:07:58,400 --> 00:08:00,166
+<b>essential to maintain them."</b>
+
+210
+00:08:01,000 --> 00:08:04,066
+<b>Why? Because redrawing every border would</b>
+
+211
+00:08:04,066 --> 00:08:06,099
+<b>mean every single group has a claim.</b>
+
+212
+00:08:06,900 --> 00:08:08,866
+<b>The result wouldn't be justice, it would</b>
+
+213
+00:08:08,866 --> 00:08:11,066
+<b>be endless total war.</b>
+
+214
+00:08:11,933 --> 00:08:14,599
+<b>So in 1964, they put it in writing.</b>
+
+215
+00:08:15,366 --> 00:08:18,133
+<b>The borders would stand, not because they</b>
+
+216
+00:08:18,133 --> 00:08:19,766
+<b>were right, but because</b>
+
+217
+00:08:19,766 --> 00:08:21,433
+<b>changing them was too dangerous.</b>
+
+218
+00:08:21,933 --> 00:08:24,033
+<b>If we're being fair, the Berlin</b>
+
+219
+00:08:24,033 --> 00:08:25,433
+<b>Conference didn't start</b>
+
+220
+00:08:25,433 --> 00:08:26,933
+<b>the Scramble for Africa.</b>
+
+221
+00:08:27,566 --> 00:08:30,533
+<b>Historians call it a safety valve, a way</b>
+
+222
+00:08:30,533 --> 00:08:32,699
+<b>for Europe to avoid war with itself.</b>
+
+223
+00:08:33,566 --> 00:08:34,366
+<b>But it created the</b>
+
+224
+00:08:34,366 --> 00:08:37,233
+<b>rules, it made the race legal.</b>
+
+225
+00:08:37,966 --> 00:08:41,566
+<b>The map they ignored is still there. 229</b>
+
+226
+00:08:41,566 --> 00:08:43,266
+<b>groups are still divided.</b>
+
+227
+00:08:43,766 --> 00:08:46,100
+<b>A century and a half later, we are still</b>
+
+228
+00:08:46,100 --> 00:08:47,000
+<b>living with what they</b>
+
+229
+00:08:47,000 --> 00:08:48,633
+<b>decided in that room in Berlin.</b>
+
+230
+00:08:49,600 --> 00:08:51,766
+<b>Every source I use is in the description,</b>
+
+231
+00:08:52,166 --> 00:08:53,966
+<b>including the general act itself.</b>
+
+232
+00:08:54,666 --> 00:08:56,066
+<b>And if you see what happened when</b>
+
+233
+00:08:56,066 --> 00:08:58,533
+<b>Leopold's promises actually met the</b>
+
+234
+00:08:58,533 --> 00:09:00,666
+<b>Congo, that's coming next.</b>
+
+235
+00:09:01,666 --> 00:09:03,066
+<b>Subscribe for more evidence-based</b>
+
+236
+00:09:03,066 --> 00:09:05,033
+<b>history, and thank you for watching.</b>
+
