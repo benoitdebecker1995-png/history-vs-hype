@@ -12,7 +12,6 @@ Usage:
 import json
 import re
 import sqlite3
-import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -23,8 +22,7 @@ CACHE_DIR = BASE_DIR / "tools" / "youtube_analytics" / "_retention_cache"
 OUTPUT_PATH = BASE_DIR / "channel-data" / "patterns" / "RETENTION-BY-TOPIC-TYPE.md"
 
 # Import content classification from retention_analysis
-sys.path.insert(0, str(BASE_DIR))
-from tools.youtube_analytics.retention_analysis import (
+from .retention_analysis import (
     classify_content,
     classify_window,
     build_srt_mapping,

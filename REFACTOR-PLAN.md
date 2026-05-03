@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-03 (A2)
+**Last advanced:** 2026-05-03 (B4)
 **Total steps:** 47
-**Done:** 7 (A1/B1/B2/B3/B6 reconciled; A2 executed 2026-05-03)
+**Done:** 8 (A1/B1/B2/B3/B6 reconciled; A2/B4 executed 2026-05-03)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -243,7 +243,7 @@ Mark B3 [DONE].
 
 ---
 
-## B4 [TODO] Convert sys.path.insert hacks in `youtube_analytics/` (14+ files)
+## B4 [DONE] Convert sys.path.insert hacks in `youtube_analytics/` (14+ files)
 
 > **Reconciled 2026-05-03:** Scope drastically reduced. Only **1 file** in `tools/youtube_analytics/` still has `sys.path.insert`: `retention_by_topic.py`. The other 13+ have already been cleaned ad-hoc. Updated procedure: handle just this one file per the original plan's per-file procedure (read top imports, find sys.path.insert, replace with proper `from tools.<package> import <module>` form, smoke-test if it has a CLI). Verify post-fix: `grep -r "sys\.path\.insert" tools/youtube_analytics/` returns 0.
 
@@ -1291,3 +1291,9 @@ Executing session `/refactor` discovered repo state was substantially ahead of t
 Net effect: plan unblocked. Done count 0 → 6. Next eligible step: A2 (deps: A1 ✅).
 
 Commits: `88aa367 refactor: block A1` (now superseded), `<this commit> refactor: reconcile phases A–B with current repo state`.
+
+### 2026-05-03 — B4 execution: drift noted on retention_by_topic.py
+
+Removed the single remaining `sys.path.insert` in `tools/youtube_analytics/` (`retention_by_topic.py:26`). Replaced cross-package import with relative import (`from .retention_analysis import ...`). Also removed now-unused `import sys`.
+
+**Drift not fixed (out of scope for B4):** `retention_by_topic.py` has no `argparse` — `--help` runs `main()` instead of showing help. Pre-existing. Belongs in scope of E2 (add `--verbose`/`--quiet` to argparse CLIs) or E3 (convert manual-argv files to argparse). Should be added to one of those tables when those steps execute.
