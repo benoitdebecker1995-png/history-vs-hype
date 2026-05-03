@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-03 (C2)
+**Last advanced:** 2026-05-03 (C3)
 **Total steps:** 47
-**Done:** 11 (A1/B1/B2/B3/B6/C1/C2 reconciled; A2/B4/B5 executed 2026-05-03)
+**Done:** 12 (A1/B1/B2/B3/B6/C1/C2/C3 reconciled; A2/B4/B5 executed 2026-05-03)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -385,7 +385,9 @@ Mark C2 [DONE].
 
 ---
 
-## C3 [TODO] Write `tests/test_discovery.py`
+## C3 [DONE] Write `tests/test_discovery.py`
+
+> **Reconciled 2026-05-03:** `tests/test_discovery.py` exists with 7 tests, all PASSED. Uses the `keyword_db` fixture from `conftest.py` (in-memory KeywordDB) instead of the spec's binary `tests/fixtures/test_keywords.db`. Mocks demand/competition/scorer at the orchestrator level via `patch.object(orch.demand, ...)` rather than spec's pyppeteer-level mock — cleaner because `OpportunityOrchestrator` exposes attribute seams. Coverage: import-clean, instantiation, end-to-end with full mocks, two error-propagation paths, and two attribute-shape assertions. Vacuously satisfied (strict superset of spec intent).
 
 **Prompt:**
 ```
@@ -1332,3 +1334,7 @@ Likely follow-on: C2 (test_production), C3 (test_discovery), C4 (test_intel + te
 `tests/test_production.py` already had 7 tests covering the production pipeline end-to-end. All pass. Tests use the real production API (`ScriptParser.parse_file`, `EditGuideGenerator.generate_edit_guide`, `MetadataGenerator.generate_metadata_draft`) which is more accurate than the spec's notional method names. C2 marked [DONE] without code changes.
 
 **Pre-existing warning (not blocking):** `pytest` emits `PytestCacheWarning: could not create cache path D:\History vs Hype\.pytest_cache\v\cache\nodeids: [WinError 5] Access is denied`. Windows ACL on `.pytest_cache/`. Workaround: `chmod`-equivalent fix or just delete the dir and let pytest recreate it. Not blocking refactor work.
+
+### 2026-05-03 — C3 reconciliation: test_discovery.py uses orchestrator-level mocking
+
+`tests/test_discovery.py` already had 7 tests covering OpportunityOrchestrator end-to-end. All pass. Mock pattern is cleaner than spec — patches at the attribute-seam (`orch.demand`, `orch.competition`, `orch.scorer`) rather than at the lower-level pyppeteer/network layer. C3 marked [DONE] without code changes.
