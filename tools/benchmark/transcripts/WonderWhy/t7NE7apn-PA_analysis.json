@@ -1,0 +1,41 @@
+{
+  "video_id": "t7NE7apn-PA",
+  "channel": "WonderWhy",
+  "title": "How Logical Are You? (Psychology of Reasoning)",
+  "views": 2651988,
+  "duration_seconds": 599,
+  "word_count": 1939,
+  "hook": {
+    "first_50_words": "the psychology of reasoning is a branch of cognitive psychology that studies the way in which humans use logic to come to conclusions based on available information but not all reasoning is valid and people may use invalid reasoning to come to a logical conclusions suggest how logical are we",
+    "first_sentence": "the psychology of reasoning is a branch",
+    "seconds_to_first_date": 21.1,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 21.1,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 1.5,
+    "chronological_vs_thematic": "thematic",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 1,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "even this but just because something can be known with 100% certainty when all the scientific evidence points to something any rational person would accept it as fact so it comes to reasoning it's not just about logic but also a bit common sense and rationality - thanks for watching",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 194.2,
+    "date_frequency_per_minute": 0.2,
+    "avg_sentence_length": 14.9
+  }
+}

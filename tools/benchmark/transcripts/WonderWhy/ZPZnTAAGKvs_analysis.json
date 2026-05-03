@@ -1,0 +1,41 @@
+{
+  "video_id": "ZPZnTAAGKvs",
+  "channel": "WonderWhy",
+  "title": "Fun Fact About Every Country in the World - Part 1",
+  "views": 7565823,
+  "duration_seconds": 1253,
+  "word_count": 2448,
+  "hook": {
+    "first_50_words": "Hello and welcome to a fun fact about every country in the world, part one. These videos are going to be pretty long, so let's just get started right now. Afghanistan changed its flag 18 times during the 20th century and four more since then, with its current flag having",
+    "first_sentence": "Hello and welcome to a fun fact about every country in the world, part one.",
+    "seconds_to_first_date": 17.4,
+    "seconds_to_first_named_entity": 76.0,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 4,
+    "seconds_to_first_historical_date": 17.4,
+    "seconds_to_turn_moment": 200.7,
+    "turn_moment_description": "he Big Bang Theory. However, there was nothing that Warner Brothers could do about it because the TV company that produced the show is owned",
+    "percent_history_vs_analysis": 35.0,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 1,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "part one. For part two, we'll do the remaining countries from M to Zed. I know it's been a really long time since my last video, but I plan on being much more active in 2021. So, thank you so much for watching, and I'll see you in part two.",
+    "has_cta": false,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 117.2,
+    "date_frequency_per_minute": 2.92,
+    "avg_sentence_length": 15.3
+  }
+}

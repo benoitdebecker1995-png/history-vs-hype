@@ -1,0 +1,41 @@
+{
+  "video_id": "b9IBlbfjNH0",
+  "channel": "Shaun",
+  "title": "CinemaSins is Still Wrong About Everything",
+  "views": 2126741,
+  "duration_seconds": 2589,
+  "word_count": 7554,
+  "hook": {
+    "first_50_words": "hello everyone so as you may be aware a while back I made a few videos about the YouTube channel cinemasins laying out various mistakes they've made and criticizing their general approach to movie criticism a response to those videos has been uniformly positive YouTube users are still leaving me",
+    "first_sentence": "hello everyone so as you may be aware a",
+    "seconds_to_first_date": 514.5,
+    "seconds_to_first_named_entity": 2.7,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 5,
+    "seconds_to_first_historical_date": 514.5,
+    "seconds_to_turn_moment": 633.4,
+    "turn_moment_description": "his is not the case in reality the mimic octopus for example is able to control lips camouflage ability at will not only to blend in with it",
+    "percent_history_vs_analysis": 2.8,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 5,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "should probably be blaming them here rather than thanking them thinking about it how dare you support me honestly I take it as an insult but I'm supported in this anyway see you next year I guess and we'll look at everything they got wrong between now and then bye",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 175.1,
+    "date_frequency_per_minute": 0.37,
+    "avg_sentence_length": 15.0
+  }
+}

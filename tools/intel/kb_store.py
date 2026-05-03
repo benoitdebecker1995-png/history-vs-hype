@@ -180,7 +180,7 @@ class KBStore:
                                 sql = "\n".join(sql_lines).strip()
                                 if sql:
                                     conn.execute(sql)
-                    except Exception as exc:
+                    except (sqlite3.Error, OSError, ValueError) as exc:
                         conn.close()
                         raise RuntimeError(f"KBStore schema init failed: {exc}") from exc
                 else:
@@ -190,7 +190,7 @@ class KBStore:
                 conn.close()
             except RuntimeError:
                 raise
-            except Exception as exc:
+            except (sqlite3.Error, OSError, ValueError) as exc:
                 conn.close()
                 raise RuntimeError(f"KBStore schema init failed: {exc}") from exc
 
@@ -214,7 +214,7 @@ class KBStore:
                         conn.execute("ALTER TABLE competitor_videos ADD COLUMN topic_cluster TEXT")
                     if "outlier_ratio" not in cols:
                         conn.execute("ALTER TABLE competitor_videos ADD COLUMN outlier_ratio REAL")
-            except Exception as exc:
+            except (sqlite3.Error, OSError, ValueError) as exc:
                 conn.close()
                 raise RuntimeError(f"KBStore migration to v2 failed: {exc}") from exc
             conn.close()
@@ -271,7 +271,7 @@ class KBStore:
             row_id = cursor.lastrowid
             conn.close()
             return {"id": row_id, "refreshed_at": now}
-        except Exception as exc:
+        except (sqlite3.Error, KeyError, TypeError) as exc:
             return {"error": f"save_algo_snapshot failed: {exc}"}
 
     def get_latest_algo_snapshot(self) -> dict | None:
@@ -294,7 +294,7 @@ class KBStore:
                 if result.get(col) is not None:
                     result[col] = json.loads(result[col])
             return result
-        except Exception as exc:
+        except (sqlite3.Error, json.JSONDecodeError, KeyError, TypeError) as exc:
             return {"error": f"get_latest_algo_snapshot failed: {exc}"}
 
     # ------------------------------------------------------------------
@@ -331,7 +331,7 @@ class KBStore:
             conn.commit()
             conn.close()
             return {"channel_id": channel_id}
-        except Exception as exc:
+        except (sqlite3.Error, KeyError, TypeError) as exc:
             return {"error": f"save_competitor_channel failed: {exc}"}
 
     def get_active_channels(self) -> list[dict]:
@@ -348,7 +348,7 @@ class KBStore:
             ).fetchall()
             conn.close()
             return [dict(r) for r in rows]
-        except Exception as exc:
+        except (sqlite3.Error, KeyError, TypeError) as exc:
             return {"error": f"get_active_channels failed: {exc}"}
 
     # ------------------------------------------------------------------
@@ -403,7 +403,7 @@ class KBStore:
             conn.commit()
             conn.close()
             return {"saved": saved}
-        except Exception as exc:
+        except (sqlite3.Error, KeyError, TypeError) as exc:
             return {"error": f"save_competitor_videos failed: {exc}"}
 
     def get_competitor_videos(
@@ -443,7 +443,7 @@ class KBStore:
             ).fetchall()
             conn.close()
             return [dict(r) for r in rows]
-        except Exception as exc:
+        except (sqlite3.Error, KeyError, TypeError) as exc:
             return {"error": f"get_competitor_videos failed: {exc}"}
 
     def purge_competitor_videos(self) -> dict:
@@ -460,7 +460,7 @@ class KBStore:
             conn.commit()
             conn.close()
             return {"deleted": deleted}
-        except Exception as exc:
+        except sqlite3.Error as exc:
             return {"error": f"purge_competitor_videos failed: {exc}"}
 
     # ------------------------------------------------------------------
@@ -497,7 +497,7 @@ class KBStore:
             row_id = cursor.lastrowid
             conn.close()
             return {"id": row_id, "refreshed_at": now}
-        except Exception as exc:
+        except (sqlite3.Error, KeyError, TypeError) as exc:
             return {"error": f"save_niche_snapshot failed: {exc}"}
 
     def get_latest_niche_snapshot(self) -> dict | None:
@@ -520,7 +520,7 @@ class KBStore:
                 if result.get(col) is not None:
                     result[col] = json.loads(result[col])
             return result
-        except Exception as exc:
+        except (sqlite3.Error, json.JSONDecodeError, KeyError, TypeError) as exc:
             return {"error": f"get_latest_niche_snapshot failed: {exc}"}
 
     # ------------------------------------------------------------------
@@ -540,7 +540,7 @@ class KBStore:
             if row is None:
                 return None
             return row["last_refresh"]
-        except Exception as exc:
+        except (sqlite3.Error, KeyError, TypeError) as exc:
             return {"error": f"get_last_refresh failed: {exc}"}
 
     def set_last_refresh(self) -> dict:
@@ -568,7 +568,7 @@ class KBStore:
             conn.commit()
             conn.close()
             return {"last_refresh": now}
-        except Exception as exc:
+        except (sqlite3.Error, KeyError, TypeError) as exc:
             return {"error": f"set_last_refresh failed: {exc}"}
 
     def update_video_topic(self, video_id: str, topic_cluster_json: str) -> dict:
@@ -591,7 +591,7 @@ class KBStore:
             conn.commit()
             conn.close()
             return {"updated": True}
-        except Exception as exc:
+        except sqlite3.Error as exc:
             return {"error": f"update_video_topic failed: {exc}"}
 
     def update_video_outlier_ratio(self, video_id: str, ratio: float) -> dict:
@@ -614,7 +614,7 @@ class KBStore:
             conn.commit()
             conn.close()
             return {"updated": True}
-        except Exception as exc:
+        except sqlite3.Error as exc:
             return {"error": f"update_video_outlier_ratio failed: {exc}"}
 
     def is_stale(self, max_age_days: int = 7) -> bool:

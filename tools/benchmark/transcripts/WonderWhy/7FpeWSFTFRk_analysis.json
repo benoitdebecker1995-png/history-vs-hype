@@ -1,0 +1,41 @@
+{
+  "video_id": "7FpeWSFTFRk",
+  "channel": "WonderWhy",
+  "title": "The Entire History of France in 23 Minutes",
+  "views": 2520241,
+  "duration_seconds": 1378,
+  "word_count": 3894,
+  "hook": {
+    "first_50_words": "Upon the collapse of the Roman Empire in the fifth century AD, the Germanic people known as the Franks came to inhabit the region that is today the country of France. The entire area had been virtually abandoned, which saw the rise of several tribal Frankish kingdoms. After some time,",
+    "first_sentence": "Upon the collapse of the Roman Empire in the fifth century AD, the Germanic people known as the Franks came to inhabit the region that is today the country of France.",
+    "seconds_to_first_date": 22.6,
+    "seconds_to_first_named_entity": 98.6,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 22.6,
+    "seconds_to_turn_moment": 378.2,
+    "turn_moment_description": "enry was in his 30s and yet to produce an heir, the next in line to the throne became quite unbelievably the king's ninth cousin and also br",
+    "percent_history_vs_analysis": 23.1,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 5,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 1
+  },
+  "close": {
+    "last_50_words": "where I'm going to leave things because in the words of historian John Julius Norwich, all history books must have a clearly defined stopping place. If they don't, they drag on till they become works on current affairs. And for me, 1958 is where I've decided to draw the line.",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 169.6,
+    "date_frequency_per_minute": 1.83,
+    "avg_sentence_length": 20.0
+  }
+}

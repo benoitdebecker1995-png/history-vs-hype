@@ -1,0 +1,41 @@
+{
+  "video_id": "vK7l55ZOVIc",
+  "channel": "Kraut",
+  "title": "How Vodka ruined Russia",
+  "views": 4779695,
+  "duration_seconds": 587,
+  "word_count": 1628,
+  "hook": {
+    "first_50_words": "when you search through history books you will find many anecdotes on the role that alcohol and other addictive substances played in shaping societies throughout human history the Pharaohs of ancient Egypt paid their farm laborers in bread and beer Greek wine was one of the most prized commodities of",
+    "first_sentence": "when you search through history books",
+    "seconds_to_first_date": 195.9,
+    "seconds_to_first_named_entity": 97.9,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 2,
+    "seconds_to_first_historical_date": 195.9,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 2.8,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "dominated far too much by a judgemental standard that reduces the problem to individuals to be punished rather than social in need of solutions if you're interested in this topic and want to know more I recommend to you to read drink a cultural history of alcohol by Ian Gately",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 166.4,
+    "date_frequency_per_minute": 0.31,
+    "avg_sentence_length": 14.9
+  }
+}

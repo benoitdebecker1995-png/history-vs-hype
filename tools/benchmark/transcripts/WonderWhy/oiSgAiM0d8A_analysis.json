@@ -1,0 +1,41 @@
+{
+  "video_id": "oiSgAiM0d8A",
+  "channel": "WonderWhy",
+  "title": "The Breakup of Yugoslavia",
+  "views": 6556972,
+  "duration_seconds": 965,
+  "word_count": 2883,
+  "hook": {
+    "first_50_words": "for most of the 20th century there existed a country in Southeastern Europe called Yugoslavia today however what used to be Yugoslavia is now six fully independent countries plus one more self- declared independent country but more than that later so why exactly did Yugoslavia split up well before we",
+    "first_sentence": "for most of the 20th century there",
+    "seconds_to_first_date": 22.8,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "cold_fact",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 22.8,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 10.4,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 4,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "history are the extremely unpleasant ones but today all of the Former Yugoslav republics are peaceful and prosperous Nations however with the still unresolved situation in coso another war in the Balkans is always a possibility let's hope that doesn't happen happen and that the situation can be resolved peacefully",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 179.3,
+    "date_frequency_per_minute": 1.49,
+    "avg_sentence_length": 14.9
+  }
+}

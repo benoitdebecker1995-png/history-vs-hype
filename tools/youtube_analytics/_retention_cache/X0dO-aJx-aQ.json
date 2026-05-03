@@ -1,0 +1,545 @@
+{
+  "video_id": "X0dO-aJx-aQ",
+  "data_points": [
+    {
+      "position": 0.01,
+      "retention": 0.8487,
+      "relative": 0.6607999999999999
+    },
+    {
+      "position": 0.02,
+      "retention": 0.7311,
+      "relative": 0.74
+    },
+    {
+      "position": 0.03,
+      "retention": 0.7395,
+      "relative": 0.8007500000000001
+    },
+    {
+      "position": 0.04,
+      "retention": 0.6890999999999999,
+      "relative": 0.8240999999999999
+    },
+    {
+      "position": 0.05,
+      "retention": 0.6470999999999999,
+      "relative": 0.8263499999999999
+    },
+    {
+      "position": 0.06,
+      "retention": 0.5546,
+      "relative": 0.8182
+    },
+    {
+      "position": 0.07,
+      "retention": 0.5378000000000001,
+      "relative": 0.80505
+    },
+    {
+      "position": 0.08,
+      "retention": 0.5126,
+      "relative": 0.79175
+    },
+    {
+      "position": 0.09,
+      "retention": 0.521,
+      "relative": 0.78365
+    },
+    {
+      "position": 0.1,
+      "retention": 0.5126,
+      "relative": 0.78435
+    },
+    {
+      "position": 0.11,
+      "retention": 0.4706,
+      "relative": 0.79235
+    },
+    {
+      "position": 0.12,
+      "retention": 0.4874,
+      "relative": 0.80185
+    },
+    {
+      "position": 0.13,
+      "retention": 0.4706,
+      "relative": 0.80715
+    },
+    {
+      "position": 0.14,
+      "retention": 0.4706,
+      "relative": 0.80585
+    },
+    {
+      "position": 0.15,
+      "retention": 0.4202,
+      "relative": 0.7989999999999999
+    },
+    {
+      "position": 0.16,
+      "retention": 0.4286,
+      "relative": 0.78905
+    },
+    {
+      "position": 0.17,
+      "retention": 0.4202,
+      "relative": 0.77825
+    },
+    {
+      "position": 0.18,
+      "retention": 0.4202,
+      "relative": 0.7672
+    },
+    {
+      "position": 0.19,
+      "retention": 0.43700000000000006,
+      "relative": 0.75215
+    },
+    {
+      "position": 0.2,
+      "retention": 0.395,
+      "relative": 0.7286
+    },
+    {
+      "position": 0.21,
+      "retention": 0.40340000000000004,
+      "relative": 0.6995
+    },
+    {
+      "position": 0.22,
+      "retention": 0.38659999999999994,
+      "relative": 0.6755
+    },
+    {
+      "position": 0.23,
+      "retention": 0.395,
+      "relative": 0.66415
+    },
+    {
+      "position": 0.24,
+      "retention": 0.40340000000000004,
+      "relative": 0.6642
+    },
+    {
+      "position": 0.25,
+      "retention": 0.40340000000000004,
+      "relative": 0.6738999999999999
+    },
+    {
+      "position": 0.26,
+      "retention": 0.40340000000000004,
+      "relative": 0.6933
+    },
+    {
+      "position": 0.27,
+      "retention": 0.40340000000000004,
+      "relative": 0.7159
+    },
+    {
+      "position": 0.28,
+      "retention": 0.4118,
+      "relative": 0.7314499999999999
+    },
+    {
+      "position": 0.29,
+      "retention": 0.3782,
+      "relative": 0.73595
+    },
+    {
+      "position": 0.3,
+      "retention": 0.3697,
+      "relative": 0.73185
+    },
+    {
+      "position": 0.31,
+      "retention": 0.3697,
+      "relative": 0.72325
+    },
+    {
+      "position": 0.32,
+      "retention": 0.3613,
+      "relative": 0.71365
+    },
+    {
+      "position": 0.33,
+      "retention": 0.3529,
+      "relative": 0.70585
+    },
+    {
+      "position": 0.34,
+      "retention": 0.34450000000000003,
+      "relative": 0.7028
+    },
+    {
+      "position": 0.35,
+      "retention": 0.3529,
+      "relative": 0.7062
+    },
+    {
+      "position": 0.36,
+      "retention": 0.3361,
+      "relative": 0.7152499999999999
+    },
+    {
+      "position": 0.37,
+      "retention": 0.3361,
+      "relative": 0.72645
+    },
+    {
+      "position": 0.38,
+      "retention": 0.34450000000000003,
+      "relative": 0.73365
+    },
+    {
+      "position": 0.39,
+      "retention": 0.3361,
+      "relative": 0.7307
+    },
+    {
+      "position": 0.4,
+      "retention": 0.3361,
+      "relative": 0.71565
+    },
+    {
+      "position": 0.41,
+      "retention": 0.32770000000000005,
+      "relative": 0.69515
+    },
+    {
+      "position": 0.42,
+      "retention": 0.3193,
+      "relative": 0.68035
+    },
+    {
+      "position": 0.43,
+      "retention": 0.34450000000000003,
+      "relative": 0.6755
+    },
+    {
+      "position": 0.44,
+      "retention": 0.34450000000000003,
+      "relative": 0.67715
+    },
+    {
+      "position": 0.45,
+      "retention": 0.34450000000000003,
+      "relative": 0.6797500000000001
+    },
+    {
+      "position": 0.46,
+      "retention": 0.32770000000000005,
+      "relative": 0.6787
+    },
+    {
+      "position": 0.47,
+      "retention": 0.3193,
+      "relative": 0.6709
+    },
+    {
+      "position": 0.48,
+      "retention": 0.3193,
+      "relative": 0.6545
+    },
+    {
+      "position": 0.49,
+      "retention": 0.3193,
+      "relative": 0.62965
+    },
+    {
+      "position": 0.5,
+      "retention": 0.3109,
+      "relative": 0.6005
+    },
+    {
+      "position": 0.51,
+      "retention": 0.3109,
+      "relative": 0.57405
+    },
+    {
+      "position": 0.52,
+      "retention": 0.3025,
+      "relative": 0.5561
+    },
+    {
+      "position": 0.53,
+      "retention": 0.3025,
+      "relative": 0.54735
+    },
+    {
+      "position": 0.54,
+      "retention": 0.29410000000000003,
+      "relative": 0.5449
+    },
+    {
+      "position": 0.55,
+      "retention": 0.29410000000000003,
+      "relative": 0.5463
+    },
+    {
+      "position": 0.56,
+      "retention": 0.2773,
+      "relative": 0.5516
+    },
+    {
+      "position": 0.57,
+      "retention": 0.2773,
+      "relative": 0.56315
+    },
+    {
+      "position": 0.58,
+      "retention": 0.2773,
+      "relative": 0.5838
+    },
+    {
+      "position": 0.59,
+      "retention": 0.2773,
+      "relative": 0.6122
+    },
+    {
+      "position": 0.6,
+      "retention": 0.2857,
+      "relative": 0.63945
+    },
+    {
+      "position": 0.61,
+      "retention": 0.29410000000000003,
+      "relative": 0.6555
+    },
+    {
+      "position": 0.62,
+      "retention": 0.2857,
+      "relative": 0.65695
+    },
+    {
+      "position": 0.63,
+      "retention": 0.2857,
+      "relative": 0.645
+    },
+    {
+      "position": 0.64,
+      "retention": 0.2857,
+      "relative": 0.6218
+    },
+    {
+      "position": 0.65,
+      "retention": 0.2773,
+      "relative": 0.592
+    },
+    {
+      "position": 0.66,
+      "retention": 0.2773,
+      "relative": 0.5625
+    },
+    {
+      "position": 0.67,
+      "retention": 0.2773,
+      "relative": 0.53895
+    },
+    {
+      "position": 0.68,
+      "retention": 0.2773,
+      "relative": 0.52195
+    },
+    {
+      "position": 0.69,
+      "retention": 0.2773,
+      "relative": 0.5095
+    },
+    {
+      "position": 0.7,
+      "retention": 0.26890000000000003,
+      "relative": 0.5016
+    },
+    {
+      "position": 0.71,
+      "retention": 0.2521,
+      "relative": 0.5013
+    },
+    {
+      "position": 0.72,
+      "retention": 0.2521,
+      "relative": 0.51245
+    },
+    {
+      "position": 0.73,
+      "retention": 0.2521,
+      "relative": 0.5347500000000001
+    },
+    {
+      "position": 0.74,
+      "retention": 0.2521,
+      "relative": 0.5601
+    },
+    {
+      "position": 0.75,
+      "retention": 0.2605,
+      "relative": 0.57855
+    },
+    {
+      "position": 0.76,
+      "retention": 0.26890000000000003,
+      "relative": 0.5871
+    },
+    {
+      "position": 0.77,
+      "retention": 0.2605,
+      "relative": 0.58935
+    },
+    {
+      "position": 0.78,
+      "retention": 0.2437,
+      "relative": 0.5902000000000001
+    },
+    {
+      "position": 0.79,
+      "retention": 0.2353,
+      "relative": 0.59195
+    },
+    {
+      "position": 0.8,
+      "retention": 0.2521,
+      "relative": 0.5934
+    },
+    {
+      "position": 0.81,
+      "retention": 0.2353,
+      "relative": 0.59195
+    },
+    {
+      "position": 0.82,
+      "retention": 0.22690000000000002,
+      "relative": 0.5868
+    },
+    {
+      "position": 0.83,
+      "retention": 0.2353,
+      "relative": 0.5795
+    },
+    {
+      "position": 0.84,
+      "retention": 0.2353,
+      "relative": 0.5710500000000001
+    },
+    {
+      "position": 0.85,
+      "retention": 0.22690000000000002,
+      "relative": 0.5619
+    },
+    {
+      "position": 0.86,
+      "retention": 0.22690000000000002,
+      "relative": 0.5535
+    },
+    {
+      "position": 0.87,
+      "retention": 0.2353,
+      "relative": 0.54725
+    },
+    {
+      "position": 0.88,
+      "retention": 0.2353,
+      "relative": 0.54355
+    },
+    {
+      "position": 0.89,
+      "retention": 0.2353,
+      "relative": 0.5421
+    },
+    {
+      "position": 0.9,
+      "retention": 0.2101,
+      "relative": 0.5427
+    },
+    {
+      "position": 0.91,
+      "retention": 0.2101,
+      "relative": 0.54505
+    },
+    {
+      "position": 0.92,
+      "retention": 0.19329999999999997,
+      "relative": 0.5488999999999999
+    },
+    {
+      "position": 0.93,
+      "retention": 0.18489999999999998,
+      "relative": 0.55385
+    },
+    {
+      "position": 0.94,
+      "retention": 0.1681,
+      "relative": 0.55905
+    },
+    {
+      "position": 0.95,
+      "retention": 0.1765,
+      "relative": 0.5646
+    },
+    {
+      "position": 0.96,
+      "retention": 0.1597,
+      "relative": 0.57085
+    },
+    {
+      "position": 0.97,
+      "retention": 0.15130000000000002,
+      "relative": 0.5781499999999999
+    },
+    {
+      "position": 0.98,
+      "retention": 0.1429,
+      "relative": 0.5864
+    },
+    {
+      "position": 0.99,
+      "retention": 0.1261,
+      "relative": 0.59375
+    },
+    {
+      "position": 1,
+      "retention": 0.13449999999999998,
+      "relative": 0.598
+    }
+  ],
+  "drop_off_points": [
+    {
+      "position": 0.02,
+      "retention_before": 0.8487,
+      "retention_after": 0.7311,
+      "drop": 0.11760000000000004,
+      "timestamp_hint": "intro"
+    },
+    {
+      "position": 0.04,
+      "retention_before": 0.7395,
+      "retention_after": 0.6890999999999999,
+      "drop": 0.05040000000000011,
+      "timestamp_hint": "intro"
+    },
+    {
+      "position": 0.06,
+      "retention_before": 0.6470999999999999,
+      "retention_after": 0.5546,
+      "drop": 0.09249999999999992,
+      "timestamp_hint": "intro"
+    },
+    {
+      "position": 0.15,
+      "retention_before": 0.4706,
+      "retention_after": 0.4202,
+      "drop": 0.0504,
+      "timestamp_hint": "early"
+    }
+  ],
+  "summary": {
+    "avg_retention": 0.33604999999999996,
+    "min_retention": 0.1261,
+    "final_retention": 0.13449999999999998
+  },
+  "date_range": {
+    "start": "2020-01-01",
+    "end": "2026-03-20"
+  },
+  "fetched_at": "2026-03-21T00:12:18.414704+00:00"
+}

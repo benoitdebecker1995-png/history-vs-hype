@@ -1,0 +1,41 @@
+{
+  "video_id": "DNBGSsZatbY",
+  "channel": "CaspianReport",
+  "title": "Why Europe plans to ditch US weapons",
+  "views": 911007,
+  "duration_seconds": 1102,
+  "word_count": 2457,
+  "hook": {
+    "first_50_words": "Trump has made it clear he wants to end the war in Ukraine as quickly as he can, irrespective of what that means for Ukrainians. America temporarily suspended military aid to Ukraine in early March, which hampered Ukrainian operations on the ground. Even though the interruption in intelligence sharing lasted",
+    "first_sentence": "Trump has made it clear he wants to end the war in Ukraine as quickly as he can, irrespective of what that means for Ukrainians.",
+    "seconds_to_first_date": 214.2,
+    "seconds_to_first_named_entity": 22.7,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 214.2,
+    "seconds_to_turn_moment": 353.7,
+    "turn_moment_description": "enter a golden age. However, cranking up complex multinational programs will take time, and not all Americanmade weapons can be readily repl",
+    "percent_history_vs_analysis": 11.0,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 1
+  },
+  "close": {
+    "last_50_words": "built on handouts. So to stand strong, Europe must lighten its load. I've been your host Shivan from Caspian Report. If you approve of what we do, please leave a comment, hit the like button, and mayhaps share the video. In any case, thank you for your time and soul.",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 133.8,
+    "date_frequency_per_minute": 1.14,
+    "avg_sentence_length": 16.0
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "video_id": "7c4uO9ZGfbc",
+  "channel": "Kraut",
+  "title": "China vs India | The State and the Society",
+  "views": 1698658,
+  "duration_seconds": 2978,
+  "word_count": 7539,
+  "hook": {
+    "first_50_words": "this video is sponsored by synthetic notes synthetic notes was created by a software engineer and small business owner called Liam who works a lot with CNC machines while working one day he used a notet taking app to take notes on the various machine parts he shared these notes",
+    "first_sentence": "this video is sponsored by synthetic",
+    "seconds_to_first_date": 175.3,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 5,
+    "seconds_to_first_historical_date": 175.3,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 5.2,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 4,
+    "explicit_source_citations": 8,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "taught us how to draw the correct Chinese symbols while working follow him on Twitter if you can he publishes artwork regularly thank you very much tag for your amazing work in this video and I hope to see all of you soon again when I make my next video",
+    "has_cta": false,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 151.9,
+    "date_frequency_per_minute": 0.44,
+    "avg_sentence_length": 15.0
+  }
+}

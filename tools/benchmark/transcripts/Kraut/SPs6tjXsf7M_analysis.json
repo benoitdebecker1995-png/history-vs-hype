@@ -1,0 +1,41 @@
+{
+  "video_id": "SPs6tjXsf7M",
+  "channel": "Kraut",
+  "title": "The Mexican American Border | A Tale of two Colonies",
+  "views": 1930770,
+  "duration_seconds": 3978,
+  "word_count": 10432,
+  "hook": {
+    "first_50_words": "in arizona's southern county of santa cruz you will find the city of nogales at first glance an average american city with a population of slightly over twenty thousand most of these are families of which the median income lies at almost thirty thousand dollars a year the average age",
+    "first_sentence": "in arizona's southern county of santa",
+    "seconds_to_first_date": 184.2,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 6,
+    "seconds_to_first_historical_date": 184.2,
+    "seconds_to_turn_moment": 1576.1,
+    "turn_moment_description": "ditions of monarchy the reality is that it by and large evolved out of a rebellion against these things but how did these societies develop",
+    "percent_history_vs_analysis": 3.4,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 3,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "you check them out links to all their social media are in the description also many thanks to gunter liberal sanity project tingly voice and awful ophelia for reading lines for this video links to their channels are in the description i hope to see all of you soon again",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 157.3,
+    "date_frequency_per_minute": 0.51,
+    "avg_sentence_length": 15.0
+  }
+}

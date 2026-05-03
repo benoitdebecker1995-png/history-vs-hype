@@ -1,0 +1,41 @@
+{
+  "video_id": "lMFiED6sAi8",
+  "channel": "Historia_Civilis",
+  "title": "Vercingetorix (52 to 50 B.C.E.)",
+  "views": 3212071,
+  "duration_seconds": 1809,
+  "word_count": 4697,
+  "hook": {
+    "first_50_words": "in the dead of winter deep in the forest the leaders of some of the largest tribes in Gaul met at a sacred grove together they discussed Ambiorix is revolt from the previous year some of those present had supported the revolt by sending fighters or supplies while others had",
+    "first_sentence": "in the dead of winter deep in the forest",
+    "seconds_to_first_date": 1196.7,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 2,
+    "seconds_to_first_historical_date": 1196.7,
+    "seconds_to_turn_moment": 891.3,
+    "turn_moment_description": "e plateau zat verse and yet uruk's and 30,000 of his closest friends remember caesar's food situation was still a problem they had their sup",
+    "percent_history_vs_analysis": 1.3,
+    "chronological_vs_thematic": "thematic",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "or if he even bothered to ask for the Senate's approval before doing it but we know that by the end of Caesars term as governor Gaul was officially paying taxes into the Roman treasury despite the heroic struggle of the Gallic tribes full annexation had gone into effect you",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 155.8,
+    "date_frequency_per_minute": 0.03,
+    "avg_sentence_length": 15.0
+  }
+}

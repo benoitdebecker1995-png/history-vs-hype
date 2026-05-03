@@ -1,0 +1,41 @@
+{
+  "video_id": "g8DBd3SkuS8",
+  "channel": "Historia_Civilis",
+  "title": "Cicero's Finest Hour (44 to 43 B.C.E.)",
+  "views": 3418318,
+  "duration_seconds": 1951,
+  "word_count": 4955,
+  "hook": {
+    "first_50_words": "it took about 10 days for Octavius to learn of his great uncle Caesars death in those 10 days the world had changed Caesar had been laid to rest in a fiery funeral riots had erupted on the streets of Rome and the contents of Caesars will had been revealed",
+    "first_sentence": "it took about 10 days for Octavius to",
+    "seconds_to_first_date": 1800.5,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 5,
+    "seconds_to_first_historical_date": 1800.5,
+    "seconds_to_turn_moment": 436.8,
+    "turn_moment_description": "ions attached to it but it wasn't the best province the best province given Rome's recent history was Cisalpine Gaul he came with a couple l",
+    "percent_history_vs_analysis": 0.3,
+    "chronological_vs_thematic": "thematic",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 7,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "a long time he stood there reading the words of Cicero written in another era in time he handed the writing back to his grandson saying my child this was a learned man and a lover of his country if it's any consolation brood is retaliated by killing Antony's brother",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 152.4,
+    "date_frequency_per_minute": 0.03,
+    "avg_sentence_length": 15.0
+  }
+}

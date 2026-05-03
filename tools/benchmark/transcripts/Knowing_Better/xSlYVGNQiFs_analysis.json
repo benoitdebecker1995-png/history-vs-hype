@@ -1,0 +1,41 @@
+{
+  "video_id": "xSlYVGNQiFs",
+  "channel": "Knowing_Better",
+  "title": "Clearing the Planet | Scientology",
+  "views": 2188040,
+  "duration_seconds": 1855,
+  "word_count": 5862,
+  "hook": {
+    "first_50_words": "watching knowing better when you see a preggers you video it's not like anyone else because you see it and you know you have to do something about it because you know you're the only one who can really help someone who watches knowing better is someone who is able",
+    "first_sentence": "watching knowing better when you see a",
+    "seconds_to_first_date": 297.1,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 3,
+    "seconds_to_first_historical_date": 297.1,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 7.4,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 1,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "a shout out to my newest legendary patron Richard if you'd like to add your names of this list of operating thetans head on over to patreon.com/scishow better in the meantime don't forget to audit that subscribe button follow me on Twitter and Facebook and join us on the subreddit",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 189.6,
+    "date_frequency_per_minute": 0.74,
+    "avg_sentence_length": 15.0
+  }
+}

@@ -384,10 +384,19 @@ def _check_fulfillment(text: str, title: str) -> Dict[str, Any]:
 # ---------------------------------------------------------------------------
 
 # Topic type → recommended hook pattern mapping
+# Niche-validated (85 transcripts, 10 edu/history channels, 2026-03-23):
+#   Normalized view performance: specificity_bomb 5.4x | cold_fact 3.7x | contextual_opening 2.7x
+#   Distribution: contextual_opening 80% | cold_fact 13% | specificity_bomb 6% | myth_contradiction 1%
+#   authority_challenge: 0% — NOT used in edu/history niche, do not recommend
+# standard_myth_then_contradict: variant of myth_contradiction that tells the wrong
+# version in full (60-120s) before dismantling. Maps to myth_contradiction for scoring.
+# Note: contextual_opening is dominant but LOWEST performing. Prefer cold_fact/specificity_bomb.
 TOPIC_STYLE_MAP = {
     'territorial': 'cold_fact',
     'ideological': 'myth_contradiction',
-    'political_fact_check': 'specificity_bomb',
+    'political_fact_check': 'myth_contradiction',  # was specificity_bomb; niche data shows fact-checks use belief→evidence pattern
+    'untranslated': 'specificity_bomb',
+    'colonial': 'myth_contradiction',
     'general': None,
 }
 
@@ -412,6 +421,15 @@ def _detect_hook_style(text: str, pattern_library: Dict[str, Any]) -> str:
     # specificity_bomb: named place or document (no number required)
     if re.search(r'[A-Z][a-z]+ [A-Z][a-z]+', first_30_raw):
         return 'specificity_bomb'
+
+    # standard_myth_then_contradict: tells wrong version at length before turning
+    # Detected by extended myth narration markers in the first ~800 words
+    lower_extended = text[:2000].lower()
+    myth_narration_signals = ['the story goes', 'here\'s what most people', 'everyone learns',
+                              'the standard version', 'here\'s the version most people know',
+                              'standard myth narration', 'most people were taught']
+    if any(s in lower_extended for s in myth_narration_signals):
+        return 'standard_myth_then_contradict'
 
     # myth_contradiction: standard answer / most people framing
     lower_all = text[:300].lower()
@@ -462,14 +480,29 @@ def _build_style_recommendation(
     # Detect what style the hook is actually using
     detected_style = _detect_hook_style(text, pattern_library)
 
-    # Score modifier — only applies at HIGH confidence (7+ examples)
+    # Score modifier — cross-validated 2026-03-24:
+    #   Competitor views: specificity_bomb 5.4x | cold_fact 3.7x | contextual_opening 2.7x
+    #   Own retention:    myth_contradiction 36.7% | contextual_opening 32.0% | cold_fact 29.4%
+    # myth_contradiction is strongest in BOTH datasets. contextual_opening retains well
+    # on our channel despite weak competitor views — reduce penalty.
+    # standard_myth_then_contradict is a superset of myth_contradiction — treat as match
     score_modifier = 0
-    if confidence == 'high':
-        if detected_style == recommended:
-            score_modifier = 5
-        else:
-            score_modifier = -5
-    # LOW confidence (<5 examples) → advisory only, no score change
+    style_matches = (
+        detected_style == recommended
+        or (detected_style == 'standard_myth_then_contradict' and recommended == 'myth_contradiction')
+    )
+    if style_matches:
+        score_modifier = 5
+    elif detected_style in ('myth_contradiction', 'standard_myth_then_contradict'):
+        # Strongest for both views AND retention — bonus even if not the recommended type
+        score_modifier = 4
+    elif detected_style in ('cold_fact', 'specificity_bomb'):
+        # Strong for views/CTR, average for retention — mild bonus
+        score_modifier = 2
+    elif detected_style == 'contextual_opening':
+        # Weak for competitor views but retains 32.0% on our channel (above cold_fact).
+        # Only penalize if high confidence a better option exists, and reduce penalty.
+        score_modifier = -1 if confidence in ('high', 'medium') else 0
 
     return {
         'recommended': recommended,

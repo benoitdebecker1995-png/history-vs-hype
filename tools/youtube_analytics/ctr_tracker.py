@@ -23,7 +23,6 @@ Storage: tools/discovery/keywords.db (ctr_snapshots table)
 """
 
 import sys
-import time
 import sqlite3
 import argparse
 from pathlib import Path
@@ -33,7 +32,6 @@ from typing import Dict, List, Tuple, Optional
 from tools.logging_config import get_logger, setup_logging
 from tools.youtube_analytics.auth import get_authenticated_service
 from tools.youtube_analytics.growth_data import fetch_all_video_ids, fetch_video_metadata
-from tools.youtube_analytics.ctr import get_ctr_metrics
 from tools.title_ctr_store import get_pattern_ctr_from_db
 
 logger = get_logger(__name__)
@@ -163,6 +161,113 @@ def store_snapshot(conn: sqlite3.Connection, video_id: str,
 # API FETCH
 # =========================================================================
 
+REACH_JOB_REPORT_TYPE = 'channel_reach_basic_a1'
+
+
+def fetch_ctr_from_reach_reports(video_ids: set) -> Dict[str, dict]:
+    """
+    Fetch CTR data from YouTube Reporting API reach reports.
+
+    Downloads the most recent bulk CSV report (channel_reach_basic_a1) which
+    contains per-video, per-day impressions and CTR. Aggregates across all
+    days to get lifetime CTR per video.
+
+    Returns dict of {video_id: {ctr_percent, impression_count}}.
+    Returns empty dict if no reports are available yet.
+    """
+    import csv
+    import io
+
+    try:
+        reporting = get_authenticated_service('youtubereporting', 'v1')
+    except Exception as e:
+        logger.warning("Could not connect to Reporting API: %s", e)
+        return {}
+
+    # Find the reach report job
+    jobs = reporting.jobs().list().execute()
+    reach_job = None
+    for j in jobs.get('jobs', []):
+        if j['reportTypeId'] == REACH_JOB_REPORT_TYPE:
+            reach_job = j
+            break
+
+    if not reach_job:
+        logger.warning("No reach report job found. Create one with: "
+                       "reporting.jobs().create(body={'reportTypeId': '%s', "
+                       "'name': 'CTR Reach Report'})", REACH_JOB_REPORT_TYPE)
+        return {}
+
+    # List available reports, sorted by date descending
+    reports = reporting.jobs().reports().list(jobId=reach_job['id']).execute()
+    report_list = sorted(
+        reports.get('reports', []),
+        key=lambda r: r.get('endTime', ''),
+        reverse=True
+    )
+
+    if not report_list:
+        logger.info("No reach reports available yet (job created recently, "
+                     "reports generate within 24-48h)")
+        return {}
+
+    # Download the most recent reports (up to 30 days for aggregation)
+    # Each report covers one day of data
+    impressions_by_video: Dict[str, int] = {}
+    clicks_by_video: Dict[str, int] = {}
+    reports_downloaded = 0
+
+    for report in report_list[:30]:
+        try:
+            url = report['downloadUrl']
+            response = reporting._http.request(url)
+            if response[0].status != 200:
+                logger.warning("Failed to download report: HTTP %d", response[0].status)
+                continue
+
+            content = response[1].decode('utf-8')
+            reader = csv.DictReader(io.StringIO(content))
+
+            for row in reader:
+                vid = row.get('video_id', '')
+                if vid not in video_ids:
+                    continue
+
+                imps = int(row.get('video_thumbnail_impressions', 0))
+                ctr_rate = float(row.get('video_thumbnail_impressions_ctr', 0))
+
+                impressions_by_video[vid] = impressions_by_video.get(vid, 0) + imps
+                # Accumulate clicks (impressions * ctr) for weighted average
+                clicks = int(round(imps * ctr_rate))
+                clicks_by_video[vid] = clicks_by_video.get(vid, 0) + clicks
+
+            reports_downloaded += 1
+        except Exception as e:
+            logger.warning("Error processing report: %s", e)
+            continue
+
+    logger.info("Downloaded %d reach reports, found CTR for %d videos",
+                reports_downloaded, len(impressions_by_video))
+
+    # Compute weighted average CTR per video
+    ctr_map: Dict[str, dict] = {}
+    for vid in impressions_by_video:
+        total_imps = impressions_by_video[vid]
+        total_clicks = clicks_by_video.get(vid, 0)
+
+        if total_imps > 0:
+            ctr_pct = round((total_clicks / total_imps) * 100, 2)
+        else:
+            ctr_pct = 0.0
+
+        ctr_map[vid] = {
+            'ctr_percent': ctr_pct,
+            'impression_count': total_imps,
+        }
+
+    return ctr_map
+
+
 def fetch_view_counts(video_ids: List[str]) -> Dict[str, int]:
     """
     Fetch current view counts via YouTube Data API v3 (statistics).
@@ -233,33 +338,9 @@ def take_snapshot() -> Tuple[int, str]:
     logger.info("Fetching view counts for %d long-form videos...", len(longform_ids))
     view_counts = fetch_view_counts(longform_ids)
 
-    # Fetch CTR metrics from Analytics API (one call per video)
-    logger.info("Fetching CTR metrics for %d long-form videos...", len(longform_ids))
-    ctr_map: Dict[str, dict] = {}
-    ctr_unavailable: List[str] = []
-
-    for vid in longform_ids:
-        try:
-            result = get_ctr_metrics(vid)
-        except Exception as e:
-            logger.warning("Unexpected error fetching CTR for %s: %s", vid, e)
-            ctr_unavailable.append(vid)
-            time.sleep(0.1)
-            continue
-
-        if 'error' in result:
-            logger.warning("CTR API error for %s: %s", vid, result['error'])
-            ctr_unavailable.append(vid)
-        elif result.get('ctr_available'):
-            ctr_map[vid] = {
-                'ctr_percent': float(result['ctr_percent']),
-                'impression_count': int(result.get('impressions') or 0),
-            }
-        else:
-            logger.info("CTR unavailable for %s (API returned no data)", vid)
-            ctr_unavailable.append(vid)
-
-        time.sleep(0.1)
+    # Fetch CTR metrics from Reporting API bulk reports
+    logger.info("Fetching CTR from Reporting API reach reports...")
+    ctr_map = fetch_ctr_from_reach_reports(set(longform_ids))
 
     # Store snapshots with CTR data where available
     stored = 0
@@ -290,10 +371,8 @@ def take_snapshot() -> Tuple[int, str]:
         print(f"CTR updated for {ctr_fetched}/{ctr_total} videos. "
               f"Title scorer using static scores (insufficient DB data).")
 
-    if ctr_unavailable:
-        ids_str = ", ".join(ctr_unavailable)
-        print(f"Manual entry needed for {len(ctr_unavailable)} videos "
-              f"(API returned no CTR): {ids_str}")
+    if ctr_fetched == 0:
+        print("Note: Reporting API reach reports may take 24-48h to generate after job creation.")
 
     return stored, today
 
@@ -423,7 +502,9 @@ def print_report(results: Dict[str, List[dict]],
     titles = get_video_titles(all_ids) if all_ids else {}
 
     def title(vid: str) -> str:
-        return (titles.get(vid, vid))[:50]
+        t = (titles.get(vid, vid))[:50]
+        # Replace non-ASCII chars that crash Windows cp1252 console
+        return t.encode('ascii', errors='replace').decode('ascii')
 
     print()
     print("=" * 70)

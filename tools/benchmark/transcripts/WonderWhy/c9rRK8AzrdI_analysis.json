@@ -1,0 +1,41 @@
+{
+  "video_id": "c9rRK8AzrdI",
+  "channel": "WonderWhy",
+  "title": "Fun Fact About Every Country in the World - Part 2",
+  "views": 2485015,
+  "duration_seconds": 1194,
+  "word_count": 1277,
+  "hook": {
+    "first_50_words": "Hello and welcome to Part 2 of a Fun Fact video we’ll cover the countries from M to haven’t seen it, and other than that, let’s Over 90% of the wildlife on the island of Lake Malawi is nicknamed “Calendar Lake”, miles, and at its widest, 52 miles. Malaysia is",
+    "first_sentence": "Hello and welcome to Part 2 of a Fun Fact video we’ll cover the countries from M to haven’t seen it, and other than that, let’s Over 90% of the wildlife on the island of Lake Malawi is nicknamed “Calendar Lake”, miles, and at its widest, 52 miles.",
+    "seconds_to_first_date": 72.1,
+    "seconds_to_first_named_entity": 44.9,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 41,
+    "seconds_to_first_historical_date": 72.1,
+    "seconds_to_turn_moment": 907.5,
+    "turn_moment_description": "hbouring countries. However, were annexed by Tonga. The limbo dance originated from the island Much of the original Star Wars movies was The",
+    "percent_history_vs_analysis": 28.3,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "And with that, we’ve made it through all over just yet. For my next videos, I need like to help me out, please refer to the pinned have your say about my next few videos. Thank you all so much for watching, these to see you in the next one!",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 64.2,
+    "date_frequency_per_minute": 1.01,
+    "avg_sentence_length": 21.3
+  }
+}

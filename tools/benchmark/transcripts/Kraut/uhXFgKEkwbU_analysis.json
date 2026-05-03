@@ -1,0 +1,41 @@
+{
+  "video_id": "uhXFgKEkwbU",
+  "channel": "Kraut",
+  "title": "America's foreign Entanglement",
+  "views": 1654449,
+  "duration_seconds": 1420,
+  "word_count": 3904,
+  "hook": {
+    "first_50_words": "pacifism is objectively pro-fascist this is elementary common sense if you hamper the war effort of one side you automatically help out that of the other nor is there any real way of remaining outside such a war as the present one in practice he that is not with me",
+    "first_sentence": "pacifism is objectively pro-fascist",
+    "seconds_to_first_date": 76.2,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 3,
+    "seconds_to_first_historical_date": 76.2,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 2.3,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 2,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "that if you want to discuss the video with me you can join my discord server and if you want me to keep making videos you can support my channel via patreon and paypal the links are all in the description and i hope to see you all soon again",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 165.0,
+    "date_frequency_per_minute": 0.34,
+    "avg_sentence_length": 15.0
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "video_id": "UhLizvrhbOU",
+  "channel": "Atun-Shei_Films",
+  "title": "Did Native Americans Really Live in Balance with Nature?",
+  "views": 497664,
+  "duration_seconds": 7280,
+  "word_count": 19735,
+  "hook": {
+    "first_50_words": "the ecological Indian it's a stereotype we've all come across in popular culture Native Americans so in tune with nature that they almost cease to be fully human melding into their environment so harmoniously and so completely that they are effectively just another natural process like the wind or the",
+    "first_sentence": "the ecological Indian it's a stereotype",
+    "seconds_to_first_date": 186.4,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 5,
+    "seconds_to_first_historical_date": 186.4,
+    "seconds_to_turn_moment": 2170.1,
+    "turn_moment_description": "and in the fall but the problem is that their Burns get so big that they encroach Upon Our barns they encroach Upon Our fences and it causes",
+    "percent_history_vs_analysis": 3.4,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 2,
+    "explicit_source_citations": 6,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "save ourselves and everyone we share this planet with we need a philosophical and political alliance between traditional indigenous knowledge and militant Western environmentalism to show us that Colonial capitalism is not the only LifeWay possible in a global high-tech Society but you know that's just like my opinion man",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 162.7,
+    "date_frequency_per_minute": 0.38,
+    "avg_sentence_length": 15.0
+  }
+}

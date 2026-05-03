@@ -181,6 +181,29 @@ def topic_matches_existing(keyword: str, existing: List[str]) -> bool:
     return False
 
 
+# Geographic monopoly + urgency data — single source of truth in topic_pipeline.py
+# Build flat keyword→pop dict from the richer GEOGRAPHIC_MONOPOLY_TARGETS format
+try:
+    from tools.topic_pipeline import GEOGRAPHIC_MONOPOLY_TARGETS, NEWS_HOOK_KEYWORDS
+    _GEO_MONOPOLY_KEYWORDS = {}
+    for _region, (_pop, _triggers) in GEOGRAPHIC_MONOPOLY_TARGETS.items():
+        for _kw in _triggers:
+            _GEO_MONOPOLY_KEYWORDS[_kw] = _pop
+    _URGENCY_HIGH = NEWS_HOOK_KEYWORDS.get('high_urgency', [])
+    _URGENCY_MED = NEWS_HOOK_KEYWORDS.get('medium_urgency', [])
+except ImportError:
+    # Fallback if topic_pipeline unavailable (shouldn't happen in normal use)
+    _GEO_MONOPOLY_KEYWORDS = {
+        'belize': 400_000, 'guyana': 800_000, 'trinidad': 1_400_000,
+        'jamaica': 2_900_000, 'fiji': 900_000, 'mauritius': 1_300_000,
+        'cyprus': 1_200_000, 'malta': 500_000, 'gibraltar': 33_000,
+        'somaliland': 4_000_000, 'chagos': 1_300_000, 'falkland': 3_500,
+        'bermeja': 64_000,
+    }
+    _URGENCY_HIGH = ['icj', 'ruling', 'verdict', 'treaty expires', 'referendum', 'deadline']
+    _URGENCY_MED = ['court', 'tribunal', 'lawsuit', 'protest', 'crisis', 'hearing', 'summit']
+
+
 def calculate_pattern_multiplier(
     keyword: str,
     topic_type: Optional[str],
@@ -190,7 +213,8 @@ def calculate_pattern_multiplier(
     """
     Calculate pattern multiplier based on winning patterns.
 
-    Boosts topics that match the channel's proven winning patterns.
+    Boosts topics that match the channel's proven winning patterns,
+    geographic monopoly opportunities, and news hook urgency.
 
     Args:
         keyword: The keyword being scored
@@ -200,62 +224,73 @@ def calculate_pattern_multiplier(
 
     Returns:
         Tuple of (multiplier, reasons):
-        - multiplier: 1.0-1.5 boost factor
+        - multiplier: 1.0-1.8 boost factor
         - reasons: List of strings explaining the boost
-
-    Example:
-        >>> patterns = extract_winning_patterns()
-        >>> mult, reasons = calculate_pattern_multiplier(
-        ...     'treaty of versailles',
-        ...     'territorial',
-        ...     ['legal', 'historical'],
-        ...     patterns
-        ... )
-        >>> print(f"Multiplier: {mult:.2f}")
-        Multiplier: 1.40
     """
     multiplier = 1.0
     reasons = []
+    kw_lower = keyword.lower()
 
     # Check if patterns data is valid
     if not patterns or 'error' in patterns:
-        return 1.0, ['Pattern data unavailable - using base score']
+        patterns_available = False
+    else:
+        patterns_available = True
 
-    top_converter_profile = patterns.get('top_converter_profile', {})
-    channel_strengths = patterns.get('channel_strengths', {})
+    if patterns_available:
+        top_converter_profile = patterns.get('top_converter_profile', {})
+        channel_strengths = patterns.get('channel_strengths', {})
 
-    # +0.3 if topic matches dominant topic of top converters
-    dominant_topic = top_converter_profile.get('dominant_topic')
-    if topic_type and dominant_topic and topic_type.lower() == dominant_topic.lower():
-        multiplier += 0.3
-        reasons.append(f"Matches dominant topic: {dominant_topic}")
+        # +0.3 if topic matches dominant topic of top converters
+        dominant_topic = top_converter_profile.get('dominant_topic')
+        if topic_type and dominant_topic and topic_type.lower() == dominant_topic.lower():
+            multiplier += 0.3
+            reasons.append(f"Matches dominant topic: {dominant_topic}")
 
-    # +0.2 if any angle matches dominant angles
-    dominant_angles = top_converter_profile.get('dominant_angles', [])
-    if angles and dominant_angles:
-        matching_angles = [a for a in angles if a.lower() in [da.lower() for da in dominant_angles]]
-        if matching_angles:
-            multiplier += 0.2
-            reasons.append(f"Matches top angles: {', '.join(matching_angles)}")
+        # +0.2 if any angle matches dominant angles
+        dominant_angles = top_converter_profile.get('dominant_angles', [])
+        if angles and dominant_angles:
+            matching_angles = [a for a in angles if a.lower() in [da.lower() for da in dominant_angles]]
+            if matching_angles:
+                multiplier += 0.2
+                reasons.append(f"Matches top angles: {', '.join(matching_angles)}")
 
-    # +0.1 if topic correlates with high channel strength (>70)
-    if topic_type:
-        # Map topic types to strength categories
-        strength_mapping = {
-            'territorial': 'legal_territorial',
-            'legal': 'legal_territorial',
-            'ideological': 'academic',
-            'colonial': 'document_heavy',
-            'archaeological': 'document_heavy'
-        }
+        # +0.1 if topic correlates with high channel strength (>70)
+        if topic_type:
+            strength_mapping = {
+                'territorial': 'legal_territorial',
+                'legal': 'legal_territorial',
+                'ideological': 'academic',
+                'colonial': 'document_heavy',
+                'archaeological': 'document_heavy'
+            }
+            strength_key = strength_mapping.get(topic_type.lower())
+            if strength_key and channel_strengths.get(strength_key, 0) > 70:
+                multiplier += 0.1
+                reasons.append(f"Channel strength {strength_key}: {channel_strengths[strength_key]:.0f}/100")
 
-        strength_key = strength_mapping.get(topic_type.lower())
-        if strength_key and channel_strengths.get(strength_key, 0) > 70:
+    # +0.15 for geographic monopoly (underserved English-speaking audience)
+    for geo_kw, pop in _GEO_MONOPOLY_KEYWORDS.items():
+        if geo_kw in kw_lower:
+            multiplier += 0.15
+            reasons.append(f"Geographic monopoly: {geo_kw} ({pop:,} English speakers)")
+            break
+
+    # +0.1 for high urgency news hook, +0.05 for medium
+    for term in _URGENCY_HIGH:
+        if term in kw_lower:
             multiplier += 0.1
-            reasons.append(f"Channel strength {strength_key}: {channel_strengths[strength_key]:.0f}/100")
+            reasons.append(f"High urgency news hook: '{term}'")
+            break
+    else:
+        for term in _URGENCY_MED:
+            if term in kw_lower:
+                multiplier += 0.05
+                reasons.append(f"Medium urgency hook: '{term}'")
+                break
 
-    # Cap at 1.5 maximum
-    multiplier = min(1.5, multiplier)
+    # Cap at 1.8 maximum (raised from 1.5 to accommodate new factors)
+    multiplier = min(1.8, multiplier)
 
     if not reasons:
         reasons.append('No pattern match - using base score')
@@ -429,6 +464,20 @@ class TopicRecommender:
                 'reasons': reasons,
                 'action': f'python orchestrator.py "{keyword}" --report'
             })
+
+        # Boost topics with active news hooks from news_hook_monitor
+        try:
+            alerts_path = Path('channel-data') / 'NEWS-ALERTS.md'
+            if alerts_path.exists():
+                alerts_text = alerts_path.read_text(encoding='utf-8').lower()
+                for item in scored:
+                    kw_words = item['keyword'].lower().split()
+                    # Check if any keyword word appears in active alerts
+                    if any(w in alerts_text for w in kw_words if len(w) > 3):
+                        item['final_score'] = min(100, item['final_score'] * 1.1)
+                        item['reasons'].append('Active news hook detected (news_hook_monitor)')
+        except Exception:
+            pass  # News alerts unavailable — continue without boost
 
         # Sort by final_score descending
         scored.sort(key=lambda x: x['final_score'], reverse=True)

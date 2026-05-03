@@ -104,6 +104,69 @@ def _verbose_fmt() -> str:
     return "[%(name)s] %(levelname)s: %(message)s"
 
 
+_VALID_FRESHNESS_TABLES = {
+    'keywords': {'last_updated', 'updated_at', 'created_at'},
+    'competitor_videos': {'fetched_at', 'updated_at'},
+    'ctr_snapshots': {'snapshot_date', 'updated_at'},
+    'video_performance': {'updated_at', 'fetched_at'},
+    'algo_snapshots': {'created_at'},
+    'niche_snapshots': {'created_at'},
+}
+
+
+def check_db_freshness(db_path: str, table: str = 'keywords',
+                       date_column: str = 'updated_at',
+                       warn_days: int = 7) -> dict:
+    """Check how stale a database table is and warn if old.
+
+    Args:
+        db_path: Path to SQLite database
+        table: Table name to check (must be in _VALID_FRESHNESS_TABLES)
+        date_column: Column containing last-updated timestamp
+        warn_days: Number of days before warning
+
+    Returns:
+        {'days_old': int, 'is_stale': bool, 'last_updated': str}
+        {'error': msg} if check fails
+    """
+    import sqlite3
+    from pathlib import Path
+    from datetime import datetime, timezone
+
+    if table not in _VALID_FRESHNESS_TABLES:
+        return {'error': f'Invalid table: {table!r} (allowed: {sorted(_VALID_FRESHNESS_TABLES)})'}
+    if date_column not in _VALID_FRESHNESS_TABLES[table]:
+        return {'error': f'Invalid column: {date_column!r} for table {table!r}'}
+
+    path = Path(db_path)
+    if not path.exists():
+        return {'error': f'Database not found: {db_path}'}
+
+    try:
+        conn = sqlite3.connect(str(path))
+        cur = conn.cursor()
+        # table and date_column are validated against _VALID_FRESHNESS_TABLES above
+        cur.execute(f"SELECT MAX({date_column}) FROM {table}")
+        row = cur.fetchone()
+        conn.close()
+
+        if not row or not row[0]:
+            return {'days_old': 999, 'is_stale': True, 'last_updated': 'never'}
+
+        last = row[0][:10]  # Take date part only
+        last_dt = datetime.strptime(last, '%Y-%m-%d').replace(tzinfo=timezone.utc)
+        now = datetime.now(timezone.utc)
+        days_old = (now - last_dt).days
+
+        return {
+            'days_old': days_old,
+            'is_stale': days_old > warn_days,
+            'last_updated': last,
+        }
+    except (sqlite3.Error, ValueError) as e:
+        return {'error': str(e)}
+
+
 class _ColorFormatter(logging.Formatter):
     """Adds ANSI colors to levelname when stderr is a TTY.
 

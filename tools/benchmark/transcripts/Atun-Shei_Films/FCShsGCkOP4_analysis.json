@@ -1,0 +1,41 @@
+{
+  "video_id": "FCShsGCkOP4",
+  "channel": "Atun-Shei_Films",
+  "title": "The REAL Cause of the Revolutionary War",
+  "views": 1490384,
+  "duration_seconds": 2477,
+  "word_count": 6201,
+  "hook": {
+    "first_50_words": "for an event that looms so large in our popular Consciousness that was so immensely consequential to our history and is so deeply embedded within our national identity most Americans don't actually know very much about the Revolutionary War sure I mean most of us could tell you about the",
+    "first_sentence": "for an event that looms so large in our",
+    "seconds_to_first_date": 99.8,
+    "seconds_to_first_named_entity": 21.2,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 2,
+    "seconds_to_first_historical_date": 99.8,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 5.3,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 2,
+    "explicit_source_citations": 4,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "to encourage blind obedience stand for the anthem Neil for the flag which is itself ironically very much against the spirit of resistance that kicked this whole thing off in the first place by examining the history of our Revolution humbly and honestly we can get to know ourselves better",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 150.2,
+    "date_frequency_per_minute": 0.7,
+    "avg_sentence_length": 15.0
+  }
+}

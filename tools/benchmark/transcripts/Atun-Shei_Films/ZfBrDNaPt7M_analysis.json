@@ -1,0 +1,41 @@
+{
+  "video_id": "ZfBrDNaPt7M",
+  "channel": "Atun-Shei_Films",
+  "title": "An Archaeologist Debated Graham Hancock. I Have Thoughts",
+  "views": 600390,
+  "duration_seconds": 1087,
+  "word_count": 3296,
+  "hook": {
+    "first_50_words": "recently an archaeologist named Flint Dibble went on The Joe Rogan podcast to debate author and journalist Graham Hancock who has become world famous for his theory that during the last ice age there was an advanced Globe spanning civilization that was destroyed in a huge cataclysm so Atlantis basically",
+    "first_sentence": "recently an archaeologist named Flint",
+    "seconds_to_first_date": 544.4,
+    "seconds_to_first_named_entity": 49.2,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 544.4,
+    "seconds_to_turn_moment": 830.7,
+    "turn_moment_description": "'re Untouchable but the truth is Fame makes you vulnerable public opinion is fickle and your reputation lies on a knife's edge ESP especiall",
+    "percent_history_vs_analysis": 0.5,
+    "chronological_vs_thematic": "thematic",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 1,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "to those possibilities that we're dealing with a very different kind of culture that used techniques that we have allowed to lapse and maybe we could wake those techniques up again maybe the ability of human beings to do almost superhuman things is resident within all of us but sleeping",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 181.9,
+    "date_frequency_per_minute": 0.06,
+    "avg_sentence_length": 15.0
+  }
+}

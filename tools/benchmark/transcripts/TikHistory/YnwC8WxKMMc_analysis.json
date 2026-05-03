@@ -1,0 +1,41 @@
+{
+  "video_id": "YnwC8WxKMMc",
+  "channel": "TikHistory",
+  "title": "The REAL ‘life’ of KARL MARX",
+  "views": 389980,
+  "duration_seconds": 9151,
+  "word_count": 22369,
+  "hook": {
+    "first_50_words": "there have been thousands of books about Marxism but almost all have been written by academics and zealots for whom it is near blasphemy to treat him KL Marx as a figure of flesh and blood but the reality is that one cannot separate Marxism the ideology from Marx the",
+    "first_sentence": "there have been thousands of books about",
+    "seconds_to_first_date": 126.9,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 126.9,
+    "seconds_to_turn_moment": 2080.9,
+    "turn_moment_description": "course they're not in reality and I'm not a materialist either reality is objective not Material the world is not reflected from our minds",
+    "percent_history_vs_analysis": 7.0,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 20,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "who needed to get a job and take responsibility for his own life that was too much effort for him and so KL Marx became an anti capitalist to try and hide the fact that he was an abject failure of a human being thanks for watching bye for now",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 146.7,
+    "date_frequency_per_minute": 0.9,
+    "avg_sentence_length": 15.0
+  }
+}

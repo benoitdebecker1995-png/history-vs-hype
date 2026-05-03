@@ -1,0 +1,41 @@
+{
+  "video_id": "hUFvG4RpwJI",
+  "channel": "Three_Arrows",
+  "title": "Was Hitler a Socialist?",
+  "views": 1020928,
+  "duration_seconds": 2563,
+  "word_count": 8319,
+  "hook": {
+    "first_50_words": "well here we are at the question that is apparently occupying the great minds of our times was adolf hitler the dictator of nazi germany a socialist although this is probably my most requested video i did want to do it for quite some time partially because i thought that",
+    "first_sentence": "well here we are",
+    "seconds_to_first_date": 287.5,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 287.5,
+    "seconds_to_turn_moment": 744.8,
+    "turn_moment_description": "0 germans with jobs in reality though this goal was never met and at the height of the construction not more than 120 000 people were given",
+    "percent_history_vs_analysis": 3.8,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 16,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "them a bit more to make it easier for you to find the relevant information i think that's all i have for now hit me up on twitter or curiouscat if you would like to ask a question and i hope to see you next time have a good one",
+    "has_cta": true,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 194.7,
+    "date_frequency_per_minute": 0.63,
+    "avg_sentence_length": 15.0
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "video_id": "p1mQC71wplA",
+  "channel": "CaspianReport",
+  "title": "How Israel plans to checkmate Iran",
+  "views": 1343068,
+  "duration_seconds": 951,
+  "word_count": 2064,
+  "hook": {
+    "first_50_words": "we're now at the precipice of a regional War it's not the first time though up until now Iran and Israel have dodged bullets left and right narrowly avoiding full-scale War but Syria has fundamentally changed the playing field just a few hours after Assad's exit Israeli Ground Forces moved",
+    "first_sentence": "we're now at the precipice of a regional",
+    "seconds_to_first_date": 73.2,
+    "seconds_to_first_named_entity": 90.7,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 2,
+    "seconds_to_first_historical_date": 73.2,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 8.7,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "but it's really Netanyahu who has made it possible in the first place he's basically handing Trump that option on a silver platter before long we could see 100,000 tons of diplomacy headed to Iran I've been your host Chon from caspan report thank you for your time and S",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 130.2,
+    "date_frequency_per_minute": 0.69,
+    "avg_sentence_length": 15.0
+  }
+}

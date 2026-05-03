@@ -1,0 +1,41 @@
+{
+  "video_id": "zZJFozFsnIU",
+  "channel": "WonderWhy",
+  "title": "A Geopolitical Tour of the World",
+  "views": 3422867,
+  "duration_seconds": 1097,
+  "word_count": 1703,
+  "hook": {
+    "first_50_words": "Hello and welcome to ‘A geopolitical tour to take you on a guided journey around the oddities, complexities, or just some things planet we live on. Some of the things I’ll on, if you want a deeper understanding. We’ll start at the “centre of the world”, England. This is because",
+    "first_sentence": "Hello and welcome to ‘A geopolitical tour to take you on a guided journey around the oddities, complexities, or just some things planet we live on.",
+    "seconds_to_first_date": 258.5,
+    "seconds_to_first_named_entity": 35.3,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 258.5,
+    "seconds_to_turn_moment": 711.3,
+    "turn_moment_description": "trol for 300 years. However, when fall of the Qing Dynasty in 1912, Tibet experienced is when China became a republic for the first between",
+    "percent_history_vs_analysis": 17.7,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "watched scientists are trying to learn more and more disasters. You can start watching for just 2.99 a month With your subscription, you’ll also get independent creators. Nebula has a lot of series, Working Titles, a series dedicated Recently I made an episode about the greatest Again, that’s CuriousityStream.com/wonderwhy. time.",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 93.1,
+    "date_frequency_per_minute": 0.66,
+    "avg_sentence_length": 21.6
+  }
+}

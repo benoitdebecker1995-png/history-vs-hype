@@ -1,0 +1,41 @@
+{
+  "video_id": "_ufQpU8v9-I",
+  "channel": "Atun-Shei_Films",
+  "title": "Who Were The Minutemen?",
+  "views": 315251,
+  "duration_seconds": 2513,
+  "word_count": 6896,
+  "hook": {
+    "first_50_words": "We've all seen images of the famous statue at the old north bridge in conquered Massachusetts depicting a classically handsome citizen soldier with a chin-like anvil stepping away from his plow and picking up his musket to go fight for his country. And below him, emlazed on granite, the opening",
+    "first_sentence": "We've all seen images of the famous statue at the old north bridge in conquered Massachusetts depicting a classically handsome citizen soldier with a chin-like anvil stepping away from his plow and picking up his musket to go fight for his country.",
+    "seconds_to_first_date": 101.4,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 3,
+    "seconds_to_first_historical_date": 101.4,
+    "seconds_to_turn_moment": 1011.8,
+    "turn_moment_description": "th growing concern. However, their participation in these issues had thus far largely been pretty passive. The towns were ideologically symp",
+    "percent_history_vs_analysis": 9.7,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 10,
+    "questions_posed_to_viewer": 12
+  },
+  "close": {
+    "last_50_words": "neighborhood. But as 1775 wore on, these tavern keepers, farm boys, and mechanics found themselves swept up in events of global consequence, sharing a stage with kings, planters, merchants, and philosophers. The shot heard around the world would multiply like a cancerous cell and make an entire continent bleed. Hallelujah.",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 164.6,
+    "date_frequency_per_minute": 0.93,
+    "avg_sentence_length": 19.6
+  }
+}

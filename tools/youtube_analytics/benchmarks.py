@@ -292,7 +292,7 @@ def compare_variants_for_video(
             )
             row = cursor.fetchone()
             if row and row[0]:
-                latest_date = datetime.strptime(row[0], '%Y-%m-%d')
+                latest_date = datetime.strptime(row[0], '%Y-%m-%d').replace(tzinfo=timezone.utc)
                 days_old = (datetime.now(timezone.utc) - latest_date).days
                 if days_old > FRESHNESS_DAYS:
                     freshness_warning = f"Data is {days_old} days old. Consider recording fresh CTR snapshots."
@@ -362,7 +362,7 @@ def get_benchmarks_report() -> Dict[str, Any]:
         latest_str = date_range.get('latest')
         if latest_str:
             try:
-                latest_date = datetime.strptime(latest_str, '%Y-%m-%d')
+                latest_date = datetime.strptime(latest_str, '%Y-%m-%d').replace(tzinfo=timezone.utc)
                 days_old = (datetime.now(timezone.utc) - latest_date).days
                 if days_old > FRESHNESS_DAYS:
                     freshness_warning = f"Most recent data is {days_old} days old. Consider updating CTR snapshots."
@@ -428,7 +428,7 @@ def analyze_video_ctr(video_id: str) -> Dict[str, Any]:
             days_old = None
             if latest:
                 try:
-                    latest_date = datetime.strptime(latest, '%Y-%m-%d')
+                    latest_date = datetime.strptime(latest, '%Y-%m-%d').replace(tzinfo=timezone.utc)
                     days_old = (datetime.now(timezone.utc) - latest_date).days
                 except ValueError:
                     pass  # Non-blocking: date parse failure does not affect snapshot info

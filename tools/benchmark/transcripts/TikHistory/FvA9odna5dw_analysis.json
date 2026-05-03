@@ -1,0 +1,41 @@
+{
+  "video_id": "FvA9odna5dw",
+  "channel": "TikHistory",
+  "title": "An Open Letter to Prime Minister Keir Starmer (Southport)",
+  "views": 979363,
+  "duration_seconds": 4269,
+  "word_count": 10085,
+  "hook": {
+    "first_50_words": "This is an open letter to my prime minister Kia Starmer of the United Kingdom. Mura Starmer, I am a historian and I come from a certain town in the north of England. You may have heard of it cuz it's Southport. I was shocked and dismayed to see the",
+    "first_sentence": "This is an open letter to my prime minister Kia Starmer of the United Kingdom.",
+    "seconds_to_first_date": 262.8,
+    "seconds_to_first_named_entity": 116.4,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": true,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 6,
+    "seconds_to_first_historical_date": 262.8,
+    "seconds_to_turn_moment": 1893.7,
+    "turn_moment_description": "isbanded years ago, and yet you gave a speech where you came out to say you would crush them all. Let me now turn to the actions of a tiny,",
+    "percent_history_vs_analysis": 1.5,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 5,
+    "explicit_source_citations": 5,
+    "questions_posed_to_viewer": 119
+  },
+  "close": {
+    "last_50_words": "communities. We need to abolish the state police and stop obeying the totalitarian morons in Westminster. And I know that might seem like a radical alternative, but if parliament is unwilling to listen to the people, it is something we seriously need to consider. Thanks for watching. Bye for now.",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 141.7,
+    "date_frequency_per_minute": 0.15,
+    "avg_sentence_length": 11.6
+  }
+}

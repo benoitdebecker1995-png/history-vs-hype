@@ -1,0 +1,613 @@
+{
+  "name": "Atun-Shei Films",
+  "subscriber_count": 519000,
+  "format_match": "HIGH",
+  "notes": "History myth-busting, page-number citations, documents on screen, talking head",
+  "videos_analyzed": 50,
+  "median_views": 136603,
+  "outlier_threshold": 409809,
+  "all_videos": [
+    {
+      "id": "rH6yZNk9y_0",
+      "title": "I'm Not Worried About the Second Civil War",
+      "view_count": 223093,
+      "like_count": 26988,
+      "duration": 1150,
+      "upload_date": "20260315",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "B9lim1RYNdQ",
+      "title": "Checkmate Lincolnites – All the Best Bits",
+      "view_count": 88393,
+      "like_count": 7830,
+      "duration": 1611,
+      "upload_date": "20260223",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "m3yiEuyuwOs",
+      "title": "Q&A: America is a Haunted House",
+      "view_count": 61144,
+      "like_count": 4374,
+      "duration": 1891,
+      "upload_date": "20251224",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "sZah1P89cPk",
+      "title": "Mary Shelley's James Whale's Guillermo del Coppola's Frankenstein",
+      "view_count": 52072,
+      "like_count": 3405,
+      "duration": 845,
+      "upload_date": "20251109",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "qbqSMx3tqLs",
+      "title": "YOUR TWO FAVORITE NERDS ARE GOING ON TOUR",
+      "view_count": 19219,
+      "like_count": 1388,
+      "duration": 198,
+      "upload_date": "20251031",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": null
+    },
+    {
+      "id": "CY3LkkAgePg",
+      "title": "The Sexual Politics of Frankenstein",
+      "view_count": 246745,
+      "like_count": 15512,
+      "duration": 5203,
+      "upload_date": "20251024",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": null
+    },
+    {
+      "id": "pK2Ol6RfxkM",
+      "title": "Following Benedict Arnold: The 1775 Invasion of Quebec",
+      "view_count": 78087,
+      "like_count": 5555,
+      "duration": 3636,
+      "upload_date": "20250928",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "Po2QoNrswi4",
+      "title": "The Cannibal Slave Ship",
+      "view_count": 129066,
+      "like_count": 9748,
+      "duration": 1504,
+      "upload_date": "20250730",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "KWiM00lCRTE",
+      "title": "The Civil War Was A Slave Revolt",
+      "view_count": 482278,
+      "like_count": 32982,
+      "duration": 2037,
+      "upload_date": "20250704",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000,
+      "description": "In pop culture and media, the American Civil War is often portrayed as a battle for the soul of America, and enslaved people – arguably the war's most important participants – are relegated to the role of stupefied bystanders. But the truth is that black Americans took an active role in their own liberation, from plantation resistance to forming militias to pressuring state and federal authorities to let 180,000 of them join the battle against slavery officially as the United States Colored Troops. In this episode of The Abolitionists, let's talk to black living historians at the Buffalo Soldiers National Museum about how people of color bent the forces of history to their will to achieve emancipation and enfranchisement.\n\nSupport Atun-Shei Films on Patreon ► https://www.patreon.com/atunsheifilms\n\nLeave a Tip via Paypal ► https://www.paypal.me/atunsheifilms\n\nBuy Merch ► https://teespring.com/stores/atun-shei-films\n\nOfficial Website ► https://www.atunsheifilms.com/\n\nOriginal Music by Dillon DeRosa ► http://dillonderosa.com/\n\n~SOURCES FOR INTRO~\n\n[*] Eric Foner. Reconstruction: America's Unfinished Revolution, 1863-1877 (2014 Updated Edition). Harper Perennial, Page 3-6\n\n[*] Elizabeth R. Varon. Armies of Deliverance: A New History of the Civil War (2021). Oxford University Press, Page 68-76"
+    },
+    {
+      "id": "XMdfxxpbBCA",
+      "title": "The Big Announcement",
+      "view_count": 124223,
+      "like_count": 12679,
+      "duration": 670,
+      "upload_date": "20250615",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "17MELASxE6Q",
+      "title": "Guns That Killed Redcoats (feat. InRangeTV)",
+      "view_count": 159126,
+      "like_count": 10461,
+      "duration": 2706,
+      "upload_date": "20250525",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "zD7KHVPpkoM",
+      "title": "Frozen '50s Man ~ Episode 4",
+      "view_count": 46352,
+      "like_count": 3921,
+      "duration": 2290,
+      "upload_date": "20250515",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "qE0_WMWd4H0",
+      "title": "On the Next Episode of Frozen '50s Man...",
+      "view_count": 20645,
+      "like_count": 2140,
+      "duration": 243,
+      "upload_date": "20250430",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "_ufQpU8v9-I",
+      "title": "Who Were The Minutemen?",
+      "view_count": 315251,
+      "like_count": 17613,
+      "duration": 2513,
+      "upload_date": "20250419",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000,
+      "description": "On April 19th 1775, townies in eastern Massachusetts joined ranks and decisively defeated one of the most powerful militaries in the world at the Battles of Lexington and Concord. How on earth did they do it? Let's examine the Revolutionary War's opening volleys from the ground-level perspective of the provincial militiamen who took part in it. \n\nSupport Atun-Shei Films on Patreon ► https://www.patreon.com/atunsheifilms\n\nLeave a Tip via Paypal ► https://www.paypal.me/atunsheifilms\n\nBuy Merch ► https://teespring.com/stores/atun-shei-films\n\nOfficial Website ► https://www.atunsheifilms.com/\n\nOriginal Music by Dillon DeRosa ► http://dillonderosa.com/\n\n~REFERENCES~\n\n[1] Michael D. Hattem. The Memory of ‘76: The Revolution in American History (2024). Yale University Press, Page 8-9\n\n[2] Kyle Zelner. A Rabble in Arms: Massachusetts Towns and Militiamen During King Philip’s War (2009). New York University Press, Page 19-28\n\n[3] Gabriele Esposito. Armies of Early Colonial North America, 1607-1713: History, Organization, and Uniforms (2018). Pen and Sword Military, Page 64-65\n\n[4] Robert A. Gross. The Minutemen and Their World (2022 Edition). Picador, Page 154\n\n[5] Esposito, Page 122-138\n\n[6] Harry Schenawolf. Forgotten Warrior Brigadier General John Nixon (2016). Revolutionary War Journal https://revolutionarywarjournal.com/brigadier-general-john-nixon/\n\n[7] Alfred Sereno Hudson. The History of Sudbury, Massachusetts (1889). The Sudbury Press, Page 340\n\n[8] Gross, Page 91-105\n\n[9] Barbara Robinson. Wayland Historical Tours (2013 Edition). Wayland Historical Society, Page 29-36\n\n[10] Douglas P. Sabin. The New England Tavern: A General Study (1982). Minuteman National Historical Park, Page 22-38\n\n[11] Gross, Page 50-58\n\n[12] Gross, Page 68-87\n\n[13] Lemuel Shattuck. A History of the Town of Concord, Middlesex County, Massachusetts: From Its Earliest Settlement to 1832 (1835). Russell, Odiorne and Company, Page 92-93\n\n[14] Hudson, Page 362-373\n\n[15] Gross, Page 133-159\n\n[16] J.L. Bell. “Thomas Nichols of Natick” (2016) Boston 1775 Blog https://boston1775.blogspot.com/2016/04/thomas-nichols-of-natick.html\n\n[17] Gross, Page 116-119\n\n[18] Colin Calloway. The American Revolution in Indian Country (1995). Cambridge University Press, Page 92\n\n[19] Jane Sciacca. Enslavement in the Puritan Village: The Untold History of Sudbury and Wayland, Massachusetts (2025). The History Press, Page 84-85\n\n[20] Shattuck, Page 98-117\n\n[21] Ezra Ripley. A History of the Fight at Concord on the 19th of April 1775 (1832) H. Atwill, Publisher, Page 22-23"
+    },
+    {
+      "id": "FCShsGCkOP4",
+      "title": "The REAL Cause of the Revolutionary War",
+      "view_count": 1490384,
+      "like_count": 58327,
+      "duration": 2477,
+      "upload_date": "20250315",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000,
+      "description": "What caused the American Revolution? Let's dive beneath the surface-level understanding of British tyranny and unjust taxation and try to understand the long-term social, political, and economic forces which set the stage for our War of Independence.\n\nSupport Atun-Shei Films on Patreon ► https://www.patreon.com/atunsheifilms\n\nLeave a Tip via Paypal ► https://www.paypal.me/atunsheifilms\n\nBuy Merch ► https://teespring.com/stores/atun-shei-films\n\nOfficial Website ► https://www.atunsheifilms.com/\n\nOriginal Music by Dillon DeRosa ► http://dillonderosa.com/\n\n0:00 Introduction\n3:00 1. The World Turned Upside Down\n13:50 2. The Paradox of American Liberalism\n28:34 3. The Rage Militaire\n38:12 Conclusion / Credits\n\n~REFERENCES~\n\n[1] Neil Davidson. How Revolutionary Were the Bourgeois Revolutions? Abridged Edition (2017). Haymarket Books, Page 70-75\n\n[2] Francis J. Bremer. First Founders: American Puritans and Puritanism in an Atlantic World (2012). University of New Hampshire Press, Page 11\n\n[3] Lisa Brooks & Kelly Wisecup. Plymouth Colony: Narratives of English Settlement and Native Resistance from the Mayflower to King Philip’s War (2022). The Library of America, Page 185, 291\n\n[4] Davidson, Page 85-87\n\n[5] Sung Bok Kim. Landlord and Tenant in Colonial New York: Manorial Society, 1664-1775 (1978). University of North Carolina Press, Page 118-122\n\n[6] Matthew Gottlieb. “House of Burgesses.” (2020). Encyclopedia Virginia https://encyclopediavirginia.org/entries/house-of-burgesses\n\n[7] Brent Tarter. Bacon's Rebellion, the Grievances of the People, and the Political Culture of Seventeenth-Century Virginia (2011). The Virginia Magazine of History and Biography, Vol. 119, No. 1, Page 2-41\n\n[8] Edward Countryman. The People’s American Revolution (1983). British Association for American Studies, Page 16-21\n\n[9] George Novack. America’s Revolutionary Heritage (2024 Edition). Pathfinder Press, Page 71-90\n\n[10] Countryman, Page 26-30\n\n[11] Charles Royster. A Revolutionary People at War: The Continental Army and American Character, 1775-1783 (1979). University of North Carolina Press, Page 6-10\n\n[12] Royster, Page 152-153\n\n[13] Mark A. Noll. “The American Revolution and Protestant Evangelicalism.” The Journal of Interdisciplinary History 23, No. 3 (1993), Page 615–638\n\n[14] Royster, Page 59-75\n\n[15] John Rhodehamel. George Washington: Writings (1997). The Library of America, Page 184"
+    },
+    {
+      "id": "R-VtlaQ27Nc",
+      "title": "The Occult Dimensions of Nosferatu 2024 (feat. Esoterica)",
+      "view_count": 116259,
+      "like_count": 5963,
+      "duration": 3090,
+      "upload_date": "20250205",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "9TpKr1M2WSw",
+      "title": "The Sudbury Devil is now available on 4K UHD Blu Ray!",
+      "view_count": 14676,
+      "like_count": 1025,
+      "duration": 117,
+      "upload_date": "20241221",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "LQkaPwblyj0",
+      "title": "Q&A: Revolutions, Pseudoscience, My Changing Political Views",
+      "view_count": 187769,
+      "like_count": 10889,
+      "duration": 1972,
+      "upload_date": "20241218",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "2pBCxTdI9-o",
+      "title": "The Birth of an American Town ~ Episode 3",
+      "view_count": 41790,
+      "like_count": 2391,
+      "duration": 3167,
+      "upload_date": "20241120",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "UhLizvrhbOU",
+      "title": "Did Native Americans Really Live in Balance with Nature?",
+      "view_count": 497664,
+      "like_count": 24168,
+      "duration": 7280,
+      "upload_date": "20241025",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000,
+      "description": "Though the trope of the \"Ecological Indian\" is indelible in popular culture, history tells a much more complicated story. Featuring cutting edge perspectives rarely seen outside academia and in-depth interviews with indigenous historians, climate scientists, and other experts, this video will dispel the paternalistic myths and reveal Native American ecology in all its ingenious, imperfect glory.\n\nSupport Atun-Shei Films on Patreon ► https://www.patreon.com/atunsheifilms\n\nLeave a Tip via Paypal ► https://www.paypal.me/atunsheifilms\n\nBuy Merch ► https://teespring.com/stores/atun-shei-films\n\nOfficial Website ► https://www.atunsheifilms.com/\n\nOriginal Music by Dillon DeRosa ► http://dillonderosa.com/\n\nVery special thanks to everyone who sat down to be interviewed for this piece, including fellow YouTubers @NathanaelFosaaen and @CatherineKlein94.\n\nThe Isengard and Mordor metal covers are the work of the talented @GabrieleMottaCarabus.\n\n0:00 Introduction\n7:15 1. The Makah Whale Hunt\n21:34 2. The Biological Cathedral\n53:06 3. The Commodity of Nature\n1:18:42 4. Plains, Trains, and Buffalo Meals\n1:37:19 5. The Makah Whale Hunt, Revisited\n2:00:05 Conclusion / Credits\n\n~REFERENCES~\n\n[1] Eric Wagner. \"Savage Disobedience: A Renegade Whaler Rocks the Boat in the Makah Struggle for Cultural Identity\" Orion Magazine https://orionmagazine.org/article/savage-disobedience/\n\n[2] Kelly Struthers Montford & Chloë Taylor. Colonialism and Animality: Anti-Colonial Perspectives in Critical Animal Studies (2018).  E-Book through the Ted K Archive https://www.thetedkarchive.com/library/kelly-struthers-montford-and-chloe-taylor-colonialism-and-animality\n\n[3] \"Description of the USA Aboriginal Subsistence Hunt: Makah Tribe.\" International Whaling Commission https://iwc.int/management-and-conservation/whaling/aboriginal/usa/makah-tribe\n\n[4] Robin Wall Kimmerer. Braiding Sweetgrass: Indigenous Wisdom, Scientific Knowledge, and the Teachings of Plants (2013). Milkweed Editions, Page 3-7\n\n[5] Ross Kenneth Harper. To Render the God of the Water Propitious: Hunting and Human-Animal Relations in the Northeast Woodlands (1999). University of Connecticut, Page 18-35\n\n[6] Kimmerer, Page 179-188\n\n[7] Harper, Page 291-293\n\n[8] Kimmerman, Page 55-56\n\n[9] Shepard Krech. The Ecological Indian: Myth and History (1999). W.W. Norton and Company. E-Book through the Ted K Archive https://www.thetedkarchive.com/library/shepard-krech-the-ecological-indian-myth-history\n\n[10] William Cronon. Changes in the Land: Indians, Colonists, and the Ecology of New England (2003 Edition). Hill and Wang Page 48-51\n\n[11] Cronon, Page 52-64\n\n[12] Cronon, Page 94-107\n\n[13] Harper, Page 306-325\n\n[14] Cronon, Page 128-141\n\n[15] Andrew C. Isenberg. The Destruction of the Bison: An Environmental History, 1750-1920 (2000). Cambridge University Press, Page 1-36\n\n[16] Jeremy Rifkin. Beyond Beef: The Rise and Fall of the Cattle Culture (1992). Dutton Books, Page 45-51\n\n[17] Rifkin, Page 67-80\n\n[18] Isenberg, 123-155\n\n[19] Daniel Pauly. \"Ask Dr. Pauly: Why are we giving subsidies to the fishing industry?\" (2023) Oceana https://oceana.org/blog/ask-dr-pauly-why-are-we-giving-subsidies-to-the-fishing-industry/\n\n[20] John Roach. \"Seafood May Be Gone by 2048, Study Says\" (2006) National Geographic https://www.nationalgeographic.com/animals/article/seafood-biodiversity\n\n[21] David Gillette. \"The True Cost of a Hamburger\" (2022). American Institute for Economic Research https://www.aier.org/article/the-true-cost-of-a-hamburger/\n\n[22] Molly Brind’Amour. \"Fact Sheet | Proposals to Reduce Fossil Fuel Subsidies\" (2024). Environmental and Energy Study Institute https://www.eesi.org/papers/view/fact-sheet-proposals-to-reduce-fossil-fuel-subsidies-january-2024"
+    },
+    {
+      "id": "M009hH8QeA0",
+      "title": "I Didn't Like The Northman Very Much",
+      "view_count": 136603,
+      "like_count": 9086,
+      "duration": 1194,
+      "upload_date": "20241009",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "gIkQrr8pgSI",
+      "title": "He Was an Anti-Racist Vegan Radical... in 1738",
+      "view_count": 474141,
+      "like_count": 30723,
+      "duration": 3056,
+      "upload_date": "20240920",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000,
+      "description": "In this episode of The Abolitionists, let's explore the extraordinary life and mind of Benjamin Lay, the early 18th century Quaker dwarf who has the distinction of being both the first revolutionary abolitionist and the first animal rights activist in American history.\n\nAll ad revenue this video makes in its first month will go to Luvin Arms Animal Sanctuary, a forever home for animals rescued from the meat industry ► https://luvinarms.org/\n\nSupport Atun-Shei Films on Patreon ► https://www.patreon.com/atunsheifilms\n\nLeave a Tip via Paypal ► https://www.paypal.me/atunsheifilms\n\nBuy Merch ► https://teespring.com/stores/atun-shei-films\n\nOfficial Website ► https://www.atunsheifilms.com/\n\nOriginal Music by Dillon DeRosa ► http://dillonderosa.com/\n\nThumbnail art by Ben Wickey ► https://www.instagram.com/ben_wickey/\n\n~REFERENCES~\n\n[1] Marcus Rediker. The Fearless Benjamin Lay: The Quaker Dwarf Who Became the First Revolutionary Abolitionist (2017). Beacon Press, Page 11-25\n\n[2] Benjamin Lay. All Slave-Keepers That Keep the Innocent in Bondage, Apostates (1738). Printed [by Benjamin Franklin] for the Author, Page iii\n\n[3] Lay, Page 131-132\n\n[4] Lay, Page 55\n\n[5] Rediker, Page 111\n\n[6] Rediker, Page 30-51\n\n[7] Lay, Page 32-45\n\n[8] Lay, Page 20-22\n\n[9] Rediker, Page 61-70\n\n[10] Rediker, Page 84-93\n\n[11] Lay, Page 43-44\n\n[12] Rediker, Page 146\n\n[13] Rediker, Page 1-2\n\n[14] The Friend: A Religious and Literary Journal. Volume XXIX (1856). Printed by Robb, Pile & Melroy, Page 220\n\n[15] Rediker, Page 112-116\n\n[16] Roger Crab. The English Hermit or Wonder of This Age (1655). Printed in Pope’s Head Alley and at the Exchange, Page i-15\n\n[17] Thomas Tryon. A Way to Health, Long Life, and Happiness (1691 Edition). Printed by H.C. for R. Baldwin near the Oxford Arms on Warwick Lane, Page 367-382\n\n[18] Avery Yale Kamila. “Vegan Kitchen: Americans have been enjoying nut milk and nut butter for at least 4 centuries” (2020). Portland Press Herald https://www.pressherald.com/2020/11/08/vegan-kitchen-americans-have-been-enjoying-nut-milk-and-nut-butter-for-at-least-4-centuries/\n\n[19] Geoffrey Plank. “‘The Flame of Life Was Kindled in All Animal and Sensitive Creatures’: One Quaker Colonist’s View of Animal Life.” Church History 76, no. 3 (2007): 569–90. http://www.jstor.org/stable/27645034.\n\n[20] Jonathan D. Sassi. “With a Little Help from the Friends: The Quaker and Tactical Contexts of Anthony Benezet’s Abolitionist Publishing.” The Pennsylvania Magazine of History and Biography 135, no. 1 (2011): 33–71. https://doi.org/10.5215/pennmaghistbio.135.1.0033\n\n[21] Rediker, Page 120, 138"
+    },
+    {
+      "id": "vEnh63g_ano",
+      "title": "When Half of Americans Had No Rights",
+      "view_count": 115516,
+      "like_count": 8642,
+      "duration": 1631,
+      "upload_date": "20240816",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "-D7kbzh7kfI",
+      "title": "how i make money from \"youtuber movies\"",
+      "view_count": 79153,
+      "like_count": 7220,
+      "duration": 1169,
+      "upload_date": "20240802",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "EmpHL4-pFlU",
+      "title": "Guns That Killed Racists (feat. InRangeTV)",
+      "view_count": 1064179,
+      "like_count": 53424,
+      "duration": 2214,
+      "upload_date": "20240719",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000,
+      "description": "With the help of Karl of @InrangeTv, I test fire and explore the history behind five iconic long guns of the United States Army during the American Civil War, including three original pieces which were actually used in combat between 1861 and 1865.\n\nSupport Atun-Shei Films on Patreon ► https://www.patreon.com/atunsheifilms\n\nLeave a Tip via Paypal ► https://www.paypal.me/atunsheifilms\n\nBuy Merch ► https://teespring.com/stores/atun-shei-films\n\nOfficial Website ► https://www.atunsheifilms.com/\n\nOriginal Music by Dillon DeRosa ► http://dillonderosa.com/\n\n~REFERENCES~\n\n[1] \"The Main Arsenal\" (2021). Springfield Armory National Historical Park https://www.nps.gov/spar/learn/historyculture/the-main-arsenal.htm\n\n[2] Michael S. Raber. “Conservative Innovators, Military Small Arms, and Industrial History at Springfield Armory, 1794-1918.” IA. The Journal of the Society for Industrial Archeology 14, no. 1 (1988): 1–22. http://www.jstor.org/stable/40968135.\n\n[3] Richard Carlile. “Carbines of the Union Cavalry.” Military Images 7, no. 5 (1986): 16–25. http://www.jstor.org/stable/44031833.\n\n[4] John D. McAuley. Carbines of the Civil War (1981). Pioneer Press, Page 7-8\n\n[5] Augustus Woodbury. Major General Ambrose E. Burnside and the Ninth Army Corps (1867). S.S. Rider and Brother Publishers, Page 8\n\n[6] Jacob D. Cox. The Battle of Franklin, Tennessee: A Monograph (1897). Charles Schribner’s Sons, Page 217-218\n\n[7] Frank Aretas Haskell. The Battle of Gettysburg (E-Book Published 2010). Project Gutenberg https://www.gutenberg.org/files/33121/33121-h/33121-h.htm"
+    },
+    {
+      "id": "AECR4S0EvPc",
+      "title": "The Psychedelic Apocalypticism of Terence McKenna",
+      "view_count": 239041,
+      "like_count": 10470,
+      "duration": 5863,
+      "upload_date": "20240705",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "tp48xBNnwv8",
+      "title": "Atun Shei Films – Original Soundtrack #3",
+      "view_count": 16560,
+      "like_count": 704,
+      "duration": 4192,
+      "upload_date": "20240621",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "gyt0bZms5zU",
+      "title": "THE CORNERSTONE OF JOHNNY REB",
+      "view_count": 796435,
+      "like_count": 47718,
+      "duration": 3543,
+      "upload_date": "20240607",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000,
+      "description": "Episode 10 of Checkmate, Lincolnites! Debunking Lost Cause myths about the secession of the southern states and the infamous Cornerstone Speech. Meanwhile, an unlikely team of heroes unites to fight a skeleton army of undead Confederates in a heart-stopping final battle, with the soul of America at stake.\n\nSupport Atun-Shei Films on Patreon ► https://www.patreon.com/atunsheifilms\n\nLeave a Tip via Paypal ► https://www.paypal.me/atunsheifilms\n\nBuy Merch ► https://teespring.com/stores/atun-shei-films\n\nOfficial Website ► https://www.atunsheifilms.com/\n\nOriginal Music by Dillon DeRosa ► http://dillonderosa.com/\n\n~REFERENCES~\n\n[1] James W. Loewen & Edward H. Sebesta. The Confederate and Neo-Confederate Reader (2010). University Press of Mississippi, 111-147\n\n[2] “Address of Hon. John S. Preston, Commissioner from South Carolina, to the Convention of Virginia, February 19, 1861: Electronic Edition” (2000). Documenting the American South https://docsouth.unc.edu/imls/prestonj/prestonj.html\n\n[3] Charles B. Dew. Apostles of Disunion: Southern Secession Commissioners and the Causes of the Civil War (2016 Edition). University of Virginia Press, Page 68-73\n\n[4] Dew, Page 52, 120-123\n\n[5] Dew, Page 27-30\n\n[6] Loewen & Sebesta, Page 153-166\n\n[7] Keith Hébert. The Cornerstone of the Confederacy: Alexander Stephens and the Speech That Defined the Lost Cause (2021). University of Tennessee Press, Page 1-3, 39-41\n\n[8] Hébert, Page 33-44\n\n[9] James D. Richardson. A Compilation of the Messages and Papers of the Confederacy: Including the Diplomatic Correspondence, 1861-1865 (1906). United States Publishing Company, Page 67-68\n\n[10] Dew, Page 56"
+    },
+    {
+      "id": "yH_I5dgFlFc",
+      "title": "Capitalism Caused The Salem Witch Trials",
+      "view_count": 148799,
+      "like_count": 11243,
+      "duration": 743,
+      "upload_date": "20240524",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "jyZPGL4DA_w",
+      "title": "Checkmate Lincolnites – Finale Trailer",
+      "view_count": 130581,
+      "like_count": 14645,
+      "duration": 113,
+      "upload_date": "20240510",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "ZfBrDNaPt7M",
+      "title": "An Archaeologist Debated Graham Hancock. I Have Thoughts",
+      "view_count": 600390,
+      "like_count": 24335,
+      "duration": 1087,
+      "upload_date": "20240426",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000,
+      "description": "Graham Hancock is a noted pseudohistorian whose theories about a lost Atlantis-like Ice Age civilization have become broadly popular among the general public. Archaeologist Flint Dibble recently went on Joe Rogan's podcast to debate him. Was it a good idea? How should scholars and communicators engage with pseudohistory in media and on the internet?\n\nSupport Atun-Shei Films on Patreon ► https://www.patreon.com/atunsheifilms\n\nLeave a Tip via Paypal ► https://www.paypal.me/atunsheifilms\n\nBuy Merch ► https://teespring.com/stores/atun-shei-films\n\nOfficial Website ► https://www.atunsheifilms.com/"
+    },
+    {
+      "id": "DbIPdL5ggEQ",
+      "title": "The Witchfinder General Discovers Harry Potter",
+      "view_count": 119734,
+      "like_count": 9084,
+      "duration": 559,
+      "upload_date": "20240305",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "wgxjU1Kygcs",
+      "title": "Billy and Johnny at the Movies",
+      "view_count": 147071,
+      "like_count": 11719,
+      "duration": 412,
+      "upload_date": "20240210",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "9g039hZWsQ4",
+      "title": "The Sermon",
+      "view_count": 55463,
+      "like_count": 4588,
+      "duration": 1309,
+      "upload_date": "20240204",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "C4p9Bnj5JJQ",
+      "title": "Was John Brown Right? Was He Effective?",
+      "view_count": 195669,
+      "like_count": 10275,
+      "duration": 2424,
+      "upload_date": "20240125",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "OfFrHOhKZDo",
+      "title": "Holy Horror: A New History of John Brown's Raid (feat. InRangeTV)",
+      "view_count": 401148,
+      "like_count": 20478,
+      "duration": 2413,
+      "upload_date": "20240124",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000,
+      "description": "In this episode of The Abolitionists, Karl from @InrangeTv joins me on a road trip to Harpers Ferry, West Virginia so we can examine John Brown's 1859 raid from a fresh strategic perspective.\n\nWatch Karl's companion video about the Sharps carbine: https://youtu.be/yzkQKte5D9I?si=ukvxuPa15CRwZ33B\n\nWatch our post-episode discussion: https://youtu.be/C4p9Bnj5JJQ\n\nSupport Atun-Shei Films on Patreon ► https://www.patreon.com/atunsheifilms\n\nLeave a Tip via Paypal ► https://www.paypal.me/atunsheifilms\n\nBuy Merch ► https://teespring.com/stores/atun-shei-films\n\nOfficial Website ► https://www.atunsheifilms.com/\n\nOriginal Music by Dillon DeRosa ► http://dillonderosa.com/\n\n~REFERENCES~\n\n[1] Frederick Douglass. The Life and Times of Frederick Douglass (2015 Edition). Zenith Press, Page 238-240\n\n[2] Jonathan Earle. John Brown’s Raid on Harpers Ferry: A Brief History with Documents (2008). Bedford/St. Martin’s, Page 64\n\n[3] Steven Lubet. John Brown’s Spy: The Adventurous Life and Tragic Confession of John E. Cook (2012). Yale University Press, Page 39-59\n\n[4] Jon-Erik M. Gilot & Kevin R. Pawlak. John Brown’s Raid: Harpers Ferry and the Coming of the Civil War, October 16-18 1859 (2023). Savas Beatie, Page 38-43\n\n[5] Charles P. Poland. America’s Good Terrorist: John Brown and the Harpers Ferry Raid (2020). Casemate, Page 32-40\n\n[6] W.E.B. Du Bois. John Brown (1974 Edition). International Publishers, Page 204-207\n\n[7] Douglass, Page 272-279\n\n[8] Du Bois, Page 209-210\n\n[9] Earle, Page 66-69\n\n[10] Osborne P. Anderson. A Voice From Harpers Ferry (1861). Printed for the Author, Page 29-45\n\n[11] Du Bois, Page 232-240\n\n[12] Gilot & Pawlak, Page 74-75\n\n[13] Du Bois, Page 249-251\n\n[14] Earle, 76-84\n\n[15] Earle, Page 122-125\n\n[16] Earle, Page 114-118\n\n[17] Gilot & Pawlak, Page 101"
+    },
+    {
+      "id": "AjKe2ZXL6_0",
+      "title": "The Birth of an American Town ~ Episode 2",
+      "view_count": 51239,
+      "like_count": 2842,
+      "duration": 2534,
+      "upload_date": "20240109",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "nhYKzPaZUk8",
+      "title": "The Sudbury Devil – Now Streaming",
+      "view_count": 45991,
+      "like_count": 2676,
+      "duration": 63,
+      "upload_date": "20231221",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "-d7980RkYHw",
+      "title": "i'm self-distributing my movie because cinema is dead",
+      "view_count": 95304,
+      "like_count": 10612,
+      "duration": 711,
+      "upload_date": "20231128",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "TGlXySudI6Q",
+      "title": "Did Vikings Explore New England?",
+      "view_count": 190092,
+      "like_count": 14159,
+      "duration": 797,
+      "upload_date": "20231009",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "VHmNRJPp8Wk",
+      "title": "A Black Abolitionist's Drastic Response to the Fugitive Slave Act",
+      "view_count": 163481,
+      "like_count": 11107,
+      "duration": 1592,
+      "upload_date": "20230928",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "v2msC02wFX0",
+      "title": "Breaking Down the Historical Deep Cuts of The Sudbury Devil",
+      "view_count": 59511,
+      "like_count": 3948,
+      "duration": 1024,
+      "upload_date": "20230911",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "aMDpGYYa21c",
+      "title": "The Sudbury Devil – Original Soundtrack",
+      "view_count": 11229,
+      "like_count": 565,
+      "duration": 3532,
+      "upload_date": "20230907",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "RfG0llNM-6Y",
+      "title": "The Birth of an American Town ~ Episode 1",
+      "view_count": 149934,
+      "like_count": 8279,
+      "duration": 2483,
+      "upload_date": "20230827",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "lbxy91HbtXg",
+      "title": "The Sudbury Devil – Official Trailer",
+      "view_count": 222699,
+      "like_count": 10911,
+      "duration": 93,
+      "upload_date": "20230627",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "roRD4F9pg5s",
+      "title": "Overanalyzing Ravenous",
+      "view_count": 291271,
+      "like_count": 15256,
+      "duration": 3739,
+      "upload_date": "20230605",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "b_RfoRXJXLI",
+      "title": "The World's Wickedest Man in the City of Sin (feat. Esoterica)",
+      "view_count": 151105,
+      "like_count": 8078,
+      "duration": 1464,
+      "upload_date": "20230512",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "IH-WjRkfJpE",
+      "title": "Frozen '50s Man ~ Episode 3",
+      "view_count": 100229,
+      "like_count": 6961,
+      "duration": 2095,
+      "upload_date": "20230417",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "6MI9MXKduq8",
+      "title": "This Hotel Has A Dark Secret",
+      "view_count": 121353,
+      "like_count": 10571,
+      "duration": 836,
+      "upload_date": "20230228",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "VMXKXoA1_gQ",
+      "title": "Indigenous Weapons and Tactics of King Philip's War",
+      "view_count": 659914,
+      "like_count": 23548,
+      "duration": 2105,
+      "upload_date": "20230120",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000,
+      "description": "Native American living historians Drew Shuptar-Rayvis and Dylan Smith help me explore the military history of King Philip's War from the indigenous perspective.\n\nSpecial thanks to Jonathan of @TheFarOffStation!\n\nSupport Atun-Shei Films on Patreon ► https://www.patreon.com/atunsheifilms\n\nLeave a Tip via Paypal ► https://www.paypal.me/atunsheifilms\n\nBuy Merch ► https://teespring.com/stores/atun-shei-films\n\nOfficial Website ► https://www.atunsheifilms.com/\n\nOriginal Music by Dillon DeRosa ► http://dillonderosa.com/\n\nLearn more about Drew's tribe, the Pocomoke Indian Nation ► https://pocomokeindiannation.org/\n\n~REFERENCES~\n\n[1] Richard Slotkin & James K. Folsom. So Dreadful a Judgment: Puritan Responses to King Philip's War, 1676-1677 (1978). Wesleyan University Press, Page 60-63\n\n[2] Slotkin & Folsom, Page 244\n\n[3] Benjamin Church. Entertaining Passages Relating to King Philip’s War, Tercentenary Edition (1975). Pequot Press, Page 148\n\n[4] Church, Page 156\n\n[5] Slotkin & Folsom, Page 325"
+    }
+  ],
+  "outliers": [
+    {
+      "id": "FCShsGCkOP4",
+      "title": "The REAL Cause of the Revolutionary War",
+      "view_count": 1490384,
+      "like_count": 58327,
+      "duration": 2477,
+      "upload_date": "20250315",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "EmpHL4-pFlU",
+      "title": "Guns That Killed Racists (feat. InRangeTV)",
+      "view_count": 1064179,
+      "like_count": 53424,
+      "duration": 2214,
+      "upload_date": "20240719",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "gyt0bZms5zU",
+      "title": "THE CORNERSTONE OF JOHNNY REB",
+      "view_count": 796435,
+      "like_count": 47718,
+      "duration": 3543,
+      "upload_date": "20240607",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "VMXKXoA1_gQ",
+      "title": "Indigenous Weapons and Tactics of King Philip's War",
+      "view_count": 659914,
+      "like_count": 23548,
+      "duration": 2105,
+      "upload_date": "20230120",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "ZfBrDNaPt7M",
+      "title": "An Archaeologist Debated Graham Hancock. I Have Thoughts",
+      "view_count": 600390,
+      "like_count": 24335,
+      "duration": 1087,
+      "upload_date": "20240426",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "UhLizvrhbOU",
+      "title": "Did Native Americans Really Live in Balance with Nature?",
+      "view_count": 497664,
+      "like_count": 24168,
+      "duration": 7280,
+      "upload_date": "20241025",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "KWiM00lCRTE",
+      "title": "The Civil War Was A Slave Revolt",
+      "view_count": 482278,
+      "like_count": 32982,
+      "duration": 2037,
+      "upload_date": "20250704",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    },
+    {
+      "id": "gIkQrr8pgSI",
+      "title": "He Was an Anti-Racist Vegan Radical... in 1738",
+      "view_count": 474141,
+      "like_count": 30723,
+      "duration": 3056,
+      "upload_date": "20240920",
+      "channel": "Atun-Shei Films",
+      "channel_subscriber_count": 519000
+    }
+  ],
+  "hooks": {
+    "FCShsGCkOP4": "for an event that looms so large in our popular Consciousness that was so immensely consequential to our history and is so deeply embedded within our national identity most Americans don't actually know very much about the Revolutionary War sure I mean most of us could tell you about the Tea in the ",
+    "EmpHL4-pFlU": "hello and welcome to another episode of aun sha films welcome uh so we are going to be discussing and test firing some of the most iconic long arms of the American Civil War uh specifically that of the United States Army and I could think of no one else better qualified to help me do that than my go",
+    "gyt0bZms5zU": "you know Johnny I'm not going to do this if you're not going to list listen I'll listen Billy I will it's just it's not easy for me do you mean that though or are you just saying it my mind is open convince me if you can all right we've talked about a lot of Southern history on this show from 1776 t",
+    "VMXKXoA1_gQ": "for the tribes that fought these wars the Wampanoag as well as the neighboring communities of like the nip mock a lot of this history is is still really real modern Americans a lot of us are removed from these wars because it's so distant but for a lot of the communities it's it's not it's it's some",
+    "ZfBrDNaPt7M": "recently an archaeologist named Flint Dibble went on The Joe Rogan podcast to debate author and journalist Graham Hancock who has become world famous for his theory that during the last ice age there was an advanced Globe spanning civilization that was destroyed in a huge cataclysm so Atlantis basic",
+    "UhLizvrhbOU": "the ecological Indian it's a stereotype we've all come across in popular culture Native Americans so in tune with nature that they almost cease to be fully human melding into their environment so harmoniously and so completely that they are effectively just another natural process like the wind or t",
+    "KWiM00lCRTE": "In most conversations about the American Civil War, there's one perspective that always seems to be conspicuously absent. In the endless arguments about the cause of the war, which side had the better generals, what would have happened if Jackson had been at Culps Hill, there's a ghost at the feast. Let's be real, these types of conversations about which side was better, the Union or the Confederacy, are primarily being had among white people.",
+    "gIkQrr8pgSI": "Conservative viewers of my channel often accuse me of judging historical people by modern standards, which always makes me laugh because honestly, I judge modern people just as harshly. I'm pretty judgmental all around. If they think my criticism of slave owners is bad, they should hear me talk about people who drive a Ford F-150 King Ranch Superduty."
+  }
+}

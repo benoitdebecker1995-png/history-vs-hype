@@ -1,0 +1,591 @@
+{
+  "name": "TIKhistory",
+  "subscriber_count": 428000,
+  "format_match": "HIGH",
+  "notes": "Multi-source verification, buys books, shows sources, WWII focus",
+  "videos_analyzed": 50,
+  "median_views": 112234,
+  "outlier_threshold": 336702,
+  "all_videos": [
+    {
+      "id": "CZswK2VJrVo",
+      "title": "I went to an Ayn Rand Conference and I was shocked",
+      "view_count": 121870,
+      "like_count": 7671,
+      "duration": 936,
+      "upload_date": "20250320",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "JgLq9FEHgv0",
+      "title": "How Faith dominated Hitler’s Military Conferences",
+      "view_count": 83238,
+      "like_count": 4098,
+      "duration": 2234,
+      "upload_date": "20250305",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "d2UafweuP_E",
+      "title": "Why does Hitler say he’s a Christian in his ‘First’ Speech?",
+      "view_count": 81326,
+      "like_count": 3633,
+      "duration": 3835,
+      "upload_date": "20250217",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "SgxRMHy-cRs",
+      "title": "The Gemlich Letter: Hitler’s First Statement on the Jewish Question",
+      "view_count": 81598,
+      "like_count": 4059,
+      "duration": 2044,
+      "upload_date": "20250127",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "r7XS0Q3SNdk",
+      "title": "Rudolf Jung - the Karl Marx of Hitler's National Socialism?",
+      "view_count": 112495,
+      "like_count": 5042,
+      "duration": 3866,
+      "upload_date": "20250113",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "xn3PYUGiwNY",
+      "title": "Desperate Retreat to El Alamein and the Battle of Mersa Matruh 1942 BATTLESTORM documentary",
+      "view_count": 142643,
+      "like_count": 6751,
+      "duration": 6284,
+      "upload_date": "20241230",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "ogoovVYYKzM",
+      "title": "I have been let down (No Battlestorm?)",
+      "view_count": 73095,
+      "like_count": 7077,
+      "duration": 457,
+      "upload_date": "20241224",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "kJ1Vz16rPFI",
+      "title": "A \"Hyperborean Aryan\" Responds",
+      "view_count": 66341,
+      "like_count": 3500,
+      "duration": 426,
+      "upload_date": "20241210",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "qYLvrwj-HFI",
+      "title": "Exposing National Socialism's Contradictions to refute it",
+      "view_count": 85492,
+      "like_count": 5042,
+      "duration": 2670,
+      "upload_date": "20241209",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "5xW_-4yTnPY",
+      "title": "The God Behind Hitler's National Socialism",
+      "view_count": 197393,
+      "like_count": 9253,
+      "duration": 2425,
+      "upload_date": "20241118",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "T-90Od0e0KY",
+      "title": "Who Started WW2? Germany or Britain?",
+      "view_count": 66136,
+      "like_count": 4544,
+      "duration": 750,
+      "upload_date": "20241107",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "qPbNFBFQOt8",
+      "title": "Using OpenTTD to answer “Who will build the roads?”",
+      "view_count": 35296,
+      "like_count": 3064,
+      "duration": 213,
+      "upload_date": "20241106",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "tEclue31C6s",
+      "title": "Which Economic Books do I recommend? (Patreon Q&A video)",
+      "view_count": 31625,
+      "like_count": 2323,
+      "duration": 391,
+      "upload_date": "20241105",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "Y9_N-a7b5jk",
+      "title": "Did WW2 start in 1937 or 1939?",
+      "view_count": 34558,
+      "like_count": 3058,
+      "duration": 161,
+      "upload_date": "20241104",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "S-xPsQEvmNk",
+      "title": "The Dangerous Appeal of Hitler’s AI-Translated Speeches",
+      "view_count": 627247,
+      "like_count": 24309,
+      "duration": 1560,
+      "upload_date": "20241021",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000,
+      "description": "AI is being used to translate Hitler's speeches into English, and many are hearing Hitler's words for the first time. Worse, his words are resonating with modern audiences, which is a shock to journalists and media companies (who predictably respond with censorship, making the problem worse). In this video, we'll hear exactly WHY modern audiences are falling for Hitler's speeches, and offer the antidote to his dangerous ideology.\n\nThis video is discussing events or concepts that are academic, educational and historical in nature. This video is for informational purposes and was created so we may better understand the past and learn from the mistakes others have made. I am NOT a Nazi, nor a Fascist, nor an ideologue of any kind.\n\nFollow me on Twitter https://twitter.com/TIKhistory\n\n⏲️ Videos on Mondays at 5pm GMT (depending on season, check for British Summer Time).\n\n- - - - -\n\n📚 BIBLIOGRAPHY / SOURCES 📚\n\nFull list of all my sources https://docs.google.com/spreadsheets/d/114GiK85MPs0v4GKm0izPj3DL2CrlJUdAantx5GQUKn8/edit?usp=sharing\n\n- - - - -\n\n⭐ SUPPORT TIK ⭐\n\nThis video isn't sponsored. My income comes purely from my Patreons and SubscribeStars, and from YouTube ad revenue. So, if you'd like to support this channel and make these videos possible, please consider becoming a Patreon or SubscribeStar. All supporters who pledge $1 or more will have their names listed in the videos. There are higher tiers too with additional perks, so check out the links below for more details.\n\nhttps://www.patreon.com/TIKhistory\nhttps://www.subscribestar.com/tikhistory\n\nThank you to my current supporters! You're AWESOME! \n\n- - - - -\n\nABOUT TIK 📝\n\nHistory isn’t as boring as some people think, and my goal is to get people talking about it. I also want to dispel the myths and distortions that ruin our perception of the past by asking a simple question - “But is this really the case?”. I have a 2:1 Degree in History and a passion for early 20th Century conflicts (mainly WW2). I’m therefore approaching this like I would an academic essay. Lots of sources, quotes, references and so on. Only the truth will do."
+    },
+    {
+      "id": "q_ReESRfV8g",
+      "title": "THIS is the Actual Idea behind Fascism",
+      "view_count": 267394,
+      "like_count": 12082,
+      "duration": 3292,
+      "upload_date": "20241007",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000,
+      "description": "This video explains the actual philosophical idea behind Fascism, which is Giovanni Gentile's \"Actual Idealism\", showing that its roots run deep throughout philosophy and history.\n\nThis video is discussing events or concepts that are academic, educational and historical in nature. This video is for informational purposes and was created so we may better understand the past and learn from the mistakes others have made.\n\nThe timeline map used in this video (version 001.02) https://drive.google.com/file/d/1IJkAYcN9w0G9Hy5V6PacYLb4hMlHitCW/view?usp=sharing\n\nFollow me on Twitter https://twitter.com/TIKhistory\n\n⏲️ Videos on Mondays at 5pm GMT (depending on season, check for British Summer Time).\n\n- - - - -\n\n📚 BIBLIOGRAPHY / SOURCES 📚\n\nThe main sources used in this video:\n\nFarrell, N. \"Mussolini: A New Life.\" Endeavour Press Ltd, Kinde 2015.\nGentile, G. “Origins and Doctrine of Fascism: with Selections from Other Works.” Routledge, 2017.\nGregor, J. “Giovanni Gentile: Philosopher of Fascism.” Routledge, Kindle 2017.\nGregor, J. \"Mussolini's Intellectuals: Fascis Social and Political Thought.\" Princeton University Press 2005.\nLeonard Peikoff's History of Philosophy series on YouTube https://youtube.com/playlist?list=PLqsoWxJ-qmMuYO4AKp7NZ_qBy6gaj3cUv&si=ZEXS1yzykrQyoy42\n\nFull list of all my sources https://docs.google.com/spreadsheets/d/114GiK85MPs0v4GKm0izPj3DL2CrlJUdAantx5GQUKn8/edit?usp=sharing\n\nPhoto by kittbui: https://www.pexels.com/photo/child-squatting-and-playing-in-water-27054228/\nPhoto by Pixabay: https://www.pexels.com/photo/white-matchstick-68543/\nPhoto by Karol D: https://www.pexels.com/photo/lighted-matchbox-399910/ \nPhoto by Pixabay: https://www.pexels.com/photo/white-matchstick-67823/ \nPhoto by Pavel Danilyuk: https://www.pexels.com/photo/a-person-holding-white-printer-paper-8204987/ \nPhoto by Ivan Samkov: https://www.pexels.com/photo/photo-of-woman-taking-notes-4458554/\nPhoto by Chokniti Khongchum: https://www.pexels.com/photo/person-holding-container-with-seaweed-2280568/\nPhoto by Mikhail Nilov: https://www.pexels.com/photo/deer-behind-rock-and-tree-7710402/\n\n- - - - -\n\n⭐ SUPPORT TIK ⭐\n\nThis video isn't sponsored. My income comes purely from my Patreons and SubscribeStars, and from YouTube ad revenue. So, if you'd like to support this channel and make these videos possible, please consider becoming a Patreon or SubscribeStar. All supporters who pledge $1 or more will have their names listed in the videos. There are higher tiers too with additional perks, so check out the links below for more details.\n\nhttps://www.patreon.com/TIKhistory\nhttps://www.subscribestar.com/tikhistory\n\nThank you to my current supporters! You're AWESOME! \n\n- - - - -\n\nABOUT TIK 📝\n\nHistory isn’t as boring as some people think, and my goal is to get people talking about it. I also want to dispel the myths and distortions that ruin our perception of the past by asking a simple question - “But is this really the case?”. I have a 2:1 Degree in History and a passion for early 20th Century conflicts (mainly WW2). I’m therefore approaching this like I would an academic essay. Lots of sources, quotes, references and so on. Only the truth will do."
+    },
+    {
+      "id": "QrmEhK6PXnY",
+      "title": "What do REAL Fascists actually believe?",
+      "view_count": 253531,
+      "like_count": 11109,
+      "duration": 3279,
+      "upload_date": "20240916",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "nl6vGELqXYQ",
+      "title": "The Fall of Tobruk 1942 | BATTLESTORM Documentary",
+      "view_count": 165064,
+      "like_count": 6847,
+      "duration": 3544,
+      "upload_date": "20240902",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "v7_J_daQkSU",
+      "title": "Where do our modern ideologies come from? (Timeline Map)",
+      "view_count": 539587,
+      "like_count": 23490,
+      "duration": 2115,
+      "upload_date": "20240826",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000,
+      "description": "Where do our modern ideologies come from? Fascism, National Socialism, Marxism and all the other ideologies we have to day have their origins in the ancient past, and this video will map out the philosophical origins to build a timeline of some of the most important figures in history, from Plato to Kant, Hegel and Marx, to Hitler, Lenin, Mussolini and Julius Evola...\n\nThis video is discussing events or concepts that are academic, educational and historical in nature. This video is for informational purposes and was created so we may better understand the past and learn from the mistakes others have made.\n\nThe (original) map used in this video that you can view and download https://drive.google.com/file/d/1GC_AOPNAnjtct7-tuXO1FU4Y3OBMBumv/view?usp=sharing \n\nHere's a quick hotfix (version 001.01) that corrects a few of the more obvious mistakes in the original map and timeline https://drive.google.com/file/d/1lHY2Q4Kpmy63Pzpz0Imhb5dfndKl9YQy/view?usp=sharing\n\nLatest version of the timeline map (version 001.02) https://drive.google.com/file/d/1IJkAYcN9w0G9Hy5V6PacYLb4hMlHitCW/view?usp=sharing\n\nFollow me on Twitter https://twitter.com/TIKhistory\n\n⏲️ Videos on Mondays at 5pm GMT (depending on season, check for British Summer Time).\n\n- - - - -\n\n📚 BIBLIOGRAPHY / SOURCES 📚\n\nSource list for this video (54 sources): https://docs.google.com/spreadsheets/d/1InlBua-MAB68ctGaZfgBU46fOUMk0hVUu5fRnHFWr8o/edit?usp=sharing\n\nVideo Links\n\n1) The REAL ‘life’ of KARL MARX https://youtu.be/YnwC8WxKMMc\n2) A concerning pattern in ALL Socialist childhoods https://youtu.be/K6wkHLDVdXs \n3) The Revolution guaranteed inflation - BankWars: Weimar Hyperinflation Episode 2 https://youtu.be/pwJf8O1S6eA \n4) Why Oswald Mosley turned to Fascism https://youtu.be/AGaPaOPNubo \n5) The INSANE world of National Socialism’s Aryan Religion https://youtu.be/fGUq3V8kl30 \n6) Hegel’s ideobabble is the basis of Marxism and Fascism https://youtu.be/6kzZoK5CtJ8 \n7) FASCISM DEFINED | The Difference between Fascism and National Socialism https://youtu.be/qdY_IMZH2Ko \n8) Peikoff’s History of Philosophy Series https://www.youtube.com/playlist?list=PLqsoWxJ-qmMuYO4AKp7NZ_qBy6gaj3cUv \n9) Peikoff’s Modern History of Philosophy Series https://hubhopper.com/podcast/modern-philosophy-kant-to-the-present/339091\n\nFull list of all my sources https://docs.google.com/spreadsheets/d/114GiK85MPs0v4GKm0izPj3DL2CrlJUdAantx5GQUKn8/edit?usp=sharing\n\n- - - - -\n\n⭐ SUPPORT TIK ⭐\n\nThis video isn't sponsored. My income comes purely from my Patreons and SubscribeStars, and from YouTube ad revenue. So, if you'd like to support this channel and make these videos possible, please consider becoming a Patreon or SubscribeStar. All supporters who pledge $1 or more will have their names listed in the videos. There are higher tiers too with additional perks, so check out the links below for more details.\n\nhttps://www.patreon.com/TIKhistory\nhttps://www.subscribestar.com/tikhistory\n\nThank you to my current supporters! You're AWESOME! \n\n- - - - -\n\nABOUT TIK 📝\n\nHistory isn’t as boring as some people think, and my goal is to get people talking about it. I also want to dispel the myths and distortions that ruin our perception of the past by asking a simple question - “But is this really the case?”. I have a 2:1 Degree in History and a passion for early 20th Century conflicts (mainly WW2). I’m therefore approaching this like I would an academic essay. Lots of sources, quotes, references and so on. Only the truth will do."
+    },
+    {
+      "id": "FvA9odna5dw",
+      "title": "An Open Letter to Prime Minister Keir Starmer (Southport)",
+      "view_count": 979363,
+      "like_count": 60374,
+      "duration": 4269,
+      "upload_date": "20240805",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000,
+      "description": "Dear Keir Starmer, I'm calling out the Fascist United Kingdom government for its tone-deaf and totally inappropriate response to the disorder on the streets of Southport and the rest of this country. I'm calling for peace. Could you actually listen for once?\n\nEDIT: I've had to remove a clip at 45 mins 31 seconds due to a request from the original creator of the clip. She's self-censoring now thanks to the United Kingdom government's crack-down on free speech.\n\nFollow me on Twitter and Instagram\nhttps://twitter.com/TIKhistory\nhttps://www.instagram.com/tikhistory/\n\n⏲️ Videos on Mondays at 5pm GMT (depending on season, check for British Summer Time).\n\n- - - - -\n\n⭐ SUPPORT TIK ⭐\n\nThis video isn't sponsored. My income comes purely from my Patreons and SubscribeStars, and from YouTube ad revenue. So, if you'd like to support this channel and make these videos possible, please consider becoming a Patreon or SubscribeStar. All supporters who pledge $1 or more will have their names listed in the videos. There are higher tiers too with additional perks, so check out the links below for more details.\n\nhttps://www.patreon.com/TIKhistory\nhttps://www.subscribestar.com/tikhistory\n\nThank you to my current supporters! You're AWESOME! \n\n- - - - -\n\nABOUT TIK 📝\n\nHistory isn’t as boring as some people think, and my goal is to get people talking about it. I also want to dispel the myths and distortions that ruin our perception of the past by asking a simple question - “But is this really the case?”. I have a 2:1 Degree in History and a passion for early 20th Century conflicts (mainly WW2). I’m therefore approaching this like I would an academic essay. Lots of sources, quotes, references and so on. Only the truth will do.\n\n#southport #enoughisenough"
+    },
+    {
+      "id": "YnwC8WxKMMc",
+      "title": "The REAL ‘life’ of KARL MARX",
+      "view_count": 389980,
+      "like_count": 13080,
+      "duration": 9151,
+      "upload_date": "20240722",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000,
+      "description": "Karl Marx spent his entire life avoiding work, sponging off his friends and family, burdening the lives of everyone he came into contact with, all because Marx wanted to overthrow the current regime (a subconscious rebellion against his parents) and install himself in the seat of ultimate power (as a way to avoid work). He didn't care about the \"workers\", his children, his wife, his parents, nor anybody else. All he cared about was himself, and today's video will show you exactly what happened and why.\n\nArticle mentioned in the video regarding the Industrial Revolution https://mises.org/mises-daily/popular-and-wrong-interpretation-industrial-revolution \n\nClarification for 32:04. Some Hermeticists call the Christian God the ‘demiurgos’ (the Artisan), while others call the true immaterial God the ‘demiurgos’... you know, just to confuse us. Well, for the purposes of this video, the name isn’t important. What matters is that, as a Hermeticist, Marx is looking to overcome the ‘material’ God and get to the true ‘immaterial’ God. So if in doubt, just ignore where I said “and they call him the Demiurgos”.\n\nThis video is discussing events or concepts that are academic, educational and historical in nature. This video is for informational purposes and was created so we may better understand the past and learn from the mistakes others have made.\n\nFollow me on Instagram https://www.instagram.com/tikhistory/\n\nThe thumbnail for this video was created by https://www.instagram.com/tessdailyttv/\n\n⏲️ Videos on Mondays at 5pm GMT (depending on season, check for British Summer Time).\n\n- - - - -\n\n📚 BIBLIOGRAPHY / SOURCES 📚\n\nSource list fro this video https://docs.google.com/spreadsheets/d/1Xjs3sTBW68D4ufNQvw65dZmg1ItV_OCpJwydyjErf3k/edit?usp=sharing\n\nFull list of all my sources https://docs.google.com/spreadsheets/d/114GiK85MPs0v4GKm0izPj3DL2CrlJUdAantx5GQUKn8/edit?usp=sharing\n\n- - - - -\n\n⭐ SUPPORT TIK ⭐\n\nThis video isn't sponsored. My income comes purely from my Patreons and SubscribeStars, and from YouTube ad revenue. So, if you'd like to support this channel and make these videos possible, please consider becoming a Patreon or SubscribeStar. All supporters who pledge $1 or more will have their names listed in the videos. There are higher tiers too with additional perks, so check out the links below for more details.\n\nhttps://www.patreon.com/TIKhistory\nhttps://www.subscribestar.com/tikhistory\n\nThank you to my current supporters! You're AWESOME! \n\n- - - - -\n\nABOUT TIK 📝\n\nHistory isn’t as boring as some people think, and my goal is to get people talking about it. I also want to dispel the myths and distortions that ruin our perception of the past by asking a simple question - “But is this really the case?”. I have a 2:1 Degree in History and a passion for early 20th Century conflicts (mainly WW2). I’m therefore approaching this like I would an academic essay. Lots of sources, quotes, references and so on. Only the truth will do."
+    },
+    {
+      "id": "Oe5NezWbQbs",
+      "title": "Addressing the criticisms of the “concerning pattern in ALL Socialist childhoods” video",
+      "view_count": 58892,
+      "like_count": 3521,
+      "duration": 3113,
+      "upload_date": "20240705",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "K6wkHLDVdXs",
+      "title": "A concerning pattern in ALL Socialist childhoods",
+      "view_count": 334454,
+      "like_count": 14523,
+      "duration": 4253,
+      "upload_date": "20240701",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000,
+      "description": "There is a concerning pattern in all Socialist childhoods, as evidenced in the childhoods of Lenin, Trotsky, Karl Marx, Friedrich Engels, Stalin, Mussolini, Hitler, Mao Zedong and Pol Pot. A belief in altruism and poor parental relationships led to a self-hatred and a fear of independence which manifested as a hatred of the reality (what they called the \"capitalist system\").\n\nNOTE: I said in the video that Lenin was a Lutheran and I should explain this. His mother was Lutheran, but he was baptised in the Russian Orthodox Church. So Lutheranism was an influence, since he loved his \"saint\"-like mother.\n\nTimestamps:\n00:00:21 Vladimir Lenin and concept outline\n00:07:53 Leon Trotsky\n00:16:40 Karl Marx\n00:32:22 Friedrich Engels\n00:36:47 Joseph Stalin\n00:42:00 Benito Mussolini\n00:45:53 Adolf Hitler\n00:56:48 Mao Zedong\n01:00:59 Pol Pot\n01:03:57 Final Analysis\n\nThis video is discussing events or concepts that are academic, educational and historical in nature. This video is for informational purposes and was created so we may better understand the past and learn from the mistakes others have made.\n\nFollow me on Instagram https://www.instagram.com/tikhistory/\n\nThe thumbnail for this video was created by https://www.instagram.com/tessdailyttv/\n\n⏲️ Videos on Mondays at 5pm GMT (depending on season, check for British Summer Time).\n\n- - - - -\n\n📚 BIBLIOGRAPHY / SOURCES 📚\n\nThis video's bibliography https://docs.google.com/spreadsheets/d/11BcsAaJcxCHpqABPvzZ0hzZ7xe1qIWuoiz-zHsIgJAM/edit?usp=sharing\n\nFull list of all my sources https://docs.google.com/spreadsheets/d/114GiK85MPs0v4GKm0izPj3DL2CrlJUdAantx5GQUKn8/edit?usp=sharing\n\n- - - - -\n\n⭐ SUPPORT TIK ⭐\n\nThis video isn't sponsored. My income comes purely from my Patreons and SubscribeStars, and from YouTube ad revenue. So, if you'd like to support this channel and make these videos possible, please consider becoming a Patreon or SubscribeStar. All supporters who pledge $1 or more will have their names listed in the videos. There are higher tiers too with additional perks, so check out the links below for more details.\n\nhttps://www.patreon.com/TIKhistory\nhttps://www.subscribestar.com/tikhistory\n\nThank you to my current supporters! You're AWESOME! \n\n- - - - -\n\nABOUT TIK 📝\n\nHistory isn’t as boring as some people think, and my goal is to get people talking about it. I also want to dispel the myths and distortions that ruin our perception of the past by asking a simple question - “But is this really the case?”. I have a 2:1 Degree in History and a passion for early 20th Century conflicts (mainly WW2). I’m therefore approaching this like I would an academic essay. Lots of sources, quotes, references and so on. Only the truth will do."
+    },
+    {
+      "id": "2sJCktyQ8vw",
+      "title": "Lenin before the Russian Revolution",
+      "view_count": 192287,
+      "like_count": 8749,
+      "duration": 3136,
+      "upload_date": "20240617",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "MBTFj6uGYr4",
+      "title": "Britain’s WORST EVER tank battle: The Battle of Gazala 1942 BATTLESTORM Documentary",
+      "view_count": 321277,
+      "like_count": 9179,
+      "duration": 10206,
+      "upload_date": "20240520",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000,
+      "description": "The Battle of Gazala in 1942 was Rommel’s most important battle, and one of the worst defeats in British history, especially for the Royal Tank Regiment. The British 8th Army deployed over 900 tanks in this battle, but was left with just a handful by the end of it. However, Rommel was also close to defeat too and Gazala could have ended in total disaster for him had the British not dropped the ball. Using detailed maps and animations, this video goes over the complete history of the battle, supported by 57 historical sources and 742 citations at the bottom of the screen.\n\nThis video is discussing events or concepts that are academic, educational and historical in nature. This video is for informational purposes and was created so we may better understand the past and learn from the mistakes others have made.\n\nFollow me on Instagram https://www.instagram.com/tikhistory/\n\nThe thumbnail for this video was created by https://www.instagram.com/tessdailyttv/\n\nTimestamps:\n00:00:00 - Intro and Recap of the North African Campaign\n00:00:47 - British Preparations\n00:21:35 - German Preparations\n00:32:18 - Numbers for Both sides\n00:35:28 - 26th of May 1942 (Phase 1: Rommel’s Attack)\n00:37:04 - 27th of May 1942\n00:58:48 - 28th of May 1942\n01:03:57 - 29th of May 1942\n01:11:16 - 30th of May 1942 (Phase 2: The Cauldron)\n01:15:27 - 31st of May 1942\n01:18:33 - 1st of June 1942\n01:20:49 - 2nd of June 1942\n01:22:51 - 3rd of June 1942 (Phase 3: Operation Aberdeen)\n01:33:36 - 4th of June 1942\n01:34:04 - 5th of June 1942\n01:42:01 - 6th of June 1942\n01:44:48 - 7th of June 1942 (Phase 4: French Pride)\n01:49:44 - 8th of June 1942\n01:52:20 - 9th of June 1942\n01:53:41 - 10th of June 1942\n01:57:30 - 11th June 1942 (Phase 5: British Catastrophe)\n01:58:31 - 12th of June 1942\n02:03:55 - 13th of June 1942\n02:06:22 - 14th of June 1942 (Phase 6: Endgame)\n02:21:50 - 15th of June 1942\n02:28:39 - 16th of June 1942\n02:33:21 - 17th of June 1942\n02:36:31 - 18th of June 1942\n02:38:50 - Aftermath and Assessment\n\n- - - - -\n\n📚 BIBLIOGRAPHY / SOURCES 📚\n\nGazala source list https://docs.google.com/spreadsheets/d/1R0Skeai3KpyjXagb4m7aJVJDxdNIVe_mWdQIBPF9Wck/edit?usp=sharing\n\nFull list of all my sources https://docs.google.com/spreadsheets/d/114GiK85MPs0v4GKm0izPj3DL2CrlJUdAantx5GQUKn8/edit?usp=sharing\n\n- - - - -\n\n⭐ SUPPORT TIK ⭐\n\nThis video isn't sponsored. My income comes purely from my Patreons and SubscribeStars, and from YouTube ad revenue. So, if you'd like to support this channel and make these videos possible, please consider becoming a Patreon or SubscribeStar. All supporters who pledge $1 or more will have their names listed in the videos. There are higher tiers too with additional perks, so check out the links below for more details.\n\nhttps://www.patreon.com/TIKhistory\nhttps://www.subscribestar.com/tikhistory\n\nThank you to my current supporters! You're AWESOME! \n\n- - - - -\n\nABOUT TIK 📝\n\nHistory isn’t as boring as some people think, and my goal is to get people talking about it. I also want to dispel the myths and distortions that ruin our perception of the past by asking a simple question - “But is this really the case?”. I have a 2:1 Degree in History and a passion for early 20th Century conflicts (mainly WW2). I’m therefore approaching this like I would an academic essay. Lots of sources, quotes, references and so on. Only the truth will do."
+    },
+    {
+      "id": "9qUMnPhR_Hk",
+      "title": "The National Socialist Welfare State",
+      "view_count": 156602,
+      "like_count": 7615,
+      "duration": 2336,
+      "upload_date": "20240513",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "Gh7v0DU9UWA",
+      "title": "The REAL reason Hitler killed Ernst Röhm in the Night of the Long Knives",
+      "view_count": 440913,
+      "like_count": 13469,
+      "duration": 4112,
+      "upload_date": "20240408",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000,
+      "description": "Some still paint the clash between Hitler and Ernst Röhm as a clash between two distinct ideologies, whereas the reality is far more intriguing. So this video provides evidence for the reason Adolf Hitler initiated the Night of the Long Knives in 1934.\n\nThis video is discussing events or concepts that are academic, educational and historical in nature. This video is for informational purposes and was created so we may better understand the past and learn from the mistakes others have made.\n\nFollow me on Instagram https://www.instagram.com/tikhistory/\n\nThe thumbnail for this video was created by Terri Young https://www.instagram.com/tessdailyttv/\n\n⏲️ Videos on Mondays at 5pm GMT (depending on season, check for British Summer Time).\n\n- - - - -\n\n📚 BIBLIOGRAPHY / SOURCES 📚\n\nSpecific sources used in this video https://docs.google.com/spreadsheets/d/1Yhtgd-8FhwaJwEHNn6N77xFLB-1wFYxW10_bmPAylqo/edit?usp=sharing\n\nFull list of all my sources https://docs.google.com/spreadsheets/d/114GiK85MPs0v4GKm0izPj3DL2CrlJUdAantx5GQUKn8/edit?usp=sharing\n\n- - - - -\n\n⭐ SUPPORT TIK ⭐\n\nThis video isn't sponsored. My income comes purely from my Patreons and SubscribeStars, and from YouTube ad revenue. So, if you'd like to support this channel and make these videos possible, please consider becoming a Patreon or SubscribeStar. All supporters who pledge $1 or more will have their names listed in the videos. There are higher tiers too with additional perks, so check out the links below for more details.\n\nhttps://www.patreon.com/TIKhistory\nhttps://www.subscribestar.com/tikhistory\n\nThank you to my current supporters! You're AWESOME! \n\n- - - - -\n\nABOUT TIK 📝\n\nHistory isn’t as boring as some people think, and my goal is to get people talking about it. I also want to dispel the myths and distortions that ruin our perception of the past by asking a simple question - “But is this really the case?”. I have a 2:1 Degree in History and a passion for early 20th Century conflicts (mainly WW2). I’m therefore approaching this like I would an academic essay. Lots of sources, quotes, references and so on. Only the truth will do."
+    },
+    {
+      "id": "CcwmbqxF9so",
+      "title": "The BEST and WORST history sources (tier list)",
+      "view_count": 68420,
+      "like_count": 3557,
+      "duration": 1083,
+      "upload_date": "20240325",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "fNvfzJwyzX8",
+      "title": "Hitler WASN’T funded into power by the capitalists",
+      "view_count": 97687,
+      "like_count": 7154,
+      "duration": 1569,
+      "upload_date": "20240318",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "UvyOysuDTw0",
+      "title": "A brief history of Freyberg's 2nd New Zealand Division in WW2",
+      "view_count": 101157,
+      "like_count": 4589,
+      "duration": 2428,
+      "upload_date": "20240304",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "0q16cq25SCY",
+      "title": "“Hitler privatized the industries” is ridiculously misleading",
+      "view_count": 112234,
+      "like_count": 6828,
+      "duration": 2333,
+      "upload_date": "20240219",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "gAyv6iIBTh4",
+      "title": "Definition of ideobabble (with examples)",
+      "view_count": 28703,
+      "like_count": 2850,
+      "duration": 303,
+      "upload_date": "20240207",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "6kzZoK5CtJ8",
+      "title": "Hegel’s ideobabble is the basis of Marxism and Fascism",
+      "view_count": 292789,
+      "like_count": 14030,
+      "duration": 3259,
+      "upload_date": "20240206",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000,
+      "description": "Hegel's ideological nonsense is the basis of Marxism, Fascism and National Socialism, and I'll explain how and why in this video.\n\nThis video is discussing events or concepts that are academic, educational and historical in nature. This video is for informational purposes and was created so we may better understand the past and learn from the mistakes others have made.\n\nFollow me on Instagram https://www.instagram.com/tikhistory/\n\nThe thumbnail for this video was created by https://www.instagram.com/tessdailyttv/\n\n⏲️ Videos on Mondays at 5pm GMT (depending on season, check for British Summer Time).\n\n- - - - -\n\n📚 BIBLIOGRAPHY / SOURCES 📚\n\nFull list of all my sources https://docs.google.com/spreadsheets/d/114GiK85MPs0v4GKm0izPj3DL2CrlJUdAantx5GQUKn8/edit?usp=sharing\n\n- - - - -\n\n⭐ SUPPORT TIK ⭐\n\nThis video isn't sponsored. My income comes purely from my Patreons and SubscribeStars, and from YouTube ad revenue. So, if you'd like to support this channel and make these videos possible, please consider becoming a Patreon or SubscribeStar. All supporters who pledge $1 or more will have their names listed in the videos. There are higher tiers too with additional perks, so check out the links below for more details.\n\nhttps://www.patreon.com/TIKhistory\nhttps://www.subscribestar.com/tikhistory\n\nThank you to my current supporters! You're AWESOME! \n\n- - - - -\n\nABOUT TIK 📝\n\nHistory isn’t as boring as some people think, and my goal is to get people talking about it. I also want to dispel the myths and distortions that ruin our perception of the past by asking a simple question - “But is this really the case?”. I have a 2:1 Degree in History and a passion for early 20th Century conflicts (mainly WW2). I’m therefore approaching this like I would an academic essay. Lots of sources, quotes, references and so on. Only the truth will do."
+    },
+    {
+      "id": "GbWdOn25tBQ",
+      "title": "Why did Eisenhower stop Devers from crossing the Rhine?",
+      "view_count": 146291,
+      "like_count": 5866,
+      "duration": 2140,
+      "upload_date": "20240122",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "chgZcPzfbeI",
+      "title": "But how do you know you're right? The Objective Theory of History",
+      "view_count": 93332,
+      "like_count": 6511,
+      "duration": 2603,
+      "upload_date": "20240108",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "nW6S47vKvpk",
+      "title": "A friendly chat with TIK",
+      "view_count": 39892,
+      "like_count": 3021,
+      "duration": 2970,
+      "upload_date": "20240106",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "DtX7cEZ-XHA",
+      "title": "My late update! (Gazala, Patreon Q&As, and more)",
+      "view_count": 33876,
+      "like_count": 3356,
+      "duration": 740,
+      "upload_date": "20231224",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "6iOaf5_8oh4",
+      "title": "The Aftermath at Stalingrad | BATTLESTORM STALINGRAD E51 (FINALE)",
+      "view_count": 177594,
+      "like_count": 9374,
+      "duration": 2021,
+      "upload_date": "20231211",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "7OZjCCghxpI",
+      "title": "The 6th Army surrenders! BATTLESTORM STALINGRAD E50",
+      "view_count": 137017,
+      "like_count": 7441,
+      "duration": 2436,
+      "upload_date": "20231127",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "Iis4FmSRLXI",
+      "title": "What's coming after Stalingrad? (plus other changes)",
+      "view_count": 50461,
+      "like_count": 6093,
+      "duration": 912,
+      "upload_date": "20231118",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "IJE9ShBy9Ug",
+      "title": "Hitler's Conference after Paulus' Surrender Feb 1943",
+      "view_count": 596712,
+      "like_count": 11451,
+      "duration": 1668,
+      "upload_date": "20231106",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000,
+      "description": "This video is discussing events or concepts that are academic, educational and historical in nature. This video is for informational purposes and was created so we may better understand the past and learn from the mistakes others have made.\n\nFollow me on Instagram https://www.instagram.com/tikhistory/\n\n⏲️ Videos on Mondays at 5pm GMT (depending on season, check for British Summer Time).\n\nThe thumbnail for this video was created by Terri Young. Need awesome graphics? Check out her website https://www.terriyoungdesigns.co.uk/\n\n- - - - -\n\n📚 BIBLIOGRAPHY / SOURCES 📚\n\nFull list of all my sources https://docs.google.com/spreadsheets/d/114GiK85MPs0v4GKm0izPj3DL2CrlJUdAantx5GQUKn8/edit?usp=sharing\n\n⚔️ If you like Stalingrad, you may also enjoy historian Anton Joly's YouTube channel \"Stalingrad Battle Data\". Link: https://www.youtube.com/channel/UCIk1QDvITjPOCsIRGGpSasA\n\nIf you'd like to learn more about the 64th Army, check out Dann Falk's book on the 64th Army, and his website here: https://falkenbooks.com/\n\nHistorian Jason D. Mark also has a website where you can purchase his books from : https://www.leapinghorseman.com/\n\nCheck out Egor Kobyakov's Stalingrad articles here - https://warspot.net/users/201-egor-kobyakov/published\n\n- - - - -\n\n⭐ SUPPORT TIK ⭐\n\nThis video isn't sponsored. My income comes purely from my Patreons and SubscribeStars, and from YouTube ad revenue. So, if you'd like to support this channel and make these videos possible, please consider becoming a Patreon or SubscribeStar. All supporters who pledge $1 or more will have their names listed in the videos. There are higher tiers too with additional perks, so check out the links below for more details.\n\nhttps://www.patreon.com/TIKhistory\nhttps://www.subscribestar.com/tikhistory\n\nThank you to my current supporters! You're AWESOME! \n\n- - - - -\n\nABOUT TIK 📝\n\nHistory isn’t as boring as some people think, and my goal is to get people talking about it. I also want to dispel the myths and distortions that ruin our perception of the past by asking a simple question - “But is this really the case?”. I have a 2:1 Degree in History and a passion for early 20th Century conflicts (mainly WW2). I’m therefore approaching this like I would an academic essay. Lots of sources, quotes, references and so on. Only the truth will do."
+    },
+    {
+      "id": "9ml4ib7CzHM",
+      "title": "Two pockets... or three? BATTLESTORM STALINGRAD E49",
+      "view_count": 114584,
+      "like_count": 5779,
+      "duration": 2523,
+      "upload_date": "20231030",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "eYLlpviqulQ",
+      "title": "Hitler vs the Disabled (Aktion T4)",
+      "view_count": 104236,
+      "like_count": 5637,
+      "duration": 2369,
+      "upload_date": "20231016",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "kIZtAsLvFto",
+      "title": "Stalin’s Quest for Ape-Men Super-Soldiers",
+      "view_count": 86728,
+      "like_count": 5896,
+      "duration": 625,
+      "upload_date": "20231002",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "AWYjBfe0I9s",
+      "title": "Did Darwin cause Hitler? (The Eugenics Debate)",
+      "view_count": 130055,
+      "like_count": 5659,
+      "duration": 4118,
+      "upload_date": "20230925",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "9SdxZvdBaXo",
+      "title": "Erhard Milch to the Rescue! BATTLESTORM STALINGRAD E48",
+      "view_count": 136019,
+      "like_count": 5857,
+      "duration": 2615,
+      "upload_date": "20230918",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "tCHyNw5lEl0",
+      "title": "The UK DIDN'T \"Privatize\" the Railways",
+      "view_count": 43953,
+      "like_count": 3632,
+      "duration": 515,
+      "upload_date": "20230911",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "yQ5x_2u3WOw",
+      "title": "Just tell your teachers what they want to hear",
+      "view_count": 90010,
+      "like_count": 7722,
+      "duration": 516,
+      "upload_date": "20230904",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "vSwMGJhxPLE",
+      "title": "Going to university? Think before you do! (Plumber vs Lecturer)",
+      "view_count": 52549,
+      "like_count": 4454,
+      "duration": 1316,
+      "upload_date": "20230904",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "rOySICBQ_1s",
+      "title": "Just a quick heads-up",
+      "view_count": 32675,
+      "like_count": 3677,
+      "duration": 151,
+      "upload_date": "20230902",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    }
+  ],
+  "outliers": [
+    {
+      "id": "FvA9odna5dw",
+      "title": "An Open Letter to Prime Minister Keir Starmer (Southport)",
+      "view_count": 979363,
+      "like_count": 60374,
+      "duration": 4269,
+      "upload_date": "20240805",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "S-xPsQEvmNk",
+      "title": "The Dangerous Appeal of Hitler’s AI-Translated Speeches",
+      "view_count": 627247,
+      "like_count": 24309,
+      "duration": 1560,
+      "upload_date": "20241021",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "IJE9ShBy9Ug",
+      "title": "Hitler's Conference after Paulus' Surrender Feb 1943",
+      "view_count": 596712,
+      "like_count": 11451,
+      "duration": 1668,
+      "upload_date": "20231106",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "v7_J_daQkSU",
+      "title": "Where do our modern ideologies come from? (Timeline Map)",
+      "view_count": 539587,
+      "like_count": 23490,
+      "duration": 2115,
+      "upload_date": "20240826",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "Gh7v0DU9UWA",
+      "title": "The REAL reason Hitler killed Ernst Röhm in the Night of the Long Knives",
+      "view_count": 440913,
+      "like_count": 13469,
+      "duration": 4112,
+      "upload_date": "20240408",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    },
+    {
+      "id": "YnwC8WxKMMc",
+      "title": "The REAL ‘life’ of KARL MARX",
+      "view_count": 389980,
+      "like_count": 13080,
+      "duration": 9151,
+      "upload_date": "20240722",
+      "channel": "TIKhistory",
+      "channel_subscriber_count": 428000
+    }
+  ],
+  "hooks": {
+    "FvA9odna5dw": "This is an open letter to my prime minister Kia Starmer of the United Kingdom. Mura Starmer, I am a historian and I come from a certain town in the north of England. You may have heard of it cuz it's Southport.",
+    "S-xPsQEvmNk": "yeah my dear fellow Germans a sudden commotion has come over the German people now even those circles are beginning to stir which until now have been deaf to the constant warnings that we have been trying to address to the mass of our people almost without interruption for the past 3 years in recent",
+    "IJE9ShBy9Ug": "Paulus was captured on the 31st of January 1943 when his southern pocket collapsed. Strecker’s northern pocket continued to resist at Stalingrad, although was on the brink too; at a time when the Axis were fighting desperately to shore up the Eastern Front. They had just fallen back from the Caucasus, and a conference was called on the 1st of February 1943 for Hitler and the German High Command to discuss the situation. “If it had been done like that, as the good Manstein wanted, they would not have been able to withdraw and everything would have fallen to pieces.",
+    "v7_J_daQkSU": "this is the map we're going to talk about today a map showing all the connections between the various philosophies religions and ideologies showing the origins of national socialism fascism Marxism socialism and other movements too let's get into it I've made numerous videos on these ideologies but ",
+    "Gh7v0DU9UWA": "In order to understand why Hitler killed Ernst Röhm, we need to go back a little bit to the end of the First World War. When the Russian Revolution occurred from 1917 onwards, millions starved, the economy collapsed, the people were suppressed under a brutal regime, and revolutionaries across the world realised that something had gone wrong. This was why, when the Social Democratic Party of Germany got into power in 1918, one of the first things that their socialist leader, Friedrich Ebert, declared to the German people was that: they would not make the same mistake as the Communists had in Russia.",
+    "YnwC8WxKMMc": "there have been thousands of books about Marxism but almost all have been written by academics and zealots for whom it is near blasphemy to treat him KL Marx as a figure of flesh and blood but the reality is that one cannot separate Marxism the ideology from Marx the man and today we're going to fin"
+  }
+}

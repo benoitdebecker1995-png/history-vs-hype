@@ -1,0 +1,41 @@
+{
+  "video_id": "q_ReESRfV8g",
+  "channel": "TikHistory",
+  "title": "THIS is the Actual Idea behind Fascism",
+  "views": 267394,
+  "duration_seconds": 3292,
+  "word_count": 7079,
+  "hook": {
+    "first_50_words": "the mainstream media reports a rise of the far right in Europe they talk about the Holocaust and Germany's newly elected afd telling us that they are the fascists and that they are a threat to our democracy but when you hear that musolini had a Jewish mistress for 27",
+    "first_sentence": "the mainstream media reports a rise of",
+    "seconds_to_first_date": 2170.1,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 2170.1,
+    "seconds_to_turn_moment": 541.7,
+    "turn_moment_description": "mind but not exist in reality where do we draw upon the knowledge of peness from well obviously Plato said our minds must exist in a differ",
+    "percent_history_vs_analysis": 1.5,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 6,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "materialism idealism empirism and dialectics are all nonsense that's where I'm going to come from so I encourage you to subscribe if you haven't done so already and in the meantime check out my other videos on Fascism and national socialism here thanks for watching and supporting bye for now",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 129.0,
+    "date_frequency_per_minute": 0.11,
+    "avg_sentence_length": 15.0
+  }
+}

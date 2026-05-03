@@ -1,0 +1,41 @@
+{
+  "video_id": "j4kI2h3iotA",
+  "channel": "Knowing_Better",
+  "title": "The Part of History You've Always Skipped | Neoslavery",
+  "views": 6026235,
+  "duration_seconds": 4616,
+  "word_count": 13818,
+  "hook": {
+    "first_50_words": "this video is going to look and sound a little different from my usual content because this topic is serious complex and infuriating it's also incredibly long as you've probably noticed but it is necessary to understand the full picture as we're going through this story i want you to",
+    "first_sentence": "this video is going to look and sound a",
+    "seconds_to_first_date": 19.3,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 2,
+    "seconds_to_first_historical_date": 19.3,
+    "seconds_to_turn_moment": 825.2,
+    "turn_moment_description": "is right about that but why the three-fifths compromise was a way for the southern states to increase their representation in congress and t",
+    "percent_history_vs_analysis": 10.8,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 18,
+    "explicit_source_citations": 5,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "head on over to patreon.com knowingbetter or for a one-time donation paypal dot me slash knowingbetter don't forget to emancipate that subscribe button or the join button if you're an abolitionist check out the merch at knowingbetter.tv follow me on twitter facebook and instagram and join us on the subreddit",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 179.6,
+    "date_frequency_per_minute": 1.53,
+    "avg_sentence_length": 15.0
+  }
+}

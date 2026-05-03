@@ -1,0 +1,41 @@
+{
+  "video_id": "RCRTgtpC-Go",
+  "channel": "Shaun",
+  "title": "Dropping the Bomb: Hiroshima & Nagasaki",
+  "views": 3407519,
+  "duration_seconds": 8419,
+  "word_count": 23945,
+  "hook": {
+    "first_50_words": "hello everyone today we're going to be talking about the atomic bombings of hiroshima and nagasaki during the second world war and let's start today by telling a story so at the conclusion to the second world war japan though their military forces had been soundly defeated stubbornly refused to",
+    "first_sentence": "hello everyone today we're going to be",
+    "seconds_to_first_date": 167.2,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 167.2,
+    "seconds_to_turn_moment": 4038.2,
+    "turn_moment_description": "peace and security and yet left the japanese some show of saving their military honor and some assurance of their national existence howeve",
+    "percent_history_vs_analysis": 1.8,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 10,
+    "explicit_source_citations": 65,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "i'm currently accepting suggestions for future video topics on my patreon page so if you have anything in particular you would like to suggest you can head over to the patreon link in the video description and let me know right thanks a lot folks i'll see you next time",
+    "has_cta": true,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "prediction"
+  },
+  "pacing": {
+    "words_per_minute": 170.6,
+    "date_frequency_per_minute": 0.25,
+    "avg_sentence_length": 15.0
+  }
+}

@@ -1,7 +1,7 @@
 # PACKAGING MANDATE — Hard Reject Policy
 
-**Effective:** 2026-03-12
-**Authority:** Channel CTR data (~33 videos measured, single snapshot)
+**Effective:** 2026-03-12 | **Updated:** 2026-03-21 (traffic source data confirms mandate)
+**Authority:** Channel CTR data (~33 videos) + traffic source analysis (48 videos)
 **Enforcement:** `title_scorer.py` auto-rejects violations
 
 > **⚠️ Data Confidence Note (audit 2026-03-12):**
@@ -9,6 +9,11 @@
 > - Title pattern CTR averages are **MEDIUM confidence** (n=2-19 per pattern, directional only)
 > - Thumbnail data is **LOW confidence** (mixed ~1.7x vs document, n=8 total)
 > - All CTR from single collection date. Use for direction, not precision.
+>
+> **Traffic source confirmation (2026-03-21):**
+> - 73% of views come from subscribers. Only 14% from Suggested/Related (healthy = 30-50%).
+> - YouTube Search = only 3.4%. Packaging is the #1 growth bottleneck — confirmed by data.
+> - See: `channel-data/patterns/TRAFFIC-SOURCE-ANALYSIS.md`
 
 ---
 
@@ -51,6 +56,8 @@ Any title matching these patterns is **automatically disqualified**, regardless 
 
 ### Tier 2: Declarative (3.8% avg CTR)
 - Two-punch sentences. Statement + evidence promise.
+- **Two-sentence formula** has 11% outlier rate (3x+ views) — the strongest proven structural pattern.
+- **Scale words** (e.g., "every," "all," "entire," "century") provide 1.33x lift in outlier videos.
 - Examples: "Two Countries Split the World in Half. The Line Is Still There."
 - Best for: Myth-busting, document reveals, surprising facts
 
@@ -58,33 +65,13 @@ Any title matching these patterns is **automatically disqualified**, regardless 
 - "How [Entity] [Active Verb] [Stakes]"
 - Examples: "How France Drained Haiti for 122 Years"
 - Best for: Mechanism explainers, causal chains
+- **Traffic insight:** How/Why titles get 2x search traffic (26.4% from search vs 12.7% for declarative). Use for evergreen/search-optimized topics.
 
 ---
 
 ## THUMBNAIL MANDATE
 
-### Map-First Policy
-- **Data:** Map/mixed thumbnails avg ~1.7x more views than document-only (n=4 vs n=4 — LOW confidence)
-- **Data:** No text overlay (3.3% CTR) > text overlay (2.0% CTR) — ⚠️ small sample
-- **Data:** No face (3.3% CTR) > face (1.9% CTR) — ⚠️ small sample
-- **Rationale:** Even with low sample confidence, map thumbnails communicate "this is about a place/conflict" instantly, which matches the channel's territorial dispute niche
-
-### Required Elements
-1. **Geographic element** — Map, border, territory, or satellite view
-2. **Color contrast** — Two distinct colors showing opposing sides/claims
-3. **Clean composition** — No text overlay, no face, no busy backgrounds
-
-### Forbidden Elements
-- Face/person thumbnails (unless the video IS about a specific person)
-- Text overlays (title does the work, not the thumbnail)
-- Document-only thumbnails (pair with map context)
-- Stock photography or generic historical images
-
-### Blueprint Template
-For every video, create 3 thumbnail concepts:
-- **A:** Split-map showing the territorial/conceptual divide
-- **B:** Animated border/line overlay on geographic context
-- **C:** Document fragment placed ON TOP of geographic context
+> **Retired 2026-04-26.** Thumbnail rules now live in `tools/benchmark/PER-CHANNEL-THUMBNAIL-PLAYBOOK.md` and `tools/benchmark/OUTLIER-THUMBNAIL-CORPUS.md`. The averaging-based rules previously in this section have been retired — see `tools/benchmark/THUMBNAIL-AUDIT-FINDINGS-2026-04-26.md` for why (text overlay is a floor at 90-96% in BOTH outliers and losers, not a winning predictor; face/map usage is channel-anchored, not niche-wide). Use `/thumbnail` for per-video concept generation grounded in the per-channel playbook + outlier corpus.
 
 ---
 
@@ -106,9 +93,7 @@ Before publishing any video:
 - [ ] Title scores 65+ on title_scorer.py
 - [ ] Title contains NO year, NO colon, NO "The X That Y"
 - [ ] Title uses versus, declarative, or how/why pattern
-- [ ] Thumbnail scores 80+ on thumbnail_checker.py
-- [ ] Thumbnail is map-based with color contrast
-- [ ] Thumbnail has NO text overlay, NO face
+- [ ] Thumbnail concepts generated via `/thumbnail` (grounded in per-channel playbook + outlier corpus)
 - [ ] Topic has verified search demand (VidIQ keyword volume > 500/month)
 
 ---
@@ -118,8 +103,10 @@ Before publishing any video:
 | Tool | What it checks | Command |
 |------|---------------|---------|
 | `title_scorer.py` | Title pattern, hard rejects, score | `python -m tools.title_scorer "Title Here"` |
-| `thumbnail_checker.py` | Map-first, no face, no text, contrast | `python -m tools.preflight.thumbnail_checker --project PATH` |
+| `outlier_title_dissector.py` | Outlier pattern analysis (scale words, two_sentence, entity specificity) | `python -m tools.benchmark.outlier_title_dissector --score "Title Here"` |
+| `thumbnail_checker.py` | Text overlay, no talking head, topic-appropriate visual | `python -m tools.preflight.thumbnail_checker --project PATH [--territorial]` |
 | `demand_checker.py` | Search volume, comparable videos | `python -m tools.preflight.demand_checker "topic"` |
+| `news_hook_monitor.py` | Google News RSS scan for timely topic hooks | `python -m tools.discovery.news_hook_monitor --scan` |
 | `/greenlight` | All three combined — single pre-work gate | `/greenlight "topic"` |
 | `/preflight` | Full 5-gate scorecard (topic+script+title+thumb+duration) | `/preflight --project PATH` |
 

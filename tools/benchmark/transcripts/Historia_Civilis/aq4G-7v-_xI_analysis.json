@@ -1,0 +1,41 @@
+{
+  "video_id": "aq4G-7v-_xI",
+  "channel": "Historia_Civilis",
+  "title": "The Bronze Age Collapse (approximately 1200 B.C.E.)",
+  "views": 4983791,
+  "duration_seconds": 1431,
+  "word_count": 3407,
+  "hook": {
+    "first_50_words": "sometime around the year 1200 bce human civilization did an oopsie within the short span of one generation the majority of earth's most technologically advanced civilizations faced an existential crisis nearly all of them failed the test the resulting collapse was a turning point in human history similar in scope",
+    "first_sentence": "sometime around the year 1200 bce human",
+    "seconds_to_first_date": 3.8,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "cold_fact",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 4,
+    "seconds_to_first_historical_date": 3.8,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 2.6,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 3,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "answers in our lifetimes but for now we don't know we see the aftermath of the bronze age collapse but when it comes to the root cause all we have are theories upon closer examination i think these guys are still alive and i think they're licking somebody's foot nasty",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 142.9,
+    "date_frequency_per_minute": 0.21,
+    "avg_sentence_length": 14.9
+  }
+}

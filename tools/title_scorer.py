@@ -1,5 +1,5 @@
 """
-Title Scorer — Grades YouTube title candidates against channel CTR data.
+Title Scorer v4 — Grades YouTube title candidates against channel CTR data.
 
 Scores titles 0-100 based on measured CTR from POST-PUBLISH-ANALYSIS files.
 
@@ -14,6 +14,24 @@ Scores titles 0-100 based on measured CTR from POST-PUBLISH-ANALYSIS files.
 
     All CTR snapshots are from a single collection date (2026-02-23).
     Use for directional guidance, not precision targeting.
+
+v4 recalibration (2026-04-08) — audit of 18 published titles vs real CTR:
+    BEFORE: 33% error rate (6/18 mismatches). AFTER: 17% (3/18).
+
+    Changes:
+    - Context-aware colon penalty: versus+colon ("X vs Y: Stakes") gets -10 not -50.
+      Data: "Venezuela vs Guyana: Essequibo" got 4.3% CTR despite colon.
+    - Context-aware year penalty: year-as-hook ("Invented in 1828") gets -10 not -50.
+      Data: "Flat Earth Myth Was Invented in 1828" got 3.7% CTR despite year.
+    - Evidence promise bonus (+10): "Here's the evidence/proof/documents".
+      Data: top 2 CTR titles both use evidence promises (9.5%, 5.4%).
+    - Named entity bonus (+5): countries, leaders, orgs create specificity.
+    - Controversy/myth-busting frame bonus (+5): accusation framing = high CTR.
+    - Smarter specific-number detection: excludes "200-Year-Old" adjective patterns.
+    - Length sweet spot lowered to 35+ chars (was 40).
+
+    Remaining weaknesses (3 over-scores): titles with good construction but zero
+    topic demand still score high. Needs demand multiplier (future work).
 
 Phase 67 recalibration:
     - Added niche benchmark layer (Phase 66 competitor data from channel-data/niche_benchmark.json)
@@ -119,14 +137,29 @@ PATTERN_SCORES = {
 from tools.benchmark_store import TOPIC_GRADE_THRESHOLDS  # noqa: E402
 
 # Penalty/bonus modifiers (all measured from real channel data)
-YEAR_PENALTY = -50          # HARD REJECT: Year in title = -45.6% CTR (n=6 vs n=27)
-COLON_PENALTY = -50         # HARD REJECT: Colon structure = -28.1% CTR (n=9 vs n=26)
+# v4 recalibration (2026-04-08): context-aware penalties replace blanket hard rejects
+YEAR_PENALTY = -50          # Year as topic label = hard reject (e.g., "The 1494 Line")
+YEAR_PENALTY_HOOK = -10     # Year as hook/specificity (e.g., "Invented in 1828") — reduced
+COLON_PENALTY = -50         # Colon as "Topic: Subtitle" = hard reject
+COLON_PENALTY_VERSUS = -10  # Colon in versus titles (e.g., "X vs Y: Stakes") — reduced
 THE_X_THAT_PENALTY = -50    # HARD REJECT: Worst-performing pattern (1.2% CTR historically)
-LENGTH_SWEET_SPOT = (40, 70)  # Optimal character range for mobile
+LENGTH_SWEET_SPOT = (35, 70)  # Optimal character range for mobile (v4: lowered from 40)
 LENGTH_PENALTY_SHORT = -5   # Too short = vague
 LENGTH_PENALTY_LONG = -10   # Too long = truncated on mobile
 SPECIFIC_NUMBER_BONUS = 10  # Specific numbers in title improve CTR
 ACTIVE_VERB_BONUS = 5       # Active verbs = +4.5% CTR (n=4 vs n=29, weak but positive)
+SCALE_WORD_BONUS = 5        # Scale words = 1.33x lift in outlier videos (650 videos, 14 channels)
+TWO_SENTENCE_BONUS = 5      # Two-sentence formula = 11% outlier rate (strongest structural pattern)
+EVIDENCE_PROMISE_BONUS = 10 # "Here's the evidence/proof/documents" — top CTR titles use this
+ENTITY_BONUS = 5            # Named countries, leaders, or orgs — specificity drives clicks
+CONTROVERSY_BONUS = 5       # Accusation/myth-busting framing — top CTR signal on this channel
+
+# Scale words from outlier_title_dissector analysis
+_SCALE_WORDS = {
+    'every', 'all', 'entire', 'whole', 'century', 'centuries',
+    'forever', 'million', 'billion', 'thousand', 'empire', 'world',
+    'continent', 'civilization', 'generation', 'generations',
+}
 
 # Minimum own-channel sample count before niche fallback is triggered (BENCH-02)
 _OWN_CHANNEL_MIN_SAMPLE = 5
@@ -165,10 +198,17 @@ def has_year(title: str) -> bool:
 
 
 def has_specific_number(title: str) -> bool:
-    """Check for specific numbers (not years) that create specificity."""
+    """Check for specific numbers (not years) that create real specificity.
+
+    v4: Exclude duration-as-adjective patterns like "200-Year-Old" or "500-Year"
+    which don't create the same specificity as "5 Myths" or "122 Years of French Extraction".
+    Duration adjectives are vague scale markers, not concrete data points.
+    """
     # Remove years first
     no_years = re.sub(r'\b(1[0-9]{3}|20[0-2][0-9])\b', '', title)
-    return bool(re.search(r'\b\d+\b', no_years))
+    # Remove duration-as-adjective patterns (e.g., "200-Year-Old", "500-Year Lie")
+    no_duration_adj = re.sub(r'\b\d+-[Yy]ear-?\w*', '', no_years)
+    return bool(re.search(r'\b\d+\b', no_duration_adj))
 
 
 def has_active_verb(title: str) -> bool:
@@ -181,6 +221,102 @@ def has_active_verb(title: str) -> bool:
     ]
     t = title.lower()
     return any(v in t for v in active_verbs)
+
+
+def _year_is_hook(title: str) -> bool:
+    """
+    Detect if the year in the title serves as a hook/specificity rather than topic label.
+
+    Hook years: embedded in phrases like "invented in 1828", "for 120 years",
+    "200-year-old", "since 1953". These add specificity and can boost CTR.
+
+    Label years: "The 1494 Line", "Iran 1979" — year IS the topic framing.
+    These get the full penalty.
+
+    Measured: "Flat Earth Myth Was Invented in 1828" got 3.7% CTR despite year.
+    """
+    t = title.lower()
+    # Year preceded by context words = hook usage
+    hook_patterns = [
+        r'(?:invented|created|started|began|built|written|signed|passed|founded)\s+in\s+\d{4}',
+        r'(?:since|from|after|before|until)\s+\d{4}',
+        r'\d+-year-old',
+        r'for\s+\d+\s+years?',
+        r'\d+\s+years?\s+(?:of|ago|later|old)',
+    ]
+    return any(re.search(p, t) for p in hook_patterns)
+
+
+def _colon_is_versus_stakes(title: str) -> bool:
+    """
+    Detect if the colon separates a versus matchup from stakes/subtitle.
+
+    "Venezuela vs Guyana: Who Owns Essequibo?" — colon after versus = stakes framing.
+    This is structurally different from "Dark Ages: What Americans Believe" (topic: subtitle).
+
+    Measured: "Venezuela vs Guyana: Essequibo" got 4.3% CTR despite colon.
+    """
+    # Colon comes AFTER a versus pattern
+    colon_pos = title.find(':')
+    if colon_pos < 0:
+        return False
+    before_colon = title[:colon_pos].lower()
+    return bool(re.search(r'\bvs\.?\b|\bversus\b', before_colon))
+
+
+def has_evidence_promise(title: str) -> bool:
+    """
+    Detect evidence/proof promise language — strongest CTR signal on this channel.
+
+    Top CTR titles: "Here's the Evidence" (9.5%), "Here's Who Did It" (3.7%),
+    "The Documents Prove It", "Primary Sources Destroy".
+
+    The channel's competitive advantage is evidence. Titles that promise it click better.
+    """
+    t = title.lower()
+    evidence_phrases = [
+        "here's", "the evidence", "the proof", "the documents",
+        "documents prove", "documents show", "primary source",
+        "the receipt", "every receipt", "we found", "we read",
+        "the original", "the actual", "word for word",
+    ]
+    return any(p in t for p in evidence_phrases)
+
+
+def has_named_entity(title: str) -> bool:
+    """
+    Detect named countries, leaders, or orgs that create specificity.
+
+    Titles with named entities get more impressions (YouTube knows who to show them to).
+    Top performers all name specific countries or political figures.
+    """
+    # Check for country/entity patterns (capitalized proper nouns typical of geo/political titles)
+    # Rather than maintain a huge list, detect patterns: "X vs Y" with caps, possessives, etc.
+    entity_signals = [
+        # Two+ capitalized words that aren't common English
+        r"\b(?:France|Spain|Portugal|Turkey|Greece|Iran|Venezuela|Guyana|"
+        r"Israel|Palestine|Russia|China|Morocco|Cyprus|Kashmir|Peru|"
+        r"Georgia|Haiti|Armenia|Kosovo|NATO|USSR|CIA|KGB|UN|EU|"
+        r"Trump|Vance|Stalin|Petain|Lagertha|Sykes|Picot)\b",
+    ]
+    return any(re.search(p, title) for p in entity_signals)
+
+
+def has_controversy_frame(title: str) -> bool:
+    """
+    Detect accusation/myth-busting framing that signals conflict/tension.
+
+    Top CTR: "Claims Christians Found Child Sacrifice" (9.5%), "Started With a Lie" (5.1%),
+    "Destroy the Narrative" (5.4%), "Weaponized Palestine" (5.5%).
+    """
+    t = title.lower()
+    controversy_words = [
+        'myth', 'lie', 'fake', 'hoax', 'claims', 'claim',
+        'debunk', 'destroy', 'narrative', 'propaganda',
+        'secret', 'hidden', 'nobody', 'sacrifice',
+        'walked back', 'phantom', 'illegal',
+    ]
+    return any(w in t for w in controversy_words)
 
 
 def _get_pattern_sample_count(db_path: str, pattern: str) -> int:
@@ -381,18 +517,25 @@ def score_title(title: str, db_path: str = None, topic_type: str = None) -> dict
     bonuses = []
     hard_rejects = []
 
-    # HARD REJECT: Year in title
+    # YEAR: Context-aware penalty (v4 recalibration)
+    # Year as hook ("Invented in 1828") = mild penalty. Year as label ("The 1494 Line") = hard reject.
+    # Data: "Flat Earth Myth Was Invented in 1828" got 3.7% CTR despite year.
     if has_year(title):
-        hard_rejects.append('YEAR detected — -45.6% CTR. Move year to description.')
-        penalties.append(('HARD REJECT: Year in title', YEAR_PENALTY))
+        if _year_is_hook(title):
+            penalties.append(('Year in title (hook usage — reduced penalty)', YEAR_PENALTY_HOOK))
+        else:
+            hard_rejects.append('YEAR as topic label — -45.6% CTR. Move year to description.')
+            penalties.append(('HARD REJECT: Year in title', YEAR_PENALTY))
 
-    # HARD REJECT: Colon in title
-    # NOTE: Do NOT use niche colon data (0.776 VPS) to soften this penalty.
-    # That figure is inflated by pipe-style titles (Knowing Better/Kraut).
-    # Own-channel measurement = -28.1% CTR penalty (HIGH confidence, n=9).
+    # COLON: Context-aware penalty (v4 recalibration)
+    # Colon after versus ("X vs Y: Stakes") = mild penalty. "Topic: Subtitle" = hard reject.
+    # Data: "Venezuela vs Guyana: Essequibo" got 4.3% CTR despite colon.
     if ':' in title:
-        hard_rejects.append('COLON detected — -28.1% CTR. Use period or em-dash.')
-        penalties.append(('HARD REJECT: Colon in title', COLON_PENALTY if pattern == 'colon' else COLON_PENALTY // 2))
+        if _colon_is_versus_stakes(title):
+            penalties.append(('Colon after versus (stakes framing — reduced penalty)', COLON_PENALTY_VERSUS))
+        else:
+            hard_rejects.append('COLON detected — -28.1% CTR. Use period or em-dash.')
+            penalties.append(('HARD REJECT: Colon in title', COLON_PENALTY if pattern == 'colon' else COLON_PENALTY // 2))
 
     # HARD REJECT: "The X That Y" pattern
     if pattern == 'the_x_that':
@@ -413,6 +556,41 @@ def score_title(title: str, db_path: str = None, topic_type: str = None) -> dict
     # Active verb bonus
     if has_active_verb(title):
         bonuses.append(('Active verb (creates tension)', ACTIVE_VERB_BONUS))
+
+    # Scale word bonus (1.33x lift in outlier videos)
+    title_words = set(title.lower().split())
+    if title_words & _SCALE_WORDS:
+        bonuses.append(('Scale word (1.33x outlier lift)', SCALE_WORD_BONUS))
+
+    # Two-sentence bonus (11% outlier rate — strongest structural pattern)
+    # Require 3+ lowercase chars before period to exclude abbreviations (Dr., St., vs.)
+    if re.search(r'(?<=[a-z]{3})\.\s+[A-Z]', title):
+        bonuses.append(('Two-sentence formula (11% outlier rate)', TWO_SENTENCE_BONUS))
+
+    # Evidence promise bonus (v4) — channel's #1 CTR signal
+    # "Here's the Evidence" = 9.5% CTR, "Primary Sources Destroy" = 5.4%
+    if has_evidence_promise(title):
+        bonuses.append(('Evidence promise (top CTR signal on this channel)', EVIDENCE_PROMISE_BONUS))
+
+    # Named entity bonus (v4) — specificity drives impressions and clicks
+    if has_named_entity(title):
+        bonuses.append(('Named entity (country/leader/org specificity)', ENTITY_BONUS))
+
+    # Controversy/myth-busting frame bonus (v4) — accusation framing = high CTR
+    if has_controversy_frame(title):
+        bonuses.append(('Controversy/myth-busting frame', CONTROVERSY_BONUS))
+
+    # Topic viability modifier (v4) — penalize good-construction-but-zero-demand titles
+    # Always runs (queries intel.db for competitor data). Silent on failure.
+    try:
+        from tools.packaging_intel import get_viability_modifier
+        viability_mod = get_viability_modifier(title)
+        if viability_mod > 0:
+            bonuses.append((f'Topic viability: high demand ({viability_mod:+d})', viability_mod))
+        elif viability_mod < 0:
+            penalties.append((f'Topic viability: low demand ({viability_mod:+d})', viability_mod))
+    except Exception:
+        pass  # Silent fallback — never crash due to intel issues
 
     # ------------------------------------------------------------------
     # 6. Final score

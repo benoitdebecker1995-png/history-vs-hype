@@ -1,0 +1,41 @@
+{
+  "video_id": "vFKjpNNjNGw",
+  "channel": "CaspianReport",
+  "title": "Why Zimbabwe wants its ‘white farmers’ back",
+  "views": 2061134,
+  "duration_seconds": 977,
+  "word_count": 2139,
+  "hook": {
+    "first_50_words": "This is a $100 trillion bank note from Zimbabwe. One of the most worthless currencies ever. The paper it's printed on is worth more than the money itself. Hyperinflation has come down hard on the country. At its peak in 2008, prices doubled every 24 hours. People went to sleep",
+    "first_sentence": "This is a $100 trillion bank note from Zimbabwe.",
+    "seconds_to_first_date": 0.6,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "cold_fact",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 0.6,
+    "seconds_to_turn_moment": 234.4,
+    "turn_moment_description": "mports and exports. However, when the sanctions failed to change Rhdesia's behavior, it became clear that the state couldn't be dismantled l",
+    "percent_history_vs_analysis": 11.7,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 1,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "in such a way that they look forward to the trip. I've been your host Shivan from Caspian Report. If you approve of what we do, please leave a comment, hit the like button, and mayhaps share the video. In any case, thank you for your time and so on.",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 131.4,
+    "date_frequency_per_minute": 1.41,
+    "avg_sentence_length": 13.9
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "video_id": "MBTFj6uGYr4",
+  "channel": "TikHistory",
+  "title": "Britain’s WORST EVER tank battle: The Battle of Gazala 1942 BATTLESTORM Documentary",
+  "views": 321277,
+  "duration_seconds": 10206,
+  "word_count": 27333,
+  "hook": {
+    "first_50_words": "previously in the North African campaign series we've seen the Italians Advance into Egypt only to be thrown back during operation Compass Britain's greatest forgotten victory of the war which saw the British reach the elala area raml then landed in Africa and launched his first offensive driving the British",
+    "first_sentence": "previously in the North African campaign",
+    "seconds_to_first_date": 81.4,
+    "seconds_to_first_named_entity": 50.9,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 81.4,
+    "seconds_to_turn_moment": 1553.3,
+    "turn_moment_description": "was the main attack but it wasn't RL would lead his mobile forces around the South with the Italians on the Northern flank heading straight",
+    "percent_history_vs_analysis": 5.5,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 9,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "sackings Montgomery and the cautiousness that the British were later known for we'll be covering all these battles and more in the future so be sure to subscribe to the channel if you haven't done so already and check out these other videos here thanks for watching bye for now",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "prediction"
+  },
+  "pacing": {
+    "words_per_minute": 160.7,
+    "date_frequency_per_minute": 0.87,
+    "avg_sentence_length": 15.0
+  }
+}

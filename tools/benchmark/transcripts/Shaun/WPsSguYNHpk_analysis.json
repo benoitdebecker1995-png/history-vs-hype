@@ -1,0 +1,41 @@
+{
+  "video_id": "WPsSguYNHpk",
+  "channel": "Shaun",
+  "title": "Stellar Blade: The Fake Outrage",
+  "views": 2032108,
+  "duration_seconds": 7424,
+  "word_count": 21911,
+  "hook": {
+    "first_50_words": "hello everyone imagine if you can the culture War the great Clash of ideologies taking place on the battleground of all the media we read watch play and listen to then narrow your focus if you're able to just one front of that conflict the video games front what I'm",
+    "first_sentence": "hello everyone imagine if you can the",
+    "seconds_to_first_date": 91.5,
+    "seconds_to_first_named_entity": 86.0,
+    "hook_type": "specificity_bomb",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 91.5,
+    "seconds_to_turn_moment": 1550.3,
+    "turn_moment_description": "ly difference is in the twist really in Nia The Twist is that the humanity you're fighting for is extinct whereas in Stella blade it's that",
+    "percent_history_vs_analysis": 1.2,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 23,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "especially to all of my supporters over on patreon patreon supporters get early access to all my videos so if that's something that interests you I'll leave a link in the description for you to check out okay that's all for me today folks I'll see you next time bye",
+    "has_cta": true,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 177.1,
+    "date_frequency_per_minute": 0.1,
+    "avg_sentence_length": 15.0
+  }
+}

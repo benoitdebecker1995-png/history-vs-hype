@@ -1,0 +1,41 @@
+{
+  "video_id": "BASVRPfYFKo",
+  "channel": "Historia_Civilis",
+  "title": "Caesar Marches on Rome (49 B.C.E.)",
+  "views": 3124980,
+  "duration_seconds": 1160,
+  "word_count": 2945,
+  "hook": {
+    "first_50_words": "in 49 bce a provincial governor named julius caesar led an armed insurrection against the senate and people of rome he commanded 10 legions which was a lot and although they remained personally loyal to him most of them were hunkered down all the way up in gaul for the",
+    "first_sentence": "in 49 bce a provincial governor named",
+    "seconds_to_first_date": 34.1,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 2,
+    "seconds_to_first_historical_date": 34.1,
+    "seconds_to_turn_moment": 691.4,
+    "turn_moment_description": "the reason he gave the real reason might be a little less high-minded when domitius's ten thousand men discovered that caesar had pardoned",
+    "percent_history_vs_analysis": 1.0,
+    "chronological_vs_thematic": "thematic",
+    "documents_mentioned": 2,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "to his six remaining legions in gaul instructing them to break camp and get themselves to spain as quickly as possible they would beat him there but that was fine because time was of the essence every day caesar spent in spain pompey would be gathering strength in greece you",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 152.3,
+    "date_frequency_per_minute": 0.05,
+    "avg_sentence_length": 14.9
+  }
+}

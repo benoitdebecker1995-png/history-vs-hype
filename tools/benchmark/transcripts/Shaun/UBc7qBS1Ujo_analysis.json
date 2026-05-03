@@ -1,0 +1,41 @@
+{
+  "video_id": "UBc7qBS1Ujo",
+  "channel": "Shaun",
+  "title": "The Bell Curve",
+  "views": 3839450,
+  "duration_seconds": 9585,
+  "word_count": 26343,
+  "hook": {
+    "first_50_words": "hello everyone today we're going to be talking about the bell curve the bell curve is a 1994 book by psychologist Richard J Herrnstein and political scientist Charles Murray and by way of an introduction here I'll read the description of the book that's on the back of my copy",
+    "first_sentence": "hello everyone today we're going to be",
+    "seconds_to_first_date": 4.3,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "cold_fact",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 4.3,
+    "seconds_to_turn_moment": 5028.4,
+    "turn_moment_description": "n a symmetrical way but why you might ask do they actually return this distribution well it's because that's how they're designed psychometr",
+    "percent_history_vs_analysis": 4.5,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 5,
+    "explicit_source_citations": 43,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "information in a way that made sense if you'd like to look into the various subjects mentioned today in more depth than I do in the video I would recommend checking out the sources and reading list below righty-ho that's all from me today folks I'll see you next time",
+    "has_cta": true,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 164.9,
+    "date_frequency_per_minute": 0.53,
+    "avg_sentence_length": 15.0
+  }
+}

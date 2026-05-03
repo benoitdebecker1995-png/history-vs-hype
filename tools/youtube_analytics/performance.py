@@ -87,14 +87,51 @@ except ImportError:
 
 # Topic classification vocabulary (from patterns.py TAG_VOCABULARY)
 # Used to classify own videos by primary topic type
+# NOTE: Order matters — first match wins. Put more specific topics first.
 TAG_VOCABULARY = {
-    'territorial': ['dispute', 'border', 'territory', 'claim', 'annex', 'occupation', 'icj', 'sovereignty', 'bir tawil', 'chagos', 'essequibo'],
-    'ideological': ['myth', 'debunk', 'fact-check', 'propaganda', 'narrative', 'lie', 'dark ages', 'flat earth'],
-    'colonial': ['colonial', 'empire', 'independence', 'decolonization', 'imperial', 'somaliland', 'haiti'],
-    'politician': ['vance', 'netanyahu', 'trump', 'fuentes', 'reagan', 'politician'],
-    'archaeological': ['dna', 'excavation', 'artifact', 'manuscript', 'archaeology'],
-    'medieval': ['medieval', 'dark ages', 'crusade', 'viking', 'middle ages'],
-    'legal': ['treaty', 'court', 'icj', 'ruling', 'law', 'sovereignty', 'referendum'],
+    'territorial': [
+        'dispute', 'border', 'territory', 'claim', 'annex', 'occupation',
+        'icj', 'sovereignty', 'bir tawil', 'chagos', 'essequibo',
+        'gibraltar', 'ceuta', 'melilla', 'falkland', 'malvinas',
+        'crimea', 'donbas', 'cyprus', 'kashmir', 'south china sea',
+        'bermeja', 'island', 'map error', 'map that', 'maps',
+        'runway', 'fence', 'voted stay british',
+    ],
+    'ideological': [
+        'myth', 'debunk', 'fact-check', 'propaganda', 'narrative', 'lie',
+        'dark ages', 'flat earth', 'pagan', 'christmas', 'misconception',
+        'actually', 'really', "didn't", 'wrong about', 'never believed',
+        'kgb weaponized', 'erased', 'proved him wrong',
+    ],
+    'colonial': [
+        'colonial', 'empire', 'independence', 'decolonization', 'imperial',
+        'somaliland', 'haiti', 'tordesillas', 'divided the world',
+        'split the world', 'partition', 'berlin conference',
+        'scramble for africa', 'doctrine of discovery', 'papal bull',
+        'condor', 'operation condor', 'operation ajax', 'cia',
+        'peru', 'civilize', 'archives of terror', 'almada',
+        'chile', 'dictatorship', 'dictator',
+    ],
+    'politician': [
+        'vance', 'netanyahu', 'trump', 'fuentes', 'reagan', 'politician',
+        'putin says', 'franco',
+    ],
+    'archaeological': [
+        'dna', 'excavation', 'artifact', 'manuscript', 'archaeology',
+    ],
+    'medieval': [
+        'medieval', 'dark ages', 'crusade', 'viking', 'middle ages',
+    ],
+    'legal': [
+        'treaty', 'court', 'icj', 'ruling', 'law', 'sovereignty',
+        'referendum', 'statute', 'loophole', 'constitution', 'vichy',
+        'anti-jewish', 'statut',
+    ],
+    'revolution': [
+        'revolution', 'coup', 'iran', 'ussr', 'soviet', 'breakup',
+        'protest', 'uprising', 'reformist', 'disqualified',
+        'khomeini', 'shah', 'russia', 'ukraine',
+    ],
 }
 
 

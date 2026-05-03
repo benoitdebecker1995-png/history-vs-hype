@@ -1,0 +1,41 @@
+{
+  "video_id": "SYxN134gb-8",
+  "channel": "Historia_Civilis",
+  "title": "Caesar Crosses the Rubicon (52 to 49 B.C.E.)",
+  "views": 3729784,
+  "duration_seconds": 1578,
+  "word_count": 3944,
+  "hook": {
+    "first_50_words": "the conquest of Gaul should have been the apex of Julius Caesar's career the experience transformed him into Rome's richest citizen and its second most accomplished general politically he was more popular than ever and an entire generation of young politicians now considered him the leader of their faction in",
+    "first_sentence": "the conquest of Gaul should have been",
+    "seconds_to_first_date": 1086.6,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 1086.6,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 1.5,
+    "chronological_vs_thematic": "thematic",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "Legion caught up with him once the Legion was in position Caesar paused for several long moments finally in Greek he quoted a famous play let the die be cast with that Caesar ordered the 13th Legion across the Rubicon at that moment Rome entered a state of civil war",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 150.0,
+    "date_frequency_per_minute": 0.04,
+    "avg_sentence_length": 15.0
+  }
+}

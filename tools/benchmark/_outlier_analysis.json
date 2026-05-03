@@ -1,0 +1,38 @@
+{
+  "generated": "2026-03-21T16:17:49.813279+00:00",
+  "total_videos": 650,
+  "total_outliers": 42,
+  "template_count": 6,
+  "templates": [
+    {
+      "name": "Scale Signal",
+      "count": 15,
+      "avg_ratio": 5.671923672302502
+    },
+    {
+      "name": "Country + Mechanism",
+      "count": 5,
+      "avg_ratio": 5.662280389812549
+    },
+    {
+      "name": "Two-Sentence Declaration",
+      "count": 9,
+      "avg_ratio": 5.2789311681622
+    },
+    {
+      "name": "Geographic Hook",
+      "count": 2,
+      "avg_ratio": 4.557758558816325
+    },
+    {
+      "name": "Direct Question",
+      "count": 5,
+      "avg_ratio": 4.3848325964740615
+    },
+    {
+      "name": "Specificity Bomb",
+      "count": 2,
+      "avg_ratio": 3.372508246718561
+    }
+  ]
+}

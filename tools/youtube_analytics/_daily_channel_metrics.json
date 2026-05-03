@@ -1,0 +1,803 @@
+[
+  {
+    "day": "2025-12-10",
+    "views": 1341,
+    "watch_time_minutes": 1429.0,
+    "avg_view_duration_seconds": 91,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 9
+  },
+  {
+    "day": "2025-12-11",
+    "views": 1103,
+    "watch_time_minutes": 1078.0,
+    "avg_view_duration_seconds": 110,
+    "subscribers_gained": 2,
+    "subscribers_lost": 0,
+    "likes": 5
+  },
+  {
+    "day": "2025-12-12",
+    "views": 641,
+    "watch_time_minutes": 1259.0,
+    "avg_view_duration_seconds": 179,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 9
+  },
+  {
+    "day": "2025-12-13",
+    "views": 728,
+    "watch_time_minutes": 1188.0,
+    "avg_view_duration_seconds": 180,
+    "subscribers_gained": 2,
+    "subscribers_lost": 1,
+    "likes": 5
+  },
+  {
+    "day": "2025-12-14",
+    "views": 447,
+    "watch_time_minutes": 1087.0,
+    "avg_view_duration_seconds": 181,
+    "subscribers_gained": 3,
+    "subscribers_lost": 0,
+    "likes": 8
+  },
+  {
+    "day": "2025-12-15",
+    "views": 976,
+    "watch_time_minutes": 976.0,
+    "avg_view_duration_seconds": 119,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 5
+  },
+  {
+    "day": "2025-12-16",
+    "views": 1364,
+    "watch_time_minutes": 794.0,
+    "avg_view_duration_seconds": 77,
+    "subscribers_gained": 3,
+    "subscribers_lost": 0,
+    "likes": 8
+  },
+  {
+    "day": "2025-12-17",
+    "views": 328,
+    "watch_time_minutes": 773.0,
+    "avg_view_duration_seconds": 192,
+    "subscribers_gained": 1,
+    "subscribers_lost": 1,
+    "likes": 3
+  },
+  {
+    "day": "2025-12-18",
+    "views": 1211,
+    "watch_time_minutes": 771.0,
+    "avg_view_duration_seconds": 83,
+    "subscribers_gained": 4,
+    "subscribers_lost": 0,
+    "likes": 12
+  },
+  {
+    "day": "2025-12-19",
+    "views": 1499,
+    "watch_time_minutes": 410.0,
+    "avg_view_duration_seconds": 55,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 3
+  },
+  {
+    "day": "2025-12-20",
+    "views": 326,
+    "watch_time_minutes": 318.0,
+    "avg_view_duration_seconds": 137,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 3
+  },
+  {
+    "day": "2025-12-21",
+    "views": 259,
+    "watch_time_minutes": 307.0,
+    "avg_view_duration_seconds": 148,
+    "subscribers_gained": 0,
+    "subscribers_lost": 1,
+    "likes": 2
+  },
+  {
+    "day": "2025-12-22",
+    "views": 714,
+    "watch_time_minutes": 190.0,
+    "avg_view_duration_seconds": 58,
+    "subscribers_gained": 3,
+    "subscribers_lost": 0,
+    "likes": 6
+  },
+  {
+    "day": "2025-12-23",
+    "views": 343,
+    "watch_time_minutes": 216.0,
+    "avg_view_duration_seconds": 100,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 2
+  },
+  {
+    "day": "2025-12-24",
+    "views": 243,
+    "watch_time_minutes": 288.0,
+    "avg_view_duration_seconds": 140,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 1
+  },
+  {
+    "day": "2025-12-25",
+    "views": 1127,
+    "watch_time_minutes": 558.0,
+    "avg_view_duration_seconds": 74,
+    "subscribers_gained": 3,
+    "subscribers_lost": 0,
+    "likes": 16
+  },
+  {
+    "day": "2025-12-26",
+    "views": 813,
+    "watch_time_minutes": 709.0,
+    "avg_view_duration_seconds": 83,
+    "subscribers_gained": 4,
+    "subscribers_lost": 0,
+    "likes": 11
+  },
+  {
+    "day": "2025-12-27",
+    "views": 174,
+    "watch_time_minutes": 335.0,
+    "avg_view_duration_seconds": 179,
+    "subscribers_gained": 2,
+    "subscribers_lost": 0,
+    "likes": 5
+  },
+  {
+    "day": "2025-12-28",
+    "views": 1345,
+    "watch_time_minutes": 264.0,
+    "avg_view_duration_seconds": 40,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 11
+  },
+  {
+    "day": "2025-12-29",
+    "views": 1390,
+    "watch_time_minutes": 233.0,
+    "avg_view_duration_seconds": 32,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 6
+  },
+  {
+    "day": "2025-12-30",
+    "views": 1060,
+    "watch_time_minutes": 322.0,
+    "avg_view_duration_seconds": 49,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 9
+  },
+  {
+    "day": "2025-12-31",
+    "views": 843,
+    "watch_time_minutes": 373.0,
+    "avg_view_duration_seconds": 55,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 9
+  },
+  {
+    "day": "2026-01-01",
+    "views": 1181,
+    "watch_time_minutes": 681.0,
+    "avg_view_duration_seconds": 76,
+    "subscribers_gained": 2,
+    "subscribers_lost": 0,
+    "likes": 13
+  },
+  {
+    "day": "2026-01-02",
+    "views": 321,
+    "watch_time_minutes": 448.0,
+    "avg_view_duration_seconds": 121,
+    "subscribers_gained": 4,
+    "subscribers_lost": 1,
+    "likes": 4
+  },
+  {
+    "day": "2026-01-03",
+    "views": 981,
+    "watch_time_minutes": 577.0,
+    "avg_view_duration_seconds": 70,
+    "subscribers_gained": 2,
+    "subscribers_lost": 0,
+    "likes": 10
+  },
+  {
+    "day": "2026-01-04",
+    "views": 442,
+    "watch_time_minutes": 244.0,
+    "avg_view_duration_seconds": 108,
+    "subscribers_gained": 2,
+    "subscribers_lost": 0,
+    "likes": 8
+  },
+  {
+    "day": "2026-01-05",
+    "views": 138,
+    "watch_time_minutes": 181.0,
+    "avg_view_duration_seconds": 137,
+    "subscribers_gained": 3,
+    "subscribers_lost": 0,
+    "likes": 3
+  },
+  {
+    "day": "2026-01-06",
+    "views": 85,
+    "watch_time_minutes": 124.0,
+    "avg_view_duration_seconds": 130,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 1
+  },
+  {
+    "day": "2026-01-07",
+    "views": 664,
+    "watch_time_minutes": 246.0,
+    "avg_view_duration_seconds": 73,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 1
+  },
+  {
+    "day": "2026-01-08",
+    "views": 509,
+    "watch_time_minutes": 122.0,
+    "avg_view_duration_seconds": 36,
+    "subscribers_gained": 1,
+    "subscribers_lost": 1,
+    "likes": 4
+  },
+  {
+    "day": "2026-01-09",
+    "views": 888,
+    "watch_time_minutes": 288.0,
+    "avg_view_duration_seconds": 52,
+    "subscribers_gained": 2,
+    "subscribers_lost": 0,
+    "likes": 10
+  },
+  {
+    "day": "2026-01-10",
+    "views": 248,
+    "watch_time_minutes": 126.0,
+    "avg_view_duration_seconds": 70,
+    "subscribers_gained": 2,
+    "subscribers_lost": 0,
+    "likes": 6
+  },
+  {
+    "day": "2026-01-11",
+    "views": 937,
+    "watch_time_minutes": 183.0,
+    "avg_view_duration_seconds": 28,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 1
+  },
+  {
+    "day": "2026-01-12",
+    "views": 212,
+    "watch_time_minutes": 164.0,
+    "avg_view_duration_seconds": 113,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 1
+  },
+  {
+    "day": "2026-01-13",
+    "views": 976,
+    "watch_time_minutes": 171.0,
+    "avg_view_duration_seconds": 41,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 3
+  },
+  {
+    "day": "2026-01-14",
+    "views": 831,
+    "watch_time_minutes": 210.0,
+    "avg_view_duration_seconds": 60,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 2
+  },
+  {
+    "day": "2026-01-15",
+    "views": 582,
+    "watch_time_minutes": 177.0,
+    "avg_view_duration_seconds": 34,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 2
+  },
+  {
+    "day": "2026-01-16",
+    "views": 385,
+    "watch_time_minutes": 179.0,
+    "avg_view_duration_seconds": 85,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 3
+  },
+  {
+    "day": "2026-01-17",
+    "views": 743,
+    "watch_time_minutes": 395.0,
+    "avg_view_duration_seconds": 65,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 3
+  },
+  {
+    "day": "2026-01-18",
+    "views": 854,
+    "watch_time_minutes": 349.0,
+    "avg_view_duration_seconds": 55,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 10
+  },
+  {
+    "day": "2026-01-19",
+    "views": 805,
+    "watch_time_minutes": 131.0,
+    "avg_view_duration_seconds": 33,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 10
+  },
+  {
+    "day": "2026-01-20",
+    "views": 420,
+    "watch_time_minutes": 55.0,
+    "avg_view_duration_seconds": 21,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 6
+  },
+  {
+    "day": "2026-01-21",
+    "views": 797,
+    "watch_time_minutes": 141.0,
+    "avg_view_duration_seconds": 34,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 2
+  },
+  {
+    "day": "2026-01-22",
+    "views": 990,
+    "watch_time_minutes": 349.0,
+    "avg_view_duration_seconds": 50,
+    "subscribers_gained": 4,
+    "subscribers_lost": 2,
+    "likes": 6
+  },
+  {
+    "day": "2026-01-23",
+    "views": 634,
+    "watch_time_minutes": 132.0,
+    "avg_view_duration_seconds": 41,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 9
+  },
+  {
+    "day": "2026-01-24",
+    "views": 1113,
+    "watch_time_minutes": 167.0,
+    "avg_view_duration_seconds": 23,
+    "subscribers_gained": 2,
+    "subscribers_lost": 0,
+    "likes": 7
+  },
+  {
+    "day": "2026-01-25",
+    "views": 1040,
+    "watch_time_minutes": 157.0,
+    "avg_view_duration_seconds": 23,
+    "subscribers_gained": 2,
+    "subscribers_lost": 1,
+    "likes": 9
+  },
+  {
+    "day": "2026-01-26",
+    "views": 1262,
+    "watch_time_minutes": 158.0,
+    "avg_view_duration_seconds": 24,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 6
+  },
+  {
+    "day": "2026-01-27",
+    "views": 1289,
+    "watch_time_minutes": 213.0,
+    "avg_view_duration_seconds": 28,
+    "subscribers_gained": 2,
+    "subscribers_lost": 1,
+    "likes": 4
+  },
+  {
+    "day": "2026-01-28",
+    "views": 1445,
+    "watch_time_minutes": 210.0,
+    "avg_view_duration_seconds": 17,
+    "subscribers_gained": 2,
+    "subscribers_lost": 0,
+    "likes": 14
+  },
+  {
+    "day": "2026-01-29",
+    "views": 799,
+    "watch_time_minutes": 108.0,
+    "avg_view_duration_seconds": 19,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 5
+  },
+  {
+    "day": "2026-01-30",
+    "views": 1683,
+    "watch_time_minutes": 183.0,
+    "avg_view_duration_seconds": 19,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 16
+  },
+  {
+    "day": "2026-01-31",
+    "views": 904,
+    "watch_time_minutes": 159.0,
+    "avg_view_duration_seconds": 28,
+    "subscribers_gained": 4,
+    "subscribers_lost": 0,
+    "likes": 9
+  },
+  {
+    "day": "2026-02-01",
+    "views": 1884,
+    "watch_time_minutes": 363.0,
+    "avg_view_duration_seconds": 31,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 21
+  },
+  {
+    "day": "2026-02-02",
+    "views": 304,
+    "watch_time_minutes": 90.0,
+    "avg_view_duration_seconds": 56,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 5
+  },
+  {
+    "day": "2026-02-03",
+    "views": 898,
+    "watch_time_minutes": 133.0,
+    "avg_view_duration_seconds": 18,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 8
+  },
+  {
+    "day": "2026-02-04",
+    "views": 796,
+    "watch_time_minutes": 269.0,
+    "avg_view_duration_seconds": 42,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 10
+  },
+  {
+    "day": "2026-02-05",
+    "views": 447,
+    "watch_time_minutes": 107.0,
+    "avg_view_duration_seconds": 56,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 7
+  },
+  {
+    "day": "2026-02-06",
+    "views": 87,
+    "watch_time_minutes": 97.0,
+    "avg_view_duration_seconds": 111,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 1
+  },
+  {
+    "day": "2026-02-07",
+    "views": 732,
+    "watch_time_minutes": 134.0,
+    "avg_view_duration_seconds": 25,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 6
+  },
+  {
+    "day": "2026-02-08",
+    "views": 411,
+    "watch_time_minutes": 79.0,
+    "avg_view_duration_seconds": 34,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 1
+  },
+  {
+    "day": "2026-02-09",
+    "views": 370,
+    "watch_time_minutes": 52.0,
+    "avg_view_duration_seconds": 22,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 5
+  },
+  {
+    "day": "2026-02-10",
+    "views": 764,
+    "watch_time_minutes": 138.0,
+    "avg_view_duration_seconds": 31,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 4
+  },
+  {
+    "day": "2026-02-11",
+    "views": 843,
+    "watch_time_minutes": 134.0,
+    "avg_view_duration_seconds": 25,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 5
+  },
+  {
+    "day": "2026-02-12",
+    "views": 529,
+    "watch_time_minutes": 71.0,
+    "avg_view_duration_seconds": 25,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 6
+  },
+  {
+    "day": "2026-02-13",
+    "views": 1038,
+    "watch_time_minutes": 185.0,
+    "avg_view_duration_seconds": 30,
+    "subscribers_gained": 2,
+    "subscribers_lost": 0,
+    "likes": 21
+  },
+  {
+    "day": "2026-02-14",
+    "views": 726,
+    "watch_time_minutes": 112.0,
+    "avg_view_duration_seconds": 25,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 9
+  },
+  {
+    "day": "2026-02-15",
+    "views": 987,
+    "watch_time_minutes": 199.0,
+    "avg_view_duration_seconds": 33,
+    "subscribers_gained": 2,
+    "subscribers_lost": 0,
+    "likes": 0
+  },
+  {
+    "day": "2026-02-16",
+    "views": 1715,
+    "watch_time_minutes": 195.0,
+    "avg_view_duration_seconds": 18,
+    "subscribers_gained": 1,
+    "subscribers_lost": 1,
+    "likes": 12
+  },
+  {
+    "day": "2026-02-17",
+    "views": 598,
+    "watch_time_minutes": 103.0,
+    "avg_view_duration_seconds": 40,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 1
+  },
+  {
+    "day": "2026-02-18",
+    "views": 947,
+    "watch_time_minutes": 119.0,
+    "avg_view_duration_seconds": 19,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 7
+  },
+  {
+    "day": "2026-02-19",
+    "views": 408,
+    "watch_time_minutes": 174.0,
+    "avg_view_duration_seconds": 57,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 6
+  },
+  {
+    "day": "2026-02-20",
+    "views": 469,
+    "watch_time_minutes": 105.0,
+    "avg_view_duration_seconds": 31,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 4
+  },
+  {
+    "day": "2026-02-21",
+    "views": 1224,
+    "watch_time_minutes": 189.0,
+    "avg_view_duration_seconds": 26,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 10
+  },
+  {
+    "day": "2026-02-22",
+    "views": 1075,
+    "watch_time_minutes": 136.0,
+    "avg_view_duration_seconds": 27,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 8
+  },
+  {
+    "day": "2026-02-23",
+    "views": 331,
+    "watch_time_minutes": 83.0,
+    "avg_view_duration_seconds": 47,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": -1
+  },
+  {
+    "day": "2026-02-24",
+    "views": 1530,
+    "watch_time_minutes": 186.0,
+    "avg_view_duration_seconds": 22,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 19
+  },
+  {
+    "day": "2026-02-25",
+    "views": 447,
+    "watch_time_minutes": 112.0,
+    "avg_view_duration_seconds": 49,
+    "subscribers_gained": 3,
+    "subscribers_lost": 0,
+    "likes": 9
+  },
+  {
+    "day": "2026-02-26",
+    "views": 992,
+    "watch_time_minutes": 457.0,
+    "avg_view_duration_seconds": 53,
+    "subscribers_gained": 1,
+    "subscribers_lost": 2,
+    "likes": 10
+  },
+  {
+    "day": "2026-02-27",
+    "views": 396,
+    "watch_time_minutes": 122.0,
+    "avg_view_duration_seconds": 39,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 8
+  },
+  {
+    "day": "2026-02-28",
+    "views": 1383,
+    "watch_time_minutes": 305.0,
+    "avg_view_duration_seconds": 33,
+    "subscribers_gained": 5,
+    "subscribers_lost": 0,
+    "likes": 20
+  },
+  {
+    "day": "2026-03-01",
+    "views": 622,
+    "watch_time_minutes": 188.0,
+    "avg_view_duration_seconds": 39,
+    "subscribers_gained": 1,
+    "subscribers_lost": 1,
+    "likes": 8
+  },
+  {
+    "day": "2026-03-02",
+    "views": 441,
+    "watch_time_minutes": 135.0,
+    "avg_view_duration_seconds": 43,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 1
+  },
+  {
+    "day": "2026-03-03",
+    "views": 285,
+    "watch_time_minutes": 74.0,
+    "avg_view_duration_seconds": 51,
+    "subscribers_gained": 1,
+    "subscribers_lost": 0,
+    "likes": 6
+  },
+  {
+    "day": "2026-03-04",
+    "views": 389,
+    "watch_time_minutes": 63.0,
+    "avg_view_duration_seconds": 33,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 7
+  },
+  {
+    "day": "2026-03-05",
+    "views": 440,
+    "watch_time_minutes": 218.0,
+    "avg_view_duration_seconds": 79,
+    "subscribers_gained": 2,
+    "subscribers_lost": 0,
+    "likes": 7
+  },
+  {
+    "day": "2026-03-06",
+    "views": 643,
+    "watch_time_minutes": 138.0,
+    "avg_view_duration_seconds": 26,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 4
+  },
+  {
+    "day": "2026-03-07",
+    "views": 507,
+    "watch_time_minutes": 134.0,
+    "avg_view_duration_seconds": 33,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 4
+  },
+  {
+    "day": "2026-03-08",
+    "views": 1123,
+    "watch_time_minutes": 189.0,
+    "avg_view_duration_seconds": 31,
+    "subscribers_gained": 0,
+    "subscribers_lost": 1,
+    "likes": 2
+  }
+]

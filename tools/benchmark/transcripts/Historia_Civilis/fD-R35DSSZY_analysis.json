@@ -1,0 +1,41 @@
+{
+  "video_id": "fD-R35DSSZY",
+  "channel": "Historia_Civilis",
+  "title": "The Longest Year in Human History (46 B.C.E.)",
+  "views": 7244648,
+  "duration_seconds": 1632,
+  "word_count": 4096,
+  "hook": {
+    "first_50_words": "in the summer of the year 46 BCE Julius Caesar returned to the city of Rome a victorious general all of his military opposition had been squashed and all of his enemies save for libidus and a couple of Pompey sons had either been killed or forced into submission this",
+    "first_sentence": "in the summer of the year 46 BCE Julius",
+    "seconds_to_first_date": 431.7,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "specificity_bomb",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 3,
+    "seconds_to_first_historical_date": 431.7,
+    "seconds_to_turn_moment": 980.3,
+    "turn_moment_description": "ing Gallic religion but none of this was true it was all just wild paranoia by the time Caesar had finished making all of his appointments t",
+    "percent_history_vs_analysis": 5.1,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 2,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "act Rome's two Spanish provinces had fallen to the enemy what enemy caesar's old right-hand man Levinas had joined forces with two of Pompey sons Rome's disgruntled Spanish legions had eagerly gone over to their side Caesar had been caught entirely flat-footed apparently the Roman civil war wasn't over yet",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 150.6,
+    "date_frequency_per_minute": 0.37,
+    "avg_sentence_length": 14.9
+  }
+}

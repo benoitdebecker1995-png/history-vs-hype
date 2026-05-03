@@ -356,10 +356,15 @@ def cleanup_dead_tables():
     cursor = db._conn.cursor()
 
     dead_tables = ['validations', 'vidiq_predictions', 'competitor_keywords', 'competitor_channels']
+    _allowed = set(dead_tables)
     dropped = 0
 
     for table in dead_tables:
+        if table not in _allowed:
+            logger.error("Refusing to drop unlisted table: %s", table)
+            continue
         try:
+            # table is validated against _allowed whitelist above
             cursor.execute(f"SELECT COUNT(*) FROM [{table}]")
             count = cursor.fetchone()[0]
             cursor.execute(f"DROP TABLE IF EXISTS [{table}]")
@@ -369,12 +374,15 @@ def cleanup_dead_tables():
             logger.error("Error dropping %s: %s", table, e)
 
     # Clean orphaned competitor_videos (channel_id=0, not from intel.db)
-    cursor.execute("SELECT COUNT(*) FROM competitor_videos WHERE channel_id = 0")
-    orphaned = cursor.fetchone()[0]
-
-    if orphaned > 0:
-        cursor.execute("DELETE FROM competitor_videos WHERE channel_id = 0")
-        logger.info("Deleted %d orphaned competitor_videos (channel_id=0)", orphaned)
+    orphaned = 0
+    try:
+        cursor.execute("SELECT COUNT(*) FROM competitor_videos WHERE channel_id = 0")
+        orphaned = cursor.fetchone()[0]
+        if orphaned > 0:
+            cursor.execute("DELETE FROM competitor_videos WHERE channel_id = 0")
+            logger.info("Deleted %d orphaned competitor_videos (channel_id=0)", orphaned)
+    except sqlite3.OperationalError:
+        pass  # Table doesn't exist in this DB (lives in intel.db)
 
     db._conn.commit()
     db.close()

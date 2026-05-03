@@ -1,0 +1,41 @@
+{
+  "video_id": "JKlJ6OW67Bk",
+  "channel": "CaspianReport",
+  "title": "How Pakistan’s oil discovery could change global markets",
+  "views": 956345,
+  "duration_seconds": 1095,
+  "word_count": 2318,
+  "hook": {
+    "first_50_words": "Pakistan's Horizon is on the verge of groundbreaking change literally so just off its Coast geological surveys have discovered what could be one of the world's largest oil and gas reserves it's a gateway to untapped wealth initial estimates suggest that the oil and gas reserves could transform Pakistan into",
+    "first_sentence": "Pakistan's Horizon is on the verge of",
+    "seconds_to_first_date": 57.5,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 57.5,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 7.7,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 1,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "reliable energy uranium royalty is ready for the coming surge in demand and if you want to be part of the solution and maybe make a smart investment click on the description to learn more I've been your host chivon from Casi report thank you for your time and S",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 127.0,
+    "date_frequency_per_minute": 0.82,
+    "avg_sentence_length": 15.0
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "video_id": "KWiM00lCRTE",
+  "channel": "Atun-Shei_Films",
+  "title": "The Civil War Was A Slave Revolt",
+  "views": 482278,
+  "duration_seconds": 2037,
+  "word_count": 6270,
+  "hook": {
+    "first_50_words": "In most conversations about the American Civil War, there's one perspective that always seems to be conspicuously absent. In the endless arguments about the cause of the war, which side had the better generals, what would have happened if Jackson had been at Culps Hill, there's a ghost at the",
+    "first_sentence": "In most conversations about the American Civil War, there's one perspective that always seems to be conspicuously absent.",
+    "seconds_to_first_date": 49.7,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 5,
+    "seconds_to_first_historical_date": 49.7,
+    "seconds_to_turn_moment": 724.6,
+    "turn_moment_description": "s into service. Uh, however, we do see cases where the US military would go from plantation to plantation and they would say, \"Look, um, we'",
+    "percent_history_vs_analysis": 3.9,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 1,
+    "questions_posed_to_viewer": 26
+  },
+  "close": {
+    "last_50_words": "12 months, I will buy you a drink in New Orleans if you can get your ass down here. That is, and it'll be a bougie drink, like Absin or something. Stay spicy, folks. See you in the next one. You should Yeah. Hey. Glory Jesus in glory. Won't you?",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": true,
+    "close_type": "open_question"
+  },
+  "pacing": {
+    "words_per_minute": 184.7,
+    "date_frequency_per_minute": 0.32,
+    "avg_sentence_length": 18.9
+  }
+}

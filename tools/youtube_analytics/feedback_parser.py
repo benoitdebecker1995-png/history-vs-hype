@@ -45,13 +45,14 @@ def extract_video_id(content: str, filepath: str = '') -> Optional[str]:
         11-character video ID or None
     """
     # Try to extract from header: **Video ID:** XXXX
-    video_id_match = re.search(r'\*\*Video ID:\*\*\s*(\w+)', content)
+    # YouTube video IDs are 11 chars: alphanumeric plus - and _
+    video_id_match = re.search(r'\*\*Video ID:\*\*\s*([\w-]+)', content)
     if video_id_match:
         return video_id_match.group(1)
 
     # Fallback: extract from filename pattern POST-PUBLISH-ANALYSIS-{VIDEO_ID}.md
     if filepath:
-        filename_match = re.search(r'POST-PUBLISH-ANALYSIS-(\w+)\.md', filepath)
+        filename_match = re.search(r'POST-PUBLISH-ANALYSIS-([\w-]+)\.md', filepath)
         if filename_match:
             return filename_match.group(1)
 

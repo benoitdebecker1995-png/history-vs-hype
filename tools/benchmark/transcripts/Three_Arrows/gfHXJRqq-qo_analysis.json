@@ -1,0 +1,41 @@
+{
+  "video_id": "gfHXJRqq-qo",
+  "channel": "Three_Arrows",
+  "title": "Guns in the Third Reich - A Response to Ben Shapiro and Others",
+  "views": 929070,
+  "duration_seconds": 1338,
+  "word_count": 4498,
+  "hook": {
+    "first_50_words": "hey guys a special hello to all those new subscribers because since my last video got taken down twice my subscriber count has more than tripled but i'll talk about that a bit more at the end of the video for now i want to talk about gun control i'm",
+    "first_sentence": "hey guys a special hello to all those",
+    "seconds_to_first_date": 112.6,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 112.6,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 9.0,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 6,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "thing i was gonna do a q a at 2 500 and at 5 000 subscribers but this all now happens so fast that i'm just gonna do a longer one at ten thousand and that's it folks thank you for watching and until next time have a good one",
+    "has_cta": false,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 201.7,
+    "date_frequency_per_minute": 1.52,
+    "avg_sentence_length": 15.0
+  }
+}

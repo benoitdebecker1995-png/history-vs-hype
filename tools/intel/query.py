@@ -17,6 +17,7 @@ human-readable strings even when data is missing.
 """
 
 import json
+import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -69,7 +70,7 @@ def get_full_report(db_path: str | None = None) -> str:
         content = _KB_MD_PATH.read_text(encoding="utf-8")
         staleness = get_staleness_status(db_path)
         return f"{content}\n---\n{staleness}\n"
-    except Exception as exc:
+    except (FileNotFoundError, UnicodeDecodeError, OSError) as exc:
         return f"Error reading intelligence report: {exc}\n\nRun `/intel --refresh` to rebuild."
 
 
@@ -143,7 +144,7 @@ def get_algo_summary(db_path: str | None = None) -> str:
 
         return "\n".join(lines)
 
-    except Exception as exc:
+    except (sqlite3.Error, KeyError, ValueError, TypeError) as exc:
         return f"Error loading algorithm summary: {exc}"
 
 
@@ -211,7 +212,7 @@ def get_competitor_report(db_path: str | None = None) -> str:
         lines.append(get_staleness_status(db_path))
         return "\n".join(lines)
 
-    except Exception as exc:
+    except (sqlite3.Error, KeyError, ValueError, TypeError) as exc:
         return f"Error loading competitor report: {exc}"
 
 
@@ -280,7 +281,7 @@ def get_outlier_report(db_path: str | None = None) -> str:
         lines.append(get_staleness_status(db_path))
         return "\n".join(lines)
 
-    except Exception as exc:
+    except (sqlite3.Error, KeyError, ValueError, TypeError) as exc:
         return f"Error loading outlier report: {exc}"
 
 
@@ -368,7 +369,7 @@ def get_niche_report(db_path: str | None = None) -> str:
         lines.append(get_staleness_status(db_path))
         return "\n".join(lines)
 
-    except Exception as exc:
+    except (sqlite3.Error, KeyError, ValueError, TypeError) as exc:
         return f"Error loading niche report: {exc}"
 
 
@@ -411,7 +412,7 @@ def get_staleness_status(db_path: str | None = None) -> str:
 
         return f"*Last refreshed: {last_str} ({age_label}){stale_flag}*"
 
-    except Exception as exc:
+    except (sqlite3.Error, KeyError, ValueError) as exc:
         return f"*Staleness check failed: {exc}*"
 
 
@@ -469,7 +470,7 @@ def add_competitor_channel(
                     json_msg = "Added to competitor_channels.json."
                 else:
                     json_msg = "Already in competitor_channels.json (updated DB only)."
-            except Exception as exc:
+            except (json.JSONDecodeError, OSError, KeyError) as exc:
                 json_msg = f"DB updated but could not update JSON: {exc}"
         else:
             json_msg = "competitor_channels.json not found; added to DB only."
@@ -481,7 +482,7 @@ def add_competitor_channel(
             f"- Run `/intel --refresh` to fetch videos from this channel."
         )
 
-    except Exception as exc:
+    except (sqlite3.Error, KeyError, ValueError) as exc:
         return f"Error adding channel: {exc}"
 
 
@@ -504,7 +505,7 @@ def get_pattern_report(db_path: str | None = None) -> str:
         report = _get_patterns(resolved)
         staleness = get_staleness_status(db_path)
         return f"{report}\n{staleness}\n"
-    except Exception as exc:
+    except (sqlite3.Error, KeyError, ValueError, TypeError) as exc:
         return f"Error loading pattern report: {exc}"
 
 
@@ -529,7 +530,7 @@ def get_topic_score(topic_text: str, db_path: str | None = None) -> str:
         report = format_score_report(result)
         staleness = get_staleness_status(db_path)
         return f"{report}\n{staleness}\n"
-    except Exception as exc:
+    except (sqlite3.Error, KeyError, ValueError, TypeError) as exc:
         return f"Error scoring topic: {exc}"
 
 

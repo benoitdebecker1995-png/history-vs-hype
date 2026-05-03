@@ -1,0 +1,41 @@
+{
+  "video_id": "-1iaJWSwUZs",
+  "channel": "Shaun",
+  "title": "Harry Potter",
+  "views": 7548861,
+  "duration_seconds": 6350,
+  "word_count": 18600,
+  "hook": {
+    "first_50_words": "hello everyone today I'd like to talk about Harry Potter now I could do the standard video essay introduction for Harry Potter you know it's a series of books a series of films video games a stage play a whole bunch of merchandise and all that but we all know",
+    "first_sentence": "hello everyone today I'd like to talk",
+    "seconds_to_first_date": 2064.4,
+    "seconds_to_first_named_entity": 77.8,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 2064.4,
+    "seconds_to_turn_moment": 1490.3,
+    "turn_moment_description": "to argue with that the problem is JK Rowling can't leave well enough alone when it comes to the time Turners and she did a series of very s",
+    "percent_history_vs_analysis": 0.6,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 9,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "be scrolling by right now patreon backers get early access to all of my videos so if you'd like more videos like this one and also early access to those videos please check out the patreon link below right that's all from me today folks I'll see you next time",
+    "has_cta": true,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 175.7,
+    "date_frequency_per_minute": 0.06,
+    "avg_sentence_length": 15
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "video_id": "GMOyNgLSX2g",
+  "channel": "Knowing_Better",
+  "title": "Light up a Torch of Freedom | Cigarettes",
+  "views": 1375734,
+  "duration_seconds": 5380,
+  "word_count": 15125,
+  "hook": {
+    "first_50_words": "do you remember bubblegum cigarettes whatever happened to those you see i was a 90s kid i know i was adorable and as soon as i started earning an allowance i remember riding my little huffy bike down to the gas station to buy them with my friends that way",
+    "first_sentence": "do you remember bubblegum cigarettes",
+    "seconds_to_first_date": 147.1,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 8,
+    "seconds_to_first_historical_date": 147.1,
+    "seconds_to_turn_moment": 1035.4,
+    "turn_moment_description": "ly fast women smoke but that's not true anymore so you need to start yelling at me everybody's doing it so why shouldn't i it's getting to b",
+    "percent_history_vs_analysis": 10.7,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 6,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "patreon.com knowingbetter or for a one-time donation paypal dot me slash knowingbetter don't forget to light up that subscribe button or the join button if you're a king size viewer check out the merch at knowingbetter.tv follow me on twitter facebook and instagram and join us on the subreddit you",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 168.7,
+    "date_frequency_per_minute": 1.36,
+    "avg_sentence_length": 15.0
+  }
+}

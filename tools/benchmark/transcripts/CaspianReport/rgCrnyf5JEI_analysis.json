@@ -1,0 +1,41 @@
+{
+  "video_id": "rgCrnyf5JEI",
+  "channel": "CaspianReport",
+  "title": "The Israel-Iran War just changed everything",
+  "views": 3268872,
+  "duration_seconds": 837,
+  "word_count": 1867,
+  "hook": {
+    "first_50_words": "The Cold War has turned hot overnight. In the early hours of June 13th, Israel launched preemptive strikes on Iran. Multiple explosions were heard across Thran with online footage showing blasts lighting up the capital. But the fire that started in the city didn't stop there. Additional explosions occurred in",
+    "first_sentence": "The Cold War has turned hot overnight.",
+    "seconds_to_first_date": 125.8,
+    "seconds_to_first_named_entity": 133.4,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 125.8,
+    "seconds_to_turn_moment": 525.1,
+    "turn_moment_description": "itably get through. However, Iran will face attrition of its own. Drones are plentiful, but relatively easy to shoot down. Ballistic missile",
+    "percent_history_vs_analysis": 5.5,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "Because despite best efforts, precision strikes rarely end with precision outcomes. I've been your host, Shiron from Caspian Report. If you approve of what we do, please leave a comment, hit the like button, and mayhaps share the video. In any case, thank you for your time and so on.",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 133.8,
+    "date_frequency_per_minute": 0.57,
+    "avg_sentence_length": 17.1
+  }
+}

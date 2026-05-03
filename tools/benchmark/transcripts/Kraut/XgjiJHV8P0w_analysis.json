@@ -1,0 +1,41 @@
+{
+  "video_id": "XgjiJHV8P0w",
+  "channel": "Kraut",
+  "title": "The Turkish Century | From Hittites to Atatürk",
+  "views": 3223249,
+  "duration_seconds": 6403,
+  "word_count": 17965,
+  "hook": {
+    "first_50_words": "what ties a people to their land what makes land yours how can land even be yours the idea of the nation-state is barely 200 years old and before that idea the notion of land as a collective property of a cultural or national construct didn't exist the land was",
+    "first_sentence": "what ties a people to their land what makes",
+    "seconds_to_first_date": 10.0,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "cold_fact",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 12,
+    "seconds_to_first_historical_date": 10.0,
+    "seconds_to_turn_moment": 2278.5,
+    "turn_moment_description": "r the habsburgs but the reality is that they mostly fought their wars with dynasties ruling iran as they wish to incorporate iran into their",
+    "percent_history_vs_analysis": 4.8,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 4,
+    "explicit_source_citations": 3,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "turks as we go forward into the story of the republic you will find that attitude's shadow dominates over this state and its people throughout their journey through the 20th century no other political figure would have as much of an impact on this country as he did until 2003",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "prediction"
+  },
+  "pacing": {
+    "words_per_minute": 168.3,
+    "date_frequency_per_minute": 0.53,
+    "avg_sentence_length": 15.0
+  }
+}

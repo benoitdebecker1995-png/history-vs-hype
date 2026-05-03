@@ -1,0 +1,276 @@
+0.1	the psychology of reasoning is a branch
+2.5	of cognitive psychology that studies the
+4.3	way in which humans use logic to come to
+6.2	conclusions based on available
+7.7	information but not all reasoning is
+10.2	valid and people may use invalid
+11.9	reasoning to come to a logical
+13.3	conclusions suggest how logical are we
+15.8	as humans and for that matter how
+17.8	logical are you a logic test developed
+21.1	by Peter Watson in 1963 revolutionized
+23.9	the field of reasoning this classic
+25.7	selection task features cars with laters
+27.8	on one side and numbers on the other
+29.4	side subjects are then presented with
+31.2	four cars and a rule if a card has a
+33.7	vowel on one side it must have an even
+36.2	number on the other side and the task is
+38.5	this which card or cards must be turned
+41.5	over in order to determine whether or
+43.1	not the rule has been followed so
+45.3	basically you must turn over cars which
+47.0	can guarantee whether this rule is true
+49.1	or false I'll give you a few seconds if
+51.5	you want to pause the video and think
+52.9	about it before revealing the answer
+58.4	okay the correct answer is this the cars
+61.1	which must be turned over r-e + 7 these
+65.0	are the two cars which must be turned
+66.5	over to assess whether or not the rule
+68.2	has been followed
+69.1	Feeny's studies have shown an extremely
+71.3	poor results for tasks less and which
+73.0	will be 4 percent of participants get
+74.6	the correct answer the most common wrong
+76.9	answer been e + 2 this can possibly be
+80.4	explained by confirmation bias the rule
+82.5	mentioned put a vowel and an even number
+84.6	so it may seem logical to choose the
+86.4	vowel and the even number cards well
+88.7	this means seem logical as I will
+90.3	demonstrate is actually fundamentally
+92.2	illogical I'll now go through each card
+95.7	and explain why you do or do not need to
+97.9	turn each card over the keys test asked
+100.6	is that you need to understand that you
+102.1	must try to falsify the rule not confirm
+104.7	them so the first card II this is the
+107.0	most obvious unfortunately all
+108.3	participants creately conclude that this
+110.2	card must be turned over because of
+112.3	course if there's an odd number on the
+113.8	officers say the rule has been broken
+115.6	and in the next card
+117.0	the key card lists basically an
+118.7	irrelevant card which cannot give us any
+121.4	information if we turn it over and it's
+123.4	an odd number
+124.0	that's fain if we turn it over and
+125.7	that's an even number that's also thing
+127.8	so if neither outcome breaks the rule
+129.9	there's no need to turn the card over
+131.5	the 2 card is where things get tricky
+133.7	and where most participants slip up if
+135.9	we read the rule again if a car has a
+138.2	vowel on one side it must have an even
+140.3	number on the other side now what's
+142.4	important to realize is that this Beryl
+144.1	only goes one way therefore we cannot
+147.0	conclude the if there's an even number
+148.4	on one side there must be a vowel on the
+150.5	other side this is not the case if we
+153.2	turn over the 2 card and there's a
+154.7	constant on the other side that's pain
+157.0	this does not rate the room and
+159.4	obviously if we turn the card over and
+160.8	there's a vowel this also doesn't break
+162.3	the rule so again if neither outcome can
+164.7	break the rule then we cannot obtain any
+166.6	relevant information from this card and
+168.4	therefore there's no need to turn over
+170.8	finally the 7 car this card must be
+173.7	turned over why to make sure there is
+176.4	not a vowel on the other side if there
+178.6	is this breaks the rule because the car
+180.5	has a vowel on one side and an odd
+181.9	number on the other shape so looking at
+183.9	both potential outcomes of all four cars
+185.9	we can see that there are only two ways
+187.5	in which the rule and
+188.6	broken and therefore these two and only
+190.8	these two cars must be turned over this
+193.5	rule is basically an F a.m. statement or
+196.4	it can be written as P therefore Q and
+199.2	which P is the antecedent and Q is the
+201.5	consequent each of the four cards
+203.9	represent the four possible premises P
+206.6	not P Q not Q so P would be a vowel
+210.6	naught P would be a consonant cued being
+213.3	even number and not Q would be an odd
+215.4	number
+216.0	now when presented with each of these
+218.2	premises we can make inferences this can
+220.6	be divided into two types of reasoning
+222.5	inductive reasoning and deductive
+224.4	reasoning inductive reasoning is invalid
+227.4	while deductive reasoning is valid the
+229.8	first time was obvious is when presented
+231.5	with P and less example the a card since
+234.0	the rule is P therefore Q given P we can
+236.4	obviously deduce that Q must fall this
+238.4	is known as affirming antecedent or
+240.3	modus ponens which is a valid deductive
+242.4	form of reasoning next when presented
+245.5	with naught P and less example the key
+247.7	card Rakuten fair not Q this is known as
+250.8	denying the antecedent which uses
+252.5	inductive reasoning and is therefore
+254.3	invalid just because you're presented
+256.4	with naught P does not necessarily mean
+258.7	that naught Q must fall when presented
+261.8	with Q people often in fair P but like I
+264.8	said the rule only goes one way so just
+267.1	because the rule is P therefore Q does
+269.3	not mean we can turn around to see Q
+271.3	therefore P this is known as affirming
+273.4	the consequent which is another invalid
+275.1	form of reasoning now finally when
+278.1	presented with naught Q we can fear not
+280.7	P this is often missed by participants
+282.9	of tasklist despite it being a valid
+285.2	logical form of reasoning known as
+287.1	denying the consequent or modus tollens
+289.0	this is valid because if we have not
+291.5	cured only logical conclusion would be
+293.3	not P if we apply our real-world example
+296.9	we could say something like all Tigers
+298.9	have stripes as our premise then we
+301.1	could make inferences using both
+302.4	inductive and deductive reasoning for
+304.8	example if it's a tiger it has stripes
+308.9	if it's not a tiger it doesn't have
+311.3	stripes if it has drapes it's a tiger if
+315.1	it doesn't have stripes it's not a tiger
+320.5	looking at the results of the card
+322.5	selection task one mate quickly Jones to
+324.4	conclusion that humans are not very good
+326.1	at reasoning and therefore illogical but
+328.6	one important thing to know is that
+329.9	content is crucial to a task like this
+332.2	participant performs significantly
+333.6	better when presented with cars that
+335.5	have real-world applicable examples this
+337.8	can be seen in a different form of the
+339.5	car selection task this time each car is
+341.8	represented by a person on one side of
+343.9	the car is a drink in which that person
+345.4	is drinking and on the other side is
+347.2	their age participants are presented
+349.8	with four cars and falling rule if a
+352.3	person is drinking alcohol it must be 18
+354.3	years or older the task is once again to
+357.3	turn over cards in order to determine
+358.9	whether or not the rule or in this case
+360.7	the law is being followed in this case
+363.2	72% of people correctly predicted that
+365.8	the cards beer and sex team must be
+368.1	turned over the beer card has to be
+370.2	turned over to make sure the person
+371.4	drinking it is old enough the water card
+373.6	is irrelevant since it doesn't matter
+375.1	what age the person is the 25 card is
+378.1	also irrelevant since it doesn't matter
+379.7	whether they're drinking alcohol or not
+381.1	since it over 18 and the 16 card must be
+384.2	turned over to make sure that person is
+385.8	not drinking alcohol it's much easier
+388.8	for us to reason and tasks like this
+390.2	because we can actually apply it to
+391.6	real-world scenarios in terms of actual
+393.7	variables this test is actually
+395.2	quantitatively identical to the first
+397.3	the statement if a person is drinking
+399.3	alcohol it must be 18 years or over it's
+401.1	just another F P then Q statement we're
+403.7	drinking alcohol at P and being 18 years
+405.9	or older as Q the four cards also
+408.1	represent the same four premises as
+410.0	before P naught P Q naught Hume this
+413.3	also helps highlight why certain
+415.1	inferences are illogical
+416.3	the most common wrong answer in the
+417.8	first task was the a in two cards but as
+420.4	stated earlier turning over the two card
+422.1	is illogical the two card is
+424.1	representing the premise Q and s real
+426.0	world example representing the Q premise
+428.2	as the h20 five card so it becomes more
+430.8	obvious why this is a logical just
+433.1	because a person is over 18 does not
+434.8	necessarily mean they're drinking
+435.9	alcohol so no matter what the drinking
+438.0	they're not breaking the law and
+439.2	therefore there's no need
+440.4	to turn over the card so the real P
+442.9	therefore Q cannot simply return R into
+445.1	Q therefore P as a personal drinking
+447.2	alcohol they must be 18 years old or
+448.7	cannot simply be turned right into F a
+450.5	person's over 18 they must be drinking
+452.3	alcohol this is n dot of reasoning and
+454.5	is therefore invalid it's worth pointing
+457.3	out though it's possible to be wrong
+459.2	using deductive reasoning and vice-versa
+461.6	is possible to arrive at correct
+463.3	conclusion using inductive reasoning
+465.6	deductive reasoning is only as correct
+468.3	as its premise so given an incorrect
+470.8	premise like all parts can fly we could
+473.6	use modus tollens to logically deduce
+475.9	that if it can't fly it's not a Bart
+478.7	this is obviously false because the
+480.7	penguin is a species of bird that can't
+482.6	fly and if we return to our Tiger
+485.1	example if we see a tiger and say it has
+487.8	stripes therefore as a tiger this is an
+490.6	invalid form of reasoning yet we have
+492.5	arrived at correct conclusion in fact
+495.3	inductive reasoning is actually
+496.8	incredibly useful and we use it on a
+498.5	daily basis with incredible accuracy
+500.5	some of the most obvious statements an
+503.0	assumption should we make are actually
+504.4	using inductive reasoning things as
+507.3	obvious as the Sun will rise tomorrow or
+509.9	if I drop a coin it will fall to the
+512.7	ground these statements though obvious
+515.4	are actually using inductive reasoning
+517.3	how do we really know the Sun will rise
+519.6	tomorrow because it's present every day
+521.9	of a life so far but nothing that has
+524.0	happened in the past can guarantee will
+526.1	happen in the future we can only make
+528.2	predictions and increase the certainty
+530.0	of our protections but we can never
+531.2	guarantee outcomes in fact everything we
+534.6	know about the universe we know through
+536.4	end up the reasoning how do you think we
+538.5	get these premises in the first place
+540.0	how do we know that all Tigers have
+542.0	stripes through inductive reasoning but
+544.8	there's no way to know for sure that all
+546.4	Tigers have stripes maybe there's an
+548.3	undiscovered species of tiger and a
+549.9	jungle somewhere with no stripes it's
+552.0	just that every tiger anyone has ever
+553.7	seen has had stripes so we can say with
+555.9	a high degree of confidence that all
+557.3	Tigers have stripes but it's impossible
+559.1	to know for sure in fact according to
+562.2	the strictest rules of logic it's
+563.8	impossible to know anything for sure
+565.7	through scientific research we can only
+568.0	increase the likelihood that something
+569.6	is true but can never actually confirm
+571.6	it famous philosophical quotes
+573.9	that nothing can be normed nor even this
+576.7	but just because something can be known
+579.0	with 100% certainty when all the
+581.2	scientific evidence points to something
+582.9	any rational person would accept it as
+584.8	fact so it comes to reasoning it's not
+587.2	just about logic but also a bit common
+589.4	sense and rationality - thanks for
+592.4	watching
+597.8	[Music]

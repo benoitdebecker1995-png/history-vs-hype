@@ -1,0 +1,41 @@
+{
+  "video_id": "OfFrHOhKZDo",
+  "channel": "Atun-Shei_Films",
+  "title": "Holy Horror: A New History of John Brown's Raid (feat. InRangeTV)",
+  "views": 401148,
+  "duration_seconds": 2413,
+  "word_count": 6634,
+  "hook": {
+    "first_50_words": "among the 19th century abolitionists John Brown stands apart ever since this failed wool Merchant turned gorilla fighter plunged from a scaffold in Charlestown Virginia now West Virginia Americans have grappled with the question of how his life and Legend should be remembered he has been deified and demonized in",
+    "first_sentence": "among the 19th century abolitionists",
+    "seconds_to_first_date": 176.6,
+    "seconds_to_first_named_entity": 21.8,
+    "hook_type": "cold_fact",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 10,
+    "seconds_to_first_historical_date": 176.6,
+    "seconds_to_turn_moment": 478.4,
+    "turn_moment_description": "en a deficiency but in reality I think you could argue that it actually was very productive for the cause because no one in the community su",
+    "percent_history_vs_analysis": 4.5,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 8,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "sequence of events of John Brown's raid I just want to leave you with these pardon questions first was John Brown right and second and more importantly was he effective I don't know I'm just a history dork I'll leave the answers to the activists over y in of Jesus",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 165.0,
+    "date_frequency_per_minute": 0.62,
+    "avg_sentence_length": 15.0
+  }
+}

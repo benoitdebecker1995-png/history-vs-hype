@@ -1,0 +1,41 @@
+{
+  "video_id": "VC4sAaV1eBs",
+  "channel": "Three_Arrows",
+  "title": "Fox News: How To Whitewash an Atrocity",
+  "views": 817392,
+  "duration_seconds": 1950,
+  "word_count": 6361,
+  "hook": {
+    "first_50_words": "hey what's up everyone so today we're going to talk about Fox News the Iraq war and PMC's or private military contractors which is a fancy way of saying mercenaries they are guns for hire that are deployed all around the world especially by the United States hiring a company",
+    "first_sentence": "hey what's up everyone so today we're",
+    "seconds_to_first_date": 60.8,
+    "seconds_to_first_named_entity": 2.9,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": true,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 60.8,
+    "seconds_to_turn_moment": 635.7,
+    "turn_moment_description": "they didn't commit in reality the case was not thrown out because it was demonstrable that these defendants didn't commit a crime but becau",
+    "percent_history_vs_analysis": 3.5,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 8,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "but which don't end up making the cut so that's what these patreon videos are for as usual you can hit me up on Twitter or Instagram if you have a question and yeah that's all for today I hope to see you the next time have a good one",
+    "has_cta": false,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 195.7,
+    "date_frequency_per_minute": 0.65,
+    "avg_sentence_length": 15.0
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "video_id": "hhMAt3BluAU",
+  "channel": "Kraut",
+  "title": "Trump's Biggest Failure",
+  "views": 5375616,
+  "duration_seconds": 4162,
+  "word_count": 11129,
+  "hook": {
+    "first_50_words": "somewhere more less close to you there's a prison and in that prison a business transaction took place today with the currency use being anything from ramen noodles to cigarettes prison economies are frowned upon that justice systems mostly tried to destroy them they're also a testament to something else",
+    "first_sentence": "somewhere more less close to you there's",
+    "seconds_to_first_date": 73.2,
+    "seconds_to_first_named_entity": 64.7,
+    "hook_type": "specificity_bomb",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 13,
+    "seconds_to_first_historical_date": 73.2,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 4.2,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "or become a patron if you're a patron you will also get to vote on which video I should make next if you wish to give feedback and discuss the video you can join my discord community a link to which is in the description until the next time China",
+    "has_cta": true,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "prediction"
+  },
+  "pacing": {
+    "words_per_minute": 160.4,
+    "date_frequency_per_minute": 0.48,
+    "avg_sentence_length": 15.0
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "video_id": "ejdlkfXwPQc",
+  "channel": "Three_Arrows",
+  "title": "Were the Crusades Defensive?",
+  "views": 1154288,
+  "duration_seconds": 3822,
+  "word_count": 12408,
+  "hook": {
+    "first_50_words": "hello history lovers it's your favorite mispronounce of words here and today we're going to talk about holy war and the Crusades in particular the Crusades are so fascinating a bunch of different ways and are ingrained into our culture like no other medieval event really be it an assassin's",
+    "first_sentence": "hello history lovers it's your favorite",
+    "seconds_to_first_date": 237.8,
+    "seconds_to_first_named_entity": 40.6,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 237.8,
+    "seconds_to_turn_moment": 1208.8,
+    "turn_moment_description": "in his in questions in reality while it's true that pilgrims were occasionally maltreated it was also the case that there had been no system",
+    "percent_history_vs_analysis": 4.0,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 8,
+    "explicit_source_citations": 8,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "there's Instagram oh there's also a twitch channel on which I'll probably play some Crusader Kings - after this video goes live have a look at that if you like and I think that's it hopefully the next video won't be as long but until then have a good one",
+    "has_cta": true,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 194.8,
+    "date_frequency_per_minute": 0.53,
+    "avg_sentence_length": 15.0
+  }
+}

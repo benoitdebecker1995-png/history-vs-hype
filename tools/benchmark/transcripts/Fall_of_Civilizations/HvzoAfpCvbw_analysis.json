@@ -1,0 +1,41 @@
+{
+  "video_id": "HvzoAfpCvbw",
+  "channel": "Fall_of_Civilizations",
+  "title": "11. Byzantium - Last of the Romans",
+  "views": 7077101,
+  "duration_seconds": 12451,
+  "word_count": 26849,
+  "hook": {
+    "first_50_words": "in the year 1852 the French writer and translator Te'o Figo ta made a journey to the city then known as Istanbul the capital of the Ottoman Empire thanks to the new technology of the steamship that now Criss crossed the Mediterranean he made the journey from Paris in just",
+    "first_sentence": "in the year 1852 the French writer and",
+    "seconds_to_first_date": 15.9,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "cold_fact",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 19,
+    "seconds_to_first_historical_date": 15.9,
+    "seconds_to_turn_moment": 2324.8,
+    "turn_moment_description": "he universe tumbles and yet our sins do not fall a renowned city and head of the Roman Empire is consumed in one blaze the disaster sent ref",
+    "percent_history_vs_analysis": 5.4,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 3,
+    "explicit_source_citations": 11,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "happen if you enjoyed this episode please consider heading onto patreon.com forward slash fall of civilizations underscore podcast or just google fall of civilizations patreon that's P a TR e o n to contribute something and help keep this podcast running for now all the best and thanks for listening",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 129.4,
+    "date_frequency_per_minute": 0.4,
+    "avg_sentence_length": 15.0
+  }
+}

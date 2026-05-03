@@ -20,6 +20,7 @@ All public functions follow the error-dict pattern.
 """
 
 import json
+import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -86,7 +87,7 @@ def ensure_channels_loaded(store: KBStore) -> None:
                     channel_name=channel_name,
                     niche_category=category,
                 )
-    except Exception as exc:
+    except (sqlite3.Error, OSError) as exc:
         # Non-fatal — proceed even if bootstrap fails
         logger.warning("ensure_channels_loaded failed: %s", exc)
 
@@ -165,7 +166,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
     # Initialise store
     try:
         store = KBStore(resolved_db)
-    except Exception as exc:
+    except (sqlite3.Error, OSError, RuntimeError) as exc:
         return {"error": f"KBStore init failed: {exc}"}
 
     # Staleness check (skip if forced)
@@ -223,7 +224,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
                             algo_sources_scraped, save_result.get('id'))
         else:
             errors.append("Phase 1-3: algorithm_knowledge.json not found — skipping")
-    except Exception as exc:
+    except (FileNotFoundError, json.JSONDecodeError, ValueError, KeyError) as exc:
         errors.append(f"Phase 1-3 (algo knowledge) failed: {exc}")
 
     # -----------------------------------------------------------------------
@@ -244,7 +245,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
             logger.info("     Fetched %d channels, %d videos",
                         competitor_result.get('channels_fetched', 0),
                         competitor_result.get('videos_total', 0))
-    except Exception as exc:
+    except (RuntimeError, OSError, ValueError) as exc:
         errors.append(f"Phase 4 (fetch competitors) failed: {exc}")
 
     channels_fetched = competitor_result.get("channels_fetched", 0)
@@ -264,7 +265,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
                 errors.append(f"Phase 5 (purge) failed: {purge_result['error']}")
             else:
                 logger.info("     Purged %d old videos", purge_result.get('deleted', 0))
-        except Exception as exc:
+        except (sqlite3.Error, OSError) as exc:
             errors.append(f"Phase 5 (purge) failed: {exc}")
     else:
         logger.info("     Skipping purge — Phase 4 returned only %d videos (need >= %d)",
@@ -300,7 +301,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
                 logger.info("     Saved %d videos", save_result.get('saved', 0))
         else:
             logger.info("     No videos to save")
-    except Exception as exc:
+    except (sqlite3.Error, OSError) as exc:
         errors.append(f"Phase 6 (save videos) failed: {exc}")
 
     videos_total = len(raw_videos)
@@ -333,7 +334,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
                     if v.get("video_id") and v.get("outlier_ratio") is not None:
                         store.update_video_outlier_ratio(v["video_id"], v["outlier_ratio"])
                 logger.info("     Found %d outlier(s)", outliers_found)
-    except Exception as exc:
+    except (sqlite3.Error, ValueError, KeyError, TypeError) as exc:
         errors.append(f"Phase 7 (detect outliers) failed: {exc}")
 
     # -----------------------------------------------------------------------
@@ -347,7 +348,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
             errors.append(f"Phase 7b (classify) failed: {classify_result['error']}")
         else:
             logger.info("     Classified %d videos", classify_result.get('classified', 0))
-    except Exception as exc:
+    except (sqlite3.Error, ValueError, KeyError, TypeError) as exc:
         errors.append(f"Phase 7b (classify) failed: {exc}")
 
     # -----------------------------------------------------------------------
@@ -376,7 +377,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
             else:
                 fmt = niche_patterns.get("format_patterns", {})
                 logger.info("     Patterns from %d videos", fmt.get('video_count', 0))
-    except Exception as exc:
+    except (sqlite3.Error, ValueError, KeyError, TypeError) as exc:
         errors.append(f"Phase 8 (extract patterns) failed: {exc}")
 
     # -----------------------------------------------------------------------
@@ -391,7 +392,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
         else:
             kb_exported_to = export_result.get("written_to", "")
             logger.info("     Written to %s (%d words)", kb_exported_to, export_result.get('word_count', 0))
-    except Exception as exc:
+    except (sqlite3.Error, OSError) as exc:
         errors.append(f"Phase 9 (export) failed: {exc}")
 
     # -----------------------------------------------------------------------
@@ -404,7 +405,7 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
             errors.append(f"Phase 10 (set refresh) failed: {ts_result['error']}")
         else:
             logger.info("     Timestamp: %s", ts_result.get('last_refresh', '—')[:19])
-    except Exception as exc:
+    except (sqlite3.Error, OSError) as exc:
         errors.append(f"Phase 10 (set refresh) failed: {exc}")
 
     if errors:

@@ -1,0 +1,41 @@
+{
+  "video_id": "LhHhZ3b9akU",
+  "channel": "Knowing_Better",
+  "title": "Building Your Pyramid | Multi-Level Marketing",
+  "views": 1375330,
+  "duration_seconds": 1886,
+  "word_count": 5757,
+  "hook": {
+    "first_50_words": "hi thanks for clicking my facebook link i was just thinking back on our time in high school and i realized that you would be perfect for this new business i'm involved with don't don't click away there's there's nothing shady about this i used to be like you i",
+    "first_sentence": "hi thanks for clicking my facebook link i",
+    "seconds_to_first_date": 55.4,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 2,
+    "seconds_to_first_historical_date": 55.4,
+    "seconds_to_turn_moment": 1201.8,
+    "turn_moment_description": "etely reverse aging but that's not all they've also been clinically proven to cure most cancers balance your ph levels stop snoring and bloc",
+    "percent_history_vs_analysis": 7.3,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 4,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "join my downline special thank you to josh for being the first person to join this amazing journey with me sorry this video took a little longer as you can imagine it was a large project so thank you for being patient and sticking around to listen to the end",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 183.1,
+    "date_frequency_per_minute": 0.73,
+    "avg_sentence_length": 15.0
+  }
+}

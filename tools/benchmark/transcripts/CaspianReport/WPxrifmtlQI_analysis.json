@@ -1,0 +1,41 @@
+{
+  "video_id": "WPxrifmtlQI",
+  "channel": "CaspianReport",
+  "title": "Why Syria's civil war restarted",
+  "views": 1181617,
+  "duration_seconds": 1112,
+  "word_count": 2581,
+  "hook": {
+    "first_50_words": "after an 8-year break turkish-backed Syrian rebels took over Aleppo on November 30th and are now moving toward the center of Syria the Speedy Advance has put the rebel forces about halfway between Aleppo and the capital Damascus not even at the peak of the Civil War had the rebel",
+    "first_sentence": "after an 8-year break turkish-backed",
+    "seconds_to_first_date": 185.1,
+    "seconds_to_first_named_entity": 8.2,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 185.1,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 2.9,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "this could consume a great deal of bandwidth in American power that said Washington Remains the biggest game changer of all you mess with America long enough and the sky above will start missing pixels I've been your host chivon from caspan report thank you for your time and so",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "prediction"
+  },
+  "pacing": {
+    "words_per_minute": 139.3,
+    "date_frequency_per_minute": 0.38,
+    "avg_sentence_length": 14.9
+  }
+}

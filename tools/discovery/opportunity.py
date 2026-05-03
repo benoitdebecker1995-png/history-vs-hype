@@ -4,12 +4,18 @@ Opportunity Scorer Module
 Combines demand (Phase 15), competition (Phase 16), and format (Phase 17) data
 into a single opportunity score using SAW (Simple Additive Weighting) formula.
 
-Formula: score = (demand × w1) + (gap × w2) + (fit × w3)
+Formula: score = (demand × w1) + (gap × w2) + (fit × w3) + (audience × w4)
 
 Where:
 - demand = search_volume_proxy (0-100)
 - gap = differentiation_score (0-1, normalized to 0-100)
 - fit = document_score (0-4, normalized to 0-100)
+- audience = audience_potential (0-100, from geographic monopoly analysis)
+
+v2.0 (2026-03-07): Added audience_potential factor for geographic monopoly scoring.
+    Key insight: Guatemala/Belize got 28,955 views because 46.6% came from Belize
+    (pop 400K, English-speaking, zero quality YouTube coverage). The SAW formula
+    now rewards topics targeting underserved English-speaking populations.
 
 Hard constraints (animation required, channel DNA violations) filter BEFORE scoring.
 
@@ -28,7 +34,6 @@ Usage:
 """
 
 from typing import Dict, Optional, Any, Tuple
-from datetime import datetime, timezone
 
 from tools.logging_config import get_logger
 
@@ -70,19 +75,21 @@ class OpportunityScorer:
 
         Args:
             db: KeywordDB instance
-            weights: Optional weight dict {'demand': float, 'gap': float, 'fit': float}
-                     Default: demand=0.33, gap=0.33, fit=0.34
+            weights: Optional weight dict. Keys: demand, gap, fit, audience.
+                     Default: demand=0.28, gap=0.28, fit=0.29, audience=0.15
 
         Raises:
             ValueError: If weights don't sum to 1.0
         """
         self.db = db
 
-        # Default weights (balanced, with slight preference for fit)
+        # Default weights — audience factor added for geographic monopoly scoring
+        # Reduced other weights proportionally to make room
         self.weights = weights or {
-            'demand': 0.33,
-            'gap': 0.33,
-            'fit': 0.34  # Slightly higher for channel focus on document-heavy
+            'demand': 0.28,
+            'gap': 0.28,
+            'fit': 0.29,    # Slightly higher for channel focus on document-heavy
+            'audience': 0.15  # Geographic monopoly: underserved English populations
         }
 
         # Validate weights sum to 1.0
@@ -236,12 +243,19 @@ class OpportunityScorer:
         fit_raw = constraints.get('document_score', 2) if constraints else 2
         fit_normalized = fit_raw * 25  # 0→0, 4→100
 
+        # Audience: geographic monopoly potential (0-100)
+        # Measures underserved English-speaking populations interested in this topic
+        # Higher = larger English audience with no quality YouTube coverage
+        audience_raw = demand_data.get('audience_potential', 0)
+        audience_normalized = min(100, audience_raw)  # Already 0-100 if provided
+
         # STEP 3: CALCULATE WEIGHTED SAW SCORE
 
         opportunity_score = (
             demand_normalized * self.weights['demand'] +
             gap_normalized * self.weights['gap'] +
-            fit_normalized * self.weights['fit']
+            fit_normalized * self.weights['fit'] +
+            audience_normalized * self.weights.get('audience', 0)
         )
 
         # STEP 4: CATEGORIZE
@@ -290,6 +304,12 @@ class OpportunityScorer:
                     'normalized': fit_normalized,
                     'weight': self.weights['fit'],
                     'contribution': round(fit_normalized * self.weights['fit'], 1)
+                },
+                'audience': {
+                    'raw': audience_raw,
+                    'normalized': audience_normalized,
+                    'weight': self.weights.get('audience', 0),
+                    'contribution': round(audience_normalized * self.weights.get('audience', 0), 1)
                 }
             },
             'warnings': warnings,
@@ -316,46 +336,10 @@ class OpportunityScorer:
             result = scorer.score_opportunity(5, demand_data, comp_data, constraints)
             save_result = scorer.save_opportunity_score(5, result)
         """
-        try:
-            cursor = self.db._conn.cursor()
-            now = datetime.now(timezone.utc).date().isoformat()
-
-            # Update keywords table with final score
-            cursor.execute(
-                """
-                UPDATE keywords
-                SET opportunity_score_final = ?,
-                    opportunity_category = ?
-                WHERE id = ?
-                """,
-                (score_result.get('opportunity_score'), score_result.get('category'), keyword_id)
-            )
-
-            # Save detailed components to opportunity_scores table
-            if not score_result['is_blocked']:
-                components = score_result['components']
-                demand_score = components['demand']['normalized']
-                gap_score = components['gap']['normalized']
-
-                # Use opportunity_score as ratio for compatibility with existing table
-                opportunity_ratio = score_result['opportunity_score'] / 100.0
-
-                cursor.execute(
-                    """
-                    INSERT INTO opportunity_scores (keyword_id, demand_score, competition_score, opportunity_ratio, opportunity_category, calculated_at)
-                    VALUES (?, ?, ?, ?, ?, ?)
-                    """,
-                    (keyword_id, demand_score, gap_score, opportunity_ratio, score_result['category'], now)
-                )
-
-            self.db._conn.commit()
-
-            # Transition lifecycle state to ANALYZED if currently DISCOVERED
-            current_state = self.db.get_lifecycle_state(keyword_id)
-            if current_state == 'DISCOVERED':
-                self.db.set_lifecycle_state(keyword_id, 'ANALYZED')
-
-            return {'status': 'saved', 'keyword_id': keyword_id}
-
-        except Exception as e:
-            return {'error': 'Failed to save opportunity score', 'details': str(e)}
+        return self.db.save_opportunity_score(
+            keyword_id=keyword_id,
+            opportunity_score=score_result.get('opportunity_score'),
+            category=score_result.get('category'),
+            components=score_result.get('components'),
+            is_blocked=score_result.get('is_blocked', False),
+        )

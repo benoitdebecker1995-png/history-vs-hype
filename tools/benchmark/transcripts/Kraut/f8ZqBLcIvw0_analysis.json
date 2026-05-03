@@ -1,0 +1,41 @@
+{
+  "video_id": "f8ZqBLcIvw0",
+  "channel": "Kraut",
+  "title": "The Origins of Russian Authoritarianism",
+  "views": 1847881,
+  "duration_seconds": 1268,
+  "word_count": 3355,
+  "hook": {
+    "first_50_words": "nomadic empires were some of the most fascinating entities in human history originating from the steps of central asia most lived in isolation unbothered by neighbouring empires who saw their lands as worthless this isolation allowed many nomadic tribes to specialize increasingly in nomadic life and warfare competing with other",
+    "first_sentence": "nomadic empires were some of the most",
+    "seconds_to_first_date": 273.7,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 3,
+    "seconds_to_first_historical_date": 273.7,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 1.8,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "you wish to see it and don't forget to like this video and leave a comment if you enjoyed it and to share it around on social media ways in which you can support this channel are also listed in the description i hope to see you all next time",
+    "has_cta": true,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 158.8,
+    "date_frequency_per_minute": 0.19,
+    "avg_sentence_length": 15.0
+  }
+}

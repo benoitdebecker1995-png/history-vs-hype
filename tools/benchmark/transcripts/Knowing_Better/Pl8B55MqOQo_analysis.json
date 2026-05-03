@@ -1,0 +1,41 @@
+{
+  "video_id": "Pl8B55MqOQo",
+  "channel": "Knowing_Better",
+  "title": "American Exceptionalism but as a Religion | Mormons",
+  "views": 2569419,
+  "duration_seconds": 3232,
+  "word_count": 10506,
+  "hook": {
+    "first_50_words": "we should all know the american creation myth but for the two or three of you that don't it all started when a group of religious conservatives who didn't think the church of england was protestant enough were kicked out of a number of european countries and sailed west to",
+    "first_sentence": "we should all know the american creation",
+    "seconds_to_first_date": 94.4,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 3,
+    "seconds_to_first_historical_date": 94.4,
+    "seconds_to_turn_moment": 519.3,
+    "turn_moment_description": "en shown the plates in reality by joseph smith even having the chance to handle the plates and flip through the pages all eight of these wit",
+    "percent_history_vs_analysis": 8.4,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 3,
+    "explicit_source_citations": 10,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "clip head on over to patreon.com knowingbetter or for a onetime donation dot message knowing better don't forget to ordain that subscribe button or the join button if you're feeling exalted check out the merch at knowingbetter.tv follow me on twitter facebook and instagram and join us on the subreddit",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 195.0,
+    "date_frequency_per_minute": 1.19,
+    "avg_sentence_length": 15.0
+  }
+}

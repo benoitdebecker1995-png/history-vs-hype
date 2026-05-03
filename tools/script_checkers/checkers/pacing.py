@@ -280,7 +280,8 @@ class PacingChecker(BaseChecker):
             score -= min(30, penalty)
 
         # Flesch delta penalty (max 35 points)
-        flesch_delta = abs(metrics['flesch_score'] - prev_flesch)
+        # Use pre-computed flesch_delta from metrics (already handles first-section = 0)
+        flesch_delta = abs(metrics.get('flesch_delta', 0))
         if flesch_delta > flesch_threshold:
             penalty = (flesch_delta - flesch_threshold) * 1.75
             score -= min(35, penalty)
@@ -317,8 +318,8 @@ class PacingChecker(BaseChecker):
                 "inconsistent rhythm between short and long sentences"
             )
 
-        # Check Flesch delta
-        flesch_delta = metrics['flesch_score'] - prev_flesch
+        # Check Flesch delta (use pre-computed value that handles first-section = 0)
+        flesch_delta = metrics.get('flesch_delta', 0)
         if abs(flesch_delta) > flesch_threshold:
             direction = "drop" if flesch_delta < 0 else "jump"
             reasons.append(

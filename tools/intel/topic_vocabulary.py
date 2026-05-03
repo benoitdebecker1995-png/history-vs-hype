@@ -31,6 +31,8 @@ UNIFIED_TOPICS: dict[str, list[str]] = {
         "colonial", "colonialism", "colony", "settler", "independence",
         "empire", "imperial", "imperialism", "conquest", "partition",
         "decolonization", "mandate", "protectorate",
+        "tordesillas", "doctrine of discovery", "papal bull", "divided the world",
+        "split the world", "scramble for africa", "berlin conference", "condor",
     ],
     "politician": [
         "president", "minister", "politician", "election", "vote",
@@ -55,7 +57,8 @@ UNIFIED_TOPICS: dict[str, list[str]] = {
     ],
     "revolution": [
         "revolution", "revolt", "uprising", "liberation", "coup",
-        "overthrow", "insurrection", "rebellion",
+        "overthrow", "insurrection", "rebellion", "protest",
+        "iran", "ussr", "soviet",
     ],
     "religion": [
         "religion", "church", "christian", "islam", "muslim", "jewish",

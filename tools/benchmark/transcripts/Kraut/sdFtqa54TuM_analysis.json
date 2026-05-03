@@ -1,0 +1,41 @@
+{
+  "video_id": "sdFtqa54TuM",
+  "channel": "Kraut",
+  "title": "The Ideology of Putin's Russia",
+  "views": 1719520,
+  "duration_seconds": 3227,
+  "word_count": 8638,
+  "hook": {
+    "first_50_words": "this video is sponsored by speakley if you want to study history it is a good idea to learn a foreign language especially French some of the most groundbreaking historians of the last century in particular the occurred as anals were French consequently some of the most important history journals",
+    "first_sentence": "this video is sponsored by speakley if",
+    "seconds_to_first_date": 313.4,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 313.4,
+    "seconds_to_turn_moment": 2936.3,
+    "turn_moment_description": "modern pop culture and yet not a single one of them recognized piece of overt fascist Cinema made in our time they universally failed at th",
+    "percent_history_vs_analysis": 1.2,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 4,
+    "explicit_source_citations": 10,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "guess live rather difficult lives in Russia you will find a link to it in the description if you enjoyed this video don't forget to like it and share it you can support my channel through patreon Channel membership or a donation and I hope to see you soon again",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "prediction"
+  },
+  "pacing": {
+    "words_per_minute": 160.6,
+    "date_frequency_per_minute": 0.15,
+    "avg_sentence_length": 15.0
+  }
+}

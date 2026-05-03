@@ -9,9 +9,14 @@ score (50) with a note, never an exception.
 """
 
 import re
+import sqlite3
 import sys
 from pathlib import Path
 from typing import Dict, List, Any, Optional
+
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -25,10 +30,20 @@ WEIGHTS = {
     'duration': 0.15,
 }
 
-WPM = 150  # words per minute for duration estimation
+# Words per minute for duration estimation.
+# Source: pacing_analysis.py (42 videos, 2026-03-21) — channel median is ~138 WPM.
+# Using 140 as round estimate. Previous value (150) overestimated speaking speed.
+WPM = 140
 
-# Publishing day performance scores (source: channel analytics March 2026, n=40)
+# Publishing day performance scores (source: channel analytics March 2026, n=47)
 # Monday avg 9,689 views, Friday avg 54 views — update when data changes
+#
+# VELOCITY-ANALYSIS.md (2026-03-21, n=48) 48h avg views by day:
+#   Sunday: 411 (n=2, VERY LOW confidence — best velocity but unreliable)
+#   Tuesday: 188 (n=5), Thursday: 170 (n=24, most data), Wednesday: 61 (n=5)
+#   Saturday: 55 (n=3), Monday: 39 (n=3), Friday: 6 (n=6, confirmed worst)
+# Sunday velocity is promising but n=2 is too small to override Monday's
+# lifetime view advantage (9,689 avg). Keeping Monday=100 until more Sunday data.
 DAY_SCORES = {
     'monday': 100, 'tuesday': 75, 'sunday': 70,
     'wednesday': 60, 'thursday': 55, 'saturday': 45, 'friday': 20,
@@ -191,7 +206,8 @@ def _score_topic(titles: List[str]) -> Dict[str, Any]:
         if best_score >= 0:
             return result
         result['notes'].append('topic_scorer returned errors for all titles')
-    except Exception as e:
+    except (ImportError, sqlite3.Error, ValueError, KeyError, AttributeError) as e:
+        logger.debug("topic_scorer unavailable: %s", e)
         result['notes'].append(f"topic_scorer unavailable: {e}")
 
     # Fallback: classify topic type and assign baseline score
@@ -212,7 +228,8 @@ def _score_topic(titles: List[str]) -> Dict[str, Any]:
                 result['topic_type'] = topic_type
                 result['score'] = score
         result['notes'].append('scored via topic-type baseline (no intel.db)')
-    except Exception as e:
+    except (ImportError, AttributeError, ValueError) as e:
+        logger.debug("classify_topic_type unavailable: %s", e)
         result['notes'].append(f"classify_topic_type unavailable: {e}")
 
     return result
@@ -243,9 +260,13 @@ def _score_script(script_text: str) -> Dict[str, Any]:
         result['notes'].append('Script too short to score')
         return result
 
-    sub_scores: List[float] = []
+    # Weighted sub-scores: (score, weight) tuples.
+    # Retention analysis (42 videos, 2026-03-21) showed pacing is NOT a retention
+    # driver (r=-0.019, p=0.18). Content type placement matters 10x more.
+    # Weights reflect this: evidence/hook >> stumble/scaffolding >> pacing (advisory).
+    weighted_scores: List[tuple] = []
 
-    # --- Pacing ---
+    # --- Pacing (ADVISORY — pacing ≠ retention driver, r=-0.019 p=0.18) ---
     try:
         from tools.script_checkers.config import Config
         from tools.script_checkers.checkers.pacing import PacingChecker
@@ -254,16 +275,17 @@ def _score_script(script_text: str) -> Dict[str, Any]:
         pacing = pc.check(script_text)
         stats = pacing.get('stats', {})
         avg = stats.get('average_score', 50)
-        sub_scores.append(avg)
+        weighted_scores.append((avg, 0.5))  # half-weight: advisory only
         result['pacing_verdict'] = stats.get('verdict', 'SKIPPED')
         if pacing.get('issues'):
             for iss in pacing['issues'][:3]:
-                result['issues'].append(
-                    f"Pacing: {iss.get('section', '?')} scored {iss.get('score', '?')}"
+                result['notes'].append(  # notes, not issues — advisory
+                    f"Pacing (advisory): {iss.get('section', '?')} scored {iss.get('score', '?')}"
                 )
-    except Exception as e:
+    except (ImportError, RuntimeError, AttributeError, ValueError) as e:
+        logger.debug("PacingChecker unavailable: %s", e)
         result['notes'].append(f"PacingChecker: {e}")
-        sub_scores.append(50)
+        weighted_scores.append((50, 0.5))
 
     # --- Stumble ---
     try:
@@ -276,15 +298,16 @@ def _score_script(script_text: str) -> Dict[str, Any]:
         total = stats.get('total_sentences', 1)
         flagged = stats.get('flagged_sentences', 0)
         stumble_score = max(0, 100 - (flagged / max(total, 1)) * 200)
-        sub_scores.append(stumble_score)
+        weighted_scores.append((stumble_score, 1.0))
         high_sev = [i for i in stumble.get('issues', []) if i.get('severity') == 'high']
         if high_sev:
             result['issues'].append(
                 f"Stumble: {len(high_sev)} high-severity sentences"
             )
-    except Exception as e:
+    except (ImportError, RuntimeError, AttributeError, ValueError) as e:
+        logger.debug("StumbleChecker unavailable: %s", e)
         result['notes'].append(f"StumbleChecker: {e}")
-        sub_scores.append(50)
+        weighted_scores.append((50, 1.0))
 
     # --- Scaffolding ---
     try:
@@ -295,20 +318,24 @@ def _score_script(script_text: str) -> Dict[str, Any]:
         scaff = sc.check(script_text)
         sev = scaff.get('stats', {}).get('severity', 'ok')
         scaff_score = {'ok': 100, 'warning': 65, 'error': 30}.get(sev, 50)
-        sub_scores.append(scaff_score)
+        weighted_scores.append((scaff_score, 1.0))
         if sev != 'ok':
             result['issues'].append(
                 f"Scaffolding: {sev} — {scaff['stats'].get('total_scaffolding', 0)} filler phrases"
             )
-    except Exception as e:
+    except (ImportError, RuntimeError, AttributeError, ValueError) as e:
+        logger.debug("ScaffoldingChecker unavailable: %s", e)
         result['notes'].append(f"ScaffoldingChecker: {e}")
-        sub_scores.append(50)
+        weighted_scores.append((50, 1.0))
 
     # --- Evidence density (use marker-intact text for counting) ---
+    # Retention data: statistics have 61% positive rate, quotes/primary_sources ~55%.
+    # Evidence markers correlate with these high-retention content types.
+    # Weight 1.5x (strongest retention signal available in script text).
     evidence_hits = EVIDENCE_RE.findall(script_with_markers)
     result['evidence_density'] = round(len(evidence_hits) / max(word_count / 100, 1), 2)
     evidence_score = min(100, result['evidence_density'] * 30)  # ~3.3 per 100w = 100
-    sub_scores.append(evidence_score)
+    weighted_scores.append((evidence_score, 1.5))  # boosted weight: evidence = retention
     if result['evidence_density'] < 1.0:
         result['issues'].append(
             f"Low evidence density: {result['evidence_density']} markers per 100 words"
@@ -322,19 +349,21 @@ def _score_script(script_text: str) -> Dict[str, Any]:
     hook_text = ' '.join(words[:hook_cutoff])
     has_pull = bool(PULL_QUESTION_RE.search(hook_text))
     if has_pull:
-        sub_scores.append(90)
+        weighted_scores.append((90, 1.0))
         result['notes'].append('Pull question found in hook (bonus)')
     else:
-        sub_scores.append(75)  # neutral — declarative is the channel's strong suit
+        weighted_scores.append((75, 1.0))  # neutral — declarative is the channel's strong suit
 
     # --- Opening hook pattern (data-backed, March 2026) ---
     # High-retention (35%+) openings start with specific number or shocking verb
     # Low-retention (<25%) openings start with abstract context-setting
+    # Retention data (2026-03-21): statistics in first 10s = 61% positive rate.
+    # A specific number in the opening is the strongest retention signal.
     first_50_words = ' '.join(words[:50]).lower()
     hook_score = 70  # default
     hook_notes = []
 
-    # Positive: specific numbers in first 50 words
+    # Positive: specific numbers in first 50 words (statistics = 61% positive retention)
     if re.search(r'\b\d+\b', first_50_words):
         hook_score += 15
         hook_notes.append('Specific number in opening (good)')
@@ -359,10 +388,42 @@ def _score_script(script_text: str) -> Dict[str, Any]:
         hook_score -= 10
         hook_notes.append('Opening may delay topic with date-first context')
 
-    sub_scores.append(min(100, max(0, hook_score)))
+    weighted_scores.append((min(100, max(0, hook_score)), 1.5))  # boosted: hook is critical
     result['notes'].extend(hook_notes)
 
-    result['score'] = round(sum(sub_scores) / len(sub_scores)) if sub_scores else 50
+    # Weighted average: sum(score * weight) / sum(weights)
+    if weighted_scores:
+        total_weighted = sum(s * w for s, w in weighted_scores)
+        total_weight = sum(w for _, w in weighted_scores)
+        result['score'] = round(total_weighted / total_weight)
+    else:
+        result['score'] = 50
+
+    # --- Retention predictor (advisory — enriches notes, doesn't change score) ---
+    try:
+        from tools.youtube_analytics.retention_predictor import predict_from_text
+        pred = predict_from_text(script_text)
+        if pred and pred.get('curve'):
+            # Average predicted retention from curve points
+            curve_vals = [r for _, r in pred['curve']]
+            avg_ret = sum(curve_vals) / len(curve_vals) if curve_vals else 0
+            result['notes'].append(
+                f"Retention predictor: {avg_ret:.1%} predicted avg "
+                f"(channel avg 27.8%)"
+            )
+            if avg_ret < 0.25:
+                result['issues'].append(
+                    f"Retention predictor flags below-average retention ({avg_ret:.1%}). "
+                    "Check content-type placement."
+                )
+            # Surface top flags
+            for flag in pred.get('flags', [])[:2]:
+                result['notes'].append(
+                    f"Retention flag: {flag.get('message', '')} ({flag.get('section', '')})"
+                )
+    except (ImportError, RuntimeError, AttributeError, ValueError, KeyError) as e:
+        logger.debug("RetentionPredictor unavailable: %s", e)
+
     return result
 
 
@@ -373,12 +434,12 @@ def _score_script(script_text: str) -> Dict[str, Any]:
 def _score_title_metadata(metadata: str, titles: List[str], topic_type: str) -> Dict[str, Any]:
     """Score title variants and metadata completeness.
 
-    Uses data-backed CTR patterns from 40-video analysis (March 2026):
-      versus (5.5%) > declarative (3.8%) > how (3.8%) >> colon (2.6%)
-      >> question (2.0%) >> the_x_that (1.2%)
+    Uses data-backed CTR patterns (niche-validated March 2026, n=47 own + 388 niche):
+      declarative (~3.8%) > versus (~3.7%, n=2 LOW confidence) > how_why (~3.3%)
+      >> colon (~2.3%) >> question (~2.0%) >> the_x_that (~1.2%)
 
-    Title killers: year (-45.6%), numbers (-42.0%), question (-36.3%),
-    colon (-28.1% CTR but +16.9% retention).
+    Title killers: year (-46% CTR), colon (-28% CTR).
+    Traffic source finding (2026-03-21): How/Why gets 2x search traffic (26.4% vs 12.7%).
     """
     result: Dict[str, Any] = {
         'score': 50,
@@ -397,7 +458,7 @@ def _score_title_metadata(metadata: str, titles: List[str], topic_type: str) -> 
 
     sub_scores: List[float] = []
 
-    # --- Data-backed title pattern scoring (March 2026, n=40) ---
+    # --- Data-backed title pattern scoring (niche-validated March 2026, n=47 own + 388 niche) ---
     def _classify_title_pattern(title: str) -> tuple:
         """Classify title and return (pattern, base_score, issues)."""
         t = title.lower()
@@ -418,15 +479,16 @@ def _score_title_metadata(metadata: str, titles: List[str], topic_type: str) -> 
         elif ':' in title:
             pattern = 'colon'
 
-        # Pattern base scores (from own-channel CTR data)
+        # Pattern base scores (niche-validated March 2026, aligned with title_scorer.py)
+        # versus score lowered: n=2 own only, 1/388 niche — VERY LOW confidence
         pattern_scores = {
-            'versus': 95,       # 5.5% avg CTR
-            'declarative': 75,  # 3.8% avg CTR
-            'how': 75,          # 3.8% avg CTR
-            'why': 55,          # 2.6% avg CTR
-            'colon': 50,        # 2.6% avg CTR (but +17% retention)
-            'question': 40,     # 2.0% avg CTR
-            'the_x_that': 20,   # 1.2% avg CTR — NEVER USE
+            'versus': 75,       # ~3.7% CTR but n=2, LOW confidence
+            'declarative': 75,  # ~3.8% CTR, n=19, SAFE BET
+            'how': 70,          # ~3.3% CTR, n=5 + 2x search traffic (26.4%)
+            'why': 70,          # ~3.3% CTR, same as how
+            'colon': 40,        # ~2.3% CTR, -28% penalty
+            'question': 35,     # ~2.0% CTR, LOW confidence
+            'the_x_that': 20,   # ~1.2% CTR — NEVER USE
         }
         base = pattern_scores.get(pattern, 60)
 
@@ -452,8 +514,8 @@ def _score_title_metadata(metadata: str, titles: List[str], topic_type: str) -> 
         _db = KeywordDB()
         db_path = _db.db_path
         _db.close()
-    except Exception:
-        pass
+    except (ImportError, sqlite3.Error, FileNotFoundError) as e:
+        logger.debug("KeywordDB unavailable for title scoring: %s", e)
 
     best_score = -1
     best_title = titles[0]
@@ -464,8 +526,8 @@ def _score_title_metadata(metadata: str, titles: List[str], topic_type: str) -> 
     try:
         from tools.benchmark_store import normalize_topic_type as _norm_tt
         _normalized_topic = _norm_tt(topic_type) if topic_type else None
-    except Exception:
-        pass
+    except (ImportError, ValueError, KeyError) as e:
+        logger.debug("normalize_topic_type unavailable: %s", e)
 
     # Try DB-enriched scoring via title_scorer (with niche context propagation)
     _best_ts_result = None
@@ -500,7 +562,8 @@ def _score_title_metadata(metadata: str, titles: List[str], topic_type: str) -> 
                 gap_msg = (_best_ts_result.get('topic_type_target') or {}).get('gap_message', '')
                 if gap_msg:
                     result['notes'].append(f"Topic target: {gap_msg}")
-    except Exception as e:
+    except (ImportError, sqlite3.Error, ValueError, KeyError, AttributeError) as e:
+        logger.debug("title_scorer unavailable: %s", e)
         result['notes'].append(f"title_scorer unavailable: {e} — using internal classifier")
         # Fallback to internal classifier
         for t in titles:
@@ -529,7 +592,8 @@ def _score_title_metadata(metadata: str, titles: List[str], topic_type: str) -> 
             ctr_score = min(100, (best_ctr / 8.0) * 100)
             sub_scores.append(ctr_score)
             result['predicted_ctr'] = f"{best_ctr:.1f}%"
-    except Exception as e:
+    except (ImportError, sqlite3.Error, ValueError, KeyError, AttributeError) as e:
+        logger.debug("TitleIntelligence unavailable: %s", e)
         result['notes'].append(f"TitleIntelligence: {e}")
 
     # --- Title length ---
@@ -548,7 +612,8 @@ def _score_title_metadata(metadata: str, titles: List[str], topic_type: str) -> 
         from tools.intel.topic_vocabulary import detect_formulas
         formulas = detect_formulas(best_title)
         result['formulas'] = formulas
-    except Exception as e:
+    except (ImportError, ValueError, KeyError) as e:
+        logger.debug("detect_formulas unavailable: %s", e)
         result['notes'].append(f"detect_formulas: {e}")
 
     # --- Description length ---
@@ -649,26 +714,39 @@ def _strip_non_spoken(text: str) -> str:
 
 
 def _score_duration(script_text: str) -> Dict[str, Any]:
-    """Score duration and B-roll density."""
+    """Score duration and B-roll density.
+
+    Updated 2026-03-29: Hard 12-min cap from 47-video retention audit.
+    Duration-retention correlation r=-0.455. 8-12 min = 29.6% avg retention,
+    12-20 min = 24.7%, 20+ min = 17.8%. Every minute past 12 costs ~0.7pp.
+    """
     spoken_text = _strip_non_spoken(script_text)
     words = spoken_text.split()
     word_count = len(words)
     est_minutes = round(word_count / WPM, 1)
 
-    # Duration scoring — generous for long videos (channel has no length cap;
-    # Kraut runs 30-45 min successfully). Penalise only very short videos.
-    if 8 <= est_minutes <= 13:
-        dur_score = 100
-    elif 13 < est_minutes <= 20:
-        dur_score = 85
-    elif 20 < est_minutes <= 30:
-        dur_score = 70
-    elif 7 <= est_minutes < 8 or est_minutes > 30:
-        dur_score = 60
-    elif 4 <= est_minutes < 7:
-        dur_score = 50
+    # Duration scoring — hard cap at 12 min (Rule 32).
+    # est_minutes = word_count / 140 WPM = teleprompter reading time.
+    # The script is written at 1.80x target (Rule 21: 44% survival rate),
+    # so filmed duration ≈ est_minutes × 0.44 (only 44% of script survives).
+    # But the scorer sees the SCRIPT, not the filmed video.
+    # filmed_est = what the final video will approximately be after cuts.
+    filmed_est = round(est_minutes * 0.44, 1)
+
+    if 8 <= filmed_est <= 12:
+        dur_score = 100  # Sweet spot
+    elif 6 <= filmed_est < 8:
+        dur_score = 80   # Slightly short but acceptable
+    elif 12 < filmed_est <= 14:
+        dur_score = 50   # Over cap — penalize heavily
+    elif 14 < filmed_est <= 20:
+        dur_score = 25   # Way over — data says 24.7% retention
+    elif filmed_est > 20:
+        dur_score = 10   # Catastrophic — 17.8% retention avg
+    elif 4 <= filmed_est < 6:
+        dur_score = 60   # Too short for depth
     else:
-        dur_score = 35
+        dur_score = 35   # Under 4 min
 
     # B-roll marker density
     broll_markers = len(EVIDENCE_RE.findall(script_text))
@@ -682,16 +760,23 @@ def _score_duration(script_text: str) -> Dict[str, Any]:
     composite = round(dur_score * 0.6 + broll_score * 0.4)
 
     issues = []
-    if est_minutes < 8:
-        issues.append(f"Short duration (~{est_minutes} min) — under 8 min sweet spot")
-    elif est_minutes > 20:
-        issues.append(f"Long duration (~{est_minutes} min) — ensure pacing stays tight")
+    if filmed_est < 8:
+        issues.append(f"Short duration (~{filmed_est} min filmed) — under 8 min sweet spot")
+    if filmed_est > 12:
+        # Target word count for 12 min filmed: 12 / 0.44 * WPM = script words needed
+        target_words = int(12 / 0.44 * WPM)
+        issues.append(
+            f"OVER 12-MIN CAP (~{filmed_est} min filmed from {word_count} words). "
+            f"Data: 12-20 min = 24.7% retention vs 29.6% for 8-12 min (n=47). "
+            f"Cut {word_count - target_words} words to hit 12 min cap."
+        )
     if broll_ratio < 0.25:
         issues.append(f"Low B-roll density ({broll_ratio:.0%}) — add visual markers")
 
     return {
         'score': composite,
         'estimated_minutes': est_minutes,
+        'filmed_estimate': filmed_est,
         'word_count': word_count,
         'broll_ratio': broll_ratio,
         'issues': issues,
@@ -786,7 +871,8 @@ def run_preflight(project_path: str) -> Dict[str, Any]:
     try:
         from tools.preflight.thumbnail_checker import check_project
         thumbnail_result = check_project(str(project))
-    except Exception as e:
+    except (ImportError, RuntimeError, FileNotFoundError, ValueError) as e:
+        logger.debug("thumbnail_checker unavailable: %s", e)
         thumbnail_result = {
             'score': 50, 'verdict': 'SKIPPED',
             'issues': [f'thumbnail_checker unavailable: {e}'],
@@ -827,8 +913,8 @@ def run_preflight(project_path: str) -> Dict[str, Any]:
             if views:
                 channel_avg['avg_views'] = round(sum(views) / len(views))
                 channel_avg['sample_size'] = len(views)
-    except Exception:
-        pass
+    except (ImportError, sqlite3.Error, KeyError, TypeError, ValueError) as e:
+        logger.debug("Channel average lookup failed: %s", e)
 
     return {
         'composite_score': composite,

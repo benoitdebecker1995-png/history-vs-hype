@@ -1,0 +1,41 @@
+{
+  "video_id": "gIkQrr8pgSI",
+  "channel": "Atun-Shei_Films",
+  "title": "He Was an Anti-Racist Vegan Radical... in 1738",
+  "views": 474141,
+  "duration_seconds": 3056,
+  "word_count": 8519,
+  "hook": {
+    "first_50_words": "Conservative viewers of my channel often accuse me of judging historical people by modern standards, which always makes me laugh because honestly, I judge modern people just as harshly. I'm pretty judgmental all around. If they think my criticism of slave owners is bad, they should hear me talk about",
+    "first_sentence": "Conservative viewers of my channel often accuse me of judging historical people by modern standards, which always makes me laugh because honestly, I judge modern people just as harshly.",
+    "seconds_to_first_date": 16.2,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 5,
+    "seconds_to_first_historical_date": 16.2,
+    "seconds_to_turn_moment": 613.8,
+    "turn_moment_description": "d first kicked off. However, by the early 18th century, the pendulum of progress had swung back a bit, and moderating elements within the So",
+    "percent_history_vs_analysis": 6.5,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 11,
+    "questions_posed_to_viewer": 15
+  },
+  "close": {
+    "last_50_words": "video makes within its first month to Love and Arms Animal Sanctuary just outside Denver, a home for animals rescued from the meat industry to live out their lives in peace. The name under which I'll make the donation will be Benjamin Lei. Yeah. Heat. Heat. Heat. Heat. Heat. Jesus.",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "prediction"
+  },
+  "pacing": {
+    "words_per_minute": 167.3,
+    "date_frequency_per_minute": 0.63,
+    "avg_sentence_length": 20.4
+  }
+}

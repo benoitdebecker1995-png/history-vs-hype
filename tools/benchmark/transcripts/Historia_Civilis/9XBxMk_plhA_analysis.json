@@ -1,0 +1,41 @@
+{
+  "video_id": "9XBxMk_plhA",
+  "channel": "Historia_Civilis",
+  "title": "The Assassination of Julius Caesar (The Ides of March, 44 B.C.E.)",
+  "views": 4501317,
+  "duration_seconds": 1961,
+  "word_count": 4625,
+  "hook": {
+    "first_50_words": "the conspiracy to kill Julius Caesar began with a meeting between three men Casius Longinus Marcus Brutus and Decimus Brutus Casius was an experienced soldier in general a decade earlier he had fought the Parthian Thunder crashes after crashes humiliating defeat Casius rallied the survivors and successfully defended Syria against",
+    "first_sentence": "the conspiracy to kill Julius Caesar",
+    "seconds_to_first_date": 406.1,
+    "seconds_to_first_named_entity": 56.7,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 10,
+    "seconds_to_first_historical_date": 406.1,
+    "seconds_to_turn_moment": 933.6,
+    "turn_moment_description": "e upcoming campaign but it wasn't totally oblivious to the fact that something strange was going on around this time the priest spurinna who",
+    "percent_history_vs_analysis": 1.6,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "senators never even got a chance to leave their seats silence filled the room Marcus Brutus his hands covered in blood both Caesars and his own was the first to move he approached the seated senators pointed to one senator in particular and shouted congratulations Cicero you've regained your Liberty",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 141.5,
+    "date_frequency_per_minute": 0.18,
+    "avg_sentence_length": 15.0
+  }
+}

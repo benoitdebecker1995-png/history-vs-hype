@@ -1,0 +1,41 @@
+{
+  "video_id": "cPN9BJe_RQw",
+  "channel": "CaspianReport",
+  "title": "How China could conquer Taiwan without firing a shot",
+  "views": 923463,
+  "duration_seconds": 986,
+  "word_count": 2245,
+  "hook": {
+    "first_50_words": "China's leadership is determined to bring Taiwan under its control but its growing use of military pressure in recent years has stoked fears that it may invade the Island Chinese warships and aircraft Now operate around Taiwan on a near daily basis however as a major power with substantial diplomatic",
+    "first_sentence": "China's leadership is determined to",
+    "seconds_to_first_date": 38.5,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 38.5,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 4.0,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "a war across the straet could Ripple into a flood at home I've been your host Chiron from caspan report if you approve of what we do please leave a comment hit the like button and mayhaps share the video in any case thank you for your time and S",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 136.6,
+    "date_frequency_per_minute": 0.37,
+    "avg_sentence_length": 15.0
+  }
+}

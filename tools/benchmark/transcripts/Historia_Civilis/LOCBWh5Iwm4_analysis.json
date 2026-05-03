@@ -1,0 +1,41 @@
+{
+  "video_id": "LOCBWh5Iwm4",
+  "channel": "Historia_Civilis",
+  "title": "Caesar in Britain (55 B.C.E.)",
+  "views": 3644768,
+  "duration_seconds": 1304,
+  "word_count": 3561,
+  "hook": {
+    "first_50_words": "in 55 BCE the situation in Gul had been stabilized but Caesar had even higher Ambitions he was going to invade Britain the Romans knew virtually nothing about the island it was on the edge of the known world with one foot in the realm of myth people disagreed over",
+    "first_sentence": "in 55 BCE the situation in Gul had been",
+    "seconds_to_first_date": 79.1,
+    "seconds_to_first_named_entity": 9.0,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 2,
+    "seconds_to_first_historical_date": 79.1,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 4.6,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 2,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "was rapturous Britain was still a magical place in the mind of the public and they gobbled up every little detail bowing to public pressure the Senate voted for 20 days of celebration in Cesar's honor even with all of his setbacks Caesar's PR campaign was a resounding success ah",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 163.8,
+    "date_frequency_per_minute": 0.32,
+    "avg_sentence_length": 15.0
+  }
+}

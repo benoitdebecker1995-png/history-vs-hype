@@ -1,0 +1,41 @@
+{
+  "video_id": "ppGCbh8ggUs",
+  "channel": "Historia_Civilis",
+  "title": "The Constitution of the Spartans",
+  "views": 3185785,
+  "duration_seconds": 1415,
+  "word_count": 3693,
+  "hook": {
+    "first_50_words": "it occurred to me one day that sparta though among the most thinly populated of the states was evidently the most powerful and most celebrated city in greece and i felt wondering how this could have happened but when i considered the institutions of the spartans i wondered no longer",
+    "first_sentence": "it occurred to me one day that sparta though among the most thinly",
+    "seconds_to_first_date": 129.4,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 5,
+    "seconds_to_first_historical_date": 129.4,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 2.8,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 2,
+    "explicit_source_citations": 7,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "never overthrown by a helot uprising or by a coalition of angry greeks instead they allowed themselves to wither and atrophy only to be conquered by another set of invaders who saw them as nothing more than a bunch of archaic freaks left over from a more illustrious time you",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 156.6,
+    "date_frequency_per_minute": 0.25,
+    "avg_sentence_length": 15.0
+  }
+}

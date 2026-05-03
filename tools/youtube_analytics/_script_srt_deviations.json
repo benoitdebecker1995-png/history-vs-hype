@@ -1,0 +1,1523 @@
+[
+  {
+    "project": "1-somaliland-2025",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\1-somaliland-2025\\SCRIPT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\1-somaliland-2025\\somaliland.srt",
+    "video_id": "GuL9PtXEjN0",
+    "title": "Somaliland's Legal Independence Problem",
+    "topic_type": "territorial",
+    "duration_sec": 673,
+    "views": 394,
+    "stats": {
+      "total_script_sentences": 174,
+      "total_srt_sentences": 143,
+      "kept_count": 98,
+      "cut_count": 49,
+      "added_count": 18,
+      "modified_count": 27,
+      "survival_rate": 71.83908045977012,
+      "addition_rate": 12.587412587412588
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 98,
+      "cut_count": 49,
+      "added_count": 18,
+      "modified_count": 27,
+      "cut_examples": [
+        "Reading directly from the Act, page 1279:",
+        "Independence.",
+        "Soviet Union.",
+        "Now—one caveat.",
+        "Some sources note this figure is \"reportedly 35.\" Certain UN archives from this period were destroye"
+      ],
+      "added_examples": [
+        "35 countries recognized Somaliland in 1960, then they all forgot.",
+        "This is where 12% of global trade passes and where 5 powers are now competing for control.",
+        "Ethiopia is landlocked and desperate for port access.",
+        "China, UAE, Turkey, Israel all want in.",
+        "And right in the middle, a functioning democracy with its own government, currency and borders that "
+      ],
+      "modified_examples": [
+        {
+          "script": "Not a promise.",
+          "srt": "Not declared, restored.",
+          "sim": 0.5294117647058824
+        },
+        {
+          "script": "Not a transition.",
+          "srt": "Not a promise, not a transition, independence.",
+          "sim": 0.5423728813559322
+        },
+        {
+          "script": "The US followed June 26th.",
+          "srt": "On June 25, the US followed on June 26.",
+          "sim": 0.7419354838709677
+        },
+        {
+          "script": "British Somaliland in the north.",
+          "srt": "British Somaliland in the north, Italian Somalia in the south.",
+          "sim": 0.6813186813186813
+        },
+        {
+          "script": "Somalia's legislature passed the \"Atto di Unione\" on June 30th.",
+          "srt": "On June 27, Somalia passed the Atto di Unione on June 30.",
+          "sim": 0.7652173913043478
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.256411,
+      "avg_at_kept": 0.22245,
+      "avg_at_added": 0.3972833333333333,
+      "avg_at_modified": 0.22811481481481483,
+      "avg_surrounding_cuts": 0.23396161904761906,
+      "n_kept": 98,
+      "n_added": 18,
+      "n_modified": 27,
+      "n_cut_surround": 35
+    }
+  },
+  {
+    "project": "10-dark-ages-2025",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\10-dark-ages-2025\\SCRIPT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\10-dark-ages-2025\\dark ages.srt",
+    "video_id": "-QG8trhNsoM",
+    "title": "The \"Dark Ages\" Never Happened. Here's the Proof.",
+    "topic_type": "ideological",
+    "duration_sec": 645,
+    "views": 110,
+    "stats": {
+      "total_script_sentences": 170,
+      "total_srt_sentences": 129,
+      "kept_count": 85,
+      "cut_count": 67,
+      "added_count": 26,
+      "modified_count": 18,
+      "survival_rate": 60.588235294117645,
+      "addition_rate": 20.155038759689923
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 85,
+      "cut_count": 67,
+      "added_count": 26,
+      "modified_count": 18,
+      "cut_examples": [
+        "Universal education.",
+        "Scroll libraries on every corner.",
+        "Maybe the date.",
+        "But not a complex legal decree.",
+        "You went to a performance or a public reading."
+      ],
+      "added_examples": [
+        "In March 2025, a new YouGov poll survey asked Americans about the Middle Ages.",
+        "Here's what they found.",
+        "48% describe it as dark, 54% said violent, and only 2% claim they actually know much about the perio",
+        "So here's the question.",
+        "Were the Dark Ages really dark?"
+      ],
+      "modified_examples": [
+        {
+          "script": "Everyone's reading Virgil.",
+          "srt": "Everyone's reading Virgil, universal education, scroll libraries on every corner",
+          "sim": 0.4854368932038835
+        },
+        {
+          "script": "You had to be able to read your own name.",
+          "srt": "You had to be able to read your own name, maybe the date, but not a complex lega",
+          "sim": 0.6349206349206349
+        },
+        {
+          "script": "You didn't read Plato yourself.",
+          "srt": "You didn't read Plato yourself, you went to a performance or a public reading.",
+          "sim": 0.5660377358490566
+        },
+        {
+          "script": "And here's the critical distinction that reframes the entire Dark Ages argument:",
+          "srt": "The massive use of writing by the government does not equal universal individual",
+          "sim": 0.689922480620155
+        },
+        {
+          "script": "Like how governments use databases today, but most people don't code them—Rome's",
+          "srt": "Rome's writing served the state, not ordinary citizens.",
+          "sim": 0.5921787709497207
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.323367,
+      "avg_at_kept": 0.2811435294117647,
+      "avg_at_added": 0.5007269230769231,
+      "avg_at_modified": 0.3219166666666667,
+      "avg_surrounding_cuts": 0.28661877192982455,
+      "n_kept": 85,
+      "n_added": 26,
+      "n_modified": 18,
+      "n_cut_surround": 38
+    }
+  },
+  {
+    "project": "13-belize-icj-endgame-2025",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\13-belize-icj-endgame-2025\\SCRIPT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\13-belize-icj-endgame-2025\\belize guatemala icj.srt",
+    "video_id": "XbGl1Kcspt4",
+    "title": "Guatemala vs Belize Dispute: What 3 ICJ Cases Show",
+    "topic_type": "territorial",
+    "duration_sec": 668,
+    "views": 5120,
+    "stats": {
+      "total_script_sentences": 185,
+      "total_srt_sentences": 121,
+      "kept_count": 52,
+      "cut_count": 106,
+      "added_count": 42,
+      "modified_count": 27,
+      "survival_rate": 42.7027027027027,
+      "addition_rate": 34.710743801652896
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 52,
+      "cut_count": 106,
+      "added_count": 42,
+      "modified_count": 27,
+      "cut_examples": [
+        "Nicaragua claimed the 1928 treaty between them was invalid—coercion, similar to what Guatemala argue",
+        "But Colombia had violated Nicaragua's maritime rights anyway.",
+        "Split decision.",
+        "Colombia kept the islands.",
+        "Nicaragua got a favorable maritime boundary."
+      ],
+      "added_examples": [
+        "Guatemala claims half this country.",
+        "I analyzed three past ICJ border rulings to see what the court actually does when countries claim co",
+        "But the legal reasoning matters, and neither Guatemala nor Belize is seeing this clearly.",
+        "Article 60.",
+        "This is the international law rulebook for when one country can cancel a treaty, because the other s"
+      ],
+      "modified_examples": [
+        {
+          "script": "Breach of Article 7 doesn't void Article 1.",
+          "srt": "This means according to Belize that a breach of Article 7 doesn't void Article 1",
+          "sim": 0.6885245901639344
+        },
+        {
+          "script": "Nicaragua v Colombia, 2012.",
+          "srt": "Cameroon v Nigeria 2002.",
+          "sim": 0.5
+        },
+        {
+          "script": "The ICJ ruled the treaty was valid.",
+          "srt": "The ICJ ruled against Thailand.",
+          "sim": 0.59375
+        },
+        {
+          "script": "The treaty stood, but the breach had consequences.",
+          "srt": "Slovakia violated the treaty by altering the project without consent.",
+          "sim": 0.4827586206896552
+        },
+        {
+          "script": "The parallel to Belize?",
+          "srt": "The legal title beat possession.",
+          "sim": 0.49056603773584906
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.394668,
+      "avg_at_kept": 0.3924326923076923,
+      "avg_at_added": 0.3988333333333333,
+      "avg_at_modified": 0.4275037037037037,
+      "avg_surrounding_cuts": 0.501078231292517,
+      "n_kept": 52,
+      "n_added": 42,
+      "n_modified": 27,
+      "n_cut_surround": 49
+    }
+  },
+  {
+    "project": "14-chagos-islands-2025",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\14-chagos-islands-2025\\SCRIPT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\14-chagos-islands-2025\\chagos.srt",
+    "video_id": "ZZz_g_Ov6Lg",
+    "title": "| Britain Expelled 2,000 Islanders. The Memo Proves It",
+    "topic_type": "general",
+    "duration_sec": 637,
+    "views": 27,
+    "stats": {
+      "total_script_sentences": 154,
+      "total_srt_sentences": 141,
+      "kept_count": 63,
+      "cut_count": 61,
+      "added_count": 48,
+      "modified_count": 30,
+      "survival_rate": 60.3896103896104,
+      "addition_rate": 34.04255319148936
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 63,
+      "cut_count": 61,
+      "added_count": 48,
+      "modified_count": 30,
+      "cut_examples": [
+        "Within striking distance of the Persian Gulf, South Asia, East Africa.",
+        "Somewhere they could control completely.",
+        "And when I say completely, I mean it.",
+        "Then in reality.",
+        "The morning after that memo was written."
+      ],
+      "added_examples": [
+        "In May 2025, Britain signed away its last African colony.",
+        "Headlines called it historic.",
+        "Mauritius finally got its islands back after 60 years.",
+        "But here's what didn't make the headlines.",
+        "The day before the meeting that started all this, a British official wrote a memo."
+      ],
+      "modified_examples": [
+        {
+          "script": "Diego Garcia sits right in the middle of the Indian Ocean.",
+          "srt": "Diego Garcia sits in the middle of the Indian Ocean, within striking distance of",
+          "sim": 0.6666666666666666
+        },
+        {
+          "script": "One of the best natural harbors in the world.",
+          "srt": "South Asia, East Africa, one of the best natural harbors in the world.",
+          "sim": 0.7927927927927928
+        },
+        {
+          "script": "By the 1960s, the Pentagon was watching colonies become independent nations—nati",
+          "srt": "By the 1960s, the Pentagon was watching colonies become independent nations.",
+          "sim": 0.7081339712918661
+        },
+        {
+          "script": "They needed somewhere remote.",
+          "srt": "They needed somewhere remote, somewhere without political complications.",
+          "sim": 0.5714285714285714
+        },
+        {
+          "script": "It was a base with no voters, no journalists, no one to complain.",
+          "srt": "It was a base with no voters, no journalists, no one who might ask questions at ",
+          "sim": 0.7215189873417721
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.311731,
+      "avg_at_kept": 0.2698460317460317,
+      "avg_at_added": 0.37716041666666666,
+      "avg_at_modified": 0.3367866666666667,
+      "avg_surrounding_cuts": 0.38125244680851067,
+      "n_kept": 63,
+      "n_added": 48,
+      "n_modified": 30,
+      "n_cut_surround": 47
+    }
+  },
+  {
+    "project": "19-flat-earth-medieval-2025",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\19-flat-earth-medieval-2025\\SCRIPT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\19-flat-earth-medieval-2025\\flat earth.srt",
+    "video_id": "LuLZYZWMiU4",
+    "title": "The Flat Earth Myth Was Invented in 1828. Here's Who Did It.",
+    "topic_type": "ideological",
+    "duration_sec": 1070,
+    "views": 207,
+    "stats": {
+      "total_script_sentences": 202,
+      "total_srt_sentences": 67,
+      "kept_count": 1,
+      "cut_count": 186,
+      "added_count": 51,
+      "modified_count": 15,
+      "survival_rate": 7.920792079207921,
+      "addition_rate": 76.11940298507463
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 1,
+      "cut_count": 186,
+      "added_count": 51,
+      "modified_count": 15,
+      "cut_examples": [
+        "Here's what it says about the earth's shape, Chapter 32:",
+        "The Latin word is pilae—a playing ball.",
+        "Bede explicitly rejected the flat disc model in favor of a three-dimensional sphere.",
+        "And this wasn't some fringe view.",
+        "His work was copied hundreds of times and taught in monastery schools across Europe for centuries."
+      ],
+      "added_examples": [
+        "Now open the same author's textbook from 1898.",
+        "Just 18 years later, the earth was flat as a plate. One of the most successful lies in western histo",
+        "I went through the medieval manuscripts.",
+        "\"Johannes de Sacrobosco's Sphere\", the standard university astronomy textbook from 1230, used for 40",
+        "Here's how they did it and why it persists. And here's what's at stake when we get medieval history "
+      ],
+      "modified_examples": [
+        {
+          "script": "This is a 9th-century manuscript of Bede's The Reckoning of Time—written in 725 ",
+          "srt": "\"Bede's Reckoning of Time\" from 725.",
+          "sim": 0.5217391304347826
+        },
+        {
+          "script": "Bede was the most influential scientist of the early Middle Ages.",
+          "srt": "Isidore of Seville writes the etymologies, the encyclopedia of the medieval ages",
+          "sim": 0.48951048951048953
+        },
+        {
+          "script": "Medieval kings held this in coronation portraits and official ceremonies from th",
+          "srt": "This is the globus cruseger, the royal orb, a golden sphere surmounted by a cros",
+          "sim": 0.5531914893617021
+        },
+        {
+          "script": "The sphere represented the earth.",
+          "srt": "The sphere represents the earth. The cross represented Christ's sovereignty over",
+          "sim": 0.5263157894736842
+        },
+        {
+          "script": "Written by Washington Irving in 1828.",
+          "srt": "Washington Irving gave history that hero.",
+          "sim": 0.5263157894736842
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.130779,
+      "avg_at_kept": 0.0583,
+      "avg_at_added": 0.14182549019607843,
+      "avg_at_modified": 0.25306666666666666,
+      "avg_surrounding_cuts": 0.21257942708333333,
+      "n_kept": 1,
+      "n_added": 51,
+      "n_modified": 15,
+      "n_cut_surround": 64
+    }
+  },
+  {
+    "project": "23-christmas-origins-2025",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\23-christmas-origins-2025\\SCRIPT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\23-christmas-origins-2025\\christmas.srt",
+    "video_id": "l8abBf4aMv8",
+    "title": "Did Pagans Actually Copy Christmas?",
+    "topic_type": "ideological",
+    "duration_sec": 879,
+    "views": 194,
+    "stats": {
+      "total_script_sentences": 242,
+      "total_srt_sentences": 160,
+      "kept_count": 92,
+      "cut_count": 114,
+      "added_count": 32,
+      "modified_count": 36,
+      "survival_rate": 52.892561983471076,
+      "addition_rate": 20.0
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 92,
+      "cut_count": 114,
+      "added_count": 32,
+      "modified_count": 36,
+      "cut_examples": [
+        "He later carved inscriptions for Pope Damasus.",
+        "30 chariot races ordered.\"",
+        "It's weird.",
+        "Even stranger?",
+        "October 19th to 22nd, to be precise."
+      ],
+      "added_examples": [
+        "For 200 years, standard history books have repeated the same fact.",
+        "Christians placed Christmas on December 25th to override the pagan festival of Sol Invictus, the bir",
+        "It's become what one historian calls \"historical folklore\".",
+        "But there's just one massive problem with it.",
+        "When you actually check the primary sources, the ancient Roman calendars, the church records, the do"
+      ],
+      "modified_examples": [
+        {
+          "script": "The calligrapher, Furius Dionysius Filocalus, was the most famous artist of his ",
+          "srt": "The calligrapher, Furius Dionysius Philocalus, was the most famous artist of his",
+          "sim": 0.7619047619047619
+        },
+        {
+          "script": "The commissioner?",
+          "srt": "The missing deity name.",
+          "sim": 0.5789473684210527
+        },
+        {
+          "script": "It contains both entries for December 25th—the pagan one AND the Christian one.",
+          "srt": "It contains both entries for December 25th, the pagan one and the Christian one,",
+          "sim": 0.7761194029850746
+        },
+        {
+          "script": "But they're not in the same section.",
+          "srt": "But here's what the sources don't say.",
+          "sim": 0.5277777777777778
+        },
+        {
+          "script": "Translation: \"Birthday of the Unconquered One.",
+          "srt": "This one just says \"birthday of the unconquered one\".",
+          "sim": 0.7741935483870968
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.250775,
+      "avg_at_kept": 0.20526847826086958,
+      "avg_at_added": 0.3484625,
+      "avg_at_modified": 0.2229361111111111,
+      "avg_surrounding_cuts": 0.19560140740740742,
+      "n_kept": 92,
+      "n_added": 32,
+      "n_modified": 36,
+      "n_cut_surround": 45
+    }
+  },
+  {
+    "project": "24-iran-1953-coup-2025",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\24-iran-1953-coup-2025\\SCRIPT-PART1.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\24-iran-1953-coup-2025\\iran part 1.srt",
+    "video_id": "HtVIC4dS0e8",
+    "title": "Iran vs Its Own Democracy. 120 Years of Failed Revolutions",
+    "topic_type": "general",
+    "duration_sec": 824,
+    "views": 64,
+    "stats": {
+      "total_script_sentences": 315,
+      "total_srt_sentences": 310,
+      "kept_count": 212,
+      "cut_count": 63,
+      "added_count": 58,
+      "modified_count": 40,
+      "survival_rate": 80.0,
+      "addition_rate": 18.70967741935484
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 212,
+      "cut_count": 63,
+      "added_count": 58,
+      "modified_count": 40,
+      "cut_examples": [
+        "So I did some digging.",
+        "Everyone talks about 1953.",
+        "That's the story.",
+        "Government bankruptcy.",
+        "Spiraling inflation."
+      ],
+      "added_examples": [
+        "This document created one of the first constitutional democracies in Asia.",
+        "December 30th 1906.",
+        "But the Constitution survived.",
+        "Iran had an elected parliament before most of the Middle East, before the Russian Revolution, before",
+        "And then foreign powers destroyed it."
+      ],
+      "modified_examples": [
+        {
+          "script": "Read books about the topic.",
+          "srt": "Everyone talks about 1953.",
+          "sim": 0.47058823529411764
+        },
+        {
+          "script": "Then went to the primary sources.",
+          "srt": "So I did some digging, read some books about the topic and then went to the prim",
+          "sim": 0.5245901639344263
+        },
+        {
+          "script": "The CIA coup.",
+          "srt": "The CIA coup, that's the story.",
+          "sim": 0.5853658536585366
+        },
+        {
+          "script": "The constitutional government was destroyed.",
+          "srt": "He'd been fighting for constitutional government since 1906.",
+          "sim": 0.6078431372549019
+        },
+        {
+          "script": "The governor orders several sugar merchants beaten with the bastinado—yeah, that",
+          "srt": "The governor ordered several sugar merchants beaten with the bastinado.",
+          "sim": 0.5112781954887218
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.275542,
+      "avg_at_kept": 0.22480330188679246,
+      "avg_at_added": 0.2907086206896552,
+      "avg_at_modified": 0.2530675,
+      "avg_surrounding_cuts": 0.22353958333333335,
+      "n_kept": 212,
+      "n_added": 58,
+      "n_modified": 40,
+      "n_cut_surround": 52
+    }
+  },
+  {
+    "project": "28-vance-part-2-review-2025",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\28-vance-part-2-review-2025\\SCRIPT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\28-vance-part-2-review-2025\\vance reaction2.srt",
+    "video_id": "LO_fUeX9IEQ",
+    "title": "JD Vance Claims Christians Found Child Sacrifice. Here's the Evidence.",
+    "topic_type": "territorial",
+    "duration_sec": 376,
+    "views": 1132,
+    "stats": {
+      "total_script_sentences": 227,
+      "total_srt_sentences": 59,
+      "kept_count": 14,
+      "cut_count": 187,
+      "added_count": 19,
+      "modified_count": 26,
+      "survival_rate": 17.62114537444934,
+      "addition_rate": 32.20338983050847
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 14,
+      "cut_count": 187,
+      "added_count": 19,
+      "modified_count": 26,
+      "cut_examples": [
+        "But I checked church documents.",
+        "Pope Gregory XVI publishes Mirari Vos.\"",
+        "\"Section 14.",
+        "Exact quote:\"",
+        "\"But it gets worse."
+      ],
+      "added_examples": [
+        "In this video we will look at three of them.",
+        "Christianity invented human rights, the founders wanted Christianity in government, and Christian ci",
+        "I found papal bulls from 1452, looked at what protestant reformers said about slavery.",
+        "Human rights, the very idea that human beings have rights, are a Christian concept.",
+        "Historian at Yale Samuel Moyn documented it. The phrase gets invented in the 1940s after World War I"
+      ],
+      "modified_examples": [
+        {
+          "script": "Common claim in conservative Christian circles.",
+          "srt": "This is a common claim in conservative Christian circles, but I checked church d",
+          "sim": 0.6917293233082706
+        },
+        {
+          "script": "56 years after the Declaration of Independence.",
+          "srt": "In 1832, 56 years after the declaration of independence, Pope Gregory XVI publis",
+          "sim": 0.575
+        },
+        {
+          "script": "A numbered list of 80 'modern ideas' that are condemned.\"",
+          "srt": "Watch what the Pope said 32 years later. 1864, Pope Pius IX publishes the syllab",
+          "sim": 0.4642857142857143
+        },
+        {
+          "script": "The Catholic Church is officially condemning religious freedom as an error.\"",
+          "srt": "Error 77, ending Catholic only states. Error 78, allowing other religions to wor",
+          "sim": 0.5211267605633803
+        },
+        {
+          "script": "\"Maybe that's just Catholics.",
+          "srt": "Moyn shows that's retrofitting.",
+          "sim": 0.45614035087719296
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.27412,
+      "avg_at_kept": 0.22087142857142858,
+      "avg_at_added": 0.26173684210526316,
+      "avg_at_modified": 0.23754999999999998,
+      "avg_surrounding_cuts": 0.22365384488448845,
+      "n_kept": 14,
+      "n_added": 19,
+      "n_modified": 26,
+      "n_cut_surround": 101
+    }
+  },
+  {
+    "project": "3-fuentes-fact-check-2025",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\3-fuentes-fact-check-2025\\SCRIPT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\3-fuentes-fact-check-2025\\fuentes factcheck.srt",
+    "video_id": "BNEEAD--Y3c",
+    "title": "Fact-Checking Nick Fuentes: Why His Claims Are Dangerous",
+    "topic_type": "territorial",
+    "duration_sec": 625,
+    "views": 168,
+    "stats": {
+      "total_script_sentences": 229,
+      "total_srt_sentences": 190,
+      "kept_count": 97,
+      "cut_count": 88,
+      "added_count": 49,
+      "modified_count": 44,
+      "survival_rate": 61.572052401746724,
+      "addition_rate": 25.789473684210527
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 97,
+      "cut_count": 88,
+      "added_count": 49,
+      "modified_count": 44,
+      "cut_examples": [
+        "Four camps.",
+        "Not labor camps.",
+        "Buildings torn down.",
+        "Why destroy a transit camp?",
+        "No barracks."
+      ],
+      "added_examples": [
+        "Nick Fuentes makes a lot of claims about the Holocaust.",
+        "Here's a telegram Nazi officials sent each other in 1943.",
+        "1.27 million people deported to death camps, by camp, by date, in their own encrypted message.",
+        "Millions of views amid backlash.",
+        "Tucker never challenged Fuentes on any of this."
+      ],
+      "modified_examples": [
+        {
+          "script": "Deportation arrivals:",
+          "srt": "Deportation records.",
+          "sim": 0.7692307692307693
+        },
+        {
+          "script": "Belzec: 434,508.",
+          "srt": "Belzec, more than 400,000.",
+          "sim": 0.5263157894736842
+        },
+        {
+          "script": "Sobibor: 101,370.",
+          "srt": "Sobibor, more than 100,000.",
+          "sim": 0.6
+        },
+        {
+          "script": "Treblinka: 713,555.",
+          "srt": "Treblinka, more than 700,000.",
+          "sim": 0.5454545454545454
+        },
+        {
+          "script": "Majdanek: 24,733.",
+          "srt": "Majdanek, more than 24,000.",
+          "sim": 0.6
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.287154,
+      "avg_at_kept": 0.2412381443298969,
+      "avg_at_added": 0.35250408163265307,
+      "avg_at_modified": 0.2612909090909091,
+      "avg_surrounding_cuts": 0.23548730994152048,
+      "n_kept": 97,
+      "n_added": 49,
+      "n_modified": 44,
+      "n_cut_surround": 57
+    }
+  },
+  {
+    "project": "30-belavezha-accords-2025",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\30-belavezha-accords-2025\\SCRIPT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\30-belavezha-accords-2025\\belevezha.srt",
+    "video_id": "TYNaIu28LeU",
+    "title": "The 1922 Treaty Loophole That Ended the USSR",
+    "topic_type": "territorial",
+    "duration_sec": 291,
+    "views": 26,
+    "stats": {
+      "total_script_sentences": 68,
+      "total_srt_sentences": 63,
+      "kept_count": 34,
+      "cut_count": 22,
+      "added_count": 17,
+      "modified_count": 12,
+      "survival_rate": 67.64705882352942,
+      "addition_rate": 26.984126984126984
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 34,
+      "cut_count": 22,
+      "added_count": 17,
+      "modified_count": 12,
+      "cut_examples": [
+        "No more superpower.",
+        "There's also the practical reality.",
+        "Let me know in the comments.",
+        "- Belavezha Accords text (December 8, 1991) - Preamble, Articles 1, 5, 14",
+        "- 1990 USSR Secession Law (April 3, 1990)"
+      ],
+      "added_examples": [
+        "In 1996, the Russian parliament declared that the document ending the Soviet Union was illegal.",
+        "In 2025, presidential adviser Anton Kobiakov went even further.",
+        "The Soviet Union, he said, never legally ceased to exist.",
+        "Today we're going to examine that document.",
+        "The Belavezha Accords and ask a simple question."
+      ],
+      "modified_examples": [
+        {
+          "script": "Three leaders meet in a Belarusian hunting lodge and sign a document with this P",
+          "srt": "Three leaders meet in a Belarusian hunting lodge.",
+          "sim": 0.7111111111111111
+        },
+        {
+          "script": "And Article 14 delivered the kill shot: \"The activities of organs of the former ",
+          "srt": "The activities of organs of the former USSR in the territories of the states mem",
+          "sim": 0.782608695652174
+        },
+        {
+          "script": "One document.",
+          "srt": "Three men, one document.",
+          "sim": 0.7058823529411765
+        },
+        {
+          "script": "On top of that, the USSR had fifteen republics.",
+          "srt": "Third, the USSR had 15 republics.",
+          "sim": 0.6842105263157895
+        },
+        {
+          "script": "When Mikhail Gorbachev learned what happened, he confronted Yeltsin: \"The three ",
+          "srt": "The three of you got together, but who gave you any such authorization?",
+          "sim": 0.6731707317073171
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.321146,
+      "avg_at_kept": 0.2771441176470588,
+      "avg_at_added": 0.39591764705882354,
+      "avg_at_modified": 0.3108916666666667,
+      "avg_surrounding_cuts": 0.36861180555555556,
+      "n_kept": 34,
+      "n_added": 17,
+      "n_modified": 12,
+      "n_cut_surround": 12
+    }
+  },
+  {
+    "project": "31-bermeja-island-2025",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\31-bermeja-island-2025\\02-SCRIPT-DRAFT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\31-bermeja-island-2025\\bermeja.srt",
+    "video_id": "P6yalauLDic",
+    "title": "Mexico's Missing Island: The Map Error That Cost $22 Billion",
+    "topic_type": "territorial",
+    "duration_sec": 495,
+    "views": 11,
+    "stats": {
+      "total_script_sentences": 114,
+      "total_srt_sentences": 30,
+      "kept_count": 8,
+      "cut_count": 97,
+      "added_count": 13,
+      "modified_count": 9,
+      "survival_rate": 14.912280701754385,
+      "addition_rate": 43.333333333333336
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 8,
+      "cut_count": 97,
+      "added_count": 13,
+      "modified_count": 9,
+      "cut_examples": [
+        "In his Islario General—\"The General Atlas of All the Islands\"—he drew an island off the Yucatan coas",
+        "Reading directly from the atlas:",
+        "\"Twenty leagues distant is another island called Bermeja, as it appears to be of such a color.\"",
+        "From bermejo—reddish.",
+        "But Santa Cruz wasn't in the Gulf of Mexico."
+      ],
+      "added_examples": [
+        "The reason? An island that appeared on maps for 382 years didn't exist. It had never existed.",
+        "Some people are convinced the CIA blew it up. Mexican senators launched an investigation.",
+        "A politician who opposed the treaty died in a suspicious car crash.",
+        "So I went to the Library of Congress archive. The actual 1539 Atlas.",
+        "Then I read the treaty and then the scientific report that settled the question."
+      ],
+      "modified_examples": [
+        {
+          "script": "In 1539, Spain's chief cartographer Alonso de Santa Cruz compiled reports from e",
+          "srt": "In 1539, Spain's chief cartographer Alonso de Santa Cruz compiled reports from e",
+          "sim": 0.556910569105691
+        },
+        {
+          "script": "A sailor saw something on the horizon that looked red so Santa Cruz wrote it dow",
+          "srt": "Bermeja, from bermejo, reddish. A sailor saw something on the horizon that looke",
+          "sim": 0.49240121580547114
+        },
+        {
+          "script": "If an ocean current pushes the ship sideways, the navigator has no idea.",
+          "srt": "If an ocean current pushes the ship sideways, the navigator has no idea. You cou",
+          "sim": 0.4682274247491639
+        },
+        {
+          "script": "Nobody deleted it because in cartography, deleting is dangerous—if you're wrong,",
+          "srt": "If you are wrong, ships run aground.",
+          "sim": 0.5076923076923077
+        },
+        {
+          "script": "Usually, copying an error is just embarrassing.",
+          "srt": "Usually copying an error is just embarrassing, but this error was about to cost ",
+          "sim": 0.5113636363636364
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.28200000000000003,
+      "avg_at_kept": 0.2,
+      "avg_at_added": 0.4307692307692308,
+      "avg_at_modified": 0.34444444444444444,
+      "avg_surrounding_cuts": 0.2704166666666667,
+      "n_kept": 8,
+      "n_added": 13,
+      "n_modified": 9,
+      "n_cut_surround": 40
+    }
+  },
+  {
+    "project": "34-operation-condor-2025",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\34-operation-condor-2025\\SCRIPT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\34-operation-condor-2025\\almada.srt",
+    "video_id": "Q5Pfv_dPubU",
+    "title": "The CIA Document That Proved Operation Condor",
+    "topic_type": "colonial",
+    "duration_sec": 287,
+    "views": 34,
+    "stats": {
+      "total_script_sentences": 6,
+      "total_srt_sentences": 69,
+      "kept_count": 0,
+      "cut_count": 6,
+      "added_count": 69,
+      "modified_count": 0,
+      "survival_rate": 0.0,
+      "addition_rate": 100.0
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 0,
+      "cut_count": 6,
+      "added_count": 69,
+      "modified_count": 0,
+      "cut_examples": [
+        "Run: `/script` to generate script from verified facts only",
+        "Write ONLY from facts in 01-VERIFIED-RESEARCH.md",
+        "Use real quotes with page numbers (not summaries)",
+        "Read script aloud while writing",
+        "Follow STYLE-GUIDE.md voice patterns"
+      ],
+      "added_examples": [
+        "For decades it was dismissed as a paranoid fantasy.",
+        "Six South American dictatorships secretly coordinating assassinations across borders with CIA suppor",
+        "Anyone who said it out loud was written off as a conspiracy theorist.",
+        "Then a school teacher, tortured for four years, whose wife was killed by a phone call, walked into a",
+        "His name was Martín Almada."
+      ],
+      "modified_examples": []
+    },
+    "retention": {
+      "avg_overall": 0.234712,
+      "avg_at_kept": null,
+      "avg_at_added": 0.23146231884057972,
+      "avg_at_modified": null,
+      "avg_surrounding_cuts": null,
+      "n_kept": 0,
+      "n_added": 69,
+      "n_modified": 0,
+      "n_cut_surround": 0
+    }
+  },
+  {
+    "project": "35-gibraltar-treaty-utrecht-2026",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\35-gibraltar-treaty-utrecht-2026\\02-SCRIPT-DRAFT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\35-gibraltar-treaty-utrecht-2026\\gibraltar.srt",
+    "video_id": "WZnCxVPNF7A",
+    "title": "The 1713 Document That Still Controls Gibraltar's Borders",
+    "topic_type": "territorial",
+    "duration_sec": 845,
+    "views": 39,
+    "stats": {
+      "total_script_sentences": 233,
+      "total_srt_sentences": 74,
+      "kept_count": 31,
+      "cut_count": 168,
+      "added_count": 9,
+      "modified_count": 34,
+      "survival_rate": 27.896995708154503,
+      "addition_rate": 12.162162162162163
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 31,
+      "cut_count": 168,
+      "added_count": 9,
+      "modified_count": 34,
+      "cut_examples": [
+        "They need each other.",
+        "But until very recently, crossing that border meant going through a fence, passport controls, and ve",
+        "The queue could take hours.",
+        "The joint declaration says, and I'm reading directly: \"All physical barriers, checks and controls on",
+        "That sounds like the end of a very long argument."
+      ],
+      "added_examples": [
+        "To tear down the border fence, the UK had to agree to a massive red line, allowing EU border guards ",
+        "An attempted uprising in Barcelona produced nothing.",
+        "The commanders needed a win. A council of war chose Gibraltar because it was, in their words, \"indif",
+        "That's 18th century language for \"barely defended\".",
+        "Britain never left. They replaced the huts with permanent buildings. Eventually they built the airpo"
+      ],
+      "modified_examples": [
+        {
+          "script": "Gibraltar has about 2.5%.",
+          "srt": "Gibraltar has about 2.5%. They need each other.",
+          "sim": 0.6956521739130435
+        },
+        {
+          "script": "In June 2025, Britain and Spain agreed to tear that fence down.",
+          "srt": "In June 2025, Britain and Spain signed a treaty that seemed politically impossib",
+          "sim": 0.676056338028169
+        },
+        {
+          "script": "But if you look at the fine print of that 2025 deal, you'll find a phrase: \"with",
+          "srt": "But in the fine print of that 2025 deal, is a phrase that ruins the mood. Withou",
+          "sim": 0.6385224274406333
+        },
+        {
+          "script": "The fence is coming down, but the argument that built it hasn't been resolved.",
+          "srt": "The fence is coming down. Defense is expected to come down once the agreement is",
+          "sim": 0.4858757062146893
+        },
+        {
+          "script": "One side says Gibraltar is British.",
+          "srt": "One side says Gibraltar is British. They voted 99% to stay in the British Empire",
+          "sim": 0.6017699115044248
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.31879,
+      "avg_at_kept": 0.3989064516129032,
+      "avg_at_added": 0.36314444444444444,
+      "avg_at_modified": 0.3414735294117647,
+      "avg_surrounding_cuts": 0.3177845785440613,
+      "n_kept": 31,
+      "n_added": 9,
+      "n_modified": 34,
+      "n_cut_surround": 87
+    }
+  },
+  {
+    "project": "37-untranslated-vichy-statut-juifs-2026",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\37-untranslated-vichy-statut-juifs-2026\\02-SCRIPT-DRAFT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\37-untranslated-vichy-statut-juifs-2026\\statut definitive.srt",
+    "video_id": "imPn_OxLYlk",
+    "title": "Vichy France: The Anti-Jewish Law Nobody Translated",
+    "topic_type": "legal",
+    "duration_sec": 636,
+    "views": 67,
+    "stats": {
+      "total_script_sentences": 179,
+      "total_srt_sentences": 125,
+      "kept_count": 90,
+      "cut_count": 70,
+      "added_count": 16,
+      "modified_count": 19,
+      "survival_rate": 60.893854748603346,
+      "addition_rate": 12.8
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 90,
+      "cut_count": 70,
+      "added_count": 16,
+      "modified_count": 19,
+      "cut_examples": [
+        "Ten articles.",
+        "The archives prove that was a lie.",
+        "How do we know?",
+        "All of this before any German ordinance on Jews.",
+        "Property registration."
+      ],
+      "added_examples": [
+        "This is a law that stripped French citizens of their jobs, their rights and their place in public li",
+        "It was written in French and if you don't read French, you've probably never read it.",
+        "The United States Holocaust Memorial Museum describes its provisions, yet Yad Vashem summarizes them",
+        "Academic books quote sections of it, but a readable, clause-by-clause English translation of the ful",
+        "I couldn't find one, so I made one."
+      ],
+      "modified_examples": [
+        {
+          "script": "It is entirely of German origin.\"",
+          "srt": "It is entirely of German origin.\" The archives proved that was a lie.",
+          "sim": 0.6391752577319587
+        },
+        {
+          "script": "Three things.",
+          "srt": "We know this because of three things.",
+          "sim": 0.5
+        },
+        {
+          "script": "Third, when Germany finally did act — on September 27th, 1940 — what they issued",
+          "srt": "And thirdly, when Germany finally did act on September 27, 1940, what they did d",
+          "sim": 0.6721991701244814
+        },
+        {
+          "script": "Six days later, France responded with something far broader.",
+          "srt": "Six days later, France responded with something far broader, a racial definition",
+          "sim": 0.5742574257425742
+        },
+        {
+          "script": "A racial definition.",
+          "srt": "If you fit the racial definition, you were out.",
+          "sim": 0.5625
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.313381,
+      "avg_at_kept": 0.2736922222222222,
+      "avg_at_added": 0.5211375,
+      "avg_at_modified": 0.27631578947368424,
+      "avg_surrounding_cuts": 0.2829434375,
+      "n_kept": 90,
+      "n_added": 16,
+      "n_modified": 19,
+      "n_cut_surround": 48
+    }
+  },
+  {
+    "project": "4-crusades-fact-check-2025",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\4-crusades-fact-check-2025\\SCRIPT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\4-crusades-fact-check-2025\\crusades.srt",
+    "video_id": "VyPv2n4mii8",
+    "title": "Primary Sources Destroy the 'Awesome Crusades' Narrative",
+    "topic_type": "ideological",
+    "duration_sec": 635,
+    "views": 674,
+    "stats": {
+      "total_script_sentences": 322,
+      "total_srt_sentences": 117,
+      "kept_count": 61,
+      "cut_count": 229,
+      "added_count": 24,
+      "modified_count": 32,
+      "survival_rate": 28.88198757763975,
+      "addition_rate": 20.51282051282051
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 61,
+      "cut_count": 229,
+      "added_count": 24,
+      "modified_count": 32,
+      "cut_examples": [
+        "[TEXT ON SCREEN - Fulcher's quote displayed as authentic manuscript/translation]:",
+        "These are facts.",
+        "It's the facts it leaves out.",
+        "That's Raymond d'Aguilers, another eyewitness.",
+        "He continues:"
+      ],
+      "added_examples": [
+        "He has a tattoo that says \"Deus Vult\", Latin for \"God wills it\", that was the war cry of the first c",
+        "In this video, you'll be finding out why the crusades were not only morally justified, but were actu",
+        "This narrative is being used right now.",
+        "Both Christian nationalists and Islamist extremists use distorted crusades history to justify modern",
+        "About 10,000 were beheaded, not one of them was allowed to live. They did not spare women and childr"
+      ],
+      "modified_examples": [
+        {
+          "script": "That's from a Christian source.",
+          "srt": "They sacked a Christian city.",
+          "sim": 0.6206896551724138
+        },
+        {
+          "script": "Not Muslim propaganda.",
+          "srt": "Again, this isn't Muslim propaganda.",
+          "sim": 0.7272727272727273
+        },
+        {
+          "script": "A Crusader's own account.",
+          "srt": "Another Crusader recorded.",
+          "sim": 0.5306122448979592
+        },
+        {
+          "script": "The problem isn't the facts the video presents.",
+          "srt": "The problem isn't the facts the video presents. It's the facts it leaves out.",
+          "sim": 0.7603305785123967
+        },
+        {
+          "script": "[TEXT ON SCREEN - Raymond d'Aguilers quote]:",
+          "srt": "That's Raymond d'Aguilers, another eyewitness. He continues.",
+          "sim": 0.5510204081632653
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.285075,
+      "avg_at_kept": 0.2675983606557377,
+      "avg_at_added": 0.3325166666666666,
+      "avg_at_modified": 0.283540625,
+      "avg_surrounding_cuts": 0.3236192676767677,
+      "n_kept": 61,
+      "n_added": 24,
+      "n_modified": 32,
+      "n_cut_surround": 66
+    }
+  },
+  {
+    "project": "40-berlin-conference-1884-2026",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\40-berlin-conference-1884-2026\\02-SCRIPT-DRAFT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\40-berlin-conference-1884-2026\\berlin.srt",
+    "video_id": "lFGs5NHMxMw",
+    "title": "They Split 229 Ethnic Groups. Here's the Map They Ignored",
+    "topic_type": "territorial",
+    "duration_sec": 547,
+    "views": 207,
+    "stats": {
+      "total_script_sentences": 191,
+      "total_srt_sentences": 110,
+      "kept_count": 31,
+      "cut_count": 105,
+      "added_count": 24,
+      "modified_count": 55,
+      "survival_rate": 45.0261780104712,
+      "addition_rate": 21.818181818181817
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 31,
+      "cut_count": 105,
+      "added_count": 24,
+      "modified_count": 55,
+      "cut_examples": [
+        "`[SPLIT-SCREEN: Murdock Ethnolinguistic Map LEFT vs.",
+        "Colonial partition map RIGHT — animate the borders cutting through ethnic territories]`",
+        "`[TALKING HEAD]`",
+        "That was 1884.",
+        "`[MAP: Quick flash — 1880 Africa (90% African-controlled) → 1914 Africa (90% European-controlled)]`"
+      ],
+      "added_examples": [
+        "Then I found the map they ignored.",
+        "Why Rwanda just invaded eastern Congo.",
+        "Why every African leader who tried to fix these borders eventually gave up.",
+        "The big players were all there.",
+        "Publicly, he said it was humanitarian."
+      ],
+      "modified_examples": [
+        {
+          "script": "In three months, fourteen countries divided a continent none of them had ever ru",
+          "srt": "In just three months, 14 countries divided an entire continent that none of them",
+          "sim": 0.7613636363636364
+        },
+        {
+          "script": "Not one African was in the room.",
+          "srt": "Africa was the chessboard.",
+          "sim": 0.5714285714285714
+        },
+        {
+          "script": "Then I found the map they ignored — the one that shows what Africa looked like b",
+          "srt": "The one that shows what Africa really looked like before they drew it.",
+          "sim": 0.7515151515151515
+        },
+        {
+          "script": "And it explains why twelve million people are displaced in Sudan right now, why ",
+          "srt": "It explains why 12 million people are displaced in Sudan right now.",
+          "sim": 0.5203252032520326
+        },
+        {
+          "script": "The major colonial powers — Britain, France, Germany, Belgium, Portugal — plus R",
+          "srt": "Britain, France, Germany, Belgium, Portugal, plus Russia, the Ottoman Empire and",
+          "sim": 0.5827338129496403
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.252708,
+      "avg_at_kept": 0.2795451612903226,
+      "avg_at_added": 0.24485833333333334,
+      "avg_at_modified": 0.23186727272727273,
+      "avg_surrounding_cuts": 0.2431469512195122,
+      "n_kept": 31,
+      "n_added": 24,
+      "n_modified": 55,
+      "n_cut_surround": 82
+    }
+  },
+  {
+    "project": "41-treaty-tordesillas-2026",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\41-treaty-tordesillas-2026\\SCRIPT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\41-treaty-tordesillas-2026\\tordesillas.srt",
+    "video_id": null,
+    "title": null,
+    "topic_type": null,
+    "duration_sec": null,
+    "views": null,
+    "stats": {
+      "total_script_sentences": 191,
+      "total_srt_sentences": 141,
+      "kept_count": 10,
+      "cut_count": 131,
+      "added_count": 81,
+      "modified_count": 50,
+      "survival_rate": 31.413612565445025,
+      "addition_rate": 57.446808510638306
+    },
+    "has_retention": false,
+    "deviations": {
+      "kept_count": 10,
+      "cut_count": 131,
+      "added_count": 81,
+      "modified_count": 50,
+      "cut_examples": [
+        "It isn't a mountain range or a river.",
+        "It's a treaty.",
+        "The reason Portugal demanded the line move from 100 to 370 leagues wasn't a secret land grab for Bra",
+        "Brazil hadn't been discovered yet.",
+        "The winds and currents pushed against them."
+      ],
+      "added_examples": [
+        "It follows an almost perfect north-south line.",
+        "The standard answer is, that's why Brazil speaks Portuguese.",
+        "Until a government decree in 1757 forced them to.",
+        "In 1493, Columbus had just returned from the Caribbean.",
+        "He'd sailed under the Spanish flag, but Portugal had been exploring the Atlantic for decades."
+      ],
+      "modified_examples": [
+        {
+          "script": "Every country speaks Spanish except one.",
+          "srt": "Almost the entire continent speaks Spanish.",
+          "sim": 0.5679012345679012
+        },
+        {
+          "script": "And the border between Spanish-speaking and Portuguese-speaking South America fo",
+          "srt": "The border between Spanish-speaking and Portuguese-speaking South America isn't ",
+          "sim": 0.7400881057268722
+        },
+        {
+          "script": "That line isn't natural.",
+          "srt": "That line is a treaty.",
+          "sim": 0.7272727272727273
+        },
+        {
+          "script": "The treaty states that the boundary shall be drawn straight from pole to pole at",
+          "srt": "The compromise moved the line to 370 leagues west of the Cape Verde islands.",
+          "sim": 0.5754716981132075
+        },
+        {
+          "script": "But this wasn't the first line.",
+          "srt": "Not just that it wasn't fair.",
+          "sim": 0.5862068965517241
+        }
+      ]
+    }
+  },
+  {
+    "project": "42-why-brazil-speaks-portuguese-2026",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\42-why-brazil-speaks-portuguese-2026\\SCRIPT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\42-why-brazil-speaks-portuguese-2026\\brazil.srt",
+    "video_id": null,
+    "title": null,
+    "topic_type": null,
+    "duration_sec": null,
+    "views": null,
+    "stats": {
+      "total_script_sentences": 136,
+      "total_srt_sentences": 151,
+      "kept_count": 97,
+      "cut_count": 17,
+      "added_count": 32,
+      "modified_count": 22,
+      "survival_rate": 87.5,
+      "addition_rate": 21.192052980132452
+    },
+    "has_retention": false,
+    "deviations": {
+      "kept_count": 97,
+      "cut_count": 17,
+      "added_count": 32,
+      "modified_count": 22,
+      "cut_examples": [
+        "Both sides quietly dropped it.",
+        "And when French ships started ignoring the treaty and logging brazilwood — a red dye-wood so valuabl",
+        "It's massive.",
+        "Which meant there was no border to enforce.",
+        "There was no one to complain to, and no border to defend."
+      ],
+      "added_examples": [
+        "Open a language map of South America.",
+        "Almost the entire continent speaks Spanish.",
+        "One country doesn't, and it's the biggest one.",
+        "The border between Spanish-speaking and Portuguese-speaking South America is in the mountain range o",
+        "It follows an almost perfect and north-south line."
+      ],
+      "modified_examples": [
+        {
+          "script": "He'd sailed under the Spanish flag.",
+          "srt": "He'd sailed under the Spanish flag, but Portugal had been exploring the Atlantic",
+          "sim": 0.544
+        },
+        {
+          "script": "He placed it 100 leagues west of the Cape Verde Islands — a Portuguese archipela",
+          "srt": "He placed it 100 leagues west of the Cape Verde islands.",
+          "sim": 0.6707317073170732
+        },
+        {
+          "script": "Not just that it was unfair — though it was.",
+          "srt": "Not just that it wasn't fair.",
+          "sim": 0.7246376811594203
+        },
+        {
+          "script": "The trade winds pushed against them.",
+          "srt": "The trade winds pushed against them, so they swung their ships far west into the",
+          "sim": 0.546875
+        },
+        {
+          "script": "So they swung their ships far west into the open Atlantic, sometimes for weeks, ",
+          "srt": "Sometimes for weeks, until they caught the westerly winds at higher latitudes.",
+          "sim": 0.7238095238095238
+        }
+      ]
+    }
+  },
+  {
+    "project": "43-india-pakistan-partition-2026",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\43-india-pakistan-partition-2026\\02-SCRIPT-DRAFT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\43-india-pakistan-partition-2026\\forzapur rough cut.srt",
+    "video_id": null,
+    "title": null,
+    "topic_type": null,
+    "duration_sec": null,
+    "views": null,
+    "stats": {
+      "total_script_sentences": 405,
+      "total_srt_sentences": 149,
+      "kept_count": 27,
+      "cut_count": 297,
+      "added_count": 41,
+      "modified_count": 81,
+      "survival_rate": 26.666666666666668,
+      "addition_rate": 27.516778523489933
+    },
+    "has_retention": false,
+    "deviations": {
+      "kept_count": 27,
+      "cut_count": 297,
+      "added_count": 41,
+      "modified_count": 81,
+      "cut_examples": [
+        "On July 8th, 1947, a British lawyer named Cyril Radcliffe landed in New Delhi.",
+        "Nothing to do with borders, demographics, or cartography.",
+        "He was given five weeks.",
+        "\"God forbid.",
+        "Both sides."
+      ],
+      "added_examples": [
+        "On August 8th, 1947, a draft map was sent from the Viceroy's office in New Delhi to the governor of ",
+        "Ferrozepur, a district that was 55% Muslim, containing the kennel head works that controlled irrigat",
+        "Three days later, a single coded message arrived.",
+        "Two words.",
+        "Eliminate salient."
+      ],
+      "modified_examples": [
+        {
+          "script": "He'd been given one job.",
+          "srt": "He wasn't drawing one border.",
+          "sim": 0.47058823529411764
+        },
+        {
+          "script": "He'd never been to India.",
+          "srt": "He never returned to the subcontinent.",
+          "sim": 0.5573770491803278
+        },
+        {
+          "script": "He'd never been east of Gibraltar.",
+          "srt": "He says he wasn't even thinking of Kashmir.",
+          "sim": 0.4533333333333333
+        },
+        {
+          "script": "Five weeks to draw a line across a subcontinent of 400 million people.",
+          "srt": "36 days to draw a border for 400 million people.",
+          "sim": 0.603448275862069
+        },
+        {
+          "script": "And when he was done, he burned every working paper, refused his salary, and nev",
+          "srt": "Every working paper, every draft map gone.",
+          "sim": 0.453125
+        }
+      ]
+    }
+  },
+  {
+    "project": "6-bir-tawil-2025",
+    "script_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\6-bir-tawil-2025\\SCRIPT.md",
+    "srt_path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\6-bir-tawil-2025\\bir tawil.srt",
+    "video_id": "XKAqt_ZLHGo",
+    "title": "Why Egypt and Sudan Both Reject Bir Tawil",
+    "topic_type": "territorial",
+    "duration_sec": 534,
+    "views": 69,
+    "stats": {
+      "total_script_sentences": 218,
+      "total_srt_sentences": 104,
+      "kept_count": 46,
+      "cut_count": 130,
+      "added_count": 16,
+      "modified_count": 42,
+      "survival_rate": 40.36697247706422,
+      "addition_rate": 15.384615384615385
+    },
+    "has_retention": true,
+    "deviations": {
+      "kept_count": 46,
+      "cut_count": 130,
+      "added_count": 16,
+      "modified_count": 42,
+      "cut_examples": [
+        "Here's why.",
+        "No infrastructure.",
+        "Hala'ib Triangle: eight thousand square miles.",
+        "Ten times bigger.",
+        "Red Sea coastline."
+      ],
+      "added_examples": [
+        "On June 16th 2014, a farmer from Virginia named Jeremiah Heaton planted a flag in the African desert",
+        "Why? To make his 7 year old daughter Emily a princess.",
+        "He claimed 800 square miles of land between Egypt and Sudan and called it the Kingdom of North Sudan",
+        "CNN, Time, Newsweek, hundreds of outlets covered it.",
+        "But here's what almost nobody explained. He wasn't crazy."
+      ],
+      "modified_examples": [
+        {
+          "script": "This is the opposite.",
+          "srt": "This is all that's left.",
+          "sim": 0.5581395348837209
+        },
+        {
+          "script": "Both Egypt and Sudan actively reject it.",
+          "srt": "This is the opposite. Both Egypt and Sudan actively reject it.",
+          "sim": 0.7878787878787878
+        },
+        {
+          "script": "Bir Tawil: eight hundred square miles of landlocked desert.",
+          "srt": "In comparison, Bir Tawil has 800 square miles of sand and no water.",
+          "sim": 0.5901639344262295
+        },
+        {
+          "script": "Economically worthless compared to Hala'ib.",
+          "srt": "Bir Tawil, 800 square miles of landlocked desert, no water, no infrastructure, e",
+          "sim": 0.5153374233128835
+        },
+        {
+          "script": "And here's the problem.",
+          "srt": "And it won't be the last one.",
+          "sim": 0.48
+        }
+      ]
+    },
+    "retention": {
+      "avg_overall": 0.232395,
+      "avg_at_kept": 0.17878913043478262,
+      "avg_at_added": 0.37966875,
+      "avg_at_modified": 0.19475,
+      "avg_surrounding_cuts": 0.19138282407407406,
+      "n_kept": 46,
+      "n_added": 16,
+      "n_modified": 42,
+      "n_cut_surround": 72
+    }
+  }
+]

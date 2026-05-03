@@ -1,0 +1,41 @@
+{
+  "video_id": "2cuh1oxLHDU",
+  "channel": "Fall_of_Civilizations",
+  "title": "18. Egypt - Fall of the Pharaohs",
+  "views": 7711456,
+  "duration_seconds": 14304,
+  "word_count": 29881,
+  "hook": {
+    "first_50_words": "around the year 1200 ad the medieval Arab traveler and Scholar ABD Al Latif Al Bagdad departed from his hometown of Baghdad and set out on a journey of exploration as a young man al- bagdadi had studied law medicine and philosophy and was inspired by The Works of classical",
+    "first_sentence": "around the year 1200 ad the medieval",
+    "seconds_to_first_date": 22.6,
+    "seconds_to_first_named_entity": 107.6,
+    "hook_type": "cold_fact",
+    "opens_with_question": false,
+    "opens_with_document": true,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 60,
+    "seconds_to_first_historical_date": 22.6,
+    "seconds_to_turn_moment": 3354.7,
+    "turn_moment_description": "have to be answered but it wasn't until the reign of a king named snu that someone would rise to the challenge snr's full name was horb maat",
+    "percent_history_vs_analysis": 3.9,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 11,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "making this happen if you enjoyed this episode please consider heading to patreon.com slof civilizations podcast or just Google fallof civilizations patreon that's p a t r e o n to contribute something and help help keep the podcast running for now all the best and thanks for listening for",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 125.3,
+    "date_frequency_per_minute": 0.26,
+    "avg_sentence_length": 15.0
+  }
+}

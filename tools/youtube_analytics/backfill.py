@@ -73,10 +73,13 @@ def _safe_conversion(views: int, subscribers_gained: int) -> float:
 
 def _load_own_channel_ids(project_root: Path) -> Set[str]:
     """
-    Load the authoritative set of own-channel video IDs from JSON pre-fetches.
+    Load the authoritative set of own-channel video IDs.
 
-    Uses _longform_enriched.json first, then merges with _longform_metrics.json.
-    These files are the ground truth for distinguishing own-channel vs competitors.
+    Priority:
+      1. JSON pre-fetches (_longform_enriched.json, _longform_metrics.json)
+      2. Fallback: all video IDs from video_performance table in keywords.db
+         (this table only contains own-channel videos; competitors are in
+         competitor_videos)
 
     Returns:
         Set of video ID strings
@@ -84,6 +87,7 @@ def _load_own_channel_ids(project_root: Path) -> Set[str]:
     analytics_dir = project_root / 'tools' / 'youtube_analytics'
     own_ids = set()
 
+    # Try JSON pre-fetches first
     for json_name in ['_longform_enriched.json', '_longform_metrics.json']:
         json_path = analytics_dir / json_name
         if json_path.exists():
@@ -96,6 +100,20 @@ def _load_own_channel_ids(project_root: Path) -> Set[str]:
                         own_ids.add(vid)
             except (json.JSONDecodeError, OSError):
                 pass
+
+    # Fallback: query video_performance table (own-channel only, no competitors)
+    if not own_ids and DB_AVAILABLE:
+        try:
+            db = KeywordDB()
+            cursor = db._conn.cursor()
+            cursor.execute("SELECT video_id FROM video_performance WHERE video_id IS NOT NULL")
+            for row in cursor.fetchall():
+                vid = row[0].strip() if isinstance(row[0], str) else row['video_id'].strip()
+                if vid:
+                    own_ids.add(vid)
+            db.close()
+        except Exception:
+            pass  # Non-fatal: will return empty set
 
     return own_ids
 
@@ -494,14 +512,16 @@ def generate_channel_insights_report(project_root: Path) -> Dict[str, Any]:
 
     own_channel_ids = _load_own_channel_ids(project_root)
     if not own_channel_ids:
-        return {'error': 'No own-channel video IDs found in JSON pre-fetches'}
+        return {'error': 'No own-channel video IDs found'}
 
+    db_path = project_root / 'tools' / 'discovery' / 'keywords.db'
     db = KeywordDB()
 
     try:
         cursor = db._conn.cursor()
 
-        # Query only own-channel videos
+        # Query only own-channel long-form videos (exclude Shorts)
+        # Shorts: avg_view_duration < 60s, or topic_type='short', or title has '#'
         placeholders = ','.join('?' * len(own_channel_ids))
         cursor.execute(
             f"""
@@ -510,6 +530,12 @@ def generate_channel_insights_report(project_root: Path) -> Dict[str, Any]:
             FROM video_performance
             WHERE video_id IN ({placeholders})
               AND title IS NOT NULL
+              AND COALESCE(topic_type, '') != 'short'
+              AND title NOT LIKE '%#%'
+              AND (
+                  avg_view_duration_seconds >= 60
+                  OR avg_view_duration_seconds IS NULL
+              )
             ORDER BY views DESC NULLS LAST
             """,
             list(own_channel_ids)
@@ -566,6 +592,15 @@ def generate_channel_insights_report(project_root: Path) -> Dict[str, Any]:
             'videos': vids
         })
 
+    # Compute median views (more robust than mean for skewed data)
+    for ts in topic_stats:
+        sorted_views = sorted(v['views'] or 0 for v in ts['videos'])
+        n = len(sorted_views)
+        if n % 2 == 0:
+            ts['median_views'] = (sorted_views[n // 2 - 1] + sorted_views[n // 2]) / 2
+        else:
+            ts['median_views'] = sorted_views[n // 2]
+
     # Sort by avg_views desc
     topic_stats.sort(key=lambda t: t['avg_views'], reverse=True)
 
@@ -599,15 +634,15 @@ def generate_channel_insights_report(project_root: Path) -> Dict[str, Any]:
         '',
         '## Performance by Topic Type',
         '',
-        '| Topic | Videos | Avg Views | Avg Retention | Avg Conv% | Signal |',
-        '|-------|--------|-----------|---------------|-----------|--------|',
+        '| Topic | Videos | Median Views | Avg Views | Avg Retention | Avg Conv% | Signal |',
+        '|-------|--------|-------------|-----------|---------------|-----------|--------|',
     ]
 
     for t in topic_stats:
         retention_str = f"{t['avg_retention']:.1f}%" if t['avg_retention'] else 'N/A'
         lines.append(
-            f"| {t['topic']} | {t['count']} | {t['avg_views']:,.0f} | "
-            f"{retention_str} | {t['avg_conversion']:.2f}% | {t['signal']} ({t['count']} videos) |"
+            f"| {t['topic']} | {t['count']} | {t['median_views']:,.0f} | {t['avg_views']:,.0f} | "
+            f"{retention_str} | {t['avg_conversion']:.2f}% | {t['signal']} |"
         )
 
     lines.extend([
@@ -668,6 +703,11 @@ def generate_channel_insights_report(project_root: Path) -> Dict[str, Any]:
             f"— {signal}"
         )
 
+    # Traffic source analysis
+    traffic_lines = _build_traffic_section(db_path)
+    if traffic_lines:
+        lines.extend(traffic_lines)
+
     lines.extend([
         '',
         '---',
@@ -685,7 +725,7 @@ def generate_channel_insights_report(project_root: Path) -> Dict[str, Any]:
         '',
         '---',
         '',
-        '> **Note:** These are patterns from ~15 videos — a small dataset. '
+        f'> **Note:** Based on {total_videos} long-form videos. '
         'Treat as early signals, not prescriptions. '
         'Experiment freely — the channel is still finding its winning formula.',
         '',
@@ -703,6 +743,84 @@ def generate_channel_insights_report(project_root: Path) -> Dict[str, Any]:
         'saved_to': str(output_path),
         'video_count': total_videos
     }
+
+
+def _build_traffic_section(db_path: Path) -> List[str]:
+    """
+    Build traffic source breakdown section from traffic_sources table.
+
+    Returns list of markdown lines, or empty list if no data.
+    """
+    try:
+        conn = sqlite3.connect(str(db_path))
+        conn.row_factory = sqlite3.Row
+
+        # Check table exists
+        tables = [r[0] for r in conn.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name='traffic_sources'"
+        ).fetchall()]
+        if not tables:
+            conn.close()
+            return []
+
+        # Aggregate across all videos
+        rows = conn.execute("""
+            SELECT source_type, SUM(views) as total_views, SUM(watch_time_minutes) as total_wtm
+            FROM traffic_sources
+            GROUP BY source_type
+            ORDER BY total_views DESC
+        """).fetchall()
+        conn.close()
+
+        if not rows:
+            return []
+
+        total_views = sum(r['total_views'] for r in rows)
+        if total_views == 0:
+            return []
+
+        lines = [
+            '',
+            '---',
+            '',
+            '## Traffic Sources (Long-Form)',
+            '',
+            '| Source | Views | % of Total | Watch Time (hrs) |',
+            '|--------|-------|-----------|-----------------|',
+        ]
+
+        # Friendly names for source types
+        source_names = {
+            'YT_SEARCH': 'YouTube Search',
+            'SUBSCRIBER': 'Browse/Home Feed',
+            'SUGGESTED': 'Suggested/Browse',
+            'RELATED_VIDEO': 'Suggested Videos',
+            'YT_CHANNEL': 'Channel Page',
+            'EXT_URL': 'External',
+            'NO_LINK_OTHER': 'Other/Direct',
+            'NOTIFICATION': 'Notifications',
+            'PLAYLIST': 'Playlists',
+            'END_SCREEN': 'End Screens',
+            'ANNOTATION': 'Cards/Annotations',
+            'YT_PLAYLIST_PAGE': 'Playlist Page',
+            'SHORTS': 'Shorts Shelf',
+            'SHORTS_CONTENT_LINKS': 'Shorts → Long-form',
+            'YT_OTHER_PAGE': 'Other YT Pages',
+            'HASHTAGS': 'Hashtags',
+        }
+
+        for r in rows:
+            name = source_names.get(r['source_type'], r['source_type'])
+            pct = (r['total_views'] / total_views) * 100
+            wtm_hrs = r['total_wtm'] / 60 if r['total_wtm'] else 0
+            lines.append(
+                f"| {name} | {r['total_views']:,} | {pct:.1f}% | {wtm_hrs:.1f} |"
+            )
+
+        return lines
+
+    except Exception:
+        return []
 
 
 def _build_recommendations(
@@ -735,9 +853,10 @@ def _build_recommendations(
     if sorted_by_perf:
         best = sorted_by_perf[0]
         ret_note = f", {best['avg_retention']:.1f}% avg retention" if best['avg_retention'] else ''
+        median_note = f", median {best['median_views']:,.0f}" if best.get('median_views') else ''
         recs.append(
             f"**{best['topic'].title()} topics** have historically performed well for this channel "
-            f"(avg {best['avg_views']:,.0f} views, {best['avg_conversion']:.2f}% conversion{ret_note}). "
+            f"(avg {best['avg_views']:,.0f} views{median_note}, {best['avg_conversion']:.2f}% conversion{ret_note}). "
             f"{best['signal']} from {best['count']} video(s). "
             f"Consider making another {best['topic']} video."
         )
@@ -752,8 +871,8 @@ def _build_recommendations(
                 f"{second['signal']}."
             )
 
-    # Recommendation 3: Novel/underexplored opportunity
-    underexplored = [t for t in topic_stats if t['count'] == 1]
+    # Recommendation 3: Novel/underexplored opportunity (skip 'general' — not actionable)
+    underexplored = [t for t in topic_stats if t['count'] == 1 and t['topic'] != 'general']
     if underexplored:
         ue = underexplored[0]
         recs.append(
@@ -796,6 +915,88 @@ def classify_topic_type_simple(title: str) -> str:
         if any(kw in title_lower for kw in keywords):
             return topic
     return 'general'
+
+
+# =========================================================================
+# STAGE 3.5: CTR BACKFILL (ctr_snapshots → video_performance)
+# =========================================================================
+
+def _ensure_ctr_columns(db: 'KeywordDB') -> None:
+    """Add ctr_percent and impression_count columns to video_performance if missing."""
+    try:
+        cursor = db._conn.cursor()
+        cursor.execute("PRAGMA table_info(video_performance)")
+        existing_cols = {row[1] for row in cursor.fetchall()}
+        if 'ctr_percent' not in existing_cols:
+            cursor.execute(
+                "ALTER TABLE video_performance ADD COLUMN ctr_percent REAL"
+            )
+        if 'impression_count' not in existing_cols:
+            cursor.execute(
+                "ALTER TABLE video_performance ADD COLUMN impression_count INTEGER"
+            )
+        db._conn.commit()
+    except sqlite3.OperationalError:
+        pass  # Non-fatal
+
+
+def backfill_ctr_from_snapshots(project_root: Path) -> int:
+    """
+    Copy latest non-zero CTR from ctr_snapshots into video_performance.
+
+    For each video in video_performance, finds the most recent ctr_snapshots
+    row with ctr_percent > 0 and copies ctr_percent + impression_count.
+
+    Returns:
+        Count of rows updated
+    """
+    if not DB_AVAILABLE:
+        return 0
+
+    db = KeywordDB()
+    _ensure_ctr_columns(db)
+
+    updated = 0
+    try:
+        cursor = db._conn.cursor()
+
+        # Get all video_ids from video_performance
+        cursor.execute("SELECT video_id FROM video_performance WHERE video_id IS NOT NULL")
+        video_ids = [row[0] for row in cursor.fetchall()]
+
+        for vid in video_ids:
+            # Get latest non-zero CTR snapshot
+            cursor.execute(
+                """
+                SELECT ctr_percent, impression_count
+                FROM ctr_snapshots
+                WHERE video_id = ? AND ctr_percent > 0
+                ORDER BY snapshot_date DESC
+                LIMIT 1
+                """,
+                (vid,)
+            )
+            row = cursor.fetchone()
+            if row:
+                cursor.execute(
+                    """
+                    UPDATE video_performance
+                    SET ctr_percent = ?, impression_count = ?
+                    WHERE video_id = ?
+                      AND (ctr_percent IS NULL OR ctr_percent = 0)
+                    """,
+                    (row[0], row[1], vid)
+                )
+                if cursor.rowcount > 0:
+                    updated += 1
+
+        db._conn.commit()
+    except sqlite3.Error as e:
+        logger.warning("CTR backfill error: %s", e)
+    finally:
+        db.close()
+
+    return updated
 
 
 # =========================================================================
@@ -843,6 +1044,12 @@ def run_backfill(project_root: Path, force: bool = False, skip_markdown: bool = 
     reclassified = reclassify_topics(project_root)
     results['reclassified'] = reclassified
     logger.info("Reclassified %d videos from 'general' to specific topic types", reclassified)
+
+    # Stage 3.5: CTR backfill (ctr_snapshots → video_performance)
+    logger.info("Stage 3.5: Backfilling CTR from ctr_snapshots")
+    ctr_updated = backfill_ctr_from_snapshots(project_root)
+    results['ctr_updated'] = ctr_updated
+    logger.info("CTR backfill: %d videos updated", ctr_updated)
 
     # Stage 4: Generate insights report
     logger.info("Stage 4: Generating channel insights report")
@@ -948,6 +1155,7 @@ Output: tools/discovery/keywords.db (video_performance table)
               f"{md_import.get('errors', 0)} errors")
 
     print(f"  Stage 3 (Reclassified):   {result.get('reclassified', 0)} topics updated")
+    print(f"  Stage 3.5 (CTR backfill): {result.get('ctr_updated', 0)} videos with CTR")
 
     if result.get('insights_path'):
         print(f"  Stage 4 (Insights):       Saved to {result['insights_path']}")

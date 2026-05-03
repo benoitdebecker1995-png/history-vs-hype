@@ -1,0 +1,41 @@
+{
+  "video_id": "gyt0bZms5zU",
+  "channel": "Atun-Shei_Films",
+  "title": "THE CORNERSTONE OF JOHNNY REB",
+  "views": 796435,
+  "duration_seconds": 3543,
+  "word_count": 6560,
+  "hook": {
+    "first_50_words": "you know Johnny I'm not going to do this if you're not going to list listen I'll listen Billy I will it's just it's not easy for me do you mean that though or are you just saying it my mind is open convince me if you can all right",
+    "first_sentence": "you know Johnny I'm not going to do this if you're not going to list listen I'll listen Billy I will it's",
+    "seconds_to_first_date": 53.5,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 36,
+    "seconds_to_first_historical_date": 53.5,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 3.7,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 2,
+    "explicit_source_citations": 2,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "few words I think not my friend was a gravest sinner and is most certainly an ill hey witch finder off as God as my witness as God is my witness I'll never be taken for a fool again as God is my witness I'll never be Fooled Again w",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 111.1,
+    "date_frequency_per_minute": 0.29,
+    "avg_sentence_length": 15.0
+  }
+}

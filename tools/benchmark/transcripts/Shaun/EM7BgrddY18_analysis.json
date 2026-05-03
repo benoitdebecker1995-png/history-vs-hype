@@ -1,0 +1,41 @@
+{
+  "video_id": "EM7BgrddY18",
+  "channel": "Shaun",
+  "title": "How PragerU Lies to You",
+  "views": 2812200,
+  "duration_seconds": 1765,
+  "word_count": 3654,
+  "hook": {
+    "first_50_words": "Now then, what would you say if I told you, who needed your help, to move his vast riches out of his country? Or what if I told you, I could sell you a magic brain pill, that will make you smarter? Or, how about this one: What if I",
+    "first_sentence": "Now then, what would you say if I told you, who needed your help, to move his vast riches out of his country?",
+    "seconds_to_first_date": 161.9,
+    "seconds_to_first_named_entity": 63.1,
+    "hook_type": "contextual_opening",
+    "opens_with_question": true,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 5,
+    "seconds_to_first_historical_date": 161.9,
+    "seconds_to_turn_moment": 374.5,
+    "turn_moment_description": "r muscle there. But the truth is... the truth is, men have bigger muscles than the cartoon lady, and could beat her at an arm wrestling comp",
+    "percent_history_vs_analysis": 1.4,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 5,
+    "questions_posed_to_viewer": 29
+  },
+  "close": {
+    "last_50_words": "videos. A lot of the time conservatives will go on, and then defend propping up failing banks with public money, or something. It's highly hypocritical there. Thanks as always to all my Patreon backers, A link to my Patreon page is below, Right. Thanks folks, I'll see you next time.",
+    "has_cta": true,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "prediction"
+  },
+  "pacing": {
+    "words_per_minute": 124.2,
+    "date_frequency_per_minute": 0.14,
+    "avg_sentence_length": 16.5
+  }
+}

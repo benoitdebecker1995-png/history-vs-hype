@@ -1,0 +1,41 @@
+{
+  "video_id": "sc-euVL8xQs",
+  "channel": "Three_Arrows",
+  "title": "Deutschland by Rammstein: An Analysis",
+  "views": 1545274,
+  "duration_seconds": 1650,
+  "word_count": 5593,
+  "hook": {
+    "first_50_words": "hey best arrows in the game here coming in with some media analysis about a very controversial piece of media that was released by one of Germany's most successful cultural exports couple of months ago of course I'm talking about the band which single-handedly taught the world the German words",
+    "first_sentence": "hey best arrows in the game here coming",
+    "seconds_to_first_date": 133.8,
+    "seconds_to_first_named_entity": 47.2,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 133.8,
+    "seconds_to_turn_moment": 997.8,
+    "turn_moment_description": "the Nazis as rooted in reality or to make them seem tempting like with these shots it looks more like a movie production than a reflection o",
+    "percent_history_vs_analysis": 4.8,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 3,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "voices for this one check out that channels via the video description links is always down below join the patreon for extra count and other cool stuff check out the social media links etc etc and I hope to see you the next time until then have a good one",
+    "has_cta": true,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 203.4,
+    "date_frequency_per_minute": 0.65,
+    "avg_sentence_length": 15.0
+  }
+}

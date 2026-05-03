@@ -1,0 +1,41 @@
+{
+  "video_id": "L30_hfuZoQ8",
+  "channel": "Shaun",
+  "title": "The Death Penalty feat. PragerU",
+  "views": 2169562,
+  "duration_seconds": 2418,
+  "word_count": 7050,
+  "hook": {
+    "first_50_words": "hello everyone today we're going to be talking about the death penalty or capital punishment and we all know what that is right when someone is killed by the state as punishment for a criminal act and I want to talk about this for a few reasons firstly while most",
+    "first_sentence": "hello everyone today we're going to be",
+    "seconds_to_first_date": 73.9,
+    "seconds_to_first_named_entity": 31.9,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": true,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 73.9,
+    "seconds_to_turn_moment": 685.6,
+    "turn_moment_description": "raumatic experience but why you might wonder did the wrong guy confess to the crime well during the trial Brenton butler alleged that the po",
+    "percent_history_vs_analysis": 1.7,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 2,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "their financial support but also for all of their very useful feedback and if you'd like to help me out in making more videos like this consider having a peek at the patreon link I will leave below right that's all from me today folks I'll see you next time",
+    "has_cta": true,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "prediction"
+  },
+  "pacing": {
+    "words_per_minute": 174.9,
+    "date_frequency_per_minute": 0.2,
+    "avg_sentence_length": 15
+  }
+}

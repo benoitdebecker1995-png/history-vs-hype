@@ -1,0 +1,41 @@
+{
+  "video_id": "S-xPsQEvmNk",
+  "channel": "TikHistory",
+  "title": "The Dangerous Appeal of Hitler’s AI-Translated Speeches",
+  "views": 627247,
+  "duration_seconds": 1560,
+  "word_count": 3538,
+  "hook": {
+    "first_50_words": "yeah my dear fellow Germans a sudden commotion has come over the German people now even those circles are beginning to stir which until now have been deaf to the constant warnings that we have been trying to address to the mass of our people almost without interruption for the",
+    "first_sentence": "yeah my dear fellow Germans a sudden",
+    "seconds_to_first_date": 179.8,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 179.8,
+    "seconds_to_turn_moment": 381.9,
+    "turn_moment_description": "at he saw as Jewish and yet because he's been branded far right by the historians the politicians many teachers and the media the impression",
+    "percent_history_vs_analysis": 1.3,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "long-term cost think critically educate yourself and don't fall through the lies that have trapped so many before you if you found this video informative please like share and subscribe to stay informed on History philosophy and how it all connects to today's world thanks for watching bye for now",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 136.1,
+    "date_frequency_per_minute": 0.15,
+    "avg_sentence_length": 15.0
+  }
+}

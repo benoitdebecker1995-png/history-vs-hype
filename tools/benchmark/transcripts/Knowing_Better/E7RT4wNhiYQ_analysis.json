@@ -1,0 +1,41 @@
+{
+  "video_id": "E7RT4wNhiYQ",
+  "channel": "Knowing_Better",
+  "title": "God's Alternative Medicine | Christian Science",
+  "views": 1728976,
+  "duration_seconds": 8665,
+  "word_count": 24211,
+  "hook": {
+    "first_50_words": "over the course of this Channel's existence I've become something of a scholar of American Born religions and one in particular seems to keep popping up in those discussions so today hey the people have spoken it's time for another religion video you're on my TV now I thought I",
+    "first_sentence": "over the course of this Channel's existence I've become something of a",
+    "seconds_to_first_date": 242.7,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 7,
+    "seconds_to_first_historical_date": 242.7,
+    "seconds_to_turn_moment": 3721.4,
+    "turn_moment_description": "n her autobiography in reality there's actually very little evidence for her support of either of those positions she claimed that she freed",
+    "percent_history_vs_analysis": 7.7,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 4,
+    "explicit_source_citations": 14,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "head on over to donation paypal. me/ knowing better don't forget to heal that subscribe button or the join button if you want to be completely free of error check out the merch at knowing better. TV follow me on Twitter Facebook and Instagram and join us on the subreddit",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 167.6,
+    "date_frequency_per_minute": 1.18,
+    "avg_sentence_length": 15.0
+  }
+}

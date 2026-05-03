@@ -1,0 +1,41 @@
+{
+  "video_id": "GBt5rMD2aDc",
+  "channel": "WonderWhy",
+  "title": "What's the Difference Between Latino and Hispanic?",
+  "views": 3913052,
+  "duration_seconds": 552,
+  "word_count": 1573,
+  "hook": {
+    "first_50_words": "have you ever wondered what's the difference between the terms Latino and Hispanic most people use these words interchangeably but there is actually a difference there is a huge overlap I.E most people who are Latino are also Hispanic and vice versa most people who are Hispanic or also Latino",
+    "first_sentence": "have you ever wondered what's the difference between the terms Latino and",
+    "seconds_to_first_date": 151.8,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "myth_contradiction",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 151.8,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 1.9,
+    "chronological_vs_thematic": "thematic",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "they want to be part of or choose not to identify themselves in any way if they so choose I think it was best summed up in an article by the Pew Research Center who's Hispanic anyone who says they are and nobody who says they aren't thanks for watching",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 171.0,
+    "date_frequency_per_minute": 0.22,
+    "avg_sentence_length": 15.0
+  }
+}

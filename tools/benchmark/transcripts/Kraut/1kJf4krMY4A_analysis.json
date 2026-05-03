@@ -1,0 +1,41 @@
+{
+  "video_id": "1kJf4krMY4A",
+  "channel": "Kraut",
+  "title": "India & Pakistan - A continuing Story",
+  "views": 2715073,
+  "duration_seconds": 2879,
+  "word_count": 8128,
+  "hook": {
+    "first_50_words": "cars dominate the world of personal transport the industry sectors built around them are so large that they are their own category of geopolitical power players for the first half of the 20th century the americans dominated that market they invented the concept of the assembly line at which the",
+    "first_sentence": "cars dominate the world of personal",
+    "seconds_to_first_date": 55.4,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 6,
+    "seconds_to_first_historical_date": 55.4,
+    "seconds_to_turn_moment": 1615.8,
+    "turn_moment_description": "as much as pakistan but why in the 1970s a splinter group of the indian communist party known as the naxalites split off from the party yes",
+    "percent_history_vs_analysis": 3.5,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 3,
+    "explicit_source_citations": 1,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "now own the books to do so speaking of which you will find a bibliography in the description of all the books used don't forget to keep this channel running by sharing the video and supporting me through paypal or patreon and i hope to see you all soon again",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "prediction"
+  },
+  "pacing": {
+    "words_per_minute": 169.4,
+    "date_frequency_per_minute": 0.4,
+    "avg_sentence_length": 15.0
+  }
+}

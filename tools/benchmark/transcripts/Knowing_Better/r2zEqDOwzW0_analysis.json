@@ -1,0 +1,41 @@
+{
+  "video_id": "r2zEqDOwzW0",
+  "channel": "Knowing_Better",
+  "title": "Denying Your History | Armenian Genocide",
+  "views": 1503019,
+  "duration_seconds": 1368,
+  "word_count": 3855,
+  "hook": {
+    "first_50_words": "in every friend group there's that one person that doesn't quite belong nobody really likes them but nobody hates them enough to kick them out their presence is just sort of tolerated they have some dirty laundry maybe they cheat on their wife or sell drugs on the side things",
+    "first_sentence": "in every friend group there's that one",
+    "seconds_to_first_date": 155.6,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 2,
+    "seconds_to_first_historical_date": 155.6,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 10.5,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 1,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "this list of deportees head on over to patreon comm slash knowing better or for a one-time donation PayPal dot me slash knowing better don't forget to relocate that subscribe button check out the merchant knowing better TV follow me on Twitter and Facebook and join us on the subreddit",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 169.1,
+    "date_frequency_per_minute": 1.18,
+    "avg_sentence_length": 15
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "video_id": "I_HdqYCDcVE",
+  "channel": "Three_Arrows",
+  "title": "Brexit: PragerU vs. Reality",
+  "views": 727651,
+  "duration_seconds": 1560,
+  "word_count": 5107,
+  "hook": {
+    "first_50_words": "hey what's up everyone welcome to my brexit video alternative title reality is often disappointing the video we're looking at today is from fake University Prager you and it's not about why the UK should leave the EU that's an old hat by now but Viet voted to leave I've",
+    "first_sentence": "hey what's up everyone welcome to my",
+    "seconds_to_first_date": 236.9,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 236.9,
+    "seconds_to_turn_moment": 1117.2,
+    "turn_moment_description": "rrounded by the sea and yet as members of the European Union we were only allowed to catch 20% of the fish swimming in territorial British w",
+    "percent_history_vs_analysis": 3.2,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 3,
+    "explicit_source_citations": 3,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "videos were a light on history unfortunately but I'm going to make up for it with the next one when we'll talk about the Crusades how exciting until then let's just all try to stick it out and I hope to see you the next time have a good one",
+    "has_cta": false,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 196.4,
+    "date_frequency_per_minute": 0.54,
+    "avg_sentence_length": 15.0
+  }
+}

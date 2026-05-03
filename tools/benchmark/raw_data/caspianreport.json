@@ -1,0 +1,558 @@
+{
+  "name": "CaspianReport",
+  "subscriber_count": 1830000,
+  "format_match": "HIGH",
+  "notes": "Geopolitics analysis, authority-style narration",
+  "videos_analyzed": 50,
+  "median_views": 581490,
+  "outlier_threshold": 1744470,
+  "all_videos": [
+    {
+      "id": "2cRKv1oqyX8",
+      "title": "The Epstein files hurt America more than missiles ever could",
+      "view_count": 234913,
+      "like_count": 14833,
+      "duration": 768,
+      "upload_date": "20260314",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "mQfQwLW6CNw",
+      "title": "Iran has a new Supreme Leader. Does it even matter?",
+      "view_count": 269161,
+      "like_count": 11302,
+      "duration": 676,
+      "upload_date": "20260309",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "y0TZuhNixNk",
+      "title": "Why Iran is attacking everyone",
+      "view_count": 483163,
+      "like_count": 17845,
+      "duration": 750,
+      "upload_date": "20260304",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "GZ7wE3XOwFU",
+      "title": "Three ways Trump could strike Iran",
+      "view_count": 577378,
+      "like_count": 18127,
+      "duration": 1020,
+      "upload_date": "20260129",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "-aRdX-kZ9g4",
+      "title": "What’s really happening in Iran right now",
+      "view_count": 327582,
+      "like_count": 13315,
+      "duration": 802,
+      "upload_date": "20260120",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "99bldMr1byI",
+      "title": "What's next for Venezuela?",
+      "view_count": 231601,
+      "like_count": 8905,
+      "duration": 853,
+      "upload_date": "20260112",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "EzCiEv1IqiA",
+      "title": "Why global debt keeps growing ($345 trillion and counting)",
+      "view_count": 285480,
+      "like_count": 11920,
+      "duration": 944,
+      "upload_date": "20260106",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "mC5NdpSMDks",
+      "title": "How France is becoming a ‘third-world’ economy",
+      "view_count": 568016,
+      "like_count": 17840,
+      "duration": 1104,
+      "upload_date": "20251207",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "ccV3u3D9ONE",
+      "title": "America is already at war with Venezuela (open war is next)",
+      "view_count": 366927,
+      "like_count": 14930,
+      "duration": 662,
+      "upload_date": "20251118",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "cVCDjEfPzII",
+      "title": "How Vietnam is beating China at its own game",
+      "view_count": 324437,
+      "like_count": 10549,
+      "duration": 1076,
+      "upload_date": "20251107",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "n0X2rqzKTgM",
+      "title": "Why Afghanistan and Pakistan are fighting",
+      "view_count": 638897,
+      "like_count": 18921,
+      "duration": 1018,
+      "upload_date": "20251026",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "dcuCvRNqmpY",
+      "title": "How NATO plans to stop Russian drones",
+      "view_count": 200315,
+      "like_count": 8759,
+      "duration": 809,
+      "upload_date": "20251020",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "GG1qX8jHKGo",
+      "title": "Is Trump’s peace plan for Gaza doomed?",
+      "view_count": 329310,
+      "like_count": 12161,
+      "duration": 801,
+      "upload_date": "20251015",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "k9wkleHFvo0",
+      "title": "How the US military runs on Chinese rare earths",
+      "view_count": 221626,
+      "like_count": 9147,
+      "duration": 892,
+      "upload_date": "20251006",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "CWoYVlMuUNQ",
+      "title": "How this silent war is rewiring the Black Sea",
+      "view_count": 345918,
+      "like_count": 14643,
+      "duration": 782,
+      "upload_date": "20250929",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "xlfeieH4z38",
+      "title": "Why Saudi Arabia signed a defense pact with Pakistan",
+      "view_count": 510087,
+      "like_count": 17308,
+      "duration": 821,
+      "upload_date": "20250923",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "eZM2Ik-FHEU",
+      "title": "How Israel's strike on Qatar could backfire",
+      "view_count": 581490,
+      "like_count": 20685,
+      "duration": 777,
+      "upload_date": "20250914",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "CtcTG8-qzbA",
+      "title": "How Iran’s water crisis could spark collapse",
+      "view_count": 555302,
+      "like_count": 19358,
+      "duration": 824,
+      "upload_date": "20250827",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "6Mmj7mf1qlg",
+      "title": "Inside the world’s deadliest proxy conflict",
+      "view_count": 732542,
+      "like_count": 20421,
+      "duration": 790,
+      "upload_date": "20250820",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "InwVO9qBjqs",
+      "title": "How China is preparing for conflict with India",
+      "view_count": 721085,
+      "like_count": 20034,
+      "duration": 983,
+      "upload_date": "20250806",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "1Hp-W2bpPrw",
+      "title": "Why Thailand and Cambodia are fighting",
+      "view_count": 733659,
+      "like_count": 22282,
+      "duration": 934,
+      "upload_date": "20250728",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "VtE5sTpkn7k",
+      "title": "How Russia plans to rule Eurasia by river",
+      "view_count": 309918,
+      "like_count": 11283,
+      "duration": 887,
+      "upload_date": "20250723",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "8dOJypt2F70",
+      "title": "How Israel is trying to 'Balkanize' Iran",
+      "view_count": 484592,
+      "like_count": 19108,
+      "duration": 770,
+      "upload_date": "20250705",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "Evm4t4prtWo",
+      "title": "How this war could become China’s proxy",
+      "view_count": 858374,
+      "like_count": 27082,
+      "duration": 759,
+      "upload_date": "20250623",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "taLzgvbrnv0",
+      "title": "Will America go to war with Iran?",
+      "view_count": 1339820,
+      "like_count": 39830,
+      "duration": 707,
+      "upload_date": "20250618",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000,
+      "description": "Stay better informed https://ground.news/caspian and access worldwide perspectives on global developments. Subscribe for 40% off unlimited access through my link.\n\nThe United States is mobilizing its air and naval forces towards Iran. In the coming days, #America may find cause to get directly involved in the Israel-Iran War.\n\nSupport CaspianReport \n✔ YouTube membership ► https://www.youtube.com/channel/UCwnKziETDbHJtx78nIkfYug/join\n✔ Patreon ► https://www.patreon.com/CaspianReport\n✔ PayPal ► https://www.paypal.me/caspianreport\n✔ Merchandise ►https://teespring.com/stores/caspianreport\n\nCrypto endorsement\n✔ Bitcoin ► 1MwRNXWWqzbmsHova7FMW11zPftVZVUfbU\n✔ Ether ► 0xfE4c310ccb6f52f9D220F25Ce76Dec0493dF9aA0\n✔ Bitcoin Cash ► 1BKLti4Wq4EK9fsBnYWC91caK7NZfUhNw9\n\nJoin us on Facebook or Twitter\n✔ Twitter ► https://twitter.com/CaspianReport\n✔ Facebook ► https://www.facebook.com/CaspianReport\n\n✔ My equipment and editing software ► https://www.amazon.com/shop/caspianreport?listId=2GSSTV5TB5HGO\n\nWatch CaspianReport in other languages\n✔ Spanish ► https://www.youtube.com/c/HistoriaGeopol%C3%ADtica/featured\n✔ Russian ► https://www.youtube.com/c/TheCuriousCat/featured\n\n#ad #sponsored"
+    },
+    {
+      "id": "rgCrnyf5JEI",
+      "title": "The Israel-Iran War just changed everything",
+      "view_count": 3268872,
+      "like_count": 85821,
+      "duration": 837,
+      "upload_date": "20250615",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000,
+      "description": "Stay better informed https://ground.news/caspian and access worldwide perspectives on global developments. Subscribe for 40% off unlimited access through my link.\n\nIsrael launched preemptive strikes on Iran. Multiple senior nuclear scientists and military leaders have been killed. Iran has responded harshly. And so it begins.\n\nSupport CaspianReport \n✔ YouTube membership ► https://www.youtube.com/channel/UCwnKziETDbHJtx78nIkfYug/join\n✔ Patreon ► https://www.patreon.com/CaspianReport\n✔ PayPal ► https://www.paypal.me/caspianreport\n✔ Merchandise ►https://teespring.com/stores/caspianreport\n\nCrypto endorsement\n✔ Bitcoin ► 1MwRNXWWqzbmsHova7FMW11zPftVZVUfbU\n✔ Ether ► 0xfE4c310ccb6f52f9D220F25Ce76Dec0493dF9aA0\n✔ Bitcoin Cash ► 1BKLti4Wq4EK9fsBnYWC91caK7NZfUhNw9\n\nJoin us on Facebook or Twitter\n✔ Twitter ► https://twitter.com/CaspianReport\n✔ Facebook ► https://www.facebook.com/CaspianReport\n\n✔ My equipment and editing software ► https://www.amazon.com/shop/caspianreport?listId=2GSSTV5TB5HGO\n\nWatch CaspianReport in other languages\n✔ Spanish ► https://www.youtube.com/c/HistoriaGeopol%C3%ADtica/featured\n✔ Russian ► https://www.youtube.com/c/TheCuriousCat/featured\n\n#ad #sponsored"
+    },
+    {
+      "id": "PHhc-48JT3U",
+      "title": "Inside Turkey and the UAE’s secret war",
+      "view_count": 731829,
+      "like_count": 21753,
+      "duration": 1104,
+      "upload_date": "20250611",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "vFKjpNNjNGw",
+      "title": "Why Zimbabwe wants its ‘white farmers’ back",
+      "view_count": 2061134,
+      "like_count": 54192,
+      "duration": 977,
+      "upload_date": "20250531",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000,
+      "description": "Try your first app for free: https://www.odoo.com/r/pAZ\n\nZimbabwe has one of the world’s worst economies. Now, the government is addressing the moment it all unraveled - when it seized land from white farmers and drove them out.\n\nSupport CaspianReport \n✔ YouTube membership ► https://www.youtube.com/channel/UCwnKziETDbHJtx78nIkfYug/join\n✔ Patreon ► https://www.patreon.com/CaspianReport\n✔ PayPal ► https://www.paypal.me/caspianreport\n✔ Merchandise ►https://teespring.com/stores/caspianreport\n\nCrypto endorsement\n✔ Bitcoin ► 1MwRNXWWqzbmsHova7FMW11zPftVZVUfbU\n✔ Ether ► 0xfE4c310ccb6f52f9D220F25Ce76Dec0493dF9aA0\n✔ Bitcoin Cash ► 1BKLti4Wq4EK9fsBnYWC91caK7NZfUhNw9\n\nJoin us on Facebook or Twitter\n✔ Twitter ► https://twitter.com/CaspianReport\n✔ Facebook ► https://www.facebook.com/CaspianReport\n\n✔ My equipment and editing software ► https://www.amazon.com/shop/caspianreport?listId=2GSSTV5TB5HGO\n\nWatch CaspianReport in other languages\n✔ Spanish ► https://www.youtube.com/c/HistoriaGeopol%C3%ADtica/featured\n✔ Russian ► https://www.youtube.com/c/TheCuriousCat/featured\n\n#ad #sponsored"
+    },
+    {
+      "id": "VJQlOI70ubw",
+      "title": "Will China will grow old before it gets rich?",
+      "view_count": 443163,
+      "like_count": 14515,
+      "duration": 923,
+      "upload_date": "20250521",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "E5cfNq0DO90",
+      "title": "How the US built a backdoor into Europe’s air force",
+      "view_count": 338389,
+      "like_count": 12192,
+      "duration": 810,
+      "upload_date": "20250425",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "DNBGSsZatbY",
+      "title": "Why Europe plans to ditch US weapons",
+      "view_count": 911007,
+      "like_count": 19524,
+      "duration": 1102,
+      "upload_date": "20250414",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000,
+      "description": "Join Candlestick AI to start beating Wall Street at its own game https://candlestick.app.link/start\n\nIn a world where #America is no longer a dependable ally, the #EU looks to replace US weapons and, at the same time, build its own #defense industries. It's the biggest military buildup Europe has seen since World War II. About $860 billion has been set aside for this.\n\nSupport CaspianReport \n✔ YouTube membership ► https://www.youtube.com/channel/UCwnKziETDbHJtx78nIkfYug/join\n✔ Patreon ► https://www.patreon.com/CaspianReport\n✔ PayPal ► https://www.paypal.me/caspianreport\n✔ Merchandise ►https://teespring.com/stores/caspianreport\n\nCrypto endorsement\n✔ Bitcoin ► 1MwRNXWWqzbmsHova7FMW11zPftVZVUfbU\n✔ Ether ► 0xfE4c310ccb6f52f9D220F25Ce76Dec0493dF9aA0\n✔ Bitcoin Cash ► 1BKLti4Wq4EK9fsBnYWC91caK7NZfUhNw9\n\nJoin us on Facebook or Twitter\n✔ Twitter ► https://twitter.com/CaspianReport\n✔ Facebook ► https://www.facebook.com/CaspianReport\n\n✔ My equipment and editing software ► https://www.amazon.com/shop/caspianreport?listId=2GSSTV5TB5HGO\n\nWatch CaspianReport in other languages\n✔ Spanish ► https://www.youtube.com/c/HistoriaGeopol%C3%ADtica/featured\n✔ Russian ► https://www.youtube.com/c/TheCuriousCat/featured\n\n#ad #sponsored"
+    },
+    {
+      "id": "pna1NyaHTls",
+      "title": "How this $25 billion pipeline secures Canada’s independence",
+      "view_count": 506008,
+      "like_count": 16532,
+      "duration": 805,
+      "upload_date": "20250406",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "CUHao-vA98g",
+      "title": "Why Trump is selling out Ukraine for peace with Russia",
+      "view_count": 741762,
+      "like_count": 26800,
+      "duration": 941,
+      "upload_date": "20250322",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "cPN9BJe_RQw",
+      "title": "How China could conquer Taiwan without firing a shot",
+      "view_count": 923463,
+      "like_count": 15322,
+      "duration": 986,
+      "upload_date": "20250311",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000,
+      "description": "Play Conflict of Nations for FREE on PC or Mobile:\n💥 https://con.onelink.me/kZW6/CASP014\nReceive 13K GOLD & 1 month premium subscription, only available for the next 30 days!\n\nChina's #military leadership is increasingly seeking ways to strangle #Taiwan’s economy as an alternative to all-out #war.\n\nSupport CaspianReport \n✔ YouTube membership ► https://www.youtube.com/channel/UCwnKziETDbHJtx78nIkfYug/join\n✔ Patreon ► https://www.patreon.com/CaspianReport\n✔ PayPal ► https://www.paypal.me/caspianreport\n✔ Merchandise ►https://teespring.com/stores/caspianreport\n\nCrypto endorsement\n✔ Bitcoin ► 1MwRNXWWqzbmsHova7FMW11zPftVZVUfbU\n✔ Ether ► 0xfE4c310ccb6f52f9D220F25Ce76Dec0493dF9aA0\n✔ Bitcoin Cash ► 1BKLti4Wq4EK9fsBnYWC91caK7NZfUhNw9\n\nJoin us on Facebook or Twitter\n✔ Twitter ► https://twitter.com/CaspianReport\n✔ Facebook ► https://www.facebook.com/CaspianReport\n\n✔ My equipment and editing software ► https://www.amazon.com/shop/caspianreport?listId=2GSSTV5TB5HGO\n\nWatch CaspianReport in other languages\n✔ Spanish ► https://www.youtube.com/c/HistoriaGeopol%C3%ADtica/featured\n✔ Russian ► https://www.youtube.com/c/TheCuriousCat/featured\n\n#ad #sponsored"
+    },
+    {
+      "id": "rCBt4XgCX-0",
+      "title": "Why Trump is obsessed with Greenland",
+      "view_count": 729356,
+      "like_count": 22212,
+      "duration": 1023,
+      "upload_date": "20250304",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "f4g6KKGMmEI",
+      "title": "Why Iran's military brass wants to change the capital",
+      "view_count": 543340,
+      "like_count": 16491,
+      "duration": 1122,
+      "upload_date": "20250222",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "P_I5Jsc3xRw",
+      "title": "How this Chinese canal traps Southeast Asia",
+      "view_count": 480377,
+      "like_count": 14763,
+      "duration": 977,
+      "upload_date": "20250217",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "fPaU2l7RktM",
+      "title": "How this Indian submarine base checkmates China",
+      "view_count": 1200981,
+      "like_count": 27303,
+      "duration": 1052,
+      "upload_date": "20250202",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000,
+      "description": "Thanks Odoo for sponsoring this video! Click https://www.odoo.com/r/1dl to check out Odoo for yourself now!\n\n#India is building an underground #submarine base, designed to survive a #nuclear attack. The base will house India’s growing #fleet of nuclear submarines and advance its nuclear #triad.\n\nSupport CaspianReport \n✔ YouTube membership ► https://www.youtube.com/channel/UCwnKziETDbHJtx78nIkfYug/join\n✔ Patreon ► https://www.patreon.com/CaspianReport\n✔ PayPal ► https://www.paypal.me/caspianreport\n✔ Merchandise ►https://teespring.com/stores/caspianreport\n\nCrypto endorsement\n✔ Bitcoin ► 1MwRNXWWqzbmsHova7FMW11zPftVZVUfbU\n✔ Ether ► 0xfE4c310ccb6f52f9D220F25Ce76Dec0493dF9aA0\n✔ Bitcoin Cash ► 1BKLti4Wq4EK9fsBnYWC91caK7NZfUhNw9\n\nJoin us on Facebook or Twitter\n✔ Twitter ► https://twitter.com/CaspianReport\n✔ Facebook ► https://www.facebook.com/CaspianReport\n\n✔ My equipment and editing software ► https://www.amazon.com/shop/caspianreport?listId=2GSSTV5TB5HGO\n\nWatch CaspianReport in other languages\n✔ Spanish ► https://www.youtube.com/c/HistoriaGeopol%C3%ADtica/featured\n✔ Russian ► https://www.youtube.com/c/TheCuriousCat/featured\n\n#ad #sponsored"
+    },
+    {
+      "id": "0PVwt01b6fs",
+      "title": "Why the US military is restoring WWII-era airfields",
+      "view_count": 671116,
+      "like_count": 20526,
+      "duration": 861,
+      "upload_date": "20250124",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "0qMDM4Y4Hwo",
+      "title": "Why Iran’s economy is shutting down",
+      "view_count": 651521,
+      "like_count": 20749,
+      "duration": 1025,
+      "upload_date": "20250114",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "Ld285PDsHvs",
+      "title": "How Mexico is creating its own Panama Canal",
+      "view_count": 683936,
+      "like_count": 14285,
+      "duration": 1079,
+      "upload_date": "20250106",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "p1mQC71wplA",
+      "title": "How Israel plans to checkmate Iran",
+      "view_count": 1343068,
+      "like_count": 39932,
+      "duration": 951,
+      "upload_date": "20241226",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000,
+      "description": "Stay better informed https://ground.news/caspian and access world-wide perspectives on global developments. Subscribe for 50% off unlimited access through my link.\n\n#Israel has taken out #Syria's air defenses and is paving the way to launch pre-emptive airstrikes on #Iran’s military and nuclear sites.\n\nSupport CaspianReport \n✔ YouTube membership ► https://www.youtube.com/channel/UCwnKziETDbHJtx78nIkfYug/join\n✔ Patreon ► https://www.patreon.com/CaspianReport\n✔ PayPal ► https://www.paypal.me/caspianreport\n✔ Merchandise ►https://teespring.com/stores/caspianreport\n\nCrypto endorsement\n✔ Bitcoin ► 1MwRNXWWqzbmsHova7FMW11zPftVZVUfbU\n✔ Ether ► 0xfE4c310ccb6f52f9D220F25Ce76Dec0493dF9aA0\n✔ Bitcoin Cash ► 1BKLti4Wq4EK9fsBnYWC91caK7NZfUhNw9\n\nJoin us on Facebook or Twitter\n✔ Twitter ► https://twitter.com/CaspianReport\n✔ Facebook ► https://www.facebook.com/CaspianReport\n\n✔ My equipment and editing software ► https://www.amazon.com/shop/caspianreport?listId=2GSSTV5TB5HGO\n\nWatch CaspianReport in other languages\n✔ Spanish ► https://www.youtube.com/c/HistoriaGeopol%C3%ADtica/featured\n✔ Russian ► https://www.youtube.com/c/TheCuriousCat/featured\n\n#ad #sponsored"
+    },
+    {
+      "id": "9k5JhKK6WlA",
+      "title": "What's next for Syria after Assad's fall?",
+      "view_count": 751353,
+      "like_count": 26555,
+      "duration": 1083,
+      "upload_date": "20241214",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "WPxrifmtlQI",
+      "title": "Why Syria's civil war restarted",
+      "view_count": 1181617,
+      "like_count": 34429,
+      "duration": 1112,
+      "upload_date": "20241207",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000,
+      "description": "Stay better informed https://ground.news/caspian and access world-wide perspectives on global developments. Subscribe for 50% off unlimited access through my link.\n\nAfter an eight-year break, Turkish-backed Syrian #rebels took over #Aleppo and are now moving toward #Damascus. #Syria  is now on the verge of regime change.\n\nSupport CaspianReport \n✔ YouTube membership ► https://www.youtube.com/channel/UCwnKziETDbHJtx78nIkfYug/join\n✔ Patreon ► https://www.patreon.com/CaspianReport\n✔ PayPal ► https://www.paypal.me/caspianreport\n✔ Merchandise ►https://teespring.com/stores/caspianreport\n\nCrypto endorsement\n✔ Bitcoin ► 1MwRNXWWqzbmsHova7FMW11zPftVZVUfbU\n✔ Ether ► 0xfE4c310ccb6f52f9D220F25Ce76Dec0493dF9aA0\n✔ Bitcoin Cash ► 1BKLti4Wq4EK9fsBnYWC91caK7NZfUhNw9\n\nJoin us on Facebook or Twitter\n✔ Twitter ► https://twitter.com/CaspianReport\n✔ Facebook ► https://www.facebook.com/CaspianReport\n\n✔ My equipment and editing software ► https://www.amazon.com/shop/caspianreport?listId=2GSSTV5TB5HGO\n\nWatch CaspianReport in other languages\n✔ Spanish ► https://www.youtube.com/c/HistoriaGeopol%C3%ADtica/featured\n✔ Russian ► https://www.youtube.com/c/TheCuriousCat/featured\n\n#ad #sponsored"
+    },
+    {
+      "id": "nVNBmK7a1y8",
+      "title": "Pakistan, Afghanistan, and Iran heading to war?",
+      "view_count": 1877901,
+      "like_count": 38610,
+      "duration": 1105,
+      "upload_date": "20241130",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000,
+      "description": "Stay better informed https://ground.news/caspian and access world-wide perspectives on global developments. Subscribe for 50% off unlimited access through my link.\n\nAt the crossroads of #Iran, #Afghanistan, and #Pakistan is a broken place. Here, militants and militaries fight for supremacy.\n\nSupport CaspianReport \n✔ YouTube membership ► https://www.youtube.com/channel/UCwnKziETDbHJtx78nIkfYug/join\n✔ Patreon ► https://www.patreon.com/CaspianReport\n✔ PayPal ► https://www.paypal.me/caspianreport\n✔ Merchandise ►https://teespring.com/stores/caspianreport\n\nCrypto endorsement\n✔ Bitcoin ► 1MwRNXWWqzbmsHova7FMW11zPftVZVUfbU\n✔ Ether ► 0xfE4c310ccb6f52f9D220F25Ce76Dec0493dF9aA0\n✔ Bitcoin Cash ► 1BKLti4Wq4EK9fsBnYWC91caK7NZfUhNw9\n\nJoin us on Facebook or Twitter\n✔ Twitter ► https://twitter.com/CaspianReport\n✔ Facebook ► https://www.facebook.com/CaspianReport\n\n✔ My equipment and editing software ► https://www.amazon.com/shop/caspianreport?listId=2GSSTV5TB5HGO\n\nWatch CaspianReport in other languages\n✔ Spanish ► https://www.youtube.com/c/HistoriaGeopol%C3%ADtica/featured\n✔ Russian ► https://www.youtube.com/c/TheCuriousCat/featured\n\n#ad #sponsored"
+    },
+    {
+      "id": "QDnMYztaxfI",
+      "title": "How Russia is changing Baltic Sea borders",
+      "view_count": 592883,
+      "like_count": 18913,
+      "duration": 938,
+      "upload_date": "20241127",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "gxsaWhXG1Gg",
+      "title": "Russia to take out the West's internet?",
+      "view_count": 281581,
+      "like_count": 10403,
+      "duration": 1163,
+      "upload_date": "20241107",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "RMtkKiyrXic",
+      "title": "The making of an anti-American global order?",
+      "view_count": 619330,
+      "like_count": 20320,
+      "duration": 1043,
+      "upload_date": "20241031",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "JKlJ6OW67Bk",
+      "title": "How Pakistan’s oil discovery could change global markets",
+      "view_count": 956345,
+      "like_count": 20645,
+      "duration": 1095,
+      "upload_date": "20241027",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000,
+      "description": "Visit www.uraniumroyalty.com to download their latest investor presentation, view recent news, and sign up for email updates.\n\nThis YouTube video was sponsored by Uranium Royalty Corp (NASDAQ: UROY) and was funded by Outside The Box Capital Inc. and/or affiliates after CaspianReport was engaged by Outside The Box Capital Inc. to advertise for  Uranium Royalty Corp (NASDAQ: UROY).\n\nFor our full disclaimer, please visit:\nhttps://bit.ly/4feCB82\n\nMassive #oil and #gas reserves have been discovered in #Pakistan's waters. The untapped wealth gives the country hope, even if that hope is at the bottom of the #ocean.\n\nSupport CaspianReport \n✔ YouTube membership ► https://www.youtube.com/channel/UCwnKziETDbHJtx78nIkfYug/join\n✔ Patreon ► https://www.patreon.com/CaspianReport\n✔ PayPal ► https://www.paypal.me/caspianreport\n✔ Merchandise ►https://teespring.com/stores/caspianreport\n\nCrypto endorsement\n✔ Bitcoin ► 1MwRNXWWqzbmsHova7FMW11zPftVZVUfbU\n✔ Ether ► 0xfE4c310ccb6f52f9D220F25Ce76Dec0493dF9aA0\n✔ Bitcoin Cash ► 1BKLti4Wq4EK9fsBnYWC91caK7NZfUhNw9\n\nJoin us on Facebook or Twitter\n✔ Twitter ► https://twitter.com/CaspianReport\n✔ Facebook ► https://www.facebook.com/CaspianReport\n\n✔ My equipment and editing software ► https://www.amazon.com/shop/caspianreport?listId=2GSSTV5TB5HGO\n\nWatch CaspianReport in other languages\n✔ Spanish ► https://www.youtube.com/c/HistoriaGeopol%C3%ADtica/featured\n✔ Russian ► https://www.youtube.com/c/TheCuriousCat/featured\n\n#ad #sponsored"
+    },
+    {
+      "id": "Sjmb8O-fRWI",
+      "title": "Is Iran ‘secretly’ building nuclear missiles?",
+      "view_count": 495673,
+      "like_count": 15652,
+      "duration": 1049,
+      "upload_date": "20241018",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    }
+  ],
+  "outliers": [
+    {
+      "id": "rgCrnyf5JEI",
+      "title": "The Israel-Iran War just changed everything",
+      "view_count": 3268872,
+      "like_count": 85821,
+      "duration": 837,
+      "upload_date": "20250615",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "vFKjpNNjNGw",
+      "title": "Why Zimbabwe wants its ‘white farmers’ back",
+      "view_count": 2061134,
+      "like_count": 54192,
+      "duration": 977,
+      "upload_date": "20250531",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    },
+    {
+      "id": "nVNBmK7a1y8",
+      "title": "Pakistan, Afghanistan, and Iran heading to war?",
+      "view_count": 1877901,
+      "like_count": 38610,
+      "duration": 1105,
+      "upload_date": "20241130",
+      "channel": "CaspianReport",
+      "channel_subscriber_count": 1830000
+    }
+  ],
+  "hooks": {
+    "rgCrnyf5JEI": "The Cold War has turned hot overnight. In the early hours of June 13th, Israel launched preemptive strikes on Iran. Multiple explosions were heard across Thran with online footage showing blasts lighting up the capital.",
+    "vFKjpNNjNGw": "This is a $100 trillion bank note from Zimbabwe. One of the most worthless currencies ever. The paper it's printed on is worth more than the money itself.",
+    "nVNBmK7a1y8": "this is where the Triad of Iran Afghanistan and Pakistan lies it is a region full of activity though often for the wrong reasons here communal life is broken International borders are breached daily and both militants and militaries Carry Out secret operations each looking for the next power grab in"
+  }
+}

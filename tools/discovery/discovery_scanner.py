@@ -17,6 +17,7 @@ Usage:
 import json
 import re
 import argparse
+import sqlite3
 import sys
 import urllib.parse
 import urllib.request
@@ -183,7 +184,7 @@ class DiscoveryScanner:
                 "status": "OK",
                 "candidates": len(autocomplete_candidates),
             }
-        except Exception as exc:
+        except (RuntimeError, ImportError, OSError) as exc:
             logger.warning("Autocomplete signal failed: %s", exc)
             signal_quality["autocomplete"] = {"status": "FAILED", "error": str(exc)}
 
@@ -195,7 +196,7 @@ class DiscoveryScanner:
                 "status": "OK",
                 "candidates": len(competitor_candidates),
             }
-        except Exception as exc:
+        except (RuntimeError, ImportError, OSError) as exc:
             logger.warning("Competitor gap signal failed: %s", exc)
             signal_quality["competitor"] = {"status": "FAILED", "error": str(exc)}
 
@@ -211,7 +212,7 @@ class DiscoveryScanner:
             deduped = self._deduplicate(all_candidates)
             logger.info("%d candidates after dedup (%d removed)",
                         len(deduped), len(all_candidates) - len(deduped))
-        except Exception as exc:
+        except (sqlite3.Error, OSError, ValueError) as exc:
             logger.warning("Dedup failed, using unfiltered candidates: %s", exc)
             deduped = all_candidates
 
@@ -222,7 +223,7 @@ class DiscoveryScanner:
                 "status": "OK",
                 "checked": len(enriched),
             }
-        except Exception as exc:
+        except (RuntimeError, ImportError, OSError) as exc:
             logger.warning("Trends signal failed: %s", exc)
             signal_quality["trends"] = {"status": "FAILED", "error": str(exc)}
             enriched = deduped
@@ -231,7 +232,7 @@ class DiscoveryScanner:
         for candidate in enriched:
             try:
                 candidate["score"] = self._score_extended_belize(candidate)
-            except Exception as exc:
+            except (ValueError, KeyError, TypeError) as exc:
                 logger.warning("Scoring failed for '%s': %s", candidate.get("keyword", "?"), exc)
                 candidate["score"] = 0.0
 
@@ -278,7 +279,7 @@ class DiscoveryScanner:
                 logger.info("HTTP autocomplete empty, falling back to pyppeteer")
                 try:
                     results = extract_keywords_batch(CHANNEL_SEEDS)
-                except Exception as exc:
+                except (RuntimeError, ImportError, OSError) as exc:
                     logger.warning("pyppeteer fallback failed: %s", exc)
 
         candidates = []
@@ -336,7 +337,7 @@ class DiscoveryScanner:
                 })
                 logger.debug("HTTP autocomplete '%s': %d suggestions", seed, len(suggestions))
 
-            except Exception as exc:
+            except (OSError, ValueError, RuntimeError) as exc:
                 logger.debug("HTTP autocomplete failed for '%s': %s", seed, exc)
                 results.append({"keyword": seed, "error": str(exc), "suggestions": []})
 
@@ -362,7 +363,7 @@ class DiscoveryScanner:
 
         try:
             result = fetch_all_competitors()
-        except Exception as exc:
+        except (OSError, ValueError, RuntimeError) as exc:
             logger.warning("fetch_all_competitors failed: %s", exc)
             return []
 
@@ -446,7 +447,7 @@ class DiscoveryScanner:
                         "percent_change": pct,
                         "trend_direction": trend_data.get("direction", "stable"),
                     }
-                except Exception as exc:
+                except (OSError, ValueError, RuntimeError) as exc:
                     logger.debug("Trends lookup failed for '%s': %s", keyword[:50], exc)
                     seen_keywords[keyword] = {
                         "is_breakout": False,
@@ -500,7 +501,7 @@ class DiscoveryScanner:
                         logger.debug("Dedup (DB %s): %s", state, keyword[:50])
                         removed += 1
                         continue
-            except Exception as exc:
+            except sqlite3.Error as exc:
                 logger.debug("DB lookup failed for '%s': %s", keyword[:50], exc)
                 # On DB error, keep the candidate (don't filter on uncertainty)
 
@@ -508,7 +509,7 @@ class DiscoveryScanner:
 
         try:
             db.close()
-        except Exception:
+        except Exception:  # cleanup — must not crash
             pass
 
         logger.debug("Dedup: removed=%d, remaining=%d", removed, len(fresh))
@@ -755,7 +756,7 @@ class DiscoveryScanner:
             if avg and avg > 0:
                 self._channel_avg = float(avg)
                 return self._channel_avg
-        except Exception as exc:
+        except (ImportError, sqlite3.Error, OSError) as exc:
             logger.debug("Could not load channel avg from analytics: %s", exc)
 
         self._channel_avg = CHANNEL_AVG_VIEWS_FALLBACK
@@ -768,7 +769,7 @@ class DiscoveryScanner:
             channels = load_channel_config()
             if isinstance(channels, list):
                 return {ch.get("name", "") for ch in channels if ch.get("name")}
-        except Exception:
+        except (ImportError, OSError, ValueError):
             pass
         return set()
 

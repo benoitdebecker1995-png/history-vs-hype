@@ -6,6 +6,8 @@ to produce a ranked list of topic opportunities.
 
 v2.0 (2026-03-07): Added geographic monopoly scoring, news hook urgency,
     subscriber conversion weighting, and hybrid topic detection.
+v2.1 (2026-03-21): Consolidated geo monopoly + urgency data into shared module
+    (single source of truth with recommender.py).
 
 Usage:
     python -m tools.topic_pipeline [--top N] [--save]
@@ -28,7 +30,7 @@ PROJECT_ROOT = Path(__file__).parent.parent
 
 
 # =============================================================================
-# GEOGRAPHIC MONOPOLY DATA (from cross-video analysis)
+# GEOGRAPHIC MONOPOLY DATA (single source of truth)
 # =============================================================================
 # Key insight: Guatemala/Belize got 28,955 views because 46.6% came from Belize
 # (pop 400K, English-speaking, zero quality YouTube coverage).
@@ -36,8 +38,23 @@ PROJECT_ROOT = Path(__file__).parent.parent
 #
 # Population = English-speaking population of the affected country/region
 # Scores are pre-calculated: log10(population) normalized, capped at 25 bonus points
+#
+# IMPORTANT: recommender.py imports from here. Do NOT duplicate.
 GEOGRAPHIC_MONOPOLY_TARGETS = {
     # Country/region: (english_speaking_pop, keywords_that_trigger)
+    #
+    # VALIDATED BY GEOGRAPHY-ANALYSIS.md (2026-03-20, n=48 videos):
+    #   belize: 12.0% of channel views (14,724), 0.35% sub rate, 4.8 min/view — CONFIRMED monopoly
+    #   guatemala: 1.9% of views (2,269), 3.8 min/view — strong watch time, audience overlap with belize
+    #   india: 4.3% of views (5,233), 0.2 min/view — large but LOW engagement (watch time problem)
+    #   south korea: 47.6% of Berlin Conference views — single-video spike, NOT validated as recurring
+    #   germany: 5.6% of views (6,890), 65.3% of Flat Earth views — ideological topic affinity
+    #
+    # UNVALIDATED (aspirational targets, no confirming data yet):
+    #   guyana, trinidad, jamaica, fiji, mauritius, cyprus, malta, gibraltar,
+    #   somaliland, taiwan, hong kong, singapore, ireland, scotland, puerto rico,
+    #   bermuda, falklands, peru
+    #
     'belize': (400_000, ['belize', 'belizean', 'sapodilla', 'guatemala belize']),
     'guyana': (800_000, ['guyana', 'essequibo', 'guyanese']),
     'trinidad': (1_400_000, ['trinidad', 'tobago']),
@@ -60,10 +77,12 @@ GEOGRAPHIC_MONOPOLY_TARGETS = {
 }
 
 # =============================================================================
-# NEWS HOOK / URGENCY KEYWORDS
+# NEWS HOOK / URGENCY KEYWORDS (single source of truth)
 # =============================================================================
 # Topics with active legal proceedings, upcoming deadlines, or recent events
 # get a bonus because they have natural urgency without clickbait.
+#
+# IMPORTANT: recommender.py imports from here. Do NOT duplicate.
 NEWS_HOOK_KEYWORDS = {
     'high_urgency': [  # +15 bonus
         'icj', 'ruling', 'verdict', 'treaty expires', 'referendum',
@@ -217,10 +236,20 @@ def score_topics(top_n=20):
     #   ideological = best conversion (2.31% sub rate) but fewer views (179 avg)
     #   colonial = good balance
     # Strategy: boost types that CONVERT, not just get views
+    #
+    # COMMENT ENGAGEMENT (COMMENT-ENGAGEMENT-ANALYSIS.md, 2026-03-21, n=45, REAL API data):
+    #   legal:       29.85 comments/1K views (n=1, unreliable)
+    #   ideological: 27.80 comments/1K views (strongest reliable engagement)
+    #   territorial: 11.94 comments/1K views
+    #   general:     11.20 comments/1K views
+    #   colonial:     6.36 comments/1K views
+    #   factcheck:    0.00 comments/1K views (n=1)
+    # Ideological generates 2.3x more comments per view than territorial.
+    # Supports existing multiplier: ideological > territorial for engagement signals.
     type_multipliers = {
-        'territorial': 1.4,   # high views, low conversion
-        'colonial': 1.4,      # good views + good conversion
-        'ideological': 1.5,   # best conversion rate (3.5x territorial)
+        'territorial': 1.4,   # high views, low conversion, low engagement
+        'colonial': 1.4,      # good views + good conversion + highest engagement
+        'ideological': 1.5,   # best conversion rate (3.5x territorial) + strong engagement
         'legal': 1.1,         # pairs well with territorial for hybrid
         'medieval': 0.9,
         'general': 0.7,

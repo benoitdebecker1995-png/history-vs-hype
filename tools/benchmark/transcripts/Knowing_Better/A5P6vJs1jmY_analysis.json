@@ -1,0 +1,41 @@
+{
+  "video_id": "A5P6vJs1jmY",
+  "channel": "Knowing_Better",
+  "title": "They Were Just in the Way | Indian Removal",
+  "views": 2541338,
+  "duration_seconds": 8799,
+  "word_count": 25546,
+  "hook": {
+    "first_50_words": "well it's that time of year again the kids are back in school and are learning about Columbus the pilgrims and the founding of our nation growing up in the United States and then becoming a high school history teacher I've both learned and taught that story at least a",
+    "first_sentence": "well it's that time of year again the",
+    "seconds_to_first_date": 92.9,
+    "seconds_to_first_named_entity": 73.6,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 3,
+    "seconds_to_first_historical_date": 92.9,
+    "seconds_to_turn_moment": 4223.2,
+    "turn_moment_description": "an ancient practice but it wasn't introduced to America until the 1890s even the Navajo weren't using it until then possession of peyote was",
+    "percent_history_vs_analysis": 10.9,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 19,
+    "explicit_source_citations": 10,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "patreon.com knowing better or for onetime donation paypal. me/ knowing better don't forget to colonize that subscribe button or the join button if you want to fully assimilate check out the merch at knowing better. TV follow me on Twitter Facebook and Instagram and join us on the subreddit oh",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 174.2,
+    "date_frequency_per_minute": 1.43,
+    "avg_sentence_length": 15.0
+  }
+}

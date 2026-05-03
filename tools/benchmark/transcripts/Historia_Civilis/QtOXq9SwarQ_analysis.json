@@ -1,0 +1,41 @@
+{
+  "video_id": "QtOXq9SwarQ",
+  "channel": "Historia_Civilis",
+  "title": "The Congress of Vienna (Part 1) (1814)",
+  "views": 3023346,
+  "duration_seconds": 2806,
+  "word_count": 6674,
+  "hook": {
+    "first_50_words": "by the summer of 1814 the combined strength of europe brought france to its knees after almost 25 years of war europe was finally at peace nobody knew this at the time but the piece that was negotiated here and now served as the launching pad for a 99-year run",
+    "first_sentence": "by the summer of 1814 the combined",
+    "seconds_to_first_date": 6.8,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "cold_fact",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 16,
+    "seconds_to_first_historical_date": 6.8,
+    "seconds_to_turn_moment": 1227.0,
+    "turn_moment_description": "hat's what happened the truth is a little more complicated years of careful diplomacy had laid the groundwork for a coordinated attack again",
+    "percent_history_vs_analysis": 4.5,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 9,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "everybody i mean everybody virtually every state in europe sent delegations and some states that didn't even exist anymore sent delegations as well after decades of war a festive slightly euphoric mood took over the city peace was at hand when september rolled around the real work began so you",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 142.7,
+    "date_frequency_per_minute": 0.47,
+    "avg_sentence_length": 15.0
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "known_corrections": {
+    "It never educated the border dispute": "He never adjudicated a border dispute",
+    "pharaohs of poor Salient": "Ferozepur salient",
+    "A race from Pakistan's side": "Erased from Pakistan's side",
+    "continuous majorities": "contiguous majorities"
+  },
+  "name_patterns": {
+    "Kulledip Nair": "Kuldip Nayar",
+    "Kulledip": "Kuldip",
+    "Nair": "Nayar",
+    "Abel": "Abell",
+    "Abel was Lord Mombatin's": "Abell was Lord Mountbatten's",
+    "Mombatin's": "Mountbatten's",
+    "Alois Arthur Michael": "Aloys Arthur Michel",
+    "Alois": "Aloys",
+    "Michael": "Michel",
+    "Michael is direct": "Michel is direct",
+    "Avon Jenkins": "Evan Jenkins",
+    "Avon": "Evan"
+  },
+  "geo_patterns": {
+    "kennel head works": "canal headworks",
+    "Fursopur Teghsil": "Ferozepur Tehsil",
+    "fursopur": "Ferozepur",
+    "Zira Teghsil": "Zira Tehsil",
+    "Teghsils": "Tehsils",
+    "Sutlek Valley Canal": "Sutlej Valley Canal",
+    "sacriphone": "Secraphone",
+    "Ferizapur": "Ferozepur",
+    "Godaspur": "Gurdaspur",
+    "Godaspur contains the Papancot Road": "Gurdaspur contains the Pathankot Road",
+    "Radcliffe avoided Godaspur": "Radcliffe awarded Gurdaspur",
+    "Ferrozepur": "Ferozepur"
+  },
+  "technical_patterns": {}
+}

@@ -1,0 +1,41 @@
+{
+  "video_id": "JBy93QX7ysE",
+  "channel": "Shaun",
+  "title": "Kellie-Jay & the Neo-Nazis",
+  "views": 2093120,
+  "duration_seconds": 7018,
+  "word_count": 19441,
+  "hook": {
+    "first_50_words": "hello everyone today I'd like to talk about something that happened a few months ago the event titled let women speak that was held in Melbourne on the 18th of March if you've seen my video JK Rowling's new friends you'll know that let women speak as an event organized",
+    "first_sentence": "hello everyone today I'd like to talk",
+    "seconds_to_first_date": 2289.7,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 2289.7,
+    "seconds_to_turn_moment": 1902.3,
+    "turn_moment_description": "ek unsafe abortions so why does Keane not think those children are worthy of a single issue campaign why not put everything else on hold unt",
+    "percent_history_vs_analysis": 1.6,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 34,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "as well as the opportunity to mock me mercilessly for any mistakes I make in the first draft so if that sounds like something you'd like to check out I'll leave a link to my patreon page below right thanks a lot for watching everyone I'll see you next time",
+    "has_cta": true,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 166.2,
+    "date_frequency_per_minute": 0.21,
+    "avg_sentence_length": 15.0
+  }
+}

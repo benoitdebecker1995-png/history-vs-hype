@@ -1,0 +1,41 @@
+{
+  "video_id": "VMXKXoA1_gQ",
+  "channel": "Atun-Shei_Films",
+  "title": "Indigenous Weapons and Tactics of King Philip's War",
+  "views": 659914,
+  "duration_seconds": 2105,
+  "word_count": 6376,
+  "hook": {
+    "first_50_words": "for the tribes that fought these wars the Wampanoag as well as the neighboring communities of like the nip mock a lot of this history is is still really real modern Americans a lot of us are removed from these wars because it's so distant but for a lot of",
+    "first_sentence": "for the tribes that fought these wars",
+    "seconds_to_first_date": 275.6,
+    "seconds_to_first_named_entity": 65.6,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 6,
+    "seconds_to_first_historical_date": 275.6,
+    "seconds_to_turn_moment": 1758.8,
+    "turn_moment_description": "and stripped naked and yet was crawling up and down I had often before they said that if the Indians would come I should chose rather to be",
+    "percent_history_vs_analysis": 1.6,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 1,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "the native people didn't help there would be no America there would be no care there's an African proverb that makes me think of this it's a co-worker from Nigeria told me this he said a river that forgets its source dries up and it's very very true foreign foreign",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 181.7,
+    "date_frequency_per_minute": 0.23,
+    "avg_sentence_length": 15.0
+  }
+}

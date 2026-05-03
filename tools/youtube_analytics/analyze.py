@@ -248,7 +248,7 @@ def save_analysis(analysis: dict, output_path: str = None) -> dict:
             parsed = parse_analysis_file(str(save_path))
             if 'error' not in parsed:
                 # Import KeywordDB for storage
-                from database import KeywordDB
+                from tools.discovery.database import KeywordDB
                 db = KeywordDB()
                 store_result = db.store_video_feedback(
                     parsed.get('video_id', video_id),
@@ -267,7 +267,7 @@ def save_analysis(analysis: dict, output_path: str = None) -> dict:
 
     # Auto-regenerate channel insights after saving analysis
     try:
-        from backfill import generate_channel_insights_report
+        from tools.youtube_analytics.backfill import generate_channel_insights_report
         insights_result = generate_channel_insights_report(PROJECT_ROOT)
         if 'error' not in insights_result:
             logger.info("Channel insights updated: %s", insights_result['saved_to'])
@@ -312,7 +312,7 @@ def generate_section_diagnostics(video_id: str, script_path: str) -> dict:
             return {'error': f'Script file not found: {script_path}'}
 
         # Get retention data
-        from retention import get_retention_data, find_drop_off_points
+        from tools.youtube_analytics.retention import get_retention_data, find_drop_off_points
         retention_data = get_retention_data(video_id)
 
         if 'error' in retention_data:
@@ -1296,7 +1296,7 @@ def format_analysis_markdown(analysis: dict) -> str:
             topic_type = None
             if VARIANTS_AVAILABLE:
                 try:
-                    from database import KeywordDB
+                    from tools.discovery.database import KeywordDB
                     db = KeywordDB()
                     cursor = db._conn.cursor()
                     cursor.execute(

@@ -1,0 +1,41 @@
+{
+  "video_id": "EmpHL4-pFlU",
+  "channel": "Atun-Shei_Films",
+  "title": "Guns That Killed Racists (feat. InRangeTV)",
+  "views": 1064179,
+  "duration_seconds": 2214,
+  "word_count": 6337,
+  "hook": {
+    "first_50_words": "hello and welcome to another episode of aun sha films welcome uh so we are going to be discussing and test firing some of the most iconic long arms of the American Civil War uh specifically that of the United States Army and I could think of no one else",
+    "first_sentence": "hello and welcome to another episode of",
+    "seconds_to_first_date": 113.6,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 10,
+    "seconds_to_first_historical_date": 113.6,
+    "seconds_to_turn_moment": 1803.1,
+    "turn_moment_description": "one part of it but the reality is you had a box full of cartridges sum in your pack got a Pack meal somewhere with some more cartridges pro",
+    "percent_history_vs_analysis": 4.3,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 3,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "no Rebellion here now the men of South Carolina were quiet by the side of those in Massachusetts some composed with upturned faces sleeping the last sleep some mutilated and frightful some wretched Fallen bathed in blood survivors still and unwilling Witnesses of the Rage of Gettysburg he in my",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 171.7,
+    "date_frequency_per_minute": 0.38,
+    "avg_sentence_length": 15.0
+  }
+}

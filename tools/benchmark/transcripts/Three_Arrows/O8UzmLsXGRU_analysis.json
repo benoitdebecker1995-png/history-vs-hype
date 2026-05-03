@@ -1,0 +1,41 @@
+{
+  "video_id": "O8UzmLsXGRU",
+  "channel": "Three_Arrows",
+  "title": "How Societies Turn Cruel",
+  "views": 965777,
+  "duration_seconds": 1826,
+  "word_count": 6197,
+  "hook": {
+    "first_50_words": "hey what's up guys it's Dan welcome to the show so a couple of months ago while surfing the interwebs I stumbled over a video by YouTube's anti-feminist Mesopotamian Emperor titled tyt was the Nazi Menace this video came out shortly after the news broke that the Trump Administration was",
+    "first_sentence": "hey what's up guys it's Dan welcome to",
+    "seconds_to_first_date": 604.6,
+    "seconds_to_first_named_entity": 8.5,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 604.6,
+    "seconds_to_turn_moment": 984.9,
+    "turn_moment_description": "las Kelly gave away the real reason nobody responded to their requests and it's not because they didn't even look at the material that they",
+    "percent_history_vs_analysis": 1.7,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 2,
+    "explicit_source_citations": 9,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "that always seemed very abstract and I could never imagine myself being shaped in that way as always I encourage you to check out the source material in the description and that was it for today I hope to see you the next time until then have a good one",
+    "has_cta": true,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 203.6,
+    "date_frequency_per_minute": 0.26,
+    "avg_sentence_length": 15.0
+  }
+}

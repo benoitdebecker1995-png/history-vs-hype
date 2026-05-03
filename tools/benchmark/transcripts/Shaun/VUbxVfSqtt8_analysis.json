@@ -1,0 +1,41 @@
+{
+  "video_id": "VUbxVfSqtt8",
+  "channel": "Shaun",
+  "title": "The Great Replacement Isn't Real - ft. Lauren Southern",
+  "views": 2407729,
+  "duration_seconds": 1755,
+  "word_count": 4897,
+  "hook": {
+    "first_50_words": "hello everyone uh before we get to our main topic today I want to talk very briefly about Marathon running so way back in 1985 science journal Nature published an article predicting that by the year 2000 women would be consistently running faster Marathon times than men now what led",
+    "first_sentence": "hello everyone uh before we get to our",
+    "seconds_to_first_date": 7.6,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": true,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 7.6,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 6.4,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 2,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "mouth I love them all and I hope they all get exactly what they want for their birthdays and if you would like to be similarly complimented consider supporting me yourself it's positively exciting also follow me on Twitter if you feel like righty ho folks I'll see you soon",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 167.4,
+    "date_frequency_per_minute": 0.55,
+    "avg_sentence_length": 15.0
+  }
+}

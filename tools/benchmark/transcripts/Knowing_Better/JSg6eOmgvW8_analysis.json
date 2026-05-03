@@ -1,0 +1,41 @@
+{
+  "video_id": "JSg6eOmgvW8",
+  "channel": "Knowing_Better",
+  "title": "If Veterans Ruled the World | Starship Troopers",
+  "views": 2287663,
+  "duration_seconds": 3587,
+  "word_count": 10484,
+  "hook": {
+    "first_50_words": "in 1997 i was in middle school and the best movie ever was released starship troopers an alien war movie with boobs it instantly became one of my all-time favorites i've made no attempt to hide the fact that in my younger years i was a libertarian patriot so i",
+    "first_sentence": "in 1997 i was in middle school and the",
+    "seconds_to_first_date": 0.1,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "cold_fact",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 4,
+    "seconds_to_first_historical_date": 0.1,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 5.3,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 3,
+    "explicit_source_citations": 2,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "of troopers head on over to patreon.com knowingbetter or for a one-time donation paypal.me knowingbetter don't forget to serve that subscribe button or the join button if you're a true citizen check out the merch at knowingbetter.tv follow me on twitter facebook and instagram and join us on the subreddit",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 175.4,
+    "date_frequency_per_minute": 0.64,
+    "avg_sentence_length": 15.0
+  }
+}

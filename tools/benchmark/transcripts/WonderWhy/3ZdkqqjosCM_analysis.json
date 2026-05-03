@@ -1,0 +1,41 @@
+{
+  "video_id": "3ZdkqqjosCM",
+  "channel": "WonderWhy",
+  "title": "The Most Complex International Borders in the World - Part 2",
+  "views": 4671178,
+  "duration_seconds": 552,
+  "word_count": 1803,
+  "hook": {
+    "first_50_words": "international borders can be very complicated I showed this in a previous video of Maine but there are still plenty more complex international borders in the world lake last time I'm going to start by looking in Cleaves and eights Cleaves the first complex border is between Armenia and Azerbaijan",
+    "first_sentence": "international borders can be very",
+    "seconds_to_first_date": 143.5,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 143.5,
+    "seconds_to_turn_moment": 461.8,
+    "turn_moment_description": "several houses but in reality they're just regular croatian houses because although technically no one claims the land is controlled and ad",
+    "percent_history_vs_analysis": 5.8,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "in the world I've still not talked to it all the includes innate squeeze there's just too many of them well that's all for the second part of the most complex international borders in the world and be sure to watch part 1 if you haven't already thanks for watching",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 196.0,
+    "date_frequency_per_minute": 0.65,
+    "avg_sentence_length": 14.9
+  }
+}

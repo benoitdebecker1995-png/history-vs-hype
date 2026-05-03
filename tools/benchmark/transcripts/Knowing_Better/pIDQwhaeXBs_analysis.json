@@ -1,0 +1,41 @@
+{
+  "video_id": "pIDQwhaeXBs",
+  "channel": "Knowing_Better",
+  "title": "Temporary Residents in this World | Jehovah's Witnesses",
+  "views": 1871615,
+  "duration_seconds": 4110,
+  "word_count": 12232,
+  "hook": {
+    "first_50_words": "youtube gurus like to youtube gurus often target smaller channels with promises of exponential channel growth who even uses skype anymore what hello hello is this thing working hey hey don't hang up i'm you from the future okay you see i found this ancient artifact that let's wait you",
+    "first_sentence": "youtube gurus like to",
+    "seconds_to_first_date": 48.3,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 6,
+    "seconds_to_first_historical_date": 48.3,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 16.1,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 4,
+    "explicit_source_citations": 7,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "head on over to patreon.com knowingbetter or for a one-time donation paypal dot me slash knowingbetter don't forget to disfellowship that subscribe button or the join button if you're a special pioneer check out the merchant knowingbetter.tv follow me on twitter facebook and instagram and join us on the subreddit",
+    "has_cta": true,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 178.6,
+    "date_frequency_per_minute": 2.2,
+    "avg_sentence_length": 15.0
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "video_id": "JeaiyZwVC0k",
+  "channel": "WonderWhy",
+  "title": "The Most Complex International Borders in the World Part 3",
+  "views": 2607045,
+  "duration_seconds": 726,
+  "word_count": 1298,
+  "hook": {
+    "first_50_words": "As you may already know by now, international If need proof of this, watch parts one and Speaking of previous episodes, I actually addressing some changes that have happened in parts one and two. In episode one, I talked about the border Easily the single most complex international 24 of",
+    "first_sentence": "As you may already know by now, international If need proof of this, watch parts one and Speaking of previous episodes, I actually addressing some changes that have happened in parts one and two.",
+    "seconds_to_first_date": 38.1,
+    "seconds_to_first_named_entity": 107.7,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 38.1,
+    "seconds_to_turn_moment": 181.0,
+    "turn_moment_description": "th of the Pyrenees, however, historically it had been the capital city So today in the 21st century, this small town ago considered it a cit",
+    "percent_history_vs_analysis": 26.4,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 1,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 2
+  },
+  "close": {
+    "last_50_words": "So this created a border dispute between the claimed whichever gave them the most territory. The dispute had to settled by a neutral party, the VII. So Chile and Argentina, two countries which the,, the division of the waters, and one have a border which follows neither. Thanks for watching.",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 107.3,
+    "date_frequency_per_minute": 1.16,
+    "avg_sentence_length": 24.5
+  }
+}

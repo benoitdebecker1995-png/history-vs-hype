@@ -1,0 +1,41 @@
+{
+  "video_id": "wim0yAkEnOQ",
+  "channel": "Kraut",
+  "title": "Why Saudi Arabia is doomed",
+  "views": 1669584,
+  "duration_seconds": 859,
+  "word_count": 2283,
+  "hook": {
+    "first_50_words": "this video is sponsored by ground news I highly recommend the app or website for anyone who wants to see all sides of the news without browsing for different sites ground news is on a mission to make the news more transparent and Inspire freedom of thought I have mostly",
+    "first_sentence": "this video is sponsored by ground news I",
+    "seconds_to_first_date": 83.0,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": true,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 83.0,
+    "seconds_to_turn_moment": null,
+    "turn_moment_description": null,
+    "percent_history_vs_analysis": 2.6,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 0,
+    "explicit_source_citations": 0,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "fractured and decentralized with a deep distrust of everyone while the state remains all-powerful and centralized as long as it continues to run on the money made through hydrocarbons if they keep running on hydrocarbons the future of Saudi Arabia the Arab Gulf States is to be the next Congo",
+    "has_cta": false,
+    "has_future_tease": false,
+    "ends_with_question": false,
+    "close_type": "prediction"
+  },
+  "pacing": {
+    "words_per_minute": 159.5,
+    "date_frequency_per_minute": 0.35,
+    "avg_sentence_length": 14.9
+  }
+}

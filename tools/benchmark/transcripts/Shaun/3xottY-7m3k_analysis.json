@@ -1,0 +1,41 @@
+{
+  "video_id": "3xottY-7m3k",
+  "channel": "Shaun",
+  "title": "Palestine",
+  "views": 2310854,
+  "duration_seconds": 5241,
+  "word_count": 14778,
+  "hook": {
+    "first_50_words": "hello everyone today I'd like to talk about the ongoing events in Palestine now talking about an ongoing event is all that usual for me on this channel but honestly I found it hard to focus on anything else recently which I'm sure a lot of you will understand so",
+    "first_sentence": "hello everyone today I'd like to talk",
+    "seconds_to_first_date": 26.9,
+    "seconds_to_first_named_entity": null,
+    "hook_type": "contextual_opening",
+    "opens_with_question": false,
+    "opens_with_document": false,
+    "first_person_in_first_60s": false
+  },
+  "structure": {
+    "total_sections": 1,
+    "seconds_to_first_historical_date": 26.9,
+    "seconds_to_turn_moment": 1028.4,
+    "turn_moment_description": "know this is wrong and yet it is still happening right governments that profess to know that this is wrong and nevertheless supporting fund",
+    "percent_history_vs_analysis": 2.7,
+    "chronological_vs_thematic": "chronological",
+    "documents_mentioned": 2,
+    "explicit_source_citations": 14,
+    "questions_posed_to_viewer": 0
+  },
+  "close": {
+    "last_50_words": "going to be half an hour long and be out at least two months ago if you can believe it so if you'd also like to watch me delude myself there's a link to my patreon below right thanks a lot for watching today folks I'll see you next time",
+    "has_cta": true,
+    "has_future_tease": true,
+    "ends_with_question": false,
+    "close_type": "boilerplate"
+  },
+  "pacing": {
+    "words_per_minute": 169.2,
+    "date_frequency_per_minute": 0.27,
+    "avg_sentence_length": 15.0
+  }
+}
