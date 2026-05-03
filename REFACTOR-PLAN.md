@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-03 (B5)
+**Last advanced:** 2026-05-03 (C1)
 **Total steps:** 47
-**Done:** 9 (A1/B1/B2/B3/B6 reconciled; A2/B4/B5 executed 2026-05-03)
+**Done:** 10 (A1/B1/B2/B3/B6/C1 reconciled; A2/B4/B5 executed 2026-05-03)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -324,7 +324,18 @@ Mark B6 [DONE].
 
 Source: `.planning/audits/53-testing.md`. The safety net for everything in D–L. Don't start refactoring until C5 passes.
 
-## C1 [TODO] Create `tests/` directory with `conftest.py` and fixture files
+## C1 [DONE] Create `tests/` directory with `conftest.py` and fixture files
+
+> **Reconciled 2026-05-03:** All deliverables exist and `pytest --collect-only tests/` exits 0 (349 tests collected). Specific evidence:
+> - `tests/__init__.py` ✓
+> - `tests/conftest.py` ✓ — provides `keyword_db`, `intel_store`, `tmp_script`, `tmp_post_publish` fixtures (the spec's `test_keywords_db()` returning a raw sqlite3 connection from schema.sql is replaced by a higher-level `keyword_db` fixture using the production `KeywordDB(db_path=":memory:")` class — functionally superior, no separate binary `.db` fixture needed).
+> - `tests/fixtures/test_script.md` ✓
+> - `tests/fixtures/test_post_publish.md` ✓
+> - `tests/fixtures/test_french.txt` ✓ (3-article French sample, richer than the spec's single-line example — strict superset of intent).
+> - `tests/fixtures/test_rss.xml` ✓
+> - `tests/fixtures/test_keywords.db` (binary) is intentionally absent — superseded by the in-memory KeywordDB fixture.
+>
+> Vacuously satisfied. Subsequent C-phase steps (C2–C5) likely also reconcilable — test files for production/discovery/intel/analytics/translation all exist on disk.
 
 **Prompt:**
 ```
@@ -1307,3 +1318,9 @@ Also updated `tools/script_checkers/VOICE-SETUP.md:30-31` doc-snippet that showe
 **Pre-existing warning (not introduced by B5):** `python -m tools.preflight.scorer` emits `RuntimeWarning: 'tools.preflight.scorer' found in sys.modules after import of package 'tools.preflight'`. Indicates `tools/preflight/__init__.py` imports scorer. Worth a follow-up at some point (E5 or earlier) — not blocking.
 
 Remaining `sys.path.insert` matches in `tools/`: `history-clip-tool/run.py`, `history-clip-tool/launcher.py` — both explicitly out of scope per original B5 note.
+
+### 2026-05-03 — C1 reconciliation: tests/ already scaffolded ad-hoc
+
+`tests/` directory was built out previously (likely during the same workflow churn that produced phases A/B's vacuous satisfactions). All 7 spec deliverables present (or replaced with a functionally equivalent in-memory fixture). 349 tests collect cleanly. C1 marked [DONE] without code changes — only this plan file updated.
+
+Likely follow-on: C2 (test_production), C3 (test_discovery), C4 (test_intel + test_analytics), C5 (test_translation) all have corresponding files on disk — next /refactor invocations should reconcile them step-by-step (verify each step's pinning intent is satisfied, not just that a similarly-named file exists).
