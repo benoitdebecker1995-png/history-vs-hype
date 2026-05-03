@@ -1,0 +1,16 @@
+# Tracked keywords for daily Google Trends sweep
+# One keyword per line. Lines starting with # are ignored.
+# Edit freely — keyword_trends_daily.py reads this file on every run.
+
+# === Active project: #45 Manhattan Purchase Myth ===
+manhattan purchase
+manhattan $24
+peter minuit
+lenape history
+dutch manhattan
+
+# === Channel-wide evergreen ===
+history myths debunked
+border disputes
+colonial history
+indigenous history

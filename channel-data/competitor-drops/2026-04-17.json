@@ -1,0 +1,52 @@
+{
+  "drops": [
+    {
+      "channel": "Atun-Shei Films",
+      "video_id": "000-SzsHRkg",
+      "title": "The Best Lever Gun Ever.",
+      "published": "2026-04-15T13:00:00+00:00",
+      "url": "https://www.youtube.com/watch?v=000-SzsHRkg",
+      "niche_relevance": "high",
+      "topic_overlap": [
+        {
+          "source": "project:34-operation-condor-2025",
+          "shared_keywords": [
+            "best",
+            "ever"
+          ]
+        }
+      ],
+      "is_collision": true
+    },
+    {
+      "channel": "RealLifeLore",
+      "video_id": "LwdSfdEkXPA",
+      "title": "Why Israel is Trying to Conquer 10% of Lebanon",
+      "published": "2026-04-15T17:36:28+00:00",
+      "url": "https://www.youtube.com/watch?v=LwdSfdEkXPA",
+      "niche_relevance": "medium",
+      "topic_overlap": [],
+      "is_collision": false
+    },
+    {
+      "channel": "CaspianReport",
+      "video_id": "PSkuYPbkMa4",
+      "title": "Lo que el Alto el Fuego Esconde",
+      "published": "2026-04-16T17:00:06+00:00",
+      "url": "https://www.youtube.com/watch?v=PSkuYPbkMa4",
+      "niche_relevance": "medium",
+      "topic_overlap": [],
+      "is_collision": false
+    },
+    {
+      "channel": "CaspianReport",
+      "video_id": "dhKLGg3ca2M",
+      "title": "\u00bfEl FIN de Dubai?",
+      "published": "2026-04-10T17:00:07+00:00",
+      "url": "https://www.youtube.com/watch?v=dhKLGg3ca2M",
+      "niche_relevance": "medium",
+      "topic_overlap": [],
+      "is_collision": false
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "date": "2026-04-17",
+  "fetched_at": "2026-04-17T09:26:38.222485",
+  "region": "US",
+  "keywords": {
+    "manhattan purchase": {
+      "error": "Trends fetch failed: BrowserError",
+      "details": "Page load timeout: Message: \n\n\nPossible causes:\n- Slow internet connection\n- Google Trends website is down or slow\n- Network firewall blocking access\n\nTry again with a better connection or check https://trends.google.com/trending"
+    },
+    "manhattan $24": {
+      "error": "Trends fetch failed: BrowserError",
+      "details": "Page load timeout: Message: \n\n\nPossible causes:\n- Slow internet connection\n- Google Trends website is down or slow\n- Network firewall blocking access\n\nTry again with a better connection or check https://trends.google.com/trending"
+    },
+    "peter minuit": {
+      "error": "Trends fetch failed: BrowserError",
+      "details": "Page load timeout: Message: \n\n\nPossible causes:\n- Slow internet connection\n- Google Trends website is down or slow\n- Network firewall blocking access\n\nTry again with a better connection or check https://trends.google.com/trending"
+    },
+    "lenape history": {
+      "error": "Trends fetch failed: BrowserError",
+      "details": "Page load timeout: Message: \n\n\nPossible causes:\n- Slow internet connection\n- Google Trends website is down or slow\n- Network firewall blocking access\n\nTry again with a better connection or check https://trends.google.com/trending"
+    },
+    "dutch manhattan": {
+      "error": "Trends fetch failed: BrowserError",
+      "details": "Page load timeout: Message: \n\n\nPossible causes:\n- Slow internet connection\n- Google Trends website is down or slow\n- Network firewall blocking access\n\nTry again with a better connection or check https://trends.google.com/trending"
+    },
+    "history myths debunked": {
+      "error": "Trends fetch failed: BrowserError",
+      "details": "Page load timeout: Message: \n\n\nPossible causes:\n- Slow internet connection\n- Google Trends website is down or slow\n- Network firewall blocking access\n\nTry again with a better connection or check https://trends.google.com/trending"
+    },
+    "border disputes": {
+      "error": "Trends fetch failed: BrowserError",
+      "details": "Page load timeout: Message: \n\n\nPossible causes:\n- Slow internet connection\n- Google Trends website is down or slow\n- Network firewall blocking access\n\nTry again with a better connection or check https://trends.google.com/trending"
+    },
+    "colonial history": {
+      "error": "Trends fetch failed: BrowserError",
+      "details": "Page load timeout: Message: \n\n\nPossible causes:\n- Slow internet connection\n- Google Trends website is down or slow\n- Network firewall blocking access\n\nTry again with a better connection or check https://trends.google.com/trending"
+    },
+    "indigenous history": {
+      "error": "Trends fetch failed: BrowserError",
+      "details": "Page load timeout: Message: \n\n\nPossible causes:\n- Slow internet connection\n- Google Trends website is down or slow\n- Network firewall blocking access\n\nTry again with a better connection or check https://trends.google.com/trending"
+    }
+  }
+}

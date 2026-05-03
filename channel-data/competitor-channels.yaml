@@ -1,0 +1,41 @@
+channels:
+- name: Knowing Better
+  handle: '@KnowingBetterYT'
+  niche_relevance: high
+  channel_id: UCM1fegW8XmiBlDBtGQ8yKYQ
+- name: Shaun
+  handle: '@Shaun_vids'
+  niche_relevance: high
+  channel_id: UCJ6o36XL0CpYb6U5dNBiXHQ
+- name: Atun-Shei Films
+  handle: '@AtunSheiFilms'
+  niche_relevance: high
+  channel_id: UCeUNM9NqJqZXfRNeuW4_2sg
+- name: Three Arrows
+  handle: '@ThreeArrows'
+  niche_relevance: high
+  channel_id: UCqFQOorX5XjESCD9OAN7CdQ
+- name: RealLifeLore
+  handle: '@RealLifeLore'
+  niche_relevance: medium
+  channel_id: UCP5tjEmvPItGyLhmjdwP7Ww
+- name: WonderWhy
+  handle: '@WonderWhy'
+  niche_relevance: high
+  channel_id: UClwKSo5Kojo0iTQQw9pwY6g
+- name: Wendover Productions
+  handle: '@Wendoverproductions'
+  niche_relevance: medium
+  channel_id: UCTWKe1zATFV6d0o6oLS9sgw
+- name: CaspianReport
+  handle: '@CaspianReport'
+  niche_relevance: medium
+  channel_id: UCnZjF-jc2h8I1fKAce1vFog
+- name: Voices of the Past
+  handle: '@VoicesofthePast'
+  niche_relevance: high
+  channel_id: UCqoGR_EedlhKDVuWNwYWRbg
+- name: Historia Civilis
+  handle: '@HistoriaCivilis'
+  niche_relevance: medium
+  channel_id: UCv_vLHiWVBh_FR9vbeuiY-A

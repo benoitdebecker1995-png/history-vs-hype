@@ -1,0 +1,54 @@
+# News feeds scanned daily by modern_relevance_scan.py
+# Only RSS/Atom sources (no API keys required). Add more by appending.
+
+sources:
+  - name: Reuters World
+    url: https://feeds.reuters.com/Reuters/worldNews
+    category: world
+
+  - name: BBC World
+    url: http://feeds.bbci.co.uk/news/world/rss.xml
+    category: world
+
+  - name: Al Jazeera All
+    url: https://www.aljazeera.com/xml/rss/all.xml
+    category: world
+
+  - name: AP Top News
+    url: https://rsshub.app/apnews/topics/ap-top-news
+    category: world
+
+  - name: The Guardian World
+    url: https://www.theguardian.com/world/rss
+    category: world
+
+  - name: arXiv History & Overview
+    url: http://export.arxiv.org/rss/cs.DL
+    category: academic
+
+  - name: JSTOR Daily History
+    url: https://daily.jstor.org/feed/
+    category: academic
+
+  - name: NYT World
+    url: https://rss.nytimes.com/services/xml/rss/nyt/World.xml
+    category: world
+
+# Project-to-keyword mappings override the auto-extracted ones from
+# YOUTUBE-METADATA.md. Useful when the metadata keywords are too broad
+# or too narrow to match news stories well.
+#
+# Each project needs: project_slug (folder name) + list of keywords to match.
+# Script fuzzy-matches article title+summary against these keywords.
+
+project_keyword_overrides:
+  45-manhattan-purchase-myth-2026:
+    - manhattan
+    - lenape
+    - native american
+    - indigenous
+    - new york history
+    - colonial
+    - land rights
+    - peter minuit
+    - NY400

@@ -1,0 +1,97 @@
+{
+  "scanned_sources": 6,
+  "total_articles": 156,
+  "projects": [
+    {
+      "slug": "45-manhattan-purchase-myth-2026",
+      "keywords": [
+        "manhattan",
+        "lenape",
+        "native american",
+        "indigenous",
+        "new york history",
+        "colonial",
+        "land rights",
+        "peter minuit",
+        "ny400"
+      ]
+    },
+    {
+      "slug": "5-netanyahu-map-2025",
+      "keywords": [
+        "borders",
+        "netanyahu"
+      ]
+    }
+  ],
+  "hits": {
+    "45-manhattan-purchase-myth-2026": [],
+    "5-netanyahu-map-2025": [
+      {
+        "title": "Middle East crisis live: Tense Lebanon ceasefire holds as countries dispute withdrawal of Israeli troops",
+        "summary": "Israel said it has not achieved its goal of disarming Hezbollah, which it will do either through diplomatic or military activities  In case you\u2019re just joining us, here are the latest developments in the Middle East to bring you up to speed. It\u2019s 9am in Beirut and Jerusalem, 9.30am in Tehran and 2am in Washington DC.   A 10-day ceasefire between Israel and Lebanon has come into effect , pausing fighting between Israel and Hezbollah that has killed more than 2,100 Lebanese people and displaced more than 2.1 million. The agreement was announced earlier by Donald Trump, who said he had spoken with Israeli prime minister Benjamin Netanyahu and Lebanese president Joseph Aoun, and invited both leaders \u201cfor meaningful talks\u201d at the White House. Both leaders welcomed the agreement.   Israel and Hezbollah both maintained their right to defend themselves  if the truce is broken \u2013 here\u2019s  our full report .   Netanyahu called the ceasefire a \u201chistoric\u201d opportunity for peace but refused to withdraw his troops from southern Lebanon during the pause in fighting.  \u201cWe are remaining in Lebanon in an expanded security zone,\u201d he said, due to the \u201cdanger of an invasion\u201d and to prevent fire into Israel. \u201cThat is where we are, and we are not leaving.\u201d   UN chief Ant\u00f3nio Guterres welcomed the ceasefire , which took effect at midnight on Thursday (2100 GMT) in Lebanon, and urged \u201call actors\u201d to fully respect it. He hoped the halt in fighting would \u201cpave the way for negotiations\u201d.   The Lebanese army warned people displaced from southern Lebanon about returning home  because of intermittent shelling that was reported after the ceasefire came into effect.   The Israeli military warned residents of southern Lebanon not to return south of the Litani River  despite the truce.   Iran\u2019s foreign ministry spokesperson  welcomed the ceasefire   and stressed it was already part of the original Iran-US agreement brokered by Pakistan.   Israel and Hezbollah continued to exchange fire  in the hours before the truce took effect.   Continue reading...",
+        "published": "Fri, 17 Apr 2026 12:01:37 GMT",
+        "url": "https://www.theguardian.com/world/live/2026/apr/17/middle-east-crisis-live-news-israel-lebanon-ceasefire-iran-war-us-latest-updates",
+        "source": "The Guardian World",
+        "category": "world",
+        "matched_keywords": [
+          "netanyahu"
+        ]
+      },
+      {
+        "title": "Lebanon-Israel Cease-Fire Goes Into Effect",
+        "summary": "It was unclear if the agreement between Prime Minister Benjamin Netanyahu and the Lebanese government was being honored. Hezbollah, the Iranian-backed militia, acknowledged the temporary truce but did not say if it would abide by it.",
+        "published": "Fri, 17 Apr 2026 09:46:25 +0000",
+        "url": "https://www.nytimes.com/live/2026/04/16/world/iran-war-trump-lebanon-news",
+        "source": "NYT World",
+        "category": "world",
+        "matched_keywords": [
+          "netanyahu"
+        ]
+      },
+      {
+        "title": "Lebanon Cease-Fire Leaves Netanyahu in an Uncomfortable Spot",
+        "summary": "Most Israelis wanted the fight against Hezbollah to continue. But Prime Minister Benjamin Netanyahu\u2019s critics say he is showing that he cannot, or will not, stand up to President Trump.",
+        "published": "Fri, 17 Apr 2026 12:27:56 +0000",
+        "url": "https://www.nytimes.com/2026/04/17/world/middleeast/lebanon-cease-fire-netanyahu-israel.html",
+        "source": "NYT World",
+        "category": "world",
+        "matched_keywords": [
+          "netanyahu"
+        ]
+      },
+      {
+        "title": "Forced into a corner by the U.S., Netanyahu agrees to a cease-fire in Lebanon.",
+        "summary": "",
+        "published": "Thu, 16 Apr 2026 22:26:51 +0000",
+        "url": "https://www.nytimes.com/live/2026/04/17/world/israel-lebanon-ceasefire-hezbollah/forced-into-a-corner-by-the-us-netanyahu-agrees-to-a-cease-fire-in-lebanon",
+        "source": "NYT World",
+        "category": "world",
+        "matched_keywords": [
+          "netanyahu"
+        ]
+      },
+      {
+        "title": "With Iran War on Pause, Political Battle Resumes Over Israeli Democracy",
+        "summary": "A court fight over Itamar Ben-Gvir, an extremist who oversees the police, pits the attorney general against Benjamin Netanyahu and his right-wing government.",
+        "published": "Wed, 15 Apr 2026 20:39:54 +0000",
+        "url": "https://www.nytimes.com/2026/04/15/world/middleeast/israel-ben-gvir-hearing.html",
+        "source": "NYT World",
+        "category": "world",
+        "matched_keywords": [
+          "netanyahu"
+        ]
+      }
+    ]
+  },
+  "errors": [
+    {
+      "source": "Reuters World",
+      "error": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "source": "AP Top News",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    }
+  ]
+}

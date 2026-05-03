@@ -1,23 +1,29 @@
 {
   "metadata": {
-    "collected_date": "2026-03-17",
+    "collected_date": "2026-03-18",
     "channels_sampled": [
+      "CaspianReport",
       "Fall of Civilizations",
+      "History Matters",
       "Knowing Better",
       "Kraut",
       "RealLifeLore",
-      "Toldinstone"
+      "Toldinstone",
+      "WonderWhy"
     ],
     "format_matched_channels": [
+      "CaspianReport",
       "Fall of Civilizations",
       "Knowing Better",
       "Kraut",
-      "Toldinstone"
+      "Toldinstone",
+      "WonderWhy"
     ],
     "title_pattern_only_channels": [
+      "History Matters",
       "RealLifeLore"
     ],
-    "total_videos_analyzed": 239,
+    "total_videos_analyzed": 388,
     "refresh_after": "2026-06-17",
     "methodology": "views/subscriber ratio computed from real YouTube data (yt-dlp extraction, 2026-03-17). NOT actual CTR. Outlier threshold: 3x channel median views. Transcripts extracted via youtube-transcript-api where available.",
     "data_source": "yt-dlp metadata extraction + youtube-transcript-api transcripts. All view counts and subscriber counts are real YouTube data, not estimates."
@@ -35,10 +41,10 @@
       "note": "views/subscriber ratio — NOT actual CTR. Directional proxy only."
     },
     "declarative": {
-      "min_vps": 0.074,
+      "min_vps": 0.014,
       "max_vps": 26.183,
-      "median_vps": 0.565,
-      "sample_count": 104,
+      "median_vps": 0.603,
+      "sample_count": 139,
       "confidence": "HIGH",
       "example_titles": [
         "8. The Sumerians - Fall of the First Cities",
@@ -52,38 +58,38 @@
     "how_why": {
       "min_vps": 0.044,
       "max_vps": 7.913,
-      "median_vps": 0.226,
-      "sample_count": 61,
+      "median_vps": 0.337,
+      "sample_count": 151,
       "confidence": "HIGH",
       "example_titles": [
         "Why You Can't Travel Between Hawaii's Islands by Boat",
+        "Why Ireland Split into the Republic of Ireland & Northern Ireland",
         "How Vodka ruined Russia",
         "Why The US & Venezuela Are On The Brink of War",
-        "How The US & Iran Became Arch-Enemies",
-        "Why This Part of Africa is Erased on Every Map You See"
+        "How The US & Iran Became Arch-Enemies"
       ],
       "note": "views/subscriber ratio — NOT actual CTR. Directional proxy only."
     },
     "question": {
       "min_vps": 0.05,
-      "max_vps": 1.257,
-      "median_vps": 0.268,
-      "sample_count": 8,
-      "confidence": "MEDIUM",
+      "max_vps": 4.587,
+      "median_vps": 0.316,
+      "sample_count": 27,
+      "confidence": "HIGH",
       "example_titles": [
+        "What's the Difference Between Latino and Hispanic?",
+        "What's the Oldest Country in the World?",
         "What Russia Doesn’t Want You to Know About Your History",
-        "What's Hidden Under the Jungles of New Guinea?",
-        "What even is Europe?",
-        "What a US Invasion of Greenland Would Actually Look Like",
-        "Can Poland into Space?"
+        "Have the British really invaded 90% of the countries in the world?",
+        "Pakistan, Afghanistan, and Iran heading to war?"
       ],
       "note": "views/subscriber ratio — NOT actual CTR. Directional proxy only."
     },
     "colon": {
       "min_vps": 0.051,
       "max_vps": 6.33,
-      "median_vps": 0.776,
-      "sample_count": 65,
+      "median_vps": 0.798,
+      "sample_count": 70,
       "confidence": "HIGH",
       "example_titles": [
         "The Part of History You've Always Skipped | Neoslavery",
@@ -98,11 +104,11 @@
   "by_topic_type": {
     "territorial": {
       "vps_range": [
-        0.044,
+        0.014,
         26.183
       ],
-      "median_vps": 0.373,
-      "sample_count": 191,
+      "median_vps": 0.404,
+      "sample_count": 313,
       "confidence": "HIGH",
       "note": "views/subscriber ratio — NOT actual CTR. Directional proxy only."
     },
@@ -121,13 +127,45 @@
         0.086,
         8.9
       ],
-      "median_vps": 0.557,
-      "sample_count": 24,
+      "median_vps": 0.44,
+      "sample_count": 51,
       "confidence": "HIGH",
       "note": "views/subscriber ratio — NOT actual CTR. Directional proxy only."
     }
   },
   "channel_breakdown": {
+    "CaspianReport": {
+      "subscriber_count": 1830000,
+      "format_match": "HIGH",
+      "notes": "Geopolitics analysis, authority-style narration",
+      "videos_analyzed": 50,
+      "median_views": 581490,
+      "outlier_threshold_3x": 1744470,
+      "outlier_count": 3,
+      "outliers": [
+        {
+          "title": "The Israel-Iran War just changed everything",
+          "view_count": 3268872,
+          "ratio": 5.6,
+          "pattern": "declarative",
+          "topic": "political_fact_check"
+        },
+        {
+          "title": "Why Zimbabwe wants its â€˜white farmersâ€™ back",
+          "view_count": 2061134,
+          "ratio": 3.5,
+          "pattern": "how_why",
+          "topic": "territorial"
+        },
+        {
+          "title": "Pakistan, Afghanistan, and Iran heading to war?",
+          "view_count": 1877901,
+          "ratio": 3.2,
+          "pattern": "question",
+          "topic": "political_fact_check"
+        }
+      ]
+    },
     "Fall of Civilizations": {
       "subscriber_count": 1460000,
       "format_match": "HIGH",
@@ -173,6 +211,16 @@
           "topic": "territorial"
         }
       ]
+    },
+    "History Matters": {
+      "subscriber_count": 1890000,
+      "format_match": "TITLE_PATTERN_ONLY",
+      "notes": "Prolific short+long form, versus titles common. Hooks not format-matched (animation, not talking head).",
+      "videos_analyzed": 50,
+      "median_views": 752856,
+      "outlier_threshold_3x": 2258568,
+      "outlier_count": 0,
+      "outliers": []
     },
     "Knowing Better": {
       "subscriber_count": 952000,
@@ -285,6 +333,59 @@
           "ratio": 6.2,
           "pattern": "how_why",
           "topic": "territorial"
+        }
+      ]
+    },
+    "WonderWhy": {
+      "subscriber_count": 853000,
+      "format_match": "HIGH",
+      "notes": "Geography/geopolitics, map-heavy, borders/disputes",
+      "videos_analyzed": 49,
+      "median_views": 964720,
+      "outlier_threshold_3x": 2894160,
+      "outlier_count": 6,
+      "outliers": [
+        {
+          "title": "Fun Fact About Every Country in the World - Part 1",
+          "view_count": 7565823,
+          "ratio": 7.8,
+          "pattern": "declarative",
+          "topic": "territorial"
+        },
+        {
+          "title": "The Breakup of Yugoslavia",
+          "view_count": 6556972,
+          "ratio": 6.8,
+          "pattern": "declarative",
+          "topic": "territorial"
+        },
+        {
+          "title": "Why Ireland Split into the Republic of Ireland & Northern Ireland",
+          "view_count": 6159559,
+          "ratio": 6.4,
+          "pattern": "how_why",
+          "topic": "territorial"
+        },
+        {
+          "title": "The Most Complex International Borders in the World - Part 2",
+          "view_count": 4671178,
+          "ratio": 4.8,
+          "pattern": "declarative",
+          "topic": "territorial"
+        },
+        {
+          "title": "What's the Difference Between Latino and Hispanic?",
+          "view_count": 3913052,
+          "ratio": 4.1,
+          "pattern": "question",
+          "topic": "territorial"
+        },
+        {
+          "title": "A Geopolitical Tour of the World",
+          "view_count": 3422867,
+          "ratio": 3.5,
+          "pattern": "declarative",
+          "topic": "political_fact_check"
         }
       ]
     }

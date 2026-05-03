@@ -1,48 +1,54 @@
 # Performance Report: Subscriber Conversion Analysis
 
-**Generated:** 2026-02-12 00:43 UTC
-**Videos analyzed:** 57
+**Generated:** 2026-03-26 02:42 UTC
+**Videos analyzed:** 328
 
 ## Key Insights
 
-- Ideological topics have highest conversion: 0.56 subs/100 views (9 videos)
-- General angle correlates with strong conversion: 0.36 subs/100 views
+- Ideological topics have highest conversion: 2.88 subs/100 views (16 videos)
+- Historical angle correlates with strong conversion: 0.33 subs/100 views
+- Note: Low sample sizes for archaeological (1) - patterns may not be reliable
 
 ## Conversion by Topic Type
 
 | Topic | Videos | Avg Conversion | Median | Total Subs |
 |-------|--------|----------------|--------|------------|
-| ideological | 9 | 0.562% | 0.000% | 5 |
-| colonial | 7 | 0.216% | 0.000% | 7 |
-| general | 28 | 0.162% | 0.000% | 20 |
-| medieval | 3 | 0.081% | 0.000% | 2 |
-| territorial | 7 | 0.060% | 0.000% | 2 |
-| legal | 3 | 0.000% | 0.000% | 0 |
+| ideological | 16 | 2.880% | 2.087% | 63 |
+| archaeological | 1 | 2.330% | 2.330% | 1 |
+| politician | 3 | 0.889% | 0.000% | 4 |
+| colonial | 16 | 0.669% | 0.090% | 21 |
+| territorial | 31 | 0.577% | 0.174% | 272 |
+| legal | 11 | 0.348% | 0.000% | 7 |
+| revolution | 15 | 0.060% | 0.000% | 9 |
+| short | 222 | 0.060% | 0.000% | 92 |
+| general | 9 | 0.049% | 0.000% | 4 |
+| medieval | 4 | 0.000% | 0.000% | 0 |
 
 ## Conversion by Angle
 
 | Angle | Videos | Avg Conversion | Median | Total Subs |
 |-------|--------|----------------|--------|------------|
-| general | 26 | 0.362% | 0.039% | 23 |
-| geographic | 10 | 0.179% | 0.000% | 8 |
-| legal | 10 | 0.157% | 0.000% | 6 |
-| historical | 15 | 0.038% | 0.000% | 5 |
-| political | 4 | 0.032% | 0.000% | 1 |
+| historical | 64 | 0.328% | 0.000% | 49 |
+| general | 211 | 0.288% | 0.000% | 307 |
+| legal | 28 | 0.287% | 0.000% | 82 |
+| geographic | 40 | 0.245% | 0.000% | 41 |
+| economic | 5 | 0.224% | 0.000% | 20 |
+| political | 14 | 0.022% | 0.000% | 2 |
 
 ## Top Converters
 
 | Rank | Title | Conversion | Views | Subs Gained |
 |------|-------|------------|-------|-------------|
-| 1 | The 1953 Myth: Iran’s First Coup Happene | 3.846% | 26 | 1 |
-| 2 | Sol Invictus vs Christmas: The 354 AD Pr | 3.141% | 191 | 6 |
-| 3 | Somaliland's Legal Independence Problem | 1.295% | 386 | 5 |
-| 4 | The Flat Earth Myth Was Invented in 1828 | 0.980% | 204 | 2 |
-| 5 | AU's Report: Somaliland's Unique Claim! | 0.278% | 360 | 1 |
+| 1 | Putin Says NATO Promised Not to Expand.  | 6.520% | 46 | 3 |
+| 2 | How the KGB Weaponized Palestinian Resis | 5.323% | 263 | 14 |
+| 3 | Debunking Begins! Why I Started ‘History | 5.000% | 40 | 2 |
+| 4 | 1,000 Years of Ukraine: The History Puti | 4.940% | 84 | 4 |
+| 5 | London's Stock Exchange Funded a Genocid | 4.505% | 111 | 5 |
 
 ## Recommendations
 
 - [ ] Prioritize **ideological** topics for subscriber growth
-- [ ] Use **general** angle in upcoming videos
+- [ ] Use **historical** angle in upcoming videos
 
 ---
 
