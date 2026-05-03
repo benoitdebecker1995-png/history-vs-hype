@@ -1,0 +1,292 @@
+---
+description: Generate 3 ranked thumbnail concepts grounded in the close-match outlier corpus + per-channel playbook
+model: sonnet
+---
+
+# /thumbnail — Outlier-Grounded Thumbnail Recommender
+
+**Purpose:** Generate 3 ranked thumbnail concepts for the active video project, grounded in the verified outlier corpus (n=30 outliers across 8 close-match channels) and per-channel playbook. Replaces guesswork with operation-named, outlier-cited, channel-anchored concepts.
+
+**What it does NOT do:** It does not score existing thumbnails (use `tools/preflight/thumbnail_checker.py` for that). It does not generate image mockups. It outputs concept specs only — visual, overlay text, operation, evidence — to chat.
+
+## Usage
+
+```
+/thumbnail                              # Auto-detect active project from _IN_PRODUCTION
+/thumbnail [project-folder-name]        # Explicit project (e.g., 21-haiti-debt-2025)
+/thumbnail --title "..." --thesis "..." # No project; ad-hoc title + script thesis
+```
+
+## Flags
+
+| Flag | Purpose |
+|------|---------|
+| *(default)* | Auto-detect single in-production project. If multiple, list and ask. |
+| `[project-folder]` | Use specific project from `video-projects/_IN_PRODUCTION/` or `_READY_TO_FILM/` |
+| `--title "..."` | Override title (skip YOUTUBE-METADATA.md lookup) |
+| `--thesis "..."` | Override script thesis (skip SCRIPT.md lookup) |
+| `--save` | Append the output as `THUMBNAIL-CONCEPTS.md` in the project folder (default: chat only) |
+| `--critique` | After concepts, spawn `thumbnail-critic` agent to score concepts on operation-fit / DIY feasibility / mobile legibility / curiosity payload |
+| `--diy [N]` | After concepts, spawn `diy-asset-creator` agent to produce a zero-budget production guide for Concept N (defaults to N=1, the Top pick). Mutually compatible with `--critique` (critic runs first, DIY runs last). |
+| `--force` | Bypass Step 1.5 title pre-gate (use only when intentionally testing concepts on a HARD-REJECTED title) |
+
+---
+
+## WORKFLOW
+
+### Step 1: Resolve inputs
+
+**Auto-detect mode (no args):**
+
+1. Glob `video-projects/_IN_PRODUCTION/*/` and `video-projects/_READY_TO_FILM/*/` for project folders.
+2. If exactly 1 in-production project, use it.
+3. If multiple, list them with their working titles and ask which one. Do not guess.
+4. If zero, ask user to specify `--title` and `--thesis` or run `/research --new` first.
+
+**Explicit project mode (`[project-folder-name]`):**
+
+Glob for a folder ending with that name across `_IN_PRODUCTION/` and `_READY_TO_FILM/`. Read it.
+
+**Ad-hoc mode (`--title` + `--thesis`):**
+
+Skip file reads. Use the supplied strings directly.
+
+### Step 1.5: Title pre-gate
+
+Before reading project files or generating concepts, verify the title isn't HARD-REJECTED by `title_scorer.py`. The recommender should not waste tokens on a title YouTube won't show — reverse-validation showed 5 of HvH's 8 lowest-CTR videos were killed by title structure (year / colon / "the X that Y"), not thumbnail.
+
+**Run:**
+
+```bash
+python -m tools.title_scorer "<resolved title from Step 1>"
+```
+
+**Decide:**
+
+- If output contains "REJECTED" status OR score < 65: **HALT.** Surface the rejection reason (year / colon / the_x_that / question / score), tell the user the title is dead-on-arrival per `tools/PACKAGING_MANDATE.md` rules, and recommend running `/greenlight` to regenerate the title before generating thumbnail concepts. Do NOT proceed to Step 2.
+- If score ≥ 65 and not REJECTED: continue to Step 2.
+
+**Override:** if `--force` was passed, log the gate result as a warning but continue. Use only when intentionally testing concepts on a known-rejected title.
+
+**Stop condition:** if `python -m tools.title_scorer` errors (tool missing, syntax error), surface the error and ask user to fix or pass `--force`. Do not silently skip the gate.
+
+### Step 2: Read project files
+
+Read in this priority order. Stop reading when you have enough to build the prompt:
+
+| Field | Primary source | Fallback |
+|---|---|---|
+| Title | `YOUTUBE-METADATA.md` (look for `Title:` or `# Title` or H1) | folder name (parse out numeric prefix, year suffix) |
+| Script thesis | `SCRIPT.md` (read first 500 lines; extract the explicit thesis statement, usually in the opening 90 seconds) | `01-VERIFIED-RESEARCH.md` opening summary |
+| Topic shape signals | `01-VERIFIED-RESEARCH.md` (skim section headers) | folder name keywords |
+| Site visitability | `SCRIPT.md` (mentions of border / archive / specific physical location) | none — assume false |
+
+If `SCRIPT.md` doesn't exist yet, note "no script — concepts use title only" and continue. Concepts grounded in title-only are weaker (MECHANISM REFRAME requires a known thesis).
+
+### Step 3: Build the notebook query
+
+Construct the query string with this exact structure. Do not paraphrase the bracketed sections.
+
+```
+Apply THUMBNAIL-RECOMMEND-PROTOCOL.md exactly. Generate 3 ranked thumbnail concepts.
+
+Title: [exact title from YOUTUBE-METADATA.md]
+Script thesis: [1–3 sentence thesis from SCRIPT.md, naming the actual mechanism the video proves — not the title's surface claim]
+Topic-shape signals: [bullet list of 2–4 signals from research: territorial / treaty / mechanism / site-visitable / etc.]
+HvH constraint: 515 subs, evidence-based myth-busting, "intellectual competence" trigger, format = 8–12 min talking-head + B-roll. Do not propose assets HvH cannot produce.
+
+Follow the protocol's Steps 1–6. Output exactly 3 concepts in the required format. End with the mandatory closing summary.
+```
+
+### Step 4: Query the notebook
+
+Use the `Packaging Intelligence — History vs Hype` notebook (id: `98973069-020b-41f4-b3cd-795864b5cada`). Tool: `mcp__notebooklm__notebook_query`.
+
+If the query returns an authentication error, halt and tell the user to run `nlm login`. Do not retry blindly.
+
+If the query returns successfully but the output does NOT include all 6 required fields per concept, retry once with: "The output above is missing required fields. Re-run following THUMBNAIL-RECOMMEND-PROTOCOL.md Step 3 exactly. Each concept must include all 6 fields."
+
+### Step 5: Structured field validation
+
+Parse the response into a per-concept structure. For each of the 3 expected concepts, check all 6 required fields. Produce a per-concept verdict (PASS / BLOCK) plus a list of which fields are missing.
+
+**Per-concept fields (all 6 required):**
+
+| Field | Validation rule |
+|---|---|
+| Header | `### Concept N:` line with descriptive name |
+| Visual | `* **Visual:**` line, ≥20 chars descriptive content |
+| Text overlay | `* **Text overlay:** "…"` with quotes; char count parenthetical present (e.g., `(N chars)`) |
+| (a) Operation | `* **(a) Overlay operation:**` line; operation name in CAPS, drawn from THUMBNAIL-RECOMMEND-PROTOCOL.md Step 4 allowed list (COMPRESSION / TITLE REPETITION / MECHANISM REFRAME / VISUAL ANSWER / NO OVERLAY / LOCATION PROOF / AESTHETIC HOOK + variants) |
+| (b) Outlier evidence | `* **(b) Outlier evidence` line, followed by 2–3 cited entries each containing a verbatim title in *italics* + an `Nx` ratio |
+| (c) Channel exemplar | `* **(c) Channel exemplar` line; channel name + a specific rule reference (not just the channel name alone) |
+| Risk | `* **Risk / when this concept fails:**` line with ≥1 sentence |
+
+**Document-level checks:**
+
+- Exactly 3 concepts (not 2, not 4 — `--alternative` 4th is allowed only when explicitly produced as the protocol's optional 4th)
+- Closing block contains BOTH `**Top pick:**` AND `**Risk if all 3 fail:**` lines
+
+**Verdict:** Each concept is PASS (all 6 fields valid) or BLOCK (≥1 field missing or invalid).
+
+**On any BLOCK:**
+
+1. **Retry once** with an explicit per-concept missing-field list. Example retry prompt:
+   > "Concept 2 is missing the **Risk / when this concept fails** field. Concept 3's outlier evidence has only 1 cited example (need 2-3). Re-run following THUMBNAIL-RECOMMEND-PROTOCOL.md Step 3 exactly. Each concept must include all 6 fields."
+2. **If retry also produces BLOCK:** surface the raw output to the user AND list which fields failed per concept. Do NOT silently accept a bad response. Do NOT retry a third time (token budget).
+
+**On all PASS:** continue to Step 6.
+
+### Step 6: Present the output
+
+Display the notebook's response verbatim in chat.
+
+After the response, append a one-line execution summary:
+
+```
+---
+Generated for: [project folder] | Title: "..." | Notebook: Packaging Intelligence — History vs Hype | 3 concepts.
+```
+
+If `--save` flag was passed, also write the response to `video-projects/[lifecycle]/[project]/THUMBNAIL-CONCEPTS.md` with a header:
+
+```markdown
+# Thumbnail Concepts
+
+**Generated:** [date]
+**Title:** [title used]
+**Source:** Packaging Intelligence — History vs Hype notebook
+**Protocol:** THUMBNAIL-RECOMMEND-PROTOCOL.md
+
+---
+
+[notebook response verbatim]
+```
+
+### Step 7: Optional concept critique (--critique flag only)
+
+If `--critique` was passed, after Step 6 displays the concepts, spawn the `thumbnail-critic` agent with the 3 concepts as input. The critic scores each concept on 4 dimensions (operation-fit / DIY feasibility / mobile legibility / curiosity payload, 0–2 each, total /8) and returns one critical fix per concept.
+
+**Spawn pattern:**
+
+```
+Agent({
+  description: "Critique 3 thumbnail concepts",
+  subagent_type: "thumbnail-critic",
+  prompt: "Score these 3 thumbnail concepts produced by /thumbnail. Read PER-CHANNEL-THUMBNAIL-PLAYBOOK.md, OUTLIER-THUMBNAIL-CORPUS.md, and TITLE-TO-OVERLAY-OPERATION-MAP.md as ground truth. Apply the rubric in your agent definition. Output the structured score block per concept.
+
+  Concepts:
+  [paste verbatim notebook response from Step 6]
+
+  Title: <title>
+  Script thesis: <thesis>
+  HvH constraint: 515 subs, evidence-based myth-busting, zero budget."
+})
+```
+
+**After the agent returns:**
+
+Display the critic's per-concept score block verbatim under a header:
+
+```
+---
+
+## Critic verdict
+
+[agent output verbatim]
+```
+
+If `--save` flag was passed, append the critic verdict to the same `THUMBNAIL-CONCEPTS.md` file under the same header.
+
+**Stop conditions:**
+- If the critic returns an error (fewer than 3 concepts, missing operation tags, etc.), surface the error and skip the critique block. Do not retry — the input was malformed.
+- If the critic and `/thumbnail`'s "Top pick" disagree, the critic flags it. Display both rankings — let the user decide.
+
+### Step 8: Optional DIY production guide (--diy flag only)
+
+If `--diy` was passed, after Step 6 (and Step 7 if applicable) spawn the `diy-asset-creator` agent with the chosen concept (Concept N where N defaults to 1).
+
+**Resolve N:**
+- `--diy` alone → N = 1 (the Top pick from /thumbnail's recommender output)
+- `--diy 2` / `--diy 3` → N = the explicit number
+- `--diy 4` or out-of-range → error: "Only 3 concepts produced. Use --diy 1, 2, or 3."
+
+**Spawn pattern:**
+
+```
+Agent({
+  description: "DIY production guide for Concept N",
+  subagent_type: "diy-asset-creator",
+  prompt: "Build a single-asset zero-budget production guide for ONE thumbnail concept. This is NOT a B-roll checklist — it's one thumbnail.
+
+  Concept (verbatim from /thumbnail Step 6 output):
+  [paste Concept N's full block: Visual / Text overlay / Operation / Outlier evidence / Channel exemplar / Risk]
+
+  Output a focused single-asset DIY guide covering:
+  1. **Wikimedia Commons search terms** — exact queries to find the primary visual (or 'not applicable' if visual = creator-on-location, custom diagram, etc.)
+  2. **MapChart.net steps** — only if concept uses a map. Specify region, color-coding, export settings.
+  3. **Canva template** — exact template name to search ('parchment quote', 'dossier folder', etc.) + free-account download settings (PNG, standard quality).
+  4. **PowerPoint composition** — element layering, text overlay placement, font + size at 1280×720 export.
+  5. **Exact text overlay spec** — verbatim overlay text from the concept, font recommendation, size, color contrast, placement (rule-of-thirds anchor).
+  6. **Estimated time** — total minutes for a first build of this thumbnail.
+  7. **Fallback** — if the primary asset can't be sourced (missing Wikimedia hit, etc.), name the substitution path.
+
+  HvH constraint: 515 subs, evidence-based myth-busting, zero budget. Free tools only. Do not propose AI image generation (the creator prefers real materials).
+
+  Output a single markdown block, ≤300 words. Do not output a multi-day plan — this is one thumbnail."
+})
+```
+
+**After the agent returns:**
+
+Display the DIY guide verbatim under a header:
+
+```
+---
+
+## DIY production guide — Concept N
+
+[agent output verbatim]
+```
+
+If `--save` flag was passed, append the DIY guide to the same `THUMBNAIL-CONCEPTS.md` file under the same header.
+
+**Stop conditions:**
+- If the agent's output exceeds 500 words, surface a warning — DIY guide should be focused, not exhaustive.
+- If the agent suggests AI image generation, flag it as a violation: this conflicts with HvH's "real materials > AI" preference (per `MEMORY.md` → `feedback-thumbnail-process.md`). Re-run once with that constraint reinforced. If still violated, surface the raw output.
+
+---
+
+## Failure modes — when to halt and report
+
+- **Auth expired:** Tell user to run `nlm login`. Do not retry.
+- **Notebook empty / no protocol source:** Tell user the THUMBNAIL-RECOMMEND-PROTOCOL.md source is missing from the notebook. Do not generate concepts without it.
+- **Project folder ambiguous:** List candidates, ask which.
+- **No SCRIPT.md AND no `--thesis` flag:** Warn that title-only concepts are weaker. Proceed but flag in output.
+- **Validation fails twice:** Surface raw output + which checks failed. Let user decide whether to retry, fix the protocol source, or accept.
+
+---
+
+## Integration with other commands
+
+- **`/greenlight`** still uses `tools/preflight/thumbnail_checker.py` for fast yes/no gates pre-research. `/thumbnail` is the post-script version that produces actual concepts.
+- **`/prep`** consumes the thumbnail concepts when building asset/B-roll lists. Run `/thumbnail --save` first so `/prep` can read THUMBNAIL-CONCEPTS.md.
+
+**Typical sequence:**
+```
+/script              # Write script
+/verify              # Fact-check
+/thumbnail --save    ← You are here — generate + save concepts
+/prep --full         # Asset + edit guides (reads THUMBNAIL-CONCEPTS.md)
+```
+
+---
+
+## Reference sources (in the live notebook)
+
+- `THUMBNAIL-RECOMMEND-PROTOCOL.md` — output format + decision tree (the house prompt)
+- `OUTLIER-THUMBNAIL-CORPUS.md` — n=30 verified outliers with ratios + operations
+- `PER-CHANNEL-THUMBNAIL-PLAYBOOK.md` — channel-anchored decision rules (8 channels)
+- `TITLE-TO-OVERLAY-OPERATION-MAP.md` — 5 operations + 4 variants
+
+Notebook ID: `98973069-020b-41f4-b3cd-795864b5cada`

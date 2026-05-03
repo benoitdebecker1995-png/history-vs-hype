@@ -16,71 +16,99 @@ Display available commands organized by production phase. Use this to discover c
 
 ---
 
-## Pre-production
+## Pre-production (4)
 
-Start new projects and gather research.
-
-| Command | Purpose | Flags |
-|---------|---------|-------|
-| `/research` | Start new video, topic research | `--new`, `--topic-only`, `--existing` |
-| `/sources` | Source recommendations, NotebookLM prompts | - |
-
-**When to use:**
-- Starting a new video idea
-- Researching a topic before committing
-- Setting up NotebookLM for academic verification
-
----
-
-## Production
-
-Write scripts and verify accuracy.
+Pick topics, validate viability, set up the project.
 
 | Command | Purpose | Flags |
 |---------|---------|-------|
-| `/script` | Write, revise, or review scripts | `--new`, `--revise`, `--review`, `--teleprompter` |
-| `/verify` | Fact-check verification | `--script`, `--extract`, `--simplify`, `--from-transcript` |
-| `/prep` | Filming preparation | `--edit-guide`, `--assets` |
+| `/greenlight` | Pre-work viability gate (demand + title + thumbnail) | `--full`, `--scan`, `--project`, `--compare` |
+| `/research` | Start new video, topic research, source list | `--new`, `--topic-only`, `--existing`, `--sources`, `--prompts` |
+| `/next` | Ranked topic recommendations from winning patterns | - |
+| `/translate` | Translation pipeline for "Untranslated Evidence" series | clause-by-clause translation |
 
 **When to use:**
-- Writing script from verified research
-- Reviewing script for quality issues
-- Fact-checking before filming
-- Creating edit guide and B-roll checklist
+- "Should I make this video?" → `/greenlight "topic"`
+- Weekly opportunity scan → `/greenlight --scan`
+- Starting a new project → `/research --new "Topic"`
+- "What should I make next?" → `/next`
 
 ---
 
-## Post-production
+## Production (4)
 
-Publish, fix issues, and engage with audience.
+Write scripts, verify accuracy, prep for filming, design the package.
 
 | Command | Purpose | Flags |
 |---------|---------|-------|
-| `/publish` | YouTube metadata, titles, clips | `--titles`, `--clips` |
-| `/fix` | Fix subtitle errors | - |
-| `/engage` | Comment response, corrections | `--respond`, `--correction`, `--save` |
+| `/script` | Write, revise, review, export scripts | `--new`, `--revise`, `--review`, `--teleprompter` |
+| `/verify` | Fact-check script, extract claims, detect simplifications | `--script`, `--extract`, `--simplify` |
+| `/prep` | Filming prep — edit guides, B-roll planning | `--edit-guide`, `--assets` |
+| `/thumbnail` | Generate 3 ranked thumbnail concepts (outlier-grounded) | - |
 
 **When to use:**
-- Creating YouTube title, description, tags
-- Generating title variants for A/B testing
-- Fixing auto-transcription errors in .srt files
-- Responding to viewer comments
-- Publishing corrections for errors
+- Writing script from verified research → `/script --new`
+- Fact-checking before filming → `/verify --script`
+- Building edit guide / B-roll list → `/prep`
+- Designing thumbnail concept → `/thumbnail`
 
 ---
 
-## Meta
+## Post-production (4)
 
-Navigation and help.
+Publish, correct, engage, retitle.
+
+| Command | Purpose | Flags |
+|---------|---------|-------|
+| `/publish` | YouTube metadata, titles, clips | `--metadata`, `--titles`, `--clips`, `--full`, `--evaluate` |
+| `/fix` | Fix subtitle errors from auto-transcription | - |
+| `/engage` | Comment responses, corrections, feedback management | `--respond`, `--correction`, `--save` |
+| `/retitle` | Retitle underperforming videos with audit + candidate generation | - |
+
+**When to use:**
+- Generating YouTube metadata → `/publish --metadata`
+- Fixing auto-transcription errors → `/fix` (use this, not generic Claude)
+- Responding to comments → `/engage --respond`
+- Underperforming video → `/retitle`
+
+---
+
+## Analytics (3)
+
+Diagnose what worked and why.
+
+| Command | Purpose | Flags |
+|---------|---------|-------|
+| `/analyze` | Per-video post-publish analysis (retention drops + recommendations) | `--script`, `--video-id` |
+| `/growth` | Channel growth dashboard — velocity, ROI, traffic, monetization | - |
+| `/patterns` | Cross-video pattern analysis + intelligence KB queries | `--topic`, `--title`, `--monthly`, `--score`, `--query`, `--intel`, `--outliers` |
+
+**When to use:**
+- After every published video → `/analyze VIDEO_ID --script PATH`
+- Monthly health check → `/growth`
+- Cross-video patterns and outliers → `/patterns`
+- Score a topic idea 0-100 → `/patterns --score "title"`
+
+---
+
+## Article writing (1)
+
+Article-writer agent (`.claude/agents/article-writer.md`) handles convert/write/edit/workshop modes directly. The command below evolves the agent.
+
+| Command | Purpose |
+|---------|---------|
+| `/learn-from-paper` | Mine an academic paper for transferable techniques; output diff proposals for article-writer (and tagged crossovers for script-writer-v2) |
+
+**Note:** If you want to write an article, invoke the article-writer agent directly — no command wrapper needed.
+
+---
+
+## Meta (2)
 
 | Command | Purpose |
 |---------|---------|
 | `/status` | Project state, next action suggestion |
 | `/help` | This command menu |
-
-**When to use:**
-- "What should I do next?"
-- Finding the right command for a task
 
 ---
 
@@ -90,70 +118,64 @@ You don't need to remember commands. Just describe what you want:
 
 | You Say | I Suggest |
 |---------|-----------|
+| "Should I make a video about X?" | `/greenlight "X"` |
+| "What's a good topic this week?" | `/greenlight --scan` or `/next` |
 | "I want to start a video about X" | `/research --new "X"` |
 | "I need to write a script" | `/script --new [project]` |
 | "The script is done" | `/verify` |
 | "I need to fact-check this" | `/verify --script [project]` |
 | "Ready to film" | `/prep --edit-guide` |
+| "Need a thumbnail" | `/thumbnail` |
 | "Need YouTube metadata" | `/publish` |
 | "Fix my subtitles" | `/fix` |
 | "Someone left a comment" | `/engage --respond` |
 | "I made a mistake in a video" | `/engage --correction` |
+| "Why did this video flop?" | `/analyze VIDEO_ID --script SCRIPT.md` |
+| "Channel performance check" | `/growth` |
+| "What patterns are working?" | `/patterns` |
+| "Score this topic idea" | `/patterns --score "title"` |
+| "Underperforming video — retitle?" | `/retitle` |
 | "What should I do?" | `/status` |
 
 ---
 
-## Quick Reference
-
-### Full Workflow (New Video)
+## Full Workflow (New Video)
 
 ```
-1. /research --new "Topic"     # Create project, start research
-2. /sources                     # Get NotebookLM prompts
-3. [Manual: Upload to NotebookLM, verify claims]
-4. /script --new                # Write from verified research
-5. /verify                      # Fact-check script
-6. /prep                        # Edit guide + B-roll
-7. [Manual: Film and edit]
-8. /publish                     # YouTube metadata
-9. /fix                         # Fix subtitles if needed
-10. /engage                     # Handle comments
-```
-
-### Common Tasks
-
-| Task | Command |
-|------|---------|
-| Check project status | `/status` |
-| Review script quality | `/script --review` |
-| Export for teleprompter | `/script --teleprompter` |
-| Extract claims from video | `/verify --extract [file]` |
-| Generate title variants | `/publish --titles` |
-| Find clip-worthy moments | `/publish --clips` |
-
----
-
-## Getting Context-Specific Help
-
-If you provide a topic, I'll show relevant commands with more detail:
-
-```
-/help fact-check     # Show verification commands in detail
-/help script         # Show script-related commands in detail
-/help publishing     # Show post-production commands in detail
+1. /greenlight "Topic"          # Will this earn the click?
+2. /research --new "Topic"      # Create project, start research
+3. /research --sources "Topic"  # Generate Tier 1/2/3 source list
+4. [Manual: Upload to NotebookLM, verify claims]
+5. /script --new                # Write from verified research
+6. /verify                      # Fact-check script
+7. /prep                        # Edit guide + B-roll
+8. /thumbnail                   # 3 ranked concepts
+9. [Manual: Film and edit]
+10. /publish                    # YouTube metadata
+11. /fix                        # Fix subtitles
+12. /engage                     # Handle comments
+13. /analyze VIDEO_ID --script  # Post-publish diagnosis
 ```
 
 ---
 
 ## Command Count
 
-**Total commands:** 10
-- Pre-production: 2
-- Production: 3
-- Post-production: 3
-- Meta: 2
+**Total: 18 commands**
+- Pre-production: 4 (greenlight, research, next, translate)
+- Production: 4 (script, verify, prep, thumbnail)
+- Post-production: 4 (publish, fix, engage, retitle)
+- Analytics: 3 (analyze, growth, patterns)
+- Article writing: 1 (learn-from-paper)
+- Meta: 2 (status, help)
 
-All commands consolidated from previous ~20+ commands with flags preserving full functionality.
+**2026-05-03 consolidation:** Down from 28 commands. Archived to `.claude/_ARCHIVE/commands-2026-05-03/`. Folded:
+- `/discover --scan` → `/greenlight --scan`
+- `/sources` → `/research --sources` / `--prompts` / `--format-sources`
+- `/intel --score` / `--query` / `--algo` → `/patterns --score` / `--query` / `--intel`
+- `/newsletter`, `/workshop` → `article-writer` agent (CONVERT / WRITE / EDIT / WORKSHOP modes)
+- `/humanify` → article-writer Rule 1 (voice patterns from WRITING-VOICE-AND-STYLE.md PART 1)
+- `/preflight`, `/deep-analytics`, `/think`, `/thesis-discovery` → archived (dead, redundant, or already executed)
 
 ---
 
@@ -161,6 +183,4 @@ All commands consolidated from previous ~20+ commands with flags preserving full
 
 Just describe what you want to do. I'll route you to the right command.
 
-Example: "I finished researching the Library of Alexandria video and want to write the script now."
-
-I'll check your project status and suggest `/script --new 15-library-alexandria-2025`.
+Example: "I finished researching the Library of Alexandria video and want to write the script now." → I'll check your project status and suggest `/script --new 15-library-alexandria-2025`.

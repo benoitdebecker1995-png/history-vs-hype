@@ -16,6 +16,7 @@ Start a new video project or research an existing topic. This command consolidat
 /research --new [topic]      # Create new project folder + start research
 /research --topic-only       # Research without creating project
 /research --existing [path]  # Research for existing project
+/research --sources [topic]  # Generate academic source list (folded from /sources)
 ```
 
 ## Flags
@@ -23,10 +24,46 @@ Start a new video project or research an existing topic. This command consolidat
 | Flag | Purpose | Example |
 |------|---------|---------|
 | `--new` | Create project folder + full setup | `/research --new "Library of Alexandria"` |
+| `--brief` | Generate Wikipedia pre-research brief only | `/research --brief "Treaty of Tordesillas"` |
+| `--competitors` | Competitor gap analysis for a topic/project | `/research --competitors "Treaty of Tordesillas"` |
 | `--topic-only` | Research only, no project creation | `/research --topic-only "Chagos Islands"` |
 | `--existing` | Add research to existing project | `/research --existing 19-flat-earth-medieval-2025` |
 | `--ingest` | Ingest NLM output into verified research | `/research --ingest --existing 31-bermeja-island-2025` |
 | `--apply-review` | Apply reviewed claims to VERIFIED-RESEARCH.md | `/research --apply-review path/to/review.md` |
+| `--sources` | Generate Tier 1/2/3 academic source list via Claude API | `/research --sources "Library of Alexandria"` |
+| `--prompts` | Generate NotebookLM verification prompts for a project | `/research --prompts 19-flat-earth-medieval-2025` |
+| `--format-sources` | Format source list for YouTube description | `/research --format-sources` |
+
+---
+
+## SOURCE WORKFLOWS (folded from /sources, 2026-05-03)
+
+### `--sources` — Automated source-list generation
+
+Generates an academic source list using `tools/notebooklm_bridge.py` (Claude API-backed).
+
+```bash
+python tools/notebooklm_bridge.py "TOPIC" --type TYPE --output DIR
+```
+
+**Args:** `topic` (required), `--type` (territorial/ideological/fact-check/general, default general), `--output` (default current dir), `--sources` (10-20, default 15), `--dry-run`.
+
+**Requires:** `ANTHROPIC_API_KEY` env var. `pip install anthropic>=0.40.0`.
+
+**Output:** `NOTEBOOKLM-SOURCE-LIST.md` with:
+- SOURCE QUALITY CHECK table (primary/academic counts)
+- Tier 1: Primary Sources `[P1]`, `[P2]`...
+- Tier 2: Academic Monographs `[A1]`, `[A2]`...
+- Tier 3: Supplementary Sources
+- Full citation details (title, author, publisher, ISBN, price, purchase link)
+
+### `--prompts` — NotebookLM verification prompts
+
+Generate NotebookLM chat prompts tailored to a project's verified-claims gaps. References `.claude/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md` for the prompt library.
+
+### `--format-sources` — YouTube description formatter
+
+Formats a source list (from `01-VERIFIED-RESEARCH.md` or `NOTEBOOKLM-SOURCE-LIST.md`) into the description block style used in YouTube metadata.
 
 ---
 
@@ -87,13 +124,66 @@ Show a brief refresh summary to the user before continuing. This ensures competi
 
 **If CURRENT:** Continue silently (no output).
 
-### Step 1: Gather Project Information
+### Step 1: Demand Validation (HARD GATE)
+
+**Before asking ANY questions, check search demand:**
+
+```python
+import sys
+sys.path.insert(0, '.')
+from tools.preflight.demand_checker import run as demand_check
+result = demand_check("topic keywords here")
+```
+
+**Decision tree:**
+- **GO** (≥1,000/mo): Display `DEMAND: GO ✓ (X,XXX/mo — "keyword")` and proceed
+- **CAUTION** (200-999/mo): Warn user — "Marginal demand. Proceed only with a strong search-intent title."
+- **STOP** (<200/mo): **BLOCK PROJECT CREATION.** Tell user:
+  - "This topic has insufficient search demand (<200/mo)"
+  - Suggest 3 related keywords from keywords.db that DO have volume
+  - "Run `/greenlight --compare` to evaluate alternatives"
+  - Do NOT create the project folder
+
+**News hook check (auto-run after demand):**
+```python
+import subprocess
+result = subprocess.run(
+    ['python', '-m', 'tools.discovery.news_hook_monitor', '--topic', topic_keywords],
+    capture_output=True, text=True
+)
+# If URGENT or TRENDING, upgrade CAUTION→GO or add "TIMELY" badge
+```
+A strong news hook can upgrade a marginal-demand topic: "CAUTION + URGENT news hook = GO (timely)."
+
+**If user insists on a STOP topic:** Require explicit override — "I understand this has low search demand and am proceeding anyway." Log this in PROJECT-STATUS.md as `DEMAND_OVERRIDE: true`.
+
+### Step 1b: Gather Project Information
 
 Ask the user:
 1. **Topic:** What's the video about?
 2. **Hook Type:** Territorial (colonial → conflict) OR Ideological (myth → belief)?
 3. **Modern hook:** What 2024-2026 event makes this relevant?
 4. **Opponent (if fact-check):** Who are you fact-checking?
+
+### Step 1c: Title Pre-Generation
+
+**Generate 5 working title candidates BEFORE creating the project.** These don't need to be final, but they establish the search-intent framing:
+
+1. Include the exact high-volume keyword (from demand check) in at least 2 candidates
+2. Score all candidates with `title_scorer.py`
+3. Present ranked list to user
+4. User picks a working title — this frames the research angle
+
+**Why now:** The title determines what search query you're targeting. Research should serve the title, not the other way around.
+
+```
+WORKING TITLES (pick one to frame research):
+  85/A  France vs Haiti. 122 Years of Forced Payments.
+  65/B  Why Is Haiti So Poor? France Collected for 122 Years.
+  75/B  Haiti Paid France for 122 Years. Here's Every Receipt.
+```
+
+Store the chosen working title in PROJECT-STATUS.md.
 
 ### Step 2: Check Claims Database FIRST
 
@@ -138,19 +228,44 @@ Before creating anything, check for existing verified research:
 - Phase 2: Script (locked until 90% verified)
 - Phase 3: Fact-check (locked until script complete)
 
-### Step 5: Conduct Preliminary Research
+### Step 5: Wikipedia Pre-Research Brief (Auto-run)
 
-**Phase 1: Internet Research (Map the landscape)**
+**Automatically generate a structured brief using the `wiki-researcher` agent.**
 
-Research the topic to identify:
-- Key claims to verify
-- Academic sources needed
-- Modern relevance connections (2023-2026 news)
+Launch the agent with:
+- `topic`: The video topic from Step 1
+- `project_path`: The project folder created in Step 3
+- `hook_type`: territorial or ideological (from Step 1)
+- `modern_hook`: The modern relevance connection (from Step 1)
+
+The agent fetches Wikipedia + related articles + recent news + competitor videos and outputs a structured brief to `_research/00-PRELIMINARY-BRIEF.md`.
+
+**Output includes:**
+- Chronological timeline with verification flags
+- Key figures and their roles
+- Claims ranked by script priority (Critical vs Supporting)
+- Standard narrative (what competitors will say)
+- Underexplored angles (your edge)
+- Modern relevance hooks (2024-2026 news)
+- Academic sources extracted from Wikipedia's own references
+- Competitor video landscape with gap analysis
+- Pre-verified claims from existing channel projects
+
+**Time:** ~2-3 minutes (replaces 2-4 hours of manual browsing)
+
+> **Note:** This brief is Phase 1 only. Every claim is marked unverified and needs Phase 2 academic confirmation via NotebookLM.
+
+### Step 6: Conduct Additional Preliminary Research
+
+Using the brief as a foundation, fill any remaining gaps:
+- Claims the brief flagged as "Verify?" that aren't covered by Wikipedia
+- Academic sources not in Wikipedia's references
+- Modern relevance connections (2023-2026 news) beyond what the brief found
 - Opposing viewpoints to address
 
 **Output to:** `_research/01-PRELIMINARY-RESEARCH.md`
 
-### Step 6: Competitive Intelligence Check
+### Step 7: Competitive Intelligence Check
 
 After preliminary research, before deep research:
 
@@ -160,7 +275,7 @@ After preliminary research, before deep research:
    - What's missing from their coverage?
 
 2. **Check for applicable techniques:**
-   - Skim `PROVEN-TECHNIQUES-LIBRARY.md` for relevant techniques
+   - Skim `WRITING-VOICE-AND-STYLE.md` PART 5 (Techniques Toolkit) for relevant techniques
    - Which opening hook fits this topic?
    - What evidence presentation style works here?
    - Note intended techniques in PROJECT-STATUS.md
@@ -172,9 +287,9 @@ After preliminary research, before deep research:
 
 > **Proactive:** "I've checked competitor coverage of [topic]. The main videos are [list]. Your unique angle could be [suggestion based on channel DNA]."
 
-### Step 7: Create NotebookLM Source List
+### Step 8: Create NotebookLM Source List
 
-Based on preliminary research, create:
+Based on preliminary research and the brief's Academic Sources table, create:
 - `_research/00-NOTEBOOKLM-SOURCE-LIST.md`
 
 **Standards (from NOTEBOOKLM-SOURCE-STANDARDS.md):**
@@ -183,7 +298,7 @@ Based on preliminary research, create:
 - Critical editions of primary sources
 - Budget is UNLIMITED - recommend best sources regardless of price
 
-### Step 8: Report and Next Steps
+### Step 9: Report and Next Steps
 
 ```
 Project created: video-projects/_IN_PRODUCTION/[folder]/
@@ -193,18 +308,78 @@ Files created:
 - SCRIPT.md (placeholder - locked until research 90% verified)
 - 03-FACT-CHECK-VERIFICATION.md (placeholder)
 - PROJECT-STATUS.md
+- _research/00-PRELIMINARY-BRIEF.md (Wikipedia pre-research — auto-generated)
 - _research/00-NOTEBOOKLM-SOURCE-LIST.md (sources to download)
 - _research/01-PRELIMINARY-RESEARCH.md (internet research)
 
 Claims from database: [X claims pre-populated / None found]
+Brief: [N] Wikipedia sources fetched, [N] claims flagged for verification,
+       [N] academic sources identified from Wikipedia references
 
 NEXT STEPS:
-1. Download sources from 00-NOTEBOOKLM-SOURCE-LIST.md
-2. Upload to NotebookLM
-3. Run /sources to generate verification prompts
-4. Verify claims and update 01-VERIFIED-RESEARCH.md
-5. When 90%+ verified, run /script to write
+1. Review 00-PRELIMINARY-BRIEF.md — check the "Underexplored Angles" section
+2. Download sources from 00-NOTEBOOKLM-SOURCE-LIST.md (brief's Academic Sources table helps prioritize)
+3. Upload to NotebookLM
+4. Run /sources to generate verification prompts
+5. Verify claims and update 01-VERIFIED-RESEARCH.md
+6. When 90%+ verified, run /script to write
 ```
+
+---
+
+## COMPETITOR GAP ANALYSIS (`--competitors`)
+
+Analyze what competing YouTube videos cover on a topic and identify gaps.
+
+### Usage
+
+```
+/research --competitors "Treaty of Tordesillas"
+/research --competitors 42-why-brazil-speaks-portuguese-2026
+```
+
+### Process
+
+1. Launch `competitor-gap` agent with the topic
+2. Agent WebSearches YouTube for top competing videos
+3. Fetches transcripts via `get-transcript.py`
+4. Extracts topics, figures, dates, sources from each
+5. Compares against your planned coverage (if project exists)
+6. Outputs gap report with unique angles and recommendations
+
+### Output
+
+If a project path is detected: saves to `_research/COMPETITOR-GAP-ANALYSIS.md`
+If standalone topic: displays report directly
+
+**Key insight the report provides:** "All competitors tell the same story about X. None of them show the actual document / cover the Y angle / cite academic sources. That's your edge."
+
+### When to use
+
+- **Before scripting:** Run after `/research --brief` to know what angle to take
+- **During revision:** If your script feels generic, run this to find what makes it different
+- **Before filming:** Final check that your video adds something competitors don't
+
+---
+
+## BRIEF-ONLY WORKFLOW (`--brief`)
+
+Generate a Wikipedia pre-research brief without creating a full project:
+
+1. Launch `wiki-researcher` agent with the topic
+2. Agent fetches Wikipedia + related articles + news + competitors
+3. Output displayed directly (not saved to a project folder)
+
+**Use when:** Evaluating a topic before committing. "Is there enough here for a video?"
+
+**If topic looks viable:** Run `/research --new [topic]` to create the project (the brief will auto-run again inside the project folder).
+
+**Example:**
+```
+/research --brief "Scramble for Africa"
+```
+
+Produces a structured brief with timeline, claims, competitor landscape, and academic sources — all in ~2-3 minutes. No project folder created.
 
 ---
 
@@ -344,7 +519,7 @@ Cannot proceed to scripting until:
 - **Research subfolder:** `.claude/templates/_RESEARCH-SUBFOLDER-TEMPLATE.md`
 - **Source standards:** `.claude/REFERENCE/NOTEBOOKLM-SOURCE-STANDARDS.md`
 - **Claims database:** `.claude/VERIFIED-CLAIMS-DATABASE.md`
-- **Technique library:** `.claude/REFERENCE/PROVEN-TECHNIQUES-LIBRARY.md`
+- **Technique library:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` PART 5 (Techniques Toolkit)
 - **Gap database:** `.claude/REFERENCE/GAP-DATABASE.md`
 
 ---

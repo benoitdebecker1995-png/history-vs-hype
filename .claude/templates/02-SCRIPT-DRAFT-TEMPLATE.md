@@ -3,16 +3,22 @@
 **Based on:** 01-VERIFIED-RESEARCH.md
 **All facts pre-verified:** ✅ YES / ❌ NO (if NO, stop and verify first)
 **Retention optimized:** ✅ YES / ❌ NO
-**Length:** As long as needed for topic (no arbitrary caps)
 
-**Style Reference:** `.claude/REFERENCE/scriptwriting-style.md` (Kraut, Alex O'Connor, Knowing Better, Shaun, Historia Civilis, Fall of Civilizations patterns)
+**Style Reference:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` PARTS 1-5 (Kraut, Alex O'Connor, Knowing Better, Shaun, Historia Civilis, Fall of Civilizations patterns)
 
 ---
 
 ## SCRIPT METADATA
 
 **Target Audience:** Males 25-44, intelligent, skeptical
-**Hook Focus:** Modern relevance (connect to 2024-2025 news)
+**Hook Focus:** Modern relevance (connect to 2024-2026 news)
+
+## DURATION
+- Target filmed duration: [X] min (HARD CAP: 12 min — Rule 32)
+- Script word count: [Y] words (1.80x buffer = [Z] min estimated)
+- Cap exception: None / Approved by user: [reason]
+
+<!-- STRUCTURE: MYTH-FIRST --> or <!-- STRUCTURE: CHRONOLOGICAL (territorial explainer) -->
 
 **Format Template:** (NEW - 2026-01-04)
 - [ ] ⭐ BOTH EXTREMES ARE WRONG (Series - Episode #__)
@@ -35,7 +41,7 @@
 
 **Goal:** Modern relevance + why this matters NOW
 
-**Choose Opening Pattern (from REFERENCE/scriptwriting-style.md):**
+**Choose Opening Pattern (from REFERENCE/OPENING-HOOK-TEMPLATES.md or WRITING-VOICE-AND-STYLE.md §3.1 / §5.2):**
 
 **Option A - Kraut Sweep-Then-Specifics:**
 > [Sweeping historical pattern] → [Multiple specific examples] → [Exception that creates curiosity]

@@ -68,7 +68,7 @@ Competitor gap: No channels covering [topic angle] — differentiation opportuni
 ```
 
 4. If file does not exist, skip silently — NEVER block generation on missing intelligence
-5. If last refresh date is >30 days old, add note: "(Intel last refreshed [date] — consider running /intel --refresh)"
+5. If last refresh date is >30 days old, add note: "(Intel last refreshed [date] — consider running /patterns --refresh-intel)"
 6. Intelligence is advisory — inform production decisions, never dictate
 
 **For /prep:** Focus on:

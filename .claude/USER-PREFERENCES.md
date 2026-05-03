@@ -439,7 +439,7 @@ Using current figures as HOOKS is fine (Hegseth tattoo opens Crusades video), bu
 
 ## Cross-References
 
-**For script writing style:** See `.claude/REFERENCE/STYLE-GUIDE.md` (authoritative)
+**For script writing style:** See `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` (authoritative — PARTS 1-5 script-side, PARTS 6-7 article-side)
 **For metadata/titles/thumbnails:** See `.claude/REFERENCE/METADATA-CHECKLIST.md` + `TITLE-GENERATION-PROTOCOL.md`
 **For fact-checking:** See `.claude/REFERENCE/fact-checking-protocol.md`
 **For research workflow:** See `CLAUDE.md` (Two-Phase Approach)

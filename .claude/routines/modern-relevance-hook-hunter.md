@@ -1,0 +1,89 @@
+# Routine 2 — Daily Modern-Relevance Hook Hunter
+
+**Purpose:** Every morning, scan major news and academic feeds for stories that can serve as a "modern relevance" anchor for any project in `_IN_PRODUCTION/`. CLAUDE.md mandates modern relevance every 90s — this routine surfaces the raw material.
+
+**Schedule:** Daily, 07:15 local (15 min after the competitor scanner).
+**Expected cost:** 1 of the 5 daily Routines credits.
+
+---
+
+## Paste this into claude.ai/code/routines (the "prompt" field)
+
+```
+You are operating inside the History vs Hype repository.
+
+STEP 1 — Run the modern-relevance scan:
+
+  python -m tools.routines.modern_relevance_scan --lookback-hours 24
+
+This reads channel-data/news-sources.yaml, fetches every RSS feed, and
+matches articles against each active project's keyword list (either from
+project_keyword_overrides in news-sources.yaml, or auto-extracted from the
+project's YOUTUBE-METADATA.md Keywords: block). It writes:
+  - channel-data/modern-relevance/YYYY-MM-DD.json
+  - channel-data/modern-relevance/YYYY-MM-DD.md
+
+STEP 2 — Read the generated .md file for today.
+
+STEP 3 — For each project section with at least 1 hit:
+  a. Read the project's current 02-SCRIPT-DRAFT.md (if it exists) OR the
+     YOUTUBE-METADATA.md angle.
+  b. For each hit, decide: does this article work as
+     (i)   an OPENING HOOK anchor (something physical/current to open on),
+     (ii)  a MID-SCRIPT modern-relevance beat (connects history to 2026),
+     (iii) a CLOSING tie-back (the "why this still matters" moment),
+     (iv)  NONE OF THE ABOVE — shared keywords but wrong angle.
+  c. Reject anything that's just a shared keyword with no thematic link.
+
+STEP 4 — For every hit you classified (i), (ii), or (iii), write ONE line:
+  - [project-slug] [hook-type] — <the angle in 15 words max> — <URL>
+
+STEP 5 — Append those lines to
+channel-data/modern-relevance/YYYY-MM-DD.md under a new section
+"## Usable hooks (curated)". Keep the list ruthlessly short —
+it's better to have 0 curated hooks than 10 weak ones.
+
+STEP 6 — If any usable hook maps to a project that is within 7 days of
+its planned publish date (check channel-data/CONTENT-TIMELINE-2026.md),
+also create/append to
+  video-projects/_IN_PRODUCTION/<slug>/MODERN-RELEVANCE-QUEUE.md
+with the hit details. This is the only place you may write inside a
+project folder.
+
+STEP 7 — Commit:
+  git add channel-data/modern-relevance/
+  git add video-projects/_IN_PRODUCTION/*/MODERN-RELEVANCE-QUEUE.md || true
+  git commit -m "modern-relevance scan YYYY-MM-DD — N usable hooks"
+  git push
+
+STEP 8 — Stop. Do not touch scripts. Do not touch metadata. Do not
+touch research files.
+```
+
+---
+
+## Allowed tools (set in the Routines UI)
+- Bash (python, git)
+- Read
+- Write (curated section + MODERN-RELEVANCE-QUEUE.md only)
+- Grep / Glob
+
+## Guardrails
+- **Never** edit `01-VERIFIED-RESEARCH.md`, `02-SCRIPT-DRAFT.md`, or `YOUTUBE-METADATA.md`.
+- Only file that may be created/appended inside a project folder: `MODERN-RELEVANCE-QUEUE.md`.
+- If all hits are noise, write no curated section — commit only the raw report.
+
+## Tuning the signal
+- If a project is getting **too many** weak hits: narrow its entry in
+  `channel-data/news-sources.yaml` under `project_keyword_overrides`.
+- If a project is getting **zero** hits but should be finding stories:
+  either the keywords are too specific, or the feeds don't cover that domain.
+  Add a better feed to `news-sources.yaml`.
+- Known dead feeds as of 2026-04-17: Reuters World (DNS), AP Top News via
+  rsshub (403). Replace when you find alternatives.
+
+## Why this routine matters
+Modern-relevance beats every 90s correlate with retention. The bottleneck
+isn't awareness that we need them — it's having a current-event anchor at
+hand when writing. This routine builds a running queue so by the time
+`/script` runs, the material is already on the shelf.

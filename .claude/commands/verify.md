@@ -13,6 +13,7 @@ Fact-check scripts, extract claims from transcripts, or run simplification detec
 /verify                      # Interactive: fact-check current project
 /verify --script [project]   # Fact-check a script
 /verify --extract [file]     # Extract claims from transcript
+/verify --delta [project]    # Verify only NEW/CHANGED claims (not in verified research)
 /verify --simplify [project] # Run simplification detection only
 /verify --extract-nlm [file] # Extract citations from NotebookLM output
 /verify --translation [project] # Verify translated documents
@@ -23,6 +24,7 @@ Fact-check scripts, extract claims from transcripts, or run simplification detec
 | Flag | Purpose | Example |
 |------|---------|---------|
 | `--script` | Full fact-check verification | `/verify --script 19-flat-earth-medieval-2025` |
+| `--delta` | Verify only claims not in verified research | `/verify --delta 50-thermopylae-sources-2026` |
 | `--extract` | Extract claims from YouTube transcript | `/verify --extract transcript.vtt` |
 | `--simplify` | Simplification detection only | `/verify --simplify 19-flat-earth-medieval-2025` |
 | `--from-transcript` | Extract + fact-check workflow | `/verify --from-transcript video-url` |
@@ -170,6 +172,119 @@ Before approving for filming:
 `video-projects/[project]/03-FACT-CHECK-VERIFICATION.md`
 
 **Proactive suggestion:** "Fact-check complete. [APPROVED/X issues to fix]. Run `/prep` for filming preparation."
+
+---
+
+## DELTA VERIFICATION (`--delta`)
+
+Verify only NEW or CHANGED claims in a script — not blanket re-verification. Use after collaborative editing rounds where the user has added rough notes, rewritten sections, or integrated new material.
+
+### When to Use
+
+- After `/script --collaborate` rounds where user added unverified material
+- After any script revision that introduces new claims
+- When a script is mostly verified but sections were rewritten
+- **NOT for first-pass verification** — use `--script` for that
+
+### Process
+
+#### Step 1: Load Both Files
+
+Read from the project folder:
+- `02-SCRIPT-DRAFT.md` (current script)
+- `01-VERIFIED-RESEARCH.md` (verified claims database)
+
+#### Step 2: Diff — Three Categories
+
+Compare every factual claim in the script against verified research. Flag claims in three categories:
+
+**Category A — NEW CLAIMS (not in verified research)**
+Claims the user added that have no corresponding entry in 01-VERIFIED-RESEARCH.md. These are the highest risk — often from memory, blog posts, or rough notes.
+
+**Category B — CONTRADICTING CLAIMS**
+Claims that conflict with what's in verified research. Often from the user misremembering details (e.g., "god of love" when source says "primordial cosmic force").
+
+**Category C — SECONDARY WHERE PRIMARY EXISTS**
+Places where the script quotes a historian's summary, but the primary source they're summarizing is available in the notebook/verified research. The primary source may be more powerful.
+
+#### Step 3: Generate Delta Report
+
+```markdown
+# DELTA VERIFICATION: [Project Name]
+
+**Script:** 02-SCRIPT-DRAFT.md
+**Verified Research:** 01-VERIFIED-RESEARCH.md
+**Date:** [Today]
+**Claims checked:** [Total in script]
+**Already verified:** [Number matching verified research]
+**Flagged for review:** [Number]
+
+## CATEGORY A — NEW CLAIMS (Not in Verified Research)
+
+### Claim A1
+**Script says:** "[exact quote from script]"
+**Section:** [Act/section where it appears]
+**Status:** UNVERIFIED
+**Action:** Verify via NotebookLM or cut
+
+### Claim A2
+[...]
+
+## CATEGORY B — CONTRADICTIONS
+
+### Claim B1
+**Script says:** "[exact quote from script]"
+**Verified research says:** "[exact quote from 01-VERIFIED-RESEARCH.md]"
+**Source:** [Citation from verified research]
+**Action:** Fix script to match verified source
+
+## CATEGORY C — PRIMARY SOURCE AVAILABLE
+
+### Claim C1
+**Script says:** "[historian's summary]"
+**Primary source available:** "[exact quote from primary source in verified research]"
+**Citation:** [Primary source reference]
+**Action:** Consider replacing with primary source + interpretation
+
+## SUMMARY
+
+- Category A (new, unverified): [X] claims → verify or cut
+- Category B (contradictions): [X] claims → fix now
+- Category C (primary available): [X] claims → consider upgrading
+- Already verified: [X] claims → no action needed
+```
+
+#### Step 4: Targeted NotebookLM Queries
+
+For Category A claims only, run targeted NotebookLM queries — one query per unverified claim, not blanket re-verification. Use the project's existing notebook.
+
+```
+Verify this specific claim: "[claim text]"
+- Is this accurate according to uploaded sources?
+- Exact quote with page number if supported
+- If not supported, say so clearly
+```
+
+#### Step 5: Update Files
+
+- Fix Category B contradictions in the script immediately
+- For Category A: update 01-VERIFIED-RESEARCH.md with newly verified claims, or flag for cutting
+- For Category C: suggest primary source replacements (user decides)
+
+### Output Location
+
+Terminal summary + `DELTA-VERIFICATION.md` in project folder (not the full 03-FACT-CHECK report — that's for `--script`).
+
+### How It Differs from `--script`
+
+| | `--script` | `--delta` |
+|---|-----------|-----------|
+| **Scope** | Every claim in script | Only new/changed claims |
+| **When** | First verification pass | After collaborative editing |
+| **Simplification check** | Full 8-rule scan | No (assumes already done) |
+| **Output** | 03-FACT-CHECK-VERIFICATION.md | DELTA-VERIFICATION.md |
+| **NotebookLM queries** | Blanket verification | Targeted per-claim |
+| **Time** | Full session | Quick pass |
 
 ---
 

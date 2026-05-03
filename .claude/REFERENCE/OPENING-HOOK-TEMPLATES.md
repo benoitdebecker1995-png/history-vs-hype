@@ -148,6 +148,153 @@ That matters because "statistically impossible" is still circulating in 2025 pol
 
 ---
 
+### Quote Check Hook Template
+
+```
+[COLD FACT: 0:00-0:10]
+"[FAMOUS QUOTE]." [NUMBER] results on Google. Attributed to [PERSON]. [They never said this / They said something completely different / This quote was invented in YEAR].
+
+[MYTH: 0:10-0:20]
+[Politicians / motivational speakers / history teachers] use this quote to [WHAT THE QUOTE IS USED FOR].
+
+[CONTRADICTION: 0:20-0:40]
+So I [traced it back / searched their published works / checked the original source]...
+[B-ROLL: Show [EARLIEST PRINTED SOURCE or SEARCH RESULTS]]
+...and [WHAT THE TRAIL ACTUALLY SHOWS — misattribution origin, actual quote, or absence of evidence].
+
+[PAYOFF: 0:40-1:00]
+[WHY ACCURATE ATTRIBUTION MATTERS — what the real quote/real silence reveals]
+[PROMISE — "here's who actually said it and why it got attached to [PERSON]"]
+```
+
+**Example:**
+```
+"History is written by the victors." 4.2 million Google results. Attributed to Winston Churchill. He never said this.
+
+Politicians and commentators use this quote to dismiss inconvenient history as propaganda.
+
+So I searched Churchill's published works, speeches, and letters — all 15 million words...
+[B-ROLL: Show Churchill's Complete Works volumes]
+...and the phrase appears nowhere. The earliest traceable version is from 1948, attributed to no one.
+
+That matters because the real Churchill quotes about history are far more interesting — and far more uncomfortable. Here's who actually said it and why Churchill got the credit.
+```
+
+---
+
+### Truth Sandwich Hook Template (Single-Myth Debunks)
+
+**When to use:** Videos debunking ONE specific myth (not two-extremes format). Research shows myth-first framing can backfire — the myth becomes more familiar and detaches from the refutation in memory. Lead with truth instead.
+
+```
+[TRUTH: 0:00-0:10]
+[SPECIFIC EVIDENCE-BASED FACT — what actually happened, with number/date/source].
+
+[MYTH: 0:10-0:20]
+So why does [everyone / the popular version / your textbook] say [THE MYTH]?
+
+[ERROR: 0:20-0:40]
+Because [SPECIFIC MECHANISM — who got it wrong, when, how it spread]...
+[B-ROLL: Show [THE MOMENT OF ERROR — the textbook, the misquote, the mistranslation]]
+...and [HOW THE ERROR PROPAGATED to become "common knowledge"].
+
+[RESTATE TRUTH + PAYOFF: 0:40-1:00]
+The evidence is clear: [RESTATE TRUTH with additional specificity].
+[PROMISE — "and that changes how we should think about X"]
+```
+
+**Example:**
+```
+Napoleon was 5 foot 7 — average height for a Frenchman in 1800.
+
+So why does everyone think he was short?
+
+Because British cartoonist James Gillray drew him as tiny in 1803...
+[B-ROLL: Show the actual Gillray cartoon]
+...and 220 years of repetition turned a propaganda joke into a "fact."
+
+The evidence is clear: Napoleon was normal height. And that matters because it shows how wartime propaganda becomes permanent history.
+```
+
+**Key difference from Both-Extremes:** This template works when there's ONE myth to debunk, not two opposing positions. The viewer hears the truth FIRST, making the myth harder to remember in isolation.
+
+**Note:** Your Both-Extremes-Wrong format (Template 2) already avoids the myth-first trap by framing two positions and undermining both. Use Truth Sandwich for single-myth videos only.
+
+---
+
+## TEMPLATE 7: Standard Myth Then Contradict (NEW — 2026-03-20)
+
+**Best for:** Myth-busting, ideological topics, correcting popular narratives
+**Source:** 11/15 top-performing competitor videos use this pattern (Knowing Better, Shaun, Three Arrows)
+**Key difference from Template 2 (Both Extremes Wrong):** Template 2 frames TWO positions and undermines both. Template 7 tells ONE dominant myth in FULL, as if it were true, then dismantles it. Use Template 7 when there's a single mainstream narrative to correct.
+
+```
+[HOOK: 0:00-1:00 — Rule 19 four-beat structure as normal]
+
+[STANDARD STORY: 1:00-2:30]
+<!-- STANDARD MYTH NARRATION: 60-120s of wrong version -->
+
+Here's the version most people know.
+
+[Tell the standard/popular version of events as if it were correct.
+Make it compelling — use the phrases people actually use.
+"The story goes that..." / "Everyone learns that..." / "The standard version is..."]
+
+[Include 3-4 specific claims that the standard version makes.
+Each claim is something you'll later dismantle with evidence.]
+
+[Make it sound plausible. The viewer should nod along —
+this is what they were taught, and it makes sense on the surface.]
+
+[THE TURN: 2:30-3:00]
+<!-- TURN MOMENT -->
+
+[Single moment where the standard story breaks.
+Options:]
+  - Shaun pattern: Quote a primary source that directly contradicts
+    "But then I found what [Authority Figure] actually said..."
+  - Knowing Better pattern: Progressive rejection
+    "[Common answer]?" / "Wrong." / "[Better answer]?" / "Still wrong."
+  - Three Arrows pattern: Identify the misattribution
+    "The actual author of this quote was [person], who [context]..."
+
+[DISMANTLING: 3:00+]
+
+[Now systematically dismantle each claim from the Standard Story,
+using evidence, primary sources, and academic citations.]
+```
+
+**Example (Flat Earth — based on actual HvH content):**
+```
+[Hook — standard four-beat]
+In 1492, every university in Europe taught that the earth was round.
+Most people think Columbus proved the earth wasn't flat.
+So I read what Columbus actually argued about — and it wasn't the shape.
+And that distinction matters because the flat earth myth is still shaping education today.
+
+[Standard Story]
+Here's the version most people learned in school.
+
+It's 1492. Columbus goes to Queen Isabella. He says the earth is round.
+The monks and scholars laugh at him. "The earth is flat!" they say.
+Columbus sails anyway, proves them all wrong, and science triumphs over ignorance.
+
+It's a great story. It's in textbooks. It's in movies.
+
+[Turn]
+There's just one problem. It was invented by a novelist in 1828.
+
+[Dismantling continues with Washington Irving, Draper, White...]
+```
+
+**When to use vs. other templates:**
+- **Template 7 (this):** One dominant myth to correct. Tell it, then break it.
+- **Template 2 (Both Extremes):** Two opposing positions, both wrong. Show the middle.
+- **Template 6 (Everyone Gets This Wrong):** Quick myth correction, no extended narration.
+- **Truth Sandwich:** When myth-first framing could backfire (very high identity stake).
+
+---
+
 ## Retention Trigger Checklist (Apply to Every Hook)
 
 Before finalizing any hook, verify all three triggers are present:

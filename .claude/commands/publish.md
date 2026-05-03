@@ -20,6 +20,8 @@ Generate YouTube metadata, test titles, or identify clip-worthy moments. Everyth
 /publish --synthesize [project]  # Re-run synthesis on existing intake data
 ```
 
+**Post-publish step:** After upload, fix auto-transcription errors with `/fix [project]` (single-purpose subtitle correction). Treat `/fix` as the documented next step in the publish flow — don't drop into a generic Claude conversation for it.
+
 ## Flags
 
 | Flag | Purpose | Example |
@@ -94,10 +96,10 @@ Algorithm: CTR weight is "high" — thumbnail/title alignment critical.
 
 ### Gate 1: Title Score Gate (HARD BLOCK)
 
-**Run BEFORE finalizing any title candidates.** Every title option must pass `title_scorer.py`.
+**Run BEFORE finalizing any title candidates.** Every title option must pass `title_scorer.py` AND `outlier_title_dissector.py`.
 
 ```python
-import sys
+import sys, subprocess
 sys.path.insert(0, '.')
 from tools.title_scorer import score_title
 
@@ -108,6 +110,14 @@ for t in candidates:
     if result.get('penalties'):
         for p in result['penalties']:
             print(f"    PENALTY: {p}")
+
+# Also run outlier pattern check for niche-validated signals
+for t in candidates:
+    r = subprocess.run(
+        ['python', '-m', 'tools.benchmark.outlier_title_dissector', '--score', t],
+        capture_output=True, text=True
+    )
+    print(r.stdout)
 ```
 
 **Rules:**
@@ -206,24 +216,45 @@ else:
 
 #### 2. Description
 
-**First 3 Lines (Frontload Keywords):**
-- Line 1: Primary keyword + video format
-- Line 2: Specific event/topic with keywords
-- Line 3: Method/sources used
+> **Niche-benchmarked formula** (150 descriptions, 14 channels — see `METADATA-CHECKLIST.md` for full checklist):
 
-**Rest of Description:**
-- Structured breakdown with timestamps
-- ALL sources cited with specific references
-- Academic sources, primary documents
-- Natural language (NOT keyword stuffing)
-- CTA for subscription
+**Follow this structure exactly:**
 
-**Example opening:**
 ```
-A primary-source fact-check of viral claims that the Crusades were "awesome."
-Using only what crusaders themselves wrote about the 1099 siege of Jerusalem.
-We read the medieval chronicles (Fulcher of Chartres, Raymond d'Aguilers) to see what really happened.
+LINE 1: Thesis statement or strongest specific claim (shows in search results)
+LINE 2: What this video examines / unique angle (second search-visible line)
+
+2-4 sentence summary with main keyword 2-3x.
+
+TIMESTAMPS (scale to video length: 5-7 for <10min, 7-10 for 10-20min, 10-15 for 20+min)
+0:00 - [Chapter]
+X:XX - [Chapter]
+
+SOURCES
+[Academic citations: author, title, publisher, year, pages]
+
+Subscribe for evidence-based history analysis.
+
+#Hashtag1 #Hashtag2 #Hashtag3
 ```
+
+**Key rules:**
+- **First line = thesis/hook, NOT generic topic.** "In 1494, the Pope drew a line..." beats "This video covers the Treaty of Tordesillas." (Fall of Civilizations leads with evocative hooks even in descriptions — 38M views on top video)
+- **Subscribe CTA = mandatory.** 94% of niche includes one. We only have 44%. Close this gap.
+- **Hashtags at END only.** YouTube shows first 3 hashtags above title if placed in first lines.
+- **Sources = competitive advantage.** We cite in 73% vs 43% niche avg. Keep this.
+- **Timestamps = keep doing.** We include in 84% vs 29% niche. Sets us apart.
+- **No links in first 2 lines.** Kraut/CaspianReport waste first lines on sponsor links. Don't do this.
+- **Target 1,000-2,000 chars** (niche avg: 2,030. Ours: 2,011. On target.)
+- **Run description keyword gap filler** for missing high-value search terms:
+  ```python
+  import subprocess
+  result = subprocess.run(
+      ['python', '-m', 'tools.youtube_analytics.description_gap_filler', '--project', project_slug],
+      capture_output=True, text=True
+  )
+  # Shows search terms bringing traffic but missing from description
+  ```
 
 #### 3. Timestamps
 
@@ -243,6 +274,22 @@ We read the medieval chronicles (Fulcher of Chartres, Raymond d'Aguilers) to see
 Thumbnail concepts are now **auto-generated** from script content via `MetadataGenerator._generate_thumbnail_concepts()`.
 
 **Each concept is validated** with a ✅/⚠️ badge (score/100) from `thumbnail_checker.py`. A PASS badge confirms the concept follows PACKAGING_MANDATE rules (map/geographic signal, no face, no text overlay).
+
+**Bridge analysis is MANDATORY.** After generating concepts, read the script hook (first 30 seconds) and run the bridge test from `THUMBNAIL-EVALUATION-FRAMEWORK.md` Tier 5. Each concept must be paired with a specific title and checked against the hook. Priority is determined by bridge tightness, not individual thumbnail score.
+
+**Output format — title/thumbnail pairings (not standalone concepts):**
+
+```
+### Pairing 1: [Name] (PRIMARY — tightest bridge)
+**Thumbnail:** [Visual + overlay]
+**Title:** [Exact title]
+**Score:** [N/100]
+**Bridge:** TIGHT — [overlay] delivered in hook at [timestamp]
+**The Handoff:** [How thumbnail → title → hook connects for the viewer]
+
+### Pairing 2: [Name] (Rotation)
+...
+```
 
 **To override topic type for pattern selection:**
 ```
@@ -269,13 +316,13 @@ The metadata bundle now includes an automatic coherence check in the title table
 
 **Title table coherence column:**
 
-| # | Title | Score | Grade | Pattern | Coherence |
-|---|-------|-------|-------|---------|-----------|
-| 1 | Spain vs Portugal | 78 | B+ | versus | 3/3 ✅ |
-| 2 | How Two Countries... | 71 | B | how_why | 2/3 ⚠️ |
-| 3 | The Pope Drew... | 68 | B- | declarative | 1/3 ❌ |
+| # | Title | Score | Grade | Pattern | Coherence | Bridge |
+|---|-------|-------|-------|---------|-----------|--------|
+| 1 | Spain vs Portugal | 78 | B+ | versus | 3/3 ✅ | TIGHT |
+| 2 | How Two Countries... | 71 | B | how_why | 2/3 ⚠️ | GAP |
+| 3 | The Pope Drew... | 68 | B- | declarative | 1/3 ❌ | ADEQUATE |
 
-**Ranking impact:** Annotation only — coherence does NOT influence title ranking order.
+**Ranking impact:** Bridge verdict IS a ranking factor — TIGHT bridge titles are preferred over higher-scoring titles with a GAP. Entity coherence remains annotation only.
 
 ### Output Location
 
@@ -376,10 +423,28 @@ Format: "Did [X] Really [Y]?"
 3. Compare scores (70+ good, 80+ excellent)
 4. Pick winner balancing search volume + competition
 
-## TITLE + THUMBNAIL ALIGNMENT
+## TITLE + THUMBNAIL BRIDGE ANALYSIS
 
-**Title implies:** [What viewer expects]
-**Thumbnail must show:** [Visual that matches]
+For each title/thumbnail pairing, trace the full viewer pipeline:
+
+```
+PAIRING [N]: [Concept Name]
+  THUMBNAIL: [Visual description + overlay text]
+  TITLE: [Exact title]
+  HOOK (first 15s): [What the viewer hears — quote from script]
+  BRIDGE: TIGHT / ADEQUATE / GAP
+  HANDOFF: [1-2 sentences explaining how thumbnail → title → hook connects]
+```
+
+**Bridge verdicts:**
+- **TIGHT:** Thumbnail overlay appears in hook within 15 seconds
+- **ADEQUATE:** Connection within 30 seconds
+- **GAP:** Thumbnail visual connects to minute 2+ but not hook
+- **NONE:** No connection — reject
+
+**Priority rule:** TIGHT bridge > higher scorer score. A seamless pipeline retains viewers after the click.
+
+**Always generate 3 pairings** (each thumbnail matched to its best title) for YouTube native A/B rotation.
 ```
 
 ---
@@ -579,13 +644,15 @@ result = synthesize(project_path, script_path)
 
 ### Output: METADATA-SYNTHESIS.md
 
-3 title+thumbnail pairings designed for A/B testing:
+3 title+thumbnail pairings designed for A/B testing, each with bridge analysis:
 
-| Variant | Test Hypothesis | Optimized For |
-|---------|-----------------|---------------|
-| A: Keyword-Optimized | Search discoverability | VidIQ keyword data |
-| B: Curiosity Gap | Click-through intrigue | Gemini creative angles |
-| C: Authority Angle | Intellectual credibility | Script entities + evidence |
+| Variant | Test Hypothesis | Optimized For | Bridge |
+|---------|-----------------|---------------|--------|
+| A: Keyword-Optimized | Search discoverability | VidIQ keyword data | Check vs hook |
+| B: Curiosity Gap | Click-through intrigue | Gemini creative angles | Check vs hook |
+| C: Authority Angle | Intellectual credibility | Script entities + evidence | Check vs hook |
+
+**Each pairing must include:** thumbnail concept, paired title, hook excerpt, bridge verdict, and handoff description. Priority ordered by bridge tightness, not variant label.
 
 Plus: one optimized description, one tag set, moderation scoring, thumbnail blueprints.
 
@@ -623,12 +690,63 @@ Plus: one optimized description, one tag set, moderation scoring, thumbnail blue
 
 ---
 
+## POST-PUBLISH: Community Distribution Checklist (New — 2026-03-29)
+
+**After uploading to YouTube, distribute to earned channels for search-to-browse conversion.**
+
+Your content has academic citations and primary source analysis — it meets the quality bar for communities that reject typical YouTube history content. This is a free traffic source targeting the "Correctionist" audience segment (2.31% sub conversion).
+
+### Distribution Template
+
+After each publish, post to **2-3 relevant communities** using the document/evidence as the value proposition (NOT "watch my video"):
+
+**Reddit (Primary — frame as contribution, not promotion):**
+
+| Subreddit | When to Post | Framing |
+|-----------|--------------|---------|
+| r/AskHistorians | Untranslated/document topics | "I translated [document] that's never been in English. Here's what it says." + link |
+| r/badhistory | Myth-busting/fact-check topics | "[Common myth] is wrong. Here's the primary source evidence." + summary + link |
+| r/history | Any well-researched topic | Brief summary of the most surprising finding + link |
+| r/geopolitics | Territorial disputes | Evidence-based analysis of [dispute] + link |
+| r/MapPorn | Any video with map content | Map image from video + context in comment |
+| **Topic-specific subs** | Country/region topics | e.g., r/Nigeria for Bakassi, r/Philippines for Sabah |
+
+**Format for Reddit posts:**
+```
+Title: [Surprising finding from the video — NOT the YouTube title]
+Body: [2-3 paragraph summary of the key evidence/finding]
+       [Link to video at the END, framed as "full analysis here"]
+```
+
+**Key rules:**
+- NEVER post just a link — provide substantive content in the post itself
+- Frame as "I found/translated/read [source]" not "I made a video about"
+- The DOCUMENT or FINDING is the value, not the video
+- Wait 24h after YouTube publish (gives algorithm time to index)
+- Max 2-3 subreddits per video — don't spam
+
+**Newsletter cross-post (if article exists):**
+- Publish Substack article within 48h of YouTube upload
+- Add YouTube embed at the top of the article
+- Substack Notes with the most surprising quote + link
+
+**Add to YOUTUBE-METADATA.md:**
+```
+## Distribution Plan
+- Reddit: [subreddit 1] — [framing angle]
+- Reddit: [subreddit 2] — [framing angle]
+- Newsletter: [article ready? Y/N]
+- Topic-specific: [community if applicable]
+```
+
+---
+
 ## Reference Files
 
 - **Thumbnail framework:** `.claude/REFERENCE/THUMBNAIL-EVALUATION-FRAMEWORK.md`
 - **VidIQ filter:** `.claude/REFERENCE/VIDIQ-CHANNEL-DNA-FILTER.md`
 - **Title database:** `channel-data/COMPETITOR-TITLE-DATABASE.md`
-- **Technique library:** `.claude/REFERENCE/PROVEN-TECHNIQUES-LIBRARY.md`
+- **Technique library:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` PART 5 (Techniques Toolkit)
 - **Technique log:** `channel-data/TECHNIQUE-USAGE-LOG.md`
 - **Metadata checker:** `tools/discovery/metadata_checker.py`
 - **Prompt generator:** `tools/production/prompt_generator.py`
@@ -644,7 +762,7 @@ Plus: one optimized description, one tag set, moderation scoring, thumbnail blue
 ### Evaluate Technique Effectiveness
 
 1. **What techniques did you use?**
-   - List techniques from PROVEN-TECHNIQUES-LIBRARY.md used in this video
+   - List techniques from WRITING-VOICE-AND-STYLE.md PART 5 used in this video
    - Note which script sections used which techniques
 
 2. **How did they perform?**
@@ -657,7 +775,7 @@ Plus: one optimized description, one tag set, moderation scoring, thumbnail blue
    - Include: date, video slug, technique, section, retention %, rating, notes
 
 4. **Update the library (optional):**
-   - If technique worked well, update "Effectiveness" in PROVEN-TECHNIQUES-LIBRARY.md
+   - If technique worked well, update "Effectiveness" in WRITING-VOICE-AND-STYLE.md PART 5
    - If technique failed, note why in the library entry
 
 > **Proactive:** "It's been [X] days since [video] published. Ready to evaluate technique effectiveness? I can help you log which techniques worked."

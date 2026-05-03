@@ -42,6 +42,7 @@ The `/next` command analyzes your ANALYZED keywords and recommends NEW topics by
 |------|-------------|---------|
 | `--limit N` | Number of recommendations | 5 |
 | `--topic-type TYPE` | Filter by topic (territorial, ideological, etc.) | None |
+| `--timely` | Scan pipeline topics for fresh news hooks | false |
 | `--json` | Output machine-readable JSON | false |
 | `--save PATH` | Save markdown report to file | None |
 | `--refresh` | Force refresh patterns (reserved) | false |
@@ -158,6 +159,113 @@ COMPETITOR GAPS — uncovered topic-angle combinations
 
 If the gap analyzer module is unavailable (import error), skip silently.
 
+---
+
+## TIMELY SCAN (`--timely`)
+
+Scan all pipeline topics for fresh news hooks to help decide filming order.
+
+### What It Does
+
+1. **Loads pipeline topics** from `video-projects/_IN_PRODUCTION/` (excludes published projects)
+2. **WebSearches each topic** for 2025-2026 news developments
+3. **Ranks by urgency** — topics with active news get priority boost
+4. **Outputs a timeliness report** with URGENT / TIMELY / EVERGREEN categories
+
+### How To Run
+
+```bash
+/next --timely          # Full scan of all pipeline topics
+/next --timely --top 5  # Only show top 5 most timely
+```
+
+### Step 1: Get Pipeline Topics
+
+```python
+import sys
+sys.path.insert(0, '.')
+from tools.discovery.news_scanner import get_pipeline_topics
+topics = get_pipeline_topics('video-projects/_IN_PRODUCTION')
+```
+
+This returns a list of dicts with: `slug`, `topic`, `folder_path`, `status`, `has_script`
+
+### Step 2: WebSearch Each Topic
+
+For each topic, run **two WebSearches**:
+
+1. `"[topic]" 2025 OR 2026 news`
+2. `"[topic]" ruling OR treaty OR dispute OR decision 2026`
+
+**Important:** Run searches in parallel where possible (batch 3-4 at a time). Don't search one-by-one.
+
+**Extract from each result:** headline, date, source, one-line summary. Only keep results from 2025-2026. Ignore results older than 18 months.
+
+### Step 3: Classify Results
+
+For each topic, classify:
+- **URGENT (2+ fresh hooks):** Active news in past 3 months. Film soon to ride the wave.
+- **TIMELY (1 hook):** Something recent but not breaking. Good timing window.
+- **EVERGREEN (0 hooks):** No recent news. Film anytime — scheduling flexibility.
+
+### Step 4: Generate Report
+
+```python
+from tools.discovery.news_scanner import format_report
+report = format_report(results)
+```
+
+Display the report to the user. Highlight the top recommendation:
+
+> **Filming priority suggestion:** [Topic X] has [N] fresh news hooks. Consider filming before [Topic Y] which is evergreen.
+
+### Step 5: Offer Next Actions
+
+```
+What next?
+A) Start research on the most timely topic: /research --new "[topic]"
+B) Generate a brief for it: /research --brief "[topic]"
+C) See full recommendations (keyword-based): /next
+```
+
+### Example Output
+
+```
+# News Hook Scanner — Pipeline Timeliness Report
+
+**Scanned:** 22 pipeline topics
+
+---
+
+## URGENT — Multiple Fresh News Hooks
+
+### Greenland Independence (33-greenland-independence-2026)
+**Status:** RESEARCHING | **Hooks found:** 3
+
+- **2026-02-15:** Trump renews Greenland purchase rhetoric (Reuters)
+- **2026-01-28:** Greenland PM calls snap election on independence platform (BBC)
+- **2025-12-03:** Denmark increases Greenland defense spending by 40% (Guardian)
+
+**Filming priority boost:** This topic has active news. Consider prioritizing.
+
+---
+
+## TIMELY — One Recent Hook
+
+**Panama Canal DeConcini** (36-panama-canal-deconcini-2026) — RESEARCHING
+  - Trump threatens Panama Canal sovereignty (2026-01-10)
+
+---
+
+## EVERGREEN — No Recent News (film anytime)
+
+- Library Alexandria (15-library-alexandria-2025)
+- Pyramid Builders Merer (16-pyramid-builders-merer-2025)
+- Treaty Tordesillas (41-treaty-tordesillas-2026)
+```
+
+---
+
 ## Integration with Workflow
 
 After `/next`, typical workflow:
@@ -171,7 +279,8 @@ After `/next`, typical workflow:
 
 | Command | Purpose |
 |---------|---------|
-| `/discover --opportunity "topic"` | Re-analyze specific topic |
+| `/greenlight "topic"` | Validate a specific topic for viability |
+| `/patterns --score "topic title"` | Score a topic idea 0-100 |
 | `/patterns` | View winning patterns used for scoring |
 | `/status` | See current project state |
 

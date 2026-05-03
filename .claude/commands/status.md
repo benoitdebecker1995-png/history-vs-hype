@@ -244,8 +244,66 @@ Example:
 
 ---
 
+## PUBLISHED VIDEO MONITOR (Auto-run in Dashboard Mode)
+
+**After displaying the project dashboard, ALWAYS run the published video monitor.**
+
+This checks for videos that need post-publish attention. It prevents the "publish and forget" pattern that kills views.
+
+### Step 1: Check for Recent Publishes
+
+Read `video-projects/PROJECT_STATUS.md` and identify all videos with status PUBLISHED. For each, check the published date.
+
+### Step 2: Flag Videos Needing Attention
+
+Display a **PUBLISHED VIDEO MONITOR** section after the dashboard:
+
+```
+--- PUBLISHED VIDEO MONITOR ---
+
+SWAP CHECK (48h+):
+  ! Vichy Statut des Juifs — published 2026-03-05 (8 days ago) — CHECK CTR IN YOUTUBE STUDIO
+  ! Bermeja Island — title swapped 2026-03-05 (8 days ago) — CHECK POST-SWAP CTR
+
+RETITLE CANDIDATES (high impressions, low CTR):
+  ! Dark Ages — 7,237 imp, 1.11% CTR → 172 wasted clicks. SWAP TITLE + THUMBNAIL
+  ! Tariff Myth — 6,055 imp, 1.01% CTR → 150 wasted clicks. SWAP TITLE + THUMBNAIL
+  ! Stalin — 5,538 imp, 1.55% CTR → 107 wasted clicks. SWAP TITLE + THUMBNAIL
+
+Run `python -m tools.retitle_audit` for full report.
+See `channel-data/THUMBNAIL-REFRESH-PLAN-2026-03.md` for swap plan.
+
+NEWS HOOKS (timely opportunities):
+  Run `python -m tools.discovery.news_hook_monitor --scan` for current alerts.
+---
+```
+
+### Step 3: Generate Monitor Data
+
+Run the retitle audit tool to get the top retitle candidates:
+
+```python
+import sys
+sys.path.insert(0, '.')
+from tools.retitle_audit import audit
+results = audit(min_impressions=1000, top_n=3)
+for r in results:
+    print(f"  ! {r['title']} — {r['impressions']:,} imp, {r['ctr']:.2f}% CTR → {r['wasted_impressions']} wasted clicks. {r['diagnosis']}")
+```
+
+### Rules:
+- ALWAYS show the monitor in dashboard mode — never skip it
+- Flag any video published in the last 7 days that hasn't had a 48h CTR check
+- Flag any video with CTR < 2% and > 1,000 impressions as a retitle candidate
+- If a THUMBNAIL-REFRESH-PLAN exists, mention it and how many swaps remain unchecked
+
+---
+
 ## Reference Files
 
 - **Project lifecycle folders:** `video-projects/_IN_PRODUCTION/`, `_READY_TO_FILM/`, `_ARCHIVED/`
 - **Standard files:** 01-VERIFIED-RESEARCH.md, SCRIPT.md, 03-FACT-CHECK-VERIFICATION.md
 - **Help command:** `/help` for full command menu
+- **Retitle audit:** `python -m tools.retitle_audit` — wasted impressions report
+- **Thumbnail refresh plan:** `channel-data/THUMBNAIL-REFRESH-PLAN-2026-03.md`
+- **Swap protocol:** `tools/SWAP-PROTOCOL.md`

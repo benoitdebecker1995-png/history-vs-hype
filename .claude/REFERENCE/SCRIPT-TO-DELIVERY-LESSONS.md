@@ -417,6 +417,217 @@ Based on comprehensive analysis, write scripts as:
 
 ---
 
+## Lessons from Tripoli (Article 11) — 2026-04-27
+
+**Source:** Project 51 (Treaty of Tripoli, Article 11). SCRIPT-DRAFT v5-FINAL vs `tripoli, rough cut, instincts.srt`. The user recorded the full script and made 7 distinct on-the-fly revisions, plus surfaced one larger structural omission post-recording.
+
+### 25. Add the Causal Chain the Script Stripped Out for Word Count
+
+**Script wrote:**
+> "American merchant ships were being seized. Their crews were being held for ransom. The United States needed a treaty."
+
+**Delivered:**
+> "When America declared independence in 1776, it lost the protection of the British Navy. Almost immediately, the corsairs of North Africa pounced. American merchant ships were being seized. Their crews were being held for ransom. Without a big navy to its name, the New Republic's only defense was diplomacy. So in 1796, American agents negotiated a peace agreement."
+
+**Rule:** When trimming for runtime, never trim CAUSATION first. Trim DETAILS (vote counts, citations, restatements). The user will spontaneously add the cause-effect chain back during recording — better to bake it into v1 even at +10 seconds. Matches CLAUDE.md "Deep causal chains."
+
+---
+
+### 26. Drop the Verbal Chekhov's Gun — Visual Carries It
+
+**Script wrote:**
+> "The Arabic original of that same treaty was held, for over a century, in the State Department file. It looks like this. We'll come back to it."
+
+**Delivered:**
+> "The Arabic original of that same treaty was held for over a century in the State Department file. Here's the most famous article of that treaty, article 11."
+
+**Rule:** When the artifact will return on screen later, the visual itself is the Chekhov's gun. "We'll come back to it" announces the trick — reads as influencer scaffolding for Calm Prosecutor voice. Show artifact + caption, hold silence, move on. Codified as Rule 32F.2b in script-writer-v2.
+
+---
+
+### 27. Don't Deploy Staccato as Decoration
+
+**Script wrote:**
+> "The Arabic version of the treaty does not contain Article 11. Not mistranslated. Not paraphrased. Missing."
+
+**Delivered:**
+> "The Arabic version of the treaty does not contain article 11. It was not mistranslated or paraphrased. The Arabic texts simply didn't contain the article."
+
+**Rule:** Reserve staccato for the moments where stakes are at peak — the reveal itself, a turn, a closing line. On supporting beats it sounds forced when spoken. The script-writer over-uses staccato as a tic.
+
+---
+
+### 28. Drop Self-Aware Tags ("In Other Words" / "Essentially")
+
+**Script wrote:**
+> "It is, in other words, the wrong document."
+> "That is, essentially, the entirety of it."
+
+**Delivered:** Both sentences cut. Trust the audience to draw the conclusion.
+
+**Rule:** Audit script v1 for "in other words," "essentially," "basically," "to put it simply." If the next clause restates what was just said, cut the whole sentence. The original line stands alone. (Reinforces Rule 7's existing hedge-word cut.)
+
+---
+
+### 29. Drop Verbal Source Citations — On-Screen Overlay Carries It
+
+**Script wrote:**
+> "Per Sam Haselby, on page 109 of his 2015 Oxford monograph: Article 11 was the breaking point. Dwight rejected Barlow's radicalism, translated his own replacement Psalms, and took Barlow's portrait down at Yale."
+
+**Delivered:**
+> "Disgusted by his former protege's radical turn, Dwight publicly denounced him and ordered Barlow's portrait stripped from the walls of the university."
+
+**Rule:** Citations live in the on-screen overlay. The voiceover narrates the *story*. Reciting "page 109 of his 2015 Oxford monograph" sounds like academic posturing. Saves 5–8 seconds per video.
+
+**Exception:** When the historian's act of finding the document IS the story (Hurgronje examining the original, Hunter Miller flagging the gap). There the historian belongs in the voiceover.
+
+---
+
+### 30. Drop Numerical Specifics That Don't Pay Off in Argument
+
+**Script wrote:**
+> "The Senate voted yes. Twenty-three senators. None against. The Senate Journal records it on page 244."
+
+**Delivered:**
+> "The Senate voted yes. The Senate Journal records it on page 244."
+
+**Rule:** Keep numbers that anchor primary-source evidence (page 371, page 244, June 7, 1797). Cut decoration numbers (vote counts that don't carry weight, populations cited once and never again). Calm Prosecutor uses numbers as exhibits, not flair.
+
+---
+
+### 31. Document-Anchored Close, Not Abstract Close
+
+**Script wrote:**
+> "Both sides of the modern fight read themselves into a 1797 document that nobody at the time even debated — and the signers only half-understood. The fight is real. It just isn't from 1797."
+
+**Delivered:**
+> "Today this English text is wielded as the ultimate weapon in a modern culture war. But the Arabic original, it's just a mundane letter between two politicians."
+
+**Rule:** For document-first format videos, the closing line should refer to a specific named artifact shown in the video — not the abstraction. Test: can you point at the screen during the closing line? If yes, the close is anchored.
+
+---
+
+### 32. The Walk-Away Test (Tripoli's Largest Structural Gap)
+
+**What was missing from the Tripoli video:** an articulable single-sentence thesis the audience could carry away. The video chains evidence beautifully (treaty signed → Article 11 ratified → Arabic missing → Hurgronje → Cobbett + Dwight → 133-year silence → Crane re-read) but ends without crystallizing a takeaway. Crane's "wielded by both sides" line is an *observation*, not a *thesis*. The viewer learns a thing; they don't carry an idea.
+
+**The user surfaced this post-recording, before edit lock.** It's not a script-to-delivery drift; it's a planning gap upstream of the script.
+
+**The fix — codified as Rule 36 in script-writer-v2.md:**
+
+Before any script is written, the script-writer must answer:
+
+> "After watching this, the viewer should think: ___________." (≤12 words)
+
+The answer must be:
+- A claim, not a summary
+- Bigger than the case study
+- Falsifiable in principle
+
+Five thesis types map to common HvH topics:
+- **Power-asymmetry:** "What gets ratified is what the powerful side can read." (Tripoli candidate)
+- **Time-shifted meaning:** "What we 'always believed' the founders said is what later generations needed them to have said." (also Tripoli)
+- **System-as-designed:** "The thing you call a flaw is the thing the system was built to do." (Bakassi)
+- **Mechanism-over-narrative:** "Politics argues with documents. The documents don't argue back." (Untranslated Evidence default)
+- **Invisible-until-named:** "The most important things in history are what nobody noticed."
+
+The thesis must touch three slots in the script: **hook** (tee up via promise of investigation, don't state), **turn or 2nd hook** (felt via strongest evidence), **close** (landed in ≤12 words, anchored to the artifact per Lesson 31).
+
+**Rule:** Run the Walk-Away Test BEFORE Checkpoint 1 (hook draft). If the script-writer can't articulate the thesis in 12 words, the topic is not yet ready for scripting — it's still research.
+
+---
+
+## Pre-Filming Checklist — Tripoli additions
+
+**From Tripoli rough cut:**
+- [ ] Causal chains intact (don't trim cause-and-effect for word count)
+- [ ] Verbal Chekhov's guns ("we'll come back to it") replaced with visual setup + caption
+- [ ] Staccato deployed only at reveals/turns/closes — not on supporting beats
+- [ ] No self-aware tags ("in other words," "essentially," "to put it simply")
+- [ ] Citations in B-roll directions, not voiceover (except when finding-the-doc IS the story)
+- [ ] Numerical specifics earn their seconds (anchor primary-source evidence, not decoration)
+- [ ] Closing line points at a named artifact (document-first format)
+
+**From Tripoli planning gap (Rule 36):**
+- [ ] Walk-Away Test passed BEFORE Checkpoint 1: thesis statable in ≤12 words
+- [ ] Thesis type declared in metadata (one of 5)
+- [ ] Hook tees up thesis as investigation, doesn't state it
+- [ ] Turn or 2nd hook makes thesis *felt* via strongest evidence
+- [ ] Close lands thesis in ≤12 words, anchored to the artifact
+
+---
+
+## Observations from Manhattan Purchase Myth — 2026-05-01
+
+**Source:** Project 45. `SCRIPT.md` v-final (2026-04-30) vs `rough first cut.srt` (2026-05-01, post-edit). Forensic / document-first format. ~10 min final cut. User kept ~70% verbatim/near-verbatim, then made 9 distinct on-the-fly revisions. 4 reinforce Iran/Tripoli patterns (1, 6, 25, 26). 5 are new — captured below as **ideas to try**, not rules to enforce. n=1, may be Manhattan-specific. Watch for repeats before generalizing.
+
+### Idea 33. The "Standard Myth Narration" act may be skippable when the myth is famous
+
+**Script (1:00–2:00, ~140 words):** straight myth recitation — "Here's how the story goes. 1626. Peter Minuit steps ashore. He hands them beads. Total cost: twenty-four dollars..." designed to set up the Turn at 2:00.
+
+**Delivered:** entirely cut. Hook went directly to archive-destruction context → first dismantling.
+
+**Hypothesis:** for myths famous enough that the audience pre-loads them (Manhattan, Black Legend, JFK), reciting feels like stalling. Could try: hook → Turn → dismantling, no separate myth-narration act. Counter-test: maybe the act is what makes the dismantling LAND for non-pre-loaded viewers — cutting it could lose them.
+
+---
+
+### Idea 34. Bolted-on Modern Relevance can read as a tangent in forensic format
+
+**Script (8:30–9:30, ~250 words, fully sourced):** 2026 NYC anniversary catalog — "Founded by NYC" rebranding, Lenape Heritage Day, MCNY exhibit, Madison Square Park sentinels, Joe Baker quote, Smithsonian on the transaction site.
+
+**Delivered:** entirely cut. Closing went motive section → Belgian/South America perspective → parallel close.
+
+**Hypothesis:** for forensic / document-first format, current-events catalogs may break flow if not causally tied to the thesis. The Belgian/Congo perspective survived because it generalized the *mechanism* (manufactured civilizing myths). The NYC anniversary catalog didn't. Note: this contradicts CLAUDE.md's "modern relevance every 90s" mandate — but that mandate is from Iran-era talking-head format. May be format-dependent. Worth watching the next 2–3 forensic videos to see if the cut repeats.
+
+---
+
+### Idea 35. Delegated verbatim quotes >30 words may not survive recording
+
+**Script (Hitakonanu'laxk steelman, ~60 words verbatim):** "Land to us was like the air, sunlight and water, something that was necessary for our survival, for our very lives. Our thought was that we were giving the whites some land to live on for a while. We saw it as sharing with them, and did not consider giving them the use of the land permanently."
+
+**Delivered (paraphrased to ~25 words):** "Delenape elder Hittakonach Neulachsk stated that the land was like air or sunlight. It was necessary for survival. It could not be permanently sold away from the community."
+
+**Hypothesis:** ~30-word break point may be roughly where reading-aloud feels like ceding the mic too long. Tripoli's Crane closing (~20 words) survived; Manhattan's longer one didn't. Could try: VO punchline (1–2 strongest sentences) + on-screen text overlay with the full quote — audience reads nuance, VO carries punchline. n=2; weak signal.
+
+---
+
+### Idea 36. Mechanism vocabulary keeps appearing on the fly
+
+**User added during recording (NOT in script):**
+- "complete mechanical failure of legal systems"
+- "tactical engineers of a new civic identity"
+- "mechanism of erasure is almost exactly the same"
+- "mechanical misunderstandings and missing records"
+
+**Hypothesis:** channel DNA is HOW > WHY. Script wrote *consequence* ("two legal systems collided"); user instinctively named the *mechanism* during delivery. Could try: pre-load mechanism nouns at the Turn / cause section / motive section in v1 — *mechanical failure, tactical engineers, mechanism of erasure, structural collision, retrofitting, manufactured, fabricated, engineered, projected backward.* If user keeps adding these on the fly across the next few scripts, this becomes a real signal worth baking in.
+
+---
+
+### Idea 37. Parallel-structure closings may land harder than layered callbacks
+
+**Script (sophisticated layered closing, ~50 words — William Penn callback + American Legion callback + thesis pivot):**
+> "The 1626 transaction was just an overlooked line of ink until nineteenth-century New Yorkers decided they needed a peaceful founding story to rival William Penn. The primary sources didn't change, but the city's civic identity did. A generation of writers projected their own ideals into a near-empty colonial archive, and a century later, a veterans group cast those projections into a bronze plaque."
+
+**Delivered (parallel three-beat, ~35 words):**
+> "In 1626, the story was a single line of ink about dead beavers. In 1821, the archives were sold for scrap paper. In the centuries since, people filled that silence with $24, glass beads and legends."
+
+**Hypothesis:** parallel rhythm is what spoken language carries — layered callbacks read well on the page but compress when read aloud. Could try writing the parallel version first for forensic format, OR keep both and let the user pick during recording. Don't over-prescribe — the layered version had its own virtues (steelman callback, thesis pivot) that the parallel doesn't.
+
+---
+
+## Manhattan ideas — checklist for next forensic script (test, don't enforce)
+
+- [ ] Try: skip Standard Myth Narration act for high-recognition myths
+- [ ] Try: cut the "current-events catalog" Modern Relevance beat unless the present-day artifact is thesis-tied
+- [ ] Try: cap delegated verbatim VO at ~30 words; longer → split VO punchline + on-screen text
+- [ ] Try: pre-load mechanism vocabulary at 2–3 spots for system-as-designed / mechanism theses
+- [ ] Try: write parallel-structure closing alongside (or instead of) layered callback for document-first format
+
+If 2–3 forensic videos in a row show the same cuts/additions, promote ideas 33–37 to lessons. Until then they're hypotheses.
+
+---
+
 *Created: 2026-01-26*
-*Updated: 2026-02-01*
-*Sources: Iran Part 1 + Belavezha script-to-SRT deep analysis*
+*Updated: 2026-02-01 (Iran Part 1 + Belavezha)*
+*Updated: 2026-04-27 (Tripoli — 7 rough-cut instincts + Walk-Away Test / Rule 36)*
+*Updated: 2026-05-01 (Manhattan — Ideas 33–37: hypotheses to test, not rules to enforce. n=1, watch for repeats.)*

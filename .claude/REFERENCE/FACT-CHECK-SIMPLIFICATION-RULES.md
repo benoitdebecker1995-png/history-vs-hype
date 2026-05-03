@@ -1,5 +1,7 @@
 # Simplification Detection Rules for Fact-Checking
 
+> **Cross-ref:** For source hierarchy and tier system, see `fact-checking-protocol.md`.
+
 This file defines specific patterns that the fact-checker should flag during script review to prevent oversimplification errors.
 
 ## Rule 1: Territorial Claims Without Specifics
@@ -195,15 +197,53 @@ This file defines specific patterns that the fact-checker should flag during scr
 
 ---
 
+## Rule 9: Citation Chain Dead-Ends (Single-Source Laundering)
+
+**Pattern to detect:**
+- A specific number, percentage, or statistic sourced to Author A, who cites Author B, who cites "records" or "data" without a page number
+- Multiple secondary sources all citing the same original — making one source LOOK like independent confirmation
+- Any claim where the citation chain ends at a source that says "according to..." without specifying the exact document, page, or paragraph
+
+**Flag with:**
+⚠️ **CITATION CHAIN DEAD-END**: All sources trace back to one origin that doesn't cite a primary document. This is one source, not [N] sources.
+
+**Required check:**
+- Trace the citation chain backward: Source A → cites Source B → cites Source C → reaches... what?
+- If the chain reaches a primary document with a specific page/paragraph: 🟢 GROUNDED
+- If the chain reaches a source that says "according to X" without page number: 🔴 DEAD END
+- If multiple sources cite each other in a circle: 🔴 CIRCULAR
+
+**Required fix:**
+- Either find and verify against the actual primary document
+- Or hedge: "According to [originating author]..." instead of stating as fact
+- Or replace with a grounded alternative (e.g., overall figure instead of subset figure)
+
+**Example — Bakassi 73%:**
+```
+❌ "73% of voters in the Bakassi stations chose Cameroon" ✅ (Ezeilo 2016; Baye 2010)
+   Chain: Ezeilo 2016 p. 197 → Baye 2010 p. 16 → Omoigui 2006 → "UN records" (no page) → DEAD END
+   Three sources, ONE origin, ZERO primary document verification.
+   Counter-source disputes whether voting even occurred on the Peninsula.
+
+✅ "Roughly 70% of Southern Cameroons voters chose to join Cameroon" (UN Plebiscite Commissioner Report, 1961)
+   Chain: direct primary source → 🟢 GROUNDED
+```
+
+**Why this rule exists:** In Bakassi (2026-04-16), a single-source claim passed fact-check as ✅ because it appeared in three secondary sources. All three cited the same personal website that cited "UN records" with no page number. The ICJ judgment — the primary source — contains zero Bakassi-specific voting data. A counter-source disputes the claim entirely.
+
+**Mandatory gate:** Run the **Citation Chain Audit** NLM prompt (see `NOTEBOOKLM-RESEARCH-PROMPTS.md`) before filming. It checks every ✅ claim against primary documents uploaded to the notebook.
+
+---
+
 ## Implementation in Fact-Checking Workflow
 
 **During script review, fact-checker agent should:**
 
-1. **Scan script for all 8 patterns** listed above
+1. **Scan script for all 9 patterns** listed above
 2. **Flag each instance** with specific rule violated
 3. **Suggest specific fix** with required additions
 4. **Categorize severity:**
-   - 🔴 **CRITICAL** - Will cause viewer confusion or factual error (Rules 1, 2, 6)
+   - 🔴 **CRITICAL** - Will cause viewer confusion or factual error (Rules 1, 2, 6, 9)
    - 🟡 **IMPORTANT** - Reduces accuracy, should fix (Rules 3, 4, 5)
    - 🟢 **RECOMMENDED** - Improves clarity, nice to have (Rules 7, 8)
 

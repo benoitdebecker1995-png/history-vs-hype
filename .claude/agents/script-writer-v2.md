@@ -14,8 +14,7 @@ version: 14.7 (2026-04-30 - cross-paper STRUCTURAL wave from 13-paper academic c
 
 | File | Purpose |
 |------|---------|
-| **`.claude/REFERENCE/STYLE-GUIDE.md`** | **PRIMARY** — All style rules, structure, delivery, Parts 1-9 |
-| **`.claude/REFERENCE/VOICE-PROFILE.md`** | **VOICE** — How the creator actually speaks. Wins over STYLE-GUIDE for phrasing. |
+| **`.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md`** | **PRIMARY** — Voice, structure, delivery, debunking framework, techniques toolkit. Read PARTS 1-5 (skip PART 6 article-side and PART 7 newsletter toolkit). |
 | **`.claude/REFERENCE/THESIS-DISCIPLINE.md`** | **THESIS** — Universal 9-step throughline-finding procedure. Source of truth for Rule 36. Read before STEP 0. |
 | `.claude/templates/02-SCRIPT-DRAFT-TEMPLATE.md` | Output template |
 
@@ -26,13 +25,11 @@ version: 14.7 (2026-04-30 - cross-paper STRUCTURAL wave from 13-paper academic c
 | `.claude/REFERENCE/SCRIPTWRITING-EXAMPLES.md` | Competitor examples, phrase libraries, signal phrases (§1-§20) |
 | `.claude/REFERENCE/OPENING-HOOK-TEMPLATES.md` | When crafting opening |
 | `.claude/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md` | When crafting closing |
-| `.claude/REFERENCE/SCRIPTWRITING-DEBUNKING-FRAMEWORK.md` | Debunking/myth-busting videos |
 | `.claude/REFERENCE/FORMAT-TEMPLATES.md` | Signature series structures |
-| `.claude/REFERENCE/CREATOR-PHRASE-LIBRARY.md` | Copy-paste natural language |
 | `.claude/REFERENCE/breakout-retention-audit.md` | Pre-filming audit protocol |
 | `tools/benchmark/WAVE-8-SCRIPT-TECHNIQUES.md` | Wave 8/8B competitor rebuttal, momentum, character techniques |
 
-**STYLE-GUIDE.md is the single source of truth for style. This agent file contains ONLY behavioral instructions and guardrails.**
+**WRITING-VOICE-AND-STYLE.md is the single source of truth for style (PARTS 1-5). This agent file contains ONLY behavioral instructions and guardrails.**
 
 ---
 
@@ -64,7 +61,7 @@ Only exceed 12 min if topic has Belize-level search demand (10K+/mo) AND proven 
 
 ## PRE-SCRIPT INTELLIGENCE
 
-**Before generating a script, read `channel-data/youtube-intelligence.md` as internal context.** Use KB data for structure and hook decisions ONLY — do NOT display KB contents to user. If missing, run `/intel --refresh`.
+**Before generating a script, read `channel-data/youtube-intelligence.md` as internal context.** Use KB data for structure and hook decisions ONLY — do NOT display KB contents to user. If missing, run `/patterns --refresh-intel`.
 
 ---
 
@@ -159,7 +156,7 @@ Scripts are read aloud on camera via teleprompter. This is the CORE NON-NEGOTIAB
 - Contractions used ("it's" not "it is")
 - Every technical term defined on first use
 - "Here's" count: 2-4 per script max
-- No forbidden phrases (see STYLE-GUIDE.md Part 1, SCRIPTWRITING-EXAMPLES.md §4)
+- No forbidden phrases (see WRITING-VOICE-AND-STYLE.md §1.3, SCRIPTWRITING-EXAMPLES.md §4)
 - Informational lists use commas, not staccato periods
 - The Stumble Test: if a line would make presenter pause → rewrite
 - **Latin/technical terms:** If a Latin or technical term can be replaced with plain language, replace it. "Intertemporal law" → "a principle: you judge a treaty by the standards of its time." The creator WILL stumble on Latin terms — every one is a re-take risk.
@@ -1161,7 +1158,7 @@ Map energy arc. Place valley before peak. Plan breathing room techniques.
 
 # VOICE CALIBRATION
 
-**Complete patterns in STYLE-GUIDE.md Part 3**
+**Complete patterns in WRITING-VOICE-AND-STYLE.md PART 1 (Core Voice) and PART 3 (Structure)**
 
 **Quick reference:**
 - SHORT declarative sentences: "Temporary occupation. Twelve years."

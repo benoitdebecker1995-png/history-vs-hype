@@ -177,23 +177,39 @@ But at least now you're working from the same evidence the historians use.
 
 ## TEMPLATE 6: Call to Action Integration
 
-**Best for:** Any closing—integrate CTA naturally
+**IMPORTANT: CTA placement is mid-video, NOT in the outro.**
+
+Only ~16% of viewers reach the final 10 seconds. Place your strongest CTA at the **60-70% mark** of the video — right after a compelling evidence reveal when trust is highest.
+
+### Mid-Video CTA (Primary — at 60-70% mark)
+
+```
+[You've just delivered a devastating quote or key evidence reveal]
+
+[Beat]
+
+If you want more like this, please subscribe. [Continue immediately to next point]
+```
+
+**Rules:**
+- Place AFTER your strongest evidence moment (quote stack, document reveal, key statistic)
+- Keep it to ONE sentence — don't break the flow
+- Resume content immediately — the CTA is a pause, not a segment
+
+### Outro CTA (Secondary — light touch only)
 
 ```
 [Synthesis content from templates above]
 
----
-
-If you found this useful, please subscribe. It helps the channel grow.
-
 Full sources are in the description—including [specific notable source].
-
-[Optional: tease next video if relevant]
 
 Thanks for watching.
 ```
 
+The outro CTA is a gentle reminder, not the main ask. Most viewers are already gone.
+
 **Natural CTA phrases:**
+- "If you want more like this, please subscribe."
 - "If you found this useful, please subscribe."
 - "Full sources in the description."
 - "Thanks for watching."
@@ -205,6 +221,25 @@ Thanks for watching.
 
 ---
 
+## OPENING → CLOSING PAIRING GUIDE
+
+**Match your closing to your opening for structural coherence:**
+
+| Opening Type (Rule 19) | Best Closing Template | Why |
+|------------------------|----------------------|-----|
+| **Territorial** (map/treaty cold fact) | **Template 3: Document Callback** | Returns to the treaty/map, shows what changed |
+| **Ideological** (myth cold fact) | **Template 1: Return to Both Extremes** | Resolves the myth vs reality tension |
+| **Untranslated** (article/clause cold fact) | **Template 3: Document Callback** | Returns to the document, shows what was missed |
+| **Fact-Check** (person's claim cold fact) | **Template 4: Stakes Reminder** | Shows why the false claim still matters |
+| **Mechanism/HOW** (system cold fact) | **Template 2: Universal Pattern** | Elevates the mechanism to a broader principle |
+| **Contested topic** (both sides wrong) | **Template 5: Intellectual Humility** | Acknowledges complexity, lets viewer decide |
+
+**Rule:** Your closing should ALWAYS reference something from your opening. If you opened with a document, close with that document. If you opened with a myth, close by returning to it.
+
+**Template 6 (CTA):** Primary CTA goes mid-video at 60-70% mark, NOT in the outro. Outro gets only a light "full sources in the description" + "thanks for watching."
+
+---
+
 ## CLOSING CHECKLIST
 
 Before finalizing your closing:
@@ -213,7 +248,8 @@ Before finalizing your closing:
 - [ ] Answers the "so what?" question explicitly
 - [ ] Modern relevance restated or implied
 - [ ] NO forbidden phrases
-- [ ] CTA is polite and natural
+- [ ] Primary CTA placed mid-video (~60-70% mark), not in outro
+- [ ] Outro CTA is light touch only (sources + thanks)
 - [ ] Ends with concrete takeaway, not vague sentiment
 - [ ] Under 90 seconds when read aloud
 

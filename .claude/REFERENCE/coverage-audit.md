@@ -30,7 +30,7 @@
 - 1 transcript only, OR
 - Multiple transcripts but same creator, OR
 - Techniques mentioned but not extracted with examples, OR
-- Listed in style guide but missing from creator-techniques.md
+- Listed in style guide but missing from WRITING-VOICE-AND-STYLE.md PARTS 1, 5, 7
 
 ❌ UNDERSPECIFIED
 - 0 transcripts analyzed for this video type
@@ -202,7 +202,7 @@ This checkpoint:
 - Does NOT modify evaluator behavior
 - Does NOT change retention logic
 - Does NOT add new techniques
-- Does NOT modify creator-techniques.md
+- Does NOT modify WRITING-VOICE-AND-STYLE.md PARTS 1, 5, 7
 - Does NOT touch script-reviewer.md
 
 It ONLY reports coverage status and recommendations.

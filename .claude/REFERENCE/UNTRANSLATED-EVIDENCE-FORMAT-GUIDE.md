@@ -394,14 +394,14 @@ Also available: UK National Archives, Reference SP 108/50
 
 ### Standard Channel Quality Rules Apply
 
-All rules from STYLE-GUIDE.md remain in force:
+All rules from WRITING-VOICE-AND-STYLE.md remain in force:
 - Real quotes, not summaries
 - Academic source verification
 - Intellectual honesty (acknowledge counter-evidence)
 - Steelmanning opposing interpretations
 - No political editorializing
 
-**See:** `.claude/REFERENCE/STYLE-GUIDE.md` for full standards
+**See:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` for full standards
 
 ---
 
@@ -411,7 +411,7 @@ All rules from STYLE-GUIDE.md remain in force:
 
 Same voice as main channel content.
 
-**Reference:** `.claude/REFERENCE/STYLE-GUIDE.md` Part 1 (Core Identity)
+**Reference:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` §1.1 (Channel identity — Calm Prosecutor)
 
 **Characteristics:**
 - Forensic, calm, slightly sardonic
@@ -524,13 +524,13 @@ The language of the document is treated with respect, not condescension.
 
 ### Spoken Delivery Reminder
 
-All scripts are read aloud via teleprompter. Apply STYLE-GUIDE.md Part 2 spoken delivery rules:
+All scripts are read aloud via teleprompter. Apply WRITING-VOICE-AND-STYLE.md §3.5 spoken delivery rules:
 - Contractions ("it's" not "it is")
 - Ordinal dates ("On June 3rd, 1940," not "June 3, 1940")
 - Define technical terms immediately
 - Avoid essay-style language ("However," "Nevertheless")
 
-**See:** `.claude/REFERENCE/STYLE-GUIDE.md` Part 2 for complete rules
+**See:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` §3.5 for complete rules
 
 ---
 
@@ -707,6 +707,6 @@ Use this checklist when creating document analysis content:
 ---
 
 **See also:**
-- `.claude/REFERENCE/STYLE-GUIDE.md` — Base channel voice and delivery rules
+- `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` — Base channel voice and delivery rules (PARTS 1, 3)
 - `.claude/REFERENCE/HYBRID_TALKING_HEAD_GUIDE.md` — Visual strategy for talking head vs. evidence display
 - `CLAUDE.md` — Channel philosophy: quality over quantity, academic sources, real quotes

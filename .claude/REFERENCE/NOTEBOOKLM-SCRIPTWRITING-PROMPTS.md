@@ -6,6 +6,8 @@
 *Updated: 2026-01-30 (added Use Cases 14-17)*
 *Integration: Debunking research → scriptwriting practice*
 
+> **Cross-ref:** For source selection standards, see `NOTEBOOKLM-SOURCE-STANDARDS.md`. For research prompts (mechanism mapping, data density, etc.), see `NOTEBOOKLM-RESEARCH-PROMPTS.md`.
+
 ---
 
 ## YOUR NOTEBOOKLM LIBRARY
@@ -645,18 +647,101 @@ Format the counterargument section using Alex O'Connor's pattern:
 
 ---
 
+### Use Case 18: Thesis Articulation Check (Pre-Writing — MANDATORY)
+
+**Purpose:** Force articulation of the single-sentence takeaway BEFORE script-writing begins. Prevents the failure mode surfaced by the Tripoli Article 11 video — strong evidence chain, no overarching message. Operationalizes Rule 36 of script-writer-v2 ("Walk-Away Test").
+
+**When to run:** AFTER preliminary research is in NotebookLM, BEFORE the script-writer agent gets its first turn. If this prompt fails, the topic is not yet ready for scripting — it's still research.
+
+**Upload:** Your verified research file (`01-VERIFIED-RESEARCH.md`) + the topic-specific academic sources
+
+**Prompt:**
+```
+I'm preparing to script a video about [TOPIC]. The evidence chain I have so far:
+
+[Paste 3-5 bullet points of the strongest evidence — NOT all the evidence, just the spine]
+
+Before I write a single word of script, I need to articulate the THESIS — the single-sentence takeaway the viewer should carry away. The video must be more than "here's what happened." It must give the audience an idea, not just a story.
+
+Run this check:
+
+1. **State the case in one sentence:** What is the specific historical event/document/dispute this video covers?
+
+2. **State the pattern the case illustrates:** What general claim about power, language, institutions, geography, or human behavior does this evidence support? (Not a moral claim — a structural one.)
+
+3. **State the stakes:** Why does this pattern matter beyond the specific case? Who benefits from believing the wrong version? What does the right version teach us about how the world works?
+
+4. **Combine into a thesis sentence — ≤12 words.** This is the line the viewer should be able to quote after watching.
+
+5. **Test the thesis against these failure modes:**
+   - Is it a *summary* of the evidence? (FAIL — that's a recap, not a thesis)
+   - Is it an *open question*? (FAIL — the video should resolve enough to give the viewer something to leave with)
+   - Is it a *two-sided observation* like "both sides do this"? (FAIL — that's an observation, not a takeaway)
+   - Could the same thesis sentence caption an unrelated case (different country, different century)? If YES, the thesis is universal enough to be a real thesis. If NO, it's still a case summary — go back to step 2.
+
+6. **Classify the thesis type** as one of:
+   - **Power-asymmetry** ("What gets ratified is what the powerful side can read.")
+   - **Time-shifted meaning** ("What we 'always believed' the founders said is what later generations needed them to have said.")
+   - **System-as-designed** ("The thing you call a flaw is the thing the system was built to do.")
+   - **Mechanism-over-narrative** ("Politics argues with documents. The documents don't argue back.")
+   - **Invisible-until-named** ("The most important things in history are what nobody noticed.")
+   - **Case-as-thesis** (forensic format — the case itself is the takeaway; rare, must be justified)
+
+7. **Map the thesis into the script's three structural slots:**
+   - **Hook payoff preview:** what investigation question tees up this thesis without spoiling it?
+   - **Turn or 2nd hook:** which single piece of evidence will make the audience start FORMING this thesis themselves (without it being stated)?
+   - **Close:** the single ≤12-word sentence that lands the thesis, anchored to a specific named artifact from the video.
+
+Provide all seven outputs. Do not soften any failure mode — if the thesis fails the universality test (step 5d), say so clearly and propose two alternative thesis directions to redo the exercise.
+```
+
+**Example Usage:**
+
+**Context:** Tripoli Article 11 video (project 51) — the case where this rule was forged.
+
+**Customized prompt:**
+> Topic: The Treaty of Tripoli's Article 11 was ratified by the Senate in English in 1797 saying the US "is not in any sense founded on the Christian religion." The Arabic original of the same treaty does not contain Article 11 — it's a letter from the Dey of Algiers to the Pasha of Tripoli. Hurgronje found this in 1930. Hunter Miller called it "wholly unexplained" in 1931. Crane (2020) argues the modern secular reading developed in the 19th–20th centuries.
+
+**Output sample (what NotebookLM might return):**
+
+> 1. **Case:** A 1797 US treaty article was ratified in English but doesn't exist in the Arabic original; nobody noticed for 133 years.
+>
+> 2. **Pattern:** Treaty ratification is anchored to whichever language the ratifying power can read. The other language doesn't have to match — and doesn't have to be checked.
+>
+> 3. **Stakes:** The "Christian nation" debate cites this article as bedrock evidence on both sides. But the article that anchors the debate is, in the original Arabic, a clerk's letter. The fight is real; the document the fight cites is not what either side thinks it is.
+>
+> 4. **Thesis (≤12 words):** "What gets ratified is what the powerful side can read."
+>
+> 5. **Failure-mode test:**
+>    - Not a summary ✓ (it's a structural claim)
+>    - Not an open question ✓
+>    - Not "both sides do this" ✓
+>    - Universality test: would caption Sykes-Picot, Tordesillas, Bakassi, Operation Legacy. ✓ — universal enough.
+>
+> 6. **Type:** Power-asymmetry (primary). Time-shifted meaning (secondary, supports Crane's reading).
+>
+> 7. **Slot mapping:**
+>    - Hook tee-up: "What did the Senate actually ratify?"
+>    - Turn evidence: Hurgronje's "stupid secretary" passage on screen — the audience sees the gap themselves.
+>    - Close: "The English text is the law. The Arabic is a clerk's handwriting." (12 words, anchored to two named artifacts)
+
+**Output:** Pre-flight thesis statement with all three structural slots mapped before scripting begins.
+
+---
+
 ## WORKFLOW INTEGRATION
 
 ### Pre-Writing Phase
 
 1. **Topic selection** → Use Case 2 (Identity Stake Assessment)
 2. **Research compilation** → Use Case 10 (Customized Audio Overview)
-3. **Argument structure** → Use Case 1 (Toulmin/Seixas Framework)
-4. **Timeline structure** → Use Case 14 (Timeline Extraction)
-5. **Counterargument prep** → Use Case 17 (Counterargument Mapping)
-6. **International comparisons** → Use Case 11 (Find "Unlike [Country]" patterns)
-7. **Opening hook data** → Use Case 12 (Data Comparison Hook)
-8. **Differentiation angles** → Use Case 13 (Competitor Differentiation)
+3. **🚨 THESIS GATE → Use Case 18 (Thesis Articulation Check) — MANDATORY before script-writer agent runs.** If this fails, return to research; do not write script.
+4. **Argument structure** → Use Case 1 (Toulmin/Seixas Framework)
+5. **Timeline structure** → Use Case 14 (Timeline Extraction)
+6. **Counterargument prep** → Use Case 17 (Counterargument Mapping)
+7. **International comparisons** → Use Case 11 (Find "Unlike [Country]" patterns)
+8. **Opening hook data** → Use Case 12 (Data Comparison Hook)
+9. **Differentiation angles** → Use Case 13 (Competitor Differentiation)
 
 ### Drafting Phase
 

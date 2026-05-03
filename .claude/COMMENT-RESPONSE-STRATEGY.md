@@ -369,8 +369,8 @@ If [Author] found [different conclusion], that would be interesting. Do you have
 
 If they provide specifics OR if the source is available:
 1. Add to NotebookLM notebook if you can access it
-2. Use NotebookLM verification template (`.claude/REFERENCE/NOTEBOOKLM-COMMENT-VERIFICATION-TEMPLATE.md`)
-3. Check author's FULL conclusion, not just the evidence commenter cited
+2. Query the video's research NotebookLM notebook with the commenter's claim — check author's FULL conclusion, not just the evidence commenter cited
+3. Cross-check against `01-VERIFIED-RESEARCH.md` for the video
 4. Respond with verified findings
 
 **Red flag:** Commenters sometimes selectively cite sources. The author may have reached a different conclusion than the commenter implies. Always verify the full context.
@@ -546,7 +546,7 @@ Sources: [citations]
 3. ✅ Check `research/[Topic]-Comment-Response-Research.md` for previous comment research
 4. ✅ Check `.claude/VERIFIED-CLAIMS-DATABASE.md` for reusable claims
 5. ✅ Use `/respond-to-comment` skill if research needed
-6. ✅ If commenter cites academic sources: Use NotebookLM verification template (`.claude/REFERENCE/NOTEBOOKLM-COMMENT-VERIFICATION-TEMPLATE.md`)
+6. ✅ If commenter cites academic sources: Query the video's research NotebookLM notebook with the claim
 
 ### After Responding:
 1. ✅ Save new research to `research/[Topic]-Comment-Response-Research.md`

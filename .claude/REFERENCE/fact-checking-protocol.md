@@ -1,5 +1,7 @@
 # Fact-Checking Protocol for History vs Hype
 
+> **Cross-ref:** For oversimplification detection patterns, see `FACT-CHECK-SIMPLIFICATION-RULES.md`.
+
 ## Core Principle
 **Maintain historical integrity above all else.** Educational content requires verified claims from credible sources.
 
@@ -352,8 +354,8 @@ Go through VidIQ-generated script and highlight:
 
 ### Step 2: Source Each Claim
 For EVERY factual claim, find:
-- At least 2 independent sources
-- Preferably 1 academic source
+- At least 2 **truly independent** sources — sources that cite each other or share the same origin count as ONE source (see Rule 9 in FACT-CHECK-SIMPLIFICATION-RULES.md). Trace the citation chain: if Source A cites Source B cites Source C, that's one chain, not three sources.
+- Preferably 1 Grade A or B source (see Source Confidence Grading in NOTEBOOKLM-SOURCE-STANDARDS.md)
 - Original source if possible (not someone citing someone)
 
 ### Step 3: Flag Contested Information
@@ -478,11 +480,17 @@ Before filming ANY video:
 - [ ] Every number has a source
 - [ ] Every quote is verified from original
 - [ ] Contested claims are clearly labeled
-- [ ] At least 2 sources for each major point
+- [ ] At least 2 **independent** sources for each major point (sources that cite each other count as 1, not 2 — see Rule 9 in FACT-CHECK-SIMPLIFICATION-RULES.md)
 - [ ] Academic sources for historical interpretation
 - [ ] Modern relevance connections are accurate
 - [ ] No logical fallacies in arguments
 - [ ] Bias acknowledged where it exists
+- [ ] **NLM Gate 3 passed** — all 4 steps (see NOTEBOOKLM-SOURCE-STANDARDS.md, Gate 3):
+  - [ ] Step 1: Citation Chain Audit — zero 🔴 UNGROUNDED claims
+  - [ ] Step 2: Quote Verification — every on-screen quote traced to original document
+  - [ ] Step 3: Pre-Filming Script Audit — attribution accuracy, ad-lib trap list printed
+  - [ ] Step 4: Cross-Source Synthesis — single-source claims checked
+- [ ] **Human review completed** for all Gate 4 triggers (famous quotes googled, C/D source claims hedged or upgraded)
 
 ## The Golden Rule
 **If you can't verify it with credible sources, don't include it.**

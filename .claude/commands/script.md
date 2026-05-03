@@ -135,7 +135,7 @@ Hook pattern from outliers: "legal fiction exposed" frame drove 4x median views.
 ```
 
 4. If file does not exist, skip silently — NEVER block generation on missing intelligence
-5. If last refresh date is >30 days old, add note: "(Intel last refreshed [date] — consider running /intel --refresh)"
+5. If last refresh date is >30 days old, add note: "(Intel last refreshed [date] — consider running /patterns --refresh-intel)"
 6. Intelligence is advisory — inform hook and structure decisions, never dictate
 
 **For /script:** Focus on:
@@ -209,14 +209,15 @@ Max script words: [N] (target × 250 WPM × 1.80)
 ## Before Writing
 
 **Read these reference files:**
-- `.claude/REFERENCE/STYLE-GUIDE.md` - **AUTHORITATIVE** style reference (voice, delivery, patterns)
-  - **Part 6:** Voice patterns (proven History vs Hype patterns)
-  - **Part 8:** Creator technique library (cross-validated patterns from 80+ transcripts) — auto-updated with `python -m tools.youtube_analytics.pattern_synthesizer_v2 --update`
-  - **Part 9:** Retention playbook (data-driven retention rules) — auto-updated with `python -m tools.youtube_analytics.playbook_synthesizer --update`
-- `.claude/REFERENCE/PROVEN-TECHNIQUES-LIBRARY.md` - Hook formulas and retention techniques
+- `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` - **AUTHORITATIVE** style reference (PARTS 1-5: voice, evidence, structure, debunking framework, techniques toolkit)
+  - **PART 1:** Core Voice (forbidden phrases, sentence rhythm, word choice)
+  - **PART 3:** Structure (hook/turn/close, narrative flow, pacing)
+  - **PART 4:** Debunking Framework (myth-first, seven principles, concede-pivot)
+  - **PART 5:** Techniques Toolkit (hooks, mechanism forensics, source-flip, accumulation)
+  - Retention playbook auto-updated with `python -m tools.youtube_analytics.playbook_synthesizer --update`
+  - Creator technique library auto-updated with `python -m tools.youtube_analytics.pattern_synthesizer_v2 --update`
 - `.claude/REFERENCE/channel-values.md` - Brand DNA
 - `.claude/USER-PREFERENCES.md` - Natural speaking patterns
-- `.claude/REFERENCE/SCRIPTWRITING-DEBUNKING-FRAMEWORK.md` - Debunking psychology + public history
 - `.claude/REFERENCE/NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` - Prompts for your uploaded books
 - **`.claude/REFERENCE/OPENING-HOOK-TEMPLATES.md`** - Fill-in-the-blank templates for first 60 seconds
 - **`.claude/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md`** - Fill-in-the-blank templates for final 60-90 seconds
@@ -231,8 +232,9 @@ Before generating a script, the system automatically surfaces relevant past perf
 When topic type is known (territorial, ideological, fact-check, general), the system displays:
 - **Topic Performance:** How this topic type has performed historically (retention, conversion)
 - **Retention Lessons:** What caused viewer drop-offs in similar past videos
-- **Suggested Patterns:** Which STYLE-GUIDE.md Part 6 voice patterns work best for this topic type
+- **Suggested Patterns:** Which WRITING-VOICE-AND-STYLE.md PART 1/PART 5 voice patterns work best for this topic type
 - **Past hook and structure choice patterns** for this topic type (from variant history)
+- **Last 3 failure-mode diagnoses** (from `channel-data/DIAGNOSIS-LOG.md` — wired by `/analyze --diagnose`). Surfaces the recurring leak so the next script doesn't repeat it. Format: `LAST FAILURES: [VIDEO]→[FAILURE TYPE]→[CONCRETE FIX]`. If file is missing, skip silently.
 
 ### How to Use
 
@@ -367,6 +369,92 @@ The structure checker found issues that historically correlate with retention dr
 
 **Graceful degradation:** If the structure-checker-v2 agent file is missing or unavailable for any reason, emit a one-line note — "Structure check skipped — run `/script --review` manually" — and proceed. Never block on a failed check.
 
+## Automatic Packaging Coherence Check (Post-Generation, MANDATORY)
+
+**Why this exists:** The most common failure mode the channel data shows is title-promise / hook-delivery drift — title promises X, the hook delivers Y, viewer bails at 0:30-1:00. This check runs automatically at the end of every `/script` to catch the gap before filming.
+
+**Runs after:** retention scoring → retention prediction → structure check. This is the final auto-check before the user-facing summary.
+
+### Step 1: Extract the script's actual hook + verdict
+
+From the just-generated `SCRIPT.md`:
+
+- **Hook = first 150 words of script body** (skip metadata, frontmatter, and any `## ACT 1` or `## HOOK` heading lines — start at first prose line). This is what the viewer hears in 0:00-1:00.
+- **Verdict sentence** = the single sentence the script lands on (look for the closing paragraph of the final section — usually under `## CLOSING` or the last `##` heading. Take the last 1-2 sentences.).
+- **Thesis** = if the script has a `THESIS:` line in metadata or front-matter, capture it (per Rule 36 / `THESIS-DISCIPLINE.md` — should be ≤12 words).
+
+### Step 2: Locate existing title and thumbnail concept
+
+Glob the project folder:
+
+- `YOUTUBE-METADATA.md` → extract the `Title:` line (or first H1 if structured differently)
+- `THUMBNAIL-CONCEPTS.md` → extract the top-ranked concept (operation, overlay text, visual)
+
+### Step 3a: If title EXISTS — score promise vs delivery
+
+Run a coherence judgment (Claude-native, no Python tool needed):
+
+```
+Hook (first 150 words): [extracted hook text]
+Title: [extracted title]
+Thesis: [extracted thesis if present]
+Verdict: [extracted closing verdict]
+```
+
+Then evaluate three coherence dimensions:
+
+| Dimension | Question | Pass / Drift / Fail |
+|-----------|----------|---------------------|
+| **Promise match** | Does the title's promise appear in the first 150 words? | PASS = explicit / DRIFT = implied but not named / FAIL = absent or contradicted |
+| **Verb match** | Does the title's main verb (debunks/exposes/explains/proves) match what the hook actually does? | PASS = same operation / DRIFT = adjacent operation / FAIL = different operation |
+| **Specificity match** | Are the specific entities/numbers/dates in the title also in the hook? | PASS = all present / DRIFT = some present / FAIL = title is more specific than the hook delivers |
+
+### Step 3b: If title MISSING — generate from script
+
+Generate 5 title candidates using the script's actual hook + verdict + thesis as input. Score them with `python -m tools.title_scorer` and surface the top 2.
+
+```bash
+python -m tools.title_scorer "Candidate A" "Candidate B" "Candidate C" "Candidate D" "Candidate E" --topic [territorial|ideological|fact-check|general]
+```
+
+Note: the title generator should prefer the verdict sentence as the title's promise — that's the single line the script lands on, and the title should tee it up.
+
+### Step 4: Display the coherence block
+
+```
+--- Packaging Coherence Check ---
+
+TITLE: "[extracted or generated title]"
+HOOK (first 150w): "[first 50 chars of hook]..."
+VERDICT: "[verdict sentence]"
+
+Promise match:    [PASS/DRIFT/FAIL] — [one-sentence why]
+Verb match:       [PASS/DRIFT/FAIL] — [one-sentence why]
+Specificity:      [PASS/DRIFT/FAIL] — [one-sentence why]
+
+OVERALL: [MATCH / DRIFT / FAIL]
+
+[If MATCH: "Title-hook coherent. Proceed to /verify when ready."]
+[If DRIFT: "Title and hook are close but the [specific gap] would benefit from one rewrite. Concrete fix: [actionable single sentence]"]
+[If FAIL: "Title and hook are pulling in different directions. Concrete fix: [either rewrite the hook to deliver the title's promise, OR rewrite the title to match what the hook actually does — recommend whichever requires fewer words to change]."]
+
+THUMBNAIL CONCEPT: [if found, one-line coherence note: "Operation 'forensic close-read' matches hook's document-reveal — coherent" / if missing, "No thumbnail concept yet — run /thumbnail after fixing any DRIFT/FAIL above."]
+---
+```
+
+### Step 5: FAIL handling — block the user-facing summary
+
+When OVERALL = FAIL, the "After Generation" section appends this gate block:
+
+```
+*** PACKAGING COHERENCE FAILED ***
+The title promises something the hook does not deliver. Filming this script as-is will burn impressions on viewers who click the title and bail at 0:30. Fix the gap before /verify, OR explicitly acknowledge that you understand the drift and are accepting it.
+```
+
+DRIFT does not block — it surfaces and recommends. MATCH proceeds silently.
+
+**Graceful degradation:** If `YOUTUBE-METADATA.md` is missing AND title generation fails (e.g. tools unavailable), emit a one-line note — "Coherence check skipped — no title found and generation unavailable. Run `/greenlight` to set up packaging." — and proceed.
+
 ## Format Template Selection (NEW - 2026-01-04)
 
 **Before gathering information, identify if topic fits a signature format:**
@@ -437,7 +525,7 @@ After classifying video type, check `.claude/REFERENCE/coverage-audit.md` Covera
 4. **Self-affirmation** (acknowledge shared values before corrections)
 5. **Source credibility** (explain WHY myth was created)
 
-**See:** `.claude/REFERENCE/SCRIPTWRITING-DEBUNKING-FRAMEWORK.md` for complete framework
+**See:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` PART 4 (Debunking Framework) for complete framework
 
 **NotebookLM assistance:** Use prompts from `NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` for:
 - Identity stake assessment (Use Case 2)
@@ -490,7 +578,7 @@ After classifying video type, check `.claude/REFERENCE/coverage-audit.md` Covera
 - [ ] Rhetorical fragments preserved for emphasis only
 - [ ] Passes the "Stumble Test" (read aloud without hesitation)
 
-See: `.claude/REFERENCE/STYLE-GUIDE.md` → Part 3 "Voice and Delivery"
+See: `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` → §3.5 "Spoken-delivery rules"
 
 ### Natural Delivery Patterns (MANDATORY - Added 2025-12-30)
 - [ ] Abbreviations expanded ("African Union" not "AU")
@@ -519,10 +607,13 @@ Ask the user:
 1. Does this opening grab you in 8 seconds?
 2. Does the steelmanning feel fair to the other side?
 3. Should I expand any section?
-4. Ready for fact-checking?
-5. Any structure check findings you want to address first?
+4. Any structure check findings you want to address first?
+5. Any packaging coherence drift you want to fix before filming?
+6. Ready for fact-checking?
 
-**Proactive suggestion:** "Script complete. Review structure check findings above, then run `/verify` to fact-check before filming."
+**Proactive suggestion:** "Script complete. Review structure check + packaging coherence findings above, then run `/verify` to fact-check before filming."
+
+**If packaging coherence returned FAIL:** explicitly call this out: "Packaging coherence FAILED — fix the title/hook gap before `/verify`, or acknowledge the drift before proceeding."
 
 ---
 
@@ -1051,7 +1142,7 @@ Export SCRIPT.md to clean text for filming.
 
 ## Reference Files
 
-- **Authoritative style guide:** `.claude/REFERENCE/STYLE-GUIDE.md`
+- **Authoritative style guide:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` (PARTS 1-5 are script-side)
 - **Script template:** `.claude/templates/02-SCRIPT-DRAFT-TEMPLATE.md`
 - **Opening templates:** `.claude/REFERENCE/OPENING-HOOK-TEMPLATES.md`
 - **Closing templates:** `.claude/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md`

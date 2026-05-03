@@ -11,6 +11,9 @@ Analyze patterns across all published videos to identify what's working.
 
 ```
 /patterns [OPTIONS]
+/patterns --score "topic title"  # Score a topic 0-100 (folded from /intel)
+/patterns --query "question"     # Natural-language query against intelligence KB
+/patterns --intel                # Full intelligence report (algo + competitors + niche)
 ```
 
 ## Options
@@ -22,6 +25,11 @@ Analyze patterns across all published videos to identify what's working.
 | `--title` | Title/thumbnail patterns only |
 | `--monthly` | Current month summary only |
 | `--last N` | Filter to last N days |
+| `--score "title"` | Score a topic idea 0-100 (own-channel + competitor + algo + trending + gap) |
+| `--query "question"` | Natural-language query against `tools/intel/` knowledge base |
+| `--intel` | Full intelligence report — algo mechanics + competitor activity + niche patterns + outliers |
+| `--outliers` | Viral/outlier videos detected at ≥ 3× channel median |
+| `--refresh-intel` | Force full refresh of intelligence KB (10-phase pipeline) |
 
 ## What It Does
 
@@ -57,6 +65,44 @@ Analyze patterns across all published videos to identify what's working.
 - Content attribute analysis (topic type, angles, retention)
 - Production attribute analysis (thumbnails, titles, pacing)
 - Recommendations based on pattern extraction
+
+---
+
+## INTELLIGENCE QUERIES (folded from /intel, 2026-05-03)
+
+### `--score "topic title"` — Topic scoring 0-100
+
+5-component breakdown: own-channel performance (30%) + competitor signal (30%) + algo alignment (20%) + trending boost (10%) + gap opportunity (10%).
+
+```bash
+python -m tools.intel.topic_scorer "How Britain Lost the Falklands"
+```
+
+Returns: composite score, letter grade (A/B/C/D/F), per-component scores, rationale.
+
+### `--query "question"` — Natural-language KB query
+
+```bash
+python -c "import sys; sys.path.insert(0, '.'); from tools.intel.query import answer_query; print(answer_query('what title formulas work best?'))"
+```
+
+KB sources: algo signal weights, competitor channel activity, niche format analysis, trending topics. Updated by `--refresh-intel`.
+
+### `--intel` — Full intelligence report
+
+```bash
+python -c "import sys; sys.path.insert(0, '.'); from tools.intel.query import get_full_report; print(get_full_report())"
+```
+
+Reads `channel-data/youtube-intelligence.md` in full — algo mechanics, competitor table + recent uploads, niche patterns, outliers ≥ 3× channel median.
+
+### `--refresh-intel` — Force full KB refresh
+
+Runs the 10-phase intelligence pipeline. Use weekly or before high-stakes packaging decisions.
+
+```bash
+python -m tools.intel.run_pipeline --force
+```
 
 ## Examples
 

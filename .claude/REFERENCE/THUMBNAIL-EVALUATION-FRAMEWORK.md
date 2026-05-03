@@ -1,26 +1,30 @@
 # Thumbnail Evaluation Framework - History vs Hype
 
 **Created:** 2025-12-05
-**Updated:** 2026-01-16
-**Based on:** Performance data from 165 videos + AB testing results + 2025-2026 industry research
+**Updated:** 2026-03-20
+**Based on:** Visual classification of 650 thumbnails across 14 edu/history channels (2026-03-20) + channel performance data
 
 ---
 
-## CRITICAL INSIGHT: NICHE-SPECIFIC DATA OVERRIDES GENERIC ADVICE
+## CRITICAL INSIGHT: NICHE DATA OVERRIDES GENERIC ADVICE
 
-**MAP/EVIDENCE THUMBNAILS OUTPERFORM FACE THUMBNAILS BY 26x FOR THIS CHANNEL**
+**650-thumbnail niche benchmark (14 channels, 2026-03-20) key findings:**
 
-| Thumbnail Type | VidIQ Score | Actual Views | CTR |
-|----------------|-------------|--------------|-----|
-| Map-focused (Essequibo) | 72 | 1,905 | 4.31% |
-| Face-focused variants | 85+ | ~73 | Lower |
+| Element | Niche % | Closest Matches % | Implication |
+|---------|---------|-------------------|-------------|
+| Text overlay | 87% | 87% | **MANDATORY** — add 2-4 word phrase |
+| No talking-head face | 100% (0% selfie) | 73% no face | **MANDATORY** — subject photos OK (27%) |
+| Maps | 31% overall | 14% myth-busting, 88% geo | **TOPIC-DEPENDENT** |
+| Arrows/icons | 14% | 12% | **OPTIONAL** |
 
-**Why this contradicts generic advice:**
-- Generic YouTube data: Faces increase CTR 20-30% ([VidIQ research](https://vidiq.com/blog/post/youtube-thumbnail-design-tips/))
-- This channel's data: Maps outperform faces by 26x
-- Reason: Documentary/educational audience values EVIDENCE over personality
+**Closest content matches** (Knowing Better, Three Arrows, Shaun, Kraut, WonderWhy):
+- These channels do myth-busting + sources like us
+- They use text (87%) but rarely use maps (14%)
+- Maps are a geo-channel signal (CaspianReport 82%, RealLifeLore 94%)
 
-**VidIQ optimizes for generic YouTube. This channel's niche performs OPPOSITE to VidIQ recommendations.**
+**Our position:** We're a hybrid — myth-busting content with territorial topics. Use maps for border disputes, document/historical visuals for ideological topics. Text overlay on everything.
+
+**VidIQ optimizes for generic YouTube. This channel's niche performs OPPOSITE to VidIQ face recommendations.**
 
 ---
 
@@ -61,7 +65,7 @@
 | ALL CAPS key word | +3 | Draws eye |
 
 **Deductions:**
-- More than 12 characters: -3
+- More than 12 characters: -10 (HARD LIMIT — "ELIMINATE SALIENT" at 17 chars failed comprehension in Ferozepur test)
 - More than 5 words: -5
 - Clickbait phrasing ("SHOCKING"): -10
 - Generic statement (no tension): -5
@@ -88,12 +92,58 @@
 
 ---
 
+## TIER 5: BRIDGE ANALYSIS (Title-Thumbnail-Hook Coherence)
+
+**Added 2026-04-11.** A high-scoring thumbnail that doesn't connect to the hook causes early bounce. Score each thumbnail concept against the full pipeline:
+
+### The Bridge Test
+
+For each thumbnail concept, trace the viewer's 15-second journey:
+
+1. **Thumbnail** → What does the viewer SEE? (the visual promise)
+2. **Title** → What does the title PROMISE? (the verbal frame)
+3. **Hook (first 15s)** → What does the viewer HEAR? (the audio delivery)
+
+**Score:**
+- All three align to the same concept → **TIGHT BRIDGE** (primary candidate)
+- Two of three align, third connects within 30s → **ADEQUATE BRIDGE** (rotation candidate)
+- Thumbnail visual connects to minute 2+ but not the hook → **BRIDGE GAP** (deprioritize)
+- Thumbnail concept doesn't appear in script at all → **NO BRIDGE** (reject)
+
+### How to Apply
+
+When generating thumbnail concepts in `/publish`, pair each concept with a specific title AND check against the script hook:
+
+```
+CONCEPT B: ICJ courtroom, overlay "13 vs 3"
+  PAIRED TITLE: "Nigeria vs Cameroon. The ICJ Gave Away 150000 People."
+  HOOK CHECK: "The vote is thirteen to three" — lands at 0:08
+  BRIDGE: TIGHT ✅ — thumbnail → title → hook in 8 seconds
+```
+
+### Priority Ordering
+
+**Bridge tightness overrides individual thumbnail score.** A 70/100 thumbnail with a TIGHT bridge beats an 85/100 thumbnail with a BRIDGE GAP. The viewer's experience after clicking matters more than the click itself.
+
+**Exception:** Hard rules still apply (no face, text under 12 chars, mobile legibility). Bridge logic doesn't override these.
+
+### Real Example (Thermopylae #50, 2026-04-11)
+
+| Thumb | Overlay | Bridge | Priority |
+|-------|---------|--------|----------|
+| B (Molon Labe strikethrough) | NEVER SAID | TIGHT — hook delivers proof in 15s | Primary |
+| C (Real books, redaction bars) | HERODOTOS ≠ DIODOROS ≠ CTESIAS | ADEQUATE — source comparison at 22s | Rotation |
+| A (300 crossed out, 7000) | 300→7000 | GAP — troop numbers at ~2:00 | Rotation |
+
+---
+
 ## THUMBNAIL SCORING TEMPLATE
 
 **Use this to score any thumbnail concept:**
 
 ```
 THUMBNAIL: [Description]
+PAIRED TITLE: [Which title this concept works with]
 
 TIER 1 - EVIDENCE (40 max):
 - Map with territory: __/15
@@ -122,7 +172,13 @@ TIER 4 - TENSION (15 max):
 - Comparison: __/7
 TIER 4 TOTAL: __/15
 
-TOTAL SCORE: __/100
+TIER 5 - BRIDGE (pass/fail):
+- Hook check: Does overlay/visual connect to first 15s? __
+- Title check: Does paired title bridge thumbnail to hook? __
+- Bridge verdict: TIGHT / ADEQUATE / GAP / NONE
+TIER 5 TOTAL: __
+
+TOTAL SCORE: __/100 + BRIDGE: __
 ```
 
 ---
@@ -141,22 +197,22 @@ TOTAL SCORE: __/100
 ## CHANNEL-SPECIFIC RULES
 
 ### DO:
-1. **Default to map thumbnails** - Proven 26x better performance
-2. **Show the evidence** - Document snippets, treaty pages, highlighted maps
-3. **Create geographic tension** - Disputed borders, highlighted territories
-4. **Use documentary aesthetic** - Muted colors, serious tone
-5. **Question or paradox text** - "Why does no one want this?"
-6. **Under 12 characters of text** - Research-backed optimal
-7. **Test with YouTube's A/B feature** - Native testing beats guessing
+1. **Always include 2-4 word text overlay** — 87% of niche (n=650). Short phrase, NOT full title
+2. **Use maps for territorial topics** — 88% of geo channels use maps for border/dispute content
+3. **Use historical/document visuals for myth-busting** — Closest matches average 14% maps
+4. **Show the evidence** — Document snippets, treaty pages, highlighted maps
+5. **Use documentary aesthetic** — Muted colors, serious tone
+6. **Under 12 characters of text** — Research-backed optimal
+7. **Test with YouTube's A/B feature** — Native testing beats guessing
 
 ### DON'T:
-1. **Trust VidIQ thumbnail scores** - They optimize for wrong audience
-2. **Use "YouTuber face"** - Pointing, shocked expression = underperforms for documentary
-3. **Use bright/saturated colors** - Doesn't match documentary brand
-4. **Overcomplicate** - One focal point, one message
-5. **Use clickbait language** - "SHOCKING", "You won't believe"
-6. **Spoil the reveal** - Don't show the answer in thumbnail (kills curiosity)
-7. **Exceed 12 characters** - Text-heavy thumbnails underperform
+1. **Trust VidIQ thumbnail scores** — They optimize for wrong audience
+2. **Use talking-head/selfie face** — 0% of niche (n=650). Historical/subject photos OK (27% of closest matches)
+3. **Skip text overlay** — Only no-text channel (Toldinstone) has lowest views by 5-10x
+4. **Overcomplicate** — One focal point, one message
+5. **Use clickbait language** — "SHOCKING", "You won't believe"
+6. **Spoil the reveal** — Don't show the answer in thumbnail (kills curiosity)
+7. **Exceed 5 words of text** — Keep it punchy
 
 ---
 
@@ -187,6 +243,29 @@ When VidIQ gives a thumbnail score:
 | 70-80 (map/evidence) | Likely to OUTPERFORM - trust |
 | "Add face for engagement" | Do the opposite |
 | "Too documentary" | That's the brand - proceed |
+
+---
+
+## 2-SECOND COMPREHENSION TEST (REQUIRED BEFORE SCORING)
+
+Before scoring with the template, every thumbnail must pass this gate:
+
+1. Shrink to 160x90px (phone size in YouTube feed)
+2. Show for exactly 2 seconds
+3. Ask: "What is this video about?"
+4. If the answer is wrong or "I don't know" → **REJECT, redesign**
+
+This test OVERRIDES point scoring. A 95/100 thumbnail that fails 2-second comprehension is worse than a 60/100 that passes.
+
+**Ferozepur case study:**
+- FAILED: "ELIMINATE SALIENT" on dark military background → "I don't know, some military thing?"
+- PASSED: "MOVED" on India-Pakistan map → "Something about the India-Pakistan border changing"
+
+**Common comprehension killers:**
+- Jargon or technical terms as text overlay
+- Text over 12 characters (can't be read in 2 seconds at phone size)
+- Abstract/mood visuals without clear subject
+- Too many visual elements competing for attention
 
 ---
 
@@ -370,7 +449,7 @@ Research shows different emotions perform differently:
 
 ---
 
-## THUMBNAIL CHECKLIST (UPDATED)
+## THUMBNAIL CHECKLIST (UPDATED 2026-04-11)
 
 Before creating any thumbnail:
 
@@ -381,7 +460,9 @@ Before creating any thumbnail:
 - [ ] Does it match documentary aesthetic? (muted, serious)
 - [ ] Is there ONE clear focal point?
 - [ ] Does it evoke the FEELING of the story (tension, paradox, revelation)?
-- [ ] Would this work in A/B test against current best performers?
+- [ ] **BRIDGE CHECK:** Does the overlay/visual connect to what the viewer hears in the first 15 seconds?
+- [ ] **PAIRED TITLE:** Is there a specific title that bridges this thumbnail to the hook?
+- [ ] All 3 thumbnail variants created upfront for YouTube native A/B rotation?
 
 ---
 
