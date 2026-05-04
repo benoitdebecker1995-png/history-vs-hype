@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-03 (C3)
+**Last advanced:** 2026-05-03 (C4)
 **Total steps:** 47
-**Done:** 12 (A1/B1/B2/B3/B6/C1/C2/C3 reconciled; A2/B4/B5 executed 2026-05-03)
+**Done:** 13 (A1/B1/B2/B3/B6/C1/C2/C3/C4 reconciled; A2/B4/B5 executed 2026-05-03)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -408,7 +408,9 @@ Mark C3 [DONE].
 
 ---
 
-## C4 [TODO] Write `tests/test_intel.py` and `tests/test_analytics.py`
+## C4 [DONE] Write `tests/test_intel.py` and `tests/test_analytics.py`
+
+> **Reconciled 2026-05-03:** Both files exist with 15 tests total (7 intel + 8 analytics), all PASSED. Tests use richer fixtures than spec — `intel_store` fixture from conftest.py wraps `KBStore(tmp_path / "test_intel.db")`; `tmp_post_publish` fixture builds the full `video-projects/` directory structure the analytics scanner expects. Mocks at the module-level import sites (`tools.intel.algo_scraper.feedparser.parse`, `tools.intel.competitor_tracker.feedparser.parse`, `tools.intel.algo_scraper.requests.get`) — more accurate than spec's notional `feedparser.parse` patch path. Analytics tests use the real `import_from_analysis_files` / `run_backfill` / `generate_channel_insights_report` API rather than the spec's notional `backfill_from_files`. Vacuously satisfied (strict superset of spec intent).
 
 **Prompt:**
 ```
@@ -1338,3 +1340,7 @@ Likely follow-on: C2 (test_production), C3 (test_discovery), C4 (test_intel + te
 ### 2026-05-03 — C3 reconciliation: test_discovery.py uses orchestrator-level mocking
 
 `tests/test_discovery.py` already had 7 tests covering OpportunityOrchestrator end-to-end. All pass. Mock pattern is cleaner than spec — patches at the attribute-seam (`orch.demand`, `orch.competition`, `orch.scorer`) rather than at the lower-level pyppeteer/network layer. C3 marked [DONE] without code changes.
+
+### 2026-05-03 — C4 reconciliation: test_intel.py + test_analytics.py already present
+
+`tests/test_intel.py` (7 tests) and `tests/test_analytics.py` (8 tests) — 15 total, all PASSED in 42s. Both use richer conftest fixtures than the spec (`intel_store` for in-memory KBStore; `tmp_post_publish` builds the full video-projects/ tree the analytics scanner needs). Mock paths target module-level import sites in `tools.intel.algo_scraper` / `competitor_tracker` rather than the generic `feedparser.parse` symbol in the spec. Analytics tests use real `import_from_analysis_files` / `run_backfill` / `generate_channel_insights_report` instead of the spec's notional `backfill_from_files`. C4 marked [DONE] without code changes.
