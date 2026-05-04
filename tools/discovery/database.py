@@ -60,6 +60,15 @@ class KeywordDB:
         result.update(extras)
         return result
 
+    def _table_exists(self, table_name: str) -> bool:
+        """Check whether a table exists in the connected database."""
+        cursor = self._conn.cursor()
+        cursor.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+            (table_name,)
+        )
+        return cursor.fetchone() is not None
+
     def _ensure_connection(self):
         """Ensure database connection exists and initialize if needed"""
         if self._conn is None:
@@ -757,35 +766,33 @@ class KeywordDB:
         This allows existing databases to migrate without manual schema updates.
         Executes ALTER TABLE statements for each missing column.
         """
-        try:
-            cursor = self._conn.cursor()
+        if not self._table_exists('competitor_videos'):
+            return  # Will be created during init_database()
 
-            # Check which columns exist (read outside transaction)
-            cursor.execute("PRAGMA table_info(competitor_videos)")
-            existing_columns = {row[1] for row in cursor.fetchall()}
+        cursor = self._conn.cursor()
 
-            columns_to_add = {
-                'format': 'ALTER TABLE competitor_videos ADD COLUMN format TEXT',
-                'angles': 'ALTER TABLE competitor_videos ADD COLUMN angles TEXT',
-                'quality_tier': 'ALTER TABLE competitor_videos ADD COLUMN quality_tier TEXT',
-                'classified_at': 'ALTER TABLE competitor_videos ADD COLUMN classified_at DATE'
-            }
+        # Check which columns exist (read outside transaction)
+        cursor.execute("PRAGMA table_info(competitor_videos)")
+        existing_columns = {row[1] for row in cursor.fetchall()}
 
-            # Atomic migration: rollback on partial failure
-            with self._conn:
-                for col_name, alter_sql in columns_to_add.items():
-                    if col_name not in existing_columns:
-                        self._conn.execute(alter_sql)
-                self._conn.execute(
-                    "CREATE INDEX IF NOT EXISTS idx_competitor_format ON competitor_videos(keyword_id, format)"
-                )
-                self._conn.execute(
-                    "CREATE INDEX IF NOT EXISTS idx_competitor_quality ON competitor_videos(keyword_id, quality_tier)"
-                )
+        columns_to_add = {
+            'format': 'ALTER TABLE competitor_videos ADD COLUMN format TEXT',
+            'angles': 'ALTER TABLE competitor_videos ADD COLUMN angles TEXT',
+            'quality_tier': 'ALTER TABLE competitor_videos ADD COLUMN quality_tier TEXT',
+            'classified_at': 'ALTER TABLE competitor_videos ADD COLUMN classified_at DATE'
+        }
 
-        except sqlite3.Error:
-            # If table doesn't exist yet, this is fine (will be created during init)
-            pass
+        # Atomic migration: rollback on partial failure
+        with self._conn:
+            for col_name, alter_sql in columns_to_add.items():
+                if col_name not in existing_columns:
+                    self._conn.execute(alter_sql)
+            self._conn.execute(
+                "CREATE INDEX IF NOT EXISTS idx_competitor_format ON competitor_videos(keyword_id, format)"
+            )
+            self._conn.execute(
+                "CREATE INDEX IF NOT EXISTS idx_competitor_quality ON competitor_videos(keyword_id, quality_tier)"
+            )
 
     def update_video_classification(
         self,
@@ -933,31 +940,29 @@ class KeywordDB:
         This allows existing databases to migrate without manual schema updates.
         Executes ALTER TABLE statements for each missing column.
         """
-        try:
-            cursor = self._conn.cursor()
+        if not self._table_exists('keywords'):
+            return  # Will be created during init_database()
 
-            # Check which columns exist in keywords table (read outside transaction)
-            cursor.execute("PRAGMA table_info(keywords)")
-            existing_columns = {row[1] for row in cursor.fetchall()}
+        cursor = self._conn.cursor()
 
-            columns_to_add = {
-                'production_constraints': 'ALTER TABLE keywords ADD COLUMN production_constraints TEXT',
-                'constraint_checked_at': 'ALTER TABLE keywords ADD COLUMN constraint_checked_at DATE',
-                'is_production_blocked': 'ALTER TABLE keywords ADD COLUMN is_production_blocked BOOLEAN DEFAULT 0'
-            }
+        # Check which columns exist in keywords table (read outside transaction)
+        cursor.execute("PRAGMA table_info(keywords)")
+        existing_columns = {row[1] for row in cursor.fetchall()}
 
-            # Atomic migration: rollback on partial failure
-            with self._conn:
-                for col_name, alter_sql in columns_to_add.items():
-                    if col_name not in existing_columns:
-                        self._conn.execute(alter_sql)
-                self._conn.execute(
-                    "CREATE INDEX IF NOT EXISTS idx_keywords_blocked ON keywords(is_production_blocked, constraint_checked_at DESC)"
-                )
+        columns_to_add = {
+            'production_constraints': 'ALTER TABLE keywords ADD COLUMN production_constraints TEXT',
+            'constraint_checked_at': 'ALTER TABLE keywords ADD COLUMN constraint_checked_at DATE',
+            'is_production_blocked': 'ALTER TABLE keywords ADD COLUMN is_production_blocked BOOLEAN DEFAULT 0'
+        }
 
-        except sqlite3.Error:
-            # If table doesn't exist yet, this is fine (will be created during init)
-            pass
+        # Atomic migration: rollback on partial failure
+        with self._conn:
+            for col_name, alter_sql in columns_to_add.items():
+                if col_name not in existing_columns:
+                    self._conn.execute(alter_sql)
+            self._conn.execute(
+                "CREATE INDEX IF NOT EXISTS idx_keywords_blocked ON keywords(is_production_blocked, constraint_checked_at DESC)"
+            )
 
     def store_production_constraints(
         self,
@@ -1150,46 +1155,44 @@ class KeywordDB:
         Executes ALTER TABLE statements for each missing column and creates
         lifecycle_history table.
         """
-        try:
-            cursor = self._conn.cursor()
+        if not self._table_exists('keywords'):
+            return  # Will be created during init_database()
 
-            # Check which columns exist in keywords table (read outside transaction)
-            cursor.execute("PRAGMA table_info(keywords)")
-            existing_columns = {row[1] for row in cursor.fetchall()}
+        cursor = self._conn.cursor()
 
-            columns_to_add = {
-                'lifecycle_state': "ALTER TABLE keywords ADD COLUMN lifecycle_state TEXT DEFAULT 'DISCOVERED'",
-                'lifecycle_updated_at': 'ALTER TABLE keywords ADD COLUMN lifecycle_updated_at DATE',
-                'opportunity_score_final': 'ALTER TABLE keywords ADD COLUMN opportunity_score_final REAL',
-                'opportunity_category': 'ALTER TABLE keywords ADD COLUMN opportunity_category TEXT'
-            }
+        # Check which columns exist in keywords table (read outside transaction)
+        cursor.execute("PRAGMA table_info(keywords)")
+        existing_columns = {row[1] for row in cursor.fetchall()}
 
-            # Atomic migration: rollback on partial failure
-            with self._conn:
-                for col_name, alter_sql in columns_to_add.items():
-                    if col_name not in existing_columns:
-                        self._conn.execute(alter_sql)
+        columns_to_add = {
+            'lifecycle_state': "ALTER TABLE keywords ADD COLUMN lifecycle_state TEXT DEFAULT 'DISCOVERED'",
+            'lifecycle_updated_at': 'ALTER TABLE keywords ADD COLUMN lifecycle_updated_at DATE',
+            'opportunity_score_final': 'ALTER TABLE keywords ADD COLUMN opportunity_score_final REAL',
+            'opportunity_category': 'ALTER TABLE keywords ADD COLUMN opportunity_category TEXT'
+        }
 
-                self._conn.execute(
-                    """
-                    CREATE TABLE IF NOT EXISTS lifecycle_history (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        keyword_id INTEGER NOT NULL,
-                        from_state TEXT NOT NULL,
-                        to_state TEXT NOT NULL,
-                        transitioned_at DATE NOT NULL,
-                        FOREIGN KEY (keyword_id) REFERENCES keywords(id)
-                    )
-                    """
+        # Atomic migration: rollback on partial failure
+        with self._conn:
+            for col_name, alter_sql in columns_to_add.items():
+                if col_name not in existing_columns:
+                    self._conn.execute(alter_sql)
+
+            self._conn.execute(
+                """
+                CREATE TABLE IF NOT EXISTS lifecycle_history (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    keyword_id INTEGER NOT NULL,
+                    from_state TEXT NOT NULL,
+                    to_state TEXT NOT NULL,
+                    transitioned_at DATE NOT NULL,
+                    FOREIGN KEY (keyword_id) REFERENCES keywords(id)
                 )
+                """
+            )
 
-                self._conn.execute(
-                    "CREATE INDEX IF NOT EXISTS idx_lifecycle_history ON lifecycle_history(keyword_id, transitioned_at DESC)"
-                )
-
-        except sqlite3.Error:
-            # If table doesn't exist yet, this is fine (will be created during init)
-            pass
+            self._conn.execute(
+                "CREATE INDEX IF NOT EXISTS idx_lifecycle_history ON lifecycle_history(keyword_id, transitioned_at DESC)"
+            )
 
     def set_lifecycle_state(self, keyword_id: int, new_state: str) -> Dict[str, Any]:
         """
@@ -1705,49 +1708,48 @@ class KeywordDB:
         - Feedback columns on video_performance (retention_drop_point, discovery_issues, lessons_learned)
         - section_feedback table: stores section-level retention notes
         """
-        try:
+        if not self._table_exists('video_performance'):
+            return  # Will be created by _ensure_performance_table()
+
+        cursor = self._conn.cursor()
+
+        # Check which columns exist in video_performance
+        cursor.execute("PRAGMA table_info(video_performance)")
+        existing_columns = {row[1] for row in cursor.fetchall()}
+
+        # Add missing feedback columns
+        columns_to_add = {
+            'retention_drop_point': 'ALTER TABLE video_performance ADD COLUMN retention_drop_point INTEGER',
+            'discovery_issues': 'ALTER TABLE video_performance ADD COLUMN discovery_issues TEXT',
+            'lessons_learned': 'ALTER TABLE video_performance ADD COLUMN lessons_learned TEXT'
+        }
+
+        with self._conn:
             cursor = self._conn.cursor()
 
-            # Check which columns exist in video_performance
-            cursor.execute("PRAGMA table_info(video_performance)")
-            existing_columns = {row[1] for row in cursor.fetchall()}
+            for col_name, alter_sql in columns_to_add.items():
+                if col_name not in existing_columns:
+                    cursor.execute(alter_sql)
 
-            # Add missing feedback columns
-            columns_to_add = {
-                'retention_drop_point': 'ALTER TABLE video_performance ADD COLUMN retention_drop_point INTEGER',
-                'discovery_issues': 'ALTER TABLE video_performance ADD COLUMN discovery_issues TEXT',
-                'lessons_learned': 'ALTER TABLE video_performance ADD COLUMN lessons_learned TEXT'
-            }
-
-            with self._conn:
-                cursor = self._conn.cursor()
-
-                for col_name, alter_sql in columns_to_add.items():
-                    if col_name not in existing_columns:
-                        cursor.execute(alter_sql)
-
-                # Create section_feedback table
-                cursor.execute(
-                    """
-                    CREATE TABLE IF NOT EXISTS section_feedback (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        video_id TEXT NOT NULL,
-                        section_name TEXT NOT NULL,
-                        retention_percent REAL,
-                        notes TEXT,
-                        created_at DATE,
-                        FOREIGN KEY (video_id) REFERENCES video_performance(video_id)
-                    )
-                    """
+            # Create section_feedback table
+            cursor.execute(
+                """
+                CREATE TABLE IF NOT EXISTS section_feedback (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    video_id TEXT NOT NULL,
+                    section_name TEXT NOT NULL,
+                    retention_percent REAL,
+                    notes TEXT,
+                    created_at DATE,
+                    FOREIGN KEY (video_id) REFERENCES video_performance(video_id)
                 )
+                """
+            )
 
-                # Create index
-                cursor.execute(
-                    "CREATE INDEX IF NOT EXISTS idx_section_feedback_video ON section_feedback(video_id)"
-                )
-
-        except sqlite3.Error as e:
-            logger.error("Migration feedback tables failed: %s", e)
+            # Create index
+            cursor.execute(
+                "CREATE INDEX IF NOT EXISTS idx_section_feedback_video ON section_feedback(video_id)"
+            )
 
     def add_video_performance(
         self,
