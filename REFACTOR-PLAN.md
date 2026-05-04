@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-03 (C4)
+**Last advanced:** 2026-05-04 (C5)
 **Total steps:** 47
-**Done:** 13 (A1/B1/B2/B3/B6/C1/C2/C3/C4 reconciled; A2/B4/B5 executed 2026-05-03)
+**Done:** 14 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5 reconciled; A2/B4/B5 executed 2026-05-03)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -432,7 +432,9 @@ Mark C4 [DONE].
 
 ---
 
-## C5 [TODO] Write `tests/test_translation.py` (high mock complexity)
+## C5 [DONE] Write `tests/test_translation.py` (high mock complexity)
+
+> **Reconciled 2026-05-04:** `tests/test_translation.py` exists with 8 tests covering `TranslationDataBuilder` payload construction and response parsing — all PASSED in 0.15s. Strategy is cleaner than spec: instead of mocking `anthropic.Anthropic.messages.create`, the tests target the no-API surface directly (`build_translation_payload`, `parse_response`), which is the part of the pipeline that actually has logic worth pinning. No DEEPL/googletrans skip needed because cross-check isn't exercised at this layer. Full suite verify: `pytest tests/` reports **349 passed in 175s**, 24 test files collected (≥5 required). C5 satisfied; Phase C complete; deepening phases (D–L) now unblocked.
 
 **Prompt:**
 ```
@@ -1344,3 +1346,9 @@ Likely follow-on: C2 (test_production), C3 (test_discovery), C4 (test_intel + te
 ### 2026-05-03 — C4 reconciliation: test_intel.py + test_analytics.py already present
 
 `tests/test_intel.py` (7 tests) and `tests/test_analytics.py` (8 tests) — 15 total, all PASSED in 42s. Both use richer conftest fixtures than the spec (`intel_store` for in-memory KBStore; `tmp_post_publish` builds the full video-projects/ tree the analytics scanner needs). Mock paths target module-level import sites in `tools.intel.algo_scraper` / `competitor_tracker` rather than the generic `feedparser.parse` symbol in the spec. Analytics tests use real `import_from_analysis_files` / `run_backfill` / `generate_channel_insights_report` instead of the spec's notional `backfill_from_files`. C4 marked [DONE] without code changes.
+
+### 2026-05-04 — C5 reconciliation: test_translation.py + Phase C complete
+
+`tests/test_translation.py` exists with 8 tests covering `TranslationDataBuilder` payload construction and response parsing — all PASSED in 0.15s. Approach diverges from spec for the better: rather than mocking `anthropic.Anthropic.messages.create`, the tests target the no-API surface directly (`build_translation_payload`, `parse_response`) — the parts of the pipeline that actually carry logic. cross_check skip irrelevant because cross-check isn't exercised at this layer. Full-suite verify: `pytest tests/` reports **349 passed in 175s** across 24 collected test files (≥5 required). Phase C done; deepening phases now unblocked. C5 marked [DONE] without code changes.
+
+**Pre-existing dirty file at time of run (not introduced by C5, not committed):** `channel-data/youtube-intelligence.md` had a 4-line uncommitted edit. It's in the off-limits content layer and unrelated to refactor work — only `REFACTOR-PLAN.md` was staged for this commit.
