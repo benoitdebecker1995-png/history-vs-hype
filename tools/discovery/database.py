@@ -760,11 +760,10 @@ class KeywordDB:
         try:
             cursor = self._conn.cursor()
 
-            # Check which columns exist
+            # Check which columns exist (read outside transaction)
             cursor.execute("PRAGMA table_info(competitor_videos)")
             existing_columns = {row[1] for row in cursor.fetchall()}
 
-            # Add missing classification columns
             columns_to_add = {
                 'format': 'ALTER TABLE competitor_videos ADD COLUMN format TEXT',
                 'angles': 'ALTER TABLE competitor_videos ADD COLUMN angles TEXT',
@@ -772,19 +771,17 @@ class KeywordDB:
                 'classified_at': 'ALTER TABLE competitor_videos ADD COLUMN classified_at DATE'
             }
 
-            for col_name, alter_sql in columns_to_add.items():
-                if col_name not in existing_columns:
-                    cursor.execute(alter_sql)
-
-            # Create indexes if they don't exist
-            cursor.execute(
-                "CREATE INDEX IF NOT EXISTS idx_competitor_format ON competitor_videos(keyword_id, format)"
-            )
-            cursor.execute(
-                "CREATE INDEX IF NOT EXISTS idx_competitor_quality ON competitor_videos(keyword_id, quality_tier)"
-            )
-
-            self._conn.commit()
+            # Atomic migration: rollback on partial failure
+            with self._conn:
+                for col_name, alter_sql in columns_to_add.items():
+                    if col_name not in existing_columns:
+                        self._conn.execute(alter_sql)
+                self._conn.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_competitor_format ON competitor_videos(keyword_id, format)"
+                )
+                self._conn.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_competitor_quality ON competitor_videos(keyword_id, quality_tier)"
+                )
 
         except sqlite3.Error:
             # If table doesn't exist yet, this is fine (will be created during init)
@@ -939,27 +936,24 @@ class KeywordDB:
         try:
             cursor = self._conn.cursor()
 
-            # Check which columns exist in keywords table
+            # Check which columns exist in keywords table (read outside transaction)
             cursor.execute("PRAGMA table_info(keywords)")
             existing_columns = {row[1] for row in cursor.fetchall()}
 
-            # Add missing production constraint columns
             columns_to_add = {
                 'production_constraints': 'ALTER TABLE keywords ADD COLUMN production_constraints TEXT',
                 'constraint_checked_at': 'ALTER TABLE keywords ADD COLUMN constraint_checked_at DATE',
                 'is_production_blocked': 'ALTER TABLE keywords ADD COLUMN is_production_blocked BOOLEAN DEFAULT 0'
             }
 
-            for col_name, alter_sql in columns_to_add.items():
-                if col_name not in existing_columns:
-                    cursor.execute(alter_sql)
-
-            # Create index if it doesn't exist
-            cursor.execute(
-                "CREATE INDEX IF NOT EXISTS idx_keywords_blocked ON keywords(is_production_blocked, constraint_checked_at DESC)"
-            )
-
-            self._conn.commit()
+            # Atomic migration: rollback on partial failure
+            with self._conn:
+                for col_name, alter_sql in columns_to_add.items():
+                    if col_name not in existing_columns:
+                        self._conn.execute(alter_sql)
+                self._conn.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_keywords_blocked ON keywords(is_production_blocked, constraint_checked_at DESC)"
+                )
 
         except sqlite3.Error:
             # If table doesn't exist yet, this is fine (will be created during init)
@@ -1159,11 +1153,10 @@ class KeywordDB:
         try:
             cursor = self._conn.cursor()
 
-            # Check which columns exist in keywords table
+            # Check which columns exist in keywords table (read outside transaction)
             cursor.execute("PRAGMA table_info(keywords)")
             existing_columns = {row[1] for row in cursor.fetchall()}
 
-            # Add missing lifecycle columns
             columns_to_add = {
                 'lifecycle_state': "ALTER TABLE keywords ADD COLUMN lifecycle_state TEXT DEFAULT 'DISCOVERED'",
                 'lifecycle_updated_at': 'ALTER TABLE keywords ADD COLUMN lifecycle_updated_at DATE',
@@ -1171,30 +1164,28 @@ class KeywordDB:
                 'opportunity_category': 'ALTER TABLE keywords ADD COLUMN opportunity_category TEXT'
             }
 
-            for col_name, alter_sql in columns_to_add.items():
-                if col_name not in existing_columns:
-                    cursor.execute(alter_sql)
+            # Atomic migration: rollback on partial failure
+            with self._conn:
+                for col_name, alter_sql in columns_to_add.items():
+                    if col_name not in existing_columns:
+                        self._conn.execute(alter_sql)
 
-            # Create lifecycle_history table if it doesn't exist
-            cursor.execute(
-                """
-                CREATE TABLE IF NOT EXISTS lifecycle_history (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    keyword_id INTEGER NOT NULL,
-                    from_state TEXT NOT NULL,
-                    to_state TEXT NOT NULL,
-                    transitioned_at DATE NOT NULL,
-                    FOREIGN KEY (keyword_id) REFERENCES keywords(id)
+                self._conn.execute(
+                    """
+                    CREATE TABLE IF NOT EXISTS lifecycle_history (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        keyword_id INTEGER NOT NULL,
+                        from_state TEXT NOT NULL,
+                        to_state TEXT NOT NULL,
+                        transitioned_at DATE NOT NULL,
+                        FOREIGN KEY (keyword_id) REFERENCES keywords(id)
+                    )
+                    """
                 )
-                """
-            )
 
-            # Create index if it doesn't exist
-            cursor.execute(
-                "CREATE INDEX IF NOT EXISTS idx_lifecycle_history ON lifecycle_history(keyword_id, transitioned_at DESC)"
-            )
-
-            self._conn.commit()
+                self._conn.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_lifecycle_history ON lifecycle_history(keyword_id, transitioned_at DESC)"
+                )
 
         except sqlite3.Error:
             # If table doesn't exist yet, this is fine (will be created during init)
@@ -1436,50 +1427,47 @@ class KeywordDB:
         try:
             cursor = self._conn.cursor()
 
-            # Check if table exists
+            # Check if table exists (read outside transaction)
             cursor.execute(
                 "SELECT name FROM sqlite_master WHERE type='table' AND name='video_performance'"
             )
             if cursor.fetchone() is not None:
                 return  # Table exists
 
-            # Create table
-            cursor.execute(
-                """
-                CREATE TABLE IF NOT EXISTS video_performance (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    video_id TEXT UNIQUE NOT NULL,
-                    title TEXT,
-                    views INTEGER,
-                    subscribers_gained INTEGER,
-                    subscribers_lost INTEGER,
-                    conversion_rate REAL,
-                    watch_time_minutes REAL,
-                    avg_view_duration_seconds INTEGER,
-                    likes INTEGER,
-                    comments INTEGER,
-                    shares INTEGER,
-                    topic_type TEXT,
-                    angles TEXT,
-                    published_at DATE,
-                    fetched_at DATE NOT NULL,
-                    classified_at DATE
+            # Atomic migration: rollback on partial failure
+            with self._conn:
+                self._conn.execute(
+                    """
+                    CREATE TABLE IF NOT EXISTS video_performance (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        video_id TEXT UNIQUE NOT NULL,
+                        title TEXT,
+                        views INTEGER,
+                        subscribers_gained INTEGER,
+                        subscribers_lost INTEGER,
+                        conversion_rate REAL,
+                        watch_time_minutes REAL,
+                        avg_view_duration_seconds INTEGER,
+                        likes INTEGER,
+                        comments INTEGER,
+                        shares INTEGER,
+                        topic_type TEXT,
+                        angles TEXT,
+                        published_at DATE,
+                        fetched_at DATE NOT NULL,
+                        classified_at DATE
+                    )
+                    """
                 )
-                """
-            )
-
-            # Create indexes
-            cursor.execute(
-                "CREATE INDEX IF NOT EXISTS idx_performance_conversion ON video_performance(conversion_rate DESC)"
-            )
-            cursor.execute(
-                "CREATE INDEX IF NOT EXISTS idx_performance_topic ON video_performance(topic_type)"
-            )
-            cursor.execute(
-                "CREATE INDEX IF NOT EXISTS idx_performance_fetched ON video_performance(fetched_at DESC)"
-            )
-
-            self._conn.commit()
+                self._conn.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_performance_conversion ON video_performance(conversion_rate DESC)"
+                )
+                self._conn.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_performance_topic ON video_performance(topic_type)"
+                )
+                self._conn.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_performance_fetched ON video_performance(fetched_at DESC)"
+                )
 
         except sqlite3.Error:
             # If connection issue, this is fine (will be handled on init)
