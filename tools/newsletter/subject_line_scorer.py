@@ -382,7 +382,7 @@ def main():
     if args.file:
         path = Path(args.file)
         if not path.exists():
-            print(f"File not found: {args.file}", file=sys.stderr)
+            logger.error(f"File not found: {args.file}")
             sys.exit(1)
         subjects.extend(line.strip() for line in path.read_text(encoding='utf-8').splitlines() if line.strip())
 

@@ -319,8 +319,8 @@ Rate Limiting:
 
     # Check pyppeteer availability
     if not PYPPETEER_AVAILABLE:
-        print("ERROR: pyppeteer not installed", file=sys.stderr)
-        print("Install with: pip install pyppeteer pyppeteer-stealth", file=sys.stderr)
+        logger.error("pyppeteer not installed")
+        logger.error("Install with: pip install pyppeteer pyppeteer-stealth")
         sys.exit(1)
 
     # Determine seed keywords
@@ -330,7 +330,7 @@ Rate Limiting:
         # Read from file
         path = Path(args.seed_file)
         if not path.exists():
-            print(f"ERROR: Seed file not found: {args.seed_file}", file=sys.stderr)
+            logger.error(f"Seed file not found: {args.seed_file}")
             sys.exit(1)
 
         seeds = [line.strip() for line in path.read_text().splitlines() if line.strip()]
@@ -344,7 +344,7 @@ Rate Limiting:
         sys.exit(1)
 
     if not seeds:
-        print("ERROR: No seed keywords provided", file=sys.stderr)
+        logger.error("No seed keywords provided")
         sys.exit(1)
 
     # Extract suggestions

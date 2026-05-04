@@ -917,7 +917,7 @@ def main():
     result = score_article(args.file)
 
     if 'error' in result:
-        print(f"ERROR: {result['error']}", file=sys.stderr)
+        logger.error(f"{result['error']}")
         sys.exit(1)
 
     if args.json_output:

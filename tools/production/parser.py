@@ -19,6 +19,10 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Tuple, Optional
 
+from tools.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 def strip_for_teleprompter(text: str) -> str:
     """
@@ -391,7 +395,7 @@ if __name__ == "__main__":
 
     script_path = Path(args.script)
     if not script_path.exists():
-        print(f"File not found: {script_path}", file=sys.stderr)
+        logger.error(f"File not found: {script_path}")
         sys.exit(1)
 
     broll_mode = args.broll

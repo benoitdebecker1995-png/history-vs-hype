@@ -413,7 +413,7 @@ if __name__ == '__main__':
         if 0 <= args.ctr <= 100:
             manual_ctr = args.ctr
         else:
-            print(f"Error: --ctr must be between 0 and 100, got {args.ctr}", file=sys.stderr)
+            logger.error(f"Error: --ctr must be between 0 and 100, got {args.ctr}")
             sys.exit(1)
 
     # Load dependencies lazily
@@ -422,22 +422,22 @@ if __name__ == '__main__':
 
     # Check dependencies
     if get_video_metrics is None or get_channel_averages is None:
-        print("Error: Required dependencies not available", file=sys.stderr)
-        print("Ensure youtube_analytics/metrics.py and channel_averages.py are present", file=sys.stderr)
+        logger.error("Error: Required dependencies not available")
+        logger.error("Ensure youtube_analytics/metrics.py and channel_averages.py are present")
         sys.exit(1)
 
     # Fetch video metrics
     video_metrics = get_video_metrics(args.video_id)
 
     if 'error' in video_metrics:
-        print(f"Error fetching video metrics: {video_metrics['error']}", file=sys.stderr)
+        logger.error(f"Error fetching video metrics: {video_metrics['error']}")
         sys.exit(1)
 
     # Fetch channel averages
     channel_averages = get_channel_averages()
 
     if 'error' in channel_averages:
-        print(f"Error fetching channel averages: {channel_averages['error']}", file=sys.stderr)
+        logger.error(f"Error fetching channel averages: {channel_averages['error']}")
         sys.exit(1)
 
     # Run diagnosis

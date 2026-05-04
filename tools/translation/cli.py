@@ -122,37 +122,37 @@ def cmd_detect(args):
 
 def cmd_translate(args):
     """Redirect to /translate slash command."""
-    print("ERROR: The 'translate' subcommand has been replaced by the /translate slash command.", file=sys.stderr)
-    print("Run: /translate [project] --file [document] --language [language]", file=sys.stderr)
-    print("This provides the same functionality through Claude Code's native LLM integration.", file=sys.stderr)
-    print("No API key needed — Claude Code handles all LLM calls natively.", file=sys.stderr)
+    logger.error("The 'translate' subcommand has been replaced by the /translate slash command.")
+    logger.error("Run: /translate [project] --file [document] --language [language]")
+    logger.error("This provides the same functionality through Claude Code's native LLM integration.")
+    logger.error("No API key needed — Claude Code handles all LLM calls natively.")
     sys.exit(1)
 
 
 def cmd_crosscheck(args):
     """Redirect to /translate slash command."""
-    print("ERROR: The 'crosscheck' subcommand has been replaced by the /translate slash command.", file=sys.stderr)
-    print("Cross-checking is integrated into Step 3 of /translate.", file=sys.stderr)
-    print("Run: /translate [project] --file [document] --language [language]", file=sys.stderr)
-    print("This provides the same functionality through Claude Code's native LLM integration.", file=sys.stderr)
+    logger.error("The 'crosscheck' subcommand has been replaced by the /translate slash command.")
+    logger.error("Cross-checking is integrated into Step 3 of /translate.")
+    logger.error("Run: /translate [project] --file [document] --language [language]")
+    logger.error("This provides the same functionality through Claude Code's native LLM integration.")
     sys.exit(1)
 
 
 def cmd_annotate(args):
     """Redirect to /translate slash command."""
-    print("ERROR: The 'annotate' subcommand has been replaced by the /translate slash command.", file=sys.stderr)
-    print("Legal annotation is integrated into Step 4 of /translate.", file=sys.stderr)
-    print("Run: /translate [project] --file [document] --language [language]", file=sys.stderr)
-    print("This provides the same functionality through Claude Code's native LLM integration.", file=sys.stderr)
+    logger.error("The 'annotate' subcommand has been replaced by the /translate slash command.")
+    logger.error("Legal annotation is integrated into Step 4 of /translate.")
+    logger.error("Run: /translate [project] --file [document] --language [language]")
+    logger.error("This provides the same functionality through Claude Code's native LLM integration.")
     sys.exit(1)
 
 
 def cmd_surprise(args):
     """Redirect to /translate slash command."""
-    print("ERROR: The 'surprise' subcommand has been replaced by the /translate slash command.", file=sys.stderr)
-    print("Surprise detection is integrated into Step 5 of /translate (use --narrative flag).", file=sys.stderr)
+    logger.error("The 'surprise' subcommand has been replaced by the /translate slash command.")
+    logger.error("Surprise detection is integrated into Step 5 of /translate (use --narrative flag).")
     print("Run: /translate [project] --file [document] --language [language] --narrative \"expected narrative\"", file=sys.stderr)
-    print("This provides the same functionality through Claude Code's native LLM integration.", file=sys.stderr)
+    logger.error("This provides the same functionality through Claude Code's native LLM integration.")
     sys.exit(1)
 
 

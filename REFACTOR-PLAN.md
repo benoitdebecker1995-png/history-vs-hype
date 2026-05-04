@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-04 (E4)
+**Last advanced:** 2026-05-04 (E5)
 **Total steps:** 47
-**Done:** 22 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3/E2/E3 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1/E4 executed 2026-05-04)
+**Done:** 23 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3/E2/E3 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1/E4/E5 executed 2026-05-04)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -749,7 +749,28 @@ Mark E4 [DONE].
 
 ---
 
-## E5 [TODO] Replace internal `print()` with `logger.*` in remaining packages
+## E5 [DONE] Replace internal `print()` with `logger.*` in remaining packages
+
+> **Executed 2026-05-04:** Converted **36 diagnostic prints across 11 files** in `discovery/`, `translation/`, `production/`, `newsletter/` (the only 4 remaining packages with stderr-prints — `script_checkers/`, `intel/`, `document_discovery/`, `dashboard/`, `preflight/`, `research/` had zero, already clean). Same conservative regex strategy as E4 + AST validation post-conversion.
+>
+> **Per-file conversion counts:**
+> - `discovery/diagnostics.py`: 5 stderr-generic → `logger.error`
+> - `discovery/recommender.py`: 3 stderr-generic → `logger.error`
+> - `discovery/autocomplete.py`: 3 ERROR-prefix + 1 stderr-generic → `logger.error`
+> - `discovery/competition.py`: 2 stderr-generic → `logger.error`
+> - `discovery/orchestrator.py`: 2 stderr-generic → `logger.error`
+> - `discovery/keywords.py`: 1 ERROR-prefix → `logger.error`
+> - `discovery/metadata_checker.py`: 1 stderr-generic → `logger.error`
+> - `translation/cli.py`: 4 ERROR-prefix + 11 stderr-generic → `logger.error` (15 total — biggest single file)
+> - `production/parser.py`: 1 stderr-generic → `logger.error` (manual: converter's auto-import logic inserted module-level imports inside a function — fixed by hand at top of file)
+> - `newsletter/article_scorer.py`: 1 ERROR-prefix → `logger.error`
+> - `newsletter/subject_line_scorer.py`: 1 stderr-generic → `logger.error`
+>
+> **One converter bug surfaced and fixed:** the throwaway `_e5_convert.py` script's `add_logger_imports()` heuristic identified the "last import line" by simple line-by-line scan, which incorrectly matched `from tools.logging_config import setup_logging` *inside* `parser.py:main()` (line 387). Inserting a module-level `logger = get_logger(__name__)` after that line broke indentation. Caught by AST validation before write — file was untouched on disk. Fixed by adding the imports manually at module top (after the existing `import re / dataclasses / pathlib / typing` block) and converting the single print site by Edit. Worth recording: a more robust converter would require zero-indent before treating a line as a module-level import. Out of scope for E5; documented here for future automation work.
+>
+> **Cumulative E4+E5:** 84 diagnostic prints converted to `logger.error` calls across 26 files in 5 packages. The audit's "~750 conversions globally" target hits ~11% of the way; the remaining ~660 are predominantly user-facing report output (formatted tables, status confirmations, success messages) that the audit's mapping rules say to keep as `print()`. The high-value mechanical work is done — what's left is judgment-call territory on a per-print basis, not a mechanical sweep.
+>
+> Verify: full suite `pytest tests/` reports **356 passed in 175s**. Same baseline as post-E4 — no regressions.
 
 **Prompt:**
 ```
@@ -1506,3 +1527,11 @@ Top counts: `variants.py` (13), `feedback.py` (6), `performance.py` (6), `retent
 Intentionally left as `print()`: formatted-table CLI output (`performance.py` ~99 such prints), success-confirmation messages (variants.py "Registered..."), and 6 non-mechanical stderr cases — progress indicators with `\r`/`end=`/`flush=` (interactive UX), `print(json.dumps(...), file=sys.stderr)` (deliberate JSON-to-stderr CLI design for jq piping), variable-arg prints. All match the audit's ~600 keep-list logic.
 
 Full suite: **356 passed in 259s** (349 baseline + 7 from E1's logging tests). E4 doesn't fully drain the audit's "~750 conversions" target globally, but it lands the youtube_analytics slice cleanly — E5 picks up the other packages.
+
+### 2026-05-04 — E5 execution: 36 more diagnostic prints converted across discovery/translation/production/newsletter
+
+Same converter approach as E4 (stderr-prints + ERROR-prefix → `logger.error`). 6 of the 10 audit-listed packages had zero stderr-prints already (`script_checkers/`, `intel/`, `document_discovery/`, `dashboard/`, `preflight/`, `research/`) — only 4 packages had work to do. Top file: `translation/cli.py` (15 conversions). Total: **36 sites across 11 files**.
+
+**Converter bug found + fixed during E5:** the auto-import injector treated any `from ... import` line as "module-level" without checking column 0, so a function-scope `from tools.logging_config import setup_logging` in `production/parser.py:main()` got matched, and the script tried to insert a module-level `logger = get_logger(__name__)` immediately after — at function indentation depth. AST validation caught it before write; file untouched on disk. Fixed manually: added imports at the top of `parser.py` (after stdlib block) and converted the one print site via Edit. Future-self note: a robust converter must require column-0 anchoring before treating an import line as module-level.
+
+**Cumulative E4+E5:** 84 sites converted across 26 files in 5 packages (`youtube_analytics/`, `discovery/`, `translation/`, `production/`, `newsletter/`). The mechanical sweep is done — remaining `print()` calls are predominantly report-output keep-list per audit mapping rules. Full suite **356 passed in 175s**. Phase E complete.

@@ -356,7 +356,7 @@ Examples:
                 )
 
                 if 'error' in result:
-                    print(f"ERROR: {result['error']}", file=sys.stderr)
+                    logger.error(f"{result['error']}")
                     sys.exit(1)
                 else:
                     print(f"Keyword '{result['keyword']}' {result['action']} (ID: {result['keyword_id']})")
