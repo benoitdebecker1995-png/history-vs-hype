@@ -48,6 +48,18 @@ class KeywordDB:
         self._conn = None
         self._ensure_connection()
 
+    @staticmethod
+    def _err(operation: str, message: str, exc: Optional[BaseException] = None, **extras) -> Dict[str, Any]:
+        """Standard 4-key error dict + optional extras. Phase 50 audit shape."""
+        result: Dict[str, Any] = {
+            'error': message,
+            'module': __name__,
+            'operation': operation,
+            'details': str(exc) if exc is not None else '',
+        }
+        result.update(extras)
+        return result
+
     def _ensure_connection(self):
         """Ensure database connection exists and initialize if needed"""
         if self._conn is None:
@@ -87,10 +99,7 @@ class KeywordDB:
             schema_path = Path(__file__).parent / 'schema.sql'
 
             if not schema_path.exists():
-                return {
-                    'error': 'schema.sql not found',
-                    'path': str(schema_path)
-                }
+                return self._err('init_database', 'schema.sql not found', path=str(schema_path))
 
             schema_sql = schema_path.read_text(encoding='utf-8')
 
@@ -109,15 +118,9 @@ class KeywordDB:
             }
 
         except sqlite3.Error as e:
-            return {
-                'error': f'Database initialization failed: {type(e).__name__}',
-                'details': str(e)
-            }
+            return self._err('init_database', f'Database initialization failed: {type(e).__name__}', e)
         except Exception as e:
-            return {
-                'error': f'Unexpected error during initialization: {type(e).__name__}',
-                'details': str(e)
-            }
+            return self._err('init_database', f'Unexpected error during initialization: {type(e).__name__}', e)
 
     def add_keyword(
         self,
@@ -185,15 +188,9 @@ class KeywordDB:
             }
 
         except sqlite3.Error as e:
-            return {
-                'error': f'Database error adding keyword: {type(e).__name__}',
-                'details': str(e)
-            }
+            return self._err('add_keyword', f'Database error adding keyword: {type(e).__name__}', e)
         except Exception as e:
-            return {
-                'error': f'Unexpected error: {type(e).__name__}',
-                'details': str(e)
-            }
+            return self._err('add_keyword', f'Unexpected error: {type(e).__name__}', e)
 
     def get_keyword(self, keyword: str) -> Dict[str, Any]:
         """
@@ -212,18 +209,12 @@ class KeywordDB:
             row = cursor.fetchone()
 
             if row is None:
-                return {
-                    'error': 'Keyword not found',
-                    'keyword': keyword
-                }
+                return self._err('get_keyword', 'Keyword not found', keyword=keyword)
 
             return dict(row)
 
         except sqlite3.Error as e:
-            return {
-                'error': f'Database error: {type(e).__name__}',
-                'details': str(e)
-            }
+            return self._err('get_keyword', f'Database error: {type(e).__name__}', e)
 
     def search_keywords(self, pattern: Optional[str] = None, limit: int = 50) -> List[Dict[str, Any]]:
         """
@@ -356,10 +347,7 @@ class KeywordDB:
             }
 
         except sqlite3.Error as e:
-            return {
-                'error': f'Database error setting intent: {type(e).__name__}',
-                'details': str(e)
-            }
+            return self._err('set_intent', f'Database error setting intent: {type(e).__name__}', e)
 
     def add_performance(
         self,
@@ -405,10 +393,7 @@ class KeywordDB:
             }
 
         except sqlite3.Error as e:
-            return {
-                'error': f'Database error tracking performance: {type(e).__name__}',
-                'details': str(e)
-            }
+            return self._err('add_performance', f'Database error tracking performance: {type(e).__name__}', e)
 
     def get_keyword_stats(self) -> Dict[str, Any]:
         """
@@ -498,9 +483,9 @@ class KeywordDB:
             }
 
         except sqlite3.IntegrityError as e:
-            return {'error': 'Integrity constraint violated', 'details': str(e)}
+            return self._err('add_trend', 'Integrity constraint violated', e)
         except sqlite3.OperationalError as e:
-            return {'error': 'Database operation failed', 'details': str(e)}
+            return self._err('add_trend', 'Database operation failed', e)
 
     def get_cached_trend(self, keyword_id: int, max_age_days: int = 7) -> Optional[Dict[str, Any]]:
         """
@@ -573,12 +558,12 @@ class KeywordDB:
             row = cursor.fetchone()
 
             if row is None:
-                return {'error': 'not found'}
+                return self._err('get_latest_trend', 'not found')
 
             return dict(row)
 
         except sqlite3.Error as e:
-            return {'error': 'Database operation failed', 'details': str(e)}
+            return self._err('get_latest_trend', 'Database operation failed', e)
 
     def add_competitor_video(
         self,
@@ -630,9 +615,9 @@ class KeywordDB:
             return {'status': 'inserted'}
 
         except sqlite3.IntegrityError as e:
-            return {'error': 'Integrity constraint violated', 'details': str(e)}
+            return self._err('add_competitor_video', 'Integrity constraint violated', e)
         except sqlite3.OperationalError as e:
-            return {'error': 'Database operation failed', 'details': str(e)}
+            return self._err('add_competitor_video', 'Database operation failed', e)
 
     def get_competition_count(self, keyword_id: int, max_age_days: int = 7) -> Optional[Dict[str, Any]]:
         """
@@ -715,9 +700,9 @@ class KeywordDB:
             return {'status': 'inserted'}
 
         except sqlite3.IntegrityError as e:
-            return {'error': 'Integrity constraint violated', 'details': str(e)}
+            return self._err('add_opportunity_score', 'Integrity constraint violated', e)
         except sqlite3.OperationalError as e:
-            return {'error': 'Database operation failed', 'details': str(e)}
+            return self._err('add_opportunity_score', 'Database operation failed', e)
 
     def get_opportunity_score(self, keyword_id: int, max_age_days: int = 7) -> Optional[Dict[str, Any]]:
         """
@@ -857,12 +842,12 @@ class KeywordDB:
             self._conn.commit()
 
             if cursor.rowcount == 0:
-                return {'error': 'Video not found', 'video_id': video_id}
+                return self._err('update_video_classification', 'Video not found', video_id=video_id)
 
             return {'status': 'updated'}
 
         except sqlite3.Error as e:
-            return {'error': 'Database operation failed', 'details': str(e)}
+            return self._err('update_video_classification', 'Database operation failed', e)
 
     def get_classified_videos(
         self,
@@ -1051,12 +1036,12 @@ class KeywordDB:
             self._conn.commit()
 
             if cursor.rowcount == 0:
-                return {'error': 'Keyword not found', 'keyword_id': keyword_id}
+                return self._err('store_production_constraints', 'Keyword not found', keyword_id=keyword_id)
 
             return {'status': 'stored', 'keyword_id': keyword_id}
 
         except sqlite3.Error as e:
-            return {'error': 'Database operation failed', 'details': str(e)}
+            return self._err('store_production_constraints', 'Database operation failed', e)
 
     def get_production_constraints(
         self,
@@ -1237,10 +1222,7 @@ class KeywordDB:
         try:
             # Validate new state
             if new_state not in self.LIFECYCLE_STATES:
-                return {
-                    'error': f'Invalid state: {new_state}',
-                    'allowed': self.LIFECYCLE_STATES
-                }
+                return self._err('set_lifecycle_state', f'Invalid state: {new_state}', allowed=self.LIFECYCLE_STATES)
 
             cursor = self._conn.cursor()
 
@@ -1252,18 +1234,19 @@ class KeywordDB:
             row = cursor.fetchone()
 
             if row is None:
-                return {'error': 'Keyword not found', 'keyword_id': keyword_id}
+                return self._err('set_lifecycle_state', 'Keyword not found', keyword_id=keyword_id)
 
             current_state = row[0] or 'DISCOVERED'
 
             # Validate transition
             allowed_transitions = self.LIFECYCLE_TRANSITIONS.get(current_state, [])
             if new_state not in allowed_transitions:
-                return {
-                    'error': f'Invalid transition from {current_state} to {new_state}',
-                    'allowed': allowed_transitions,
-                    'current_state': current_state
-                }
+                return self._err(
+                    'set_lifecycle_state',
+                    f'Invalid transition from {current_state} to {new_state}',
+                    allowed=allowed_transitions,
+                    current_state=current_state,
+                )
 
             # Update state
             timestamp = datetime.now(timezone.utc).date().isoformat()
@@ -1296,7 +1279,7 @@ class KeywordDB:
             }
 
         except sqlite3.Error as e:
-            return {'error': 'Database operation failed', 'details': str(e)}
+            return self._err('set_lifecycle_state', 'Database operation failed', e)
 
     def get_lifecycle_state(self, keyword_id: int) -> str:
         """
@@ -1438,7 +1421,7 @@ class KeywordDB:
             return {'status': 'saved', 'keyword_id': keyword_id}
 
         except sqlite3.Error as e:
-            return {'error': 'Failed to save opportunity score', 'details': str(e)}
+            return self._err('save_opportunity_score', 'Failed to save opportunity score', e)
 
     # =========================================================================
     # VIDEO PERFORMANCE METHODS (Phase 19)
@@ -1904,7 +1887,7 @@ class KeywordDB:
             }
 
         except sqlite3.Error as e:
-            return {'error': 'Database operation failed', 'details': str(e)}
+            return self._err('add_video_performance', 'Database operation failed', e)
 
     def get_video_performance(self, video_id: str) -> Dict[str, Any]:
         """
@@ -1938,7 +1921,7 @@ class KeywordDB:
             row = cursor.fetchone()
 
             if row is None:
-                return {'error': 'not found', 'video_id': video_id}
+                return self._err('get_video_performance', 'not found', video_id=video_id)
 
             result = dict(row)
 
@@ -1952,7 +1935,7 @@ class KeywordDB:
             return result
 
         except sqlite3.Error as e:
-            return {'error': 'Database operation failed', 'details': str(e)}
+            return self._err('get_video_performance', 'Database operation failed', e)
 
     def search_video_performance_by_title(self, title_prefix: str) -> str | None:
         """Look up video_id by title prefix using case-insensitive LIKE match."""
@@ -2217,10 +2200,10 @@ class KeywordDB:
 
             # Validate variant_letter
             if not variant_letter or len(variant_letter) != 1 or not variant_letter.isupper():
-                return {'error': 'variant_letter must be a single uppercase letter (A-Z)'}
+                return self._err('add_thumbnail_variant', 'variant_letter must be a single uppercase letter (A-Z)')
 
             if variant_letter < 'A' or variant_letter > 'Z':
-                return {'error': 'variant_letter must be between A and Z'}
+                return self._err('add_thumbnail_variant', 'variant_letter must be between A and Z')
 
             cursor = self._conn.cursor()
 
@@ -2244,7 +2227,7 @@ class KeywordDB:
             return {'status': 'inserted', 'variant_id': cursor.lastrowid}
 
         except sqlite3.Error as e:
-            return {'error': f'Database error: {str(e)}'}
+            return self._err('add_thumbnail_variant', f'Database error: {str(e)}', e)
 
     def add_title_variant(
         self,
@@ -2277,10 +2260,10 @@ class KeywordDB:
 
             # Validate variant_letter
             if not variant_letter or len(variant_letter) != 1 or not variant_letter.isupper():
-                return {'error': 'variant_letter must be a single uppercase letter (A-Z)'}
+                return self._err('add_title_variant', 'variant_letter must be a single uppercase letter (A-Z)')
 
             if variant_letter < 'A' or variant_letter > 'Z':
-                return {'error': 'variant_letter must be between A and Z'}
+                return self._err('add_title_variant', 'variant_letter must be between A and Z')
 
             cursor = self._conn.cursor()
 
@@ -2304,7 +2287,7 @@ class KeywordDB:
             return {'status': 'inserted', 'variant_id': cursor.lastrowid}
 
         except sqlite3.Error as e:
-            return {'error': f'Database error: {str(e)}'}
+            return self._err('add_title_variant', f'Database error: {str(e)}', e)
 
     def add_ctr_snapshot(
         self,
@@ -2342,11 +2325,11 @@ class KeywordDB:
 
             # Validate ctr_percent
             if ctr_percent < 0 or ctr_percent > 100:
-                return {'error': 'ctr_percent must be between 0 and 100'}
+                return self._err('add_ctr_snapshot', 'ctr_percent must be between 0 and 100')
 
             # Validate counts
             if impression_count < 0 or view_count < 0:
-                return {'error': 'impression_count and view_count must be non-negative'}
+                return self._err('add_ctr_snapshot', 'impression_count and view_count must be non-negative')
 
             # Set dates
             if snapshot_date is None:
@@ -2380,7 +2363,7 @@ class KeywordDB:
             return {'status': 'inserted', 'snapshot_id': cursor.lastrowid}
 
         except sqlite3.Error as e:
-            return {'error': f'Database error: {str(e)}'}
+            return self._err('add_ctr_snapshot', f'Database error: {str(e)}', e)
 
     def get_thumbnail_variants(self, video_id: str) -> List[Dict[str, Any]]:
         """
@@ -2590,10 +2573,10 @@ class KeywordDB:
             if row:
                 return dict(row)
             else:
-                return {'error': 'not found'}
+                return self._err('get_latest_ctr', 'not found')
 
         except sqlite3.Error as e:
-            return {'error': f'Database error: {str(e)}'}
+            return self._err('get_latest_ctr', f'Database error: {str(e)}', e)
 
     # =========================================================================
     # PHASE 30: CTR ANALYSIS METHODS
@@ -2853,7 +2836,7 @@ class KeywordDB:
             return {'status': 'updated', 'video_id': video_id}
 
         except sqlite3.Error as e:
-            return {'error': f'Database error: {str(e)}'}
+            return self._err('store_video_feedback', f'Database error: {str(e)}', e)
 
     def get_video_feedback(self, video_id: str) -> dict:
         """
@@ -2890,7 +2873,7 @@ class KeywordDB:
 
             row = cursor.fetchone()
             if not row:
-                return {'error': 'not_found'}
+                return self._err('get_video_feedback', 'not_found')
 
             # Parse JSON columns with null-safety
             discovery_issues = json.loads(row[5]) if row[5] else None
@@ -2907,9 +2890,9 @@ class KeywordDB:
             }
 
         except sqlite3.Error as e:
-            return {'error': f'Database error: {str(e)}'}
+            return self._err('get_video_feedback', f'Database error: {str(e)}', e)
         except json.JSONDecodeError as e:
-            return {'error': f'JSON parse error: {str(e)}'}
+            return self._err('get_video_feedback', f'JSON parse error: {str(e)}', e)
 
     def get_feedback_by_topic(self, topic_type: str, limit: int = 10) -> dict:
         """
@@ -2970,9 +2953,9 @@ class KeywordDB:
             }
 
         except sqlite3.Error as e:
-            return {'error': f'Database error: {str(e)}'}
+            return self._err('get_feedback_by_topic', f'Database error: {str(e)}', e)
         except json.JSONDecodeError as e:
-            return {'error': f'JSON parse error: {str(e)}'}
+            return self._err('get_feedback_by_topic', f'JSON parse error: {str(e)}', e)
 
     def has_feedback(self, video_id: str) -> bool:
         """

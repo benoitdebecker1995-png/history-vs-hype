@@ -226,6 +226,16 @@ class KBStore:
         """Return current UTC time as ISO 8601 string."""
         return datetime.now(timezone.utc).isoformat()
 
+    @staticmethod
+    def _err(operation: str, exc: BaseException, message: str | None = None) -> dict:
+        """Standard 4-key error dict. Phase 50 audit shape."""
+        return {
+            "error": message if message is not None else f"{operation} failed: {exc}",
+            "module": __name__,
+            "operation": operation,
+            "details": str(exc),
+        }
+
     # ------------------------------------------------------------------
     # Algorithm snapshots
     # ------------------------------------------------------------------
@@ -272,7 +282,7 @@ class KBStore:
             conn.close()
             return {"id": row_id, "refreshed_at": now}
         except (sqlite3.Error, KeyError, TypeError) as exc:
-            return {"error": f"save_algo_snapshot failed: {exc}"}
+            return self._err("save_algo_snapshot", exc)
 
     def get_latest_algo_snapshot(self) -> dict | None:
         """
@@ -295,7 +305,7 @@ class KBStore:
                     result[col] = json.loads(result[col])
             return result
         except (sqlite3.Error, json.JSONDecodeError, KeyError, TypeError) as exc:
-            return {"error": f"get_latest_algo_snapshot failed: {exc}"}
+            return self._err("get_latest_algo_snapshot", exc)
 
     # ------------------------------------------------------------------
     # Competitor channels
@@ -332,7 +342,7 @@ class KBStore:
             conn.close()
             return {"channel_id": channel_id}
         except (sqlite3.Error, KeyError, TypeError) as exc:
-            return {"error": f"save_competitor_channel failed: {exc}"}
+            return self._err("save_competitor_channel", exc)
 
     def get_active_channels(self) -> list[dict]:
         """
@@ -349,7 +359,7 @@ class KBStore:
             conn.close()
             return [dict(r) for r in rows]
         except (sqlite3.Error, KeyError, TypeError) as exc:
-            return {"error": f"get_active_channels failed: {exc}"}
+            return self._err("get_active_channels", exc)
 
     # ------------------------------------------------------------------
     # Competitor videos
@@ -404,7 +414,7 @@ class KBStore:
             conn.close()
             return {"saved": saved}
         except (sqlite3.Error, KeyError, TypeError) as exc:
-            return {"error": f"save_competitor_videos failed: {exc}"}
+            return self._err("save_competitor_videos", exc)
 
     def get_competitor_videos(
         self,
@@ -444,7 +454,7 @@ class KBStore:
             conn.close()
             return [dict(r) for r in rows]
         except (sqlite3.Error, KeyError, TypeError) as exc:
-            return {"error": f"get_competitor_videos failed: {exc}"}
+            return self._err("get_competitor_videos", exc)
 
     def purge_competitor_videos(self) -> dict:
         """
@@ -461,7 +471,7 @@ class KBStore:
             conn.close()
             return {"deleted": deleted}
         except sqlite3.Error as exc:
-            return {"error": f"purge_competitor_videos failed: {exc}"}
+            return self._err("purge_competitor_videos", exc)
 
     # ------------------------------------------------------------------
     # Niche snapshots
@@ -498,7 +508,7 @@ class KBStore:
             conn.close()
             return {"id": row_id, "refreshed_at": now}
         except (sqlite3.Error, KeyError, TypeError) as exc:
-            return {"error": f"save_niche_snapshot failed: {exc}"}
+            return self._err("save_niche_snapshot", exc)
 
     def get_latest_niche_snapshot(self) -> dict | None:
         """
@@ -521,7 +531,7 @@ class KBStore:
                     result[col] = json.loads(result[col])
             return result
         except (sqlite3.Error, json.JSONDecodeError, KeyError, TypeError) as exc:
-            return {"error": f"get_latest_niche_snapshot failed: {exc}"}
+            return self._err("get_latest_niche_snapshot", exc)
 
     # ------------------------------------------------------------------
     # Staleness / refresh tracking
@@ -541,7 +551,7 @@ class KBStore:
                 return None
             return row["last_refresh"]
         except (sqlite3.Error, KeyError, TypeError) as exc:
-            return {"error": f"get_last_refresh failed: {exc}"}
+            return self._err("get_last_refresh", exc)
 
     def set_last_refresh(self) -> dict:
         """
@@ -569,7 +579,7 @@ class KBStore:
             conn.close()
             return {"last_refresh": now}
         except (sqlite3.Error, KeyError, TypeError) as exc:
-            return {"error": f"set_last_refresh failed: {exc}"}
+            return self._err("set_last_refresh", exc)
 
     def update_video_topic(self, video_id: str, topic_cluster_json: str) -> dict:
         """
@@ -592,7 +602,7 @@ class KBStore:
             conn.close()
             return {"updated": True}
         except sqlite3.Error as exc:
-            return {"error": f"update_video_topic failed: {exc}"}
+            return self._err("update_video_topic", exc)
 
     def update_video_outlier_ratio(self, video_id: str, ratio: float) -> dict:
         """
@@ -615,7 +625,7 @@ class KBStore:
             conn.close()
             return {"updated": True}
         except sqlite3.Error as exc:
-            return {"error": f"update_video_outlier_ratio failed: {exc}"}
+            return self._err("update_video_outlier_ratio", exc)
 
     def is_stale(self, max_age_days: int = 7) -> bool:
         """

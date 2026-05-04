@@ -30,6 +30,16 @@ from tools.logging_config import get_logger
 logger = get_logger(__name__)
 
 
+def _err(operation: str, message: str, exc: Optional[BaseException] = None) -> Dict[str, Any]:
+    """Standard 4-key error dict. Phase 50 audit shape."""
+    return {
+        'error': message,
+        'module': __name__,
+        'operation': operation,
+        'details': str(exc) if exc is not None else '',
+    }
+
+
 def generate_source_list(topic: str, video_type: str = "general", num_sources: int = 15) -> Dict[str, Any]:
     """
     Generate academic source list via Claude API.
@@ -46,9 +56,10 @@ def generate_source_list(topic: str, video_type: str = "general", num_sources: i
     # Check for API key
     api_key = os.environ.get('ANTHROPIC_API_KEY')
     if not api_key:
-        return {
-            'error': 'ANTHROPIC_API_KEY not set. Export your API key: export ANTHROPIC_API_KEY=sk-...'
-        }
+        return _err(
+            'generate_source_list',
+            'ANTHROPIC_API_KEY not set. Export your API key: export ANTHROPIC_API_KEY=sk-...',
+        )
 
     # Build system message with detailed instructions
     system_message = f"""You are an academic research assistant specializing in source curation for historical documentary videos.
@@ -159,7 +170,7 @@ Please provide {num_sources} rigorously academic sources organized by tier, foll
         content = response.content[0].text if response.content else ""
 
         if not content:
-            return {'error': 'API returned empty response'}
+            return _err('generate_source_list', 'API returned empty response')
 
         return {
             'status': 'success',
@@ -168,9 +179,9 @@ Please provide {num_sources} rigorously academic sources organized by tier, foll
         }
 
     except anthropic.APIError as e:
-        return {'error': f'API error: {str(e)}'}
+        return _err('generate_source_list', 'API error', e)
     except Exception as e:
-        return {'error': f'Unexpected error: {str(e)}'}
+        return _err('generate_source_list', 'Unexpected error', e)
 
 
 def write_source_list(content: str, output_dir: str, topic: str) -> Dict[str, Any]:
@@ -216,9 +227,9 @@ def write_source_list(content: str, output_dir: str, topic: str) -> Dict[str, An
         }
 
     except OSError as e:
-        return {'error': f'File write error: {str(e)}'}
+        return _err('write_source_list', 'File write error', e)
     except Exception as e:
-        return {'error': f'Unexpected error: {str(e)}'}
+        return _err('write_source_list', 'Unexpected error', e)
 
 
 def main():

@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-04 (D3)
+**Last advanced:** 2026-05-04 (D4)
 **Total steps:** 47
-**Done:** 17 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3 reconciled; A2/B4/B5 executed 2026-05-03)
+**Done:** 18 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3 reconciled; A2/B4/B5 executed 2026-05-03; D4 executed 2026-05-04)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -535,7 +535,18 @@ Mark D3 [DONE].
 
 ---
 
-## D4 [TODO] Standardize error dict format across high-traffic modules
+## D4 [DONE] Standardize error dict format across high-traffic modules
+
+> **Executed 2026-05-04:** Real refactor (not reconciliation) — converted ~54 error-dict sites across 3 files to the audit's prescribed 4-key shape (`error`/`module`/`operation`/`details`). Implementation pattern: each file gets a small `_err()` helper that builds the dict; every error site becomes a one-line call. Helpers preserve any extra keys (e.g. `keyword_id`, `video_id`, `allowed`, `current_state`) via `**extras` because those callers were already using them.
+>
+> **Per-file scope:**
+> - **`tools/notebooklm_bridge.py`**: 5 sites → `_err()` module-level helper. Sites: missing `ANTHROPIC_API_KEY`, empty API response, `anthropic.APIError`, generic `Exception` (in `generate_source_list`), `OSError` and generic `Exception` (in `write_source_list`).
+> - **`tools/intel/kb_store.py`**: 13 sites → `KBStore._err()` static method. All `save_*`/`get_*`/`update_*` exception handlers converted; the `_err()` helper preserves the existing "<operation> failed: <exc>" message format as the default when no override is passed, so the public string surface is unchanged for callers that grep on it.
+> - **`tools/discovery/database.py`**: 36+ sites → `KeywordDB._err()` static method. All exception handlers, "not found" returns, and validation rejections converted (init_database, add_keyword, get_keyword, set_intent, add_performance, add_trend, get_latest_trend, add_competitor_video, add_opportunity_score, update_video_classification, store_production_constraints, set_lifecycle_state×4, save_opportunity_score, add_video_performance, get_video_performance×2, add_thumbnail_variant×3, add_title_variant×3, add_ctr_snapshot×3, get_latest_ctr×2, store_video_feedback, get_video_feedback×3, get_feedback_by_topic×2). Existing extra keys (`keyword_id`, `video_id`, `allowed`, `current_state`, `keyword`, `path`) preserved as `**extras`.
+>
+> Verify: full suite `pytest tests/` reports **349 passed in 161s**. Spot checks: `KeywordDB(':memory:').get_keyword('missing')` returns `{'error': 'Keyword not found', 'module': 'tools.discovery.database', 'operation': 'get_keyword', 'details': '', 'keyword': 'missing'}`; `KBStore._err('test_op', RuntimeError('boom'), 'msg')` returns `{'error': 'msg', 'module': 'tools.intel.kb_store', 'operation': 'test_op', 'details': 'boom'}`. `rg "return\s*\{\s*['\"]error['\"]"` returns 0 untyped matches across the 3 files (only the helper definitions themselves remain).
+>
+> **Pre-existing issue surfaced (not introduced by D4):** `KBStore(':memory:')` fails because `_migrate_schema()` runs `ALTER TABLE competitor_videos ADD COLUMN topic_cluster TEXT` before the table is created in the same migration. Production code uses a real file path so this hasn't triggered; tests use a `tmp_path / "test_intel.db"` fixture for the same reason. Worth noting under Phase F (database hardening) — the tables in `_SCHEMA_SQL` are created on first `_connect()` after migration, so for in-memory dbs the migration sees an empty schema. Add to drift log; not a D4 blocker.
 
 **Prompt:**
 ```
@@ -1380,3 +1391,9 @@ Likely follow-on: C2 (test_production), C3 (test_discovery), C4 (test_intel + te
 **`split_screen_guide.py:259`** — `except (OSError, UnicodeDecodeError) as e:` (drops audit's `IOError` because Python-3 alias for `OSError`) + already-standardized 4-key error dict (also vacuously satisfies the split_screen_guide row of D4). **`prompt_evaluation.py`** — file removed entirely in `bcbf1e5`; bare except gone with the file. **`launcher.py:128`** — `except OSError:` rather than the audit's `(OSError, subprocess.SubprocessError)`; the try block is a `socket.connect_ex` server-port wait loop, not a subprocess call, so `SubprocessError` is unreachable. Audit's recommendation was misdiagnosed.
 
 **Cumulative D-phase win:** `rg "^\s*except:" tools/` now returns 0 matches across the entire `tools/` tree — including `history-clip-tool/`, which the original audit explicitly carved out. Phase 50 sections 1+2 fully resolved with no further code changes needed for D1–D3.
+
+### 2026-05-04 — D4 execution: error-dict standardization across 3 high-traffic modules
+
+Real refactor — ~54 sites converted across `tools/notebooklm_bridge.py` (5), `tools/intel/kb_store.py` (13), `tools/discovery/database.py` (36+). Implementation: per-file `_err()` helper that produces the audit's 4-key shape (`error`/`module`/`operation`/`details`) and accepts `**extras` for sites that previously carried `keyword_id`/`video_id`/`allowed`/`current_state`. kb_store's helper preserves the legacy `"<operation> failed: <exc>"` message format so any caller that greps on it still works. Full suite **349 passed in 161s**.
+
+**Pre-existing issue surfaced during D4 spot-check:** `KBStore(':memory:')` fails because `_migrate_schema()` issues `ALTER TABLE competitor_videos ADD COLUMN topic_cluster TEXT` before the table is created (the table lives in `_SCHEMA_SQL` which is run on first `_connect()` after migration). Production never hit this because real file paths trigger schema creation in the right order. Tests work around it by using `tmp_path / "test_intel.db"` rather than `:memory:`. Worth a follow-up in Phase F (database hardening) — should reorder `_initialize_schema` and `_migrate_schema` calls or guard the ALTER with the existing `PRAGMA table_info` check pattern. Not a D4 blocker.
