@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-04 (D1)
+**Last advanced:** 2026-05-04 (D2)
 **Total steps:** 47
-**Done:** 15 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1 reconciled; A2/B4/B5 executed 2026-05-03)
+**Done:** 16 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2 reconciled; A2/B4/B5 executed 2026-05-03)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -486,7 +486,9 @@ Mark D1 [DONE].
 
 ---
 
-## D2 [TODO] Fix bare `except:` in pattern_synthesizer_v2, retention_scorer, topic_strategy (4 occurrences)
+## D2 [DONE] Fix bare `except:` in pattern_synthesizer_v2, retention_scorer, topic_strategy (4 occurrences)
+
+> **Reconciled 2026-05-04:** All 4 bare excepts already typed. Mapping: `pattern_synthesizer_v2.py:359` `(json.JSONDecodeError, TypeError)` (exact, was 358), `pattern_synthesizer_v2.py:497` `(json.JSONDecodeError, TypeError)` (exact, was 496), `retention_scorer.py:304` `(json.JSONDecodeError, TypeError)` (exact, was 301), `topic_strategy.py:147` `(json.JSONDecodeError, TypeError, AttributeError, KeyError)` (audit-superset; adds `JSONDecodeError` because the try-block's `lessons_obj` is parsed-from-JSON in the same call chain). Verify: combined `rg` over the 3 files returns 0 bare excepts. No code changes; previous commit at 36c56e1 already validated full suite at 349 passed and no source touched since. D2 marked [DONE] without code changes.
 
 **Prompt:**
 ```
@@ -1360,3 +1362,7 @@ Likely follow-on: C2 (test_production), C3 (test_discovery), C4 (test_intel + te
 5/5 bare excepts in `tools/youtube_analytics/feedback_queries.py` already replaced with typed handlers. Three exactly match the audit's prescribed types (StatisticsError×2, `(ValueError, IndexError)` once). Two are broader (`Exception as e` instead of the audit's narrow `Exception as e + log warning` and `(ValueError, KeyError, IndexError)`) — both at external-function call sites where the exception surface isn't owned locally; both carry an inline comment naming Phase 51 as the landing zone for the logger call. Spirit of D1 satisfied (no silent bare excepts; future logger work scheduled). Full suite: 349 passed. D1 marked [DONE] without code changes.
 
 `channel-data/youtube-intelligence.md` 4-line drift still uncommitted; staged-path discipline kept it out of this commit too.
+
+### 2026-05-04 — D2 reconciliation: 4 bare excepts already typed across 3 modules
+
+3/4 are exact matches to the audit (`(json.JSONDecodeError, TypeError)` for the JSON-parse sites in `pattern_synthesizer_v2.py:359/497` and `retention_scorer.py:304`). 1/4 (`topic_strategy.py:147`) is an audit-superset: spec said `(AttributeError, TypeError, KeyError)`; code uses `(json.JSONDecodeError, TypeError, AttributeError, KeyError)` — `JSONDecodeError` is correct because the try-block's `lessons_obj` is JSON-parsed earlier in the same chain. Verify: 0 bare excepts across all 3 files. Pytest re-run skipped — no source touched since the 349-passed run logged at D1 (commit 36c56e1).
