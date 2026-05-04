@@ -115,17 +115,17 @@ def cmd_register_thumb(args):
         variant_letter = args.variant_letter.upper().strip()
 
         if len(variant_letter) != 1 or variant_letter < 'A' or variant_letter > 'Z':
-            print(f"ERROR: variant_letter must be a single uppercase letter (A-Z), got: {variant_letter}", file=sys.stderr)
+            logger.error(f"variant_letter must be a single uppercase letter (A-Z), got: {variant_letter}")
             sys.exit(1)
 
         file_path = args.file_path
         if not Path(file_path).exists():
-            print(f"ERROR: File not found: {file_path}", file=sys.stderr)
+            logger.error(f"File not found: {file_path}")
             sys.exit(1)
 
         visual_patterns = validate_tags(args.tags)
         if not visual_patterns:
-            print("ERROR: --tags required (e.g., 'map,face,text')", file=sys.stderr)
+            logger.error("--tags required (e.g., 'map,face,text')")
             sys.exit(1)
 
         # Generate perceptual hash
@@ -139,7 +139,7 @@ def cmd_register_thumb(args):
         db.close()
 
         if 'error' in result:
-            print(f"ERROR: {result['error']}", file=sys.stderr)
+            logger.error(f"{result['error']}")
             sys.exit(1)
 
         print(f"Registered thumbnail variant {variant_letter} for {video_id}")
@@ -151,7 +151,7 @@ def cmd_register_thumb(args):
             print(f"  Hash: (not generated)")
 
     except Exception as e:
-        print(f"ERROR: {e}", file=sys.stderr)
+        logger.error(f"{e}")
         sys.exit(1)
 
 
@@ -162,13 +162,13 @@ def cmd_register_title(args):
         variant_letter = args.variant_letter.upper().strip()
 
         if len(variant_letter) != 1 or variant_letter < 'A' or variant_letter > 'Z':
-            print(f"ERROR: variant_letter must be a single uppercase letter (A-Z), got: {variant_letter}", file=sys.stderr)
+            logger.error(f"variant_letter must be a single uppercase letter (A-Z), got: {variant_letter}")
             sys.exit(1)
 
         title_text = args.title_text
         formula_tags = validate_tags(args.tags)
         if not formula_tags:
-            print("ERROR: --tags required (e.g., 'mechanism,paradox')", file=sys.stderr)
+            logger.error("--tags required (e.g., 'mechanism,paradox')")
             sys.exit(1)
 
         # Register in database
@@ -177,7 +177,7 @@ def cmd_register_title(args):
         db.close()
 
         if 'error' in result:
-            print(f"ERROR: {result['error']}", file=sys.stderr)
+            logger.error(f"{result['error']}")
             sys.exit(1)
 
         print(f"Registered title variant {variant_letter}: '{title_text}'")
@@ -185,7 +185,7 @@ def cmd_register_title(args):
         print(f"  Tags: {', '.join(formula_tags)}")
 
     except Exception as e:
-        print(f"ERROR: {e}", file=sys.stderr)
+        logger.error(f"{e}")
         sys.exit(1)
 
 
@@ -212,7 +212,7 @@ def cmd_record_ctr(args):
         db.close()
 
         if 'error' in result:
-            print(f"ERROR: {result['error']}", file=sys.stderr)
+            logger.error(f"{result['error']}")
             sys.exit(1)
 
         print(f"Recorded CTR snapshot: {ctr_percent}% ({impression_count} impressions, {view_count} views)")
@@ -226,7 +226,7 @@ def cmd_record_ctr(args):
             print(f"  Marked as late entry")
 
     except Exception as e:
-        print(f"ERROR: {e}", file=sys.stderr)
+        logger.error(f"{e}")
         sys.exit(1)
 
 
@@ -286,7 +286,7 @@ def cmd_list_variants(args):
                 print()
 
     except Exception as e:
-        print(f"ERROR: {e}", file=sys.stderr)
+        logger.error(f"{e}")
         sys.exit(1)
 
 
@@ -328,7 +328,7 @@ def cmd_show_snapshots(args):
                   f"({delta:+.2f}% {direction})")
 
     except Exception as e:
-        print(f"ERROR: {e}", file=sys.stderr)
+        logger.error(f"{e}")
         sys.exit(1)
 
 

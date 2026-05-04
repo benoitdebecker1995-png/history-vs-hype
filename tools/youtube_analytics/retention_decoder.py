@@ -528,7 +528,7 @@ Examples:
     elif args.findings:
         analysis = rd.analyze()
         if 'error' in analysis:
-            print(f"Error: {analysis['error']}", file=sys.stderr)
+            logger.error(f"Error: {analysis['error']}")
             sys.exit(1)
         print(f"\nRetention Findings ({analysis['video_count']} videos, "
               f"avg: {analysis['channel_avg_retention']}%):\n")
@@ -542,7 +542,7 @@ Examples:
     else:
         analysis = rd.analyze()
         if 'error' in analysis:
-            print(f"Error: {analysis['error']}", file=sys.stderr)
+            logger.error(f"Error: {analysis['error']}")
             sys.exit(1)
         _print_analysis(analysis)
 

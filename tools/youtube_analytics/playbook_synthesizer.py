@@ -930,7 +930,7 @@ def main():
         result = write_part9_to_style_guide(part9_text)
 
         if 'error' in result:
-            print(f"ERROR: {result['error']}", file=sys.stderr)
+            logger.error(f"{result['error']}")
             return 1
 
         print(f"Part 9 written to {result['path']}")

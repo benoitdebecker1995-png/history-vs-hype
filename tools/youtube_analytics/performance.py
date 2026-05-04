@@ -834,7 +834,7 @@ Data is stored in tools/discovery/keywords.db (video_performance table).
     # Handle --patterns flag
     if args.patterns:
         if not PATTERNS_AVAILABLE:
-            print("ERROR: Pattern extractor module not available.", file=sys.stderr)
+            logger.error("Pattern extractor module not available.")
             sys.exit(1)
         print_winning_patterns()
         if args.save:
@@ -848,7 +848,7 @@ Data is stored in tools/discovery/keywords.db (video_performance table).
     # Handle --strengths flag
     if args.strengths:
         if not PATTERNS_AVAILABLE:
-            print("ERROR: Pattern extractor module not available.", file=sys.stderr)
+            logger.error("Pattern extractor module not available.")
             sys.exit(1)
         print_channel_strengths()
         sys.exit(0)
@@ -856,7 +856,7 @@ Data is stored in tools/discovery/keywords.db (video_performance table).
     # Handle --report flag
     if args.report:
         if not REPORT_AVAILABLE:
-            print("ERROR: Report module not available.", file=sys.stderr)
+            logger.error("Report module not available.")
             sys.exit(1)
 
         logger.info("Generating performance report...")
@@ -867,7 +867,7 @@ Data is stored in tools/discovery/keywords.db (video_performance table).
         if args.save:
             result = save_report(report)
             if 'error' in result:
-                print(f"ERROR: {result['error']}", file=sys.stderr)
+                logger.error(f"{result['error']}")
             else:
                 print(f"\nReport saved to: {result['saved_to']}")
 
@@ -917,9 +917,9 @@ Data is stored in tools/discovery/keywords.db (video_performance table).
         )
 
         if 'error' in result:
-            print(f"ERROR: {result['error']}", file=sys.stderr)
+            logger.error(f"{result['error']}")
             if 'details' in result:
-                print(f"Details: {result['details']}", file=sys.stderr)
+                logger.error(f"Details: {result['details']}")
             sys.exit(1)
 
         # Print detailed result

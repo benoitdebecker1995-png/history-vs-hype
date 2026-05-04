@@ -517,7 +517,7 @@ if __name__ == '__main__':
     strategy = generate_topic_strategy()
 
     if 'error' in strategy:
-        print(f"ERROR: {strategy['error']}", file=sys.stderr)
+        logger.error(f"{strategy['error']}")
         sys.exit(1)
 
     # Output based on flags

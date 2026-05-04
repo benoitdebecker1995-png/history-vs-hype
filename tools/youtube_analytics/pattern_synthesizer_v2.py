@@ -643,7 +643,7 @@ def main():
         result = run_full_pipeline(args.transcripts_dir, args.db)
 
         if 'error' in result:
-            print(f"Error: {result['error']}", file=sys.stderr)
+            logger.error(f"Error: {result['error']}")
             sys.exit(1)
 
         # Generate Part 8
@@ -654,7 +654,7 @@ def main():
         write_result = write_part8_to_style_guide(part8_content)
 
         if 'error' in write_result:
-            print(f"Error writing Part 8: {write_result['error']}", file=sys.stderr)
+            logger.error(f"Error writing Part 8: {write_result['error']}")
             sys.exit(1)
 
         logger.info("Part 8 generated and written to STYLE-GUIDE.md")
@@ -670,7 +670,7 @@ def main():
         write_result = write_part8_to_style_guide(part8_content)
 
         if 'error' in write_result:
-            print(f"Error writing Part 8: {write_result['error']}", file=sys.stderr)
+            logger.error(f"Error writing Part 8: {write_result['error']}")
             sys.exit(1)
 
         logger.info("Part 8 regenerated from database and written to STYLE-GUIDE.md")

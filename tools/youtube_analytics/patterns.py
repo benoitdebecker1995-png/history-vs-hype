@@ -1960,13 +1960,13 @@ Data sources: POST-PUBLISH-ANALYSIS files in channel-data/analyses/ and video-pr
             try:
                 target_month = int(monthly_args[0])
             except ValueError:
-                print(f"Error: Invalid month '{monthly_args[0]}'. Use a number 1-12.", file=sys.stderr)
+                logger.error(f"Error: Invalid month '{monthly_args[0]}'. Use a number 1-12.")
                 sys.exit(1)
         if len(monthly_args) >= 2:
             try:
                 target_year = int(monthly_args[1])
             except ValueError:
-                print(f"Error: Invalid year '{monthly_args[1]}'.", file=sys.stderr)
+                logger.error(f"Error: Invalid year '{monthly_args[1]}'.")
                 sys.exit(1)
 
         now = datetime.now()

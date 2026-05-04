@@ -674,7 +674,7 @@ if __name__ == '__main__':
     profile = extract_winning_patterns()
 
     if 'error' in profile:
-        print(f"Error: {profile['error']}", file=sys.stderr)
+        logger.error(f"Error: {profile['error']}")
     else:
         print(f"Analyzed {profile['videos_analyzed']} videos")
         print(f"\nTop topics:")

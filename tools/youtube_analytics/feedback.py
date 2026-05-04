@@ -59,7 +59,7 @@ except ImportError:
 def cmd_backfill(args):
     """Process all POST-PUBLISH-ANALYSIS files and store in database."""
     if not PARSER_AVAILABLE:
-        print("ERROR: feedback_parser module not available", file=sys.stderr)
+        logger.error("feedback_parser module not available")
         return 2
 
     logger.info("Starting backfill of POST-PUBLISH-ANALYSIS files...")
@@ -67,7 +67,7 @@ def cmd_backfill(args):
     result = backfill_all(project_root, force=args.force)
 
     if 'error' in result:
-        print(f"ERROR: {result['error']}", file=sys.stderr)
+        logger.error(f"{result['error']}")
         return 2
 
     # Summary already printed by backfill_all
@@ -77,7 +77,7 @@ def cmd_backfill(args):
 def cmd_query(args):
     """Query insights by topic or video."""
     if not QUERIES_AVAILABLE or not DATABASE_AVAILABLE:
-        print("ERROR: Required modules not available", file=sys.stderr)
+        logger.error("Required modules not available")
         return 2
 
     # Determine query type
@@ -88,7 +88,7 @@ def cmd_query(args):
         db.close()
 
         if 'error' in result:
-            print(f"ERROR: {result['error']}", file=sys.stderr)
+            logger.error(f"{result['error']}")
             if result['error'] == 'not_found':
                 print()
                 print("Video has no feedback stored yet.")
@@ -132,7 +132,7 @@ def cmd_query(args):
             print(format_query_terminal(result))
 
     else:
-        print("ERROR: Must specify --topic or --video", file=sys.stderr)
+        logger.error("Must specify --topic or --video")
         return 2
 
     return 0
@@ -141,7 +141,7 @@ def cmd_query(args):
 def cmd_patterns(args):
     """Generate success/failure pattern report."""
     if not QUERIES_AVAILABLE:
-        print("ERROR: feedback_queries module not available", file=sys.stderr)
+        logger.error("feedback_queries module not available")
         return 2
 
     logger.info("Generating patterns report...")

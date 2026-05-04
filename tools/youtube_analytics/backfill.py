@@ -1124,7 +1124,7 @@ Output: tools/discovery/keywords.db (video_performance table)
         logger.info("Insights-only mode: regenerating channel-insights.md")
         result = generate_channel_insights_report(project_root)
         if 'error' in result:
-            print(f"ERROR: {result['error']}", file=sys.stderr)
+            logger.error(f"{result['error']}")
             sys.exit(1)
         print(f"Channel insights saved to: {result['saved_to']}")
         print(f"Videos analyzed: {result['video_count']}")

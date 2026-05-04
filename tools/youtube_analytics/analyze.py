@@ -1384,7 +1384,7 @@ if __name__ == '__main__':
         if 0 <= args.ctr <= 100:
             manual_ctr = args.ctr
         else:
-            print(f"Error: --ctr must be between 0 and 100, got {args.ctr}", file=sys.stderr)
+            logger.error(f"Error: --ctr must be between 0 and 100, got {args.ctr}")
             sys.exit(1)
 
     # --output implies --save

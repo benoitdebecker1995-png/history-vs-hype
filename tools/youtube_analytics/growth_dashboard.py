@@ -518,7 +518,7 @@ Examples:
             print(json.dumps(result, indent=2))
         else:
             if 'error' in result:
-                print(f"Error: {result['error']}", file=sys.stderr)
+                logger.error(f"Error: {result['error']}")
                 sys.exit(1)
             print(f"\nSubscriber Velocity — Trend: {result['trend'].upper()}")
             print(f"Avg monthly net: {result['avg_monthly_net']:.0f}")
@@ -556,7 +556,7 @@ Examples:
             print(json.dumps(result, indent=2))
         else:
             if 'error' in result:
-                print(f"Error: {result['error']}", file=sys.stderr)
+                logger.error(f"Error: {result['error']}")
                 sys.exit(1)
             print(f"\nMonetization Countdown:")
             print(f"  Subs:  {result['current_subs']:,}/{result['subs_target']:,} ({result['subs_pct']}%)")

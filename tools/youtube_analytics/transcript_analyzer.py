@@ -397,7 +397,7 @@ def main():
     transcripts_dir = transcripts_dir.resolve()
 
     if not transcripts_dir.exists():
-        print(f"ERROR: Transcripts directory not found: {transcripts_dir}", file=sys.stderr)
+        logger.error(f"Transcripts directory not found: {transcripts_dir}")
         sys.exit(1)
 
     if args.stats:
@@ -407,7 +407,7 @@ def main():
     elif args.analyze:
         file_path = Path(args.analyze)
         if not file_path.exists():
-            print(f"ERROR: File not found: {file_path}", file=sys.stderr)
+            logger.error(f"File not found: {file_path}")
             sys.exit(1)
         analysis = analyze_transcript_file(file_path)
         print(json.dumps(analysis, indent=2))

@@ -580,7 +580,7 @@ class TitleIntelligence:
 def _print_analysis(analysis: Dict) -> None:
     """Pretty-print title pattern analysis."""
     if 'error' in analysis:
-        print(f"Error: {analysis['error']}", file=sys.stderr)
+        logger.error(f"Error: {analysis['error']}")
         return
 
     print(f"\n{'='*60}")
@@ -617,7 +617,7 @@ def _print_analysis(analysis: Dict) -> None:
 def _print_prediction(pred: Dict) -> None:
     """Pretty-print CTR prediction."""
     if 'error' in pred:
-        print(f"Error: {pred['error']}", file=sys.stderr)
+        logger.error(f"Error: {pred['error']}")
         return
 
     print(f"\n  Title: {pred['title']}")

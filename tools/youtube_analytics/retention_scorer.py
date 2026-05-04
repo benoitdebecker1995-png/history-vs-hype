@@ -664,7 +664,7 @@ if __name__ == '__main__':
         sections = parser_obj.parse_file(args.script_path)
 
         if not sections:
-            print("ERROR: No sections found in script", file=sys.stderr)
+            logger.error("No sections found in script")
             sys.exit(1)
 
         # Score all sections
@@ -674,10 +674,10 @@ if __name__ == '__main__':
         print(format_retention_warnings(results))
 
     except ImportError:
-        print("ERROR: ScriptParser not available", file=sys.stderr)
-        print("Install production tools or use as library:", file=sys.stderr)
-        print("  from retention_scorer import score_section", file=sys.stderr)
+        logger.error("ScriptParser not available")
+        logger.error("Install production tools or use as library:")
+        logger.error("  from retention_scorer import score_section")
         sys.exit(1)
     except Exception as e:
-        print(f"ERROR: {e}", file=sys.stderr)
+        logger.error(f"{e}")
         sys.exit(1)
