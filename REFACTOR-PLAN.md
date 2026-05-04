@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-04 (E1)
+**Last advanced:** 2026-05-04 (E2)
 **Total steps:** 47
-**Done:** 19 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1 executed 2026-05-04)
+**Done:** 20 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3/E2 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1 executed 2026-05-04)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -615,7 +615,20 @@ Mark E1 [DONE].
 
 ---
 
-## E2 [TODO] Add `--verbose` and `--quiet` to all 28 argparse-based CLIs
+## E2 [DONE] Add `--verbose` and `--quiet` to all 28 argparse-based CLIs
+
+> **Reconciled 2026-05-04:** 25 of the audit's 28 listed CLIs already have `--verbose`/`--quiet` (added ad-hoc during prior workflow churn — likely alongside the broad ad-hoc work that landed phases A/B/C/D1–D3 vacuously satisfied). Verified by grep: every file in the audit's argparse table contains a `--verbose` flag definition.
+>
+> **Three files in the audit's table are NOT actually argparse CLIs** — audit's table was inaccurate at HEAD:
+> - **`tools/production/editguide.py`** — `__main__` block is a 4-line smoke test (`print("module loaded")` + duration calc demos). No argparse, no CLI semantics. Module is imported, not invoked. Skipped.
+> - **`tools/production/metadata.py`** — `__main__` block is a tone-filter smoke test. Same shape. Skipped.
+> - **`tools/intel/query.py`** — `__main__` block prints `get_staleness_status()`. No argparse. Skipped.
+>
+> All three are library modules whose `__main__` exists only for development-time sanity. None is invoked via `python -m ...` anywhere in the repo (verified by `rg "python -m tools.(production.editguide|production.metadata|intel.query)"` — zero non-plan matches). Adding argparse would be ceremony without users; better candidate for deletion (no callers) than for E2's flag-injection.
+>
+> Verify clause: `python -m tools.discovery.orchestrator --help` shows both `--verbose, -v` and `--quiet, -q` flags. Confirmed.
+>
+> No code changes. E2 marked [DONE] with the 3-file scope reduction documented.
 
 **Prompt:**
 ```
@@ -1421,3 +1434,14 @@ Real refactor — ~54 sites converted across `tools/notebooklm_bridge.py` (5), `
 Module was already implemented at `tools/logging_config.py` (not `tools/common/logging_config.py` per audit). Kept the deviation: there's no other module under `tools/common/`, so introducing a one-file orphan directory just to match the audit's path makes the codebase worse. Existing implementation is also architecturally cleaner — `setup_logging(verbose, quiet)` configures the `tools` parent logger once at CLI entry; child modules use `get_logger(__name__)` and inherit via Python's standard propagation. The audit's per-module `setup_logging(name, verbose, quiet) -> Logger` signature would add duplicate handlers per import.
 
 Wrote `tests/test_logging_config.py` with 7 tests (3 audit-mandated + 4 stronger invariants: mutually-exclusive flag rejection, no-handler-accumulation on repeat calls, child-of-tools naming, child-level-inheritance). All 7 PASSED in 0.07s. No production code changes; full 349-test suite unaffected.
+
+### 2026-05-04 — E2 reconciliation: 25/28 already done; 3 audit entries are smoke-test modules, not CLIs
+
+Grep across the audit's 28 argparse-CLI table found `--verbose` already present in 25 files. Three "missing" entries are smoke-test stubs whose `__main__` blocks just print "module loaded" + a quick demo:
+- `tools/production/editguide.py:485` — duration-calc smoke
+- `tools/production/metadata.py:997` — tone-filter smoke
+- `tools/intel/query.py:580` — staleness-status print
+
+None is invoked via `python -m ...` anywhere in the repo (verified by `rg "python -m tools.(production.editguide|production.metadata|intel.query)"` — only this plan file matches). They're library modules; `__main__` exists for dev-time sanity, not as a user-facing CLI. Audit's table was inaccurate at HEAD — these never had argparse to begin with. Adding argparse would be ceremony without users; if anything they're candidates for `__main__`-block deletion later.
+
+Verify: `python -m tools.discovery.orchestrator --help` correctly shows `[--verbose | --quiet]` group. E2 marked [DONE] with the 3-file scope reduction documented. No code changes.
