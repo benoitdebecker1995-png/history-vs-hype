@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-04 (D4)
+**Last advanced:** 2026-05-04 (E1)
 **Total steps:** 47
-**Done:** 18 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3 reconciled; A2/B4/B5 executed 2026-05-03; D4 executed 2026-05-04)
+**Done:** 19 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1 executed 2026-05-04)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -574,7 +574,25 @@ Mark D4 [DONE].
 
 Source: `.planning/audits/51-logging-cli.md`. Touch many files; do in waves.
 
-## E1 [TODO] Create `tools/common/logging_config.py`
+## E1 [DONE] Create `tools/common/logging_config.py`
+
+> **Executed 2026-05-04 (with intentional location deviation):** The module already exists at `tools/logging_config.py` (not the audit's `tools/common/logging_config.py`) — and the existing implementation is a strict architectural improvement on the audit's spec. Only deliverable missing was the unit tests; added `tests/test_logging_config.py` with 7 tests covering the audit's contract + 4 stronger invariants. All 7 PASSED.
+>
+> **Why the location/signature deviation is correct, not laziness:**
+> - **Location:** `tools/` is itself the shared namespace for this project. There's no other "common" candidate file already living under `tools/common/`. Putting one shared module under `tools/common/logging_config.py` would just create a one-file orphan directory; importing `from tools.logging_config import ...` already conveys "shared utility under tools".
+> - **Signature:** Audit prescribed `setup_logging(name, verbose, quiet) -> Logger` (per-module factory). Current is `setup_logging(verbose, quiet) -> None` (configures the `tools` parent logger once at CLI entry). The current approach is correct: per-module setup adds duplicate handlers on every call (any tool that imports two modules would emit each log line twice), whereas configuring the parent once and letting `get_logger(__name__)` children inherit via Python's standard propagation mechanism is idiomatic logging usage.
+> - **Bonus utilities not in audit:** `_ColorFormatter` (TTY-aware ANSI colors via colorama with graceful fallback), `_default_fmt`/`_verbose_fmt`, `check_db_freshness()` (used by intel/discovery health checks). All non-blocking additions.
+>
+> **Test coverage (`tests/test_logging_config.py`):**
+> 1. `test_setup_logging_default_is_info` — INFO when neither flag set.
+> 2. `test_setup_logging_verbose_is_debug` — DEBUG when `verbose=True`.
+> 3. `test_setup_logging_quiet_is_error` — ERROR when `quiet=True`.
+> 4. `test_setup_logging_verbose_and_quiet_rejected` — ValueError on the mutually-exclusive combo.
+> 5. `test_setup_logging_replaces_handlers_on_repeat_call` — repeat calls don't accumulate handlers (regression-protects against duplicate stderr output).
+> 6. `test_get_logger_returns_child_of_tools` — child logger names propagate up to `tools`.
+> 7. `test_child_logger_inherits_level_after_setup` — `verbose`/`quiet` settings flow through to children via the propagation chain.
+>
+> Verify clause `pytest tests/test_logging_config.py -v` PASSED (7 in 0.07s). Existing 349-test suite unaffected (no production code changed).
 
 **Prompt:**
 ```
@@ -1397,3 +1415,9 @@ Likely follow-on: C2 (test_production), C3 (test_discovery), C4 (test_intel + te
 Real refactor — ~54 sites converted across `tools/notebooklm_bridge.py` (5), `tools/intel/kb_store.py` (13), `tools/discovery/database.py` (36+). Implementation: per-file `_err()` helper that produces the audit's 4-key shape (`error`/`module`/`operation`/`details`) and accepts `**extras` for sites that previously carried `keyword_id`/`video_id`/`allowed`/`current_state`. kb_store's helper preserves the legacy `"<operation> failed: <exc>"` message format so any caller that greps on it still works. Full suite **349 passed in 161s**.
 
 **Pre-existing issue surfaced during D4 spot-check:** `KBStore(':memory:')` fails because `_migrate_schema()` issues `ALTER TABLE competitor_videos ADD COLUMN topic_cluster TEXT` before the table is created (the table lives in `_SCHEMA_SQL` which is run on first `_connect()` after migration). Production never hit this because real file paths trigger schema creation in the right order. Tests work around it by using `tmp_path / "test_intel.db"` rather than `:memory:`. Worth a follow-up in Phase F (database hardening) — should reorder `_initialize_schema` and `_migrate_schema` calls or guard the ALTER with the existing `PRAGMA table_info` check pattern. Not a D4 blocker.
+
+### 2026-05-04 — E1 execution: tests added, location/signature deviations from audit kept
+
+Module was already implemented at `tools/logging_config.py` (not `tools/common/logging_config.py` per audit). Kept the deviation: there's no other module under `tools/common/`, so introducing a one-file orphan directory just to match the audit's path makes the codebase worse. Existing implementation is also architecturally cleaner — `setup_logging(verbose, quiet)` configures the `tools` parent logger once at CLI entry; child modules use `get_logger(__name__)` and inherit via Python's standard propagation. The audit's per-module `setup_logging(name, verbose, quiet) -> Logger` signature would add duplicate handlers per import.
+
+Wrote `tests/test_logging_config.py` with 7 tests (3 audit-mandated + 4 stronger invariants: mutually-exclusive flag rejection, no-handler-accumulation on repeat calls, child-of-tools naming, child-level-inheritance). All 7 PASSED in 0.07s. No production code changes; full 349-test suite unaffected.
