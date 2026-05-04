@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-04 (E2)
+**Last advanced:** 2026-05-04 (E3)
 **Total steps:** 47
-**Done:** 20 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3/E2 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1 executed 2026-05-04)
+**Done:** 21 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3/E2/E3 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1 executed 2026-05-04)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -655,7 +655,21 @@ Mark E2 [DONE].
 
 ---
 
-## E3 [TODO] Convert 13 manual sys.argv files to argparse
+## E3 [DONE] Convert 13 manual sys.argv files to argparse
+
+> **Reconciled 2026-05-04:** 9/13 audit-listed manual-argv files already converted to argparse + `--verbose`/`--quiet` (ad-hoc churn). Spot-checked: `python -m tools.youtube_analytics.ctr --help` and `python -m tools.youtube_analytics.retention --help` both render cleanly with the standard verbosity group.
+>
+> **Converted (9):** `ctr.py`, `channel_averages.py`, `comments.py`, `metrics.py`, `retention.py`, `video_report.py`, `variants.py`, `retention_scorer.py`, `playbook_synthesizer.py`. All have argparse + `--verbose` + zero `sys.argv` references. ✓
+>
+> **Four "missing" entries are smoke-test library modules — not CLIs at HEAD:**
+> - `section_diagnostics.py:508` — 4-line "Usage:" hint print.
+> - `retention_mapper.py:273` — 4-line "Usage:" hint print.
+> - `performance_report.py:484` — 5-line "quick test" running `generate_performance_report()` and printing — no args.
+> - `pattern_extractor.py:671` — 21-line "quick test" running `extract_winning_patterns()` and printing summary — no args.
+>
+> Like the E2 trio, these have `__main__` blocks for development-time sanity checks but no longer take CLI args at all. The audit's "manual sys.argv" classification was accurate at audit time, but the files were since refactored into pure libraries — `sys.argv` references were removed without converting to argparse because the entry point was demoted, not promoted. Adding argparse now would invent a CLI surface for modules nobody invokes.
+>
+> Verify: spot-checked `--help` flows on 2 representative files (above). Full pytest re-run skipped — no source touched in this step. E3 marked [DONE] with the 4-file scope reduction documented.
 
 **Prompt:**
 ```
@@ -1445,3 +1459,11 @@ Grep across the audit's 28 argparse-CLI table found `--verbose` already present 
 None is invoked via `python -m ...` anywhere in the repo (verified by `rg "python -m tools.(production.editguide|production.metadata|intel.query)"` — only this plan file matches). They're library modules; `__main__` exists for dev-time sanity, not as a user-facing CLI. Audit's table was inaccurate at HEAD — these never had argparse to begin with. Adding argparse would be ceremony without users; if anything they're candidates for `__main__`-block deletion later.
 
 Verify: `python -m tools.discovery.orchestrator --help` correctly shows `[--verbose | --quiet]` group. E2 marked [DONE] with the 3-file scope reduction documented. No code changes.
+
+### 2026-05-04 — E3 reconciliation: 9/13 already argparse; 4/13 are smoke-test library modules
+
+Same pattern as E2. 9 of the audit's 13 "manual sys.argv" files already migrated to argparse + `--verbose`/`--quiet` (`ctr.py`, `channel_averages.py`, `comments.py`, `metrics.py`, `retention.py`, `video_report.py`, `variants.py`, `retention_scorer.py`, `playbook_synthesizer.py`). Spot-checked `--help` for `ctr.py` and `retention.py` — both render cleanly with the standard verbosity group + module-specific args.
+
+The remaining 4 (`section_diagnostics.py`, `retention_mapper.py`, `performance_report.py`, `pattern_extractor.py`) had their `sys.argv` references removed without argparse migration — the `__main__` blocks were demoted to dev-time smoke tests (4–21 lines, no args). Audit's "manual sys.argv" classification was accurate at audit time but stale now. Adding argparse to a no-arg smoke print would be ceremony without users.
+
+E3 marked [DONE] with the 4-file scope reduction documented. No code changes.
