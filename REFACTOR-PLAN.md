@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-04 (E5)
+**Last advanced:** 2026-05-04 (F1)
 **Total steps:** 47
-**Done:** 23 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3/E2/E3 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1/E4/E5 executed 2026-05-04)
+**Done:** 24 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3/E2/E3/F1 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1/E4/E5 executed 2026-05-04)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -793,7 +793,28 @@ After all packages done, mark E5 [DONE] in REFACTOR-PLAN.md (single commit).
 
 Source: `.planning/audits/52-database.md`. Must finish before Phase H (database split).
 
-## F1 [TODO] Add `PRAGMA user_version` + migration framework to `intel.db`
+## F1 [DONE] Add `PRAGMA user_version` + migration framework to `intel.db`
+
+> **Reconciled 2026-05-04:** Implementation already in place in `tools/intel/kb_store.py` and is **richer than the audit's spec**. Concretely present:
+> - `CURRENT_SCHEMA_VERSION = 2` constant (already past v1; F4 is also implemented in the same file).
+> - `_get_schema_version()` reading PRAGMA user_version, returning 0 on miss/error.
+> - `_set_schema_version(int)` writing PRAGMA via dedicated connection.
+> - `_migrate_schema()` orchestrating idempotent gates: `if version < N` → run DDL, then stamp version. Stamping happens AFTER the DDL block so a failed migration reruns on next startup.
+> - **Atomic rollback safety** (better than audit): `autocommit=False` + `with conn:` for real BEGIN/rollback, instead of relying on Python 3.12+ default isolation behavior which doesn't roll back DDL reliably. `executescript()` deliberately NOT used inside `with conn:` because it issues an implicit COMMIT.
+> - **Bootstrap path for pre-versioning DBs:** v1 gate detects existing tables and skips DDL but stamps version=1, so legacy databases migrate forward without losing data.
+> - **PRAGMA-table-info pre-checks** before each ALTER TABLE in v2 gate (audit F3's recommendation already applied here).
+>
+> **Test deliverable added:** `tests/test_intel_migration.py` with 6 tests covering audit contract + stronger invariants. All PASSED in 0.15s.
+> 1. `test_fresh_db_lands_at_current_schema_version` — new DB hits CURRENT_SCHEMA_VERSION (currently 2).
+> 2. `test_current_schema_version_is_at_least_1` — F1 floor.
+> 3. `test_repeat_construction_is_idempotent` — repeat KBStore() calls don't regress version or error.
+> 4. `test_initial_tables_exist_after_init` — v1 migration creates the 5-table canonical schema.
+> 5. `test_v2_columns_exist_on_competitor_videos` — v2 migration adds `topic_cluster` + `outlier_ratio`.
+> 6. `test_pre_versioning_db_is_bootstrapped` — legacy DB with no PRAGMA gets migrated forward without dropping tables.
+>
+> **Audit's `:memory:` verify clause is unusable** and was rewritten to use `tmp_path`. Reason: Python's `sqlite3.connect(':memory:')` opens a fresh, isolated in-memory database on every call, so any class that opens a new connection per operation (KBStore does) cannot persist state across operations with `:memory:`. This was the issue I surfaced during D4's spot-check. `tmp_path` fixture is the practical equivalent and what the spec's intent demanded. Audit's literal clause is documented here as a misdiagnosis — implementation is correct; the verify command's transport choice was wrong.
+>
+> Verify: `pytest tests/test_intel_migration.py -v` reports 6 PASSED in 0.15s. F1 marked [DONE]. F4's "Add indexes to intel.db" implementation also already present (the v2 migration includes the topic_cluster column added for the same indexing strategy) — F4 will be reviewed when its turn comes.
 
 **Prompt:**
 ```
@@ -1535,3 +1556,11 @@ Same converter approach as E4 (stderr-prints + ERROR-prefix → `logger.error`).
 **Converter bug found + fixed during E5:** the auto-import injector treated any `from ... import` line as "module-level" without checking column 0, so a function-scope `from tools.logging_config import setup_logging` in `production/parser.py:main()` got matched, and the script tried to insert a module-level `logger = get_logger(__name__)` immediately after — at function indentation depth. AST validation caught it before write; file untouched on disk. Fixed manually: added imports at the top of `parser.py` (after stdlib block) and converted the one print site via Edit. Future-self note: a robust converter must require column-0 anchoring before treating an import line as module-level.
 
 **Cumulative E4+E5:** 84 sites converted across 26 files in 5 packages (`youtube_analytics/`, `discovery/`, `translation/`, `production/`, `newsletter/`). The mechanical sweep is done — remaining `print()` calls are predominantly report-output keep-list per audit mapping rules. Full suite **356 passed in 175s**. Phase E complete.
+
+### 2026-05-04 — F1 reconciliation: migration framework already richer than spec; tests added
+
+`kb_store.py` already implements the full schema-versioning framework with idempotent gates, atomic-rollback safety (`autocommit=False` + `with conn:` for real BEGIN/rollback under Python 3.12+), pre-versioning DB bootstrap, and PRAGMA-table-info pre-checks before each ALTER TABLE (F3's recommendation already applied here too). `CURRENT_SCHEMA_VERSION = 2` — F4 also implicitly already done.
+
+Added `tests/test_intel_migration.py` with 6 tests covering audit contract + stronger invariants (idempotent repeat construction, table presence, v2-column presence, pre-versioning bootstrap). All PASSED in 0.15s.
+
+**Audit's `:memory:` verify clause was unusable** — Python's `sqlite3.connect(':memory:')` opens a fresh isolated DB per call, so KBStore's per-op connection pattern can't persist state across operations with it. Same issue I surfaced during D4 spot-check. Tests use `tmp_path` instead, which is the practical equivalent and what the audit's intent required. The audit's transport choice was wrong; the implementation is correct.
