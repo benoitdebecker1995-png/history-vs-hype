@@ -887,7 +887,15 @@ Mark F3 [DONE].
 
 ---
 
-## F4 [TODO] Add indexes to `intel.db` for hot query paths
+## F4 [BLOCKED] Add indexes to `intel.db` for hot query paths
+
+> **Blocker (2026-05-04):** Prompt's column targets don't match current `tools/intel/kb_store.py` schema:
+> - `algo_snapshots.topic` — column does not exist (table has `algorithm_model`, `signal_weights`, `longform_insights`, `confidence`).
+> - `niche_snapshots.niche` — column does not exist (table has `format_patterns`, `hook_patterns`, `trending_topics`).
+> - `competitor_videos(channel_id)` — index already created in `_SCHEMA_SQL` (line 88: `idx_competitor_videos_channel`); also `idx_competitor_videos_outlier` (89) and `idx_competitor_videos_published` (90).
+> - `_set_schema_version` is already at 2 (prompt says "bump to 2"); the current `topic_cluster`/`outlier_ratio` migration is the v2 gate.
+>
+> **Decision needed:** Reframe F4 with the actual hot-query columns (e.g., `is_outlier`, `published_at`, `topic_cluster`, `outlier_ratio`) and a new migration gate (v3). Or close as obsolete — the audit's Risk 4 may already be partially addressed by the current `_SCHEMA_SQL` indexes.
 
 **Prompt:**
 ```
