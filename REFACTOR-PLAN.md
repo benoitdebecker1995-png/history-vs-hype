@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-04 (D2)
+**Last advanced:** 2026-05-04 (D3)
 **Total steps:** 47
-**Done:** 16 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2 reconciled; A2/B4/B5 executed 2026-05-03)
+**Done:** 17 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3 reconciled; A2/B4/B5 executed 2026-05-03)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -509,7 +509,15 @@ Mark D2 [DONE].
 
 ---
 
-## D3 [TODO] Fix bare `except:` in production/split_screen_guide.py + prompt_evaluation.py + history-clip-tool/launcher.py
+## D3 [DONE] Fix bare `except:` in production/split_screen_guide.py + prompt_evaluation.py + history-clip-tool/launcher.py
+
+> **Reconciled 2026-05-04:** All 3 sites resolved with two intentional audit-deviations (both correct):
+>
+> 1. **`tools/production/split_screen_guide.py:259`** — `except (OSError, UnicodeDecodeError) as e:` + standardized 4-key error dict (`error`/`module`/`operation`/`details`). Drops `IOError` from the audit's `(IOError, OSError, UnicodeDecodeError)` because `IOError` is a Python-3 alias for `OSError` (deprecated since 3.3) — the catch is functionally identical, less noisy. The error dict is already the 4-key standardized format that D4 prescribes — D4's split_screen_guide.py work is also vacuously satisfied here.
+> 2. **`tools/prompt_evaluation.py`** — file deleted entirely in commit `bcbf1e5` (`chore(49-01): remove prompt_evaluation.py, clean stale skill references`). Bare except moot.
+> 3. **`tools/history-clip-tool/launcher.py:128`** — `except OSError:`. Audit prescribed `(OSError, subprocess.SubprocessError)` — but the try-block is a `socket.connect_ex(...)` call inside a server-port wait loop, not a subprocess invocation. `socket` errors all derive from `OSError` (incl. `socket.timeout`, `ConnectionRefusedError`); `subprocess.SubprocessError` is unreachable from this site. Audit recommendation was misdiagnosed; just `OSError` is correct.
+>
+> Verify: `rg "^\s*except:" tools/` returns **zero** matches anywhere in `tools/` (audit's history-clip-tool exclusion no longer needed). No source touched since D1's 349-passed pytest run; full-suite re-verify skipped per the same logic the user surfaced at D2. D3 marked [DONE] without code changes.
 
 **Prompt:**
 ```
@@ -1366,3 +1374,9 @@ Likely follow-on: C2 (test_production), C3 (test_discovery), C4 (test_intel + te
 ### 2026-05-04 — D2 reconciliation: 4 bare excepts already typed across 3 modules
 
 3/4 are exact matches to the audit (`(json.JSONDecodeError, TypeError)` for the JSON-parse sites in `pattern_synthesizer_v2.py:359/497` and `retention_scorer.py:304`). 1/4 (`topic_strategy.py:147`) is an audit-superset: spec said `(AttributeError, TypeError, KeyError)`; code uses `(json.JSONDecodeError, TypeError, AttributeError, KeyError)` — `JSONDecodeError` is correct because the try-block's `lessons_obj` is JSON-parsed earlier in the same chain. Verify: 0 bare excepts across all 3 files. Pytest re-run skipped — no source touched since the 349-passed run logged at D1 (commit 36c56e1).
+
+### 2026-05-04 — D3 reconciliation: 3 sites resolved, two intentional audit-deviations
+
+**`split_screen_guide.py:259`** — `except (OSError, UnicodeDecodeError) as e:` (drops audit's `IOError` because Python-3 alias for `OSError`) + already-standardized 4-key error dict (also vacuously satisfies the split_screen_guide row of D4). **`prompt_evaluation.py`** — file removed entirely in `bcbf1e5`; bare except gone with the file. **`launcher.py:128`** — `except OSError:` rather than the audit's `(OSError, subprocess.SubprocessError)`; the try block is a `socket.connect_ex` server-port wait loop, not a subprocess call, so `SubprocessError` is unreachable. Audit's recommendation was misdiagnosed.
+
+**Cumulative D-phase win:** `rg "^\s*except:" tools/` now returns 0 matches across the entire `tools/` tree — including `history-clip-tool/`, which the original audit explicitly carved out. Phase 50 sections 1+2 fully resolved with no further code changes needed for D1–D3.
