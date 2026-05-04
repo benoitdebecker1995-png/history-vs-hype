@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-04 (C5)
+**Last advanced:** 2026-05-04 (D1)
 **Total steps:** 47
-**Done:** 14 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5 reconciled; A2/B4/B5 executed 2026-05-03)
+**Done:** 15 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1 reconciled; A2/B4/B5 executed 2026-05-03)
 **Blocked:** 0
 
 | Phase | Steps | Audit / Source | Risk |
@@ -462,7 +462,9 @@ Mark C5 [DONE].
 
 Source: `.planning/audits/50-error-handling.md`. Per-file mechanical fixes. Tests from C must still pass after each commit.
 
-## D1 [TODO] Fix bare `except:` in `youtube_analytics/feedback_queries.py` (5 occurrences)
+## D1 [DONE] Fix bare `except:` in `youtube_analytics/feedback_queries.py` (5 occurrences)
+
+> **Reconciled 2026-05-04:** All 5 bare excepts already tightened. Mapping: line 272 `StatisticsError`, line 280 `StatisticsError`, line 533 `Exception as e` (broader than the audit's "Exception as e + log warning" — inline comment notes "External function — unknown exception types; Phase 51 adds logger"), line 609 `(ValueError, IndexError)`, line 646 `Exception as e` (broader than the audit's `(ValueError, KeyError, IndexError)` — inline comment notes "External function — graceful degradation; Phase 51 adds logger"). Two `Exception as e` choices are wider than the audit's exact letter but within its spirit (no silent bare excepts; deferred logger landings called out for Phase 51 to wire up). Verify: `rg "except\s*:" tools/youtube_analytics/feedback_queries.py` returns 0 bare excepts. Full suite: `pytest tests/` reports **349 passed in 159s**. D1 marked [DONE] without code changes.
 
 **Prompt:**
 ```
@@ -1352,3 +1354,9 @@ Likely follow-on: C2 (test_production), C3 (test_discovery), C4 (test_intel + te
 `tests/test_translation.py` exists with 8 tests covering `TranslationDataBuilder` payload construction and response parsing — all PASSED in 0.15s. Approach diverges from spec for the better: rather than mocking `anthropic.Anthropic.messages.create`, the tests target the no-API surface directly (`build_translation_payload`, `parse_response`) — the parts of the pipeline that actually carry logic. cross_check skip irrelevant because cross-check isn't exercised at this layer. Full-suite verify: `pytest tests/` reports **349 passed in 175s** across 24 collected test files (≥5 required). Phase C done; deepening phases now unblocked. C5 marked [DONE] without code changes.
 
 **Pre-existing dirty file at time of run (not introduced by C5, not committed):** `channel-data/youtube-intelligence.md` had a 4-line uncommitted edit. It's in the off-limits content layer and unrelated to refactor work — only `REFACTOR-PLAN.md` was staged for this commit.
+
+### 2026-05-04 — D1 reconciliation: feedback_queries.py bare excepts already tightened
+
+5/5 bare excepts in `tools/youtube_analytics/feedback_queries.py` already replaced with typed handlers. Three exactly match the audit's prescribed types (StatisticsError×2, `(ValueError, IndexError)` once). Two are broader (`Exception as e` instead of the audit's narrow `Exception as e + log warning` and `(ValueError, KeyError, IndexError)`) — both at external-function call sites where the exception surface isn't owned locally; both carry an inline comment naming Phase 51 as the landing zone for the logger call. Spirit of D1 satisfied (no silent bare excepts; future logger work scheduled). Full suite: 349 passed. D1 marked [DONE] without code changes.
+
+`channel-data/youtube-intelligence.md` 4-line drift still uncommitted; staged-path discipline kept it out of this commit too.
