@@ -135,3 +135,183 @@ def test_parse_response_empty_notes_graceful():
 
     assert isinstance(result, dict)
     assert isinstance(result.get("notes", []), list)
+
+
+# ====== COMPREHENSIVE PIPELINE PINNING TESTS (Phase I) ======
+
+def test_structure_detector_reads_test_fixture():
+    """StructureDetector can read and parse test_french.txt fixture."""
+    from pathlib import Path
+    from tools.translation.structure_detector import StructureDetector
+
+    fixture_path = Path("tests/fixtures/test_french.txt")
+    assert fixture_path.exists(), "test_french.txt fixture missing"
+
+    text = fixture_path.read_text(encoding="utf-8")
+    assert len(text) > 0
+    assert "Article" in text
+
+
+def test_structure_detector_detects_articles():
+    """StructureDetector.detect_structure() correctly identifies articles."""
+    from pathlib import Path
+    from tools.translation.structure_detector import StructureDetector
+
+    fixture_path = Path("tests/fixtures/test_french.txt")
+    text = fixture_path.read_text(encoding="utf-8")
+
+    detector = StructureDetector()
+    result = detector.detect_structure(text, document_type="legal_code")
+
+    assert isinstance(result, dict)
+    assert "error" not in result
+    assert "articles" in result or "sections" in result or "lines" in result
+
+
+def test_cross_checker_builds_comparison_payload():
+    """CrossChecker builds valid comparison payloads without API calls."""
+    from tools.translation.cross_checker import CrossChecker
+
+    checker = CrossChecker()
+    payload = checker.build_comparison_payload(
+        claude_translation="Natural persons who were considered Jewish are regarded as such.",
+        backend_translation="Persons considered Jewish under the enemy laws are so regarded.",
+        original_text=SAMPLE_CLAUSE,
+        clause_id="article-1",
+        source_language="french"
+    )
+
+    assert isinstance(payload, dict)
+    assert "error" not in payload
+    assert "system_prompt" in payload or "prompt" in payload
+
+
+def test_legal_annotator_builds_annotation_payload():
+    """LegalAnnotator builds valid annotation payloads without API calls."""
+    from tools.translation.legal_annotator import LegalAnnotator
+
+    annotator = LegalAnnotator()
+    payload = annotator.build_annotation_payload(
+        clause_text=SAMPLE_CLAUSE,
+        translation="Natural persons who were considered Jewish are regarded as such.",
+        clause_id="article-1",
+        source_language="french",
+        document_context="1940 Vichy statute"
+    )
+
+    assert isinstance(payload, dict)
+    assert "error" not in payload
+    assert "system_prompt" in payload or "prompt" in payload
+
+
+def test_surprise_detector_builds_surprise_payload():
+    """SurpriseDetector builds valid surprise payloads without API calls."""
+    from tools.translation.surprise_detector import SurpriseDetector
+
+    detector = SurpriseDetector()
+    payload = detector.build_surprise_payload(
+        clause_text=SAMPLE_CLAUSE,
+        translation="Natural persons who were considered Jewish are regarded as such.",
+        narrative_baseline="The Vichy regime only applied French law.",
+        clause_id="article-1",
+        source_language="french",
+        document_context="1940 Vichy statute"
+    )
+
+    assert isinstance(payload, dict)
+    assert "error" not in payload
+    assert "system_prompt" in payload or "prompt" in payload
+
+
+def test_formatter_formats_paired_output():
+    """Formatter.format_paired() correctly formats translated sections."""
+    from tools.translation.formatter import Formatter
+
+    formatter = Formatter()
+    sections = [
+        {
+            "id": "article-1",
+            "heading": "Article 1",
+            "original": SAMPLE_CLAUSE,
+            "translation": "Natural persons who were considered Jewish are regarded as such for the purposes of this ordinance.",
+            "footnotes": []
+        },
+        {
+            "id": "article-2",
+            "heading": "Article 2",
+            "original": "Article 2. Sont interdits aux Juifs.",
+            "translation": "Article 2. The following professions are forbidden to Jews.",
+            "footnotes": ["Note: This section lists prohibited occupations"]
+        }
+    ]
+
+    result = formatter.format_paired(sections, output_format="markdown")
+
+    assert isinstance(result, str)
+    assert len(result) > 0
+    assert "Article 1" in result
+
+
+def test_full_pipeline_integration():
+    """Full pipeline: detect structure → build payloads → format output."""
+    from pathlib import Path
+    from tools.translation.structure_detector import StructureDetector
+    from tools.translation.cross_checker import CrossChecker
+    from tools.translation.legal_annotator import LegalAnnotator
+    from tools.translation.surprise_detector import SurpriseDetector
+    from tools.translation.formatter import Formatter
+
+    # Stage 1: Detect structure
+    fixture_path = Path("tests/fixtures/test_french.txt")
+    text = fixture_path.read_text(encoding="utf-8")
+
+    detector = StructureDetector()
+    structure = detector.detect_structure(text, document_type="legal_code")
+    assert "error" not in structure
+
+    # Stage 2: Build cross-check payload
+    checker = CrossChecker()
+    check_payload = checker.build_comparison_payload(
+        claude_translation="Natural persons who were considered Jewish are regarded as such.",
+        backend_translation="Persons considered Jewish under the enemy laws are so regarded.",
+        original_text=SAMPLE_CLAUSE,
+        clause_id="article-1",
+        source_language="french"
+    )
+    assert "error" not in check_payload
+
+    # Stage 3: Build annotation payload
+    annotator = LegalAnnotator()
+    annot_payload = annotator.build_annotation_payload(
+        clause_text=SAMPLE_CLAUSE,
+        translation="Natural persons who were considered Jewish are regarded as such.",
+        clause_id="article-1",
+        source_language="french"
+    )
+    assert "error" not in annot_payload
+
+    # Stage 4: Build surprise payload
+    surprise = SurpriseDetector()
+    surprise_payload = surprise.build_surprise_payload(
+        clause_text=SAMPLE_CLAUSE,
+        translation="Natural persons who were considered Jewish are regarded as such.",
+        narrative_baseline="The Vichy regime only applied French law.",
+        clause_id="article-1",
+        source_language="french"
+    )
+    assert "error" not in surprise_payload
+
+    # Stage 5: Format output
+    formatter = Formatter()
+    sections = [
+        {
+            "id": "article-1",
+            "heading": "Article 1",
+            "original": SAMPLE_CLAUSE,
+            "translation": "Natural persons who were considered Jewish are regarded as such.",
+            "footnotes": []
+        }
+    ]
+    formatted = formatter.format_paired(sections, output_format="markdown")
+    assert isinstance(formatted, str)
+    assert len(formatted) > 0
