@@ -35,6 +35,7 @@ from typing import Dict, List, Any, Optional, Tuple
 
 try:
     from .database import KeywordDB
+    from tools.discovery.keyword_store import KeywordStore
     DATABASE_AVAILABLE = True
 except ImportError:
     DATABASE_AVAILABLE = False
@@ -679,7 +680,7 @@ Examples:
         sys.exit(1)
 
     # Initialize
-    db = KeywordDB()
+    db = KeywordStore.connect()
     recommender = TopicRecommender(db)
 
     # Get recommendations

@@ -55,7 +55,7 @@ except ImportError:
     TrendsClient = None  # type: ignore[assignment]
 
 from tools.discovery.recommender import get_existing_topics, topic_matches_existing
-from tools.discovery.database import KeywordDB
+from tools.discovery.keyword_store import KeywordStore
 from tools.topic_pipeline import classify_topic, NEWS_HOOK_KEYWORDS
 
 # ---------------------------------------------------------------------------
@@ -479,7 +479,7 @@ class DiscoveryScanner:
         DISCOVERED and ANALYZED states are kept (they're candidates, not in production).
         """
         existing = get_existing_topics()
-        db = KeywordDB()
+        db = KeywordStore.connect()
         fresh = []
         removed = 0
 

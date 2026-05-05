@@ -262,9 +262,9 @@ def save_to_database(suggestions_result: Dict[str, Any], db_path: Optional[str] 
         return 0
 
     try:
-        from database import KeywordDB
+        from tools.discovery.keyword_store import KeywordStore
 
-        db = KeywordDB(db_path)
+        db = KeywordStore.connect(db_path)
         count = 0
 
         for suggestion in suggestions_result.get('suggestions', []):

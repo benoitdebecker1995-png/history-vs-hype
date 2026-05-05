@@ -310,9 +310,9 @@ def save_classification_to_db(keyword_id: int, classification: Dict[str, Any]) -
         {'error': msg} on failure
     """
     try:
-        from database import KeywordDB
+        from tools.discovery.keyword_store import KeywordStore
 
-        db = KeywordDB()
+        db = KeywordStore.connect()
         intents_saved = 0
 
         # Save primary intent

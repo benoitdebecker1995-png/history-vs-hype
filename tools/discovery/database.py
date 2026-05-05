@@ -21,6 +21,7 @@ from datetime import datetime, timezone
 from typing import Optional, Dict, List, Any
 
 from tools.logging_config import get_logger
+from tools.discovery.keyword_store import KeywordStore
 
 logger = get_logger(__name__)
 
@@ -47,6 +48,7 @@ class KeywordDB:
         self.db_path = db_path
         self._conn = None
         self._ensure_connection()
+        self._keyword_store = KeywordStore(self._conn)
 
     @staticmethod
     def _err(operation: str, message: str, exc: Optional[BaseException] = None, **extras) -> Dict[str, Any]:
