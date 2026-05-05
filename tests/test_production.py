@@ -115,3 +115,62 @@ def test_production_pipeline_end_to_end(tmp_script):
         timings=timings,
     )
     assert isinstance(metadata, str)
+
+
+# ====== PHASE J PINNING TESTS ======
+
+def test_full_script_analysis(tmp_script):
+    """parser -> entities -> metadata produces a combined output structure."""
+    from tools.production import ScriptParser, EditGuideGenerator, MetadataGenerator
+    from tools.production.entities import EntityExtractor
+
+    # Stage 1: parse
+    parser = ScriptParser()
+    sections = parser.parse_file(str(tmp_script))
+    assert isinstance(sections, list)
+    assert len(sections) >= 1
+
+    # Stage 2: extract entities
+    extractor = EntityExtractor()
+    entities = extractor.extract_from_sections(sections)
+    assert isinstance(entities, list)
+
+    # Stage 3: metadata with entities
+    edit_gen = EditGuideGenerator(project_name="test-video-2026")
+    timings = edit_gen.calculate_timing(sections)
+
+    meta_gen = MetadataGenerator(project_name="test-video-2026")
+    metadata = meta_gen.generate_metadata_draft(
+        sections=sections,
+        entities=entities,
+        timings=timings,
+    )
+
+    assert isinstance(metadata, str)
+    assert len(metadata) > 0
+    # Combined output should reference script content
+    assert "Introduction" in metadata or "Colonial" in metadata or "Consequences" in metadata
+
+
+def test_metadata_independent(tmp_script):
+    """MetadataGenerator works without entity extraction (regression for narrow callers)."""
+    from tools.production import ScriptParser, MetadataGenerator, EditGuideGenerator
+
+    parser = ScriptParser()
+    sections = parser.parse_file(str(tmp_script))
+
+    edit_gen = EditGuideGenerator(project_name="test-video-2026")
+    timings = edit_gen.calculate_timing(sections)
+
+    meta_gen = MetadataGenerator(project_name="test-video-2026")
+    # entities=[] simulates callers that use metadata.py without EntityExtractor
+    result = meta_gen.generate_metadata_draft(
+        sections=sections,
+        entities=[],
+        timings=timings,
+    )
+
+    assert isinstance(result, str)
+    assert len(result) > 0
+    # Sections from fixture must appear in metadata output
+    assert any(kw in result for kw in ["Introduction", "Colonial", "Consequences", "## Chapters", "## Tags"])
