@@ -1197,7 +1197,10 @@ Mark I3 [DONE].
 
 ---
 
-## I4 [TODO] Delete superseded translation modules
+## I4 [BLOCKED] Delete superseded translation modules
+
+> **Blocker:** Pipeline architecture uses delegation, not inlining. Tests require module imports.
+> To delete modules: either (a) inline all logic into pipeline.py (~1500 LOC), or (b) rewrite test suite to use pipeline API. I4 spec doesn't account for this. Design doc shows delegation pattern (modules stay) but I4 instruction contradicts. Restore modules, keep status BLOCKED pending clarification.
 
 **Prompt:**
 ```
