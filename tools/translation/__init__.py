@@ -10,8 +10,7 @@ Python modules are pure data processors (no Anthropic SDK required).
 
 __version__ = "0.2.0"
 
-from .structure_detector import StructureDetector
+from .pipeline import DocumentTranslationPipeline, StructureDetector, CrossChecker, LegalAnnotator, SurpriseDetector, Formatter
 from .translator import TranslationDataBuilder
-from .formatter import Formatter
 
-__all__ = ['StructureDetector', 'TranslationDataBuilder', 'Formatter']
+__all__ = ['DocumentTranslationPipeline', 'StructureDetector', 'TranslationDataBuilder', 'Formatter']

@@ -142,7 +142,7 @@ def test_parse_response_empty_notes_graceful():
 def test_structure_detector_reads_test_fixture():
     """StructureDetector can read and parse test_french.txt fixture."""
     from pathlib import Path
-    from tools.translation.structure_detector import StructureDetector
+    from tools.translation.pipeline import StructureDetector
 
     fixture_path = Path("tests/fixtures/test_french.txt")
     assert fixture_path.exists(), "test_french.txt fixture missing"
@@ -155,7 +155,7 @@ def test_structure_detector_reads_test_fixture():
 def test_structure_detector_detects_articles():
     """StructureDetector.detect_structure() correctly identifies articles."""
     from pathlib import Path
-    from tools.translation.structure_detector import StructureDetector
+    from tools.translation.pipeline import StructureDetector
 
     fixture_path = Path("tests/fixtures/test_french.txt")
     text = fixture_path.read_text(encoding="utf-8")
@@ -170,7 +170,7 @@ def test_structure_detector_detects_articles():
 
 def test_cross_checker_builds_comparison_payload():
     """CrossChecker builds valid comparison payloads without API calls."""
-    from tools.translation.cross_checker import CrossChecker
+    from tools.translation.pipeline import CrossChecker
 
     checker = CrossChecker()
     payload = checker.build_comparison_payload(
@@ -188,7 +188,7 @@ def test_cross_checker_builds_comparison_payload():
 
 def test_legal_annotator_builds_annotation_payload():
     """LegalAnnotator builds valid annotation payloads without API calls."""
-    from tools.translation.legal_annotator import LegalAnnotator
+    from tools.translation.pipeline import LegalAnnotator
 
     annotator = LegalAnnotator()
     payload = annotator.build_annotation_payload(
@@ -206,7 +206,7 @@ def test_legal_annotator_builds_annotation_payload():
 
 def test_surprise_detector_builds_surprise_payload():
     """SurpriseDetector builds valid surprise payloads without API calls."""
-    from tools.translation.surprise_detector import SurpriseDetector
+    from tools.translation.pipeline import SurpriseDetector
 
     detector = SurpriseDetector()
     payload = detector.build_surprise_payload(
@@ -225,7 +225,7 @@ def test_surprise_detector_builds_surprise_payload():
 
 def test_formatter_formats_paired_output():
     """Formatter.format_paired() correctly formats translated sections."""
-    from tools.translation.formatter import Formatter
+    from tools.translation.pipeline import Formatter
 
     formatter = Formatter()
     sections = [
@@ -255,11 +255,7 @@ def test_formatter_formats_paired_output():
 def test_full_pipeline_integration():
     """Full pipeline: detect structure → build payloads → format output."""
     from pathlib import Path
-    from tools.translation.structure_detector import StructureDetector
-    from tools.translation.cross_checker import CrossChecker
-    from tools.translation.legal_annotator import LegalAnnotator
-    from tools.translation.surprise_detector import SurpriseDetector
-    from tools.translation.formatter import Formatter
+    from tools.translation.pipeline import StructureDetector, CrossChecker, LegalAnnotator, SurpriseDetector, Formatter
 
     # Stage 1: Detect structure
     fixture_path = Path("tests/fixtures/test_french.txt")
