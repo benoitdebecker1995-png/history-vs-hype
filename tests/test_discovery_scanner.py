@@ -79,11 +79,11 @@ class TestAutocompleteDedup:
              patch("tools.discovery.discovery_scanner.topic_matches_existing", side_effect=lambda kw, ex: any(
                  t in kw for t in ["india pakistan", "dark ages"]
              )), \
-             patch("tools.discovery.discovery_scanner.KeywordDB") as mock_db_cls:
+             patch("tools.discovery.discovery_scanner.KeywordStore") as mock_db_cls:
 
             mock_db = MagicMock()
             mock_db.get_keyword.return_value = {"error": "not found"}
-            mock_db_cls.return_value = mock_db
+            mock_db_cls.connect.return_value = mock_db
 
             scanner = DiscoveryScanner(output_dir=str(tmp_path))
             candidates = scanner._run_autocomplete()
@@ -116,11 +116,11 @@ class TestAutocompleteDedup:
              patch("tools.discovery.discovery_scanner.topic_matches_existing", side_effect=lambda kw, ex: any(
                  t in kw for t in ["india pakistan", "dark ages"]
              )), \
-             patch("tools.discovery.discovery_scanner.KeywordDB") as mock_db_cls:
+             patch("tools.discovery.discovery_scanner.KeywordStore") as mock_db_cls:
 
             mock_db = MagicMock()
             mock_db.get_keyword.return_value = {"error": "not found"}
-            mock_db_cls.return_value = mock_db
+            mock_db_cls.connect.return_value = mock_db
 
             scanner = DiscoveryScanner(output_dir=str(tmp_path))
             fresh = scanner._deduplicate(candidates)
@@ -394,11 +394,11 @@ class TestDedupPipeline:
              patch("tools.discovery.discovery_scanner.topic_matches_existing", side_effect=lambda kw, ex: (
                  "somaliland" in kw or "belize" in kw
              )), \
-             patch("tools.discovery.discovery_scanner.KeywordDB") as mock_db_cls:
+             patch("tools.discovery.discovery_scanner.KeywordStore") as mock_db_cls:
 
             mock_db = MagicMock()
             mock_db.get_keyword.return_value = {"error": "not found"}
-            mock_db_cls.return_value = mock_db
+            mock_db_cls.connect.return_value = mock_db
 
             scanner = DiscoveryScanner(output_dir=str(tmp_path))
             fresh = scanner._deduplicate(candidates)
@@ -417,7 +417,7 @@ class TestDedupPipeline:
 
         with patch("tools.discovery.discovery_scanner.get_existing_topics", return_value=[]), \
              patch("tools.discovery.discovery_scanner.topic_matches_existing", return_value=False), \
-             patch("tools.discovery.discovery_scanner.KeywordDB") as mock_db_cls:
+             patch("tools.discovery.discovery_scanner.KeywordStore") as mock_db_cls:
 
             mock_db = MagicMock()
             # "iran coup" is PUBLISHED, "fresh" is not in DB
@@ -427,7 +427,7 @@ class TestDedupPipeline:
                 return {"error": "not found"}
 
             mock_db.get_keyword.side_effect = get_keyword_side_effect
-            mock_db_cls.return_value = mock_db
+            mock_db_cls.connect.return_value = mock_db
 
             scanner = DiscoveryScanner(output_dir=str(tmp_path))
             fresh = scanner._deduplicate(candidates)
@@ -445,11 +445,11 @@ class TestDedupPipeline:
 
         with patch("tools.discovery.discovery_scanner.get_existing_topics", return_value=[]), \
              patch("tools.discovery.discovery_scanner.topic_matches_existing", return_value=False), \
-             patch("tools.discovery.discovery_scanner.KeywordDB") as mock_db_cls:
+             patch("tools.discovery.discovery_scanner.KeywordStore") as mock_db_cls:
 
             mock_db = MagicMock()
             mock_db.get_keyword.return_value = {"keyword": "new analyzed topic", "lifecycle_state": "DISCOVERED"}
-            mock_db_cls.return_value = mock_db
+            mock_db_cls.connect.return_value = mock_db
 
             scanner = DiscoveryScanner(output_dir=str(tmp_path))
             fresh = scanner._deduplicate(candidates)
@@ -468,7 +468,7 @@ class TestDedupPipeline:
 
         with patch("tools.discovery.discovery_scanner.get_existing_topics", return_value=[]), \
              patch("tools.discovery.discovery_scanner.topic_matches_existing", return_value=False), \
-             patch("tools.discovery.discovery_scanner.KeywordDB") as mock_db_cls:
+             patch("tools.discovery.discovery_scanner.KeywordStore") as mock_db_cls:
 
             mock_db = MagicMock()
             def get_keyword_side_effect(keyword):
@@ -481,7 +481,7 @@ class TestDedupPipeline:
                 return {"error": "not found"}
 
             mock_db.get_keyword.side_effect = get_keyword_side_effect
-            mock_db_cls.return_value = mock_db
+            mock_db_cls.connect.return_value = mock_db
 
             scanner = DiscoveryScanner(output_dir=str(tmp_path))
             fresh = scanner._deduplicate(candidates)
@@ -515,13 +515,13 @@ class TestScanProducesReport:
              patch("tools.discovery.discovery_scanner.TRENDSPYG_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.get_existing_topics", return_value=[]), \
              patch("tools.discovery.discovery_scanner.topic_matches_existing", return_value=False), \
-             patch("tools.discovery.discovery_scanner.KeywordDB") as mock_db_cls, \
+             patch("tools.discovery.discovery_scanner.KeywordStore") as mock_db_cls, \
              patch("tools.discovery.discovery_scanner.classify_topic", return_value="territorial"):
 
             mock_tc.return_value.get_interest_over_time.return_value = mock_trends_result
             mock_db = MagicMock()
             mock_db.get_keyword.return_value = {"error": "not found"}
-            mock_db_cls.return_value = mock_db
+            mock_db_cls.connect.return_value = mock_db
 
             scanner = DiscoveryScanner(output_dir=str(tmp_path))
             result = scanner.scan(limit=10)
@@ -552,12 +552,12 @@ class TestScanProducesReport:
              patch("tools.discovery.discovery_scanner.COMPETITOR_TRACKER_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.get_existing_topics", return_value=[]), \
              patch("tools.discovery.discovery_scanner.topic_matches_existing", return_value=False), \
-             patch("tools.discovery.discovery_scanner.KeywordDB") as mock_db_cls, \
+             patch("tools.discovery.discovery_scanner.KeywordStore") as mock_db_cls, \
              patch("tools.discovery.discovery_scanner.classify_topic", return_value="general"):
 
             mock_db = MagicMock()
             mock_db.get_keyword.return_value = {"error": "not found"}
-            mock_db_cls.return_value = mock_db
+            mock_db_cls.connect.return_value = mock_db
 
             scanner = DiscoveryScanner(output_dir=str(tmp_path))
             result = scanner.scan(limit=5)
@@ -578,12 +578,12 @@ class TestScanProducesReport:
              patch("tools.discovery.discovery_scanner.COMPETITOR_TRACKER_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.get_existing_topics", return_value=[]), \
              patch("tools.discovery.discovery_scanner.topic_matches_existing", return_value=False), \
-             patch("tools.discovery.discovery_scanner.KeywordDB") as mock_db_cls, \
+             patch("tools.discovery.discovery_scanner.KeywordStore") as mock_db_cls, \
              patch("tools.discovery.discovery_scanner.classify_topic", return_value="territorial"):
 
             mock_db = MagicMock()
             mock_db.get_keyword.return_value = {"error": "not found"}
-            mock_db_cls.return_value = mock_db
+            mock_db_cls.connect.return_value = mock_db
 
             scanner = DiscoveryScanner(output_dir=str(tmp_path))
             # Should not raise — graceful degradation

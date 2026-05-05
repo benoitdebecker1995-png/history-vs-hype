@@ -219,8 +219,8 @@ class CompetitionAnalyzer:
 
         # Import database for persistence (optional)
         try:
-            from tools.discovery.database import KeywordDB
-            db = KeywordDB()
+            from tools.discovery.intent_classifier import IntentClassifier
+            db = IntentClassifier.connect()
             db_available = True
         except (ImportError, Exception):
             db = None
