@@ -219,7 +219,8 @@
       "Bash(mkdir -p \"C:/Users/Benoi/.claude/wiki/preferences\" \"C:/Users/Benoi/.claude/wiki/anti-patterns\" \"C:/Users/Benoi/.claude/wiki/_queue\" \"C:/Users/Benoi/.claude/commands\")",
       "WebFetch(domain:gist.github.com)",
       "PowerShell(Test-Path *)",
-      "PowerShell(New-Item *)"
+      "PowerShell(New-Item *)",
+      "PowerShell(python -m pytest tests/ --tb=short -q 2>&1 | Select-Object -Last 50)"
     ],
     "deny": [],
     "ask": []

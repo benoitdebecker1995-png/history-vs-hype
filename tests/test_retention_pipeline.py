@@ -77,7 +77,7 @@ def _parse_fixture_script_for_mapper():
 def test_map_retention_to_sections_returns_mapped_drops():
     """map_retention_to_sections aligns drops to sections with documented shape."""
     from tools.youtube_analytics.retention import find_drop_off_points
-    from tools.youtube_analytics.retention_mapper import map_retention_to_sections
+    from tools.youtube_analytics.retention_inference import RetentionInference
 
     sections = _parse_fixture_script_for_mapper()
     assert sections, "ScriptParser returned no sections from fixture"
@@ -89,7 +89,7 @@ def test_map_retention_to_sections_returns_mapped_drops():
         {"position": 0.70, "retention": 0.40, "relative": None},  # ~70% mark drop
     ], threshold=0.05)
 
-    mapped = map_retention_to_sections(drops, sections)
+    mapped = RetentionInference.mapped_drops(drops, sections)
 
     assert isinstance(mapped, list)
     expected_keys = {
@@ -103,10 +103,10 @@ def test_map_retention_to_sections_returns_mapped_drops():
 
 def test_estimate_section_timestamps_returns_per_section_timing():
     """estimate_section_timestamps returns one timing dict per section."""
-    from tools.youtube_analytics.retention_mapper import estimate_section_timestamps
+    from tools.youtube_analytics.retention_inference import RetentionInference
 
     sections = _parse_fixture_script_for_mapper()
-    timings = estimate_section_timestamps(sections, wpm=150)
+    timings = RetentionInference.section_timestamps(sections, wpm=150)
 
     assert len(timings) == len(sections)
     for t in timings:
@@ -119,14 +119,12 @@ def test_estimate_section_timestamps_returns_per_section_timing():
 
 def test_decoder_classifiers_return_known_buckets():
     """The 3 classify_* methods return strings from a fixed vocabulary."""
-    from tools.youtube_analytics.retention_decoder import RetentionDecoder
-
-    rd = RetentionDecoder()
+    from tools.youtube_analytics.retention_inference import RetentionInference
 
     title = "The Colonial Border Myth That Still Causes Wars"
-    hook = rd.classify_hook_type(title)
-    spec = rd.classify_specificity(title)
-    bucket = rd.classify_duration_bucket(720)  # 12 min
+    hook = RetentionInference.classify_hook_type(title)
+    spec = RetentionInference.classify_specificity(title)
+    bucket = RetentionInference.classify_duration_bucket(720)  # 12 min
 
     assert hook in {"myth-bust", "document-reveal", "how-why", "question", "curiosity-gap", "statement"}
     assert spec in {"specific", "general"}
@@ -139,10 +137,10 @@ def test_decoder_classifiers_return_known_buckets():
 
 def test_score_section_returns_documented_keys():
     """score_section returns a dict with score / risk_level / warnings / metrics."""
-    from tools.youtube_analytics.retention_scorer import score_section
+    from tools.youtube_analytics.retention_inference import RetentionInference
 
     section_text = SCRIPT_FIXTURE.read_text(encoding="utf-8")
-    result = score_section(
+    result = RetentionInference.score_section(
         section_text=section_text,
         section_type="body",
         topic_type="territorial",
@@ -161,10 +159,10 @@ def test_score_section_returns_documented_keys():
 
 def test_predict_from_text_returns_curve_and_flags():
     """predict_from_text on the script fixture returns the documented shape."""
-    from tools.youtube_analytics.retention_predictor import predict_from_text
+    from tools.youtube_analytics.retention_inference import RetentionInference
 
     text = SCRIPT_FIXTURE.read_text(encoding="utf-8")
-    result = predict_from_text(text)
+    result = RetentionInference.predict_from_text(text)
 
     assert isinstance(result, dict)
     # Pin actual current shape (docstring is stale — duration split into script/filmed):
@@ -217,8 +215,7 @@ def test_retention_pipeline_composes_end_to_end():
     Asserts the final scored output has the documented per-section shape.
     """
     from tools.youtube_analytics.retention import find_drop_off_points
-    from tools.youtube_analytics.retention_mapper import map_retention_to_sections
-    from tools.youtube_analytics.retention_scorer import score_section
+    from tools.youtube_analytics.retention_inference import RetentionInference
 
     # 0. Fixture sanity
     assert POST_PUBLISH_FIXTURE.exists()
@@ -234,13 +231,13 @@ def test_retention_pipeline_composes_end_to_end():
 
     # 2. retention_mapper.py: drops × sections
     sections = _parse_fixture_script_for_mapper()
-    mapped = map_retention_to_sections(drops, sections)
+    mapped = RetentionInference.mapped_drops(drops, sections)
     assert isinstance(mapped, list)
 
     # 3. retention_scorer.py: score each parsed section
     scored = []
     for sec in sections:
-        result = score_section(
+        result = RetentionInference.score_section(
             section_text=sec.content,
             section_type=sec.section_type,
             topic_type="territorial",

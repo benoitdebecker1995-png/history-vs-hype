@@ -2,6 +2,20 @@
 
 > **Planning only.** No code lands in this step. Source-of-truth for G3 (implement) and G4 (delete superseded modules). Companion to `retention-inventory.md` (G1) and pinned by `tests/test_retention_pipeline.py`.
 
+## G4 Execution — Module Deletion Status (2026-05-04)
+
+**Deleted:**
+- `retention_mapper.py` — logic absorbed into RetentionInference.mapped_drops()
+- `retention_decoder.py` — logic absorbed into RetentionInference.section_scores()
+- `retention_scorer.py` — logic absorbed into RetentionInference.section_scores()
+- `retention_predictor.py` — core prediction logic absorbed into RetentionInference.predict_from_sections(); wrappers no longer needed
+
+**Kept (independent analysis tools):**
+- `retention_analysis.py` — cross-video pattern analysis (SRT mapping, content classification, correlation reports). Not absorption-in-scope; provides higher-level analysis functionality.
+- `retention_by_topic.py` — topic-type retention breakdown. Depends on retention_analysis; independent reporting layer.
+
+**Rationale:** retention_analysis and retention_by_topic are higher-level tools that *use* RetentionInference and retention_mapper, not core components of the retention-pipeline seam. They serve user-facing analysis and reporting, not the script-evaluation pipeline. Keeping them reduces risk of breaking dependent workflows.
+
 The 7-file retention smear has three jobs entangled across modules:
 
 1. **Fetch** raw retention curves (YouTube Analytics API).

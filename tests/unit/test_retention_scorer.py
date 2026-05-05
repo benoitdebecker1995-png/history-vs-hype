@@ -23,16 +23,21 @@ class Section:
 
 # Import will fail initially (RED phase) - this is correct
 try:
-    from tools.youtube_analytics.retention_scorer import (
-        score_section,
-        score_all_sections,
-        get_topic_baseline,
-        format_retention_warnings,
-        count_evidence_markers,
-        measure_modern_relevance_gap,
-        detect_voice_patterns
+    from tools.youtube_analytics.retention_inference import (
+        RetentionInference,
+        _SCORER_AVAILABLE as SCORER_AVAILABLE,
+        _count_evidence_markers as count_evidence_markers,
+        _measure_modern_relevance_gap as measure_modern_relevance_gap,
+        _detect_voice_patterns as detect_voice_patterns,
+        _get_topic_baseline as get_topic_baseline
     )
-    SCORER_AVAILABLE = True
+    # Re-map legacy names if tests use them directly
+    score_section = RetentionInference.score_section
+    score_all_sections = RetentionInference.section_scores
+    
+    # Shim format_retention_warnings as it's still in the old module
+    # but we want to eventually move it. For now, keep the test working.
+    from tools.youtube_analytics.retention_scorer import format_retention_warnings
 except ImportError:
     SCORER_AVAILABLE = False
 
@@ -148,7 +153,7 @@ class TestGetTopicBaseline(unittest.TestCase):
     """Test get_topic_baseline function contracts"""
 
     @unittest.skipUnless(SCORER_AVAILABLE, "retention_scorer not yet implemented")
-    @patch('tools.youtube_analytics.retention_scorer.KeywordDB')
+    @patch('tools.youtube_analytics.retention_inference.KeywordDB')
     def test_returns_hardcoded_defaults_when_no_data(self, mock_db_class):
         """Should return hardcoded defaults when database has no data"""
         mock_db = Mock()
@@ -161,7 +166,7 @@ class TestGetTopicBaseline(unittest.TestCase):
         self.assertEqual(result['confidence'], 'default')
 
     @unittest.skipUnless(SCORER_AVAILABLE, "retention_scorer not yet implemented")
-    @patch('tools.youtube_analytics.retention_scorer.KeywordDB')
+    @patch('tools.youtube_analytics.retention_inference.KeywordDB')
     def test_falls_back_to_channel_average_for_sparse_topic(self, mock_db_class):
         """Should use channel average when specific topic has <3 videos"""
         mock_db = Mock()

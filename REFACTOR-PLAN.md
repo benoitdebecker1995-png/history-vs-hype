@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-04 (G2)
+**Last advanced:** 2026-05-04 (G3)
 **Total steps:** 47
-**Done:** 28 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3/E2/E3/F1 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1/E4/E5/F2/F3/G1/G2 executed 2026-05-04)
+**Done:** 29 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3/E2/E3/F1 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1/E4/E5/F2/F3/G1/G2/G3 executed 2026-05-04)
 **Blocked:** 1 — F4 (schema mismatch with audit; see step F4)
 **Blocked:** 0
 
@@ -973,7 +973,7 @@ Mark G2 [DONE]. Do NOT write any code in tools/ in this step.
 
 ---
 
-## G3 [TODO] Implement `RetentionInference` and migrate callers
+## G3 [DONE] Implement `RetentionInference` and migrate callers
 
 **Prompt:**
 ```
@@ -1573,3 +1573,14 @@ Same converter approach as E4 (stderr-prints + ERROR-prefix → `logger.error`).
 Added `tests/test_intel_migration.py` with 6 tests covering audit contract + stronger invariants (idempotent repeat construction, table presence, v2-column presence, pre-versioning bootstrap). All PASSED in 0.15s.
 
 **Audit's `:memory:` verify clause was unusable** — Python's `sqlite3.connect(':memory:')` opens a fresh isolated DB per call, so KBStore's per-op connection pattern can't persist state across operations with it. Same issue I surfaced during D4 spot-check. Tests use `tmp_path` instead, which is the practical equivalent and what the audit's intent required. The audit's transport choice was wrong; the implementation is correct.
+
+### 2026-05-04 — G3 execution: implemented RetentionInference and migrated callers
+
+Enhanced `tools/youtube_analytics/retention_inference.py` to absorb the public surface of 7 retention modules.
+- **`RetentionInference` class:** Added `predict_retention`, `predict_from_sections`, `predict_from_text`, `predict_from_file`, and empirical constants.
+- **Caching:** Moved `cached_get_retention_data` to `tools/youtube_analytics/retention.py`.
+- **Migration:** Updated `analyze.py`, `retention_predictor.py`, and `retention_analysis.py` to use `RetentionInference`.
+- **Tests:** Updated `tests/test_retention_pipeline.py`, `tests/unit/test_retention_mapper.py`, and `tests/unit/test_retention_scorer.py` to use the new unified interface.
+- **Verification:** 36/36 tests PASSED. Behavior preserved via shims; callers migrated to new direct interface.
+
+**Pre-existing issue surfaced during G3:** `ScriptParser` sections are `Section` objects, but legacy retention code expected dicts with `.get()` method. Fixed `RetentionInference` to handle both safely via `getattr(s, 'word_count', 0) if hasattr(s, 'word_count') else s.get('word_count', 0)` pattern.

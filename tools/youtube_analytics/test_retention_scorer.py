@@ -23,16 +23,19 @@ class Section:
 
 # Import will fail initially (RED phase) - this is correct
 try:
-    from retention_scorer import (
-        score_section,
-        score_all_sections,
-        get_topic_baseline,
-        format_retention_warnings,
-        count_evidence_markers,
-        measure_modern_relevance_gap,
-        detect_voice_patterns
+    from retention_inference import (
+        RetentionInference,
+        _SCORER_AVAILABLE as SCORER_AVAILABLE,
+        _count_evidence_markers as count_evidence_markers,
+        _measure_modern_relevance_gap as measure_modern_relevance_gap,
+        _detect_voice_patterns as detect_voice_patterns,
+        _get_topic_baseline as get_topic_baseline
     )
-    SCORER_AVAILABLE = True
+    # Re-map legacy names
+    score_section = RetentionInference.score_section
+    score_all_sections = RetentionInference.section_scores
+    
+    from retention_scorer import format_retention_warnings
 except ImportError:
     SCORER_AVAILABLE = False
 

@@ -17,17 +17,72 @@ Usage:
 
 import sys
 import json
+import os
 from datetime import datetime, date, timezone
+from pathlib import Path
 
 from tools.logging_config import get_logger
 from tools.youtube_analytics.auth import get_authenticated_service
 
 logger = get_logger(__name__)
 
+# Paths
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+CACHE_DIR = BASE_DIR / "tools" / "youtube_analytics" / "_retention_cache"
+
 try:
     from googleapiclient.errors import HttpError
 except ImportError:
     HttpError = Exception
+
+
+def _cache_path(video_id: str) -> Path:
+    """Return cache file path for a video's retention data."""
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    return CACHE_DIR / f"{video_id}.json"
+
+
+def _load_cached(video_id: str) -> dict | None:
+    """Load cached retention data if available."""
+    p = _cache_path(video_id)
+    if p.exists():
+        try:
+            data = json.loads(p.read_text(encoding="utf-8"))
+            if "data_points" in data and data["data_points"]:
+                return data
+        except (json.JSONDecodeError, KeyError):
+            pass
+    return None
+
+
+def _save_cache(video_id: str, data: dict) -> None:
+    """Save retention data to cache."""
+    p = _cache_path(video_id)
+    p.write_text(json.dumps(data, indent=2), encoding="utf-8")
+
+
+def cached_get_retention_data(video_id: str, force_refresh: bool = False) -> dict | None:
+    """
+    Fetch retention data with caching. Returns None on error.
+
+    Args:
+        video_id: YouTube video ID
+        force_refresh: If True, skip cache and re-fetch from API
+    """
+    if not force_refresh:
+        cached = _load_cached(video_id)
+        if cached:
+            return cached
+
+    logger.info("Fetching retention data for %s from API...", video_id)
+    data = get_retention_data(video_id)
+
+    if "error" in data:
+        logger.warning("API error for %s: %s", video_id, data["error"])
+        return None
+
+    _save_cache(video_id, data)
+    return data
 
 
 def get_retention_data(video_id, start_date=None, end_date=None):

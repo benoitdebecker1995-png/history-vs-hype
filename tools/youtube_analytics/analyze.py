@@ -85,7 +85,7 @@ except ImportError:
 
 # Try to import diagnostics (Phase 35)
 try:
-    from .retention_mapper import map_retention_to_sections, format_mapped_drops_table
+    from .retention_inference import RetentionInference
     from .section_diagnostics import diagnose_all_drops, format_diagnostics_markdown
     from tools.production.parser import ScriptParser
     DIAGNOSTICS_AVAILABLE = True
@@ -303,7 +303,7 @@ def generate_section_diagnostics(video_id: str, script_path: str) -> dict:
             'error': str - Error message (if error)
     """
     if not DIAGNOSTICS_AVAILABLE:
-        return {'error': 'Diagnostics modules not available (retention_mapper or section_diagnostics not imported)'}
+        return {'error': 'Diagnostics modules not available (RetentionInference or section_diagnostics not imported)'}
 
     try:
         # Check script file exists
@@ -333,7 +333,7 @@ def generate_section_diagnostics(video_id: str, script_path: str) -> dict:
             return {'error': 'Could not parse script sections'}
 
         # Map drops to sections
-        mapped_drops = map_retention_to_sections(drops, sections)
+        mapped_drops = RetentionInference.mapped_drops(drops, sections)
 
         if not mapped_drops:
             return {'error': 'Could not map drops to sections'}
@@ -342,7 +342,7 @@ def generate_section_diagnostics(video_id: str, script_path: str) -> dict:
         diagnostics = diagnose_all_drops(mapped_drops, sections)
 
         # Format summary table
-        summary_table = format_mapped_drops_table(mapped_drops)
+        summary_table = RetentionInference.format_drops_table(mapped_drops)
 
         return {
             'status': 'success',
