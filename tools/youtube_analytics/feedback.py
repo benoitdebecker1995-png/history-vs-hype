@@ -50,7 +50,7 @@ except ImportError:
     QUERIES_AVAILABLE = False
 
 try:
-    from tools.discovery.database import KeywordDB
+    from tools.discovery.performance_tracker import PerformanceTracker
     DATABASE_AVAILABLE = True
 except ImportError:
     DATABASE_AVAILABLE = False
@@ -83,7 +83,7 @@ def cmd_query(args):
     # Determine query type
     if args.video:
         # Single video query
-        db = KeywordDB()
+        db = PerformanceTracker.connect()
         result = db.get_video_feedback(args.video)
         db.close()
 

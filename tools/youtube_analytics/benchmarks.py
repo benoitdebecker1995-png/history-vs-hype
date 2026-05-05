@@ -24,7 +24,7 @@ from typing import Optional, List, Dict, Any
 import statistics
 
 from tools.logging_config import get_logger
-from tools.discovery.database import KeywordDB
+from tools.discovery.performance_tracker import PerformanceTracker
 
 logger = get_logger(__name__)
 
@@ -243,7 +243,7 @@ def compare_variants_for_video(
             - attribution_rate: str (e.g., "2 of 5 snapshots have variant attribution")
     """
     try:
-        db = KeywordDB()
+        db = PerformanceTracker.connect()
 
         # Get variant CTR summary
         variant_data = db.get_variant_ctr_summary(video_id, variant_type)
@@ -347,7 +347,7 @@ def get_benchmarks_report() -> Dict[str, Any]:
             - freshness_warning: str or None
     """
     try:
-        db = KeywordDB()
+        db = PerformanceTracker.connect()
         benchmarks = db.get_channel_ctr_benchmarks()
         db.close()
 
@@ -408,7 +408,7 @@ def analyze_video_ctr(video_id: str) -> Dict[str, Any]:
     # Get snapshot count and attribution rate
     snapshot_info = None
     try:
-        db = KeywordDB()
+        db = PerformanceTracker.connect()
         cursor = db._conn.cursor()
         cursor.execute(
             """

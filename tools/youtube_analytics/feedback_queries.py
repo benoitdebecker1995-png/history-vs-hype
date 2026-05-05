@@ -28,7 +28,7 @@ from statistics import mean, StatisticsError
 from typing import Dict, List, Any, Optional
 
 from tools.logging_config import get_logger
-from tools.discovery.database import KeywordDB
+from tools.discovery.performance_tracker import PerformanceTracker
 
 logger = get_logger(__name__)
 
@@ -68,7 +68,7 @@ def get_insights_for_topic(topic_type: str, command: str = 'script', limit: int 
     Returns:
         Dict with insights list, count, topic, and command
     """
-    db = KeywordDB()
+    db = PerformanceTracker.connect()
     result = db.get_feedback_by_topic(topic_type, limit=limit)
     db.close()
 
@@ -144,7 +144,7 @@ def get_universal_insights(limit: int = 2) -> dict:
     Returns:
         Dict with insights list and count
     """
-    db = KeywordDB()
+    db = PerformanceTracker.connect()
 
     # Get all videos with feedback, sorted by conversion rate
     cursor = db._conn.cursor()
@@ -296,7 +296,7 @@ def extract_success_patterns(threshold_type: str = 'adaptive') -> dict:
     Returns:
         Dict with patterns list, video_count, threshold, and method
     """
-    db = KeywordDB()
+    db = PerformanceTracker.connect()
 
     # Get all videos with feedback
     cursor = db._conn.cursor()
@@ -409,7 +409,7 @@ def extract_failure_patterns(threshold_type: str = 'adaptive') -> dict:
     Returns:
         Dict with patterns list, video_count, threshold, and method
     """
-    db = KeywordDB()
+    db = PerformanceTracker.connect()
 
     # Get all videos with feedback
     cursor = db._conn.cursor()

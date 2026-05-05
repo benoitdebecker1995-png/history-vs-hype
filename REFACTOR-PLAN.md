@@ -1094,7 +1094,7 @@ Mark H3 [DONE].
 
 ---
 
-## H4 [TODO] Implement `PerformanceTracker` and migrate
+## H4 [DONE] Implement `PerformanceTracker` and migrate
 
 **Prompt:**
 ```

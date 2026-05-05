@@ -50,7 +50,7 @@ logger = get_logger(__name__)
 
 # Import database and classifiers with graceful fallback
 try:
-    from tools.discovery.database import KeywordDB
+    from tools.discovery.performance_tracker import PerformanceTracker
     DATABASE_AVAILABLE = True
 except ImportError:
     DATABASE_AVAILABLE = False
@@ -313,7 +313,7 @@ def fetch_video_performance(video_id: str, save_to_db: bool = True) -> Dict[str,
     # Save to database if requested and available
     if save_to_db and DATABASE_AVAILABLE:
         try:
-            db = KeywordDB()
+            db = PerformanceTracker.connect()
             db_result = db.add_video_performance(
                 video_id=video_id,
                 title=title,
@@ -401,7 +401,7 @@ def get_top_converters(limit: int = 10) -> List[Dict[str, Any]]:
         return []
 
     try:
-        db = KeywordDB()
+        db = PerformanceTracker.connect()
         results = db.get_top_converters(limit=limit)
         db.close()
         return results
@@ -425,7 +425,7 @@ def print_topic_aggregation() -> None:
         return
 
     try:
-        db = KeywordDB()
+        db = PerformanceTracker.connect()
         videos = db.get_all_video_performance(limit=500)
         db.close()
     except Exception as e:
@@ -480,7 +480,7 @@ def print_angle_aggregation() -> None:
         return
 
     try:
-        db = KeywordDB()
+        db = PerformanceTracker.connect()
         videos = db.get_all_video_performance(limit=500)
         db.close()
     except Exception as e:
@@ -621,7 +621,7 @@ def print_channel_strengths() -> None:
         return
 
     try:
-        db = KeywordDB()
+        db = PerformanceTracker.connect()
         videos = db.get_all_video_performance(limit=500)
         db.close()
     except Exception as e:

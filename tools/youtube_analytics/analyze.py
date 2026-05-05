@@ -63,7 +63,7 @@ except ImportError:
 
 # Try to import variant tracking (may not be available)
 try:
-    from tools.discovery.database import KeywordDB
+    from tools.discovery.performance_tracker import PerformanceTracker
     VARIANTS_AVAILABLE = True
 except ImportError:
     VARIANTS_AVAILABLE = False
@@ -247,9 +247,8 @@ def save_analysis(analysis: dict, output_path: str = None) -> dict:
         try:
             parsed = parse_analysis_file(str(save_path))
             if 'error' not in parsed:
-                # Import KeywordDB for storage
-                from tools.discovery.database import KeywordDB
-                db = KeywordDB()
+                from tools.discovery.performance_tracker import PerformanceTracker
+                db = PerformanceTracker.connect()
                 store_result = db.store_video_feedback(
                     parsed.get('video_id', video_id),
                     {
@@ -567,7 +566,7 @@ def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
     variant_data = None
     if VARIANTS_AVAILABLE:
         try:
-            db = KeywordDB()
+            db = PerformanceTracker.connect()
             summary = db.get_variant_summary(video_id)
             if summary['thumbnails'] > 0 or summary['titles'] > 0 or summary['snapshots'] > 0:
                 variant_data = {
@@ -1296,8 +1295,8 @@ def format_analysis_markdown(analysis: dict) -> str:
             topic_type = None
             if VARIANTS_AVAILABLE:
                 try:
-                    from tools.discovery.database import KeywordDB
-                    db = KeywordDB()
+                    from tools.discovery.performance_tracker import PerformanceTracker
+                    db = PerformanceTracker.connect()
                     cursor = db._conn.cursor()
                     cursor.execute(
                         "SELECT topic_type FROM video_performance WHERE video_id = ?",

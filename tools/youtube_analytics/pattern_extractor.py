@@ -43,7 +43,7 @@ from tools.logging_config import get_logger
 logger = get_logger(__name__)
 
 try:
-    from tools.discovery.database import KeywordDB
+    from tools.discovery.performance_tracker import PerformanceTracker
     DATABASE_AVAILABLE = True
 except ImportError:
     DATABASE_AVAILABLE = False
@@ -477,7 +477,7 @@ def extract_winning_patterns() -> dict:
 
     # Fetch data from database
     try:
-        db = KeywordDB()
+        db = PerformanceTracker.connect()
         all_videos = db.get_all_video_performance(limit=500)
         top_videos = db.get_top_converters(limit=10)
         db.close()

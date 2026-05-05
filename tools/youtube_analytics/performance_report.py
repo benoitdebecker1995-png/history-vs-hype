@@ -40,7 +40,7 @@ from tools.logging_config import get_logger
 logger = get_logger(__name__)
 
 try:
-    from tools.discovery.database import KeywordDB
+    from tools.discovery.performance_tracker import PerformanceTracker
     DATABASE_AVAILABLE = True
 except ImportError:
     DATABASE_AVAILABLE = False
@@ -313,7 +313,7 @@ Run `python performance.py --fetch-all` to populate the database first.
 
     # Fetch data from database
     try:
-        db = KeywordDB()
+        db = PerformanceTracker.connect()
         videos = db.get_all_video_performance(limit=500)
         db.close()
     except Exception as e:

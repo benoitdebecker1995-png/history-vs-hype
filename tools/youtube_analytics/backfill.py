@@ -48,7 +48,7 @@ from tools.logging_config import get_logger
 logger = get_logger(__name__)
 
 try:
-    from tools.discovery.database import KeywordDB
+    from tools.discovery.performance_tracker import PerformanceTracker
     DB_AVAILABLE = True
 except ImportError:
     DB_AVAILABLE = False
@@ -104,7 +104,7 @@ def _load_own_channel_ids(project_root: Path) -> Set[str]:
     # Fallback: query video_performance table (own-channel only, no competitors)
     if not own_ids and DB_AVAILABLE:
         try:
-            db = KeywordDB()
+            db = PerformanceTracker.connect()
             cursor = db._conn.cursor()
             cursor.execute("SELECT video_id FROM video_performance WHERE video_id IS NOT NULL")
             for row in cursor.fetchall():
@@ -118,7 +118,7 @@ def _load_own_channel_ids(project_root: Path) -> Set[str]:
     return own_ids
 
 
-def _ensure_avg_retention_column(db: 'KeywordDB') -> None:
+def _ensure_avg_retention_column(db: 'PerformanceTracker') -> None:
     """
     Ensure avg_retention_pct column exists in video_performance table.
 
@@ -139,7 +139,7 @@ def _ensure_avg_retention_column(db: 'KeywordDB') -> None:
         pass  # Non-fatal: column may already exist (expected on re-runs)
 
 
-def _update_avg_retention(db: 'KeywordDB', video_id: str, avg_retention_pct: float) -> None:
+def _update_avg_retention(db: 'PerformanceTracker', video_id: str, avg_retention_pct: float) -> None:
     """
     Update avg_retention_pct for a video record.
 
@@ -206,7 +206,7 @@ def import_from_json_prefetch(project_root: Path) -> Dict[str, Any]:
 
     logger.info("Found %d videos in %s", total, json_path.name)
 
-    db = KeywordDB()
+    db = PerformanceTracker.connect()
     _ensure_avg_retention_column(db)
 
     for i, video in enumerate(videos, 1):
@@ -370,7 +370,7 @@ def reclassify_topics(project_root: Path) -> int:
     if not own_channel_ids:
         return 0
 
-    db = KeywordDB()
+    db = PerformanceTracker.connect()
     reclassified = 0
 
     try:
@@ -515,7 +515,7 @@ def generate_channel_insights_report(project_root: Path) -> Dict[str, Any]:
         return {'error': 'No own-channel video IDs found'}
 
     db_path = project_root / 'tools' / 'discovery' / 'keywords.db'
-    db = KeywordDB()
+    db = PerformanceTracker.connect()
 
     try:
         cursor = db._conn.cursor()
@@ -921,7 +921,7 @@ def classify_topic_type_simple(title: str) -> str:
 # STAGE 3.5: CTR BACKFILL (ctr_snapshots → video_performance)
 # =========================================================================
 
-def _ensure_ctr_columns(db: 'KeywordDB') -> None:
+def _ensure_ctr_columns(db: 'PerformanceTracker') -> None:
     """Add ctr_percent and impression_count columns to video_performance if missing."""
     try:
         cursor = db._conn.cursor()
@@ -953,7 +953,7 @@ def backfill_ctr_from_snapshots(project_root: Path) -> int:
     if not DB_AVAILABLE:
         return 0
 
-    db = KeywordDB()
+    db = PerformanceTracker.connect()
     _ensure_ctr_columns(db)
 
     updated = 0

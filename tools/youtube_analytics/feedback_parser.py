@@ -320,13 +320,12 @@ def backfill_all(project_root: Path, force: bool = False) -> Dict[str, Any]:
     Returns:
         Dict with processed/skipped/errors counts and details list
     """
-    # Try to import KeywordDB for storage
     try:
-        from tools.discovery.database import KeywordDB
-        db = KeywordDB()
+        from tools.discovery.performance_tracker import PerformanceTracker
+        db = PerformanceTracker.connect()
     except ImportError:
         return {
-            'error': 'KeywordDB not available',
+            'error': 'PerformanceTracker not available',
             'processed': 0,
             'skipped': 0,
             'errors': 1
