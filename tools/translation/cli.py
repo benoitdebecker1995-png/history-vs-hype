@@ -33,9 +33,7 @@ from pathlib import Path
 from typing import Optional
 
 from tools.logging_config import get_logger
-from .structure_detector import StructureDetector
-from .formatter import Formatter
-from .smoke_test import run_smoke_test
+from .pipeline import DocumentTranslationPipeline
 
 logger = get_logger(__name__)
 
@@ -90,8 +88,8 @@ def cmd_detect(args):
     text = input_result['text']
 
     # Detect structure
-    detector = StructureDetector()
-    result = detector.detect_structure(text, args.type)
+    pipeline = DocumentTranslationPipeline()
+    result = pipeline._detect_structure(text, args.type)
 
     if 'error' in result:
         logger.error("Structure detection failed: %s", result['error'])
@@ -158,7 +156,8 @@ def cmd_surprise(args):
 
 def cmd_smoketest(args):
     """Run end-to-end pipeline smoke test (pure Python, no API key needed)."""
-    return run_smoke_test()
+    pipeline = DocumentTranslationPipeline()
+    return pipeline.smoke_test()
 
 
 def main():

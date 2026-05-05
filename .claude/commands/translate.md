@@ -30,11 +30,13 @@ Translate legal/historical documents clause-by-clause with cross-checking, legal
 
 ### Step 1: Detect Document Structure
 
-Run structure detection to identify clauses, articles, and sections:
+Run structure detection to identify clauses, articles, and sections via the pipeline:
 
 ```bash
 python tools/translation/cli.py detect --file [document-path]
 ```
+
+The CLI is a thin wrapper over `DocumentTranslationPipeline` from `tools/translation/pipeline.py`.
 
 - Report to user: "Detected N sections: [section list]"
 - If detection fails: **HALT** and report error to user. Do not continue.
@@ -328,6 +330,8 @@ Do NOT auto-continue past errors. The accuracy of translated historical/legal do
 
 ## Notes
 
+- Pipeline entry point: `tools/translation/pipeline.py` — `DocumentTranslationPipeline`
+- `cli.py` is a thin wrapper; invoke via `python tools/translation/cli.py detect|smoketest`
 - This command replaces the standalone `python cli.py translate` workflow
 - All LLM calls are made by Claude Code natively — no ANTHROPIC_API_KEY needed
 - One document at a time — no batch mode
