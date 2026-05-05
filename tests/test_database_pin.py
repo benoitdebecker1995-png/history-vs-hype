@@ -9,6 +9,7 @@ Run with: pytest tests/test_database_pin.py -v
 import sqlite3
 import pytest
 from tools.discovery.database import KeywordDB
+from tools.discovery.keyword_store import KeywordPayload
 
 
 # ─── helpers ─────────────────────────────────────────────────────────────────
@@ -85,6 +86,39 @@ class TestAddKeyword:
         keyword_db.add_keyword("colonial myth")
         r = keyword_db.add_keyword("colonial myth", source="vidiq", search_volume=9000)
         assert r["action"] == "updated"
+
+    def test_add_keyword_with_payload(self, keyword_db):
+        payload = KeywordPayload(
+            keyword="sykes picot",
+            source="manual",
+            search_volume=5000,
+            competition=45.0
+        )
+        r = keyword_db.add_keyword(payload)
+        assert r["action"] == "inserted"
+        assert r["keyword"] == "sykes picot"
+        assert "keyword_id" in r
+
+    def test_payload_from_dict(self):
+        data = {
+            "keyword": "dark ages myth",
+            "source": "vidiq",
+            "search_volume": 8000,
+            "competition": 35.5
+        }
+        payload = KeywordPayload.from_dict(data)
+        assert payload.keyword == "dark ages myth"
+        assert payload.source == "vidiq"
+        assert payload.search_volume == 8000
+        assert payload.competition == 35.5
+
+    def test_payload_from_dict_with_defaults(self):
+        data = {"keyword": "colonialism"}
+        payload = KeywordPayload.from_dict(data)
+        assert payload.keyword == "colonialism"
+        assert payload.source == "manual"
+        assert payload.search_volume is None
+        assert payload.competition is None
 
 
 class TestGetKeyword:

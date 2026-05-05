@@ -9,12 +9,45 @@ See .planning/refactor-notes/database-partition.md for full design.
 """
 import json
 import sqlite3
+from dataclasses import dataclass
 from datetime import datetime, timezone
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 
 from tools.logging_config import get_logger
 
 logger = get_logger(__name__)
+
+
+@dataclass(frozen=True)
+class KeywordPayload:
+    """Immutable contract for keyword addition operations.
+
+    Fields match the implicit dict contract that add_keyword previously expected.
+    """
+    keyword: str
+    source: str = 'manual'
+    search_volume: Optional[int] = None
+    competition: Optional[float] = None
+
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> 'KeywordPayload':
+        """Construct from dict (backward compatibility bridge for remote sources).
+
+        Args:
+            data: Dict with optional keys: keyword, source, search_volume, competition
+
+        Returns:
+            KeywordPayload instance
+
+        Raises:
+            KeyError: if 'keyword' key is missing
+        """
+        return cls(
+            keyword=data['keyword'],
+            source=data.get('source', 'manual'),
+            search_volume=data.get('search_volume'),
+            competition=data.get('competition'),
+        )
 
 
 class KeywordStore:
@@ -81,16 +114,38 @@ class KeywordStore:
 
     def add_keyword(
         self,
-        keyword: str,
+        keyword: Union[KeywordPayload, str],
         source: str = 'manual',
         search_volume: Optional[int] = None,
         competition: Optional[float] = None,
     ) -> Dict[str, Any]:
+        """Add or update a keyword in the database.
+
+        Accepts either:
+        1. KeywordPayload object (primary contract)
+        2. String keyword + optional source/search_volume/competition (backward compat)
+
+        Args:
+            keyword: KeywordPayload or keyword string
+            source: Source when keyword is str (ignored if KeywordPayload)
+            search_volume: Volume when keyword is str (ignored if KeywordPayload)
+            competition: Competition when keyword is str (ignored if KeywordPayload)
+
+        Returns:
+            {'keyword_id': int, 'keyword': str, 'action': 'inserted'|'updated'} on success
+            {'error': str, ...} on failure
+        """
+        # Normalize to KeywordPayload for consistent handling
+        if isinstance(keyword, KeywordPayload):
+            payload = keyword
+        else:
+            payload = KeywordPayload(keyword, source, search_volume, competition)
+
         try:
             cursor = self._conn.cursor()
             now = datetime.now(timezone.utc).date().isoformat()
 
-            cursor.execute("SELECT id, first_discovered FROM keywords WHERE keyword = ?", (keyword,))
+            cursor.execute("SELECT id, first_discovered FROM keywords WHERE keyword = ?", (payload.keyword,))
             existing = cursor.fetchone()
 
             if existing:
@@ -104,7 +159,7 @@ class KeywordStore:
                         source = ?
                     WHERE id = ?
                     """,
-                    (search_volume, competition, now, source, keyword_id),
+                    (payload.search_volume, payload.competition, now, payload.source, keyword_id),
                 )
                 action = 'updated'
             else:
@@ -113,13 +168,13 @@ class KeywordStore:
                     INSERT INTO keywords (keyword, search_volume, competition_score, first_discovered, last_updated, source)
                     VALUES (?, ?, ?, ?, ?, ?)
                     """,
-                    (keyword, search_volume, competition, now, now, source),
+                    (payload.keyword, payload.search_volume, payload.competition, now, now, payload.source),
                 )
                 keyword_id = cursor.lastrowid
                 action = 'inserted'
 
             self._conn.commit()
-            return {'keyword_id': keyword_id, 'keyword': keyword, 'action': action}
+            return {'keyword_id': keyword_id, 'keyword': payload.keyword, 'action': action}
 
         except sqlite3.Error as e:
             return self._err('add_keyword', f'Database error adding keyword: {type(e).__name__}', e)
