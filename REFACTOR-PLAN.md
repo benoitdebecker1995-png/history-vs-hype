@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-05 (K1)
+**Last advanced:** 2026-05-05 (K2)
 **Total steps:** 47
-**Done:** 43 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3/E2/E3/F1 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1/E4/E5/F2/F3/G1/G2/G3/G4/H1/H2/H3 executed 2026-05-04; H4/H5 executed 2026-05-05; I1/I2/I3/I4/J1/J2/J3 executed 2026-05-05; K1 executed 2026-05-05)
+**Done:** 44 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3/E2/E3/F1 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1/E4/E5/F2/F3/G1/G2/G3/G4/H1/H2/H3 executed 2026-05-04; H4/H5 executed 2026-05-05; I1/I2/I3/I4/J1/J2/J3 executed 2026-05-05; K1/K2 executed 2026-05-05)
 **Blocked:** 1 — F4 (schema mismatch with audit; see step F4)
 
 | Phase | Steps | Audit / Source | Risk |
@@ -1326,7 +1326,7 @@ Mark K1 [DONE].
 
 ---
 
-## K2 [TODO] Migrate remaining dict-callers to `KeywordPayload`
+## K2 [DONE] Migrate remaining dict-callers to `KeywordPayload`
 
 **Prompt:**
 ```
