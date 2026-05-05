@@ -87,72 +87,43 @@ def read_script_file(filepath: str) -> str:
 
 def run_checkers(text: str, config: Config, checker_flags: Dict[str, bool]) -> Dict[str, Any]:
     """
-    Run selected checkers on text.
+    Run selected checkers on text via the CheckerRegistry.
 
-    Checkers run in logical order:
-    1. Flow (check definitions and transitions first)
-    2. Repetition (check content issues)
-    3. Stumble (check delivery complexity)
-    4. Scaffolding (check delivery phrases)
+    Dispatches to registry.run() in logical execution order.
+    config parameter retained for API compatibility; registry uses its own Config.
 
     Args:
         text: Script text to analyze
-        config: Configuration object
+        config: Configuration object (kept for backward compat; registry manages its own)
         checker_flags: Dictionary of {checker_name: should_run}
 
     Returns:
         Dictionary of {checker_name: result} in execution order
     """
+    from .registry import build_default_registry
+    registry = build_default_registry()
     results = {}
 
-    # SCRIPT-02: Flow Analysis (check definitions before content)
-    if checker_flags.get('flow', False):
+    # Run in logical order: flow → repetition → stumble → scaffolding → pacing
+    ordered = ['flow', 'repetition', 'stumble', 'scaffolding', 'pacing']
+
+    for name in ordered:
+        if not checker_flags.get(name, False):
+            continue
         try:
-            from .checkers.flow import FlowChecker
-            checker = FlowChecker(config)
-            results['flow'] = checker.check(text)
+            results[name] = registry.run(name, text)
         except RuntimeError as e:
-            # spaCy model not installed
+            # spaCy model not installed (flow, stumble)
             logger.error("%s", e)
-            logger.error("Install with: python -m spacy download en_core_web_sm")
-            sys.exit(3)
-
-    # SCRIPT-01: Repetition Detection (content issues)
-    if checker_flags.get('repetition', False):
-        from .checkers.repetition import RepetitionChecker
-        checker = RepetitionChecker(config)
-        results['repetition'] = checker.check(text)
-
-    # SCRIPT-03: Stumble Test (delivery complexity)
-    if checker_flags.get('stumble', False):
-        try:
-            from .checkers.stumble import StumbleChecker
-            checker = StumbleChecker(config)
-            results['stumble'] = checker.check(text)
-        except RuntimeError as e:
-            # spaCy model not installed
-            logger.error("%s", e)
-            logger.error("Install with: python -m spacy download en_core_web_sm")
-            sys.exit(3)
-
-    # SCRIPT-04: Scaffolding Counter (delivery phrases)
-    if checker_flags.get('scaffolding', False):
-        from .checkers.scaffolding import ScaffoldingChecker
-        checker = ScaffoldingChecker(config)
-        results['scaffolding'] = checker.check(text)
-
-    # SCRIPT-05: Pacing Analysis (section-level complexity and rhythm)
-    if checker_flags.get('pacing', False):
-        try:
-            from .checkers.pacing import PacingChecker
-            checker = PacingChecker(config)
-            results['pacing'] = checker.check(text)
-        except RuntimeError as e:
-            logger.error("%s", e)
+            if name in ('flow', 'stumble'):
+                logger.error("Install with: python -m spacy download en_core_web_sm")
             sys.exit(3)
         except ImportError as e:
-            logger.warning("Pacing checker unavailable: %s", e)
-            logger.warning("Install with: pip install textstat")
+            if name == 'pacing':
+                logger.warning("Pacing checker unavailable: %s", e)
+                logger.warning("Install with: pip install textstat")
+            else:
+                raise
 
     return results
 
