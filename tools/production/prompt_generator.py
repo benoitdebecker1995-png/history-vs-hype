@@ -131,15 +131,11 @@ def generate_prompts(project_path: str, script_path: str) -> dict:
 
 def _analyze_script(script_path: Path):
     """Parse script and extract entities. Returns (sections, entities, total_words)."""
-    from tools.production.parser import ScriptParser
-    from tools.production.entities import EntityExtractor
+    from tools.production.script_analysis import ScriptAnalysis
 
-    parser = ScriptParser()
-    sections = parser.parse_file(script_path)
-
-    extractor = EntityExtractor()
-    entities = extractor.extract_from_sections(sections)
-
+    sa = ScriptAnalysis(script_path)
+    sections = sa.parse()
+    entities = sa.extract_entities()
     total_words = sum(s.word_count for s in sections)
     return sections, entities, total_words
 

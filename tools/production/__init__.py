@@ -32,11 +32,13 @@ from .entities import EntityExtractor, Entity
 from .broll import BRollGenerator, Shot
 from .editguide import EditGuideGenerator, SectionTiming
 from .metadata import MetadataGenerator
+from .script_analysis import ScriptAnalysis, ScriptAnalysisResult
 
 __all__ = [
     'ScriptParser', 'Section',
     'EntityExtractor', 'Entity',
     'BRollGenerator', 'Shot',
     'EditGuideGenerator', 'SectionTiming',
-    'MetadataGenerator'
+    'MetadataGenerator',
+    'ScriptAnalysis', 'ScriptAnalysisResult',
 ]

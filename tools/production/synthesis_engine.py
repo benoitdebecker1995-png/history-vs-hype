@@ -262,16 +262,10 @@ def _collect_from_sessions(sessions: list, session_type: str, parsed_key: str) -
 def _analyze_script_for_synthesis(script_path: Path):
     """Parse script and extract entities for synthesis. Returns (sections, entities)."""
     try:
-        from tools.production.parser import ScriptParser
-        from tools.production.entities import EntityExtractor
+        from tools.production.script_analysis import ScriptAnalysis
 
-        parser = ScriptParser()
-        sections = parser.parse_file(script_path)
-
-        extractor = EntityExtractor()
-        entities = extractor.extract_from_sections(sections)
-
-        return sections, entities
+        sa = ScriptAnalysis(script_path)
+        return sa.parse(), sa.extract_entities()
     except Exception as e:
         logger.warning("Script analysis failed: %s", e)
         return [], []
