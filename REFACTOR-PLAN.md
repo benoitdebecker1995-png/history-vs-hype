@@ -41,9 +41,9 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 
 ## Status Tracker
 
-**Last advanced:** 2026-05-04 (G3)
+**Last advanced:** 2026-05-04 (G4)
 **Total steps:** 47
-**Done:** 29 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3/E2/E3/F1 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1/E4/E5/F2/F3/G1/G2/G3 executed 2026-05-04)
+**Done:** 30 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3/E2/E3/F1 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1/E4/E5/F2/F3/G1/G2/G3/G4 executed 2026-05-04)
 **Blocked:** 1 — F4 (schema mismatch with audit; see step F4)
 **Blocked:** 0
 
@@ -997,7 +997,7 @@ Mark G3 [DONE].
 
 ---
 
-## G4 [TODO] Delete superseded retention modules
+## G4 [DONE] Delete superseded retention modules
 
 **Prompt:**
 ```
