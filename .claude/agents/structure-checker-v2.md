@@ -2,7 +2,7 @@
 name: structure-checker-v2
 description: Master-level script analysis agent using Claude Sonnet 4.5 extended thinking, advanced chain-of-thought reasoning, and YouTube retention science. Predicts exact dropout points, identifies viral potential, and provides actionable fixes with timestamps.
 tools: [Read, Grep]
-model: sonnet
+model: opus
 ---
 
 # Structure Checker V2 - Master Analysis Agent
