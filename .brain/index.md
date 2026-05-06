@@ -72,13 +72,16 @@
 ## 4. Recently Added / Changed (last 14 days)
 <!-- AUTO:routine-5 — prepend new entries; entries older than 14 days are dropped -->
 
+- 2026-05-05 — 5 daily routines live: Routines 1-2 (Cloud), 3-5 (Desktop Task Scheduler, State: Ready)
+- 2026-05-05 — Gemini retrofit complete: wiki-researcher, claims-extractor, competitor-gap, research-organizer, fact-checker all dispatch bulk reads to Gemini
+- 2026-05-05 — Schema contracts locked: all 5 retrofitted agents have `.contract.md` + harness at `tools/agent_contract_check.py`
+- 2026-05-05 — Model routing applied: structure-checker-v2 → Opus; all other agents confirmed per matrix
 - 2026-05-05 — `.brain/` skeleton created: `README.md`, `index.md`, `methodology/`
 - 2026-05-05 — `.brain/methodology/gemini-routing.md` — model routing matrix (Opus/Sonnet/Haiku/Gemini per agent)
 - 2026-05-05 — `.brain/methodology/handoff-playbook.md` — Gemini↔Claude handoff recipes
 - 2026-05-05 — `.brain/methodology/brain-map.md` — multi-root knowledge architecture
 - 2026-05-05 — `.claude/commands/gemini.md` — Gemini headless dispatch command (4 task types)
 - 2026-05-05 — `~/llm-brain/wiki/concepts/gemini-claude-routing.md` — cross-project routing doc added
-- 2026-05-05 — `~/llm-brain/index.md` — updated with gemini-claude-routing entry
 
 ---
 

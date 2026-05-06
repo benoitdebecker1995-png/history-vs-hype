@@ -41,14 +41,32 @@ STEP 2 — Brain-lint pass:
 
 STEP 3 — Refresh .brain/index.md AUTO sections:
 
-  <!-- AUTO:routine-5 --> markers indicate sections this step owns.
+  Read .brain/index.md. Identify sections by their <!-- AUTO:routine-5 --> markers.
+  Only edit content between a <!-- AUTO:routine-5 --> marker and the next --- divider.
+  Do NOT touch <!-- MANUAL --> sections (§1 Multi-Root Map, §3 Active Topics).
 
-  a. §4 "Recently added / changed" — prepend new entries for anything written today.
-     Drop entries older than 14 days.
-  b. §5 "Health signals" — update with today's lint findings (stale count, orphan count, open contradictions).
-  c. §6 "Cross-root links" — scan active video projects for ~/llm-brain/ references; update table.
+  a. §4 "Recently added / changed":
+     - Find the block starting with "## 4. Recently Added"
+     - Prepend a new bullet for EACH file written or modified today (format: "- YYYY-MM-DD — `path` — one-line description")
+     - Remove any bullet whose date is older than 14 days from today
+     - Leave existing bullets in place; only prepend/prune
 
-  Only edit AUTO sections. Do NOT touch MANUAL sections (§1, §2, §3).
+  b. §5 "Health signals":
+     - Find the ``` code block under "## 5. Health Signals"
+     - Replace its contents with:
+       LAST LINT: YYYY-MM-DD HH:MM
+       Stale items (>90d unverified):  [count from Step 2c]
+       Orphan pages (no inbound links): [count from Step 2b]
+       Open contradictions:             [count from Step 2d]
+       Next lint scheduled:             tomorrow 22:00 local (Routine 5)
+
+  c. §6 "Cross-root links":
+     - Glob video-projects/_IN_PRODUCTION/*/01-VERIFIED-RESEARCH.md
+     - Grep each for ~/llm-brain/ references
+     - Replace the §6 body with grouped bullet lists per active project
+     - Archive references from projects no longer in _IN_PRODUCTION (move to "Prior projects" subsection)
+
+  Only edit AUTO sections. Do NOT touch § 1, 2, 3.
 
 STEP 4 — Decide whether to emit a report:
   Emit .brain/_inbox/brain-hygiene-YYYY-MM-DD.md ONLY if:
