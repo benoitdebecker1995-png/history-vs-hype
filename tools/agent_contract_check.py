@@ -44,11 +44,64 @@ CONTRACTS = {
             "**Time saved:**",
         ],
     },
-    # Add contracts here as each agent is schema-locked:
-    # "claims-extractor": { ... },
-    # "competitor-gap": { ... },
-    # "research-organizer": { ... },
-    # "fact-checker": { ... },
+    "claims-extractor": {
+        "output_path_pattern": "CLAIMS-TO-VERIFY.md",
+        "required_h2_anchors": [
+            "# Claims to Verify",
+            "## CLAIM CATEGORIZATION",
+            "## MAJOR OMISSIONS",
+            "## VERIFICATION PRIORITY",
+            "## RESEARCH STRATEGY",
+            "## NOTEBOOKLM PROMPT RECOMMENDATIONS",
+            "## SCRIPT PLANNING NOTES",
+            "## ESTIMATED VERIFICATION TIME",
+        ],
+        "required_header_fields": [
+            "**Source:**",
+            "**Format:**",
+            "**Thesis:**",
+        ],
+    },
+    "competitor-gap": {
+        "output_path_pattern": "_research/COMPETITOR-GAP-ANALYSIS.md",
+        "required_h2_anchors": [
+            "# Competitor Gap Analysis",
+            "## COMPETITOR VIDEOS",
+            "## STANDARD NARRATIVE",
+            "## KEY FIGURES MENTIONED",
+            "## PRIMARY SOURCE ADVANTAGE",
+            "## YOUR UNIQUE ANGLES",
+            "## COMPETITOR-ONLY TOPICS",
+            "## AGENT ASSESSMENT",
+            "## RECOMMENDATION",
+        ],
+        "required_header_fields": [],
+    },
+    "research-organizer": {
+        "output_path_pattern": "01-VERIFIED-RESEARCH.md",
+        "required_h2_anchors": [
+            "# ",
+        ],
+        "required_header_fields": [],
+    },
+    "fact-checker": {
+        "output_path_pattern": "FACT-CHECK-VERIFICATION.md",
+        "required_h2_anchors": [
+            "# FACT-CHECK VERIFICATION",
+            "## EXECUTIVE SUMMARY",
+            "## DETAILED VERIFICATION",
+            "## COUNTER-EVIDENCE VERIFICATION",
+            "## CRITICAL FIXES REQUIRED",
+            "## SOURCE QUALITY ASSESSMENT",
+            "## VERIFICATION CONFIDENCE",
+            "## STEELMAN VERIFICATION",
+        ],
+        "required_header_fields": [
+            "**Script Verified:**",
+            "**Verification Date:**",
+            "**Status:**",
+        ],
+    },
 }
 
 
