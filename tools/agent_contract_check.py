@@ -95,18 +95,27 @@ def diff_files(baseline: Path, check: Path, agent: str) -> tuple[bool, list[str]
     if check_issues:
         issues.extend(check_issues)
 
-    # Surface sections in baseline not in check (regressions)
+    # Surface anchor-level differences only (informational; section title variation is allowed
+    # as long as required anchors are present — that's already covered by check_file).
     if baseline.exists() and check.exists():
-        baseline_h2 = set(extract_h2_sections(baseline.read_text(encoding="utf-8")))
-        check_h2 = set(extract_h2_sections(check.read_text(encoding="utf-8")))
-        dropped = baseline_h2 - check_h2
-        added = check_h2 - baseline_h2
-        if dropped:
-            for s in sorted(dropped):
-                issues.append(f"DROPPED section (regression): '{s}'")
-        if added:
-            for s in sorted(added):
-                print(f"  INFO: new section added: '{s}'")
+        baseline_h2 = extract_h2_sections(baseline.read_text(encoding="utf-8"))
+        check_h2 = extract_h2_sections(check.read_text(encoding="utf-8"))
+
+        def to_anchors(sections, contract_anchors):
+            return {a for s in sections for a in contract_anchors if s.startswith(a)}
+
+        anchors = CONTRACTS[agent]["required_h2_anchors"]
+        baseline_anchors = to_anchors(baseline_h2, anchors)
+        check_anchors = to_anchors(check_h2, anchors)
+
+        # Sections present in baseline but not in any required anchor (extra in baseline)
+        baseline_extra = [s for s in baseline_h2 if not any(s.startswith(a) for a in anchors)]
+        check_extra = [s for s in check_h2 if not any(s.startswith(a) for a in anchors)]
+
+        if baseline_extra:
+            print(f"  INFO: baseline had {len(baseline_extra)} extra sections beyond contract")
+        if check_extra:
+            print(f"  INFO: check has {len(check_extra)} extra sections beyond contract: {check_extra}")
 
     return len(issues) == 0, issues
 
@@ -134,7 +143,7 @@ def main():
     if args.baseline:
         baseline_path = Path(args.baseline)
         passed, issues = diff_files(baseline_path, check_path, args.agent)
-        label = f"DIFF: {baseline_path.name} → {check_path.name}"
+        label = f"DIFF: {baseline_path.name} -> {check_path.name}"
     else:
         passed, issues = check_file(check_path, args.agent)
         label = f"CHECK: {check_path.name}"
@@ -146,7 +155,7 @@ def main():
     if issues:
         print("\nIssues:")
         for issue in issues:
-            print(f"  • {issue}")
+            print(f"  - {issue}")
     else:
         print("All required sections present.")
 

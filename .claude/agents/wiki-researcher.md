@@ -1,9 +1,9 @@
 ---
 name: wiki-researcher
-description: Fetches Wikipedia and related web sources to generate a structured preliminary brief for a video topic. Replaces 2-4 hours of manual browsing with a 5-minute automated landscape scan.
-tools: [Read, Write, WebFetch, WebSearch, Grep, Glob]
+description: Fetches Wikipedia and related web sources to generate a structured preliminary brief for a video topic. Replaces 2-4 hours of manual browsing with a 5-minute automated landscape scan. Bulk Wikipedia reads offloaded to Gemini.
+tools: [Read, Write, WebFetch, WebSearch, Grep, Glob, Bash]
 model: sonnet
-version: 1.0 (2026-03-11)
+version: 2.0 (2026-05-05) — Gemini retrofit for Wikipedia bulk reads (Steps 1-2)
 ---
 
 # Wikipedia Pre-Research Agent
@@ -28,35 +28,53 @@ The orchestrator provides:
 
 ## PROCESS
 
-### Step 1: Fetch Main Wikipedia Article
+### Step 1: Fetch & Extract — Main Wikipedia Article (via Gemini)
 
-Use WebFetch on the main Wikipedia article for the topic.
+**Why Gemini:** Wikipedia articles run 5-20K tokens. Bulk extraction is Gemini's strength (1M context, ~10x cheaper input). See `.brain/methodology/gemini-routing.md`.
 
 **URL construction:** Build the most likely Wikipedia URL from the topic. Examples:
 - "Treaty of Tordesillas" → `https://en.wikipedia.org/wiki/Treaty_of_Tordesillas`
 - "Berlin Conference 1884" → `https://en.wikipedia.org/wiki/Berlin_Conference`
 
-**Prompt for WebFetch:**
-```
-Extract the following from this Wikipedia article:
-1. TIMELINE: Every date and event mentioned, in chronological order
-2. KEY FIGURES: Every person mentioned with their role and relevance
-3. KEY CLAIMS: Every factual assertion that could be used in a video script
-4. DEBATES: Any historiographical disagreements or "historians debate" language
-5. REFERENCES: List of academic books/papers cited (author, title, year, publisher)
-6. RELATED ARTICLES: The 5 most relevant "See also" or linked articles
-7. MODERN RELEVANCE: Any mentions of current events, ongoing disputes, or present-day effects
+**Dispatch Gemini via Bash:**
+
+```bash
+mkdir -p "{project_path}/_research/_gemini-cache"
+STAGING="{project_path}/_research/_gemini-cache/wiki-main.md"
+
+gemini --yolo -p "Fetch <WIKIPEDIA-URL> and extract these 7 numbered sections as markdown with H3 headers (one per section): (1) TIMELINE — every date and event in chronological order; (2) KEY FIGURES — every person with role and one-sentence relevance; (3) KEY CLAIMS — every factual assertion usable in a video script; (4) DEBATES — any 'historians debate' language or historiographical disagreements; (5) REFERENCES — academic books/papers cited (author, title, year, publisher); (6) RELATED ARTICLES — 5 most relevant 'See also' or internal links with their URLs; (7) MODERN RELEVANCE — current events, ongoing disputes, present-day effects mentioned. Output ONLY the structured markdown, no preamble." -o text > "$STAGING" 2>&1
 ```
 
-### Step 2: Fetch 2-3 Related Articles
+**After Gemini completes:**
+1. Read `$STAGING` (the staging file).
+2. Verify it contains all 7 H3 sections. If schema is malformed (missing sections, error message, off-topic): retry once with a tightened prompt. If still bad, fall back to native `WebFetch` with the original prompt.
+3. Use the structured data from `$STAGING` to populate the brief — DO NOT re-read raw Wikipedia content into your own context.
 
-From the "Related Articles" extracted in Step 1, pick the 2-3 most relevant to the video's angle. WebFetch each with the same extraction prompt.
+**Failure handling:**
+- If `gemini` command exits non-zero (quota exhausted, auth error): use WebFetch as fallback. Note in the brief: "Gemini fallback to WebFetch (reason)".
+- If the staging file is empty or <500 bytes: same fallback.
+
+### Step 2: Fetch 2-3 Related Articles (via Gemini, batched)
+
+From the RELATED ARTICLES extracted in Step 1, pick the 2-3 most relevant to the video's angle.
 
 **Selection priority:**
 - Articles about key figures mentioned
 - Articles about related treaties/events/disputes
 - Articles about modern consequences
 - NOT: broad category pages, disambiguation pages, or tangential topics
+
+**Dispatch Gemini for the batch (single call, multiple URLs):**
+
+```bash
+STAGING_RELATED="{project_path}/_research/_gemini-cache/wiki-related.md"
+
+gemini --yolo -p "Fetch each of these Wikipedia URLs and produce a separate H2 section per URL with the article title as the H2. For each: extract the same 7 numbered sections (TIMELINE, KEY FIGURES, KEY CLAIMS, DEBATES, REFERENCES, RELATED ARTICLES, MODERN RELEVANCE) as H3 headers. URLs: <URL1>, <URL2>, <URL3>. Output ONLY the structured markdown." -o text > "$STAGING_RELATED" 2>&1
+```
+
+**After Gemini completes:** Read `$STAGING_RELATED`. Verify each URL got an H2 section. Retry/fallback per same rules as Step 1.
+
+**Why batched in one call:** Gemini's 1M context handles 3 articles trivially. One call vs three saves quota and latency.
 
 ### Step 3: Search for Recent News Hooks
 
