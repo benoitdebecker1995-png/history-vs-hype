@@ -1,9 +1,9 @@
 ---
 name: research-organizer
 description: Organizes preliminary research into structured project files. Creates topic briefs, identifies both extremes, finds modern hooks, and prepares NotebookLM source lists. Bridges research phase to production phase.
-tools: [Read, Write, WebSearch, WebFetch, Grep, Glob]
-model: haiku
-version: 2.3 (2026-04-05 - Added mechanism_hook material extraction, Mechanism Research Map (Macro/Micro/Stress-Test/Definitional Correction) for Option C topics. From Wave 5 Wendover/RealLifeLore/Johnny Harris analysis. Prior: v2.2 entity introduction map.)
+tools: [Read, Write, WebSearch, WebFetch, Grep, Glob, Bash]
+model: sonnet
+version: 2.4 (2026-05-05) — Gemini retrofit for Phase 1 Wikipedia/web bulk reads; model upgraded Haiku->Sonnet for orchestration. Prior: v2.3 mechanism_hook.
 ---
 
 # Research Organizer Agent - Research-to-Production Bridge
@@ -424,12 +424,31 @@ For each key entity, provide:
 - ❌ Don't treat Wikipedia as final authority
 - ❌ Don't assume internet sources are sufficient
 
-**Process:**
-1. WebSearch for topic overview
-2. Identify major claims (note which need academic verification)
-3. Find preliminary statistics (mark as "to verify with academic sources")
-4. Verify primary sources exist and are accessible
-5. Cross-reference dates and basic facts
+### Wikipedia Bulk Read via Gemini
+
+**Why Gemini:** Wikipedia articles run 5-20K tokens. Bulk extraction is Gemini's strength. See `.brain/methodology/gemini-routing.md`.
+
+**Dispatch Gemini for Wikipedia + 2-3 related articles (single batch call):**
+
+```bash
+mkdir -p "{project_path}/_research/_gemini-cache"
+STAGING="{project_path}/_research/_gemini-cache/wiki-research.md"
+
+gemini --yolo -p "Fetch the Wikipedia article for '[topic]' and 2-3 most relevant related articles. For each article, output an H2 section with the article title, then extract as H3 sections: (1) TIMELINE — all dates/events in order; (2) KEY CLAIMS — factual assertions usable in a video script; (3) DEBATES — any historiographical disagreements; (4) PRIMARY SOURCES — documents/archives cited; (5) MODERN RELEVANCE — current events or ongoing effects mentioned; (6) RELATED ARTICLES — 3 most relevant internal links with URLs. Output ONLY structured markdown." -o text > "$STAGING" 2>&1
+```
+
+**After Gemini completes:**
+1. Read `$STAGING`. Verify each article got an H2 with required H3 sections.
+2. If schema malformed or <500 bytes: retry once. If still bad: fall back to native `WebFetch` per URL.
+3. Use structured data from `$STAGING` for the research output — do NOT re-fetch Wikipedia natively.
+
+**Failure handling:** If `gemini` exits non-zero: use WebFetch as fallback. Note in output: "Gemini fallback to WebFetch (reason)".
+
+**Process (remaining steps — stays on Claude):**
+1. Use Gemini output to identify major claims (note which need academic verification)
+2. Find preliminary statistics (mark as "to verify with academic sources")
+3. Verify primary sources exist and are accessible
+4. Cross-reference dates and basic facts
 
 ### Output Structure:
 

@@ -3,7 +3,7 @@ name: competitor-gap
 description: Finds competing YouTube videos on a topic, fetches their transcripts, extracts what they cover, and identifies gaps your video can fill. Produces a structured gap analysis report.
 tools: [Read, Write, Bash, WebSearch, WebFetch, Grep, Glob]
 model: sonnet
-version: 1.0 (2026-03-11)
+version: 2.0 (2026-05-05) — Gemini retrofit for transcript bulk analysis (Step 3)
 ---
 
 # Competitor Gap Analysis Agent
@@ -62,27 +62,54 @@ This saves transcripts to `transcripts/[title].txt`.
 
 **Target:** At least 2-3 transcripts successfully fetched.
 
-### Step 3: Analyze Each Transcript
+### Step 3: Analyze Transcripts via Gemini (Bulk Batch)
 
-For each fetched transcript, run the topic extraction:
+**Why Gemini:** Multiple transcripts (3-5 videos, each 5-15K tokens) exceed efficient Claude context. Gemini ingests all transcripts in one call (1M context). See `.brain/methodology/gemini-routing.md`.
 
+**Collect all fetched transcripts, then dispatch Gemini in a single batch:**
+
+```bash
+mkdir -p "{project_path}/_research/_gemini-cache"
+STAGING="{project_path}/_research/_gemini-cache/competitor-analysis.md"
+
+gemini --yolo -p "Analyze these [N] YouTube video transcripts about '[topic]'. For each transcript, output an H2 section with the video title, then extract:
+
+### TOPICS COVERED
+[bullet list of major topic categories: treaty/legal, colonialism, navigation, biography, etc.]
+
+### KEY FIGURES MENTIONED
+[comma-separated list of people named, with one-word role]
+
+### DATES & TIMELINE
+[significant dates mentioned]
+
+### ACADEMIC SOURCES CITED
+[any books, papers, or primary documents explicitly referenced]
+
+### PRIMARY SOURCES SHOWN
+[Yes/No — do they show actual documents on screen?]
+
+### STANDARD NARRATIVE SUMMARY
+[2-3 sentence summary of their core argument/angle]
+
+Transcripts follow below, separated by --- delimiters.
+[PASTE ALL TRANSCRIPTS HERE]
+
+Output ONLY structured markdown, no preamble." -o text > "$STAGING" 2>&1
+```
+
+**After Gemini completes:**
+1. Read `$STAGING`.
+2. Verify each video got an H2 section. Retry once if schema is malformed. If still bad: fall back to native per-transcript analysis using the Python module below.
+3. Use Gemini's structured data for Steps 4-6 — do NOT re-read raw transcripts into your own context.
+
+**Fallback (if Gemini unavailable):** Run original Python extraction per transcript:
 ```python
-import sys
-sys.path.insert(0, '.')
 from tools.research.competitor_gap import extract_topics_from_transcript
 from pathlib import Path
-
 transcript = Path('transcripts/[filename].txt').read_text(encoding='utf-8')
 analysis = extract_topics_from_transcript(transcript)
 ```
-
-This returns:
-- `topics`: Major topic categories covered (treaty/legal, colonialism, navigation, etc.)
-- `figures`: Named people mentioned
-- `dates`: Years/dates mentioned
-- `sources_cited`: Any academic sources mentioned
-- `has_primary_sources`: Whether they show actual documents
-- `word_count` / `estimated_minutes`
 
 ### Step 4: Extract Our Planned Angles
 

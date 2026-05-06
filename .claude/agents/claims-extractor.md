@@ -1,8 +1,9 @@
 ---
 name: claims-extractor
 description: Extracts all factual claims from source transcripts, videos, or articles for systematic fact-checking. Organizes claims by category with timestamps and complexity analysis. Essential for fact-checking videos targeting specific sources.
-tools: [Read, Write, WebFetch]
+tools: [Read, Write, WebFetch, Bash]
 model: haiku
+version: 2.0 (2026-05-05) — Gemini retrofit for bulk source extraction (Step 1)
 ---
 
 # Claims Extractor Agent - Systematic Source Analysis
@@ -23,6 +24,42 @@ Extract every verifiable factual claim from source material (video transcripts, 
 
 ### INPUT: Source transcript, article, or book excerpt
 ### OUTPUT: CLAIMS-TO-VERIFY.md with categorized claims and verification needs
+
+---
+
+## STEP 0: Dispatch to Gemini for Bulk Extraction
+
+**Why Gemini:** Source transcripts and articles can run 5-20K tokens. Bulk extraction is Gemini's strength (1M context, ~10x cheaper input). See `.brain/methodology/gemini-routing.md`.
+
+**Dispatch Gemini via Bash:**
+
+```bash
+mkdir -p "{project_path}/_research/_gemini-cache"
+STAGING="{project_path}/_research/_gemini-cache/claims-raw.md"
+
+echo "[SOURCE MATERIAL TEXT]" | gemini --yolo -p "You are a systematic fact-checker. Extract EVERY verifiable factual claim from the following source material. For each claim output:
+- CLAIM [N]: [short description]
+- Timestamp/Location: [video timestamp or page number if available]
+- Quote: [exact quote from source if available]
+- Assertions: [numbered list of specific factual assertions]
+- Category: [HISTORICAL_EVENT / CAUSATION / QUOTE_ATTRIBUTION / STATISTIC / COMPARISON / OMISSION]
+- Priority: [CRITICAL / MEDIUM / LOW]
+
+After all claims, output:
+## MAJOR OMISSIONS
+[List facts the source completely ignores that undermine its thesis]
+
+Output ONLY structured markdown, no preamble." -o text > "$STAGING" 2>&1
+```
+
+**After Gemini completes:**
+1. Read `$STAGING`.
+2. Verify it contains CLAIM entries and ## MAJOR OMISSIONS section. If schema is malformed or <500 bytes: retry once with tightened prompt. If still bad: fall back to native `Read`/`WebFetch` and extract manually.
+3. Use the structured data from `$STAGING` to populate the final CLAIMS-TO-VERIFY.md — do NOT re-read raw source material into your own context.
+
+**Failure handling:**
+- If `gemini` command exits non-zero (quota, auth error): fall back to manual extraction. Note in output: "Gemini fallback to manual extraction (reason)".
+- If staging file empty or <500 bytes: same fallback.
 
 ---
 
