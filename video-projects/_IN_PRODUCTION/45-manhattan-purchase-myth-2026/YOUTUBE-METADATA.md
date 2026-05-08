@@ -1,8 +1,8 @@
 # YouTube Metadata — Manhattan Purchase Myth
 
 **Project:** 45-manhattan-purchase-myth-2026
-**Status:** POST-RECORDING UPDATE (2026-05-01) — chapters + description rebuilt from `rough first cut.srt`. Title/thumbnail/tags unchanged (still accurate). Modern Relevance + 4 academic citations (McErleane, O'Connell, Howe + WIC 1625 instructions) cut from final delivery; metadata reconciled below.
-**Thesis:** "How easy it is to manipulate history to fit your narrative" (user-stated, 2026-04-18)
+**Status:** FINISHED CUT — Ready for Upload (2026-05-07). Chapters reconciled against `fixed subs.srt` (268 cues). All 3 title slots re-scored 2026-05-07 (75/B, 70/B, 80/B — all pass ≥65). Thumbnail set discarded — pending regen (Step 5).
+**Thesis:** "A founding myth is a missing archive filled by people with a motive." (Rule 36, ≤12 words — locked 2026-04-27)
 
 ## Post-Lock Audit Upgrades (2026-04-18)
 
@@ -22,6 +22,18 @@ Queried 3 notebooks (Packaging Intelligence, HvH Packaging Intelligence, Competi
 ---
 
 ## Title (LOCKED — Combo A, upgraded 2026-04-18 post-notebook audit)
+
+### Title Scores (re-scored 2026-05-07)
+
+| Slot | Title | Score | Grade | Note |
+|---|---|---|---|---|
+| 1 | The Lenape Never Sold Manhattan. Every Piece Was Forged. | 75 | B | Clean pass |
+| 2 | The $24 Manhattan Myth Was Invented in 1844 | 70 | B | Year-in-hook penalty (-10) — deliberate stress-test per original rationale |
+| 3 | The REAL Story of the $24 Manhattan Myth | 80 | B | Highest scorer; "REAL" caps intentional (niche-validated) |
+
+All 3 slots pass ≥65 gate. No REJECTED grades.
+
+---
 
 **PRIMARY:** `The Lenape Never Sold Manhattan. Every Piece Was Forged.`
 - 56 characters (mobile-safe — tail "Forged" preserved on most devices)
@@ -69,7 +81,7 @@ Each slot bets on a DIFFERENT structural lever so the A/B teaches something. All
 
 ---
 
-## Description (UPDATED 2026-05-01 — reconciled with rough cut SRT)
+## Description (UPDATED 2026-05-07 — reconciled with finished cut, fixed subs.srt)
 
 ```
 A founding myth is a missing archive filled by people with a motive.
@@ -94,15 +106,15 @@ Grumet, and the words of Lenape elder Hitakonanu'laxk.
 
 ⏱️ CHAPTERS
 0:00   The plaque that calls itself a legend
-0:31   The archive that was burned
+0:31   The archive sold for scrap paper
 1:05   One sentence, buried in beaver pelts
 1:48   The $24 was invented by a journalist in 1844
 3:18   The beads were invented by a painter in 1853
-4:47   The Canarsee scam was invented by a magazine in 1959
+4:34   The Canarsee scam was invented by a magazine in 1959
 5:35   Two legal systems, one shoreline
-7:49   Why nineteenth-century New York needed this myth
-9:24   A pattern I recognize
-10:05  1626. 1821. The centuries since.
+7:39   Why nineteenth-century New York needed this myth
+9:03   A pattern I recognize
+9:42   1626. 1821. The centuries since.
 
 📚 PRIMARY SOURCES
 • Pieter Schagen Letter (5 November 1626) — New Netherland Institute / Avalon Project

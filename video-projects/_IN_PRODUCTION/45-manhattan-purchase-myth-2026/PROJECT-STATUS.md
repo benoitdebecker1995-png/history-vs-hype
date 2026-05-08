@@ -1,7 +1,7 @@
 # PROJECT STATUS — Manhattan Purchase Myth (#45)
 
-**Stage:** STAGE B — Post-script, pre-film
-**Last updated:** 2026-04-28
+**Stage:** STAGE D — READY TO UPLOAD
+**Last updated:** 2026-05-07
 
 ---
 
@@ -46,7 +46,35 @@
 ## Next actions
 
 1. B-roll prep — confirm Inwood Hill plaque footage availability (Wikimedia, Flickr, NYC Parks)
-2. `/preflight` — run 5-gate scorecard before filming
-3. Film Stage C
-4. `/fix` post-recording subtitle pass
-5. `/publish`
+## Edit reconciliation (2026-05-07)
+
+**SRT:** `fixed subs.srt` — manually transcribed, fixed, upload-ready.
+- Fixes applied: Schagen (×2), Ranney (×4), DeWitt, Dutch as roommates, seven thousand, heads. Speaker: labels removed.
+- Timestamps: all 268 cues valid.
+
+**Chapter timestamps corrected** (vs rough cut SRT drift):
+| Chapter | Was | Now | Drift |
+|---|---|---|---|
+| The Canarsee scam | 4:47 | 4:34 | −13s |
+| Why NYC needed this myth | 7:49 | 7:39 | −10s |
+| A pattern I recognize | 9:24 | 9:03 | −21s |
+| 1626. 1821. The centuries since. | 10:05 | 9:42 | −23s |
+
+**Cuts confirmed vs script:**
+- Standard Myth Narration (1:00–2:00) — cut (delivered merged into hook)
+- Modern Relevance / 2026 NYC catalog beat — cut
+- Perspective section restructured: Belgian/Congo/South America retained; Jean Soderlund quote dropped
+
+**Post-edit plan completed (2026-05-07):**
+- Step 3: Lessons 38–46 appended to `SCRIPT-TO-DELIVERY-LESSONS.md` (Ideas 33–37 confirmed HELD + 4 Type B edit-floor lessons)
+- Step 4: `YOUTUBE-METADATA.md` updated — status, thesis field corrected, title score table added (75/B, 70/B, 80/B)
+- Step 5: Fresh thumbnails generated — `THUMBNAIL-CONCEPTS.md` created. Concept 1 (beads + "$24 BORN IN 1844", 6/8) is hero; Concept 2 (burned skyline, redeemable with overlay fix); Concept 3 (needs rebuild). Prior locked set (Plaque/Schagen/Ranney) discarded.
+
+**Upload checklist:**
+- [x] SRT: `fixed subs.srt` — 268 cues, timestamps valid
+- [x] Title scores: 75/B, 70/B, 80/B (all ≥65)
+- [x] Chapter timestamps corrected against finished cut
+- [x] Description: no cut beats referenced
+- [ ] Thumbnail Concept 1: build in Canva (20–30 min) — see `THUMBNAIL-CONCEPTS.md`
+- [ ] Thumbnail Concept 2: build with overlay fix "INVENTED IN 1844" — see `THUMBNAIL-CONCEPTS.md`
+- [ ] Upload to YouTube with 3-slot A/B rotation

@@ -631,3 +631,107 @@ If 2–3 forensic videos in a row show the same cuts/additions, promote ideas 33
 *Updated: 2026-02-01 (Iran Part 1 + Belavezha)*
 *Updated: 2026-04-27 (Tripoli — 7 rough-cut instincts + Walk-Away Test / Rule 36)*
 *Updated: 2026-05-01 (Manhattan — Ideas 33–37: hypotheses to test, not rules to enforce. n=1, watch for repeats.)*
+*Updated: 2026-05-07 (Manhattan finished cut — Ideas 33–37 confirmed HELD; Type B edit-floor lessons 43–46)*
+
+---
+
+## Observations from Manhattan Purchase Myth (FINISHED CUT) — 2026-05-07
+
+**Source:** Project 45. `fixed subs.srt` (268 cues, finished edit) vs `SCRIPT.md` v-final + rough-cut decisions from 2026-05-01. This section upgrades Ideas 33–37 from hypotheses to confirmed delivery decisions and adds 4 new edit-floor lessons (Type B — invisible to script/SRT diff).
+
+---
+
+### Lessons 38–42. Ideas 33–37 confirmed HELD through final edit
+
+All five ideas from the rough-cut section survived to the finished cut without reversal. Upgrading from "ideas to test" to "lessons to watch."
+
+**Lesson 38. Standard Myth Narration omitted for high-recognition myth (Idea 33 → HELD)**
+
+**Script:** 1:00–2:00 myth recitation act (~140 words). Designed to set up the Turn.
+**Finished cut:** entirely absent. Hook went straight to 1821 archive-destruction context and first dismantling.
+**Status:** n=1 (one video, rough cut + final both confirmed the cut). Not yet a rule — watch for repeat on next forensic script involving a pre-loaded myth.
+
+---
+
+**Lesson 39. Modern Relevance catalog cut when not causally thesis-tied (Idea 34 → HELD)**
+
+**Script:** 8:30–9:30 (~250 words) — 2026 NYC anniversary catalog (rebranding, Lenape Heritage Day, MCNY exhibit, sentinels, Joe Baker quote).
+**Finished cut:** entirely absent. Closing moved: motive section → Belgian/Congo/South America perspective → parallel close.
+**Status:** n=1. The Belgian/Congo angle survived because it *generalized the mechanism*; the NYC catalog didn't survive because it cataloged *symptoms*. Tentative split: mechanism-generalizing Modern Relevance stays; event-listing Modern Relevance goes.
+
+---
+
+**Lesson 40. Delegated verbatim quotes compress to ~25 words in delivery (Idea 35 → HELD)**
+
+**Script:** Hitakonanu'laxk quote (~60 words verbatim VO).
+**Finished cut:** paraphrased to ~25 words. Confirmed same compression as rough cut.
+**Status:** n=2 (Tripoli Crane quote ~20 words survived; Manhattan ~60 words compressed). ~30-word threshold holds. Pre-production fix: cap delegated verbatim VO at ~30 words; longer quote → split into VO punchline (1–2 sentences) + full quote as on-screen text overlay.
+
+---
+
+**Lesson 41. Mechanism vocabulary must be pre-loaded — it will be added on the fly if absent (Idea 36 → HELD)**
+
+**Script:** consequence framing ("two legal systems collided," "writers filled the silence").
+**Finished cut:** mechanism nouns inserted during delivery — "complete mechanical failure of legal systems," "tactical engineers of a new civic identity," "mechanism of erasure is almost exactly the same," "mechanical misunderstandings and missing records."
+**Status:** n=2 (Tripoli also showed improvised mechanism framing). Signal strong enough to act on. Pre-load mechanism nouns at Turn / cause section / motive section in every system-as-designed or mechanism-over-narrative script. Candidate vocabulary bank: *mechanical failure, tactical engineers, mechanism of erasure, structural collision, retrofitting, manufactured, fabricated, engineered, projected backward.*
+
+---
+
+**Lesson 42. Parallel-structure closing outperforms layered callback in forensic format (Idea 37 → HELD)**
+
+**Script (layered):** ~50 words — Penn callback + American Legion callback + thesis pivot.
+**Finished cut (parallel):** ~35 words — "In 1626, the story was a single line of ink about dead beavers. In 1821, the archives were sold for scrap paper. In the centuries since, people filled that silence with $24, glass beads and legends."
+**Status:** n=1. Parallel rhythm carries spoken delivery; layered callbacks work on paper, compress on screen. Write parallel-structure closing alongside layered callback for document-first format; let user pick during recording.
+
+---
+
+### Lesson 43. Audit visual assets for every named historical figure before filming (Type B — edit-floor)
+
+**Discovered:** Simeon DeWitt Bloodgood had no portrait, painting, or caricature available anywhere (Wikimedia, NYPL, digitized archives). The editing sequence required a talking-head visual for this segment — nothing existed. Editing dead end.
+
+**Rule:** Before filming, for every named historical figure who gets 30+ seconds of screen time: confirm at least one visual asset exists (portrait, painting, photograph, contemporary caricature, or document in their hand). If nothing exists, restructure the script to center the *document they authored* or a *period scene* rather than the person. Do not discover the gap in the edit bay.
+
+**Checklist addition:** Add "Named figure visual confirmed: [Wikimedia/NYPL/archive source]" as a column in `01-VERIFIED-RESEARCH.md` for every person with a major speaking role.
+
+---
+
+### Lesson 44. Citation chains must trace to primary before script lock (Type B — edit-floor)
+
+**Discovered:** Bloodgood's quote sourced only from the Gotham article (secondary source citing something else). During editing, when consistent on-screen reference cards were being built, the original primary source couldn't be located. The quote was retained without a clean primary citation.
+
+**Rule:** Every delegated quote in the script needs a confirmed primary source with page number before script lock — not before filming, before writing. Citation chain = red flag: newspaper citing a book, article citing another article, summary citing a lost original. Trace it or cut the quote. If the chain can't be traced, treat the quote as unverified (same protocol as fact-checking gate).
+
+**Existing enforcement:** This is what `03-FACT-CHECK-VERIFICATION.md` is supposed to catch. The gap here was that the Gotham article quote passed the research phase as "sourced" when it was only secondary-sourced.
+
+---
+
+### Lesson 45. On-screen reference cards require a layout-spec and confirmed file list before editing (Type B — edit-floor)
+
+**Discovered:** Reference card layout was inconsistent because the full list of cards wasn't compiled until editing. Author names, title abbreviations, page number formatting varied card-to-card. Each card required a mid-edit research session to retrieve page numbers that had been looked up once during research but not recorded in a ready-to-use format.
+
+**Rule:** Before filming, produce a complete reference card spec: one row per source shown on screen, with: (1) display author name, (2) display title (abbreviated version that fits the overlay), (3) page number, (4) confirmed image/scan file path. Card layout should be templated (same font, same color, same position) across the video. Fix the template in pre-production; do not design it in the edit bay.
+
+**Practical implication:** The `01-VERIFIED-RESEARCH.md` fact-entry format already captures author/title/page. The gap is that the *display-ready* version (shortened title, confirmed overlay format) isn't extracted until editing. Add a "display card" column or a separate `REFERENCE-CARDS.md` file to the pre-production checklist.
+
+---
+
+### Lesson 46. Non-English primary sources shown on screen need a reading-accessible version prepared before editing (Type B — edit-floor)
+
+**Discovered:** The Schagen letter is in Dutch. The video shows the letter on screen. An English facsimile was needed so the audience could read along — but wasn't prepared before filming. The edit required a late-stage search for an English-translated version suitable for on-screen display.
+
+**Rule:** For any primary source in a non-English language that will be shown on screen: prepare a reading-accessible version (interlinear translation, adjacent English column, or highlighted-excerpt overlay with English subtitle) *before filming.* The source doesn't need to be fully translated — only the lines quoted in the VO need to be legible. But identifying which lines and sourcing a reliable translation is pre-production work, not editing work.
+
+**Applies to:** Latin legal texts, Arabic manuscript pages, Dutch colonial records, French treaty documents, Hebrew/Aramaic sources. Any source the audience is meant to *read*, not just see.
+
+---
+
+## Pre-Filming Checklist — Manhattan additions
+
+*Append to existing checklist after Tripoli items:*
+
+- [ ] Named figure visual confirmed (portrait/painting/document) for every person with 30s+ screen time
+- [ ] Every delegated quote traced to primary source with page number (no secondary-source chains)
+- [ ] Reference card spec complete: display author / display title / page number / file confirmed
+- [ ] Non-English sources: reading-accessible version (English translation of quoted lines) prepared
+- [ ] Mechanism vocabulary pre-loaded at Turn / cause / motive sections for mechanism-type thesis
+- [ ] Parallel-structure closing drafted alongside layered callback (let user pick during recording)
