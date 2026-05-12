@@ -16,14 +16,18 @@ import re
 # ---------------------------------------------------------------------------
 
 PHASE_PRIORITY = {
-    'filming-ready': 1,
-    'fact-checked': 2,
-    'scripting': 3,
-    'research': 4,
-    'idea': 5,
+    'published': 0,
+    'filmed': 1,
+    'filming-ready': 2,
+    'fact-checked': 3,
+    'scripting': 4,
+    'research': 5,
+    'idea': 6,
 }
 
 NEXT_ACTION = {
+    'published': 'Monitor / /analyze',
+    'filmed': '/editing-guide',
     'filming-ready': 'Film it',
     'fact-checked': '/prep --edit-guide',
     'scripting': '/verify',
@@ -42,15 +46,28 @@ def detect_phase(files: set) -> str:
     """Detect project phase from the set of file names present in a folder.
 
     Priority order (highest to lowest):
-      filming-ready > fact-checked > scripting > research > idea
+      published > filmed > filming-ready > fact-checked > scripting > research > idea
 
     Args:
         files: set of file name strings (top-level files only, no paths)
 
     Returns:
-        Phase string: one of 'filming-ready', 'fact-checked', 'scripting',
-        'research', 'idea'
+        Phase string: one of 'published', 'filmed', 'filming-ready',
+        'fact-checked', 'scripting', 'research', 'idea'
     """
+    # Published: POST-PUBLISH-ANALYSIS.md is the canonical signal once written.
+    # YOUTUBE-METADATA.md alone is not sufficient (metadata can be drafted pre-publish).
+    if 'POST-PUBLISH-ANALYSIS.md' in files:
+        return 'published'
+
+    # Filmed: any .mp4 in folder OR EDITING-GUIDE.md present (rough cut analyzed).
+    # SRT file presence also signals filmed (transcribed cut).
+    has_mp4 = any(f.lower().endswith('.mp4') for f in files)
+    has_edit_guide = any('EDITING-GUIDE' in f.upper() for f in files)
+    has_srt = any(f.lower().endswith('.srt') for f in files)
+    if has_mp4 or has_edit_guide or has_srt:
+        return 'filmed'
+
     # Filming-ready: FINAL-SCRIPT.md or any TELEPROMPTER file
     if 'FINAL-SCRIPT.md' in files:
         return 'filming-ready'

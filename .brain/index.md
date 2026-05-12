@@ -62,10 +62,35 @@
 ## 3. Active Topics
 <!-- MANUAL — auto-refreshed by Routine 4 (stale projects, daily) -->
 
-| Topic | Lifecycle | Key Sources | Last Touched |
-|-------|-----------|-------------|--------------|
-| Treaty of Tripoli Article 11 | `_IN_PRODUCTION` | `~/llm-brain/wiki/entities/treaty-of-tripoli.md`, `article-11-treaty-of-tripoli.md`, `joel-barlow.md`, `snouck-hurgronje.md` | 2026-04-30 |
-| *(Routine 4 refreshes this table nightly from video-projects/_IN_PRODUCTION/ mtimes)* | | | |
+| Topic | Lifecycle | Phase | Last Touched |
+|-------|-----------|-------|--------------|
+| `1-sykes-picot-2025` | `_READY_TO_FILM` | filmed | 2026-05-11 |
+| `9-communism-definition-2025` | `_IN_PRODUCTION` | scripting | 2026-05-11 |
+| `8-medieval-women-2025` | `_IN_PRODUCTION` | idea | 2026-05-11 |
+| `55-falklands-malvinas-2026` | `_IN_PRODUCTION` | research | 2026-05-11 |
+| `54-spanish-inquisition-torture-rules-2026` | `_READY_TO_FILM` | filmed | 2026-05-11 |
+| `52-hijab-women-rights-2026` | `_IN_PRODUCTION` | scripting | 2026-05-11 |
+| `5-netanyahu-map-2025` | `_IN_PRODUCTION` | idea | 2026-05-11 |
+| `49-code-noir-untranslated-2026` | `_IN_PRODUCTION` | idea | 2026-05-11 |
+| `48-hamoodur-rahman-commission-2026` | `_IN_PRODUCTION` | idea | 2026-05-11 |
+| `47-operation-legacy-2026` | `_IN_PRODUCTION` | idea | 2026-05-11 |
+| `46-sabah-dispute-2026` | `_IN_PRODUCTION` | idea | 2026-05-11 |
+| `39-adwa-wuchale-2026` | `_IN_PRODUCTION` | scripting | 2026-05-11 |
+| `38-spanish-colonial-law-untranslated-2026` | `_IN_PRODUCTION` | fact-checked | 2026-05-11 |
+| `36-panama-canal-deconcini-2026` | `_IN_PRODUCTION` | research | 2026-05-11 |
+| `33-greenland-independence-2026` | `_IN_PRODUCTION` | idea | 2026-05-11 |
+| `29-format-research-2025` | `_IN_PRODUCTION` | idea | 2026-05-11 |
+| `26-czechoslovakia-velvet-divorce-2025` | `_IN_PRODUCTION` | idea | 2026-05-11 |
+| `21-haiti-independence-debt-2025` | `_IN_PRODUCTION` | fact-checked | 2026-05-11 |
+| `20-guadalupe-hidalgo-2025` | `_IN_PRODUCTION` | idea | 2026-05-11 |
+| `2-heritage-protocols-2025` | `_IN_PRODUCTION` | idea | 2026-05-11 |
+| `16-pyramid-builders-merer-2025` | `_IN_PRODUCTION` | idea | 2026-05-11 |
+| `15-library-alexandria-2025` | `_IN_PRODUCTION` | idea | 2026-05-11 |
+| `42-why-brazil-speaks-portuguese-2026` | `_IN_PRODUCTION` | filmed | 2026-05-03 |
+| `23-christmas-origins-2025` | `_IN_PRODUCTION` | filmed | 2026-05-03 |
+| `11-industrial-revolution-2025` | `_IN_PRODUCTION` | published | 2026-05-03 |
+| `25-iran-protests-history-2025` | `_IN_PRODUCTION` | published | 2026-05-03 |
+| `12-guatemala-maya-claims-2025` | `_IN_PRODUCTION` | published | 2026-05-03 |
 
 ---
 

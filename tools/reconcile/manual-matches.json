@@ -1,0 +1,41 @@
+{
+  "_comment": "Manual folder->video_id overrides. Used when Tier 1 (Video ID extraction) and Tier 2 (fuzzy slug-vs-title) both miss. Wins over both. Edit freely. Re-run /reconcile --dry-run to verify.",
+  "_review_notes": {
+    "_status": "PROPOSED — user review required before /reconcile --migrate runs",
+    "_confident": [
+      "Each entry is a best-guess pairing of a folder slug to a video in analytics.db where Tier 2 fuzzy missed.",
+      "Most confident: Manhattan, Tripoli, Bakassi, Thermopylae, Belavezha, Vance, Belize-ICJ, Fuentes, Iran-1953."
+    ],
+    "_corrected_2026-05-12": [
+      "40-berlin-conference-1884-2026 -> lFGs5NHMxMw ('They Split 229 Ethnic Groups'): user-confirmed.",
+      "41-treaty-tordesillas-2026 -> WgE2FLsDhfk ('Two Countries Split a Continent'): user-corrected (second pass). The video is Tordesillas-framed, not Brazil-framed.",
+      "42-why-brazil-speaks-portuguese-2026: UNMATCHED — currently unpublished. NOTE: folder contains a .mp4 (2026_03_12_17_29_05) and EDITING-GUIDE-SHOT-BY-SHOT.md that probably belong to the Tordesillas filming (user likely re-angled Brazil -> Tordesillas during production, or .mp4 was misfiled). Worth investigating before merging or deleting #42.",
+      "14-chagos-islands-2025 -> ZZz_g_Ov6Lg ('Britain Expelled 2,000 Islanders'): user-corrected. The labeled Video ID in POST-PUBLISH-ANALYSIS.md (sXadwOj8VoA Honduras) was a Tier 1 false-positive — the file references the wrong video. Cleanup needed in #14's POST-PUBLISH-ANALYSIS.md afterward.",
+      "12-guatemala-maya-claims-2025 -> BLOCKED (null): unpublished. POST-PUBLISH-ANALYSIS.md references LO_fUeX9IEQ (Vance video) but that's a cross-link, not this folder's video. File cleanup needed.",
+      "25-iran-protests-history-2025 -> BLOCKED (null): unpublished. POST-PUBLISH-ANALYSIS.md references yMAWJcjo_ug (channel intro video) — same false-positive issue.",
+      "23-christmas-origins-2025 -> BLOCKED (null): SRT confirms same content as #18 christmas-calendar-354 (Sol Invictus / Dec 25 origin myth) — same published video (l8abBf4aMv8). #18 owns the publish; #23 is a duplicate filmed folder. Decide later: merge into #18, delete, or keep as backup.",
+      "42-why-brazil-speaks-portuguese-2026 -> BLOCKED (null): SRT is nearly identical to #41 tordesillas SRT (same audio, different timecode offset). #41 owns the publish (WgE2FLsDhfk). #42 is a duplicate from when user was angling Brazil→Tordesillas. Decide later: merge or delete."
+    ],
+    "_block_semantics": "Value null means: do not match this folder (overrides Tier 1 false-positive). Folder stays in its current bucket. Used when POST-PUBLISH-ANALYSIS.md or other files contain spurious Video IDs.",
+    "_left_unmatched_in_analytics_db": [
+      "Pre-2025 vikinghorde test videos (-EFfYT190ew, ejkC0ecYyxk, exDA-YSe-nc): channel pre-history, no project folders.",
+      "Several published videos have no project folder visible (KGB Palestinian, Stalin Army, Putin Georgia, Cyprus, NATO promises, etc.) — these stay un-archived because there's no folder to move."
+    ]
+  },
+  "12-guatemala-maya-claims-2025": null,
+  "13-belize-icj-endgame-2025": "XbGl1Kcspt4",
+  "14-chagos-islands-2025": "ZZz_g_Ov6Lg",
+  "23-christmas-origins-2025": null,
+  "24-iran-1953-coup-2025": "L5ZIP24-36s",
+  "25-iran-protests-history-2025": null,
+  "42-why-brazil-speaks-portuguese-2026": null,
+  "28-vance-part-2-review-2025": "FvqALriDCv4",
+  "3-fuentes-fact-check-2025": "BNEEAD--Y3c",
+  "30-belavezha-accords-2025": "TYNaIu28LeU",
+  "40-berlin-conference-1884-2026": "lFGs5NHMxMw",
+  "41-treaty-tordesillas-2026": "WgE2FLsDhfk",
+  "44-bakassi-peninsula-2026": "MXvTuHXSf3o",
+  "45-manhattan-purchase-myth-2026": "mg6ujk6rDVE",
+  "50-thermopylae-sources-2026": "yetYD9_VcmM",
+  "51-treaty-tripoli-article-11-2026": "liW4BSh46DU"
+}

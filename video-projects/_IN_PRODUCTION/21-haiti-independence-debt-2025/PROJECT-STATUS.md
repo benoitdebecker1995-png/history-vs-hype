@@ -1,3 +1,9 @@
+<!-- AUTO:reconcile — do not edit manually, regenerated each run -->
+Status: FACT_CHECKED
+Lifecycle: _IN_PRODUCTION
+Last reconciled: 2026-05-11
+<!-- /AUTO:reconcile -->
+
 # Project Status: Haiti Independence Debt (1825-1947)
 
 **Created:** 2026-01-04

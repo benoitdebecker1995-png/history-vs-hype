@@ -35,6 +35,7 @@ ehthumbs.db
 *.env
 secrets.json
 credentials.json
+.claude/settings.local.json
 
 # Large video files (track separately or use Git LFS)
 *.mp4
@@ -107,3 +108,6 @@ _tmp_*.txt
 # Empty stderr dumps from flight-deals scanner
 flight-deals/scans/*.err
 flight-deals/scans/*.stderr.log
+
+# Reconcile recovery backups (deleted after /reconcile --undo)
+*.pre-diff

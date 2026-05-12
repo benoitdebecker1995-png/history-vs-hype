@@ -1,0 +1,1124 @@
+{
+  "buckets": {
+    "1": [
+      {
+        "video": "mahsa",
+        "idx": 84,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 90,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 171,
+        "likes": 2,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 182,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 31,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 37,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 46,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 73,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 101,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 141,
+        "likes": 20,
+        "tier": 1,
+        "score": 4.0
+      },
+      {
+        "video": "imam",
+        "idx": 6,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "imam",
+        "idx": 7,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "imam",
+        "idx": 9,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      }
+    ],
+    "2": [
+      {
+        "video": "samina",
+        "idx": 38,
+        "likes": 1,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 64,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 66,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 69,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 106,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 139,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 186,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 10,
+        "likes": 7,
+        "tier": 2,
+        "score": 1.5
+      },
+      {
+        "video": "mahsa",
+        "idx": 86,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 118,
+        "likes": 2,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 1,
+        "likes": 1,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "hist",
+        "idx": 4,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "hist",
+        "idx": 14,
+        "likes": 1,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "hist",
+        "idx": 33,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "hist",
+        "idx": 111,
+        "likes": 1,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "hist",
+        "idx": 117,
+        "likes": 1,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "hist",
+        "idx": 175,
+        "likes": 153,
+        "tier": 1,
+        "score": 6.0
+      },
+      {
+        "video": "imam",
+        "idx": 3,
+        "likes": 1,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "imam",
+        "idx": 15,
+        "likes": 2,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "imam",
+        "idx": 29,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "imam",
+        "idx": 32,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      }
+    ],
+    "3": [
+      {
+        "video": "samina",
+        "idx": 43,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 58,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 89,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 91,
+        "likes": 2,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 120,
+        "likes": 26,
+        "tier": 1,
+        "score": 4.0
+      },
+      {
+        "video": "samina",
+        "idx": 122,
+        "likes": 2,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 132,
+        "likes": 3,
+        "tier": 1,
+        "score": 3.0
+      },
+      {
+        "video": "samina",
+        "idx": 149,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 153,
+        "likes": 6,
+        "tier": 1,
+        "score": 3.0
+      },
+      {
+        "video": "samina",
+        "idx": 154,
+        "likes": 4,
+        "tier": 2,
+        "score": 1.5
+      },
+      {
+        "video": "samina",
+        "idx": 158,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 159,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 165,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 187,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 78,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      }
+    ],
+    "4": [
+      {
+        "video": "samina",
+        "idx": 51,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 73,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 105,
+        "likes": 2,
+        "tier": 1,
+        "score": 2.0
+      }
+    ],
+    "5a": [
+      {
+        "video": "samina",
+        "idx": 2,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 17,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 22,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 23,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 24,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 31,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 32,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 33,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 54,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 55,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 61,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 68,
+        "likes": 2,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 75,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 78,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 79,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 82,
+        "likes": 2,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 83,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 85,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 87,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 93,
+        "likes": 3,
+        "tier": 1,
+        "score": 3.0
+      },
+      {
+        "video": "samina",
+        "idx": 99,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 102,
+        "likes": 1,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 104,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 105,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 131,
+        "likes": 3,
+        "tier": 1,
+        "score": 3.0
+      },
+      {
+        "video": "samina",
+        "idx": 137,
+        "likes": 1,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 147,
+        "likes": 1,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 148,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 157,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 163,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 164,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 174,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 179,
+        "likes": 2,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 196,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 3,
+        "likes": 41,
+        "tier": 2,
+        "score": 2.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 6,
+        "likes": 2,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 18,
+        "likes": 1,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 50,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 59,
+        "likes": 2,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 60,
+        "likes": 3,
+        "tier": 2,
+        "score": 1.5
+      },
+      {
+        "video": "mahsa",
+        "idx": 63,
+        "likes": 11,
+        "tier": 2,
+        "score": 2.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 129,
+        "likes": 1,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 143,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 144,
+        "likes": 2,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 11,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 17,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 87,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 97,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "hist",
+        "idx": 173,
+        "likes": 2,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "imam",
+        "idx": 28,
+        "likes": 3,
+        "tier": 1,
+        "score": 3.0
+      }
+    ],
+    "5b": [
+      {
+        "video": "samina",
+        "idx": 3,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 21,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 28,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 45,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 86,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 119,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 133,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 136,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 140,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 144,
+        "likes": 2,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 172,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 190,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 193,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 69,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "mahsa",
+        "idx": 150,
+        "likes": 2,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "hist",
+        "idx": 10,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 18,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 39,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 71,
+        "likes": 1,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "hist",
+        "idx": 81,
+        "likes": 3,
+        "tier": 2,
+        "score": 1.5
+      },
+      {
+        "video": "hist",
+        "idx": 82,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "hist",
+        "idx": 100,
+        "likes": 1,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "hist",
+        "idx": 114,
+        "likes": 9,
+        "tier": 1,
+        "score": 3.0
+      },
+      {
+        "video": "hist",
+        "idx": 154,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 176,
+        "likes": 7,
+        "tier": 1,
+        "score": 3.0
+      },
+      {
+        "video": "hist",
+        "idx": 183,
+        "likes": 7,
+        "tier": 1,
+        "score": 3.0
+      },
+      {
+        "video": "hist",
+        "idx": 184,
+        "likes": 28,
+        "tier": 2,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 189,
+        "likes": 16,
+        "tier": 1,
+        "score": 4.0
+      },
+      {
+        "video": "hist",
+        "idx": 193,
+        "likes": 11,
+        "tier": 2,
+        "score": 2.0
+      }
+    ],
+    "5c": [],
+    "5d": [
+      {
+        "video": "samina",
+        "idx": 26,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 42,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 50,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 52,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 56,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 59,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 112,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 113,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 123,
+        "likes": 0,
+        "tier": 2,
+        "score": 1.0
+      },
+      {
+        "video": "samina",
+        "idx": 126,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 135,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 194,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "samina",
+        "idx": 198,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 44,
+        "likes": 1,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 55,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "hist",
+        "idx": 56,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      },
+      {
+        "video": "imam",
+        "idx": 1,
+        "likes": 0,
+        "tier": 1,
+        "score": 2.0
+      }
+    ],
+    "5e": []
+  },
+  "totals": {
+    "1": {
+      "t1": 9,
+      "t2": 4,
+      "score": 24.0
+    },
+    "2": {
+      "t1": 8,
+      "t2": 13,
+      "score": 33.5
+    },
+    "3": {
+      "t1": 11,
+      "t2": 4,
+      "score": 30.5
+    },
+    "4": {
+      "t1": 3,
+      "t2": 0,
+      "score": 6.0
+    },
+    "5a": {
+      "t1": 27,
+      "t2": 23,
+      "score": 82.5
+    },
+    "5b": {
+      "t1": 15,
+      "t2": 14,
+      "score": 51.5
+    },
+    "5c": {
+      "t1": 0,
+      "t2": 0,
+      "score": 0
+    },
+    "5d": {
+      "t1": 14,
+      "t2": 3,
+      "score": 31.0
+    },
+    "5e": {
+      "t1": 0,
+      "t2": 0,
+      "score": 0
+    }
+  },
+  "in_scope_score": 94.0,
+  "out_scope_score": 165.0,
+  "total_score": 259.0,
+  "lowest_in_scope_score": 6.0,
+  "t1_fires": [
+    [
+      "5a",
+      82.5
+    ],
+    [
+      "5b",
+      51.5
+    ],
+    [
+      "5d",
+      31.0
+    ]
+  ],
+  "t2_fires": true,
+  "inconclusive": false,
+  "confirm": false
+}

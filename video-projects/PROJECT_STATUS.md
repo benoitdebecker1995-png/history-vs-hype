@@ -1,3 +1,98 @@
+<!-- AUTO:reconcile-dashboard — regenerated each run, do not edit -->
+Last reconciled: 2026-05-11
+
+## Lifecycle counts
+
+| Bucket | Count |
+|---|---|
+| `_IN_PRODUCTION/` (pre-script / scripting / fact-check) | 25 |
+| `_READY_TO_FILM/` (script-locked / filmed / in-post, pre-publish) | 2 |
+| `_ARCHIVED/published/` (YouTube confirmed) | 28 |
+
+## In production
+
+| Folder | Phase |
+|---|---|
+| `11-industrial-revolution-2025` | published |
+| `12-guatemala-maya-claims-2025` | published |
+| `15-library-alexandria-2025` | idea |
+| `16-pyramid-builders-merer-2025` | idea |
+| `2-heritage-protocols-2025` | idea |
+| `20-guadalupe-hidalgo-2025` | idea |
+| `21-haiti-independence-debt-2025` | fact-checked |
+| `23-christmas-origins-2025` | filmed |
+| `25-iran-protests-history-2025` | published |
+| `26-czechoslovakia-velvet-divorce-2025` | idea |
+| `29-format-research-2025` | idea |
+| `33-greenland-independence-2026` | idea |
+| `36-panama-canal-deconcini-2026` | research |
+| `38-spanish-colonial-law-untranslated-2026` | fact-checked |
+| `39-adwa-wuchale-2026` | scripting |
+| `42-why-brazil-speaks-portuguese-2026` | filmed |
+| `46-sabah-dispute-2026` | idea |
+| `47-operation-legacy-2026` | idea |
+| `48-hamoodur-rahman-commission-2026` | idea |
+| `49-code-noir-untranslated-2026` | idea |
+| `5-netanyahu-map-2025` | idea |
+| `52-hijab-women-rights-2026` | scripting |
+| `55-falklands-malvinas-2026` | research |
+| `8-medieval-women-2025` | idea |
+| `9-communism-definition-2025` | scripting |
+
+## Ready to film / filmed pre-publish
+
+| Folder | Phase |
+|---|---|
+| `1-sykes-picot-2025` | filmed |
+| `54-spanish-inquisition-torture-rules-2026` | filmed |
+
+## Recently published (last 60 days)
+
+| Published | Folder | Video ID | Title |
+|---|---|---|---|
+| 2026-05-08 | `45-manhattan-purchase-myth-2026` | `mg6ujk6rDVE` | The Lenape Never Sold Manhattan. Every Piece Was Forged |
+| 2026-04-30 | `51-treaty-tripoli-article-11-2026` | `liW4BSh46DU` | Treaty of Tripoli: The Most-Cited Line Isn’t in the Arabic T |
+| 2026-04-16 | `44-bakassi-peninsula-2026` | `MXvTuHXSf3o` | Nigeria vs Cameroon. The Court Chose Paper Over People |
+| 2026-04-11 | `50-thermopylae-sources-2026` | `yetYD9_VcmM` | The Myths of Thermopylae: Fake Quotes & Missing Soldiers |
+| 2026-03-18 | `41-treaty-tordesillas-2026` | `WgE2FLsDhfk` | Two Countries Split a Continent They Had Never Mapped |
+
+## All archived (28 folders)
+
+_Full list in `_ARCHIVED/published/`. Reverse-chronological by publish date below._
+
+| Published | Folder | Video ID |
+|---|---|---|
+| 2026-05-08 | `45-manhattan-purchase-myth-2026` | `mg6ujk6rDVE` |
+| 2026-04-30 | `51-treaty-tripoli-article-11-2026` | `liW4BSh46DU` |
+| 2026-04-16 | `44-bakassi-peninsula-2026` | `MXvTuHXSf3o` |
+| 2026-04-11 | `50-thermopylae-sources-2026` | `yetYD9_VcmM` |
+| 2026-03-18 | `41-treaty-tordesillas-2026` | `WgE2FLsDhfk` |
+| 2026-03-12 | `40-berlin-conference-1884-2026` | `lFGs5NHMxMw` |
+| 2026-03-05 | `37-untranslated-vichy-statut-juifs-2026` | `imPn_OxLYlk` |
+| 2026-02-26 | `35-gibraltar-treaty-utrecht-2026` | `WZnCxVPNF7A` |
+| 2026-02-19 | `31-bermeja-island-2025` | `P6yalauLDic` |
+| 2026-02-12 | `34-operation-condor-2025` | `Q5Pfv_dPubU` |
+| 2026-01-29 | `30-belavezha-accords-2025` | `TYNaIu28LeU` |
+| 2026-01-27 | `24-iran-1953-coup-2025` | `L5ZIP24-36s` |
+| 2026-01-15 | `19-flat-earth-medieval-2025` | `LuLZYZWMiU4` |
+| 2026-01-08 | `14-chagos-islands-2025` | `ZZz_g_Ov6Lg` |
+| 2026-01-01 | `1-somaliland-2025` | `GuL9PtXEjN0` |
+| 2025-12-25 | `18-christmas-calendar-354-2025` | `l8abBf4aMv8` |
+| 2025-12-18 | `10-dark-ages-2025` | `-QG8trhNsoM` |
+| 2025-12-11 | `6-bir-tawil-2025` | `XKAqt_ZLHGo` |
+| 2025-12-04 | `13-belize-icj-endgame-2025` | `XbGl1Kcspt4` |
+| 2025-11-27 | `4-crusades-fact-check-2025` | `VyPv2n4mii8` |
+| 2025-11-20 | `3-fuentes-fact-check-2025` | `BNEEAD--Y3c` |
+| 2025-11-08 | `28-vance-part-2-review-2025` | `FvqALriDCv4` |
+| 2025-10-24 | `17-viking-laws-gragas-2025` | `2RQWu-cyO90` |
+| 2025-10-10 | `27-peru-2025` | `6GybGd_q25w` |
+| 2025-09-01 | `7-genocide-definition-2025` | `Oc7oq292HkM` |
+| 2025-08-23 | `Taiwan` | `LCze9B2xpOI` |
+| 2025-08-14 | `43-india-pakistan-partition-2026` | `lPilDVSAeEM` |
+| 2025-08-07 | `Tariffs` | `JkH4XIHfnJU` |
+
+<!-- /AUTO:reconcile-dashboard -->
+
 # Video Projects Status Tracker
 
 **Last Updated:** 2026-03-23

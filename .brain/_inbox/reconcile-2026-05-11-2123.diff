@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-05-12T02:23:37.160117+00:00",
+  "moves": [],
+  "backups": [
+    {
+      "path": "D:\\History vs Hype\\video-projects\\PROJECT_STATUS.md",
+      "pre_diff": "D:\\History vs Hype\\video-projects\\PROJECT_STATUS.md.pre-diff"
+    },
+    {
+      "path": "D:\\History vs Hype\\video-projects\\PROJECT_REGISTRY.md",
+      "pre_diff": "D:\\History vs Hype\\video-projects\\PROJECT_REGISTRY.md.pre-diff"
+    },
+    {
+      "path": "D:\\History vs Hype\\.brain\\index.md",
+      "pre_diff": "D:\\History vs Hype\\.brain\\index.md.pre-diff"
+    }
+  ],
+  "proposals": []
+}

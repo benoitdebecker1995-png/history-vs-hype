@@ -1,15 +1,27 @@
+<!-- AUTO:reconcile — do not edit manually, regenerated each run -->
+Status: SCRIPTING
+Lifecycle: _IN_PRODUCTION
+Last reconciled: 2026-05-11
+<!-- /AUTO:reconcile -->
+
 # Project 39: Treaty of Wuchale — The Heist That Failed
 
 **Series:** Untranslated Evidence (Episode 2)
 **Framing:** HEIST STORY — Italy tried to steal a country with a piece of paper. The country fought back and won.
-**Working Title:** "Italy Tried to Colonize Ethiopia With a Fake Translation. It Backfired."
-**Alt Titles:**
-- "He Wrote the Same Sentence in Two Languages. He Spoke Both. He Knew What He Was Doing."
-- "Ethiopia Defeated a European Army. The Treaty That Started It Was a Lie."
-- "How Italy Tried to Steal Ethiopia With 19 Words"
+**Working Title:** OPEN — pending `/comment-mine` + VidIQ research and post-Slot-1 learning gate per plan `~/.claude/plans/jiggly-sniffing-shamir.md`. Locks after Inquisition's first 48-72h launch data is reviewed. Apply ADR-0003 (mechanism word required) + [Auditor's Edge] (technically defensible — "forged"/"fake" is inaccurate; the mechanism is *deliberate translation discrepancy + a false-equivalence clause* in the treaty itself).
+**Prior working title (superseded 2026-05-10):** "Italy Tried to Colonize Ethiopia With a Fake Translation. It Backfired." — flagged as weak ("It Backfired" filler; "Tried to Colonize" understates).
+**Candidates surfaced in 2026-05-10 grill (none locked):**
+- "Italy Rigged the Ethiopia Treaty. Both Languages Said Different Things." (mechanism: "rigged" — accurate)
+- "Italy's Ethiopia Treaty Was a Heist. The Two Versions Don't Match." (mechanism: "heist" — matches script framing)
+- "He Wrote the Same Sentence in Two Languages. He Spoke Both. He Knew What He Was Doing." (original alt)
+- "Ethiopia Defeated a European Army. The Treaty That Started It Was a Lie." (original alt)
+- "How Italy Tried to Steal Ethiopia With 19 Words" (original alt)
 **Hook Type:** Territorial — colonial fraud (heist) → discovery → war → African sovereignty
 **Created:** 2026-02-27
 **Reframed:** 2026-03-01 (heist story angle — the treaty is the villain, not "history lesson")
+**Title-status updated:** 2026-05-10 (grill — title reopened for research + learning-gate-informed lock)
+**Comment-mine result (2026-05-10):** Forensic angle is low-signal demand. Empress Taytu is unmet-demand cluster (~30+ signals). New title candidate: "Italy Rigged the Wuchale Treaty. Empress Taytu Caught It Before the Battle of Adwa." See `_research/comment-mining/ANGLE-ANALYSIS.md`.
+**NotebookLM Phase 2 notebook (CREATED 2026-05-10):** `7121d5fc-5c93-415b-a593-34396f7b4f76` — "#39 Adwa & Wuchale — Phase 2 Research". Phase 1 sources (6/10): Zewde, Hertslet vol II, Avalon Treaty of Addis Ababa, McLachlan, Treaty of Wuchale Italian, Rubenson 1976. Phase 2 paid acquisitions pending: Jonas (HUP, critical) + Prouty *Empress Taytu* (now critical post-comment-mine).
 
 ---
 

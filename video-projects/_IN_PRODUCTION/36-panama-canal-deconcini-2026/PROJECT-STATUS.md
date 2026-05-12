@@ -1,3 +1,9 @@
+<!-- AUTO:reconcile — do not edit manually, regenerated each run -->
+Status: RESEARCH
+Lifecycle: _IN_PRODUCTION
+Last reconciled: 2026-05-11
+<!-- /AUTO:reconcile -->
+
 # Project 36: Panama Canal - The DeConcini Reservation
 
 **Topic:** The 1978 Senate reservation that gives the US the right to use military force to keep the Panama Canal open

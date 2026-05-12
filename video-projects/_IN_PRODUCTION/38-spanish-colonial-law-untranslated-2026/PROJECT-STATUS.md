@@ -1,3 +1,9 @@
+<!-- AUTO:reconcile — do not edit manually, regenerated each run -->
+Status: FACT_CHECKED
+Lifecycle: _IN_PRODUCTION
+Last reconciled: 2026-05-11
+<!-- /AUTO:reconcile -->
+
 # Project 38: The Law That Governed Half the World (Never Translated)
 
 **Topic:** Recopilación de Leyes de las Indias (1681) — untranslated Spanish colonial law still affecting US land disputes
