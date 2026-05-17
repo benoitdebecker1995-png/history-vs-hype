@@ -1,0 +1,1432 @@
+Warning: True color (24-bit) support not detected. Using a terminal with true color enabled will result in a better visual experience.
+YOLO mode is enabled. All tool calls will be automatically approved.
+YOLO mode is enabled. All tool calls will be automatically approved.
+Ripgrep is not available. Falling back to GrepTool.
+Warning: Could not read directory D:\History vs Hype\.pytest_cache: EPERM: operation not permitted, scandir 'D:\History vs Hype\.pytest_cache'
+I will use google search for files that I cannot determine with high confidence.
+I need to be careful to extract the correct publication year and publisher, distinguishing them from event years or download sources. I will create a temporary list of search queries and then execute them in parallel using `google_web_search`.
+After gathering all the information, I will construct the final JSON array.
+
+I will start by preparing the `google_web_search` calls for files where information is missing or unclear.
+
+**Search Queries to generate:**
+
+1.  `"A line in the sand the Anglo-French struggle for the Middle East James Barr publication year publisher"`
+2.  `"A Social Revolution Politics and the Welfare State in Iran Kevan Harris publication year publisher"`
+3.  `"A line in the sand James Barr publisher"` (for verification of File 5 publisher)
+4.  `"Bazaar and State in Iran Arang Keshavarzian publication year publisher"`
+5.  `"Behind the 1953 Coup in Iran Ali Rahnema publication year publisher"`
+6.  `"Fateful Triangle US Israel Palestine Noam Chomsky publisher"`
+7.  `"Fateful Triangle US Israel Palestinians Noam Chomsky publisher"` (for verification for File 8 and 9)
+8.  `"crane2020.pdf publisher year"` (for File 11, might be too generic)
+9.  `"The Case for Israel Alan Dershowitz publisher"`
+10. `"Dialnet Un Siglo De La Declaracion Balfour Una Aproximacion Heuris publisher year"`
+11. `"Domestic Violence and the Islamic Tradition Ayesha S. Chaudhry publication year publisher"`
+12. `"Rediscovering Palestine Beshara Doumani publisher"`
+13. `"Fateful Triangle The United States Israel and the Palestinians Noam Chomsky publication year publisher"` (for File 17)
+14. `"Image and Reality Israel-Palestine Conflict Norman Finkelstein publisher"`
+15. `"Denial of Violence Armenian Genocide Fatma Müge Göçek publisher"`
+16. `"Soviet Policies in Middle East Galia Golan publisher"`
+17. `"Hostage to History Cyprus from the Ottomans to Kissinger Christopher Hitchens publication year publisher"`
+18. `"Iran Between Two Revolutions Ervand Abrahamian publication year publisher"`
+19. `"isbn 9780739478189 publisher year"`
+20. `"Islamic Interpretive Tradition and Gender Justice Nevin Reda Yasmin Amin publication year publisher"`
+21. `"Journal of the Executive Proceedings of publisher year"` (for File 34 and 35)
+22. `"Lines Drawn on an Empty Map Iraq's Borders publisher year"`
+23. `"Mohammad Mosaddeq and the 1953 Coup in Iran Mark J. Gasiorowski Malcolm Byrne publication year publisher"`
+24. `"Birth of the Palestinian Refugee Problem Benny Morris publisher"`
+25. `"Muslims in the Philippines Cesar A. Majul publication year publisher"`
+26. `"Origins and Evolution of Islamic Law Wael B. Hallaq publication year publisher"`
+27. `"Quran and Woman Rereading the Sacred Text from a Womans Perspective Amina Wadud publication year publisher"`
+28. `"The Question of Palestine Edward Said publisher"`
+29. `"Armed Struggle and Search for State Palestinian Movement Yezid Sayigh publisher"`
+30. `"The Balfour Declaration Jonathan Schneer publisher"`
+31. `"Cold War in the Middle East Avi Shlaim publisher"`
+32. `"Palestine and the Arab-Israeli Conflict Charles D. Smith publisher"`
+33. `"The Jews of Arab Lands Norman Stillman publisher"`
+34. `"Talat-Pasha's Telegrams Armenian Genocide Killing Orders publication year publisher"`
+35. `"The Young Turks' Crime Against Humanity Taner Akçam publisher"`
+36. `"The Barbary Wars American Independence in the Atlantic World Frank Lambert publication year publisher"`
+37. `"The Origins of American Religious Nationalism Sam Haselby publication year publisher"`
+38. `"The Paranoid Apocalypse A Hundred-Year Retrospective on the Protocols of the Elders of Zion Steven T. Katz publication year publisher"`
+39. `"The Plot The secret story of The Protocols of the Elders of Zion Will Eisner publication year publisher"`
+40. `"Thomas Jefferson's Quran Islam and the Founders Denise A. Spellberg publication year publisher"`
+41. `"Treaties and other international agreements of the United States of America, 1776-1949 publisher year"`
+42. `"Heraclitus and Iran publisher year"`
+43. `"Lines Drawn on Empty Map Iraq Borders publication year publisher"`
+44. `"The Iron Wall Israel and the Arab World Avi Shlaim publication year publisher"` (for File 53)
+45. `"Armed struggle and the search for state the Palestinian national movement Yezid Sayigh publisher"` (for File 54)
+
+This is a significant number of searches. I will now issue `google_web_search` calls.
+
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9519ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10287ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9518ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9516ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9445ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 11014ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9729ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10642ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9645ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9919ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10794ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9683ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10467ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9497ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9928ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9882ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10545ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10866ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9596ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 11117ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9295ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9665ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9480ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10409ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10319ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10463ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10187ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9572ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10508ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9649ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9591ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9360ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9606ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10279ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10132ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9225ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9411ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10849ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 9413ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10337ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10512ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 10033ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 9983ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 10024ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 19577ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 20204ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 19568ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 21524ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 20531ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 18561ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 19103ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 20203ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 21761ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 21879ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 19659ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 19617ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 21345ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 21243ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 18823ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 20167ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 22316ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 18693ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 21097ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 21650ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 20530ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 21604ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 21406ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 21364ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 22103ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 18909ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 20582ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 20714ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 18168ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 17854ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 21297ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 19896ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 20602ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 20850ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 19677ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 20788ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 18994ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 21408ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 21391ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 20068ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 18899ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 22020ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 19213ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 0s.. Retrying after 31306ms...
+Attempt 3 failed: You have exhausted your capacity on this model.. Retrying after 34159ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 35431ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 34662ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 35117ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 32434ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 31187ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 32902ms...
+Attempt 3 failed: You have exhausted your capacity on this model.. Retrying after 30781ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 35134ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 34991ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 35882ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 34327ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 32701ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 30298ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 32854ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 31402ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 31710ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 34082ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 30775ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 31757ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 31558ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 33424ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 31168ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 35768ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 31759ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 34359ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 35149ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 33300ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 34158ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 31082ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 30037ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 30472ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 33237ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 31415ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 32987ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 32821ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 33465ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 30556ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 35909ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 5s.. Retrying after 34509ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 33770ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 34982ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 35067ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 32435ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 35247ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 33700ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 33420ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 34185ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 34657ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 5s.. Retrying after 32829ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 5s.. Retrying after 30081ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 5s.. Retrying after 32687ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 5s.. Retrying after 32541ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 5s.. Retrying after 31691ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 5s.. Retrying after 33853ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 5s.. Retrying after 32466ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 5s.. Retrying after 32235ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 5s.. Retrying after 35771ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 5s.. Retrying after 33565ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 5s.. Retrying after 31842ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 4s.. Retrying after 31179ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 4s.. Retrying after 33192ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 34543ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 32206ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 34919ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 34065ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 30561ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 32177ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 35565ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 33926ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 32258ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 32594ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 30995ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 34758ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 32714ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 34851ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 1s.. Retrying after 30313ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 1s.. Retrying after 31720ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 0s.. Retrying after 34288ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 32993ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 35705ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 34571ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 31404ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 31205ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 32949ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 35618ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 30320ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 33791ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 31824ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 34243ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 33106ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 33178ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 34590ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 33455ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 1s.. Retrying after 33301ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 1s.. Retrying after 35795ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 1s.. Retrying after 35385ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 1s.. Retrying after 34682ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 0s.. Retrying after 35293ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 0s.. Retrying after 34895ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 0s.. Retrying after 35491ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 0s.. Retrying after 31615ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 0s.. Retrying after 34985ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 0s.. Retrying after 30456ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 0s.. Retrying after 32679ms...
+Attempt 5 failed: You have exhausted your capacity on this model.. Retrying after 30091ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 33080ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 33842ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 9s.. Retrying after 33376ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 32945ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 32226ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 31601ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 32148ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 31459ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 30781ms...
+Attempt 5 failed: You have exhausted your capacity on this model. Your quota will reset after 5s.. Retrying after 30436ms...
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-39-789Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m39s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 16) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m39s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48819604.48133,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Soviet Policies in Middle East Galia Golan publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m39s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m39s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 16)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-40-231Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m39s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 21) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m39s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48819158.128757,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Journal of the Executive Proceedings of publisher year"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m39s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m39s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 21)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-40-369Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m39s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 4) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m39s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48819025.911394,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Bazaar and State in Iran Arang Keshavarzian publication year publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m39s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m39s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 4)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-41-125Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m38s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 11) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m38s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48818264.53465,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Domestic Violence and the Islamic Tradition Ayesha S. Chaudhry publication year publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m38s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m38s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 11)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-41-188Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m38s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 5) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m38s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48818199.58398,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Behind the 1953 Coup in Iran Ali Rahnema publication year publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m38s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m38s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 5)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-41-908Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m37s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 2) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m37s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48817482.465231,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""A Social Revolution Politics and the Welfare State in Iran Kevan Harris publication year publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m37s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m37s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 2)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-41-927Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m37s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 35) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m37s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48817462.483385004,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""The Young Turks' Crime Against Humanity Taner Akçam publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m37s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m37s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 35)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-42-225Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m37s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 42) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m37s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48817169.476991996,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Heraclitus and Iran publisher year"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m37s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m37s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 42)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-42-643Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 28) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48816747.138491996,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""The Question of Palestine Edward Said publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 28)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-42-707Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 6) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48816686.114308,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Fateful Triangle US Israel Palestine Noam Chomsky publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 6)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-42-717Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 22) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48816673.816232,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Lines Drawn on an Empty Map Iraq's Borders publisher year"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 22)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-43-073Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 32) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48816317.10227,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Palestine and the Arab-Israeli Conflict Charles D. Smith publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 32)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-43-092Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 24) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48816313.717851,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Birth of the Palestinian Refugee Problem Benny Morris publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 24)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-43-150Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 43) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48816240.458943,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Lines Drawn on Empty Map Iraq Borders publication year publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m36s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 43)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-43-605Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m35s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 38) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m35s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48815784.235454,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""The Paranoid Apocalypse A Hundred-Year Retrospective on the Protocols of the Elders of Zion Steven T. Katz publication year publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m35s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m35s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 38)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-43-678Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m35s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 17) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m35s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48815711.935741,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Hostage to History Cyprus from the Ottomans to Kissinger Christopher Hitchens publication year publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m35s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m35s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 17)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-43-792Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m35s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 7) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m35s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48815598.399793,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Fateful Triangle US Israel Palestinians Noam Chomsky publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m35s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m35s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 7)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-44-072Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m35s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 9) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m35s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48815315.696467,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""The Case for Israel Alan Dershowitz publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m35s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m35s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 9)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-44-120Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m35s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 29) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m35s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48815275.069436,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Armed Struggle and Search for State Palestinian Movement Yezid Sayigh publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m35s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m35s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 29)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-44-876Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m34s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 27) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m34s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48814513.445604004,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Quran and Woman Rereading the Sacred Text from a Womans Perspective Amina Wadud publication year publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m34s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m34s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 27)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-45-042Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m34s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 19) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m34s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48814348.009873,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""isbn 9780739478189 publisher year"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m34s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m34s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 19)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-45-167Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m34s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 40) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m34s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48814229.09214301,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Thomas Jefferson's Quran Islam and the Founders Denise A. Spellberg publication year publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m34s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m34s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 40)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-45-504Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 20) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48813884.12609,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Islamic Interpretive Tradition and Gender Justice Nevin Reda Yasmin Amin publication year publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 20)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-45-524Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 3) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48813864.292315,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""A line in the sand James Barr publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 3)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-45-702Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 31) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48813688.607347995,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Cold War in the Middle East Avi Shlaim publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 31)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-45-759Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 26) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48813631.875920996,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Origins and Evolution of Islamic Law Wael B. Hallaq publication year publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 26)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-45-803Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 15) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48813589.36265,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Denial of Violence Armenian Genocide Fatma Müge Göçek publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 15)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-45-919Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 41) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48813468.476814,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Treaties and other international agreements of the United States of America, 1776-1949 publisher year"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 41)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-45-936Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 25) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48813451.181044005,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Muslims in the Philippines Cesar A. Majul publication year publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 25)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-46-062Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 14) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48813328.026015,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Image and Reality Israel-Palestine Conflict Norman Finkelstein publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 14)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-46-090Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 8) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48813300.371083,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""crane2020.pdf publisher year"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 8)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-46-105Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 12) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48813285.841886,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Rediscovering Palestine Beshara Doumani publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 12)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-46-265Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 10) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48813130.106174,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Dialnet Un Siglo De La Declaracion Balfour Una Aproximacion Heuris publisher year"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 10)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-46-307Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 45) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48813083.08173,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Armed struggle and the search for state the Palestinian national movement Yezid Sayigh publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 45)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-46-351Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 34) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48813037.14585599,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Talat-Pasha's Telegrams Armenian Genocide Killing Orders publication year publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 34)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-46-384Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 30) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48813003.005439,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""The Balfour Declaration Jonathan Schneer publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m33s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 30)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-11T12-27-46-574Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m32s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 13) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m32s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48812816.293091,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Fateful Triangle The United States Israel and the Palestinians Noam Chomsky publication year publisher"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m32s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 13h33m32s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 13)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error executing tool google_web_search: Error performing web search.
+Error when talking to Gemini API Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-Turn.run-sendMessageStream-2026-05-11T12-27-47-259Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 13h33m32s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiChat.makeApiCallAndProcessStream (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:293199:28)
+    at async GeminiChat.streamWithRetries (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:293037:29)
+    at async Turn.run (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:293564:24)
+    at async GeminiClient.processTurn (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306115:22)
+    at async GeminiClient.sendMessageStream (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306227:14)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/gemini-OHH6WLHR.js:10811:26
+    at async main (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/gemini-OHH6WLHR.js:15885:5) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 13h33m32s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 48812134.327087,
+  reason: 'QUOTA_EXHAUSTED'
+}
+An unexpected critical error occurred:[object Object]

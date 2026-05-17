@@ -1,0 +1,26 @@
+=== Content-ID Rename Report (2026-05-12) ===
+Gemini identified: 57
+High confidence:   26
+Medium confidence: 16
+Low / unresolved:  15
+
+Renamed: 40
+Hash-dedup deleted: 1
+Errors: 0
+
+Low confidence files (still need user review):
+  [african-history] ModernSomalilandHistory-Unknown-0000-AnnaArchive.pdf  -- all unknown
+  [colonialism-slavery] CouncilMinutes-Unknown-0000-Unknown.pdf  -- conf=low → NewYorkHistoricalManuscriptsDutch-Unknown-0000-Unknown.pdf
+  [colonialism-slavery] ExtraResearch-Unknown-0000-Unknown.pdf  -- conf=low → DataSaysOptionCNeitherANorB-Unknown-0000-Unknown.pdf
+  [colonialism-slavery] GeminiVidResearch-Unknown-0000-Unknown.pdf  -- conf=low → PrimaryKeywordAnalysis-Unknown-0000-Unknown.pdf
+  [colonialism-slavery] GrandfathersSpeak-Unknown-0000-Unknown.pdf  -- conf=low → GrandfathersSpeakNativeAmericanFolkTales-Unknown-0000-Unknown.pdf
+  [colonialism-slavery] Research-Unknown-0000-Unknown.pdf  -- conf=low → PrimaryKeywordAnalysis-Unknown-0000-Unknown.pdf
+  [colonialism-slavery] ResearchPrompt-Unknown-0000-Unknown.pdf  -- conf=low → HistoryVsHypeNotebookLMMasterResearchProtocol-Unknown-0000-Unknown.pdf
+  [general-history] BlandijnDocument-Unknown-0000-Unknown.pdf  -- conf=low → Auditorium3SuzanneLilar-Unknown-0000-Unknown.pdf
+  [general-history] D&DPlayersHandbook-Unknown-0000-Unknown.pdf  -- conf=low → PlayersHandbook-Unknown-0000-Unknown.pdf
+  [general-history] EuropeanYouthProposal-Unknown-0000-Unknown.pdf  -- conf=low → EuropeanYouthTeamProposal-Unknown-0000-PeaceJamEurope.pdf
+  [general-history] GuidebookTEC-Unknown-0000-Unknown.pdf  -- conf=low → EuropeanSolidarityCorpsReadySetMakeTheChange-Unknown-0000-Unknown.pdf
+  [general-history] KSATPPAT-Unknown-0000-Unknown.pdf  -- conf=low → BesteLeidstersHernieuwers-Unknown-0000-Unknown.pdf
+  [general-history] RegionIntroduction-Unknown-0000-Unknown.pdf  -- conf=low → IntroductionBerbersMaghrib-Unknown-0000-Unknown.pdf
+  [general-history] TraineeshipsJobsEuropeanSolidarityCorps-Unknown-0000-Unknown.pdf  -- conf=low → TraineeshipsAndJobsEuropeanSolidarityCorps-Unknown-0000-Unknown.pdf
+  [territorial-disputes] Unknown-Unknown-0000-Unknown.pdf  -- all unknown

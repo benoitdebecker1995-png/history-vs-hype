@@ -1,0 +1,64 @@
+Warning: True color (24-bit) support not detected. Using a terminal with true color enabled will result in a better visual experience.
+YOLO mode is enabled. All tool calls will be automatically approved.
+YOLO mode is enabled. All tool calls will be automatically approved.
+Ripgrep is not available. Falling back to GrepTool.
+Warning: Could not read directory D:\History vs Hype\.pytest_cache: EPERM: operation not permitted, scandir 'D:\History vs Hype\.pytest_cache'
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 4s.. Retrying after 5307ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 8s.. Retrying after 10423ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 22933ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 33987ms...
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 5102ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 6s.. Retrying after 11938ms...
+Attempt 3 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 20551ms...
+Attempt 4 failed: You have exhausted your capacity on this model. Your quota will reset after 2s.. Retrying after 33577ms...
+Error generating content via API with model gemini-3-flash-preview. Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-generateContent-api-2026-05-13T05-35-58-833Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 6h42m7s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306342:23)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 0) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 6h42m7s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 24127775.781082,
+  reason: 'QUOTA_EXHAUSTED'
+}
+Error during web search for query ""Hostage to History" "Cyprus" "Ottomans" "Kissinger" "Christopher Hitchens"": Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 6h42m7s. Error: Failed to generate content with model gemini-3-flash-preview: You have exhausted your capacity on this model. Your quota will reset after 6h42m7s.
+    at GeminiClient.generateContent (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306368:13)
+    at async WebSearchToolInvocation.execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:292445:24)
+    at async executeToolWithHooks (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:302208:22)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306626:28
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async Scheduler._execute (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307260:21)
+    at async Promise.all (index 0)
+    at async Scheduler._processNextItem (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307153:27)
+    at async Scheduler._processQueue (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307108:30)
+    at async Scheduler._startBatch (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:307056:7)
+Error executing tool google_web_search: Error performing web search.
+Error when talking to Gemini API Full report available at: C:\Users\Benoi\AppData\Local\Temp\gemini-client-error-Turn.run-sendMessageStream-2026-05-13T05-35-59-421Z.json TerminalQuotaError: You have exhausted your capacity on this model. Your quota will reset after 6h42m7s.
+    at classifyGoogleError (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:269958:18)
+    at retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270562:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiChat.makeApiCallAndProcessStream (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:293199:28)
+    at async GeminiChat.streamWithRetries (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:293037:29)
+    at async Turn.run (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:293564:24)
+    at async GeminiClient.processTurn (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306115:22)
+    at async GeminiClient.sendMessageStream (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:306227:14)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/gemini-OHH6WLHR.js:10811:26
+    at async main (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/gemini-OHH6WLHR.js:15885:5) {
+  cause: {
+    code: 429,
+    message: 'You have exhausted your capacity on this model. Your quota will reset after 6h42m7s.',
+    details: [ [Object], [Object] ]
+  },
+  retryDelayMs: 24127187.62176,
+  reason: 'QUOTA_EXHAUSTED'
+}
+An unexpected critical error occurred:[object Object]

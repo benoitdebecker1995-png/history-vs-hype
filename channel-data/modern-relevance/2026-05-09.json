@@ -1,0 +1,53 @@
+{
+  "scanned_sources": 6,
+  "total_articles": 91,
+  "projects": [
+    {
+      "slug": "45-manhattan-purchase-myth-2026",
+      "keywords": [
+        "manhattan",
+        "lenape",
+        "native american",
+        "indigenous",
+        "new york history",
+        "colonial",
+        "land rights",
+        "peter minuit",
+        "ny400"
+      ]
+    },
+    {
+      "slug": "5-netanyahu-map-2025",
+      "keywords": [
+        "borders",
+        "netanyahu"
+      ]
+    }
+  ],
+  "hits": {
+    "45-manhattan-purchase-myth-2026": [],
+    "5-netanyahu-map-2025": [
+      {
+        "title": "\u2018They have screwed each other pretty badly\u2019: tensions emerge in Netanyahu-Trump alliance",
+        "summary": "Israeli PM says he has \u2018full coordination\u2019 with US president amid reports that Washington no longer consults him  Benjamin Netanyahu interrupted an uncharacteristically long silence over the Iran conflict this week with a video commentary insisting he had \u201cfull coordination\u201d with Donald Trump, with whom he spoke \u201calmost daily\u201d.  The insistence that all was rosy in the US-Israeli relationship followed weeks of reports in the domestic press that Israel was no longer being consulted over the Iran conflict, and even less over  Pakistani-brokered peace talks . Such is the scepticism over Netanyahu\u2019s trustworthiness among the general public and independent press that the immediate reaction among observers to his video statement was speculation that the reality could be even worse than they had imagined.   Continue reading...",
+        "published": "Sat, 09 May 2026 06:00:49 GMT",
+        "url": "https://www.theguardian.com/world/2026/may/09/tensions-emerge-bejamin-netanyahu-donald-trump-alliance",
+        "source": "The Guardian World",
+        "category": "world",
+        "matched_keywords": [
+          "netanyahu"
+        ]
+      }
+    ]
+  },
+  "errors": [
+    {
+      "source": "Reuters World",
+      "error": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "source": "AP Top News",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    }
+  ]
+}

@@ -1,0 +1,411 @@
+Warning: True color (24-bit) support not detected. Using a terminal with true color enabled will result in a better visual experience.
+YOLO mode is enabled. All tool calls will be automatically approved.
+YOLO mode is enabled. All tool calls will be automatically approved.
+Ripgrep is not available. Falling back to GrepTool.
+Attempt 1 failed with status 429. Retrying with backoff... _GaxiosError: [{
+  "error": {
+    "code": 429,
+    "message": "No capacity available for model gemini-2.5-flash on the server",
+    "errors": [
+      {
+        "message": "No capacity available for model gemini-2.5-flash on the server",
+        "domain": "global",
+        "reason": "rateLimitExceeded"
+      }
+    ],
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "MODEL_CAPACITY_EXHAUSTED",
+        "domain": "cloudcode-pa.googleapis.com",
+        "metadata": {
+          "model": "gemini-2.5-flash"
+        }
+      }
+    ]
+  }
+}
+]
+    at Gaxios._request (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:8811:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async _OAuth2Client.requestAsync (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:10774:16)
+    at async CodeAssistServer.requestStreamingPost (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:272793:17)
+    at async CodeAssistServer.generateContentStream (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:272591:23)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:273444:19
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270539:23)
+    at async GeminiChat.makeApiCallAndProcessStream (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:293199:28)
+    at async GeminiChat.streamWithRetries (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:293037:29) {
+  config: {
+    url: 'https://cloudcode-pa.googleapis.com/v1internal:streamGenerateContent?alt=sse',
+    method: 'POST',
+    params: { alt: 'sse' },
+    headers: {
+      'Content-Type': 'application/json',
+      'User-Agent': 'GeminiCLI/0.41.1/gemini-2.5-flash (win32; x64; terminal) google-api-nodejs-client/9.15.1',
+      Authorization: '<<REDACTED> - See `errorRedactor` option in `gaxios` for configuration>.',
+      'x-goog-api-client': 'gl-node/24.12.0'
+    },
+    responseType: 'stream',
+    body: '<<REDACTED> - See `errorRedactor` option in `gaxios` for configuration>.',
+    signal: AbortSignal { aborted: false },
+    retry: false,
+    paramsSerializer: [Function: paramsSerializer],
+    validateStatus: [Function: validateStatus],
+    errorRedactor: [Function: defaultErrorRedactor]
+  },
+  response: {
+    config: {
+      url: 'https://cloudcode-pa.googleapis.com/v1internal:streamGenerateContent?alt=sse',
+      method: 'POST',
+      params: [Object],
+      headers: [Object],
+      responseType: 'stream',
+      body: '<<REDACTED> - See `errorRedactor` option in `gaxios` for configuration>.',
+      signal: [AbortSignal],
+      retry: false,
+      paramsSerializer: [Function: paramsSerializer],
+      validateStatus: [Function: validateStatus],
+      errorRedactor: [Function: defaultErrorRedactor]
+    },
+    data: '[{\n' +
+      '  "error": {\n' +
+      '    "code": 429,\n' +
+      '    "message": "No capacity available for model gemini-2.5-flash on the server",\n' +
+      '    "errors": [\n' +
+      '      {\n' +
+      '        "message": "No capacity available for model gemini-2.5-flash on the server",\n' +
+      '        "domain": "global",\n' +
+      '        "reason": "rateLimitExceeded"\n' +
+      '      }\n' +
+      '    ],\n' +
+      '    "status": "RESOURCE_EXHAUSTED",\n' +
+      '    "details": [\n' +
+      '      {\n' +
+      '        "@type": "type.googleapis.com/google.rpc.ErrorInfo",\n' +
+      '        "reason": "MODEL_CAPACITY_EXHAUSTED",\n' +
+      '        "domain": "cloudcode-pa.googleapis.com",\n' +
+      '        "metadata": {\n' +
+      '          "model": "gemini-2.5-flash"\n' +
+      '        }\n' +
+      '      }\n' +
+      '    ]\n' +
+      '  }\n' +
+      '}\n' +
+      ']',
+    headers: {
+      'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000',
+      'content-length': '612',
+      'content-type': 'application/json; charset=UTF-8',
+      date: 'Tue, 12 May 2026 13:32:14 GMT',
+      server: 'ESF',
+      'server-timing': 'gfet4t7; dur=942',
+      vary: 'Origin, X-Origin, Referer',
+      'x-cloudaicompanion-trace-id': 'a57cdab00c64c7e0',
+      'x-content-type-options': 'nosniff',
+      'x-frame-options': 'SAMEORIGIN',
+      'x-xss-protection': '0'
+    },
+    status: 429,
+    statusText: 'Too Many Requests',
+    request: {
+      responseURL: 'https://cloudcode-pa.googleapis.com/v1internal:streamGenerateContent?alt=sse'
+    }
+  },
+  error: undefined,
+  status: 429,
+  Symbol(gaxios-gaxios-error): '6.7.1'
+}
+Attempt 2 failed with status 429. Retrying with backoff... _GaxiosError: [{
+  "error": {
+    "code": 429,
+    "message": "No capacity available for model gemini-2.5-flash on the server",
+    "errors": [
+      {
+        "message": "No capacity available for model gemini-2.5-flash on the server",
+        "domain": "global",
+        "reason": "rateLimitExceeded"
+      }
+    ],
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "MODEL_CAPACITY_EXHAUSTED",
+        "domain": "cloudcode-pa.googleapis.com",
+        "metadata": {
+          "model": "gemini-2.5-flash"
+        }
+      }
+    ]
+  }
+}
+]
+    at Gaxios._request (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:8811:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async _OAuth2Client.requestAsync (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:10774:16)
+    at async CodeAssistServer.requestStreamingPost (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:272793:17)
+    at async CodeAssistServer.generateContentStream (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:272591:23)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:273444:19
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270539:23)
+    at async GeminiChat.makeApiCallAndProcessStream (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:293199:28)
+    at async GeminiChat.streamWithRetries (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:293037:29) {
+  config: {
+    url: 'https://cloudcode-pa.googleapis.com/v1internal:streamGenerateContent?alt=sse',
+    method: 'POST',
+    params: { alt: 'sse' },
+    headers: {
+      'Content-Type': 'application/json',
+      'User-Agent': 'GeminiCLI/0.41.1/gemini-2.5-flash (win32; x64; terminal) google-api-nodejs-client/9.15.1',
+      Authorization: '<<REDACTED> - See `errorRedactor` option in `gaxios` for configuration>.',
+      'x-goog-api-client': 'gl-node/24.12.0'
+    },
+    responseType: 'stream',
+    body: '<<REDACTED> - See `errorRedactor` option in `gaxios` for configuration>.',
+    signal: AbortSignal { aborted: false },
+    retry: false,
+    paramsSerializer: [Function: paramsSerializer],
+    validateStatus: [Function: validateStatus],
+    errorRedactor: [Function: defaultErrorRedactor]
+  },
+  response: {
+    config: {
+      url: 'https://cloudcode-pa.googleapis.com/v1internal:streamGenerateContent?alt=sse',
+      method: 'POST',
+      params: [Object],
+      headers: [Object],
+      responseType: 'stream',
+      body: '<<REDACTED> - See `errorRedactor` option in `gaxios` for configuration>.',
+      signal: [AbortSignal],
+      retry: false,
+      paramsSerializer: [Function: paramsSerializer],
+      validateStatus: [Function: validateStatus],
+      errorRedactor: [Function: defaultErrorRedactor]
+    },
+    data: '[{\n' +
+      '  "error": {\n' +
+      '    "code": 429,\n' +
+      '    "message": "No capacity available for model gemini-2.5-flash on the server",\n' +
+      '    "errors": [\n' +
+      '      {\n' +
+      '        "message": "No capacity available for model gemini-2.5-flash on the server",\n' +
+      '        "domain": "global",\n' +
+      '        "reason": "rateLimitExceeded"\n' +
+      '      }\n' +
+      '    ],\n' +
+      '    "status": "RESOURCE_EXHAUSTED",\n' +
+      '    "details": [\n' +
+      '      {\n' +
+      '        "@type": "type.googleapis.com/google.rpc.ErrorInfo",\n' +
+      '        "reason": "MODEL_CAPACITY_EXHAUSTED",\n' +
+      '        "domain": "cloudcode-pa.googleapis.com",\n' +
+      '        "metadata": {\n' +
+      '          "model": "gemini-2.5-flash"\n' +
+      '        }\n' +
+      '      }\n' +
+      '    ]\n' +
+      '  }\n' +
+      '}\n' +
+      ']',
+    headers: {
+      'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000',
+      'content-length': '612',
+      'content-type': 'application/json; charset=UTF-8',
+      date: 'Tue, 12 May 2026 13:32:27 GMT',
+      server: 'ESF',
+      'server-timing': 'gfet4t7; dur=7524',
+      vary: 'Origin, X-Origin, Referer',
+      'x-cloudaicompanion-trace-id': '2f187f2925ca8e04',
+      'x-content-type-options': 'nosniff',
+      'x-frame-options': 'SAMEORIGIN',
+      'x-xss-protection': '0'
+    },
+    status: 429,
+    statusText: 'Too Many Requests',
+    request: {
+      responseURL: 'https://cloudcode-pa.googleapis.com/v1internal:streamGenerateContent?alt=sse'
+    }
+  },
+  error: undefined,
+  status: 429,
+  Symbol(gaxios-gaxios-error): '6.7.1'
+}
+Attempt 3 failed with status 429. Retrying with backoff... _GaxiosError: [{
+  "error": {
+    "code": 429,
+    "message": "No capacity available for model gemini-2.5-flash on the server",
+    "errors": [
+      {
+        "message": "No capacity available for model gemini-2.5-flash on the server",
+        "domain": "global",
+        "reason": "rateLimitExceeded"
+      }
+    ],
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "MODEL_CAPACITY_EXHAUSTED",
+        "domain": "cloudcode-pa.googleapis.com",
+        "metadata": {
+          "model": "gemini-2.5-flash"
+        }
+      }
+    ]
+  }
+}
+]
+    at Gaxios._request (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:8811:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async _OAuth2Client.requestAsync (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:10774:16)
+    at async CodeAssistServer.requestStreamingPost (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:272793:17)
+    at async CodeAssistServer.generateContentStream (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:272591:23)
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:273444:19
+    at async file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:250345:23
+    at async retryWithBackoff (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:270539:23)
+    at async GeminiChat.makeApiCallAndProcessStream (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:293199:28)
+    at async GeminiChat.streamWithRetries (file:///C:/Users/Benoi/AppData/Roaming/npm/node_modules/@google/gemini-cli/bundle/chunk-NET4RIEQ.js:293037:29) {
+  config: {
+    url: 'https://cloudcode-pa.googleapis.com/v1internal:streamGenerateContent?alt=sse',
+    method: 'POST',
+    params: { alt: 'sse' },
+    headers: {
+      'Content-Type': 'application/json',
+      'User-Agent': 'GeminiCLI/0.41.1/gemini-2.5-flash (win32; x64; terminal) google-api-nodejs-client/9.15.1',
+      Authorization: '<<REDACTED> - See `errorRedactor` option in `gaxios` for configuration>.',
+      'x-goog-api-client': 'gl-node/24.12.0'
+    },
+    responseType: 'stream',
+    body: '<<REDACTED> - See `errorRedactor` option in `gaxios` for configuration>.',
+    signal: AbortSignal { aborted: false },
+    retry: false,
+    paramsSerializer: [Function: paramsSerializer],
+    validateStatus: [Function: validateStatus],
+    errorRedactor: [Function: defaultErrorRedactor]
+  },
+  response: {
+    config: {
+      url: 'https://cloudcode-pa.googleapis.com/v1internal:streamGenerateContent?alt=sse',
+      method: 'POST',
+      params: [Object],
+      headers: [Object],
+      responseType: 'stream',
+      body: '<<REDACTED> - See `errorRedactor` option in `gaxios` for configuration>.',
+      signal: [AbortSignal],
+      retry: false,
+      paramsSerializer: [Function: paramsSerializer],
+      validateStatus: [Function: validateStatus],
+      errorRedactor: [Function: defaultErrorRedactor]
+    },
+    data: '[{\n' +
+      '  "error": {\n' +
+      '    "code": 429,\n' +
+      '    "message": "No capacity available for model gemini-2.5-flash on the server",\n' +
+      '    "errors": [\n' +
+      '      {\n' +
+      '        "message": "No capacity available for model gemini-2.5-flash on the server",\n' +
+      '        "domain": "global",\n' +
+      '        "reason": "rateLimitExceeded"\n' +
+      '      }\n' +
+      '    ],\n' +
+      '    "status": "RESOURCE_EXHAUSTED",\n' +
+      '    "details": [\n' +
+      '      {\n' +
+      '        "@type": "type.googleapis.com/google.rpc.ErrorInfo",\n' +
+      '        "reason": "MODEL_CAPACITY_EXHAUSTED",\n' +
+      '        "domain": "cloudcode-pa.googleapis.com",\n' +
+      '        "metadata": {\n' +
+      '          "model": "gemini-2.5-flash"\n' +
+      '        }\n' +
+      '      }\n' +
+      '    ]\n' +
+      '  }\n' +
+      '}\n' +
+      ']',
+    headers: {
+      'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000',
+      'content-length': '612',
+      'content-type': 'application/json; charset=UTF-8',
+      date: 'Tue, 12 May 2026 13:32:38 GMT',
+      server: 'ESF',
+      'server-timing': 'gfet4t7; dur=781',
+      vary: 'Origin, X-Origin, Referer',
+      'x-cloudaicompanion-trace-id': 'b3e4b2a05860a963',
+      'x-content-type-options': 'nosniff',
+      'x-frame-options': 'SAMEORIGIN',
+      'x-xss-protection': '0'
+    },
+    status: 429,
+    statusText: 'Too Many Requests',
+    request: {
+      responseURL: 'https://cloudcode-pa.googleapis.com/v1internal:streamGenerateContent?alt=sse'
+    }
+  },
+  error: undefined,
+  status: 429,
+  Symbol(gaxios-gaxios-error): '6.7.1'
+}
+<ctrl46>update_topic{strategic_intent:The user has provided a list of PDF text extracts from various historical documents and academic papers. I need to process each entry according to the specified output format and rules. This will involve extracting the title, author, year, and publisher, and assigning a confidence level based on the clarity of the information in the extract.```json
+[
+  {"i":1, "f":"BulletinOfficielEtatIndependant-Unknown-0000-Unknown.pdf", "t":"BulletinOfficielEtatIndependantDuCongo", "a":"CONGO", "y":"1891", "p":"GallicaBnF", "confidence":"high"},
+  {"i":2, "f":"CFAAgreements-Unknown-0000-Unknown.pdf", "t":"CFAAgreementsSahel", "a":"BANQUEDEFRANCE", "y":"1945", "p":"BanqueDeFrance", "confidence":"high"},
+  {"i":3, "f":"CFAAgreementsSahel-Unknown-0000-Unknown.pdf", "t":"AccordsDeCooperationMilitaireFranceSahel", "a":"FRANCE", "y":"1960", "p":"JournalOfficielRepubliqueFrancaise", "confidence":"high"},
+  {"i":4, "f":"ConflictedColonialismsSahel-Unknown-0000-Unknown.pdf", "t":"ConflictedColonialismsMultiDimensionalViolenceWesternSahel", "a":"MCGIFFIN", "y":"2021", "p":"Taylor&FrancisGroup", "confidence":"high"},
+  {"i":5, "f":"DisutilitiesOfForceMali-Unknown-0000-Unknown.pdf", "t":"DisutilitiesOfForcePostcolonialContextExplainingStrategicFailureFrenchLedInterventionMali", "a":"BERTRAND", "y":"2024", "p":"Taylor&FrancisGroup", "confidence":"high"},
+  {"i":6, "f":"FrenchInterventionismSahel-Unknown-0000-Unknown.pdf", "t":"FrenchInterventionismSahelFlawedStrategyImperfectGeopolitics", "a":"SOUR", "y":"2024", "p":"PrzegladGeopolityczny", "confidence":"high"},
+  {"i":7, "f":"ModernSomalilandHistory-Unknown-0000-AnnaArchive.pdf", "t":"Unknown", "a":"Unknown", "y":"0000", "p":"Unknown", "confidence":"low"},
+  {"i":8, "f":"Unknown-Unknown-0000-Unknown.pdf", "t":"BulletinOfficielEtatIndependantDuCongo", "a":"CONGO", "y":"1892", "p":"GallicaBnF", "confidence":"high"},
+  {"i":9, "f":"ConflictedColonialismsViolenceSahel-Unknown-0000-Unknown.pdf", "t":"ConflictedColonialismsMultiDimensionalViolenceWesternSahel", "a":"MCGIFFIN", "y":"2021", "p":"Taylor&FrancisGroup", "confidence":"high"},
+  {"i":10, "f":"CouncilMinutes-Unknown-0000-Unknown.pdf", "t":"NewYorkHistoricalManuscriptsDutch", "a":"Unknown", "y":"0000", "p":"Unknown", "confidence":"low"},
+  {"i":11, "f":"ExtraResearch-Unknown-0000-Unknown.pdf", "t":"DataSaysOptionCNeitherANorB", "a":"Unknown", "y":"0000", "p":"Unknown", "confidence":"low"},
+  {"i":12, "f":"GeminiVidResearch-Unknown-0000-Unknown.pdf", "t":"PrimaryKeywordAnalysis", "a":"Unknown", "y":"0000", "p":"Unknown", "confidence":"low"},
+  {"i":13, "f":"GrandfathersSpeak-Unknown-0000-Unknown.pdf", "t":"GrandfathersSpeakNativeAmericanFolkTales", "a":"Unknown", "y":"0000", "p":"Unknown", "confidence":"low"},
+  {"i":14, "f":"Research-Unknown-0000-Unknown.pdf", "t":"PrimaryKeywordAnalysis", "a":"Unknown", "y":"0000", "p":"Unknown", "confidence":"low"},
+  {"i":15, "f":"ResearchPrompt-Unknown-0000-Unknown.pdf", "t":"HistoryVsHypeNotebookLMMasterResearchProtocol", "a":"Unknown", "y":"0000", "p":"Unknown", "confidence":"low"},
+  {"i":16, "f":"BibFict-Unknown-0000-Unknown.pdf", "t":"TruthAboutTheProtocols", "a":"Unknown", "y":"1921", "p":"TheTimes", "confidence":"medium"},
+  {"i":17, "f":"BlandijnDocument-Unknown-0000-Unknown.pdf", "t":"Auditorium3SuzanneLilar", "a":"Unknown", "y":"0000", "p":"Unknown", "confidence":"low"},
+  {"i":18, "f":"ContemporaryFarRightCulture-Unknown-0000-Unknown.pdf", "t":"ContemporaryFarRightCulture", "a":"ARGENTINO", "y":"0000", "p":"Unknown", "confidence":"medium"},
+  {"i":19, "f":"D&DPlayersHandbook-Unknown-0000-Unknown.pdf", "t":"PlayersHandbook", "a":"Unknown", "y":"0000", "p":"Unknown", "confidence":"low"},
+  {"i":20, "f":"EducationalPolicy-Unknown-0000-Unknown.pdf", "t":"DeclarationAccessUniversityBachelorProgramme", "a":"Unknown", "y":"0000", "p":"GhentUniversity", "confidence":"medium"},
+  {"i":21, "f":"EuropeanYouthProposal-Unknown-0000-Unknown.pdf", "t":"EuropeanYouthTeamProposal", "a":"Unknown", "y":"0000", "p":"PeaceJamEurope", "confidence":"low"},
+  {"i":22, "f":"FinDeMundo-Unknown-0000-Unknown.pdf", "t":"FinDeMundoLosSelknamDeTierraDelFuego", "a":"CHAPMAN", "y":"0000", "p":"TallerExperimentalCuerposPintados", "confidence":"medium"},
+  {"i":23, "f":"FrenchInterventionismSahel-Unknown-0000-Unknown.pdf", "t":"FrenchInterventionismSahelFlawedStrategyImperfectGeopolitics", "a":"SOUR", "y":"2024", "p":"PrzegladGeopolityczny", "confidence":"high"},
+  {"i":24, "f":"GuidebookTEC-Unknown-0000-Unknown.pdf", "t":"EuropeanSolidarityCorpsReadySetMakeTheChange", "a":"Unknown", "y":"0000", "p":"Unknown", "confidence":"low"},
+  {"i":25, "f":"ISBN9781611454048-Unknown-0000-Unknown.pdf", "t":"TheFirstCrusade", "a":"FOSS", "y":"0000", "p":"Unknown", "confidence":"medium"},
+  {"i":26, "f":"KSATPPAT-Unknown-0000-Unknown.pdf", "t":"BesteLeidstersHernieuwers", "a":"Unknown", "y":"0000", "p":"Unknown", "confidence":"low"},
+  {"i":27, "f":"Layout1-Unknown-0000-Unknown.pdf", "t":"HelotsAndBarbariansHistoriographyAndRepresentations", "a":"LURAGHI", "y":"0000", "p":"Unknown", "confidence":"medium"},
+  {"i":28, "f":"LeyesReinosIndias-Unknown-0000-Unknown.pdf", "t":"RecopilacionDeLosReinosDeLasIndias", "a":"Unknown", "y":"1841", "p":"ImprentaLibreriaCarretas", "confidence":"high"},
+  {"i":29, "f":"McMahonHusseinCorrespondence-Unknown-0000-Unknown.pdf", "t":"McMahonHusseinCorrespondence", "a":"MCMAHON", "y":"1915", "p":"Wikisource", "confidence":"high"},
+  {"i":30, "f":"Peoples-Unknown-0000-Unknown.pdf", "t":"PeoplesHistoryOfTheUnitedStates", "a":"ZINN", "y":"0000", "p":"Unknown", "confidence":"medium"},
+  {"i":31, "f":"Prehistory1066Lecture-Unknown-0000-Unknown.pdf", "t":"HistoryAndCultureOfTheAngloSaxonWorld", "a":"GRAHAMGOERING", "y":"0000", "p":"Unknown", "confidence":"medium"},
+  {"i":32, "f":"RecopilacionLeyesIndias-Unknown-0000-Unknown.pdf", "t":"RecopilacionDeLosReinosDeLasIndias", "a":"Unknown", "y":"1841", "p":"ImprentaLibreriaCarretas", "confidence":"high"},
+  {"i":33, "f":"RegionIntroduction-Unknown-0000-Unknown.pdf", "t":"IntroductionBerbersMaghrib", "a":"Unknown", "y":"0000", "p":"Unknown", "confidence":"low"},
+  {"i":34, "f":"SamenvattingConstructieVerleden-Unknown-0000-Unknown.pdf", "t":"SamenvattingDeConstructieVanHetVerleden", "a":"Unknown", "y":"0000", "p":"StuDocu", "confidence":"medium"},
+  {"i":35, "f":"TraineeshipsJobsEuropeanSolidarityCorps-Unknown-0000-Unknown.pdf", "t":"TraineeshipsAndJobsEuropeanSolidarityCorps", "a":"Unknown", "y":"0000", "p":"Unknown", "confidence":"low"},
+  {"i":36, "f":"UntitledDocument-Unknown-0000-Unknown.pdf", "t":"DixiesDaughters", "a":"COX", "y":"0000", "p":"Unknown", "confidence":"medium"},
+  {"i":37, "f":"WordDocument3-Unknown-0000-Unknown.pdf", "t":"RimeOfTheFrostmaidenCampaignGuide", "a":"Unknown", "y":"0000", "p":"Unknown", "confidence":"medium"},
+  {"i":38, "f":"YouthResearchPodcast-Unknown-0000-Unknown.pdf", "t":"YouthResearchPodcast", "a":"PASIC", "y":"0000", "p":"MOOC", "confidence":"medium"},
+  {"i":39, "f":"IranBetweenTwoRevolutionsZLibrary-Unknown-0000-ZLib.pdf", "t":"IranBetweenTwoRevolutions", "a":"Unknown", "y":"0000", "p":"PrincetonStudiesOnNearEast", "confidence":"high"},
+  {"i":40, "f":"UnknownTitle-Unknown-0000-Unknown.pdf", "t":"TreatiesAndOtherInternationalActsOfTheUnitedStatesOfAmerica", "a":"Unknown", "y":"0000", "p":"Google", "confidence":"medium"},
+  {"i":41, "f":"ArchaeologicalResearchArchival-Unknown-0000-Unknown.pdf", "t":"IntegratedArchaeologicalResearchArchivalResourcesSurveysGeophysicalProspectionAndExcavationApproach", "a":"ROZYCKI", "y":"2020", "p":"Geosciences", "confidence":"high"},
+  {"i":42, "f":"AnglophoneConnection-Unknown-0000-Unknown.pdf", "t":"AnglophoneCameroonNigeriaBoundaryOpportunitiesAndConflicts", "a":"KONINGS", "y":"2005", "p":"RoyalAfricanSociety", "confidence":"high"},
+  {"i":43, "f":"Bakassi-Unknown-0000-Unknown.pdf", "t":"InternationalCourtOfJusticeAndBorderConflictResolutionAfricaBakassiPeninsulaConflict", "a":"ANYU", "y":"2007", "p":"MediterraneanAffairsInc", "confidence":"high"},
+  {"i":44, "f":"CompleteCollectionTreaties-Unknown-0000-Unknown.pdf", "t":"CompleteCollectionTreaties", "a":"Unknown", "y":"0000", "p":"Google", "confidence":"medium"},
+  {"i":45, "f":"EjiTalk-Unknown-0000-Unknown.pdf", "t":"GuatemalasApplicationToInterveneInTheSapodillaCayesCaseAnImpermissibleInterventionByAnIndispensableParty", "a":"MOITRA", "y":"0000", "p":"EJILTalk", "confidence":"high"},
+  {"i":46, "f":"GrantBySultanSuluTerritoriesLandsMainlandIsla-Unknown-0000-Unknown.pdf", "t":"GrantBySultanOfSuluOfTerritoriesAndLandsOnTheMainlandOfBorneo", "a":"SULU", "y":"1878", "p":"Unknown", "confidence":"high"},
+  {"i":47, "f":"IBS008-Unknown-0000-Unknown.pdf", "t":"BelizeBritishHondurasGuatemalaBoundary", "a":"GEOGRAPHER", "y":"1961", "p":"OfficeOfTheGeographerBureauOfIntelligenceAndResearch", "confidence":"high"},
+  {"i":48, "f":"ImplicationsBakassiConflictRes-Unknown-0000-Unknown.pdf", "t":"ImplicationsOfTheBakassiConflictResolutionForCameroon", "a":"BAYE", "y":"0000", "p":"Unknown", "confidence":"high"},
+  {"i":49, "f":"IndiaTransferOfP12Nich-Unknown-0000-Unknown.pdf", "t":"ConstitutionalRelationsBetweenBritainAndIndiaTheTransferOfPower", "a":"MANSERGH", "y":"1947", "p":"HerMajestysStationeryOffice", "confidence":"high"},
+  {"i":50, "f":"JLCVol2No2-Unknown-0000-Unknown.pdf", "t":"CulturoLinguisticFactorAsFacilitatorOfPeaceInPresentDayNigeriaCamerounBorderRelations", "a":"EDUNG", "y":"2015", "p":"ResearchAcademyOfSocialSciences", "confidence":"high"},
+  {"i":51, "f":"LandDemarcation-Unknown-0000-Unknown.pdf", "t":"LandAndMaritimeBoundaryBetweenCameroonAndNigeriaCase", "a":"KHAN", "y":"2007", "p":"OxfordPublicInternationalLaw", "confidence":"high"},
+  {"i":52, "f":"PartitionBritishIndia-Unknown-0000-Unknown.pdf", "t":"PartitionOfBritishIndia", "a":"Unknown", "y":"0000", "p":"TheNationalArchives", "confidence":"medium"},
+  {"i":53, "f":"StatelessBakassiChangedBorderLeftInhabitantsA-Unknown-0000-Unknown.pdf", "t":"StatelessInBakassiHowChangedBorderLeftInhabitantsAdrift", "a":"Unknown", "y":"0000", "p":"JusticeInitiative", "confidence":"medium"},
+  {"i":54, "f":"TransferAuthorityBakassi-Unknown-0000-Unknown.pdf", "t":"SecretaryGeneralStatementOnBakassiPeninsula", "a":"BANKIMOON", "y":"2008", "p":"UnitedNations", "confidence":"high"},
+  {"i":55, "f":"TransferPower-Unknown-0000-Unknown.pdf", "t":"IndiaTransferOfPower", "a":"ATTLEE", "y":"1947", "p":"Hansard", "confidence":"high"},
+  {"i":56, "f":"Unknown-Unknown-0000-Unknown-v2.pdf", "t":"LandAndMaritimeBoundaryBetweenCameroonAndNigeria", "a":"INTERNATIONALCOURTOFJUSTICE", "y":"2002", "p":"ICJ", "confidence":"high"},
+  {"i":57, "f":"Unknown-Unknown-0000-Unknown.pdf", "t":"Unknown", "a":"Unknown", "y":"0000", "p":"InternetArchive", "confidence":"low"}
+]
+```
+The task is complete. I have processed each entry and formatted the output as a JSON array, adhering to all specified rules for title slug, author, year, publisher, and confidence level.

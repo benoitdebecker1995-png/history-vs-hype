@@ -1,0 +1,952 @@
+Warning: True color (24-bit) support not detected. Using a terminal with true color enabled will result in a better visual experience.
+YOLO mode is enabled. All tool calls will be automatically approved.
+YOLO mode is enabled. All tool calls will be automatically approved.
+Ripgrep is not available. Falling back to GrepTool.
+Warning: Could not read directory D:\History vs Hype\.pytest_cache: EPERM: operation not permitted, scandir 'D:\History vs Hype\.pytest_cache'
+C:\Users\Benoi\AppData\Roaming\npm\node_modules\@google\gemini-cli\node_modules\@lydell\node-pty\conpty_console_list_agent.js:11
+var consoleProcessList = getConsoleProcessList(shellPid);
+                         ^
+
+Error: AttachConsole failed
+    at Object.<anonymous> (C:\Users\Benoi\AppData\Roaming\npm\node_modules\@google\gemini-cli\node_modules\@lydell\node-pty\conpty_console_list_agent.js:11:26)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47
+
+Node.js v24.12.0
+C:\Users\Benoi\AppData\Roaming\npm\node_modules\@google\gemini-cli\node_modules\@lydell\node-pty\conpty_console_list_agent.js:11
+var consoleProcessList = getConsoleProcessList(shellPid);
+                         ^
+
+Error: AttachConsole failed
+    at Object.<anonymous> (C:\Users\Benoi\AppData\Roaming\npm\node_modules\@google\gemini-cli\node_modules\@lydell\node-pty\conpty_console_list_agent.js:11:26)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47
+
+Node.js v24.12.0
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 0s.. Retrying after 5926ms...
+```json
+[
+  {
+    "o": "[Cambridge Middle East studies 29] Mehran Kamrava - Iran's intellectual revolution (2008, Cambridge University Press) - libgen.li.azw3",
+    "a": "Kamrava",
+    "y": "2008",
+    "t": "IransIntellectualRevolution",
+    "p": "Cambridge",
+    "c": "Kamrava-2008-IransIntellectualRevolution-Cambridge.azw3",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "[Cambridge Studies in Islamic Civilization] Yossef Rapoport - Marriage, Money and Divorce in Medieval Islamic Society (2005, Cambridge University Press) - libgen.li.pdf",
+    "a": "Rapoport",
+    "y": "2005",
+    "t": "MarriageMoneyDivorceMedievalIslamicSociety",
+    "p": "Cambridge",
+    "c": "Rapoport-2005-MarriageMoneyDivorceMedievalIslamicSociety-Cambridge.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "[Stanford Studies in Middle Eastern and Islamic Societies and Cultures] Asef Bayat - Revolution without Revolutionaries_ Making Sense of the Arab Spring (2017, Stanford University Press) - libgen.li.pdf",
+    "a": "Bayat",
+    "y": "2017",
+    "t": "RevolutionWithoutRevolutionariesMakingSenseArabSpring",
+    "p": "Stanford",
+    "c": "Bayat-2017-RevolutionWithoutRevolutionariesMakingSenseArabSpring-Stanford.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "[The Schusterman Series in Israel Studies] Anita Shapira - Israel- A History (2012, Brandeis).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "AnitaShapiraIsraelHistory",
+    "p": "Unknown",
+    "c": "Unknown-0000-AnitaShapiraIsraelHistory-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "A line in the sand the Anglo-French struggle for the Middle East, 1914-1948 (James Barr).pdf",
+    "a": "Unknown",
+    "y": "1914",
+    "t": "LineSandAngloFrenchStruggleMiddleEast19141948",
+    "p": "Unknown",
+    "c": "Unknown-1914-LineSandAngloFrenchStruggleMiddleEast19141948-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "A Social Revolution Politics and the Welfare State in Iran (Kevan Harris) (Z-Library).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "SocialRevolutionPoliticsWelfareStateIranZLibrary",
+    "p": "ZLib",
+    "c": "Unknown-0000-SocialRevolutionPoliticsWelfareStateIranZLibrary-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Ali M. Ansari - Modern Iran since 1797_ Reform and Revolution (2019, Routledge) - libgen.li.pdf",
+    "a": "Ansari",
+    "y": "2019",
+    "t": "ModernIranSince1797ReformRevolution",
+    "p": "Routledge",
+    "c": "Ansari-2019-ModernIranSince1797ReformRevolution-Routledge.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "All the Shahs Men - An American Coup and the Roots of Middle East Terror (Wiley, 2003) (Stephen Kinzer) (Z-Library).pdf",
+    "a": "Kinzer",
+    "y": "0000",
+    "t": "AllShahsMenAmericanCoupRootsMiddleEastTerrorZLibrary",
+    "p": "ZLib",
+    "c": "Kinzer-0000-AllShahsMenAmericanCoupRootsMiddleEastTerrorZLibrary-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Barr - A Line in the Sand (2011).pdf",
+    "a": "Barr",
+    "y": "2011",
+    "t": "LineSand",
+    "p": "Unknown",
+    "c": "Barr-2011-LineSand-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Bazaar and State in Iran The Politics of the Tehran Marketplace (Arang Keshavarzian) (Z-Library).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "BazaarStateIranPoliticsTehranMarketplaceZLibrary",
+    "p": "ZLib",
+    "c": "Unknown-0000-BazaarStateIranPoliticsTehranMarketplaceZLibrary-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Behind the 1953 Coup in Iran Thugs, Turncoats, Soldiers, and Spooks (Ali Rahnema) (Z-Library).pdf",
+    "a": "Unknown",
+    "y": "1953",
+    "t": "Behind1953CoupIranThugsTurncoatsSoldiersSpooksZLibrary",
+    "p": "ZLib",
+    "c": "Unknown-1953-Behind1953CoupIranThugsTurncoatsSoldiersSpooksZLibrary-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Beshara Doumani - Rediscovering Palestine- Merchants and Peasants in Jabal Nablus, 1700-1900 (1995, University of California Press).pdf",
+    "a": "Doumani",
+    "y": "1700",
+    "t": "RediscoveringPalestineMerchantsPeasantsJabalNablus17001900",
+    "p": "Berkeley",
+    "c": "Doumani-1700-RediscoveringPalestineMerchantsPeasantsJabalNablus17001900-Berkeley.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Charles Kurzman - The Unthinkable Revolution in Iran (2005, Harvard University Press) - libgen.li.pdf",
+    "a": "Kurzman",
+    "y": "2005",
+    "t": "UnthinkableRevolutionIran",
+    "p": "Harvard",
+    "c": "Kurzman-2005-UnthinkableRevolutionIran-Harvard.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Chomsky - Fateful Triangle US Israel Palestine (1999).pdf",
+    "a": "Chomsky",
+    "y": "1999",
+    "t": "FatefulTriangleIsraelPalestine",
+    "p": "Unknown",
+    "c": "Chomsky-1999-FatefulTriangleIsraelPalestine-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Chomsky - Fateful Triangle US Israel Palestinians (1983).pdf",
+    "a": "Chomsky",
+    "y": "1983",
+    "t": "FatefulTriangleIsraelPalestinians",
+    "p": "Unknown",
+    "c": "Chomsky-1983-FatefulTriangleIsraelPalestinians-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Countercoup _ the struggle for the control of Iran -- Roosevelt, Kermit -- McGraw-Hill paperbacks_ Political science, New York, 1981 -- McGraw Hill -- 9780070535909 -- 3fb44404676045763be875b6f0b61ad1 -- Anna’s Archive.pdf",
+    "a": "Unknown",
+    "y": "1981",
+    "t": "CountercoupStruggleControlIranRooseveltKermitMcgrawHillPaperbacksPoliticalScienceNewYork1981McgrawHill97800705359093fb44404676045763be875b6f0b61ad1AnnaSArchive",
+    "p": "AnnaArchive",
+    "c": "Unknown-1981-CountercoupStruggleControlIranRooseveltKermitMcgrawHillPaperbacksPoliticalScienceNewYork1981McgrawHill97800705359093fb44404676045763be875b6f0b61ad1AnnaSArchive-AnnaArchive.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "crane2020.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UnknownTitle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Dershowitz - The Case for Israel (2011).pdf",
+    "a": "Dershowitz",
+    "y": "2011",
+    "t": "CaseIsrael",
+    "p": "Unknown",
+    "c": "Dershowitz-2011-CaseIsrael-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Dialnet-UnSigloDeLaDeclaracionBalfourUnaAproximacionHeuris-6361707.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UnknownTitle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Domestic Violence and the Islamic Tradition (Ayesha S. Chaudhry) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Chaudhry",
+    "y": "0000",
+    "t": "DomesticViolenceIslamicTradition",
+    "p": "ZLib",
+    "c": "Chaudhry-0000-DomesticViolenceIslamicTradition-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Doumani - Rediscovering Palestine (1995).pdf",
+    "a": "Doumani",
+    "y": "1995",
+    "t": "RediscoveringPalestine",
+    "p": "Unknown",
+    "c": "Doumani-1995-RediscoveringPalestine-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Ervand Abrahamian - Khomeinism_ Essays on the Islamic Republic (2012, University of California Press) - libgen.li.pdf",
+    "a": "Abrahamian",
+    "y": "2012",
+    "t": "KhomeinismEssaysIslamicRepublic",
+    "p": "Berkeley",
+    "c": "Abrahamian-2012-KhomeinismEssaysIslamicRepublic-Berkeley.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "European Jewry in the age of mercantilism - 1550-1750 -- Jonathan Irvine Israel -- Oxford, New York, England, 1985 -- Oxford- Clarendon Press ; New -- 9780198219286 -- eee01a986140704f2815f683e26eaeb0 -- Anna’s Archive.pdf",
+    "a": "mercantilism",
+    "y": "1550",
+    "t": "15501750JonathanIrvineIsraelOxfordNewYorkEngland1985OxfordClarendonPressNew9780198219286Eee01a986140704f2815f683e26eaeb0AnnaSArchive",
+    "p": "AnnaArchive",
+    "c": "mercantilism-1550-15501750JonathanIrvineIsraelOxfordNewYorkEngland1985OxfordClarendonPressNew9780198219286Eee01a986140704f2815f683e26eaeb0AnnaSArchive-AnnaArchive.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Fateful-Triangle-The-United-States--Israel--and-the-Palestinians--Noam-Chomsky---Z-Library-.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "FatefulTriangleUnitedStatesIsraelPalestiniansNoamChomskyZLibrary",
+    "p": "ZLib",
+    "c": "Unknown-0000-FatefulTriangleUnitedStatesIsraelPalestiniansNoamChomskyZLibrary-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Fatma Müge Göçek - Denial of Violence- Ottoman Past, Turkish Present, and Collective Violence Against the Armenians, 1789-2009 (2014, Oxford University Press, USA).pdf",
+    "a": "Göçek",
+    "y": "1789",
+    "t": "DenialViolenceOttomanPastTurkishPresentCollectiveViolenceAgainstArmenians17892009",
+    "p": "Oxford",
+    "c": "Gek-1789-DenialViolenceOttomanPastTurkishPresentCollectiveViolenceAgainstArmenians17892009-Oxford.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Finkelstein - Image and Reality Israel-Palestine Conflict (2016).pdf",
+    "a": "Finkelstein",
+    "y": "2016",
+    "t": "ImageRealityIsraelPalestineConflict",
+    "p": "Unknown",
+    "c": "Finkelstein-2016-ImageRealityIsraelPalestineConflict-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Finkelstein - Image and Reality of the Israel-Palestine Conflict (2003).pdf",
+    "a": "Finkelstein",
+    "y": "2003",
+    "t": "ImageRealityIsraelPalestineConflict",
+    "p": "Unknown",
+    "c": "Finkelstein-2003-ImageRealityIsraelPalestineConflict-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Finkelstein--Norman-Image-and-Reality-of-the-Israel-Palestine-Conflict--2016--Verso-Books--libgen.pdf",
+    "a": "Unknown",
+    "y": "2016",
+    "t": "FinkelsteinNormanImageRealityIsraelPalestineConflict2016VersoBooksLibgen",
+    "p": "Unknown",
+    "c": "Unknown-2016-FinkelsteinNormanImageRealityIsraelPalestineConflict2016VersoBooksLibgen-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Galia Golan - The Soviet Union And The Palestine Liberation Organization- An Uneasy Alliance (1980, Praeger).pdf",
+    "a": "Golan",
+    "y": "0000",
+    "t": "SovietUnionPalestineLiberationOrganizationUneasyAlliance",
+    "p": "Unknown",
+    "c": "Golan-0000-SovietUnionPalestineLiberationOrganizationUneasyAlliance-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Geissinger, Aisha - Gender and Muslim Constructions of Exegetical Authority __ (2015, BRILL) [10.1163_978004294448] - libgen.li.pdf",
+    "a": "Geissinger",
+    "y": "0000",
+    "t": "GenderMuslimConstructionsExegeticalAuthority101163978004294448LibgenLi",
+    "p": "Brill",
+    "c": "Geissinger-0000-GenderMuslimConstructionsExegeticalAuthority101163978004294448LibgenLi-Brill.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Goçek - Denial of Violence Armenian Genocide (2014).pdf",
+    "a": "Goçek",
+    "y": "2014",
+    "t": "DenialViolenceArmenianGenocide",
+    "p": "Unknown",
+    "c": "Goek-2014-DenialViolenceArmenianGenocide-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Golan - Soviet Policies in Middle East (1990).pdf",
+    "a": "Golan",
+    "y": "1990",
+    "t": "SovietPoliciesMiddleEast",
+    "p": "Unknown",
+    "c": "Golan-1990-SovietPoliciesMiddleEast-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Golan - Soviet Union and PLO (1980).pdf",
+    "a": "Golan",
+    "y": "1980",
+    "t": "SovietUnionPlo",
+    "p": "Unknown",
+    "c": "Golan-1980-SovietUnionPlo-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Hostage to History - Cyprus from the Ottomans to Kissinger -- Christopher Hitchens.pdf",
+    "a": "History",
+    "y": "0000",
+    "t": "CyprusOttomansKissingerChristopherHitchens",
+    "p": "Unknown",
+    "c": "History-0000-CyprusOttomansKissingerChristopherHitchens-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Hugh Kennedy - The Great Arab Conquests- How the Spread of Islam Changed the World We Live In (2008, Da Capo Press).pdf",
+    "a": "Kennedy",
+    "y": "0000",
+    "t": "GreatArabConquestsSpreadIslamChangedWorldLive",
+    "p": "Unknown",
+    "c": "Kennedy-0000-GreatArabConquestsSpreadIslamChangedWorldLive-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Ilan Pappe - The Ethnic Cleansing of Palestine (2006, Oneworld).pdf",
+    "a": "Pappe",
+    "y": "0000",
+    "t": "EthnicCleansingPalestine",
+    "p": "Unknown",
+    "c": "Pappe-0000-EthnicCleansingPalestine-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Iran Between Two Revolutions (Eric Davis Ervand Abrahamian) (Z-Library).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "IranBetweenTwoRevolutionsZLibrary",
+    "p": "ZLib",
+    "c": "Unknown-0000-IranBetweenTwoRevolutionsZLibrary-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "isbn_9780739478189 (Unknown) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UnknownTitle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Islamic Interpretive Tradition and Gender Justice Processes of Canonization Subversion and Change (Nevin Reda (editor) Yasmin Amin (editor)) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "(editor)",
+    "y": "0000",
+    "t": "IslamicInterpretiveTraditionGenderJusticeProcessesCanonizationSubversionChange",
+    "p": "ZLib",
+    "c": "editor-0000-IslamicInterpretiveTraditionGenderJusticeProcessesCanonizationSubversionChange-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Israel - a history -- Anita Shapira; Anthony Berris -- W & N paperback, Paperback edition, London, 2015 -- Weidenfeld & Nicolson -- 9781780227399 -- 675a2a02dfdf24bad435035d17c30848 -- Anna’s Archive.pdf",
+    "a": "Israel",
+    "y": "2015",
+    "t": "HistoryAnitaShapiraAnthonyBerrisWNPaperbackPaperbackEditionLondon2015WeidenfeldNicolson9781780227399675a2a02dfdf24bad435035d17c30848AnnaSArchive",
+    "p": "AnnaArchive",
+    "c": "Israel-2015-HistoryAnitaShapiraAnthonyBerrisWNPaperbackPaperbackEditionLondon2015WeidenfeldNicolson9781780227399675a2a02dfdf24bad435035d17c30848AnnaSArchive-AnnaArchive.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Jerome Kagan - Modern Iran (2018, Yale University Press) [10.12987_9780300194739] - libgen.li.pdf",
+    "a": "Kagan",
+    "y": "0000",
+    "t": "ModernIran10129879780300194739LibgenLi",
+    "p": "Yale",
+    "c": "Kagan-0000-ModernIran10129879780300194739LibgenLi-Yale.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Journal_of_the_Executive_Proceedings_of - converted.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UnknownTitle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Journal_of_the_Executive_Proceedings_of.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UnknownTitle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Kenneth W. Stein - The Land Question in Palestine, 1917-1939 (1987, The University of North Carolina Press).pdf",
+    "a": "Stein",
+    "y": "1917",
+    "t": "LandQuestionPalestine19171939",
+    "p": "Unknown",
+    "c": "Stein-1917-LandQuestionPalestine19171939-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Lines-Drawn-on-an-Empty-Map-Iraq-s-Borde.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UnknownTitle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Malcolm Byrne - Iran-Contra_ Reagan's Scandal and the Unchecked Abuse of Presidential Power (2014, University Press of Kansas) - libgen.li.pdf",
+    "a": "Byrne",
+    "y": "2014",
+    "t": "IranContraReagansScandalUncheckedAbusePresidentialPower",
+    "p": "Unknown",
+    "c": "Byrne-2014-IranContraReagansScandalUncheckedAbusePresidentialPower-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Miranda Vickers - Between Serb and Albanian- A History of Kosovo (1998, Columbia University Press).pdf",
+    "a": "Vickers",
+    "y": "0000",
+    "t": "BetweenSerbAlbanianHistoryKosovo",
+    "p": "Columbia",
+    "c": "Vickers-0000-BetweenSerbAlbanianHistoryKosovo-Columbia.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Misagh Parsa - Democracy in Iran. Why It Failed and How It Might Succeed (2016, Harvard University Press) - libgen.li.pdf",
+    "a": "Parsa",
+    "y": "2016",
+    "t": "DemocracyIranFailedMightSucceed",
+    "p": "Harvard",
+    "c": "Parsa-2016-DemocracyIranFailedMightSucceed-Harvard.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Mohammad Mosaddeq and the 1953 Coup in Iran (Mark J. Gasiorowski and Malcolm Byrne (eds.)) (Z-Library).pdf",
+    "a": "Unknown",
+    "y": "1953",
+    "t": "MohammadMosaddeq1953CoupIranZLibrary",
+    "p": "ZLib",
+    "c": "Unknown-1953-MohammadMosaddeq1953CoupIranZLibrary-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Morris - Birth of Palestinian Refugee Problem (2004).pdf",
+    "a": "Morris",
+    "y": "2004",
+    "t": "BirthPalestinianRefugeeProblem",
+    "p": "Unknown",
+    "c": "Morris-2004-BirthPalestinianRefugeeProblem-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Muslims in the Philippines (Cesar A. Majul) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Majul",
+    "y": "0000",
+    "t": "MuslimsPhilippines",
+    "p": "ZLib",
+    "c": "Majul-0000-MuslimsPhilippines-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Norman Cohn - Warrant for Genocide- The Myth of the Jewish World Conspiracy and the Protocols of the Elders of Zion (2005, Serif).pdf",
+    "a": "Cohn",
+    "y": "0000",
+    "t": "WarrantGenocideMythJewishWorldConspiracyProtocolsEldersZion",
+    "p": "Unknown",
+    "c": "Cohn-0000-WarrantGenocideMythJewishWorldConspiracyProtocolsEldersZion-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Origins and Evolution of Islamic Law (Wael B. Hallaq) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Hallaq",
+    "y": "0000",
+    "t": "OriginsEvolutionIslamicLaw",
+    "p": "ZLib",
+    "c": "Hallaq-0000-OriginsEvolutionIslamicLaw-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Ostovar, Afshon - Vanguard of the Imam _ religion, politics, and Iran's Revolutionary Guards (2016, Oxford University Press) - libgen.li.pdf",
+    "a": "Afshon",
+    "y": "2016",
+    "t": "VanguardImamReligionPoliticsIransRevolutionaryGuards",
+    "p": "Oxford",
+    "c": "Afshon-2016-VanguardImamReligionPoliticsIransRevolutionaryGuards-Oxford.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Palestine - Rediscovering Palestine (n.d.).pdf",
+    "a": "Palestine",
+    "y": "0000",
+    "t": "RediscoveringPalestine",
+    "p": "Unknown",
+    "c": "Palestine-0000-RediscoveringPalestine-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Pappe - The Ethnic Cleansing of Palestine (2006).pdf",
+    "a": "Pappe",
+    "y": "2006",
+    "t": "EthnicCleansingPalestine",
+    "p": "Unknown",
+    "c": "Pappe-2006-EthnicCleansingPalestine-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Pappé - The Ethnic Cleansing of Palestine (2011).pdf",
+    "a": "Pappé",
+    "y": "2011",
+    "t": "EthnicCleansingPalestine",
+    "p": "Unknown",
+    "c": "Pappe-2011-EthnicCleansingPalestine-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Quran and Woman Rereading the Sacred Text from a Womans Perspective (Amina Wadud) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Wadud",
+    "y": "0000",
+    "t": "QuranWomanRereadingSacredTextWomansPerspective",
+    "p": "ZLib",
+    "c": "Wadud-0000-QuranWomanRereadingSacredTextWomansPerspective-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Robert Allison - The Crescent Obscured_ The United States and the Muslim World, 1776-1815 (2014, University of Chicago Press) [10.7208_9780226308579] - libgen.li.pdf",
+    "a": "Allison",
+    "y": "1776",
+    "t": "CrescentObscuredUnitedStatesMuslimWorld177618151072089780226308579LibgenLi",
+    "p": "Chicago",
+    "c": "Allison-1776-CrescentObscuredUnitedStatesMuslimWorld177618151072089780226308579LibgenLi-Chicago.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Routledge-Revivals--Francesco-Gabrieli-Arab-Historians-of-the-Crusades--2011--Routledge--libgen.li.pdf",
+    "a": "Unknown",
+    "y": "2011",
+    "t": "RoutledgeRevivalsFrancescoGabrieliArabHistoriansCrusades2011RoutledgeLibgenLi",
+    "p": "Libgen",
+    "c": "Unknown-2011-RoutledgeRevivalsFrancescoGabrieliArabHistoriansCrusades2011RoutledgeLibgenLi-Libgen.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Said - The Question of Palestine (2015).pdf",
+    "a": "Said",
+    "y": "2015",
+    "t": "QuestionPalestine",
+    "p": "Unknown",
+    "c": "Said-2015-QuestionPalestine-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Sayigh - Armed Struggle and Search for State Palestinian Movement (1997).pdf",
+    "a": "Sayigh",
+    "y": "1997",
+    "t": "ArmedStruggleSearchStatePalestinianMovement",
+    "p": "Unknown",
+    "c": "Sayigh-1997-ArmedStruggleSearchStatePalestinianMovement-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Schneer - The Balfour Declaration (2010).pdf",
+    "a": "Schneer",
+    "y": "2010",
+    "t": "BalfourDeclaration",
+    "p": "Unknown",
+    "c": "Schneer-2010-BalfourDeclaration-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Shlaim - Cold War and Middle East (1997).pdf",
+    "a": "Shlaim",
+    "y": "1997",
+    "t": "ColdWarMiddleEast",
+    "p": "Unknown",
+    "c": "Shlaim-1997-ColdWarMiddleEast-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Smith - Palestine and the Arab-Israeli Conflict (2020).pdf",
+    "a": "Smith",
+    "y": "2020",
+    "t": "PalestineArabIsraeliConflict",
+    "p": "Unknown",
+    "c": "Smith-2020-PalestineArabIsraeliConflict-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Smith, Charles D - Palestine and the Arab-Israeli Conflict (2016, Bedford-St. Martin's).pdf",
+    "a": "Smith",
+    "y": "0000",
+    "t": "PalestineArabIsraeliConflict",
+    "p": "Unknown",
+    "c": "Smith-0000-PalestineArabIsraeliConflict-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Stein - Land Question in Palestine 1917-1939 (1987).pdf",
+    "a": "Stein",
+    "y": "1987",
+    "t": "LandQuestionPalestine19171939",
+    "p": "Unknown",
+    "c": "Stein-1987-LandQuestionPalestine19171939-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Stillman - The Jews of Arab Lands (1979).pdf",
+    "a": "Stillman",
+    "y": "1979",
+    "t": "JewsArabLands",
+    "p": "Unknown",
+    "c": "Stillman-1979-JewsArabLands-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Talat-Pashas Telegrams Armenian Genocide Killing Orders (2018).pdf",
+    "a": "Unknown",
+    "y": "2018",
+    "t": "TalatPashasTelegramsArmenianGenocideKillingOrders",
+    "p": "Unknown",
+    "c": "Unknown-2018-TalatPashasTelegramsArmenianGenocideKillingOrders-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Taner Akçam - The Young Turks' Crime Against Humanity- The Armenian Genocide and Ethnic Cleansing in the Ottoman Empire (2012, PrincetonUP).pdf",
+    "a": "Akçam",
+    "y": "0000",
+    "t": "YoungTurksCrimeAgainstHumanityArmenianGenocideEthnicCleansingOttomanEmpire",
+    "p": "Princeton",
+    "c": "Akcam-0000-YoungTurksCrimeAgainstHumanityArmenianGenocideEthnicCleansingOttomanEmpire-Princeton.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "The Barbary Wars American Independence in the Atlantic World (Frank Lambert) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+    "a": "Lambert",
+    "y": "0000",
+    "t": "BarbaryWarsAmericanIndependenceAtlanticWorld",
+    "p": "ZLib",
+    "c": "Lambert-0000-BarbaryWarsAmericanIndependenceAtlanticWorld-ZLib.epub",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "The Barbary wars American independence in the Atlantic world (Lambert, Frank, 1943-) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Lambert",
+    "y": "0000",
+    "t": "BarbaryWarsAmericanIndependenceAtlanticWorld",
+    "p": "ZLib",
+    "c": "Lambert-0000-BarbaryWarsAmericanIndependenceAtlanticWorld-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "The Case for Israel (Alan Dershowitz).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "CaseIsrael",
+    "p": "Unknown",
+    "c": "Unknown-0000-CaseIsrael-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "The Jews of Arab lands - a history and source book -- Norman A Stillman; Mazal Holocaust Collection.pdf",
+    "a": "lands",
+    "y": "0000",
+    "t": "HistorySourceBookNormanStillmanMazalHolocaustCollection",
+    "p": "Unknown",
+    "c": "lands-0000-HistorySourceBookNormanStillmanMazalHolocaustCollection-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "The Making of Modern Iran - State and Society under Riza Shah, 1921-1941 (Routledgecurzon Bips Persian Studies Series) (S. Cronin) (Z-Library).pdf",
+    "a": "Cronin",
+    "y": "1921",
+    "t": "MakingModernIranStateSocietyUnderRizaShah19211941ZLibrary",
+    "p": "Routledge",
+    "c": "Cronin-1921-MakingModernIranStateSocietyUnderRizaShah19211941ZLibrary-Routledge.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The Origins of American Religious Nationalism (Sam Haselby) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Haselby",
+    "y": "0000",
+    "t": "OriginsAmericanReligiousNationalism",
+    "p": "ZLib",
+    "c": "Haselby-0000-OriginsAmericanReligiousNationalism-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "The Paranoid Apocalypse A Hundred-Year Retrospective on the Protocols of the Elders of Zion (Steven T. Katz).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "ParanoidApocalypseHundredYearRetrospectiveProtocolsEldersZion",
+    "p": "Unknown",
+    "c": "Unknown-0000-ParanoidApocalypseHundredYearRetrospectiveProtocolsEldersZion-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "The Plot. The secret story of The Protocols of the Elders of Zion (Will Eisner).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "PlotSecretStoryProtocolsEldersZion",
+    "p": "Unknown",
+    "c": "Unknown-0000-PlotSecretStoryProtocolsEldersZion-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "The Question of Palestine (Edward W. Said).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "QuestionPalestine",
+    "p": "Unknown",
+    "c": "Unknown-0000-QuestionPalestine-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Thomas Jeffersons Quran Islam and the Founders (Denise A. Spellberg) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+    "a": "Spellberg",
+    "y": "0000",
+    "t": "ThomasJeffersonsQuranIslamFounders",
+    "p": "ZLib",
+    "c": "Spellberg-0000-ThomasJeffersonsQuranIslamFounders-ZLib.epub",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Thomas Jeffersons Quran Islam and the founders (Spellberg, Denise A) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Spellberg",
+    "y": "0000",
+    "t": "ThomasJeffersonsQuranIslamFounders",
+    "p": "ZLib",
+    "c": "Spellberg-0000-ThomasJeffersonsQuranIslamFounders-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Treaties and other international agreements of the United States of America, 1776-1949 (United States, Bevans etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "UnitedStates",
+    "y": "1776",
+    "t": "TreatiesOtherInternationalAgreementsUnitedStatesAmerica17761949",
+    "p": "ZLib",
+    "c": "UnitedStates-1776-TreatiesOtherInternationalAgreementsUnitedStatesAmerica17761949-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Treaties_and_Other_International_Acts_of - converted.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UnknownTitle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Treaties_and_Other_International_Acts_of.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UnknownTitle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "tripoli miller - converted.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UnknownTitle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "tripoli miller.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UnknownTitle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "uc1-c109288496-258-1777078898.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UnknownTitle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - Heraclitus and Iran (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HeraclitusIran",
+    "p": "Unknown",
+    "c": "Unknown-0000-HeraclitusIran-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Lines Drawn on Empty Map Iraq Borders (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "LinesDrawnEmptyMapIraqBorders",
+    "p": "Unknown",
+    "c": "Unknown-0000-LinesDrawnEmptyMapIraqBorders-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Updated-and-Expanded--Avi-Shlaim-The-Iron-Wall--Israel-and-the-Arab-World--2014--W.-W.pdf",
+    "a": "Unknown",
+    "y": "2014",
+    "t": "UpdatedExpandedAviShlaimIronWallIsraelArabWorld2014WW",
+    "p": "Unknown",
+    "c": "Unknown-2014-UpdatedExpandedAviShlaimIronWallIsraelArabWorld2014WW-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Yazīd Ṣāyigh, Institute for Palestine Studies (Washington, D.C.) - Armed struggle and the search for state- the Palestinian national movement, 1949-1993 (1997, Clarendon Press).pdf",
+    "a": "Unknown",
+    "y": "1949",
+    "t": "YazDYighInstitutePalestineStudiesArmedStruggleSearchStatePalestinianNationalMovement194919931997ClarendonPress",
+    "p": "Unknown",
+    "c": "Unknown-1949-YazDYighInstitutePalestineStudiesArmedStruggleSearchStatePalestinianNationalMovement194919931997ClarendonPress-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  }
+]
+```

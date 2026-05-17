@@ -1,0 +1,65 @@
+You are looking up missing year and publisher for academic books on territorial disputes (Bakassi, Cyprus, Kosovo, Sabah, Belize-Guatemala, Armenia-Azerbaijan, India Partition, Preah Vihear, etc.).
+
+For each numbered entry, output ONLY year and publisher. Use your training knowledge of these academic works.
+
+OUTPUT FORMAT: JSON array, one object per entry, NO markdown fences, JSON only.
+[{"i":1,"y":"YYYY","p":"Publisher"},{"i":2,"y":"YYYY","p":"Publisher"},...]
+
+PUBLISHER ABBREVIATIONS (use these):
+CambridgeUP, OxfordUP, YaleUP, PrincetonUP, ColumbiaUP, IndianaUP, EdinburghUP, NYUPress, UCPress, JohnsHopkinsUP, HooverPress, PlutoPress, Routledge, Palgrave, Bloomsbury, ITauris, HurstCo, ZedBooks, VersoBooks
+
+If you genuinely don't know, use "Unknown" for that field. Keep the existing year if already given (e.g., y=2019 in the input).
+
+ENTRIES:
+1. a=Lobrigo y=0000 t=SabahQuestionInternationalLaw | 04-The-Sabah-Question-in-International-Law-Judge-Frank-E.-Lobrigo-ret..pdf
+2. a=Ngalim y=0000 t=AloysiusNyuymengkaNgalimDOI | 07_Aloysius-Nyuymengka-Ngalim_DOI.pdf
+3. a=Ezeilo y=0000 t=NigeriaCameroonBakassiDispute | 8-Nigeria-and-Cameroon-The-Bakassi-Dispute-J.-Ezeilo.pdf
+4. a=Bournoutian y=2006 t=ConciseHistoryArmenianPeople | A concise history of the Armenian people - (from ancient - Bournoutian, George A- - 5th ed-, completely rev, Costa Mesa, Calif, 2006 - Costa Mesa, - 9781568591414 - deec582c44665c21a491fef124cd716a - Anna’s Archive-compre-1.pdf
+5. a=Tregonning y=0000 t=HistoryModernSabahNorthBorneo | A history of modern Sabah (North Borneo, 1881-1963) (Tregonning, K. G) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+6. a=Akak y=1999 t=WhoOwnsBakassiCritiqueAngloGermanTreaties | Akak, Eyo Okon - Who Owns Bakassi_ = Anie Enyene Bakassi_ _ A Critique of 1885-1913 Anglo-German Treaties and 1975 Gowon-Ahidjo Accord in Nigeri (1999, Calabar_ The Author) - libgen.li.pdf
+7. a=Altstadt y=1992 t=AzerbaijaniTurksPowerIdentity | Altstadt - The Azerbaijani Turks Power and Identity (1992).pdf
+8. a=Kinni y=0000 t=BakassiPoliticsExclusionOccupation | Bakassi Or the Politics of Exclusion and Occupation (Fongot Kini-Yen Kinni) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+9. a=Nayar y=0000 t=BeyondLinesAutobiography | Beyond the Lines An Autobiography (Kuldip Nayar) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+10. a=Braveboy-Wagner y=1984 t=VenezuelaGuyanaBorderDispute | Braveboy-Wagner - Venezuela-Guyana Border Dispute (1984).pdf
+11. a=Braveboy-Wagner y=2019 t=VenezuelaGuyanaBorderDispute | Braveboy-wagner - The Venezuela-Guyana Border Dispute (2019).pdf
+12. a=Sabahi y=0000 t=BritishPolicyPersia | British Policy in Persia, 1918-1925 (Houshang Sabahi) (Z-Library).pdf
+13. a=Broers y=2019 t=ArmeniaAzerbaijanAnatomyRivalry | Broers - Armenia and Azerbaijan Anatomy of Rivalry (2019).pdf
+14. a=Chrimes y=2019 t=GuatemalasClaimBelize | Chrimes - Guatemalas Claim to Belize (2019).pdf
+15. a=Chrimes y=0000 t=GuatemalasClaimBelizeDefinitiveHistory | Chrimes - Guatemalas claim to Belize the definitive history [international edition] (n.d.).pdf
+16. a=Mallinson y=0000 t=CyprusModernHistory | Cyprus - A Modern History- - Mallinson, William.pdf
+17. a=Doudaki y=2017 t=CyprusConflicts | Doudaki - Cyprus and Its Conflicts (2017).pdf
+18. a=Chrimes y=0000 t=GuatemalasClaimBelizeDefinitiveHistory | Guatemalas claim to Belize the definitive history [international edition] (Chrimes, Philip).pdf
+19. a=Hammond y=2018 t=FramingPostColdWarConflicts | Hammond - Framing post-Cold War conflicts (2018).pdf
+20. a=OCallaghan y=0000 t=HistoryNewNetherlandNewYorkUnderDutch | History of New Netherland or, New York under the Dutch (Edmund Bailey OCallaghan) (z-library.sk, 1lib.sk, z-lib.sk)-1 - converted.pdf
+21. a=Hitchens y=1997 t=HostageHistoryCyprus | Hitchens - Hostage to History Cyprus (1997).pdf
+22. a=Hitchens y=0000 t=HostageHistoryCyprusFromOttomansToKissinger | Hostage to History - Cyprus from the Ottomans to Kissinger- - Christopher Hitchens.pdf
+23. a=Lamb y=0000 t=IncompletePartitionGenesisKashmirDispute | INCOMPLETE PARTITION THE GENESIS OF THE KASHMIR DISPUTE 1947-1948 (ALASTAIR LAMB, Lamb, Alastair etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+24. a=McKillop y=0000 t=InSearchMayaSeaTraders | In Search of Maya Sea Traders (Heather McKillop) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+25. a=Wolpert y=0000 t=JinnahPakistan | Jinnah of Pakistan (Stanley Wolpert) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+26. a=Judah y=2002 t=KosovoWarRevenge | Judah - Kosovo War and Revenge (2002).pdf
+27. a=Kasetsiri y=2013 t=PreahVihearThaiCambodianConflict | Kasetsiri - Preah Vihear Thai-Cambodian Conflict (2013).pdf
+28. a=Judah y=0000 t=KosovoWarRevenge | Kosovo - War and Revenge- - Tim Judah.pdf
+29. a=French y=0000 t=LibertyDeathIndiasJourneyIndependenceDivision | Liberty or death Indias journey to independence and division (French, Patrick) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+30. a=Majul y=0000 t=MuslimsPhilippines | Muslims in the Philippines (Cesar A. Majul) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+31. a=Pawakapan y=2013 t=ThailandTemplePreahVihear | Pawakapan - Thailand at Temple of Preah Vihear (2013).pdf
+32. a=Doolittle y=0000 t=PowerfulPersuasionsLanguagePropertyPoliticsSabahMalaysiaNorthBorneo | Powerful Persuasions The Language of Property and Politics in Sabah, Malaysia (North Borneo), 1881–1996 (DOOLITTLE, AMITY A) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+33. a=Pandey y=0000 t=RememberingPartitionViolenceNationalismHistoryIndia | Remembering Partition Violence, Nationalism and History in India (Gyanendra Pandey) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+34. a=Siṅgha y=1947 t=SelectDocumentsPartitionPunjabIndiaPakistan | Select Documents on Partition of Punjab-1947 India and Pakistan (Revised and Enlarged Edition) (Kirapāla Siṅgha) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+35. a=Strate y=2015 t=LostTerritoriesThailandsHistory | Strate - Lost Territories Thailands History (2015).pdf
+36. a=Tarling y=0000 t=SuluSabah | Sulu & Sabah - Nicholas Tarling.pdf
+37. a=Suny y=1993 t=LookingTowardAraratArmeniaModernHistory | Suny - Looking Toward Ararat Armenia in Modern History (1993).pdf
+38. a=Lukong y=0000 t=CameroonNigeriaBorderDisputeManagementResolution | The Cameroon-Nigeria Border Dispute. Management and Resolution, 1981-2011 Management and Resolution, 1981-2011 (Hilary V. Lukong) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+39. a=Bolland y=0000 t=FormationColonialSocietyBelizeFromConquest | The Formation of a Colonial Society- Belize, From Conquest -- Professor O- Nigel Bolland -- Johns Hopkins studies in Atlantic history and culture, -- 9780801818875 -- 5be003a10c9bf724983c3061e4b8c6af -- Anna’s Archive.pdf
+40. a=Khan y=0000 t=GreatPartitionMakingIndiaPakistan | The Great Partition The Making of India and Pakistan, New Edition (Yasmin Khan) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+41. a=Michel y=0000 t=IndusRiversStudyEffectsPartition | The Indus Rivers a study of the effects of partition (Aloys Arthur Michel) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+42. a=Ismay y=0000 t=MemoirsLordIsmay | The Memoirs Of Lord Ismay ( etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+43. a=Metcalf y=0000 t=NewCambridgeHistoryIndiaVolume3Part4IdeologiesRaj | The New Cambridge History of India, Volume 3, Part 4 Ideologies of the Raj (Thomas R. Metcalf) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+44. a=Braveboy-Wagner y=0000 t=VenezuelaGuyanaBorderDisputeBritainsColonialLegacyLatinAmerica | The Venezuela-Guyana Border Dispute Britains Colonial Legacy in Latin America (Jacqueline A Braveboy-Wagner).pdf
+45. a=Gordon y=0000 t=DimensionsConflictSoutheastAsia | The dimensions of conflict in Southeast Asia (Gordon, Bernard K., 1932- . cn) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+46. a=Anene y=0000 t=InternationalBoundariesNigeriaFrameworkEmergentAfricanNation | The international boundaries of Nigeria, 1885-1960 the framework of an emergent African nation (Anene, Joseph C) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+47. a=Tregonning y=0000 t=UnderCharteredCompanyRule | Under Chartered Company Rule - K. G. Tregonning.pdf
+48. a=Doudaki y=0000 t=CyprusConflictsRepresentationsMaterialitiesCultures | Vaia Doudaki - Cyprus and Its Conflicts Representations, Materialities, and Cultures (n.d.).pdf
+49. a=Vickers y=1998 t=BetweenSerbAlbanianHistoryKosovo | Vickers - Between Serb and Albanian History of Kosovo (1998).pdf
+50. a=Akak y=0000 t=WhoOwnsBakassiCritiqueAngloGermanTreaties | Who Owns Bakassi = Anie Enyene Bakassi A Critique of 1885-1913 Anglo-German Treaties and 1975 Gowon-Ahidjo Accord in… (Akak, Eyo Okon) (z-library.sk, 1lib.sk, z-lib.sk)-1 - converted.pdf
+51. a=Akak y=0000 t=WhoOwnsBakassiCritiqueAngloGermanTreaties | Who Owns Bakassi = Anie Enyene Bakassi A Critique of 1885-1913 Anglo-German Treaties and 1975 Gowon-Ahidjo Accord in… (Akak, Eyo Okon) (z-library.sk, 1lib.sk, z-lib.sk)-1.pdf
+52. a=Akak y=0000 t=WhoOwnsBakassiCritiqueAngloGermanTreaties | Who Owns Bakassi = Anie Enyene Bakassi A Critique of 1885-1913 Anglo-German Treaties and 1975 Gowon-Ahidjo Accord in… (Akak, Eyo Okon) (z-library.sk, 1lib.sk, z-lib.sk).pdf

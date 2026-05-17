@@ -1,0 +1,245 @@
+You are identifying academic books, journal articles, treaties, and primary
+documents from partial metadata + an excerpt of the first two pages of the
+PDF. For each entry below, search the web (Google Search grounding) to verify
+the work and return its full metadata.
+
+Each entry shows:
+  - The current filename (after prior parsing)
+  - Known fields: title slug, author surname, year, publisher
+  - 'Unknown' / '0000' = unresolved field
+  - A short excerpt from the first two pages of the PDF (may be empty if the
+    document is scanned image-only — proceed using the filename in that case)
+
+INSTRUCTIONS
+- Resolve EVERY missing field where you can find authoritative evidence.
+- Use Google Search grounding; cross-reference excerpt content + filename.
+- Do NOT guess. Mark UNRESOLVED if no high- or medium-confidence answer.
+- Confidence levels:
+    high   — primary source (publisher page, library catalogue, JSTOR)
+    medium — secondary source (Wikipedia, Google Books snippet)
+    low    — inference from excerpt only (rarely use; usually UNRESOLVED)
+- source_url is REQUIRED for any non-UNRESOLVED row.
+- publisher_abbrev MUST come from this list (use the closest match):
+  CambridgeUP, OxfordUP, YaleUP, PrincetonUP, ColumbiaUP, IndianaUP,
+  EdinburghUP, NYUPress, UCPress, JohnsHopkinsUP, HooverPress, PlutoPress,
+  Routledge, Palgrave, Bloomsbury, ITauris, HurstCo, ZedBooks, VersoBooks,
+  BasicBooks, RandomHouse, Penguin, Brill, Springer, DaCapo, FreePress,
+  Granta, WeidenfeldNicolson, CornellUP, StanfordUP, HarvardUP, LiverpoolUP,
+  MacmillanUK, NortonCo, HMSO, UN, ICJ, OECD, LHarmattan, Macmillan,
+  HoughtonMifflin, Serif.
+  If publisher is a journal article, use the journal abbreviation
+  (e.g. JModernHistory, IntlAffairs). If it is a government / IGO document,
+  use the issuer abbreviation (HMSO, UN, ICJ, FCO, etc.).
+
+OUTPUT
+Return a single markdown table with exactly these columns:
+
+| idx | title_slug | author_surname | year | publisher_abbrev | confidence | source_url |
+
+- idx: the integer from the entry header below.
+- title_slug: CamelCase, no spaces, no punctuation, ≤45 chars.
+- author_surname: surname only (e.g. Zinn, Akcam, Martinez — strip diacritics).
+- year: 4 digits, or 0000 if truly unknown.
+- All UNRESOLVED rows: put UNRESOLVED in every field except idx.
+
+Do NOT include any prose before or after the table.
+
+---
+
+ENTRIES:
+
+396. [territorial-disputes] AloysiusNyuymengkaNgalimDOI-Ngalim-2005-Unknown.pdf
+   known: t=AloysiusNyuymengkaNgalimDOI | a=Ngalim | y=2005 | p=Unknown
+   missing: publisher
+   excerpt: 'Post-Conflict Experiences of Resettled Bakassi \nPeninsula People, 2006-2016\nAloysius Nyuymengka Ngalim\nThe Greentree Agreement of 2006 between Cameroon and Nigeria ended the conflict \nover the ownership of the oil and fish rich Bakassi Peninsula in favor of Cameroon \nand created problems for the relocated and resettled Nigerians. This article argues \nthat contrary to the generally accepted theory by many scholars that heritage values \nare often the concern of displaced persons, we found that practical economic needs \nand the desire for functional participation in governance of those relocated in New \nBakassi have been the main problems of the displacees leading to an indigenous-\nincomer divide that could generate a crisis that may degenerate into intractable \nconflict. The study reveals that due to government insensitivity and corruption, \nproper resettlement for Bakassi returnees is yet to be addressed.\nKeywords\u2003 \u200c\x07conflict, Bakassi, Cameroon, Nigeria, economic needs, proper \n resettlement\nIntroduction\nBoundary adjustments are not common features of African state territoriality. \nThe colonially-ordered boundaries, despite their problems, were adopted and \nreified by postcolonial African leadership as the basis for territoriality and \nordering postcolonial interstate relations. Indeed, the recent World Court-\nordered boundary adjustment (or settlement) between Nigeria\xa0and\xa0Cameroon\xa0is \nthe exception rather than the rule. The exercise relocated settlements, moving \nsome from Ni'
+
+397. [territorial-disputes] AngloGermanAgreement-AngloGerman-1913-Unknown.pdf
+   known: t=AngloGermanAgreement | a=AngloGerman | y=1913 | p=Unknown
+   missing: publisher
+   excerpt: 'Anglo-German Treaty of 1913 (Articles XVI - XXX)\nForwarded By Dr. Nowa Omoigui\nnowa_o@yahoo.com\nAgreement between Great Britain and Germany respecting \n(1) the Settlement of the Frontier between Nigeria and the Cameroons, from Yola to the Sea; and \n(2) the Regulation of Navigation on the Cross River. Signed at London, March 11, 1913. BFSP. Vol. 106,\n1913, pp. 782-787; also Treaty Series No. 13 (1913). United Kingdom Cd. 7056 (with maps).\n_____________________\nNOTE ARTICLES XVIII to XXII. Also note Article XXVII\n_____________________\nXVI. Thence the boundary follows the thalweg of the Cross River to its junction with the River Awa (Aua),\nthence along the thalweg of the Awa (Aua) River to a large cairn of stones at its source, situated about\nlatitude 5 degrees 23\' 05" north, longitude 8 degrees 50\' 11" east, as shown on sheet 1, T.S.G.S. 2240.\nXVII. Thence in a straight line to the highest point of boundary mountain (3547), thence in a straight line\nto a pillar on the road Nkuru-Abong (Abung), thence in a straight line to the highest point of the mountain\nOjum Ojum, as shown on map T.S.G.S. 2240 sheet 2, thence in a straight line to the highest point of the\nmountain Mongum, thence in a straight line to a pillar on the road from Ekongdup-Abong about 1 mile (1.6\nkilom.) north-west of Ekongdup (Ekongdub), thence to a pillar on the bank of the River Akpakorum about\n2/3 rds of a mile (1 kilom.) downstream from the point where the Ekonako-Ekong road crosses the\nAkpakorum, and thence'
+
+398. [territorial-disputes] Bakassi-Unknown-0000-Unknown.pdf
+   known: t=Bakassi | a=Unknown | y=0000 | p=Unknown
+   missing: author,year,publisher
+   excerpt: ''
+
+399. [territorial-disputes] BakassiGreentreeAgreement-UN-2006-Unknown.pdf
+   known: t=BakassiGreentreeAgreement | a=UN | y=2006 | p=Unknown
+   missing: publisher
+   excerpt: 'AGREEMENT BETWEEN THE REPUBLIC OF CAMEROON \nAND THE FEDERAL REPUBLIC OF NIGERIA CONCERNING \nTHE MODALITIES OF WITHDRAWAL \nIN THE BAKASSI PENINSULA \n \n \nThe Republic of Cameroon (hereinafter referred to as "Cameroon") and \nthe Federal Republic of Nigeria (hereinafter referred to as "Nigeria"), \n \nReaffirming their willingness to peacefully implement the judgement of \nthe International Court of Justice, \n \nCommending the Secretary-General of the United Nations for his efforts \nmade in this respect in organizing the tripartite summits and establishing \nthe Cameroon-Nigeria Mixed Commission, \n \nConsidering that the question of the withdrawal from and transfer of \nauthority over Bakassi Peninsula should be treated in a forward-looking \nspirit of goodwill in order to open new prospects for cooperation between \nthe two countries after decades of difficult bilateral relations, \n \nDetermined to encourage the consolidation of confidence and peace \nbetween their two countries for the well-being of their peoples and for \nstability in the sub region, \n \nHave decided to conclude the present accord. \n \nArticle 1 \n \nNigeria recognizes the sovereignty of Cameroon over the Bakassi \nPeninsula in accordance with the judgment of the International Court of \nJustice of 10 October 2002 in the matter of the Land and Maritime \nBoundary between Cameroon and Nigeria. Cameroon and Nigeria \nrecognize the land and maritime boundary between the two countries as \ndelineated by the court and commit themselves'
+
+400. [territorial-disputes] ConstitutionOfHonduras-Unknown-1982-Unknown.pdf
+   known: t=ConstitutionOfHonduras | a=Unknown | y=1982 | p=Unknown
+   missing: author,publisher
+   excerpt: ''
+
+401. [territorial-disputes] CRdobaAgreement-Unknown-2006-Unknown.pdf
+   known: t=CRdobaAgreement | a=Unknown | y=2006 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Agreement announced\nIn Cordoba\nSeptember 2006\nAnnex 1\nPensions\nAnnex 2\nThe Airport\nText of Communique\nCommunique of the ministerial meeting of the forum of dialogue on Gibraltar\n18-09-2006\n1. The Minister of Foreign Affairs and Co-operation of the Kingdom of Spain, Mr\nMiguel Angel Moratinos, the Minister for Europe of the United Kingdom of Great\nBritain and Nothern Ireland, Mr Geoff Hoon and the Chief Minister of Gibraltar, Mr\nPeter Caruana held the first ministerial meeting of the Trilateral Forum of Dialogue on\nGibraltar ("the Forum") in Cordoba today under the terms of the Joint Communiqué of\n16 December 2004.\n2. Since the establishment of the Forum there have been five rounds of discussions.\nThis has made it possible to address a number of issues in detail, and in a\nconstructive spirit, and to resolve them in a way acceptable to Governments of Spain,\nthe United Kingdom and Gibraltar ("the participants"), so as to benefit both Gibraltar\nand the Campo de Gibraltar, and thus contribute to the creation of a constructive\natmosphere of mutual trust, respect and co-operation.\n3. We are therefore happy to announce today a package of agreements which we\nbelieve will enhance the economic and social development of both Gibraltar and the\nsurrounding region, in particular the Campo de Gibraltar. These agreements show our\ncommitment to the solution of specific problems but have no implications whatsoever\nregarding sovereignty and jurisdiction, or regarding any issues thereby affected,'
+
+402. [territorial-disputes] DimensionsConflictSoutheastAsia-Gordon-1966-Unknown.pdf
+   known: t=DimensionsConflictSoutheastAsia | a=Gordon | y=1966 | p=Unknown
+   missing: publisher
+   excerpt: 'I\nlib K. GORDOIV\nTHE DIMENSIONS\nOF CONFLICT\nI\nSOUTHEAST ASIA\n---PAGE---\n^- <U*^'
+
+403. [territorial-disputes] GazettePhilisiphins-PhilippinesGov-0000-PhilippinesGov.pdf
+   known: t=GazettePhilisiphins | a=PhilippinesGov | y=0000 | p=PhilippinesGov
+   missing: year
+   excerpt: '1878 Grant of Lease by the Sultan of Sulu to Britain: Profession Conkli...\nhttps://www.officialgazette.gov.ph/1968/12/01/1878-grant-of-lease-by-t...\n1 of 4\n22/04/2026, 00:09\n---PAGE---\n1878 Grant of Lease by the Sultan of Sulu to Britain: Profession Conkli...\nhttps://www.officialgazette.gov.ph/1968/12/01/1878-grant-of-lease-by-t...\n2 of 4\n22/04/2026, 00:09'
+
+404. [territorial-disputes] GrantBySultanOfSuluOfTerritoriesAndLandsOnThe-SULU-1878-Unknown.pdf
+   known: t=GrantBySultanOfSuluOfTerritoriesAndLandsOnThe | a=SULU | y=1878 | p=Unknown
+   missing: publisher
+   excerpt: 'BRITISH NORTH BORNEO TREATIES.\n \nBRITISH NORTH BORNEO, 1878.\n \n(Translation)\n \nGRANT by Sultan of Sulu of Territories and Lands on the Mainland of the Island of Borneo. Dated 22nd January, 1878.\n \n WE Sri Paduka Maulana Al Sultan Mohamet Jamal Al Alam Bin Sri Paduka Al Marhom Al Sultan Mohamet Fathlon\nSultan of Sulu and the dependencies thereof on behalf of ourselves our heirs and successors and with the consent and\nadvice of the Datoos in council assembled hereby grant and cede of our own free and sovereign will to Gustavus Baron\nde Overbeck of Hong Kong and Alfred Dent Esquire of London as representatives of a British Company co-jointly their\nheirs associates successors and assigns for ever and in perpetuity all the rights and powers belonging to us over all the\nterritories and lands being tritutary to us on the mainland of the island of Borneo commencing from the Pandassan River\non the north-west coast and extending along the whole east coast as far as the Sibuco River in the south and comprising\namongst other the States of Paitan, Sugut, Bangaya, Labuk, Sandakan, Kina Batangan, Mumiang, and all the other\nterritories and states to the southward thereof bordering on Darvel Bay and as far as the Sibuco river with all the islands\nwithin three marine leagues of the coast.\n \n In consideration of this grant the said Baron de Overbeck and Alfred Dent promise to pay as compensation to His\nHighness the Sultan Sri Paduka Maulana Al Sultan Mohamed Jamal Al Alam his heirs or successor'
+
+405. [territorial-disputes] GuatemalasApplicationToInterveneInTheSapodill-MOITRA-0000-EJILTalk.pdf
+   known: t=GuatemalasApplicationToInterveneInTheSapodill | a=MOITRA | y=0000 | p=EJILTalk
+   missing: year
+   excerpt: 'December 22, 2025\nGuatemala’s Application to Intervene in the\nSapodilla Cayes Case: An Impermissible\nIntervention by an Indispensable Party?\nWritten by Sanmay Moitra\nThe International Court of Justice recently heard oral arguments by\nGuatemala, Belize and Honduras on Guatemala’s application to\nintervene under Article 62 of the Statute in the case concerning\nSovereignty over the Sapodilla Cayes (Belize v Honduras).\nGuatemala’s prima facie grounds for intervention are straightforward:\nit is one of the three parties (in addition to Belize and Honduras) to a\ntripartite sovereignty dispute over the Sapodilla Cayes. Therefore,\nGuatemala has argued that “a decision of the Court that “Belize is\nsovereign over the Sapodilla Cayes”, as Belize requests, would\ninevitably affect Guatemala’s legal interests and rights with respect to\nthese island” (Intervention Application, para. 9).\nEJIL:Talk!\nBlog of the European Journal of International Law\nGuatemala’s Application to Intervene in the Sapodilla Cayes Case: An ...\nhttps://www.ejiltalk.org/guatemalas-application-to-intervene-in-the-sapo...\n1 of 9\n23/03/2026, 18:19\n---PAGE---\nA closer examination of the rules on intervention along with Belize’s\nand Honduras’ oral arguments, however, reveals a more complicated\npicture. The Court is left in a paradoxical position where it must decide\non a legally deficient application to intervene made by an applicant\nthat might itself be an indispensable party by operation of the\nMonetary Gold principle.\nThe'
+
+406. [territorial-disputes] GuatemalasClaimBelize-Chrimes-2019-Unknown.pdf
+   known: t=GuatemalasClaimBelize | a=Chrimes | y=2019 | p=Unknown
+   missing: publisher
+   excerpt: 'Book reviews\n270\nInternational Affairs 96: 1, 2020\nattack effectively first. The waters around Guadalcanal received a new nickname, \n‘Ironbottom Sound’. Most of that iron was American-made. \nHone, in what can only be described as a particularly ripe bit of navalism, touts \nthis history of innovation in the US Navy as a success story. As evidence for this \nposition, he points to the eventual success of the Guadalcanal campaign and the \nnavy’s ability to learn rapidly in wartime, which allowed it to couple its growing \nmaterial and technological superiority to effective doctrine, organization and \ntactics. Admittedly, the US Navy—at least when it could find survivors to inter-\nrogate about what was going wrong—adjusted rapidly and effectively to the war \nat sea. Peacetime and wartime innovation, however, are fundamentally different. \nUnlike the stylized and bureaucratically acceptable theorizing and experimenta-\ntion of peacetime, combat provides quick and powerful experimental results which \nare difficult to ignore. Nevertheless, the navy’s aviation and submarine communi-\nties did well at the outset of the war, while its surface forces, the subject of early \ntwentieth-century learning, found themselves at the bottom of Pearl Harbor and \nIronbottom Sound. It is very hard to see how this was a success; it is clearly a \nhistory that no one wants repeated. \nLearning war offers a cautionary tale of how bureaucratic preferences can \nlead military organizations to adopt a misleading'
+
+407. [territorial-disputes] HistoryModernSabahNorthBorneo-Tregonning-1965-Unknown.pdf
+   known: t=HistoryModernSabahNorthBorneo | a=Tregonning | y=1965 | p=Unknown
+   missing: publisher
+   excerpt: 'MODERN SABAH \n1881-1963 \nPUSTAKA ILMU\n---PAGE---\nNUNC COGNOSCO EX PARTE \nTRENT UNIVERSITY \nLIBRARY'
+
+408. [territorial-disputes] HistoryNewNetherlandNewYorkUnderDutch-OCallaghan-1846-Unknown.pdf
+   known: t=HistoryNewNetherlandNewYorkUnderDutch | a=OCallaghan | y=1846 | p=Unknown
+   missing: publisher
+   excerpt: 'THE PUBLISHERS BEG THE LIBERTY OF PRESENTING \nTHE FOLLOWING RECOM1IENDA\'fIONS Wl\'fH RES\xad\nPECT TO THE VAJ.UE OF THE ACCOJ\\IPANYING ms. \n1\'0RY OF THE EARLY SE\'rTLEMENT OF NEW-YORK. \nFrom tlie Ho1iorable Col. N. S. Benton, Secrelar!J of 1\';tate ancl Super\xad\ni1ttaulent of Common Schools. \nALBANY, December l3th, 1845. \nDEAR Sia :-1 have read your" History of New Netherland," with \nconsiderable attention, and am much plensed with it. \nThe plan of the \nwork and order of arrangement appear to me, well adapted to present \nto the reader, in the most acceptable form, the interesting details of our \nearly Colonial History. \nI take great pleasure in commending it to \npublic patronage. \nJ nm, very respectfully, yours, \nN. S. BENTON. \nDr. E n. O\'Callagban. \nI have read, with much pleasure and interest, n considerable part \nof Dr. O\'Callaghan\'s History of New Netherland. \nThe materials seem \nto have been sought and selected with great care and diligence; nod \nthe work, as fnr ns I have perused the manuscript, mnnifests scrupu\xad\nlous accuracy, and a respectful consideration of the merits of the early \ncolonists, who, to improve their condition, left their, and their fa the rs\' \nhome!!, and encountered the privations aud hardships incident to u settle\xad\nment in the wilds of the New World. The author appears also to cherish \na just estimate of the character of their descendants, among whom \nflourished such men as Arendt Van Corlear, Peter and Philip Schuy\xad\nler. \nDr. O\'Collaghan\'s labor and researc'
+
+409. [territorial-disputes] ImplicationsOfTheBakassiConflictResolutionFor-BAYE-2016-Unknown.pdf
+   known: t=ImplicationsOfTheBakassiConflictResolutionFor | a=BAYE | y=2016 | p=Unknown
+   missing: publisher
+   excerpt: '9\nImplications of the Bakassi conflict \nresolution for Cameroon\nAbstract\nThis paper sketches a conceptual framework of international conlict dynamics \nand resolution, examines the geopolitics of the Bakassi dispute between Nigeria \nand Cameroon, and outlines socio-economic implications of its peaceful \nsettlement. Neglect and subsequent discovery of oil deposits subjected the \nBakassi Peninsula to claims and counter-claims for sovereignty, military \noccupation and recourse to the International Court of Justice (ICJ). The ICJ’s \nruling in 2002 in favour of Cameroon, although based on sound historical \nevidence, faced implementation dificulties. However, following mediation by \nthe United Nations (UN) Secretary-General, good faith by protagonists, the \nGreen-tree Agreement and subsequent instruments, Nigeria completed the \nwithdrawal of its military, police and administration from the Bakassi Peninsula \nby 14 August 2008. Putting aside disruptive activities by social movements, \nthe entire process could be viewed as a model in peaceful resolution of border \nconlicts. Implications of the settlement anchor on expenditure-reducing \nand expenditure-switching effects, wealth-generating effects, and enhanced \n* \nDr Francis Baye is Associate Professor in the Department of Economics and Management, University of \nYaoundé II, Yaoundé, Cameroon.\nFrancis Menjo Baye*\n---PAGE---\n10\nFrancis Menjo Baye\ncross-border activities. Infrastructural developments and effective presence are \nconsidere'
+
+410. [territorial-disputes] IndianIndependenceAct1947-UK-Parliament-1947-Unknown.pdf
+   known: t=IndianIndependenceAct1947-UK | a=Parliament | y=1947 | p=Unknown
+   missing: publisher
+   excerpt: "Indian Independence Act, 1947. \nro & ii GEO. 6. \nCH. 30. \nARRANGEMENT OF SECTIONS. \nSection. \ni. The new Dominions. \n2. Territories of the new Dominions. \n3. \nBengal and Assam. \n4. \nThe Punjab. \n5. The Governor-General of the new Dominions. \n6. \nLegislation for the new Dominions. \n7. \nConsequences of the setting up of the new Dominions. \n8. \nTemporary provision as to government of each of the new \nDominions. \n9.- Orders for bringing this Act into force. \nro. \nSecretary of State's services, etc. \nii. Indian armed forces. \n12. British forces in India. \n13. \nNaval forces. \n14. \nProvisions as to the Secretary of State and the Auditor of \nIndian Home Accounts. \n15. \nLegal proceedings by and against the Secretary of State. \n16. Aden. \n17. \nDivorce jurisdiction. \n18. Provisions as to existing laws, etc. \nig. Interpretation, etc. \n20. \nShort title. \nSCHEDULES: \nFirst Schedule-Bengal Districts provisionally included \nin the new Province of East Bengal. \nSecond Schedule-Districts provisionally included in the \nnew Province of West Punjab. \nThird Schedule-Modifications of Army Act and Air Force \nAct in relation to British forces. \ni"
+
+411. [territorial-disputes] InSearchMayaSeaTraders-McKillop-2005-Unknown.pdf
+   known: t=InSearchMayaSeaTraders | a=McKillop | y=2005 | p=Unknown
+   missing: publisher
+   excerpt: 'IN\nSEaRCH of\nMaYA SEA\nTRaDERS\nnumber eleven:\nTexas A&M University Anthropology Series\nD. Gentry Steele, Series Editor\nSeries Advisory Board\nWilliam Irons\nEric Trinkaus\nConrad Kottak\nMichael R. Waters\nJames. F. O’Connell\nPatty Jo Watson\nHarry J. Shafer'
+
+412. [territorial-disputes] InternationalBoundariesNigeriaFrameworkEmerge-Anene-1970-Unknown.pdf
+   known: t=InternationalBoundariesNigeriaFrameworkEmerge | a=Anene | y=1970 | p=Unknown
+   missing: publisher
+   excerpt: 'Ibadan History Series\nThe\nInternational\nBoundaries\nof Nigeria\nThe framework\nof an emergent\nAfrican Nation\nnene\n---PAGE---\nThe Ibadan History Series\nGeneral Editor\nK.\nDike Ph.D.\nCHRISTIAN\nMISSIONS\nIN\nNIGERIA\n1841-1891\nThe Making of a New\nElite\nby J.\nF. A. Ajayi\nProfessor of History, University of Ibadan\n5\nillus.\n5 maps\n352 pp.\n$6.50\nTHE ZULU AFTERMATH\nA Nineteenth Century Revolution\nin Bantu Africa\nby J. D. Omer-Cooper\nProfessor of History, University of Zambia\n7\nillus.\n8 maps\n208 pp.\n$5.95\nTHE MISSIONARY IMPACT ON MODERN\nNIGERIA 1842-1914\nA Political and Social Analysis\nby\nE. A. Ayandele\nDepartment of History, University of Ibadan\n8\nillus.\n8 maps\n393 pp.\n$7.50\nTHE SOKOTO CALIPHATE\nby Murray Last\nNorthern History Research Scheme, Ahmadu Bello\nUniversity, Zaria\n13\nillus.\n6 maps\n6 tables\n280 pp.\n$8.50\nBRITAIN AND THE CONGO QUESTION\n1885-1913\nby S. J. S. Cookey\nDepartment of History, The University, Nsukka\n1 map\n340 pp.\n$6.75\nBENIN AND THE EUROPEANS\n1485-1897\nby A.\nF. C. Ryder\nProfessor of History, University of Ibadan\n8\nillus.\n3 maps\n372 pp.\n$8.50\nNIGER DELTA RIVALRY\nItsekiri-Urhobo Relations and the European\nPresence 1884-1936\nby Obaro Ikime\nDepartment of History, University of Ibadan\n6\nillus.\n4 maps\n301pp.\n$10.00'
+
+413. [territorial-disputes] LetterSapodillaCayesBelizeDispute-Unknown-1913-Unknown.pdf
+   known: t=LetterSapodillaCayesBelizeDispute | a=Unknown | y=1913 | p=Unknown
+   missing: author,publisher
+   excerpt: ''
+
+414. [territorial-disputes] LostTerritoriesThailandsHistory-Strate-2015-Unknown.pdf
+   known: t=LostTerritoriesThailandsHistory | a=Strate | y=2015 | p=Unknown
+   missing: publisher
+   excerpt: 'Th e Lost Territories\n---PAGE---\nSoutheast Asia\npolitics, meaning, and memory\nDavid Chandler and Rita Smith Kipp\nseries editors'
+
+415. [territorial-disputes] ManilaAccord-Manila-1963-Unknown.pdf
+   known: t=ManilaAccord | a=Manila | y=1963 | p=Unknown
+   missing: publisher
+   excerpt: '1\nManila Accord between the Philippines,\nthe Federation of Malaya and\nIndonesia\nthe Government of the Philippines, the Federation\nof Malaya and Indonesia\n1963\nExported from Wikisource on April 22, 2026\n---PAGE---\n2\n\nThe Governments of the Federation of Malaya, the\nRepublic of Indonesia and the Republic of the\nPhilippines, prompted by their keen and common desire to\nhave a general exchange of views on current problems\nconcerning stability, security, economic development and\nsocial progress of the three countries and of the region and\nupon the initiative of President Diosdado Macapagal,\nagreed that a Conference of Ministers of the three\ncountries be held in Manila on 7th June 1963 for the\npurpose of achieving common understanding and close\nfraternal cooperation among themselves. Accordingly, Tun\nAbdul Razak, Deputy Prime Minister of the Federation\nof \nMalaya; \nDr. \nSubandrio, \nDeputy \nFirst\nMinister/Minister of Foreign Affairs of the Republic of\nIndonesia; and Honorable Emmanuel Pelaez, Vice\nPresident of the Philippines and concurrently Secretary\nof Foreign Affairs, met in Manila from 7 to 11 June\n1963.\nNo. 8029. MANILA ACCORD[1] BETWEEN THE\nPHILIPPINES, THE FEDERATION OF MALAYA\nAND INDONESIA. SIGNED AT MANILA ON 31\nJULY 1963'
+
+416. [territorial-disputes] MemoirsLordIsmay-Ismay-1960-Unknown.pdf
+   known: t=MemoirsLordIsmay | a=Ismay | y=1960 | p=Unknown
+   missing: publisher
+   excerpt: 'This edition is published by PICKLE PARTNERS PUBLISHING—\nwww.picklepartnerspublishing.com\n\xa0\nTo join our mailing list for new titles or for issues with our books –\npicklepublishing@gmail.com\n\xa0\nOr on Facebook\n\xa0\nText originally published in 1960 under the same title.\n© Pickle Partners Publishing 2014, all rights reserved. No part of this publication may be\nreproduced, stored in a retrieval system or transmitted by any means, electrical, mechanical\nor otherwise without the written permission of the copyright holder.\nPublisher’s Note\nAlthough in most cases we have retained the Author’s original spelling and grammar to authentically reproduce the\nwork of the Author and the original intent of such material, some additional notes and clarifications have been added\nfor the modern reader’s benefit.\nWe have also made every effort to include all maps and illustrations of the original edition the limitations of formatting\ndo not allow of including larger maps, we will upload as many of these maps as possible.'
+
+417. [territorial-disputes] NigeriaCameroonBakassiDispute-Ezeilo-2010-Unknown.pdf
+   known: t=NigeriaCameroonBakassiDispute | a=Ezeilo | y=2010 | p=Unknown
+   missing: publisher
+   excerpt: "THE\nNIGERIAN JURIDICAL REVIEW\nVol. 9\n(2002- 2010)\nArticles\nPage\nThe Relationship of Law and Morality:\nDichotomy or Complementarity\nA Critical Analysis of the Challenges to and\nProspects of the Right to Development as a\nHuman Right\nNigeria and Cameroon: The Bakassi Dispute\nB. O. Okere\n1\nD. U. Ajah\n126\nJ. Ezeilo\n148\nElectronic Waste and Developing Economies:\nWhat Options for Nigeria?\nLegal Framework for Nigeria's Investors\nProtection Fund\nTrade Disputes Resolution under Nigerian\nLabour Law\nThe Bar and the Bench as Agents of Consumer\nAdvocacy in Nigeria\nExecutive Modification of Existing Laws under\nSection 315 of the 1999 Constitution\nE. U. Onyeabor\n21\nE. O. Nwosu & C. Ngozi 48\nC. C. Obi-Ochiabutor\n71\nE. L. Okiche\n88\nM. C. Anozie\n106\nFACULTY OF LAW\nUNIVERSITY OF NIGERIA, ENUGU CAMPUS\nSylva Prints, Enugu\n---PAGE---\ni\nEDITORIAL COMMITTEE \nGeneral Editor \nProfessor B. O. Okere, Docteur d’Universite de Paris \nAssistant Editor \nProfessor G. O. S. Amadi, LL.B., LL.M., Ph.D., B.L. \nStatute and Case Note Editor \nProfessor Ifeoma P. Enemo, LL.B., LL.M., Ph.D., B.L. \nSecretary \nDr. Edith Nwosu, LL.B., LL.M., Ph.D., B.L. \nBook Review Editor \nChukwunweike A. Ogbuabor, LL.B., LL.M., B.L. \nBook Review Editor \nJohn F. Olorunfemi, LL.B, LL.M, BL \nDistribution Coordinator \nD. U. Ajah, LL.B., B.L."
+
+418. [territorial-disputes] PartitionOfBritishIndia-Unknown-1947-TheNationalArchives.pdf
+   known: t=PartitionOfBritishIndia | a=Unknown | y=1947 | p=TheNationalArchives
+   missing: author
+   excerpt: 'Partition of British India\nKey Stages 3-5 | Postwar 1945-present\nLesson\n---PAGE---\nThis resource was produced using documents from the collections of The National Archives and other copyright holders. \nImages from copyright holders other than the National Archives may not be reproduced for any purposes without the \npermission of the copyright holder. Every reasonable effort has been made to trace copyright but the National Archives \nwelcomes any information that clarifies the copyright ownership of any unattributed material displayed.\nKS 3-5\nPostwar \n1945 - present\nSuitable for:\nTime period:\nConnections to \ncurriculum:\nKey Stage Three\nChallenges for Britain, \nEurope and the wider \nworld 1901 to the \npresent day\n•\n Indian \nindependence and\nend of Empire\n•\nBritain’s place in\nthe world since\n1945\nContents:\nIn an accompanying video, Iqbal Singh, Hannah Carter and \nEleanor Newbigin introduce a document relating to the partition \nof British India. They explore what this document’s tone and \ncontent can tell us about British official’s attitudes to the \nviolence that occurred after partition. Students also hear an \noral testimony from Iqbal’s aunt whose family were displaced in \n1946 due to growing tensions in British India. \nFind the video on our YouTube channel here:\nhttps://youtu.be/Yb_gq-wZDig\nThe video and resource were launched at a plenary session at \nthe SHP conference 2022.\nThe Partition of British India\nSource 3 \n24 \nSource 4 \n26 \nSource 5a \n28 \nSource 5b \n30 \nSource 5c \n3'
+
+419. [territorial-disputes] PartitionOfThePunjab1947OfficialDocuments-Kirpal-Singh-1991-Unknown.pdf
+   known: t=PartitionOfThePunjab1947OfficialDocuments-Kirpal | a=Singh | y=1991 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+420. [territorial-disputes] PowerfulPersuasionsLanguagePropertyPoliticsSa-Doolittle-2005-Unknown.pdf
+   known: t=PowerfulPersuasionsLanguagePropertyPoliticsSa | a=Doolittle | y=2005 | p=Unknown
+   missing: publisher
+   excerpt: 'Modern Asian Studies\nhttp://journals.cambridge.org/ASS\nAdditional services for Modern Asian Studies:\nEmail alerts: Click here\nSubscriptions: Click here\nCommercial reprints: Click here\nTerms of use : Click here\nPowerful Persuasions: The Language of Property\nand Politics in Sabah, Malaysia (North Borneo),\n1881–1996\nAMITY A. DOOLITTLE\nModern Asian Studies / Volume 38 / Issue 04 / October 2004, pp 821 - 850\nDOI: 10.1017/S0026749X04001222, Published online: 06 October 2004\nLink to this article: http://journals.cambridge.org/abstract_S0026749X04001222\nHow to cite this article:\nAMITY A. DOOLITTLE (2004). Powerful Persuasions: The Language of Property\nand Politics in Sabah, Malaysia (North Borneo), 1881–1996. Modern Asian\nStudies, 38, pp 821-850 doi:10.1017/S0026749X04001222\nRequest Permissions : Click here\nDownloaded from http://journals.cambridge.org/ASS, IP address: 35.8.191.249 on 03 Apr 2015\n---PAGE---\nhttp://journals.cambridge.org\nDownloaded: 03 Apr 2015\nIP address: 35.8.191.249\nModern Asian Studies 38, 4 (2004) pp. 821–850. C⃝2004 Cambridge University Press\nDOI: 10.1017/S0026749X04001222\nPrinted in the United Kingdom\nPowerful Persuasions: The Language of\nProperty and Politics in Sabah, Malaysia\n(North Borneo), 1881–1996\nAMITY A. DOOLITTLE\nYale School of Forestry and Environmental Studies, Yale University\nAbstract\nIn this article I examine the similarities between colonialism and postcolonialism\nin Sabah, Malaysia. I argue that the strategies of rule employed by the colonial an'
+
+421. [territorial-disputes] PreahVihearThaiCambodianConflict-Kasetsiri-2013-Unknown.pdf
+   known: t=PreahVihearThaiCambodianConflict | a=Kasetsiri | y=2013 | p=Unknown
+   missing: publisher
+   excerpt: 'A Guide to the Thai-Cambodian \n— \n_ \nConflict and Its Solutions \nwie \nCharnvit Kasetsiri \nSY. \nPou Sothirak © \ndjs \nPavin Chachavalpongpun \n~ \n} \nWhite Lotus\n---PAGE---\nCharnvit \nKaset \nis a prominent historian and \nThai Micies scholar. He served as lecturer of \nhistory at Thammasat University from 1973 to 2001 \nPVG We \nCOLevaXe \n(ore MPO MPACLOLO MM ND TemOLOlbnd \nCerto ANCTE-TOMNTAUTG \nI \nons \nProgram there. He was rector of Thammasat \nUniversity in 1995 and has written approximately \ntwo hundred articles and a large number of \npublications on Thai and Southeast Asian history, \nparticularly on Thai-Cambodian relations. \n< has been a visiting senior research \n(iow at the Institute of Southeast Asian Studies \nin Singapore since January 2009. From 1986 to \n1992, he was actively involved in efforts to free \nCambodia from foreign occupation and internal \nconflict, serving as humanitarian coordinator at \none of the refugee camps on the border between \nThailand and Cambodia. He was elected member \nof Parliament of Cambodia twice in 1993 and \n2003 and served as minister of industry, mines, \nand energy from 1993 to 1998. He was appointed \nCambodian ambassador to Japan from April \n2005 to November 2008. He has edited a book, \nCambodia: Progress and Challenges since 1991, \nand has published various articles on issues \nconcerning Cambodia. \nPav \nlav: \nis associate professor \nat ane Genter for Southenst Asian Studies, Kyoto \nUniversity, Japan. Previously, Pavin had worked as \na fellow a'
+
+422. [territorial-disputes] RadcliffeReportPunjabBoundaryCommission-Radcliffe-1947-Unknown.pdf
+   known: t=RadcliffeReportPunjabBoundaryCommission | a=Radcliffe | y=1947 | p=Unknown
+   missing: publisher
+   excerpt: '1\nRadcliffe AwardReport of the Punjab\nBoundary Commission\nby Punjab Boundary Commission\nExported from Wikisource on July 2, 2021\n---PAGE---\n2\nREPORT OF THE PUNJAB BOUNDARY\nCOMMISSION\nTo\nHIS EXCELLENCY THE GOVERNOR-GENERAL\n1. I have the honour in present the decision and award of\nthe Punjab Boundary Commission, which, by virtue of\nsection 4 of the Indian Independence Act, 1947, is\nrepresented by my decision as Chairman of that\nCommission.\n2. The Punjab Boundary Commission was constituted by\nthe announcement of the Governor-General, dated the 30th\nof June, 1947, Reference No. D50/7/47R. The members of\nthe Commission thereby appointed were—\nMr. Justice Din Muhammad,\nMr. Justice Muhammad Munir,\nMr. Justice Mehr Chand Mahajan, and\nMr. Justice Teja Singh.\nI \nwas \nsubsequently \nappointed \nChairman \nof \nthis\nCommission.\n3. The terms of reference of the Commission, as set out in\nthe announcement, were as follows:—'
+
+423. [territorial-disputes] ReportOfTheCommissionOfEnquiryNorthBorneo-Cobbold-1962-Unknown.pdf
+   known: t=ReportOfTheCommissionOfEnquiryNorthBorneo | a=Cobbold | y=1962 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+424. [territorial-disputes] SabahQuestionInternationalLaw-Lobrigo-2022-Unknown.pdf
+   known: t=SabahQuestionInternationalLaw | a=Lobrigo | y=2022 | p=Unknown
+   missing: publisher
+   excerpt: 'The Sabah Question in International Law \n \nJudge Frank E. Lobrigo (Ret.)* \n \nI. Introduction \n \nThe relationship between Malaysia and the Philippines has not reached \nits full potential mainly due to a lingering dispute over a territory that was \nonce known to Filipinos as North Borneo, and currently, to the Malaysians as \nSabah. While both countries have diplomatic relationship, the Philippines has \nnot set up a consular office in the State of Sabah, a member of the Federation \nof Malaysia, to the disadvantage of thousands of Filipino migrants in that \nplace. They are the directly affected sector of the Filipino nation being \ndeprived of their government’s consular services and protection which they \ndeserve much like anyone in the Philippine diaspora. \n \nTo better understand the Sabah Question, it should be viewed in \nbifurcated perspectives; one is proprietary in nature, the other is political. \nThe proprietary perspective of the Sabah Question deals with private \nownership of the territory by the heirs of the Sultan of Sulu; whether or not \nthe controversial Deed of 1878 was a lease or a cession of territory. The Deed \nof 1878 was a contract between a landowner, and a sovereign at the same \ntime, and private individuals. The political perspective of the Sabah Question \ndeals with sovereignty; whether or not Sabah or North Borneo forms part of \nthe territory of Malaysia or the Philippines. The Philippines does not assert \nownership of Sabah; the heirs of the Sulu sultan do'
+
+425. [territorial-disputes] SelectDocumentsPartitionPunjabIndiaPakistan-Siṅgha-1947-Unknown.pdf
+   known: t=SelectDocumentsPartitionPunjabIndiaPakistan | a=Siṅgha | y=1947 | p=Unknown
+   missing: publisher
+   excerpt: "Select Documents on \nPARTITION OF PUNJAB-1947 \nIndia and Pakistan \n(Revised & Enlarged Edition ) \nPunjab, Haryana and Himachal- India — \nand \nPunjab - Pakistan\n---PAGE---\nBY THE SAME AUTHOR \nENGLISH \nLe. \n= ESSN \nAWERWH \n0. \ni, \nPunjab's Pioneer Freedom fighters, Published by: Orient Longman 1963 (Out of \nPrint) \nPartition of Punjab-1947, Punjabi University Patiala, 1972, 2nd Edition 1989 \nSikhs and transfer of power, Punjabi University Patiala (In Press) \n. \nMaharaja Ala Singh of Patiala and His Times, an Historical Study \nPrespective on Sikh Gurus \nThe Adi Guru Granth as a Source of History \nAtlas of the Travels of Guru Nanak \nThe Janamsakhi Tradition-Analytical Study \nMaharaja Ala Singh of Paitala and His Times \nPunjab History of Culture, Punjabi University Patiala - \nThe Historical Study of Maharaja Ranjit Singh's Times \nPUNJABI \nSa \neee \nSardar Sham Singh Attariwala. \nPunjab De Mudlay Sawtantrta Sangramiaye. \nPunjab Da Batwara-1947. \nPunjab Da Batwara te Sikh Neta \nSikhan De Punjab Vichon Niklan Di Gatha. \n. \nShahidian (An account of communal riots in the West Punjab, 1947). \nZafar Namah Ranjit Singh, Dewan Amar Nath (Persian)- Punjabi translation - \n(Edited). \nManohar Dass Meharban, Jiwan te Rachnawan. \nJanamsakhi Guru Nanak by Mehraban (Edited). \nJanamsakhi Prampara. \n. Das Gur Katha by Kankan (Edited). \n. \nSikh Itihas De Vashesh Pukh \n. \nSikh Itihas De Khoj Nihand \nPERSIAN \nLe \nChar Bagh-i-Punjab by Ganesh Dass Wadhera (Edited)."
+
+426. [territorial-disputes] SenatePassesMaritimeZonesAct-PhilippinesGov-0000-PhilippinesGov.pdf
+   known: t=SenatePassesMaritimeZonesAct | a=PhilippinesGov | y=0000 | p=PhilippinesGov
+   missing: year
+   excerpt: 'GOV PH\nSenate passes Maritime Zones Act for economic,\nenvironmental security\nBy Wilnard Bacelonia\nFebruary 26, 2024, 5:30 pm\nUpdated on February 27, 2024, 4:58 pm\nShare\nPROTECTING THEIR RIGHTS. Two fishermen divide the day’s catch in Masinloc, Zambales in this 2023 file\nphoto. The Senate unanimously approved the Philippine Maritime Zones Act on Monday (Feb. 26, 2024) to\nShare 29\nSenate passes Maritime Zones Act for economic, environmental security...\nhttps://www.pna.gov.ph/articles/1219564\n1 of 4\n22/04/2026, 00:15\n---PAGE---\nprotect the country\'s sovereignty, promote sustainable development and secure future prosperity. (PNA\nphoto by Joan Bondoc)\nMANILA – Senate Bill No. 2492 or the Philippine Maritime Zones Act was unanimously approved\nin the plenary on Monday to serve as a cornerstone of the country\'s maritime policy, protect\nsovereignty, promote sustainable development, and secure future prosperity.\nThe bill, principally authored and sponsored by Senator Francis Tolentino, aims to declare the\nrights and entitlements of the Philippines over its maritime zones, including the underwater\nfeatures for the enjoyment and cultivation by Filipinos in compliance with the United Nations\nConvention on the Law of the Sea (UNCLOS).\n"The moment marks a significant milestone, not only for our legislative body, but for our nation\nas a whole," Tolentino said in his privilege speech.\nDuring interpellation, Tolentino assured that the measure shall bolster the country\'s claim in\nterritorial di'
+
+427. [territorial-disputes] StatelessInBakassiHowAChangedBorderLeftInhabi-Unknown-2015-JusticeInitiative.pdf
+   known: t=StatelessInBakassiHowAChangedBorderLeftInhabi | a=Unknown | y=2015 | p=JusticeInitiative
+   missing: author
+   excerpt: 'Stateless in Bakassi: How a Changed Border Left Inhabitants Adrift - O...\nhttps://www.justiceinitiative.org/voices/stateless-bakassi-how-changed-...\n1 of 4\n28/03/2026, 19:11\n---PAGE---\nStateless in Bakassi: How a Changed Border Left Inhabitants Adrift - O...\nhttps://www.justiceinitiative.org/voices/stateless-bakassi-how-changed-...\n2 of 4\n28/03/2026, 19:11'
+
+428. [territorial-disputes] ThailandTemplePreahVihear-Pawakapan-2013-Unknown.pdf
+   known: t=ThailandTemplePreahVihear | a=Pawakapan | y=2013 | p=Unknown
+   missing: publisher
+   excerpt: 'Copyright © 2020 IG Publishing Pte Ltd. All Rights Reserved\nDo Not Distribute Without Permission\n---PAGE---\nSTATE AND UNCIVIL\nSOCIETY IN THAILAND\nAT THE TEMPLE OF\nPREAH VIHEAR\nCopyright © 2020 IG Publishing Pte Ltd. All Rights Reserved\nDo Not Distribute Without Permission'
+
+429. [territorial-disputes] TreatyPereyaslav-Pereyaslav-1654-Unknown.pdf
+   known: t=TreatyPereyaslav | a=Pereyaslav | y=1654 | p=Unknown
+   missing: publisher
+   excerpt: '…APPENDIX I\nUKRAINIAN DRAFT TREATY OF 1654, 1\nA BYELORUSSIAN COPY OF THE ARTICLES\nSENT BY\nTHE COSSACK ENVOYS SAMOYLO BOHDANOV\nAND\nPAVLO TETERYA ON THE 14TH DAY OF\nMAY, 7162\n(A.D. 1654)\nTo Alexei Mikhailovich, by the grace of God Great Sovereign and\nGrand Duke, Autocrat of all Great and Li\x01le Russia, and the\nSovereign and Ruler of many states:\nwe, Bohdan Khmelnytsky, Hetman of the Cossack Army, the\nwhole Cossack Army and the whole Christian Russian world\nhumbly petition Your Tsarist Majesty.\nWe have been greatly pleased with the great reward and count-\nless favors which Your Tsarist Majesty deigned to bestow upon\nus. We greet most humbly you, our Sovereign, and will serve for-\never Your Tsarist Majesty in all ma\x01ers according to your orders.\nWe only beg most earnestly, as we did in our le\x01er, that Your\nTsarist Majesty deign to grant us and show us His Sovereign fa-\nvor in everything what\nº our envoys will petition.\n1. At the beginning deign, Your Tsarist Majesty, to conﬁrm the\nrights and liberties which have been enjoyed from ancient times\nby the Cossack Army, including trial according to their own laws\nand privileges so that no voevoda, boyar or steward should inter-\nfere with their army courts and that they should be tried by their\n p78 \n p79 \n p80 \nTreaty of Pereyaslav 1654 • Appendix I\nhttps://penelope.uchicago.edu/Thayer/E/Gazetteer/Places/Europe/Ukrai...\n1 of 5\n7/8/2025, 7:00 PM\n---PAGE---\nelders: where there are three Cossacks, two of them shall try the\nthird one.\n2. Th'
+
+430. [territorial-disputes] UnderCharteredCompanyRule-Tregonning-1958-Unknown.pdf
+   known: t=UnderCharteredCompanyRule | a=Tregonning | y=1958 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+431. [territorial-disputes] Unknown-Unknown-1966-Unknown.pdf
+   known: t=Unknown | a=Unknown | y=1966 | p=Unknown
+   missing: title,author,publisher
+   excerpt: "THE PHILIPPINE CLAIM TO NORTH BORNEO \nby \nORLANDO M. HERNANDO \nA. B., University of the Philippines, 1951 \nLl. B., Central Philippine University, 1955 \nA MASTER'S THESIS \nsubmitted in partial fulfillment of the \nrequirements for the degree \nMASTER OF ARTS \nCollege of Arts and Sciences \nKANSAS STATE UNIVERSITY \nManhattan, Kansas \n1966 \nApproved by: \nMajor Professor \n/ \n1/\n---PAGE---\nTABLE OF CONTENTS \nPREFACE \nCHAPTER I. \nINTRODUCTION \n1 \nCHAPTER II. \nBRIEF HISTORY OF NORTH BORNEO \n7 \nCHAPTER III. \nHISTORICAL AND LEGAL BASIS OF THE PHILIPPINE CLAIM \nTO NORTH BORNEO \n20 \nCHAPTER IV. \nCOMPETING BRITISH CLAIM AND THE PHILIPPINE REBUTTAL \n. . . 38 \nCHAPTER V. \nTITLE TO TERRITORY AND PEACEFUL SETTLEMENT OF DISPUTES . . 49 \nCHAPTER VI. \nSUMMARY AND CONCLUSION \n75 \nAPPENDIX"
+
+432. [territorial-disputes] UNMeetingsCoverageICJPressReleaseJudgment-UN-0000-UN.pdf
+   known: t=UNMeetingsCoverageICJPressReleaseJudgment | a=UN | y=0000 | p=UN
+   missing: year
+   excerpt: 'Press Release\nICJ/603\n10 October 2002\n10/10/2002\nPress Release\nICJ/603\nINTERNATIONAL COURT OF JUSTICE GIVES JUDGMENT\nIN CAMEROON-NIGERIA BOUNDARY DISPUTE\nTHE HAGUE, 10 October -- The International Court of Justice (ICJ),\nprincipal judicial organ of the United Nations, has today given judgment in\nthe case concerning the Land and Maritime Boundary between Cameroon\nand Nigeria (Cameroon v. Nigeria: Equatorial Guinea intervening). In its\nJudgment, which is final, without appeal and binding for the Parties, the\nCourt determines as follows the course of the boundary, from north to\nsouth, between Cameroon and Nigeria:\nIn the Lake Chad area, the Court decides that the boundary is delimited by\nthe Thomson-Marchand Declaration of 1929-1930, as incorporated in the\nHenderson-Fleuriau Exchange of Notes of 1931 (between Great Britain\nand France); it finds that the boundary starts in the lake from the\nCameroon-Nigeria-Chad tripoint (whose co-ordinates it defines) and follows\nInternational Court of Justice\n---PAGE---\na straight line to the mouth of the River Ebeji as it was in 1931 (whose co-\nordinates it also defines) and thence runs in a straight line to the point\nwhere the river today divides into two branches.\nBetween Lake Chad and the Bakassi Peninsula, the Court confirms that\nthe boundary is delimited by the following instruments:\ni) from the point where the River Ebeji bifurcates, as far as Tamnyar Peak,\nby the Thomson-Marchand Declaration of 1929-1930 (paras. 2-60), as\nincorporated i'
+
+433. [territorial-disputes] VenezuelaGuyanaBorderDispute-Braveboy-Wagner-1984-Unknown.pdf
+   known: t=VenezuelaGuyanaBorderDispute-Braveboy | a=Wagner | y=1984 | p=Unknown
+   missing: publisher
+   excerpt: "The Venezuela-Guyana Border Dispute\nWestview Replica Editions\nThe concept of Westview Replica Editions is a response to the continuing\ncrisis in academic and informational\npublishing. Library budgets for books\nhave been severely curtailed. Ever larger portions of general library\nbudgets\nare being diverted from the purchase of books and used for data banks,\ncomputers, micromedia, and other\n methods of information retrieval.\nInterlibrary loan structures further reduce the edition sizes required to\nsatisfy the needs of the scholarly community. Economic pressures on the\nuniversity presses and the few private\nscholarly publishing companies have\nseverely limited the capacity of the industry to properly serve the academic\nand research communities. As a result, many manuscripts dealing with\nimportant subjects, often representing the\nhighest level of scholarship, are\nno longer economically viable publishing projects--or, if accepted for\npublication, are typically subject to lead times ranging from one to three\nyears.\nWestview Replica Editions are our practical solution to the problem. We\naccept a manuscript in camera-ready form,\n typed according to our\nspecifications, and move it immediately into the production process. As\nalways, the\n selection criteria include the importance of the subject, the\nwork's contribution to scholarship, and its\n insight, originality of thought,\nand excellence of exposition. The responsibility for editing and\nproofreading\n lies with the author or sponsoring"
+
+434. [territorial-disputes] WhoOwnsBakassiCritiqueAngloGermanTreaties-Akak-1999-Unknown.pdf
+   known: t=WhoOwnsBakassiCritiqueAngloGermanTreaties | a=Akak | y=1999 | p=Unknown
+   missing: publisher
+   excerpt: "OWNS \nYE \nKflSSl1 \nAKASSI?\n---PAGE---\nf. \n0V1,.7 \nc -;., lciitT • \nI UODUCl \n\x11afCU -.-.;·1t11.-\nf \nWt1 \nlll \n·' \n'\n; \n·;. \nIII"
+

@@ -1,0 +1,180 @@
+You are identifying correct publication metadata for academic library files.
+
+For each file listed below, provide the correct YEAR and PUBLISHER.
+Rules:
+- Publisher = real academic publisher (NOT download source like ZLib, Libgen, AnnaArchive, z-library, 1lib)
+- For primary source documents (treaties, acts, speeches, court decisions, government reports): publisher = issuing institution (e.g. "United Nations", "US Congress", "ICJ", "League of Nations")
+- For journal articles: publisher = journal name (e.g. "Journal of African History")
+- For books: publisher = academic press (e.g. "Oxford University Press", "Harvard University Press", "Cambridge University Press")
+- If you cannot determine with high confidence: y="0000" and/or p="Unknown"
+- Use your training knowledge and Google Search to verify
+
+Return ONLY a JSON array (no markdown fences, no explanation):
+[{{"f": "original_filename.pdf", "y": "YYYY", "p": "Publisher"}}]
+
+Files (current known metadata: a=author, y=year, t=short_title):
+a=Bethell y=2024 t=CebriRevista | -CEBRI-Revista-N.9-2024-9+Bethell-165-175.pdf
+a=Zinn y=0000 t=PeoplesHistoryUnitedStates | (1) - (People's History of the United States 1_Harper Perennial modern classics) Arnove, Anthony_Zinn, Howard (n.d.).pdf
+a=Stewart y=2020 t=MasculinityIdentityPowerPolitics | (Social worlds of late antiquity and the early Middle Ages) Michael Edward Stewart - Masculinity, Identity, and Power Politics in the Age of Justinian_ A Study of Procopius-Amsterdam Univ Pr (2020).pdf
+a=Andrew y=0000 t=WorldWasGoingOurWay | [Mitrokhin Archive 02] • The World Was Going Our Way · The KGB and the Battle for the the Third World (Andrew, Christopher Mitrokhin, Vasili).pdf
+a=Ctesias y=2013 t=CtesiasHistoryPersia | [Routledge Classical Translations] Ctesias._Robson, James E._Llewellyn-Jones, Lloyd - Ctesias' 'History of Persia'. Tales of the Orient (2013, Routledge) - libgen.li.epub
+a=Eames y=2018 t=BloodyRose | [The Band №2] Eames, Nicholas - Bloody Rose (2018, Orbit) - libgen.li.epub
+a=Philipp y=2011 t=DatingPassionLifeJesus | [Time, Astronomy, and Calendars 1] C. Philipp, E. Nothaf - Dating the Passion_ The Life of Jesus and the Emergence of Scientific Chronology (200–1600) (2011, Brill) - libgen.li.pdf
+a=None y=1823 t=ОписаниеКарабагскойпровинциисоставленноевг | 000199-000009-002585977-Описание-Карабагской-провинции-составленное-в-1823-г.pdf
+a=None y=0000 t=None | 04-Pavin+Chachavalpongpun-DOI.pdf
+a=None y=0000 t=None | 1 - Article · March 2013 (n.d.).pdf
+a=None y=0000 t=None | 1 - DOI 10.108017442222.2016.1214368 (n.d.).pdf
+a=None y=0000 t=None | 1 - Seediscussions,stats, and author profiles for this publication at (n.d.).pdf
+a=None y=1941 t=July | 17 - July 7, 1941 (n.d.).pdf
+a=McCullough y=0000 t=SeventeenSeventySix | 1776 (David McCullough).pdf
+a=None y=0000 t=CannibalEncountersEuropeansIsland | 1944- - Cannibal encounters Europeans and Island Caribs, 1492-1763 (n.d.).pdf
+a=None y=0000 t=AlsJeVoorHetEerstDeelneemt | 2020 - Als je voor het eerst deelneemt aan een les met Zoom, bekijk dan dit document grondig van (n.d.).pdf
+a=None y=0000 t=None | 2022-1-35a-p-transcribed-translation.pdf
+a=None y=0000 t=None | 2024-Coupvolution-Terrorism-Sahel-Springer-142-159.pdf
+a=None y=0000 t=None | 297-Texto del artículo-369-1-10-20160927.pdf
+a=Miller y=0000 t=ThreeHundred | 300 (Frank Miller) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=None y=0000 t=None | 340-510-PB.pdf
+a=Disney y=0000 t=HistoryPortugalPortugueseEmpire | A History of Portugal and the Portuguese Empire, from Beginnings to 1807, Vol 2) - The Portuguese Empire (Anthony R. Disney) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=None y=0000 t=LegitimateSphereInfluenceUnderstanding | A legitimate sphere of influence Understanding France s turn to multilateralism in Africa.pdf
+a=Feitlowitz y=0000 t=LexiconTerrorArgentinaLegacies | A Lexicon of Terror Argentina and the Legacies of Torture, Revised and Updated with a New Epilogue (Marguerite Feitlowitz) (Z-Library).pdf
+a=Bryson y=0000 t=ShortHistoryNearlyEverything | a Short History Of Nearly Everything (Bryson Bill) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=None y=0000 t=None | A-5168-EN.pdf
+a=None y=0000 t=None | A-6700-Add.14-(Part-II)-EN.pdf
+a=None y=0000 t=None | A-75-976--S-2021-684-EN.pdf
+a=None y=0000 t=None | A-RES-3458(XXX)[A]-EN.pdf
+a=None y=0000 t=None | A-SPC-SR-349-EN.pdf
+a=Administrator y=0000 t=MicrosoftWordMontgo | Administrator - Microsoft Word - MONTGO1.doc (n.d.).pdf
+a=Salas y=0000 t=AdmittedOmarÁlvarez | admitted - Omar Álvarez Salas (n.d.).pdf
+a=Adorno y=2010 t=GuamanPoma | Adorno - Guaman Poma (2010).pdf
+a=Akçam y=2012 t=YoungTurksCrimeHumanity | Akçam - The Young Turks' Crime against Humanity (2012).pdf
+a=Harmer y=0000 t=AllendesChileInterAmericanColdWar | Allendes Chile and the Inter-American Cold War (Tanya Harmer) (Z-Library).pdf
+a=Altstadt y=2013 t=AzerbaijaniTurks | Altstadt - The Azerbaijani Turks (2013).pdf
+a=HedenstiernaJonson y=2017 t=FemaleVikingWarriorConfirmed | American J Phys Anthropol - 2017 - Hedenstierna‐Jonson - A female Viking warrior confirmed by genomics.pdf
+a=Maier y=0000 t=AmericanScriptureMakingDeclaration | American Scripture Making the Declaration of Independence (Pauline Maier).pdf
+a=Shorto y=0000 t=AmsterdamHistoryWorldsMost | Amsterdam A History of the Worlds Most Liberal City (Russell Shorto) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Shorto y=0000 t=AmsterdamHistoryWorldsMost | Amsterdam A History of the Worlds Most Liberal City (Russell Shorto) (z-library.sk, 1lib.sk, z-lib.sk)(1).epub
+a=Shorto y=0000 t=AmsterdamAHistoryWorldsMost | Amsterdam-A-History-of-the-Worlds-Most-Liberal-City-_Russell-Shorto_-_z-library.sk_-1lib.sk_-z-lib.pdf
+a=Parry y=1968 t=IndexBritishTreaties | An index of British treaties, 1101-1968, compiled and annotated under the auspices of the International Law Fund and the… (Parry, Clive, Hopkins etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Harris y=0000 t=AncientLiteracy | Ancient Literacy (William V. Harris) (Z-Library).pdf
+a=Andrien y=1825 t=AndeanWorldsIndigenousHistory | Andean Worlds Indigenous History, Culture, and Consciousness Under Spanish Rule, 1532-1825 (Kenneth J. Andrien).pdf
+a=Anderson y=1991 t=ImaginedCommunities | Anderson - Imagined Communities (1991).pdf
+a=Andrew y=2000 t=SwordShield | Andrew - The Sword and the Shield (2000).pdf
+a=Andrew y=2006 t=WorldWasGoingOurWay | Andrew - The World Was Going Our Way (2006).pdf
+a=Andrien y=2001 t=AndeanWorlds | Andrien - Andean Worlds (2001).pdf
+a=None y=0000 t=None | ANNOTATED-DRAFT-Statut-des-Juifs-1940.pdf
+a=Arad y=2018 t=OperationReinhardDeathCamps | Arad - The Operation Reinhard Death Camps (2018).pdf
+a=Army y=1970 t=TechnicalManual | Army - Technical Manual (1970).pdf
+a=Arnold y=0000 t=ChapterJanuary | Arnold - Chapter · January 1996 (n.d.).pdf
+a=Arnold y=1995 t=Hassmann | Arnold-Hassmann-1995.pdf
+a=Art y=0000 t=SocietyEncouragementContemporary | Art - Society for the Encouragement of Contemporary Art (n.d.).pdf
+a=Ashton y=2007 t=ColdWarMiddleEast | Ashton - The Cold War in the Middle East (2007).pdf
+a=Dinges y=0000 t=AssassinationEmbassyRowShocking | Assassination on Embassy Row The Shocking Story of the Letelier-Moffitt Murders (John Dinges, Saul Landau) (Z-Library).pdf
+a=Daut y=0000 t=AwakeningAshesIntellectualHistory | Awakening the Ashes An Intellectual History of the Haitian Revolution (Marlene L. Daut) (Z-Library).epub
+a=Daut y=0000 t=AwakeningAshesIntellectualHistory | Awakening-the-Ashes-An-Intellectual-History-of-the-Haitian-Revolution-_Marlene-L.-Daut_-_Z-Library_.pdf
+a=Ayala y=2021 t=FirstNewChronicleGood | Ayala - The First New Chronicle and Good Government (2021).pdf
+a=Bailyn y=1973 t=IdeologicalOriginsAmericanRevolution | Bailyn - The Ideological Origins of the American Revolution (1973).pdf
+a=Bakewell y=0000 t=MinersRedMountain | Bakewell - Miners of the Red Mountain (n.d.) (1).pdf
+a=Bakewell y=0000 t=MinersRedMountain | Bakewell - Miners of the Red Mountain (n.d.).pdf
+a=Minto y=2010 t=MintoPyramidPrincipleLogic | Barbara Minto - The Minto Pyramid Principle_ Logic In Writing, Thinking And Problem Solving (2010, Financial Times_Prentice Hall) - libgen.li.pdf
+a=Barr y=2013 t=LineSand | Barr - A Line in the Sand (2013).pdf
+a=Barrowclough y=2016 t=DiggingHitler | Barrowclough - Digging for Hitler (2016).pdf
+a=Barton y=1996 t=ReadingOldTestament | Barton - Reading the Old Testament (1996).pdf
+a=Becker y=0000 t=BenoitDeBecker | Becker - Benoit De Becker (n.d.) (1) (2) (3) (4).pdf
+a=Becker y=0000 t=BenoitDeBecker | Becker - Benoit De Becker (n.d.) (1) (2) (3).pdf
+a=Becker y=0000 t=BenoitDeBecker | Becker - Benoit De Becker (n.d.) (1) (2).pdf
+a=Becker y=0000 t=BenoitDeBecker | Becker - Benoit De Becker (n.d.) (1).pdf
+a=Becker y=0000 t=BenoitDeBecker | Becker - Benoit De Becker (n.d.).pdf
+a=Becker y=0000 t=FacultyArtsPhilosophy | Becker - FACULTY OF ARTS AND PHILOSOPHY (n.d.).pdf
+a=Becker y=0000 t=GrimHollowSubclassesEtharis | Becker - Grim Hollow Subclasses in Etharis World Anvil (n.d.) (1) (2) (3).pdf
+a=Becker y=0000 t=GrimHollowSubclassesEtharis | Becker - Grim Hollow Subclasses in Etharis World Anvil (n.d.) (1) (2).pdf
+a=Becker y=0000 t=GrimHollowSubclassesEtharis | Becker - Grim Hollow Subclasses in Etharis World Anvil (n.d.) (1).pdf
+a=Becker y=0000 t=GrimHollowSubclassesEtharis | Becker - Grim Hollow Subclasses in Etharis World Anvil (n.d.).pdf
+a=Becker y=0000 t=JeBestellingBevatVolgendeArtikels | Becker - Je bestelling bevat volgende artikels (n.d.) (1).pdf
+a=Becker y=0000 t=JeBestellingBevatVolgendeArtikels | Becker - Je bestelling bevat volgende artikels (n.d.).pdf
+a=Becker y=0000 t=TerechtBijProfessorenAssistenten | Becker - terecht bij professoren en assistenten voor (n.d.) (1) (2) (3) (4) (5) (6) (7).pdf
+a=Becker y=0000 t=TerechtBijProfessorenAssistenten | Becker - terecht bij professoren en assistenten voor (n.d.) (1) (2) (3) (4) (5) (6).pdf
+a=Becker y=0000 t=TerechtBijProfessorenAssistenten | Becker - terecht bij professoren en assistenten voor (n.d.) (1) (2) (3) (4) (5).pdf
+a=Becker y=0000 t=TerechtBijProfessorenAssistenten | Becker - terecht bij professoren en assistenten voor (n.d.) (1) (2) (3) (4).pdf
+a=Becker y=0000 t=TerechtBijProfessorenAssistenten | Becker - terecht bij professoren en assistenten voor (n.d.) (1) (2) (3).pdf
+a=Becker y=0000 t=TerechtBijProfessorenAssistenten | Becker - terecht bij professoren en assistenten voor (n.d.) (1) (2).pdf
+a=Becker y=0000 t=TerechtBijProfessorenAssistenten | Becker - terecht bij professoren en assistenten voor (n.d.) (1).pdf
+a=Becker y=0000 t=TerechtBijProfessorenAssistenten | Becker - terecht bij professoren en assistenten voor (n.d.).pdf
+a=Guest y=0000 t=BehindDisappearancesArgentinasDirty | Behind the Disappearances_ Argentina's Dirty War Against -- Guest, Iain -- Pennsylvania studies in human rights, Philadelphia, -- University of -- 9780812213133 -- 4ef6d57cc43deeb5a1f5792bfe59d7d8 -- Anna’s Archive.pdf
+a=Beleggen y=0000 t=HelpdeskBeleggen | Beleggen - Helpdesk Beleggen (n.d.) (1) (2) (3) (4) (5) (6) (7) (8) (9) (10) (11) (12).pdf
+a=Beleggen y=0000 t=HelpdeskBeleggen | Beleggen - Helpdesk Beleggen (n.d.) (1) (2) (3) (4) (5) (6) (7) (8) (9) (10) (11).pdf
+a=Beleggen y=0000 t=HelpdeskBeleggen | Beleggen - Helpdesk Beleggen (n.d.) (1) (2) (3) (4) (5) (6) (7) (8) (9) (10).pdf
+a=Beleggen y=0000 t=HelpdeskBeleggen | Beleggen - Helpdesk Beleggen (n.d.) (1) (2) (3) (4) (5) (6) (7) (8) (9).pdf
+a=Beleggen y=0000 t=HelpdeskBeleggen | Beleggen - Helpdesk Beleggen (n.d.) (1) (2) (3) (4) (5) (6) (7) (8).pdf
+a=Beleggen y=0000 t=HelpdeskBeleggen | Beleggen - Helpdesk Beleggen (n.d.) (1) (2) (3) (4) (5) (6) (7).pdf
+a=Beleggen y=0000 t=HelpdeskBeleggen | Beleggen - Helpdesk Beleggen (n.d.) (1) (2) (3) (4) (5) (6).pdf
+a=Beleggen y=0000 t=HelpdeskBeleggen | Beleggen - Helpdesk Beleggen (n.d.) (1) (2) (3) (4) (5).pdf
+a=Beleggen y=0000 t=HelpdeskBeleggen | Beleggen - Helpdesk Beleggen (n.d.) (1) (2) (3) (4).pdf
+a=Beleggen y=0000 t=HelpdeskBeleggen | Beleggen - Helpdesk Beleggen (n.d.) (1) (2) (3).pdf
+a=Beleggen y=0000 t=HelpdeskBeleggen | Beleggen - Helpdesk Beleggen (n.d.) (1) (2).pdf
+a=Beleggen y=0000 t=HelpdeskBeleggen | Beleggen - Helpdesk Beleggen (n.d.) (1).pdf
+a=Beleggen y=0000 t=HelpdeskBeleggen | Beleggen - Helpdesk Beleggen (n.d.).pdf
+a=Territoire y=2006 t=HottonMarcheEnFamenneNassogne | Belgique. Ministère de la Région wallonne. Direction générale de l'aménagement du territoire - Hotton, Marche-en-Famenne, et Nassogne (2006) (1) (2).pdf
+a=Territoire y=2006 t=HottonMarcheEnFamenneNassogne | Belgique. Ministère de la Région wallonne. Direction générale de l'aménagement du territoire - Hotton, Marche-en-Famenne, et Nassogne (2006) (1).pdf
+a=Territoire y=2006 t=HottonMarcheEnFamenneNassogne | Belgique. Ministère de la Région wallonne. Direction générale de l'aménagement du territoire - Hotton, Marche-en-Famenne, et Nassogne (2006).pdf
+a=BenItto y=2005 t=LieWouldnTDie | Ben-Itto - The Lie that Wouldn't Die (2005).pdf
+a=Berber y=0000 t=HistoriansIndividualAgency | Berber - Historians and Individual Agency (n.d.) (1).pdf
+a=Berber y=0000 t=HistoriansIndividualAgency | Berber - Historians and Individual Agency (n.d.).pdf
+a=Berendt y=0000 t=LenguaMaya | Berendt - Lengua maya (n.d.).pdf
+a=Bert y=0000 t=Theoretische | Bert - Theoretische (n.d.).pdf
+a=None y=0000 t=BertotTrianaHRcdVolNo | Bertot+Triana,+H.,+RCD,+Vol.+3,+No.+01.pdf
+a=None y=0000 t=BibFict | bib-fict-4173308.pdf
+a=Gibson y=0000 t=BlackLegendAntiSpanishAttitudes | Black Legend- Anti-Spanish Attitudes in the Old World and -- Charles Gibson; James H- Sutton Jr- and Sylvia Leal Carvajal -- Borzoi books on Latin -- 9780394302898 -- 833c096aaa22d20ccd26f3d996831872 -- Anna’s Archive.pdf
+a=Blackburn y=0000 t=BackCover | Blackburn - Back Cover (n.d.).pdf
+a=Blackhawk y=2023 t=RediscoveryAmerica | Blackhawk - The Rediscovery of America (2023).pdf
+a=Blackwell y=0000 t=BlackwellPhilo | Blackwell - BLACKWELL PHILO (n.d.).pdf
+a=Blatt y=2021 t=RaceMakingAmericanPolitical | Blatt - Race and the Making of American Political Science (2021).pdf
+a=Blight y=2002 t=RaceReunion | Blight - Race and Reunion (2002).pdf
+a=Horcasitas y=0000 t=BookGodsRitesAncient | Book of the gods and rites and The ancient calendar -- Translated and edited by Fernando Horcasitas and Doris.pdf
+a=Cook y=0000 t=BornDieDiseaseNewWorld | Born to Die- Disease and New World Conquest, 1492–1650 (New -- Cook, Noble David -- New approaches to the Americas, Cambridge, New York, -- Cambridge -- 9780521622080 -- 9c96325f074d0f778a49d4b401200735 -- Anna’s Archive.pdf
+a=Botticini y=2014 t=ChosenFew | Botticini - Chosen Few (2014).pdf
+a=Bournoutian y=2002 t=ConciseHistoryArmenianPeople | Bournoutian - A Concise History of the Armenian People (2002) (1).pdf
+a=Bournoutian y=2002 t=ConciseHistoryArmenianPeople | Bournoutian - A Concise History of the Armenian People (2002).pdf
+a=Bouvet y=0000 t=CurrencyDevaluationSourceGrowth | Bouvet - Currency Devaluation as a Source of Growth in Africa (n.d.).pdf
+a=BOYD y=2014 t=HowHumansEvolved | BOYD - How Humans Evolved (2014).pdf
+a=Bradford y=2014 t=ThermopylaeBattleWest | Bradford, Ernle Dusgate Selby - Thermopylae. The Battle for the West (2014, Open Road Media) - libgen.li.azw3
+a=Brittain y=1986 t=SelectBibliographyGuideStudents | Brittain - A Select Bibliography and Guide for Students Following the B.A. Performing Arts Course (1986).pdf
+a=None y=0000 t=None | bronner2019.pdf
+a=Brown y=2025 t=RealValkyrie | Brown - The Real Valkyrie (2025).pdf
+a=Brown y=2021 t=RealValkyrieVikingWarrior | Brown - The Real Valkyrie Viking Warrior Women (2021).pdf
+a=None y=0000 t=None | brown1997.pdf
+a=Browne y=2013 t=SevenElementsChangedWorld | Browne - Seven Elements That Have Changed The World (2013).pdf
+a=Browning y=2007 t=OriginsFinalSolution | Browning - The Origins of the Final Solution (2007).pdf
+a=Brugge y=0000 t=InfocenterBrugge | Brugge - Infocenter Brugge (n.d.).pdf
+a=Brugge y=0000 t=Overheidsdienst | Brugge - Overheidsdienst ; (n.d.).pdf
+a=BulmerThomas y=1998 t=HistoriaEconómicaAméricaLatina | Bulmer-Thomas - La historia económica de América Latina desde la independencia (1998).pdf
+a=BulmerThomas y=2003 t=EconomicHistoryLatinAmerica | Bulmer-Thomas - The Economic History of Latin America Since Independence (2003).pdf
+a=Bureau y=1929 t=SovietUnion | Bureau - The Soviet Union (1929).pdf
+a=None y=0000 t=None | bytwerk2015.pdf
+a=Ochoa y=0000 t=CacicasIndigenousWomenLeaders | Cacicas - the indigenous women leaders of Spanish America, -- Margarita R. Ochoa, Sara V. Guengerich.pdf
+a=Cadena y=2010 t=IndigeneidadesContemporáneas | Cadena - Indigeneidades contemporáneas (2010).pdf
+a=None y=0000 t=None | Cairns-HonourRhetoricSlavery-2025.pdf
+a=None y=0000 t=Calendar | calendar.pdf
+a=Edwards y=1945 t=CambodgeCultivationNation | Cambodge The Cultivation of a Nation, 1860-1945 (Southeast Asia--politics, meaning, and memory) (Edwards, Penny).pdf
+a=Piketty y=0000 t=CapitalIdeology | Capital and Ideology (Thomas Piketty) (Z-Library).pdf
+a=Carter y=2022 t=VolosGuideMonsters | Carter) - Volo's Guide to Monsters (2022).pdf
+a=None y=0000 t=None | Cartographic-anxiety-Mapping-the-body-po.pdf
+a=Casas y=2019 t=ShortAccountDestructionIndies | Casas - A Short Account of the Destruction of the Indies (2019).pdf
+a=Chandler y=1992 t=HistoryCambodia | Chandler - A History Of Cambodia (1992).pdf
+a=Chandler y=0000 t=HistoryCambodia | Chandler D. - A History of Cambodia.pdf
+a=Characters y=0000 t=Terminology | Characters - Terminology (n.d.).pdf
+a=McKitterick y=0000 t=CharlemagneFormationEuropeanIdentity | CHARLEMAGNE The Formation of a European Identity (ROSAMOND MCKITTERICK) (Z-Library).pdf
+a=Chazan y=2006 t=JewsMedievalWesternChristendom | Chazan - The Jews of Medieval Western Christendom (2006).pdf
+a=Price y=0000 t=ChildrenAshElmHistoryVikings | Children-of-Ash-and-Elm-A-History-of-the-Vikings--Neil-Price---Z-Library--1.pdf
+a=None y=0000 t=None | chirac speech analaysus.pdf
+a=Chomsky y=1999 t=FatefulTriangle | Chomsky - Fateful Triangle (1999).pdf
+a=None y=0000 t=None | chriac speech.pdf
+a=Léon y=0000 t=TravelsPedroDeCieza | Cieza de Léon - The travels of Pedro de Cieza de Léon, A.D. 1532-50, contained in the first part of his Chronicle of Peru (0).pdf
+a=Zinn y=0000 t=PeoplesHistoryUnitedStates | Classics_HarperPe - (People's History of the United States 1_Harper Perennial modern classics) Arnove, Anthony_Zinn, Howard (n.d.).pdf
+a=Cohen y=2021 t=UnderCrescentCross | Cohen - Under Crescent and Cross (2021).pdf
+a=Cohn y=1967 t=WarrantGenocideMythJewish | Cohn - Warrant for Genocide, the Myth of the Jewish World (1967).pdf
+a=Cole y=1985 t=PotosíMita | Cole - The Potosí Mita, 1573-1700 (1985).pdf
+a=Committee y=1960 t=ReportPresidentU.S.Chairman | Committee - Report to the President of the U.S. and to the Chairman of the Governors' Conference (1960).pdf
+a=Committee y=1994 t=ScientificStyleFormat | Committee - Scientific Style and Format (1994) (1).pdf
+a=Committee y=1994 t=ScientificStyleFormat | Committee - Scientific Style and Format (1994).pdf
+a=None y=0000 t=CompleteResearchCompilation | COMPLETE-RESEARCH-COMPILATION.pdf
+a=Conklin y=1997 t=MissionCivilize | Conklin - A Mission to Civilize (1997).pdf

@@ -1,0 +1,6296 @@
+{
+  "summary": {
+    "total_files_scanned": 1195,
+    "complete": 747,
+    "image_only_skipped": 8,
+    "unparseable_filenames": 6,
+    "incomplete_in_inventory": 434,
+    "by_folder": {
+      "african-history": 5,
+      "colonialism-slavery": 33,
+      "general-history": 344,
+      "middle-east-history": 11,
+      "reference-methodology": 2,
+      "territorial-disputes": 39
+    },
+    "by_missing_field": {
+      "title": 16,
+      "author": 109,
+      "year": 82,
+      "publisher": 396
+    }
+  },
+  "unparseable": [
+    {
+      "folder": "crusades-christianity",
+      "filename": "Cockburn--Patrick-The-age-of-jihad-Islamic-State-and-the-great-war-for-the-Middle-East--2016--Verso-.pdf"
+    },
+    {
+      "folder": "crusades-christianity",
+      "filename": "Routledge-Revivals--Francesco-Gabrieli-Arab-Historians-of-the-Crusades--2011--Routledge--libgen.li.pdf"
+    },
+    {
+      "folder": "crusades-christianity",
+      "filename": "Rubenstein--Jay-Armies-of-Heaven-The-First-Crusade-and-the-Quest-for-Apocalypse--2011--Basic-Books--.pdf"
+    },
+    {
+      "folder": "general-history",
+      "filename": "Finkelstein--Norman-Image-and-Reality-of-the-Israel-Palestine-Conflict--2016--Verso-Books--libgen.pdf"
+    },
+    {
+      "folder": "general-history",
+      "filename": "Routledge-Revivals--Francesco-Gabrieli-Arab-Historians-of-the-Crusades--2011--Routledge--libgen.li.pdf"
+    },
+    {
+      "folder": "general-history",
+      "filename": "Rubenstein--Jay-Armies-of-Heaven-The-First-Crusade-and-the-Quest-for-Apocalypse--2011--Basic-Books--.pdf"
+    }
+  ],
+  "inventory": [
+    {
+      "idx": 1,
+      "folder": "african-history",
+      "filename": "AfricasLastColonialCurrency-Pigeaud-2023-Unknown.pdf",
+      "title": "AfricasLastColonialCurrency",
+      "author": "Pigeaud",
+      "year": "2023",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1908900
+    },
+    {
+      "idx": 2,
+      "folder": "african-history",
+      "filename": "ColonialityOfPowerPostcolonialAfrica-Ndlovu-2016-Unknown.pdf",
+      "title": "ColonialityOfPowerPostcolonialAfrica",
+      "author": "Ndlovu",
+      "year": "2016",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3005474
+    },
+    {
+      "idx": 3,
+      "folder": "african-history",
+      "filename": "ImperialismSovereigntyInternationalLaw-Anghie-2005-Unknown.pdf",
+      "title": "ImperialismSovereigntyInternationalLaw",
+      "author": "Anghie",
+      "year": "2005",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3337704
+    },
+    {
+      "idx": 4,
+      "folder": "african-history",
+      "filename": "SahelCognitiveMapping-Idrissa-2017-Unknown.pdf",
+      "title": "SahelCognitiveMapping",
+      "author": "Idrissa",
+      "year": "2017",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 653463
+    },
+    {
+      "idx": 5,
+      "folder": "african-history",
+      "filename": "Unknown-Unknown-0000-Unknown.pdf",
+      "title": "Unknown",
+      "author": "Unknown",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "author",
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 165030046
+    },
+    {
+      "idx": 6,
+      "folder": "colonialism-slavery",
+      "filename": "AmericanIndianWesternLegalThought-Williams-1998-Unknown.pdf",
+      "title": "AmericanIndianWesternLegalThought",
+      "author": "Williams",
+      "year": "1998",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 24147322
+    },
+    {
+      "idx": 7,
+      "folder": "colonialism-slavery",
+      "filename": "ColonyNewNetherlandDutch-Jacobs-2007-Unknown.pdf",
+      "title": "ColonyNewNetherlandDutch",
+      "author": "Jacobs",
+      "year": "2007",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 5232531
+    },
+    {
+      "idx": 8,
+      "folder": "colonialism-slavery",
+      "filename": "DumDiversas-Pope-Nicholas-V-1452-Unknown.pdf",
+      "title": "DumDiversas-Pope-Nicholas",
+      "author": "V",
+      "year": "1452",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3601219
+    },
+    {
+      "idx": 9,
+      "folder": "colonialism-slavery",
+      "filename": "FirstManhattanIndiansMewYork-Grumet-2002-Unknown.pdf",
+      "title": "FirstManhattanIndiansMewYork",
+      "author": "Grumet",
+      "year": "2002",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 10430857
+    },
+    {
+      "idx": 10,
+      "folder": "colonialism-slavery",
+      "filename": "GenealogicalFictionsLimpiezaSangre-Mart\u00ednez-2012-Unknown.pdf",
+      "title": "GenealogicalFictionsLimpiezaSangre",
+      "author": "Mart\u00ednez",
+      "year": "2012",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 30840994
+    },
+    {
+      "idx": 11,
+      "folder": "colonialism-slavery",
+      "filename": "GrandfathersSpeakNativeAmericanFolkTalesOfThe-Hitakonanulaxk-1994-Unknown.pdf",
+      "title": "GrandfathersSpeakNativeAmericanFolkTalesOfThe",
+      "author": "Hitakonanulaxk",
+      "year": "1994",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 8323026
+    },
+    {
+      "idx": 12,
+      "folder": "colonialism-slavery",
+      "filename": "HalumiiKtapihna-Hitakonanulaxk-1994-Unknown.pdf",
+      "title": "HalumiiKtapihna",
+      "author": "Hitakonanulaxk",
+      "year": "1994",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1118848
+    },
+    {
+      "idx": 13,
+      "folder": "colonialism-slavery",
+      "filename": "HistoryNewNetherlandDutch-OCallaghan-1848-Unknown.pdf",
+      "title": "HistoryNewNetherlandDutch",
+      "author": "OCallaghan",
+      "year": "1848",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 20938809
+    },
+    {
+      "idx": 14,
+      "folder": "colonialism-slavery",
+      "filename": "HistoryPortugalPortugueseEmpire-Disney-1991-Unknown.pdf",
+      "title": "HistoryPortugalPortugueseEmpire",
+      "author": "Disney",
+      "year": "1991",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 4953084
+    },
+    {
+      "idx": 15,
+      "folder": "colonialism-slavery",
+      "filename": "HowIncasBuiltHeartlandImperialStrategy-Covey-2015-Unknown.pdf",
+      "title": "HowIncasBuiltHeartlandImperialStrategy",
+      "author": "Covey",
+      "year": "2015",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 26902770
+    },
+    {
+      "idx": 16,
+      "folder": "colonialism-slavery",
+      "filename": "ImaginationAidedByThePainterSBrushTheSchaghen-Unknown-1626-Unknown.pdf",
+      "title": "ImaginationAidedByThePainterSBrushTheSchaghen",
+      "author": "Unknown",
+      "year": "1626",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 4296968
+    },
+    {
+      "idx": 17,
+      "folder": "colonialism-slavery",
+      "filename": "InterCaetera-Pope-Alexander-VI-1493-Unknown.pdf",
+      "title": "InterCaetera-Pope-Alexander",
+      "author": "VI",
+      "year": "1493",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 464645
+    },
+    {
+      "idx": 18,
+      "folder": "colonialism-slavery",
+      "filename": "LandPapers-Unknown-1980-Unknown.pdf",
+      "title": "LandPapers",
+      "author": "Unknown",
+      "year": "1980",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 3668032
+    },
+    {
+      "idx": 19,
+      "folder": "colonialism-slavery",
+      "filename": "LenapeCountryDelawareValley-Soderlund-2007-Unknown.pdf",
+      "title": "LenapeCountryDelawareValley",
+      "author": "Soderlund",
+      "year": "2007",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3734416
+    },
+    {
+      "idx": 20,
+      "folder": "colonialism-slavery",
+      "filename": "LenapeDelawareIndiansPeople-Kraft-1987-Unknown.pdf",
+      "title": "LenapeDelawareIndiansPeople",
+      "author": "Kraft",
+      "year": "1987",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 8552126
+    },
+    {
+      "idx": 21,
+      "folder": "colonialism-slavery",
+      "filename": "LordsOfAllWorldIdeologiesEmpire-Pagden-1995-Unknown.pdf",
+      "title": "LordsOfAllWorldIdeologiesEmpire",
+      "author": "Pagden",
+      "year": "1995",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 16792480
+    },
+    {
+      "idx": 22,
+      "folder": "colonialism-slavery",
+      "filename": "ManifestDeceptionThePurchaseOfManhattan-Oconnell-2024-Unknown.pdf",
+      "title": "ManifestDeceptionThePurchaseOfManhattan",
+      "author": "Oconnell",
+      "year": "2024",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 643337
+    },
+    {
+      "idx": 23,
+      "folder": "colonialism-slavery",
+      "filename": "NarrativesNewNetherland-Jameson-1968-Unknown.pdf",
+      "title": "NarrativesNewNetherland",
+      "author": "Jameson",
+      "year": "1968",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1144043
+    },
+    {
+      "idx": 24,
+      "folder": "colonialism-slavery",
+      "filename": "NewYorkHistoricalManuscriptsDutch-Gehring-1980-Unknown.pdf",
+      "title": "NewYorkHistoricalManuscriptsDutch",
+      "author": "Gehring",
+      "year": "1980",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 13941225
+    },
+    {
+      "idx": 25,
+      "folder": "colonialism-slavery",
+      "filename": "NotesManhattanPurchase-Unknown-2026-Unknown.pdf",
+      "title": "NotesManhattanPurchase",
+      "author": "Unknown",
+      "year": "2026",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 3516736
+    },
+    {
+      "idx": 26,
+      "folder": "colonialism-slavery",
+      "filename": "PiratesBarbaryCorsairsCaptivity-Tinniswood-2010-Unknown.pdf",
+      "title": "PiratesBarbaryCorsairsCaptivity",
+      "author": "Tinniswood",
+      "year": "2010",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3242671
+    },
+    {
+      "idx": 27,
+      "folder": "colonialism-slavery",
+      "filename": "PopesLawyersInfidelsChurch-Muldoon-1995-Unknown.pdf",
+      "title": "PopesLawyersInfidelsChurch",
+      "author": "Muldoon",
+      "year": "1995",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 13968908
+    },
+    {
+      "idx": 28,
+      "folder": "colonialism-slavery",
+      "filename": "PortugueseSeaborneEmpire-Boxer-1969-Unknown.pdf",
+      "title": "PortugueseSeaborneEmpire",
+      "author": "Boxer",
+      "year": "1969",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 20581040
+    },
+    {
+      "idx": 29,
+      "folder": "colonialism-slavery",
+      "filename": "RomanusPontifex-Pope-Nicholas-V-1455-Unknown.pdf",
+      "title": "RomanusPontifex-Pope-Nicholas",
+      "author": "V",
+      "year": "1455",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 502365
+    },
+    {
+      "idx": 30,
+      "folder": "colonialism-slavery",
+      "filename": "SchaghenLetterOf1626-Schaghen-1626-Unknown.pdf",
+      "title": "SchaghenLetterOf1626",
+      "author": "Schaghen",
+      "year": "1626",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 793209
+    },
+    {
+      "idx": 31,
+      "folder": "colonialism-slavery",
+      "filename": "SpanishColonialResearchCenter-Unknown-1991-Unknown.pdf",
+      "title": "SpanishColonialResearchCenter",
+      "author": "Unknown",
+      "year": "1991",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 1415870
+    },
+    {
+      "idx": 32,
+      "folder": "colonialism-slavery",
+      "filename": "StatementOnTheDoctrineOfDiscovery-Vatican-2023-Unknown.pdf",
+      "title": "StatementOnTheDoctrineOfDiscovery",
+      "author": "Vatican",
+      "year": "2023",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 405085
+    },
+    {
+      "idx": 33,
+      "folder": "colonialism-slavery",
+      "filename": "Treaty-Unknown-2026-Unknown.pdf",
+      "title": "Treaty",
+      "author": "Unknown",
+      "year": "2026",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 584386
+    },
+    {
+      "idx": 34,
+      "folder": "colonialism-slavery",
+      "filename": "TreatyOfTordesillasAndTheOriginsOfSlavery-Unknown-2023-Unknown.pdf",
+      "title": "TreatyOfTordesillasAndTheOriginsOfSlavery",
+      "author": "Unknown",
+      "year": "2023",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 1604962
+    },
+    {
+      "idx": 35,
+      "folder": "colonialism-slavery",
+      "filename": "UncoveringInvisible-Unknown-2026-Unknown.pdf",
+      "title": "UncoveringInvisible",
+      "author": "Unknown",
+      "year": "2026",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 747819
+    },
+    {
+      "idx": 36,
+      "folder": "colonialism-slavery",
+      "filename": "Untitled-Unknown-2026-Unknown.pdf",
+      "title": "Untitled",
+      "author": "Unknown",
+      "year": "2026",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 128220
+    },
+    {
+      "idx": 37,
+      "folder": "colonialism-slavery",
+      "filename": "VaticanRepudiatesTheDoctrineOfDiscovery-Vatican-2023-Unknown.pdf",
+      "title": "VaticanRepudiatesTheDoctrineOfDiscovery",
+      "author": "Vatican",
+      "year": "2023",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2894539
+    },
+    {
+      "idx": 38,
+      "folder": "colonialism-slavery",
+      "filename": "VaticanStatementRepudiatingTheDoctrineOfDisco-Vatican-2023-Unknown.pdf",
+      "title": "VaticanStatementRepudiatingTheDoctrineOfDisco",
+      "author": "Vatican",
+      "year": "2023",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 404894
+    },
+    {
+      "idx": 39,
+      "folder": "general-history",
+      "filename": "AcademicArticle-Unknown-2011-Cambridge-University-Press.pdf",
+      "title": "AcademicArticle",
+      "author": "Unknown",
+      "year": "2011",
+      "publisher": "Cambridge-University-Press",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 712717
+    },
+    {
+      "idx": 40,
+      "folder": "general-history",
+      "filename": "AcademicArticle-Unknown-2017-Cambridge-University-Press.pdf",
+      "title": "AcademicArticle",
+      "author": "Unknown",
+      "year": "2017",
+      "publisher": "Cambridge-University-Press",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 5275459
+    },
+    {
+      "idx": 41,
+      "folder": "general-history",
+      "filename": "AcademicArticle-Unknown-2021-Cambridge-University-Press.pdf",
+      "title": "AcademicArticle",
+      "author": "Unknown",
+      "year": "2021",
+      "publisher": "Cambridge-University-Press",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 349897
+    },
+    {
+      "idx": 42,
+      "folder": "general-history",
+      "filename": "AcademicArticle-Unknown-2023-Cambridge-University-Press.pdf",
+      "title": "AcademicArticle",
+      "author": "Unknown",
+      "year": "2023",
+      "publisher": "Cambridge-University-Press",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 9590584
+    },
+    {
+      "idx": 43,
+      "folder": "general-history",
+      "filename": "ActivitiesEuropeanUnionSmallMedium-DG-2005-Unknown.pdf",
+      "title": "ActivitiesEuropeanUnionSmallMedium",
+      "author": "DG",
+      "year": "2005",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1312913
+    },
+    {
+      "idx": 44,
+      "folder": "general-history",
+      "filename": "AdmittedOmar\u00c1lvarez-Salas-2008-Unknown.pdf",
+      "title": "AdmittedOmar\u00c1lvarez",
+      "author": "Salas",
+      "year": "2008",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 411212
+    },
+    {
+      "idx": 45,
+      "folder": "general-history",
+      "filename": "AhnenerbeSSKulturpolitikDrittenReiches-Kater-1935-Unknown.pdf",
+      "title": "AhnenerbeSSKulturpolitikDrittenReiches",
+      "author": "Kater",
+      "year": "1935",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 61750930
+    },
+    {
+      "idx": 46,
+      "folder": "general-history",
+      "filename": "AlsJeVoorHetEerstDeelneemt-Leuridan-2020-Unknown.pdf",
+      "title": "AlsJeVoorHetEerstDeelneemt",
+      "author": "Leuridan",
+      "year": "2020",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 615026
+    },
+    {
+      "idx": 47,
+      "folder": "general-history",
+      "filename": "AmericanJewishHistory-Unknown-2015-JohnsHopkinsUP.pdf",
+      "title": "AmericanJewishHistory",
+      "author": "Unknown",
+      "year": "2015",
+      "publisher": "JohnsHopkinsUP",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 2511547
+    },
+    {
+      "idx": 48,
+      "folder": "general-history",
+      "filename": "AnalysisBaiahAlMawt-Hassan-2022-Unknown.pdf",
+      "title": "AnalysisBaiahAlMawt",
+      "author": "Hassan",
+      "year": "2022",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1553744
+    },
+    {
+      "idx": 49,
+      "folder": "general-history",
+      "filename": "AnatomyAuschwitzDeathCamp-Gutman-1994-Unknown.pdf",
+      "title": "AnatomyAuschwitzDeathCamp",
+      "author": "Gutman",
+      "year": "1994",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 38792573
+    },
+    {
+      "idx": 50,
+      "folder": "general-history",
+      "filename": "AncientHistoryEducation-HolmesHenderson-2025-Unknown.pdf",
+      "title": "AncientHistoryEducation",
+      "author": "HolmesHenderson",
+      "year": "2025",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1316207
+    },
+    {
+      "idx": 51,
+      "folder": "general-history",
+      "filename": "AncientReligionAndArchaeology-Unknown-2003-Unknown.pdf",
+      "title": "AncientReligionAndArchaeology",
+      "author": "Unknown",
+      "year": "2003",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 2326290
+    },
+    {
+      "idx": 52,
+      "folder": "general-history",
+      "filename": "AndeanWorldsIndigenousHistory-Andrien-1825-Unknown.pdf",
+      "title": "AndeanWorldsIndigenousHistory",
+      "author": "Andrien",
+      "year": "1825",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 16114624
+    },
+    {
+      "idx": 53,
+      "folder": "general-history",
+      "filename": "AnnaeherungenHelmutHeissenbuettel-Lehmann-2005-Unknown.pdf",
+      "title": "AnnaeherungenHelmutHeissenbuettel",
+      "author": "Lehmann",
+      "year": "2005",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 120604
+    },
+    {
+      "idx": 54,
+      "folder": "general-history",
+      "filename": "AnnualReportDocumentsNewYorkInstitution-Dumb-0000-Unknown.pdf",
+      "title": "AnnualReportDocumentsNewYorkInstitution",
+      "author": "Dumb",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 1572573
+    },
+    {
+      "idx": 55,
+      "folder": "general-history",
+      "filename": "AnoJanMar-Dispute-2024-Unknown.pdf",
+      "title": "AnoJanMar",
+      "author": "Dispute",
+      "year": "2024",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 351402
+    },
+    {
+      "idx": 56,
+      "folder": "general-history",
+      "filename": "Antig\u00fcedadesArteTradicionSantiago-Dobal-1977-Unknown.pdf",
+      "title": "Antig\u00fcedadesArteTradicionSantiago",
+      "author": "Dobal",
+      "year": "1977",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 30589
+    },
+    {
+      "idx": 57,
+      "folder": "general-history",
+      "filename": "ArchaeologyNativeNorthAmerica-Snow-1996-Unknown.pdf",
+      "title": "ArchaeologyNativeNorthAmerica",
+      "author": "Snow",
+      "year": "1996",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 200759446
+    },
+    {
+      "idx": 58,
+      "folder": "general-history",
+      "filename": "ArchaeologyOfAncientReligionInTheEasternWoodl-Brown-1997-Unknown.pdf",
+      "title": "ArchaeologyOfAncientReligionInTheEasternWoodl",
+      "author": "Brown",
+      "year": "1997",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 215641
+    },
+    {
+      "idx": 59,
+      "folder": "general-history",
+      "filename": "Ardennendagtocht-Unknown-2020-Unknown.pdf",
+      "title": "Ardennendagtocht",
+      "author": "Unknown",
+      "year": "2020",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 2670486
+    },
+    {
+      "idx": 60,
+      "folder": "general-history",
+      "filename": "Article-Unknown-2013-Unknown.pdf",
+      "title": "Article",
+      "author": "Unknown",
+      "year": "2013",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 376320
+    },
+    {
+      "idx": 61,
+      "folder": "general-history",
+      "filename": "Aztecs-Duran-1964-Unknown.pdf",
+      "title": "Aztecs",
+      "author": "Duran",
+      "year": "1964",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 27845433
+    },
+    {
+      "idx": 62,
+      "folder": "general-history",
+      "filename": "AztecsMixtecsHistories-Keber-2014-Unknown.pdf",
+      "title": "AztecsMixtecsHistories",
+      "author": "Keber",
+      "year": "2014",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 95227415
+    },
+    {
+      "idx": 63,
+      "folder": "general-history",
+      "filename": "BackCover-Blackburn-2007-Unknown.pdf",
+      "title": "BackCover",
+      "author": "Blackburn",
+      "year": "2007",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 721393
+    },
+    {
+      "idx": 64,
+      "folder": "general-history",
+      "filename": "BalkanStrategyOfTheEntenteAndTheCentralPowers-Unknown-1974-Unknown.pdf",
+      "title": "BalkanStrategyOfTheEntenteAndTheCentralPowers",
+      "author": "Unknown",
+      "year": "1974",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 215052
+    },
+    {
+      "idx": 65,
+      "folder": "general-history",
+      "filename": "BattleThermopylae-Matthews-2013-Unknown.pdf",
+      "title": "BattleThermopylae",
+      "author": "Matthews",
+      "year": "2013",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 24730997
+    },
+    {
+      "idx": 66,
+      "folder": "general-history",
+      "filename": "BenoitDeBecker-Becker-0000-Unknown.pdf",
+      "title": "BenoitDeBecker",
+      "author": "Becker",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 1962806
+    },
+    {
+      "idx": 67,
+      "folder": "general-history",
+      "filename": "BlackwellPhilo-Blackwell-2006-Unknown.pdf",
+      "title": "BlackwellPhilo",
+      "author": "Blackwell",
+      "year": "2006",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2645554
+    },
+    {
+      "idx": 68,
+      "folder": "general-history",
+      "filename": "BolComFactuur-Unknown-2019-Unknown.pdf",
+      "title": "BolComFactuur",
+      "author": "Unknown",
+      "year": "2019",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 51824
+    },
+    {
+      "idx": 69,
+      "folder": "general-history",
+      "filename": "BookGodsRitesAncient-Horcasitas-2002-Unknown.pdf",
+      "title": "BookGodsRitesAncient",
+      "author": "Horcasitas",
+      "year": "2002",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 30307792
+    },
+    {
+      "idx": 70,
+      "folder": "general-history",
+      "filename": "BroadDaylightSecretProceduresHolocaust-Desbois-2008-Unknown.pdf",
+      "title": "BroadDaylightSecretProceduresHolocaust",
+      "author": "Desbois",
+      "year": "2008",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 4798033
+    },
+    {
+      "idx": 71,
+      "folder": "general-history",
+      "filename": "CacicasIndigenousWomenLeaders-Ochoa-2012-Unknown.pdf",
+      "title": "CacicasIndigenousWomenLeaders",
+      "author": "Ochoa",
+      "year": "2012",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 22008061
+    },
+    {
+      "idx": 72,
+      "folder": "general-history",
+      "filename": "Calendar-Unknown-2025-Unknown.pdf",
+      "title": "Calendar",
+      "author": "Unknown",
+      "year": "2025",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 1730621
+    },
+    {
+      "idx": 73,
+      "folder": "general-history",
+      "filename": "CambodgeCultivationNation-Edwards-1945-Unknown.pdf",
+      "title": "CambodgeCultivationNation",
+      "author": "Edwards",
+      "year": "1945",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 6544270
+    },
+    {
+      "idx": 74,
+      "folder": "general-history",
+      "filename": "CebriRevista-Bethell-2024-Unknown.pdf",
+      "title": "CebriRevista",
+      "author": "Bethell",
+      "year": "2024",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 351402
+    },
+    {
+      "idx": 75,
+      "folder": "general-history",
+      "filename": "ChapterApril-Fain-2024-Unknown.pdf",
+      "title": "ChapterApril",
+      "author": "Fain",
+      "year": "2024",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 454175
+    },
+    {
+      "idx": 76,
+      "folder": "general-history",
+      "filename": "ChapterJanuary-Arnold-1996-Unknown.pdf",
+      "title": "ChapterJanuary",
+      "author": "Arnold",
+      "year": "1996",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 721586
+    },
+    {
+      "idx": 77,
+      "folder": "general-history",
+      "filename": "ChiracSSpeech-Unknown-1942-Unknown.pdf",
+      "title": "ChiracSSpeech",
+      "author": "Unknown",
+      "year": "1942",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 599718
+    },
+    {
+      "idx": 78,
+      "folder": "general-history",
+      "filename": "ChristianHistoryReality-Unknown-2000-Unknown.pdf",
+      "title": "ChristianHistoryReality",
+      "author": "Unknown",
+      "year": "2000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 28722
+    },
+    {
+      "idx": 79,
+      "folder": "general-history",
+      "filename": "ChroniclePeru-Le\u00f3n-1964-Unknown.pdf",
+      "title": "ChroniclePeru",
+      "author": "Le\u00f3n",
+      "year": "1964",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 14446192
+    },
+    {
+      "idx": 80,
+      "folder": "general-history",
+      "filename": "CodexTellerianoRemensisVol-DKM-0000-Unknown.pdf",
+      "title": "CodexTellerianoRemensisVol",
+      "author": "DKM",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 19944733
+    },
+    {
+      "idx": 81,
+      "folder": "general-history",
+      "filename": "ComentariosRealesDeLosIncas-Garcilaso-1609-Unknown.pdf",
+      "title": "ComentariosRealesDeLosIncas",
+      "author": "Garcilaso",
+      "year": "1609",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1185056
+    },
+    {
+      "idx": 82,
+      "folder": "general-history",
+      "filename": "CompleteWorks-Siculus-1957-Unknown.pdf",
+      "title": "CompleteWorks",
+      "author": "Siculus",
+      "year": "1957",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 20838398
+    },
+    {
+      "idx": 83,
+      "folder": "general-history",
+      "filename": "ConfederateNeoConfederateReader-Loewen-1995-Unknown.pdf",
+      "title": "ConfederateNeoConfederateReader",
+      "author": "Loewen",
+      "year": "1995",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 4056594
+    },
+    {
+      "idx": 84,
+      "folder": "general-history",
+      "filename": "ContemporaryFarRightCulture-ARGENTINO-0000-Unknown.pdf",
+      "title": "ContemporaryFarRightCulture",
+      "author": "ARGENTINO",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 25861503
+    },
+    {
+      "idx": 85,
+      "folder": "general-history",
+      "filename": "CopyEnvironmentalOrganisationsFuture-Europe-0000-Unknown.pdf",
+      "title": "CopyEnvironmentalOrganisationsFuture",
+      "author": "Europe",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 344901
+    },
+    {
+      "idx": 86,
+      "folder": "general-history",
+      "filename": "CousinsWarsReligionPolitics-Phillips-1993-Unknown.pdf",
+      "title": "CousinsWarsReligionPolitics",
+      "author": "Phillips",
+      "year": "1993",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 30556973
+    },
+    {
+      "idx": 87,
+      "folder": "general-history",
+      "filename": "CtesiasPersicaNearEasternContext-Waters-2001-Unknown.pdf",
+      "title": "CtesiasPersicaNearEasternContext",
+      "author": "Waters",
+      "year": "2001",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1838141
+    },
+    {
+      "idx": 88,
+      "folder": "general-history",
+      "filename": "CulturasTradicionalesPatagoniaMundo-Chapman-1974-Unknown.pdf",
+      "title": "CulturasTradicionalesPatagoniaMundo",
+      "author": "Chapman",
+      "year": "1974",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 11641042
+    },
+    {
+      "idx": 89,
+      "folder": "general-history",
+      "filename": "CurrencyDevaluationSourceGrowth-Bouvet-0000-Springer.pdf",
+      "title": "CurrencyDevaluationSourceGrowth",
+      "author": "Bouvet",
+      "year": "0000",
+      "publisher": "Springer",
+      "ext": "pdf",
+      "missing_fields": [
+        "year"
+      ],
+      "size_bytes": 872930
+    },
+    {
+      "idx": 90,
+      "folder": "general-history",
+      "filename": "DealingSecurityCrisisBurkinaFaso-Engels-2021-Unknown.pdf",
+      "title": "DealingSecurityCrisisBurkinaFaso",
+      "author": "Engels",
+      "year": "2021",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1287252
+    },
+    {
+      "idx": 91,
+      "folder": "general-history",
+      "filename": "DebtFirstYears-Graeber-2011-Unknown.epub",
+      "title": "DebtFirstYears",
+      "author": "Graeber",
+      "year": "2011",
+      "publisher": "Unknown",
+      "ext": "epub",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2696362
+    },
+    {
+      "idx": 92,
+      "folder": "general-history",
+      "filename": "DeclarationAccessUniversityBachelorProgramme-Unknown-0000-GhentUniversity.pdf",
+      "title": "DeclarationAccessUniversityBachelorProgramme",
+      "author": "Unknown",
+      "year": "0000",
+      "publisher": "GhentUniversity",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "year"
+      ],
+      "size_bytes": 515611
+    },
+    {
+      "idx": 93,
+      "folder": "general-history",
+      "filename": "DelleStuore-Menochio-1980-Unknown.pdf",
+      "title": "DelleStuore",
+      "author": "Menochio",
+      "year": "1980",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2342161
+    },
+    {
+      "idx": 94,
+      "folder": "general-history",
+      "filename": "DelphiCompleteWorksPlutarch-Plutarch-2017-Unknown.epub",
+      "title": "DelphiCompleteWorksPlutarch",
+      "author": "Plutarch",
+      "year": "2017",
+      "publisher": "Unknown",
+      "ext": "epub",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 9220875
+    },
+    {
+      "idx": 95,
+      "folder": "general-history",
+      "filename": "DelphiCompleteWorksPlutarch-Plutarch-2017-Unknown.pdf",
+      "title": "DelphiCompleteWorksPlutarch",
+      "author": "Plutarch",
+      "year": "2017",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 52303687
+    },
+    {
+      "idx": 96,
+      "folder": "general-history",
+      "filename": "DescriptionOfTheKarabakhProvince-Yermolov-1823-Unknown.pdf",
+      "title": "DescriptionOfTheKarabakhProvince",
+      "author": "Yermolov",
+      "year": "1823",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 17285979
+    },
+    {
+      "idx": 97,
+      "folder": "general-history",
+      "filename": "DialogueHellMachiavelliMontesquieu-Joly-2011-Unknown.pdf",
+      "title": "DialogueHellMachiavelliMontesquieu",
+      "author": "Joly",
+      "year": "2011",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 143
+    },
+    {
+      "idx": 98,
+      "folder": "general-history",
+      "filename": "DialogueMachiavelliMontesquieu-Joly-2002-Unknown.pdf",
+      "title": "DialogueMachiavelliMontesquieu",
+      "author": "Joly",
+      "year": "2002",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 143
+    },
+    {
+      "idx": 99,
+      "folder": "general-history",
+      "filename": "DigestLawEvidence-Roscoe-0000-Unknown.pdf",
+      "title": "DigestLawEvidence",
+      "author": "Roscoe",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 6193466
+    },
+    {
+      "idx": 100,
+      "folder": "general-history",
+      "filename": "DiggingHitlerNaziArchaeologistsAryanPast-Barrowclough-2009-Unknown.pdf",
+      "title": "DiggingHitlerNaziArchaeologistsAryanPast",
+      "author": "Barrowclough",
+      "year": "2009",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 7304260
+    },
+    {
+      "idx": 101,
+      "folder": "general-history",
+      "filename": "DiscerningMerchantsPriceGuide-Labs-0000-Unknown.pdf",
+      "title": "DiscerningMerchantsPriceGuide",
+      "author": "Labs",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 2635243
+    },
+    {
+      "idx": 102,
+      "folder": "general-history",
+      "filename": "DiseaseReadBones-Ibanez-0000-Unknown.pdf",
+      "title": "DiseaseReadBones",
+      "author": "Ibanez",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 4011274
+    },
+    {
+      "idx": 103,
+      "folder": "general-history",
+      "filename": "Disinformation-Pacepa-2013-Unknown.pdf",
+      "title": "Disinformation",
+      "author": "Pacepa",
+      "year": "2013",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2651685
+    },
+    {
+      "idx": 104,
+      "folder": "general-history",
+      "filename": "DixiesDaughters-COX-2003-Unknown.pdf",
+      "title": "DixiesDaughters",
+      "author": "COX",
+      "year": "2003",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 9703428
+    },
+    {
+      "idx": 105,
+      "folder": "general-history",
+      "filename": "DrakkenheimGuide-Martin-0000-Unknown.pdf",
+      "title": "DrakkenheimGuide",
+      "author": "Martin",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 36360459
+    },
+    {
+      "idx": 106,
+      "folder": "general-history",
+      "filename": "DrempelsJeugdbewegingOostende-Kemel-0000-Unknown.pdf",
+      "title": "DrempelsJeugdbewegingOostende",
+      "author": "Kemel",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 325540
+    },
+    {
+      "idx": 107,
+      "folder": "general-history",
+      "filename": "DungeonsDragonsDungeonMastersGuide-Unknown-2024-AnnaArchive.pdf",
+      "title": "DungeonsDragonsDungeonMastersGuide",
+      "author": "Unknown",
+      "year": "2024",
+      "publisher": "AnnaArchive",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 0
+    },
+    {
+      "idx": 108,
+      "folder": "general-history",
+      "filename": "EarlyCulturesNorth-Fox-1950-Unknown.pdf",
+      "title": "EarlyCulturesNorth",
+      "author": "Fox",
+      "year": "1950",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 30574432
+    },
+    {
+      "idx": 109,
+      "folder": "general-history",
+      "filename": "EarlyCulturesNorthwestEurope-Fox-1950-Unknown.pdf",
+      "title": "EarlyCulturesNorthwestEurope",
+      "author": "Fox",
+      "year": "1950",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 30574432
+    },
+    {
+      "idx": 110,
+      "folder": "general-history",
+      "filename": "EconomicHistoryLatinAmerica-Bulmer-Thomas-2002-Unknown.pdf",
+      "title": "EconomicHistoryLatinAmerica-Bulmer",
+      "author": "Thomas",
+      "year": "2002",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3116628
+    },
+    {
+      "idx": 111,
+      "folder": "general-history",
+      "filename": "Edited-Marichal-0000-Unknown.pdf",
+      "title": "Edited",
+      "author": "Marichal",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 6048939
+    },
+    {
+      "idx": 112,
+      "folder": "general-history",
+      "filename": "EndgameWesternSaharaFutureAfricasColony-Shelley-1995-Unknown.pdf",
+      "title": "EndgameWesternSaharaFutureAfricasColony",
+      "author": "Shelley",
+      "year": "1995",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1806196
+    },
+    {
+      "idx": 113,
+      "folder": "general-history",
+      "filename": "EnergyCertificates1MWhDeliveredNet-Brussels-0000-Unknown.pdf",
+      "title": "EnergyCertificates1MWhDeliveredNet",
+      "author": "Brussels",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 40165
+    },
+    {
+      "idx": 114,
+      "folder": "general-history",
+      "filename": "EnglishCommonEntrance-Unknown-2016-Unknown.pdf",
+      "title": "EnglishCommonEntrance",
+      "author": "Unknown",
+      "year": "2016",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 219788
+    },
+    {
+      "idx": 115,
+      "folder": "general-history",
+      "filename": "EnglishCompositionIntroduction-Edwards-0000-Unknown.pdf",
+      "title": "EnglishCompositionIntroduction",
+      "author": "Edwards",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 6952348
+    },
+    {
+      "idx": 116,
+      "folder": "general-history",
+      "filename": "Espa\u00f1ol-Baroja-1979-Unknown.pdf",
+      "title": "Espa\u00f1ol",
+      "author": "Baroja",
+      "year": "1979",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 9630329
+    },
+    {
+      "idx": 117,
+      "folder": "general-history",
+      "filename": "EtudesAfricaines-Nwaubani-2003-Unknown.pdf",
+      "title": "EtudesAfricaines",
+      "author": "Nwaubani",
+      "year": "2003",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 360176
+    },
+    {
+      "idx": 118,
+      "folder": "general-history",
+      "filename": "EuropassCV-DeBecker-0000-Unknown.pdf",
+      "title": "EuropassCV",
+      "author": "DeBecker",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 471895
+    },
+    {
+      "idx": 119,
+      "folder": "general-history",
+      "filename": "EuropassDocument-Unknown-2019-Unknown.pdf",
+      "title": "EuropassDocument",
+      "author": "Unknown",
+      "year": "2019",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 114883
+    },
+    {
+      "idx": 120,
+      "folder": "general-history",
+      "filename": "ExploreSolidarityProjects-Unknown-2020-Unknown.pdf",
+      "title": "ExploreSolidarityProjects",
+      "author": "Unknown",
+      "year": "2020",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 7299112
+    },
+    {
+      "idx": 121,
+      "folder": "general-history",
+      "filename": "Factfulness-Rosling-2018-Unknown.epub",
+      "title": "Factfulness",
+      "author": "Rosling",
+      "year": "2018",
+      "publisher": "Unknown",
+      "ext": "epub",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2974061
+    },
+    {
+      "idx": 122,
+      "folder": "general-history",
+      "filename": "FacultyArtsPhilosophy-Becker-0000-Unknown.pdf",
+      "title": "FacultyArtsPhilosophy",
+      "author": "Becker",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 95858
+    },
+    {
+      "idx": 123,
+      "folder": "general-history",
+      "filename": "FeministEdgesQur\u2019an-Hidayatullah-2014-Unknown.pdf",
+      "title": "FeministEdgesQur\u2019an",
+      "author": "Hidayatullah",
+      "year": "2014",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 10701045
+    },
+    {
+      "idx": 124,
+      "folder": "general-history",
+      "filename": "FGGGRAPFEBook-Games-2012-Unknown.pdf",
+      "title": "FGGGRAPFEBook",
+      "author": "Games",
+      "year": "2012",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 32496958
+    },
+    {
+      "idx": 125,
+      "folder": "general-history",
+      "filename": "FirmaIllustrations-Tierra-2013-Unknown.pdf",
+      "title": "FirmaIllustrations",
+      "author": "Tierra",
+      "year": "2013",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 213242
+    },
+    {
+      "idx": 126,
+      "folder": "general-history",
+      "filename": "FirstNewChronicleGovernment-Ayala-1615-Unknown.pdf",
+      "title": "FirstNewChronicleGovernment",
+      "author": "Ayala",
+      "year": "1615",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 22147842
+    },
+    {
+      "idx": 127,
+      "folder": "general-history",
+      "filename": "FragmentsOfCeos-Simonides-2003-Unknown.pdf",
+      "title": "FragmentsOfCeos",
+      "author": "Simonides",
+      "year": "2003",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 6900313
+    },
+    {
+      "idx": 128,
+      "folder": "general-history",
+      "filename": "FranceCommonDenominatorBehindAfricasCoup-Unknown-2023-Unknown.pdf",
+      "title": "FranceCommonDenominatorBehindAfricasCoup",
+      "author": "Unknown",
+      "year": "2023",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 432830
+    },
+    {
+      "idx": 129,
+      "folder": "general-history",
+      "filename": "FrederickCooper-Cooper-1973-Unknown.pdf",
+      "title": "FrederickCooper",
+      "author": "Cooper",
+      "year": "1973",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 54438127
+    },
+    {
+      "idx": 130,
+      "folder": "general-history",
+      "filename": "FrenchMilitaryIntervention-Unknown-2014-Unknown.pdf",
+      "title": "FrenchMilitaryIntervention",
+      "author": "Unknown",
+      "year": "2014",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 828522
+    },
+    {
+      "idx": 131,
+      "folder": "general-history",
+      "filename": "FriluftslivScandinavianPhilosophyOutdoorLife-Gelter-2000-Unknown.pdf",
+      "title": "FriluftslivScandinavianPhilosophyOutdoorLife",
+      "author": "Gelter",
+      "year": "2000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 83602
+    },
+    {
+      "idx": 132,
+      "folder": "general-history",
+      "filename": "GenderHierarchyQur\u0101nMedievalInterpretati-Bauer-2014-Unknown.pdf",
+      "title": "GenderHierarchyQur\u0101nMedievalInterpretati",
+      "author": "Bauer",
+      "year": "2014",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3546284
+    },
+    {
+      "idx": 133,
+      "folder": "general-history",
+      "filename": "GenderRepresentationEvil-Fallwell-0000-Unknown.pdf",
+      "title": "GenderRepresentationEvil",
+      "author": "Fallwell",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 2129657
+    },
+    {
+      "idx": 134,
+      "folder": "general-history",
+      "filename": "GeneralIntroductionESC-Unknown-2020-Unknown.pdf",
+      "title": "GeneralIntroductionESC",
+      "author": "Unknown",
+      "year": "2020",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 6062922
+    },
+    {
+      "idx": 135,
+      "folder": "general-history",
+      "filename": "GenomicHistoryMedievalEurope-Speidel-0000-Springer.pdf",
+      "title": "GenomicHistoryMedievalEurope",
+      "author": "Speidel",
+      "year": "0000",
+      "publisher": "Springer",
+      "ext": "pdf",
+      "missing_fields": [
+        "year"
+      ],
+      "size_bytes": 13535816
+    },
+    {
+      "idx": 136,
+      "folder": "general-history",
+      "filename": "GeorgeStrachanMearns-McInally-2020-Unknown.pdf",
+      "title": "GeorgeStrachanMearns",
+      "author": "McInally",
+      "year": "2020",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 29682102
+    },
+    {
+      "idx": 137,
+      "folder": "general-history",
+      "filename": "GodIsOurHelp-Raybon-2024-Unknown.pdf",
+      "title": "GodIsOurHelp",
+      "author": "Raybon",
+      "year": "2024",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 5278424
+    },
+    {
+      "idx": 138,
+      "folder": "general-history",
+      "filename": "GorbachevEraWarsAndCrises-Unknown-1959-Unknown.pdf",
+      "title": "GorbachevEraWarsAndCrises",
+      "author": "Unknown",
+      "year": "1959",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 5145328
+    },
+    {
+      "idx": 139,
+      "folder": "general-history",
+      "filename": "GrimHollowMonsterGrimoire-Games-0000-Unknown.pdf",
+      "title": "GrimHollowMonsterGrimoire",
+      "author": "Games",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 257100366
+    },
+    {
+      "idx": 140,
+      "folder": "general-history",
+      "filename": "GrimhollowSubclasses-Unknown-2025-Unknown.pdf",
+      "title": "GrimhollowSubclasses",
+      "author": "Unknown",
+      "year": "2025",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 29746427
+    },
+    {
+      "idx": 141,
+      "folder": "general-history",
+      "filename": "GrimHollowSubclassesEtharis-Becker-0000-Unknown.pdf",
+      "title": "GrimHollowSubclassesEtharis",
+      "author": "Becker",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 83875379
+    },
+    {
+      "idx": 142,
+      "folder": "general-history",
+      "filename": "GunsGermsSteelFatesHumanSocieties-Diamond-1997-Unknown.pdf",
+      "title": "GunsGermsSteelFatesHumanSocieties",
+      "author": "Diamond",
+      "year": "1997",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2634910
+    },
+    {
+      "idx": 143,
+      "folder": "general-history",
+      "filename": "Hageprot-Unknown-2008-Harvard-University-Press.pdf",
+      "title": "Hageprot",
+      "author": "Unknown",
+      "year": "2008",
+      "publisher": "Harvard-University-Press",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 4133677
+    },
+    {
+      "idx": 144,
+      "folder": "general-history",
+      "filename": "HalmeTuomisaari-Slotte-2016-Unknown.pdf",
+      "title": "HalmeTuomisaari",
+      "author": "Slotte",
+      "year": "2016",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2932146
+    },
+    {
+      "idx": 145,
+      "folder": "general-history",
+      "filename": "HammerWitchesMalleusMaleficarum-Institoris-1486-Unknown.pdf",
+      "title": "HammerWitchesMalleusMaleficarum",
+      "author": "Institoris",
+      "year": "1486",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3937667
+    },
+    {
+      "idx": 146,
+      "folder": "general-history",
+      "filename": "HarlotsOfHadramaut-Unknown-1942-Unknown.pdf",
+      "title": "HarlotsOfHadramaut",
+      "author": "Unknown",
+      "year": "1942",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 234358
+    },
+    {
+      "idx": 147,
+      "folder": "general-history",
+      "filename": "Hassmann-Arnold-1995-Unknown.pdf",
+      "title": "Hassmann",
+      "author": "Arnold",
+      "year": "1995",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 721586
+    },
+    {
+      "idx": 148,
+      "folder": "general-history",
+      "filename": "HateSpeechRegulationResponses-Herz-0000-European-Court-of-Human-Rights.pdf",
+      "title": "HateSpeechRegulationResponses",
+      "author": "Herz",
+      "year": "0000",
+      "publisher": "European-Court-of-Human-Rights",
+      "ext": "pdf",
+      "missing_fields": [
+        "year"
+      ],
+      "size_bytes": 3985248
+    },
+    {
+      "idx": 149,
+      "folder": "general-history",
+      "filename": "HaubenBook-Hauben-1977-Unknown.pdf",
+      "title": "HaubenBook",
+      "author": "Hauben",
+      "year": "1977",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2399632
+    },
+    {
+      "idx": 150,
+      "folder": "general-history",
+      "filename": "HelotsAndBarbariansHistoriographyAndRepresent-LURAGHI-2009-Unknown.pdf",
+      "title": "HelotsAndBarbariansHistoriographyAndRepresent",
+      "author": "LURAGHI",
+      "year": "2009",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 458198
+    },
+    {
+      "idx": 151,
+      "folder": "general-history",
+      "filename": "HelpdeskBeleggen-Beleggen-0000-Unknown.pdf",
+      "title": "HelpdeskBeleggen",
+      "author": "Beleggen",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 111644
+    },
+    {
+      "idx": 152,
+      "folder": "general-history",
+      "filename": "HighSchoolDecidedEnrollUniversity-Found-0000-Unknown.pdf",
+      "title": "HighSchoolDecidedEnrollUniversity",
+      "author": "Found",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 61029
+    },
+    {
+      "idx": 153,
+      "folder": "general-history",
+      "filename": "HispanicAmericanHistoricalReview-Unknown-2015-DukeUP.pdf",
+      "title": "HispanicAmericanHistoricalReview",
+      "author": "Unknown",
+      "year": "2015",
+      "publisher": "DukeUP",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 1738176
+    },
+    {
+      "idx": 154,
+      "folder": "general-history",
+      "filename": "HistoriaEconomicaAmericaLatina-Bulmer-Thomas-2002-Unknown.pdf",
+      "title": "HistoriaEconomicaAmericaLatina-Bulmer",
+      "author": "Thomas",
+      "year": "2002",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 10630915
+    },
+    {
+      "idx": 155,
+      "folder": "general-history",
+      "filename": "HistoriaEcon\u00f3micaAm\u00e9ricaLatina-BulmerThomas-1998-Unknown.pdf",
+      "title": "HistoriaEcon\u00f3micaAm\u00e9ricaLatina",
+      "author": "BulmerThomas",
+      "year": "1998",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 10630915
+    },
+    {
+      "idx": 156,
+      "folder": "general-history",
+      "filename": "HistoriaGeneralPer\u00faComentariosReales-Vega-1609-Unknown.pdf",
+      "title": "HistoriaGeneralPer\u00faComentariosReales",
+      "author": "Vega",
+      "year": "1609",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1185056
+    },
+    {
+      "idx": 157,
+      "folder": "general-history",
+      "filename": "HistoriansIndividualAgency-Berber-0000-Unknown.pdf",
+      "title": "HistoriansIndividualAgency",
+      "author": "Berber",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 36650575
+    },
+    {
+      "idx": 158,
+      "folder": "general-history",
+      "filename": "HistoricalImage-Kotoulas-0000-Unknown.pdf",
+      "title": "HistoricalImage",
+      "author": "Kotoulas",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 16333970
+    },
+    {
+      "idx": 159,
+      "folder": "general-history",
+      "filename": "HistoryAndCultureOfTheAngloSaxonWorld-GRAHAMGOERING-0000-Unknown.pdf",
+      "title": "HistoryAndCultureOfTheAngloSaxonWorld",
+      "author": "GRAHAMGOERING",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 14609666
+    },
+    {
+      "idx": 160,
+      "folder": "general-history",
+      "filename": "HistoryCambodia-Chandler-1996-Unknown.pdf",
+      "title": "HistoryCambodia",
+      "author": "Chandler",
+      "year": "1996",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3118181
+    },
+    {
+      "idx": 161,
+      "folder": "general-history",
+      "filename": "HistoryHumanRightsGlobalization-Ishay-2013-Unknown.pdf",
+      "title": "HistoryHumanRightsGlobalization",
+      "author": "Ishay",
+      "year": "2013",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 8565696
+    },
+    {
+      "idx": 162,
+      "folder": "general-history",
+      "filename": "HNetReviews-Maddy-weitzman-2010-Unknown.pdf",
+      "title": "HNetReviews-Maddy",
+      "author": "weitzman",
+      "year": "2010",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 390438
+    },
+    {
+      "idx": 163,
+      "folder": "general-history",
+      "filename": "HolsteinPapers-Holstein-0000-AnnaArchive.pdf",
+      "title": "HolsteinPapers",
+      "author": "Holstein",
+      "year": "0000",
+      "publisher": "AnnaArchive",
+      "ext": "pdf",
+      "missing_fields": [
+        "year"
+      ],
+      "size_bytes": 29653066
+    },
+    {
+      "idx": 164,
+      "folder": "general-history",
+      "filename": "HottonMarcheEnFamenneNassogne-Territoire-2006-Unknown.pdf",
+      "title": "HottonMarcheEnFamenneNassogne",
+      "author": "Territoire",
+      "year": "2006",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1284842
+    },
+    {
+      "idx": 165,
+      "folder": "general-history",
+      "filename": "HouseRulesRappan-Unknown-2014-Unknown.pdf",
+      "title": "HouseRulesRappan",
+      "author": "Unknown",
+      "year": "2014",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 205957
+    },
+    {
+      "idx": 166,
+      "folder": "general-history",
+      "filename": "HumanRightsUsesHistory-Moyn-2017-Unknown.pdf",
+      "title": "HumanRightsUsesHistory",
+      "author": "Moyn",
+      "year": "2017",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 9129453
+    },
+    {
+      "idx": 167,
+      "folder": "general-history",
+      "filename": "HusseinCorrespondence-McMahon-2011-Unknown.pdf",
+      "title": "HusseinCorrespondence",
+      "author": "McMahon",
+      "year": "2011",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 188112
+    },
+    {
+      "idx": 168,
+      "folder": "general-history",
+      "filename": "IdeologicalOriginsAmericanRevolution-Bailyn-1967-Unknown.pdf",
+      "title": "IdeologicalOriginsAmericanRevolution",
+      "author": "Bailyn",
+      "year": "1967",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1334574
+    },
+    {
+      "idx": 169,
+      "folder": "general-history",
+      "filename": "IfriFrenchPolicyAfrica-Antil-2024-Unknown.pdf",
+      "title": "IfriFrenchPolicyAfrica",
+      "author": "Antil",
+      "year": "2024",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1509871
+    },
+    {
+      "idx": 170,
+      "folder": "general-history",
+      "filename": "Ijmes-Unknown-1905-CambridgeUP.pdf",
+      "title": "Ijmes",
+      "author": "Unknown",
+      "year": "1905",
+      "publisher": "CambridgeUP",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 13399978
+    },
+    {
+      "idx": 171,
+      "folder": "general-history",
+      "filename": "IncaGarcilasoComentarios-Vega-1964-Unknown.pdf",
+      "title": "IncaGarcilasoComentarios",
+      "author": "Vega",
+      "year": "1964",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 81498476
+    },
+    {
+      "idx": 172,
+      "folder": "general-history",
+      "filename": "IncasRoyalCommentaries-Vega-1609-Unknown.pdf",
+      "title": "IncasRoyalCommentaries",
+      "author": "Vega",
+      "year": "1609",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 81498476
+    },
+    {
+      "idx": 173,
+      "folder": "general-history",
+      "filename": "IndiansAfraidAsk-Treuer-2015-Unknown.pdf",
+      "title": "IndiansAfraidAsk",
+      "author": "Treuer",
+      "year": "2015",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 5531717
+    },
+    {
+      "idx": 174,
+      "folder": "general-history",
+      "filename": "InfocenterBrugge-Brugge-0000-Unknown.pdf",
+      "title": "InfocenterBrugge",
+      "author": "Brugge",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 206898
+    },
+    {
+      "idx": 175,
+      "folder": "general-history",
+      "filename": "InkaHistoryKhipus-Urton-2015-Unknown.pdf",
+      "title": "InkaHistoryKhipus",
+      "author": "Urton",
+      "year": "2015",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 39434862
+    },
+    {
+      "idx": 176,
+      "folder": "general-history",
+      "filename": "IntegratedApproachNuclearArchaeology-G\u00f6ttsche-2019-Unknown.pdf",
+      "title": "IntegratedApproachNuclearArchaeology",
+      "author": "G\u00f6ttsche",
+      "year": "2019",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 625899
+    },
+    {
+      "idx": 177,
+      "folder": "general-history",
+      "filename": "IntermediateText-Fearenside-0000-Unknown.pdf",
+      "title": "IntermediateText",
+      "author": "Fearenside",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 10859286
+    },
+    {
+      "idx": 178,
+      "folder": "general-history",
+      "filename": "InternationalPolicyStudies-Anttiroiko-0000-Unknown.pdf",
+      "title": "InternationalPolicyStudies",
+      "author": "Anttiroiko",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 94987
+    },
+    {
+      "idx": 179,
+      "folder": "general-history",
+      "filename": "InterviewHistory-Fallaci-1976-Unknown.pdf",
+      "title": "InterviewHistory",
+      "author": "Fallaci",
+      "year": "1976",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 12483924
+    },
+    {
+      "idx": 180,
+      "folder": "general-history",
+      "filename": "IntroductionToTheBerbersOfTheMaghrib-Unknown-0000-Unknown.pdf",
+      "title": "IntroductionToTheBerbersOfTheMaghrib",
+      "author": "Unknown",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 13804918
+    },
+    {
+      "idx": 181,
+      "folder": "general-history",
+      "filename": "IslandCenterWorld-Shorto-2011-Unknown.pdf",
+      "title": "IslandCenterWorld",
+      "author": "Shorto",
+      "year": "2011",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2682397
+    },
+    {
+      "idx": 182,
+      "folder": "general-history",
+      "filename": "JeBestellingBevatVolgendeArtikels-Becker-0000-Unknown.pdf",
+      "title": "JeBestellingBevatVolgendeArtikels",
+      "author": "Becker",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 67918
+    },
+    {
+      "idx": 183,
+      "folder": "general-history",
+      "filename": "JODEFDocument-Unknown-1941-Unknown.pdf",
+      "title": "JODEFDocument",
+      "author": "Unknown",
+      "year": "1941",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 22343528
+    },
+    {
+      "idx": 184,
+      "folder": "general-history",
+      "filename": "JohannaKatrinFridriksd6ottir-Fridriksd6ottir-2015-Unknown.pdf",
+      "title": "JohannaKatrinFridriksd6ottir",
+      "author": "Fridriksd6ottir",
+      "year": "2015",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1384710
+    },
+    {
+      "idx": 185,
+      "folder": "general-history",
+      "filename": "JoinOurTeam-Lacombe-0000-Unknown.pdf",
+      "title": "JoinOurTeam",
+      "author": "Lacombe",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 9117378
+    },
+    {
+      "idx": 186,
+      "folder": "general-history",
+      "filename": "JORFDocument-Unknown-1940-Unknown.pdf",
+      "title": "JORFDocument",
+      "author": "Unknown",
+      "year": "1940",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 6174677
+    },
+    {
+      "idx": 187,
+      "folder": "general-history",
+      "filename": "JournalOfEconomicHistory-Unknown-2021-CambridgeUP.pdf",
+      "title": "JournalOfEconomicHistory",
+      "author": "Unknown",
+      "year": "2021",
+      "publisher": "CambridgeUP",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 985778
+    },
+    {
+      "idx": 188,
+      "folder": "general-history",
+      "filename": "JournalOfLatinAmericanStudies-Unknown-0000-CambridgeUP.pdf",
+      "title": "JournalOfLatinAmericanStudies",
+      "author": "Unknown",
+      "year": "0000",
+      "publisher": "CambridgeUP",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "year"
+      ],
+      "size_bytes": 60068157
+    },
+    {
+      "idx": 189,
+      "folder": "general-history",
+      "filename": "JournalOfMedievalStudies-Unknown-2015-Unknown.pdf",
+      "title": "JournalOfMedievalStudies",
+      "author": "Unknown",
+      "year": "2015",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 2525867
+    },
+    {
+      "idx": 190,
+      "folder": "general-history",
+      "filename": "Jsap-Whitehead-1984-Unknown.pdf",
+      "title": "Jsap",
+      "author": "Whitehead",
+      "year": "1984",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1557187
+    },
+    {
+      "idx": 191,
+      "folder": "general-history",
+      "filename": "JudgeMarkBennett-Courtroom-2014-Unknown.pdf",
+      "title": "JudgeMarkBennett",
+      "author": "Courtroom",
+      "year": "2014",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 703401
+    },
+    {
+      "idx": 192,
+      "folder": "general-history",
+      "filename": "KillingOrders-Genocide-0000-Unknown.pdf",
+      "title": "KillingOrders",
+      "author": "Genocide",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 11863108
+    },
+    {
+      "idx": 193,
+      "folder": "general-history",
+      "filename": "KlaprozenlaanDocument-Unknown-2021-Unknown.pdf",
+      "title": "KlaprozenlaanDocument",
+      "author": "Unknown",
+      "year": "2021",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 95902
+    },
+    {
+      "idx": 194,
+      "folder": "general-history",
+      "filename": "KMBTC364Document-Unknown-2013-Unknown.pdf",
+      "title": "KMBTC364Document",
+      "author": "Unknown",
+      "year": "2013",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 11448348
+    },
+    {
+      "idx": 195,
+      "folder": "general-history",
+      "filename": "KreativUngCulturalProject-Unknown-2020-Unknown.pdf",
+      "title": "KreativUngCulturalProject",
+      "author": "Unknown",
+      "year": "2020",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 39069
+    },
+    {
+      "idx": 196,
+      "folder": "general-history",
+      "filename": "LandmarkHistories-Herodotus-1996-Unknown.pdf",
+      "title": "LandmarkHistories",
+      "author": "Herodotus",
+      "year": "1996",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 32512005
+    },
+    {
+      "idx": 197,
+      "folder": "general-history",
+      "filename": "LawStatusJewsEnglishTranslation-Unknown-1940-Unknown.pdf",
+      "title": "LawStatusJewsEnglishTranslation",
+      "author": "Unknown",
+      "year": "1940",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 97430
+    },
+    {
+      "idx": 198,
+      "folder": "general-history",
+      "filename": "LegitimateSpheresOfInfluence-Recchia-2020-Unknown.pdf",
+      "title": "LegitimateSpheresOfInfluence",
+      "author": "Recchia",
+      "year": "2020",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2342161
+    },
+    {
+      "idx": 199,
+      "folder": "general-history",
+      "filename": "LeilaKhaled-Irving-2012-Unknown.pdf",
+      "title": "LeilaKhaled",
+      "author": "Irving",
+      "year": "2012",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 12164873
+    },
+    {
+      "idx": 200,
+      "folder": "general-history",
+      "filename": "LenguaMaya-Berendt-1892-Unknown.pdf",
+      "title": "LenguaMaya",
+      "author": "Berendt",
+      "year": "1892",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 8508201
+    },
+    {
+      "idx": 201,
+      "folder": "general-history",
+      "filename": "LogwoodMasterlessMen-Offen-2006-Unknown.pdf",
+      "title": "LogwoodMasterlessMen",
+      "author": "Offen",
+      "year": "2006",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 6048939
+    },
+    {
+      "idx": 202,
+      "folder": "general-history",
+      "filename": "LoiPortantStatutDesJuifs-Unknown-1940-Unknown.pdf",
+      "title": "LoiPortantStatutDesJuifs",
+      "author": "Unknown",
+      "year": "1940",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 138501
+    },
+    {
+      "idx": 203,
+      "folder": "general-history",
+      "filename": "LoiStatutJuifsDraft-Unknown-1940-Legifrance.pdf",
+      "title": "LoiStatutJuifsDraft",
+      "author": "Unknown",
+      "year": "1940",
+      "publisher": "Legifrance",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 59429
+    },
+    {
+      "idx": 204,
+      "folder": "general-history",
+      "filename": "LostTerritoriesThailandHistory-Strate-2000-Unknown.pdf",
+      "title": "LostTerritoriesThailandHistory",
+      "author": "Strate",
+      "year": "2000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1572573
+    },
+    {
+      "idx": 205,
+      "folder": "general-history",
+      "filename": "LRWilliams-Hudson-0000-Unknown.pdf",
+      "title": "LRWilliams",
+      "author": "Hudson",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 637977
+    },
+    {
+      "idx": 206,
+      "folder": "general-history",
+      "filename": "MasculinityIdentityPowerPolitics-Stewart-2020-Unknown.pdf",
+      "title": "MasculinityIdentityPowerPolitics",
+      "author": "Stewart",
+      "year": "2020",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3175490
+    },
+    {
+      "idx": 207,
+      "folder": "general-history",
+      "filename": "MayaCodexTellerianoRemensis-Garc\u00eda-2004-Unknown.pdf",
+      "title": "MayaCodexTellerianoRemensis",
+      "author": "Garc\u00eda",
+      "year": "2004",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 8508201
+    },
+    {
+      "idx": 208,
+      "folder": "general-history",
+      "filename": "MayaSeaTraders-McKillop-2004-Unknown.pdf",
+      "title": "MayaSeaTraders",
+      "author": "McKillop",
+      "year": "2004",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 39880365
+    },
+    {
+      "idx": 209,
+      "folder": "general-history",
+      "filename": "MenWomenAndPower-Unknown-2015-Unknown.pdf",
+      "title": "MenWomenAndPower",
+      "author": "Unknown",
+      "year": "2015",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 2525867
+    },
+    {
+      "idx": 210,
+      "folder": "general-history",
+      "filename": "MexicanCuisineUltimateBook-DeAngeli-2023-Unknown.pdf",
+      "title": "MexicanCuisineUltimateBook",
+      "author": "DeAngeli",
+      "year": "2023",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 19944733
+    },
+    {
+      "idx": 211,
+      "folder": "general-history",
+      "filename": "MexicanManuscript-Festivals-0000-Unknown.pdf",
+      "title": "MexicanManuscript",
+      "author": "Festivals",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 14884204
+    },
+    {
+      "idx": 212,
+      "folder": "general-history",
+      "filename": "MicrosoftOfficeCompanionBook-Milliken-2025-Unknown.pdf",
+      "title": "MicrosoftOfficeCompanionBook",
+      "author": "Milliken",
+      "year": "2025",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1331722
+    },
+    {
+      "idx": 213,
+      "folder": "general-history",
+      "filename": "MicrosoftWordGelterNorwegianFriluftliv-Hage-2010-Unknown.pdf",
+      "title": "MicrosoftWordGelterNorwegianFriluftliv",
+      "author": "Hage",
+      "year": "2010",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 322605
+    },
+    {
+      "idx": 214,
+      "folder": "general-history",
+      "filename": "MicrosoftWordMontgo-Administrator-2002-Unknown.pdf",
+      "title": "MicrosoftWordMontgo",
+      "author": "Administrator",
+      "year": "2002",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 201609
+    },
+    {
+      "idx": 215,
+      "folder": "general-history",
+      "filename": "MiscellaneousWorksRemains-Hall-0000-Unknown.pdf",
+      "title": "MiscellaneousWorksRemains",
+      "author": "Hall",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 6626798
+    },
+    {
+      "idx": 216,
+      "folder": "general-history",
+      "filename": "ModernGeographySimplifiedSociety-Geography-2012-Unknown.pdf",
+      "title": "ModernGeographySimplifiedSociety",
+      "author": "Geography",
+      "year": "2012",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 562202
+    },
+    {
+      "idx": 217,
+      "folder": "general-history",
+      "filename": "MoroccanKingSahara-Unknown-2025-Unknown.pdf",
+      "title": "MoroccanKingSahara",
+      "author": "Unknown",
+      "year": "2025",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 639430
+    },
+    {
+      "idx": 218,
+      "folder": "general-history",
+      "filename": "MotivateReasonsPickingProject-Enjoyed-0000-Unknown.pdf",
+      "title": "MotivateReasonsPickingProject",
+      "author": "Enjoyed",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 60215
+    },
+    {
+      "idx": 219,
+      "folder": "general-history",
+      "filename": "NationalHistoryNewNationalism-May-0000-Unknown.pdf",
+      "title": "NationalHistoryNewNationalism",
+      "author": "May",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 5358835
+    },
+    {
+      "idx": 220,
+      "folder": "general-history",
+      "filename": "NationalsozialistischeVernichtungslager-R\u00fcckerl-1977-Unknown.pdf",
+      "title": "NationalsozialistischeVernichtungslager",
+      "author": "R\u00fcckerl",
+      "year": "1977",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2576046
+    },
+    {
+      "idx": 221,
+      "folder": "general-history",
+      "filename": "NativeNations-DuVal-2003-Unknown.pdf",
+      "title": "NativeNations",
+      "author": "DuVal",
+      "year": "2003",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 29372366
+    },
+    {
+      "idx": 222,
+      "folder": "general-history",
+      "filename": "NativePopulationAmericas-Denevan-1992-Unknown.pdf",
+      "title": "NativePopulationAmericas",
+      "author": "Denevan",
+      "year": "1992",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 26242771
+    },
+    {
+      "idx": 223,
+      "folder": "general-history",
+      "filename": "NativePopulationAmericas1492-Denevan-1992-Unknown.pdf",
+      "title": "NativePopulationAmericas1492",
+      "author": "Denevan",
+      "year": "1992",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 26242771
+    },
+    {
+      "idx": 224,
+      "folder": "general-history",
+      "filename": "NaturalRightsLaw-Tierney-0000-Emory.pdf",
+      "title": "NaturalRightsLaw",
+      "author": "Tierney",
+      "year": "0000",
+      "publisher": "Emory",
+      "ext": "pdf",
+      "missing_fields": [
+        "year"
+      ],
+      "size_bytes": 25924369
+    },
+    {
+      "idx": 225,
+      "folder": "general-history",
+      "filename": "NaziOccultHistories-Kurlander-2019-Unknown.pdf",
+      "title": "NaziOccultHistories",
+      "author": "Kurlander",
+      "year": "2019",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 8209429
+    },
+    {
+      "idx": 226,
+      "folder": "general-history",
+      "filename": "NaziOccultHistoriesLegacies-Black-2015-Unknown.pdf",
+      "title": "NaziOccultHistoriesLegacies",
+      "author": "Black",
+      "year": "2015",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 8209429
+    },
+    {
+      "idx": 227,
+      "folder": "general-history",
+      "filename": "NeoNaziTerrorismFascism-Sunshine-2024-Unknown.pdf",
+      "title": "NeoNaziTerrorismFascism",
+      "author": "Sunshine",
+      "year": "2024",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 4190924
+    },
+    {
+      "idx": 228,
+      "folder": "general-history",
+      "filename": "NewInternationalBusinessEnglish-Jones-2000-Unknown.pdf",
+      "title": "NewInternationalBusinessEnglish",
+      "author": "Jones",
+      "year": "2000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 15284441
+    },
+    {
+      "idx": 229,
+      "folder": "general-history",
+      "filename": "NuevaCronicaBuenGobierno-Poma-1615-Unknown.pdf",
+      "title": "NuevaCronicaBuenGobierno",
+      "author": "Poma",
+      "year": "1615",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 155374
+    },
+    {
+      "idx": 230,
+      "folder": "general-history",
+      "filename": "NuevaCronicaBuenGobierno-Salinas-1615-Unknown.pdf",
+      "title": "NuevaCronicaBuenGobierno",
+      "author": "Salinas",
+      "year": "1615",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 155374
+    },
+    {
+      "idx": 231,
+      "folder": "general-history",
+      "filename": "NumeneraPlayersGuide-Cook-2018-Unknown.pdf",
+      "title": "NumeneraPlayersGuide",
+      "author": "Cook",
+      "year": "2018",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 69808009
+    },
+    {
+      "idx": 232,
+      "folder": "general-history",
+      "filename": "Nwig-Unknown-2025-Brill.pdf",
+      "title": "Nwig",
+      "author": "Unknown",
+      "year": "2025",
+      "publisher": "Brill",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 103044
+    },
+    {
+      "idx": 233,
+      "folder": "general-history",
+      "filename": "OccultRootsNazism-Goodrick-Clarke-1985-Unknown.pdf",
+      "title": "OccultRootsNazism-Goodrick",
+      "author": "Clarke",
+      "year": "1985",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1300125
+    },
+    {
+      "idx": 234,
+      "folder": "general-history",
+      "filename": "OnlineTicket-Europa-0000-Unknown.pdf",
+      "title": "OnlineTicket",
+      "author": "Europa",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 441978
+    },
+    {
+      "idx": 235,
+      "folder": "general-history",
+      "filename": "OrdonnanceAllemande-Unknown-1940-Unknown.pdf",
+      "title": "OrdonnanceAllemande",
+      "author": "Unknown",
+      "year": "1940",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 508019
+    },
+    {
+      "idx": 236,
+      "folder": "general-history",
+      "filename": "OrganicFertilizersEnvironment-Ozturk-2022-Unknown.pdf",
+      "title": "OrganicFertilizersEnvironment",
+      "author": "Ozturk",
+      "year": "2022",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 157667
+    },
+    {
+      "idx": 237,
+      "folder": "general-history",
+      "filename": "OriginsFinalSolutionNaziPolicy-Browning-1992-Unknown.pdf",
+      "title": "OriginsFinalSolutionNaziPolicy",
+      "author": "Browning",
+      "year": "1992",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3193641
+    },
+    {
+      "idx": 238,
+      "folder": "general-history",
+      "filename": "Overheidsdienst-Brugge-0000-Unknown.pdf",
+      "title": "Overheidsdienst",
+      "author": "Brugge",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 2507274
+    },
+    {
+      "idx": 239,
+      "folder": "general-history",
+      "filename": "OxfordMedievalTexts-Danorum-0000-Oxford-University-Press.pdf",
+      "title": "OxfordMedievalTexts",
+      "author": "Danorum",
+      "year": "0000",
+      "publisher": "Oxford-University-Press",
+      "ext": "pdf",
+      "missing_fields": [
+        "year"
+      ],
+      "size_bytes": 48167320
+    },
+    {
+      "idx": 240,
+      "folder": "general-history",
+      "filename": "OXMOFinal-UnicafPC-0000-Unknown.pdf",
+      "title": "OXMOFinal",
+      "author": "UnicafPC",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 7586689
+    },
+    {
+      "idx": 241,
+      "folder": "general-history",
+      "filename": "PalaeogeographicalReconstruction-Unknown-2014-Unknown.pdf",
+      "title": "PalaeogeographicalReconstruction",
+      "author": "Unknown",
+      "year": "2014",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 3208419
+    },
+    {
+      "idx": 242,
+      "folder": "general-history",
+      "filename": "Palestinians-Curtis-1975-Unknown.pdf",
+      "title": "Palestinians",
+      "author": "Curtis",
+      "year": "1975",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3232814
+    },
+    {
+      "idx": 243,
+      "folder": "general-history",
+      "filename": "PalestiniansMakingPeople-Kimmerling-1993-Unknown.pdf",
+      "title": "PalestiniansMakingPeople",
+      "author": "Kimmerling",
+      "year": "1993",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 25067836
+    },
+    {
+      "idx": 244,
+      "folder": "general-history",
+      "filename": "ParanoidApocalypse-Katz-2011-Unknown.pdf",
+      "title": "ParanoidApocalypse",
+      "author": "Katz",
+      "year": "2011",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2779347
+    },
+    {
+      "idx": 245,
+      "folder": "general-history",
+      "filename": "PavinDOI-Chachavalpongpun-0000-Unknown.pdf",
+      "title": "PavinDOI",
+      "author": "Chachavalpongpun",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 645565
+    },
+    {
+      "idx": 246,
+      "folder": "general-history",
+      "filename": "PeoplesHistoryOfTheUnitedStates-ZINN-1980-Unknown.pdf",
+      "title": "PeoplesHistoryOfTheUnitedStates",
+      "author": "ZINN",
+      "year": "1980",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1397067
+    },
+    {
+      "idx": 247,
+      "folder": "general-history",
+      "filename": "PersianRevolution-Browne-1905-Unknown.pdf",
+      "title": "PersianRevolution",
+      "author": "Browne",
+      "year": "1905",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 30709777
+    },
+    {
+      "idx": 248,
+      "folder": "general-history",
+      "filename": "Petracos-DeMiguel-2020-Unknown.pdf",
+      "title": "Petracos",
+      "author": "DeMiguel",
+      "year": "2020",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 4011274
+    },
+    {
+      "idx": 249,
+      "folder": "general-history",
+      "filename": "PHHVries-Vries-2012-Unknown.pdf",
+      "title": "PHHVries",
+      "author": "Vries",
+      "year": "2012",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 87906
+    },
+    {
+      "idx": 250,
+      "folder": "general-history",
+      "filename": "PlayRealityVideogames-Snyder-2012-Unknown.pdf",
+      "title": "PlayRealityVideogames",
+      "author": "Snyder",
+      "year": "2012",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 15653514
+    },
+    {
+      "idx": 251,
+      "folder": "general-history",
+      "filename": "PotosiMitaIndianLabor-Cole-1987-Unknown.pdf",
+      "title": "PotosiMitaIndianLabor",
+      "author": "Cole",
+      "year": "1987",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 36517295
+    },
+    {
+      "idx": 252,
+      "folder": "general-history",
+      "filename": "PotosiSilverCity-Lane-2010-Unknown.pdf",
+      "title": "PotosiSilverCity",
+      "author": "Lane",
+      "year": "2010",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 67523806
+    },
+    {
+      "idx": 253,
+      "folder": "general-history",
+      "filename": "PowerImpactInvesting-Rodin-2014-Unknown.pdf",
+      "title": "PowerImpactInvesting",
+      "author": "Rodin",
+      "year": "2014",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1189272
+    },
+    {
+      "idx": 254,
+      "folder": "general-history",
+      "filename": "PraktischeInfoVTONVAAvondNVU-Decloedt-0000-Unknown.pdf",
+      "title": "PraktischeInfoVTONVAAvondNVU",
+      "author": "Decloedt",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 121545
+    },
+    {
+      "idx": 255,
+      "folder": "general-history",
+      "filename": "PraktischEngels-Engels-0000-Unknown.pdf",
+      "title": "PraktischEngels",
+      "author": "Engels",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 8444459
+    },
+    {
+      "idx": 256,
+      "folder": "general-history",
+      "filename": "PreahVihear-Kasetsiri-2013-Unknown.pdf",
+      "title": "PreahVihear",
+      "author": "Kasetsiri",
+      "year": "2013",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 8007872
+    },
+    {
+      "idx": 257,
+      "folder": "general-history",
+      "filename": "PreahVihearConflictGuide-Kasetsiri-0000-Unknown.pdf",
+      "title": "PreahVihearConflictGuide",
+      "author": "Kasetsiri",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 8007872
+    },
+    {
+      "idx": 258,
+      "folder": "general-history",
+      "filename": "ProgramOutlineMay28-Unknown-2021-Unknown.pdf",
+      "title": "ProgramOutlineMay28",
+      "author": "Unknown",
+      "year": "2021",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 157565
+    },
+    {
+      "idx": 259,
+      "folder": "general-history",
+      "filename": "ProtocolliDeiSaviDiSion-Michelis-2004-Unknown.pdf",
+      "title": "ProtocolliDeiSaviDiSion",
+      "author": "Michelis",
+      "year": "2004",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 20323132
+    },
+    {
+      "idx": 260,
+      "folder": "general-history",
+      "filename": "ProtocolsOfTheLearnedEldersOfZion-Unknown-1903-Unknown.pdf",
+      "title": "ProtocolsOfTheLearnedEldersOfZion",
+      "author": "Unknown",
+      "year": "1903",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 4133677
+    },
+    {
+      "idx": 261,
+      "folder": "general-history",
+      "filename": "QuandLUnFormeLeToutExpRienceIndividuelleEtDev-Misran-2015-Unknown.pdf",
+      "title": "QuandLUnFormeLeToutExpRienceIndividuelleEtDev",
+      "author": "Misran",
+      "year": "2015",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 145254
+    },
+    {
+      "idx": 262,
+      "folder": "general-history",
+      "filename": "RaceAmericanPoliticalScience-Blatt-0000-Unknown.pdf",
+      "title": "RaceAmericanPoliticalScience",
+      "author": "Blatt",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 986840
+    },
+    {
+      "idx": 263,
+      "folder": "general-history",
+      "filename": "RaceReunionCivilWarMemory-Blight-2001-Unknown.pdf",
+      "title": "RaceReunionCivilWarMemory",
+      "author": "Blight",
+      "year": "2001",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3363954
+    },
+    {
+      "idx": 264,
+      "folder": "general-history",
+      "filename": "RadicalismAmericanRevolution-Wood-1992-Unknown.pdf",
+      "title": "RadicalismAmericanRevolution",
+      "author": "Wood",
+      "year": "1992",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3309996
+    },
+    {
+      "idx": 265,
+      "folder": "general-history",
+      "filename": "RappanAthuk-Unknown-2012-Unknown.pdf",
+      "title": "RappanAthuk",
+      "author": "Unknown",
+      "year": "2012",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 27807191
+    },
+    {
+      "idx": 266,
+      "folder": "general-history",
+      "filename": "RappanAthukHouseRules-Unknown-2014-Unknown.pdf",
+      "title": "RappanAthukHouseRules",
+      "author": "Unknown",
+      "year": "2014",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 205957
+    },
+    {
+      "idx": 267,
+      "folder": "general-history",
+      "filename": "RationalRadicalismTheory-Thompson-2011-Unknown.pdf",
+      "title": "RationalRadicalismTheory",
+      "author": "Thompson",
+      "year": "2011",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1749036
+    },
+    {
+      "idx": 268,
+      "folder": "general-history",
+      "filename": "RealValkyrie-Brown-2025-Unknown.pdf",
+      "title": "RealValkyrie",
+      "author": "Brown",
+      "year": "2025",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 12451717
+    },
+    {
+      "idx": 269,
+      "folder": "general-history",
+      "filename": "RealValkyrieVikingWomen-Brown-2016-Unknown.pdf",
+      "title": "RealValkyrieVikingWomen",
+      "author": "Brown",
+      "year": "2016",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 12451717
+    },
+    {
+      "idx": 270,
+      "folder": "general-history",
+      "filename": "RecopilaciNDeLeyesDeLosReinosDeLasIndias-Unknown-1681-ImprentaLibreriaCarretas.pdf",
+      "title": "RecopilaciNDeLeyesDeLosReinosDeLasIndias",
+      "author": "Unknown",
+      "year": "1681",
+      "publisher": "ImprentaLibreriaCarretas",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 29067748
+    },
+    {
+      "idx": 271,
+      "folder": "general-history",
+      "filename": "RediscoveryAmericaNativePeoples-Blackhawk-2014-Unknown.pdf",
+      "title": "RediscoveryAmericaNativePeoples",
+      "author": "Blackhawk",
+      "year": "2014",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 20274358
+    },
+    {
+      "idx": 272,
+      "folder": "general-history",
+      "filename": "RedPinkStamps-Viola-0000-Unknown.pdf",
+      "title": "RedPinkStamps",
+      "author": "Viola",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 1285308
+    },
+    {
+      "idx": 273,
+      "folder": "general-history",
+      "filename": "RefutationArmenianResolution-Kemal-2014-Unknown.pdf",
+      "title": "RefutationArmenianResolution",
+      "author": "Kemal",
+      "year": "2014",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 136283
+    },
+    {
+      "idx": 274,
+      "folder": "general-history",
+      "filename": "ReligiousPluralismIslamicLaw-Emon-2008-Unknown.pdf",
+      "title": "ReligiousPluralismIslamicLaw",
+      "author": "Emon",
+      "year": "2008",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 74501863
+    },
+    {
+      "idx": 275,
+      "folder": "general-history",
+      "filename": "ReportOfTheAmericanColonizationSociety-Unknown-1823-Unknown.pdf",
+      "title": "ReportOfTheAmericanColonizationSociety",
+      "author": "Unknown",
+      "year": "1823",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 561125
+    },
+    {
+      "idx": 276,
+      "folder": "general-history",
+      "filename": "ReportOfTheSuperintendentOfPublicInstruction-Unknown-2025-Brill.pdf",
+      "title": "ReportOfTheSuperintendentOfPublicInstruction",
+      "author": "Unknown",
+      "year": "2025",
+      "publisher": "Brill",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 103044
+    },
+    {
+      "idx": 277,
+      "folder": "general-history",
+      "filename": "ReportPresidentU.S.Chairman-Committee-1960-Unknown.pdf",
+      "title": "ReportPresidentU.S.Chairman",
+      "author": "Committee",
+      "year": "1960",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 11986965
+    },
+    {
+      "idx": 278,
+      "folder": "general-history",
+      "filename": "RepublicSpin-Greenberg-2016-Unknown.pdf",
+      "title": "RepublicSpin",
+      "author": "Greenberg",
+      "year": "2016",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 8246625
+    },
+    {
+      "idx": 279,
+      "folder": "general-history",
+      "filename": "RepublicSpinInsideHistoryAmericanPreside-Greenberg-2017-Unknown.pdf",
+      "title": "RepublicSpinInsideHistoryAmericanPreside",
+      "author": "Greenberg",
+      "year": "2017",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 8246625
+    },
+    {
+      "idx": 280,
+      "folder": "general-history",
+      "filename": "RereadingBlackLegend-Green-2008-Unknown.pdf",
+      "title": "RereadingBlackLegend",
+      "author": "Green",
+      "year": "2008",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2963870
+    },
+    {
+      "idx": 281,
+      "folder": "general-history",
+      "filename": "ReturnGreatPowerRivalry-Kroening-2020-Unknown.pdf",
+      "title": "ReturnGreatPowerRivalry",
+      "author": "Kroening",
+      "year": "2020",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 6193466
+    },
+    {
+      "idx": 282,
+      "folder": "general-history",
+      "filename": "RevistaCubanaDeDerecho-Unknown-1993-Unknown.pdf",
+      "title": "RevistaCubanaDeDerecho",
+      "author": "Unknown",
+      "year": "1993",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 199290
+    },
+    {
+      "idx": 283,
+      "folder": "general-history",
+      "filename": "RimeOfTheFrostmaidenCampaignGuide-Unknown-0000-Unknown.pdf",
+      "title": "RimeOfTheFrostmaidenCampaignGuide",
+      "author": "Unknown",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 138323
+    },
+    {
+      "idx": 284,
+      "folder": "general-history",
+      "filename": "RolandPosner-Posner-2004-Unknown.pdf",
+      "title": "RolandPosner",
+      "author": "Posner",
+      "year": "2004",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 375717
+    },
+    {
+      "idx": 285,
+      "folder": "general-history",
+      "filename": "SamenvattingDeConstructieVanHetVerleden-Unknown-0000-StuDocu.pdf",
+      "title": "SamenvattingDeConstructieVanHetVerleden",
+      "author": "Unknown",
+      "year": "0000",
+      "publisher": "StuDocu",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "year"
+      ],
+      "size_bytes": 368369
+    },
+    {
+      "idx": 286,
+      "folder": "general-history",
+      "filename": "Scandinavism-Cultural-0000-Unknown.pdf",
+      "title": "Scandinavism",
+      "author": "Cultural",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 13870983
+    },
+    {
+      "idx": 287,
+      "folder": "general-history",
+      "filename": "ScientificStyleFormat-Committee-1994-Unknown.pdf",
+      "title": "ScientificStyleFormat",
+      "author": "Committee",
+      "year": "1994",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 234373
+    },
+    {
+      "idx": 288,
+      "folder": "general-history",
+      "filename": "SearchColdWarLegitimacy-Niebuhr-2018-Unknown.pdf",
+      "title": "SearchColdWarLegitimacy",
+      "author": "Niebuhr",
+      "year": "2018",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 373305
+    },
+    {
+      "idx": 289,
+      "folder": "general-history",
+      "filename": "SebastianCrowesGuideDrakkenheim-Martin-0000-Unknown.pdf",
+      "title": "SebastianCrowesGuideDrakkenheim",
+      "author": "Martin",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 36360459
+    },
+    {
+      "idx": 290,
+      "folder": "general-history",
+      "filename": "SelectBibliographyGuideStudents-Brittain-1986-Unknown.pdf",
+      "title": "SelectBibliographyGuideStudents",
+      "author": "Brittain",
+      "year": "1986",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 204405
+    },
+    {
+      "idx": 291,
+      "folder": "general-history",
+      "filename": "SevenElementsChangedWorld-Browne-2013-Unknown.pdf",
+      "title": "SevenElementsChangedWorld",
+      "author": "Browne",
+      "year": "2013",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 19610948
+    },
+    {
+      "idx": 292,
+      "folder": "general-history",
+      "filename": "SkullWarsKennewickMan-Thomas-2000-Unknown.pdf",
+      "title": "SkullWarsKennewickMan",
+      "author": "Thomas",
+      "year": "2000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3201240
+    },
+    {
+      "idx": 293,
+      "folder": "general-history",
+      "filename": "SocialConstructivismParadigm-Knoblauch-2008-Unknown.pdf",
+      "title": "SocialConstructivismParadigm",
+      "author": "Knoblauch",
+      "year": "2008",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3621450
+    },
+    {
+      "idx": 294,
+      "folder": "general-history",
+      "filename": "SocialConstructivismParadigm-Pfadenhauer-2008-Unknown.pdf",
+      "title": "SocialConstructivismParadigm",
+      "author": "Pfadenhauer",
+      "year": "2008",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3621450
+    },
+    {
+      "idx": 295,
+      "folder": "general-history",
+      "filename": "SocietyEncouragementContemporary-Art-0000-Unknown.pdf",
+      "title": "SocietyEncouragementContemporary",
+      "author": "Art",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 25861503
+    },
+    {
+      "idx": 296,
+      "folder": "general-history",
+      "filename": "SouthamptonProjects-Unknown-1991-Unknown.pdf",
+      "title": "SouthamptonProjects",
+      "author": "Unknown",
+      "year": "1991",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 135939
+    },
+    {
+      "idx": 297,
+      "folder": "general-history",
+      "filename": "SovietUnion-Bureau-1929-Unknown.pdf",
+      "title": "SovietUnion",
+      "author": "Bureau",
+      "year": "1929",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 6037357
+    },
+    {
+      "idx": 298,
+      "folder": "general-history",
+      "filename": "SpainAmerica-Gibson-1966-Unknown.pdf",
+      "title": "SpainAmerica",
+      "author": "Gibson",
+      "year": "1966",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 14906682
+    },
+    {
+      "idx": 299,
+      "folder": "general-history",
+      "filename": "SpeakingAncestors-Smith-2009-Unknown.pdf",
+      "title": "SpeakingAncestors",
+      "author": "Smith",
+      "year": "2009",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 215641
+    },
+    {
+      "idx": 300,
+      "folder": "general-history",
+      "filename": "Speech-Macron-0000-Unknown.pdf",
+      "title": "Speech",
+      "author": "Macron",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 6091308
+    },
+    {
+      "idx": 301,
+      "folder": "general-history",
+      "filename": "StateUncivilSocietyThailand-Pawakapan-2007-Unknown.pdf",
+      "title": "StateUncivilSocietyThailand",
+      "author": "Pawakapan",
+      "year": "2007",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 6660126
+    },
+    {
+      "idx": 302,
+      "folder": "general-history",
+      "filename": "StateUncivilSocietyThailandPreahVihear-Pawakapan-2013-Unknown.pdf",
+      "title": "StateUncivilSocietyThailandPreahVihear",
+      "author": "Pawakapan",
+      "year": "2013",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 6660126
+    },
+    {
+      "idx": 303,
+      "folder": "general-history",
+      "filename": "StatistickiGodisnjak-Unknown-1939-Unknown.pdf",
+      "title": "StatistickiGodisnjak",
+      "author": "Unknown",
+      "year": "1939",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 855473
+    },
+    {
+      "idx": 304,
+      "folder": "general-history",
+      "filename": "Studiefiche-Cultuurwetenschappen-0000-Unknown.pdf",
+      "title": "Studiefiche",
+      "author": "Cultuurwetenschappen",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 43577
+    },
+    {
+      "idx": 305,
+      "folder": "general-history",
+      "filename": "StyleManual-Unknown-1978-Unknown.pdf",
+      "title": "StyleManual",
+      "author": "Unknown",
+      "year": "1978",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 234373
+    },
+    {
+      "idx": 306,
+      "folder": "general-history",
+      "filename": "SynevoGeorgia-Georgia-0000-Unknown.pdf",
+      "title": "SynevoGeorgia",
+      "author": "Georgia",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 100346
+    },
+    {
+      "idx": 307,
+      "folder": "general-history",
+      "filename": "TechnicalManual-Army-1970-Unknown.pdf",
+      "title": "TechnicalManual",
+      "author": "Army",
+      "year": "1970",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 557644
+    },
+    {
+      "idx": 308,
+      "folder": "general-history",
+      "filename": "TeotihuacanAndTenochtitlan-Unknown-2019-Unknown.pdf",
+      "title": "TeotihuacanAndTenochtitlan",
+      "author": "Unknown",
+      "year": "2019",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 13605531
+    },
+    {
+      "idx": 309,
+      "folder": "general-history",
+      "filename": "TerechtBijProfessorenAssistenten-Becker-0000-Unknown.pdf",
+      "title": "TerechtBijProfessorenAssistenten",
+      "author": "Becker",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 70583
+    },
+    {
+      "idx": 310,
+      "folder": "general-history",
+      "filename": "Terminology-Characters-0000-Unknown.pdf",
+      "title": "Terminology",
+      "author": "Characters",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 1774936
+    },
+    {
+      "idx": 311,
+      "folder": "general-history",
+      "filename": "TerritorializationStatePower-Vandergeest-2006-Unknown.pdf",
+      "title": "TerritorializationStatePower",
+      "author": "Vandergeest",
+      "year": "2006",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 800199
+    },
+    {
+      "idx": 312,
+      "folder": "general-history",
+      "filename": "TertullianWorks-Tertullian-1994-Unknown.pdf",
+      "title": "TertullianWorks",
+      "author": "Tertullian",
+      "year": "1994",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 430765
+    },
+    {
+      "idx": 313,
+      "folder": "general-history",
+      "filename": "TheFirstCrusade-FOSS-2015-Unknown.pdf",
+      "title": "TheFirstCrusade",
+      "author": "FOSS",
+      "year": "2015",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 15620080
+    },
+    {
+      "idx": 314,
+      "folder": "general-history",
+      "filename": "Theoretische-Bert-0000-Unknown.pdf",
+      "title": "Theoretische",
+      "author": "Bert",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 567440
+    },
+    {
+      "idx": 315,
+      "folder": "general-history",
+      "filename": "TheoretischeGeschiedenis-Cornelis-0000-Unknown.pdf",
+      "title": "TheoretischeGeschiedenis",
+      "author": "Cornelis",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 1670777
+    },
+    {
+      "idx": 316,
+      "folder": "general-history",
+      "filename": "ThermopylaeArtemisium-Prentice-1920-Unknown.pdf",
+      "title": "ThermopylaeArtemisium",
+      "author": "Prentice",
+      "year": "1920",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1116475
+    },
+    {
+      "idx": 317,
+      "folder": "general-history",
+      "filename": "TIRLALAKSA-Unknown-2021-verso.pdf",
+      "title": "TIRLALAKSA",
+      "author": "Unknown",
+      "year": "2021",
+      "publisher": "verso",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 10625952
+    },
+    {
+      "idx": 318,
+      "folder": "general-history",
+      "filename": "Toelatingsvoorwaarden-Broucke-2015-Unknown.pdf",
+      "title": "Toelatingsvoorwaarden",
+      "author": "Broucke",
+      "year": "2015",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2379635
+    },
+    {
+      "idx": 319,
+      "folder": "general-history",
+      "filename": "ToerismeAltijdFeest-Djame-0000-Unknown.pdf",
+      "title": "ToerismeAltijdFeest",
+      "author": "Djame",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 195701
+    },
+    {
+      "idx": 320,
+      "folder": "general-history",
+      "filename": "TransaccionAutorizacion-Unknown-2025-Unknown.pdf",
+      "title": "TransaccionAutorizacion",
+      "author": "Unknown",
+      "year": "2025",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 16584
+    },
+    {
+      "idx": 321,
+      "folder": "general-history",
+      "filename": "TransactionDocument-Unknown-2025-Unknown.pdf",
+      "title": "TransactionDocument",
+      "author": "Unknown",
+      "year": "2025",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 16584
+    },
+    {
+      "idx": 322,
+      "folder": "general-history",
+      "filename": "TravelsPedroCiezaDeLeon-DeLeon-1901-Unknown.pdf",
+      "title": "TravelsPedroCiezaDeLeon",
+      "author": "DeLeon",
+      "year": "1901",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 32180417
+    },
+    {
+      "idx": 323,
+      "folder": "general-history",
+      "filename": "TravelsPedroDeCieza-L\u00e9on-1998-Unknown.pdf",
+      "title": "TravelsPedroDeCieza",
+      "author": "L\u00e9on",
+      "year": "1998",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 32180417
+    },
+    {
+      "idx": 324,
+      "folder": "general-history",
+      "filename": "TropicalConservationScience-Unknown-2009-SAGEPub.pdf",
+      "title": "TropicalConservationScience",
+      "author": "Unknown",
+      "year": "2009",
+      "publisher": "SAGEPub",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 392307
+    },
+    {
+      "idx": 325,
+      "folder": "general-history",
+      "filename": "Troy-Fry-2020-Unknown.pdf",
+      "title": "Troy",
+      "author": "Fry",
+      "year": "2020",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 15994338
+    },
+    {
+      "idx": 326,
+      "folder": "general-history",
+      "filename": "TruthProtocols-Graves-0000-Unknown.pdf",
+      "title": "TruthProtocols",
+      "author": "Graves",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 3245392
+    },
+    {
+      "idx": 327,
+      "folder": "general-history",
+      "filename": "UnderstandingEarthDeepPast-Council-2011-Unknown.pdf",
+      "title": "UnderstandingEarthDeepPast",
+      "author": "Council",
+      "year": "2011",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 845662
+    },
+    {
+      "idx": 328,
+      "folder": "general-history",
+      "filename": "UnidentifiableDocument-Unknown-2021-Unknown.pdf",
+      "title": "UnidentifiableDocument",
+      "author": "Unknown",
+      "year": "2021",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 3285254
+    },
+    {
+      "idx": 329,
+      "folder": "general-history",
+      "filename": "Unknown-Raphail-2021-Unknown.pdf",
+      "title": "Unknown",
+      "author": "Raphail",
+      "year": "2021",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "publisher"
+      ],
+      "size_bytes": 173415
+    },
+    {
+      "idx": 330,
+      "folder": "general-history",
+      "filename": "Unknown-Unknown-1933-brill.pdf",
+      "title": "Unknown",
+      "author": "Unknown",
+      "year": "1933",
+      "publisher": "brill",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "author"
+      ],
+      "size_bytes": 428272
+    },
+    {
+      "idx": 331,
+      "folder": "general-history",
+      "filename": "Unknown-Unknown-1940-Unknown.pdf",
+      "title": "Unknown",
+      "author": "Unknown",
+      "year": "1940",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 131001
+    },
+    {
+      "idx": 332,
+      "folder": "general-history",
+      "filename": "Unknown-Unknown-1949-Unknown.pdf",
+      "title": "Unknown",
+      "author": "Unknown",
+      "year": "1949",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 578365
+    },
+    {
+      "idx": 333,
+      "folder": "general-history",
+      "filename": "Unknown-Unknown-1962-Unknown.pdf",
+      "title": "Unknown",
+      "author": "Unknown",
+      "year": "1962",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 30379
+    },
+    {
+      "idx": 334,
+      "folder": "general-history",
+      "filename": "Unknown-Unknown-1965-Unknown.pdf",
+      "title": "Unknown",
+      "author": "Unknown",
+      "year": "1965",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 213242
+    },
+    {
+      "idx": 335,
+      "folder": "general-history",
+      "filename": "Unknown-Unknown-1967-Unknown.pdf",
+      "title": "Unknown",
+      "author": "Unknown",
+      "year": "1967",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 11986965
+    },
+    {
+      "idx": 336,
+      "folder": "general-history",
+      "filename": "Unknown-Unknown-2013-Routledge.pdf",
+      "title": "Unknown",
+      "author": "Unknown",
+      "year": "2013",
+      "publisher": "Routledge",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "author"
+      ],
+      "size_bytes": 3386600
+    },
+    {
+      "idx": 337,
+      "folder": "general-history",
+      "filename": "Unknown-Unknown-2013-Unknown.pdf",
+      "title": "Unknown",
+      "author": "Unknown",
+      "year": "2013",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 1488707
+    },
+    {
+      "idx": 338,
+      "folder": "general-history",
+      "filename": "Unknown-Unknown-2022-Unknown.pdf",
+      "title": "Unknown",
+      "author": "Unknown",
+      "year": "2022",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 271278
+    },
+    {
+      "idx": 339,
+      "folder": "general-history",
+      "filename": "Unknown-Unknown-2024-Springer.pdf",
+      "title": "Unknown",
+      "author": "Unknown",
+      "year": "2024",
+      "publisher": "Springer",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "author"
+      ],
+      "size_bytes": 454175
+    },
+    {
+      "idx": 340,
+      "folder": "general-history",
+      "filename": "Unknown-Unknown-2024-Unknown.pdf",
+      "title": "Unknown",
+      "author": "Unknown",
+      "year": "2024",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 452339
+    },
+    {
+      "idx": 341,
+      "folder": "general-history",
+      "filename": "Unknown-Unknown-2025-Unknown.pdf",
+      "title": "Unknown",
+      "author": "Unknown",
+      "year": "2025",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 324075
+    },
+    {
+      "idx": 342,
+      "folder": "general-history",
+      "filename": "Unknown-Wade-2016-Unknown.pdf",
+      "title": "Unknown",
+      "author": "Wade",
+      "year": "2016",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "publisher"
+      ],
+      "size_bytes": 419963
+    },
+    {
+      "idx": 343,
+      "folder": "general-history",
+      "filename": "UnknownDocument-Unknown-2004-Oxford-University-Press.pdf",
+      "title": "UnknownDocument",
+      "author": "Unknown",
+      "year": "2004",
+      "publisher": "Oxford-University-Press",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 3410345
+    },
+    {
+      "idx": 344,
+      "folder": "general-history",
+      "filename": "UnknownDocument-Unknown-2007-Oxford.pdf",
+      "title": "UnknownDocument",
+      "author": "Unknown",
+      "year": "2007",
+      "publisher": "Oxford",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 8258484
+    },
+    {
+      "idx": 345,
+      "folder": "general-history",
+      "filename": "UnknownPaper-Mamigonian-2015-Unknown.pdf",
+      "title": "UnknownPaper",
+      "author": "Mamigonian",
+      "year": "2015",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 157006
+    },
+    {
+      "idx": 346,
+      "folder": "general-history",
+      "filename": "UnknownTitle-Keen-1969-Unknown.pdf",
+      "title": "UnknownTitle",
+      "author": "Keen",
+      "year": "1969",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1738176
+    },
+    {
+      "idx": 347,
+      "folder": "general-history",
+      "filename": "UnknownTitle-McMahon-0000-Unknown.pdf",
+      "title": "UnknownTitle",
+      "author": "McMahon",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 188112
+    },
+    {
+      "idx": 348,
+      "folder": "general-history",
+      "filename": "UnreadableDocument-Unknown-2014-Unknown.pdf",
+      "title": "UnreadableDocument",
+      "author": "Unknown",
+      "year": "2014",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 1996064
+    },
+    {
+      "idx": 349,
+      "folder": "general-history",
+      "filename": "UntitledDocument-Unknown-2014-Unknown.pdf",
+      "title": "UntitledDocument",
+      "author": "Unknown",
+      "year": "2014",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 341217
+    },
+    {
+      "idx": 350,
+      "folder": "general-history",
+      "filename": "VerbijsteringVeelheidVerschil-Vandenabeele-2017-Unknown.pdf",
+      "title": "VerbijsteringVeelheidVerschil",
+      "author": "Vandenabeele",
+      "year": "2017",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2186484
+    },
+    {
+      "idx": 351,
+      "folder": "general-history",
+      "filename": "Version-Mangus-0000-Unknown.pdf",
+      "title": "Version",
+      "author": "Mangus",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 8725822
+    },
+    {
+      "idx": 352,
+      "folder": "general-history",
+      "filename": "Vikings-Tsoumbakos-2017-Unknown.pdf",
+      "title": "Vikings",
+      "author": "Tsoumbakos",
+      "year": "2017",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1753810
+    },
+    {
+      "idx": 353,
+      "folder": "general-history",
+      "filename": "VikingsLagerthaRagnar-Tsoumbakos-0000-Unknown.pdf",
+      "title": "VikingsLagerthaRagnar",
+      "author": "Tsoumbakos",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 1753810
+    },
+    {
+      "idx": 354,
+      "folder": "general-history",
+      "filename": "VindicatingFounders-West-2000-Unknown.pdf",
+      "title": "VindicatingFounders",
+      "author": "West",
+      "year": "2000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2521576
+    },
+    {
+      "idx": 355,
+      "folder": "general-history",
+      "filename": "VLInternationalConference-FCSH-0000-Unknown.pdf",
+      "title": "VLInternationalConference",
+      "author": "FCSH",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 549368
+    },
+    {
+      "idx": 356,
+      "folder": "general-history",
+      "filename": "VojnuciDefter-Unknown-1455-Unknown.pdf",
+      "title": "VojnuciDefter",
+      "author": "Unknown",
+      "year": "1455",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 21326769
+    },
+    {
+      "idx": 357,
+      "folder": "general-history",
+      "filename": "VojnuciDefter1455-Unknown-2020-Unknown.pdf",
+      "title": "VojnuciDefter1455",
+      "author": "Unknown",
+      "year": "2020",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 21326769
+    },
+    {
+      "idx": 358,
+      "folder": "general-history",
+      "filename": "VolosGuideMonsters-Carter-2022-Unknown.pdf",
+      "title": "VolosGuideMonsters",
+      "author": "Carter",
+      "year": "2022",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 57079410
+    },
+    {
+      "idx": 359,
+      "folder": "general-history",
+      "filename": "WalterSinnottArmstrong-Sinnott-Armstrong-0000-Unknown.pdf",
+      "title": "WalterSinnottArmstrong-Sinnott",
+      "author": "Armstrong",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 3004740
+    },
+    {
+      "idx": 360,
+      "folder": "general-history",
+      "filename": "WarriorWomen-Davis-Kimball-2002-Unknown.pdf",
+      "title": "WarriorWomen-Davis",
+      "author": "Kimball",
+      "year": "2002",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 29976400
+    },
+    {
+      "idx": 361,
+      "folder": "general-history",
+      "filename": "WarriorWomenArchaeologists-Behan-0000-Unknown.pdf",
+      "title": "WarriorWomenArchaeologists",
+      "author": "Behan",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 29976400
+    },
+    {
+      "idx": 362,
+      "folder": "general-history",
+      "filename": "WarriorWomenViking-Gardela-2013-Unknown.pdf",
+      "title": "WarriorWomenViking",
+      "author": "Gardela",
+      "year": "2013",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1996064
+    },
+    {
+      "idx": 363,
+      "folder": "general-history",
+      "filename": "WesternEuropeanUnion-Union-1997-Unknown.pdf",
+      "title": "WesternEuropeanUnion",
+      "author": "Union",
+      "year": "1997",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 264232
+    },
+    {
+      "idx": 364,
+      "folder": "general-history",
+      "filename": "WesternSahara-Jensen-2005-Unknown.pdf",
+      "title": "WesternSahara",
+      "author": "Jensen",
+      "year": "2005",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1852997
+    },
+    {
+      "idx": 365,
+      "folder": "general-history",
+      "filename": "WesternSahara-Zunes-2010-Unknown.pdf",
+      "title": "WesternSahara",
+      "author": "Zunes",
+      "year": "2010",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 2542437
+    },
+    {
+      "idx": 366,
+      "folder": "general-history",
+      "filename": "WesternSaharaAsASettlerColony-Unknown-2025-Unknown.pdf",
+      "title": "WesternSaharaAsASettlerColony",
+      "author": "Unknown",
+      "year": "2025",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 639430
+    },
+    {
+      "idx": 367,
+      "folder": "general-history",
+      "filename": "WhatWeKnewAndWhatWeLost-Unknown-2019-Unknown.pdf",
+      "title": "WhatWeKnewAndWhatWeLost",
+      "author": "Unknown",
+      "year": "2019",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 7586689
+    },
+    {
+      "idx": 368,
+      "folder": "general-history",
+      "filename": "WomenCrucibleConquest-Powers-2005-Unknown.pdf",
+      "title": "WomenCrucibleConquest",
+      "author": "Powers",
+      "year": "2005",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 6667944
+    },
+    {
+      "idx": 369,
+      "folder": "general-history",
+      "filename": "WomenIslamEnquiry-Mernissi-1993-Unknown.pdf",
+      "title": "WomenIslamEnquiry",
+      "author": "Mernissi",
+      "year": "1993",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 7817813
+    },
+    {
+      "idx": 370,
+      "folder": "general-history",
+      "filename": "WomenVikingAge-Jesch-1996-Unknown.pdf",
+      "title": "WomenVikingAge",
+      "author": "Jesch",
+      "year": "1996",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 11710084
+    },
+    {
+      "idx": 371,
+      "folder": "general-history",
+      "filename": "WomenWeaponsVikingWorld-Gardela-2017-Unknown.pdf",
+      "title": "WomenWeaponsVikingWorld",
+      "author": "Gardela",
+      "year": "2017",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 71631167
+    },
+    {
+      "idx": 372,
+      "folder": "general-history",
+      "filename": "WordSourDocument-Unknown-2024-Unknown.pdf",
+      "title": "WordSourDocument",
+      "author": "Unknown",
+      "year": "2024",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 310048
+    },
+    {
+      "idx": 373,
+      "folder": "general-history",
+      "filename": "WordSyllabus-Unknown-2019-Unknown.pdf",
+      "title": "WordSyllabus",
+      "author": "Unknown",
+      "year": "2019",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 154976
+    },
+    {
+      "idx": 374,
+      "folder": "general-history",
+      "filename": "Workshop-Dick-0000-Unknown.pdf",
+      "title": "Workshop",
+      "author": "Dick",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 5961314
+    },
+    {
+      "idx": 375,
+      "folder": "general-history",
+      "filename": "WorldbuildingGameDesigners-Dee-2025-Unknown.pdf",
+      "title": "WorldbuildingGameDesigners",
+      "author": "Dee",
+      "year": "2025",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 49874427
+    },
+    {
+      "idx": 376,
+      "folder": "general-history",
+      "filename": "WorldHistory-Unknown-2010-Unknown.pdf",
+      "title": "WorldHistory",
+      "author": "Unknown",
+      "year": "2010",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 46998025
+    },
+    {
+      "idx": 377,
+      "folder": "general-history",
+      "filename": "WorldPrehistoryIntroduction-Fagan-1995-Unknown.pdf",
+      "title": "WorldPrehistoryIntroduction",
+      "author": "Fagan",
+      "year": "1995",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 158994090
+    },
+    {
+      "idx": 378,
+      "folder": "general-history",
+      "filename": "WorldWasGoingOurWay-Andrew-2006-Unknown.pdf",
+      "title": "WorldWasGoingOurWay",
+      "author": "Andrew",
+      "year": "2006",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 4764243
+    },
+    {
+      "idx": 379,
+      "folder": "general-history",
+      "filename": "WTFinal-Howell-2016-Unknown.pdf",
+      "title": "WTFinal",
+      "author": "Howell",
+      "year": "2016",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 125631
+    },
+    {
+      "idx": 380,
+      "folder": "general-history",
+      "filename": "YouthResearchPodcast-PASIC-0000-MOOC.pdf",
+      "title": "YouthResearchPodcast",
+      "author": "PASIC",
+      "year": "0000",
+      "publisher": "MOOC",
+      "ext": "pdf",
+      "missing_fields": [
+        "year"
+      ],
+      "size_bytes": 133749
+    },
+    {
+      "idx": 381,
+      "folder": "general-history",
+      "filename": "ZichtrekeningInvest-Unknown-2021-Unknown.pdf",
+      "title": "ZichtrekeningInvest",
+      "author": "Unknown",
+      "year": "2021",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 242157
+    },
+    {
+      "idx": 382,
+      "folder": "general-history",
+      "filename": "ZichtrekeningInvest-Unknown-2022-Unknown.pdf",
+      "title": "ZichtrekeningInvest",
+      "author": "Unknown",
+      "year": "2022",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 241509
+    },
+    {
+      "idx": 383,
+      "folder": "middle-east-history",
+      "filename": "CyprusOttomansKissingerChristopherHitche-History-0000-Unknown.pdf",
+      "title": "CyprusOttomansKissingerChristopherHitche",
+      "author": "History",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 2102014
+    },
+    {
+      "idx": 384,
+      "folder": "middle-east-history",
+      "filename": "GreatArabConquestsSpreadIslamChangedWorl-Kennedy-2015-Unknown.pdf",
+      "title": "GreatArabConquestsSpreadIslamChangedWorl",
+      "author": "Kennedy",
+      "year": "2015",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 19610948
+    },
+    {
+      "idx": 385,
+      "folder": "middle-east-history",
+      "filename": "HeraclitusIran-Unknown-2019-University-of-Chicago-Press.pdf",
+      "title": "HeraclitusIran",
+      "author": "Unknown",
+      "year": "2019",
+      "publisher": "University-of-Chicago-Press",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 1890618
+    },
+    {
+      "idx": 386,
+      "folder": "middle-east-history",
+      "filename": "IsraelAHistory-Shapira-2012-Unknown.pdf",
+      "title": "IsraelAHistory",
+      "author": "Shapira",
+      "year": "2012",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 0
+    },
+    {
+      "idx": 387,
+      "folder": "middle-east-history",
+      "filename": "JewsArabLandsHistory-Stillman-1979-Unknown.pdf",
+      "title": "JewsArabLandsHistory",
+      "author": "Stillman",
+      "year": "1979",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 40964698
+    },
+    {
+      "idx": 388,
+      "folder": "middle-east-history",
+      "filename": "PlotProtocolsEldersZion-Eisner-2005-Unknown.pdf",
+      "title": "PlotProtocolsEldersZion",
+      "author": "Eisner",
+      "year": "2005",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 14996233
+    },
+    {
+      "idx": 389,
+      "folder": "middle-east-history",
+      "filename": "RediscoveringPalestine-Palestine-2011-Unknown.pdf",
+      "title": "RediscoveringPalestine",
+      "author": "Palestine",
+      "year": "2011",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3742017
+    },
+    {
+      "idx": 390,
+      "folder": "middle-east-history",
+      "filename": "SovietUnionPalestineLiberationOrganizati-Golan-2010-Unknown.pdf",
+      "title": "SovietUnionPalestineLiberationOrganizati",
+      "author": "Golan",
+      "year": "2010",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 6037357
+    },
+    {
+      "idx": 391,
+      "folder": "middle-east-history",
+      "filename": "SykesPicotAgreementFODocuments-Unknown-1916-Unknown.pdf",
+      "title": "SykesPicotAgreementFODocuments",
+      "author": "Unknown",
+      "year": "1916",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 65276417
+    },
+    {
+      "idx": 392,
+      "folder": "middle-east-history",
+      "filename": "UnknownTitle-Unknown-1797-Unknown.pdf",
+      "title": "UnknownTitle",
+      "author": "Unknown",
+      "year": "1797",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 517393
+    },
+    {
+      "idx": 393,
+      "folder": "middle-east-history",
+      "filename": "UnknownTitle-Unknown-2017-Unknown.pdf",
+      "title": "UnknownTitle",
+      "author": "Unknown",
+      "year": "2017",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 1802644
+    },
+    {
+      "idx": 394,
+      "folder": "reference-methodology",
+      "filename": "NonexistentManuscriptProtocols-DeMichelis-2005-Unknown.pdf",
+      "title": "NonexistentManuscriptProtocols",
+      "author": "DeMichelis",
+      "year": "2005",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 20323132
+    },
+    {
+      "idx": 395,
+      "folder": "reference-methodology",
+      "filename": "WoodlandsPublication-Woodlands-0000-Unknown.pdf",
+      "title": "WoodlandsPublication",
+      "author": "Woodlands",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 2326290
+    },
+    {
+      "idx": 396,
+      "folder": "territorial-disputes",
+      "filename": "AloysiusNyuymengkaNgalimDOI-Ngalim-2005-Unknown.pdf",
+      "title": "AloysiusNyuymengkaNgalimDOI",
+      "author": "Ngalim",
+      "year": "2005",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 732085
+    },
+    {
+      "idx": 397,
+      "folder": "territorial-disputes",
+      "filename": "AngloGermanAgreement-AngloGerman-1913-Unknown.pdf",
+      "title": "AngloGermanAgreement",
+      "author": "AngloGerman",
+      "year": "1913",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 191010
+    },
+    {
+      "idx": 398,
+      "folder": "territorial-disputes",
+      "filename": "Bakassi-Unknown-0000-Unknown.pdf",
+      "title": "Bakassi",
+      "author": "Unknown",
+      "year": "0000",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "year",
+        "publisher"
+      ],
+      "size_bytes": 16682748
+    },
+    {
+      "idx": 399,
+      "folder": "territorial-disputes",
+      "filename": "BakassiGreentreeAgreement-UN-2006-Unknown.pdf",
+      "title": "BakassiGreentreeAgreement",
+      "author": "UN",
+      "year": "2006",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 30027
+    },
+    {
+      "idx": 400,
+      "folder": "territorial-disputes",
+      "filename": "ConstitutionOfHonduras-Unknown-1982-Unknown.pdf",
+      "title": "ConstitutionOfHonduras",
+      "author": "Unknown",
+      "year": "1982",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 153140875
+    },
+    {
+      "idx": 401,
+      "folder": "territorial-disputes",
+      "filename": "CRdobaAgreement-Unknown-2006-Unknown.pdf",
+      "title": "CRdobaAgreement",
+      "author": "Unknown",
+      "year": "2006",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 466115
+    },
+    {
+      "idx": 402,
+      "folder": "territorial-disputes",
+      "filename": "DimensionsConflictSoutheastAsia-Gordon-1966-Unknown.pdf",
+      "title": "DimensionsConflictSoutheastAsia",
+      "author": "Gordon",
+      "year": "1966",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 13914994
+    },
+    {
+      "idx": 403,
+      "folder": "territorial-disputes",
+      "filename": "GazettePhilisiphins-PhilippinesGov-0000-PhilippinesGov.pdf",
+      "title": "GazettePhilisiphins",
+      "author": "PhilippinesGov",
+      "year": "0000",
+      "publisher": "PhilippinesGov",
+      "ext": "pdf",
+      "missing_fields": [
+        "year"
+      ],
+      "size_bytes": 1275256
+    },
+    {
+      "idx": 404,
+      "folder": "territorial-disputes",
+      "filename": "GrantBySultanOfSuluOfTerritoriesAndLandsOnThe-SULU-1878-Unknown.pdf",
+      "title": "GrantBySultanOfSuluOfTerritoriesAndLandsOnThe",
+      "author": "SULU",
+      "year": "1878",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 64878
+    },
+    {
+      "idx": 405,
+      "folder": "territorial-disputes",
+      "filename": "GuatemalasApplicationToInterveneInTheSapodill-MOITRA-0000-EJILTalk.pdf",
+      "title": "GuatemalasApplicationToInterveneInTheSapodill",
+      "author": "MOITRA",
+      "year": "0000",
+      "publisher": "EJILTalk",
+      "ext": "pdf",
+      "missing_fields": [
+        "year"
+      ],
+      "size_bytes": 960424
+    },
+    {
+      "idx": 406,
+      "folder": "territorial-disputes",
+      "filename": "GuatemalasClaimBelize-Chrimes-2019-Unknown.pdf",
+      "title": "GuatemalasClaimBelize",
+      "author": "Chrimes",
+      "year": "2019",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 141769
+    },
+    {
+      "idx": 407,
+      "folder": "territorial-disputes",
+      "filename": "HistoryModernSabahNorthBorneo-Tregonning-1965-Unknown.pdf",
+      "title": "HistoryModernSabahNorthBorneo",
+      "author": "Tregonning",
+      "year": "1965",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 11880931
+    },
+    {
+      "idx": 408,
+      "folder": "territorial-disputes",
+      "filename": "HistoryNewNetherlandNewYorkUnderDutch-OCallaghan-1846-Unknown.pdf",
+      "title": "HistoryNewNetherlandNewYorkUnderDutch",
+      "author": "OCallaghan",
+      "year": "1846",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 9038183
+    },
+    {
+      "idx": 409,
+      "folder": "territorial-disputes",
+      "filename": "ImplicationsOfTheBakassiConflictResolutionFor-BAYE-2016-Unknown.pdf",
+      "title": "ImplicationsOfTheBakassiConflictResolutionFor",
+      "author": "BAYE",
+      "year": "2016",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 202905
+    },
+    {
+      "idx": 410,
+      "folder": "territorial-disputes",
+      "filename": "IndianIndependenceAct1947-UK-Parliament-1947-Unknown.pdf",
+      "title": "IndianIndependenceAct1947-UK",
+      "author": "Parliament",
+      "year": "1947",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 274055
+    },
+    {
+      "idx": 411,
+      "folder": "territorial-disputes",
+      "filename": "InSearchMayaSeaTraders-McKillop-2005-Unknown.pdf",
+      "title": "InSearchMayaSeaTraders",
+      "author": "McKillop",
+      "year": "2005",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 39880365
+    },
+    {
+      "idx": 412,
+      "folder": "territorial-disputes",
+      "filename": "InternationalBoundariesNigeriaFrameworkEmerge-Anene-1970-Unknown.pdf",
+      "title": "InternationalBoundariesNigeriaFrameworkEmerge",
+      "author": "Anene",
+      "year": "1970",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 24984432
+    },
+    {
+      "idx": 413,
+      "folder": "territorial-disputes",
+      "filename": "LetterSapodillaCayesBelizeDispute-Unknown-1913-Unknown.pdf",
+      "title": "LetterSapodillaCayesBelizeDispute",
+      "author": "Unknown",
+      "year": "1913",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 38382
+    },
+    {
+      "idx": 414,
+      "folder": "territorial-disputes",
+      "filename": "LostTerritoriesThailandsHistory-Strate-2015-Unknown.pdf",
+      "title": "LostTerritoriesThailandsHistory",
+      "author": "Strate",
+      "year": "2015",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 1572573
+    },
+    {
+      "idx": 415,
+      "folder": "territorial-disputes",
+      "filename": "ManilaAccord-Manila-1963-Unknown.pdf",
+      "title": "ManilaAccord",
+      "author": "Manila",
+      "year": "1963",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 161266
+    },
+    {
+      "idx": 416,
+      "folder": "territorial-disputes",
+      "filename": "MemoirsLordIsmay-Ismay-1960-Unknown.pdf",
+      "title": "MemoirsLordIsmay",
+      "author": "Ismay",
+      "year": "1960",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 4000076
+    },
+    {
+      "idx": 417,
+      "folder": "territorial-disputes",
+      "filename": "NigeriaCameroonBakassiDispute-Ezeilo-2010-Unknown.pdf",
+      "title": "NigeriaCameroonBakassiDispute",
+      "author": "Ezeilo",
+      "year": "2010",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 378370
+    },
+    {
+      "idx": 418,
+      "folder": "territorial-disputes",
+      "filename": "PartitionOfBritishIndia-Unknown-1947-TheNationalArchives.pdf",
+      "title": "PartitionOfBritishIndia",
+      "author": "Unknown",
+      "year": "1947",
+      "publisher": "TheNationalArchives",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 11704238
+    },
+    {
+      "idx": 419,
+      "folder": "territorial-disputes",
+      "filename": "PartitionOfThePunjab1947OfficialDocuments-Kirpal-Singh-1991-Unknown.pdf",
+      "title": "PartitionOfThePunjab1947OfficialDocuments-Kirpal",
+      "author": "Singh",
+      "year": "1991",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 35462794
+    },
+    {
+      "idx": 420,
+      "folder": "territorial-disputes",
+      "filename": "PowerfulPersuasionsLanguagePropertyPoliticsSa-Doolittle-2005-Unknown.pdf",
+      "title": "PowerfulPersuasionsLanguagePropertyPoliticsSa",
+      "author": "Doolittle",
+      "year": "2005",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 358761
+    },
+    {
+      "idx": 421,
+      "folder": "territorial-disputes",
+      "filename": "PreahVihearThaiCambodianConflict-Kasetsiri-2013-Unknown.pdf",
+      "title": "PreahVihearThaiCambodianConflict",
+      "author": "Kasetsiri",
+      "year": "2013",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 8007872
+    },
+    {
+      "idx": 422,
+      "folder": "territorial-disputes",
+      "filename": "RadcliffeReportPunjabBoundaryCommission-Radcliffe-1947-Unknown.pdf",
+      "title": "RadcliffeReportPunjabBoundaryCommission",
+      "author": "Radcliffe",
+      "year": "1947",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 162102
+    },
+    {
+      "idx": 423,
+      "folder": "territorial-disputes",
+      "filename": "ReportOfTheCommissionOfEnquiryNorthBorneo-Cobbold-1962-Unknown.pdf",
+      "title": "ReportOfTheCommissionOfEnquiryNorthBorneo",
+      "author": "Cobbold",
+      "year": "1962",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 4715469
+    },
+    {
+      "idx": 424,
+      "folder": "territorial-disputes",
+      "filename": "SabahQuestionInternationalLaw-Lobrigo-2022-Unknown.pdf",
+      "title": "SabahQuestionInternationalLaw",
+      "author": "Lobrigo",
+      "year": "2022",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 360071
+    },
+    {
+      "idx": 425,
+      "folder": "territorial-disputes",
+      "filename": "SelectDocumentsPartitionPunjabIndiaPakistan-Si\u1e45gha-1947-Unknown.pdf",
+      "title": "SelectDocumentsPartitionPunjabIndiaPakistan",
+      "author": "Si\u1e45gha",
+      "year": "1947",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 63663396
+    },
+    {
+      "idx": 426,
+      "folder": "territorial-disputes",
+      "filename": "SenatePassesMaritimeZonesAct-PhilippinesGov-0000-PhilippinesGov.pdf",
+      "title": "SenatePassesMaritimeZonesAct",
+      "author": "PhilippinesGov",
+      "year": "0000",
+      "publisher": "PhilippinesGov",
+      "ext": "pdf",
+      "missing_fields": [
+        "year"
+      ],
+      "size_bytes": 810214
+    },
+    {
+      "idx": 427,
+      "folder": "territorial-disputes",
+      "filename": "StatelessInBakassiHowAChangedBorderLeftInhabi-Unknown-2015-JusticeInitiative.pdf",
+      "title": "StatelessInBakassiHowAChangedBorderLeftInhabi",
+      "author": "Unknown",
+      "year": "2015",
+      "publisher": "JusticeInitiative",
+      "ext": "pdf",
+      "missing_fields": [
+        "author"
+      ],
+      "size_bytes": 2086157
+    },
+    {
+      "idx": 428,
+      "folder": "territorial-disputes",
+      "filename": "ThailandTemplePreahVihear-Pawakapan-2013-Unknown.pdf",
+      "title": "ThailandTemplePreahVihear",
+      "author": "Pawakapan",
+      "year": "2013",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 6660126
+    },
+    {
+      "idx": 429,
+      "folder": "territorial-disputes",
+      "filename": "TreatyPereyaslav-Pereyaslav-1654-Unknown.pdf",
+      "title": "TreatyPereyaslav",
+      "author": "Pereyaslav",
+      "year": "1654",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 155734
+    },
+    {
+      "idx": 430,
+      "folder": "territorial-disputes",
+      "filename": "UnderCharteredCompanyRule-Tregonning-1958-Unknown.pdf",
+      "title": "UnderCharteredCompanyRule",
+      "author": "Tregonning",
+      "year": "1958",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 20743236
+    },
+    {
+      "idx": 431,
+      "folder": "territorial-disputes",
+      "filename": "Unknown-Unknown-1966-Unknown.pdf",
+      "title": "Unknown",
+      "author": "Unknown",
+      "year": "1966",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "title",
+        "author",
+        "publisher"
+      ],
+      "size_bytes": 54325872
+    },
+    {
+      "idx": 432,
+      "folder": "territorial-disputes",
+      "filename": "UNMeetingsCoverageICJPressReleaseJudgment-UN-0000-UN.pdf",
+      "title": "UNMeetingsCoverageICJPressReleaseJudgment",
+      "author": "UN",
+      "year": "0000",
+      "publisher": "UN",
+      "ext": "pdf",
+      "missing_fields": [
+        "year"
+      ],
+      "size_bytes": 347978
+    },
+    {
+      "idx": 433,
+      "folder": "territorial-disputes",
+      "filename": "VenezuelaGuyanaBorderDispute-Braveboy-Wagner-1984-Unknown.pdf",
+      "title": "VenezuelaGuyanaBorderDispute-Braveboy",
+      "author": "Wagner",
+      "year": "1984",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 3237258
+    },
+    {
+      "idx": 434,
+      "folder": "territorial-disputes",
+      "filename": "WhoOwnsBakassiCritiqueAngloGermanTreaties-Akak-1999-Unknown.pdf",
+      "title": "WhoOwnsBakassiCritiqueAngloGermanTreaties",
+      "author": "Akak",
+      "year": "1999",
+      "publisher": "Unknown",
+      "ext": "pdf",
+      "missing_fields": [
+        "publisher"
+      ],
+      "size_bytes": 36938617
+    }
+  ]
+}

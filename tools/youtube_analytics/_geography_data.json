@@ -1,4 +1,122 @@
 {
+  "mg6ujk6rDVE": [],
+  "liW4BSh46DU": [],
+  "MXvTuHXSf3o": [],
+  "yetYD9_VcmM": [
+    {
+      "country": "US",
+      "views": 27,
+      "watch_time_minutes": 74.0,
+      "subscribers_gained": 0
+    }
+  ],
+  "sXadwOj8VoA": [],
+  "-kg30uRUY1M": [
+    {
+      "country": "IN",
+      "views": 15,
+      "watch_time_minutes": 13.0,
+      "subscribers_gained": 0
+    }
+  ],
+  "WgE2FLsDhfk": [
+    {
+      "country": "AR",
+      "views": 40,
+      "watch_time_minutes": 120.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "BE",
+      "views": 10,
+      "watch_time_minutes": 17.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "BR",
+      "views": 10,
+      "watch_time_minutes": 22.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "CH",
+      "views": 12,
+      "watch_time_minutes": 30.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "DE",
+      "views": 41,
+      "watch_time_minutes": 74.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "ES",
+      "views": 72,
+      "watch_time_minutes": 150.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "FR",
+      "views": 48,
+      "watch_time_minutes": 64.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "GB",
+      "views": 20,
+      "watch_time_minutes": 24.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "IL",
+      "views": 12,
+      "watch_time_minutes": 22.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "IN",
+      "views": 16,
+      "watch_time_minutes": 45.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "IT",
+      "views": 12,
+      "watch_time_minutes": 31.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "NL",
+      "views": 18,
+      "watch_time_minutes": 28.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "PL",
+      "views": 162,
+      "watch_time_minutes": 342.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "RU",
+      "views": 11,
+      "watch_time_minutes": 6.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "UA",
+      "views": 17,
+      "watch_time_minutes": 31.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "US",
+      "views": 26,
+      "watch_time_minutes": 70.0,
+      "subscribers_gained": 0
+    }
+  ],
   "lFGs5NHMxMw": [
     {
       "country": "DE",
@@ -14,7 +132,7 @@
     },
     {
       "country": "KR",
-      "views": 89,
+      "views": 88,
       "watch_time_minutes": 102.0,
       "subscribers_gained": 0
     },
@@ -32,8 +150,8 @@
     },
     {
       "country": "ZA",
-      "views": 12,
-      "watch_time_minutes": 52.0,
+      "views": 11,
+      "watch_time_minutes": 51.0,
       "subscribers_gained": 0
     }
   ],
@@ -112,8 +230,8 @@
   "XbGl1Kcspt4": [
     {
       "country": "BZ",
-      "views": 2904,
-      "watch_time_minutes": 13940.0,
+      "views": 2916,
+      "watch_time_minutes": 14003.0,
       "subscribers_gained": 18
     },
     {
@@ -586,21 +704,27 @@
       "subscribers_gained": 0
     },
     {
-      "country": "AR",
-      "views": 30,
-      "watch_time_minutes": 7.0,
-      "subscribers_gained": 0
-    },
-    {
-      "country": "AT",
+      "country": "AL",
       "views": 0,
       "watch_time_minutes": 0.0,
       "subscribers_gained": 0
     },
     {
+      "country": "AR",
+      "views": 284,
+      "watch_time_minutes": 184.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "AT",
+      "views": 51,
+      "watch_time_minutes": 9.0,
+      "subscribers_gained": 0
+    },
+    {
       "country": "AU",
-      "views": 5220,
-      "watch_time_minutes": 1793.0,
+      "views": 5980,
+      "watch_time_minutes": 2002.0,
       "subscribers_gained": 0
     },
     {
@@ -629,32 +753,44 @@
     },
     {
       "country": "BE",
-      "views": 166,
-      "watch_time_minutes": 43.0,
+      "views": 193,
+      "watch_time_minutes": 71.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "BG",
+      "views": 0,
+      "watch_time_minutes": 0.0,
       "subscribers_gained": 0
     },
     {
       "country": "BR",
-      "views": 95,
-      "watch_time_minutes": 62.0,
+      "views": 604,
+      "watch_time_minutes": 236.0,
       "subscribers_gained": 0
     },
     {
       "country": "BZ",
-      "views": 14724,
-      "watch_time_minutes": 70315.0,
+      "views": 14749,
+      "watch_time_minutes": 70423.0,
       "subscribers_gained": 51
     },
     {
       "country": "CA",
-      "views": 8966,
-      "watch_time_minutes": 5004.0,
+      "views": 9897,
+      "watch_time_minutes": 5226.0,
       "subscribers_gained": 0
     },
     {
       "country": "CH",
-      "views": 104,
-      "watch_time_minutes": 59.0,
+      "views": 174,
+      "watch_time_minutes": 104.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "CL",
+      "views": 37,
+      "watch_time_minutes": 2.0,
       "subscribers_gained": 0
     },
     {
@@ -665,20 +801,26 @@
     },
     {
       "country": "CZ",
-      "views": 0,
-      "watch_time_minutes": 0.0,
+      "views": 13,
+      "watch_time_minutes": 5.0,
       "subscribers_gained": 0
     },
     {
       "country": "DE",
-      "views": 6890,
-      "watch_time_minutes": 1437.0,
+      "views": 7650,
+      "watch_time_minutes": 1672.0,
       "subscribers_gained": 0
     },
     {
       "country": "DK",
-      "views": 245,
-      "watch_time_minutes": 79.0,
+      "views": 360,
+      "watch_time_minutes": 99.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "DZ",
+      "views": 0,
+      "watch_time_minutes": 0.0,
       "subscribers_gained": 0
     },
     {
@@ -688,27 +830,33 @@
       "subscribers_gained": 0
     },
     {
+      "country": "EG",
+      "views": 0,
+      "watch_time_minutes": 0.0,
+      "subscribers_gained": 0
+    },
+    {
       "country": "ES",
-      "views": 579,
-      "watch_time_minutes": 130.0,
+      "views": 863,
+      "watch_time_minutes": 367.0,
       "subscribers_gained": 0
     },
     {
       "country": "FI",
-      "views": 95,
-      "watch_time_minutes": 9.0,
+      "views": 228,
+      "watch_time_minutes": 27.0,
       "subscribers_gained": 0
     },
     {
       "country": "FR",
-      "views": 514,
-      "watch_time_minutes": 210.0,
+      "views": 648,
+      "watch_time_minutes": 307.0,
       "subscribers_gained": 0
     },
     {
       "country": "GB",
-      "views": 15638,
-      "watch_time_minutes": 4204.0,
+      "views": 18060,
+      "watch_time_minutes": 4930.0,
       "subscribers_gained": 0
     },
     {
@@ -718,9 +866,15 @@
       "subscribers_gained": 0
     },
     {
+      "country": "GH",
+      "views": 60,
+      "watch_time_minutes": 21.0,
+      "subscribers_gained": 0
+    },
+    {
       "country": "GR",
-      "views": 604,
-      "watch_time_minutes": 439.0,
+      "views": 697,
+      "watch_time_minutes": 462.0,
       "subscribers_gained": 0
     },
     {
@@ -737,8 +891,8 @@
     },
     {
       "country": "HN",
-      "views": 266,
-      "watch_time_minutes": 732.0,
+      "views": 315,
+      "watch_time_minutes": 738.0,
       "subscribers_gained": 0
     },
     {
@@ -749,26 +903,26 @@
     },
     {
       "country": "ID",
-      "views": 833,
-      "watch_time_minutes": 236.0,
+      "views": 907,
+      "watch_time_minutes": 260.0,
       "subscribers_gained": 0
     },
     {
       "country": "IE",
-      "views": 885,
-      "watch_time_minutes": 197.0,
+      "views": 1026,
+      "watch_time_minutes": 248.0,
       "subscribers_gained": 0
     },
     {
       "country": "IL",
-      "views": 333,
-      "watch_time_minutes": 70.0,
+      "views": 385,
+      "watch_time_minutes": 97.0,
       "subscribers_gained": 0
     },
     {
       "country": "IN",
-      "views": 5233,
-      "watch_time_minutes": 1273.0,
+      "views": 5432,
+      "watch_time_minutes": 1369.0,
       "subscribers_gained": 0
     },
     {
@@ -779,14 +933,14 @@
     },
     {
       "country": "IT",
-      "views": 368,
-      "watch_time_minutes": 41.0,
+      "views": 559,
+      "watch_time_minutes": 103.0,
       "subscribers_gained": 0
     },
     {
       "country": "JM",
-      "views": 88,
-      "watch_time_minutes": 230.0,
+      "views": 105,
+      "watch_time_minutes": 236.0,
       "subscribers_gained": 0
     },
     {
@@ -797,19 +951,19 @@
     },
     {
       "country": "JP",
-      "views": 65,
-      "watch_time_minutes": 88.0,
+      "views": 83,
+      "watch_time_minutes": 90.0,
       "subscribers_gained": 0
     },
     {
       "country": "KE",
-      "views": 26,
-      "watch_time_minutes": 5.0,
+      "views": 168,
+      "watch_time_minutes": 49.0,
       "subscribers_gained": 0
     },
     {
       "country": "KR",
-      "views": 89,
+      "views": 88,
       "watch_time_minutes": 102.0,
       "subscribers_gained": 0
     },
@@ -845,14 +999,14 @@
     },
     {
       "country": "MY",
-      "views": 510,
-      "watch_time_minutes": 90.0,
+      "views": 630,
+      "watch_time_minutes": 112.0,
       "subscribers_gained": 0
     },
     {
       "country": "NG",
-      "views": 43,
-      "watch_time_minutes": 10.0,
+      "views": 263,
+      "watch_time_minutes": 95.0,
       "subscribers_gained": 0
     },
     {
@@ -863,20 +1017,20 @@
     },
     {
       "country": "NL",
-      "views": 2336,
-      "watch_time_minutes": 650.0,
+      "views": 2934,
+      "watch_time_minutes": 877.0,
       "subscribers_gained": 0
     },
     {
       "country": "NO",
-      "views": 202,
-      "watch_time_minutes": 50.0,
+      "views": 389,
+      "watch_time_minutes": 77.0,
       "subscribers_gained": 0
     },
     {
       "country": "NZ",
-      "views": 270,
-      "watch_time_minutes": 71.0,
+      "views": 345,
+      "watch_time_minutes": 96.0,
       "subscribers_gained": 0
     },
     {
@@ -893,8 +1047,8 @@
     },
     {
       "country": "PH",
-      "views": 838,
-      "watch_time_minutes": 385.0,
+      "views": 922,
+      "watch_time_minutes": 396.0,
       "subscribers_gained": 0
     },
     {
@@ -905,20 +1059,20 @@
     },
     {
       "country": "PL",
-      "views": 622,
-      "watch_time_minutes": 69.0,
+      "views": 862,
+      "watch_time_minutes": 443.0,
       "subscribers_gained": 0
     },
     {
       "country": "PT",
-      "views": 27,
-      "watch_time_minutes": 5.0,
+      "views": 238,
+      "watch_time_minutes": 98.0,
       "subscribers_gained": 0
     },
     {
       "country": "RO",
-      "views": 50,
-      "watch_time_minutes": 9.0,
+      "views": 69,
+      "watch_time_minutes": 18.0,
       "subscribers_gained": 0
     },
     {
@@ -929,8 +1083,8 @@
     },
     {
       "country": "RU",
-      "views": 92,
-      "watch_time_minutes": 6.0,
+      "views": 115,
+      "watch_time_minutes": 17.0,
       "subscribers_gained": 0
     },
     {
@@ -941,14 +1095,14 @@
     },
     {
       "country": "SE",
-      "views": 746,
-      "watch_time_minutes": 244.0,
+      "views": 1101,
+      "watch_time_minutes": 297.0,
       "subscribers_gained": 0
     },
     {
       "country": "SG",
-      "views": 86,
-      "watch_time_minutes": 26.0,
+      "views": 122,
+      "watch_time_minutes": 36.0,
       "subscribers_gained": 0
     },
     {
@@ -961,6 +1115,12 @@
       "country": "SV",
       "views": 175,
       "watch_time_minutes": 404.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "TH",
+      "views": 14,
+      "watch_time_minutes": 9.0,
       "subscribers_gained": 0
     },
     {
@@ -977,14 +1137,20 @@
     },
     {
       "country": "UA",
-      "views": 20,
-      "watch_time_minutes": 23.0,
+      "views": 37,
+      "watch_time_minutes": 54.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "UG",
+      "views": 29,
+      "watch_time_minutes": 9.0,
       "subscribers_gained": 0
     },
     {
       "country": "US",
-      "views": 47756,
-      "watch_time_minutes": 51393.0,
+      "views": 49413,
+      "watch_time_minutes": 52446.0,
       "subscribers_gained": 0
     },
     {
@@ -1001,8 +1167,14 @@
     },
     {
       "country": "ZA",
-      "views": 1187,
-      "watch_time_minutes": 321.0,
+      "views": 1637,
+      "watch_time_minutes": 423.0,
+      "subscribers_gained": 0
+    },
+    {
+      "country": "ZM",
+      "views": 26,
+      "watch_time_minutes": 9.0,
       "subscribers_gained": 0
     }
   ]

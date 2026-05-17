@@ -1,0 +1,350 @@
+You are identifying academic books, journal articles, treaties, and primary
+documents from partial metadata + an excerpt of the first two pages of the
+PDF. For each entry below, search the web (Google Search grounding) to verify
+the work and return its full metadata.
+
+Each entry shows:
+  - The current filename (after prior parsing)
+  - Known fields: title slug, author surname, year, publisher
+  - 'Unknown' / '0000' = unresolved field
+  - A short excerpt from the first two pages of the PDF (may be empty if the
+    document is scanned image-only — proceed using the filename in that case)
+
+INSTRUCTIONS
+- Resolve EVERY missing field where you can find authoritative evidence.
+- Use Google Search grounding; cross-reference excerpt content + filename.
+- Do NOT guess. Mark UNRESOLVED if no high- or medium-confidence answer.
+- Confidence levels:
+    high   — primary source (publisher page, library catalogue, JSTOR)
+    medium — secondary source (Wikipedia, Google Books snippet)
+    low    — inference from excerpt only (rarely use; usually UNRESOLVED)
+- source_url is REQUIRED for any non-UNRESOLVED row.
+- publisher_abbrev MUST come from this list (use the closest match):
+  CambridgeUP, OxfordUP, YaleUP, PrincetonUP, ColumbiaUP, IndianaUP,
+  EdinburghUP, NYUPress, UCPress, JohnsHopkinsUP, HooverPress, PlutoPress,
+  Routledge, Palgrave, Bloomsbury, ITauris, HurstCo, ZedBooks, VersoBooks,
+  BasicBooks, RandomHouse, Penguin, Brill, Springer, DaCapo, FreePress,
+  Granta, WeidenfeldNicolson, CornellUP, StanfordUP, HarvardUP, LiverpoolUP,
+  MacmillanUK, NortonCo, HMSO, UN, ICJ, OECD, LHarmattan, Macmillan,
+  HoughtonMifflin, Serif.
+  If publisher is a journal article, use the journal abbreviation
+  (e.g. JModernHistory, IntlAffairs). If it is a government / IGO document,
+  use the issuer abbreviation (HMSO, UN, ICJ, FCO, etc.).
+
+OUTPUT
+Return a single markdown table with exactly these columns:
+
+| idx | title_slug | author_surname | year | publisher_abbrev | confidence | source_url |
+
+- idx: the integer from the entry header below.
+- title_slug: CamelCase, no spaces, no punctuation, ≤45 chars.
+- author_surname: surname only (e.g. Zinn, Akcam, Martinez — strip diacritics).
+- year: 4 digits, or 0000 if truly unknown.
+- All UNRESOLVED rows: put UNRESOLVED in every field except idx.
+
+Do NOT include any prose before or after the table.
+
+---
+
+ENTRIES:
+
+159. [general-history] HistoryAndCultureOfTheAngloSaxonWorld-GRAHAMGOERING-0000-Unknown.pdf
+   known: t=HistoryAndCultureOfTheAngloSaxonWorld | a=GRAHAMGOERING | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'HISTORY AND \nCULTURE OF THE \nANGLO-SAXON WORLD\nDR. ERIKA GRAHAM-GOERING AND PROF. GERT BUELENS'
+
+160. [general-history] HistoryCambodia-Chandler-1996-Unknown.pdf
+   known: t=HistoryCambodia | a=Chandler | y=1996 | p=Unknown
+   missing: publisher
+   excerpt: 'F O U R T H E D I T I O N\n---PAGE---\nA HISTORY OF CAMBODIA'
+
+161. [general-history] HistoryHumanRightsGlobalization-Ishay-2013-Unknown.pdf
+   known: t=HistoryHumanRightsGlobalization | a=Ishay | y=2013 | p=Unknown
+   missing: publisher
+   excerpt: 'The History of Human Rights'
+
+162. [general-history] HNetReviews-Maddy-weitzman-2010-Unknown.pdf
+   known: t=HNetReviews-Maddy | a=weitzman | y=2010 | p=Unknown
+   missing: publisher
+   excerpt: 'Katherine E. Hoﬀman, Susan Gilson Miller, eds. Berbers and Others: Beyond Tribe and Nation in the Maghrib.\nBloomington: Indiana University Press, 2010. 225 pp. $65.00 (cloth), ISBN 978-0-253-35480-8; $24.95 (paper), ISBN\n978-0-253-22200-8.\nReviewed by Bruce A. Maddy-Weitzman (Tel Aviv University)\nPublished on H-Africa (June, 2011)\nCommissioned by Bre\ue03cL. Shadle\nExploring Berbers\n\ue049e place in Western scholarship of North Africa’s\noriginal indigenous population, known collectively as\nthe Berbers, has long been paradoxical.\nOn the one\nhand, they have provided a rich ﬁeld for inquiry by lead-\ning social scientists: luminaries such as Pierre Bour-\ndieu, Ernest Gellner, and Cliﬀord Geertz, following in\nthe footsteps of the great medieval historian Ibn Khal-\ndun, drew on their research of speciﬁc Berber commu-\nnities to formulate broad intellectual constructs. On the\nother hand, the dialectics of colonialism and nationalism,\nfollowed by a generation of postcolonial state-building\nand nation-building eﬀorts, led scholars to studiously\ndownplay Berber speciﬁcity, apart from its residual tribal\nand folkloric features. Whether implicitly or explicitly,\nWestern scholars seemed to adopt the view of North\nAfrica’s ruling elites, namely that their Berber-speaking\npopulations would, and even should be assimilated into\na larger nation-state milieu which synthesized Arabism,\nIslam, and modernity. \ue049is view was succinctly articu-\nlated by Mehdi Ben Barka, Morocco’s leading le\ue039-wing\nﬁgure until his'
+
+163. [general-history] HolsteinPapers-Holstein-0000-AnnaArchive.pdf
+   known: t=HolsteinPapers | a=Holstein | y=0000 | p=AnnaArchive
+   missing: year
+   excerpt: 'Henn \npertieaHke \ntpeeaibatniga \nytaress \nes \niG \nSr \nere \n? \nWAS \n3 \npercept \n“4 \ni \nania? \n22 \nBe oe \neas \nRiese \nbic \nies \nDirt \npth \neeetet \nba ek 1 \n2 \nElptrtbeete \nesate acento aaa \nPants riya \npelatee te \nMeee Ge \neee \nopr \nRe \nie \nae \nPeas \nRares \nns \nA en \nPee ae \nSeer \nLg \nirs \nhts \nRene \nets \nee \note \n: oe ie Aiea \nstata \nely \nREC \nSLatAAITTE \nCe \noe \nHates De pun \nahah \nuatesciacete \naia \nHates \nGoalie \nade \nHuan \n5 \nit \na \nMi i \n8 \ni \netek \nWii \niste \n: ah te \n: \nHe \nfii \nes \nNett \nshitty \nHe se fe ae \nft ie \nIrth: \nate \ny \nae \nes \nA \nFetceatctte \nse eens ae \nBienen \nmagenta \nteatetait \nSet, \nie \nty \nsitar \nes ; \niaaete \neaters Hetearetpteste \ntae \nGert eee \nMitac \nHine \n2 \nied \npia tated \nBile \nres ie seat it \nee\n---PAGE---\nWESTMINSTER \nPUBLIC \nLIBRARIES \nGEN TRAE \n(REE PIE ReENIC E \nLIBRARY \nST. - MARTIN’ S. “ST REES \nWits Go'
+
+164. [general-history] HottonMarcheEnFamenneNassogne-Territoire-2006-Unknown.pdf
+   known: t=HottonMarcheEnFamenneNassogne | a=Territoire | y=2006 | p=Unknown
+   missing: publisher
+   excerpt: "Rotsen, grotten en steengroeven\n12\nVERTREKPUNT: In het centrum van\nHotton in de provincie Luxemburg.\nHotton\nis\neen\nlevendig\nplaatsje\naan\nde\nOurthe.\nReeds\nvoor\nde\nTweede\nWereldoorlog kwamen welgestelden er op vakantie, verschillende hotels en\npensions\nherinneren\nnog\naan\ndie\ntijd.\nOok\nvandaag\nleeft\nde\nomgeving\ngrotendeels van het toerisme. Altijd is er wel een of ander feest in het centrum of\neen activiteit op het eiland van l'Oneux, een grote speelweide tussen de Ourthe\nen een oude zijarm van de rivier. Aan deze zijarm ligt de Moulin Faber, een\ngeklasseerde watermolen uit 1729. De wandeling start en eindigt op het eiland.\nHotton ligt in een kalkstrook tussen de Ardennen en de Famenne. De beroemde\ngrotten\nvan\nduizend\xaden\xadeen\xadnacht\nzijn\neen\ntoeristische\ntrekpleister.\nDeze\nwandeling\nloopt\nlangs\nenkele\nkleinere\ngrotjes.\nJe\nmaakt\nook\nkennis\nmet\nkarstverschijnselen in de vallei van de Isbelle. Dit riviertje verdwijnt in talloze\ngaten, scheuren en spleten in de bodem. Gedurende hooguit enkele weken per\njaar, na langdurige regenval of dooi, geraakt de ondergrondse loop verzadigd en\nkomt\nhet\nwater\nbij\nzgn.\n‘résurgences’\naan\nde\noppervlakte\nom\ndoor\nde\nbovengrondse bedding te lopen. Sinds de jaren ’50 proberen speleologen de\nondergrondse wereld van de Isbelle te verkennen. Na tientallen jaren van hard\nlabeur en matig succes, werd in 2007 een doorbraak bereikt: een nieuw\ngrottenstelsel\nwerd\nontdekt.\nMen\nprobeert\nom\nbegrijpelijke\nredenen\ndeze\nontdekking uit de belangstelling te houden.\nTijde"
+
+165. [general-history] HouseRulesRappan-Unknown-2014-Unknown.pdf
+   known: t=HouseRulesRappan | a=Unknown | y=2014 | p=Unknown
+   missing: author,publisher
+   excerpt: 'The rules of the Campaign \n \nCharacter creation\u200b\n2 \nAllowed content\u200b\n2 \nCharacter alignment\u200b\n2 \nStarting equipment\u200b\n2 \nOptional and variant rules\u200b\n2 \nMulticlassing\u200b\n2 \nFeatures\u200b\n2 \nEncumbrance\u200b\n2 \nTasha’s cauldron of everything\u200b\n2 \nFlanking\u200b\n2 \nLeveling up and experience\u200b\n3 \nHitpoint increases\u200b\n3 \nLeveling up\u200b\n3 \nEqual levelling\u200b\n3 \nHulmes’ Expended Experience\u200b\n4 \nOther house rules\u200b\n5 \nPlayer character conflict\u200b\n5 \nPotions\u200b\n5 \nAmmo tracking\u200b\n5 \nBad luck boulder\u200b\n5 \nInspiration\u200b\n5 \nCritical hits and injuries\u200b\n6 \nA life to remember\u200b\n6 \nDoing a Boromir\u200b\n6 \nSecret death saving throws\u200b\n6 \nGaming etiquette\u200b\n7 \nDon’t be late\u200b\n7 \nCancelling\u200b\n7 \nKnow your abilities\u200b\n7 \nKeep a reliable character sheet\u200b\n7 \nRun combat fast\u200b\n7 \nForgetting something on your turn\u200b\n7 \nYou are responsible for your spells\u200b\n7 \nIf a player cannot make it to a session\u200b\n7 \nAnnounce intent before every roll\u200b\n8 \nThe use of AI art is forbidden\u200b\n8 \nSafety tools\u200b\n9 \nLines\u200b\n9 \nVeils\u200b\n9 \nOpen door policy\u200b\n9 \nTalk to the DM\u200b\n9\n---PAGE---\nCharacter creation \nAll rules are subject to change \n \nAllowed content \nWe are playing D&D5e 2014. All content from WotC and MCDM is allowed. Homebrew \nand unearthed arcana could be allowed on request, but preferably not. All optional \nand variant rules for character creation from these sources are allowed. \n \nCharacter alignment \nAll alignments are allowed, but, if you are not playing a good aligned character, you \nmust disclose this at session 0 and get permission from all other players'
+
+166. [general-history] HumanRightsUsesHistory-Moyn-2017-Unknown.pdf
+   known: t=HumanRightsUsesHistory | a=Moyn | y=2017 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+167. [general-history] HusseinCorrespondence-McMahon-2011-Unknown.pdf
+   known: t=HusseinCorrespondence | a=McMahon | y=2011 | p=Unknown
+   missing: publisher
+   excerpt: "1\nMcMahon–Hussein Correspondence\n(July 14, 1915 – March 10, 1916)\nA. Henry McMahon\n1915-1916\nExported from Wikisource on November 8, 2025\n---PAGE---\n2\nJuly 14, 1915\nTo His Honour:\nWhereas the whole of the Arab nation without any\nexception have decided in these last years to live, and to\naccomplish their freedom, and grasp the reins of their\nadministration both in theory and practice; and whereas\nthey have found and felt that it is to the interest of the\nGovernment of Great Britain to support them and aid them\nto the attainment of their firm and lawful intention (which\nare based upon the maintenance of the honour and dignity\nof their life) without any ulterior motives whatsoever\nunconnected with this object;\nAnd whereas it is to their (the Arabs') interest also to prefer\nthe assistance of the Government of Great Britain in\nconsideration of their geographical position and economic\ninterests, and also of the attitude of the above mentioned\nGovernment, which is known to both nations and therefore\nneed not be emphasized;\nFor these reasons the Arab nation see fit to limit\nthemselves, as time is short, to asking the Government of\nGreat Britain, if it should think fit, for the approval, through\nher deputy or representative, of the following fundamental\npropositions, leaving out all things considered secondary in\ncomparison with these, so that it may prepare all means"
+
+168. [general-history] IdeologicalOriginsAmericanRevolution-Bailyn-1967-Unknown.pdf
+   known: t=IdeologicalOriginsAmericanRevolution | a=Bailyn | y=1967 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+169. [general-history] IfriFrenchPolicyAfrica-Antil-2024-Unknown.pdf
+   known: t=IfriFrenchPolicyAfrica | a=Antil | y=2024 | p=Unknown
+   missing: publisher
+   excerpt: 'Sub-Saharan Africa\nCenter\nAfter the Failure in Sahel, \nRethinking French Policy in Africa\nAlain ANTIL\nThierry VIRCOULON \n Key Takeaways\n \x07In recent years, criticism of France’s \nAfrican policy has multiplied in French-\nspeaking Africa. The ruptures with the \nthree Sahelian countries represent a kind \nof climax. But the consequences for the \nFrench government go far beyond the \nSahel, and call into question its global \ndiplomatic posture.\n \x07Among the reasons for the break-up were \ntwo main divergences between Paris and \nits Sahelian allies: one over the causes of \nthe conflict; the other over the conduct of \nthe war. \n \x07To envisage a new policy towards the \ncountries of the Sahara, the government \nwill first have to overcome certain \ninternal contradictions: the disconnect \nbetween analysis and policy, the culture \nof paternalism, and the contradiction \nbetween migration policy and African \npolicy.\nAPRIL 10,\n2024\nIFRI\nMEMOS\n---PAGE---\nIntroduction \nCondemnations of French politics have gained momentum in recent years in French-\nspeaking Africa.1 The grievances are multiple: military interventions, the persistence of \nthe regional currency inherited from colonial time (CFA franc), development aid policy, \nrestrictive visa policy, etc. However, the reasoned criticism against the French policy in \nAfrica has turned into an anti-French diatribe on social networks and in the simplistic \nrhetoric of neo-Pan-Africanists.2 In this context, the relations between France and three \ncount'
+
+170. [general-history] Ijmes-Unknown-1905-CambridgeUP.pdf
+   known: t=Ijmes | a=Unknown | y=1905 | p=CambridgeUP
+   missing: author
+   excerpt: '© Maya Balakirsky Katz, 2024 \nIMAGES\nAlso available online—brill.com/ima \nDOI:10.1163/18718000-12340191\nThis is an open access article distributed under the terms of the CC BY 4.0 license.\nMAYA BALAKIRSKY KATZ\nTHE PROTOCOLS OF THE ELDERS OF ZION IN THE JEWISH PRESS\nAbstract\nThis article explores the overlooked response from the Jewish \npress to the first 1903 edition of what became known as the \nProtocols of the Elders of Zion during the period when a \nsecond edition became public in 1905. The study recovers and \nanalyzes a public apology that its second publisher wrote to \nthe Jewish people, caricatures, and carnivalesque ditties. The \nresults indicate that the first edition is not what we think \nit is\xa0– a rabid antisemitic text\xa0– but rather a revolutionary \nanti-liberalism text that the state and the secret police tried \nto ban, retract, and override with new editions.\nThe body of literature known as the Protocols of the \nElders of Zion (henceforth, Protocols) has entered the \nannals of history as an exposé for some and a forgery \nfor others of secret Jewish manipulations of mass poli\xad\ntics for Zionist world domination.1 Although it is the \nmost widely distributed publication of antisemitism, \nlittle documentary evidence survives of the inaugural \nedition to account for its rise to fame as the most \nnotorious work of hate literature in terms of provok\xad\ning hate crimes in the modern era.2 There is only one \ncopy in the world’s libraries (in Saint Petersburg), and \nwe exclusi'
+
+171. [general-history] IncaGarcilasoComentarios-Vega-1964-Unknown.pdf
+   known: t=IncaGarcilasoComentarios | a=Vega | y=1964 | p=Unknown
+   missing: publisher
+   excerpt: 'AVON/DISCUS\n$3 50 ij\n^ CLASSIC ACCOUNT OF\nTHE RISE AND FALL OF\nGREAT AMERICAN CIVILIZATION\nGARCILASOdelaVEGA\nDITED BY ALAIN GHEERBRANT\n---PAGE---\nThe children of the sun\nThe\nbirth and death of the greatest and most powerful empire of\npre-Columbian America\nis of major\ninterest* and\nimportance.\nThis\ndramatic narrative by one of the last Inca princes traces the legends\nsurrounding the rise of his people, their wars, sexual customs, and\nreligion.\nIt ends with the arrival of Pizarro and the» Spanish, the cap-\nture, imprisonment, and execution of Atahualpâ, the last Inca, and\nthe beginning of Spanish hegemony.\nIt\nis one of the most exciting\nand saddest tales\nin world history, a tale of grandeur and tragedy.\n"A classic of South American literature\n.\n. .This is its first appearance\nin a complete and accurate form.\nIt is a joy to read.\n.\n. ."\nTHE NEW YORKER\nDISCUS BOOKS/PUBLISHED BY AVON'
+
+172. [general-history] IncasRoyalCommentaries-Vega-1609-Unknown.pdf
+   known: t=IncasRoyalCommentaries | a=Vega | y=1609 | p=Unknown
+   missing: publisher
+   excerpt: 'AVON/DISCUS\n$3 50 ij\n^ CLASSIC ACCOUNT OF\nTHE RISE AND FALL OF\nGREAT AMERICAN CIVILIZATION\nGARCILASOdelaVEGA\nDITED BY ALAIN GHEERBRANT\n---PAGE---\nThe children of the sun\nThe\nbirth and death of the greatest and most powerful empire of\npre-Columbian America\nis of major\ninterest* and\nimportance.\nThis\ndramatic narrative by one of the last Inca princes traces the legends\nsurrounding the rise of his people, their wars, sexual customs, and\nreligion.\nIt ends with the arrival of Pizarro and the» Spanish, the cap-\nture, imprisonment, and execution of Atahualpâ, the last Inca, and\nthe beginning of Spanish hegemony.\nIt\nis one of the most exciting\nand saddest tales\nin world history, a tale of grandeur and tragedy.\n"A classic of South American literature\n.\n. .This is its first appearance\nin a complete and accurate form.\nIt is a joy to read.\n.\n. ."\nTHE NEW YORKER\nDISCUS BOOKS/PUBLISHED BY AVON'
+
+173. [general-history] IndiansAfraidAsk-Treuer-2015-Unknown.pdf
+   known: t=IndiansAfraidAsk | a=Treuer | y=2015 | p=Unknown
+   missing: publisher
+   excerpt: 'Everything You Wanted\nto Know about Indians'
+
+174. [general-history] InfocenterBrugge-Brugge-0000-Unknown.pdf
+   known: t=InfocenterBrugge | a=Brugge | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Infocenter Brugge\nAfz.: Koning Albert I-laan 1-5 B 3 - 8200 Brugge\nDE BECKER Benoit J\nKlaprozenlaan 34\n8400 Oostende\nNationaal nummer:\nArtikelnummer:\n95.09.05-309.47\n210.608.501\nBrugge, 7 september 2021\nMijnheer Benoit De Becker,\nDit is uw aanslagbiljet\n1 in de personenbelasting en de aanvullende belastingen voor uw inkomsten van 2020\n(aanslagjaar 2021). U vindt hieronder het bedrag dat we aan u zullen terugbetalen.\nHet bedrag in uw voordeel:\n€ 48,11\nO Terugbetalingsdatum: 30/11/2021\nO Op rekeningnummer: BE29 7485 1720 9864\nUw rekeningnummer wijzigen?\nIn dat geval moet u ten laatste op 20 oktober 2021 uw nieuw rekeningnummer doorgeven:\nO bij voorkeur via MyMinfin.be, de snelste en makkelijkste weg!\nO ofwel per brief aan Infocenter Brugge:\nO\nvermeld uw rekeningnummer.\nO\nonderteken de brief.\nNog openstaande schulden?\nIn dat geval zullen we dit bedrag in uw voordeel gebruiken om die schulden te betalen. We brengen u daarvan dan\nop de hoogte en betalen u alleen het eventuele saldo terug.\nBewaar dit aanslagbiljet zorgvuldig. U hebt het misschien nodig om uw inkomsten te bewijzen, bijvoorbeeld voor het\naanvragen van sociale voordelen (studiebeurzen, sociale leningen, huisvestingspremies ...).\n> U kunt het steeds afdrukken via MyMinfin.be.\n1l Overeenkomstig artikel 136 van het koninklijk besluit tot uitvoering van het Wetboek van de inkomstenbelastingen 1992 (WIB 92).\n1/4\n---PAGE---\nHebt u vragen over uw aanslagbiljet?\nAlgemeen\nTerugbetaling\nBerekening\nFin.belgium.be\nUw Infocenter B'
+
+175. [general-history] InkaHistoryKhipus-Urton-2015-Unknown.pdf
+   known: t=InkaHistoryKhipus | a=Urton | y=2015 | p=Unknown
+   missing: publisher
+   excerpt: 'I n k a \n \nH i s t o r y \n \ni n \n \nK n o t s'
+
+176. [general-history] IntegratedApproachNuclearArchaeology-Göttsche-2019-Unknown.pdf
+   known: t=IntegratedApproachNuclearArchaeology | a=Göttsche | y=2019 | p=Unknown
+   missing: publisher
+   excerpt: 'University of Iceland \nSchool of Humanities \nArchaeology \nFemale warriors of the Viking age \nFact or fiction? \nAntonio Redon \nFinal paper in Master-degree in Archaeology \nKt: 291190-4999 \nSupervisor: Gavin Lucas \nJanuary 2017\n---PAGE---\n1 \nAbstract \nThis thesis focuses on the concept of female warriors during the Viking age. I list seven cases from different \nparts of the Norse world where women have been buried with weapons and compare these archaeological \nsources with written sources using methods of material culture studies and theories of gender identity and \nfeminist thought. \nBy looking at these I found evidence of special ideas on- and treatments of- female warriors in line with a \nconcept of third genders which could explain the rarity of their existence. However I concluded that female \nwarriors did indeed exist in the Viking age, even though there were very few of them. \n \nKeywords: Archaeology of gender, Viking age, Female warrior, Valkyrie, Shieldmaiden.'
+
+177. [general-history] IntermediateText-Fearenside-0000-Unknown.pdf
+   known: t=IntermediateText | a=Fearenside | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'T\nA war brews on a continent that has\nA war brews on a continent that has\nwithstood more than its fair share of\nwithstood more than its fair share of\nconflict.\nconflict.\nhe Dwendalian Empire and the Kryn Dynasty are carving up the lands around them, and only the greatest heroes\nwould dare stand between them. Somewhere in the far corners of this war-torn landscape are secrets that could\nend this conflict and usher in a new age of peace—or burn the world to a cinder.\nTwo armies clash on a fog-shrouded battlefield, heralded by the sound of trumpets and drums on one side, and by\nan eerie, chirping whistle like countless thousands of wailing crickets on the other. A raven, its ebon feathers\nspattered with blood, alights on one of the fallen corpses and gently raps its beak on the soldier’s helmet.\nThe raven looks up, curious, and flies into the sky. A land embroiled in war expands beneath it, and yet, within the\nshroud of conflict, the raven sees twinkling pockets of light. The raven sees souls that shine bright with courage, kindness, and\ndetermination. It sees souls lustrous with greed, fear, and anger. And most of all, it sees souls radiating with a desire to discover\ntheir place in the world.\nThe raven sees Wildemount.\nThe raven sees Wildemount.\n\nDwendalian Empire\nDwendalian Empire\nThe raven soars over a massive city, sprawling outward from a somber, monolithic palace. Soldiers and war machines pour from\nthe city, stretching across the land like innumerable grasping arms, gree'
+
+178. [general-history] InternationalPolicyStudies-Anttiroiko-0000-Unknown.pdf
+   known: t=InternationalPolicyStudies | a=Anttiroiko | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'International Journal of Policy Studies 10(1), 2019, 151-160\n© 2019 by the Korean Association of Policy Studies\nParadoxes of Identity Politics and Gender \nMainstreaming: The Case of Nordic Countries\n \nAri-Veikko Anttiroiko\nTampere University, Finland\nAbstract\nIdentity politics has gained prominence in the post-war decades. \nEspecially feminist movement sparked remarkable political change \nthroughout the developed world, and obviously for a good reason. It \nhas been embraced enthusiastically in Nordic countries, which have \ndedicated to mainstream gender equality policy. These efforts, \nhowever, seem to have been based on questionable premises, as \nevidenced by gender paradox and biased outcomes. To shed light on \nthis issue, this paper takes a closer look at what actually happens \nwhen feminist identity politics is mainstreamed in democratic and \negalitarian societies like Sweden and other Nordic countries.\nKeywords: identity politics, gender policy, gender paradox, feminism, \ngender discrimination, gender mainstreaming, gender pay gap, Sweden\nThe Rise of Identity Politics\nIn the context of identity politics, identity refers to practically any \ndefinable social collective, group, or demographic around which its \nmembers can construct a shared understanding of their distinguishable \nhistory, character, and interests. Identity politics aims to politicize such \nan identity and form a broad-based alliance in order to pursue some \ncivic, economic, or political goals. \nWe may fairl'
+
+179. [general-history] InterviewHistory-Fallaci-1976-Unknown.pdf
+   known: t=InterviewHistory | a=Fallaci | y=1976 | p=Unknown
+   missing: publisher
+   excerpt: 'SAN FRANCISCO PUBLIC LIBRARY\n---PAGE---\n"Interview with History tells you a lot \nmore about the world\'s leaders than \nyou might ever get to know about the \npeople next door. It\'s often devastat¬ \ning, never less than totally absorbing." \n—Cosmopolitan \nInterview with History \nOriana Fallaci \n“A journalist writes history in the best of \nways, that is in the moment that history takes \nplace. He lives history, he touches history \nwith his hands, he looks at it with his eyes, he \nlistens to it with his ears.” So observed \nOriana Fallaci in a Time magazine interview \nin 1975. \nIn these fourteen contemporary portraits of \npower and dissent, Oriana Fallaci makes an \nimportant contribution to the understanding \nof the role of the leader in history. “If Cleo¬ \npatra’s nose had been shorter, the whole as¬ \npect ot the world would have been changed, ’ ’ \nobserved Pascal. So it is with the subjects of \nthese portraits: Plenry Kissinger, President \nThieu, General Giap, Golda Meir, Yasir \nArafat, King Hussein, Helder Camara, \nPietro Nenni, Mohammed Riza Pahlavi \n(Shah of Iran), Archbishop Makarios, \nAlexandras Panagoulis, Indira Gandhi, \nWilly Brandt, and Ali Bhutto. \nOriana Fallaci is one of the most brilliant \nand indefatigable journalists in the world to¬ \nday. She is enormously respected by her col¬ \nleagues and legendary in her ability to draw \nout of people things they never revealed be¬ \nfore. Her passionate curiosity about people \nand remorseless probing of ideas and issues \nare un'
+
+180. [general-history] IntroductionToTheBerbersOfTheMaghrib-Unknown-0000-Unknown.pdf
+   known: t=IntroductionToTheBerbersOfTheMaghrib | a=Unknown | y=0000 | p=Unknown
+   missing: author,year,publisher
+   excerpt: 'Introduction\nBerbers, Maghrib: the \xadpeople, their country. Every\xadbody knows that, and that \nis what every\xadbody knows. But it has not always been the case. Before Mus-\nlim Arab conquerors began using the word ( بربرbarbar) to refer to \xadpeople \nwho lived in what they called “the West” (al-\xadmaghrib), both \xadpeople and \nregion \xadwere known by a host of other names. In fact, before Berber and \nMaghrib, no one thought that the inhabitants of northwest Africa belonged \ntogether or that the entire landmass represented a single unit. The first time \nanyone thought that was in Arabic. Trying to understand this shift from one \nset of names to another, one map to another, a historian \xadfaces a series of chal-\nlenges that can be separated into two general kinds. First, \xadthere are challenges \narising from the \xadhandling of the sources, which tend to be late and not writ-\nten to address such a question. Second, \xadthere are hurdles pertaining to the \nassumptions of modern historians. \xadThese include deeply held notions about \nthe relation between collective identity (nation), country, religion, and lan-\nguage; and a centuries-\xadlong history of interpreting medieval sources in a way \nthat reinforces \xadthese assumptions.1\nIf this \xadwere not enough, as modern academics conferred on the Berbers \ncharacteristics of prenational groups like the Franks and the Goths, they also \nenvisaged their reduced nationhood. For \xadunder French colonial domination, \na modern Berber nation-\xadstate was simply not in the card'
+
+181. [general-history] IslandCenterWorld-Shorto-2011-Unknown.pdf
+   known: t=IslandCenterWorld | a=Shorto | y=2011 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+182. [general-history] JeBestellingBevatVolgendeArtikels-Becker-0000-Unknown.pdf
+   known: t=JeBestellingBevatVolgendeArtikels | a=Becker | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Print de bestelling uit\n9-feb-2021\nJe bestelnummer 52977877\nJe bestelling bevat volgende artikels:\nArtikel(s)\nMerk & Omschrijving\nArtikelnummer\nAantalPrijs per stuk Verzendkosten\nTotaalprijs\nSONY Draadloze oortelefoon\nZwa...\n1815511\n1\n€ 22,99\n€ 0,00\n€ 22,99\nTotale verzendkosten\n€ 0,00\nTotaalbedrag (inclusief btw)\n€ 22,99\n(inclusief btw en eventuele\ntaksen)\nInclusief btw (21%)\n€ 3,99\nJe gegevens\nFactuuradres\nBenoit De Becker\nklaprozenlaan 34\n8400 Oostende\nBelgië\nTelefoon +32486711852\nbenoit.debecker1995@gmail.com\nAfhalen bij\nZwijnaarde\nOudenaardsesteenweg 76-86\n9000 Zwijnaarde\nJe betaalwijze\nJe koos voor volgende betaalwijze:\nPayPal\n€ 22,99\n---PAGE---\nPrint de bestelling uit\n9-feb-2021\nInformatie over afhalen in de winkel\nVan zodra de bestelling klaarligt, ontvang je een aparte afhaalbevestiging via e-mail.\nBehandeling van de bestelling\n- Wij behandelen bestellingen van maandag tot en met zaterdag.\n- Bestellingen geplaatst op zon- en feestdagen worden de volgende werkdag verwerkt.\nVereiste documenten voor afhalen\n- Afhaalbevestiging (afgeprinte of elektronische versie)\n- Identiteitskaart\nBestellingen zijn enkel af te halen tijdens de openingstijden van de lokale MediaMarkt winkel.\nOpeningstijden MediaMarkt Zwijnaarde:\nmaandag\n10:00 - 19:30 uur\ndinsdag\n10:00 - 19:30 uur\nwoensdag\n10:00 - 19:30 uur\ndonderdag\n10:00 - 19:30 uur\nvrijdag\n10:00 - 19:30 uur\nzaterdag\n10:00 - 19:30 uur\nAdres MediaMarkt Zwijnaarde\nOudenaardsesteenweg 76-86\n9000 Zwijnaarde'
+
+183. [general-history] JODEFDocument-Unknown-1941-Unknown.pdf
+   known: t=JODEFDocument | a=Unknown | y=1941 | p=Unknown
+   missing: author,publisher
+   excerpt: "Soixante-treizième année. — N* 164,\nLe Numéro : 1 franc.\nSamedi 14 Juin 1941,\nJOURNAL OFFICIEL\nDE L’ÉTAT FRANÇAIS\nLOIS ET DECRETS\nARRÊTÉS, CIRCULAIRES, AVIS, COMMUNICATIONS, INFORMATIONS ET ANNONCES\nABONNEMENTS \ncompte chAque postal : 100.97, Paris.\nUN AN\nSIA MOIS\nTROIS MOIS\nFrance, Colonies et pays de protectorat français.................................\n280 fr.\n120 fr.\n65 fr.\nI Pays accordant 50 •/• sur les tarifs postaux..................\n405 s\n225 \n»\n125 \n»\n«ranger. J '\n( Autres pays........... v..............................................................\n570 »\n300 \n»\n155 \n»\nLes abonnements partent du 10r ou du 16 de chaque mois. ,\n_J\nL'Édition de* « LOIS BT DÉCRETS » comprend : 1° les textes des lois, décrets, arrêtés, décisions, instructions et circulaires;\n2* les avis, communications, informations et annonces.\nJOINDRE LA DERNIÈRE BANDE \ni renouvellements et réclamations\nDIRECTION, RÉDACTION ET ADMINISTRATION \nVICHY (ALLIER)\nPOUR LES CHANGEMENTS D’ADRESSE \nAJOUTER 1 FR. 50\nSOMMAIRE\nLOIS\nJH 2156. Loi du 26 mai 1941 relative au re\xad\ncensement, h la protection et à l’utili\xad\nsation des locaux et terrains de sport, \ndes bassins de natation et des piscines \n(p. 2474).\nJH 2327. Loi du 30 mal 1941 relative à la \ncomposition des conseils de prud’hom\xad\nmes (p. 2474).\nN# 2332. Loi du 2 juin 1941 remplaçant la loi \ndu 3 octobre 1940 portant statut des \njuifs (p. 2475).\nN* 2333. Loi du 2 juin 1941 prescrivant le \nRecensement des Juifs (p. 2476).\nIH 2356. Loi du 11 juin 1941 institua"
+
+184. [general-history] JohannaKatrinFridriksd6ottir-Fridriksd6ottir-2015-Unknown.pdf
+   known: t=JohannaKatrinFridriksd6ottir | a=Fridriksd6ottir | y=2015 | p=Unknown
+   missing: publisher
+   excerpt: 'Women in the Medieval Islamic World: Power, \nPatronage, and Piety \n edited by Gavin R. G. Hambly \n The Ethics of Nature in the Middle Ages: On \nBoccaccio’s Poetaphysics \n by Gregory B. Stone \n Presence and Presentation: Women in \nthe Chinese Literati Tradition \n edited by Sherry J. Mou \n The Lost Love Letters of Heloise and Abelard: \n Perceptions of Dialogue in Twelfth-Century \nFrance \n by Constant J. Mews \n Understanding Scholastic Thought with Foucault \n by Philipp W. Rosemann \n For Her Good Estate: The Life of Elizabeth de \nBurgh \n by Frances A. Underhill \n Constructions of Widowhood and Virginity in the \n Middle Ages \n edited by Cindy L. Carlson and Angela \nJane Weisl \n Motherhood and Mothering in Anglo-Saxon \nEngland \n by Mary Dockray-Miller \n Listening to Heloise: The Voice of a Twelfth-\nCentury Woman \n edited by Bonnie Wheeler \n The Postcolonial Middle Ages \n edited by Jeffrey Jerome Cohen \n Chaucer’s Pardoner and Gender Theory: Bodies \nof Discourse \n by Robert S. Sturges \n Crossing the Bridge: Comparative Essays on \nMedieval European and Heian Japanese Women \nWriters \n edited by Barbara Stevenson and \nCynthia Ho \n Engaging Words: The Culture of Reading in the \nLater Middle Ages \n by Laurel Amtower \n Robes and Honor: The Medieval World of \nInvestiture \n edited by Stewart Gordon \n Representing Rape in Medieval and Early \nModern Literature \n edited by Elizabeth Robertson and \nChristine M. Rose \n Same Sex Love and Desire among Women in the \nMiddle Ages \n edited by Frances'
+
+185. [general-history] JoinOurTeam-Lacombe-0000-Unknown.pdf
+   known: t=JoinOurTeam | a=Lacombe | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: "DPOINTGROUP \nWe're\nlooking\nfor you!\nHIRING NOW\nBUSINESS DEVELOPMENT\nHUMAN RESOURCES\nMARKETING\nHOSPITALITY\nWEB DEVELOPMENT\nTOURISM MANAGEMENT \nPROGRAMMING\nEVENT MANAGEMENT\nJOURNALISM\nS E N D Y O U R R E S U M E T O\nJ U L I N E L A C O M B E . D P O I N T G R O U P @ G M A I L . C O M\nCarrer de Pere IV, 51,\n08018 Barcelona"
+
+186. [general-history] JORFDocument-Unknown-1940-Unknown.pdf
+   known: t=JORFDocument | a=Unknown | y=1940 | p=Unknown
+   missing: author,publisher
+   excerpt: "Soixante-douzième année. — N® 215,\nLe Numéro : 1 franc,\nMercredi 28 Août 1940.\nJOURNAL OFFICIEL\nDE LA RÉPUBLIQUE FRANÇAISE\nLOIS JET DÉCRETS\nARRÊTÉS, CIRCULAIRES, AVIS, COMMUNICATIONS, INFORMATIONS ET ANNONCES\nABONNEMENTS\nLOIS\nET DÉCRETS\n'I1 \n1 \n1\nDÉBATS\nPARLEMENTAIRE?\nÉDITION COMPLÈTE\n— compte chèque rosTAL: 100.97, Pari». —\nVN AN\nSIX MOIS\nmois mois\nUN AN\nVN AN\nSIX MOIS\nTROIS MOIS\nFrance, Colonies et pays de protectorat français...............\n230 fr.\n120 fr.\n65 fr.\n60 fr.\n375 fr.\n190 fr.\n100 fr.\n. \n1 Pays accordant 50 •/• sur les tarifs postaux..\nEtranger.. ^ Aulres pays........................................................\n405 •\n225 •\n125 •\n145 •\n675 .\n340 •\n170 .\n570 -\n300 »\n155 »\n235 »\nj 985 »\n485 »\n250 >\nL’Hdition des « LOIS ET DECRETS » comprend : 1® les textes des \nL’Édition des « DÉBATS PARLEMENTAIRES » comprend la compta\nlois, décrets, arrêtés, circulaires; — 2® les avis, communications, (j rendu in extenso des séances du Sénat et de la Chambre des députés ainsi \ninformations, annonces. \n? que les questions écrites et les réponses des ministres à ces questions.\nL’ÉDITION COMPLÈTE comprend : /® l'Édition des « Lois et Décrets >»; — 2° l'Edition des « Débats Parlementaires »; — 3° tous les \nDocuments parlementaires et administratifs publiés en annexes; — 4® les Tables annuelles délivrées gratuitement aux abonnés d'un an.\nJOINDRE LA DERNIÈRE BANDE \naux renouvellements et réclamations\nDIRECTION, RÉDACTION ET ADMINISTRATION \nVICHY (ALLIER)\nPOUR LES CHANGEMENTS D’ADRESSE"
+
+187. [general-history] JournalOfEconomicHistory-Unknown-2021-CambridgeUP.pdf
+   known: t=JournalOfEconomicHistory | a=Unknown | y=2021 | p=CambridgeUP
+   missing: author
+   excerpt: '1015\nThe Journal of Economic History, Vol. 81, No. 4 (December 2021). © The Author(s), [2021]. \nPublished by Cambridge University Press on behalf of the Economic History Association. This is \nan Open Access article, distributed under the terms of the Creative Commons Attribution licence \n(http://creativecommons.org/licenses/by/4.0/), which permits unrestricted re-use, distribution, \nand reproduction in any medium, provided the original work is properly cited. doi: 10.1017/\nS0022050721000498\nMiguel Angel Carpio is Associate Professor, Department of Economics, Universidad de Piura, \nMártir Olaya 162, Miraflores, Lima, Perú. E-mail: miguel.carpio@udep.edu.pe (corresponding \nauthor). María Eugenia Guerrero is Research Associate, Department of Economics, Universidad \nde Piura, Mártir Olaya 162, Miraflores, Lima, Perú. E-mail: mariaeugenia.guerrero@udep.edu.pe.\nWe are grateful for the discussions we had with César Calvo, Rodolfo Cerrón, Melissa Dell, \nand Ricardo Piqué. We thank conference participants at the EH Clio Lab Conference at Pontificia \nUniversidad Católica de Chile, the Annual Congress of the Peruvian Economic Association, and \nthe EHA Session at the 2017 AEA meetings in Chicago. We also thank Oficina Nacional de \nProcesos Electorales of Peru for providing the data used in this paper. María Alejandra Amado, \nSue Gómez, Sebastián Sardón, and Diego Zúñiga provided excellent research assistance.\n1 The name mita comes from the markedly different system widely used by the Inc'
+
+188. [general-history] JournalOfLatinAmericanStudies-Unknown-0000-CambridgeUP.pdf
+   known: t=JournalOfLatinAmericanStudies | a=Unknown | y=0000 | p=CambridgeUP
+   missing: author,year
+   excerpt: ''
+
+189. [general-history] JournalOfMedievalStudies-Unknown-2015-Unknown.pdf
+   known: t=JournalOfMedievalStudies | a=Unknown | y=2015 | p=Unknown
+   missing: author,publisher
+   excerpt: ''
+
+190. [general-history] Jsap-Whitehead-1984-Unknown.pdf
+   known: t=Jsap | a=Whitehead | y=1984 | p=Unknown
+   missing: publisher
+   excerpt: 'Journal de la Société des\nAméricanistes\nCarib cannibalism. The historical evidence\nNeil L. Whitehead\nCiter ce document / Cite this document :\nWhitehead Neil L. Carib cannibalism. The historical evidence. In: Journal de la Société des Américanistes. Tome 70, 1984. pp.\n69-87;\ndoi : https://doi.org/10.3406/jsa.1984.2239\nhttps://www.persee.fr/doc/jsa_0037-9174_1984_num_70_1_2239\nFichier pdf généré le 29/03/2019\n---PAGE---\nAbstract\nNeil L. WHITEHEAD. Carib cannibalism. The historical evidence. Since the period of discovery the\nSpaniards made a distinction between the Indians who were cannibals (the Caribs) and those who\nwere not. Given the fact that in 1503 the Spanish Crown had decreed that all cannibals could be made\ninto slaves it is evident that for economic reasons the Spaniards were motivated to include the greatest\nnumber in the first category, as a means of increasing the labor supply in the new colonies. Thus\ncertain Spanish sources are undoubtedly unreliable. But this does not mean that cannibalism did not\nexist in America. From the XVII century on English, French as well as Dutch authors describe scenes\nof cannibalism among the Caribs and also among other Indian groups in the New World.\nRésumé\nLe cannibalisme caraïbe. Les données historiques. Dès les premiers temps de la Découverte, les\nEspagnols firent la distinction entre les Indigènes cannibales (caraïbes) et les autres. Les Espagnols\navaient tout intérêt à comprendre dans la première catégorie le plus grand nombre p'
+
+191. [general-history] JudgeMarkBennett-Courtroom-2014-Unknown.pdf
+   known: t=JudgeMarkBennett | a=Courtroom | y=2014 | p=Unknown
+   missing: publisher
+   excerpt: 'Implicit Bias in the Courtroom\nJerry Kang\nJudge Mark Bennett\nDevon Carbado\nPam Casey\nNilanjana Dasgupta\nDavid Faigman\nRachel Godsil\nAnthony G. Greenwald\nJustin Levinson\nJennifer Mnookin\nABSTRACT\nGiven the substantial and growing scientiﬁc literature on implicit bias, the time has now \ncome to confront a critical question: What, if anything, should we do about implicit bias in \nthe courtroom? Te author team comprises legal academics, scientists, researchers, and even \na sitting federal judge who seek to answer this question in accordance with behavioral \nrealism. Te Article ﬁrst provides a succinct scientiﬁc introduction to implicit bias, with \nsome important theoretical clariﬁcations that distinguish between explicit, implicit, \nand structural forms of bias. Next, the Article applies the science to two trajectories of \nbias relevant to the courtroom. One story follows a criminal defendant path; the other \nstory follows a civil employment discrimination path. Tis application involves not only a \nfocused scientiﬁc review but also a step-by-step examination of how criminal and civil trials \nproceed. Finally, the Article examines various concrete intervention strategies to counter \nimplicit biases for key players in the justice system, such as the judge and jury.\nAUTHOR\nJerry Kang is Professor of Law at UCLA School of Law; Professor of Asian American \nStudies (by courtesy); Korea Times-Hankook Ilbo Chair in Korean American Studies. \nKang@law.ucla.edu, http://jerrykang.net.\nJudge'
+
+192. [general-history] KillingOrders-Genocide-0000-Unknown.pdf
+   known: t=KillingOrders | a=Genocide | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: ''
+
+193. [general-history] KlaprozenlaanDocument-Unknown-2021-Unknown.pdf
+   known: t=KlaprozenlaanDocument | a=Unknown | y=2021 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Dhr. B DE BECKER\u200a\n\u200aKLAPROZENLAAN 34 \u200a\n\u200a8400 OOSTENDE\u200a\nREKENINGNUMMER\n\u200a876002389668\u200a\nNAAM VAN REKENING\n\u200aBENOIT DE BECKER\u200a\nKLANTNUMMER\n\u200a005220780\u200a\nIBAN-NUMMER\n\u200aBE82876002389668\u200a\nBIC-CODE\n\u200aMBWMBEBBXXX\u200a\nTYPE REKENING\n\u200aME3 SPAARREKENING\u200a\nVALUTA\n\u200aEUR\u200a\nBRUTO RENTEVOET\n\u200a0,2300 %\u200a\nROERENDE VOORHEFFING\n\u200a30,0000 %\u200a\nNETTO RENTEVOET\n\u200a0,1610 %\u200a\nVOOR DE PERIODE VAN \u200a01-01-2021 TOT 31-12-2021\u200a\nBEGINSALDO\n\u200a1.266,40\u200a\nUITGAAND \n\u200a1,13\u200a\nINKOMEND \n\u200a3,74\u200a\nEINDSALDO\n\u200a1.269,01\u200a\nIndien u niet akkoord gaat met de inhoud van dit rekeningafschrift, gelieve ons hiervan op de hoogte te brengen binnen een maand na de publicatiedatum. \nDe tegoeden op deze rekening komen in aanmerking voor depositobescherming door het Garantiefonds. \nVoor meer informatie verwijzen we naar de informatiefiche over de depositobescherming, die beschikbaar is op www.medirect.be.\nMeDirect Bank NV - Keizerinlaan 66, B-1000 Brussel – RPR Brussel 0553.851.093\nContact - Tel: 02 518 0000 - www.medirect.be - info@medirect.be - BTW BE 0553.851.093\nPagina 1 van 1\nDATUM\nVALUTA DATUM\nOMSCHRIJVING\nUITGAAND\nINKOMEND\nSALDO\n\u200aBEGINSALDO\u200a\n\u200a1.266,40\u200a\n\u200a31-03-2021\u200a\n\u200a31-03-2021\u200a\n\u200aRoerende voorheffing op bruto-\nrente\u200a\n\u200a0,33\u200a\n\u200a\n\u200a1.266,07\u200a\n\u200a31-03-2021\u200a\n\u200a31-03-2021\u200a\n\u200aBruto-rente\u200a\n\u200a\n\u200a1,09\u200a\n\u200a1.267,16\u200a\n\u200a30-06-2021\u200a\n\u200a30-06-2021\u200a\n\u200aRoerende voorheffing op bruto-\nrente\u200a\n\u200a0,32\u200a\n\u200a\n\u200a1.266,84\u200a\n\u200a30-06-2021\u200a\n\u200a30-06-2021\u200a\n\u200aBruto-rente\u200a\n\u200a\n\u200a1,06\u200a\n\u200a1.267,90\u200a\n\u200a30-09-2021\u200a\n\u200a30-09-2021\u200a\n\u200aRoerende voorheffing op bruto-\nrente\u200a\n\u200a0,25\u200a\n\u200a\n\u200a1.267,65\u200a\n\u200a30-09-2021\u200a\n\u200a30-09-2021\u200a\n\u200aBru'
+
+194. [general-history] KMBTC364Document-Unknown-2013-Unknown.pdf
+   known: t=KMBTC364Document | a=Unknown | y=2013 | p=Unknown
+   missing: author,publisher
+   excerpt: 'See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/287167641\nWalking nordic: Performing space, place and identity\nArticle · January 2013\nCITATIONS\n3\nREADS\n237\n1 author:\nSusanne Österlund-Pötzsch\nÅbo Akademi University\n10 PUBLICATIONS\xa0\xa0\xa014 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nAll content following this page was uploaded by Susanne Österlund-Pötzsch on 17 June 2016.\nThe user has requested enhancement of the downloaded file.'
+
+195. [general-history] KreativUngCulturalProject-Unknown-2020-Unknown.pdf
+   known: t=KreativUngCulturalProject | a=Unknown | y=2020 | p=Unknown
+   missing: author,publisher
+   excerpt: 'jonkoping.se \n \n \n \n \nProjectZ - Volunteering youth project in Jönköping, \nSweden \n \nLocation: Jönköping, Sweden \nProject dates: from 1st of September 2020 to 1st of September 2021 \nDuration: 12 months \nApplicants: EU-residents aged 18-30 years old \nApplication deadline: 15 April 2020 \nHosting organisation: Jönköping Municipality, Culture and leisure department \n \nProject description: \nKreativ Ung is a cultural project, focusing on cultural activities. \nDags för Tjafs 2.0 is a democratic project, focusing on democratic activities. \nWhen applying, please specify which project you would prefer to work with. \n \nThe youth centres and the local civil society are all working to increase awareness, \nintegration and inclusion. The youth centres are working with youth 10-19 years of \nage. They offer either after-school activities for younger youth or evening activities \nfor older youth in Jönköping. It needs continuous efforts to broaden and improve \nunderstanding and tolerance among youth but also consciousness about similarities \nand differences in Europe. Our project objective is to increase solidarity between \ndifferent cultures through projects about democracy and culture to create inclusion \nof young people in our city. \nWe plan to host 2 volunteers to work with the project Kreativ Ung which will focus \non cultural activities and 2 volunteers to the Dags för Tjafs 2.0 project that will \nfocus on democracy activities. The 4 volunteers will be working side by side at the \nyouth ce'
+
+196. [general-history] LandmarkHistories-Herodotus-1996-Unknown.pdf
+   known: t=LandmarkHistories | a=Herodotus | y=1996 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+197. [general-history] LawStatusJewsEnglishTranslation-Unknown-1940-Unknown.pdf
+   known: t=LawStatusJewsEnglishTranslation | a=Unknown | y=1940 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Law of October 3, 1940\nConcerning the Status of Jews\nLoi du 3 octobre 1940 portant statut des Juifs\nEnglish Translation\nSource: Journal Officiel de la République Française\nNo. 266, Friday, October 18, 1940\nPublished at Vichy (Allier)\nTranslated for History vs Hype\n---PAGE---\nTranslator’s Note\nThis is an English translation of the Loi du 3 octobre 1940 portant statut des Juifs (Law of\nOctober 3, 1940, Concerning the Status of Jews), the first major piece of anti-Jewish\nlegislation enacted by the Vichy regime. The law was drafted by Raphaël Alibert, Minister\nof Justice, and signed by Marshal Pétain and nine ministers of the Vichy cabinet.\nThe French text is taken from the Journal Officiel de la République Française, No. 266,\npublished on October 18, 1940. The law was enacted on October 3 but not published until\nfifteen days later.\nThis translation follows the legal structure of the original: ten articles progressing from the\nracial definition of “Jewish” (Article 1), through comprehensive professional exclusions\n(Articles 2–6), to implementation mechanisms (Articles 7–10). Where French legal\nterminology has no exact English equivalent, the closest functional translation is used with\nthe original French term noted.\nThree features of the text deserve attention:\n1.\nThe law uses “race juive” (Jewish race) throughout, never “religion juive” (Jewish\nreligion). This is a racial statute, not a religious restriction.\n2.\nArticle 4 uses the word “élimination” to describe removing Jews fro'
+
+198. [general-history] LegitimateSpheresOfInfluence-Recchia-2020-Unknown.pdf
+   known: t=LegitimateSpheresOfInfluence | a=Recchia | y=2020 | p=Unknown
+   missing: publisher
+   excerpt: 'Journal of Strategic Studies\nISSN: 0140-2390 (Print) 1743-937X (Online) Journal homepage: www.tandfonline.com/journals/fjss20\nA legitimate sphere of inﬂuence: Understanding\nFrance’s turn to multilateralism in Africa\nStefano Recchia\nTo cite this article: Stefano Recchia (2020) A legitimate sphere of inﬂuence: Understanding\nFrance’s turn to multilateralism in Africa, Journal of Strategic Studies, 43:4, 508-533, DOI:\n10.1080/01402390.2020.1733985\nTo link to this article: https://doi.org/10.1080/01402390.2020.1733985\n© 2020 The Author(s). Published by Informa\nUK Limited, trading as Taylor & Francis\nGroup.\nPublished online: 18 Mar 2020.\nSubmit your article to this journal \nArticle views: 8150\nView related articles \nView Crossmark data\nCiting articles: 7 View citing articles \nFull Terms & Conditions of access and use can be found at\nhttps://www.tandfonline.com/action/journalInformation?journalCode=fjss20\n---PAGE---\nARTICLE\nA legitimate sphere of inﬂuence: Understanding\nFrance’s turn to multilateralism in Africa\nStefano Recchia\nDepartment of Political Science, Southern Methodist University, Dallas, TX, USA\nABSTRACT\nScholars argue that the 1991 Gulf War, when the United States worked hard to\nsecure approval from the United Nations (UN), set a precedent for legitimate\nmilitary intervention that other states, especially other liberal democracies, sub-\nsequently felt compelled to follow. France, however, continued to intervene\nunilaterally in its traditional African sphere of inﬂuence f'
+
+199. [general-history] LeilaKhaled-Irving-2012-Unknown.pdf
+   known: t=LeilaKhaled | a=Irving | y=2012 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+200. [general-history] LenguaMaya-Berendt-1892-Unknown.pdf
+   known: t=LenguaMaya | a=Berendt | y=1892 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+201. [general-history] LogwoodMasterlessMen-Offen-2006-Unknown.pdf
+   known: t=LogwoodMasterlessMen | a=Offen | y=2006 | p=Unknown
+   missing: publisher
+   excerpt: 'Colours, Commodities and \nthe Birth of Globalization\nA History of the Natural Dyes of \nthe Americas, 1500–2000\nEdited by\nCarlos Marichal and David Pretel'
+
+202. [general-history] LoiPortantStatutDesJuifs-Unknown-1940-Unknown.pdf
+   known: t=LoiPortantStatutDesJuifs | a=Unknown | y=1940 | p=Unknown
+   missing: author,publisher
+   excerpt: '1\nLoi du 3 octobre 1940 portant statut des\nJuifs\nImprimerie des journaux officiels, Paris, 18 octobre 1940\nExporté de Wikisource le 19 février 2026'
+
+203. [general-history] LoiStatutJuifsDraft-Unknown-1940-Legifrance.pdf
+   known: t=LoiStatutJuifsDraft | a=Unknown | y=1940 | p=Legifrance
+   missing: author
+   excerpt: "LOI PORTAIT STATUT DES JUIFS\nARTICLE Ier,- Est regardé comme Juif, pour Inapplication de la \nprésente loi, toute personne issue do trois grands-parents \nde race juive ou do doux grands-parents de la mémo race, si\nson conjoint lui-meme est Juif.\nARTICLE 2.- L'accès et l’exercice des fonctions publiques et\nmandats énumérés ci-après sont interdits aux Juifs :\nChef de l’Etat, Membres du Gouvernement, \nConseil d'Etat, Conseil de l'Ordre National de lu \nLégion d'honneur, - Cour de Cassation, - Cour des Comptes.\nCorps dos Mines, - Corps dos Ponts et Chaussées,\nInspection générale des Finances,\nCours d'appel, - Tribunaux de 1ère.Instance et tou\xad\ntes Juridictions d’ordre professionnel, ^«.vofcc«- '/«. X>et't-' \n*u»«A» •*>»CMtÆ£♦*•/ •'”*V* ^v tC^'^^'\nLes Juifs ne peuvent etre agents relevant du \n• \nw—\nDépartement des Affaires étrangères, Secrétaires généraux des\nDépartements ministériels; Directeurs généraux, Directeurs des \nAdministrations contrôles dos Ministères; Préfets, Sous-Préfets, \nSecrétaires généraux de Préfectures; fonctionnaires do tous \ngrades attachés à tous services de Police;\nRésidents généraux, Gouverneurs généraux, -\nGouverneurs et Secrétaires généraux des colonies; 2«^ \n'\nc/w ce&<M«w» •Recteurs, Inspecteurs généraux de l’Instruction\npublique, Inspecteurs d'Académie, Proviseurs ou Directeurs \nd'établissements d’enseignement dos ordres secondaire et pri\xad\nmaire; *t.* ••/‘^r^* \nJ ' ' \n' \n/\nTous officiers des armées de terre, de mer et\nde l’air,\n---PAGE---\nkV*>t^»Mz b \n5"
+
+204. [general-history] LostTerritoriesThailandHistory-Strate-2000-Unknown.pdf
+   known: t=LostTerritoriesThailandHistory | a=Strate | y=2000 | p=Unknown
+   missing: publisher
+   excerpt: 'Th e Lost Territories\n---PAGE---\nSoutheast Asia\npolitics, meaning, and memory\nDavid Chandler and Rita Smith Kipp\nseries editors'
+
+205. [general-history] LRWilliams-Hudson-0000-Unknown.pdf
+   known: t=LRWilliams | a=Hudson | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'LINGUA ROMANA VOL 15, ISSUE 1 \n \n2 \nINTRODUCTION \nAnimating Christine de Pizan \nShelley Williams \nBrigham Young University \nSUMMARY \nOn 13–14 March 2020, a symposium titled “Women’s Voices of the Middle Ages & \nRenaissance” was held on the campus of Brigham Young University. It was the product of \ncreative collaboration featuring presentations by scholars from across the country, and \nhighlighted a marvelous one-woman play, Je Christine, by Suzanne Savoy. Suzanne \nbrought vitality to Christine de Pizan’s own words, in a fashion experienced all too \nseldomly for a writer of her caliber. The symposium and performance were an enriching \nexperience promoting the kind of discourse critical to the humanities and animated the life \nand writing of Christine. This brief article discusses the benefits of giving old texts a new \nvoice through performance and the valuable results of the ensuing discourse. \nKEYWORDS: Christine de Pizan, Suzanne Savoy, Je Christine, Brigham Young University, \nsymposium, discourse in the humanities, author portraits \nThe most ubiquitous image of Christine de Pizan (1364–1430) is the author portrait (Figure \n1 below) from a compilation of her texts for Isabeau of Bavaria, Harley MS 4431, fol. 4r (c. 1410–\n1414, fig. 1). It is an emblematic of Christine’s social station and role as author. The trappings \nindicate a sumptuous domestic interior with a high-backed scissor chair, diamond-paned lead \nwindow, tiled floor, and vermillion tapestry in the background.'
+
+206. [general-history] MasculinityIdentityPowerPolitics-Stewart-2020-Unknown.pdf
+   known: t=MasculinityIdentityPowerPolitics | a=Stewart | y=2020 | p=Unknown
+   missing: publisher
+   excerpt: 'Masculinity, Identity, and Power Politics \nin the Age of Justinian\n---PAGE---\nSocial Worlds of Late Antiquity and the \nEarly Middle Ages\nThe Late Antiquity experienced profound cultural and social change: the political \ndisintegration of the Roman Empire in the West, contrasted by its continuation \nand transformation in the East; the arrival of ‘barbarian’ newcomers and the \nestablishment of new polities; a renewed militarization and Christianization \nof society; as well as crucial changes in Judaism and Christianity, together with \nthe emergence of Islam and the end of classical paganism. This series focuses \non the resulting diversity within Late Antique society, emphasizing cultural \nconnections and exchanges; questions of unity and inclusion, alienation and \nconflict; and the processes of syncretism and change. By drawing upon a number \nof disciplines and approaches, this series sheds light on the cultural and social \nhistory of Late Antiquity and the greater Mediterranean world.\nSeries Editor\nCarlos Machado, University of St. Andrews\nEditorial Board\nLisa Bailey, University of Auckland\nMaijastina Kahlos, University of Helsinki\nVolker Menze, Central European University\nEllen Swift, University of Kent\nEnrico Zanini, University of Siena'
+
+207. [general-history] MayaCodexTellerianoRemensis-García-2004-Unknown.pdf
+   known: t=MayaCodexTellerianoRemensis | a=García | y=2004 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+208. [general-history] MayaSeaTraders-McKillop-2004-Unknown.pdf
+   known: t=MayaSeaTraders | a=McKillop | y=2004 | p=Unknown
+   missing: publisher
+   excerpt: 'IN\nSEaRCH of\nMaYA SEA\nTRaDERS\nnumber eleven:\nTexas A&M University Anthropology Series\nD. Gentry Steele, Series Editor\nSeries Advisory Board\nWilliam Irons\nEric Trinkaus\nConrad Kottak\nMichael R. Waters\nJames. F. O’Connell\nPatty Jo Watson\nHarry J. Shafer'
+
+209. [general-history] MenWomenAndPower-Unknown-2015-Unknown.pdf
+   known: t=MenWomenAndPower | a=Unknown | y=2015 | p=Unknown
+   missing: author,publisher
+   excerpt: ''
+
+210. [general-history] MexicanCuisineUltimateBook-DeAngeli-2023-Unknown.pdf
+   known: t=MexicanCuisineUltimateBook | a=DeAngeli | y=2023 | p=Unknown
+   missing: publisher
+   excerpt: 'Page 1 of 133 \nMEXICAN MANUSCRIPT 385 \n“CODEX TELLERIANO-\nREMENSIS” \n(with additions from the \n“CODEX RIOS”) \n \nCódice Telleriano-Remensis con \nalgunas páginas del Códice Rios \nTranslated from a Russian edition dated \nKyev 2011 \nThis electronic publication is dedicated to the celebration of September 16, 2010 \n190th Anniversary of Mexican Independence Day\n---PAGE---\nPage 2 of 133 \nVolume 2: \nThe Chronological Annals'
+
+211. [general-history] MexicanManuscript-Festivals-0000-Unknown.pdf
+   known: t=MexicanManuscript | a=Festivals | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Page 1 of 142 \nMEXICAN MANUSCRIPT 385 \n“CODEX TELLERIANO-REMENSIS” \n(with additions from the \n“CODEX RIOS”) \n \nCódice Telleriano-Remensis con algunas páginas del Códice Rios \nTranslated from a Russian edition dated \nKyev 2011 \nThis electronic publication is dedicated to the celebration of September 16, 2010 \n190th Anniversary of Mexican Independence Day \nVolume 1: \nThe Calendar of Festivals \nand \nThe Book of Days\n---PAGE---\nPage 2 of 142 \nMexican Manuscript 385 "Codex Telleriano-Remensis" (with additions from the Codex \nRios). / ed. A. Skromnitsky and V.N. Talaha. - K.: Blok.NOT, 2011. - 307 p. \nISBN 978-966-XXXX-XX-X \nThe reader is offered, translated into Russian for the first time, an interesting monument \nof the 16th century - the Codex Telleriano-Remensis, which represents Indian drawings \ncommented by Spanish authors, which go back, at least in part, to pre-Spanish pictographic \ntexts. The Codex contains valuable information on the history, politics, religion and \nethnography of the Indians of Central Mexico on the eve of the Spanish conquest. \nThe book is intended for undergraduates, graduate students and teachers of history \ndepartments, as well as all those interested in pre-Columbian civilizations, in particular the \nAztecs. \n \n/verified August 22, 2011/ \nTranslation from the original Spanish \n“http://www.amoxcalli.org.mx/codice.php?id=385”, \nas well as translation from Italian \ninto Russian and comments: \nA. Skromnitsky, 2010-2011, \nUkraine, Kyiv, \nhttp://bloknot.i'
+
+212. [general-history] MicrosoftOfficeCompanionBook-Milliken-2025-Unknown.pdf
+   known: t=MicrosoftOfficeCompanionBook | a=Milliken | y=2025 | p=Unknown
+   missing: publisher
+   excerpt: 'Benoit \nDe \nBecker'
+
+213. [general-history] MicrosoftWordGelterNorwegianFriluftliv-Hage-2010-Unknown.pdf
+   known: t=MicrosoftWordGelterNorwegianFriluftliv | a=Hage | y=2010 | p=Unknown
+   missing: publisher
+   excerpt: 'Gelter 2010, Friluftsliv as Slow and Peak Experiences in the Transmodern Society. \nNorwegian Journal of Friluftsliv \n \n1\nFriluftsliv as Slow and Peak Experiences in the Transmodern \nSociety \n \nPaper prepared for: Henrik Ibsen: The Birth of “Friluftsliv” \nA 150 Year International Dialogue Conference Jubilee Celebration \nNorth Troendelag University College, Levanger, Norway \nMountains of Norwegian/Swedish Border \nSeptember 14-19, 2009 \n \nSubmission date: May 3, 2009 \nRevised version submitted: August 16, 2009 \nFinal accepted version submitte: April, 12, 2010 \n \n \nDr. Hans Gelter \nLuleå University of technology \nDepartment of Music and Media \nDivision of Media and Experience Production \nBox 744, 941 28 Piteå, Sweden \nTel: +46 911-72718 \ne-mail: Hans.Gelter@ltu.se \n \n \n \nAbstract: \n \nThis paper is an attempt to look at friluftsliv through the glasses of the experience society and \nsome of the experience theory adapted from the experience economy. Identifying the basic \nexperiences, slow, flow and peak experiences as central to friluftsliv and identifying that \ntoday’s society is constituted by several generations differing in their values and world views, \nthis paper proposes a background to the contemporary development of friluftsliv into a \nsportified “fast and furious” post-modern form of friluftsliv. In the contemporary “nanosecond \nculture” the need of genuine friluftsliv in the sense of Nansen, as a philosophical approach to \ninterconnect with our original home, nature, see'
+
+214. [general-history] MicrosoftWordMontgo-Administrator-2002-Unknown.pdf
+   known: t=MicrosoftWordMontgo | a=Administrator | y=2002 | p=Unknown
+   missing: publisher
+   excerpt: "IBN FA®DL£AN AND THE R£USIYYAH* \n \nJames E. Montgomery \n \nCAMBRIDGE \n \nIbn Fa−dl¢an's account of the caliphal embassy from Baghdad to the King of the \nVolga Bulgh¢ars in the early fourth/tenth century is one of our principal, textual \nsources for the history, ethnogenesis and polity formation of a number of tribes \nand peoples who populated Inner Asia. Of especial significance is his descrip-\ntion of a people whom he calls the R¢usiyyah. Attempts to identify this people \nhave been the stuff of controversy for almost two centuries and have largely \nfocused on how this description can be made to contribute to the Normanist \nControversy (the principal, but by no means the only, controversy concerns the \nextent of Viking involvement in the creation of Russia). This article provides a \nfresh, annotated translation of Ibn Fa−dl¢an's passage and considers a multiplicity \nof identities for the R¢usiyyah. \n \nIbn Fa−dl¢an’s account of his participation in the deputation sent by the \nCaliph al-Muqtadir in the year 921 A.D. to the King of the Bulgh¢ars of the \nVolga, in response to his request for help, has proved to be an invaluable \nsource of information for modern scholars interested in, among other sub-\njects, the birth and formation of the Russian state, in the Viking involvement \nin northern and eastern Europe, in the Slavs and the Khazars. It has been \nanalyzed and commented upon frequently and forms the substance of many \nobservations on the study of the ethnography and sociology"
+
+215. [general-history] MiscellaneousWorksRemains-Hall-0000-Unknown.pdf
+   known: t=MiscellaneousWorksRemains | a=Hall | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: ''
+
+216. [general-history] ModernGeographySimplifiedSociety-Geography-2012-Unknown.pdf
+   known: t=ModernGeographySimplifiedSociety | a=Geography | y=2012 | p=Unknown
+   missing: publisher
+   excerpt: 'An\nModern Societies\nEdited by Stuart Hall, David Held,\nDon Hubert, and Kenneth Thompson\nModernity\nlntroduction to\nMI BLACI(WELL\n-@\n---PAGE---\n18\nThe Question of Cultural ldentity\nStuart Hall\nContents\n1 \nlntroduction: ldentity in Question\n1.1 Three concepts of identity\n1.2 The character of change in late-modernity\n1.3 What is at stake in the question of identities?\n2 \nfhe Birth and Death of the Modern Subject\n2.1 De-centering the subject\n3 \nNational Cultures as "lmagined Communities"\n3.1 Narrating the nation: an imagined community\n3.2 Deconstructing the "national culture": identity and\ndifference\nGlobalization\nTime-space compression and identity\nTowards the global post-modern?\nThe Global, the Local, and the Return of Ethnicity\n"The Rest" in "the West"\nThe dialectic of identities\nFundamentalism, Diaspora, and Hybridity\nReferences\n596\n597\n598\n600\n601\n606\n611\n613\n615\n618\n619\n621\n623\n626\n627\n629\n4\n4.1\n4.2\n5\n5.1\n5.2\n6'
+
+217. [general-history] MoroccanKingSahara-Unknown-2025-Unknown.pdf
+   known: t=MoroccanKingSahara | a=Unknown | y=2025 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Settler Colonial Studies\nISSN: 2201-473X (Print) 1838-0743 (Online) Journal homepage: www.tandfonline.com/journals/rset20\n‘The Moroccan king wants Western Sahara\nwithout its people’: an argument for Western\nSahara as a settler colony\nM. Padrón Hernández\nTo cite this article: M. Padrón Hernández (2025) ‘The Moroccan king wants Western Sahara\nwithout its people’: an argument for Western Sahara as a settler colony, Settler Colonial\nStudies, 15:1, 126-143, DOI: 10.1080/2201473X.2025.2456386\nTo link to this article: https://doi.org/10.1080/2201473X.2025.2456386\n© 2025 The Author(s). Published by Informa\nUK Limited, trading as Taylor & Francis\nGroup\nPublished online: 29 Jan 2025.\nSubmit your article to this journal \nArticle views: 2389\nView related articles \nView Crossmark data\nFull Terms & Conditions of access and use can be found at\nhttps://www.tandfonline.com/action/journalInformation?journalCode=rset20\n---PAGE---\n‘The Moroccan king wants Western Sahara without its \npeople’: an argument for Western Sahara as a settler colony\nM. Padrón Hernández\nDepartment of Sociology, Lund University, Lund, Sweden\nABSTRACT \nThis paper examines the case of Western Sahara through the lens of \nsettler colonial studies. A former Spanish colony in northern Africa, \nWestern Sahara is most often described as ‘occupied’ by Morocco \nsince 1975. I aim at shifting this narrative by applying settler \ncolonial theory, more specifically Veracini’s concept of transfer, to \nthe relation between Moroccan author'
+
+218. [general-history] MotivateReasonsPickingProject-Enjoyed-0000-Unknown.pdf
+   known: t=MotivateReasonsPickingProject | a=Enjoyed | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'To motivate my reasons for picking this project I think it is important to give a little backstory of \nmyself. In doing so I think I can make a good case as to what I have to offer the project and why \nI selected this specific project. \n \nGrowing up I dealt with a lot of anxiety, all throughout my high school I went from therapy to \ntherapy and from treatment to treatment. Diagnosis was very broad about what I was dealing \nwith. Some people described it as low self-confidence, others classified it as failure anxiety. I \nmanaged to barely graduate high school and decided to enroll in university. I failed hard at \nuniversity and at the end of the year I was not really sure what I wanted to do in life. I then took \nup a job as a supermarket clerk that I did for a whole year. After that year I decided to go \ntravelling and volunteering all over Europe. It was the first time I really got out of my comfort \nzone and by doing so I managed to find my self-confidence. I found that that I really enjoyed \ngetting to know new people, talking and learning from them. I also learned new skills and honed \nmy language skills. At the end of that “gap year” I decided to pick up more demanding tasks, I \nasked to become an adult counselor in my scouting group and I started to organize workshops \nand teambuilding activities to engage our (young) leaders. On an educational level I decided to \nenroll again and because I had found my drive studying became really easy . I enrolled into a \nbuddy progra'
+

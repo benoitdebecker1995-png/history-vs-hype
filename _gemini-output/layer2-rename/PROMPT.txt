@@ -1,0 +1,36 @@
+You are a library cataloging system for an academic history YouTube channel. I will give you a list of filenames. For each filename, extract metadata and generate a canonical filename.
+
+CANONICAL FORMAT: LastName-Year-ShortTitle-Publisher.ext
+Rules:
+1. LastName = first author's last name only (no initials, no spaces)
+2. Year = 4-digit publication year (use 0000 if unknown)
+3. ShortTitle = 2-4 CamelCase words capturing the core subject, no articles/prepositions (e.g. "ColonialAfricaHistory", "TreatyTripoli", "PartitionIndia")
+4. Publisher = one of: Cambridge, Oxford, Princeton, Routledge, Stanford, Cornell, Brill, Palgrave, Harvard, Yale, Chicago, Duke, Columbia, MIT, Penn, Berkeley, Toronto, ZLib, Libgen, AnnaArchive, Unknown
+5. Keep original file extension (.pdf, .epub, .mobi, .azw3)
+6. Use your training knowledge to fill in missing fields for well-known historical works (e.g. "casement report.pdf" = Casement-1904-CongoCrimesReport-HMSO)
+
+Mark needs_content_read: true ONLY when the filename is a pure hash/DOI string or meaningless abbreviation (e.g., "bd6t53484293.pdf", "10.1016@S1870.pdf", "ibs008.pdf", "01whole.pdf", "1.pdf") — these require reading the actual file.
+
+For files with (n.d.) in name: year = 0000.
+For files with year embedded (e.g. "Engels2022..." or "(2003," or "_1947_"): extract it.
+For Canvas/Zotero saves like "Canvas - Title (n.d.).pdf": extract the title.
+For z-library names like "Title (Author) (z-library.sk...).pdf": extract author from the second parentheses group.
+For libgen names like "Author - Title (Year, Publisher) - libgen.li.pdf": parse directly.
+For Anna's Archive hash names like "Author -- Title -- isbn13 XXXX -- hash -- Anna's Archive.pdf": parse author and title.
+
+OUTPUT: A JSON array, one object per file. Start directly with [ — no preamble, no markdown fences.
+Schema per object:
+{
+  "o": "exact original filename",
+  "a": "LastName",
+  "y": "YYYY",
+  "t": "ShortTitle",
+  "p": "Publisher",
+  "c": "LastName-Year-ShortTitle-Publisher.ext",
+  "conf": "high|medium|low",
+  "ncr": false
+}
+
+Use "ncr": true and "c": null only for hash/DOI/meaningless filenames.
+
+FILENAMES TO PROCESS:

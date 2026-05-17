@@ -1,0 +1,270 @@
+You are identifying academic books, journal articles, treaties, and primary
+documents from partial metadata + an excerpt of the first two pages of the
+PDF. For each entry below, search the web (Google Search grounding) to verify
+the work and return its full metadata.
+
+Each entry shows:
+  - The current filename (after prior parsing)
+  - Known fields: title slug, author surname, year, publisher
+  - 'Unknown' / '0000' = unresolved field
+  - A short excerpt from the first two pages of the PDF (may be empty if the
+    document is scanned image-only — proceed using the filename in that case)
+
+INSTRUCTIONS
+- Resolve EVERY missing field where you can find authoritative evidence.
+- Use Google Search grounding; cross-reference excerpt content + filename.
+- Do NOT guess. Mark UNRESOLVED if no high- or medium-confidence answer.
+- Confidence levels:
+    high   — primary source (publisher page, library catalogue, JSTOR)
+    medium — secondary source (Wikipedia, Google Books snippet)
+    low    — inference from excerpt only (rarely use; usually UNRESOLVED)
+- source_url is REQUIRED for any non-UNRESOLVED row.
+- publisher_abbrev MUST come from this list (use the closest match):
+  CambridgeUP, OxfordUP, YaleUP, PrincetonUP, ColumbiaUP, IndianaUP,
+  EdinburghUP, NYUPress, UCPress, JohnsHopkinsUP, HooverPress, PlutoPress,
+  Routledge, Palgrave, Bloomsbury, ITauris, HurstCo, ZedBooks, VersoBooks,
+  BasicBooks, RandomHouse, Penguin, Brill, Springer, DaCapo, FreePress,
+  Granta, WeidenfeldNicolson, CornellUP, StanfordUP, HarvardUP, LiverpoolUP,
+  MacmillanUK, NortonCo, HMSO, UN, ICJ, OECD, LHarmattan, Macmillan,
+  HoughtonMifflin, Serif.
+  If publisher is a journal article, use the journal abbreviation
+  (e.g. JModernHistory, IntlAffairs). If it is a government / IGO document,
+  use the issuer abbreviation (HMSO, UN, ICJ, FCO, etc.).
+
+OUTPUT
+Return a single markdown table with exactly these columns:
+
+| idx | title_slug | author_surname | year | publisher_abbrev | confidence | source_url |
+
+- idx: the integer from the entry header below.
+- title_slug: CamelCase, no spaces, no punctuation, ≤45 chars.
+- author_surname: surname only (e.g. Zinn, Akcam, Martinez — strip diacritics).
+- year: 4 digits, or 0000 if truly unknown.
+- All UNRESOLVED rows: put UNRESOLVED in every field except idx.
+
+Do NOT include any prose before or after the table.
+
+---
+
+ENTRIES:
+
+339. [general-history] Unknown-Unknown-2024-Springer.pdf
+   known: t=Unknown | a=Unknown | y=2024 | p=Springer
+   missing: title,author
+   excerpt: 'See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/379525577\nCoupvolution as a Mechanism of Regime Change in the Sahel\nChapter · April 2024\nDOI: 10.1007/978-3-031-53429-4_7\nCITATIONS\n9\nREADS\n161\n3 authors:\nEgor Fain\nNational Research University Higher School of Economics\n13 PUBLICATIONS\xa0\xa0\xa039 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nLeonid Issaev\nNational Research University Higher School of Economics\n79 PUBLICATIONS\xa0\xa0\xa0617 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nA. Korotayev\nNational Research University Higher School of Economics\n680 PUBLICATIONS\xa0\xa0\xa09,107 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nAll content following this page was uploaded by A. Korotayev on 02 March 2025.\nThe user has requested enhancement of the downloaded file.\n---PAGE---\nCoupvolution as a Mechanism of Regime \nChange in the Sahel \nEgor Fain, Leonid Issaev \n, and Andrey Korotayev \n1 \nIntroduction \nRecent developments in francophone Sub-Saharan Africa became a signiﬁcant topic \nin both scientiﬁc and journalistic circles. Back-to-back military coups in Niger and \nGabon in summer 2023 gathered a lot of attention from researchers (Financial Times, \n2023). In the context of African politics, military coups are not something particu-\nlarly unexpected: after gaining independence from colonial powers numerous African \ncountries went through military coups while some countries went through a series \nof coups in the span of decades (Johnson et al., 1983; McGowan, 2003). However, \nrecent coups are quite diff'
+
+340. [general-history] Unknown-Unknown-2024-Unknown.pdf
+   known: t=Unknown | a=Unknown | y=2024 | p=Unknown
+   missing: title,author,publisher
+   excerpt: 'ii\nThe African - Diaspora Discourse, A-DD, is a peer-reviewed academic \njournal that sets out to reconfigure African Studies through original and \nintellectually stimulating research papers that are capable of provoking \nnew questions, theories and debates. The Journal is domiciled in the \nInstitute of African and Diaspora Studies, University of Lagos, Nigeria. \nInterested authors should send in manuscript of not more than 8,000 \nwords by 30th of September every year. Submission in either English or \nFrench is considered but abstract must be written in both languages. \nAuthors are responsible for proper acknowledgements of sources of all \nforms, including figures and graphics. The editor may, where necessary, \ndemand evidence of such permission(s) before accepting a manuscript \nfor publication. \n \nCorrespondence \nEditor, \nAfrican - Diaspora Discourse, A-DD, \nInstitute of African and Diaspora Studies, \nJP Clark Building, \nUniversity of Lagos. \n08126519419. \nadd@iads.unilag.edu.ng \n \n© Institute of African and Diaspora Studies, 2024 \nPrinted by \nAzion, 9, Adetayo Oso Street, Akoka, Lagos \nwww.azionresources.com \n \nNo part of this journal may be reproduced or transmitted in any form or \nany means electronic or mechanical; including photocopying, recording \nor any means of information storage and retrieval system without prior \nwritten permission from the institute of African and Diaspora Studies, \nUniversity of Lagos. \nISSN: 2705-4268-9-772715-426003'
+
+341. [general-history] Unknown-Unknown-2025-Unknown.pdf
+   known: t=Unknown | a=Unknown | y=2025 | p=Unknown
+   missing: title,author,publisher
+   excerpt: 'Edinburgh University Press\n \n \nChapter Title: Honour and the Rhetoric of Slavery in Herodotus\nChapter Author(s): Douglas Cairns\n \nBook Title: Slavery and Honour in the Ancient Greek World\nBook Editor(s): David M. Lewis, Mirko Canevaro, Douglas Cairns\nPublished by: Edinburgh University Press. (2025)\nStable URL: https://www.jstor.org/stable/10.3366/jj.25700633.8\n \nJSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide\nrange of content in a trusted digital archive. We use information technology and tools to increase productivity and\nfacilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org.\n \nYour use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at\nhttps://about.jstor.org/terms\nThis book is licensed under a Creative Commons Attribution-NonCommercial-\nNoDerivatives 4.0 International License (CC BY-NC-ND 4.0). To view a copy of this license,\nvisit https://creativecommons.org/licenses/by-nc-nd/4.0/.\nEdinburgh University Press is collaborating with JSTOR to digitize, preserve and extend\naccess to Slavery and Honour in the Ancient Greek World\nThis content downloaded from 181.91.84.68 on Mon, 30 Mar 2026 22:15:49 UTC\nAll use subject to https://about.jstor.org/terms\n---PAGE---\nI.\nSlavery and Honour in the \nConceptual Sphere\nThis content downloaded from 181.91.84.68 on Mon, 30 Mar 2026 22:15:49 UTC\nAll use subject to https://about.jst'
+
+342. [general-history] Unknown-Wade-2016-Unknown.pdf
+   known: t=Unknown | a=Wade | y=2016 | p=Unknown
+   missing: title,publisher
+   excerpt: 'See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/308670998\nMestizaje, multiculturalism, liberalism, and violence\nArticle\xa0\xa0in\xa0\xa0Latin American and Caribbean Ethnic Studies · September 2016\nDOI: 10.1080/17442222.2016.1214368\nCITATIONS\n22\nREADS\n446\n1 author:\nPeter Wade\nThe University of Manchester\n171 PUBLICATIONS\xa0\xa0\xa04,494 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nAll content following this page was uploaded by Peter Wade on 16 September 2022.\nThe user has requested enhancement of the downloaded file.\n---PAGE---\n1\nMestizaje, Multiculturalism, Liberalism and Violence \n \nPeter Wade \n \n \nMestizaje has been theorized as a racial-cultural process of nationalist homogenization, as a \nmode of subaltern contestation or inconformity, and as a practice that simultaneously \ncombines both inclusion and exclusion. This exclusive inclusion is characteristic of liberalism \ngenerally, and may involve violence. The core meanings of mestizaje are rooted in sex and \nreproduction, which allow ideas of inclusion (family, kinship) to gain traction. These ideas \nmask the violence of mestizaje (rape, coercion, enforced assimilation, elimination). In \nColombia, the long-standing tension between democracy and violence has recently \narticulated in a particular way with mestizaje as this has become reconfigured as inclusive \nmulticulturalism, coinciding with the explosive spread of extreme violence to once peaceful \n‘black regions’ of the country. This violence sho'
+
+343. [general-history] UnknownDocument-Unknown-2004-Oxford-University-Press.pdf
+   known: t=UnknownDocument | a=Unknown | y=2004 | p=Oxford-University-Press
+   missing: author
+   excerpt: 'A NEW HISTORY OF WESTERN PHILOSOPHY\nvolume 1\nAncient Philosophy\nanthony\nkenny\nCLARENDON PRESS \x01 OXFORD\n---PAGE---\n3\nGreat Clarendon Street, Oxford ox2 6dp\nOxford University Press is a department of the University of Oxford.\nIt furthers the University’s objective of excellence in research, scholarship,\nand education by publishing worldwide in\nOxford New York\nAuckland Cape Town Dar es Salaam Hong Kong Karachi\nKuala Lumpur Madrid Melbourne Mexico City Nairobi\nNew Delhi Shanghai Taipei Toronto\nWith oYces in\nArgentina Austria Brazil Chile Czech Republic France Greece\nGuatemala Hungary Italy Japan Poland Portugal Singapore\nSouth Korea Switzerland Thailand Turkey Ukraine Vietnam\nOxford is a registered trade mark of Oxford University Press\nin the UK and in certain other countries\nPublished in the United States\nby Oxford University Press Inc., New York\n\x01 Sir Anthony Kenny 2004\nThe moral rights of the author have been asserted\nDatabase right Oxford University Press (maker)\nFirst published 2004\nFirst published in paperback 2006\nAll rights reserved. No part of this publication may be reproduced,\nstored in a retrieval system, or transmitted, in any form or by any means,\nwithout the prior permission in writing of Oxford University Press,\nor as expressly permitted by law, or under terms agreed with the appropriate\nreprographics rights organization. Enquiries concerning reproduction\noutside the scope of the above should be sent to the Rights Department,\nOxford University Press, at the addres'
+
+344. [general-history] UnknownDocument-Unknown-2007-Oxford.pdf
+   known: t=UnknownDocument | a=Unknown | y=2007 | p=Oxford
+   missing: author
+   excerpt: 'Medieval Philosophy'
+
+345. [general-history] UnknownPaper-Mamigonian-2015-Unknown.pdf
+   known: t=UnknownPaper | a=Mamigonian | y=2015 | p=Unknown
+   missing: publisher
+   excerpt: 'Academic Denial of the Armenian Genocide in American\nScholarship: Denialism as Manufactured Controversy1\nMarc A. Mamigonian\nNational Association for Armenian Studies and Research\nFrom its origins in the World War I era, denial of the Armenian Genocide emerged in American\nuniversities during the Cold War. Today, a growing body of critical scholarship and documentation\nof the Armenian Genocide has rendered traditional strategies of silencing and denial increasingly\nuntenable. Like the tobacco industry lobbyists of the 1950s, apologists for the “Turkish position”\nnow labor to construct denialism as a legitimate intellectual position within a historical debate.\nSuch manufactured controversy is a time-tested means of lending academic credibility to Armenian\nGenocide deniers, whose contemporary brethren include the so-called skeptics of global warming.\nThis article will trace, brieﬂy, the early development of Armenian Genocide denial and will focus on\nmore recent reﬁnements and the penetration of denial into American academia. Concluding com-\nments will address the fundamental challenge of denialism, debate, and the quest for intellectual\nintegrity.\nKey words: Armenian Genocide, denial, manufactured controversy, Big Tobacco, global warming\nIn December 2013, the European Court of Human Rights found that a 2007 conviction\nof Turkish political ﬁgure Doğu Perinçek under Switzerland’s anti-racism laws for de-\nnying the Armenian Genocide was a violation of freedom of expression. The cour'
+
+346. [general-history] UnknownTitle-Keen-1969-Unknown.pdf
+   known: t=UnknownTitle | a=Keen | y=1969 | p=Unknown
+   missing: publisher
+   excerpt: 'Duke University Press is collaborating with JSTOR to digitize, preserve and extend access to The Hispanic American Historical\nReview.\nhttp://www.jstor.org\nDuke University Press\nThe Black Legend Revisited: Assumptions and Realities \nAuthor(s): Benjamin Keen \nSource: \n \n \nThe Hispanic American Historical Review, Vol. 49, No. 4 (Nov., 1969), pp. 703-719\nPublished by: \n \nDuke University Press\nStable URL: \n \nhttp://www.jstor.org/stable/2511162\nAccessed: 19-10-2015 16:22 UTC\nYour use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at http://www.jstor.org/page/\n \ninfo/about/policies/terms.jsp\nJSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide range of content \nin a trusted digital archive. We use information technology and tools to increase productivity and facilitate new forms of scholarship. \nFor more information about JSTOR, please contact support@jstor.org.\nThis content downloaded from 129.96.252.188 on Mon, 19 Oct 2015 16:22:42 UTC\nAll use subject to JSTOR Terms and Conditions\n---PAGE---\nNOTES AND COMIMENTS \nThe Black Legend Revisited: Assump- \ntions and Realities \nBENJAMIN \nKEEN* \nT \nHE TERM "BLACK \nLEGEND" has long existed in the \nlexicon of Latin American history. Despite its wide \nacceptance and use, however, it rests on premises \nwhose validity has never been seriously questioned. This essay at- \ntempts to test these premises, to clarify the meanings attached to th'
+
+347. [general-history] UnknownTitle-McMahon-0000-Unknown.pdf
+   known: t=UnknownTitle | a=McMahon | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: "1\nMcMahon–Hussein Correspondence\n(July 14, 1915 – March 10, 1916)\nA. Henry McMahon\n1915-1916\nExported from Wikisource on November 8, 2025\n---PAGE---\n2\nJuly 14, 1915\nTo His Honour:\nWhereas the whole of the Arab nation without any\nexception have decided in these last years to live, and to\naccomplish their freedom, and grasp the reins of their\nadministration both in theory and practice; and whereas\nthey have found and felt that it is to the interest of the\nGovernment of Great Britain to support them and aid them\nto the attainment of their firm and lawful intention (which\nare based upon the maintenance of the honour and dignity\nof their life) without any ulterior motives whatsoever\nunconnected with this object;\nAnd whereas it is to their (the Arabs') interest also to prefer\nthe assistance of the Government of Great Britain in\nconsideration of their geographical position and economic\ninterests, and also of the attitude of the above mentioned\nGovernment, which is known to both nations and therefore\nneed not be emphasized;\nFor these reasons the Arab nation see fit to limit\nthemselves, as time is short, to asking the Government of\nGreat Britain, if it should think fit, for the approval, through\nher deputy or representative, of the following fundamental\npropositions, leaving out all things considered secondary in\ncomparison with these, so that it may prepare all means"
+
+348. [general-history] UnreadableDocument-Unknown-2014-Unknown.pdf
+   known: t=UnreadableDocument | a=Unknown | y=2014 | p=Unknown
+   missing: author,publisher
+   excerpt: 'FUNERARY ARCHAEOLOGY\nArcheologia funeralna'
+
+349. [general-history] UntitledDocument-Unknown-2014-Unknown.pdf
+   known: t=UntitledDocument | a=Unknown | y=2014 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Full Terms & Conditions of access and use can be found at\nhttp://www.tandfonline.com/action/journalInformation?journalCode=cjcr20\nDownload by: [109.129.162.111]\nDate: 10 September 2016, At: 09:24\nJournal of Contemporary Religion\nISSN: 1353-7903 (Print) 1469-9419 (Online) Journal homepage: http://www.tandfonline.com/loi/cjcr20\nReligion in the Nordic Countries: Between Private\nand Public\nAnders Bäckström\nTo cite this article: Anders Bäckström (2014) Religion in the Nordic Countries:\nBetween Private and Public, Journal of Contemporary Religion, 29:1, 61-74, DOI:\n10.1080/13537903.2014.864804\nTo link to this article: http://dx.doi.org/10.1080/13537903.2014.864804\nPublished online: 09 Jan 2014.\nSubmit your article to this journal \nArticle views: 344\nView related articles \nView Crossmark data\n---PAGE---\nReligion in the Nordic Countries: Between Private\nand Public\nANDERS BA¨ CKSTRO¨ M\nABSTRACT\nA new visibility of religion in public life can be observed in the Nordic\ncountries. This visibility is not due to a popular claim for a return of religion in the\npublic sphere. As research conducted at Uppsala University in Sweden indicates,\nthe visibility of religion in the Nordic countries reﬂects several concurring factors: the\nstate’s continued relationship with churches and other religions; the growth of new\nforms of social exclusion drawing religion into public discussions on ethical and social\nissues; growing religious pluralism prompting political and legal regulation; a\nspirituality r'
+
+350. [general-history] VerbijsteringVeelheidVerschil-Vandenabeele-2017-Unknown.pdf
+   known: t=VerbijsteringVeelheidVerschil | a=Vandenabeele | y=2017 | p=Unknown
+   missing: publisher
+   excerpt: 'VERBIJSTERING, VEELHEID, VERSCHIL\nVERBIJSTERING-proef3.indd 1\n25/03/19 12:27\n---PAGE---\nVERBIJSTERING-proef3.indd 2\n25/03/19 12:27'
+
+351. [general-history] Version-Mangus-0000-Unknown.pdf
+   known: t=Version | a=Mangus | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: "V E R S I O N 2 . 0\n27/08/2019\n-\nAleksandra Mangus\naleksandra.mangus@gmail.com\nResource Mapping\xa0\nReport\xa0for SALTO\nPI's Media &\nInformation Literacy\nLearning Programme\nS A LT O - Y O U T H P a r t i c i p a t i o n a n d\nI n f o r m a t i o n R e s o u r c e C e n t r e ( S A LT O P I )\n---PAGE---\nSALTO-Youth Participation\xa0and Information has been working on putting together a Media &\nInformation Literacy Training Programme that\xa0aims to create an online training programme and a\nResource Hub that would enable trainers, youth workers and other multipliers to access best\npractices, training materials, easy-to-read research summaries and trends to foster young people’s\ncritical thinking and media literacy to increase quality of youth participation.\xa0The project is\ncoordinated in cooperation with National Agencies of Erasmus+ and supported (content\ndevelopment and consultation) by Deutsche Welle Academy and ERYICA.\nIt was the aim of this report\xa0to gather and analyse the presence of the existing tools and practices for\nMIL education across the set of European countries in order to identify the gaps of knowledge and\nresources that the future efforts of the Resource Hub would be able to compensate. \nThis project was not designed to be a scientific study.\xa0 \xa0Over the course of the eight weeks the work\nprocess involved preparing, distributing, collecting and analysing an online survey on MIL resources\nas well as extensive desktop research focusing on the information available online.\nSurv"
+
+352. [general-history] Vikings-Tsoumbakos-2017-Unknown.pdf
+   known: t=Vikings | a=Tsoumbakos | y=2017 | p=Unknown
+   missing: publisher
+   excerpt: 'VIKINGS: THE TRUTH ABOUT LAGERTHA\nAND RAGNAR\nViking Secrets: Book One\nRachel Tsoumbakos'
+
+353. [general-history] VikingsLagerthaRagnar-Tsoumbakos-0000-Unknown.pdf
+   known: t=VikingsLagerthaRagnar | a=Tsoumbakos | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'VIKINGS: THE TRUTH ABOUT LAGERTHA\nAND RAGNAR\nViking Secrets: Book One\nRachel Tsoumbakos'
+
+354. [general-history] VindicatingFounders-West-2000-Unknown.pdf
+   known: t=VindicatingFounders | a=West | y=2000 | p=Unknown
+   missing: publisher
+   excerpt: 'Vindicating the Founders'
+
+355. [general-history] VLInternationalConference-FCSH-0000-Unknown.pdf
+   known: t=VLInternationalConference | a=FCSH | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: '1\n---PAGE---\n2 \n \nCALL FOR PANELS AND PAPERS \n \nMedieval towns were large human concentrations where men, women, and \nchildren led different daily lives, depending on the places they lived and worked, and \npersonal attributes including gender, religion, social status, and income. At times, the \napparent mundanity of daily life could be interrupted by major events. Whilst some \nwere joyous such as festivities and royal entrances, others could be unruly such as \nthe annual Carnival, or even distressing like preparing to defend the town from \nmilitary siege. \nIn these present times of unexpected and sudden changes in our own daily \nlives, the Institute of Medieval Studies of NOVA-FCSH and the Municipality of \nCastelo de Vide have come together to organize the VI International Conference of \nthe Middle Ages which will be held from 7th to 9th October 2021 under the theme: \nEveryday Life in Medieval Urban Europe. \nWith a focus on Christian and Islamic Europe, the approach will be from four \ndistinct but complementary angles: I) Everyday Spaces, including as homes, \nworkplaces and lay and religious institutions; II) Everyday Times, whether the \nordinary day-to-day, or those lived during exceptional moments; III) Daily Lives of \nSpecific Inhabitants/Groups, including children, old people, men, women, Christians, \nJews, Moors or foreigners, etc; IV) Utensils and Tools of Daily Urban Life, including \nproduction, uses, and preferences of residents and outsiders for certain items. \nResea'
+
+356. [general-history] VojnuciDefter-Unknown-1455-Unknown.pdf
+   known: t=VojnuciDefter | a=Unknown | y=1455 | p=Unknown
+   missing: author,publisher
+   excerpt: 'ВОЈНУЧКИ ДЕФТЕР ИЗ 1455. ГОДИНЕ\nза санџаке Kрушевац, Вучитрн, Призрен \nи вилајете Звечан, Јелеч, Рас, Сенице и \nХодидед\nТатјана Катић\n1455 TARİHLİ \nALACAHİSȂR, VILÇİTRN VE PRİZRİN LİVȂLARI VE İZVEÇEN, \nYELEÇ, RAS, SENİÇE VE HODİDEDE VİLȂYETLERİ \nVOYNUK DEFTERİ \n TIPKIBASIM, TRANSKRİPSİYON, MCЕ 36-03 DEFTERİNİN \nKİŞİ ADLARI VE YER ADLARI İNDEKSİ\n---PAGE---\nINSTITUTE OF HISTORY BELGRADE\nTHE VOYNUK DEFTER OF THE YEAR 1455\nFOR THE SANCAKS OF KRUŠEVAC, VUČITRN, \nPRIZREN AND THE VILAYETS OF ZVEČAN, \nJELEČ, RAS, SENICE AND HODIDED\nSources for Serbian History\nVolume 17\nOttoman Sources\nVolume 1\n1455 TARİHLİ \nALACAHİSȂR, VILÇİTRN VE PRİZRİN LİVȂLARI \nVE İZVEÇEN, YELEÇ, RAS, SENİÇE VE HODİDEDE \nVİLȂYETLERİ \nVOYNUK DEFTERİ \n TIPKIBASIM, TRANSKRİPSİYON, MCЕ 36-03 DEFTERİNİN \nKİŞİ ADLARI VE YER ADLARI İNDEKSİ\nedited by:\nTatjana Katić\nEditor-in-chief\nAleksandar Rastović\nDirector of the Institute of History\nBelgrade\n2020'
+
+357. [general-history] VojnuciDefter1455-Unknown-2020-Unknown.pdf
+   known: t=VojnuciDefter1455 | a=Unknown | y=2020 | p=Unknown
+   missing: author,publisher
+   excerpt: 'ВОЈНУЧКИ ДЕФТЕР ИЗ 1455. ГОДИНЕ\nза санџаке Kрушевац, Вучитрн, Призрен \nи вилајете Звечан, Јелеч, Рас, Сенице и \nХодидед\nТатјана Катић\n1455 TARİHLİ \nALACAHİSȂR, VILÇİTRN VE PRİZRİN LİVȂLARI VE İZVEÇEN, \nYELEÇ, RAS, SENİÇE VE HODİDEDE VİLȂYETLERİ \nVOYNUK DEFTERİ \n TIPKIBASIM, TRANSKRİPSİYON, MCЕ 36-03 DEFTERİNİN \nKİŞİ ADLARI VE YER ADLARI İNDEKSİ\n---PAGE---\nINSTITUTE OF HISTORY BELGRADE\nTHE VOYNUK DEFTER OF THE YEAR 1455\nFOR THE SANCAKS OF KRUŠEVAC, VUČITRN, \nPRIZREN AND THE VILAYETS OF ZVEČAN, \nJELEČ, RAS, SENICE AND HODIDED\nSources for Serbian History\nVolume 17\nOttoman Sources\nVolume 1\n1455 TARİHLİ \nALACAHİSȂR, VILÇİTRN VE PRİZRİN LİVȂLARI \nVE İZVEÇEN, YELEÇ, RAS, SENİÇE VE HODİDEDE \nVİLȂYETLERİ \nVOYNUK DEFTERİ \n TIPKIBASIM, TRANSKRİPSİYON, MCЕ 36-03 DEFTERİNİN \nKİŞİ ADLARI VE YER ADLARI İNDEKSİ\nedited by:\nTatjana Katić\nEditor-in-chief\nAleksandar Rastović\nDirector of the Institute of History\nBelgrade\n2020'
+
+358. [general-history] VolosGuideMonsters-Carter-2022-Unknown.pdf
+   known: t=VolosGuideMonsters | a=Carter | y=2022 | p=Unknown
+   missing: publisher
+   excerpt: "VOLO'S GUIDE ro MONSTERS\x11"
+
+359. [general-history] WalterSinnottArmstrong-Sinnott-Armstrong-0000-Unknown.pdf
+   known: t=WalterSinnottArmstrong-Sinnott | a=Armstrong | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Understanding \nArguments'
+
+360. [general-history] WarriorWomen-Davis-Kimball-2002-Unknown.pdf
+   known: t=WarriorWomen-Davis | a=Kimball | y=2002 | p=Unknown
+   missing: publisher
+   excerpt: "Filippovi\n'okrovfia\n1 r«l\n•S<»«\nBukhara\nt Havtviu\nJ5 FPT\n($34.95 in Canada)\nIntrepid\narchaeologist Jeannine\nDavis-\nKimball travels from exotic excavations on\nthe wild\nEurasian\nsteppes to\nmysterious\ntomhs deep\nin Mongolia to rune -covered\nhurial mounds\nin\nNorthern\nIreland\nin\nsearch\nof the truth about\nhistory s most\npowerful women...\nAfter raising six children and working as a\nnurse\nin\nIdab o\nand\na\ncattle\nrancher\nin\nSouth\nAmerica,\nDr.\nJeannine\nDavis -\nKimhall was drawn to exploring the worlds\nof the\npast.\nShe\nbecame\nfascinated\nby\nancient artifacts from the hurial mounds in\nEurasia, the deserts of western China, and\nthe Black Sea islands where legend places\nthe Amazon tribes.\nIntrigued and determined to see them all\nlor\nherself,\nthe\nauthor\nset\nout\nfor\nKazakhstan,\na\nremote\nregion\nhundreds\nol miles southeast ol Moscow and hallway\nto\nMongolia. On\nthese\nhi^h,\nempty,\nwindswept\nplains,\nDr.\nDavis- Kimball\nhe^an her own\nlife s journey, an odyssey of\nmagnificent discoveries that have shattered\nmore than\na\nfew\nhistorical\nassumptions,\nincluding:\n• The origins of the Amazons, and a legacy\nof riding, li^htin^, formidable women that\nis not myth, hut truth\n• The\nsecret\nol\nmysterious mummified\npriestesses\nin\nChina, who\nwere\ntall,\nauburn-haired, and unmistakably Celtic\nin origin\n• The\nreal\nidentity\nof the lamous\nGold\nMan\nol\nSaka,\nburied with the\ntelltale\nclues that male archaeologists had\n1on6\nignored\nRussia\nPerm\nn\nSamara\niu*e\nZ\n^atrvSr\nKazakstan\nlAtkf Kalb\namg\nAfghanistan\nm\n:\n!%;\nWARRjOU\nWomeii"
+
+361. [general-history] WarriorWomenArchaeologists-Behan-0000-Unknown.pdf
+   known: t=WarriorWomenArchaeologists | a=Behan | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: "Filippovi\n'okrovfia\n1 r«l\n•S<»«\nBukhara\nt Havtviu\nJ5 FPT\n($34.95 in Canada)\nIntrepid\narchaeologist Jeannine\nDavis-\nKimball travels from exotic excavations on\nthe wild\nEurasian\nsteppes to\nmysterious\ntomhs deep\nin Mongolia to rune -covered\nhurial mounds\nin\nNorthern\nIreland\nin\nsearch\nof the truth about\nhistory s most\npowerful women...\nAfter raising six children and working as a\nnurse\nin\nIdab o\nand\na\ncattle\nrancher\nin\nSouth\nAmerica,\nDr.\nJeannine\nDavis -\nKimhall was drawn to exploring the worlds\nof the\npast.\nShe\nbecame\nfascinated\nby\nancient artifacts from the hurial mounds in\nEurasia, the deserts of western China, and\nthe Black Sea islands where legend places\nthe Amazon tribes.\nIntrigued and determined to see them all\nlor\nherself,\nthe\nauthor\nset\nout\nfor\nKazakhstan,\na\nremote\nregion\nhundreds\nol miles southeast ol Moscow and hallway\nto\nMongolia. On\nthese\nhi^h,\nempty,\nwindswept\nplains,\nDr.\nDavis- Kimball\nhe^an her own\nlife s journey, an odyssey of\nmagnificent discoveries that have shattered\nmore than\na\nfew\nhistorical\nassumptions,\nincluding:\n• The origins of the Amazons, and a legacy\nof riding, li^htin^, formidable women that\nis not myth, hut truth\n• The\nsecret\nol\nmysterious mummified\npriestesses\nin\nChina, who\nwere\ntall,\nauburn-haired, and unmistakably Celtic\nin origin\n• The\nreal\nidentity\nof the lamous\nGold\nMan\nol\nSaka,\nburied with the\ntelltale\nclues that male archaeologists had\n1on6\nignored\nRussia\nPerm\nn\nSamara\niu*e\nZ\n^atrvSr\nKazakstan\nlAtkf Kalb\namg\nAfghanistan\nm\n:\n!%;\nWARRjOU\nWomeii"
+
+362. [general-history] WarriorWomenViking-Gardela-2013-Unknown.pdf
+   known: t=WarriorWomenViking | a=Gardela | y=2013 | p=Unknown
+   missing: publisher
+   excerpt: 'FUNERARY ARCHAEOLOGY\nArcheologia funeralna'
+
+363. [general-history] WesternEuropeanUnion-Union-1997-Unknown.pdf
+   known: t=WesternEuropeanUnion | a=Union | y=1997 | p=Unknown
+   missing: publisher
+   excerpt: 'European Solidarity Corps:\nJobs and traineeships on track\nWHAT?\nThe European Solidarity Corps provides new opportunities for young Europeans to engage in solidarity \nactivities across Europe, to gain invaluable experience, to develop their skills, and to make a contribution \nto society. To this end, it offers two possibilities: young people can either participate in a volunteering \nproject, or get placed for a job or traineeship in solidarity-related fields across Europe, for two \nto twelve months.\nWhile many volunteering placements have been taken up already, a structure is now in place to provide \ncross-border jobs and traineeship placements during this first phase of the European Solidarity Corps.\nTARGET?\nTo offer up to 6000 job or traineeship opportunities to European Solidarity Corps participants \nacross the EU. \nTraineeships will be paid. Jobs will be remunerated according to national laws. There will always be an \nemployment contract. Travel costs are covered. Participants will receive support when arriving on the \nplacement and when it ends, as well as the European Solidarity Corps certificate.\nTASKS?\nThe European Solidarity Corps enables young people to make a contribution to society across Europe \nwhere their help is needed most. Job and traineeship offers with companies, authorities, or organisations \nwill relate to education, health care, including long term care for the elderly, social integration \nand social work, including the reception and integration of migra'
+
+364. [general-history] WesternSahara-Jensen-2005-Unknown.pdf
+   known: t=WesternSahara | a=Jensen | y=2005 | p=Unknown
+   missing: publisher
+   excerpt: 'WESTERN\nSAHARA'
+
+365. [general-history] WesternSahara-Zunes-2010-Unknown.pdf
+   known: t=WesternSahara | a=Zunes | y=2010 | p=Unknown
+   missing: publisher
+   excerpt: 'Western Sahara\nSyracuse Studies on Peace and Confl ict Resolution\nRobert A. Rubinstein, Series Editor'
+
+366. [general-history] WesternSaharaAsASettlerColony-Unknown-2025-Unknown.pdf
+   known: t=WesternSaharaAsASettlerColony | a=Unknown | y=2025 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Settler Colonial Studies\nISSN: 2201-473X (Print) 1838-0743 (Online) Journal homepage: www.tandfonline.com/journals/rset20\n‘The Moroccan king wants Western Sahara\nwithout its people’: an argument for Western\nSahara as a settler colony\nM. Padrón Hernández\nTo cite this article: M. Padrón Hernández (2025) ‘The Moroccan king wants Western Sahara\nwithout its people’: an argument for Western Sahara as a settler colony, Settler Colonial\nStudies, 15:1, 126-143, DOI: 10.1080/2201473X.2025.2456386\nTo link to this article: https://doi.org/10.1080/2201473X.2025.2456386\n© 2025 The Author(s). Published by Informa\nUK Limited, trading as Taylor & Francis\nGroup\nPublished online: 29 Jan 2025.\nSubmit your article to this journal \nArticle views: 2389\nView related articles \nView Crossmark data\nFull Terms & Conditions of access and use can be found at\nhttps://www.tandfonline.com/action/journalInformation?journalCode=rset20\n---PAGE---\n‘The Moroccan king wants Western Sahara without its \npeople’: an argument for Western Sahara as a settler colony\nM. Padrón Hernández\nDepartment of Sociology, Lund University, Lund, Sweden\nABSTRACT \nThis paper examines the case of Western Sahara through the lens of \nsettler colonial studies. A former Spanish colony in northern Africa, \nWestern Sahara is most often described as ‘occupied’ by Morocco \nsince 1975. I aim at shifting this narrative by applying settler \ncolonial theory, more specifically Veracini’s concept of transfer, to \nthe relation between Moroccan author'
+
+367. [general-history] WhatWeKnewAndWhatWeLost-Unknown-2019-Unknown.pdf
+   known: t=WhatWeKnewAndWhatWeLost | a=Unknown | y=2019 | p=Unknown
+   missing: author,publisher
+   excerpt: "See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/358904257\n'What we Knew was Lost': Oral History and Narratives of Loss Amongst a\nFamily of Greek Cypriot Displaced Persons\nArticle · August 2019\nCITATIONS\n0\nREADS\n20\n1 author:\nChristakis Peristianis\nUniversity of Cyprus\n5 PUBLICATIONS\xa0\xa0\xa04 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nAll content following this page was uploaded by Christakis Peristianis on 28 February 2022.\nThe user has requested enhancement of the downloaded file."
+
+368. [general-history] WomenCrucibleConquest-Powers-2005-Unknown.pdf
+   known: t=WomenCrucibleConquest | a=Powers | y=2005 | p=Unknown
+   missing: publisher
+   excerpt: 'Women in the\nCrucible of Conquest\n---PAGE---\nA series of course-adoption books on Latin America\nIndependence in Spanish America: Civil Wars» \nRevolutions» and Underdevelopment (revised edition) \nJAY KINSBRUNER, Queens College\nHeroes on Horseback: A Life and Times of the Last Gaucho Caudillos \nJOHN CHARLES CHASTEEN, University of North Carolina at Chapel Hill\nThe Life and Death of Carolina Maria de Jesus \nROBERT M. LEVINE, University of Miami, \nand JOSÉ CARLOS SEBE BOM MEIHY, University of Säo Paulo \nThe Countryside in Colonial Latin America \nEdited by LOUISA SCHELL HOBERMAN, \nUniversity of Texas at Austin, and Susan Migden Socolow, Emory University \n¡Que vivan los tamales! Food and the Making of Mexican Identity \nJEFFREY M. PILCHER, The Citadel\nThe Faces of Honor: Sex» Shame» and Violence in Colonial Latin America \nEdited by LYMAN L. JOHNSON, University of North Carolina at Charlotte, \nand SONYA LIPSETT-RIVERA, Carleton University\nThe Century of U.S. Capitalism in Latin America \nTHOMAS F. O’BRIEN, University of Houston \nTangled Destinies: Latin America and the United States \nDON COERVER, Texas Christian University, and Linda Hall, University of New Mexico \nEveryday Life and Politics in Nineteenth Century Mexico: Men» Women» and War \nMARK WASSERMAN, Rutgers, The State University of New Jersey\nLives of the Bigamists: Marriage» Family» and Community in Colonial Mexico\nRICHARD BOYER, Simon Fraser University\nAndean Worlds: Indigenous History» Culture» and Consciousness Under Spani'
+
+369. [general-history] WomenIslamEnquiry-Mernissi-1993-Unknown.pdf
+   known: t=WomenIslamEnquiry | a=Mernissi | y=1993 | p=Unknown
+   missing: publisher
+   excerpt: "W Olllen and Islam \nAn Historical and Theological \nEnquiry \nII \nFATIMA MERNISSI \nTRANSLATED BY \nMARY JO LAKELAND \nBasil Blackwell\n---PAGE---\nCopyright © Editions Albin Michel S. A. 1937; \nEnglish translation © Basil Blackwell 1991 \nEnglish translation first published [99 [ \nBasil Blackwell Ltd \nlOS Cowley Road. Oxford, OX4 (JF, UK \nAll rights reserved. Except for the quotation of short passages for the purposes of \ncriticism and review, no part of this publication may be reproduced, stored in a \nretrieval system. or transmitted. in any form or by any means, electronic, \nmechanical, photocopying, recording or otherwise, without the prior permission of \nthe pubJjsher. \nExcept in the United States of America, this book is sold subject to the condition \nthat it shall not, by way of trade or othe~wise, be lent. re-sold, hired out. or \notherwise circulated without the publisher's prior consent in any form of binding or \ncover other than that in which it is published and withput a similar condition \nincluding this condition being imposed on the subsequent purchaser. \nBntisll Library Cata/ogltillS ill Publica/iotl Data \nA CIP catalogue record for this book is available from the British Library. \nISBN 0-631 [6904-0 \nISBN 0-63 ( (6905-11 (Pbk) \nTypeset ill I (1I3pt Bembo \nby Hope Services (Abingdon) Ltd \nPrinted in Great Britain \nby T. J. Press Ltd, Padstow, Cornwall"
+
+370. [general-history] WomenVikingAge-Jesch-1996-Unknown.pdf
+   known: t=WomenVikingAge | a=Jesch | y=1996 | p=Unknown
+   missing: publisher
+   excerpt: 'JUDITH JESCH\n---PAGE---\nViking studies have always concentrated \non male vikings, the Scandinavian \nwarriors and merchants who emerged on \nthe European scene in the late 8th century. \nThis is the first book-length study in \nEnglish to investigate what women did in \nthe Viking Age, both at home in \nScandinavia and in the viking colonies \nfrom Greenland to Russia. \nThe evidence for the lives of viking \nwomen is fragmentary: Judith Jesch \nassembles the clues provided by \narchaeology, runic inscriptions, place \nnames and personal names, foreign \nhistorical sources, art history, and Old \nNorse literature and mythology. These \nsources illuminate different aspects of \nwomen’s lives in the Viking Age, on the \nfarms and in the trading centres of \nScandinavia, abroad on viking \nexpeditions, and as settlers in places such \nas Iceland or the British Isles. \nArchaeological evidence brings us into \nclose physical contact with Viking Age \nwomen, their dress, work and daily life; \nrunic inscriptions and literary texts allow \nus to hear the authentic voice of women. \nHowever, much of what can be found out \nabout women in the Viking Age comes to \nus through the eyes of men, in history, art, \nmyth and literature, so the book also \ninvestigates how women were seen by \ntheir male contemporaries in Scandinavia \nand in the countries affected by viking \nactivity, and the author shows how the \nromantic myths of medieval Icelandic \nliterature have been responsible for \nmodem views of viking women. \nWo'
+
+371. [general-history] WomenWeaponsVikingWorld-Gardela-2017-Unknown.pdf
+   known: t=WomenWeaponsVikingWorld | a=Gardela | y=2017 | p=Unknown
+   missing: publisher
+   excerpt: 'WOMEN AND WEAPONS IN THE VIKING WORLD'
+
+372. [general-history] WordSourDocument-Unknown-2024-Unknown.pdf
+   known: t=WordSourDocument | a=Unknown | y=2024 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Sour, L., 2024. French interventionism in the Sahel: a flawed strategy, imperfect \ngeopolitics, Przegląd Geopolityczny, 48, s. 91-112. \n \n \n- 91 - \n \nLofti SOUR \nMustapha Stambouli University of Mascara, Algeria \nORCID: 0000-0001-8783-9340 \n \n \n \nFRENCH INTERVENTIONISM IN THE SAHEL: \nA FLAWED STRATEGY, IMPERFECT GEOPOLITICS \nFRANCUSKI INTERWENCJONIZM W SAHELU: \nWADLIWA STRATEGIA, NIEDOSKONAŁA GEOPOLITYKA \n \n \nAbstract: \n \nOver the past few years, there has been a notable rise in French military \ninvolvement in Africa. Despite attempts to establish a more balanced post-colonial \nrelationship and a significant reduction in its permanent military presence, France \ncontinues to be a highly sought-after participant in resolving security challenges in \nAfrica. Despite French policymakers\' repeated assurances that their role as the \n"gendarme of Africa" is a thing of the past, French troops have been engaged in nine \nmilitary operations since the start of the new millennium. This paper aims to analyze \nFrench strategy in the Sahel region, with a particular focus on Operation Barkhane, in \nlight of the changing French doctrine and practices. \n \n \nKeywords: Operation Barkhane, France, Africa, Mali, post-colonialism, Sahel. \n \n \nIntroduction \nFrance is the only European country that still regularly deploys its \nmilitary forces on combat missions to sub-Saharan Africa. In fact, France \nis one of the most interventionist countries in the world. Between the \nend of the Algerian Liberation'
+
+373. [general-history] WordSyllabus-Unknown-2019-Unknown.pdf
+   known: t=WordSyllabus | a=Unknown | y=2019 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Capita Selecta 2019/2020- ‘Eastern Christianity’ \nDr. Marianna Mazzola marianna.mazzola@ugent.be \n \n \n 17/02-11/05 \n Monday h.11.30-14.30 \n Leslokaal 1.2, Campus Boekentoren \n (N.B. Classes will start on 17/02) \n \n \n \n \n \n \nDATE \nTOPIC \n1 \n17.2 \nIntroduction \nOutline of the historical development of eastern Christian churches and \ncultures in Late Antiquity \n2 \n24.2 \nChristological controversies and the shaping of eastern Christian identities \n(Lecture) \n \n \nChristological controversies and the shaping of eastern Christian identities \n(Assignment) \n3 \n9.3 \nEastern Christian Response to the Arab Conquest (Lecture) \n \n \nEastern Christian Response to the Arab Conquest (Assignment) \n4 \n23.3 \nEastern Christian Perspectives on the Crusaders (Lecture) \n \n \nEastern Christian Perspectives on the Crusaders (Assignment) \n5 \n20.4 \nEastern Monasticism between charisma and hierarchy (Lecture) \n \n \nEastern Monasticism between charisma and hierarchy (Assignment) \n6 \n27.4 \nReligious beliefs and cultural practices in Ḥarrān. From Greek rule to the \nIslamic conquest (Guest Lecture Dr. Giorgia Nicosia) \n7 \n11.5 \nStudent Presentations \n \n \nDESCRIPTION \n \nClasses will take place on the following days: 17/2, 24/2, 9/3, 23/3, 20/04, 27/04. Non-\nattending students must contact the lecturer and they will be given additional assignments as \nalternative.\n---PAGE---\nAfter each class, students are expected to read the primary sources passages and the scholarly \nliterature assigned and to send a report to'
+
+374. [general-history] Workshop-Dick-0000-Unknown.pdf
+   known: t=Workshop | a=Dick | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Speakers: \nIoanna Demosthenous is a legal advisor specializing in public international law and human rights, with great\ninterest and professional experience in diplomacy and foreign policy. She is also a youth leader, youth trainer\nand an advocate for youth empowerment and youth rights, and the founder and president of Cyprus Youth\nDiplomaCY, a youth NGO based in Cyprus.\nJessica Dewhurst is a human rights defender and ERI UN Advocacy Director from South Africa. She is the\nFounder and CEO of the award-winning human rights organisation, The Justice Desk, which focuses on\neducating, advocating and equipping youth, government, civil society and vulnerable groups across South\nCentral Africa in human rights. Her organisation is a partner of The Queens Commonwealth Trust and she has\nreceived The Queens Young Leaders award from Her Majesty Queen Elizabeth II.\nAhmad Nawaz was shot in Pakistan in the Peshawar school attack by the Taliban in 2014, in which 150\nstudents and teachers were brutally massacred. After that terrible incident he decided to do something in order\nto stop those kinds of attacks happening in the future, and, in 2015, he initiated a campaign in the UK, to\nencourage students to play an active role in society. Today Ahmad is an Ambassador with Anne Frank\norganisation, Oxford Foundation and a Global Youth Ambassador with World Merit org.\nMeron Semeder is a One Young World Ambassador who is known for his work as a community organizer,\nsocial justice, human rights and re'
+
+375. [general-history] WorldbuildingGameDesigners-Dee-2025-Unknown.pdf
+   known: t=WorldbuildingGameDesigners | a=Dee | y=2025 | p=Unknown
+   missing: publisher
+   excerpt: "TASHA'S CAULDRON \n. \nOF EVERYTHING\x14"
+
+376. [general-history] WorldHistory-Unknown-2010-Unknown.pdf
+   known: t=WorldHistory | a=Unknown | y=2010 | p=Unknown
+   missing: author,publisher
+   excerpt: ''
+
+377. [general-history] WorldPrehistoryIntroduction-Fagan-1995-Unknown.pdf
+   known: t=WorldPrehistoryIntroduction | a=Fagan | y=1995 | p=Unknown
+   missing: publisher
+   excerpt: 'PEOPLE OF THE EARTH \nPeople of the Earth is a narrative account of the prehistory of humankind from our origins over 6 million years \nago to the first pre-industrial states, beginning about 5,000 years ago. This is a global prehistory, which cov\xad\ners prehistoric times in every corner of the world in a jargon-free style for newcomers to archaeology. Many \nworld histories begin with the first pre-industrial states. This book starts at the beginning of human history and \nsummarizes the latest research into such major topics as human origins, the emergence and spread of modern \nhumans, the first farming, and the origins of civilization. \nPeople of the Earth is unique in its even balance of the human past, its readily accessible style, and its flowing \nnarrative that carries the reader through the long sweep of our past. The book is highly illustrated and features \nboxes and sidebars describing key dating methods and important archaeological sites. \nThis classic world prehistory sets the standard for books on the subject and is the most widely used such text\xad\nbook in the world. It is aimed at introductory students in archaeology and anthropology taking survey courses \non the prehistoric past, as well as more advanced readers. It will also appeal to students of human responses to \nclimatic and environmental change. \nBrian M. Fagan is one of the world’s leading archaeological writers and an internationally recognized authority \non world prehistory. \nNadia Durrani is an archaeologist'
+
+378. [general-history] WorldWasGoingOurWay-Andrew-2006-Unknown.pdf
+   known: t=WorldWasGoingOurWay | a=Andrew | y=2006 | p=Unknown
+   missing: publisher
+   excerpt: 'Table of Contents\n \nTitle Page\nDedication\nThe Evolution of the KGB, 1917-91\nThe Transliteration of Russian and Arabic Names\nForeword\nAcknowledgements\nChapter 1 - Introduction: ‘The World Was Going Our Way’ The Soviet Union, the ...\nLatin America\n \nChapter 2 - Latin America: Introduction\nChapter 3 - ‘The Bridgehead’, 1959-1969\nChapter 4 - ‘Progressive’ Regimes and ‘Socialism with Red Wine’\nChapter 5 - Intelligence Priorities after Allende\nChapter 6 - Revolution in Central America\nThe Middle East\n \nChapter 7 - The Middle East: Introduction\nChapter 8 - The Rise and Fall of Soviet Influence in Egypt\nChapter 9 - Iran and Iraq\nChapter 10 - The Making of the Syrian Alliance\nChapter 11 - The People’s Democratic Republic of Yemen\nChapter 12 - Israel and Zionism\nChapter 13 - Middle Eastern Terrorism and the Palestinians\nAsia\n \nChapter 14 - Asia: Introduction\nChapter 15 - The People’s Republic of China From ‘Eternal Friendship’ to ...\nChapter 16 - Japan\nChapter 17 - The Special Relationship with India\nChapter 18 - The Special Relationship with India\nChapter 19 - Pakistan and Bangladesh\nChapter 20 - Islam in the Soviet Union'
+
+379. [general-history] WTFinal-Howell-2016-Unknown.pdf
+   known: t=WTFinal | a=Howell | y=2016 | p=Unknown
+   missing: publisher
+   excerpt: 'Charles Howell/Oct 2016 \nHegel’s Reading of Heraclitus \nA Discussion On The Foundations of Hegel’s Dialectic \n!1\n---PAGE---\nThe history of philosophy can be viewed as a multi-generational and multi-cultural \nconversation, in which interlocutors from various time periods and backgrounds are engaged in \nquestions of uncertainty and debate. While the answers provided from certain thinkers may be \nrefuted, the questions they raise still remain. Ancient questions appear in modern philosophy, and \noften time ancient answers are modiﬁed and enlisted to provide modern answers. A classic \nexample is G.W.F Hegel’s use of the primitive philosophy of Heraclitus. Many have been \ninﬂuenced by Hegel, and even more by the method of invoking past philosophical concepts. \nMany also have provided the ancient concepts through a misinterpretation of the philosophies \nthemselves. Hegel is as guilty as any other in his reading of Heraclitus. However, to understand \neither Heraclitus or Hegel, we must give a brief introduction to the development of thought up \nto Heraclitus, and only then can we engage in a conversation with Hegel. \n The narrative of primitive philosophy ﬁnds an important development in the work of a \ndisciple of the great Pythagoras named Xenophanes. Like Thales and Anaximenes before him, \nXenophanes was a physical monist, declaring the foundational element of the world to be earth. \nWhat makes Xenophanes important though is not his cosmology, for it falls into the same trap as \nth'
+
+380. [general-history] YouthResearchPodcast-PASIC-0000-MOOC.pdf
+   known: t=YouthResearchPodcast | a=PASIC | y=0000 | p=MOOC
+   missing: year
+   excerpt: "MOOC – ESSENTIALS OF YOUTH WORK \n \nYouth Research \nTRANSCRIPT \n \nDariusz [00:00:01] Hello to the next podcast we are organising within the MOOC on youth work \nessentials. And today, we are going to talk about youth research. And we have invited today three \npeople. We have Lana Pasic who is from the Partnership between the European Union and the \nCouncil of Europe in the field of youth; we have Tomi Kiilakoski from Finland and Adina Serban from \nRomania. Welcome. So, can you tell us maybe Lana, I know that you work for the Partnership, but \nyou are also youth researcher. How did you become a youth researcher? \n \nLana [00:00:41] Thank you, Darek. For me, it was an experience that started both through my \nprofessional work, but also through academia, because I worked with the youth programmes in an \nNGO in Bosnia. And then after that, when I went to do my postgraduate studies, I started looking at \nthe programmes that would focus specifically on youth activism and how do NGOs and civil society \ncan support young people in becoming more active members of their societies and also demanding \nmore of their rights and standing up for causes that they believe in. This made me more interested \nnot only in research in young people, but also how can society support young people? \n \nDariusz [00:01:23] And Tomi, what's your story? How did you become a researcher? \n \nTomi [00:01:27] By accident. I never wanted to become a youth researcher. I used to work at the \nDepartment of Teacher Educa"
+
+381. [general-history] ZichtrekeningInvest-Unknown-2021-Unknown.pdf
+   known: t=ZichtrekeningInvest | a=Unknown | y=2021 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Nieuw saldo op 18/10/2021\n197,32 EUR\nZichtrekening Invest\nDhr. Benoit De Becker\nUittreksels: 2/2021 - Pagina 1/1\nBE64 1030 6508 5452\nBIC: NICABEBB\nVorig saldo op 31/03/2021\n52,88 EUR\nNr\nDatum\nBeweging\nWaarde\nBedrag\n5\n18/10\nDividend CrelanCo CV \n16/10\n+ 63,78 \n108-1506154-95\nReferentie\n:\nC1J15ZPVLT33BR08\nTarief\n:\n1,64\n%\nBruto bedrag\n:\n91,11\nEUR\nRoerende voorheffing\n:\n27,33\nEUR\n6\n18/10\nDividend CrelanCo CV \n16/10\n+ 116,66 \n108-1506154-95\nReferentie\n:\nC1J18ZPQJN09J0IH\nTarief\n:\n3,00\n%\nBruto bedrag\n:\n166,66\nEUR\nRoerende voorheffing\n:\n50,00\nEUR\n7\n18/10\nBijdr. CrelanCo niet-banc. voord.\n16/10\n- 36,00 \nDe op deze rekening gestorte sommen komen in aanmerking voor het systeem van depositobescherming. Zie hiervoor de informatiefiche over de depositobescherming.'
+
+382. [general-history] ZichtrekeningInvest-Unknown-2022-Unknown.pdf
+   known: t=ZichtrekeningInvest | a=Unknown | y=2022 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Nieuw saldo op 02/05/2022\n277,98 EUR\nZichtrekening Invest\nDhr. Benoit De Becker\nUittreksels: 1/2022 - Pagina 1/1\nBE64 1030 6508 5452\nBIC: NICABEBB\nVorig saldo op 18/10/2021\n197,32 EUR\nNr\nDatum\nBeweging\nWaarde\nBedrag\n1\n02/05\nDividend CrelanCo CV \n30/04\n+ 116,66 \n108-1506154-95\nReferentie\n:\nC2D29ZPXWX3MJJPP\nTarief\n:\n3,00\n%\nBruto bedrag\n:\n166,66\nEUR\nRoerende voorheffing\n:\n50,00\nEUR\n2\n02/05\nBijdr. CrelanCo niet-banc. voord.\n30/04\n- 36,00 \nDe op deze rekening gestorte sommen komen in aanmerking voor het systeem van depositobescherming. Zie hiervoor de informatiefiche over de depositobescherming.'
+

@@ -338,6 +338,38 @@ or generic "we must do better" language, flag as SUGGESTION — "Closing switche
 emotional register. Consider: delegated final quote, universal indictment, or systemic continuum
 technique (Rule 23) to maintain calm-prosecutor voice."
 
+**CONSTRAINT BC: Lane Choreography Audit (Rule 41)** [WARNING — BLOCK if Format C]
+**Origin:** Inquisition #54 rough-cut post-mortem (2026-05-09). Script-writer-v2 used `[ON SCREEN]` cues only for the featured exhibit and left baseline-rule visuals unspecified, causing thesis erosion at multiple beats.
+
+**Check:** For every VO beat that asserts a rule ("the law says X", "the rule was Y", "X counted as Z", "Under [section X]…"), verify one of:
+1. A paired `[ON SCREEN]` cue showing the rule-evidence within ±15 seconds of the assertion, OR
+2. An explicit `<!-- NO VISUAL: [reason] -->` annotation, OR
+3. The VO itself follows Path A scaffold (names default interpretation + anchors to textual evidence + attributes consensus) — see Rule 40
+
+**Format-specific severity (per 2026-05-09 retroactive audit, n=33 prior beats across 3 scripts):**
+- **Format C (forensic close-read):** Missing pair = **BLOCK**. Format C scripts fail this gate without baseline visuals.
+- **Format A/B (territorial / ideological / general):** Missing pair = **WARNING** (default-on, relaxable). Document-first and myth-first formats typically pass naturally because format forces primary-evidence visibility.
+
+**Failure flag template:** "Beat at [line N] asserts rule '[snippet]' with no paired ON SCREEN visual or Path A scaffold. Either add `[ON SCREEN: rule-evidence]` cue, write Path A scaffold (default interpretation + textual anchor + consensus attribution), or annotate `<!-- NO VISUAL: [reason] -->`."
+
+**CONSTRAINT BD: Word Budget Gate (Rule 10 Format-Specific WPM)** [BLOCK]
+**Origin:** Inquisition #54 budgeted at 200 WPM, delivered at 154 WPM, overshot 5:00 target by +56% (rough cut 7:48).
+
+**Check:** Compute spoken-only word count from script. Exclude `[ON SCREEN]` cues, `[GUIDE]` brackets, citation tags `[Author, *Source*, p. X]`, production notes, section headers.
+
+**Compare against format-specific budget:**
+- **Format A/B:** word count > runtime_seconds × 3.3 (~200 WPM) → WARNING
+- **Format C:** word count > runtime_seconds × 2.5 (~150 WPM) → **BLOCK**
+
+**Format C examples (HARD CAP):**
+- 5-min Format C: 750 words max
+- 8-min Format C: 1,200 words max
+- 10-min Format C: 1,500 words max
+
+**Failure flag template:** "Format [X] script has [N] spoken words for [M]-min target. Budget: [budget] words at [WPM] WPM. Overshoot: [+%]. Cut [N - budget] words before lock — start with secondary examples, decoder-phrase redundancy, full quote preambles."
+
+**Why this matters:** WPM calibration was wrong in pre-v15 script-writer-v2. Format C delivers slower than standard talking-head because verbatim legal/document quotes need deliberate read pace + pause-before/pause-after to register as evidence; foreign proper nouns add overhead; longhand dates ("April twenty-ninth, fourteen ninety-four") take longer than reading. Pre-v15 scripts used 250 WPM × 1.20x — wrong for document-heavy material.
+
 **Your job:** Check scripts against WRITING-VOICE-AND-STYLE.md and these constraints. Flag quality standards firmly.
 Flag competitor patterns as suggestions — the script writer may be deliberately breaking them to
 differentiate. Always explain WHY a pattern would help, don't just flag the violation.

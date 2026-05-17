@@ -167,21 +167,36 @@ Ask the user:
 
 ### Step 1c: Title Pre-Generation
 
-**Generate 5 working title candidates BEFORE creating the project.** These don't need to be final, but they establish the search-intent framing:
+**Generate working title candidates BEFORE creating the project** using local Ollama (zero quota cost), then score them all.
 
-1. Include the exact high-volume keyword (from demand check) in at least 2 candidates
-2. Score all candidates with `title_scorer.py`
-3. Present ranked list to user
-4. User picks a working title — this frames the research angle
+**Step 1 — Ollama brainstorm (automatic):**
 
-**Why now:** The title determines what search query you're targeting. Research should serve the title, not the other way around.
+```bash
+PYTHONPATH=. python tools/ollama_brainstorm.py "[topic]" --topic [territorial|ideological|colonial|general] --count 10
+```
+
+This generates 10 raw candidates locally via gemma3:4b. Fast, free, no Pro quota.
+
+**Step 2 — Score everything:**
+
+Take the Ollama candidates plus 2-3 of your own that include the exact high-volume keyword from Step 1. Score all of them together:
+
+```bash
+PYTHONPATH=. python tools/title_scorer.py [title1] [title2] ... --topic [type]
+```
+
+**Step 3 — Present and pick:**
+
+Show the ranked list. User picks a working title. This frames the research angle.
 
 ```
 WORKING TITLES (pick one to frame research):
-  85/A  France vs Haiti. 122 Years of Forced Payments.
-  65/B  Why Is Haiti So Poor? France Collected for 122 Years.
-  75/B  Haiti Paid France for 122 Years. Here's Every Receipt.
+  95/A  Argentina vs Britain. The Islands Nobody Can Legally Claim.
+  85/A  The Falklands Sovereignty Dispute. Britain Used a Loophole.
+  80/A  Britain Expelled Argentina from the Falklands. The Legal Basis Does Not Exist.
 ```
+
+**If Ollama is not running** (check with `curl -s http://localhost:11434/api/tags`): skip the brainstorm step and generate 5 candidates manually before scoring.
 
 Store the chosen working title in PROJECT-STATUS.md.
 

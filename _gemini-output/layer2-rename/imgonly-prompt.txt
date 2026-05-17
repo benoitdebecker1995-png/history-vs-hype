@@ -1,0 +1,38 @@
+You are classifying 44 PDF files for an academic-history YouTube channel library (History vs Hype — geopolitics, colonial history, border disputes, ideological narratives, evidence-based myth-busting). These files are IMAGE-ONLY scans or empty PDFs; no extracted text is available. You must classify from FILENAME ALONE.
+
+Filenames follow a `Title-Author-Year-Publisher.pdf` convention (often with Unknowns).
+
+For EACH numbered block, output ONE JSON object on its OWN LINE (JSONL format). DO NOT wrap in markdown fences. DO NOT add commentary. JSON schema:
+
+{"idx": <int>, "keep": <bool>, "topic": "<topic_slug>", "title": "<ShortTitleCamelCase>", "author": "<LastNameOrUnknown>", "year": "<YYYY_or_0000>", "publisher": "<short_slug_or_Unknown>", "conf": "<high|medium|low>", "needs_ocr": <bool>, "note": "<brief>"}
+
+RULES:
+
+1. **keep** = false (stash) if filename clearly signals NON-ACADEMIC content:
+   - Personal/admin: BenoitDeBecker, EuropassCV, Becker (the channel owner's name), DeBecker, bank/invoice/transaction docs, ticket docs, addresses
+   - D&D / tabletop: GrimHollow, Drakkenheim, RappanAthuk, RimeOfTheFrostmaiden, DungeonsDragons, DungeonMaster, SebastianCrowe, Etharis, MonsterGrimoire, PlayersGuide, CampaignGuide (when paired with D&D-world names)
+   - Belgian/EU admin: Brugge, Klaprozenlaan, Ardennen, VTONVA, NVU, Studiefiche, Cultuurwetenschappen, FCSH, PASIC, MOOC, ESC, KreativUng, Solidarity programs, Wallonne, Hotton, Marche-en-Famenne
+   - Channel working drafts: any file from 2026 the channel owner wrote (NotesManhattan, Treaty drafts, ResearchPrompt, etc.)
+   - StuDocu summaries
+
+2. **keep** = true if filename signals ACADEMIC content:
+   - Named scholarly author + topical title (e.g. `DigestLawEvidence-Roscoe` = Henry Roscoe's *Digest of the Law of Evidence*)
+   - Known primary documents (legal codes, treaties, official bulletins, gazettes, ICJ judgments)
+   - Recognizable academic publishers (OUP, Cambridge, Brill, Springer, Palgrave, Routledge, Emory, ECtHR)
+   - Empty / error PDFs of CLEARLY-academic-named files: still keep=true and add note="EMPTY file, cannot ID"
+
+3. **topic** (if keep=true): pick best fit from {african-history, colonialism-slavery, crusades-christianity, general-history, middle-east-history, reference-methodology, territorial-disputes}.
+
+4. **topic** (if keep=false): `stash`
+
+5. **title, author, year, publisher**: parse from filename. If filename is informative, use it. If filename is generic, attempt identification from any named author/known-source signal. Use CamelCase title, LastName author, 4-digit year or "0000", short publisher slug or "Unknown".
+
+6. **conf**: high if filename clearly identifies the source (author + topical title); medium if recognizable but partial; low if guessing.
+
+7. **needs_ocr**: true if (keep=true AND conf=low AND filename is too generic to identify without reading the document). false otherwise. (Empty-file errors: needs_ocr=false, can't OCR.)
+
+8. **note**: ≤120 chars. Cite the filename signal that nailed the call, or the stash reason.
+
+OUTPUT 44 LINES OF JSONL, ONE PER INPUT BLOCK. NO PREAMBLE. NO MARKDOWN FENCES.
+
+=== INPUT BLOCKS BEGIN ===

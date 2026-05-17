@@ -1,0 +1,75 @@
+You are identifying academic books, journal articles, treaties, and primary
+documents from partial metadata + an excerpt of the first two pages of the
+PDF. For each entry below, search the web (Google Search grounding) to verify
+the work and return its full metadata.
+
+Each entry shows:
+  - The current filename (after prior parsing)
+  - Known fields: title slug, author surname, year, publisher
+  - 'Unknown' / '0000' = unresolved field
+  - A short excerpt from the first two pages of the PDF (may be empty if the
+    document is scanned image-only — proceed using the filename in that case)
+
+INSTRUCTIONS
+- Resolve EVERY missing field where you can find authoritative evidence.
+- Use Google Search grounding; cross-reference excerpt content + filename.
+- Do NOT guess. Mark UNRESOLVED if no high- or medium-confidence answer.
+- Confidence levels:
+    high   — primary source (publisher page, library catalogue, JSTOR)
+    medium — secondary source (Wikipedia, Google Books snippet)
+    low    — inference from excerpt only (rarely use; usually UNRESOLVED)
+- source_url is REQUIRED for any non-UNRESOLVED row.
+- publisher_abbrev MUST come from this list (use the closest match):
+  CambridgeUP, OxfordUP, YaleUP, PrincetonUP, ColumbiaUP, IndianaUP,
+  EdinburghUP, NYUPress, UCPress, JohnsHopkinsUP, HooverPress, PlutoPress,
+  Routledge, Palgrave, Bloomsbury, ITauris, HurstCo, ZedBooks, VersoBooks,
+  BasicBooks, RandomHouse, Penguin, Brill, Springer, DaCapo, FreePress,
+  Granta, WeidenfeldNicolson, CornellUP, StanfordUP, HarvardUP, LiverpoolUP,
+  MacmillanUK, NortonCo, HMSO, UN, ICJ, OECD, LHarmattan, Macmillan,
+  HoughtonMifflin, Serif.
+  If publisher is a journal article, use the journal abbreviation
+  (e.g. JModernHistory, IntlAffairs). If it is a government / IGO document,
+  use the issuer abbreviation (HMSO, UN, ICJ, FCO, etc.).
+
+OUTPUT
+Return a single markdown table with exactly these columns:
+
+| idx | title_slug | author_surname | year | publisher_abbrev | confidence | source_url |
+
+- idx: the integer from the entry header below.
+- title_slug: CamelCase, no spaces, no punctuation, ≤45 chars.
+- author_surname: surname only (e.g. Zinn, Akcam, Martinez — strip diacritics).
+- year: 4 digits, or 0000 if truly unknown.
+- All UNRESOLVED rows: put UNRESOLVED in every field except idx.
+
+Do NOT include any prose before or after the table.
+
+---
+
+ENTRIES:
+
+1. [african-history] AfricasLastColonialCurrency-Pigeaud-2023-Unknown.pdf
+   known: t=AfricasLastColonialCurrency | a=Pigeaud | y=2023 | p=Unknown
+   missing: publisher
+   excerpt: 'Africa’s Last Colonial Currency'
+
+2. [african-history] ColonialityOfPowerPostcolonialAfrica-Ndlovu-2016-Unknown.pdf
+   known: t=ColonialityOfPowerPostcolonialAfrica | a=Ndlovu | y=2016 | p=Unknown
+   missing: publisher
+   excerpt: 'Coloniality of Power in Postcolonial Africa'
+
+3. [african-history] ImperialismSovereigntyInternationalLaw-Anghie-2005-Unknown.pdf
+   known: t=ImperialismSovereigntyInternationalLaw | a=Anghie | y=2005 | p=Unknown
+   missing: publisher
+   excerpt: 'This page intentionally left blank'
+
+4. [african-history] SahelCognitiveMapping-Idrissa-2017-Unknown.pdf
+   known: t=SahelCognitiveMapping | a=Idrissa | y=2017 | p=Unknown
+   missing: publisher
+   excerpt: 'new left review 132 nov dec 2021 5\nrahmane idrissa\n THE SAHEL: \nA COGNITIVE MAPPING\nA \nfeature of the Western ‘war on terror’ that seems to \ncome out of fable rather than reality is an inability to see \nthe enemy. In fact, it is an inability to define the enemy. In \nthe Sahel, the French state has settled on ‘Islamist terror-\nists’, a sequence of adjectives that denote elusive subjects surging out \nof horizons of pure violence. The inability is compounded by the fact \nthat terrorists must be picked out in terrains unknowable to the West, \nbecause the West has long considered them—still considers them—to \nbe outside of history: Afghanistan, a redoubt against empires, those \nmakers of history; the Sahel, a land somewhere in the continent that \nHegel banished from history. \nThe name ‘Sahel’ speaks of nature rather than history. If capitalism is \nthe driving force of modern history, students of the Sahel habitually \ndescribe it as the place where capitalism met its nemesis: intractable \nnatural duress, and the weight of a culture so immobile that it is indis-\ntinguishable from nature and does not seem prone to melting into air. \nThe Sahel traumatized Finn Fuglestad, a Norwegian historian who went \nto Niger in the late 1960s to write the history of a new African nation-\nstate for his dissertation and came out of it convinced that Africans can \nnever be part of the modern story of progress via Wille zur Macht over \nnature and matter. It was during these years that the terrible natu'
+
+5. [african-history] Unknown-Unknown-0000-Unknown.pdf
+   known: t=Unknown | a=Unknown | y=0000 | p=Unknown
+   missing: title,author,year,publisher
+   excerpt: "Source gallica.bnf.fr / Ministère des Affaires étrangères\nBulletin officiel de l'État\nindépendant du Congo\n---PAGE---\nCongo (République démocratique). Auteur du texte. Bulletin\nofficiel de l'État indépendant du Congo. 1892-01-01.\n1/ Les contenus accessibles sur le site Gallica sont pour la plupart des reproductions numériques d'oeuvres tombées\ndans le domaine public provenant des collections de la BnF. Leur réutilisation s'inscrit dans le cadre de la loi n°78-\n753 du 17 juillet 1978 :\n - La réutilisation non commerciale de ces contenus ou dans le cadre d’une publication académique ou scientifique\nest libre et gratuite dans le respect de la législation en vigueur et notamment du maintien de la mention de source\ndes contenus telle que précisée ci-après : « Source gallica.bnf.fr / Bibliothèque nationale de France » ou « Source\ngallica.bnf.fr / BnF ».\n - La réutilisation commerciale de ces contenus est payante et fait l'objet d'une licence. Est entendue par réutilisation\ncommerciale la revente de contenus sous forme de produits élaborés ou de fourniture de service ou toute autre\nréutilisation des contenus générant directement des revenus : publication vendue (à l’exception des ouvrages\nacadémiques ou scientifiques), une exposition, une production audiovisuelle, un service ou un produit payant, un\nsupport à vocation promotionnelle etc.\nCLIQUER ICI POUR ACCÉDER AUX TARIFS ET À LA LICENCE\n2/ Les contenus de Gallica sont la propriété de la BnF au sens de l'article L.2112-1 du code gé"
+

@@ -1,0 +1,209 @@
+You are identifying correct publication metadata for academic library files.
+
+For each file listed below, provide the correct YEAR and PUBLISHER.
+Rules:
+- Publisher = real academic publisher (NOT download source like ZLib, Libgen, AnnaArchive, z-library, 1lib)
+- For primary source documents (treaties, acts, speeches, court decisions, government reports): publisher = issuing institution (e.g. "United Nations", "US Congress", "ICJ", "League of Nations")
+- For journal articles: publisher = journal name (e.g. "Journal of African History")
+- For books: publisher = academic press (e.g. "Oxford University Press", "Harvard University Press", "Cambridge University Press")
+- If you cannot determine with high confidence: y="0000" and/or p="Unknown"
+- Use your training knowledge and Google Search to verify
+
+Return ONLY a JSON array (no markdown fences, no explanation):
+[{{"f": "original_filename.pdf", "y": "YYYY", "p": "Publisher"}}]
+
+Files (current known metadata: a=author, y=year, t=short_title):
+a=Unknown y=0000 t=AnitaShapiraIsraelHistory | [The Schusterman Series in Israel Studies] Anita Shapira - Israel- A History (2012, Brandeis).pdf
+a=Unknown y=1914 t=LineSandAngloFrenchStruggleMiddleEast19141948 | A line in the sand the Anglo-French struggle for the Middle East, 1914-1948 (James Barr).pdf
+a=Unknown y=0000 t=SocialRevolutionPoliticsWelfareStateIranZLibrary | A Social Revolution Politics and the Welfare State in Iran (Kevan Harris) (Z-Library).pdf
+a=Kinzer y=0000 t=AllShahsMenAmericanCoupRootsMiddleEastTerrorZLibrary | All the Shahs Men - An American Coup and the Roots of Middle East Terror (Wiley, 2003) (Stephen Kinzer) (Z-Library).pdf
+a=Barr y=2011 t=LineSand | Barr - A Line in the Sand (2011).pdf
+a=Unknown y=0000 t=BazaarStateIranPoliticsTehranMarketplaceZLibrary | Bazaar and State in Iran The Politics of the Tehran Marketplace (Arang Keshavarzian) (Z-Library).pdf
+a=Unknown y=1953 t=Behind1953CoupIranThugsTurncoatsSoldiersSpooksZLibrary | Behind the 1953 Coup in Iran Thugs, Turncoats, Soldiers, and Spooks (Ali Rahnema) (Z-Library).pdf
+a=Chomsky y=1999 t=FatefulTriangleIsraelPalestine | Chomsky - Fateful Triangle US Israel Palestine (1999).pdf
+a=Chomsky y=1983 t=FatefulTriangleIsraelPalestinians | Chomsky - Fateful Triangle US Israel Palestinians (1983).pdf
+a=Unknown y=1981 t=CountercoupStruggleControlIranRooseveltKermitMcgrawHillPaperbacksPoliticalScienceNewYork1981McgrawHill97800705359093fb44404676045763be875b6f0b61ad1AnnaSArchive | Countercoup _ the struggle for the control of Iran -- Roosevelt, Kermit -- McGraw-Hill paperbacks_ Political science, New York, 1981 -- McGraw Hill -- 9780070535909 -- 3fb44404676045763be875b6f0b61ad1 -- Anna’s Archive.pdf
+a=Unknown y=0000 t=UnknownTitle | crane2020.pdf
+a=Dershowitz y=2011 t=CaseIsrael | Dershowitz - The Case for Israel (2011).pdf
+a=Unknown y=0000 t=UnknownTitle | Dialnet-UnSigloDeLaDeclaracionBalfourUnaAproximacionHeuris-6361707.pdf
+a=Chaudhry y=0000 t=DomesticViolenceIslamicTradition | Domestic Violence and the Islamic Tradition (Ayesha S. Chaudhry) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Doumani y=1995 t=RediscoveringPalestine | Doumani - Rediscovering Palestine (1995).pdf
+a=mercantilism y=1550 t=15501750JonathanIrvineIsraelOxfordNewYorkEngland1985OxfordClarendonPressNew9780198219286Eee01a986140704f2815f683e26eaeb0AnnaSArchive | European Jewry in the age of mercantilism - 1550-1750 -- Jonathan Irvine Israel -- Oxford, New York, England, 1985 -- Oxford- Clarendon Press ; New -- 9780198219286 -- eee01a986140704f2815f683e26eaeb0 -- Anna’s Archive.pdf
+a=Unknown y=0000 t=FatefulTriangleUnitedStatesIsraelPalestiniansNoamChomskyZLibrary | Fateful-Triangle-The-United-States--Israel--and-the-Palestinians--Noam-Chomsky---Z-Library-.pdf
+a=Finkelstein y=2016 t=ImageRealityIsraelPalestineConflict | Finkelstein - Image and Reality Israel-Palestine Conflict (2016).pdf
+a=Finkelstein y=2003 t=ImageRealityIsraelPalestineConflict | Finkelstein - Image and Reality of the Israel-Palestine Conflict (2003).pdf
+a=Unknown y=2016 t=FinkelsteinNormanImageRealityIsraelPalestineConflict2016VersoBooksLibgen | Finkelstein--Norman-Image-and-Reality-of-the-Israel-Palestine-Conflict--2016--Verso-Books--libgen.pdf
+a=Golan y=0000 t=SovietUnionPalestineLiberationOrganizationUneasyAlliance | Galia Golan - The Soviet Union And The Palestine Liberation Organization- An Uneasy Alliance (1980, Praeger).pdf
+a=Geissinger y=0000 t=GenderMuslimConstructionsExegeticalAuthority101163978004294448LibgenLi | Geissinger, Aisha - Gender and Muslim Constructions of Exegetical Authority __ (2015, BRILL) [10.1163_978004294448] - libgen.li.pdf
+a=Goçek y=2014 t=DenialViolenceArmenianGenocide | Goçek - Denial of Violence Armenian Genocide (2014).pdf
+a=Golan y=1990 t=SovietPoliciesMiddleEast | Golan - Soviet Policies in Middle East (1990).pdf
+a=Golan y=1980 t=SovietUnionPlo | Golan - Soviet Union and PLO (1980).pdf
+a=History y=0000 t=CyprusOttomansKissingerChristopherHitchens | Hostage to History - Cyprus from the Ottomans to Kissinger -- Christopher Hitchens.pdf
+a=Kennedy y=0000 t=GreatArabConquestsSpreadIslamChangedWorldLive | Hugh Kennedy - The Great Arab Conquests- How the Spread of Islam Changed the World We Live In (2008, Da Capo Press).pdf
+a=Pappe y=0000 t=EthnicCleansingPalestine | Ilan Pappe - The Ethnic Cleansing of Palestine (2006, Oneworld).pdf
+a=Unknown y=0000 t=IranBetweenTwoRevolutionsZLibrary | Iran Between Two Revolutions (Eric Davis Ervand Abrahamian) (Z-Library).pdf
+a=Unknown y=0000 t=UnknownTitle | isbn_9780739478189 (Unknown) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=(editor) y=0000 t=IslamicInterpretiveTraditionGenderJusticeProcessesCanonizationSubversionChange | Islamic Interpretive Tradition and Gender Justice Processes of Canonization Subversion and Change (Nevin Reda (editor) Yasmin Amin (editor)) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Israel y=2015 t=HistoryAnitaShapiraAnthonyBerrisWNPaperbackPaperbackEditionLondon2015WeidenfeldNicolson9781780227399675a2a02dfdf24bad435035d17c30848AnnaSArchive | Israel - a history -- Anita Shapira; Anthony Berris -- W & N paperback, Paperback edition, London, 2015 -- Weidenfeld & Nicolson -- 9781780227399 -- 675a2a02dfdf24bad435035d17c30848 -- Anna’s Archive.pdf
+a=Kagan y=0000 t=ModernIran10129879780300194739LibgenLi | Jerome Kagan - Modern Iran (2018, Yale University Press) [10.12987_9780300194739] - libgen.li.pdf
+a=Unknown y=0000 t=UnknownTitle | Journal_of_the_Executive_Proceedings_of - converted.pdf
+a=Unknown y=0000 t=UnknownTitle | Journal_of_the_Executive_Proceedings_of.pdf
+a=Stein y=1917 t=LandQuestionPalestine19171939 | Kenneth W. Stein - The Land Question in Palestine, 1917-1939 (1987, The University of North Carolina Press).pdf
+a=Unknown y=0000 t=UnknownTitle | Lines-Drawn-on-an-Empty-Map-Iraq-s-Borde.pdf
+a=Byrne y=2014 t=IranContraReagansScandalUncheckedAbusePresidentialPower | Malcolm Byrne - Iran-Contra_ Reagan's Scandal and the Unchecked Abuse of Presidential Power (2014, University Press of Kansas) - libgen.li.pdf
+a=Vickers y=0000 t=BetweenSerbAlbanianHistoryKosovo | Miranda Vickers - Between Serb and Albanian- A History of Kosovo (1998, Columbia University Press).pdf
+a=Unknown y=1953 t=MohammadMosaddeq1953CoupIranZLibrary | Mohammad Mosaddeq and the 1953 Coup in Iran (Mark J. Gasiorowski and Malcolm Byrne (eds.)) (Z-Library).pdf
+a=Morris y=2004 t=BirthPalestinianRefugeeProblem | Morris - Birth of Palestinian Refugee Problem (2004).pdf
+a=Majul y=0000 t=MuslimsPhilippines | Muslims in the Philippines (Cesar A. Majul) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Cohn y=0000 t=WarrantGenocideMythJewishWorldConspiracyProtocolsEldersZion | Norman Cohn - Warrant for Genocide- The Myth of the Jewish World Conspiracy and the Protocols of the Elders of Zion (2005, Serif).pdf
+a=Hallaq y=0000 t=OriginsEvolutionIslamicLaw | Origins and Evolution of Islamic Law (Wael B. Hallaq) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Palestine y=0000 t=RediscoveringPalestine | Palestine - Rediscovering Palestine (n.d.).pdf
+a=Pappe y=2006 t=EthnicCleansingPalestine | Pappe - The Ethnic Cleansing of Palestine (2006).pdf
+a=Pappé y=2011 t=EthnicCleansingPalestine | Pappé - The Ethnic Cleansing of Palestine (2011).pdf
+a=Wadud y=0000 t=QuranWomanRereadingSacredTextWomansPerspective | Quran and Woman Rereading the Sacred Text from a Womans Perspective (Amina Wadud) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=2011 t=RoutledgeRevivalsFrancescoGabrieliArabHistoriansCrusades2011RoutledgeLibgenLi | Routledge-Revivals--Francesco-Gabrieli-Arab-Historians-of-the-Crusades--2011--Routledge--libgen.li.pdf
+a=Said y=2015 t=QuestionPalestine | Said - The Question of Palestine (2015).pdf
+a=Sayigh y=1997 t=ArmedStruggleSearchStatePalestinianMovement | Sayigh - Armed Struggle and Search for State Palestinian Movement (1997).pdf
+a=Schneer y=2010 t=BalfourDeclaration | Schneer - The Balfour Declaration (2010).pdf
+a=Shlaim y=1997 t=ColdWarMiddleEast | Shlaim - Cold War and Middle East (1997).pdf
+a=Smith y=2020 t=PalestineArabIsraeliConflict | Smith - Palestine and the Arab-Israeli Conflict (2020).pdf
+a=Smith y=0000 t=PalestineArabIsraeliConflict | Smith, Charles D - Palestine and the Arab-Israeli Conflict (2016, Bedford-St. Martin's).pdf
+a=Stein y=1987 t=LandQuestionPalestine19171939 | Stein - Land Question in Palestine 1917-1939 (1987).pdf
+a=Stillman y=1979 t=JewsArabLands | Stillman - The Jews of Arab Lands (1979).pdf
+a=Unknown y=2018 t=TalatPashasTelegramsArmenianGenocideKillingOrders | Talat-Pashas Telegrams Armenian Genocide Killing Orders (2018).pdf
+a=Akçam y=0000 t=YoungTurksCrimeAgainstHumanityArmenianGenocideEthnicCleansingOttomanEmpire | Taner Akçam - The Young Turks' Crime Against Humanity- The Armenian Genocide and Ethnic Cleansing in the Ottoman Empire (2012, PrincetonUP).pdf
+a=Lambert y=0000 t=BarbaryWarsAmericanIndependenceAtlanticWorld | The Barbary Wars American Independence in the Atlantic World (Frank Lambert) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Lambert y=0000 t=BarbaryWarsAmericanIndependenceAtlanticWorld | The Barbary wars American independence in the Atlantic world (Lambert, Frank, 1943-) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t=CaseIsrael | The Case for Israel (Alan Dershowitz).pdf
+a=lands y=0000 t=HistorySourceBookNormanStillmanMazalHolocaustCollection | The Jews of Arab lands - a history and source book -- Norman A Stillman; Mazal Holocaust Collection.pdf
+a=Haselby y=0000 t=OriginsAmericanReligiousNationalism | The Origins of American Religious Nationalism (Sam Haselby) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t=ParanoidApocalypseHundredYearRetrospectiveProtocolsEldersZion | The Paranoid Apocalypse A Hundred-Year Retrospective on the Protocols of the Elders of Zion (Steven T. Katz).pdf
+a=Unknown y=0000 t=PlotSecretStoryProtocolsEldersZion | The Plot. The secret story of The Protocols of the Elders of Zion (Will Eisner).pdf
+a=Unknown y=0000 t=QuestionPalestine | The Question of Palestine (Edward W. Said).pdf
+a=Spellberg y=0000 t=ThomasJeffersonsQuranIslamFounders | Thomas Jeffersons Quran Islam and the Founders (Denise A. Spellberg) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Spellberg y=0000 t=ThomasJeffersonsQuranIslamFounders | Thomas Jeffersons Quran Islam and the founders (Spellberg, Denise A) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=UnitedStates y=1776 t=TreatiesOtherInternationalAgreementsUnitedStatesAmerica17761949 | Treaties and other international agreements of the United States of America, 1776-1949 (United States, Bevans etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t=UnknownTitle | Treaties_and_Other_International_Acts_of - converted.pdf
+a=Unknown y=0000 t=UnknownTitle | Treaties_and_Other_International_Acts_of.pdf
+a=Unknown y=0000 t=UnknownTitle | tripoli miller - converted.pdf
+a=Unknown y=0000 t=UnknownTitle | tripoli miller.pdf
+a=Unknown y=0000 t=UnknownTitle | uc1-c109288496-258-1777078898.pdf
+a=Unknown y=0000 t=HeraclitusIran | Unknown - Heraclitus and Iran (n.d.).pdf
+a=Unknown y=0000 t=LinesDrawnEmptyMapIraqBorders | Unknown - Lines Drawn on Empty Map Iraq Borders (n.d.).pdf
+a=Unknown y=2014 t=UpdatedExpandedAviShlaimIronWallIsraelArabWorld2014WW | Updated-and-Expanded--Avi-Shlaim-The-Iron-Wall--Israel-and-the-Arab-World--2014--W.-W.pdf
+a=Unknown y=1949 t=YazDYighInstitutePalestineStudiesArmedStruggleSearchStatePalestinianNationalMovement194919931997ClarendonPress | Yazīd Ṣāyigh, Institute for Palestine Studies (Washington, D.C.) - Armed struggle and the search for state- the Palestinian national movement, 1949-1993 (1997, Clarendon Press).pdf
+a=Unknown y=0000 t= | 04-The-Sabah-Question-in-International-Law-Judge-Frank-E.-Lobrigo-ret..pdf
+a=Unknown y=0000 t= | 07_Aloysius-Nyuymengka-Ngalim_DOI.pdf
+a=Unknown y=0000 t= | 094-20021010-JUD-01-00-EN.pdf
+a=Unknown y=0000 t= | 094-20021010-JUD-01-04-EN.pdf
+a=Unknown y=0000 t= | 094-20021010-JUD-01-07-EN.pdf
+a=Unknown y=0000 t= | 13803.pdf
+a=Unknown y=0000 t= | 18.3anyuBakassi1.pdf
+a=Unknown y=0000 t= | 185-20221116-APP-01-00-EN.pdf
+a=Unknown y=0000 t= | 185-20231211-pre-01-00-en.pdf
+a=Unknown y=0000 t= | 185-20260319-ord-01-00-en.pdf
+a=Unknown y=0000 t= | 8-Nigeria-and-Cameroon-The-Bakassi-Dispute-J.-Ezeilo.pdf
+a=Unknown y=0000 t= | A concise history of the Armenian people - (from ancient - Bournoutian, George A- - 5th ed-, completely rev, Costa Mesa, Calif, 2006 - Costa Mesa, - 9781568591414 - deec582c44665c21a491fef124cd716a - Anna’s Archive-compre-1.pdf
+a=Unknown y=0000 t= | A history of modern Sabah (North Borneo, 1881-1963) (Tregonning, K. G) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | Akak, Eyo Okon - Who Owns Bakassi_ = Anie Enyene Bakassi_ _ A Critique of 1885-1913 Anglo-German Treaties and 1975 Gowon-Ahidjo Accord in Nigeri (1999, Calabar_ The Author) - libgen.li.pdf
+a=Unknown y=0000 t= | Altstadt - The Azerbaijani Turks Power and Identity (1992).pdf
+a=Unknown y=0000 t= | anglo german agreement 1913.pdf
+a=Unknown y=0000 t= | annas-arch-10dc1427d358.pdf
+a=Unknown y=0000 t= | ansfer of power 3 june.pdf
+a=Unknown y=0000 t= | Audrey L. Altstadt - The Azerbaijani Turks- Power and Identity under Russian Rule (Hoover Institution Press Publication) (1992, Hoover Institution Press).pdf
+a=Unknown y=0000 t= | A_Complete_Collection_of_the_Treaties_an.pdf
+a=Unknown y=0000 t= | bakass.pdf
+a=Unknown y=0000 t= | Bakassi Or the Politics of Exclusion and Occupation (Fongot Kini-Yen Kinni) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | bakassi_greentree_agreement_2006.pdf
+a=Unknown y=0000 t= | Beyond the Lines An Autobiography (Kuldip Nayar) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | Braveboy-wagner - The Venezuela-Guyana Border Dispute (2019).pdf
+a=Unknown y=0000 t= | Braveboy-Wagner - Venezuela-Guyana Border Dispute (1984).pdf
+a=Unknown y=0000 t= | British Policy in Persia, 1918-1925 (Houshang Sabahi) (Z-Library).pdf
+a=Unknown y=0000 t= | Broers - Armenia and Azerbaijan Anatomy of Rivalry (2019).pdf
+a=Unknown y=0000 t= | Chrimes - Guatemalas Claim to Belize (2019).pdf
+a=Unknown y=0000 t= | Chrimes - Guatemalas claim to Belize the definitive history [international edition] (n.d.).pdf
+a=Unknown y=0000 t= | Cyprus - A Modern History -- William Mallinson -- Bloomsbury UK, London, 2005 -- I-B- Tauris ; Distributed in the USA by Palgrave Macmillan -- 9780857711908 -- 8c1c5944e098afddd3ce0fa31629b95b -- Anna’s Archive.pdf
+a=Unknown y=0000 t= | Cyprus - A Modern History- - Mallinson, William.pdf
+a=Unknown y=0000 t= | Doudaki - Cyprus and Its Conflicts (2017).pdf
+a=Unknown y=0000 t= | eji talk.pdf
+a=Unknown y=0000 t= | Fatma Müge Göçek - Denial of Violence- Ottoman Past, Turkish Present, and Collective Violence Against the Armenians, 1789-2009 (2014, Oxford University Press, USA).pdf
+a=Unknown y=0000 t= | gazette philisiphins.pdf
+a=Unknown y=0000 t= | GrantBySultanOfSuluOfTerritoriesAndLandsOnTheMainlandOfTheIslandOfBorneo.pdf
+a=Unknown y=0000 t= | Guatemalas claim to Belize the definitive history [international edition] (Chrimes, Philip).pdf
+a=Unknown y=0000 t= | Hammond - Framing post-Cold War conflicts (2018).pdf
+a=Unknown y=0000 t= | Hammond, Phil- Herman, Edward S - Degraded capability- the media and the Kosovo crisis (2000, Pluto Press).pdf
+a=Unknown y=0000 t= | History of New Netherland or, New York under the Dutch (Edmund Bailey OCallaghan) (z-library.sk, 1lib.sk, z-lib.sk)-1 - converted.pdf
+a=Unknown y=0000 t= | Hitchens - Hostage to History Cyprus (1997).pdf
+a=Unknown y=0000 t= | honuras constitution.pdf
+a=Unknown y=0000 t= | Hostage to History - Cyprus from the Ottomans to Kissinger- - Christopher Hitchens.pdf
+a=Unknown y=0000 t= | ibs008.pdf
+a=Unknown y=0000 t= | Implications_of_the_Bakassi_conflict_res.pdf
+a=Unknown y=0000 t= | In Search of Maya Sea Traders (Heather McKillop) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | INCOMPLETE PARTITION THE GENESIS OF THE KASHMIR DISPUTE 1947-1948 (ALASTAIR LAMB, Lamb, Alastair etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | indiatransferofp12nich.pdf
+a=Unknown y=0000 t= | Jinnah of Pakistan (Stanley Wolpert) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | JLCVol.2No.2-1.pdf
+a=Unknown y=0000 t= | Judah - Kosovo War and Revenge (2002).pdf
+a=Unknown y=0000 t= | Julie A. Mertus - Kosovo- How Myths and Truths Started a War (2020, University of California Press) [10.1525-9780520341579].pdf
+a=Unknown y=0000 t= | Kasetsiri - Preah Vihear Thai-Cambodian Conflict (2013).pdf
+a=Unknown y=0000 t= | Kosovo - War and Revenge -- Tim Judah -- New Haven, Conn, 2000 -- Yale University Press -- 9780300083132 -- 02f41ebf6523dcb04f93a86ce54ddc7e -- Anna’s Archive.pdf
+a=Unknown y=0000 t= | Kosovo - War and Revenge- - Tim Judah.pdf
+a=Unknown y=0000 t= | land demarcation.pdf
+a=Unknown y=0000 t= | Laurence Broers - Armenia and Azerbaijan- (Anatomy of a Rivalry) (2019, Edinburgh University Press).pdf
+a=Unknown y=0000 t= | LD2668T41966H557.pdf
+a=Unknown y=0000 t= | letter fixed replica.pdf
+a=Unknown y=0000 t= | Liberty or death Indias journey to independence and division (French, Patrick) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | Malcolm--Noel-Kosovo--a-short-history--1998--New-York---New-York-University-Press--libgen.li.pdf
+a=Unknown y=0000 t= | Manila_Accord_(31_July_1963).pdf
+a=Unknown y=0000 t= | Miranda Vickers - Between Serb and Albanian- A History of Kosovo (1998, Columbia University Press).pdf
+a=Unknown y=0000 t= | Muslims in the Philippines (Cesar A. Majul) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | news.pdf
+a=Unknown y=0000 t= | Partition of India - Demographic Impacts June 2009.pdf
+a=Unknown y=0000 t= | partition-of-british-india.pdf
+a=Unknown y=0000 t= | Pawakapan - Thailand at Temple of Preah Vihear (2013).pdf
+a=Unknown y=0000 t= | Philippine DFA Press Briefing — February 20, 2026.pdf
+a=Unknown y=0000 t= | PHL_1968_Act.pdf
+a=Unknown y=0000 t= | Powerful Persuasions The Language of Property and Politics in Sabah, Malaysia (North Borneo), 1881–1996 (DOOLITTLE, AMITY A) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | Radcliffe-Report_of_the_Punjab_Boundary_Commission-1947.pdf
+a=Unknown y=0000 t= | Remembering Partition Violence, Nationalism and History in India (Gyanendra Pandey) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | Report_of_the_Commission_of_Enquiry_North_Borneo_&_Sarawak.pdf
+a=Unknown y=0000 t= | Ronald Grigor Suny - Looking Toward Ararat- Armenia In Modern History (1993, Indiana University Press).pdf
+a=Unknown y=0000 t= | Select Documents on Partition of Punjab-1947 India and Pakistan (Revised and Enlarged Edition) (Kirapāla Siṅgha) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | Senate passes Maritime Zones Act for economic, environmental security.pdf
+a=Unknown y=0000 t= | Stateless in Bakassi How a Changed Border Left Inhabitants Adrift.pdf
+a=Unknown y=0000 t= | Strate - Lost Territories Thailands History (2015).pdf
+a=Unknown y=0000 t= | Sulu & Sabah - Nicholas Tarling.pdf
+a=Unknown y=0000 t= | Suny - Looking Toward Ararat Armenia in Modern History (1993).pdf
+a=Unknown y=0000 t= | Talat-Pasha’s-Telegrams---The-Armenian-Genocide-Killing-Orders--2018--libgen.li.pdf
+a=Unknown y=0000 t= | Taner Akçam - The Young Turks' Crime Against Humanity- The Armenian Genocide and Ethnic Cleansing in the Ottoman Empire (2012, PrincetonUP).pdf
+a=Unknown y=0000 t= | the anglophone connection.pdf
+a=Unknown y=0000 t= | The Cameroon-Nigeria Border Dispute. Management and Resolution, 1981-2011 Management and Resolution, 1981-2011 (Hilary V. Lukong) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | The Cyprus Problem- What Everyone Needs to Know(r).pdf
+a=Unknown y=0000 t= | The dimensions of conflict in Southeast Asia (Gordon, Bernard K., 1932- . cn) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | The Formation of a Colonial Society- Belize, From Conquest -- Professor O- Nigel Bolland -- Johns Hopkins studies in Atlantic history and culture, -- 9780801818875 -- 5be003a10c9bf724983c3061e4b8c6af -- Anna’s Archive.pdf
+a=Unknown y=0000 t= | The Great Partition The Making of India and Pakistan, New Edition (Yasmin Khan) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | The Indus Rivers a study of the effects of partition (Aloys Arthur Michel) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | The international boundaries of Nigeria, 1885-1960 the framework of an emergent African nation (Anene, Joseph C) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | The Memoirs Of Lord Ismay ( etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | The New Cambridge History of India, Volume 3, Part 4 Ideologies of the Raj (Thomas R. Metcalf) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | The Partition of the Punjab, 1947 A Compilation of Official Documents (Volume 1 of 4) ( etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | The Venezuela-Guyana Border Dispute Britains Colonial Legacy in Latin America (Jacqueline A Braveboy-Wagner).pdf
+a=Unknown y=0000 t= | Thomas de Waal - Black Garden- Armenia and Azerbaijan through Peace and War (2013, NYU Press).pdf
+a=Unknown y=0000 t= | Tim Judah - Kosovo- War and Revenge (2002, Yale University Press).pdf
+a=Unknown y=0000 t= | Transfer of authority over Bakassi.pdf
+a=Unknown y=0000 t= | Treaty of Pereyaslav 1654 (Historical Document).pdf
+a=Unknown y=0000 t= | ukpga_19470030_en.pdf
+a=Unknown y=0000 t= | UN Meetings Coverage  ICJ press release on judgment.pdf
+a=Unknown y=0000 t= | unclos_e.pdf
+a=Unknown y=0000 t= | Under Chartered Company Rule - K. G. Tregonning.pdf
+a=Unknown y=0000 t= | urn_cambridge.org_id_binary_20170213065910831-0374_S0026749X99003066_S0026749X9900306Xa.pdf
+a=Unknown y=0000 t= | Vaia Doudaki - Cyprus and Its Conflicts Representations, Materialities, and Cultures (n.d.).pdf
+a=Unknown y=0000 t= | Vickers - Between Serb and Albanian History of Kosovo (1998).pdf
+a=Unknown y=0000 t= | Who Owns Bakassi = Anie Enyene Bakassi A Critique of 1885-1913 Anglo-German Treaties and 1975 Gowon-Ahidjo Accord in… (Akak, Eyo Okon) (z-library.sk, 1lib.sk, z-lib.sk)-1 - converted.pdf
+a=Unknown y=0000 t= | Who Owns Bakassi = Anie Enyene Bakassi A Critique of 1885-1913 Anglo-German Treaties and 1975 Gowon-Ahidjo Accord in… (Akak, Eyo Okon) (z-library.sk, 1lib.sk, z-lib.sk)-1.pdf
+a=Unknown y=0000 t= | Who Owns Bakassi = Anie Enyene Bakassi A Critique of 1885-1913 Anglo-German Treaties and 1975 Gowon-Ahidjo Accord in… (Akak, Eyo Okon) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t= | wright1966.pdf
+a=Unknown y=0000 t= | [Byzantine and Modern Greek Studies vol. 37 iss. 1] Faustmann, Hubert - James Ker-Lindsay, The Cyprus Problem. What Everyone Needs to Know. Oxford- Oxford University Press, 2011. Pp. 125. (2013) [10.1017-S030701310000673X.pdf
+a=Unknown y=0000 t= | [Cambridge Latin American Studies 120 2020-jun 18] Gibbings, Julie - Our Time is Now- Race and Modernity in Postcolonial Guatemala (2020, Cambridge University Press) [10.1017-9781108774048].pdf
+a=Unknown y=0000 t= | [P3] Cordoba-Agreement-2006.pdf
+a=Unknown y=0000 t= | [Studies of the Americas] Assad Shoman - Belize's Independence and Decolonization in Latin America_ Guatemala, Britain, and the UN (Studies of the Americas) (2010, Palgrave Macmillan) - libgen.li.pdf

@@ -1,0 +1,185 @@
+You are identifying correct publication metadata for academic library files.
+
+For each file listed below, provide the correct YEAR and PUBLISHER.
+Rules:
+- Publisher = real academic publisher (NOT download source like ZLib, Libgen, AnnaArchive, z-library, 1lib)
+- For primary source documents (treaties, acts, speeches, court decisions, government reports): publisher = issuing institution (e.g. "United Nations", "US Congress", "ICJ", "League of Nations")
+- For journal articles: publisher = journal name (e.g. "Journal of African History")
+- For books: publisher = academic press (e.g. "Oxford University Press", "Harvard University Press", "Cambridge University Press")
+- If you cannot determine with high confidence: y="0000" and/or p="Unknown"
+- Use your training knowledge and Google Search to verify
+
+Return ONLY a JSON array (no markdown fences, no explanation):
+[{{"f": "original_filename.pdf", "y": "YYYY", "p": "Publisher"}}]
+
+Files (current known metadata: a=author, y=year, t=short_title):
+a=Unknown y=0000 t=InfantChildBurialRitesRomanBritain | infant-and-child-burial-rites-in-roman-britain-a-study-from-east-yorkshire.pdf
+a=Unknown y=0000 t=InfanticideSacrificesArchaicBabies | Infanticide-and-Sacrifices-among-Archaic-Babies-of-1.pdf
+a=Unknown y=0000 t=InfanticideSacrificesArchaicBabies | Infanticide-and-Sacrifices-among-Archaic-Babies-of.pdf
+a=Unknown y=2017 t=BasicFactsUnitedNations | Information - Basic Facts about the United Nations (2017) (1).pdf
+a=Unknown y=2017 t=BasicFactsUnitedNations | Information - Basic Facts about the United Nations (2017).pdf
+a=Ingrao y=2013 t=ConfrontingYugoslavControversies | Ingrao - Confronting the Yugoslav Controversies (2013).pdf
+a=Urton y=0000 t=InkaHistoryKhipus | Inka History in Knots Reading Khipus as Primary Sources (Gary Urton).pdf
+a=Unknown y=0000 t=ReportSuperintendentPublicInstruction | Instruction - Report of the Superintendent of Public Instruction of the State of New York (n.d.).pdf
+a=Unknown y=0000 t=BalkanStrategyEntenteCentralPowers | inter- - the dire necessities of Balkan strategy for the Entente as the Central Powers bore down on the area. (n.d.).pdf
+a=Anttiroiko y=0000 t=InternationalPolicyStudies | International Journal of Policy Studies 10(1) - Ari-Veikko Anttiroiko (n.d.).pdf
+a=Fallaci y=1976 t=InterviewHistory | Interview with history- A superlative journalist's portraits -- Oriana Fallaci; translated by John Shepley -- 1st ed-, New York, New York State, 1976 -- 9780871405906 -- 80beb4827c3e94896bd60097fa9d1969 -- Anna’s Archive.pdf
+a=Unknown y=0000 t=ZichtrekeningInvest | Invest - Zichtrekening Invest (n.d.) (1) (2).pdf
+a=Unknown y=0000 t=ZichtrekeningInvest | Invest - Zichtrekening Invest (n.d.) (1).pdf
+a=Unknown y=0000 t=ZichtrekeningInvest | Invest - Zichtrekening Invest (n.d.).pdf
+a=Kotoulas y=0000 t=HistoricalImage | Ioannis_E_Kotoulas_The_Historical_Image.pdf
+a=Pacepa y=2013 t=Disinformation | Ion Mihai Pacepa - Disinformation (2013).pdf
+a=Irving y=2012 t=LeilaKhaled | Irving - Leila Khaled (2012).pdf
+a=Ishay y=2008 t=HistoryHumanRights | Ishay - The History of Human Rights (2008).pdf
+a=Vine y=0000 t=IslandShameDiegoGarcia | Island of Shame The Secret History of the U.S. Military Base on Diego Garcia (David Vine) (Z-Library).pdf
+a=Shapira y=2015 t=IsraelHistory | Israel - a history -- Anita Shapira; Anthony Berris -- W & N paperback, Paperback edition, London, 2015 -- Weidenfeld & Nicolson -- 9781780227399 -- 675a2a02dfdf24bad435035d17c30848 -- Anna’s Archive.pdf
+a=Israel y=1989 t=EuropeanJewryMercantilism | Israel - European Jewry in the Age of Mercantilism, 1550-1750 (1989).pdf
+a=Carter y=2024 t=PlayersHandbook | Jenica Carter, Judy Bauer, Adrian Ng, F. Wesley Schneider - Player's Handbook 5-5e (2024, Wizards of the coast) - libgen.li_compressed.pdf
+a=Carter y=2024 t=PlayersHandbook | Jenica Carter, Judy Bauer, Adrian Ng, F. Wesley Schneider - Player's Handbook 5-5e (2024, Wizards of the coast) - libgen.li.pdf
+a=Jensen y=2005 t=WesternSahara | Jensen - Western Sahara (2005).pdf
+a=Jesch y=1991 t=WomenVikingAge | Jesch - Women in the Viking Age (1991).pdf
+a=Poznanski y=0000 t=JewsFranceWWII | Jews in France during World War II (Poznanski, Renée) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=1941 t=JODEFDocument | JODEF_19410614_164.pdf
+a=Joly y=2002 t=DialogueMachiavelliMontesquieu | Joly - The Dialogue in Hell between Machiavelli and Montesquieu (2002).pdf
+a=Jones y=2000 t=NewInternationalBusinessEnglish | Jones - New International Business English Updated Edition Student's Book (2000).pdf
+a=Unknown y=1940 t=JORFDocument | JORF_19400718_174.pdf
+a=Unknown y=1940 t=JORFDocument | JORF_19400819_206.pdf
+a=Unknown y=1940 t=JORFDocument | JORF_19400828_215.pdf
+a=Unknown y=1940 t=JORFDocument | JORF_19400830_217.pdf
+a=Unknown y=1940 t=JORFDocument | JORF_19401018_266.pdf
+a=Edwards y=0000 t=EnglishCompositionIntroduction | Joseph EDWARDS (M.A. - A practical Introduction to English Composition ... Second edition (n.d.).pdf
+a=Unknown y=1984 t=JSAPaper | jsa-0037-9174-1984-num-70-1-2239.pdf
+a=Unknown y=1964 t=ProtocolsEldersZion | Judiciary - Protocols of the Elders of Zion (1964).pdf
+a=Kaegi y=1995 t=ByzantiumIslamicConquests | Kaegi - Byzantium and the Early Islamic Conquests (1995).pdf
+a=Kasetsiri y=2013 t=PreahVihear | Kasetsiri - Preah Vihear (2013).pdf
+a=Kater y=2009 t=AhnenerbeSS | Kater - Das Ahnenerbe der SS 1935-1945 (2009).pdf
+a=Katz y=2011 t=ParanoidApocalypse | Katz - The Paranoid Apocalypse (2011).pdf
+a=Keber y=1995 t=CodexTellerianoRemensis | Keber - Codex Telleriano-Remensis (1995).pdf
+a=Keen y=1969 t=UnknownTitle | keen1969.pdf
+a=Kemal y=0000 t=RefutationArmenianResolution | Kemal - REFUTATION OF THE ARMENIAN RESOLUTION ARTICLE BY ARTICLE (n.d.).pdf
+a=Kemel y=0000 t=DrempelsJeugdbewegingOostende | Kemel - De drempels van de jeugdbeweging in Oostende (n.d.).pdf
+a=Kimmerling y=2003 t=Politicide | Kimmerling - Politicide (2003).pdf
+a=Knoblauch y=0000 t=SocialConstructivismParadigm | Knoblauch - Social Constructivism as Paradigm (Knowledge, Communication and Society) (n.d.).pdf
+a=Judah y=2000 t=KosovoWarRevenge | Kosovo - War and Revenge -- Tim Judah -- New Haven, Conn, 2000 -- Yale University Press -- 9780300083132 -- 02f41ebf6523dcb04f93a86ce54ddc7e -- Anna’s Archive.pdf
+a=Unknown y=0000 t=KreativUngCulturalProject | Kreativ Ung is a cultural project - Location Jönköping, Sweden (n.d.).pdf
+a=Kroening y=2020 t=ReturnGreatPowerRivalry | Kroening - Return of Great Power Rivalry (2020).pdf
+a=Kurlander y=0000 t=NaziOccultHistories | Kurlander - Revisiting the nazi Occult Histories, Realities, Legacies (n.d.).pdf
+a=Bulmer-Thomas y=0000 t=HistoriaEconomicaAmericaLatina | La historia económica de América Latina desde la Independencia (Victor Bulmer-Thomas).pdf
+a=Labs y=0000 t=DiscerningMerchantsPriceGuide | Labs - Discerning Merchant's Price Guide v3 (Printer Friendly) (n.d.).pdf
+a=Wade y=2016 t=LACES | LACES-2016-Wade.pdf
+a=Lacombe y=0000 t=JoinOurTeam | Lacombe - Join our team ! (n.d.).pdf
+a=Lambert y=2010 t=FoundingFathersReligionAmerica | Lambert - The Founding Fathers and the Place of Religion in America (2010).pdf
+a=Lane y=2018 t=Potosi | Lane - Potosí (2018).pdf
+a=Unknown y=0000 t=ImagerySurveyArchaeologyGeoPacha | large-scale-collaborative-imagery-survey-in-archaeology-the-geospatial-platform-for-andean-culture-history-and-archaeology-geopacha-1.pdf
+a=Silber y=1997 t=YugoslaviaDeathNation | Laura Silber, Allan Little - Yugoslavia- Death of a Nation (1997, Penguin Books).pdf
+a=King y=0000 t=LawSocietyVisigothicKingdom | Law and Society in the Visigothic Kingdom (Cambridge Studies -- [by] P_ D_ King -- Cambridge studies in medieval life and thought, 3rd ser_, v_ -- 9780521031288 -- 6db9ec5ba03415f10fc9cb12add32b28 -- Anna’s Archive.pdf
+a=Unknown y=1940 t=LawStatusJews | LAW OF OCTOBER 3, 1940, CONCERNING THE STATUS OF JEWS.pdf
+a=Rivers y=0000 t=LawsAlamansBavarians | Laws of the Alamans and Bavarians (Theodore John Rivers (editor)) (Z-Library).pdf
+a=Lehmann y=2005 t=AnnaeherungenHelmutHeissenbuettel | Lehmann - Annäherungen an Helmut Heissenbüttel (2005).pdf
+a=Soderlund y=0000 t=LenapeCountryDelawareValley | Lenape Country Delaware Valley Society Before William Penn (Jean R. Soderlund) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=León y=1964 t=ChroniclePeru | León - The Second Part of the Chronicle of Peru of Pedro de Cieza de León (1964).pdf
+a=Unknown y=0000 t=FrenchMilitaryIntervention | Lessons-from-French-Military-Interventio.pdf
+a=Unknown y=0000 t=Toelatingsvoorwaarden | Leuven) - Toelatingsvoorwaarden (n.d.).pdf
+a=Levack y=2006 t=WitchHuntEarlyModernEurope | Levack - The Witch-hunt in Early Modern Europe (2006).pdf
+a=Lewandowsky y=2011 t=DebunkingHandbook | Lewandowsky, Stephan- Cook, John - The debunking handbook (2011, University of Queensland).pdf
+a=French y=0000 t=LibertyDeathIndiaIndependence | Liberty or death Indias journey to independence and division (French, Patrick) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=1968 t=HarvardDesignLibraryCatalogue | Library - Catalogue of the Library of the Graduate School of Design, Harvard University (1968) (1).pdf
+a=Unknown y=1968 t=HarvardDesignLibraryCatalogue | Library - Catalogue of the Library of the Graduate School of Design, Harvard University (1968).pdf
+a=Unknown y=0000 t=LicenseDOI | license. - DOI10.116318718000-12340191 (n.d.).pdf
+a=Unknown y=2013 t=OutdoorLifeFishingAdventures | Life - Outdoor Life's Anthology of Fishing Adventures (2013).pdf
+a=Unknown y=0000 t=IraqBorderLines | Lines-Drawn-on-an-Empty-Map-Iraq-s-Borde.pdf
+a=Lipstadt y=2012 t=DenyingHolocaust | Lipstadt - Denying the Holocaust (2012).pdf
+a=Unknown y=0000 t=TeotihuacanTenochtitlan | LLLandMDATeotihuacaninTenochtitlan.pdf
+a=Loewen y=2010 t=LiesAcrossAmerica | Loewen - Lies Across America (2010).pdf
+a=Loewen y=2007 t=LiesMyTeacherToldMe | Loewen - Lies My Teacher Told Me (2007).pdf
+a=Loewen y=0000 t=ConfederateNeoConfederateReader | Loewen - The Confederate and Neo-Confederate Reader (n.d.).pdf
+a=Loewen y=2010 t=LiesAcrossAmerica | Loewen--James-W-Lies-Across-America--What-Our-Historic-Sites-Get-Wrong--2011-2010--The-New-Press--li.pdf
+a=Loewen y=2008 t=LiesMyTeacherToldMe | Loewen--James-W-Lies-My-Teacher-Told-Me-Everything-Your-American-History-Textbook-Got-Wrong--2008--N.pdf
+a=Loewen y=2010 t=ConfederateNeoConfederateReader | Loewen, James W.-Sebesta, Edward - The Confederate and neo-Confederate reader- the ''great truth'' about the ''lost cause (2010, University Press of Mississippi).pdf
+a=Unknown y=1940 t=LoiStatutJuifs | Loi_du_3_octobre_1940_portant_statut_des_Juifs.pdf
+a=Longerich y=2010 t=Holocaust | Longerich - Holocaust (2010).pdf
+a=Pagden y=0000 t=LordsWorldEmpireIdeologies | Lords of all the world ideologies of empire in Spain, Britain and France c. 1500-c. 1800 (Pagden, Anthony) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Stommel y=0000 t=LostIslandsNauticalCharts | Lost Islands The Story of Islands That Have Vanished from Nautical Charts (Henry Stommel) (Z-Library).epub
+a=Stommel y=0000 t=LostIslandsNauticalCharts | Lost-Islands-The-Story-of-Islands-That-Have-Vanished-from-Nautical-Charts-_Henry-Stommel_-_Z-Library.pdf
+a=Unknown y=0000 t=GeneralIntroductionESC | LR - 1. Guidebook_General Introduction to ESC_updated 09.09.2020 (n.d.).pdf
+a=Unknown y=0000 t=ExploreSolidarityProjects | LR - 5. Guidebook_Explore Solidarity projects upadated_09.09.2020 (n.d.).pdf
+a=Unknown y=0000 t=TraineeshipsJobsEuropeanSolidarityCorps | LR - 6. Guidebook_ Traineeships and Jobs in the European Solidarity Corps_updated 09.09.2020 (n.d.).pdf
+a=Unknown y=0000 t=GuidebookTEC | LR - 8. Guidebook_TEC (n.d.).pdf
+a=Maaren y=1986 t=ForestPolicy | Maaren - Forest Policy (1986).pdf
+a=Mackay y=2009 t=HammerWitches | Mackay - The Hammer of Witches (2009).pdf
+a=Macron y=0000 t=Speech | macron speech.pdf
+a=Maier y=2012 t=AmericanScripture | Maier - American Scripture (2012).pdf
+a=Maier y=1997 t=AmericanScriptureDeclarationIndependence | Maier - American Scripture Declaration of Independence (1997).pdf
+a=Malcolm y=2002 t=Kosovo | Malcolm - Kosovo (2002).pdf
+a=Malcolm y=1998 t=KosovoShortHistory | Malcolm--Noel-Kosovo--a-short-history--1998--New-York---New-York-University-Press--libgen.li.pdf
+a=Mangus y=0000 t=Version | Mangus - V E R S I O N 2 . 0 (n.d.) (1) (2).pdf
+a=Mangus y=0000 t=Version | Mangus - V E R S I O N 2 . 0 (n.d.) (1).pdf
+a=Mangus y=0000 t=Version | Mangus - V E R S I O N 2 . 0 (n.d.).pdf
+a=Mann y=2013 t=1491 | Mann - 1491 (2013).pdf
+a=Mann y=0000 t=1491 | Mann--Charles-C.-1491-libgen.li.pdf
+a=Manning y=2009 t=GlobalPracticeWorldHistory | Manning - Global Practice in World History (2009).pdf
+a=Marichal y=0000 t=Edited | Marichal - Edited by Carlos Marichal (n.d.).pdf
+a=Martínez y=2008 t=GenealogicalFictions | Martínez - Genealogical Fictions (2008).pdf
+a=Gordon y=0000 t=CambridgeWorldHistoryViolence | Matthew Gordon - The Cambridge World History of Violence Volume 2 (n.d.).pdf
+a=May y=0000 t=NationalHistoryNewNationalism | May - National History and New Nationalism in the Twenty (n.d.).pdf
+a=García y=0000 t=MayaCodexTellerianoRemensis | Maya Codex Telleriano Remensis (José Antonio García R. [R. etc.).pdf
+a=McCullough y=2005 t=1776 | McCullough - 1776 (2005).pdf
+a=McCullough y=2005 t=SeventeenSeventySix | McCullough - Seventeen Seventy-six (2005).pdf
+a=McInally y=2020 t=GeorgeStrachanMearns | McInally - George Strachan of the Mearns (2020).pdf
+a=McKay y=2014 t=HistoryWesternSociety | McKay - A History of Western Society Complete (2014).pdf
+a=McMahon y=0000 t=UnknownTitle | McMahon - McMahon (n.d.) (1).pdf
+a=McMahon y=0000 t=UnknownTitle | McMahon - McMahon (n.d.).pdf
+a=McMahon y=0000 t=HusseinCorrespondence | McMahon–Hussein-Correspondence-1.pdf
+a=McMahon y=0000 t=HusseinCorrespondence | McMahon–Hussein-Correspondence.pdf
+a=Menochio y=0000 t=DelleStuore | Menochio - Delle stuore del p. Gio. Stefano Menochio della Compagnia di Giesu. Tessute di varia eruditione sacra, morale, e profana... (n.d.).pdf
+a=Michelis y=2004 t=ProtocolliDeiSaviDiSion | Michelis - Protocolli Dei Savi Di Sion (2004).pdf
+a=Milliken y=2025 t=MicrosoftOfficeCompanionBook | MILLIKEN - Microsoft Office Companion Book (2025) (1) (2).pdf
+a=Milliken y=2025 t=MicrosoftOfficeCompanionBook | MILLIKEN - Microsoft Office Companion Book (2025) (1).pdf
+a=Milliken y=2025 t=MicrosoftOfficeCompanionBook | MILLIKEN - Microsoft Office Companion Book (2025).pdf
+a=Bakewell y=1984 t=MinersRedMountainPotosi | Miners of the Red Mountain - Indian labor in Potosí, -- Bakewell, P- J- (Peter John), 1943- -- ACLS Humanities E-Book, 1st ed, Albuquerque, ©1984 -- 9780826307699 -- e9e66c3d125d921a60f16262020218db -- Anna’s Archive-1.pdf
+a=Glenny y=2012 t=Balkans | Misha Glenny - The Balkans, 1804–2012 (2012, Granta Publications).pdf
+a=Brown y=0000 t=MisquotingMuhammad | Misquoting Muhammad (Brown, Jonathan A.C.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t=GeneralAssemblyThirtiethSession | mission - 136 General Assembly—Thirtieth Session (n.d.).pdf
+a=Martin y=0000 t=SebastianCrowesGuideDrakkenheim | Monty Martin - Sebastian Crowe’s Guide to Drakkenheim (n.d.) (1).pdf
+a=Martin y=0000 t=SebastianCrowesGuideDrakkenheim | Monty Martin - Sebastian Crowe’s Guide to Drakkenheim (n.d.).pdf
+a=Unknown y=0000 t=MoreResearch | more-research.pdf
+a=Unknown y=0000 t=MoroccoGE | Morocco - GE.24-18422 (E) 041124 051124 (n.d.).pdf
+a=Morris y=2004 t=PalestinianRefugeeProblem | Morris - The Birth of the Palestinian Refugee Problem Revisited (2004).pdf
+a=Golan y=0000 t=MoscowMiddleEastRegional | Moscow And The Middle East- New Thinking On Regional -- Galia Golan; Royal Institute of International Affairs -- Chatham House papers, Chatham House -- 9780876091265 -- 57c08f6e154a1a8006b0d51d7267338a -- Anna’s Archive.pdf
+a=Moyn y=2014 t=HumanRightsUsesHistory | Moyn - Human Rights and the Uses of History (2014).pdf
+a=Murra y=1980 t=EconomicOrganizationInkaState | Murra - The Economic Organization of the Inka State (1980) (1).pdf
+a=Murra y=1980 t=EconomicOrganizationInkaState | Murra - The Economic Organization of the Inka State (1980).pdf
+a=Jameson y=0000 t=NarrativesNewNetherland | Narratives of New Netherland, 1609-1664 (Various, J. Franklin Jameson) (z-library.sk, 1lib.sk, z-lib.sk)-1.pdf
+a=Jameson y=0000 t=NarrativesNewNetherland | Narratives of New Netherland, 1609-1664 (Various, J. Franklin Jameson) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Hobsbawm y=0000 t=NationsNationalism | Nations-and-Nationalism-since-1780--Canto-Classics---E.-J.-Hobsbawm---Z-Library-.pdf
+a=DuVal y=0000 t=NativeNations | Native Nations (Kathleen DuVal).pdf
+a=Unknown y=0000 t=NaturalResourceExploitationWesternSahara | Natural resource exploitation in Western Sahara new research directions.pdf
+a=Ndlovu y=2013 t=AgainstOdds | Ndlovu - Against the Odds (2013).pdf
+a=Harari y=0000 t=NexusInformationNetworks | Nexus A Brief History of Information Networks from the Stone Age to AI (Yuval Noah Harari) (Z-Library).epub
+a=Niebuhr y=2018 t=SearchColdWarLegitimacy | Niebuhr - The Search for a Cold War Legitimacy (2018).pdf
+a=Nolan y=2010 t=MythLostCauseCivilWarHistory | Nolan, Alan T.- Gallagher, Gary W - The myth of the lost cause and Civil War history (2010, Indiana University Press).pdf
+a=Poma y=1615 t=NuevaCronicaBuenGobierno | nueva-cronica-y-buen-gobierno-de-felipe-guaman-poma-de-ayala-1615.pdf
+a=Unknown y=0000 t=NWIGArticle | nwig-article-p433-39.pdf
+a=Unknown y=0000 t=PARIJournal | of - The PARI Journal 19(3) (n.d.).pdf
+a=Offen y=0000 t=LogwoodMasterlessMen | Offen-Karl-Logwood-masterless-men-and-Br.pdf
+a=Salzman y=0000 t=OnRomanTime | On Roman Time (Salzman, Michele Renee.) (Z-Library).pdf
+a=Pennock y=0000 t=OnSavageShoresIndigenousAmericansEurope | On Savage Shores How Indigenous Americans Discovered Europe (Caroline Dodds Pennock).pdf
+a=Zinsser y=2012 t=OnWritingWell | On Writing Well, 30th Anniversary Edition -- Zinsser, William -- 2012 -- HarperCollins -- 8c4d7eb3ff39f148d851c94e9fa6b33c -- Anna’s Archive.pdf
+a=Calloni y=0000 t=OperacionCondorPactoCriminal | Operación Cóndor, pacto criminal (Stella Calloni) (Z-Library).pdf
+a=Unknown y=1940 t=OrdonnanceAllemande | ordonnance allemande 27 septembre 1940.pdf
+a=Ostler y=2006 t=EmpiresWordLanguageHistory | Ostler, Nicholas - Empires of the Word_ A Language History of the World (2011_2006, Harper Collins, Inc._Harper Perennial) - libgen.li.mobi
+a=Unknown y=0000 t=Ardennendagtocht | Overview - Ardennendagtocht (n.d.).pdf
+a=Unknown y=0000 t=RappanAthukHouseRules | Overview House Rules - Rappan Athuk v3.pdf
+a=Ozturk y=2022 t=OrganicFertilizersEnvironment | Ozturk - Introduction and Application of Organic Fertilizers as Protectors of Our Environment (2022) (1).pdf
+a=Ozturk y=2022 t=OrganicFertilizersEnvironment | Ozturk - Introduction and Application of Organic Fertilizers as Protectors of Our Environment (2022).pdf
+a=Pagden y=1986 t=FallNaturalMan | Pagden - The Fall of Natural Man (1986).pdf
+a=Unknown y=0000 t=PalaeogeographicalReconstruction | Palaeogeographical_reconstruction_of_the.pdf
+a=Kimmerling y=0000 t=PalestiniansMakingPeople | Palestinians - the making of a people -- Kimmerling, Baruch, Migdal, Joel S..pdf
+a=Pawakapan y=2013 t=StateUncivilSocietyThailandPreahVihear | Pawakapan - State and Uncivil Society in Thailand at the Temple of Preah Vihear (2013).pdf
+a=Pazzanita y=1994 t=HistoricalDictionaryWesternSahara | Pazzanita - Historical Dictionary of Western Sahara (1994).pdf
+a=Unknown y=0000 t=GrimHollowCampaignGuide | pdfcoffee.com-grim-hollow-campaign-guide-pdf-pdf-free.pdf
+a=Unknown y=0000 t=GrimHollowMonsterGrimoire | pdfcoffee.com-grim-hollow-the-monster-grimoire-pdf-free.pdf
+a=Unknown y=0000 t=RappanAthuk | pdfcoffee.com-rappan-athuk-pdf-free.pdf
+a=Pedersen y=2015 t=Guardians | Pedersen - The Guardians (2015).pdf
+a=Cobb y=0000 t=BookContemplation | Penguin-Classics--Usāmah-ibn-Munqidh-Cobb--Paul-M.-Usāma-Ibn-Munqid̲-The-Book-of-Contemplation.pdf
+a=Pennock y=2023 t=OnSavageShores | Pennock - On Savage Shores (2023).pdf

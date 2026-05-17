@@ -1,6 +1,6 @@
 # Channel Performance Insights
 
-> Generated: 2026-04-12 12:40 UTC
+> Generated: 2026-05-14 14:01 UTC
 > Videos analyzed: 50 own-channel videos
 > Auto-generated. Do not edit manually. Re-run: `python -m tools.youtube_analytics.backfill --insights-only`
 

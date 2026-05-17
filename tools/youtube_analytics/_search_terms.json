@@ -2,8 +2,13 @@
   "WZnCxVPNF7A": [
     {
       "term": "gibraltar",
-      "views": 3,
-      "watch_time_minutes": 9.0
+      "views": 2,
+      "watch_time_minutes": 0.0
+    },
+    {
+      "term": "gibraltar agreement",
+      "views": 2,
+      "watch_time_minutes": 14.0
     },
     {
       "term": "gibraltar border",
@@ -11,7 +16,7 @@
       "watch_time_minutes": 14.0
     },
     {
-      "term": "gibraltar spain border",
+      "term": "gibraltar deal",
       "views": 1,
       "watch_time_minutes": 0.0
     }
@@ -19,8 +24,8 @@
   "HtVIC4dS0e8": [
     {
       "term": "iran constitution",
-      "views": 5,
-      "watch_time_minutes": 18.0
+      "views": 4,
+      "watch_time_minutes": 3.0
     },
     {
       "term": "ervand abrahamian",
@@ -115,8 +120,23 @@
       "watch_time_minutes": 9.0
     },
     {
+      "term": "icj belize and guatemala",
+      "views": 6,
+      "watch_time_minutes": 32.0
+    },
+    {
       "term": "guatemala city",
       "views": 2,
+      "watch_time_minutes": 0.0
+    },
+    {
+      "term": "belize guatemala dispute",
+      "views": 1,
+      "watch_time_minutes": 11.0
+    },
+    {
+      "term": "belize real estate",
+      "views": 1,
       "watch_time_minutes": 0.0
     },
     {
@@ -128,6 +148,11 @@
       "term": "equatorial guinea latest vlog",
       "views": 1,
       "watch_time_minutes": 0.0
+    },
+    {
+      "term": "guatemala belize",
+      "views": 1,
+      "watch_time_minutes": 11.0
     },
     {
       "term": "qual",
@@ -184,38 +209,43 @@
   "Y21EjQ0v9W4": [
     {
       "term": "belize",
-      "views": 63,
-      "watch_time_minutes": 189.0
+      "views": 72,
+      "watch_time_minutes": 214.0
     },
     {
       "term": "guatemala history",
-      "views": 17,
-      "watch_time_minutes": 84.0
+      "views": 21,
+      "watch_time_minutes": 98.0
     },
     {
       "term": "history of belize",
-      "views": 13,
-      "watch_time_minutes": 63.0
+      "views": 17,
+      "watch_time_minutes": 77.0
     },
     {
       "term": "belize guatemala dispute",
-      "views": 11,
-      "watch_time_minutes": 67.0
+      "views": 13,
+      "watch_time_minutes": 70.0
+    },
+    {
+      "term": "belize country",
+      "views": 9,
+      "watch_time_minutes": 18.0
     },
     {
       "term": "belize history",
-      "views": 8,
+      "views": 9,
       "watch_time_minutes": 21.0
     },
     {
       "term": "history of guatemala",
-      "views": 6,
-      "watch_time_minutes": 7.0
+      "views": 8,
+      "watch_time_minutes": 18.0
     },
     {
-      "term": "belize country",
-      "views": 5,
-      "watch_time_minutes": 13.0
+      "term": "guatemala",
+      "views": 4,
+      "watch_time_minutes": 14.0
     },
     {
       "term": "history",
@@ -228,9 +258,9 @@
       "watch_time_minutes": 12.0
     },
     {
-      "term": "guatemala",
+      "term": "guatemala belize",
       "views": 3,
-      "watch_time_minutes": 13.0
+      "watch_time_minutes": 1.0
     },
     {
       "term": "guatemala vs belize",
@@ -294,11 +324,6 @@
     },
     {
       "term": "documentals",
-      "views": 1,
-      "watch_time_minutes": 0.0
-    },
-    {
-      "term": "guatemala belize",
       "views": 1,
       "watch_time_minutes": 0.0
     },
@@ -369,6 +394,11 @@
       "term": "kgb operations",
       "views": 2,
       "watch_time_minutes": 10.0
+    },
+    {
+      "term": "operation sig",
+      "views": 2,
+      "watch_time_minutes": 15.0
     },
     {
       "term": "avi shlaim",
@@ -489,8 +519,8 @@
   "Oc7oq292HkM": [
     {
       "term": "armenian genocide",
-      "views": 29,
-      "watch_time_minutes": 73.0
+      "views": 35,
+      "watch_time_minutes": 77.0
     },
     {
       "term": "armenian genocide history matters",
@@ -521,6 +551,11 @@
       "term": "greek genocide",
       "views": 1,
       "watch_time_minutes": 2.0
+    },
+    {
+      "term": "the truth about the armenian genocide",
+      "views": 1,
+      "watch_time_minutes": 0.0
     }
   ],
   "_N_08zn95FY": [
@@ -590,6 +625,30 @@
       "term": "russo-georgian war",
       "views": 1,
       "watch_time_minutes": 2.0
+    }
+  ],
+  "WgE2FLsDhfk": [
+    {
+      "term": "brasileiros em portugal",
+      "views": 1,
+      "watch_time_minutes": 0.0
+    },
+    {
+      "term": "monarquia no brasil",
+      "views": 1,
+      "watch_time_minutes": 0.0
+    },
+    {
+      "term": "portuguese vs spanish",
+      "views": 1,
+      "watch_time_minutes": 1.0
+    }
+  ],
+  "FvqALriDCv4": [
+    {
+      "term": "treaty of tripoli",
+      "views": 2,
+      "watch_time_minutes": 1.0
     }
   ]
 }

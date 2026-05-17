@@ -1,0 +1,151 @@
+You are identifying correct publication metadata for academic library files.
+
+For each file listed below, provide the correct YEAR and PUBLISHER.
+Rules:
+- Publisher = real academic publisher (NOT download source like ZLib, Libgen, AnnaArchive, z-library, 1lib)
+- For primary source documents (treaties, acts, speeches, court decisions, government reports): publisher = issuing institution (e.g. "United Nations", "US Congress", "ICJ", "League of Nations")
+- For journal articles: publisher = journal name (e.g. "Journal of African History")
+- For books: publisher = academic press (e.g. "Oxford University Press", "Harvard University Press", "Cambridge University Press")
+- If you cannot determine with high confidence: y="0000" and/or p="Unknown"
+- Use your training knowledge and Google Search to verify
+
+Return ONLY a JSON array (no markdown fences, no explanation):
+[{{"f": "original_filename.pdf", "y": "YYYY", "p": "Publisher"}}]
+
+Files (current known metadata: a=author, y=year, t=short_title):
+a=Lewis y=0000 t=ModernSomaliHistory | A Modern History of Somali (I. M. LEWIS) (Z-Library).pdf
+a=Cooper y=0000 t=AfricaPost1940History | Africa Since 1940_ The Past Of The Presentafrica Since 1940_ -- Frederick Cooper , Frederick Cooper, Frederick Cooper -- New approaches to -- 9780511800290 -- f927f21e57c01960185bbec5e7f9c8be -- Anna’s Archive.pdf
+a=Cooper y=0000 t=AfricaPost1940History | Africa Since 1940- The Past Of The Presentafrica Since 1940- -- Frederick Cooper , Frederick Cooper, Frederick Cooper.pdf
+a=Boahen y=0000 t=AfricanColonialismPerspectives | African perspectives on colonialism (Boahen, A. Adu) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Iliffe y=0000 t=AfricansContinentHistory | Africans The History of a Continent (John Iliffe) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Pigeaud y=0000 t=AfricaCFAFrancHistory | Africas Last Colonial Currency The CFA Franc Story (Fanny Pigeaud Ndongo Samba Sylla).pdf
+a=Antil y=0000 t=AfricaFranceDiplomacySahel | Antil - Afrique; France; diplomatie; Françafrique; Sahel (n.d.).pdf
+a=Harlow y=2003 t=ScrambleForAfrica | Archives of Empire, Volume 2) The Scramble for Africa (2003) (Barbara Harlow (ed.), Mia Carter (ed.)) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Forster y=0000 t=BerlinAfricaConference | Bismarck, Europe, and Africa - The Berlin Africa Conference 1884-1885 and the Onset of Partition; Stig Förster, Wolfgang Justin Mommsen, Ronald Edward Robinson_text.pdf
+a=Unknown y=0000 t=CFAAgreements | Canvas - Cfa Agreements (n.d.) (1).pdf
+a=Unknown y=0000 t=CFAAgreements | Canvas - Cfa Agreements (n.d.).pdf
+a=Unknown y=0000 t=ProtectorateTreaties | Canvas - Protectorate Treaties (n.d.).pdf
+a=Unknown y=0000 t=CFAAgreementsSahel | Cfa Agreements — Sahel (banque De France Documents & Monetary Policy Texts)-1.pdf
+a=Mamdani y=0000 t=CitizenSubjectColonialism | Citizen and Subject Contemporary Africa and the Legacy of Late Colonialism (Mahmood Mamdani) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Ndlovu-Gatsheni y=0000 t=ColonialityPowerDecolonization | Coloniality of power in postcolonial Africa myths of decolonization (Ndlovu-Gatsheni, Sabelo J.).pdf
+a=Unknown y=2024 t=ConflictedColonialismsSahel | Conflicted Colonialisms in Western Sahel (2024).pdf
+a=Unknown y=0000 t=ConflictedColonialismsViolenceSahel | Conflicted colonialisms multi-dimensional violence in the Western Sahel.pdf
+a=Thiongo y=0000 t=DecolonisingMindAfricanLiterature | Decolonising the Mind The Politics of Language in African Literature (Ngũgĩ wa Thiongo).pdf
+a=Unknown y=0000 t=FrenchMaliInterventionFailure | Dis utilities of Force in a Postcolonial Context Explaining the Strategic Failure of the French-Led Intervention in Mali.pdf
+a=Wesseling y=1996 t=PartitionAfricaHistory | Divide and rule _ the partition of Africa, 1880-1914 -- H_L_ Wesseling; translated by Arnold J_ Pomerans -- Westport, Conn, Connecticut, 1996 -- 9780275951375 -- f26c732459c439a94ec5109422a935bb -- Anna’s Archive.pdf
+a=Engels y=2022 t=BurkinaFasoCoup | Engels2022TransitionnowAnothercoupdetatinBurkinaFaso.pdf
+a=Ewans y=0000 t=LeopoldIICongoAtrocity | Ewans_-Sir-Martin-European-Atrocity_-African-Catastrophe_-Leopold-II_-the-Congo-Free-State-and-Its-A.pdf
+a=Unknown y=0000 t=FrenchSahelInterventionism | French-interventionism-in-the-Sahel.pdf
+a=Unknown y=1885 t=BerlinConferenceAct | General-Act-Berlin-Conference-1885.pdf
+a=Unknown y=0000 t=SahelGovernanceInsurgency | Governance Fragility and Insurgency in the Sahel A Hybrid Political Order in the Making.pdf
+a=Hertslet y=0000 t=AfricaMap | Hertslet-Map-of-Africa-Vol2.pdf
+a=Hochschild y=2011 t=KingLeopoldsGhost | Hochschild_-Adam-King-Leopold_s-Ghost_-A-Story-of-Greed_-Terror-and-Heroism-in-Colonial-Africa-_2011.pdf
+a=Idrissa y=0000 t=SahelCognitiveMapping | Idrissa - The Sahel A Cognitive Mapping (n.d.).pdf
+a=Anghie y=0000 t=ImperialismInternationalLaw | Imperialism, Sovereignty and the Making of International Law (Antony Anghie) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Africanus y=0000 t=ChronographiaeFragments | Iulius Africanus Chronographiae The Extant Fragments (Iulius Africanus, Martin Wallraff (ed.)) (Z-Library).pdf
+a=Maddy-Weitzman y=2011 t=BerberIdentityMovement | Maddy-Weitzman - The Berber Identity Movement and the Challenge to North African States (2011) (1).pdf
+a=Maddy-Weitzman y=2011 t=BerberIdentityMovement | Maddy-Weitzman - The Berber Identity Movement and the Challenge to North African States (2011).pdf
+a=Abdullahi y=0000 t=SomaliHistoryVolumeOne | Making Sense of Somali History (volume one). (Abdullahi, Abdurahman) (Z-Library).pdf
+a=Abdullahi y=2018 t=SomaliHistoryVolumeTwo | MAKING SENSE OF SOMALI HISTORY_ (Volume Two) -- Abdurahman Abdullahi (Baadiyow) -- London, United Kingdom, 2018 -- Adonis & Abbey Publishers Limited -- 9781909112797 -- 825c8f7af6a27bf9b5519e28327da241 -- Anna’s Archive.pdf
+a=Michalopoulos y=2016 t=ScrambleForAfricaEffects | michalopoulos-papaioannou-2016-the-long-run-effects-of-the-scramble-for-africa.pdf
+a=Morel y=1904 t=KingLeopoldsRule | Morel-King-Leopolds-Rule-1904.pdf
+a=Ndlovu-Gatsheni y=2013 t=ColonialityPowerPostcolonialAfrica | Ndlovu-Gatsheni - Coloniality of Power in Postcolonial Africa (2013).pdf
+a=Mamdani y=0000 t=NeitherSettlerNativeMinorities | Neither Settler nor Native The Making and Unmaking of Permanent Minorities (Mahmood Mamdani) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Pakenham y=0000 t=ScrambleForAfrica | Pakenham_-Thomas-Scramble-for-Africa-libgen.li.pdf
+a=Unknown y=0000 t=MaliNigerProtectorateTreaties | Protectorate Treaties — Mali (samory), Niger, Upper Volta (pdfs + Plain-text).pdf
+a=Omar y=0000 t=SomaliaPastPresent | Somalia. Past and Present (Mohamed Osman Omar) (Z-Library).pdf
+a=Herbst y=0000 t=StatesPowerAfrica | States and Power in Africa Comparative Lessons in Authority and Control - Second Edition (Jeffrey Herbst Jeffrey Herbst) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Baddour y=1960 t=SudaneseEgyptianRelations | sudanese-egyptian relations -- abd el-fattah ibrahim el-sayed baddour -- 1960 -- martinusnijhoff -- 89ed399d48f1a341257f26c5e1877716 -- Anna’s Archive.pdf
+a=Young y=0000 t=AfricanColonialState | The African colonial state in comparative perspective (Young, Crawford, 1931-) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Lukong y=0000 t=CameroonNigeriaBorderDispute | The Cameroon-Nigeria Border Dispute. Management and Resolution, 1981-2011 Management and Resolution, 1981-2011 (Hilary V. Lukong) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Prunier y=0000 t=SomalilandHistory | The Country That Does Not Exist A History of Somaliland (Gérard Prunier) (Z-Library).pdf
+a=Craven y=0000 t=DecolonizationInternationalLaw | The Decolonization of International Law State Succession and the Law of Treaties (Matthew Craven) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Chafer y=0000 t=FrenchWestAfricaDecolonization | The End of Empire in French West Africa Frances Successful Decolonization (Tony Chafer).pdf
+a=Anene y=0000 t=NigeriaInternationalBoundaries | The international boundaries of Nigeria, 1885-1960 the framework of an emergent African nation (Anene, Joseph C) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Hertslet y=0000 t=AfricaTreatyMap | The Map of Africa by Treaty (E. Hertslet) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Unknown y=0000 t=ModernSomalilandHistory | The modern history of Somaliland,_ From nation to state -- d6ffb88416f08dfacd5a6f3440d644a4 -- Anna’s Archive.pdf
+a=Minawi y=0000 t=OttomanScrambleAfrica | The Ottoman Scramble for Africa Empire and Diplomacy in the Sahara and the Hijaz (Mostafa Minawi) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Young y=0000 t=PostcolonialStateAfrica | The Postcolonial State in Africa Fifty Years of Independence, 1960–2010 (Crawford Young) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Idrissa y=0000 t=SahelCognitiveMapping | The Sahel- A Cognitive Mapping -- Rahmane Idrissa -- 01bc973ea2fde3cab83c55c82db4a642 -- Anna’s Archive.pdf
+a=Hertslet y=0000 t=AfricaTreatyMap | The-Map-of-Africa-by-Treaty-_E.-Hertslet_-_z-library.sk_-1lib.sk_-z-lib.sk_.pdf
+a=Unknown y=0000 t=SahelChallengesOpportunities | the-sahel-challenges-and-opportunities.pdf
+a=Lewis y=0000 t=SomaliaSomalilandHistory | Understanding Somalia and Somaliland culture, history, society (Lewis, I. M) (Z-Library).pdf
+a=Unknown y=0000 t=SahelGovernanceInsurgency | Unknown - Governance, Fragility and Insurgency in the Sahel (n.d.).pdf
+a=Abulafia y=2011 t=ChristianJewishRelations | Abulafia - Christian-Jewish Relations 1000-1300 (2011).pdf
+a=Abulafia y=2024 t=ChristianJewishRelations | Abulafia - Christian–Jewish Relations 1000–1300 (2024).pdf
+a=Hassner y=0000 t=AnatomyTorture | Anatomy of Torture (Ron Eduard Hassner) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Asbridge y=2010 t=TheCrusades | Asbridge - The Crusades (2010).pdf
+a=Asbridge y=2010 t=CrusadesAuthoritativeHistory | Asbridge - The Crusades Authoritative History (2010).pdf
+a=Bonner y=2008 t=JihadIslamicHistory | Bonner - Jihad in Islamic History (2008).pdf
+a=Cockburn y=2016 t=AgeJihad | Cockburn - The Age of Jihad (2016).pdf
+a=Cockburn y=2016 t=AgeJihadIslamicState | Cockburn--Patrick-The-age-of-jihad-Islamic-State-and-the-great-war-for-the-Middle-East--2016--Verso-.pdf
+a=Unknown y=0000 t=SantaInquisicionInstructions | Compilacion_de_las_Instrucciones_del_Oficio_de_la_Santa_Inquisicion_(IA_BRes14068130Despacho).pdf
+a=Donner y=1981 t=EarlyIslamicConquests | Donner - The Early Islamic Conquests (1981).pdf
+a=Emon y=2012 t=ReligiousPluralismIslamicLaw | Emon - Religious Pluralism and Islamic Law (2012).pdf
+a=Foss y=2022 t=PeopleFirstCrusade | Foss - People of the First Crusade (2022).pdf
+a=Fulcher y=1998 t=FirstCrusadeChronicle | Fulcher - The First Crusade Chronicle of Fulcher of Chartres (1998).pdf
+a=Tyerman y=0000 t=GodsWarNewCrusades | God’s War A New History of the Crusades (Christopher Tyerman).pdf
+a=Hillenbrand y=1999 t=TheCrusades | Hillenbrand - The Crusades (1999).pdf
+a=Hillenbrand y=1999 t=CrusadesIslamicPerspectives | Hillenbrand - The Crusades Islamic Perspectives (1999).pdf
+a=Lea y=0000 t=HistoryInquisitionSpain | History of the Inquisition of Spain (Henry Charles Lea) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Holt y=2008 t=CompetingVoicesCrusades | Holt - Competing Voices from the Crusades (2008) (1).pdf
+a=Holt y=2008 t=CompetingVoicesCrusades | Holt - Competing Voices from the Crusades (2008).pdf
+a=Covey y=0000 t=IncasHeartlandStateFormation | How the Incas Built Their Heartland - State Formation and the Innovation of Imperial Strategies in the Sacred Valley, Peru… (R. Alan Covey).pdf
+a=al-Qalanisi y=2002 t=DamascusChronicleCrusades | Ibn al-Qalanisi - Damascus Chronicle of the Crusades (2002).pdf
+a=Peters y=1988 t=Inquisition | Inquisition (1988) (Edward Peters) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Krey y=1921 t=TheFirstCrusade | Krey - The First Crusade (1921).pdf
+a=Krey y=1921 t=FirstCrusadeEyewitnessAccounts | Krey - The First Crusade Eyewitness Accounts (1921).pdf
+a=Moyn y=2015 t=ChristianHumanRights | Moyn - Christian Human Rights (2015) (1).pdf
+a=Moyn y=2015 t=ChristianHumanRights | Moyn - Christian Human Rights (2015).pdf
+a=Phillips y=2004 t=FourthCrusadeConstantinople | Phillips - The Fourth Crusade and Sack of Constantinople (2004).pdf
+a=Phillips y=2005 t=FourthCrusadeConstantinople | Phillips - The Fourth Crusade and the Sack of Constantinople (2005).pdf
+a=Gui y=1330 t=PracticaInquisitionis | practicainquisit00bern.pdf
+a=Unknown y=0000 t=TriumphalismChristianHistory | Research - Triumphalism vs. Reality in Christian History (n.d.).pdf
+a=Riley-Smith y=2014 t=CrusadesHistory | Riley-Smith - The Crusades A History (2014).pdf
+a=Riley-Smith y=2022 t=CrusadesHistory | Riley-Smith - The Crusades A History (2022).pdf
+a=Rubenstein y=2011 t=ArmiesHeavenFirstCrusade | Rubenstein--Jay-Armies-of-Heaven-The-First-Crusade-and-the-Quest-for-Apocalypse--2011--Basic-Books--.pdf
+a=Sahner y=2018 t=ChristianMartyrsIslam | Sahner - Christian Martyrs under Islam (2018).pdf
+a=Stow y=1998 t=AlienatedJewsMedievalEurope | Stow - Alienated Minority Jews of Medieval Europe (1998).pdf
+a=Asbridge y=0000 t=CrusadesAuthoritativeHistory | The Crusades The Authoritative History of the War for the Holy Land (Thomas Asbridge).pdf
+a=Ibn y=0000 t=DamascusChronicleCrusades | The Damascus Chronicle of the Crusades - Extracted and -- extracted and translated from the Chronicle of Ibn -- INscribe Digital, Mineola, New York, -- 9780486143408 -- e8f1880b36bae449d9e94d158291b06e -- Anna’s Archive.pdf
+a=Krey y=0000 t=FirstCrusadeEyewitnessAccounts | The First Crusade The Accounts of Eyewitnesses and Participants (August C. Krey).pdf
+a=Rawlings y=0000 t=SpanishInquisition | The Spanish Inquisition (Helen Rawlings) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t=SpanishInquisitionHistoricalRevision | The Spanish Inquisition A Historical Revision (unknown) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Homza y=0000 t=SpanishInquisitionAnthology | The Spanish Inquisition, 1478-1614 An Anthology of Sources (Lu Ann Homza) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Riley-Smith y=0000 t=TheCrusadesHistory | The-Crusades-A-History--Jonathan-Riley-Smith-Susanna-A.-Throop---Z-Library-.pdf
+a=Treadgold y=1997 t=ByzantineStateSociety | Treadgold - A History of the Byzantine State and Society (1997).pdf
+a=Tyerman y=2006 t=GodsWarNewCrusades | Tyerman - Gods War A New History of the Crusades (2006).pdf
+a=Munqidh y=2008 t=BookContemplation | Usāmah ibn Munqidh - The Book of Contemplation (2008).pdf
+a=Unknown y=0000 t=SeptemberResearch | Research · September 2023 (n.d.).pdf
+a=Unknown y=0000 t=ArchaeologicalResearchArchival | Archival - Integrated Archaeological Research Archival (n.d.).pdf
+a=Card y=0000 t=OriginalResearch | Card - ORIGINAL RESEARCH (n.d.).pdf
+a=Council y=1997 t=OccupationalHealthSafetyResearchAnimals | Council - Occupational Health and Safety in the Care and Use of Research Animals (1997) (1) (2) (3) (4) (5) (6) (7).pdf
+a=Council y=1997 t=OccupationalHealthSafetyResearchAnimals | Council - Occupational Health and Safety in the Care and Use of Research Animals (1997) (1) (2) (3) (4) (5) (6).pdf
+a=Council y=1997 t=OccupationalHealthSafetyResearchAnimals | Council - Occupational Health and Safety in the Care and Use of Research Animals (1997) (1) (2) (3) (4) (5).pdf
+a=Council y=1997 t=OccupationalHealthSafetyResearchAnimals | Council - Occupational Health and Safety in the Care and Use of Research Animals (1997) (1) (2) (3) (4).pdf
+a=Council y=1997 t=OccupationalHealthSafetyResearchAnimals | Council - Occupational Health and Safety in the Care and Use of Research Animals (1997) (1) (2) (3).pdf
+a=Council y=1997 t=OccupationalHealthSafetyResearchAnimals | Council - Occupational Health and Safety in the Care and Use of Research Animals (1997) (1) (2).pdf
+a=Council y=1997 t=OccupationalHealthSafetyResearchAnimals | Council - Occupational Health and Safety in the Care and Use of Research Animals (1997) (1).pdf
+a=Council y=1997 t=OccupationalHealthSafetyResearchAnimals | Council - Occupational Health and Safety in the Care and Use of Research Animals (1997).pdf
+a=Michelis y=2004 t=NonExistentManuscriptProtocols | De Michelis - The Non-Existent Manuscript Protocols (2004).pdf
+a=Lipstadt y=1993 t=DenyingHolocaust | Denying the Holocaust (Deborah E. Lipstadt).pdf
+a=Geary y=2002 t=MythNationsMedievalEurope | Geary - The Myth of Nations Medieval Origins of Europe (2002).pdf
+a=Goodrick-Clarke y=2002 t=BlackSunAryanCultsNazism | Goodrick-Clarke - Black Sun Aryan Cults and Esoteric Nazism (2002).pdf
+a=Gutman y=1994 t=AuschwitzDeathCampAnatomy | Gutman - Anatomy of the Auschwitz Death Camp (1994).pdf
+a=Pringle y=2006 t=MasterPlanHimmlerScholarsHolocaust | Heather Pringle - The Master Plan- Himmler’s Scholars and the Holocaust (2006, Hyperion).pdf
+a=Desbois y=2018 t=HolocaustByBulletsProcedures | In broad daylight the secret procedures behind the Holocaust by bullets (Desbois, PatrickReyl, Hilary).pdf
+a=Unknown y=0000 t=JSTORIndia | India - JSTOR is a not (n.d.).pdf
+a=Katz y=2015 t=ParanoidApocalypseProtocolsZion | Katz - The Paranoid Apocalypse Protocols of Zion (2015).pdf
+a=May y=2021 t=NationalHistoryNewNationalism | May - National History and New Nationalism 21st Century (2021).pdf
+a=Cohn y=2005 t=WarrantGenocideJewishConspiracyProtocolsZion | Norman Cohn - Warrant for Genocide- The Myth of the Jewish World Conspiracy and the Protocols of the Elders of Zion (2005, Serif).pdf
+a=Pomeranz y=2000 t=GreatDivergenceChinaEuropeEconomy | Pomeranz - The Great Divergence China Europe Economy (2000).pdf
+a=Rubenstein y=2011 t=ArmiesHeavenFirstCrusadeApocalypse | Rubenstein--Jay-Armies-of-Heaven-The-First-Crusade-and-the-Quest-for-Apocalypse--2011--Basic-Books--.pdf
+a=Slotte y=2015 t=RevisitingOriginsHumanRights | Slotte - Revisiting Origins of Human Rights (2015).pdf
+a=Smith y=2009 t=FoundationsResearchRegionalSurveyArmenia | Smith - The Foundations of Research and Regional Survey in the Tsaghkahovit Plain, Armenia (2009).pdf
+a=Stillman y=1979 t=JewsArabLandsHistory | The Jews of Arab lands - a history and source book -- Norman A Stillman; Mazal Holocaust Collection.pdf
+a=Ben-Itto y=2005 t=LieWouldnDieProtocolsElders | The Lie That Wouldn't Die - The Protocols of the Elders of -- Hadassa Ben-Itto; preface by Lord Woolf; foreword by Edward -- International Specialized -- 9780853035954 -- 12ad7a7301fed2af1231767a6bd15d2e -- Anna’s Archive.pdf
+a=Ben-Itto y=2005 t=LieWouldntDieProtocolsElders | The Lie That Wouldnt Die - The Protocols of the Elders of -- Hadassa Ben-Itto; preface by Lord Woolf; foreword by Edward.pdf
+a=Michelis y=2004 t=NonExistentManuscriptProtocols | The Non-existent Manuscript- A Study Of The Protocols Of The -- Cesare G De Michelis; Richard Newhouse; Vidal Sassoon -- Studies in antisemitism, -- 9780803217270 -- b29396f9d808955034615c4942c8a73e -- Anna’s Archive.pdf
+a=Eisner y=2005 t=PlotSecretProtocolsZion | The Plot. The secret story of The Protocols of the Elders of Zion (Will Eisner).pdf
+a=Unknown y=0000 t=NaturalResourceExploitationWesternSahara | Unknown - Natural resource exploitation in Western Sahara (n.d.).pdf
+a=Woodlands y=0000 t=WoodlandsPublication | Woodlands - See discussions, stats, and author profiles for this publication at (n.d.).pdf

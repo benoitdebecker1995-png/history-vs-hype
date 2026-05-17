@@ -1,0 +1,529 @@
+Warning: True color (24-bit) support not detected. Using a terminal with true color enabled will result in a better visual experience.
+YOLO mode is enabled. All tool calls will be automatically approved.
+YOLO mode is enabled. All tool calls will be automatically approved.
+Ripgrep is not available. Falling back to GrepTool.
+Warning: Could not read directory D:\History vs Hype\.pytest_cache: EPERM: operation not permitted, scandir 'D:\History vs Hype\.pytest_cache'
+```json
+[
+  {
+    "o": "[Byzantine and Modern Greek Studies vol. 37 iss. 1] Faustmann, Hubert - James Ker-Lindsay, The Cyprus Problem. What Everyone Needs to Know. Oxford- Oxford University Press, 2011. Pp. 125. (2013) [10.1017-S030701310000673X.pdf",
+    "a": "Faustmann",
+    "y": "2013",
+    "t": "CyprusProblemReview",
+    "p": "Oxford",
+    "c": "Faustmann-2013-CyprusProblemReview-Oxford.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "[The Middle Ages Series] Fulcher of Chartres, Fulcherius Carnotensis, Edward M. Peters (e - The First Crusade- The Chronicle of Fulcher of Chartres and Other Source Materials (1998, University of Pennsylvania Press) - lib.pdf",
+    "a": "Fulcher",
+    "y": "1998",
+    "t": "FirstCrusadeChronicle",
+    "p": "Penn",
+    "c": "Fulcher-1998-FirstCrusadeChronicle-Penn.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Abulafia - Christian-Jewish Relations 1000-1300 (2011).pdf",
+    "a": "Abulafia",
+    "y": "2011",
+    "t": "ChristianJewishRelations",
+    "p": "Unknown",
+    "c": "Abulafia-2011-ChristianJewishRelations-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Abulafia - Christian–Jewish Relations 1000–1300 (2024).pdf",
+    "a": "Abulafia",
+    "y": "2024",
+    "t": "ChristianJewishRelations",
+    "p": "Unknown",
+    "c": "Abulafia-2024-ChristianJewishRelations-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "ACLS-Humanities-E-Book--Warren-Treadgold-A-History-of-the-Byzantine-State-and-Society--1997--Stanfor.pdf",
+    "a": "Treadgold",
+    "y": "1997",
+    "t": "ByzantineStateSociety",
+    "p": "Stanford",
+    "c": "Treadgold-1997-ByzantineStateSociety-Stanford.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Anatomy of Torture (Ron Eduard Hassner) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Hassner",
+    "y": "0000",
+    "t": "AnatomyTorture",
+    "p": "ZLib",
+    "c": "Hassner-0000-AnatomyTorture-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Asbridge - The Crusades (2010).pdf",
+    "a": "Asbridge",
+    "y": "2010",
+    "t": "TheCrusades",
+    "p": "Unknown",
+    "c": "Asbridge-2010-TheCrusades-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Asbridge - The Crusades Authoritative History (2010).pdf",
+    "a": "Asbridge",
+    "y": "2010",
+    "t": "CrusadesAuthoritativeHistory",
+    "p": "Unknown",
+    "c": "Asbridge-2010-CrusadesAuthoritativeHistory-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Bonner - Jihad in Islamic History (2008).pdf",
+    "a": "Bonner",
+    "y": "2008",
+    "t": "JihadIslamicHistory",
+    "p": "Unknown",
+    "c": "Bonner-2008-JihadIslamicHistory-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Bonner, Michael David - Jihad in Islamic History- Doctrines and Practice (2008, Princeton University Press).pdf",
+    "a": "Bonner",
+    "y": "2008",
+    "t": "JihadIslamicHistory",
+    "p": "Princeton",
+    "c": "Bonner-2008-JihadIslamicHistory-Princeton.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Cockburn - The Age of Jihad (2016).pdf",
+    "a": "Cockburn",
+    "y": "2016",
+    "t": "AgeJihad",
+    "p": "Unknown",
+    "c": "Cockburn-2016-AgeJihad-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Cockburn--Patrick-The-age-of-jihad-Islamic-State-and-the-great-war-for-the-Middle-East--2016--Verso-.pdf",
+    "a": "Cockburn",
+    "y": "2016",
+    "t": "AgeJihadIslamicState",
+    "p": "Unknown",
+    "c": "Cockburn-2016-AgeJihadIslamicState-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Compilacion_de_las_Instrucciones_del_Oficio_de_la_Santa_Inquisicion_(IA_BRes14068130Despacho).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "SantaInquisicionInstructions",
+    "p": "Unknown",
+    "c": "Unknown-0000-SantaInquisicionInstructions-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Donner - The Early Islamic Conquests (1981).pdf",
+    "a": "Donner",
+    "y": "1981",
+    "t": "EarlyIslamicConquests",
+    "p": "Unknown",
+    "c": "Donner-1981-EarlyIslamicConquests-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Emon - Religious Pluralism and Islamic Law (2012).pdf",
+    "a": "Emon",
+    "y": "2012",
+    "t": "ReligiousPluralismIslamicLaw",
+    "p": "Unknown",
+    "c": "Emon-2012-ReligiousPluralismIslamicLaw-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Foss - People of the First Crusade (2022).pdf",
+    "a": "Foss",
+    "y": "2022",
+    "t": "PeopleFirstCrusade",
+    "p": "Unknown",
+    "c": "Foss-2022-PeopleFirstCrusade-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Fulcher - The First Crusade Chronicle of Fulcher of Chartres (1998).pdf",
+    "a": "Fulcher",
+    "y": "1998",
+    "t": "FirstCrusadeChronicle",
+    "p": "Unknown",
+    "c": "Fulcher-1998-FirstCrusadeChronicle-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Gabrieli - Arab Historians of the Crusades (Routledge Revivals) (2009).pdf",
+    "a": "Gabrieli",
+    "y": "2009",
+    "t": "ArabHistoriansCrusades",
+    "p": "Routledge",
+    "c": "Gabrieli-2009-ArabHistoriansCrusades-Routledge.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "God’s War A New History of the Crusades (Christopher Tyerman).pdf",
+    "a": "Tyerman",
+    "y": "0000",
+    "t": "GodsWarNewCrusades",
+    "p": "Unknown",
+    "c": "Tyerman-0000-GodsWarNewCrusades-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Hillenbrand - The Crusades (1999).pdf",
+    "a": "Hillenbrand",
+    "y": "1999",
+    "t": "TheCrusades",
+    "p": "Unknown",
+    "c": "Hillenbrand-1999-TheCrusades-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Hillenbrand - The Crusades Islamic Perspectives (1999).pdf",
+    "a": "Hillenbrand",
+    "y": "1999",
+    "t": "CrusadesIslamicPerspectives",
+    "p": "Unknown",
+    "c": "Hillenbrand-1999-CrusadesIslamicPerspectives-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "History of the Inquisition of Spain (Henry Charles Lea) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Lea",
+    "y": "0000",
+    "t": "HistoryInquisitionSpain",
+    "p": "ZLib",
+    "c": "Lea-0000-HistoryInquisitionSpain-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Holt - Competing Voices from the Crusades (2008) (1).pdf",
+    "a": "Holt",
+    "y": "2008",
+    "t": "CompetingVoicesCrusades",
+    "p": "Unknown",
+    "c": "Holt-2008-CompetingVoicesCrusades-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Holt - Competing Voices from the Crusades (2008).pdf",
+    "a": "Holt",
+    "y": "2008",
+    "t": "CompetingVoicesCrusades",
+    "p": "Unknown",
+    "c": "Holt-2008-CompetingVoicesCrusades-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "How the Incas Built Their Heartland - State Formation and the Innovation of Imperial Strategies in the Sacred Valley, Peru… (R. Alan Covey).pdf",
+    "a": "Covey",
+    "y": "0000",
+    "t": "IncasHeartlandStateFormation",
+    "p": "Unknown",
+    "c": "Covey-0000-IncasHeartlandStateFormation-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Ibn al-Qalanisi - Damascus Chronicle of the Crusades (2002).pdf",
+    "a": "al-Qalanisi",
+    "y": "2002",
+    "t": "DamascusChronicleCrusades",
+    "p": "Unknown",
+    "c": "al-Qalanisi-2002-DamascusChronicleCrusades-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Inquisition (1988) (Edward Peters) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Peters",
+    "y": "1988",
+    "t": "Inquisition",
+    "p": "ZLib",
+    "c": "Peters-1988-Inquisition-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Krey - The First Crusade (1921).pdf",
+    "a": "Krey",
+    "y": "1921",
+    "t": "TheFirstCrusade",
+    "p": "Unknown",
+    "c": "Krey-1921-TheFirstCrusade-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Krey - The First Crusade Eyewitness Accounts (1921).pdf",
+    "a": "Krey",
+    "y": "1921",
+    "t": "FirstCrusadeEyewitnessAccounts",
+    "p": "Unknown",
+    "c": "Krey-1921-FirstCrusadeEyewitnessAccounts-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Moyn - Christian Human Rights (2015) (1).pdf",
+    "a": "Moyn",
+    "y": "2015",
+    "t": "ChristianHumanRights",
+    "p": "Unknown",
+    "c": "Moyn-2015-ChristianHumanRights-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Moyn - Christian Human Rights (2015).pdf",
+    "a": "Moyn",
+    "y": "2015",
+    "t": "ChristianHumanRights",
+    "p": "Unknown",
+    "c": "Moyn-2015-ChristianHumanRights-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Phillips - The Fourth Crusade and Sack of Constantinople (2004).pdf",
+    "a": "Phillips",
+    "y": "2004",
+    "t": "FourthCrusadeConstantinople",
+    "p": "Unknown",
+    "c": "Phillips-2004-FourthCrusadeConstantinople-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Phillips - The Fourth Crusade and the Sack of Constantinople (2005).pdf",
+    "a": "Phillips",
+    "y": "2005",
+    "t": "FourthCrusadeConstantinople",
+    "p": "Unknown",
+    "c": "Phillips-2005-FourthCrusadeConstantinople-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "practicainquisit00bern.pdf",
+    "a": "Gui",
+    "y": "1330",
+    "t": "PracticaInquisitionis",
+    "p": "Unknown",
+    "c": "Gui-1330-PracticaInquisitionis-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Research - Triumphalism vs. Reality in Christian History (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "TriumphalismChristianHistory",
+    "p": "Unknown",
+    "c": "Unknown-0000-TriumphalismChristianHistory-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Riley-Smith - The Crusades A History (2014).pdf",
+    "a": "Riley-Smith",
+    "y": "2014",
+    "t": "CrusadesHistory",
+    "p": "Unknown",
+    "c": "Riley-Smith-2014-CrusadesHistory-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Riley-Smith - The Crusades A History (2022).pdf",
+    "a": "Riley-Smith",
+    "y": "2022",
+    "t": "CrusadesHistory",
+    "p": "Unknown",
+    "c": "Riley-Smith-2022-CrusadesHistory-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Routledge-Revivals--Francesco-Gabrieli-Arab-Historians-of-the-Crusades--2011--Routledge--libgen.li.pdf",
+    "a": "Gabrieli",
+    "y": "2011",
+    "t": "ArabHistoriansCrusades",
+    "p": "Routledge",
+    "c": "Gabrieli-2011-ArabHistoriansCrusades-Routledge.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Rubenstein--Jay-Armies-of-Heaven-The-First-Crusade-and-the-Quest-for-Apocalypse--2011--Basic-Books--.pdf",
+    "a": "Rubenstein",
+    "y": "2011",
+    "t": "ArmiesHeavenFirstCrusade",
+    "p": "Unknown",
+    "c": "Rubenstein-2011-ArmiesHeavenFirstCrusade-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Sahner - Christian Martyrs under Islam (2018).pdf",
+    "a": "Sahner",
+    "y": "2018",
+    "t": "ChristianMartyrsIslam",
+    "p": "Unknown",
+    "c": "Sahner-2018-ChristianMartyrsIslam-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Stow - Alienated Minority Jews of Medieval Europe (1998).pdf",
+    "a": "Stow",
+    "y": "1998",
+    "t": "AlienatedJewsMedievalEurope",
+    "p": "Unknown",
+    "c": "Stow-1998-AlienatedJewsMedievalEurope-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The Chronicle of Ibn al-Athīr for the Crusading Period from -- D- S- Richards -- Taylor & Francis (Unlimited), Oxford, 2008 -- Routledge -- 9780754640790 -- 75c492ab7b6b20d83552b9de21506723 -- Anna’s Archive.pdf",
+    "a": "al-Athir",
+    "y": "2008",
+    "t": "ChronicleCrusadingPeriod",
+    "p": "Routledge",
+    "c": "al-Athir-2008-ChronicleCrusadingPeriod-Routledge.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The Crusades The Authoritative History of the War for the Holy Land (Thomas Asbridge).pdf",
+    "a": "Asbridge",
+    "y": "0000",
+    "t": "CrusadesAuthoritativeHistory",
+    "p": "Unknown",
+    "c": "Asbridge-0000-CrusadesAuthoritativeHistory-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The Damascus Chronicle of the Crusades - Extracted and -- extracted and translated from the Chronicle of Ibn -- INscribe Digital, Mineola, New York, -- 9780486143408 -- e8f1880b36bae449d9e94d158291b06e -- Anna’s Archive.pdf",
+    "a": "Ibn",
+    "y": "0000",
+    "t": "DamascusChronicleCrusades",
+    "p": "AnnaArchive",
+    "c": "Ibn-0000-DamascusChronicleCrusades-AnnaArchive.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The First Crusade The Accounts of Eyewitnesses and Participants (August C. Krey).pdf",
+    "a": "Krey",
+    "y": "0000",
+    "t": "FirstCrusadeEyewitnessAccounts",
+    "p": "Unknown",
+    "c": "Krey-0000-FirstCrusadeEyewitnessAccounts-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The Spanish Inquisition (Helen Rawlings) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Rawlings",
+    "y": "0000",
+    "t": "SpanishInquisition",
+    "p": "ZLib",
+    "c": "Rawlings-0000-SpanishInquisition-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The Spanish Inquisition A Historical Revision (unknown) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "SpanishInquisitionHistoricalRevision",
+    "p": "ZLib",
+    "c": "Unknown-0000-SpanishInquisitionHistoricalRevision-ZLib.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "The Spanish Inquisition, 1478-1614 An Anthology of Sources (Lu Ann Homza) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Homza",
+    "y": "0000",
+    "t": "SpanishInquisitionAnthology",
+    "p": "ZLib",
+    "c": "Homza-0000-SpanishInquisitionAnthology-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The-Crusades-A-History--Jonathan-Riley-Smith-Susanna-A.-Throop---Z-Library-.pdf",
+    "a": "Riley-Smith",
+    "y": "0000",
+    "t": "TheCrusadesHistory",
+    "p": "ZLib",
+    "c": "Riley-Smith-0000-TheCrusadesHistory-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Treadgold - A History of the Byzantine State and Society (1997).pdf",
+    "a": "Treadgold",
+    "y": "1997",
+    "t": "ByzantineStateSociety",
+    "p": "Unknown",
+    "c": "Treadgold-1997-ByzantineStateSociety-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Tyerman - Gods War A New History of the Crusades (2006).pdf",
+    "a": "Tyerman",
+    "y": "2006",
+    "t": "GodsWarNewCrusades",
+    "p": "Unknown",
+    "c": "Tyerman-2006-GodsWarNewCrusades-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Usāmah ibn Munqidh - The Book of Contemplation (2008).pdf",
+    "a": "Munqidh",
+    "y": "2008",
+    "t": "BookContemplation",
+    "p": "Unknown",
+    "c": "Munqidh-2008-BookContemplation-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  }
+]
+```

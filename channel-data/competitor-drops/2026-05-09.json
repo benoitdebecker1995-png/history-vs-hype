@@ -1,0 +1,8 @@
+{
+  "drops": [
+    {
+      "channel": "Three Arrows",
+      "error": "fetch failed: HTTP Error 500: Internal Server Error"
+    }
+  ]
+}

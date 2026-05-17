@@ -1,0 +1,153 @@
+You are identifying correct publication metadata for academic library files.
+
+For each file listed below, provide the correct YEAR and PUBLISHER.
+Rules:
+- Publisher = real academic publisher (NOT download source like ZLib, Libgen, AnnaArchive, z-library, 1lib)
+- For primary source documents (treaties, acts, speeches, court decisions, government reports): publisher = issuing institution (e.g. "United Nations", "US Congress", "ICJ", "League of Nations")
+- For journal articles: publisher = journal name (e.g. "Journal of African History")
+- For books: publisher = academic press (e.g. "Oxford University Press", "Harvard University Press", "Cambridge University Press")
+- If you cannot determine with high confidence: y="0000" and/or p="Unknown"
+- Use your training knowledge and Google Search to verify
+
+Return ONLY a JSON array (no markdown fences, no explanation):
+[{{"f": "original_filename.pdf", "y": "YYYY", "p": "Publisher"}}]
+
+Files (current known metadata: a=author, y=year, t=short_title):
+a=Mernissi y=1991 t=VeilMaleEliteFeminism | The veil and the male elite [electronic resource] a feminist interpretation of womens rights in Islam (Mernissi, Fatima, Lakeland, Mary Jo etc.) (z-library.sk, 1lib.sk, z-lib.sk)-1.pdf
+a=Mernissi y=1991 t=VeilMaleEliteFeminism | The veil and the male elite [electronic resource] a feminist interpretation of womens rights in Islam (Mernissi, Fatima, Lakeland, Mary Jo etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Mernissi y=1991 t=VeilMaleEliteFeminism | The veil and the male elite a feminist interpretation of womens rights in Islam (Mernissi, Fatima) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t=AncientReligionArchaeology | The-Archaeology-of-Ancient-Religion-in-the-Eastern.pdf
+a=Matthews y=0000 t=BattleThermopylae | The-Battle-of-Thermopylae-_Rupert-Matthews_-_z-library.sk_-1lib.sk_-z-lib.sk_.pdf
+a=Unknown y=0000 t=WorldHistoryViolence | The-Cambridge-World-History-of-Violence.pdf
+a=Siculus y=0000 t=CompleteWorks | The-Complete-Works-of-Diodorus-Siculus-_Diodorus-Siculus_-_z-library.sk_-1lib.sk_-z-lib.sk_.pdf
+a=Simonides y=0000 t=FragmentsOfCeos | The-Fragments-of-Simonides-_Simonides-of-Ceos_-_z-library.sk_-1lib.sk_-z-lib.sk_.pdf
+a=Unknown y=0000 t=NaturalRightsLaw | The-Idea-of-Natural-Rights-Studies-on-Natural-Rights--Natural-Law--and-Church-Law-1150-1625--Emory-U.pdf
+a=Herodotus y=0000 t=LandmarkHistories | The-Landmark-Herodotus-Histories-_Herodotus_-Robert-B.-Strassler_ed__-_z-library.sk_-1lib.sk_-z-lib.pdf
+a=Brown y=0000 t=RealValkyrieVikingWomen | The-Real-Valkyrie-The-Hidden-History-of-Viking-Warrior-Women--Nancy-Marie-Brown---Z-Library-.pdf
+a=Rousso y=0000 t=VichySyndromeFrance | The-Vichy-Syndrome-History-and-Memory-in-France-Since-1944-_Rousso-Henry_-_z-library.sk_-1lib.pdf
+a=Thomas y=2001 t=SkullWars | Thomas - Skull Wars (2001).pdf
+a=Thompson y=2011 t=RationalRadicalismTheory | Thompson - Rational Radicalism and Political Theory (2011).pdf
+a=Tierra y=0000 t=FirmaIllustrations | Tierra Firma - PASTE-OVER ILLUSTRATIONS IN THE (n.d.).pdf
+a=Tinniswood y=2010 t=PiratesBarbary | Tinniswood - Pirates of Barbary (2010).pdf
+a=Tinniswood y=0000 t=PiratesBarbaryCorsairs | Tinniswood--Adrian-Pirates-of-Barbary--Corsairs--Conquests-and-Captivity-in-the-17th-Century-Mediter.pdf
+a=Unknown y=0000 t=EducationalPolicy | To be completed the Ministry of Education - DEPARTMENT OF EDUCATIONAL POLICY (n.d.).pdf
+a=Totten y=2023 t=MultiethnicLiterature | Totten - A Companion to Multiethnic Literature of the United States (2023).pdf
+a=Roll y=0000 t=OriginsOfChristmas | Toward The Origins Of Christmas [liturgia Condenda 5] -- Susan K_ Roll -- Liturgia condenda,, 5, Kampen, The Netherlands, Netherlands, -- Peeters -- 9789039005316 -- 23cd2d86d530a885d34c8ac96e8e9af0 -- Anna’s Archive.pdf
+a=Unknown y=0000 t=TransactionDocument | transaccion.pdf
+a=Unknown y=0000 t=TranscriptionGuidelines | Transcription-(Complex)-Guidelines.pdf
+a=Treuer y=2012 t=IndiansFAQ | Treuer - Everything You Wanted to Know about Indians But Were Afraid to Ask (2012).pdf
+a=Unknown y=0000 t=ChristianHistoryReality | Triumphalism vs. Reality in Christian History.pdf
+a=Unknown y=0000 t=TrueReligionNikolaj | True Religion - (Opposite) 1 Nikolaj (n.d.).pdf
+a=Tsoumbakos y=2017 t=Vikings | Tsoumbakos - Vikings (2017).pdf
+a=Unknown y=0000 t=EducationalPolicyUFO | Ufo - DEPARTMENT OF EDUCATIONAL POLICY (n.d.).pdf
+a=UnicafPC y=0000 t=OXMOFinal | UnicafPC - OXMO 8-1_FINAL.pdf (n.d.).pdf
+a=Union y=1997 t=WesternEuropeanUnion | Union - Proceedings - Assembly of Western European Union (1997).pdf
+a=Unknown y=0000 t=MoroccanKingSahara | Unknown - ‘The Moroccan king wants Western Sahara without its people’ (n.d.).pdf
+a=Unknown y=0000 t=UnknownDocument | Unknown - 0198752725.pdf (n.d.) (1).pdf
+a=Unknown y=0000 t=UnknownDocument | Unknown - 0198752725.pdf (n.d.).pdf
+a=Chachavalpongpun y=0000 t=PavinDOI | Unknown - 04_Pavin Chachavalpongpun_DOI.indd (n.d.).pdf
+a=Mamigonian y=0000 t=UnknownPaper | Unknown - 04-9_1-Mamigonian4 61..82 (n.d.).pdf
+a=Unknown y=0000 t=HashDocument | Unknown - 2020-09-15-21.51.27-A044-BE10738517027604 (n.d.).pdf
+a=Unknown y=0000 t=HashDocument | Unknown - 2020-09-29-19.51.37-A044-BE18734042540165 (n.d.).pdf
+a=Unknown y=0000 t=HashDocument | Unknown - 2020-09-29-19.51.50-A044-BE18734042540165 (n.d.).pdf
+a=Unknown y=0000 t=HashDocument | Unknown - 2020-09-29-19.51.59-A044-BE18734042540165 (n.d.).pdf
+a=Unknown y=0000 t=HashDocument | Unknown - 2020-09-29-19.52.07-A044-BE18734042540165 (n.d.).pdf
+a=Unknown y=0000 t=HashDocument | Unknown - 2020-09-29-19.52.28-A044-BE18734042540165 (n.d.).pdf
+a=Unknown y=0000 t=HashDocument | Unknown - 2020-09-29-19.52.45-A044-BE18734042540165 (n.d.).pdf
+a=Unknown y=0000 t=HashDocument | Unknown - 2020-09-29-19.52.56-A044-BE18734042540165 (n.d.) (1).pdf
+a=Unknown y=0000 t=HashDocument | Unknown - 2020-09-29-19.52.56-A044-BE18734042540165 (n.d.).pdf
+a=Unknown y=0000 t=HashDocument | Unknown - 2020-09-29-19.53.03-A044-BE18734042540165 (n.d.).pdf
+a=Unknown y=0000 t=HashDocument | Unknown - 2020-09-29-19.53.12-A044-BE18734042540165 (n.d.).pdf
+a=Unknown y=0000 t=HashDocument | Unknown - 2020-09-29-19.53.22-A044-BE18734042540165 (n.d.).pdf
+a=Unknown y=0000 t=HashDocument | Unknown - 2020-09-29-19.53.38-A044-BE18734042540165 (n.d.).pdf
+a=Unknown y=0000 t=UnreadableDocument | Unknown - 4) Bee ee a erensut Sune’ DWE IVONNA (n.d.).pdf
+a=Unknown y=0000 t=UnknownDocument | Unknown - 9780198752752.pdf (n.d.).pdf
+a=Unknown y=0000 t=BlandijnDocument | Unknown - blandijn2019ok (n.d.) (1).pdf
+a=Unknown y=0000 t=BlandijnDocument | Unknown - blandijn2019ok (n.d.).pdf
+a=Unknown y=0000 t=BolComFactuur | Unknown - bol.com - je factuur (n.d.).pdf
+a=Unknown y=0000 t=LatinAmericanStudies | Unknown - Cambridge Latin American studies (n.d.).pdf
+a=Unknown y=0000 t=TransaccionAutorizacion | Unknown - Código de autorización de la transacción 043809 (n.d.).pdf
+a=Unknown y=0000 t=WehrmachtWWII | Unknown - Cohesion and Disintegration in the Wehrmacht in World War II (n.d.).pdf
+a=DeBecker y=0000 t=EuropassCV | Unknown - CV-Europass-20200131-DeBecker-EN.pdf (n.d.) (1) (2) (3).pdf
+a=DeBecker y=0000 t=EuropassCV | Unknown - CV-Europass-20200131-DeBecker-EN.pdf (n.d.) (1) (2).pdf
+a=DeBecker y=0000 t=EuropassCV | Unknown - CV-Europass-20200131-DeBecker-EN.pdf (n.d.) (1).pdf
+a=DeBecker y=0000 t=EuropassCV | Unknown - CV-Europass-20200131-DeBecker-EN.pdf (n.d.).pdf
+a=Unknown y=0000 t=DiseaseDemographyAmericas | Unknown - Disease and demography in the Americas (n.d.).pdf
+a=Unknown y=0000 t=CopyrightProtectedDocument | Unknown - Dit document is auteursrechtelijk beschermd, het verspreiden van dit document is strafbaar. (n.d.).pdf
+a=Unknown y=0000 t=EuropassDocument | Unknown - Europass (n.d.).pdf
+a=Unknown y=0000 t=EuropeanYouthProposal | Unknown - European Youth Team - Proposal (n.d.).pdf
+a=Unknown y=0000 t=FinDeMundo | Unknown - Fin de Mundo.pdf (n.d.).pdf
+a=Unknown y=0000 t=FODocument | Unknown - FO-882-2_01 (n.d.).pdf
+a=Unknown y=0000 t=FODocument | Unknown - FO-882-2_02 (n.d.).pdf
+a=Unknown y=0000 t=GrimHollowSubclasses | Unknown - Grim Hollow Subclasses in Etharis World Anvil (n.d.).pdf
+a=Unknown y=0000 t=HeracleiteanFluxPlato | Unknown - Heracleitean Flux in Plato's Theaetetus (n.d.).pdf
+a=Unknown y=0000 t=HeracliteanFluxPlato | Unknown - Heraclitean Flux and Unity of Opposites in Plato's Theaetetus and Cratylus (n.d.).pdf
+a=Howell y=0000 t=WTFinal | Unknown - howell_WT_final_01 (n.d.) (1).pdf
+a=Howell y=0000 t=WTFinal | Unknown - howell_WT_final_01 (n.d.).pdf
+a=Unknown y=0000 t=ISBN9781611454048 | Unknown - isbn_9781611454048 (n.d.).pdf
+a=Unknown y=0000 t=KlaprozenlaanDocument | Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2) (3) (4) (5) (6) (7) (8) (9).pdf
+a=Unknown y=0000 t=KlaprozenlaanDocument | Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2) (3) (4) (5) (6) (7) (8).pdf
+a=Unknown y=0000 t=KlaprozenlaanDocument | Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2) (3) (4) (5) (6) (7).pdf
+a=Unknown y=0000 t=KlaprozenlaanDocument | Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2) (3) (4) (5) (6).pdf
+a=Unknown y=0000 t=KlaprozenlaanDocument | Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2) (3) (4) (5).pdf
+a=Unknown y=0000 t=KlaprozenlaanDocument | Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2) (3) (4).pdf
+a=Unknown y=0000 t=KlaprozenlaanDocument | Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2) (3).pdf
+a=Unknown y=0000 t=KlaprozenlaanDocument | Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2).pdf
+a=Unknown y=0000 t=KlaprozenlaanDocument | Unknown - KLAPROZENLAAN 34 (n.d.) (1).pdf
+a=Unknown y=0000 t=KlaprozenlaanDocument | Unknown - KLAPROZENLAAN 34 (n.d.).pdf
+a=Unknown y=0000 t=KlassiekeNvtholozie | Unknown - Klassieke nvtholozie 2021 . (n.d.).pdf
+a=Unknown y=0000 t=KMBTC364Document | Unknown - KMBT_C364-20160617153842 (n.d.) (1).pdf
+a=Unknown y=0000 t=KMBTC364Document | Unknown - KMBT_C364-20160617153842 (n.d.).pdf
+a=Unknown y=0000 t=KSATPPAT | Unknown - KSA TPP AT Gl sccninese (n.d.).pdf
+a=Unknown y=0000 t=Layout1 | Unknown - Layout 1 (n.d.).pdf
+a=Unknown y=0000 t=Prehistory1066Lecture | Unknown - Lecture 1 Slides, Prehistory to 1066 (n.d.).pdf
+a=Unknown y=0000 t=ProgramOutlineMay28 | Unknown - May 28th - program outline (breakout sessions) (n.d.).pdf
+a=Unknown y=0000 t=WordDocument3 | Unknown - Microsoft Word - Document3 (n.d.) (1).pdf
+a=Unknown y=0000 t=WordDocument3 | Unknown - Microsoft Word - Document3 (n.d.).pdf
+a=Unknown y=0000 t=WordSyllabus | Unknown - Microsoft Word - Syllabus.docx (n.d.).pdf
+a=Unknown y=0000 t=YouthResearchPodcast | Unknown - Microsoft Word - Youth resarch podcast transcript.docx (n.d.).pdf
+a=Unknown y=0000 t=HouseRulesRappan | Unknown - Overview House Rules - Rappan Athuk (n.d.).pdf
+a=Vries y=0000 t=PHHVries | Unknown - P. H. H. VRIES (n.d.).pdf
+a=Unknown y=0000 t=Peoples | Unknown - Peoples (n.d.).pdf
+a=Unknown y=0000 t=LeyesReinosIndias | Unknown - Recopilación de leyes de los reinos de Indias (n.d.).pdf
+a=Unknown y=1993 t=RevistaCubanaDerecho | Unknown - Revista cubana de derecho (1993).pdf
+a=Posner y=0000 t=RolandPosner | Unknown - Roland Posner (n.d.).pdf
+a=Unknown y=0000 t=RWARADocument | Unknown - RWAR_A_818513 298..313 (n.d.).pdf
+a=Unknown y=0000 t=AcademicArticle | Unknown - S0003598X18002582jra 181..198 (n.d.) (1).pdf
+a=Unknown y=0000 t=AcademicArticle | Unknown - S0003598X18002582jra 181..198 (n.d.).pdf
+a=Unknown y=0000 t=AcademicArticle | Unknown - S0003598X23001758jra 245..259 (n.d.).pdf
+a=Unknown y=0000 t=AcademicArticle | Unknown - S0003598X23001771jra 155..171 (n.d.) (1).pdf
+a=Unknown y=0000 t=AcademicArticle | Unknown - S0003598X23001771jra 155..171 (n.d.).pdf
+a=Unknown y=0000 t=AcademicArticle | Unknown - S0068113X15000100jra 171..189 (n.d.).pdf
+a=Unknown y=0000 t=AcademicArticle | Unknown - S1816383122000339jed 765..779 (n.d.).pdf
+a=Unknown y=0000 t=SamenvattingConstructieVerleden | Unknown - Samenvatting De Constructie Van Het Verleden Compleet (n.d.) (1).pdf
+a=Unknown y=0000 t=SamenvattingConstructieVerleden | Unknown - Samenvatting De Constructie Van Het Verleden Compleet (n.d.).pdf
+a=Unknown y=0000 t=TerritorializationStateThailand | Unknown - Territorialization and State Power in Thailand (n.d.).pdf
+a=Unknown y=0000 t=NativePopulationAmericas1492 | Unknown - The Native population of the Americas in 1492 (n.d.) (1).pdf
+a=Unknown y=0000 t=NativePopulationAmericas1492 | Unknown - The Native population of the Americas in 1492 (n.d.).pdf
+a=Unknown y=0000 t=TIRLALAKSA | Unknown - TIRLALA KSA OOSTENDE MEEUWENNEST (n.d.).pdf
+a=Unknown y=0000 t=NurembergWarCriminals | Unknown - Trials of War Criminals before Nuernberg, Nuremberg Military Tribunals under Control Council Law No. 10 (n.d.).pdf
+a=Unknown y=0000 t=UntitledDocument | Unknown - untitled (n.d.) (1) (2) (3).pdf
+a=Unknown y=0000 t=UntitledDocument | Unknown - untitled (n.d.) (1) (2).pdf
+a=Unknown y=0000 t=UntitledDocument | Unknown - untitled (n.d.) (1).pdf
+a=Unknown y=0000 t=UntitledDocument | Unknown - untitled (n.d.).pdf
+a=Unknown y=0000 t=VerhalenGebeurtenissen | Unknown - vertelt ze slechts verhalen over gebeurtenissen uit het roemrijke (n.d.).pdf
+a=Unknown y=0000 t=VojnuciDefter1455 | Unknown - VOJNUCKI DEFTER IZ 1455.indb (n.d.).pdf
+a=Unknown y=0000 t=WhiteLegendBlack | Unknown - White Legend against Black (n.d.).pdf
+a=Unknown y=0000 t=WordSourDocument | User - Microsoft Word - XLVIII 05 Sour.doc (n.d.).pdf
+a=Vandenabeele y=2017 t=VerbijsteringVeelheidVerschil | Vandenabeele - Verbijstering, veelheid, verschil. Fundamentele inzichten van actuele filosofen (2017).pdf
+a=Vandergeest y=0000 t=TerritorializationStatePower | VandergeestandPelusoTerritorializationandstatepower.pdf
+a=Vega y=1964 t=IncaGarcilasoComentarios | Vega - El Inca Garcilaso en sus Comentarios (1964).pdf
+a=Unknown y=0000 t=VikingWarriorWomen | viking-warrior-women-reassessing-birka-chamber-grave-bj581-1.pdf
+a=Tsoumbakos y=0000 t=VikingsLagerthaRagnar | Vikings The Truth About Lagertha And Ragnar Viking Secrets Book One (Rachel Tsoumbakos).pdf
+a=Viola y=0000 t=RedPinkStamps | Viola - Red and Pink Stamps Handcrafted & Heartfelt General Audience Valentine's Day Canvas (n.d.).pdf
+a=Unknown y=1455 t=VojnuciDefter | VOJNUCKIDEFTERIZ1455GODINE.pdf
+a=Wade y=2009 t=RaceSexLatinAmerica | Wade - Race and Sex in Latin America (2009).pdf
+a=Urban y=2015 t=WaitButWhy | Wait But Why{Urban, Tim}(2015){106173065} libgen.li.epub
+a=Behan y=0000 t=WarriorWomenArchaeologists | Warrior women - an archaeologists search for historys -- Mona Behan, Jeannine Davis-Kimball, Jeannine Davis-Kimball.pdf
+a=Unknown y=0000 t=WarriorWomen | Warrior women.pdf
+a=West y=2000 t=VindicatingFounders | West - Vindicating the Founders (2000).pdf
+a=Unknown y=0000 t=WhatWeKnewLost | WhatweKnewwasLost.pdf
+a=Unknown y=0000 t=HarlotsOfHadramaut | who - T H E SO-CALLED HARLOTS OF HADRAMAUT (n.d.).pdf
+a=Williams y=0000 t=GenderRepresentationEvil | Williams - Gender and the Representation of Evil (n.d.).pdf
+a=Mernissi y=0000 t=WomenIslamEnquiry | Women and Islam an historical and theological enquiry (Mernissi, Fatima, Lakeland, Mary Jo) (z-library.sk, 1lib.sk, z-lib.sk).pdf

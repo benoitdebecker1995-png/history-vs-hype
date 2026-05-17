@@ -35,8 +35,9 @@
 ## Newsletter Publishing (read this 1)
 1. **NEWSLETTER-METADATA-CHECKLIST.md** — Subject lines, subtitles, SEO metadata.
 
-## Comments / Engagement (read this 1)
+## Comments / Engagement (read these 2)
 1. **youtube-comment-response-guide.md** — Response voice and templates.
+2. **`/comment-mine` command** (`.claude/commands/comment-mine.md`) — Mine competitor comments via yt-dlp to lock thesis angle. Always yt-dlp route; never WebFetch or Playwright for comments.
 
 ## Untranslated Evidence Series (read this 1)
 1. **UNTRANSLATED-EVIDENCE-FORMAT-GUIDE.md** — Format for translation episodes.

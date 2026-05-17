@@ -2,7 +2,7 @@
 name: wiki-researcher
 description: Fetches Wikipedia and related web sources to generate a structured preliminary brief for a video topic. Replaces 2-4 hours of manual browsing with a 5-minute automated landscape scan. Bulk Wikipedia reads offloaded to Gemini.
 tools: [Read, Write, WebFetch, WebSearch, Grep, Glob, Bash]
-model: sonnet
+model: haiku
 version: 2.0 (2026-05-05) — Gemini retrofit for Wikipedia bulk reads (Steps 1-2)
 ---
 
@@ -42,7 +42,7 @@ The orchestrator provides:
 mkdir -p "{project_path}/_research/_gemini-cache"
 STAGING="{project_path}/_research/_gemini-cache/wiki-main.md"
 
-gemini --yolo -p "Fetch <WIKIPEDIA-URL> and extract these 7 numbered sections as markdown with H3 headers (one per section): (1) TIMELINE — every date and event in chronological order; (2) KEY FIGURES — every person with role and one-sentence relevance; (3) KEY CLAIMS — every factual assertion usable in a video script; (4) DEBATES — any 'historians debate' language or historiographical disagreements; (5) REFERENCES — academic books/papers cited (author, title, year, publisher); (6) RELATED ARTICLES — 5 most relevant 'See also' or internal links with their URLs; (7) MODERN RELEVANCE — current events, ongoing disputes, present-day effects mentioned. Output ONLY the structured markdown, no preamble." -o text > "$STAGING" 2>&1
+gemini --yolo -p "Fetch <WIKIPEDIA-URL> and extract these 7 numbered sections as markdown with H3 headers (one per section): (1) TIMELINE — every date and event in chronological order; (2) KEY FIGURES — every person with role and one-sentence relevance; (3) KEY CLAIMS — every factual assertion usable in a video script; (4) DEBATES — any 'historians debate' language or historiographical disagreements; (5) REFERENCES — academic books/papers cited (author, title, year, publisher); (6) RELATED ARTICLES — 5 most relevant 'See also' or internal links with their URLs; (7) MODERN RELEVANCE — current events, ongoing disputes, present-day effects mentioned. Output ONLY the structured markdown, no preamble." -o text > "$STAGING" 2>/dev/null
 ```
 
 **After Gemini completes:**
@@ -69,7 +69,7 @@ From the RELATED ARTICLES extracted in Step 1, pick the 2-3 most relevant to the
 ```bash
 STAGING_RELATED="{project_path}/_research/_gemini-cache/wiki-related.md"
 
-gemini --yolo -p "Fetch each of these Wikipedia URLs and produce a separate H2 section per URL with the article title as the H2. For each: extract the same 7 numbered sections (TIMELINE, KEY FIGURES, KEY CLAIMS, DEBATES, REFERENCES, RELATED ARTICLES, MODERN RELEVANCE) as H3 headers. URLs: <URL1>, <URL2>, <URL3>. Output ONLY the structured markdown." -o text > "$STAGING_RELATED" 2>&1
+gemini --yolo -p "Fetch each of these Wikipedia URLs and produce a separate H2 section per URL with the article title as the H2. For each: extract the same 7 numbered sections (TIMELINE, KEY FIGURES, KEY CLAIMS, DEBATES, REFERENCES, RELATED ARTICLES, MODERN RELEVANCE) as H3 headers. URLs: <URL1>, <URL2>, <URL3>. Output ONLY the structured markdown." -o text > "$STAGING_RELATED" 2>/dev/null
 ```
 
 **After Gemini completes:** Read `$STAGING_RELATED`. Verify each URL got an H2 section. Retry/fallback per same rules as Step 1.

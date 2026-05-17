@@ -1,0 +1,6 @@
+=== Publisher Lookup Report (2026-05-12) ===
+Haiku resolved publishers: 230 / 348
+Applied renames: 230
+Hash-dedup deleted: 0
+Disambiguated -vN: 0
+Errors: 0

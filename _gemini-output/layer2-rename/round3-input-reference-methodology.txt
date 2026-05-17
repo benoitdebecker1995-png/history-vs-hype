@@ -1,0 +1,60 @@
+You are identifying academic books, journal articles, treaties, and primary
+documents from partial metadata + an excerpt of the first two pages of the
+PDF. For each entry below, search the web (Google Search grounding) to verify
+the work and return its full metadata.
+
+Each entry shows:
+  - The current filename (after prior parsing)
+  - Known fields: title slug, author surname, year, publisher
+  - 'Unknown' / '0000' = unresolved field
+  - A short excerpt from the first two pages of the PDF (may be empty if the
+    document is scanned image-only — proceed using the filename in that case)
+
+INSTRUCTIONS
+- Resolve EVERY missing field where you can find authoritative evidence.
+- Use Google Search grounding; cross-reference excerpt content + filename.
+- Do NOT guess. Mark UNRESOLVED if no high- or medium-confidence answer.
+- Confidence levels:
+    high   — primary source (publisher page, library catalogue, JSTOR)
+    medium — secondary source (Wikipedia, Google Books snippet)
+    low    — inference from excerpt only (rarely use; usually UNRESOLVED)
+- source_url is REQUIRED for any non-UNRESOLVED row.
+- publisher_abbrev MUST come from this list (use the closest match):
+  CambridgeUP, OxfordUP, YaleUP, PrincetonUP, ColumbiaUP, IndianaUP,
+  EdinburghUP, NYUPress, UCPress, JohnsHopkinsUP, HooverPress, PlutoPress,
+  Routledge, Palgrave, Bloomsbury, ITauris, HurstCo, ZedBooks, VersoBooks,
+  BasicBooks, RandomHouse, Penguin, Brill, Springer, DaCapo, FreePress,
+  Granta, WeidenfeldNicolson, CornellUP, StanfordUP, HarvardUP, LiverpoolUP,
+  MacmillanUK, NortonCo, HMSO, UN, ICJ, OECD, LHarmattan, Macmillan,
+  HoughtonMifflin, Serif.
+  If publisher is a journal article, use the journal abbreviation
+  (e.g. JModernHistory, IntlAffairs). If it is a government / IGO document,
+  use the issuer abbreviation (HMSO, UN, ICJ, FCO, etc.).
+
+OUTPUT
+Return a single markdown table with exactly these columns:
+
+| idx | title_slug | author_surname | year | publisher_abbrev | confidence | source_url |
+
+- idx: the integer from the entry header below.
+- title_slug: CamelCase, no spaces, no punctuation, ≤45 chars.
+- author_surname: surname only (e.g. Zinn, Akcam, Martinez — strip diacritics).
+- year: 4 digits, or 0000 if truly unknown.
+- All UNRESOLVED rows: put UNRESOLVED in every field except idx.
+
+Do NOT include any prose before or after the table.
+
+---
+
+ENTRIES:
+
+394. [reference-methodology] NonexistentManuscriptProtocols-DeMichelis-2005-Unknown.pdf
+   known: t=NonexistentManuscriptProtocols | a=DeMichelis | y=2005 | p=Unknown
+   missing: publisher
+   excerpt: '6 \nНН \nterete \nда т \nя \n#5 \n2 4 \naes \nis'
+
+395. [reference-methodology] WoodlandsPublication-Woodlands-0000-Unknown.pdf
+   known: t=WoodlandsPublication | a=Woodlands | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/234147797\nThe Archaeology of Ancient Religion in the Eastern Woodlands\nArticle\xa0\xa0in\xa0\xa0Annual Review of Anthropology · November 2003\nDOI: 10.1146/annurev.anthro.26.1.465\nCITATIONS\n68\nREADS\n958\n1 author:\nJames A. Brown\nNorthwestern University\n72 PUBLICATIONS\xa0\xa0\xa01,685 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nAll content following this page was uploaded by James A. Brown on 06 March 2014.\nThe user has requested enhancement of the downloaded file.'
+

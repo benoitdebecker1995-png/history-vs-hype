@@ -1,0 +1,2857 @@
+You will receive PDF first-2-pages text extracts from totally-unidentified academic library files. For each, identify the work.
+
+OUTPUT FORMAT: JSON array, NO markdown fences, JSON only.
+[{"i":N, "f":"<filename>", "t":"ShortTitleSlug", "a":"AuthorSurname", "y":"YYYY", "p":"PublisherAbbrev", "confidence":"high|medium|low"}]
+
+RULES:
+- t: CamelCase title slug, max 45 chars, strip "The"/"A"/"An"
+- a: First author last name capitalised, max 25 chars
+- y: 4-digit year. "0000" if not visible in text
+- p: Publisher abbreviated. Use: CambridgeUP, OxfordUP, YaleUP, PrincetonUP, ColumbiaUP, IndianaUP, EdinburghUP, NYUPress, UCPress, JohnsHopkinsUP, HooverPress, PlutoPress, Routledge, Palgrave, Bloomsbury, ITauris, HurstCo, ZedBooks, VersoBooks, BasicBooks, RandomHouse, Penguin, Brill, Springer, DaCapo, FreePress, Granta, WeidenfeldNicolson, CornellUP, StanfordUP, HarvardUP, LiverpoolUP, etc.
+- confidence: "high" if title page clearly states all fields; "medium" if some inference; "low" if mostly guessing
+- If you genuinely cannot identify, use "Unknown" — confidence "low"
+
+EXTRACTS:
+
+
+=== ENTRY 1 ===
+FILENAME: BulletinOfficielEtatIndependant-Unknown-0000-Unknown.pdf
+FOLDER: african-history
+TEXT:
+Source gallica.bnf.fr / Ministère des Affaires étrangères
+Bulletin officiel de l'État
+indépendant du Congo
+
+---PAGE---
+Congo (République démocratique). Auteur du texte. Bulletin
+officiel de l'État indépendant du Congo. 1891-01-01.
+1/ Les contenus accessibles sur le site Gallica sont pour la plupart des reproductions numériques d'oeuvres tombées
+dans le domaine public provenant des collections de la BnF. Leur réutilisation s'inscrit dans le cadre de la loi n°78-
+753 du 17 juillet 1978 :
+ - La réutilisation non commerciale de ces contenus ou dans le cadre d’une publication académique ou scientifique
+est libre et gratuite dans le respect de la législation en vigueur et notamment du maintien de la mention de source
+des contenus telle que précisée ci-après : « Source gallica.bnf.fr / Bibliothèque nationale de France » ou « Source
+gallica.bnf.fr / BnF ».
+ - La réutilisation commerciale de ces contenus est payante et fait l'objet d'une licence. Est entendue par réutilisation
+commerciale la revente de contenus sous forme de produits élaborés ou de fourniture de service ou toute autre
+réutilisation des contenus générant directement des revenus : publication vendue (à l’exception des ouvrages
+académiques ou scientifiques), une exposition, une production audiovisuelle, un service ou un produit payant, un
+support à vocation promotionnelle etc.
+CLIQUER ICI POUR ACCÉDER AUX TARIFS ET À LA LICENCE
+2/ Les contenus de Gallica sont la propriété de la BnF au sens de l'article L.2112-1 du code général de la propriété
+des personnes publiques.
+3/ Quelques contenus sont soumis à un régime de réutilisation particulier. Il s'agit :
+ - des reproductions de documents protégés par un droit d'auteur appartenant à un tiers. Ces documents ne peuvent
+être réutilisés, sauf dans le cadre de la copie privée, sans l'autorisation préalable du titulaire des droits.
+ - des reproductions de documents conservés dans les bibliothèques ou autres institutions partenaires. Ceux-ci sont
+signalés par la mention Source gallica.BnF.fr / Bibliothèque municipale de ... (ou autre partenaire). L'utilisateur est
+invité à s'informer auprès de ces bibliothèques de leurs conditions de réutilisation.
+4/ Gallica constitue une base de données, dont la BnF est le producteur, protégée au sens des articles L341-1 et
+suivants du code de la propriété intellectuelle.
+5/ Les présentes conditions d'utilisation des contenus de Gallica sont régies par la loi française. En cas de
+réutilisation prévue dans un autre pays, il appartient à chaque utilisateur de vérifier la conformité de son projet avec
+le droit de ce pays.
+6/ L'utilisateur s'engage à respecter les présentes conditions d'utilisation ainsi que la législation en vigueur,
+notamment en matière de propriété intellectuelle. En cas de non respect de ces dispositions, il est notamment
+passible d'une amende prévue par la loi du 17 juillet 1978.
+7/ Pour obtenir un document de Gallica en haute définition, contacter
+utilisation.commerciale@bnf.fr.
+
+---PAGE---
+
+
+=== ENTRY 2 ===
+FILENAME: CFAAgreements-Unknown-0000-Unknown.pdf
+FOLDER: african-history
+TEXT:
+CFA Agreements — Sahel (Banque de France
+documents & textes de politique monétaire)
+Ce document rassemble les textes juridiques, conventions et extraits essentiels concernant le franc CFA et
+les mécanismes de coopération monétaire qui s’appliquent aux pays sahéliens membres de l’UEMOA (Mali,
+Niger, Burkina Faso). 
+Texte fondateur : Décrets de 1945 instituant le franc CFA
+Source officielle : Journal officiel de la République française, 26 décembre 1945, Décret n° 45-0136 du 25
+décembre 1945.
+Extraits essentiels
+Article 1. Il est institué, dans les territoires d'outre-mer placés sous administration française,
+une monnaie dénommée « franc des Colonies françaises d’Afrique » (franc CFA). 
+Article 2. Les émissions de cette monnaie sont effectuées par la Caisse centrale de la France
+d’outre-mer. 
+Article 3. La parité du franc CFA est fixée à raison de 1 franc CFA = 1,70 franc français (taux
+initial de 1945). 
+Article  4. Les  modalités  de  mise  en  circulation  et  de  couverture  des  émissions  seront
+déterminées par des conventions passées entre le Gouvernement de la République et la
+Caisse centrale. 
+Note : Ce décret est le texte fondateur. Il crée formellement le franc CFA et confie son émission à la Caisse
+centrale de la France d’outre-mer (future Caisse centrale de coopération économique puis Agence française
+de développement).
+Convention de coopération monétaire France–UMOA (4 décembre
+1973)
+(Texte déjà reproduit plus haut, intégral, avec annexes Compte d’opérations et Garantie)
+1
+
+---PAGE---
+Réforme et communiqué conjoint du 21 décembre 2019
+Source : Communiqué conjoint du Gouvernement de la République française et des États de l’UEMOA
+(Banque de France, BCEAO, Ministère français de l’Économie et des Finances).
+Communiqué — texte intégral
+Communiqué conjoint — Paris, 21 décembre 2019
+Le Président de la République française et les Chefs d’État et de Gouvernement de l’Union
+économique  et  monétaire  ouest-africaine  (UEMOA)  se  sont  accordés  sur  une  réforme
+historique du franc CFA, qui devient l’« Eco ». 
+Cette réforme comporte les mesures suivantes :
+1. Le changement de nom du franc CFA de l’UEMOA en « Eco ».
+2. Le retrait des représentants français des organes de gouvernance de la BCEAO.
+3. La suppression de l’obligation de centralisation de 50 % des réserves de change de la
+BCEAO sur le compte d’opérations auprès du Trésor français.
+4. Le maintien de la garantie de convertibilité illimitée de la monnaie par la France. 
+La  France  et  les  États  de  l’UEMOA  affirment  leur  volonté  commune  de  renforcer  la
+souveraineté monétaire des pays de l’Union tout en préservant la stabilité financière et la
+confiance dans la monnaie. 
+Les modalités juridiques et techniques de la mise en œuvre de cette réforme feront l’objet de
+textes complémentaires adoptés dans les prochains mois. 
+Documents complémentaires à télécharger
+Journal officiel de la République française (26 décembre 1945) — Décret fondateur instaurant le
+franc CFA. 
+Journal offi
+
+=== ENTRY 3 ===
+FILENAME: CFAAgreementsSahel-Unknown-0000-Unknown.pdf
+FOLDER: african-history
+TEXT:
+Accords de coopération militaire — France & Sahel
+(post-indépendance)
+Ce dossier rassemble les principaux accords bilatéraux de défense et de coopération militaire conclus entre
+la France et les États sahéliens après leurs indépendances (1960 et années suivantes). Les textes concernent
+notamment le Mali, le Niger et le Burkina Faso (ex-Haute-Volta).
+1. Mali
+Traité de coopération en matière de défense (Bamako, 6 septembre 1960)
+- Signataires : Gouvernement de la République française & Gouvernement de la République du Mali.
+- Objet : Organisation de l’assistance militaire française au Mali après l’indépendance. 
+Extraits essentiels
+Article 1 — La République française et la République du Mali affirment leur volonté de
+coopérer dans le domaine de la défense et de la sécurité. 
+Article 2 — La coopération prend la forme de missions d’assistance technique, de formation
+d’officiers maliens et de mise à disposition d’instructeurs militaires français. 
+Article 3 — Les modalités financières et logistiques de cette coopération sont précisées par
+des accords techniques annexes. 
+2. Niger
+Accord de coopération en matière de défense (Niamey, 24 avril 1961)
+- Signataires : République française & République du Niger.
+- Objet : Encadrer la présence de conseillers militaires français au Niger. 
+Extraits essentiels
+Article 1 — La République du Niger demande et accepte la coopération de la République
+française pour l’organisation et l’instruction de ses forces armées. 
+Article 2 — La France met à la disposition du Niger des personnels militaires chargés de la
+formation et du conseil. 
+Article 4 — La coopération s’effectue dans le respect de la souveraineté du Niger. 
+1
+
+---PAGE---
+3. Haute-Volta (Burkina Faso)
+Accord de coopération militaire et technique (Ouagadougou, 24 avril 1961)
+- Signataires : République française & République de Haute-Volta.
+- Objet : Assistance française pour la formation et l’encadrement des forces de défense voltaïques. 
+Extraits essentiels
+Article 1 — La République de Haute-Volta et la République française conviennent de coopérer
+dans le domaine militaire. 
+Article 2 — Des missions militaires françaises sont chargées d’assurer la formation technique
+des cadres et troupes voltaïques. 
+Article 3 — Les conditions financières de cette coopération sont fixées par échange de lettres
+entre les deux Gouvernements. 
+4. Textes et prolongements
+Années 1970-1990 : Renouvellement des accords sous forme d’avenants et protocoles d’application. 
+Années 2010 : Déploiements opérationnels encadrés par ces accords (Serval, Barkhane). 
+Documents complémentaires à collecter
+Texte officiel du Traité de coopération en matière de défense France–Mali (1960). 
+Accord de coopération militaire France–Niger (1961). 
+Accord de coopération militaire France–Haute-Volta (1961). 
+👉 Ces  accords  sont  publiés  au  Journal  officiel  de  la  République  française (partie  Lois  et  Décrets)  et
+disponibles dans les archives du Ministère français des Affaires étrangères. 
+📂 À 
+
+=== ENTRY 4 ===
+FILENAME: ConflictedColonialismsSahel-Unknown-0000-Unknown.pdf
+FOLDER: african-history
+TEXT:
+Third World Thematics: A TWQ Journal
+ISSN: 2380-2014 (Print) 2379-9978 (Online) Journal homepage: www.tandfonline.com/journals/rtwt20
+Conﬂicted colonialisms: multi-dimensional
+violence in the Western Sahel
+Emily McGiﬃn
+To cite this article: Emily McGiﬃn (2021) Conﬂicted colonialisms: multi-dimensional
+violence in the Western Sahel, Third World Thematics: A TWQ Journal, 6:4-6, 320-336, DOI:
+10.1080/23802014.2022.2099573
+To link to this article:  https://doi.org/10.1080/23802014.2022.2099573
+© 2022 The Author(s). Published by Informa
+UK Limited, trading as Taylor & Francis
+Group.
+Published online: 28 Jul 2022.
+Submit your article to this journal 
+Article views: 1520
+View related articles 
+View Crossmark data
+Citing articles: 2 View citing articles 
+Full Terms & Conditions of access and use can be found at
+https://www.tandfonline.com/action/journalInformation?journalCode=rtwt20
+
+---PAGE---
+Conflicted colonialisms: multi-dimensional violence in the 
+Western Sahel
+Emily McGiffin
+Centre for Multidisciplinary and Intercultural Inquiry, University College London, London, UK
+ABSTRACT
+In October 2020, French-language media overflowed with coverage 
+of the release of Sophie Pétronin, the last French hostage held 
+overseas. Pétronin, a 75-year-old humanitarian worker, had been 
+kidnapped in northern Mali nearly four years earlier and returned to 
+France as a Muslim convert who challenged received ideas about 
+security and terror, generating a violent backlash across French 
+social media. She made headlines again a year later for her unlawful 
+clandestine return to Mali. This article argues that the complex 
+figure of Sophie Mariam Pétronin brings into focus the masculinised 
+necropolitics of the Sahelian conflict, including the assumed privi­
+lege of white actors, hostility towards female involvement, and the 
+‘relations of enmity’ that Europe maintains with the racialised 
+others of its former colonies.
+ARTICLE HISTORY 
+Received 6 September 2021  
+Accepted 5 July 2022 
+KEYWORDS 
+Neocolonialism 
+terrorism 
+Sahel 
+climate 
+necropolitics
+Introduction
+Although the event caused barely a ripple in the anglophone media, in early 
+October 2020, French-language media were dominated by coverage of the release of 
+Sophie Pétronin, the last French hostage detained overseas. Pétronin, a 75-year-old 
+humanitarian worker, had been captured by insurgents in northern Mali nearly four 
+years earlier. French television networks broadcast Pétronin’s arrival in the Malian capital 
+of Bamako on 8 October, her reunion with her tearful son that evening, and her arrival in 
+France the following day where she was greeted on the tarmac by French President 
+Emmanuel Macron. In these broadcasts, Sophie Pétronin failed to denounce her captors 
+as jihadist terrorists. On the contrary, on the eve of her arrival in Bamako, it surfaced that 
+Pétronin had converted to Islam during her captivity and now goes by the name Mariam. 
+She arrived in France wearing a hijab and affirming that during 
+
+=== ENTRY 5 ===
+FILENAME: DisutilitiesOfForceMali-Unknown-0000-Unknown.pdf
+FOLDER: african-history
+TEXT:
+Journal of Intervention and Statebuilding
+ISSN: 1750-2977 (Print) 1750-2985 (Online) Journal homepage: www.tandfonline.com/journals/risb20
+(Dis)utilities of Force in a Postcolonial Context:
+Explaining the Strategic Failure of the French-Led
+Intervention in Mali
+Eloïse Bertrand, Tony Chafer & Ed Stoddard
+To cite this article: Eloïse Bertrand, Tony Chafer & Ed Stoddard (2024) (Dis)utilities of Force in
+a Postcolonial Context: Explaining the Strategic Failure of the French-Led Intervention in Mali,
+Journal of Intervention and Statebuilding, 18:3, 286-305, DOI: 10.1080/17502977.2023.2278268
+To link to this article:  https://doi.org/10.1080/17502977.2023.2278268
+© 2023 The Author(s). Published by Informa
+UK Limited, trading as Taylor & Francis
+Group
+Published online: 29 Nov 2023.
+Submit your article to this journal 
+Article views: 5175
+View related articles 
+View Crossmark data
+Citing articles: 6 View citing articles 
+Full Terms & Conditions of access and use can be found at
+https://www.tandfonline.com/action/journalInformation?journalCode=risb20
+
+---PAGE---
+(Dis)utilities of Force in a Postcolonial Context: Explaining the
+Strategic Failure of the French-Led Intervention in Mali
+Eloïse Bertrand
+, Tony Chafer
+and Ed Stoddard
+Centre for European and International Studies Research, University of Portsmouth, Portsmouth (UK)
+ABSTRACT
+Employing the concept of ‘utility of force’ and advancing a new
+counterpart – the ‘disutility of force’ – this article explores why
+France’s military intervention in Mali failed despite a major
+French material power advantage over the armed groups it was
+combatting. We explore how France’s military approach, unable
+to adapt appropriately to a changing context, not only failed to
+generate political utility in the form of a resolution to the conﬂict,
+but actually created disutilities of force that deepened it. This
+failure reignited postcolonial tensions that both increased the
+intractability of the conﬂict and made it harder to change course.
+ARTICLE HISTORY
+Received 22 December 2022
+Revised 17 October 2023
+Accepted 24 October 2023
+KEYWORDS
+Mali; France; utility of force;
+strategy; Sahel
+Introduction
+In 2013 France launched Operation Serval to uproot al-Qaeda-linked armed groups from
+towns they had seized in northern and central Mali. Nearly ten years later, it is hard to
+characterize France’s intervention as anything other than failure (Pérouse de Montclos
+2022). Attacks perpetrated by these groups have increased substantially, leading to
+tens of thousands of fatalities (see Figure 1). Militants have spread to neighbouring
+countries and now threaten West African coastal states. Inside Mali, the military launched
+two coups and supplanted the former democratic government. Following these develop-
+ments, in February 2022, France announced the withdrawal of Operation Barkhane
+(Serval’s successor) from Mali, amidst popular protests against its presence and diplo-
+matic tensions with the Malian junta.
+This situation represents an em
+
+=== ENTRY 6 ===
+FILENAME: FrenchInterventionismSahel-Unknown-0000-Unknown.pdf
+FOLDER: african-history
+TEXT:
+ 
+Sour, L., 2024. French interventionism in the Sahel: a flawed strategy, imperfect 
+geopolitics, Przegląd Geopolityczny, 48, s. 91-112. 
+ 
+ 
+- 91 - 
+ 
+Lofti SOUR 
+Mustapha Stambouli University of Mascara, Algeria 
+ORCID: 0000-0001-8783-9340 
+ 
+ 
+ 
+FRENCH INTERVENTIONISM IN THE SAHEL:  
+A FLAWED STRATEGY, IMPERFECT GEOPOLITICS 
+FRANCUSKI INTERWENCJONIZM W SAHELU: 
+WADLIWA STRATEGIA, NIEDOSKONAŁA GEOPOLITYKA 
+ 
+ 
+Abstract: 
+ 
+Over the past few years, there has been a notable rise in French military 
+involvement in Africa. Despite attempts to establish a more balanced post-colonial 
+relationship and a significant reduction in its permanent military presence, France 
+continues to be a highly sought-after participant in resolving security challenges in 
+Africa. Despite French policymakers' repeated assurances that their role as the 
+"gendarme of Africa" is a thing of the past, French troops have been engaged in nine 
+military operations since the start of the new millennium. This paper aims to analyze 
+French strategy in the Sahel region, with a particular focus on Operation Barkhane, in 
+light of the changing French doctrine and practices. 
+  
+ 
+Keywords: Operation Barkhane, France, Africa, Mali, post-colonialism, Sahel. 
+ 
+ 
+Introduction  
+France is the only European country that still regularly deploys its 
+military forces on combat missions to sub-Saharan Africa. In fact, France 
+is one of the most interventionist countries in the world. Between the 
+end of the Algerian Liberation War in 1962, which officially terminated 
+the French colonial empire (Burgess, 2018) and today, France has 
+launched more than 35 military interventions abroad – all of them in 
+Africa. When it comes to explaining these interventions, academic 
+literature points almost exclusively in one direction: France seeks to 
+maintain its grandeur, influence and power (Gregory, 2000). French 
+status in world politics is inextricably linked to its presence in Africa, or 
+as Chipman writes: “images of a Franco–African entity symbolize the 
+greatness of France” (Chipman, 1989). As a result, each instance of 
+French interventionism is in one way or another tied to its colonial 
+African past. Moreover, French presidents are usually credited with 
+
+---PAGE---
+ 
+Sour, L., 2024. French interventionism in the Sahel: a flawed strategy, imperfect 
+geopolitics, Przegląd Geopolityczny, 48, s. 91-112. 
+ 
+ 
+- 92 - 
+holding a domaine réservé over all matters of French defense and foreign 
+policy. Consequently, it is they who are in the lead of politically planning 
+and orchestrating French military intervention decisions (Utley, 1998). 
+A substantial body of literature delves into the themes of 
+continuity and change within French Africa policy. Much of this 
+scholarship scrutinizes alterations in the political, economic, and 
+security dimensions of France's policy in sub-Saharan Africa, focusing on 
+recurring patterns 
+and adaptations within the 
+framework of 
+Françafrique – the close, often tai
+
+=== ENTRY 7 ===
+FILENAME: ModernSomalilandHistory-Unknown-0000-AnnaArchive.pdf
+FOLDER: african-history
+TEXT:
+= 
+i 
+fn 
+‘rare 
+. 
+his 
+Radsea 
+a 
+a 
+rake 
+me 
+puna 
+Ea 
+st 
+bier 
+
+---PAGE---
+Donated 
+To The Library by 
+LLOYD FALLERS 
+c/o Barry & Winnifred 
+Sullivan 
+August, 
+2004 
+© DEMCO, INC.—Archive Safe 
+
+---PAGE---
+
+
+=== ENTRY 8 ===
+FILENAME: Unknown-Unknown-0000-Unknown.pdf
+FOLDER: african-history
+TEXT:
+Source gallica.bnf.fr / Ministère des Affaires étrangères
+Bulletin officiel de l'État
+indépendant du Congo
+
+---PAGE---
+Congo (République démocratique). Auteur du texte. Bulletin
+officiel de l'État indépendant du Congo. 1892-01-01.
+1/ Les contenus accessibles sur le site Gallica sont pour la plupart des reproductions numériques d'oeuvres tombées
+dans le domaine public provenant des collections de la BnF. Leur réutilisation s'inscrit dans le cadre de la loi n°78-
+753 du 17 juillet 1978 :
+ - La réutilisation non commerciale de ces contenus ou dans le cadre d’une publication académique ou scientifique
+est libre et gratuite dans le respect de la législation en vigueur et notamment du maintien de la mention de source
+des contenus telle que précisée ci-après : « Source gallica.bnf.fr / Bibliothèque nationale de France » ou « Source
+gallica.bnf.fr / BnF ».
+ - La réutilisation commerciale de ces contenus est payante et fait l'objet d'une licence. Est entendue par réutilisation
+commerciale la revente de contenus sous forme de produits élaborés ou de fourniture de service ou toute autre
+réutilisation des contenus générant directement des revenus : publication vendue (à l’exception des ouvrages
+académiques ou scientifiques), une exposition, une production audiovisuelle, un service ou un produit payant, un
+support à vocation promotionnelle etc.
+CLIQUER ICI POUR ACCÉDER AUX TARIFS ET À LA LICENCE
+2/ Les contenus de Gallica sont la propriété de la BnF au sens de l'article L.2112-1 du code général de la propriété
+des personnes publiques.
+3/ Quelques contenus sont soumis à un régime de réutilisation particulier. Il s'agit :
+ - des reproductions de documents protégés par un droit d'auteur appartenant à un tiers. Ces documents ne peuvent
+être réutilisés, sauf dans le cadre de la copie privée, sans l'autorisation préalable du titulaire des droits.
+ - des reproductions de documents conservés dans les bibliothèques ou autres institutions partenaires. Ceux-ci sont
+signalés par la mention Source gallica.BnF.fr / Bibliothèque municipale de ... (ou autre partenaire). L'utilisateur est
+invité à s'informer auprès de ces bibliothèques de leurs conditions de réutilisation.
+4/ Gallica constitue une base de données, dont la BnF est le producteur, protégée au sens des articles L341-1 et
+suivants du code de la propriété intellectuelle.
+5/ Les présentes conditions d'utilisation des contenus de Gallica sont régies par la loi française. En cas de
+réutilisation prévue dans un autre pays, il appartient à chaque utilisateur de vérifier la conformité de son projet avec
+le droit de ce pays.
+6/ L'utilisateur s'engage à respecter les présentes conditions d'utilisation ainsi que la législation en vigueur,
+notamment en matière de propriété intellectuelle. En cas de non respect de ces dispositions, il est notamment
+passible d'une amende prévue par la loi du 17 juillet 1978.
+7/ Pour obtenir un document de Gallica en haute définition, contacter
+utilisation.commerciale@bnf.fr.
+
+---PAGE---
+
+
+=== ENTRY 9 ===
+FILENAME: ConflictedColonialismsViolenceSahel-Unknown-0000-Unknown.pdf
+FOLDER: colonialism-slavery
+TEXT:
+Third World Thematics: A TWQ Journal
+ISSN: 2380-2014 (Print) 2379-9978 (Online) Journal homepage: www.tandfonline.com/journals/rtwt20
+Conﬂicted colonialisms: multi-dimensional
+violence in the Western Sahel
+Emily McGiﬃn
+To cite this article: Emily McGiﬃn (2021) Conﬂicted colonialisms: multi-dimensional
+violence in the Western Sahel, Third World Thematics: A TWQ Journal, 6:4-6, 320-336, DOI:
+10.1080/23802014.2022.2099573
+To link to this article:  https://doi.org/10.1080/23802014.2022.2099573
+© 2022 The Author(s). Published by Informa
+UK Limited, trading as Taylor & Francis
+Group.
+Published online: 28 Jul 2022.
+Submit your article to this journal 
+Article views: 1520
+View related articles 
+View Crossmark data
+Citing articles: 2 View citing articles 
+Full Terms & Conditions of access and use can be found at
+https://www.tandfonline.com/action/journalInformation?journalCode=rtwt20
+
+---PAGE---
+Conflicted colonialisms: multi-dimensional violence in the 
+Western Sahel
+Emily McGiffin
+Centre for Multidisciplinary and Intercultural Inquiry, University College London, London, UK
+ABSTRACT
+In October 2020, French-language media overflowed with coverage 
+of the release of Sophie Pétronin, the last French hostage held 
+overseas. Pétronin, a 75-year-old humanitarian worker, had been 
+kidnapped in northern Mali nearly four years earlier and returned to 
+France as a Muslim convert who challenged received ideas about 
+security and terror, generating a violent backlash across French 
+social media. She made headlines again a year later for her unlawful 
+clandestine return to Mali. This article argues that the complex 
+figure of Sophie Mariam Pétronin brings into focus the masculinised 
+necropolitics of the Sahelian conflict, including the assumed privi­
+lege of white actors, hostility towards female involvement, and the 
+‘relations of enmity’ that Europe maintains with the racialised 
+others of its former colonies.
+ARTICLE HISTORY 
+Received 6 September 2021  
+Accepted 5 July 2022 
+KEYWORDS 
+Neocolonialism 
+terrorism 
+Sahel 
+climate 
+necropolitics
+Introduction
+Although the event caused barely a ripple in the anglophone media, in early 
+October 2020, French-language media were dominated by coverage of the release of 
+Sophie Pétronin, the last French hostage detained overseas. Pétronin, a 75-year-old 
+humanitarian worker, had been captured by insurgents in northern Mali nearly four 
+years earlier. French television networks broadcast Pétronin’s arrival in the Malian capital 
+of Bamako on 8 October, her reunion with her tearful son that evening, and her arrival in 
+France the following day where she was greeted on the tarmac by French President 
+Emmanuel Macron. In these broadcasts, Sophie Pétronin failed to denounce her captors 
+as jihadist terrorists. On the contrary, on the eve of her arrival in Bamako, it surfaced that 
+Pétronin had converted to Islam during her captivity and now goes by the name Mariam. 
+She arrived in France wearing a hijab and affirming that during 
+
+=== ENTRY 10 ===
+FILENAME: CouncilMinutes-Unknown-0000-Unknown.pdf
+FOLDER: colonialism-slavery
+TEXT:
+NEW  YORK 
+HISTORICAL MANUSCRIPTS:
+DUTCH
+
+---PAGE---
+COMMITTEE ON PUBLICATION
+RALPH L. DE GROFF: Chairman
+Trustee—The Holland Society of New York 
+Trustee—The Institute on Man and Science
+KENNETH SCOTT: Co-editor
+Trustee—The New York Genealogical and Biographical Society 
+Fellow—The American Society of Genealogists
+KENN STRYKER-RODDA: Co-editor
+President—The National Genealogical Society
+Fellow and Past President—The American Society of Genealogists
+GANO R. BAILEY: Advisor
+Trustee—The Louis Beach Vreeland Foundation
+Executive Secretary—The Saint Nicholas Society of the City of New York
+ROBERT G. GOELET: Consultant
+Trustee—The Holland Society of New York 
+President—The New York Historical Society
+JULIAN K. ROOSEVELT: Consultant
+President—The Holland Society of New York 
+Trustee—Museum of the City of New York
+
+---PAGE---
+
+
+=== ENTRY 11 ===
+FILENAME: ExtraResearch-Unknown-0000-Unknown.pdf
+FOLDER: colonialism-slavery
+TEXT:
+This is a high-leverage decision — let me pull the numbers before I give you a 
+recommendation. 
+Now let me get the video details for your top performers to understand length vs. retention 
+correlation: 
+That's not The Present Past — let me find them directly. 
+Alright, I have everything I need. Let me pull the competitor video details to see what The 
+Present Past actually looks like: 
+Now I have the full picture. Here's my analysis: 
+ 
+The Data Says: Option C — Neither A nor B 
+Let me show you why, with your own numbers. 
+📊 Your Length vs. Retention Reality 
+Video 
+Duration Retention 
+Views 
+(90d) 
+The Country That Might Disappear: Guatemala vs Belize Guatemala 
+vs Belize 
+10:57 
+30.8% 
+2,963 
+Ethiopia & Israel Recognize Somaliland: A Game Changer 
+Ethiopia/Somaliland 
+7:11 
+70.9% 
+1,010 
+Longform avg (6 videos, 180d) 
+~8 min 
+— 
+39 views 
+Shorts avg (44 videos, 180d) 
+~25 sec ~62% 
+690 views 
+Your single longform breakout — Guatemala vs Belize — pulled 2,963 views in 90 days at 
+10:57 with 30.8% retention. That's your proof of concept for longer content. But here's the 
+brutal truth: 
+Your other 5 longform videos in the last 6 months averaged 39 views each. Not 39K. Thirty-
+nine. 
+🎯 The Competitor Math 
+Channel 
+Video 
+Length Views 
+Engagement 
+The Present PastThe 
+Present Past 
+"Why Brazilians Don't Speak 
+Spanish" 
+9:35 
+143K 5,596 likes, 978 
+comments 
+Learning Canteen 
+"Why Do Brazilians Speak 
+Portuguese..." 
+6:38 
+7K 
+110 likes 
+
+---PAGE---
+Channel 
+Video 
+Length Views 
+Engagement 
+Only in Brazil 
+"Why Do Brazilians Speak 
+Portuguese?" 
+4:04 
+4K 
+131 likes 
+The Present Past's video has a 3.9% like rate — extraordinarily high. That means their 
+audience didn't just watch, they loved it. At 9:35, they had room for depth. The 4-5 minute 
+competitors got almost nothing. 
+Why Option A (5 min funnel) Is a Trap 
+At 475 subs, you need views — not funnels. Your longform videos average 39 views. A 5-
+minute video that says "watch my next video for the real story" will: 
+1. Get served to ~500 people (your sub base) 
+2. Most will never see the Tordesillas deep-dive because they'll never find it 
+3. You'll have left your 3 biggest competitive advantages (Iberian Union, Língua Geral, 
+secret mission) on the cutting room floor 
+Funnels work when you have traffic to funnel. You don't yet. 
+Why Option B (8-10 min) Is Close But Wrong 
+Expanding to 8-10 min with all 3 gaps creates a different problem: your 30% average 
+longform retention means you're losing people at minute 2-3. Stuffing more content into a 
+longer video doesn't fix the retention hole — it makes it worse. Your Guatemala video proves 
+this: 10:57 at 30.8% retention means the average viewer left at 3:23. 
+ 
+  My Recommendation: Option C — One video, 7-8 
+minutes, structured as 3 reveals 
+Here's the strategy: 
+Structure: The "3 Things They Won't Tell You" Format 
+Instead of a linear narrative that bleeds viewers, structure the video around your 3 gaps as 
+escalating reveals: 
+Timestamp 
+Secti
+
+=== ENTRY 12 ===
+FILENAME: GeminiVidResearch-Unknown-0000-Unknown.pdf
+FOLDER: colonialism-slavery
+TEXT:
+Let me pull all the keyword data for you right now. 
+Here's your full keyword breakdown. There's a clear strategic play here — let me walk you 
+through it. 
+ 
+  Primary Keyword Analysis 
+Keyword 
+Volume Competition Overall Score 
+26 why does brazil speak portuguese ~0 
+34 
+26.4 
+26 why brazil speaks portuguese  
+~0 
+35.8 
+25.7 
+why doesn't brazil speak spanish  
+~0 
+— 
+— 
+31 brazil portuguese history  
+~0 
+23.3 
+30.7 
+31 portuguese colonization brazil  
+~0 
+21.4 
+31.4 
+The honest truth: The exact-match question phrase has near-zero measured search volume on 
+YouTube. It's a curiosity-driven question — people click it from suggested/browse, not from 
+search. That's not a dealbreaker, but it means your title and thumbnail CTR matter more than 
+SEO for this topic. 
+ 
+  The High-Value Anchor Keyword 
+Keyword 
+Volume Competition Overall Score 
+60 treaty of tordesillas ~5,167/mo 32.6 
+60.2 
+This is your golden keyword. It has real search volume, moderate competition, and it's the 
+core historical event your video will explain anyway. Work this into your title, description, 
+and tags. 
+ 
+  Related Keywords Worth Targeting 
+The related keywords skew heavily toward language learning (learn Portuguese, Portuguese 
+lessons, etc.) — which isn't your audience. But a few are useful for tags and description: 
+Keyword 
+Volume Competition Overall 
+70 portuguese language 22,393/mo 23.0 
+69.8 
+56 brazilian portuguese 12,606/mo 51.6 
+56.1 
+54 brazil vs portugal  
+6,062/mo 50.8 
+53.6 
+Use these as secondary tags — they bring discoverability without mismatching your content. 
+
+---PAGE---
+ 
+  Competitive Landscape — What's Working 
+The outlier search reveals important context: 
+• 
+Why Are the Portuguese Genetically Different from Spaniards?36x — 890K views, 
+breakout score 36x, from a 188K-sub history channel. Genetics angle on Portugal vs 
+Spain. Proves Iberian history content has massive appetite. 
+• 
+Why Portuguese is Similar to Japanese? Why Are They Similar? l Word differences 
+Between 8 Languages!6.4x — 761K views on Portuguese-Japanese language 
+similarities. Language curiosity = high-click topic. 
+• 
+The Spanish and Portuguese word for 'goose' tells us a lot about language history.19x 
+— 18K views from a 3.5K-sub channel, breakout score 19x. Etymology of a 
+Spanish/Portuguese word. This is your closest comparable — small educational 
+channel, massive overperformance. 
+The competition is moderate. The big explainer channels (RealLifeLore, etc.) have covered 
+this, but there's room for a document-focused, evidence-first angle that none of them take. 
+ 
+  Seasonal Trends 
+No measurable seasonal spikes for this topic — it's evergreen curiosity content. Good news: 
+it can perform at any time. Bad news: there's no trending wave to ride. 
+One exception: September 7 is Brazilian Independence Day. Publishing 1-2 weeks before 
+(late August) could catch a wave of Brazil-related searches. 
+ 
+  My Recommendation for Your Video 
+Title approach — lean into the contrarian ques
+
+=== ENTRY 13 ===
+FILENAME: GrandfathersSpeak-Unknown-0000-Unknown.pdf
+FOLDER: colonialism-slavery
+TEXT:
+GRAPFATHERS
+SPEAK
+NATIVE
+AMERICAN
+FOLK TALES
+LENAPE
+PEOPLE
+'Vr.
+M 1
+I T A K O N A N U L A X K
+
+---PAGE---
+BOSTO^
+PUBUC
+
+---PAGE---
+
+
+=== ENTRY 14 ===
+FILENAME: Research-Unknown-0000-Unknown.pdf
+FOLDER: colonialism-slavery
+TEXT:
+Great topic — this is a classic "language gap" question that fits your niche perfectly. Let me 
+pull the data for you right now. 
+Here's your full keyword breakdown: 
+ 
+  Primary Keyword Analysis 
+Keyword 
+Volume Competition Overall Score 
+26 why does brazil speak portuguese ~0 
+34 
+26.4 
+26 why brazil speaks portuguese  
+~0 
+35.8 
+25.7 
+why doesn't brazil speak spanish  
+~0 
+— 
+— 
+31 brazil portuguese history  
+~0 
+23.3 
+30.7 
+63 treaty of tordesillas  
+9,536/mo 32.6 
+62.6⭐ 
+The headline finding: Your exact title question has near-zero sustained search volume — but 
+63 treaty of tordesillas is a goldmine at 9.5K monthly searches with moderate competition 
+(32.6). This is the SEO anchor for your video. 
+ 
+  Best Related Keywords to Target 
+These have real volume AND manageable competition: 
+Keyword 
+Monthly Search Competition Overall 
+71 portuguese language 27,276 
+23 (low!) 
+70.5 ⭐ 
+66 brazil  
+488,267 
+61.3 
+66.4 
+66 portuguese  
+58,623 
+43 
+65.5 
+63 speaking brazilian  
+8,854 
+32 
+62.6 
+50 brazil vs portugal  
+6,062 
+58.5 
+50.5 
+Most of the related keywords skew toward language learning, not history — which tells you 
+something important: a huge chunk of the audience searching these terms wants to learn 
+Portuguese. Your video can capture crossover interest if you position it as "the history 
+context language learners never get." 
+ 
+  Seasonal Trends 
+vidIQ doesn't provide direct seasonality data, but here's what I can infer from the landscape: 
+
+---PAGE---
+• 
+63 treaty of tordesillas likely spikes around school exam seasons (Sep-Nov, Mar-
+May) since it's a staple AP History / university topic 
+• 
+Brazil Independence Day (September 7) and Portugal Day (June 10) create natural 
+interest spikes 
+• 
+The question "why does Brazil speak Portuguese" is an evergreen curiosity query — 
+no major seasonal peaks, but steady ambient demand 
+ 
+  Competitive Landscape — Outlier Videos 
+Here's what's already performing in this space: 
+Video 
+Views Breakout 
+Score 
+Channel 
+Size 
+Why Are the Portuguese Genetically Different from 
+Spaniards?64x "Why Are the Portuguese Genetically 
+Different from Spaniards?" 
+903K 63.6x 
+189K subs 
+Why Portuguese is Similar to Japanese? Why Are They 
+Similar? l Word differences Between 8 Languages!6.3x 
+"Why Portuguese is Similar to Japanese?" 
+779K 6.3x 
+2M subs 
+Old Money Brazil: Sugar Barons and Slavery18x "Old 
+Money Brazil: Sugar Barons and Slavery" 
+10.5K 18.3x 
+1,460 subs← 
+your comp 
+That last one is key — DutchinBrazil has roughly your subscriber count and got 10.5K views 
+with an 18x breakout on a Brazil colonial history topic. This proves the niche works at your 
+scale. 
+ 
+  Strategic Recommendations 
+1. Title: Don't just use the question. Weave in the SEO anchor: 
+• 
+"Why Does Brazil Speak Portuguese? The Treaty That Split the World" 
+• 
+"The Treaty of Tordesillas: Why Brazil Doesn't Speak Spanish" 
+Want me to score a few title options for you? 
+2. Tags/description: Lead with 63 treaty of tordesillas (your highest-s
+
+=== ENTRY 15 ===
+FILENAME: ResearchPrompt-Unknown-0000-Unknown.pdf
+FOLDER: colonialism-slavery
+TEXT:
+Let me pull your recent content first to make sure this prompt is calibrated to your actual 
+workflow — not a generic template. 
+Good timing — I can see you just dropped the Nigeria vs Cameroon longform today and 
+you're mid-series on Thermopylae. Let me build this NotebookLM prompt system around 
+your exact workflow: the Archive vs Myth structure, language-gap sourcing, legal-case 
+framing, and staccato scripting. This isn't a generic research prompt — it's a procedural 
+extraction protocol. 
+ 
+🔍 History vs Hype — NotebookLM Master Research Protocol 
+Use this as a sequence of prompts in a single NotebookLM notebook. Run them in order. 
+Each output feeds the next. 
+ 
+  SETUP INSTRUCTION (paste into your notebook description) 
+"You are a research analyst for a historical myth-debunking channel. Your job is not to 
+summarize these sources. Your job is to extract contradictions, find the primary-source 
+evidence that disproves mainstream claims, and identify where official narratives diverge 
+from archival records. Treat every source as a potential exhibit in a legal case. Frame 
+everything in terms of: what is the official claim, what does the record actually show, and 
+who authored that record and when." 
+ 
+PROMPT 1 — The Core Contradiction Engine 
+"Across all sources in this notebook, identify the single strongest contradiction between the 
+official or popular historical narrative and what a primary source (document, treaty, census, 
+law, decree, or archive) actually records. Format your answer as: 
+• 
+THE CLAIM: [What mainstream sources or politicians assert] 
+• 
+THE RECORD: [What the specific document shows — include the document name, 
+date, and author if available] 
+• 
+THE GAP: [Precisely what the claim gets wrong, omits, or inverts] 
+• 
+THE QUOTE: [The most damning verbatim line from the primary source] 
+Then identify 2–3 additional secondary contradictions using the same format."** 
+ 
+PROMPT 2 — Language Gap Scan 
+
+---PAGE---
+"Identify any sources, documents, or evidence in this notebook that originated in a non-
+English language (e.g., Spanish, French, Russian, Ottoman Turkish, Latin, Arabic, 
+Portuguese, German). For each: 
+• 
+What language was the original document written in? 
+• 
+Has this document been widely cited in English-language media or academia? 
+• 
+What specific fact or clause in this document changes the mainstream English-
+language narrative if properly translated? 
+• 
+Suggest a one-sentence 'translation reveal' — something I can say on camera like: 
+'The [document] says, in [language], quote...' "** 
+ 
+PROMPT 3 — Legal Exhibit Architecture 
+"Structure the evidence in this notebook as a legal case. I need: 
+• 
+EXHIBIT A — The founding document or oldest primary source that establishes the 
+historical baseline. What does it prove? 
+• 
+EXHIBIT B — The document or event where the narrative was changed, rewritten, or 
+officially disputed. What changed and who changed it? 
+• 
+EXHIBIT C — The modern claim that contradicts Exhibit A
+
+=== ENTRY 16 ===
+FILENAME: BibFict-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+The Truth About 
+“The Protocols ” 
+A’ LYFERARY: FORGERY 
+From Ohe Times 
+of 
+August 16,177, and 18,7921 
+LONDON: 
+PRINTING HOUSE SQUARE, E.C.4. 
+ONE SHILLING NET. 
+
+---PAGE---
+
+---PAGE---
+
+
+=== ENTRY 17 ===
+FILENAME: BlandijnDocument-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+Auditorium 3
+Suzanne Lilar
+Auditorium 2
+Franz Cumont
+Leslokaal
+110.046
+Leslokaal
+110.028
+Leslokaal
+110.031
+Leslokaal
+110.022
+Leslokaal
+ 110.079
+Leslokaal
+110.037
+Faculteitszaal
+Decanaat
+Leslokalen
+Auditoria
+Vergaderzaal
+05.03  Blandijn 
+05.03.110  
+1ste verdieping
+Sint-Amandstraat
+Blandijnberg
+
+---PAGE---
+
+
+=== ENTRY 18 ===
+FILENAME: ContemporaryFarRightCulture-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+
+---PAGE---
+Marc-André Argentino received his PhD from Concordia University, Quebec, 
+Canada.
+Amarnath Amarasingam is an associate professor in the School of Religion and 
+is cross-appointed to the Department of Political Studies at Queen’s University 
+in Ontario, Canada.
+Contemporary Far-­Right Culture offers a comprehensive overview of the varied 
+manifestations of today’s far-­right culture. It examines how far-­right extrem­
+ists operate in the spaces they inhabit, exploring the key elements, characteris­
+tics, and historical background of far-­right extremism. The volume also 
+considers who produces and who consumes this culture, featuring contribu­
+tions from emerging scholars in the field.
+Chapters investigate the cultural output of far-­right influencers in anime, 
+podcasts, “fashwave” and white power music, gaming, memetic and visual cul­
+ture, social media, publishing, chan culture, philosophy, and martial arts. The 
+book further examines pivotal issues such as female far-­right influencers, par­
+anoia, and accelerationism. It is essential reading for scholars, researchers, and 
+activists interested in the contemporary far right and its subcultures.
+CONTEMPORARY FAR-RIGHT CULTURE
+
+---PAGE---
+
+
+=== ENTRY 19 ===
+FILENAME: D&DPlayersHandbook-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+
+---PAGE---
+C o n t e n t s
+P r e f a c e  
+ 
+4
+I n t r o d u c t i o n  
+5
+W orlds o f Adventure................................................................... 5
+Using This B o o k ......................................................................... 6
+How to Play...................................................................................6
+Adventures.................................................................................... 7
+P a r t  1 
+9
+C h a p t e r  1: St e p - b y - S t e p  C h a r a c t e r s ..... 11
+Beyond 1st Level............................................................... 15
+C h a p t e r  2: R a c e s ........................................................ 17
+Choosing a Race................................................................ 17
+D w arf.................................................................................... 18
+E lf...........................................................................................21
+Halfling.................................................................................26
+Human..................................................................................29
+D ragonborn........................................................................ 32
+G nom e..................................................................................35
+Half-Elf.................................................................................38
+H alf-O rc.............................................................................. 40
+Tiefling.................................................................................42
+C h a p t e r  3: C l a s s e s ..................................................45
+Barbarian............................................................................ 46
+B a rd ...................................................................................... 51
+Cleric.....................................................................................56
+Druid.....................................................................................64
+Fighter..................................................................................70
+M onk.....................................................................................76
+Paladin.................................................................................82
+Ranger..................................................................................89
+Rogue....................................................................................94
+S orcerer.............................................................................. 99
+W arlock..............................................................................105
+W izard................................................................................112
+C h a p t e r  4 : P e r s o n a l i t y  a n d
+B a c k g r o u n d .................................................................. 121
+Character Details...............................
+
+=== ENTRY 20 ===
+FILENAME: EducationalPolicy-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+DEPARTMENT OF EDUCATIONAL POLICY 
+REGISTRAR’S OFFICE
+Declaration of access to a university bachelor programme in the country where the diploma was awarded 
+for the purpose of access to a bachelor programme at Ghent University
+To be completed by the Ministry of Education, a University, a (University) College or the Embassy from the country issuing the diploma. 
+(A) DIPLOMA OF THE APPLICANT
+Degree/Title
+ISSUED BY:
+Name of the institution 
+City
+Country
+Type	
+ Secondary education	
+Higher education outside university		
+University
+(B) APPLICANT/ DIPLOMA HOLDER 
+(Information as shown on the passport or the ID card)
+Title 	
+Ms.	
+Mr.
+Surname
+First name	
+Date of birth	
+Nationality
+(C) DECLARATION TO BE COMPLETED BY THE MINISTRY OF EDUCATION, A UNIVERSITY, A (UNIVERSITY) COLLEGE OR THE EMBASSY FROM THE COUNTRY ISSUING THE DIPLOMA. 
+Title	
+ Prof.	
+ 
+Dr. 	
+Ms.	
+Mr.
+Surname
+First name	
+Function/Title
+Employed by	
+ Ministry of Education	
+University 	
+(University) College	
+Embassy
+Full name of institution	
+City
+Country 	
+E-mail
+I declare that the diploma holder (B) of diploma (A) is granted:
+		
+ access to all university bachelor programmes in the country in which the diploma was awarded. 
+		
+ access to specific university bachelor programmes only in the country in which the diploma was awarded. 
+   Please define accessible fields of study: 
+STAMP OR SEAL (MANUAL)	
+ SIGNATURE (MANUAL)			
+  DATE   
+E         admission@ugent.be 
+T         +32 9 331 00 70
+Campus Ufo, Sint-Pietersnieuwstraat 33
+9000 Ghent
+Belgium 
+
+---PAGE---
+
+
+=== ENTRY 21 ===
+FILENAME: EuropeanYouthProposal-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+EUROPEAN YOUTH TEAM - PROPOSAL
+Goals
+1.
+Young people and young PeaceJammers have a key role in PeaceJam Europe overall
+programming and activities;
+2.
+Ensure that the pan-European conference is youth-led: theme, programming and
+decisions related to the content taken by and with young people;
+3.
+Ensure and support high youth participation prior and during the pan-European
+conference (raise awareness and excitement, support fundraising, answer young
+people’s questions);
+4.
+Leverage youth as ambassadors to recruit conference attendees, support them with
+fundraising efforts, and encourage them to study the laureate, complete their action
+projects, and do other key preparations for the Pan-EU event;
+5.
+Contribute and enhance the Billion Acts campaign; aid in collection of key impact data
+and cheerlead youth through their action project planning.
+Who?
+-
+Start with core leadership team of 3-4 dedicated youth
+-
+Those youth define participation criteria and expectations
+-
+Open call for application for 2 peacejam mentors/alumni from each country involved in
+Europe (UK, Belgium, Netherlands, Luxembourg, Romania, Greece, Monaco?, Czech
+Republic, Morocco, and 2 “at-large” positions)
+-
+Including 1 young coordinator - Luke
+Accountability?
+The European Youth Team would be accountable to:
+-
+European Steering Committee
+-
+PeaceJam Headquarters (report on best practices and compile documentation- as to
+have the European youth team as a pilot for other PJ regions in the world. Support on
+Billion Acts campaign to collect data on all action projects done in lead-up to
+conference.)
+-
+The European Youth Coordinator (Luke) would report to the European coordinator
+(Marie)
+-
+Marie will report closely about the youth team to the Steering Committee and to
+the European Coordination Team
+
+---PAGE---
+Based on the above description, the European youth team would decide itself on its
+structure, name, meetings and precise commitments. Youth team participation would be an
+honor and a full year-long commitment of likely 2-3 hours per week (to be determined by youth).
+When?
+7-8 November: Present proposal to European conference planning team members
+12 November: Discuss proposal with Steering Committee
+12-15 November: Include feedback from Steering Committee
+18 November: Start of the Youth Coordinator
+18 November - end of November: selection of core team
+1st December: Core Youth Team launched
+
+---PAGE---
+
+
+=== ENTRY 22 ===
+FILENAME: FinDeMundo-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+P
+O
+R
+ 
+A
+N
+N
+E
+ 
+C
+H
+A
+P
+M
+A
+N
+T A L L E R  E X P E R I M E N T A L  C U E R P O S  P I N T A D O S  P R E S E N T A
+CULTURAS TRADICIONALES . PATAGONIA
+FIN   MUNDO
+LOS SELKNAM DE TIERRA DEL FUEGO
+DE UN
+TALLER EXPERIMENTAL
+CUERPOS
+PINTADOS®
+
+---PAGE---
+
+---PAGE---
+
+
+=== ENTRY 23 ===
+FILENAME: FrenchInterventionismSahel-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+ 
+Sour, L., 2024. French interventionism in the Sahel: a flawed strategy, imperfect 
+geopolitics, Przegląd Geopolityczny, 48, s. 91-112. 
+ 
+ 
+- 91 - 
+ 
+Lofti SOUR 
+Mustapha Stambouli University of Mascara, Algeria 
+ORCID: 0000-0001-8783-9340 
+ 
+ 
+ 
+FRENCH INTERVENTIONISM IN THE SAHEL:  
+A FLAWED STRATEGY, IMPERFECT GEOPOLITICS 
+FRANCUSKI INTERWENCJONIZM W SAHELU: 
+WADLIWA STRATEGIA, NIEDOSKONAŁA GEOPOLITYKA 
+ 
+ 
+Abstract: 
+ 
+Over the past few years, there has been a notable rise in French military 
+involvement in Africa. Despite attempts to establish a more balanced post-colonial 
+relationship and a significant reduction in its permanent military presence, France 
+continues to be a highly sought-after participant in resolving security challenges in 
+Africa. Despite French policymakers' repeated assurances that their role as the 
+"gendarme of Africa" is a thing of the past, French troops have been engaged in nine 
+military operations since the start of the new millennium. This paper aims to analyze 
+French strategy in the Sahel region, with a particular focus on Operation Barkhane, in 
+light of the changing French doctrine and practices. 
+  
+ 
+Keywords: Operation Barkhane, France, Africa, Mali, post-colonialism, Sahel. 
+ 
+ 
+Introduction  
+France is the only European country that still regularly deploys its 
+military forces on combat missions to sub-Saharan Africa. In fact, France 
+is one of the most interventionist countries in the world. Between the 
+end of the Algerian Liberation War in 1962, which officially terminated 
+the French colonial empire (Burgess, 2018) and today, France has 
+launched more than 35 military interventions abroad – all of them in 
+Africa. When it comes to explaining these interventions, academic 
+literature points almost exclusively in one direction: France seeks to 
+maintain its grandeur, influence and power (Gregory, 2000). French 
+status in world politics is inextricably linked to its presence in Africa, or 
+as Chipman writes: “images of a Franco–African entity symbolize the 
+greatness of France” (Chipman, 1989). As a result, each instance of 
+French interventionism is in one way or another tied to its colonial 
+African past. Moreover, French presidents are usually credited with 
+
+---PAGE---
+ 
+Sour, L., 2024. French interventionism in the Sahel: a flawed strategy, imperfect 
+geopolitics, Przegląd Geopolityczny, 48, s. 91-112. 
+ 
+ 
+- 92 - 
+holding a domaine réservé over all matters of French defense and foreign 
+policy. Consequently, it is they who are in the lead of politically planning 
+and orchestrating French military intervention decisions (Utley, 1998). 
+A substantial body of literature delves into the themes of 
+continuity and change within French Africa policy. Much of this 
+scholarship scrutinizes alterations in the political, economic, and 
+security dimensions of France's policy in sub-Saharan Africa, focusing on 
+recurring patterns 
+and adaptations within the 
+framework of 
+Françafrique – the close, often tai
+
+=== ENTRY 24 ===
+FILENAME: GuidebookTEC-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+ 
+1/28 
+The European Solidarity Corps 
+online course  
+“Ready, Set, Make the Change” 
+GUIDEBOOK OF UNIT 
+Unit 8. TEC as a core support system 
+ 
+ 
+
+---PAGE---
+ 
+2/28 
+ 
+ 
+ACTIVITY 1: Overview of the Unit 
+ 
+This unit is beneficial to organisations and potentially young people, who are engaged in the 
+European Solidarity Corps programme. The unit offers a series of activities to discover the format 
+and content of different activities that are included in the Training and Evaluation Cycle (TEC) of 
+the European Solidarity Corps. 
+ 
+The topics addressed: 
+● aims of the TEC as a whole and specifically of each TEC activity: pre-departure training, on-
+arrival training, mid-term evaluation meeting and annual event;  
+● differences and characteristics of different TEC activities and of their methods and content; 
+● importance of the TEC in the Solidarity Corps activity project cycle; 
+● ways to contribute to the preparation and follow-up of each of the activities in order to 
+support participants. 
+ 
+Learning activities: 
+● 9 content sessions 
+● 1 animated video 
+● 4 books 
+● 5 visuals 
+● 1 interactive assessment 
+● 1 practice quiz 
+● 1 discussion forum 
+● 1 document to download 
+ 
+Recognition of learning 
+ 
+Successful completion of this unit is required to unlock a unique ‘Master of TEC’ badge. This 
+module is optional to qualify for a Youthpass Certificate. 
+
+---PAGE---
+
+
+=== ENTRY 25 ===
+FILENAME: ISBN9781611454048-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+“A wonderfully vivid portrait.” —Boston Globe 
+HA Tn 
+iil 
+ee '%
+i 
+of. 
+ae 
+<r. 
+“KU? raya) 454048 oaeate 
+euier ‘ 
+siga7eil FOSS 
+J 
+eR way ae 
+MICHAEL Ez 
+
+---PAGE---
+History 
+US $24.95 
+In his desperate attempt to cleanse the spiritual cha- 
+os infecting most of Western Europe in the eleventh 
+century, Pope Urban II launched an army of knights 
+and peasants to fight those who had seized the Holy 
+Land. 
+The recapture of Jerusalem and the Holy Land from 
+the Muslims was regarded as a redemptive task wor- 
+thy of men who might truly call themselves “soldiers 
+of Christ.” In this remarkable work, Michael Foss 
+casts new light on the reality of and motives behind 
+the First Crusade, both the romantic ideals and the 
+conflicted truths. 
+As the eleventh century came to an end, the Christian 
+lands of Western Europe were afflicted by repeated 
+invasions from the north, the collapse of order and 
+safety, and by the unrestrained tyranny of the feudal 
+lords. Life was famously “nasty, brutish, and short.” 
+They were threatened not only by internal corrup- 
+tion, but also by the specter of the Seljuk Turks, re- 
+cently converted to Islam, and intent on claiming the 
+Holy Land for their own. Pope Urban II, searching for 
+a way out of the increasing anarchy and to rid himself 
+of unruly, marauding knights, exhorted the faithful 
+to free Jerusalem from the “infidels.” The response 
+was immediate and enthusiastic. Proud knights, 
+poor peasants, artisans armed with pikes and bows 
+and arrows—and often only sticks or clubs—set out 
+on the great adventure, fighting or negotiating their 
+way through strange, exotic lands, until, four long 
+years later, the ragged remnants of the once-proud 
+army stood below the forbidding walls of Jerusalem. 
+(continued on back flap) 
+
+---PAGE---
+
+
+=== ENTRY 26 ===
+FILENAME: KSATPPAT-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+
+---PAGE---
+ 
+1 
+ 
+ 
+Beste leid(st)ers, hernieuwers, sympathisanten, buitenaardse wezens, virussen, bacteriën of 
+toevallige lezers 
+ 
+De tijd gaat met rasse schreden vooruit, we zitten alweer bijna in het derde trimester! Een trimester 
+normaal gevuld met veel zon, zotte activiteiten en natuurlijk een streekbierenavond! Meestal is dit het 
+trimester dat je plots beseft: ‘Tiens, ik heb al bijna weer een jaar aan KSA gegeven. Trots op mezelf hoe 
+ik het er dit jaar vanaf gebracht heb!’ 
+We zullen niet ontkennen dat dit trimester een ‘speciale’ spin zal krijgen. Voor de mensen die het 
+woord Corona nog niet gehoord hebben: ONDER WELKE STEEN WOON JE? IK WIL ER OOK BIJ!  
+Voor alle andere, zoals ons aller Maggie het zo mooi zei: ‘Blijf in uw kot!’  
+Hoe dit semester gaat verlopen heeft nog veel vraagtekens op het vlak van KSA. Om jullie te helpen 
+het bos door de bomen zien, geven we jullie met veel plezier deze editie van de Tirlala om up to date 
+te zijn met al het nieuws hoe het er omstreeks de tijd van deze uitgave aan toe gaat.  
+Je zal hieronder een Kalender zien verschijnen. Alles wat ingepland staat is in de veronderstelling dat 
+de maatregelen opgeheven worden na de paasvakantie, maar in alle realiteit weten we dat dat 
+waarschijnlijk niet het geval is.  
+Vervolgens geven we je de meest volledige informatie die wij momenteel hebben onder het 
+gloednieuwe rubriekje ‘CORONANEWS’. Hierin spuien we alles van de afgelopen weken in één prachtig 
+geschreven tekst om jullie even in het hoofd van de bondsleiding te laten kijken. (Proceed with 
+caution!) 
+Om de sfeer er wat in te houden voorzien we ook wat luchtigere segmentjes. Zo  worden er een ware 
+wist-je-datjes editie gegeven met alle mogelijke weetjes die je maar kan bedenken! De visuele mens 
+wil ook wat, bij deze doen we een introductie van een aantal Corona-gerelateerde memes en andere 
+(omdat het kan). 
+Nu, het beste houden we natuurlijk voor het laatst: de Kritische Hernieuwer. De inhoud van dit 
+segment is ten tijde dat het voorwoordje geschreven wordt, nog niet gekend dus hier zal je niet lezen 
+waarover het gaat. Find out for yourself x 
+Zoals altijd: zit je met vragen of onzekerheden of heb je gewoon eens nood aan een babbel in deze o 
+zo sociale tijden. Onze digitale deur staat altijd voor je open! (De fysieke krijgen we niet meer open tot 
+het jaar 2964, sorry!) Aarzel niet om ons te contacteren, we helpen je met veel plezier verder! 
+ 
+ 
+Vele gezonde groetjes, hou jullie goed! 
+Tuur, Kayleigh en Wannes 
+ 
+ 
+
+---PAGE---
+
+
+=== ENTRY 27 ===
+FILENAME: Layout1-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+PART IV
+HELOTS AND BARBARIANS:
+HISTORIOGRAPHY AND REPRESENTATIONS
+Chapter 7
+THE HELOTS: COMPARATIVE APPROACHES,
+ANCIENT AND MODERN
+Nino Luraghi
+A comparative approach to the Helots is as old as our earliest sources on
+the phenomenon. Oligarchic Athenians, who thought that Sparta was the
+place where society functioned as it should, found that the Spartans were
+dealing in the best way with slavery, too. According to the Old Oligarch
+(1.11), in Sparta slaves feared their masters, unlike in Athens, where the
+political dominance of the poor undermined the visual recognition of social
+status; for Critias (88 B 37 Diels-Kranz), author of pamphlets on the
+Spartan constitution, at Sparta the free were more free, and the slaves more
+slave, than anywhere else.1 Later theorists like Plato and Aristotle,
+observing Sparta from the vantage point of the fall of the Peloponnesian
+League and the loss of Messenia, were more inclined to see Helotage as a
+hidden Achilles’ heel of the Spartan system. At the same time, they
+approached the issue from a less overtly ideological and polemical and
+more classificatory and genuinely comparative angle, and as a result they
+juxtaposed Sparta to other cities and regions that had similar systems of
+unfree labor, namely Heraclea Pontica, Thessaly, and Crete. This approach
+was pursued further by Hellenistic scholars, from an increasingly
+retrospective standpoint, as the systems themselves were progressively
+disappearing. Aristophanes of Byzantium seems to have put the Helots,
+together with other groups, such as the Penestai of Thessaly, in a special
+261
+61261_Sparta_Book:Layout 1  4/8/09  08:25  Page 261
+
+---PAGE---
+category, ‘between free and slave’.2 Thinking back to Critias, one could
+say that ancient interpretations of Helotage had reached the opposite
+extreme.
+The attitude of ancient writers to Helotage is part and parcel of their
+general approach to Sparta, whose social institutions were easily depicted
+and perceived as highly peculiar, possibly archaic or even non-Greek, and
+in any case in need of interpretation and explanation. A similar way of
+looking at Sparta is already evident in Herodotus, who in a few passages
+treats Spartan usages and customs with an ethnographic eye he usually
+reserves for the barbarians.3 This fundamental aspect of ancient perceptions
+of Sparta goes a long way in explaining a basic pattern of modern
+scholarship, namely its propensity to approach Sparta from a comparative
+angle, looking for comparanda especially among ‘primitive’ cultures.4
+In another sense, however, modern historians’ approach to ancient
+Sparta in general and to Helotage in particular is different from that of
+their ancient predecessors: namely, in their tendency to attribute a decisive
+role to economy in shaping social structure and practice. For this reason,
+Helotage tends to be crucial to modern interpretations of Spartan social
+history. A consequence of this crucial role can be recognized in the fact that
+modern attempts at re
+
+=== ENTRY 28 ===
+FILENAME: LeyesReinosIndias-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+RECOPILACION
+DE LOS REINOS DE LAS INDIAS.
+MANDADAS IMPRIMIR Y PUBLICAR
+f k íï
+SI/íl ktX
+1%
+WtrESTK,0 SEÍTOE,.
+VA DIVIDIDA EN CUATE* TOMOS, CON EL INDICE GENERAL, V AL PRINCIPIO 
+DE CADA TOMO EL ESPECIAL DE LOS TÍTULOS QUE CONTIENE.
+TOMO SEGUNDO
+Q U I N T A  JE&rCMOJV.
+CON APROBACION DE LA REGENCIA PROVISIONAL DEL REINO.
+COR B E C  ID A  
+Y  
+A P R O B A D A  
+P O R  
+L A  
+« A I  A 
+n
+SB0 8 & »  BUHOS:
+IMPRESOR t  LIBRERO, CALLE DE CARRETAS, R'CMERO 8.
+1 8 4 1 .
+
+---PAGE---
+i"-:
+
+---PAGE---
+
+
+=== ENTRY 29 ===
+FILENAME: McMahonHusseinCorrespondence-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+1
+McMahon–Hussein Correspondence
+(July 14, 1915 – March 10, 1916)
+A. Henry McMahon
+1915-1916
+Exported from Wikisource on November 12, 2025
+
+---PAGE---
+2
+July 14, 1915
+To His Honour:
+Whereas the whole of the Arab nation without any
+exception have decided in these last years to live, and to
+accomplish their freedom, and grasp the reins of their
+administration both in theory and practice; and whereas
+they have found and felt that it is to the interest of the
+Government of Great Britain to support them and aid them
+to the attainment of their firm and lawful intention (which
+are based upon the maintenance of the honour and dignity
+of their life) without any ulterior motives whatsoever
+unconnected with this object;
+And whereas it is to their (the Arabs') interest also to prefer
+the assistance of the Government of Great Britain in
+consideration of their geographical position and economic
+interests, and also of the attitude of the above mentioned
+Government, which is known to both nations and therefore
+need not be emphasized;
+For these reasons the Arab nation see fit to limit
+themselves, as time is short, to asking the Government of
+Great Britain, if it should think fit, for the approval, through
+her deputy or representative, of the following fundamental
+propositions, leaving out all things considered secondary in
+comparison with these, so that it may prepare all means
+
+---PAGE---
+
+
+=== ENTRY 30 ===
+FILENAME: Peoples-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+
+---PAGE---
+A PEOPLE’S HISTORY
+OF THE
+UNITED STATES
+1492—PRESENT
+HOWARD ZINN
+To Noah, Georgia, Serena, Naushon, Will—and their generation
+Contents
+Cover
+Title Page
+Chapter 1 – Columbus, the Indians, and Human Progress
+Chapter 2 – Drawing the Color Line
+Chapter 3 – Persons of Mean and Vile Condition
+Chapter 4 – Tyranny Is Tyranny
+Chapter 5 – A Kind of Revolution
+Chapter 6 – The Intimately Oppressed
+
+---PAGE---
+
+
+=== ENTRY 31 ===
+FILENAME: Prehistory1066Lecture-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+HISTORY AND 
+CULTURE OF THE 
+ANGLO-SAXON WORLD
+DR. ERIKA GRAHAM-GOERING AND PROF. GERT BUELENS
+
+---PAGE---
+
+---PAGE---
+
+
+=== ENTRY 32 ===
+FILENAME: RecopilacionLeyesIndias-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+RECOPILACION
+DE LOS REINOS DE LAS INDIAS.
+MANDADAS IMPRIMIR Y PUBLICAR
+f k íï
+SI/íl ktX
+1%
+WtrESTK,0 SEÍTOE,.
+VA DIVIDIDA EN CUATE* TOMOS, CON EL INDICE GENERAL, V AL PRINCIPIO 
+DE CADA TOMO EL ESPECIAL DE LOS TÍTULOS QUE CONTIENE.
+TOMO SEGUNDO
+Q U I N T A  JE&rCMOJV.
+CON APROBACION DE LA REGENCIA PROVISIONAL DEL REINO.
+COR B E C  ID A  
+Y  
+A P R O B A D A  
+P O R  
+L A  
+« A I  A 
+n
+SB0 8 & »  BUHOS:
+IMPRESOR t  LIBRERO, CALLE DE CARRETAS, R'CMERO 8.
+1 8 4 1 .
+
+---PAGE---
+i"-:
+
+---PAGE---
+
+
+=== ENTRY 33 ===
+FILENAME: RegionIntroduction-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+Introduction
+Berbers, Maghrib: the ­people, their country. Every­body knows that, and that 
+is what every­body knows. But it has not always been the case. Before Mus-
+lim Arab conquerors began using the word ( بربرbarbar) to refer to ­people 
+who lived in what they called “the West” (al-­maghrib), both ­people and 
+region ­were known by a host of other names. In fact, before Berber and 
+Maghrib, no one thought that the inhabitants of northwest Africa belonged 
+together or that the entire landmass represented a single unit. The first time 
+anyone thought that was in Arabic. Trying to understand this shift from one 
+set of names to another, one map to another, a historian ­faces a series of chal-
+lenges that can be separated into two general kinds. First, ­there are challenges 
+arising from the ­handling of the sources, which tend to be late and not writ-
+ten to address such a question. Second, ­there are hurdles pertaining to the 
+assumptions of modern historians. ­These include deeply held notions about 
+the relation between collective identity (nation), country, religion, and lan-
+guage; and a centuries-­long history of interpreting medieval sources in a way 
+that reinforces ­these assumptions.1
+If this ­were not enough, as modern academics conferred on the Berbers 
+characteristics of prenational groups like the Franks and the Goths, they also 
+envisaged their reduced nationhood. For ­under French colonial domination, 
+a modern Berber nation-­state was simply not in the cards. ­After the Second 
+World War, the reaction against the devastations of nationalism and racism 
+did not extend to the category Berbers, which did not benefit from the critical 
+energy of that reaction. Instead, the category remained mired in discussions 
+of cultural heritage, victimized ethnic identity, and national aspirations. The 
+national in­de­pen­dence of Morocco and Algeria, but not Berberia, situated 
+Berber identity both at the infranational level and as a ­counter nationalism 
+but with a sense of Berber temporal pre­ce­dence (native, original, ­etc.) and me-
+dieval Arabization and Islamization through a mixing with Arabs.2 ­These 
+pro­cesses are reflected in the predominant place that anthropology, together 
+
+---PAGE---
+2	
+Introduction
+with linguistics, occupies in the study of Berbers. Unpacking the entangle-
+ments created by modern relations and forms of knowing helps identify de-
+fining modalities of what it means to be Berber.
+Together, ­these issues have combined to produce a peculiar consensus: the 
+Berbers are the indigenous inhabitants of the Maghrib, their homeland. 
+The basic idea is that even if the categories shifted ­after the seventh ­century, 
+the ­people still had the same ancestors. For many reasons, however, this is not 
+an acceptable position. No one would equate, say, Roman and Italian or Hun 
+and Hungarian. ­Doing so would banish what historians identify as the stuff of 
+history, and replace it with the stuff of ideology. But that is exactly w
+
+=== ENTRY 34 ===
+FILENAME: SamenvattingConstructieVerleden-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+StuDocu wordt niet gesponsord of ondersteund door een hogeschool of universiteit
+Samenvatting De Constructie Van Het Verleden Compleet -
+Hoofdstukken 1-14
+Ges-Grondslagen van de geschiedenis (Universiteit Utrecht)
+StuDocu wordt niet gesponsord of ondersteund door een hogeschool of universiteit
+Samenvatting De Constructie Van Het Verleden Compleet -
+Hoofdstukken 1-14
+Ges-Grondslagen van de geschiedenis (Universiteit Utrecht)
+Gedownload door Benoit De Becker (benoit.debecker1995@gmail.com)
+lOMoARcPSD|218533
+
+---PAGE---
+Constructie van het verleden 
+ 
+Boek Hoofdstuk 1 
+1. Inleiding: Wat is theorie van de Geschiedenis? 
+Geschiedenis is:  
+1. dat wat gebeurd is 
+2. onderzoek naar wat gebeurd is. 
+ 
+Theorie van de geschiedenis: Analyse van de wijze waarop historici het verleden 
+onderzoeken en weergeven in boeken en artikelen. Vanuit de hoek van de 
+wetenschapsfilosofie. 
+ 
+Wetenschapsfilosofie: analyseren van de vooronderstellingen en kenmerken van 
+wetenschappelijke kennis: 
+1. op welke vooronderstellingen stoelt de wetenschap 
+2. waarop is wetenschappelijke kennis gebaseerd 
+ 
+twee vooronderstelling die wetenschapsfilosofie zelf maakt zijn: 
+1. wetenschappelijke kennis is te rechtvaardigen in termen van feitelijke en logische 
+argumenten 
+2. wetenschappelijke kennis komt op methodische wijze tot stand (niet toevallig). 
+ 
+Klassieke wetenschapsfilosofie: is rationele reconstructie (dus achteraf). 
+Analyseert alleen hoe wetenschappelijke kennis in kant en klare vorm in elkaar zit en niet 
+hoe zij in de praktijk tot stand komt. Het gaat om een analyse van de geldigheid = 
+fundeerbaarheid van kennis = de rechtvaardigingscontext. 
+ 
+Daar tegenover staat: 
+De ontdekkingscontext: analyse en de genese van kennis = hoe kennis tot stand 
+komt. 
+ 
+Moderne wetenschapsfilosofie: In de jaren 70 ontstaan. Mengvorm van de 
+wetenschapsfilosofie, wetenschapsgeschiedenis en wetenschapssociologie. Trekken de 
+wetenschappelijke rationaliteit in twijfel. Rationaliteit, veronderstelt dat de wetenschap 
+aan één, niet tijd en plaatsgebonden ratio (regelsysteem, methode of logica) 
+gehoorzaamt.  
+ 
+In navolging van Nietsche stellen zij de vraag of het in de wetenschap ook niet om macht 
+draait en de wil tot weten eigenlijk de wil tot macht verbergt. = meer sociologie. 
+Of dat de wetenschap ook altijd een retorisch element bevat. Zij willen ook de 
+overtuigingscontext analyseren.  
+ 
+Droysen: Theorie van de Geschiedenis moet ons bewust maken van de doelen en 
+middelen die we als historici altijd al instinctmatig nastreven, ze moet de 
+wetenschappelijke rechtvaardiging zijn van onze studie.  
+ 
+De geschiedtheorethische problemen bevinden zich niet naast maar achter de praktische 
+historische problemen. 
+Centrale geschiedtheoretische problemen 
+De fundamentele vraag is: Op welke wijze verhelderd kan worden dat de kennis die 
+historici produceren gefundeerd is of wel op waarheid berust? 
+ 
+Deelvragen die daaruit komen: 
+• 
+wat zijn feiten? (H 2) 
+• 
+hoe verhouden feiten zich tot
+
+=== ENTRY 35 ===
+FILENAME: TraineeshipsJobsEuropeanSolidarityCorps-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+ 
+1/16 
+ 
+ 
+The European Solidarity Corps 
+online course  
+“Ready, Set, Make the Change” 
+GUIDEBOOK OF UNIT 
+Traineeships and Jobs 
+ 
+
+---PAGE---
+ 
+2/16 
+GUIDEBOOK OF UNIT 
+Traineeships and Jobs in the European Solidarity Corps 
+ 
+ 
+ACTIVITY 1: Overview of the Unit 
+ 
+This unit is designed for people who want to develop a Traineeships and Jobs project within the 
+European Solidarity Corps programme. 
+ 
+Learning objectives 
+This unit offers learners a series of activities to develop an understanding about Traineeships and 
+Jobs projects within the European Solidarity Corps programme. 
+ 
+The topics addressed 
+● Essentials of Traineeships and Jobs under the European Solidarity Corps  
+● Project examples of young people doing their traineeship or job  
+● Main steps to take advantage of this opportunity in the European Solidarity Corps  
+● Clarifying questions about Jobs and Traineeships under the European Solidarity Corps 
+ 
+Learning Activities 
+● 6 content sessions 
+● 1 animated video 
+● 3 videos with project examples 
+● 1 webinar (recording) 
+● 1 discussion forum 
+● 1 quiz 
+ 
+Recognition of learning 
+Successful completion of this unit is required to unlock a unique Traineeships and Jobs badge. This 
+module is optional to qualify for a Youthpass Certificate. 
+
+---PAGE---
+
+
+=== ENTRY 36 ===
+FILENAME: UntitledDocument-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+KAREN L. COX
+★  ★  ★  ★  ★  ★  ★  ★  ★  ★  ★
+The United Daughters of the Confederacy
+Dixie's Daughters
+
+---PAGE---
+Florida A&M University, Tallahassee
+Florida Atlantic University, Boca Raton
+Florida Gulf Coast University, Ft. Myers
+Florida International University, Miami
+Florida State University, Tallahassee
+University of Central Florida, Orlando
+University of Florida, Gainesville
+University of North Florida, Jacksonville
+University of South Florida, Tampa
+University of West Florida, Pensacola
+Dixie’s Daughters
+new perspectives on the history of the south
+
+---PAGE---
+
+
+=== ENTRY 37 ===
+FILENAME: WordDocument3-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+Rime of the Frostmaiden – Campaign Guide 
+Night has fallen upon Icewind Dale and the sun hasn’t risen for two years. The frozen north’s 
+thin connection to the Sword Coast has been cut off and now the people of Ten Towns and 
+the Reghed tribes must fend for themselves. A divine force has locked the land in frozen 
+night. Rumours whisper of shadowy figures forging a devastating weapon in the mountains. 
+Remnants of ancient power awaken deep beneath the ice.  
+Frozen Truths of Icewind Dale  
+• 
+The sun hasn’t risen for two years.  
+• 
+The two-year night has cut off the frozen north from the rest of the Sword Coast.  
+• 
+The Children of Auril demand sacrifices from the people of Ten Towns in the 
+Frostmaiden’s name.  
+• 
+Ancient and powerful secrets lie under the ice.  
+• 
+Shadowy figures lurk in the mountains hammering upon strange black metal.  
+The Heroes We Have  
+Cut off from the outside world, the people of Ten Towns must rely on themselves to 
+face the dangers upon and below the frozen tundra. The characters are people of 
+Ten Towns, either natives of the land or travellers who arrived years ago and stayed. 
+You and the rest of the people of Ten Towns have been hardened by the brutal cold 
+of the land but the eternal night eats away at everyone. No heroes are coming from 
+the Sword Coast to save the people of Ten Towns. Only you can save yourselves.  
+You Begin in Bryn Shander  
+Largest of the Ten Towns, Bryn Shander is a walled town perched atop a cold, lonely, 
+wind-lashed hill. Bright lanterns suspended over narrow streets twist in the wind and 
+add flecks of colour to the town’s otherwise drab surroundings. Speaker Duvessa 
+Shane leads the city of a thousand souls. Once a trading hub with the north, trade 
+has suffered since the coming of the night as has the humour, camaraderie, and 
+goodwill of the people.  
+Notable locations include the Blackiron Blades smithy, the House of the 
+Morninglord, and the Northlook Inn and Tavern.  
+How you have ended up in Bryn Shander is completely up to you, if you have an idea 
+but aren’t sure how to incorporate it, feel free to message your DM to discuss. 
+Each character should harbor at least one secret pertaining to their backstory, if you 
+don’t have one in mind, your DM can you provide you with some prewritten ideas 
+from the book and their campaign narrative. 
+ 
+
+---PAGE---
+Your Character in the World  
+Characters begin at 1st level. You can choose character options from the Player’s 
+Handbook, Xanathar’s Guide to Everything, Tasha’s Cauldron of Everything other 
+sources can be used at the discretion of your DM.  
+You can use the “Customizing Your Origin” feature from Tasha’s Cauldron of 
+Everything. There are no other house rules for this campaign.  
+Your character will join with a group of companions to help the people of Ten 
+Towns survive the icy dangers in the endless night.  
+Build well-rounded characters able to interact with the denizens of Icewind Dale, 
+survive the frozen tundra, and batt
+
+=== ENTRY 38 ===
+FILENAME: YouthResearchPodcast-Unknown-0000-Unknown.pdf
+FOLDER: general-history
+TEXT:
+ 
+MOOC – ESSENTIALS OF YOUTH WORK 
+ 
+Youth Research 
+TRANSCRIPT 
+ 
+Dariusz [00:00:01] Hello to the next podcast we are organising within the MOOC on youth work 
+essentials. And today, we are going to talk about youth research. And we have invited today three 
+people. We have Lana Pasic who is from the Partnership between the European Union and the 
+Council of Europe in the field of youth; we have Tomi Kiilakoski from Finland and Adina Serban from 
+Romania. Welcome. So, can you tell us maybe Lana, I know that you work for the Partnership, but 
+you are also youth researcher. How did you become a youth researcher?  
+ 
+Lana [00:00:41] Thank you, Darek. For me, it was an experience that started both through my 
+professional work, but also through academia, because I worked with the youth programmes in an 
+NGO in Bosnia. And then after that, when I went to do my postgraduate studies, I started looking at 
+the programmes that would focus specifically on youth activism and how do NGOs and civil society 
+can support young people in becoming more active members of their societies and also demanding 
+more of their rights and standing up for causes that they believe in. This made me more interested 
+not only in research in young people, but also how can society support young people?  
+ 
+Dariusz [00:01:23] And Tomi, what's your story? How did you become a researcher?  
+ 
+Tomi [00:01:27] By accident. I never wanted to become a youth researcher. I used to work at the 
+Department of Teacher Education, so it was training teachers to become better teachers. And I 
+thought that I was a critical educational scientist. And I wrote a book in Finnish, which was on a 
+critical pedagogy and on how schools would be better. And then I got invited to a meeting with a lot 
+of researchers and they asked me a really simple question: why don't you have perspectives of 
+young people in this book? And I started, you know, being self-critical and asking myself, why didn't 
+I have young people in the book? So, I started to become more and more interested about youth 
+research. And I was working as a trainer of youth work at the time. So, youth research was, of 
+course, needed. So, it was important in itself. So, those two steps sort of led me to being a youth 
+researcher.  
+ 
+Dariusz [00:02:25] OK, that's an interesting story. You can become a youth researcher by accident. 
+Adina, what about you?    
+ 
+Adina [00:02:32] For me, youth research was the last angle of the youth triangle that I was trying 
+somehow to cover it because I started as a grassroots youth worker, then I moved a bit on youth 
+representation and being part of different bodies that were trying to do support youth 
+participation. And then, of course, that everyone was asking always for evidence-based and 
+everything had to come with evidence. And they said, OK, let's start doing that. Then I combined my 
+grassroots youth work activity with a bit of research at the beginning and somehow step by step 
+
+---PAGE---
+fro
+
+=== ENTRY 39 ===
+FILENAME: IranBetweenTwoRevolutionsZLibrary-Unknown-0000-ZLib.pdf
+FOLDER: middle-east-history
+TEXT:
+I RAN B E T W E E N  T WO  R E V O L U T I O N S
+
+---PAGE---
+P R I N C E T O N  S T U D I E S  ON T H E  N E A R  E A S T
+
+---PAGE---
+
+
+=== ENTRY 40 ===
+FILENAME: UnknownTitle-Unknown-0000-Unknown.pdf
+FOLDER: middle-east-history
+TEXT:
+This is a reproduction of a library book that was digitized  
+by Google as part of an ongoing eﬀort to preserve the  
+information in books and make it universally accessible.
+https://books.google.com
+
+---PAGE---
+T R E A T I E S
+A N D
+O T H E R
+I N T E R N A T I O N A L
+A C T S
+O F
+T H E
+U N I T E D
+S T A T E S
+O F
+A M E R I C A
+
+---PAGE---
+
+
+=== ENTRY 41 ===
+FILENAME: ArchaeologicalResearchArchival-Unknown-0000-Unknown.pdf
+FOLDER: reference-methodology
+TEXT:
+geosciences
+Article
+Integrated Archaeological Research: Archival
+Resources, Surveys, Geophysical Prospection and
+Excavation Approach at an Execution and Burial Site:
+The German Nazi Labour Camp in Treblinka
+Sebastian Ró˙zycki 1,*
+, Rafał Zapłata 2, Jerzy Karczewski 3
+, Andrzej Ossowski 4
+and Jacek Tomczyk 5
+1
+Faculty of Geodesy and Cartography, Warsaw University of Technology, 1 Sq. Politechniki,
+00-661 Warsaw, Poland
+2
+Faculty of Mathematics and Natural Sciences, School of Exact Sciences, Cardinal Stefan Wyszynski
+University in Warsaw, ul. Wóycickiego 1/3, 01-938 Warsaw, Poland; r.zaplata@uksw.edu.pl
+3
+AGH University of Science and Technology, Faculty of Geology, Geophysics and Environmental Protection,
+al. Mickiewicza 30, 30-059 Kraków, Poland; karcz@agh.edu.pl
+4
+Faculty of Medicine, Pomeranian Medical University in Szczecin, ul. Rybacka 1, 70-204 Szczecin, Poland;
+andoss@wp.pl
+5
+Institute of Biological Sciences, Cardinal Stefan Wyszynski University in Warsaw, ul. Woycickiego 1/3,
+01-938 Warsaw, Poland; j.tomczyk@uksw.edu.pl
+*
+Correspondence: sebastian.rozycki@pw.edu.pl; Tel.: +48-22-234-5358
+Received: 30 June 2020; Accepted: 10 August 2020; Published: 24 August 2020
+
+
+Abstract: This article presents the results of multidisciplinary research undertaken in 2016–2019
+at the German Nazi Treblinka I Forced Labour Camp. Housing 20,000 prisoners, Treblinka I was
+established in 1941 as a part of a network of objects such as forced labour camps, resettlement
+camps and prison camps that were established in the territory of occupied Poland from September
+1939. This paper describes archaeological research conducted in particular on the execution site
+and burial site—the area where the “death pits” have been found—in the so-called Las Maliszewski
+(Maliszewa Forest). In this area (poorly documented) exhumation work was conducted only until
+1947, so the location of these graves is only approximately known. The research was resumed
+at the beginning of the 21st century using, e.g., non-invasive methods and remote-sensing data.
+The leading aim of this article is to describe the comprehensive research strategy, with a particular
+stress on non-invasive geophysical surveys. The integrated archaeological research presented in
+this paper includes an analysis of archive materials (aerial photos, witness accounts, maps, plans,
+and sketches), contemporary data resources (orthophotomaps, airborne laser scanning-ALS data),
+ﬁeld work (veriﬁcation of potential objects, ground penetrating radar-GPR surveys, excavations),
+and the integration, analysis and interpretation of all these datasets using a GIS platform. The results
+of the presented study included the identiﬁcation of the burial zone within the Maliszewa Forest
+area, including six previously unknown graves, creation of a new database, and expansion of the
+Historical-GIS-Treblinka. Obtained results indicate that the integration and analyses within the GIS
+environment of various types of remote-sensing
+
+=== ENTRY 42 ===
+FILENAME: AnglophoneConnection-Unknown-0000-Unknown.pdf
+FOLDER: territorial-disputes
+TEXT:
+The Anglophone Cameroon-Nigeria boundary:
+opportunities and conflicts
+Konings, P.J.J.
+Citation
+Konings, P. J. J. (2005). The Anglophone Cameroon-Nigeria
+boundary: opportunities and conflicts. African Affairs: The Journal Of
+The Royal African Society, 104(415), 275-301.
+doi:10.1093/afraf/adi004
+ 
+Version:
+Not Applicable (or Unknown)
+License:
+Leiden University Non-exclusive license
+Downloaded from:
+https://hdl.handle.net/1887/3500
+ 
+Note: To cite this publication please use the final published version
+(if applicable).
+
+---PAGE---
+THE ANGLOPHONE CAMEROON-NIGERIA
+BOUNDARY: OPPORTUNITIES AND
+CONFLICTS
+PIET KONINGS
+ABSTRACT
+Recent studies of African boundaries have tended to focus either on the
+growing number of border disputes between states or on frontier regions
+that are said to offer local inhabitants a wide range of economic oppor-
+tunities. This article attempts to combine both approaches and to demon-
+strate the ambiguous nature of the Anglophone Cameroon-Nigeria
+border. On the one hand, the border has been subject to regular skirmishes
+between Cameroon and Nigeria, culminating in a protracted war over the
+sovereignty of the Bakassi peninsula — an area rich in oil reserves. On the
+other hand, it has for historical and economic reasons never constituted a
+real barrier to cross-border movements of labour and goods. The large
+Nigerian migrant community in Anglophone Cameroon, in particular, has
+been able to beneﬁt from formal and informal cross-border trade for a long
+time. Unsurprisingly, its dominant position in the host community’s
+commercial sector has been a continuous source of conﬂict.
+OF LATE, AFRICANISTS HAVE DEVELOPED A RENEWED INTEREST in the study
+of colonially negotiated borders,1 and the remarkable increase in boundary
+disputes between and within African states has been the focus of several
+recent studies. For a long time after independence border skirmishes and
+wars between African states were relatively rare, and governments more or
+less adhered to the sacrosanct nature of the boundaries inherited from
+colonial times (the principle of uti possedetis jus), as laid down in the 1963
+charter of the Organization of African Unity (OAU). At present, however,
+African states are involved in numerous boundary disputes, such as those
+Piet Konings is a senior researcher at the African Studies Centre, Leiden, the Netherlands.
+This article is based on his long-standing research on ethno-regionalism in Anglophone
+Cameroon.
+1.
+See, for instance, P. Nugent and A. I. Asiwaju (eds), African Boundaries: Barriers, conduits
+and opportunities (Frances Pinter, London, 1996); D. C. Bach (ed.), Regionalisation in Africa:
+Integration and disintegration (James Currey, Oxford, 1999); A. Mbembe, ‘At the edge of the
+world: territoriality and sovereignty in Africa’, Codesria Bulletin 3–4 (1999), pp. 4–16; J. Herbst,
+States and Power in Africa: Comparative lessons in authority and control (Princeton University
+Press, Princeton, NJ, 2000); P. Nugent, Smugglers, Sece
+
+=== ENTRY 43 ===
+FILENAME: Bakassi-Unknown-0000-Unknown.pdf
+FOLDER: territorial-disputes
+TEXT:
+
+---PAGE---
+The International Court of Justice and  
+Border-Conflict Resolution in Africa:  
+The Bakassi Peninsula Conflict 
+J. Ndumbe Anyu
+There is general agreement among historians that ethnic conflicts have been 
+the core cause of bloodshed in Europe and the Mediterranean world. The 
+deep scars that these conflicts leave on people and nations are often obscured 
+by historical accounts that, more often than not, glorify conquest and ignore 
+aggression. Though ethnic conflicts have defined European history for centu-
+ries, Africa was spared this problem until the Europeans decided to treat the 
+continent as free-for-all real estate. 
+European colonial rule in Africa left behind the same scars as their Bal-
+kanization schemes had left in Europe. Nations were divided by colonizers, 
+territory was bartered among them, and economic life was shattered. The 
+results of colonial misrule are obvious. Today 103 ethnic conflicts are ongo-
+ing on the African continent. Some of them are old-fashioned land disputes 
+while others are the product of artificially drawn international borders that 
+divided ethnic groups, and still others have oil in the mix. One such conflict 
+that involves all of the above is the dispute between Nigeria and Cameroon 
+over the Bakassi Peninsula. It is a unique case, reflective of both the colonial 
+heritage and the modern thirst for oil. At the same time, Bakassi emerges as 
+an example of conflict resolution through the rule of law and without resort 
+to arms. My purpose in this essay is to trace the origins of this struggle, 
+delineate conflicting claims over the territory, and reflect on the broader sig-
+Mediterranean Quarterly 18:3  DOI 10.1215/10474552-2007-016
+Copyright 2007 by Mediterranean Affairs, Inc.
+J. Ndumbe Anyu is associate professor of public administration and public policy at the University 
+of the District of Columbia.
+
+---PAGE---
+
+
+=== ENTRY 44 ===
+FILENAME: CompleteCollectionTreaties-Unknown-0000-Unknown.pdf
+FOLDER: territorial-disputes
+TEXT:
+This is a reproduction of a library book that was digitized  
+by Google as part of an ongoing effort to preserve the  
+information in books and make it universally accessible.
+https://books.google.com
+
+---PAGE---
+TS
+ES
+
+---PAGE---
+
+
+=== ENTRY 45 ===
+FILENAME: EjiTalk-Unknown-0000-Unknown.pdf
+FOLDER: territorial-disputes
+TEXT:
+December 22, 2025
+Guatemala’s Application to Intervene in the
+Sapodilla Cayes Case: An Impermissible
+Intervention by an Indispensable Party?
+Written by Sanmay Moitra
+The International Court of Justice recently heard oral arguments by
+Guatemala,  Belize  and  Honduras  on  Guatemala’s  application  to
+intervene  under  Article  62  of  the  Statute  in  the  case  concerning
+Sovereignty  over  the  Sapodilla  Cayes  (Belize  v  Honduras).
+Guatemala’s prima facie grounds for intervention are straightforward:
+it is one of the three parties (in addition to Belize and Honduras) to a
+tripartite  sovereignty dispute over the  Sapodilla Cayes. Therefore,
+Guatemala has argued that “a decision of the Court that “Belize is
+sovereign  over  the  Sapodilla  Cayes”,  as  Belize  requests,  would
+inevitably affect Guatemala’s legal interests and rights with respect to
+these island” (Intervention Application, para. 9).
+EJIL:Talk!
+Blog of the European Journal of International Law
+Guatemala’s Application to Intervene in the Sapodilla Cayes Case: An ...
+https://www.ejiltalk.org/guatemalas-application-to-intervene-in-the-sapo...
+1 of 9
+23/03/2026, 18:19
+
+---PAGE---
+A closer examination of the rules on intervention along with Belize’s
+and Honduras’ oral arguments, however, reveals a more complicated
+picture. The Court is left in a paradoxical position where it must decide
+on a legally deficient application to intervene made by an applicant
+that  might  itself  be  an  indispensable  party  by  operation  of  the
+Monetary Gold principle.
+The Arguments Before the Court 
+Under Article 62 of the Statute, a State may intervene when “it has an
+interest of a legal nature which may be affected by the decision in the
+case.” Article 81 of the Rules of the Court lays down, with more
+specificity, what a State wishing to intervene must show. It requires
+States to set out three elements: the interest of a legal nature, the
+precise object of the intervention, and a jurisdictional basis against the
+parties to the case.
+As noted earlier, Guatemala bases its legal interest on the fact that a
+decision  in  this  case  would  necessarily  affect  and  prejudge  the
+question of Guatemala’s own claims over the Cayes. Its stated object
+of intervention is two-fold: it seeks to, first, “protect the rights and
+interests of Guatemala over the Sapodilla Cays” and second, “inform
+the Court of the nature and extent of Guatemala’s rights, which may
+be affected” (Intervention Application, para. 10). Guatemala, however,
+concedes  the  absence  of  a  jurisdictional  link  with  Honduras  but
+contends that this is not a bar to interventions under Article 62 (para.
+12). To support this assertion, the Application cites to the ICJ’s holding
+in El Salvador/Honduras that the existence of a jurisdictional basis “is
+not a requirement for the success of the application” (para. 100).
+Though Belize did not formally object to Guatemala’s application and
+only Honduras lodged a formal objection, both Belize and H
+
+=== ENTRY 46 ===
+FILENAME: GrantBySultanSuluTerritoriesLandsMainlandIsla-Unknown-0000-Unknown.pdf
+FOLDER: territorial-disputes
+TEXT:
+BRITISH NORTH BORNEO TREATIES.
+ 
+BRITISH NORTH BORNEO, 1878.
+ 
+(Translation)
+ 
+GRANT by Sultan of Sulu of Territories and Lands on the Mainland of the Island of Borneo.  Dated 22nd January, 1878.
+ 
+      WE Sri Paduka Maulana Al Sultan Mohamet Jamal Al Alam Bin Sri Paduka Al Marhom Al Sultan Mohamet Fathlon
+Sultan of Sulu and the dependencies thereof on behalf of ourselves our heirs and successors and with the consent and
+advice of the Datoos in council assembled hereby grant and cede of our own free and sovereign will to Gustavus Baron
+de Overbeck of Hong Kong and Alfred Dent Esquire of London as representatives of a British Company co-jointly their
+heirs associates successors and assigns for ever and in perpetuity all the rights and powers belonging to us over all the
+territories and lands being tritutary to us on the mainland of the island of Borneo commencing from the Pandassan River
+on the north-west coast and extending along the whole east coast as far as the Sibuco River in the south and comprising
+amongst other the States of Paitan, Sugut, Bangaya, Labuk, Sandakan, Kina Batangan, Mumiang, and all the other
+territories and states to the southward thereof bordering on Darvel Bay and as far as the Sibuco river with all the islands
+within three marine leagues of the coast.
+ 
+      In consideration of this grant the said Baron de Overbeck and Alfred Dent promise to pay as compensation to His
+Highness the Sultan Sri Paduka Maulana Al Sultan Mohamed Jamal Al Alam his heirs or successors the sum of five
+thousand dollars per annum.
+ 
+      The said territories are hereby declared vested in the said Baron de Overbeck and Alfred Dent Esquire co-jointly
+their heirs associates successors or assigns for as long as they choose or desire to hold them.  Provided however that
+the rights and privileges conferred by this grant shall never be transferred to any other nation or company of foreign
+nationality without the sanction of Her Britannic Majesty’s Government first being obtained.
+ 
+      In case any dispute shall arise between His Highness the Sultan his heirs or successors and the said Gustavus
+Baron de Overbeck or his Company, it is hereby agreed that the matter shall be submitted to Her Britannic Majesty’s
+Consul-General for Borneo.
+ 
+      The said Gustavus Baron de Overbeck on behalf of himself and his Company further promises to assist his Highness
+the Sultan his heirs or successors with his best counsel and advice whenever His Highness may stand in need of the
+same.
+ 
+      Written in Lipuk in Sulu at the Palace of His Highness Mohamet Jamal Alam on the 19th Moharam A.H. 1295,
+answering to the 22nd January, A.D. 1878.
+For Reference Only
+Treaties & Engagements & Orders
+1 of 1
+Grant by Sultan of Sulu of Territories and Lands on the Mainland of the Island of Borneo
+
+---PAGE---
+
+
+=== ENTRY 47 ===
+FILENAME: IBS008-Unknown-0000-Unknown.pdf
+FOLDER: territorial-disputes
+TEXT:
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+International Boundary Study 
+ 
+ 
+No. 8 – July 21, 1961 
+Belize (British Honduras) – Guatemala 
+Boundary 
+ 
+(Country Codes:  BH-GT) 
+ 
+ 
+ 
+The Geographer 
+Office of the Geographer 
+Bureau of Intelligence and Research 
+ 
+
+---PAGE---
+INTERNATIONAL BOUNDARY STUDY 
+ 
+No. 8 
+ 
+BELIZE (British Honduras)- GUATEMALA BOUNDARY 
+ 
+ 
+TABLE OF CONTENTS 
+ 
+ 
+ 
+ 
+Page 
+ 
+ 
+I. 
+Background.................................................................. 
+2 
+ 
+ 
+II. 
+Treaty.............................................................................. 
+2 
+ 
+ 
+III. 
+Boundary Segments .................................................. 
+3 
+ 
+ 
+IV. Summary ....................................................................... 
+4 
+ 
+ 
+ 
+ 
+ 
+ 
+
+---PAGE---
+
+
+=== ENTRY 48 ===
+FILENAME: ImplicationsBakassiConflictRes-Unknown-0000-Unknown.pdf
+FOLDER: territorial-disputes
+TEXT:
+9
+Implications of the Bakassi conflict 
+resolution for Cameroon
+Abstract
+This paper sketches a conceptual framework of international conlict dynamics 
+and resolution, examines the geopolitics of the Bakassi dispute between Nigeria 
+and Cameroon, and outlines socio-economic implications of its peaceful 
+settlement. Neglect and subsequent discovery of oil deposits subjected the 
+Bakassi Peninsula to claims and counter-claims for sovereignty, military 
+occupation and recourse to the International Court of Justice (ICJ). The ICJ’s 
+ruling in 2002 in favour of Cameroon, although based on sound historical 
+evidence, faced implementation dificulties. However, following mediation by 
+the United Nations (UN) Secretary-General, good faith by protagonists, the 
+Green-tree Agreement and subsequent instruments, Nigeria completed the 
+withdrawal of its military, police and administration from the Bakassi Peninsula 
+by 14 August 2008. Putting aside disruptive activities by social movements, 
+the entire process could be viewed as a model in peaceful resolution of border 
+conlicts. Implications of the settlement anchor on expenditure-reducing 
+and expenditure-switching effects, wealth-generating effects, and enhanced 
+* 
+Dr Francis Baye is Associate Professor in the Department of Economics and Management, University of 
+Yaoundé II, Yaoundé, Cameroon.
+Francis Menjo Baye*
+
+---PAGE---
+10
+Francis Menjo Baye
+cross-border activities. Infrastructural developments and effective presence are 
+considered essential elements in border management policies.
+1. Introduction
+Territorial claims, ideology, colonialism, nationalism, religion and natural 
+resources have typically been the main sources of conlict throughout the world. 
+While the inluence of some of these is waning, struggles for the control of 
+valuable natural resources have remained a persistent feature of national and 
+international affairs for decades. In addition to helping some of the most corrupt 
+and oppressive regimes to remain in power, natural resources have been fuelling 
+conlicts within and between African countries. Such conlict situations typically 
+take the form of territorial disputes over the possession of oil-laden border areas, 
+factional struggles among the leaders of oil-rich countries, and major inter-state 
+wars over the control of vital oil and mineral zones (Klare 2004).  
+Africa was largely controlled by indigenous people in the 1870s, but by 19141 it 
+became almost exclusively subjugated and divided into protectorates/colonies 
+by the European powers (Rourke 1997; Aghemelo and Ibhasebhor 2006). The 
+colonial boundaries in these conigurations were not established according to 
+the various indigenous groupings. Grouping nations together in some cases and 
+dividing them in others was a common feature as long as it was consistent with 
+the security and economic interests of the colonial powers. After independence, 
+most of Africa became and is still troubled by the legacy of trying to get orig
+
+=== ENTRY 49 ===
+FILENAME: IndiaTransferOfP12Nich-Unknown-0000-Unknown.pdf
+FOLDER: territorial-disputes
+TEXT:
+CONSTITUTIONAL RELATIONS 
+BETWEEN BRITAIN AND INDIA 
+The Transfer 
+of Power 1942—7 
+Volume XII The Mountbatten Viceroyalty 
+Princes, Partition and Independence 
+7 1 
+8 July — 15 August 1947 
+Editor-in-Chief 
+NICHOLAS MANSERGH, Litt.D, F.B.A. 
+Editor 
+PENDEREL MOON, M.A. 
+HER MAJESTY’S STATIONERY OFFICE 
+
+---PAGE---
+This, the concluding volume in the Series, provides a graphic account of 
+events and controversies surrounding the last momentous days of the 
+British Raj. It is chiefly based upon the records of the India Office, the 
+Cabinet and its India Committee and, like the two immediately 
+preceding volumes, draws freely upon the wealth of material in the 
+Mountbatten archive. Most of the documents it contains are published 
+for the first time. 
+The documentary narrative opens with the resolution of two 
+outstanding questions—the appointment to the Governor-Generalship 
+of India and the reconstitution of the Interim Government. On the first, 
+the Viceroy informed his Staff Meeting on 9 July that taking into account 
+the messages encouraging acceptance which he had received from the 
+King, the Prime Minister, and the Leader of the Opposition, he had 
+finally, though with condnuing unease, decided to accept the 
+Governor-Generalship of India alone. On the second, which the 
+Viceroy described as ‘my worst headache to date’, a plan was devised 
+and subsequently implemented on 19 July, the day after the enactment 
+of the Indian Independence Bill, which provided for the creation of two 
+provisional governments, ministers in each holding separate portfolios 
+for their future jurisdictional areas. 
+The volume contains substantial documentation on problems of law 
+and order, principally relating to the Punjab. Amidst mounting 
+communal tension one factor constantly underlined was the likelihood 
+of violent protest by the Sikhs as the seemingly inevitable division of 
+their homeland drew nearer. As a precautionary measure, the Viceroy 
+instructed the Commander-in-Chief to prepare a plan to deal with 
+disturbances in the neighbourhood of the boundaries of the two 
+dominions. A Boundary Force was established on 1 August but on 
+12 August, after the outbreak of serious disorders in Lahore, the 
+Governor reported that its strength was ‘not adequate to present and 
+future tasks’. The Governor’s gloomy assessment, together with his 
+reports that terrorist activities were on the increase and that the police 
+in Lahore and Amritsar were unreliable, gave a forewarning of the 
+magnitude of the impending crisis in the Punjab. 
+The documents shed new light on various aspects of the work of the 
+Boundary Commission, notably the Viceroy’s dissociation from the 
+Commission’s proceedings and the requests submitted by the Governors 
+of Bengal and the Punjab for advance information on the date and 
+contents of the provincial awards. The report of the Commission may be 
+read in conjunction with the minutes of the meeting on 16 August over 
+which Lord Mountbatten presided a
+
+=== ENTRY 50 ===
+FILENAME: JLCVol2No2-Unknown-0000-Unknown.pdf
+FOLDER: territorial-disputes
+TEXT:
+© 2015 Research Academy of Social Sciences 
+http://www.rassweb.com 
+ 
+50 
+Journal of Language and Communication 
+Vol. 2, No. 2, 2015, 50-64 
+ 
+The Culturo-Linguistic Factor as a Facilitator of Peace in Present-Day 
+Nigeria – Cameroun Border Relations 
+ 
+ 
+ 
+Mike T. U. Edung1 
+ 
+Abstract 
+The violent clashes between the security and armed forces of Nigeria and Cameroun which marked the 
+border relations between both countries appear to have disappeared following the 2006 final implementation 
+of the 2002 ICJ judgment on the border dispute between these countries. It is therefore generally believed 
+that this judgment and its implementation had brought peace to the border regions and to the general relations 
+of the countries in question. This study has however pointed out and agrees with the view that the said 
+judgment and its implementation are capable  of renewing friction, first among the local peoples of both 
+countries living along the border, and ultimately in the general relations between both countries. It has also 
+pointed out the call arising from the above view, for continued search, beyond the ICJ judgment and its 
+implementation, for ways to bring about a permanent and sustainable peace along the border of these 
+countries, and ultimately in the relations between both countries. Contributing to this search, this paper 
+submits that the culturo-linguistic affinities between the peoples across the border could be exploited to 
+facilitate this peace. To demonstrate this thesis, the paper has carried out a detailed examination of the 
+Nigeria – Cameroun border relations before and after the ICJ judgment, and on the basis of findings from 
+this, has proposed concrete measures for exploiting the culture-linguistic affinities of the peoples of the two 
+countries living across the borders for sustainable peace. 
+ 
+1. Introduction 
+The international boundary between Nigeria and Cameroun has been a major cause of friction in the 
+overall relations between these two neighbouring African countries. Their troubled border relations have 
+brought about many unfortunate incidents, some of which, like those of 1981, 1994, and 1996, had 
+threatened to degenerate to full scale war. In 1994, Cameroun filed a suit against Nigeria at the International 
+Court of Justice (ICJ) at The Hague, covering the totality of the disputes over their land and maritime 
+boundaries. While the proceedings of the suit lasted, armed hostilities as well as diplomatic manoeuvres 
+continued, apparently to raise each party’s stakes and advance its cause in the legal struggle. The case was 
+decided on 10 October 2002, to the very great satisfaction and joy of Cameroun on the one hand, and the 
+great outrage of, and protest, by Nigeria on the other. Nevertheless, with Nigeria’s formal handing over of 
+Bakassi (the most contentious of the disputed territories) to Cameroun on 14 August 2006, the terms of the 
+ICJ judgment had been fully implemented and complied with by both countri
+
+=== ENTRY 51 ===
+FILENAME: LandDemarcation-Unknown-0000-Unknown.pdf
+FOLDER: territorial-disputes
+TEXT:
+Content type: Encyclopedia
+entries
+Article last updated: July
+2007
+Product: Max Planck
+Encyclopedias of International
+Law [MPIL]
+Module: Max Planck
+Encyclopedia of Public
+International Law [MPEPIL]
+Land and Maritime Boundary between
+Cameroon and Nigeria Case
+(Cameroon v Nigeria)
+Daniel-Erasmus Khan
+Subject(s):
+Delimitation — Territory, acquisition and transfer — Territory, title — Treaties, interpretation
+Published under the auspices of the Max Planck Institute for Comparative Public Law and International Law under the
+direction of Professor Anne Peters (2021–) and Professor Rüdiger Wolfrum (2004–2020). 
+Oxford Public International Law: Land and Maritime Boundary betw...
+https://opil.ouplaw.com/display/10.1093/law:epil/9780199231690/la...
+1 of 12
+28/03/2026, 19:07
+
+---PAGE---
+A.  Factual Background
+1  The origins of the dispute between Cameroon and Nigeria regarding the entire length of their common
+boundary from the shores of the Gulf of Guinea up to →Lake Chad (about 1680 km) date back to the early
+days of the colonization of the area by European Powers (see also →Boundaries; →Boundary Disputes in
+Africa; →Colonialism). The colonial partition of this portion of Africa was part of the so-called ‘Scramble
+for Africa’, triggered by the →Berlin West Africa Conference (1884–85). Winning a neck-and-neck race
+with Great Britain, Germany eventually succeeded in concluding treaties of protection with a number of
+local chiefs in the Cameroons, eg the Douala-German Agreement of July 1884 (see also →Indigenous
+Peoples, Treaties with). According to the rules fixed in Berlin, these treaties prevented Germany’s colonial
+rival from extending its influence to the east of its pre-existent colony of Lagos.
+2  In the following years, both colonial powers extended their claims far into the Hinterland of their
+coastal possessions. Yet, due to insufficient geographical knowledge, early delimitations between the
+respective spheres of influence proved highly defective (‘The history of this frontier is a history of bad
+topographical definition and unsuccessful proposals’ [Farnell, Memorandum respecting the Frontier
+between Southern Nigeria and Kamerun FO 403/326 No. 83, 26 December 1902]). It was only on the eve
+of World War I that a comprehensive conventional boundary-line was agreed upon by Great Britain and
+Germany with the 1913 British-German Agreements (Agreement between Great Britain and Germany
+Respecting (1) the Settlement of the Frontier between Nigeria and the Cameroons, from Yola to the Sea,
+and (2) the Regulation of Navigation on the Cross River of 11 March 1913 [‘British-German Agreement of
+11 March 1913’]; and Agreement concerning the Demarcation of the Anglo-German Boundary between
+Nigeria and the Cameroons from Yola to the Cross River of 12 April 1913).
+3  Soon after, in 1919, Germany was deprived of all its colonial possessions by virtue of Art. 119
+→Versailles Peace Treaty (1919). Transformed into a →mandate of the →League of Nations, Cameroon
+was plac
+
+=== ENTRY 52 ===
+FILENAME: PartitionBritishIndia-Unknown-0000-Unknown.pdf
+FOLDER: territorial-disputes
+TEXT:
+Partition of British India
+Key Stages 3-5 | Postwar 1945-present
+Lesson
+
+---PAGE---
+This resource was produced using documents from the collections of The National Archives and other copyright holders. 
+Images from copyright holders other than the National Archives may not be reproduced for any purposes without the 
+permission of the copyright holder. Every reasonable effort has been made to trace copyright but the National Archives 
+welcomes any information that clarifies the copyright ownership of any unattributed material displayed.
+KS 3-5
+Postwar 
+1945 - present
+Suitable for:
+Time period:
+Connections to 
+curriculum:
+Key Stage Three
+Challenges for Britain, 
+Europe and the wider 
+world 1901 to the 
+present day
+•
+	Indian 
+independence and
+end of Empire
+•
+Britain’s place in
+the world since
+1945
+Contents:
+In an accompanying video, Iqbal Singh, Hannah Carter and 
+Eleanor Newbigin introduce a document relating to the partition 
+of British India. They explore what this document’s tone and 
+content can tell us about British official’s attitudes to the 
+violence that occurred after partition. Students also hear an 
+oral testimony from Iqbal’s aunt whose family were displaced in 
+1946 due to growing tensions in British India. 
+Find the video on our YouTube channel here:
+https://youtu.be/Yb_gq-wZDig
+The video and resource were launched at a plenary session at 
+the SHP conference 2022.
+The Partition of British India
+Source 3 
+24 
+Source 4 
+26 
+Source 5a 
+28 
+Source 5b 
+30 
+Source 5c 
+31 
+Glossary 
+32 
+Teachers Notes 
+3 
+Background 		
+4 
+Tasks 			
+6 
+Starter 			
+11 
+Source 1a 			
+13 
+Source 1b 
+14 
+Source 2a 
+16 
+Source 2b 
+18 
+Source 2c 			
+20 
+Source 2d 
+22 
+
+---PAGE---
+
+
+=== ENTRY 53 ===
+FILENAME: StatelessBakassiChangedBorderLeftInhabitantsA-Unknown-0000-Unknown.pdf
+FOLDER: territorial-disputes
+TEXT:
+Stateless in Bakassi: How a Changed Border Left Inhabitants Adrift - O...
+https://www.justiceinitiative.org/voices/stateless-bakassi-how-changed-...
+1 of 4
+28/03/2026, 19:11
+
+---PAGE---
+Stateless in Bakassi: How a Changed Border Left Inhabitants Adrift - O...
+https://www.justiceinitiative.org/voices/stateless-bakassi-how-changed-...
+2 of 4
+28/03/2026, 19:11
+
+---PAGE---
+
+
+=== ENTRY 54 ===
+FILENAME: TransferAuthorityBakassi-Unknown-0000-Unknown.pdf
+FOLDER: territorial-disputes
+TEXT:
+Press Release
+SG/SM/11745-AFR/1737
+14 August 2008
+14 August 2008
+Secretary-GeneralSG/SM/11745
+AFR/1737
+Department of Public Information • News and Media Division •
+New York
+Secretary-General / Statements and Messages
+
+---PAGE---
+Following is the text of UN Secretary-General Ban Ki-moon’s message on
+the occasion of the ceremony for the withdrawal and transfer of authority in
+the Bakassi peninsula, as delivered by Kieran Prendergast, Chairman of
+the follow-up committee on the implementation of the Greentree
+Agreement between Nigeria and Cameroon, in Calabar, Nigeria, today, 14
+August:
+In June 2006 in Greentree, Cameroon and Nigeria signed a historic
+agreement under the auspices of my predecessor, Kofi Annan, setting the
+modalities and time frame for the implementation of the 2002 ruling of the
+International Court of Justice transferring the Bakassi peninsula from
+Nigeria to Cameroon.  That landmark event was a testimony to the
+determination and resolve of both countries to move beyond a difficult past
+and, with a common vision and aspiration to strengthen and respect the
+rule of international law, address their border dispute in a way that secured
+lasting peace and good neighbourly relations between the peoples of
+Cameroon and Nigeria.
+For the United Nations, the Greentree Agreement was also the
+embodiment of an innovative approach to conflict resolution.  Beginning
+with the withdrawal of Nigerian troops from Bakassi two years ago and
+culminating in this ceremony, the case of the Bakassi peninsula has proven
+the viability of a peaceful and legal settlement of border disputes, when it is
+done with the full support of the international community and in a spirit of
+mutual respect, good neighbourliness and cooperation.  Today, I wish to
+pay tribute to the foresight and political will demonstrated by the
+Governments and peoples of the Republic of Cameroon and the Federal
+Republic of Nigeria.  It is, in particular, their patience and perseverance that
+have made this remarkable experiment, and today’s ceremony, possible. 
+Furthermore, the success of their initiative has provided the world with a
+model for the peaceful resolution of sensitive disputes.
+This day also marks a critical milestone in the successful implementation of
+
+---PAGE---
+
+
+=== ENTRY 55 ===
+FILENAME: TransferPower-Unknown-0000-Unknown.pdf
+FOLDER: territorial-disputes
+TEXT:
+Search Help
+HANSARD 1803–2005 → 1940s → 1947 → June 1947 → 3 June 1947 → Commons Sitting
+INDIA (TRANSFER OF POWER)
+HC Deb 03 June 1947 vol 438 cc35-46
+The Prime Minister (Mr. Attlee) I desire to make an important statement on Indian policy. A similar statement is being
+made at the same time in another place, and by the Viceroy in New Delhi. The statement, in the form of a White
+Paper, will be available this afternoon.
+I am glad to inform the House that the plan contained in the announcement which I am about to make, including the
+offer of Dominion status to one or two successor authorities, has been favourably received by all three parties
+represented at the Conferences held by the Viceroy with the Indian leaders during the past two days. Before making
+this statement, I would like to express the gratitude and appreciation of His Majesty's Government for the great
+services which the Viceroy has rendered.
+On 20th February, 1947, His Majesty's Government announced their intention of transferring power in British India to
+Indian hands by June, 1948. His Majesty's Government had hoped that it would be possible for the major parties to
+co-operate in the working-out of the Cabinet Mission's Plan of 16th May, 1946, and evolve for India a constitution
+acceptable to all concerned. This hope has not been fulfilled.
+The majority of the representatives of the Provinces of Madras, Bombay, the United Provinces, Bihar, Central
+Provinces and Berar, Assam, Orissa and the North-West Frontier Province, and the representatives of Delhi, Ajmer-
+Merwara and Coorg have already made progress in the task of evolving a new Constitution. On the other hand, the
+Muslim League Party, including in it a majority of the representatives of Bengal, the Punjab and Sind, as also the
+representative of British Baluchistan, has decided not to participate in the Constituent Assembly.
+It has always been the desire of His Majesty's Government that power should be transferred in accordance with the
+wishes of the Indian people themselves. This task would have been greatly facilitated if there had been agreement
+among the Indian political parties. In the absence of such an agreement, the task of devising a method by which the
+wishes of the Indian people can be ascertained has devolved on His Majesty's Govern- meat. After full consultation
+with political leaders in India, His Majesty's Government have decided to adopt for this purpose the plan contained in
+this announcement. His Majesty's Government wish to make it clear that they have no intention of attempting to frame
+any ultimate Constitution for India; this is a matter for the Indians themselves. Nor is there anything in this plan to
+preclude negotiations between communities for an united India.
+It is not the intention of His Majesty's Government to interrupt the work of the existing Constituent Assembly. Now
+that provision is made 'for certain Provinces which I will specify. His Majesty's Government trust that, as a
+consequence of this a
+
+=== ENTRY 56 ===
+FILENAME: Unknown-Unknown-0000-Unknown-v2.pdf
+FOLDER: territorial-disputes
+TEXT:
+LAND AND MARITIME BOlJNDARY ESETWEEN CAMEROON AND NIGERIA 
+(CAMEROON v. NIGERIA: EQUATORIAL GUINEA INTERVENING) (MERITS) 
+Judgment of 10 October 2002 
+In its Judgment on t:he case concerning Land and 
+Maritime Boundary between Cameroon and Nigeria, the 
+Court fixed the course of the land and maritime boundaries 
+between Cameroon and Nigeria. 
+The Court requested Nigeria expeditiously and witliout 
+condi-tion to withdraw its administration and it; military or 
+policl: forces from the area of Lake Chad falling within 
+Camt:roonian sovereignty and from the Bakassi Peninsula. It 
+also requested Cameroon expeditiously and without 
+condition to withdraw any administration or military or 
+polic~: forces which may be present along the 1a:nd boundary 
+from Lake Chad to the EIakassi Peninsula on territories 
+which pursuant to the judgment fall within the sovereignty 
+of Nigeria. The latter has the same obligation in regard to 
+territories in that area which fall within the sovereignty of 
+Cameroon. 
+T:he Court took note of Cameroon's undertaking, given 
+the hearings, to "continue to afford protection I:O Nigerians 
+living in the [Bakassi] Peninsula and in the Lake Chad 
+area". 
+Finally, the Court rejected Cameroon's submissions 
+regarding the State responsibility of Nigeria. It likewise 
+rejected Nigeria's counterclaims. 
+The Court was composed as follows: President 
+Guilli3ume; Vice-President Shi; Judges Oda, Ranjeva, 
+Herczegh, 
+Fleischhauer, 
+Koroma, 
+Higgins, 
+Parra- 
+Aranguren, Kooijmans, Rezek, Al-Khasawneh, Buergenthal, 
+Elaraby; Judges ad hoc Mbaye, Ajibola; Registrar Couvreur. 
+The full text of the operative paragraph of the Judgment 
+reads as follows: 
+"325. For these reasons, 
+THE COURT, 
+I. (A) By fourteen votes to two, 
+Decides that the boundary between the Republic of 
+Cameroon and the Federal Republic of Nigeria in the 
+Lake Chad area is delimited by the Thornson-Marchand 
+Declaration of 1929-1930, as incorporated in the 
+Henderson-Fleuriau Exchange of Notes of 193 1 ; 
+IN FAVOUR: President Guillaume; Vice-President 
+Shi; Judges Oda, Ranjeva, Herczegh, Fleischhauer, 
+Higgins, Parra-Aranguren, Kooijmans, Rezek, Al- 
+Khasawneh, Buergenthal, Elaraby; Judge ad hoc Mbaye; 
+AGAINST: Judge Koroma; Judge ad hoc Ajibola; 
+(B) By fourteen votes to two, 
+Decides that the line of the boundary between the 
+Republic of Cameroon and the Federal Republic of 
+Nigeria in the Lake Chad area is as follows: 
+From a tripoint in Lake Chad lying at 14O04'59"9999 
+longitude east and 13'05' latitude north, in a straight line 
+to the mouth of the River Ebeji, lying at 14O12'12" 
+longitude east and 12O32'17" latitude north; and from 
+there in a straight line to the point where the River Ebeji 
+Continued on next page 
+Summaries of Judgments, Advisory Opinions and Orders of the International Court of Justice
+Not an official document
+
+---PAGE---
+bifurcates, located at 14°12'03" longitude east and 
+12°30'14" latitude north; 
+IN FAVOUR: President Guillaume; Vice-President 
+
+
+=== ENTRY 57 ===
+FILENAME: Unknown-Unknown-0000-Unknown.pdf
+FOLDER: territorial-disputes
+TEXT:
+Hy 
+ee 
+nei 
+My 
+State Library of 
+nil 
+3 i 
+
+---PAGE---
+Digitized by the Internet Archive 
+in 2023 with funding from 
+Kahle/Austin Foundation 
+https://archive.org/details/isbn_ 9781231189092 
+
+---PAGE---
+

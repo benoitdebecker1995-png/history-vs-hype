@@ -1,0 +1,1710 @@
+[
+  {
+    "folder": "african-history",
+    "old": "AfricanColonialState-Young-1994-Yale-University-Press.pdf",
+    "new": "AfricanColonialState-Young-1994-YaleUP.pdf",
+    "old_pub": "Yale-University-Press",
+    "new_pub": "YaleUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "AfricanDominionHistory-Gomez-2018-Princeton.pdf",
+    "new": "AfricanDominionHistory-Gomez-2018-PrincetonUP.pdf",
+    "old_pub": "Princeton",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "AfricanSahelHandbook-Villalon-2021-Oxford.pdf",
+    "new": "AfricanSahelHandbook-Villalon-2021-OxfordUP.pdf",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "AfricansContinentHistory-Iliffe-1995-Cambridge-University-Press.pdf",
+    "new": "AfricansContinentHistory-Iliffe-1995-CambridgeUP.pdf",
+    "old_pub": "Cambridge-University-Press",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "AfricansContinentHistory-Iliffe-2008-Cambridge.pdf",
+    "new": "AfricansContinentHistory-Iliffe-2008-CambridgeUP.pdf",
+    "old_pub": "Cambridge",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "AfricaPost1940History-Cooper-2002-Cambridge-University-Press.pdf",
+    "new": "AfricaPost1940History-Cooper-2002-CambridgeUP.pdf",
+    "old_pub": "Cambridge-University-Press",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "AfricaPost1940History-Cooper-2002-Cambridge-UP.pdf",
+    "new": "AfricaPost1940History-Cooper-2002-CambridgeUP.pdf",
+    "old_pub": "Cambridge-UP",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "CitizenSubjectColonialism-Mamdani-1996-Princeton-University-Press.pdf",
+    "new": "CitizenSubjectColonialism-Mamdani-1996-PrincetonUP.pdf",
+    "old_pub": "Princeton-University-Press",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "ColonialismQuestionHistory-Cooper-2005-Berkeley.pdf",
+    "new": "ColonialismQuestionHistory-Cooper-2005-BerkeleyUP.pdf",
+    "old_pub": "Berkeley",
+    "new_pub": "BerkeleyUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "DecolonizationInternationalLaw-Craven-2007-Oxford-University-Press.pdf",
+    "new": "DecolonizationInternationalLaw-Craven-2007-OxfordUP.pdf",
+    "old_pub": "Oxford-University-Press",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "NeitherSettlerNativeMinorities-Mamdani-2020-Harvard-University-Press.pdf",
+    "new": "NeitherSettlerNativeMinorities-Mamdani-2020-HarvardUP.pdf",
+    "old_pub": "Harvard-University-Press",
+    "new_pub": "HarvardUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "OttomanScrambleAfrica-Minawi-2016-Stanford-University-Press.pdf",
+    "new": "OttomanScrambleAfrica-Minawi-2016-StanfordUP.pdf",
+    "old_pub": "Stanford-University-Press",
+    "new_pub": "StanfordUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "PostcolonialStateAfrica-Young-2012-Indiana-University-Press.pdf",
+    "new": "PostcolonialStateAfrica-Young-2012-IndianaUP.pdf",
+    "old_pub": "Indiana-University-Press",
+    "new_pub": "IndianaUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "ScrambleForAfrica-Harlow-2003-Duke-University-Press.pdf",
+    "new": "ScrambleForAfrica-Harlow-2003-DukeUP.pdf",
+    "old_pub": "Duke-University-Press",
+    "new_pub": "DukeUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "ScrambleForAfrica-Pakenham-1991-Random-House.pdf",
+    "new": "ScrambleForAfrica-Pakenham-1991-RandomHouse.pdf",
+    "old_pub": "Random-House",
+    "new_pub": "RandomHouse"
+  },
+  {
+    "folder": "african-history",
+    "old": "SomaliaSomalilandHistory-Lewis-2008-Indiana-University-Press.pdf",
+    "new": "SomaliaSomalilandHistory-Lewis-2008-IndianaUP.pdf",
+    "old_pub": "Indiana-University-Press",
+    "new_pub": "IndianaUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "SomalilandHistory-Prunier-2021-Oxford-University-Press.pdf",
+    "new": "SomalilandHistory-Prunier-2021-OxfordUP.pdf",
+    "old_pub": "Oxford-University-Press",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "african-history",
+    "old": "StatesPowerAfrica-Herbst-2014-Princeton-University-Press.pdf",
+    "new": "StatesPowerAfrica-Herbst-2014-PrincetonUP.pdf",
+    "old_pub": "Princeton-University-Press",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "AbolitionHistorySlaveryAntislavery-Drescher-2009-Oxford-UP.pdf",
+    "new": "AbolitionHistorySlaveryAntislavery-Drescher-2009-OxfordUP.pdf",
+    "old_pub": "Oxford-UP",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "AfricasLastColonialCurrencyCFA-Pigeaud-2021-Pluto-Press.pdf",
+    "new": "AfricasLastColonialCurrencyCFA-Pigeaud-2021-PlutoPress.pdf",
+    "old_pub": "Pluto-Press",
+    "new_pub": "PlutoPress"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "AfterAbolitionBritainSlaveTrade-Sherwood-2007-Liverpool-UP.pdf",
+    "new": "AfterAbolitionBritainSlaveTrade-Sherwood-2007-LiverpoolUP.pdf",
+    "old_pub": "Liverpool-UP",
+    "new_pub": "LiverpoolUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "BelizeIndependenceDecolonizationLatinAme-Shoman-1990-Palgrave-Macmillan.pdf",
+    "new": "BelizeIndependenceDecolonizationLatinAme-Shoman-1990-Palgrave.pdf",
+    "old_pub": "Palgrave-Macmillan",
+    "new_pub": "Palgrave"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "BodyConquistadorColonialExperience-Earle-2012-Cambridge.pdf",
+    "new": "BodyConquistadorColonialExperience-Earle-2012-CambridgeUP.pdf",
+    "old_pub": "Cambridge",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "BornDieDiseaseNewWorldConquest-Cook-1998-Cambridge-UP.pdf",
+    "new": "BornDieDiseaseNewWorldConquest-Cook-1998-CambridgeUP.pdf",
+    "old_pub": "Cambridge-UP",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "BusinessAbolishingBritishSlaveTrade-Jennings-1997-Pennsylvania-UP.pdf",
+    "new": "BusinessAbolishingBritishSlaveTrade-Jennings-1997-PennUP.pdf",
+    "old_pub": "Pennsylvania-UP",
+    "new_pub": "PennUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "ByzantiumEarlyIslamicConquests-Kaegi-1992-Cambridge-UP.pdf",
+    "new": "ByzantiumEarlyIslamicConquests-Kaegi-1992-CambridgeUP.pdf",
+    "old_pub": "Cambridge-UP",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "CambridgeWorldHistorySlavery-Eltis-2011-Cambridge-UP.pdf",
+    "new": "CambridgeWorldHistorySlavery-Eltis-2011-CambridgeUP.pdf",
+    "old_pub": "Cambridge-UP",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "CambridgeWorldHistorySlavery-Eltis-2011-Cambridge.pdf",
+    "new": "CambridgeWorldHistorySlavery-Eltis-2011-CambridgeUP.pdf",
+    "old_pub": "Cambridge",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "CeremoniesPossessionEuropeConquest-Seed-1995-Cambridge-UP.pdf",
+    "new": "CeremoniesPossessionEuropeConquest-Seed-1995-CambridgeUP.pdf",
+    "old_pub": "Cambridge-UP",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "ColonialMitaCausePopulationCollapsePeru-Carpio-2021-CambridgeUniversityPress.pdf",
+    "new": "ColonialMitaCausePopulationCollapsePeru-Carpio-2021-CambridgeUP.pdf",
+    "old_pub": "CambridgeUniversityPress",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "DiscoveringIndigenousLandsDoctrine-Miller-2012-Oxford-UP.pdf",
+    "new": "DiscoveringIndigenousLandsDoctrine-Miller-2012-OxfordUP.pdf",
+    "old_pub": "Oxford-UP",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "EarlyBrazilDocumentaryCollection-Schwartz-1997-Cambridge-UP.pdf",
+    "new": "EarlyBrazilDocumentaryCollection-Schwartz-1997-CambridgeUP.pdf",
+    "old_pub": "Cambridge-UP",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "EarlyIslamicConquests-Donner-1981-Princeton-UP.pdf",
+    "new": "EarlyIslamicConquests-Donner-1981-PrincetonUP.pdf",
+    "old_pub": "Princeton-UP",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "FormationColonialSocietyBelize-Bolland-2003-Johns-Hopkins-UP.pdf",
+    "new": "FormationColonialSocietyBelize-Bolland-2003-JohnsHopkinsUP.pdf",
+    "old_pub": "Johns-Hopkins-UP",
+    "new_pub": "JohnsHopkinsUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "GuamanPomaWritingResistance-Adorno-1986-Syracuse-UP.pdf",
+    "new": "GuamanPomaWritingResistance-Adorno-1986-SyracuseUP.pdf",
+    "old_pub": "Syracuse-UP",
+    "new_pub": "SyracuseUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "GuardiansLeagueNationsCrisisEmpire-Pedersen-2012-Oxford-UP.pdf",
+    "new": "GuardiansLeagueNationsCrisisEmpire-Pedersen-2012-OxfordUP.pdf",
+    "old_pub": "Oxford-UP",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "ImperialismSovereigntyInternationalLaw-Anghie-2005-Cambridge-University-Press.pdf",
+    "new": "ImperialismSovereigntyInternationalLaw-Anghie-2005-CambridgeUP.pdf",
+    "old_pub": "Cambridge-University-Press",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "InhumanBondageRiseFallSlavery-Davis-2006-Oxford-UP.pdf",
+    "new": "InhumanBondageRiseFallSlavery-Davis-2006-OxfordUP.pdf",
+    "old_pub": "Oxford-UP",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "IslandCenterWorld-Shorto-2004-Random-House.pdf",
+    "new": "IslandCenterWorld-Shorto-2004-RandomHouse.pdf",
+    "old_pub": "Random-House",
+    "new_pub": "RandomHouse"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "KissingerLatinAmericaIntervention-Kissinger-2021-Cornell.pdf",
+    "new": "KissingerLatinAmericaIntervention-Kissinger-2021-CornellUP.pdf",
+    "old_pub": "Cornell",
+    "new_pub": "CornellUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "MarriageSlaveryEarlyIslam-Ali-2010-Harvard-UP.pdf",
+    "new": "MarriageSlaveryEarlyIslam-Ali-2010-HarvardUP.pdf",
+    "old_pub": "Harvard-UP",
+    "new_pub": "HarvardUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "OurTimeRaceModernityGuatemala-Gibbings-2020-Cambridge-University-Press.pdf",
+    "new": "OurTimeRaceModernityGuatemala-Gibbings-2020-CambridgeUP.pdf",
+    "old_pub": "Cambridge-University-Press",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "OurTimeRaceModernityGuatemala-Gibbings-2020-PalgraveMacmillan.pdf",
+    "new": "OurTimeRaceModernityGuatemala-Gibbings-2020-Palgrave.pdf",
+    "old_pub": "PalgraveMacmillan",
+    "new_pub": "Palgrave"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "PostcolonialStateAfricaIndependence-Young-2012-Indiana-UP.pdf",
+    "new": "PostcolonialStateAfricaIndependence-Young-2012-IndianaUP.pdf",
+    "old_pub": "Indiana-UP",
+    "new_pub": "IndianaUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "PredatoryStatesOperationCondor-McSherry-2005-PalgraveMacmillan.pdf",
+    "new": "PredatoryStatesOperationCondor-McSherry-2005-Palgrave.pdf",
+    "old_pub": "PalgraveMacmillan",
+    "new_pub": "Palgrave"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "SecretScienceSpanishCosmography-Portuondo-2009-Chicago-UP.pdf",
+    "new": "SecretScienceSpanishCosmography-Portuondo-2009-ChicagoUP.pdf",
+    "old_pub": "Chicago-UP",
+    "new_pub": "ChicagoUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "SettlerColonialismTwentiethCentury-Pedersen-2012-Oxford-UP.pdf",
+    "new": "SettlerColonialismTwentiethCentury-Pedersen-2012-OxfordUP.pdf",
+    "old_pub": "Oxford-UP",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "SevenMythsSpanishConquest-Restall-2003-Oxford-UP.pdf",
+    "new": "SevenMythsSpanishConquest-Restall-2003-OxfordUP.pdf",
+    "old_pub": "Oxford-UP",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "colonialism-slavery",
+    "old": "SovereigntySocietyColonialBrazil-Schwartz-1997-Cambridge-UP.pdf",
+    "new": "SovereigntySocietyColonialBrazil-Schwartz-1997-CambridgeUP.pdf",
+    "old_pub": "Cambridge-UP",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "AgeJihad-Cockburn-2016-Verso-Books.pdf",
+    "new": "AgeJihad-Cockburn-2016-Verso.pdf",
+    "old_pub": "Verso-Books",
+    "new_pub": "Verso"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "AlienatedJewsMedievalEurope-Stow-1992-Harvard-University-Press.pdf",
+    "new": "AlienatedJewsMedievalEurope-Stow-1992-HarvardUP.pdf",
+    "old_pub": "Harvard-University-Press",
+    "new_pub": "HarvardUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "AnatomyTorture-Hassner-2022-Cornell-University-Press.pdf",
+    "new": "AnatomyTorture-Hassner-2022-CornellUP.pdf",
+    "old_pub": "Cornell-University-Press",
+    "new_pub": "CornellUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "BookContemplation-Munqidh-2000-Penguin-Books.pdf",
+    "new": "BookContemplation-Munqidh-2000-Penguin.pdf",
+    "old_pub": "Penguin-Books",
+    "new_pub": "Penguin"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "ByzantineStateSociety-Treadgold-1997-Stanford-University-Press.pdf",
+    "new": "ByzantineStateSociety-Treadgold-1997-StanfordUP.pdf",
+    "old_pub": "Stanford-University-Press",
+    "new_pub": "StanfordUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "ByzantineStateSociety-Treadgold-1997-Stanford.pdf",
+    "new": "ByzantineStateSociety-Treadgold-1997-StanfordUP.pdf",
+    "old_pub": "Stanford",
+    "new_pub": "StanfordUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "ChristianHumanRights-Moyn-2015-University-of-Pennsylvania-Press.pdf",
+    "new": "ChristianHumanRights-Moyn-2015-PennUP.pdf",
+    "old_pub": "University-of-Pennsylvania-Press",
+    "new_pub": "PennUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "ChristianJewishRelations-Abulafia-2011-Cambridge-University-Press.pdf",
+    "new": "ChristianJewishRelations-Abulafia-2011-CambridgeUP.pdf",
+    "old_pub": "Cambridge-University-Press",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "ChristianJewishRelations-Abulafia-2024-Cambridge-University-Press.pdf",
+    "new": "ChristianJewishRelations-Abulafia-2024-CambridgeUP.pdf",
+    "old_pub": "Cambridge-University-Press",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "ChristianMartyrsIslam-Sahner-2018-Princeton-University-Press.pdf",
+    "new": "ChristianMartyrsIslam-Sahner-2018-PrincetonUP.pdf",
+    "old_pub": "Princeton-University-Press",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "Cockburn--Patrick-The-age-of-jihad-Islamic-State-and-the-great-war-for-the-Middle-East--2016--Verso-.pdf",
+    "new": "Cockburn--Patrick-The-age-of-jihad-Islamic-State-and-the-great-war-for-the-Middle-East--2016-Verso.pdf",
+    "old_pub": "-Verso-",
+    "new_pub": "Verso"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "CrusadesIslamicPerspectives-Hillenbrand-1999-New-York-University-Press.pdf",
+    "new": "CrusadesIslamicPerspectives-Hillenbrand-1999-NYUP.pdf",
+    "old_pub": "New-York-University-Press",
+    "new_pub": "NYUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "CyprusProblemReview-Faustmann-1974-Oxford.pdf",
+    "new": "CyprusProblemReview-Faustmann-1974-OxfordUP.pdf",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "DamascusChronicleCrusades-al-Qalanisi-1932-Columbia-University-Press.pdf",
+    "new": "DamascusChronicleCrusades-al-Qalanisi-1932-ColumbiaUP.pdf",
+    "old_pub": "Columbia-University-Press",
+    "new_pub": "ColumbiaUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "DamascusChronicleCrusades-Ibn-1932-Columbia-University-Press.pdf",
+    "new": "DamascusChronicleCrusades-Ibn-1932-ColumbiaUP.pdf",
+    "old_pub": "Columbia-University-Press",
+    "new_pub": "ColumbiaUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "EarlyIslamicConquests-Donner-1981-Princeton-University-Press.pdf",
+    "new": "EarlyIslamicConquests-Donner-1981-PrincetonUP.pdf",
+    "old_pub": "Princeton-University-Press",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "FirstCrusadeEyewitnessAccounts-Krey-1921-Princeton-University-Press.pdf",
+    "new": "FirstCrusadeEyewitnessAccounts-Krey-1921-PrincetonUP.pdf",
+    "old_pub": "Princeton-University-Press",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "Inquisition-Peters-1988-University-of-California-Press.pdf",
+    "new": "Inquisition-Peters-1988-UCalifUP.pdf",
+    "old_pub": "University-of-California-Press",
+    "new_pub": "UCalifUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "JihadIslamicHistory-Bonner-2008-Princeton-University-Press.pdf",
+    "new": "JihadIslamicHistory-Bonner-2008-PrincetonUP.pdf",
+    "old_pub": "Princeton-University-Press",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "JihadIslamicHistory-Bonner-2008-Princeton.pdf",
+    "new": "JihadIslamicHistory-Bonner-2008-PrincetonUP.pdf",
+    "old_pub": "Princeton",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "Rubenstein--Jay-Armies-of-Heaven-The-First-Crusade-and-the-Quest-for-Apocalypse--2011--Basic-Books--.pdf",
+    "new": "Rubenstein--Jay-Armies-of-Heaven-The-First-Crusade-and-the-Quest-for-Apocalypse--2011-Basic.pdf",
+    "old_pub": "-Basic-Books--",
+    "new_pub": "Basic"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "SpanishInquisition-Rawlings-2006-Blackwell-Publishing.pdf",
+    "new": "SpanishInquisition-Rawlings-2006-Blackwell.pdf",
+    "old_pub": "Blackwell-Publishing",
+    "new_pub": "Blackwell"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "TheCrusades-Hillenbrand-1999-New-York-University-Press.pdf",
+    "new": "TheCrusades-Hillenbrand-1999-NYUP.pdf",
+    "old_pub": "New-York-University-Press",
+    "new_pub": "NYUP"
+  },
+  {
+    "folder": "crusades-christianity",
+    "old": "TheFirstCrusade-Krey-1921-Princeton-University-Press.pdf",
+    "new": "TheFirstCrusade-Krey-1921-PrincetonUP.pdf",
+    "old_pub": "Princeton-University-Press",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "AfricaBiographyContinent-Reader-1999-Penguin-Books.pdf",
+    "new": "AfricaBiographyContinent-Reader-1999-Penguin.pdf",
+    "old_pub": "Penguin-Books",
+    "new_pub": "Penguin"
+  },
+  {
+    "folder": "general-history",
+    "old": "AgeOfJihadIslamicState-Cockburn-2016-Verso-Books.pdf",
+    "new": "AgeOfJihadIslamicState-Cockburn-2016-Verso.pdf",
+    "old_pub": "Verso-Books",
+    "new_pub": "Verso"
+  },
+  {
+    "folder": "general-history",
+    "old": "AhnenerbeSS-Kater-2009-VersoBooks.pdf",
+    "new": "AhnenerbeSS-Kater-2009-Verso.pdf",
+    "old_pub": "VersoBooks",
+    "new_pub": "Verso"
+  },
+  {
+    "folder": "general-history",
+    "old": "AlienatedMinorityJewsMedievalEurope-Stow-1998-Harvard.pdf",
+    "new": "AlienatedMinorityJewsMedievalEurope-Stow-1998-HarvardUP.pdf",
+    "old_pub": "Harvard",
+    "new_pub": "HarvardUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "AmericanIndianLegalThought-Williams-1990-Oxford-UP.pdf",
+    "new": "AmericanIndianLegalThought-Williams-1990-OxfordUP.pdf",
+    "old_pub": "Oxford-UP",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "AmsterdamAHistoryWorldsMost-Shorto-2004-Random-House.pdf",
+    "new": "AmsterdamAHistoryWorldsMost-Shorto-2004-RandomHouse.pdf",
+    "old_pub": "Random-House",
+    "new_pub": "RandomHouse"
+  },
+  {
+    "folder": "general-history",
+    "old": "AmsterdamHistoryWorldsMost-Shorto-2004-Random-House.epub",
+    "new": "AmsterdamHistoryWorldsMost-Shorto-2004-RandomHouse.epub",
+    "old_pub": "Random-House",
+    "new_pub": "RandomHouse"
+  },
+  {
+    "folder": "general-history",
+    "old": "AncientLiteracy-Harris-1989-Harvard-UP.pdf",
+    "new": "AncientLiteracy-Harris-1989-HarvardUP.pdf",
+    "old_pub": "Harvard-UP",
+    "new_pub": "HarvardUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "ArchaeologyChildhoodHandbook-Crawford-2018-Oxford.pdf",
+    "new": "ArchaeologyChildhoodHandbook-Crawford-2018-OxfordUP.pdf",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "ArchaeologyChildhoodHandbook-Shepherd-2007-Oxford-University-Press.pdf",
+    "new": "ArchaeologyChildhoodHandbook-Shepherd-2007-OxfordUP.pdf",
+    "old_pub": "Oxford-University-Press",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "ArmiesHeaven-Rubenstein-2011-BasicBooks.pdf",
+    "new": "ArmiesHeaven-Rubenstein-2011-Basic.pdf",
+    "old_pub": "BasicBooks",
+    "new_pub": "Basic"
+  },
+  {
+    "folder": "general-history",
+    "old": "AwakeningAshesIntellectualHistory-Daut-2015-Harvard-UP.epub",
+    "new": "AwakeningAshesIntellectualHistory-Daut-2015-HarvardUP.epub",
+    "old_pub": "Harvard-UP",
+    "new_pub": "HarvardUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "AwakeningAshesIntellectualHistory-Daut-2015-Harvard-UP.pdf",
+    "new": "AwakeningAshesIntellectualHistory-Daut-2015-HarvardUP.pdf",
+    "old_pub": "Harvard-UP",
+    "new_pub": "HarvardUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "AzerbaijaniTurks-Altstadt-2013-PalgraveMacmillan.pdf",
+    "new": "AzerbaijaniTurks-Altstadt-2013-Palgrave.pdf",
+    "old_pub": "PalgraveMacmillan",
+    "new_pub": "Palgrave"
+  },
+  {
+    "folder": "general-history",
+    "old": "Balkans-Glenny-2012-Random-House.pdf",
+    "new": "Balkans-Glenny-2012-RandomHouse.pdf",
+    "old_pub": "Random-House",
+    "new_pub": "RandomHouse"
+  },
+  {
+    "folder": "general-history",
+    "old": "BalkanStrategyEntenteCentralPowers-Holland-1974-CambridgeUniversityPress.pdf",
+    "new": "BalkanStrategyEntenteCentralPowers-Holland-1974-CambridgeUP.pdf",
+    "old_pub": "CambridgeUniversityPress",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "BasicFactsAboutTheUnitedNations-UN-2017-United-Nations.pdf",
+    "new": "BasicFactsAboutTheUnitedNations-UN-2017-UN.pdf",
+    "old_pub": "United-Nations",
+    "new_pub": "UN"
+  },
+  {
+    "folder": "general-history",
+    "old": "BehindDisappearancesArgentinasDirty-Guest-1986-University-of-Pennsylvania-Press.pdf",
+    "new": "BehindDisappearancesArgentinasDirty-Guest-1986-PennUP.pdf",
+    "old_pub": "University-of-Pennsylvania-Press",
+    "new_pub": "PennUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "BirthPalestinianRefugeeProblem-Morris-2004-Cambridge.pdf",
+    "new": "BirthPalestinianRefugeeProblem-Morris-2004-CambridgeUP.pdf",
+    "old_pub": "Cambridge",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "BlackGarden-Waal-2003-New-York-University.pdf",
+    "new": "BlackGarden-Waal-2003-NYUP.pdf",
+    "old_pub": "New-York-University",
+    "new_pub": "NYUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "BlackSun-Goodrick-Clarke-2001-RoutledgeBooks.pdf",
+    "new": "BlackSun-Goodrick-Clarke-2001-Routledge.pdf",
+    "old_pub": "RoutledgeBooks",
+    "new_pub": "Routledge"
+  },
+  {
+    "folder": "general-history",
+    "old": "BookContemplation-Cobb-1993-Penguin-Books.pdf",
+    "new": "BookContemplation-Cobb-1993-Penguin.pdf",
+    "old_pub": "Penguin-Books",
+    "new_pub": "Penguin"
+  },
+  {
+    "folder": "general-history",
+    "old": "BornDieDiseaseNewWorld-Cook-1998-Cambridge-UP.pdf",
+    "new": "BornDieDiseaseNewWorld-Cook-1998-CambridgeUP.pdf",
+    "old_pub": "Cambridge-UP",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "BrownlieInternationalLaw-Crawford-2019-Oxford.epub",
+    "new": "BrownlieInternationalLaw-Crawford-2019-OxfordUP.epub",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "CambridgeWorldHistoryViolence-Gordon-2011-Cambridge-University-Press.pdf",
+    "new": "CambridgeWorldHistoryViolence-Gordon-2011-CambridgeUP.pdf",
+    "old_pub": "Cambridge-University-Press",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "CannibalEncountersEuropeansCaribs-Boucher-1992-Johns-Hopkins.pdf",
+    "new": "CannibalEncountersEuropeansCaribs-Boucher-1992-JohnsHopkinsUP.pdf",
+    "old_pub": "Johns-Hopkins",
+    "new_pub": "JohnsHopkinsUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "CarolingiansWrittenWord-McKitterick-1989-Cambridge-University-Press.pdf",
+    "new": "CarolingiansWrittenWord-McKitterick-1989-CambridgeUP.pdf",
+    "old_pub": "Cambridge-University-Press",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "ChosenFewEducationShaped-Botticini-2017-Princeton.pdf",
+    "new": "ChosenFewEducationShaped-Botticini-2017-PrincetonUP.pdf",
+    "old_pub": "Princeton",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "ColdWarMiddleEast-Ashton-2007-RoutledgeBooks.pdf",
+    "new": "ColdWarMiddleEast-Ashton-2007-Routledge.pdf",
+    "old_pub": "RoutledgeBooks",
+    "new_pub": "Routledge"
+  },
+  {
+    "folder": "general-history",
+    "old": "ColdWarMiddleEast-Shlaim-1997-Oxford.pdf",
+    "new": "ColdWarMiddleEast-Shlaim-1997-OxfordUP.pdf",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "ContentAndContextHateSpeech-Herz-0000-CambridgeUniversityPress.pdf",
+    "new": "ContentAndContextHateSpeech-Herz-0000-CambridgeUP.pdf",
+    "old_pub": "CambridgeUniversityPress",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "CousinsWars-Phillips-1999-Random-House.pdf",
+    "new": "CousinsWars-Phillips-1999-RandomHouse.pdf",
+    "old_pub": "Random-House",
+    "new_pub": "RandomHouse"
+  },
+  {
+    "folder": "general-history",
+    "old": "CrescentAndCross-Cohen-2008-Princeton.pdf",
+    "new": "CrescentAndCross-Cohen-2008-PrincetonUP.pdf",
+    "old_pub": "Princeton",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "CulturalTheory-Smith-2011-RoutledgeBooks.pdf",
+    "new": "CulturalTheory-Smith-2011-Routledge.pdf",
+    "old_pub": "RoutledgeBooks",
+    "new_pub": "Routledge"
+  },
+  {
+    "folder": "general-history",
+    "old": "CyprusModernHistory-Mallinson-2005-Bloomsbury-Publishing.pdf",
+    "new": "CyprusModernHistory-Mallinson-2005-Bloomsbury.pdf",
+    "old_pub": "Bloomsbury-Publishing",
+    "new_pub": "Bloomsbury"
+  },
+  {
+    "folder": "general-history",
+    "old": "DebunkingHandbook-Lewandowsky-2011-RoutledgeBooks.pdf",
+    "new": "DebunkingHandbook-Lewandowsky-2011-Routledge.pdf",
+    "old_pub": "RoutledgeBooks",
+    "new_pub": "Routledge"
+  },
+  {
+    "folder": "general-history",
+    "old": "DegradedCapabilityMediaKosovoCrisis-Hammond-2000-Pluto.pdf",
+    "new": "DegradedCapabilityMediaKosovoCrisis-Hammond-2000-PlutoPress.pdf",
+    "old_pub": "Pluto",
+    "new_pub": "PlutoPress"
+  },
+  {
+    "folder": "general-history",
+    "old": "DemographicCollapseIndianPeru-Cook-1998-Cambridge-UP.pdf",
+    "new": "DemographicCollapseIndianPeru-Cook-1998-CambridgeUP.pdf",
+    "old_pub": "Cambridge-UP",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "Disinformation-Pacepa-2013-BasicBooks.pdf",
+    "new": "Disinformation-Pacepa-2013-Basic.pdf",
+    "old_pub": "BasicBooks",
+    "new_pub": "Basic"
+  },
+  {
+    "folder": "general-history",
+    "old": "EagleLionAmericanIranianRelations-Bill-1989-Yale.pdf",
+    "new": "EagleLionAmericanIranianRelations-Bill-1989-YaleUP.pdf",
+    "old_pub": "Yale",
+    "new_pub": "YaleUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "EconomicHistoryLatinAmerica-BulmerThomas-2003-RoutledgeBooks.pdf",
+    "new": "EconomicHistoryLatinAmerica-BulmerThomas-2003-Routledge.pdf",
+    "old_pub": "RoutledgeBooks",
+    "new_pub": "Routledge"
+  },
+  {
+    "folder": "general-history",
+    "old": "FallNaturalManAmericanIndian-Pagden-1995-Yale-UP.pdf",
+    "new": "FallNaturalManAmericanIndian-Pagden-1995-YaleUP.pdf",
+    "old_pub": "Yale-UP",
+    "new_pub": "YaleUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "FatefulTriangle-Chomsky-1999-VersoBooks.pdf",
+    "new": "FatefulTriangle-Chomsky-1999-Verso.pdf",
+    "old_pub": "VersoBooks",
+    "new_pub": "Verso"
+  },
+  {
+    "folder": "general-history",
+    "old": "FirstManhattansHistoryIndiansNewYork-Grumet-2011-Rutgers-UP.pdf",
+    "new": "FirstManhattansHistoryIndiansNewYork-Grumet-2011-RutgersUP.pdf",
+    "old_pub": "Rutgers-UP",
+    "new_pub": "RutgersUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "FoundingFathersReligionAmerica-Lambert-2006-Princeton-University-Press.pdf",
+    "new": "FoundingFathersReligionAmerica-Lambert-2006-PrincetonUP.pdf",
+    "old_pub": "Princeton-University-Press",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "GatesEurope-Plokhy-2017-BasicBooks.pdf",
+    "new": "GatesEurope-Plokhy-2017-Basic.pdf",
+    "old_pub": "BasicBooks",
+    "new_pub": "Basic"
+  },
+  {
+    "folder": "general-history",
+    "old": "GatesEuropeHistoryUkraine-Plokhy-2015-BasicBooks.pdf",
+    "new": "GatesEuropeHistoryUkraine-Plokhy-2015-Basic.pdf",
+    "old_pub": "BasicBooks",
+    "new_pub": "Basic"
+  },
+  {
+    "folder": "general-history",
+    "old": "GenderRepresentationEvil-Williams-1990-Oxford-UP.pdf",
+    "new": "GenderRepresentationEvil-Williams-1990-OxfordUP.pdf",
+    "old_pub": "Oxford-UP",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "GeoPACHALargeScaleImagerySurveyArchaeology-Wernke-2023-CambridgeUniversityPress.pdf",
+    "new": "GeoPACHALargeScaleImagerySurveyArchaeology-Wernke-2023-CambridgeUP.pdf",
+    "old_pub": "CambridgeUniversityPress",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "GestaDanorumHistoryDanes-Grammaticus-2015-Oxford.pdf",
+    "new": "GestaDanorumHistoryDanes-Grammaticus-2015-OxfordUP.pdf",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "GlobalPracticeWorldHistory-Manning-2009-RoutledgeBooks.pdf",
+    "new": "GlobalPracticeWorldHistory-Manning-2009-Routledge.pdf",
+    "old_pub": "RoutledgeBooks",
+    "new_pub": "Routledge"
+  },
+  {
+    "folder": "general-history",
+    "old": "GodsWar-Tyerman-2006-Harvard.pdf",
+    "new": "GodsWar-Tyerman-2006-HarvardUP.pdf",
+    "old_pub": "Harvard",
+    "new_pub": "HarvardUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "HarvardClassicsPlutarchLives-Plutarch-1909-Harvard-University-Press.epub",
+    "new": "HarvardClassicsPlutarchLives-Plutarch-1909-HarvardUP.epub",
+    "old_pub": "Harvard-University-Press",
+    "new_pub": "HarvardUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "HebrewBibleCriticalCompanion-Barton-0000-Princeton.pdf",
+    "new": "HebrewBibleCriticalCompanion-Barton-0000-PrincetonUP.pdf",
+    "old_pub": "Princeton",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "HonourRhetoricSlaveryHerodotus-Cairns-2025-EdinburghUniversityPress.pdf",
+    "new": "HonourRhetoricSlaveryHerodotus-Cairns-2025-EdinburghUP.pdf",
+    "old_pub": "EdinburghUniversityPress",
+    "new_pub": "EdinburghUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "ImaginedCommunities-Anderson-1991-VersoBooks.pdf",
+    "new": "ImaginedCommunities-Anderson-1991-Verso.pdf",
+    "old_pub": "VersoBooks",
+    "new_pub": "Verso"
+  },
+  {
+    "folder": "general-history",
+    "old": "ImpunityHumanRightsDemocracyChileArgenti-Wright-1990-UniversityMinnesota.pdf",
+    "new": "ImpunityHumanRightsDemocracyChileArgenti-Wright-1990-MinnesotaUP.pdf",
+    "old_pub": "UniversityMinnesota",
+    "new_pub": "MinnesotaUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "IncasPeoplesAmerica-D'Altroy-2014-John-Wiley-&-Sons.pdf",
+    "new": "IncasPeoplesAmerica-D'Altroy-2014-Wiley.pdf",
+    "old_pub": "John-Wiley-&-Sons",
+    "new_pub": "Wiley"
+  },
+  {
+    "folder": "general-history",
+    "old": "InfantAndChildBurialRitesRomanBritain-Millett-2015-CambridgeUniversityPress.pdf",
+    "new": "InfantAndChildBurialRitesRomanBritain-Millett-2015-CambridgeUP.pdf",
+    "old_pub": "CambridgeUniversityPress",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "InkaHistoryKnots-Urton-2017-Texas.pdf",
+    "new": "InkaHistoryKnots-Urton-2017-University-of-Texas-Press.pdf",
+    "old_pub": "Texas",
+    "new_pub": "University-of-Texas-Press"
+  },
+  {
+    "folder": "general-history",
+    "old": "InternationalCourtJusticeDecolonisation-Burri-2021-International-Court-of-Justice.pdf",
+    "new": "InternationalCourtJusticeDecolonisation-Burri-2021-ICJ.pdf",
+    "old_pub": "International-Court-of-Justice",
+    "new_pub": "ICJ"
+  },
+  {
+    "folder": "general-history",
+    "old": "IronWall-Shlaim-2015-MetropolitanBooks.pdf",
+    "new": "IronWall-Shlaim-2015-Metropolitan.pdf",
+    "old_pub": "MetropolitanBooks",
+    "new_pub": "Metropolitan"
+  },
+  {
+    "folder": "general-history",
+    "old": "IslandCenterWorldManhattan-Shorto-2004-Random-House.pdf",
+    "new": "IslandCenterWorldManhattan-Shorto-2004-RandomHouse.pdf",
+    "old_pub": "Random-House",
+    "new_pub": "RandomHouse"
+  },
+  {
+    "folder": "general-history",
+    "old": "JewsFranceSurvival-Semelin-2007-Oxford.pdf",
+    "new": "JewsFranceSurvival-Semelin-2007-OxfordUP.pdf",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "KosovoWarRevenge-Judah-2000-Yale-University-Press.pdf",
+    "new": "KosovoWarRevenge-Judah-2000-YaleUP.pdf",
+    "old_pub": "Yale-University-Press",
+    "new_pub": "YaleUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "KosovoWarRevenge-Judah-2002-Yale-University-Press.pdf",
+    "new": "KosovoWarRevenge-Judah-2002-YaleUP.pdf",
+    "old_pub": "Yale-University-Press",
+    "new_pub": "YaleUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "LawSocietyVisigothicKingdom-King-2012-Cambridge-University-Press.pdf",
+    "new": "LawSocietyVisigothicKingdom-King-2012-CambridgeUP.pdf",
+    "old_pub": "Cambridge-University-Press",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "LenapeCountryDelawareValley-Soderlund-2007-University-of-Pennsylvania-Press.pdf",
+    "new": "LenapeCountryDelawareValley-Soderlund-2007-PennUP.pdf",
+    "old_pub": "University-of-Pennsylvania-Press",
+    "new_pub": "PennUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "LordsWorldEmpireIdeologies-Pagden-1995-Yale-UP.pdf",
+    "new": "LordsWorldEmpireIdeologies-Pagden-1995-YaleUP.pdf",
+    "old_pub": "Yale-UP",
+    "new_pub": "YaleUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "MinersRedMountain-Bakewell-1984-Indiana-UP.pdf",
+    "new": "MinersRedMountain-Bakewell-1984-IndianaUP.pdf",
+    "old_pub": "Indiana-UP",
+    "new_pub": "IndianaUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "MiQueridoBrontosaurus-Switek-2014-RoutledgeBooks.pdf",
+    "new": "MiQueridoBrontosaurus-Switek-2014-Routledge.pdf",
+    "old_pub": "RoutledgeBooks",
+    "new_pub": "Routledge"
+  },
+  {
+    "folder": "general-history",
+    "old": "MythAmericanReligiousFreedom-Sehat-2011-Oxford.pdf",
+    "new": "MythAmericanReligiousFreedom-Sehat-2011-OxfordUP.pdf",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "NativeAndeanPolitics-Thomson-2002-Wisconsin.pdf",
+    "new": "NativeAndeanPolitics-Thomson-2002-WisconsinUP.pdf",
+    "old_pub": "Wisconsin",
+    "new_pub": "WisconsinUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "NativeNations-DuVal-2024-UniversityNorthCarolina.pdf",
+    "new": "NativeNations-DuVal-2024-UNCUP.pdf",
+    "old_pub": "UniversityNorthCarolina",
+    "new_pub": "UNCUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "NativePopulationOfTheAmericasIn1492-Denevan-1992-UNCPress.pdf",
+    "new": "NativePopulationOfTheAmericasIn1492-Denevan-1992-UNC-Press.pdf",
+    "old_pub": "UNCPress",
+    "new_pub": "UNC-Press"
+  },
+  {
+    "folder": "general-history",
+    "old": "NewHistoryWesternPhilosophyAncientPhilosophy-Kenny-2004-OxfordUniversityPress.pdf",
+    "new": "NewHistoryWesternPhilosophyAncientPhilosophy-Kenny-2004-OxfordUP.pdf",
+    "old_pub": "OxfordUniversityPress",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "NewNetherlandDutchSettlement-Jacobs-2003-Cornell-UP.pdf",
+    "new": "NewNetherlandDutchSettlement-Jacobs-2003-CornellUP.pdf",
+    "old_pub": "Cornell-UP",
+    "new_pub": "CornellUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "NotOneInchPostColdWarStalemate-Sarotte-2021-Yale.pdf",
+    "new": "NotOneInchPostColdWarStalemate-Sarotte-2021-YaleUP.pdf",
+    "old_pub": "Yale",
+    "new_pub": "YaleUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "OnSavageShores-Pennock-2023-University-of-Pennsylvania-Press.pdf",
+    "new": "OnSavageShores-Pennock-2023-PennUP.pdf",
+    "old_pub": "University-of-Pennsylvania-Press",
+    "new_pub": "PennUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "OnSavageShoresIndigenousAmericansEurope-Pennock-2011-University-of-Pennsylvania-Press.pdf",
+    "new": "OnSavageShoresIndigenousAmericansEurope-Pennock-2011-PennUP.pdf",
+    "old_pub": "University-of-Pennsylvania-Press",
+    "new_pub": "PennUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "PinochetChileLondon-Stern-1998-PalgraveMacmillan.pdf",
+    "new": "PinochetChileLondon-Stern-1998-Palgrave.pdf",
+    "old_pub": "PalgraveMacmillan",
+    "new_pub": "Palgrave"
+  },
+  {
+    "folder": "general-history",
+    "old": "PopesLawyersInfidels-Muldoon-1979-Pennsylvania-UP.pdf",
+    "new": "PopesLawyersInfidels-Muldoon-1979-PennUP.pdf",
+    "old_pub": "Pennsylvania-UP",
+    "new_pub": "PennUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "RaceMakingAmericanPolitical-Blatt-2021-PalgraveMacmillan.pdf",
+    "new": "RaceMakingAmericanPolitical-Blatt-2021-Palgrave.pdf",
+    "old_pub": "PalgraveMacmillan",
+    "new_pub": "Palgrave"
+  },
+  {
+    "folder": "general-history",
+    "old": "RealValkyrieVikingWarrior-Brown-2021-PalgraveMacmillan.pdf",
+    "new": "RealValkyrieVikingWarrior-Brown-2021-Palgrave.pdf",
+    "old_pub": "PalgraveMacmillan",
+    "new_pub": "Palgrave"
+  },
+  {
+    "folder": "general-history",
+    "old": "RedGold-Hemming-1978-PalgraveMacmillan.pdf",
+    "new": "RedGold-Hemming-1978-Palgrave.pdf",
+    "old_pub": "PalgraveMacmillan",
+    "new_pub": "Palgrave"
+  },
+  {
+    "folder": "general-history",
+    "old": "RediscoveryAmerica-Blackhawk-2023-UniversityChicago.pdf",
+    "new": "RediscoveryAmerica-Blackhawk-2023-ChicagoUP.pdf",
+    "old_pub": "UniversityChicago",
+    "new_pub": "ChicagoUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "RedStarRogue-Sewell-2006-BasicBooks.pdf",
+    "new": "RedStarRogue-Sewell-2006-Basic.pdf",
+    "old_pub": "BasicBooks",
+    "new_pub": "Basic"
+  },
+  {
+    "folder": "general-history",
+    "old": "RedStarRogueSubmarine-Sewell-2005-BasicBooks.pdf",
+    "new": "RedStarRogueSubmarine-Sewell-2005-Basic.pdf",
+    "old_pub": "BasicBooks",
+    "new_pub": "Basic"
+  },
+  {
+    "folder": "general-history",
+    "old": "ReligiousPluralismIslamicLaw-Emon-2012-Oxford-University-Press.pdf",
+    "new": "ReligiousPluralismIslamicLaw-Emon-2012-OxfordUP.pdf",
+    "old_pub": "Oxford-University-Press",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "ReturnGreatPowerRivalry-Kroening-2020-Oxford.pdf",
+    "new": "ReturnGreatPowerRivalry-Kroening-2020-OxfordUP.pdf",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "RevisitingOriginsHumanRights-Slotte-2015-Cambridge.pdf",
+    "new": "RevisitingOriginsHumanRights-Slotte-2015-CambridgeUP.pdf",
+    "old_pub": "Cambridge",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "Rubenstein--Jay-Armies-of-Heaven-The-First-Crusade-and-the-Quest-for-Apocalypse--2011--Basic-Books--.pdf",
+    "new": "Rubenstein--Jay-Armies-of-Heaven-The-First-Crusade-and-the-Quest-for-Apocalypse--2011-Basic.pdf",
+    "old_pub": "-Basic-Books--",
+    "new_pub": "Basic"
+  },
+  {
+    "folder": "general-history",
+    "old": "SaxoGrammaticusGestaDanorum-Saxo-0000-OxfordUniversityPress.pdf",
+    "new": "SaxoGrammaticusGestaDanorum-Saxo-0000-OxfordUP.pdf",
+    "old_pub": "OxfordUniversityPress",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "SearchSovereigntyEuropeanEmpires-Benton-2009-Cambridge.pdf",
+    "new": "SearchSovereigntyEuropeanEmpires-Benton-2009-CambridgeUP.pdf",
+    "old_pub": "Cambridge",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "SecretHistoryCIAOperationsGuatemala-Cullather-2006-Stanford.pdf",
+    "new": "SecretHistoryCIAOperationsGuatemala-Cullather-2006-StanfordUP.pdf",
+    "old_pub": "Stanford",
+    "new_pub": "StanfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "SelfishGeneAnniversary-Dawkins-2016-Oxford.epub",
+    "new": "SelfishGeneAnniversary-Dawkins-2016-OxfordUP.epub",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "SerbAlbanian-Vickers-1998-Columbia.pdf",
+    "new": "SerbAlbanian-Vickers-1998-ColumbiaUP.pdf",
+    "old_pub": "Columbia",
+    "new_pub": "ColumbiaUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "SeventeenSeventySix-McCullough-2005-Simon-&-Schuster.pdf",
+    "new": "SeventeenSeventySix-McCullough-2005-SimonSchuster.pdf",
+    "old_pub": "Simon-&-Schuster",
+    "new_pub": "SimonSchuster"
+  },
+  {
+    "folder": "general-history",
+    "old": "ShortHistoryNearlyEverything-Bryson-2003-Random-House.epub",
+    "new": "ShortHistoryNearlyEverything-Bryson-2003-RandomHouse.epub",
+    "old_pub": "Random-House",
+    "new_pub": "RandomHouse"
+  },
+  {
+    "folder": "general-history",
+    "old": "SlavesWarfareIdeologyGreekHistorians-Hunt-1998-Cambridge.pdf",
+    "new": "SlavesWarfareIdeologyGreekHistorians-Hunt-1998-CambridgeUP.pdf",
+    "old_pub": "Cambridge",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "SovietPoliciesMiddleEast-Golan-1990-Cambridge.pdf",
+    "new": "SovietPoliciesMiddleEast-Golan-1990-CambridgeUP.pdf",
+    "old_pub": "Cambridge",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "SwordShieldMitrokhinArchive-Andrew-2000-Basic-Books.pdf",
+    "new": "SwordShieldMitrokhinArchive-Andrew-2000-Basic.pdf",
+    "old_pub": "Basic-Books",
+    "new_pub": "Basic"
+  },
+  {
+    "folder": "general-history",
+    "old": "TakingManhattanNewYork-Shorto-2004-Random-House.epub",
+    "new": "TakingManhattanNewYork-Shorto-2004-RandomHouse.epub",
+    "old_pub": "Random-House",
+    "new_pub": "RandomHouse"
+  },
+  {
+    "folder": "general-history",
+    "old": "TalmudRedFenceJudaism-Secunda-2014-Oxford.pdf",
+    "new": "TalmudRedFenceJudaism-Secunda-2014-OxfordUP.pdf",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "ThePrizeOil-Yergin-2012-Simon-&-Schuster.pdf",
+    "new": "ThePrizeOil-Yergin-2012-SimonSchuster.pdf",
+    "old_pub": "Simon-&-Schuster",
+    "new_pub": "SimonSchuster"
+  },
+  {
+    "folder": "general-history",
+    "old": "ThreeHundred-Miller-2012-Oxford-UP.pdf",
+    "new": "ThreeHundred-Miller-2012-OxfordUP.pdf",
+    "old_pub": "Oxford-UP",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "VeilMaleEliteFeminism-Mernissi-1991-VersoBooks.pdf",
+    "new": "VeilMaleEliteFeminism-Mernissi-1991-Verso.pdf",
+    "old_pub": "VersoBooks",
+    "new_pub": "Verso"
+  },
+  {
+    "folder": "general-history",
+    "old": "VichyLawHolocaust-Weisberg-1996-New-York-University.pdf",
+    "new": "VichyLawHolocaust-Weisberg-1996-NYUP.pdf",
+    "old_pub": "New-York-University",
+    "new_pub": "NYUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "VikingWarriorWomenReassessingBirkaGrave-Price-2019-CambridgeUniversityPress.pdf",
+    "new": "VikingWarriorWomenReassessingBirkaGrave-Price-2019-CambridgeUP.pdf",
+    "old_pub": "CambridgeUniversityPress",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "WeAloneWillRule-Thomson-2002-Wisconsin.pdf",
+    "new": "WeAloneWillRule-Thomson-2002-WisconsinUP.pdf",
+    "old_pub": "Wisconsin",
+    "new_pub": "WisconsinUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "WesternSaharaConflict-Zunes-2010-Syracuse-University.pdf",
+    "new": "WesternSaharaConflict-Zunes-2010-SyracuseUP.pdf",
+    "old_pub": "Syracuse-University",
+    "new_pub": "SyracuseUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "WomenGenderIslam-Ahmed-1992-Yale.pdf",
+    "new": "WomenGenderIslam-Ahmed-1992-YaleUP.pdf",
+    "old_pub": "Yale",
+    "new_pub": "YaleUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "WomenIslamAbbasid-Cheikh-2004-Harvard.pdf",
+    "new": "WomenIslamAbbasid-Cheikh-2004-HarvardUP.pdf",
+    "old_pub": "Harvard",
+    "new_pub": "HarvardUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "WomenMosqueHistory-Katz-2014-Columbia.pdf",
+    "new": "WomenMosqueHistory-Katz-2014-ColumbiaUP.pdf",
+    "old_pub": "Columbia",
+    "new_pub": "ColumbiaUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "WorldHistoryViolence-Antony-2011-Cambridge-University-Press.pdf",
+    "new": "WorldHistoryViolence-Antony-2011-CambridgeUP.pdf",
+    "old_pub": "Cambridge-University-Press",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "general-history",
+    "old": "WorldWasGoingOurWay-Andrew-2005-Basic-Books.pdf",
+    "new": "WorldWasGoingOurWay-Andrew-2005-Basic.pdf",
+    "old_pub": "Basic-Books",
+    "new_pub": "Basic"
+  },
+  {
+    "folder": "general-history",
+    "old": "WretchedEarth-Fanon-2004-GrovePress.pdf",
+    "new": "WretchedEarth-Fanon-2004-Grove.pdf",
+    "old_pub": "GrovePress",
+    "new_pub": "Grove"
+  },
+  {
+    "folder": "general-history",
+    "old": "YugoslaviaDeathNation-Silber-1997-Penguin-Books.pdf",
+    "new": "YugoslaviaDeathNation-Silber-1997-Penguin.pdf",
+    "old_pub": "Penguin-Books",
+    "new_pub": "Penguin"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "AllShahsMenAmericanCoupRootsMiddleEastTe-Kinzer-2013-John-Wiley-&-Sons.pdf",
+    "new": "AllShahsMenAmericanCoupRootsMiddleEastTe-Kinzer-2013-Wiley.pdf",
+    "old_pub": "John-Wiley-&-Sons",
+    "new_pub": "Wiley"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "BetweenSerbAlbanianHistoryKosovo-Vickers-1998-Columbia-University-Press.pdf",
+    "new": "BetweenSerbAlbanianHistoryKosovo-Vickers-1998-ColumbiaUP.pdf",
+    "old_pub": "Columbia-University-Press",
+    "new_pub": "ColumbiaUP"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "CaseIsrael-Dershowitz-2011-BasicBooks.pdf",
+    "new": "CaseIsrael-Dershowitz-2011-Basic.pdf",
+    "old_pub": "BasicBooks",
+    "new_pub": "Basic"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "CrescentObscuredUnitedStatesMuslimWorld1-Allison-1776-Chicago.pdf",
+    "new": "CrescentObscuredUnitedStatesMuslimWorld1-Allison-1776-ChicagoUP.pdf",
+    "old_pub": "Chicago",
+    "new_pub": "ChicagoUP"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "DemocracyIranFailedMightSucceed-Parsa-2016-Harvard.pdf",
+    "new": "DemocracyIranFailedMightSucceed-Parsa-2016-HarvardUP.pdf",
+    "old_pub": "Harvard",
+    "new_pub": "HarvardUP"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "DenialViolenceOttomanPastTurkishPresentC-Göçek-1789-Oxford.pdf",
+    "new": "DenialViolenceOttomanPastTurkishPresentC-Göçek-1789-OxfordUP.pdf",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "FatefulTriangleIsraelPalestine-Chomsky-1999-VersoBooks.pdf",
+    "new": "FatefulTriangleIsraelPalestine-Chomsky-1999-Verso.pdf",
+    "old_pub": "VersoBooks",
+    "new_pub": "Verso"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "FatefulTriangleIsraelPalestinians-Chomsky-1983-VersoBooks.pdf",
+    "new": "FatefulTriangleIsraelPalestinians-Chomsky-1983-Verso.pdf",
+    "old_pub": "VersoBooks",
+    "new_pub": "Verso"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "HeraclitusAndIran-Duchesne-Guillemin-1963-UniversityOfChicagoPress.pdf",
+    "new": "HeraclitusAndIran-Duchesne-Guillemin-1963-ChicagoUP.pdf",
+    "old_pub": "UniversityOfChicagoPress",
+    "new_pub": "ChicagoUP"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "ImageAndRealityOfTheIsraelPalestineConflict-Finkelstein-1995-VersoBooks.pdf",
+    "new": "ImageAndRealityOfTheIsraelPalestineConflict-Finkelstein-1995-Verso.pdf",
+    "old_pub": "VersoBooks",
+    "new_pub": "Verso"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "IransIntellectualRevolution-Kamrava-2008-Cambridge.azw3",
+    "new": "IransIntellectualRevolution-Kamrava-2008-CambridgeUP.azw3",
+    "old_pub": "Cambridge",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "IronWallIsraelAndTheArabWorld-Shlaim-2000-NortonCo.pdf",
+    "new": "IronWallIsraelAndTheArabWorld-Shlaim-2000-Norton.pdf",
+    "old_pub": "NortonCo",
+    "new_pub": "Norton"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "KhomeinismEssaysIslamicRepublic-Abrahamian-2012-Berkeley.pdf",
+    "new": "KhomeinismEssaysIslamicRepublic-Abrahamian-2012-BerkeleyUP.pdf",
+    "old_pub": "Berkeley",
+    "new_pub": "BerkeleyUP"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "LineInTheSandTheAngloFrenchStruggle-Barr-2011-NortonCo.pdf",
+    "new": "LineInTheSandTheAngloFrenchStruggle-Barr-2011-Norton.pdf",
+    "old_pub": "NortonCo",
+    "new_pub": "Norton"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "MarriageMoneyDivorceMedievalIslamicSocie-Rapoport-2005-Cambridge.pdf",
+    "new": "MarriageMoneyDivorceMedievalIslamicSocie-Rapoport-2005-CambridgeUP.pdf",
+    "old_pub": "Cambridge",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "ModernIran10129879780300194739LibgenLi-Kagan-2018-Yale-University-Press.pdf",
+    "new": "ModernIran10129879780300194739LibgenLi-Kagan-2018-YaleUP.pdf",
+    "old_pub": "Yale-University-Press",
+    "new_pub": "YaleUP"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "PalestineArabIsraeliConflict-Smith-2016-RoutledgeBooks.pdf",
+    "new": "PalestineArabIsraeliConflict-Smith-2016-Routledge.pdf",
+    "old_pub": "RoutledgeBooks",
+    "new_pub": "Routledge"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "PalestineArabIsraeliConflict-Smith-2020-RoutledgeBooks.pdf",
+    "new": "PalestineArabIsraeliConflict-Smith-2020-Routledge.pdf",
+    "old_pub": "RoutledgeBooks",
+    "new_pub": "Routledge"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "ParanoidApocalypse-Landes-2012-NYUPress.pdf",
+    "new": "ParanoidApocalypse-Landes-2012-NYU.pdf",
+    "old_pub": "NYUPress",
+    "new_pub": "NYU"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "ProtocolsEldersZionJewishPress-BalakirskyKatz-2012-NYUPress.pdf",
+    "new": "ProtocolsEldersZionJewishPress-BalakirskyKatz-2012-NYU.pdf",
+    "old_pub": "NYUPress",
+    "new_pub": "NYU"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "QuestionPalestine-Said-2015-VersoBooks.pdf",
+    "new": "QuestionPalestine-Said-2015-Verso.pdf",
+    "old_pub": "VersoBooks",
+    "new_pub": "Verso"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "RediscoveringPalestineMerchantsPeasantsJ-Doumani-1700-Berkeley.pdf",
+    "new": "RediscoveringPalestineMerchantsPeasantsJ-Doumani-1700-BerkeleyUP.pdf",
+    "old_pub": "Berkeley",
+    "new_pub": "BerkeleyUP"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "RevolutionWithoutRevolutionariesMakingSe-Bayat-2017-Stanford.pdf",
+    "new": "RevolutionWithoutRevolutionariesMakingSe-Bayat-2017-StanfordUP.pdf",
+    "old_pub": "Stanford",
+    "new_pub": "StanfordUP"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "UnknownTitle-Crane-2020-Johns-Hopkins.pdf",
+    "new": "UnknownTitle-Crane-2020-JohnsHopkinsUP.pdf",
+    "old_pub": "Johns-Hopkins",
+    "new_pub": "JohnsHopkinsUP"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "UnthinkableRevolutionIran-Kurzman-2005-Harvard.pdf",
+    "new": "UnthinkableRevolutionIran-Kurzman-2005-HarvardUP.pdf",
+    "old_pub": "Harvard",
+    "new_pub": "HarvardUP"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "VanguardImamReligionPoliticsIransRevolut-Afshon-2016-Oxford.pdf",
+    "new": "VanguardImamReligionPoliticsIransRevolut-Afshon-2016-OxfordUP.pdf",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "middle-east-history",
+    "old": "YoungTurksCrimeAgainstHumanityArmenianGe-Akçam-1815-Princeton.pdf",
+    "new": "YoungTurksCrimeAgainstHumanityArmenianGe-Akçam-1815-PrincetonUP.pdf",
+    "old_pub": "Princeton",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "reference-methodology",
+    "old": "AmericanHolocaust-Stannard-1992-Oxford.pdf",
+    "new": "AmericanHolocaust-Stannard-1992-OxfordUP.pdf",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "reference-methodology",
+    "old": "ArmiesHeavenFirstCrusadeApocalypse-Rubenstein-2011-Basic-Books.pdf",
+    "new": "ArmiesHeavenFirstCrusadeApocalypse-Rubenstein-2011-Basic.pdf",
+    "old_pub": "Basic-Books",
+    "new_pub": "Basic"
+  },
+  {
+    "folder": "reference-methodology",
+    "old": "AuschwitzDeathCampAnatomy-Gutman-1994-Indiana-University-Press.pdf",
+    "new": "AuschwitzDeathCampAnatomy-Gutman-1994-IndianaUP.pdf",
+    "old_pub": "Indiana-University-Press",
+    "new_pub": "IndianaUP"
+  },
+  {
+    "folder": "reference-methodology",
+    "old": "BlackSunAryanCultsNazism-Goodrick-Clarke-2002-New-York-University-Press.pdf",
+    "new": "BlackSunAryanCultsNazism-Goodrick-Clarke-2002-NYUP.pdf",
+    "old_pub": "New-York-University-Press",
+    "new_pub": "NYUP"
+  },
+  {
+    "folder": "reference-methodology",
+    "old": "CambridgeWorldHistoryViolence-Antony-2020-Cambridge.pdf",
+    "new": "CambridgeWorldHistoryViolence-Antony-2020-CambridgeUP.pdf",
+    "old_pub": "Cambridge",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "reference-methodology",
+    "old": "CambridgeWorldHistoryViolence-Gordon-2020-Cambridge.pdf",
+    "new": "CambridgeWorldHistoryViolence-Gordon-2020-CambridgeUP.pdf",
+    "old_pub": "Cambridge",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "reference-methodology",
+    "old": "GreatDivergenceChinaEuropeEconomy-Pomeranz-2000-Princeton-University-Press.pdf",
+    "new": "GreatDivergenceChinaEuropeEconomy-Pomeranz-2000-PrincetonUP.pdf",
+    "old_pub": "Princeton-University-Press",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "reference-methodology",
+    "old": "HolocaustNaziPersecutionJews-Longerich-2010-Oxford.pdf",
+    "new": "HolocaustNaziPersecutionJews-Longerich-2010-OxfordUP.pdf",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "reference-methodology",
+    "old": "MythNationsMedievalEurope-Geary-1948-Princeton.pdf",
+    "new": "MythNationsMedievalEurope-Geary-1948-PrincetonUP.pdf",
+    "old_pub": "Princeton",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "reference-methodology",
+    "old": "MythNationsMedievalEurope-Geary-2002-Princeton-University-Press.pdf",
+    "new": "MythNationsMedievalEurope-Geary-2002-PrincetonUP.pdf",
+    "old_pub": "Princeton-University-Press",
+    "new_pub": "PrincetonUP"
+  },
+  {
+    "folder": "reference-methodology",
+    "old": "NonExistentManuscriptProtocols-Michelis-2004-University-of-Nebraska-Press.pdf",
+    "new": "NonExistentManuscriptProtocols-Michelis-2004-Nebraska-UP.pdf",
+    "old_pub": "University-of-Nebraska-Press",
+    "new_pub": "Nebraska-UP"
+  },
+  {
+    "folder": "reference-methodology",
+    "old": "OxfordHandbookHolocaustStudies-Hayes-2010-Oxford.pdf",
+    "new": "OxfordHandbookHolocaustStudies-Hayes-2010-OxfordUP.pdf",
+    "old_pub": "Oxford",
+    "new_pub": "OxfordUP"
+  },
+  {
+    "folder": "reference-methodology",
+    "old": "ParanoidApocalypseProtocolsZion-Katz-2015-New-York-University-Press.pdf",
+    "new": "ParanoidApocalypseProtocolsZion-Katz-2015-NYUP.pdf",
+    "old_pub": "New-York-University-Press",
+    "new_pub": "NYUP"
+  },
+  {
+    "folder": "reference-methodology",
+    "old": "RevisitingOriginsHumanRights-Slotte-2015-Cambridge-University-Press.pdf",
+    "new": "RevisitingOriginsHumanRights-Slotte-2015-CambridgeUP.pdf",
+    "old_pub": "Cambridge-University-Press",
+    "new_pub": "CambridgeUP"
+  },
+  {
+    "folder": "territorial-disputes",
+    "old": "BakassiPoliticsExclusionOccupation-Kinni-2013-PalgraveMacmillan.pdf",
+    "new": "BakassiPoliticsExclusionOccupation-Kinni-2013-Palgrave.pdf",
+    "old_pub": "PalgraveMacmillan",
+    "new_pub": "Palgrave"
+  },
+  {
+    "folder": "territorial-disputes",
+    "old": "BeyondLinesAutobiography-Nayar-2012-PalgraveMacmillan.pdf",
+    "new": "BeyondLinesAutobiography-Nayar-2012-Palgrave.pdf",
+    "old_pub": "PalgraveMacmillan",
+    "new_pub": "Palgrave"
+  },
+  {
+    "folder": "territorial-disputes",
+    "old": "BlackGardenArmeniaAzerbaijanPeaceWar-Waal-2013-NYUPress.pdf",
+    "new": "BlackGardenArmeniaAzerbaijanPeaceWar-Waal-2013-NYU.pdf",
+    "old_pub": "NYUPress",
+    "new_pub": "NYU"
+  },
+  {
+    "folder": "territorial-disputes",
+    "old": "CameroonNigeriaBorderDisputeManagementResolut-Lukong-2011-PalgraveMacmillan.pdf",
+    "new": "CameroonNigeriaBorderDisputeManagementResolut-Lukong-2011-Palgrave.pdf",
+    "old_pub": "PalgraveMacmillan",
+    "new_pub": "Palgrave"
+  },
+  {
+    "folder": "territorial-disputes",
+    "old": "CyprusConflicts-Doudaki-2017-PalgraveMacmillan.pdf",
+    "new": "CyprusConflicts-Doudaki-2017-Palgrave.pdf",
+    "old_pub": "PalgraveMacmillan",
+    "new_pub": "Palgrave"
+  },
+  {
+    "folder": "territorial-disputes",
+    "old": "HostageHistoryCyprus-Hitchens-1997-VersoBooks.pdf",
+    "new": "HostageHistoryCyprus-Hitchens-1997-Verso.pdf",
+    "old_pub": "VersoBooks",
+    "new_pub": "Verso"
+  },
+  {
+    "folder": "territorial-disputes",
+    "old": "ICJJudgmentCameroonNigeriaBoundaryDispute-UnitedNations-2002-UnitedNations.pdf",
+    "new": "ICJJudgmentCameroonNigeriaBoundaryDispute-UnitedNations-2002-UN.pdf",
+    "old_pub": "UnitedNations",
+    "new_pub": "UN"
+  },
+  {
+    "folder": "territorial-disputes",
+    "old": "KosovoShortHistory-Malcolm-1998-NYUPress.pdf",
+    "new": "KosovoShortHistory-Malcolm-1998-NYU.pdf",
+    "old_pub": "NYUPress",
+    "new_pub": "NYU"
+  },
+  {
+    "folder": "territorial-disputes",
+    "old": "QuestionBoundariesVenezuelaBritishGuiana-UnitedNations-1962-UnitedNations.pdf",
+    "new": "QuestionBoundariesVenezuelaBritishGuiana-UnitedNations-1962-UN.pdf",
+    "old_pub": "UnitedNations",
+    "new_pub": "UN"
+  },
+  {
+    "folder": "territorial-disputes",
+    "old": "QuestionBoundariesVenezuelaBritishGuiana-Venezuela-1962-UnitedNations.pdf",
+    "new": "QuestionBoundariesVenezuelaBritishGuiana-Venezuela-1962-UN.pdf",
+    "old_pub": "UnitedNations",
+    "new_pub": "UN"
+  },
+  {
+    "folder": "territorial-disputes",
+    "old": "ReportSpecialCommitteeSituationImplementationDecla-Esfandiary-1967-UnitedNations.pdf",
+    "new": "ReportSpecialCommitteeSituationImplementationDecla-Esfandiary-1967-UN.pdf",
+    "old_pub": "UnitedNations",
+    "new_pub": "UN"
+  },
+  {
+    "folder": "territorial-disputes",
+    "old": "SecretaryGeneralStatementOnBakassiPeninsula-BANKIMOON-2008-UnitedNations.pdf",
+    "new": "SecretaryGeneralStatementOnBakassiPeninsula-BANKIMOON-2008-UN.pdf",
+    "old_pub": "UnitedNations",
+    "new_pub": "UN"
+  }
+]

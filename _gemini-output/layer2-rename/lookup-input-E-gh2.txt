@@ -1,0 +1,183 @@
+You are identifying correct publication metadata for academic library files.
+
+For each file listed below, provide the correct YEAR and PUBLISHER.
+Rules:
+- Publisher = real academic publisher (NOT download source like ZLib, Libgen, AnnaArchive, z-library, 1lib)
+- For primary source documents (treaties, acts, speeches, court decisions, government reports): publisher = issuing institution (e.g. "United Nations", "US Congress", "ICJ", "League of Nations")
+- For journal articles: publisher = journal name (e.g. "Journal of African History")
+- For books: publisher = academic press (e.g. "Oxford University Press", "Harvard University Press", "Cambridge University Press")
+- If you cannot determine with high confidence: y="0000" and/or p="Unknown"
+- Use your training knowledge and Google Search to verify
+
+Return ONLY a JSON array (no markdown fences, no explanation):
+[{{"f": "original_filename.pdf", "y": "YYYY", "p": "Publisher"}}]
+
+Files (current known metadata: a=author, y=year, t=short_title):
+a=Unknown y=0000 t=ContemporaryFarRightCulture | Contemporary-Far-Right-Culture.pdf
+a=Cook y=1998 t=BornDie | Cook - Born to Die (1998) (1).pdf
+a=Cook y=1998 t=BornDie | Cook - Born to Die (1998).pdf
+a=Cook y=2018 t=NumeneraPlayersGuide | Cook - Numenera 2 Players Guide (2018) (1).pdf
+a=Cook y=2018 t=NumeneraPlayersGuide | Cook - Numenera 2 Players Guide (2018).pdf
+a=Cornelis y=0000 t=TheoretischeGeschiedenis | Cornelis - Theoretische geschiedenis (n.d.).pdf
+a=Council y=2011 t=UnderstandingEarthDeepPast | Council - Understanding Earth's Deep Past (2011) (1).pdf
+a=Council y=2011 t=UnderstandingEarthDeepPast | Council - Understanding Earth's Deep Past (2011).pdf
+a=Courtroom y=0000 t=JudgeMarkBennett | Courtroom - Judge Mark Bennett (n.d.) (1).pdf
+a=Courtroom y=0000 t=JudgeMarkBennett | Courtroom - Judge Mark Bennett (n.d.).pdf
+a=Covey y=2025 t=IncasBuiltHeartland | Covey - How the Incas Built Their Heartland (2025).pdf
+a=Craig y=2002 t=PhilosophyShortIntroduction | Craig - Philosophy A Very Short Introduction (2002).pdf
+a=Ivarsson y=0000 t=CreatingLaosLaoSpaceIndochinaSiam | Creating Laos The Making of a Lao Space Between Indochina and Siam, 1860-1945 (Nias-Nordic Institute of Asian Studies) (Sɵren Ivarsson).pdf
+a=Waters y=0000 t=CtesiasPersicaNearEasternContext | Ctesias Persica and its Near Eastern Context (Matt Waters) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Cultural y=0000 t=Scandinavism | Cultural - Scandinavism (n.d.).pdf
+a=Chapman y=0000 t=CulturasTradicionalesPatagoniaMundo | Culturas tradicionales - Patagonia - fin de un mundo- los -- Anne Chapman, Taller Experimental Cuerpos Pintados (Chile).pdf
+a=Cultuurwetenschappen y=0000 t=Studiefiche | cultuurwetenschappen - Studiefiche (n.d.).pdf
+a=Unknown y=0000 t=CurrencyDevaluationSourceGrowthAfri | Currency-Devaluation-as-a-Source-of-Growth-in-Afri.pdf
+a=Curtis y=1975 t=Palestinians | Curtis - The Palestinians (1975).pdf
+a=D'Altroy y=2014 t=Incas | D'Altroy - The Incas (2014).pdf
+a=Unknown y=0000 t=D&DPlayersHandbook | D&D 5e - Players Handbook.pdf
+a=Danorum y=0000 t=OxfordMedievalTexts | Danorum - OXFORD MEDIEVAL TEXTS (n.d.).pdf
+a=Kater y=0000 t=AhnenerbeSSKulturpolitikDrittenReiches | Das Ahnenerbe der SS 1935-1945 Ein Beitrag zur Kulturpolitik des Dritten Reiches (Michael H. Kater).pdf
+a=Daut y=2026 t=AwakeningAshes | Daut - Awakening the Ashes (2026).pdf
+a=Davis y=2006 t=InhumanBondage | Davis - Inhuman Bondage (2006).pdf
+a=Davis-Kimball y=2002 t=WarriorWomen | Davis-Kimball - Warrior Women (2002).pdf
+a=DeLeon y=1901 t=TravelsPedroCiezaDeLeon | de - Travels of Pedro De Cieza De Leon, A. D. 1532 (1901).pdf
+a=DeLasCasas y=0000 t=DevastationIndiesBriefAccount | De-Las-Casas--Bartolome-The-Devastation-of-the-Indies--A-Brief-Account-libgen.li.pdf
+a=DeMiguel y=2020 t=Petracos | De-Miguel-et-al-2020-Petracos.pdf
+a=DeAngeli y=2023 t=MexicanCuisineUltimateBook | De' Angeli - Mexican Cuisine. The Ultimate Book (2023).pdf
+a=Graeber y=0000 t=DebtFirstYears | Debt The First 5,000 Years (David Graeber) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Unknown y=0000 t=DebunkingMostMoralCivilizationClaim | Debunking the “Most Moral Civilization” Claim.pdf
+a=Decloedt y=0000 t=PraktischeInfoVTONVAAvondNVU | Decloedt - Praktische info VTO NVA avond NVU (n.d.).pdf
+a=Dee y=2025 t=WorldbuildingGameDesigners | Dee - Worldbuilding for Game Designers (2025).pdf
+a=Plutarch y=0000 t=DelphiCompleteWorksPlutarch | Delphi Complete Works of Plutarch (Plutarch) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Plutarch y=0000 t=DelphiCompleteWorksPlutarch | Delphi-Complete-Works-of-Plutarch-_Plutarch_-_z-library.sk_-1lib.sk_-z-lib.sk_.pdf
+a=Cook y=0000 t=DemographicCollapseIndianPeru | Demographic-Collapse-Indian-Peru--1520-1620--Noble-David-Cook---Z-Library-.pdf
+a=Denevan y=0000 t=NativePopulationAmericas | Denevan - Native Population of the Americas in 1492 (2nd Edition) (n.d.).pdf
+a=Desbois y=0000 t=BroadDaylightSecretProceduresHolocaust | Desbois - In broad daylight the secret procedures behind the Holocaust by bullets (n.d.).pdf
+a=DG y=2005 t=ActivitiesEuropeanUnionSmallMedium | DG. - The Activities of the European Union for Small and Medium (2005).pdf
+a=Diamond y=1999 t=GunsGermsSteel | Diamond - Guns, Germs, and Steel (1999).pdf
+a=Dick y=0000 t=Workshop | Dick - Workshop 1 (n.d.).pdf
+a=Barrowclough y=0000 t=DiggingHitlerNaziArchaeologistsAryanPast | Digging for Hitler The Nazi Archaeologists Search for an Aryan Past (Barrowclough, David).pdf
+a=Pacepa y=0000 t=Disinformation | Disinformation (Ion Mihai Pacepa, Ronald J. Rychlak).pdf
+a=Dispute y=0000 t=AnoJanMar | Dispute - Ano 3 Nº 9 Jan-Mar 2024 · 165 (n.d.).pdf
+a=Djame y=0000 t=ToerismeAltijdFeest | Djame - van het toerisme. Altijd is er wel een of ander feest in het centrum of een activiteit op het eiland van l'Oneux, een (n.d.).pdf
+a=DKM y=0000 t=CodexTellerianoRemensisVol | DKM-Codex-Telleriano-Remensis-Vol-1.pdf
+a=DKM y=0000 t=CodexTellerianoRemensisVol | DKM-Codex-Telleriano-Remensis-Vol-2.pdf
+a=Dobal y=1977 t=AntigüedadesArteTradicionSantiago | Dobal - Antigüedades, arte y tradición en Santiago de los Caballeros (1977).pdf
+a=Donner y=2014 t=EarlyIslamicConquests | Donner - The Early Islamic Conquests (2014).pdf
+a=Unknown y=0000 t=DraftLaw | draft law.pdf
+a=Dumb y=0000 t=AnnualReportDocumentsNewYorkInstitution | Dumb - Annual Report and Documents of the New York Institution for the Instruction of the Deaf and Dumb (n.d.).pdf
+a=Unknown y=2024 t=DungeonsDragonsDungeonMastersGuide | Dungeons & Dragons 2024 Dungeon Master's Guide -- Dungeons & Dragons 2024 Dungeon Master's Guide -- cc378ee7430db3ef21ec1644ea945854 -- Anna’s Archive.pdf
+a=Duran y=0000 t=Aztecs | Duran - The Aztecs (n.d.).pdf
+a=DuVal y=2024 t=NativeNations | DuVal - Native Nations (2024).pdf
+a=Gutman y=0000 t=AnatomyAuschwitzDeathCamp | editors) - Anatomy of the Auschwitz Death Camp (Yisrail Gutman Michael Bernebaum (n.d.).pdf
+a=Edwards y=2007 t=Cambodge | Edwards - Cambodge (2007).pdf
+a=Eisner y=2006 t=Plot | Eisner - The Plot (2006).pdf
+a=Ospina y=0000 t=PaisCanela | El país de la canela -- Ospina William -- Literatura Random House, Primera edición, 1a- reimpresión, -- Penguin Random House Grupo Editorial S-A-S -- 9789585820777 -- e9d19101d3a028b159286a52bc270f05 -- Anna’s Archive.epub
+a=Ellis y=2018 t=AmericanDialogue | Ellis - American Dialogue (2018).pdf
+a=Emmert y=2009 t=ConfrontingYugoslavControversiesScholarsInitiative | Emmert, Thomas Allan- Ingrao, Charles W. - Confronting the Yugoslav controversies - a scholars’ initiative (2009, Purdue University Press).pdf
+a=Emon y=2012 t=ReligiousPluralismIslamicLaw | Emon - Religious Pluralism and Islamic Law (2012).pdf
+a=Shelley y=0000 t=EndgameWesternSaharaFutureAfricasColony | Endgame in the Western Sahara What Future for Africas Last Colony (Toby Shelley).pdf
+a=Engels y=2021 t=DealingSecurityCrisisBurkinaFaso | Engels - Dealing with the Security Crisis in Burkina Faso (2021).pdf
+a=Engels y=0000 t=PraktischEngels | Engels - Praktisch Engels (n.d.) (1) (2) (3).pdf
+a=Engels y=0000 t=PraktischEngels | Engels - Praktisch Engels (n.d.) (1) (2).pdf
+a=Engels y=0000 t=PraktischEngels | Engels - Praktisch Engels (n.d.) (1).pdf
+a=Engels y=0000 t=PraktischEngels | Engels - Praktisch Engels (n.d.).pdf
+a=Enjoyed y=0000 t=MotivateReasonsPickingProject | enjoyed - To motivate my reasons for picking this project I think it is important to give a little backstory of (n.d.).pdf
+a=Baroja y=1979 t=Español | Español - Caro Baroja, Julio (1979).pdf
+a=Esposito y=2011 t=EveryoneNeedsKnowIslam | Esposito - What Everyone Needs to Know about Islam (2011).pdf
+a=Unknown y=0000 t=EstudiosSaharianos | Estudios-saharianos.pdf
+a=Ethridge y=2010 t=ChicazaChickasaw | Ethridge - From Chicaza to Chickasaw (2010).pdf
+a=Unknown y=0000 t=EtudesAfricaines | etudesafricaines-214.pdf
+a=Europa y=0000 t=OnlineTicket | Europa - Online-Ticket (n.d.).pdf
+a=Europe y=0000 t=CopyEnvironmentalOrganisationsFuture | Europe - Copy of Environmental organisations of the future (n.d.).pdf
+a=Treuer y=0000 t=IndiansAfraidAsk | Everything You Wanted to Know About Indians But Were Afraid to Ask (Treuer, Anton).pdf
+a=Examination y=1982 t=InstituteMineralTitleExamination | Examination - Institute on Mineral Title Examination II (1982).pdf
+a=Unknown y=0000 t=EyesMachineAiAssistedSatelliteArchaeological | eyes-of-the-machine-ai-assisted-satellite-archaeological-survey-in-the-andes.pdf
+a=Rosling y=0000 t=Factfulness | Factfulness (Hans Rosling, Ola Rosling etc.) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Fagan y=2023 t=PeopleEarth | Fagan - People of the Earth (2023).pdf
+a=Fain y=0000 t=ChapterApril | Fain - Chapter · April 2024 (n.d.).pdf
+a=Fallaci y=1976 t=InterviewHistory | Fallaci - Interview with History (1976).pdf
+a=Fanon y=2004 t=WretchedEarth | Fanon - The Wretched of the Earth (2004).pdf
+a=FCSH y=0000 t=VLInternationalConference | FCSH) - VL INTERNATIONAL CONFERENCE ON THE (n.d.).pdf
+a=Fearenside y=0000 t=IntermediateText | Fearenside - The intermediate text (n.d.).pdf
+a=Hidayatullah y=0000 t=FeministEdgesQur’an | Feminist Edges of the Qur’an (Aysha A. Hidayatullah) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Festivals y=0000 t=MexicanManuscript | Festivals - MEXICAN MANUSCRIPT 385 (n.d.).pdf
+a=Grumet y=0000 t=FirstManhattansHistoryIndiansNewYork | First Manhattans A History of the Indians of Greater New York (Robert S. Grumet) (z-library.sk, 1lib.sk, z-lib.sk)-1.pdf
+a=Grumet y=0000 t=FirstManhattansHistoryIndiansNewYork | First Manhattans A History of the Indians of Greater New York (Robert S. Grumet) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t=FO | FO-882-2-01.pdf
+a=Unknown y=0000 t=FO | FO-882-2-02.pdf
+a=Found y=0000 t=HighSchoolDecidedEnrollUniversity | found - high school and decided to enroll in university. I failed hard at university and at the end of the year I was (n.d.) (1).pdf
+a=Found y=0000 t=HighSchoolDecidedEnrollUniversity | found - high school and decided to enroll in university. I failed hard at university and at the end of the year I was (n.d.).pdf
+a=Fox y=1950 t=EarlyCulturesNorth | Fox - The Early Cultures of North (1950).pdf
+a=Jackson y=0000 t=FranceDarkYears | France The Dark Years, 1940-1944 (Julian T. Jackson) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t=FranceCommonDenominatorBehindAfricasCoups | FrancehasbecomethecommondenominatorbehindAfricasrecentcoups-AfricaatLSE.pdf
+a=Cooper y=1973 t=FrederickCooper | Frederick Cooper - Frederick Cooper (1973).pdf
+a=Unknown y=0000 t=FrenchInterventionismSahel | French-interventionism-in-the-Sahel.pdf
+a=Fridriksd6ottir y=0000 t=JohannaKatrinFridriksd6ottir | Fridriksd6ottir - Johanna Katrin Fridriksd6ottir (n.d.).pdf
+a=Friðriksdóttir y=2013 t=WomenOldNorseLiterature | Friðriksdóttir - Women in Old Norse Literature (2013).pdf
+a=Fry y=2020 t=Troy | Fry - Troy (2020).pdf
+a=Gallagher y=2000 t=MythLostCauseCivilWarHistory | Gallagher - The Myth of the Lost Cause and Civil War History (2000).pdf
+a=Games y=0000 t=FGGGRAPFEBook | Games - FGGGRAPFE.pdf (n.d.) (1).pdf
+a=Games y=0000 t=FGGGRAPFEBook | Games - FGGGRAPFE.pdf (n.d.).pdf
+a=Games y=0000 t=GrimHollowMonsterGrimoire | Games - Grim Hollow The Monster Grimoire (n.d.).pdf
+a=Gardela y=2013 t=WarriorWomenViking | Gardela-L-2013-Warrior-women-in-Viking-A.pdf
+a=Geary y=2003 t=MythNations | Geary - The Myth of Nations (2003).pdf
+a=Fallwell y=0000 t=GenderRepresentationEvil | Gender and the Representation of Evil (Lynne Fallwell Keira V Williams).pdf
+a=Bauer y=0000 t=GenderHierarchyQurānMedievalInterpretations | Gender Hierarchy in the Qurān Medieval Interpretations, Modern Responses (Karen Bauer) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Genocide y=0000 t=KillingOrders | Genocide - Killing Orders (n.d.).pdf
+a=Pantoja y=2019 t=GenocidioSelknam | GENOCIDIO-SELKNAM-2019-Miguel-Pantoja.pdf
+a=Geography y=0000 t=ModernGeographySimplifiedSociety | geography - Modern geography simplified, by a member of the society of friends (n.d.).pdf
+a=Georgia y=0000 t=SynevoGeorgia | Georgia - Synevo Georgia (n.d.).pdf
+a=Gibson y=1966 t=SpainAmerica | Gibson - Spain in America (1966).pdf
+a=Gibson y=1964 t=AztecsSpanishRule | Gibson - The Aztecs Under Spanish Rule (1964).pdf
+a=Glenny y=2012 t=Balkans | Glenny - The Balkans (2012).pdf
+a=Gocek y=2014 t=DenialViolence | Gocek - Denial of Violence (2014) (1).pdf
+a=Gocek y=2014 t=DenialViolence | Gocek - Denial of Violence (2014).pdf
+a=Golan y=1992 t=MoscowMiddleEast | Golan - Moscow and the Middle East (1992).pdf
+a=Goodrick-Clarke y=2001 t=BlackSun | Goodrick-Clarke - Black Sun (2001).pdf
+a=Goodrick-Clarke y=1993 t=OccultRootsNazism | Goodrick-Clarke - Occult Roots of Nazism (1993).pdf
+a=Göttsche y=2019 t=IntegratedApproachNuclearArchaeology | Göttsche - An Integrated Approach to Nuclear Archaeology (2019) (1).pdf
+a=Göttsche y=2019 t=IntegratedApproachNuclearArchaeology | Göttsche - An Integrated Approach to Nuclear Archaeology (2019).pdf
+a=Graves y=0000 t=TruthProtocols | Graves - The truth about The protocols (n.d.).pdf
+a=Green y=0000 t=RereadingBlackLegend | Green - Rereading the Black Legend (n.d.).pdf
+a=Greenberg y=2016 t=RepublicSpin | Greenberg - Republic of Spin (2016).pdf
+a=Greenberg y=2017 t=RepublicSpinInsideHistoryAmericanPresidency | Greenberg--David-Republic-of-spin--an-inside-history-of-the-American-presidency--2017--W.-W.pdf
+a=Unknown y=0000 t=GrimhollowPlayerGuide | grimhollow player guide.pdf (k).pdf
+a=Unknown y=0000 t=GrimhollowSubclasses | grimhollow subclasses-1.pdf
+a=Diamond y=2017 t=GunsGermsSteelHumanSocieties | Guns, Germs, and Steel - The Fates of Human Societies (20th anniversary edition 2017) [CIVILIZATIONS RISE AND FALL 1] (Jared Diamond) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Diamond y=2017 t=GunsGermsSteelHumanSocieties | Guns, Germs, and Steel - The Fates of Human Societies (20th anniversary edition 2017) [CIVILIZATIONS RISE AND FALL 1] (Jared Diamond) (z-library.sk, 1lib.sk, z-lib.sk)(1).epub
+a=Diamond y=0000 t=GunsGermsSteelFatesHumanSocieties | Guns, germs, and steel the fates of human societies (Jared M. Diamond [Diamond, Jared M.]).pdf
+a=Unknown y=0000 t=HNetReviews | h-net-reviews-1.pdf
+a=Unknown y=0000 t=HNetReviews | h-net-reviews.pdf
+a=Hage y=0000 t=MicrosoftWordGelterNorwegianFriluftliv | hage - Microsoft Word - Gelter-Norwegian J of Friluftliv.doc (n.d.).pdf
+a=Unknown y=0000 t=Hageprot | hageprot.pdf
+a=Dupuy y=0000 t=HaitiWorldEconomyClassRaceUnderdevelopment | Haiti in the World Economy Class, Race, and Underdevelopment Since 1700 (Alex Dupuy) (Z-Library).pdf
+a=Dubois y=0000 t=HaitiAftershocksHistory | Haiti The Aftershocks of History (Dubois Laurent) (Z-Library).pdf
+a=Gaffield y=0000 t=HaitianConnectionsAtlanticWorldRecognitionRevolution | Haitian Connections in the Atlantic World Recognition After Revolution (Julia Gaffield) (Z-Library).pdf
+a=Plutarch y=0000 t=HarvardClassicsPlutarchLives | Harvard Classics Volume 12 Plutarchs Lives of Themistocles, Pericles, Aristides, Alcibiades and Coriolanus and Demosthenes… (Plutarch John Dryden Arthur Hugh Clough) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Hassan y=2022 t=AnalysisBaiahAlMawt | Hassan-AnalysisBaiahAlMawt-2022.pdf
+a=Hau y=2016 t=Herodotus | Hau-Herodotus-2016.pdf
+a=Hauben y=1977 t=HaubenBook | hauben1977.pdf
+a=Hemming y=1978 t=RedGold | Hemming - Red Gold (1978) (1) (2).pdf
+a=Hemming y=1978 t=RedGold | Hemming - Red Gold (1978) (1).pdf
+a=Hemming y=1978 t=RedGold | Hemming - Red Gold (1978).pdf
+a=Brussels y=0000 t=EnergyCertificates1MWhDeliveredNet | Here in Brussels - energy certificates’, which are certificates you get per 1MWh delivered to the net, and can be traded (n.d.).pdf
+a=Hilberg y=2003 t=DestructionEuropeanJews | Hilberg - The Destruction of the European Jews (2003).pdf
+a=Unknown y=0000 t=HistoriaGeneralPerúComentariosReales | Historia-general-del-Perú,-o-Comentarios-reales-de-los-incas-(Tomo-I).pdf
+a=Pazzanita y=0000 t=HistoricalDictionaryWesternSahara | Historical Dictionary of Western Sahara (Volume 96) -- Pazzanita, Anthony G-, 1959- -- Historical dictionaries of Africa ;, no- 96, 3rd ed-, -- The -- 9780810855403 -- 41958cbc9d05673e4486cdc829ac7980 -- Anna’s Archive.pdf
+a=OCallaghan y=0000 t=HistoryNewNetherlandNewYorkDutch | History of New Netherland or, New York under the Dutch (Edmund Bailey OCallaghan) (z-library.sk, 1lib.sk, z-lib.sk)-1 - converted.pdf
+a=OCallaghan y=0000 t=HistoryNewNetherlandNewYorkDutch | History of New Netherland or, New York under the Dutch (Edmund Bailey OCallaghan) (z-library.sk, 1lib.sk, z-lib.sk)-1_compressed.pdf
+a=OCallaghan y=0000 t=HistoryNewNetherlandNewYorkDutch | History of New Netherland or, New York under the Dutch (Edmund Bailey OCallaghan) (z-library.sk, 1lib.sk, z-lib.sk)-1.pdf
+a=OCallaghan y=0000 t=HistoryNewNetherlandNewYorkDutch | History of New Netherland or, New York under the Dutch (Edmund Bailey OCallaghan) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Hitchens y=1997 t=HostageHistory | Hitchens - Hostage to History (1997).pdf
+a=Hobsbawm y=1992 t=NationsNationalism | Hobsbawm - Nations and Nationalism Since 1780 (1992).pdf
+a=HolmesHenderson y=2025 t=AncientHistoryEducation | HOLMESHENDERSON-AncientHistoryEducation-2025.pdf
+a=Hudson y=0000 t=LRWilliams | Hudson - LR15 Williams (n.d.).pdf
+a=Moyn y=0000 t=HumanRightsUsesHistory | Human Rights and the Uses of History - Expanded Second -- Samuel Moyn.pdf
+a=Ibanez y=0000 t=DiseaseReadBones | Ibanez - the disease read in the bones (n.d.).pdf
+a=Unknown y=0000 t=ProblemHttps | If there's a problem - https (n.d.).pdf
+a=Antil y=2024 t=IfriFrenchPolicyAfrica | ifri-antil-vircoulon-french-policy-africa-2024.pdf
+a=Unknown y=0000 t=ImaArticle | ima-article-p173-10.pdf
+a=Anderson y=0000 t=ImaginedCommunities | Imagined-Communities--Benedict-Anderson---Z-Library-.pdf
+a=Wright y=0000 t=ImpunityHumanRightsDemocracyChileArgentina | Impunity, Human Rights, and Democracy Chile and Argentina, 1990-2005 (Thomas C. Wright) (Z-Library).pdf
+a=McKillop y=0000 t=MayaSeaTraders | In Search of Maya Sea Traders (Heather McKillop) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Vega y=0000 t=HistoriaGeneralPerúComentariosReales | Inca) - Historia general del Perú ó Comentarios reales de los Incas Por el Inca Garcilaso de la Vega (n.d.).pdf

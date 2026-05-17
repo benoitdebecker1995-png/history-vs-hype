@@ -1,0 +1,41 @@
+Warning: True color (24-bit) support not detected. Using a terminal with true color enabled will result in a better visual experience.
+YOLO mode is enabled. All tool calls will be automatically approved.
+YOLO mode is enabled. All tool calls will be automatically approved.
+Ripgrep is not available. Falling back to GrepTool.
+Warning: Could not read directory D:\History vs Hype\.pytest_cache: EPERM: operation not permitted, scandir 'D:\History vs Hype\.pytest_cache'
+```text
+=== FILE: Notes on the Manhattan Purchase.pdf ===
+(1) Notes on the Manhattan Purchase
+(2) Not explicitly stated
+(3) Not explicitly given
+(4) The Gotham Center for New York History
+(5) WORKING DOCUMENT
+
+=== FILE: Unknown - untitled (n.d.) (1).pdf ===
+(1) The United Daughters of the Confederacy: Dixie's Daughters
+(2) Karen L. Cox
+(3) Not explicitly given
+(4) Florida A&M University, Florida Atlantic University, Florida Gulf Coast University, Florida International University, Florida State University, University of Central Florida, University of Florida, University of North Florida, University of South Florida, University of West Florida
+(5) ACADEMIC SOURCE
+
+=== FILE: Unknown - untitled (n.d.) (1) (2).pdf ===
+(1) The United Daughters of the Confederacy: Dixie's Daughters
+(2) Karen L. Cox
+(3) Not explicitly given
+(4) Florida A&M University, Florida Atlantic University, Florida Gulf Coast University, Florida International University, Florida State University, University of Central Florida, University of Florida, University of North Florida, University of South Florida, University of West Florida
+(5) ACADEMIC SOURCE
+
+=== FILE: Card - ORIGINAL RESEARCH (n.d.).pdf ===
+(1) Results From the Republic of Slovenia’s 2016 Report Card on Physical Activity for Children and Youth
+(2) Vedrana Sember, Gregor Starc, Gregor Jurak, Mojca Golobič, Marjeta Kovač, Poljanka Pavletič Samardžija, Shawnda A. Morrison
+(3) 2016
+(4) Journal of Physical Activity and Health, Human Kinetics, Inc., University of Primorska, University of Ljubljana
+(5) ACADEMIC SOURCE
+
+=== FILE: Archival - Integrated Archaeological Research Archival (n.d.).pdf ===
+(1) Integrated Archaeological Research: Archival Resources, Surveys, Geophysical Prospection and Excavation Approach at an Execution and Burial Site: The German Nazi Labour Camp in Treblinka
+(2) Sebastian Ró˙zycki, Rafał Zapłata, Jerzy Karczewski, Andrzej Ossowski, Jacek Tomczyk
+(3) 2020
+(4) Geosciences, Warsaw University of Technology, Cardinal Stefan Wyszynski University in Warsaw, AGH University of Science and Technology, Pomeranian Medical University in Szczecin
+(5) ACADEMIC SOURCE
+```

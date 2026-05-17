@@ -1,0 +1,78 @@
+For a YouTube video on the Spanish Inquisition (1484-1700) — focused on Torquemada's Instrucciones, Article XV, the loophole architecture of the rules, and the experience of conversos under the system — identify specific PUBLIC-DOMAIN B-roll sources for the following talking-head segments.
+
+For each segment, provide 2-3 candidate sources. Format each as:
+
+- **Source name** (year, author/origin)
+- **Where to find:** archive.org / Wikimedia Commons / HathiTrust / LoC / gallica.bnf.fr / pares.mcu.es — give a URL or specific search term
+- **Why it fits:** one-line rationale
+- **Caveat:** if any (low resolution, attribution disputed, etc.)
+
+NEVER suggest AI-generated imagery. Public-domain originals only — engravings, portraits, primary documents, period maps, scholar book covers if relevant. Prefer pre-1900 originals.
+
+The video's visual language: documentary, no slop, citation tags lower-right, primary sources on screen. Avoid generic "torture chamber" clichés unless a specific famous engraving (e.g., Limborch fold-out plates) is the source.
+
+---
+
+SEGMENTS:
+
+## Segment 1 — Black Legend hook (00:00 → 00:11)
+
+**Spoken:** "Everyone thinks they know what the Spanish Inquisition was. Torture chambers, thumbscrews, dungeons where people disappeared, centuries of religious terror operating entirely outside the law."
+
+**Topic:** "Black Legend" / Protestant anti-Inquisition propaganda imagery — establishing the MYTH that the rest of the video will dismantle. The viewer should see the famous propaganda engravings that built the popular image.
+
+**Mood:** Dramatic, slightly ominous. These are the images everyone knows.
+
+---
+
+## Segment 2 — Torquemada and Hassner intro (00:43 → 01:05)
+
+**Spoken:** "The Instrucciones were written in 1484 by Tomás de Torquemada, the first Grand Inquisitor. It contained the rules for everything: how to investigate suspected heretics, how to interrogate them, how to torture them, how to sentence them. Ron Hassner, a political scientist at UC Berkeley, spent years in the Inquisition archives. Here's what he found."
+
+**Topic:** Introducing the historical figure (Torquemada, contemporary portrait if possible) and the modern scholar (Ron Hassner, *Anatomy of Torture*, Cornell University Press 2022, book cover).
+
+**Mood:** Establishing — face → archive → quote. Visual handoff from the historical figure to the scholar.
+
+---
+
+## Segment 3 — CIA contrast (01:18 → 01:32)
+
+**Spoken:** "After 9-11, CIA interrogators tortured rashly with no oversight and no records. Hassner called that 'hot-blooded torture, improvised, vindictive, and reserved for whoever seemed guilty.'"
+
+**Topic:** Modern parallel — CIA Detention and Interrogation Program. The video already plans to show the SSCI 2014 report cover. Looking for ADDITIONAL period sources: declassified CIA documents (heavy redaction), the Senate Select Committee on Intelligence study cover/excerpts, Abu Ghraib should NOT be shown (too gratuitous; we want the institutional/documentary contrast, not the famous photographs).
+
+**Mood:** Cold, bureaucratic — paperwork-as-evidence, not gore.
+
+---
+
+## Segment 4 — Díaz de Cáceres backstory (04:18 → 05:05)
+
+**Spoken:** "Antonio Díaz de Cáceres is brought to the torture chamber. He's been in an Inquisition cell since December 1596. The charge? Judaizing — secretly practicing Jewish rites after forced conversion to Christianity. His family members have already testified against him. After his first interrogation in 1597, he sat in his cell for nearly three years without questions or contact. The Inquisition kept prisoners incommunicado."
+
+**Topic:** Spanish colonial Mexico Inquisition (Mexico City), Jewish/converso community in New Spain, Inquisition prison conditions, the AGN (Archivo General de la Nación) holdings.
+
+**Mood:** Period and place setting — viewer needs to feel "Mexico City, 1596-1601."
+
+---
+
+## Segment 5 — Conversos as targeting machine (06:13 → 06:37)
+
+**Spoken:** "The Inquisition wasn't operating against the whole population. It was a targeting machine aimed almost entirely at conversos. Descendants of Jews and Muslims forced to convert to Christianity. The 3,000 executions weren't spread evenly. They concentrated on the people the Spanish state never quite trusted to be Christian."
+
+**Topic:** Conversos, *limpieza de sangre* (blood purity statutes), 1492 expulsion of Jews from Spain, sanbenitos (penitential garments hung in churches), maps of converso population centers.
+
+**Mood:** Documentary specificity — show the system's targeting mechanism via period documents and maps, not abstract concepts.
+
+---
+
+## Segment 6 — Generational fear coda (06:57 → 07:12)
+
+**Spoken:** "This is what the system produced. Not just 3,000 executions, but generational fear. The rules weren't there to protect the accused. They were there to make the Inquisition run efficiently and harder to escape."
+
+**Topic:** Lived experience under the Inquisition — anti-Jewish edicts, processions of penitents (autos de fe), familiares (lay informants), the social atmosphere of denunciation.
+
+**Mood:** Atmospheric closing — the system's ambient weight, not specific events.
+
+---
+
+Output as a markdown file with one ## section per segment, each containing the suggested sources. Be specific with names, years, URLs, and search terms. Prefer sources that are immediately findable.

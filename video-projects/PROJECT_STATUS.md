@@ -1,13 +1,13 @@
 <!-- AUTO:reconcile-dashboard — regenerated each run, do not edit -->
-Last reconciled: 2026-05-11
+Last reconciled: 2026-05-14
 
 ## Lifecycle counts
 
 | Bucket | Count |
 |---|---|
-| `_IN_PRODUCTION/` (pre-script / scripting / fact-check) | 25 |
-| `_READY_TO_FILM/` (script-locked / filmed / in-post, pre-publish) | 2 |
-| `_ARCHIVED/published/` (YouTube confirmed) | 28 |
+| `_IN_PRODUCTION/` (pre-script / scripting / fact-check) | 26 |
+| `_READY_TO_FILM/` (script-locked / filmed / in-post, pre-publish) | 1 |
+| `_ARCHIVED/published/` (YouTube confirmed) | 29 |
 
 ## In production
 
@@ -36,6 +36,7 @@ Last reconciled: 2026-05-11
 | `5-netanyahu-map-2025` | idea |
 | `52-hijab-women-rights-2026` | scripting |
 | `55-falklands-malvinas-2026` | research |
+| `56-no-lassos-atlantic-slave-trade-origin-2026` | fact-checked |
 | `8-medieval-women-2025` | idea |
 | `9-communism-definition-2025` | scripting |
 
@@ -44,24 +45,25 @@ Last reconciled: 2026-05-11
 | Folder | Phase |
 |---|---|
 | `1-sykes-picot-2025` | filmed |
-| `54-spanish-inquisition-torture-rules-2026` | filmed |
 
 ## Recently published (last 60 days)
 
 | Published | Folder | Video ID | Title |
 |---|---|---|---|
+| 2026-05-13 | `54-spanish-inquisition-torture-rules-2026` | `rbsdtveYvv0` | The Spanish Inquisition Wrote Its Own Torture Manual. Paragr |
 | 2026-05-08 | `45-manhattan-purchase-myth-2026` | `mg6ujk6rDVE` | The Lenape Never Sold Manhattan. Every Piece Was Forged |
 | 2026-04-30 | `51-treaty-tripoli-article-11-2026` | `liW4BSh46DU` | Treaty of Tripoli: The Most-Cited Line Isn’t in the Arabic T |
 | 2026-04-16 | `44-bakassi-peninsula-2026` | `MXvTuHXSf3o` | Nigeria vs Cameroon. The Court Chose Paper Over People |
 | 2026-04-11 | `50-thermopylae-sources-2026` | `yetYD9_VcmM` | The Myths of Thermopylae: Fake Quotes & Missing Soldiers |
 | 2026-03-18 | `41-treaty-tordesillas-2026` | `WgE2FLsDhfk` | Two Countries Split a Continent They Had Never Mapped |
 
-## All archived (28 folders)
+## All archived (29 folders)
 
 _Full list in `_ARCHIVED/published/`. Reverse-chronological by publish date below._
 
 | Published | Folder | Video ID |
 |---|---|---|
+| 2026-05-13 | `54-spanish-inquisition-torture-rules-2026` | `rbsdtveYvv0` |
 | 2026-05-08 | `45-manhattan-purchase-myth-2026` | `mg6ujk6rDVE` |
 | 2026-04-30 | `51-treaty-tripoli-article-11-2026` | `liW4BSh46DU` |
 | 2026-04-16 | `44-bakassi-peninsula-2026` | `MXvTuHXSf3o` |

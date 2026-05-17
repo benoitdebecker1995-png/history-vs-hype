@@ -1,0 +1,65 @@
+{
+  "scanned_sources": 6,
+  "total_articles": 113,
+  "projects": [
+    {
+      "slug": "45-manhattan-purchase-myth-2026",
+      "keywords": [
+        "manhattan",
+        "lenape",
+        "native american",
+        "indigenous",
+        "new york history",
+        "colonial",
+        "land rights",
+        "peter minuit",
+        "ny400"
+      ]
+    },
+    {
+      "slug": "5-netanyahu-map-2025",
+      "keywords": [
+        "borders",
+        "netanyahu"
+      ]
+    }
+  ],
+  "hits": {
+    "45-manhattan-purchase-myth-2026": [
+      {
+        "title": "Dark clouds, protests and resignations dampen start of 61st Venice Biennale",
+        "summary": "Russian pavilion to stay closed as outcry over Israel\u2019s inclusion also grows \u2013 but nesting seagull provides some light relief  The 61st Venice Biennale vernissage began on Tuesday under grey clouds and rain showers, as political tension, parties and protest dominated proceedings at one of the art world\u2019s biggest events.  Lubaina Himid, the British entrant, who has spent a career creating work that picks at her country\u2019s colonial past, took over the UK\u2019s pavilion with her large-scale paintings and sound collage that recalls a \u201c perfect British summer\u2019s day \u201d.   Continue reading...",
+        "published": "Tue, 05 May 2026 18:02:05 GMT",
+        "url": "https://www.theguardian.com/artanddesign/2026/may/05/venice-biennale-protests-resignations-russia-israel",
+        "source": "The Guardian World",
+        "category": "world",
+        "matched_keywords": [
+          "colonial"
+        ]
+      }
+    ],
+    "5-netanyahu-map-2025": [
+      {
+        "title": "US push for Lebanon and Israel leaders to meet could inflame tensions",
+        "summary": "Lebanon&#039;s President Joseph Aoun is under pressure to meet with Israel&#039;s Benjamin Netanyahu on a US visit this month.",
+        "published": "Tue, 05 May 2026 18:38:54 +0000",
+        "url": "https://www.aljazeera.com/features/2026/5/5/us-push-for-lebanon-and-israel-leaders-to-meet-could-inflame-tensions?traffic_source=rss",
+        "source": "Al Jazeera All",
+        "category": "world",
+        "matched_keywords": [
+          "netanyahu"
+        ]
+      }
+    ]
+  },
+  "errors": [
+    {
+      "source": "Reuters World",
+      "error": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "source": "AP Top News",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+History YouTube Packaging System v1.0
+Single-Creator License
+
+You purchased this for use on YouTube channels you personally own and operate.
+
+You may:
+- Use the methodology and Python scripts on any number of channels you operate.
+- Modify the Python scripts to fit your needs.
+- Reference the methodology in your own work with credit
+  ("Methodology: History YouTube Packaging System").
+
+You may not:
+- Resell, redistribute, or share the PDF or scripts with others.
+- Build a competing product that incorporates substantial portions of the
+  methodology, scoring rules, or Python code.
+- Use the methodology to consult for clients without a separate commercial
+  license.
+
+For agency/team licenses or commercial-consulting use, contact the seller via
+your Gumroad receipt email.
+
+(c) 2026 History vs Hype.

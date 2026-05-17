@@ -1,0 +1,350 @@
+You are identifying academic books, journal articles, treaties, and primary
+documents from partial metadata + an excerpt of the first two pages of the
+PDF. For each entry below, search the web (Google Search grounding) to verify
+the work and return its full metadata.
+
+Each entry shows:
+  - The current filename (after prior parsing)
+  - Known fields: title slug, author surname, year, publisher
+  - 'Unknown' / '0000' = unresolved field
+  - A short excerpt from the first two pages of the PDF (may be empty if the
+    document is scanned image-only — proceed using the filename in that case)
+
+INSTRUCTIONS
+- Resolve EVERY missing field where you can find authoritative evidence.
+- Use Google Search grounding; cross-reference excerpt content + filename.
+- Do NOT guess. Mark UNRESOLVED if no high- or medium-confidence answer.
+- Confidence levels:
+    high   — primary source (publisher page, library catalogue, JSTOR)
+    medium — secondary source (Wikipedia, Google Books snippet)
+    low    — inference from excerpt only (rarely use; usually UNRESOLVED)
+- source_url is REQUIRED for any non-UNRESOLVED row.
+- publisher_abbrev MUST come from this list (use the closest match):
+  CambridgeUP, OxfordUP, YaleUP, PrincetonUP, ColumbiaUP, IndianaUP,
+  EdinburghUP, NYUPress, UCPress, JohnsHopkinsUP, HooverPress, PlutoPress,
+  Routledge, Palgrave, Bloomsbury, ITauris, HurstCo, ZedBooks, VersoBooks,
+  BasicBooks, RandomHouse, Penguin, Brill, Springer, DaCapo, FreePress,
+  Granta, WeidenfeldNicolson, CornellUP, StanfordUP, HarvardUP, LiverpoolUP,
+  MacmillanUK, NortonCo, HMSO, UN, ICJ, OECD, LHarmattan, Macmillan,
+  HoughtonMifflin, Serif.
+  If publisher is a journal article, use the journal abbreviation
+  (e.g. JModernHistory, IntlAffairs). If it is a government / IGO document,
+  use the issuer abbreviation (HMSO, UN, ICJ, FCO, etc.).
+
+OUTPUT
+Return a single markdown table with exactly these columns:
+
+| idx | title_slug | author_surname | year | publisher_abbrev | confidence | source_url |
+
+- idx: the integer from the entry header below.
+- title_slug: CamelCase, no spaces, no punctuation, ≤45 chars.
+- author_surname: surname only (e.g. Zinn, Akcam, Martinez — strip diacritics).
+- year: 4 digits, or 0000 if truly unknown.
+- All UNRESOLVED rows: put UNRESOLVED in every field except idx.
+
+Do NOT include any prose before or after the table.
+
+---
+
+ENTRIES:
+
+39. [general-history] AcademicArticle-Unknown-2011-Cambridge-University-Press.pdf
+   known: t=AcademicArticle | a=Unknown | y=2011 | p=Cambridge-University-Press
+   missing: author
+   excerpt: 'Infant and Child Burial Rites in Roman\nBritain: a Study from East Yorkshire\nBy MARTIN MILLETT and REBECCA GOWLAND\nABSTRACT\nThe discovery of infant burials on excavated domestic sites in Roman Britain is fairly common but\nin the past these burials have often been dismissed as a product of unceremonious disposal. There\nis a growing literature which considers the phenomenon, but it has been dominated by debates\naround the suggestion that these burials provide evidence for infanticide, with a focus on the\nosteological evidence for and against this hypothesis. There has been less systematic\nconsideration of the archaeological context of such burials. In this paper we examine the\nexcavated evidence of two large groups of such burials from sites in East Yorkshire which\ndemonstrate that the burial of neonatal infants followed a careful age-specific funerary rite. We\nsuggest that this conclusion further undermines the widespread assumption that infants were\ndisposed of without ceremony and as a result of infanticide.\nKeywords: Hayton; Shiptonthorpe; infant burial; cremation burial; Roman cemeteries; roadside\nsettlement\nINTRODUCTION: THE HYPOTHESIS OF INFANTICIDE1\nI\nnfant burials have been widely discovered on settlement sites in Roman Britain but there has\nhitherto been little attempt to understand them contextually. We contend that they deserve\ncareful study and analysis as an understanding of the rites surrounding their burial has the\npotential to contribute to a fuller and broader'
+
+40. [general-history] AcademicArticle-Unknown-2017-Cambridge-University-Press.pdf
+   known: t=AcademicArticle | a=Unknown | y=2017 | p=Cambridge-University-Press
+   missing: author
+   excerpt: 'Viking warrior women? Reassessing\nBirka chamber grave Bj.581\nNeil Price1,*, Charlotte Hedenstierna-Jonson1, Torun Zachrisson2,\nAnna Kjellström3, Jan Storå3, Maja Krzewińska3, Torsten Günther4,\nVerónica Sobrado3, Mattias Jakobsson5 & Anders Götherström3\nThe warrior woman has long been part of the\nViking image, with a pedigree that extends\nfrom the Valkyries of Old Norse prose and\npoetry\nto\nmodern\nmedia\nentertainment.\nUntil recently, however, actual Viking Age\nevidence for such individuals has been sparse.\nThis article addresses research showing that\nthe individual buried at Birka in an ‘arche-\ntypal’\nhigh-status\nwarrior\ngrave—always\nassumed to be male since its excavation in\n1878—is, in fact, biologically female. Publi-\ncation, in 2017, of the genomic data led to\nunprecedented public debate about this indi-\nvidual. Here, the authors address in detail\nthe interpretation of the burial, discussing\nsource-critical issues and parallels.\nKeywords: Sweden, Birka, Viking Age, female warriors, aDNA\nIntroduction\nThe Viking Age (c. AD 750–1050) witnessed a complex Scandinavian diaspora that brought\nfundamental and lasting transformations to the northern world (Brink & Price 2008). A\nthousand years later, the Vikings are among the most recognised—but also most\n1\nDepartment of Archaeology and Ancient History, University of Uppsala, Box 626, SE-751 26 Uppsala, Sweden\n2\nUpplandsmuseet, Drottninggatan 7, SE-752 10 Uppsala, Sweden\n3\nDepartment of Archaeology and Classical Studies, Stockholm U'
+
+41. [general-history] AcademicArticle-Unknown-2021-Cambridge-University-Press.pdf
+   known: t=AcademicArticle | a=Unknown | y=2021 | p=Cambridge-University-Press
+   missing: author
+   excerpt: 'Stretching 5000 km from the Atlantic Ocean in the West to the Red Sea in the East,\nthe Sahel is home to over 150 million people from ten1 countries. For the purposes\nof this edition, four Sahelian countries, Burkina Faso, Mali, Niger and Chad, have\nbeen the central focus. To varying degrees, Sahelians suffer from humanitarian\nissues brought about by armed conflicts and violent extremism in the region. In\naddition, although Sahelians are one of the smallest contributors of CO2 globally,\nthe region is among the worst hit by climate change,2 further exacerbating\nalready fragile humanitarian conditions in the region. The ongoing hostilities and\nfood insecurity, fuelled by both armed conflicts and climate change, have also led\nto displacement and large-scale migration of Sahelians both within the borders of\nthe States and throughout the region as a whole. In the beginning of the\npandemic, COVID-19 had become an additional complicating factor, which had\nrestricted humanitarian access in the region while armed conflict and violence\nhave increased.3\nArmed conflict in the Sahel\nOngoing clashes between armed forces and armed groups in the Sahel have forced\nmillions of civilians to flee their homes in various countries within the Sahel region.4\nMany of those who flee are farmers who can no longer till their land, thereby\nexacerbating an already existing food instability. As will be seen below, each\nconflict situation in the Sahel region is unique, with its own complex history and\ndivers'
+
+42. [general-history] AcademicArticle-Unknown-2023-Cambridge-University-Press.pdf
+   known: t=AcademicArticle | a=Unknown | y=2023 | p=Cambridge-University-Press
+   missing: author
+   excerpt: 'Research Article: GeoPACHA\nLarge-scale, collaborative imagery survey in\narchaeology: the Geospatial Platform for Andean\nCulture, History and Archaeology (GeoPACHA)\nStevenA.Wernke1,*\n,Parker Van Valkenburgh2,*\n, James Zimmer-Dauphinee1\n,\nBethany Whitlock2, Giles Spence Morrow1\n, Ryan Smith3, Douglas Smit4,\nGrecia Roque Ortega5, Kevin Ricci Jara5, Daniel Plekhov6\n,\nGabriela Oré Menéndez7\n, Scotti Norman8\n, Giancarlo Marcone9\n,\nManuel Mamani Calloapaza10, Lauren Kohut11\n, Carla Hernández Garavito12\n,\nSoﬁa Chacaltana-Cortez13\n& Elizabeth Arkush3\n1 Department of Anthropology, Vanderbilt University, Nashville, USA\n2 Department of Anthropology, Brown University, Providence, USA\n3 Department of Anthropology, University of Pittsburgh, USA\n4 Department of Anthropology, University of North Carolina at Chapel Hill, USA\n5 Facultad de Ciencias Sociales – Arqueología, Universidad Nacional Mayor de San Marcos, Lima, Peru\n6 Anthropology Department, Portland State University, Portland, USA\n7 Department of Anthropology, University of Nevada, Las Vegas, USA\n8 Department of Sociology and Anthropology, Warren Wilson College, Asheville, USA\n9 Dirección de Humanidades Artes y Ciencias Sociales,Universidad de Ingenieria y Tecnología, Lima, Peru\n10 Facultad de Ciencias Histórico Sociales, Universidad Nacional de San Agustín, Arequipa, Peru\n11 Department of Environmental Studies, Winthrop University, Rock Hill, USA\n12 Anthropology Department, University of California, Santa Cruz, USA\n13 Programa de Hum'
+
+43. [general-history] ActivitiesEuropeanUnionSmallMedium-DG-2005-Unknown.pdf
+   known: t=ActivitiesEuropeanUnionSmallMedium | a=DG | y=2005 | p=Unknown
+   missing: publisher
+   excerpt: 'The European \nQualifications \nFramework:\nsupporting learning, work and \ncross-border mobility\n10th Anniversary\nSocial Europe\n---PAGE---\nManuscript completed in February 2018\n1st edition\nNeither the European Commission nor any person acting on behalf of the Commission is responsible for the use that \nmight be made of the following information.\nLuxembourg: Publications Office of the European Union, 2018\n© European Union, 2018\nStock images: © Shutterstock.com\nReuse is authorised provided the source is acknowledged. \nThe reuse policy of European Commission documents is regulated by Decision 2011/833/EU \n(OJ L 330, 14.12.2011, p. 39).\nFor any use or reproduction of photos or other material that is not under the EU copyright, permission must be sought \ndirectly from the copyright holders.\nPrint ISBN 978-92-79-80383-3 doi:10.2767/750617 KE-01-18-211-EN-C\nPDF ISBN 978-92-79-80382-6 doi:10.2767/385613 KE-01-18-211-EN-N'
+
+44. [general-history] AdmittedOmarÁlvarez-Salas-2008-Unknown.pdf
+   known: t=AdmittedOmarÁlvarez | a=Salas | y=2008 | p=Unknown
+   missing: publisher
+   excerpt: '239\nCratylus and the reception of Heraclitus’ \ndoctrine in Athens\nOmar Álvarez Salas\nTo deal here with the problem of the reception of Heracli\xad\ntus’ thought in 5th – 4th century Athens, it may be useful to \nbegin by stating three premises that are likely to be admitted \nby anyone who is well versed in the tradition of Presocratic \nthought. First of all, Heraclitus was one of the most prominent \nand influential thinkers of the Presocratic era, widely known \nin Antiquity as a severe, contemptuous man in the habit of \nflatly debunking the doctrinal tenets of all others; furthermore, \nhe was not even given to social intercourse,1 and he did not \nhave any (known) followers or pupils in his lifetime.2 Second\xad\nly, Heraclitus’ book reached far beyond his native Ephesus,3 \nwhich can be clearly seen from the fact that arguably almost \nevery Greek thinker after him demonstrates a certain acquain\xad\n1 D. L. IX 1: μεγαλόφρων δὲ γέγονε παρ’ ὁντιναοῦν καὶ ὑπερόπτης, ὡς καὶ ἐκ \nτοῦ συγγράμματος αὐτοῦ δῆλον ἐν ᾧ φησι “πολυμαθίη … κτλ.” (= 22 B 40 DK), di\xad\nrected against the vast learning of Hesiod, Pythagoras, Xenophanes and Hecataeus, \nafter which comes 22 B 42 DK: τόν τε Ὅμηρον ἔφασκεν ἄξιον ἐκ τῶν ἀγώνων \nἐκβάλλεσθαι καὶ ῥαπίζεσθαι καὶ Ἀρχίλοχον ὁμοίως, which castigates Homer and \nArchilochus. The sole exceptions of his contempt are Bias and Hermodorus, both \nof whom he seems to have valued highly —D. L. I 88 (= 22 B 39 DK), IX 2 (= \n22 B 121 DK).\n2 D. L. VIII 91, where Heraclitus is mention'
+
+45. [general-history] AhnenerbeSSKulturpolitikDrittenReiches-Kater-1935-Unknown.pdf
+   known: t=AhnenerbeSSKulturpolitikDrittenReiches | a=Kater | y=1935 | p=Unknown
+   missing: publisher
+   excerpt: 'Michael H. Kater\nDas „Ahnenerbe" der SS 1935-1945\n---PAGE---\nStudien zur Zeitgeschichte\nHerausgegeben vom Institut für Zeitgeschichte\nBand 6\nR. Oldenbourg Verlag München 2006'
+
+46. [general-history] AlsJeVoorHetEerstDeelneemt-Leuridan-2020-Unknown.pdf
+   known: t=AlsJeVoorHetEerstDeelneemt | a=Leuridan | y=2020 | p=Unknown
+   missing: publisher
+   excerpt: 'Handleiding Zoom voor studenten – versie 2020 \nMeest recente informatie over Zoom vind je via deze link (Engelstalig). \n1 \nHandleiding Zoom voor studenten \n \nBeste student, \n \nAls je voor het eerst deelneemt aan een les met Zoom, bekijk dan dit document grondig van \ntevoren. \nVoor de les: opstartinstructies \n \n1. Gebruik bij voorkeur een computer met audio en microfoon. De microfoon van je \ncomputer/laptop is voldoende, maar met oortjes/hoofdtelefoon (met ingebouwde \nmicrofoon) beperk je het omgevingslawaai. Een telefoon of tablet met Zoom-app (via de App \nStore of Google Play) is ook mogelijk, maar kan de leesbaarheid van teksten belemmeren. \n \n2. Start je pc minstens 5 minuten voor je les begint. \n \n3. Zorg dat je een goede WIFI-verbinding hebt, bij voorkeur een bekabeld netwerk. \n \n4. Controleer eventueel je computerinstellingen. Dat kan via https://support.zoom.us/hc/en-\nus/articles/115002262083. \n \n5. Ga naar ufora.ugent.be en log in. Gebruik hiervoor de nieuwste versie van Chrome, Firefox of \nEdge (Chromium-versie). Ook bij Mac-apparaten gebruik je Chrome, Firefox of Edge. \n \n6. Ga naar de juiste Ufora-cursus. \n \n7. Klik op de Zoom-link die je docent heeft gecommuniceerd, bijv. via de Agenda-tool. De eerste \nkeer dat je met Zoom werkt, zal je de Zoom Client for Meetings-app moeten downloaden via \nhttps://zoom.us/download. \n \n8. Installeer Zoom \na. Open het installatiebestand\n---PAGE---\nHandleiding Zoom voor studenten – versie 2020 \nMeest recente informatie over Zoom vin'
+
+47. [general-history] AmericanJewishHistory-Unknown-2015-JohnsHopkinsUP.pdf
+   known: t=AmericanJewishHistory | a=Unknown | y=2015 | p=JohnsHopkinsUP
+   missing: author
+   excerpt: 'American Jewish Historical Society\nThe American Career of the "Protocols of the Elders of Zion"\nAuthor(s): Robert Singerman\nSource: American Jewish History, Vol. 71, No. 1 (September 1981), pp. 48-78\nPublished by: The Johns Hopkins University Press\nStable URL: http://www.jstor.org/stable/23882005 .\nAccessed: 10/02/2015 05:25\nYour use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at .\nhttp://www.jstor.org/page/info/about/policies/terms.jsp\n .\nJSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide range of\ncontent in a trusted digital archive. We use information technology and tools to increase productivity and facilitate new forms\nof scholarship. For more information about JSTOR, please contact support@jstor.org.\n .\nThe Johns Hopkins University Press and American Jewish Historical Society are collaborating with JSTOR to\ndigitize, preserve and extend access to American Jewish History.\nhttp://www.jstor.org \nThis content downloaded from 128.122.253.212 on Tue, 10 Feb 2015 05:25:48 AM\nAll use subject to JSTOR Terms and Conditions\n---PAGE---\nThe American \nCareer \nof the \nProtocols \nof the Elders \nof Zion \nRobert \nSingerman \nWriting of the notorious forgery, the Protocols \nof the Elders of \nZion, Hugo Valentin has noted, "It is no exaggeration to say that \nthey cost the lives of many thousands of innocent persons and that \nmore blood and tears cling to their pages than to thos'
+
+48. [general-history] AnalysisBaiahAlMawt-Hassan-2022-Unknown.pdf
+   known: t=AnalysisBaiahAlMawt | a=Hassan | y=2022 | p=Unknown
+   missing: publisher
+   excerpt: 'An Analysis of Bai`ah Al-Mawt (Pledge of Death) in Jihadist Groups’ Practice and Islamic \nTradition\n \nAuthor(s): Muhammad Haniff Hassan \nSource: Counter Terrorist Trends and Analyses , June 2022, Vol. 14, No. 3 (June 2022), pp. \n24-30\n \nPublished by: International Centre for Political Violence and Terrorism Research \nStable URL: https://www.jstor.org/stable/10.2307/48676738\nJSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide \nrange of content in a trusted digital archive. We use information technology and tools to increase productivity and \nfacilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org. \n \nYour use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at \nhttps://about.jstor.org/terms\nInternational Centre for Political Violence and Terrorism Research is collaborating with JSTOR to \ndigitize, preserve and extend access to Counter Terrorist Trends and Analyses\nThis content downloaded from \n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00181.91.84.68 on Mon, 30 Mar 2026 22:16:31 UTC\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00 \nAll use subject to https://about.jstor.org/terms\n---PAGE---\nAn Analysis of Bai`ah Al-Mawt (Pledge of Death) in Jihadist Groups’ Practice and Islamic Tradition \n \n24 \n \nAn Analysis of Bai`ah Al-Mawt (Pledge of \nDeath) in Jihadist Groups’ Practice and \nIslamic Tradition \n \nMuhammad Haniff Hassan\n \n \nThis article examines the idea and practice of Bai`ah Al-Mawt (pl'
+
+49. [general-history] AnatomyAuschwitzDeathCamp-Gutman-1994-Unknown.pdf
+   known: t=AnatomyAuschwitzDeathCamp | a=Gutman | y=1994 | p=Unknown
+   missing: publisher
+   excerpt: 'Editors\nYISRAEL GUTMAN AND \nMICHAEL BERENBAUM\nPublished in association with the UNITED STATES HOLOCAUST\nMEMORIAL MUSEUM\n---PAGE---\nANATOMY of the\nAUSCHWITZ \nDEATH CAMP'
+
+50. [general-history] AncientHistoryEducation-HolmesHenderson-2025-Unknown.pdf
+   known: t=AncientHistoryEducation | a=HolmesHenderson | y=2025 | p=Unknown
+   missing: publisher
+   excerpt: 'Liverpool University Press\n \n \nChapter Title: Ancient History Education: Past and Present\n \nBook Title: Classical Civilisation and Ancient History in British Secondary Education\nBook Author(s): ARLENE HOLMES-HENDERSON and EDITH HALL\nPublished by: Liverpool University Press. (2025)\nStable URL: https://www.jstor.org/stable/jj.27374521.9\n \nJSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide\nrange of content in a trusted digital archive. We use information technology and tools to increase productivity and\nfacilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org.\n \nYour use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at\nhttps://about.jstor.org/terms\nThis book is licensed under a Creative Commons Attribution-NonCommercial-\nNoDerivatives 4.0 International License (CC BY-NC-ND 4.0). To view a copy of this license,\nvisit https://creativecommons.org/licenses/by-nc-nd/4.0/.\nLiverpool University Press is collaborating with JSTOR to digitize, preserve and extend\naccess to Classical Civilisation and Ancient History in British Secondary Education\nThis content downloaded from 181.91.84.68 on Mon, 30 Mar 2026 22:15:56 UTC\nAll use subject to https://about.jstor.org/terms\n---PAGE---\n61\n\ufeffCHAPTER 3\nAncient History Education: \nPast and Present\nAncient History Education\nIntroduction\nNinety years ago, Ancient History was taught as part of the'
+
+51. [general-history] AncientReligionAndArchaeology-Unknown-2003-Unknown.pdf
+   known: t=AncientReligionAndArchaeology | a=Unknown | y=2003 | p=Unknown
+   missing: author,publisher
+   excerpt: 'See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/234147797\nThe Archaeology of Ancient Religion in the Eastern Woodlands\nArticle\xa0\xa0in\xa0\xa0Annual Review of Anthropology · November 2003\nDOI: 10.1146/annurev.anthro.26.1.465\nCITATIONS\n68\nREADS\n958\n1 author:\nJames A. Brown\nNorthwestern University\n72 PUBLICATIONS\xa0\xa0\xa01,685 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nAll content following this page was uploaded by James A. Brown on 06 March 2014.\nThe user has requested enhancement of the downloaded file.'
+
+52. [general-history] AndeanWorldsIndigenousHistory-Andrien-1825-Unknown.pdf
+   known: t=AndeanWorldsIndigenousHistory | a=Andrien | y=1825 | p=Unknown
+   missing: publisher
+   excerpt: 'INDIGENOUS HISTORY, CULTURE, AND CONSCIOUSNESS \nUNDER SPANISH RULE, 1532-1825 \nE \nse \neal \nSenpanede \nKEANE \nPT \nee ANDRIEN \nRib \nsaree \nek et\n---PAGE---\nee \nea \nAY \nwes \n© \na) \n© \n_— a \n= \n_'
+
+53. [general-history] AnnaeherungenHelmutHeissenbuettel-Lehmann-2005-Unknown.pdf
+   known: t=AnnaeherungenHelmutHeissenbuettel | a=Lehmann | y=2005 | p=Unknown
+   missing: publisher
+   excerpt: '“there are no facts...”: Nietzsche as Predecessor\nof Post-Truth?\nHelmut Heit\nDepartment of Philosophy, Tongji University\nIn light of recent political events Nietzsche was (again) charged as proponent of\nunscrupulous power-politics and as predecessor of “post-truth.” A passage from\nhis late notes is notoriously quoted to denounce him as ﬁgurehead of relativism,\ntruth-denial and post-factual attitudes: “facts are precisely what there is not, only\ninterpretations.” By means of an analysis of this passage and its 19th century con-\ntexts, the paper reconstructs Nietzsche’s criticism of absolute truth. He problema-\ntizes notions of truth on the basis of epistemological, physiological, historical, and\nsociological considerations, arguing in favour of self-reﬂexive, pluralistic, and mod-\nest epistemic attitudes, which are occasionally associated with relativism. Unlike\ncertain cliché-versions of relativism Nietzsche denies that every “perspective” is\nequally valid, and develops and employs a variety of interpretational and argu-\nmentative standards. Tese standards are not absolute, but allow human evalu-\nations of knowledge-claims. Te proposed alternative between “truth” or “post-\ntruth” construes a false opposition and underestimates the need for informed value-\njudgments in politics and culture. In conclusion it is argued that prosecutors and\ndefendants of “post-truth” are similarly vulnerable for resentful dogmatic ideolo-\ngies, because of unwillingness or inability to accept and'
+
+54. [general-history] AnnualReportDocumentsNewYorkInstitution-Dumb-0000-Unknown.pdf
+   known: t=AnnualReportDocumentsNewYorkInstitution | a=Dumb | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Th e Lost Territories\n---PAGE---\nSoutheast Asia\npolitics, meaning, and memory\nDavid Chandler and Rita Smith Kipp\nseries editors'
+
+55. [general-history] AnoJanMar-Dispute-2024-Unknown.pdf
+   known: t=AnoJanMar | a=Dispute | y=2024 | p=Unknown
+   missing: publisher
+   excerpt: 'Ano 3 / Nº 9 / Jan-Mar 2024 · 165\nNotes on the History \nof the Venezuela/Guyana \nBoundary Dispute\nLeslie Bethell\nAbstract: In December 2023, Venezuelan President Nicolás Maduro threatened to \nannex Essequibo, a region corresponding to two-thirds of Guyana territory, reviving \na dispute dating back almost 200 years between Venezuela and British Guiana, later \nGuyana. Despite an 1899 arbitration awarding most of the land to Britain, Venezuela \nrevived its claim in 1962. Efforts to resolve the issue, including the 1966 Geneva \nAgreement, have failed. Oil discoveries in 2015 heightened tensions, culminating in \nMaduro’s 2023 ultimatum, though international pressure prevented military action.\nKeywords: Venezuela; Guyana; Essequibo; boundary dispute; territory. \nNotas sobre a história da disputa de fronteira Venezuela/\nGuiana \nResumo: Em dezembro de 2023, o presidente da Venezuela, Nicolás Maduro, \nameaçou anexar Essequibo, região que corresponde a dois terços do território da \nGuiana, reavivando uma disputa que remonta a quase 200 anos entre a Venezuela \ne a Guiana Britânica, mais tarde Guiana. Apesar de uma arbitragem de 1899 ter \natribuído a maior parte do território à Grã-Bretanha, a Venezuela reviveu a sua \nreivindicação em 1962. Os esforços para resolver a questão, incluindo o Acordo de \nGenebra de 1966, falharam. As descobertas de petróleo em 2015 aumentaram as \ntensões, culminando no ultimato de Maduro em 2023, embora a pressão internacio-\nnal tenha impedido uma ação milita'
+
+56. [general-history] AntigüedadesArteTradicionSantiago-Dobal-1977-Unknown.pdf
+   known: t=AntigüedadesArteTradicionSantiago | a=Dobal | y=1977 | p=Unknown
+   missing: publisher
+   excerpt: 'DE HEER\nDE BECKER BENOIT\nKLAPROZENLAAN 34\n8400 OOSTENDE\nFiscaal attest uitkering dividend\n18 februari 2022\nBeste heer,\nKBC Bank bezorgt je dit document in opdracht van Cera CV,\nMuntstraat 1 - 3000 Leuven - België.\nvennotennummer:\n726092100772\nnaam:\nDE BECKER BENOIT\ndividendpercentage:\n3,00%\nbetalingsdatum:\n08-06-2021\nbrutodividend roerende voorheffing aan 30,00%:\n112,19 EUR\ningehouden roerende voorheffing aan 30,00%:\n33,66 EUR\nnettodividend:\n78,53 EUR\nJe kunt de ingehouden roerende voorheffing op de dividenden die je ontving in 2021, recupereren via de aangifte in\nde personenbelasting (aanslagjaar 2022) tot een maximaal bedrag aan dividenden van 800,00 EUR per\nbelastingplichtige.\nMet coöperatieve groeten,\nBERT CRAPS\nDIRECTEUR - LID VAN HET MANAGEMENTCOMITÉ\nwww.kbc.be\nFSMA 026256 A\noostende.centrum@kbc.be\nFax 059 55 67 71\nTelefoon + 32 59 55 67 70\nKBC BANK OOSTENDE-CENTRUM\nUw aanspreekpunt\nKBC Bank NV - Havenlaan 2 - 1080 Brussel - België - BTW BE 0462.920.226 - RPR Brussel\nEen onderneming van de KBC-groep\n002946 / 0089002946726092100772\n1/1'
+
+57. [general-history] ArchaeologyNativeNorthAmerica-Snow-1996-Unknown.pdf
+   known: t=ArchaeologyNativeNorthAmerica | a=Snow | y=1996 | p=Unknown
+   missing: publisher
+   excerpt: 'i\nTHE ARCHAEOLOGY OF NATIVE \nNORTH\xa0AMERICA\nThe Archaeology of Native North America presents the ideas, evidence, and debates regarding the initial \npeopling of the continent by mobile bands of hunters and gatherers and the cultural evolution of \ntheir many lines of descent over the ensuing millennia. The emergence of farming, urban centers, \nand complex political organization paralleled similar developments in other world areas. With \nthe arrival of Europeans to North America and the inevitable clashes of culture, colonizers and \ncolonists were forever changed, which is also represented in the archaeological heritage of the con\xad\ntinent. Unlike others, this book includes Mesoamerica and the Caribbean, thus addressing broad \nregional interactions and the circulation of people, things, and\u202fideas.\nThis edition incorporates results of new archaeological research since the publication of the first \nedition a decade earlier. Fifty-\u200bfour new box features highlight selected archaeological sites, which \nare publicly accessible gateways to the study of North American archaeology. These features were \nauthored by specialists with direct knowledge of the sites and their broad importance. Glossaries \nare provided at the end of every chapter to clarify specialized terminology.\nThe book is directed at upper-\u200blevel undergraduate and graduate students taking survey courses \nin American archaeology, as well as other advanced readers. It is extensively illustrated and includes \ncitations to sour'
+
+58. [general-history] ArchaeologyOfAncientReligionInTheEasternWoodl-Brown-1997-Unknown.pdf
+   known: t=ArchaeologyOfAncientReligionInTheEasternWoodl | a=Brown | y=1997 | p=Unknown
+   missing: publisher
+   excerpt: 'Annu. Rev. Anthropol. 1997. 26:465–85\nCopyright © 1997 by Annual Reviews Inc. All rights reserved\nTHE ARCHAEOLOGY OF ANCIENT\nRELIGION IN THE EASTERN\nWOODLANDS\nJames A. Brown\nDepartment of Anthropology, Northwestern University, Evanston, Illinois 60208\nKEY WORDS: cosmology,\nearthworks,\niconographic\nanalysis,\nmeaning\nin\narchaeology,\nshamanism\nABSTRACT\nArchaeology has begun to contribute to the history of spirituality in the Eastern\nWoodlands of North America to complement the perspectives offered by the\ncomparative study of religions and by ethnological, folkloric, art historical,\nand astronomical research. Support can be found in the forms and types of rit-\nual paraphernalia and in the associated iconography for the thesis that shaman-\nism was a basic form of religious experience that extended back to the earliest\nmaterial traces. Elaborations upon this foundation became most conspicuous\nduring the Mississippian Period when social hierarchies developed upon an\nexpanded, agriculturally supported population. Animal imagery changed, an-\ncestor cults became elaborated, and cosmography took on increased impor-\ntance in architecture, site layout, and mortuary rites. The canonical forms of\nthe iconography of this period have become known as the Southeastern Cere-\nmonial Complex. Since European contact, practices and beliefs associated\nwith social hierarchies have disappeared or transformed.\nINTRODUCTION\nThe study of the Eastern Woodlands religion, cosmology, and ideology (and\neven so'
+
+59. [general-history] Ardennendagtocht-Unknown-2020-Unknown.pdf
+   known: t=Ardennendagtocht | a=Unknown | y=2020 | p=Unknown
+   missing: author,publisher
+   excerpt: '28-2-2020\nArdennendagtocht\nwww.wandermap.net/en/route/3547026-ardennendagtocht/print/?zoom=16\n1/4\nKSA\nDISTANCE:\n16 km\nTOTAL VERTICAL\nCLIMB:\n210 hm\nSURFACE:\nPaved\nUnpaved\nCATEGORY:\nModerate\nOpens route in mobile\nbrowser or app\nArdennendagtocht\nRoute Overview\n \nkm\nhm\n0\n3\n6\n9\n12\n15\n200\n300\n400\n---PAGE---\n28-2-2020\nArdennendagtocht\nwww.wandermap.net/en/route/3547026-ardennendagtocht/print/?zoom=16\n2/4\nRoute Details\nMap 1 / 5\nMap 2 / 5'
+
+60. [general-history] Article-Unknown-2013-Unknown.pdf
+   known: t=Article | a=Unknown | y=2013 | p=Unknown
+   missing: author,publisher
+   excerpt: 'See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/235936629\nThe philosophy of Heracletus today\nArticle · March 2013\nCITATIONS\n8\nREADS\n3,539\n1 author:\nSome of the authors of this publication are also working on these related projects:\nCognition!!! Coronavirus (Covid-19) Syndrome and Related Somato-Social Crisis View project\nBrain tumors View project\nSt J Baloyannis\nAristotle University of Thessaloniki\n616 PUBLICATIONS\xa0\xa0\xa02,965 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nAll content following this page was uploaded by St J Baloyannis on 27 May 2014.\nThe user has requested enhancement of the downloaded file.\n---PAGE---\nSummary\n \nHeraclitus is one of the greatest Ionian thinkers, \nwho lived and flourished around the beginning of the fifth \ncentury BC, in Ephesus. His style of life has had an obvious \nmelancholic character and his personality was characterized \nby honesty, gentleness, broadmind, strength and magnanim\xad\nity. Although Heracletus has been one of the most creative \nand influential pre-Socratic philosophers, his surviving work \nconsists of more than hundred twenty epigrammatic authen\xad\ntic fragments, in Ionic dialect, mentioned by his successors, \nphilosophers and early Christian authors. Heracletus’ thoughts \nand doctrines have a multidimensionality, since he does not \nknow a fixed level, working in a broad spectrum of subjects, \nin reference to everyday. Heracletus has been influencing \nthe philosophy and the literature for ages,'
+
+61. [general-history] Aztecs-Duran-1964-Unknown.pdf
+   known: t=Aztecs | a=Duran | y=1964 | p=Unknown
+   missing: publisher
+   excerpt: 'my \nietiAM \nOven \nneuEt \nie \nsyn \nhoy \nPo \n" \n4 \n} \nF \nF \nant \nmr \nus \n1 \ni \nUtd \neel \nery \n1! \n[ \nHebe \n4h) \nMAMUan \nipa \nit \n! \nBhilies \nMaeath \nble \ntalia \nDehn \nidehAl \ne. \nyr \nites \nnies \nhey \n=o \ninertia \n(ket \nPee \natt \nbanat \ntoby \nhth \n= \nbons ADNAN \nAT \nhad \nSUEY \natte \nMar \n: \naebet \ntne \ndol \n} \nPalaratai! \nLay \n‘ \ni \nBe \n| \nseg \nhath \nJah \n\\ \n4 \n: \ntat \nbid) \nnail \nuN \nf \n\\ \nHamlet \n| \nMalta \nlog \nib \nFOenndat \n4 \nerty \nAt \nAg \nba \naay \ni \nay \nHs \nsatiety \nea \nPLS \nba \nJad \ny \nbik \n\' \ni \nTL \nClint \n4 \nShee \nbeynty! \nLy \nAY \njt \nyore \nrte \ny \npace \nact \ntrate \n5 \nt \nhid. \n| \nSabet \n. \n: \nSLMEAMAT \nOi \nLhats \ntik \nyy \ni \niit \nne \nTh \nrad rid \nSa \n\\ \n" \n[eatha \nata} \niene \nEEE \n: \n’ \n. \nanes \ntint \niy \nam \n: \nstaan \nuy \n¥ \nLone \nn \n‘ \n) \n; \n\' \nsi \npt \nssratue \nta \ngilt \nf \nseu \nes \nBate \nINAS \nLape \nstat \n¥ \n? \n$ \neins \nNs} \na \nmy \nHut) \n; \nI \n: \nwith \ni \neta \naN \nRL \norale \nHolalovet \nys \n} \n(biaitat \nTei \nthie \npigie \nlett \nit \nWipe \nwe \n: \nj \ntivete \n; \n. \n‘abi \nae \nband \naiataelt! \nlad \n¥y \ni{ \nLeila \nvA \neUAlahAbat \n. \n; \nnear \nubelearsele \ni \nfahcabeel \nRUiata \n. \n1 \ni \n. \neen \n\\ \nHit \nint \nia} \ni \n: \nbit \nsoli \nboleh \n5 \nheh \ny \n\\ \n¥ \nPhy \nby \na \nine \nheyy \nTre \n’ \nished \nSAlippiant \nsted) \nWe \nMiMMAlaIntohatn \nGed \ni \naH \ni \nmantic \nis \nA154 \n<= \ni \ntig \nsty \ntt \nWe \nrt \noh) \nnit \nt \nHindeaharaRind \n~ \n\' \nFai) \n; \n7 \n: \ntn \nina \nf \ni \n; \niN \nprereta \nhates \n! \n‘ \nata \ntain \nHiei \n1 \niat \n: \nSse \n= \nThiel \ng) \nDMalatats \nene \nty \ney \ny \niti \nSe \nHaistal \nanti'
+
+62. [general-history] AztecsMixtecsHistories-Keber-2014-Unknown.pdf
+   known: t=AztecsMixtecsHistories | a=Keber | y=2014 | p=Unknown
+   missing: publisher
+   excerpt: 'P I C T O R I A L H I S T O R I E S O F T H E A Z T E C S A N D M I X T E C S\nE L I Z A B E T H H I L L B O O N E\nStories in\nRed and Black\n---PAGE---\nStories in Red and Black'
+
+63. [general-history] BackCover-Blackburn-2007-Unknown.pdf
+   known: t=BackCover | a=Blackburn | y=2007 | p=Unknown
+   missing: publisher
+   excerpt: 'Think \nA compelling introduction to philosophy \nby Simon Blackburn \n \n \n \n \n \nBack Cover: \n \n"Blackburn has produced the one book every smart person should read to understand, and \neven enjoy, the key questions of philosophy, ranging from those about free will and \nmorality to what we can really know about the world around us." -- Walter Isaacson, \nTime Magazine \n \n"This is a wonderfully stimulating, incisive and -- the word is not too strong -- thrilling \nintroduction to the pleasures and problems of philosophy." -- John Banville, Irish Times \n \n \n \n \nOXFORD \nUNIVERSITY PRESS \nGreat Clarendon Street, Oxford OX2 6DP \nOxford University Press is a department of the University of Oxford. \nIt furthers the University\'s objective of excellence in research, scholarship, \nand education by publishing worldwide in \nOxford New York \nAthens Auckland Bangkok Bogoti Buenos Aires Calcutta Capetown Chennai Dares Salaam Delhi Florence Hong Kong Istanbul \nKarachi Kuala Lumpur Madrid Melbourne Mexico City Mumbai \nNairobi Paris Sao Paulo Singapore Taipei Tokyo Toronto Warsaw \nwith associated companies in Berlin Ibadan \n \nOxford is a registered trade mark of Oxford University Press in the UK and in certain other countries \n \n© Simon Blackburn 1999 \n \nThe moral rights of the author have been asserted \nDatabase right Oxford University Press (maker) \n \nFirst published 1999 \n \nAll rights reserved. No part of this publication may be reproduced, \nstored in a retrieval system, or transmitted, in any for'
+
+64. [general-history] BalkanStrategyOfTheEntenteAndTheCentralPowers-Unknown-1974-Unknown.pdf
+   known: t=BalkanStrategyOfTheEntenteAndTheCentralPowers | a=Unknown | y=1974 | p=Unknown
+   missing: author,publisher
+   excerpt: "156 \nReviews \npolicy. This would not matter so much except that there is a frequent tendency in the writing of \nmodern Cypriot history to write of some 'decision' in British diplomacy because of a stray \ncomment or speculation by a minister or politician in London. Varnava's analysis goes on to inter-\npret the Argostoli suggestion as a seamless whole with the undoubted British offer of Cyprus to \nGreece in October 1915, on condition that Greece went to the aid of stricken Serbia. This prop-\nosition is unexceptionable except that the unavailing offer really needs no other explanation than \nthe dire necessities of Balkan strategy for the Entente as the Central Powers bore down on the area. \nDriven by desperation, Britain offered Cyprus for much the same generic reason that Greece \nrefused it: the island was not worth the candle under wartime conditions. This at least is very \nmuch in keeping with the essential thrust of Varnava's book. Meanwhile a more rounded and \ncomprehensive volume on the early years of Britain's occupation of Cyrus still remains to be \nwritten. \nRobert Holland \nKing's College London \nJames Ker-Lindsay, The Cyprus Problem. What Everyone Needs to Know. Oxford: Oxford \nUniversity Press, 2011. Pp. 125. \nThere is a wealth of publications dealing with the so called Cyprus Problem but this book provides \na completely new approach to a complicated subject. Its aim is to provide the reader with an intro-\nduction to the various aspects and historical transformations"
+
+65. [general-history] BattleThermopylae-Matthews-2013-Unknown.pdf
+   known: t=BattleThermopylae | a=Matthews | y=2013 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+66. [general-history] BenoitDeBecker-Becker-0000-Unknown.pdf
+   known: t=BenoitDeBecker | a=Becker | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: ''
+
+67. [general-history] BlackwellPhilo-Blackwell-2006-Unknown.pdf
+   known: t=BlackwellPhilo | a=Blackwell | y=2006 | p=Unknown
+   missing: publisher
+   excerpt: 'The Blackwell Guide to \nContinental \nPhilosophy\nEdited by\nRobert C. Solomon\nand\nDavid Sherman'
+
+68. [general-history] BolComFactuur-Unknown-2019-Unknown.pdf
+   known: t=BolComFactuur | a=Unknown | y=2019 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Factuur\nalles op een rijtje\nOmschrijving\nAantal\nPrijs/st\nKorting\nBedrag\nBtw%\nBtw\nSamsung 970 EVO Plus M.2 500GB SSD\n1\n€109,00\n€109,00\n21%\n€ 18,92\nIntex Downy Junior Classic - Luchtmatras - \n1-persoons - 191 x 76 x 22 cm\n1\n€ 10,99\n€ 10,99\n21%\n€\n1,91\nBedankt voor je aankoop bij bol.com\nbol.com b.v. \nPapendorpseweg 100, 3528 BJ Utrecht \nKvK Utrecht: 32147382 \nBTW nr. BE: BE 0824148721 \nIBAN: NL27INGB0000026500 \nBIC: INGBNL2A \nFactuurdatum: 04 juli 2019 \nFactuurnummer: 3901358733621 \nBestelnummer: 2413110570 \nAankoopdatum: 03 juli 2019 \nKlantnummer: 9008270446 \nVervaldatum: 18 juli 2019 \nDhr. Benoit De Becker \nKlaprozenlaan 34 \n8400 OOSTENDE \nBelgië \nSubtotaal ex. btw\n€ 99,16\n21% btw\n€ 20,83\nBedrag incl. btw\n€ 119,99\nTotaalbedrag\n€ 119,99'
+
+69. [general-history] BookGodsRitesAncient-Horcasitas-2002-Unknown.pdf
+   known: t=BookGodsRitesAncient | a=Horcasitas | y=2002 | p=Unknown
+   missing: publisher
+   excerpt: "LLA \ne \ny \nOR \nN-P \nLEÓ \n= \nin \n=) \n9 \neword by M \nr \nF\n---PAGE---\nSecond printing \n$12.50 \nBOOK OF THE GODS AND RITES \nand \nTHE ANCIENT CALEND \n“T am moved, O Christian reader, to begin the \ntask of writing this work with the realization \n' \nthat we who have been chosen to instruct the \nIndians will never reveal the True God to \nthem until the heathen ceremonies and false \ncults of their counterfeit \ndeities \nare extin- \nguished. Here I shall set down a written ac- \ncount \nof the \nancient \nidolatries \nand \nfalse \nreligion with which the devil was worshiped \nuntil the Holy Gospel was brought to this \nland.” \nSo wrote Fray Diego Duran, a Dominican \nmissionary to the Indians of Mexico in the \nlate 1500’s, introducing his two works about \nAztec ritual and calendar. In this, the first \nEnglish translation of these classics, the trans- \nlators have made available to English-speaking \nreaders one \nof the most \nsignificant of all \ncolonial accounts. \nThe importance of these works to an under- \nstanding of the ancient Aztecs cannot be over- \nemphasized. Yet Duran’s manuscripts were \ndestined \nto remain \nunpublished \nfor nearly \nthree hundred years. Not until 1867 did the \nfirst Spanish edition appear in print. Since that \ntime they have been among the most quoted \nworks on ancient Mexico. \nDurán's stated purpose was to help the mis- \nsionaries combat the religious beliefs of the \nIndians. But despite himself he became deeply \nabsorbed in their rich culture. To assure the \naccuracy of"
+
+70. [general-history] BroadDaylightSecretProceduresHolocaust-Desbois-2008-Unknown.pdf
+   known: t=BroadDaylightSecretProceduresHolocaust | a=Desbois | y=2008 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+71. [general-history] CacicasIndigenousWomenLeaders-Ochoa-2012-Unknown.pdf
+   known: t=CacicasIndigenousWomenLeaders | a=Ochoa | y=2012 | p=Unknown
+   missing: publisher
+   excerpt: 'of Spanish Americay,,. : \n1492-1823 ¥ ohpRe \nf \nEDITED BY. \nMargarita R. Ochoa and — \n— Sara Vicuhia Guengerich ~ \nSS,'
+
+72. [general-history] Calendar-Unknown-2025-Unknown.pdf
+   known: t=Calendar | a=Unknown | y=2025 | p=Unknown
+   missing: author,publisher
+   excerpt: 'The Chronography of 354 AD. Part 6: the calendar of Philocalus. Inscriptiones Latinae Antiquissimae, Berlin (1893) pp.256-278. Die Calenderbilder, Berlin (1888) figures 19, 20, 22-28, 30, 32.\nMENSIS IANVARIVS\nhabet dies XXXI.\n1\nA\nA\nA\nKAL·IAN\nSENATVS·LEGITIMVS\n[Image of January has not been preserved] \n2\nB\nB\nIIII·NON\nDIES·AEGYPTIACVS\n3\nC\nC\nIII\nLVD VOTORUM·NVNC·PATIO\n4\nB\nD\nD\nPRIDIE\nLVDI\n5\nE\nE\nNON\nLVDI\n6\nF\nF\nVIII·IDVS\nDIES·AEGYPTIACVS\n7\nC\nG\nG\nVII\nIANO·PATRI·CM·XXIIII\n8\nA\nH\nVI\n9\nB\nA\nV\nSENATVS·LEGITIMVS\n10\nD\nC\nB\nIIII\n11\nD\nC\nIII\nDIES·CARMENTARIORVM\n12\nE\nD\nPRIDIE\n13\nE\nF\nE\nIDIB\nIOVI·STATORI·CM·XXIIII\n14\nG\nF\nXIX·KAL·FEB\n15\nA\nG\nXVIII\nCARMENTALIA\n16\nF\nB\nH\nXVII\nDIES·AEGYPTIACVS\n17\nC\nA\nXVI\nLVDI·PALATINI\n18\nD\nB\nXV\nLVDI\n19\nG\nE\nC\nXIIII\nLVDI\n20\nF\nD\nXIII\nN·GORDIANI·CM·XXIIII\n21\nG\nE\nXII\nLVDI\n22\nH\nA\nF\nXI\nLVDI\n23\nB\nG\nX\nSENATVS·LEGITIMVS SOL·AQVARIO\n24\nC\nH\nIX\nN·D·HADRIANI·CM·XXIIII \n25\nI\nD\nA\nVIII\nN·CHARTIS\n26\nE\nB\nVII\n27\nF\nC\nVI\n28\nK\nG\nD\nV\n29\nA\nE\nIIII\n30\nB\nF\nIII\n31\nA\nC\nG\nPRIDIE\nMENSIS FEBRVARIVS\nhabet dies XXVIII.\nThe Chronography of 354 AD. Part 6: the calendar of Philocalus. Inscri...\nhttps://www.tertullian.org/fathers/chronography_of_354_06_calendar.htm\n1 of 9\n22/12/2025, 09:32\n---PAGE---\n1\nD\nH\nKAL·FEB\nN·D·HERCVLIS·CM·XXIIII\n2\nE\nA\nIIII·NON\n3\nB\nF\nB\nIII\nSENATVS·LEGITIMVS\n4\nG\nC\nPRIDIE\nLVDI·GOTTICI\n5\nA\nD\nNON\nLVDI\n6\nC\nB\nE\nVIII·IDVS\nLVDI\n7\nC\nF\nVII\nLVDI·DIES·AEGYPTIACVS\n8\nD\nG\nVI\nLVDI\n9\nD\nE\nH\nV\nGOTTICI·CM·XXIIII\n10\nF\nA\nIIII\n11\nG\nB\nIII\nGENIALICI·CM·XXIIII\n12\nE\nA\nC\nPRIDIE\nLVDI·GENIALICI\n13\nB\nD\nIDIB\nVIRGO·V'
+
+73. [general-history] CambodgeCultivationNation-Edwards-1945-Unknown.pdf
+   known: t=CambodgeCultivationNation | a=Edwards | y=1945 | p=Unknown
+   missing: publisher
+   excerpt: 'Cambodge'
+
+74. [general-history] CebriRevista-Bethell-2024-Unknown.pdf
+   known: t=CebriRevista | a=Bethell | y=2024 | p=Unknown
+   missing: publisher
+   excerpt: 'Ano 3 / Nº 9 / Jan-Mar 2024 · 165\nNotes on the History \nof the Venezuela/Guyana \nBoundary Dispute\nLeslie Bethell\nAbstract: In December 2023, Venezuelan President Nicolás Maduro threatened to \nannex Essequibo, a region corresponding to two-thirds of Guyana territory, reviving \na dispute dating back almost 200 years between Venezuela and British Guiana, later \nGuyana. Despite an 1899 arbitration awarding most of the land to Britain, Venezuela \nrevived its claim in 1962. Efforts to resolve the issue, including the 1966 Geneva \nAgreement, have failed. Oil discoveries in 2015 heightened tensions, culminating in \nMaduro’s 2023 ultimatum, though international pressure prevented military action.\nKeywords: Venezuela; Guyana; Essequibo; boundary dispute; territory. \nNotas sobre a história da disputa de fronteira Venezuela/\nGuiana \nResumo: Em dezembro de 2023, o presidente da Venezuela, Nicolás Maduro, \nameaçou anexar Essequibo, região que corresponde a dois terços do território da \nGuiana, reavivando uma disputa que remonta a quase 200 anos entre a Venezuela \ne a Guiana Britânica, mais tarde Guiana. Apesar de uma arbitragem de 1899 ter \natribuído a maior parte do território à Grã-Bretanha, a Venezuela reviveu a sua \nreivindicação em 1962. Os esforços para resolver a questão, incluindo o Acordo de \nGenebra de 1966, falharam. As descobertas de petróleo em 2015 aumentaram as \ntensões, culminando no ultimato de Maduro em 2023, embora a pressão internacio-\nnal tenha impedido uma ação milita'
+
+75. [general-history] ChapterApril-Fain-2024-Unknown.pdf
+   known: t=ChapterApril | a=Fain | y=2024 | p=Unknown
+   missing: publisher
+   excerpt: 'See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/379525577\nCoupvolution as a Mechanism of Regime Change in the Sahel\nChapter · April 2024\nDOI: 10.1007/978-3-031-53429-4_7\nCITATIONS\n9\nREADS\n161\n3 authors:\nEgor Fain\nNational Research University Higher School of Economics\n13 PUBLICATIONS\xa0\xa0\xa039 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nLeonid Issaev\nNational Research University Higher School of Economics\n79 PUBLICATIONS\xa0\xa0\xa0617 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nA. Korotayev\nNational Research University Higher School of Economics\n680 PUBLICATIONS\xa0\xa0\xa09,107 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nAll content following this page was uploaded by A. Korotayev on 02 March 2025.\nThe user has requested enhancement of the downloaded file.\n---PAGE---\nCoupvolution as a Mechanism of Regime \nChange in the Sahel \nEgor Fain, Leonid Issaev \n, and Andrey Korotayev \n1 \nIntroduction \nRecent developments in francophone Sub-Saharan Africa became a signiﬁcant topic \nin both scientiﬁc and journalistic circles. Back-to-back military coups in Niger and \nGabon in summer 2023 gathered a lot of attention from researchers (Financial Times, \n2023). In the context of African politics, military coups are not something particu-\nlarly unexpected: after gaining independence from colonial powers numerous African \ncountries went through military coups while some countries went through a series \nof coups in the span of decades (Johnson et al., 1983; McGowan, 2003). However, \nrecent coups are quite diff'
+
+76. [general-history] ChapterJanuary-Arnold-1996-Unknown.pdf
+   known: t=ChapterJanuary | a=Arnold | y=1996 | p=Unknown
+   missing: publisher
+   excerpt: 'See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/345796734\nArchaeology in Nazi Germany: the legacy of the Faustian bargain\nChapter · January 1996\nDOI: 10.1017/CBO9780511558214.005\nCITATIONS\n65\nREADS\n119\n2 authors:\nBettina Arnold\nUniversity of Wisconsin–Milwaukee\n70 PUBLICATIONS\xa0\xa0\xa01,304 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nHenning Haßmann\nLower Saxony State Office for Cultural Heritage\n23 PUBLICATIONS\xa0\xa0\xa067 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nAll content following this page was uploaded by Bettina Arnold on 16 May 2021.\nThe user has requested enhancement of the downloaded file.'
+
+77. [general-history] ChiracSSpeech-Unknown-1942-Unknown.pdf
+   known: t=ChiracSSpeech | a=Unknown | y=1942 | p=Unknown
+   missing: author,publisher
+   excerpt: "Speech of President Jacques Chirac, on July 16, 1995, during the\ncommemoraƟon of the Vel d’Hiv roundup\nMr. Mayor,\nMr. President,\nMr. Chief Rabbi,\nLadies and gentlemen,\nIn the life of a naƟon, there are Ɵmes that are painful for the memory and for one's concepƟon\nof one's country.\nIt is hard to speak of these Ɵmes because we someƟmes struggle to ﬁnd the right words to\nrecall the horror and express the sorrow of those who lived through this tragedy: they are\nforever marked in their soul and in their ﬂesh by the memory of those days of tears and\nshame.\nIt is hard to speak of these Ɵmes also because these dark hours have forever soiled our history,\nand are an insult to our past and our tradiƟons. Yes, it is true that the criminal insanity of the\noccupying forces was supported by some French people and the French State.\nFiŌy-three years ago, on July 16, 1942, four hundred and ﬁŌy French police agents and\ngendarmes, acƟng under the authority of their leaders, responded to the Nazis’ demands.\nThat day, in the capital and the Paris area, nearly ten thousand Jewish men, women, and\nchildren were arrested in their homes at dawn and held in police staƟons.\nHorrible scenes were witnessed: families torn apart, mothers separated from their children,\nelderly men, some of whom were veterans of the First World War and had spilled their blood\nfor France, were callously thrown into Parisian buses and police vans.\nPeople also saw some police oﬃcers turn a blind eye, allowing some to escape.\nFor a"
+
+78. [general-history] ChristianHistoryReality-Unknown-2000-Unknown.pdf
+   known: t=ChristianHistoryReality | a=Unknown | y=2000 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Triumphalism vs. Reality in Christian History\nMany historians reject the idea that “Christian civilization” has been uniquely moral. In fact, scholars warn\nagainst a triumphalist narrative – one that selectively highlights Christianity’s positive impact while\nignoring its dark chapters. As one academic notes, from a “triumphalist, colonialist position” the Crusades\nand conquests were seen as self-evidently virtuous, a view later used to legitimize European domination. In\nreality, Christian history “mixed good, bad, and ugly”. Even devout Christian writers cringe at the record:\neditor Mark Galli admits he “cringes when [he] think[s] of the centuries of slaughter and pillaging done in\nthe name of Christ, with the blessing of the church”. In short, if Christianity were truly “the most moral,” it\nwould not require ignoring or minimizing events like those below. A candid review of historical evidence –\nnot just selective anecdotes – is needed. \nDocumented Violence and Oppression\nChristian institutions have often sanctioned or participated in violence and oppression. Notable examples\ninclude:\nThe Crusades (1096–1291): These church‑sanctioned wars to “reclaim” the Holy Land resulted in\nmassive killing of civilians. Contemporary critics condemned them as atrocities: Enlightenment\nthinker Diderot wrote that crusaders essentially led people “into an unhappy little region … to slit the\nthroats of its inhabitants and seize a rocky outcrop worth not one drop of blood”. Even a modern\nChris'
+
+79. [general-history] ChroniclePeru-León-1964-Unknown.pdf
+   known: t=ChroniclePeru | a=León | y=1964 | p=Unknown
+   missing: publisher
+   excerpt: '2^< "'
+
+80. [general-history] CodexTellerianoRemensisVol-DKM-0000-Unknown.pdf
+   known: t=CodexTellerianoRemensisVol | a=DKM | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Page 1 of 133 \nMEXICAN MANUSCRIPT 385 \n“CODEX TELLERIANO-\nREMENSIS” \n(with additions from the \n“CODEX RIOS”) \n \nCódice Telleriano-Remensis con \nalgunas páginas del Códice Rios \nTranslated from a Russian edition dated \nKyev 2011 \nThis electronic publication is dedicated to the celebration of September 16, 2010 \n190th Anniversary of Mexican Independence Day\n---PAGE---\nPage 2 of 133 \nVolume 2: \nThe Chronological Annals'
+
+81. [general-history] ComentariosRealesDeLosIncas-Garcilaso-1609-Unknown.pdf
+   known: t=ComentariosRealesDeLosIncas | a=Garcilaso | y=1609 | p=Unknown
+   missing: publisher
+   excerpt: '1\nHistoria general del Perú, o\nComentarios reales de los incas\nInca Garcilaso de la Vega\nImprenta de Villalpando, Madrid, 1800\nExportado de Wikisource el 8 de octubre de 2025\n---PAGE---\n2\nHISTORIA\nGENERAL\nDEL PERÚ,\nÓ\nCOMENTARIOS REALES\nDE LOS INCAS,\nPor el Inca Garcilaso de la Vega.\nnueva edicion.\nTOMO I.\n\nMADRID\nimprenta de villalpando.\n1800.\n.'
+
+82. [general-history] CompleteWorks-Siculus-1957-Unknown.pdf
+   known: t=CompleteWorks | a=Siculus | y=1957 | p=Unknown
+   missing: publisher
+   excerpt: 'VISIT...'
+
+83. [general-history] ConfederateNeoConfederateReader-Loewen-1995-Unknown.pdf
+   known: t=ConfederateNeoConfederateReader | a=Loewen | y=1995 | p=Unknown
+   missing: publisher
+   excerpt: 'The Confederate and Neo-Confederate Reader'
+
+84. [general-history] ContemporaryFarRightCulture-ARGENTINO-0000-Unknown.pdf
+   known: t=ContemporaryFarRightCulture | a=ARGENTINO | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Marc-André Argentino received his PhD from Concordia University, Quebec, \nCanada.\nAmarnath Amarasingam is an associate professor in the School of Religion and \nis cross-appointed to the Department of Political Studies at Queen’s University \nin Ontario, Canada.\nContemporary Far-\xadRight Culture offers a comprehensive overview of the varied \nmanifestations of today’s far-\xadright culture. It examines how far-\xadright extrem\xad\nists operate in the spaces they inhabit, exploring the key elements, characteris\xad\ntics, and historical background of far-\xadright extremism. The volume also \nconsiders who produces and who consumes this culture, featuring contribu\xad\ntions from emerging scholars in the field.\nChapters investigate the cultural output of far-\xadright influencers in anime, \npodcasts, “fashwave” and white power music, gaming, memetic and visual cul\xad\nture, social media, publishing, chan culture, philosophy, and martial arts. The \nbook further examines pivotal issues such as female far-\xadright influencers, par\xad\nanoia, and accelerationism. It is essential reading for scholars, researchers, and \nactivists interested in the contemporary far right and its subcultures.\nCONTEMPORARY FAR-RIGHT CULTURE'
+
+85. [general-history] CopyEnvironmentalOrganisationsFuture-Europe-0000-Unknown.pdf
+   known: t=CopyEnvironmentalOrganisationsFuture | a=Europe | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'explore, learn and practice diverse tools and methods of advocacy, campaigning and lobbying on\nenvironmental issues,\nshare tools and knowledge on how to use different ways and methods of communication and framing\nfor policy making,\nplan local advocacy campaigns using the new skills and tools acquired,\nmeet new like-minded peers, create new connections, share good practices and learn from other\nparticipants. \nBe between 18 and 30 years old, residing in one of the Council of Europe member states, Belarus or\nKosovo;\nHave good communication skills and speak English well (you should be able to clearly express\nyourself both orally and in writing);\nBe active in a YEE member organisation or any other youth organisation, group or movement, or\nwork/volunteer in such an organisation;\nBe interested in the topics of the training course: environmental issues, sustainability, youth\nmovements, \nyouth \nparticipation, \nclimate \naction \ncampaigning, \nadvocacy, \nlobbying, \ndigital\ncommunications, social media, \nBe willing to support the rest of the group and be a team player;\nBe able and motivated to attend the whole training course and take part in the follow-up activity\n"Step up and stand up!" ;\nBe motivated to take back the learning experience to your home organisations and/or communities;\nBe committed to the aims of the project and YEE values!\nThe online training course “Advocates for a Green Future” will gather youth workers, climate activists,\nsustainability professionals and volunteers ac'
+
+86. [general-history] CousinsWarsReligionPolitics-Phillips-1993-Unknown.pdf
+   known: t=CousinsWarsReligionPolitics | a=Phillips | y=1993 | p=Unknown
+   missing: publisher
+   excerpt: "THE \nCousins’ \nWars \nRELIGION, POLITICS, £7 \nTHE TRIUMPH OF ANGLO'AMERICA \nKEVIN PHILLIPS"
+
+87. [general-history] CtesiasPersicaNearEasternContext-Waters-2001-Unknown.pdf
+   known: t=CtesiasPersicaNearEasternContext | a=Waters | y=2001 | p=Unknown
+   missing: publisher
+   excerpt: 'Ctesias’ Persica and \nIts Near Eastern Context'
+
+88. [general-history] CulturasTradicionalesPatagoniaMundo-Chapman-1974-Unknown.pdf
+   known: t=CulturasTradicionalesPatagoniaMundo | a=Chapman | y=1974 | p=Unknown
+   missing: publisher
+   excerpt: 'P\nO\nR\n \nA\nN\nN\nE\n \nC\nH\nA\nP\nM\nA\nN\nT A L L E R E X P E R I M E N T A L C U E R P O S P I N T A D O S P R E S E N T A\nCULTURAS TRADICIONALES . PATAGONIA\nFIN MUNDO\nLOS SELKNAM DE TIERRA DEL FUEGO\nDE UN\nTALLER EXPERIMENTAL\nCUERPOS\nPINTADOS®'
+
+89. [general-history] CurrencyDevaluationSourceGrowth-Bouvet-0000-Springer.pdf
+   known: t=CurrencyDevaluationSourceGrowth | a=Bouvet | y=0000 | p=Springer
+   missing: year
+   excerpt: 'See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/359486701\nCurrency Devaluation as a Source of Growth in Africa: A Synthetic Control\nApproach\nArticle\xa0\xa0in\xa0\xa0Eastern Economic Journal · March 2022\nDOI: 10.1057/s41302-022-00211-4\nCITATIONS\n11\nREADS\n441\n3 authors, including:\nFlorence Bouvet\nSonoma State University\n21 PUBLICATIONS\xa0\xa0\xa0383 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nAll content following this page was uploaded by Florence Bouvet on 10 June 2022.\nThe user has requested enhancement of the downloaded file.\n---PAGE---\nVol.:(0123456789)\nEastern Economic Journal\nhttps://doi.org/10.1057/s41302-022-00211-4\nORIGINAL ARTICLE\nCurrency Devaluation as\xa0a\xa0Source of\xa0Growth in\xa0Africa: \nA\xa0Synthetic Control Approach\nFlorence\xa0Bouvet1\xa0· Roy\xa0Bower2\xa0· Jason\xa0C.\xa0Jones2\n \n© EEA 2022\nAbstract\nThis study examines the impact of the 1994 IMF-supported CFA franc devaluation \non GDP per capita in the CFA-franc zone using the augmented synthetic control \nmethodology. With the exception of Mali, there is no statistical evidence that GDP \nper capita levels rose relative to what they would have been in the absence of the \nIMF-supported devaluation. Three countries record statistically significant GDP per \ncapita levels below the counterfactual following the devaluation, though these coun-\ntries experienced a deterioration of their national institutional environment or were \naffected by external factors that offset any potential gains from the devaluation.\nKeyword'
+
+90. [general-history] DealingSecurityCrisisBurkinaFaso-Engels-2021-Unknown.pdf
+   known: t=DealingSecurityCrisisBurkinaFaso | a=Engels | y=2021 | p=Unknown
+   missing: publisher
+   excerpt: 'See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/360697477\nTransition now? Another coup d’état in Burkina Faso\nArticle\xa0\xa0in\xa0\xa0Review of African Political Economy · May 2022\nDOI: 10.1080/03056244.2022.2075127\nCITATIONS\n26\nREADS\n531\n1 author:\nBettina Engels\nFreie Universität Berlin\n108 PUBLICATIONS\xa0\xa0\xa0782 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nAll content following this page was uploaded by Bettina Engels on 14 December 2023.\nThe user has requested enhancement of the downloaded file.\n---PAGE---\nFull Terms & Conditions of access and use can be found at\nhttps://www.tandfonline.com/action/journalInformation?journalCode=crea20\nReview of African Political Economy\nISSN: (Print) (Online) Journal homepage: https://www.tandfonline.com/loi/crea20\nTransition now? Another coup d’état in Burkina\nFaso\nBettina Engels\nTo cite this article: Bettina Engels (2022): Transition now? Another coup\uffffd’état in Burkina Faso,\nReview of African Political Economy, DOI: 10.1080/03056244.2022.2075127\nTo link to this article: https://doi.org/10.1080/03056244.2022.2075127\nPublished online: 18 May 2022.\nSubmit your article to this journal \nView related articles \nView Crossmark data'
+
+91. [general-history] DebtFirstYears-Graeber-2011-Unknown.epub
+   known: t=DebtFirstYears | a=Graeber | y=2011 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+92. [general-history] DeclarationAccessUniversityBachelorProgramme-Unknown-0000-GhentUniversity.pdf
+   known: t=DeclarationAccessUniversityBachelorProgramme | a=Unknown | y=0000 | p=GhentUniversity
+   missing: author,year
+   excerpt: 'DEPARTMENT OF EDUCATIONAL POLICY \nREGISTRAR’S OFFICE\nDeclaration of access to a university bachelor programme in the country where the diploma was awarded \nfor the purpose of access to a bachelor programme at Ghent University\nTo be completed by the Ministry of Education, a University, a (University) College or the Embassy from the country issuing the diploma. \n(A) DIPLOMA OF THE APPLICANT\nDegree/Title\nISSUED BY:\nName of the institution \nCity\nCountry\nType \n Secondary education \nHigher education outside university \nUniversity\n(B) APPLICANT/ DIPLOMA HOLDER \n(Information as shown on the passport or the ID card)\nTitle \nMs. \nMr.\nSurname\nFirst name \nDate of birth \nNationality\n(C) DECLARATION TO BE COMPLETED BY THE MINISTRY OF EDUCATION, A UNIVERSITY, A (UNIVERSITY) COLLEGE OR THE EMBASSY FROM THE COUNTRY ISSUING THE DIPLOMA. \nTitle \n Prof. \n \nDr. \nMs. \nMr.\nSurname\nFirst name \nFunction/Title\nEmployed by \n Ministry of Education \nUniversity \n(University) College \nEmbassy\nFull name of institution \nCity\nCountry \nE-mail\nI declare that the diploma holder (B) of diploma (A) is granted:\n \n access to all university bachelor programmes in the country in which the diploma was awarded. \n \n access to specific university bachelor programmes only in the country in which the diploma was awarded. \n Please define accessible fields of study: \nSTAMP OR SEAL (MANUAL) \n SIGNATURE (MANUAL) \n DATE \nE admission@ugent.be \nT +32 9 331 00 70\nCampus Ufo, Sint-Pietersnieuwstraat 33\n9000 Ghent\nBelgium'
+
+93. [general-history] DelleStuore-Menochio-1980-Unknown.pdf
+   known: t=DelleStuore | a=Menochio | y=1980 | p=Unknown
+   missing: publisher
+   excerpt: 'Journal of Strategic Studies\nISSN: 0140-2390 (Print) 1743-937X (Online) Journal homepage: www.tandfonline.com/journals/fjss20\nA legitimate sphere of inﬂuence: Understanding\nFrance’s turn to multilateralism in Africa\nStefano Recchia\nTo cite this article: Stefano Recchia (2020) A legitimate sphere of inﬂuence: Understanding\nFrance’s turn to multilateralism in Africa, Journal of Strategic Studies, 43:4, 508-533, DOI:\n10.1080/01402390.2020.1733985\nTo link to this article: https://doi.org/10.1080/01402390.2020.1733985\n© 2020 The Author(s). Published by Informa\nUK Limited, trading as Taylor & Francis\nGroup.\nPublished online: 18 Mar 2020.\nSubmit your article to this journal \nArticle views: 8150\nView related articles \nView Crossmark data\nCiting articles: 7 View citing articles \nFull Terms & Conditions of access and use can be found at\nhttps://www.tandfonline.com/action/journalInformation?journalCode=fjss20\n---PAGE---\nARTICLE\nA legitimate sphere of inﬂuence: Understanding\nFrance’s turn to multilateralism in Africa\nStefano Recchia\nDepartment of Political Science, Southern Methodist University, Dallas, TX, USA\nABSTRACT\nScholars argue that the 1991 Gulf War, when the United States worked hard to\nsecure approval from the United Nations (UN), set a precedent for legitimate\nmilitary intervention that other states, especially other liberal democracies, sub-\nsequently felt compelled to follow. France, however, continued to intervene\nunilaterally in its traditional African sphere of inﬂuence f'
+
+94. [general-history] DelphiCompleteWorksPlutarch-Plutarch-2017-Unknown.epub
+   known: t=DelphiCompleteWorksPlutarch | a=Plutarch | y=2017 | p=Unknown
+   missing: publisher
+   excerpt: 'The Complete Works of\nPLUTARCH\n(46–120AD)\nContents\nThe Translations\nPARALLEL LIVES\nMORALIA\nThe Greek Texts\nLIST OF GREEK TEXTS\nThe Biographies\nINTRODUCTION TO PLUTARCH by Bernadotte Perrin\nLIFE OF PLUTARCH by Aubrey Stewart\nThe Delphi Classics Catalogue\n---PAGE---\n© Delphi Classics 2013\nVersion 1'
+
+95. [general-history] DelphiCompleteWorksPlutarch-Plutarch-2017-Unknown.pdf
+   known: t=DelphiCompleteWorksPlutarch | a=Plutarch | y=2017 | p=Unknown
+   missing: publisher
+   excerpt: 'The Complete Works of\nPLUTARCH\n(46–120AD)\nContents\nThe Translations\nPARALLEL LIVES\nMORALIA\nThe Greek Texts\nLIST OF GREEK TEXTS\nThe Biographies\nINTRODUCTION TO PLUTARCH by Bernadotte Perrin\nLIFE OF PLUTARCH by Aubrey Stewart\nThe Delphi Classics Catalogue\n© Delphi Classics 2013\nVersion 1'
+
+96. [general-history] DescriptionOfTheKarabakhProvince-Yermolov-1823-Unknown.pdf
+   known: t=DescriptionOfTheKarabakhProvince | a=Yermolov | y=1823 | p=Unknown
+   missing: publisher
+   excerpt: "»t \n' » \nГ) ; -\nJ \nОПИСАНІЕ \nЛ \nКАРАБАГСКОІ DFOBiHtIS \nС О С Т А В Л Е Н Н О Е \nвъ \nгоду, \nп о РАСПОРЯЖЕНІЮ ГЛАВНОУПРАВЛЯВШАГО ВЪ ГРУЗІИ ЕРМ<,Л;.і \nДѢІІСТВИТЕЛЬПЫМЪ СТАТСКИМЪ СОВЪТНИКОМЪ МОГИЛЕВСКИМЪ \nи \nПОЛКОВПИКОМЪ ЕРМОЛОВЫМЪ \n/ \n' V I - г \n5 \nТ И Ф Л И С Ъ . \nв ъ ТИПОГРАФШ ГДАВНАГО УПРЛВЛВНІЯ НАМѢСТНИКА KABKASCKATO. \n1866.\n---PAGE---\nБХБ^іИОТНѴА \nCCCF \nII. I. И. ІНШ"
+
+97. [general-history] DialogueHellMachiavelliMontesquieu-Joly-2011-Unknown.pdf
+   known: t=DialogueHellMachiavelliMontesquieu | a=Joly | y=2011 | p=Unknown
+   missing: publisher
+   excerpt: '410 Gone\nnginx/1.25.3'
+
+98. [general-history] DialogueMachiavelliMontesquieu-Joly-2002-Unknown.pdf
+   known: t=DialogueMachiavelliMontesquieu | a=Joly | y=2002 | p=Unknown
+   missing: publisher
+   excerpt: '410 Gone\nnginx/1.25.3'
+

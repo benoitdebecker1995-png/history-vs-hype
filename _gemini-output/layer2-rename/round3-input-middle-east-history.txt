@@ -1,0 +1,105 @@
+You are identifying academic books, journal articles, treaties, and primary
+documents from partial metadata + an excerpt of the first two pages of the
+PDF. For each entry below, search the web (Google Search grounding) to verify
+the work and return its full metadata.
+
+Each entry shows:
+  - The current filename (after prior parsing)
+  - Known fields: title slug, author surname, year, publisher
+  - 'Unknown' / '0000' = unresolved field
+  - A short excerpt from the first two pages of the PDF (may be empty if the
+    document is scanned image-only — proceed using the filename in that case)
+
+INSTRUCTIONS
+- Resolve EVERY missing field where you can find authoritative evidence.
+- Use Google Search grounding; cross-reference excerpt content + filename.
+- Do NOT guess. Mark UNRESOLVED if no high- or medium-confidence answer.
+- Confidence levels:
+    high   — primary source (publisher page, library catalogue, JSTOR)
+    medium — secondary source (Wikipedia, Google Books snippet)
+    low    — inference from excerpt only (rarely use; usually UNRESOLVED)
+- source_url is REQUIRED for any non-UNRESOLVED row.
+- publisher_abbrev MUST come from this list (use the closest match):
+  CambridgeUP, OxfordUP, YaleUP, PrincetonUP, ColumbiaUP, IndianaUP,
+  EdinburghUP, NYUPress, UCPress, JohnsHopkinsUP, HooverPress, PlutoPress,
+  Routledge, Palgrave, Bloomsbury, ITauris, HurstCo, ZedBooks, VersoBooks,
+  BasicBooks, RandomHouse, Penguin, Brill, Springer, DaCapo, FreePress,
+  Granta, WeidenfeldNicolson, CornellUP, StanfordUP, HarvardUP, LiverpoolUP,
+  MacmillanUK, NortonCo, HMSO, UN, ICJ, OECD, LHarmattan, Macmillan,
+  HoughtonMifflin, Serif.
+  If publisher is a journal article, use the journal abbreviation
+  (e.g. JModernHistory, IntlAffairs). If it is a government / IGO document,
+  use the issuer abbreviation (HMSO, UN, ICJ, FCO, etc.).
+
+OUTPUT
+Return a single markdown table with exactly these columns:
+
+| idx | title_slug | author_surname | year | publisher_abbrev | confidence | source_url |
+
+- idx: the integer from the entry header below.
+- title_slug: CamelCase, no spaces, no punctuation, ≤45 chars.
+- author_surname: surname only (e.g. Zinn, Akcam, Martinez — strip diacritics).
+- year: 4 digits, or 0000 if truly unknown.
+- All UNRESOLVED rows: put UNRESOLVED in every field except idx.
+
+Do NOT include any prose before or after the table.
+
+---
+
+ENTRIES:
+
+383. [middle-east-history] CyprusOttomansKissingerChristopherHitche-History-0000-Unknown.pdf
+   known: t=CyprusOttomansKissingerChristopherHitche | a=History | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Hostage to History'
+
+384. [middle-east-history] GreatArabConquestsSpreadIslamChangedWorl-Kennedy-2015-Unknown.pdf
+   known: t=GreatArabConquestsSpreadIslamChangedWorl | a=Kennedy | y=2015 | p=Unknown
+   missing: publisher
+   excerpt: 'THE \nGREAT ARAB \nCONCWESTS \nHow the Spread of Islam \nChanged the World We Live In \nHUGH KENNEDY \nDA CAPO PRESS \nA Member of the Perseus Books Group'
+
+385. [middle-east-history] HeraclitusIran-Unknown-2019-University-of-Chicago-Press.pdf
+   known: t=HeraclitusIran | a=Unknown | y=2019 | p=University-of-Chicago-Press
+   missing: author
+   excerpt: 'Heraclitus and Iran\nAuthor(s): Jacques Duchesne-Guillemin\nSource: History of Religions, Vol. 3, No. 1 (Summer, 1963), pp. 34-49\nPublished by: The University of Chicago Press\nStable URL: https://www.jstor.org/stable/1062075\nAccessed: 19-09-2019 09:25 UTC\n \nJSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide\nrange of content in a trusted digital archive. We use information technology and tools to increase productivity and\nfacilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org.\n \nYour use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at\nhttps://about.jstor.org/terms\nThe University of Chicago Press is collaborating with JSTOR to digitize, preserve and\nextend access to History of Religions\nThis content downloaded from 157.193.5.135 on Thu, 19 Sep 2019 09:25:15 UTC\nAll use subject to https://about.jstor.org/terms\n---PAGE---\nJacques Duchesne- H E R A C L I T U S\n Gruillemin AND IRAN\n Since the rediscovery of the Avesta has made the sources\n religion accessible to us, so that we can really say "Th\n Zarathustra," we have been able to return, with fresh int\n ancient idea: that of the Oriental, and especially Iranian, \n Greek philosophy. It is an idea which Antiquity had endo\n legendary aura, either by declaring that Pythagoras had\n roaster\'s pupil in Babylon (a city to which, probably, neither\n been) or by writing, as did Clemen'
+
+386. [middle-east-history] IsraelAHistory-Shapira-2012-Unknown.pdf
+   known: t=IsraelAHistory | a=Shapira | y=2012 | p=Unknown
+   missing: publisher
+   excerpt: '[EXTRACT-FAILED: EmptyFileError]'
+
+387. [middle-east-history] JewsArabLandsHistory-Stillman-1979-Unknown.pdf
+   known: t=JewsArabLandsHistory | a=Stillman | y=1979 | p=Unknown
+   missing: publisher
+   excerpt: 'W»y\nw* * tjq**\nwai\nsSBlBlsia\nsfoBSHSto.\n---PAGE---\n$ 14\n.9 -?;\nTHE JEWS OF ARAB LANDS\nA History and Source Book\nNorman A. Stillman\nThe continuing conflict in the Middle East\nhas rendered the topic of the historical rela-\ntions between Jews and Arabs one of urgent\nsignificance. While much has been written\non the subject, the existing literature, for the\nmost\npart,\ncomprises\neither\npartisan\npolemics\nor\nspecialized monographs. The\npresent volume,\nunique\nof\nits\nkind\naddressed to both an academic and general\nreadership—serves to fill the gap. It does so\nwith consummate authority, exploring the\nnature of the Jewish experience under Arab\nrule from the advent of Islam and the great\nArab conquests of the 7th and 8th centuries\n(when the majority\nof world Jewry came\nunder Arab sway), through the flourishing\nof Jewish culture during the Islamic High\nMiddle Ages,\nto the decay of the Muslim\nworld and the rise of the West.\nThe volume\nis\nconceived\nin two com-\nplementary parts. Part One offers a survey of\nJewish\nsocial\nhistory\nin\nthe Arab\nworld,\nspanning\n1500\nyears,\nfrom\nthe time\nof\nMuhammad\nto\nthe\nmid-19th\ncentury.\nAt\nonce descriptive and interpretive, this sec-\ntion,\na model\nof\nmasterful\nsuccinctness,\nprovides\na coherent and connected\nstate-\nment of its complex subject.\nPart Two contains a collection of apposite\nsources\nwhich\nform\ntheir own\ncolorful\nmosaic\nof fine\ndetails alongside the more\ngeneral sweep\nof the preceding\nchapters.\nThe preponderance of material in this sec-\ntion consists of'
+
+388. [middle-east-history] PlotProtocolsEldersZion-Eisner-2005-Unknown.pdf
+   known: t=PlotProtocolsEldersZion | a=Eisner | y=2005 | p=Unknown
+   missing: publisher
+   excerpt: 'THE SECRET STORY OF\nTHE PROTOCOLS\n0FTHE ELDERS of ZION\nw ?M\n7hr>\n*&\n»l\nM1H^#\nKrMi\nI\nV\nm\nJ\n>Ui\nWITH\nAN\nINTRDDUCTIDN\nBY UMBERTD ECO\n---PAGE---\nm^,\nISBN 0-393-0GD45-4\nCAN.\nS28.GD\nA WORK MORE DISTURBING\nTHAN FICTION FROM "THE\nFATHER- OF GRAPHIC NOVELS\n( NEW YORK\nIIMl\nompleting The Plot in the last month of\n/\nhis life, Will Eisner, the great master\nof American\ncomics,\ntackled what he\nregarded as his most powerful work. Deeply disturbed that\nthe Protocols of the Elders ofZion, which purports to be\nthe actual blueprint by Jewish leaders to take over the\nworld, continued to be published and disseminated to\nmillions of people around the globe, Eisner hoped that his\nown graphic account of this outrageous fabrication could\nreach a mass audience\nin a way that no academic work\npossibly could.\nIn presenting this extraordinary history, Eisner takes\nthe reader on a journey that begins\nin\nlate nineteenth-\ncentury Paris, where an agent of the Russian secret police\nstumbles upon an old French philosophical work, which he\nplagiarizes, often word for word, creating a new document\nthat seeks to\nimplicate Jewish leaders and bankers\nin\na plot to take over the world. Thus hatched as an anti-\nsemitic scheme\nto\ndeflect widespread\ncriticism\nof the\ntsar\'s\nrepressive\ngovernment,\nthe\nProtocols was\nfirst\npublished in Russia in 1905. The forgery succeeded well\nbeyond the propagandistic ambitions of its originators.\nIn time, as World War\nI engulfed both Russia and\nt of the Western world in a deadly conflagrat'
+
+389. [middle-east-history] RediscoveringPalestine-Palestine-2011-Unknown.pdf
+   known: t=RediscoveringPalestine | a=Palestine | y=2011 | p=Unknown
+   missing: publisher
+   excerpt: 'Rediscovering Palestine \nMerchants and Peasants in Jabal Nablus, 1700-1900 \nBeshara Doumani \nUNIVERSITY OF CALIFORNIA PRESS \nBerkeley · Los Angeles · London \n© 1995 The Regents of the University of California \n \n[Dedication] \n \nPreferred Citation: Doumani, Beshara. Rediscovering Palestine: Merchants and Peasants in Jabal Nablus, \n1700-1900. Berkeley: University of California Press, c1995 1995. http://ark.cdlib.org/ark:/13030/ft896nb5pc/ \n Preface \n Abbreviations \n Note on Translation and Transliteration \n Maps \n \n \n Introduction \n \n• Toward a History of Provincial Life in the Ottoman Interior \n \n• Rethinking Ottoman Palestine \n \n• Sources \n \n• Approach and Methodology \n \n• Notes \n \n 1. The Meanings of Autonomy \n \n Jabal Nablus as a Social Space \n \n• The City of Nablus \n \n• The Hinterland of Nablus \n \n Boundaries in Time and Space \n \n• The 1657 Campaign \n \n• The Rise of Acre \n \n• Egyptian Rule, 1831–1840 \n \n• Ottoman Centralization and the Fall of Arraba \n \n• Conclusion \n \n• Notes \n \n 2. Family, Culture, and Trade \n \n• Textile Merchants \n \n The Arafat Family \n \n• The Making of a Family Name\n---PAGE---\n• Social Status and Marriage Patterns \n \n Regional Trade Networks \n \n• Egypt \n \n• Beirut and Damascus \n \n Local Trade Networks \n \n• Space \n \n• Weddings \n \n• Keys to the City \n \n• Conclusion \n \n• Notes \n \n 3. Cotton, Textiles, and the Politics of Trade \n \n Cotton and the Politics of Monopoly \n \n• Cotton and the Rulers of Acre \n \n• Cotton Production in Jabal Nablus \n \n• Decline of'
+
+390. [middle-east-history] SovietUnionPalestineLiberationOrganizati-Golan-2010-Unknown.pdf
+   known: t=SovietUnionPalestineLiberationOrganizati | a=Golan | y=2010 | p=Unknown
+   missing: publisher
+   excerpt: 'T H E ----------------------------\nSOVIET UNION\nAND THE\nPa l e st in e\nLib e r a tio n\nORGANIZATION'
+
+391. [middle-east-history] SykesPicotAgreementFODocuments-Unknown-1916-Unknown.pdf
+   known: t=SykesPicotAgreementFODocuments | a=Unknown | y=1916 | p=Unknown
+   missing: author,publisher
+   excerpt: ''
+
+392. [middle-east-history] UnknownTitle-Unknown-1797-Unknown.pdf
+   known: t=UnknownTitle | a=Unknown | y=1797 | p=Unknown
+   missing: author,publisher
+   excerpt: "244\n[1797.\nEXECUTIVE JOURNAL.\nThose who voted in the negative , are-Messrs. Brown, Cocke, Langdon ,\nMartin, Mason , and Tazewell .\nOn motion, that it be\nResolved, That the Senate do advise and consent\nto the appointment of\nJohn Marshall , as one of three Envoys Extraordinary\nand Ministers Pleni-\npotentiary , with joint and several powers, to the Republic of France ;\nIt was determined in the affirmative ,\nNay's,\n•\n. 22,\n6.\nThe yeas and nays being required by one-fifth of the Senators present,\nThose who voted in the\naffirmative , are-Messrs . Bingham , Bradford ,\nFoster , Goodhue, Henry, Hillhouse , Howard , Latimer , Laurance, Liver-\nmore, Marshall , Paine , Read, Ross , Rutherfurd , Sedgwick , Stockton, Taze-\nwell, Tattnall , Tichenor , Tracy , and Vining .\nThose who voted in the negative , are-Messrs .\nBloodworth , Brown,\nCocke , Langdon, Martin, and Mason .\nSo it was\nResolved , That the Senate\ndo advise and consent to the appointments\nagreeably\nto the nominations respectively .\nOrdered, That the Secretary lay this resolution before the President of\nthe United States .\nWEDNESDAY , JUNE 7,\n1797 .\nMr. Bloodworth , from the Committee to whom was referred the conside-\nration of the treaty of peace\nand friendship , between\nthe United States of\nAmerica and the Bey and subjects of Tripoli , of Barbary ,\nmade\nreport ,\nthat it be adopted ; and the report being amended ,\nOn the question\nto agree to the report as amended ,\nIt was determined in the affirmative , Yeas\n23 .\nThe yeas and n"
+
+393. [middle-east-history] UnknownTitle-Unknown-2017-Unknown.pdf
+   known: t=UnknownTitle | a=Unknown | y=2017 | p=Unknown
+   missing: author,publisher
+   excerpt: '970\nbie3\n\x18ŽĐƵŵĞŶƚŽ\x03\x03\nDĂƌĐŽ\x03\nΎEKd\x04͗\x03>ĂƐ\x03ŝĚĞĂƐ\x03ĐŽŶƚĞŶŝĚĂƐ\x03ĞŶ\x03ůŽƐ\x03\x18ŽĐƵŵĞŶƚŽƐ\x03DĂƌĐŽ\x03ƐŽŶ\x03ĚĞ\x03ƌĞƐƉŽŶƐĂďŝůŝĚĂĚ\x03ĚĞ\x03ƐƵƐ\x03ĂƵƚŽƌĞƐ͕\x03ƐŝŶ\x03ƋƵĞ\x03\nƌĞĨůĞũĞŶ͕\x03ŶĞĐĞƐĂƌŝĂŵĞŶƚĞ͕\x03Ğů\x03ƉĞŶƐĂŵŝĞŶƚŽ\x03ĚĞů\x03/\x1c\x1c\x1c\x03Ž\x03ĚĞů\x03DŝŶŝƐƚĞƌŝŽ\x03ĚĞ\x03\x18ĞĨĞŶƐĂ͘\x03\n\x03\n\x18ŽĐƵŵĞŶƚŽ\x03DĂƌĐŽ\x03\nϭϲͬϮϬϭϳ\x03\nϭ\x03\n \n16/2017 \n2 de noviembre de 2017 \n \nJoaquín Mariano Pellicer Balsalobre* \nUn siglo de la Declaración Balfour. \nUna aproximación heurística a su \ngeopolítica \n \n \nUn siglo de la Declaración Balfour. Una aproximación heurística a \nsu geopolítica \nResumen \nUn siglo después de la publicación de la Declaración Balfour, se nos ofrece una \noportunidad para hacer una nueva aproximación que permita conocer la respuesta a \n«cómo», en lugar de a «por qué», Gran Bretaña reconoció públicamente su apoyo al \nestablecimiento en Palestina de un hogar nacional para el pueblo judío. La metodología \nde process tracing, desarrollada por George y Bennet en 1979, puede ser una \nherramienta muy útil para llevar a cabo un estudio de caso basado en datos cualitativos. \nEl método está basado en las observaciones del proceso causal y permite el \nestablecimiento de la secuencia causal de los sucesos en la generación de la declaración \ncomo resultado final. Los modelos de Allison de su libro La esencia de la decisión se \nemplean para conseguir que la investigación proporcione una explicación mínima \nsuficiente del resultado. El miedo, la incertidumbre y el pragmatismo dirigen el \ncomportamiento de Gran Bretaña en el proceso de la toma de decisiones sobre Oriente \nMedio'
+

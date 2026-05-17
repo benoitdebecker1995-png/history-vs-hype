@@ -1,0 +1,215 @@
+You are identifying academic books, journal articles, treaties, and primary
+documents from partial metadata + an excerpt of the first two pages of the
+PDF. For each entry below, search the web (Google Search grounding) to verify
+the work and return its full metadata.
+
+Each entry shows:
+  - The current filename (after prior parsing)
+  - Known fields: title slug, author surname, year, publisher
+  - 'Unknown' / '0000' = unresolved field
+  - A short excerpt from the first two pages of the PDF (may be empty if the
+    document is scanned image-only — proceed using the filename in that case)
+
+INSTRUCTIONS
+- Resolve EVERY missing field where you can find authoritative evidence.
+- Use Google Search grounding; cross-reference excerpt content + filename.
+- Do NOT guess. Mark UNRESOLVED if no high- or medium-confidence answer.
+- Confidence levels:
+    high   — primary source (publisher page, library catalogue, JSTOR)
+    medium — secondary source (Wikipedia, Google Books snippet)
+    low    — inference from excerpt only (rarely use; usually UNRESOLVED)
+- source_url is REQUIRED for any non-UNRESOLVED row.
+- publisher_abbrev MUST come from this list (use the closest match):
+  CambridgeUP, OxfordUP, YaleUP, PrincetonUP, ColumbiaUP, IndianaUP,
+  EdinburghUP, NYUPress, UCPress, JohnsHopkinsUP, HooverPress, PlutoPress,
+  Routledge, Palgrave, Bloomsbury, ITauris, HurstCo, ZedBooks, VersoBooks,
+  BasicBooks, RandomHouse, Penguin, Brill, Springer, DaCapo, FreePress,
+  Granta, WeidenfeldNicolson, CornellUP, StanfordUP, HarvardUP, LiverpoolUP,
+  MacmillanUK, NortonCo, HMSO, UN, ICJ, OECD, LHarmattan, Macmillan,
+  HoughtonMifflin, Serif.
+  If publisher is a journal article, use the journal abbreviation
+  (e.g. JModernHistory, IntlAffairs). If it is a government / IGO document,
+  use the issuer abbreviation (HMSO, UN, ICJ, FCO, etc.).
+
+OUTPUT
+Return a single markdown table with exactly these columns:
+
+| idx | title_slug | author_surname | year | publisher_abbrev | confidence | source_url |
+
+- idx: the integer from the entry header below.
+- title_slug: CamelCase, no spaces, no punctuation, ≤45 chars.
+- author_surname: surname only (e.g. Zinn, Akcam, Martinez — strip diacritics).
+- year: 4 digits, or 0000 if truly unknown.
+- All UNRESOLVED rows: put UNRESOLVED in every field except idx.
+
+Do NOT include any prose before or after the table.
+
+---
+
+ENTRIES:
+
+6. [colonialism-slavery] AmericanIndianWesternLegalThought-Williams-1998-Unknown.pdf
+   known: t=AmericanIndianWesternLegalThought | a=Williams | y=1998 | p=Unknown
+   missing: publisher
+   excerpt: 'The American Indian\nin Western Legal Thought'
+
+7. [colonialism-slavery] ColonyNewNetherlandDutch-Jacobs-2007-Unknown.pdf
+   known: t=ColonyNewNetherlandDutch | a=Jacobs | y=2007 | p=Unknown
+   missing: publisher
+   excerpt: 'NEW NETHERLAND\nA Dutch Colony in Seventeenth-Century America\nBY\nJAAP JACOBS\nBRILL\nLEIDEN • BOSTON\n2005'
+
+8. [colonialism-slavery] DumDiversas-Pope-Nicholas-V-1452-Unknown.pdf
+   known: t=DumDiversas-Pope-Nicholas | a=V | y=1452 | p=Unknown
+   missing: publisher
+   excerpt: '1452 - Dum Diversas - issued by Pope Nicolas V to Alfanso v of Portuga...\nhttps://www.doctrineofdiscovery.net/1452-dum-diversas-issued-by-pope...\n1 of 2\n05/03/2026, 21:37\n---PAGE---\n© 2026\n|\n1452 - Dum Diversas - issued by Pope Nicolas V to Alfanso v of Portuga...\nhttps://www.doctrineofdiscovery.net/1452-dum-diversas-issued-by-pope...\n2 of 2\n05/03/2026, 21:37'
+
+9. [colonialism-slavery] FirstManhattanIndiansMewYork-Grumet-2002-Unknown.pdf
+   known: t=FirstManhattanIndiansMewYork | a=Grumet | y=2002 | p=Unknown
+   missing: publisher
+   excerpt: 'First Manhattans\nA History of the \nindians of\ngreater new york\nRobert S. Grume t\n---PAGE---\nFirst Manhattans'
+
+10. [colonialism-slavery] GenealogicalFictionsLimpiezaSangre-Martínez-2012-Unknown.pdf
+   known: t=GenealogicalFictionsLimpiezaSangre | a=Martínez | y=2012 | p=Unknown
+   missing: publisher
+   excerpt: 'Genealogical Fictions'
+
+11. [colonialism-slavery] GrandfathersSpeakNativeAmericanFolkTalesOfThe-Hitakonanulaxk-1994-Unknown.pdf
+   known: t=GrandfathersSpeakNativeAmericanFolkTalesOfThe | a=Hitakonanulaxk | y=1994 | p=Unknown
+   missing: publisher
+   excerpt: "GRAPFATHERS\nSPEAK\nNATIVE\nAMERICAN\nFOLK TALES\nLENAPE\nPEOPLE\n'Vr.\nM 1\nI T A K O N A N U L A X K\n---PAGE---\nBOSTO^\nPUBUC"
+
+12. [colonialism-slavery] HalumiiKtapihna-Hitakonanulaxk-1994-Unknown.pdf
+   known: t=HalumiiKtapihna | a=Hitakonanulaxk | y=1994 | p=Unknown
+   missing: publisher
+   excerpt: 'Get Tickets for "He Built This City: Joe Macken\'s Model"\n---PAGE---\nlife, even as most have been displaced from their ancestral homelands.\nDespite centuries of dispossession, forced migration, and erasure, Lenape/\nLunáapeew people have persisted, adapting and sustaining their traditions\nacross generations and geographies.\nThis exhibition centers Lenape/Lunáapeew voices, stories, and creativity,\nforegrounding the perspectives of community members from across the\nLenape/Lunáapeew diaspora. Through rarely seen objects, contemporary\nartworks, personal testimonies, and interactive installations, visitors will trace\nthe Lenape/Lunáapeew\'s ancient roots, the ruptures of colonization, and the\nongoing work of cultural renewal. Highlights include wampum belts, tools, and\ntextiles; archival documents and maps; and new works by Lenape/\nLunáapeew artists that speak to identity, sovereignty, and belonging in the\npresent.\nHalumii Ktapihna challenges visitors to reconsider the city’s history and future\nthrough the lens of its first people. The exhibition explores themes of land\nstewardship, language revitalization, and the resilience of Lenape/Lunáapeew\ncommunities, while also confronting the legacies of removal and the realities\nof contemporary Lenape/Lunáapeew life. As New York City marks 400 years\nsince the founding of New Amsterdam, this exhibition asks: What does it\nmean to acknowledge the original stewards of this place, and how can we\nimagine a more just and connected future together?'
+
+13. [colonialism-slavery] HistoryNewNetherlandDutch-OCallaghan-1848-Unknown.pdf
+   known: t=HistoryNewNetherlandDutch | a=OCallaghan | y=1848 | p=Unknown
+   missing: publisher
+   excerpt: 'THE PUBLISHERS BEG THE LIBERTY OF PRESENTING\nTHE FOLLOWING RECOMMENDATIONS WITH RES-\nPECT TO THE VALUE OF THE ACCOMPANYING HIS-\nTORY OF THE EARLY SETTLEMENT OF NEW-YORK.\nFrom the Honorable Col. N. S. Benton, Secretary of State and Super-\nintendent of Common Schools.\nAlbany, December 13th, 1845.\nDeau Sir\n:—I have read your " History of New Netherland," with\nconsiderable attention, and am much pleased with\nit.\nThe plan of the\nwork and order of arrangement appear to me, well adapted\nto present\nto the reader, in the most acceptable form, the interesting details of our\nearly\nColonial\nHistory.\nI take great pleasure\nin commending\nit\nto\npublic patronage.\n1 nm, very respectfully, yours,\nN.\nS. BENTON.\nDr. E\nB. O\'Callaghan.\nI have\nread, with much pleasure and\ninterest, a considerable part\nof Dr. O\'Callaghan\'s History of New Netherland.\nThe materials seem\nto have been sought and\nselected with\ngreat care\nand diligence\n;\nand\nthe work, as far\nas I have perused the manuscript,\nmanifests scrupu-\nlous accuracy, and a respectful consideration of the merits of the early\ncolonists, who, to improve their condition, left their, and their\nfathers\'\nhomes, and encountered the privations and hardships incident to a settle-\nment in the wilds of the New World.\nThe author appears also to cherish\na\njust estimate of the character\nof their descendants, among whom\nflourished\nsuch men\nas Arendt Van Corlear, Peter and Philip Schuy-\nler.\nDr. O\'Callaghan\'s\nlabor and\nresearches have very opportunely co-\nincided wi'
+
+14. [colonialism-slavery] HistoryPortugalPortugueseEmpire-Disney-1991-Unknown.pdf
+   known: t=HistoryPortugalPortugueseEmpire | a=Disney | y=1991 | p=Unknown
+   missing: publisher
+   excerpt: 'This page intentionally left blank'
+
+15. [colonialism-slavery] HowIncasBuiltHeartlandImperialStrategy-Covey-2015-Unknown.pdf
+   known: t=HowIncasBuiltHeartlandImperialStrategy | a=Covey | y=2015 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+16. [colonialism-slavery] ImaginationAidedByThePainterSBrushTheSchaghen-Unknown-1626-Unknown.pdf
+   known: t=ImaginationAidedByThePainterSBrushTheSchaghen | a=Unknown | y=1626 | p=Unknown
+   missing: author,publisher
+   excerpt: '"Imagination Aided by the Painter\'s Brush": William Ranney and the Cr...\nhttps://www.gothamcenter.org/blog/imagination-aided-by-the-painters-...\n1 of 12\n12/04/2026, 18:59\n---PAGE---\n"Imagination Aided by the Painter\'s Brush": William Ranney and the Cr...\nhttps://www.gothamcenter.org/blog/imagination-aided-by-the-painters-...\n2 of 12\n12/04/2026, 18:59'
+
+17. [colonialism-slavery] InterCaetera-Pope-Alexander-VI-1493-Unknown.pdf
+   known: t=InterCaetera-Pope-Alexander | a=VI | y=1493 | p=Unknown
+   missing: publisher
+   excerpt: 'Search Tips\nSitemap\nSelect Pope\nInter Caetera\nDivision of the undiscovered world between Spain and Portugal\nPope Alexander VI - 1493\nAlexander, bishop, servant of the servants of God, to the illustrious sovereigns, our very dear son in Christ,\nFerdinand, king, and our very dear daughter in Christ, Isabella, queen of Castile, Leon, Aragon, Sicily, and\nGranada, health and apostolic benediction. Among other works well pleasing to the Divine Majesty and\ncherished of our heart, this assuredly ranks highest, that in our times especially the Catholic faith and the\nChristian religion be exalted and be everywhere increased and spread, that the health of souls be cared for\nand that barbarous nations be overthrown and brought to the faith itself. Wherefore inasmuch as by the favor\nof divine clemency, we, though of insufficient merits, have been called to this Holy See of Peter, recognizing\nthat as true Catholic kings and princes, such as we have known you always to be, and as your illustrious\ndeeds already known to almost the whole world declare, you not only eagerly desire but with every effort,\nInter Caetera - Papal Encyclicals\nhttps://www.papalencyclicals.net/alex06/alex06inter.htm\n1 of 4\n05/03/2026, 21:32\n---PAGE---\nzeal, and diligence, without regard to hardships, expenses, dangers, with the shedding even of your blood, are\nlaboring to that end; recognizing also that you have long since dedicated to this purpose your whole soul and\nall your endeavors — as witnessed in these times w'
+
+18. [colonialism-slavery] LandPapers-Unknown-1980-Unknown.pdf
+   known: t=LandPapers | a=Unknown | y=1980 | p=Unknown
+   missing: author,publisher
+   excerpt: 'NEW YORK \nHISTORICAL MANUSCRIPTS: \nDUTCH\nVolumes GG, HH & II\nLAND PAPERS\nTranslated and Edited by \nCHARLES T. GEHRING\nPublished under the Direction of \nThe Holland Society of New York\nBaltimore\nG e n e a lo g ic a l P u b lish in g C o ., In c.\n1980\n---PAGE---\nCopyright© 1980\nThe Holland Society of New York\nAll Rights Reserved\nPublished by\nGenealogical Publishing Co., Inc.\nBaltimore, 1980\nLibrary of Congress Catalogue Card Number 73-14890 \nInternational Standard Book Number 0-8063-0876-1 \nMade in the United States of America'
+
+19. [colonialism-slavery] LenapeCountryDelawareValley-Soderlund-2007-Unknown.pdf
+   known: t=LenapeCountryDelawareValley | a=Soderlund | y=2007 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+20. [colonialism-slavery] LenapeDelawareIndiansPeople-Kraft-1987-Unknown.pdf
+   known: t=LenapeDelawareIndiansPeople | a=Kraft | y=1987 | p=Unknown
+   missing: publisher
+   excerpt: 'The Lenape \nor Delaware Indians \nThe original people of New Jersey, \nsoutheastern New York State, eastern Pennsylvania, \nnorthern Delaware and parts of western Connecticut \nby Herbert C. Kraft \nwe, mw thy, ee os \n1 ‘Wig \nWN \na \nyun \nle \nPas \nIs Tp: ve a \nwd ie ay | Poa. \n% On y \niy Pos \nm cay \nmn \nwe ily \nGe \nay \n“4 Re \nVG it? j ¢ eT Bares\n---PAGE---\nWaoranec \n| \nWappinger \n| \n! \nNochpeem \ns \nKichtawank \nPompton \nCj \nAcquacanonk */% \nRaritan \n‘p \n‘Raritan \nKiver \nPlaywicky \nSankhikan \n( Navasink \nPoaetquissingh: \nAtsayonk \nA \nShackamaxon \n7 \nWichquaquenscke 4 \nPassayunk \n<%* Remkokes \nOkehocking 4 \n‘Ar newaines \nBrandywine \nMates \nMomexacoors: \n_Quenémysing LS “ \nNaraticonck \na \nKechemeches \nAt one time, the Lenape or Delaware Indians occupied all of present-day New Jersey, \nsoutheastern New York State, Staten Island, and the western part of Long Island, a small \npart of western Connecticut, eastern Pennsylvania, and parts of the State of Delaware \nbordering on Delaware Bay.'
+
+21. [colonialism-slavery] LordsOfAllWorldIdeologiesEmpire-Pagden-1995-Unknown.pdf
+   known: t=LordsOfAllWorldIdeologiesEmpire | a=Pagden | y=1995 | p=Unknown
+   missing: publisher
+   excerpt: 'Ideologies of Empire \nin Spain, Britain and France \n—-¢.1500—c. 1800'
+
+22. [colonialism-slavery] ManifestDeceptionThePurchaseOfManhattan-Oconnell-2024-Unknown.pdf
+   known: t=ManifestDeceptionThePurchaseOfManhattan | a=Oconnell | y=2024 | p=Unknown
+   missing: publisher
+   excerpt: 'Manifest Deception: Interpreting Lenape Land Concessions \nAn Analysis of the European Colonialization and Systemic Erasure of the Indigenous \nPeople of New Jersey and Surrounding Areas \nBy \nOrin Patrick O’Connell \nA thesis submitted to the \nGraduate School-Newark \nRutgers, The State University of New Jersey \nin partial fulfillment of the requirements \nfor the degree of \nMaster of Arts \nGraduate Program in History \nwritten under the direction of \nDr. Jack Kuo Wei Tchen \nand approved by \n____________________________ \n____________________________ \n____________________________ \n____________________________ \nNewark, New Jersey \n \n \n \n \nMay 2024\n---PAGE---\n©2024 \nOrin Patrick O’Connell \n \nALL RIGHTS RESERVED'
+
+23. [colonialism-slavery] NarrativesNewNetherland-Jameson-1968-Unknown.pdf
+   known: t=NarrativesNewNetherland | a=Jameson | y=1968 | p=Unknown
+   missing: publisher
+   excerpt: 'Narratives of New Netherland, 1609-\n1664\nPublished by Good Press, 2021\ngoodpress@okpublishing.info\nEAN 4057664638458'
+
+24. [colonialism-slavery] NewYorkHistoricalManuscriptsDutch-Gehring-1980-Unknown.pdf
+   known: t=NewYorkHistoricalManuscriptsDutch | a=Gehring | y=1980 | p=Unknown
+   missing: publisher
+   excerpt: 'NEW YORK \nHISTORICAL MANUSCRIPTS:\nDUTCH\n---PAGE---\nCOMMITTEE ON PUBLICATION\nRALPH L. DE GROFF: Chairman\nTrustee—The Holland Society of New York \nTrustee—The Institute on Man and Science\nKENNETH SCOTT: Co-editor\nTrustee—The New York Genealogical and Biographical Society \nFellow—The American Society of Genealogists\nKENN STRYKER-RODDA: Co-editor\nPresident—The National Genealogical Society\nFellow and Past President—The American Society of Genealogists\nGANO R. BAILEY: Advisor\nTrustee—The Louis Beach Vreeland Foundation\nExecutive Secretary—The Saint Nicholas Society of the City of New York\nROBERT G. GOELET: Consultant\nTrustee—The Holland Society of New York \nPresident—The New York Historical Society\nJULIAN K. ROOSEVELT: Consultant\nPresident—The Holland Society of New York \nTrustee—Museum of the City of New York'
+
+25. [colonialism-slavery] NotesManhattanPurchase-Unknown-2026-Unknown.pdf
+   known: t=NotesManhattanPurchase | a=Unknown | y=2026 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Notes on the Manhattan Purchase — The Gotham Center for New York...\nhttps://www.gothamcenter.org/blog/notes-on-the-manhattan-purchase\n1 of 13\n12/04/2026, 18:58\n---PAGE---\nNotes on the Manhattan Purchase — The Gotham Center for New York...\nhttps://www.gothamcenter.org/blog/notes-on-the-manhattan-purchase\n2 of 13\n12/04/2026, 18:58'
+
+26. [colonialism-slavery] PiratesBarbaryCorsairsCaptivity-Tinniswood-2010-Unknown.pdf
+   known: t=PiratesBarbaryCorsairsCaptivity | a=Tinniswood | y=2010 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+27. [colonialism-slavery] PopesLawyersInfidelsChurch-Muldoon-1995-Unknown.pdf
+   known: t=PopesLawyersInfidelsChurch | a=Muldoon | y=1995 | p=Unknown
+   missing: publisher
+   excerpt: 'POPES, LAWYERS, AND \nINFIDELS\n---PAGE---\nThe Church and the\nNon-Christian World\n1250-1550'
+
+28. [colonialism-slavery] PortugueseSeaborneEmpire-Boxer-1969-Unknown.pdf
+   known: t=PortugueseSeaborneEmpire | a=Boxer | y=1969 | p=Unknown
+   missing: publisher
+   excerpt: 'listory \niman \nJty \nThe Portuguese \nSeaborne \nEmpire \n1415-1825 \n1 Editor \nimb \nC. R. Boxer\n---PAGE---\nNUNC COCNOSCO EX PARTE \nI \nTHOMAS J. BATA LIBRARY \nTRENT UNIVERSITY'
+
+29. [colonialism-slavery] RomanusPontifex-Pope-Nicholas-V-1455-Unknown.pdf
+   known: t=RomanusPontifex-Pope-Nicholas | a=V | y=1455 | p=Unknown
+   missing: publisher
+   excerpt: 'Search Tips\nSitemap\nSelect Pope\nRomanus Pontifex\n(Granting the Portuguese a perpetual monopoly in trade with Africa) January 8, 1455\nChristopher Wendt - 2017\nThe Bull Romanus Pontifex (Nicholas V), January 8, 1455.\nBackground\nThe kingdoms of Portugal and Castile had been jockeying for position and possession of colonial territories\nalong the African coast for more than a century prior to Columbus’ “discovery” of lands in the western seas.\nOn the theory that the Pope was an arbitrator between nations, each kingdom had sought and obtained Papal\nbulls at various times to bolster its claims, on the grounds that its activities served to spread Christianity.\nRomanus Pontifex - Papal Encyclicals\nhttps://www.papalencyclicals.net/nichol05/romanus-pontifex.htm\n1 of 6\n05/03/2026, 21:38\n---PAGE---\nThe bull Romanus Pontifex is an important example of the Papacy’s claim to spiritual lordship of the whole\nworld and of its role in regulating relations among Christian princes and between Christians and\n“unbelievers” (“heathens” and “infidels”). This bull became the basis for Portugal’s later claim to lands in the\n“new world,” a claim which was countered by Castile and the bull Inter caetera in 1493.\nAn English translation of Romanus Pontifex is reproduced below, as published in European Treaties bearing\non the History of the United States and its Dependencies to 1648, Frances Gardiner Davenport, editor,\nCarnegie Institution of Washington, 1917, Washington, D.C., at pp. 20-26. The original tex'
+
+30. [colonialism-slavery] SchaghenLetterOf1626-Schaghen-1626-Unknown.pdf
+   known: t=SchaghenLetterOf1626 | a=Schaghen | y=1626 | p=Unknown
+   missing: publisher
+   excerpt: 'Schaghen Letter | Native New York\nhttps://americanindian.si.edu/nk360/manhattan/schaghen-letter/schaghen...\n1 of 4\n12/04/2026, 19:02\n---PAGE---\nSchaghen Letter | Native New York\nhttps://americanindian.si.edu/nk360/manhattan/schaghen-letter/schaghen...\n2 of 4\n12/04/2026, 19:02'
+
+31. [colonialism-slavery] SpanishColonialResearchCenter-Unknown-1991-Unknown.pdf
+   known: t=SpanishColonialResearchCenter | a=Unknown | y=1991 | p=Unknown
+   missing: author,publisher
+   excerpt: 'COMPLETE RESEARCH COMPILATION: SPANISH COLONIZATION OF PERU \nDebunking "Benevolent Spanish" Myths - Historical Evidence & Contemporary \nImpact \nResearch Compiled: October 2025 \nPurpose: Documentary Script Evidence Base \nCoverage: 1520-2025 (505 years) \nTotal Sources: 40+ academic works, government reports, primary documents \n \nEXECUTIVE SUMMARY \nWhat You Have (Evidence Strength Assessment) \n🔥 CRUSHING EVIDENCE (Can confidently assert on camera): \nHistorical: \n\uf0b7 \n✅ Population collapse: 90-93% (5-9M → 600K over 100 years) \n\uf0b7 \n✅ Potosí deaths: 1M+ directly, 8M+ all Andean mines (conservative scholarly \nconsensus) \n\uf0b7 \n✅ Mita system: 239-250 years, 60% population decline in affected regions \n\uf0b7 \n✅ Laws failed: Viceroy beheaded 1546, laws revoked 1545 \n\uf0b7 \n✅ Túpac Amaru II: Up to 100K killed in repression \n\uf0b7 \n✅ Primary sources: Las Casas, Guamán Poma (398 FREE illustrations) \nContemporary: \n\uf0b7 \n✅ 2022-23 violence: 49 deaths, 46 in Indigenous regions (HRW, IACHR) \n\uf0b7 \n✅ Employment: 80% more applications needed (Galarza & Yamada 2015) \n\uf0b7 \n✅ Healthcare: 50% higher maternal mortality (PAHO) \n\uf0b7 \n✅ Racism reports DOUBLED: 116 (2022) → 284 (2024) \n\uf0b7 \n✅ Environmental: 58 defenders killed 2012-2023 \n\uf0b7 \n✅ Rights delays: 154-190 years after independence \n⚠️ ADEQUATE EVIDENCE (Can assert with qualifications):\n---PAGE---\n\uf0b7 \n⚠️ Inca civilization sophistication (have some evidence, could be stronger) \n\uf0b7 \n⚠️ Cannibalism as propaganda (theoretical framework strong, specific refutation \nweak) \n\uf0b7 \n⚠️ Com'
+
+32. [colonialism-slavery] StatementOnTheDoctrineOfDiscovery-Vatican-2023-Unknown.pdf
+   known: t=StatementOnTheDoctrineOfDiscovery | a=Vatican | y=2023 | p=Unknown
+   missing: publisher
+   excerpt: 'Joint Statement of the Dicasteries for Culture and Education\nand for Promoting Integral Human Development on the\n“Doctrine of Discovery”, 30.03.2023\n1. In fidelity to the mandate received from Christ, the Catholic Church strives to promote universal\nfraternity and respect for the dignity of every human being.\n2. For this reason, in the course of history the Popes have condemned acts of violence, oppression,\nsocial injustice and slavery, including those committed against indigenous peoples. There have also\nbeen numerous examples of bishops, priests, women and men religious and lay faithful who gave\ntheir lives in defense of the dignity of those peoples.\n3. At the same time, respect for the facts of history demands an acknowledgement of the human\nweakness and failings of Christ’s disciples in every generation. Many Christians have committed evil\nacts against indigenous peoples for which recent Popes have asked forgiveness on numerous\noccasions.\n4. In our own day, a renewed dialogue with indigenous peoples, especially with those who profess\nthe Catholic Faith, has helped the Church to understand better their values and cultures. With their\nhelp, the Church has acquired a greater awareness of their sufferings, past and present, due to the\nexpropriation of their lands, which they consider a sacred gift from God and their ancestors, as well\nas the policies of forced assimilation, promoted by the governmental authorities of the time,\nintended to eliminate their indigenous cultures.'
+
+33. [colonialism-slavery] Treaty-Unknown-2026-Unknown.pdf
+   known: t=Treaty | a=Unknown | y=2026 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Avalon Home\nDocument\nCollections\nAncient\n4000bce - 399\nMedieval\n400 - 1399\n15th Century\n1400 - 1499\n16th Century\n1500 - 1599\n17th Century\n1600 - 1699\n18th Century\n1700 - 1799\n19th Century\n1800 - 1899\n20th Century\n1900 - 1999\n21st Century\n2000 -\nTreaty between Spain and Portugal concluded at Tordesillas; June 7, 1494\nRatification by Spain, July 2, 1494.\nRatification by Portugal, September 5, 1494.\nTRANSLATION.\nDon Ferdinand and Dona Isabella, by the grace of God king and queen of Castile, Leon, Aragon, Sicily, Granada, Toledo, Valencia, Galiciaj Majorca Seville,\nSardinia, Cordova, Corsica, Murcia, Jaen, Algarve, Algeciras, Gibraltar, and the Canary Islands, count and countess of Barcelona, lord and lady of Biscay and Molina,\nduke and duchess of Athens and Neopatras, count and countess of Roussillon and Cerdagne, marquis and marchioness of Oristano and Gociano, together with the\nPrince Don John, our very dear and very beloved first-born son, heir of our aforesaid kingdoms and lordships. Whereas by Don Enrique Enriques, our chief steward,\nDon Gutierre de Cardenas, chief commissary of Leon, our chief auditor, and Doctor Rodrigo Maldonado, all members of our council, it was treated, adjusted, and agreed\nfor us and in our name and by virtue of our power with the most serene Dom John, by the grace of God, king of Portugal and of the Algarves on this side and beyond the\nsea in Africa, lord of Guinea, our very dear and very beloved brother, and with Ruy de Sousa, lord of Sagres and Be'
+
+34. [colonialism-slavery] TreatyOfTordesillasAndTheOriginsOfSlavery-Unknown-2023-Unknown.pdf
+   known: t=TreatyOfTordesillasAndTheOriginsOfSlavery | a=Unknown | y=2023 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Tordesillas, Slavery and the Origins of Brazilian\nInequality∗\nHumberto Laudares† and Felipe Valencia Caicedo‡\nJanuary 6, 2023\nAbstract\nThis article documents the long-term impact of slavery on inequality\nat the receiving end. We focus on Brazil, the largest importer of African\nslaves and the last country to abolish this institution in the Western Hemi-\nsphere in 1888. To deal with the endogeneity of slavery placement, we use a\nspatial Regression Discontinuity Design (RDD), exploiting the Tordesillas\nTreaty, which established the colonial boundaries between the Portuguese\nand Spanish empires within Brazil.\nWe ﬁnd that the number of slaves\nin 1872 is discontinuously higher on the Portuguese side of the border,\nconsistent with this power’s comparative advantage in transatlantic slav-\nery. We then show how this diﬀerential slave rate led to a higher modern\nincome inequality of 0.04 points (of the Gini index), close to 10% of the\naverage income inequality in the country. In terms of mechanisms, we ﬁnd\na wider racial income gap, as well as important diﬀerences in education,\nemployment and prejudice against blacks in modern times. We rule out the\nrole of colonizer identity and other mechanisms proposed in the historical\nliterature.\n∗We would like to thank ﬁrst and foremost Thomas Fujiwara for his continued advice and\nsupport, Gani Aldashev, Jean-Louis Arcand, Matias Cattaneo, Matteo Cervellati, Jorge Pi-\nmentel Cintra, Francisco Costa, Laura Chioda, Melissa Dell, Ellora Derenoncourt'
+
+35. [colonialism-slavery] UncoveringInvisible-Unknown-2026-Unknown.pdf
+   known: t=UncoveringInvisible | a=Unknown | y=2026 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Photo by Mateus Campos Felipe (https://unsplash.com/@matcfelipe?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on Unsplash\n(https://unsplash.com/s/photos/brazil-amazon?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).\nHome / Blog / Uncovering the Invisible: The Doctrine of Discovery, its Impact on the Brazilian Indigenous Peoples, on the\nenvironment and how it continues to shape the Brazilian landscape today: English\nUncovering the Invisible: The\nDoctrine of Discovery, its Impact on\nthe Brazilian Indigenous Peoples, on\nthe environment and how it\ncontinues to shape the Brazilian\nlandscape today: English (https://\ndoctrineofdiscovery.org/blog/uncovering-\ninvisible-en/)\n 23 minute read\nEnglish\nPortugese\nSpanish\nAbstract\nDespite being a tool of colonization and imperialism worldwide, the Doctrine of Discovery’s\nimportance and influence has been overlooked in Brazilian literature and studies. This article\nexamines the Doctrine’s impact on the Brazilian Indigenous people and environment,\nhighlighting the need to acknowledge and understand the effects and manifestations of the\nUncovering the Invisible: The Doctrine of Discovery, its Impact on the ...\nhttps://doctrineofdiscovery.org/blog/uncovering-invisible-en/\n1 of 17\n05/03/2026, 21:53\n---PAGE---\nDoctrine of Discovery in Brazil. It explores intersections of the Doctrine with Indigenous rights\nand sovereignty. It argues that understanding the Doctrine is essential to move forward\nrespectfully'
+
+36. [colonialism-slavery] Untitled-Unknown-2026-Unknown.pdf
+   known: t=Untitled | a=Unknown | y=2026 | p=Unknown
+   missing: author,publisher
+   excerpt: "Untitled - April 17, 2026\nSpeaker In eighteen twenty one, um, the government of the Netherlands had this really \nmundane problem. They basically needed to, you know, clear out some storage space, right? \nA classic administrative headache. Exactly. So some mid-level bureaucrats looked at the \nmassive centuries old archives of the Dutch East and West India companies. I mean, millions \nupon millions of pages of colonial records, which are literally the foundational documents of a \nglobal empire. Yeah. And they made a decision. They didn't, uh, meticulously index them. They \ndidn't move them to a safer vault. They literally sold them to a pulp mill. Oh, it's just agonizing \nto even think about. It really is. Eighty zero zero zero pounds of irreplaceable historical records \nwere just shoveled into an industrial grinder, completely destroyed and recycled into blank \nscrap paper. Wow. And with the stroke of a pen, the actual documented history of the founding \nof New York City was just wiped off the face of the earth. Yeah. It remains, I mean, one of the \nmost staggering, agonizing acts of bureaucratic vandalism in modern history, because what \nrushed in to fill that massive historical void wasn't the truth. It was, well, a ghost story, a \ncomplete fabrication, right? A complete fabrication that would eventually morph into the \ngreatest, most unshakable real estate myth ever told. Which is exactly why we are plunging \ninto this deep dive today. And we are talking directly to you, ou"
+
+37. [colonialism-slavery] VaticanRepudiatesTheDoctrineOfDiscovery-Vatican-2023-Unknown.pdf
+   known: t=VaticanRepudiatesTheDoctrineOfDiscovery | a=Vatican | y=2023 | p=Unknown
+   missing: publisher
+   excerpt: "Vatican repudiates the 'Doctrine of Discovery,' which underpinned colon...\nhttps://www.npr.org/2023/03/30/1167056438/vatican-doctrine-of-discov...\n1 of 12\n05/03/2026, 21:51\n---PAGE---\nVatican repudiates the 'Doctrine of Discovery,' which underpinned colon...\nhttps://www.npr.org/2023/03/30/1167056438/vatican-doctrine-of-discov...\n2 of 12\n05/03/2026, 21:51"
+
+38. [colonialism-slavery] VaticanStatementRepudiatingTheDoctrineOfDisco-Vatican-2023-Unknown.pdf
+   known: t=VaticanStatementRepudiatingTheDoctrineOfDisco | a=Vatican | y=2023 | p=Unknown
+   missing: publisher
+   excerpt: 'Joint Statement of the Dicasteries for Culture and Education\nand for Promoting Integral Human Development on the\n“Doctrine of Discovery”, 30.03.2023\n1. In fidelity to the mandate received from Christ, the Catholic Church strives to promote universal\nfraternity and respect for the dignity of every human being.\n2. For this reason, in the course of history the Popes have condemned acts of violence, oppression,\nsocial injustice and slavery, including those committed against indigenous peoples. There have also\nbeen numerous examples of bishops, priests, women and men religious and lay faithful who gave\ntheir lives in defense of the dignity of those peoples.\n3. At the same time, respect for the facts of history demands an acknowledgement of the human\nweakness and failings of Christ’s disciples in every generation. Many Christians have committed evil\nacts against indigenous peoples for which recent Popes have asked forgiveness on numerous\noccasions.\n4. In our own day, a renewed dialogue with indigenous peoples, especially with those who profess\nthe Catholic Faith, has helped the Church to understand better their values and cultures. With their\nhelp, the Church has acquired a greater awareness of their sufferings, past and present, due to the\nexpropriation of their lands, which they consider a sacred gift from God and their ancestors, as well\nas the policies of forced assimilation, promoted by the governmental authorities of the time,\nintended to eliminate their indigenous cultures.'
+

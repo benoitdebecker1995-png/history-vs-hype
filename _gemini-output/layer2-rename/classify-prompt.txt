@@ -1,0 +1,48 @@
+You are classifying 148 PDF files for an academic-history YouTube channel library (History vs Hype — geopolitics, colonial history, border disputes, ideological narratives, evidence-based myth-busting).
+
+Each block below contains a current filename + the first 1-2 pages of extracted text. Identify the source and classify it.
+
+For EACH numbered block, output ONE JSON object on its OWN LINE (JSONL format). DO NOT wrap in markdown fences. DO NOT add commentary. JSON object schema:
+
+{"idx": <int>, "keep": <bool>, "topic": "<topic_slug>", "title": "<ShortTitleCamelCase>", "author": "<LastNameOrUnknown>", "year": "<YYYY_or_0000>", "publisher": "<short_slug_or_Unknown>", "conf": "<high|medium|low>", "note": "<brief>"}
+
+RULES:
+
+1. **keep**: true if the file is an ACADEMIC source (book, journal article, primary historical document, government report, court ruling, peer-reviewed paper, scholarly chapter, university press, historical archive material). false if it is:
+   - Personal/admin docs (CVs, invoices, bank statements, tickets, personal calendar, energy bills, shopping receipts, transaction confirmations)
+   - University-of-Ghent or other school administrative paperwork (course registration, study sheets, syllabi as policy not content, motivation letters)
+   - D&D / tabletop RPG content (Grim Hollow, Drakkenheim, Rappan Athuk, Rime of the Frostmaiden, Dungeon Master's Guide, Sebastian Crowe, players guides, monster grimoires)
+   - EU youth / European Solidarity Corps / scout / cultural-mobility program docs
+   - Belgian municipal / regional admin docs (Brugge, Wallonia, Ardennes day-trips, Klaprozenlaan addresses)
+   - Project working drafts (the channel's own notes, treaty drafts, research prompts the user wrote themselves)
+   - StuDocu / student summaries (not original scholarship)
+   - Bol.com invoices, Synevo medical lab results, Zichtrekening (Dutch bank account) docs
+
+2. **topic** (if keep=true): pick the BEST fit:
+   - `african-history` — Sub-Saharan & North African history, Berber, Maghreb, Sahel, Saharan, slave trade IN Africa, African colonial admin
+   - `colonialism-slavery` — Atlantic slave trade, plantation colonialism, settler colonialism in Americas, abolition, indigenous-colonizer encounters, Dutch West India Company, encomienda
+   - `crusades-christianity` — Crusades, medieval Christianity, Reconquista, Inquisition (Spanish/Roman), papal politics, Church history
+   - `general-history` — anything broadly historical not fitting other buckets: world history, European history, war/military, antiquity, Cold War, fascism, antisemitism, Holocaust, Vichy, conspiracy/propaganda documents (incl. Protocols), methodology that isn't standalone, primary docs without obvious bucket
+   - `middle-east-history` — Ottoman empire, Arab world, Israel/Palestine, Iran, Iraq, Syria, Lebanon, Gulf, Egypt history, Sykes-Picot, Mandate-era
+   - `reference-methodology` — historiography books, methods textbooks, style manuals for academic writing, citation guides (only if STANDALONE reference works, not student notes)
+   - `territorial-disputes` — ICJ judgments, border treaties, maritime disputes, Bakassi, Sapodilla, Preah Vihear, Cordoba Agreement, Western Sahara legal status, Philippines maritime zones, sovereignty cases
+
+3. **topic** (if keep=false): use literal value `stash`
+
+4. **title**: CamelCase, no spaces, ≤45 chars, derived from the actual identified title (NOT the current filename if the filename is generic like "Article" or "UnknownDocument"). Strip articles "The/A/An". E.g. "Bulletin officiel de l'État indépendant du Congo" → `BulletinOfficielEtatIndependantCongo`.
+
+5. **author**: LastName only (first listed author). If anonymous primary document or government issuance, use the issuing body short slug ("ICJ", "UN", "GallicaBnF", "HollandSocietyNY"). If truly unknown, "Unknown".
+
+6. **year**: 4-digit publication year. Use the document's stated year, not the scan/archive date. If you can find it in the text use it. If genuinely unknown, "0000".
+
+7. **publisher**: Short slug (e.g. "OUP", "CUP", "Springer", "Routledge", "Brill", "GallicaBnF", "HollandSocietyNY", "ICJ", "UN", "EJILTalk", "Emory", "Wiley", "Palgrave"). If unknown, "Unknown".
+
+8. **conf**: `high` if the text clearly names the source; `medium` if you inferred from strong signals; `low` if guessing from sparse signals.
+
+9. **note**: ≤120 chars. Cite the evidence string from the text that nailed the ID, OR the reason for stash. E.g. "Page 1 names 'Charles T. Gehring, ed., Holland Society of New York, 1980'" OR "stash: bol.com invoice header".
+
+10. NEVER hallucinate. If text is ambiguous or in a language you can't parse (e.g. Cyrillic, Arabic, Greek), set conf=low and explain in note.
+
+OUTPUT 148 LINES OF JSONL, ONE PER INPUT BLOCK. NO PREAMBLE. NO TRAILING COMMENTARY. NO MARKDOWN FENCES.
+
+=== INPUT BLOCKS BEGIN ===

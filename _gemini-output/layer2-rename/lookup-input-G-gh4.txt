@@ -1,0 +1,192 @@
+You are identifying correct publication metadata for academic library files.
+
+For each file listed below, provide the correct YEAR and PUBLISHER.
+Rules:
+- Publisher = real academic publisher (NOT download source like ZLib, Libgen, AnnaArchive, z-library, 1lib)
+- For primary source documents (treaties, acts, speeches, court decisions, government reports): publisher = issuing institution (e.g. "United Nations", "US Congress", "ICJ", "League of Nations")
+- For journal articles: publisher = journal name (e.g. "Journal of African History")
+- For books: publisher = academic press (e.g. "Oxford University Press", "Harvard University Press", "Cambridge University Press")
+- If you cannot determine with high confidence: y="0000" and/or p="Unknown"
+- Use your training knowledge and Google Search to verify
+
+Return ONLY a JSON array (no markdown fences, no explanation):
+[{{"f": "original_filename.pdf", "y": "YYYY", "p": "Publisher"}}]
+
+Files (current known metadata: a=author, y=year, t=short_title):
+a=Fagan y=0000 t=WorldPrehistoryIntroduction | People of the Earth An Introduction to World Prehistory, 16th Edition (Brian M. Fagan, Nadia Durrani).pdf
+a=Liesemer y=0000 t=PhantomIslandsMythicalLands | Phantom Islands In Search of Mythical Lands (Dirk Liesemer) (Z-Library).pdf
+a=Boucher y=1992 t=CannibalEncountersEuropeansCaribs | Philip P. Boucher - Cannibal encounters- Europeans and Island Caribs, 1492-1763 (1992, Johns Hopkins University Press).pdf
+a=Phillips y=1999 t=CousinsWars | Phillips - The Cousins' Wars (1999).pdf
+a=Plokhy y=2017 t=GatesEurope | Plokhy - The Gates of Europe (2017).pdf
+a=Plokhy y=2015 t=GatesEuropeHistoryUkraine | Plokhy--Serhii-The-Gates-of-Europe--A-History-of-Ukraine--2015--Basic-Books--libgen.li.pdf
+a=Zipperstein y=2018 t=KishinevPogromHistory | Pogrom - Kishinev and the tilt of history -- Zipperstein, Steven J- -- First edition, New York N-Y- ; London, 2018 -- Liveright Publishing -- 9781631492693 -- a51be3d3911d3ce3455baf6b575ca506 -- Anna’s Archive.pdf
+a=Lundahl y=0000 t=HaitianUnderdevelopmentEssays | Politics or Markets Essays on Haitian Underdevelopment (Mats Lundahl) (Z-Library)-1.pdf
+a=Lundahl y=0000 t=HaitianUnderdevelopmentEssays | Politics or Markets Essays on Haitian Underdevelopment (Mats Lundahl) (Z-Library).pdf
+a=Pomeranz y=2021 t=GreatDivergence | Pomeranz - The Great Divergence (2021).pdf
+a=Muldoon y=0000 t=PopesLawyersInfidels | Popes, Lawyers, and Infidels The Church and the Non-Christian World, 1250-1550 (James Muldoon) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Lane y=0000 t=PotosiSilverCity | Potosí - The Silver City That Changed the World (Kris Lane).pdf
+a=Powers y=2005 t=WomenCrucibleConquest | Powers - Women in the Crucible of Conquest (2005).pdf
+a=Kasetsiri y=0000 t=PreahVihearConflictGuide | Preah Vihear - a guide to the Thai-Cambodian conflict and -- by Charnvit Kasetsiri, Pou Sothirak, Pavin Chachavalpongpun.pdf
+a=Prentice y=1920 t=ThermopylaeArtemisium | Prentice-ThermopylaeArtemisium-1920.pdf
+a=Price y=2020 t=ChildrenAshElm | Price - Children of Ash and Elm (2020) (1).pdf
+a=Price y=2020 t=ChildrenAshElm | Price - Children of Ash and Elm (2020).pdf
+a=Price y=2011 t=IntoDarkness | Price - Into That Darkness (2011).pdf
+a=Pringle y=2006 t=HimmlerScholarsHolocaust | Pringle - Master Plan Himmler's Scholars and Holocaust (2006).pdf
+a=Pringle y=2006 t=MasterPlan | Pringle - The Master Plan (2006).pdf
+a=Unknown y=0000 t=GorbachevEraWarsCrises | Professor Golan begins demonstrating how - Gorbachev era. She pays particular attention to the wars and crises of recent (n.d.).pdf
+a=Unknown y=1983 t=WisconsinECIAEvaluation | Program - Wisconsin ECIA Chapter One Annual Evaluation Report for Migrant Programs, Fiscal Year ... (1983) (1).pdf
+a=Unknown y=1983 t=WisconsinECIAEvaluation | Program - Wisconsin ECIA Chapter One Annual Evaluation Report for Migrant Programs, Fiscal Year ... (1983).pdf
+a=Unknown y=0000 t=TropicalConservationScience | Publishing - Source Tropical Conservation Science, 2(1) 11-24 (n.d.).pdf
+a=Unknown y=0000 t=UnidentifiableDocument | Py - 9 3 a SS cs. fs] aoe NTS ; (n.d.).pdf
+a=Blight y=0000 t=RaceReunionCivilWarMemory | Race and Reunion The Civil War in American Memory (David W. Blight).pdf
+a=Wade y=0000 t=RaceSexLatinAmerica | Race and Sex in Latin America (Anthropology, Culture and Society) (Peter Wade).pdf
+a=Blatt y=0000 t=RaceAmericanPoliticalScience | Race and the Making of American Political Science (Jessica Blatt).pdf
+a=Raybon y=2024 t=GodIsOurHelp | Raybon - God Is Our Help (2024).pdf
+a=Unknown y=1998 t=AfricaReader | Reader - Africa (1998).pdf
+a=Unknown y=2007 t=CitiesReader | Reader - Cities (2007).pdf
+a=Reader y=1999 t=AfricaBiographyContinent | Reader, John - Africa - a biography of the continent (1999, Penguin Adult-Vintage Books).pdf
+a=Unknown y=0000 t=HispanicAmericanHistorical | Realities - Duke University Press is collaborating with JSTOR to digitize, preserve and extend access to The Hispanic American Historical (n.d.).pdf
+a=Unknown y=0000 t=RecopilacionLeyesIndias | recopilacion-de-leyes-de-los-reinos-de-indias-mandadas-imprimir-y-publicar-por-la-magestad-catolica-don-carlos-ii-tomos-2-777027.pdf
+a=Sewell y=2005 t=RedStarRogueSubmarine | Red Star Rogue - The Untold Story of a Soviet Submarine's -- Kenneth Sewell; Clint Richmond -- Simon & Schuster, [N-p-], 2005 -- Simon & Schuster, -- 9780743274654 -- 0c95ebc30bda745e1cba674e7a191c46 -- Anna’s Archive.pdf
+a=Unknown y=0000 t=MenWomenPower | Regardless-of-Sex-Men-Women-and-Power-in.pdf
+a=Unknown y=0000 t=RegionIntroduction | region ­were known a host of other names. In fact - Introduction (n.d.).pdf
+a=Emon y=0000 t=ReligiousPluralismIslamicLaw | Religious pluralism and Islamic law (Anver M. Emon, Emon, Anver M.).pdf
+a=Stern y=1998 t=PinochetChileLondon | Remembering Pinochet s Chile On the Eve of London 1998 (Steve J. Stern) (Z-Library).pdf
+a=Unknown y=0000 t=MostMoralCivilization | Research - Debunking the “Most Moral Civilization” Claim (n.d.).pdf
+a=Restall y=2021 t=SevenMythsSpanishConquest | Restall - Seven Myths of the Spanish Conquest (2021).pdf
+a=Black y=0000 t=NaziOccultHistoriesLegacies | Revisiting the nazi Occult Histories, Realities, Legacies (Monica Black Eric Kurlander).pdf
+a=Antony y=0000 t=WorldHistoryViolence | Robert Antony - The Cambridge World History of Violence Volume 3 (n.d.).pdf
+a=Hall y=0000 t=MiscellaneousWorksRemains | Robert HALL (A.M. - The Miscellaneous Works and Remains of the Rev. Robet Hall, with a Memoir of His Life, by Olinthus Gregory ... and a Critical Estimate of His Character and Writings, by John Foster. [With a Portrait.] (n.d.).pdf
+a=Rodin y=2014 t=PowerImpactInvesting | Rodin - The Power of Impact Investing (2014).pdf
+a=Roscoe y=0000 t=DigestLawEvidence | Roscoe - Roscoe's Digest of the Law of Evidence in Criminal Cases (n.d.).pdf
+a=Roseman y=2002 t=WannseeConferenceFinalSolution | Roseman - The Wannsee Conference and the Final Solution (2002).pdf
+a=Sayigh y=2008 t=PalestiniansPeasantsRevolutionaries | Rosemary Sayigh - The Palestinians- From Peasants to Revolutionaries (2008, Zed Books).pdf
+a=Rosling y=2018 t=Factfulness | Rosling - Factfulness (2018).pdf
+a=Chalmers y=0000 t=InternationalLawHumanities | Routledge Handbook of International Law and the Humanities (Shane Chalmers and Sundhya Pahuja) (Z-Library).pdf
+a=Gabrieli y=2011 t=ArabHistoriansCrusades | Routledge-Revivals--Francesco-Gabrieli-Arab-Historians-of-the-Crusades--2011--Routledge--libgen.li.pdf
+a=Rubenstein y=2011 t=ArmiesHeaven | Rubenstein - Armies of Heaven (2011).pdf
+a=Rubenstein y=2011 t=ArmiesHeavenFirstCrusade | Rubenstein--Jay-Armies-of-Heaven-The-First-Crusade-and-the-Quest-for-Apocalypse--2011--Basic-Books--.pdf
+a=Rückerl y=1977 t=NationalsozialistischeVernichtungslager | Rückerl - Nationalsozialistische Vernichtungslager im Spiegel deutscher Strafprozesse (1977).pdf
+a=Unknown y=0000 t=UnidentifiableDocument | S - ENGOGNS S333 (n.d.).pdf
+a=Unknown y=0000 t=ScientificArticle | s41586-024-08275-2.pdf
+a=Salinas y=1615 t=NuevaCronicaBuenGobierno | Salinas - Nueva crónica y buen gobierno de Felipe Guaman Poma de Ayala (1615) (n.d.).pdf
+a=Kennedy y=0000 t=SalisburyPortraitSalesman | Salisbury, 1830-1903 portrait of a salesman (Kennedy, Aubrey Leo, 1885-) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Harari y=0000 t=Sapiens | Sapiens [Tenth Anniversary Edition] (Yuval Noah Harari) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Sarotte y=2021 t=NotOneInch | Sarotte - Not One Inch (2021).pdf
+a=Sarotte y=2021 t=NotOneInchAmericaRussia | Sarotte - Not One Inch America Russia Post-Cold War (2021).pdf
+a=Grammaticus y=2015 t=GestaDanorumHistoryDanes | Saxo Grammaticus - Gesta Danorum History of Danes (2015).pdf
+a=Scarre y=2024 t=HumanPast | Scarre - The Human Past (2024).pdf
+a=Schneer y=2010 t=BalfourDeclaration | Schneer - The Balfour Declaration (2010).pdf
+a=Unknown y=2018 t=WhoWeAreGotHere | School) - Who We are and how We Got Here (2018).pdf
+a=Scott y=1915 t=ThoughtsReliabilityClassical | Scott-ThoughtsReliabilityClassical-1915.pdf
+a=Martin y=0000 t=DrakkenheimGuide | Sebastian Crowe’s Guide to Drakkenheim (Monty Martin, Kelly McLaughlin).pdf
+a=Sehat y=2011 t=MythAmericanReligiousFreedom | Sehat - Myth of American Religious Freedom (2011).pdf
+a=Sehat y=2011 t=MythAmericanReligiousFreedom | Sehat - The Myth of American Religious Freedom (2011).pdf
+a=Tinker y=0000 t=SeparateUnequal | Separate and Unequal (Hugh Tinker) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Sewell y=2006 t=RedStarRogue | Sewell - Red Star Rogue (2006).pdf
+a=Shelley y=2008 t=EndgameWesternSahara | Shelley - Endgame in the Western Sahara (2008).pdf
+a=Shepherd y=0000 t=ArchaeologyChildhoodHandbook | Shepherd; - The Oxford Handbook of the Archaeology of Childhood (n.d.).pdf
+a=Shlaim y=2015 t=IronWall | Shlaim - The Iron Wall (2015).pdf
+a=Winichakul y=1997 t=SiamMappedHistoryNation | Siam Mapped A History of the Geo-Body of a Nation (1997) (Thongchai Winichakul).pdf
+a=Silber y=1997 t=Yugoslavia | Silber - Yugoslavia (1997).pdf
+a=Patel y=0000 t=SilenceChagos | Silence of the Chagos (Shenaz Patel) (Z-Library).pdf
+a=Frankopan y=0000 t=SilkRoads | Silk Roads (Peter Frankopan, Peter FRANKOPAN) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Sinnott-Armstrong y=0000 t=WalterSinnottArmstrong | Sinnott-Armstrong - Walter Sinnott-Armstrong (n.d.).pdf
+a=Thomas y=0000 t=SkullWarsKennewickMan | Skull wars Kennewick Man, archaeology, and the battle for Native American identity (Thomas, David Hurst).pdf
+a=Slotte y=0000 t=HalmeTuomisaari | Slotte - and Miia Halme-Tuomisaari (n.d.).pdf
+a=VandeHei y=2022 t=SmartBrevityPowerSaying | Smart Brevity _ The Power of Saying More with Less{Jim VandeHei, Mike Allen, Roy Schwartz}(2022){112964455} libgen.li.pdf
+a=Smith y=2011 t=CulturalTheory | Smith - Cultural Theory (2011).pdf
+a=Smith y=2009 t=SpeakingAncestors | Smith - Speaking with the Ancestors (2009).pdf
+a=Snow y=2015 t=ArchaeologyNativeNorthAmerica | Snow - Archaeology of Native North America (2015).pdf
+a=Snyder y=2012 t=PlayRealityVideogames | Snyder - Play Reality How Videogames are Changing EVERYTHING (2012).pdf
+a=Pfadenhauer y=0000 t=SocialConstructivismParadigm | Social-Constructivism-as-Paradigm--Knowledge--Communication-and-Society---Michaela-Pfadenhauer-Huber.pdf
+a=Unknown y=0000 t=AmericanJewishHistoricalSociety | Society - Publications of the American Jewish Historical Society (n.d.).pdf
+a=Unknown y=0000 t=AmericanColonizationSocietyReport | Society - The ... Annual Report of the American Colonization Society ... (n.d.).pdf
+a=Hijmans y=0000 t=SunArtReligionsRome | Sol The Sun in the Art and Religions of Rome (Steven Hijmans) (Z-Library).pdf
+a=Hijmans y=2024 t=SunRomanArtReligion | Sol_ Image and Meaning of the Sun in Roman Art and Religion, -- Steven E_ Hijmans -- Religions in the Graeco-Roman World, 198_1, 2024 -- Koninklijke -- 9789004442405 -- 92d12fc53eba0e94ca300e2000b32819 -- Anna’s Archive.pdf
+a=Unknown y=0000 t=SouthamptonProjects | Southampton - different kinds of KA1 and KA2 projects. The key is to work on both local and international projects, (n.d.).pdf
+a=Gibson y=0000 t=SpainAmerica | Spain in America -- Charles Gibson -- United States, United States of America -- Turtleback Books -- 9780613307796 -- aead3f74bce664531af34dbd3daeb474 -- Anna’s Archive.pdf
+a=Speidel y=0000 t=GenomicHistoryMedievalEurope | Speidel - High-resolution genomic history of early medieval Europe (n.d.).pdf
+a=Stannard y=1992 t=AmericanHolocaust | Stannard - American Holocaust (1992).pdf
+a=Pawakapan y=0000 t=StateUncivilSocietyThailand | State and Uncivil Society in Thailand at the Temple of Preah Vihear (Puangthong R. Pawakapan).pdf
+a=Unknown y=1939 t=StatistickiGodisnjak | statisticki-godisnjak-9-1938-1939--491.pdf
+a=Stern y=1993 t=PeruIndianSpanishConquest | Stern - Peru's Indian Peoples and the Challenge of Spanish Conquest (1993).pdf
+a=Keber y=0000 t=AztecsMixtecsHistories | Stories in red and black pictorial histories of the Aztecs and Mixtecs (Eloise Quiñones Keber).pdf
+a=Unknown y=1993 t=FederalEducationPrograms | Students - Federal Education Programs for Limited (1993).pdf
+a=Unknown y=1978 t=StyleManual | Style - Style Manual (1978) (1) (2) (3).pdf
+a=Unknown y=1978 t=StyleManual | Style - Style Manual (1978) (1) (2).pdf
+a=Unknown y=1978 t=StyleManual | Style - Style Manual (1978) (1).pdf
+a=Unknown y=1978 t=StyleManual | Style - Style Manual (1978).pdf
+a=Unknown y=2014 t=SuisseNovember | Suisse - N°7 November 2014 (n.d.).pdf
+a=Sunshine y=2024 t=NeoNaziTerrorismFascism | Sunshine - Neo-Nazi Terrorism and Countercultural Fascism (2024).pdf
+a=Switek y=2014 t=MiQueridoBrontosaurus | Switek - Mi querido brontosaurus (2014).pdf
+a=Shorto y=0000 t=TakingManhattanNewYork | Taking Manhattan The Extraordinary Events That Created New York and Shaped America (Russell Shorto) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Unknown y=2016 t=EnglishCommonEntrance | teacher) - English for Common Entrance at 13+ Exam Practice Questions (2016).pdf
+a=D'Altroy y=2014 t=IncasPeoplesAmerica | Terence N. D'Altroy - The Incas (Peoples of America) (2014, Wiley-Blackwell).pdf
+a=Tertullian y=0000 t=TertullianWorks | tertulian.pdf
+a=Unknown y=0000 t=JournalMedievalStudies | the - A Journal of Medieval Studies (n.d.).pdf
+a=Unknown y=0000 t=TradeNetworksControl | the - by these same polities; control of extensive trade networks; and the (n.d.).pdf
+a=Bush y=0000 t=LawsDigitalWriting | The 22 Laws of Digital Writing (Dickie Bush, Nicolas Cole) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Williams y=0000 t=AmericanIndianLegalThought | The American Indian in Western Legal Thought The Discourses of Conquest (Robert A. Williams Jr.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Snow y=0000 t=ArchaeologyNativeNorthAmerica | The Archaeology of Native North America -- Dean R. Snow, Nancy Gonlin, Peter E. Siegel.pdf
+a=Lopate y=0000 t=ArtPersonalEssay | The Art of the Personal Essay (Phillip Lopate) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Duran y=0000 t=Aztecs | The Aztecs -- Fray Diego Duran.pdf
+a=Matthews y=0000 t=BattleThermopylae | The Battle of Thermopylae (Rupert Matthews) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Tolentino y=2025 t=BestAmericanEssays | The Best American Essays 2025 (Jia Tolentino, (ed.), Kim Dana Kupperman etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=McKitterick y=1989 t=CarolingiansWrittenWord | The Carolingians and the written word -- Rosamond McKitterick -- ACLS Humanities E-Book, Cambridge ; New York, 1989 -- Cambridge University Press -- 9780511097119 -- a3342c81d88aacd92c6b81881aac4f2c -- Anna’s Archive.pdf
+a=Jacobs y=0000 t=NewNetherlandDutchSettlement | The Colony of New Netherland A Dutch Settlement in Seventeenth-Century America (Jacobs, Jaap) (z-library.sk, 1lib.sk, z-lib.sk)-1.pdf
+a=Jacobs y=0000 t=NewNetherlandDutchSettlement | The Colony of New Netherland A Dutch Settlement in Seventeenth-Century America (Jacobs, Jaap) (z-library.sk, 1lib.sk, z-lib.sk)-2.pdf
+a=Jacobs y=0000 t=NewNetherlandDutchSettlement | The Colony of New Netherland A Dutch Settlement in Seventeenth-Century America (Jacobs, Jaap) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Siculus y=0000 t=WorksDiodorusSiculus | The Complete Works of Diodorus Siculus (Diodorus Siculus) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Lessa y=0000 t=CondorTrialsHumanRights | The Condor Trials Transnational Repression and Human Rights in South America (Francesca Lessa) (Z-Library).pdf
+a=Dinges y=0000 t=CondorYearsPinochetTerrorism | The Condor Years How Pinochet and His Allies Brought Terrorism to Three Continents (John Dinges) (Z-Library).pdf
+a=Herz y=0000 t=HateSpeechRegulationResponses | The Content and Context of Hate Speech Rethinking Regulation and Responses (Michael E Herz Péter Molnár (eds.)).pdf
+a=Abrahamian y=2013 t=CoupCIAIranianRelations | The Coup - 1953, The CIA, and The Roots of Modern U.S.-Iranian Relations (2013) (Ervand Abrahamian) (Z-Library).pdf
+a=Phillips y=0000 t=CousinsWarsReligionPolitics | The Cousins Wars- Religion, Politics, Civil Warfare, And -- Phillips, Kevin P-.pdf
+a=Crawford y=0000 t=CreationStatesInternationalLaw | The Creation of States in International Law (James R. Crawford) (Z-Library).pdf
+a=Unknown y=0000 t=CyprusProblem | The Cyprus Problem- What Everyone Needs to Know(r).pdf
+a=Hilberg y=1967 t=DestructionEuropeanJews | The Destruction of the European Jews- -- Raul Hilberg -- 1967-01-01 -- Quadrangle -- 1f205d9d0e8af70ddff8dc854a82f89c -- Anna’s Archive-1.pdf
+a=Joly y=0000 t=DialogueHellMachiavelliMontesquieu | The Dialogue in Hell between Machiavelli and Montesquieu (Maurice Joly).pdf
+a=Gordon y=0000 t=ConflictSoutheastAsia | The dimensions of conflict in Southeast Asia (Gordon, Bernard K., 1932- . cn) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Fox y=1950 t=EarlyCulturesNorthwestEurope | the early cultures of north-west europe -- Sir Cyril Fox and Bruce Dickins -- 1950 -- 5fb35db5e8f4a4a584d974b6319e1c1 -- Anna’s Archive.pdf
+a=Toch y=0000 t=EconomicHistoryEuropeanJews | The Economic History of European Jews -- Toch, Michael; -- fbad0ded17d534ce5a30b240f2ec97ad -- Anna’s Archive.pdf
+a=Bulmer-Thomas y=0000 t=EconomicHistoryLatinAmerica | THE ECONOMIC HISTORY OF LATIN AMERICA SINCE INDEPENDENCE, SECOND EDITION (VICTOR BULMER-THOMAS).pdf
+a=Murra y=1979 t=EconomicOrganizationInkaState | The Economic Organization Of The Inka State - Research In -- by John Victor Murra -- Research in economic anthropology-, 1, [1979 ed-], -- Greenwich, -- 9780892321186 -- 53892d0f24d84ededfce9fe9a5aca178 -- Anna’s Archive-1.pdf
+a=Mukherjee y=0000 t=EmperorAllMaladies | The Emperor Of All Maladies (Siddhartha Mukherjee) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Pagden y=0000 t=FallNaturalManAmericanIndian | The Fall of Natural Man The American Indian and the Origins of Comparative Ethnology (Anthony Pagden).pdf
+a=Ayala y=0000 t=FirstNewChronicleGovernment | The First New Chronicle and Good Government (Felipe Guaman Poma de Ayala, Roland Hamilton).pdf
+a=Lambert y=2006 t=FoundingFathersReligionAmerica | The Founding Fathers and the Place of Religion in America -- Franklin T- Lambert -- Princeton University Press, Princeton, N-J-, 2006 -- Princeton -- 9780691088297 -- ce5c3557e558b88d749a4851707dc554 -- Anna’s Archive.pdf
+a=Simonides y=0000 t=FragmentsSimonides | The Fragments of Simonides (Simonides of Ceos) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Strabo y=0000 t=GeographyStraboEnglishTranslation | The Geography of Strabo An English Translation, with Introduction and Notes (Roller, Duane W. (transl.)) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Hitakonanulaxk y=0000 t=GrandfathersSpeak | The grandfathers speak (Hìtakonanulaxk.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Green y=2010 t=GrecoPersianWars | The Greco-Persian Wars -- Peter Green -- 2010 -- a0a06655bb0c8f3de3397309d50249bf -- Anna’s Archive.pdf
+a=Institoris y=0000 t=HammerWitchesMalleusMaleficarum | The hammer of witches a complete translation of the Malleus Maleficarum (Institoris, Heinrich Mackay, Christopher S).pdf
+a=Ishay y=0000 t=HistoryHumanRightsGlobalization | The History of Human Rights From Ancient Times to the Globalization Era (Ishay, Micheline).pdf
+a=Holstein y=0000 t=HolsteinPapers | the holstein papers -- 25d375325fe0616b0492a7227721c890 -- Anna’s Archive.pdf
+a=Bailyn y=0000 t=IdeologicalOriginsAmericanRevolution | The Ideological Origins of the American Revolution (Bernard Bailyn).pdf
+a=Vega y=0000 t=IncasRoyalCommentaries | The Incas The Royal Commentaries of the Inca (Garcilaso de la Vega Alain Gheerbrant (ed.)).pdf
+a=Burri y=0000 t=InternationalCourtJusticeDecolonisation | THE INTERNATIONAL COURT OF JUSTICE AND DECOLONISATION -- Burri, Thomas; Trinidad, Jamie; -- 76b79651334a9676de5e1e263b19ed52 -- Anna’s Archive.pdf
+a=Afary y=1911 t=IranianConstitutionalRevolution | The Iranian Constitutional Revolution, 1906-1911 (Janet Afary) (Z-Library).pdf
+a=Shorto y=0000 t=IslandCenterWorld | The Island at the Center of the World (Shorto Russell) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Shorto y=0000 t=IslandCenterWorldManhattan | The Island at the Center of the World The Epic Story of Dutch Manhattan and the Forgotten Colony That Shaped America (Shorto Russell) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t=JournalEconomicHistory | The Journal of Economic History - an Open Access article, distributed under the terms of the Creative Commons Attribution licence (n.d.).pdf
+a=Herodotus y=0000 t=LandmarkHerodotusHistories | The Landmark Herodotus Histories (Herodotus, Robert B. Strassler[ed]) (z-library.sk, 1lib.sk, z-lib.sk).epub
+a=Kraft y=0000 t=LenapeDelawareIndians | The Lenape or Delaware Indians the original people of New Jersey, southeastern New York State, eastern Pennsylvania, northern… (Kraft, Herbert C, Kraft etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Drew y=0000 t=LombardLaws | The Lombard Laws (Katherine Fischer Drew (Editor and translator)) (Z-Library).pdf
+a=Strate y=0000 t=LostTerritoriesThailandHistory | The Lost Territories - Thailand’s History of National -- Shane Strate (editor); David P. Chandler (editor); Rita.pdf
+a=Unknown y=0000 t=WesternSaharaSettlerColony | The Moroccan king wants Western Sahara without its people an argument for Western Sahara as a settler colony.pdf
+a=Geary y=0000 t=MythNationsMedievalOrigins | The Myth of Nations- The Medieval Origins of Europe- -- Geary, Patrick J-, 1948- -- Princeton paperbacks, 2- print-, 1- paperback print, -- Princeton, -- 9780691090542 -- a1bfcabeb85d3995592c59ff973aea11 -- Anna’s Archive.pdf
+a=Denevan y=0000 t=NativePopulationAmericas1492 | The Native Population of the Americas in 1492 -- edited by William M. Denevan; with a foreword by W. George.pdf
+a=Schwartz y=1984 t=ExploringAmericanHistoryManual | The New Exploring American History_ Teacher's Manual -- Melvin Schwartz; John O'Connor -- New York, ©1984 -- Globe Book Company, Incorporated -- isbn13 9780870655470 -- 98a2b59b52a669e817cf729fc98f3675 -- Anna’s Archive.pdf
+a=Goodrick-Clarke y=0000 t=OccultRootsNazism | The Occult Roots of Nazism (Nicholas Goodrick-Clarke).pdf
+a=Browning y=0000 t=OriginsFinalSolutionNaziPolicy | The Origins of the Final Solution the Evolution of Nazi Jewish Policy, September 1939-March 1942 (Browning, Christopher R).pdf
+a=Browne y=2018 t=PersianRevolution | The Persian Revolution of 1905-1909 (Classic Reprint) -- Edward G_ Browne -- FB & C Ltd, London, 2018 -- Forgotten Books -- 9780259728894 -- db8a657678d140c752cd51d2d1dc1c5d -- Anna’s Archive-1.pdf
+a=Browne y=2018 t=PersianRevolution | The Persian Revolution of 1905-1909 (Classic Reprint) -- Edward G_ Browne -- FB & C Ltd, London, 2018 -- Forgotten Books -- 9780259728894 -- db8a657678d140c752cd51d2d1dc1c5d -- Anna’s Archive.pdf
+a=Brooke-Hitching y=0000 t=PhantomAtlasMythsMaps | The Phantom Atlas The Greatest Myths, Lies and Blunders on Maps (Edward Brooke-Hitching) (Z-Library).pdf
+a=Kornbluh y=2013 t=PinochetFileDossier | The Pinochet File - A Declassified Dossier on Atrocity and Accountability (2003. updated ed. 2013) (Peter Kornbluh) (Z-Library).pdf
+a=Boxer y=0000 t=PortugueseSeaborneEmpire | The Portuguese seaborne empire 1415-1825 (Boxer, C. R. (Charles Ralph), 1904-) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Cole y=0000 t=PotosiMitaIndianLabor | The Potosí Mita, 1573-1700 Compulsory Indian labor in the Andes (Jeffrey A. Cole).pdf
+a=Wood y=0000 t=RadicalismAmericanRevolution | The Radicalism of the American Revolution (Gordon S. Wood).pdf
+a=Blackhawk y=0000 t=RediscoveryAmericaNativePeoples | The Rediscovery of America Native Peoples and the Unmaking of U.S. History (Ned Blackhawk).pdf
+a=Khan y=0000 t=RediscoveryIndia | The Rediscovery of India A New Subcontinent (A H Khan) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Idrissa y=0000 t=SahelCognitiveMapping | The Sahel- A Cognitive Mapping -- Rahmane Idrissa -- 01bc973ea2fde3cab83c55c82db4a642 -- Anna’s Archive.pdf

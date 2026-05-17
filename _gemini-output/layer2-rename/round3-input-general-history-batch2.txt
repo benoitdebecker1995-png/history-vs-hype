@@ -1,0 +1,350 @@
+You are identifying academic books, journal articles, treaties, and primary
+documents from partial metadata + an excerpt of the first two pages of the
+PDF. For each entry below, search the web (Google Search grounding) to verify
+the work and return its full metadata.
+
+Each entry shows:
+  - The current filename (after prior parsing)
+  - Known fields: title slug, author surname, year, publisher
+  - 'Unknown' / '0000' = unresolved field
+  - A short excerpt from the first two pages of the PDF (may be empty if the
+    document is scanned image-only — proceed using the filename in that case)
+
+INSTRUCTIONS
+- Resolve EVERY missing field where you can find authoritative evidence.
+- Use Google Search grounding; cross-reference excerpt content + filename.
+- Do NOT guess. Mark UNRESOLVED if no high- or medium-confidence answer.
+- Confidence levels:
+    high   — primary source (publisher page, library catalogue, JSTOR)
+    medium — secondary source (Wikipedia, Google Books snippet)
+    low    — inference from excerpt only (rarely use; usually UNRESOLVED)
+- source_url is REQUIRED for any non-UNRESOLVED row.
+- publisher_abbrev MUST come from this list (use the closest match):
+  CambridgeUP, OxfordUP, YaleUP, PrincetonUP, ColumbiaUP, IndianaUP,
+  EdinburghUP, NYUPress, UCPress, JohnsHopkinsUP, HooverPress, PlutoPress,
+  Routledge, Palgrave, Bloomsbury, ITauris, HurstCo, ZedBooks, VersoBooks,
+  BasicBooks, RandomHouse, Penguin, Brill, Springer, DaCapo, FreePress,
+  Granta, WeidenfeldNicolson, CornellUP, StanfordUP, HarvardUP, LiverpoolUP,
+  MacmillanUK, NortonCo, HMSO, UN, ICJ, OECD, LHarmattan, Macmillan,
+  HoughtonMifflin, Serif.
+  If publisher is a journal article, use the journal abbreviation
+  (e.g. JModernHistory, IntlAffairs). If it is a government / IGO document,
+  use the issuer abbreviation (HMSO, UN, ICJ, FCO, etc.).
+
+OUTPUT
+Return a single markdown table with exactly these columns:
+
+| idx | title_slug | author_surname | year | publisher_abbrev | confidence | source_url |
+
+- idx: the integer from the entry header below.
+- title_slug: CamelCase, no spaces, no punctuation, ≤45 chars.
+- author_surname: surname only (e.g. Zinn, Akcam, Martinez — strip diacritics).
+- year: 4 digits, or 0000 if truly unknown.
+- All UNRESOLVED rows: put UNRESOLVED in every field except idx.
+
+Do NOT include any prose before or after the table.
+
+---
+
+ENTRIES:
+
+99. [general-history] DigestLawEvidence-Roscoe-0000-Unknown.pdf
+   known: t=DigestLawEvidence | a=Roscoe | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'The Return of\xa0Great Power Rivalry'
+
+100. [general-history] DiggingHitlerNaziArchaeologistsAryanPast-Barrowclough-2009-Unknown.pdf
+   known: t=DiggingHitlerNaziArchaeologistsAryanPast | a=Barrowclough | y=2009 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+101. [general-history] DiscerningMerchantsPriceGuide-Labs-0000-Unknown.pdf
+   known: t=DiscerningMerchantsPriceGuide | a=Labs | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'A free organizational tool for magic items\nin Dungeons & Dragons, 5th Edition\nTHE\nDISCERNING MERCHANT’S\nPRICE GUIDE\nCreated by\nDAVE EISINGER & FEY RUNE LABS\nfeyrunelabs.com\n---PAGE---\n2\nDISCERNING MERCHANT’S PRICE GUIDE\nContents\nWhat This Document Is\nThe Discerning Merchant’s Price Guide is a tool primarily for \nDungeon Masters, although players may find it useful as well, \nparticularly in magic-heavy campaigns. \nSimply put, the Discerning Merchant’s Price Guide is an \nalternate organizational tool for magic items that already exist \nunder the rules in the D&D Fifth Edition. It provides tables \nfor magical items in many categories: all the weapons are \ntogether, all the staffs are together, and so on, similarly to how \nitems were laid out in 3.5. As a DM, if I need to quickly find a \nsword to award a player, I want to know exactly where to look \nand what my options are.\nIt additionally provides suggested costs, attunement \nrequirements, and other relevant details. I’ve found it very \nuseful in my own campaigns, and hopefully it proves helpful to \nyou as well. \n1 With a few exceptions—it’s doubtful that any player would dish out 25,000.01 gp for a Potion of Storm Giant Strength, even though that’s the \nminimum “by the book” price for a consumable legendary item. These exceptions are few and far between, however. \nOrganizational Tables\nThe tables in the following pages are intended to assist in \nquickly finding an item of a particular type. If you’re looking \nfor a weapon, alph'
+
+102. [general-history] DiseaseReadBones-Ibanez-0000-Unknown.pdf
+   known: t=DiseaseReadBones | a=Ibanez | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: ''
+
+103. [general-history] Disinformation-Pacepa-2013-Unknown.pdf
+   known: t=Disinformation | a=Pacepa | y=2013 | p=Unknown
+   missing: publisher
+   excerpt: 'DISINFORMATION\nFORMER SPY CHIEF REVEALS SECRET STRATEGIES FOR UNDERMINING FREEDOM, ATTACKING RELIGION,\nAND PROMOTING TERRORISM\nLt. Gen.\nION MIHAI PACEPA\nAND Prof. RONALD J. RYCHLAK'
+
+104. [general-history] DixiesDaughters-COX-2003-Unknown.pdf
+   known: t=DixiesDaughters | a=COX | y=2003 | p=Unknown
+   missing: publisher
+   excerpt: "KAREN L. COX\n★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★\nThe United Daughters of the Confederacy\nDixie's Daughters\n---PAGE---\nFlorida A&M University, Tallahassee\nFlorida Atlantic University, Boca Raton\nFlorida Gulf Coast University, Ft. Myers\nFlorida International University, Miami\nFlorida State University, Tallahassee\nUniversity of Central Florida, Orlando\nUniversity of Florida, Gainesville\nUniversity of North Florida, Jacksonville\nUniversity of South Florida, Tampa\nUniversity of West Florida, Pensacola\nDixie’s Daughters\nnew perspectives on the history of the south"
+
+105. [general-history] DrakkenheimGuide-Martin-0000-Unknown.pdf
+   known: t=DrakkenheimGuide | a=Martin | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: ''
+
+106. [general-history] DrempelsJeugdbewegingOostende-Kemel-0000-Unknown.pdf
+   known: t=DrempelsJeugdbewegingOostende | a=Kemel | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Juni 2020 \n \n \n \nDe drempels van \nde jeugdbeweging \nin Oostende \nInhoudelijke verdieping stage \nJeroen Kemel \nDE KATROL OOSTENDE\n---PAGE---\n“Men crepeert eerder van eenzaamheid en verveling dan te creperen van honger.” (Dehertogh & \nEbinger, 2012) Al in 1994 haalde het Algemeen verslag van de Armoede aan dat armoede meer \ndan enkel financieel is. Het armoedeweb heeft verschillende dimensies die het doet groeien. Deze \ndimensies spelen op elkaar in en versterken elkaar. Het bovenstaande citaat duidt op het belang \nvan vrijetijdsbesteding bij mensen in een kwetsbare situatie. \nIn een verdieping van de nieuwe beleidsnota valt het op dat tegenwoordig het beleid armoede als \nkinderarmoede (of gezinsarmoede) ziet. (Beke, 2019) Wanneer vrije tijd en kinderarmoede \nsamenkomen, denk ik spontaan aan sport, spel, muziek… Hebben kinderen uit kwetsbare gezinnen \nde mogelijkheid om aan vrijetijdsbesteding te doen? Hoe komt het dat ze minder aanwezig zijn in het \nvrijetijdsaanbod? In deze inhoudelijke verdieping wil ik ingaan op de drempels (betaalbaarheid, \nbereikbaarheid, beschikbaarheid, begrijpbaarheid en bruikbaarheid) (drempels verlagen, s.d.) die \njongeren er van weerhouden om naar de jeugdbeweging in Oostende te gaan. Het doel van deze \ninhoudelijke verdieping is om een globaal beeld te geven over de jeugdbewegingen in Oostende. \nHiervoor heb ik hoofdleidingen van drie jeugdbewegingen een vragenlijst laten invullen. Verder ben \nik ook met zeven gezinnen vanop mijn stage bij de Katro'
+
+107. [general-history] DungeonsDragonsDungeonMastersGuide-Unknown-2024-AnnaArchive.pdf
+   known: t=DungeonsDragonsDungeonMastersGuide | a=Unknown | y=2024 | p=AnnaArchive
+   missing: author
+   excerpt: '[EXTRACT-FAILED: EmptyFileError]'
+
+108. [general-history] EarlyCulturesNorth-Fox-1950-Unknown.pdf
+   known: t=EarlyCulturesNorth | a=Fox | y=1950 | p=Unknown
+   missing: publisher
+   excerpt: 'UNIV. OF ARIZONA \nGN803 .F6 \nmn \nWw \nAT \n| \n03 \nFox, wii i \n1 \n3 900\n---PAGE---\ni \n~ \n. \n- \nt \nf \n. \n‘ \n> ‘ \n~~ \nane < \n‘ \n~ \n~< \n#8 \n: \n7 \n. \n~ \nKil \n. \n-'
+
+109. [general-history] EarlyCulturesNorthwestEurope-Fox-1950-Unknown.pdf
+   known: t=EarlyCulturesNorthwestEurope | a=Fox | y=1950 | p=Unknown
+   missing: publisher
+   excerpt: 'UNIV. OF ARIZONA \nGN803 .F6 \nmn \nWw \nAT \n| \n03 \nFox, wii i \n1 \n3 900\n---PAGE---\ni \n~ \n. \n- \nt \nf \n. \n‘ \n> ‘ \n~~ \nane < \n‘ \n~ \n~< \n#8 \n: \n7 \n. \n~ \nKil \n. \n-'
+
+110. [general-history] EconomicHistoryLatinAmerica-Bulmer-Thomas-2002-Unknown.pdf
+   known: t=EconomicHistoryLatinAmerica-Bulmer | a=Thomas | y=2002 | p=Unknown
+   missing: publisher
+   excerpt: 'THE ECONOMIC HISTORY OF LATIN AMERICA SINCE\nINDEPENDENCE\nSECOND EDITION'
+
+111. [general-history] Edited-Marichal-0000-Unknown.pdf
+   known: t=Edited | a=Marichal | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Colours, Commodities and \nthe Birth of Globalization\nA History of the Natural Dyes of \nthe Americas, 1500–2000\nEdited by\nCarlos Marichal and David Pretel'
+
+112. [general-history] EndgameWesternSaharaFutureAfricasColony-Shelley-1995-Unknown.pdf
+   known: t=EndgameWesternSaharaFutureAfricasColony | a=Shelley | y=1995 | p=Unknown
+   missing: publisher
+   excerpt: '\uf763\uf76f\uf776\uf765\uf772\n---PAGE---\nEndgame in the Western Sahara'
+
+113. [general-history] EnergyCertificates1MWhDeliveredNet-Brussels-0000-Unknown.pdf
+   known: t=EnergyCertificates1MWhDeliveredNet | a=Brussels | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Hi all,\nsorry for the long read – I just wanted to write a Monday morning uplifting story about the best \n(future) return on investment I’ve made in a while (or even, ever). I’m planning to make (with my \nfamily) a 123% annual ROI on my latest investment in solar panels. \nHere goes: \nAs you know it’s been possible for years to get solar panels in Belgium subsidized in one way or \nanother. There are many ways to subsidize solar energy, tax credits, direct cash subsidies, feed in \ntariffs (affecting how much you get per kWh delivered to the net) and in Belgium also ‘green \nenergy certificates’, which are certificates you get per 1MWh delivered to the net, and can be traded\non some kind of marketplace. \nApart from the fact that solar panels are a lot more efficient and a lot cheaper now than 10 years \nago, these subsidies can make it very attractive to own solar panels. On my previous set that I got in\nthe Netherlands, I basically earned back the net cost of the panels in 8 years, just via a lower energy \nbill. Assuming the installation remains productive, that’s a 12.5% annual return on investment. Not \nbad for something with very little risk. \nHere in Brussels, I’ve now leveraged the opportunity by a combination of placing the panels myself\nand buying the materials needed second hand. I’ll give you the numbers here:\n(1) I was able to procure 20 solar panels of 185Wp for the measly price of 250 EUR total via \n2dehands.be. I fully acknowledge that that’s an absolute bargain. The'
+
+114. [general-history] EnglishCommonEntrance-Unknown-2016-Unknown.pdf
+   known: t=EnglishCommonEntrance | a=Unknown | y=2016 | p=Unknown
+   missing: author,publisher
+   excerpt: "English Entrance Exam\xa0\nInstructions\xa0\n\xa0\nIntroduction\n2\xa0\nValidity of Registration Information\n2\xa0\nAge Requirement\n2\xa0\nFull Legal Name\n3\xa0\nWorkHub Email\n3\xa0\nChange of Email\n3\xa0\nPayPal Address\n3\xa0\nOfficial Photo Identification\n3\xa0\nTroubleshooting Uploading the ID\n4\xa0\nFraudulent Activity - Cheating\n4\xa0\nDuplicate Accounts\n4\xa0\nAccount Deletion Requests\n4\xa0\nFalse Names\n4\xa0\nAuthenticity of Exam Answers\n5\xa0\nExam Rules\n5\xa0\nConsequences of Cheating\n5\xa0\nAccount Security\n5\xa0\nBefore You Begin\n6\xa0\nChrome\n6\xa0\nKeyboard Settings\n6\xa0\nSet Aside Plenty of Time\n6\xa0\nSaving Your Exam\n6\xa0\nFinal Preparations\n7\xa0\nHelpful Tips\n7\xa0\nExam Interface\n7\xa0\nCopy/Pasting from Outside Sources\n7\xa0\nInstructions\n8\xa0\n\xa0\nUpdated 13-Jul-2020\nConfidential Property of TranscribeMe!\nEntrance Exam 1 of 12\n---PAGE---\nAudio Player\n8\xa0\nHotkeys\n8\xa0\nThe Save Feature\n8\xa0\nDON'T Exit Before Completing a Section\n9\xa0\nCan I backtrack and redo part of the exam?\n9\xa0\nAttempting the Exam\n9\xa0\nNumber of Attempts\n9\xa0\nStyle Guide Questions and Sample Sentences\n9\xa0\nAudio Sections\n10\xa0\nThe Results Page\n10\xa0\nRetries\n10\xa0\nThe Complete Exam Button\n11\xa0\nAfter Your First Failed Attempt\n11\xa0\nNo Feedback\n12\xa0\nAfter Your Second Failed Attempt\n12\xa0\nPassing the Exam\n12\xa0\nUpon Activation\n12\xa0\nQuestions or Concerns\n12\xa0\n\xa0\nIntroduction\xa0\nNote that this document contains information specifically for the\u200b \u200bEnglish Entrance Exam\u200b. Please make\xa0\nsure you are always following the correct documents for the exams and the work you are completing.\xa0\n\xa0\nHello, and thank you for your interest in TranscribeMe! This d"
+
+115. [general-history] EnglishCompositionIntroduction-Edwards-0000-Unknown.pdf
+   known: t=EnglishCompositionIntroduction | a=Edwards | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: ''
+
+116. [general-history] Español-Baroja-1979-Unknown.pdf
+   known: t=Español | a=Baroja | y=1979 | p=Unknown
+   missing: publisher
+   excerpt: 'saharianos\nJulio Caro Baroja.\nJúcar Universidad, 1990. Madrid y\nGijón, 475 págs, 3.450 ptas.\ntt#n y\n-\nUna excelente idea ha sido el rescate de este texto cuya\nprimera edición de 1955 se habia agotado hace mucho tiem-\npo, considerándose un libro raro, algo que ciertamente es y\nen más sentidos que el estrictamente bibliográfico. El «res-\ncatador» ha sido Alberto Cardín, quien en su actividad edito-\nrial está realizando una admirable tarea de recuperación de\nlos clásicos de la Antropología Social y Cultural. La editorial\nJúcar puede estar satisfecha del interesante fondo de Antro-\npología que está publicando, si bien sería deseable en este\ncaso un poco más de cuidado en la forma de presentar los\nmapas y dibujos que acompañan al texto, unidos de una\nforma un tanto precana.\nEste libro es, sin duda, un clásico de un clásico, es decir,\nuno de los más interesantes trabajos de nuestro más conocido\ny reconocido\nantropólogo español.\nEs\nademás un trabajo\npionero que no ha tenido la continuidad que debería y un\nlibro poco conocido y citado frente a otras obras del autor.\nHe dicho en alguna ocasión que la Universidad española\nnunca se arrepentirá bastante de no haber contado en sus\nfilas con don Julio Caro. Sólo por este libro se podría decir\nlo mismo de la investigación española que desperdició\n—\ncomo sigue haciendo hoy— por trabas burocráticas o mera\ndesidia a un investigador tan concienzudo, brillante, admira-\nble y original como él. Y creo también que, en definitiva,\npierde la propia s'
+
+117. [general-history] EtudesAfricaines-Nwaubani-2003-Unknown.pdf
+   known: t=EtudesAfricaines | a=Nwaubani | y=2003 | p=Unknown
+   missing: publisher
+   excerpt: 'Cahiers d’études africaines \n171 | 2003\nVaria\nThe United States and the Liquidation of European\nColonial Rule in Tropical Africa, 1941-1963\nEbere Nwaubani\nElectronic version\nURL: http://journals.openedition.org/etudesafricaines/214\nDOI: 10.4000/etudesafricaines.214\nISSN: 1777-5353\nPublisher\nÉditions de l’EHESS\nPrinted version\nDate of publication: 1 January 2003\nNumber of pages: 505-551\nISBN: 978-2-7132-1810-1\nISSN: 0008-0055\n \nElectronic reference\nEbere Nwaubani, « The United States and the Liquidation of European Colonial Rule in Tropical Africa,\n1941-1963 », Cahiers d’études africaines [Online], 171 | 2003, Online since 15 February 2007, connection\non 30 April 2019. URL : http://journals.openedition.org/etudesafricaines/214 ; DOI : 10.4000/\netudesafricaines.214 \n© Cahiers d’Études africaines\n---PAGE---\nEbere Nwaubani\nThe United States\nand the Liquidation\nof European Colonial Rule\nin Tropical Africa, 1941-1963*\n“Some of those who lived in the former colonial territories were certain”,\naccording to Davidson Nicol, “that the process of decolonization would have\nbeen considerably slowed down, or would have taken a different course,\nhad there not been pressure from the United States”.\nNicol himself (1978:\n365) contends that “Presidents Franklin D. Roosevelt and Harry S. Truman,\nas spokesmen for their people, were unwilling to support the continuation\nof colonial empires”.\nThis viewpoint is commonplace enough, especially\nin popular mythology.\nStudies of United States diplomacy in'
+
+118. [general-history] EuropassCV-DeBecker-0000-Unknown.pdf
+   known: t=EuropassCV | a=DeBecker | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: "Curriculum vitae\nPERSONAL INFORMATION\nBenoit De Becker \n \nklaprozenlaan, 34, 8400 Ostend (Belgium) \n+32486711852 \nbenoit.debecker1995@gmail.com \nSkype benoit.debecker1995 \nSex Male | Date of birth 05/09/1995 | Nationality Belgian \nPERSONAL STATEMENT\nDedicated and experienced Youth worker with first hand experience in a scouting group. \nBringing leadership, drive, and over nine years of experience to the table. I'm very open \nminded and always down to learn new skills. I also have a Bachelors in History where I \nspecialized in viking age scandinavia. Now seeking new experience as an ESC volunteer.\nWORK EXPERIENCE\n01/07/2019–31/08/2019\nAdministrative assistant\nAZ Damiaan, Ostend (Belgium) \nStudent job where I worked in the administrative team of a hospital. I organized client lists and \ncreditors using Microsoft microsoft word and the research skills I learned in my education as a \nhistorian. \n01/06/2019–30/06/2019\nCustomer clerk\nMaya bicyle repair and loan shop, Ostend (Belgium) \nStudent job where I was a front door clerk in a touristic bicycle and go cart shop. I did small bicycle \nrepairs and interacted with customers who wanted to rent or buy bicycles or go carts. I also gave them\ninformation of the area.\n01/07/2016–31/08/2018\nYouth worker\nCity of Ostend, Ostend (Belgium) \nStudent job during the summer holidays where I organized activities for children aged 6-16. I was \nmostly responsible for the older kids where we would organize certain trivial activities like making fire"
+
+119. [general-history] EuropassDocument-Unknown-2019-Unknown.pdf
+   known: t=EuropassDocument | a=Unknown | y=2019 | p=Unknown
+   missing: author,publisher
+   excerpt: 'WORK EXPERIENCE\nAdministrative assistant \nAZ Damiaan [ 01/07/2019 – 31/08/2019 ] \nAddress: Ostend (Belgium) \nStudent job where I worked in the administrative team of a hospital. I organized client lists and creditors\nusing Microsoft microsoft word and the research skills I learned in my education as a historian.\xa0\nCustomer clerk \nMaya bicyle repair and loan shop [ 01/06/2019 – 30/06/2019 ] \nAddress: Ostend (Belgium) \nStudent job where I was a front door clerk in a touristic bicycle and go cart shop. I did small bicycle repairs\nand interacted with customers who wanted to rent or buy bicycles or go carts. I also gave them information\nof the area.\nYouth worker \nCity of Ostend [ 01/07/2016 – 31/08/2018 ] \nAddress: Ostend (Belgium) \nStudent job during the summer holidays where I organized activities for children aged 6-16. I was mostly\nresponsible for the older kids where we would organize certain trivial activities like making fire or building a\nshelter.\xa0\nClerk \nSPEGELAERE [ 01/09/2015 – 30/06/2016 ] \nAddress: Oudenburg (Belgium) \nI was a clerk at a supermarket for about a year, I serviced customers, worked at the dairy and meat isle. It\nwas hard work from 6 to 18 hours.\xa0\nVolunteer \nWorkaway [ 01/10/2015 – 30/06/2016 ] \nI travelled around Europe and volunteered at several places. Some examples:\nLuneburg Germany: Volunteered in a Steiner bases community helped with farming and disabled children.\xa0\nRhodes Greece: Helped on a yoga retreat, clearing out rubble, building and laying elec'
+
+120. [general-history] ExploreSolidarityProjects-Unknown-2020-Unknown.pdf
+   known: t=ExploreSolidarityProjects | a=Unknown | y=2020 | p=Unknown
+   missing: author,publisher
+   excerpt: '1/13 \n \n \nThe European Solidarity Corps \nonline course \n“Ready, Set, Make the Change” \nGUIDEBOOK OF UNIT \nExplore Solidarity Projects\n---PAGE---\n2/13 \nGUIDEBOOK OF UNIT \nDiscover Solidarity projects \n \n \nACTIVITY 1: Overview of this Unit \n \nThis unit is most beneficial to young people, organisations and their staff who are interested in \ndiscovering Solidarity projects within the European Solidarity Corps programme. \n \nThe topics addressed: \n● Needs and examples of solidarity actions in European communities \n● Overview of Solidarity projects co-funded under the European Solidarity Corps programme \n● Eligibility and award criteria for Solidarity projects \n● Good practices of Solidarity projects \n● Personal development and coaching throughout Solidarity projects \n● Where to find application documents, guides and support \n \nLearning activities: \n● 7 content sessions \n● 1 animated video \n● 2 videos \n● 1 webinar \n● 3 visuals \n● 1 practice quiz \n● 2 discussion forum \n● 9 documents to download \n \nRecognition of learning \nSuccessful completion of this unit is required to unlock a unique Discover Solidarity Projects \nbadge. This module is optional to qualify for a Youthpass Certificate.'
+
+121. [general-history] Factfulness-Rosling-2018-Unknown.epub
+   known: t=Factfulness | a=Rosling | y=2018 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+122. [general-history] FacultyArtsPhilosophy-Becker-0000-Unknown.pdf
+   known: t=FacultyArtsPhilosophy | a=Becker | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'FACULTY OF ARTS AND PHILOSOPHY\nUNIVERSITY LANGUAGE CENTRE\nT\nTo whom it may concern\nuct@ugent.be\n9000 Gent\nE\nSint-Pietersnieuwstraat 136\n+32 9 264 36 81\nwww.uct.ugent.be\nhas followed a course\nfrom 23/09/2020 to 16/12/2020. The result of the final test is: 17/20.\nBenoit De Becker\nThe undersigned, Prof. Dr. Stefaan Slembrouck, director, hereby declares that\nThe course consists of an intake test and 30 teaching hours, excluding extensive extra study at home or in the self-study room of the Language Centre.\nThe course corresponds to a study load of 3 ECTS credits.\nPractical English 5 - B2\nATTESTATION\nProf. Dr. Stefaan Slembrouck,\nDirector\nPage 1/1\nThe institutional number for Ghent University (UGent) is 110114.\nThis number has been attributed by the Flemish Ministry of Education and\nTraining.\nPrinted on: 21/12/2020'
+
+123. [general-history] FeministEdgesQur’an-Hidayatullah-2014-Unknown.pdf
+   known: t=FeministEdgesQur’an | a=Hidayatullah | y=2014 | p=Unknown
+   missing: publisher
+   excerpt: "^ T \n« P 9 \nF\ne\nm\ni\nn\ni\ns\nt \nE\nd\ng\ne\ns \no\nf \nt\nh\ne \nQ\nu\nr\n'\na\nn \nA Y S H A A . \nH I D A Y A T U L L A H \nO X F O R D \nUNIVERSITY PRESS\n---PAGE---\nI T 3 \nO X F O R D \nUNIVERSITY PRESS \nOxford University Press is a department of the University of Oxford. \nIt furthers the University's objective of excellence in research, scholarship, \nand education by publishing worldwide. \nOxford New York \nAuckland Cape Town Dar es Salaam Hong Kong Karachi \nKuala Lumpur Madrid Melbourne Mexico City Nairobi \nNew Delhi Shanghai Taipei Toronto \nWith offices in \nArgentina Austria Brazil Chile Czech Republic France Greece \nGuatemala Hungary Italy Japan Poland Portugal Singapore \nSouth Korea Switzerland Thailand Turkey Ukraine Vietnam \nOxford is a registered trade mark of Oxford University Press \nin the UK and certain other countries. \nPublished in the United States of America by \nOxford University Press \n198 Madison Avenue, New York, NY 10016 \n© Oxford University Press 2014 \nAll rights reserved. No part of this publication may be reproduced, \nstored in a retrieval system, or transmitted, in any form or by any means, \nwithout the prior permission in writing of Oxford University Press, \nor as expressly permitted by law, by license, or under terms agreed with the \nappropriate reproduction rights organization. Inquiries concerning reproduction \noutside the scope of the above should be sent to the Rights Department, \nOxford University Press, at the address above. \nYou must not circulate this work in any"
+
+124. [general-history] FGGGRAPFEBook-Games-2012-Unknown.pdf
+   known: t=FGGGRAPFEBook | a=Games | y=2012 | p=Unknown
+   missing: publisher
+   excerpt: 'paizo.com #3245927, John Barnhouse <pexx.pathfinder@gmail.com>, Aug 15, 2015\npaizo.com #3245927, John Barnhouse <pexx.pathfinder@gmail.com>, Aug 15, 2015\n4292480\n4292480\n4292480\n568 03\n568703\n568703\nFrog God \nGames\nNecromancer \nGames\npaizo.com #3245927, John Barnhouse <pexx.pathfinder@gmail.com>, Aug 15, 2015\npaizo.com #3245927, John Barnhouse <pexx.pathfinder@gmail.com>, Aug 15, 2015\n4292480\n4292480\n4292480\n568 03\n568703\n568703\n---PAGE---\npaizo.com #3245927, John Barnhouse <pexx.pathfinder@gmail.com>, Aug 15, 2015\npaizo.com #3245927, John Barnhouse <pexx.pathfinder@gmail.com>, Aug 15, 2015\n4292481\n4292481\n4292481\n568 0\n568704\n568704\nConcept and Design: Bill Webb \nAuthors: Bill Webb, Clark Peterson, WDB Kenower, Gabor Lux, \nGreg Ragland, Matt Finch, Greg Vaughan, John B. Webb, and Skeeter Green \nDeveloper: Bill Webb and Skeeter Green \nProducers: Bill Webb and Charles A. Wright \nEditors: Patrick Lawinger, Bill Webb, Dawn Fischer, \nSkeeter Green, and Aaron Zirkelbach \nRuleset Conversion: Skeeter Green, John Stater, Matt Finch, John Ling, \nStefen Styrsky, Erica Balsley, Greg Ragland, Liz Courts \nElectronic File conversions: Karen McDonald (God-Empress of the \nUniverse), Vance Ludemann (Bigkilla), and Robb Lukasik \nLayout and Graphic Design: Charles A. Wright \nInterior Art: Rowena Aitken, Brian LeBlanc, Jason Sholtis\nCartography: Ed Bourelle and Rick Sardinha \nPlaytesters: Richard (Bixby) Oliver, Eric (Elision) Lillywhite, \nFraser (Alickthron) McKay, Dale (Flail the Great) Haines'
+
+125. [general-history] FirmaIllustrations-Tierra-2013-Unknown.pdf
+   known: t=FirmaIllustrations | a=Tierra | y=2013 | p=Unknown
+   missing: publisher
+   excerpt: 'PASTE-OVER ILLUSTRATIONS IN THE \nDURAN CODEX OF MADRID \nDONALD ROBERTSON \nTulane University \nThe manuscript Codex of Fray Diego de Durán, \n"Historia de los Yndios de N [ueva España] y Yslas y \nTierra Firma," in the Biblioteca Nacional in Madrid \ncontains pre-Hispanic history of the Aztecs, an ac-\ncount of their rites, feasts and ceremonies, and a ver-\nsion of the 18-month calendar.\' The author of this \narticle was able to examine it at some length in March \nof 1965 during a year\'s research trip to Europe.\' The \noriginal manuscript was compared with the published \neditions. This confirmed earlier doubts of the useful-\nness of these editions. Peculiarities discovered in some \nof the illustrations in the original, not to be seen in \nthe reproduction, prompted this note. \nUntil now publication of the illustrations has been es-\nsentially the lithographs made for Ramírez. These were \npublished as the Atlas de Durán, but since this was not \na photographic edition, our knowledge of the illustra-\ntions even after this publication was still somewhat \nlimited.\' In the publication the many vignettes scat-\ntered throughout the text were gathered together on \n;[Biblioteca Nacional, Madrid,] No. 40 in Octavio Paz, +Catálogo de manus-\ncritos de América en Madrid, Madrid, 1933. \n2 Later it was sent to New City to be exhibited in the Spanish Pavilion of \nthe World\'s Fair. I wish to thank the Guggenheim Foundation, Social Science \nResearch Council, and U. S. Department of Health, Education, and'
+
+126. [general-history] FirstNewChronicleGovernment-Ayala-1615-Unknown.pdf
+   known: t=FirstNewChronicleGovernment | a=Ayala | y=1615 | p=Unknown
+   missing: publisher
+   excerpt: 'The First New Chronicle and Good Government'
+
+127. [general-history] FragmentsOfCeos-Simonides-2003-Unknown.pdf
+   known: t=FragmentsOfCeos | a=Simonides | y=2003 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+128. [general-history] FranceCommonDenominatorBehindAfricasCoup-Unknown-2023-Unknown.pdf
+   known: t=FranceCommonDenominatorBehindAfricasCoup | a=Unknown | y=2023 | p=Unknown
+   missing: author,publisher
+   excerpt: "See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/374234504\nFrance has become the common denominator behind Africa's recent coups\nResearch · September 2023\nDOI: 10.13140/RG.2.2.27116.13447\nCITATION\n1\nREADS\n67\n1 author:\nAbubakar Abubakar Usman\nUniversity of Malaya\n77 PUBLICATIONS\xa0\xa0\xa077 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nAll content following this page was uploaded by Abubakar Abubakar Usman on 28 September 2023.\nThe user has requested enhancement of the downloaded file.\n---PAGE---\n28/09/2023, 19:07\nFrance has become the common denominator behind Africa's recent coups | Africa at LSE\nhttps://blogs.lse.ac.uk/africaatlse/2023/09/28/france-has-become-the-common-denominator-behind-africas-recent-coups/\n1/8\nAbubakar Usman\nSeptember 28th, 2023\nFrance has become the common denominator\nbehind Africa’s recent coups\n0 comments | 3 shares\nEstimated reading time: 10 minutes\nFrance is no longer a colonial power, but it has maintained\nmilitary, financial and political influence over African governments\nthat has caused local resentment and helped create the\nconditions for coups, writes Abubakar Abubakar Usman.\nMilitary coups have been a persistent issue in Africa since the continent\ngained independence from colonial rule. In the wake of the wave of\nindependence from the 1950s to the 1970s, newly emancipated African\ncountries grappled with the challenge of establishing stable political\nsystems. This struggle has turned the continent into a stage"
+
+129. [general-history] FrederickCooper-Cooper-1973-Unknown.pdf
+   known: t=FrederickCooper | a=Cooper | y=1973 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+130. [general-history] FrenchMilitaryIntervention-Unknown-2014-Unknown.pdf
+   known: t=FrenchMilitaryIntervention | a=Unknown | y=2014 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Fondation Pierre du Bois | Ch. Jean-Pavillard 22 | 1009 Pully | Suisse \nTél\n+41 (0)21 728 54 07 | info@fondation pierredubois ch | www fondation pierredubois ch\nN°7| November 2014 \n\xa0\nApril\xa0 6th\xa0 of\xa0 this\xa0 year\xa0 marked\xa0 the\xa0 20th\xa0 anniversary\xa0 of\xa0 the\xa0 beginning\xa0 of\xa0 the\xa0 Rwandan\xa0\nGenocide.\xa0Over\xa0the\xa0course\xa0of\xa0three\xa0months,\xa0from\xa0April\xa0to\xa0July\xa01994,\xa0some\xa0800,000\xa0Tutsis\xa0\nand\xa0moderate\xa0Hutus\xa0were\xa0massacred\xa0by\xa0a\xa0state\xa0apparatus\xa0and\xa0collaborating\xa0population\xa0led\xa0\nby\xa0 Hutu\xa0 extremists.\xa0 One\xa0 of\xa0 the\xa0 more\xa0 contentious\xa0 aspects\xa0 of\xa0 the\xa0 genocide\xa0 lies\xa0 in\xa0 the\xa0\nquestion\xa0of\xa0foreign\xa0intervention.\xa0Former\xa0US\xa0President\xa0Bill\xa0Clinton\xa0has\xa0said\xa0that\xa0one\xa0of\xa0\nhis\xa0greatest\xa0regrets\xa0is\xa0that\xa0he\xa0did\xa0not\xa0intervene\xa0to\xa0stop\xa0the\xa0killings.\xa0Indeed,\xa0as\xa0the\xa0\ngenocide\xa0began,\xa0the\xa0UN\xa0massively\xa0reduced\xa0the\xa0number\xa0of\xa0troops\xa0in\xa0its\xa0peacekeeping\xa0force\xa0\nalready\xa0 present\xa0 in\xa0 Rwanda.\xa0 However,\xa0 one\xa0 country\xa0 did\xa0 intervene,\xa0 and\xa0 was\xa0 present\xa0 at\xa0\nvarious\xa0 stages\xa0 in\xa0 the\xa0 process\xa0 leading\xa0 up\xa0 to\xa0 the\xa0 genocide\xa0 itself.\xa0 That\xa0 country\xa0 was\xa0\nFrance.\xa0\n\xa0\nThis\xa0article\xa0will\xa0examine\xa0Rwanda\xa0and\xa0several\xa0other\xa0cases\xa0in\xa0order\xa0to\xa0elucidate\xa0broader\xa0\naspects\xa0 of\xa0 French\xa0 military\xa0 interventionism\xa0 in\xa0 Africa.\xa0 These\xa0 questions\xa0 have\xa0 renewed\xa0\nrelevance\xa0 since\xa0 France\xa0 continues\xa0 to\xa0 play\xa0 an\xa0 important\xa0 role\xa0 in\xa0 African\xa0 security\xa0\nquestions,\xa0 over\xa0 five\xa0 decades\xa0 after\xa0 most\xa0 of\xa0 its\xa0 colonies\xa0 gained\xa0 independence.\xa0 This\xa0\nincludes\xa0major\xa0military\xa0operations\xa0in\xa0Mali\xa0and\xa0the\xa0Central\xa0African\xa0Republic\xa0launched\xa0in\xa0\n2013\xa0and\xa0which\xa0con'
+
+131. [general-history] FriluftslivScandinavianPhilosophyOutdoorLife-Gelter-2000-Unknown.pdf
+   known: t=FriluftslivScandinavianPhilosophyOutdoorLife | a=Gelter | y=2000 | p=Unknown
+   missing: publisher
+   excerpt: 'Friluftsliv: The Scandinavian Philosophy of\nOutdoor Life\nHans Gelter, Luleå University of Technology, Sweden\nAbstract\nThis paper explores the roots of the Scandinavian outdoor\nlifestyle of friluftsliv and its philosophical implication as well as\nits applications for environmental education. Friluftsliv as a phi-\nlosophy is deeply rooted in Norway and Sweden but has lately\nobtained a more a superficial meaning by the commercialization\nof outdoor activities. The philosophy and biology of friluftsliv is\nexplored showing its importance as a means, in environmental\neducation, to facilitate a true connectedness to the more-than-\nhuman world. \nRésumé\nCet article explore les racines du style de vie en plein air\nscandinave connu sous le nom de « friluftsliv », ainsi que ses\nimplications philosophiques et ses applications en éducation\nrelative à l’environnement. La philosophie du « friluftsliv » est\nprofondément enracinée dans les sociétés norvégienne et\nsuédoise, mais s’est récemment superficialisée par la\ncommercialisation des activités de plein air. L’auteur explore les\naspects philosophiques et biologiques du « friluftsliv », en\nmettant en évidence son importance comme moyen d’éducation\nrelative à l’environnement en vue de faciliter l’établissement\nd’une relation véridique avec le monde « plus-que-humain ».\nWe are in a splendid remote wilderness—the Wind River in northern\nYukon. Crystal clear water sparkles around us with the marbled river bot-\ntom several meters below, giving the'
+
+132. [general-history] GenderHierarchyQurānMedievalInterpretati-Bauer-2014-Unknown.pdf
+   known: t=GenderHierarchyQurānMedievalInterpretati | a=Bauer | y=2014 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+133. [general-history] GenderRepresentationEvil-Fallwell-0000-Unknown.pdf
+   known: t=GenderRepresentationEvil | a=Fallwell | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Gender and the Representation of Evil\nThis edited collection examines gendered representations of “evil” in\nhistory, the arts, and literature. Scholars\n often explore the relationships\nbetween gender, sex, and violence through theories of inequality, violence\nagainst women, and female victimization, but what happens when women\nare the perpetrators of violent or harmful\n behavior? How do we define\n“evil”? What makes evil men seem different from evil women? When\nwomen commit acts of\n violence or harmful behavior, how are they\nrepresented differently from men? How do perceptions of class, race,\nand\nage influence these representations? How have these representations\nchanged over time, and why? What purposes\nhave gendered representations\nof evil served in culture and history? What is the relationship between\ngender,\npunishment of evil behavior, and equality?\nLynne Fallwell teaches in the Educational Psychology and Leadership\nProgram at Texas Tech University.\nKeira V. Williams is an Assistant Professor in the Honors College at Texas\nTech University.\nRoutledge Research in Gender and History\nFor a full list of titles in this series, please visit www.routledge.com'
+
+134. [general-history] GeneralIntroductionESC-Unknown-2020-Unknown.pdf
+   known: t=GeneralIntroductionESC | a=Unknown | y=2020 | p=Unknown
+   missing: author,publisher
+   excerpt: '1/20 \n \n \nThe European Solidarity Corps \nonline course \n“Ready, Set, Make the Change” \nGUIDEBOOK OF UNIT \nGeneral introduction to the European Solidarity \nCorps\n---PAGE---\n2/20 \nGUIDEBOOK OF UNIT \nGeneral introduction to the European Solidarity Corps \nACTIVITY 1: Overview of the Unit \n \nThis unit is beneficial to organisations, young people and groups of young people, who are new to \nthe European Solidarity Corps programme, as well as those familiar with the programme, but \nlooking to refresh or expand their knowledge. \n \nTopics addressed: \n● essentials of the concept of solidarity in the field of European youth work; \n● a general overview of the European Solidarity Corps programme, its aims and objectives \nand specific Actions; \n● where to find more information about the European Solidarity Corps; \n● some examples of good practice within the Corps context; \n● other people or organisations’ interests and motivation to participate in the Corps. \n \nLearning activities: \n● 6 content sessions \n● 3 animated videos \n● 5 videos with practical examples \n● 4 visuals \n● 1 personal survey \n● 1 practice quiz \n● 1 discussion forum \n● 2 documents to download \n \nRecognition of learning \nSuccessful completion of this unit is required to unlock the unique ‘Navigating the Essentials of \nEuropean Solidarity Corps’ badge. This module is optional to qualify for a Youthpass certificate.'
+
+135. [general-history] GenomicHistoryMedievalEurope-Speidel-0000-Springer.pdf
+   known: t=GenomicHistoryMedievalEurope | a=Speidel | y=0000 | p=Springer
+   missing: year
+   excerpt: '118\u2002 |\u2002 Nature\u2002 |\u2002 Vol 637\u2002 |\u2002 2 January 2025\nArticle\nHigh-resolution genomic history of early \nmedieval Europe\nLeo\xa0Speidel1,2,3\u2009✉, Marina\xa0Silva1, Thomas\xa0Booth1, Ben\xa0Raffield4, Kyriaki\xa0Anastasiadou1, \nChristopher\xa0Barrington5, Anders\xa0Götherström6,7, Peter\xa0Heather8 & Pontus\xa0Skoglund1\u2009✉\nMany known and unknown historical events have remained below detection thresholds \nof genetic studies because subtle ancestry changes are challenging to reconstruct. \nMethods based on shared haplotypes1,2 and rare variants3,4 improve power but are not \nexplicitly temporal and have not been possible to adopt in unbiased ancestry models. \nHere we develop Twigstats, an approach of time-stratified ancestry analysis that can \nimprove statistical power by an order of magnitude by focusing on coalescences in \nrecent times, while remaining unbiased by population-specific drift. We apply this \nframework to 1,556 available ancient whole genomes from Europe in the historical \nperiod. We are able to model individual-level ancestry using preceding genomes to \nprovide high resolution. During the first half of the first millennium ce, we observe \nat least two different streams of Scandinavian-related ancestry expanding across \nwestern, central and eastern Europe. By contrast, during the second half of the\xa0first \nmillennium ce, ancestry patterns suggest the regional disappearance or substantial \nadmixture of these ancestries. In Scandinavia, we document a major ancestry influx \nby approximately 800 ce, when a la'
+
+136. [general-history] GeorgeStrachanMearns-McInally-2020-Unknown.pdf
+   known: t=GeorgeStrachanMearns | a=McInally | y=2020 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+137. [general-history] GodIsOurHelp-Raybon-2024-Unknown.pdf
+   known: t=GodIsOurHelp | a=Raybon | y=2024 | p=Unknown
+   missing: publisher
+   excerpt: 'Our Time Is Now\nPostcolonial histories have long emphasized the darker side of narra-\ntives of historical progress, especially their role in underwriting global\nand racial hierarchies. Concepts like primitiveness, backwardness, and\nunderdevelopment not only racialized and gendered peoples and\nregions but also ranked them on a seemingly naturalized timeline –\ntheir “present” is our “past” – and reframed the politics of capitalist\nexpansion and colonization as an orderly, natural process of evolution\ntoward modernity. Our Time Is Now reveals that modernity particu-\nlarly appealed to those excluded from power, precisely because of its\naspirational and future orientation. In the process, marginalized peoples\ncreatively imagined diverse political futures that redeﬁned the racialized\nand temporal terms of modernity. Employing a critical reading of a\nwide variety of previously untapped sources, Julie Gibbings demon-\nstrates how the struggle between indigenous people and settlers to\nmanage contested ideas of time and history as well as practices of\nmodern politics, economics, and social norms were central to the rise\nof coffee capitalism in Guatemala and to twentieth-century populist\ndictatorship and revolution.\nJulie Gibbings is a lecturer in the School of History, Classics, and\nArchaeology at the University of Edinburgh.\n---PAGE---\nCambridge Latin American Studies\nGeneral Editors\nKRIS LANE, Tulane University\nMATTHEW RESTALL, Pennsylvania State University\nEditor Emeritus\nHERBERT S.'
+
+138. [general-history] GorbachevEraWarsAndCrises-Unknown-1959-Unknown.pdf
+   known: t=GorbachevEraWarsAndCrises | a=Unknown | y=1959 | p=Unknown
+   missing: author,publisher
+   excerpt: "This.is the first comprehensive study of Soviet policies in the Middle East. \nConcentrating on policy developments, Professor Golan analyzes the major \nSoviet deci^idns and objectives since the end of World War II until the \nGorbachev era. She pays particular attention to the wars and crises of recent \nyears and the often problematic development of political relationships in the \nregion.\nProfessor Golan begins by demonstrating how, until the end of the \nBrezhnev period, Soviet policies towards the Middle East were principally \ninfluenced by the demands of superpower competition with the USA. This is \nfollowed by a series of broadly chronological case studies of the main Soviet \nalliances such as Syria and South Yemen; and of Sadat's Egypt and Khomei\xad\nni's Iran. Other issues given specific attention include Soviet attitudes to the \nArab-Israeli conflict, the role of communism, the importance of Islam in \nSoviet-Middle East relations, and the emergence, particularly in the Brezhnev \nera, of differing Soviet^elite opinions on Soviet objectives and policies in this \nregion. This original and important book culminates in a study of Gorbachev's \ninterests, initiatives and 'new thinking' in relation to over all Soviet foreign \npolicy objectives and the role of the Soviet Union in the region.\nGalia Golan is Jay and Leoni Darwin Professor of Soviet and East European \nStudies and Chairpersdn of the Department of Political Science at the Hebrew \nUniversity of Jerusalem. She is one of th"
+
+139. [general-history] GrimHollowMonsterGrimoire-Games-0000-Unknown.pdf
+   known: t=GrimHollowMonsterGrimoire | a=Games | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: ''
+
+140. [general-history] GrimhollowSubclasses-Unknown-2025-Unknown.pdf
+   known: t=GrimhollowSubclasses | a=Unknown | y=2025 | p=Unknown
+   missing: author,publisher
+   excerpt: 'Like what you see? Become the Master of your own Universe! \nGrim Hollow Subclasses in Etharis | World Anvil\nhttps://www.worldanvil.com/w/etharis-calloi/a/grim-hollow-subclasses-a...\n1 of 48\n10/11/2025, 2:04 PM\n---PAGE---\nLike what you see? Become the Master of your own Universe! \nGrim Hollow Subclasses in Etharis | World Anvil\nhttps://www.worldanvil.com/w/etharis-calloi/a/grim-hollow-subclasses-a...\n2 of 48\n10/11/2025, 2:04 PM'
+
+141. [general-history] GrimHollowSubclassesEtharis-Becker-0000-Unknown.pdf
+   known: t=GrimHollowSubclassesEtharis | a=Becker | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Like what you see? Become the Master of your own Universe! \nGrim Hollow Subclasses in Etharis | World Anvil\nhttps://www.worldanvil.com/w/etharis-calloi/a/grim-hollow-subclasses-a...\n1 of 48\n10/11/2025, 2:04 PM\n---PAGE---\nLike what you see? Become the Master of your own Universe! \nGrim Hollow Subclasses in Etharis | World Anvil\nhttps://www.worldanvil.com/w/etharis-calloi/a/grim-hollow-subclasses-a...\n2 of 48\n10/11/2025, 2:04 PM'
+
+142. [general-history] GunsGermsSteelFatesHumanSocieties-Diamond-1997-Unknown.pdf
+   known: t=GunsGermsSteelFatesHumanSocieties | a=Diamond | y=1997 | p=Unknown
+   missing: publisher
+   excerpt: 'More praise for Guns, Germs, and Steel\n“No scientist brings more experience from the laboratory and field, none\nthinks more deeply about social issues or addresses them with greater\nclarity, than Jared Diamond as illustrated by Guns, Germs, and Steel. In this\nremarkably readable book he shows how history and biology can enrich one\nanother to produce a deeper understanding of the human condition.”\n—Edward O. Wilson, Pellegrino University Professor,\nHarvard University\n“Serious, groundbreaking biological studies of human history only seem to\ncome along once every generation or so…. Now Jared Diamond must be\nadded to their select number…. Diamond meshes technological mastery\nwith historical sweep, anecdotal delight with broad conceptual vision, and\ncommand of sources with creative leaps. No finer work of its kind has been\npublished this year, or for many past.”\n—Martin Sieff, Washington Times\n“[Diamond’s] masterful synthesis is a refreshingly unconventional history\ninformed by anthropology, behavioral ecology, linguistics, epidemiology,\narcheology, and technological development.”\n—Publishers Weekly (starred review)\n“[Jared Diamond] is broadly erudite, writes in a style that pleasantly\nexpresses scientific concepts in vernacular American English, and deals\nalmost exclusively in questions that should interest everyone concerned\nabout how humanity has developed…. [He] has done us all a great favor by\nsupplying a rock-solid alternative to the racist answer…. A wonderfully\ninteresting'
+
+143. [general-history] Hageprot-Unknown-2008-Harvard-University-Press.pdf
+   known: t=Hageprot | a=Unknown | y=2008 | p=Harvard-University-Press
+   missing: author
+   excerpt: 'The Protocols of the Elders of Zion: \nBetween History and Fiction\nMichael Hagemeister\nIn the autumn of 1999 a sensation swept through the international press: “Author \nof ‘Zion Protocols’ identiﬁ ed.” Finally—so tell us the French weeklies Le Figaro \nMagazine and L’express—Mikhail Lepekhin had discovered who was behind \nthe Protocols of the Elders of Zion. After ﬁ ve years of research in formerly inac-\ncessible and secret Russian archives, he named Matvei Golovinskii, a reaction-\nary journalist and writer, author of the notorious “document” that pretends to \ndescribe the secret plan of a Jewish conspiracy to achieve world domination.1\nGolovinskii had, according to Lepekhin, composed the Protocols at the \nturn of the twentieth century on the orders of Piotr Rachkovskii, head of the \nforeign branch of the Russian secret police, the infamous Okhrana, in Paris. \nThe revelation spread like wildﬁ re. Articles appeared in all major newspapers \nand on the Internet. The Saint Petersburg historian’s “discovery” could justiﬁ -\nably be considered a “sensation,” heralded the Neue Zürcher Zeitung, since it \nsolved, in the Washington Times’ words, “the last remaining mystery sur-\nrounding the ‘Protocols.’”2 \nNew German Critique 103, Vol. 35, No. 1, Spring 2008\nDOI 10.1215/0094033X-2007-020 © 2008 by New German Critique, Inc.\n83\n1. Victor Loupan, “L’affaire des ‘Protocoles des sages de Sion’: Le faussaire du siècle démasqué,” \nLe Figaro Magazine, August 7, 1999, 20–24; Eric Conan, “Les secre'
+
+144. [general-history] HalmeTuomisaari-Slotte-2016-Unknown.pdf
+   known: t=HalmeTuomisaari | a=Slotte | y=2016 | p=Unknown
+   missing: publisher
+   excerpt: 'REVISITING THE ORIGINS OF\nHUMAN RIGHTS\nDid the history of human rights begin decades, centuries or even millen-\nnia ago? What constitutes this history? What can we really learn from ‘the\ntextbook narrative’ – the unilinear, forward-looking tale of progress and\ninevitable triumph authored primarily by Western philosophers, politi-\ncians and activists? Does such a distinguishable entity as ‘the history of\nhuman rights’ even exist, or are efforts to read evidence in past events of\nthe later ‘evolution’ of human rights mere ideology?\nThisbookexploresthesequestionsthroughacollectiveeffortbyscholars\nof history, law, theology and anthropology. Rather than entities with an\nabsolute, pre-deﬁned ‘essence’, this book conceptualizes human rights as\nopen-ended and ambiguous. It taps into recent ‘revisionist’ debates, and\nasks: what do we really know of the history of human rights?\npamela slotte is an academy research fellow at the Academy of Finland\nand a senior research fellow at the Erik Castr´en Institute of International\nLaw and Human Rights, Faculty of Law, University of Helsinki.\nmiia halme-tuomisaari is an afﬁliated research fellow at the Erik\nCastr´en Institute of International Law and Human Rights. She is also the\nResearch Director and co-creator of Allegra Lab.'
+
+145. [general-history] HammerWitchesMalleusMaleficarum-Institoris-1486-Unknown.pdf
+   known: t=HammerWitchesMalleusMaleficarum | a=Institoris | y=1486 | p=Unknown
+   missing: publisher
+   excerpt: 'This page intentionally left blank'
+
+146. [general-history] HarlotsOfHadramaut-Unknown-1942-Unknown.pdf
+   known: t=HarlotsOfHadramaut | a=Unknown | y=1942 | p=Unknown
+   missing: author,publisher
+   excerpt: 'T H E SO-CALLED HARLOTS OF HADRAMAUT \nby \nA. F. L. Beeston \nThe Kitäb al-Muhabbar of Muhammad ibn Habib al-Bagdadi who \ndied in A.H. 245, contains the following curious passage 1 relative \nto the apostacy of Hadramaut after the death of the prophet Muhammad. \nThe women who desired the death of Muhammad and \ntheir story. \nWhen the Prophet of God died, the news of it was carried to \nHadramaut by a man of Kulaib, of the Ban! \'Amir ibn \'Auf of the \nBan! \'1-Gilah, whose name was Gahbal; this family still lives in \n, \nHadramaut at a village called Rahbah. There were in Hadramaut \nsix women, of Kindah and Hadramaut, who were desirous for the \ndeath of the Prophet of God; they therefore [on hearing the news] \ndyed their hands with henna and played on the tambourine. To \nthem came out the harlots of Hadramaut and did likewise, so that \nsome twenty-odd women joined the six. They belonged to various \nvillages of Hadramaut, in Tarim and Mastah 2 and Nugair 3 and \nTin`ah 4 and Sabwah5 5 and Damar, and included the following: \n1 Edition Haidarabad 1942, pp. 184-9. I am much indebted to Dr R. B. Serjeant of the School \n- \nof Oriental and African Studies of London University for first drawing my attention to this inter- \nesting text. \n2 See Hamdani\'s Gazirat (edition D. H. Miiller, 1884, p. 87) where Mastah is described as a \nmedium-sized village in the neighbourhood of Sibam. \n3 Hamdani (Gazirat, p. 203) describes this as "one of the famous castles". It was here that the \nanti-Muslim party'
+
+147. [general-history] Hassmann-Arnold-1995-Unknown.pdf
+   known: t=Hassmann | a=Arnold | y=1995 | p=Unknown
+   missing: publisher
+   excerpt: 'See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/345796734\nArchaeology in Nazi Germany: the legacy of the Faustian bargain\nChapter · January 1996\nDOI: 10.1017/CBO9780511558214.005\nCITATIONS\n65\nREADS\n119\n2 authors:\nBettina Arnold\nUniversity of Wisconsin–Milwaukee\n70 PUBLICATIONS\xa0\xa0\xa01,304 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nHenning Haßmann\nLower Saxony State Office for Cultural Heritage\n23 PUBLICATIONS\xa0\xa0\xa067 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nAll content following this page was uploaded by Bettina Arnold on 16 May 2021.\nThe user has requested enhancement of the downloaded file.'
+
+148. [general-history] HateSpeechRegulationResponses-Herz-0000-European-Court-of-Human-Rights.pdf
+   known: t=HateSpeechRegulationResponses | a=Herz | y=0000 | p=European-Court-of-Human-Rights
+   missing: year
+   excerpt: 'www.cambridge.org\n© in this web service Cambridge University Press\nCambridge University Press\n978-0-521-19109-8 - The Content and Context of Hate Speech: Rethinking Regulation\nand Responses\nEdited by Michael Herz and Peter Molnar\nFrontmatter\nMore information\nthe content and context of hate speech\nThe contributors to this volume consider whether it is possible to establish carefully\ntailored policies for “hate speech” that are cognizant of the varying traditions, histories,\nand values of different countries. Throughout, there is a strong comparative emphasis,\nwith examples, and authors, drawn from around the world. A recurrent question is\nwhether or when different cultural and historical settings can justify different substantive\nrules without making cultural relativism an easy excuse for content-based restrictions\nthat would gravely endanger freedom of expression.\nEssays address the following questions, among others: Is “hate speech” in fact so\ndangerous and harmful, particularly to vulnerable minorities or communities, as to\njustify restricting freedom of speech? What harms and beneﬁts accrue from laws that\ncriminalize “hate speech” in particular contexts? Are there circumstances in which\neveryone would agree that “hate speech” should be criminally punished? Is incitement\nthat leads to imminent danger a more reliable concept for deﬁning restrictions than “hate\nspeech”? Does the decision whether to restrict “hate speech” necessarily entail choosing\nbetween liberty and equalit'
+
+149. [general-history] HaubenBook-Hauben-1977-Unknown.pdf
+   known: t=HaubenBook | a=Hauben | y=1977 | p=Unknown
+   missing: publisher
+   excerpt: "White Legend against Black: Nationalism and Enlightenment in a Spanish Context\nAuthor(s): Paul J. Hauben\nSource: The Americas, Vol. 34, No. 1 (Jul., 1977), pp. 1-19\nPublished by: Cambridge University Press\nStable URL: http://www.jstor.org/stable/980809\nAccessed: 27-04-2016 22:37 UTC\n \nYour use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at\nhttp://about.jstor.org/terms\n \nJSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide range of content in a trusted\ndigital archive. We use information technology and tools to increase productivity and facilitate new forms of scholarship. For more information about\nJSTOR, please contact support@jstor.org.\nCambridge University Press is collaborating with JSTOR to digitize, preserve and extend access to The\nAmericas\nThis content downloaded from 134.129.182.74 on Wed, 27 Apr 2016 22:37:01 UTC\nAll use subject to http://about.jstor.org/terms\n---PAGE---\nWHITE LEGEND AGAINST BLACK: NATIONALISM\n AND ENLIGHTENMENT IN A SPANISH CONTEXT*\n HE appearance of no less than four books in English' marked\n 1971 as a banner year for Black Legend studies, especially for\n their colonial side. As in the past discussion emphasized the\n sixteenth century, dominated by the commanding and controversial\n Dominican, Bartolom6 de Las Casas on one hand, and the grim Indian\n demographic catastrophe on the other. This was no less so during the\n Enlightenment's pass"
+
+150. [general-history] HelotsAndBarbariansHistoriographyAndRepresent-LURAGHI-2009-Unknown.pdf
+   known: t=HelotsAndBarbariansHistoriographyAndRepresent | a=LURAGHI | y=2009 | p=Unknown
+   missing: publisher
+   excerpt: 'PART IV\nHELOTS AND BARBARIANS:\nHISTORIOGRAPHY AND REPRESENTATIONS\nChapter 7\nTHE HELOTS: COMPARATIVE APPROACHES,\nANCIENT AND MODERN\nNino Luraghi\nA comparative approach to the Helots is as old as our earliest sources on\nthe phenomenon. Oligarchic Athenians, who thought that Sparta was the\nplace where society functioned as it should, found that the Spartans were\ndealing in the best way with slavery, too. According to the Old Oligarch\n(1.11), in Sparta slaves feared their masters, unlike in Athens, where the\npolitical dominance of the poor undermined the visual recognition of social\nstatus; for Critias (88 B 37 Diels-Kranz), author of pamphlets on the\nSpartan constitution, at Sparta the free were more free, and the slaves more\nslave, than anywhere else.1 Later theorists like Plato and Aristotle,\nobserving Sparta from the vantage point of the fall of the Peloponnesian\nLeague and the loss of Messenia, were more inclined to see Helotage as a\nhidden Achilles’ heel of the Spartan system. At the same time, they\napproached the issue from a less overtly ideological and polemical and\nmore classificatory and genuinely comparative angle, and as a result they\njuxtaposed Sparta to other cities and regions that had similar systems of\nunfree labor, namely Heraclea Pontica, Thessaly, and Crete. This approach\nwas pursued further by Hellenistic scholars, from an increasingly\nretrospective standpoint, as the systems themselves were progressively\ndisappearing. Aristophanes of Byzantium seems to have'
+
+151. [general-history] HelpdeskBeleggen-Beleggen-0000-Unknown.pdf
+   known: t=HelpdeskBeleggen | a=Beleggen | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Uw aanspreekpunt\nHelpdesk Beleggen\nTel. : + 32 3 247 18 00\nFax : + 32 3 247 18 39\nhelpdesk.invest@crelan.be\nwww.crelan.be\nDE BECKER BENOIT\nKlaprozenlaan,34 \n8400 Oostende\nOns kenmerk : C1J18ZPQJN09J0IH\nBrussel, 22 april 2022\nCrelanCo CV - Sylvain Dupuislaan 251 - 1070 Brussel\nIBAN: BE28 1039 9992 9420 - BIC: NICABEBB - BTW BE 0403.263.840 - RPR Brussel\nAttest dividenduitkering CrelanCo CV\nGeachte mevrouw, \nGeachte heer,\nHieronder vindt u een attest met betrekking tot het dividend dat aan de coöperant door CrelanCo\nCV gestort werd in 2021.\n1.\nNaam coöperant: Dhr. Benoit De Becker\n2.\nNr. aandeelhoudersrekening: 108-1506154-95\n3.\nDividend (in procent): 3,00 %\n4.\nBedrag brutodividend: € 166,66\n5.\nIngehouden roerende voorheffing (30,00%): € 50,00\n6.\nBedrag nettodividend: € 116,66\n7.\nBetaald op: 18/10/2021\nOp maximum € 800 die de coöperant heeft geïnd uit coöperatieve aandelen en andere aandelen,\nkunt u de ingehouden roerende voorheffing terugvorderen via de aangifte personenbelasting van\nde coöperant. Het maximumbedrag van € 800 dividenden geldt voor het aanslagjaar 2022\n(inkomsten 2021) en per belastingplichtige. \nMeer informatie hierover vindt u op www.crelan.be. \nMet vriendelijke groeten,\nIvan Smet\nVerantwoordelijke Back Office Beleggen'
+
+152. [general-history] HighSchoolDecidedEnrollUniversity-Found-0000-Unknown.pdf
+   known: t=HighSchoolDecidedEnrollUniversity | a=Found | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'To motivate my reasons for participating in the ESC program. I think it is important to give a little \nbackstory of myself. In doing so I think I can make a good case as to what I have to offer as a volunteer. \n \nGrowing up I dealt with a lot of anxiety, all throughout my high school I went from therapy to therapy \nand from treatment to treatment. Diagnosis was very broad about what I was dealing with. Some people \ndescribed it as low self-confidence, others classified it as failure anxiety. I managed to barely graduate \nhigh school and decided to enroll in university. I failed hard at university and at the end of the year I was \nnot really sure what I wanted to do in life. I then took up a job as a supermarket clerk that I did for a \nwhole year. After that year I decided to go travelling and volunteering all over Europe. It was the first \ntime I really got out of my comfort zone and by doing so I managed to find my self-confidence. I found \nthat that I really enjoyed getting to know new people, talking and learning from them. I also learned new \nskills and honed my language skills. At the end of that “gap year” I decided to pick up more demanding \ntasks, I asked to become an adult counselor in my scouting group and I started to organize workshops and \nteambuilding activities to engage our (young) leaders. On an educational level I decided to enroll again \nand because I had found my drive studying became really easy . I enrolled into a buddy program to \nsupport Erasmus studen'
+
+153. [general-history] HispanicAmericanHistoricalReview-Unknown-2015-DukeUP.pdf
+   known: t=HispanicAmericanHistoricalReview | a=Unknown | y=2015 | p=DukeUP
+   missing: author
+   excerpt: 'Duke University Press is collaborating with JSTOR to digitize, preserve and extend access to The Hispanic American Historical\nReview.\nhttp://www.jstor.org\nDuke University Press\nThe Black Legend Revisited: Assumptions and Realities \nAuthor(s): Benjamin Keen \nSource: \n \n \nThe Hispanic American Historical Review, Vol. 49, No. 4 (Nov., 1969), pp. 703-719\nPublished by: \n \nDuke University Press\nStable URL: \n \nhttp://www.jstor.org/stable/2511162\nAccessed: 19-10-2015 16:22 UTC\nYour use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at http://www.jstor.org/page/\n \ninfo/about/policies/terms.jsp\nJSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide range of content \nin a trusted digital archive. We use information technology and tools to increase productivity and facilitate new forms of scholarship. \nFor more information about JSTOR, please contact support@jstor.org.\nThis content downloaded from 129.96.252.188 on Mon, 19 Oct 2015 16:22:42 UTC\nAll use subject to JSTOR Terms and Conditions\n---PAGE---\nNOTES AND COMIMENTS \nThe Black Legend Revisited: Assump- \ntions and Realities \nBENJAMIN \nKEEN* \nT \nHE TERM "BLACK \nLEGEND" has long existed in the \nlexicon of Latin American history. Despite its wide \nacceptance and use, however, it rests on premises \nwhose validity has never been seriously questioned. This essay at- \ntempts to test these premises, to clarify the meanings attached to th'
+
+154. [general-history] HistoriaEconomicaAmericaLatina-Bulmer-Thomas-2002-Unknown.pdf
+   known: t=HistoriaEconomicaAmericaLatina-Bulmer | a=Thomas | y=2002 | p=Unknown
+   missing: publisher
+   excerpt: 'SECCIÓN DE OBRAS DE ECONOMÍA LATINOAMERICANA\nLA HISTORIA ECONÓMICA DE AMÉRICA LATINA DESDE\nLA INDEPENDENCIA'
+
+155. [general-history] HistoriaEconómicaAméricaLatina-BulmerThomas-1998-Unknown.pdf
+   known: t=HistoriaEconómicaAméricaLatina | a=BulmerThomas | y=1998 | p=Unknown
+   missing: publisher
+   excerpt: 'SECCIÓN DE OBRAS DE ECONOMÍA LATINOAMERICANA\nLA HISTORIA ECONÓMICA DE AMÉRICA LATINA DESDE\nLA INDEPENDENCIA'
+
+156. [general-history] HistoriaGeneralPerúComentariosReales-Vega-1609-Unknown.pdf
+   known: t=HistoriaGeneralPerúComentariosReales | a=Vega | y=1609 | p=Unknown
+   missing: publisher
+   excerpt: '1\nHistoria general del Perú, o\nComentarios reales de los incas\nInca Garcilaso de la Vega\nImprenta de Villalpando, Madrid, 1800\nExportado de Wikisource el 8 de octubre de 2025\n---PAGE---\n2\nHISTORIA\nGENERAL\nDEL PERÚ,\nÓ\nCOMENTARIOS REALES\nDE LOS INCAS,\nPor el Inca Garcilaso de la Vega.\nnueva edicion.\nTOMO I.\n\nMADRID\nimprenta de villalpando.\n1800.\n.'
+
+157. [general-history] HistoriansIndividualAgency-Berber-0000-Unknown.pdf
+   known: t=HistoriansIndividualAgency | a=Berber | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Faculteit Letteren & Wijsbegeerte \nVakgroep Geschiedenis \n \n \n \n \n \n \n \n \n \nReader \nTheoretische Geschiedenis \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nProf. Dr. Berber Bevernage\n---PAGE---\nInhoud \n \nKader \n \n \nBurke P., Western Historical Thinking in a Global Perspective – 10 Theses. In: Rüsen \n \nJ. (ed.), Western Historical Thinking. New York, Berghahn Books, 2002, pp. 15-30. \n \n \nStelling 1: Vooruitgangsgeloof en Lineaire tijd \n \nAssmann A.,Transformations of the Modern Time Regime. In: Lorenz, C. & B. \nBevernage, eds. Breaking up Time: Negotiating the Borders between Present, Past \nand Future. Göttingen: Vandenhoeck & Ruprecht, 2013, pp. 37-56 \n \nSchneider A., Temporal Hierarchies and Moral Leadership: China’s Engagement with \nModern Views of History. In: Lorenz, C. & B. Bevernage, eds. Breaking up Time: \nNegotiating the Borders between Present, Past and Future. Göttingen: Vandenhoeck \n& Ruprecht, 2013, pp. 236-251. \n \n \nStelling 2: Historisch perspectief, anachronisme en temporele “afstand” \n \nSchiffman Z. S., Introduction: The past defined. In: Schiffman Z. S., The Birth of the \nPast. Baltimore, The Johns Hopkins Press, 2011, pp. 1-13. \n \n \nPhillips M. S., Rethinking Historical Distance: From Doctrine to Heuristic. In: History \n \nand Theory, 50 (2011), pp. 11-23. \n \n \nStelling 3: Historicisme \n \n \nIggers G. G., The “Crisis” of Historicism and Changing Conceptions of Historical \n \nTime. In: Comprendre, 43-44 (1977), pp. 60-73. \n \n \nBevernage B. & Aerts K., Haunting Pasts. T'
+
+158. [general-history] HistoricalImage-Kotoulas-0000-Unknown.pdf
+   known: t=HistoricalImage | a=Kotoulas | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: ''
+

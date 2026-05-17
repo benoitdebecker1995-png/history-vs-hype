@@ -1,0 +1,350 @@
+You are identifying academic books, journal articles, treaties, and primary
+documents from partial metadata + an excerpt of the first two pages of the
+PDF. For each entry below, search the web (Google Search grounding) to verify
+the work and return its full metadata.
+
+Each entry shows:
+  - The current filename (after prior parsing)
+  - Known fields: title slug, author surname, year, publisher
+  - 'Unknown' / '0000' = unresolved field
+  - A short excerpt from the first two pages of the PDF (may be empty if the
+    document is scanned image-only — proceed using the filename in that case)
+
+INSTRUCTIONS
+- Resolve EVERY missing field where you can find authoritative evidence.
+- Use Google Search grounding; cross-reference excerpt content + filename.
+- Do NOT guess. Mark UNRESOLVED if no high- or medium-confidence answer.
+- Confidence levels:
+    high   — primary source (publisher page, library catalogue, JSTOR)
+    medium — secondary source (Wikipedia, Google Books snippet)
+    low    — inference from excerpt only (rarely use; usually UNRESOLVED)
+- source_url is REQUIRED for any non-UNRESOLVED row.
+- publisher_abbrev MUST come from this list (use the closest match):
+  CambridgeUP, OxfordUP, YaleUP, PrincetonUP, ColumbiaUP, IndianaUP,
+  EdinburghUP, NYUPress, UCPress, JohnsHopkinsUP, HooverPress, PlutoPress,
+  Routledge, Palgrave, Bloomsbury, ITauris, HurstCo, ZedBooks, VersoBooks,
+  BasicBooks, RandomHouse, Penguin, Brill, Springer, DaCapo, FreePress,
+  Granta, WeidenfeldNicolson, CornellUP, StanfordUP, HarvardUP, LiverpoolUP,
+  MacmillanUK, NortonCo, HMSO, UN, ICJ, OECD, LHarmattan, Macmillan,
+  HoughtonMifflin, Serif.
+  If publisher is a journal article, use the journal abbreviation
+  (e.g. JModernHistory, IntlAffairs). If it is a government / IGO document,
+  use the issuer abbreviation (HMSO, UN, ICJ, FCO, etc.).
+
+OUTPUT
+Return a single markdown table with exactly these columns:
+
+| idx | title_slug | author_surname | year | publisher_abbrev | confidence | source_url |
+
+- idx: the integer from the entry header below.
+- title_slug: CamelCase, no spaces, no punctuation, ≤45 chars.
+- author_surname: surname only (e.g. Zinn, Akcam, Martinez — strip diacritics).
+- year: 4 digits, or 0000 if truly unknown.
+- All UNRESOLVED rows: put UNRESOLVED in every field except idx.
+
+Do NOT include any prose before or after the table.
+
+---
+
+ENTRIES:
+
+219. [general-history] NationalHistoryNewNationalism-May-0000-Unknown.pdf
+   known: t=NationalHistoryNewNationalism | a=May | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'National History and \nNew Nationalism in the \nTwenty-First Century \nNational history has once again become a battlefeld. In internal political \nconficts, which are fought on the terrain of popular culture, museums, \nschoolbooks, and memorial politics, it has taken on a newly important \nand contested role. Irrespective of national specifcs, the narratives of \nnew nationalism are quite similar everywhere. National history is said \nto stretch back many centuries, expressesing the historical continuity of \na homogeneous people and its timeless character. This people struggles \nfor independence, guided by towering leaders and inspired by the sacri\xad\nfce of martyrs. Unlike earlier forms of nationalism, the main enemies \nare no longer neighbouring states, but international and supranational \ninstitutions. To use national history as an integrative tool, new national\xad\nists claim that the media and school history curricula should not contest \nor question the nation and its great historical deeds, as doubts threaten \nto weaken and dishonour the nation. This book offers a broad interna\xad\ntional overview of the rhetoric, contents, and contexts of the rise of these \nrenewed national historical narratives, and of how professional histori\xad\nans have reacted to these phenomena. The contributions focus on a wide \nrange of representative nations from around all over the globe. \nNiels F. May is Research Coordinator at the German Historical Institute \nin Paris. \nThomas Maissen is the Director of the'
+
+220. [general-history] NationalsozialistischeVernichtungslager-Rückerl-1977-Unknown.pdf
+   known: t=NationalsozialistischeVernichtungslager | a=Rückerl | y=1977 | p=Unknown
+   missing: publisher
+   excerpt: 'NS-\nVernich-\ntungslager\nim Spiegel\ndeutscher Strafprozesse\nBelzec\nSobibor\nTreblinka \nHerausgegeben\nChelmno \nvon Adalbert Rückerl\ndtv\ndokumente\n---PAGE---\nDas Buch\nVon den Konzentrationslagern, der Judenverfolgung und der\nTötung von Geisteskranken haben die meisten Deutschen im\nDritten Reich gewußt - nur wenige dagegen wußten damals von\nden Vernichtungslagern in Polen, wo vom eigenen Staat an Mil-\nlionen von Menschen ein systematischer Völkermord verübt\nwurde. Wer aber heute noch an dieser historisch erwiesenen\nTatsache zweifelt oder das gar wider besseres Wissen bestreitet,\ndem kann man entgegenhalten, daß in den in der Bundesrepublik\nmit großem Aufwand durchgeführten Prozessen gegen die direkt\nan den Morden Beteiligten selbst kein einziger Angeklagter die\nVernichtung der Juden bestritten hat.\nPolizeibeamte, Staatsanwälte und Richter haben in diesen Pro-\nzessen Material zusammengetragen, wie es in dieser Fülle den\nHistorikern kaum möglich gewesen wäre. Der vorliegende Band\nbringt mit den kommentierten Auszügen aus rechtskräftigen\nSchwurgerichtsurteilen die wichtigsten und schlüssigsten der\neinschlägigen Dokumente, die den Prozeßbeteiligten vorlagen\noder die in der Form protokollierter Aussagen von Angeklagten\nund Zeugen in den Prozessen selbst entstanden.\nIn der ausführlichen Einleitung und in den Zwischentexten in-\nformiert der Herausgeber über den historischen Hintergrund\nund über die moralischen und juristischen Probleme.\nDer Autor\nDr. jur. Adalbert Rückerl, Leitender Ober'
+
+221. [general-history] NativeNations-DuVal-2003-Unknown.pdf
+   known: t=NativeNations | a=DuVal | y=2003 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+222. [general-history] NativePopulationAmericas-Denevan-1992-Unknown.pdf
+   known: t=NativePopulationAmericas | a=Denevan | y=1992 | p=Unknown
+   missing: publisher
+   excerpt: 'The Native Population of the Americas in 1492'
+
+223. [general-history] NativePopulationAmericas1492-Denevan-1992-Unknown.pdf
+   known: t=NativePopulationAmericas1492 | a=Denevan | y=1992 | p=Unknown
+   missing: publisher
+   excerpt: 'The Native Population of the Americas in 1492'
+
+224. [general-history] NaturalRightsLaw-Tierney-0000-Emory.pdf
+   known: t=NaturalRightsLaw | a=Tierney | y=0000 | p=Emory
+   missing: year
+   excerpt: ''
+
+225. [general-history] NaziOccultHistories-Kurlander-2019-Unknown.pdf
+   known: t=NaziOccultHistories | a=Kurlander | y=2019 | p=Unknown
+   missing: publisher
+   excerpt: 'Revisiting the \n“Nazi Occult”\nHistories,\nRealities,\nLegacies\nEdited by \nMonica Black and \nEric Kurlander\n---PAGE---\nRevisiting the “Nazi Occult”'
+
+226. [general-history] NaziOccultHistoriesLegacies-Black-2015-Unknown.pdf
+   known: t=NaziOccultHistoriesLegacies | a=Black | y=2015 | p=Unknown
+   missing: publisher
+   excerpt: 'Revisiting the \n“Nazi Occult”\nHistories,\nRealities,\nLegacies\nEdited by \nMonica Black and \nEric Kurlander\n---PAGE---\nRevisiting the “Nazi Occult”'
+
+227. [general-history] NeoNaziTerrorismFascism-Sunshine-2024-Unknown.pdf
+   known: t=NeoNaziTerrorismFascism | a=Sunshine | y=2024 | p=Unknown
+   missing: publisher
+   excerpt: '“Spellbinding in a revolting yet masterful way.”\nChip Berlet, co-author of Right-Wing Populism in America: \nToo Close for Comfort\n“Spencer Sunshine’s new book Neo-Nazi Terrorism and Countercultural \nFascism is a tour de force for understanding America’s contemporary white \nsupremacist and neo-Nazi movements. It teases out the largely unexplored \nhistory of this movement’s last 50 years, and provides the definitive account \nof how James Mason’s Siege became the leading tome for today’s far right \nextremists. The book is filled with details from the movement’s major and \nminor players, much of which has never been documented. This is a must \nread for those who want to understand our country’s history of white \nsupremacy and the nature of the movement today.”\nHeidi Beirich, co-founder, Global Project Against \nHate and Extremism\n“Sunshine has written the definitive book that exposes and links the old \nguard of American neo-Nazism to the modern day (and beyond) wave of \nwhite-power terrorism. A fascinating read!”\nChristian Picciolini, author of White American Youth: \nMy Descent Into America’s Most Violent Hate \nMovement—and How I Got Out\n“It is rare to find a study that combines grassroots anti-fascist research with \nthe tools of scholarly analysis. Spencer Sunshine’s detailed and discerning \nbook examines neo-Nazism as a social movement and takes seemingly \nobscure ideas seriously, bringing critical attention to the history of counter\xad\ncultural crossover with the radical right. A'
+
+228. [general-history] NewInternationalBusinessEnglish-Jones-2000-Unknown.pdf
+   known: t=NewInternationalBusinessEnglish | a=Jones | y=2000 | p=Unknown
+   missing: publisher
+   excerpt: 'UNDER THE COPE OF HEAVEN'
+
+229. [general-history] NuevaCronicaBuenGobierno-Poma-1615-Unknown.pdf
+   known: t=NuevaCronicaBuenGobierno | a=Poma | y=1615 | p=Unknown
+   missing: publisher
+   excerpt: '1 \n \n \n \nNueva crónica y buen gobierno de Felipe Guaman Poma de Ayala (1615)* \nRoberto Viereck Salinas \n \nCon casi 1.200 páginas y 400 dibujos, la Nueva crónica y buen gobierno (1615) \nde Felipe Guaman Poma de Ayala aparece en el horizonte actual como una de las \ncrónicas coloniales más importantes respecto a la información que entrega sobre el \nmundo indígena no sólo durante la segunda mitad del siglo XVI y principios del XVII, \nsino sobre todo previamente a la invasión española en 1531. Similar a lo que hacen en \nsus crónicas Titu Cusi Yupanqui (Instrucción del Inga don Diego de Castro Titu Cusi \nYupanqui, 1570) y Juan Santa Cruz Pachacuti (Relación de antigüedades del reino del \nPerú, 1613), Guaman Poma de Ayala lega a la posteridad un texto escrito en un español \ncolonial no sólo altamente interferido por la lengua indígena (principalmente quechua \ny aimara), sino también por la oralidad andina, milenaria y predominante, al momento \nde llevarse a cabo el trasvase interlingüístico e intersemiótico (Jakobson 1992) entre el \nmundo indígena y el europeo. \n \nDadas las características orales del texto cultural que la Nueva crónica vierte \nhacia el sistema de representación libresco occidental, no podemos hacer referencia a \nningún «original», en el sentido estricto del término, ya que éste debe su existencia \ncomo tal (así como el sentido último de su episteme) al surgimiento de la escritura \ncomo código dominante en la esfera de los sistemas de comunicación occidentales. A \npe'
+
+230. [general-history] NuevaCronicaBuenGobierno-Salinas-1615-Unknown.pdf
+   known: t=NuevaCronicaBuenGobierno | a=Salinas | y=1615 | p=Unknown
+   missing: publisher
+   excerpt: '1 \n \n \n \nNueva crónica y buen gobierno de Felipe Guaman Poma de Ayala (1615)* \nRoberto Viereck Salinas \n \nCon casi 1.200 páginas y 400 dibujos, la Nueva crónica y buen gobierno (1615) \nde Felipe Guaman Poma de Ayala aparece en el horizonte actual como una de las \ncrónicas coloniales más importantes respecto a la información que entrega sobre el \nmundo indígena no sólo durante la segunda mitad del siglo XVI y principios del XVII, \nsino sobre todo previamente a la invasión española en 1531. Similar a lo que hacen en \nsus crónicas Titu Cusi Yupanqui (Instrucción del Inga don Diego de Castro Titu Cusi \nYupanqui, 1570) y Juan Santa Cruz Pachacuti (Relación de antigüedades del reino del \nPerú, 1613), Guaman Poma de Ayala lega a la posteridad un texto escrito en un español \ncolonial no sólo altamente interferido por la lengua indígena (principalmente quechua \ny aimara), sino también por la oralidad andina, milenaria y predominante, al momento \nde llevarse a cabo el trasvase interlingüístico e intersemiótico (Jakobson 1992) entre el \nmundo indígena y el europeo. \n \nDadas las características orales del texto cultural que la Nueva crónica vierte \nhacia el sistema de representación libresco occidental, no podemos hacer referencia a \nningún «original», en el sentido estricto del término, ya que éste debe su existencia \ncomo tal (así como el sentido último de su episteme) al surgimiento de la escritura \ncomo código dominante en la esfera de los sistemas de comunicación occidentales. A \npe'
+
+231. [general-history] NumeneraPlayersGuide-Cook-2018-Unknown.pdf
+   known: t=NumeneraPlayersGuide | a=Cook | y=2018 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+232. [general-history] Nwig-Unknown-2025-Brill.pdf
+   known: t=Nwig | a=Unknown | y=2025 | p=Brill
+   missing: author
+   excerpt: 'book reviews\n433\nNew West Indian Guide\nPublished with license by Koninklijke Brill bv | doi:10.1163/22134360-09903031\n© Mark Moberg, 2025 | ISSN: 1382-2373 (print) 2213-4360 (online)\nThis is an open access article distributed under the terms of the cc by 4.0 license.\nLaurie Kroshus Medina, Governing Maya Communities and Lands in Belize:\nIndigenous Rights, Markets, and Sovereignties. New Brunswick NJ: Rutgers Uni-\nversity Press, 2024. xi + 198 pp. (Paper US$37.95)\nIn 1986, the Belizean government, at the urging of the Belize Audubon Soci-\nety (bas) and North American conservation ngos, created the Cockscomb\nBasin Wildlife Sanctuary. As the world’s first rainforest reserve for endangered\njaguars, the Sanctuary banned farming, hunting, and wild resource gathering\nby the Basin’s Mopan and Q’eqchi’ Maya residents. Authorities relocated mem-\nbers of an Indigenous village from the park with a vague assurance that eco-\ntourism would offset their loss of forest-based subsistence. A decade later, a\ngroup of Mopan women felled a tree across the Sanctuary’s sole access road,\nbarring tourists and provoking a chaotic response by government and ngos.\nThe women closed the park not to restore their traditional rights to the Basin\nbut to protest bas plans allowing visitors to bypass their lucrative craft shop\nand lodging facilities. By then, nearly everyone in an Indigenous village near\ntheentrance,includingthoseearlierdisplaced,hadgrowndependentonwages\nand artisanal sales from the reserve. In'
+
+233. [general-history] OccultRootsNazism-Goodrick-Clarke-1985-Unknown.pdf
+   known: t=OccultRootsNazism-Goodrick | a=Clarke | y=1985 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+234. [general-history] OnlineTicket-Europa-0000-Unknown.pdf
+   known: t=OnlineTicket | a=Europa | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Online-Ticket\nBitte auf A4 ausdrucken\nCIV 1080\nICE\nFahrkarte\nSTORNO VOR 1. GELTUNGSTAG\nSparpreis Europa\nKOSTENPFLICHTIG\n1 Erwachsener\nGILT NUR FÜR EINGETRAGENE ZÜGE UND TAGE/ZEITEN\nGültigkeit: ab 02.10.2021\n- 03.10.2021\nNV = NAHVERKEHRSZÜGE VOR/NACH\nFERNVERKEHRSZÜGEN\nVON\n->NACH\nXX\nXX\nICE\nBruxelles Zone\n->Leitstade\n2\nSPCX1011\nVIA: <1080>(02.10.2021)NV*Brux-No 12:34 ICE315/AC-Hbf*NV*DO-Hbf 16:24\nIC2045/H-Hbf 19:01 ICE1206/Lünebg*\nKEIN ZUGANG ZUR DB LOUNGE\nSparpreis Europa\n-------\nZahlungspositionen und Preis\nPositionen\nPreis\nMwSt (D) 19%\nMwSt (D) 7%\nICE Fahrkarte\n1\n44,90€\n36,64€\n2,40€\nReservierungen\n3\n4,00€\nSumme\n48,90€\n36,64€\n2,40€\nPayPal-Zahlung\nBetrag\n48,90€\nTransaktions-Nr 9WA02259MR091954U\nDatum\n29.09.2021\nDer oben genannte Betrag wurde von Ihrem PayPal-Konto eingezogen. Die Buchung\nIhres Online-Tickets erfolgte am 29.09.2021 17:18 Uhr. DB Fernverkehr AG, Europa-\nAllee 78 - 84, 60486 Frankfurt am Main / DB Regio AG, Europa-Allee 70 - 76, 60486\nFrankfurt am Main, Steuernummer: 29/001/60002.\nIhre Reiseverbindung und Reservierung Hinfahrt am 02.10.2021\nHalt\nDatum\nZeit\nGleis\nProdukte/Reservierung\nBruxelles-Central\n02.10.\nab 12:19 1\nBruxelles-Nord\n02.10.\nan 12:23 3\nIC 3609\nBruxelles-Nord\n02.10.\nab 12:34 3\nAachen Hbf\n02.10.\nan 13:36 9\nICE 315, 1 Sitzplatz, Wg. 23,\nPl. 74, 1 Gang, Großraum,\nNichtraucher,\nHandy, \nRes.Nr. 8024 8014 1193 05\nAachen Hbf\n02.10.\nab 13:51 2\nDortmund Hbf\n02.10.\nan 16:15 8\nRE 26825\nDortmund Hbf\n02.10.\nab 16:24 8\nHannover Hbf\n02.10.\nan 18:18 10\nIC 2045, 1 S'
+
+235. [general-history] OrdonnanceAllemande-Unknown-1940-Unknown.pdf
+   known: t=OrdonnanceAllemande | a=Unknown | y=1940 | p=Unknown
+   missing: author,publisher
+   excerpt: ''
+
+236. [general-history] OrganicFertilizersEnvironment-Ozturk-2022-Unknown.pdf
+   known: t=OrganicFertilizersEnvironment | a=Ozturk | y=2022 | p=Unknown
+   missing: publisher
+   excerpt: '1 \n \nApplication for European Solidarity Corps volunteer \nprogramme \nWith AFS Interkultur as coordinating organisation (Denmark) \nTO BE COMPLETED BY THE APPLICANT \nPlease fill out this form as detailed as possible. Email the complete form along with your CV to evs-\ndenmark@afs.org \nPlease make sure that you are sending the application within the right timeframe (If you send an \nemail to evs-denmark@afs.org you will get an automatic reply with information about our active \nprojects and deadlines for applying.) \nNot least, please note that this project requires that you live in a host family, which means \nthat you have to be ready to live this experience. \n \nName of the project in Denmark you are applying for: \n \nAFS Interkultur \nWhere/how did you find this project? \n \nafs.dk site \n \nVolunteer Data \n \nFirst name: \n \n \n \n \nPicture: \n \nBenoit \nSurname: \n \nDe Becker \nDate of birth (DD/MM/YYYY): \n \n05/09/1995 \nGender: \n \nM \nNationality: \n \nBelgian\n---PAGE---\n2 \n \nStreet address: \n \nKlaprozenlaan 34 \nPostal code, town: \n \n 8400 Ostend \nRegion, Country: \n \n West-Flanders, Belgium \nTelephone /mobile phone: \n \n +32486711852 \nEmail-address: \n \nbenoit.debecker1995@gmail.com \nDriving licence (yes/no): \nYes \n \nEmergency contact in your home country: \n \nSurname \nDe Paepe \nFirst name \nMarie-Ange \nStreet address \nKlaprozenlaan 34 \nPostal code, town, country \n8400, Ostend, Belgium \nTelephone, email \n+32486712189 \n \nWhat is your educational background? \n \nLatin and Greek in high school \nBachelo'
+
+237. [general-history] OriginsFinalSolutionNaziPolicy-Browning-1992-Unknown.pdf
+   known: t=OriginsFinalSolutionNaziPolicy | a=Browning | y=1992 | p=Unknown
+   missing: publisher
+   excerpt: 'THE\nO|iGINS\nOF THE\nFINAL\nSOLUTION'
+
+238. [general-history] Overheidsdienst-Brugge-0000-Unknown.pdf
+   known: t=Overheidsdienst | a=Brugge | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: ''
+
+239. [general-history] OxfordMedievalTexts-Danorum-0000-Oxford-University-Press.pdf
+   known: t=OxfordMedievalTexts | a=Danorum | y=0000 | p=Oxford-University-Press
+   missing: year
+   excerpt: 'Saxo was probably a canon of Lund Cathedral, \nat that period a Danish cathedral, and lived at \nthe end of the twelfth century. He was in the \nservice of Archbishop Absalon, who encouraged \nhim to write a history of his own country from \nthe beginnings up to his own time, with a strong \nChristian bias. Starting with the myths and \nheroic tales of primitive Scandinavia, he devoted \nthe lirst nine of his sixteen books to legendary \nmaterial before dealing with the first kings of the \nViking age and finished in 1285, after relating \nthe earlier exploits of King Cnut Valdemarson. \nThe activities of the Danish kings were \nintimately bound up with the monarchies of \nNorway and Sweden; Cnut the Great, one of \nSaxo’s heroes, whose empire stretched as far as \nBritain and Iceland, was ruler of both these \ncountries. In the last books Saxo took particular \nconcern to describe the campaigns of Valdemar I \nthe Great and his warrior archbishop, Absalon, \nagainst the Wends of North Germany.\nThe work is a prosimetrum, that is, in six of \nthe first nine books he inserts poems, which are \nintended to parallel specimens of old Danish \nheroic poetry in Latin metres. Saxo’s Latin prose \nstyle is often complex, based as it is on models \nlike Valerius Maximus and Martianus Capella, \nbut he is a lively and compelling story-teller, \noften displaying a rather sly sense of humour, \nand an interest in the supernatural. He is the first \nauthor to give a full account of Hamlet, whose \nadventures he relates'
+
+240. [general-history] OXMOFinal-UnicafPC-0000-Unknown.pdf
+   known: t=OXMOFinal | a=UnicafPC | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: "See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/358904257\n'What we Knew was Lost': Oral History and Narratives of Loss Amongst a\nFamily of Greek Cypriot Displaced Persons\nArticle · August 2019\nCITATIONS\n0\nREADS\n20\n1 author:\nChristakis Peristianis\nUniversity of Cyprus\n5 PUBLICATIONS\xa0\xa0\xa04 CITATIONS\xa0\xa0\xa0\nSEE PROFILE\nAll content following this page was uploaded by Christakis Peristianis on 28 February 2022.\nThe user has requested enhancement of the downloaded file."
+
+241. [general-history] PalaeogeographicalReconstruction-Unknown-2014-Unknown.pdf
+   known: t=PalaeogeographicalReconstruction | a=Unknown | y=2014 | p=Unknown
+   missing: author,publisher
+   excerpt: ''
+
+242. [general-history] Palestinians-Curtis-1975-Unknown.pdf
+   known: t=Palestinians | a=Curtis | y=1975 | p=Unknown
+   missing: publisher
+   excerpt: 'About the Author\nRosemary Sayigh is a social anthropologist, researcher and author. \nShe has been based in Beirut for several decades, and has spent a \nlifetime researching the impact of the Israel–Palestine conflict on \nPalestinian refugees. She is also the author of Too Many Enemies: \nThe Palestinian Experience in Lebanon (Zed Books, 1994).'
+
+243. [general-history] PalestiniansMakingPeople-Kimmerling-1993-Unknown.pdf
+   known: t=PalestiniansMakingPeople | a=Kimmerling | y=1993 | p=Unknown
+   missing: publisher
+   excerpt: '"The best descriptive treatment of the Palestinians to appear in decades"\nLIBRARY JOURNAL\nPALESTINIANS\nThe Making ofa People\nBaruch Kimmerling and Joel S. Migdal\nWITH\nA NEW PREFACE\n1\n:\n---PAGE---\nS&J* FRANCESCO. CA 94*0$'
+
+244. [general-history] ParanoidApocalypse-Katz-2011-Unknown.pdf
+   known: t=ParanoidApocalypse | a=Katz | y=2011 | p=Unknown
+   missing: publisher
+   excerpt: 'The Paranoid Apocalypse'
+
+245. [general-history] PavinDOI-Chachavalpongpun-0000-Unknown.pdf
+   known: t=PavinDOI | a=Chachavalpongpun | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Thai-Cambodian Conflict: The Failure of \nASEAN’s Dispute Settlement Mechanisms\nPavin Chachavalpongpun\nIn 2008, the Thai-Cambodian conflict over the Preah Vihear Temple was reignited \nafter the issue became politicized by political groups in Thailand. The opposition \naccused the Samak Sundaravej government of aspiring to achieve its private interests \nin exchange for Thailand’s support for Cambodia’s bid to have the Preah Vihear listed \nas a UNESCO World Heritage Site. In Thailand, there was a belief that if Cambodia’s \nbid was successful, the country would lose the disputed 4.6-square-kilometer area \nsurrounding the temple. This pushed elements in Thailand to unofficially declare \na state of war with Cambodia. This crisis also had a serious impact on ASEAN. \nThailand rejected ASEAN’s mediating role, thus revealing its distrust in regional \ndispute settlement mechanisms. For ASEAN, it unveiled its weakness in exercising \nauthority over its members, and its incompetency in the management of regional \ndisputes. This article argues that ASEAN was caught between the need to be a key \nplayer in regional politics, especially in tackling territorial disputes in the region, \nand the need to maintain the region’s status quo by appearing subservient to the \nmembers’ self-interest in protecting their national sovereignty at the expense of \nprogress on regionalization.\nKeywords\u2003 Thailand, Cambodia, Preah Vihear Temple, ASEAN, dispute settlement \n \u2009mechanisms, territorial dispute\nThe confl'
+
+246. [general-history] PeoplesHistoryOfTheUnitedStates-ZINN-1980-Unknown.pdf
+   known: t=PeoplesHistoryOfTheUnitedStates | a=ZINN | y=1980 | p=Unknown
+   missing: publisher
+   excerpt: 'A PEOPLE’S HISTORY\nOF THE\nUNITED STATES\n1492—PRESENT\nHOWARD ZINN\nTo Noah, Georgia, Serena, Naushon, Will—and their generation\nContents\nCover\nTitle Page\nChapter 1 – Columbus, the Indians, and Human Progress\nChapter 2 – Drawing the Color Line\nChapter 3 – Persons of Mean and Vile Condition\nChapter 4 – Tyranny Is Tyranny\nChapter 5 – A Kind of Revolution\nChapter 6 – The Intimately Oppressed'
+
+247. [general-history] PersianRevolution-Browne-1905-Unknown.pdf
+   known: t=PersianRevolution | a=Browne | y=1905 | p=Unknown
+   missing: publisher
+   excerpt: 'Pe woe \nb.. REP RIN Tc Be \nRel ES \n‘THE PERSIAN \nREVOLUTION \nOF 1905-1909'
+
+248. [general-history] Petracos-DeMiguel-2020-Unknown.pdf
+   known: t=Petracos | a=DeMiguel | y=2020 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+249. [general-history] PHHVries-Vries-2012-Unknown.pdf
+   known: t=PHHVries | a=Vries | y=2012 | p=Unknown
+   missing: publisher
+   excerpt: "Unzeitgemässe Betrachtung. Een pleidooi voor een historische sociale wetenschap \nDiscussie over Chris Lorenz, De constructie van het verleden. Een inleiding in de theorie \nvan de geschiedenis (Meppel-Amsterdam: Boom, 1987, 350 blz., ƒ44,75, ISBN 90 6009 753 \nx) \nP. H. H. VRIES \nMet dit boek voegt de auteur weer een titel toe aan de reeks inleidingen die de laatste jaren \nin Nederland zijn verschenen. Het is dan ook goed voorstelbaar dat zelfs diegenen die wel \nenige belangstelling voor theorie van de geschiedenis hebben het niet zullen lezen, laat staan \nkopen, omdat zij zich thans als voldoende 'ingeleid' beschouwen. Een dergelijke houding is \nbegrijpelijk, maar in dit geval niet terecht. Lorenz heeft een uitstekend boek geschreven dat \neen breed publiek verdient en ook iets nieuws biedt. Hij geeft een overzicht van de stand van \nzaken binnen de geschiedtheorie en probeert daarnaast èn daar doorheen zijn eigen positie \nbinnen de geschiedfilosofische debatten af te bakenen. Hij heeft zo een inleiding geschreven \nin de theorie van de geschiedenis in het algemeen en in zijn eigen theorie van de geschie-\ndenis in het bijzonder. \nZijn overzicht van de stand van zaken is zeer helder geschreven en systematisch. Wat het, \nevenals zijn standpuntbepaling, vooral aantrekkelijk maakt, is het feit dat hij steeds aan de \nhand van 'case-studies' uit de geschiedbeoefening laat zien dat 'theoretische' vraagstukken \nwel degelijk een rol spelen in de praktijk van de geschiedbeoefening. Hij too"
+
+250. [general-history] PlayRealityVideogames-Snyder-2012-Unknown.pdf
+   known: t=PlayRealityVideogames | a=Snyder | y=2012 | p=Unknown
+   missing: publisher
+   excerpt: 'C o n t e n t s\nP r e f a c e \n \n4\nI n t r o d u c t i o n \n5\nW orlds o f Adventure................................................................... 5\nUsing This B o o k ......................................................................... 6\nHow to Play...................................................................................6\nAdventures.................................................................................... 7\nP a r t 1 \n9\nC h a p t e r 1: St e p - b y - S t e p C h a r a c t e r s ..... 11\nBeyond 1st Level............................................................... 15\nC h a p t e r 2: R a c e s ........................................................ 17\nChoosing a Race................................................................ 17\nD w arf.................................................................................... 18\nE lf...........................................................................................21\nHalfling.................................................................................26\nHuman..................................................................................29\nD ragonborn........................................................................ 32\nG nom e..................................................................................35\nHalf-Elf.................................................................................38\nH alf-O rc....................................................................'
+
+251. [general-history] PotosiMitaIndianLabor-Cole-1987-Unknown.pdf
+   known: t=PotosiMitaIndianLabor | a=Cole | y=1987 | p=Unknown
+   missing: publisher
+   excerpt: "I l l\nThe PotosíMita\n1573-1700\nCOMPULSORY INDIAN LABOR IN THE ANDES\nJeffrey A. Cole\nI\nI\n---PAGE---\nISBN\n-ñG47-lESb-S\nThe Potosí Mita, 1573-1700\nCOMPULSORY INDIAN LABOR\nIN THE ANDES\nJeffrey A. Cole\nPotosí, a mining center in what is now\nBolivia, was the most productive source\nof silver in the Spanish American Empire\nbetween the mid-1500's and the late seven-\nteenth century. Much of thissuccess was\nattributable, at least initially, to the mita,\na system of draft Indian labor instituted by\nViceroy Francisco de Toledo in 1573 for the\nworking of the silver mines and refineries.\nBitter debate swirled around the mita\nduring most of its 250-year history. It was\nassailed by its enemies as a form of servitude\nworse than slavery and accused of depopulat-\ning the provinces subject to it, yet it was sup-\nported by many, however reluctantly, who\nbelieved that the Spanish Empire depended\non Potosí silver for its survival.\nThe author traces the evolution of the\nmita from its inception to the end of the\nHapsburg epoch in 1700. The primary focus\nis on the metamorphosis of the mita under\nthe pressures of changing production reali-\nties at Potosí and demographic develop-\nments in the provinces from which the\nIndians were drafted. The author describes\nthe role of native headmen (kurakas) in the\nsystem, the means used by Indians to evade\nservice, and the efforts of the miningguild to\ntailor the mita to its needs. The secondary\nfocus is on the Hapsburg government's\nadministration of the mita, espec"
+
+252. [general-history] PotosiSilverCity-Lane-2010-Unknown.pdf
+   known: t=PotosiSilverCity | a=Lane | y=2010 | p=Unknown
+   missing: publisher
+   excerpt: 'Potosí\nthe silver city that changed the world\nKris Lane\nu n i v e r s i t y o f c a l i f o r n i a p r e s s'
+
+253. [general-history] PowerImpactInvesting-Rodin-2014-Unknown.pdf
+   known: t=PowerImpactInvesting | a=Rodin | y=2014 | p=Unknown
+   missing: publisher
+   excerpt: 'THE POWER OF\nIMPACT INVESTING\nPutting Markets to Work for Profit and Global\nGood\nJudith Rodin\nMargot Brandenburg\nPhiladelphia'
+
+254. [general-history] PraktischeInfoVTONVAAvondNVU-Decloedt-0000-Unknown.pdf
+   known: t=PraktischeInfoVTONVAAvondNVU | a=Decloedt | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: "PRAKTISCHE INFORMATIE\nTAALCURSUS @UCT\nvoor de start van de cursus\nNa uw inschrijving ontvangt u van de UGent\neen e-mail. Klik op de link in de e-mail om uw\nUGent-account te activeren. \nZo heeft u meteen toegang tot uw persoonlijk\nUGent-e-mailadres. U ontvangt info over uw\ncursus enkel via dit UGent-e-mailadres!\nProblemen? Of geen e-mail gekregen? \nContacteer de helpdesk.\nSTAP 1:\nUGENT-ACCOUNT\nUfora is het digitale leerplatform waarop u\nalle info zal vinden die u nodig zal hebben\ntijdens uw cursus (denk aan een lesplanning,\nextra documenten...). \nGa naar Ufora en meld u aan met uw\npersoonlijk UGent-account. Klik dan op 'mijn\ncursussen' om uw taalcursus weer te geven. \nKent u Ufora nog niet? Klik dan hier voor\nmeer informatie over het platform!\nSTAP 3:\nLEERPLATFORM UFORA\nVolgt u een cursus Nederlands niveau 1,\ndan ontvangt u het cursusmateriaal van\nuw docent tijdens de eerste les van de\ncursus op de campus.\nVolgt u een ander niveau of een andere\ncursus, dan ontvangt u van ons het\ncursusmateriaal via e-mail als een pdf-\nbestand via BelNet FileSender. In deze\ne-mail vindt u ook meer info over het\nafhalen van uw papieren versie. \nSTAP 2: \n CURSUSMATERIAAL \neen computer (desktop of laptop)\ninternet (via kabel of draadloos)\nmicrofoon en webcam\nWat heeft u nodig voor een online les?\nSTAP 4:\nDIGITALE TOOLS\n---PAGE---\nSTAP 2: \n CURSUSMATERIAAL \nna de cursus\nDe meeste lessen zijn dit semester online. \nHet UCT organiseert deze online lessen via\nhet digitale lesplatform Zoom: eenvoudig,\ng"
+
+255. [general-history] PraktischEngels-Engels-0000-Unknown.pdf
+   known: t=PraktischEngels | a=Engels | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Praktisch EngelsNiveau 5Universitair Centrum voor Talenond\n---PAGE---\n- printed by -'
+
+256. [general-history] PreahVihear-Kasetsiri-2013-Unknown.pdf
+   known: t=PreahVihear | a=Kasetsiri | y=2013 | p=Unknown
+   missing: publisher
+   excerpt: 'A Guide to the Thai-Cambodian \n— \n_ \nConflict and Its Solutions \nwie \nCharnvit Kasetsiri \nSY. \nPou Sothirak © \ndjs \nPavin Chachavalpongpun \n~ \n} \nWhite Lotus\n---PAGE---\nCharnvit \nKaset \nis a prominent historian and \nThai Micies scholar. He served as lecturer of \nhistory at Thammasat University from 1973 to 2001 \nPVG We \nCOLevaXe \n(ore MPO MPACLOLO MM ND TemOLOlbnd \nCerto ANCTE-TOMNTAUTG \nI \nons \nProgram there. He was rector of Thammasat \nUniversity in 1995 and has written approximately \ntwo hundred articles and a large number of \npublications on Thai and Southeast Asian history, \nparticularly on Thai-Cambodian relations. \n< has been a visiting senior research \n(iow at the Institute of Southeast Asian Studies \nin Singapore since January 2009. From 1986 to \n1992, he was actively involved in efforts to free \nCambodia from foreign occupation and internal \nconflict, serving as humanitarian coordinator at \none of the refugee camps on the border between \nThailand and Cambodia. He was elected member \nof Parliament of Cambodia twice in 1993 and \n2003 and served as minister of industry, mines, \nand energy from 1993 to 1998. He was appointed \nCambodian ambassador to Japan from April \n2005 to November 2008. He has edited a book, \nCambodia: Progress and Challenges since 1991, \nand has published various articles on issues \nconcerning Cambodia. \nPav \nlav: \nis associate professor \nat ane Genter for Southenst Asian Studies, Kyoto \nUniversity, Japan. Previously, Pavin had worked as \na fellow a'
+
+257. [general-history] PreahVihearConflictGuide-Kasetsiri-0000-Unknown.pdf
+   known: t=PreahVihearConflictGuide | a=Kasetsiri | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'A Guide to the Thai-Cambodian \n— \n_ \nConflict and Its Solutions \nwie \nCharnvit Kasetsiri \nSY. \nPou Sothirak © \ndjs \nPavin Chachavalpongpun \n~ \n} \nWhite Lotus\n---PAGE---\nCharnvit \nKaset \nis a prominent historian and \nThai Micies scholar. He served as lecturer of \nhistory at Thammasat University from 1973 to 2001 \nPVG We \nCOLevaXe \n(ore MPO MPACLOLO MM ND TemOLOlbnd \nCerto ANCTE-TOMNTAUTG \nI \nons \nProgram there. He was rector of Thammasat \nUniversity in 1995 and has written approximately \ntwo hundred articles and a large number of \npublications on Thai and Southeast Asian history, \nparticularly on Thai-Cambodian relations. \n< has been a visiting senior research \n(iow at the Institute of Southeast Asian Studies \nin Singapore since January 2009. From 1986 to \n1992, he was actively involved in efforts to free \nCambodia from foreign occupation and internal \nconflict, serving as humanitarian coordinator at \none of the refugee camps on the border between \nThailand and Cambodia. He was elected member \nof Parliament of Cambodia twice in 1993 and \n2003 and served as minister of industry, mines, \nand energy from 1993 to 1998. He was appointed \nCambodian ambassador to Japan from April \n2005 to November 2008. He has edited a book, \nCambodia: Progress and Challenges since 1991, \nand has published various articles on issues \nconcerning Cambodia. \nPav \nlav: \nis associate professor \nat ane Genter for Southenst Asian Studies, Kyoto \nUniversity, Japan. Previously, Pavin had worked as \na fellow a'
+
+258. [general-history] ProgramOutlineMay28-Unknown-2021-Unknown.pdf
+   known: t=ProgramOutlineMay28 | a=Unknown | y=2021 | p=Unknown
+   missing: author,publisher
+   excerpt: 'The supply chain of gratitude\nOutline programme\nMay 28th 2021\nWhen\nWhat\nWho\nResources\nShort break: people leave the session and choose a breakout session to join in\n4:45 pm - 5.30 pm\nBreakout session Public Leadership\n1) Facilitators\n2) Lighting talks\n3) During the session, monitor chat and\nadd any interesting input or comments\nto the feedback document\n4) End of the session, invite people to fill\nin the evaluation form\nLuke Addison & Thom van\nAmersfoort\nLuce van Kempen & Maresa\nOosterman\nChamutal Afek-Eitam\nChamutal Afek-Eitam\nBroadcast, see breakout\nsession manual\n4:45 pm - 5.30 pm\nBreakout session Business Leadership\n1) Facilitators\n2) Lighting talks\nEllie Todd & Lieke Alofs\nHans Reus & Volkert Engelsman\nBroadcast, see breakout\nsession manual\n---PAGE---\n3) During the session, monitor chat and\nadd any interesting input or comments\nto the feedback document\n4) End of the session, invite people to fill\nin the evaluation form\nLinda van Aken\nLinda van Aken\n4:45 pm - 5.30 pm\nBreakout session Civic Leadership\n1) Facilitators\n2) Lighting talks\n3) During the session, monitor chat and\nadd any interesting input or comments\nto the feedback document\n4) End of the session, invite people to fill\nin the evaluation form\nFatima Alihodžić & Benoit de\nBecker\nTine de Moor & Werner Schouten\nAmaranta Luna\nAmaranta Luna\nBroadcast, see breakout\nsession manual\nTHE END\nEmergency contact:\nAmaranta Luna Arteaga - May 28th event coordinator\n+31 6 81 77 53 76\namaranta.luna@garrisoninstitute-int.org'
+
+259. [general-history] ProtocolliDeiSaviDiSion-Michelis-2004-Unknown.pdf
+   known: t=ProtocolliDeiSaviDiSion | a=Michelis | y=2004 | p=Unknown
+   missing: publisher
+   excerpt: '6 \nНН \nterete \nда т \nя \n#5 \n2 4 \naes \nis'
+
+260. [general-history] ProtocolsOfTheLearnedEldersOfZion-Unknown-1903-Unknown.pdf
+   known: t=ProtocolsOfTheLearnedEldersOfZion | a=Unknown | y=1903 | p=Unknown
+   missing: author,publisher
+   excerpt: 'The Protocols of the Elders of Zion: \nBetween History and Fiction\nMichael Hagemeister\nIn the autumn of 1999 a sensation swept through the international press: “Author \nof ‘Zion Protocols’ identiﬁ ed.” Finally—so tell us the French weeklies Le Figaro \nMagazine and L’express—Mikhail Lepekhin had discovered who was behind \nthe Protocols of the Elders of Zion. After ﬁ ve years of research in formerly inac-\ncessible and secret Russian archives, he named Matvei Golovinskii, a reaction-\nary journalist and writer, author of the notorious “document” that pretends to \ndescribe the secret plan of a Jewish conspiracy to achieve world domination.1\nGolovinskii had, according to Lepekhin, composed the Protocols at the \nturn of the twentieth century on the orders of Piotr Rachkovskii, head of the \nforeign branch of the Russian secret police, the infamous Okhrana, in Paris. \nThe revelation spread like wildﬁ re. Articles appeared in all major newspapers \nand on the Internet. The Saint Petersburg historian’s “discovery” could justiﬁ -\nably be considered a “sensation,” heralded the Neue Zürcher Zeitung, since it \nsolved, in the Washington Times’ words, “the last remaining mystery sur-\nrounding the ‘Protocols.’”2 \nNew German Critique 103, Vol. 35, No. 1, Spring 2008\nDOI 10.1215/0094033X-2007-020 © 2008 by New German Critique, Inc.\n83\n1. Victor Loupan, “L’affaire des ‘Protocoles des sages de Sion’: Le faussaire du siècle démasqué,” \nLe Figaro Magazine, August 7, 1999, 20–24; Eric Conan, “Les secre'
+
+261. [general-history] QuandLUnFormeLeToutExpRienceIndividuelleEtDev-Misran-2015-Unknown.pdf
+   known: t=QuandLUnFormeLeToutExpRienceIndividuelleEtDev | a=Misran | y=2015 | p=Unknown
+   missing: publisher
+   excerpt: 'UCLA\nParoles gelées\nTitle\nMemory and Forgiveness: Addressing the Legacy of the Dark Years in \nContemporary French Politics\nPermalink\nhttps://escholarship.org/uc/item/2vd6n4jc\nJournal\nParoles gelées, 29(0)\nISSN\n1094-7264\nAuthor\nVillaseñor, Leticia\nPublication Date\n2015\nDOI\n10.5070/PG7290023817\nCopyright Information\nCopyright 2015 by the author(s). All rights reserved unless otherwise \nindicated. Contact the author(s) for any necessary permissions. Learn \nmore at https://escholarship.org/terms\n \nPeer reviewed\neScholarship.org\nPowered by the California Digital Library\nUniversity of California\n---PAGE---\nPAROLES GELÉES, VOL. 29 (2015) \u2003 \u2003 \u2003 \u2003 25\nMemory and Forgiveness: Addressing \nthe Legacy of the Dark Years in \nContemporary French Politics\nLeticia Villaseñor\nUniversity of Southern California\nJuly 2012 marked the seventieth anniversary of the Vél d’Hiv roundup—\narguably one of the most painful chapters in France’s modern history. On \nJuly 16 and 17, 1942, 13,152 Jews were rounded up by French police under \nGerman orders in the early morning hours and forcefully taken from their \nhomes to both the Vélodrome d’Hiver, a winter cycling stadium in Paris, \nand to the Drancy internment camp. For five days, these men, women, \nand children—including the elderly, sick, expectant, and even newborns—\nwere held in the most deplorable conditions, deprived of food, water and \nadequate toilets. They were ultimately deported to various Nazi concen\xad\ntration camps, from which most were never to re'
+
+262. [general-history] RaceAmericanPoliticalScience-Blatt-0000-Unknown.pdf
+   known: t=RaceAmericanPoliticalScience | a=Blatt | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'Race and the Making of\nAmerican Political Science'
+
+263. [general-history] RaceReunionCivilWarMemory-Blight-2001-Unknown.pdf
+   known: t=RaceReunionCivilWarMemory | a=Blight | y=2001 | p=Unknown
+   missing: publisher
+   excerpt: 'RAC E AND R E UNION'
+
+264. [general-history] RadicalismAmericanRevolution-Wood-1992-Unknown.pdf
+   known: t=RadicalismAmericanRevolution | a=Wood | y=1992 | p=Unknown
+   missing: publisher
+   excerpt: 'Praise for\nGORDON S. WOOD’S\nThe Radicalism of\nTHE AMERICAN REVOLUTION\n“Wood proclaims the culturally and politically transforming\ncharacter of the American Revolution in this deeply intelligent and\nbeautifully written masterwork.”\n—Patricia U. Bonomi, New York University\n“In his splendid new book Gordon Wood rescues the American\nRevolution from those who would see it as a conservative or\nbackward-looking event\xa0 …\xa0 In a rapidly changing world, Wood\nprovides a timely reminder of the radical energy that drives popular\ndemocracy.”\n—T. H. Breen, Northwestern University\n“A landmark study, a superb achievement\xa0…\xa0The clarity of Wood’s\nprose, the richness of his insights, and his choice of quotations and\nanecdotes make this powerful book a delight to read.”\n—Richard D. Brown, University of Connecticut\n“Startlingly original\xa0…\xa0An authoritative account of one of the most\nsignificant and hitherto elusive transformations in our nation’s\npast.”\n—Richard Buel, Jr., Wesleyan University\n“Indisputably the work of a remarkably creative and gifted\nhistorian.”\n—Ronald Hoffman, University of Maryland\n“A work that vividly re-creates the new American society with\nalmost Tocquevillean power and a brilliant historian’s flair for the\ncomplexities of his subject.”'
+
+265. [general-history] RappanAthuk-Unknown-2012-Unknown.pdf
+   known: t=RappanAthuk | a=Unknown | y=2012 | p=Unknown
+   missing: author,publisher
+   excerpt: 'paizo.com #3245927, John Barnhouse <pexx.pathfinder@gmail.com>, Aug 15, 2015\npaizo.com #3245927, John Barnhouse <pexx.pathfinder@gmail.com>, Aug 15, 2015\n4292480\n4292480\n4292480\n568 03\n568703\n568703\nFrog God \nGames\nNecromancer \nGames\npaizo.com #3245927, John Barnhouse <pexx.pathfinder@gmail.com>, Aug 15, 2015\npaizo.com #3245927, John Barnhouse <pexx.pathfinder@gmail.com>, Aug 15, 2015\n4292480\n4292480\n4292480\n568 03\n568703\n568703\n---PAGE---\npaizo.com #3245927, John Barnhouse <pexx.pathfinder@gmail.com>, Aug 15, 2015\npaizo.com #3245927, John Barnhouse <pexx.pathfinder@gmail.com>, Aug 15, 2015\n4292481\n4292481\n4292481\n568 0\n568704\n568704\nConcept and Design: Bill Webb \nAuthors: Bill Webb, Clark Peterson, WDB Kenower, Gabor Lux, \nGreg Ragland, Matt Finch, Greg Vaughan, John B. Webb, and Skeeter Green \nDeveloper: Bill Webb and Skeeter Green \nProducers: Bill Webb and Charles A. Wright \nEditors: Patrick Lawinger, Bill Webb, Dawn Fischer, \nSkeeter Green, and Aaron Zirkelbach \nRuleset Conversion: Skeeter Green, John Stater, Matt Finch, John Ling, \nStefen Styrsky, Erica Balsley, Greg Ragland, Liz Courts \nElectronic File conversions: Karen McDonald (God-Empress of the \nUniverse), Vance Ludemann (Bigkilla), and Robb Lukasik \nLayout and Graphic Design: Charles A. Wright \nInterior Art: Rowena Aitken, Brian LeBlanc, Jason Sholtis\nCartography: Ed Bourelle and Rick Sardinha \nPlaytesters: Richard (Bixby) Oliver, Eric (Elision) Lillywhite, \nFraser (Alickthron) McKay, Dale (Flail the Great) Haines'
+
+266. [general-history] RappanAthukHouseRules-Unknown-2014-Unknown.pdf
+   known: t=RappanAthukHouseRules | a=Unknown | y=2014 | p=Unknown
+   missing: author,publisher
+   excerpt: 'The rules of the Campaign \n \nCharacter creation\u200b\n2 \nAllowed content\u200b\n2 \nCharacter alignment\u200b\n2 \nStarting equipment\u200b\n2 \nOptional and variant rules\u200b\n2 \nMulticlassing\u200b\n2 \nFeatures\u200b\n2 \nEncumbrance\u200b\n2 \nTasha’s cauldron of everything\u200b\n2 \nFlanking\u200b\n2 \nLeveling up and experience\u200b\n3 \nHitpoint increases\u200b\n3 \nLeveling up\u200b\n3 \nEqual levelling\u200b\n3 \nHulmes’ Expended Experience\u200b\n4 \nOther house rules\u200b\n5 \nPlayer character conflict\u200b\n5 \nPotions\u200b\n5 \nAmmo tracking\u200b\n5 \nBad luck boulder\u200b\n5 \nInspiration\u200b\n5 \nCritical hits and injuries\u200b\n6 \nA life to remember\u200b\n6 \nDoing a Boromir\u200b\n6 \nSecret death saving throws\u200b\n6 \nGaming etiquette\u200b\n7 \nDon’t be late\u200b\n7 \nCancelling\u200b\n7 \nKnow your abilities\u200b\n7 \nKeep a reliable character sheet\u200b\n7 \nRun combat fast\u200b\n7 \nForgetting something on your turn\u200b\n7 \nYou are responsible for your spells\u200b\n7 \nIf a player cannot make it to a session\u200b\n7 \nAnnounce intent before every roll\u200b\n8 \nThe use of AI art is forbidden\u200b\n8 \nSafety tools\u200b\n9 \nLines\u200b\n9 \nVeils\u200b\n9 \nOpen door policy\u200b\n9 \nTalk to the DM\u200b\n9\n---PAGE---\nCharacter creation \nAll rules are subject to change \n \nAllowed content \nWe are playing D&D5e 2014. All content from WotC and MCDM is allowed. Homebrew \nand unearthed arcana could be allowed on request, but preferably not. All optional \nand variant rules for character creation from these sources are allowed. \n \nCharacter alignment \nAll alignments are allowed, but, if you are not playing a good aligned character, you \nmust disclose this at session 0 and get permission from all other players'
+
+267. [general-history] RationalRadicalismTheory-Thompson-2011-Unknown.pdf
+   known: t=RationalRadicalismTheory | a=Thompson | y=2011 | p=Unknown
+   missing: publisher
+   excerpt: 'Stephen Eric Bronner\nA RUMOR \nABOUT \nTHE JEWS\nConspiracy, Anti-Semitism, \nand the Protocols of Zion\nS E C O N D E D I T I O N\n---PAGE---\nA Rumor about the Jews'
+
+268. [general-history] RealValkyrie-Brown-2025-Unknown.pdf
+   known: t=RealValkyrie | a=Brown | y=2025 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+269. [general-history] RealValkyrieVikingWomen-Brown-2016-Unknown.pdf
+   known: t=RealValkyrieVikingWomen | a=Brown | y=2016 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+270. [general-history] RecopilaciNDeLeyesDeLosReinosDeLasIndias-Unknown-1681-ImprentaLibreriaCarretas.pdf
+   known: t=RecopilaciNDeLeyesDeLosReinosDeLasIndias | a=Unknown | y=1681 | p=ImprentaLibreriaCarretas
+   missing: author
+   excerpt: 'RECOPILACION\nDE LOS REINOS DE LAS INDIAS.\nMANDADAS IMPRIMIR Y PUBLICAR\nf k íï\nSI/íl ktX\n1%\nWtrESTK,0 SEÍTOE,.\nVA DIVIDIDA EN CUATE* TOMOS, CON EL INDICE GENERAL, V AL PRINCIPIO \nDE CADA TOMO EL ESPECIAL DE LOS TÍTULOS QUE CONTIENE.\nTOMO SEGUNDO\nQ U I N T A JE&rCMOJV.\nCON APROBACION DE LA REGENCIA PROVISIONAL DEL REINO.\nCOR B E C ID A \nY \nA P R O B A D A \nP O R \nL A \n« A I A \nn\nSB0 8 & » BUHOS:\nIMPRESOR t LIBRERO, CALLE DE CARRETAS, R\'CMERO 8.\n1 8 4 1 .\n---PAGE---\ni"-:'
+
+271. [general-history] RediscoveryAmericaNativePeoples-Blackhawk-2014-Unknown.pdf
+   known: t=RediscoveryAmericaNativePeoples | a=Blackhawk | y=2014 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+272. [general-history] RedPinkStamps-Viola-0000-Unknown.pdf
+   known: t=RedPinkStamps | a=Viola | y=0000 | p=Unknown
+   missing: year,publisher
+   excerpt: 'PeaceJam Lovers\nMeet us and find your love\nSUNDAY 14 OF FEBRUARY\n6 PM GMT / 7 PM CET'
+
+273. [general-history] RefutationArmenianResolution-Kemal-2014-Unknown.pdf
+   known: t=RefutationArmenianResolution | a=Kemal | y=2014 | p=Unknown
+   missing: publisher
+   excerpt: 'REFUTATION OF THE ARMENIAN RESOLUTION ARTICLE BY ARTICLE-1 (PROF. \nDR. KEMAL ÇİÇEK) \n27 March 2007, Kaynak : Todays Zaman \nTurkey is concerned that the Armenian genocide resolution which has been submitted to \nthe US House of Representatives several times in the past will pass due to Nancy Pelosi, \nthe new Democratic speaker of the House. However, I don’t think there is any major \nsignificance if the law is passed or not. Firstly, similar resolutions have already been \npassed in state senates. According to ANCA, 47 states have passed such resolutions. \nSecondly, the bill cannot impose sanctions. The US president is under pressure to say on \nApril 24 that 1.5 million Armenians were murdered. U.S Republican and Democratic \npresidents have always used terms similar to the word “genocide” when speaking on \nApril 24. I am not saying that Turkey should stop lobbying against the resolution. Of \ncourse, Turkey should fight against this unjust and biased legislation and try to prevent \nthe genocide label from being attached to the nation. Otherwise, those Turkish children \nwho read in textbooks that their ancestors were murderers will suffer an inferiority \ncomplex and will become asocial in the countries in which they live. \nAt the other end of the spectrum, the mentioned resolution that was submitted to the US \nHouse of Representatives is laden with incorrect historical information and material \nmistakes. It seems that those who drafted the resolution were not very concerned about'
+
+274. [general-history] ReligiousPluralismIslamicLaw-Emon-2008-Unknown.pdf
+   known: t=ReligiousPluralismIslamicLaw | a=Emon | y=2008 | p=Unknown
+   missing: publisher
+   excerpt: ''
+
+275. [general-history] ReportOfTheAmericanColonizationSociety-Unknown-1823-Unknown.pdf
+   known: t=ReportOfTheAmericanColonizationSociety | a=Unknown | y=1823 | p=Unknown
+   missing: author,publisher
+   excerpt: '<artifact identifier="notebooklm-research-findings" type="text/markdown" \ntitle="NotebookLM Research - Spanish Colonization Script Additions"> # \nNOTEBOOKLM RESEARCH FINDINGS ## Additional Evidence for Spanish \nColonization Script \nResearch Date: October 2025 \nPurpose: Strengthen weak sections and add missing context to documentary script \n \n1. CANNIBALISM MYTH - COLONIAL PROPAGANDA EXPOSED \nEvidence that Cannibalism Accusations Were Colonial Propaganda \nManufacturing the Myth: \n\uf0b7 \nThe concept of "Carib cannibalism" was created by Columbus\'s "marvelously \nfertile imagination" even BEFORE Europeans encountered these people \n\uf0b7 \nThe word "cannibal" itself derived from Columbus conflating the term Caniba \n(fierce peoples of eastern Caribbean) with eating human flesh \n\uf0b7 \nPietro Martire d\'Anghiera\'s influential Decades propagated this view, expressing \n"vitriolic dislike" for Caribs as "ravenous wolves" who were "brutal men, cruel and \nterrible, living off human meat" \nJustification Function: \n\uf0b7 \nExtirpating cannibalism was seen as a "palpable benefit of Spanish rule" \n\uf0b7 \nAccusation served as the "classic marker of barbarianism" justifying \nintervention \n\uf0b7 \nBoth sides used monstrous images for imperial goals - creating reciprocal \npropaganda system \nEconomic/Legal Incentives for Accusations \nThe 1503 Exception - THE SMOKING GUN: \n\uf0b7 \nKing Ferdinand and Queen Isabella prohibited enslaving Indians in 1500 \n\uf0b7 \nBUT carved out crucial exception in 1503: authorized enslaving Indians who'
+
+276. [general-history] ReportOfTheSuperintendentOfPublicInstruction-Unknown-2025-Brill.pdf
+   known: t=ReportOfTheSuperintendentOfPublicInstruction | a=Unknown | y=2025 | p=Brill
+   missing: author
+   excerpt: 'book reviews\n433\nNew West Indian Guide\nPublished with license by Koninklijke Brill bv | doi:10.1163/22134360-09903031\n© Mark Moberg, 2025 | ISSN: 1382-2373 (print) 2213-4360 (online)\nThis is an open access article distributed under the terms of the cc by 4.0 license.\nLaurie Kroshus Medina, Governing Maya Communities and Lands in Belize:\nIndigenous Rights, Markets, and Sovereignties. New Brunswick NJ: Rutgers Uni-\nversity Press, 2024. xi + 198 pp. (Paper US$37.95)\nIn 1986, the Belizean government, at the urging of the Belize Audubon Soci-\nety (bas) and North American conservation ngos, created the Cockscomb\nBasin Wildlife Sanctuary. As the world’s first rainforest reserve for endangered\njaguars, the Sanctuary banned farming, hunting, and wild resource gathering\nby the Basin’s Mopan and Q’eqchi’ Maya residents. Authorities relocated mem-\nbers of an Indigenous village from the park with a vague assurance that eco-\ntourism would offset their loss of forest-based subsistence. A decade later, a\ngroup of Mopan women felled a tree across the Sanctuary’s sole access road,\nbarring tourists and provoking a chaotic response by government and ngos.\nThe women closed the park not to restore their traditional rights to the Basin\nbut to protest bas plans allowing visitors to bypass their lucrative craft shop\nand lodging facilities. By then, nearly everyone in an Indigenous village near\ntheentrance,includingthoseearlierdisplaced,hadgrowndependentonwages\nand artisanal sales from the reserve. In'
+
+277. [general-history] ReportPresidentU.S.Chairman-Committee-1960-Unknown.pdf
+   known: t=ReportPresidentU.S.Chairman | a=Committee | y=1960 | p=Unknown
+   missing: publisher
+   excerpt: "UNITED NATIONS \nGENERAL \nASSEMBLY \nDistr. \nGENERAL \nA/6700/Add.14 (Part II)* \n1 December 1967 \nORIGmAL: \nENGLISH \n'lwenty-second session \nAgenda item 23 \nI. \nII. \n* \nREPORT OF THE SPECIAL COMMITTEE ON THE SI'IUATION Wiffl REGARD \nTO THE IMPLEMENTATION OF THE DECLARATION ON THE GRANTING OF \nINDEPENDENCE TO COLONIAL COONTRIES AND PEOPLES \n(covering its work during 1967) \nRapporteur: Mr. Mohsen s. ESFANDIARY (Iran) \nCHAPTER XXIII \nUNITED STATES VIRGIN ISLANDS, BRITISH VIRGIN ISLANDS, ANTIGUA, DOMINICA, \nGRENADA, MONTSERRAT, ST. ICTTTS-NEVIS-ANGUILLA, ST. Ll'CIA, ST. VINCENT, \nBERMUDA, BAHAMAS, WRKS AND CAICOS ISLANDS, CAYMAN ISLANDS, FALKLAND \nISLANDS (MALVINAS) AND BRITISH HONDURAS \nCONTEN1IS \nParagraphs \nACTION PREVIOUSLY TAKEN BY 'IHE SPECIAL COMMITTEE \nAND THE GENERAL ASSEMBLY • • • • • • • • • • • • . . ) \nA. \nB. \nUnited States Virgin Islands, British Virgin \n) \nIslands, Antigua, Dominica, Grenada, Mont,serrat, ) \nSt.-, Kitts-Nevis-Anguilla, St. Lucia, St. Vincent, ) \nBermuda, Bahamas, 'fu.rks and Caicos Islands, \nCayman Islands \n• • • • • • • • • • • • • • • • \n) \nFalkland Islands (Malvinas) • \n. . . . . . . ) \n) \nINFORMATION ON THE TERRITORIES ••••••••••• ) \nA. \nUni tea States Virgin Islands. • • • • • • • • • \n) \n) \nB. \nBritish Virgin Islands •••• . . . . . \n. . \n/se~ A/6700/Add.14 \n-(Part Ill \nThis document contains part II of chapter XXIII of the Special Committee's \nreport to the General Assembiy. \nThe general introductory chapter will be \nissued subsequently under th"
+
+278. [general-history] RepublicSpin-Greenberg-2016-Unknown.pdf
+   known: t=RepublicSpin | a=Greenberg | y=2016 | p=Unknown
+   missing: publisher
+   excerpt: ''
+

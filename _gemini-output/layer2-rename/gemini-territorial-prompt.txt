@@ -1,0 +1,42 @@
+You will receive a numbered list of PDF filenames from a territorial-disputes academic library. Parse each filename and extract metadata.
+
+OUTPUT FORMAT: a single JSON array. One object per file. NO markdown fences, NO commentary, JSON only.
+
+Each object:
+{"i": N, "f": "<original filename>", "a": "AuthorSurname", "y": "YYYY", "t": "ShortTitleSlug", "p": "Publisher"}
+
+RULES:
+
+a (author):
+- Last name only, capitalized (e.g., "Mallinson", "Judah", "Tregonning").
+- For multi-author works, use first author's last name.
+- For ICJ documents (filenames like "094-20021010-JUD-01-00-EN.pdf", "185-20221116-APP-01-00-EN.pdf"): a = "ICJ"
+- For UN documents / press releases: a = "UN"
+- For Philippine government docs / acts: a = "PhilippinesGov"
+- For treaties / agreements / accords with no author: a = use issuing body abbreviation (e.g., "AngloGerman", "Manila", "Pereyaslav")
+- Unknown: "Unknown"
+
+y (year):
+- 4-digit year string.
+- ICJ docs: extract from filename date (094-20021010 -> "2002", 185-20221116 -> "2022", 185-20231211 -> "2023", 185-20260319 -> "2026")
+- If year present in filename, use it.
+- Unknown: "0000"
+
+t (ShortTitleSlug):
+- Key meaningful words from title, CamelCase, no spaces, no special chars, max 40 chars.
+- Strip "The", "A", "An" at start.
+- Examples: "CyprusModernHistory", "KosovoWarRevenge", "BakassiDispute", "SabahQuestionInternationalLaw"
+- For ICJ docs, use case-document descriptor: "CameroonNigeriaJudgment" (094 = Cameroon v Nigeria), "GuyanaVenezuelaApplication" (185 = Guyana v Venezuela)
+- Strip piracy junk: "z-library", "libgen", "Anna's Archive", "Z-Library", "converted", hash strings.
+
+p (publisher):
+- Real academic publisher only. Abbreviate consistently:
+  CambridgeUP, OxfordUP, YaleUP, PrincetonUP, ColumbiaUP, IndianaUP, EdinburghUP, NYUPress, UCPress, JohnsHopkinsUP, HooverPress, PlutoPress, Routledge, Palgrave, Bloomsbury, ITauris
+- For ICJ docs: "ICJ"
+- For UN docs: "UN"
+- For Philippine government: "PhilippinesGov"
+- If filename shows piracy source (z-library, libgen, Anna's Archive) and no real publisher detectable from filename, set p = "Unknown"
+- Never use: ZLib, Libgen, AnnaArchive, z-library
+
+Now process this list:
+

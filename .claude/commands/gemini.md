@@ -24,7 +24,7 @@ Task types:
 1. Parse `$ARGUMENTS`. If unclear, ask one clarifying question (max).
 2. Build the Gemini prompt from a per-task-type template (see below). Include exact output schema so the result is parseable.
 3. Resolve `--out`. Default: `_gemini-output/<task-type>-<timestamp>.md` inside the current project (or `~/llm-brain/_queue/` for `ingest`).
-4. Invoke headless: `gemini -p "<prompt>" --yolo -o text > <out-path>` via Bash. For inputs > 50KB, pipe via stdin: `cat <input> | gemini -p "<prompt>" --yolo > <out-path>`.
+4. Invoke headless: `gemini -m gemini-2.5-flash -p "<prompt>" --yolo -o text > <out-path>` via Bash. For inputs > 50KB, pipe via stdin: `cat <input> | gemini -m gemini-2.5-flash -p "<prompt>" --yolo > <out-path>`. **Default model: `gemini-2.5-flash`** — best non-pro option for bulk-read with web grounding. Override with `-m gemini-2.5-pro` only if the task explicitly needs deep reasoning over very long context (>500K tokens) and the user has approved the cost. Never silently use Pro.
 5. Read first ~100 lines of output to verify it's well-formed (not an error/auth failure).
 6. Report: output path, line count, one-line summary. Do NOT dump full output into Claude's context — the whole point is to keep it on disk for the user / next step to consume.
 

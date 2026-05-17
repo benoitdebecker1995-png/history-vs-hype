@@ -1,0 +1,29 @@
+Warning: True color (24-bit) support not detected. Using a terminal with true color enabled will result in a better visual experience.
+YOLO mode is enabled. All tool calls will be automatically approved.
+YOLO mode is enabled. All tool calls will be automatically approved.
+Ripgrep is not available. Falling back to GrepTool.
+Warning: Could not read directory D:\History vs Hype\.pytest_cache: EPERM: operation not permitted, scandir 'D:\History vs Hype\.pytest_cache'
+```json
+[
+  {
+    "o": "ZMFR - Wcrld Histnry.tif (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "WorldHistory",
+    "p": "Unknown",
+    "c": "Unknown-0000-WorldHistory-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Zunes - Western Sahara (2010).pdf",
+    "a": "Zunes",
+    "y": "2010",
+    "t": "WesternSahara",
+    "p": "Unknown",
+    "c": "Zunes-2010-WesternSahara-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  }
+]
+```

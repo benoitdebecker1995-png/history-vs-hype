@@ -1,0 +1,66 @@
+{
+  "InstruccionesDelSantoOficioDeLaInquisiciN-Zafra-1667-Antonio-de-Zafra.pdf": {
+    "new": "InstruccionesSantoOficioInquisicion-Zafra-1667-AntonioDeZafra.pdf",
+    "reason": "drop trailing 'N' cut from 'Inquisición'"
+  },
+  "CannibalEncountersEuropeansAndIslandCaribs149-Boucher-1992-JohnsHopkinsUP.pdf": {
+    "new": "CannibalEncountersEuropeansIslandCaribs14921763-Boucher-1992-JohnsHopkinsUP.pdf",
+    "reason": "restore full date range 1492-1763 in title"
+  },
+  "AllShahsMenAmericanCoupRootsMiddleEastTe-Kinzer-2013-John-Wiley-&-Sons.pdf": {
+    "new": "AllShahsMenAmericanCoupRootsMiddleEastTerror-Kinzer-2013-Wiley.pdf",
+    "reason": "restore 'Terror' cut mid-word + normalize publisher slug"
+  },
+  "BarbaryWarsAmericanIndependenceAtlanticW-Lambert-2007-ZLib.epub": {
+    "new": "BarbaryWarsAmericanIndependenceAtlanticWorld-Lambert-2007-ZLib.epub",
+    "reason": "restore 'World' cut mid-word"
+  },
+  "BarbaryWarsAmericanIndependenceAtlanticW-Lambert-2007-ZLib.pdf": {
+    "new": "BarbaryWarsAmericanIndependenceAtlanticWorld-Lambert-2007-ZLib.pdf",
+    "reason": "restore 'World' cut mid-word"
+  },
+  "CrescentObscuredUnitedStatesMuslimWorld1-Allison-1776-Chicago.pdf": {
+    "new": "CrescentObscuredUSMuslimWorld17761815-Allison-1995-ChicagoUP.pdf",
+    "reason": "restore date range 1776-1815, correct year (Allison 1995)"
+  },
+  "DenialViolenceOttomanPastTurkishPresentC-Göçek-1789-Oxford.pdf": {
+    "new": "DenialViolenceOttomanPastTurkishPresentCollectiveViolence-Gocek-2015-OxfordUP.pdf",
+    "reason": "restore 'Collective Violence', correct year (Gocek 2015), normalize publisher"
+  },
+  "IranContraReagansScandalUncheckedAbusePr-Byrne-2014-TheNewPress.pdf": {
+    "new": "IranContraReaganScandalUncheckedAbusePresidentialPower-Byrne-2014-NewPress.pdf",
+    "reason": "restore 'Presidential Power' cut mid-word + normalize publisher"
+  },
+  "ModernIran10129879780300194739LibgenLi-Kagan-2018-Yale-University-Press.pdf": {
+    "new": "ModernIran-Kagan-2018-YaleUP.pdf",
+    "reason": "strip libgen ID hash from title + normalize publisher"
+  },
+  "RediscoveringPalestineMerchantsPeasantsJ-Doumani-1700-Berkeley.pdf": {
+    "new": "RediscoveringPalestineMerchantsPeasantsJabalNablus17001900-Doumani-1995-UCalifUP.pdf",
+    "reason": "restore 'Jabal Nablus 1700-1900', correct year (Doumani 1995), normalize publisher"
+  },
+  "RevolutionWithoutRevolutionariesMakingSe-Bayat-2017-Stanford.pdf": {
+    "new": "RevolutionWithoutRevolutionariesMakingSenseArabSpring-Bayat-2017-StanfordUP.pdf",
+    "reason": "restore 'Sense of the Arab Spring' + normalize publisher"
+  },
+  "SocialRevolutionPoliticsAndTheWelfareStateInI-Harris-2017-UCPress.pdf": {
+    "new": "SocialRevolutionPoliticsWelfareStateIran-Harris-2017-UCalifUP.pdf",
+    "reason": "restore 'Iran' cut mid-word + normalize publisher"
+  },
+  "YoungTurksCrimeAgainstHumanityArmenianGe-Akçam-1815-Princeton.pdf": {
+    "new": "YoungTurksCrimeAgainstHumanityArmenianGenocide-Akcam-2012-PrincetonUP.pdf",
+    "reason": "restore 'Genocide', correct year (Akcam 2012), normalize publisher"
+  },
+  "CulturoLinguisticFactorAsFacilitatorOfPeaceIn-EDUNG-2015-ResearchAcademyOfSocialScience.pdf": {
+    "new": "CulturoLinguisticFactorPeaceInternationalConflict-Edung-2015-ResearchAcadSocialScience.pdf",
+    "reason": "restore probable 'International' continuation; normalize author casing"
+  },
+  "InternationalCourtOfJusticeAndBorderConflictR-ANYU-2007-MediterraneanAffairsInc.pdf": {
+    "new": "ICJBorderConflictResolution-Anyu-2007-MediterraneanAffairs.pdf",
+    "reason": "restore 'Resolution', shorten 'International Court of Justice' to 'ICJ' (canonical), normalize author casing"
+  },
+  "PowerfulPersuasionsLanguagePropertyPoliticsSa-Doolittle-2005-Unknown.pdf": {
+    "new": "PowerfulPersuasionsLanguagePropertyPoliticsSabahMalaysia-Doolittle-2005-Unknown.pdf",
+    "reason": "restore 'Sabah, Malaysia' cut mid-word"
+  }
+}

@@ -95,7 +95,7 @@ gemini --yolo -p "Analyze these [N] YouTube video transcripts about '[topic]'. F
 Transcripts follow below, separated by --- delimiters.
 [PASTE ALL TRANSCRIPTS HERE]
 
-Output ONLY structured markdown, no preamble." -o text > "$STAGING" 2>&1
+Output ONLY structured markdown, no preamble." -o text > "$STAGING" 2>/dev/null
 ```
 
 **After Gemini completes:**

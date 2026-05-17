@@ -1,0 +1,1789 @@
+Warning: True color (24-bit) support not detected. Using a terminal with true color enabled will result in a better visual experience.
+YOLO mode is enabled. All tool calls will be automatically approved.
+YOLO mode is enabled. All tool calls will be automatically approved.
+Ripgrep is not available. Falling back to GrepTool.
+Warning: Could not read directory D:\History vs Hype\.pytest_cache: EPERM: operation not permitted, scandir 'D:\History vs Hype\.pytest_cache'
+```json
+[
+  {
+    "o": "The Selfish Gene, 40th Anniversary Edition (Richard Dawkins) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+    "a": "Dawkins",
+    "y": "2016",
+    "t": "SelfishGeneAnniversary",
+    "p": "Oxford",
+    "c": "Dawkins-2016-SelfishGeneAnniversary-Oxford.epub",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The Sense of Style The Thinking Person’s Guide to Writing in the 21st Century (Steven Pinker) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+    "a": "Pinker",
+    "y": "2014",
+    "t": "SenseStyleWritingGuide",
+    "p": "Penguin",
+    "c": "Pinker-2014-SenseStyleWritingGuide-Penguin.epub",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The Survival of the Jews in France, 1940 - 44 (Jacques Semelin) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Semelin",
+    "y": "2007",
+    "t": "JewsFranceSurvival",
+    "p": "Oxford",
+    "c": "Semelin-2007-JewsFranceSurvival-Oxford.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The Talmuds Red Fence Menstrual Impurity And Difference In Babylonian Judaism And Its Sasanian Context (Shai Secunda) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Secunda",
+    "y": "2014",
+    "t": "TalmudRedFenceJudaism",
+    "p": "Oxford",
+    "c": "Secunda-2014-TalmudRedFenceJudaism-Oxford.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The veil and the male elite [electronic resource] _ a -- Mernissi, Fatima, Lakeland, Mary Jo, American Council of -- ACLS Humanities E-Book, -- isbn13 9780201523218 -- 543f75dce743a77c5d81b541326026cb -- Anna’s Archive.pdf",
+    "a": "Mernissi",
+    "y": "1991",
+    "t": "VeilMaleEliteFeminism",
+    "p": "ACLS Humanities",
+    "c": "Mernissi-1991-VeilMaleEliteFeminism-ACLS Humanities.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The veil and the male elite [electronic resource] a feminist interpretation of womens rights in Islam (Mernissi, Fatima, Lakeland, Mary Jo etc.) (z-library.sk, 1lib.sk, z-lib.sk)-1.pdf",
+    "a": "Mernissi",
+    "y": "1991",
+    "t": "VeilMaleEliteFeminism",
+    "p": "Unknown",
+    "c": "Mernissi-1991-VeilMaleEliteFeminism-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The veil and the male elite [electronic resource] a feminist interpretation of womens rights in Islam (Mernissi, Fatima, Lakeland, Mary Jo etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Mernissi",
+    "y": "1991",
+    "t": "VeilMaleEliteFeminism",
+    "p": "Unknown",
+    "c": "Mernissi-1991-VeilMaleEliteFeminism-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The veil and the male elite a feminist interpretation of womens rights in Islam (Mernissi, Fatima) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Mernissi",
+    "y": "1991",
+    "t": "VeilMaleEliteFeminism",
+    "p": "Unknown",
+    "c": "Mernissi-1991-VeilMaleEliteFeminism-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The Wannsee Conference and the final solution - a -- Roseman, Mark -- A Metropolitan book, New York, United States, 2003 -- New York- -- 9780312422349 -- a520dc3855cdae6f0126564265df9b4d -- Anna’s Archive.pdf",
+    "a": "Roseman",
+    "y": "2003",
+    "t": "WannseeConferenceSolution",
+    "p": "Metropolitan",
+    "c": "Roseman-2003-WannseeConferenceSolution-Metropolitan.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The Witch-Hunt in Early Modern Europe (Brian P. Levack).pdf",
+    "a": "Levack",
+    "y": "2013",
+    "t": "WitchHuntEarlyEurope",
+    "p": "Routledge",
+    "c": "Levack-2013-WitchHuntEarlyEurope-Routledge.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The Wretched of the Earth -- Frantz Fanon.pdf",
+    "a": "Fanon",
+    "y": "1961",
+    "t": "WretchedEarthColonialism",
+    "p": "Grove",
+    "c": "Fanon-1961-WretchedEarthColonialism-Grove.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The-Archaeology-of-Ancient-Religion-in-the-Eastern.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "AncientReligionArchaeology",
+    "p": "Unknown",
+    "c": "Unknown-0000-AncientReligionArchaeology-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "The-Battle-of-Thermopylae-_Rupert-Matthews_-_z-library.sk_-1lib.sk_-z-lib.sk_.pdf",
+    "a": "Matthews",
+    "y": "0000",
+    "t": "BattleThermopylae",
+    "p": "Unknown",
+    "c": "Matthews-0000-BattleThermopylae-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The-Cambridge-World-History-of-Violence.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "WorldHistoryViolence",
+    "p": "Cambridge",
+    "c": "Unknown-0000-WorldHistoryViolence-Cambridge.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The-Complete-Works-of-Diodorus-Siculus-_Diodorus-Siculus_-_z-library.sk_-1lib.sk_-z-lib.sk_.pdf",
+    "a": "Siculus",
+    "y": "0000",
+    "t": "CompleteWorks",
+    "p": "Unknown",
+    "c": "Siculus-0000-CompleteWorks-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The-Fragments-of-Simonides-_Simonides-of-Ceos_-_z-library.sk_-1lib.sk_-z-lib.sk_.pdf",
+    "a": "Simonides",
+    "y": "0000",
+    "t": "FragmentsOfCeos",
+    "p": "Unknown",
+    "c": "Simonides-0000-FragmentsOfCeos-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The-Idea-of-Natural-Rights-Studies-on-Natural-Rights--Natural-Law--and-Church-Law-1150-1625--Emory-U.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "NaturalRightsLaw",
+    "p": "Emory",
+    "c": "Unknown-0000-NaturalRightsLaw-Emory.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The-Landmark-Herodotus-Histories-_Herodotus_-Robert-B.-Strassler_ed__-_z-library.sk_-1lib.sk_-z-lib.pdf",
+    "a": "Herodotus",
+    "y": "0000",
+    "t": "LandmarkHistories",
+    "p": "Unknown",
+    "c": "Herodotus-0000-LandmarkHistories-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The-Real-Valkyrie-The-Hidden-History-of-Viking-Warrior-Women--Nancy-Marie-Brown---Z-Library-.pdf",
+    "a": "Brown",
+    "y": "0000",
+    "t": "RealValkyrieVikingWomen",
+    "p": "Unknown",
+    "c": "Brown-0000-RealValkyrieVikingWomen-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The-Vichy-Syndrome-History-and-Memory-in-France-Since-1944-_Rousso-Henry_-_z-library.sk_-1lib.pdf",
+    "a": "Rousso",
+    "y": "0000",
+    "t": "VichySyndromeFrance",
+    "p": "Unknown",
+    "c": "Rousso-0000-VichySyndromeFrance-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Thermopylae the battle that changed the world (Cartledge, Paul, author) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Cartledge",
+    "y": "2006",
+    "t": "ThermopylaeBattleWorld",
+    "p": "Overlook",
+    "c": "Cartledge-2006-ThermopylaeBattleWorld-Overlook.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Thomas - Skull Wars (2001).pdf",
+    "a": "Thomas",
+    "y": "2001",
+    "t": "SkullWars",
+    "p": "Unknown",
+    "c": "Thomas-2001-SkullWars-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Thompson - Rational Radicalism and Political Theory (2011).pdf",
+    "a": "Thompson",
+    "y": "2011",
+    "t": "RationalRadicalismTheory",
+    "p": "Unknown",
+    "c": "Thompson-2011-RationalRadicalismTheory-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Thomson - We Alone Will Rule (2002).pdf",
+    "a": "Thomson",
+    "y": "2002",
+    "t": "WeAloneWillRule",
+    "p": "Wisconsin",
+    "c": "Thomson-2002-WeAloneWillRule-Wisconsin.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Tierney - The Idea of Natural Rights (2001).pdf",
+    "a": "Tierney",
+    "y": "2001",
+    "t": "IdeaNaturalRights",
+    "p": "Emory",
+    "c": "Tierney-2001-IdeaNaturalRights-Emory.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Tierra Firma - PASTE-OVER ILLUSTRATIONS IN THE (n.d.).pdf",
+    "a": "Tierra",
+    "y": "0000",
+    "t": "FirmaIllustrations",
+    "p": "Unknown",
+    "c": "Tierra-0000-FirmaIllustrations-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Tim Judah - Kosovo- War and Revenge (2002, Yale University Press).pdf",
+    "a": "Judah",
+    "y": "2002",
+    "t": "KosovoWarRevenge",
+    "p": "Yale",
+    "c": "Judah-2002-KosovoWarRevenge-Yale.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Tinniswood - Pirates of Barbary (2010).pdf",
+    "a": "Tinniswood",
+    "y": "2010",
+    "t": "PiratesBarbary",
+    "p": "Unknown",
+    "c": "Tinniswood-2010-PiratesBarbary-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Tinniswood--Adrian-Pirates-of-Barbary--Corsairs--Conquests-and-Captivity-in-the-17th-Century-Mediter.pdf",
+    "a": "Tinniswood",
+    "y": "0000",
+    "t": "PiratesBarbaryCorsairs",
+    "p": "Unknown",
+    "c": "Tinniswood-0000-PiratesBarbaryCorsairs-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "To be completed the Ministry of Education - DEPARTMENT OF EDUCATIONAL POLICY (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "EducationalPolicy",
+    "p": "Unknown",
+    "c": "Unknown-0000-EducationalPolicy-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Toch - The Economic History of European Jews (2012).pdf",
+    "a": "Toch",
+    "y": "2012",
+    "t": "EconomicHistoryJews",
+    "p": "Brill",
+    "c": "Toch-2012-EconomicHistoryJews-Brill.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Todorov - The Conquest of America (1999).pdf",
+    "a": "Todorov",
+    "y": "1999",
+    "t": "ConquestAmerica",
+    "p": "Oklahoma",
+    "c": "Todorov-1999-ConquestAmerica-Oklahoma.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Totten - A Companion to Multiethnic Literature of the United States (2023).pdf",
+    "a": "Totten",
+    "y": "2023",
+    "t": "MultiethnicLiterature",
+    "p": "Unknown",
+    "c": "Totten-2023-MultiethnicLiterature-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Toward The Origins Of Christmas [liturgia Condenda 5] -- Susan K_ Roll -- Liturgia condenda,, 5, Kampen, The Netherlands, Netherlands, -- Peeters -- 9789039005316 -- 23cd2d86d530a885d34c8ac96e8e9af0 -- Anna’s Archive.pdf",
+    "a": "Roll",
+    "y": "0000",
+    "t": "OriginsOfChristmas",
+    "p": "Peeters",
+    "c": "Roll-0000-OriginsOfChristmas-Peeters.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "transaccion.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "TransactionDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-TransactionDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Transcription-(Complex)-Guidelines.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "TranscriptionGuidelines",
+    "p": "Unknown",
+    "c": "Unknown-0000-TranscriptionGuidelines-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Treuer - Everything You Wanted to Know about Indians But Were Afraid to Ask (2012).pdf",
+    "a": "Treuer",
+    "y": "2012",
+    "t": "IndiansFAQ",
+    "p": "Unknown",
+    "c": "Treuer-2012-IndiansFAQ-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Triumphalism vs. Reality in Christian History.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "ChristianHistoryReality",
+    "p": "Unknown",
+    "c": "Unknown-0000-ChristianHistoryReality-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "True Religion - (Opposite) 1 Nikolaj (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "TrueReligionNikolaj",
+    "p": "Unknown",
+    "c": "Unknown-0000-TrueReligionNikolaj-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Tsoumbakos - Vikings (2017).pdf",
+    "a": "Tsoumbakos",
+    "y": "2017",
+    "t": "Vikings",
+    "p": "Unknown",
+    "c": "Tsoumbakos-2017-Vikings-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Tyerman - God's War (2006).pdf",
+    "a": "Tyerman",
+    "y": "2006",
+    "t": "GodsWar",
+    "p": "Harvard",
+    "c": "Tyerman-2006-GodsWar-Harvard.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Ufo - DEPARTMENT OF EDUCATIONAL POLICY (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "EducationalPolicyUFO",
+    "p": "Unknown",
+    "c": "Unknown-0000-EducationalPolicyUFO-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Under Crescent and Cross (Mark R. Cohen).pdf",
+    "a": "Cohen",
+    "y": "2008",
+    "t": "CrescentAndCross",
+    "p": "Princeton",
+    "c": "Cohen-2008-CrescentAndCross-Princeton.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "UnicafPC - OXMO 8-1_FINAL.pdf (n.d.).pdf",
+    "a": "UnicafPC",
+    "y": "0000",
+    "t": "OXMOFinal",
+    "p": "Unknown",
+    "c": "UnicafPC-0000-OXMOFinal-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Union - Proceedings - Assembly of Western European Union (1997).pdf",
+    "a": "Union",
+    "y": "1997",
+    "t": "WesternEuropeanUnion",
+    "p": "Unknown",
+    "c": "Union-1997-WesternEuropeanUnion-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - ‘The Moroccan king wants Western Sahara without its people’ (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "MoroccanKingSahara",
+    "p": "Unknown",
+    "c": "Unknown-0000-MoroccanKingSahara-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - 0198752725.pdf (n.d.) (1).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UnknownDocument",
+    "p": "Oxford",
+    "c": "Unknown-0000-UnknownDocument-Oxford.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - 0198752725.pdf (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UnknownDocument",
+    "p": "Oxford",
+    "c": "Unknown-0000-UnknownDocument-Oxford.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - 04_Pavin Chachavalpongpun_DOI.indd (n.d.).pdf",
+    "a": "Chachavalpongpun",
+    "y": "0000",
+    "t": "PavinDOI",
+    "p": "Unknown",
+    "c": "Chachavalpongpun-0000-PavinDOI-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - 04-9_1-Mamigonian4 61..82 (n.d.).pdf",
+    "a": "Mamigonian",
+    "y": "0000",
+    "t": "UnknownPaper",
+    "p": "Unknown",
+    "c": "Mamigonian-0000-UnknownPaper-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - 2020-09-15-21.51.27-A044-BE10738517027604 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HashDocument",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - 2020-09-29-19.51.37-A044-BE18734042540165 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HashDocument",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - 2020-09-29-19.51.50-A044-BE18734042540165 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HashDocument",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - 2020-09-29-19.51.59-A044-BE18734042540165 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HashDocument",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - 2020-09-29-19.52.07-A044-BE18734042540165 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HashDocument",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - 2020-09-29-19.52.28-A044-BE18734042540165 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HashDocument",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - 2020-09-29-19.52.45-A044-BE18734042540165 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HashDocument",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - 2020-09-29-19.52.56-A044-BE18734042540165 (n.d.) (1).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HashDocument",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - 2020-09-29-19.52.56-A044-BE18734042540165 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HashDocument",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - 2020-09-29-19.53.03-A044-BE18734042540165 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HashDocument",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - 2020-09-29-19.53.12-A044-BE18734042540165 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HashDocument",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - 2020-09-29-19.53.22-A044-BE18734042540165 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HashDocument",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - 2020-09-29-19.53.38-A044-BE18734042540165 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HashDocument",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - 4) Bee ee a erensut Sune’ DWE IVONNA (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UnreadableDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-UnreadableDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - 9780198752752.pdf (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UnknownDocument",
+    "p": "Oxford",
+    "c": "Unknown-0000-UnknownDocument-Oxford.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - blandijn2019ok (n.d.) (1).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "BlandijnDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-BlandijnDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - blandijn2019ok (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "BlandijnDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-BlandijnDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - bol.com - je factuur (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "BolComFactuur",
+    "p": "Unknown",
+    "c": "Unknown-0000-BolComFactuur-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Cambridge Latin American studies (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "LatinAmericanStudies",
+    "p": "Cambridge",
+    "c": "Unknown-0000-LatinAmericanStudies-Cambridge.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Código de autorización de la transacción 043809 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "TransaccionAutorizacion",
+    "p": "Unknown",
+    "c": "Unknown-0000-TransaccionAutorizacion-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Cohesion and Disintegration in the Wehrmacht in World War II (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "WehrmachtWWII",
+    "p": "Unknown",
+    "c": "Unknown-0000-WehrmachtWWII-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - CV-Europass-20200131-DeBecker-EN.pdf (n.d.) (1) (2) (3).pdf",
+    "a": "DeBecker",
+    "y": "0000",
+    "t": "EuropassCV",
+    "p": "Unknown",
+    "c": "DeBecker-0000-EuropassCV-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - CV-Europass-20200131-DeBecker-EN.pdf (n.d.) (1) (2).pdf",
+    "a": "DeBecker",
+    "y": "0000",
+    "t": "EuropassCV",
+    "p": "Unknown",
+    "c": "DeBecker-0000-EuropassCV-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - CV-Europass-20200131-DeBecker-EN.pdf (n.d.) (1).pdf",
+    "a": "DeBecker",
+    "y": "0000",
+    "t": "EuropassCV",
+    "p": "Unknown",
+    "c": "DeBecker-0000-EuropassCV-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - CV-Europass-20200131-DeBecker-EN.pdf (n.d.).pdf",
+    "a": "DeBecker",
+    "y": "0000",
+    "t": "EuropassCV",
+    "p": "Unknown",
+    "c": "DeBecker-0000-EuropassCV-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Disease and demography in the Americas (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "DiseaseDemographyAmericas",
+    "p": "Unknown",
+    "c": "Unknown-0000-DiseaseDemographyAmericas-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Dit document is auteursrechtelijk beschermd, het verspreiden van dit document is strafbaar. (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "CopyrightProtectedDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-CopyrightProtectedDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Europass (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "EuropassDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-EuropassDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - European Youth Team - Proposal (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "EuropeanYouthProposal",
+    "p": "Unknown",
+    "c": "Unknown-0000-EuropeanYouthProposal-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Fin de Mundo.pdf (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "FinDeMundo",
+    "p": "Unknown",
+    "c": "Unknown-0000-FinDeMundo-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - FO-882-2_01 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "FODocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-FODocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - FO-882-2_02 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "FODocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-FODocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Grim Hollow Subclasses in Etharis World Anvil (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "GrimHollowSubclasses",
+    "p": "Unknown",
+    "c": "Unknown-0000-GrimHollowSubclasses-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Heracleitean Flux in Plato's Theaetetus (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HeracleiteanFluxPlato",
+    "p": "Unknown",
+    "c": "Unknown-0000-HeracleiteanFluxPlato-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Heraclitean Flux and Unity of Opposites in Plato's Theaetetus and Cratylus (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HeracliteanFluxPlato",
+    "p": "Unknown",
+    "c": "Unknown-0000-HeracliteanFluxPlato-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - howell_WT_final_01 (n.d.) (1).pdf",
+    "a": "Howell",
+    "y": "0000",
+    "t": "WTFinal",
+    "p": "Unknown",
+    "c": "Howell-0000-WTFinal-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - howell_WT_final_01 (n.d.).pdf",
+    "a": "Howell",
+    "y": "0000",
+    "t": "WTFinal",
+    "p": "Unknown",
+    "c": "Howell-0000-WTFinal-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - isbn_9781611454048 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "ISBN9781611454048",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2) (3) (4) (5) (6) (7) (8) (9).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "KlaprozenlaanDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-KlaprozenlaanDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2) (3) (4) (5) (6) (7) (8).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "KlaprozenlaanDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-KlaprozenlaanDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2) (3) (4) (5) (6) (7).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "KlaprozenlaanDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-KlaprozenlaanDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2) (3) (4) (5) (6).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "KlaprozenlaanDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-KlaprozenlaanDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2) (3) (4) (5).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "KlaprozenlaanDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-KlaprozenlaanDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2) (3) (4).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "KlaprozenlaanDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-KlaprozenlaanDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2) (3).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "KlaprozenlaanDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-KlaprozenlaanDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - KLAPROZENLAAN 34 (n.d.) (1) (2).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "KlaprozenlaanDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-KlaprozenlaanDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - KLAPROZENLAAN 34 (n.d.) (1).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "KlaprozenlaanDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-KlaprozenlaanDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - KLAPROZENLAAN 34 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "KlaprozenlaanDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-KlaprozenlaanDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Klassieke nvtholozie 2021 . (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "KlassiekeNvtholozie",
+    "p": "Unknown",
+    "c": "Unknown-0000-KlassiekeNvtholozie-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - KMBT_C364-20160617153842 (n.d.) (1).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "KMBTC364Document",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - KMBT_C364-20160617153842 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "KMBTC364Document",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - KSA TPP AT Gl sccninese (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "KSATPPAT",
+    "p": "Unknown",
+    "c": "Unknown-0000-KSATPPAT-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Layout 1 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "Layout1",
+    "p": "Unknown",
+    "c": "Unknown-0000-Layout1-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Lecture 1 Slides, Prehistory to 1066 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "Prehistory1066Lecture",
+    "p": "Unknown",
+    "c": "Unknown-0000-Prehistory1066Lecture-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - May 28th - program outline (breakout sessions) (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "ProgramOutlineMay28",
+    "p": "Unknown",
+    "c": "Unknown-0000-ProgramOutlineMay28-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Microsoft Word - Document3 (n.d.) (1).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "WordDocument3",
+    "p": "Unknown",
+    "c": "Unknown-0000-WordDocument3-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Microsoft Word - Document3 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "WordDocument3",
+    "p": "Unknown",
+    "c": "Unknown-0000-WordDocument3-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Microsoft Word - Syllabus.docx (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "WordSyllabus",
+    "p": "Unknown",
+    "c": "Unknown-0000-WordSyllabus-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Microsoft Word - Youth resarch podcast transcript.docx (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "YouthResearchPodcast",
+    "p": "Unknown",
+    "c": "Unknown-0000-YouthResearchPodcast-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Overview House Rules - Rappan Athuk (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HouseRulesRappan",
+    "p": "Unknown",
+    "c": "Unknown-0000-HouseRulesRappan-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - P. H. H. VRIES (n.d.).pdf",
+    "a": "Vries",
+    "y": "0000",
+    "t": "PHHVries",
+    "p": "Unknown",
+    "c": "Vries-0000-PHHVries-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Peoples (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "Peoples",
+    "p": "Unknown",
+    "c": "Unknown-0000-Peoples-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Recopilación de leyes de los reinos de Indias (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "LeyesReinosIndias",
+    "p": "Unknown",
+    "c": "Unknown-0000-LeyesReinosIndias-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Revista cubana de derecho (1993).pdf",
+    "a": "Unknown",
+    "y": "1993",
+    "t": "RevistaCubanaDerecho",
+    "p": "Unknown",
+    "c": "Unknown-1993-RevistaCubanaDerecho-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Roland Posner (n.d.).pdf",
+    "a": "Posner",
+    "y": "0000",
+    "t": "RolandPosner",
+    "p": "Unknown",
+    "c": "Posner-0000-RolandPosner-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - RWAR_A_818513 298..313 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "RWARADocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-RWARADocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - S0003598X18002582jra 181..198 (n.d.) (1).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "AcademicArticle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - S0003598X18002582jra 181..198 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "AcademicArticle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - S0003598X23001758jra 245..259 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "AcademicArticle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - S0003598X23001771jra 155..171 (n.d.) (1).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "AcademicArticle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - S0003598X23001771jra 155..171 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "AcademicArticle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - S0068113X15000100jra 171..189 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "AcademicArticle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - S1816383122000339jed 765..779 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "AcademicArticle",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Unknown - Samenvatting De Constructie Van Het Verleden Compleet (n.d.) (1).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "SamenvattingConstructieVerleden",
+    "p": "Unknown",
+    "c": "Unknown-0000-SamenvattingConstructieVerleden-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Samenvatting De Constructie Van Het Verleden Compleet (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "SamenvattingConstructieVerleden",
+    "p": "Unknown",
+    "c": "Unknown-0000-SamenvattingConstructieVerleden-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Territorialization and State Power in Thailand (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "TerritorializationStateThailand",
+    "p": "Unknown",
+    "c": "Unknown-0000-TerritorializationStateThailand-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - The Native population of the Americas in 1492 (n.d.) (1).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "NativePopulationAmericas1492",
+    "p": "Unknown",
+    "c": "Unknown-0000-NativePopulationAmericas1492-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - The Native population of the Americas in 1492 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "NativePopulationAmericas1492",
+    "p": "Unknown",
+    "c": "Unknown-0000-NativePopulationAmericas1492-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - TIRLALA KSA OOSTENDE MEEUWENNEST (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "TIRLALAKSA",
+    "p": "Unknown",
+    "c": "Unknown-0000-TIRLALAKSA-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Trials of War Criminals before Nuernberg, Nuremberg Military Tribunals under Control Council Law No. 10 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "NurembergWarCriminals",
+    "p": "Unknown",
+    "c": "Unknown-0000-NurembergWarCriminals-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - untitled (n.d.) (1) (2) (3).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UntitledDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-UntitledDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - untitled (n.d.) (1) (2).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UntitledDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-UntitledDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - untitled (n.d.) (1).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UntitledDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-UntitledDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - untitled (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UntitledDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-UntitledDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - vertelt ze slechts verhalen over gebeurtenissen uit het roemrijke (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "VerhalenGebeurtenissen",
+    "p": "Unknown",
+    "c": "Unknown-0000-VerhalenGebeurtenissen-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - VOJNUCKI DEFTER IZ 1455.indb (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "VojnuciDefter1455",
+    "p": "Unknown",
+    "c": "Unknown-0000-VojnuciDefter1455-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - White Legend against Black (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "WhiteLegendBlack",
+    "p": "Unknown",
+    "c": "Unknown-0000-WhiteLegendBlack-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Urton - Inka History in Knots (2017).pdf",
+    "a": "Urton",
+    "y": "2017",
+    "t": "InkaHistoryKnots",
+    "p": "Texas",
+    "c": "Urton-2017-InkaHistoryKnots-Texas.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "User - Microsoft Word - XLVIII 05 Sour.doc (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "WordSourDocument",
+    "p": "Unknown",
+    "c": "Unknown-0000-WordSourDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Vandenabeele - Verbijstering, veelheid, verschil. Fundamentele inzichten van actuele filosofen (2017).pdf",
+    "a": "Vandenabeele",
+    "y": "2017",
+    "t": "VerbijsteringVeelheidVerschil",
+    "p": "Unknown",
+    "c": "Vandenabeele-2017-VerbijsteringVeelheidVerschil-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "VandergeestandPelusoTerritorializationandstatepower.pdf",
+    "a": "Vandergeest",
+    "y": "0000",
+    "t": "TerritorializationStatePower",
+    "p": "Unknown",
+    "c": "Vandergeest-0000-TerritorializationStatePower-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Vega - El Inca Garcilaso en sus Comentarios (1964).pdf",
+    "a": "Vega",
+    "y": "1964",
+    "t": "IncaGarcilasoComentarios",
+    "p": "Unknown",
+    "c": "Vega-1964-IncaGarcilasoComentarios-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Vichy France and the Jews (Michael R. Marrus Robert O. Paxton) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Marrus",
+    "y": "1981",
+    "t": "VichyFranceJews",
+    "p": "Basic",
+    "c": "Marrus-1981-VichyFranceJews-Basic.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Vichy France, Old Guard and New Order, 1940-1944 (1972) (Robert O. Paxton) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Paxton",
+    "y": "1972",
+    "t": "VichyFranceOldNew",
+    "p": "Knopf",
+    "c": "Paxton-1972-VichyFranceOldNew-Knopf.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Vichy Law and the Holocaust in France (Richard H. Weisberg) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Weisberg",
+    "y": "1996",
+    "t": "VichyLawHolocaust",
+    "p": "New York University",
+    "c": "Weisberg-1996-VichyLawHolocaust-New York University.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Vickers - Between Serb and Albanian (1998).pdf",
+    "a": "Vickers",
+    "y": "1998",
+    "t": "SerbAlbanian",
+    "p": "Columbia",
+    "c": "Vickers-1998-SerbAlbanian-Columbia.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "viking-warrior-women-reassessing-birka-chamber-grave-bj581-1.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "VikingWarriorWomen",
+    "p": "Unknown",
+    "c": "Unknown-0000-VikingWarriorWomen-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Vikings The Truth About Lagertha And Ragnar Viking Secrets Book One (Rachel Tsoumbakos).pdf",
+    "a": "Tsoumbakos",
+    "y": "0000",
+    "t": "VikingsLagerthaRagnar",
+    "p": "Unknown",
+    "c": "Tsoumbakos-0000-VikingsLagerthaRagnar-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Vindicating the Founders Race, Sex, Class, and Justice in the Origins of America (Thomas G. West).pdf",
+    "a": "West",
+    "y": "1997",
+    "t": "FoundersRaceSexJustice",
+    "p": "Rowman & Littlefield",
+    "c": "West-1997-FoundersRaceSexJustice-Rowman & Littlefield.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Viola - Red and Pink Stamps Handcrafted & Heartfelt General Audience Valentine's Day Canvas (n.d.).pdf",
+    "a": "Viola",
+    "y": "0000",
+    "t": "RedPinkStamps",
+    "p": "Unknown",
+    "c": "Viola-0000-RedPinkStamps-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "VOJNUCKIDEFTERIZ1455GODINE.pdf",
+    "a": "Unknown",
+    "y": "1455",
+    "t": "VojnuciDefter",
+    "p": "Unknown",
+    "c": "Unknown-1455-VojnuciDefter-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Waal - Black Garden (2003).pdf",
+    "a": "Waal",
+    "y": "2003",
+    "t": "BlackGarden",
+    "p": "New York University",
+    "c": "Waal-2003-BlackGarden-New York University.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Wade - Race and Sex in Latin America (2009).pdf",
+    "a": "Wade",
+    "y": "2009",
+    "t": "RaceSexLatinAmerica",
+    "p": "Unknown",
+    "c": "Wade-2009-RaceSexLatinAmerica-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Wait But Why{Urban, Tim}(2015){106173065} libgen.li.epub",
+    "a": "Urban",
+    "y": "2015",
+    "t": "WaitButWhy",
+    "p": "Libgen",
+    "c": "Urban-2015-WaitButWhy-Libgen.epub",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Warrior women - an archaeologists search for historys -- Mona Behan, Jeannine Davis-Kimball, Jeannine Davis-Kimball.pdf",
+    "a": "Behan",
+    "y": "0000",
+    "t": "WarriorWomenArchaeologists",
+    "p": "Unknown",
+    "c": "Behan-0000-WarriorWomenArchaeologists-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Warrior women.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "WarriorWomen",
+    "p": "Unknown",
+    "c": "Unknown-0000-WarriorWomen-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "We Alone Will Rule Native Andean Politics in the Age of Insurgency (Sinclair Thomson).pdf",
+    "a": "Thomson",
+    "y": "2002",
+    "t": "NativeAndeanPolitics",
+    "p": "Wisconsin",
+    "c": "Thomson-2002-NativeAndeanPolitics-Wisconsin.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Weber - The Protestant Ethic and the Spirit of Capitalism (2002).pdf",
+    "a": "Weber",
+    "y": "2002",
+    "t": "ProtestantEthicCapitalism",
+    "p": "Routledge",
+    "c": "Weber-2002-ProtestantEthicCapitalism-Routledge.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "West - Vindicating the Founders (2000).pdf",
+    "a": "West",
+    "y": "2000",
+    "t": "VindicatingFounders",
+    "p": "Unknown",
+    "c": "West-2000-VindicatingFounders-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Western Sahara Anatomy of a Stalemate (Erik Jensen).pdf",
+    "a": "Jensen",
+    "y": "2005",
+    "t": "WesternSaharaStalemate",
+    "p": "Lynne Rienner",
+    "c": "Jensen-2005-WesternSaharaStalemate-Lynne Rienner.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Western Sahara War, Nationalism, and Conflict Irresolution (Stephen Zunes Jacob Mundy George S. McGovern).pdf",
+    "a": "Zunes",
+    "y": "2010",
+    "t": "WesternSaharaConflict",
+    "p": "Syracuse University",
+    "c": "Zunes-2010-WesternSaharaConflict-Syracuse University.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "WhatweKnewwasLost.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "WhatWeKnewLost",
+    "p": "Unknown",
+    "c": "Unknown-0000-WhatWeKnewLost-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Whitehead - Carib Cannibalism (1984).pdf",
+    "a": "Whitehead",
+    "y": "1984",
+    "t": "CaribCannibalism",
+    "p": "Florida",
+    "c": "Whitehead-1984-CaribCannibalism-Florida.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "who - T H E SO-CALLED HARLOTS OF HADRAMAUT (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HarlotsOfHadramaut",
+    "p": "Unknown",
+    "c": "Unknown-0000-HarlotsOfHadramaut-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Who We Are and How We Got Here Ancient DNA and the new science of the human past (David Reich).pdf",
+    "a": "Reich",
+    "y": "2018",
+    "t": "AncientDNAHumanPast",
+    "p": "Pantheon",
+    "c": "Reich-2018-AncientDNAHumanPast-Pantheon.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Williams - Gender and the Representation of Evil (n.d.).pdf",
+    "a": "Williams",
+    "y": "0000",
+    "t": "GenderRepresentationEvil",
+    "p": "Unknown",
+    "c": "Williams-0000-GenderRepresentationEvil-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Williamson - The Philosophy of Philosophy (2008).pdf",
+    "a": "Williamson",
+    "y": "2008",
+    "t": "PhilosophyOfPhilosophy",
+    "p": "Blackwell",
+    "c": "Williamson-2008-PhilosophyOfPhilosophy-Blackwell.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Winchester - Atlantic (2011).pdf",
+    "a": "Winchester",
+    "y": "2011",
+    "t": "AtlanticHistory",
+    "p": "Harper",
+    "c": "Winchester-2011-AtlanticHistory-Harper.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Winichakul - Siam Mapped (2021).pdf",
+    "a": "Winichakul",
+    "y": "2021",
+    "t": "SiamMapped",
+    "p": "Hawaii",
+    "c": "Winichakul-2021-SiamMapped-Hawaii.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Women and Gender in Islam Historical Roots to a Modern Debate (Leila Ahmed) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Ahmed",
+    "y": "1992",
+    "t": "WomenGenderIslam",
+    "p": "Yale",
+    "c": "Ahmed-1992-WomenGenderIslam-Yale.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Women and Islam an historical and theological enquiry (Mernissi, Fatima, Lakeland, Mary Jo) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Mernissi",
+    "y": "0000",
+    "t": "WomenIslamEnquiry",
+    "p": "Unknown",
+    "c": "Mernissi-0000-WomenIslamEnquiry-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Women in the Mosque A History of Legal Thought and Social Practice (Marion Katz) (z-library.sk, 1lib.sk, z-lib.sk)-1.pdf",
+    "a": "Katz",
+    "y": "2014",
+    "t": "WomenMosqueHistory",
+    "p": "Columbia",
+    "c": "Katz-2014-WomenMosqueHistory-Columbia.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Women in the Mosque A History of Legal Thought and Social Practice (Marion Katz) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Katz",
+    "y": "2014",
+    "t": "WomenMosqueHistory",
+    "p": "Columbia",
+    "c": "Katz-2014-WomenMosqueHistory-Columbia.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Women, Islam, and Abbasid Identity (Nadia Maria El Cheikh) (z-library.sk, 1lib.sk, z-lib.sk)-1.pdf",
+    "a": "Cheikh",
+    "y": "2004",
+    "t": "WomenIslamAbbasid",
+    "p": "Harvard",
+    "c": "Cheikh-2004-WomenIslamAbbasid-Harvard.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Women, Islam, and Abbasid Identity (Nadia Maria El Cheikh) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Cheikh",
+    "y": "2004",
+    "t": "WomenIslamAbbasid",
+    "p": "Harvard",
+    "c": "Cheikh-2004-WomenIslamAbbasid-Harvard.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Wood - The Radicalism of the American Revolution (2011).pdf",
+    "a": "Wood",
+    "y": "2011",
+    "t": "RadicalismAmericanRevolution",
+    "p": "Vintage",
+    "c": "Wood-2011-RadicalismAmericanRevolution-Vintage.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Yergin - The Prize (2012).pdf",
+    "a": "Yergin",
+    "y": "2012",
+    "t": "ThePrizeOil",
+    "p": "Simon & Schuster",
+    "c": "Yergin-2012-ThePrizeOil-Simon & Schuster.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Zipperstein - Pogrom (2019).pdf",
+    "a": "Zipperstein",
+    "y": "2019",
+    "t": "PogromHistory",
+    "p": "Liveright",
+    "c": "Zipperstein-2019-PogromHistory-Liveright.pdf",
+    "conf": "high",
+    "ncr": false
+  }
+]
+```

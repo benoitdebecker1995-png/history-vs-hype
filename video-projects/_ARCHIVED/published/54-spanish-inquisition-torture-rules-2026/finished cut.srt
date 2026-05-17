@@ -1,0 +1,976 @@
+1
+00:00:00,033 --> 00:00:01,400
+<b>Everyone thinks they know what the</b>
+
+2
+00:00:01,400 --> 00:00:02,733
+<b>Spanish Inquisition was.</b>
+
+3
+00:00:03,133 --> 00:00:06,000
+<b>Torture chambers, thumbscrews, dungeons</b>
+
+4
+00:00:06,000 --> 00:00:07,166
+<b>where people disappeared,</b>
+
+5
+00:00:07,466 --> 00:00:09,599
+<b>centuries of religious terror operating</b>
+
+6
+00:00:09,599 --> 00:00:11,166
+<b>entirely outside the law.</b>
+
+7
+00:00:11,566 --> 00:00:14,266
+<b>That last part, outside the law, is where</b>
+
+8
+00:00:14,266 --> 00:00:15,533
+<b>the story breaks down.</b>
+
+9
+00:00:15,800 --> 00:00:17,000
+<b>They didn't act outside</b>
+
+10
+00:00:17,000 --> 00:00:18,833
+<b>the law, they wrote one.</b>
+
+11
+00:00:19,199 --> 00:00:21,233
+<b>The rules for torture, who had to be in</b>
+
+12
+00:00:21,233 --> 00:00:22,533
+<b>the room, what could</b>
+
+13
+00:00:22,533 --> 00:00:23,366
+<b>and couldn't be done,</b>
+
+14
+00:00:23,666 --> 00:00:24,633
+<b>what made a confession</b>
+
+15
+00:00:24,633 --> 00:00:26,833
+<b>legally valid, and the exceptions.</b>
+
+16
+00:00:27,166 --> 00:00:27,766
+<b>This is the</b>
+
+17
+00:00:28,233 --> 00:00:29,800
+<b>Compilación de las Instrucciones,</b>
+
+18
+00:00:30,166 --> 00:00:32,366
+<b>the procedural manual for running an</b>
+
+19
+00:00:32,366 --> 00:00:35,266
+<b>Inquisition Tribunal written in 1484 and</b>
+
+20
+00:00:35,266 --> 00:00:37,000
+<b>used for over two centuries.</b>
+
+21
+00:00:37,266 --> 00:00:39,366
+<b>One paragraph in particular contains</b>
+
+22
+00:00:39,400 --> 00:00:40,099
+<b>everything the rest</b>
+
+23
+00:00:40,099 --> 00:00:41,366
+<b>of this video is about.</b>
+
+24
+00:00:42,133 --> 00:00:43,066
+<b>Paragraph 15.</b>
+
+25
+00:00:43,966 --> 00:00:46,433
+<b>The Instrucciones were written in 1484 by</b>
+
+26
+00:00:46,766 --> 00:00:48,433
+<b>Tomás de Torquemada, the</b>
+
+27
+00:00:48,433 --> 00:00:50,000
+<b>first Grand Inquisitor.</b>
+
+28
+00:00:50,099 --> 00:00:51,866
+<b>It contained the rules for everything.</b>
+
+29
+00:00:52,199 --> 00:00:54,400
+<b>How to investigate suspected heretics,</b>
+
+30
+00:00:54,566 --> 00:00:56,666
+<b>how to interrogate them, how to torture</b>
+
+31
+00:00:56,666 --> 00:00:58,433
+<b>them, and how to sentence them.</b>
+
+32
+00:00:58,633 --> 00:01:01,033
+<b>Ron Hassner, a political scientist at UC</b>
+
+33
+00:01:01,199 --> 00:01:02,699
+<b>Berkeley, spent years in</b>
+
+34
+00:01:02,699 --> 00:01:04,099
+<b>the Inquisition archives.</b>
+
+35
+00:01:04,300 --> 00:01:05,566
+<b>Here's what he found.</b>
+
+36
+00:01:06,099 --> 00:01:08,166
+<b>The torture practices of the Inquisition</b>
+
+37
+00:01:08,166 --> 00:01:10,099
+<b>were the result of centuries of</b>
+
+38
+00:01:10,099 --> 00:01:11,300
+<b>institutional learning.</b>
+
+39
+00:01:11,466 --> 00:01:13,699
+<b>It tortured as part of a bureaucratic</b>
+
+40
+00:01:13,699 --> 00:01:15,133
+<b>procedure designed to</b>
+
+41
+00:01:15,133 --> 00:01:16,199
+<b>collect information.</b>
+
+42
+00:01:16,599 --> 00:01:18,400
+<b>It tortured in cold blood.</b>
+
+43
+00:01:18,866 --> 00:01:21,733
+<b>After 9-11, CIA interrogators tortured</b>
+
+44
+00:01:21,733 --> 00:01:25,033
+<b>rashly with no oversight and no records.</b>
+
+45
+00:01:25,466 --> 00:01:28,000
+<b>Hassner called that "hot-blooded torture,</b>
+
+46
+00:01:28,333 --> 00:01:31,000
+<b>improvised, vindictive, and reserved for</b>
+
+47
+00:01:31,000 --> 00:01:32,233
+<b>whoever seemed guilty."</b>
+
+48
+00:01:32,633 --> 00:01:34,233
+<b>The Inquisition is the opposite of that.</b>
+
+49
+00:01:35,066 --> 00:01:37,433
+<b>Hassner called it "the most extraordinary</b>
+
+50
+00:01:37,466 --> 00:01:38,733
+<b>interrogational torture</b>
+
+51
+00:01:38,733 --> 00:01:40,333
+<b>campaign in recorded history."</b>
+
+52
+00:01:40,633 --> 00:01:43,166
+<b>And the Inquisition's record survived.</b>
+
+53
+00:01:43,400 --> 00:01:44,566
+<b>That's why we know exactly</b>
+
+54
+00:01:44,566 --> 00:01:46,800
+<b>what happened to Marina González.</b>
+
+55
+00:01:47,433 --> 00:01:51,699
+<b>April 29th, 1494, Ciudad Real, Spain.</b>
+
+56
+00:01:52,066 --> 00:01:54,099
+<b>A scribe sits beside Marina González in</b>
+
+57
+00:01:54,099 --> 00:01:55,166
+<b>the torture chamber.</b>
+
+58
+00:01:55,699 --> 00:01:57,033
+<b>Not to help her, but to</b>
+
+59
+00:01:57,033 --> 00:01:58,033
+<b>write everything down.</b>
+
+60
+00:01:58,766 --> 00:02:00,699
+<b>The scribe's first line, "She was</b>
+
+61
+00:02:00,699 --> 00:02:01,566
+<b>stripped of her old</b>
+
+62
+00:02:01,566 --> 00:02:03,133
+<b>skirts and put on the rack,</b>
+
+63
+00:02:03,199 --> 00:02:04,933
+<b>and her arms and legs were</b>
+
+64
+00:02:04,966 --> 00:02:06,833
+<b>tied tightly with cords."</b>
+
+65
+00:02:07,000 --> 00:02:08,733
+<b>The only reason we have this record is</b>
+
+66
+00:02:08,733 --> 00:02:10,933
+<b>because the Instrucciones required it.</b>
+
+67
+00:02:11,066 --> 00:02:13,466
+<b>To legally authorize a torture session,</b>
+
+68
+00:02:13,566 --> 00:02:14,833
+<b>the Instrucciones required</b>
+
+69
+00:02:14,833 --> 00:02:16,066
+<b>four people in that room</b>
+
+70
+00:02:16,099 --> 00:02:17,366
+<b>before anyone touched her.</b>
+
+71
+00:02:17,866 --> 00:02:19,933
+<b>The Inquisitor, a representative of the</b>
+
+72
+00:02:19,933 --> 00:02:22,099
+<b>local bishop, a notary to</b>
+
+73
+00:02:22,099 --> 00:02:23,433
+<b>record every word spoken,</b>
+
+74
+00:02:23,666 --> 00:02:25,566
+<b>and a doctor monitoring the prisoner's</b>
+
+75
+00:02:25,566 --> 00:02:26,699
+<b>condition throughout.</b>
+
+76
+00:02:27,000 --> 00:02:29,000
+<b>Before any of that, the accused had to be</b>
+
+77
+00:02:29,000 --> 00:02:31,233
+<b>warned three times on separate days,</b>
+
+78
+00:02:31,699 --> 00:02:33,733
+<b>given a chance to confess voluntarily.</b>
+
+79
+00:02:33,866 --> 00:02:35,366
+<b>Only after a written order from the</b>
+
+80
+00:02:35,366 --> 00:02:36,633
+<b>Inquisitors could a</b>
+
+81
+00:02:36,633 --> 00:02:38,099
+<b>torture session begin,</b>
+
+82
+00:02:38,333 --> 00:02:41,366
+<b>limited to three methods chosen because</b>
+
+83
+00:02:41,633 --> 00:02:42,800
+<b>they were the least likely</b>
+
+84
+00:02:42,800 --> 00:02:44,333
+<b>to cause permanent injury.</b>
+
+85
+00:02:44,933 --> 00:02:47,099
+<b>If the prisoner confessed, here's what</b>
+
+86
+00:02:47,133 --> 00:02:49,599
+<b>paragraph 15 says, word for word.</b>
+
+87
+00:02:50,033 --> 00:02:51,900
+<b>"If the accused confesses the crime under</b>
+
+88
+00:02:51,900 --> 00:02:53,366
+<b>torture, and afterward</b>
+
+89
+00:02:53,633 --> 00:02:55,733
+<b>ratifies or confirms his confession on</b>
+
+90
+00:02:55,733 --> 00:02:57,766
+<b>the next or third day, he shall be</b>
+
+91
+00:02:57,800 --> 00:02:59,000
+<b>punished as convicted."</b>
+
+92
+00:02:59,666 --> 00:03:01,466
+<b>In other words, a confession under</b>
+
+93
+00:03:01,466 --> 00:03:03,599
+<b>torture couldn't convict you on its own.</b>
+
+94
+00:03:04,033 --> 00:03:05,633
+<b>What counted was coming back the next</b>
+
+95
+00:03:05,633 --> 00:03:07,766
+<b>morning, unbound and free,</b>
+
+96
+00:03:08,066 --> 00:03:10,199
+<b>and repeating the same thing voluntarily</b>
+
+97
+00:03:10,199 --> 00:03:11,599
+<b>in front of witnesses.</b>
+
+98
+00:03:11,933 --> 00:03:14,133
+<b>The evidence wasn't what you said under</b>
+
+99
+00:03:14,133 --> 00:03:16,699
+<b>torture, it was the ratification.</b>
+
+100
+00:03:17,366 --> 00:03:18,366
+<b>Now read the last line</b>
+
+101
+00:03:18,366 --> 00:03:19,666
+<b>of that same paragraph.</b>
+
+102
+00:03:20,266 --> 00:03:22,133
+<b>"The aforesaid does not deny that the</b>
+
+103
+00:03:22,133 --> 00:03:24,166
+<b>Inquisitors can repeat the question</b>
+
+104
+00:03:24,433 --> 00:03:25,900
+<b>of torture in a case where</b>
+
+105
+00:03:25,900 --> 00:03:28,033
+<b>they must and can do so by law."</b>
+
+106
+00:03:28,500 --> 00:03:30,699
+<b>This phrase is cited by historians to</b>
+
+107
+00:03:30,733 --> 00:03:31,900
+<b>conclude that torture</b>
+
+108
+00:03:31,900 --> 00:03:33,400
+<b>could only occur once.</b>
+
+109
+00:03:33,533 --> 00:03:34,666
+<b>Why else would you use the</b>
+
+110
+00:03:34,666 --> 00:03:36,333
+<b>word repeat as an exception?</b>
+
+111
+00:03:37,233 --> 00:03:38,666
+<b>In practice, Inquisitors</b>
+
+112
+00:03:38,666 --> 00:03:39,833
+<b>called this suspension.</b>
+
+113
+00:03:41,866 --> 00:03:44,300
+<b>Instead of ending a torture session, you</b>
+
+114
+00:03:44,300 --> 00:03:46,266
+<b>suspend it, and the next session is</b>
+
+115
+00:03:46,466 --> 00:03:47,766
+<b>legally a continuation</b>
+
+116
+00:03:47,766 --> 00:03:50,366
+<b>of the first, which means the prohibition</b>
+
+117
+00:03:50,366 --> 00:03:51,500
+<b>on repeat torture</b>
+
+118
+00:03:51,800 --> 00:03:53,366
+<b>technically never applies.</b>
+
+119
+00:03:53,966 --> 00:03:56,333
+<b>Hassner writes, "The procedures of the</b>
+
+120
+00:03:56,333 --> 00:03:58,099
+<b>Inquisition prohibited torturing an</b>
+
+121
+00:03:58,099 --> 00:03:59,633
+<b>individual more than once.</b>
+
+122
+00:04:00,099 --> 00:04:02,433
+<b>This guideline could be circumvented by</b>
+
+123
+00:04:02,433 --> 00:04:03,466
+<b>suspending a torture</b>
+
+124
+00:04:03,466 --> 00:04:05,133
+<b>session rather than ending it."</b>
+
+125
+00:04:06,133 --> 00:04:08,266
+<b>A century later, those same instructions</b>
+
+126
+00:04:08,266 --> 00:04:08,966
+<b>were in use on the</b>
+
+127
+00:04:08,966 --> 00:04:10,366
+<b>other side of the Atlantic.</b>
+
+128
+00:04:10,833 --> 00:04:14,033
+<b>March 2, 1601, Mexico City.</b>
+
+129
+00:04:14,533 --> 00:04:16,266
+<b>Hassner reconstructs the case from the</b>
+
+130
+00:04:16,266 --> 00:04:18,300
+<b>surviving Inquisition trial records.</b>
+
+131
+00:04:18,599 --> 00:04:20,466
+<b>Antonio Díaz de Cáceres is</b>
+
+132
+00:04:20,466 --> 00:04:21,900
+<b>brought to the torture chamber.</b>
+
+133
+00:04:22,166 --> 00:04:23,066
+<b>He's been in an</b>
+
+134
+00:04:23,066 --> 00:04:25,833
+<b>Inquisition cell since December 1596.</b>
+
+135
+00:04:26,733 --> 00:04:27,366
+<b>The charge?</b>
+
+136
+00:04:27,966 --> 00:04:30,766
+<b>Judaizing, secretly practicing Jewish</b>
+
+137
+00:04:30,766 --> 00:04:32,066
+<b>rites after forced</b>
+
+138
+00:04:32,066 --> 00:04:33,400
+<b>conversion to Christianity.</b>
+
+139
+00:04:33,800 --> 00:04:34,766
+<b>His family members have</b>
+
+140
+00:04:34,766 --> 00:04:36,366
+<b>already testified against him.</b>
+
+141
+00:04:36,566 --> 00:04:39,599
+<b>After his first interrogation in 1597, he</b>
+
+142
+00:04:39,599 --> 00:04:40,633
+<b>sat in his cell for</b>
+
+143
+00:04:40,633 --> 00:04:42,033
+<b>nearly three years without</b>
+
+144
+00:04:42,033 --> 00:04:43,466
+<b>questions or contacts.</b>
+
+145
+00:04:43,633 --> 00:04:44,566
+<b>The Inquisition kept</b>
+
+146
+00:04:44,566 --> 00:04:46,333
+<b>prisoners incommunicado.</b>
+
+147
+00:04:46,900 --> 00:04:49,066
+<b>Hassner again, "The prisoner could receive</b>
+
+148
+00:04:49,066 --> 00:04:50,199
+<b>no information from</b>
+
+149
+00:04:50,199 --> 00:04:51,866
+<b>friends or relatives about who</b>
+
+150
+00:04:51,866 --> 00:04:54,066
+<b>was arrested subsequently or who</b>
+
+151
+00:04:54,133 --> 00:04:55,733
+<b>testified before the tribunal.</b>
+
+152
+00:04:56,333 --> 00:04:58,133
+<b>Four years passed before they brought</b>
+
+153
+00:04:58,133 --> 00:04:59,599
+<b>Díaz back to the chamber.</b>
+
+154
+00:05:00,133 --> 00:05:02,599
+<b>He is hoisted to the ceiling by ropes</b>
+
+155
+00:05:02,666 --> 00:05:03,566
+<b>tied to his twisted</b>
+
+156
+00:05:03,599 --> 00:05:06,300
+<b>arms, then dropped 12 times."</b>
+
+157
+00:05:06,866 --> 00:05:09,033
+<b>"Ropes are wrapped around his calves,</b>
+
+158
+00:05:09,233 --> 00:05:10,966
+<b>thighs and shins, and tightened.</b>
+
+159
+00:05:11,366 --> 00:05:12,400
+<b>Twelve times.</b>
+
+160
+00:05:12,900 --> 00:05:14,366
+<b>Seven jars of water are</b>
+
+161
+00:05:14,366 --> 00:05:15,699
+<b>forced down his throat.</b>
+
+162
+00:05:16,066 --> 00:05:18,533
+<b>He screamed that they were killing him,</b>
+
+163
+00:05:18,566 --> 00:05:19,966
+<b>but he revealed nothing."</b>
+
+164
+00:05:20,733 --> 00:05:23,300
+<b>Under Inquisition law, the same law that</b>
+
+165
+00:05:23,333 --> 00:05:24,433
+<b>authorized the session,</b>
+
+166
+00:05:24,866 --> 00:05:26,800
+<b>silence counts as innocence.</b>
+
+167
+00:05:27,133 --> 00:05:28,466
+<b>The Inquisition took it as</b>
+
+168
+00:05:28,466 --> 00:05:30,166
+<b>proof he had nothing to confess.</b>
+
+169
+00:05:30,500 --> 00:05:31,933
+<b>He was reconciled to</b>
+
+170
+00:05:31,933 --> 00:05:33,266
+<b>the church and cleared.</b>
+
+171
+00:05:33,900 --> 00:05:35,533
+<b>Unbeknownst to him, the friends and</b>
+
+172
+00:05:35,533 --> 00:05:36,699
+<b>family he'd refused to</b>
+
+173
+00:05:36,699 --> 00:05:38,633
+<b>name had been burned the same</b>
+
+174
+00:05:38,633 --> 00:05:40,133
+<b>month he was arrested.</b>
+
+175
+00:05:40,466 --> 00:05:41,733
+<b>He'd been protecting</b>
+
+176
+00:05:41,733 --> 00:05:43,466
+<b>people who were already gone.</b>
+
+177
+00:05:44,266 --> 00:05:45,266
+<b>His friends and family</b>
+
+178
+00:05:45,266 --> 00:05:46,433
+<b>weren't the only ones.</b>
+
+179
+00:05:46,666 --> 00:05:48,033
+<b>The figure most cited about the</b>
+
+180
+00:05:48,033 --> 00:05:49,400
+<b>Inquisition was around</b>
+
+181
+00:05:49,400 --> 00:05:52,866
+<b>3,000 executions over 350 years.</b>
+
+182
+00:05:53,066 --> 00:05:54,666
+<b>That's Henry Kamen's estimate.</b>
+
+183
+00:05:54,833 --> 00:05:56,099
+<b>It's probably close.</b>
+
+184
+00:05:56,366 --> 00:05:57,699
+<b>Kamen also wrote this.</b>
+
+185
+00:05:57,900 --> 00:05:59,966
+<b>"The apparently low overall death rate</b>
+
+186
+00:05:59,966 --> 00:06:01,500
+<b>masks a very high rate in</b>
+
+187
+00:06:01,500 --> 00:06:02,866
+<b>the first half century of</b>
+
+188
+00:06:02,866 --> 00:06:04,866
+<b>the Inquisition, and a consistently high</b>
+
+189
+00:06:04,900 --> 00:06:06,166
+<b>rate affecting people</b>
+
+190
+00:06:06,166 --> 00:06:07,199
+<b>of Jewish and Muslim</b>
+
+191
+00:06:07,233 --> 00:06:07,866
+<b>origin."</b>
+
+192
+00:06:08,166 --> 00:06:10,166
+<b>In other words, the Inquisition wasn't</b>
+
+193
+00:06:10,199 --> 00:06:12,233
+<b>operating against the whole population.</b>
+
+194
+00:06:12,333 --> 00:06:15,000
+<b>It was a targeting machine, aimed almost</b>
+
+195
+00:06:15,000 --> 00:06:16,599
+<b>entirely at conversos.</b>
+
+196
+00:06:17,099 --> 00:06:19,766
+<b>Descendants of Jews and Muslims forced to</b>
+
+197
+00:06:19,766 --> 00:06:21,199
+<b>convert to Christianity.</b>
+
+198
+00:06:21,699 --> 00:06:23,266
+<b>The 3,000 executions</b>
+
+199
+00:06:23,599 --> 00:06:24,900
+<b>weren't spread evenly.</b>
+
+200
+00:06:24,966 --> 00:06:26,433
+<b>They concentrated on the people, the</b>
+
+201
+00:06:26,433 --> 00:06:27,866
+<b>Spanish state never quite</b>
+
+202
+00:06:27,900 --> 00:06:29,166
+<b>trusted to be Christian.</b>
+
+203
+00:06:29,599 --> 00:06:30,900
+<b>Most people remember the</b>
+
+204
+00:06:30,900 --> 00:06:32,599
+<b>executions and the torture.</b>
+
+205
+00:06:32,833 --> 00:06:35,166
+<b>They rarely think about what it meant to</b>
+
+206
+00:06:35,166 --> 00:06:36,466
+<b>live under the Inquisition.</b>
+
+207
+00:06:37,066 --> 00:06:38,233
+<b>This is what a converso</b>
+
+208
+00:06:38,233 --> 00:06:41,266
+<b>writer in Toledo writes in 1538.</b>
+
+209
+00:06:41,633 --> 00:06:43,366
+<b>"Bit by bit, many rich people leave the</b>
+
+210
+00:06:43,366 --> 00:06:44,300
+<b>country for foreign</b>
+
+211
+00:06:44,300 --> 00:06:45,800
+<b>realms in order not to live</b>
+
+212
+00:06:46,166 --> 00:06:48,199
+<b>all their lives in fear and trembling</b>
+
+213
+00:06:48,199 --> 00:06:49,300
+<b>every time an officer of the</b>
+
+214
+00:06:49,300 --> 00:06:50,966
+<b>Inquisition enters their house.</b>
+
+215
+00:06:51,500 --> 00:06:53,233
+<b>For continual fear is a worse</b>
+
+216
+00:06:53,300 --> 00:06:54,966
+<b>death than a sudden demise."</b>
+
+217
+00:06:56,000 --> 00:06:57,500
+<b>This is what the system produced.</b>
+
+218
+00:06:57,866 --> 00:06:58,800
+<b>Not just 3,000</b>
+
+219
+00:06:58,800 --> 00:07:01,400
+<b>executions, but generational fear.</b>
+
+220
+00:07:01,766 --> 00:07:03,066
+<b>The rules weren't there</b>
+
+221
+00:07:03,066 --> 00:07:04,400
+<b>to protect the accused.</b>
+
+222
+00:07:04,599 --> 00:07:06,400
+<b>They were there to make the Inquisition</b>
+
+223
+00:07:06,400 --> 00:07:08,866
+<b>run efficiently and harder to escape.</b>
+
+224
+00:07:09,066 --> 00:07:10,199
+<b>"Torquemada didn't invent</b>
+
+225
+00:07:10,233 --> 00:07:12,199
+<b>cruelty. He organized it.</b>
+
+226
+00:07:12,266 --> 00:07:14,533
+<b>He wrote rules that required a doctor in</b>
+
+227
+00:07:14,533 --> 00:07:15,366
+<b>the room while we</b>
+
+228
+00:07:15,366 --> 00:07:16,733
+<b>were being waterboarded.</b>
+
+229
+00:07:16,833 --> 00:07:18,633
+<b>He wrote rules that made your confession</b>
+
+230
+00:07:18,633 --> 00:07:20,066
+<b>invalid unless you repeated</b>
+
+231
+00:07:20,066 --> 00:07:21,666
+<b>it freely the next morning.</b>
+
+232
+00:07:21,900 --> 00:07:23,966
+<b>He wrote rules that said you couldn't be</b>
+
+233
+00:07:23,966 --> 00:07:26,166
+<b>tortured twice for the same evidence.</b>
+
+234
+00:07:26,599 --> 00:07:28,966
+<b>And in the same paragraph, he wrote the</b>
+
+235
+00:07:28,966 --> 00:07:30,966
+<b>clause that made all of it negotiable.</b>
+
+236
+00:07:31,566 --> 00:07:32,500
+<b>The people defending the</b>
+
+237
+00:07:32,500 --> 00:07:34,500
+<b>Inquisition cite those protections.</b>
+
+238
+00:07:34,766 --> 00:07:37,133
+<b>The critics cite the same document.</b>
+
+239
+00:07:37,466 --> 00:07:38,966
+<b>They're both kind of right.</b>
+
+240
+00:07:39,133 --> 00:07:39,966
+<b>They just don't read</b>
+
+241
+00:07:40,000 --> 00:07:41,866
+<b>paragraph 15 all the way through.</b>
+
+242
+00:07:42,566 --> 00:07:44,366
+<b>Subscribe, I try not to just tell a</b>
+
+243
+00:07:44,366 --> 00:07:45,833
+<b>story, but I also try</b>
+
+244
+00:07:45,833 --> 00:07:47,000
+<b>to show you the sources.</b>
+

@@ -1,0 +1,411 @@
+Warning: True color (24-bit) support not detected. Using a terminal with true color enabled will result in a better visual experience.
+YOLO mode is enabled. All tool calls will be automatically approved.
+YOLO mode is enabled. All tool calls will be automatically approved.
+Ripgrep is not available. Falling back to GrepTool.
+Warning: Could not read directory D:\History vs Hype\.pytest_cache: EPERM: operation not permitted, scandir 'D:\History vs Hype\.pytest_cache'
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 5787ms...
+Attempt 2 failed: You have exhausted your capacity on this model. Your quota will reset after 7s.. Retrying after 10633ms...
+```json
+[
+  {
+    "o": "Research · September 2023 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "SeptemberResearch",
+    "p": "Unknown",
+    "c": "Unknown-0000-SeptemberResearch-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Antony - Cambridge World History of Violence Vol 3 (2020).pdf",
+    "a": "Antony",
+    "y": "2020",
+    "t": "CambridgeWorldHistoryViolence",
+    "p": "Cambridge",
+    "c": "Antony-2020-CambridgeWorldHistoryViolence-Cambridge.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Archival - Integrated Archaeological Research Archival (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "ArchaeologicalResearchArchival",
+    "p": "Unknown",
+    "c": "Unknown-0000-ArchaeologicalResearchArchival-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Card - ORIGINAL RESEARCH (n.d.).pdf",
+    "a": "Card",
+    "y": "0000",
+    "t": "OriginalResearch",
+    "p": "Unknown",
+    "c": "Card-0000-OriginalResearch-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Council - Occupational Health and Safety in the Care and Use of Research Animals (1997) (1) (2) (3) (4) (5) (6) (7).pdf",
+    "a": "Council",
+    "y": "1997",
+    "t": "OccupationalHealthSafetyResearchAnimals",
+    "p": "Unknown",
+    "c": "Council-1997-OccupationalHealthSafetyResearchAnimals-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Council - Occupational Health and Safety in the Care and Use of Research Animals (1997) (1) (2) (3) (4) (5) (6).pdf",
+    "a": "Council",
+    "y": "1997",
+    "t": "OccupationalHealthSafetyResearchAnimals",
+    "p": "Unknown",
+    "c": "Council-1997-OccupationalHealthSafetyResearchAnimals-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Council - Occupational Health and Safety in the Care and Use of Research Animals (1997) (1) (2) (3) (4) (5).pdf",
+    "a": "Council",
+    "y": "1997",
+    "t": "OccupationalHealthSafetyResearchAnimals",
+    "p": "Unknown",
+    "c": "Council-1997-OccupationalHealthSafetyResearchAnimals-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Council - Occupational Health and Safety in the Care and Use of Research Animals (1997) (1) (2) (3) (4).pdf",
+    "a": "Council",
+    "y": "1997",
+    "t": "OccupationalHealthSafetyResearchAnimals",
+    "p": "Unknown",
+    "c": "Council-1997-OccupationalHealthSafetyResearchAnimals-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Council - Occupational Health and Safety in the Care and Use of Research Animals (1997) (1) (2) (3).pdf",
+    "a": "Council",
+    "y": "1997",
+    "t": "OccupationalHealthSafetyResearchAnimals",
+    "p": "Unknown",
+    "c": "Council-1997-OccupationalHealthSafetyResearchAnimals-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Council - Occupational Health and Safety in the Care and Use of Research Animals (1997) (1) (2).pdf",
+    "a": "Council",
+    "y": "1997",
+    "t": "OccupationalHealthSafetyResearchAnimals",
+    "p": "Unknown",
+    "c": "Council-1997-OccupationalHealthSafetyResearchAnimals-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Council - Occupational Health and Safety in the Care and Use of Research Animals (1997) (1).pdf",
+    "a": "Council",
+    "y": "1997",
+    "t": "OccupationalHealthSafetyResearchAnimals",
+    "p": "Unknown",
+    "c": "Council-1997-OccupationalHealthSafetyResearchAnimals-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Council - Occupational Health and Safety in the Care and Use of Research Animals (1997).pdf",
+    "a": "Council",
+    "y": "1997",
+    "t": "OccupationalHealthSafetyResearchAnimals",
+    "p": "Unknown",
+    "c": "Council-1997-OccupationalHealthSafetyResearchAnimals-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "David-E.-Stannard-American-Holocaust--1992--Oxford-University-Press--libgen.li.pdf",
+    "a": "Stannard",
+    "y": "1992",
+    "t": "AmericanHolocaust",
+    "p": "Oxford",
+    "c": "Stannard-1992-AmericanHolocaust-Oxford.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "De Michelis - The Non-Existent Manuscript Protocols (2004).pdf",
+    "a": "Michelis",
+    "y": "2004",
+    "t": "NonExistentManuscriptProtocols",
+    "p": "Unknown",
+    "c": "Michelis-2004-NonExistentManuscriptProtocols-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Denying the Holocaust (Deborah E. Lipstadt).pdf",
+    "a": "Lipstadt",
+    "y": "1993",
+    "t": "DenyingHolocaust",
+    "p": "Unknown",
+    "c": "Lipstadt-1993-DenyingHolocaust-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Geary - The Myth of Nations Medieval Origins of Europe (2002).pdf",
+    "a": "Geary",
+    "y": "2002",
+    "t": "MythNationsMedievalEurope",
+    "p": "Unknown",
+    "c": "Geary-2002-MythNationsMedievalEurope-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Goodrick-Clarke - Black Sun Aryan Cults and Esoteric Nazism (2002).pdf",
+    "a": "Goodrick-Clarke",
+    "y": "2002",
+    "t": "BlackSunAryanCultsNazism",
+    "p": "Unknown",
+    "c": "Goodrick-Clarke-2002-BlackSunAryanCultsNazism-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Gordon - Cambridge World History of Violence Vol 2 (2020).pdf",
+    "a": "Gordon",
+    "y": "2020",
+    "t": "CambridgeWorldHistoryViolence",
+    "p": "Cambridge",
+    "c": "Gordon-2020-CambridgeWorldHistoryViolence-Cambridge.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Gutman - Anatomy of the Auschwitz Death Camp (1994).pdf",
+    "a": "Gutman",
+    "y": "1994",
+    "t": "AuschwitzDeathCampAnatomy",
+    "p": "Unknown",
+    "c": "Gutman-1994-AuschwitzDeathCampAnatomy-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Hayes - Oxford Handbook of Holocaust Studies (2010).pdf",
+    "a": "Hayes",
+    "y": "2010",
+    "t": "OxfordHandbookHolocaustStudies",
+    "p": "Oxford",
+    "c": "Hayes-2010-OxfordHandbookHolocaustStudies-Oxford.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Heather Pringle - The Master Plan- Himmler’s Scholars and the Holocaust (2006, Hyperion).pdf",
+    "a": "Pringle",
+    "y": "2006",
+    "t": "MasterPlanHimmlerScholarsHolocaust",
+    "p": "Unknown",
+    "c": "Pringle-2006-MasterPlanHimmlerScholarsHolocaust-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Holocaust The Nazi Persecution and Murder of the Jews (Peter Longerich).pdf",
+    "a": "Longerich",
+    "y": "2010",
+    "t": "HolocaustNaziPersecutionJews",
+    "p": "Oxford",
+    "c": "Longerich-2010-HolocaustNaziPersecutionJews-Oxford.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "In broad daylight the secret procedures behind the Holocaust by bullets (Desbois, PatrickReyl, Hilary).pdf",
+    "a": "Desbois",
+    "y": "2018",
+    "t": "HolocaustByBulletsProcedures",
+    "p": "Unknown",
+    "c": "Desbois-2018-HolocaustByBulletsProcedures-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "India - JSTOR is a not (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "JSTORIndia",
+    "p": "Unknown",
+    "c": "Unknown-0000-JSTORIndia-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Katz - The Paranoid Apocalypse Protocols of Zion (2015).pdf",
+    "a": "Katz",
+    "y": "2015",
+    "t": "ParanoidApocalypseProtocolsZion",
+    "p": "Unknown",
+    "c": "Katz-2015-ParanoidApocalypseProtocolsZion-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "May - National History and New Nationalism 21st Century (2021).pdf",
+    "a": "May",
+    "y": "2021",
+    "t": "NationalHistoryNewNationalism",
+    "p": "Unknown",
+    "c": "May-2021-NationalHistoryNewNationalism-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Norman Cohn - Warrant for Genocide- The Myth of the Jewish World Conspiracy and the Protocols of the Elders of Zion (2005, Serif).pdf",
+    "a": "Cohn",
+    "y": "2005",
+    "t": "WarrantGenocideJewishConspiracyProtocolsZion",
+    "p": "Unknown",
+    "c": "Cohn-2005-WarrantGenocideJewishConspiracyProtocolsZion-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Peter Hayes- John K. Roth - The Oxford Handbook of Holocaust Studies (2010, Oxford University Press).pdf",
+    "a": "Hayes",
+    "y": "2010",
+    "t": "OxfordHandbookHolocaustStudies",
+    "p": "Oxford",
+    "c": "Hayes-2010-OxfordHandbookHolocaustStudies-Oxford.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Pomeranz - The Great Divergence China Europe Economy (2000).pdf",
+    "a": "Pomeranz",
+    "y": "2000",
+    "t": "GreatDivergenceChinaEuropeEconomy",
+    "p": "Unknown",
+    "c": "Pomeranz-2000-GreatDivergenceChinaEuropeEconomy-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Rubenstein--Jay-Armies-of-Heaven-The-First-Crusade-and-the-Quest-for-Apocalypse--2011--Basic-Books--.pdf",
+    "a": "Rubenstein",
+    "y": "2011",
+    "t": "ArmiesHeavenFirstCrusadeApocalypse",
+    "p": "Unknown",
+    "c": "Rubenstein-2011-ArmiesHeavenFirstCrusadeApocalypse-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Slotte - Revisiting Origins of Human Rights (2015).pdf",
+    "a": "Slotte",
+    "y": "2015",
+    "t": "RevisitingOriginsHumanRights",
+    "p": "Unknown",
+    "c": "Slotte-2015-RevisitingOriginsHumanRights-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Smith - The Foundations of Research and Regional Survey in the Tsaghkahovit Plain, Armenia (2009).pdf",
+    "a": "Smith",
+    "y": "2009",
+    "t": "FoundationsResearchRegionalSurveyArmenia",
+    "p": "Unknown",
+    "c": "Smith-2009-FoundationsResearchRegionalSurveyArmenia-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The Jews of Arab lands - a history and source book -- Norman A Stillman; Mazal Holocaust Collection.pdf",
+    "a": "Stillman",
+    "y": "1979",
+    "t": "JewsArabLandsHistory",
+    "p": "Unknown",
+    "c": "Stillman-1979-JewsArabLandsHistory-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The Lie That Wouldn't Die - The Protocols of the Elders of -- Hadassa Ben-Itto; preface by Lord Woolf; foreword by Edward -- International Specialized -- 9780853035954 -- 12ad7a7301fed2af1231767a6bd15d2e -- Anna’s Archive.pdf",
+    "a": "Ben-Itto",
+    "y": "2005",
+    "t": "LieWouldnDieProtocolsElders",
+    "p": "Unknown",
+    "c": "Ben-Itto-2005-LieWouldnDieProtocolsElders-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The Lie That Wouldnt Die - The Protocols of the Elders of -- Hadassa Ben-Itto; preface by Lord Woolf; foreword by Edward.pdf",
+    "a": "Ben-Itto",
+    "y": "2005",
+    "t": "LieWouldntDieProtocolsElders",
+    "p": "Unknown",
+    "c": "Ben-Itto-2005-LieWouldntDieProtocolsElders-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The Myth of Nations- The Medieval Origins of Europe- -- Geary, Patrick J-, 1948- -- Princeton paperbacks, 2- print-, 1- paperback print, -- Princeton, -- 9780691090542 -- a1bfcabeb85d3995592c59ff973aea11 -- Anna’s Archive.pdf",
+    "a": "Geary",
+    "y": "2002",
+    "t": "MythNationsMedievalEurope",
+    "p": "Princeton",
+    "c": "Geary-2002-MythNationsMedievalEurope-Princeton.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The Non-existent Manuscript- A Study Of The Protocols Of The -- Cesare G De Michelis; Richard Newhouse; Vidal Sassoon -- Studies in antisemitism, -- 9780803217270 -- b29396f9d808955034615c4942c8a73e -- Anna’s Archive.pdf",
+    "a": "Michelis",
+    "y": "2004",
+    "t": "NonExistentManuscriptProtocols",
+    "p": "Unknown",
+    "c": "Michelis-2004-NonExistentManuscriptProtocols-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The Plot. The secret story of The Protocols of the Elders of Zion (Will Eisner).pdf",
+    "a": "Eisner",
+    "y": "2005",
+    "t": "PlotSecretProtocolsZion",
+    "p": "Unknown",
+    "c": "Eisner-2005-PlotSecretProtocolsZion-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Unknown - Natural resource exploitation in Western Sahara (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "NaturalResourceExploitationWesternSahara",
+    "p": "Unknown",
+    "c": "Unknown-0000-NaturalResourceExploitationWesternSahara-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Woodlands - See discussions, stats, and author profiles for this publication at (n.d.).pdf",
+    "a": "Woodlands",
+    "y": "0000",
+    "t": "WoodlandsPublication",
+    "p": "Unknown",
+    "c": "Woodlands-0000-WoodlandsPublication-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  }
+]
+```

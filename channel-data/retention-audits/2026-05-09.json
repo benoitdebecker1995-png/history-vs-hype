@@ -1,0 +1,131 @@
+{
+  "date": "2026-05-09",
+  "fetched_at": "2026-05-09T21:53:07.201069",
+  "threshold": 0.1,
+  "videos": [
+    {
+      "video_id": "mg6ujk6rDVE",
+      "title": "The Lenape Never Sold Manhattan. Every Piece Was Forged",
+      "published_at": "2026-05-08T09:12:03Z",
+      "duration_seconds": 601,
+      "views": 0,
+      "cliffs": []
+    },
+    {
+      "video_id": "liW4BSh46DU",
+      "title": "Treaty of Tripoli: The Most-Cited Line Isn\u2019t in the Arabic Text",
+      "published_at": "2026-04-30T22:45:12Z",
+      "duration_seconds": 398,
+      "views": 15,
+      "cliffs": [
+        {
+          "from_ratio": 0.01,
+          "to_ratio": 0.02,
+          "drop_pct": -14.3,
+          "is_new": true
+        },
+        {
+          "from_ratio": 0.03,
+          "to_ratio": 0.04,
+          "drop_pct": -25.0,
+          "is_new": true
+        },
+        {
+          "from_ratio": 0.08,
+          "to_ratio": 0.09,
+          "drop_pct": -20.0,
+          "is_new": true
+        },
+        {
+          "from_ratio": 0.09,
+          "to_ratio": 0.1,
+          "drop_pct": -12.5,
+          "is_new": true
+        },
+        {
+          "from_ratio": 0.12,
+          "to_ratio": 0.13,
+          "drop_pct": -11.1,
+          "is_new": true
+        },
+        {
+          "from_ratio": 0.14,
+          "to_ratio": 0.15,
+          "drop_pct": -25.0,
+          "is_new": true
+        },
+        {
+          "from_ratio": 0.58,
+          "to_ratio": 0.59,
+          "drop_pct": -16.7,
+          "is_new": true
+        },
+        {
+          "from_ratio": 0.72,
+          "to_ratio": 0.73,
+          "drop_pct": -20.0,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "video_id": "MXvTuHXSf3o",
+      "title": "Nigeria vs Cameroon. The Court Chose Paper Over People",
+      "published_at": "2026-04-16T21:36:45Z",
+      "duration_seconds": 683,
+      "views": 10,
+      "cliffs": []
+    },
+    {
+      "video_id": "yetYD9_VcmM",
+      "title": "The Myths of Thermopylae: Fake Quotes & Missing Soldiers",
+      "published_at": "2026-04-11T23:01:23Z",
+      "duration_seconds": 670,
+      "views": 77,
+      "cliffs": [
+        {
+          "from_ratio": 0.02,
+          "to_ratio": 0.03,
+          "drop_pct": -16.7,
+          "is_new": true
+        },
+        {
+          "from_ratio": 0.03,
+          "to_ratio": 0.04,
+          "drop_pct": -20.0,
+          "is_new": true
+        },
+        {
+          "from_ratio": 0.04,
+          "to_ratio": 0.05,
+          "drop_pct": -11.3,
+          "is_new": true
+        },
+        {
+          "from_ratio": 0.05,
+          "to_ratio": 0.06,
+          "drop_pct": -15.4,
+          "is_new": true
+        },
+        {
+          "from_ratio": 0.12,
+          "to_ratio": 0.13,
+          "drop_pct": -11.1,
+          "is_new": true
+        },
+        {
+          "from_ratio": 0.66,
+          "to_ratio": 0.67,
+          "drop_pct": -13.3,
+          "is_new": true
+        },
+        {
+          "from_ratio": 0.79,
+          "to_ratio": 0.8,
+          "drop_pct": -14.3,
+          "is_new": true
+        }
+      ]
+    }
+  ]
+}

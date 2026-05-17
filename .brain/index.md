@@ -64,11 +64,11 @@
 
 | Topic | Lifecycle | Phase | Last Touched |
 |-------|-----------|-------|--------------|
+| `56-no-lassos-atlantic-slave-trade-origin-2026` | `_IN_PRODUCTION` | fact-checked | 2026-05-13 |
 | `1-sykes-picot-2025` | `_READY_TO_FILM` | filmed | 2026-05-11 |
 | `9-communism-definition-2025` | `_IN_PRODUCTION` | scripting | 2026-05-11 |
 | `8-medieval-women-2025` | `_IN_PRODUCTION` | idea | 2026-05-11 |
 | `55-falklands-malvinas-2026` | `_IN_PRODUCTION` | research | 2026-05-11 |
-| `54-spanish-inquisition-torture-rules-2026` | `_READY_TO_FILM` | filmed | 2026-05-11 |
 | `52-hijab-women-rights-2026` | `_IN_PRODUCTION` | scripting | 2026-05-11 |
 | `5-netanyahu-map-2025` | `_IN_PRODUCTION` | idea | 2026-05-11 |
 | `49-code-noir-untranslated-2026` | `_IN_PRODUCTION` | idea | 2026-05-11 |

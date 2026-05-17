@@ -1,0 +1,1809 @@
+Warning: True color (24-bit) support not detected. Using a terminal with true color enabled will result in a better visual experience.
+YOLO mode is enabled. All tool calls will be automatically approved.
+YOLO mode is enabled. All tool calls will be automatically approved.
+Ripgrep is not available. Falling back to GrepTool.
+Warning: Could not read directory D:\History vs Hype\.pytest_cache: EPERM: operation not permitted, scandir 'D:\History vs Hype\.pytest_cache'
+```json
+[
+  {
+    "o": "infant-and-child-burial-rites-in-roman-britain-a-study-from-east-yorkshire.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "InfantChildBurialRitesRomanBritain",
+    "p": "Unknown",
+    "c": "Unknown-0000-InfantChildBurialRitesRomanBritain-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Infanticide-and-Sacrifices-among-Archaic-Babies-of-1.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "InfanticideSacrificesArchaicBabies",
+    "p": "Unknown",
+    "c": "Unknown-0000-InfanticideSacrificesArchaicBabies-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Infanticide-and-Sacrifices-among-Archaic-Babies-of.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "InfanticideSacrificesArchaicBabies",
+    "p": "Unknown",
+    "c": "Unknown-0000-InfanticideSacrificesArchaicBabies-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Information - Basic Facts about the United Nations (2017) (1).pdf",
+    "a": "Unknown",
+    "y": "2017",
+    "t": "BasicFactsUnitedNations",
+    "p": "Unknown",
+    "c": "Unknown-2017-BasicFactsUnitedNations-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Information - Basic Facts about the United Nations (2017).pdf",
+    "a": "Unknown",
+    "y": "2017",
+    "t": "BasicFactsUnitedNations",
+    "p": "Unknown",
+    "c": "Unknown-2017-BasicFactsUnitedNations-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Ingrao - Confronting the Yugoslav Controversies (2013).pdf",
+    "a": "Ingrao",
+    "y": "2013",
+    "t": "ConfrontingYugoslavControversies",
+    "p": "Unknown",
+    "c": "Ingrao-2013-ConfrontingYugoslavControversies-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Inka History in Knots Reading Khipus as Primary Sources (Gary Urton).pdf",
+    "a": "Urton",
+    "y": "0000",
+    "t": "InkaHistoryKhipus",
+    "p": "Unknown",
+    "c": "Urton-0000-InkaHistoryKhipus-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Instruction - Report of the Superintendent of Public Instruction of the State of New York (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "ReportSuperintendentPublicInstruction",
+    "p": "Unknown",
+    "c": "Unknown-0000-ReportSuperintendentPublicInstruction-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "inter- - the dire necessities of Balkan strategy for the Entente as the Central Powers bore down on the area. (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "BalkanStrategyEntenteCentralPowers",
+    "p": "Unknown",
+    "c": "Unknown-0000-BalkanStrategyEntenteCentralPowers-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "International Journal of Policy Studies 10(1) - Ari-Veikko Anttiroiko (n.d.).pdf",
+    "a": "Anttiroiko",
+    "y": "0000",
+    "t": "InternationalPolicyStudies",
+    "p": "Unknown",
+    "c": "Anttiroiko-0000-InternationalPolicyStudies-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Interview with history- A superlative journalist's portraits -- Oriana Fallaci; translated by John Shepley -- 1st ed-, New York, New York State, 1976 -- 9780871405906 -- 80beb4827c3e94896bd60097fa9d1969 -- Anna’s Archive.pdf",
+    "a": "Fallaci",
+    "y": "1976",
+    "t": "InterviewHistory",
+    "p": "AnnaArchive",
+    "c": "Fallaci-1976-InterviewHistory-AnnaArchive.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Invest - Zichtrekening Invest (n.d.) (1) (2).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "ZichtrekeningInvest",
+    "p": "Unknown",
+    "c": "Unknown-0000-ZichtrekeningInvest-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Invest - Zichtrekening Invest (n.d.) (1).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "ZichtrekeningInvest",
+    "p": "Unknown",
+    "c": "Unknown-0000-ZichtrekeningInvest-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Invest - Zichtrekening Invest (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "ZichtrekeningInvest",
+    "p": "Unknown",
+    "c": "Unknown-0000-ZichtrekeningInvest-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Ioannis_E_Kotoulas_The_Historical_Image.pdf",
+    "a": "Kotoulas",
+    "y": "0000",
+    "t": "HistoricalImage",
+    "p": "Unknown",
+    "c": "Kotoulas-0000-HistoricalImage-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Ion Mihai Pacepa - Disinformation (2013).pdf",
+    "a": "Pacepa",
+    "y": "2013",
+    "t": "Disinformation",
+    "p": "Unknown",
+    "c": "Pacepa-2013-Disinformation-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Irving - Leila Khaled (2012).pdf",
+    "a": "Irving",
+    "y": "2012",
+    "t": "LeilaKhaled",
+    "p": "Unknown",
+    "c": "Irving-2012-LeilaKhaled-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Ishay - The History of Human Rights (2008).pdf",
+    "a": "Ishay",
+    "y": "2008",
+    "t": "HistoryHumanRights",
+    "p": "Unknown",
+    "c": "Ishay-2008-HistoryHumanRights-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Island of Shame The Secret History of the U.S. Military Base on Diego Garcia (David Vine) (Z-Library).pdf",
+    "a": "Vine",
+    "y": "0000",
+    "t": "IslandShameDiegoGarcia",
+    "p": "ZLib",
+    "c": "Vine-0000-IslandShameDiegoGarcia-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Israel - a history -- Anita Shapira; Anthony Berris -- W & N paperback, Paperback edition, London, 2015 -- Weidenfeld & Nicolson -- 9781780227399 -- 675a2a02dfdf24bad435035d17c30848 -- Anna’s Archive.pdf",
+    "a": "Shapira",
+    "y": "2015",
+    "t": "IsraelHistory",
+    "p": "AnnaArchive",
+    "c": "Shapira-2015-IsraelHistory-AnnaArchive.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Israel - European Jewry in the Age of Mercantilism, 1550-1750 (1989).pdf",
+    "a": "Israel",
+    "y": "1989",
+    "t": "EuropeanJewryMercantilism",
+    "p": "Unknown",
+    "c": "Israel-1989-EuropeanJewryMercantilism-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "James A. Bill - The Eagle and the Lion_ The Tragedy of American-Iranian Relations (1989, Yale University Press) - libgen.li.pdf",
+    "a": "Bill",
+    "y": "1989",
+    "t": "EagleLionAmericanIranianRelations",
+    "p": "Yale",
+    "c": "Bill-1989-EagleLionAmericanIranianRelations-Yale.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "James Crawford - Brownlie's Principles of Public International Law (2019, Oxford University Press) - libgen.li.epub",
+    "a": "Crawford",
+    "y": "2019",
+    "t": "BrownlieInternationalLaw",
+    "p": "Oxford",
+    "c": "Crawford-2019-BrownlieInternationalLaw-Oxford.epub",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Jenica Carter, Judy Bauer, Adrian Ng, F. Wesley Schneider - Player's Handbook 5-5e (2024, Wizards of the coast) - libgen.li_compressed.pdf",
+    "a": "Carter",
+    "y": "2024",
+    "t": "PlayersHandbook",
+    "p": "Libgen",
+    "c": "Carter-2024-PlayersHandbook-Libgen.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Jenica Carter, Judy Bauer, Adrian Ng, F. Wesley Schneider - Player's Handbook 5-5e (2024, Wizards of the coast) - libgen.li.pdf",
+    "a": "Carter",
+    "y": "2024",
+    "t": "PlayersHandbook",
+    "p": "Libgen",
+    "c": "Carter-2024-PlayersHandbook-Libgen.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Jensen - Western Sahara (2005).pdf",
+    "a": "Jensen",
+    "y": "2005",
+    "t": "WesternSahara",
+    "p": "Unknown",
+    "c": "Jensen-2005-WesternSahara-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Jesch - Women in the Viking Age (1991).pdf",
+    "a": "Jesch",
+    "y": "1991",
+    "t": "WomenVikingAge",
+    "p": "Unknown",
+    "c": "Jesch-1991-WomenVikingAge-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Jews in France during World War II (Poznanski, Renée) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Poznanski",
+    "y": "0000",
+    "t": "JewsFranceWWII",
+    "p": "ZLib",
+    "c": "Poznanski-0000-JewsFranceWWII-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "JODEF_19410614_164.pdf",
+    "a": "Unknown",
+    "y": "1941",
+    "t": "JODEFDocument",
+    "p": "Unknown",
+    "c": "Unknown-1941-JODEFDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Joly - The Dialogue in Hell between Machiavelli and Montesquieu (2002).pdf",
+    "a": "Joly",
+    "y": "2002",
+    "t": "DialogueMachiavelliMontesquieu",
+    "p": "Unknown",
+    "c": "Joly-2002-DialogueMachiavelliMontesquieu-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Jones - New International Business English Updated Edition Student's Book (2000).pdf",
+    "a": "Jones",
+    "y": "2000",
+    "t": "NewInternationalBusinessEnglish",
+    "p": "Unknown",
+    "c": "Jones-2000-NewInternationalBusinessEnglish-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "JORF_19400718_174.pdf",
+    "a": "Unknown",
+    "y": "1940",
+    "t": "JORFDocument",
+    "p": "Unknown",
+    "c": "Unknown-1940-JORFDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "JORF_19400819_206.pdf",
+    "a": "Unknown",
+    "y": "1940",
+    "t": "JORFDocument",
+    "p": "Unknown",
+    "c": "Unknown-1940-JORFDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "JORF_19400828_215.pdf",
+    "a": "Unknown",
+    "y": "1940",
+    "t": "JORFDocument",
+    "p": "Unknown",
+    "c": "Unknown-1940-JORFDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "JORF_19400830_217.pdf",
+    "a": "Unknown",
+    "y": "1940",
+    "t": "JORFDocument",
+    "p": "Unknown",
+    "c": "Unknown-1940-JORFDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "JORF_19401018_266.pdf",
+    "a": "Unknown",
+    "y": "1940",
+    "t": "JORFDocument",
+    "p": "Unknown",
+    "c": "Unknown-1940-JORFDocument-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Joseph EDWARDS (M.A. - A practical Introduction to English Composition ... Second edition (n.d.).pdf",
+    "a": "Edwards",
+    "y": "0000",
+    "t": "EnglishCompositionIntroduction",
+    "p": "Unknown",
+    "c": "Edwards-0000-EnglishCompositionIntroduction-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "jsa-0037-9174-1984-num-70-1-2239.pdf",
+    "a": "Unknown",
+    "y": "1984",
+    "t": "JSAPaper",
+    "p": "Unknown",
+    "c": "Unknown-1984-JSAPaper-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Judiciary - Protocols of the Elders of Zion (1964).pdf",
+    "a": "Unknown",
+    "y": "1964",
+    "t": "ProtocolsEldersZion",
+    "p": "Unknown",
+    "c": "Unknown-1964-ProtocolsEldersZion-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Kaegi - Byzantium and the Early Islamic Conquests (1995).pdf",
+    "a": "Kaegi",
+    "y": "1995",
+    "t": "ByzantiumIslamicConquests",
+    "p": "Unknown",
+    "c": "Kaegi-1995-ByzantiumIslamicConquests-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Kasetsiri - Preah Vihear (2013).pdf",
+    "a": "Kasetsiri",
+    "y": "2013",
+    "t": "PreahVihear",
+    "p": "Unknown",
+    "c": "Kasetsiri-2013-PreahVihear-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Kater - Das Ahnenerbe der SS 1935-1945 (2009).pdf",
+    "a": "Kater",
+    "y": "2009",
+    "t": "AhnenerbeSS",
+    "p": "Unknown",
+    "c": "Kater-2009-AhnenerbeSS-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Katz - The Paranoid Apocalypse (2011).pdf",
+    "a": "Katz",
+    "y": "2011",
+    "t": "ParanoidApocalypse",
+    "p": "Unknown",
+    "c": "Katz-2011-ParanoidApocalypse-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Keber - Codex Telleriano-Remensis (1995).pdf",
+    "a": "Keber",
+    "y": "1995",
+    "t": "CodexTellerianoRemensis",
+    "p": "Unknown",
+    "c": "Keber-1995-CodexTellerianoRemensis-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "keen1969.pdf",
+    "a": "Keen",
+    "y": "1969",
+    "t": "UnknownTitle",
+    "p": "Unknown",
+    "c": "Keen-1969-UnknownTitle-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Kemal - REFUTATION OF THE ARMENIAN RESOLUTION ARTICLE BY ARTICLE (n.d.).pdf",
+    "a": "Kemal",
+    "y": "0000",
+    "t": "RefutationArmenianResolution",
+    "p": "Unknown",
+    "c": "Kemal-0000-RefutationArmenianResolution-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Kemel - De drempels van de jeugdbeweging in Oostende (n.d.).pdf",
+    "a": "Kemel",
+    "y": "0000",
+    "t": "DrempelsJeugdbewegingOostende",
+    "p": "Unknown",
+    "c": "Kemel-0000-DrempelsJeugdbewegingOostende-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Kenneth Stow - Alienated Minority- The Jews of Medieval Latin Europe (1998, Harvard University Press).pdf",
+    "a": "Stow",
+    "y": "1998",
+    "t": "AlienatedMinorityJewsMedievalEurope",
+    "p": "Harvard",
+    "c": "Stow-1998-AlienatedMinorityJewsMedievalEurope-Harvard.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Kimmerling - Politicide (2003).pdf",
+    "a": "Kimmerling",
+    "y": "2003",
+    "t": "Politicide",
+    "p": "Unknown",
+    "c": "Kimmerling-2003-Politicide-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Knoblauch - Social Constructivism as Paradigm (Knowledge, Communication and Society) (n.d.).pdf",
+    "a": "Knoblauch",
+    "y": "0000",
+    "t": "SocialConstructivismParadigm",
+    "p": "Unknown",
+    "c": "Knoblauch-0000-SocialConstructivismParadigm-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Kosovo - War and Revenge -- Tim Judah -- New Haven, Conn, 2000 -- Yale University Press -- 9780300083132 -- 02f41ebf6523dcb04f93a86ce54ddc7e -- Anna’s Archive.pdf",
+    "a": "Judah",
+    "y": "2000",
+    "t": "KosovoWarRevenge",
+    "p": "AnnaArchive",
+    "c": "Judah-2000-KosovoWarRevenge-AnnaArchive.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Kreativ Ung is a cultural project - Location Jönköping, Sweden (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "KreativUngCulturalProject",
+    "p": "Unknown",
+    "c": "Unknown-0000-KreativUngCulturalProject-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Kroening - Return of Great Power Rivalry (2020).pdf",
+    "a": "Kroening",
+    "y": "2020",
+    "t": "ReturnGreatPowerRivalry",
+    "p": "Unknown",
+    "c": "Kroening-2020-ReturnGreatPowerRivalry-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Kurlander - Revisiting the nazi Occult Histories, Realities, Legacies (n.d.).pdf",
+    "a": "Kurlander",
+    "y": "0000",
+    "t": "NaziOccultHistories",
+    "p": "Unknown",
+    "c": "Kurlander-0000-NaziOccultHistories-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "La historia económica de América Latina desde la Independencia (Victor Bulmer-Thomas).pdf",
+    "a": "Bulmer-Thomas",
+    "y": "0000",
+    "t": "HistoriaEconomicaAmericaLatina",
+    "p": "Unknown",
+    "c": "Bulmer-Thomas-0000-HistoriaEconomicaAmericaLatina-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Labs - Discerning Merchant's Price Guide v3 (Printer Friendly) (n.d.).pdf",
+    "a": "Labs",
+    "y": "0000",
+    "t": "DiscerningMerchantsPriceGuide",
+    "p": "Unknown",
+    "c": "Labs-0000-DiscerningMerchantsPriceGuide-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "LACES-2016-Wade.pdf",
+    "a": "Wade",
+    "y": "2016",
+    "t": "LACES",
+    "p": "Unknown",
+    "c": "Wade-2016-LACES-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Lacombe - Join our team ! (n.d.).pdf",
+    "a": "Lacombe",
+    "y": "0000",
+    "t": "JoinOurTeam",
+    "p": "Unknown",
+    "c": "Lacombe-0000-JoinOurTeam-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Lambert - The Founding Fathers and the Place of Religion in America (2010).pdf",
+    "a": "Lambert",
+    "y": "2010",
+    "t": "FoundingFathersReligionAmerica",
+    "p": "Unknown",
+    "c": "Lambert-2010-FoundingFathersReligionAmerica-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Lane - Potosí (2018).pdf",
+    "a": "Lane",
+    "y": "2018",
+    "t": "Potosi",
+    "p": "Unknown",
+    "c": "Lane-2018-Potosi-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "large-scale-collaborative-imagery-survey-in-archaeology-the-geospatial-platform-for-andean-culture-history-and-archaeology-geopacha-1.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "ImagerySurveyArchaeologyGeoPacha",
+    "p": "Unknown",
+    "c": "Unknown-0000-ImagerySurveyArchaeologyGeoPacha-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Laura Silber, Allan Little - Yugoslavia- Death of a Nation (1997, Penguin Books).pdf",
+    "a": "Silber",
+    "y": "1997",
+    "t": "YugoslaviaDeathNation",
+    "p": "Unknown",
+    "c": "Silber-1997-YugoslaviaDeathNation-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Lauren Benton - A Search for Sovereignty_ Law and Geography in European Empires, 1400-1900 (2009, Cambridge University Press) - libgen.li.pdf",
+    "a": "Benton",
+    "y": "2009",
+    "t": "SearchSovereigntyEuropeanEmpires",
+    "p": "Cambridge",
+    "c": "Benton-2009-SearchSovereigntyEuropeanEmpires-Cambridge.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Law and Society in the Visigothic Kingdom (Cambridge Studies -- [by] P_ D_ King -- Cambridge studies in medieval life and thought, 3rd ser_, v_ -- 9780521031288 -- 6db9ec5ba03415f10fc9cb12add32b28 -- Anna’s Archive.pdf",
+    "a": "King",
+    "y": "0000",
+    "t": "LawSocietyVisigothicKingdom",
+    "p": "AnnaArchive",
+    "c": "King-0000-LawSocietyVisigothicKingdom-AnnaArchive.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "LAW OF OCTOBER 3, 1940, CONCERNING THE STATUS OF JEWS.pdf",
+    "a": "Unknown",
+    "y": "1940",
+    "t": "LawStatusJews",
+    "p": "Unknown",
+    "c": "Unknown-1940-LawStatusJews-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Laws of the Alamans and Bavarians (Theodore John Rivers (editor)) (Z-Library).pdf",
+    "a": "Rivers",
+    "y": "0000",
+    "t": "LawsAlamansBavarians",
+    "p": "ZLib",
+    "c": "Rivers-0000-LawsAlamansBavarians-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Lehmann - Annäherungen an Helmut Heissenbüttel (2005).pdf",
+    "a": "Lehmann",
+    "y": "2005",
+    "t": "AnnaeherungenHelmutHeissenbuettel",
+    "p": "Unknown",
+    "c": "Lehmann-2005-AnnaeherungenHelmutHeissenbuettel-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Lenape Country Delaware Valley Society Before William Penn (Jean R. Soderlund) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Soderlund",
+    "y": "0000",
+    "t": "LenapeCountryDelawareValley",
+    "p": "ZLib",
+    "c": "Soderlund-0000-LenapeCountryDelawareValley-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "León - The Second Part of the Chronicle of Peru of Pedro de Cieza de León (1964).pdf",
+    "a": "León",
+    "y": "1964",
+    "t": "ChroniclePeru",
+    "p": "Unknown",
+    "c": "León-1964-ChroniclePeru-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Lessons-from-French-Military-Interventio.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "FrenchMilitaryIntervention",
+    "p": "Unknown",
+    "c": "Unknown-0000-FrenchMilitaryIntervention-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Leuven) - Toelatingsvoorwaarden (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "Toelatingsvoorwaarden",
+    "p": "Unknown",
+    "c": "Unknown-0000-Toelatingsvoorwaarden-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Levack - The Witch-hunt in Early Modern Europe (2006).pdf",
+    "a": "Levack",
+    "y": "2006",
+    "t": "WitchHuntEarlyModernEurope",
+    "p": "Unknown",
+    "c": "Levack-2006-WitchHuntEarlyModernEurope-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Lewandowsky, Stephan- Cook, John - The debunking handbook (2011, University of Queensland).pdf",
+    "a": "Lewandowsky",
+    "y": "2011",
+    "t": "DebunkingHandbook",
+    "p": "Unknown",
+    "c": "Lewandowsky-2011-DebunkingHandbook-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Liberty or death Indias journey to independence and division (French, Patrick) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "French",
+    "y": "0000",
+    "t": "LibertyDeathIndiaIndependence",
+    "p": "ZLib",
+    "c": "French-0000-LibertyDeathIndiaIndependence-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Library - Catalogue of the Library of the Graduate School of Design, Harvard University (1968) (1).pdf",
+    "a": "Unknown",
+    "y": "1968",
+    "t": "HarvardDesignLibraryCatalogue",
+    "p": "Unknown",
+    "c": "Unknown-1968-HarvardDesignLibraryCatalogue-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Library - Catalogue of the Library of the Graduate School of Design, Harvard University (1968).pdf",
+    "a": "Unknown",
+    "y": "1968",
+    "t": "HarvardDesignLibraryCatalogue",
+    "p": "Unknown",
+    "c": "Unknown-1968-HarvardDesignLibraryCatalogue-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "license. - DOI10.116318718000-12340191 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "LicenseDOI",
+    "p": "Unknown",
+    "c": "Unknown-0000-LicenseDOI-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Life - Outdoor Life's Anthology of Fishing Adventures (2013).pdf",
+    "a": "Unknown",
+    "y": "2013",
+    "t": "OutdoorLifeFishingAdventures",
+    "p": "Unknown",
+    "c": "Unknown-2013-OutdoorLifeFishingAdventures-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Lines-Drawn-on-an-Empty-Map-Iraq-s-Borde.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "IraqBorderLines",
+    "p": "Unknown",
+    "c": "Unknown-0000-IraqBorderLines-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Lipstadt - Denying the Holocaust (2012).pdf",
+    "a": "Lipstadt",
+    "y": "2012",
+    "t": "DenyingHolocaust",
+    "p": "Unknown",
+    "c": "Lipstadt-2012-DenyingHolocaust-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "LLLandMDATeotihuacaninTenochtitlan.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "TeotihuacanTenochtitlan",
+    "p": "Unknown",
+    "c": "Unknown-0000-TeotihuacanTenochtitlan-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Loewen - Lies Across America (2010).pdf",
+    "a": "Loewen",
+    "y": "2010",
+    "t": "LiesAcrossAmerica",
+    "p": "Unknown",
+    "c": "Loewen-2010-LiesAcrossAmerica-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Loewen - Lies My Teacher Told Me (2007).pdf",
+    "a": "Loewen",
+    "y": "2007",
+    "t": "LiesMyTeacherToldMe",
+    "p": "Unknown",
+    "c": "Loewen-2007-LiesMyTeacherToldMe-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Loewen - The Confederate and Neo-Confederate Reader (n.d.).pdf",
+    "a": "Loewen",
+    "y": "0000",
+    "t": "ConfederateNeoConfederateReader",
+    "p": "Unknown",
+    "c": "Loewen-0000-ConfederateNeoConfederateReader-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Loewen--James-W-Lies-Across-America--What-Our-Historic-Sites-Get-Wrong--2011-2010--The-New-Press--li.pdf",
+    "a": "Loewen",
+    "y": "2010",
+    "t": "LiesAcrossAmerica",
+    "p": "Unknown",
+    "c": "Loewen-2010-LiesAcrossAmerica-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Loewen--James-W-Lies-My-Teacher-Told-Me-Everything-Your-American-History-Textbook-Got-Wrong--2008--N.pdf",
+    "a": "Loewen",
+    "y": "2008",
+    "t": "LiesMyTeacherToldMe",
+    "p": "Unknown",
+    "c": "Loewen-2008-LiesMyTeacherToldMe-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Loewen, James W.-Sebesta, Edward - The Confederate and neo-Confederate reader- the ''great truth'' about the ''lost cause (2010, University Press of Mississippi).pdf",
+    "a": "Loewen",
+    "y": "2010",
+    "t": "ConfederateNeoConfederateReader",
+    "p": "Unknown",
+    "c": "Loewen-2010-ConfederateNeoConfederateReader-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Loi_du_3_octobre_1940_portant_statut_des_Juifs.pdf",
+    "a": "Unknown",
+    "y": "1940",
+    "t": "LoiStatutJuifs",
+    "p": "Unknown",
+    "c": "Unknown-1940-LoiStatutJuifs-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Longerich - Holocaust (2010).pdf",
+    "a": "Longerich",
+    "y": "2010",
+    "t": "Holocaust",
+    "p": "Unknown",
+    "c": "Longerich-2010-Holocaust-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Lords of all the world ideologies of empire in Spain, Britain and France c. 1500-c. 1800 (Pagden, Anthony) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Pagden",
+    "y": "0000",
+    "t": "LordsWorldEmpireIdeologies",
+    "p": "ZLib",
+    "c": "Pagden-0000-LordsWorldEmpireIdeologies-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Lost Islands The Story of Islands That Have Vanished from Nautical Charts (Henry Stommel) (Z-Library).epub",
+    "a": "Stommel",
+    "y": "0000",
+    "t": "LostIslandsNauticalCharts",
+    "p": "ZLib",
+    "c": "Stommel-0000-LostIslandsNauticalCharts-ZLib.epub",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Lost-Islands-The-Story-of-Islands-That-Have-Vanished-from-Nautical-Charts-_Henry-Stommel_-_Z-Library.pdf",
+    "a": "Stommel",
+    "y": "0000",
+    "t": "LostIslandsNauticalCharts",
+    "p": "ZLib",
+    "c": "Stommel-0000-LostIslandsNauticalCharts-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "LR - 1. Guidebook_General Introduction to ESC_updated 09.09.2020 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "GeneralIntroductionESC",
+    "p": "Unknown",
+    "c": "Unknown-0000-GeneralIntroductionESC-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "LR - 5. Guidebook_Explore Solidarity projects upadated_09.09.2020 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "ExploreSolidarityProjects",
+    "p": "Unknown",
+    "c": "Unknown-0000-ExploreSolidarityProjects-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "LR - 6. Guidebook_ Traineeships and Jobs in the European Solidarity Corps_updated 09.09.2020 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "TraineeshipsJobsEuropeanSolidarityCorps",
+    "p": "Unknown",
+    "c": "Unknown-0000-TraineeshipsJobsEuropeanSolidarityCorps-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "LR - 8. Guidebook_TEC (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "GuidebookTEC",
+    "p": "Unknown",
+    "c": "Unknown-0000-GuidebookTEC-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "M. E. Sarotte - Not One Inch- America, Russia, and the Making of Post-Cold War Stalemate (2021, Yale University Press).pdf",
+    "a": "Sarotte",
+    "y": "2021",
+    "t": "NotOneInchPostColdWarStalemate",
+    "p": "Yale",
+    "c": "Sarotte-2021-NotOneInchPostColdWarStalemate-Yale.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Maaren - Forest Policy (1986).pdf",
+    "a": "Maaren",
+    "y": "1986",
+    "t": "ForestPolicy",
+    "p": "Unknown",
+    "c": "Maaren-1986-ForestPolicy-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Mackay - The Hammer of Witches (2009).pdf",
+    "a": "Mackay",
+    "y": "2009",
+    "t": "HammerWitches",
+    "p": "Unknown",
+    "c": "Mackay-2009-HammerWitches-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "macron speech.pdf",
+    "a": "Macron",
+    "y": "0000",
+    "t": "Speech",
+    "p": "Unknown",
+    "c": "Macron-0000-Speech-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Maier - American Scripture (2012).pdf",
+    "a": "Maier",
+    "y": "2012",
+    "t": "AmericanScripture",
+    "p": "Unknown",
+    "c": "Maier-2012-AmericanScripture-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Maier - American Scripture Declaration of Independence (1997).pdf",
+    "a": "Maier",
+    "y": "1997",
+    "t": "AmericanScriptureDeclarationIndependence",
+    "p": "Unknown",
+    "c": "Maier-1997-AmericanScriptureDeclarationIndependence-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Malcolm - Kosovo (2002).pdf",
+    "a": "Malcolm",
+    "y": "2002",
+    "t": "Kosovo",
+    "p": "Unknown",
+    "c": "Malcolm-2002-Kosovo-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Malcolm--Noel-Kosovo--a-short-history--1998--New-York---New-York-University-Press--libgen.li.pdf",
+    "a": "Malcolm",
+    "y": "1998",
+    "t": "KosovoShortHistory",
+    "p": "Libgen",
+    "c": "Malcolm-1998-KosovoShortHistory-Libgen.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Mangus - V E R S I O N 2 . 0 (n.d.) (1) (2).pdf",
+    "a": "Mangus",
+    "y": "0000",
+    "t": "Version",
+    "p": "Unknown",
+    "c": "Mangus-0000-Version-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Mangus - V E R S I O N 2 . 0 (n.d.) (1).pdf",
+    "a": "Mangus",
+    "y": "0000",
+    "t": "Version",
+    "p": "Unknown",
+    "c": "Mangus-0000-Version-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Mangus - V E R S I O N 2 . 0 (n.d.).pdf",
+    "a": "Mangus",
+    "y": "0000",
+    "t": "Version",
+    "p": "Unknown",
+    "c": "Mangus-0000-Version-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Mann - 1491 (2013).pdf",
+    "a": "Mann",
+    "y": "2013",
+    "t": "1491",
+    "p": "Unknown",
+    "c": "Mann-2013-1491-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Mann--Charles-C.-1491-libgen.li.pdf",
+    "a": "Mann",
+    "y": "0000",
+    "t": "1491",
+    "p": "Libgen",
+    "c": "Mann-0000-1491-Libgen.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Manning - Global Practice in World History (2009).pdf",
+    "a": "Manning",
+    "y": "2009",
+    "t": "GlobalPracticeWorldHistory",
+    "p": "Unknown",
+    "c": "Manning-2009-GlobalPracticeWorldHistory-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Marichal - Edited by Carlos Marichal (n.d.).pdf",
+    "a": "Marichal",
+    "y": "0000",
+    "t": "Edited",
+    "p": "Unknown",
+    "c": "Marichal-0000-Edited-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Martínez - Genealogical Fictions (2008).pdf",
+    "a": "Martínez",
+    "y": "2008",
+    "t": "GenealogicalFictions",
+    "p": "Unknown",
+    "c": "Martínez-2008-GenealogicalFictions-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Matthew Gordon - The Cambridge World History of Violence Volume 2 (n.d.).pdf",
+    "a": "Gordon",
+    "y": "0000",
+    "t": "CambridgeWorldHistoryViolence",
+    "p": "Cambridge",
+    "c": "Gordon-0000-CambridgeWorldHistoryViolence-Cambridge.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Matthew Kroening - The Return of Great Power Rivalry- Democracy versus Autocracy from the Ancient World to the U.S. and China (2020, OXFORD UNIVERSITY PRESS).pdf",
+    "a": "Kroening",
+    "y": "2020",
+    "t": "ReturnGreatPowerRivalry",
+    "p": "Oxford",
+    "c": "Kroening-2020-ReturnGreatPowerRivalry-Oxford.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "May - National History and New Nationalism in the Twenty (n.d.).pdf",
+    "a": "May",
+    "y": "0000",
+    "t": "NationalHistoryNewNationalism",
+    "p": "Unknown",
+    "c": "May-0000-NationalHistoryNewNationalism-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Maya Codex Telleriano Remensis (José Antonio García R. [R. etc.).pdf",
+    "a": "García",
+    "y": "0000",
+    "t": "MayaCodexTellerianoRemensis",
+    "p": "Unknown",
+    "c": "García-0000-MayaCodexTellerianoRemensis-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "McCullough - 1776 (2005).pdf",
+    "a": "McCullough",
+    "y": "2005",
+    "t": "1776",
+    "p": "Unknown",
+    "c": "McCullough-2005-1776-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "McCullough - Seventeen Seventy-six (2005).pdf",
+    "a": "McCullough",
+    "y": "2005",
+    "t": "SeventeenSeventySix",
+    "p": "Unknown",
+    "c": "McCullough-2005-SeventeenSeventySix-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "McInally - George Strachan of the Mearns (2020).pdf",
+    "a": "McInally",
+    "y": "2020",
+    "t": "GeorgeStrachanMearns",
+    "p": "Unknown",
+    "c": "McInally-2020-GeorgeStrachanMearns-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "McKay - A History of Western Society Complete (2014).pdf",
+    "a": "McKay",
+    "y": "2014",
+    "t": "HistoryWesternSociety",
+    "p": "Unknown",
+    "c": "McKay-2014-HistoryWesternSociety-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "McMahon - McMahon (n.d.) (1).pdf",
+    "a": "McMahon",
+    "y": "0000",
+    "t": "UnknownTitle",
+    "p": "Unknown",
+    "c": "McMahon-0000-UnknownTitle-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "McMahon - McMahon (n.d.).pdf",
+    "a": "McMahon",
+    "y": "0000",
+    "t": "UnknownTitle",
+    "p": "Unknown",
+    "c": "McMahon-0000-UnknownTitle-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "McMahon–Hussein-Correspondence-1.pdf",
+    "a": "McMahon",
+    "y": "0000",
+    "t": "HusseinCorrespondence",
+    "p": "Unknown",
+    "c": "McMahon-0000-HusseinCorrespondence-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "McMahon–Hussein-Correspondence.pdf",
+    "a": "McMahon",
+    "y": "0000",
+    "t": "HusseinCorrespondence",
+    "p": "Unknown",
+    "c": "McMahon-0000-HusseinCorrespondence-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Menochio - Delle stuore del p. Gio. Stefano Menochio della Compagnia di Giesu. Tessute di varia eruditione sacra, morale, e profana... (n.d.).pdf",
+    "a": "Menochio",
+    "y": "0000",
+    "t": "DelleStuore",
+    "p": "Unknown",
+    "c": "Menochio-0000-DelleStuore-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Michelis - Protocolli Dei Savi Di Sion (2004).pdf",
+    "a": "Michelis",
+    "y": "2004",
+    "t": "ProtocolliDeiSaviDiSion",
+    "p": "Unknown",
+    "c": "Michelis-2004-ProtocolliDeiSaviDiSion-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "MILLIKEN - Microsoft Office Companion Book (2025) (1) (2).pdf",
+    "a": "Milliken",
+    "y": "2025",
+    "t": "MicrosoftOfficeCompanionBook",
+    "p": "Unknown",
+    "c": "Milliken-2025-MicrosoftOfficeCompanionBook-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "MILLIKEN - Microsoft Office Companion Book (2025) (1).pdf",
+    "a": "Milliken",
+    "y": "2025",
+    "t": "MicrosoftOfficeCompanionBook",
+    "p": "Unknown",
+    "c": "Milliken-2025-MicrosoftOfficeCompanionBook-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "MILLIKEN - Microsoft Office Companion Book (2025).pdf",
+    "a": "Milliken",
+    "y": "2025",
+    "t": "MicrosoftOfficeCompanionBook",
+    "p": "Unknown",
+    "c": "Milliken-2025-MicrosoftOfficeCompanionBook-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Miners of the Red Mountain - Indian labor in Potosí, -- Bakewell, P- J- (Peter John), 1943- -- ACLS Humanities E-Book, 1st ed, Albuquerque, ©1984 -- 9780826307699 -- e9e66c3d125d921a60f16262020218db -- Anna’s Archive-1.pdf",
+    "a": "Bakewell",
+    "y": "1984",
+    "t": "MinersRedMountainPotosi",
+    "p": "AnnaArchive",
+    "c": "Bakewell-1984-MinersRedMountainPotosi-AnnaArchive.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Misha Glenny - The Balkans, 1804–2012 (2012, Granta Publications).pdf",
+    "a": "Glenny",
+    "y": "2012",
+    "t": "Balkans",
+    "p": "Unknown",
+    "c": "Glenny-2012-Balkans-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Misquoting Muhammad (Brown, Jonathan A.C.) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Brown",
+    "y": "0000",
+    "t": "MisquotingMuhammad",
+    "p": "ZLib",
+    "c": "Brown-0000-MisquotingMuhammad-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "mission - 136 General Assembly—Thirtieth Session (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "GeneralAssemblyThirtiethSession",
+    "p": "Unknown",
+    "c": "Unknown-0000-GeneralAssemblyThirtiethSession-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Monty Martin - Sebastian Crowe’s Guide to Drakkenheim (n.d.) (1).pdf",
+    "a": "Martin",
+    "y": "0000",
+    "t": "SebastianCrowesGuideDrakkenheim",
+    "p": "Unknown",
+    "c": "Martin-0000-SebastianCrowesGuideDrakkenheim-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Monty Martin - Sebastian Crowe’s Guide to Drakkenheim (n.d.).pdf",
+    "a": "Martin",
+    "y": "0000",
+    "t": "SebastianCrowesGuideDrakkenheim",
+    "p": "Unknown",
+    "c": "Martin-0000-SebastianCrowesGuideDrakkenheim-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "more-research.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "MoreResearch",
+    "p": "Unknown",
+    "c": "Unknown-0000-MoreResearch-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Morocco - GE.24-18422 (E) 041124 051124 (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "MoroccoGE",
+    "p": "Unknown",
+    "c": "Unknown-0000-MoroccoGE-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Morris - The Birth of the Palestinian Refugee Problem Revisited (2004).pdf",
+    "a": "Morris",
+    "y": "2004",
+    "t": "PalestinianRefugeeProblem",
+    "p": "Unknown",
+    "c": "Morris-2004-PalestinianRefugeeProblem-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Moscow And The Middle East- New Thinking On Regional -- Galia Golan; Royal Institute of International Affairs -- Chatham House papers, Chatham House -- 9780876091265 -- 57c08f6e154a1a8006b0d51d7267338a -- Anna’s Archive.pdf",
+    "a": "Golan",
+    "y": "0000",
+    "t": "MoscowMiddleEastRegional",
+    "p": "AnnaArchive",
+    "c": "Golan-0000-MoscowMiddleEastRegional-AnnaArchive.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Moyn - Human Rights and the Uses of History (2014).pdf",
+    "a": "Moyn",
+    "y": "2014",
+    "t": "HumanRightsUsesHistory",
+    "p": "Unknown",
+    "c": "Moyn-2014-HumanRightsUsesHistory-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Murra - The Economic Organization of the Inka State (1980) (1).pdf",
+    "a": "Murra",
+    "y": "1980",
+    "t": "EconomicOrganizationInkaState",
+    "p": "Unknown",
+    "c": "Murra-1980-EconomicOrganizationInkaState-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Murra - The Economic Organization of the Inka State (1980).pdf",
+    "a": "Murra",
+    "y": "1980",
+    "t": "EconomicOrganizationInkaState",
+    "p": "Unknown",
+    "c": "Murra-1980-EconomicOrganizationInkaState-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Narratives of New Netherland, 1609-1664 (Various, J. Franklin Jameson) (z-library.sk, 1lib.sk, z-lib.sk)-1.pdf",
+    "a": "Jameson",
+    "y": "0000",
+    "t": "NarrativesNewNetherland",
+    "p": "ZLib",
+    "c": "Jameson-0000-NarrativesNewNetherland-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Narratives of New Netherland, 1609-1664 (Various, J. Franklin Jameson) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Jameson",
+    "y": "0000",
+    "t": "NarrativesNewNetherland",
+    "p": "ZLib",
+    "c": "Jameson-0000-NarrativesNewNetherland-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Nations-and-Nationalism-since-1780--Canto-Classics---E.-J.-Hobsbawm---Z-Library-.pdf",
+    "a": "Hobsbawm",
+    "y": "0000",
+    "t": "NationsNationalism",
+    "p": "ZLib",
+    "c": "Hobsbawm-0000-NationsNationalism-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Native Nations (Kathleen DuVal).pdf",
+    "a": "DuVal",
+    "y": "0000",
+    "t": "NativeNations",
+    "p": "Unknown",
+    "c": "DuVal-0000-NativeNations-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Natural resource exploitation in Western Sahara new research directions.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "NaturalResourceExploitationWesternSahara",
+    "p": "Unknown",
+    "c": "Unknown-0000-NaturalResourceExploitationWesternSahara-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Ndlovu - Against the Odds (2013).pdf",
+    "a": "Ndlovu",
+    "y": "2013",
+    "t": "AgainstOdds",
+    "p": "Unknown",
+    "c": "Ndlovu-2013-AgainstOdds-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Nexus A Brief History of Information Networks from the Stone Age to AI (Yuval Noah Harari) (Z-Library).epub",
+    "a": "Harari",
+    "y": "0000",
+    "t": "NexusInformationNetworks",
+    "p": "ZLib",
+    "c": "Harari-0000-NexusInformationNetworks-ZLib.epub",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Nick Cullather_ Piero Gleijeses - Secret History_ The CIA's Classified Account of Its Operations in Guatemala, 1952-1954 (2006, Stanford University Press) - libgen.li.pdf",
+    "a": "Cullather",
+    "y": "2006",
+    "t": "SecretHistoryCIAOperationsGuatemala",
+    "p": "Stanford",
+    "c": "Cullather-2006-SecretHistoryCIAOperationsGuatemala-Stanford.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Niebuhr - The Search for a Cold War Legitimacy (2018).pdf",
+    "a": "Niebuhr",
+    "y": "2018",
+    "t": "SearchColdWarLegitimacy",
+    "p": "Unknown",
+    "c": "Niebuhr-2018-SearchColdWarLegitimacy-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Nolan, Alan T.- Gallagher, Gary W - The myth of the lost cause and Civil War history (2010, Indiana University Press).pdf",
+    "a": "Nolan",
+    "y": "2010",
+    "t": "MythLostCauseCivilWarHistory",
+    "p": "Unknown",
+    "c": "Nolan-2010-MythLostCauseCivilWarHistory-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "nueva-cronica-y-buen-gobierno-de-felipe-guaman-poma-de-ayala-1615.pdf",
+    "a": "Poma",
+    "y": "1615",
+    "t": "NuevaCronicaBuenGobierno",
+    "p": "Unknown",
+    "c": "Poma-1615-NuevaCronicaBuenGobierno-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "nwig-article-p433-39.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "NWIGArticle",
+    "p": "Unknown",
+    "c": "Unknown-0000-NWIGArticle-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "of - The PARI Journal 19(3) (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "PARIJournal",
+    "p": "Unknown",
+    "c": "Unknown-0000-PARIJournal-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Offen-Karl-Logwood-masterless-men-and-Br.pdf",
+    "a": "Offen",
+    "y": "0000",
+    "t": "LogwoodMasterlessMen",
+    "p": "Unknown",
+    "c": "Offen-0000-LogwoodMasterlessMen-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "On Roman Time (Salzman, Michele Renee.) (Z-Library).pdf",
+    "a": "Salzman",
+    "y": "0000",
+    "t": "OnRomanTime",
+    "p": "ZLib",
+    "c": "Salzman-0000-OnRomanTime-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "On Savage Shores How Indigenous Americans Discovered Europe (Caroline Dodds Pennock).pdf",
+    "a": "Pennock",
+    "y": "0000",
+    "t": "OnSavageShoresIndigenousAmericansEurope",
+    "p": "Unknown",
+    "c": "Pennock-0000-OnSavageShoresIndigenousAmericansEurope-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "On Writing Well, 30th Anniversary Edition -- Zinsser, William -- 2012 -- HarperCollins -- 8c4d7eb3ff39f148d851c94e9fa6b33c -- Anna’s Archive.pdf",
+    "a": "Zinsser",
+    "y": "2012",
+    "t": "OnWritingWell",
+    "p": "AnnaArchive",
+    "c": "Zinsser-2012-OnWritingWell-AnnaArchive.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Operación Cóndor, pacto criminal (Stella Calloni) (Z-Library).pdf",
+    "a": "Calloni",
+    "y": "0000",
+    "t": "OperacionCondorPactoCriminal",
+    "p": "ZLib",
+    "c": "Calloni-0000-OperacionCondorPactoCriminal-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "ordonnance allemande 27 septembre 1940.pdf",
+    "a": "Unknown",
+    "y": "1940",
+    "t": "OrdonnanceAllemande",
+    "p": "Unknown",
+    "c": "Unknown-1940-OrdonnanceAllemande-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Ostler, Nicholas - Empires of the Word_ A Language History of the World (2011_2006, Harper Collins, Inc._Harper Perennial) - libgen.li.mobi",
+    "a": "Ostler",
+    "y": "2006",
+    "t": "EmpiresWordLanguageHistory",
+    "p": "Libgen",
+    "c": "Ostler-2006-EmpiresWordLanguageHistory-Libgen.mobi",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Overview - Ardennendagtocht (n.d.).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "Ardennendagtocht",
+    "p": "Unknown",
+    "c": "Unknown-0000-Ardennendagtocht-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Overview House Rules - Rappan Athuk v3.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "RappanAthukHouseRules",
+    "p": "Unknown",
+    "c": "Unknown-0000-RappanAthukHouseRules-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Ozturk - Introduction and Application of Organic Fertilizers as Protectors of Our Environment (2022) (1).pdf",
+    "a": "Ozturk",
+    "y": "2022",
+    "t": "OrganicFertilizersEnvironment",
+    "p": "Unknown",
+    "c": "Ozturk-2022-OrganicFertilizersEnvironment-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Ozturk - Introduction and Application of Organic Fertilizers as Protectors of Our Environment (2022).pdf",
+    "a": "Ozturk",
+    "y": "2022",
+    "t": "OrganicFertilizersEnvironment",
+    "p": "Unknown",
+    "c": "Ozturk-2022-OrganicFertilizersEnvironment-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Pagden - The Fall of Natural Man (1986).pdf",
+    "a": "Pagden",
+    "y": "1986",
+    "t": "FallNaturalMan",
+    "p": "Unknown",
+    "c": "Pagden-1986-FallNaturalMan-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Palaeogeographical_reconstruction_of_the.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "PalaeogeographicalReconstruction",
+    "p": "Unknown",
+    "c": "Unknown-0000-PalaeogeographicalReconstruction-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Palestinians - the making of a people -- Kimmerling, Baruch, Migdal, Joel S..pdf",
+    "a": "Kimmerling",
+    "y": "0000",
+    "t": "PalestiniansMakingPeople",
+    "p": "Unknown",
+    "c": "Kimmerling-0000-PalestiniansMakingPeople-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Pamela Slotte, Miia Halme-Tuomisaari - Revisiting The Origins Of Human Rights (2015, Cambridge University Press).pdf",
+    "a": "Slotte",
+    "y": "2015",
+    "t": "RevisitingOriginsHumanRights",
+    "p": "Cambridge",
+    "c": "Slotte-2015-RevisitingOriginsHumanRights-Cambridge.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Pawakapan - State and Uncivil Society in Thailand at the Temple of Preah Vihear (2013).pdf",
+    "a": "Pawakapan",
+    "y": "2013",
+    "t": "StateUncivilSocietyThailandPreahVihear",
+    "p": "Unknown",
+    "c": "Pawakapan-2013-StateUncivilSocietyThailandPreahVihear-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Pazzanita - Historical Dictionary of Western Sahara (1994).pdf",
+    "a": "Pazzanita",
+    "y": "1994",
+    "t": "HistoricalDictionaryWesternSahara",
+    "p": "Unknown",
+    "c": "Pazzanita-1994-HistoricalDictionaryWesternSahara-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "pdfcoffee.com-grim-hollow-campaign-guide-pdf-pdf-free.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "GrimHollowCampaignGuide",
+    "p": "Unknown",
+    "c": "Unknown-0000-GrimHollowCampaignGuide-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "pdfcoffee.com-grim-hollow-the-monster-grimoire-pdf-free.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "GrimHollowMonsterGrimoire",
+    "p": "Unknown",
+    "c": "Unknown-0000-GrimHollowMonsterGrimoire-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "pdfcoffee.com-rappan-athuk-pdf-free.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "RappanAthuk",
+    "p": "Unknown",
+    "c": "Unknown-0000-RappanAthuk-Unknown.pdf",
+    "conf": "low",
+    "ncr": false
+  },
+  {
+    "o": "Pedersen - The Guardians (2015).pdf",
+    "a": "Pedersen",
+    "y": "2015",
+    "t": "Guardians",
+    "p": "Unknown",
+    "c": "Pedersen-2015-Guardians-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Pedro Cameselle-Pesce_ Debbie Sharnak - Uruguay in Transnational Perspective (2023, Routledge) - libgen.li.epub",
+    "a": "Cameselle-Pesce",
+    "y": "2023",
+    "t": "UruguayTransnationalPerspective",
+    "p": "Routledge",
+    "c": "Cameselle-Pesce-2023-UruguayTransnationalPerspective-Routledge.epub",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Pedro-Cameselle-Pesce_-Debbie-Sharnak-Uruguay-in-Transnational-Perspective-_2023_-Routledge_-libgen.pdf",
+    "a": "Cameselle-Pesce",
+    "y": "2023",
+    "t": "UruguayTransnationalPerspective",
+    "p": "Routledge",
+    "c": "Cameselle-Pesce-2023-UruguayTransnationalPerspective-Routledge.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Penguin-Classics--Usāmah-ibn-Munqidh-Cobb--Paul-M.-Usāma-Ibn-Munqid̲-The-Book-of-Contemplation.pdf",
+    "a": "Cobb",
+    "y": "0000",
+    "t": "BookContemplation",
+    "p": "Unknown",
+    "c": "Cobb-0000-BookContemplation-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Pennock - On Savage Shores (2023).pdf",
+    "a": "Pennock",
+    "y": "2023",
+    "t": "OnSavageShores",
+    "p": "Unknown",
+    "c": "Pennock-2023-OnSavageShores-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  }
+]
+```

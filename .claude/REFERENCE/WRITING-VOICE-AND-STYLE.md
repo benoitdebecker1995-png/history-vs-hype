@@ -347,6 +347,24 @@ Every long build of evidence must land on a verdict sentence short enough to fee
 
 **Important refinement:** The verdict's power comes from REFRAMING, not brevity. "Bourgoin was in fact a fan" works because it recategorizes everything before it — not because it's short. Stop counting words. Start asking: does the verdict change the reader's relationship to the evidence they just read? Best verdicts are 5-15 words and include a concrete image or mechanism, not just an abstraction.
 
+### Antecedent clarity (article-side)
+
+Script-side: every "this/that/it/they" must have an unambiguous referent in the immediately prior sentence. Articles relax this — readers can re-read, scripts can't. But the rule still bites at **paragraph-break boundaries**: when a sentence after a paragraph break opens with "This..." or "That decision..." or "It...", the reader's eye has just reset. The referent must be either (a) named in the new sentence, or (b) clearly the last subject of the prior paragraph.
+
+*Anti-pattern:* Paragraph ends with "Pakenham, Hochschild, and Anghie all reach the same conclusion." Next paragraph opens "That changes how we read the General Act." — Which "that"? The fact of agreement, or one of the three scholars' specific arguments? Fixed: "Their shared conclusion changes how we read the General Act."
+
+### Anaphora (named rhythm)
+
+Anaphora: three or more full sentences with a parallel opening stem, building accumulating emphasis. NOT staccato — staccato prohibits fragment triplets. Anaphora is full grammatical sentences. Use anaphora when the parallel structure IS the argument — when the repetition makes the cumulative case more directly than synthesis would.
+
+*Example:* "He wrote rules that required a doctor in the room. He wrote rules that made confessions extracted under torture inadmissible. He wrote rules that said no one could be tortured twice for the same evidence."
+
+Same frequency cap as all rhythm devices: max once per article, used as a deliberate device, not a default.
+
+### Frequency cap (meta-principle for all rhythm devices)
+
+Any rhetorical or emphasis device — staccato, anaphora, declarative two-beat, parallel question, em-dash compound, blockquote-then-decoder, "I knew X but Y" first-person move, named-rhythm beat — used 3+ times in a single article becomes filler unless it's a deliberate refrain. Devices lose force with repetition. The article-writer Rule 11A flags one specific instance ("three I-knew-X-but-Y with identical rhythm"), but the principle is general: vary the palette. If you notice yourself reaching for the same device a third time, switch.
+
 ## 1.5 Defining terms
 
 ### Pattern: `[Technical term] — [plain language definition in same breath]`
@@ -1702,6 +1720,8 @@ The rule: if the myth is tied to GROUP IDENTITY, this framework is mandatory.
 
 # PART 5 — TECHNIQUES TOOLKIT (cross-medium)
 
+*Techniques are tools, not defaults. Overuse kills the effect — use judgment about when each one serves the specific piece. The user's principle: "these are just methods, some work in some instances."*
+
 Copy-paste patterns for rapid script improvement during writing and revision.
 
 ## 5.1 Creator phrase library
@@ -2047,7 +2067,7 @@ Major pivot only. Don't burn it.
 - "In simpler terms..."
 - "Translation:"
 - "The Court is saying:"
-- "In other words..."
+- "In other words..." — allowed when quote needs translation (legalese, archaic prose) OR explication (meaning is technically plain but significance isn't obvious). Forbidden as filler before a paraphrase the reader could have already grasped.
 - "What that actually means is..."
 
 ### Source-flip introduction phrases (Rule 55)

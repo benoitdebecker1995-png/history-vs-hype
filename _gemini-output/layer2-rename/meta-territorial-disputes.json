@@ -1,0 +1,1165 @@
+Warning: True color (24-bit) support not detected. Using a terminal with true color enabled will result in a better visual experience.
+YOLO mode is enabled. All tool calls will be automatically approved.
+YOLO mode is enabled. All tool calls will be automatically approved.
+Ripgrep is not available. Falling back to GrepTool.
+Warning: Could not read directory D:\History vs Hype\.pytest_cache: EPERM: operation not permitted, scandir 'D:\History vs Hype\.pytest_cache'
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 5s.. Retrying after 5169ms...
+```json
+[
+  {
+    "o": "[Byzantine and Modern Greek Studies vol. 37 iss. 1] Faustmann, Hubert - James Ker-Lindsay, The Cyprus Problem. What Everyone Needs to Know. Oxford- Oxford University Press, 2011. Pp. 125
+Attempt 1 failed: You have exhausted your capacity on this model. Your quota will reset after 3s.. Retrying after 5750ms...
+```json
+[
+  {
+    "o": "[Byzantine and Modern Greek Studies vol. 37 iss. 1] Faustmann, Hubert - James Ker-Lindsay, The Cyprus Problem. What Everyone Needs to Know. Oxford- Oxford University Press, 2011. Pp. 125. (2013) [10.1017-S030701310000673X.pdf",
+    "a": "Faustmann",
+    "y": "2011",
+    "t": "CyprusProblem",
+    "p": "Oxford",
+    "c": "Faustmann-2011-CyprusProblem-Oxford.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "[Cambridge Latin American Studies 120 2020-jun 18] Gibbings, Julie - Our Time is Now- Race and Modernity in Postcolonial Guatemala (2020, Cambridge University Press) [10.1017-9781108774048].pdf",
+    "a": "Gibbings",
+    "y": "2020",
+    "t": "RaceModernityGuatemala",
+    "p": "Cambridge",
+    "c": "Gibbings-2020-RaceModernityGuatemala-Cambridge.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "[P3] Cordoba-Agreement-2006.pdf",
+    "a": "Unknown",
+    "y": "2006",
+    "t": "CordobaAgreement",
+    "p": "Unknown",
+    "c": "Unknown-2006-CordobaAgreement-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "[Studies of the Americas] Assad Shoman - Belize's Independence and Decolonization in Latin America_ Guatemala, Britain, and the UN (Studies of the Americas) (2010, Palgrave Macmillan) - libgen.li.pdf",
+    "a": "Shoman",
+    "y": "2010",
+    "t": "BelizeIndependenceDecolonization",
+    "p": "Palgrave",
+    "c": "Shoman-2010-BelizeIndependenceDecolonization-Palgrave.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "04-The-Sabah-Question-in-International-Law-Judge-Frank-E.-Lobrigo-ret..pdf",
+    "a": "Lobrigo",
+    "y": "0000",
+    "t": "SabahQuestionInternationalLaw",
+    "p": "Unknown",
+    "c": "Lobrigo-0000-SabahQuestionInternationalLaw-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "07_Aloysius-Nyuymengka-Ngalim_DOI.pdf",
+    "a": "NyuymengkaNgalim",
+    "y": "0000",
+    "t": "Unknown",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "094-20021010-JUD-01-00-EN.pdf",
+    "a": "Unknown",
+    "y": "2002",
+    "t": "Judgment",
+    "p": "Unknown",
+    "c": "Unknown-2002-Judgment-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "094-20021010-JUD-01-04-EN.pdf",
+    "a": "Unknown",
+    "y": "2002",
+    "t": "Judgment",
+    "p": "Unknown",
+    "c": "Unknown-2002-Judgment-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "094-20021010-JUD-01-07-EN.pdf",
+    "a": "Unknown",
+    "y": "2002",
+    "t": "Judgment",
+    "p": "Unknown",
+    "c": "Unknown-2002-Judgment-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "13803.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "Unknown",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "18.3anyuBakassi1.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "Bakassi",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "185-20221116-APP-01-00-EN.pdf",
+    "a": "Unknown",
+    "y": "2022",
+    "t": "Application",
+    "p": "Unknown",
+    "c": "Unknown-2022-Application-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "185-20231211-pre-01-00-en.pdf",
+    "a": "Unknown",
+    "y": "2023",
+    "t": "PreliminaryDocument",
+    "p": "Unknown",
+    "c": "Unknown-2023-PreliminaryDocument-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "185-20260319-ord-01-00-en.pdf",
+    "a": "Unknown",
+    "y": "2026",
+    "t": "Order",
+    "p": "Unknown",
+    "c": "Unknown-2026-Order-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "8-Nigeria-and-Cameroon-The-Bakassi-Dispute-J.-Ezeilo.pdf",
+    "a": "Ezeilo",
+    "y": "0000",
+    "t": "NigeriaCameroonBakassiDispute",
+    "p": "Unknown",
+    "c": "Ezeilo-0000-NigeriaCameroonBakassiDispute-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "A concise history of the Armenian people - (from ancient - Bournoutian, George A- - 5th ed-, completely rev, Costa Mesa, Calif, 2006 - Costa Mesa, - 9781568591414 - deec582c44665c21a491fef124cd716a - Anna’s Archive-compre-1.pdf",
+    "a": "Bournoutian",
+    "y": "2006",
+    "t": "ArmenianHistory",
+    "p": "AnnaArchive",
+    "c": "Bournoutian-2006-ArmenianHistory-AnnaArchive.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "A history of modern Sabah (North Borneo, 1881-1963) (Tregonning, K. G) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Tregonning",
+    "y": "0000",
+    "t": "SabahHistory",
+    "p": "ZLib",
+    "c": "Tregonning-0000-SabahHistory-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "A_Complete_Collection_of_the_Treaties_an.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "TreatiesCollection",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Akak, Eyo Okon - Who Owns Bakassi_ = Anie Enyene Bakassi_ _ A Critique of 1885-1913 Anglo-German Treaties and 1975 Gowon-Ahidjo Accord in Nigeri (1999, Calabar_ The Author) - libgen.li.pdf",
+    "a": "Akak",
+    "y": "1999",
+    "t": "BakassiOwnershipTreaties",
+    "p": "Libgen",
+    "c": "Akak-1999-BakassiOwnershipTreaties-Libgen.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Altstadt - The Azerbaijani Turks Power and Identity (1992).pdf",
+    "a": "Altstadt",
+    "y": "1992",
+    "t": "AzerbaijaniTurksIdentity",
+    "p": "Unknown",
+    "c": "Altstadt-1992-AzerbaijaniTurksIdentity-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "anglo german agreement 1913.pdf",
+    "a": "Unknown",
+    "y": "1913",
+    "t": "AngloGermanAgreement",
+    "p": "Unknown",
+    "c": "Unknown-1913-AngloGermanAgreement-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "annas-arch-10dc1427d358.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "Unknown",
+    "p": "AnnaArchive",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "ansfer of power 3 june.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "TransferPowerJune",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Audrey L. Altstadt - The Azerbaijani Turks- Power and Identity under Russian Rule (Hoover Institution Press Publication) (1992, Hoover Institution Press).pdf",
+    "a": "Altstadt",
+    "y": "1992",
+    "t": "AzerbaijaniTurksPowerIdentity",
+    "p": "Unknown",
+    "c": "Altstadt-1992-AzerbaijaniTurksPowerIdentity-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "bakass.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "Bakassi",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Bakassi Or the Politics of Exclusion and Occupation (Fongot Kini-Yen Kinni) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Kinni",
+    "y": "0000",
+    "t": "BakassiPoliticsExclusion",
+    "p": "ZLib",
+    "c": "Kinni-0000-BakassiPoliticsExclusion-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "bakassi_greentree_agreement_2006.pdf",
+    "a": "Unknown",
+    "y": "2006",
+    "t": "BakassiGreentreeAgreement",
+    "p": "Unknown",
+    "c": "Unknown-2006-BakassiGreentreeAgreement-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Beyond the Lines An Autobiography (Kuldip Nayar) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Nayar",
+    "y": "0000",
+    "t": "Autobiography",
+    "p": "ZLib",
+    "c": "Nayar-0000-Autobiography-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Braveboy-wagner - The Venezuela-Guyana Border Dispute (2019).pdf",
+    "a": "Braveboy-Wagner",
+    "y": "2019",
+    "t": "VenezuelaGuyanaBorderDispute",
+    "p": "Unknown",
+    "c": "Braveboy-Wagner-2019-VenezuelaGuyanaBorderDispute-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Braveboy-Wagner - Venezuela-Guyana Border Dispute (1984).pdf",
+    "a": "Braveboy-Wagner",
+    "y": "1984",
+    "t": "VenezuelaGuyanaBorderDispute",
+    "p": "Unknown",
+    "c": "Braveboy-Wagner-1984-VenezuelaGuyanaBorderDispute-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "British Policy in Persia, 1918-1925 (Houshang Sabahi) (Z-Library).pdf",
+    "a": "Sabahi",
+    "y": "0000",
+    "t": "BritishPolicyPersia",
+    "p": "ZLib",
+    "c": "Sabahi-0000-BritishPolicyPersia-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Broers - Armenia and Azerbaijan Anatomy of Rivalry (2019).pdf",
+    "a": "Broers",
+    "y": "2019",
+    "t": "ArmeniaAzerbaijanRivalry",
+    "p": "Unknown",
+    "c": "Broers-2019-ArmeniaAzerbaijanRivalry-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Chrimes - Guatemalas Claim to Belize (2019).pdf",
+    "a": "Chrimes",
+    "y": "2019",
+    "t": "GuatemalaClaimBelize",
+    "p": "Unknown",
+    "c": "Chrimes-2019-GuatemalaClaimBelize-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Chrimes - Guatemalas claim to Belize the definitive history [international edition] (n.d.).pdf",
+    "a": "Chrimes",
+    "y": "0000",
+    "t": "GuatemalaClaimBelizeHistory",
+    "p": "Unknown",
+    "c": "Chrimes-0000-GuatemalaClaimBelizeHistory-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Cyprus - A Modern History -- William Mallinson -- Bloomsbury UK, London, 2005 -- I-B- Tauris ; Distributed in the USA by Palgrave Macmillan -- 9780857711908 -- 8c1c5944e098afddd3ce0fa31629b95b -- Anna’s Archive.pdf",
+    "a": "Mallinson",
+    "y": "2005",
+    "t": "CyprusModernHistory",
+    "p": "AnnaArchive",
+    "c": "Mallinson-2005-CyprusModernHistory-AnnaArchive.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Cyprus - A Modern History- - Mallinson, William.pdf",
+    "a": "Mallinson",
+    "y": "0000",
+    "t": "CyprusModernHistory",
+    "p": "Unknown",
+    "c": "Mallinson-0000-CyprusModernHistory-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Doudaki - Cyprus and Its Conflicts (2017).pdf",
+    "a": "Doudaki",
+    "y": "2017",
+    "t": "CyprusConflicts",
+    "p": "Unknown",
+    "c": "Doudaki-2017-CyprusConflicts-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "eji talk.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "Unknown",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Fatma Müge Göçek - Denial of Violence- Ottoman Past, Turkish Present, and Collective Violence Against the Armenians, 1789-2009 (2014, Oxford University Press, USA).pdf",
+    "a": "Göçek",
+    "y": "2014",
+    "t": "DenialViolenceArmenians",
+    "p": "Oxford",
+    "c": "Göçek-2014-DenialViolenceArmenians-Oxford.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "gazette philisiphins.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "PhilippineGazette",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "GrantBySultanOfSuluOfTerritoriesAndLandsOnTheMainlandOfTheIslandOfBorneo.pdf",
+    "a": "SultanSulu",
+    "y": "0000",
+    "t": "SuluBorneoTerritoriesGrant",
+    "p": "Unknown",
+    "c": "SultanSulu-0000-SuluBorneoTerritoriesGrant-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Guatemalas claim to Belize the definitive history [international edition] (Chrimes, Philip).pdf",
+    "a": "Chrimes",
+    "y": "0000",
+    "t": "GuatemalaClaimBelizeHistory",
+    "p": "Unknown",
+    "c": "Chrimes-0000-GuatemalaClaimBelizeHistory-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Hammond - Framing post-Cold War conflicts (2018).pdf",
+    "a": "Hammond",
+    "y": "2018",
+    "t": "FramingPostColdWarConflicts",
+    "p": "Unknown",
+    "c": "Hammond-2018-FramingPostColdWarConflicts-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Hammond, Phil- Herman, Edward S - Degraded capability- the media and the Kosovo crisis (2000, Pluto Press).pdf",
+    "a": "Hammond",
+    "y": "2000",
+    "t": "KosovoCrisisMedia",
+    "p": "Unknown",
+    "c": "Hammond-2000-KosovoCrisisMedia-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "History of New Netherland or, New York under the Dutch (Edmund Bailey OCallaghan) (z-library.sk, 1lib.sk, z-lib.sk)-1 - converted.pdf",
+    "a": "OCallaghan",
+    "y": "0000",
+    "t": "NewNetherlandHistory",
+    "p": "ZLib",
+    "c": "OCallaghan-0000-NewNetherlandHistory-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Hitchens - Hostage to History Cyprus (1997).pdf",
+    "a": "Hitchens",
+    "y": "1997",
+    "t": "CyprusHostageHistory",
+    "p": "Unknown",
+    "c": "Hitchens-1997-CyprusHostageHistory-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "honuras constitution.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "HondurasConstitution",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Hostage to History - Cyprus from the Ottomans to Kissinger- - Christopher Hitchens.pdf",
+    "a": "Hitchens",
+    "y": "0000",
+    "t": "CyprusHostageHistory",
+    "p": "Unknown",
+    "c": "Hitchens-0000-CyprusHostageHistory-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "ibs008.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "Unknown",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Implications_of_the_Bakassi_conflict_res.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "BakassiConflictImplications",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "In Search of Maya Sea Traders (Heather McKillop) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "McKillop",
+    "y": "0000",
+    "t": "MayaSeaTraders",
+    "p": "ZLib",
+    "c": "McKillop-0000-MayaSeaTraders-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "INCOMPLETE PARTITION THE GENESIS OF THE KASHMIR DISPUTE 1947-1948 (ALASTAIR LAMB, Lamb, Alastair etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Lamb",
+    "y": "1947",
+    "t": "KashmirDisputeGenesis",
+    "p": "ZLib",
+    "c": "Lamb-1947-KashmirDisputeGenesis-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "indiatransferofp12nich.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "IndiaTransferPower",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Jinnah of Pakistan (Stanley Wolpert) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Wolpert",
+    "y": "0000",
+    "t": "JinnahPakistan",
+    "p": "ZLib",
+    "c": "Wolpert-0000-JinnahPakistan-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "JLCVol.2No.2-1.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "JournalVolume",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Judah - Kosovo War and Revenge (2002).pdf",
+    "a": "Judah",
+    "y": "2002",
+    "t": "KosovoWarRevenge",
+    "p": "Unknown",
+    "c": "Judah-2002-KosovoWarRevenge-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Julie A. Mertus - Kosovo- How Myths and Truths Started a War (2020, University of California Press) [10.1525-9780520341579].pdf",
+    "a": "Mertus",
+    "y": "2020",
+    "t": "KosovoMythsTruthsWar",
+    "p": "Unknown",
+    "c": "Mertus-2020-KosovoMythsTruthsWar-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Kasetsiri - Preah Vihear Thai-Cambodian Conflict (2013).pdf",
+    "a": "Kasetsiri",
+    "y": "2013",
+    "t": "PreahVihearThaiCambodianConflict",
+    "p": "Unknown",
+    "c": "Kasetsiri-2013-PreahVihearThaiCambodianConflict-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Kosovo - War and Revenge -- Tim Judah -- New Haven, Conn, 2000 -- Yale University Press -- 9780300083132 -- 02f41ebf6523dcb04f93a86ce54ddc7e -- Anna’s Archive.pdf",
+    "a": "Judah",
+    "y": "2000",
+    "t": "KosovoWarRevenge",
+    "p": "AnnaArchive",
+    "c": "Judah-2000-KosovoWarRevenge-AnnaArchive.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Kosovo - War and Revenge- - Tim Judah.pdf",
+    "a": "Judah",
+    "y": "0000",
+    "t": "KosovoWarRevenge",
+    "p": "Unknown",
+    "c": "Judah-0000-KosovoWarRevenge-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "land demarcation.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "LandDemarcation",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Laurence Broers - Armenia and Azerbaijan- (Anatomy of a Rivalry) (2019, Edinburgh University Press).pdf",
+    "a": "Broers",
+    "y": "2019",
+    "t": "ArmeniaAzerbaijanAnatomyRivalry",
+    "p": "Unknown",
+    "c": "Broers-2019-ArmeniaAzerbaijanAnatomyRivalry-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "LD2668T41966H557.pdf",
+    "a": "Unknown",
+    "y": "1966",
+    "t": "Unknown",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "letter fixed replica.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "LetterFixedReplica",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Liberty or death Indias journey to independence and division (French, Patrick) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "French",
+    "y": "0000",
+    "t": "IndiaIndependenceDivision",
+    "p": "ZLib",
+    "c": "French-0000-IndiaIndependenceDivision-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Malcolm--Noel-Kosovo--a-short-history--1998--New-York---New-York-University-Press--libgen.li.pdf",
+    "a": "Malcolm",
+    "y": "1998",
+    "t": "KosovoShortHistory",
+    "p": "Libgen",
+    "c": "Malcolm-1998-KosovoShortHistory-Libgen.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Manila_Accord_(31_July_1963).pdf",
+    "a": "Unknown",
+    "y": "1963",
+    "t": "ManilaAccord",
+    "p": "Unknown",
+    "c": "Unknown-1963-ManilaAccord-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Miranda Vickers - Between Serb and Albanian- A History of Kosovo (1998, Columbia University Press).pdf",
+    "a": "Vickers",
+    "y": "1998",
+    "t": "SerbAlbanianKosovoHistory",
+    "p": "Columbia",
+    "c": "Vickers-1998-SerbAlbanianKosovoHistory-Columbia.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Muslims in the Philippines (Cesar A. Majul) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Majul",
+    "y": "0000",
+    "t": "PhilippinesMuslims",
+    "p": "ZLib",
+    "c": "Majul-0000-PhilippinesMuslims-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "news.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "News",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Partition of India - Demographic Impacts June 2009.pdf",
+    "a": "Unknown",
+    "y": "2009",
+    "t": "IndiaPartitionDemographicImpacts",
+    "p": "Unknown",
+    "c": "Unknown-2009-IndiaPartitionDemographicImpacts-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "partition-of-british-india.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "PartitionBritishIndia",
+    "p": "Unknown",
+    "c": "Unknown-0000-PartitionBritishIndia-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Pawakapan - Thailand at Temple of Preah Vihear (2013).pdf",
+    "a": "Pawakapan",
+    "y": "2013",
+    "t": "ThailandPreahVihear",
+    "p": "Unknown",
+    "c": "Pawakapan-2013-ThailandPreahVihear-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Philippine DFA Press Briefing — February 20, 2026.pdf",
+    "a": "Unknown",
+    "y": "2026",
+    "t": "PhilippineDFAPressBriefing",
+    "p": "Unknown",
+    "c": "Unknown-2026-PhilippineDFAPressBriefing-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "PHL_1968_Act.pdf",
+    "a": "Unknown",
+    "y": "1968",
+    "t": "PhilippineAct",
+    "p": "Unknown",
+    "c": "Unknown-1968-PhilippineAct-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Powerful Persuasions The Language of Property and Politics in Sabah, Malaysia (North Borneo), 1881–1996 (DOOLITTLE, AMITY A) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Doolittle",
+    "y": "0000",
+    "t": "SabahPoliticsProperty",
+    "p": "ZLib",
+    "c": "Doolittle-0000-SabahPoliticsProperty-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Radcliffe-Report_of_the_Punjab_Boundary_Commission-1947.pdf",
+    "a": "Radcliffe",
+    "y": "1947",
+    "t": "PunjabBoundaryCommissionReport",
+    "p": "Unknown",
+    "c": "Radcliffe-1947-PunjabBoundaryCommissionReport-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Remembering Partition Violence, Nationalism and History in India (Gyanendra Pandey) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Pandey",
+    "y": "0000",
+    "t": "IndiaPartitionHistory",
+    "p": "ZLib",
+    "c": "Pandey-0000-IndiaPartitionHistory-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Report_of_the_Commission_of_Enquiry_North_Borneo_&_Sarawak.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "BorneoSarawakEnquiryReport",
+    "p": "Unknown",
+    "c": "Unknown-0000-BorneoSarawakEnquiryReport-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Ronald Grigor Suny - Looking Toward Ararat- Armenia In Modern History (1993, Indiana University Press).pdf",
+    "a": "Suny",
+    "y": "1993",
+    "t": "ArmeniaModernHistory",
+    "p": "Unknown",
+    "c": "Suny-1993-ArmeniaModernHistory-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Select Documents on Partition of Punjab-1947 India and Pakistan (Revised and Enlarged Edition) (Kirapāla Siṅgha) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Siṅgha",
+    "y": "1947",
+    "t": "PunjabPartitionDocuments",
+    "p": "ZLib",
+    "c": "Siṅgha-1947-PunjabPartitionDocuments-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Senate passes Maritime Zones Act for economic, environmental security.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "MaritimeZonesAct",
+    "p": "Unknown",
+    "c": "Unknown-0000-MaritimeZonesAct-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Stateless in Bakassi How a Changed Border Left Inhabitants Adrift.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "StatelessBakassiBorder",
+    "p": "Unknown",
+    "c": "Unknown-0000-StatelessBakassiBorder-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Strate - Lost Territories Thailands History (2015).pdf",
+    "a": "Strate",
+    "y": "2015",
+    "t": "ThailandLostTerritoriesHistory",
+    "p": "Unknown",
+    "c": "Strate-2015-ThailandLostTerritoriesHistory-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Sulu & Sabah - Nicholas Tarling.pdf",
+    "a": "Tarling",
+    "y": "0000",
+    "t": "SuluSabah",
+    "p": "Unknown",
+    "c": "Tarling-0000-SuluSabah-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Suny - Looking Toward Ararat Armenia in Modern History (1993).pdf",
+    "a": "Suny",
+    "y": "1993",
+    "t": "ArmeniaModernHistory",
+    "p": "Unknown",
+    "c": "Suny-1993-ArmeniaModernHistory-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Talat-Pasha’s-Telegrams---The-Armenian-Genocide-Killing-Orders--2018--libgen.li.pdf",
+    "a": "Talat-Pasha",
+    "y": "2018",
+    "t": "ArmenianGenocideTelegrams",
+    "p": "Libgen",
+    "c": "Talat-Pasha-2018-ArmenianGenocideTelegrams-Libgen.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Taner Akçam - The Young Turks' Crime Against Humanity- The Armenian Genocide and Ethnic Cleansing in the Ottoman Empire (2012, PrincetonUP).pdf",
+    "a": "Akçam",
+    "y": "2012",
+    "t": "ArmenianGenocideEthnicCleansing",
+    "p": "Princeton",
+    "c": "Akçam-2012-ArmenianGenocideEthnicCleansing-Princeton.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "the anglophone connection.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "AnglophoneConnection",
+    "p": "Unknown",
+    "c": "Unknown-0000-AnglophoneConnection-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The Cameroon-Nigeria Border Dispute. Management and Resolution, 1981-2011 Management and Resolution, 1981-2011 (Hilary V. Lukong) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Lukong",
+    "y": "1981",
+    "t": "CameroonNigeriaBorderDispute",
+    "p": "ZLib",
+    "c": "Lukong-1981-CameroonNigeriaBorderDispute-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The Cyprus Problem- What Everyone Needs to Know(r).pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "CyprusProblem",
+    "p": "Unknown",
+    "c": "Unknown-0000-CyprusProblem-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The dimensions of conflict in Southeast Asia (Gordon, Bernard K., 1932- . cn) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Gordon",
+    "y": "0000",
+    "t": "SoutheastAsiaConflict",
+    "p": "ZLib",
+    "c": "Gordon-0000-SoutheastAsiaConflict-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The Formation of a Colonial Society- Belize, From Conquest -- Professor O- Nigel Bolland -- Johns Hopkins studies in Atlantic history and culture, -- 9780801818875 -- 5be003a10c9bf724983c3061e4b8c6af -- Anna’s Archive.pdf",
+    "a": "Bolland",
+    "y": "0000",
+    "t": "BelizeColonialSociety",
+    "p": "AnnaArchive",
+    "c": "Bolland-0000-BelizeColonialSociety-AnnaArchive.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The Great Partition The Making of India and Pakistan, New Edition (Yasmin Khan) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Khan",
+    "y": "0000",
+    "t": "IndiaPakistanGreatPartition",
+    "p": "ZLib",
+    "c": "Khan-0000-IndiaPakistanGreatPartition-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The Indus Rivers a study of the effects of partition (Aloys Arthur Michel) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Michel",
+    "y": "0000",
+    "t": "IndusRiversPartition",
+    "p": "ZLib",
+    "c": "Michel-0000-IndusRiversPartition-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The international boundaries of Nigeria, 1885-1960 the framework of an emergent African nation (Anene, Joseph C) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Anene",
+    "y": "0000",
+    "t": "NigeriaInternationalBoundaries",
+    "p": "ZLib",
+    "c": "Anene-0000-NigeriaInternationalBoundaries-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The Memoirs Of Lord Ismay ( etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Ismay",
+    "y": "0000",
+    "t": "Memoirs",
+    "p": "ZLib",
+    "c": "Ismay-0000-Memoirs-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The New Cambridge History of India, Volume 3, Part 4 Ideologies of the Raj (Thomas R. Metcalf) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Metcalf",
+    "y": "0000",
+    "t": "CambridgeIndiaIdeologiesRaj",
+    "p": "ZLib",
+    "c": "Metcalf-0000-CambridgeIndiaIdeologiesRaj-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "The Partition of the Punjab, 1947 A Compilation of Official Documents (Volume 1 of 4) ( etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Unknown",
+    "y": "1947",
+    "t": "PunjabPartitionDocuments",
+    "p": "ZLib",
+    "c": "Unknown-1947-PunjabPartitionDocuments-ZLib.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "The Venezuela-Guyana Border Dispute Britains Colonial Legacy in Latin America (Jacqueline A Braveboy-Wagner).pdf",
+    "a": "Braveboy-Wagner",
+    "y": "0000",
+    "t": "VenezuelaGuyanaBorderDispute",
+    "p": "Unknown",
+    "c": "Braveboy-Wagner-0000-VenezuelaGuyanaBorderDispute-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Thomas de Waal - Black Garden- Armenia and Azerbaijan through Peace and War (2013, NYU Press).pdf",
+    "a": "deWaal",
+    "y": "2013",
+    "t": "ArmeniaAzerbaijanBlackGarden",
+    "p": "Unknown",
+    "c": "deWaal-2013-ArmeniaAzerbaijanBlackGarden-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Tim Judah - Kosovo- War and Revenge (2002, Yale University Press).pdf",
+    "a": "Judah",
+    "y": "2002",
+    "t": "KosovoWarRevenge",
+    "p": "Yale",
+    "c": "Judah-2002-KosovoWarRevenge-Yale.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Transfer of authority over Bakassi.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "BakassiAuthorityTransfer",
+    "p": "Unknown",
+    "c": "Unknown-0000-BakassiAuthorityTransfer-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Treaty of Pereyaslav 1654 (Historical Document).pdf",
+    "a": "Unknown",
+    "y": "1654",
+    "t": "PereyaslavTreaty",
+    "p": "Unknown",
+    "c": "Unknown-1654-PereyaslavTreaty-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "ukpga_19470030_en.pdf",
+    "a": "Unknown",
+    "y": "1947",
+    "t": "UKPublicGeneralAct",
+    "p": "Unknown",
+    "c": "Unknown-1947-UKPublicGeneralAct-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "UN Meetings Coverage  ICJ press release on judgment.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UNICJJudgmentPressRelease",
+    "p": "Unknown",
+    "c": "Unknown-0000-UNICJJudgmentPressRelease-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "unclos_e.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "UNCLOS",
+    "p": "Unknown",
+    "c": "Unknown-0000-UNCLOS-Unknown.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Under Chartered Company Rule - K. G. Tregonning.pdf",
+    "a": "Tregonning",
+    "y": "0000",
+    "t": "CharteredCompanyRule",
+    "p": "Unknown",
+    "c": "Tregonning-0000-CharteredCompanyRule-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "urn_cambridge.org_id_binary_20170213065910831-0374_S0026749X99003066_S0026749X9900306Xa.pdf",
+    "a": "Unknown",
+    "y": "0000",
+    "t": "Unknown",
+    "p": "Cambridge",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  },
+  {
+    "o": "Vaia Doudaki - Cyprus and Its Conflicts Representations, Materialities, and Cultures (n.d.).pdf",
+    "a": "Doudaki",
+    "y": "0000",
+    "t": "CyprusConflicts",
+    "p": "Unknown",
+    "c": "Doudaki-0000-CyprusConflicts-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Vickers - Between Serb and Albanian History of Kosovo (1998).pdf",
+    "a": "Vickers",
+    "y": "1998",
+    "t": "SerbAlbanianKosovoHistory",
+    "p": "Unknown",
+    "c": "Vickers-1998-SerbAlbanianKosovoHistory-Unknown.pdf",
+    "conf": "high",
+    "ncr": false
+  },
+  {
+    "o": "Who Owns Bakassi = Anie Enyene Bakassi A Critique of 1885-1913 Anglo-German Treaties and 1975 Gowon-Ahidjo Accord in… (Akak, Eyo Okon) (z-library.sk, 1lib.sk, z-lib.sk)-1 - converted.pdf",
+    "a": "Akak",
+    "y": "0000",
+    "t": "BakassiOwnershipTreaties",
+    "p": "ZLib",
+    "c": "Akak-0000-BakassiOwnershipTreaties-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Who Owns Bakassi = Anie Enyene Bakassi A Critique of 1885-1913 Anglo-German Treaties and 1975 Gowon-Ahidjo Accord in… (Akak, Eyo Okon) (z-library.sk, 1lib.sk, z-lib.sk)-1.pdf",
+    "a": "Akak",
+    "y": "0000",
+    "t": "BakassiOwnershipTreaties",
+    "p": "ZLib",
+    "c": "Akak-0000-BakassiOwnershipTreaties-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "Who Owns Bakassi = Anie Enyene Bakassi A Critique of 1885-1913 Anglo-German Treaties and 1975 Gowon-Ahidjo Accord in… (Akak, Eyo Okon) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "a": "Akak",
+    "y": "0000",
+    "t": "BakassiOwnershipTreaties",
+    "p": "ZLib",
+    "c": "Akak-0000-BakassiOwnershipTreaties-ZLib.pdf",
+    "conf": "medium",
+    "ncr": false
+  },
+  {
+    "o": "wright1966.pdf",
+    "a": "Wright",
+    "y": "1966",
+    "t": "Unknown",
+    "p": "Unknown",
+    "c": null,
+    "conf": "low",
+    "ncr": true
+  }
+]
+```

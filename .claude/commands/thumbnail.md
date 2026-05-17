@@ -83,6 +83,33 @@ Read in this priority order. Stop reading when you have enough to build the prom
 
 If `SCRIPT.md` doesn't exist yet, note "no script — concepts use title only" and continue. Concepts grounded in title-only are weaker (MECHANISM REFRAME requires a known thesis).
 
+### Step 2.5: Topic-comparable scan (read if present)
+
+The notebook's outlier corpus is **niche-wide aggregate** data from 8 close-match general channels. It does not know what's already winning *on the specific topic of this video*. If the project has prior `/comment-mine` output, that data captures topic-conditional winners and should feed into the query.
+
+**Read:**
+
+```bash
+ls "<project-folder>/_research/comment-mining/"*.info.json 2>/dev/null
+```
+
+**If files exist:** parse each JSON for `title`, `channel` (or `uploader`), `view_count`, `duration`, `id`. One-liner:
+
+```bash
+for f in <project-folder>/_research/comment-mining/*.info.json; do
+  python -c "import json; d=json.load(open('$f', encoding='utf-8')); print(f\"{d.get('view_count',0)}|{d.get('duration',0)}|{d.get('id')}|{d.get('uploader') or d.get('channel')}|{d.get('title')}\")"
+done | sort -rn -t'|' -k1 | head -5
+```
+
+Take the top 5 by view count. Format each as one line:
+```
+- [Channel] "[Title]" — [view_count] views, [duration_min] min
+```
+
+**If no JSONs OR the directory is missing:** set the variable to the literal string `none — no comment-mining data available` and continue. Do NOT halt; this step is enrichment, not a gate.
+
+**Stop condition:** if the parsing throws (corrupted JSON, unexpected schema), surface a one-line warning, set the variable to `none — comment-mining parse failed` and continue. The thumbnail recommender should not fail because of a stale JSON.
+
 ### Step 3: Build the notebook query
 
 Construct the query string with this exact structure. Do not paraphrase the bracketed sections.
@@ -93,7 +120,11 @@ Apply THUMBNAIL-RECOMMEND-PROTOCOL.md exactly. Generate 3 ranked thumbnail conce
 Title: [exact title from YOUTUBE-METADATA.md]
 Script thesis: [1–3 sentence thesis from SCRIPT.md, naming the actual mechanism the video proves — not the title's surface claim]
 Topic-shape signals: [bullet list of 2–4 signals from research: territorial / treaty / mechanism / site-visitable / etc.]
+Topic-comparable winners (from /comment-mine — same-topic videos already winning views; use to identify what visual conventions the topic already has and where HvH should differentiate vs cannibalize):
+[bullet list of top 5 from Step 2.5, OR "none — no comment-mining data available"]
 HvH constraint: 515 subs, evidence-based myth-busting, "intellectual competence" trigger, format = 8–12 min talking-head + B-roll. Do not propose assets HvH cannot produce.
+
+When topic-comparable winners are present, your concepts must explicitly position against them: name which topic-comparable convention each concept either differentiates from or strategically copies, and cite the specific video by channel + view count. Do not generate concepts that ignore an established topic convention without naming why.
 
 Follow the protocol's Steps 1–6. Output exactly 3 concepts in the required format. End with the mandatory closing summary.
 ```
@@ -270,12 +301,14 @@ If `--save` flag was passed, append the DIY guide to the same `THUMBNAIL-CONCEPT
 ## Integration with other commands
 
 - **`/greenlight`** still uses `tools/preflight/thumbnail_checker.py` for fast yes/no gates pre-research. `/thumbnail` is the post-script version that produces actual concepts.
+- **`/comment-mine`** is the upstream topic-conditional input. If run, its output JSONs in `_research/comment-mining/` are read by Step 2.5 and feed topic-comparable winners into the notebook query. Without this, /thumbnail relies only on niche-wide aggregate data and may miss visual conventions the specific topic already has (e.g., 100% inquisitor-figure rate on Spanish Inquisition outliers, which the n=30 close-match corpus does not capture).
 - **`/prep`** consumes the thumbnail concepts when building asset/B-roll lists. Run `/thumbnail --save` first so `/prep` can read THUMBNAIL-CONCEPTS.md.
 
 **Typical sequence:**
 ```
 /script              # Write script
 /verify              # Fact-check
+/comment-mine        # Pull same-topic competitor videos (feeds /thumbnail Step 2.5)
 /thumbnail --save    ← You are here — generate + save concepts
 /prep --full         # Asset + edit guides (reads THUMBNAIL-CONCEPTS.md)
 ```

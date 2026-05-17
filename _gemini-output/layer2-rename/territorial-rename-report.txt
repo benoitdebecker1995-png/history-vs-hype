@@ -1,0 +1,22 @@
+=== Layer 2 Territorial-Disputes Rename Report (2026-05-12) ===
+
+Started: 115 files (Gemini Flash parse + Gemini Flash year/publisher lookup for 52 entries)
+Finished: 101 files in canonical ShortTitle-Author-Year-Publisher.ext format
+
+Breakdown:
+  Plan winners:            110
+    Auto-renamed:          107
+    Source missing:        3   (unicode mismatch - manually re-renamed after)
+  True duplicates deleted: 5   (byte-identical, kept clean-named version)
+  Hash-dedup deleted -vN:  9   (e.g., Akak triplet, all identical 5.4MB)
+  Manual fix renames:      3   (Altstadt/Mallinson/UN — Gemini encoded chars differently than FS)
+
+ICJ documents (preserved with doc-number suffix):
+  CameroonNigeriaJudgment-0100/0104/0107-ICJ-2002-ICJ  (3 different opinions)
+  GuyanaVenezuelaApplication-0100-ICJ-2022
+  GuyanaVenezuelaOrder-0100-ICJ-2023/2026  (2 different orders)
+
+Unresolved (still in canonical format but partial metadata):
+  - 4 files with "Unknown-Unknown-0000-Unknown" canonical (truly blind filenames like annas-arch-10dc1427d358.pdf, 13803.pdf)
+  - ~12 files year=0000 (no publication year detectable)
+  - ~50 files publisher=Unknown (legitimate primary docs, govt PDFs, or books Haiku/Gemini couldn't resolve)

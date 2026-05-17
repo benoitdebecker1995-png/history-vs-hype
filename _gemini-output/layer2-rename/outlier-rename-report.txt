@@ -1,0 +1,8 @@
+=== Outlier Rename Report (2026-05-12) ===
+Planned: 55
+Renamed: 51
+Duplicates deleted (hash match): 4
+Disambiguated -vN: 0
+Errors: 0
+
+Errors:

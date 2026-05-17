@@ -1,0 +1,145 @@
+You are identifying correct publication metadata for academic library files.
+
+For each file listed below, provide the correct YEAR and PUBLISHER.
+Rules:
+- Publisher = real academic publisher (NOT download source like ZLib, Libgen, AnnaArchive, z-library, 1lib)
+- For primary source documents (treaties, acts, speeches, court decisions, government reports): publisher = issuing institution (e.g. "United Nations", "US Congress", "ICJ", "League of Nations")
+- For journal articles: publisher = journal name (e.g. "Journal of African History")
+- For books: publisher = academic press (e.g. "Oxford University Press", "Harvard University Press", "Cambridge University Press")
+- If you cannot determine with high confidence: y="0000" and/or p="Unknown"
+- Use your training knowledge and Google Search to verify
+
+Return ONLY a JSON array (no markdown fences, no explanation):
+[{{"f": "original_filename.pdf", "y": "YYYY", "p": "Publisher"}}]
+
+Files (current known metadata: a=author, y=year, t=short_title):
+a=Davis y=2010 t=ChristianSlavesMuslimMastersSlavery | [Early modern history. society and culture] Robert C. Davis - Christian Slaves, Muslim Masters- White Slavery in the Mediterranean, the Barbary Coast, and Italy, 1500–1800 (2010).pdf
+a=Donck y=0000 t=DescriptionNewNetherland | A Description of New Netherland (The Iroquoians and Their -- Adriaen van der Donck; edited by Charles T_ Gehring and -- The Iroquoians and their -- isbn13 9780803210882 -- b01199589de269180fe07c6fa5b6ca6d -- Anna’s Archiv.pdf
+a=Disney y=0000 t=HistoryPortugalPortugueseEmpire | A History of Portugal and the Portuguese Empire, from Beginnings to 1807, Vol 2) - The Portuguese Empire (Anthony R. Disney) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Drescher y=0000 t=AbolitionHistorySlaveryAntislavery | Abolition a history of slavery and antislavery (Drescher, Seymour).pdf
+a=Adorno y=2000 t=GuamanPomaWritingResistance | Adorno - Guaman Poma Writing and Resistance in Colonial Peru (2000).pdf
+a=Pigeaud y=0000 t=AfricasLastColonialCurrencyCFA | Africas Last Colonial Currency The CFA Franc Story (Fanny Pigeaud Ndongo Samba Sylla).pdf
+a=Sherwood y=0000 t=AfterAbolitionBritainSlaveTrade | After Abolition - Britain and the Slave Trade Since 1807 (Library of International Relations) (Marika Sherwood).pdf
+a=Andrien y=2001 t=AndeanWorldsSpanishRule | Andrien - Andean Worlds Under Spanish Rule (2001).pdf
+a=Bolland y=1977 t=FormationColonialSociety | Bolland - The Formation of a Colonial Society (1977).pdf
+a=Cook y=0000 t=BornDieDiseaseNewWorldConquest | Born to Die- Disease and New World Conquest, 1492–1650 (New - Cook, Noble David.pdf
+a=Cook y=0000 t=BornDieDiseaseNewWorldConquest | Born to Die- Disease and New World Conquest, 1492–1650 (New -- Cook, Noble David -- New approaches to the Americas, Cambridge, New York, -- Cambridge -- 9780521622080 -- 9c96325f074d0f778a49d4b401200735 -- Anna’s Archive.pdf
+a=Kaegi y=0000 t=ByzantiumEarlyIslamicConquests | Byzantium and the Early Islamic Conquests (Walter E. Kaegi).pdf
+a=Seed y=0000 t=CeremoniesPossessionEuropeConquest | Ceremonies of possession in Europe’s conquest of the New World, 1492-1640 (Patricia Seed) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Chafer y=2002 t=EndEmpireFrenchWestAfrica | Chafer - The End of Empire in French West Africa (2002) (1).pdf
+a=Chafer y=2002 t=EndEmpireFrenchWestAfrica | Chafer - The End of Empire in French West Africa (2002).pdf
+a=Ndlovu-Gatsheni y=0000 t=ColonialityPowerPostcolonialAfrica | Coloniality of power in postcolonial Africa myths of decolonization (Ndlovu-Gatsheni, Sabelo J.).pdf
+a=Unknown y=0000 t=ConflictedColonialismsViolenceSahel | Conflicted colonialisms multi-dimensional violence in the Western Sahel.pdf
+a=Cook y=1981 t=DemographicCollapseIndianPeru | Cook - Demographic Collapse Indian Peru 1520-1620 (1981).pdf
+a=Cooper y=2014 t=CitizenshipBetweenEmpireNation | Cooper - Citizenship between Empire and Nation (2014) (1).pdf
+a=Cooper y=2014 t=CitizenshipBetweenEmpireNation | Cooper - Citizenship Between Empire and Nation (2014).pdf
+a=Daut y=2019 t=AwakeningAshesHaitianRevolution | Daut - Awakening the Ashes Haitian Revolution (2019).pdf
+a=Davis y=2006 t=InhumanBondageRiseFallSlavery | Davis - Inhuman Bondage Rise and Fall of Slavery (2006).pdf
+a=Unknown y=0000 t=ColonialMitaPopulationCollapsePeru | did-the-colonial-mita-cause-a-population-collapse-what-current-surnames-reveal-in-peru.pdf
+a=Unknown y=0000 t=UtilitiesForcePostcolonialContext | Dis utilities of Force in a Postcolonial Context Explaining the Strategic Failure of the French-Led Intervention in Mali.pdf
+a=Miller y=0000 t=DiscoveringIndigenousLandsDoctrine | Discovering Indigenous Lands The Doctrine of Discovery in the English Colonies (Robert J. Miller, Jacinta Ruru etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t=DoctrineDiscoveryRepudiation | DOCTRINE OF DISCOVERY REPUDIATION.pdf
+a=Unknown y=0000 t=MissionCivilizeRepublicanEmpire | dokumen.pub-a-mission-to-civilize-the-republican-idea-of-empire-in-france-and-west-africa-1895-1930-9780804765039.pdf
+a=Drescher y=2009 t=Abolition | Drescher - Abolition (2009).pdf
+a=Drescher y=2009 t=AbolitionHistorySlavery | Drescher - Abolition A History of Slavery (2009).pdf
+a=Drescher y=2009 t=AbolitionHistorySlaveryAntislavery | Drescher - Abolition A History of Slavery and Antislavery (2009).pdf
+a=Unknown y=0000 t=DumDiversas | dum diversas.pdf
+a=Duran y=1971 t=BookGodsRitesAncientCalendar | Duran - Book of Gods and Rites Ancient Calendar (1971).pdf
+a=Schwartz y=0000 t=EarlyBrazilDocumentaryCollection | Early Brazil A Documentary Collection to 1700 (Stuart B. Schwartz) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Edwards y=2007 t=CambodiaCultivationNation | Edwards - Cambodia Cultivation of a Nation (2007).pdf
+a=Elliott y=2006 t=EmpiresAtlanticWorld | Elliott - Empires of the Atlantic World (2006) (1).pdf
+a=Elliott y=2006 t=EmpiresAtlanticWorld | Elliott - Empires of the Atlantic World (2006).pdf
+a=Unknown y=0000 t=CambridgeWorldHistorySlavery | etc. - The Cambridge World History of Slavery, Volume 3 AD 1420 (n.d.).pdf
+a=Ethridge y=2009 t=MappingMississippianShatterZone | Ethridge - Mapping the Mississippian Shatter Zone (2009).pdf
+a=Unknown y=0000 t=ExtraResearch | extra research.pdf
+a=Grumet y=0000 t=FirstManhattansHistoryIndians | First Manhattans A History of the Indians of Greater New York (Robert S. Grumet) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t=GeminiVidResearch | gemini and vid research.pdf
+a=Martínez y=0000 t=GenealogicalFictionsLimpiezaSangre | Genealogical Fictions Limpieza de Sangre, Religion, and Gender in Colonial Mexico (María Elena Martínez).pdf
+a=Gibbings y=2020 t=OurTimeRaceModernityGuatemala | Gibbings - Our Time is Now Race and Modernity Guatemala (2020).pdf
+a=Gibson y=1971 t=BlackLegendAntiSpanishAttitudes | Gibson - Black Legend Anti-Spanish Attitudes (1971).pdf
+a=Greer y=2008 t=RereadingBlackLegendReligious | Greer - Rereading Black Legend Religious Racial Difference (2008).pdf
+a=Grandin y=2007 t=EmpiresWorkshopLatinAmerica | Greg Grandin - Empire's Workshop_ Latin America, the United States, and the Rise of the New Imperialism (2007, Owl Books) - libgen.li.epub
+a=Adorno y=0000 t=GuamanPomaWritingResistance | Guaman Poma writing and resistance in colonial Peru (Rolena Adorno).pdf
+a=Unknown y=0000 t=HalumiiKtapihna | Halumii Ktapihna.pdf
+a=OCallaghan y=0000 t=HistoryNewNetherland | History of New Netherland or, New York under the Dutch (Edmund Bailey OCallaghan) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Covey y=0000 t=IncasBuiltHeartlandStateFormation | How the Incas Built Their Heartland - State Formation and the Innovation of Imperial Strategies in the Sacred Valley, Peru… (R. Alan Covey).pdf
+a=Kennedy y=2008 t=GreatArabConquestsIslamSpread | Hugh Kennedy - The Great Arab Conquests- How the Spread of Islam Changed the World We Live In (2008, Da Capo Press).pdf
+a=Unknown y=0000 t=ImaginationAidedPaintersBrush | Imagination Aided by the Painter's Brush.pdf
+a=Anghie y=0000 t=ImperialismSovereigntyInternationalLaw | Imperialism, Sovereignty and the Making of International Law (Antony Anghie) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Davis y=0000 t=InhumanBondageRiseFallSlavery | Inhuman Bondage The Rise and Fall of Slavery in the New World (David Brion Davis).pdf
+a=Unknown y=0000 t=InterCaetera | inter caetera.pdf
+a=Jennings y=1997 t=BusinessAbolishingBritishSlaveTrade | Jennings - The Business of Abolishing British Slave Trade (1997).pdf
+a=Jennings y=2013 t=BusinessAbolishingBritishSlaveTrade | Jennings - The Business of Abolishing the British Slave Trade, 1783 (2013).pdf
+a=Unknown y=0000 t=LegaciesBritishSlaveOwnershipColonial | Legacies of British Slave-Ownership Colonial Slavery and the Formation of Victorian Britain ( etc.) (Z-Library).pdf
+a=Soderlund y=0000 t=LenapeCountryDelawareValleySociety | Lenape Country Delaware Valley Society Before William Penn (Jean R. Soderlund) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Pagden y=0000 t=LordsWorldIdeologiesEmpire | Lords of all the world ideologies of empire in Spain, Britain and France c. 1500-c. 1800 (Pagden, Anthony) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t=ManifestDeception | manifest deception.pdf
+a=Greer y=2008 t=RereadingBlackLegendReligious | Margaret R. Greer, Walter D. Mignolo, Maureen Quilligan - Rereading the Black Legend- The Discourses of Religious and Racial Difference in the Renaissance Empires (2008).pdf
+a=Ali y=0000 t=MarriageSlaveryEarlyIslam | Marriage and Slavery in Early Islam (Kecia Ali) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Jameson y=0000 t=NarrativesNewNetherland | Narratives of New Netherland, 1609-1664 (Various, J. Franklin Jameson) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Unknown y=0000 t=NotesManhattanPurchase | Notes on the Manhattan Purchase.pdf
+a=Unknown y=2023 t=VaticanRepudiatesDoctrineDiscovery | NPR The Vatican repudiates 'Doctrine of Discovery (March 30, 2023).pdf
+a=Nwaubani y=2001 t=UnitedStatesDecolonizationWestAfrica | Nwaubani - The United States and Decolonization in West Africa, 1950 (2001).pdf
+a=Ochoa y=2018 t=CacicasIndigenousWomenLeaders | Ochoa - Cacicas Indigenous Women Leaders of Spanish America (2018).pdf
+a=Bonomi y=2003 t=UnderCopeHeavenReligionPolitics | Patricia U. Bonomi - Under the Cope of Heaven- Religion, Society, and Politics in Colonial America (2003).pdf
+a=Pedersen y=0000 t=SettlerColonialismTwentiethCentury | Pedersen - Settler Colonialism in the Twentieth Century (n.d.).pdf
+a=Pigeaud y=2021 t=AfricasLastColonialCurrency | Pigeaud - Africa's Last Colonial Currency (2021) (1).pdf
+a=Pigeaud y=2021 t=AfricasLastColonialCurrency | Pigeaud - Africa's Last Colonial Currency (2021).pdf
+a=Muldoon y=0000 t=PopesLawyersInfidelsChurch | Popes, Lawyers, and Infidels The Church and the Non-Christian World, 1250-1550 (James Muldoon) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=McSherry y=2005 t=PredatoryStatesOperationCondor | Predatory States - Operation Condor and Covert War in Latin America (2005) (J. Patrice McSherry) (Z-Library).pdf
+a=Hemming y=0000 t=RedGoldConquestBrazillianIndians | Red Gold- The Conquest of the Brazillian Indians, 1500-1760 - John Hemming - ( WeLib.org )-compressed-1.pdf
+a=Unknown y=0000 t=Research | research.pdf
+a=Unknown y=0000 t=ResearchPrompt | researh and prompt maybe.pdf
+a=Reséndez y=2016 t=OtherSlavery | Reséndez - The Other Slavery (2016).pdf
+a=Reséndez y=2016 t=OtherSlaveryIndianEnslavement | Reséndez - The Other Slavery Indian Enslavement (2016).pdf
+a=Unknown y=0000 t=RomamusPontifex | romamus pontifex.pdf
+a=Rostworowski y=1999 t=HistoryIncaRealm | Rostworowski - History of the Inca Realm (1999).pdf
+a=Sanghera y=2024 t=Empireworld | Sanghera - Empireworld (2024).pdf
+a=Sanghera y=2021 t=EmpireworldBritishImperialismGlobe | Sanghera - Empireworld How British Imperialism Shaped Globe (2021).pdf
+a=Portuondo y=0000 t=SecretScienceSpanishCosmography | Secret Science Spanish Cosmography and the New World (María M. Portuondo) (Z-Library).pdf
+a=Elkins y=0000 t=SettlerColonialismTwentiethCentury | Settler Colonialism in the Twentieth Century (Caroline Elkins Susan Pedersen).pdf
+a=Restall y=0000 t=SevenMythsSpanishConquest | Seven Myths of the Spanish Conquest Updated Edition (Matthew Restall).pdf
+a=Unknown y=0000 t=ShagenLetterSmithsonian | shagen letter smithsonian.pdf
+a=Sherwood y=2007 t=AfterAbolition | Sherwood - After Abolition (2007).pdf
+a=Sherwood y=2007 t=AfterAbolitionBritainSlaveTrade | Sherwood - After Abolition Britain and Slave Trade (2007).pdf
+a=Schwartz y=0000 t=SovereigntySocietyColonialBrazil | Sovereignty and society in colonial Brazil;_ The High Court -- Stuart B_ Schwartz; Schwartz Stuart B_; University Stuart B -- Berkeley, California, -- 9780520021952 -- 2cc2403c88a287fe332b78068b7d284a -- Anna’s Archive.pdf
+a=Unknown y=1991 t=SpanishColonialResearchCenter | Spanish Colonial Research Center (Albuquerque - Spanish Colonial Research Center Computerized Index of Spanish Colonial Documents (1991).pdf
+a=Stannard y=1992 t=AmericanHolocaust | Stannard - American Holocaust (1992).pdf
+a=Wright y=0000 t=StateTerrorismLatinAmerica | State Terrorism in Latin America_ Chile, Argentina, and -- Thomas C_ Wright University of Nevada Las Vegas -- Rowman & Littlefield Publishing, Lanham, -- 9780742537200 -- 8da0e9b26dcba221a0b02d281238760f -- Anna’s Archive.pdf
+a=Unknown y=0000 t=StatementVatican | statement vatican.pdf
+a=Stern y=1982 t=PeruIndianPeoplesSpanishConquest | Steve J. Stern - Peru's Indian peoples and the challenge of Spanish conquest- Huamanga to 1640 (1982, The University of Wisconsin Press).pdf
+a=Williams y=0000 t=AmericanIndianWesternLegalThought | The American Indian in Western Legal Thought The Discourses of Conquest (Robert A. Williams Jr.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Jennings y=0000 t=BusinessAbolishingBritishSlaveTrade | The business of abolishing the British slave trade - - Judith Jennings, J. Jennings.pdf
+a=Eltis y=0000 t=CambridgeWorldHistorySlavery | The Cambridge World History of Slavery, Volume 3 AD 1420–AD 1804 (David Eltis (Editor) etc.).pdf
+a=Jacobs y=0000 t=ColonyNewNetherlandDutchSettlement | The Colony of New Netherland A Dutch Settlement in Seventeenth-Century America (Jacobs, Jaap) (z-library.sk, 1lib.sk, z-lib.sk)-1.pdf
+a=Jacobs y=0000 t=ColonyNewNetherlandDutchSettlement | The Colony of New Netherland A Dutch Settlement in Seventeenth-Century America (Jacobs, Jaap) (z-library.sk, 1lib.sk, z-lib.sk)-2.pdf
+a=Jacobs y=0000 t=ColonyNewNetherlandDutchSettlement | The Colony of New Netherland A Dutch Settlement in Seventeenth-Century America (Jacobs, Jaap) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Todorov y=0000 t=ConquestAmericaQuestionOther | The conquest of America - the question of the other - Tzvetan Todorov; translated from the French by Richard.pdf
+a=Unknown y=0000 t=ConversationArticle | the conversation article.pdf
+a=Donner y=0000 t=EarlyIslamicConquests | The Early Islamic Conquests (Fred McGraw Donner).pdf
+a=Bolland y=0000 t=FormationColonialSocietyBelize | The Formation of a Colonial Society- Belize, From Conquest -- Professor O- Nigel Bolland -- Johns Hopkins studies in Atlantic history and culture, -- 9780801818875 -- 5be003a10c9bf724983c3061e4b8c6af -- Anna’s Archive.pdf
+a=Unknown y=0000 t=GrandfathersSpeak | The grandfathers speak (Hìtakonanulaxk.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Pedersen y=0000 t=GuardiansLeagueNationsCrisisEmpire | The Guardians The League of Nations and the Crisis of Empire (Susan Pedersen).pdf
+a=Shorto y=0000 t=IslandCenterWorld | The Island at the Center of the World (Shorto Russell) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Kraft y=0000 t=LenapeDelawareIndiansOriginalPeople | The Lenape or Delaware Indians the original people of New Jersey, southeastern New York State, eastern Pennsylvania, northern… (Kraft, Herbert C, Kraft etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Reséndez y=0000 t=OtherSlaveryUncoveredStory | The Other Slavery The Uncovered Story of Indian Enslavement in America (Andrés Reséndez).pdf
+a=Boxer y=0000 t=PortugueseSeaborneEmpire | The Portuguese seaborne empire 1415-1825 (Boxer, C. R. (Charles Ralph), 1904-) (z-library.sk, 1lib.sk, z-lib.sk).pdf
+a=Young y=0000 t=PostcolonialStateAfricaIndependence | THE POSTCOLONIAL STATE IN AFRICA FIFTY YEARS OF INDEPENDENCE，1960-2010 (CRAWFORD YOUNG, Merwin Crawford Young, Young etc.).pdf
+a=Braveboy-Wagner y=0000 t=VenezuelaGuyanaBorderDispute | The Venezuela-Guyana Border Dispute Britains Colonial Legacy in Latin America (Jacqueline A Braveboy-Wagner).pdf
+a=Thiongo y=1986 t=DecolonisingMind | Thiongo - Decolonising the Mind (1986).pdf
+a=Tinniswood y=0000 t=PiratesBarbaryCorsairsConquests | Tinniswood--Adrian-Pirates-of-Barbary--Corsairs--Conquests-and-Captivity-in-the-17th-Century-Mediter.pdf
+a=Todorov y=1984 t=ConquestAmerica | Todorov - The Conquest of America (1984).pdf
+a=Unknown y=0000 t=TordesillasSlaveryOrigins | TordesillasSlaveryAndTheOriginsOf_preview.pdf
+a=Unknown y=0000 t=TreatyTordesillasSyndromeSovereignty | Treaty of Tordesillas Syndrome_ Sovereignty ad Absurdum and the S.pdf
+a=Unknown y=0000 t=Treaty | treaty.pdf
+a=Unknown y=0000 t=UncoveringInvisible | uncovering the invisble.pdf
+a=Unknown y=0000 t=UtilitiesForcePostcolonialContext | Unknown - (Dis)utilities of Force in a Postcolonial Context (n.d.).pdf
+a=Unknown y=0000 t=Cacicas | Unknown - Cacicas (n.d.).pdf
+a=Unknown y=0000 t=ConflictedColonialisms | Unknown - Conflicted colonialisms (n.d.).pdf
+a=Unknown y=2026 t=Untitled | Untitled - April 17, 2026.pdf
+a=Unknown y=0000 t=CouncilMinutes | Volume_IV_-_Council_Minutes_1638-1649.pdf
+a=Unknown y=0000 t=LandPapers | Volumes_GG_HH__II_-_Land_Papers.pdf
+a=Powers y=0000 t=WomenCrucibleConquestGendered | Women in the Crucible of Conquest The Gendered Genesis of Spanish American Society, 1500-1600 (Karen Vieira Powers, Lyman L. Johnson).pdf
+a=Young y=2012 t=PostcolonialStateAfrica | Young - The Postcolonial State in Africa (2012).pdf
+a=Unknown y=0000 t=WorldHistory | ZMFR - Wcrld Histnry.tif (n.d.).pdf
+a=Zunes y=2010 t=WesternSahara | Zunes - Western Sahara (2010).pdf
