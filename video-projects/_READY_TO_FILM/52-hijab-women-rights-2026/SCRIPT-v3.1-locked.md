@@ -2,12 +2,12 @@
 
 ## SCRIPT METADATA
 - **Project:** 52-hijab-women-rights-2026
-- **Version:** v3.2 DRAFT-LOCKED (v3.1 + Fig Tree edit pass 2026-05-18 — empirical patterns from 26-video corpus filtered through HvH differentiators per `FIG-TREE-EDIT-PASS-PROPOSAL.md`; NotebookLM blind cross-check synthesis incorporated. Edits: §I spatial-pointer MAL 40, §II instructional bridge, §III silent chapter card, §IV "Look at what it says" cut-trigger + face-hold on whip quote, §V anticipation phrase + spatial-pointer Ibn al-Jawzi, §VI "Picture this" + question-first reorder, §VII face-hold on Aisha quote, §VIII silent chapter card + spatial-pointer side-by-side. v3.1 archived as SCRIPT-v3.1-locked.md.)
+- **Version:** v3.1 DRAFT-LOCKED (v2 + user-readthrough revision pass 2026-05-17 — 4 line fixes [§VIII placeholder closer removed, §IV verbal-Chekhov rephrased, §VII antecedent-gap repaired, title header reflects locked title] + VidIQ-gap additions [pre-script paradox text card + 2 chapter cards] + structure-checker-v2 audit applied [§VIII chapter card timing fix + neutral B-ROLL on disclaimer + 4 §VIII trims saving ~48 words + Rule 37 anchor metadata reconciled] + fig-tree editing note in PROJECT-STATUS)
 - **Video Type:** Ideological / Mechanism (jurisprudential codification)
 - **Argument Structure:** Inductive (pattern → mechanism → verdict)
 - **Thesis (≤12 words):** The veil has always been state-enforced class branding — not religion.
 - **Thesis Type:** Mechanism-over-narrative
-- **Target Length:** ~11:30 (~1,725 spoken words at 150 WPM; hard cap 12:00). Note: v3.1 was ~1,675 / 11:10. v3.2 Fig Tree edit pass adds ~50 words net (spatial pointers, anticipation phrases, instructional bridge); still under hard cap with ~30s buffer.
+- **Target Length:** ~11:10 (~1,675 spoken words at 150 WPM; hard cap 12:00). Note: original v2 metadata claimed ~1,520 words / 10:08; structure-checker-v2 v3-audit independent count 2026-05-17 showed actual was ~1,723 / 11:29. v3.1 trim pass brought §VIII down by ~48 words to ~1,675 / 11:10.
 - **Format:** Format C (document-heavy, primary sources on screen)
 - **Anchor (Rule 37):** "free woman" — repeated wording across §I, §III, §IV, §V, §VI, §VIII
 - **Hook Type:** specificity_bomb (Law 40 cold open — 5.4x niche lift)
@@ -68,18 +68,11 @@ Most people start this debate in 7th-century Arabia. I want to go back 1,800 yea
 
 This is a law from 1200 BCE, from the Middle Assyrian Empire — what is now Iraq.
 
-Middle Assyrian Law 40 says this. Three lines.
+Middle Assyrian Law 40 says this.
 
-[ON SCREEN: Middle Assyrian Law 40 tablet image with three highlights — line 1, line 2, line 3 stacked]
+[ON SCREEN: Middle Assyrian Law 40, translated text — full block]
 
-[POINTER — highlight line 1]
-The first: a married woman must veil in public.
-
-[POINTER — highlight line 2]
-The second: a prostitute caught veiling is flogged fifty times and has pitch poured on her head.
-
-[POINTER — highlight line 3]
-The third: a slave caught wearing a veil has her clothes stripped and her ears cut off.
+A married woman must veil in public. A prostitute caught veiling is flogged fifty times and has pitch poured on her head. A slave caught wearing a veil has her clothes stripped and her ears cut off.
 
 [SOURCE: Llewellyn-Jones, *Aphrodite's Tortoise*, p. 125, citing Driver and Miles, *The Assyrian Laws*]
 
@@ -97,7 +90,7 @@ States have always used clothing to mark social class. Islam wasn't unique — i
 
 [VISUAL: Map dissolve — Mesopotamia → Persia → Greece/Rome → Byzantine → Levant]
 
-That class-marker logic ran across five civilizations before Islam. But to understand how the system worked, you have to look at its architecture.
+That class-marker logic ran across five civilizations before Islam, and in each case it followed the same basic architecture.
 
 In Persian royal courts, seclusion itself was the elite signal — the more hidden, the higher the rank. That logic flowed directly into Greek and Roman law, where veiling was a legal entitlement reserved for free citizen women, and into Byzantine society, where the veil marked the boundary between an "honest" woman and a prostitute.
 
@@ -117,7 +110,7 @@ a *scopic regime* — a system in which visibility itself functions as social re
 
 ### §III — MEDINA: The Quranic Texts (2:10 – 3:35)
 
-[ON SCREEN 2:10 – 2:13: Chapter card — "PART ONE — THE INHERITED CODE" — fades silently over Medina city illustration. NO music stinger (Fig Tree edit pass — verbal pivots only). Card serves YouTube chapter nav.]
+[ON SCREEN 2:10 – 2:13: Chapter card — "PART ONE — THE INHERITED CODE" — fades over Medina city illustration. Music brief stinger. Per `.claude/REFERENCE/competitor-gap-analysis.md` chapter-cadence rule.]
 
 [VISUAL: Medina city — 7th-century illustration or stylized map]
 
@@ -125,9 +118,9 @@ By the 7th century CE, that class signal was the standing rule across the known 
 
 Medina was a mixed city of Arab tribes, Jewish settlements, enslaved workers, and new converts — with no stable class hierarchy to sustain the old dress codes. Women moving through the streets at night had no visible protection.
 
-Al-Tabari preserves the legal defense the men gave. The line that matters:
+Al-Tabari records the legal defense the men gave:
 
-[ON SCREEN: al-Tabari, *Tafsir al-Tabari*, on Q. 33:59 — full passage, then highlight the operative clause]
+[ON SCREEN: al-Tabari, *Tafsir al-Tabari*, on Q. 33:59]
 
 > 'We only practice *ta'arrud* with women we believe to be slaves.'
 
@@ -155,13 +148,9 @@ What Islam inherited was an existing class marker. The universalization into a m
 
 The first administrator to enforce the dress code across Medina was Caliph Umar ibn al-Khattab — ruler 634–644 CE. He was managing a city, not composing a theology.
 
-There's a specific report in the Musannaf Ibn Abi Shayba that shows this administration in action. Look at what it says.
+A report in the Musannaf Ibn Abi Shayba records him spotting a veiled slave woman in the street. He didn't stop to ask whether she was being modest — he pulled out his whip, struck her, and shouted:
 
-[ON SCREEN: Musannaf Ibn Abi Shayba, vol. 2, p. 135 — page image, citation overlay]
-
-Umar spotted a veiled slave woman in the street. He didn't stop to ask whether she was being modest — he pulled out his whip, struck her, and shouted:
-
-[STAY ON TALKING HEAD for the quote — citation overlay only, no full B-roll cut]
+[ON SCREEN: Musannaf Ibn Abi Shayba, vol. 2, p. 135]
 
 > 'Cast off your veil, bondswoman! Are you trying to look like a *free woman*?!'
 
@@ -181,18 +170,18 @@ What he was doing in both cases wasn't composing theology — it was registry ad
 
 By the 9th century, the class-marker logic had stabilized: the veil marked *free* status.
 
-Then the jurists extended it further than the text could hold — and the way they did it tells you exactly what the system was for.
+Then the jurists extended it further than the text could hold.
 
 Al-Tha'labi, 11th century, took Q. 33:33 — addressed to the Prophet's wives, beginning 'You are not like any other women' — and dropped the address. A marker for one household became a mandate for all women.
 
 [ON SCREEN: Quran 33:33 — 'you are not like any other women' highlighted in Arabic + English]
 [SOURCE: Reda/Amin, *Qurʾān and Worn Bodies*]
 
-Ibn al-Jawzi, 12th century, turned to the one exemption Q. 24:60 still left standing — older women past the age of marriage retaining the right to uncover — and closed it. His reasoning is on this page. The line that matters:
+Ibn al-Jawzi, 12th century, turned to the one exemption that Q. 24:60 still left standing — older women past the age of marriage retaining the right to uncover — and closed it. His ruling appears in *Zad al-masir*, volume 6, page 63:
 
-[ON SCREEN: Ibn al-Jawzi, *Zad al-masir fī ʿilm al-tafsīr*, 6:63 — full page, then highlight the operative phrase 'attenuating the visual distinction']
+[ON SCREEN: Ibn al-Jawzi, *Zad al-masir fī ʿilm al-tafsīr*, 6:63]
 
-Allowing an old free woman to uncover risked *attenuating the visual distinction* between her and a slave. So the exemption had to go.
+His reasoning: allowing an old free woman to uncover risked 'attenuating the visual distinction' between her and a slave. So the exemption had to go.
 
 [SOURCE: Ibn al-Jawzi, *Zad al-masir*, 6:63]
 
@@ -206,25 +195,17 @@ By the 12th century the class signal was universal — and the only way to see t
 
 ### §VI — THE PLAGUE TEST: Cairo 1438 (5:50 – 6:40)
 
-[VISUAL: talking head — direct address before the case study]
+[VISUAL: Medieval Cairo illustration / al-Maqrizi manuscript]
 
-Picture this. Cairo, 1438. Bubonic plague is ravaging the city. The Sultan summons his jurists to find the cause; their answer: the debauchery of women walking the markets in fine clothes.
+Cairo, 1438 — bubonic plague. The Sultan summoned the jurists for the cause; their answer: the debauchery of women walking the markets in fine clothes. He banned all women from the streets on pain of death — except slave women, who could leave for household supplies, al-Maqrizi records, under one condition:
 
-Here's the test. If the veil was really about modesty, what would a plague decree look like? It would veil everyone, or veil no one. Modesty doesn't have a class line.
-
-[CUT TO: al-Maqrizi, *Kitab al-Suluk* — 1438 plague entry]
-
-Instead, the Sultan banned all women from the streets on pain of death — except slave women, who could leave for household supplies, al-Maqrizi records, under one condition:
-
-[HIGHLIGHT — operative clause]
+[ON SCREEN: al-Maqrizi, *Kitab al-Suluk* — 1438 plague entry]
 
 > ...so long as they did not veil and could easily be distinguished from *free women*.
 
 — *Katz, Women in the Mosque, citing al-Maqrizi, Kitab al-Suluk*
 
-[BACK TO TALKING HEAD]
-
-Free women hidden. Slave women visible. Sex irrelevant. The variable being managed wasn't women's bodies — it was which bodies could be distinguished at a glance. That's what the system was always doing.
+If the veil was genuinely about female modesty, a plague killing everyone should have veiled everyone or veiled no one. Instead it cuts cleanly on the class line: *free women* hidden, slave women visible, sex irrelevant. The variable being managed wasn't women's bodies — it was which bodies could be distinguished at a glance. That's what the system was always doing.
 
 ---
 
@@ -236,11 +217,9 @@ There's a second pattern the system reveals — visible in the women who refused
 
 Aisha bint Talha — granddaughter of Abu Bakr, early 8th-century Mecca — refused to veil. When challenged, she didn't argue theology — she argued rank. The *Kitab al-Aghani* records her words:
 
-[STAY ON TALKING HEAD for the quote performance — Heath citation as on-screen text overlay only, no full B-roll cut]
+[ON SCREEN: Heath, *The Veil*, p. 254, citing *Kitab al-Aghani*]
 
 > 'God has honored me with beauty. I want the people to understand what rank I enjoy before them. I will not veil myself. Nobody can reproach me with a fault.'
-
-[SOURCE OVERLAY: Heath, *The Veil*, p. 254, citing *Kitab al-Aghani*]
 
 She's not rejecting the scopic regime — she's claiming her rank entitles her to use her *face* as the signal. High visibility announced status just as clearly as covering did. Ibn Manzur's *Lisan al-Arab* preserves an Arabic word for that status — *barza* — a woman known by sight and respected for her reasoning.
 
@@ -256,7 +235,7 @@ The system had no word for defiance. It had a word for rank so unambiguous you d
 
 Before we get to the modern states: if you wear the hijab as a personal spiritual practice, this video isn't about you — the garment carries the meaning you give it. This is about what happens when a state gets hold of that garment and writes laws about it.
 
-[ON SCREEN: Chapter card — "PART TWO — THE MODERN STATE" — fades silently over archival 1936 Iran footage transition (~3s). NO music stinger (Fig Tree edit pass). Card serves YouTube chapter nav.]
+[ON SCREEN: Chapter card — "PART TWO — THE MODERN STATE" — fades over archival 1936 Iran footage transition (~3s). Music brief stinger.]
 
 [VISUAL: cut — archival 1936 Iran footage]
 
@@ -266,15 +245,9 @@ In 1936, Reza Shah Pahlavi — secular modernizer, anti-clerical nationalist —
 
 [B-ROLL: 1936 Iran — archival press photographs, soldiers removing veils]
 
-Many women were so shaken they refused to leave their houses for years.
-
-[BACK TO TALKING HEAD — face holds the pivot]
-
-Then in 1983, after the Islamic Revolution, Article 102 of the new criminal code made the veil mandatory on pain of 74 lashes.
+Many women were so shaken they refused to leave their houses for years. Then in 1983, after the Islamic Revolution, Article 102 of the new criminal code made the veil mandatory on pain of 74 lashes.
 
 [ON SCREEN: Article 102, Islamic Republic of Iran, criminal code]
-
-[BACK TO TALKING HEAD]
 
 In under fifty years, Iran went from banning the veil to mandating it. The only constant: a state writing the dress code. By 2025 the whip had been upgraded to AI cameras and cell-tower trackers under Iran's Noor Plan, identifying uncovered women without a police van in sight.
 
@@ -292,12 +265,9 @@ UN Special Rapporteur Aisha Lee Fox Shaheed puts the frame plainly: 'contemporar
 
 [SOURCE: Shaheed, in edited volume on freedom of religion]
 
-[ON SCREEN: Side by side — Middle Assyrian Law 40 clay tablet (LEFT) // Afghan Criminal Code 2026, Article text (RIGHT)]
+[ON SCREEN: Side by side — Middle Assyrian Law 40 clay tablet // Afghan Criminal Code 2026, Article text]
 
-On the left — Mesopotamia, 1200 BCE.
-On the right — Afghanistan, 2026.
-
-Three thousand two hundred years between them. They don't share a language, a religion, or a culture. What they share is a state law dictating what a woman wears, and a punishment for breaking it.
+Three thousand two hundred years separate that clay tablet from Afghanistan's 2026 criminal code. They don't share a language, a religion, or a culture. What they do share is a state law dictating what a woman wears, and a punishment for breaking it.
 
 [BEAT GAP — hold the visual]
 
@@ -311,9 +281,9 @@ The argument was never *just* about theology. It was about which state gets to u
 
 | Metric | Target | Status |
 |---|---|---|
-| Spoken word count | 1,500–1,800 | ~1,725 ✅ (v3.2: +~50 words from Fig Tree edit pass — spatial pointers, bridge, anticipation phrases) |
-| Runtime estimate (150 WPM) | 10:00–11:30 | ~11:30 ✅ |
-| Hard cap | 12:00 | Under ✅ (~30s buffer) |
+| Spoken word count | 1,500–1,800 | ~1,675 ✅ (post v3.1 §VIII trim) |
+| Runtime estimate (150 WPM) | 10:00–11:30 | ~11:10 ✅ |
+| Hard cap | 12:00 | Under ✅ (~50s buffer) |
 | Rule 40 (baseline-before-exception) | Every pivot has baseline | ✅ §III, §V, §VII all open with rule before pivot |
 | Rule 41 (lane choreography) | Every rule-asserting beat paired | ✅ All [ON SCREEN] / [B-ROLL] present |
 | Rule 42 (citation grounding) | No ⏳ rows | ✅ All quotes round-tripped via NotebookLM |

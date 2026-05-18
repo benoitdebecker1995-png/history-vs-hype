@@ -275,14 +275,24 @@ Feed in order:
 5. `GUIDE-SELECTIONS.md`
 6. `comment-mining/SIGNAL-ANALYSIS-round2-2026-05-13.md` (deflection inventory + audience language)
 
+### Editing direction note (2026-05-17, user-flagged)
+
+**Fig Tree-style editing, NOT super-crazy editing.** The `.claude/REFERENCE/production-delivery-upgrades.md` and `competitor-gap-analysis.md` recommendations (animate every document, Ken Burns + animated highlight draws, talking head <8s per shot, particle effects, music drops every paradox reveal) are TOO MUCH for this video's voice. Override: take the slower, more measured Fig Tree pacing as the editing reference. Document reveals are slow and deliberate (zooms over 3-5s, not 1s). Talking-head sequences can run 10-15s without B-roll cutaway when the VO is doing close-read work. Music stays subtle and minimal — no dramatic stingers on every chapter card. The pre-clip paradox text (0:00-0:03) and 2 chapter cards stay as locked in v2.2; they are the maximum editing-energy this video supports.
+
+**Implication for `/prep` editing brief:** Tone down the 5 fixes in `competitor-gap-analysis.md`. Specifically:
+- Animate documents YES but slowly (3-5s zooms not 1s)
+- Talking head can run >8s per shot when VO is doing close-read on a primary source
+- Skip dramatic music intensity ramps; keep music at 8-15% throughout, no peaks
+- Particle/grain overlays SKIP — too busy for the Calm Prosecutor lane
+
 ### Updated Phase tracking
 - [x] Phase 1.5 — Structure surfacing via 3-round NotebookLM query (constrained → open → data-informed). Final structure locked v4 2026-05-16.
 - [x] Phase 1.6 — Pre-script notebook round (8 queries: citation grounding / deflection audit / Walsh collapse / João III audit / rebuttal stress test / B-roll surfacing / Zurara bias line / de Marees alternatives). Output: `NOTEBOOK-PRE-SCRIPT-ROUND.md`.
 - [ ] `title_scorer.py` on locked title + 1-2 variants (treat as soft signal)
-- [ ] Phase 2 — Script (script-writer-v2 v15.0) — feed brief stack including pre-script round
-- [ ] structure-checker-v2 PASS on BC, BD, Rules 40/41/42
-- [ ] Phase 3 — Fact-check (Auditor's Edge audit, Pre-Filming Script Audit) — verify all ✅ vs ⏳ flags from Q1 grounding
-- [ ] Phase 4 — Thumbnail concept lock + production-side B-roll acquisition per Q6 list
+- [x] Phase 2 — Script v2.3 DRAFT-LOCKED (script-writer-v2 v15.0 + user-readthrough revision + structure-checker-v2 + VidIQ-gap audit + /verify Phase 3 all applied 2026-05-17)
+- [x] structure-checker-v2 PASS on BC, BD, Rules 40/41/42 (APPROVE WITH FIXES applied)
+- [x] Phase 3 — Fact-check (4 fixes applied: §V intensity, §VII Zurara verbatim, §III trade-goods, §IV heritable; 2 compromises documented: §II Sowell paraphrase, §VI de Marees Smallwood-by-proxy) — see `03-FACT-CHECK-VERIFICATION.md`
+- [ ] Phase 4 — `/prep` (editing brief in Fig Tree style per editing direction note above + thumbnail concept lock + production-side B-roll acquisition per `NOTEBOOK-PRE-SCRIPT-ROUND.md` Q6 list)
 - [ ] Phase 4.5 — Pre-write pinned comment ("net importer nuke" from Q5) ready for upload
 - [ ] Phase 5 — Film + ship + dual-signal tracking at 2-week mark
 
@@ -351,3 +361,57 @@ Three additions (João III turn extension + Benin ban + "Missing First Chapter" 
 - Reference: `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md`
 - Reference: `.claude/REFERENCE/THESIS-DISCIPLINE.md`
 - Agent: `.claude/agents/script-writer-v2.md` v15.0
+
+---
+
+## 2026-05-18 — Fig Tree edit pass v2 (second worked example)
+
+Applied empirical Fig Tree editing patterns (26-video corpus, NotebookLM `f42a08bd-76ff-4612-b5c5-9411efc9bcf2`) to 02-SCRIPT-DRAFT.md as the second validation of the framework piloted on #52 Hijab. v1 archived as `02-SCRIPT-DRAFT-v1-locked.md`.
+
+**Process mirrors #52:** (1) wrote proposal → (2) added 02-SCRIPT-DRAFT.md to Fig Tree notebook as a non-Fig-Tree source → (3) blind NotebookLM cross-check with explicit voice-preservation constraint → (4) compared blind, synthesized → (5) applied. See `FIG-TREE-EDIT-PASS-PROPOSAL.md` for full proposal + §6 blind-test synthesis.
+
+**v2 edits applied (8 sections):**
+- §I: hold face on "August 8th, 1444" before manuscript cut; sharpen Zurara Ch XXV cue language ("Look at the chronicle. The buyer's own court historian wrote it down.")
+- §II: spatial-pointer 1k vs 80k comparison graphic ("The Trans-Saharan trade averaged about a thousand people a year per route. … The Atlantic system hit a peak of eighty thousand people a year. An eighty-times multiplier."). **Highest-leverage edit in the script.** NLM missed this entirely.
+- §III: stay on face for both Afonso verbatim quote performances (citation overlay only); B-roll AFTER quote for analysis.
+- §IV: ADD NLM's "Picture this." opener; stay on face for both Zurara verbatim chronicle quotes (St. James attack + mothers-forsaking-children).
+- §V: double-pointer on João III gaslighting — operative clause "as a result of the suffering that the Portuguese cause you" highlighted twice; "Read it. The denial contains the confession." + Prosecutor verdict line "He admits the suffering inside the same sentence that denies the demographic effect. The buyer concedes the crime even as he denies the cost."
+- §VI: ADD NLM's "Look at the Dutch records" cut-trigger; spatial-pointer on "it would not be possible to load ships here with blacks" — the line that matters.
+- §VII: Rosetta-Stone Latin/English side-by-side ("On the left — the original Latin, 1455. On the right — the English translation."); clause-by-clause grant pointer in three pointed beats ("To invade. To search out. To capture." / "To vanquish and subdue all Saracens and pagans whatsoever." / "And to reduce their persons to perpetual slavery."). **Most direct Fig Tree analog in the script — the Rosetta Stone pattern applied verbatim.**
+- §VIII: 4-document montage closer (2×2 grid) with sequential pointers on the chronicle/letters/merchant-frustration/decrees callback. Locked thesis line ("Buyers didn't find the Atlantic slave system. They engineered it.") preserved.
+
+**NLM brief violations rejected (6 — vs 4 on #52, pattern intensified):**
+- §I "History is a mirror smashed into a million pieces" (direct lift from Fig Tree Akhenaten monologue) — fabrication-adjacent metaphor port
+- §II "a little bit of context and backstory" — Fig Tree section-label signature
+- §III "Okay, backstory over—let's look at the receipts" — Fig Tree's transition catchphrase (same violation as #52 §III)
+- §V "Got all that? Good." — verbatim Medea check-in (same violation as #52 §V)
+- §VII "I told you we were going to get into it" — direct lift from HOMO HISTORY
+- §VIII "Anyway, that's all I really have to say on that. I'll leave you to ruminate on it. Thanks for watching. Bye." — abrupt-dismissal close pattern (same violation family as #52 §VIII)
+
+**Important framework finding:** NLM violation count went UP on the second script (4 → 6) under the same brief. NLM systematically defaults to porting Fig Tree's *parasocial verbal signatures* even when explicitly prohibited. The port/skip/translate filter — the layer this proposal contributes — is the load-bearing differentiator. NLM also missed 6 of the highest-leverage spatial-pointer edits (1k vs 80k comparison, Latin/English Rosetta-Stone treatment, clause-by-clause grant pointer, 4-document closer montage, double-pointer João III gaslighting, all quote-performance face-hold patterns).
+
+**Cross-script pattern validation (vs #52 Hijab):**
+
+| Pattern | #52 instances | #56 instances | Verdict |
+|---|---|---|---|
+| Spatial-pointer document reveal | 4 | 5 | **Generalizes — top candidate for rule promotion** |
+| Stay-on-face for verbatim quote performance | 2 | 4 | **Generalizes — top candidate for rule promotion** |
+| Earn-the-cut discipline | 1 (paradox card → tablet) | 1 (date → manuscript) | **Generalizes** |
+| Question-first sequencing | 1 (§VI plague test) | 1 (§V second hook — already in script) | **Pattern confirmed** |
+| Numeric-comparison spatial pointer | 0 | 1 (§II 1k vs 80k) | **New pattern surfaced** — 6th candidate rule |
+| Stinger-free chapter cards | 2 (§III, §VIII) | N/A (no cards) | Applicable when cards present |
+
+**Both worked examples now complete.** Six candidate rules validated across two different script formats (Format A/B + Format C), two different structures, two different topical domains. Conditions met for promotion to:
+- `script-writer-v2` Rule 43 (spatial-pointer document reveal)
+- `script-writer-v2` Rule 44 (stay-on-face for quote performance)
+- `script-writer-v2` Rule 45 (earn-the-cut discipline)
+- `script-writer-v2` Rule 46 (numeric-comparison spatial pointer)
+- `WRITING-VOICE-AND-STYLE.md` PART 4 addition (document-treatment subsection)
+- `WORKSPACE_RULES.md` / per-channel playbook (stinger-free chapter cards)
+
+**Status:** Ready for rule-promotion pass once user confirms #56 v2 reads correctly. Both #52 v3.2 and #56 v2 ready for film + edit + ship.
+
+**Files:**
+- `02-SCRIPT-DRAFT.md` — v2 (Fig Tree edit pass applied)
+- `02-SCRIPT-DRAFT-v1-locked.md` — v1 archive
+- `FIG-TREE-EDIT-PASS-PROPOSAL.md` — proposal + blind cross-check synthesis

@@ -121,6 +121,12 @@ Afonso wrote a second letter on October 18, 1526 — more distressed. Contains t
 
 **Location:** French, p. 296, citing Levy Maria Jordão, *Historia do Congo* (Lisbon: Typ. da Academia, 1877), pp. 56-58.
 
+### Resolution 2026-05-17 — "merchandise" vs "guns" (per `03-FACT-CHECK-VERIFICATION.md` ISSUE 3)
+
+João III's verbatim text reads *"if a fidalgo of yours rebels against you and receives **merchandise** from Portugal..."* Portuguese trade goods included weapons (firearms, swords, iron) but ALSO cloth, copper, beads, brass, manilhas, etc. The gun-slave cycle thesis is **contested** (Thornton critiques as overstated; Inikori, Lovejoy support).
+
+**Script v2.3 uses "trade goods"** not "guns" to preserve the protection-racket logic without overstating the weapons-specific interpretation. The "military strength" framing IS in João III's text ("where will be your power and greatness... I well understand what constitutes your military strength") and carries the implication without forcing the contested specific.
+
 ### Killer synth beat — João III's 1529 dismissive reply (✅ VERIFIED)
 
 The King of Portugal's response, *gaslighting* the King of Kongo:
@@ -225,6 +231,12 @@ European demand pressured African rulers to *"progressively and opportunisticall
 
 4. **Geographic scope extends "all the way to the Indians who are said to worship the name of Christ"** — i.e., from West Africa to a fabled Christian kingdom in Asia (the Prester John myth). The bull is the legal architecture for the entire Portuguese maritime empire.
 
+### Resolution 2026-05-17 — "perpetual" vs "heritable" (per `03-FACT-CHECK-VERIFICATION.md` ISSUE 4)
+
+Romanus Pontifex 1455 explicitly says *"perpetuam servitutem"* — perpetual servitude (open-ended, without temporal limit). The text does **NOT** explicitly grant heritable status. Heritability of slave status evolved as a separate legal practice — Portuguese colonial law in subsequent decades, English colonial law via *partus sequitur ventrem* (1662). 16th-century chattel slavery WAS heritable in practice, but the bull authorizes perpetuity, not heritability.
+
+**Script v2.3 uses "open-ended and permanent"** — drops "heritable" to avoid attributing later legal evolution to the original 1455 text. The argument doesn't need it; perpetuity carries the load.
+
 ### Why this is the strongest mechanism document
 
 The bull is **prior to the system it authorizes.** *Dum Diversas* is June 1452. *Romanus Pontifex* is January 1455. The first Portuguese-Atlantic raids (1441-1444) had already happened, but the *scale* of the trade (millions over centuries) is post-1455 and proceeds *under the authority this bull confers.* The legal architecture preceded the commerce.
@@ -250,9 +262,11 @@ Don't argue with Sowell; go above him. Concede existence, deploy the distinction
 
 | Trade | Duration | Total volume | Peak rate |
 |---|---|---|---|
-| Atlantic | 366 years (1501-1867) | 12.5M embarkations | 65,000/year (18th century) |
+| Atlantic | 366 years (1501-1867) | 12.5M embarkations | **~80,000/year peak decade (1781-90); ~65,000/year high-volume-period average** |
 | Trans-Saharan | 1,250 years (650-1900) | ~6M | ~1,000/year per route |
 | Red Sea / Indian Ocean | 1,100 years (800-1900) | ~4-6M | Smaller still |
+
+**Resolution 2026-05-17 (per `03-FACT-CHECK-VERIFICATION.md` ISSUE 1):** Script v2.3 uses the **80K peak + 80x intensity ratio** pair (Eltis & Richardson Atlas peak-decade figure, 1781-1790 average). The 65K figure is a more conservative high-volume-period average. Either is defensible; 80K + 80x chosen for internal consistency and rhetorical force.
 
 **Source:** Eltis & Richardson, *Atlas of the Transatlantic Slave Trade* (Yale UP, 2010), foreword by David Brion Davis. Plus Ralph Austen, "The Trans-Saharan Slave Trade: A Tentative Census," in Gemery & Hogendorn eds., *The Uncommon Market* (Academic Press, 1979), tables 2.1 & 2.2.
 
