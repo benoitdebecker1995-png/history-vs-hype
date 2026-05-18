@@ -222,14 +222,10 @@ class GapAnalyzer:
         """Load own videos from analytics.db."""
         if not self.analytics_db.exists():
             return []
-        conn = sqlite3.connect(str(self.analytics_db))
-        conn.row_factory = sqlite3.Row
-        rows = conn.execute('''
-            SELECT video_id, title, views, topic_type, angles
-            FROM videos
-        ''').fetchall()
-        conn.close()
-        return [dict(r) for r in rows]
+        from tools.youtube_analytics.store import AnalyticsStore
+        keep = ('video_id', 'title', 'views', 'topic_type', 'angles')
+        with AnalyticsStore.open(self.analytics_db) as store:
+            return [{k: r[k] for k in keep} for r in store.videos()]
 
     def _get_search_demand(self) -> Dict[str, int]:
         """Load search volume data from keywords.db."""

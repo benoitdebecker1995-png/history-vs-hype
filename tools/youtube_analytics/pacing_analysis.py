@@ -898,22 +898,14 @@ def run_analysis(video_id: str | None = None, cached_only: bool = False,
         Aggregated results dict
     """
     # Load video metadata
-    conn = sqlite3.connect(str(DB_PATH))
-    cur = conn.cursor()
-
-    if video_id:
-        cur.execute(
-            "SELECT video_id, title, duration_seconds, topic_type "
-            "FROM videos WHERE video_id = ?",
-            (video_id,),
-        )
-    else:
-        cur.execute(
-            "SELECT video_id, title, duration_seconds, topic_type "
-            "FROM videos WHERE duration_seconds > 60"
-        )
-    videos = cur.fetchall()
-    conn.close()
+    from tools.youtube_analytics.store import AnalyticsStore
+    with AnalyticsStore.open(DB_PATH) as store:
+        if video_id:
+            v = store.video(video_id)
+            rows = [v] if v else []
+        else:
+            rows = store.videos(min_duration_seconds=61)  # preserve old `> 60`
+    videos = [(r['video_id'], r['title'], r['duration_seconds'], r['topic_type']) for r in rows]
 
     if not videos:
         logger.error("No videos found in database")

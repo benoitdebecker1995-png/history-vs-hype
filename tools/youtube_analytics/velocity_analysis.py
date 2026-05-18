@@ -55,21 +55,15 @@ def load_video_metadata() -> Dict[str, dict]:
         logger.warning("analytics.db not found at %s", ANALYTICS_DB)
         return {}
 
-    conn = sqlite3.connect(str(ANALYTICS_DB))
-    conn.row_factory = sqlite3.Row
-    cur = conn.cursor()
-    cur.execute("""
-        SELECT video_id, title, published_at, duration_seconds,
-               views, watch_time_minutes, topic_type, subscribers_gained
-        FROM videos
-        WHERE duration_seconds > 60
-    """)
-    rows = cur.fetchall()
-    conn.close()
+    from tools.youtube_analytics.store import AnalyticsStore
+    with AnalyticsStore.open(ANALYTICS_DB) as store:
+        rows = store.videos(min_duration_seconds=61)  # preserve old `> 60`
 
+    keep = ('video_id', 'title', 'published_at', 'duration_seconds',
+            'views', 'watch_time_minutes', 'topic_type', 'subscribers_gained')
     result = {}
     for row in rows:
-        vid = dict(row)
+        vid = {k: row[k] for k in keep}
 
         # Parse publication day
         try:

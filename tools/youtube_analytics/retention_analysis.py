@@ -80,11 +80,9 @@ def build_srt_mapping() -> dict[str, Path]:
         "JkH4XIHfnJU": "trade-wars-200-year-lie", "X0dO-aJx-aQ": "indigenous-genocide-company",
         "lFGs5NHMxMw": "berlin", "ZZz_g_Ov6Lg": "chagos"
     }
-    conn = sqlite3.connect(str(DB_PATH))
-    cur = conn.cursor()
-    cur.execute("SELECT video_id, title FROM videos")
-    videos = cur.fetchall()
-    conn.close()
+    from tools.youtube_analytics.store import AnalyticsStore
+    with AnalyticsStore.open(DB_PATH) as store:
+        videos = [(r['video_id'], r['title']) for r in store.videos()]
     srts = find_all_srts()
     srt_by_stem = {srt.stem.lower(): srt for srt in srts}
     srt_by_tokens = {srt: _slug_tokens(srt.stem) for srt in srts}
@@ -175,12 +173,14 @@ def aggregate_results(analyses: list[dict]) -> dict:
     return {"videos_analyzed": len(analyses), "total_data_points": len(all_points), "by_content_type": by_content_type}
 
 def run_analysis(video_id=None, cached_only=False, generate_markdown=False):
-    conn = sqlite3.connect(str(DB_PATH))
-    cur = conn.cursor()
-    if video_id: cur.execute("SELECT video_id, title, duration_seconds, topic_type FROM videos WHERE video_id = ?", (video_id,))
-    else: cur.execute("SELECT video_id, title, duration_seconds, topic_type FROM videos WHERE duration_seconds > 60")
-    videos = cur.fetchall()
-    conn.close()
+    from tools.youtube_analytics.store import AnalyticsStore
+    with AnalyticsStore.open(DB_PATH) as store:
+        if video_id:
+            v = store.video(video_id)
+            rows = [v] if v else []
+        else:
+            rows = store.videos(min_duration_seconds=61)  # preserve old `> 60`
+    videos = [(r['video_id'], r['title'], r['duration_seconds'], r['topic_type']) for r in rows]
     if not videos: return {}
     srt_map = build_srt_mapping()
     analyses = []

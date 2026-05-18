@@ -114,19 +114,17 @@ def classify_topic(title: str, db_topic_type: str) -> str:
 
 def load_all_videos():
     """Load video metadata from DB, filtered to long-form with retention cache."""
-    conn = sqlite3.connect(str(DB_PATH))
-    cur = conn.cursor()
-    cur.execute(
-        "SELECT video_id, title, duration_seconds, views, topic_type "
-        "FROM videos WHERE duration_seconds > 120"
-    )
-    rows = cur.fetchall()
-    conn.close()
+    from tools.youtube_analytics.store import AnalyticsStore
+    with AnalyticsStore.open(DB_PATH) as store:
+        rows = store.videos(min_duration_seconds=121)  # preserve old `> 120`
 
     # Filter to videos that have retention cache
     cached_ids = {p.stem for p in CACHE_DIR.glob("*.json")}
     videos = []
-    for vid_id, title, duration, views, topic_type in rows:
+    for r in rows:
+        vid_id, title, duration, views, topic_type = (
+            r['video_id'], r['title'], r['duration_seconds'], r['views'], r['topic_type']
+        )
         if vid_id in cached_ids:
             videos.append({
                 "video_id": vid_id,

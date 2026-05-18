@@ -168,60 +168,15 @@ class TitleIntelligence:
 
         Returns list of dicts with: title, topic_type, views, avg_view_percentage,
         subscribers_gained, ctr_percent, impressions, search_traffic_pct
+
+        Delegates to tools.youtube_analytics.views — the cross-store merge lives
+        there to keep the analytics/keywords seam crossing in one place.
         """
-        # Get videos from analytics.db
-        conn = sqlite3.connect(str(self._analytics_path))
-        conn.row_factory = sqlite3.Row
-        videos = {}
-        for row in conn.execute(
-            "SELECT * FROM videos WHERE views > 10 ORDER BY views DESC"
-        ).fetchall():
-            vid = dict(row)
-            vid['search_views'] = 0
-            vid['total_traffic_views'] = 0
-            videos[row['video_id']] = vid
-
-        # Get search traffic %
-        for row in conn.execute(
-            "SELECT video_id, source_type, views FROM traffic_sources"
-        ).fetchall():
-            vid = row['video_id']
-            if vid in videos:
-                videos[vid]['total_traffic_views'] += row['views']
-                if row['source_type'] == 'YT_SEARCH':
-                    videos[vid]['search_views'] = row['views']
-        conn.close()
-
-        # Get CTR from keywords.db (latest snapshot per video)
-        try:
-            conn2 = sqlite3.connect(str(self._keywords_path))
-            conn2.row_factory = sqlite3.Row
-            for row in conn2.execute("""
-                SELECT video_id, ctr_percent, impression_count
-                FROM ctr_snapshots
-                WHERE ctr_percent > 0
-                GROUP BY video_id
-                HAVING snapshot_date = MAX(snapshot_date)
-            """).fetchall():
-                vid = row['video_id']
-                if vid in videos:
-                    videos[vid]['ctr_percent'] = row['ctr_percent']
-                    videos[vid]['impressions'] = row['impression_count']
-            conn2.close()
-        except Exception as e:
-            logger.warning("Could not read keywords.db CTR data: %s", e)
-
-        # Compute search traffic %
-        result = []
-        for vid_data in videos.values():
-            total = vid_data.get('total_traffic_views', 0)
-            search = vid_data.get('search_views', 0)
-            vid_data['search_traffic_pct'] = round(
-                (search / total * 100) if total > 0 else 0, 1
-            )
-            result.append(vid_data)
-
-        return result
+        from tools.youtube_analytics.views import videos_with_ctr_and_traffic
+        return videos_with_ctr_and_traffic(
+            analytics_db=self._analytics_path,
+            keywords_db=self._keywords_path,
+        )
 
     def analyze_title_patterns(self) -> Dict[str, Any]:
         """

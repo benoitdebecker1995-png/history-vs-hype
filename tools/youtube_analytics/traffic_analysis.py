@@ -124,12 +124,9 @@ def load_traffic_from_db() -> Dict[str, List[dict]]:
         logger.warning("analytics.db not found at %s", ANALYTICS_DB)
         return {}
 
-    conn = sqlite3.connect(str(ANALYTICS_DB))
-    conn.row_factory = sqlite3.Row
-    cur = conn.cursor()
-    cur.execute("SELECT video_id, source_type, views, watch_time_minutes FROM traffic_sources")
-    rows = cur.fetchall()
-    conn.close()
+    from tools.youtube_analytics.store import AnalyticsStore
+    with AnalyticsStore.open(ANALYTICS_DB) as store:
+        rows = store.traffic_sources()
 
     result: Dict[str, List[dict]] = defaultdict(list)
     for row in rows:
@@ -149,23 +146,16 @@ def load_video_metadata() -> Dict[str, dict]:
         logger.warning("analytics.db not found")
         return {}
 
-    conn = sqlite3.connect(str(ANALYTICS_DB))
-    conn.row_factory = sqlite3.Row
-    cur = conn.cursor()
-    cur.execute("""
-        SELECT video_id, title, published_at, duration_seconds,
-               views, watch_time_minutes, avg_view_percentage,
-               topic_type, impressions, ctr_percent,
-               subscribers_gained
-        FROM videos
-        WHERE duration_seconds > 60
-    """)
-    rows = cur.fetchall()
-    conn.close()
+    from tools.youtube_analytics.store import AnalyticsStore
+    keep = ('video_id', 'title', 'published_at', 'duration_seconds',
+            'views', 'watch_time_minutes', 'avg_view_percentage',
+            'topic_type', 'impressions', 'ctr_percent', 'subscribers_gained')
+    with AnalyticsStore.open(ANALYTICS_DB) as store:
+        rows = store.videos(min_duration_seconds=61)  # preserve old `> 60`
 
     result = {}
     for row in rows:
-        vid = dict(row)
+        vid = {k: row[k] for k in keep}
         # Enrich with derived fields
         vid['title_pattern'] = classify_title_pattern(vid['title'] or '')
         vid['duration_bucket'] = classify_duration_bucket(vid['duration_seconds'] or 0)

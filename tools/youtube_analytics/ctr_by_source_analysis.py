@@ -237,20 +237,13 @@ def load_traffic_from_db() -> Dict[str, List[dict]]:
         logger.warning("analytics.db not found at %s", ANALYTICS_DB)
         return {}
 
-    conn = sqlite3.connect(str(ANALYTICS_DB))
-    conn.row_factory = sqlite3.Row
+    from tools.youtube_analytics.store import AnalyticsStore
     try:
-        cur = conn.cursor()
-        cur.execute(
-            "SELECT video_id, source_type, views, watch_time_minutes "
-            "FROM traffic_sources"
-        )
-        rows = cur.fetchall()
+        with AnalyticsStore.open(ANALYTICS_DB) as store:
+            rows = store.traffic_sources()
     except sqlite3.OperationalError as e:
         logger.warning("Cannot read traffic_sources table: %s", e)
         return {}
-    finally:
-        conn.close()
 
     result: Dict[str, List[dict]] = defaultdict(list)
     for row in rows:
@@ -280,22 +273,13 @@ def load_video_metadata() -> Dict[str, dict]:
         logger.warning("analytics.db not found")
         return {}
 
-    conn = sqlite3.connect(str(ANALYTICS_DB))
-    conn.row_factory = sqlite3.Row
+    from tools.youtube_analytics.store import AnalyticsStore
     try:
-        cur = conn.cursor()
-        cur.execute("""
-            SELECT video_id, title, topic_type, views, impressions,
-                   ctr_percent, duration_seconds
-            FROM videos
-            WHERE duration_seconds > 60
-        """)
-        rows = cur.fetchall()
+        with AnalyticsStore.open(ANALYTICS_DB) as store:
+            rows = store.videos(min_duration_seconds=61)  # preserve old `> 60`
     except sqlite3.OperationalError as e:
         logger.warning("Cannot read videos table: %s", e)
         return {}
-    finally:
-        conn.close()
 
     result = {}
     for row in rows:

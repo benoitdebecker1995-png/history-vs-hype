@@ -57,10 +57,9 @@ class GrowthDashboard:
     def __init__(self):
         self.analytics_db = ANALYTICS_DB
 
-    def _conn(self):
-        conn = sqlite3.connect(str(self.analytics_db))
-        conn.row_factory = sqlite3.Row
-        return conn
+    def _store(self):
+        from tools.youtube_analytics.store import AnalyticsStore
+        return AnalyticsStore.open(self.analytics_db)
 
     # ── GROW-01: Subscriber velocity ────────────────────────────────
 
@@ -78,15 +77,8 @@ class GrowthDashboard:
                 'worst_month': {month, net},
             }
         """
-        conn = self._conn()
-
-        # Get daily data grouped by month
-        rows = conn.execute('''
-            SELECT day, subscribers_gained, subscribers_lost
-            FROM daily_channel
-            ORDER BY day
-        ''').fetchall()
-        conn.close()
+        with self._store() as store:
+            rows = store.daily_channel()
 
         if not rows:
             return {'error': 'No daily channel data available'}
@@ -166,16 +158,8 @@ class GrowthDashboard:
         Returns:
             List of dicts sorted by chosen metric.
         """
-        conn = self._conn()
-        rows = conn.execute('''
-            SELECT video_id, title, views, subscribers_gained,
-                   watch_time_minutes, ctr_percent, avg_view_percentage,
-                   topic_type, published_at, duration_seconds
-            FROM videos
-            WHERE views > 0
-            ORDER BY views DESC
-        ''').fetchall()
-        conn.close()
+        with self._store() as store:
+            rows = store.videos(min_views=1, order_by='views', descending=True)
 
         videos = []
         for r in rows:
@@ -223,44 +207,27 @@ class GrowthDashboard:
                 'per_video': [{video_id, title, sources: [...]}]  (if channel-wide)
             }
         """
-        conn = self._conn()
+        with self._store() as store:
+            if video_id:
+                rows = store.traffic_sources(video_id=video_id)
+                total = sum(r['views'] for r in rows)
+                sources = [{
+                    'source': r['source_type'],
+                    'views': r['views'],
+                    'pct': round(r['views'] / total * 100, 1) if total > 0 else 0,
+                } for r in rows]
+                return {'total_views': total, 'sources': sources}
 
-        if video_id:
-            rows = conn.execute('''
-                SELECT source_type, views, watch_time_minutes
-                FROM traffic_sources
-                WHERE video_id = ?
-                ORDER BY views DESC
-            ''', (video_id,)).fetchall()
-            conn.close()
-
-            total = sum(r['views'] for r in rows)
-            sources = [{
-                'source': r['source_type'],
-                'views': r['views'],
-                'pct': round(r['views'] / total * 100, 1) if total > 0 else 0,
-            } for r in rows]
-
-            return {'total_views': total, 'sources': sources}
-
-        # Channel-wide
-        rows = conn.execute('''
-            SELECT source_type, SUM(views) as total_views,
-                   SUM(watch_time_minutes) as total_wt
-            FROM traffic_sources
-            GROUP BY source_type
-            ORDER BY total_views DESC
-        ''').fetchall()
+            # Channel-wide
+            rows = store.traffic_totals_by_source()
 
         total = sum(r['total_views'] for r in rows)
         sources = [{
             'source': r['source_type'],
             'views': r['total_views'],
             'pct': round(r['total_views'] / total * 100, 1) if total > 0 else 0,
-            'watch_hrs': round(r['total_wt'] / 60, 1),
+            'watch_hrs': round((r['total_watch_time_minutes'] or 0) / 60, 1),
         } for r in rows]
-
-        conn.close()
         return {'total_views': total, 'sources': sources}
 
     # ── GROW-04: Monetization countdown ─────────────────────────────
@@ -286,19 +253,10 @@ class GrowthDashboard:
                 'status': 'eligible' | 'on_track' | 'needs_acceleration',
             }
         """
-        conn = self._conn()
-
-        # Get current watch hours from videos
-        wt_row = conn.execute('SELECT SUM(watch_time_minutes) FROM videos').fetchone()
-        current_watch_hrs = (wt_row[0] or 0) / 60
-
-        # Get monthly rates from daily data
-        daily_rows = conn.execute('''
-            SELECT day, subscribers_gained, subscribers_lost, watch_time_minutes
-            FROM daily_channel
-            ORDER BY day
-        ''').fetchall()
-        conn.close()
+        with self._store() as store:
+            wt_total = store.execute("SELECT SUM(watch_time_minutes) AS total FROM videos")
+            current_watch_hrs = ((wt_total[0]['total'] if wt_total else 0) or 0) / 60
+            daily_rows = store.daily_channel()
 
         if not daily_rows:
             return {'error': 'No daily data available'}

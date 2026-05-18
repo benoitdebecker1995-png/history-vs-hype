@@ -1,0 +1,299 @@
+"""Unit tests for AnalyticsStore and views.
+
+In-memory sqlite — no on-disk fixture needed. Tests the contract, not the data.
+"""
+from __future__ import annotations
+
+import sqlite3
+from pathlib import Path
+
+import pytest
+
+from tools.youtube_analytics.store import AnalyticsStore
+from tools.youtube_analytics import views as v
+
+
+# ── fixtures ──────────────────────────────────────────────────────────────────
+
+@pytest.fixture
+def analytics_conn() -> sqlite3.Connection:
+    """In-memory analytics.db with minimal schema + sample data."""
+    conn = sqlite3.connect(":memory:")
+    conn.row_factory = sqlite3.Row
+    conn.executescript("""
+        CREATE TABLE videos (
+            video_id TEXT PRIMARY KEY,
+            title TEXT NOT NULL,
+            published_at TEXT NOT NULL,
+            duration_seconds INTEGER NOT NULL,
+            tags TEXT,
+            views INTEGER,
+            watch_time_minutes REAL,
+            avg_view_duration_seconds INTEGER,
+            avg_view_percentage REAL,
+            likes INTEGER,
+            comments INTEGER,
+            shares INTEGER,
+            subscribers_gained INTEGER,
+            subscribers_lost INTEGER,
+            impressions INTEGER,
+            ctr_percent REAL,
+            topic_type TEXT,
+            angles TEXT,
+            fetched_at TEXT NOT NULL,
+            metrics_fetched_at TEXT
+        );
+        CREATE TABLE traffic_sources (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            video_id TEXT NOT NULL,
+            source_type TEXT NOT NULL,
+            views INTEGER,
+            watch_time_minutes REAL,
+            fetched_at TEXT NOT NULL
+        );
+        CREATE TABLE daily_channel (
+            day TEXT PRIMARY KEY,
+            views INTEGER,
+            watch_time_minutes REAL,
+            avg_view_duration_seconds INTEGER,
+            subscribers_gained INTEGER,
+            subscribers_lost INTEGER,
+            likes INTEGER,
+            fetched_at TEXT NOT NULL
+        );
+    """)
+    # Three videos: short / mid / long, varying views and topic.
+    conn.executemany(
+        "INSERT INTO videos (video_id, title, published_at, duration_seconds, "
+        "views, ctr_percent, impressions, topic_type, fetched_at) VALUES (?,?,?,?,?,?,?,?,?)",
+        [
+            ("v_short", "Short Clip", "2026-01-10", 45, 500, 3.0, 1000, "border", "2026-05-01"),
+            ("v_mid", "Mid Video", "2026-02-10", 300, 5000, 4.5, 8000, "ideological", "2026-05-01"),
+            ("v_long", "Long Video", "2026-03-10", 800, 25, 2.0, 200, "border", "2026-05-01"),
+        ],
+    )
+    conn.executemany(
+        "INSERT INTO traffic_sources (video_id, source_type, views, watch_time_minutes, fetched_at) "
+        "VALUES (?,?,?,?,?)",
+        [
+            ("v_mid", "YT_SEARCH", 1500, 200.0, "2026-05-01"),
+            ("v_mid", "SUGGESTED_VIDEO", 3000, 400.0, "2026-05-01"),
+            ("v_mid", "EXTERNAL", 500, 60.0, "2026-05-01"),
+            ("v_short", "YT_SEARCH", 50, 5.0, "2026-05-01"),
+            ("v_short", "SUGGESTED_VIDEO", 200, 20.0, "2026-05-01"),
+        ],
+    )
+    conn.executemany(
+        "INSERT INTO daily_channel (day, views, subscribers_gained, subscribers_lost, "
+        "watch_time_minutes, avg_view_duration_seconds, likes, fetched_at) "
+        "VALUES (?,?,?,?,?,?,?,?)",
+        [
+            ("2026-01-01", 100, 2, 0, 12.0, 60, 5, "now"),
+            ("2026-01-02", 150, 3, 1, 18.0, 70, 7, "now"),
+            ("2026-01-03", 120, 1, 0, 14.0, 65, 4, "now"),
+            ("2026-01-04", 200, 5, 2, 25.0, 80, 9, "now"),
+        ],
+    )
+    conn.commit()
+    return conn
+
+
+@pytest.fixture
+def store(analytics_conn: sqlite3.Connection) -> AnalyticsStore:
+    return AnalyticsStore(analytics_conn)
+
+
+# ── AnalyticsStore.videos ─────────────────────────────────────────────────────
+
+def test_videos_returns_all_with_no_filters(store: AnalyticsStore) -> None:
+    rows = store.videos()
+    assert len(rows) == 3
+    assert {r["video_id"] for r in rows} == {"v_short", "v_mid", "v_long"}
+
+
+def test_videos_min_duration_seconds_filters(store: AnalyticsStore) -> None:
+    rows = store.videos(min_duration_seconds=60)
+    assert {r["video_id"] for r in rows} == {"v_mid", "v_long"}
+
+
+def test_videos_min_duration_seconds_is_inclusive(store: AnalyticsStore) -> None:
+    rows = store.videos(min_duration_seconds=45)
+    assert {r["video_id"] for r in rows} == {"v_short", "v_mid", "v_long"}
+
+
+def test_videos_min_views_filters(store: AnalyticsStore) -> None:
+    rows = store.videos(min_views=100)
+    assert {r["video_id"] for r in rows} == {"v_short", "v_mid"}
+
+
+def test_videos_topic_type_filters(store: AnalyticsStore) -> None:
+    rows = store.videos(topic_type="border")
+    assert {r["video_id"] for r in rows} == {"v_short", "v_long"}
+
+
+def test_videos_published_after_filters(store: AnalyticsStore) -> None:
+    rows = store.videos(published_after="2026-02-01")
+    assert {r["video_id"] for r in rows} == {"v_mid", "v_long"}
+
+
+def test_videos_order_by_views_descending(store: AnalyticsStore) -> None:
+    rows = store.videos(order_by="views", descending=True)
+    assert [r["video_id"] for r in rows] == ["v_mid", "v_short", "v_long"]
+
+
+def test_videos_order_by_views_ascending(store: AnalyticsStore) -> None:
+    rows = store.videos(order_by="views", descending=False)
+    assert [r["video_id"] for r in rows] == ["v_long", "v_short", "v_mid"]
+
+
+def test_videos_unknown_order_by_falls_back_to_published_at(store: AnalyticsStore) -> None:
+    rows = store.videos(order_by="DROP TABLE videos", descending=False)
+    # Should not error, should return ordered by published_at ascending.
+    assert [r["video_id"] for r in rows] == ["v_short", "v_mid", "v_long"]
+
+
+def test_video_returns_single_or_none(store: AnalyticsStore) -> None:
+    assert store.video("v_mid")["title"] == "Mid Video"
+    assert store.video("does_not_exist") is None
+
+
+def test_videos_by_id_returns_mapping(store: AnalyticsStore) -> None:
+    result = store.videos_by_id(["v_short", "v_long", "missing"])
+    assert set(result) == {"v_short", "v_long"}
+    assert result["v_short"]["title"] == "Short Clip"
+
+
+def test_videos_by_id_empty_list_returns_empty(store: AnalyticsStore) -> None:
+    assert store.videos_by_id([]) == {}
+
+
+# ── traffic_sources ───────────────────────────────────────────────────────────
+
+def test_traffic_sources_returns_all(store: AnalyticsStore) -> None:
+    rows = store.traffic_sources()
+    assert len(rows) == 5
+
+
+def test_traffic_sources_by_video(store: AnalyticsStore) -> None:
+    rows = store.traffic_sources(video_id="v_short")
+    assert {r["source_type"] for r in rows} == {"YT_SEARCH", "SUGGESTED_VIDEO"}
+    # Ordered by views desc.
+    assert rows[0]["source_type"] == "SUGGESTED_VIDEO"
+
+
+def test_traffic_totals_by_source(store: AnalyticsStore) -> None:
+    rows = store.traffic_totals_by_source()
+    totals = {r["source_type"]: r["total_views"] for r in rows}
+    assert totals["SUGGESTED_VIDEO"] == 3200
+    assert totals["YT_SEARCH"] == 1550
+    assert totals["EXTERNAL"] == 500
+    # Ordered by total_views DESC.
+    assert rows[0]["source_type"] == "SUGGESTED_VIDEO"
+
+
+# ── daily_channel ─────────────────────────────────────────────────────────────
+
+def test_daily_channel_returns_all_ascending(store: AnalyticsStore) -> None:
+    rows = store.daily_channel()
+    assert [r["day"] for r in rows] == [
+        "2026-01-01", "2026-01-02", "2026-01-03", "2026-01-04",
+    ]
+
+
+def test_daily_channel_limit_returns_most_recent_ascending(store: AnalyticsStore) -> None:
+    rows = store.daily_channel(limit=2)
+    assert [r["day"] for r in rows] == ["2026-01-03", "2026-01-04"]
+
+
+# ── lifecycle ─────────────────────────────────────────────────────────────────
+
+def test_context_manager_closes_connection(analytics_conn: sqlite3.Connection) -> None:
+    with AnalyticsStore(analytics_conn) as s:
+        s.videos()
+    # After exit, the connection should be closed — second op raises.
+    with pytest.raises(sqlite3.ProgrammingError):
+        analytics_conn.execute("SELECT 1")
+
+
+def test_open_raises_if_db_missing(tmp_path: Path) -> None:
+    with pytest.raises(FileNotFoundError):
+        AnalyticsStore.open(tmp_path / "nope.db")
+
+
+# ── escape hatch ──────────────────────────────────────────────────────────────
+
+def test_execute_returns_dicts(store: AnalyticsStore) -> None:
+    rows = store.execute("SELECT COUNT(*) AS n FROM videos")
+    assert rows == [{"n": 3}]
+
+
+# ── views.videos_with_ctr_and_traffic ─────────────────────────────────────────
+
+def test_views_merges_search_traffic_pct(tmp_path: Path, analytics_conn: sqlite3.Connection) -> None:
+    # Persist the in-memory db to a file so views can re-open it.
+    db_path = tmp_path / "analytics.db"
+    disk = sqlite3.connect(db_path)
+    analytics_conn.backup(disk)
+    disk.close()
+
+    # No keywords.db — views should gracefully fall back to analytics.db CTR.
+    result = v.videos_with_ctr_and_traffic(
+        min_views=1,  # include all three test videos
+        analytics_db=db_path,
+        keywords_db=tmp_path / "missing.db",
+    )
+    by_id = {r["video_id"]: r for r in result}
+
+    # v_mid: 1500 search of 5000 total = 30.0
+    assert by_id["v_mid"]["search_traffic_pct"] == 30.0
+    assert by_id["v_mid"]["total_traffic_views"] == 5000
+    assert by_id["v_mid"]["search_views"] == 1500
+
+    # v_short: 50 of 250 = 20.0
+    assert by_id["v_short"]["search_traffic_pct"] == 20.0
+
+    # v_long has no traffic_sources rows — pct = 0.
+    assert by_id["v_long"]["search_traffic_pct"] == 0
+    assert by_id["v_long"]["total_traffic_views"] == 0
+
+    # Without keywords.db, analytics.db ctr_percent stays.
+    assert by_id["v_mid"]["ctr_percent"] == 4.5
+
+
+def test_views_overrides_ctr_from_keywords_db(tmp_path: Path, analytics_conn: sqlite3.Connection) -> None:
+    db_path = tmp_path / "analytics.db"
+    disk = sqlite3.connect(db_path)
+    analytics_conn.backup(disk)
+    disk.close()
+
+    # Build a minimal keywords.db with one ctr_snapshot row.
+    kw_path = tmp_path / "keywords.db"
+    kw = sqlite3.connect(kw_path)
+    kw.execute("""
+        CREATE TABLE ctr_snapshots (
+            id INTEGER PRIMARY KEY,
+            video_id TEXT,
+            snapshot_date DATE,
+            ctr_percent REAL,
+            impression_count INTEGER
+        )
+    """)
+    kw.executemany(
+        "INSERT INTO ctr_snapshots (video_id, snapshot_date, ctr_percent, impression_count) "
+        "VALUES (?,?,?,?)",
+        [
+            ("v_mid", "2026-04-01", 5.0, 9000),   # earlier
+            ("v_mid", "2026-05-01", 7.5, 12000),  # latest — should win
+        ],
+    )
+    kw.commit()
+    kw.close()
+
+    result = v.videos_with_ctr_and_traffic(
+        min_views=1,
+        analytics_db=db_path,
+        keywords_db=kw_path,
+    )
+    by_id = {r["video_id"]: r for r in result}
+    assert by_id["v_mid"]["ctr_percent"] == 7.5
+    assert by_id["v_mid"]["impressions"] == 12000

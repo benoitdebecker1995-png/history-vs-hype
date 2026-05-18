@@ -535,19 +535,13 @@ def get_video_metadata(video_id: str) -> Optional[dict]:
     """Get video metadata from analytics.db."""
     if not DB_PATH.exists():
         return None
-
-    conn = sqlite3.connect(str(DB_PATH))
-    conn.row_factory = sqlite3.Row
-    cur = conn.cursor()
-    cur.execute(
-        "SELECT video_id, title, duration_seconds, views, topic_type "
-        "FROM videos WHERE video_id = ?",
-        (video_id,),
-    )
-    row = cur.fetchone()
-    conn.close()
-
-    return dict(row) if row else None
+    from tools.youtube_analytics.store import AnalyticsStore
+    with AnalyticsStore.open(DB_PATH) as store:
+        v = store.video(video_id)
+    if not v:
+        return None
+    keep = ('video_id', 'title', 'duration_seconds', 'views', 'topic_type')
+    return {k: v[k] for k in keep}
 
 
 # =========================================================================

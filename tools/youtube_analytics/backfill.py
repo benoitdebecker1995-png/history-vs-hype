@@ -21,7 +21,6 @@ Usage:
     python -m tools.youtube_analytics.backfill --insights-only  # Skip all imports
 
 Anti-patterns (from RESEARCH.md):
-    - Do NOT use analytics.db (empty). Use keywords.db via KeywordDB exclusively.
     - Do NOT re-fetch from YouTube API. Use JSON pre-fetches as primary source.
     - Do NOT include competitor videos in insights (filter by own-channel IDs).
     - Do NOT make insights prescriptive — always advisory language.

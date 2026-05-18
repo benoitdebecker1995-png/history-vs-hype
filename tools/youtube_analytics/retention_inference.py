@@ -557,17 +557,16 @@ def _load_videos_from_analytics_db() -> list[dict]:
     """Load videos table rows for decode_channel."""
     if not _ANALYTICS_DB.exists():
         return []
-    conn = sqlite3.connect(str(_ANALYTICS_DB))
-    conn.row_factory = sqlite3.Row
-    rows = conn.execute('''
-        SELECT video_id, title, avg_view_percentage, avg_view_duration_seconds,
-               duration_seconds, views, subscribers_gained, topic_type,
-               likes, comments, shares, ctr_percent, impressions
-        FROM videos
-        WHERE avg_view_percentage > 0 AND duration_seconds > 120
-    ''').fetchall()
-    conn.close()
-    return [dict(r) for r in rows]
+    from tools.youtube_analytics.store import AnalyticsStore
+    with AnalyticsStore.open(_ANALYTICS_DB) as store:
+        # Bespoke filter (avg_view_percentage > 0) — use escape hatch rather than
+        # bloating store.videos() with single-caller params.
+        return store.execute(
+            "SELECT video_id, title, avg_view_percentage, avg_view_duration_seconds, "
+            "duration_seconds, views, subscribers_gained, topic_type, "
+            "likes, comments, shares, ctr_percent, impressions "
+            "FROM videos WHERE avg_view_percentage > 0 AND duration_seconds > 120"
+        )
 
 
 def _compute_correlations(videos: list[dict], avg_ret: float) -> list[dict]:

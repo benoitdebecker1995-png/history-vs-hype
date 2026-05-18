@@ -474,20 +474,12 @@ def compare_snapshots(latest: Dict[str, dict], previous: Dict[str, dict]
 def get_video_titles(video_ids: List[str]) -> Dict[str, str]:
     """Look up video titles from analytics.db, falling back to API."""
     from tools.youtube_analytics.growth_data import DB_PATH as ANALYTICS_DB
+    from tools.youtube_analytics.store import AnalyticsStore
 
-    titles = {}
-    if ANALYTICS_DB.exists():
-        conn = sqlite3.connect(str(ANALYTICS_DB))
-        conn.row_factory = sqlite3.Row
-        placeholders = ','.join('?' * len(video_ids))
-        rows = conn.execute(
-            f"SELECT video_id, title FROM videos WHERE video_id IN ({placeholders})",
-            video_ids
-        ).fetchall()
-        conn.close()
-        titles = {r['video_id']: r['title'] for r in rows}
-
-    return titles
+    if not ANALYTICS_DB.exists() or not video_ids:
+        return {}
+    with AnalyticsStore.open(ANALYTICS_DB) as store:
+        return {vid: r['title'] for vid, r in store.videos_by_id(video_ids).items()}
 
 
 # =========================================================================

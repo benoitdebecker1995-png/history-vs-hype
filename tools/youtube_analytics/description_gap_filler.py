@@ -72,13 +72,10 @@ def load_video_metadata() -> dict:
     if not DB_PATH.exists():
         return {}
 
-    conn = sqlite3.connect(str(DB_PATH))
-    conn.row_factory = sqlite3.Row
-    cur = conn.cursor()
-    cur.execute("SELECT video_id, title, topic_type, views FROM videos")
-    result = {row['video_id']: dict(row) for row in cur.fetchall()}
-    conn.close()
-    return result
+    from tools.youtube_analytics.store import AnalyticsStore
+    keep = ('video_id', 'title', 'topic_type', 'views')
+    with AnalyticsStore.open(DB_PATH) as store:
+        return {r['video_id']: {k: r[k] for k in keep} for r in store.videos()}
 
 
 def find_description_for_video(video_id: str, title: str) -> Optional[str]:
