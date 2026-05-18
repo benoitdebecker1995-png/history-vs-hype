@@ -126,6 +126,8 @@ HvH constraint: 515 subs, evidence-based myth-busting, "intellectual competence"
 
 When topic-comparable winners are present, your concepts must explicitly position against them: name which topic-comparable convention each concept either differentiates from or strategically copies, and cite the specific video by channel + view count. Do not generate concepts that ignore an established topic convention without naming why.
 
+**HUMAN CURIOSITY CONSTRAINT:** Do NOT generate literal historical depictions (e.g., "A map and a treaty"). You MUST generate concepts based on **Visual Contradictions** or **Emotional Stakes** (e.g., "A modern drone next to a 500-year-old crumbling document", "A bright red censored stamp over a king's face") to trigger human curiosity. Make the viewer feel the tension.
+
 Follow the protocol's Steps 1–6. Output exactly 3 concepts in the required format. End with the mandatory closing summary.
 ```
 

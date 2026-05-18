@@ -17,6 +17,7 @@ Fact-check scripts, extract claims from transcripts, or run simplification detec
 /verify --simplify [project] # Run simplification detection only
 /verify --extract-nlm [file] # Extract citations from NotebookLM output
 /verify --translation [project] # Verify translated documents
+/verify --nlm [project]         # Notebook-only: Tier 1 claims + citation grounding via MCP
 ```
 
 ## Flags
@@ -30,6 +31,7 @@ Fact-check scripts, extract claims from transcripts, or run simplification detec
 | `--from-transcript` | Extract + fact-check workflow | `/verify --from-transcript video-url` |
 | `--extract-nlm` | Extract citations from NotebookLM output | `/verify --extract-nlm nlm-output.txt` |
 | `--translation` | Verify translated documents before filming | `/verify --translation 37-vichy-statute` |
+| `--nlm` | Notebook-only pass: verify Tier 1 claims + citation grounding via MCP, skip web sources | `/verify --nlm 56-no-lassos-atlantic-slave-trade-origin-2026` |
 
 ---
 
@@ -51,7 +53,7 @@ Comprehensive fact-checking using the History vs Hype protocol.
 - **Cause-effect claims** (X led to Y, X caused Z)
 - **Attribution claims** (who said/wrote/did what)
 
-### Step 3: Organize by Priority
+### Step 3: Organize by Priority (then → Step 3.5 before checking sources)
 
 **TIER 1 - SMOKING GUN EVIDENCE (Must verify before filming):**
 - Primary document quotes
@@ -76,7 +78,47 @@ Comprehensive fact-checking using the History vs Hype protocol.
 - Claims that require "some historians argue..."
 - Interpretation-dependent statements
 
-### Step 4: Check Against Source Hierarchy
+### Step 3.5: Notebook Discovery (MCP)
+
+Before running web searches, locate the project's NotebookLM notebook:
+
+1. Call `mcp__notebooklm__notebook_list` — find notebooks matching the project slug or topic keywords (case-insensitive substring).
+2. **Notebook found → MCP path** (Step 4A below).
+3. **No match / MCP unavailable → Manual path** (Step 4B below).
+
+---
+
+### Step 4A: MCP-First Claim Verification (if notebook found)
+
+For each **TIER 1** claim (and any TIER 2 claims without a clear source), dispatch a targeted `mcp__notebooklm__notebook_query`. Run in parallel — batches of up to 5:
+
+```
+CLAIM VERIFICATION — [Claim text]
+The script asserts: "[exact wording from script]"
+Is this claim supported by sources in this notebook?
+Return:
+(a) SUPPORTED / PARTIALLY SUPPORTED / NOT SUPPORTED / CONTRADICTED
+(b) If supported: exact verbatim quote with author, title, page number
+(c) Nuance or context the script is missing
+(d) If contradicted: what the sources actually say
+```
+
+**Citation grounding scope** (per `feedback-notebook-citation-grounding.md`):
+- Every blockquote in the script
+- Title's mechanism word
+- Central thesis verb
+- Named-figure co-protagonist agency claims
+
+**Verdict mapping → report status:**
+- SUPPORTED + verbatim + page → ✅ VERIFIED (goes in "Verified Claims")
+- PARTIALLY SUPPORTED → NEEDS VERIFICATION with the gap flagged
+- NOT SUPPORTED / CONTRADICTED → INCORRECT OR MISLEADING
+
+After MCP pass, run Step 4B only for any claims the notebook couldn't address.
+
+---
+
+### Step 4B: Check Against Source Hierarchy
 
 **Most Reliable (Tier 1):**
 - Primary documents (treaties, census data, government archives)
@@ -254,16 +296,26 @@ Places where the script quotes a historian's summary, but the primary source the
 - Already verified: [X] claims → no action needed
 ```
 
-#### Step 4: Targeted NotebookLM Queries
+#### Step 4: Targeted NotebookLM Queries (MCP-native)
 
-For Category A claims only, run targeted NotebookLM queries — one query per unverified claim, not blanket re-verification. Use the project's existing notebook.
+For Category A claims, call `mcp__notebooklm__notebook_query` directly — one query per claim, run in parallel (batches of up to 5). Use the project's existing notebook (locate via `mcp__notebooklm__notebook_list` first).
 
 ```
-Verify this specific claim: "[claim text]"
-- Is this accurate according to uploaded sources?
-- Exact quote with page number if supported
-- If not supported, say so clearly
+DELTA VERIFICATION — [Claim text]
+The script adds this new claim: "[exact wording]"
+Is this claim supported by sources in this notebook?
+Return:
+(a) SUPPORTED / PARTIALLY SUPPORTED / NOT SUPPORTED / CONTRADICTED
+(b) If supported: exact verbatim quote with author, title, page number
+(c) If not supported or contradicted: what the sources say instead
 ```
+
+**Result routing:**
+- SUPPORTED + page → move to Category A sub-status "VERIFIED VIA MCP", update `01-VERIFIED-RESEARCH.md`
+- PARTIALLY SUPPORTED → flag in delta report with gap described
+- NOT SUPPORTED / CONTRADICTED → flag for cut
+
+**Fallback (MCP unavailable):** generate prompts the user can paste into NotebookLM browser, then run `/verify --extract-nlm <output-file>` to extract citations.
 
 #### Step 5: Update Files
 
@@ -559,24 +611,23 @@ Quick report with only simplification flags (no verification status).
 
 ## NotebookLM Integration
 
-If user has NotebookLM research notebook, provide fact-check prompt:
+**MCP-native (primary path):** Claim verification runs inline via `mcp__notebooklm__notebook_list` + `mcp__notebooklm__notebook_query`. See Steps 3.5 and 4A above. No copy-paste required.
+
+**Fallback (MCP unavailable or no project notebook):** Generate prompts for manual paste into the NotebookLM browser:
 
 ```
 I need to fact-check these specific claims from my script:
 
 1. CLAIM: "[Claim from script]"
    Script says: "[Exact wording]"
-   Verify: Is this accurate? What do sources say?
+   Verify: Is this accurate? Exact quote with page number if supported.
 
 2. CLAIM: "[Next claim]"
    Script says: "[Exact wording]"
-   Verify: [Verification question]
-
-For each claim:
-- Exact quote from sources with page number
-- VERIFIED / INACCURATE / PARTIALLY TRUE
-- Any nuance or context the script is missing
+   Verify: [same]
 ```
+
+After pasting, save the output to a `.txt` file and run `/verify --extract-nlm <file>` to extract structured citations.
 
 ---
 

@@ -927,15 +927,16 @@ The "not X, but Y" structure carries the surprise. Adding commentary over-explai
 
 ## 3.1 Opening / hook / turn / close
 
-### Core principle: payoff in first 45-60 seconds
+### Core principle: The 5-Second Paradox Hook (Fig Tree style)
 
 The 1:11 Drop-Off Problem: viewers leave when you drift into background context before establishing stakes.
 
 **Rule:** No pure context before you've:
+1. Named the specific subject
+2. Stated the common belief
+3. Delivered the contradiction word ("But...", "Except...")
 
-1. Named the myth
-2. Stated your verdict (even if provisional)
-3. Teased the key piece of evidence
+ALL of this MUST happen in the first 5 seconds. Front-load the paradox.
 
 ### Stakes immediate (first 30 seconds)
 
@@ -1147,11 +1148,12 @@ Connect the specific topic to broader meaning. (See 3.1 closing patterns.)
 
 ## 3.3 Pattern interrupts and pacing (90-second rule)
 
-### The 90-Second Read-Aloud Test
+### The 90-Second "Exhibit A" Rule
 
-Channel data: videos with 6+ retention drop-off points average 43 views and 27.3% retention. Videos with 2-3 drops average 516 views and 40.2% retention. The difference is pacing.
+Channel data and gap analysis show that videos lose viewers if the primary source is delayed. 
+**Rule:** The primary source document (Exhibit A) MUST be revealed on screen within the first 90 seconds (10 seconds for Shorts). 
 
-**Rule:** Every 90 seconds of script must contain at least ONE of:
+**Pacing Rule:** Every 90 seconds of script must contain at least ONE of:
 
 1. **New evidence** — a quote, document, statistic not yet shown
 2. **Modern connection** — why this historical point matters NOW
@@ -1229,7 +1231,21 @@ Deployed every ~90 seconds. Vary across these:
 - Myth-busting: "This narrative is being used right now by [specific modern actor]."
 - Colonial patterns: "Here's the pattern: [mechanism]. It happened in [X]. It happened in [Y]. It's happening in [Z]."
 
-## 3.5 Spoken-delivery rules
+## 3.5 Spoken-delivery rules (The Fig Tree Style)
+
+The delivery must sound like an intimate, documentary-style conversation with a professor. Use the **5-Stage Intensity Ladder**:
+1. **Context:** Baseline, conversational volume.
+2. **Paradox/Conflict:** Slight pitch drop, slower pacing.
+3. **Document Reveal (Exhibit A):** Deliberate, authoritative.
+4. **Implication:** Urgent, direct address.
+5. **Verdict:** Absolute calm, punctuated with silence.
+
+### Rapport Techniques (Fig Tree style)
+
+- **Direct Address:** "You might think..."
+- **Rhetorical Questions:** "Should we just get into it?"
+- **The "Counsel" Moment:** Looking off-camera or softening tone before dropping a major fact.
+- **2-Second Pauses:** Force a `[PAUSE: 2s]` before and after major paradox reveals. Let the silence do the heavy lifting.
 
 ### Date formats
 
@@ -1516,11 +1532,11 @@ Top creators integrate CTAs into the video's vocabulary. "Don't forget to emanci
 
 ### Pre-filming polish checklist
 
+- **Documentary Motion (MANDATORY):** Static documents kill retention. All documents MUST use `[ANIMATE: Ken Burns zoom]` or `[ANIMATE: Draw highlight box]`. Never use a static `[SHOW: Document]` tag.
 - **Academic attributions:** Lead with story, not citations (move "According to X" to evidence display).
 - **Rhetorical emphasis cut:** Remove "Do you see what this means?" phrases.
 - **Setup questions cut:** Go direct to information (not "So what did they do? They...").
 - **Lists as prose:** Convert numbered lists to flowing sentences.
-- **Pause markers removed:** Let delivery find natural rhythm.
 - **Personal framing cut:** Remove "When I first read this..." statements.
 - **Hedging words removed:** No "essentially," "basically," "kind of".
 - **Structure tightened:** Start with point, then explain (not setup → context → point).

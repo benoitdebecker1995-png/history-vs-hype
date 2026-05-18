@@ -4,29 +4,32 @@
 
 ---
 
-## Rule 19: Algorithm-Aware 4-Beat Hook Structure
+## Rule 19: Algorithm-Aware 5-Second Paradox Hook Structure
 
-**The canonical hook formula for History vs Hype.** Every hook follows this structure: Cold Fact (0:00-0:10) → Myth (0:10-0:20) → Contradiction (0:20-0:40) → Payoff Preview (0:40-1:00).
+**The canonical hook formula for History vs Hype.** Every hook follows this hyper-fast structure: 
+1. Specific Subject + Common Belief + Contradiction Word (0:00-0:05) 
+2. Exhibit A Document Reveal (0:05-0:30) 
+3. Modern Stakes & Payoff Preview (0:30-0:60).
 
-The templates below provide fill-in-the-blank versions for each video type. The existing templates (Template 1-6) remain valid as implementation examples within this structure.
+The templates below provide fill-in-the-blank versions. Never use slow context warmups.
 
 ---
 
 ### Territorial Hook Template
 
 ```
-[COLD FACT: 0:00-0:10]
-In [YEAR], [ENTITY] [SPECIFIC ACTION — published/signed/drew/surveyed] [SPECIFIC DOCUMENT/MAP] showing [SURPRISING DETAIL].
+[5-SECOND PARADOX: 0:00-0:05]
+[Most maps today / Every textbook] shows [WHAT PEOPLE BELIEVE about a specific subject].
+[CONTRADICTION WORD — "But", "Except", "Until you look at..."]
 
-[MYTH: 0:10-0:20]
-[Most maps today / The official border / Every textbook] shows [WHAT PEOPLE BELIEVE].
-
-[CONTRADICTION: 0:20-0:40]
+[EXHIBIT A / DOCUMENT REVEAL: 0:05-0:30]
+In [YEAR], [ENTITY] [SPECIFIC ACTION] [SPECIFIC DOCUMENT].
+[B-ROLL: [ANIMATE: Ken Burns zoom on SPECIFIC DOCUMENT to SPECIFIC DETAIL]]
 So I [FIRST-PERSON ACTION — read/pulled/found] the original [DOCUMENT TYPE]...
-[B-ROLL: Show [SPECIFIC DOCUMENT] zooming to [SPECIFIC DETAIL]]
 ...and [WHAT EVIDENCE SHOWS — specific, concrete finding].
 
-[PAYOFF: 0:40-1:00]
+[PAYOFF: 0:30-0:60]
+[PAUSE: 2s]
 [MODERN STAKES — active dispute, ICJ case, economic consequence, people affected]
 [PROMISE — "and that's what we're going to trace today" / "that distinction explains..." ]
 ```
@@ -49,18 +52,18 @@ That dispute is still unresolved. And it starts with a cartographic decision mad
 ### Ideological Hook Template
 
 ```
-[COLD FACT: 0:00-0:10]
-In [YEAR], [SCHOLAR/SOURCE] [WROTE/RECORDED/DOCUMENTED] that [SURPRISING HISTORICAL FACT].
+[5-SECOND PARADOX: 0:00-0:05]
+[Most people think / The popular version says] [THE MYTH about a specific subject].
+[CONTRADICTION WORD — "But", "Except", "Until you read..."]
 
-[MYTH: 0:10-0:20]
-[Most people think / You've probably heard / The popular version says] [THE MYTH].
-
-[CONTRADICTION: 0:20-0:40]
-So I [read what X actually argued / checked the original sources / found the academic edition]...
-[B-ROLL: Show [SOURCE — book cover, manuscript, data table]]
+[EXHIBIT A / DOCUMENT REVEAL: 0:05-0:30]
+In [YEAR], [SCHOLAR/SOURCE] actually [WROTE/RECORDED] something completely different.
+So I [read what X actually argued / found the academic edition]...
+[B-ROLL: [ANIMATE: Draw highlight box on SOURCE — book cover, manuscript, data table]]
 ...and [WHAT SOURCES ACTUALLY SAY].
 
-[PAYOFF: 0:40-1:00]
+[PAYOFF: 0:30-0:60]
+[PAUSE: 2s]
 [WHY THIS MATTERS — modern belief/debate/policy this myth still fuels]
 [PROMISE — "and that myth is still shaping how we think about X today"]
 ```
@@ -548,13 +551,13 @@ Here's what the documents actually say.
 
 Before finalizing your opening, verify:
 
-- [ ] Concrete detail in first 10 seconds (date, document, specific fact)
+- [ ] **5-Second Paradox:** Specific Subject + Common Belief + Contradiction within the first 5 seconds.
+- [ ] **Exhibit A under 90s:** The primary source document must be shown (animated) within 90s (10s for Shorts).
 - [ ] NO forbidden phrases ("Let me show you," "Buckle up," etc.)
-- [ ] Both extremes framed (if using that format)
+- [ ] **Rapport Moment:** Direct address ("You might think..."), a rhetorical question, or a 2-second pause.
 - [ ] Stakes established (why should viewer care?)
 - [ ] "I did some digging" or similar research authority
 - [ ] Promise of what's coming ("Here's how it worked")
-- [ ] Modern relevance mentioned or implied
 
 ---
 

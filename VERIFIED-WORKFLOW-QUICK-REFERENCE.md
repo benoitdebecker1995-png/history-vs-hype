@@ -48,9 +48,10 @@ As you research in NotebookLM, verify each fact:
 
 **File:** `02-SCRIPT-DRAFT.md`
 
-**RULE:** Only use facts from `01-VERIFIED-RESEARCH.md`
-
-If you need a fact that's not verified -> STOP -> Verify it first
+**RULES:** 
+1. Only use facts from `01-VERIFIED-RESEARCH.md`. If it's not verified -> STOP -> Verify it first.
+2. **5-Second Hook Rule:** The contradiction must be delivered in the first 5 seconds.
+3. **90-Second Exhibit A:** The primary source document must appear on screen within 90 seconds.
 
 ---
 
@@ -115,9 +116,12 @@ Compare every script claim to verified research:
 - [ ] All numbers have 2+ sources
 
 ### Gate 2: Script -> Filming
-- [ ] 100% claims cross-checked
-- [ ] Zero errors found
-- [ ] Read-aloud test passed
+- [ ] 100% claims cross-checked with zero errors found
+- [ ] Title-hook coherence check passes (title matches the first 150 words)
+- [ ] Read-aloud stumble test passed (natural conversational delivery)
+- [ ] Vocal shift markers and 2-second pauses included in script
+- [ ] Audio chain setup checked (EQ 200-300Hz cut preset applied)
+- [ ] Document animation B-roll markers verified (no static documents)
 
 ---
 

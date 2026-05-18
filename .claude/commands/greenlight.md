@@ -144,7 +144,7 @@ if result["verdict"] == "CAUTION" and not result["keyword_matches"]:
 - **CAUTION** (200-999/mo): Warn user — "This topic has marginal demand. Proceed only if you have a strong angle."
 - **STOP** (<200/mo or no data): **HARD BLOCK** — "Do not invest time in this topic. Find a higher-demand angle."
 
-**If STOP:** Suggest related keywords from keywords.db that DO have volume. Show the user what people actually search for.
+**If STOP:** Suggest related keywords from keywords.db that DO have volume. Show the user what people actually search for. Reference `.claude/REFERENCE/vidiq-unicorn-keywords.md` for pre-vetted keyword opportunities.
 
 **News hook check (auto-run after demand):**
 ```python
@@ -172,9 +172,12 @@ from tools.title_scorer import score_title
 from tools.discovery.database import KeywordDB
 
 db = KeywordDB()
-result = score_title("Why Is Haiti So Poor? France Collected for 122 Years", db_path=db.db_path)
+title = "Why Is Haiti So Poor? France Collected for 122 Years"
+result = score_title(title, db_path=db.db_path)
 db.close()
 ```
+
+**Curiosity Check:** After running the mechanical `title_scorer`, you MUST run `/curiosity "[Title]"` to get the emotional hook score.
 
 If no title provided, generate candidates using:
 1. The topic + search keywords
@@ -186,8 +189,9 @@ If no title provided, generate candidates using:
 **Title generation rules (from PACKAGING_MANDATE.md):**
 1. Title MUST include the exact search keyword (or close variant)
 2. Title MUST use versus, declarative, or how/why pattern
-3. Title MUST score 65+ on title_scorer.py
+3. Title MUST score 65+ on `title_scorer.py` AND 60+ on the `/curiosity` check (The Emotional Hook check)
 4. Title MUST NOT contain years, colons, or "The X That Y"
+5. Title MUST set up a clear paradox (Specific Subject + Common Belief + Contradiction) that can be resolved in the first 5 seconds of the video.
 
 **Traffic-optimized title selection (from TRAFFIC-SOURCE-ANALYSIS.md):**
 - **Search-optimized topics** (evergreen, high search volume): Prefer **How/Why** pattern — gets 26.4% search traffic (2x declarative)
