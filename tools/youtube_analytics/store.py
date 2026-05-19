@@ -3,10 +3,11 @@
 Peer to tools.discovery.keyword_store.KeywordStore. Hides connection lifecycle,
 schema, and SQL from analysis scripts.
 
-Reads are the primary surface. Writes have been growing in incrementally —
-see ADR-0004 stage 3. Currently exposed: upsert_traffic_source(). Video and
-daily-channel writers (growth_data.py:store_videos / store_daily_metrics)
-still keep their own connections until their dataclass shapes are designed.
+Reads are the primary surface. Writes grew in incrementally — see ADR-0004
+stages 3–4. Currently exposed: upsert_video (with VideoRow dataclass),
+upsert_traffic_source, upsert_daily_metric. All growth_data.py writers now
+route through the store; ensure_schema() is the only remaining raw-conn
+caller, which is appropriate (schema migration ≠ domain writes).
 
 Usage:
     from tools.youtube_analytics.store import AnalyticsStore
@@ -30,6 +31,7 @@ this lives alongside KeywordStore rather than merging.
 from __future__ import annotations
 
 import sqlite3
+from dataclasses import astuple, dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence
 
@@ -38,6 +40,39 @@ from tools.logging_config import get_logger
 logger = get_logger(__name__)
 
 ANALYTICS_DB = Path(__file__).parent / "analytics.db"
+
+
+@dataclass(frozen=True)
+class VideoRow:
+    """Immutable contract for videos table upsert operations.
+
+    Required fields match the schema's NOT NULL columns. Defaults match the
+    schema defaults so a caller only needs to override the columns they
+    actually have data for.
+
+    Field order matches the INSERT column order in upsert_video — do NOT
+    reorder without updating that SQL.
+    """
+    video_id: str
+    title: str
+    published_at: str
+    duration_seconds: int
+    fetched_at: str
+    tags: Optional[str] = None  # JSON-encoded array string
+    views: int = 0
+    watch_time_minutes: float = 0.0
+    avg_view_duration_seconds: int = 0
+    avg_view_percentage: float = 0.0
+    likes: int = 0
+    comments: int = 0
+    shares: int = 0
+    subscribers_gained: int = 0
+    subscribers_lost: int = 0
+    impressions: Optional[int] = None
+    ctr_percent: Optional[float] = None
+    topic_type: str = "general"
+    angles: Optional[str] = None  # JSON-encoded array string
+    metrics_fetched_at: Optional[str] = None
 
 
 def _open_conn(db_path: Path) -> sqlite3.Connection:
@@ -251,6 +286,45 @@ class AnalyticsStore:
             "watch_time_minutes = excluded.watch_time_minutes, "
             "fetched_at = excluded.fetched_at",
             (video_id, source_type, views, watch_time_minutes, fetched_at),
+        )
+
+    def upsert_video(self, row: VideoRow) -> None:
+        """Insert or update one row in the videos table (video_id PRIMARY KEY).
+
+        Does NOT commit. Caller calls store.commit() after batching writes.
+
+        The VideoRow dataclass's field order matches the INSERT column
+        order — astuple() produces a tuple compatible with the SQL below.
+        """
+        self._conn.execute(
+            "INSERT INTO videos "
+            "(video_id, title, published_at, duration_seconds, fetched_at, "
+            " tags, views, watch_time_minutes, avg_view_duration_seconds, "
+            " avg_view_percentage, likes, comments, shares, "
+            " subscribers_gained, subscribers_lost, "
+            " impressions, ctr_percent, topic_type, angles, metrics_fetched_at) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) "
+            "ON CONFLICT(video_id) DO UPDATE SET "
+            "title = excluded.title, "
+            "published_at = excluded.published_at, "
+            "duration_seconds = excluded.duration_seconds, "
+            "fetched_at = excluded.fetched_at, "
+            "tags = excluded.tags, "
+            "views = excluded.views, "
+            "watch_time_minutes = excluded.watch_time_minutes, "
+            "avg_view_duration_seconds = excluded.avg_view_duration_seconds, "
+            "avg_view_percentage = excluded.avg_view_percentage, "
+            "likes = excluded.likes, "
+            "comments = excluded.comments, "
+            "shares = excluded.shares, "
+            "subscribers_gained = excluded.subscribers_gained, "
+            "subscribers_lost = excluded.subscribers_lost, "
+            "impressions = excluded.impressions, "
+            "ctr_percent = excluded.ctr_percent, "
+            "topic_type = excluded.topic_type, "
+            "angles = excluded.angles, "
+            "metrics_fetched_at = excluded.metrics_fetched_at",
+            astuple(row),
         )
 
     def upsert_daily_metric(

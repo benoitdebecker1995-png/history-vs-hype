@@ -9,7 +9,7 @@ from pathlib import Path
 
 import pytest
 
-from tools.youtube_analytics.store import AnalyticsStore
+from tools.youtube_analytics.store import AnalyticsStore, VideoRow
 from tools.youtube_analytics import views as v
 
 
@@ -233,6 +233,76 @@ def test_upsert_traffic_source_updates_existing_row(store: AnalyticsStore) -> No
     assert raw[0]["fetched_at"] == "2026-05-19"
     # Other sources for v_mid untouched.
     assert {r["source_type"] for r in rows} == {"YT_SEARCH", "SUGGESTED_VIDEO", "EXTERNAL"}
+
+
+def test_upsert_video_inserts_new_row_with_minimal_required_fields(store: AnalyticsStore) -> None:
+    """Only the 5 NOT NULL fields are required; everything else uses schema defaults."""
+    store.upsert_video(VideoRow(
+        video_id="v_new",
+        title="New Video",
+        published_at="2026-05-19",
+        duration_seconds=600,
+        fetched_at="2026-05-19",
+    ))
+    store.commit()
+    row = store.video("v_new")
+    assert row is not None
+    assert row["title"] == "New Video"
+    assert row["views"] == 0
+    assert row["topic_type"] == "general"
+    assert row["impressions"] is None
+    assert row["ctr_percent"] is None
+
+
+def test_upsert_video_inserts_new_row_with_full_payload(store: AnalyticsStore) -> None:
+    store.upsert_video(VideoRow(
+        video_id="v_full",
+        title="Full Video",
+        published_at="2026-05-19",
+        duration_seconds=900,
+        fetched_at="2026-05-19",
+        tags='["history","myths"]',
+        views=1234,
+        watch_time_minutes=312.5,
+        avg_view_duration_seconds=180,
+        avg_view_percentage=28.1,
+        likes=42,
+        comments=7,
+        shares=3,
+        subscribers_gained=11,
+        subscribers_lost=1,
+        impressions=29381,
+        ctr_percent=4.2,
+        topic_type="border",
+        angles='["mechanism"]',
+        metrics_fetched_at="2026-05-19",
+    ))
+    store.commit()
+    row = store.video("v_full")
+    assert row["views"] == 1234
+    assert row["ctr_percent"] == 4.2
+    assert row["topic_type"] == "border"
+    assert row["angles"] == '["mechanism"]'
+
+
+def test_upsert_video_updates_existing_row(store: AnalyticsStore) -> None:
+    # Fixture has v_mid with views=5000; upsert should overwrite all fields.
+    store.upsert_video(VideoRow(
+        video_id="v_mid",
+        title="Mid Video — RETITLED",
+        published_at="2026-02-10",
+        duration_seconds=300,
+        fetched_at="2026-05-19",
+        views=99999,
+        ctr_percent=6.6,
+    ))
+    store.commit()
+    row = store.video("v_mid")
+    assert row["title"] == "Mid Video — RETITLED"
+    assert row["views"] == 99999
+    assert row["ctr_percent"] == 6.6
+    # Defaulted fields blow away prior values (intentional — full upsert).
+    assert row["impressions"] is None  # was 8000, defaulted to None on the new row
 
 
 def test_upsert_daily_metric_inserts_new_row(store: AnalyticsStore) -> None:

@@ -423,39 +423,44 @@ def classify_title(title: str) -> str:
 # DATABASE STORAGE
 # =========================================================================
 
-def store_videos(conn: sqlite3.Connection, videos: List[Dict],
+def store_videos(videos: List[Dict],
                  metrics: Dict[str, Dict], ctr_data: Dict[str, Dict]) -> int:
-    """Store video metadata + metrics in analytics.db. Returns count stored."""
+    """Store video metadata + metrics via AnalyticsStore. Returns count stored."""
+    from tools.youtube_analytics.store import AnalyticsStore, VideoRow
     now = datetime.now(timezone.utc).isoformat()
     stored = 0
 
-    for v in videos:
-        vid = v['id']
-        m = metrics.get(vid, {})
-        c = ctr_data.get(vid, {})
-        topic = classify_title(v['title'])
+    with AnalyticsStore.open() as store:
+        for v in videos:
+            vid = v['id']
+            m = metrics.get(vid, {})
+            c = ctr_data.get(vid, {})
+            topic = classify_title(v['title'])
 
-        conn.execute("""
-            INSERT OR REPLACE INTO videos (
-                video_id, title, published_at, duration_seconds, tags,
-                views, watch_time_minutes, avg_view_duration_seconds,
-                avg_view_percentage, likes, comments, shares,
-                subscribers_gained, subscribers_lost,
-                impressions, ctr_percent,
-                topic_type, fetched_at, metrics_fetched_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """, (
-            vid, v['title'], v['published_at'], v['duration_seconds'], v['tags'],
-            m.get('views', 0), m.get('watch_time_minutes', 0),
-            m.get('avg_view_duration_seconds', 0), m.get('avg_view_percentage', 0),
-            m.get('likes', 0), m.get('comments', 0), m.get('shares', 0),
-            m.get('subscribers_gained', 0), 0,  # subscribers_lost not available per-video
-            c.get('impressions'), c.get('ctr_percent'),
-            topic, now, now if m else None
-        ))
-        stored += 1
+            store.upsert_video(VideoRow(
+                video_id=vid,
+                title=v['title'],
+                published_at=v['published_at'],
+                duration_seconds=v['duration_seconds'],
+                fetched_at=now,
+                tags=v['tags'],
+                views=m.get('views', 0),
+                watch_time_minutes=m.get('watch_time_minutes', 0),
+                avg_view_duration_seconds=m.get('avg_view_duration_seconds', 0),
+                avg_view_percentage=m.get('avg_view_percentage', 0),
+                likes=m.get('likes', 0),
+                comments=m.get('comments', 0),
+                shares=m.get('shares', 0),
+                subscribers_gained=m.get('subscribers_gained', 0),
+                # subscribers_lost not available per-video — VideoRow default 0
+                impressions=c.get('impressions'),
+                ctr_percent=c.get('ctr_percent'),
+                topic_type=topic,
+                metrics_fetched_at=now if m else None,
+            ))
+            stored += 1
+        store.commit()
 
-    conn.commit()
     logger.info("Stored %d videos", stored)
     return stored
 
@@ -464,9 +469,9 @@ def store_traffic_sources(traffic: Dict[str, List[Dict]]) -> int:
     """Store per-video traffic source data via AnalyticsStore. Returns count stored.
 
     Uses AnalyticsStore.upsert_traffic_source — the seam introduced in
-    ADR-0004 stage 3.1. store_videos and store_daily_metrics still take a
-    raw conn (they need upsert_video / upsert_daily_metric, which are
-    deferred until their dataclass shapes are designed).
+    ADR-0004 stage 3.1. All three growth_data writers (store_videos,
+    store_traffic_sources, store_daily_metrics) now route through the
+    store.
     """
     from tools.youtube_analytics.store import AnalyticsStore
     now = datetime.now(timezone.utc).isoformat()
@@ -567,7 +572,7 @@ def run_backfill(db_path: Path = None, refresh: bool = False,
 
         # Step 4: Store videos + metrics
         logger.info("Step 4: Storing videos and metrics")
-        results['videos_stored'] = store_videos(conn, videos, metrics, ctr_data)
+        results['videos_stored'] = store_videos(videos, metrics, ctr_data)
 
         # Step 5: Fetch traffic sources per video
         logger.info("Step 5: Fetching traffic sources per video (%d videos)", len(longform_ids))
