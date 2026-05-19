@@ -3,8 +3,10 @@
 Peer to tools.discovery.keyword_store.KeywordStore. Hides connection lifecycle,
 schema, and SQL from analysis scripts.
 
-Read-only by design — writers (backfill.py, growth_data.py, ctr_tracker.py) keep
-their own connections until a later refactor.
+Reads are the primary surface. Writes have been growing in incrementally —
+see ADR-0004 stage 3. Currently exposed: upsert_traffic_source(). Video and
+daily-channel writers (growth_data.py:store_videos / store_daily_metrics)
+still keep their own connections until their dataclass shapes are designed.
 
 Usage:
     from tools.youtube_analytics.store import AnalyticsStore
@@ -12,6 +14,12 @@ Usage:
     # one-shot scripts (the common case)
     with AnalyticsStore.open() as store:
         videos = store.videos(min_duration_seconds=60)
+
+    # writes — caller commits explicitly
+    with AnalyticsStore.open() as store:
+        for v, s in traffic_rows:
+            store.upsert_traffic_source(video_id=v, source_type=s, ...)
+        store.commit()
 
     # tests
     store = AnalyticsStore(sqlite3.connect(":memory:"))
@@ -218,3 +226,33 @@ class AnalyticsStore:
         counts) belong here rather than as named methods.
         """
         return [dict(r) for r in self._conn.execute(sql, tuple(params)).fetchall()]
+
+    # ── writes ────────────────────────────────────────────────────────────────
+
+    def upsert_traffic_source(
+        self,
+        *,
+        video_id: str,
+        source_type: str,
+        views: int,
+        watch_time_minutes: float,
+        fetched_at: str,
+    ) -> None:
+        """Insert or update one (video_id, source_type) row in traffic_sources.
+
+        Does NOT commit. Caller calls store.commit() after batching writes.
+        """
+        self._conn.execute(
+            "INSERT INTO traffic_sources "
+            "(video_id, source_type, views, watch_time_minutes, fetched_at) "
+            "VALUES (?, ?, ?, ?, ?) "
+            "ON CONFLICT(video_id, source_type) DO UPDATE SET "
+            "views = excluded.views, "
+            "watch_time_minutes = excluded.watch_time_minutes, "
+            "fetched_at = excluded.fetched_at",
+            (video_id, source_type, views, watch_time_minutes, fetched_at),
+        )
+
+    def commit(self) -> None:
+        """Commit pending writes. Pair with the upsert_* methods."""
+        self._conn.commit()
