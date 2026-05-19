@@ -253,6 +253,39 @@ class AnalyticsStore:
             (video_id, source_type, views, watch_time_minutes, fetched_at),
         )
 
+    def upsert_daily_metric(
+        self,
+        *,
+        day: str,
+        views: int,
+        watch_time_minutes: float,
+        avg_view_duration_seconds: int,
+        subscribers_gained: int,
+        subscribers_lost: int,
+        likes: int,
+        fetched_at: str,
+    ) -> None:
+        """Insert or update one row in daily_channel (day is PRIMARY KEY).
+
+        Does NOT commit. Caller calls store.commit() after batching writes.
+        """
+        self._conn.execute(
+            "INSERT INTO daily_channel "
+            "(day, views, watch_time_minutes, avg_view_duration_seconds, "
+            " subscribers_gained, subscribers_lost, likes, fetched_at) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?) "
+            "ON CONFLICT(day) DO UPDATE SET "
+            "views = excluded.views, "
+            "watch_time_minutes = excluded.watch_time_minutes, "
+            "avg_view_duration_seconds = excluded.avg_view_duration_seconds, "
+            "subscribers_gained = excluded.subscribers_gained, "
+            "subscribers_lost = excluded.subscribers_lost, "
+            "likes = excluded.likes, "
+            "fetched_at = excluded.fetched_at",
+            (day, views, watch_time_minutes, avg_view_duration_seconds,
+             subscribers_gained, subscribers_lost, likes, fetched_at),
+        )
+
     def commit(self) -> None:
         """Commit pending writes. Pair with the upsert_* methods."""
         self._conn.commit()

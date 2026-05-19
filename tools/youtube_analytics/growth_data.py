@@ -489,23 +489,27 @@ def store_traffic_sources(traffic: Dict[str, List[Dict]]) -> int:
     return stored
 
 
-def store_daily_metrics(conn: sqlite3.Connection, days: List[Dict]) -> int:
-    """Store daily channel metrics. Returns count stored."""
+def store_daily_metrics(days: List[Dict]) -> int:
+    """Store daily channel metrics via AnalyticsStore. Returns count stored."""
+    from tools.youtube_analytics.store import AnalyticsStore
     now = datetime.now(timezone.utc).isoformat()
     stored = 0
 
-    for d in days:
-        conn.execute("""
-            INSERT OR REPLACE INTO daily_channel
-            (day, views, watch_time_minutes, avg_view_duration_seconds,
-             subscribers_gained, subscribers_lost, likes, fetched_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        """, (d['day'], d['views'], d['watch_time_minutes'],
-              d['avg_view_duration_seconds'], d['subscribers_gained'],
-              d['subscribers_lost'], d['likes'], now))
-        stored += 1
+    with AnalyticsStore.open() as store:
+        for d in days:
+            store.upsert_daily_metric(
+                day=d['day'],
+                views=d['views'],
+                watch_time_minutes=d['watch_time_minutes'],
+                avg_view_duration_seconds=d['avg_view_duration_seconds'],
+                subscribers_gained=d['subscribers_gained'],
+                subscribers_lost=d['subscribers_lost'],
+                likes=d['likes'],
+                fetched_at=now,
+            )
+            stored += 1
+        store.commit()
 
-    conn.commit()
     logger.info("Stored %d daily metrics", stored)
     return stored
 
@@ -573,7 +577,7 @@ def run_backfill(db_path: Path = None, refresh: bool = False,
         # Step 6: Fetch daily channel metrics (90 days)
         logger.info("Step 6: Fetching daily channel metrics (90 days)")
         daily = fetch_daily_channel_metrics(days=90)
-        results['daily_records'] = store_daily_metrics(conn, daily)
+        results['daily_records'] = store_daily_metrics(daily)
 
     except Exception as e:
         results['errors'].append(f"Pipeline error: {e}")

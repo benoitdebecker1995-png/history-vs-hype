@@ -235,6 +235,47 @@ def test_upsert_traffic_source_updates_existing_row(store: AnalyticsStore) -> No
     assert {r["source_type"] for r in rows} == {"YT_SEARCH", "SUGGESTED_VIDEO", "EXTERNAL"}
 
 
+def test_upsert_daily_metric_inserts_new_row(store: AnalyticsStore) -> None:
+    store.upsert_daily_metric(
+        day="2026-02-01",
+        views=999,
+        watch_time_minutes=33.3,
+        avg_view_duration_seconds=120,
+        subscribers_gained=7,
+        subscribers_lost=1,
+        likes=42,
+        fetched_at="2026-05-19",
+    )
+    store.commit()
+    rows = store.daily_channel()
+    new = next(r for r in rows if r["day"] == "2026-02-01")
+    assert new["views"] == 999
+    assert new["subscribers_gained"] == 7
+
+
+def test_upsert_daily_metric_updates_existing_row(store: AnalyticsStore) -> None:
+    # Fixture has 2026-01-01 with views=100; upsert should overwrite.
+    store.upsert_daily_metric(
+        day="2026-01-01",
+        views=5000,
+        watch_time_minutes=600.0,
+        avg_view_duration_seconds=300,
+        subscribers_gained=50,
+        subscribers_lost=2,
+        likes=120,
+        fetched_at="2026-05-19",
+    )
+    store.commit()
+    rows = store.daily_channel()
+    updated = next(r for r in rows if r["day"] == "2026-01-01")
+    assert updated["views"] == 5000
+    assert updated["subscribers_gained"] == 50
+    # Other days untouched.
+    assert {r["day"] for r in rows} == {
+        "2026-01-01", "2026-01-02", "2026-01-03", "2026-01-04",
+    }
+
+
 def test_upsert_without_commit_does_not_persist(analytics_conn: sqlite3.Connection) -> None:
     """commit() is explicit — writes before commit() roll back if the conn closes uncommitted."""
     store = AnalyticsStore(analytics_conn)
