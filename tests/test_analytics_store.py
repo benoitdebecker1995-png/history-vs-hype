@@ -192,6 +192,36 @@ def test_traffic_totals_by_source(store: AnalyticsStore) -> None:
     assert rows[0]["source_type"] == "SUGGESTED_VIDEO"
 
 
+def test_traffic_totals_by_source_excludes_orphan_rows(
+    analytics_conn: sqlite3.Connection,
+) -> None:
+    """Orphan traffic_sources rows (video_id not in videos table) must not
+    inflate the channel-wide aggregate.
+
+    Regression for GH #1: stale Shorts/deleted-video rows in traffic_sources
+    were polluting the long-form aggregate by ~1,250 views in the live DB.
+    """
+    # Insert an orphan row — video_id 'v_orphan' is NOT in the videos table.
+    analytics_conn.execute(
+        "INSERT INTO traffic_sources (video_id, source_type, views, "
+        "watch_time_minutes, fetched_at) VALUES (?, ?, ?, ?, ?)",
+        ("v_orphan", "SUBSCRIBER", 99999, 1000.0, "2026-05-19"),
+    )
+    analytics_conn.commit()
+
+    store = AnalyticsStore(analytics_conn)
+    rows = store.traffic_totals_by_source()
+    totals = {r["source_type"]: r["total_views"] for r in rows}
+
+    # Aggregates must match the non-orphan totals only — SUBSCRIBER not present
+    # in fixture, so orphan's 99999 would show up as SUBSCRIBER=99999 if the
+    # JOIN were missing.
+    assert "SUBSCRIBER" not in totals
+    assert totals["SUGGESTED_VIDEO"] == 3200
+    assert totals["YT_SEARCH"] == 1550
+    assert totals["EXTERNAL"] == 500
+
+
 # ── upsert_traffic_source (write side) ────────────────────────────────────────
 
 def test_upsert_traffic_source_inserts_new_row(store: AnalyticsStore) -> None:

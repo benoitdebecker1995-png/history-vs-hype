@@ -215,15 +215,22 @@ class AnalyticsStore:
         return [dict(r) for r in rows]
 
     def traffic_totals_by_source(self) -> List[Dict[str, Any]]:
-        """Aggregate traffic across all videos, grouped by source_type.
+        """Aggregate traffic across all videos in the canonical videos table.
+
+        Inner-joins traffic_sources to videos so orphan rows (Shorts, deleted
+        videos, stale backfill remnants) don't pollute the channel-wide
+        long-form aggregate. The videos table is long-form only; traffic_sources
+        can accumulate rows for videos no longer fetched.
 
         Each row: {source_type, total_views, total_watch_time_minutes}.
         """
         rows = self._conn.execute(
-            "SELECT source_type, "
-            "SUM(views) AS total_views, "
-            "SUM(watch_time_minutes) AS total_watch_time_minutes "
-            "FROM traffic_sources GROUP BY source_type "
+            "SELECT t.source_type, "
+            "SUM(t.views) AS total_views, "
+            "SUM(t.watch_time_minutes) AS total_watch_time_minutes "
+            "FROM traffic_sources t "
+            "INNER JOIN videos v ON t.video_id = v.video_id "
+            "GROUP BY t.source_type "
             "ORDER BY total_views DESC"
         ).fetchall()
         return [dict(r) for r in rows]
