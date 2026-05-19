@@ -16,7 +16,7 @@ All stdlib. No external deps.
 from __future__ import annotations
 
 import re
-import sqlite3
+from tools.youtube_analytics.store import AnalyticsStore
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -135,15 +135,16 @@ def load_videos(analytics_db: Path) -> list[dict]:
     if not analytics_db.exists():
         return []
     try:
-        conn = sqlite3.connect(str(analytics_db))
-        cur = conn.cursor()
-        cur.execute("SELECT video_id, title, published_at FROM videos")
-        rows = cur.fetchall()
-        conn.close()
-    except sqlite3.Error:
+        with AnalyticsStore.open(analytics_db) as store:
+            rows = store.videos()
+    except Exception:
         return []
     return [
-        {'video_id': r[0], 'title': r[1] or '', 'published_at': r[2] or ''}
+        {
+            'video_id': r['video_id'],
+            'title': r['title'] or '',
+            'published_at': r['published_at'] or '',
+        }
         for r in rows
     ]
 
