@@ -871,18 +871,16 @@ def print_proposals(proposals: list[ProposedChange], states: list[FolderState] |
 
 def analytics_db_age_hours() -> float:
     """Return max metrics_fetched_at age in hours, or sentinel 999 if cannot read."""
-    import sqlite3
+    from tools.youtube_analytics.store import AnalyticsStore
     if not ANALYTICS_DB.exists():
         return 999
     try:
-        conn = sqlite3.connect(str(ANALYTICS_DB))
-        cur = conn.cursor()
-        cur.execute('SELECT MAX(metrics_fetched_at) FROM videos')
-        row = cur.fetchone()
-        conn.close()
-        if not row or not row[0]:
+        with AnalyticsStore.open() as store:
+            rows = store.execute('SELECT MAX(metrics_fetched_at) AS m FROM videos')
+        m = rows[0]['m'] if rows else None
+        if not m:
             return 999
-        fetched = datetime.fromisoformat(row[0].replace('Z', '+00:00'))
+        fetched = datetime.fromisoformat(m.replace('Z', '+00:00'))
         if fetched.tzinfo is None:
             fetched = fetched.replace(tzinfo=timezone.utc)
         delta = datetime.now(timezone.utc) - fetched
