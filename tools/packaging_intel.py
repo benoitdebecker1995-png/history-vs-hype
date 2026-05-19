@@ -211,32 +211,26 @@ def _get_own_channel_signal(query: str) -> Dict[str, Any]:
         if not _ANALYTICS_DB.exists():
             return default
 
-        conn = sqlite3.connect(str(_ANALYTICS_DB))
-        conn.row_factory = sqlite3.Row
+        from tools.youtube_analytics.store import AnalyticsStore
 
         terms = _extract_search_terms(query)
         if not terms:
-            conn.close()
             return default
 
         where_clauses = []
-        params = []
+        params: List[Any] = []
         for term in terms[:5]:
             where_clauses.append("LOWER(title) LIKE ?")
             params.append(f"%{term}%")
 
-        sql = f"""
-            SELECT title, views, ctr_percent
-            FROM videos
-            WHERE {' OR '.join(where_clauses)}
-            ORDER BY views DESC
-            LIMIT 20
-        """
+        sql = (
+            "SELECT title, views, ctr_percent FROM videos "
+            f"WHERE {' OR '.join(where_clauses)} "
+            "ORDER BY views DESC LIMIT 20"
+        )
 
-        cursor = conn.cursor()
-        cursor.execute(sql, params)
-        rows = cursor.fetchall()
-        conn.close()
+        with AnalyticsStore.open(_ANALYTICS_DB) as store:
+            rows = store.execute(sql, params)
 
         if not rows:
             return default
