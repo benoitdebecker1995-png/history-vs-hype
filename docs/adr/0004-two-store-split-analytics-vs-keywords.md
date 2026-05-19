@@ -25,11 +25,16 @@ The two stores answer different questions: *"how is our channel performing?"* vs
 
 ## Known friction (not blockers, but worth recording)
 
-- `traffic_sources` exists in **both** stores with diverging row counts (482 in analytics.db, 390 in keywords.db as of 2026-05-18). Origin of the duplication is unremembered. The divergence hasn't bitten any analysis yet. **Action deferred** — revisit if either side starts producing surprising numbers, or as part of the analytics-side storage seam refactor (see "Consequences").
-- `tools/youtube_analytics/backfill.py:24` carries a stale docstring claim — `# Do NOT use analytics.db (empty). Use keywords.db via KeywordDB exclusively.` — which is factually wrong (analytics.db has live, recent writes) and will mislead future readers. **Action**: delete as part of the storage seam refactor.
+- `traffic_sources` exists in **both** stores with diverging row counts (482 in analytics.db, 390 in keywords.db as of 2026-05-18). Origin of the duplication is unremembered. The divergence hasn't bitten any analysis yet. **Action deferred** — revisit if either side starts producing surprising numbers.
+- ~~`tools/youtube_analytics/backfill.py:24` carries a stale docstring claim~~ **(resolved before stage 2 — the claim is no longer present in the file).**
 
 ## Consequences
 
 - **Discoverability.** New contributors (human or agent) read this ADR before assuming the two stores are an accident.
-- **Storage seam refactor (open).** The analytics.db side has no module-level seam — 29 callers reach `sqlite3.connect(analytics.db)` directly. A follow-up refactor will introduce an `AnalyticsStore` peer to `KeywordStore`, under a clean-cut migration. That refactor does **not** change this ADR — it operationalizes the split, it doesn't revisit it.
+- **Storage seam refactor (closed 2026-05-19).** The analytics.db seam was operationalized in five stages between 2026-05-18 and 2026-05-19:
+  - *Stage 1* (commit `1e524dc`) — `AnalyticsStore` introduced as a read-only peer to `KeywordStore`, with `videos()`, `traffic_sources()`, `traffic_totals_by_source()`, `daily_channel()`, `execute()`. Cross-store `views.py` merge module added.
+  - *Stage 2* (commits `86709f7`, `dad0370`, `a3de4e4`) — three clean read-side bypassers migrated: the weekly retention routine, `description_analyzer`, and `reconcile.analytics_db_age_hours`.
+  - *Stage 3* (commits `5d0ab22`, `3890ad4`, `221341d`) — write side opened. `upsert_traffic_source()` + `commit()` added; `traffic_analysis.save_traffic_json`, `backfill._build_traffic_section`, and `growth_data.store_traffic_sources` all migrated. The duplicate `INSERT OR REPLACE` vs `INSERT ... ON CONFLICT` SQL for the same table collapsed to one path.
+  - *Stage 4* (commits `ff14ac2`, `8357c52`, `abc843c`, `c07a823`, `ede4766`) — mixed-DB callers (`packaging_autopilot`, `packaging_intel`, `reconcile/match`) migrated for their analytics.db touch points; `upsert_daily_metric` added + `growth_data.store_daily_metrics` migrated; `VideoRow` dataclass + `upsert_video` added + `growth_data.store_videos` migrated.
+  - All `sqlite3.connect(analytics.db)` callers now route through `AnalyticsStore` except `growth_data.ensure_schema()`, which keeps a raw conn — schema migration is intentionally outside the domain-write surface.
 - **Re-litigation guard.** Future `/improve-codebase-architecture` runs that surface "consolidate the two stores" should be answered with this ADR. If the friction grows beyond the known items above, supersede this ADR rather than silently consolidating.
