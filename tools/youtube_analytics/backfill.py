@@ -750,26 +750,10 @@ def _build_traffic_section(db_path: Path) -> List[str]:
 
     Returns list of markdown lines, or empty list if no data.
     """
+    from tools.youtube_analytics.store import AnalyticsStore
     try:
-        conn = sqlite3.connect(str(db_path))
-        conn.row_factory = sqlite3.Row
-
-        # Check table exists
-        tables = [r[0] for r in conn.execute(
-            "SELECT name FROM sqlite_master WHERE type='table' AND name='traffic_sources'"
-        ).fetchall()]
-        if not tables:
-            conn.close()
-            return []
-
-        # Aggregate across all videos
-        rows = conn.execute("""
-            SELECT source_type, SUM(views) as total_views, SUM(watch_time_minutes) as total_wtm
-            FROM traffic_sources
-            GROUP BY source_type
-            ORDER BY total_views DESC
-        """).fetchall()
-        conn.close()
+        with AnalyticsStore.open(db_path) as store:
+            rows = store.traffic_totals_by_source()
 
         if not rows:
             return []
@@ -811,7 +795,8 @@ def _build_traffic_section(db_path: Path) -> List[str]:
         for r in rows:
             name = source_names.get(r['source_type'], r['source_type'])
             pct = (r['total_views'] / total_views) * 100
-            wtm_hrs = r['total_wtm'] / 60 if r['total_wtm'] else 0
+            wtm = r['total_watch_time_minutes']
+            wtm_hrs = wtm / 60 if wtm else 0
             lines.append(
                 f"| {name} | {r['total_views']:,} | {pct:.1f}% | {wtm_hrs:.1f} |"
             )

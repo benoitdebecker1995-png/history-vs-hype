@@ -21,7 +21,6 @@ Output:
 
 import sys
 import json
-import sqlite3
 import argparse
 import re
 from pathlib import Path
@@ -279,22 +278,17 @@ def save_traffic_json(data: Dict[str, List[dict]]) -> None:
         return
 
     now = datetime.now(timezone.utc).isoformat()
-    conn = sqlite3.connect(str(ANALYTICS_DB))
-    cur = conn.cursor()
-
-    for vid_id, sources in data.items():
-        for s in sources:
-            cur.execute("""
-                INSERT INTO traffic_sources (video_id, source_type, views, watch_time_minutes, fetched_at)
-                VALUES (?, ?, ?, ?, ?)
-                ON CONFLICT(video_id, source_type) DO UPDATE SET
-                    views = excluded.views,
-                    watch_time_minutes = excluded.watch_time_minutes,
-                    fetched_at = excluded.fetched_at
-            """, (vid_id, s['source_type'], s['views'], s['watch_time_minutes'], now))
-
-    conn.commit()
-    conn.close()
+    with AnalyticsStore.open(ANALYTICS_DB) as store:
+        for vid_id, sources in data.items():
+            for s in sources:
+                store.upsert_traffic_source(
+                    video_id=vid_id,
+                    source_type=s['source_type'],
+                    views=s['views'],
+                    watch_time_minutes=s['watch_time_minutes'],
+                    fetched_at=now,
+                )
+        store.commit()
     logger.info("Upserted traffic data into analytics.db")
 
 
