@@ -35,6 +35,7 @@ from statistics import mean, median, stdev
 from typing import Dict, List, Optional, Tuple
 
 from tools.logging_config import get_logger, setup_logging
+from tools.post_publish import PostPublishStore
 
 logger = get_logger(__name__)
 
@@ -43,12 +44,6 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 ANALYTICS_DB = Path(__file__).parent / 'analytics.db'
 TRAFFIC_JSON = Path(__file__).parent / '_traffic_sources.json'
 REPORT_PATH = PROJECT_ROOT / 'channel-data' / 'patterns' / 'CTR-BY-SOURCE-ANALYSIS.md'
-
-# Directories containing POST-PUBLISH-ANALYSIS files
-ANALYSIS_DIRS = [
-    PROJECT_ROOT / 'channel-data' / 'analyses',
-    PROJECT_ROOT / 'video-projects' / '_IN_PRODUCTION',
-]
 
 # Friendly names for traffic source types (shared with traffic_analysis.py)
 SOURCE_LABELS = {
@@ -111,22 +106,6 @@ def classify_topic_type(topic_type: Optional[str]) -> str:
 # DATA LOADING: CTR from POST-PUBLISH-ANALYSIS files
 # =========================================================================
 
-def _extract_video_id_from_filename(path: Path) -> Optional[str]:
-    """Extract video ID from POST-PUBLISH-ANALYSIS-{ID}.md filename."""
-    m = re.match(r'POST-PUBLISH-ANALYSIS-(.+)\.md$', path.name)
-    if m:
-        return m.group(1)
-    return None
-
-
-def _extract_video_id_from_content(text: str) -> Optional[str]:
-    """Extract video ID from file content (e.g. **Video ID:** xyz)."""
-    m = re.search(r'\*\*Video ID:\*\*\s*([A-Za-z0-9_-]{11})', text)
-    if m:
-        return m.group(1)
-    return None
-
-
 def _extract_ctr_from_content(text: str) -> Optional[float]:
     """
     Extract the best CTR value from a POST-PUBLISH-ANALYSIS file.
@@ -170,42 +149,34 @@ def _extract_ctr_from_content(text: str) -> Optional[float]:
 
 def load_ctr_from_analyses() -> Dict[str, float]:
     """
-    Scan all POST-PUBLISH-ANALYSIS files and extract video_id -> CTR mapping.
+    Scan all post-publish reports and extract video_id -> CTR mapping.
 
-    Returns only videos with valid (non-zero) CTR data.
+    Returns only videos with valid (non-zero) CTR data. CTR extraction
+    stays local because this module catches CTR Trend patterns the store
+    doesn't expose (e.g. "CTR Trend: 2.1% -> 3.4%" picks up the post-trend
+    value). Discovery + video_id resolution route through PostPublishStore.
     """
     ctr_map: Dict[str, float] = {}
     files_scanned = 0
     files_with_ctr = 0
 
-    for search_dir in ANALYSIS_DIRS:
-        if not search_dir.exists():
+    for report in PostPublishStore(project_root=PROJECT_ROOT).discover_and_load_all():
+        files_scanned += 1
+
+        try:
+            text = report.source_path.read_text(encoding='utf-8', errors='replace')
+        except OSError as e:
+            logger.warning("Cannot read %s: %s", report.source_path, e)
             continue
 
-        # Find all POST-PUBLISH-ANALYSIS files recursively
-        for path in search_dir.rglob('POST-PUBLISH-ANALYSIS*.md'):
-            files_scanned += 1
-
-            try:
-                text = path.read_text(encoding='utf-8', errors='replace')
-            except OSError as e:
-                logger.warning("Cannot read %s: %s", path, e)
-                continue
-
-            # Get video ID from filename or content
-            video_id = _extract_video_id_from_filename(path)
-            if not video_id:
-                video_id = _extract_video_id_from_content(text)
-            if not video_id:
-                logger.debug("No video ID found in %s", path.name)
-                continue
-
-            # Get CTR
-            ctr = _extract_ctr_from_content(text)
-            if ctr is not None:
-                ctr_map[video_id] = ctr
-                files_with_ctr += 1
-                logger.debug("CTR %.2f%% for %s from %s", ctr, video_id, path.name)
+        ctr = _extract_ctr_from_content(text)
+        if ctr is not None:
+            ctr_map[report.video_id] = ctr
+            files_with_ctr += 1
+            logger.debug(
+                "CTR %.2f%% for %s from %s",
+                ctr, report.video_id, report.source_path.name,
+            )
 
     logger.info(
         "Scanned %d POST-PUBLISH files, found CTR data for %d videos",
