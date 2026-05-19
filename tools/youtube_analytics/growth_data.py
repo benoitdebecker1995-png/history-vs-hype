@@ -133,24 +133,49 @@ def ensure_schema(conn: sqlite3.Connection) -> None:
 # =========================================================================
 
 def fetch_all_video_ids() -> List[str]:
-    """Fetch all video IDs from channel via YouTube Data API v3."""
+    """Fetch all video IDs from channel via YouTube Data API v3.
+
+    Uses the canonical "uploads playlist" pattern: channels.list(mine=True)
+    to resolve the authenticated channel, then playlistItems.list on its
+    uploads playlist. This is more reliable than search.list(forMine=True),
+    which suffers from search-index propagation lag and can return 0 items
+    for recently-published or recently-updated videos.
+
+    Raises no exception when the token has no associated channel — logs a
+    clear error and returns []. Callers that need to distinguish "no
+    channel" from "empty channel" should check this log line.
+    """
     yt = get_authenticated_service('youtube', 'v3')
-    all_ids = []
-    next_page = None
 
+    # Resolve the authenticated channel's uploads playlist ID.
+    ch_resp = yt.channels().list(part='contentDetails', mine=True).execute()
+    items = ch_resp.get('items', [])
+    if not items:
+        logger.error(
+            "channels.list(mine=True) returned 0 channels — the OAuth token "
+            "is not associated with any YouTube channel. Most likely cause: "
+            "the token was minted against the wrong Google account during a "
+            "recent re-auth, or the Brand Account grant was revoked. Fix: "
+            "delete %s and re-run; the browser will prompt for re-auth — "
+            "select the Google account that owns the History vs Hype channel.",
+            "tools/youtube_analytics/credentials/token.json",
+        )
+        return []
+    uploads_playlist_id = items[0]['contentDetails']['relatedPlaylists']['uploads']
+
+    # Paginate uploads playlist for every video ID.
+    all_ids: List[str] = []
+    page = None
     while True:
-        resp = yt.search().list(
-            part='id',
-            forMine=True,
-            type='video',
+        resp = yt.playlistItems().list(
+            part='contentDetails',
+            playlistId=uploads_playlist_id,
             maxResults=50,
-            pageToken=next_page,
-            order='date'
+            pageToken=page,
         ).execute()
-
-        all_ids.extend(item['id']['videoId'] for item in resp.get('items', []))
-        next_page = resp.get('nextPageToken')
-        if not next_page:
+        all_ids.extend(item['contentDetails']['videoId'] for item in resp.get('items', []))
+        page = resp.get('nextPageToken')
+        if not page:
             break
 
     logger.info("Found %d total videos on channel", len(all_ids))
