@@ -24,6 +24,7 @@ The 48h swap logic (from SWAP-PROTOCOL.md):
 
 import json
 import sqlite3
+from tools.youtube_analytics.store import AnalyticsStore
 import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -60,25 +61,13 @@ def check_recent_videos(days: int = 7) -> List[Dict[str, Any]]:
         if not _ANALYTICS_DB.exists():
             return [{'error': 'analytics.db not found'}]
 
-        conn = sqlite3.connect(str(_ANALYTICS_DB))
-        conn.row_factory = sqlite3.Row
-
         cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).strftime('%Y-%m-%d')
 
-        cursor = conn.cursor()
-        cursor.execute("""
-            SELECT video_id, title, published_at, views, impressions, ctr_percent,
-                   avg_view_percentage, subscribers_gained, topic_type
-            FROM videos
-            WHERE published_at >= ?
-            ORDER BY published_at DESC
-        """, (cutoff,))
-
-        rows = cursor.fetchall()
-        conn.close()
+        with AnalyticsStore.open(_ANALYTICS_DB) as store:
+            rows = store.videos(published_after=cutoff)
 
         for row in rows:
-            assessment = _assess_video(dict(row))
+            assessment = _assess_video(row)
             results.append(assessment)
 
     except Exception as e:
@@ -279,33 +268,29 @@ def generate_full_report(days: int = 14) -> str:
     # Section 3: Quick stats
     lines.append("\n--- CHANNEL PACKAGING HEALTH ---\n")
     try:
-        conn = sqlite3.connect(str(_ANALYTICS_DB))
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
+        with AnalyticsStore.open(_ANALYTICS_DB) as store:
+            # Avg CTR across all videos with data.
+            avg = store.execute(
+                "SELECT AVG(ctr_percent) AS avg_ctr, COUNT(*) AS n "
+                "FROM videos WHERE ctr_percent > 0"
+            )
+            if avg and avg[0]['avg_ctr']:
+                lines.append(f"  Avg CTR: {avg[0]['avg_ctr']:.1f}% (across {avg[0]['n']} videos)")
 
-        # Avg CTR across all videos with data
-        cursor.execute("SELECT AVG(ctr_percent), COUNT(*) FROM videos WHERE ctr_percent > 0")
-        row = cursor.fetchone()
-        if row and row[0]:
-            lines.append(f"  Avg CTR: {row[0]:.1f}% (across {row[1]} videos)")
+            # Videos with CTR < 2% and > 500 impressions (actionable swaps).
+            swap = store.execute(
+                "SELECT COUNT(*) AS n FROM videos "
+                "WHERE ctr_percent > 0 AND ctr_percent < 2.0 AND impressions > 500"
+            )
+            lines.append(f"  Videos needing swap: {swap[0]['n']}")
 
-        # Videos with CTR < 2% and > 500 impressions (actionable swaps)
-        cursor.execute("""
-            SELECT COUNT(*) FROM videos
-            WHERE ctr_percent > 0 AND ctr_percent < 2.0 AND impressions > 500
-        """)
-        swap_count = cursor.fetchone()[0]
-        lines.append(f"  Videos needing swap: {swap_count}")
-
-        # High retention + low views
-        cursor.execute("""
-            SELECT COUNT(*) FROM videos
-            WHERE avg_view_percentage > 30 AND views < 100 AND ctr_percent > 0 AND ctr_percent < 3
-        """)
-        retitle_count = cursor.fetchone()[0]
-        lines.append(f"  Retitle candidates: {retitle_count} (>30% retention, <100 views)")
-
-        conn.close()
+            # High retention + low views.
+            retitle = store.execute(
+                "SELECT COUNT(*) AS n FROM videos "
+                "WHERE avg_view_percentage > 30 AND views < 100 "
+                "AND ctr_percent > 0 AND ctr_percent < 3"
+            )
+            lines.append(f"  Retitle candidates: {retitle[0]['n']} (>30% retention, <100 views)")
     except Exception as e:
         lines.append(f"  Could not read analytics: {e}")
 
