@@ -15,15 +15,14 @@ CLI:
 
 import argparse
 import json
-import sqlite3
 import sys
 from datetime import datetime, date, timedelta
 from pathlib import Path
 
 from tools.youtube_analytics.retention import get_retention_data
+from tools.youtube_analytics.store import ANALYTICS_DB, AnalyticsStore
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-DB_PATH = REPO_ROOT / "tools" / "youtube_analytics" / "analytics.db"
 AUDIT_DIR = REPO_ROOT / "channel-data" / "retention-audits"
 AUDIT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -32,27 +31,18 @@ WINDOW_FRACTION = 0.03
 
 
 def recent_videos(days: int) -> list[dict]:
-    if not DB_PATH.exists():
+    if not ANALYTICS_DB.exists():
         return []
     cutoff = (datetime.utcnow() - timedelta(days=days)).isoformat()
-    conn = sqlite3.connect(DB_PATH)
-    rows = conn.execute(
-        """
-        SELECT video_id, title, published_at, duration_seconds, views
-        FROM videos
-        WHERE published_at >= ?
-        ORDER BY published_at DESC
-        """,
-        (cutoff,),
-    ).fetchall()
-    conn.close()
+    with AnalyticsStore.open() as store:
+        rows = store.videos(published_after=cutoff)
     return [
         {
-            "video_id": r[0],
-            "title": r[1],
-            "published_at": r[2],
-            "duration_seconds": r[3],
-            "views": r[4],
+            "video_id": r["video_id"],
+            "title": r["title"],
+            "published_at": r["published_at"],
+            "duration_seconds": r["duration_seconds"],
+            "views": r["views"],
         }
         for r in rows
     ]
