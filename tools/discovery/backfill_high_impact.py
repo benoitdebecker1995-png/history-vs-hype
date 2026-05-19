@@ -24,6 +24,8 @@ from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Tuple, Optional
 
+from tools.post_publish import PostPublishStore
+
 DB_PATH = Path(__file__).parent / 'keywords.db'
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 TODAY = datetime.now().strftime('%Y-%m-%d')
@@ -311,65 +313,35 @@ def backfill_section_feedback(conn, dry_run=False):
         "SELECT DISTINCT video_id FROM section_feedback"
     ).fetchall())
 
-    analyses_dir = PROJECT_ROOT / 'channel-data' / 'analyses'
     inserted = 0
 
-    for analysis_file in sorted(analyses_dir.glob('POST-PUBLISH-ANALYSIS-*.md')):
-        # Extract video ID from filename
-        video_id = analysis_file.stem.replace('POST-PUBLISH-ANALYSIS-', '')
-        if video_id in existing_videos:
+    # PostPublishStore unifies discovery across channel-data/analyses/ + all
+    # three lifecycle folders. The store yields PostPublishReports with the
+    # video_id already resolved (filename fallback for channel-data files,
+    # **Video ID:** header for project folders). Section-level retention
+    # parsing (extract_retention_sections) is unique to this module — the
+    # store doesn't expose section-by-section data.
+    for report in PostPublishStore(project_root=PROJECT_ROOT).discover_and_load_all():
+        if report.video_id in existing_videos:
             continue
 
         try:
-            text = analysis_file.read_text(encoding='utf-8', errors='replace')
+            text = report.source_path.read_text(encoding='utf-8', errors='replace')
         except Exception:
             continue
 
-        # Extract section-level retention data
-        sections = extract_retention_sections(text, video_id)
-
+        sections = extract_retention_sections(text, report.video_id)
         for section in sections:
             if dry_run:
-                print(f"  [DRY] {video_id}: {section['name']} -> {section['retention']}%")
-                continue
-
-            c.execute(
-                "INSERT INTO section_feedback (video_id, section_name, retention_percent, notes, created_at) "
-                "VALUES (?, ?, ?, ?, ?)",
-                (video_id, section['name'], section['retention'], section.get('notes'), TODAY)
-            )
-            inserted += 1
-
-    # Also check project-level POST-PUBLISH-ANALYSIS.md files
-    production_dir = PROJECT_ROOT / 'video-projects' / '_IN_PRODUCTION'
-    for project_dir in sorted(production_dir.iterdir()):
-        if not project_dir.is_dir():
-            continue
-        analysis_file = project_dir / 'POST-PUBLISH-ANALYSIS.md'
-        if not analysis_file.exists():
-            continue
-
-        video_id = find_video_id_for_project(project_dir)
-        if not video_id or video_id in existing_videos:
-            continue
-
-        try:
-            text = analysis_file.read_text(encoding='utf-8', errors='replace')
-        except Exception:
-            continue
-
-        sections = extract_retention_sections(text, video_id)
-        for section in sections:
-            if dry_run:
-                print(f"  [DRY] {video_id}: {section['name']} -> {section['retention']}%")
+                print(f"  [DRY] {report.video_id}: {section['name']} -> {section['retention']}%")
                 continue
             c.execute(
                 "INSERT INTO section_feedback (video_id, section_name, retention_percent, notes, created_at) "
                 "VALUES (?, ?, ?, ?, ?)",
-                (video_id, section['name'], section['retention'], section.get('notes'), TODAY)
+                (report.video_id, section['name'], section['retention'], section.get('notes'), TODAY)
             )
             inserted += 1
-        existing_videos.add(video_id)
+        existing_videos.add(report.video_id)
 
     if not dry_run:
         conn.commit()
