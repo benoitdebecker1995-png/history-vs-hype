@@ -460,23 +460,31 @@ def store_videos(conn: sqlite3.Connection, videos: List[Dict],
     return stored
 
 
-def store_traffic_sources(conn: sqlite3.Connection,
-                          traffic: Dict[str, List[Dict]]) -> int:
-    """Store per-video traffic source data. Returns count stored."""
+def store_traffic_sources(traffic: Dict[str, List[Dict]]) -> int:
+    """Store per-video traffic source data via AnalyticsStore. Returns count stored.
+
+    Uses AnalyticsStore.upsert_traffic_source — the seam introduced in
+    ADR-0004 stage 3.1. store_videos and store_daily_metrics still take a
+    raw conn (they need upsert_video / upsert_daily_metric, which are
+    deferred until their dataclass shapes are designed).
+    """
+    from tools.youtube_analytics.store import AnalyticsStore
     now = datetime.now(timezone.utc).isoformat()
     stored = 0
 
-    for vid, sources in traffic.items():
-        for src in sources:
-            conn.execute("""
-                INSERT OR REPLACE INTO traffic_sources
-                (video_id, source_type, views, watch_time_minutes, fetched_at)
-                VALUES (?, ?, ?, ?, ?)
-            """, (vid, src['source_type'], src['views'],
-                  src['watch_time_minutes'], now))
-            stored += 1
+    with AnalyticsStore.open() as store:
+        for vid, sources in traffic.items():
+            for src in sources:
+                store.upsert_traffic_source(
+                    video_id=vid,
+                    source_type=src['source_type'],
+                    views=src['views'],
+                    watch_time_minutes=src['watch_time_minutes'],
+                    fetched_at=now,
+                )
+                stored += 1
+        store.commit()
 
-    conn.commit()
     logger.info("Stored %d traffic source records", stored)
     return stored
 
@@ -560,7 +568,7 @@ def run_backfill(db_path: Path = None, refresh: bool = False,
         # Step 5: Fetch traffic sources per video
         logger.info("Step 5: Fetching traffic sources per video (%d videos)", len(longform_ids))
         traffic = fetch_traffic_sources_per_video(longform_ids)
-        results['traffic_records'] = store_traffic_sources(conn, traffic)
+        results['traffic_records'] = store_traffic_sources(traffic)
 
         # Step 6: Fetch daily channel metrics (90 days)
         logger.info("Step 6: Fetching daily channel metrics (90 days)")
