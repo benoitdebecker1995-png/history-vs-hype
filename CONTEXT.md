@@ -56,6 +56,10 @@ _Avoid_: "Islamic scholars," "medieval exegetes" (too vague — loses the audito
 
 ### Production terms
 
+**Post-publish report**:
+The per-video markdown artifact written after publication, recording observed performance (views, retention curve, CTR, subscribers gained), drop-off points, and human-authored lessons. Lives at `video-projects/_ARCHIVED/<slug>/POST-PUBLISH-ANALYSIS.md` or `channel-data/analyses/POST-PUBLISH-ANALYSIS-<video_id>.md`. The canonical input to `/patterns`, `/analyze`, `/retitle`, `/news-hooks`, the dashboard, and the reconcile loop — i.e., the **lessons** loop that turns raw analytics into channel learnings.
+_Avoid_: "feedback file," "analysis file," "POST-PUBLISH" used as a free-floating noun. Always say "post-publish report" when the artifact is the referent.
+
 **Auditor's edge**:
 The channel's core competitive advantage: showing the primary source document on screen with page numbers and exact quotes. No competitor does this for the hijab topic.
 _Avoid_: "Research" (too generic — the edge is in the *display*, not just the finding).
