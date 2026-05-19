@@ -60,6 +60,12 @@ from collections import defaultdict
 from statistics import mean
 
 from tools.logging_config import get_logger
+from tools.post_publish import (
+    PostPublishMalformedError,
+    PostPublishMissingError,
+    PostPublishReport,
+    PostPublishStore,
+)
 
 logger = get_logger(__name__)
 
@@ -203,151 +209,51 @@ def extract_title_structure(title: str) -> dict:
     }
 
 
+def _report_to_patterns_dict(report: PostPublishReport) -> dict:
+    """Convert a PostPublishReport to the legacy patterns.py dict shape.
+
+    Note the field-name and unit contract this preserves:
+      - `avg_retention` is a FRACTION (0.281), not a percent — patterns.py
+        historically diverged from feedback_parser.py on this.
+      - `ctr_percent` (not `ctr`) — patterns.py's name.
+    """
+    return {
+        'video_id': report.video_id,
+        'title': report.title,
+        'views': report.views,
+        'watch_time_minutes': report.watch_time_minutes,
+        'avg_retention': report.avg_retention_fraction,
+        'ctr_percent': report.ctr_percent,
+        'impressions': report.impressions,
+        'analyzed_date': report.analyzed_date,
+        'source_file': str(report.source_path),
+    }
+
+
 def collect_video_data() -> list[dict]:
     """
-    Collect all analyzed video data from POST-PUBLISH-ANALYSIS files.
+    Collect all analyzed video data from post-publish reports.
 
-    Search locations (in order):
-    1. channel-data/analyses/POST-PUBLISH-ANALYSIS-*.md
-    2. video-projects/_IN_PRODUCTION/*/POST-PUBLISH-ANALYSIS.md
-    3. video-projects/_READY_TO_FILM/*/POST-PUBLISH-ANALYSIS.md
-    4. video-projects/_ARCHIVED/*/POST-PUBLISH-ANALYSIS.md
-
-    Returns:
-        list[dict] where each dict has:
-            - video_id: str
-            - title: str
-            - views: int or None
-            - watch_time_minutes: float or None
-            - avg_retention: float (decimal, e.g., 0.32) or None
-            - ctr_percent: float or None
-            - analyzed_date: str or None
-            - source_file: str (path to analysis file)
+    Delegates discovery + parsing to tools.post_publish.PostPublishStore;
+    returns the legacy dict shape patterns.py callers expect (see
+    _report_to_patterns_dict for the field contract).
     """
-    videos = []
-
-    # Search patterns in order
-    search_patterns = [
-        PROJECT_ROOT / 'channel-data' / 'analyses' / 'POST-PUBLISH-ANALYSIS*.md',
-        PROJECT_ROOT / 'video-projects' / '_IN_PRODUCTION' / '*' / 'POST-PUBLISH-ANALYSIS.md',
-        PROJECT_ROOT / 'video-projects' / '_READY_TO_FILM' / '*' / 'POST-PUBLISH-ANALYSIS.md',
-        PROJECT_ROOT / 'video-projects' / '_ARCHIVED' / '*' / 'POST-PUBLISH-ANALYSIS.md',
-    ]
-
-    seen_files = set()
-
-    for pattern in search_patterns:
-        for filepath in glob_module.glob(str(pattern)):
-            if filepath in seen_files:
-                continue
-            seen_files.add(filepath)
-
-            parsed = parse_analysis_file(filepath)
-            if parsed:
-                videos.append(parsed)
-
-    return videos
+    return [_report_to_patterns_dict(r) for r in PostPublishStore().discover_and_load_all()]
 
 
 def parse_analysis_file(filepath: str) -> dict | None:
     """
     Parse a POST-PUBLISH-ANALYSIS.md file and extract structured data.
 
-    Args:
-        filepath: Path to the analysis file
-
-    Returns:
-        dict with extracted fields, or None if parsing fails
+    Thin shim over tools.post_publish.PostPublishStore.load(). Returns the
+    legacy dict shape (avg_retention as fraction, field `ctr_percent`),
+    or None on parse failure — preserving the historical contract.
     """
     try:
-        with open(filepath, 'r', encoding='utf-8') as f:
-            content = f.read()
-    except (IOError, UnicodeDecodeError):
+        report = PostPublishStore().load(Path(filepath))
+    except (PostPublishMalformedError, PostPublishMissingError):
         return None
-
-    data = {
-        'video_id': None,
-        'title': None,
-        'views': None,
-        'watch_time_minutes': None,
-        'avg_retention': None,
-        'ctr_percent': None,
-        'impressions': None,
-        'analyzed_date': None,
-        'source_file': filepath,
-    }
-
-    # Extract video_id from "**Video ID:**" line
-    video_id_match = re.search(r'\*\*Video ID:\*\*\s*(\S+)', content)
-    if video_id_match:
-        data['video_id'] = video_id_match.group(1)
-
-    # Extract title from h1 header or "# Post-Publish Analysis: {title}"
-    title_match = re.search(r'^#\s+Post-Publish Analysis:\s*(.+)$', content, re.MULTILINE)
-    if title_match:
-        data['title'] = title_match.group(1).strip()
-    else:
-        # Try generic h1
-        h1_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
-        if h1_match:
-            data['title'] = h1_match.group(1).strip()
-
-    # Extract views from Performance table (| Views | X |)
-    views_match = re.search(r'\|\s*Views\s*\|\s*([\d,]+)', content, re.IGNORECASE)
-    if views_match:
-        data['views'] = int(views_match.group(1).replace(',', ''))
-
-    # Extract watch_time_minutes from Performance table
-    watch_time_match = re.search(r'\|\s*Watch Time.*?\|\s*([\d,]+)', content, re.IGNORECASE)
-    if watch_time_match:
-        data['watch_time_minutes'] = float(watch_time_match.group(1).replace(',', ''))
-
-    # Extract avg_retention from "**Average retention:**" line
-    retention_match = re.search(r'\*\*Average retention:\*\*\s*([\d.]+)%', content)
-    if retention_match:
-        # Convert percentage to decimal
-        data['avg_retention'] = float(retention_match.group(1)) / 100
-
-    # Extract CTR from "**CTR:**" line if available
-    ctr_match = re.search(r'\*\*CTR:\*\*\s*([\d.]+)%', content)
-    if ctr_match:
-        data['ctr_percent'] = float(ctr_match.group(1))
-    else:
-        # Fallback: extract most recent CTR from CTR History table
-        # Format: | date | X.XX% | impressions | views |
-        ctr_history_matches = re.findall(
-            r'\|\s*\d{4}-\d{2}-\d{2}\s*\|\s*([\d.]+)%', content
-        )
-        if ctr_history_matches:
-            # Use the last (most recent) snapshot
-            data['ctr_percent'] = float(ctr_history_matches[-1])
-        elif re.search(r'\*\*CTR:\*\*\s*Not available', content, re.IGNORECASE):
-            data['ctr_percent'] = None
-
-    # Extract impressions from CTR History table or Performance table
-    # Format: | date | X.XX% | 11,331 | views |
-    impressions_matches = re.findall(
-        r'\|\s*\d{4}-\d{2}-\d{2}\s*\|\s*[\d.]+%\s*\|\s*([\d,]+)', content
-    )
-    if impressions_matches:
-        # Use the last (most recent) snapshot
-        data['impressions'] = int(impressions_matches[-1].replace(',', ''))
-    else:
-        # Try Performance table: | Impressions | X |
-        imp_match = re.search(r'\|\s*Impressions\s*\|\s*([\d,]+)', content, re.IGNORECASE)
-        if imp_match:
-            data['impressions'] = int(imp_match.group(1).replace(',', ''))
-
-    # Extract analyzed_date from "**Analyzed:**" line
-    analyzed_match = re.search(r'\*\*Analyzed:\*\*\s*(\S+)', content)
-    if analyzed_match:
-        data['analyzed_date'] = analyzed_match.group(1)
-
-    # Only return if we got at least video_id or title
-    if data['video_id'] or data['title']:
-        return data
-
-    return None
+    return _report_to_patterns_dict(report)
 
 
 def auto_tag_video(title: str, description: str = '') -> list[str]:
