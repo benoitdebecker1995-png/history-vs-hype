@@ -14,7 +14,7 @@ import argparse
 import json
 import os
 import re
-import sqlite3
+from tools.youtube_analytics.store import ANALYTICS_DB, AnalyticsStore
 import subprocess
 import time
 from collections import Counter, defaultdict
@@ -29,7 +29,6 @@ logger = get_logger(__name__)
 # Paths
 # ---------------------------------------------------------------------------
 RAW_DIR = Path("tools/benchmark/raw_data")
-ANALYTICS_DB = Path("tools/youtube_analytics/analytics.db")
 METADATA_GLOB_ROOT = Path("video-projects")
 OUTPUT_FILE = Path("channel-data/patterns/DESCRIPTION-SEO-ANALYSIS.md")
 
@@ -137,9 +136,8 @@ def scrape_own_descriptions() -> list[dict]:
         logger.warning("analytics.db not found at %s", ANALYTICS_DB)
         return []
 
-    conn = sqlite3.connect(str(ANALYTICS_DB))
-    rows = conn.execute("SELECT video_id, title FROM videos").fetchall()
-    conn.close()
+    with AnalyticsStore.open() as store:
+        rows = [(r["video_id"], r["title"]) for r in store.videos()]
 
     results = []
     logger.info("Fetching descriptions for %d own videos", len(rows))
