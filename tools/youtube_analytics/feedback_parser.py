@@ -1,312 +1,85 @@
 """
 Feedback Parser Module
 
-Parses POST-PUBLISH-ANALYSIS markdown files into structured data for database storage.
-Uses best-effort regex extraction for known markdown structure.
+Back-compat shim over tools.post_publish.PostPublishStore. The legacy
+public surface is preserved:
 
-Usage:
-    from feedback_parser import parse_analysis_file, backfill_all
+    from feedback_parser import parse_analysis_file, find_analysis_files, backfill_all
 
-    # Parse single file
-    result = parse_analysis_file('path/to/POST-PUBLISH-ANALYSIS.md')
-    print(result['video_id'], result['avg_retention'])
-
-    # Backfill all analysis files
-    from pathlib import Path
-    results = backfill_all(Path('../..'))
-    print(f"Processed: {results['processed']}, Errors: {results['errors']}")
-
-Dependencies:
-    - stdlib only: re, pathlib, datetime, json, sys
-    - KeywordDB for backfill (graceful import)
+`parse_analysis_file` returns a legacy dict (avg_retention as PERCENT, field
+name `ctr`, error-dict on failure) — distinct from patterns.py's contract
+(fraction, ctr_percent, None-on-failure). The unification of the two
+contracts will happen in Phase 3 when each caller is migrated to import
+PostPublishReport directly.
 """
 
-import re
 import json
 import sys
 from pathlib import Path
 from datetime import datetime, timezone
-from typing import Optional, Dict, List, Any
+from typing import Dict, List, Any
 
 from tools.logging_config import get_logger
+from tools.post_publish import (
+    PostPublishMalformedError,
+    PostPublishMissingError,
+    PostPublishReport,
+    PostPublishStore,
+)
 
 logger = get_logger(__name__)
 
 
-def extract_video_id(content: str, filepath: str = '') -> Optional[str]:
+def _report_to_feedback_dict(report: PostPublishReport) -> Dict[str, Any]:
+    """Convert a PostPublishReport to the legacy feedback_parser dict shape.
+
+    Note the contract preserved here vs. patterns.py:
+      - `avg_retention` is a PERCENT (28.1), not a fraction.
+      - Field name is `ctr` (not `ctr_percent`).
+      - `parsed_at` is set to NOW at conversion time (matches old behaviour).
+      - `filepath` (not `source_file`) holds the source path as a string.
     """
-    Extract video ID from markdown content or filename.
-
-    Args:
-        content: Markdown file content
-        filepath: Path to file (for fallback extraction from filename)
-
-    Returns:
-        11-character video ID or None
-    """
-    # Try to extract from header: **Video ID:** XXXX
-    # YouTube video IDs are 11 chars: alphanumeric plus - and _
-    video_id_match = re.search(r'\*\*Video ID:\*\*\s*([\w-]+)', content)
-    if video_id_match:
-        return video_id_match.group(1)
-
-    # Fallback: extract from filename pattern POST-PUBLISH-ANALYSIS-{VIDEO_ID}.md
-    if filepath:
-        filename_match = re.search(r'POST-PUBLISH-ANALYSIS-([\w-]+)\.md', filepath)
-        if filename_match:
-            return filename_match.group(1)
-
-    return None
-
-
-def extract_metrics(content: str) -> Dict[str, Any]:
-    """
-    Extract numeric performance metrics from markdown.
-
-    Args:
-        content: Markdown file content
-
-    Returns:
-        Dict with extracted metrics (None for missing values)
-    """
-    metrics = {}
-
-    # Extract retention percentages
-    avg_ret_match = re.search(r'\*\*Average retention:\*\*\s*([\d.]+)%', content)
-    metrics['avg_retention'] = float(avg_ret_match.group(1)) if avg_ret_match else None
-
-    final_ret_match = re.search(r'\*\*Final retention:\*\*\s*([\d.]+)%', content)
-    metrics['final_retention'] = float(final_ret_match.group(1)) if final_ret_match else None
-
-    # Extract CTR (skip if "Not available via API")
-    ctr_match = re.search(r'\*\*CTR:\*\*\s*([\d.]+)%', content)
-    metrics['ctr'] = float(ctr_match.group(1)) if ctr_match else None
-
-    # Extract impressions (with comma handling)
-    impressions_match = re.search(r'\*\*Impressions:\*\*\s*([\d,]+)', content)
-    if impressions_match:
-        impressions_str = impressions_match.group(1).replace(',', '')
-        metrics['impressions'] = int(impressions_str)
-    else:
-        metrics['impressions'] = None
-
-    # Extract from Performance table
-    # | Views | 5,088 | 628 | +710% |  -> extract "This Video" column (second column)
-    views_match = re.search(r'\|\s*Views\s*\|\s*([\d,]+)\s*\|', content)
-    if views_match:
-        views_str = views_match.group(1).replace(',', '')
-        metrics['views'] = int(views_str)
-    else:
-        metrics['views'] = None
-
-    # | Subscribers | +51 | +1 | +5000% |  -> extract and strip +
-    subs_match = re.search(r'\|\s*Subscribers\s*\|\s*\+?([\d,]+)\s*\|', content)
-    if subs_match:
-        subs_str = subs_match.group(1).replace(',', '')
-        metrics['subscribers_gained'] = int(subs_str)
-    else:
-        metrics['subscribers_gained'] = None
-
-    return metrics
-
-
-def extract_lessons(content: str) -> Dict[str, List[str]]:
-    """
-    Extract qualitative insights from Lessons section.
-
-    Args:
-        content: Markdown file content
-
-    Returns:
-        Dict with 'observations' and 'actionable' lists
-    """
-    lessons = {
-        'observations': [],
-        'actionable': []
+    return {
+        'video_id': report.video_id,
+        'parsed_at': datetime.now(timezone.utc).isoformat(),
+        'filepath': str(report.source_path),
+        'avg_retention': report.avg_retention_pct,
+        'final_retention': report.final_retention_pct,
+        'ctr': report.ctr_percent,
+        'impressions': report.impressions,
+        'views': report.views,
+        'subscribers_gained': report.subscribers_gained,
+        'observations': report.observations,
+        'actionable': report.actionable,
+        'drop_points': report.drop_points,
+        'biggest_drop_position': report.biggest_drop_position,
+        'discovery': report.discovery,
     }
-
-    # Extract Observations (### Observations followed by bullet list)
-    obs_section_match = re.search(
-        r'### Observations\s*\n\n(.*?)(?:\n\n###|\n\n\*\*|\Z)',
-        content,
-        re.DOTALL
-    )
-    if obs_section_match:
-        obs_text = obs_section_match.group(1)
-        obs_lines = [line.strip() for line in obs_text.split('\n') if line.strip().startswith('-')]
-        lessons['observations'] = [line.lstrip('- ').strip() for line in obs_lines if line]
-
-    # Extract Actionable Items (### Actionable Items followed by checkbox bullets)
-    action_section_match = re.search(
-        r'### Actionable Items\s*\n\n(.*?)(?:\n\n##|\Z)',
-        content,
-        re.DOTALL
-    )
-    if action_section_match:
-        action_text = action_section_match.group(1)
-        action_lines = [line.strip() for line in action_text.split('\n') if line.strip().startswith('-')]
-        # Strip checkbox "- [ ] " or "- [x] "
-        lessons['actionable'] = [
-            re.sub(r'^-\s*\[[ x]\]\s*', '', line).strip()
-            for line in action_lines if line
-        ]
-
-    return lessons
-
-
-def extract_drop_points(content: str) -> List[Dict[str, Any]]:
-    """
-    Extract drop-off points from retention table.
-
-    Args:
-        content: Markdown file content
-
-    Returns:
-        List of dicts with position_pct, viewers_lost_pct, location
-    """
-    drop_points = []
-
-    # Find Drop-off Points section table
-    # | 3% | 7.0% dropped | intro |
-    drop_matches = re.finditer(
-        r'\|\s*(\d+)%\s*\|\s*([\d.]+)%\s*dropped\s*\|\s*([^|]+)\s*\|',
-        content
-    )
-
-    for match in drop_matches:
-        drop_points.append({
-            'position_pct': int(match.group(1)),
-            'viewers_lost_pct': float(match.group(2)),
-            'location': match.group(3).strip()
-        })
-
-    return drop_points
-
-
-def extract_discovery_diagnosis(content: str) -> Optional[Dict[str, str]]:
-    """
-    Extract discovery diagnostics from Discovery Diagnostics section.
-
-    Args:
-        content: Markdown file content
-
-    Returns:
-        Dict with primary_issue, severity, summary or None
-    """
-    # Find Discovery Diagnostics section
-    discovery_section = re.search(
-        r'## Discovery Diagnostics\s*\n\n(.*?)(?:\n\n##|\Z)',
-        content,
-        re.DOTALL
-    )
-
-    if not discovery_section:
-        return None
-
-    section_text = discovery_section.group(1)
-
-    diagnosis = {}
-
-    # Extract **Diagnosis:** line
-    diag_match = re.search(r'\*\*Diagnosis:\*\*\s*([^\n]+)', section_text)
-    diagnosis['summary'] = diag_match.group(1).strip() if diag_match else None
-
-    # Extract **Primary Issue:** and (Severity: XXX)
-    issue_match = re.search(
-        r'\*\*Primary Issue:\*\*\s*([^(]+)(?:\(Severity:\s*(\w+)\))?',
-        section_text
-    )
-    if issue_match:
-        diagnosis['primary_issue'] = issue_match.group(1).strip()
-        diagnosis['severity'] = issue_match.group(2).strip() if issue_match.group(2) else 'UNKNOWN'
-    else:
-        diagnosis['primary_issue'] = None
-        diagnosis['severity'] = None
-
-    return diagnosis if any(diagnosis.values()) else None
 
 
 def parse_analysis_file(filepath: str) -> Dict[str, Any]:
-    """
-    Parse POST-PUBLISH-ANALYSIS markdown file into structured data.
+    """Parse one POST-PUBLISH-ANALYSIS file into the legacy feedback dict shape.
 
-    Main entry point. Calls all extractor functions and returns complete dict.
-
-    Args:
-        filepath: Path to POST-PUBLISH-ANALYSIS.md file
-
-    Returns:
-        Dict with all extracted data, or {'error': msg} on failure
+    Returns the dict on success, or {'error': msg, 'filepath': filepath} on
+    failure — preserving the historical contract that callers branch on
+    `'error' in result`.
     """
     try:
-        with open(filepath, 'r', encoding='utf-8') as f:
-            content = f.read()
-
-        # Extract all components
-        video_id = extract_video_id(content, filepath)
-        if not video_id:
-            return {'error': 'Could not extract video_id', 'filepath': filepath}
-
-        metrics = extract_metrics(content)
-        lessons = extract_lessons(content)
-        drop_points = extract_drop_points(content)
-        discovery = extract_discovery_diagnosis(content)
-
-        # Find biggest drop point (for retention_drop_point column)
-        biggest_drop = None
-        if drop_points:
-            biggest = max(drop_points, key=lambda d: d['viewers_lost_pct'])
-            biggest_drop = biggest['position_pct']
-
-        # Combine into complete result
-        result = {
-            'video_id': video_id,
-            'parsed_at': datetime.now(timezone.utc).isoformat(),
-            'filepath': filepath,
-            **metrics,  # avg_retention, final_retention, ctr, impressions, views, subscribers_gained
-            'observations': lessons['observations'],
-            'actionable': lessons['actionable'],
-            'drop_points': drop_points,
-            'biggest_drop_position': biggest_drop,
-            'discovery': discovery
-        }
-
-        return result
-
-    except FileNotFoundError:
+        report = PostPublishStore().load(Path(filepath))
+    except PostPublishMissingError:
         return {'error': 'File not found', 'filepath': filepath}
-    except Exception as e:
-        return {'error': f'Parse failed: {str(e)}', 'filepath': filepath}
+    except PostPublishMalformedError as exc:
+        return {'error': str(exc), 'filepath': filepath}
+    return _report_to_feedback_dict(report)
 
 
 def find_analysis_files(project_root: Path) -> List[Path]:
+    """Return all post-publish report paths under project_root, sorted.
+
+    Thin shim over PostPublishStore.discover().
     """
-    Scan for all POST-PUBLISH-ANALYSIS files in project.
+    return PostPublishStore(project_root=project_root).discover()
 
-    Searches:
-    - video-projects/_IN_PRODUCTION/*/POST-PUBLISH-ANALYSIS.md
-    - video-projects/_READY_TO_FILM/*/POST-PUBLISH-ANALYSIS.md
-    - video-projects/_ARCHIVED/*/POST-PUBLISH-ANALYSIS.md
-    - channel-data/analyses/POST-PUBLISH-ANALYSIS-*.md
-
-    Args:
-        project_root: Path to project root directory
-
-    Returns:
-        List of Path objects for found analysis files
-    """
-    files = []
-
-    # Search video-projects lifecycle folders
-    for lifecycle_folder in ['_IN_PRODUCTION', '_READY_TO_FILM', '_ARCHIVED']:
-        pattern = project_root / 'video-projects' / lifecycle_folder / '*' / 'POST-PUBLISH-ANALYSIS.md'
-        files.extend(project_root.glob(f'video-projects/{lifecycle_folder}/*/POST-PUBLISH-ANALYSIS.md'))
-
-    # Search channel-data/analyses folder
-    analyses_pattern = project_root / 'channel-data' / 'analyses' / 'POST-PUBLISH-ANALYSIS-*.md'
-    files.extend(project_root.glob('channel-data/analyses/POST-PUBLISH-ANALYSIS-*.md'))
-
-    return sorted(files)
 
 
 def backfill_all(project_root: Path, force: bool = False) -> Dict[str, Any]:
