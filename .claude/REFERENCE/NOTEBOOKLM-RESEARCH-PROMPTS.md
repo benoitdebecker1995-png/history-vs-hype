@@ -189,6 +189,112 @@ Use [1], [2] citation markers. Include a SOURCES section at the end formatted as
 
 ---
 
+## Angle-Discovery Prompts (P11.2)
+
+**Purpose:** Run during `--apply-review` after the Mechanism-Word Lock Gate (P11.1b) has LOCKED at least one candidate. These three prompts mine the NLM notebook for script-stage angle candidates — hook quotes, thesis verbs, closing payoffs — so the script writer has specificity-grounded material to choose from rather than improvising.
+
+**Trigger:** Run via `/research --apply-review` once per ingestion pass that adds claims. Output replaces the `## CANDIDATE ANGLES` section in `01-VERIFIED-RESEARCH.md` (OVERWRITE, not append).
+
+**Placeholders in all three prompts:**
+- `[TOPIC]` — the video topic (e.g., "Ottoman Empire hijab regulations")
+- `[LOCKED_MECHANISM_WORD]` — the mechanism word confirmed LOCK in `RESEARCH-VIABILITY.md` (e.g., "systematized")
+- `[NOTEBOOK_ID]` — the NLM project notebook ID
+
+**Citation format:** All three prompts use `[1], [2]` markers, compatible with `tools/citation_extractor.py`.
+
+---
+
+### Prompt AD-1: Candidate Hook Quotes (Specificity-Ranked)
+
+**When to use:** After mechanism-word lock. Surfaces the top 5 most specific, surprising, anchor-able quotes from the notebook. Input to `script-writer-v2` Rule 17 (hook anchoring) and Rule 32I (stageable scene).
+
+**Prompt:**
+```
+I'm building a video about [TOPIC]. My locked mechanism word is "[LOCKED_MECHANISM_WORD]".
+
+From the uploaded sources, find the top 5 most SPECIFIC, SURPRISING, and ANCHOR-ABLE quotes that could open the video. Each candidate quote must contain:
+- ≥1 named person (a historical actor, official, scholar, or institution)
+- ≥1 named document, date, or event (something concrete and verifiable)
+- ≥1 concrete fact (a number, a ruling, a physical description, a consequence)
+
+For each quote, provide:
+1. The exact quote, word-for-word
+2. Author, book, page number
+3. T-tier: [T1 = primary document / T2 = scholar citing primary / T3 = scholar interpretation only]
+4. Specificity score 0–100 (higher = more named persons + documents + facts per 30 words)
+5. One sentence: why would a viewer in the first 60 seconds find this surprising?
+
+Rank by specificity score, highest first. Use [1], [2] citation markers. Include SOURCES section:
+1. Author Last, First. "Full Title." Publisher, Year. p. XX.
+```
+
+**Ranking criteria (deterministic):** Named persons count +20 each; named documents/dates count +15 each; concrete facts (numbers, rulings, measurements) count +10 each; maximum 100. T1 sources get +10 bonus; T3-only get −10 penalty.
+
+**Worked example (Tripoli #51):** Query on Treaty of Tripoli / Article 11 surfaced: *"The government of the United States of America is not in any sense founded on the Christian Religion"* — John Adams, Senate ratification 1797, Treaty text Article 11 (T1, Score 92). That quote became the video's opening anchor because it names the president, the document, and delivers a concrete constitutional claim in under 20 words.
+
+---
+
+### Prompt AD-2: Candidate Thesis Verbs
+
+**When to use:** After mechanism-word lock. Surfaces the top 3 verbs describing what historical actors actually did — raw material for the throughline's action verb (per `THESIS-DISCIPLINE.md` Step 3). The thesis verb may be the locked mechanism word itself or a variant with stronger source grounding.
+
+**Prompt:**
+```
+I'm building a video about [TOPIC]. My locked mechanism word is "[LOCKED_MECHANISM_WORD]".
+
+From the uploaded sources, identify the top 3 verbs that describe what the HISTORICAL ACTORS in this topic actually DID — not what happened to them, but what they chose to do. These are the action verbs for a throughline: "[Subject] [verb] [object] by [mechanism]."
+
+For each verb candidate, provide:
+1. The verb (one word or short phrase)
+2. A quote from the sources that shows historical actors performing this action
+3. Author, book, page number
+4. NLM confidence that this verb is grounded in primary sources: HIGH / MEDIUM / LOW
+5. A draft 12-word-or-fewer throughline using this verb: "[Subject] [verb] [object] by [mechanism]."
+
+Is "[LOCKED_MECHANISM_WORD]" itself a viable thesis verb? If yes, provide the same evidence. If no, explain why not and suggest the strongest alternative.
+
+Use [1], [2] citation markers. Include SOURCES section:
+1. Author Last, First. "Full Title." Publisher, Year. p. XX.
+```
+
+**Ranking criteria:** HIGH confidence = verb sourced to primary document in notebook + scholar confirmation; MEDIUM = scholar-attributed only; LOW = inferred from context. Rank HIGH first, then by throughline sharpness.
+
+**Worked example (Inquisition #54):** Mechanism word was "standardized." AD-2 surfaced three verbs: *standardized* (HIGH — Lea's Inquisition manual structure), *bureaucratized* (HIGH — the 1484 Manuale de Inquisitoribus), *formalized* (MEDIUM — secondary synthesis only). Throughline became: "The Inquisition standardized persecution — not because of fanaticism, but because of paperwork."
+
+---
+
+### Prompt AD-3: Candidate Closing Payoffs
+
+**When to use:** After mechanism-word lock. Surfaces the top 3 most surprising or anchoring facts that could carry the script's closing beat. Input to `script-writer-v2` Rule 32G (closer specificity) and the "modern relevance every 90s" discipline.
+
+**Prompt:**
+```
+I'm building a video about [TOPIC]. My locked mechanism word is "[LOCKED_MECHANISM_WORD]".
+
+From the uploaded sources, find the top 3 facts that are:
+- SURPRISING: counter-intuitive, or contradicts what viewers expect based on the topic's pop-history version
+- CONCRETE: specific numbers, named outcomes, verifiable events — not general observations
+- MEMORABLE: the fact a viewer would repeat to a friend the next day
+
+For each closing payoff candidate, provide:
+1. The fact, stated precisely
+2. Author, book, page number
+3. T-tier: [T1 / T2 / T3]
+4. Why it's surprising (one sentence: what does the viewer expect instead?)
+5. A draft closing phrasing (1–2 sentences, spoken delivery, past-tense declarative)
+
+Rank by SURPRISE × CONCRETENESS × MEMORABILITY (qualitative assessment, highest first).
+
+Use [1], [2] citation markers. Include SOURCES section:
+1. Author Last, First. "Full Title." Publisher, Year. p. XX.
+```
+
+**Ranking criteria:** Surprise assessed against "what a viewer who watched 3 competitor videos on this topic would assume." Concreteness requires at least one named person, date, or number. Memorability = can it be repeated in a single sentence?
+
+**Worked example (Tripoli #51):** AD-3 surfaced: The Senate's ratification of Article 11 — which explicitly stated the US was not a Christian nation — passed unanimously and without debate in 1797. That became the closing payoff: *"The Senate voted unanimously. Not a single objection. The treaty was the law."* T1 source, Score: Surprise 9/10, Concrete 8/10, Memorable 9/10.
+
+---
+
 ## Video-Type Specialized Prompts
 
 ### Territorial Disputes
