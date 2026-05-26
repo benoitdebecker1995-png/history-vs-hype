@@ -60,6 +60,58 @@ Three tiers, in priority order:
 
 **`--auto-publish-only`** (Routine 6): NEVER touches memory snapshots or MEMORY.md. Logs: "snapshot for #X still active — run /reconcile to promote lessons + delete." Next interactive run cleans up.
 
+## Lifecycle-Transition Snapshot Refresh
+
+> See `memory/feedback-project-reconciliation.md` for the broader reconcile lifecycle rule and the Hijab #52 stale-snapshot origin.
+
+When `/reconcile` moves a project across a lifecycle boundary (`_IN_PRODUCTION/` → `_READY_TO_FILM/`, or `_READY_TO_FILM/` → `_ARCHIVED/published/`), run this snapshot check before any other per-project prompt (including the lessons-promotion prompt at archive time).
+
+### Trigger condition
+
+Any cross-folder move detected during the current reconcile run.
+
+### Snapshot detection
+
+Check whether a per-project memory snapshot exists at:
+
+```
+C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\<NN>-<slug>-production-state.md
+```
+
+Pattern: `<number>-<slug>-production-state.md`. Use Glob to locate it.
+
+### If snapshot exists
+
+Fire an `AskUserQuestion` with this prompt:
+
+> "Memory snapshot `<NN>-<slug>-production-state.md` was last substantively updated on `<date>`, which predates the current lifecycle transition (`<from>` → `<to>`). The snapshot may contain stale state — old titles, old thumbnail concepts, old folder paths. How should this be handled?"
+
+Options:
+- **Refresh inline** — Open the snapshot, update fields known to have changed (current folder location, locked title, locked thumbnail concept, locked thesis). Save with new dated entry appended.
+- **Mark stale, defer refresh** — Append a `> STALE AS OF <date> — superseded by <transition>` block at the top of the snapshot. Future sessions will see the stale-flag and re-derive from current files.
+- **Accept as-is** — User explicitly judges the snapshot is still current despite the transition. Append a `> CONFIRMED CURRENT AT <date>` block at the top.
+
+### If snapshot does NOT exist
+
+Skip the prompt. No-op.
+
+### Ordering at archive transition
+
+When moving `_READY_TO_FILM/` → `_ARCHIVED/published/`: the snapshot-refresh prompt fires **first**, then the existing lessons-promotion prompt (see `## Memory snapshot handling` above). Refresh-or-mark-stale is the precondition for lessons-promotion + snapshot deletion.
+
+### Research-graph staleness marker
+
+After any archive-direction move (`_READY_TO_FILM/` → `_ARCHIVED/published/`), touch `graphify-out/research/.needs_refresh` and write the newly-archived slug into it (one per line, append). This signals that `RESEARCH-GRAPH.json` and the research graph (`graphify-out/research/graph.json` + viz) are behind by N videos.
+
+```powershell
+$marker = 'graphify-out\research\.needs_refresh'
+Add-Content -Path $marker -Value '<newly-archived-slug>'
+```
+
+Do NOT auto-rebuild the research graph inside `/reconcile` — it costs a Gemini Flash call. The user runs `python tools/refresh-research-graph.py` when they want a refresh (see that script for the one-shot pipeline). The marker is purely a visibility signal — `/status` and future Claude sessions can read it to surface "research graph is N videos behind."
+
+---
+
 ## Manual override file
 
 `tools/reconcile/manual-matches.json` — JSON dict mapping folder names to video IDs. Used during retro migration to nail down folders where Tier 1 + Tier 2 both miss.
