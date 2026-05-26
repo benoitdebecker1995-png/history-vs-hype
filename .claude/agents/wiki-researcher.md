@@ -26,6 +26,16 @@ The orchestrator provides:
 
 ---
 
+## PRE-FLIGHT — Check the Research Graph First
+
+Before starting fresh research, call `mcp__graphify-research__query_graph` with the topic / key scholars / key treaties. If the graph returns **≥3 hits with source-video attribution**, fold those into the brief's `## PRE-VERIFIED CLAIMS (From existing projects)` section.
+
+**If the graph returns <3 hits, ignore it and do full research** — the research graph is sparse (110 nodes from 16 archived videos as of 2026-05-26) and over-reliance will miss things. The graph is a hit-detector, not a coverage report.
+
+This step is additive to the existing process. If `mcp__graphify-research__query_graph` is unavailable or errors, skip silently and proceed — do NOT block on it.
+
+---
+
 ## PROCESS
 
 ### Step 1: Fetch & Extract — Main Wikipedia Article (via Gemini)

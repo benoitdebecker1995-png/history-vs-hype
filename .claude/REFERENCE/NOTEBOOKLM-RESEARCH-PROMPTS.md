@@ -781,3 +781,33 @@ Now you can verify each claim against the actual source and copy verified claims
 *Created: 2026-02-11*
 *Updated: 2026-04-05 — Added Mechanism Mapping prompt (Macro/Micro/Stress-Test) and Data Density Extraction prompt. From Wave 5 Wendover/RealLifeLore analysis. Prior: 2026-03-28 citation format v2.*
 *Integration: Phase 34 NotebookLM Research Bridge*
+
+---
+
+## Proposed / Backlog Prompts (not yet wired)
+
+> Two prompt ideas surfaced in the 2026-04-14 workflow audit. Neither is currently invoked by any command — they live here as a backlog for future wiring. Migrated from `memory/workflow-audit.md` on 2026-05-26.
+
+### Post-`/script` Structure Comparison
+
+**Purpose:** Catch "correct but boring" — surface whether the script's hook + thesis + closing beat structure has been done many times before by larger channels, and what your variant adds (or doesn't).
+
+**Wiring target:** `/script` (run after structure-checker-v2 produces its report, before final output).
+
+**Notebook:** the 85-transcript competitor notebook.
+
+**Prompt sketch:** "Here are the hook, thesis, and closing of a script: [pasted]. Compare against the competitor transcripts in this notebook. (a) How many transcripts open with a structurally similar hook (specificity bomb + named primary doc + viral-quote rebuttal)? List up to 5 by title. (b) For the closing, identify the 3 most similar closings and quote their final 2 sentences. (c) What structural delta does this script have that the most similar ones do not?"
+
+**Status:** PROPOSED — no command currently invokes this.
+
+### `/greenlight` Title Validation Against Competitor Outliers
+
+**Purpose:** Score working titles against known competitor outlier patterns (front-loaded keyword, specificity bomb, two-sentence declarative, scale anchor, authority figure, date paradox). Extends existing P1–P4 prompts.
+
+**Wiring target:** `/greenlight --full` Step 0 (after the existing P1–P4 prompts complete).
+
+**Notebook:** the competitor outlier notebook (corpus used by `/greenlight`).
+
+**Prompt sketch:** "Working title candidates: [list]. For each title, score 0–100 against these outlier patterns: (1) front-loaded high-volume keyword, (2) specificity bomb (named doc + named figure + concrete fact), (3) two-sentence declarative shape, (4) scale anchor (number that's unusual for the niche), (5) authority figure named, (6) date-paradox or year-collision. Cite the closest 2 competitor outliers per title with their titles + view counts. Rank candidates by composite score."
+
+**Status:** PROPOSED — no command currently invokes this.

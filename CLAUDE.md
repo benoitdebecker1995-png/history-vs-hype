@@ -13,6 +13,22 @@
 
 ---
 
+## Knowledge Graphs (MCP)
+
+Two MCP servers are live for this project: `graphify-code` (54K-node AST graph of the whole repo) and `graphify-research` (sparse 110-node concept graph from 16 archived `01-VERIFIED-RESEARCH.md` files). Graphs survive across sessions. Post-commit hook keeps the code graph fresh.
+
+**Prefer graph queries over grep/Read when the question is structural:**
+- "Where does X live" / "what does X depend on" → `mcp__graphify-code__query_graph` or `mcp__graphify-code__get_neighbors`
+- "How does A connect to B" → `mcp__graphify-code__shortest_path`
+- "What are the most-connected hubs" → `mcp__graphify-code__god_nodes`
+- "Have we covered scholar / treaty / topic Z across videos" → `mcp__graphify-research__query_graph`
+
+**Honest scope:** Code graph is dense and reliable. Research graph is sparse — query it for entity-specific lookups ("did we cite Mamdani"), but if it returns <3 hits fall back to file reads. Densifying the research graph is on the open-work list.
+
+Workflow patterns, recovery commands, and the open-work list: `.claude/REFERENCE/GRAPHIFY-OPS.md`.
+
+---
+
 ## Core Principles
 
 1. **Historical integrity** — every claim verified with credible sources
