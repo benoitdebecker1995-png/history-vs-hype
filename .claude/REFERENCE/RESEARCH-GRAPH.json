@@ -1,0 +1,3267 @@
+{
+  "generated_at": "2026-05-26",
+  "source": "Gemini 2.5 Flash, bulk extraction over all _ARCHIVED/published/01-VERIFIED-RESEARCH.md files",
+  "videos": [
+    {
+      "slug": "1-somaliland-2025",
+      "topic": "Somaliland's contested independence and legal paradox based on unratified union."
+    },
+    {
+      "slug": "14-chagos-islands-2025",
+      "topic": "The double betrayal of Chagos Islanders, UK/Mauritius roles, and strategic geopolitics."
+    },
+    {
+      "slug": "19-flat-earth-medieval-2025",
+      "topic": "Debunking the 19th-century myth that medieval Europeans believed in a flat Earth."
+    },
+    {
+      "slug": "24-iran-1953-coup-2025",
+      "topic": "Iran's 200-year cycle of constitutional demands, foreign intervention, and popular protests."
+    },
+    {
+      "slug": "30-belavezha-accords-2025",
+      "topic": "The Belavezha Accords, dissolution of the USSR, and modern geopolitical implications."
+    },
+    {
+      "slug": "31-bermeja-island-2025",
+      "topic": "The phantom Bermeja Island: a cartographic error, oil stakes, and conspiracy theories."
+    },
+    {
+      "slug": "34-operation-condor-2025",
+      "topic": "Operation Condor: transnational repression, US involvement, and ongoing legal accountability."
+    },
+    {
+      "slug": "35-gibraltar-treaty-utrecht-2026",
+      "topic": "Gibraltar: Treaty of Utrecht, sovereignty disputes, referendums, and Brexit implications."
+    },
+    {
+      "slug": "37-untranslated-vichy-statut-juifs-2026",
+      "topic": "Vichy France's anti-Jewish laws: a French initiative, not German imposed or requested."
+    },
+    {
+      "slug": "40-berlin-conference-1884-2026",
+      "topic": "The Berlin Conference: drawing Africa's colonial borders and its lasting impact on conflict."
+    },
+    {
+      "slug": "41-treaty-tordesillas-2026",
+      "topic": "The Treaty of Tordesillas: splitting the world and its measurable impact on modern inequality."
+    },
+    {
+      "slug": "43-india-pakistan-partition-2026",
+      "topic": "India-Pakistan Partition: how Britain drew the border in 5 weeks and its human cost."
+    },
+    {
+      "slug": "45-manhattan-purchase-myth-2026",
+      "topic": "Debunking the Manhattan Purchase myth: $24 in beads and trinkets never happened."
+    },
+    {
+      "slug": "50-thermopylae-sources-2026",
+      "topic": "Thermopylae: comparing three ancient sources to reveal contradictions and debunk myths."
+    },
+    {
+      "slug": "51-treaty-tripoli-article-11-2026",
+      "topic": "The Treaty of Tripoli's Article 11: secular government, its omission in Arabic, and modern interpretations."
+    },
+    {
+      "slug": "54-spanish-inquisition-torture-rules-2026",
+      "topic": "Spanish Inquisition torture rules: procedures, statistics, and debunking the Black Legend."
+    }
+  ],
+  "entities": [
+    {
+      "id": "somaliland",
+      "label": "Somaliland",
+      "type": "place",
+      "role": "Region with contested independence claims, historically recognized then merged.",
+      "videos": [
+        "1-somaliland-2025"
+      ]
+    },
+    {
+      "id": "somalia",
+      "label": "Somalia",
+      "type": "place",
+      "role": "Nation claiming sovereignty over Somaliland, opposing its independence.",
+      "videos": [
+        "1-somaliland-2025"
+      ]
+    },
+    {
+      "id": "british_somaliland",
+      "label": "British Somaliland",
+      "type": "place",
+      "role": "Colonial entity that gained independence in 1960 and later merged into Somalia.",
+      "videos": [
+        "1-somaliland-2025"
+      ]
+    },
+    {
+      "id": "italian_somaliland",
+      "label": "Italian Somaliland",
+      "type": "place",
+      "role": "Colonial entity that merged with British Somaliland to form Somalia.",
+      "videos": [
+        "1-somaliland-2025"
+      ]
+    },
+    {
+      "id": "act_of_union_1960",
+      "label": "Act of Union (1960)",
+      "type": "primary_document",
+      "role": "Legal instrument intended to merge British and Italian Somaliland, but never properly ratified.",
+      "videos": [
+        "1-somaliland-2025"
+      ]
+    },
+    {
+      "id": "uti_possidetis_principle",
+      "label": "Uti Possidetis Principle",
+      "type": "concept",
+      "role": "International legal principle of respecting colonial borders at independence.",
+      "videos": [
+        "1-somaliland-2025",
+        "30-belavezha-accords-2025",
+        "40-berlin-conference-1884-2026",
+        "41-treaty-tordesillas-2026"
+      ]
+    },
+    {
+      "id": "ethiopia",
+      "label": "Ethiopia",
+      "type": "place",
+      "role": "Landlocked nation with strategic interest in port access, signed MOU with Somaliland.",
+      "videos": [
+        "1-somaliland-2025",
+        "40-berlin-conference-1884-2026"
+      ]
+    },
+    {
+      "id": "israel",
+      "label": "Israel",
+      "type": "place",
+      "role": "First UN member state to formally recognize Somaliland in 2025.",
+      "videos": [
+        "1-somaliland-2025"
+      ]
+    },
+    {
+      "id": "african_union",
+      "label": "African Union (AU)",
+      "type": "institution",
+      "role": "International organization that rejected Somaliland's recognition, citing uti possidetis.",
+      "videos": [
+        "1-somaliland-2025"
+      ]
+    },
+    {
+      "id": "secession",
+      "label": "Secession",
+      "type": "concept",
+      "role": "Legal concept of a state breaking away from a former sovereign.",
+      "videos": [
+        "1-somaliland-2025"
+      ]
+    },
+    {
+      "id": "restorative_secession",
+      "label": "Restorative Secession",
+      "type": "concept",
+      "role": "Reclamation of previously held and recognized sovereignty, distinct from regular secession.",
+      "videos": [
+        "1-somaliland-2025"
+      ]
+    },
+    {
+      "id": "chagos_archipelago",
+      "label": "Chagos Archipelago",
+      "type": "place",
+      "role": "Island chain illegally detached from Mauritius by the UK for military base.",
+      "videos": [
+        "14-chagos-islands-2025"
+      ]
+    },
+    {
+      "id": "diego_garcia",
+      "label": "Diego Garcia",
+      "type": "place",
+      "role": "Largest island in Chagos, used as a strategic military base by the US.",
+      "videos": [
+        "14-chagos-islands-2025"
+      ]
+    },
+    {
+      "id": "united_kingdom",
+      "label": "United Kingdom (UK)",
+      "type": "place",
+      "role": "Colonial power that illegally detached Chagos and deported its inhabitants.",
+      "videos": [
+        "14-chagos-islands-2025",
+        "35-gibraltar-treaty-utrecht-2026",
+        "43-india-pakistan-partition-2026"
+      ]
+    },
+    {
+      "id": "mauritius",
+      "label": "Mauritius",
+      "type": "place",
+      "role": "Former colonial territory that claims sovereignty over Chagos, signed 2025 treaty.",
+      "videos": [
+        "14-chagos-islands-2025"
+      ]
+    },
+    {
+      "id": "international_court_of_justice",
+      "label": "International Court of Justice (ICJ)",
+      "type": "institution",
+      "role": "Issued advisory opinions on Chagos and Iran, and ruled on Bakassi Peninsula.",
+      "videos": [
+        "14-chagos-islands-2025",
+        "24-iran-1953-coup-2025",
+        "40-berlin-conference-1884-2026"
+      ]
+    },
+    {
+      "id": "chagossian_people",
+      "label": "Chagossian People",
+      "type": "concept",
+      "role": "Indigenous inhabitants of Chagos, forcibly displaced and seeking right of return.",
+      "videos": [
+        "14-chagos-islands-2025"
+      ]
+    },
+    {
+      "id": "universal_jurisdiction",
+      "label": "Universal Jurisdiction",
+      "type": "concept",
+      "role": "Legal principle empowering states to prosecute grave international crimes regardless of location.",
+      "videos": [
+        "34-operation-condor-2025"
+      ]
+    },
+    {
+      "id": "flat_earth_myth",
+      "label": "Flat Earth Myth",
+      "type": "concept",
+      "role": "19th-century fabrication that medieval Europeans believed the Earth was flat.",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ]
+    },
+    {
+      "id": "spherical_earth",
+      "label": "Spherical Earth",
+      "type": "concept",
+      "role": "Scientific understanding of Earth's shape, widely accepted by medieval scholars.",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ]
+    },
+    {
+      "id": "middle_ages",
+      "label": "Middle Ages",
+      "type": "event",
+      "role": "Historical period misrepresented by the flat earth myth.",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ]
+    },
+    {
+      "id": "conflict_thesis",
+      "label": "Conflict Thesis",
+      "type": "concept",
+      "role": "Historiographical approach portraying intrinsic intellectual conflict between religion and science.",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ]
+    },
+    {
+      "id": "sacroboscos_de_sphaera_mundi",
+      "label": "Sacrobosco's De Sphaera Mundi",
+      "type": "primary_document",
+      "role": "Standard university astronomy textbook in medieval Europe, teaching spherical Earth.",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ]
+    },
+    {
+      "id": "iran",
+      "label": "Iran",
+      "type": "place",
+      "role": "Nation with a history of constitutional demands, foreign intervention, and revolution.",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ]
+    },
+    {
+      "id": "1953_iranian_coup_detat",
+      "label": "1953 Iranian Coup d'état",
+      "type": "event",
+      "role": "CIA-orchestrated overthrow of democratically elected Prime Minister Mohammad Mossadegh.",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ]
+    },
+    {
+      "id": "constitutional_revolution_iran",
+      "label": "Constitutional Revolution (1905-1911)",
+      "type": "event",
+      "role": "Iranian movement establishing democratic institutions and challenging divine right of kings.",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ]
+    },
+    {
+      "id": "majlis_iran",
+      "label": "Majlis (Iran)",
+      "type": "institution",
+      "role": "Iranian parliament, gaining supreme authority under the 1906 constitution but later reduced to a rubber stamp.",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ]
+    },
+    {
+      "id": "anglo_persian_oil_company",
+      "label": "Anglo-Persian Oil Company (APOC)",
+      "type": "institution",
+      "role": "British-controlled oil company in Iran, later nationalized by Mossadegh.",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ]
+    },
+    {
+      "id": "anglo_russian_convention_1907",
+      "label": "Anglo-Russian Convention (1907)",
+      "type": "primary_document",
+      "role": "Treaty dividing Iran into spheres of influence without Iranian consent.",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ]
+    },
+    {
+      "id": "operation_ajax",
+      "label": "Operation Ajax",
+      "type": "event",
+      "role": "CIA codename for the 1953 Iranian coup d'état.",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ]
+    },
+    {
+      "id": "guardian_council_iran",
+      "label": "Guardian Council (Iran)",
+      "type": "institution",
+      "role": "Twelve-member body with veto power over legislation and candidates in the Islamic Republic.",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ]
+    },
+    {
+      "id": "islamic_revolutionary_guard_corps",
+      "label": "Islamic Revolutionary Guard Corps (IRGC)",
+      "type": "institution",
+      "role": "Military force with significant economic control and role in suppressing dissent in Iran.",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ]
+    },
+    {
+      "id": "mahsa_amini_protests",
+      "label": "Mahsa Amini Protests (2022)",
+      "type": "event",
+      "role": "Mass protests in Iran triggered by the death of Mahsa Amini, challenging government policies.",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ]
+    },
+    {
+      "id": "belavezha_accords",
+      "label": "Belavezha Accords",
+      "type": "primary_document",
+      "role": "Treaty signed in 1991 declaring the USSR's existence ended and forming the CIS.",
+      "videos": [
+        "30-belavezha-accords-2025"
+      ]
+    },
+    {
+      "id": "ussr",
+      "label": "USSR",
+      "type": "place",
+      "role": "Former socialist state that dissolved in 1991, subject of the Belavezha Accords.",
+      "videos": [
+        "30-belavezha-accords-2025"
+      ]
+    },
+    {
+      "id": "russia",
+      "label": "Russia",
+      "type": "place",
+      "role": "Successor state of the USSR, with a history of challenging post-Soviet borders.",
+      "videos": [
+        "30-belavezha-accords-2025"
+      ]
+    },
+    {
+      "id": "crimea",
+      "label": "Crimea",
+      "type": "place",
+      "role": "Region whose territorial status was questioned by Russia after Ukraine's independence.",
+      "videos": [
+        "30-belavezha-accords-2025"
+      ]
+    },
+    {
+      "id": "donbas",
+      "label": "Donbas",
+      "type": "place",
+      "role": "Region whose territorial status was questioned by Russia after Ukraine's independence.",
+      "videos": [
+        "30-belavezha-accords-2025"
+      ]
+    },
+    {
+      "id": "bermeja_island",
+      "label": "Bermeja Island",
+      "type": "place",
+      "role": "Phantom island appearing on maps for centuries, debunked by modern research.",
+      "videos": [
+        "31-bermeja-island-2025"
+      ]
+    },
+    {
+      "id": "us_mexico_maritime_boundary",
+      "label": "US-Mexico Maritime Boundary",
+      "type": "treaty",
+      "role": "Treaty dividing the Western Gap, influenced by the supposed existence of Bermeja Island.",
+      "videos": [
+        "31-bermeja-island-2025"
+      ]
+    },
+    {
+      "id": "western_gap",
+      "label": "Western Gap",
+      "type": "place",
+      "role": "Oil-rich maritime area in the Gulf of Mexico, divided by US-Mexico treaty.",
+      "videos": [
+        "31-bermeja-island-2025"
+      ]
+    },
+    {
+      "id": "cartographic_error",
+      "label": "Cartographic Error",
+      "type": "concept",
+      "role": "Mistake in map-making, exemplified by the persistent depiction of Bermeja Island.",
+      "videos": [
+        "31-bermeja-island-2025"
+      ]
+    },
+    {
+      "id": "operation_condor",
+      "label": "Operation Condor",
+      "type": "event",
+      "role": "Covert alliance of South American dictatorships coordinating transnational repression.",
+      "videos": [
+        "34-operation-condor-2025"
+      ]
+    },
+    {
+      "id": "dina_chile",
+      "label": "DINA (Chilean Secret Police)",
+      "type": "institution",
+      "role": "Chile's secret police, led by Manuel Contreras, a key actor in Operation Condor.",
+      "videos": [
+        "34-operation-condor-2025"
+      ]
+    },
+    {
+      "id": "chile",
+      "label": "Chile",
+      "type": "place",
+      "role": "One of the founding members of Operation Condor.",
+      "videos": [
+        "34-operation-condor-2025"
+      ]
+    },
+    {
+      "id": "argentina",
+      "label": "Argentina",
+      "type": "place",
+      "role": "One of the founding members of Operation Condor, location of ongoing trials.",
+      "videos": [
+        "34-operation-condor-2025"
+      ]
+    },
+    {
+      "id": "united_states",
+      "label": "United States (US)",
+      "type": "place",
+      "role": "Supported Operation Condor, later declassified documents and acknowledged involvement.",
+      "videos": [
+        "34-operation-condor-2025",
+        "45-manhattan-purchase-myth-2026",
+        "51-treaty-tripoli-article-11-2026"
+      ]
+    },
+    {
+      "id": "cia",
+      "label": "Central Intelligence Agency (CIA)",
+      "type": "institution",
+      "role": "Orchestrated the 1953 Iranian coup and provided support to Operation Condor.",
+      "videos": [
+        "24-iran-1953-coup-2025",
+        "34-operation-condor-2025"
+      ]
+    },
+    {
+      "id": "henry_kissinger",
+      "label": "Henry Kissinger",
+      "type": "person",
+      "role": "US Secretary of State who canceled a warning to Operation Condor about assassinations.",
+      "videos": [
+        "34-operation-condor-2025"
+      ]
+    },
+    {
+      "id": "orlando_letelier",
+      "label": "Orlando Letelier",
+      "type": "person",
+      "role": "Chilean diplomat and economist assassinated in Washington D.C. by DINA agents.",
+      "videos": [
+        "34-operation-condor-2025"
+      ]
+    },
+    {
+      "id": "augusto_pinochet",
+      "label": "Augusto Pinochet",
+      "type": "person",
+      "role": "Chilean dictator who ordered the assassination of Orlando Letelier.",
+      "videos": [
+        "34-operation-condor-2025"
+      ]
+    },
+    {
+      "id": "gibraltar",
+      "label": "Gibraltar",
+      "type": "place",
+      "role": "British Overseas Territory at the Strait of Gibraltar, subject of ongoing sovereignty disputes.",
+      "videos": [
+        "35-gibraltar-treaty-utrecht-2026"
+      ]
+    },
+    {
+      "id": "spain",
+      "label": "Spain",
+      "type": "place",
+      "role": "Nation claiming sovereignty over Gibraltar, signed Treaty of Utrecht.",
+      "videos": [
+        "35-gibraltar-treaty-utrecht-2026",
+        "41-treaty-tordesillas-2026",
+        "54-spanish-inquisition-torture-rules-2026"
+      ]
+    },
+    {
+      "id": "treaty_of_utrecht_1713",
+      "label": "Treaty of Utrecht (1713)",
+      "type": "treaty",
+      "role": "Treaty that ceded Gibraltar to Great Britain, containing key clauses on sovereignty and reversion.",
+      "videos": [
+        "35-gibraltar-treaty-utrecht-2026"
+      ]
+    },
+    {
+      "id": "schengen_area",
+      "label": "Schengen Area",
+      "type": "concept",
+      "role": "Area of 29 European countries that have abolished passport and all other types of border control at their mutual borders.",
+      "videos": [
+        "35-gibraltar-treaty-utrecht-2026"
+      ]
+    },
+    {
+      "id": "brexit",
+      "label": "Brexit",
+      "type": "event",
+      "role": "United Kingdom's withdrawal from the European Union, impacting Gibraltar's border status.",
+      "videos": [
+        "35-gibraltar-treaty-utrecht-2026"
+      ]
+    },
+    {
+      "id": "vichel_france",
+      "label": "Vichy France",
+      "type": "place",
+      "role": "French state during WWII that collaborated with Nazi Germany, issuing its own anti-Jewish laws.",
+      "videos": [
+        "37-untranslated-vichy-statut-juifs-2026"
+      ]
+    },
+    {
+      "id": "statut_des_juifs",
+      "label": "Statut des Juifs",
+      "type": "primary_document",
+      "role": "Anti-Jewish laws issued by Vichy France, without German demand, with Pétain's personal edits.",
+      "videos": [
+        "37-untranslated-vichy-statut-juifs-2026"
+      ]
+    },
+    {
+      "id": "holocaust",
+      "label": "Holocaust",
+      "type": "event",
+      "role": "Genocide of European Jews, with French agency in its implementation in France.",
+      "videos": [
+        "37-untranslated-vichy-statut-juifs-2026"
+      ]
+    },
+    {
+      "id": "philippe_petain",
+      "label": "Philippe Pétain",
+      "type": "person",
+      "role": "Head of Vichy France, personally annotated the Statut des Juifs to make it harsher.",
+      "videos": [
+        "37-untranslated-vichy-statut-juifs-2026"
+      ]
+    },
+    {
+      "id": "berlin_conference_1884",
+      "label": "Berlin Conference (1884)",
+      "type": "event",
+      "role": "International conference that regulated European colonization and trade in Africa.",
+      "videos": [
+        "40-berlin-conference-1884-2026"
+      ]
+    },
+    {
+      "id": "africa",
+      "label": "Africa",
+      "type": "place",
+      "role": "Continent partitioned by European powers at the Berlin Conference, leading to lasting conflicts.",
+      "videos": [
+        "40-berlin-conference-1884-2026"
+      ]
+    },
+    {
+      "id": "congo_free_state",
+      "label": "Congo Free State",
+      "type": "place",
+      "role": "Personal property of Leopold II, known for rubber terror and atrocities.",
+      "videos": [
+        "40-berlin-conference-1884-2026"
+      ]
+    },
+    {
+      "id": "leopold_ii",
+      "label": "Leopold II",
+      "type": "person",
+      "role": "King of Belgium and personal owner of the Congo Free State, responsible for atrocities.",
+      "videos": [
+        "40-berlin-conference-1884-2026"
+      ]
+    },
+    {
+      "id": "effective_occupation",
+      "label": "Effective Occupation",
+      "type": "concept",
+      "role": "Principle established at Berlin Conference requiring powers to demonstrate authority in claimed coastal regions.",
+      "videos": [
+        "40-berlin-conference-1884-2026"
+      ]
+    },
+    {
+      "id": "rubber_terror",
+      "label": "Rubber Terror",
+      "type": "event",
+      "role": "Period of extreme exploitation and atrocities in the Congo Free State under Leopold II's rule.",
+      "videos": [
+        "40-berlin-conference-1884-2026"
+      ]
+    },
+    {
+      "id": "ethnic_partitioning",
+      "label": "Ethnic Partitioning",
+      "type": "concept",
+      "role": "Division of ethnic groups across colonial borders, leading to increased conflict.",
+      "videos": [
+        "40-berlin-conference-1884-2026"
+      ]
+    },
+    {
+      "id": "rwanda",
+      "label": "Rwanda",
+      "type": "place",
+      "role": "Nation whose ethnic distinctions were manipulated by colonial powers, contributing to later genocide.",
+      "videos": [
+        "40-berlin-conference-1884-2026"
+      ]
+    },
+    {
+      "id": "treaty_of_tordesillas_1494",
+      "label": "Treaty of Tordesillas (1494)",
+      "type": "treaty",
+      "role": "Treaty dividing the newly discovered non-Christian world between Spain and Portugal.",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ]
+    },
+    {
+      "id": "doctrine_of_discovery",
+      "label": "Doctrine of Discovery",
+      "type": "concept",
+      "role": "Legal and theological framework used to justify European colonization of non-Christian lands.",
+      "videos": [
+        "41-treaty-tordesillas-2026",
+        "45-manhattan-purchase-myth-2026"
+      ]
+    },
+    {
+      "id": "pope_alexander_vi",
+      "label": "Pope Alexander VI",
+      "type": "person",
+      "role": "Spanish Pope who issued Inter Caetera, drawing the initial line of demarcation.",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ]
+    },
+    {
+      "id": "brazil",
+      "label": "Brazil",
+      "type": "place",
+      "role": "Nation whose Portuguese language and inequality are linked to the Treaty of Tordesillas.",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ]
+    },
+    {
+      "id": "portugal",
+      "label": "Portugal",
+      "type": "place",
+      "role": "European power that gained eastern South America and African trade monopoly through papal bulls and treaties.",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ]
+    },
+    {
+      "id": "inter_caetera",
+      "label": "Inter Caetera",
+      "type": "primary_document",
+      "role": "Papal bull issued by Pope Alexander VI, drawing the initial line of demarcation in 1493.",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ]
+    },
+    {
+      "id": "romanus_pontifex",
+      "label": "Romanus Pontifex",
+      "type": "primary_document",
+      "role": "Papal bull issued by Pope Nicholas V, granting Portugal a monopoly on trade and territory south of Cape Bojador.",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ]
+    },
+    {
+      "id": "dum_diversas",
+      "label": "Dum Diversas",
+      "type": "primary_document",
+      "role": "Papal bull issued by Pope Nicholas V, authorizing Portugal to subdue Saracens and pagans.",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ]
+    },
+    {
+      "id": "treaty_of_zaragoza_1529",
+      "label": "Treaty of Zaragoza (1529)",
+      "type": "treaty",
+      "role": "Treaty extending the demarcation line into the Pacific, resolving the Moluccas dispute.",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ]
+    },
+    {
+      "id": "johnson_v_mcintosh_1823",
+      "label": "Johnson v. M'Intosh (1823)",
+      "type": "event",
+      "role": "US Supreme Court case ruling that 'discovery gave an exclusive right to extinguish the Indian title of occupancy'.",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ]
+    },
+    {
+      "id": "yanomami_crisis",
+      "label": "Yanomami Crisis",
+      "type": "event",
+      "role": "Modern humanitarian crisis among the Yanomami people, exacerbated by illegal mining and land disputes.",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ]
+    },
+    {
+      "id": "marco_temporal",
+      "label": "Marco Temporal",
+      "type": "concept",
+      "role": "Brazilian legal doctrine restricting indigenous land claims to territories occupied on Oct 5, 1988.",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ]
+    },
+    {
+      "id": "requerimiento",
+      "label": "Requerimiento",
+      "type": "primary_document",
+      "role": "Spanish legal document read to indigenous peoples, demanding their submission to the Crown and Christianity.",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ]
+    },
+    {
+      "id": "india_pakistan_partition",
+      "label": "India-Pakistan Partition",
+      "type": "event",
+      "role": "Division of British India into India and Pakistan in 1947, leading to massive displacement and violence.",
+      "videos": [
+        "43-india-pakistan-partition-2026"
+      ]
+    },
+    {
+      "id": "cyril_radcliffe",
+      "label": "Cyril Radcliffe",
+      "type": "person",
+      "role": "British lawyer who chaired the Boundary Commissions, drawing the borders for India and Pakistan in 5 weeks.",
+      "videos": [
+        "43-india-pakistan-partition-2026"
+      ]
+    },
+    {
+      "id": "mountbatten",
+      "label": "Mountbatten",
+      "type": "person",
+      "role": "Last Viceroy of India, accelerated the partition timeline, controversial for his role in border decisions.",
+      "videos": [
+        "43-india-pakistan-partition-2026"
+      ]
+    },
+    {
+      "id": "kashmir",
+      "label": "Kashmir",
+      "type": "place",
+      "role": "Disputed territory between India and Pakistan, its access linked to Radcliffe's border decisions.",
+      "videos": [
+        "43-india-pakistan-partition-2026"
+      ]
+    },
+    {
+      "id": "punjab_boundary_commission",
+      "label": "Punjab Boundary Commission",
+      "type": "institution",
+      "role": "Commission chaired by Radcliffe, responsible for drawing the border in Punjab province.",
+      "videos": [
+        "43-india-pakistan-partition-2026"
+      ]
+    },
+    {
+      "id": "ferozepore_district",
+      "label": "Ferozepore District",
+      "type": "place",
+      "role": "District whose allocation to India or Pakistan was controversial and allegedly changed by Mountbatten.",
+      "videos": [
+        "43-india-pakistan-partition-2026"
+      ]
+    },
+    {
+      "id": "gurdaspur_district",
+      "label": "Gurdaspur District",
+      "type": "place",
+      "role": "Muslim-majority district awarded to India, providing land access to Kashmir.",
+      "videos": [
+        "43-india-pakistan-partition-2026"
+      ]
+    },
+    {
+      "id": "manhattan_purchase_myth",
+      "label": "Manhattan Purchase Myth",
+      "type": "concept",
+      "role": "Popular misconception about the purchase of Manhattan Island by the Dutch for $24 in trinkets.",
+      "videos": [
+        "45-manhattan-purchase-myth-2026"
+      ]
+    },
+    {
+      "id": "lenape",
+      "label": "Lenape",
+      "type": "concept",
+      "role": "Indigenous people of Manhattan, who understood land as communal and shared-use.",
+      "videos": [
+        "45-manhattan-purchase-myth-2026"
+      ]
+    },
+    {
+      "id": "dutch_west_india_company",
+      "label": "Dutch West India Company (WIC)",
+      "type": "institution",
+      "role": "Dutch trading company that 'purchased' Manhattan Island.",
+      "videos": [
+        "45-manhattan-purchase-myth-2026"
+      ]
+    },
+    {
+      "id": "schagen_letter_1626",
+      "label": "Schagen Letter (1626)",
+      "type": "primary_document",
+      "role": "Sole contemporary written reference to the Manhattan 'purchase', mentioning 60 guilders but no beads.",
+      "videos": [
+        "45-manhattan-purchase-myth-2026"
+      ]
+    },
+    {
+      "id": "usufruct",
+      "label": "Usufruct",
+      "type": "concept",
+      "role": "Lenape concept of communal, shared-use rights to land, contrasted with European fee simple.",
+      "videos": [
+        "45-manhattan-purchase-myth-2026"
+      ]
+    },
+    {
+      "id": "battle_of_thermopylae",
+      "label": "Battle of Thermopylae",
+      "type": "event",
+      "role": "Ancient battle between Greek city-states and the Persian Empire, subject of multiple conflicting historical accounts.",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ]
+    },
+    {
+      "id": "herodotus_histories",
+      "label": "Herodotus's The Histories",
+      "type": "primary_document",
+      "role": "Earliest surviving account of the Battle of Thermopylae, based on oral testimony.",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ]
+    },
+    {
+      "id": "diodorus_siculus_library_of_history",
+      "label": "Diodorus Siculus's Library of History",
+      "type": "primary_document",
+      "role": "Later account of Thermopylae, drawing on the lost historian Ephorus, with moral didacticism.",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ]
+    },
+    {
+      "id": "ctesias_history_of_persia",
+      "label": "Ctesias's History of Persia",
+      "type": "primary_document",
+      "role": "Persian-centric account of Thermopylae, surviving in fragments, often correcting Herodotus.",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ]
+    },
+    {
+      "id": "leonidas_i",
+      "label": "Leonidas I",
+      "type": "person",
+      "role": "Spartan king who led the Greek forces at Thermopylae.",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ]
+    },
+    {
+      "id": "xerxes_i",
+      "label": "Xerxes I",
+      "type": "person",
+      "role": "King of the Achaemenid Empire who led the Persian invasion of Greece.",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ]
+    },
+    {
+      "id": "molon_labe",
+      "label": "Molon Labe",
+      "type": "concept",
+      "role": "Famous quote attributed to Leonidas, but first appears in Plutarch, 600 years later.",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ]
+    },
+    {
+      "id": "thespians",
+      "label": "Thespians",
+      "type": "concept",
+      "role": "Greek soldiers who died alongside the Spartans at Thermopylae, often overlooked.",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ]
+    },
+    {
+      "id": "treaty_of_tripoli_1797",
+      "label": "Treaty of Tripoli (1797)",
+      "type": "treaty",
+      "role": "Treaty between the US and Tripoli, notable for its Article 11 on the secular nature of the US government.",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ]
+    },
+    {
+      "id": "article_11_treaty_of_tripoli",
+      "label": "Article 11 (Treaty of Tripoli)",
+      "type": "primary_document",
+      "role": "Key clause in the 1797 Treaty of Tripoli stating the US government is not founded on Christian religion, but omitted in Arabic text.",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ]
+    },
+    {
+      "id": "joel_barlow",
+      "label": "Joel Barlow",
+      "type": "person",
+      "role": "American diplomat and poet who negotiated the 1797 Treaty of Tripoli, responsible for the English translation.",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ]
+    },
+    {
+      "id": "john_adams",
+      "label": "John Adams",
+      "type": "person",
+      "role": "Second US President who ratified the 1797 Treaty of Tripoli.",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ]
+    },
+    {
+      "id": "us_senate",
+      "label": "US Senate",
+      "type": "institution",
+      "role": "Body that ratified the 1797 Treaty of Tripoli without recorded debate on Article 11.",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ]
+    },
+    {
+      "id": "c_snouck_hurgronje",
+      "label": "C. Snouck Hurgronje",
+      "type": "person",
+      "role": "Dutch Arabist who discovered the discrepancy between the English and Arabic texts of Article 11.",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ]
+    },
+    {
+      "id": "hunter_miller",
+      "label": "Hunter Miller",
+      "type": "person",
+      "role": "Editor of 'Treaties and Other International Acts of the United States of America', who published Hurgronje's findings.",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ]
+    },
+    {
+      "id": "william_cobbett",
+      "label": "William Cobbett",
+      "type": "person",
+      "role": "Federalist editor of the 'Porcupine Gazette', who published the only contemporary public objection to Article 11.",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ]
+    },
+    {
+      "id": "spanish_inquisition",
+      "label": "Spanish Inquisition",
+      "type": "institution",
+      "role": "Ecclesiastical tribunal known for its procedures and its role in the Black Legend.",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ]
+    },
+    {
+      "id": "tomas_de_torquemada",
+      "label": "Tomás de Torquemada",
+      "type": "person",
+      "role": "First Grand Inquisitor of Spain, who issued the Instrucciones establishing Inquisition procedures.",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ]
+    },
+    {
+      "id": "instrucciones_1484",
+      "label": "Instrucciones (1484)",
+      "type": "primary_document",
+      "role": "Code of procedures issued by Torquemada, governing the Spanish Inquisition.",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ]
+    },
+    {
+      "id": "half_proof_rule",
+      "label": "Half-Proof Rule",
+      "type": "concept",
+      "role": "Inquisition rule permitting torture only when the crime appeared 'half proven'.",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ]
+    },
+    {
+      "id": "garrucha",
+      "label": "Garrucha",
+      "type": "mechanism",
+      "role": "One of the three approved torture methods of the Spanish Inquisition (strappado/pulley).",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ]
+    },
+    {
+      "id": "toca",
+      "label": "Toca",
+      "type": "mechanism",
+      "role": "One of the three approved torture methods of the Spanish Inquisition (waterboarding).",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ]
+    },
+    {
+      "id": "potro",
+      "label": "Potro",
+      "type": "mechanism",
+      "role": "One of the three approved torture methods of the Spanish Inquisition (rack/cords).",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ]
+    },
+    {
+      "id": "black_legend",
+      "label": "Black Legend",
+      "type": "concept",
+      "role": "Campaign of anti-Spanish propaganda by Protestant rivals, often exaggerating Inquisition atrocities.",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ]
+    },
+    {
+      "id": "e_b_ocallaghan",
+      "label": "E B Ocallaghan",
+      "type": "concept",
+      "role": "[stub: referenced by edges but not declared by Gemini]",
+      "videos": []
+    },
+    {
+      "id": "laudares_valencia_caicedo",
+      "label": "Laudares Valencia Caicedo",
+      "type": "concept",
+      "role": "[stub: referenced by edges but not declared by Gemini]",
+      "videos": []
+    },
+    {
+      "id": "pope_nicholas_v",
+      "label": "Pope Nicholas V",
+      "type": "concept",
+      "role": "[stub: referenced by edges but not declared by Gemini]",
+      "videos": []
+    },
+    {
+      "id": "vatican",
+      "label": "Vatican",
+      "type": "concept",
+      "role": "[stub: referenced by edges but not declared by Gemini]",
+      "videos": []
+    },
+    {
+      "id": "vladimir_putin",
+      "label": "Vladimir Putin",
+      "type": "concept",
+      "role": "[stub: referenced by edges but not declared by Gemini]",
+      "videos": []
+    },
+    {
+      "id": "william_ranney",
+      "label": "William Ranney",
+      "type": "concept",
+      "role": "[stub: referenced by edges but not declared by Gemini]",
+      "videos": []
+    }
+  ],
+  "scholars": [
+    {
+      "id": "cotran",
+      "name": "Cotran",
+      "main_work": "Legal Problems Arising out of the Formation of the Somali Republic",
+      "field": "International Law",
+      "videos": [
+        "1-somaliland-2025"
+      ]
+    },
+    {
+      "id": "prunier",
+      "name": "Prunier",
+      "main_work": "The Country That Does Not Exist",
+      "field": "Political Science",
+      "videos": [
+        "1-somaliland-2025"
+      ]
+    },
+    {
+      "id": "omar",
+      "name": "Omar",
+      "main_work": "Somalia: Past and Present",
+      "field": "History",
+      "videos": [
+        "1-somaliland-2025"
+      ]
+    },
+    {
+      "id": "crawford",
+      "name": "Crawford",
+      "main_work": "The Creation of States in International Law",
+      "field": "International Law",
+      "videos": [
+        "1-somaliland-2025"
+      ]
+    },
+    {
+      "id": "mahmoud",
+      "name": "Mahmoud",
+      "main_work": "Understanding the Secession of Somaliland",
+      "field": "Political Science",
+      "videos": [
+        "1-somaliland-2025"
+      ]
+    },
+    {
+      "id": "khan_idle",
+      "name": "Khan/Idle",
+      "main_work": "Exploring the Implications",
+      "field": "Geopolitics",
+      "videos": [
+        "1-somaliland-2025"
+      ]
+    },
+    {
+      "id": "sir_oliver_wright",
+      "name": "Sir Oliver Wright",
+      "field": "Diplomacy",
+      "videos": [
+        "14-chagos-islands-2025"
+      ]
+    },
+    {
+      "id": "rita_bancoult",
+      "name": "Rita Bancoult",
+      "field": "Chagossian activist",
+      "videos": [
+        "14-chagos-islands-2025"
+      ]
+    },
+    {
+      "id": "judge_donoghue",
+      "name": "Judge Donoghue",
+      "field": "International Law",
+      "videos": [
+        "14-chagos-islands-2025"
+      ]
+    },
+    {
+      "id": "jeffrey_burton_russell",
+      "name": "Jeffrey Burton Russell",
+      "main_work": "Inventing the Flat Earth",
+      "field": "History",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ]
+    },
+    {
+      "id": "david_lindberg",
+      "name": "David Lindberg",
+      "main_work": "The Beginnings of Western Science",
+      "field": "History of Science",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ]
+    },
+    {
+      "id": "ronald_numbers",
+      "name": "Ronald Numbers",
+      "main_work": "Galileo Goes to Jail and Other Myths about Science and Religion",
+      "field": "History of Science",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ]
+    },
+    {
+      "id": "stephen_jay_gould",
+      "name": "Stephen Jay Gould",
+      "main_work": "The Late Birth of a Flat Earth",
+      "field": "Paleontology, History of Science",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ]
+    },
+    {
+      "id": "washington_irving",
+      "name": "Washington Irving",
+      "main_work": "A History of the Life and Voyages of Christopher Columbus",
+      "field": "Author",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ]
+    },
+    {
+      "id": "antoine_jean_letronne",
+      "name": "Antoine-Jean Letronne",
+      "main_work": "On the Cosmographical Ideas of the Church Fathers",
+      "field": "Classics, Anti-religious polemicist",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ]
+    },
+    {
+      "id": "john_william_draper",
+      "name": "John William Draper",
+      "main_work": "History of the Conflict Between Religion and Science",
+      "field": "Amateur Historian, Chemist",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ]
+    },
+    {
+      "id": "andrew_dickson_white",
+      "name": "Andrew Dickson White",
+      "main_work": "A History of the Warfare of Science with Theology in Christendom",
+      "field": "Historian, Educator",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ]
+    },
+    {
+      "id": "ervand_abrahamian",
+      "name": "Ervand Abrahamian",
+      "main_work": "A History of Modern Iran",
+      "field": "History of Iran",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ]
+    },
+    {
+      "id": "kagan",
+      "name": "Kagan",
+      "main_work": "Modern Iran",
+      "field": "History of Iran",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ]
+    },
+    {
+      "id": "kinzer",
+      "name": "Kinzer",
+      "main_work": "All the Shah's Men",
+      "field": "Journalism, History",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ]
+    },
+    {
+      "id": "mohammad_mossadegh",
+      "name": "Mohammad Mossadegh",
+      "field": "Politician, Prime Minister of Iran",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ]
+    },
+    {
+      "id": "vladislav_zubok",
+      "name": "Vladislav Zubok",
+      "main_work": "Collapse: The Fall of the Soviet Union",
+      "field": "History",
+      "videos": [
+        "30-belavezha-accords-2025"
+      ]
+    },
+    {
+      "id": "serhii_plokhy",
+      "name": "Serhii Plokhy",
+      "main_work": "The Last Empire: The Final Days of the Soviet Union",
+      "field": "History",
+      "videos": [
+        "30-belavezha-accords-2025"
+      ]
+    },
+    {
+      "id": "stephen_kotkin",
+      "name": "Stephen Kotkin",
+      "main_work": "Armageddon Averted: The Soviet Collapse, 1970-2000",
+      "field": "History",
+      "videos": [
+        "30-belavezha-accords-2025"
+      ]
+    },
+    {
+      "id": "jaime_urrutia",
+      "name": "Jaime Urrutia",
+      "field": "Oceanographer",
+      "videos": [
+        "31-bermeja-island-2025"
+      ]
+    },
+    {
+      "id": "saul_millan",
+      "name": "Saul Millan",
+      "field": "Geologist",
+      "videos": [
+        "31-bermeja-island-2025"
+      ]
+    },
+    {
+      "id": "j_patrice_mcsherry",
+      "name": "J. Patrice McSherry",
+      "main_work": "Predatory States: Operation Condor and Covert War in Latin America",
+      "field": "Political Science",
+      "videos": [
+        "34-operation-condor-2025"
+      ]
+    },
+    {
+      "id": "john_dinges",
+      "name": "John Dinges",
+      "main_work": "The Condor Years: How Pinochet and His Allies Brought Terrorism to Three Continents",
+      "field": "Journalism, History",
+      "videos": [
+        "34-operation-condor-2025"
+      ]
+    },
+    {
+      "id": "peter_kornbluh",
+      "name": "Peter Kornbluh",
+      "main_work": "The Pinochet File: A Declassified Dossier on Atrocity and Accountability",
+      "field": "Journalism, History",
+      "videos": [
+        "34-operation-condor-2025"
+      ]
+    },
+    {
+      "id": "francesca_lessa",
+      "name": "Francesca Lessa",
+      "main_work": "The Condor Trials: Transnational Repression and Human Rights in South America",
+      "field": "Political Science, Human Rights",
+      "videos": [
+        "34-operation-condor-2025"
+      ]
+    },
+    {
+      "id": "augusto_pinochet",
+      "name": "Augusto Pinochet",
+      "field": "Dictator of Chile",
+      "videos": [
+        "34-operation-condor-2025"
+      ]
+    },
+    {
+      "id": "peter_gold",
+      "name": "Peter Gold",
+      "main_work": "Gibraltar: British or Spanish?",
+      "field": "Political Geography",
+      "videos": [
+        "35-gibraltar-treaty-utrecht-2026"
+      ]
+    },
+    {
+      "id": "judge_dillard",
+      "name": "Judge Dillard",
+      "field": "International Law",
+      "videos": [
+        "35-gibraltar-treaty-utrecht-2026"
+      ]
+    },
+    {
+      "id": "jamie_trinidad",
+      "name": "Jamie Trinidad",
+      "main_work": "Self-Determination in Disputed Colonial Territories",
+      "field": "International Law",
+      "videos": [
+        "35-gibraltar-treaty-utrecht-2026"
+      ]
+    },
+    {
+      "id": "julian_t_jackson",
+      "name": "Julian T. Jackson",
+      "main_work": "France: The Dark Years, 1940-1944",
+      "field": "History",
+      "videos": [
+        "37-untranslated-vichy-statut-juifs-2026"
+      ]
+    },
+    {
+      "id": "michael_r_marrus",
+      "name": "Michael R. Marrus",
+      "main_work": "Vichy France and the Jews",
+      "field": "Holocaust Studies, History",
+      "videos": [
+        "37-untranslated-vichy-statut-juifs-2026"
+      ]
+    },
+    {
+      "id": "robert_o_paxton",
+      "name": "Robert O. Paxton",
+      "main_work": "Vichy France: Old Guard and New Order",
+      "field": "History",
+      "videos": [
+        "37-untranslated-vichy-statut-juifs-2026"
+      ]
+    },
+    {
+      "id": "serge_klarsfeld",
+      "name": "Serge Klarsfeld",
+      "field": "Nazi Hunter, Historian",
+      "videos": [
+        "37-untranslated-vichy-statut-juifs-2026"
+      ]
+    },
+    {
+      "id": "paul_cartledge",
+      "name": "Paul Cartledge",
+      "main_work": "Thermopylae: The Battle That Changed the World",
+      "field": "Ancient History",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ]
+    },
+    {
+      "id": "herodotus",
+      "name": "Herodotus",
+      "main_work": "The Histories",
+      "field": "Ancient History",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ]
+    },
+    {
+      "id": "diodorus_siculus",
+      "name": "Diodorus Siculus",
+      "main_work": "Library of History",
+      "field": "Ancient History",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ]
+    },
+    {
+      "id": "ctesias",
+      "name": "Ctesias",
+      "main_work": "History of Persia: Tales of the Orient",
+      "field": "Ancient History, Physician",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ]
+    },
+    {
+      "id": "joel_barlow",
+      "name": "Joel Barlow",
+      "field": "Diplomat, Poet",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ]
+    },
+    {
+      "id": "john_adams",
+      "name": "John Adams",
+      "field": "President of the United States",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ]
+    },
+    {
+      "id": "william_cobbett",
+      "name": "William Cobbett",
+      "field": "Federalist Editor",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ]
+    },
+    {
+      "id": "timothy_dwight",
+      "name": "Timothy Dwight",
+      "field": "Theologian, President of Yale",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ]
+    },
+    {
+      "id": "c_snouck_hurgronje",
+      "name": "C. Snouck Hurgronje",
+      "field": "Orientalist, Arabist",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ]
+    },
+    {
+      "id": "hunter_miller",
+      "name": "Hunter Miller",
+      "main_work": "Treaties and Other International Acts of the United States of America",
+      "field": "Diplomatic Historian",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ]
+    },
+    {
+      "id": "tomas_de_torquemada",
+      "name": "Tomás de Torquemada",
+      "field": "Grand Inquisitor of Spain",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ]
+    },
+    {
+      "id": "henry_kamen",
+      "name": "Henry Kamen",
+      "field": "Historian",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ]
+    },
+    {
+      "id": "edward_peters",
+      "name": "Edward Peters",
+      "field": "Historian",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ]
+    },
+    {
+      "id": "helen_rawlings",
+      "name": "Helen Rawlings",
+      "field": "Historian",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ]
+    },
+    {
+      "id": "yael_hassner",
+      "name": "Yael Hassner",
+      "field": "Political Scientist",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "somaliland",
+      "target_id": "british_somaliland",
+      "relation": "restored_independence_from",
+      "videos": [
+        "1-somaliland-2025"
+      ],
+      "evidence": "Somaliland's 1991 declaration was a 'restoration' of its 1960 independence from British Somaliland.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "act_of_union_1960",
+      "target_id": "british_somaliland",
+      "relation": "intended_to_merge",
+      "videos": [
+        "1-somaliland-2025"
+      ],
+      "evidence": "The Act of Union was intended to merge British Somaliland with Italian Somaliland, but was never properly ratified.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "act_of_union_1960",
+      "target_id": "italian_somaliland",
+      "relation": "intended_to_merge",
+      "videos": [
+        "1-somaliland-2025"
+      ],
+      "evidence": "The Act of Union was intended to merge British Somaliland with Italian Somaliland, but was never properly ratified.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "uti_possidetis_principle",
+      "target_id": "african_union",
+      "relation": "cited_by",
+      "videos": [
+        "1-somaliland-2025"
+      ],
+      "evidence": "The African Union cited the uti possidetis principle in rejecting Israel's recognition of Somaliland.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "ethiopia",
+      "target_id": "somaliland",
+      "relation": "signed_mou_with",
+      "videos": [
+        "1-somaliland-2025"
+      ],
+      "evidence": "Ethiopia signed a Memorandum of Understanding with Somaliland for port access, offering recognition.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "israel",
+      "target_id": "somaliland",
+      "relation": "recognized",
+      "videos": [
+        "1-somaliland-2025"
+      ],
+      "evidence": "Israel formally recognized Somaliland's independence in December 2025.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "secession",
+      "target_id": "restorative_secession",
+      "relation": "contrasted_with",
+      "videos": [
+        "1-somaliland-2025"
+      ],
+      "evidence": "Somaliland's 1991 declaration was framed as 'restoration' of sovereignty, a legal distinction from secession.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "chagos_archipelago",
+      "target_id": "united_kingdom",
+      "relation": "illegally_detached_by",
+      "videos": [
+        "14-chagos-islands-2025"
+      ],
+      "evidence": "The UK illegally detached the Chagos Archipelago from Mauritius, an act ruled unlawful by the ICJ.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "diego_garcia",
+      "target_id": "united_states",
+      "relation": "military_base_for",
+      "videos": [
+        "14-chagos-islands-2025"
+      ],
+      "evidence": "Diego Garcia was used by the US as a strategic military base, requiring the removal of local inhabitants.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "international_court_of_justice",
+      "target_id": "united_kingdom",
+      "relation": "ruled_against",
+      "videos": [
+        "14-chagos-islands-2025"
+      ],
+      "evidence": "The ICJ found the UK's continued administration of the Chagos Archipelago to be a 'wrongful act'.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "chagossian_people",
+      "target_id": "mauritius",
+      "relation": "betrayed_by",
+      "videos": [
+        "14-chagos-islands-2025"
+      ],
+      "evidence": "Mauritius was complicit in the displacement of the Chagossian people and agreed to exclude them from Diego Garcia.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "flat_earth_myth",
+      "target_id": "middle_ages",
+      "relation": "misrepresents",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ],
+      "evidence": "The flat earth myth misrepresents the widespread medieval belief in a spherical Earth.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "spherical_earth",
+      "target_id": "middle_ages",
+      "relation": "accepted_in",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ],
+      "evidence": "Medieval scholars universally accepted a spherical Earth.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "washington_irving",
+      "target_id": "flat_earth_myth",
+      "relation": "invented_part_of",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ],
+      "evidence": "Washington Irving invented the Columbus flat-earth story in his 1828 biography.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "john_william_draper",
+      "target_id": "conflict_thesis",
+      "relation": "codified",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ],
+      "evidence": "John William Draper embedded the flat-earth myth in his 'conflict thesis' through his 1874 book.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "sacroboscos_de_sphaera_mundi",
+      "target_id": "spherical_earth",
+      "relation": "taught",
+      "videos": [
+        "19-flat-earth-medieval-2025"
+      ],
+      "evidence": "Sacrobosco's De Sphaera Mundi was a standard university textbook teaching spherical Earth for 400 years.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "1953_iranian_coup_detat",
+      "target_id": "iran",
+      "relation": "impacted",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ],
+      "evidence": "The 1953 coup destroyed Iran's democratic institutions, impacting its political development.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "constitutional_revolution_iran",
+      "target_id": "majlis_iran",
+      "relation": "established",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ],
+      "evidence": "The Constitutional Revolution established the Majlis as the central piece of Iran's new constitution.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "anglo_persian_oil_company",
+      "target_id": "iran",
+      "relation": "extracted_resources_from",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ],
+      "evidence": "The Anglo-Persian Oil Company held exclusive rights to Iranian oil, with Iran receiving only a small percentage of profits.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "anglo_russian_convention_1907",
+      "target_id": "iran",
+      "relation": "divided",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ],
+      "evidence": "The Anglo-Russian Convention divided Iran into spheres of influence without its consent.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "operation_ajax",
+      "target_id": "mohammad_mossadegh",
+      "relation": "overthrew",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ],
+      "evidence": "Operation Ajax was the CIA-orchestrated plan to overthrow Prime Minister Mohammad Mossadegh.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "guardian_council_iran",
+      "target_id": "majlis_iran",
+      "relation": "vetoes",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ],
+      "evidence": "The Guardian Council has veto power over bills passed by the Majlis and vets candidates.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "islamic_revolutionary_guard_corps",
+      "target_id": "iran",
+      "relation": "economic_control_in",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ],
+      "evidence": "The IRGC controls a significant portion of the Iranian economy, particularly in construction and oil.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "mahsa_amini_protests",
+      "target_id": "iran",
+      "relation": "challenged_government_in",
+      "videos": [
+        "24-iran-1953-coup-2025"
+      ],
+      "evidence": "The Mahsa Amini protests represented a significant challenge to the Iranian government, particularly on women's rights.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "belavezha_accords",
+      "target_id": "ussr",
+      "relation": "dissolved",
+      "videos": [
+        "30-belavezha-accords-2025"
+      ],
+      "evidence": "The Belavezha Accords stated that the USSR 'ceases its existence'.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "vladimir_putin",
+      "target_id": "belavezha_accords",
+      "relation": "called_consequences_of",
+      "videos": [
+        "30-belavezha-accords-2025"
+      ],
+      "evidence": "Vladimir Putin called the dissolution of the USSR due to the Accords the 'greatest geopolitical catastrophe'.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "crimea",
+      "target_id": "russia",
+      "relation": "claimed_by",
+      "videos": [
+        "30-belavezha-accords-2025"
+      ],
+      "evidence": "Pavel Voshchanov announced Russia reserved the right to 'raise the question of the revision of boundaries' for Crimea if republics left the Union.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "donbas",
+      "target_id": "russia",
+      "relation": "claimed_by",
+      "videos": [
+        "30-belavezha-accords-2025"
+      ],
+      "evidence": "Pavel Voshchanov announced Russia reserved the right to 'raise the question of the revision of boundaries' for Donbas if republics left the Union.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "bermeja_island",
+      "target_id": "cartographic_error",
+      "relation": "example_of",
+      "videos": [
+        "31-bermeja-island-2025"
+      ],
+      "evidence": "Bermeja Island is a classic example of a cartographic error perpetuated through copying without verification.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "us_mexico_maritime_boundary",
+      "target_id": "western_gap",
+      "relation": "divided",
+      "videos": [
+        "31-bermeja-island-2025"
+      ],
+      "evidence": "The US-Mexico maritime boundary treaty divided the Western Gap, with its terms influenced by the supposed existence of Bermeja Island.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "operation_condor",
+      "target_id": "dina_chile",
+      "relation": "led_by",
+      "videos": [
+        "34-operation-condor-2025"
+      ],
+      "evidence": "DINA, Chile's secret police, was a key operational lead in Operation Condor.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "henry_kissinger",
+      "target_id": "operation_condor",
+      "relation": "canceled_warning_for",
+      "videos": [
+        "34-operation-condor-2025"
+      ],
+      "evidence": "Henry Kissinger canceled a State Department demarche warning Operation Condor about assassinations.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "augusto_pinochet",
+      "target_id": "orlando_letelier",
+      "relation": "ordered_assassination_of",
+      "videos": [
+        "34-operation-condor-2025"
+      ],
+      "evidence": "Pinochet personally ordered the assassination of Orlando Letelier.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "universal_jurisdiction",
+      "target_id": "augusto_pinochet",
+      "relation": "applied_to",
+      "videos": [
+        "34-operation-condor-2025"
+      ],
+      "evidence": "Pinochet's 1998 arrest in London transformed international justice and empowered universal jurisdiction.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "gibraltar",
+      "target_id": "united_kingdom",
+      "relation": "ceded_to",
+      "videos": [
+        "35-gibraltar-treaty-utrecht-2026"
+      ],
+      "evidence": "The Treaty of Utrecht ceded Gibraltar to the Crown of Great Britain.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "spain",
+      "target_id": "gibraltar",
+      "relation": "claims",
+      "videos": [
+        "35-gibraltar-treaty-utrecht-2026"
+      ],
+      "evidence": "Spain continuously claims sovereignty over Gibraltar, citing historical and territorial integrity arguments.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "brexit",
+      "target_id": "gibraltar",
+      "relation": "impacted",
+      "videos": [
+        "35-gibraltar-treaty-utrecht-2026"
+      ],
+      "evidence": "Brexit created new challenges for Gibraltar's border with Spain, leading to negotiations for a new agreement.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "schengen_area",
+      "target_id": "gibraltar",
+      "relation": "border_controls_impact",
+      "videos": [
+        "35-gibraltar-treaty-utrecht-2026"
+      ],
+      "evidence": "Proposed 2025 treaty involves Spain conducting Schengen checks at Gibraltar's port and airport.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "statut_des_juifs",
+      "target_id": "vichel_france",
+      "relation": "issued_by",
+      "videos": [
+        "37-untranslated-vichy-statut-juifs-2026"
+      ],
+      "evidence": "The Statut des Juifs was issued by Vichy France as a French initiative, not due to German demand.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "philippe_petain",
+      "target_id": "statut_des_juifs",
+      "relation": "made_harsher",
+      "videos": [
+        "37-untranslated-vichy-statut_juifs-2026"
+      ],
+      "evidence": "Pétain personally annotated the draft of the Statut des Juifs, making every change harsher.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "holocaust",
+      "target_id": "vichel_france",
+      "relation": "involved",
+      "videos": [
+        "37-untranslated-vichy-statut_juifs-2026"
+      ],
+      "evidence": "Vichy France's actions, including the Statut des Juifs, demonstrated French agency in the Holocaust.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "berlin_conference_1884",
+      "target_id": "africa",
+      "relation": "partitioned",
+      "videos": [
+        "40-berlin-conference-1884-2026"
+      ],
+      "evidence": "The Berlin Conference established rules for the partition of Africa among European powers, drawing arbitrary borders.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "leopold_ii",
+      "target_id": "congo_free_state",
+      "relation": "ruled",
+      "videos": [
+        "40-berlin-conference-1884-2026"
+      ],
+      "evidence": "Leopold II was the personal owner and absolute monarch of the Congo Free State.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "effective_occupation",
+      "target_id": "berlin_conference_1884",
+      "relation": "established_by",
+      "videos": [
+        "40-berlin-conference-1884-2026"
+      ],
+      "evidence": "Article 35 of the General Act of the Berlin Conference required 'effective occupation' of claimed coastal territories.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "rubber_terror",
+      "target_id": "congo_free_state",
+      "relation": "occurred_in",
+      "videos": [
+        "40-berlin-conference-1884-2026"
+      ],
+      "evidence": "The Rubber Terror refers to the extreme exploitation and atrocities committed in the Congo Free State under Leopold II.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "ethnic_partitioning",
+      "target_id": "africa",
+      "relation": "consequence_of",
+      "videos": [
+        "40-berlin-conference-1884-2026"
+      ],
+      "evidence": "The drawing of colonial borders across existing ethnic groups in Africa led to increased conflict and instability.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "rwanda",
+      "target_id": "ethnic_partitioning",
+      "relation": "impacted_by",
+      "videos": [
+        "40-berlin-conference-1884-2026"
+      ],
+      "evidence": "Belgian colonial policies in Rwanda manipulated pre-existing Hutu/Tutsi distinctions, hardening them into rigid ethnic categories.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "treaty_of_tordesillas_1494",
+      "target_id": "spain",
+      "relation": "divided_world_with",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ],
+      "evidence": "The Treaty of Tordesillas divided the newly discovered non-Christian world between Spain and Portugal.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "treaty_of_tordesillas_1494",
+      "target_id": "portugal",
+      "relation": "divided_world_with",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ],
+      "evidence": "The Treaty of Tordesillas divided the newly discovered non-Christian world between Spain and Portugal.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "doctrine_of_discovery",
+      "target_id": "pope_alexander_vi",
+      "relation": "justified_by_bulls_of",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ],
+      "evidence": "Pope Alexander VI's Inter Caetera bull contributed to the legal framework of the Doctrine of Discovery.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "brazil",
+      "target_id": "treaty_of_tordesillas_1494",
+      "relation": "speaks_portuguese_because_of",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ],
+      "evidence": "The Tordesillas Treaty provided the foundation for the eventual Portuguese colonization of Brazil, explaining its language.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "laudares_valencia_caicedo",
+      "target_id": "brazil",
+      "relation": "studied_inequality_in",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ],
+      "evidence": "Laudares and Valencia Caicedo's research showed that Brazilian inequality directly traces to the Tordesillas line.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "pope_alexander_vi",
+      "target_id": "inter_caetera",
+      "relation": "issued",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ],
+      "evidence": "Pope Alexander VI issued the papal bull Inter Caetera, drawing the initial line of demarcation.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "pope_nicholas_v",
+      "target_id": "romanus_pontifex",
+      "relation": "issued",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ],
+      "evidence": "Pope Nicholas V issued Romanus Pontifex, granting Portugal a perpetual monopoly on trade and territory.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "pope_nicholas_v",
+      "target_id": "dum_diversas",
+      "relation": "issued",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ],
+      "evidence": "Pope Nicholas V issued Dum Diversas, authorizing Portugal to attack and subdue Saracens and pagans.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "treaty_of_zaragoza_1529",
+      "target_id": "treaty_of_tordesillas_1494",
+      "relation": "extended_to_pacific",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ],
+      "evidence": "The Treaty of Zaragoza extended the demarcation line to the Pacific, resolving disputes over the Moluccas.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "vatican",
+      "target_id": "doctrine_of_discovery",
+      "relation": "repudiated",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ],
+      "evidence": "The Vatican formally repudiated the Doctrine of Discovery in 2023, but did not rescind the original bulls.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "johnson_v_mcintosh_1823",
+      "target_id": "doctrine_of_discovery",
+      "relation": "applied",
+      "videos": [
+        "41-treaty-tordesillas-2026"
+      ],
+      "evidence": "The US Supreme Court's ruling in Johnson v. M'Intosh applied the Doctrine of Discovery to indigenous land rights.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "india_pakistan_partition",
+      "target_id": "cyril_radcliffe",
+      "relation": "demarcated_by",
+      "videos": [
+        "43-india-pakistan-partition-2026"
+      ],
+      "evidence": "Cyril Radcliffe chaired the Boundary Commissions that drew the borders for India and Pakistan in 5 weeks.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "mountbatten",
+      "target_id": "india_pakistan_partition",
+      "relation": "accelerated",
+      "videos": [
+        "43-india-pakistan-partition-2026"
+      ],
+      "evidence": "Mountbatten moved the deadline for British withdrawal to August 1947, accelerating the Partition timeline.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "kashmir",
+      "target_id": "gurdaspur_district",
+      "relation": "land_access_linked_to",
+      "videos": [
+        "43-india-pakistan-partition-2026"
+      ],
+      "evidence": "The Gurdaspur district's award to India provided the only non-mountainous land corridor to Jammu and Kashmir.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "ferozepore_district",
+      "target_id": "mountbatten",
+      "relation": "changed_allocation_by",
+      "videos": [
+        "43-india-pakistan-partition-2026"
+      ],
+      "evidence": "Mountbatten allegedly intervened to change the allocation of Ferozepore District from Pakistan to India, a contested claim.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "manhattan_purchase_myth",
+      "target_id": "schagen_letter_1626",
+      "relation": "contradicted_by",
+      "videos": [
+        "45-manhattan-purchase-myth-2026"
+      ],
+      "evidence": "The Schagen letter, the only contemporary reference, mentions 60 guilders but no beads or trinkets.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "e_b_ocallaghan",
+      "target_id": "manhattan_purchase_myth",
+      "relation": "invented_part_of",
+      "videos": [
+        "45-manhattan-purchase-myth-2026"
+      ],
+      "evidence": "E.B. O'Callaghan invented the '$24' figure in 1844, an arbitrary conversion of 60 guilders.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "william_ranney",
+      "target_id": "manhattan_purchase_myth",
+      "relation": "introduced_part_of",
+      "videos": [
+        "45-manhattan-purchase-myth-2026"
+      ],
+      "evidence": "William Ranney's 1853 painting introduced the myth of beads into the Manhattan purchase story.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "lenape",
+      "target_id": "usufruct",
+      "relation": "practiced",
+      "videos": [
+        "45-manhattan-purchase-myth-2026"
+      ],
+      "evidence": "The Lenape held land under 'usufruct', a concept of communal shared-use rights, not fee simple.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "lenape",
+      "target_id": "manhattan_purchase_myth",
+      "relation": "misrepresented_by",
+      "videos": [
+        "45-manhattan-purchase-myth-2026"
+      ],
+      "evidence": "The Lenape understood the Manhattan transaction as a shared-use agreement, not a permanent sale, unlike the Dutch.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "battle_of_thermopylae",
+      "target_id": "herodotus_histories",
+      "relation": "documented_in",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ],
+      "evidence": "Herodotus's The Histories is the earliest surviving account of the Battle of Thermopylae.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "battle_of_thermopylae",
+      "target_id": "diodorus_siculus_library_of_history",
+      "relation": "documented_in",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ],
+      "evidence": "Diodorus Siculus's Library of History provides a later account of Thermopylae, drawing on Ephorus.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "battle_of_thermopylae",
+      "target_id": "ctesias_history_of_persia",
+      "relation": "documented_in",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ],
+      "evidence": "Ctesias's History of Persia offers a Persian-centric and often contradictory account of Thermopylae.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "leonidas_i",
+      "target_id": "battle_of_thermopylae",
+      "relation": "led_forces_at",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ],
+      "evidence": "Leonidas I led 300 Spartans and other Greek forces at the Battle of Thermopylae.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "xerxes_i",
+      "target_id": "battle_of_thermopylae",
+      "relation": "led_forces_at",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ],
+      "evidence": "Xerxes I led the Persian army in the invasion of Greece, including the Battle of Thermopylae.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "molon_labe",
+      "target_id": "leonidas_i",
+      "relation": "attributed_to",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ],
+      "evidence": "The phrase 'Molon labe' is attributed to Leonidas, but first appears in Plutarch, 600 years after the battle.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "thespians",
+      "target_id": "battle_of_thermopylae",
+      "relation": "died_alongside_at",
+      "videos": [
+        "50-thermopylae-sources-2026"
+      ],
+      "evidence": "700 Thespians died to the last man alongside the Spartans at Thermopylae, often overshadowed by the '300' myth.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "article_11_treaty_of_tripoli",
+      "target_id": "treaty_of_tripoli_1797",
+      "relation": "part_of",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ],
+      "evidence": "Article 11 is a key clause in the 1797 Treaty of Tripoli, stating the US government is not founded on Christian religion.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "joel_barlow",
+      "target_id": "treaty_of_tripoli_1797",
+      "relation": "negotiated",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ],
+      "evidence": "Joel Barlow negotiated the 1797 Treaty of Tripoli and produced the English translation.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "john_adams",
+      "target_id": "treaty_of_tripoli_1797",
+      "relation": "ratified",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ],
+      "evidence": "President John Adams ratified the 1797 Treaty of Tripoli.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "us_senate",
+      "target_id": "treaty_of_tripoli_1797",
+      "relation": "ratified",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ],
+      "evidence": "The US Senate ratified the 1797 Treaty of Tripoli by a 23-0 vote.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "c_snouck_hurgronje",
+      "target_id": "article_11_treaty_of_tripoli",
+      "relation": "discovered_discrepancy_in",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ],
+      "evidence": "C. Snouck Hurgronje, a Dutch Arabist, discovered that Article 11 had no equivalent in the Arabic text of the treaty.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "william_cobbett",
+      "target_id": "article_11_treaty_of_tripoli",
+      "relation": "objected_to",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ],
+      "evidence": "William Cobbett was the only contemporary public figure to object to Article 11, calling it 'trampling upon the cross'.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "timothy_dwight",
+      "target_id": "article_11_treaty_of_tripoli",
+      "relation": "objected_to",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026"
+      ],
+      "evidence": "Timothy Dwight, president of Yale and Barlow's former mentor, publicly objected to Article 11 by removing Barlow's portrait.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "spanish_inquisition",
+      "target_id": "tomas_de_torquemada",
+      "relation": "led_by",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ],
+      "evidence": "Tomás de Torquemada was the first Grand Inquisitor of Spain and issued the Instrucciones that established its procedures.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "instrucciones_1484",
+      "target_id": "spanish_inquisition",
+      "relation": "governed",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ],
+      "evidence": "The Instrucciones (1484) set forth the procedures and rules for the Spanish Inquisition, including torture.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "half_proof_rule",
+      "target_id": "instrucciones_1484",
+      "relation": "established_in",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ],
+      "evidence": "Article XV of the 1484 Instrucciones permitted torture only when the crime appeared 'half proven'.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "garrucha",
+      "target_id": "spanish_inquisition",
+      "relation": "used_by",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ],
+      "evidence": "The garrucha (strappado) was one of the three approved torture methods of the Spanish Inquisition.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "toca",
+      "target_id": "spanish_inquisition",
+      "relation": "used_by",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ],
+      "evidence": "The toca (waterboarding) was one of the three approved torture methods of the Spanish Inquisition.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "potro",
+      "target_id": "spanish_inquisition",
+      "relation": "used_by",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ],
+      "evidence": "The potro (rack) was one of the three approved torture methods of the Spanish Inquisition.",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "source_id": "black_legend",
+      "target_id": "spanish_inquisition",
+      "relation": "propagated_about",
+      "videos": [
+        "54-spanish-inquisition-torture-rules-2026"
+      ],
+      "evidence": "The Black Legend was a propaganda campaign that exaggerated the atrocities of the Spanish Inquisition.",
+      "confidence": "EXTRACTED"
+    }
+  ],
+  "citations": [
+    {
+      "id": "cite_001",
+      "quote": "Within days, Somaliland exchanged diplomatic recognition with more than 35 states, including the United Kingdom, the United States, Egypt, Ethiopia, Israel, France, Ghana, and the Soviet Union.",
+      "author": "Somaliland Is Not De Facto — It Is De Jure",
+      "work": "Somaliland Is Not De Facto — It Is De Jure",
+      "page": "2",
+      "video": "1-somaliland-2025"
+    },
+    {
+      "id": "cite_002",
+      "quote": "The Union of Somaliland and Somalia Law, and the Somalia Act of Union were both drafted in the form of bilateral agreements, but neither of them was signed by the representatives of the two territories.",
+      "author": "Cotran",
+      "work": "Legal Problems Arising out of the Formation of the Somali Republic",
+      "page": "1012",
+      "video": "1-somaliland-2025"
+    },
+    {
+      "id": "cite_003",
+      "quote": "In 1963, Mr. Justice Hazelwood acquitted northern officers, ruling that 'in the absence of an Act of Union, the court had no jurisdiction over Somaliland.'",
+      "author": "Prunier",
+      "work": "The Country That Does Not Exist",
+      "page": "21",
+      "video": "1-somaliland-2025"
+    },
+    {
+      "id": "cite_004",
+      "quote": "The country previously known as Somaliland which obtained its independence from the United Kingdom and Northern Ireland on 26 June 1960 has restored its independence with effect from 18/05/91.",
+      "author": "Omar",
+      "work": "Somalia: Past and Present",
+      "page": "169",
+      "video": "1-somaliland-2025"
+    },
+    {
+      "id": "cite_005",
+      "quote": "The independence of the [Baltic States] was restored peacefully... the essential rationale was the recovery of independence forcibly suppressed [in 1940].",
+      "author": "Crawford",
+      "work": "The Creation of States in International Law",
+      "page": "394, 416",
+      "video": "1-somaliland-2025"
+    },
+    {
+      "id": "cite_006",
+      "quote": "The fact that the 'union between Somaliland and Somalia was never ratified' and also malfunctioned when it went into action from 1960 to 1990, makes Somaliland's search for recognition historically unique and self-justified in African political history.",
+      "author": "AU Fact-Finding Mission",
+      "work": "AU Fact-Finding Mission to Somaliland Resumé",
+      "page": "4",
+      "video": "1-somaliland-2025"
+    },
+    {
+      "id": "cite_007",
+      "quote": "The Ethiopian prime minister has repeatedly called Red Sea access an existential question for his country.",
+      "author": "Al Jazeera Centre for Studies",
+      "work": "Al Jazeera Centre for Studies",
+      "page": "2027",
+      "video": "1-somaliland-2025"
+    },
+    {
+      "id": "cite_008",
+      "quote": "The deal with Somaliland is particularly contentious because it undermines Somalia's territorial integrity and reconciliation efforts... Somalia, a UN member state, is the de jure holder of the territory.",
+      "author": "Wilson Center",
+      "work": "Rising Tensions",
+      "page": "1",
+      "video": "1-somaliland-2025"
+    },
+    {
+      "id": "cite_009",
+      "quote": "Somaliland's borders are exactly those — the borders it inherited at independence in 1960. Ironically, refusing to recognize Somaliland undermines the AU's own legal doctrine.",
+      "author": "Somaliland Is Not De Facto — It Is De Jure",
+      "work": "Somaliland Is Not De Facto — It Is De Jure",
+      "page": "5",
+      "video": "1-somaliland-2025"
+    },
+    {
+      "id": "cite_010",
+      "quote": "The object is to frighten him with hope: hope that he might get independence; Fright lest he might not unless he is sensible about the detachment of the Chagos Archipelago.",
+      "author": "Sir Oliver Wright",
+      "work": "Note prepared 22 September 1965",
+      "page": "ICJ Advisory Opinion paragraph 105",
+      "video": "14-chagos-islands-2025",
+      "entity_refs": [
+        "chagos_archipelago"
+      ]
+    },
+    {
+      "id": "cite_011",
+      "quote": "This detachment was not based on the free and genuine expression of the will of the people concerned.",
+      "author": "ICJ",
+      "work": "ICJ Advisory Opinion",
+      "page": "paragraph 172",
+      "video": "14-chagos-islands-2025"
+    },
+    {
+      "id": "cite_012",
+      "quote": "The United Kingdom's continued administration of the Chagos Archipelago constitutes a wrongful act entailing the international responsibility of that State.",
+      "author": "ICJ",
+      "work": "ICJ Advisory Opinion",
+      "page": "paragraph 177",
+      "video": "14-chagos-islands-2025",
+      "entity_refs": [
+        "chagos_archipelago",
+        "united_kingdom"
+      ]
+    },
+    {
+      "id": "cite_013",
+      "quote": "Your island has been sold. You will never go there again.",
+      "author": "Rita Bancoult",
+      "work": "Island of Shame",
+      "page": "6",
+      "video": "14-chagos-islands-2025",
+      "entity_refs": [
+        "rita_bancoult"
+      ]
+    },
+    {
+      "id": "cite_014",
+      "quote": "The agreement fails to guarantee and protect the rights of the Chagossian people, including their right to return to Diego Garcia.",
+      "author": "OHCHR Press Release",
+      "work": "OHCHR Press Release",
+      "page": "10 June 2025",
+      "video": "14-chagos-islands-2025",
+      "entity_refs": [
+        "chagossian_people"
+      ]
+    },
+    {
+      "id": "cite_015",
+      "quote": "With extraordinary few exceptions no educated person in the history of Western Civilization from the third century B.C. onward believed that the earth was flat.",
+      "author": "Jeffrey Burton Russell",
+      "work": "Inventing the Flat Earth",
+      "video": "19-flat-earth-medieval-2025",
+      "entity_refs": [
+        "flat_earth_myth",
+        "spherical_earth",
+        "jeffrey_burton_russell"
+      ]
+    },
+    {
+      "id": "cite_016",
+      "quote": "From the seventh century to the fourteenth, every important medieval thinker concerned about the natural world stated more or less explicitly that the world was a round globe.",
+      "author": "Stephen Jay Gould",
+      "work": "The Late Birth of a Flat Earth",
+      "page": "1994",
+      "video": "19-flat-earth-medieval-2025",
+      "entity_refs": [
+        "spherical_earth",
+        "middle_ages"
+      ]
+    },
+    {
+      "id": "cite_017",
+      "quote": "We call the earth a globe, not as if the shape of a sphere were expressed in the diversity of plains and mountains, but because, if all things are included in the outline, the earth's circumference will represent the figure of a perfect globe.",
+      "author": "Bede",
+      "work": "De Temporum Ratione",
+      "page": "725 CE",
+      "video": "19-flat-earth-medieval-2025",
+      "entity_refs": [
+        "spherical_earth"
+      ]
+    },
+    {
+      "id": "cite_018",
+      "quote": "Both an astronomer and a physical scientist may demonstrate the same conclusion, for instance that the earth is spherical.",
+      "author": "Thomas Aquinas",
+      "work": "Summa Theologica",
+      "video": "19-flat-earth-medieval-2025",
+      "entity_refs": [
+        "spherical_earth"
+      ]
+    },
+    {
+      "id": "cite_019",
+      "quote": "In 1828, Washington Irving's highly romanticized biography, A History of the Life and Voyages of Christopher Columbus, was published and mistaken by many for a scholarly work.",
+      "author": "Jeffrey Burton Russell",
+      "work": "Inventing the Flat Earth",
+      "video": "19-flat-earth-medieval-2025",
+      "entity_refs": [
+        "washington_irving",
+        "flat_earth_myth"
+      ]
+    },
+    {
+      "id": "cite_020",
+      "quote": "The conflict thesis is a historiographical approach in the history of science that originated in the 19th century... It maintains that there is an intrinsic intellectual conflict between religion and science.",
+      "author": "Jeffrey Burton Russell",
+      "work": "Inventing the Flat Earth",
+      "video": "19-flat-earth-medieval-2025",
+      "entity_refs": [
+        "conflict_thesis"
+      ]
+    },
+    {
+      "id": "cite_021",
+      "quote": "The Iranian constitutional revolution is usually dated from December 1905, when the governor of Tehran beat the feet of several sugar merchants for not lowering their raised sugar prices as ordered.",
+      "author": "Kagan",
+      "work": "Modern Iran",
+      "page": "67",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "constitutional_revolution_iran"
+      ]
+    },
+    {
+      "id": "cite_022",
+      "quote": "The Constitution itself, modelled on that of the Belgian Constitution – itself derived from the unwritten British constitution – was drawn up into two Fundamental Laws...",
+      "author": "Ansari",
+      "work": "Modern Iran since 1797",
+      "page": "104",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "constitutional_revolution_iran"
+      ]
+    },
+    {
+      "id": "cite_023",
+      "quote": "The Majles was designed to be the central piece of the new constitution. Described as the 'representative of the whole people,' it had final say over all 'laws, decrees, budgets, treaties, loans, monopolies, and concessions.'",
+      "author": "Abrahamian",
+      "work": "A History of Modern Iran",
+      "page": "49",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "majlis_iran"
+      ]
+    },
+    {
+      "id": "cite_024",
+      "quote": "Curzon described this sale as 'most complete surrender of the entire resources of a kingdom into foreign hands that has ever been dreamed of, much less accomplished in history.'",
+      "author": "Abrahamian",
+      "work": "A History of Modern Iran",
+      "page": "14",
+      "video": "24-iran-1953-coup-2025"
+    },
+    {
+      "id": "cite_025",
+      "quote": "The 1907 Convention divided Iran into three zones. It allocated the north, including Isfahan, to Russia; the southwest, especially Kerman, Sistan, and Baluchestan to Britain; and demarcated the rest as a 'neutral zone.'",
+      "author": "Abrahamian",
+      "work": "A History of Modern Iran",
+      "page": "46",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "anglo_russian_convention_1907",
+        "iran"
+      ]
+    },
+    {
+      "id": "cite_026",
+      "quote": "The Anglo-Persian Agreement removed the last vestiges of Iran's sovereignty.",
+      "author": "Kinzer",
+      "work": "All the Shah's Men",
+      "page": "39",
+      "video": "24-iran-1953-coup-2025"
+    },
+    {
+      "id": "cite_027",
+      "quote": "The Majlis met on March 15 to cast its historic vote. Ninety-six deputies turned up, including several who had promised the Shah they would stay away. Every one voted in favor of nationalization.",
+      "author": "Kinzer",
+      "work": "All the Shah's Men",
+      "page": "78",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "mohammad_mossadegh"
+      ]
+    },
+    {
+      "id": "cite_028",
+      "quote": "Sir William Fraser's classic statement of his Company's position in early 1951, 'There will be no further concessions' could only anger, frustrate and unite the Persians.",
+      "author": "CIA internal history (Wilber)",
+      "work": "The Coup",
+      "page": "86",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "anglo_persian_oil_company"
+      ]
+    },
+    {
+      "id": "cite_029",
+      "quote": "The CIA and MI6 named their joint operation 'AJAX.' A British historian notes that 'AJAX' was simply an elaboration of an earlier MI6 plan named 'BOOT.'",
+      "author": "Abrahamian",
+      "work": "The Coup",
+      "page": "172",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "operation_ajax"
+      ]
+    },
+    {
+      "id": "cite_030",
+      "quote": "In view foregoing and in absence strong contrary recommendations from you and Ambassador Henderson, operations against Mossadegh should be discontinued.",
+      "author": "CIA",
+      "work": "FRUS 1951-1954 Iran, Document 278",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "operation_ajax",
+        "mohammad_mossadegh"
+      ]
+    },
+    {
+      "id": "cite_031",
+      "quote": "The military coup that overthrew Mosadeq and his National Front cabinet was carried out under CIA direction as an act of US foreign policy, conceived and approved at the highest level of government.",
+      "author": "CIA history",
+      "work": "The Battle for Iran",
+      "page": "4",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "1953_iranian_coup_detat",
+        "cia",
+        "mohammad_mossadegh"
+      ]
+    },
+    {
+      "id": "cite_032",
+      "quote": "The British ambassador admitted that London was willing to go beyond the normal 50/50 deal and give Iran as much as 60 percent of the profits so long as real 'control' remained in Western hands.",
+      "author": "Abrahamian",
+      "work": "A History of Modern Iran",
+      "page": "112",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "anglo_persian_oil_company"
+      ]
+    },
+    {
+      "id": "cite_033",
+      "quote": "Christopher Woodhouse (MI6) admitted he deliberately framed the issue to appeal to the Americans: 'I decided to emphasize the Communist threat to Iran rather than the need to recover control of the oil industry.'",
+      "author": "Woodhouse",
+      "work": "Something Ventured",
+      "page": "3",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "operation_ajax"
+      ]
+    },
+    {
+      "id": "cite_034",
+      "quote": "My only crime is that I nationalized the Iranian oil industry and removed from this land the network of colonialism and the political and economic influence of the greatest empire on earth.",
+      "author": "Mohammad Mossadegh",
+      "work": "All the Shah's Men",
+      "page": "268",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "mohammad_mossadegh"
+      ]
+    },
+    {
+      "id": "cite_035",
+      "quote": "In 1953 the United States played a significant role in orchestrating the overthrow of Iran's popular Prime Minister, Mohammed Massadegh.",
+      "author": "Madeleine Albright",
+      "work": "Remarks before the American-Iranian Council",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "1953_iranian_coup_detat",
+        "united_states"
+      ]
+    },
+    {
+      "id": "cite_036",
+      "quote": "In the middle of the Cold War, the United States played a role in the overthrow of a democratically elected Iranian government.",
+      "author": "Barack Obama",
+      "work": "A New Beginning speech",
+      "page": "June 4, 2009",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "1953_iranian_coup_detat",
+        "united_states"
+      ]
+    },
+    {
+      "id": "cite_037",
+      "quote": "The successful 28 Mordad coup d'état... was part and parcel of the British-proposed and American-directed (and supported) operation to overthrow Mosaddeq.",
+      "author": "Rahnema",
+      "work": "Behind the 1953 Coup",
+      "page": "294",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "1953_iranian_coup_detat"
+      ]
+    },
+    {
+      "id": "cite_038",
+      "quote": "The Shahs had to use the army to shut down the Majlis. The Islamic Republic uses the Guardian Council to ensure the Majlis is pre-filled with loyalists from the start.",
+      "author": "NotebookLM Audio Overview",
+      "work": "NotebookLM Audio Overview",
+      "video": "24-iran-1953-coup-2025",
+      "entity_refs": [
+        "majlis_iran",
+        "guardian_council_iran"
+      ]
+    },
+    {
+      "id": "cite_039",
+      "quote": "On 2 December 1991, the Soviet Union was already a carcass, destroyed first by Gorbachev's reforms and then by the implacable separatism of Yeltsin's course of action.",
+      "author": "Vladislav Zubok",
+      "work": "Collapse: The Fall of the Soviet Union",
+      "page": "395",
+      "video": "30-belavezha-accords-2025",
+      "entity_refs": [
+        "ussr"
+      ]
+    },
+    {
+      "id": "cite_040",
+      "quote": "Legal advisor Sergey Shakhrai improvised the logic that since the three republics had tied the 'political nuptial cord' in 1922, they were the only ones who could untie it seven decades later.",
+      "author": "Serhii Plokhy",
+      "work": "The Last Empire",
+      "page": "309",
+      "video": "30-belavezha-accords-2025",
+      "entity_refs": [
+        "belavezha_accords"
+      ]
+    },
+    {
+      "id": "cite_041",
+      "quote": "The signing of the Belavezha Accords was a coup d'état which was completed peacefully.",
+      "author": "Leonid Kravchuk",
+      "work": "interview with Radio SVOBODA",
+      "page": "December 8, 2011",
+      "video": "30-belavezha-accords-2025",
+      "entity_refs": [
+        "belavezha_accords"
+      ]
+    },
+    {
+      "id": "cite_042",
+      "quote": "The object is to frighten him with hope: hope that he might get independence; Fright lest he might not unless he is sensible about the detachment of the Chagos Archipelago.",
+      "author": "Sir Oliver Wright",
+      "work": "ICJ Advisory Opinion paragraph 105",
+      "page": "22 September 1965",
+      "video": "14-chagos-islands-2025"
+    },
+    {
+      "id": "cite_043",
+      "quote": "The agreement fails to guarantee and protect the rights of the Chagossian people, including their right to return to Diego Garcia.",
+      "author": "OHCHR Press Release",
+      "work": "OHCHR Press Release",
+      "page": "10 June 2025",
+      "video": "14-chagos-islands-2025"
+    },
+    {
+      "id": "cite_044",
+      "quote": "...and by the same wind by twenty leagues is another (island) called Bermeja, as it appears to be of such a colour...",
+      "author": "Alonso de Santa Cruz",
+      "work": "Islario General",
+      "page": "518",
+      "video": "31-bermeja-island-2025",
+      "entity_refs": [
+        "bermeja_island"
+      ]
+    },
+    {
+      "id": "cite_045",
+      "quote": "The total area of the Western polygon is approximately 5,092 square nautical miles. The treaty boundary splits the Western Polygon continental shelf allocating 62% of the total area to Mexico and the remaining 38% to the United States.",
+      "author": "Mexican Law Review",
+      "work": "Mexican Law Review",
+      "page": "449",
+      "video": "31-bermeja-island-2025",
+      "entity_refs": [
+        "us_mexico_maritime_boundary",
+        "western_gap"
+      ]
+    },
+    {
+      "id": "cite_046",
+      "quote": "The team from UNAM concluded that there had not been an island at the given coordinates for more than 5300 years.",
+      "author": "Ex-Isles",
+      "work": "Islands that Disappeared",
+      "page": "38",
+      "video": "31-bermeja-island-2025",
+      "entity_refs": [
+        "bermeja_island"
+      ]
+    },
+    {
+      "id": "cite_047",
+      "quote": "The object is to frighten him with hope: hope that he might get independence; Fright lest he might not unless he is sensible about the detachment of the Chagos Archipelago.",
+      "author": "Sir Oliver Wright",
+      "work": "Note prepared 22 September 1965",
+      "page": "ICJ Advisory Opinion paragraph 105",
+      "video": "14-chagos-islands-2025",
+      "entity_refs": [
+        "chagos_archipelago"
+      ]
+    },
+    {
+      "id": "cite_048",
+      "quote": "The hope is that this reunion can provide a basis for excellent coordination and improved action to benefit the national security of our respective nations.",
+      "author": "Contreras",
+      "work": "invitation letter",
+      "page": "October 1975",
+      "video": "34-operation-condor-2025",
+      "entity_refs": [
+        "operation_condor"
+      ]
+    },
+    {
+      "id": "cite_049",
+      "quote": "We recommend the creation of a Coordinating Office, with the purpose of providing information on people and organizations linked to Subversion.",
+      "author": "Acta de Clausura",
+      "work": "Closing Statement",
+      "page": "November 28, 1975",
+      "video": "34-operation-condor-2025",
+      "entity_refs": [
+        "operation_condor"
+      ]
+    },
+    {
+      "id": "cite_050",
+      "quote": "Within a year after the coup, the CIA and other U.S. Government agencies were aware of bilateral cooperation among regional intelligence services to track the activities of and, in at least a few cases, kill political opponents.",
+      "author": "CIA",
+      "work": "Hinchey Report",
+      "page": "September 18, 2000",
+      "video": "34-operation-condor-2025",
+      "entity_refs": [
+        "cia",
+        "operation_condor"
+      ]
+    },
+    {
+      "id": "cite_051",
+      "quote": "Secretary declined to approve message to Montevideo and has instructed that no further action be taken on this matter.",
+      "author": "Henry Kissinger",
+      "work": "Cable SECTO 27128",
+      "page": "September 16, 1976",
+      "video": "34-operation-condor-2025",
+      "entity_refs": [
+        "henry_kissinger",
+        "operation_condor"
+      ]
+    },
+    {
+      "id": "cite_052",
+      "quote": "The military regimes of the southern cone of South America see themselves as embattled... they have established Operation Condor to find and kill terrorists...",
+      "author": "State Department",
+      "work": "ARA Monthly Report",
+      "page": "August 3, 1976",
+      "video": "34-operation-condor-2025",
+      "entity_refs": [
+        "operation_condor"
+      ]
+    },
+    {
+      "id": "cite_053",
+      "quote": "This was 'a blatant example of a chief of state's direct involvement in an act of state terrorism.'",
+      "author": "George Shultz",
+      "work": "memo to Ronald Reagan",
+      "page": "1987",
+      "video": "34-operation-condor-2025",
+      "entity_refs": [
+        "augusto_pinochet"
+      ]
+    },
+    {
+      "id": "cite_054",
+      "quote": "The Catholic King does hereby, for Himself, His heirs and successors, yield to the Crown of Great Britain the full and intire propriety of the Town and Castle of Gibraltar, together with the port, fortifications, and forts thereunto belonging...",
+      "author": "Treaty of Utrecht",
+      "work": "Article X",
+      "page": "1713",
+      "video": "35-gibraltar-treaty-utrecht-2026",
+      "entity_refs": [
+        "treaty_of_utrecht_1713",
+        "gibraltar",
+        "united_kingdom"
+      ]
+    },
+    {
+      "id": "cite_055",
+      "quote": "All physical barriers, checks and controls on people and goods moving between Spain and Gibraltar will be removed, while preserving the Schengen area...",
+      "author": "UK-EU Joint Declaration",
+      "work": "June 11, 2025",
+      "video": "35-gibraltar-treaty-utrecht-2026",
+      "entity_refs": [
+        "gibraltar",
+        "spain",
+        "schengen_area"
+      ]
+    },
+    {
+      "id": "cite_056",
+      "quote": "Under the treaty of Utrecht independence is not an option, unless Spain is prepared to agree",
+      "author": "UK Government",
+      "work": "Official position",
+      "video": "35-gibraltar-treaty-utrecht-2026",
+      "entity_refs": [
+        "treaty_of_utrecht_1713",
+        "gibraltar",
+        "spain"
+      ]
+    },
+    {
+      "id": "cite_057",
+      "quote": "Initial interest was shown from London in accepting responsibility for the administration of Gibraltar",
+      "author": "Peter Gold",
+      "work": "Gibraltar: British or Spanish?",
+      "page": "5",
+      "video": "35-gibraltar-treaty-utrecht-2026",
+      "entity_refs": [
+        "gibraltar"
+      ]
+    },
+    {
+      "id": "cite_058",
+      "quote": "It is for the people to determine the destiny of the territory and not the territory the destiny of the people",
+      "author": "Judge Dillard",
+      "work": "Western Sahara Advisory Opinion",
+      "page": "1975",
+      "video": "35-gibraltar-treaty-utrecht-2026",
+      "entity_refs": [
+        "judge_dillard"
+      ]
+    },
+    {
+      "id": "cite_059",
+      "quote": "Close study of German and French archives reveals no German demand in 1940 that Vichy adopt an anti-Jewish policy.",
+      "author": "Michael R. Marrus & Robert O. Paxton",
+      "work": "Vichy France and the Jews",
+      "page": "3",
+      "video": "37-untranslated-vichy-statut_juifs-2026",
+      "entity_refs": [
+        "statut_des_juifs",
+        "vichel_france"
+      ]
+    }
+  ],
+  "bridges": [
+    {
+      "id": "colonial_legal_frameworks",
+      "label": "Colonial Legal Frameworks",
+      "description": "Explores how European legal mechanisms like treaties, papal bulls, and internal instructions legitimized and shaped colonial expansion and its lasting impact.",
+      "videos": [
+        "1-somaliland-2025",
+        "14-chagos-islands-2025",
+        "35-gibraltar-treaty-utrecht-2026",
+        "41-treaty-tordesillas-2026",
+        "45-manhattan-purchase-myth-2026"
+      ],
+      "key_entities": [
+        "uti_possidetis_principle",
+        "doctrine_of_discovery",
+        "treaty_of_utrecht_1713",
+        "treaty_of_tordesillas_1494"
+      ]
+    },
+    {
+      "id": "historical_myth_debunking",
+      "label": "Historical Myth Debunking",
+      "description": "Analyzes how popular historical myths were created, propagated, and persist despite strong academic evidence to the contrary.",
+      "videos": [
+        "19-flat-earth-medieval-2025",
+        "31-bermeja-island-2025",
+        "37-untranslated-vichy-statut_juifs-2026",
+        "45-manhattan-purchase-myth-2026",
+        "50-thermopylae-sources-2026",
+        "54-spanish-inquisition-torture_rules-2026"
+      ],
+      "key_entities": [
+        "flat_earth_myth",
+        "cartographic_error",
+        "manhattan_purchase_myth",
+        "black_legend"
+      ]
+    },
+    {
+      "id": "foreign_intervention_cycles",
+      "label": "Foreign Intervention Cycles",
+      "description": "Examines recurring patterns of external powers interfering in the internal affairs of other nations, leading to political instability and democratic setbacks.",
+      "videos": [
+        "24-iran-1953-coup-2025",
+        "34-operation-condor-2025",
+        "40-berlin-conference-1884-2026",
+        "51-treaty-tripoli-article-11-2026"
+      ],
+      "key_entities": [
+        "1953_iranian_coup_detat",
+        "operation_condor",
+        "cia",
+        "anglo_russian_convention_1907"
+      ]
+    },
+    {
+      "id": "border_demarcation_consequences",
+      "label": "Border Demarcation Consequences",
+      "description": "Investigates the long-term impact of historically drawn borders on modern states, conflicts, ethnic relations, and economic inequality.",
+      "videos": [
+        "1-somaliland-2025",
+        "30-belavezha-accords-2025",
+        "31-bermeja-island-2025",
+        "40-berlin-conference-1884-2026",
+        "41-treaty-tordesillas-2026",
+        "43-india-pakistan-partition-2026"
+      ],
+      "key_entities": [
+        "uti_possidetis_principle",
+        "ethnic_partitioning",
+        "treaty_of_tordesillas_1494",
+        "berlin_conference_1884",
+        "india_pakistan_partition"
+      ]
+    },
+    {
+      "id": "state_responsibility_for_atrocities",
+      "label": "State Responsibility for Atrocities",
+      "description": "Highlights instances where states or their agents committed atrocities, and the subsequent reckoning, denial, or acknowledgment of responsibility.",
+      "videos": [
+        "14-chagos-islands-2025",
+        "34-operation-condor-2025",
+        "37-untranslated-vichy-statut_juifs-2026",
+        "40-berlin-conference-1884-2026"
+      ],
+      "key_entities": [
+        "chagos_archipelago",
+        "operation_condor",
+        "vichel_france",
+        "congo_free_state",
+        "holocaust"
+      ]
+    },
+    {
+      "id": "secularism_and_state",
+      "label": "Secularism and the State",
+      "description": "Explores the historical role of religion in government, the concept of a secular state, and debates surrounding its foundational principles.",
+      "videos": [
+        "51-treaty-tripoli-article-11-2026",
+        "19-flat-earth-medieval-2025"
+      ],
+      "key_entities": [
+        "article_11_treaty_of_tripoli",
+        "spherical_earth",
+        "conflict_thesis"
+      ]
+    }
+  ],
+  "_meta": {
+    "generated_by": "Gemini 2.5 Flash via tools/refresh-research-graph.py",
+    "generated_at": "2026-05-26",
+    "corpus": "16 _ARCHIVED/published/01-VERIFIED-RESEARCH.md files",
+    "caveats": "T3 synthesis. Verify quote attributions before script use. Stub entities flagged in role field.",
+    "actual_counts": {
+      "entities": 123,
+      "scholars": 53,
+      "edges": 88,
+      "citations": 59,
+      "bridges": 6,
+      "videos": 16
+    }
+  }
+}

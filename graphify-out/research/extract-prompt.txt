@@ -1,0 +1,109 @@
+You are reading verified research files from "History vs Hype" — a YouTube channel that debunks historical myths using primary sources. The corpus below is concatenated; each file is separated by `=== VIDEO: <slug> ===`. Each slug uniquely identifies one published video (e.g. `40-berlin-conference-1884-2026`, `54-spanish-inquisition-torture-rules-2026`). All files in this corpus are from `_ARCHIVED/published/` — every video is live.
+
+Produce a SINGLE JSON object — no markdown, no commentary, no preamble, no ```json fences. Start your output with `{` and end with `}`. Nothing else. Do not output the same JSON twice.
+
+## Goal
+
+The output JSON drives a knowledge graph used for cross-video discovery questions like *"have we covered scholar X"*, *"which videos cite treaty Y"*, *"what mechanism links videos A and B"*. The graph is currently sparse because earlier passes were too conservative. **This pass should err on the side of MORE bridges, MORE edges, MORE entity overlap — within the caps.** Reject hallucinated connections; do not reject legitimate ones just because they're "obvious."
+
+## Schema (every field required unless marked optional)
+
+```
+{
+  "generated_at": "<today's date YYYY-MM-DD>",
+  "source": "Gemini 2.5 Flash, bulk extraction over all _ARCHIVED/published/01-VERIFIED-RESEARCH.md files",
+  "videos": [
+    {"slug": "<exact slug from === VIDEO: line>", "topic": "<8-15 words>"}
+  ],
+  "entities": [
+    {
+      "id": "<snake_case_unique_id>",
+      "label": "<Human Readable Name>",
+      "type": "treaty | person | institution | primary_document | concept | place | event | mechanism | publisher | field",
+      "role": "<6-15 words describing role across the corpus>",
+      "videos": ["<slug1>", "<slug2>"]
+    }
+  ],
+  "scholars": [
+    {
+      "id": "<snake_case>",
+      "name": "<Last name or Last, First>",
+      "main_work": "<book/article title, optional, omit field if not in corpus>",
+      "field": "<2-5 word field/specialty, optional, omit if not derivable>",
+      "videos": ["<slug1>"]
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "<entity.id or scholar.id>",
+      "target_id": "<entity.id or scholar.id>",
+      "relation": "appears_with | cites | invokes | debunks | grounds_claim_in | bridges | same_mechanism | same_period | same_region | same_publisher | same_field",
+      "videos": ["<slug1>", "<slug2>"],
+      "evidence": "<one sentence explaining the connection, grounded in the research>",
+      "confidence": "EXTRACTED | INFERRED"
+    }
+  ],
+  "citations": [
+    {
+      "id": "<cite_NNN>",
+      "quote": "<verbatim text, copied exactly from the source file, <=50 words>",
+      "author": "<author name>",
+      "work": "<title of book/article/document>",
+      "page": "<page number or section identifier, optional, omit if not in source>",
+      "video": "<EXACTLY ONE slug — the video whose research file this quote appears in>",
+      "entity_refs": ["<entity.id or scholar.id this quote supports, optional>"]
+    }
+  ],
+  "bridges": [
+    {
+      "id": "<snake_case>",
+      "label": "<3-6 word bridge name>",
+      "description": "<one sentence — the load-bearing connection across videos>",
+      "videos": ["<slug1>", "<slug2>", "<slug3>"],
+      "key_entities": ["<entity.id>", "<entity.id>"]
+    }
+  ]
+}
+```
+
+## Caps (do not exceed)
+
+- entities: 150
+- scholars: 60
+- edges: 300
+- citations: 60
+- bridges: 40
+
+If the corpus does not support a cap, emit fewer items. Quality > quantity. **But if you're emitting fewer than half a cap, double-check you're not being too conservative** — surface every named scholar, every primary document, every legal/historical mechanism, every institution.
+
+## Hard rules
+
+1. **Verbatim quotes only.** Copy from the source files exactly. No paraphrasing, no grammar fixes, no ellipsis insertion unless the source had `...`.
+2. **One video per citation.** A citation's `video` field is a single slug — the one whose research file contains the quote. If the same quote literally appears in two files' verified research, emit two separate citation records.
+3. **Slug attribution discipline.** Every `videos: [...]` list contains ONLY slugs whose research file actually mentions the entity/scholar/quote. Do not infer presence from general knowledge. If in doubt, omit the slug.
+4. **No fabrication.** If a scholar's main_work is not stated in the corpus, omit the `main_work` field. Don't guess Penguin editions or page numbers.
+5. **Edges must point to declared ids.** `source_id` and `target_id` must each match an `id` in the `entities` or `scholars` arrays you emitted.
+6. **Bridges are the highest-value section. Use them generously.** Acceptable bridges include:
+   - **Shared primary source** — two videos both quote the same treaty, decree, letter, manuscript
+   - **Shared scholar** — same scholar cited as authoritative in 2+ videos (even if for different facts)
+   - **Shared mechanism** — same legal/colonial/ideological mechanism (e.g., *uti possidetis*, *Conflict Thesis*, *Doctrine of Discovery*, *terra nullius*)
+   - **Shared period/region** — 2+ videos covering events within the same century in the same imperial/colonial frame
+   - **Shared methodological move** — 2+ videos using the same primary-source-on-screen rebuttal pattern against a specific scholarly consensus
+
+   A bridge is NOT "both videos mention the British" — too broad. But it IS "both videos use a 16th-century papal bull to refute a modern political claim" — that's a load-bearing methodological bridge.
+
+7. **Output one JSON object only.** Do not duplicate. Do not append a second copy. Stop after the closing `}`.
+
+## Density expectations
+
+Earlier passes produced ~110 entity-nodes and ~55 edges from 15-16 videos. That averages ~7 entities and ~3 edges per video — too sparse. Target this pass:
+
+- ~6-10 entities per video × N videos (so ~100-150 total entities)
+- ~10-15 edges per video × N videos (~150-300 total edges) — including same-corpus cross-video edges
+- ~1-3 scholars per video × N videos (~20-50 scholars)
+- ~15-30 high-value bridges (was 2)
+
+If your output is materially below these ranges, re-examine the corpus for entities/scholars/connections you skipped as "obvious."
+
+The corpus follows below this line.
+==== BEGIN CORPUS ====
