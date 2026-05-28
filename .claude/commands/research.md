@@ -9,6 +9,8 @@ Start a new video project or research an existing topic. This command consolidat
 
 **Competitive Integration:** This workflow includes competitor analysis and technique selection.
 
+> **Historian Mode:** This command activates the `historian` skill at workflow entry (Stage A and beyond). The skill is dormant during Stage 0 project mechanics (demand gate, folder creation, title pre-gen). See `.claude/skills/historian/SKILL.md`.
+
 ## Usage
 
 ```
@@ -91,6 +93,8 @@ Low signal: ~15 videos — experiment freely.
 ---
 
 ## NEW PROJECT WORKFLOW (`--new` or default)
+
+### Stage 0 — Project Setup (historian skill dormant)
 
 ### Step 0: YouTube Intelligence KB Staleness Check
 
@@ -243,6 +247,8 @@ Before creating anything, check for existing verified research:
 - Phase 2: Script (locked until 90% verified)
 - Phase 3: Fact-check (locked until script complete)
 
+### Stage A — Historiographical Baseline
+
 ### Step 5: Wikipedia Pre-Research Brief (Auto-run)
 
 **Automatically generate a structured brief using the `wiki-researcher` agent.**
@@ -280,6 +286,143 @@ Using the brief as a foundation, fill any remaining gaps:
 
 **Output to:** `_research/01-PRELIMINARY-RESEARCH.md`
 
+### Step 6.5: Topic Viability Gate (P11.1a)
+
+> **Companion to `/greenlight`** (packaging viability — will it get clicks). This gate covers substantive viability — can we research this topic at the channel's standard. Run after the Phase 1 wiki-researcher brief (Step 5 output: `_research/00-PRELIMINARY-BRIEF.md`). See `feedback-auditors-edge.md` §'tier-vibe' for T-tier accessibility, `feedback-topic-vs-angle-ordering.md` for the angle-locks-at-research principle, and `.claude/REFERENCE/THESIS-DISCIPLINE.md` for throughline drafting.
+>
+> **Distinction from `/greenlight`:** `/greenlight` = will this title/thumbnail get clicks (packaging). This gate = can we produce it with primary-source integrity (substantive). They run in parallel, not redundantly.
+>
+> **Distinction from Step 1c title pre-generation:** Step 1c brainstorms title candidates via Ollama (packaging layer). This gate surfaces T-tier distribution + specificity bombs + thesis discipline (content layer). No overlap.
+
+**Trigger condition:** Fires once per topic after Step 5 wiki-researcher brief is complete. Cannot be skipped — `/research` cannot enter Step 7 without a PROCEED or VIABILITY_OVERRIDE verdict.
+
+**Three viability checks** (mechanism-word check is deferred to P11.1b — needs the NLM notebook, which isn't populated until after Step 8):
+
+#### Check A: Primary-source accessibility map (T-tier projection)
+
+From the brief's "Academic Sources" table and "Claims" section, project a T-tier distribution across load-bearing claims:
+
+- **T1-projected:** Count of claims where a primary document is plausibly accessible — digitized or in a verifiable language per `user-languages.md` (French, Spanish, German, Latin, Greek, Dutch).
+- **T2-projected:** Count of claims where the primary exists but only via Anglophone scholar quotation.
+- **T3-only:** Count of claims where only scholarly interpretation is available; primary is inaccessible or in an unverifiable language.
+
+Thresholds (v1 calibration — re-evaluate after 3-4 videos run through the gate):
+- **PROCEED:** T3-only < 15% of load-bearing claims.
+- **SHARPEN:** T3-only 15–30%, OR T3-only > 30% but primaries are in verifiable languages (acquisition is feasible).
+- **DEFER:** T3-only > 30% AND the inaccessible primaries are in a language the channel cannot verify.
+
+#### Check B: Specificity-bomb count
+
+Per niche-wide data (5.4x retention lift), the topic needs ≥3 specificity bombs available — specific named documents + dates + figures + concrete factual claims. Source from the brief's Claims section and Wikipedia's primary-source references.
+
+Thresholds (v1 calibration):
+- **PROCEED:** ≥3 specificity bombs identifiable, each with a credible source path.
+- **SHARPEN:** Exactly 2 specificity bombs — possibly enough but thin.
+- **DEFER:** Fewer than 2 specificity bombs identifiable from the brief.
+
+#### Check C: Thesis-discipline pre-check
+
+Per `THESIS-DISCIPLINE.md`, attempt to draft a ≤12-word throughline from the brief.
+
+Thresholds:
+- **PROCEED:** Throughline forms with a specific action verb that names what historical actors did.
+- **SHARPEN:** Throughline forms but feels generic — could apply to other topics.
+- **DEFER:** No throughline forms; the brief reads as a fact-list without a sharp claim.
+
+**Verdict logic:**
+- **PROCEED** — All three checks PROCEED. Topic is substantively viable. Continue to Step 6.6 (if needed) then Step 7.
+- **SHARPEN** — One or two checks at SHARPEN, none at DEFER. Output a specific punch-list of what's missing. Topic stays in the project folder; user iterates and re-runs the gate.
+- **DEFER** — One or more checks at DEFER. Topic is not viable at the channel's current standard. Output a deferral note (what would need to change). Move to `channel-data/TOPIC-PIPELINE.md` backlog.
+
+**Override mechanism:** If user explicitly overrides a DEFER verdict, require this acknowledgment:
+```
+I understand this topic is at the channel's substantive-viability ceiling.
+I am proceeding with VIABILITY_OVERRIDE: true.
+Reason: [user-supplied rationale]
+```
+Log to `PROJECT-STATUS.md` as `VIABILITY_OVERRIDE: true` with reason. The override is honest — it doesn't pretend the topic is viable; it acknowledges acceptance of the risk.
+
+**Output: `RESEARCH-VIABILITY.md` in the project folder.** Structure:
+```markdown
+# Research Viability — [Topic]
+**Date:** [YYYY-MM-DD]
+**Verdict:** PROCEED / SHARPEN / DEFER
+
+## Check A: T-tier projection
+- T1-projected: [N] claims ([list])
+- T2-projected: [N] claims ([list])
+- T3-only: [N] claims ([list] — language accessibility: [verifiable / unverifiable])
+- Result: PROCEED / SHARPEN / DEFER
+
+## Check B: Specificity-bomb count
+- Bombs identified: [N]
+- Evidence: [list with source path for each]
+- Result: PROCEED / SHARPEN / DEFER
+
+## Check C: Thesis-discipline pre-check
+- Draft throughline: "[≤12 words]"
+- Action verb: [verb]
+- Result: PROCEED / SHARPEN / DEFER
+
+## Verdict: [PROCEED / SHARPEN / DEFER]
+[If SHARPEN: punch-list of what's missing]
+[If DEFER: deferral note + trigger Step 6.6 acquisition queue]
+[If VIABILITY_OVERRIDE: flag + reason]
+
+## Mechanism-word candidates (for P11.1b — resolved after first NLM ingestion)
+- Candidate 1: [word] — projected confidence: [HIGH / MEDIUM / LOW based on brief]
+- Candidate 2: [word] — projected confidence: [HIGH / MEDIUM / LOW]
+```
+
+**Gate behavior:** `/research` cannot enter Step 7 until `RESEARCH-VIABILITY.md` shows verdict PROCEED or VIABILITY_OVERRIDE: true. If SHARPEN, user must address the punch-list and re-run this gate.
+
+### Step 6.6: Source Acquisition Queue Generation (P11.3)
+
+> **Companion artifact to `_research/00-NOTEBOOKLM-SOURCE-LIST.md`** (which tracks what sources exist for the topic). This queue tracks what specific acquisitions would upgrade T3 claims to T2/T1 — a different shape. See `feedback-auditors-edge.md` §'tier-vibe' for T-tier upgrades; `feedback-research-audit.md` for the existing P/S/S→P system this queue feeds.
+
+**Trigger condition:** Runs ONLY when Step 6.5 returns SHARPEN with T-tier accessibility gaps. PROCEED skips (no gaps to queue); DEFER skips (topic not viable, acquisition queue is moot).
+
+**Per-gap analysis:** For each T3-only claim flagged in Step 6.5:
+1. Identify the primary document that would close the gap (what source turns this T3 into T2/T1).
+2. Identify access path: JSTOR / library catalogue / ILL request / archive contact / online repository / scholar-quoted alternative.
+3. Estimate effort and cost.
+4. Assign priority based on load-bearing-ness for the locked thesis.
+
+**Output: `SOURCE-ACQUISITION-QUEUE.md` in the project folder.** Structure:
+
+```markdown
+# Source Acquisition Queue — [Project Name]
+
+**Purpose:** Track primary-source acquisitions that would upgrade T3 claims to T2/T1.
+**Generated from:** RESEARCH-VIABILITY.md gap analysis ([date]).
+**Status legend:** TARGETED / ATTEMPTING / ACQUIRED / UNAVAILABLE / DEFERRED
+
+## Queue Summary
+- Total acquisitions targeted: [N]
+- Priority 1 (blocks viability re-evaluation): [N]
+- Priority 2 (load-bearing for scene): [N]
+- Priority 3 (nice-to-have): [N]
+- Acquired: [N] | Unavailable: [N]
+
+## Acquisitions
+
+### [Source name]
+- **Upgrades claim:** [Specific claim in 01-VERIFIED-RESEARCH.md that gets upgraded]
+- **Current tier:** [T3 / T2]
+- **Target tier:** [T2 / T1]
+- **Source type:** [Primary document / Critical edition / Manuscript scan / Archival reference]
+- **Access path:** [JSTOR URL / Library catalogue / ILL request / Archive contact / Online repository]
+- **Estimated effort:** [Low / Medium / High] — [free / paywall / ILL turnaround / archive trip]
+- **Estimated cost:** [€ amount or "free"]
+- **Priority:** [1 / 2 / 3]
+- **Status:** TARGETED / ATTEMPTING / ACQUIRED / UNAVAILABLE / DEFERRED
+- **Notes:** [Why this matters, blockers, contact info]
+```
+
+**Re-evaluation hook:** After Priority 1 acquisitions are marked ACQUIRED, re-run Step 6.5 viability gate. PROCEED becomes reachable once the T3-only ratio drops below the DEFER threshold.
+
+**Integration with `00-NOTEBOOKLM-SOURCE-LIST.md`:** Cross-reference both files but do not duplicate content. The source list tracks what to acquire for the topic broadly; the acquisition queue tracks what specific acquisitions unlock specific claim-tier upgrades. Different shapes; both useful.
+
 ### Step 7: Competitive Intelligence Check
 
 After preliminary research, before deep research:
@@ -302,6 +445,24 @@ After preliminary research, before deep research:
 
 > **Proactive:** "I've checked competitor coverage of [topic]. The main videos are [list]. Your unique angle could be [suggestion based on channel DNA]."
 
+### Stage A Lock
+
+Surface conversationally: *"Stage A (Historiographical Baseline) complete — ready for Stage B (Source Criticism)?"*
+
+Run the Stage A→B checklist in `.claude/skills/historian/STAGE-AUDITS.md` before confirming. On user confirm, append to `PROJECT-STATUS.md` **below** `<!-- /AUTO:reconcile -->`:
+
+```
+## Historian Stage State
+**Current stage:** Stage A — Historiographical Baseline (locked [YYYY-MM-DD])
+**Next stage:** Stage B — Source Criticism
+**Outstanding flags:** [None / list]
+**Stage A locked:** [YYYY-MM-DD]
+**Stage B locked:** pending
+**Stage C locked:** pending
+```
+
+### Stage B — Source Criticism
+
 ### Step 8: Create NotebookLM Source List
 
 Based on preliminary research and the brief's Academic Sources table, create:
@@ -312,6 +473,38 @@ Based on preliminary research and the brief's Academic Sources table, create:
 - Top-tier scholars (endowed chairs, major universities)
 - Critical editions of primary sources
 - Budget is UNLIMITED - recommend best sources regardless of price
+
+#### Provenance Check (per source)
+
+For each source in `00-NOTEBOOKLM-SOURCE-LIST.md`, record inline:
+- **Author / year / edition / translator / publisher** (bibliographic anchor)
+- **Bias / proximity / intent** (internal-criticism note — who wrote it, when, for what audience)
+
+Example format:
+```
+[A1] McIntosh, Gregory C. *The Piri Reis Map of 1513*. University of Georgia Press, 2000.
+- Provenance: Academic monograph, 2000 edition; McIntosh is the primary Anglophone specialist
+- Bias/proximity: Contemporary scholar (487 years after map creation); working from 16th-c scholarly apparatus
+- Intent: Academic reassessment correcting Hapgood and Kahle errors
+```
+
+**Note:** Notebook upload is user-driven. Claude surfaces the Stage B→C checklist; user confirms upload before Stage C begins.
+
+### Stage B Lock
+
+Surface conversationally: *"Stage B (Source Criticism) complete — ready for Stage C (Corroboration)?"*
+
+Run the Stage B→C checklist in `.claude/skills/historian/STAGE-AUDITS.md` before confirming. On user confirm, update `## Historian Stage State` in `PROJECT-STATUS.md`:
+
+```
+## Historian Stage State
+**Current stage:** Stage B — Source Criticism (locked [YYYY-MM-DD])
+**Next stage:** Stage C — Corroboration
+**Outstanding flags:** [None / list]
+**Stage A locked:** [date]
+**Stage B locked:** [YYYY-MM-DD]
+**Stage C locked:** pending
+```
 
 ### Step 9: Report and Next Steps
 
@@ -414,6 +607,20 @@ Skip project creation, just research a topic:
 
 ## EXISTING PROJECT WORKFLOW (`--existing`)
 
+### Migration Inference (for projects without Stage markers)
+
+On entry, check `PROJECT-STATUS.md` for a `## Historian Stage State` section. If absent, infer stage from artifacts:
+
+| Evidence | Inferred stage |
+|---|---|
+| 20+ ✅ claims in `01-VERIFIED-RESEARCH.md` + notebook ID present | Stage C — Corroboration |
+| `_research/00-NOTEBOOKLM-SOURCE-LIST.md` exists + NLM notebook populated + <5 ✅ claims | Stage B — Source Criticism |
+| `_research/00-PRELIMINARY-BRIEF.md` exists + no NLM notebook | Stage A — Historiographical Baseline |
+
+Surface to user: *"I infer Stage C based on [evidence]. Confirm?"* Write the `## Historian Stage State` section to `PROJECT-STATUS.md` **below** `<!-- /AUTO:reconcile -->` only after user confirms.
+
+Then apply the historian skill continuously from the inferred stage forward. Flag audit on existing claims: scan `01-VERIFIED-RESEARCH.md` for verbatim quotes without NLM source IDs and single-source [S] on-screen claims — surface any `[FLAG: *]` findings before proceeding with new research.
+
 Add research to an existing project:
 
 1. **Find project:** Use glob to locate folder
@@ -426,7 +633,7 @@ Add research to an existing project:
 
 ---
 
-## NLM INGESTION WORKFLOW (`--ingest`)
+## Stage C — Corroboration (`--ingest`, `--apply-review`)
 
 Ingest NotebookLM chat output into structured verified claims.
 
@@ -513,6 +720,91 @@ Rejected: 4 claims skipped
 ```
 
 **IMPORTANT:** This command orchestrates the flow but actual parsing and writing happens in `tools/research/nlm_ingest.py`. Claude reads this command, then runs the Python tool via Bash. Do NOT attempt to import Python directly from the command file — run it as a subprocess or Bash execution.
+
+### Step 6 (post-apply): Mechanism-Word Lock Gate (P11.1b)
+
+> **Post-NLM half of the viability gate** (other half: Step 6.5 Topic Viability Gate, Phase 1). Required because mechanism-word grounding can only be checked against an actual NLM notebook, not against a Phase 1 brief. See `feedback-notebook-citation-grounding.md` §'mechanism claims' for the canonical NLM-confidence query. See `feedback-auditors-edge.md` title-extension for why mechanism words in titles must be grounded at T1/T2.
+
+**Trigger condition:** Fires automatically the first time `--apply-review` ingests claims into a project where `RESEARCH-VIABILITY.md` exists with mechanism-word candidates flagged for post-ingestion check. Subsequent `--apply-review` passes skip this gate if all candidates already have a verdict (LOCK / SOFTEN / SWAP recorded in `RESEARCH-VIABILITY.md`).
+
+**Single check: mechanism-word NLM-confidence.** For each mechanism-word candidate listed in `RESEARCH-VIABILITY.md` "Mechanism-word candidates" section:
+1. Run a NotebookLM confidence query using the notebook for this project. Use `feedback-notebook-citation-grounding.md` scope-b rules: query must be bidirectional — confirm both that the source uses the term AND that the source is the originator, not citing another scholar.
+2. Returns: HIGH / MEDIUM / LOW confidence per candidate.
+
+**Verdict logic (per candidate):**
+- **LOCK** — Candidate returns HIGH confidence. Mechanism word is defensible at title stage. Record in `RESEARCH-VIABILITY.md`.
+- **SOFTEN** — Candidate returns MEDIUM. Either soften the language (e.g., "translation ambiguity" instead of "forgery") OR acquire more sources to raise confidence. Re-check after source acquisition.
+- **SWAP** — Candidate returns LOW. Drop this candidate; try the next one on the list. If all candidates return LOW, escalate to user — this topic may lack a defensible mechanism word, which may invalidate the original viability verdict.
+
+**Output: append to `RESEARCH-VIABILITY.md`.** Append section titled "## Mechanism-Word Lock Gate (post-NLM)":
+```markdown
+## Mechanism-Word Lock Gate (post-NLM)
+**Date:** [YYYY-MM-DD]
+**Notebook ID:** [NLM project notebook ID]
+
+| Candidate | NLM confidence | Action | Notes |
+|---|---|---|---|
+| [word] | HIGH / MEDIUM / LOW | LOCK / SOFTEN / SWAP | [source + page if LOCK; soften version if SOFTEN; reason if SWAP] |
+
+**Locked mechanism word:** [word] — or "NONE — escalating to user" if all candidates SWAPped.
+```
+
+**Gate behavior:** Title locking (in `/script` or `/greenlight` final pass) cannot proceed until at least one mechanism-word candidate has LOCKED. If all SWAP'd and no fallback candidate exists, return the topic to viability assessment (the lack of a defensible mechanism word is a substantive-viability failure).
+
+### Step 7 (post-apply): Angle-Discovery Pass (P11.2)
+
+> **Routes specificity discipline upstream of script-write.** Fires after `--apply-review` has ingested claims AND P11.1b has LOCKED at least one mechanism-word candidate. Skips if no claims were ingested (nothing new to mine) or if mechanism-word gate hasn't produced a LOCK yet. See `THESIS-DISCIPLINE.md` for the thesis-verb framework, `feedback-auditors-edge.md` tier-vibe for hook quote tiering, `script-writer-v2` Rules 17/36/32G for downstream consumers.
+>
+> **Distinction from Step 1c title pre-generation:** Step 1c brainstorms title candidates via Ollama (packaging layer). Angle-discovery surfaces hook quotes + thesis verbs + closing payoffs from the NLM notebook (content layer). No overlap.
+
+**Trigger condition:** Fires after `--apply-review` successfully ingests claims AND P11.1b shows at least one LOCK in `RESEARCH-VIABILITY.md`. Skips if the mechanism-word gate has not yet run or has no LOCK.
+
+**Three angle-discovery NLM queries** (canonical prompts in `.claude/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md` — see section "Angle-Discovery Prompts (P11.2)"):
+
+- **Query AD-1 — Candidate Hook Quotes (specificity-ranked).** Top 5 most specific, surprising, anchor-able quotes from the notebook. Each must contain ≥1 named person + ≥1 named document or date + ≥1 concrete fact. Rank by specificity-bomb score. Output: quote + source + page + T-tier + score.
+- **Query AD-2 — Candidate Thesis Verbs.** Top 3 verbs describing what historical actors actually did in this topic, with quote evidence supporting each. Pairs with the locked mechanism word from P11.1b. Output: verb + evidence + NLM-confidence.
+- **Query AD-3 — Candidate Closing Payoffs.** Top 3 most surprising or anchoring facts that could carry the script's closing beat. Rank by surprise + concreteness + memorability. Output: fact + source + suggested phrasing.
+
+**Output to `01-VERIFIED-RESEARCH.md`** — section titled `## CANDIDATE ANGLES`. **OVERWRITE behavior (locked U4):** each `--apply-review` run that ingests claims REPLACES this entire section with fresh output. Do NOT append dated sub-sections; the section is always current-as-of-latest-pass. The dated header records when the latest pass ran.
+
+Format:
+```markdown
+## CANDIDATE ANGLES (NLM-discovered, --apply-review pass [YYYY-MM-DD])
+
+### Hook Quote Candidates (specificity-ranked)
+1. **Score 95** | T1 | "[quote]" | [Author], *[Title]*, p. [X]
+2. **Score 88** | T2 | "[quote]" | [Author], *[Title]*, p. [X]
+3. ...
+
+### Thesis Verb Candidates
+1. [verb] | NLM HIGH | evidence: "[...]" | [source], p. [X]
+2. [verb] | NLM MEDIUM | evidence: "[...]" | [source], p. [X]
+3. [verb] | NLM HIGH | evidence: "[...]" | [source], p. [X]
+
+### Closing Payoff Candidates
+1. [fact] | [source], p. [X] | suggested closing: "[draft phrasing]"
+2. ...
+```
+
+**Downstream consumption:** When `/script` starts, it reads this section. The writer (or `script-writer-v2` agent) picks from candidates or explicitly rejects with reason. Enforced at script-stage via `script-writer-v2` Rules 17 (hook anchoring), 36 (thesis discipline), and 32G (closer specificity).
+
+### Stage C Lock
+
+Surface conversationally after all `--apply-review` passes are complete and angle-discovery has run: *"Stage C (Corroboration) complete — ready to script?"*
+
+Run the Stage C→Ready-to-Script checklist in `.claude/skills/historian/STAGE-AUDITS.md` before confirming. On user confirm, update `## Historian Stage State` in `PROJECT-STATUS.md`:
+
+```
+## Historian Stage State
+**Current stage:** Stage C — Corroboration (locked [YYYY-MM-DD])
+**Next stage:** Phase 2 — Script (/script)
+**Outstanding flags:** [None / list of any deferred flags with logged rationale]
+**Stage A locked:** [date]
+**Stage B locked:** [date]
+**Stage C locked:** [YYYY-MM-DD]
+```
+
+Update `01-VERIFIED-RESEARCH.md` status line to `READY TO WRITE SCRIPT`.
 
 ---
 
