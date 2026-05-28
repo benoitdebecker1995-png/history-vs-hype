@@ -38,6 +38,9 @@ This is your **single source of truth** for verified facts.
 1. Only add facts here AFTER verifying with 2+ sources
 2. Don't write script until 90%+ of claims verified
 3. Mark each claim with status: VERIFIED / RESEARCHING / UNVERIFIABLE
+4. Every VERIFIED row must carry a **Validated-for** stamp. ✅ without a Validated-for value = treat as ⏳ until stamped.
+
+> **Why:** "Validated-at-time-T artifacts must be re-stamped with what they were validated *for*, so future sessions don't inherit them as universally authoritative." See `memory/feedback-postmortem-methodology.md` §'second methodology-bias dimension' (2026-05-21). A NotebookLM round-trip that confirms verbatim text is in source X does NOT confirm source X originated it. Each row must record what dimension was checked.
 
 ---
 
@@ -89,6 +92,9 @@ This is your **single source of truth** for verified facts.
 **Sources (min 2):**
 1. [Author] (Tier [1/2/3]) - *[Title]*, p. [page] - [URL if available]
 2. [Author] (Tier [1/2/3]) - *[Title]*, p. [page]
+**Validated for:** [verbatim text / attribution origin / edition+page / numeric value / all of the above]
+**Validated against:** [NotebookLM project notebook ID / direct primary-source PDF path / scholar's apparatus only]
+**Validation date:** [YYYY-MM-DD]
 **Notes:** [Context, caveats, how to present]
 **Script-Ready:** YES / NO
 
@@ -118,7 +124,9 @@ This is your **single source of truth** for verified facts.
 >
 > **Source:** [Author], *[Title]*, p. [page]
 > **Tier:** [1/2/3]
-> **Verified:** [date]
+> **Validated for:** [verbatim text / attribution origin / edition+page / all of the above]
+> **Validated against:** [NotebookLM project notebook ID / direct primary-source PDF path / scholar's apparatus only]
+> **Validation date:** [YYYY-MM-DD]
 > **Used in script:** Lines [XX-YY]
 
 ---
@@ -128,8 +136,26 @@ This is your **single source of truth** for verified facts.
 >
 > **Source:** [Author], *[Title]*, p. [page]
 > **Tier:** [1/2/3]
-> **Verified:** [date]
+> **Validated for:** [verbatim text / attribution origin / edition+page / all of the above]
+> **Validated against:** [NotebookLM project notebook ID / direct primary-source PDF path / scholar's apparatus only]
+> **Validation date:** [YYYY-MM-DD]
 > **Used in script:** Lines [XX-YY]
+
+---
+
+## Candidate Quotes (Not Yet NLM-Verified)
+
+> **Holding pen for web-sourced or Gemini-sourced text awaiting NLM acquisition.**
+> Entries here are NOT script-ready. Each entry needs either:
+> (a) NLM round-trip → promote to `## VERIFIED QUOTES`, OR
+> (b) Source acquisition → add to `SOURCE-ACQUISITION-QUEUE.md` → upload to NLM → re-verify
+
+### Candidate: [description]
+> "[Passage text — verbatim as sourced]"
+>
+> **Sourced from:** [Gemini output / web URL / other]
+> **Acquisition target:** [specific book/article that would close the gap, or "unknown"]
+> **Flag status:** `[FLAG: LIBRARY ACQUISITION]` / `[FLAG: NEED SOURCES]` / PENDING
 
 ---
 
@@ -160,6 +186,9 @@ This is your **single source of truth** for verified facts.
 - **Reference:** [Precise catalogue number/reference code]
 - **Date:** [When document was created]
 - **Verified from:** [How verified - archive catalogue, secondary source]
+- **Validated for:** [verbatim text / attribution origin / edition+page / existence / all of the above]
+- **Validated against:** [NotebookLM project notebook ID / direct primary-source PDF path / scholar's apparatus only]
+- **Validation date:** [YYYY-MM-DD]
 - **Common errors:** [Frequent misattributions to avoid]
 - **Script-Ready:** YES / NO
 
@@ -185,6 +214,7 @@ This is your **single source of truth** for verified facts.
 - [ ] No [TK] placeholders remaining
 - [ ] Contested claims identified and labeled
 - [ ] Check VERIFIED-CLAIMS-DATABASE.md for reusable facts
+- [ ] Every VERIFIED claim has a Validated-for stamp recording what dimension was checked
 
 **Status:** NOT READY / READY TO WRITE
 
