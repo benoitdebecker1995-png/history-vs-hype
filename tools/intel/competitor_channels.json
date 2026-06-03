@@ -61,6 +61,18 @@
       "name": "HistoryMarche",
       "category": "broad-history",
       "notes": "Military animated history — Tier 3 watch for format innovations"
+    },
+    {
+      "id": "UCqoGR_EedlhKDVuWNwYWRbg",
+      "name": "Voices of the Past",
+      "category": "style-match",
+      "notes": "Primary-source-verbatim — reads first-hand accounts on screen. Closest match to HvH core differentiator. Added 2026-06-03 (RSS-verified)."
+    },
+    {
+      "id": "UCct9aR7HC79Cv2g-9oDOTLw",
+      "name": "ReligionForBreakfast",
+      "category": "style-match",
+      "notes": "Academic nonsectarian religion (Dr. Andrew Henry, PhD) — topic relevance for hijab/I-P religious-framing videos. Added 2026-06-03 (RSS-verified)."
     }
   ]
 }
