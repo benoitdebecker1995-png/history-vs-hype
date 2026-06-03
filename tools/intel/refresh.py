@@ -60,17 +60,25 @@ def _print_phase(phase_num: int, description: str) -> None:
 
 def ensure_channels_loaded(store: KBStore) -> None:
     """
-    Bootstrap the competitor_channels table from competitor_channels.json.
+    Bootstrap/sync the competitor_channels table from competitor_channels.json.
 
-    Called at the start of refresh. If the table already has entries, this
-    is a no-op (won't duplicate channels due to upsert in save_competitor_channel).
+    Inserts any channel present in the JSON but MISSING from the table — on every
+    run, not just when the table is empty. This is what keeps newly-added channels
+    attributed (previously the function early-returned on a non-empty table, so
+    channels added to the JSON after first load never synced and their videos
+    showed as unmapped).
 
-    For a completely empty table, loads all channels from the JSON config.
+    Only missing channels are inserted: save_competitor_channel upserts with
+    `subscriber_count = excluded.subscriber_count`, and the JSON carries no sub
+    counts, so re-saving an existing channel would wipe its real count to NULL.
     """
     try:
         existing = store.get_active_channels()
-        if existing and not isinstance(existing, dict):
-            return  # Already loaded
+        existing_ids = (
+            {c["channel_id"] for c in existing}
+            if isinstance(existing, list)
+            else set()
+        )
 
         channels = load_channel_config(_DEFAULT_CONFIG_PATH)
         if isinstance(channels, dict) and "error" in channels:
@@ -79,13 +87,11 @@ def ensure_channels_loaded(store: KBStore) -> None:
 
         for channel in channels:
             channel_id = channel.get("id")
-            channel_name = channel.get("name", channel_id)
-            category = channel.get("category")
-            if channel_id:
+            if channel_id and channel_id not in existing_ids:
                 store.save_competitor_channel(
                     channel_id=channel_id,
-                    channel_name=channel_name,
-                    niche_category=category,
+                    channel_name=channel.get("name", channel_id),
+                    niche_category=channel.get("category"),
                 )
     except (sqlite3.Error, OSError) as exc:
         # Non-fatal — proceed even if bootstrap fails
