@@ -88,8 +88,20 @@ logs/*.log
 library/
 
 # YouTube Analytics credentials (belt and suspenders)
-tools/youtube-analytics/credentials/client_secret.json
-tools/youtube-analytics/credentials/token.json
+# NOTE: module dir uses an UNDERSCORE (youtube_analytics). The old hyphen paths
+# here were dead rules — fixed 2026-06-03. Patterns broadened to catch a stray
+# token/secret export anywhere, backed by the pre-commit secret-guard hook.
+tools/youtube_analytics/credentials/
+**/client_secret*.json
+**/*oauth*.json
+**/token.json
+**/*-token.json
+**/*_token.json
+**/service-account*.json
+*.pem
+*.key
+*.p12
+*.pfx
 
 # Scratch/temporary files in youtube_analytics (backfill artifacts)
 tools/youtube_analytics/_longform_*.json
@@ -116,3 +128,7 @@ flight-deals/scans/*.stderr.log
 graphify-out/research/.analysis.json
 graphify-out/research/.graphify_extract.json
 graphify-out/research/.labels.json
+
+# graphify pipeline intermediates/cache under video projects (regenerated)
+video-projects/graphify-out/
+video-projects/**/graphify-out/
