@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Piri Reis — Explainer Deck (Forensic Dossier)</title>
+<!--
+  HISTORY vs HYPE · #57 Piri Reis · B-roll explainer deck
+  Brand: "The Forensic Dossier" (see THUMBNAIL-CONCEPTS.md)
+  Purpose: rescue the cağferiye / two-Ptolemy beat (Segment 2) by imposing the
+  ledger structure the VO runs together. Each slide = one full-frame B-roll card.
+
+  HOW TO USE
+  - Open in a browser, press F for fullscreen. Stage auto-scales to 1920x1080 (16:9).
+  - ← / → (or click) to advance slides. Press G to toggle a grid guide.
+  - Screen-record each slide held, or capture stills (the stage is exactly 16:9).
+  - To refine in Claude Design (claude.ai/design): upload this file — it carries the
+    full design system (tokens below) so brand stays consistent on export to PPTX/Canva.
+
+  NO AI imagery. Real artifact only: ../Piri_reis_world_map_01.jpeg (1513 map fragment).
+-->
+<style>
+  /* ---------- DESIGN TOKENS (the design system) ---------- */
+  :root{
+    --ink:#15120D;          /* warm near-black — primary ground */
+    --ink-2:#1F1A12;        /* raised panel */
+    --paper:#EDE4D0;        /* parchment — primary type on dark */
+    --paper-dim:#C9BFA6;    /* secondary type */
+    --ash:#8A8270;          /* tertiary / rules */
+    --accent:#B0432F;       /* oxidized red — ONE marker per slide */
+    --gold:#C6A24A;         /* restrained emphasis */
+    --card:#EFE7D4;         /* translation-card stock */
+    --card-ink:#221E15;     /* type on card stock */
+
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --sans:"Helvetica Neue",Arial,"Segoe UI",system-ui,sans-serif;
+    --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+
+    --stageW:1920px; --stageH:1080px;
+    --m:120px;              /* overscan-safe margin (action-safe) */
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:#000;overflow:hidden;font-family:var(--sans)}
+
+  /* 16:9 stage, scaled to fit viewport, letterboxed on black */
+  #fit{position:fixed;inset:0;display:grid;place-items:center}
+  #stage{
+    width:var(--stageW);height:var(--stageH);position:relative;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 50% 0%, #211B12 0%, var(--ink) 60%, #0E0B07 100%);
+    color:var(--paper);
+    transform-origin:center center;
+  }
+
+  /* faint scan-grain (SVG turbulence) — tactile authority, NOT a gradient blob */
+  #stage::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.06;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  /* faint real-artifact watermark, far left, very low — proves we hold the primary source */
+  #stage::after{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;
+    background:url("../Piri_reis_world_map_01.jpeg") left center / cover no-repeat;
+    -webkit-mask-image:linear-gradient(90deg,#000 0%,transparent 55%);
+            mask-image:linear-gradient(90deg,#000 0%,transparent 55%);
+  }
+
+  /* ---------- DOSSIER FURNITURE (every slide) ---------- */
+  .slide{position:absolute;inset:0;padding:var(--m);display:none;flex-direction:column}
+  .slide.on{display:flex}
+  .exhibit{position:absolute;top:64px;left:var(--m);font-family:var(--mono);
+    font-size:20px;letter-spacing:.32em;color:var(--ash);text-transform:uppercase}
+  .exhibit b{color:var(--accent);font-weight:600}
+  .cite{position:absolute;bottom:60px;left:var(--m);font-family:var(--mono);
+    font-size:18px;letter-spacing:.06em;color:var(--ash)}
+  .rule{height:2px;background:var(--ash);opacity:.5;width:100%}
+  .rule.thin{height:1px}
+  .kicker{font-family:var(--mono);font-size:24px;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--gold)}
+
+  .h1{font-family:var(--serif);font-weight:600;line-height:.98;letter-spacing:-.01em}
+  .lead{font-family:var(--serif);color:var(--paper-dim);line-height:1.28}
+
+  /* red marker circle — slightly irregular so it reads hand-drawn, not vector-perfect */
+  .marker{position:relative;display:inline-block}
+  .marker svg{position:absolute;left:-7%;top:-28%;width:114%;height:160%;
+    overflow:visible;transform:rotate(-1.2deg)}
+  .marker svg path{fill:none;stroke:var(--accent);stroke-width:5;
+    stroke-linecap:round;opacity:.92}
+
+  /* PolyMatter-style solid label box */
+  .box{display:inline-block;background:var(--accent);color:#FBF3E2;
+    font-family:var(--sans);font-weight:800;letter-spacing:.02em;
+    padding:.18em .5em;border-radius:2px}
+  .box.gold{background:var(--gold);color:#1A1509}
+  .box.ink{background:#0E0B07;color:var(--paper);border:2px solid var(--ash)}
+
+  /* translation card (paperclipped corner stock) */
+  .card{background:var(--card);color:var(--card-ink);border-radius:3px;
+    box-shadow:0 24px 60px rgba(0,0,0,.5);padding:48px 56px;position:relative}
+  .card::before{ /* paperclip */
+    content:"";position:absolute;top:-26px;right:54px;width:34px;height:74px;
+    border:5px solid #9a937f;border-radius:18px;border-bottom-color:transparent;
+    transform:rotate(8deg)}
+
+  /* ===== Slide 1 — SOURCE LIST ===== */
+  #s1 .h1{font-size:96px;margin:8px 0 6px}
+  #s1 .sub{font-family:var(--mono);font-size:26px;letter-spacing:.2em;color:var(--paper-dim);text-transform:uppercase}
+  #s1 .ledger{margin-top:54px;display:flex;flex-direction:column;gap:0;max-width:1500px}
+  #s1 .row{display:grid;grid-template-columns:120px 1fr auto;align-items:baseline;
+    gap:32px;padding:22px 0;border-bottom:1px solid rgba(138,130,112,.35)}
+  #s1 .qty{font-family:var(--serif);font-size:54px;color:var(--gold);text-align:right;font-weight:600}
+  #s1 .src{font-family:var(--serif);font-size:42px;color:var(--paper)}
+  #s1 .tag{font-family:var(--mono);font-size:23px;letter-spacing:.04em;color:var(--paper-dim);white-space:nowrap}
+  #s1 .row.col .src strong{color:var(--accent)}
+  #s1 .verdict{margin-top:46px;font-family:var(--sans);font-weight:800;
+    font-size:62px;letter-spacing:.01em;color:var(--paper)}
+  #s1 .verdict em{font-style:normal;color:var(--accent)}
+
+  /* ===== Slide 2 — THE WORD (transform) ===== */
+  #s2{justify-content:center}
+  #s2 .flow{display:flex;align-items:center;gap:0;flex-wrap:wrap}
+  #s2 .word{font-family:var(--serif);font-weight:600}
+  #s2 .ar{font-size:150px;line-height:1;color:var(--paper);direction:rtl}
+  #s2 .tl{font-size:64px;color:var(--gold);margin-top:10px}
+  #s2 .gloss{font-family:var(--mono);font-size:26px;letter-spacing:.14em;color:var(--paper-dim);text-transform:uppercase;margin-top:6px}
+  #s2 .arrow{font-family:var(--sans);font-size:64px;color:var(--ash);margin:0 56px;font-weight:300}
+  #s2 .arrow small{display:block;font-family:var(--mono);font-size:20px;letter-spacing:.06em;color:var(--ash);text-align:center;margin-top:8px;text-transform:uppercase}
+  #s2 .bad .tl{color:var(--accent)}
+  #s2 .mech{margin-top:70px;font-family:var(--serif);font-size:38px;color:var(--paper-dim);line-height:1.3;max-width:1400px}
+  #s2 .mech b{color:var(--paper)}
+  #s2 .nothing{font-family:var(--sans);font-weight:800;font-size:40px;color:var(--accent);margin-top:14px;letter-spacing:.01em}
+
+  /* ===== Mistake cards (S3, S5) ===== */
+  .mistake .top{display:flex;align-items:flex-end;gap:36px}
+  .mistake .num{font-family:var(--serif);font-size:150px;font-weight:600;line-height:.8;color:var(--accent)}
+  .mistake .lbl{display:flex;flex-direction:column;gap:14px;padding-bottom:14px}
+  .mistake .lbl .what{font-family:var(--sans);font-weight:800;font-size:84px;letter-spacing:.01em;line-height:.95}
+  .mistake .who{font-family:var(--mono);font-size:26px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-dim)}
+  .mistake .who b{color:var(--gold)}
+  .mistake .body{margin-top:60px;font-family:var(--serif);font-size:52px;line-height:1.3;color:var(--paper);max-width:1520px}
+  .mistake .body .hl{color:var(--accent)}
+  .mistake .then{margin-top:40px;font-family:var(--serif);font-size:40px;color:var(--paper-dim);line-height:1.32;max-width:1520px}
+  .mistake .then::before{content:"→  ";color:var(--gold)}
+
+  /* ===== Slide 4 — TWO PTOLEMYS split ===== */
+  #s4 .head{font-family:var(--serif);font-size:64px;font-weight:600;margin-bottom:8px}
+  #s4 .split{margin-top:40px;display:grid;grid-template-columns:1fr 220px 1fr;align-items:center;gap:0}
+  #s4 .col{padding:18px 8px}
+  #s4 .col .role{font-family:var(--mono);font-size:24px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+  #s4 .col .name{font-family:var(--serif);font-size:78px;font-weight:600;line-height:1.02;margin:18px 0 16px}
+  #s4 .col .when{font-family:var(--mono);font-size:30px;letter-spacing:.06em;color:var(--paper)}
+  #s4 .col .desc{font-family:var(--serif);font-size:34px;color:var(--paper-dim);margin-top:14px;line-height:1.25}
+  #s4 .gap{display:grid;place-items:center;height:100%;border-left:1px solid rgba(138,130,112,.4);border-right:1px solid rgba(138,130,112,.4)}
+  #s4 .gap .n{font-family:var(--sans);font-weight:800;font-size:72px;color:var(--accent);line-height:.9;text-align:center}
+  #s4 .gap .u{font-family:var(--mono);font-size:22px;letter-spacing:.2em;color:var(--paper-dim);text-transform:uppercase;text-align:center;margin-top:10px}
+  #s4 .foot{margin-top:56px;font-family:var(--sans);font-weight:800;font-size:54px;color:var(--paper)}
+  #s4 .foot em{font-style:normal;color:var(--accent)}
+
+  /* ===== Slide 6 — LEDGER summary ===== */
+  #s6 .head{font-family:var(--sans);font-weight:800;font-size:84px;letter-spacing:.01em;margin-bottom:8px}
+  #s6 .head em{font-style:normal;color:var(--accent)}
+  #s6 .grid{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:2px solid var(--ash)}
+  #s6 .cell{padding:44px 56px 44px 0;border-bottom:2px solid rgba(138,130,112,.4)}
+  #s6 .cell:nth-child(odd){border-right:2px solid rgba(138,130,112,.4);padding-right:64px}
+  #s6 .cell:nth-child(even){padding-left:64px}
+  #s6 .mk{font-family:var(--mono);font-size:26px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+  #s6 .mk b{color:var(--accent)}
+  #s6 .cl{font-family:var(--serif);font-size:46px;font-weight:600;margin:18px 0 14px;line-height:1.05}
+  #s6 .ex{font-family:var(--serif);font-size:34px;color:var(--paper-dim);line-height:1.28}
+  #s6 .ex code{font-family:var(--mono);font-size:.82em;color:var(--paper);background:rgba(0,0,0,.3);padding:.05em .3em;border-radius:2px}
+  #s6 .close{margin-top:50px;font-family:var(--serif);font-size:44px;color:var(--paper);line-height:1.3}
+  #s6 .close b{color:var(--accent)}
+
+  /* grid guide (press G) */
+  #guide{position:absolute;inset:0;display:none;pointer-events:none;
+    background:
+      linear-gradient(90deg,transparent var(--m),rgba(176,67,47,.25) var(--m),transparent calc(var(--m) + 1px)),
+      linear-gradient(90deg,transparent calc(100% - var(--m)),rgba(176,67,47,.25) calc(100% - var(--m)),transparent calc(100% - var(--m) + 1px)),
+      linear-gradient(0deg,transparent var(--m),rgba(176,67,47,.25) var(--m),transparent calc(var(--m) + 1px)),
+      linear-gradient(0deg,transparent calc(100% - var(--m)),rgba(176,67,47,.25) calc(100% - var(--m)),transparent calc(100% - var(--m) + 1px))}
+  #guide.on{display:block}
+
+  /* HUD */
+  #hud{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);
+    font-family:var(--mono);font-size:13px;color:#6b6657;letter-spacing:.08em;z-index:9}
+  @media print{#hud{display:none}}
+</style>
+</head>
+<body>
+<div id="fit">
+  <div id="stage">
+    <div id="guide"></div>
+
+    <!-- ===== SLIDE 1 — SOURCE LIST ===== -->
+    <section class="slide on" id="s1">
+      <div class="exhibit">Exhibit · <b>Inscription No. 6</b></div>
+      <div class="sub">What Piri Reis wrote in the corner</div>
+      <div class="h1">The Source List</div>
+      <div class="ledger">
+        <div class="row"><div class="qty">8</div><div class="src">Ptolemaic world maps</div><div class="tag">Greek textbook · reprinted 1400s</div></div>
+        <div class="row"><div class="qty">1</div><div class="src">Arab map of India</div><div class="tag">medieval</div></div>
+        <div class="row"><div class="qty">4</div><div class="src">Portuguese charts</div><div class="tag">early 1500s</div></div>
+        <div class="row col"><div class="qty">1</div><div class="src">map by <strong>Christopher Columbus</strong></div><div class="tag" style="color:var(--accent)">c. 1490s · within living memory</div></div>
+      </div>
+      <div class="verdict">Every source named. <em>None of them ancient.</em></div>
+      <div class="cite">Inscription no. 6 · Soucek translation</div>
+    </section>
+
+    <!-- ===== SLIDE 2 — THE WORD ===== -->
+    <section class="slide" id="s2">
+      <div class="exhibit">Exhibit · <b>The Word</b></div>
+      <div class="flow">
+        <div class="word">
+          <div class="ar">جغرافيا</div>
+          <div class="tl">jughrafiya</div>
+          <div class="gloss">Arabic for “geography”</div>
+        </div>
+        <div class="arrow">→<small>drop one dot</small></div>
+        <div class="word bad">
+          <div class="ar">جعفريا</div>
+          <div class="tl">cağferiye</div>
+          <div class="nothing">a word that means nothing</div>
+        </div>
+      </div>
+      <div class="mech">In Arabic, <b>ghayn (غ)</b> and <b>ʿayn (ع)</b> are the same letter — separated by a <b>single dot</b>. Drop the dot, swap one more letter, and “geography” turns into a word no one can translate.</div>
+      <div class="cite">Kahle 1933 · Pinto · McIntosh</div>
+    </section>
+
+    <!-- ===== SLIDE 3 — MISTAKE 1 ===== -->
+    <section class="slide mistake" id="s3">
+      <div class="exhibit">Exhibit · <b>Mistake 1 of 2</b></div>
+      <div class="top">
+        <div class="num">1</div>
+        <div class="lbl">
+          <div class="what">THE WORD</div>
+          <div class="who">whose error · <b>Charles Hapgood, 1966</b></div>
+        </div>
+      </div>
+      <div class="body">He read a misspelled word — <span class="hl">“cağferiye”</span> — as the name of an ancient, mysterious kind of map.</div>
+      <div class="then">It just means “geography.” The eight maps were ordinary Ptolemaic atlases, reprinted across Renaissance Europe.</div>
+      <div class="cite">McIntosh · Kahle, “A Lost Map of Columbus,” 1933</div>
+    </section>
+
+    <!-- ===== SLIDE 4 — TWO PTOLEMYS ===== -->
+    <section class="slide" id="s4">
+      <div class="exhibit">Exhibit · <b>Two Men, One Name</b></div>
+      <div class="head">There are two famous Ptolemys.</div>
+      <div class="rule thin"></div>
+      <div class="split">
+        <div class="col">
+          <div class="role">The mapmaker</div>
+          <div class="name">Claudius<br>Ptolemy</div>
+          <div class="when">c. 150 AD</div>
+          <div class="desc">Wrote the <em>Geographia</em> — the atlas reprinted across Renaissance Europe.</div>
+        </div>
+        <div class="gap"><div><div class="n">300</div><div class="u">years apart</div></div></div>
+        <div class="col">
+          <div class="role">The general</div>
+          <div class="name">Ptolemy I<br>Soter</div>
+          <div class="when">d. 282 BC</div>
+          <div class="desc">One of Alexander the Great’s generals. Founded the dynasty, not the maps.</div>
+        </div>
+      </div>
+      <div class="foot">Piri Reis <em>confused the two.</em></div>
+      <div class="cite">McIntosh · Gaspar</div>
+    </section>
+
+    <!-- ===== SLIDE 5 — MISTAKE 2 ===== -->
+    <section class="slide mistake" id="s5">
+      <div class="exhibit">Exhibit · <b>Mistake 2 of 2</b></div>
+      <div class="top">
+        <div class="num">2</div>
+        <div class="lbl">
+          <div class="what">THE DATE</div>
+          <div class="who">whose error · <b>Piri Reis himself</b></div>
+        </div>
+      </div>
+      <div class="body">He thought his maps reached back to <span class="hl">Ptolemy I</span> — to Alexander’s day. They didn’t.</div>
+      <div class="then">That one slip is the only place “the time of Alexander” on the source list comes from — the line Hapgood built his Library of Alexandria on.</div>
+      <div class="cite">McIntosh, p. 18 · Inscription no. 6</div>
+    </section>
+
+    <!-- ===== SLIDE 6 — LEDGER SUMMARY ===== -->
+    <section class="slide" id="s6">
+      <div class="exhibit">Exhibit · <b>The Ledger</b></div>
+      <div class="head">Two mistakes, <em>not one.</em></div>
+      <div class="grid">
+        <div class="cell">
+          <div class="mk"><b>Mistake 1</b> · the word · Hapgood</div>
+          <div class="cl">“cağferiye” misread</div>
+          <div class="ex">A misspelling of <code>jughrafiya</code> — geography. The 8 maps were ordinary atlases.</div>
+        </div>
+        <div class="cell">
+          <div class="mk"><b>Mistake 2</b> · the date · Piri Reis</div>
+          <div class="cl">two Ptolemys confused</div>
+          <div class="ex">Produced “the time of <code>Alexander</code>” — read by Hapgood as deep antiquity.</div>
+        </div>
+      </div>
+      <div class="close">Stacked, they look like a lost civilization. <b>Separately, neither is evidence of anything.</b></div>
+      <div class="cite">Kahle 1933 · McIntosh · Soucek</div>
+    </section>
+
+  </div>
+</div>
+<div id="hud">← → slides · F fullscreen · G grid</div>
+
+<script>
+  const stage = document.getElementById('stage');
+  const slides = [...document.querySelectorAll('.slide')];
+  let i = 0;
+  function show(n){ i=(n+slides.length)%slides.length; slides.forEach((s,k)=>s.classList.toggle('on',k===i)); }
+  function fit(){ const s=Math.min(innerWidth/1920, innerHeight/1080); stage.style.transform=`scale(${s})`; }
+  addEventListener('resize', fit); fit();
+  addEventListener('keydown', e=>{
+    if(e.key==='ArrowRight'||e.key===' ') show(i+1);
+    else if(e.key==='ArrowLeft') show(i-1);
+    else if(e.key==='g'||e.key==='G') document.getElementById('guide').classList.toggle('on');
+    else if(e.key==='f'||e.key==='F'){ if(!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); }
+  });
+  stage.addEventListener('click', ()=>show(i+1));
+</script>
+</body>
+</html>

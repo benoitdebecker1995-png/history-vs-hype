@@ -1,0 +1,1308 @@
+1
+01:00:00,099 --> 01:00:01,833
+<b>There's a claim about the Atlantic slave</b>
+
+2
+01:00:01,833 --> 01:00:03,500
+<b>trade you've probably seen online.</b>
+
+3
+01:00:03,766 --> 01:00:05,333
+<b>It goes something like this.</b>
+
+4
+01:00:05,800 --> 01:00:06,633
+<b>Europeans never</b>
+
+5
+01:00:06,633 --> 01:00:08,099
+<b>kidnapped anyone in Africa.</b>
+
+6
+01:00:08,133 --> 01:00:09,433
+<b>They just bought slaves from a</b>
+
+7
+01:00:09,433 --> 01:00:11,266
+<b>pre-existing African market.</b>
+
+8
+01:00:11,433 --> 01:00:12,933
+<b>Other black people sold them.</b>
+
+9
+01:00:13,533 --> 01:00:15,099
+<b>On the surface, this sounds like an</b>
+
+10
+01:00:15,133 --> 01:00:16,266
+<b>even-handed correction</b>
+
+11
+01:00:16,266 --> 01:00:17,633
+<b>of the historical record.</b>
+
+12
+01:00:18,066 --> 01:00:19,633
+<b>The problem is, we have</b>
+
+13
+01:00:19,633 --> 01:00:20,866
+<b>the historical record.</b>
+
+14
+01:00:21,033 --> 01:00:22,033
+<b>And it was written by the</b>
+
+15
+01:00:22,033 --> 01:00:23,500
+<b>man who ran the operation.</b>
+
+16
+01:00:24,733 --> 01:00:26,766
+<b>August 8, 1444.</b>
+
+17
+01:00:27,166 --> 01:00:29,366
+<b>Prince Henry the Navigator sits on</b>
+
+18
+01:00:29,366 --> 01:00:31,400
+<b>horseback in Lagos, Portugal,</b>
+
+19
+01:00:31,633 --> 01:00:33,733
+<b>watching 235 captured</b>
+
+20
+01:00:33,733 --> 01:00:36,199
+<b>Africans being divided into lots.</b>
+
+21
+01:00:36,733 --> 01:00:38,199
+<b>He takes his royal fifth.</b>
+
+22
+01:00:38,766 --> 01:00:40,333
+<b>He takes his royal fifth.</b>
+
+23
+01:00:40,900 --> 01:00:43,199
+<b>46 people for his personal estate.</b>
+
+24
+01:00:43,466 --> 01:00:45,633
+<b>While captives cling to each other so</b>
+
+25
+01:00:45,633 --> 01:00:47,466
+<b>close they can hardly be separated.</b>
+
+26
+01:00:48,066 --> 01:00:49,366
+<b>This wasn't a market the</b>
+
+27
+01:00:49,366 --> 01:00:51,000
+<b>Portuguese walked into.</b>
+
+28
+01:00:51,266 --> 01:00:52,533
+<b>They built it.</b>
+
+29
+01:00:52,766 --> 01:00:54,500
+<b>Europeans initially</b>
+
+30
+01:00:54,566 --> 01:00:56,533
+<b>did organize slave raids.</b>
+
+31
+01:00:56,699 --> 01:00:57,633
+<b>And when those raids</b>
+
+32
+01:00:57,633 --> 01:00:59,099
+<b>couldn't keep up with demand,</b>
+
+33
+01:00:59,500 --> 01:01:01,533
+<b>they built a system to do it at scale.</b>
+
+34
+01:01:02,333 --> 01:01:03,933
+<b>What I want to do in this video is go</b>
+
+35
+01:01:03,966 --> 01:01:05,466
+<b>through some primary sources</b>
+
+36
+01:01:05,466 --> 01:01:07,133
+<b>to clear up this misconception.</b>
+
+37
+01:01:07,599 --> 01:01:09,466
+<b>But before we do that, that will make</b>
+
+38
+01:01:09,466 --> 01:01:10,699
+<b>something very clear.</b>
+
+39
+01:01:11,233 --> 01:01:12,833
+<b>Slavery did exist in</b>
+
+40
+01:01:12,833 --> 01:01:14,933
+<b>Africa before Europeans arrived.</b>
+
+41
+01:01:15,266 --> 01:01:16,066
+<b>That is true.</b>
+
+42
+01:01:16,400 --> 01:01:18,233
+<b>But it came in two specific forms.</b>
+
+43
+01:01:18,333 --> 01:01:19,066
+<b>And neither was the</b>
+
+44
+01:01:19,066 --> 01:01:20,966
+<b>system Europeans stepped into.</b>
+
+45
+01:01:21,466 --> 01:01:24,199
+<b>The first was the Trans-Saharan trade.</b>
+
+46
+01:01:24,500 --> 01:01:26,333
+<b>Muslim merchants moving</b>
+
+47
+01:01:26,333 --> 01:01:27,900
+<b>captives across the desert.</b>
+
+48
+01:01:28,300 --> 01:01:31,766
+<b>In 1614, the Timbuktu scholar Ahmed Baba</b>
+
+49
+01:01:32,133 --> 01:01:33,233
+<b>ruled on which captives</b>
+
+50
+01:01:33,233 --> 01:01:34,633
+<b>could legally be held.</b>
+
+51
+01:01:35,099 --> 01:01:36,666
+<b>Non-belief is that which makes</b>
+
+52
+01:01:36,666 --> 01:01:38,033
+<b>enslavement permissible,</b>
+
+53
+01:01:38,199 --> 01:01:40,433
+<b>whether the enslaved were black or white.</b>
+
+54
+01:01:40,833 --> 01:01:42,033
+<b>Enslavement was bound</b>
+
+55
+01:01:42,033 --> 01:01:44,033
+<b>to religion, not race.</b>
+
+56
+01:01:44,599 --> 01:01:46,400
+<b>Any Muslim of any color</b>
+
+57
+01:01:46,566 --> 01:01:47,933
+<b>could not be enslaved.</b>
+
+58
+01:01:48,599 --> 01:01:49,433
+<b>The second was</b>
+
+59
+01:01:49,433 --> 01:01:51,800
+<b>Sub-Saharan Interpolity Slavery.</b>
+
+60
+01:01:52,166 --> 01:01:55,400
+<b>Alaudach Equiano was an Igbo man from</b>
+
+61
+01:01:55,400 --> 01:01:56,666
+<b>what is now Nigeria.</b>
+
+62
+01:01:57,166 --> 01:02:00,433
+<b>Kidnapped as a child in 1756, later sold</b>
+
+63
+01:02:00,433 --> 01:02:01,699
+<b>into the Atlantic trade.</b>
+
+64
+01:02:02,400 --> 01:02:04,400
+<b>He is describing his community's internal</b>
+
+65
+01:02:04,400 --> 01:02:05,466
+<b>slavery before the</b>
+
+66
+01:02:05,466 --> 01:02:06,933
+<b>Atlantic system reached them.</b>
+
+67
+01:02:07,533 --> 01:02:10,066
+<b>Equiano writes that slave traders passing</b>
+
+68
+01:02:10,066 --> 01:02:11,866
+<b>through his land had to prove</b>
+
+69
+01:02:11,866 --> 01:02:13,466
+<b>how they got their captives.</b>
+
+70
+01:02:14,033 --> 01:02:16,199
+<b>His own people did sometimes</b>
+
+71
+01:02:16,199 --> 01:02:18,333
+<b>sell slaves to passing traders.</b>
+
+72
+01:02:18,599 --> 01:02:21,366
+<b>But only war prisoners or people</b>
+
+73
+01:02:21,366 --> 01:02:22,599
+<b>convicted of crimes like</b>
+
+74
+01:02:22,599 --> 01:02:24,000
+<b>kidnapping or adultery.</b>
+
+75
+01:02:24,533 --> 01:02:26,099
+<b>His community had slavery,</b>
+
+76
+01:02:26,300 --> 01:02:28,000
+<b>his own father owned slaves.</b>
+
+77
+01:02:28,433 --> 01:02:30,699
+<b>But the limits were strict, only war</b>
+
+78
+01:02:30,699 --> 01:02:32,633
+<b>captives or convicted criminals.</b>
+
+79
+01:02:32,833 --> 01:02:34,300
+<b>Both systems had hard</b>
+
+80
+01:02:34,300 --> 01:02:35,966
+<b>lines around who could be sold.</b>
+
+81
+01:02:36,599 --> 01:02:38,733
+<b>The Atlantic system erased them and</b>
+
+82
+01:02:38,733 --> 01:02:39,866
+<b>replaced them with one.</b>
+
+83
+01:02:40,633 --> 01:02:41,266
+<b>Race.</b>
+
+84
+01:02:41,833 --> 01:02:43,099
+<b>It didn't just change the</b>
+
+85
+01:02:43,099 --> 01:02:45,133
+<b>rules, it changed the scale.</b>
+
+86
+01:02:45,833 --> 01:02:48,400
+<b>The Trans-Saharan trade averaged around a</b>
+
+87
+01:02:48,400 --> 01:02:50,666
+<b>thousand people a year per route.</b>
+
+88
+01:02:51,066 --> 01:02:52,233
+<b>The Atlantic system</b>
+
+89
+01:02:52,599 --> 01:02:54,733
+<b>peaked at 80,000 a year.</b>
+
+90
+01:02:55,533 --> 01:02:56,966
+<b>And it didn't borrow</b>
+
+91
+01:02:56,966 --> 01:02:58,466
+<b>from the African systems.</b>
+
+92
+01:02:58,800 --> 01:03:02,099
+<b>Before 1450, enslaved people in Africa</b>
+
+93
+01:03:02,166 --> 01:03:03,066
+<b>were absorbed into</b>
+
+94
+01:03:03,066 --> 01:03:04,833
+<b>households and communities.</b>
+
+95
+01:03:05,333 --> 01:03:07,800
+<b>The Atlantic slave trade turned them into</b>
+
+96
+01:03:07,800 --> 01:03:09,233
+<b>the output of an industry.</b>
+
+97
+01:03:09,566 --> 01:03:10,833
+<b>What the Cambridge historian</b>
+
+98
+01:03:11,199 --> 01:03:14,933
+<b>Paul Lovejoy in the standard</b>
+
+99
+01:03:15,333 --> 01:03:17,400
+<b>calls the shift from a marginal</b>
+
+100
+01:03:17,400 --> 01:03:19,733
+<b>institution to a mode of production.</b>
+
+101
+01:03:20,666 --> 01:03:23,300
+<b>That kind of slavery, racially coded,</b>
+
+102
+01:03:23,500 --> 01:03:25,066
+<b>demographically catastrophic,</b>
+
+103
+01:03:25,400 --> 01:03:27,500
+<b>industrial in scale, wasn't a</b>
+
+104
+01:03:27,500 --> 01:03:29,333
+<b>continuation of what came before.</b>
+
+105
+01:03:29,800 --> 01:03:30,933
+<b>It was a disruption.</b>
+
+106
+01:03:31,699 --> 01:03:34,400
+<b>By 1526, the disruption was being</b>
+
+107
+01:03:34,400 --> 01:03:36,833
+<b>protested from inside Africa itself.</b>
+
+108
+01:03:37,633 --> 01:03:40,800
+<b>The king of Congo, Afonso I, wasn't</b>
+
+109
+01:03:40,800 --> 01:03:43,066
+<b>managing a booming domestic slave market.</b>
+
+110
+01:03:43,233 --> 01:03:45,099
+<b>He was writing desperate letters to the</b>
+
+111
+01:03:45,133 --> 01:03:46,233
+<b>king of Portugal,</b>
+
+112
+01:03:46,400 --> 01:03:48,133
+<b>begging him to stop the trade.</b>
+
+113
+01:03:48,966 --> 01:03:51,300
+<b>The set merchants, decor countrymen, the</b>
+
+114
+01:03:51,300 --> 01:03:52,300
+<b>sons of Orland and</b>
+
+115
+01:03:52,300 --> 01:03:53,433
+<b>the sons of Ornoblemen,</b>
+
+116
+01:03:53,933 --> 01:03:57,166
+<b>every day Orland is</b>
+
+117
+01:03:57,166 --> 01:03:58,566
+<b>being all but depopulated.</b>
+
+118
+01:03:59,533 --> 01:04:00,866
+<b>He didn't stop there.</b>
+
+119
+01:04:01,566 --> 01:04:03,566
+<b>Orwill is that in this kingdom there will</b>
+
+120
+01:04:03,566 --> 01:04:07,033
+<b>be no slave trade, nor any outlet for it.</b>
+
+121
+01:04:07,766 --> 01:04:09,033
+<b>If Europeans were just</b>
+
+122
+01:04:09,066 --> 01:04:10,833
+<b>buying from an existing market,</b>
+
+123
+01:04:11,066 --> 01:04:12,000
+<b>why is the king of</b>
+
+124
+01:04:12,000 --> 01:04:13,666
+<b>Congo demanding it to stop?</b>
+
+125
+01:04:14,633 --> 01:04:17,266
+<b>To understand why, we have to go back to</b>
+
+126
+01:04:17,266 --> 01:04:18,666
+<b>the chronicle we opened with.</b>
+
+127
+01:04:19,566 --> 01:04:20,633
+<b>It's 1444.</b>
+
+128
+01:04:21,233 --> 01:04:23,166
+<b>A Portuguese fleet attacks the Arguan</b>
+
+129
+01:04:23,166 --> 01:04:25,766
+<b>bank of the coast of modern Mauritania.</b>
+
+130
+01:04:26,633 --> 01:04:29,166
+<b>Serara, Prince Henry's court chronicler,</b>
+
+131
+01:04:29,466 --> 01:04:30,699
+<b>recorded the operation.</b>
+
+132
+01:04:31,400 --> 01:04:34,266
+<b>But they, shouting out "St. James, St.</b>
+
+133
+01:04:34,400 --> 01:04:36,866
+<b>George, Portugal" at once attacked them,</b>
+
+134
+01:04:37,066 --> 01:04:39,000
+<b>killing and taking all they could.</b>
+
+135
+01:04:39,400 --> 01:04:40,433
+<b>And the aftermath.</b>
+
+136
+01:04:41,066 --> 01:04:43,433
+<b>Then might you see mothers forsaking</b>
+
+137
+01:04:43,433 --> 01:04:45,833
+<b>their children and husbands, their wives.</b>
+
+138
+01:04:46,133 --> 01:04:48,233
+<b>Others stowed their children among the</b>
+
+139
+01:04:48,233 --> 01:04:49,699
+<b>seaweed, where our men</b>
+
+140
+01:04:49,699 --> 01:04:51,133
+<b>found them afterwards.</b>
+
+141
+01:04:52,000 --> 01:04:53,766
+<b>Serara is describing a raid.</b>
+
+142
+01:04:54,266 --> 01:04:55,866
+<b>165 people.</b>
+
+143
+01:04:56,666 --> 01:04:58,233
+<b>Children pulled from seaweed.</b>
+
+144
+01:04:59,033 --> 01:05:00,400
+<b>Mothers separated from their families.</b>
+
+145
+01:05:01,366 --> 01:05:02,433
+<b>Taken back to Portugal.</b>
+
+146
+01:05:03,266 --> 01:05:04,266
+<b>This wasn't trade.</b>
+
+147
+01:05:04,733 --> 01:05:05,733
+<b>It was kidnapping.</b>
+
+148
+01:05:06,066 --> 01:05:07,500
+<b>And it wasn't a one-off.</b>
+
+149
+01:05:07,766 --> 01:05:09,933
+<b>The records show constant raids</b>
+
+150
+01:05:09,933 --> 01:05:11,800
+<b>throughout the 1440s.</b>
+
+151
+01:05:12,099 --> 01:05:14,333
+<b>Then the Europeans stopped raiding.</b>
+
+152
+01:05:14,633 --> 01:05:16,699
+<b>Not because they had a change of heart.</b>
+
+153
+01:05:17,166 --> 01:05:18,199
+<b>They stopped because</b>
+
+154
+01:05:18,233 --> 01:05:20,133
+<b>African forces shut them down.</b>
+
+155
+01:05:20,666 --> 01:05:23,500
+<b>In 1445, Africans wielding poisoned</b>
+
+156
+01:05:23,599 --> 01:05:25,866
+<b>arrows killed 20 of 22</b>
+
+157
+01:05:25,966 --> 01:05:27,833
+<b>Portuguese on one expedition,</b>
+
+158
+01:05:28,233 --> 01:05:29,133
+<b>including the mission</b>
+
+159
+01:05:29,133 --> 01:05:31,066
+<b>leader, Nuno Tristão.</b>
+
+160
+01:05:31,566 --> 01:05:33,533
+<b>The lasso wasn't working anymore.</b>
+
+161
+01:05:33,933 --> 01:05:36,133
+<b>So in 1448, Prince</b>
+
+162
+01:05:36,133 --> 01:05:37,933
+<b>Henry issued a formal order.</b>
+
+163
+01:05:38,699 --> 01:05:41,466
+<b>By the 1450s, the Portuguese factory at</b>
+
+164
+01:05:41,466 --> 01:05:43,199
+<b>Arquim, a fortified</b>
+
+165
+01:05:43,199 --> 01:05:44,900
+<b>post of modern Mauritania,</b>
+
+166
+01:05:45,133 --> 01:05:48,166
+<b>was supplying 800-2000 captives a year.</b>
+
+167
+01:05:48,866 --> 01:05:50,466
+<b>Those captives weren't</b>
+
+168
+01:05:50,466 --> 01:05:51,833
+<b>being offered voluntarily.</b>
+
+169
+01:05:52,533 --> 01:05:54,433
+<b>African intermediaries were raiding their</b>
+
+170
+01:05:54,433 --> 01:05:56,866
+<b>own neighbors to supply European demands</b>
+
+171
+01:05:57,033 --> 01:05:59,166
+<b>because the price made it profitable.</b>
+
+172
+01:05:59,833 --> 01:06:01,033
+<b>Portugal stopped doing</b>
+
+173
+01:06:01,033 --> 01:06:02,333
+<b>the kidnapping directly.</b>
+
+174
+01:06:02,766 --> 01:06:04,766
+<b>The system still ran on kidnapping.</b>
+
+175
+01:06:05,633 --> 01:06:06,933
+<b>And the numbers climbed.</b>
+
+176
+01:06:07,133 --> 01:06:11,066
+<b>Between 1450 and 1500, 81,000 enslaved</b>
+
+177
+01:06:11,066 --> 01:06:12,800
+<b>Africans crossed into</b>
+
+178
+01:06:12,866 --> 01:06:13,866
+<b>the Atlantic system.</b>
+
+179
+01:06:14,533 --> 01:06:15,633
+<b>In the next century,</b>
+
+180
+01:06:15,666 --> 01:06:18,133
+<b>this went up to 338,000.</b>
+
+181
+01:06:18,599 --> 01:06:19,766
+<b>This is what Afonso was</b>
+
+182
+01:06:19,766 --> 01:06:21,533
+<b>writing about in 1526.</b>
+
+183
+01:06:22,300 --> 01:06:25,500
+<b>In 1529, Jowd III, king of</b>
+
+184
+01:06:25,500 --> 01:06:26,933
+<b>Portugal, replied to him.</b>
+
+185
+01:06:27,366 --> 01:06:28,933
+<b>He told the king of Congo that the</b>
+
+186
+01:06:28,933 --> 01:06:30,466
+<b>population wasn't happening.</b>
+
+187
+01:06:31,133 --> 01:06:32,966
+<b>"You say in your letters you do not want</b>
+
+188
+01:06:32,966 --> 01:06:34,066
+<b>there to be any slave</b>
+
+189
+01:06:34,066 --> 01:06:35,000
+<b>trade in your kingdom</b>
+
+190
+01:06:35,266 --> 01:06:37,000
+<b>because it is depopulating your land.</b>
+
+191
+01:06:37,633 --> 01:06:40,133
+<b>I can believe that you only say this as a</b>
+
+192
+01:06:40,133 --> 01:06:41,466
+<b>result of the suffering that the</b>
+
+193
+01:06:41,466 --> 01:06:42,666
+<b>Portuguese cause you</b>
+
+194
+01:06:42,766 --> 01:06:45,433
+<b>because I am told of the great size of</b>
+
+195
+01:06:45,433 --> 01:06:46,733
+<b>Congo and how it is so</b>
+
+196
+01:06:46,733 --> 01:06:47,966
+<b>populated that it appears</b>
+
+197
+01:06:47,966 --> 01:06:49,866
+<b>that not a single slave has left it."</b>
+
+198
+01:06:50,533 --> 01:06:52,066
+<b>He's not saying no</b>
+
+199
+01:06:52,066 --> 01:06:53,266
+<b>slaves are being taken.</b>
+
+200
+01:06:53,866 --> 01:06:55,566
+<b>He's saying Congo is so</b>
+
+201
+01:06:55,566 --> 01:06:57,033
+<b>large you wouldn't notice.</b>
+
+202
+01:06:57,833 --> 01:07:00,266
+<b>The denial isn't "we're not doing this."</b>
+
+203
+01:07:00,733 --> 01:07:02,699
+<b>It's "you won't miss them anyway."</b>
+
+204
+01:07:03,333 --> 01:07:05,366
+<b>The crown wasn't denying the trade.</b>
+
+205
+01:07:05,533 --> 01:07:07,566
+<b>It was denying the scale.</b>
+
+206
+01:07:08,400 --> 01:07:10,433
+<b>For evidence of that scale, look at what</b>
+
+207
+01:07:10,433 --> 01:07:12,466
+<b>the Europeans on the ground were writing</b>
+
+208
+01:07:12,533 --> 01:07:13,966
+<b>back to their investors.</b>
+
+209
+01:07:14,433 --> 01:07:17,633
+<b>In 1602, a Dutch slave trader on the Gold</b>
+
+210
+01:07:17,633 --> 01:07:19,666
+<b>Coast writes home to explain</b>
+
+211
+01:07:19,666 --> 01:07:21,400
+<b>why he can't fill his ships.</b>
+
+212
+01:07:22,066 --> 01:07:24,400
+<b>They also enslave one another, but not in</b>
+
+213
+01:07:24,400 --> 01:07:26,933
+<b>the same manner as in Angola or Congo,</b>
+
+214
+01:07:27,266 --> 01:07:28,966
+<b>for it would not be possible to load</b>
+
+215
+01:07:28,966 --> 01:07:30,666
+<b>ships here with blacks.</b>
+
+216
+01:07:31,066 --> 01:07:33,233
+<b>They do not have at their disposal a</b>
+
+217
+01:07:33,233 --> 01:07:34,666
+<b>multitude of captives</b>
+
+218
+01:07:34,666 --> 01:07:36,233
+<b>and on the Gold Coast,</b>
+
+219
+01:07:36,333 --> 01:07:36,900
+<b>they cannot be</b>
+
+220
+01:07:36,900 --> 01:07:38,633
+<b>purchased in large numbers.</b>
+
+221
+01:07:38,866 --> 01:07:41,466
+<b>The Marais is admitting two things.</b>
+
+222
+01:07:41,833 --> 01:07:43,000
+<b>Indigenous slavery</b>
+
+223
+01:07:43,000 --> 01:07:45,233
+<b>existed, even on the Gold Coast.</b>
+
+224
+01:07:45,533 --> 01:07:46,300
+<b>But the volume</b>
+
+225
+01:07:46,300 --> 01:07:48,366
+<b>Europeans needed wasn't there.</b>
+
+226
+01:07:48,733 --> 01:07:50,099
+<b>He couldn't fill his ships.</b>
+
+227
+01:07:50,699 --> 01:07:51,833
+<b>Indigenous markets</b>
+
+228
+01:07:51,833 --> 01:07:53,666
+<b>couldn't supply Atlantic demand.</b>
+
+229
+01:07:53,833 --> 01:07:55,666
+<b>So if the Atlantic system was running,</b>
+
+230
+01:07:55,866 --> 01:07:58,800
+<b>and by 1602 it was, massive volume,</b>
+
+231
+01:07:59,233 --> 01:08:00,733
+<b>the captives weren't coming from a</b>
+
+232
+01:08:00,733 --> 01:08:02,166
+<b>pre-existing market.</b>
+
+233
+01:08:02,433 --> 01:08:05,000
+<b>They were being newly captured because</b>
+
+234
+01:08:05,000 --> 01:08:06,300
+<b>the Europeans were buying.</b>
+
+235
+01:08:06,833 --> 01:08:08,833
+<b>Patrick Manning, in his "Cambish History</b>
+
+236
+01:08:08,833 --> 01:08:10,000
+<b>of African Slavery",</b>
+
+237
+01:08:10,433 --> 01:08:12,000
+<b>documented the economics.</b>
+
+238
+01:08:12,633 --> 01:08:14,900
+<b>In the Kingdom of Tahome, a slave at the</b>
+
+239
+01:08:14,900 --> 01:08:16,733
+<b>coast sold for 15 times</b>
+
+240
+01:08:16,733 --> 01:08:17,899
+<b>what the king paid his own</b>
+
+241
+01:08:17,899 --> 01:08:19,000
+<b>soldiers for each</b>
+
+242
+01:08:19,000 --> 01:08:20,266
+<b>captive they brought in.</b>
+
+243
+01:08:20,899 --> 01:08:23,233
+<b>That gap, between the cost of grabbing</b>
+
+244
+01:08:23,233 --> 01:08:24,399
+<b>someone and the price</b>
+
+245
+01:08:24,399 --> 01:08:25,733
+<b>Europeans paid for them,</b>
+
+246
+01:08:26,166 --> 01:08:28,433
+<b>is not made rating economically rational.</b>
+
+247
+01:08:29,133 --> 01:08:31,399
+<b>European demand created the gap.</b>
+
+248
+01:08:31,866 --> 01:08:32,800
+<b>The Atlantic system</b>
+
+249
+01:08:32,800 --> 01:08:34,433
+<b>didn't tap into a market.</b>
+
+250
+01:08:34,800 --> 01:08:36,966
+<b>It created the incentive to build one.</b>
+
+251
+01:08:37,733 --> 01:08:39,800
+<b>Which brings us to the fourth document,</b>
+
+252
+01:08:40,000 --> 01:08:41,100
+<b>the one that licensed</b>
+
+253
+01:08:41,100 --> 01:08:42,633
+<b>this before it even scaled.</b>
+
+254
+01:08:43,300 --> 01:08:47,233
+<b>On January 8th, 1455, Pope Nicholas V,</b>
+
+255
+01:08:48,000 --> 01:08:49,166
+<b>the highest legal and</b>
+
+256
+01:08:49,166 --> 01:08:50,666
+<b>moral authority in Europe,</b>
+
+257
+01:08:51,133 --> 01:08:53,433
+<b>issued a papal bull called "Gramanos</b>
+
+258
+01:08:53,566 --> 01:08:55,166
+<b>Pontifex", granting</b>
+
+259
+01:08:55,166 --> 01:08:57,300
+<b>Portugal an exclusive monopoly in</b>
+
+260
+01:08:57,300 --> 01:08:57,899
+<b>Africa.</b>
+
+261
+01:08:58,199 --> 01:08:59,899
+<b>And this wasn't the first time.</b>
+
+262
+01:09:00,233 --> 01:09:02,933
+<b>Three years earlier, in June 1452,</b>
+
+263
+01:09:03,399 --> 01:09:04,766
+<b>Nicholas V had already</b>
+
+264
+01:09:04,766 --> 01:09:06,266
+<b>signed "Dum Diversas".</b>
+
+265
+01:09:06,899 --> 01:09:09,733
+<b>Same operative clause, word for word.</b>
+
+266
+01:09:10,433 --> 01:09:12,600
+<b>Same pope, same words.</b>
+
+267
+01:09:13,100 --> 01:09:15,266
+<b>"Gramanos Pontifex" was the upgrade,</b>
+
+268
+01:09:15,433 --> 01:09:16,199
+<b>giving Portugal</b>
+
+269
+01:09:16,199 --> 01:09:17,966
+<b>exclusive rights across Africa.</b>
+
+270
+01:09:18,466 --> 01:09:21,366
+<b>The bull authorizes Portugal to invade,</b>
+
+271
+01:09:21,433 --> 01:09:23,166
+<b>search out and capture,</b>
+
+272
+01:09:23,399 --> 01:09:25,633
+<b>to vanquish and subdue all</b>
+
+273
+01:09:25,633 --> 01:09:28,933
+<b>Saracens and Pagans, whatsoever, and to</b>
+
+274
+01:09:28,933 --> 01:09:30,266
+<b>reduce their persons</b>
+
+275
+01:09:30,433 --> 01:09:31,866
+<b>to perpetual slavery.</b>
+
+276
+01:09:32,666 --> 01:09:34,033
+<b>This was 1455.</b>
+
+277
+01:09:34,899 --> 01:09:37,233
+<b>The legal authority for perpetual slavery</b>
+
+278
+01:09:37,533 --> 01:09:40,033
+<b>was drawn up before the commerce existed,</b>
+
+279
+01:09:40,466 --> 01:09:42,199
+<b>and the operators relied on it.</b>
+
+280
+01:09:43,133 --> 01:09:46,333
+<b>Prince Henry himself cited various</b>
+
+281
+01:09:46,366 --> 01:09:48,033
+<b>earlier papal bulls as</b>
+
+282
+01:09:48,033 --> 01:09:49,333
+<b>the powerful authority for</b>
+
+283
+01:09:49,333 --> 01:09:50,433
+<b>his slave trade.</b>
+
+284
+01:09:51,133 --> 01:09:53,199
+<b>The pope didn't license a market.</b>
+
+285
+01:09:53,433 --> 01:09:55,033
+<b>He licensed a conquest.</b>
+
+286
+01:09:55,666 --> 01:09:58,533
+<b>In August 1518, the King of Spain issued</b>
+
+287
+01:09:58,533 --> 01:10:00,433
+<b>the license to Lorenzo de Gora vote.</b>
+
+288
+01:10:00,766 --> 01:10:01,533
+<b>The terms?</b>
+
+289
+01:10:01,966 --> 01:10:04,233
+<b>Gora vote is authorized to transport</b>
+
+290
+01:10:04,233 --> 01:10:06,366
+<b>4,000 African slaves, male</b>
+
+291
+01:10:06,366 --> 01:10:07,899
+<b>and female, to the Spanish</b>
+
+292
+01:10:07,899 --> 01:10:09,366
+<b>colonies in the New World.</b>
+
+293
+01:10:09,800 --> 01:10:11,100
+<b>They must be Christians.</b>
+
+294
+01:10:11,300 --> 01:10:15,100
+<b>They should bypass Seville, 4,000 people</b>
+
+295
+01:10:15,133 --> 01:10:16,699
+<b>in a single contract.</b>
+
+296
+01:10:17,166 --> 01:10:19,399
+<b>The provided "they be Christians" clause</b>
+
+297
+01:10:19,733 --> 01:10:21,133
+<b>was the legal alibi.</b>
+
+298
+01:10:21,699 --> 01:10:23,933
+<b>Captives were baptized on arrival,</b>
+
+299
+01:10:24,166 --> 01:10:27,133
+<b>reframing, kidnapping, and salvation.</b>
+
+300
+01:10:27,466 --> 01:10:28,466
+<b>This is the Asiendo.</b>
+
+301
+01:10:29,033 --> 01:10:31,233
+<b>The moment the papal license became a</b>
+
+302
+01:10:31,233 --> 01:10:32,733
+<b>commercial contract,</b>
+
+303
+01:10:33,233 --> 01:10:34,433
+<b>the bull authorized</b>
+
+304
+01:10:34,466 --> 01:10:36,800
+<b>perpetual slavery in 1455.</b>
+
+305
+01:10:37,466 --> 01:10:39,933
+<b>By 1518, the Spanish crown was</b>
+
+306
+01:10:39,933 --> 01:10:42,199
+<b>contracting for it by the thousand.</b>
+
+307
+01:10:42,833 --> 01:10:44,699
+<b>The pope didn't just bless a market.</b>
+
+308
+01:10:45,133 --> 01:10:46,766
+<b>He chartered an industry.</b>
+
+309
+01:10:47,300 --> 01:10:49,566
+<b>Five documents, the Chronicle of the</b>
+
+310
+01:10:49,566 --> 01:10:51,133
+<b>First Raids, the desperate</b>
+
+311
+01:10:51,133 --> 01:10:52,366
+<b>letter of an African king,</b>
+
+312
+01:10:52,866 --> 01:10:55,466
+<b>the frustration of a European buyer, the</b>
+
+313
+01:10:55,466 --> 01:10:57,033
+<b>legal decree of the pope,</b>
+
+314
+01:10:57,366 --> 01:10:58,500
+<b>and the royal license</b>
+
+315
+01:10:58,500 --> 01:11:00,033
+<b>that put it into practice.</b>
+
+316
+01:11:00,633 --> 01:11:02,633
+<b>I'm not under any illusion this will</b>
+
+317
+01:11:02,633 --> 01:11:04,600
+<b>convince people who use history as a</b>
+
+318
+01:11:04,600 --> 01:11:05,833
+<b>weapon in a culture war.</b>
+
+319
+01:11:06,433 --> 01:11:08,766
+<b>But for everyone else, what these five</b>
+
+320
+01:11:08,800 --> 01:11:10,333
+<b>documents show is this.</b>
+
+321
+01:11:10,966 --> 01:11:12,500
+<b>The talking point is too</b>
+
+322
+01:11:12,500 --> 01:11:14,199
+<b>broad to show the full picture.</b>
+
+323
+01:11:14,666 --> 01:11:16,633
+<b>Yes, slavery existed</b>
+
+324
+01:11:16,633 --> 01:11:18,166
+<b>before Europeans arrived.</b>
+
+325
+01:11:18,533 --> 01:11:21,600
+<b>But what didn't exist was the scale, the</b>
+
+326
+01:11:21,600 --> 01:11:24,266
+<b>legal authority, and the racial logic</b>
+
+327
+01:11:24,266 --> 01:11:25,466
+<b>that made it permanent.</b>
+

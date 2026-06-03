@@ -1,69 +1,48 @@
 <!-- AUTO:reconcile-dashboard — regenerated each run, do not edit -->
-Last reconciled: 2026-05-14
+Last reconciled: 2026-06-03
 
 ## Lifecycle counts
 
 | Bucket | Count |
 |---|---|
-| `_IN_PRODUCTION/` (pre-script / scripting / fact-check) | 26 |
-| `_READY_TO_FILM/` (script-locked / filmed / in-post, pre-publish) | 1 |
-| `_ARCHIVED/published/` (YouTube confirmed) | 29 |
+| `_IN_PRODUCTION/` (pre-script / scripting / fact-check) | 1 |
+| `_READY_TO_FILM/` (script-locked / filmed / in-post, pre-publish) | 4 |
+| `_ARCHIVED/published/` (YouTube confirmed) | 30 |
 
 ## In production
 
 | Folder | Phase |
 |---|---|
-| `11-industrial-revolution-2025` | published |
-| `12-guatemala-maya-claims-2025` | published |
-| `15-library-alexandria-2025` | idea |
-| `16-pyramid-builders-merer-2025` | idea |
-| `2-heritage-protocols-2025` | idea |
-| `20-guadalupe-hidalgo-2025` | idea |
-| `21-haiti-independence-debt-2025` | fact-checked |
-| `23-christmas-origins-2025` | filmed |
-| `25-iran-protests-history-2025` | published |
-| `26-czechoslovakia-velvet-divorce-2025` | idea |
-| `29-format-research-2025` | idea |
-| `33-greenland-independence-2026` | idea |
-| `36-panama-canal-deconcini-2026` | research |
-| `38-spanish-colonial-law-untranslated-2026` | fact-checked |
-| `39-adwa-wuchale-2026` | scripting |
-| `42-why-brazil-speaks-portuguese-2026` | filmed |
-| `46-sabah-dispute-2026` | idea |
-| `47-operation-legacy-2026` | idea |
-| `48-hamoodur-rahman-commission-2026` | idea |
-| `49-code-noir-untranslated-2026` | idea |
-| `5-netanyahu-map-2025` | idea |
-| `52-hijab-women-rights-2026` | scripting |
-| `55-falklands-malvinas-2026` | research |
-| `56-no-lassos-atlantic-slave-trade-origin-2026` | fact-checked |
-| `8-medieval-women-2025` | idea |
-| `9-communism-definition-2025` | scripting |
+| `59-israel-palestine-partition-offer-2026` | fact-checked |
 
 ## Ready to film / filmed pre-publish
 
 | Folder | Phase |
 |---|---|
 | `1-sykes-picot-2025` | filmed |
+| `56-no-lassos-atlantic-slave-trade-origin-2026` | filmed |
+| `57-piri-reis-map-ottoman-2026` | filmed |
+| `58-kurdistan-statelessness-2026` | filming-ready |
 
 ## Recently published (last 60 days)
 
 | Published | Folder | Video ID | Title |
 |---|---|---|---|
-| 2026-05-13 | `54-spanish-inquisition-torture-rules-2026` | `rbsdtveYvv0` | The Spanish Inquisition Wrote Its Own Torture Manual. Paragr |
+| 2026-05-20 | `52-hijab-women-rights-2026` | `mCR5f_ZcB5k` | The Hijab Wasn't Modesty. It Was a Property Law |
+| 2026-05-14 | `54-spanish-inquisition-torture-rules-2026` | `rbsdtveYvv0` | The Spanish Inquisition Documented Its Torture Methods. Most |
 | 2026-05-08 | `45-manhattan-purchase-myth-2026` | `mg6ujk6rDVE` | The Lenape Never Sold Manhattan. Every Piece Was Forged |
 | 2026-04-30 | `51-treaty-tripoli-article-11-2026` | `liW4BSh46DU` | Treaty of Tripoli: The Most-Cited Line Isn’t in the Arabic T |
 | 2026-04-16 | `44-bakassi-peninsula-2026` | `MXvTuHXSf3o` | Nigeria vs Cameroon. The Court Chose Paper Over People |
 | 2026-04-11 | `50-thermopylae-sources-2026` | `yetYD9_VcmM` | The Myths of Thermopylae: Fake Quotes & Missing Soldiers |
-| 2026-03-18 | `41-treaty-tordesillas-2026` | `WgE2FLsDhfk` | Two Countries Split a Continent They Had Never Mapped |
 
-## All archived (29 folders)
+## All archived (30 folders)
 
 _Full list in `_ARCHIVED/published/`. Reverse-chronological by publish date below._
 
 | Published | Folder | Video ID |
 |---|---|---|
-| 2026-05-13 | `54-spanish-inquisition-torture-rules-2026` | `rbsdtveYvv0` |
+| 2026-05-20 | `52-hijab-women-rights-2026` | `mCR5f_ZcB5k` |
+| 2026-05-14 | `54-spanish-inquisition-torture-rules-2026` | `rbsdtveYvv0` |
 | 2026-05-08 | `45-manhattan-purchase-myth-2026` | `mg6ujk6rDVE` |
 | 2026-04-30 | `51-treaty-tripoli-article-11-2026` | `liW4BSh46DU` |
 | 2026-04-16 | `44-bakassi-peninsula-2026` | `MXvTuHXSf3o` |

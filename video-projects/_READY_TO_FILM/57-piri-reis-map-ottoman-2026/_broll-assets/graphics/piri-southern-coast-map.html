@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Piri Reis — Southern Coast: Brazil, not Antarctica (animated map)</title>
+<!--
+  HISTORY vs HYPE · #57 Piri Reis · B-roll ANIMATED MAP
+  Serves SCRIPT.md Beat 4 ("THE SOUTHERN COAST: BRAZIL, NOT ANTARCTICA", lines 136-153).
+  Argument animated, in order:
+    1. The southern coast is BRAZIL — Cabo Frio, Rio, Cananeia, Portuguese names
+       running south in the right order, right where they sit on a real map.
+    2. Then it BENDS into an invented southern continent (terra australis) every
+       1500s mapmaker drew because Ptolemy said one had to exist.
+    3. The tell: no two maps drew that continent the same way. Real coasts agree.
+       These don't. "Top: Brazil. Bottom: a guess."
+
+  HOW TO USE
+  - MUST be served over http (D3/world-atlas load from CDN; file:// is blocked).
+    From this folder:  python -m http.server 8137
+    then open:         http://127.0.0.1:8137/piri-southern-coast-map.html
+  - Keep internet ON while recording (map geometry streams from jsDelivr CDN).
+  - Controls:  Space / ->  advance one beat   |   <-  back   |   R reset
+               P  auto-play (hands-free record)   |   F fullscreen   |   G graticule
+  - Each beat is a HELD state — screen-record, advancing on your own timing,
+    or press P and record the whole run.
+  - NO AI imagery. Real coastline geometry (Natural Earth via world-atlas).
+
+  Brand tokens copied from piri-explainer-deck.html so the two assets cut together.
+-->
+<style>
+  :root{
+    --ink:#15120D; --ink-2:#1F1A12;
+    --paper:#EDE4D0; --paper-dim:#C9BFA6; --ash:#8A8270;
+    --accent:#B0432F;        /* oxidized red — the REAL coast / verified */
+    --gold:#C6A24A;          /* the INVENTED continent / speculative */
+    --sea:#0E0B07;
+    --land:#2A2317;          /* parchment-dark landmass */
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --sans:"Helvetica Neue",Arial,"Segoe UI",system-ui,sans-serif;
+    --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+    --stageW:1920px; --stageH:1080px; --m:120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:#000;overflow:hidden;font-family:var(--sans)}
+  #fit{position:fixed;inset:0;display:grid;place-items:center}
+  #stage{
+    width:var(--stageW);height:var(--stageH);position:relative;overflow:hidden;
+    background:radial-gradient(120% 90% at 50% 0%, #211B12 0%, var(--ink) 55%, #0B0906 100%);
+    color:var(--paper);transform-origin:center center;
+  }
+  /* faint scan-grain — tactile authority */
+  #stage::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;z-index:6;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  svg#map{position:absolute;inset:0;width:100%;height:100%}
+
+  /* dossier furniture */
+  .exhibit{position:absolute;top:60px;left:var(--m);font-family:var(--mono);
+    font-size:20px;letter-spacing:.32em;color:var(--ash);text-transform:uppercase;z-index:5}
+  .exhibit b{color:var(--accent);font-weight:600}
+  .cite{position:absolute;top:100px;left:var(--m);font-family:var(--mono);
+    font-size:18px;letter-spacing:.06em;color:var(--ash);z-index:5}
+  .caption{position:absolute;left:var(--m);bottom:120px;max-width:1180px;z-index:5;
+    font-family:var(--serif);font-size:46px;line-height:1.26;color:var(--paper);
+    opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+  .caption.on{opacity:1;transform:none}
+  .caption .hl{color:var(--accent)}
+  .caption .gd{color:var(--gold)}
+  .kicker{position:absolute;left:var(--m);bottom:256px;z-index:5;
+    font-family:var(--mono);font-size:23px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--gold);opacity:0;transition:opacity .6s ease}
+  .kicker.on{opacity:1}
+
+  /* map layer styling */
+  .land{fill:var(--land);stroke:#0A0805;stroke-width:.6}
+  .grat{fill:none;stroke:rgba(138,130,112,.18);stroke-width:1}
+  .grat-out{fill:none;stroke:rgba(138,130,112,.4);stroke-width:1.5}
+  .brazil{fill:rgba(176,67,47,.10);stroke:var(--accent);stroke-width:3.2;
+    stroke-linejoin:round;stroke-linecap:round}
+  .pin{fill:var(--accent)}
+  .pin-ring{fill:none;stroke:var(--accent);stroke-width:2.5}
+  .pin-lbl{font-family:var(--serif);font-size:30px;fill:var(--paper);font-weight:600}
+  .pin-lbl .sub{font-family:var(--mono);font-size:17px;fill:var(--paper-dim);letter-spacing:.04em}
+  .order{font-family:var(--mono);font-size:19px;fill:var(--gold);letter-spacing:.2em;text-transform:uppercase}
+
+  /* invented continent + variants (gold = speculative, dashed) */
+  .invent{fill:rgba(198,162,74,.06);stroke:var(--gold);stroke-width:3;
+    stroke-dasharray:3 14;stroke-linecap:round;stroke-linejoin:round}
+  .variant{fill:none;stroke:var(--gold);stroke-width:2.4;stroke-dasharray:2 12;
+    stroke-linecap:round;opacity:.55}
+  .invent-lbl{font-family:var(--serif);font-style:italic;font-size:34px;fill:var(--gold)}
+  .invent-sub{font-family:var(--mono);font-size:18px;fill:var(--gold);letter-spacing:.14em;text-transform:uppercase}
+
+  .fade{opacity:0;transition:opacity .9s ease}
+  .fade.on{opacity:1}
+
+  #hud{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);
+    font-family:var(--mono);font-size:13px;color:#6b6657;letter-spacing:.08em;z-index:9}
+  #beadwrap{position:absolute;top:60px;right:var(--m);display:flex;gap:10px;z-index:5}
+  .bead{width:34px;height:5px;background:rgba(138,130,112,.35);border-radius:3px}
+  .bead.on{background:var(--accent)}
+  @media print{#hud{display:none}}
+</style>
+</head>
+<body>
+<div id="fit">
+  <div id="stage">
+    <div class="exhibit">Exhibit · <b>The Southern Coast</b></div>
+    <div id="beadwrap">
+      <div class="bead on"></div><div class="bead"></div><div class="bead"></div>
+      <div class="bead"></div><div class="bead"></div>
+    </div>
+
+    <svg id="map" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+      <g id="gLand"></g>
+      <g id="gGrat"></g>
+      <g id="gBrazil"></g>
+      <g id="gInvent"></g>
+      <g id="gVariants"></g>
+      <g id="gPins"></g>
+    </svg>
+
+    <div class="kicker" id="kicker"></div>
+    <div class="caption" id="caption"></div>
+    <div class="cite">Piri Reis map, 1513 · toponyms per McIntosh · coast: Natural Earth</div>
+  </div>
+</div>
+<div id="hud">Space/&rarr; next &middot; &larr; back &middot; P auto-play &middot; R reset &middot; F fullscreen</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+<script>
+const W=1920,H=1080;
+// scale the 1920x1080 stage to fit any viewport (so overlays stay on-screen + fullscreen records clean)
+const stageEl=document.getElementById("stage");
+function fit(){const s=Math.min(innerWidth/W,innerHeight/H);stageEl.style.transform=`scale(${s})`;}
+addEventListener("resize",fit);fit();
+const svg=d3.select("#map");
+const kicker=document.getElementById("kicker");
+const caption=document.getElementById("caption");
+const beads=[...document.querySelectorAll(".bead")];
+
+// Real toponyms on the Brazilian coast, north -> south (the script's positive ID).
+// ly = fixed label anchor on the right (over open sea) so the close-packed pins
+// don't pile their labels on top of each other; a leader line connects pin->label.
+const TOPONYMS=[
+  {name:"Cabo Frio",      pt:"Cabo Frio",        lon:-42.02, lat:-22.88, ly:316},
+  {name:"Rio de Janeiro", pt:"Rio de Janeiro",   lon:-43.17, lat:-22.91, ly:430},
+  {name:"Cananeia",       pt:"Cananea",          lon:-47.93, lat:-25.01, ly:544},
+];
+const LX=1120; // label-stack left edge (screen space)
+
+// Focus bbox (lon/lat) framing Brazil + the South Atlantic where the "continent" sprawls
+const FOCUS={type:"Polygon",coordinates:[[[-80,8],[-2,8],[-2,-60],[-80,-60],[-80,8]]]};
+const projection=d3.geoMercator();
+const path=d3.geoPath(projection);
+projection.fitExtent([[ -40,-30],[W+40,H+60]],FOCUS); // bleed past frame edges
+
+const proj=(lon,lat)=>projection([lon,lat]);
+
+let brazilFeat=null;
+
+d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json").then(world=>{
+  const countries=topojson.feature(world,world.objects.countries).features;
+
+  // base land
+  d3.select("#gLand").selectAll("path").data(countries).join("path")
+    .attr("class","land").attr("d",path);
+
+  // graticule
+  const grat=d3.geoGraticule().step([10,10]);
+  d3.select("#gGrat").append("path").attr("class","grat").attr("d",path(grat()));
+  d3.select("#gGrat").append("path").attr("class","grat-out").attr("d",path(grat.outline()));
+  d3.select("#gGrat").attr("opacity",0);
+
+  // Brazil — the real coast, highlighted (drawn but hidden until beat 1)
+  brazilFeat=countries.find(c=>c.properties&&c.properties.name==="Brazil");
+  d3.select("#gBrazil").append("path").attr("class","brazil").attr("id","brazilPath")
+    .attr("d",path(brazilFeat));
+  const bp=document.getElementById("brazilPath");
+  const L=bp.getTotalLength();
+  bp.style.strokeDasharray=L; bp.style.strokeDashoffset=L;
+  bp.style.transition="stroke-dashoffset 2.4s ease";
+
+  buildInvented();
+  go(0);
+});
+
+/* ---- The invented southern continent + period variants (screen-space, deliberately wrong) ---- */
+function buildInvented(){
+  // a deliberately-vague landmass filling the bottom band, anchored off southern Brazil.
+  const main=`M 700 600 C 620 760, 900 980, 1180 980
+     S 1700 900, 1860 1000 L 1900 1080 L 520 1080
+     C 470 920, 560 720, 700 600 Z`;
+  d3.select("#gInvent").append("path").attr("class","invent fade").attr("id","inventMain").attr("d",main);
+  d3.select("#gInvent").append("text").attr("class","invent-lbl fade").attr("id","inventLbl")
+    .attr("x",1500).attr("y",862).attr("text-anchor","middle").text("an invented southern continent");
+  d3.select("#gInvent").append("text").attr("class","invent-sub fade").attr("id","inventSub")
+    .attr("x",1500).attr("y",896).attr("text-anchor","middle")
+    .text("“terra australis” · every 1500s map drew one");
+
+  // three DIFFERENT period guesses at the same continent — none agree (open dashed curves)
+  const V=[
+    "M 560 668 C 760 624, 1000 824, 1280 760 S 1700 660, 1880 800",
+    "M 640 820 C 860 904, 1060 700, 1340 764 S 1660 884, 1872 724",
+    "M 600 980 C 820 920, 1080 1012, 1360 960 S 1660 1000, 1882 944",
+  ];
+  V.forEach((d,i)=>d3.select("#gVariants").append("path")
+    .attr("class","variant fade").attr("id","var"+i).attr("d",d));
+}
+
+/* ----------------------------- SCENES ----------------------------- */
+function setBeads(n){beads.forEach((b,k)=>b.classList.toggle("on",k<=n));}
+function cap(kick,html){
+  kicker.classList.remove("on");caption.classList.remove("on");
+  setTimeout(()=>{kicker.textContent=kick;caption.innerHTML=html;
+    kicker.classList.add("on");caption.classList.add("on");},120);
+}
+function show(id,on){const el=document.getElementById(id);if(el)el.classList.toggle("on",on);}
+function clearPins(){d3.select("#gPins").selectAll("*").remove();}
+
+function dropPins(upto){
+  clearPins();
+  const g=d3.select("#gPins");
+  TOPONYMS.slice(0,upto).forEach((t,i)=>{
+    const p=proj(t.lon,t.lat); if(!p)return;
+    const ly=t.ly;
+    const node=g.append("g").attr("opacity",0);
+    // leader line: pin -> label anchor
+    node.append("line").attr("x1",p[0]).attr("y1",p[1]).attr("x2",LX-16).attr("y2",ly-9)
+      .attr("stroke","var(--accent)").attr("stroke-width",1.5).attr("opacity",.55);
+    // pin
+    node.append("circle").attr("class","pin-ring").attr("cx",p[0]).attr("cy",p[1]).attr("r",13);
+    node.append("circle").attr("class","pin").attr("cx",p[0]).attr("cy",p[1]).attr("r",6);
+    // label (number + name, then Piri's name beneath)
+    const lbl=node.append("text").attr("class","pin-lbl").attr("x",LX).attr("y",ly);
+    lbl.append("tspan").attr("class","order").text((i+1)+"   ");
+    lbl.append("tspan").text(t.name);
+    node.append("text").attr("class","pin-lbl").attr("x",LX).attr("y",ly+30)
+      .append("tspan").attr("class","sub").text("Piri’s name: "+t.pt);
+    node.transition().delay(i*180).duration(650).attr("opacity",1);
+  });
+}
+
+const scenes=[
+  // 0 — establish: just the real coastline, the actual geography
+  ()=>{
+    setBeads(0);
+    d3.select("#gGrat").transition().duration(800).attr("opacity",1);
+    document.getElementById("brazilPath").style.strokeDashoffset=document.getElementById("brazilPath").getTotalLength();
+    clearPins();
+    ["inventMain","inventLbl","inventSub","var0","var1","var2"].forEach(id=>show(id,false));
+    cap("The famous claim","This stretch is what Hancock and Hapgood read as <span class='gd'>Antarctica</span> — a coast mapped before the ice.");
+  },
+  // 1 — it's Brazil: trace the real coast
+  ()=>{
+    setBeads(1);
+    document.getElementById("brazilPath").style.strokeDashoffset=0; // draw the coast
+    clearPins();
+    cap("It’s Brazil","The top coast is <span class='hl'>Brazil</span> — the Portuguese sailed it and named it.");
+  },
+  // 2 — the toponyms, in the right order, right where they sit
+  ()=>{
+    setBeads(2);
+    document.getElementById("brazilPath").style.strokeDashoffset=0;
+    dropPins(3);
+    cap("Named, in order","<span class='hl'>Cabo Frio, Rio, Cananeia</span> — running south in the right order, right where they sit on a real map.");
+  },
+  // 3 — then it bends into an invented continent
+  ()=>{
+    setBeads(3);
+    dropPins(3);
+    ["inventMain","inventLbl","inventSub"].forEach(id=>show(id,true));
+    ["var0","var1","var2"].forEach(id=>show(id,false));
+    cap("Then it bends","Then Piri ran that real coast straight into <span class='gd'>a continent no one had ever seen.</span>");
+  },
+  // 4 — the tell: every map drew it differently
+  ()=>{
+    setBeads(4);
+    show("inventMain",false);show("inventLbl",false);show("inventSub",false);
+    ["var0","var1","var2"].forEach(id=>show(id,true));
+    cap("The tell","Every 1500s map drew it — <span class='gd'>no two the same.</span> Real coasts agree; these don’t.");
+  },
+];
+
+let step=0,timer=null;
+function go(n){
+  step=Math.max(0,Math.min(scenes.length-1,n));
+  scenes[step]();
+}
+function next(){ if(step<scenes.length-1) go(step+1); }
+function prev(){ if(step>0){ // rebuild cleanly when stepping back
+    const t=step-1; go(0);
+    let k=0; const iv=setInterval(()=>{k++; if(k>t){clearInterval(iv);return;} go(k);},10);
+  } }
+function autoplay(){
+  if(timer){clearInterval(timer);timer=null;return;}
+  go(0);
+  timer=setInterval(()=>{ if(step>=scenes.length-1){clearInterval(timer);timer=null;return;} next(); },3600);
+}
+addEventListener("keydown",e=>{
+  if(e.key==="ArrowRight"||e.key===" "){e.preventDefault();next();}
+  else if(e.key==="ArrowLeft"){prev();}
+  else if(e.key==="r"||e.key==="R"){go(0);}
+  else if(e.key==="p"||e.key==="P"){autoplay();}
+  else if(e.key==="g"||e.key==="G"){const g=d3.select("#gGrat");g.attr("opacity",+g.attr("opacity")?0:1);}
+  else if(e.key==="f"||e.key==="F"){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}
+});
+</script>
+</body>
+</html>

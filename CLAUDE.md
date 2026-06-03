@@ -35,7 +35,7 @@ Workflow patterns, recovery commands, and the open-work list: `.claude/REFERENCE
 2. **Real quotes with page numbers** — word-for-word from academic sources (the competitive advantage)
 3. **Modern relevance** — connect history to 2024-2026 developments
 4. **Academic balance** — present multiple perspectives, acknowledge counter-evidence
-5. **Deep causal chains** — explain WHY (consequently, thereby, which meant that)
+5. **Deep causal chains** — explain WHY (spoken-register connectors: so, which is why, and that meant; formal "consequently/thereby" sparingly)
 6. **No oversimplification** — maintain nuance while accessible
 
 ---
@@ -62,6 +62,7 @@ Workflow patterns, recovery commands, and the open-work list: `.claude/REFERENCE
 - `_IN_PRODUCTION/` — research / scripting / fact-check phase
 - `_READY_TO_FILM/` — `FINAL-SCRIPT.md` exists OR `.mp4` rough cut exists, no YouTube URL yet (covers: script-locked OR filmed OR in-post)
 - `_ARCHIVED/published/` — YouTube published. Matched via `analytics.db` Video ID.
+- `_BACKLOG/` — **holding bucket, OUTSIDE the lifecycle.** Dormant/parked projects not actively being worked. Invisible to scanners (`session_context.py`, `project_scanner.py`, `reconcile.py` all glob only the 3 lifecycle folders), so it declutters the active surface without losing work. Pull a folder back to `_IN_PRODUCTION/` when you resume it. NOT for published or filmed work (those go to their lifecycle bucket).
 
 **Before creating any file:** Read `PROJECT_STATUS.md` → Glob for existing folder → confirm lifecycle stage
 
@@ -183,7 +184,7 @@ See: `tools/PACKAGING_MANDATE.md` | `.claude/REFERENCE/TITLE-GENERATION-PROTOCOL
 5. **Primary sources ON SCREEN** — non-optional
 6. **Read WRITING-VOICE-AND-STYLE.md before scripts** — voice, delivery, patterns, checklist (PARTS 1-5)
 7. **Write for spoken delivery** — contractions, natural phrasing
-8. **Deep causal chains** — explain WHY (consequently, thereby, which meant that)
+8. **Deep causal chains** — explain WHY (spoken-register connectors: so, which is why, and that meant; formal "consequently/thereby" sparingly)
 9. **Intellectual honesty** — acknowledge what opposing side gets right
 10. **Single source of truth** — 01-VERIFIED-RESEARCH.md only
 11. **Quality gates** — 90% verified → write; 100% cross-checked → film

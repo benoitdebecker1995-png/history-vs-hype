@@ -1,0 +1,1276 @@
+1
+01:00:00,099 --> 01:00:01,933
+<b>This is the most important thing written</b>
+
+2
+01:00:01,933 --> 01:00:03,333
+<b>on the Piri Reis map.</b>
+
+3
+01:00:03,599 --> 01:00:05,300
+<b>A paragraph in Ottoman</b>
+
+4
+01:00:05,333 --> 01:00:07,433
+<b>Turkish tucked in the corner.</b>
+
+5
+01:00:07,699 --> 01:00:10,300
+<b>For 500 years almost nobody has read it.</b>
+
+6
+01:00:10,833 --> 01:00:12,133
+<b>You've probably seen this map.</b>
+
+7
+01:00:12,266 --> 01:00:14,099
+<b>People have called it the most accurate</b>
+
+8
+01:00:14,099 --> 01:00:15,766
+<b>map of the 16th century.</b>
+
+9
+01:00:16,033 --> 01:00:19,233
+<b>Proof of a seafaring civilization, tens</b>
+
+10
+01:00:19,233 --> 01:00:20,666
+<b>of thousands of years old.</b>
+
+11
+01:00:20,966 --> 01:00:23,866
+<b>Proof the earth was visited by aliens.</b>
+
+12
+01:00:24,233 --> 01:00:26,566
+<b>It's the one document the whole lost</b>
+
+13
+01:00:26,566 --> 01:00:28,933
+<b>civilization case keeps coming back to.</b>
+
+14
+01:00:29,699 --> 01:00:31,866
+<b>Graham Hancock brought it up again on Lex</b>
+
+15
+01:00:31,866 --> 01:00:34,099
+<b>Friedman in October 2024.</b>
+
+16
+01:00:34,633 --> 01:00:36,366
+<b>I'm saying it's part of a class of</b>
+
+17
+01:00:36,400 --> 01:00:37,633
+<b>ancient maps that came out</b>
+
+18
+01:00:37,633 --> 01:00:39,233
+<b>of the library of Alexandria.</b>
+
+19
+01:00:39,900 --> 01:00:41,599
+<b>But the man who drew this map already</b>
+
+20
+01:00:41,599 --> 01:00:42,500
+<b>told us where it came</b>
+
+21
+01:00:42,500 --> 01:00:44,166
+<b>from and what's on it.</b>
+
+22
+01:00:44,433 --> 01:00:45,433
+<b>He wrote it down on the</b>
+
+23
+01:00:45,466 --> 01:00:47,366
+<b>parchment in his own hand.</b>
+
+24
+01:00:47,666 --> 01:00:49,733
+<b>So today we're going to read it.</b>
+
+25
+01:00:50,699 --> 01:00:52,833
+<b>This video is about one document and what</b>
+
+26
+01:00:52,833 --> 01:00:54,466
+<b>it says when you actually read it.</b>
+
+27
+01:00:54,699 --> 01:00:56,266
+<b>The answers are on the map.</b>
+
+28
+01:00:56,500 --> 01:00:57,766
+<b>People just don't read it.</b>
+
+29
+01:00:58,400 --> 01:01:00,400
+<b>Starting the corner, the most important</b>
+
+30
+01:01:00,400 --> 01:01:02,466
+<b>thing on this map is the paragraph there.</b>
+
+31
+01:01:02,766 --> 01:01:05,066
+<b>Historians number it in description 6.</b>
+
+32
+01:01:05,566 --> 01:01:07,233
+<b>I'm going to call it the source list</b>
+
+33
+01:01:07,266 --> 01:01:09,000
+<b>because that's what it is.</b>
+
+34
+01:01:09,466 --> 01:01:12,766
+<b>I have used 20 maps and Mapamundi, 8 such</b>
+
+35
+01:01:12,766 --> 01:01:15,599
+<b>cafegares, 1 of the Arab maps of India,</b>
+
+36
+01:01:16,066 --> 01:01:18,599
+<b>4 maps made by the Portuguese and finally</b>
+
+37
+01:01:18,599 --> 01:01:20,400
+<b>a map drawn by Columbus.</b>
+
+38
+01:01:21,333 --> 01:01:22,766
+<b>Piri Reis says it...</b>
+
+39
+01:01:23,833 --> 01:01:25,366
+<b>Piri Reis says it himself.</b>
+
+40
+01:01:25,566 --> 01:01:27,633
+<b>He took other people's maps</b>
+
+41
+01:01:27,699 --> 01:01:29,366
+<b>and brought them to one scale.</b>
+
+42
+01:01:29,633 --> 01:01:31,566
+<b>He didn't find this map.</b>
+
+43
+01:01:31,699 --> 01:01:33,533
+<b>He put it together from other maps.</b>
+
+44
+01:01:34,333 --> 01:01:35,666
+<b>Here's Hancock's claim.</b>
+
+45
+01:01:36,166 --> 01:01:37,099
+<b>The maps Piri Reis</b>
+
+46
+01:01:37,099 --> 01:01:39,466
+<b>copied weren't ordinary maps.</b>
+
+47
+01:01:39,666 --> 01:01:40,733
+<b>They were survivals</b>
+
+48
+01:01:40,733 --> 01:01:42,133
+<b>from a lost civilization,</b>
+
+49
+01:01:42,433 --> 01:01:44,133
+<b>preserved for thousands of years in the</b>
+
+50
+01:01:44,133 --> 01:01:45,466
+<b>library of Alexandria.</b>
+
+51
+01:01:46,233 --> 01:01:49,333
+<b>But Piri Reis names his sources and none</b>
+
+52
+01:01:49,333 --> 01:01:50,533
+<b>of them are ancient.</b>
+
+53
+01:01:51,133 --> 01:01:53,000
+<b>8 Ptolemaic textbook maps,</b>
+
+54
+01:01:53,400 --> 01:01:56,233
+<b>4 recent Portuguese charts, a map drawn</b>
+
+55
+01:01:56,233 --> 01:01:58,233
+<b>by Columbus within living memory.</b>
+
+56
+01:01:59,066 --> 01:02:00,933
+<b>Hancock got the library of Alexandria</b>
+
+57
+01:02:00,933 --> 01:02:03,400
+<b>from Charles Hapgood in 1966.</b>
+
+58
+01:02:04,166 --> 01:02:06,099
+<b>And Hapgood got it, in</b>
+
+59
+01:02:06,099 --> 01:02:07,800
+<b>part, from the map itself.</b>
+
+60
+01:02:08,466 --> 01:02:10,400
+<b>The source list really does say that all</b>
+
+61
+01:02:10,400 --> 01:02:11,966
+<b>those charts go back to the time of</b>
+
+62
+01:02:11,966 --> 01:02:13,233
+<b>Alexander the Great.</b>
+
+63
+01:02:13,766 --> 01:02:14,966
+<b>But that last step is</b>
+
+64
+01:02:14,966 --> 01:02:17,266
+<b>his, not the primary source.</b>
+
+65
+01:02:18,233 --> 01:02:20,099
+<b>Mäkingthos, who wrote the</b>
+
+66
+01:02:20,099 --> 01:02:21,500
+<b>authoritative book on this map,</b>
+
+67
+01:02:22,400 --> 01:02:23,900
+<b>checked the map and everything else Piri</b>
+
+68
+01:02:23,900 --> 01:02:25,433
+<b>Reis wrote and the</b>
+
+69
+01:02:25,433 --> 01:02:27,199
+<b>claim simply isn't there.</b>
+
+70
+01:02:27,199 --> 01:02:28,833
+<b>But the strongest piece of the theory</b>
+
+71
+01:02:28,833 --> 01:02:30,500
+<b>that this map carries</b>
+
+72
+01:02:30,500 --> 01:02:31,766
+<b>lost ancient knowledge</b>
+
+73
+01:02:32,133 --> 01:02:33,500
+<b>comes down to one word.</b>
+
+74
+01:02:34,300 --> 01:02:34,800
+<b>Kökführer.</b>
+
+75
+01:02:35,500 --> 01:02:37,633
+<b>Hapgood read that word and Hancock after</b>
+
+76
+01:02:37,633 --> 01:02:38,833
+<b>him as the name of an</b>
+
+77
+01:02:38,833 --> 01:02:40,566
+<b>ancient mysterious kind of map.</b>
+
+78
+01:02:41,566 --> 01:02:43,300
+<b>Hancock says some of those sources go</b>
+
+79
+01:02:43,300 --> 01:02:46,033
+<b>back to the 4th century BC or earlier.</b>
+
+80
+01:02:46,699 --> 01:02:49,533
+<b>That one word to them is the fingerprint</b>
+
+81
+01:02:49,533 --> 01:02:50,966
+<b>of the lost civilization.</b>
+
+82
+01:02:51,966 --> 01:02:53,833
+<b>Every scholar who can read the original</b>
+
+83
+01:02:53,933 --> 01:02:55,466
+<b>reaches the same conclusion.</b>
+
+84
+01:02:56,133 --> 01:02:57,433
+<b>It's a spelling mistake.</b>
+
+85
+01:02:58,366 --> 01:02:59,400
+<b>Kökführer is the</b>
+
+86
+01:02:59,400 --> 01:03:01,033
+<b>Arabic word for geography.</b>
+
+87
+01:03:01,733 --> 01:03:03,699
+<b>Tugraffia, spelled wrong.</b>
+
+88
+01:03:04,233 --> 01:03:06,966
+<b>In Arabic the letter for the "gh" sound</b>
+
+89
+01:03:07,133 --> 01:03:08,500
+<b>is identical to another</b>
+
+90
+01:03:08,533 --> 01:03:10,300
+<b>except for one dot on the top.</b>
+
+91
+01:03:10,833 --> 01:03:13,500
+<b>Drop the dot, swap one more letter and</b>
+
+92
+01:03:13,500 --> 01:03:15,733
+<b>Tugraffia turns into Kefirge.</b>
+
+93
+01:03:16,766 --> 01:03:18,300
+<b>A word that means nothing.</b>
+
+94
+01:03:19,000 --> 01:03:21,233
+<b>Those 8 "ghafirge" were</b>
+
+95
+01:03:21,233 --> 01:03:22,800
+<b>ordinary geography maps.</b>
+
+96
+01:03:23,466 --> 01:03:24,466
+<b>Copies of Claudius...</b>
+
+97
+01:03:25,233 --> 01:03:27,433
+<b>Copies of Claudius' Ptolemies Atlas,</b>
+
+98
+01:03:27,766 --> 01:03:29,666
+<b>reprinted all over Renaissance Europe.</b>
+
+99
+01:03:30,366 --> 01:03:31,633
+<b>Nothing ancient about them.</b>
+
+100
+01:03:32,533 --> 01:03:33,466
+<b>People call them ancient</b>
+
+101
+01:03:33,466 --> 01:03:35,266
+<b>anyway because of one more mix-up.</b>
+
+102
+01:03:35,766 --> 01:03:36,933
+<b>The same one that put</b>
+
+103
+01:03:36,933 --> 01:03:38,333
+<b>Alexander's name on the map.</b>
+
+104
+01:03:39,066 --> 01:03:41,266
+<b>There are two famous Ptolemies and they</b>
+
+105
+01:03:41,266 --> 01:03:43,000
+<b>lived 300 years apart.</b>
+
+106
+01:03:43,566 --> 01:03:45,466
+<b>Claudius Ptolemy, the map</b>
+
+107
+01:03:45,466 --> 01:03:48,199
+<b>maker, worked around 150 AD.</b>
+
+108
+01:03:49,166 --> 01:03:50,966
+<b>Ptolemy I was one of</b>
+
+109
+01:03:50,966 --> 01:03:52,333
+<b>Alexander the Great's generals.</b>
+
+110
+01:03:53,466 --> 01:03:54,866
+<b>P.D. Reyes confused the two.</b>
+
+111
+01:03:55,300 --> 01:03:57,166
+<b>He thought his maps reached all the way</b>
+
+112
+01:03:57,166 --> 01:03:59,800
+<b>back to Ptolemy I in Alexander's day.</b>
+
+113
+01:04:00,566 --> 01:04:01,233
+<b>They didn't.</b>
+
+114
+01:04:01,666 --> 01:04:03,099
+<b>But that one slip is where the time of</b>
+
+115
+01:04:03,099 --> 01:04:05,000
+<b>Alexander on the source list comes from</b>
+
+116
+01:04:05,366 --> 01:04:06,033
+<b>and it's the line</b>
+
+117
+01:04:06,033 --> 01:04:08,033
+<b>Habgud built his library on.</b>
+
+118
+01:04:08,800 --> 01:04:10,033
+<b>And none of this is new.</b>
+
+119
+01:04:10,699 --> 01:04:12,166
+<b>The first skull to make sense of this</b>
+
+120
+01:04:12,166 --> 01:04:15,199
+<b>map, Paul Kalle, worked it out in 1933.</b>
+
+121
+01:04:16,099 --> 01:04:18,666
+<b>"Giafaria" is a mistake for geography.</b>
+
+122
+01:04:20,433 --> 01:04:22,233
+<b>Kalle could read the original Ottoman.</b>
+
+123
+01:04:22,900 --> 01:04:23,900
+<b>Habgud couldn't.</b>
+
+124
+01:04:24,300 --> 01:04:25,466
+<b>And he wrote his book</b>
+
+125
+01:04:25,466 --> 01:04:26,733
+<b>30 years later anyway.</b>
+
+126
+01:04:27,966 --> 01:04:28,533
+<b>That tells us where</b>
+
+127
+01:04:28,533 --> 01:04:29,733
+<b>the sources came from.</b>
+
+128
+01:04:30,133 --> 01:04:31,433
+<b>Now let's look at the map itself.</b>
+
+129
+01:04:32,233 --> 01:04:33,866
+<b>The Caribbean section is the one Hankuk</b>
+
+130
+01:04:34,000 --> 01:04:35,433
+<b>points to the most often.</b>
+
+131
+01:04:35,699 --> 01:04:38,866
+<b>In 2019 he said this island east of</b>
+
+132
+01:04:38,866 --> 01:04:41,066
+<b>Florida shows the Bimini Road,</b>
+
+133
+01:04:41,133 --> 01:04:43,266
+<b>a line of stone blocks of the Bahamas</b>
+
+134
+01:04:43,400 --> 01:04:47,599
+<b>drawn while they were still</b>
+
+135
+01:04:47,599 --> 01:04:49,466
+<b>above water in the Ice Age.</b>
+
+136
+01:04:50,233 --> 01:04:52,666
+<b>P.D. Reyes labeled that ghost himself.</b>
+
+137
+01:04:53,199 --> 01:04:55,633
+<b>Right where Hankuk points, the island he</b>
+
+138
+01:04:55,633 --> 01:04:56,733
+<b>reads as the Bahamas,</b>
+
+139
+01:04:57,266 --> 01:04:58,699
+<b>there are two place names.</b>
+
+140
+01:04:59,333 --> 01:05:01,966
+<b>Portagande and Cow Punta Orrify.</b>
+
+141
+01:05:02,800 --> 01:05:05,433
+<b>Both are columbuses from his second void.</b>
+
+142
+01:05:06,166 --> 01:05:07,633
+<b>Macintosh checked every</b>
+
+143
+01:05:07,633 --> 01:05:09,433
+<b>surviving charge from the period.</b>
+
+144
+01:05:09,866 --> 01:05:11,133
+<b>These two names appear</b>
+
+145
+01:05:11,133 --> 01:05:12,733
+<b>on only one map on earth.</b>
+
+146
+01:05:13,266 --> 01:05:13,866
+<b>This one.</b>
+
+147
+01:05:14,500 --> 01:05:16,266
+<b>Which puts the spot Hankuk calls the</b>
+
+148
+01:05:16,266 --> 01:05:19,599
+<b>Bimini Road in Cuba, not the Bahamas.</b>
+
+149
+01:05:20,033 --> 01:05:22,366
+<b>Copied name for name from a map by</b>
+
+150
+01:05:22,366 --> 01:05:23,699
+<b>Christopher Columbus.</b>
+
+151
+01:05:24,233 --> 01:05:26,400
+<b>Not 12,000 years ago, the</b>
+
+152
+01:05:26,400 --> 01:05:28,599
+<b>work of a man who died in 1506.</b>
+
+153
+01:05:29,400 --> 01:05:31,366
+<b>There is one small mystery here.</b>
+
+154
+01:05:31,699 --> 01:05:33,466
+<b>How does an Ottoman admiral</b>
+
+155
+01:05:33,500 --> 01:05:35,366
+<b>end up with a map by Columbus?</b>
+
+156
+01:05:36,266 --> 01:05:38,099
+<b>The inscription says it came of a Spanish</b>
+
+157
+01:05:38,133 --> 01:05:40,533
+<b>prisoner captured by P.D. Reyes' uncle,</b>
+
+158
+01:05:40,633 --> 01:05:41,733
+<b>who claimed he'd sailed</b>
+
+159
+01:05:41,733 --> 01:05:43,366
+<b>with Columbus three times.</b>
+
+160
+01:05:44,099 --> 01:05:46,599
+<b>He may have exaggerated, but the place</b>
+
+161
+01:05:46,633 --> 01:05:48,066
+<b>names hold either way.</b>
+
+162
+01:05:48,866 --> 01:05:50,300
+<b>And there is one more detail that prints</b>
+
+163
+01:05:50,300 --> 01:05:51,533
+<b>this section to Columbus'</b>
+
+164
+01:05:51,533 --> 01:05:53,766
+<b>lifetime, not the Ice Age.</b>
+
+165
+01:05:54,300 --> 01:05:55,866
+<b>Look at how Cuba is drawn.</b>
+
+166
+01:05:56,266 --> 01:05:59,266
+<b>On the 1513 map, Cuba isn't an island.</b>
+
+167
+01:05:59,533 --> 01:06:01,133
+<b>It's attached to the mainland.</b>
+
+168
+01:06:01,666 --> 01:06:03,199
+<b>That's Columbus' mistake.</b>
+
+169
+01:06:03,533 --> 01:06:06,166
+<b>He was so sure Cuba was the edge of Asia</b>
+
+170
+01:06:06,500 --> 01:06:08,800
+<b>that on June 12th 1494,</b>
+
+171
+01:06:09,233 --> 01:06:11,566
+<b>he sent a notary from ship to ship to</b>
+
+172
+01:06:11,566 --> 01:06:13,333
+<b>make his whole crew swear to it.</b>
+
+173
+01:06:13,666 --> 01:06:15,300
+<b>Anyone who ever took it back</b>
+
+174
+01:06:15,300 --> 01:06:16,833
+<b>would have his stone cut out.</b>
+
+175
+01:06:17,533 --> 01:06:19,633
+<b>The map copies that error exactly.</b>
+
+176
+01:06:20,233 --> 01:06:21,833
+<b>And you can watch it get corrected.</b>
+
+177
+01:06:22,500 --> 01:06:25,500
+<b>Piri Reyes made a second map in 1528.</b>
+
+178
+01:06:26,066 --> 01:06:27,566
+<b>And by then, ships had</b>
+
+179
+01:06:27,566 --> 01:06:29,133
+<b>sailed all the way around Cuba.</b>
+
+180
+01:06:29,433 --> 01:06:32,666
+<b>So on the 1528 map, Cuba is an island.</b>
+
+181
+01:06:33,066 --> 01:06:34,266
+<b>The map kept talk with</b>
+
+182
+01:06:34,266 --> 01:06:35,833
+<b>what explorers were learning.</b>
+
+183
+01:06:36,199 --> 01:06:38,366
+<b>A 12,000-year-old map wouldn't carry</b>
+
+184
+01:06:38,366 --> 01:06:40,333
+<b>Columbus' personal blunder</b>
+
+185
+01:06:40,966 --> 01:06:41,900
+<b>and wouldn't quietly</b>
+
+186
+01:06:41,900 --> 01:06:43,866
+<b>fix itself 15 years later.</b>
+
+187
+01:06:44,333 --> 01:06:47,000
+<b>So the ancient maps weren't ancient.</b>
+
+188
+01:06:47,233 --> 01:06:49,566
+<b>They were Columbus' first rough charts of</b>
+
+189
+01:06:49,566 --> 01:06:52,233
+<b>the Caribbean from around 1495.</b>
+
+190
+01:06:53,166 --> 01:06:55,233
+<b>And the originals are lost, which means</b>
+
+191
+01:06:55,233 --> 01:06:56,766
+<b>that this corner of an Ottoman map</b>
+
+192
+01:06:57,099 --> 01:06:59,099
+<b>is the closest thing left on Earth to</b>
+
+193
+01:06:59,099 --> 01:07:01,366
+<b>Columbus' own lost cartography.</b>
+
+194
+01:07:02,033 --> 01:07:04,066
+<b>This is what I try to do on this channel.</b>
+
+195
+01:07:04,066 --> 01:07:05,966
+<b>Go to the document and read it.</b>
+
+196
+01:07:06,233 --> 01:07:08,699
+<b>If you like that, subscribe, because we</b>
+
+197
+01:07:08,699 --> 01:07:10,433
+<b>haven't finished reading this one.</b>
+
+198
+01:07:10,633 --> 01:07:12,133
+<b>There's still the bottom of the map.</b>
+
+199
+01:07:13,000 --> 01:07:14,566
+<b>It's the part that Henco can</b>
+
+200
+01:07:14,566 --> 01:07:16,366
+<b>have good read as Antarctica,</b>
+
+201
+01:07:16,633 --> 01:07:18,333
+<b>mapped before the ice.</b>
+
+202
+01:07:18,866 --> 01:07:21,033
+<b>Two coasts drawn as one.</b>
+
+203
+01:07:21,266 --> 01:07:22,533
+<b>The top is Brazil.</b>
+
+204
+01:07:22,866 --> 01:07:24,166
+<b>Imperial labeled it.</b>
+
+205
+01:07:24,666 --> 01:07:26,400
+<b>Cabo Frio, Rio de Janeiro,</b>
+
+206
+01:07:27,233 --> 01:07:30,000
+<b>Galenia, the Portuguese names running</b>
+
+207
+01:07:30,000 --> 01:07:31,466
+<b>south in the right order,</b>
+
+208
+01:07:31,866 --> 01:07:33,433
+<b>right where they sit on a real map.</b>
+
+209
+01:07:33,966 --> 01:07:35,133
+<b>The Portuguese sailed</b>
+
+210
+01:07:35,133 --> 01:07:36,566
+<b>that coast and named it.</b>
+
+211
+01:07:37,099 --> 01:07:39,666
+<b>Then it bends into a huge empty continent</b>
+
+212
+01:07:39,666 --> 01:07:41,033
+<b>across the bottom of the map.</b>
+
+213
+01:07:42,066 --> 01:07:43,666
+<b>That part isn't a discovery.</b>
+
+214
+01:07:44,533 --> 01:07:47,733
+<b>Every mapmaker in the 1500s drew a giant</b>
+
+215
+01:07:47,733 --> 01:07:49,300
+<b>southern landmass down there.</b>
+
+216
+01:07:50,033 --> 01:07:52,433
+<b>Ptolemy's geography said one had to</b>
+
+217
+01:07:52,433 --> 01:07:54,599
+<b>exist, to balance the globe.</b>
+
+218
+01:07:55,199 --> 01:07:57,000
+<b>And Piri ran the coast of</b>
+
+219
+01:07:57,000 --> 01:07:58,699
+<b>Brazil straight into it.</b>
+
+220
+01:07:59,533 --> 01:08:00,833
+<b>That invented continent is</b>
+
+221
+01:08:00,833 --> 01:08:02,533
+<b>what Hapgood calls Antarctica.</b>
+
+222
+01:08:03,433 --> 01:08:05,333
+<b>And it's where we find Excription 10.</b>
+
+223
+01:08:06,366 --> 01:08:07,466
+<b>This country is barren.</b>
+
+224
+01:08:08,033 --> 01:08:09,066
+<b>Everything is desolate.</b>
+
+225
+01:08:09,966 --> 01:08:11,833
+<b>Large serpents are found here.</b>
+
+226
+01:08:12,400 --> 01:08:13,666
+<b>The Portuguese infidels</b>
+
+227
+01:08:13,666 --> 01:08:15,333
+<b>did not land on these shores.</b>
+
+228
+01:08:16,000 --> 01:08:16,933
+<b>These shores are also</b>
+
+229
+01:08:16,933 --> 01:08:18,433
+<b>said to be very hot.</b>
+
+230
+01:08:19,100 --> 01:08:20,133
+<b>The Portuguese named</b>
+
+231
+01:08:20,133 --> 01:08:21,466
+<b>the coast they sailed.</b>
+
+232
+01:08:21,833 --> 01:08:22,600
+<b>Brazil.</b>
+
+233
+01:08:23,000 --> 01:08:24,133
+<b>They never landed on the</b>
+
+234
+01:08:24,133 --> 01:08:25,366
+<b>empty stretch below it,</b>
+
+235
+01:08:25,666 --> 01:08:27,800
+<b>because there was barely anything there.</b>
+
+236
+01:08:28,333 --> 01:08:29,666
+<b>Hot, barren,</b>
+
+237
+01:08:29,966 --> 01:08:32,533
+<b>half-invented, not an icecap.</b>
+
+238
+01:08:33,333 --> 01:08:34,566
+<b>And Piri Reis wasn't</b>
+
+239
+01:08:34,566 --> 01:08:36,000
+<b>the only map to do this.</b>
+
+240
+01:08:36,366 --> 01:08:37,233
+<b>They all did.</b>
+
+241
+01:08:37,800 --> 01:08:38,966
+<b>That's the giveaway.</b>
+
+242
+01:08:39,533 --> 01:08:41,166
+<b>No two of them drew the southern</b>
+
+243
+01:08:41,166 --> 01:08:42,500
+<b>continent the same way,</b>
+
+244
+01:08:42,633 --> 01:08:43,433
+<b>because none of them</b>
+
+245
+01:08:43,433 --> 01:08:44,699
+<b>had actually seen it.</b>
+
+246
+01:08:45,533 --> 01:08:48,100
+<b>So the lost civilization writers kept a</b>
+
+247
+01:08:48,100 --> 01:08:49,699
+<b>handful whose guesses happened to</b>
+
+248
+01:08:49,699 --> 01:08:50,966
+<b>resemble Antarctica.</b>
+
+249
+01:08:51,766 --> 01:08:53,366
+<b>Piri Reis among them, and</b>
+
+250
+01:08:53,399 --> 01:08:55,166
+<b>ignored the dozens that didn't.</b>
+
+251
+01:08:55,766 --> 01:08:57,766
+<b>Real maps of a real coast</b>
+
+252
+01:08:58,000 --> 01:08:59,233
+<b>would agree with each other.</b>
+
+253
+01:08:59,833 --> 01:09:00,933
+<b>These don't.</b>
+
+254
+01:09:01,433 --> 01:09:02,766
+<b>That isn't evidence.</b>
+
+255
+01:09:02,933 --> 01:09:04,466
+<b>It's shopping for it.</b>
+
+256
+01:09:05,100 --> 01:09:07,166
+<b>This shape was never the real story.</b>
+
+257
+01:09:07,333 --> 01:09:09,166
+<b>This map sat forgotten in a palace</b>
+
+258
+01:09:09,166 --> 01:09:11,366
+<b>library for 400 years.</b>
+
+259
+01:09:11,666 --> 01:09:12,433
+<b>Not hidden.</b>
+
+260
+01:09:12,766 --> 01:09:13,833
+<b>Not suppressed.</b>
+
+261
+01:09:14,233 --> 01:09:15,566
+<b>Just ignored.</b>
+
+262
+01:09:16,199 --> 01:09:17,266
+<b>And being ignored is the</b>
+
+263
+01:09:17,300 --> 01:09:18,699
+<b>only thing that saved it.</b>
+
+264
+01:09:19,000 --> 01:09:21,233
+<b>Piri Reis was drawing this map for an</b>
+
+265
+01:09:21,233 --> 01:09:22,633
+<b>empire whose government,</b>
+
+266
+01:09:23,033 --> 01:09:26,233
+<b>the Porte, the Sultan, and his court had</b>
+
+267
+01:09:26,233 --> 01:09:27,666
+<b>no use for what he did.</b>
+
+268
+01:09:28,666 --> 01:09:31,033
+<b>In the same century, Spain and Portugal</b>
+
+269
+01:09:31,100 --> 01:09:32,699
+<b>each ran a government office</b>
+
+270
+01:09:32,699 --> 01:09:35,100
+<b>where each voyage's findings got added to</b>
+
+271
+01:09:35,100 --> 01:09:36,466
+<b>a single master chart,</b>
+
+272
+01:09:36,766 --> 01:09:39,033
+<b>kept up to date by paid cartographers.</b>
+
+273
+01:09:39,666 --> 01:09:41,033
+<b>The Ottoman state had nothing</b>
+
+274
+01:09:41,033 --> 01:09:43,633
+<b>like that, and didn't want it.</b>
+
+275
+01:09:44,133 --> 01:09:46,733
+<b>As Swat Suzegh puts it, "Piri</b>
+
+276
+01:09:46,733 --> 01:09:48,866
+<b>Reis's maps represented a world</b>
+
+277
+01:09:48,899 --> 01:09:49,866
+<b>that lay beyond the</b>
+
+278
+01:09:49,866 --> 01:09:51,566
+<b>horizon of the Porte's ambition."</b>
+
+279
+01:09:52,433 --> 01:09:54,633
+<b>The map was rolled up and shelved.</b>
+
+280
+01:09:55,266 --> 01:09:58,933
+<b>As for Piri Reis, around 1553, in his</b>
+
+281
+01:09:58,933 --> 01:10:01,133
+<b>80s, he lost a sea battle.</b>
+
+282
+01:10:01,366 --> 01:10:03,466
+<b>The governor of Egypt reported him to the</b>
+
+283
+01:10:03,466 --> 01:10:06,466
+<b>Sultan, and Suleiman had him executed.</b>
+
+284
+01:10:06,766 --> 01:10:09,100
+<b>He died never knowing that the map he'd</b>
+
+285
+01:10:09,166 --> 01:10:10,366
+<b>drawn, the one that</b>
+
+286
+01:10:10,433 --> 01:10:11,833
+<b>answered every question people</b>
+
+287
+01:10:11,866 --> 01:10:13,833
+<b>spent the next five centuries asking.</b>
+
+288
+01:10:14,533 --> 01:10:16,866
+<b>He died never knowing that the map he'd</b>
+
+289
+01:10:16,899 --> 01:10:18,166
+<b>drawn was still</b>
+
+290
+01:10:18,166 --> 01:10:19,733
+<b>sitting where he'd left it.</b>
+
+291
+01:10:20,566 --> 01:10:22,966
+<b>Suzegh calls it, "A strange map,</b>
+
+292
+01:10:23,266 --> 01:10:25,366
+<b>which was mutilated remainsly forgotten</b>
+
+293
+01:10:25,366 --> 01:10:27,466
+<b>in the library of Tokapi Palace."</b>
+
+294
+01:10:28,033 --> 01:10:30,166
+<b>That's where the man's story ends.</b>
+
+295
+01:10:30,399 --> 01:10:32,066
+<b>The map was only beginning.</b>
+
+296
+01:10:33,066 --> 01:10:34,966
+<b>And there it stayed, in a storeroom</b>
+
+297
+01:10:34,966 --> 01:10:35,833
+<b>nobody had properly</b>
+
+298
+01:10:35,833 --> 01:10:37,600
+<b>catalogued until 1929,</b>
+
+299
+01:10:38,166 --> 01:10:39,033
+<b>when the palace was</b>
+
+300
+01:10:39,033 --> 01:10:40,633
+<b>being turned into a museum,</b>
+
+301
+01:10:40,766 --> 01:10:42,166
+<b>and the director found it.</b>
+
+302
+01:10:42,766 --> 01:10:46,433
+<b>It reached Paul Kallem, who, by luck, had</b>
+
+303
+01:10:46,433 --> 01:10:47,600
+<b>spent the previous years</b>
+
+304
+01:10:47,600 --> 01:10:49,066
+<b>on Piri Reis' other book,</b>
+
+305
+01:10:49,333 --> 01:10:50,399
+<b>the Sailing Manual.</b>
+
+306
+01:10:50,833 --> 01:10:52,800
+<b>He knew the hand the moment he saw it,</b>
+
+307
+01:10:53,033 --> 01:10:54,366
+<b>and he caught what no</b>
+
+308
+01:10:54,366 --> 01:10:56,133
+<b>one had in four centuries.</b>
+
+309
+01:10:56,699 --> 01:10:59,199
+<b>The map says, in writing, that it was</b>
+
+310
+01:10:59,199 --> 01:11:00,500
+<b>partially copied from</b>
+
+311
+01:11:00,500 --> 01:11:01,866
+<b>a chart by Columbus.</b>
+
+312
+01:11:02,566 --> 01:11:03,733
+<b>So what does the Piri</b>
+
+313
+01:11:03,733 --> 01:11:05,333
+<b>Reis map actually say?</b>
+
+314
+01:11:05,833 --> 01:11:06,766
+<b>It tells you where</b>
+
+315
+01:11:06,766 --> 01:11:08,333
+<b>every line on it came from,</b>
+
+316
+01:11:08,800 --> 01:11:11,133
+<b>and what every piece of land really is,</b>
+
+317
+01:11:11,766 --> 01:11:13,199
+<b>Piri Reis wrote it down</b>
+
+318
+01:11:13,199 --> 01:11:16,399
+<b>himself in 1513 on the parchment.</b>
+
+319
+01:11:16,800 --> 01:11:18,166
+<b>We just didn't read it.</b>
+

@@ -1,7 +1,7 @@
 <!-- AUTO:reconcile — do not edit manually, regenerated each run -->
-Status: RESEARCH
-Lifecycle: _IN_PRODUCTION
-Last reconciled: 2026-05-12
+Status: FILMED
+Lifecycle: _READY_TO_FILM
+Last reconciled: 2026-06-03
 <!-- /AUTO:reconcile -->
 
 # Project Status — #56 "Africans Sold Their Own" — Counter via the Buyer's Own Documents

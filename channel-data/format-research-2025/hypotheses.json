@@ -1,0 +1,127 @@
+{
+  "session_start": "2026-01-03",
+  "goal": "Identify 3-5 high-demand, underserved content ideas for History vs Hype",
+  "hypotheses": [
+    {
+      "id": 1,
+      "topic": "Library of Alexandria Burning Myth",
+      "type": "Historical Myth",
+      "demand_score": 8,
+      "evidence_sources": [
+        "Web search: 'Plenty of videos repeat it' but 'haven't found debunk videos'",
+        "Multiple competing myths documented (Caesar 48 BCE, gradual decline, Caliph Umar fabrication)",
+        "Time Magazine, National Geographic, World History Encyclopedia coverage = mainstream interest"
+      ],
+      "underserved_reason": "High repetition of myth, very few quality debunking videos with primary sources. Gap between academic consensus (gradual decline, NOT dramatic burning) and popular YouTube content.",
+      "confidence": 85,
+      "channel_fit": "Strong - 'both extremes wrong' (NOT Caesar burning, NOT Caliph Umar, NOT single event). Primary sources: Show competing ancient accounts. Modern relevance: 'Religion vs Science' narrative still uses this myth.",
+      "modern_hook": "Science vs religion debates still cite burning as example of religious anti-intellectualism, but historical reality more complex",
+      "script_outline_notes": "Act 1: Popular myth (dramatic burning set humanity back 1000 years). Act 2: Show primary sources - multiple accounts, contradictions. Act 3: Academic consensus = gradual decline, NOT single event. Why this myth persists.",
+      "next_validation_needed": "Check Google Trends, find specific YouTube videos with view counts, verify academic sources available (NotebookLM upload test)"
+    },
+    {
+      "id": 2,
+      "topic": "Medieval Flat Earth Myth",
+      "type": "Historical Myth",
+      "demand_score": 8,
+      "evidence_sources": [
+        "Web search: Myth widely perpetuated, limited academic debunking on YouTube",
+        "Wikipedia: 'Scarcely a Christian scholar of Middle Ages who did not acknowledge sphericity'",
+        "Origins documented: Washington Irving 1828 biography of Columbus created dramatized scene"
+      ],
+      "underserved_reason": "Widely repeated myth, but quality debunking with primary sources rare. Educational content exists but may not show medieval manuscripts proving sphericity.",
+      "confidence": 82,
+      "channel_fit": "Strong - Show medieval manuscripts with Earth sphericity. 'Both extremes wrong': NOT flat Earth believers, NOT Church suppression. Modern relevance: Still cited in 'Dark Ages' narratives about Western civilization.",
+      "modern_hook": "Still shapes narratives about Western civilization, religious vs scientific thinking, 'Dark Ages' misconceptions",
+      "script_outline_notes": "Act 1: Columbus myth. Act 2: Show medieval texts (Bede, Aquinas, etc.) knowing Earth spherical. Act 3: How Irving created myth in 1828, why it persists in ideological debates.",
+      "next_validation_needed": "Google Trends, specific YouTube video analysis, check medieval manuscript availability (academic sources)"
+    },
+    {
+      "id": 3,
+      "topic": "Antarctica 2048 Treaty Review & Territorial Claims",
+      "type": "Territorial Dispute",
+      "demand_score": 6,
+      "evidence_sources": [
+        "Treaty review possible starting 2048 (22 years away)",
+        "Mineral development prohibition up for debate",
+        "7 countries with territorial claims (Australia 42% of continent)",
+        "Congressional Research Service report, academic papers on governance post-2048"
+      ],
+      "underserved_reason": "Limited YouTube content on 2048 deadline, most coverage focuses on current Antarctic science not future territorial disputes. Deadline approaching creates urgency.",
+      "confidence": 70,
+      "channel_fit": "Good - 'Deadline approaching' pattern. Show 1959 treaty text, territorial claim maps. Modern relevance: Climate change making Antarctica accessible, mineral wealth, geopolitical competition.",
+      "modern_hook": "2048 deadline approaching, climate change making continent accessible, mineral resources, new geopolitical competition",
+      "script_outline_notes": "Act 1: 2048 deadline, what's at stake. Act 2: History of territorial claims (show maps), 1959 treaty freezing claims. Act 3: What happens after 2048, competing interests.",
+      "next_validation_needed": "Search for existing YouTube coverage, verify academic sources (treaty texts, CRS reports), Google Trends for 'Antarctica 2048'"
+    },
+    {
+      "id": 4,
+      "topic": "Crusades as Defensive War - Historical Debate",
+      "type": "Historical Myth / Ideological Debate",
+      "demand_score": 7,
+      "evidence_sources": [
+        "Active scholarly debate documented (4 historians panel, 3-to-1 vote)",
+        "Catholic sources claim defensive, academic historians dispute characterization",
+        "Multiple articles from Crisis Magazine, Catholic Answers, HuffPost Religion, ISI"
+      ],
+      "underserved_reason": "Lots of partisan content (Catholic apologists vs critics), but limited neutral 'both sides wrong' analysis with primary sources from Crusade chronicles.",
+      "confidence": 78,
+      "channel_fit": "Excellent - Perfect 'both extremes wrong' topic. Show primary sources (Crusade chronicles, papal bulls). Modern relevance: Still cited in religious conflict debates, civilizational clash narratives.",
+      "modern_hook": "Still invoked in modern religious conflict debates, 'clash of civilizations' rhetoric, political justifications",
+      "script_outline_notes": "Act 1: Modern debate (apologists vs critics). Act 2: What Crusaders themselves said (primary chronicles), what Pope Urban II said (Clermont speech). Act 3: Why 'defensive' framing is anachronistic, how both sides misuse history.",
+      "next_validation_needed": "YouTube content analysis, academic source availability (Crusade chronicles in English translation), Google Trends"
+    },
+    {
+      "id": 5,
+      "topic": "Cyprus 50-Year Division (Turkey-Greece)",
+      "type": "Territorial Dispute",
+      "demand_score": 6,
+      "evidence_sources": [
+        "50th anniversary in 2024 (recent media coverage)",
+        "Documentary 'The Divided Island' released 2024",
+        "YouTube influencer coverage (Fidias Panayiotou video)",
+        "CNN, Euronews, France24 coverage of anniversary"
+      ],
+      "underserved_reason": "Recent documentary produced, but may lack forensic primary source analysis. Opportunity for deeper dive into legal history (UN resolutions, treaties).",
+      "confidence": 68,
+      "channel_fit": "Moderate - Fits territorial dispute genre. Could show UN resolutions, treaty documents, legal status of Northern Cyprus. Modern relevance: EU membership implications, ongoing negotiations.",
+      "modern_hook": "50-year anniversary (2024), ongoing EU membership complications, recent diplomatic efforts",
+      "script_outline_notes": "Act 1: 1974 division, what happened. Act 2: Legal documents (show UN resolutions, treaties), competing claims. Act 3: Current status, why still unresolved 50 years later.",
+      "next_validation_needed": "Check if topic too recent (documentary already covered?), academic sources, YouTube video performance data"
+    }
+  ],
+  "progress_summary": "Phase 1 complete. Phase 2 starting: Narrowing to top 4 ideas based on channel performance data analysis.",
+  "channel_performance_insights": {
+    "belize_breakout": "28,110 views (44x avg), 7.57% CTR, 35.3% retention - territorial disputes with ICJ cases = proven formula",
+    "dark_ages_short": "1,383 views - medieval myth topic has audience interest",
+    "crusades_covered": "657 views for 'Primary Sources Destroy Crusades' - topic already addressed, moderate performance",
+    "top_10_benchmarks": "900+ views, 4:00+ AVDR, 40%+ retention, 8%+ CTR",
+    "genre_validation": "Territorial disputes with modern stakes (ICJ, deadlines) = best performers"
+  },
+  "top_4_final_candidates": [
+    {
+      "id": 1,
+      "priority_rank": 1,
+      "topic": "Library of Alexandria Burning Myth",
+      "rationale": "Highest demand + most underserved. NOT covered by channel yet. Perfect 'both extremes wrong' topic. Academic sources confirmed available."
+    },
+    {
+      "id": 6,
+      "priority_rank": 2,
+      "topic": "Belize-Honduras Sapodilla Cayes ICJ Dispute",
+      "rationale": "Follow-up to breakout hit (Belize 28K views). Pending ICJ case = modern relevance. Underreported. Same proven formula."
+    },
+    {
+      "id": 3,
+      "priority_rank": 3,
+      "topic": "Antarctica 2048 Treaty Review & Territorial Claims",
+      "rationale": "Territorial dispute genre proven. 2048 deadline = urgency. Underserved (limited YouTube coverage). Show treaty maps."
+    },
+    {
+      "id": 2,
+      "priority_rank": 4,
+      "topic": "Medieval Flat Earth Myth",
+      "rationale": "Related to 'Dark Ages' content (1,383 views). Widely perpetuated, limited debunking. Show medieval manuscripts."
+    }
+  ]
+}
