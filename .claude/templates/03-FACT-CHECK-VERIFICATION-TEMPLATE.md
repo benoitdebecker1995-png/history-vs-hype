@@ -39,7 +39,9 @@ For each claim in script:
 
 **Comparison:**
 - [ ] Wording exact: ✅ MATCH / ⚠️ PARAPHRASED / ❌ DIFFERENT
-- [ ] Attribution correct: ✅ YES / ❌ NO
+- [ ] Attribution = person actually made this move (not just a source confirming it's fact-true): ✅ YES / ❌ NO — *Step 7.7*
+- [ ] Source **reproduces** the verbatim (not merely cites/footnotes it): ✅ YES / ❌ NO (footnote-laundering) — *Step 7.8*
+- [ ] On-screen card? If YES → re-queried THIS pass against the displayed source (NO context-economy skip): ✅ YES / N/A
 - [ ] Context preserved: ✅ YES / ❌ NO
 
 **Status:** ✅ VERIFIED / ⚠️ MINOR FIX NEEDED / ❌ ERROR - MUST FIX
@@ -212,6 +214,9 @@ For each claim in script:
 **All checks passed:**
 - [x] 100% of claims cross-checked
 - [x] All quotes word-for-word exact
+- [x] **Argument & expository attribution audit (Step 7.7):** (A) every "PERSON argued/read/claimed X" is shown as that person's actual move, not propped by a merely-fact-true source (esp. debunk targets); (B) every "[Authority]/[the treaty] said/required/established X" expository line round-tripped — the authority asserts the EXACT predicate, not an adjacent one (no predicate drift); zero unsupported attributions, zero `[ATTRIBUTION-EXPOSITORY]` drifts
+- [x] **Attribution coverage complete (Step 7.7):** every entry on the 7.7 attribution-trigger grep list (Class A + Class B) has a verdict row in this document — zero `[COVERAGE-GAP]` (the #57 Ptolemy line never had a row; this catches that)
+- [x] **Provenance & quote-card lock (Step 7.8):** every on-screen quote card matches its displayed source character-for-character; no footnote-laundering (the cited source *reproduces* the verbatim, doesn't just footnote it); every load-bearing on-screen quote re-queried THIS pass (no context-economy skip)
 - [x] All numbers match verified sources
 - [x] All archival references precise
 - [x] Contested claims properly labeled

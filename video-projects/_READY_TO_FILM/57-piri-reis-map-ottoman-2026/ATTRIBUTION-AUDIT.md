@@ -55,3 +55,17 @@ Only the cağferiye beat (lines 67–69) was a misattribution. It is corrected (
 ## Filmed-audio impact
 - Only **H6/P5 (cağferiye, seg 70–81)** required a pickup. Done.
 - No other delivered line needs re-recording. Audit closed.
+
+---
+
+## SECOND DEFECT — expository predicate drift (found in editing, 2026-06-04)
+
+This audit (2026-06-02) extracted **target-side** ("Hancock/Hapgood read X") and **scholar own-analysis** attributions. It did **not** extract **expository-authority** attributions — "[Authority]'s geography said X" where the authority is background, not the debunk target. One such line was wrong and was caught later, during editing:
+
+| # | Script | Attribution | Verdict | Fix |
+|---|--------|-------------|---------|-----|
+| **E1** | L144 (`SCRIPT.md`) / FINAL-SCRIPT-TELEPROMPTER L90 | "Every mapmaker in the 1500s drew a giant southern landmass down there — **Ptolemy's geography said one had to exist, to balance the globe**" | **❌ PREDICATE DRIFT** | Ptolemy's *Geographia* shows a southern landmass **enclosing the Indian Ocean** (Africa–Asia land bridge); it does NOT argue a continent must exist to **balance** the globe. The balance/symmetry argument is classical **Aristotelian**, popularized by **Ortelius** (1570). Research carried it two ways (01-VERIFIED-RESEARCH L142 unnamed-"balance" + L1154 "Ptolemy/encircle water"); the script welded them. **Fixed on-screen in editing: re-attributed the card to Ortelius.** |
+
+**Mechanism = same welding as cağferiye, different lane.** This is why `/verify` Step 7.7 now has a **Class B (expository authority)** pass + a 03-FACT-CHECK completeness reconciliation (the line had **zero** fact-check rows), historian Rule 4 gained a predicate-drift mode (`[FLAG: ATTRIBUTION DRIFT]`), and the 01-template added a mandatory `Source supports exactly` field. See `memory/feedback-attribution-audit.md` §third check.
+
+**Resolution (CLOSED, 2026-06-04, confirmed by user):** fixed at the B-roll/edit layer. The spoken "Ptolemy" attribution was **cut from the VO**; the unattributed convention was kept ("the theory that a continent should exist to balance" the globe); and the **Ortelius quote was placed on screen** as the real holder. This is the canonical predicate-drift resolution — *drop the named attribution, state the convention unattributed, attribute the real proposition to its actual source*. No further pickup needed. Audit closed.

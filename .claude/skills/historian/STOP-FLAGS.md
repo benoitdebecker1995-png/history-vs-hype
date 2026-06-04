@@ -1,6 +1,6 @@
 # Stop-Flag Specifications
 
-Three flags that halt active research. Each fires during live work, not in cleanup.
+Flags that halt active research. Each fires during live work, not in cleanup. (Five: NEED SOURCES, LIBRARY ACQUISITION, DIRECTION NEEDED, ATTRIBUTION UNVERIFIED, ATTRIBUTION DRIFT.)
 
 ---
 
@@ -99,3 +99,58 @@ Both are NLM-grounded. They don't contradict each other but they compete for Sce
 **Additional Piri Reis example — Claim 10 single-source** (borderline NEED SOURCES vs LIBRARY ACQUISITION):
 
 The Spanish prisoner chain-of-custody for Columbus's charts rests on Porta ghande and Kaw Punta Orofay as unique place-names — cited by McIntosh alone in the current NLM corpus. This is a single-source [S] claim being used as load-bearing evidence. Soucek accepts the Columbus identification but does not independently document these specific place-names. → `[FLAG: NEED SOURCES]` (no second NLM-grounded source for the specific place-names) OR surface as `[FLAG: LIBRARY ACQUISITION]` if the user identifies another cartographic scholar who independently documented these. McIntosh's own caveat ("a certain amount of uncertainty and hesitancy must enter into the discussion") should be reflected in the script regardless of flag resolution.
+
+---
+
+## `[FLAG: ATTRIBUTION UNVERIFIED]` — argument attribution (Rule 4 mode A)
+
+### Trigger conditions
+
+- A claim of the form "PERSON read / argued / claimed / treats X as Y" is being filed and the only backing is a source confirming **X is independently true**, not a source showing **that person making that move**.
+- Highest risk: the claim characterizes a **debunk TARGET** (Hancock, Hapgood, von Däniken…). A real verbatim quote attached to the sentence does NOT validate the attribution wrapped around it.
+
+### Flag text to output
+
+```
+[FLAG: ATTRIBUTION UNVERIFIED]
+Claim: "[PERSON] [read/argued/treats] [X]"
+Problem: Backing source confirms X is true, but no source shows [PERSON] making this move.
+Options:
+  (a) Re-source to a work where [PERSON] actually makes the move (verbatim) → flag clears
+  (b) Reframe as an appearance the text debunks, attributed to no named proponent
+  (c) Cut
+Halting until resolved.
+```
+
+### Piri Reis #57 example
+
+**cağferiye double-misattribution** — "Hapgood read that word [cağferiye]… and Hancock after him… as the fingerprint of the lost civilization." Every component was verbatim-true (Kahle's quote, Hancock's "4th century BC," Hapgood-as-Alexandria-originator) — but Hapgood never names the word and Hancock never engages it. A strawman welded from two true facts. Caught only when the user opened Hapgood's physical book. → `[FLAG: ATTRIBUTION UNVERIFIED]`; resolution = VO pickup (filmed). See `VO-PICKUP-cagferiye.md`.
+
+---
+
+## `[FLAG: ATTRIBUTION DRIFT]` — expository attribution / predicate drift (Rule 4 mode B)
+
+### Trigger conditions
+
+- A named **non-target** authority or document is said to assert proposition **P2** ("Ptolemy's geography said one had to exist to balance the globe"; "the treaty established Y"; "Roman law held Z"), but the source supports only an **adjacent** proposition **P1** — even when both P1 and P2 are independently true.
+- The same fact appears in research once with **loose unnamed phrasing** ("ancient geographic theory required…") and once **pinned to an authority** ("Ptolemy's theory…") and the two were never reconciled. (This double-entry is the welding seed.)
+- A "[Authority] said/required/established X" sentence with X paraphrased (quote cards go to `/verify` Step 7.8 provenance instead).
+
+### Flag text to output
+
+```
+[FLAG: ATTRIBUTION DRIFT]
+Claim: "[Authority] [said/required/established] [P2]"
+Source supports: [P1, verbatim or paraphrase] — NOT P2
+Problem: Predicate drift — the authority asserts P1; the script puts P2 in their mouth.
+Options:
+  (a) Re-attribute P2 to its real holder (who actually asserts it)
+  (b) Rewrite the line to P1 (what the source supports)
+  (c) Drop the named attribution; state the convention unattributed
+Reconcile any loose-vs-named double-entry before script-ready: name only what the source names.
+Halting until resolved.
+```
+
+### Piri Reis #57 example
+
+**Ptolemy / Ortelius** — research carried the southern-continent fact two ways: "ancient geographic theory required a southern continent to **balance**" (unnamed, correct) AND "it's **Ptolemy's** 2nd-century theory that land must **encircle water**" (named, but the enclosed-Indian-Ocean predicate). The script welded them: "**Ptolemy's geography said one had to exist, to balance the globe**" — a proposition no source attributes to Ptolemy (it's the Aristotelian symmetry argument, popularized by **Ortelius**, 1570). Filmed, fact-check-passed; caught in editing and re-attributed on-screen to Ortelius. → `[FLAG: ATTRIBUTION DRIFT]`; post-film resolution = re-attribute the on-screen card (+ VO pickup if the drift is also spoken).

@@ -1111,8 +1111,11 @@ Run grep for forbidden patterns:
 
 Export SCRIPT.md to clean text for filming.
 
+> **The teleprompter is a DERIVED artifact, generated only AFTER the script is locked.** It is never hand-edited and never the place a claim or quote lives — it is a one-way render of the locked `SCRIPT.md`. Creating it from an unlocked draft is what lets the spoken cut silently drift from the verified script (origin: #58 Kurdistan 2026-06-04 — a premature teleprompter retained an unverified "postage stamps" line the master had cut, dropped an honesty hedge, and carried two stale quote-card wordings). **All edits go to SCRIPT.md, then re-export. If you find yourself editing SCRIPT-TELEPROMPTER.txt directly, stop — fix SCRIPT.md and re-run this command.**
+
 ### Process
 
+0. **LOCK GATE (hard).** Confirm the script is locked before exporting. Locked = an explicit `**STATUS: LOCKED**` (or `<!-- SCRIPT-LOCKED: YYYY-MM-DD -->`) marker at the top of `SCRIPT.md`, OR a `FINAL-SCRIPT.md` exists, OR the user states the read-aloud T1 gate has passed. **If not locked: do NOT write SCRIPT-TELEPROMPTER.txt.** Emit: "Script not locked — teleprompter is a post-lock derived artifact. Read aloud from SCRIPT.md for the T1 gate; once locked, re-run `/script --teleprompter`." Then stop.
 1. Read SCRIPT.md from project folder
 2. **Run Pre-Filming Polish checklist** (see `.claude/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md`)
    - Cut academic attributions from flow

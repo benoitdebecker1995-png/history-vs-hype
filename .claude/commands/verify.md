@@ -1,6 +1,6 @@
 ---
 description: Fact-check scripts, extract claims, detect simplifications (Production Phase 2)
-model: sonnet
+model: opus
 ---
 
 # /verify - Verification Entry Point
@@ -18,6 +18,7 @@ Fact-check scripts, extract claims from transcripts, or run simplification detec
 /verify --extract-nlm [file] # Extract citations from NotebookLM output
 /verify --translation [project] # Verify translated documents
 /verify --nlm [project]         # Notebook-only: Tier 1 claims + citation grounding via MCP
+/verify --adversarial [project] # Cross-model skeptic pass (Gemini attacks the script) → NLM-adjudicated findings
 ```
 
 ## Flags
@@ -32,6 +33,7 @@ Fact-check scripts, extract claims from transcripts, or run simplification detec
 | `--extract-nlm` | Extract citations from NotebookLM output | `/verify --extract-nlm nlm-output.txt` |
 | `--translation` | Verify translated documents before filming | `/verify --translation 37-vichy-statute` |
 | `--nlm` | Notebook-only pass: verify Tier 1 claims + citation grounding via MCP, skip web sources | `/verify --nlm 56-no-lassos-atlantic-slave-trade-origin-2026` |
+| `--adversarial` | Cross-model skeptic pass: Gemini attacks the locked-candidate script for overclaims/strawmen/laundered quotes; each finding is then NLM-adjudicated (Step 7.9) | `/verify --adversarial 58-kurdistan-2026` |
 
 ---
 
@@ -169,6 +171,9 @@ Read `.claude/REFERENCE/FACT-CHECK-SIMPLIFICATION-RULES.md` and check for:
 ### RECOMMENDED - Improves clarity
 [List Rule 7, 8 violations with suggested fixes]
 
+## CULTURAL-ANCHOR & NEGATIVE-FINDING FLAGS (Step 7.6) — Fix before filming
+[List any [CULTURAL-ANCHOR] that is CONTRADICTS-RESEARCH, UNSUPPORTED, or DATE-OR-CONTENT-UNVERIFIED, with the research negation quote and a category-accurate rewrite. HARD gate for the cold open.]
+
 ## VERIFIED CLAIMS (Source confirmed)
 1. [Claim] - Source: [Exact citation]
 2. [Claim] - Source: [Exact citation]
@@ -208,6 +213,283 @@ Before approving for filming:
 - [ ] Territorial claims have specific boundaries/percentages
 - [ ] Present-tense statements have temporal accuracy
 - [ ] Attributions have specific sources (video timestamp, document, interview date)
+- [ ] **Cultural-anchor / negative-finding check complete** (Step 7.6) — no script line asserts what verified research says did NOT happen; every "on [show] in [date]" / "most recently" anchor web-verified for BOTH date AND content; all `[CULTURAL-ANCHOR]` flags resolved (HARD gate for the cold open)
+- [ ] **Argument & expository attribution check complete** (Step 7.7) — (A) every "PERSON read/argued/claimed/treats X" sentence (esp. debunk TARGETS) anchored to that person making THAT move, not just a source confirming X is true; (B) every "[Authority]/[the treaty] said/required/established X" expository sentence round-tripped — authority asserts the EXACT predicate (P2), not an adjacent one (no predicate drift); all `[ATTRIBUTION-ARG]` + `[ATTRIBUTION-EXPOSITORY]` flags resolved AND every trigger-grep entry has a row in 03-FACT-CHECK (`[COVERAGE-GAP]` cleared) (HARD gate for debunk-format)
+- [ ] **Provenance & quote-card lock complete** (Step 7.8) — every on-screen quote card matches its displayed source character-for-character; no footnote-laundering (cited source reproduces the verbatim, not just footnotes it); every load-bearing on-screen quote re-queried THIS pass (never skipped for context-economy); all `[PROVENANCE]` flags resolved (HARD gate for on-screen quotes)
+- [ ] **Adversarial cross-model review complete** (Step 7.9, debunk-format) — Gemini skeptic pass run; every surviving finding routed to its 7.6/7.7/7.8 flag and **NLM-adjudicated** (Gemini raises, NLM confirms); any NLM-confirmed UNSUPPORTED/LAUNDERED/CONTRADICTS finding resolved; false alarms logged. No edit driven by an unadjudicated Gemini finding.
+
+### Step 7.5: Attribution Mandate (for `X named/coined/termed Y` claims)
+
+> See `memory/feedback-notebook-citation-grounding.md` §'verbatim verification ≠ attribution verification' for the why and the Hijab #52 origin.
+
+After the Pre-Production Checklist (Step 7), run an attribution pass on the script. This step catches **cite-selection drift** — when the script names Scholar A for a term that multiple scholars use, and a more authoritative scholar in the sub-field exists.
+
+#### Trigger phrases — grep the script for all of:
+
+- `named` / `was named by` / `named it`
+- `coined` / `coined the term`
+- `termed` / `termed it`
+- `called this` / `called it`
+- `labelled this` / `labeled this`
+- `the [Name] regime` / `the [Name] system` / `the [Name] framework` / `the [Name] principle` / `the [Name] effect`
+- `the [Name] term` / `[Name]'s term`
+
+#### Flag output
+
+For each match, output:
+
+```
+[ATTRIBUTION-CHECK]: line N — "<matched-phrase>" — scholar=<Name>, term=<Y> — needs bidirectional NotebookLM round-trip.
+```
+
+#### Bidirectional round-trip (the verification step)
+
+For each `[ATTRIBUTION-CHECK]` flag, run TWO NotebookLM queries via `mcp__notebooklm__notebook_query`:
+
+- **Query A (origin direction):** *"Where does the term `<Y>` originate / who introduced it?"*
+- **Query B (user direction):** *"Does `<Name>` use / describe / discuss `<Y>` in their work?"*
+
+Both queries must return consistent results. If Query A surfaces a **different** scholar than `<Name>`, the attribution is at risk — either rewrite to the more-authoritative scholar, or downgrade the claim from origination to description.
+
+#### Annotation requirement
+
+Once verified, add an inline annotation to the script line:
+
+- Confirmed originator: `[ATTRIBUTION-VERIFIED: <Name> originated <Y> per <NotebookLM source IDs>]`
+- Downgraded: `[ATTRIBUTION-DOWNGRADED: <Name> describes but did not originate <Y>; primary cite is <Other-Name>]`
+
+#### Shared-conceptual-space sub-class
+
+When 2+ scholars work in cognate territory on the same concept (e.g., Geissinger + Llewellyn-Jones on veil-as-social-regulation), use the **most-authoritative-in-subfield** scholar, not just any scholar who uses the term. The bidirectional query surfaces this — it is a judgment call, not an automated rule.
+
+#### Gate behavior
+
+- **Format C (document-led / forensic):** Script cannot reach DRAFT-LOCKED with any `[ATTRIBUTION-CHECK]` lines that lack a corresponding `[ATTRIBUTION-VERIFIED]` or `[ATTRIBUTION-DOWNGRADED]` annotation. Hard gate.
+- **Format A/B:** Attribution checks are a recommendation, not a gate. Surface flags; user decides.
+
+---
+
+### Step 7.6: Cultural-Anchor & Negative-Finding Reconciliation (load-bearing — runs before film)
+
+> See `memory/feedback-cultural-moment-verification.md` for the why and the **two** #57 origins: (1) wrong JRE date/content in research; (2) the FILMED cold open asserting "Hancock brought up the Piri Reis map on Lex Fridman" when the same project's `01-VERIFIED-RESEARCH.md` stated twice "Piri Reis NOT named in 2024." A correct verbatim quote sitting next to a wrong script sentence is the failure this step exists to catch.
+
+This step catches **two** drift modes Step 7.5 does not:
+- **Cultural-moment decay** — "on [show] in [date]" / "most recently" / "again on" anchors that rot or were hallucinated upstream.
+- **Negative-finding contradiction** — the script asserting something the verified research explicitly says did **not** happen.
+
+#### Trigger phrases — grep the script for all of:
+
+- `on [Show/Podcast]` — e.g. `on Lex Fridman`, `on Joe Rogan`, `on JRE`, `on [Capitalized Name] #N`
+- `said on` / `told [Host]` / `brought it up` / `brought up` / `made the case on` / `repeated on` / `pushing it on`
+- recency framing: `most recently` / `as recently as` / `again on` / `still` + appearance
+- a person + a show/episode + `in [Month] [Year]`
+
+#### Two checks per match
+
+**Check 1 — Positive support.** Does `01-VERIFIED-RESEARCH.md` record that `<person>` discussed `<the specific topic/claim>` in `<that appearance>`? Capture the verbatim + source ID.
+
+**Check 2 — Negative-finding contradiction (the new gate).** Search the research for any **negation** tied to that appearance: `NOT named`, `did not mention`, `generalized away from`, `dropped`, `not discussed`, `never says`. If the script asserts `<person>` said/brought up `<specific thing>` in an appearance the research records them **NOT** doing → **CONTRADICTION**.
+
+**Web re-verification (both, always):** independently web-verify (a) the appearance happened on that date, (b) the specific topic was actually discussed there. Do not trust the brief — upstream agents hallucinate plausible cultural anchors.
+
+#### Flag output
+
+```
+[CULTURAL-ANCHOR]: line N — "<matched phrase>" — person=<Name>, show=<Show>, date=<date>, claimed-topic=<topic>
+  → status: SUPPORTED | UNSUPPORTED | CONTRADICTS-RESEARCH("<research negation quote>") | DATE-OR-CONTENT-UNVERIFIED
+```
+
+#### Annotation requirement
+
+- Confirmed: `[CULTURAL-ANCHOR-VERIFIED: <Name> discussed <topic> on <Show> <date> per <source ID> + web]`
+- Rewritten: `[CULTURAL-ANCHOR-CORRECTED: was "<old>"; research says <negation>; now states <category-accurate claim>]`
+
+#### Gate behavior
+
+- **Cold open + any modern-relevance / "who pushes this today" beat: HARD gate.** The script cannot be approved for filming with an unresolved `[CULTURAL-ANCHOR]` flag. A script line may **not** assert a person discussed a specific topic in an appearance the research records them **not** discussing. This is the negative-finding rule: research that says "X did NOT do Y" is reconciled against the script the same way positive quotes are.
+- **Post-film catch:** if the offending line is already filmed, the fix is a **VO pickup**, never a B-roll patch (the audio actively asserts something false — see `memory/feedback-html-deck-broll.md` decision rule).
+
+---
+
+### Step 7.7: Argument & Expository Attribution Audit (strawman + predicate-drift gate — load-bearing for debunks)
+
+> See `memory/feedback-attribution-audit.md` for the why and the #57 cağferiye + Ptolemy/Ortelius origins. This catches TWO attribution-drift modes that 7.5 (who-coined-a-term) and 7.6 (who-said-it-on-a-show) do not: **(A) who actually holds this argument** (the debunk target), and **(B) does this named authority actually assert this exact proposition** (any expository authority — Ptolemy, Aristotle, a treaty, a legal code).
+
+**The two failures:**
+- **(A) Argument attribution (target side).** The script says "PERSON read / argued / claimed / treats X as Y," every component quote is verbatim-true, so it passes the quote-level gate — but no source shows that *person* making that *move*. **Validated-quote ≠ validated-attribution.** On #57, "Hapgood read that word [cağferiye]… and Hancock after him… as the fingerprint of the lost civilization" was false on both men — yet every atom was real. Highest risk is the **TARGET side of a debunk**; misattribution there is a strawman.
+- **(B) Expository attribution (named-authority side) — predicate drift.** The script assigns a specific proposition to a named non-target authority ("Ptolemy's geography said one had to exist, to balance the globe"), the name is real and the topic is real — but the source supports an **adjacent** proposition, not that one. On #57 the research pinned Ptolemy to "land encircles water / enclosed Indian Ocean" (P1); the script welded his name onto "had to exist to **balance the globe**" (P2 — actually the Aristotelian symmetry argument, popularized by Ortelius). No source has Ptolemy asserting P2. **The non-target named-authority side is not low-risk — it is low-salience**, so it gets less scrutiny while still asserting falsifiable history on screen.
+
+#### Trigger phrases — grep the script for ALL of (this grep list is also the enumerator for the completeness check below):
+
+**Class A — argument/target:**
+- `read [it/that/the …] as` / `reads … as` / `treats … as`
+- `argued` / `argues` / `claimed` / `claims` / `says` / `said that` / `believed`
+- `to [him/her/them] …` / `for [Name], …` (assigning a position)
+- `[Name]'s claim` / `[Name]'s argument` / `the [Name] reading`
+- `built [his/the] … on` / `rests on` / `comes down to` (when load-bearing for a named person)
+
+**Class B — expository authority (NEW):**
+- `[Authority]'s [geography/work/theory/map/law/text] said / required / held / shows / established / tells us`
+- `according to [Authority / the treaty / the document / the code]`
+- `[the treaty / the text / the law] says / states / requires X` (where X is **paraphrased**, not a quote card — quote cards go to 7.8)
+- `[Authority] said / argued / required …` where Authority is a historical/textual source the script treats as established background (NOT the debunk target)
+
+#### Checks per match
+
+**Check 1 — Person-said-it (Class A).** Does an NLM source show **that person making this move** (ideally verbatim from their own work)?
+**Check 2 — Fact-true-only trap (Class A).** Is the only backing a source confirming the CLAIM is independently true (not that the person asserted it)? If yes → **unsupported**, even with a real quote attached.
+**Check 3 — Predicate drift (Class B — the welding catch).** Pin the exact proposition the script puts in the authority's mouth (P2). Does a source show **that authority asserting P2** — or only an **adjacent** proposition P1? If research/sources support P1 but the script says P2, it is **ADJACENT-ONLY (drift)** even when both P1 and P2 are independently true. Re-attribute P2 to its real holder, or rewrite to the predicate the source actually supports. (Worked example: Ptolemy P1 "land encircles water" → script P2 "had to exist to balance the globe" → real holder = Aristotelian symmetry / Ortelius.)
+
+#### Round-trip (NLM) — batch by person/authority
+
+Group every Class-A and Class-B hit by the named person/authority and issue **one query per authority** (keeps 15-30 attributions from becoming 30 sequential calls):
+
+> **Class A:** *"Does `<Name>` actually `<verb>` `<X>` in their own work — quote verbatim, or 'NOT FOUND'? Do not infer; do not substitute a source that merely confirms X is true."*
+> **Class B:** *"Does `<Authority>` assert each of these exact propositions in their own work — for each, quote verbatim or answer 'NOT FOUND' / 'ADJACENT: <what they actually say>'. Do not infer; do not substitute a source that confirms the proposition is independently true."*
+
+#### Flag output
+
+```
+[ATTRIBUTION-ARG]:        line N — "<phrase>" — person=<Name>, claim=<X>
+  → status: PERSON-SAID-IT(<src>) | FACT-TRUE-ONLY | UNSUPPORTED
+[ATTRIBUTION-EXPOSITORY]: line N — authority=<A>, script-predicate=<P2>, source-supports=<P1 or NONE>
+  → status: AUTHORITY-ASSERTS-IT(<src>) | ADJACENT-ONLY(drift) | UNSUPPORTED
+```
+
+#### Annotation requirement
+
+- Confirmed (A): `[ATTRIBUTION-ARG-VERIFIED: <Name> <verb> <X> per <NLM src>]`
+- Confirmed (B): `[ATTRIBUTION-EXPOSITORY-VERIFIED: <Authority> asserts <P2> per <NLM src>]`
+- Rewritten (A): reframe the overclaim as **an appearance the next lines debunk, attributed to no named proponent**. Annotate `[ATTRIBUTION-ARG-CORRECTED: was "<old>"; <Name> never makes this move; reframed as unattributed appearance]`.
+- Rewritten (B): re-attribute to the real holder or rewrite to P1. Annotate `[ATTRIBUTION-EXPOSITORY-CORRECTED: was "<A> said <P2>"; source supports only <P1>; re-attributed to <real holder> / rewritten to <P1>]`.
+
+#### Gate behavior
+
+- **Debunk-format — Class A (target attribution): HARD gate.** Cannot lock with a FACT-TRUE-ONLY or UNSUPPORTED attribution to a real person.
+- **Debunk-format — Class B (expository authority): HARD gate, NO load-bearing exemption.** **Every** expository attribution round-trips; cannot lock with an ADJACENT-ONLY(drift) or UNSUPPORTED status. (The scholar's *own-analysis* quotes remain low risk — Class B is about propositions put in a named authority/document's mouth, not a scholar describing their own finding.)
+- **Post-film:** an unsupported attribution OR a drift on the delivered audio = a **VO pickup** (or cut), never a B-roll patch — the audio asserts something false. Template: #57 `VO-PICKUP-cagferiye.md` + `ATTRIBUTION-AUDIT.md`.
+- **Format A/B:** recommendation; surface flags, user decides.
+
+#### Completeness reconciliation (the enabler that hid the Ptolemy line)
+
+The #57 Ptolemy line **never entered `03-FACT-CHECK-VERIFICATION.md` at all** (grep = 0 rows) — so no line-vs-source check ever ran on it. The Class-A + Class-B trigger grep above is the **master enumerator**: **every entry it returns must map to a verdict row in `03-FACT-CHECK-VERIFICATION.md`.** Any grep hit with no corresponding fact-check row is itself a flag (`[COVERAGE-GAP]: line N — attribution sentence not in 03-FACT-CHECK`) and blocks lock in debunk-format until rowed and adjudicated. Manual cross-check, no tooling.
+
+---
+
+### Step 7.8: Provenance & Quote-Card Verbatim Lock (load-bearing for on-screen quotes)
+
+> See `memory/feedback-attribution-audit.md` §provenance and the #58 Kurdistan origin. Where 7.7 asks "did the person make this move," 7.8 asks "**does the cited source actually contain these exact words, on the page claimed?**" — and "**does the on-screen card match the source it displays?**"
+
+**The failure (#58):** three Act-4 quotes were tagged "NLM-grounded, verbatim + p.401 (McDowall)." On re-query the verbatim **wasn't in McDowall at all** — he only *footnoted* the primary source (Village Voice / Vanly). Two were also misquoted ("a uniquely cynical enterprise" — "uniquely" not in the source; "hoped our clients would not prevail" — a paraphrase in quote marks). It passed because the fact-check trusted the grounding tag instead of re-querying. The shortcut "context-economy: C##-tagged, not re-queried, trail exists" is exactly what hid it.
+
+#### Two checks
+
+**A — Footnote-laundering.** For any quote attributed to a primary source (treaty, report, named figure, document), confirm the in-notebook source **reproduces** the verbatim — not merely *cites or footnotes* it. A primary quote reached only through a scholar's footnote is **NOT grounded**; flag `[S→P-FOOTNOTE]` and either acquire a reproducing source or downgrade to paraphrase. (NotebookLM tip: when the answer surfaces footnotes/bibliography rather than body text containing the words, that's the tell.)
+
+**B — Quote-card verbatim lock.** Every **on-screen quote card** must match the source it displays **character-for-character** (wording, ellipses, brackets). Embellishments ("uniquely"), paraphrases-in-quote-marks, and merged sentences all fail. Trim only with honest ellipsis.
+
+#### No-skip rule (the one that bit #58)
+
+**Load-bearing on-screen quotes are NEVER exempted from re-query for context-economy.** "Already C##-tagged / verified in a prior session / trail exists" is not sufficient for a quote that will appear on screen. Re-query each one against the notebook THIS pass and confirm the source reproduces it.
+
+#### Flag output
+
+```
+[PROVENANCE]: line N — "<quote>" — attributed to <source/p.> 
+  → status: REPRODUCED(<src, p.>) | FOOTNOTE-LAUNDERED(<scholar only cites it>) | MISQUOTED("<actual verbatim>") | NOT-IN-NOTEBOOK
+```
+
+#### Gate behavior
+
+- **Any on-screen quote card: HARD gate.** Cannot lock with a FOOTNOTE-LAUNDERED / MISQUOTED / NOT-IN-NOTEBOOK card. Correct to the reproduced verbatim, re-anchor the citation to the reproducing source, or downgrade to paraphrase.
+- **Post-film:** a misquoted/ungrounded on-screen card = re-cut the card art (and a VO pickup if it's also spoken). Template: #58 `03-FACT-CHECK` resolution + #57 `VO-PICKUP-cagferiye.md`.
+
+---
+
+### Step 7.9: Adversarial Cross-Model Review (Gemini-as-skeptic → NLM-adjudicated)
+
+> Origin: 2026-06-03, ecosystem "dual-model review" practice (Claude writes → a *different* model reviews → feedback incorporated), adapted to this channel's rigor. Rationale: Claude wrote and self-verified the script, so Claude carries confirmation bias toward its own phrasing. A fresh model with no stake in the wording surfaces overclaims Claude rationalized. This step does **not** replace 7.5–7.8 — it **feeds** them: Gemini *raises suspicion*, NotebookLM *adjudicates*.
+
+**Runs as a flag (`--adversarial`) or automatically before lock on debunk-format scripts.** Advisory on Format A/B.
+
+#### Hard constraint — Gemini raises, NLM confirms (never the reverse)
+
+Per `feedback-historian-mode.md` and `feedback-gemini-cli-down-fallback.md`: **a Gemini finding is a hypothesis, never evidence.** Gemini output may NOT become a script claim, a citation, or a "verified" status. Every adversarial finding that survives triage is converted into an existing 7.5–7.8 flag and **re-queried against NotebookLM** before any edit. Gemini cannot exonerate the script either — "Gemini found nothing" is not a pass.
+
+#### Inputs
+
+- The locked-candidate script (`SCRIPT.md` / `02-SCRIPT-DRAFT.md`).
+- `01-VERIFIED-RESEARCH.md` (so Gemini can check script-vs-research negative findings, the 7.6 failure mode).
+
+#### Model
+
+Gemini **Flash** default (`feedback-gemini-model-default.md`). This pass is reasoning-heavy, so for **load-bearing debunk scripts**, offer Pro and ask approval first — do not silently upgrade.
+
+#### The adversarial prompt (target the known failure modes, not generic "fact-check")
+
+```
+You are a hostile peer reviewer trying to GET THIS VIDEO RETRACTED. You have the
+script and the channel's own verified-research file. Find the script's weakest
+attributions and overclaims. Do NOT rewrite. Do NOT confirm anything as true —
+only flag what a motivated critic would attack. For each finding give: line/quote,
+attack type, and the one question that would expose it.
+
+Attack types to hunt (ignore everything else):
+1. STRAWMAN — script says a named TARGET "argued/read/treats X as Y" but that's
+   the script's characterization, not a position the target demonstrably holds.
+2. OVERCLAIM — absolute/universal wording ("always", "never", "the entire", "all")
+   the evidence underneath can't carry.
+3. LAUNDERED QUOTE — a primary-source quote that the script likely reached only
+   through a scholar who *footnotes* it, not reproduces it.
+4. ANCHOR DECAY — "on [show] in [date]" / "most recently" claims that may be stale,
+   wrong, or contradicted by the verified-research file.
+5. RESEARCH CONTRADICTION — any script line asserting something the attached
+   verified-research file says did NOT happen.
+
+Output a numbered list. Each item: [TYPE] line N — "quote" — exposing question.
+If you genuinely find nothing in a category, say so. Be ruthless and specific.
+```
+
+Invoke (mirror `/editing-guide` Phase 4):
+```bash
+gemini -m gemini-2.5-flash -p "<prompt + script + research>" --yolo \
+  > [project]/_gemini-output/adversarial-review-<timestamp>.md
+```
+
+**CLI-down fallback** (`feedback-gemini-cli-down-fallback.md`): if `gemini` errors, output the paste-ready web-UI prompt for the user; never silently swap to another model.
+
+#### Triage → route into existing gates (do NOT trust Gemini's verdicts)
+
+For each Gemini finding:
+1. **Discard** if it misreads the script or attacks a non-load-bearing line. (Gemini over-fires; that's fine.)
+2. **Convert** surviving findings into the matching existing flag and run that gate's NLM round-trip:
+   - STRAWMAN / OVERCLAIM on a named debunk TARGET → `[ATTRIBUTION-ARG]` (Step 7.7 Class A round-trip)
+   - PREDICATE DRIFT on a named authority/document ("X said P2" but source supports only P1) → `[ATTRIBUTION-EXPOSITORY]` (Step 7.7 Class B round-trip)
+   - LAUNDERED QUOTE → `[PROVENANCE]` (Step 7.8 re-query: does the in-notebook source *reproduce* it?)
+   - ANCHOR DECAY → `[CULTURAL-ANCHOR]` (Step 7.6 web + research check)
+   - RESEARCH CONTRADICTION → 7.6 negative-finding check
+3. The finding's status is whatever **NotebookLM** returns — not what Gemini claimed.
+
+#### Report section (append to 03-FACT-CHECK-VERIFICATION.md)
+
+```markdown
+## ADVERSARIAL CROSS-MODEL FINDINGS (Step 7.9)
+
+**Reviewer model:** gemini-2.5-flash | **Raised:** [N] | **Survived triage:** [M] | **Confirmed by NLM:** [K]
+
+| # | Gemini attack | Routed to | NLM verdict | Action |
+|---|---------------|-----------|-------------|--------|
+| 1 | [TYPE] "quote" | [ATTRIBUTION-ARG] | UNSUPPORTED | reframe per 7.7 |
+| 2 | [TYPE] "quote" | [PROVENANCE] | REPRODUCED p.X | no change (false alarm) |
+```
+
+#### Gate behavior
+
+- **Debunk-format:** any Gemini finding that NLM **confirms** as UNSUPPORTED / FOOTNOTE-LAUNDERED / CONTRADICTS-RESEARCH inherits that gate's HARD block (via 7.6/7.7/7.8). Gemini findings that NLM clears are logged as false alarms, no edit.
+- **Format A/B:** advisory — surface the table, user decides.
+- **Never** let an unadjudicated Gemini finding drive an edit, and never let "Gemini found nothing" substitute for the 7.5–7.8 passes.
+
+---
 
 ### Output Location
 

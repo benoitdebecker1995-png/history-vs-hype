@@ -123,3 +123,37 @@ User uploaded **Vanly, "Kurdistan in Iraq," in Chaliand (ed.), *People Without a
 - **(a) Kissinger "missionary work"** → ✅ **GROUNDED 2026-06-02.** Latham/New York Magazine couldn't be located; instead the LSE Middle East Centre post (Gibson) was added — **NLM src 01a62b01** — which carries the verbatim: *"he lectured Pike that 'covert action should not be confused with missionary work'."* (his Pike Committee testimony). Corroborated by Ghareeb p.141 per McDowall fn 25. ⚠️ src 01a62b01 is *revisionist* (argues Kissinger less culpable) — cite for the quote only; betrayal framing stays on McDowall + Pike report (Vanly). Spoken line in SCRIPT-TELEPROMPTER.txt is now anchored.
 
 **Net:** the audit caught two on-screen misquotes (an embellished "uniquely" and a paraphrase-as-quote) and one ungrounded quote — **all three Act 4 cards now resolved.** (b)/(c) verbatim-clean (Vanly 75e966ef); (a) grounded (LSE 01a62b01 + Ghareeb p.141). **No open attribution items. Film-ready on this beat.** Remaining non-attribution open item unchanged: re-verify the Jan-2026 Syria facts at film-time.
+
+---
+
+## FULL NOTEBOOK RE-VERIFICATION PASS — 2026-06-04 (script editor + head of research)
+
+**Method:** every paragraph of `SCRIPT.md` round-tripped against notebook `f0ae92dd` (Class A + Class B per the new `/verify` Step 7.7). 4 batched queries + 3 targeted re-queries. Verdict: **every load-bearing historical claim is verbatim-supported in the notebook.** Jan-2026 Syria anchor web-verified (postdates notebook).
+
+**Defects found + fixed this pass (script not yet filmed → edited directly in SCRIPT.md + SCRIPT-TELEPROMPTER.txt):**
+- **Fraser card** "a purse of gold *lying* on the road" → "on the road" (Cambridge p.33; "lying" not in source). Trimmed unsourced tail "kept it until the owner came to claim it" → "report it to the head of the next village."
+- **İnönü card** "a single unit in race, religion and manners" → "a single unit **in respect of** race, religion and manners" (Proceedings p.343).
+- **Halabja filmmaker card** "a dead woman holding her son" → "a dead woman **was** holding her son" (McDowall p.431, verbatim).
+- **Kirkuk-1927 citation** mis-tagged `[Pedersen / C27]` → **McDowall p.143** ("the first Kirkuk oil gusher was not struck till 1927") / Sluglett p.103. (Claim itself was verbatim-sound.)
+
+**Teleprompter had drifted from the verified master — reconciled:**
+- **CUT** "postage stamps with the two of them side by side" (cold open) — **NOT FOUND in all 54 sources**; matches the C39 "STAMPS CUT" decision SCRIPT.md already made. (Teleprompter had silently retained it.)
+- **KEPT + sharpened** the Seljuk-province line — **VERIFIED**: Cambridge p.2 "In the year 1150, the Seljuk sultan Sanjar created the province of Kurdistan, with the town of Bahar as its capital" (+ Eppel p.10, McDowall p.6). Back-ported into SCRIPT.md Act 1 (strengthens "not a modern invention").
+- **RESTORED** the honesty hedge in Act 2 ("though some historians put part of it down to the Kurds' own divisions…") that the teleprompter had dropped.
+
+**Cleared on targeted re-query (first-pass suspicions that turned out SUPPORTED):**
+- "void before the ink was dry" — verbatim McDowall p.137 ("utterly void before the ink was dry").
+- Lloyd George "forgot Kurdistan" — verbatim MacMillan p.445 ("he had forgotten to mention it… his geography had been faulty").
+- "six months" + "disappeared under mysterious circumstances" — both verbatim Eppel p.56.
+- Wheat/farmers — McDowall p.432 ("hard-pressed Iowa farmers needed to export wheat to Iraq"). "knowingly" — McDowall p.433 (Britain specifically).
+- Article 39 — CONFIRMED Lausanne uses only "non-Moslem minorities," never names the three groups (Vanly p.187 / Radpey p.1200) → the earlier "in practice that meant" fix was correct.
+
+**Production notes (not blocking):**
+- Pike on-screen card: spoken abbreviates "the foreign Head of State (the Shah)" to "the Shah" — on the *card*, use the source's full verbatim or bracket: "neither the [Shah] nor the President and Dr. Kissinger desired victory for our clients."
+- Kissinger "missionary work": currently anchored to the *revisionist* Gibson src `01a62b01`. The Vanly src `75e966ef` (same source as the Pike quotes) carries a variant — "secret service operations are not missionary work" — which keeps sourcing consistent and is better-aligned with the betrayal framing. Editorial option, both verbatim.
+- Cold open "the warrior even Richard the Lionheart admired" (teleprompter only) is common-knowledge color, not notebook-grounded — fine to keep, flag if you want it sourced.
+- One beat rests on web not notebook: the **1987 conference title + "Saladin the Second"** (HNN / C39). Lowest-grounded factual claim in the script; the academic notebook supports only "Saladin exploited as Arab hero, Kurdishness downplayed."
+
+### Resolutions — 2026-06-04 (cont.)
+- **Kissinger "missionary work" — LOCKED to the most-supported quote.** Keeping "covert action should not be confused with missionary work" (Gibson `01a62b01` + corroborated Ghareeb p.141 via McDowall fn 25 = two sources). The Vanly variant "secret service operations are not missionary work" is single-source (`75e966ef`) → not chosen. Source tag should foreground the Ghareeb corroboration so the card does not appear to rest on the revisionist Gibson alone.
+- **Teleprompter deleted (premature).** Per the new rule (teleprompter = post-lock derived artifact; wired into `/script --teleprompter` Step 0 lock gate), `SCRIPT-TELEPROMPTER.txt` was removed. `SCRIPT.md` is the complete, verified single source of truth (all 2026-06-04 fixes + the Seljuk add live there). Read aloud from SCRIPT.md for the T1 gate; regenerate the teleprompter with `/script --teleprompter` only after lock.

@@ -39,8 +39,11 @@ This is your **single source of truth** for verified facts.
 2. Don't write script until 90%+ of claims verified
 3. Mark each claim with status: VERIFIED / RESEARCHING / UNVERIFIABLE
 4. Every VERIFIED row must carry a **Validated-for** stamp. ✅ without a Validated-for value = treat as ⏳ until stamped.
+5. **Provenance must be real, not laundered.** A quote's source must *reproduce* the verbatim, not merely *cite or footnote* it. A primary quote (treaty, report, named figure) reached only through a scholar who footnotes it is **NOT grounded** — tag it `[S→P-FOOTNOTE]` and confirm the verbatim in a source that actually reproduces the words before it is script-ready. (See `memory/feedback-attribution-audit.md`.)
+6. **Attribution ≠ quote.** A "PERSON argued / read / claimed X" line needs a source showing *that person making that move* — not one that merely confirms X is true. If the only backing is fact-true, flag it (`[FLAG: ATTRIBUTION UNVERIFIED]`), don't file it as that person's position.
+7. **Predicate precision — name only what the source names.** Every claim row carries a **`Source supports exactly`** line recording the precise proposition the source backs (verbatim, or a flagged paraphrase). When a fact is attributed to a named **authority/document** ("Ptolemy's theory said…", "the treaty established…"), the predicate you put in their mouth (P2) must be the predicate the source actually supports (P1) — not an adjacent one. If the same fact appears once with **loose unnamed phrasing** and once **pinned to an authority**, reconcile the two before script-ready. Drift (P2 ≠ P1) fires `[FLAG: ATTRIBUTION DRIFT]`.
 
-> **Why:** "Validated-at-time-T artifacts must be re-stamped with what they were validated *for*, so future sessions don't inherit them as universally authoritative." See `memory/feedback-postmortem-methodology.md` §'second methodology-bias dimension' (2026-05-21). A NotebookLM round-trip that confirms verbatim text is in source X does NOT confirm source X originated it. Each row must record what dimension was checked.
+> **Why:** "Validated-at-time-T artifacts must be re-stamped with what they were validated *for*, so future sessions don't inherit them as universally authoritative." See `memory/feedback-postmortem-methodology.md` §'second methodology-bias dimension' (2026-05-21). A NotebookLM round-trip that confirms verbatim text is in source X does NOT confirm source X originated it. Each row must record what dimension was checked. **Rules 5–6 origin:** #57 cağferiye (a verbatim-true quote welded into a false attribution) + #58 Kurdistan (three "NLM-grounded, p.401" Pike/Kissinger quotes whose verbatim was not actually in the cited source — McDowall only footnoted them; two were also misquoted). **Rule 7 origin:** #57 Ptolemy/Ortelius — research carried the southern-continent fact two ways ("ancient theory required a continent to balance" unnamed + "Ptolemy's theory that land encircles water" named), the script welded them into "Ptolemy said one had to exist to balance the globe" (a proposition no source attributes to Ptolemy — it's the Aristotelian/Ortelius symmetry argument); filmed and fact-check-passed, caught only in editing. All passed quote-level fact-check. See `memory/feedback-attribution-audit.md`.
 
 ---
 
@@ -92,7 +95,8 @@ This is your **single source of truth** for verified facts.
 **Sources (min 2):**
 1. [Author] (Tier [1/2/3]) - *[Title]*, p. [page] - [URL if available]
 2. [Author] (Tier [1/2/3]) - *[Title]*, p. [page]
-**Validated for:** [verbatim text / attribution origin / edition+page / numeric value / all of the above]
+**Validated for:** [verbatim text / attribution origin / predicate the source supports / edition+page / numeric value / all of the above]
+**Source supports exactly:** [the precise proposition the source backs — verbatim, or a flagged paraphrase. For attributed claims, this is the predicate (P1) the named authority/document actually asserts; the script may not drift to an adjacent P2.]
 **Validated against:** [NotebookLM project notebook ID / direct primary-source PDF path / scholar's apparatus only]
 **Validation date:** [YYYY-MM-DD]
 **Notes:** [Context, caveats, how to present]
@@ -124,8 +128,11 @@ This is your **single source of truth** for verified facts.
 >
 > **Source:** [Author], *[Title]*, p. [page]
 > **Tier:** [1/2/3]
-> **Validated for:** [verbatim text / attribution origin / edition+page / all of the above]
+> **Validated for:** [verbatim text / attribution origin / predicate the source supports / edition+page / all of the above]
+> **Source supports exactly:** [the precise proposition this quote backs — if it's used to support an "X said/required Y" attribution, record the predicate (P1) the source actually asserts; the script may not drift to an adjacent P2]
 > **Validated against:** [NotebookLM project notebook ID / direct primary-source PDF path / scholar's apparatus only]
+> **Reproduces verbatim (not just cites/footnotes):** YES / NO — if NO → `[S→P-FOOTNOTE]`, NOT script-ready until confirmed in a reproducing source
+> **On-screen card:** YES / NO — if YES, exact text must match the displayed source character-for-character, and be re-queried at fact-check (never skipped for context-economy)
 > **Validation date:** [YYYY-MM-DD]
 > **Used in script:** Lines [XX-YY]
 
@@ -136,8 +143,11 @@ This is your **single source of truth** for verified facts.
 >
 > **Source:** [Author], *[Title]*, p. [page]
 > **Tier:** [1/2/3]
-> **Validated for:** [verbatim text / attribution origin / edition+page / all of the above]
+> **Validated for:** [verbatim text / attribution origin / predicate the source supports / edition+page / all of the above]
+> **Source supports exactly:** [the precise proposition this quote backs — if it's used to support an "X said/required Y" attribution, record the predicate (P1) the source actually asserts; the script may not drift to an adjacent P2]
 > **Validated against:** [NotebookLM project notebook ID / direct primary-source PDF path / scholar's apparatus only]
+> **Reproduces verbatim (not just cites/footnotes):** YES / NO — if NO → `[S→P-FOOTNOTE]`, NOT script-ready until confirmed in a reproducing source
+> **On-screen card:** YES / NO — if YES, exact text must match the displayed source character-for-character, and be re-queried at fact-check (never skipped for context-economy)
 > **Validation date:** [YYYY-MM-DD]
 > **Used in script:** Lines [XX-YY]
 
@@ -186,7 +196,8 @@ This is your **single source of truth** for verified facts.
 - **Reference:** [Precise catalogue number/reference code]
 - **Date:** [When document was created]
 - **Verified from:** [How verified - archive catalogue, secondary source]
-- **Validated for:** [verbatim text / attribution origin / edition+page / existence / all of the above]
+- **Validated for:** [verbatim text / attribution origin / predicate the source supports / edition+page / existence / all of the above]
+- **Source supports exactly:** [the precise proposition the document backs — for attributed claims, the predicate (P1) it actually asserts; no drift to an adjacent P2]
 - **Validated against:** [NotebookLM project notebook ID / direct primary-source PDF path / scholar's apparatus only]
 - **Validation date:** [YYYY-MM-DD]
 - **Common errors:** [Frequent misattributions to avoid]
