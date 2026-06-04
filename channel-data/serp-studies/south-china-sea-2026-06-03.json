@@ -1,0 +1,155 @@
+[
+ {
+  "id": "luTPMHC7zHY",
+  "title": "",
+  "channel": "(supplied)",
+  "views": 0,
+  "tags": {
+   "overlay_text": "Vox",
+   "overlay_words": 1,
+   "framing": "label",
+   "face": false,
+   "map": true,
+   "dominant_colors": [
+    "blue",
+    "beige"
+   ],
+   "subject": "Aerial view of island construction and abstract chart",
+   "operation": "LOCATION_PROOF"
+  }
+ },
+ {
+  "id": "z9IiZkMKi68",
+  "title": "",
+  "channel": "(supplied)",
+  "views": 0,
+  "tags": {
+   "overlay_text": "",
+   "overlay_words": 0,
+   "framing": "none",
+   "face": true,
+   "map": true,
+   "dominant_colors": [
+    "red",
+    "blue"
+   ],
+   "subject": "Man reacting to South China Sea naval conflict",
+   "operation": "NO_OVERLAY"
+  }
+ },
+ {
+  "id": "f00V9MQBhg8",
+  "title": "",
+  "channel": "(supplied)",
+  "views": 0,
+  "tags": {
+   "overlay_text": "START HERE WHAT'S BEHIND THE SOUTH CHINA SEA DISPUTE?",
+   "overlay_words": 10,
+   "framing": "question",
+   "face": true,
+   "map": true,
+   "dominant_colors": [
+    "yellow",
+    "dark blue"
+   ],
+   "subject": "Woman presenting map of South China Sea dispute",
+   "operation": "MECHANISM_REFRAME"
+  }
+ },
+ {
+  "id": "-2v6EJE3XKo",
+  "title": "",
+  "channel": "(supplied)",
+  "views": 0,
+  "tags": {
+   "overlay_text": "SOUTH CHINA SEA",
+   "overlay_words": 3,
+   "framing": "label",
+   "face": false,
+   "map": true,
+   "dominant_colors": [
+    "blue",
+    "red"
+   ],
+   "subject": "Political cartoon map of South China Sea dispute",
+   "operation": "LOCATION_PROOF"
+  }
+ },
+ {
+  "id": "GGMTjsB5SVs",
+  "title": "",
+  "channel": "(supplied)",
+  "views": 0,
+  "tags": {
+   "overlay_text": "THIS SEA IS MINE FULL DOCUMENTARY",
+   "overlay_words": 6,
+   "framing": "declarative",
+   "face": false,
+   "map": false,
+   "dominant_colors": [
+    "teal",
+    "blue-gray"
+   ],
+   "subject": "Military helicopter flying over water with dramatic text",
+   "operation": "TITLE_REPETITION"
+  }
+ },
+ {
+  "id": "5jUMR_N0mNM",
+  "title": "",
+  "channel": "(supplied)",
+  "views": 0,
+  "tags": {
+   "overlay_text": "CHINA VIETNAM PHILIPPINES MALAYSIA",
+   "overlay_words": 4,
+   "framing": "label",
+   "face": true,
+   "map": true,
+   "dominant_colors": [
+    "red",
+    "blue"
+   ],
+   "subject": "Leaders and map showing Southeast Asian maritime disputes",
+   "operation": "LOCATION_PROOF"
+  }
+ },
+ {
+  "id": "MoRgK9OcfBU",
+  "title": "",
+  "channel": "(supplied)",
+  "views": 0,
+  "tags": {
+   "overlay_text": "IT'S ALL MINE",
+   "overlay_words": 3,
+   "framing": "declarative",
+   "face": true,
+   "map": true,
+   "dominant_colors": [
+    "blue",
+    "red"
+   ],
+   "subject": "Xi Jinping claiming South China Sea on a stylized map",
+   "operation": "MECHANISM_REFRAME"
+  }
+ },
+ {
+  "id": "8eqtl0ym1p8",
+  "title": "",
+  "channel": "(supplied)",
+  "views": 0,
+  "tags": {
+   "overlay_text": "SOUTH CHINA SEA DISPUTE EXPLAINED",
+   "overlay_words": 5,
+   "framing": "declarative",
+   "face": false,
+   "map": true,
+   "dominant_colors": [
+    "#1a3366",
+    "#ffffff",
+    "#ffcc00"
+   ],
+   "subject": "South China Sea map with explanatory text",
+   "operation": "MECHANISM_REFRAME"
+  }
+ }
+]

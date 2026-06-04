@@ -1,0 +1,161 @@
+[
+ {
+  "id": "mcfn1eJPzEw",
+  "title": "Stalin, the Tyrant of Terror",
+  "channel": "Show Me the World",
+  "views": 6642133,
+  "tags": {
+   "overlay_text": "",
+   "overlay_words": 0,
+   "framing": "none",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "brown",
+    "blue"
+   ],
+   "subject": "Soldier in uniform singing with historical buildings in background",
+   "operation": "NO_OVERLAY"
+  }
+ },
+ {
+  "id": "vcscm7TfuWo",
+  "title": "Stalin, The Red Terror",
+  "channel": "Best Documentary",
+  "views": 5270552,
+  "tags": {
+   "overlay_text": "",
+   "overlay_words": 0,
+   "framing": "none",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "dark green",
+    "dark red",
+    "beige",
+    "black"
+   ],
+   "subject": "Two military officers, one looking back, others blurred",
+   "operation": "AESTHETIC_HOOK"
+  }
+ },
+ {
+  "id": "IYFZawos3v0",
+  "title": "The Great Purge: History Matters (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 2106849,
+  "tags": {
+   "overlay_text": "The Great Purge When Stalin murdered everyone",
+   "overlay_words": 7,
+   "framing": "declarative",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "red",
+    "black"
+   ],
+   "subject": "Cartoon Stalin character with hourglass and stylized historical scene",
+   "operation": "MECHANISM_REFRAME"
+  }
+ },
+ {
+  "id": "s29Q9EIbDT8",
+  "title": "The Soviet Union | Part 1: Red October to Barbarossa | Free Documentary History",
+  "channel": "Free Documentary - History",
+  "views": 1935785,
+  "tags": {
+   "overlay_text": "RISE OF THE SOVIET UNION",
+   "overlay_words": 6,
+   "framing": "declarative",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "red",
+    "grey"
+   ],
+   "subject": "Lenin speaking to revolutionary crowd; 'Rise of Soviet Union'",
+   "operation": "TITLE_REPETITION"
+  }
+ },
+ {
+  "id": "5t6Elu5iYUo",
+  "title": "The Great Purge: Stalin's Darkest Moment",
+  "channel": "Into the Shadows",
+  "views": 1387763,
+  "tags": {
+   "overlay_text": "KILL THEM ALL",
+   "overlay_words": 3,
+   "framing": "declarative",
+   "face": false,
+   "map": false,
+   "dominant_colors": [
+    "green",
+    "yellow"
+   ],
+   "subject": "Man facing rows of soldiers with overlay text",
+   "operation": "MECHANISM_REFRAME"
+  }
+ },
+ {
+  "id": "xlc1Mu9bGho",
+  "title": "Why wasn't Stalin ousted? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 790315,
+  "tags": {
+   "overlay_text": "WHY DIDN'T ANYONE OVERTHROW STALIN?",
+   "overlay_words": 6,
+   "framing": "question",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "grey",
+    "black",
+    "light blue",
+    "brown"
+   ],
+   "subject": "Two block-style figures behind barbed wire asking about Stalin",
+   "operation": "MECHANISM_REFRAME"
+  }
+ },
+ {
+  "id": "jil4OCsxT_U",
+  "title": "Stalin's Great Purge | The Great Terror (1932-1940)",
+  "channel": "House of History",
+  "views": 432670,
+  "tags": {
+   "overlay_text": "THE GREAT PURGE Stalin Purges Soviet Society",
+   "overlay_words": 7,
+   "framing": "declarative",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "red",
+    "brown",
+    "white",
+    "black"
+   ],
+   "subject": "Joseph Stalin and another man with Soviet flag",
+   "operation": "MECHANISM_REFRAME"
+  }
+ },
+ {
+  "id": "1dQBIqf8vEc",
+  "title": "Stalin's Great Purge | Armchair History TV Original",
+  "channel": "The Armchair Historian",
+  "views": 408435,
+  "tags": {
+   "overlay_text": "GREAT PURGE",
+   "overlay_words": 2,
+   "framing": "label",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "red",
+    "brown",
+    "dark grey"
+   ],
+   "subject": "Soviet officer pointing gun, Stalin's face, 'GREAT PURGE'",
+   "operation": "COMPRESSION"
+  }
+ }
+]

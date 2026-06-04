@@ -1,13 +1,17 @@
 ---
 description: Generate 3 ranked thumbnail concepts grounded in the close-match outlier corpus + per-channel playbook
-model: sonnet
+model: opus
 ---
 
 # /thumbnail — Outlier-Grounded Thumbnail Recommender
 
 **Purpose:** Generate 3 ranked thumbnail concepts for the active video project, grounded in the verified outlier corpus (n=30 outliers across 8 close-match channels) and per-channel playbook. Replaces guesswork with operation-named, outlier-cited, channel-anchored concepts.
 
-**What it does NOT do:** It does not score existing thumbnails (use `tools/preflight/thumbnail_checker.py` for that). It does not generate image mockups. It outputs concept specs only — visual, overlay text, operation, evidence — to chat.
+**What it does NOT do:** It does not score thumbnails. Two checkers exist for that, at two different stages:
+- **Concept text** (pre-render): `tools/preflight/thumbnail_checker.py` — niche-rule compliance on the written concept.
+- **Rendered image** (post-export): `tools/preflight/thumbnail_image_audit.py` — tech compliance, mobile-legibility previews, and **SERP differentiation** (CLIP cosine vs this query's actual competitors). Run it once you've exported the PNG; it's also wired into `/publish` Gate 3.
+
+It does not generate image mockups. It outputs concept specs only — visual, overlay text, operation, evidence — to chat.
 
 ## Usage
 
@@ -26,6 +30,7 @@ model: sonnet
 | `--title "..."` | Override title (skip YOUTUBE-METADATA.md lookup) |
 | `--thesis "..."` | Override script thesis (skip SCRIPT.md lookup) |
 | `--save` | Append the output as `THUMBNAIL-CONCEPTS.md` in the project folder (default: chat only) |
+| `--study` | Before generating concepts, run `serp_thumb_study.py` to classify the topic's LIVE ranking shelf (per-topic, current) and feed its composition + whitespace into the concept query. Stronger than the static corpus alone. |
 | `--critique` | After concepts, spawn `thumbnail-critic` agent to score concepts on operation-fit / DIY feasibility / mobile legibility / curiosity payload |
 | `--diy [N]` | After concepts, spawn `diy-asset-creator` agent to produce a zero-budget production guide for Concept N (defaults to N=1, the Top pick). Mutually compatible with `--critique` (critic runs first, DIY runs last). |
 | `--force` | Bypass Step 1.5 title pre-gate (use only when intentionally testing concepts on a HARD-REJECTED title) |
@@ -110,6 +115,25 @@ Take the top 5 by view count. Format each as one line:
 
 **Stop condition:** if the parsing throws (corrupted JSON, unexpected schema), surface a one-line warning, set the variable to `none — comment-mining parse failed` and continue. The thumbnail recommender should not fail because of a stale JSON.
 
+### Step 2.6: Live SERP shelf study (`--study` flag only)
+
+The notebook corpus is niche-wide aggregate (n=30, 8 channels). It cannot see what *this topic's* shelf looks like *today*. `serp_thumb_study.py` classifies the actual ranking thumbnails per-topic via Gemini Flash vision — operation, face, map, framing, overlay words, colors — and derives which operations are ABSENT (the whitespace to attack).
+
+**If `--study` was passed:**
+
+1. Derive 1–2 plain-topic search queries from the title/topic keywords — strip the channel's framing, use what a viewer would actually type (e.g. title "China Claims the Entire South China Sea" → `"south china sea dispute"`, `"nine dash line"`).
+2. Run:
+
+```bash
+python -m tools.preflight.serp_thumb_study --slug <project-slug> --query "<query 1>" --query "<query 2>" --top 8
+```
+
+3. Read the generated `channel-data/serp-studies/<slug>-<date>.md`. Extract two things for the query in Step 3:
+   - **Shelf composition** — face %, map %, dominant framing, dominant colors, most-common operations (what convention to break, or strategically keep if it's a hard topic convention like a map).
+   - **Whitespace** — the "operations ABSENT from this shelf" line (the gap to occupy).
+
+**Stop condition:** if the tool errors (scrapetube / gemini / network), surface a one-line warning, set the SERP block to `none — SERP study unavailable` and continue. This is enrichment, not a gate.
+
 ### Step 3: Build the notebook query
 
 Construct the query string with this exact structure. Do not paraphrase the bracketed sections.
@@ -122,9 +146,15 @@ Script thesis: [1–3 sentence thesis from SCRIPT.md, naming the actual mechanis
 Topic-shape signals: [bullet list of 2–4 signals from research: territorial / treaty / mechanism / site-visitable / etc.]
 Topic-comparable winners (from /comment-mine — same-topic videos already winning views; use to identify what visual conventions the topic already has and where HvH should differentiate vs cannibalize):
 [bullet list of top 5 from Step 2.5, OR "none — no comment-mining data available"]
+Live SERP shelf (this topic, today — from serp_thumb_study; classify your concepts against the ACTUAL ranking thumbnails, not just the niche corpus):
+[shelf composition from Step 2.6: face %, map %, dominant framing, dominant colors, top operations — OR "none — SERP study not run"]
+Whitespace operations ABSENT from this shelf (prioritize concepts that occupy this gap):
+[absent-operations line from Step 2.6, OR "none"]
 HvH constraint: 515 subs, evidence-based myth-busting, "intellectual competence" trigger, format = 8–12 min talking-head + B-roll. Do not propose assets HvH cannot produce.
 
 When topic-comparable winners are present, your concepts must explicitly position against them: name which topic-comparable convention each concept either differentiates from or strategically copies, and cite the specific video by channel + view count. Do not generate concepts that ignore an established topic convention without naming why.
+
+When a Live SERP shelf is present: at least one of your 3 concepts MUST occupy a whitespace (absent) operation, and every concept must name which dominant shelf convention (face / map / framing / color / operation) it breaks or strategically keeps. Do not propose a concept that lands inside the shelf's dominant operation+color without a stated reason.
 
 **HUMAN CURIOSITY CONSTRAINT:** Do NOT generate literal historical depictions (e.g., "A map and a treaty"). You MUST generate concepts based on **Visual Contradictions** or **Emotional Stakes** (e.g., "A modern drone next to a 500-year-old crumbling document", "A bright red censored stamp over a king's face") to trigger human curiosity. Make the viewer feel the tension.
 
@@ -303,6 +333,7 @@ If `--save` flag was passed, append the DIY guide to the same `THUMBNAIL-CONCEPT
 ## Integration with other commands
 
 - **`/greenlight`** still uses `tools/preflight/thumbnail_checker.py` for fast yes/no gates pre-research. `/thumbnail` is the post-script version that produces actual concepts.
+- **`serp_thumb_study.py`** (`--study` flag, Step 2.6) is the live per-topic shelf classifier — fetches + Gemini-tags the actual ranking thumbnails and derives whitespace operations. Complements (does not replace) the static notebook corpus: corpus = what wins generally, SERP study = what *this* shelf looks like now. Distinct from `thumbnail_image_audit.py`, which is the post-render CLIP differentiation gate.
 - **`/comment-mine`** is the upstream topic-conditional input. If run, its output JSONs in `_research/comment-mining/` are read by Step 2.5 and feed topic-comparable winners into the notebook query. Without this, /thumbnail relies only on niche-wide aggregate data and may miss visual conventions the specific topic already has (e.g., 100% inquisitor-figure rate on Spanish Inquisition outliers, which the n=30 close-match corpus does not capture).
 - **`/prep`** consumes the thumbnail concepts when building asset/B-roll lists. Run `/thumbnail --save` first so `/prep` can read THUMBNAIL-CONCEPTS.md.
 
@@ -311,7 +342,7 @@ If `--save` flag was passed, append the DIY guide to the same `THUMBNAIL-CONCEPT
 /script              # Write script
 /verify              # Fact-check
 /comment-mine        # Pull same-topic competitor videos (feeds /thumbnail Step 2.5)
-/thumbnail --save    ← You are here — generate + save concepts
+/thumbnail --study --save   ← You are here — classify live SERP shelf (Step 2.6) + generate + save concepts
 /prep --full         # Asset + edit guides (reads THUMBNAIL-CONCEPTS.md)
 ```
 

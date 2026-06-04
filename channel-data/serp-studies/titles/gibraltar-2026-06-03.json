@@ -1,0 +1,154 @@
+[
+ {
+  "id": "LMTJW_eEYDs",
+  "title": "Why Does Britain Own Gibraltar? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 3962425,
+  "tags": {
+   "title": "Why Does Britain Own Gibraltar? (Short Animated Documentary)",
+   "len": 60,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "zvyWCP2x1GU",
+  "title": "Why Spain wants Britain to return Gibraltar (But will they?)",
+  "channel": "Politics with Paint",
+  "views": 435062,
+  "tags": {
+   "title": "Why Spain wants Britain to return Gibraltar (But will they?)",
+   "len": 60,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "y4ztC1BuDgI",
+  "title": "GIBRALTAR | Britain's Unsolvable Dispute?",
+  "channel": "Prof James Ker-Lindsay",
+  "views": 296617,
+  "tags": {
+   "title": "GIBRALTAR | Britain's Unsolvable Dispute?",
+   "len": 41,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "q-UXpntPT1k",
+  "title": "Brexit and the Gibraltar Problem",
+  "channel": "William C. Fox",
+  "views": 160587,
+  "tags": {
+   "title": "Brexit and the Gibraltar Problem",
+   "len": 32,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "ckAxBCKQF-M",
+  "title": "Labour's 'secret' Gibraltar deal EXPOSED as bombshell report sparks fears of a 'dodgy cover-up'",
+  "channel": "GBNews",
+  "views": 88192,
+  "tags": {
+   "title": "Labour's 'secret' Gibraltar deal EXPOSED as bombshell report sparks fears of a 'dodgy cover-up'",
+   "len": 95,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "AM4NNSu0Mrw",
+  "title": "What Does The Royal Navy Do In Gibraltar? | Forces TV",
+  "channel": "BFBS Forces News",
+  "views": 82672,
+  "tags": {
+   "title": "What Does The Royal Navy Do In Gibraltar? | Forces TV",
+   "len": 53,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "OM9SOj7nJgQ",
+  "title": "'NO SURRENDER!' - Labour WARNED over EU Gibraltar deal after ongoing Chagos Islands DEBACLE",
+  "channel": "Daily Express",
+  "views": 47821,
+  "tags": {
+   "title": "'NO SURRENDER!' - Labour WARNED over EU Gibraltar deal after ongoing Chagos Islands DEBACLE",
+   "len": 91,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "YboT_Ce097w",
+  "title": "Britain and Spain threaten international moves over Gibraltar row",
+  "channel": "euronews",
+  "views": 23402,
+  "tags": {
+   "title": "Britain and Spain threaten international moves over Gibraltar row",
+   "len": 65,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

@@ -1,0 +1,156 @@
+[
+ {
+  "id": "_-eHOSq3oqI",
+  "title": "Why Economists Hate Trump's Tariff Plan | WSJ",
+  "channel": "The Wall Street Journal",
+  "views": 9522609,
+  "tags": {
+   "overlay_text": "HOW TARIFFS ACTUALLY WORK",
+   "overlay_words": 4,
+   "framing": "declarative",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "black",
+    "white"
+   ],
+   "subject": "Donald Trump, cargo ships, US and China flags",
+   "operation": "MECHANISM_REFRAME"
+  }
+ },
+ {
+  "id": "xwZT_nisxsQ",
+  "title": "Tariffs Explained to MAGA by a Professional Importer/Exporter",
+  "channel": "Walter Masterson",
+  "views": 8890951,
+  "tags": {
+   "overlay_text": "Educating MAGA on tariffs",
+   "overlay_words": 4,
+   "framing": "declarative",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "grey",
+    "black"
+   ],
+   "subject": "Two men interviewing a third man on a city street",
+   "operation": "MECHANISM_REFRAME"
+  }
+ },
+ {
+  "id": "VmClr-GkH7E",
+  "title": "Are Trump's tariffs causing the US to collapse from within? | Four Corners Documentary",
+  "channel": "ABC News In-depth",
+  "views": 2791741,
+  "tags": {
+   "overlay_text": "TRADING IN CHAOS",
+   "overlay_words": 3,
+   "framing": "declarative",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "dark blue",
+    "white"
+   ],
+   "subject": "Donald Trump's face and container ships",
+   "operation": "VISUAL_ANSWER"
+  }
+ },
+ {
+  "id": "K0V8kZyl1T0",
+  "title": "Can Tariffs Actually Work?",
+  "channel": "Economics Explained",
+  "views": 2014455,
+  "tags": {
+   "overlay_text": "STEP 1: TARIFFS",
+   "overlay_words": 3,
+   "framing": "declarative",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "blue",
+    "yellow"
+   ],
+   "subject": "Donald Trump, US and China container ships",
+   "operation": "MECHANISM_REFRAME"
+  }
+ },
+ {
+  "id": "ErwIlvQ_RVk",
+  "title": "America v China: why the trade war won't end soon",
+  "channel": "The Economist",
+  "views": 1803675,
+  "tags": {
+   "overlay_text": "The Economist US Tariffs China THE TRADE WAR EXPLAINED",
+   "overlay_words": 8,
+   "framing": "declarative",
+   "face": false,
+   "map": true,
+   "dominant_colors": [
+    "red",
+    "blue",
+    "white",
+    "black"
+   ],
+   "subject": "US-China trade war mechanism involving tariffs",
+   "operation": "MECHANISM_REFRAME"
+  }
+ },
+ {
+  "id": "lRV6U82vgjI",
+  "title": "Tariffs Explained with Bananas",
+  "channel": "Primate Economics",
+  "views": 1376606,
+  "tags": {
+   "overlay_text": "",
+   "overlay_words": 0,
+   "framing": "none",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "white",
+    "blue"
+   ],
+   "subject": "Cartoon figure resembling Trump holding a banana",
+   "operation": "NO_OVERLAY"
+  }
+ },
+ {
+  "id": "Iwa3vLoeNmQ",
+  "title": "Trade wars, explained",
+  "channel": "Vox",
+  "views": 1368773,
+  "tags": {
+   "overlay_text": "TRADE WAR",
+   "overlay_words": 2,
+   "framing": "declarative",
+   "face": false,
+   "map": false,
+   "dominant_colors": [
+    "Dark Blue",
+    "Orange"
+   ],
+   "subject": "Explosion behind large 'TRADE WAR' text",
+   "operation": "COMPRESSION"
+  }
+ },
+ {
+  "id": "LKCMnCZyxiQ",
+  "title": "How do tariffs work? | CNBC Explains",
+  "channel": "CNBC International",
+  "views": 759441,
+  "tags": {
+   "overlay_text": "CNBC EXPLAINS HOW DO TARIFFS WORK?",
+   "overlay_words": 7,
+   "framing": "question",
+   "face": false,
+   "map": false,
+   "dominant_colors": [
+    "blue",
+    "white"
+   ],
+   "subject": "Cargo ship with shipping containers at a port",
+   "operation": "MECHANISM_REFRAME"
+  }
+ }
+]

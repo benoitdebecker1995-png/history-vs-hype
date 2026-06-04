@@ -1,0 +1,154 @@
+[
+ {
+  "id": "bPTgUZuL4Uk",
+  "title": "\"I Show You The Original World Map They Didn't Want You to See\" Graham Hancock",
+  "channel": "CurioStation",
+  "views": 4111325,
+  "tags": {
+   "overlay_text": "THEY HID THIS MAP FOR A REASON!",
+   "overlay_words": 7,
+   "framing": "declarative",
+   "face": true,
+   "map": true,
+   "dominant_colors": [
+    "blue",
+    "yellow"
+   ],
+   "subject": "Two men discussing historical map of South America and Antarctica",
+   "operation": "VISUAL_ANSWER"
+  }
+ },
+ {
+  "id": "645MR_qr_c4",
+  "title": "Ancient Antarctica - Scientists Discovered A Secret Map That Proves It Was A Jungle",
+  "channel": "LifesBiggestQuestions",
+  "views": 2106884,
+  "tags": {
+   "overlay_text": "ANTARCTICA WAS A \"JUNGLE\"",
+   "overlay_words": 5,
+   "framing": "declarative",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "green",
+    "brown"
+   ],
+   "subject": "Man, jungle pyramids, text: Antarctica was a Jungle",
+   "operation": "VISUAL_ANSWER"
+  }
+ },
+ {
+  "id": "wJevT3tDmH4",
+  "title": "\"I Show You the World Map They Banned from History Class!\" Graham Hancock",
+  "channel": "CurioStation",
+  "views": 1144353,
+  "tags": {
+   "overlay_text": "THEY BANNED THIS MAP FROM HISTORY CLASSES",
+   "overlay_words": 8,
+   "framing": "declarative",
+   "face": true,
+   "map": true,
+   "dominant_colors": [
+    "yellow",
+    "red"
+   ],
+   "subject": "Man with glasses looking at old world map.",
+   "operation": "MECHANISM_REFRAME"
+  }
+ },
+ {
+  "id": "Qt2GYyGTXTs",
+  "title": "Piri Reis Map explained by Graham Hancock",
+  "channel": "Bill Cote",
+  "views": 337572,
+  "tags": {
+   "overlay_text": "The Mysterious Origins of Man",
+   "overlay_words": 5,
+   "framing": "declarative",
+   "face": false,
+   "map": false,
+   "dominant_colors": [
+    "olive green",
+    "sandy yellow"
+   ],
+   "subject": "Painting of small boats with people on a stormy sea",
+   "operation": "AESTHETIC_HOOK"
+  }
+ },
+ {
+  "id": "7gHUtZFyFLQ",
+  "title": "Piri Reis Map: The Planisphere That Could Change History",
+  "channel": "Un Mundo Inmenso",
+  "views": 321942,
+  "tags": {
+   "overlay_text": "Â¿UN MAPA DE SUDAMÃ‰RICA ANTERIOR A COLÃ“N?",
+   "overlay_words": 7,
+   "framing": "question",
+   "face": false,
+   "map": true,
+   "dominant_colors": [
+    "#87CEEB",
+    "#1E90FF"
+   ],
+   "subject": "Stylized map of South America; question about its age.",
+   "operation": "LOCATION_PROOF"
+  }
+ },
+ {
+  "id": "9PWMnvSiTy4",
+  "title": "¿EL MAPA DE PIRI REIS ESCONDE UN MISTERIO REAL?",
+  "channel": "El Cubil de Peter",
+  "views": 207015,
+  "tags": {
+   "overlay_text": "MAPA DE PIRI REIS: MISTERIO REAL?",
+   "overlay_words": 5,
+   "framing": "question",
+   "face": true,
+   "map": true,
+   "dominant_colors": [
+    "grey",
+    "yellow"
+   ],
+   "subject": "Sculpture, Piri Reis map, and mystery question",
+   "operation": "LOCATION_PROOF"
+  }
+ },
+ {
+  "id": "J5eeIgvJL_c",
+  "title": "Secrets of the Piri Reis Map",
+  "channel": "World of Antiquity",
+  "views": 188377,
+  "tags": {
+   "overlay_text": "Q&A PIRI REIS MAP",
+   "overlay_words": 4,
+   "framing": "label",
+   "face": true,
+   "map": true,
+   "dominant_colors": [
+    "green",
+    "yellow"
+   ],
+   "subject": "Man and an old map labelled Piri Reis Map",
+   "operation": "LOCATION_PROOF"
+  }
+ },
+ {
+  "id": "i8ydslM_skU",
+  "title": "The Piri Reis map: an unsolved mystery",
+  "channel": "Atrapados En El Tiempo",
+  "views": 141144,
+  "tags": {
+   "overlay_text": "EL MAPA DE PIRI REIS UN MISTERIO SIN RESOLVER",
+   "overlay_words": 8,
+   "framing": "declarative",
+   "face": false,
+   "map": true,
+   "dominant_colors": [
+    "yellow",
+    "beige"
+   ],
+   "subject": "Ancient Piri Reis map with ships and landforms",
+   "operation": "MECHANISM_REFRAME"
+  }
+ }
+]

@@ -1,6 +1,6 @@
 ---
 description: Retitle underperforming videos — audit, generate candidates, output swap checklist
-model: sonnet
+model: opus
 ---
 
 # /retitle - Retitle Pipeline Entry Point
@@ -111,6 +111,16 @@ valid = [(t, s) for t, s in scored if s['grade'] != 'REJECTED' and s['score'] >=
 
 If no candidates pass the threshold, note "NO VALID CANDIDATES — all options scored below 65 or REJECTED" and show the highest-scoring blocked option with its rejection reason so the user understands why.
 
+**d. Live title shelf positioning check:**
+
+`title_scorer` grades structure against a frozen CTR snapshot; it does not see what's ranking for this topic *now*. Run the title shelf study so the swap targets the live whitespace, not just a high score:
+
+```bash
+python -m tools.preflight.serp_title_study --slug <video-topic-slug> --query "<plain topic query>" --top 12
+```
+
+Derive the query from the video's actual topic (not its current title). Read `channel-data/serp-studies/titles/<slug>-<date>.md` → the **Positioning whitespace** levers. For the top candidate, note which shelf saturation it breaks / which absent lever it occupies (prefer two-sentence "Claim. Evidence." when the shelf is 0% — that's the channel's top-retention pattern AND open whitespace). Add a one-line **Shelf positioning** field to the SWAP-CHECKLIST entry (Step 6). If the tool errors, note "shelf check skipped" and continue — not a gate.
+
 ### Step 5: Thumbnail Compliance Check
 
 **If VIDEO_PROJECT_MAP[video_id] is not None** (project folder exists):
@@ -167,6 +177,9 @@ Write to `channel-data/SWAP-CHECKLIST.md` (overwrite each run — this file is e
 
 ### Title Source
 [script-generated | CANDIDATES dict | RETITLE-RECOMMENDATIONS.md]
+
+### Shelf Positioning (from serp_title_study)
+[which live-shelf saturation the new title breaks / which absent lever it occupies — e.g. "shelf 0% two-sentence; new title leads with Claim.Evidence." OR "shelf check skipped"]
 
 ### All Scored Candidates
 | Score | Grade | Title |

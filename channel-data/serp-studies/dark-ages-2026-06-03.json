@@ -1,0 +1,154 @@
+[
+ {
+  "id": "g5NG6mo1zGY",
+  "title": "The Phantom Time Hypothesis | 300 Years ARE MISSING from the Calendar",
+  "channel": "The Why Files",
+  "views": 4601281,
+  "tags": {
+   "overlay_text": "WF? THE PHANTOM TIME HYPOTHESIS",
+   "overlay_words": 5,
+   "framing": "question",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "silver",
+    "red"
+   ],
+   "subject": "Armored knights battling amidst fire before a castle",
+   "operation": "AESTHETIC_HOOK"
+  }
+ },
+ {
+  "id": "d0Fbcc8uWEc",
+  "title": "The Conspiracy Theory that the Middle Ages Never Happened",
+  "channel": "Half as Interesting",
+  "views": 3748477,
+  "tags": {
+   "overlay_text": "THE MIDDLE AGES NEVER HAPPENED?",
+   "overlay_words": 5,
+   "framing": "question",
+   "face": false,
+   "map": false,
+   "dominant_colors": [
+    "#FDD835",
+    "#303F9F"
+   ],
+   "subject": "Hand highlighting 'Middle Ages' on calendar with axe",
+   "operation": "MECHANISM_REFRAME"
+  }
+ },
+ {
+  "id": "e9-l34TcV_U",
+  "title": "6 myths about the Middle Ages that everyone believes - Stephanie Honchell Smith",
+  "channel": "TED-Ed",
+  "views": 2806715,
+  "tags": {
+   "overlay_text": "SIX MYTHS ABOUT THE MIDDLE AGES",
+   "overlay_words": 6,
+   "framing": "declarative",
+   "face": false,
+   "map": false,
+   "dominant_colors": [
+    "yellow",
+    "black"
+   ],
+   "subject": "Cartoon knight holding a sword",
+   "operation": "TITLE_REPETITION"
+  }
+ },
+ {
+  "id": "LV801eQzUQ0",
+  "title": "Europe in the Wake of the Fall of Rome | The Dark Ages | Full Special | History",
+  "channel": "HISTORY",
+  "views": 2462865,
+  "tags": {
+   "overlay_text": "SURVIVAL IN THE DARK AGES",
+   "overlay_words": 5,
+   "framing": "declarative",
+   "face": false,
+   "map": false,
+   "dominant_colors": [
+    "red",
+    "gold"
+   ],
+   "subject": "Burning, ruined Roman Colosseum under dark, fiery sky",
+   "operation": "VISUAL_ANSWER"
+  }
+ },
+ {
+  "id": "gnTMu4Ba17o",
+  "title": "How 'Dark' were the Dark Ages? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 2075006,
+  "tags": {
+   "overlay_text": "HOW 'DARK' WERE THE DARK AGES?",
+   "overlay_words": 7,
+   "framing": "question",
+   "face": true,
+   "map": true,
+   "dominant_colors": [
+    "purple",
+    "green"
+   ],
+   "subject": "Cartoon figure over map, questioning the Dark Ages",
+   "operation": "LOCATION_PROOF"
+  }
+ },
+ {
+  "id": "Cqzq01i2O3U",
+  "title": "How Dark Were the Dark Ages? | 5 Minute Videos | PragerU",
+  "channel": "PragerU",
+  "views": 1952713,
+  "tags": {
+   "overlay_text": "How Dark Were the Dark Ages?",
+   "overlay_words": 7,
+   "framing": "question",
+   "face": false,
+   "map": false,
+   "dominant_colors": [
+    "dark blue",
+    "light blue"
+   ],
+   "subject": "Castle with icons of knowledge and night",
+   "operation": "VISUAL_ANSWER"
+  }
+ },
+ {
+  "id": "L2hi5Vh8Ig0",
+  "title": "The Dark Ages Explained - Part 1",
+  "channel": "Captivating History",
+  "views": 1693815,
+  "tags": {
+   "overlay_text": "THE DARK AGES EXPLAINED [PART 1]",
+   "overlay_words": 6,
+   "framing": "declarative",
+   "face": false,
+   "map": false,
+   "dominant_colors": [
+    "beige",
+    "dark grey-green"
+   ],
+   "subject": "Ancient stone ruins, arches, overgrown, dark sky",
+   "operation": "VISUAL_ANSWER"
+  }
+ },
+ {
+  "id": "ugvQIjwbd6U",
+  "title": "How Muslim Art Challenges The Dark Ages Myth (Waldemar Januszczak Documentary)",
+  "channel": "Perspective",
+  "views": 1208274,
+  "tags": {
+   "overlay_text": "Perspective",
+   "overlay_words": 1,
+   "framing": "label",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "#d4af37",
+    "#360101"
+   ],
+   "subject": "Modern man overlaid on ancient Persian painting",
+   "operation": "AESTHETIC_HOOK"
+  }
+ }
+]

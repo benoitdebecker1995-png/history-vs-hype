@@ -1,0 +1,156 @@
+[
+ {
+  "id": "LMTJW_eEYDs",
+  "title": "Why Does Britain Own Gibraltar? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 3962425,
+  "tags": {
+   "overlay_text": "WHY DOES BRITAIN OWN GIBRALTAR?",
+   "overlay_words": 6,
+   "framing": "question",
+   "face": false,
+   "map": true,
+   "dominant_colors": [
+    "#2C4A75",
+    "#F2C744"
+   ],
+   "subject": "Map of Iberian Peninsula, British flag, Gibraltar",
+   "operation": "LOCATION_PROOF"
+  }
+ },
+ {
+  "id": "zvyWCP2x1GU",
+  "title": "Why Spain wants Britain to return Gibraltar (But will they?)",
+  "channel": "Politics with Paint",
+  "views": 435062,
+  "tags": {
+   "overlay_text": "NAVY BASE",
+   "overlay_words": 2,
+   "framing": "label",
+   "face": false,
+   "map": true,
+   "dominant_colors": [
+    "yellow",
+    "red",
+    "blue"
+   ],
+   "subject": "Map of Spain and Gibraltar with countryballs",
+   "operation": "LOCATION_PROOF"
+  }
+ },
+ {
+  "id": "y4ztC1BuDgI",
+  "title": "GIBRALTAR | Britain's Unsolvable Dispute?",
+  "channel": "Prof James Ker-Lindsay",
+  "views": 296617,
+  "tags": {
+   "overlay_text": "THE GIBRALTAR PROBLEM?",
+   "overlay_words": 3,
+   "framing": "question",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "dark blue",
+    "white"
+   ],
+   "subject": "Man speaking at podium with Union Jack background",
+   "operation": "MECHANISM_REFRAME"
+  }
+ },
+ {
+  "id": "q-UXpntPT1k",
+  "title": "Brexit and the Gibraltar Problem",
+  "channel": "William C. Fox",
+  "views": 160587,
+  "tags": {
+   "overlay_text": "BREXIT & GIBRALTAR",
+   "overlay_words": 3,
+   "framing": "declarative",
+   "face": false,
+   "map": true,
+   "dominant_colors": [
+    "#000080",
+    "#FF0000"
+   ],
+   "subject": "Rock of Gibraltar, UK and Spanish flags, political map",
+   "operation": "LOCATION_PROOF"
+  }
+ },
+ {
+  "id": "ckAxBCKQF-M",
+  "title": "Labour's 'secret' Gibraltar deal EXPOSED as bombshell report sparks fears of a 'dodgy cover-up'",
+  "channel": "GBNews",
+  "views": 88192,
+  "tags": {
+   "overlay_text": "CHAGOS 2.0?",
+   "overlay_words": 2,
+   "framing": "question",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "blue",
+    "white"
+   ],
+   "subject": "Man in glasses, Rock of Gibraltar, city at night",
+   "operation": "MECHANISM_REFRAME"
+  }
+ },
+ {
+  "id": "AM4NNSu0Mrw",
+  "title": "What Does The Royal Navy Do In Gibraltar? | Forces TV",
+  "channel": "BFBS Forces News",
+  "views": 82672,
+  "tags": {
+   "overlay_text": "PATROLLING GIBRALTAR",
+   "overlay_words": 2,
+   "framing": "declarative",
+   "face": false,
+   "map": false,
+   "dominant_colors": [
+    "white",
+    "dark blue"
+   ],
+   "subject": "Military patrol boat with two crew on water",
+   "operation": "VISUAL_ANSWER"
+  }
+ },
+ {
+  "id": "OM9SOj7nJgQ",
+  "title": "'NO SURRENDER!' - Labour WARNED over EU Gibraltar deal after ongoing Chagos Islands DEBACLE",
+  "channel": "Daily Express",
+  "views": 47821,
+  "tags": {
+   "overlay_text": "'NOT FOR SALE!'",
+   "overlay_words": 3,
+   "framing": "declarative",
+   "face": true,
+   "map": false,
+   "dominant_colors": [
+    "blue",
+    "red",
+    "white"
+   ],
+   "subject": "Woman speaking, aerial view of Gibraltar",
+   "operation": "LOCATION_PROOF"
+  }
+ },
+ {
+  "id": "YboT_Ce097w",
+  "title": "Britain and Spain threaten international moves over Gibraltar row",
+  "channel": "euronews",
+  "views": 23402,
+  "tags": {
+   "overlay_text": "",
+   "overlay_words": 0,
+   "framing": "none",
+   "face": false,
+   "map": false,
+   "dominant_colors": [
+    "blue",
+    "red"
+   ],
+   "subject": "Aircraft carrier in harbor with tugboats",
+   "operation": "NO_OVERLAY"
+  }
+ }
+]

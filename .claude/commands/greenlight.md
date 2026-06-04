@@ -1,6 +1,6 @@
 ---
 description: Pre-work viability gate — checks demand, titles, and thumbnails BEFORE you invest time
-model: sonnet
+model: opus
 ---
 
 # /greenlight — Will This Get Views?
@@ -164,6 +164,20 @@ NEWS HOOK: TRENDING (3 articles this week)
 ```
 
 ### Step 2: Title Viability Check
+
+**Step 2a: Live title shelf (SERP positioning) — runs by default, skipped on `--no-research`.**
+
+`title_scorer` grades a candidate against a frozen own-CTR snapshot + static niche aggregate — it has no live read of what's actually ranking for this query *now*. Run the title shelf study to see the real shelf and find the positioning whitespace (cheap: scrapetube only, no Gemini, ~5s):
+
+```bash
+python -m tools.preflight.serp_title_study --slug <topic-slug> --query "<plain topic query>" [--query "<variant>"] --top 12
+```
+
+Derive 1–2 plain-topic queries from the topic (what a viewer would type, not the channel's framing). Read `channel-data/serp-studies/titles/<slug>-<date>.md` → extract the **Positioning whitespace** levers (e.g. "two-sentence Claim.Evidence. is 0% — open whitespace"; "shelf is question-heavy — go declarative").
+
+**Feed into generation:** the candidates in this step MUST occupy ≥1 whitespace lever the shelf leaves open (prefer the two-sentence "Claim. Evidence." formula when it's absent — it's the channel's top-retention brand signal). Name, per chosen title, which shelf saturation it breaks.
+
+**Stop condition:** if the tool errors (scrapetube/network), surface a one-line warning, note "title shelf unavailable — generating from title_scorer + Step 0 competitor scan only" and continue. Enrichment, not a gate.
 
 If the user provided a specific title, score it using DB-enriched scoring:
 
