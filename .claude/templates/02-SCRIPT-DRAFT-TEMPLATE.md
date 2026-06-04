@@ -120,7 +120,7 @@
 
 ### What This Actually Means (Causal Chain)
 
-[Explain WHY - use Kraut-style connectors: "consequently," "thereby," "which meant that," "as a result"]
+[Explain WHY - spoken-register connectors first: "so," "which is why," "and that meant," "which meant that"; keep formal "consequently"/"thereby" to 1-2 per script. The mechanism is mandatory, the formal word is not.]
 
 **Verification Reference:** ✅ [Scholarly interpretation from line # of 01-VERIFIED-RESEARCH.md]
 
@@ -187,8 +187,8 @@
 
 ### Deep Causal Chain (Kraut-style)
 
-[Explain the causal mechanism - why did this happen? Use consequence chains:]
-> "[Event A] → consequently [Event B] → which meant that [Event C] → as a result [Outcome]"
+[Explain the causal mechanism - why did this happen? Chain it in spoken register, varying the connector:]
+> "[Event A]. So [Event B] — which meant [Event C], and that's how [Outcome]"
 
 **Visual:** [Show archival document quote on screen, then cut to talking head for interpretation]
 
@@ -252,7 +252,7 @@
 **Structure (Kraut/Alex O'Connor Style):**
 - [ ] Strong opening hook (sweep-then-specifics OR conversational challenge)
 - [ ] Both extremes framed explicitly in opening
-- [ ] Deep causal chains throughout (consequently, thereby, which meant that)
+- [ ] Deep causal chains throughout, spoken-register connectors (so, which is why, and that meant — formal ones sparingly)
 - [ ] Intellectual honesty section (acknowledge what opponents get right)
 - [ ] Present relevance bridge in synthesis
 - [ ] Read out loud - no awkward phrasing

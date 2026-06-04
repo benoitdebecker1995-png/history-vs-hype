@@ -1,0 +1,29 @@
+{
+  "mcpServers": {
+    "notebooklm": {
+      "command": "notebooklm-mcp",
+      "args": [],
+      "transport": "stdio",
+      "description": "NotebookLM MCP server — query/describe/list notebooks. Source upload remains manual (browser). Install: pip install notebooklm-mcp",
+      "tools": [
+        "notebook_list",
+        "notebook_get",
+        "notebook_describe",
+        "notebook_query",
+        "notebook_create",
+        "notebook_rename",
+        "source_add",
+        "source_delete",
+        "source_list_drive",
+        "note",
+        "refresh_auth",
+        "server_info",
+        "pipeline",
+        "cross_notebook_query",
+        "research_start",
+        "research_status"
+      ],
+      "agents": ["content-script", "fact-check"]
+    }
+  }
+}

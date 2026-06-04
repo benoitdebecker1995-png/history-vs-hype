@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: Knowing Better
+Sub-tier: MEGA 1M+
+Video title: They Were Just in the Way | Indian Removal
+Video URL: https://www.youtube.com/watch?v=A5P6vJs1jmY
+View count: 2,541,338
+Outlier ratio (vs channel median): 3.2x
+Topic type: ideological
+Archetype (heuristic): specificity_bomb
+First spoken timestamp: 0.3s
+Content window: 0.3s — 30.3s
+
+---
+
+well it's that time of year again the kids are back in school and are learning about Columbus the pilgrims and the founding of our nation growing up in the United States and then becoming a high school history teacher I've both learned and taught that story at least a dozen times over the course of three decades a few months ago I started calling it The Standard American history myth and I've been slowly dismantling that story ever since while researching my previous video on NEOS slavery I realized that I had been fed a false narrative growing up which I then unknowingly passed on to

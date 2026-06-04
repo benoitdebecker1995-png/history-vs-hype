@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: Atun-Shei Films
+Sub-tier: PEER 100K-500K
+Video title: The REAL Cause of the Revolutionary War
+Video URL: https://www.youtube.com/watch?v=FCShsGCkOP4
+View count: 1,490,384
+Outlier ratio (vs channel median): 10.9x
+Topic type: mechanism
+Archetype (heuristic): specificity_bomb
+First spoken timestamp: 0.0s
+Content window: 0.0s — 30.0s
+
+---
+
+for an event that looms so large in our popular Consciousness that was so immensely consequential to our history and is so deeply embedded within our national identity most Americans don't actually know very much about the Revolutionary War sure I mean most of us could tell you about the Tea in the harbor and Paul Riv maybe about some Minutemen here and there the Declaration of Independence the villainous traitor Benedict Arnold Lord corn Wallace surrendering at Yorktown but these are all kind of just details right our

@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: Kraut
+Sub-tier: MEGA 1M+
+Video title: The Turkish Century | From Hittites to Atatürk
+Video URL: https://www.youtube.com/watch?v=XgjiJHV8P0w
+View count: 3,223,249
+Outlier ratio (vs channel median): 4.7x
+Topic type: ideological
+Archetype (heuristic): contextual_opening
+First spoken timestamp: 4.2s
+Content window: 4.2s — 34.2s
+
+---
+
+what ties a people to their land what makes land yours how can land even be yours the idea of the nation-state is barely 200 years old and before that idea the notion of land as a collective property of a cultural or national construct didn't exist the land was owned by kings and you lived on their land by their grace the peoples who worked the lands had no rights over these lands but were instead tolerated by kings who themselves claimed to be tolerated by gods the modern nation state had to forge identities to justify their existence as

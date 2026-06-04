@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: WonderWhy
+Sub-tier: MEGA 1M+
+Video title: Fun Fact About Every Country in the World - Part 1
+Video URL: https://www.youtube.com/watch?v=ZPZnTAAGKvs
+View count: 7,565,823
+Outlier ratio (vs channel median): 7.8x
+Topic type: ideological
+Archetype (heuristic): specificity_bomb
+First spoken timestamp: 0.7s
+Content window: 0.7s — 30.7s
+
+---
+
+Hello and welcome to a fun fact about every country in the world, part one. These videos are going to be pretty long, so let's just get started right now. Afghanistan changed its flag 18 times during the 20th century and four more since then, with its current flag having been in use since 2013. The reason for these changes isn't so fun, though, so let's just move on. Albania has more than 173,000 concrete bunkers spread across its land.

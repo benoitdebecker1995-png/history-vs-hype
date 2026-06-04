@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: Knowing Better
+Sub-tier: MEGA 1M+
+Video title: The Part of History You've Always Skipped | Neoslavery
+Video URL: https://www.youtube.com/watch?v=j4kI2h3iotA
+View count: 6,026,235
+Outlier ratio (vs channel median): 7.6x
+Topic type: ideological
+Archetype (heuristic): specificity_bomb
+First spoken timestamp: 0.2s
+Content window: 0.2s — 30.2s
+
+---
+
+this video is going to look and sound a little different from my usual content because this topic is serious complex and infuriating it's also incredibly long as you've probably noticed but it is necessary to understand the full picture as we're going through this story i want you to keep this one simple question in the back of your mind when was the last slave freed in america 1865 at the end of the civil war everyone knows that that that's probably the second easiest elementary school

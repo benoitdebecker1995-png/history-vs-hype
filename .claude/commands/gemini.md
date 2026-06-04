@@ -17,6 +17,7 @@ Task types:
 - `ingest <raw-path>` — convert `~/llm-brain/raw/...` source into wiki page candidates (concepts/entities/quotes)
 - `scan <topic>` — pre-greenlight landscape: competitor titles/thumbnails/descriptions for a topic, structured table out
 - `quote-mine <source-path>` — pull verbatim quote candidates with page numbers from a long source
+- `webfetch <url-or-urls> [--ask <question>]` — fetch one or more URLs via Gemini's URL-context tool and return a structured digest. Use this INSTEAD of Claude's WebFetch when (a) you need >1 URL, (b) the page is long (>10K chars), or (c) the next step doesn't need the full page back in Claude's context. Default model still Flash.
 - `freeform <prompt>` — pass-through for anything else
 
 ## Procedure
@@ -37,6 +38,8 @@ Task types:
 **scan:** "For the topic '<topic>', list the top 20 YouTube videos by view count from comparable channels (RealLifeLore, Wendover, Johnny Harris, Kraut, etc.). For each: title, channel, views, thumbnail description (text overlay / map / face / object), publish date, hook type. Output as a markdown table sorted by views descending."
 
 **quote-mine:** "Extract every verbatim quote from this source that meets ALL: (a) ≤40 words, (b) makes a single concrete claim, (c) has a citable page number, (d) would survive an 'earn-your-inclusion' test (orphan-quote test: does it carry weight without surrounding context). Output as numbered blockquote list with `— Author, *Title*, p.NN` attribution."
+
+**webfetch:** Prepend each URL with `@` so Gemini's URL-context tool fetches it (e.g. `@https://example.com/...`). Prompt body: "Fetch the URL(s) above. For each: (1) page title + canonical URL, (2) one-line topic, (3) key claims as bullets (verbatim where short, paraphrased where long, with section-header anchors so I can find them again), (4) any primary sources / treaty articles / page numbers / dates referenced, (5) anything the page is conspicuously NOT covering. If `--ask <question>` was passed, answer that question first, then do the digest. Output as markdown with one H2 per URL. If a URL fails to fetch, say so explicitly — do not hallucinate content." Invoke via `gemini -m gemini-2.5-flash -p "@<url1> @<url2> ... <prompt>" --yolo > <out-path>`. Note: Gemini's URL-context tool has per-URL size limits — if a page is paywalled or JS-rendered, the digest will be thin; flag this in the report rather than papering over it.
 
 ## Reminders
 

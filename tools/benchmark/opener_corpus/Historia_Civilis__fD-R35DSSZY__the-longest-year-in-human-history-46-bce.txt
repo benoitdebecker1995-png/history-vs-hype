@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: Historia Civilis
+Sub-tier: MEGA 1M+
+Video title: The Longest Year in Human History (46 B.C.E.)
+Video URL: https://www.youtube.com/watch?v=fD-R35DSSZY
+View count: 7,244,648
+Outlier ratio (vs channel median): 3.7x
+Topic type: ideological
+Archetype (heuristic): specificity_bomb
+First spoken timestamp: 6.2s
+Content window: 6.2s — 36.2s
+
+---
+
+in the summer of the year 46 BCE Julius Caesar returned to the city of Rome a victorious general all of his military opposition had been squashed and all of his enemies save for libidus and a couple of Pompey sons had either been killed or forced into submission this precise moment when Caesar returned to the city was a major turning point in Roman history for years Roman politics had been getting weirder

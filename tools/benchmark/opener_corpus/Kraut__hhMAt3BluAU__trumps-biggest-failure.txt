@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: Kraut
+Sub-tier: MEGA 1M+
+Video title: Trump's Biggest Failure
+Video URL: https://www.youtube.com/watch?v=hhMAt3BluAU
+View count: 5,375,616
+Outlier ratio (vs channel median): 7.8x
+Topic type: ideological
+Archetype (heuristic): cold_fact
+First spoken timestamp: 0.9s
+Content window: 0.9s — 30.9s
+
+---
+
+[Music] somewhere more less close to you there's a prison and in that prison a business transaction took place today with the currency use being anything from ramen noodles to cigarettes prison economies are frowned upon that justice systems mostly tried to destroy them they're also a testament to something else the power of one of our most basic instincts the drive to want stuff wanting stuff has been part of the human experience

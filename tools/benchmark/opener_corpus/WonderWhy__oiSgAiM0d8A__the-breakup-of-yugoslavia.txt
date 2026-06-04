@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: WonderWhy
+Sub-tier: MEGA 1M+
+Video title: The Breakup of Yugoslavia
+Video URL: https://www.youtube.com/watch?v=oiSgAiM0d8A
+View count: 6,556,972
+Outlier ratio (vs channel median): 6.8x
+Topic type: ideological
+Archetype (heuristic): specificity_bomb
+First spoken timestamp: 1.1s
+Content window: 1.1s — 31.1s
+
+---
+
+for most of the 20th century there existed a country in Southeastern Europe called Yugoslavia today however what used to be Yugoslavia is now six fully independent countries plus one more self- declared independent country but more than that later so why exactly did Yugoslavia split up well before we look at why it split up let's first look at how it came to be for this we need to go back to 1918 and the end of World War I Yugoslavia was created from the kingdom of Serbia the kingdom of Montenegro and what used to be territories of the

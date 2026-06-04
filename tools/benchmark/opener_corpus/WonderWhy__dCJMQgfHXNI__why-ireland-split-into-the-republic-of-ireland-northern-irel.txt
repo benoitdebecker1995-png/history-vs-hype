@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: WonderWhy
+Sub-tier: MEGA 1M+
+Video title: Why Ireland Split into the Republic of Ireland & Northern Ireland
+Video URL: https://www.youtube.com/watch?v=dCJMQgfHXNI
+View count: 6,159,559
+Outlier ratio (vs channel median): 6.4x
+Topic type: territorial
+Archetype (heuristic): cold_fact
+First spoken timestamp: 0.6s
+Content window: 0.6s — 30.6s
+
+---
+
+this is the island of Ireland the island is politically split between the Republic of Ireland an independent country and Northern Ireland which together with Scotland England and Wales for the United Kingdom but why exactly is England split and when did it happen to fully understand the situation we need to go all the way back to the 12th century after the Normans had successfully invaded England and taken the throne they decided to invade Ireland Henry II with the authorization of Pope Adrien IV to strengthen the Pap's control over the Irish Church landed in Ireland in 1171 and took

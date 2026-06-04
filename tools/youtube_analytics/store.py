@@ -259,6 +259,236 @@ class AnalyticsStore:
             rows = list(reversed(rows))
         return [dict(r) for r in rows]
 
+    # ── retention_curves ──────────────────────────────────────────────────────
+
+    def retention_curve(self, video_id: str) -> List[Dict[str, Any]]:
+        """Return the full retention curve for one video, ordered by position."""
+        rows = self._conn.execute(
+            "SELECT video_id, elapsed_ratio, audience_watch_ratio, "
+            "relative_performance, fetched_at "
+            "FROM retention_curves WHERE video_id = ? ORDER BY elapsed_ratio ASC",
+            (video_id,),
+        ).fetchall()
+        return [dict(r) for r in rows]
+
+    def retention_summary_by_video(self) -> List[Dict[str, Any]]:
+        """Return per-video retention summary joined to videos table.
+
+        Each row: {video_id, title, views, point_count, avg_retention,
+                   final_retention, min_retention, min_position}.
+
+        min_position is the elapsed_ratio at which retention bottoms out — the
+        clearest "cliff" indicator. final_retention compared to avg_retention
+        flags whether viewers are leaving steadily or in a late drop.
+        """
+        rows = self._conn.execute(
+            """
+            WITH per_video AS (
+                SELECT
+                    rc.video_id,
+                    COUNT(*) AS point_count,
+                    AVG(rc.audience_watch_ratio) AS avg_retention,
+                    MIN(rc.audience_watch_ratio) AS min_retention
+                FROM retention_curves rc
+                GROUP BY rc.video_id
+            ),
+            final_pt AS (
+                SELECT video_id, audience_watch_ratio AS final_retention
+                FROM retention_curves rc1
+                WHERE elapsed_ratio = (
+                    SELECT MAX(elapsed_ratio) FROM retention_curves rc2
+                    WHERE rc2.video_id = rc1.video_id
+                )
+            ),
+            min_pt AS (
+                SELECT video_id, elapsed_ratio AS min_position
+                FROM retention_curves rc1
+                WHERE audience_watch_ratio = (
+                    SELECT MIN(audience_watch_ratio) FROM retention_curves rc2
+                    WHERE rc2.video_id = rc1.video_id
+                )
+                GROUP BY video_id  -- one row even if multiple minima tie
+            )
+            SELECT
+                v.video_id,
+                v.title,
+                v.views,
+                pv.point_count,
+                pv.avg_retention,
+                fp.final_retention,
+                pv.min_retention,
+                mp.min_position
+            FROM videos v
+            INNER JOIN per_video pv ON pv.video_id = v.video_id
+            LEFT JOIN final_pt fp ON fp.video_id = v.video_id
+            LEFT JOIN min_pt mp ON mp.video_id = v.video_id
+            ORDER BY v.views DESC
+            """
+        ).fetchall()
+        return [dict(r) for r in rows]
+
+    def retention_cliffs(self, *, max_ratio: float = 0.80) -> List[Dict[str, Any]]:
+        """Per-video retention minimum restricted to elapsed_ratio < max_ratio.
+
+        The natural end-of-video falloff dominates a raw MIN(retention) — most
+        videos hit their lowest point in the last bucket because viewers who
+        watched 99% but skipped the outro count as drop. Restricting to the
+        first 80% (default) isolates true mid-video cliffs — the bits worth
+        editing differently next time.
+
+        Returns: [{video_id, title, views, cliff_retention, cliff_position}]
+        ordered by cliff_retention ASC (steepest first). Only videos with at
+        least one retention point inside the window appear.
+        """
+        rows = self._conn.execute(
+            """
+            WITH cliffs AS (
+                SELECT
+                    rc.video_id,
+                    MIN(rc.audience_watch_ratio) AS cliff_retention
+                FROM retention_curves rc
+                WHERE rc.elapsed_ratio < ?
+                GROUP BY rc.video_id
+            ),
+            cliff_pos AS (
+                SELECT rc.video_id, rc.elapsed_ratio AS cliff_position
+                FROM retention_curves rc
+                INNER JOIN cliffs c
+                    ON c.video_id = rc.video_id
+                   AND c.cliff_retention = rc.audience_watch_ratio
+                WHERE rc.elapsed_ratio < ?
+                GROUP BY rc.video_id  -- collapse ties to one position per video
+            )
+            SELECT
+                v.video_id, v.title, v.views,
+                c.cliff_retention, cp.cliff_position
+            FROM videos v
+            INNER JOIN cliffs c    ON c.video_id  = v.video_id
+            INNER JOIN cliff_pos cp ON cp.video_id = v.video_id
+            ORDER BY c.cliff_retention ASC
+            """,
+            (max_ratio, max_ratio),
+        ).fetchall()
+        return [dict(r) for r in rows]
+
+    # ── search_terms ──────────────────────────────────────────────────────────
+
+    def search_terms(
+        self,
+        *,
+        video_id: Optional[str] = None,
+        limit: Optional[int] = None,
+    ) -> List[Dict[str, Any]]:
+        """Return search term rows. If `video_id` given, only that video's terms."""
+        if video_id is not None:
+            sql = (
+                "SELECT video_id, term, views, watch_time_minutes, fetched_at "
+                "FROM search_terms WHERE video_id = ? ORDER BY views DESC"
+            )
+            params: Sequence[Any] = (video_id,)
+        else:
+            sql = (
+                "SELECT video_id, term, views, watch_time_minutes, fetched_at "
+                "FROM search_terms ORDER BY views DESC"
+            )
+            params = ()
+        if limit is not None:
+            sql += f" LIMIT {int(limit)}"
+        return [dict(r) for r in self._conn.execute(sql, params).fetchall()]
+
+    def top_search_terms(self, limit: int = 20) -> List[Dict[str, Any]]:
+        """Aggregate search terms across all long-form videos.
+
+        Returns: [{term, total_views, total_watch_time_minutes, video_count}]
+        ordered by total_views DESC. Inner-joins videos so orphans are excluded.
+        """
+        rows = self._conn.execute(
+            """
+            SELECT
+                s.term,
+                SUM(s.views) AS total_views,
+                SUM(s.watch_time_minutes) AS total_watch_time_minutes,
+                COUNT(DISTINCT s.video_id) AS video_count
+            FROM search_terms s
+            INNER JOIN videos v ON v.video_id = s.video_id
+            GROUP BY s.term
+            ORDER BY total_views DESC
+            LIMIT ?
+            """,
+            (int(limit),),
+        ).fetchall()
+        return [dict(r) for r in rows]
+
+    def videos_missing_search_traffic(self) -> List[Dict[str, Any]]:
+        """Long-form videos with zero rows in search_terms.
+
+        These are videos the algorithm/index never surfaced via search —
+        either a packaging miss (no head-term anchor) or a distribution miss
+        (suggested-only). Returns: [{video_id, title, views, published_at}].
+        """
+        rows = self._conn.execute(
+            """
+            SELECT v.video_id, v.title, v.views, v.published_at
+            FROM videos v
+            LEFT JOIN search_terms s ON s.video_id = v.video_id
+            WHERE s.video_id IS NULL
+            ORDER BY v.views DESC
+            """
+        ).fetchall()
+        return [dict(r) for r in rows]
+
+    # ── subscribed_status ─────────────────────────────────────────────────────
+
+    def subscribed_status(self, *, video_id: Optional[str] = None) -> List[Dict[str, Any]]:
+        """Return subscribed_status rows. If video_id given, only that video."""
+        if video_id is not None:
+            rows = self._conn.execute(
+                "SELECT video_id, status, views, watch_time_minutes, "
+                "avg_view_percentage, fetched_at "
+                "FROM subscribed_status WHERE video_id = ?",
+                (video_id,),
+            ).fetchall()
+        else:
+            rows = self._conn.execute(
+                "SELECT video_id, status, views, watch_time_minutes, "
+                "avg_view_percentage, fetched_at FROM subscribed_status"
+            ).fetchall()
+        return [dict(r) for r in rows]
+
+    def subscribed_status_by_video(self) -> List[Dict[str, Any]]:
+        """Pivoted sub/non-sub split per video, joined to videos.
+
+        Each row: {video_id, title, views, sub_views, nonsub_views, nonsub_pct,
+                   sub_avg_pct, nonsub_avg_pct}.
+
+        nonsub_pct = share of views from non-subscribers (algorithm reach signal).
+        Videos with high nonsub_pct AND high views = the algorithm pushed them
+        beyond the existing audience.
+        """
+        rows = self._conn.execute(
+            """
+            SELECT
+                v.video_id,
+                v.title,
+                v.views,
+                COALESCE(SUM(CASE WHEN s.status = 'SUBSCRIBED'   THEN s.views END), 0) AS sub_views,
+                COALESCE(SUM(CASE WHEN s.status = 'UNSUBSCRIBED' THEN s.views END), 0) AS nonsub_views,
+                AVG(CASE WHEN s.status = 'SUBSCRIBED'   THEN s.avg_view_percentage END) AS sub_avg_pct,
+                AVG(CASE WHEN s.status = 'UNSUBSCRIBED' THEN s.avg_view_percentage END) AS nonsub_avg_pct
+            FROM videos v
+            INNER JOIN subscribed_status s ON s.video_id = v.video_id
+            GROUP BY v.video_id, v.title, v.views
+            ORDER BY v.views DESC
+            """
+        ).fetchall()
+        out = []
+        for r in rows:
+            d = dict(r)
+            total = (d['sub_views'] or 0) + (d['nonsub_views'] or 0)
+            d['nonsub_pct'] = (d['nonsub_views'] / total * 100) if total > 0 else 0.0
+            out.append(d)
+        return out
+
     # ── escape hatch ──────────────────────────────────────────────────────────
 
     def execute(self, sql: str, params: Sequence[Any] = ()) -> List[Dict[str, Any]]:
@@ -365,6 +595,78 @@ class AnalyticsStore:
             "fetched_at = excluded.fetched_at",
             (day, views, watch_time_minutes, avg_view_duration_seconds,
              subscribers_gained, subscribers_lost, likes, fetched_at),
+        )
+
+    def upsert_retention_point(
+        self,
+        *,
+        video_id: str,
+        elapsed_ratio: float,
+        audience_watch_ratio: float,
+        relative_performance: Optional[float],
+        fetched_at: str,
+    ) -> None:
+        """Insert or update one (video_id, elapsed_ratio) row in retention_curves.
+
+        A full retention curve = ~100 rows per video. Caller batches all points
+        then commits once.
+        """
+        self._conn.execute(
+            "INSERT INTO retention_curves "
+            "(video_id, elapsed_ratio, audience_watch_ratio, relative_performance, fetched_at) "
+            "VALUES (?, ?, ?, ?, ?) "
+            "ON CONFLICT(video_id, elapsed_ratio) DO UPDATE SET "
+            "audience_watch_ratio = excluded.audience_watch_ratio, "
+            "relative_performance = excluded.relative_performance, "
+            "fetched_at = excluded.fetched_at",
+            (video_id, elapsed_ratio, audience_watch_ratio, relative_performance, fetched_at),
+        )
+
+    def upsert_search_term(
+        self,
+        *,
+        video_id: str,
+        term: str,
+        views: int,
+        watch_time_minutes: float,
+        fetched_at: str,
+    ) -> None:
+        """Insert or update one (video_id, term) row in search_terms."""
+        self._conn.execute(
+            "INSERT INTO search_terms "
+            "(video_id, term, views, watch_time_minutes, fetched_at) "
+            "VALUES (?, ?, ?, ?, ?) "
+            "ON CONFLICT(video_id, term) DO UPDATE SET "
+            "views = excluded.views, "
+            "watch_time_minutes = excluded.watch_time_minutes, "
+            "fetched_at = excluded.fetched_at",
+            (video_id, term, views, watch_time_minutes, fetched_at),
+        )
+
+    def upsert_subscribed_status(
+        self,
+        *,
+        video_id: str,
+        status: str,
+        views: int,
+        watch_time_minutes: float,
+        avg_view_percentage: float,
+        fetched_at: str,
+    ) -> None:
+        """Insert or update one (video_id, status) row in subscribed_status.
+
+        `status` is 'SUBSCRIBED' or 'UNSUBSCRIBED' (the YT Analytics API values).
+        """
+        self._conn.execute(
+            "INSERT INTO subscribed_status "
+            "(video_id, status, views, watch_time_minutes, avg_view_percentage, fetched_at) "
+            "VALUES (?, ?, ?, ?, ?, ?) "
+            "ON CONFLICT(video_id, status) DO UPDATE SET "
+            "views = excluded.views, "
+            "watch_time_minutes = excluded.watch_time_minutes, "
+            "avg_view_percentage = excluded.avg_view_percentage, "
+            "fetched_at = excluded.fetched_at",
+            (video_id, status, views, watch_time_minutes, avg_view_percentage, fetched_at),
         )
 
     def commit(self) -> None:

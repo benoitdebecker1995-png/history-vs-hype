@@ -230,6 +230,21 @@ These are the dead giveaways. Cut on sight.
 
 **Exception — functional metadiscourse:** "We're going to look at three problems with this treaty" is fine because it does navigational work in dense material. Kill performative metadiscourse, not all of it. The Pinker rule is: kill metadiscourse UNLESS the phrase does genuine navigational work in a complex argument shift.
 
+### Sanctimonious takeaways, slang & host tics (origin: #57 Piri Reis)
+
+| Phrase | Why forbidden |
+|--------|---------------|
+| "Here's the lesson worth taking from this" | Sanctimonious takeaway-frame — sibling of the one below. Don't *rephrase* a generic moral; cut it and let the closing bookend carry the point (closing pattern 5A: one takeaway, return to the opening frame). |
+| "If there's anything you remember from this video, let it be this" | Sanctimonious takeaway |
+| "let's play their game" / "let's do what nobody does" | Performative + "let's" overuse |
+| "the receipt" / "he gave you the receipt" / "what's not on the receipt" | Off-register slang |
+| "none of this is some hot take" / "hot take" | Online slang |
+| "the mystery-sellers" | Coinage / sneer |
+| "signed by the man they call the mystery" | Clever-clever wordplay with no referent |
+| "keep that test in your pocket" | Cute filler |
+
+**Connector & question density (read-aloud tic check):** Don't stack paragraph-opening **"So"** / **"Now"** — vary them (bare statement, "Which means…", "Then…", a direct imperative) and keep ≤2–3 across a script *or article*. Don't pile up literal rhetorical questions ("So what does X say?" / "So where did Y get Z?") — convert most to declaratives and reserve **one** payoff question (typically the title- or lede-callback closer). This is cross-medium: the same drag and question-pileup hurts written prose as much as spoken delivery. Origin: #57 carried 7 questions + 8 "So" openers before the connector/question pass.
+
 ### Trust-killing hedge words
 
 `a bit`, `sort of`, `rather`, `in a sense`, `to some extent`, `it could be argued`, `essentially`, `basically`, `kind of`. The prosecutor doesn't say the evidence is "a bit conclusive." But for genuinely uncertain claims, hedging is appropriate — match the language to actual confidence level.
@@ -686,12 +701,22 @@ Prevents dry data dumps. Makes dense information feel conversational.
 
 ### The connectors
 
-- **"consequently"** — Direct cause-effect
-- **"thereby"** — Mechanism by which effect occurred
-- **"which meant that"** — Implication of prior event
-- **"because... and because"** — Multiple causes leading to effect
-- **"this resulted in"** — Summarizing causal outcome
-- **"as a result"** — General causal connector
+**Default to spoken-register connectors — this is a video, not an essay.** A viewer should hear a person reasoning out loud, not a paper being read. The causal *rigor* (always explain the mechanism) never relaxes; only the connector word should be conversational.
+
+**Fluent / spoken (default — reach for these first):**
+- **"so"** — the workhorse cause-effect connector in speech
+- **"which is why"** — ties effect back to cause naturally
+- **"and that meant"** / **"which meant that"** — implication of prior event
+- **"because... and because"** — multiple causes leading to effect
+- **"here's what that did"** / **"and the result"** — sets up the consequence
+- **"that's how"** — summarizing causal outcome
+
+**Formal (for variation only — never the default, hard cap 1-2 per script):**
+- **"consequently"** — direct cause-effect
+- **"thereby"** — mechanism by which effect occurred
+- **"as a result"** / **"this resulted in"** — general causal connector
+
+> **Frequency discipline:** any single connector used 3+ times reads as filler (Rule 39 frequency cap). "Consequently" three times in three sentences — as in the Kraut examples below — is a *citation* of the technique, not a *model* to copy verbatim. Vary the connector; keep the mechanism.
 
 ### Examples (Kraut, "Origins of Russian Authoritarianism")
 

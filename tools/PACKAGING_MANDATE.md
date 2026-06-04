@@ -94,6 +94,8 @@ Before publishing any video:
 - [ ] Title contains NO year, NO colon, NO "The X That Y"
 - [ ] Title uses versus, declarative, or how/why pattern
 - [ ] Thumbnail concepts generated via `/thumbnail` (grounded in per-channel playbook + outlier corpus)
+- [ ] Rendered thumbnail passes `thumbnail_image_audit.py` — SERP differentiation not "BLENDS IN" (<0.70 CLIP) against the target query's top results
+- [ ] Final-cut audio passes `audio_loudness.py` — integrated in the -16 to -12 LUFS band, true peak <= -1 dBTP
 - [ ] Topic has verified search demand (VidIQ keyword volume > 500/month)
 
 ---
@@ -104,7 +106,9 @@ Before publishing any video:
 |------|---------------|---------|
 | `title_scorer.py` | Title pattern, hard rejects, score | `python -m tools.title_scorer "Title Here"` |
 | `outlier_title_dissector.py` | Outlier pattern analysis (scale words, two_sentence, entity specificity) | `python -m tools.benchmark.outlier_title_dissector --score "Title Here"` |
-| `thumbnail_checker.py` | Text overlay, no talking head, topic-appropriate visual | `python -m tools.preflight.thumbnail_checker --project PATH [--territorial]` |
+| `thumbnail_checker.py` | Concept TEXT: text overlay, no talking head, topic-appropriate visual | `python -m tools.preflight.thumbnail_checker --project PATH [--territorial]` |
+| `thumbnail_image_audit.py` | Rendered IMAGE: tech compliance, mobile legibility, SERP differentiation (CLIP vs competitors) | `python -m tools.preflight.thumbnail_image_audit THUMB.jpg --serp-ids id1,id2` |
+| `audio_loudness.py` | Final-cut audio vs YouTube -14 LUFS (loudness, true-peak, range) | `python -m tools.preflight.audio_loudness FINAL-CUT.mp4` |
 | `demand_checker.py` | Search volume, comparable videos | `python -m tools.preflight.demand_checker "topic"` |
 | `news_hook_monitor.py` | Google News RSS scan for timely topic hooks | `python -m tools.discovery.news_hook_monitor --scan` |
 | `/greenlight` | All three combined — single pre-work gate | `/greenlight "topic"` |

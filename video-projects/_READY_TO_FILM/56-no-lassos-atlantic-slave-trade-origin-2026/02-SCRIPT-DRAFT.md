@@ -1,11 +1,8 @@
 # Script Draft - #56 "Yes Slavery Existed In Africa. Then Europe Wrote This Down."
 
 **Based on:** 01-VERIFIED-RESEARCH.md
-**All facts pre-verified:** ✅ YES
-**Retention optimized:** ✅ YES
-**Version:** v2 DRAFT-LOCKED — Fig Tree edit pass 2026-05-18 (empirical patterns from 26-video corpus filtered through HvH differentiators per `FIG-TREE-EDIT-PASS-PROPOSAL.md`; NotebookLM blind cross-check incorporated 2 additions, rejected 6 brief violations). v1 archived as `02-SCRIPT-DRAFT-v1-locked.md`.
-
-**Style Reference:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` PARTS 1-5 (Kraut, Alex O'Connor, Knowing Better, Shaun, Fall of Civilizations patterns) + Fig Tree spatial-pointer document treatment (`FIG-TREE-EDIT-PASS-PROPOSAL.md` §2-§4)
+**All facts pre-verified:** YES
+**Version:** v8 — post-v7-read-aloud micro-edits 2026-05-25. Turn→Evidence 1 bridge replaced with explicit hook callback ("go back to the chronicle we opened with"). Removed "Read it. The denial contains the confession." from Bridge. Removed "Sixty-three years later," from Evidence 4 opening. Streamer position paraphrase verified against transcripts (accurate capture of absolutist version).
 
 ---
 
@@ -15,201 +12,226 @@
 **Hook Focus:** Modern relevance (debunking Asmongold/viral stream talking point)
 
 ## DURATION
-- Target filmed duration: ~8-10 min (Standard Format A/B — Rule 10 calibrated)
-- Script word count: 1,180 words (VO and verbatim spoken-only)
-- Cap exception: None / Approved by user
-
-<!-- STRUCTURE: MYTH-FIRST -->
-
-**Format Template:** ⭐ BOTH EXTREMES ARE WRONG (Series - Episode #56)
-
-**Style Approach:**
-- Kraut sweep-then-specifics (historical patterns, demand-driven systems)
-- Alex O'Connor conversational (direct, honest challenging of myths)
-**Quote Density:** High (Four primary court/diplomatic receipts displayed on screen)
+- Target filmed duration: ~11-12 min
+- Word count: ~1,820 spoken words
+- Cap exception: None (12-min hard cap)
+- Format: BOTH EXTREMES ARE WRONG (Series - Episode #56)
 
 ---
 
-## HOOK - Opening Pattern (0:00 - 1:00)
+## HOOK (0:00 - 0:45)
 
 **[VERBATIM]**
 **[OPEN ON TALKING HEAD]**
 
-August 8th, 1444.
+There's a claim about the Atlantic slave trade you've probably seen online. It goes like this:
+
+**[CLIP — 2-4s: Asmongold/streamer delivering the "Africa was already selling, Europe just bought" framing]**
+
+Europeans never kidnapped anyone in Africa. They just bought slaves from a pre-existing African market. Other black people sold them.
+
+On the surface, this sounds like an even-handed correction of the historical record.
+
+The problem is — we have the historical record. And it was written by the men running the operation.
 
 **[CUT TO: 15th-century manuscript illumination of Prince Henry]**
 
-Prince Henry the Navigator sits on horseback in Lagos, Portugal, watching 235 captured Africans divided into lots. He takes his royal fifth — 46 people for his personal estate — while mothers frantically try to shield their children.
+August 8th, 1444. Prince Henry the Navigator sits on horseback in Lagos, Portugal, watching 235 captured Africans being divided into lots. He takes his royal fifth — 46 people for his personal estate — while captives cling to one another, so close they can hardly be separated. [CITATION: Beazley & Prestage, Hakluyt Society Vol I, Ch XXV, p. 83]
 
 **[BACK TO TALKING HEAD]**
 
-The viral talking point — most recently from streamers like Asmongold — is that Europeans never kidnapped anyone. They just bought people from a pre-existing African market.
+This wasn't a market the Portuguese walked into. They built it. And the man who recorded that scene was Prince Henry's own court historian.
 
-But look at the chronicle. The buyer's own court historian wrote it down.
-
-**[CUT TO: Zurara's Chronicle of Guinea, Chapter XXV, p. 82 — highlight operative passage]**
-
-They didn't tap into a market. They started with kidnappings. [CITATION: Beazley & Prestage, Hakluyt Society Vol I, Ch XXV, p. 82]
-
-What happens when you ignore the modern culture war and just read the receipts from the people who built the Atlantic system? To understand how it was engineered, you need to read the four documents they left behind.
+Europe *did* organize slave raids. And when those raids couldn't keep up with demand, they built a system to do it at scale.
 
 ---
 
-## CONCEED-BEAT (Steelman) (1:00 - 1:45)
+## METHOD BRIDGE (0:45 - 1:00)
 
-**[GUIDE]**
-
+**[VERBATIM]**
 **[STAY ON TALKING HEAD]**
 
-Before we open the first document, we have to acknowledge the baseline truth that makes this talking point so effective.
-
-People like Thomas Sowell are right: slavery existed in Africa before Europeans arrived. It existed globally — from the Trans-Saharan routes to the Mediterranean.
-
-But there's a massive difference between a regional practice and an engineered catastrophe. Look at the numbers.
-
-**[CUT TO: comparison graphic — Trans-Saharan ~1,000/year (LEFT) vs Atlantic peak ~80,000/year (RIGHT), with source labels]**
-
-**[POINTER — LEFT column]**
-
-The Trans-Saharan trade averaged about a thousand people a year per route. [CITATION: Ralph Austen, in Gemery & Hogendorn eds., The Uncommon Market, tables 2.1 & 2.2]
-
-**[POINTER — RIGHT column]**
-
-The Atlantic system hit a peak of eighty thousand people a year. An eighty-times multiplier. [CITATION: Eltis & Richardson, Atlas of the Transatlantic Slave Trade (Yale UP, 2010), foreword, p. xi-xii]
-
-**[BACK TO TALKING HEAD]**
-
-It didn't just scale the numbers. It fundamentally changed the kind of slavery.
+What I want to do in this video is go through some primary sources to clear up this misconception. But before we do that, let me make something clear.
 
 ---
 
-## THE TURN — Afonso I Letter (1:45 - 2:30)
+## CONCEED-BEAT (1:00 - 2:30)
+
+**[VERBATIM]**
+**[CUT TO: Zurara's Chronicle of Guinea, Chapter XXV, p. 83]**
+
+Slavery did exist in Africa before Europeans arrived. That's true. But it came in two specific forms — and neither was the system Europeans tapped into.
+
+**[BACK TO TALKING HEAD]**
+
+The first was the Trans-Saharan trade — Muslim merchants moving captives across the desert. In 1614, the Timbuktu scholar Ahmed Baba ruled on which captives could legally be held:
+
+**[CUT TO: Barbour & Jacobs translation, p. 130 — highlight operative line]**
+
+> "Non-belief is that which makes enslavement permissible, whether the enslaved were black or white." [CITATION: Barbour & Jacobs, *The Mi'raj*, in Willis (ed.) *Slaves and Slavery in Africa* Vol I (Frank Cass, 1985), p. 130]
+
+**[BACK TO TALKING HEAD]**
+
+Enslavement was bound to religion, not race. Any Muslim, of any color, could not be enslaved.
+
+The second was sub-Saharan inter-polity slavery. Olaudah Equiano was an Igbo man, from what is now southeastern Nigeria — kidnapped as a child in 1756, later sold into the Atlantic trade. He's describing his community's internal slavery before the Atlantic system reached them.
+
+**[CUT TO: Equiano, Interesting Narrative, 3rd ed. 1790, pp. 13-14 — full passage on screen, hold during paraphrase]**
+
+[CITATION: Olaudah Equiano, *The Interesting Narrative of the Life of Olaudah Equiano*, 3rd ed. (London, 1790), pp. 13-14]
+
+Equiano writes that slave traders passing through his land had to prove how they got their captives. His own people did sometimes sell slaves to passing traders — but only war prisoners, or people convicted of crimes like kidnapping or adultery.
+
+**[BACK TO TALKING HEAD]**
+
+His community had slavery. His own father owned slaves. But the limits were strict — only war captives or convicted criminals.
+
+Both systems had hard lines around who could be sold. The Atlantic system erased them — and replaced them with one: race. It didn't just change the rules. It changed the scale.
+
+**[CUT TO: comparison graphic — Trans-Saharan ~1,000/year (LEFT) vs Atlantic peak ~80,000/year (RIGHT)]**
+
+The Trans-Saharan trade averaged about a thousand people a year per route. [CITATION: Ralph Austen, in Gemery & Hogendorn eds., *The Uncommon Market*, tables 2.1 & 2.2] The Atlantic system peaked at eighty thousand a year. [CITATION: Eltis & Richardson, *Atlas of the Transatlantic Slave Trade* (Yale UP, 2010), foreword, p. xi-xii]
+
+**[BACK TO TALKING HEAD]**
+
+And it didn't borrow from the African systems. Before 1450, enslaved people in Africa were absorbed into households and communities. The Atlantic trade turned them into the output of an industry — what the Cambridge historian Paul Lovejoy, in the standard scholarly history of African slavery, calls the shift from a marginal institution to a "mode of production." [CITATION: Paul E. Lovejoy, *Transformations in Slavery*, 3rd ed. (Cambridge UP, 2012), Introduction]
+
+That kind of slavery — racially coded, demographically catastrophic, industrial in scale — wasn't a continuation of what came before. It was a disruption.
+
+---
+
+## THE TURN — Afonso I Letter (2:30 - 3:15)
 
 **[VERBATIM]**
 **[ON SCREEN: 1526 King Afonso I correspondence letter]**
-The first major crack in the "we just bought what they sold" myth comes from inside Africa itself. 
 
-By 1526, the King of Kongo, Afonso the First, wasn't managing a booming domestic market. He was writing desperate letters to the King of Portugal, begging him to stop the trade. [CITATION: Howard French, Born in Blackness (W. W. Norton, 2021), p. 296]
+By 1526, the disruption was being protested from inside Africa itself.
 
-**[STAY ON TALKING HEAD for both quote performances — Howard French citation overlay only]**
+The King of Kongo, Afonso the First, wasn't managing a booming domestic slave market. He was writing desperate letters to the King of Portugal, begging him to stop the trade. [CITATION: Howard French, *Born in Blackness* (W. W. Norton, 2021), p. 296]
 
-Here are Afonso's exact words to his European counterpart:
+**[STAY ON TALKING HEAD — Howard French citation overlay only]**
 
-> "The said merchants take our countrymen the sons of our land and the sons of our noblemen every day... our land is being all but depopulated." [CITATION: Howard French, Born in Blackness (W. W. Norton, 2021), p. 296]
+> "The said merchants take our countrymen the sons of our land and the sons of our noblemen every day... our land is being all but depopulated." [CITATION: Howard French, *Born in Blackness* (W. W. Norton, 2021), p. 296]
 
-He didn't stop there. He issued an explicit demand to shut the system down:
+He didn't stop there:
 
-> "Our will is that in this Kingdom there be no slave trade nor [any] outlet for it." [CITATION: Howard French, Born in Blackness (W. W. Norton, 2021), p. 296]
+> "Our will is that in this Kingdom there be no slave trade nor [any] outlet for it." [CITATION: Howard French, *Born in Blackness* (W. W. Norton, 2021), p. 296]
 
-**[CUT TO: 1526 Afonso correspondence letter B-roll for the question that follows]**
+**[CUT TO: 1526 Afonso correspondence letter B-roll]**
 
-If the Atlantic system was just Europeans tapping into a pre-existing African market, why is a reigning African monarch on the record demanding a cessation of the trade while it was happening?
+If Europeans were just buying from an existing market, why is the King of Kongo demanding it stop?
 
-Because the Atlantic market wasn't pre-existing. It was actively rewiring the continent. To understand how that rewiring started, you have to go back eighty years before Afonso wrote that letter, to the very first document in our stack.
+To understand why, we have to go back to the chronicle we opened with.
 
 ---
 
-## EVIDENCE SECTION 1 — Zurara Chapter XIX (2:30 - 4:00)
+## EVIDENCE SECTION 1 — Zurara Chapter XIX (3:15 - 4:15)
 
 **[VERBATIM]**
 **[OPEN ON TALKING HEAD]**
 
-Let's look at the "no lasso" claim. The idea that Europeans never kidnapped anyone.
+It's 1444. A Portuguese fleet attacks the Arguin Bank, off the coast of modern Mauritania. Zurara — Prince Henry's court chronicler — recorded the operation.
 
-Picture this. It's 1444. A Portuguese fleet attacks the Arguin Bank, off the coast of modern-day Mauritania. We know exactly what happened because Prince Henry's official court chronicler, Gomes Eanes de Zurara, recorded the entire military operation.
-
-**[CUT TO: Beazley & Prestage translation, Hakluyt Society Vol I, Ch XIX, p. 66 — chronicle B-roll briefly, then BACK TO TALKING HEAD for the quotes]**
-
-[CITATION: Beazley & Prestage, Hakluyt Society Vol I, Ch XIX, p. 66]
-
-**[STAY ON TALKING HEAD for the verbatim chronicle quotes — citation overlay only]**
-
-He wrote:
+**[CUT TO: Beazley & Prestage translation, Hakluyt Society Vol I, Ch XIX, p. 66]**
 
 > "But they, shouting out 'St. James', 'St. George', 'Portugal', at once attacked them, killing and taking all they could." [CITATION: Beazley & Prestage, Hakluyt Society Vol I, Ch XIX, p. 66]
 
-And he described the aftermath of the raid:
+And the aftermath:
 
 > "Then might you see mothers forsaking their children, and husbands their wives... others stowed their children among the sea-weed, where our men found them afterwards." [CITATION: Beazley & Prestage, Hakluyt Society Vol I, Ch XIX, p. 66]
 
-**[GUIDE]**
-- They took 165 captives in that single raid. [CITATION: Beazley & Prestage, Hakluyt Society Vol I, Ch XIX, p. 66]
-- They didn't just buy people. The Atlantic system started with direct military kidnappings.
-- The records show constant raids throughout the 1440s.
-- The only reason the raiding stopped in 1448 was because African military resistance forced them to stop. [CITATION: Zurara, Chronicle of Guinea, Ch XXV]
-- African forces using poisoned arrows were killing too many Portuguese.
-- The commercial trade didn't come first. It emerged as a substitute *because* the kidnappings stopped working.
+**[BACK TO TALKING HEAD]**
+
+Zurara is describing a raid. 165 people — children pulled from seaweed, mothers separated from their families — taken back to Portugal. [CITATION: Beazley & Prestage, Hakluyt Society Vol I, Ch XIX, p. 66]
+
+This wasn't trade. It was kidnapping. And it wasn't a one-off — the records show constant raids throughout the 1440s.
+
+Then the Europeans stopped raiding.
 
 ---
 
-## SECOND HOOK / MID-VIDEO PIVOT — João III Gaslighting (4:00 - 5:00)
+## BRIDGE BEAT — From Raid To System (incl. João III) (4:15 - 5:45)
 
 **[VERBATIM]**
-**[STAY ON TALKING HEAD for the pivot question]**
+**[BACK TO TALKING HEAD]**
 
-So how did Europe respond when an African monarch begged them to stop the kidnappings?
+The raids didn't stop because Europeans had a change of heart. They stopped because African forces shut them down. In 1445, Africans wielding poisoned arrows killed twenty of twenty-two Portuguese on one expedition — including the mission leader, Nuno Tristão. [CITATION: Gomes Eanes de Zurara, *Chronica do descobrimento e conquisita da Guiné* (Paris: J.P. Aillaud, 1841), Ch. LXXXVI, p. 402 — via Howard French, *Born in Blackness*, p. 72]
 
-In 1529, the King of Portugal, João III, replied to Afonso. He told the King of Kongo that the depopulation he was protesting wasn't actually happening. [CITATION: Malyn Newitt, The Portuguese in West Africa, 1415–1670: A Documentary History (Cambridge UP, 2010), Doc 36]
+The lasso wasn't working. So in 1448, Prince Henry issued a formal order: no more military raids. From now on — trade.
 
-**[CUT TO: Malyn Newitt, Doc 36 — João III's full letter on screen]**
+**[CUT TO: Period map of West African coast highlighting Arguim]**
 
-Read it. The denial contains the confession.
+But here's what "trade" meant in practice.
 
-**[POINTER — highlight the operative clause "as a result of the suffering that the Portuguese cause you"]**
+By the 1450s, a Portuguese factory at Arguim — a fortified post off modern Mauritania — was supplying eight hundred to a thousand captives a year. [CITATION: Howard French, *Born in Blackness* (W. W. Norton, 2021), p. 66, citing Cadamosto] Those captives weren't being offered voluntarily. African intermediaries were raiding their own neighbors to supply European demand — because the price made it profitable. Portugal stopped doing the kidnapping directly. The system still ran on kidnapping.
 
-> "You say in your letters that you do not want there to be any slave trade in your kingdom because it is depopulating your land. I can believe that you only say this as a result of *the suffering that the Portuguese cause you*, because I am told of the great size of Kongo and how it is so populated that it appears that not a single slave has left it." [CITATION: Malyn Newitt, The Portuguese in West Africa, 1415–1670: A Documentary History (Cambridge UP, 2010), Doc 36]
+**[CUT TO: Lovejoy Table 3.1 — highlight 1450-1500: 81,000 row]**
 
-**[POINTER — re-highlight "suffering that the Portuguese cause you"]**
+And the numbers climbed. Between 1450 and 1500, eighty-one thousand enslaved Africans crossed into the Atlantic system. The next century: three hundred thirty-eight thousand. [CITATION: Paul E. Lovejoy, *Transformations in Slavery*, 3rd ed. (Cambridge UP, 2012), p. 45, Table 3.1]
 
 **[BACK TO TALKING HEAD]**
 
-He admits the suffering inside the same sentence that denies the demographic effect. The buyer concedes the crime even as he denies the cost.
+This is what Afonso was writing about in 1526. Seventy-five years of systematic extraction.
 
-**[GUIDE]**
-- The buyer literally gaslights the supplier.
-- He tells Afonso his country is so big he won't even miss the people being taken.
-- This proves European demand wasn't a passive force. It was an aggressive, diplomatic steamroller.
+In 1529, João III, King of Portugal, replied to him. He told the King of Kongo the depopulation wasn't happening. [CITATION: Malyn Newitt, *The Portuguese in West Africa, 1415–1670: A Documentary History* (Cambridge UP, 2010), Doc 36]
+
+**[CUT TO: Malyn Newitt, Doc 36 — João III's full letter on screen]**
+
+**[POINTER — highlight "as a result of the suffering that the Portuguese cause you"]**
+
+> "You say in your letters that you do not want there to be any slave trade in your kingdom because it is depopulating your land. I can believe that you only say this as a result of *the suffering that the Portuguese cause you*, because I am told of the great size of Kongo and how it is so populated that it appears that not a single slave has left it." [CITATION: Malyn Newitt, *The Portuguese in West Africa, 1415–1670: A Documentary History* (Cambridge UP, 2010), Doc 36]
+
+**[BACK TO TALKING HEAD]**
+
+He's not saying "no slaves are being taken." He's saying Kongo is so large you wouldn't notice. The denial isn't "we're not doing this" — it's "you won't miss them."
+
+The Crown wasn't denying the trade. It was denying the scale.
 
 ---
 
-## EVIDENCE SECTION 2 — Pieter de Marees (5:00 - 7:00)
+## EVIDENCE SECTION 2 — Pieter de Marees (5:45 - 7:15)
 
 **[VERBATIM]**
-**[STAY ON TALKING HEAD for the pivot]**
+**[STAY ON TALKING HEAD]**
 
-But what about the core argument? The idea that Africans were "already slaves to begin with" and Europeans just loaded them onto ships?
+For evidence of that scale, look at what the Europeans on the ground were writing back to their investors.
 
-Look at the Dutch records.
+In 1602, a Dutch slave-trader on the Gold Coast writes home to explain why he can't fill his ships:
 
 **[CUT TO: Pieter de Marees, Description and Historical Account (1602), p. 176 — full passage on screen]**
 
-Pieter de Marees, writing about the Gold Coast around 1602, admits it in print on this page. The line that matters: [CITATION: Pieter de Marees, Description and Historical Account of the Gold Kingdom of Guinea (1602), trans. Albert van Dantzig & Adam Jones (Oxford UP, 1987), p. 176 (cited via Stephanie Smallwood, Saltwater Slavery (Harvard UP, 2007), p. 30)]
+[CITATION: Pieter de Marees, *Description and Historical Account of the Gold Kingdom of Guinea* (1602), trans. Albert van Dantzig & Adam Jones (Oxford UP, 1987), p. 176 (cited via Stephanie Smallwood, *Saltwater Slavery* (Harvard UP, 2007), p. 30)]
 
 **[POINTER — highlight "it would not be possible to load ships here with blacks"]**
 
-> "They also enslave one another, but not in the same manner as in Angola or Conge, for *it would not be possible to load ships here with blacks*. They do not have at their disposal a multitude of Captives, and so on the Gold Coast they cannot be purchased in large numbers." [CITATION: Pieter de Marees, p. 176 (via Smallwood, p. 30)]
+> "They also enslave one another, but not in the same manner as in Angola or Conge, for *it would not be possible to load ships here with blacks*. They do not have at their disposal a multitude of Captives, and so on the Gold Coast they cannot be purchased in large numbers."
 
-**[GUIDE]**
-- Even where indigenous slavery existed, it couldn't produce enough captives to meet European demand.
-- Most people sold to Europeans were not pre-existing domestic slaves.
-- They were newly captured people, priced based on the cost of their capture. [CITATION: Patrick Manning, Slavery and African Life (Cambridge UP, 1990), ch. 4]
-- European demand created the incentive to capture them. 
-- The Atlantic system didn't tap into a mass-commodity market; it forced one into existence.
+**[BACK TO TALKING HEAD]**
+
+De Marees is admitting two things.
+
+Indigenous slavery existed even on the Gold Coast. He says so. But the volume Europeans needed wasn't there. He couldn't fill his ships. Indigenous markets couldn't supply Atlantic demand.
+
+So if the Atlantic system was running — and by 1602 it was, in massive volume — the captives weren't coming from a pre-existing market. They were being newly captured because Europeans were buying.
+
+Why? Patrick Manning, in his Cambridge history of African slavery, documented the economics. In the Kingdom of Dahomey, a slave at the coast sold for fifteen times what the king paid his own soldiers for each captive they brought in. That gap — between the cost of grabbing someone and the price Europeans paid for them — is what made raiding economically rational. European demand created the gap. [CITATION: Patrick Manning, *Slavery and African Life* (Cambridge UP, 1990), Ch. 5, p. 106]
+
+The Atlantic system didn't tap into a market. It created the incentive to build one.
 
 ---
 
-## EVIDENCE SECTION 3 — Romanus Pontifex Climax (7:00 - 9:00)
+## EVIDENCE SECTION 3 — Romanus Pontifex (7:15 - 8:30)
 
 **[VERBATIM]**
 **[ON SCREEN: Davenport, European Treaties, Vol. I]**
-Which brings us to the smoking gun. The document that proves this entire system was engineered top-down by European political authority, decades before it even scaled.
 
-On January 8th, 1455, Pope Nicholas V issued a papal bull called *Romanus Pontifex*. The Pope was the highest legal and moral authority in Europe, and he issued this at the request of the King of Portugal, granting them an exclusive monopoly in Africa. [CITATION: Frances Gardiner Davenport, European Treaties bearing on the History of the United States and its Dependencies to 1648, Vol I (Carnegie Institution, 1917), p. 23]
+Which brings us to the fourth document — the one that licensed this before it even scaled.
+
+On January 8th, 1455, Pope Nicholas V — the highest legal and moral authority in Europe — issued a papal bull called *Romanus Pontifex*, granting Portugal an exclusive monopoly in Africa. [CITATION: Frances Gardiner Davenport, *European Treaties bearing on the History of the United States and its Dependencies to 1648*, Vol I (Carnegie Institution, 1917), p. 23]
 
 **[CUT TO: Split screen — Latin Davenport p. 16 (LEFT) // English translation p. 23 (RIGHT)]**
 
-On the left — the original Latin, 1455.
-On the right — the English translation.
+On the left, the original Latin — on the right, the English.
 
 **[POINTER — LEFT, Latin operative phrase]**
 
@@ -219,97 +241,125 @@ On the right — the English translation.
 
 > "...and to reduce their persons to perpetual slavery..." [CITATION: Davenport, Vol I, p. 23]
 
+**[BACK TO TALKING HEAD]**
+
+And this wasn't the first time. Three years earlier, in June 1452, Nicholas V had already signed *Dum Diversas* — same operative clause, word for word.
+
+**[CUT TO: Davenport Vol I, p. 17 (Note 37) — highlight matching Latin phrase]** [CITATION: Davenport, *European Treaties*, Vol I, p. 17 (Note 37)]
+
+**[BACK TO TALKING HEAD]**
+
+Same Pope, same words — *Romanus Pontifex* was the upgrade, giving Portugal exclusive rights across Africa.
+
 **[CUT TO: Full English translation of the grant, Davenport p. 23 — five operative verbs highlighted in sequence]**
 
-The bull grants Portugal the right to do three things.
+The bull authorizes Portugal to invade, search out, and capture —
 
 **[POINTER 1 — "invade, search out, capture"]**
 
-To invade. To search out. To capture.
+— to vanquish and subdue all Saracens and pagans whatsoever —
 
 **[POINTER 2 — "vanquish, and subdue"]**
 
-To vanquish and subdue all Saracens and pagans whatsoever.
+— and to reduce their persons to perpetual slavery. [CITATION: Davenport, *European Treaties*, Vol I, p. 23]
 
 **[POINTER 3 — "and to reduce their persons to perpetual slavery"]**
 
-And to reduce their persons to perpetual slavery. [CITATION: Davenport, European Treaties, Vol I, p. 23]
-
 **[BACK TO TALKING HEAD]**
 
-**[GUIDE]**
-- This was 1455. The massive trans-Atlantic crossing hadn't even started yet.
-- The legal architecture for open-ended, permanent, perpetual slavery was drawn up *before* the commerce existed.
-- The Pope licensed the system before the system scaled.
-- You don't write a legal framework to "reduce persons to perpetual slavery" if you're just passively buying people from a market. You write it when you are building an empire.
+This was 1455. The legal authority for perpetual slavery was drawn up before the commerce existed. And the operators relied on it — Prince Henry himself cited "various earlier papal bulls" as the "powerful authority" for his slave trade. [CITATION: P.E. Russell, *Prince Henry "The Navigator": A Life* (Yale UP, 2000), p. 250]
+
+The Pope didn't license a market. He licensed a conquest.
 
 ---
 
-## CLOSING VERDICT (9:00 - 10:00)
+## EVIDENCE SECTION 4 — 1518 Spanish Asiento (8:30 - 9:30)
 
 **[VERBATIM]**
-**[STAY ON TALKING HEAD]**
+**[BACK TO TALKING HEAD]**
 
-Slavery has existed in many forms, across many cultures, throughout human history. But we cannot use that universal tragedy to excuse a specific, engineered catastrophe.
+The document that shows what that conquest looked like in practice is this.
 
-**[CUT TO: 4-document montage — 2×2 grid: Zurara chronicle (top-left) / Afonso letter (top-right) / de Marees account (bottom-left) / Romanus Pontifex bull (bottom-right)]**
+**[CUT TO: Donnan, Documents Illustrative Vol I, pp. 41-42, Doc 2 — full page on screen, hold during paraphrase]**
 
-When you read all four documents —
+[CITATION: Elizabeth Donnan, *Documents Illustrative of the History of the Slave Trade to America*, Vol I (Carnegie Institution, 1930), pp. 41-42]
 
-**[POINTER 1 — Zurara, top-left]**
+In August 1518, the King of Spain issued a license to Lorenzo de Gorrevod. The terms: Gorrevod is authorized to transport four thousand African slaves — male and female — to the Spanish colonies in the New World. They must be Christians. They should bypass Seville. And as many as possible should come from Cape Verde.
+
+**[BACK TO TALKING HEAD]**
+
+Four thousand people. In a single contract. The "provided they be Christians" clause was the legal alibi — captives were baptized on arrival, reframing kidnapping as salvation. Cape Verde was already a Portuguese entrepôt feeding African captives into the Atlantic system.
+
+This is the asiento. The moment the papal license became a commercial contract. The bull authorized perpetual slavery in 1455; by 1518, the Spanish crown was contracting for it by the thousand.
+
+The Pope didn't just bless a market. He chartered an industry.
+
+---
+
+## CLOSING VERDICT (9:30 - 10:30)
+
+**[VERBATIM]**
+**[CUT TO: 5-document montage — Zurara chronicle / Afonso letter / de Marees account / Romanus Pontifex bull / 1518 Gorrevod asiento]**
+
+Five documents —
+
+**[POINTER 1 — Zurara]**
 
 the chronicle of the first raids,
 
-**[POINTER 2 — Afonso, top-right]**
+**[POINTER 2 — Afonso]**
 
-the desperate letters of African kings,
+the desperate letter of an African king,
 
-**[POINTER 3 — de Marees, bottom-left]**
+**[POINTER 3 — de Marees]**
 
-the frustration of European merchants,
+the frustration of a European buyer,
 
-**[POINTER 4 — Romanus Pontifex, bottom-right]**
+**[POINTER 4 — Romanus Pontifex]**
 
-and the legal decrees of the Pope —
+the legal decree of the Pope,
 
-— the story is clear.
+**[POINTER 5 — 1518 asiento]**
+
+and the royal license that put it into practice.
 
 **[BACK TO TALKING HEAD]**
 
-Buyers didn't find the Atlantic slave system. They engineered it.
+I'm not under any illusion this will convince people who use history as a weapon in the culture war. But for everyone else, what these five documents show is this:
 
----
-
-## SELF-CHECK BEFORE CALLING "FINAL"
-
-### Script Quality Checklist
-- [x] Strong opening hook (sweep-then-specifics OR conversational challenge)
-- [x] Both extremes framed explicitly in opening
-- [x] Deep causal chains throughout (consequently, thereby, which meant that)
-- [x] Intellectual honesty section (acknowledge what opponents get right)
-- [x] Present relevance bridge in synthesis
-- [x] Read out loud - no awkward phrasing
-- [x] Length: Calibration matched to Format A/B
-
-### Fact Verification Checklist
-- [x] Every fact references line # from 01-VERIFIED-RESEARCH.md
-- [x] No claims without verification
-- [x] All quotes exact word-for-word (no paraphrasing)
-- [x] All numbers match verified table in 01-VERIFIED-RESEARCH.md
-- [x] All archival refs match verified list in 01-VERIFIED-RESEARCH.md
-- [x] Contested claims labeled as debated (not presented as settled)
-
----
-
-## VERIFICATION NOTES
-- Line 56 (Zurara Ch XXV): ✅ Verified - Ch XXV p. 82 from 01-VERIFIED-RESEARCH.md
-- Line 102 (Afonso quote): ✅ Verified - p. 296 Howard French in 01-VERIFIED-RESEARCH.md
-- Line 144 (Zurara Ch XIX): ✅ Verified - p. 66 Beazley/Prestage in 01-VERIFIED-RESEARCH.md
-- Line 182 (João III reply): ✅ Verified - Doc 36 Newitt in 01-VERIFIED-RESEARCH.md
-- Line 212 (de Marees quote): ✅ Verified - p. 176 van Dantzig/Jones (via Smallwood p. 30) in 01-VERIFIED-RESEARCH.md
-- Line 246 (Romanus Pontifex): ✅ Verified - p. 16/23 Davenport Vol I in 01-VERIFIED-RESEARCH.md
+The talking point is too broad to show the full picture. Yes, slavery existed before Europeans arrived. But what didn't exist was the scale, the legal authority, and the racial logic that made it permanent.
 
 ---
 
 ## PROCEED TO PHASE 3?
-**✅ DRAFT-LOCKED**
+**LOCKED — v8 final 2026-05-25. Script ready for filming. Pending: `/prep` (B-roll + edit guide), `/thumbnail`, `03-FACT-CHECK-VERIFICATION.md` cross-check.**
+
+---
+
+## VERIFICATION NOTES (v7 changes)
+- **METHOD BRIDGE inserted** between hook and conceed — declares methodology ("primary sources") and frames the conceed as deliberate preamble.
+- **Conceed ends on "disruption"** — replaces "was created by the Atlantic trade. Not borrowed from it." with "wasn't a continuation of what came before. It was a disruption." Sets up Turn callback.
+- **Evidence 1 ends on "Then the Europeans stopped raiding."** — replaces "Then something changed." Sets up Bridge callback.
+- **MID-PIVOT (João III) absorbed into BRIDGE** — single continuous beat from poisoned arrows → factory → numbers → Afonso 1526 → João III's gaslighting reply → ends on "scale."
+- **Bridge ends on "scale"** — added "The Crown wasn't denying the trade. It was denying the scale." Sets up Evidence 2 callback ("For evidence of that scale...").
+- **Manning credentialing added** — "Patrick Manning, in his Cambridge history of African slavery" — mirrors Lovejoy institutional anchor.
+- **"So how did Europe respond?"** rhetorical bridge removed (no longer needed with merged BRIDGE section).
+
+## VERIFICATION NOTES (v6 — retained)
+- Hook structure: claim-first, chronicle as smoking-gun payoff
+- Equiano + Gorrevod: verbatim on screen, paraphrased in voice (auditor's edge + accessibility)
+- Manning leads with Dahomey 15:1 example (concrete-first)
+- Lovejoy framing: "the Cambridge historian Paul Lovejoy, in the standard scholarly history of African slavery"
+- Sugar plantations aside cut
+- Closing meta-acknowledgment: "I'm not under any illusion this will convince people who use history as a weapon in the culture war"
+
+## VERIFICATION NOTES (v4-v5 — retained)
+- All five documents preserved on screen
+- Two-form steelman preserved (Ahmed Baba + Equiano with Igbo context)
+- Factory mechanism explanation preserved
+- Manning 15:1 Dahomey ratio preserved
+- Manning citation: Ch. 5, p. 106
+- Zurara poisoned arrows: Ch. LXXXVI, p. 402 (French/Aillaud 1841 ed.) — NLM-verified
+- "provided they be Christians" clause: verbatim Donnan, baptism-on-arrival mechanism NLM-verified
+- João III gaslighting interpretation: NLM-verified (Newitt Doc 36)
+- Lovejoy credentials: Cambridge UP, 3rd ed., widely cited

@@ -1,6 +1,6 @@
 ---
 description: YouTube metadata, title testing, clip suggestions (Post-production Phase 1)
-model: sonnet
+model: opus
 ---
 
 # /publish - Publishing Preparation Entry Point
@@ -92,7 +92,70 @@ Algorithm: CTR weight is "high" — thumbnail/title alignment critical.
 
 ## PRE-PUBLISH QUALITY GATES
 
-**Before generating final metadata, run validation checks:**
+**Before generating final metadata, run validation checks.**
+
+### Gate 0: Metadata-Drift Gate (post-rough-cut, pre-publish)
+
+> See `memory/feedback-earn-your-inclusion.md` §'metadata-level earned-inclusion' for the three tests baked into this gate, and the Hijab #52 origin.
+
+Run this gate **first** — before title scoring, tag refinement, or clip selection. `YOUTUBE-METADATA.md` authored pre-filming may have drifted from the finished cut on timestamps, source list, title promises, or description completeness. The gate re-derives metadata against the actual SRT.
+
+#### Inputs required
+
+1. `YOUTUBE-METADATA.md` — the file being checked
+2. The finished-cut SRT — locate via Glob for `*.srt` in the project folder; prefer the most recent / "finished cut" / "final" named file. This is the source of truth.
+3. The locked `SCRIPT.md` — supplementary context only, not authority.
+
+#### Four drift checks
+
+**a. Chapter-timestamp grounding**
+
+Parse the SRT for structural pivots (scene changes, major topic transitions). For each chapter in `YOUTUBE-METADATA.md`:
+- If the chapter timestamp falls **outside** the SRT's actual runtime: flag as `[CHAPTER-DRIFT: chapter "<name>" timestamp <T> exceeds SRT runtime <R>]`.
+- If the chapter timestamp doesn't correspond to a structural pivot in the SRT (±5s tolerance): flag as `[CHAPTER-DRIFT-PIVOT: chapter "<name>" timestamp <T> doesn't match any SRT pivot]`.
+
+Output a proposed re-derivation: a new chapter list with timestamps grounded in actual SRT pivots.
+
+**b. Source-list earned-inclusion**
+
+Extract scholar names from the description's source list. Grep the SRT for each name:
+- Scholar in source list but **not named** in SRT: flag as `[SOURCE-LIST-UNUSED: scholar "<Name>" listed but not named in finished cut]`. Default action: cut from list.
+- Scholar **named in SRT** but not in source list (heuristic: capitalized first-name + last-name pairs preceded by "Historian," "Per," "Scholar," "according to," or in citation-tag positions): flag as `[SOURCE-LIST-MISSING: scholar "<Name>" named in cut but not in description]`. Default action: add to list.
+
+**c. Title-promise earned-inclusion**
+
+Parse the title and all A/B variants for promise patterns:
+- Numeric claims ("Three Medieval Scholars," "Two Countries," "229 Ethnic Groups")
+- Named-entity claims ("Lord Cromer," "Ibn al-Jawzi")
+- Mechanism-word claims ("Forbidden," "Mandatory," "Forged")
+
+For each promise, check the SRT delivers it. If "Three Medieval Scholars" is promised but only one is named in the cut: flag as `[TITLE-PROMISE-UNFULFILLED: variant "<title>" promises <claim> but cut delivers <actual>]`.
+
+**d. Dangling-text grep**
+
+Grep the description body for:
+- Sentences ending in em-dash, en-dash, or hyphen without trailing punctuation
+- Sentences cut mid-clause (line ends with a preposition, conjunction, or bare auxiliary verb)
+- Unclosed parentheses, quotes, or em-dash pairs
+
+Flag each as `[DESCRIPTION-DANGLING: line N — "<text>"]`.
+
+#### Output: `YOUTUBE-METADATA-DRIFT.md`
+
+Write to the project folder. Contains:
+1. Summary count of each flag class
+2. Detailed flag list with proposed remediation per flag
+3. Final section: **"Override decisions"** — user accepts or overrides each flag with rationale
+
+#### Gate behavior
+
+`/publish` cannot proceed past Gate 0 until either:
+- All flags have been remediated (metadata file edited), **or**
+- All flags have been explicitly overridden in `YOUTUBE-METADATA-DRIFT.md` with a one-line rationale per override.
+
+An empty flag list (zero flags across all four checks) counts as automatic pass — proceed to Gate 1.
+
+---
 
 ### Gate 1: Title Score Gate (HARD BLOCK)
 
@@ -160,6 +223,38 @@ for t in candidates:
 3. Re-run check until [PASS]
 
 **See:** `/discover --check` documentation for full details
+
+### Gate 3: Rendered-Asset QC (the exported thumbnail + final audio)
+
+Gates 0–2 check metadata *text*. They cannot see the actual files the viewer encounters. Gate 3 audits the rendered assets — the only stage where they exist.
+
+**Skip cleanly** if the assets aren't exported yet (this gate is advisory at metadata-draft time, mandatory before upload). Locate the exported thumbnail (Glob the project folder for `*.png` / `*.jpg` not under `_research/`) and the final cut (`*.mp4`).
+
+**a. Thumbnail image audit** — runs only if a rendered thumbnail exists:
+
+```bash
+python -m tools.preflight.thumbnail_image_audit "<thumb.png>" --serp-ids <id1>,<id2>,<id3>
+```
+
+Supply 3–5 competitor video IDs for the target query (pull from `_research/comment-mining/*.info.json` if present, else the top search results for the primary keyword). This checks tech compliance, writes mobile-legibility previews, and scores **SERP differentiation** (CLIP cosine vs those competitors). This is the rendered-image counterpart to `thumbnail_checker.py`'s concept-text check.
+
+- **BLENDS IN (>0.70)** → BLOCK. The thumbnail disappears next to its competitors on the shelf; redesign before upload.
+- **TYPICAL (0.55–0.70)** → FLAG. Push one element (color/layout) further from the pack.
+- **STRONG (<0.55)** → pass.
+- If `open_clip_torch` isn't installed it falls back to an RGB-histogram proxy (flagged, directional only) — still catches gross blend-in.
+
+**b. Audio loudness QC** — runs only if a final cut exists (and ffmpeg is installed):
+
+```bash
+python -m tools.preflight.audio_loudness "<final-cut.mp4>"
+```
+
+Checks integrated LUFS / true-peak / loudness-range against YouTube's −14 LUFS normalization. (Usually already cleared at `/editing-guide` time — this is the last-line backstop.)
+
+- Integrated outside −16…−12 LUFS, or true peak > −1 dBTP → FLAG, remaster.
+- `MISSING` (ffmpeg not installed) → note it, don't block: `winget install Gyan.FFmpeg`.
+
+**Gate behavior:** A thumbnail `BLENDS IN` verdict blocks like a failing title (Gate 1). Audio findings are advisory flags, not hard blocks. If neither asset exists yet, record "Gate 3 deferred — assets not exported" and proceed.
 
 ---
 

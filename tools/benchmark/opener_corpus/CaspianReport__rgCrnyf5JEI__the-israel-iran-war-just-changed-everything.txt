@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: CaspianReport
+Sub-tier: MEGA 1M+
+Video title: The Israel-Iran War just changed everything
+Video URL: https://www.youtube.com/watch?v=rgCrnyf5JEI
+View count: 3,268,872
+Outlier ratio (vs channel median): 5.6x
+Topic type: mechanism
+Archetype (heuristic): contextual_opening
+First spoken timestamp: 0.0s
+Content window: 0.0s — 30.0s
+
+---
+
+[Music] The Cold War has turned hot overnight. In the early hours of June 13th, Israel launched preemptive strikes on Iran. Multiple explosions were heard across Thran with online footage showing blasts lighting up the capital. But the fire that started in the city didn't stop there. Additional explosions occurred in Isvahan, Tabris, Karman Sha, Hamadan, K, and Piranha. cities that host nuclear, military or strategic sites. Separate

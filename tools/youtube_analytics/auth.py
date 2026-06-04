@@ -9,6 +9,7 @@ Usage:
 """
 
 import os
+import socket
 from pathlib import Path
 
 from tools.logging_config import get_logger
@@ -26,6 +27,14 @@ SCOPES = [
     'https://www.googleapis.com/auth/youtube.readonly',
     'https://www.googleapis.com/auth/youtube.force-ssl',
 ]
+
+# Bound every API socket so a stalled server can't hang a backfill forever.
+# httplib2 (under googleapiclient) honors socket.setdefaulttimeout(). On timeout
+# the call raises socket.timeout, which per-video fetch loops catch and skip.
+# NOTE: applied only AFTER get_credentials() returns — setting it before the
+# interactive OAuth flow would abort run_local_server while it waits on the
+# browser redirect (the user may take longer than the timeout to sign in).
+API_SOCKET_TIMEOUT_SECONDS = 120
 
 # Paths relative to this file
 CREDENTIALS_DIR = Path(__file__).parent / 'credentials'
@@ -102,6 +111,8 @@ def get_authenticated_service(api_name='youtubeAnalytics', api_version='v2'):
         youtube = get_authenticated_service('youtube', 'v3')
     """
     creds = get_credentials()
+    # Safe to set now: interactive OAuth (if any) already completed above.
+    socket.setdefaulttimeout(API_SOCKET_TIMEOUT_SECONDS)
     return build(api_name, api_version, credentials=creds)
 
 

@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: Shaun
+Sub-tier: MEGA 1M+
+Video title: The Bell Curve
+Video URL: https://www.youtube.com/watch?v=UBc7qBS1Ujo
+View count: 3,839,450
+Outlier ratio (vs channel median): 3.5x
+Topic type: ideological
+Archetype (heuristic): specificity_bomb
+First spoken timestamp: 0.0s
+Content window: 0.0s — 30.0s
+
+---
+
+hello everyone today we're going to be talking about the bell curve the bell curve is a 1994 book by psychologist Richard J Herrnstein and political scientist Charles Murray and by way of an introduction here I'll read the description of the book that's on the back of my copy breaking new ground and old taboos Richard J hansteen and Charles Maurey tell the story of a society in transformation at the top a cognitive elite is forming in which the passkey to the best schools and the best jobs is no longer social background but

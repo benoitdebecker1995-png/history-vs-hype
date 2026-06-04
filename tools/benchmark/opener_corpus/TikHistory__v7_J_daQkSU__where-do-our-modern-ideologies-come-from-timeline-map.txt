@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: TIKhistory
+Sub-tier: PEER 100K-500K
+Video title: Where do our modern ideologies come from? (Timeline Map)
+Video URL: https://www.youtube.com/watch?v=v7_J_daQkSU
+View count: 539,587
+Outlier ratio (vs channel median): 4.8x
+Topic type: ideological
+Archetype (heuristic): cold_fact
+First spoken timestamp: 0.4s
+Content window: 0.4s — 30.4s
+
+---
+
+this is the map we're going to talk about today a map showing all the connections between the various philosophies religions and ideologies showing the origins of national socialism fascism Marxism socialism and other movements too let's get into it I've made numerous videos on these ideologies but I realize that this information is spread out across my entire channel in videos stretching all the way back to 2018 so what I wanted to do was bring

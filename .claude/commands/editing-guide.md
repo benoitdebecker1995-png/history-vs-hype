@@ -68,6 +68,13 @@ Three diffs produced in parallel:
 - Compare against script's target runtime (look in script frontmatter or first 20 lines for "Target: X min")
 - Compute delta. If actual ±10% of target → "on target." If overshooting → list 2-3 trim candidates from longest sections. If undershooting → flag (rare).
 
+**Diff D — Audio loudness (runs only if a rough-cut media file is present):**
+- Glob the project for the rough-cut `*.mp4` (the SRT's source media). If none, skip this diff silently.
+- Run: `python -m tools.preflight.audio_loudness "<rough-cut.mp4>"`
+- This is the earliest point the audio exists — catching a quiet/clipped master here is far cheaper than after upload (where `/publish` Gate 3 is only a backstop).
+- Capture the verdict (integrated LUFS / true-peak dBTP / loudness-range LU vs YouTube's −14 target). Feed it into the Phase 5 output's "Audio loudness" section.
+- If ffmpeg isn't installed the tool returns `MISSING` — surface the one-line install (`winget install Gyan.FFmpeg`) in the TL;DR and move on. Do NOT block the guide on it.
+
 ### Phase 3 — Identify B-roll gaps
 
 1. For each SRT chunk's timecode range, check whether any planned shot from the shot list covers it.
@@ -204,6 +211,20 @@ Ranked by impact:
 | Time | Beat | Recommendation |
 |---|---|---|
 | [...] | [...] | [...] |
+
+---
+
+## Audio loudness
+
+(From Diff D — omit this section if no rough-cut media file was present.)
+
+| Metric | Measured | YouTube target | Verdict |
+|---|---|---|---|
+| Integrated | [N] LUFS | −16…−12 (−14 ideal) | [OK / QUIET / LOUD] |
+| True peak | [N] dBTP | ≤ −1 | [OK / CLIPPING] |
+| Loudness range | [N] LU | 4–15 | [OK / DYNAMIC / FLAT] |
+
+**Action:** [e.g., "Master is −19 LUFS — bring up ~5 dB before export" / "On target, no change" / "ffmpeg not installed — run `winget install Gyan.FFmpeg` to enable this check"]
 
 ---
 

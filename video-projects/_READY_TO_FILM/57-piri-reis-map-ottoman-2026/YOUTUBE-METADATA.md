@@ -1,8 +1,8 @@
 # YouTube Metadata — Piri Reis Map (#57)
 
-**Status:** Assembled 2026-06-03 from the **LOCKED** packaging — `SCRIPT.md` v5 (titles) + `THUMBNAIL-CONCEPTS.md` (3×3 A/B/C combos, locked 2026-05-30). This file only makes existing decisions tool-visible (scorer / ctr_ingest / preflight). **Do not re-decide packaging here** — change `THUMBNAIL-CONCEPTS.md` and re-sync.
+**Status:** **FINAL-LOCKED 2026-06-04** — packaging from `SCRIPT.md` v5 (titles) + `THUMBNAIL-CONCEPTS.md` (3×3 A/B/C combos). Thumbnails **rendered + audited** (tech 100/100, all 3 STRONG SERP pattern-break vs the 8-competitor shelf). Ready to upload. This file only makes existing decisions tool-visible (scorer / ctr_ingest / preflight). **Do not re-decide packaging here** — change `THUMBNAIL-CONCEPTS.md` and re-sync.
 **Publishing day:** Monday
-**Runtime:** ~11 min 16 sec (under the 12-min cap)
+**Runtime:** ~10 min 28 sec (finished cut; under the 12-min cap). Chapters below re-derived from `finished cut.srt` 2026-06-04 — the locked-script projection (11:16) is superseded.
 
 ---
 
@@ -36,17 +36,20 @@ This is the primary-source version — the inscriptions on screen, the scholars 
 
 CHAPTERS
 0:00 The claim
-0:58 Inscription 6 — the source list
-4:32 The western coast — Cuba, not Bimini
-7:13 The southern coast — Brazil, not Antarctica
-9:05 Why no one read it
-9:52 What the map actually says
+0:48 Inscription 6 — the source list
+4:05 The western coast — Cuba, not Bimini
+6:44 The southern coast — Brazil, not Antarctica
+8:31 Why no one read it
+10:11 What the map actually says
 
 SOURCES
 - McIntosh, G.C. *The Piri Reis Map of 1513.* University of Georgia Press, 2000.
 - Soucek, S. "Piri Reis: His Uniqueness Among Cartographers." (journal article)
 - Kahle, P. "A Lost Map of Columbus." *Geographical Review,* 1933.
 - Hapgood, C. *Maps of the Ancient Sea Kings.* 1966. (the claim examined)
+- Hancock, G. *America Before.* 2019. (the Bimini Road claim examined)
+- Hancock, G. *Fingerprints of the Gods.* 1995. (the lost-civilization claim examined)
+- von Däniken, E. *Chariots of the Gods.* 1968. (the ancient-astronaut claim examined)
 
 Subscribe for evidence-based history — primary sources, on screen, every time.
 
@@ -66,10 +69,17 @@ piri reis map, piri reis, graham hancock, graham hancock piri reis, ancient apoc
 
 3 combos in test, shared "Forensic Dossier" DNA (inscription 6 on parchment, translation card, red TRANSCRIPT stamp). Full spec + competitor differentiation in `THUMBNAIL-CONCEPTS.md`.
 
-- **Combo 1 (debunk, faces):** Hancock + Rogan + map-folder "INSCRIPTION 6" · overlay **"HE CITED COLUMBUS"** · title #2
-- **Combo 2 (deflation, faces):** same dossier DNA · overlay **"JUST A BIBLIOGRAPHY"** (critic 7/8) · title #1
-- **Combo 3 (forensic, faceless control):** document-only · overlay **"JUST A BIBLIOGRAPHY"** · title #3
+**RENDERED + PAIRED (upload these — title paired with thumbnail, no cross-pairing):**
 
-**Rendered-image audit pending:** no thumbnail PNG exported yet. Once built, run:
-`python -m tools.preflight.thumbnail_image_audit "<thumb.png>" --serp-ids ACEoMEZO17E,PYm3b4KpXA0,bPTgUZuL4Uk`
-Read SERP-differentiation **per combo**: face combos (1/2) are *meant* to ride the Hancock cluster (TYPICAL/BLENDS-IN is by design; overlay carries the difference); the faceless Combo 3 is the one that should score STRONG pattern-break.
+| Combo | Thumbnail file | Overlay (as rendered) | Title |
+|---|---|---|---|
+| 1 (debunk, faces) | `Thumb 1.png` | "CITES COLUMBUS" | What Graham Hancock Gets Wrong About the Piri Reis Map |
+| 2 (read-it, faces) | `thumb 2.jpg` | "NOBODY READS IT" | Graham Hancock's Lost Civilization Map |
+| 3 (forensic, faceless) | `THUMB 3.png` | "READ THE CORNER" | What the Piri Reis Map Actually Says |
+
+⚠️ **Combo 2 — upload `thumb 2.jpg` (451 KB), NOT `thumb 2.png` (2.17 MB, over YouTube's 2 MB cap).**
+⚠️ **Overlay drift (Combo 2):** rendered as "NOBODY READ**S** IT" (present tense); `THUMBNAIL-CONCEPTS.md` spec was "NOBODY READ IT" (past). Factually clean either way; not re-rendered — left as user call.
+
+**Rendered-image audit DONE (2026-06-04)** — `thumbnail_image_audit` vs the 8-competitor shelf (`bPTgUZuL4Uk,645MR_qr_c4,wJevT3tDmH4,Qt2GYyGTXTs,7gHUtZFyFLQ,9PWMnvSiTy4,J5eeIgvJL_c,i8ydslM_skU`):
+- Tech/legibility: all three **100/100** (after Combo 2 JPG compression).
+- SERP differentiation (CLIP ViT-B/32, mean similarity — lower = more distinct): **Combo 2 = 0.418** (strongest break) · **Combo 3 = 0.470** · **Combo 1 = 0.501**. All three clear the STRONG pattern-break line. The face combos (1/2) ride the Hancock cluster by design; the overlay carries the difference.

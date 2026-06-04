@@ -1,6 +1,6 @@
 ---
 description: Cross-Video Pattern Analysis
-model: sonnet
+model: opus
 ---
 
 # /patterns - Cross-Video Pattern Analysis

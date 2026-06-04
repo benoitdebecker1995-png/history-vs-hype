@@ -41,7 +41,15 @@ logger = get_logger(__name__)
 
 # Paths
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
-PROJECTS_DIR = PROJECT_ROOT / "video-projects" / "_IN_PRODUCTION"
+VIDEO_PROJECTS_DIR = PROJECT_ROOT / "video-projects"
+# Lifecycle folders a project can live in (a video moves through these). Projects
+# also get SRT-FIXES.md logs long after they leave _IN_PRODUCTION, so discovery
+# must span all of them — not just _IN_PRODUCTION.
+LIFECYCLE_DIRS = [
+    VIDEO_PROJECTS_DIR / "_IN_PRODUCTION",
+    VIDEO_PROJECTS_DIR / "_READY_TO_FILM",
+    VIDEO_PROJECTS_DIR / "_ARCHIVED" / "published",
+]
 CACHE_PATH = Path(__file__).parent / "_srt_corrections.json"
 
 # SRT patterns to skip (non-English, backups, already corrected)
@@ -169,6 +177,16 @@ def build_corrections_from_fixes(fixes_paths: list[Path]) -> dict:
 
         for line in text.split('\n'):
             stripped = line.strip()
+
+            # Bullet format from manual /fix one-shot logs:  - `wrong → right` × N
+            # (section-agnostic — these logs use ### sub-headers the table parser ignores)
+            bullet = re.match(r'^-\s*`(.+?)\s*→\s*(.+?)`', stripped)
+            if bullet:
+                w, r = bullet.group(1).strip(), bullet.group(2).strip()
+                # Skip meta-entries (e.g. "Timestamp hour offset (01:XX → 00:XX)")
+                if w and r and w != r and '(' not in w and 'Timestamp' not in w:
+                    corrections['known_corrections'][w] = r
+                continue
 
             # Detect section headers
             if '## CRITICAL FIXES' in stripped:
@@ -816,16 +834,20 @@ def load_corrections_cache() -> Optional[dict]:
 # =========================================================================
 
 def find_project_dir(project_slug: str) -> Optional[Path]:
-    """Find a project directory by slug."""
-    # Try exact match
-    exact = PROJECTS_DIR / project_slug
-    if exact.is_dir():
-        return exact
+    """Find a project directory by slug across all lifecycle folders."""
+    # Try exact match in each lifecycle folder
+    for base in LIFECYCLE_DIRS:
+        exact = base / project_slug
+        if exact.is_dir():
+            return exact
 
     # Try partial match
-    for d in PROJECTS_DIR.iterdir():
-        if d.is_dir() and project_slug in d.name:
-            return d
+    for base in LIFECYCLE_DIRS:
+        if not base.is_dir():
+            continue
+        for d in base.iterdir():
+            if d.is_dir() and project_slug in d.name:
+                return d
 
     return None
 
@@ -849,8 +871,12 @@ def find_srt_files(project_dir: Path) -> list[Path]:
 
 
 def find_all_srt_fixes() -> list[Path]:
-    """Find all SRT-FIXES.md files across all projects."""
-    return list(PROJECTS_DIR.glob('*/SRT-FIXES.md'))
+    """Find all SRT-FIXES.md files across all lifecycle folders."""
+    found = []
+    for base in LIFECYCLE_DIRS:
+        if base.is_dir():
+            found.extend(base.glob('*/SRT-FIXES.md'))
+    return found
 
 
 def find_verified_research(project_dir: Path) -> Optional[Path]:

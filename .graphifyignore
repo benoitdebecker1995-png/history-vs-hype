@@ -1,0 +1,32 @@
+# Graphify ignore file (gitignore syntax). Falls back to .gitignore if absent.
+# Last reviewed: 2026-05-25
+
+# Worktrees: parallel feature branches that double-count nodes
+.claude/worktrees/
+
+# Archived/legacy: not part of current architecture
+.claude/_ARCHIVE/
+.claude/_archived/
+_ARCHIVED/
+
+# Converted/cached intermediates that graphify already turns into nodes via the original source
+.claude/graphify-out/converted/
+graphify-out/converted/
+
+# Brain inbox: ephemeral, not architecturally meaningful
+.brain/_inbox/
+
+# YouTube metadata caches and yt-dlp dumps (the "automatic_captions" / yt-dlp-fields noise)
+**/channel-data/**/raw-dumps/
+**/*-yt-dlp-info.json
+
+# Test artefacts beyond default skip list
+.pytest_cache/
+**/.pytest_cache/
+
+# IDE / OS noise
+.antigravity/
+.idea/
+.vscode/
+Thumbs.db
+desktop.ini

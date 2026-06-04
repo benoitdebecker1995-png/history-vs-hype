@@ -160,9 +160,11 @@ inherently steelman by showing the original claims. Only flag absence as SUGGEST
 
 **CONSTRAINT AC: Causal Connector Quality (Rule 22)** [MIXED: causal depth = QUALITY STANDARD (CLAUDE.md), specific phrases = COMPETITOR PATTERN]
 Scan for "and then" / "after that" / "next" sequences. 3+ in a row without a causal connector =
-SUGGESTION with specific alternatives ("which led to," "consequently," "thereby," "meaning that,"
-"paves the way for," "stepping stone to"). Multi-step chain absent = SUGGESTION. Systemic terms
-absent when multiple simultaneous crises exist = SUGGESTION.
+SUGGESTION. The flag is the *absence of a mechanism*, not the absence of a particular word — prefer
+fluent/spoken alternatives ("so," "which is why," "and that meant," "which led to," "here's what
+that did") over formal ones ("consequently," "thereby," "meaning that"). Do NOT flag "then" as wrong
+when the causation is already clear. Multi-step chain absent = SUGGESTION. Systemic terms absent when
+multiple simultaneous crises exist = SUGGESTION.
 
 **CONSTRAINT AD: Visual Staging Completeness (Rule 32)** [MIXED: "as you can see" = QUALITY STANDARD, cue tiers = COMPETITOR PATTERN]
 "As you can see" = WARNING (voice standard). Quotes without visual cues = SUGGESTION. Tier 4
@@ -600,7 +602,7 @@ now subsets of the 4-beat structure. Do NOT flag a valid 4-beat hook as non-conf
 
 | Technique | Minimum | How to Check |
 |-----------|---------|--------------|
-| **Causal connectors** | ≥3 | Search: "consequently," "thereby," "which meant that," "as a result" |
+| **Causal connectors** | ≥3 | Search fluent-first: "so," "which is why," "and that meant," "which meant that," "which led to," then formal "consequently," "thereby," "as a result" — count the mechanism, not the word |
 | **International comparison** | ≥1 | Search: "Unlike [Country]," "While in [Country]" |
 | **Read verbatim + translate** | Every primary source | Each [Quote] followed by "Translation:" or "In other words:" |
 | **"Two things happened"** | ≥1 | Search: "Two things," "First..." "Second..." after events |
@@ -618,8 +620,8 @@ now subsets of the 4-beat structure. Do NOT flag a valid 4-beat hook as non-conf
 ## 🔧 PROVEN TECHNIQUE GAPS
 
 **Causal Connectors:** Found 1 (need ≥3)
-- Line 45: Uses "then" instead of "consequently"
-- SUGGEST: "Consequently, the debt structure trapped Haiti for a century"
+- Line 45: bare sequence ("then") — mechanism not stated
+- SUGGEST (fluent default): "So the debt structure trapped Haiti for a century — which is why..."
 
 **International Comparison:** MISSING
 - No "Unlike [Country]" pattern found
@@ -1809,7 +1811,7 @@ ADD authority markers at:
 - ❌ NEVER suggest: "And this matters because..."
 
 **Required Logical Framing:**
-- ✅ "BECAUSE X. THEREFORE Y." (explicit causation)
+- ✅ "BECAUSE X. SO Y." (explicit causation — "so" is the spoken default; "therefore" only for variation)
 - ✅ "When X says Y..." (modern connection pattern)
 - ❌ NEVER: "This shows that..." or "We can see..."
 

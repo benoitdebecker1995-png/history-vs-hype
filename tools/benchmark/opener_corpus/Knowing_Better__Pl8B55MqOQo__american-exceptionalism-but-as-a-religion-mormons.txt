@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: Knowing Better
+Sub-tier: MEGA 1M+
+Video title: American Exceptionalism but as a Religion | Mormons
+Video URL: https://www.youtube.com/watch?v=Pl8B55MqOQo
+View count: 2,569,419
+Outlier ratio (vs channel median): 3.3x
+Topic type: ideological
+Archetype (heuristic): cold_fact
+First spoken timestamp: 0.1s
+Content window: 0.1s — 30.1s
+
+---
+
+we should all know the american creation myth but for the two or three of you that don't it all started when a group of religious conservatives who didn't think the church of england was protestant enough were kicked out of a number of european countries and sailed west to settle in america these were known as the puritans or more famously the pilgrims every american kid learns this story in school and we're reminded of it every thanksgiving fewer people learn about the second time this happened when a group of religious conservatives who didn't think the puritans were pure enough were kicked out of a number of american states and settled out west

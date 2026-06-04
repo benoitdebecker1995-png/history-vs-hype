@@ -1,6 +1,6 @@
 ---
 description: Reconcile project state — folder lifecycle, AUTO blocks, derived docs. Auto-fires when user says "I uploaded/released/published X".
-model: sonnet
+model: opus
 ---
 
 # /reconcile — Project State Reconciler

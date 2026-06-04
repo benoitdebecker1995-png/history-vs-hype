@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: Kraut
+Sub-tier: MEGA 1M+
+Video title: India & Pakistan - A continuing Story
+Video URL: https://www.youtube.com/watch?v=1kJf4krMY4A
+View count: 2,715,073
+Outlier ratio (vs channel median): 4.0x
+Topic type: ideological
+Archetype (heuristic): specificity_bomb
+First spoken timestamp: 0.2s
+Content window: 0.2s — 30.2s
+
+---
+
+[Music] cars dominate the world of personal transport the industry sectors built around them are so large that they are their own category of geopolitical power players for the first half of the 20th century the americans dominated that market they invented the concept of the assembly line at which the car could be put together out of small parts stored at factories making said car cheaper for an even larger market then came post-war japan in the 1960s they invented a new manufacturing

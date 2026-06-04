@@ -132,3 +132,10 @@ graphify-out/research/.labels.json
 # graphify pipeline intermediates/cache under video projects (regenerated)
 video-projects/graphify-out/
 video-projects/**/graphify-out/
+
+# graphify pipeline intermediates/cache at repo root + .claude (regenerated, ~750MB)
+/graphify-out/
+.claude/graphify-out/
+
+# Session scratch / temp (SERP sheets, thumbnail previews, etc.)
+/tmp/

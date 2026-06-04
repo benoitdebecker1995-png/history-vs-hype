@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: CaspianReport
+Sub-tier: MEGA 1M+
+Video title: Why Zimbabwe wants its ‘white farmers’ back
+Video URL: https://www.youtube.com/watch?v=vFKjpNNjNGw
+View count: 2,061,134
+Outlier ratio (vs channel median): 3.5x
+Topic type: mechanism
+Archetype (heuristic): cold_fact
+First spoken timestamp: 0.6s
+Content window: 0.6s — 30.6s
+
+---
+
+This is a $100 trillion bank note from Zimbabwe. One of the most worthless currencies ever. The paper it's printed on is worth more than the money itself. Hyperinflation has come down hard on the country. At its peak in 2008, prices doubled every 24 hours. People went to sleep thinking they were middle class only to find out the next day that they were now poor. Food prices rose so quickly that Zimbabwe, once a regional

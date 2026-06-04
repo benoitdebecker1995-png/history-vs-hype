@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: Atun-Shei Films
+Sub-tier: PEER 100K-500K
+Video title: THE CORNERSTONE OF JOHNNY REB
+Video URL: https://www.youtube.com/watch?v=gyt0bZms5zU
+View count: 796,435
+Outlier ratio (vs channel median): 5.8x
+Topic type: ideological
+Archetype (heuristic): specificity_bomb
+First spoken timestamp: 28.1s
+Content window: 28.1s — 58.1s
+
+---
+
+you know Johnny I'm not going to do this if you're not going to list listen I'll listen Billy I will it's just it's not easy for me do you mean that though or are you just saying it my mind is open convince me if you can all right we've talked about a lot of Southern history on this show from 1776 to the modern day but there's one thing we've never actually touched on the

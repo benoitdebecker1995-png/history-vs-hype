@@ -1,6 +1,6 @@
 # Channel Performance Insights
 
-> Generated: 2026-05-14 14:01 UTC
+> Generated: 2026-06-03 14:50 UTC
 > Videos analyzed: 50 own-channel videos
 > Auto-generated. Do not edit manually. Re-run: `python -m tools.youtube_analytics.backfill --insights-only`
 
@@ -49,19 +49,78 @@ Based on 50 own-channel long-form videos. All signals are early-to-moderate.
 
 | Source | Views | % of Total | Watch Time (hrs) |
 |--------|-------|-----------|-----------------|
-| Browse/Home Feed | 31,701 | 71.5% | 1912.0 |
-| Suggested Videos | 5,883 | 13.3% | 428.9 |
-| External | 1,734 | 3.9% | 125.8 |
-| YouTube Search | 1,550 | 3.5% | 85.3 |
-| Shorts Shelf | 1,073 | 2.4% | 10.3 |
-| Other/Direct | 948 | 2.1% | 44.5 |
-| Other YT Pages | 517 | 1.2% | 35.2 |
-| Channel Page | 436 | 1.0% | 30.8 |
-| Shorts → Long-form | 251 | 0.6% | 9.3 |
-| Playlists | 131 | 0.3% | 12.7 |
-| End Screens | 83 | 0.2% | 7.1 |
-| Notifications | 50 | 0.1% | 2.6 |
+| Browse/Home Feed | 33,082 | 71.4% | 1964.5 |
+| Suggested Videos | 6,273 | 13.5% | 455.8 |
+| YouTube Search | 2,365 | 5.1% | 138.3 |
+| External | 1,820 | 3.9% | 128.8 |
+| Other/Direct | 1,083 | 2.3% | 51.5 |
+| Other YT Pages | 545 | 1.2% | 37.5 |
+| Channel Page | 535 | 1.2% | 38.4 |
+| Shorts → Long-form | 313 | 0.7% | 11.9 |
+| Playlists | 153 | 0.3% | 14.8 |
+| End Screens | 92 | 0.2% | 9.0 |
+| Notifications | 57 | 0.1% | 3.1 |
+| NO_LINK_EMBEDDED | 2 | 0.0% | 0.0 |
 | Hashtags | 1 | 0.0% | 0.2 |
+
+---
+
+## Search Terms Driving Traffic
+
+Top 10 queries surfacing long-form videos. 26 video(s) currently get zero search traffic — packaging or distribution miss.
+
+| Query | Views | Watch Time (hrs) | Videos |
+|-------|-------|------------------|--------|
+| belize | 83 | 4.4 | 2 |
+| armenian genocide | 35 | 1.3 | 1 |
+| guatemala history | 23 | 1.7 | 1 |
+| nick fuentes | 20 | 0.3 | 1 |
+| history of belize | 20 | 1.5 | 1 |
+| operation sig | 14 | 1.2 | 1 |
+| belize guatemala dispute | 14 | 1.4 | 2 |
+| history of guatemala | 13 | 0.6 | 1 |
+| belize country | 11 | 0.5 | 1 |
+| guatemala | 10 | 0.4 | 2 |
+
+**Zero-search videos** (top 5 by views):
+
+- 5 Big Myths About Israel and Palestine Busted! — 640 views
+- The Berlin Conference: How Colonial Borders Still Fuel Confl — 440 views
+- China vs Taiwan. 4 Historical Claims Exposed by Scholars — 257 views
+- India vs Pakistan. Britain Sold Kashmir for 7.5 Million Rupe — 228 views
+- Why The Sol Invictus Story Is Completely Wrong — 213 views
+
+---
+
+## Algorithm Reach (Sub vs Non-Sub)
+
+Channel-wide: **98.4% of views come from non-subscribers** (algorithm push, not existing audience). Higher = better reach.
+
+**Most-amplified videos** (top 5 by non-sub share, min 50 views):
+
+| Video | Views | Non-Sub % | Sub Retention | Non-Sub Retention |
+|-------|-------|-----------|---------------|-------------------|
+| Yes Slavery Existed In Africa. Then Europe Took Ov | 73 | 100.0% | N/A | 26.4% |
+| Two Countries Split a Continent They Had Never Map | 791 | 99.6% | 34.2% | 16.7% |
+| Venezuela vs Guyana: The Oil War Over Essequibo | 1,966 | 99.5% | 59.8% | 34.4% |
+| Turkey Claims 152 Greek Islands. Here's Why. | 960 | 99.5% | 81.5% | 39.0% |
+| The Country That Might Disappear: Guatemala vs Bel | 29,641 | 99.3% | 26.9% | 35.4% |
+
+---
+
+## Retention Cliffs
+
+Channel-wide: **31.8% avg retention** across videos, **16.5% reaching the end** on average.
+
+**Mid-video cliffs** (steepest drop in first 80% of runtime, min 50 views — excludes natural end-falloff). 40 of 56 videos have a cliff before 80% worth investigating:
+
+| Video | Views | Cliff At | Retention at Cliff |
+|-------|-------|----------|--------------------|
+| The Flat Earth Myth Was Invented in 1828. Here's W | 213 | 68% of runtime | 7.1% |
+| Why Egypt and Sudan Both Reject Bir Tawil | 73 | 69% of runtime | 11.3% |
+| Two Countries Split a Continent They Had Never Map | 791 | 73% of runtime | 12.2% |
+| India vs Pakistan. Britain Sold Kashmir for 7.5 Mi | 228 | 66% of runtime | 13.8% |
+| Why The Sol Invictus Story Is Completely Wrong | 213 | 75% of runtime | 15.3% |
 
 ---
 

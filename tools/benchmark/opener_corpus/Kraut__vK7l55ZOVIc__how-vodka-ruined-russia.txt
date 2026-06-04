@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: Kraut
+Sub-tier: MEGA 1M+
+Video title: How Vodka ruined Russia
+Video URL: https://www.youtube.com/watch?v=vK7l55ZOVIc
+View count: 4,779,695
+Outlier ratio (vs channel median): 7.0x
+Topic type: mechanism
+Archetype (heuristic): cold_fact
+First spoken timestamp: 4.5s
+Content window: 4.5s — 34.5s
+
+---
+
+[Music] when you search through history books you will find many anecdotes on the role that alcohol and other addictive substances played in shaping societies throughout human history the Pharaohs of ancient Egypt paid their farm laborers

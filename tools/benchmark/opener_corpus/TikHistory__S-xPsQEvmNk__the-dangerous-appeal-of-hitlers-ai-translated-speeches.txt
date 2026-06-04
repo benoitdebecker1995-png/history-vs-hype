@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: TIKhistory
+Sub-tier: PEER 100K-500K
+Video title: The Dangerous Appeal of Hitler’s AI-Translated Speeches
+Video URL: https://www.youtube.com/watch?v=S-xPsQEvmNk
+View count: 627,247
+Outlier ratio (vs channel median): 5.6x
+Topic type: ideological
+Archetype (heuristic): cold_fact
+First spoken timestamp: 4.6s
+Content window: 4.6s — 34.6s
+
+---
+
+yeah my dear fellow Germans a sudden commotion has come over the German people now even those circles are beginning to stir which until now have been deaf to the constant warnings that we have been trying to address to the mass of our people almost without interruption for the past 3 years in recent weeks AI generated translations of Hitler's speeches have gone viral reaching Millions around the world people are hearing Hitler's words in their own language for the first time

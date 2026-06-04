@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: Atun-Shei Films
+Sub-tier: PEER 100K-500K
+Video title: Guns That Killed Racists (feat. InRangeTV)
+Video URL: https://www.youtube.com/watch?v=EmpHL4-pFlU
+View count: 1,064,179
+Outlier ratio (vs channel median): 7.8x
+Topic type: ideological
+Archetype (heuristic): specificity_bomb
+First spoken timestamp: 0.1s
+Content window: 0.1s — 30.1s
+
+---
+
+hello and welcome to another episode of aun sha films welcome uh so we are going to be discussing and test firing some of the most iconic long arms of the American Civil War uh specifically that of the United States Army and I could think of no one else better qualified to help me do that than my good friend Carl of enrange TV to that end we've also dressed up in our most impeccably accurate Civil War Impressions uh Carl

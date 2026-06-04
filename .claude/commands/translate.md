@@ -1,6 +1,6 @@
 ---
 description: Translate legal/historical documents clause-by-clause with cross-checking, legal annotations, and surprise detection (Untranslated Evidence series)
-model: sonnet
+model: opus
 ---
 
 # /translate - Document Translation Pipeline

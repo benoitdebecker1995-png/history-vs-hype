@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Piri Reis — Translated facsimile (photo base + English overlay)</title>
+<!--
+  HISTORY vs HYPE · #57 Piri Reis · B-roll ESTABLISHING HERO SHOT
+  Flat still: the real 1513 map photo with English legend translations restyled to read
+  as native to the map (sepia ink, matched position/width/angle, soft parchment backing).
+  Generated, not hand-placed in Photoshop.
+
+  TWO MODES
+  - RENDER (default): clean overlay only, ready to screenshot.
+  - PLACE (press E): click-to-position tool that REPLACES Photoshop dragging.
+      * Click a block in the list (or on the map) to select it.
+      * Click empty map  -> move selected block's anchor to the click point.
+      * Drag a block     -> move it.
+      * Arrow keys        -> nudge (Shift = 5x).
+      * [  ]              -> width  - / +
+      * ,  .  (< >)       -> rotate - / +
+      * -  =  (_ +)       -> font   - / +
+      * A                -> add a new block at center      Delete -> remove selected
+      * Edit the text / id in the side panel.
+      * "Copy JSON" -> paste the result back into piri-blocks.json.
+
+  HOW TO USE  (local image + json need http, file:// blocks fetch)
+    cd this folder:   python -m http.server 8138
+    open:             http://127.0.0.1:8138/piri-translated-map.html
+    place mode:       http://127.0.0.1:8138/piri-translated-map.html?place=1
+    render at native: ?render=1   (scale locked to 1; page == 1964x2619 for a clean screenshot)
+
+  Brand tokens copied from piri-southern-coast-map.html so the asset cuts with the deck.
+  Translation source: Wikimedia translated SVG, corner legend + lingered blocks spot-checked vs McIntosh.
+-->
+<style>
+  :root{
+    --ink:#15120D;
+    --paper:#EDE4D0;
+    --accent:#B0432F;
+    --gold:#C6A24A;
+    --ash:#8A8270;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+    /* native photo pixel dims — % coords resolve against this, screenshot at this size */
+    --stageW:1964px; --stageH:2619px;
+    /* sepia map-ink for the translated text */
+    --mapink:#3a2a18;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:#0b0906;overflow:hidden;font-family:var(--mono)}
+  #fit{position:fixed;inset:0;display:grid;place-items:center}
+  #stage{
+    width:var(--stageW);height:var(--stageH);position:relative;overflow:hidden;
+    transform-origin:center center;background:#cdbfa2;
+  }
+  #map{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;user-select:none;-webkit-user-drag:none}
+
+  /* a translated legend block */
+  .block{
+    position:absolute;
+    font-family:var(--serif);
+    color:var(--mapink);
+    line-height:1.18;
+    text-align:left;
+    background:rgba(237,228,208,.70);     /* soft parchment backing, everywhere */
+    border-radius:3px;
+    padding:.18em .42em;
+    box-shadow:0 0 2px rgba(237,228,208,.9);  /* feathers the card edge into the parchment */
+    backdrop-filter:blur(1px);
+    -webkit-backdrop-filter:blur(1px);
+    transform-origin:top left;
+    transition:none;
+  }
+  /* place-mode affordances (hidden in render) */
+  body:not(.place) .block{pointer-events:none}
+  body.place .block{cursor:move;outline:1px solid rgba(176,67,47,.0)}
+  body.place .block:hover{outline:1px solid rgba(176,67,47,.55)}
+  body.place .block.sel{outline:2px solid var(--accent);box-shadow:0 0 0 2px rgba(176,67,47,.25),0 0 2px rgba(237,228,208,.9)}
+
+  /* ---------- editor chrome (place mode only) ---------- */
+  #panel{
+    position:fixed;top:0;right:0;width:340px;height:100%;z-index:20;
+    background:#15120D;color:var(--paper);border-left:1px solid #2a2418;
+    display:none;flex-direction:column;font-size:13px;letter-spacing:.02em;
+  }
+  body.place #panel{display:flex}
+  #panel h1{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);padding:14px 16px 8px}
+  #panel .hint{padding:0 16px 10px;color:var(--ash);font-size:11px;line-height:1.5}
+  #list{flex:1;overflow:auto;border-top:1px solid #2a2418}
+  .row{padding:7px 16px;border-bottom:1px solid #201b12;cursor:pointer;display:flex;gap:8px;align-items:baseline}
+  .row:hover{background:#1d1810}
+  .row.sel{background:#241d11;box-shadow:inset 3px 0 0 var(--accent)}
+  .row .rid{font-family:var(--mono);font-size:10px;color:var(--gold);min-width:62px}
+  .row .rtx{color:var(--paper);opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #edit{border-top:1px solid #2a2418;padding:12px 16px;display:flex;flex-direction:column;gap:8px}
+  #edit label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ash)}
+  #edit input,#edit textarea{width:100%;background:#0e0b07;border:1px solid #2f2818;color:var(--paper);
+    font-family:var(--serif);font-size:13px;padding:6px 8px;border-radius:3px}
+  #edit textarea{min-height:84px;resize:vertical}
+  .nums{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px}
+  .nums input{font-family:var(--mono);font-size:12px;text-align:right}
+  #btns{display:flex;gap:8px;padding:12px 16px;border-top:1px solid #2a2418}
+  #btns button{flex:1;background:#241d11;color:var(--paper);border:1px solid #3a3018;
+    font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    padding:9px 6px;border-radius:4px;cursor:pointer}
+  #btns button:hover{background:#2f2614;border-color:var(--gold)}
+  #btns button.primary{background:var(--accent);border-color:var(--accent)}
+  #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:30;
+    background:#15120D;color:var(--paper);border:1px solid var(--gold);font-family:var(--mono);
+    font-size:12px;padding:8px 16px;border-radius:5px;opacity:0;transition:opacity .25s;pointer-events:none}
+  #toast.on{opacity:1}
+  #hud{position:fixed;left:12px;bottom:10px;z-index:20;font-family:var(--mono);font-size:11px;
+    color:#6b6657;letter-spacing:.06em}
+  body.render #hud{display:none}
+  @media print{#hud,#panel{display:none}}
+</style>
+</head>
+<body class="render">
+<div id="fit">
+  <div id="stage">
+    <img id="map" src="../Piri_reis_world_map_01.jpeg" alt="Piri Reis map 1513" />
+    <!-- blocks injected here -->
+  </div>
+</div>
+
+<aside id="panel">
+  <h1>Place mode · legends</h1>
+  <div class="hint">Click a row to select · click the map to move it there · drag to nudge · arrows/[ ]/, ./- = to tune. <b>E</b> toggles render/place.</div>
+  <div id="list"></div>
+  <div id="edit">
+    <label>id</label><input id="f_id" />
+    <label>english</label><textarea id="f_en"></textarea>
+    <div class="nums">
+      <div><label>x %</label><input id="f_x" type="number" step="0.1"></div>
+      <div><label>y %</label><input id="f_y" type="number" step="0.1"></div>
+      <div><label>w %</label><input id="f_w" type="number" step="0.1"></div>
+      <div><label>rot°</label><input id="f_r" type="number" step="0.5"></div>
+    </div>
+    <div class="nums" style="grid-template-columns:1fr 1fr">
+      <div><label>font px</label><input id="f_s" type="number" step="1"></div>
+      <div><label>align</label><input id="f_a" placeholder="left/center/right"></div>
+    </div>
+  </div>
+  <div id="btns">
+    <button id="b_add">+ Add</button>
+    <button id="b_del">Delete</button>
+    <button id="b_copy" class="primary">Copy JSON</button>
+  </div>
+</aside>
+
+<div id="toast"></div>
+<div id="hud">E = place/render · ?render=1 for screenshot</div>
+
+<script>
+const W=1964, H=2619;
+const qs=new URLSearchParams(location.search);
+const stage=document.getElementById('stage');
+const fitEl=document.getElementById('fit');
+
+/* ----- fit the native-size stage into the viewport (place mode), or lock to 1 (render) ----- */
+let renderLock = qs.has('render');
+function fit(){
+  if(renderLock){ stage.style.transform='scale(1)'; document.body.classList.add('render'); document.body.classList.remove('place'); return; }
+  const padR = document.body.classList.contains('place') ? 340 : 0;
+  const s=Math.min((innerWidth-padR)/W, innerHeight/H);
+  stage.style.transform='scale('+s+')';
+}
+addEventListener('resize',fit);
+
+/* ------------------------------- data ------------------------------- */
+let blocks=[];   // {id,en,x,y,w,rotate,size,align}
+let sel=-1;
+
+async function load(){
+  try{
+    const r=await fetch('piri-blocks.json',{cache:'no-store'});
+    if(r.ok) blocks=await r.json();
+  }catch(e){ /* file:// or missing -> start empty */ }
+  if(!Array.isArray(blocks)) blocks=[];
+  renderBlocks(); renderList(); fit();
+}
+
+function el(tag,cls){const e=document.createElement(tag); if(cls)e.className=cls; return e;}
+
+/* paint the overlay */
+function renderBlocks(){
+  [...stage.querySelectorAll('.block')].forEach(n=>n.remove());
+  blocks.forEach((b,i)=>{
+    const d=el('div','block'); d.dataset.i=i;
+    d.style.left=b.x+'%'; d.style.top=b.y+'%'; d.style.width=b.w+'%';
+    d.style.transform='rotate('+(b.rotate||0)+'deg)';
+    d.style.fontSize=(b.size||22)+'px';
+    d.style.textAlign=b.align||'left';
+    d.textContent=b.en||'';
+    if(i===sel) d.classList.add('sel');
+    stage.appendChild(d);
+  });
+}
+
+/* side list */
+function renderList(){
+  const list=document.getElementById('list'); list.innerHTML='';
+  blocks.forEach((b,i)=>{
+    const row=el('div','row'+(i===sel?' sel':''));
+    const rid=el('span','rid'); rid.textContent=b.id||('#'+i);
+    const rtx=el('span','rtx'); rtx.textContent=b.en||'(empty)';
+    row.append(rid,rtx); row.onclick=()=>select(i);
+    list.appendChild(row);
+  });
+  fillEdit();
+}
+
+function fillEdit(){
+  const b=blocks[sel]||{};
+  f_id.value=b.id??''; f_en.value=b.en??'';
+  f_x.value=b.x??''; f_y.value=b.y??''; f_w.value=b.w??''; f_r.value=b.rotate??0;
+  f_s.value=b.size??22; f_a.value=b.align??'left';
+}
+
+function select(i){ sel=i; renderBlocks(); renderList(); }
+
+/* edit-field -> data */
+['id','en','x','y','w','r','s','a'].forEach(k=>{
+  const map={id:'id',en:'en',x:'x',y:'y',w:'w',r:'rotate',s:'size',a:'align'};
+  const inp=document.getElementById('f_'+k);
+  inp.addEventListener('input',()=>{
+    if(sel<0)return; const b=blocks[sel]; const key=map[k];
+    let v=inp.value;
+    if(['x','y','w','rotate','size'].includes(key)) v=parseFloat(v);
+    if((['x','y','w','rotate','size'].includes(key)) && isNaN(v)) return;
+    b[key]=v; renderBlocks(); if(k==='id'||k==='en')renderList();
+  });
+});
+
+/* ------------------------- place-mode interaction ------------------------- */
+function stagePct(clientX,clientY){
+  const r=stage.getBoundingClientRect();
+  return { x:(clientX-r.left)/r.width*100, y:(clientY-r.top)/r.height*100 };
+}
+
+let drag=null;
+stage.addEventListener('pointerdown',e=>{
+  if(!document.body.classList.contains('place'))return;
+  const blockEl=e.target.closest('.block');
+  if(blockEl){
+    const i=+blockEl.dataset.i; select(i);
+    const p=stagePct(e.clientX,e.clientY);
+    drag={i, dx:p.x-blocks[i].x, dy:p.y-blocks[i].y};
+    blockEl.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  } else {
+    // click empty map -> move selected anchor here
+    if(sel>=0){ const p=stagePct(e.clientX,e.clientY); blocks[sel].x=round(p.x); blocks[sel].y=round(p.y); renderBlocks(); fillEdit(); }
+  }
+});
+stage.addEventListener('pointermove',e=>{
+  if(!drag)return;
+  const p=stagePct(e.clientX,e.clientY);
+  blocks[drag.i].x=round(p.x-drag.dx); blocks[drag.i].y=round(p.y-drag.dy);
+  renderBlocks(); fillEdit();
+});
+stage.addEventListener('pointerup',()=>{ drag=null; });
+
+const round=v=>Math.round(v*10)/10;
+
+/* keyboard */
+addEventListener('keydown',e=>{
+  if(/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName) && e.key!=='Escape') return;
+  if(e.key==='e'||e.key==='E'){ togglePlace(); return; }
+  if(sel<0||!document.body.classList.contains('place')) return;
+  const b=blocks[sel]; const step=e.shiftKey?0.5:0.1; const big=e.shiftKey?5:1;
+  let h=true;
+  switch(e.key){
+    case 'ArrowLeft':  b.x=round(b.x-step); break;
+    case 'ArrowRight': b.x=round(b.x+step); break;
+    case 'ArrowUp':    b.y=round(b.y-step); break;
+    case 'ArrowDown':  b.y=round(b.y+step); break;
+    case '[': b.w=round(Math.max(2,b.w-step)); break;
+    case ']': b.w=round(b.w+step); break;
+    case ',': case '<': b.rotate=round((b.rotate||0)-(e.shiftKey?5:1)); break;
+    case '.': case '>': b.rotate=round((b.rotate||0)+(e.shiftKey?5:1)); break;
+    case '-': case '_': b.size=Math.max(6,(b.size||22)-big); break;
+    case '=': case '+': b.size=(b.size||22)+big; break;
+    case 'a': case 'A': addBlock(); h=true; break;
+    case 'Delete': case 'Backspace': delBlock(); break;
+    default: h=false;
+  }
+  if(h){ e.preventDefault(); renderBlocks(); fillEdit(); if(e.key.toLowerCase()==='a')renderList(); }
+});
+
+function togglePlace(){
+  renderLock=false;
+  document.body.classList.toggle('place');
+  document.body.classList.toggle('render', !document.body.classList.contains('place'));
+  fit();
+}
+function addBlock(){
+  blocks.push({id:'legend-'+(blocks.length+1),en:'NEW — type here',x:45,y:45,w:18,rotate:0,size:22,align:'left'});
+  sel=blocks.length-1; renderBlocks(); renderList();
+}
+function delBlock(){ if(sel<0)return; blocks.splice(sel,1); sel=Math.min(sel,blocks.length-1); renderBlocks(); renderList(); }
+
+document.getElementById('b_add').onclick=addBlock;
+document.getElementById('b_del').onclick=delBlock;
+document.getElementById('b_copy').onclick=()=>{
+  const json=JSON.stringify(blocks.map(b=>({
+    id:b.id, en:b.en, x:b.x, y:b.y, w:b.w, rotate:b.rotate||0, size:b.size||22, align:b.align||'left'
+  })),null,2);
+  navigator.clipboard?.writeText(json).then(()=>toast('JSON copied — paste into piri-blocks.json'),()=>fallbackCopy(json));
+  if(!navigator.clipboard) fallbackCopy(json);
+};
+function fallbackCopy(json){
+  const t=el('textarea'); t.value=json; document.body.appendChild(t); t.select();
+  document.execCommand('copy'); t.remove(); toast('JSON copied (fallback)');
+}
+let toT;
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('on');
+  clearTimeout(toT); toT=setTimeout(()=>t.classList.remove('on'),1800); }
+
+/* boot: ?place=1 starts in place mode; ?render=1 locks scale 1 for screenshot */
+if(qs.has('place')){ document.body.classList.remove('render'); document.body.classList.add('place'); }
+const mapImg=document.getElementById('map');
+if(mapImg.complete) load(); else mapImg.addEventListener('load',load);
+mapImg.addEventListener('error',load);
+</script>
+</body>
+</html>

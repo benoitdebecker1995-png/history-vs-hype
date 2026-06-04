@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: Shaun
+Sub-tier: MEGA 1M+
+Video title: Harry Potter
+Video URL: https://www.youtube.com/watch?v=-1iaJWSwUZs
+View count: 7,548,861
+Outlier ratio (vs channel median): 7.0x
+Topic type: ideological
+Archetype (heuristic): myth_contradiction
+First spoken timestamp: 0.2s
+Content window: 0.2s — 30.2s
+
+---
+
+hello everyone today I'd like to talk about Harry Potter now I could do the standard video essay introduction for Harry Potter you know it's a series of books a series of films video games a stage play a whole bunch of merchandise and all that but we all know who Harry Potter is Right it'd be better if I started by explaining why I want to talk about Harry Potter today and there's a few reasons firstly there was recently another round of discussion about JK rowlings goblins in recent years there's

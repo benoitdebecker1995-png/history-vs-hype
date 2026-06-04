@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: TIKhistory
+Sub-tier: PEER 100K-500K
+Video title: An Open Letter to Prime Minister Keir Starmer (Southport)
+Video URL: https://www.youtube.com/watch?v=FvA9odna5dw
+View count: 979,363
+Outlier ratio (vs channel median): 8.7x
+Topic type: ideological
+Archetype (heuristic): specificity_bomb
+First spoken timestamp: 0.3s
+Content window: 0.3s — 30.3s
+
+---
+
+This is an open letter to my prime minister Kia Starmer of the United Kingdom. Mura Starmer, I am a historian and I come from a certain town in the north of England. You may have heard of it cuz it's Southport. I was shocked and dismayed to see the attack on the children of my hometown. And so concerned am I by your poor handling of this situation that I decided to make this video dedicated to calling out the fascist state of this country. Here are

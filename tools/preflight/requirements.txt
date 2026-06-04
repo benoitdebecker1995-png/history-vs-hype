@@ -1,0 +1,12 @@
+# Dependencies for the rendered-image / audio preflight gates.
+#
+# thumbnail_image_audit.py
+pillow            # REQUIRED — image load, resize, previews
+numpy             # REQUIRED — color/contrast/histogram (already vendored)
+requests          # REQUIRED — fetch competitor thumbs by video ID (already vendored)
+open_clip_torch   # OPTIONAL — CLIP SERP differentiation (best signal). Falls back
+                  # to an RGB-histogram proxy if absent. Needs torch (already vendored).
+#
+# audio_loudness.py
+#   ffmpeg  — REQUIRED, NOT a pip package. Install:  winget install Gyan.FFmpeg
+#   yt-dlp  — OPTIONAL, only to probe a competitor URL instead of a local file

@@ -1,0 +1,105 @@
+{
+  "timestamp": "2026-06-03T21:36:44.462991+00:00",
+  "moves": [
+    {
+      "from": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\57-piri-reis-map-ottoman-2026",
+      "to": "D:\\History vs Hype\\video-projects\\_READY_TO_FILM\\57-piri-reis-map-ottoman-2026"
+    },
+    {
+      "from": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\58-kurdistan-statelessness-2026",
+      "to": "D:\\History vs Hype\\video-projects\\_READY_TO_FILM\\58-kurdistan-statelessness-2026"
+    }
+  ],
+  "backups": [
+    {
+      "path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\57-piri-reis-map-ottoman-2026\\PROJECT-STATUS.md",
+      "pre_diff": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\57-piri-reis-map-ottoman-2026\\PROJECT-STATUS.md.pre-diff"
+    },
+    {
+      "path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\58-kurdistan-statelessness-2026\\PROJECT-STATUS.md",
+      "pre_diff": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\58-kurdistan-statelessness-2026\\PROJECT-STATUS.md.pre-diff"
+    },
+    {
+      "path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\59-israel-palestine-partition-offer-2026\\PROJECT-STATUS.md",
+      "pre_diff": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\59-israel-palestine-partition-offer-2026\\PROJECT-STATUS.md.pre-diff"
+    },
+    {
+      "path": "D:\\History vs Hype\\video-projects\\_READY_TO_FILM\\56-no-lassos-atlantic-slave-trade-origin-2026\\PROJECT-STATUS.md",
+      "pre_diff": "D:\\History vs Hype\\video-projects\\_READY_TO_FILM\\56-no-lassos-atlantic-slave-trade-origin-2026\\PROJECT-STATUS.md.pre-diff"
+    },
+    {
+      "path": "D:\\History vs Hype\\video-projects\\PROJECT_STATUS.md",
+      "pre_diff": "D:\\History vs Hype\\video-projects\\PROJECT_STATUS.md.pre-diff"
+    },
+    {
+      "path": "D:\\History vs Hype\\video-projects\\PROJECT_REGISTRY.md",
+      "pre_diff": "D:\\History vs Hype\\video-projects\\PROJECT_REGISTRY.md.pre-diff"
+    },
+    {
+      "path": "D:\\History vs Hype\\.brain\\index.md",
+      "pre_diff": "D:\\History vs Hype\\.brain\\index.md.pre-diff"
+    }
+  ],
+  "proposals": [
+    {
+      "kind": "move",
+      "folder": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\57-piri-reis-map-ottoman-2026",
+      "target_bucket": "_READY_TO_FILM",
+      "video_id": null,
+      "video_title": null,
+      "target_status": "FILMED",
+      "score": 0.0,
+      "confidence": "none"
+    },
+    {
+      "kind": "edit-auto-block",
+      "folder": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\57-piri-reis-map-ottoman-2026",
+      "target_bucket": "_READY_TO_FILM",
+      "video_id": null,
+      "video_title": null,
+      "target_status": "FILMED",
+      "score": 0.0,
+      "confidence": "low"
+    },
+    {
+      "kind": "move",
+      "folder": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\58-kurdistan-statelessness-2026",
+      "target_bucket": "_READY_TO_FILM",
+      "video_id": null,
+      "video_title": null,
+      "target_status": "SCRIPT_LOCKED",
+      "score": 0.0,
+      "confidence": "none"
+    },
+    {
+      "kind": "edit-auto-block",
+      "folder": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\58-kurdistan-statelessness-2026",
+      "target_bucket": "_READY_TO_FILM",
+      "video_id": null,
+      "video_title": null,
+      "target_status": "SCRIPT_LOCKED",
+      "score": 0.0,
+      "confidence": "low"
+    },
+    {
+      "kind": "edit-auto-block",
+      "folder": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\59-israel-palestine-partition-offer-2026",
+      "target_bucket": "_IN_PRODUCTION",
+      "video_id": null,
+      "video_title": null,
+      "target_status": "FACT_CHECKED",
+      "score": 0.0,
+      "confidence": "low"
+    },
+    {
+      "kind": "edit-auto-block",
+      "folder": "D:\\History vs Hype\\video-projects\\_READY_TO_FILM\\56-no-lassos-atlantic-slave-trade-origin-2026",
+      "target_bucket": "_READY_TO_FILM",
+      "video_id": null,
+      "video_title": null,
+      "target_status": "FILMED",
+      "score": 0.0,
+      "confidence": "low"
+    }
+  ]
+}

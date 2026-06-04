@@ -1,6 +1,6 @@
 ---
 description: Start new video project OR conduct topic research (Pre-production Phase 1)
-model: sonnet
+model: opus
 ---
 
 # /research - Pre-production Research Entry Point
@@ -474,6 +474,8 @@ Based on preliminary research and the brief's Academic Sources table, create:
 - Critical editions of primary sources
 - Budget is UNLIMITED - recommend best sources regardless of price
 
+**IGNORANT SWEEP — build this list BLIND to the library.** Recommend the best sources for the topic regardless of cost OR whether we already own them. Do NOT pre-filter to owned/free sources — that biases selection toward the shelf and defeats the breadth mandate (`memory/feedback-source-selection-breadth.md`, `feedback-choice-ignorant-rerun.md`). Ownership is resolved in Step 8.5, AFTER the ideal list exists.
+
 #### Provenance Check (per source)
 
 For each source in `00-NOTEBOOKLM-SOURCE-LIST.md`, record inline:
@@ -488,7 +490,26 @@ Example format:
 - Intent: Academic reassessment correcting Hapgood and Kahle errors
 ```
 
-**Note:** Notebook upload is user-driven. Claude surfaces the Stage B→C checklist; user confirms upload before Stage C begins.
+### Step 8.5: Library Intersection + Auto-Upload (owned-source check)
+
+Runs AFTER the ignorant sweep (Step 8). Resolves which swept sources we already own and seeds the topic notebook from them. The owned-source check is retrieval/routing, NOT a selection filter — it never changes what's on the list, only acquire-vs-upload (`memory/feedback-check-owned-library.md`).
+
+1. **Intersect** the sweep against the owned library at `library/by-topic/` (filenames are canonical `Title-Author-Year-Publisher.ext`, grep-friendly):
+   ```bash
+   cd "library/by-topic" && for term in <author-surnames + title-keywords from the sweep>; do
+     hits=$(find . -type f -iname "*${term}*"); [ -n "$hits" ] && { echo "### $term"; echo "$hits"; }; done
+   ```
+   Filter false positives by hand (same surname, wrong author/work). De-duplicate (one edition per work).
+2. **Tag each sweep entry** in `00-NOTEBOOKLM-SOURCE-LIST.md`: `[OWNED → uploaded: <path>]` or `[ACQUIRE: <access path>]`.
+3. **Auto-upload owned matches** to a fresh topic notebook:
+   - `mcp__notebooklm__notebook_create(title="#<N> <Topic> — <angle>")`
+   - For each owned file: `mcp__notebooklm__source_add(notebook_id, source_type="file", file_path=<abs path>, wait=True)`
+   - Free primary documents (the on-screen spine) go in the same pass as `source_type="url"`.
+   - Record the notebook UUID in `PROJECT-STATUS.md` Historian Stage State.
+   - If NLM auth is expired (`Authentication expired`), STOP and ask the user to run `nlm login` (interactive — Claude cannot run it); stage the upload list and resume on their confirm.
+4. **The `[ACQUIRE]` remainder** is the acquisition queue — only sources the sweep wants that we don't own.
+
+**Note:** Owned sources upload automatically (above). For the `[ACQUIRE]` remainder, Claude surfaces the Stage B→C checklist; user confirms acquisition/upload before Stage C begins.
 
 ### Stage B Lock
 

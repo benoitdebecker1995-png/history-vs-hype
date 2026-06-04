@@ -702,10 +702,25 @@ def generate_channel_insights_report(project_root: Path) -> Dict[str, Any]:
             f"— {signal}"
         )
 
-    # Traffic source analysis
-    traffic_lines = _build_traffic_section(db_path)
+    # Traffic source analysis (reads analytics.db, not keywords.db)
+    traffic_lines = _build_traffic_section()
     if traffic_lines:
         lines.extend(traffic_lines)
+
+    # Search-term coverage (analytics.db.search_terms)
+    search_lines = _build_search_terms_section()
+    if search_lines:
+        lines.extend(search_lines)
+
+    # Subscribed-vs-non-sub algorithm reach (analytics.db.subscribed_status)
+    sub_lines = _build_subscribed_status_section()
+    if sub_lines:
+        lines.extend(sub_lines)
+
+    # Retention dropout cliffs (analytics.db.retention_curves)
+    retention_lines = _build_retention_section()
+    if retention_lines:
+        lines.extend(retention_lines)
 
     lines.extend([
         '',
@@ -744,7 +759,7 @@ def generate_channel_insights_report(project_root: Path) -> Dict[str, Any]:
     }
 
 
-def _build_traffic_section(db_path: Path) -> List[str]:
+def _build_traffic_section() -> List[str]:
     """
     Build traffic source breakdown section from traffic_sources table.
 
@@ -752,7 +767,7 @@ def _build_traffic_section(db_path: Path) -> List[str]:
     """
     from tools.youtube_analytics.store import AnalyticsStore
     try:
-        with AnalyticsStore.open(db_path) as store:
+        with AnalyticsStore.open() as store:
             rows = store.traffic_totals_by_source()
 
         if not rows:
@@ -805,6 +820,166 @@ def _build_traffic_section(db_path: Path) -> List[str]:
 
     except Exception:
         return []
+
+
+def _build_search_terms_section() -> List[str]:
+    """
+    Build search-term coverage section from search_terms table.
+
+    Shows top 10 channel-wide queries + count of videos getting zero search
+    traffic (packaging signal).
+    """
+    from tools.youtube_analytics.store import AnalyticsStore
+    try:
+        with AnalyticsStore.open() as store:
+            top = store.top_search_terms(limit=10)
+            missing = store.videos_missing_search_traffic()
+    except Exception:
+        return []
+
+    if not top:
+        return []
+
+    lines = [
+        '',
+        '---',
+        '',
+        '## Search Terms Driving Traffic',
+        '',
+        f'Top 10 queries surfacing long-form videos. {len(missing)} video(s) '
+        'currently get zero search traffic — packaging or distribution miss.',
+        '',
+        '| Query | Views | Watch Time (hrs) | Videos |',
+        '|-------|-------|------------------|--------|',
+    ]
+    for r in top:
+        wtm_hrs = (r['total_watch_time_minutes'] or 0) / 60
+        lines.append(
+            f"| {r['term']} | {r['total_views']:,} | {wtm_hrs:.1f} | {r['video_count']} |"
+        )
+
+    if missing:
+        lines.extend(['', '**Zero-search videos** (top 5 by views):', ''])
+        for v in missing[:5]:
+            title_short = (v['title'] or '')[:60]
+            lines.append(f"- {title_short} — {v['views'] or 0:,} views")
+
+    return lines
+
+
+def _build_subscribed_status_section() -> List[str]:
+    """
+    Build subscribed-vs-non-sub algorithm-reach section.
+
+    Channel-wide non-sub %, top 5 most-amplified videos (high non-sub share),
+    bottom 5 sub-only videos (algorithm never pushed beyond audience).
+    """
+    from tools.youtube_analytics.store import AnalyticsStore
+    try:
+        with AnalyticsStore.open() as store:
+            rows = store.subscribed_status_by_video()
+    except Exception:
+        return []
+
+    if not rows:
+        return []
+
+    total_sub = sum(r['sub_views'] for r in rows)
+    total_nonsub = sum(r['nonsub_views'] for r in rows)
+    total = total_sub + total_nonsub
+    if total == 0:
+        return []
+    channel_nonsub_pct = (total_nonsub / total) * 100
+
+    # Only videos with at least 50 views — sub-status % is noise below that
+    qualifying = [r for r in rows if (r['views'] or 0) >= 50]
+    most_amplified = sorted(qualifying, key=lambda r: r['nonsub_pct'], reverse=True)[:5]
+
+    lines = [
+        '',
+        '---',
+        '',
+        '## Algorithm Reach (Sub vs Non-Sub)',
+        '',
+        f'Channel-wide: **{channel_nonsub_pct:.1f}% of views come from non-subscribers** '
+        '(algorithm push, not existing audience). Higher = better reach.',
+        '',
+        '**Most-amplified videos** (top 5 by non-sub share, min 50 views):',
+        '',
+        '| Video | Views | Non-Sub % | Sub Retention | Non-Sub Retention |',
+        '|-------|-------|-----------|---------------|-------------------|',
+    ]
+    for r in most_amplified:
+        title_short = (r['title'] or '')[:50]
+        sub_ret = f"{r['sub_avg_pct']:.1f}%" if r['sub_avg_pct'] else 'N/A'
+        nonsub_ret = f"{r['nonsub_avg_pct']:.1f}%" if r['nonsub_avg_pct'] else 'N/A'
+        lines.append(
+            f"| {title_short} | {r['views'] or 0:,} | {r['nonsub_pct']:.1f}% | "
+            f"{sub_ret} | {nonsub_ret} |"
+        )
+
+    return lines
+
+
+def _build_retention_section() -> List[str]:
+    """
+    Build retention section from retention_curves.
+
+    Channel-wide avg + final retention from the full curve, plus actionable
+    cliffs restricted to the first 80% of runtime (raw min is dominated by
+    natural end-of-video falloff and not actionable).
+    """
+    from tools.youtube_analytics.store import AnalyticsStore
+    try:
+        with AnalyticsStore.open() as store:
+            summary = store.retention_summary_by_video()
+            cliffs = store.retention_cliffs(max_ratio=0.80)
+    except Exception:
+        return []
+
+    if not summary:
+        return []
+
+    avg_ret_all = mean(r['avg_retention'] for r in summary if r['avg_retention'] is not None)
+    avg_final = mean(r['final_retention'] for r in summary if r['final_retention'] is not None)
+
+    # 50-view floor — cliff is noisy below that
+    actionable = [c for c in cliffs if (c['views'] or 0) >= 50]
+    steepest = actionable[:5]  # already sorted ascending by cliff_retention
+
+    lines = [
+        '',
+        '---',
+        '',
+        '## Retention Cliffs',
+        '',
+        f'Channel-wide: **{avg_ret_all * 100:.1f}% avg retention** across videos, '
+        f'**{avg_final * 100:.1f}% reaching the end** on average.',
+        '',
+        f'**Mid-video cliffs** (steepest drop in first 80% of runtime, min 50 views — '
+        f'excludes natural end-falloff). {len(actionable)} of {len(summary)} videos '
+        'have a cliff before 80% worth investigating:',
+        '',
+    ]
+
+    if not steepest:
+        lines.append('_No mid-video cliffs in qualifying videos — viewers leave steadily, not in one spot._')
+        return lines
+
+    lines.extend([
+        '| Video | Views | Cliff At | Retention at Cliff |',
+        '|-------|-------|----------|--------------------|',
+    ])
+    for r in steepest:
+        title_short = (r['title'] or '')[:50]
+        cliff_pos = (r['cliff_position'] or 0) * 100
+        cliff_bot = (r['cliff_retention'] or 0) * 100
+        lines.append(
+            f"| {title_short} | {r['views'] or 0:,} | "
+            f"{cliff_pos:.0f}% of runtime | {cliff_bot:.1f}% |"
+        )
+
+    return lines
 
 
 def _build_recommendations(
@@ -967,7 +1142,6 @@ def backfill_ctr_from_snapshots(project_root: Path) -> int:
                     UPDATE video_performance
                     SET ctr_percent = ?, impression_count = ?
                     WHERE video_id = ?
-                      AND (ctr_percent IS NULL OR ctr_percent = 0)
                     """,
                     (row[0], row[1], vid)
                 )

@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: CaspianReport
+Sub-tier: MEGA 1M+
+Video title: Pakistan, Afghanistan, and Iran heading to war?
+Video URL: https://www.youtube.com/watch?v=nVNBmK7a1y8
+View count: 1,877,901
+Outlier ratio (vs channel median): 3.2x
+Topic type: mechanism
+Archetype (heuristic): cold_fact
+First spoken timestamp: 0.6s
+Content window: 0.6s — 30.6s
+
+---
+
+this is where the Triad of Iran Afghanistan and Pakistan lies it is a region full of activity though often for the wrong reasons here communal life is broken International borders are breached daily and both militants and militaries Carry Out secret operations each looking for the next power grab in recent years the region has become even more violent and unstable exceeding its usual turmoil reciprocal skirmishes now

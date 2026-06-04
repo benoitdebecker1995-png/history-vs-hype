@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: Atun-Shei Films
+Sub-tier: PEER 100K-500K
+Video title: Indigenous Weapons and Tactics of King Philip's War
+Video URL: https://www.youtube.com/watch?v=VMXKXoA1_gQ
+View count: 659,914
+Outlier ratio (vs channel median): 4.8x
+Topic type: mechanism
+Archetype (heuristic): specificity_bomb
+First spoken timestamp: 0.8s
+Content window: 0.8s — 30.8s
+
+---
+
+for the tribes that fought these wars the Wampanoag as well as the neighboring communities of like the nip mock a lot of this history is is still really real modern Americans a lot of us are removed from these wars because it's so distant but for a lot of the communities it's it's not it's it's something that's still being perpetrated on them today I'm very much someone who believes in Partnership and believes in collaboration and believes in Sharing because that's the only way to peacefully coexist but I think for a lot of communities you know that land which

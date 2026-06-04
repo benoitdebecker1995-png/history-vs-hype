@@ -1,6 +1,9 @@
 # Thumbnail × Title — A/B/C Experiment (LOCKED)
 
-**Locked:** 2026-05-30
+> **UPDATE 2026-06-04 — Combos 1 & 2 are now Hancock SOLO (Rogan dropped).** The finished-cut Hancock clip (JRE 1284) shows **Hancock only** — Rogan never appears on screen. Keeping Rogan on the thumbnail would violate the thumbnail-mismatch rule (#7 / Cold-Open Coupling below): a face on the thumb must appear in the first 5–10s. Rogan's face is therefore cut from the thumbnails. No funnel loss (search term = "Graham Hancock"; Rogan was never in the titles), mobile legibility improves (one large face), and "on Joe Rogan" stays in the description text (the clip *is* JRE). Clip content is a bonus: Hancock himself invokes Piri Reis's source list on screen → "HE CITED COLUMBUS" pays off directly.
+> **Notebook-grounded (Thumbnail Inspiration `8d9e459b`, queried 2026-06-04):** (1) Rule of Three — two faces add a 4th/5th focal point → **−23% CTR / −42% first-3s retention**; one hero subject should hold 50–70% visual weight. (2) Mobile decode — face at 10% of frame ≪ 30–50% at 120–160px. (3) **Mismatch = the decisive factor** — a thumbnail face absent from the first 15–30s trips the Thumbnail-Content Alignment Paradox (Scenario C): CTR spike → bounce → **>80% channel-wide recommendation cut in weeks**; fails the Bridge Test. (4) The Three-Arrows pattern (debunk *target's* face) is the high-multiplier anchor — Hancock IS the target, so a single Hancock face is the correct anchor.
+
+**Locked:** 2026-05-30 (combo faces revised 2026-06-04)
 **Video:** Piri Reis Map debunk (#57). Brand/working title: *What the Piri Reis Map Actually Says* — but **3 titles are in test** (see combos).
 **Source:** Packaging Intelligence notebook (`98973069`) — title-agnostic + faces-direction runs, 2026-05-30.
 **Test format:** YouTube native — **3 thumbnail × 3 title COMBOS rotated together** (title+thumbnail paired, not thumbnail-only). See memory `youtube-ab-testing.md`.
@@ -28,16 +31,16 @@ Across all three, the map is treated as **evidence / a case file**, never a gene
 ---
 
 ## Combo 1 — THE DEBUNK (foil-named, max search funnel)
-- **Thumbnail:** Hancock + Rogan (desaturated) with the map between them in a manila folder labelled **"INSCRIPTION 6"** + paperclip.
-- **Overlay:** **"HE CITED COLUMBUS"** (17)
+- **Thumbnail:** Hancock **solo** (desaturated; Rogan dropped 2026-06-04 — clip is Hancock-only) with the map in a manila folder labelled **"INSCRIPTION 6"** + paperclip.
+- **Overlay:** **"CITES COLUMBUS"** (13) — *was "HE CITED COLUMBUS" (17); tightened 2026-06-04 toward the 12-char rule. Keeps the proper-noun hook; forensic (states what the parchment does, not a verdict).*
 - **Title:** **What Graham Hancock Gets Wrong About the Piri Reis Map** (54 chars; declarative; title_scorer 65/C)
 - **Operation:** MECHANISM REFRAME (reveal). Outlier ev: Kraut *"Ni Hao"* 7.8x; Lindybeige *"…with BONE"* 4.1x. Face+claim anchor: JD Vance 9.46% CTR (Three Arrows partial-transfer).
 - **Tests:** both search terms in title text (Hancock + Piri Reis Map) + falsifiable-claim conflict + the Columbus reveal. Highest search-funnel bet.
 - **Differentiates from:** Digital Explorer *"AI… SHOCKING"* (84K) — the mapmaker wrote his own citations; no AI needed.
 
-## Combo 2 — THE DEFLATION (sell the hype, puncture it)
-- **Thumbnail:** Hancock + Rogan + map-folder (same dossier DNA).
-- **Overlay:** **"JUST A BIBLIOGRAPHY"** (19) — *already critic-validated 7/8 (2026-05-28).*
+## Combo 2 — READ-IT (sell the hype in the title, open the gap in the overlay)
+- **Thumbnail:** Hancock **solo** + map-folder (same dossier DNA; Rogan dropped 2026-06-04 — clip is Hancock-only).
+- **Overlay:** **"NOBODY READ IT"** (12) — *replaced "JUST A BIBLIOGRAPHY" 2026-06-04 (user: deflation reads clickbaity, off-brand for a read-the-document video; verdict-class per the gap rule, see [[feedback-thumbnail-process]]). Opens a gap (read what?) + tension under the "Lost Civilization Map" title — if nobody read it, how do they know what it is?*
 - **Title:** **Graham Hancock's Lost Civilization Map** (title_scorer 70/B)
 - **Operation:** DOSSIER METAPHOR / COMPRESSION. Outlier ev: PolyMatter *"What Putin Fears More Than War"* 6.9x; Knowing Better *"Neoslavery"* 7.7x.
 - **Tests:** the contrast — title *sells* the mystery, overlay calls it homework. Deflation hook.
@@ -45,7 +48,7 @@ Across all three, the map is treated as **evidence / a case file**, never a gene
 
 ## Combo 3 — THE FORENSIC (calm, faceless control, brand-pure)
 - **Thumbnail:** Document-only dossier — **no faces** (inscription 6 + translation card + red stamp).
-- **Overlay:** **"JUST A BIBLIOGRAPHY"** (19) — 7/8.
+- **Overlay:** **"READ THE CORNER"** (13) — *replaced "JUST A BIBLIOGRAPHY" 2026-06-04 (see Combo 2). Points straight at inscription 6, literally "tucked in the corner" (cold open); pairs with the faceless doc + "What the Map Actually Says" title.*
 - **Title:** **What the Piri Reis Map Actually Says** (brand-default; gut-locked earlier; title_scorer 65/C)
 - **Operation:** DOSSIER METAPHOR / COMPRESSION (same outlier ev as Combo 2).
 - **Tests:** the calm, brand-safe, faceless package as the control.
@@ -57,17 +60,42 @@ Across all three, the map is treated as **evidence / a case file**, never a gene
 
 ## COLD-OPEN COUPLING (carry to /prep + editing — critical)
 Per the notebook's thumbnail-mismatch finding (#7: first 5s must fulfil the thumbnail promise, or eat the ~16.7% intro bounce):
-- **Combos 1 & 2 (faces):** the Hancock + Rogan / Lex clip must appear as **B-roll in the first 5–10 seconds**, visually, while the locked VO runs the inscription line. **Do NOT rewrite the locked cold open** — this is a B-roll/edit layer fix. (This *flips* the old "open on inscription, not the Hancock clip" rule, which was written for a faceless thumbnail.)
+- **Combos 1 & 2 (faces):** the **Hancock-only JRE 1284 clip** appears as B-roll in the first ~14s (0:26–0:40 in the finished cut) — satisfies the rule. (Thumbnail is now Hancock solo to match; Rogan dropped 2026-06-04.) **Do NOT rewrite the locked cold open** — this is a B-roll/edit layer fix. (This *flips* the old "open on inscription, not the Hancock clip" rule, which was written for a faceless thumbnail.)
 - **Combo 3 (document):** already aligned — the locked cold open opens on inscription 6, which is the thumbnail. No change.
 - Either way, the **map/inscription** is on screen in the first 5s (shared anchor across all three).
 
 ---
 
+## BUILD SPEC — notebook-grounded (Thumbnail Inspiration `8d9e459b`, queried 2026-06-04)
+Concrete, buildable values for the render. Rubric est. **~90/100** (40 evidence + 20 text + 20 composition + 10 tension). The **2-second comprehension test at 160×90px overrides point scoring** — must pass before ship.
+
+**Layout (Combos 1 & 2, faces):**
+- Hancock face at the **top-left rule-of-thirds intersection**, tight crop, **30–50% of frame**. Document (inscription 6) fills the **center + right two-thirds**, carrying **50–70% of visual weight**.
+- **Gaze vector:** turn Hancock's eyes toward the inscription / red stamp — his gaze guides the eye to the evidence. (Don't have him face camera.)
+- Overlay text lower-left or across the lower third; **keep everything ≥40–60px from edges and OUT of the bottom-right** (duration badge).
+- Exactly **3 elements: face + document + stamp/text.** A 4th element = overcrowding = −23% CTR.
+- **Combo 3 (faceless):** document centered, translation card + red stamp as the two supporting elements, overlay lower third.
+
+**Face treatment:** somber/serious expression (+7; "documentary gravitas" — sad/serious faces over-index at 2.3M avg views), desaturated, real photo (authenticity > polish).
+
+**Document treatment:** macro high-contrast scan; push **Clarity/Structure** so the script texture feels physical; **Blur & Pop** — inscription 6 razor-sharp, map edges slightly blurred for depth; translation card paperclipped to the **top edge**, layered (letters/edges overlapping for 3D, not side-by-side).
+
+**Color (channel palette):** charcoal/dark-navy bg **#1C2022** + warm parchment tones; **vibrant red #FF0000** "TRANSCRIPT" stamp angled across the inscription (alert/error-curiosity trigger); **subtle yellow glow** isolating the source words that name Columbus (+8 focal point).
+
+**Typography:** Impact / Oswald / Bebas Neue, **ALL CAPS** (+3), white with **4–8px dark stroke** (or on a red/yellow block), **≥4.5:1 contrast**.
+
+**#1 mistake that tanks this thumb:** overcrowding (a 4th competing element). **Squint test (160×90):** must read (1) serious face, (2) ancient document, (3) red stamp/bold word. Any blur → scale that element up.
+
+> **✅ 12-CHAR + REGISTER RESOLVED (2026-06-04):** Final overlays at 12–13 chars (near-limit; gated by the 2-sec comprehension test — all high-recognition words): Combo 1 **"CITES COLUMBUS"** (13), Combo 2 **"NOBODY READ IT"** (12), Combo 3 **"READ THE CORNER"** (13). The deflation register ("JUST A BIBLIOGRAPHY") was dropped as verdict-class/clickbait — clashes with the read-the-document ethos (user call). All three now *open a gap / point at the document* per the overlay rule in [[feedback-thumbnail-process]].
+
+---
+
 ## Factual grounding (historian check — all overlays clean)
-- **"HE CITED COLUMBUS"** — inscription 5/6 name a Columbus map as a source (Claim 2). ✓
-- **"JUST A BIBLIOGRAPHY"** / source-list framing — inscription 6 is the source list (Claim 1/6). ✓
+- **"CITES COLUMBUS"** (Combo 1) — inscription 5/6 name a Columbus map as a source (Claim 2). Document-action statement, not a verdict. ✓
+- **"NOBODY READ IT"** (Combo 2) — the map's central thesis: untranslated/neglected for ~400 years (Claim 13/14); matches the script's own bookend "we just didn't read it." (Scholars read it from Kahle 1933 — the overlay = popular/centuries-long neglect, consistent with the script.) ✓
+- **"READ THE CORNER"** (Combo 3) — instruction pointing to inscription 6, literally "tucked in the corner" (cold open). ✓
 - **"Lost Civilization Map"** (title) — states the *claim being debunked*, not a channel assertion; the video refutes it. ✓
-No thumbnail or title over-claims.
+No thumbnail or title over-claims; no verdict overlays.
 
 ---
 

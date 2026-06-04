@@ -1,0 +1,16 @@
+# OUTLIER OPENER — first 30 seconds spoken content
+
+Channel: Shaun
+Sub-tier: MEGA 1M+
+Video title: Dropping the Bomb: Hiroshima & Nagasaki
+Video URL: https://www.youtube.com/watch?v=RCRTgtpC-Go
+View count: 3,407,519
+Outlier ratio (vs channel median): 3.1x
+Topic type: ideological
+Archetype (heuristic): specificity_bomb
+First spoken timestamp: 0.3s
+Content window: 0.3s — 30.3s
+
+---
+
+hello everyone today we're going to be talking about the atomic bombings of hiroshima and nagasaki during the second world war and let's start today by telling a story so at the conclusion to the second world war japan though their military forces had been soundly defeated stubbornly refused to negotiate an end to the conflict their militaristic leaders had committed to total war in defense of the japanese empire and were prepared to mobilize japanese civilians to combat any potential american invasion

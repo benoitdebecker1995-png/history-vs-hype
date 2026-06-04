@@ -1,6 +1,6 @@
 ---
 description: Mine YouTube competitor comments to measure audience demand for thesis angles
-model: sonnet
+model: opus
 ---
 
 # /comment-mine — YouTube Comment Mining

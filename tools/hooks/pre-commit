@@ -1,0 +1,43 @@
+#!/bin/sh
+# secret-guard pre-commit hook
+# Blocks commits that stage credential files or private-key material.
+# Tracked copy lives here; install with: tools/hooks/install.sh
+# Origin: 2026-06-03 — gitignore had a dead hyphen path (youtube-analytics vs
+# youtube_analytics), leaving a token.json directly in the module committable.
+# This is the backstop so a stray OAuth export never reaches git history.
+#
+# Override (use only when you are SURE the match is a false positive):
+#   git commit --no-verify
+
+# Staged, added/copied/modified files only (skip deletions).
+STAGED=$(git diff --cached --name-only --diff-filter=ACM)
+[ -z "$STAGED" ] && exit 0
+
+BLOCKED=""
+
+# --- 1. Filename patterns (the real risk: a credential file gets staged) ---
+FILENAME_RE='(token\.json$|[-_]token\.json$|client_secret.*\.json$|.*oauth.*\.json$|service-account.*\.json$|credentials\.json$|secrets\.json$|\.(pem|key|p12|pfx)$|(^|/)\.env$)'
+for f in $STAGED; do
+    if printf '%s\n' "$f" | grep -qiE "$FILENAME_RE"; then
+        BLOCKED="${BLOCKED}  [filename] $f\n"
+    fi
+done
+
+# --- 2. Content scan: private-key blocks in ADDED lines only (low false-positive) ---
+# Look at staged additions across text files; binary diffs are skipped by git.
+KEYHITS=$(git diff --cached -U0 --diff-filter=ACM | grep -nE '^\+.*BEGIN [A-Z ]*PRIVATE KEY' || true)
+if [ -n "$KEYHITS" ]; then
+    BLOCKED="${BLOCKED}  [content] private-key block in a staged addition\n"
+fi
+
+if [ -n "$BLOCKED" ]; then
+    printf '\n\033[31mCOMMIT BLOCKED — secret-guard\033[0m\n' 2>/dev/null || printf '\nCOMMIT BLOCKED — secret-guard\n'
+    printf 'These staged items look like credentials and must not enter git history:\n\n'
+    printf "$BLOCKED"
+    printf '\nUnstage them:   git restore --staged <file>\n'
+    printf 'If a real secret already committed, ROTATE it — git history is forever.\n'
+    printf 'Override (only if certain it is a false positive):  git commit --no-verify\n\n'
+    exit 1
+fi
+
+exit 0
