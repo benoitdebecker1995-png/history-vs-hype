@@ -1,7 +1,9 @@
 <!-- AUTO:reconcile — do not edit manually, regenerated each run -->
 Status: FILMED
-Lifecycle: _READY_TO_FILM
-Last reconciled: 2026-06-03
+Lifecycle: _ARCHIVED/published
+Video ID: aSfZtrgGjwA
+Published: 2026-05-28
+Last reconciled: 2026-06-08
 <!-- /AUTO:reconcile -->
 
 # Project Status — #56 "Africans Sold Their Own" — Counter via the Buyer's Own Documents

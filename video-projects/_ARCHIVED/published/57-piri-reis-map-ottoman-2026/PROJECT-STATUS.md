@@ -1,7 +1,9 @@
 <!-- AUTO:reconcile — do not edit manually, regenerated each run -->
 Status: FILMED
-Lifecycle: _READY_TO_FILM
-Last reconciled: 2026-06-03
+Lifecycle: _ARCHIVED/published
+Video ID: zt7VntgauC8
+Published: 2026-06-04
+Last reconciled: 2026-06-08
 <!-- /AUTO:reconcile -->
 
 <!-- AUTO:reconcile -->

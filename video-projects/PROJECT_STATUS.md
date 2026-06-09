@@ -1,13 +1,13 @@
 <!-- AUTO:reconcile-dashboard — regenerated each run, do not edit -->
-Last reconciled: 2026-06-03
+Last reconciled: 2026-06-08
 
 ## Lifecycle counts
 
 | Bucket | Count |
 |---|---|
 | `_IN_PRODUCTION/` (pre-script / scripting / fact-check) | 1 |
-| `_READY_TO_FILM/` (script-locked / filmed / in-post, pre-publish) | 4 |
-| `_ARCHIVED/published/` (YouTube confirmed) | 30 |
+| `_READY_TO_FILM/` (script-locked / filmed / in-post, pre-publish) | 2 |
+| `_ARCHIVED/published/` (YouTube confirmed) | 32 |
 
 ## In production
 
@@ -20,14 +20,14 @@ Last reconciled: 2026-06-03
 | Folder | Phase |
 |---|---|
 | `1-sykes-picot-2025` | filmed |
-| `56-no-lassos-atlantic-slave-trade-origin-2026` | filmed |
-| `57-piri-reis-map-ottoman-2026` | filmed |
-| `58-kurdistan-statelessness-2026` | filming-ready |
+| `58-kurdistan-statelessness-2026` | fact-checked |
 
 ## Recently published (last 60 days)
 
 | Published | Folder | Video ID | Title |
 |---|---|---|---|
+| 2026-06-04 | `57-piri-reis-map-ottoman-2026` | `zt7VntgauC8` | The Piri Reis Map Cites Columbus. Hancock Calls It 12,000 Ye |
+| 2026-05-28 | `56-no-lassos-atlantic-slave-trade-origin-2026` | `aSfZtrgGjwA` | Yes Slavery Existed In Africa. Then Europe Took Over |
 | 2026-05-20 | `52-hijab-women-rights-2026` | `mCR5f_ZcB5k` | The Hijab Wasn't Modesty. It Was a Property Law |
 | 2026-05-14 | `54-spanish-inquisition-torture-rules-2026` | `rbsdtveYvv0` | The Spanish Inquisition Documented Its Torture Methods. Most |
 | 2026-05-08 | `45-manhattan-purchase-myth-2026` | `mg6ujk6rDVE` | The Lenape Never Sold Manhattan. Every Piece Was Forged |
@@ -35,12 +35,14 @@ Last reconciled: 2026-06-03
 | 2026-04-16 | `44-bakassi-peninsula-2026` | `MXvTuHXSf3o` | Nigeria vs Cameroon. The Court Chose Paper Over People |
 | 2026-04-11 | `50-thermopylae-sources-2026` | `yetYD9_VcmM` | The Myths of Thermopylae: Fake Quotes & Missing Soldiers |
 
-## All archived (30 folders)
+## All archived (32 folders)
 
 _Full list in `_ARCHIVED/published/`. Reverse-chronological by publish date below._
 
 | Published | Folder | Video ID |
 |---|---|---|
+| 2026-06-04 | `57-piri-reis-map-ottoman-2026` | `zt7VntgauC8` |
+| 2026-05-28 | `56-no-lassos-atlantic-slave-trade-origin-2026` | `aSfZtrgGjwA` |
 | 2026-05-20 | `52-hijab-women-rights-2026` | `mCR5f_ZcB5k` |
 | 2026-05-14 | `54-spanish-inquisition-torture-rules-2026` | `rbsdtveYvv0` |
 | 2026-05-08 | `45-manhattan-purchase-myth-2026` | `mg6ujk6rDVE` |

@@ -64,10 +64,8 @@
 
 | Topic | Lifecycle | Phase | Last Touched |
 |-------|-----------|-------|--------------|
-| `56-no-lassos-atlantic-slave-trade-origin-2026` | `_READY_TO_FILM` | filmed | 2026-06-03 |
-| `59-israel-palestine-partition-offer-2026` | `_IN_PRODUCTION` | fact-checked | 2026-06-03 |
-| `58-kurdistan-statelessness-2026` | `_READY_TO_FILM` | filming-ready | 2026-06-03 |
-| `57-piri-reis-map-ottoman-2026` | `_READY_TO_FILM` | filmed | 2026-06-03 |
+| `59-israel-palestine-partition-offer-2026` | `_IN_PRODUCTION` | fact-checked | 2026-06-08 |
+| `58-kurdistan-statelessness-2026` | `_READY_TO_FILM` | fact-checked | 2026-06-07 |
 | `1-sykes-picot-2025` | `_READY_TO_FILM` | filmed | 2026-05-11 |
 
 ---
