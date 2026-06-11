@@ -7,9 +7,15 @@
 
 ---
 
+## Identity guard (recalibrated 2026-06-11, user directive)
+
+The channel is **method-first**: history through primary sources, showing how history is done (positioning set in the intro video, yt:yMAWJcjo_ug). Everything below is packaging tactics WITHIN that identity. No hypothesis may push the channel toward regional positioning ("the Belize/Latin-America channel") or stakes-first geopolitics framing (RealLifeLore lane = anti-voice). Demand pockets are raids; the brand is the method.
+
 ## The causal story these hypotheses test
 
-Forensics say the 3 breakouts shared: (1) a live contemporary hook at publish, (2) country-name head terms with search volume, (3) bilateral-conflict existential stakes in the title, (4) — for B2 — being a sequel to a proven winner. No current packaging rule captured any of these. Meanwhile the title construction rules (colon/year/pattern) explain almost none of the variance: the scorer REJECTED the #1 and #3 videos and gave 100/A to videos that died at 228 views.
+Forensics say the 3 breakouts shared: (1) a live contemporary hook at publish, (2) country-name head terms with search volume, (3) bilateral-conflict existential stakes in the title. No current packaging rule captured any of these. Meanwhile the title construction rules (colon/year/pattern) explain almost none of the variance: the scorer REJECTED the #1 and #3 videos and gave 100/A to videos that died at 228 views.
+
+**B1 reinterpretation (2026-06-11):** Studio geography (user-verified) shows B1's audience was largely Belize-national. The breakout was an **underserved demand pocket** — a real English-speaking audience with near-zero quality English coverage of an active dispute — not franchise equity. B2 (+5 weeks, inside B1's push window) inherited the push; the Sapodilla Cayes sequel (`sXadwOj8VoA`, 2026-03-30, same project folder) got 47 views with only 7 subscriber/browse views despite 41.5% avg watch. Pocket audiences are topic-bound and decay with the push.
 
 ---
 
@@ -30,22 +36,22 @@ Forensics say the 3 breakouts shared: (1) a live contemporary hook at publish, (
 **Confirm:** ≥2 of 5 uploads hit ≥4%.
 **Kill:** <2.5% on 2 consecutive uploads despite country-anchored packaging → the problem is upstream (topic selection), revisit H1/H4.
 
-## H3 — Sequel inheritance: feed the proven audience
+## H3 — Underserved demand pocket (REPLACES sequel-inheritance, which is KILLED)
 
-**Claim:** A follow-up to the channel's one proven franchise (Guatemala–Belize / Essequibo / Latin-American territorial) inherits distribution from the breakout cluster.
-**Evidence for:** B2 (ICJ follow-up) did 5,355 views — 59x channel median — published 5 weeks after B1, 69% via the same browse/subscriber channel + 16% related-video. The channel gained 198 subs from B1+B2 and has published ZERO Latin-America territorial videos since 2025-12-04.
-**Test:** One of the next 5 uploads = Guatemala-Belize ICJ update or Essequibo development (both disputes remain active; check news_hook_monitor first).
-**Confirm:** ≥1,000 views in 28 days (≥10x median).
-**Kill:** <300 views in 28 days.
-**Note:** This is the highest-expected-value single action available. It tests cheap and fast.
+**Killed predecessor (2026-06-11):** "Sequel inheritance" was already tested before this doc existed and failed: the Sapodilla Cayes follow-up (`sXadwOj8VoA`, 2026-03-30) — a direct continuation of the B1/B2 Guatemala–Belize franchise — did 47 views, 0 subs, 7 subscriber/browse views, despite top-decile retention (41.5% avg watch). B2's 5,355 came from publishing INSIDE B1's active push window, not from durable audience equity. Honest caveat: the Sapodilla title never named Belize or Sapodilla ("Honduras Called These Islands…"), so the pocket was never signaled — the kill is strong but not airtight. Either way, no more Guatemala–Belize sequels as a strategy bet; the user is not building a Belize channel.
 
-## H4 — Country-stakes framing beats document-forensic framing in titles
+**Replacement claim:** Topics with (a) a real English-speaking national/diaspora audience, (b) near-zero quality English coverage on the SERP, and (c) an active dispute/news cycle get disproportionate impression tests. This is what B1 actually validated. These are **raids — one per region, method-first framing** — never repositioning.
+**Test:** One of the next 5 uploads targets a verified pocket. Pocket checklist at greenlight: SERP scan shows no quality English explainer + active local news cycle or VidIQ volume + passes channel-DNA test ("primary sources on screen, matters in 10 years").
+**Confirm:** ≥3x median first-28-day impressions vs the channel's recent uploads.
+**Kill:** <1.5x — pocket theory adds nothing over plain H1 topicality.
 
-**Claim:** Titles that lead with country + existential stakes outperform titles that lead with the document/artifact/myth — even for the same video.
-**Evidence for:** Breakouts: "The Country That Might Disappear", "The Oil War Over Essequibo". Stalls: "The Lenape Never Sold Manhattan" (0% CTR on 101 imp), "Treaty of Tripoli:…" (37 views), "Britain Expelled 2,000 Islanders. The Memo Proves It" (29 views). The channel's identity drifted into document-marquee titles; the doc should be the in-video payoff, not the title's subject.
-**Test:** Native A/B (3 title+thumbnail combos, uploaded together per standing practice) on ≥2 of the next 5 uploads: at least one country-stakes arm vs one document-forensic arm, same thumbnail family.
-**Confirm:** country-stakes arm wins the impressions×CTR composite in ≥2 of 3 tests.
-**Kill:** document arm wins ≥2 of 3.
+## H4 — Searched-anchor-first beats document-first in titles (reframed 2026-06-11)
+
+**Claim:** Titles that front-load the SEARCHED subject (the country/conflict/figure people actually type) outperform titles that front-load the document/artifact/obscure entity — for the same video. The evidence reveal stays as the second punch ("…The Documents Disagree"), which is the method-first identity doing the clicking work, not stakes-vaporware.
+**Evidence for:** Stalls front-load zero-volume terms: "The Lenape Never Sold Manhattan" (0% CTR on 101 imp), "Treaty of Tripoli:…" (37 views), "Britain Expelled 2,000 Islanders. The Memo Proves It" (29 views). Breakouts front-load searched subjects. NOT a license for geopolitics-stakes framing (anti-voice); the anchor names the subject, the second sentence promises the evidence.
+**Test:** Native A/B (3 title+thumbnail combos, uploaded together) on ≥2 of the next 5 uploads: searched-anchor-first arm vs document-first arm, same thumbnail family.
+**Confirm:** anchor-first arm wins the impressions×CTR composite in ≥2 of 3 tests.
+**Kill:** document-first arm wins ≥2 of 3 — then the method-marquee IS the brand draw and V2 gets softened.
 
 ## H5 — Colon reintroduction (retire the hard reject permanently)
 
@@ -63,7 +69,8 @@ Forensics say the 3 breakouts shared: (1) a live contemporary hook at publish, (
 |---|---|---|---|---|
 | #58 Kurdistan | (pending) | H2 (CTR ≥4% target), H1-tag: EVERGREEN | A/B already locked | — |
 | #59 I/P partition pilot | (pending) | H1-tag: HOOK, H2, H4 candidate | — | — |
-| (H3 sequel slot) | — | H3 + H1-tag: HOOK | — | — |
+| (H3 pocket slot) | — | H3 demand-pocket raid + H1-tag: HOOK | — | — |
+| sXadwOj8VoA Sapodilla | 2026-03-30 | (retro) sequel-inheritance | n/a | KILLED — 47 views, 7 sub/browse views, 41.5% watch |
 | — | — | — | — | — |
 | — | — | — | — | — |
 

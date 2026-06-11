@@ -23,6 +23,10 @@ Breakouts held 34–39% avg watch; the channel median is 28.1%. Governed by scri
 
 **Traffic reinterpretation (HIGH confidence, arithmetic + API taxonomy):** The "73% of views from subscribers" finding (2026-03-21) misread the Analytics API. The SUBSCRIBER bucket includes home-page feed views. B1 Guatemala logged 23,741 "SUBSCRIBER" views on a ~515-sub channel — impossible as subscriber loyalty. The channel's #1 video was a **homepage algorithmic breakout**. Implication: this channel CAN win Browse pushes; they go to topical, country-anchored, high-test-CTR packaging. `channel-data/patterns/TRAFFIC-SOURCE-ANALYSIS.md` conclusions should be re-read through this lens.
 
+**B1 pocket caveat (2026-06-11, user-verified Studio geography):** B1's audience was largely Belize-national — an underserved demand pocket (real audience, zero quality English coverage), not transferable franchise equity. The Sapodilla Cayes sequel (`sXadwOj8VoA`, 2026-03-30) proved it: 47 views, 7 subscriber/browse views, despite 41.5% avg watch. Pocket subscribers are topic-bound. Pockets are RAIDS (see BREAKOUT-HYPOTHESES H3); the channel's positioning stays method-first.
+
+**Identity guard (overrides all packaging tactics):** The channel is "history through primary sources — showing how history is done" (intro video yt:yMAWJcjo_ug). Any packaging optimization that requires regional positioning or stakes-first geopolitics framing is out of bounds, whatever the data says. Topic selection passes identity first, demand second.
+
 ---
 
 ## TIER 1 — VALIDATED (publication gates)
@@ -35,7 +39,7 @@ Breakouts held 34–39% avg watch; the channel median is 28.1%. Governed by scri
 ### V2: Search-anchored head term
 - A country/region/entity head term with real search volume must appear in the first ~40 characters of the title.
 - Evidence: all 4 breakouts front-load country names ("Guatemala vs Belize", "Venezuela vs Guyana", "Turkey Claims 152 Greek Islands", "JD Vance"). The stall cohort is dominated by document/myth-first titles with zero-volume head terms ("The Lenape…", "Treaty of Tripoli:…", "38 Dead Over 4.6 Square Kilometers"). Confirms feedback-starting-channel-search-anchored (515 subs = every title needs a keyword anchor).
-- Channel-DNA note: the document-forensic identity stays **in the video** (doc on screen). The TITLE leads with country stakes; the document is the payoff, not the marquee.
+- Channel-DNA note: the document-forensic identity stays **in the video** (doc on screen). The title front-loads the searched subject; the primary-source reveal is the second punch ("…The Documents Disagree"). NOT stakes-first geopolitics framing — that's the RealLifeLore lane (anti-voice).
 
 ### V3: Declarative two-punch as default pattern
 - Statement + evidence promise, two sentences. n=19 own-channel (largest sample, 3.8% avg CTR) + niche-wide two-sentence outlier rate 5.3x (n=9 outliers).
