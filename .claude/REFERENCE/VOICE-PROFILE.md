@@ -433,6 +433,8 @@ Counts: **A = 0 · C ≈ 5 · B1 ≈ 9 · B2 ≈ 15.** The locked scripts out-AI
 
 **Budget rule:** the correction-pair is EARNED only where the negated claim is *live* — the named myth at the turn (Rule 3 negation), or a misreading the viewer actually holds ("it isn't a tribe — it's a state running itself" earns it; the "too divided" myth is live). It is UNEARNED when it negates a phantom nobody claimed ("wasn't a fluke," "wasn't managing a booming market"). **Cap: ~3-4 earned pairs per script, never two in adjacent paragraphs.** Unearned ones: state the reality directly and cut the phantom negation.
 
+> ✅ **READ-ALOUD VALIDATED (T1 gate, 2026-06-11 live pick).** Single-variable spot-check on the #58 "wasn't a fluke" line: he picked the phantom-negation-removed rewrite ("And that betrayal was the oldest weakness the Kurds had, showing up again — rival tribes…") over the locked original. The budget rule is a live pick, not just corpus-derived — canon.
+
 ### T2 — Escalating aphorism pairs (same verdict, upgraded metaphor)
 
 B2: "The Pope didn't license a market. He licensed a conquest." → 30 lines later → "The Pope didn't just bless a market. He chartered an industry." Re-landing one verdict with a shinier noun is a pure Claude compounding move; A = 0, C does it with "made and then unmade." **Rule: one verdict per document/beat. If a later beat needs the same verdict, reference it plainly ("that's the same license at work"), don't re-mint it.**
