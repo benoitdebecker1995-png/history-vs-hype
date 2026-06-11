@@ -48,26 +48,31 @@ All consolidated into WRITING-VOICE-AND-STYLE.md (2026-05-02).
 4. **`channel-data/patterns/TOPIC-ANALYSIS.md`** - Actual channel retention/CTR data by topic type
 5. **`channel-data/patterns/TITLE-PATTERNS.md`** - Title pattern CTR data (versus=5.5%, colon=2.6%)
 
-### DATA-BACKED RETENTION CONSTRAINTS (HARD CHECKS)
+### DATA-BACKED RETENTION CONSTRAINTS (RE-TIERED v17 — Fable Phase 3, 2026-06-11)
 
-**These three constraints are validated across 46 videos. Check ALL THREE for every script.**
+**Severity now follows evidence tier: VALIDATED rules check HARD (CRITICAL/BLOCK); HEDGE rules check SOFT (WARNING/SUGGESTION/INFO). Full adjudication: `channel-data/fable-digests/PHASE-3-RETENTION-ADJUDICATION.md`.**
 
-**Retention by hook type (cross-validated 2026-03-24, n=40):** myth_contradiction (**36.7%**) > contextual_opening (32.0%) > cold_fact (29.4%) > specificity_bomb (28.5%) > question (27.7%) > curiosity-gap (24.6%)
-**Retention by topic:** ideological (30.3%) > territorial (28.5%) > general (26.4%) > colonial (22.4%)
-**Retention by duration (UPDATED 2026-03-29, n=47):** 3-8m (30.3%) > 8-12m (29.6%, SWEET SPOT — best views+retention) > 12-20m (24.7%) > 20+m (17.8%). Correlation: r=-0.455. **HARD CAP: 12 minutes unless Belize-level demand.**
-**Retention by structure:** Myth-first (30.3%) >> Chronological colonial (22.4%). Gap = 8pp.
+**Retention by hook type (HEDGE — per-cell n too small: 36.7% is n=4):** myth_contradiction (36.7%, n=4) > contextual_opening (32.0%, n=15) > cold_fact (29.4%, n=19) > specificity_bomb (28.5%, n=2) > question (27.7%) > curiosity-gap (24.6%). Direction usable; percentages not citable as validated.
+**Retention by topic (HEDGE, n<30 per cell):** ideological (30.3%) > territorial (28.5%) > general (26.4%) > colonial (22.4%)
+**Retention by duration (VALIDATED — n=47, D3-corroborated):** 3-8m (30.3%) > 8-12m (29.6%, SWEET SPOT) > 12-20m (24.7%) > 20+m (17.8%). Correlation: r=-0.455. The 3 over-cap videos in the D3 top-15 rank 3rd/13th/15th worst. **HARD CAP: 12 minutes unless Belize-level demand.**
+**Retention by structure (RETIRED AS DATA):** the old "Myth-first 30.3% vs chronological 22.4%" gap reuses the topic table's numbers — structure⊗topic confound; cannot separate. Myth-first stays the default on niche-corpus support only.
+**Early-zone personal-authority (VALIDATED-directional — the one new hard-ish finding):** personal_authority content in the first ~13% carries avg delta −0.051 (n=88 points) vs −0.0001 mid-video (n=10). See Constraint BE.
 
-**CONSTRAINT A: First Evidence by 0:90 (HARD RULE)**
-The first attributed academic quote (author name + source + exact words) MUST appear before
-90 seconds. Videos that delay past ~90 seconds lose 15-25% of viewers at the 2-4% mark
-and never recover. Scan the script and identify where the first real quote with attribution
-lands. If after 0:90, flag as CRITICAL.
+**CONSTRAINT A: First Evidence by 0:90 (HEDGE — demoted v17)**
+The first attributed academic quote (author name + source + exact words) should appear before
+90 seconds. **Evidence reframed (v17):** ALL 15 D3 videos lose 13-25%+ at the 2-4% mark
+regardless of content — the old "delay loses 15-25% and never recovers" claim conflated the
+universal hemorrhage with a rule-violation penalty. Early evidence stays the channel-identity
+default. Scan the script and identify where the first real quote with attribution lands.
+If after 0:90, flag as WARNING (was CRITICAL).
 
-**CONSTRAINT B: The Hook-to-Body Transition Bridge**
-The 2-4% mark of every video is where 13-25% of viewers leave. After the hook's payoff
-preview, there MUST be an explicit transition bridge — a sentence that simultaneously closes
-the hook's promise and opens the first evidence section. If the script jumps from hook
-payoff straight into historical narrative, flag as CRITICAL.
+**CONSTRAINT B: The Hook-to-Body Transition Bridge (HEDGE — demoted v17)**
+The 2-4% mark of every video is where 13-25% of viewers leave — but this is structural
+(it happens with and without bridges; the strongest hook material in the D3 set cliffs
+identically). The bridge stays a craft default: after the hook's payoff preview, there
+should be an explicit transition sentence that closes the hook's promise and opens the
+first evidence section. If the script jumps from hook payoff straight into historical
+narrative, flag as WARNING (was CRITICAL).
 
 **CONSTRAINT C: Rhythm Contrast — 60/10 Rule**
 After any passage exceeding 60 words without a sentence break, the next sentence MUST be
@@ -99,25 +104,30 @@ cold fact. Missing = INFO (not hard rule, but recommended).
 3-consecutive-short-sentence sequences (all under 8 words) should appear max 1-2 per script.
 3+ occurrences = WARNING (overuse dilutes impact).
 
-**CONSTRAINT T: Duration Cap (Rule 10, HARD CHECK)**
-Count total words in the script (excluding B-roll notes, visual staging, and metadata). At 250 WPM with
-1.80x filming buffer, calculate the estimated filmed duration. If estimated filmed duration exceeds 12
-minutes (script over ~5,400 words), flag as CRITICAL unless the script metadata documents all 4 exception
-criteria from Rule 10. Data: r=-0.455 between duration and retention (n=47). 12-20 min videos average
+**CONSTRAINT T: Duration Cap (Rule 10, HARD CHECK — VALIDATED v17)**
+Count total words in the script (excluding B-roll notes, visual staging, and metadata). **Two-tier formula
+(v17 — the old 1.80x overwrite buffer is RETIRED, stale pre-two-tier):** estimated filmed duration =
+words ÷ 250 WPM ÷ 1.20 (80%+ survival). If estimated filmed duration exceeds 12 minutes (script over
+~3,600 words for Format A/B), flag as CRITICAL unless the script metadata documents all 4 exception
+criteria from Rule 10. Format C uses Constraint BD's budgets instead (runtime_seconds × 2.5). Data: r=-0.455 between duration and retention (n=47). 12-20 min videos average
 24.7% retention vs 29.6% for 8-12 min. Only 1 of 12 videos over 12 min ever hit 30% retention.
+**v17 corroboration:** the 3 over-cap videos in the D3 top-15 (WgE2FLsDhfk 12:49/16.86%, l8abBf4aMv8
+14:39/23.09%, LuLZYZWMiU4 17:50/12.84%) rank 3rd/13th/15th worst. The strongest validated rule in the set.
 
-**CONSTRAINT U: Myth-First Structure (Rule 15, HARD CHECK for non-territorial)**
+**CONSTRAINT U: Myth-First Structure (Rule 15 — HEDGE, demoted v17)**
 Check the `<!-- STRUCTURE: -->` tag. If the video is ideological, colonial, fact-check, or general AND
-uses chronological structure, flag as CRITICAL. Myth-first structure (state misconception → dismantle
-with evidence) retains 30.3% avg vs 22.4% for chronological colonial topics. The turn moment (Rule 16)
-should land at 15-25% of runtime — if the `<!-- TURN MOMENT -->` tag appears after 25% of estimated
-runtime, flag as WARNING. If no structure tag exists, flag as WARNING.
+uses chronological structure, flag as WARNING (was CRITICAL). **The old "30.3% vs 22.4%" justification
+is RETIRED as data** — those numbers ARE the topic-retention table (ideological vs colonial); the
+comparison cannot separate structure from topic. Myth-first remains the strong default on niche-corpus
+support (85 transcripts, 10 channels). The turn moment (Rule 16) should land at 15-25% of runtime — if
+the `<!-- TURN MOMENT -->` tag appears after 25% of estimated runtime, flag as INFO (own-channel
+cross-validation found no 25-35% retention penalty). If no structure tag exists, flag as WARNING.
 
-**CONSTRAINT V: 2026 Retention Trend Check**
+**CONSTRAINT V: 2026 Retention Trend Check (HEDGE — n=10 and shrinking subsets)**
 If the script has duration metadata, compare against 2026 channel performance: median 24.0% retention,
 only 2 of 10 videos above 28%. Any structural pattern matching the bottom performers (chronological
-colonial at 16.7%, long-form ideological at 12.1%) should be flagged as HIGH RISK with specific
-reference to the failing video.
+colonial at 16.7%, long-form ideological at 12.1%) should be flagged as INFO with specific
+reference to the failing video. Informational context only — n is too small to drive verdicts.
 
 **NOTE ON CONSTRAINTS W-AT:** These come from competitor analysis (~130 videos + Wave 5+5C). They are SUGGESTIONS
 unless marked [QUALITY STANDARD]. Flag competitor-derived issues as SUGGESTION, not WARNING. The
@@ -287,13 +297,16 @@ or parallel). If none declared, infer from structure. If the script states its v
 payoff preview AND the closing, flag — "Verdict appears in both hook and close. Rule 18 says the
 hook promises the investigation; the verdict belongs in the closing. Consider revising Beat 4."
 
-**CONSTRAINT AV: Human Texture Audit (Rule 26)** [QUALITY STANDARD]
+**CONSTRAINT AV: Human Texture Audit (Rule 26)** [QUALITY STANDARD — numbers are HEDGE, n unstated]
 Count these markers: (1) research moments ("So I went and checked..." / "One thing that jumps out..."),
 (2) honest reactions to evidence ("That's a strange thing to..." / "Look at what they wrote."),
 (3) concessions about evidence limits, (4) beat gaps for ad-libs. If fewer than 3 total markers in
-the script, flag — "Script reads as AI-generated. Ad-lib retention is +10pp over scripted. Add 2-3
-research moments, honest reactions, or beat gaps." If zero beat gaps marked, flag — "No [BEAT GAP]
-markers. At 44% script survival, the creator will cut/replace 56% during filming. Plan for it."
+the script, flag — "Script reads as AI-generated. Ad-lib retention is +10pp over scripted (HEDGE —
+derivation n unstated). Add 2-3 research moments, honest reactions, or beat gaps." If zero beat gaps
+marked, flag — "No [BEAT GAP] markers. Plan deliberate ad-lib space." **The old "44% script survival"
+figure is RETIRED (v17 — stale):** it predates two-tier scripting; the v16+ two-tier target is 80%+
+survival. **v17 placement check:** if any research moment falls in the first ~225 words,
+that's a Constraint BE hit, not texture — flag it there, don't count it here.
 
 **CONSTRAINT AW: Evidence Impact Sequencing (Rule 19)** [SUGGESTION]
 Check whether the strongest piece of evidence (most devastating quote, most shocking statistic) appears
@@ -372,6 +385,26 @@ technique (Rule 23) to maintain calm-prosecutor voice."
 
 **Why this matters:** WPM calibration was wrong in pre-v15 script-writer-v2. Format C delivers slower than standard talking-head because verbatim legal/document quotes need deliberate read pace + pause-before/pause-after to register as evidence; foreign proper nouns add overhead; longhand dates ("April twenty-ninth, fourteen ninety-four") take longer than reading. Pre-v15 scripts used 250 WPM × 1.20x — wrong for document-heavy material.
 
+**CONSTRAINT BE: Early-Zone Personal-Authority Scan (Rule 47A)** [WARNING — VALIDATED-directional, v17]
+**Origin:** Fable Phase 3 (2026-06-11). personal_authority in the first ~13% of runtime is the worst-measured content-type×position cell in the 42-video correlation: avg delta −0.051 (n=88 points) vs −0.0001 mid-video (n=10). Direct cliff hits: LO_fUeX9IEQ −12.5pp at 00:15–00:18 ON "I went to the Vatican archives, I pulled up papal documents"; LuLZYZWMiU4 −25.2pp at 00:21–00:32 on its authority beat.
+
+**Check:** Scan the first ~225 words (≈90 seconds) for:
+1. First-person research narration: "I went to", "I read", "I checked", "I pulled (up)", "I found", "I dug into", "So I..."
+2. Credential chains longer than one appositive clause (full name + title + relevance recital)
+3. Research-process beats (Rule 26 research moments)
+
+Flag each as WARNING — "Personal-authority content at [line] sits in the validated early-drop zone. Compress attribution to one clause, or move the auditor pivot ('So let's actually read it') to the turn — mid-video authority is measured flat. Rule 47A."
+
+**Mid-video authority is NOT flagged** — this is a placement rule, not a voice rule.
+
+**CONSTRAINT BF: Late-Quarter Collapse Audit (Rule 47D)** [SUGGESTION — HEDGE + one VALIDATED-directional element, v17]
+**Origin:** Fable Phase 3 (2026-06-11). Late-quarter collapse is a distinct failure mode: 7fpBz6uo504 −12.3pp across 75→100%, UH2PddfaaR8 −15.1pp, _N_08zn95FY −7.2pp at 98–99%. Diagnostic: <20% absolute retention at the 75% checkpoint predicts final-quarter collapse.
+
+**Check the final 25% of the script:**
+1. **Closing-third statistic (VALIDATED-directional):** at least one hard number in the final 20% (late-zone statistics are the only zone×type cell that GAINS viewers: +0.001 avg delta, n=114; statistics 61% positive rate overall, n=354). Missing → WARNING.
+2. **Padding scan:** recap paragraphs, restated evidence, or wind-down filler between the climax evidence (70-85%) and the verdict → SUGGESTION with the specific lines.
+3. **Post-verdict length:** count words after the ≤12-word verdict. CTA = one sentence; anything beyond → SUGGESTION ("every sentence after the verdict is a sentence people leave during").
+
 **Your job:** Check scripts against WRITING-VOICE-AND-STYLE.md and these constraints. Flag quality standards firmly.
 Flag competitor patterns as suggestions — the script writer may be deliberately breaking them to
 differentiate. Always explain WHY a pattern would help, don't just flag the violation.
@@ -423,12 +456,12 @@ For EVERY script analysis, think through:
 <analysis>
 **STEP 0: Duration & Structure Gate (CHECK FIRST — blocks everything else)**
 - Count total script words (exclude B-roll notes, visual staging, metadata)
-- Calculate estimated filmed duration: words ÷ 250 WPM ÷ 1.80 = filmed minutes
+- Calculate estimated filmed duration: words ÷ 250 WPM ÷ 1.20 = filmed minutes (two-tier formula, v17; Format C → Constraint BD budgets)
 - If >12 min: CRITICAL flag (Constraint T) unless exception documented
 - Check `<!-- STRUCTURE: -->` tag: myth-first or chronological?
-- If non-territorial + chronological: CRITICAL flag (Constraint U)
+- If non-territorial + chronological: WARNING flag (Constraint U — demoted v17, topic-confounded data)
 - Locate `<!-- TURN MOMENT -->` tag: what percentage of estimated runtime?
-- If turn >25% of runtime: WARNING flag
+- If turn >25% of runtime: INFO flag (own-channel cross-validation found no 25-35% penalty)
 
 **STEP 1: First Impression (0-2.5 seconds)**
 - Does it create concern/urgency immediately?
@@ -585,13 +618,13 @@ For EVERY script analysis, think through:
 The script-writer now uses a 4-beat hook formula. Check that the opening contains ALL FOUR beats:
 - [ ] **Beat 1 — Cold Fact (0:00-0:10):** Concrete, specific, surprising detail (date, number, location)
 - [ ] **Beat 2 — Myth (0:10-0:20):** States what people believe (the wrong version)
-- [ ] **Beat 3 — Contradiction (0:20-0:40):** Evidence that shatters the myth ("So I pulled/read/found...")
+- [ ] **Beat 3 — Contradiction (0:20-0:40):** Evidence that shatters the myth — led by the EVIDENCE itself, not by research narration ("So I pulled/read/found..." here = Constraint BE WARNING, v17)
 - [ ] **Beat 4 — Payoff Preview (0:40-1:00):** Why this matters NOW + what viewer will learn
 
 **Also check Rule 17 retention triggers:**
 - [ ] Information gap created (question viewer needs answered) — NOT closed in hook
 - [ ] Visual carrot (specific document/map/evidence promised)
-- [ ] Authority signal (first-person ownership: "So I read..." / "I found...")
+- [ ] **NO authority signal in the hook (v17 INVERSION):** "So I read..." / "I found..." in the first 90s is a Constraint BE WARNING, not a requirement. The visual carrot carries the credibility cue; the auditor pivot lands at the turn.
 
 **Flag if any beat is missing or if hook closes the information gap prematurely.**
 
@@ -832,32 +865,33 @@ Line 134: Implicit question unanswered
 
 ### ✅ CONSTRAINT CHECK (MANDATORY — Run Before All Other Checks)
 
-**These three constraints are the most data-validated failure modes on this channel.
-Run these FIRST, before retention analysis or voice checks.**
+**Run these FIRST, before retention analysis or voice checks. (Severities re-tiered v17:
+A and B are HEDGE craft defaults — WARNING; C is a craft default. The hard gates are T/BD/BE.)**
 
 **CONSTRAINT A — First Evidence by 0:90:**
 1. Scan the script from the beginning
 2. Find the FIRST attributed quote (author name + source title + exact words)
 3. Estimate the timestamp based on ~150 words/minute speaking rate
-4. If the first quote lands AFTER ~225 words (≈90 seconds): flag CRITICAL
+4. If the first quote lands AFTER ~225 words (≈90 seconds): flag WARNING
+5. **v17 companion check:** if the quote's credential chain in this zone exceeds one appositive clause → Constraint BE WARNING
 
 ```
 ## CONSTRAINT A: First Evidence Timing
 
 First attributed quote found at: Line [X] (~[N] words in ≈ [T] seconds)
 Quote: "[author] in [source]: '[words]'"
-Status: ✅ PASS (before 0:90) / CRITICAL FAIL (after 0:90)
+Status: ✅ PASS (before 0:90) / ⚠️ WARNING (after 0:90)
 
-[If FAIL]: Move first evidence earlier. Every video that delays past 90 seconds
-loses 15-25% of viewers unrecoverably. See Flat Earth (13.2% retention) vs
-Belize (37.4% retention — first evidence at ~45 seconds).
+[If WARNING]: Move first evidence earlier — evidence-first is the channel identity.
+(Evidence note, v17: the 2-4% drop is universal across all 15 D3 videos regardless of
+content; early evidence is a HEDGE default, not a proven cliff-prevention lever.)
 ```
 
 **CONSTRAINT B — Transition Bridge:**
 1. Find the hook's payoff preview (usually the last sentence before Act 1)
 2. Check: is there an explicit bridge sentence BETWEEN the hook and first body section?
-3. Bridge patterns: "And it starts with..." / "To understand how, you need to see..." / "The story begins with a document..."
-4. If the script jumps from "that's what we'll explore" straight into "In 1884...": flag CRITICAL
+3. Bridge patterns: "And it starts with..." / "The story begins with a document..." (NOT "To understand how, you need to see..." — tour-guide tissue, Rule 13.7 HARD lint)
+4. If the script jumps from "that's what we'll explore" straight into "In 1884...": flag WARNING
 
 ```
 ## CONSTRAINT B: Transition Bridge
@@ -865,10 +899,11 @@ Belize (37.4% retention — first evidence at ~45 seconds).
 Hook payoff ends at: Line [X]
 First body content starts at: Line [Y]
 Bridge sentence: "[quote it]" / MISSING
-Status: ✅ PASS / CRITICAL FAIL
+Status: ✅ PASS / ⚠️ WARNING
 
-[If FAIL]: Add explicit bridge. The 2-4% mark hemorrhages 13-25% of viewers
-in every underperforming video on this channel.
+[If WARNING]: Add explicit bridge — craft default. (Evidence note, v17: the 2-4% mark
+hemorrhages 13-25% in EVERY video, bridged or not; the bridge is for coherence,
+not cliff prevention.)
 ```
 
 **CONSTRAINT C — 60/10 Rhythm Rule:**
@@ -1575,7 +1610,7 @@ FIX: [Specific rewrite or addition needed]
 
 ### Modern Relevance Integration Analysis
 
-**CRITICAL RULE: No more than 90 seconds without modern connection — but HOW matters more than frequency.**
+**GUIDELINE (HEDGE — frequency mandate RETIRED v17): the "every 90 seconds" rule had no stated n, and modern_relevance is measured mildly NEGATIVE as a content type (−0.010 avg delta, n=577, vs narration −0.005). What survives is the HOW: woven beats narration-interrupting standalone bridges.**
 
 > **DATA (42 videos, 4,200 data points):** Standalone modern_relevance sections = -0.010 retention delta.
 > Narration = -0.005. The transition to/from modern relevance disrupts flow.
@@ -1625,9 +1660,9 @@ FIX: [Specific rewrite or addition needed]
 
 | Check | Rule | Flag Level |
 |-------|------|------------|
-| **Statistic in first 10 seconds** | 61% positive retention rate for statistics | WARNING if missing |
-| **Statistic in closing third** | Late-video stats = +0.001 delta (gains viewers) | WARNING if no statistic in final 20% of script |
-| **"I read..." in 1-3 min zone** | personal_authority at 2-4% position = worst drops | CAUTION if authority signal in 1:00-3:00 range |
+| **Statistic in first 10 seconds** | 61% positive rate is for stats OVERALL — early zone is the hemorrhage zone, and stat-dense openings cliff too (lFGs5NHMxMw −20.6pp on "229 ethnic groups") | INFO (demoted v17): one anchor number fine, no barrage |
+| **Statistic in closing third** | Late-video stats = +0.001 delta (n=114 — only zone×type cell that gains viewers) | WARNING if no statistic in final 20% (→ Constraint BF) |
+| **Personal authority in first ~90s** | personal_authority early = −0.051 (n=88) vs mid-video −0.0001 (VALIDATED-directional) | WARNING (→ Constraint BE; was CAUTION) |
 | **Narration flow in mid-video** | Narration = -0.005 (safest). Don't interrupt. | INFO: note any forced pattern interrupts in mid-third |
 
 **Output:**
@@ -1894,7 +1929,7 @@ This predicts retention curve from script content types using 42-video, 4,200-da
 - **Modern relevance bridges** may disrupt (-0.010)
 - **personal_authority "I read..."** = fine mid-video (bad delta is intro confound)
 
-**Script-to-filmed reality check:** Average script survival rate is 44% (not 77%). Ad-libs have +0.102 higher retention than scripted content. Flag sections that are too rigid for ad-lib potential.
+**Script-to-filmed reality check:** Ad-libs have +0.102 higher retention than scripted content (HEDGE — derivation n unstated). Flag sections that are too rigid for ad-lib potential. The old "44% script survival" figure is RETIRED (v17 — stale, pre-two-tier; v16+ two-tier target is 80%+ survival).
 
 Compare predictor output with your structural analysis to validate or challenge your dropout predictions.
 
