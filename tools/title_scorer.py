@@ -1,5 +1,5 @@
 """
-Title Scorer v4 — Grades YouTube title candidates against channel CTR data.
+Title Scorer v5 — Grades YouTube title candidates against channel CTR data.
 
 Scores titles 0-100 based on measured CTR from POST-PUBLISH-ANALYSIS files.
 
@@ -41,6 +41,30 @@ Phase 67 recalibration:
     - Grade thresholds now topic-aware (via benchmark_store.TOPIC_GRADE_THRESHOLDS)
     - Backward compatible: no new required args, no existing keys renamed
 
+v5 recalibration (2026-06-10) — PACKAGING_MANDATE re-tier + Fable Phase 1 spec:
+    Ref: channel-data/fable-digests/PHASE-1-SCORER-SPEC.md
+
+    C1 — Retire auto-REJECT for style rules (year/colon/the_x_that):
+      The auto-reject path fired on the channel's #1 video (29,713 views, colon) and
+      #3 video (1,966 views / 4.31% CTR, colon). These were confounded correlations,
+      not causal. Style rules are now graded penalties + warnings. Grade is computed
+      from score alone. Auto-REJECT survives ONLY for clickbait tone (brand gate).
+      --strict CLI flag restores old reject behavior for comparison runs.
+
+    C2 — Rebalance penalty constants (contradicting evidence cited per D1 §4):
+      YEAR_PENALTY: -50 → -15 (top-3 videos include year-adjacent formats; HEDGE tier n=6)
+      YEAR_PENALTY_HOOK: -10 → -5 ("Invented in 1828" got 3.7% CTR)
+      COLON_PENALTY: -50 → -10 (channel's #1/#3 videos both use colons)
+      COLON_PENALTY_VERSUS: -10 → 0 ("Venezuela vs Guyana: Essequibo" = 4.31% CTR)
+      THE_X_THAT_PENALTY: -50 → -15 (CIA Condor title got 4.91% fresh CTR 2026-06-10)
+
+    C3 — SEARCH_ANCHOR_BONUS (+12):
+      New bonus: recognized head term within first 40 characters.
+      Recognition: HEAD_TERMS (sovereign states + geographic shorthands) +
+      ALLOWED_ACRONYMS + notable-figure surnames. Case-insensitive whole-word match.
+
+    C4 — Version bump to v5; changelog block added.
+
 Usage:
     python -m tools.title_scorer "Your Title Here"
     python -m tools.title_scorer "Title A" "Title B" "Title C"
@@ -77,7 +101,47 @@ ALLOWED_ACRONYMS = [
     'IMF', 'USSR', 'UK', 'US', 'USA', 'WTO', 'ICC', 'ECHR',
     'OPEC', 'BRICS', 'ASEAN', 'OAS', 'FCDO', 'BIOT', 'PDF',
     'DIY', 'GPS', 'GDP', 'CEO', 'FBI', 'NSA', 'NASA',
+    'KGB',  # v5: added — "How the KGB Weaponized..." got highest fresh CTR (18.41% 2026-06-10)
 ]
+
+# =============================================================================
+# SEARCH ANCHOR HEAD TERMS (v5 — C3)
+# Sovereign states, geographic shorthands, and notable figure surnames.
+# A recognized head term within the first 40 chars earns SEARCH_ANCHOR_BONUS.
+# Static list — a miss on obscure-but-valid term is fine; scorer is a floor.
+# =============================================================================
+HEAD_TERMS = {
+    # Sovereign states (common English names + shorthands)
+    'Afghanistan', 'Albania', 'Algeria', 'Angola', 'Argentina', 'Armenia',
+    'Australia', 'Austria', 'Azerbaijan', 'Bahrain', 'Bangladesh', 'Belarus',
+    'Belgium', 'Belize', 'Bolivia', 'Bosnia', 'Brazil', 'Britain', 'Bulgaria',
+    'Cambodia', 'Cameroon', 'Canada', 'Chile', 'China', 'Colombia', 'Congo',
+    'Croatia', 'Cuba', 'Cyprus', 'Czechia', 'Denmark', 'Ecuador', 'Egypt',
+    'England', 'Ethiopia', 'Finland', 'France', 'Georgia', 'Germany', 'Ghana',
+    'Greece', 'Guatemala', 'Guinea', 'Haiti', 'Honduras', 'Hungary', 'India',
+    'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica',
+    'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kosovo', 'Kuwait', 'Laos',
+    'Lebanon', 'Libya', 'Lithuania', 'Luxembourg', 'Malaysia', 'Mali',
+    'Malta', 'Mexico', 'Moldova', 'Mongolia', 'Morocco', 'Mozambique',
+    'Myanmar', 'Namibia', 'Nepal', 'Netherlands', 'Nicaragua', 'Niger',
+    'Nigeria', 'Norway', 'Oman', 'Pakistan', 'Palestine', 'Panama', 'Paraguay',
+    'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia',
+    'Rwanda', 'Saudi', 'Scotland', 'Senegal', 'Serbia', 'Somalia', 'Somaliland',
+    'Spain', 'Sudan', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tanzania',
+    'Thailand', 'Tibet', 'Togo', 'Tunisia', 'Turkey', 'Uganda', 'Ukraine',
+    'Uruguay', 'Uzbekistan', 'Venezuela', 'Vietnam', 'Wales', 'Yemen',
+    'Zambia', 'Zimbabwe',
+    # Geographic shorthands and disputed territories
+    'Balkans', 'Biot', 'Bir Tawil', 'Chagos', 'Crimea', 'Essequibo',
+    'Kashmir', 'Kurdistan', 'Manchuria', 'Manhattan', 'Nagorno', 'Sahel',
+    'Sinai', 'Somaliland', 'Transnistria', 'Guyana', 'Belize',
+    'Western Sahara', 'South Sudan', 'North Korea', 'South Korea',
+    'Saudi Arabia', 'United Kingdom', 'United States',
+    # Notable figure surnames (channel corpus)
+    'Churchill', 'Columbus', 'Cromwell', 'Fuentes', 'Hancock', 'Hitler',
+    'Lenin', 'Lincoln', 'Machiavelli', 'Mao', 'Marx', 'Napoleon', 'Petain',
+    'Putin', 'Saladin', 'Stalin', 'Trump', 'Vance',
+}
 
 # Unified tone signals dict — positive (active verbs) and negative (clickbait)
 _TONE_SIGNALS = {
@@ -98,7 +162,7 @@ def compute_tone_score(title: str) -> int:
     +ACTIVE_VERB_BONUS (+5) for each active verb found.
     -10 per clickbait pattern found.
 
-    Neutral title (no active verb, no clickbait) → 0.
+    Neutral title (no active verb, no clickbait) -> 0.
     """
     score = 0
     t = title.lower()
@@ -138,11 +202,17 @@ from tools.benchmark_store import TOPIC_GRADE_THRESHOLDS  # noqa: E402
 
 # Penalty/bonus modifiers (all measured from real channel data)
 # v4 recalibration (2026-04-08): context-aware penalties replace blanket hard rejects
-YEAR_PENALTY = -50          # Year as topic label = hard reject (e.g., "The 1494 Line")
-YEAR_PENALTY_HOOK = -10     # Year as hook/specificity (e.g., "Invented in 1828") — reduced
-COLON_PENALTY = -50         # Colon as "Topic: Subtitle" = hard reject
-COLON_PENALTY_VERSUS = -10  # Colon in versus titles (e.g., "X vs Y: Stakes") — reduced
-THE_X_THAT_PENALTY = -50    # HARD REJECT: Worst-performing pattern (1.2% CTR historically)
+# v5 recalibration (2026-06-10): rebalanced per PACKAGING_MANDATE re-tier + D1 §4 evidence
+YEAR_PENALTY = -15          # was -50; year as topic label, HEDGE tier (n=6); channel #1 video
+                            # has colon+versus which was being over-penalised via adjacent rule
+YEAR_PENALTY_HOOK = -5      # was -10; year as hook ("Invented in 1828" got 3.7% CTR)
+COLON_PENALTY = -10         # was -50; style preference only — top-3 videos all have colons
+                            # (D1 §4: Y21EjQ0v9W4=29,713 views, oDK52GwjTIo=4.31% CTR)
+COLON_PENALTY_VERSUS = 0    # was -10; "X vs Y: Stakes" = channel #3 video's exact format
+                            # (D1 §4: oDK52GwjTIo "Venezuela vs Guyana: ..." got 4.31% CTR)
+THE_X_THAT_PENALTY = -15    # was -50; CIA Condor title ("The CIA Document That Proved...")
+                            # got 4.91% fresh CTR 2026-06-10 snapshot (D1 dossier)
+SEARCH_ANCHOR_BONUS = 12    # v5 new: recognized head term in first 40 chars (C3)
 LENGTH_SWEET_SPOT = (35, 70)  # Optimal character range for mobile (v4: lowered from 40)
 LENGTH_PENALTY_SHORT = -5   # Too short = vague
 LENGTH_PENALTY_LONG = -10   # Too long = truncated on mobile
@@ -319,6 +389,31 @@ def has_controversy_frame(title: str) -> bool:
     return any(w in t for w in controversy_words)
 
 
+def has_search_anchor(title: str) -> tuple[bool, str]:
+    """
+    Detect if a recognized head term appears within the first 40 characters (v5 C3).
+
+    Returns (found: bool, matched_term: str).  matched_term is '' when not found.
+
+    Recognition list: HEAD_TERMS (sovereign states + geographic shorthands) +
+    ALLOWED_ACRONYMS + notable-figure surnames already in the corpus.
+    Case-insensitive whole-word match.
+
+    A miss on an obscure-but-valid term is acceptable — scorer is a floor, not an oracle.
+    Keep it cheap and static: no API calls.
+    """
+    prefix = title[:40]
+    # Build lookup set: HEAD_TERMS + ALLOWED_ACRONYMS (case-insensitive keys)
+    candidates = list(HEAD_TERMS) + list(ALLOWED_ACRONYMS)
+    for term in candidates:
+        pattern = re.compile(r'\b' + re.escape(term) + r'\b', re.IGNORECASE)
+        if pattern.search(prefix):
+            # Return the matched surface form from the title
+            m = pattern.search(prefix)
+            return (True, m.group(0))
+    return (False, '')
+
+
 def _get_pattern_sample_count(db_path: str, pattern: str) -> int:
     """
     Return the number of own-channel videos in the DB for a given title pattern.
@@ -399,7 +494,7 @@ def _niche_percentile_label(final: int, pattern: str, niche_data: Optional[dict]
         return "bottom quartile of niche"
 
 
-def score_title(title: str, db_path: str = None, topic_type: str = None) -> dict:
+def score_title(title: str, db_path: str = None, topic_type: str = None, experimental: bool = False, strict: bool = False) -> dict:
     """
     Score a title candidate 0-100 with niche benchmark context and topic-type grading.
 
@@ -511,36 +606,55 @@ def score_title(title: str, db_path: str = None, topic_type: str = None) -> dict
         base = PATTERN_SCORES.get(pattern, 50)
 
     # ------------------------------------------------------------------
-    # 5. Penalties, bonuses, hard rejects
+    # 5. Penalties, bonuses, hard rejects, style warnings
+    #
+    # v5 (C1): style rules (year/colon/the_x_that) move to style_warnings;
+    # grade is computed from score alone.  auto-REJECT survives ONLY for
+    # clickbait tone (brand gate).  --strict CLI flag restores v4 behavior.
     # ------------------------------------------------------------------
     penalties = []
     bonuses = []
     hard_rejects = []
+    style_warnings = []  # v5: new key — style flags that are NOT fatal
 
-    # YEAR: Context-aware penalty (v4 recalibration)
-    # Year as hook ("Invented in 1828") = mild penalty. Year as label ("The 1494 Line") = hard reject.
+    # YEAR: Context-aware penalty (v4 recalibration, v5 rebalanced)
+    # Year as hook ("Invented in 1828") = mild penalty. Year as label ("The 1494 Line") = warning.
     # Data: "Flat Earth Myth Was Invented in 1828" got 3.7% CTR despite year.
+    # v5: penalty rebalanced; label-years are HEDGE-tier warnings, not hard rejects.
     if has_year(title):
         if _year_is_hook(title):
             penalties.append(('Year in title (hook usage — reduced penalty)', YEAR_PENALTY_HOOK))
         else:
-            hard_rejects.append('YEAR as topic label — -45.6% CTR. Move year to description.')
-            penalties.append(('HARD REJECT: Year in title', YEAR_PENALTY))
+            style_warnings.append(
+                f'YEAR as topic label — -45.6% CTR signal (n=6, HEDGE tier). '
+                f'Consider moving year to description.'
+            )
+            penalties.append(('Year as topic label (style warning — HEDGE tier, n=6)', YEAR_PENALTY))
 
-    # COLON: Context-aware penalty (v4 recalibration)
-    # Colon after versus ("X vs Y: Stakes") = mild penalty. "Topic: Subtitle" = hard reject.
-    # Data: "Venezuela vs Guyana: Essequibo" got 4.3% CTR despite colon.
+    # COLON: Context-aware penalty (v4 recalibration, v5 rebalanced)
+    # Colon after versus ("X vs Y: Stakes") = 0 penalty. "Topic: Subtitle" = style warning.
+    # Data: "Venezuela vs Guyana: Essequibo" got 4.31% CTR (D1 §4), channel #1 video has colon.
+    # v5: COLON_PENALTY_VERSUS = 0; COLON_PENALTY reduced from -50 to -10.
     if ':' in title:
         if _colon_is_versus_stakes(title):
-            penalties.append(('Colon after versus (stakes framing — reduced penalty)', COLON_PENALTY_VERSUS))
+            if COLON_PENALTY_VERSUS != 0:
+                penalties.append(('Colon after versus (stakes framing — reduced penalty)', COLON_PENALTY_VERSUS))
+            # else: zero penalty, no entry
         else:
-            hard_rejects.append('COLON detected — -28.1% CTR. Use period or em-dash.')
-            penalties.append(('HARD REJECT: Colon in title', COLON_PENALTY if pattern == 'colon' else COLON_PENALTY // 2))
+            style_warnings.append(
+                'COLON detected — -28.1% CTR correlation (style preference only; '
+                'top-3 channel videos all use colons). Review, not fatal.'
+            )
+            penalties.append(('Colon in title (style warning — n=4+, top-3 videos use colons)', COLON_PENALTY if pattern == 'colon' else COLON_PENALTY // 2))
 
-    # HARD REJECT: "The X That Y" pattern
+    # "The X That Y" pattern — style warning (v5: was hard reject)
+    # Data: "The CIA Document That Proved Operation Condor" got 4.91% fresh CTR 2026-06-10.
     if pattern == 'the_x_that':
-        hard_rejects.append('"THE X THAT Y" detected — worst pattern (1.2% CTR). Rewrite completely.')
-        penalties.append(('HARD REJECT: The X That Y pattern', THE_X_THAT_PENALTY))
+        style_warnings.append(
+            '"THE X THAT Y" pattern — historically 1.2% CTR, but contradicted by '
+            'CIA Condor 4.91% fresh CTR (D1 dossier 2026-06-10). Review, not fatal.'
+        )
+        penalties.append(('The X That Y pattern (style warning, HEDGE tier)', THE_X_THAT_PENALTY))
 
     # Length check
     length = len(title)
@@ -580,6 +694,13 @@ def score_title(title: str, db_path: str = None, topic_type: str = None) -> dict
     if has_controversy_frame(title):
         bonuses.append(('Controversy/myth-busting frame', CONTROVERSY_BONUS))
 
+    # Search anchor bonus (v5 C3) — recognized head term in first 40 chars
+    # 515-sub channel = every title needs a head-term keyword anchor (search-anchored).
+    # HEAD_TERMS: sovereign states + geographic shorthands + ALLOWED_ACRONYMS + notable surnames.
+    anchor_found, anchor_term = has_search_anchor(title)
+    if anchor_found:
+        bonuses.append((f"Search anchor: '{anchor_term}' in first 40 chars", SEARCH_ANCHOR_BONUS))
+
     # Topic viability modifier (v4) — penalize good-construction-but-zero-demand titles
     # Always runs (queries intel.db for competitor data). Silent on failure.
     try:
@@ -617,6 +738,23 @@ def score_title(title: str, db_path: str = None, topic_type: str = None) -> dict
     # ------------------------------------------------------------------
     _pass = thresholds['pass']
     _good = thresholds['good']
+
+    # v5 (C1): style rules (year/colon/the_x_that) have already been routed to
+    # style_warnings above, NOT to hard_rejects.  hard_rejects is now ONLY for
+    # clickbait tone (populated by _apply_tone_filter below, or caller-supplied).
+    #
+    # --strict mode: promote style_warnings back to hard_rejects (v4 behavior).
+    # experimental flag: kept for backward compatibility — demotes any remaining
+    # hard_rejects to visible warnings (penalty stays applied).
+    warnings = []
+    if strict and style_warnings:
+        # --strict: treat style warnings as hard rejects (v4 regression mode)
+        hard_rejects = hard_rejects + style_warnings
+        style_warnings = []
+
+    if experimental and hard_rejects:
+        warnings = hard_rejects
+        hard_rejects = []
 
     if hard_rejects:
         grade = 'REJECTED'
@@ -678,7 +816,10 @@ def score_title(title: str, db_path: str = None, topic_type: str = None) -> dict
         'penalties': penalties,
         'bonuses': bonuses,
         'suggestions': suggestions,
-        'hard_rejects': hard_rejects,
+        'hard_rejects': hard_rejects,        # v5: ONLY clickbait tone; style rules → style_warnings
+        'style_warnings': style_warnings,    # v5 new: year/colon/the_x_that flags (review, not fatal)
+        'warnings': warnings,
+        'experimental': experimental,
         'db_enriched': db_enriched,
         'db_base_score': db_base_score,
         # New in Phase 67
@@ -706,6 +847,23 @@ def format_result(result: dict) -> str:
         lines.append("  " + "!" * 50)
         for reason in result['hard_rejects']:
             lines.append(f"  REASON: {reason}")
+        lines.append("")
+
+    # v5: style_warnings are review flags, not fatal (C1)
+    if result.get('style_warnings'):
+        lines.append("  " + "~" * 50)
+        lines.append("  !! HEDGE-TIER STYLE FLAGS (review, not fatal):")
+        for reason in result['style_warnings']:
+            lines.append(f"  STYLE: {reason}")
+        lines.append("  (penalty applied to score; grade from score only — not auto-rejected)")
+        lines.append("")
+
+    if result.get('warnings'):
+        lines.append("  " + "~" * 50)
+        lines.append("  EXPERIMENTAL OVERRIDE — rule(s) broken on purpose (testing):")
+        for reason in result['warnings']:
+            lines.append(f"  WARN: {reason}")
+        lines.append("  (scored + ranked anyway; penalty still applied. Judge on search impressions, not CTR alone.)")
         lines.append("")
 
     # Score line — append niche percentile label when present (BENCH-01)
@@ -793,6 +951,18 @@ if __name__ == '__main__':
         action='store_true',
         help='Ingest CTR data from CROSS-VIDEO-SYNTHESIS.md into keywords.db, then exit',
     )
+    parser.add_argument(
+        '--experimental',
+        action='store_true',
+        help='Demote hard-rejects to visible warnings so deliberate '
+             'test candidates still score + rank (penalty stays applied)',
+    )
+    parser.add_argument(
+        '--strict',
+        action='store_true',
+        help='(v5) Restore v4 auto-REJECT behavior for year/colon/the-x-that patterns '
+             '(for comparison runs; default is graded penalty + style warning)',
+    )
     args = parser.parse_args()
 
     # --ingest: run ctr_ingest and exit
@@ -840,11 +1010,15 @@ if __name__ == '__main__':
         parser.print_help()
         sys.exit(0)
 
-    results = [score_title(t, db_path=db_path, topic_type=args.topic) for t in titles]
+    results = [score_title(t, db_path=db_path, topic_type=args.topic, experimental=args.experimental, strict=args.strict) for t in titles]
     results.sort(key=lambda x: -x['score'])
 
     db_label = " (DB-enriched)" if db_path else " (static scores)"
     topic_label = f", topic: {args.topic}" if args.topic else ""
+    if args.experimental:
+        topic_label += " [EXPERIMENTAL: hard-rejects → warnings]"
+    if args.strict:
+        topic_label += " [STRICT: style-warnings → hard-rejects (v4 behavior)]"
     print("\n" + "=" * 60)
     print(f"  TITLE SCORER — History vs Hype{db_label}{topic_label}")
     print("=" * 60)
