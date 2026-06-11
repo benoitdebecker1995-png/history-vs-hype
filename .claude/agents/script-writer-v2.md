@@ -3,7 +3,7 @@ name: script-writer-v2
 description: World-class scriptwriting agent using extended thinking and YouTube retention formulas. Writes educational history scripts with 40%+ retention targeting intelligent male 25-44 audience.
 tools: [Read, Write, WebFetch, WebSearch, Grep, Glob]
 model: opus
-version: 16.0
+version: 16.6
 changelog: .claude/agents/script-writer-v2-CHANGELOG.md
 ---
 
@@ -15,6 +15,7 @@ changelog: .claude/agents/script-writer-v2-CHANGELOG.md
 
 | File | Purpose |
 |------|---------|
+| **`.claude/REFERENCE/VOICE-PROFILE.md`** | **READ FIRST** — the creator's canonical personal voice fingerprint (`/voice-discovery` 2026-06-05, picks-validated). The *who-he-is*; the manual below is the *how-to*. Where they conflict, this wins. |
 | **`.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md`** | **PRIMARY** — Voice, structure, delivery, debunking framework, techniques toolkit. Read PARTS 1-5 (skip PART 6 article-side and PART 7 newsletter toolkit). |
 | **`.claude/REFERENCE/THESIS-DISCIPLINE.md`** | **THESIS** — Universal 9-step throughline-finding procedure. Source of truth for Rule 36. Read before STEP 0. |
 | `.claude/templates/02-SCRIPT-DRAFT-TEMPLATE.md` | Output template |
@@ -53,6 +54,17 @@ Every section of the script is either:
 - **`[GUIDE]`** — Write structured bullet points with key phrases and the logical thread. Creator ad-libs around these. Used for: transitions, context-building, explanations, modern relevance bridges, steelman sections, breathing room.
 
 **This is not "write less."** It's "write precisely where precision matters, and get out of the way where the creator's voice is better."
+
+**VOICE PROFILE — start every `[VERBATIM]` block in-voice (canonical: `VOICE-PROFILE.md`):**
+0. **GOVERNING IMAGE: "me talking to people in a bar."** Plain, simple explanation a smart friend would give over a drink — historical integrity intact, but **tight.** Reject BOTH enemies: staccato-gimmick AND purple/writerly prose. He flags "too much prose," over-citing, and clunky transitions as standing problems.
+1. **Explain the mechanism plainly, then stop.** Plain complete sentences (not fragments), but lean — explanatory ≠ wordy. The short punch is rare — reserve it for a clean landing. (The staccato/8-word-gavel emphasis in the manual is over-applied to him; so is literary prose.)
+2. **Signature shape:** flowing parallel clauses → em-dash → a verdict that carries the catch. Verdicts are dash-compound/full sentences, **never staccato two-beats.**
+3. **No gimmick hooks.** "But guess what?" / "guess who" are RETIRED; use "the part almost everyone gets wrong" / "Except none of that is the real story." No "One word: X" reveals.
+4. **Past tense by default;** historical present only for a single dramatic *moment*, never decade/era scene-setting.
+5. **Plain numbers** — no scale comparisons (he's the anti-RealLifeLore).
+6. **Atrocity = plain fact + *specific attributed* culpability** (named actor + concrete reason). Never sensory dwelling, never abstract sermon.
+7. **Quotes credential-first (but sparingly — don't stack); decode with "in other words"; auditor pivot = "So let's actually read it"** (collaborative, not "So I read it"). Dry humor via a deadpan modern analogy, never winking. Cold open = famous-then-puncture.
+8. **SCRIPTED-him is CALMER + TIGHTER than his natural speech.** Translate raw heat → calm + **concede-first** ("it's fascinating to watch — also, very often, just not true"). Build causal points as **two medium sentences** (not run-ons, not staccato). Keep vivid *concrete* nouns ("cram dates… repeat them back"), cut cutesy metaphors. Two-pole "either…or" framing is his. Mission/ethos lines = crisp & polished; drop "I guess" hedges. **Transitions are his #1 weakness — make every one thesis-forward, handing into the next beat's subject; never call the common story flatly "wrong" (→ "oversimplified / one part of the story").** See `VOICE-PROFILE.md` "Natural → Scripted translation" — and imitate the **"Worked exemplar"** block there (a from-scratch cold open + a generic→bar-talk before/after) before drafting; agents copy examples better than they obey rules.
 
 **LENGTH:** Hard cap at 12 minutes filmed duration (Rule 10). Write 1.20x target = ~3,600 words max for a 12-min video (at 250 WPM). The old 1.80x overwrite assumed 56% would be cut — with two-tier scripting, survival rate should be 80%+.
 
@@ -279,13 +291,25 @@ The first attributed academic quote (author name + source + exact words) MUST ap
 
 ## Rule 13: ANTI-PATTERNS — WHAT TO NEVER DO
 
-5 structural mistakes that kill retention:
+6 structural mistakes that kill retention:
 
 1. **Disclaimer Dump** — No apologies for runtime or format justifications before evidence
 2. **Russian Nesting Doll** — No announced tangents. Weave mechanisms into causal chain
 3. **Meta-Framing** — No narrator commentary about the video itself
 4. **Broadcasting Ignorance** — Never confess ignorance about what you're presenting. If outside scope, omit entirely
 5. **Late Topic Reveal** — Topic keyword by 30 seconds (Rule 9)
+6. **Contempt Undercuts Authority** (added 2026-06-04, v16.2 — Alex O'Connor early-vs-mature A/B) — snark, ad hominem, and venting forfeit the auditor's neutrality. The same creator's early era ("you ignorant homophobe," "I don't give a damn about your freedom") *lost* the argument the mature era *wins* by conceding and using parallel logic. For Calm Prosecutor: the measured voice that grants the opponent's strongest points is more devastating than the one that mocks. Contempt signals you're a partisan, not a referee — the audience stops trusting the verdict. (This codifies a failure mode; it does not change the locked voice register.)
+7. **The Generic-AI Prose Engine** (added 2026-06-11, v16.6 — Fable Phase 2 introspection + D2 triad audit; full evidence in `VOICE-PROFILE.md` §Adversarial drift audit). What a model defaults to when it wants to sound incisive — and what the audit proved leaks into locked scripts at AI frequency (the gold unscripted transcript has ZERO of any of these). Budgeted, not banned, unless marked HARD:
+   - **Negation-correction pairs** ("It wasn't X. It was Y.") — the #1 model default. EARNED only when the negated claim is live (the named myth at the turn, per Rule 3). Phantom negations ("wasn't a fluke") = state the reality directly. **Budget: 3-4 earned/script, never adjacent paragraphs.**
+   - **Escalating aphorism pairs** — re-landing one verdict with an upgraded metaphor ("didn't license a market… licensed a conquest" → "didn't bless a market… chartered an industry"). **One verdict per beat; never re-mint it.**
+   - **Balanced-clause epigrams** (antithetical parallelism: "armed when needed, dropped when not"). His syntax is asymmetric and chained. **One per act, as a landing.**
+   - **Button-per-paragraph** — every paragraph ending on a verdict. **~⅓ of paragraphs end on plain information or a forward link.**
+   - **Sinister-understatement adverbs** ("quietly erased," "simply ignored") — plain verb + named agent instead.
+   - **Symmetric triads / anaphora stacks** outside a declared P7 ledger beat — his enumeration is uneven, flowing. **~2/script.**
+   - **Tour-guide tissue** — "To understand X, we have to go back to…" / "Which brings us to…" — bridge by consequence ("So…") instead. HARD (lint).
+   - **Scholarly hedges** ("essentially," "arguably," "considerable," "in many ways") — his hedges are colloquial (basically/actually/kind of).
+   - **Colon-reveals** ("…one province: Mosul.") — **~2/script**; rest become appositives or full sentences.
+   - **HARD (lint-enforced):** agenda announcements ("today we're going to answer…"), "X changed everything," "here's the thing / and here's why," "the tragedy of," "isn't just X — it's Y," scale-by-population comparisons, abstraction-as-agent poetry ("the ghost of 1920 hangs in the air"), engagement-bait CTAs ("let me know in the comments").
 
 ---
 
@@ -460,11 +484,19 @@ When writing the closer, audit whether the meta-thesis sentence does work the ev
 
 **Anti-patterns:** "This is a story about…" / "What this tells us is…" / "The fight is real, it just isn't…" / "This is how [abstraction] works." All announce the thesis; all are redundant if the evidence comparison lands.
 
+**Conceptual-frame bookend — reconciling Rule 45 with Rule 36 (added 2026-06-04, v16.1):** The "cut the meta-thesis" default above applies when **the case IS the point** (the evidence comparison is the takeaway). It does NOT apply when the locked thesis is deliberately **bigger than the case** (Rule 36). In that mode the case is a *vehicle* for a universal claim, and the conceptual frame SHOULD **bookend** — open on the abstraction, descend to the specific case, return to the abstraction at close. This is not redundancy; it's the architecture.
+
+Validated on the two closest-match competitor shorts (re-audit 2026-06-04):
+- **KB "In Defense of Columbus":** opens "we want to shove people into good/evil boxes" → closes "we want a villain to blame."
+- **Kraut "How Vodka Ruined Russia":** opens addiction across civilizations → closes on the US opiate crisis.
+
+**Decision rule:** check the locked thesis (Rule 36). Case-is-the-point → cut the meta-thesis (default above). Thesis-bigger-than-case → keep the frame and bookend it; the closing abstraction is *additive*, not the redundant restatement Rule 45 forbids. The forbidden anti-patterns above still apply to the *case-level* takeaway either way.
+
 ---
 
 ## Rule 46: DEBUNK THE MECHANISM, NOT THE CONCLUSION
 
-**Added 2026-06-03. CANDIDATE — competitor-derived (ReligionForBreakfast script analysis), NOT yet validated on our own n. Treat as a strong default to test, not a mandate. See `tools/benchmark/SCRIPT-PATTERN-ANALYSIS-VOTP-RFB-2026-06-03.md`.**
+**Added 2026-06-03. Promoted from candidate to validated default 2026-06-04 (v16.1): confirmed as the dominant structure of the closest-match niche debunk corpus — Knowing Better "In Defense of Columbus" (40-min source-flip, every rebuttal names a specific manufacturing move) + KB "Lost Cause" + ReligionForBreakfast. Strong default; not yet a Tier-1 hard rule. See `tools/benchmark/SCRIPT-PATTERN-ANALYSIS-VOTP-RFB-2026-06-03.md`.**
 
 When debunking a claim, expose *how the false claim was manufactured* — the bad source, the misread document, the sampling trick, the mistranslation — not just the fact that the conclusion is wrong.
 
@@ -473,6 +505,25 @@ When debunking a claim, expose *how the false claim was manufactured* — the ba
 **Test at the turn:** does the script say *"X is false"* (assertion) or *"here is the specific move that produced X"* (mechanism)? Prefer the latter. Pairs with the auditor's edge (on-screen primary > scholar) and Rule 4 attribution discipline.
 
 **Application shape:** (1) state the viral claim with named carriers; (2) name the dataset/document that actually settles it, with credential chain; (3) **show the manufacturing defect** in the false claim's evidence; (4) steelman with the exact bar the claim would need to clear.
+
+### Defect Taxonomy (added 2026-06-04, v16.1 — from KB "In Defense of Columbus" re-audit)
+
+Rule 21's rebuttal techniques are the moves YOU make. This is the complementary list: the named categories of error to **hunt for** in the target's claim. Before scripting the turn, identify WHICH defect produced the false claim and **name it explicitly in VO** — that naming is the lethal beat.
+
+| Defect | What it is | KB Columbus instance |
+|--------|-----------|----------------------|
+| **Truncated quote** | quote cut mid-sentence to flip its meaning | "it's neither the beginning nor the end of the sentence — there's clearly more to it" |
+| **Mistranslation** | worst/most-biased rendering chosen as the quote | live-translates the Spanish "good servants" → shows "of good wit" was dropped |
+| **Temporal compression** | events spanning decades blamed on one moment | "attributing a 50-year span to one person — 42 of which weren't even Columbus" |
+| **Misattribution** | many actors collapsed onto one nameable name | "de Ovando was objectively worse… but Columbus is the one everyone can name" |
+| **Selective sourcing** | cite a source when it fits, drop it when it doesn't | "don't use the source when the numbers are unbelievable, but use it when it fits the narrative" |
+| **Anachronism** | judging a historical actor by a modern standard | "I'd have been fine with it until he said the word *yet*" |
+| **False projection** | attributing a belief the figure never actually stated | the pear/nipple-shaped-Earth claim Columbus poetically pondered once and never repeated |
+| **Wrong target** (added v16.2, Alex O'Connor) | the evidence is *real* but proves a *different* proposition than the one claimed | *"religion causes wars"* — even if true, that's an argument religion is *harmful*, not that it's *false*. Separate the proposition under debate from the adjacent one the evidence actually supports |
+| **Hindsight inflation** (added v16.3, Premodernist) | treating an event as a decisive turning point that the people alive at the time did NOT experience as decisive | "the Council of Nicaea settled it" — but Arianism raged for 55 more years; someone alive in 350 wouldn't have called 325 a watershed. **Counter-device:** inhabit a contemporary's POV — *"if you were standing there in 340, you wouldn't have thought 325 changed anything"* — and reach for contemporaries' own words that show they didn't see it as decisive |
+| **False homogenization** (added v16.4, Step Back) | treating a diverse group as a monolith ("Group X all believes Y") | "Zionism is a monolith" — in fact it splits into religious / secular / cultural / socialist / revisionist strains, plus Jewish anti-Zionists. **Counter-device:** map the real internal factions. **Referee-neutral by design** — this *adds* nuance rather than picking a side, so it's the rare debunk move that strengthens the Calm-Prosecutor stance instead of risking it (the source channel used it partisanly; the technique itself is not). Directly applicable to #59. |
+
+**Usage:** most debunks contain 1–3 of these stacked. Name each as you expose it ("this is temporal compression — …"). Directly maps to the pipeline: #57 Piri Reis = false projection + temporal compression; #58 Kurdistan = misattribution (single-pole denialism). Pairs with Rule 21 Source-Flip / Omission Exposure and the auditor's edge.
 
 ---
 
@@ -542,6 +593,8 @@ Evidence sections (2:30+) — Systematic dismantling
 Mark: `<!-- STRUCTURE: MYTH-FIRST -->` or `<!-- STRUCTURE: CHRONOLOGICAL (territorial explainer) -->`
 
 Phrases: "The story goes like this..." / "Here's what most people are taught..." / "The standard version is..."
+
+**Myth-Stack cold open (variant — added 2026-06-04, v16.3 — Premodernist "Council of Nicaea").** When a topic carries *several* associated myths, open by rapid-firing 3–4 of them and negating each in one breath — *"You'll hear it's where they chose the books of the Bible. That's not true. You'll hear Constantine forced his beliefs. Also not true."* — then **narrow to the one sophisticated misconception the video is actually about** (the load-bearing wrong belief, not the easy ones). This front-loads "here's everything you got wrong" (high curiosity) AND demonstrates command before the real thesis. Don't linger on the easy myths — dispatch them in ~30s and spend the video on the hard one. Interacts with Rule 43 (famous-myth skip): the stack *is* the narration for the easy myths; the hard misconception still gets full treatment.
 
 ---
 
@@ -681,6 +734,8 @@ Choose ONE structure per script. The verdict goes in the CLOSING, not the hook.
 
 See §19 for defaults by topic type. Add to metadata: `## ARGUMENT STRUCTURE: [type]`
 
+**Micro-scale: Analogy-as-Rebuttal (added 2026-06-04, v16.2 — Alex O'Connor).** The Parallel Comparison above is the *macro* structure. The same tool wielded at *sentence* level demolishes a single inference — and the analogy does the actual logical work, not just illustration. *"We should be glad cancer exists, because it gave us chemotherapy?"* (kills triumph-over-evil). *"Some researchers who aren't funded by oil say climate change is real — that's what 'secular scholars' sounds like."* (kills secular=biased). Construction: find the everyday case where the target's logic produces an absurd result, state it in one concrete sentence, let the absurdity land without explaining it. Pairs with Rule 21 C#6 Parallel Rebuttal (the analogy is often *how* the parallel is delivered).
+
 ---
 
 ## Rule 19: EVIDENCE SEQUENCING BY IMPACT (Merged Rule 54)
@@ -731,15 +786,37 @@ Top videos oscillate: HIGH → low → HIGH → low → HIGHEST → low (closing
 
 Build opposing view at FULL strength before dismantling. Intro phrases and transition pivots in §14.
 
+**Generous Reconstruction / Steelman-Repair (added 2026-06-04, v16.2 — Alex O'Connor):** When the target's argument is *botched* (wrong word, missing premise, sloppy phrasing), REPAIR it before answering — "maybe you meant 'atheist' instead of 'secular'" / "perhaps you're talking about the second coming." Fixing the opponent's argument before you answer it signals fairness, pre-empts the "you strawmanned me" rebuttal, and makes the subsequent dismantling land as inevitable rather than cheap. Micro-scale steelman; pairs with C+ Position Guard.
+
 ### C. Rebuttal Architecture (≥2 techniques per myth-busting script)
 
 1. **Source-Flip** — Read opponent's own cited source, show it contradicts them. Sub-variant: Chain Audit (trace citation → their citation → original data)
 2. **Hypothetical Concession** — "Even if we accept..." → conclusion still doesn't follow
+   - **Magnitude-Bounding Concession** (added 2026-06-04, v16.3 — PolyMatter) — concede the point is *real but smaller than claimed*, then cap its size. *"There's a kernel of truth here, but it's wildly overstated"* / *"$15 billion is not nothing — still, it won't bankrupt the world's second-largest economy."* Distinct from the parent: Hypothetical Concession grants the premise and denies the *inference*; this grants the premise and denies the *magnitude*. Pairs with C+ Position Guard — granting the real-but-small point is what makes you credible when you say it doesn't decide the case.
 3. **Forensic Detail Accumulation** — 4-7 anomalies, save most damning for last
 4. **Omission Exposure** — Show what was said, then what was cut
 5. **Contradiction Catalogue** — Show target contradicts themselves across their own content
+6. **Parallel / Symmetry Rebuttal** (added 2026-06-04, v16.2 — Alex O'Connor's signature move) — take the opponent's own inference *rule* and apply it to a case where it obviously fails. The target's logic destroys itself on neutral ground.
+   - *"Born elsewhere → you wouldn't be Christian." → "And born elsewhere → you wouldn't be an atheist either."* (same rule, applied symmetrically, dissolves the argument)
+   - *"The Wright brothers didn't own a 747 — does that tell us something about the 747?"* (reductio by parallel)
+   - *"Two witnesses agreeing in every detail is grounds for suspicion, not trust."* (apply the standard they demand to a case where it backfires)
+   - **Why it's lethal:** it's not a counter-assertion — it's the target's *own* reasoning convicting them on a case they can't dispute. Distinct from Source-Flip (their source) and Contradiction Catalogue (their other claims): this attacks their inference *rule*. Pairs with Rule 22 analogy-as-rebuttal and Rule 46 (the wrong-target defect).
+7. **Disanalogy Enumeration** (added 2026-06-04, v16.3 — PolyMatter "Taiwan is Not Venezuela") — when the *target* asserts a false parallel ("A is just like B"), debunk it by enumerating the ways A ≠ B, each disanalogy widening the gap. The **inverse of #6**: #6 uses a *true* parallel to break their logic; #7 breaks a *false* parallel they're leaning on.
+   - Structure: state the claimed parallel fairly → list 4–7 concrete disanalogies in escalating order → the analogy collapses under its own specifics. *"Maduro's capture was a surgical extraction of two people. Taking Taiwan means suppressing 23 million hostile subjects. Maduro was unpopular; anyone China captured becomes an instant martyr. Venezuela had 20 aging jets; Taiwan buys weapons from the world's superpower."*
+   - **Why it fits HvH:** analogy is the dominant rhetorical weapon in identity-stake topics ("it's apartheid," "it's 1938 again," "this is just like [X]"). The disanalogy list is the Calm-Prosecutor answer — it doesn't deny the emotion, it dismantles the equation. **Primary tool for #59 I/P.** Pairs with Forensic Detail Accumulation (#3) — it's accumulation aimed at a single claimed equivalence.
 
 Mark in metadata: `## REBUTTAL TECHNIQUES: [list]`
+
+### C+. Position Guard (added 2026-06-04, v16.1 — contrarian/auditor's-edge debunks only)
+
+Distinct from B (which steelmans the **opponent**): the Position Guard protects the **creator's own position** from being misread as advocacy for the unpopular side. When the auditor's-edge argument defends a reading the audience instinctively distrusts, the viewer pattern-matches you to "apologist" unless you pre-empt it.
+
+**Technique:** at the 2–3 points where the audience is most likely to misread the argument as advocacy, place an explicit "I'm not saying X" concession.
+- KB Columbus: "Am I saying Columbus was a good person? No." / "I am NOT trying to deny, excuse, or minimize what happened."
+
+**Placement:** immediately before or after the most exculpatory-sounding evidence — not at the open (reads as throat-clearing) and not only at the close (too late; the misread already happened). Keep each to one sentence; over-guarding sounds defensive.
+
+**Highest relevance:** split-verdict / both-sides-culpable formats (#59 I/P) where the auditor stance is the whole risk. Pairs with Rule 23 closing #5 (universal indictment) — guard the position mid-script, indict everyone at close.
 
 See §9 for examples of each technique.
 
@@ -894,6 +971,14 @@ The thesis must touch the script in **three specific places**, not as decoration
 - Bad: "Both sides of the modern fight read themselves into a 1797 document." (true but not the thesis)
 - Good: "What gets ratified is what the powerful side can read." (the thesis as one sentence)
 - Or, anchored to the artifact (per rough-cut instinct): "The English text is the law. The Arabic is a clerk's handwriting."
+
+### Spoken Scope Lock (delivery move — added 2026-06-04, v16.3 — PolyMatter "Taiwan is Not Venezuela")
+
+The Checkpoint-2 thesis-scope lock is an *internal* gate. PolyMatter shows the same discipline works as an *on-screen* move: **declare aloud what the video is NOT about**, then state the actual argument. *"This video is not about the morality or legality of Maduro's capture. It's not even about whether the parallels are objectively valid. My argument is that Xi's decision will be based on his own internal logic."*
+
+**Why deploy it:** identity-stake topics drag the viewer toward the adjacent fight (morality, blame, "but what about X"). Naming and ruling out those derails up front keeps the audience on the thesis the evidence actually supports — and pre-empts the top comment that says "but you didn't address Y" (you did: you said it's out of scope, on purpose).
+
+**Placement:** right after the hook's payoff preview (Slot 1), before the first evidence section. One or two "this is not about X" sentences, then the "my argument is Z" pivot. Don't overuse — one scope lock per script. Pairs with Rule 21 C#7 (false-analogy debunks especially tempt the morality derail) and Rule 46 Wrong-Target defect.
 
 ### Anti-patterns (what fails the Walk-Away Test)
 
