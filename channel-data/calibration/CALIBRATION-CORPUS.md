@@ -254,6 +254,389 @@ All locked into VOICE-PROFILE.md with 2026-06-06→06-10 dates: flowing-not-stac
 
 ---
 
+## S4 — Retention-curve → beat mapping (all post-publish reports), mined 2026-06-12
+
+> **ALL HYPOTHESIS [St]/[Su].** Per `memory/feedback-channel-data-too-small`: individual-video retention is noise — nothing below is actionable per-video; only the cross-video zone histogram (RP-8) is promoted, and even that stays a hypothesis. Beat labels: 13 videos map to actual chapter names from their YOUTUBE-METADATA.md; the rest get coarse zone labels (the analyses report position % only). Severity: HIGH ≥10% of remaining viewers lost at that point, MED 5–10%, LOW <5%. Source files: `channel-data/analyses/POST-PUBLISH-ANALYSIS-*.md` + archived project folders.
+
+**No retention data (no mapping possible):** `Q5Pfv_dPubU`, `c2uRn7U9jsk`, `ejkC0ecYyxk` (analysis ran before data existed / API errors), `imPn_OxLYlk` #37 Vichy (report has no retention section).
+
+**Data anomaly:** `o8A0CqQDQws` (#24 Iran protests) reports 112.1% average retention — measurement artifact; rows kept but excluded from interpretation.
+
+### 5 Big Myths About Israel and Palestine Busted! (`7fpBz6uo504`, avg ret 33.4%, 718s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (13.6%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | MED (8.2%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) | MED (7.2%) | packaging→content mismatch; arrivals bounce on claim confirm |
+
+### Did Pagans Actually Copy Christmas? (`l8abBf4aMv8`, avg ret 25.0%, 879s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (17.3%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | HIGH (16.2%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) | MED (5.2%) | packaging→content mismatch; arrivals bounce on claim confirm |
+
+### Europe's Last Divided Capital: The Cyprus Problem (`n-CUSE4bDvg`, avg ret 35.9%, 556s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (20.2%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | HIGH (10.1%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) | HIGH (12.1%) | packaging→content mismatch; arrivals bounce on claim confirm |
+
+### Four Articles That Killed the Soviet Union #GeoPolitics #ColdWar (`PZqOXNvi9Ks`, avg ret 67.2%)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 4% | hook (0-5%) | MED (7.5%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) | MED (6.7%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 9% | setup (6-14%) | MED (5.0%) | setup/method drag before the turn |
+| 10% | setup (6-14%) | MED (5.6%) | setup/method drag before the turn |
+| 11% | setup (6-14%) | MED (8.7%) | setup/method drag before the turn |
+| 12% | setup (6-14%) | MED (5.9%) | setup/method drag before the turn |
+
+### Honduras Called These Islands British Territory. Then Claimed Them (`sXadwOj8VoA`, avg ret 40.9%, 653s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 3% | hook (0-5%) — ch: "Britain's Last African Colony" | HIGH (24.1%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) — ch: "Britain's Last African Colony" | HIGH (10.3%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 18% | turn zone (15-25%) — ch: "The 1,500 People Already Living There" | MED (6.9%) | turn beat late, weak, or absent |
+| 35% | first-half evidence (26-50%) — ch: ""Your Island Has Been Sold"" | MED (6.9%) | evidence-beat fatigue / missing pattern interrupt |
+
+### How 3 Coups Ended 60 Years of French Control in Africa (`jLZngVFKWVg`, avg ret 17.7%, 812s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (18.5%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | HIGH (14.8%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) | HIGH (11.1%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 6% | setup (6-14%) | HIGH (11.1%) | setup/method drag before the turn |
+| 15% | turn zone (15-25%) | MED (7.4%) | turn beat late, weak, or absent |
+
+### How the KGB Weaponized Palestinian Resistance (`UH2PddfaaR8`, avg ret 44.8%, 606s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (16.2%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | MED (8.9%) | packaging→content mismatch; arrivals bounce on claim confirm |
+
+### How The Soviet Union Died In Just 3 Weeks (`5LMKEVybT3E`, avg ret 47.8%)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 15% | turn zone (15-25%) | MED (7.3%) | turn beat late, weak, or absent |
+| 17% | turn zone (15-25%) | MED (7.4%) | turn beat late, weak, or absent |
+| 19% | turn zone (15-25%) | HIGH (11.8%) | turn beat late, weak, or absent |
+| 20% | turn zone (15-25%) | MED (5.9%) | turn beat late, weak, or absent |
+| 22% | turn zone (15-25%) | MED (5.9%) | turn beat late, weak, or absent |
+
+### I Investigated the SHOCKING Sale of Kashmir and Here's What I Found! (`lPilDVSAeEM`, avg ret 21.3%, 629s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | MED (9.6%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | HIGH (11.4%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) | HIGH (16.8%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 6% | setup (6-14%) | MED (8.2%) | setup/method drag before the turn |
+
+### Iran's Protests: The Same Fight for 120 Years (`o8A0CqQDQws`, avg ret 112.1%)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 10% | setup (6-14%) | MED (6.3%) | setup/method drag before the turn |
+
+### Iran’s 1979 Referendum During the Hostage Crisis (`VgcQSUgYyYQ`, avg ret 46.1%)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 15% | turn zone (15-25%) | MED (6.3%) | turn beat late, weak, or absent |
+| 18% | turn zone (15-25%) | MED (5.6%) | turn beat late, weak, or absent |
+| 20% | turn zone (15-25%) | MED (5.6%) | turn beat late, weak, or absent |
+
+### ISIS Cited This Map. It Never Decided Anything. (`BXyT8OTGBBo`, avg ret 36.9%, 666s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (18.8%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | HIGH (15.6%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) | HIGH (10.4%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 9% | setup (6-14%) | MED (5.2%) | setup/method drag before the turn |
+| 11% | setup (6-14%) | MED (6.2%) | setup/method drag before the turn |
+
+### Morocco's 1,700-Mile Wall (And the Vote That Never Happened) (`QgDJSu0Y5K0`, avg ret 28.2%, 667s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (16.2%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | HIGH (14.3%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) | MED (6.7%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 6% | setup (6-14%) | MED (5.7%) | setup/method drag before the turn |
+| 7% | setup (6-14%) | MED (5.7%) | setup/method drag before the turn |
+
+### Operation Ajax: Not a Fluke, But a Repeat (`ztgOuhZOJEs`, avg ret 63.3%)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 25% | turn zone (15-25%) | MED (5.4%) | turn beat late, weak, or absent |
+| 38% | first-half evidence (26-50%) | MED (5.4%) | evidence-beat fatigue / missing pattern interrupt |
+
+### Primary Sources Destroy the 'Awesome Crusades' Narrative (`VyPv2n4mii8`, avg ret 28.4%, 635s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | MED (6.0%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | HIGH (17.4%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) | HIGH (12.9%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 6% | setup (6-14%) | MED (5.3%) | setup/method drag before the turn |
+
+### Putin Says NATO Promised Not to Expand. The Documents Disagree. (`499YLd1BHZ4`, avg ret 48.3%, 342s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | MED (6.5%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) | MED (8.7%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 35% | first-half evidence (26-50%) | MED (6.5%) | evidence-beat fatigue / missing pattern interrupt |
+| 96% | close (76-100%) | MED (6.5%) | payoff done — recap/CTA exit |
+
+### Russia Warned About Crimea & Donbas in 1991 (`a2cJZOEgjZE`, avg ret 68.4%)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 21% | turn zone (15-25%) | MED (6.4%) | turn beat late, weak, or absent |
+| 23% | turn zone (15-25%) | MED (5.4%) | turn beat late, weak, or absent |
+| 28% | first-half evidence (26-50%) | MED (5.0%) | evidence-beat fatigue / missing pattern interrupt |
+
+### Somaliland's Legal Independence Problem (`GuL9PtXEjN0`, avg ret 25.8%, 673s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) — ch: "The country the world forgot" | HIGH (17.3%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) — ch: "The country the world forgot" | HIGH (17.6%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) — ch: "The country the world forgot" | MED (9.2%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) — ch: "The country the world forgot" | MED (7.1%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 6% | setup (6-14%) — ch: "The country the world forgot" | MED (7.1%) | setup/method drag before the turn |
+
+### The 'Ancient Hatreds' Narrative Is Completely Wrong About the Middle East (`Ac-k2p9Gvj4`, avg ret 32.2%, 568s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (17.4%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | HIGH (10.9%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) | MED (8.7%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 6% | setup (6-14%) | MED (5.4%) | setup/method drag before the turn |
+
+### The 1922 Treaty Loophole That Ended the USSR (`TYNaIu28LeU`, avg ret 31.2%, 291s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (16.7%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | MED (8.3%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) | MED (8.3%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 27% | first-half evidence (26-50%) | MED (8.3%) | evidence-beat fatigue / missing pattern interrupt |
+
+### The 1947 Map That Set the South China Sea on Fire (`LrthC_8Hb2Y`, avg ret 50.5%, 282s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | MED (8.8%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) | MED (6.6%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 6% | setup (6-14%) | MED (6.6%) | setup/method drag before the turn |
+
+### The 1947 Partition Map Didn't Follow Religion (`-kg30uRUY1M`, avg ret 25.8%, 639s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) — ch: "The Draft Map" | HIGH (25.3%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) — ch: "The Draft Map" | HIGH (14.3%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) — ch: "The Draft Map" | MED (5.5%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 100% | close (76-100%) — ch: "The Road to Kashmir" | MED (5.5%) | payoff done — recap/CTA exit |
+
+### The 200‑Year‑Old Tariff Myth That Drains Your Wallet (`JkH4XIHfnJU`, avg ret 32.1%, 692s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (13.3%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | HIGH (12.4%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 6% | setup (6-14%) | MED (5.7%) | setup/method drag before the turn |
+
+### The Dark Ages: What Americans Believe vs What the Evidence Shows (`-QG8trhNsoM`, avg ret 31.7%, 645s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) — ch: "What Americans think about the Middle Ages" | HIGH (14.2%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) — ch: "What Americans think about the Middle Ages" | HIGH (10.4%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) — ch: "What Americans think about the Middle Ages" | MED (8.5%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) — ch: "What Americans think about the Middle Ages" | MED (6.6%) | packaging→content mismatch; arrivals bounce on claim confirm |
+
+### The Flat Earth Myth Was Invented in 1828. Here's Who Did It. (`LuLZYZWMiU4`, avg ret 13.2%, 1070s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (12.8%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | HIGH (25.6%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) | HIGH (16.8%) | packaging→content mismatch; arrivals bounce on claim confirm |
+
+### The Georgia Playbook: How 2008 Predicted Ukraine (`71xY0Pt4T-M`, avg ret 26.8%, 360s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (12.8%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | HIGH (10.3%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) | HIGH (10.2%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 6% | setup (6-14%) | MED (7.7%) | setup/method drag before the turn |
+| 9% | setup (6-14%) | HIGH (10.3%) | setup/method drag before the turn |
+| 11% | setup (6-14%) | MED (5.1%) | setup/method drag before the turn |
+| 21% | turn zone (15-25%) | MED (5.1%) | turn beat late, weak, or absent |
+| 32% | first-half evidence (26-50%) | MED (5.1%) | evidence-beat fatigue / missing pattern interrupt |
+| 33% | first-half evidence (26-50%) | MED (5.1%) | evidence-beat fatigue / missing pattern interrupt |
+| 36% | first-half evidence (26-50%) | MED (5.1%) | evidence-beat fatigue / missing pattern interrupt |
+
+### The Hidden Pattern Behind the Armenia Conflict (`UxsXdUj0EhU`, avg ret 32.1%, 842s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (29.4%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | HIGH (10.1%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 6% | setup (6-14%) | MED (7.3%) | setup/method drag before the turn |
+| 7% | setup (6-14%) | MED (5.5%) | setup/method drag before the turn |
+
+### The Middle East: A British Betrayal (`njjQoeA9lTE`, avg ret 48.3%)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 6% | setup (6-14%) | HIGH (12.9%) | setup/method drag before the turn |
+| 9% | setup (6-14%) | MED (5.9%) | setup/method drag before the turn |
+| 11% | setup (6-14%) | MED (7.1%) | setup/method drag before the turn |
+
+### The Phantom Island That Was on Maps for 400 Years (`P6yalauLDic`, avg ret 28.2%, 495s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) — ch: "The Phantom Island" | HIGH (20.0%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) — ch: "The Phantom Island" | HIGH (10.0%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 7% | setup (6-14%) — ch: "The Phantom Island" | HIGH (10.0%) | setup/method drag before the turn |
+| 18% | turn zone (15-25%) — ch: "The 1539 Error" | HIGH (30.0%) | turn beat late, weak, or absent |
+| 19% | turn zone (15-25%) — ch: "The 1539 Error" | HIGH (10.0%) | turn beat late, weak, or absent |
+| 26% | first-half evidence (26-50%) — ch: "The 1539 Error" | HIGH (10.0%) | evidence-beat fatigue / missing pattern interrupt |
+
+### The Piri Reis Map Cites Columbus. Hancock Calls It 12,000 Years Old (`zt7VntgauC8`, avg ret 32.2%, 628s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 3% | hook (0-5%) — ch: "The claim" | HIGH (11.1%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) — ch: "The claim" | MED (9.0%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) — ch: "The claim" | MED (8.3%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 6% | setup (6-14%) — ch: "The claim" | MED (5.6%) | setup/method drag before the turn |
+
+### Two Countries Split a Continent They Had Never Mapped (`WgE2FLsDhfk`, avg ret 18.8%, 769s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) — ch: "The Language Map" | MED (7.4%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) — ch: "The Language Map" | HIGH (35.6%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) — ch: "The Language Map" | HIGH (12.0%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) — ch: "The Language Map" | MED (7.2%) | packaging→content mismatch; arrivals bounce on claim confirm |
+
+### Venezuela vs Guyana: The Oil War Over Essequibo (`oDK52GwjTIo`, avg ret 35.6%, 633s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | MED (7.6%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | MED (8.0%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) | MED (5.5%) | packaging→content mismatch; arrivals bounce on claim confirm |
+
+### Was Lagertha Real? DNA Says Female Viking Warriors Existed (`2RQWu-cyO90`, avg ret 28.9%, 606s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (19.6%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) | HIGH (21.7%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 6% | setup (6-14%) | MED (6.5%) | setup/method drag before the turn |
+| 57% | second-half evidence (51-75%) | MED (6.5%) | mid-evidence drag |
+
+### Was Stalin Really a Hero? The Evidence Says Otherwise (`Yx5oywZs-rk`, avg ret 38.1%, 602s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (20.0%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | MED (7.5%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) | MED (5.0%) | packaging→content mismatch; arrivals bounce on claim confirm |
+
+### Why a 1908 Map is Still Killing People: Thailand vs. Cambodia (`xODFE2Pyubo`, avg ret 30.6%, 442s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (25.9%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) | HIGH (14.8%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 6% | setup (6-14%) | MED (7.4%) | setup/method drag before the turn |
+| 9% | setup (6-14%) | MED (7.4%) | setup/method drag before the turn |
+| 16% | turn zone (15-25%) | MED (7.4%) | turn beat late, weak, or absent |
+| 32% | first-half evidence (26-50%) | MED (7.4%) | evidence-beat fatigue / missing pattern interrupt |
+| 40% | first-half evidence (26-50%) | MED (7.4%) | evidence-beat fatigue / missing pattern interrupt |
+| 64% | second-half evidence (51-75%) | MED (7.4%) | mid-evidence drag |
+| 74% | second-half evidence (51-75%) | MED (7.4%) | mid-evidence drag |
+
+### Why Egypt and Sudan Both Reject Bir Tawil (`XKAqt_ZLHGo`, avg ret 23.2%, 534s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) — ch: "A Virginia Dad Claims African Territory" | HIGH (13.4%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) — ch: "A Virginia Dad Claims African Territory" | HIGH (17.9%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) — ch: "A Virginia Dad Claims African Territory" | MED (7.5%) | packaging→content mismatch; arrivals bounce on claim confirm |
+
+### Why Iran's 1906 Revolution Was Unique (`ICCROht7uK8`, avg ret 72.9%)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 16% | turn zone (15-25%) | MED (6.5%) | turn beat late, weak, or absent |
+| 20% | turn zone (15-25%) | MED (6.5%) | turn beat late, weak, or absent |
+| 25% | turn zone (15-25%) | MED (5.7%) | turn beat late, weak, or absent |
+
+### Why Spain Didn't "Civilize" Peru: The 500-Year Lie (`6GybGd_q25w`, avg ret 32.2%, 754s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (22.2%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | HIGH (15.6%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 18% | turn zone (15-25%) | MED (8.9%) | turn beat late, weak, or absent |
+| 38% | first-half evidence (26-50%) | MED (6.7%) | evidence-beat fatigue / missing pattern interrupt |
+| 100% | close (76-100%) | MED (8.9%) | payoff done — recap/CTA exit |
+
+### Why Trump Walked Back the Armenian Genocide (`Oc7oq292HkM`, avg ret 28.9%, 753s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) | HIGH (17.1%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) | MED (7.6%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) | HIGH (10.8%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 5% | hook (0-5%) | MED (5.1%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 6% | setup (6-14%) | MED (5.1%) | setup/method drag before the turn |
+
+### Yes Slavery Existed In Africa. Then Europe Took Over (`aSfZtrgGjwA`, avg ret 28.2%, 667s)
+
+| Pos % | Beat | Drop | Candidate cause |
+|---|---|---|---|
+| 2% | hook (0-5%) — ch: "The Claim" | HIGH (20.0%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 3% | hook (0-5%) — ch: "The Claim" | MED (6.7%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 4% | hook (0-5%) — ch: "The Claim" | HIGH (10.7%) | packaging→content mismatch; arrivals bounce on claim confirm |
+| 8% | setup (6-14%) — ch: "The Claim" | MED (5.3%) | setup/method drag before the turn |
+
+### S4 cross-video zone histogram (videos with ≥1 drop in zone, n=40)
+
+| Zone | Videos | Promoted? |
+|---|---|---|
+| hook (0–5%) | 33 | → RP-8 |
+| setup (6–14%) | 20 | → RP-8 |
+| turn zone (15–25%) | 11 | → RP-8 |
+| first-half evidence (26–50%) | 9 | → RP-8 |
+| close (76–100%) | 3 | → RP-8 (borderline, exactly 3) |
+| second-half evidence (51–75%) | 2 | NOT promoted (<3 videos) |
+
+---
+
 ## Recurring patterns (cross-video)
 
 *(Populated by S2 from the draft-vs-locked diffs, 2026-06-12. Each pattern cites its per-video evidence; all VALIDATED unless noted.)*
@@ -278,6 +661,9 @@ Externally-imported REGISTER (NLM Fig-Tree parasocial signatures in #56; competi
 
 ### RP-7 [V] Delivery strips written apparatus: asides, recaps, second verbatims, foreign text — HYPOTHESIS (S3, both videos)
 On camera, both #56 and #57 shed the same four apparatus classes: mid-sentence em-dash asides (56-24), recap lines (57-05 confidence note), VO-scripted verbatims beyond the first (56-26/56-28/57-25), and anything not in the video's established terminology (57-26). Script-side implication: write the VO layer as if these will be dropped — load-bearing facts in main clauses, one verbatim per beat in the voice, the rest on cards. Tier stays HYPOTHESIS until a grill confirms intent (the cuts could be edit-room, not instinct). *Evidence: S3 entries across #56 + #57.*
+
+### RP-8 [St] Retention-drop zone histogram — where the channel's videos lose people — HYPOTHESIS (S4, n=40)
+Across every video with retention data: hook-zone drops (0–5%) in 33/40 videos (universal arrival-bounce — partly platform noise, but severity varies 6%→26%, so hook quality still differentiates); setup-zone (6–14%) in 20/40 (the most channel-specific cluster — method/setup drag before the turn); turn-zone (15–25%) in 11/40 (consistent with the validated turn-at-15–25% rule: when the turn is late or weak, this is where it shows); first-half evidence (26–50%) in 9/40; close (76–100%) in 3/40 (borderline at exactly 3). Second-half (51–75%) appeared in only 2 videos — NOT promoted. Interpretation stays hypothesis: per-video curves are noise (feedback-channel-data-too-small); what 3+ videos share is the ZONE, not a confirmed cause. Strongest writable lead: the 6–14% setup zone is the biggest non-universal cluster — candidate S8 grill question on what occupies minutes 0:45–1:40 of a typical script. *Evidence: S4 section tables, 162 drop rows.*
 
 ---
 

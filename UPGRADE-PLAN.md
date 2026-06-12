@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (S3)
+**Last advanced:** 2026-06-12 (S4)
 **Total steps:** 24
-**Done:** 3
+**Done:** 4
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -105,7 +105,7 @@ For each published video that has BOTH a locked script and a delivered SRT/subti
 
 **Commit:** `feat(calibration): S3 SRT ad-lib deltas (hypotheses)`
 
-## S4 [TODO] Retention-curve → beat mapping
+## S4 [DONE] Retention-curve → beat mapping
 
 **Deps:** S1
 
@@ -402,3 +402,6 @@ Run the full suite: python -m pytest tests/ tools/tests/ -q (and tools/youtube_a
 ## Drift log
 
 *(append-only; /refactor writes verify-failures and out-of-scope observations here)*
+
+### Out-of-scope observation (S4, 2026-06-12)
+`video-projects/_ARCHIVED/published/35-gibraltar-treaty-utrecht-2026/POST-PUBLISH-ANALYSIS.md` is misfiled: it analyzes video `TYNaIu28LeU` ("The 1922 Treaty Loophole That Ended the USSR" — Belavezha lane), not the Gibraltar video (`WZnCxVPNF7A` per project-map). Not fixed (off-step scope); S4 mapped it under zone labels with no Gibraltar chapter join.
