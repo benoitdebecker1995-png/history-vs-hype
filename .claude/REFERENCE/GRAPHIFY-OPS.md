@@ -63,11 +63,12 @@ cat graphify-out/research/.needs_refresh 2>/dev/null
 
 Ranked by impact:
 
-1. **Restart Claude Code** — MCP servers won't activate in this session. Next session, `query_graph`, `get_neighbors`, `god_nodes`, `shortest_path`, etc. become native tools. Single biggest day-to-day win.
-2. **Install Ollama + `qwen2.5:7b`** (~5 GB, one-time) and run `graphify <path> --backend ollama --update` to extract the full 22.5M words of doc content with zero ongoing API cost. Replaces the Gemini-only research subset with a real full-corpus doc graph. Graphify supports this natively via `--backend ollama` — no skill fork needed.
-3. **`graphify install --project`** — moves the graphify skill from `~/.claude/skills/` (user-global) into `.claude/skills/` (project-tracked). Worth doing if you ever want to reproduce the setup on another machine.
-4. **`graphify watch .` in background** — real-time AST updates while editing. Redundant with the post-commit hook unless you want sub-commit refresh.
-5. **`uv tool install graphifyy`** — cleaner install than current system-Python `site-packages`. Migrate only if you hit conflicts. Path detection in the hook and MCP config uses absolute paths, so a reinstall under `uv` will require updating `graphify-out/.graphify_python` and the two MCP entries in `~/.claude.json`.
+1. **Research-graph densification — scope A (UPGRADE-PLAN Phase 2.3, decided 2026-06-12):** research corpus only — all `01-VERIFIED-RESEARCH.md` (archived + active) + `.brain/` quote threads + `tools/benchmark/` playbooks — via **Gemini Flash CLI** (existing sub, zero marginal cost), extending `tools/refresh-research-graph.py`. Before building, check whether a NotebookLM coverage notebook (same corpus via `notebook_query`) answers "have we covered X" well enough to make the graph work redundant. ~~Ollama full-22.5M-word extraction~~ RETIRED — Ollama is a verified dead end on this laptop (gemma3:4b fails JSON, qwen2.5:7b too slow on CPU; smoke-tested 2026-05-26).
+2. **`graphify install --project`** — moves the graphify skill from `~/.claude/skills/` (user-global) into `.claude/skills/` (project-tracked). Worth doing if you ever want to reproduce the setup on another machine.
+3. **`graphify watch .` in background** — real-time AST updates while editing. Redundant with the post-commit hook unless you want sub-commit refresh.
+4. **`uv tool install graphifyy`** — cleaner install than current system-Python `site-packages`. Migrate only if you hit conflicts. Path detection in the hook and MCP config uses absolute paths, so a reinstall under `uv` will require updating `graphify-out/.graphify_python` and the two MCP entries in `~/.claude.json`.
+
+*(Removed 2026-06-12: "Restart Claude Code" — done long since; MCP servers are live.)*
 
 ## Recovery / rollback
 
@@ -81,7 +82,7 @@ Ranked by impact:
 
 ## Known caveats (don't re-discover these)
 
-- **Worktree duplication** — `.claude/worktrees/bridge-cse_*` is your active flight-deals branch with 5 unmerged commits. Do NOT prune. `.graphifyignore` already excludes it from future runs.
+- **Worktree duplication** — RESOLVED 2026-06-12: bridge-cse worktree pruned, branch deleted (bundle: `D:\backups\bridge-cse-flight-deals-2026-06-12.bundle`; working copy: `D:\flight-deals`). `.graphifyignore` entry is now inert but harmless.
 - **Gemini Flash repeats output** — the research-extraction Gemini call has duplicated its full JSON twice in one of our runs. The refresh script handles this via balanced-brace JSON truncation, but if you ever bypass it, check for `}{` near the end of raw output.
 - **Citation slug attribution** — Gemini got 0/22 wrong in the JSON pass but 2/20 wrong in the markdown pass. Always verify quote→video attribution against the original `01-VERIFIED-RESEARCH.md` before script use. Same rule as `[[feedback-notebook-citation-grounding]]`.
 - **Stub entities** — 4 nodes in `RESEARCH-GRAPH.json` have `role` starting with `[stub: ...]`. They exist because Gemini emitted edges pointing to ids it forgot to declare. Treat as low-confidence.
