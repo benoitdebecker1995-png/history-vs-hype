@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (S4)
+**Last advanced:** 2026-06-12 (S5)
 **Total steps:** 24
-**Done:** 4
+**Done:** 5
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -118,7 +118,7 @@ For each video with a POST-PUBLISH-ANALYSIS file (channel-data/analyses/ + archi
 
 **Commit:** `feat(calibration): S4 retention-to-beat mapping (hypotheses)`
 
-## S5 [TODO] Deep linguistic fingerprint of the unscripted gold standard
+## S5 [DONE] Deep linguistic fingerprint of the unscripted gold standard
 
 **Deps:** S1
 

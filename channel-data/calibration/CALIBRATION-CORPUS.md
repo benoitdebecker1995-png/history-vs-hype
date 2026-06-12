@@ -254,6 +254,42 @@ All locked into VOICE-PROFILE.md with 2026-06-06→06-10 dates: flowing-not-stac
 
 ---
 
+## Gold standard — unscripted video (`yMAWJcjo_ug`) — S5 fingerprint, 2026-06-12
+
+Source: `channel-data/calibration/FINGERPRINT-UNSCRIPTED.md` (full quantitative distributions there — 741 words, 39 sentences, single-sample caveat applies). Tier: **VALIDATED** (it IS him), scope-limited to the unscripted conversational register; VOICE-PROFILE.md supersedes on conflict.
+
+### GS-01 [V] Flat, wide sentence-length distribution — flowing, not clipped — VALIDATED
+Median 13w, mean 19w, modal bucket 11–15w, and a genuine 26% of sentences at 21+ words. Short sentences are 13% and functional, never dramatic fragments. Quantifies the VOICE-PROFILE flowing-over-staccato reversal. *Source: FINGERPRINT §1.*
+
+### GS-02 [V] Causal stack: so ≫ because; "which is why" / "and that meant" don't occur unscripted — VALIDATED
+so=9 (6 sentence-initial), because=4, "the reason why"=1, which-is-why=0, and-that-meant=0. The style guide's fancier connectors are writer's tools to ration, not his defaults. *Source: FINGERPRINT §2.*
+
+### GS-03 [V] Zero rhetorical questions — invitations are imperatives — VALIDATED
+0 questions in 39 sentences; audience asks are imperative ("send them my way," "ask me to debunk something"). Free-floating rhetorical questions have a natural baseline of ~0 (setup-questions he immediately answers are the one scripted exception — 57-28). *Source: FINGERPRINT §6.*
+
+### GS-04 [V] First-person stance openers, not presentational openers — VALIDATED
+Sentence starts: I/I'm (8), So (6), And (6). Zero "Here's/Now,/Look,/Listen." He enters a thought through his own position ("I'm passionate about…," "I know that…"). *Source: FINGERPRINT §4.*
+
+### GS-05 [V] Clause-final hedges and "yeah"-exhale closes; never aphoristic closes — VALIDATED
+"…I guess" ×3 clause-final, "so yeah…" paragraph exhales, scope-back qualifiers at sentence end ("at least in the historical community"). The aphoristic mirrored close is alien to the register (squares with 56-12's lock-stage cut). *Source: FINGERPRINT §5.*
+
+### GS-06 [V] "very" is the intensifier; "really" = 0 — VALIDATED
+very=9 (1.2/100w: "very first," "very little basis," "very good reason"); really=0. Cheap, checkable lint datum. *Source: FINGERPRINT §3.*
+
+### GS-07 [V] One Latinate word per plain sentence — elevation never clusters — VALIDATED
+"propagate," "fantastical," "misinterpreted," "counterbalance" each sit alone inside otherwise plain sentences. Cluster of abstract Latinate vocabulary = writer's register error (the 56-05 jargon-cluster whack-a-mole, seen from the positive side). *Source: FINGERPRINT §8.*
+
+### GS-08 [V] Audience-as-collaborator imperatives — VALIDATED
+"Send them my way" ×2, "send me constructive feedback," "ask me to debunk something even if you believe it," "you don't have to take my word for it, but please look into these things" — the engagement register is collaborative tasking, and it's the embryo of the channel method line (#57's "go to the document and read it"). *Source: FINGERPRINT §8.*
+
+### GS-09 [V] Dry concrete-image mockery, triple-adjective dismissals — VALIDATED
+"Turn you into a parrot" (bad pedagogy), "cool and edgy and flashy" (viral junk, polysyndeton listing). Mockery lands through a concrete image or a flat list — never sneering, never hot. *Source: FINGERPRINT §8.*
+
+### GS-10 [V] Push-through self-correction — repeat the function word, never re-cast — VALIDATED
+16 stutter-repeat events/741w ("that that are known," "I I I try"); zero sentence abandonments, zero "let me rephrase." His delivery absorbs imperfection without resetting — script rhythm should assume forward momentum, not clean-room sentences. *Source: FINGERPRINT §7.*
+
+---
+
 ## S4 — Retention-curve → beat mapping (all post-publish reports), mined 2026-06-12
 
 > **ALL HYPOTHESIS [St]/[Su].** Per `memory/feedback-channel-data-too-small`: individual-video retention is noise — nothing below is actionable per-video; only the cross-video zone histogram (RP-8) is promoted, and even that stays a hypothesis. Beat labels: 13 videos map to actual chapter names from their YOUTUBE-METADATA.md; the rest get coarse zone labels (the analyses report position % only). Severity: HIGH ≥10% of remaining viewers lost at that point, MED 5–10%, LOW <5%. Source files: `channel-data/analyses/POST-PUBLISH-ANALYSIS-*.md` + archived project folders.
