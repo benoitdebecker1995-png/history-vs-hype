@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (created)
+**Last advanced:** 2026-06-12 (S1)
 **Total steps:** 24
-**Done:** 0
+**Done:** 1
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -58,7 +58,7 @@ Hard ordering constraint: **S1–S13 before Panama `/script`.** R/W/T steps can 
 
 All corpus output accumulates in `channel-data/calibration/CALIBRATION-CORPUS.md`. Every delta entry is tagged with an axis: `[V]` voice · `[St]` structure · `[Su]` substance · `[P]` process/revision-economy. Source-tier rule: read-aloud corrections and locked-script diffs = validated signal; SRT deviations and retention mappings = **hypotheses only** (per `memory/feedback-postmortem-methodology.md`).
 
-## S1 [TODO] Consolidate existing ad-hoc lesson artifacts
+## S1 [DONE] Consolidate existing ad-hoc lesson artifacts
 
 **Deps:** none
 
