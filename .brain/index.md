@@ -1,6 +1,6 @@
 # .brain/index.md — Master Knowledge Catalog
 
-*Auto-maintained by Routine 5 (brain hygiene, nightly). Last updated: 2026-05-05*
+*Auto-maintained by Routine 5 (brain hygiene, nightly). Last updated: 2026-06-11*
 
 ---
 
@@ -49,7 +49,7 @@
 | User behavior rules (feedback) | `memory/feedback-behavior.md`, `memory/feedback-content.md` |
 | Article-writer rules (v5.3) | `.claude/agents/article-writer.md` |
 | Newsletter rules | `memory/feedback-newsletter.md` |
-| Workflow audit findings (2026-04-14) | `memory/workflow-audit.md`, `WORKFLOW-AUDIT-2026-04-14.md` |
+| Workflow audit findings (2026-04-14) | `memory/workflow-audit.md`, `docs/archive/WORKFLOW-AUDIT-2026-04-14.md` |
 | Thesis discipline methodology | `.claude/REFERENCE/THESIS-DISCIPLINE.md` |
 | Channel health anomalies | `.brain/_inbox/channel-health-YYYY-MM-DD.md` (Routine 3 output) |
 | Stale in-production projects | `.brain/_inbox/stale-projects-YYYY-MM-DD.md` (Routine 4 output) |
@@ -73,16 +73,27 @@
 ## 4. Recently Added / Changed (last 14 days)
 <!-- AUTO:routine-5 — prepend new entries; entries older than 14 days are dropped -->
 
-- 2026-05-05 — 5 daily routines live: Routines 1-2 (Cloud), 3-5 (Desktop Task Scheduler, State: Ready)
-- 2026-05-05 — Gemini retrofit complete: wiki-researcher, claims-extractor, competitor-gap, research-organizer, fact-checker all dispatch bulk reads to Gemini
-- 2026-05-05 — Schema contracts locked: all 5 retrofitted agents have `.contract.md` + harness at `tools/agent_contract_check.py`
-- 2026-05-05 — Model routing applied: structure-checker-v2 → Opus; all other agents confirmed per matrix
-- 2026-05-05 — `.brain/` skeleton created: `README.md`, `index.md`, `methodology/`
-- 2026-05-05 — `.brain/methodology/gemini-routing.md` — model routing matrix (Opus/Sonnet/Haiku/Gemini per agent)
-- 2026-05-05 — `.brain/methodology/handoff-playbook.md` — Gemini↔Claude handoff recipes
-- 2026-05-05 — `.brain/methodology/brain-map.md` — multi-root knowledge architecture
-- 2026-05-05 — `.claude/commands/gemini.md` — Gemini headless dispatch command (4 task types)
-- 2026-05-05 — `~/llm-brain/wiki/concepts/gemini-claude-routing.md` — cross-project routing doc added
+- 2026-06-11 — `.claude/agents/script-writer-v2.md` — v17.0: Fable Phase 3 retention re-tier (VALIDATED/HEDGE/RETIRED), +Rule 47 retention-zone discipline
+- 2026-06-11 — `.claude/agents/script-writer-v2-CHANGELOG.md` — v17.0 changelog entry
+- 2026-06-11 — `.claude/agents/structure-checker-v2.md` — Wave 11: +BE early-zone authority, +BF late-quarter; A/B/U demoted to WARNING
+- 2026-06-11 — `.claude/commands/greenlight.md` — wired to TOPIC-RUBRIC v2 scoring
+- 2026-06-11 — `.claude/commands/publish.md` — Fable-pass updates
+- 2026-06-11 — `.claude/REFERENCE/VOICE-PROFILE.md` — voice fingerprint refinements (Phase 2 lint alignment)
+- 2026-06-11 — `channel-data/BREAKOUT-HYPOTHESES.md` — H1/H2/H4 pre-registered for Panama + #59
+- 2026-06-11 — `channel-data/fable-digests/PHASE-2-VOICE-LINT-SPEC.md` — voice-lint mechanization spec
+- 2026-06-11 — `channel-data/fable-digests/PHASE-3-RETENTION-ADJUDICATION.md` — retention rule adjudication digest
+- 2026-06-11 — `channel-data/fable-digests/PHASE-5-COHERENCE-REPORT-2026-06-11.md` — Opus coherence sweep; corpus coherent for #59 + Panama
+- 2026-06-11 — `channel-data/patterns/TRAFFIC-SOURCE-ANALYSIS.md` — one-video-distortion banner added (Guatemala 51%)
+- 2026-06-11 — `channel-data/serp-studies/titles/` — 5 SERP title studies: adwa-wuchale, brest-litovsk, panama-canal, suez-1956, unequal-treaties
+- 2026-06-11 — `channel-data/TOPIC-PIPELINE.md` — pipeline re-ranked under TOPIC-RUBRIC v2
+- 2026-06-11 — `channel-data/youtube-intelligence.md` — intelligence refresh
+- 2026-06-11 — `CLAUDE.md` — Critical Reminder 13 softened (years/colons = hedge, not ban)
+- 2026-06-11 — `tools/benchmark/outlier_title_dissector.py` — title scorer v5 adjudication
+- 2026-06-11 — `tools/PACKAGING_MANDATE.md` — Fable Phase 1 re-tiered mandate
+- 2026-06-11 — `tools/TOPIC-RUBRIC.md` — v2 canonical small-channel topic rubric (gates + 30/20/25/10/10/5 weights + POCKET flag)
+- 2026-06-11 — `tools/voice_lint.py` + `tools/tests/voice-fixtures/` — voice linter + gold/control fixtures
+- 2026-06-11 — `video-projects/_IN_PRODUCTION/36-panama-canal-deconcini-2026/` — pulled from _BACKLOG, greenlit; SCRIPT.md, RESEARCH-VIABILITY.md, 03-FACT-CHECK-VERIFICATION.md, PROJECT-STATUS.md, _research/00-PRELIMINARY-BRIEF.md touched
+- 2026-06-11 — `graphify-out/` — 3 new graph reports + 5 converted research docs (generated artifacts)
 
 ---
 
@@ -90,11 +101,11 @@
 <!-- AUTO:routine-5 — populated by nightly brain-lint pass -->
 
 ```
-LAST LINT: not yet run
-Stale items (>90d unverified):  —
-Orphan pages (no inbound links): —
-Open contradictions:             —
-Next lint scheduled:             tonight 22:00 local (Routine 5 Desktop task)
+LAST LINT: 2026-06-11 22:02
+Stale items (>90d unverified):  0
+Orphan pages (no inbound links): 0
+Open contradictions:             0 (wiki/contradictions/ not accessible this run — skipped)
+Next lint scheduled:             tomorrow 22:00 local (Routine 5)
 ```
 
 ---
@@ -102,21 +113,26 @@ Next lint scheduled:             tonight 22:00 local (Routine 5 Desktop task)
 ## 6. Cross-Root Links
 <!-- AUTO:routine-5 — wiki concepts referenced by current projects -->
 
-**Treaty of Tripoli (active project):**
+**Active projects (59-israel-palestine-partition-offer-2026, 36-panama-canal-deconcini-2026):**
+- No `~/llm-brain/` wiki references in either project's `01-VERIFIED-RESEARCH.md` yet
+
+**Prior projects (archive crossref):**
+
+*Treaty of Tripoli:*
 - `~/llm-brain/wiki/entities/treaty-of-tripoli.md`
 - `~/llm-brain/wiki/entities/article-11-treaty-of-tripoli.md`
 - `~/llm-brain/wiki/entities/joel-barlow.md`
 - `~/llm-brain/wiki/entities/snouck-hurgronje.md`
 - `~/llm-brain/wiki/concepts/article-11-arabic-discrepancy.md`
 
-**Berlin Conference (prior project, archive crossref):**
+*Berlin Conference:*
 - `~/llm-brain/wiki/entities/berlin-conference-1884.md`
 - `~/llm-brain/wiki/entities/leopold-ii.md`
 - `~/llm-brain/wiki/entities/roger-casement.md`
 - `~/llm-brain/wiki/concepts/effective-occupation.md`
 - `~/llm-brain/wiki/concepts/ethnic-partition-of-africa.md`
 
-**Chagos Islands (prior project, archive crossref):**
+*Chagos Islands:*
 - `~/llm-brain/wiki/entities/chagos-archipelago.md`
 - `~/llm-brain/wiki/concepts/double-betrayal-chagos.md`
 - `~/llm-brain/wiki/concepts/strategic-island-concept.md`
