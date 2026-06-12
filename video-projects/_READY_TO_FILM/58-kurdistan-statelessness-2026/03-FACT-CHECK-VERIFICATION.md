@@ -157,3 +157,26 @@ User uploaded **Vanly, "Kurdistan in Iraq," in Chaliand (ed.), *People Without a
 ### Resolutions — 2026-06-04 (cont.)
 - **Kissinger "missionary work" — LOCKED to the most-supported quote.** Keeping "covert action should not be confused with missionary work" (Gibson `01a62b01` + corroborated Ghareeb p.141 via McDowall fn 25 = two sources). The Vanly variant "secret service operations are not missionary work" is single-source (`75e966ef`) → not chosen. Source tag should foreground the Ghareeb corroboration so the card does not appear to rest on the revisionist Gibson alone.
 - **Teleprompter deleted (premature).** Per the new rule (teleprompter = post-lock derived artifact; wired into `/script --teleprompter` Step 0 lock gate), `SCRIPT-TELEPROMPTER.txt` was removed. `SCRIPT.md` is the complete, verified single source of truth (all 2026-06-04 fixes + the Seljuk add live there). Read aloud from SCRIPT.md for the T1 gate; regenerate the teleprompter with `/script --teleprompter` only after lock.
+
+---
+
+## DELTA VERIFY — Sykes-Picot misattribution beat (2026-06-04, post-full-pass)
+
+**Scope:** the full script was paragraph-by-paragraph NLM-re-verified earlier today (section above). The only change since is ONE new beat at the Lausanne transition (Act 3) — the wrong-target/misattribution debunk (Rule 46, v16.2 script-writer): *"Everyone blames Sykes-Picot… that map was a wartime bargain, redrawn and overtaken within a few years. It isn't what shut the door on the Kurds. This is. The Treaty of Lausanne, 1923."* This delta pass verifies that beat only.
+
+**Why it's a contained delta:** the beat is a **reframe of already-verified facts** (C19 Sèvres-void→Lausanne-operative; C8 non-Muslim minority exclusion). It introduces **no new quote card** (the Curzon/İnönü cards that follow were already ✅ T1 primary), so Steps 7.6 (no cultural anchor), 7.7-Class-A (no named human target — "everyone" is the popular myth), and 7.8 (no new on-screen quote) do not trigger.
+
+**Simplification scan (new beat only):** Rule 1 N/A (no boundary claim) · Rule 2 PASS · Rule 3 — "everyone blames" is rhetorical hyperbole, softened by "you'll hear one name"; research backs it (COMPETITOR-GAP: "Sykes-Picot as the villain — every video") → PASS · Rule 5 — the reframe is interpretive but the majority scholarly reading and the channel's documented differentiation; grounded below → PASS · Rule 6 N/A (no new quote). **0 critical.**
+
+**NLM round-trip** (notebook `f0ae92dd`, conv `bedf9c5c`, 2026-06-04 — re-auth'd mid-pass):
+
+| Sub-claim | Verdict | Verbatim + source |
+|---|---|---|
+| Sykes-Picot 1916 was provisional, superseded — not the final partition | ✅ SUPPORTED | "a temporary wartime measure" [Tusan 331]; "substantively replaced… the lunacy of the Sykes–Picot partition lines" [McDowall 123]; "provisional, and nothing was really finalized until the League Mandate system" [Radpey 844]; "Sykes–Picot was in the process of being disavowed, altered and condemned" [Tusan 363] |
+| Lausanne 1923 = the operative erasure (replaced Sèvres, omitted the Kurds) | ✅ SUPPORTED | "In 1923 it would be replaced by the Treaty of Lausanne, which omitted the promises to the Kurds" [Eppel 11]; "made no mention whatsoever of the Kurds" [Kendal 554/558] |
+| Exclusion via the "non-Muslim" minority definition | ✅ SUPPORTED | minorities = "'non-Muslim minorities'… refused to include them" [Kendal 560]; "limiting to non-Muslims… excluding the Muslim Kurds" [Radpey 867]; "safeguards for the Muslim minorities, notably the Kurds… abandoned" [McDowall 149] |
+| **Contradiction check:** does any source cast Sykes-Picot itself as the decisive Kurdish partition? | ✅ NONE | Notebook does not contradict the reframe; it explicitly supports Lausanne-as-operative. |
+
+**Delta verdict:** ✅ the new beat is T1 notebook-grounded (upgraded from this-session web-only), 0 contradictions, no new quote-card or attribution gate triggered. **Film-ready on this beat.** SCRIPT.md inline flag upgraded ⏳→✅ NLM-GROUNDED.
+
+**Open items unchanged from the full pass:** (1) re-verify the Jan-2026 Syria facts (M1–M3) near film-time; (2) the 1987 "Saladin II" conference specifics remain T2 web. Neither touched by this delta. **Next gate: user read-aloud (T1) — the new beat's "This is." deixis especially.**

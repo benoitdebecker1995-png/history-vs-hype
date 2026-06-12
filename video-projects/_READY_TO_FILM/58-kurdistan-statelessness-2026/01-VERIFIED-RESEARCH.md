@@ -432,6 +432,26 @@ Pulled + read 5 competitor transcripts, ~12M combined views: **Johnny Harris (2.
 
 ---
 
+### ✅ C41 — SCRIPT v2 NEW-BEAT VERIFICATION (2026-06-05, NLM notebook f0ae92dd, query f5d10259350f) — [P]+[S] T1
+Three beats added/expanded in the clarity-first v2 rewrite, queried fresh for source-grounded phrasing (per [[feedback-script-revision-grounding]]):
+- **1975 betrayal — "armed to bleed Iraq, not to win":** ✅ GROUNDED. CIA memo (22 Mar 1974) via Pike Report [Vanly 75e966ef]: both Iran and the US hoped to benefit from "an unresolvable situation in which Iraq is intrinsically weakened… Neither Iran nor the U.S. would like to see the situation resolved one way or the other." McDowall [5ab96a08]: ~~"nuisance, not resolution"~~ ❌ RETIRED 2026-06-12 — failed verbatim re-confirm (see C42); the verified McDowall verbatim for this thesis is "cat's paw" p.2. Shah saw aid as "a card to be played." Pike verdict "a cynical enterprise, even in the context of a clandestine aid operation" + "neither the Shah nor the President and Dr. Kissinger desired victory for our clients" both verbatim [Vanly 75e966ef]. (Optional unused primary voice: Barzani — "Without American promises… we would never have become trapped and involved to such an extent" [McDowall 5ab96a08].)
+- **Anfal motive — Kurds "backed Iran during the war":** ✅ GROUNDED. "the peshmergas coordinated their actions with offensives by Iranian troops" [07657ff8]; Halabja (Mar 1988) "occupied by the Iranian army, aided by Iraqi Kurdish peshmergas," then gassed [07657ff8]; Cambridge/Bozarslan [23945b11]: Halabja "overtaken by the Iranian forces with the military assistance of the PUK… not a simple military riposte, but the first phase of… Anfal." ⚠️ Auditor's-edge nuance (held, not over-claimed in script): Bozarslan — Anfal ops ran *after* the war ended and "could not be explained by any military imperatives" = genocide, not mere reprisal. Script's "as the war ground toward its end… set out to punish them" stays accurate without over-claiming pure reprisal.
+- **Sèvres → Lausanne — Atatürk's nationalists tore it up:** ✅ GROUNDED. Vanly [75e966ef]: "never applied because the subsequent War of Independence (waged with Kurdish support) changed the whole situation and enabled Mustafa Kemal to impose different terms at… Lausanne." Eppel [367ed08a]: "The strengthening of the Turkish national movement headed by Mustafa Kemal Atatürk changed conditions… In 1923 it would be replaced by the Treaty of Lausanne, which omitted the promises to the Kurds." Andrew Mango [1d8ad664]: Ankara "rejected it in its entirety." **NEW specificity-bomb added to script:** MacMillan [68c36cea] — Allied advisers warned enforcing Sèvres "would take at least twenty-seven divisions… they did not have"; Curzon 1923: "we are negotiating one with the enemy who has an army in being while we have none." McDowall "void before the ink was dry" [5ab96a08] ✓.
+
+## ROUND 9 — quote-card provenance closeout (2026-06-12, NLM notebook f0ae92dd)
+
+### ✅ C42 — McDowall synthesis card: "cat's paw" CONFIRMED · "nuisance, not resolution" RETIRED — [S] T1
+- **VERBATIM CONFIRMED (p.2, Introduction):** "Their principal concern has been to acquire strategic dominance against other interested great powers, by making alliances both with regional states and also with what one might call sub-state groups, among whom the Kurds are pre-eminent, which could be useful as a **cat's paw**." [NLM 2026-06-12, conv bedf9c5c] Secondary use p.471 (Iranian proxies, 2000s). **This is the Act-4 synthesis card** (script updated 2026-06-12).
+- **❌ "nuisance, not resolution" — NOT verbatim in the 4th-ed source.** Two targeted NLM queries (incl. full-text "nuisance" search) found zero hits; the 2026-06-06 "round-trip verified" note was a validated-quote≠validated-attribution error ([[feedback-attribution-audit]] check 2 — provenance). The CONCEPT is carried by the Pike Report quote ("neither… desired victory for our clients," McDowall p.329) — already verified under C41. Do not build the nuisance card.
+
+### ✅ C43 — Kendal Nezan tribalism card (Act 2 "feuds were real" beat) — [S] T1
+- **VERBATIM [NLM 75e966ef]:** "Tribalism seems to have been the main barrier to the emergence of a national consciousness"; revolts collapsed through "betrayals, switching of allegiances, divisions amongst the Kurds themselves." (Kendal Nezan, in Chaliand ed., *A People Without a Country*.) On-screen card behind the script's "One Kurdish historian calls that tribalism 'the main barrier'" line.
+
+### ✅ C44 — New Lines "unified, but only on paper" (Act 4 Syria-2026 rhyme card) — [S] T2 (journalism)
+- **VERBATIM [NLM src dffb148e]:** Syria post-integration "unified, but only on paper." Show-only card at the Decree-13/SDF-integration beat; VO never speaks it. Pairs with C40 date verification (Decree 13 issued 16 Jan 2026).
+
+### ℹ️ Ibn al-Athir cold-open card — already filed at C1 (src 53233ac0, *al-Kamil* p.176: "Rawadi Kurds in origin, which lineage is the noblest of the Kurds"). No new entry needed.
+
 ## STAGE C STATUS — substantially COMPLETE (2026-05-30)
 All 11 query prompts run; claims C1–C13 + specificity bombs filed, every quote NLM-anchored (Rule 1). Acts 1/2/3 + supporting beats all verified.
 

@@ -2,8 +2,18 @@
 
 **Created:** 2026-06-04 (notebook-grounded — Thumbnail Inspiration `8d9e459b`). Built applying the #57 Piri Reis packaging lessons (notebook-ground first, gap-not-verdict overlays, thumbnail→first-15s bridge, single face, 12-char rule, full build spec).
 **Status:** LOCK BEFORE FILMING. The cold-open coupling below is a **filming instruction** — shoot/plan the opening B-roll so each thumbnail's anchor lands in the first ~15s.
-**Titles (locked 2026-06-02, see SCRIPT.md):** A *The Kurds Had Their Own States for 300 Years* · B *The Kurds Minted Their Own Coins for 300 Years* · C *The Kurds Ruled Themselves Until the Empires Came*
+**Titles (locked 2026-06-02; C swapped 2026-06-11 under scorer v5, see SCRIPT.md):** A *The Kurds Had Their Own States for 300 Years* · B *The Kurds Minted Their Own Coins for 300 Years* · C *The Kurds Built Dozens of States. Empires Destroyed Them*
 **Subject rule (C33 honesty guard):** never imply one unified bordered "Kurdistan" country — the Kurds had plural statelets, never one nation. Overlays never say "Kurdistan"; the map variant must read as cross-border/stateless, NOT a solid "Greater Kurdistan."
+
+---
+
+## LIVE SERP GROUNDING (added 2026-06-12, from `channel-data/serp-studies/kurdistan-2026-06-10.md`)
+
+The "kurdistan" ranking shelf (top 8 by views) validated A and B and exposed a collision on C:
+- **Faces: 0/5 (0%).** A human face is the single biggest pattern-break available — **Combo A confirmed strongest**, not just primary.
+- **Maps: 1/5** — and it's the category king (**Johnny Harris, 2.3M**: shaded Kurdistan-region map + *"The Largest Group Without a Country"*). Original Combo C (shaded 4-state map + "30 MILLION") read as JH-lite at 160px → **revised to a FRACTURED map** (decision 2026-06-12) so it reads as a different idea at a glance: borders *slicing* the region, not a blob.
+- **4/5 use NO overlay** — but those are the dark, textless news-clip pack (DW, AJ+, Al Jazeera) that lose to JH. **Side with the winner's structure (one clear subject + short declarative), not the news pack.** HvH's overlay approach is correct.
+- **Shelf palette is black-dominant.** A charcoal #1C2022 thumbnail *blends into* the pack. The hero (esp. Saladin) must be **rim-lit / warmer than the shelf** to pop OUT of the black sea — do NOT match the shelf's darkness.
 
 ---
 
@@ -13,7 +23,7 @@
 |---|---|---|---|---|
 | **A — FACE (primary)** | Saladin portrait, solo, tight crop | **HE WAS KURDISH** (12) | A — *…Had Their Own States for 300 Years* | **TIGHT** — Saladin painting is the literal first shot (0:00) |
 | **B — EVIDENCE** | macro of the Kurdish prince's coin | **THEIR COINS** (11) | B — *…Minted Their Own Coins for 300 Years* | needs coin flash in cold open (see coupling) |
-| **C — MAP (geo/control)** | modern Kurdish region shaded across 4 states | **30 MILLION** (10) | C — *…Ruled Themselves Until the Empires Came* | TIGHT-ish — "30M spread across Turkey, Iran, Iraq, Syria" (~0:15) |
+| **C — MAP (geo/control)** | Kurd region **CARVED by hard borders** across 4 states (fracture, NOT a shaded blob — differentiates from JH's 2.3M map) | **30 MILLION** (10) | C — *…Ruled Themselves Until the Empires Came* | TIGHT-ish — "30M spread across Turkey, Iran, Iraq, Syria" (~0:15) |
 
 **Primary = Combo A (Saladin).** Notebook verdict: bridge tightness is the single biggest post-click signal, and Saladin appears in the first 5s → highest bridge score. Combo B is the strongest *package coherence* (coin thumbnail + coin title + coin = sovereignty proof). Combo C is the brand-default geo arm.
 
@@ -41,7 +51,7 @@ Pre-film advantage: you can make every thumbnail bridge by planning the opening 
 ## Per-combo build
 
 ### Combo A — SALADIN (face, primary)
-- **Thumbnail:** Saladin portrait, **solo**, tight close-up (face 30–50% of frame), top-left rule-of-thirds intersection, on a charcoal/navy (#1C2022) ground. Slightly desaturated for documentary tone. Gaze toward the overlay/empty side.
+- **Thumbnail:** Saladin portrait, **solo**, tight close-up (face 30–50% of frame), top-left rule-of-thirds intersection. **SERP-fix (2026-06-12): the live shelf is black-dominant — do NOT sit him on flat charcoal or he blends into the news-clip pack. Rim-light the face (warm key from one side) and/or warm the ground (deep amber/ember behind him) so Saladin pops OUT of the dark shelf.** Keep documentary tone but push subject-to-background contrast up. Gaze toward the overlay/empty side.
 - **Overlay:** **"HE WAS KURDISH"** — white, ALL CAPS, dark stroke (or yellow stroke per notebook), lower-left/third. Paradox trigger; opens "Saladin was *Kurdish*?"
 - **NOT:** no Saddam face (single face only — two faces = rule-of-three clutter, −23% CTR). Saddam stays in-video.
 
@@ -49,10 +59,10 @@ Pre-film advantage: you can make every thumbnail bridge by planning the opening 
 - **Thumbnail:** macro high-contrast scan of the period Kurdish coin filling ~60% of frame, charcoal ground, "Blur & Pop" (coin razor-sharp, background soft). Push Clarity/Structure so the metal texture reads as physical.
 - **Overlay:** **"THEIR COINS"** — vibrant red **rubber-stamp** style, angled ~15°. Evidence-promise; opens "whose coins? proof of what?"
 
-### Combo C — MAP (geo, control)
-- **Thumbnail:** modern map, Kurdish-populated region shaded **warm yellow** across Turkey/Iran/Iraq/Syria with the **national borders visible** (proves cross-border/stateless — the honest, on-thesis read). Charcoal background, muted tones.
-- **Overlay:** **"30 MILLION"** — bold white Impact/Oswald. Scale specificity bomb (numbers = 1.33x lift); opens "30 million people, no country?"
-- **Honesty:** do NOT shade one solid bordered blob — that's the irredentist "Greater Kurdistan" myth-object the video debunks. Borders stay visible; the shading is ethnographic, not a proposed state.
+### Combo C — MAP (geo, control — FRACTURED, revised 2026-06-12)
+- **Thumbnail:** modern map, Kurdish region shaded **warm yellow** across Turkey/Iran/Iraq/Syria — but the **four national borders are drawn as bold, hard lines SLICING through the shaded region** (thick red or black border strokes cutting the yellow into 4 pieces). The read is *carved up / split by four states*, NOT a single contiguous blob. Deliberate differentiation from Johnny Harris's 2.3M shaded-region map: same slot, opposite visual idea — **fracture, not unity.**
+- **Overlay:** **"30 MILLION"** — bold white Impact/Oswald. Scale specificity bomb (numbers = 1.33x lift); on the fractured map it reads "30 million people, carved across 4 borders, no country."
+- **Honesty (now reinforced by the visual):** the hard slicing borders ARE the honesty guard — they make the cross-border/stateless reality the literal subject and make an irredentist "Greater Kurdistan" blob impossible to read. Shading is ethnographic; the borders prove it's four states' territory, not a proposed nation.
 
 ---
 
@@ -80,3 +90,14 @@ Pre-film advantage: you can make every thumbnail bridge by planning the opening 
 - **Tool:** Photopea (free) for compositing — stroke, blur, stamp, rotate. Same workflow as the #57 build guide.
 
 > Next: lock anchor images → build 3 PNGs to this spec → `thumbnail_image_audit.py` per combo → upload all 3 with paired titles for native rotation. Chapters/runtime + caption track are post-film.
+
+---
+
+## BUILD LOG — draft v1 (2026-06-12)
+
+Real PD assets sourced + composited via PIL (no AI gen). Renders in `thumbnails/`:
+- **Combo A — `comboA_saladin_v1.png`** — base: Cristofano dell'Altissimo *Saladino* (ante 1568), CC BY-SA 3.0, Wikimedia (frame cropped, warm-graded per SERP pop-fix). **Audit PASS 100/100; CLIP differentiation 0.478 = STRONG pattern-break vs the 8 live competitors; reads at 160px.** Closest to ship as-is.
+- **Combo B — `comboB_coin_v1.png`** — base: Silver Dirham of Saladin, LACMA M.2002.1.427 (CC0/PD), Ayyubid/Damascus. **Audit PASS 100/100; CLIP differentiation 0.387 = STRONG (most differentiated frame on the shelf — no objects compete).** v1 nit: rim-halo overcooked + stamp reads flat → refine before lock.
+- **Combo C — fractured map** — MapChart/PD-map composite, pending (see decision: differentiate from JH's shaded blob).
+- **Attribution:** Combo A photo is CC BY-SA → credit "Cristofano dell'Altissimo, *Saladino*, via Wikimedia Commons (CC BY-SA 3.0)" in the YouTube description.
+- **Gate not yet run:** `thumbnail-critic` (`/thumbnail --critique`) before lock — v1s are drafts, not locked.

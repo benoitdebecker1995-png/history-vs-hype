@@ -4,12 +4,6 @@ Lifecycle: _READY_TO_FILM
 Last reconciled: 2026-06-03
 <!-- /AUTO:reconcile -->
 
-<!-- AUTO:reconcile -->
-**Lifecycle:** _IN_PRODUCTION (Research — Phase 1)
-**YouTube status:** Not published
-**Last reconciled:** (pending first /reconcile)
-<!-- /AUTO:reconcile -->
-
 # 58 — Kurdistan Statelessness (2026)
 
 ## Working topic
@@ -46,8 +40,10 @@ See `_research/COMPETITOR-GAP-ANALYSIS.md`. All competitors stop at "Sèvres pro
 - **Loudest reflex = denialism** ("never existed / can't erase what didn't exist", 32↑/17↑ on Johnny Harris) → **Mahabad Republic (1946)** is the documented "wait, what" rebuttal; under-covered by all competitors.
 - Hot-button topic — Turkey↔Kurd / PKK flame wars dominate. Mechanism/HOW framing is the right defensive posture (intellectual-competence trigger). Expect a rough comment section.
 
-## NEXT
-Stage B in progress — source list BUILT (`_research/00-NOTEBOOKLM-SOURCE-LIST.md`, ~28 sources, primary-heavy + deliberate breadth/discovery layer incl. archival FO collections, Lausanne proceedings, medieval chronicles, FR scholarship; organized by the 3 acts). NEXT: acquire sources (most free/library; Mosul report flagged) → create NotebookLM notebook "58 - Kurdistan Statelessness Sources" → upload minimum-viable set → run Stage C query prompts. No NLM notebook exists yet.
+## NEXT (updated 2026-06-12 — Fable quality pass complete)
+**Script:** 🔒 LOCKED 2026-06-10 + Fable tightening pass 2026-06-11/12 (−108 words → ~2,605 spoken ≈ 12.7 min @205wpm; "seven years" Lausanne arithmetic FIXED; McDowall synthesis card swapped to verified "cat's paw" p.2 — "nuisance, not resolution" failed verbatim confirm and is RETIRED, see 01-VERIFIED-RESEARCH C42). **Creator spot re-read of the changed lines pending** (not a full T1).
+**Packaging:** Titles A/B locked; C SWAPPED 2026-06-11 → "The Kurds Built Dozens of States. Empires Destroyed Them" (scorer v5; two-sentence declarative = 0% on the live SERP shelf). `YOUTUBE-METADATA.md` DRAFTED (description/chapters/tags carry the search anchors `kurdistan history` comp-16.4 + `kurdistan map`, since the honesty guard keeps "Kurdistan" out of titles). SERP study: `channel-data/serp-studies/titles/kurdistan-58-2026-06-11.md`. Thumbnails NOT yet rendered (3 combos specced).
+**NEXT:** creator spot re-read → teleprompter render → render thumbnails + `thumbnail_image_audit` → film.
 
 <!-- Historian-mode tracking below; do not edit the AUTO block above by hand. -->
 

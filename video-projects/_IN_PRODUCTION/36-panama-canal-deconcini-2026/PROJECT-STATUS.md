@@ -6,11 +6,31 @@ Last reconciled: 2026-05-11
 
 # Project 36: Panama Canal - The DeConcini Reservation
 
-**Topic:** The 1978 Senate reservation that gives the US the right to use military force to keep the Panama Canal open
-**Working Title:** "The Clause That Lets the US Invade Panama"
+**Topic:** The treaties that gave away the canal — 1903 Hay–Bunau-Varilla (no Panamanian signed) + 1978 DeConcini Reservation (US right to use force, still in effect)
+**Working Titles (A/B pre-registered in BREAKOUT-HYPOTHESES, 2026-06-11):**
+- A: "Panama vs the Canal Treaty. Not One Panamanian Signed It." (title_scorer 93/A, curiosity 82)
+- B: "No Panamanian Signed the Panama Canal Treaty. Here's Who Did." (77/B, curiosity 84)
+- ⚠ Old working title "The Clause That Lets the US Invade Panama" RETIRED — zero-volume head term, document-first (stall pattern per PACKAGING_MANDATE V2)
 **Target Length:** 8-11 minutes
 
-## Status: PHASE 1 - PRELIMINARY RESEARCH
+## Greenlight Record (2026-06-11 — full composite GO)
+
+- **Demand:** GO — `panama canal history` 8,995/mo, VidIQ Overall 63; doc terms `hay bunau varilla treaty` comp 10.3 / `torrijos carter treaty` comp 9.3 (channel can own the queries)
+- **Hook (web-verified 2026-06-11, sources in TOPIC-PIPELINE.md):** Panama Supreme Court voided CK Hutchison ports concession as unconstitutional (Feb 2026) → contracts annulled, Maersk/MSC interim control (Feb 23-24) → ICC suit ≥$2B → Beijing retaliation; still live 2026-05-31. **Hook runway into H2 2026.**
+- **Whitespace (SERP scan `channel-data/serp-studies/titles/panama-canal-2026-06-11.md`):** shelf = engineering-build narratives; two-sentence + evidence-promise = 0%; treaty-forensic angle unserved
+- **Pre-registered hypotheses:** H1-tag HOOK · H2 (test-batch CTR ≥4%) · H4 A/B (versus-anchor vs claim-first, same thumbnail family)
+- **Hook structure (packaging notebook):** open with the 2026 ruling (specificity bomb, stakes first — doc-first hooks underperform), 1903 page by second 10, methodology promise by second 20; myth-contradiction format (channel-best 36.7% retention)
+- ⚠ **Modern-context staleness:** the Feb-2026 brief below cites "Trump 2025 rhetoric" — the 2026 court/ICC/Maersk cycle is the stronger, verified hook. Re-verify any Trump quote (date AND content) before use per cultural-moment-verification.
+
+## Stage A artifacts (complete 2026-06-11)
+
+- [x] Wiki brief → `_research/00-PRELIMINARY-BRIEF.md` ✅
+- [x] Viability gate → `RESEARCH-VIABILITY.md` (PROCEED, 0% T3-only) ✅
+- [x] Competitor gap → `_research/COMPETITOR-GAP-ANALYSIS.md` ✅ — doc-forensic lane unoccupied across top shelf; 8 forensic beats virgin; engineering = 60s setup. Nuance: Modern Marvels (2.87M) says "No Panamanians signed that agreement" as a throwaway line — fact exists on shelf, the video about it doesn't.
+- [x] Comment-mine → `_research/COMMENT-MINE-REPORT.md` ✅ — 1,662 comments / 16 videos. **Headline: the most-liked comment in the corpus (8,500 likes, top of History Matters' 2M video) IS the DeConcini claim, unsourced, with wrong details.** One Modern Marvels commenter (14 likes) caught the signature line. Engineering: zero unmet demand. 2026 dispute: news-saturated → payoff beat only. 5 audience questions → script beats; 6 misconceptions → debunk fuel.
+- **Angle shape suggested by evidence (NOT locked — locks after primary-source reading per topic-vs-angle ordering):** Angle-1 Bunau-Varilla cold open → Angle-6 sovereignty-arc spine → Angle-2 DeConcini payload. Consistent with pre-registered A/B titles.
+
+## Status: PHASE 1 - PRELIMINARY RESEARCH (resumed from _BACKLOG 2026-06-11)
 
 - [x] Preliminary internet research (_research/01-PRELIMINARY-RESEARCH.md)
 - [x] NotebookLM academic sources identified (_research/02-ACADEMIC-SOURCES-TO-ACQUIRE.md)
