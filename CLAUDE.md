@@ -92,7 +92,9 @@ See: `.claude/FOLDER-STRUCTURE-GUIDE.md`
 
 **Conversational trigger (MANDATORY):** When the user says "I uploaded X" / "I released X" / "I published X" / "X is live" / "X went up" — run `/reconcile <X>` immediately. Do NOT just look up the video. Do NOT assume project files are current. The utterance IS the write trigger. If X is ambiguous (multiple folders match), ask once before proceeding.
 
-**Backstop:** Routine 6 runs daily 08:30, archives any new YouTube publishes missed by conversation. Routine 6 NEVER touches memory snapshots — lessons-promotion stays gated on interactive `/reconcile`.
+**Conversational trigger — script lock (MANDATORY):** When the user declares a script locked ("script locked" / "lock it" / "T1 passed" / read-aloud passed top-to-bottom) — IMMEDIATELY run the post-lock delta-mine for that video: (1) consolidate its read-aloud notes, version diffs, and session corrections into `channel-data/calibration/CALIBRATION-CORPUS.md` (axis-tagged, tiered, per the corpus header rules); (2) append any new contradictions to `channel-data/calibration/INTERVIEW-AGENDA.md`; (3) record the video's passes-to-lock count in `channel-data/calibration/EVAL-BASELINE.md`. The lock declaration IS the mining trigger — deltas are freshest at lock and go stale fast. See `memory/feedback-calibration-loop.md`.
+
+**Backstop:** Routine 6 runs daily 08:30, archives any new YouTube publishes missed by conversation. Routine 6 NEVER touches memory snapshots — lessons-promotion stays gated on interactive `/reconcile`. `/reconcile` itself backstops the calibration loop: each run flags locked scripts whose deltas aren't in the corpus (see `.claude/commands/reconcile.md`).
 
 **Memory snapshots** (`memory/[N]-production-state.md`): frozen point-in-time during active project life. Append new dated entries; don't overwrite. On archive (interactive `/reconcile` only), user is prompted to promote lessons to `feedback-*.md` before snapshot is deleted.
 

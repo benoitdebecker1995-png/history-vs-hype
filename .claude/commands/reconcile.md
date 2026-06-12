@@ -99,6 +99,16 @@ Skip the prompt. No-op.
 
 When moving `_READY_TO_FILM/` → `_ARCHIVED/published/`: the snapshot-refresh prompt fires **first**, then the existing lessons-promotion prompt (see `## Memory snapshot handling` above). Refresh-or-mark-stale is the precondition for lessons-promotion + snapshot deletion.
 
+## Calibration-loop backstop (every run)
+
+> Mirror of the CLAUDE.md script-lock conversational trigger; rule provenance: `memory/feedback-calibration-loop.md` (UPGRADE-PLAN S14).
+
+On every `/reconcile` run (any mode except `--auto-publish-only`), after the lifecycle scan:
+
+1. **Find locked scripts:** Glob `video-projects/_READY_TO_FILM/*/` and `video-projects/_ARCHIVED/published/*/` for projects containing a locked script (`SCRIPT.md`, `FINAL-SCRIPT.md`, or a `02-SCRIPT-DRAFT.md` whose project is at/past `_READY_TO_FILM/`).
+2. **Check corpus coverage:** for each, grep `channel-data/calibration/CALIBRATION-CORPUS.md` for a `## #<NN>` section (or the project slug). Projects predating the corpus (#1–#55, except those already mined) are exempt — the corpus header lists what was consolidated.
+3. **Flag, don't mine:** any locked-script project with no corpus section is reported in the reconcile output as `⚠️ post-lock delta-mine missing for #<NN> — run it before the deltas go stale`. Mining itself stays a deliberate step (it needs the session's read-aloud notes), so /reconcile only surfaces the gap.
+
 ### Research-graph staleness marker
 
 After any archive-direction move (`_READY_TO_FILM/` → `_ARCHIVED/published/`), touch `graphify-out/research/.needs_refresh` and write the newly-archived slug into it (one per line, append). This signals that `RESEARCH-GRAPH.json` and the research graph (`graphify-out/research/graph.json` + viz) are behind by N videos.

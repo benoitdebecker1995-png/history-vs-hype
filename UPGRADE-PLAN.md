@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (S8)
+**Last advanced:** 2026-06-12 (S14)
 **Total steps:** 24
-**Done:** 8
+**Done:** 9
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -239,7 +239,7 @@ Derive a scoring rubric from the corpus's VALIDATED entries (one checkable crite
 
 **Commit:** `feat(calibration): S13 in-sample regression baseline (v18 vs #58 lock)`
 
-## S14 [TODO] Standing-loop wiring (reconcile-mirror)
+## S14 [DONE] Standing-loop wiring (reconcile-mirror)
 
 **Deps:** S1
 
