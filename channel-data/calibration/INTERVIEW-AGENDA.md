@@ -127,7 +127,7 @@
 
 # SESSION B — process + revision economy (S10)
 
-## B1 — Batch size per approval round: one-beat-at-a-time vs passes-to-lock — OPEN
+## B1 — Batch size per approval round: one-beat-at-a-time vs passes-to-lock — RESOLVED (reframed: co-draft with phrasing checkpoints during writing; no cold full drafts; post-draft edits small + local. Corpus GR-B1)
 **Type:** CONTRADICTION · `[P]`
 **Evidence (side 1):** 57-08 VALIDATED — propose one beat at a time, explicit yes before writing; unprompted full-file rewrites were rejected twice.
 **Evidence (side 2):** the KPI is passes-to-lock (58-10 baseline ≈2–3 full passes + ~6 drill sessions); strict one-beat serialization is the slowest possible protocol, and 58-05 showed the round-count fix is pre-filtering, not more rounds.
@@ -138,7 +138,7 @@
 - **V2 `[constructed]` (batched diff-list, per-line approval):** one message listing ALL flagged beats, each with its fix variant inline; he replies "1a, 2-no, 3b with this tweak…" — one round instead of eight.
 - **V3 `[constructed]` (tiered):** mechanical fixes (numbers-as-spoken, attribution order, lint hits) batched and pre-applied as a single diff he can revert; substantive beats (mechanism, steelman, verdict) one at a time.
 
-## B2 — Structure-lock gate before any prose pass — OPEN
+## B2 — Structure-lock gate before any prose pass — RESOLVED (rule: beat-list gate HARD — lock spine vs title first, then co-write. Corpus GR-B2)
 **Type:** GAP → rule candidate · `[P]`
 **Evidence:** 57-15 VALIDATED — two full polish passes (v2 transitions, v3 cadence; 5,407→5,233 words) were sunk cost on the wrong spine; the v4 refocus discarded most of both. 57-03: the title-scope check is the reset signal. No formal gate currently exists in the /script flow.
 
@@ -148,7 +148,7 @@
 - **V2 `[constructed]` (draft-then-gate):** full draft allowed first (some structure problems only show in prose), but the FIRST review round is structure-only — no line edits accepted or offered until the spine is signed off.
 - **V3 `[constructed]` (current flow):** no formal gate; rely on the read-through to catch scope drift (what #57 did — cost two passes).
 
-## B3 — The pre-read-aloud checklist: what must be guaranteed-done before a draft reaches him — OPEN
+## B3 — The pre-read-aloud checklist: what must be guaranteed-done before a draft reaches him — RESOLVED (rule: preparation bar before ANY input request + full heavy gate before read-aloud; his read = last gate. Corpus GR-B3)
 **Type:** GAP · `[P]`
 **Evidence:** 58-05 VALIDATED — pre-filtering candidates (Bar-talk Lock Test before showing options) was THE round-count fix. 56-06 VALIDATED — read-aloud and corpus-scan catch disjoint bug classes. 58-03/57-09 VALIDATED — notebook grounding on every mechanism beat caught would-have-shipped errors. But there is no ordered, mandatory pre-delivery checklist; what ran before each #58 round varied.
 
@@ -158,7 +158,7 @@
 - **V2 `[constructed]` (split gate):** substance checks (notebook, attribution) before first contact; surface checks (lint, corpus-scan) deferred to post-structure-approval — he sees the draft sooner, accepts surface noise on round 1.
 - **V3 `[constructed]` (status-quo):** writer runs what seems relevant; no fixed order. (#58's ~14 rounds are the evidence against.)
 
-## B4 — Scoped re-scan after every structural rewrite — OPEN
+## B4 — Scoped re-scan after every structural rewrite — RESOLVED (rule: scoped re-scan per round on new text + full scan at lock. Corpus GR-B4)
 **Type:** GAP → rule candidate · `[P]`
 **Evidence:** 56-05 VALIDATED — register whack-a-mole: the v3 rewrite excised the industrial jargon cluster and introduced a bureaucratic one; the two newly-written sections concentrated 2 new HIGH flags. Nothing in the current flow mandates re-scanning new text after a fix pass.
 
@@ -168,7 +168,7 @@
 - **V2 `[constructed]` (full-script re-scan, but only at lock):** rounds stay fast; one comprehensive scan at the lock gate catches accumulated regressions.
 - **V3 `[constructed]` (both):** scoped per-round + full at lock — costs tokens, catches the 56-05 class at the cheapest moment.
 
-## B5 — Verbatim re-confirmation timing: when do "verified" notes get re-checked — OPEN
+## B5 — Verbatim re-confirmation timing: when do "verified" notes get re-checked — RESOLVED (reframed: research extracts ALL quotes verified upfront; script writes from bank only; lock-gate re-check stays as backstop. Corpus GR-B5)
 **Type:** GAP · `[P]/[Su]`
 **Evidence:** 58-02 VALIDATED — McDowall "nuisance, not resolution" carried a round-trip-verified note from 06-06 and FAILED re-confirmation at the final pass on 06-12; a verification note is a claim about a past query, not a property of the quote. Late discovery forced last-minute card surgery.
 
@@ -178,7 +178,7 @@
 - **V2 `[constructed]` (at lock gate only):** current de-facto practice — cheapest, but failures land at the worst moment (58-02).
 - **V3 `[constructed]` (two-touch):** quick verbatim check when the quote enters the script; full scoped round-trip ONLY for quotes still standing at the lock gate, oldest verification-notes first.
 
-## B6 — Script the pauses: marked beats in the teleprompter render — OPEN
+## B6 — Script the pauses: marked beats in the teleprompter render — RESOLVED (rule: professional render; markers selective where pause is load-bearing, not systematic. Corpus GR-B6)
 **Type:** IDEA → process test · `[P]`
 **Evidence:** CRAFT R10 IDEA — pacing decisions made at the keyboard survive; left to the booth they're accidents. 56-25 HYPOTHESIS — he flattens UNMARKED cliffhanger seams into flowing continuation ("Then the Europeans stopped raiding, not because they had a change of heart…"); he won't perform unmarked drama. Teleprompter is a derived render of the locked script (teleprompter-after-lock), so marks are zero-risk to the script layer.
 
@@ -227,3 +227,9 @@
 - 2026-06-12 · A8 · premise refuted (asset–script mismatch, not arity); enumeration needs matching asset · GR-A8
 - 2026-06-12 · A9 · artifact-hunt: one thesis-bearing object per act (explanatory/accessible/honest); changed-mind credential use-when-true · GR-A9
 - 2026-06-12 · A10 · no-VO hold adopted as a test (one per video, post-strongest-reveal) · GR-A10
+- 2026-06-12 · B1 · co-draft with phrasing checkpoints during writing; no cold full drafts · GR-B1
+- 2026-06-12 · B2 · beat-list gate (HARD): lock spine vs title before any prose · GR-B2
+- 2026-06-12 · B3 · preparation bar before any input request + heavy gate before read-aloud · GR-B3
+- 2026-06-12 · B4 · scoped re-scan per round + full scan at lock · GR-B4
+- 2026-06-12 · B5 · research extracts ALL quotes verified upfront; script writes from bank · GR-B5
+- 2026-06-12 · B6 · professional teleprompter render; selective pause markers · GR-B6

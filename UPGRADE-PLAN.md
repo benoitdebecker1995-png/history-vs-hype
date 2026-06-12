@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (S9)
+**Last advanced:** 2026-06-12 (S10)
 **Total steps:** 24
-**Done:** 10
+**Done:** 11
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -187,7 +187,7 @@ Run INTERVIEW-AGENDA.md Session A as a grill: one item at a time, concrete line 
 
 **Commit:** `feat(calibration): S9 grill session A resolutions`
 
-## S10 [TODO] [INTERACTIVE] Grill session B — process + revision economy
+## S10 [DONE] [INTERACTIVE] Grill session B — process + revision economy
 
 **Deps:** S8
 
