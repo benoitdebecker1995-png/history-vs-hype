@@ -1,39 +1,43 @@
 ---
-description: Run the next eligible step in REFACTOR-PLAN.md (one step, then stop)
+description: Run the next eligible step in UPGRADE-PLAN.md (one step, then stop)
 ---
 
 # /refactor
 
-Executes exactly **one** step from `/REFACTOR-PLAN.md` — the first `[TODO]` step whose dependencies are all `[DONE]` — then commits and stops.
+Executes exactly **one** step from `/UPGRADE-PLAN.md` — the first `[TODO]` step whose dependencies are all `[DONE]` — then commits and stops.
+
+> **Plan target history:** originally ran `REFACTOR-PLAN.md` (47/47 done, archived at `docs/archive/REFACTOR-PLAN.md` 2026-06-12). Now targets `UPGRADE-PLAN.md`. An explicit argument overrides: `/refactor <plan-file>`.
+>
+> **`[INTERACTIVE]` steps:** UPGRADE-PLAN marks some steps `[INTERACTIVE]` (grill sessions, approval walks). Only run those when the user is live in the session; from a phone fire-and-forget context, skip to the next non-interactive eligible step and report the skip.
 
 Designed for phone use: fire the command, one atomic change lands, you decide when to fire the next one.
 
 ## What this command does
 
-1. Read `/REFACTOR-PLAN.md` from the repo root.
+1. Read `/UPGRADE-PLAN.md` from the repo root.
 2. Find the first step marked `[TODO]` whose every dependency (per the step's `Deps:` line and the dependency map at the top of the file) is `[DONE]`.
 3. Execute that step's `**Prompt:**` block **exactly** — no improvisation, no scope creep.
 4. Run the step's `**Verify:**` command. If it fails, abort per the failure protocol below.
-5. Edit `REFACTOR-PLAN.md`: flip that step's `[TODO]` → `[DONE]` and update the `Last advanced` line in the Status Tracker to today's date + step ID.
-6. Stage all touched files plus `REFACTOR-PLAN.md`.
+5. Edit `UPGRADE-PLAN.md`: flip that step's `[TODO]` → `[DONE]` and update the `Last advanced` line in the Status Tracker to today's date + step ID.
+6. Stage all touched files plus `UPGRADE-PLAN.md`.
 7. Commit using the step's `**Commit:**` message verbatim.
 8. **Stop.** Do not advance to the next step. Do not push to remote.
 
 ## Strict rules for this command
 
 - **One step per invocation.** No matter how easy the next step looks, stop after one commit.
-- **No scope creep.** If you spot something else broken (typo, dead import, "while I'm here"), record it in the `Drift log` section at the bottom of `REFACTOR-PLAN.md` and continue with the assigned step only.
+- **No scope creep.** If you spot something else broken (typo, dead import, "while I'm here"), record it in the `Drift log` section at the bottom of `UPGRADE-PLAN.md` and continue with the assigned step only.
 - **Verify is non-negotiable.** If the `Verify:` block fails, do NOT mark `[DONE]`. Mark `[DOING]`, write what failed under `Drift log`, commit any work-in-progress with message `WIP: <step-id> verify failed — see drift log`, then stop and report.
 - **No push.** Never run `git push`. Local commit only.
 - **Don't touch unrelated paths.** `.claude/`, `video-projects/`, `channel-data/`, `library/`, `transcripts/`, `research/` are off-limits unless the step explicitly references them.
-- **Don't ask for clarification on the step's intent.** The Prompt block is the spec. If it's truly ambiguous, mark the step `[BLOCKED]`, write the question in the step's body in `REFACTOR-PLAN.md`, commit just the file edit, and stop.
+- **Don't ask for clarification on the step's intent.** The Prompt block is the spec. If it's truly ambiguous, mark the step `[BLOCKED]`, write the question in the step's body in `UPGRADE-PLAN.md`, commit just the file edit, and stop.
 
 ## Procedure
 
 ### Step 1 — Read the plan
 
 ```
-Read /REFACTOR-PLAN.md in full.
+Read /UPGRADE-PLAN.md in full.
 ```
 
 ### Step 2 — Pick the next eligible step
@@ -59,7 +63,7 @@ If the prompt produces files outside the documented scope, abort and report.
 Run the step's `**Verify:**` block. Treat any non-zero exit code, failed assertion, or unexpected output as failure.
 
 **On verify failure:**
-1. Edit `REFACTOR-PLAN.md`: change that step's status to `[DOING]`.
+1. Edit `UPGRADE-PLAN.md`: change that step's status to `[DOING]`.
 2. Append to `Drift log` (last section of the file): `### <step-id> failed verify on <date>` followed by a 2-3 sentence description of what failed.
 3. Stage everything currently changed.
 4. Commit: `WIP: <step-id> verify failed — see drift log`.
@@ -67,7 +71,7 @@ Run the step's `**Verify:**` block. Treat any non-zero exit code, failed asserti
 
 ### Step 5 — Mark done
 
-Edit `REFACTOR-PLAN.md`:
+Edit `UPGRADE-PLAN.md`:
 - Change the step's `## <ID> [TODO]` heading to `## <ID> [DONE]`.
 - Update the Status Tracker: change `Last advanced: <prev>` to `Last advanced: <YYYY-MM-DD> (<step-id>)`. Also increment the `Done:` count by 1.
 
@@ -94,8 +98,8 @@ Do not run another step. Do not offer to. The user fires `/refactor` again when 
 If at any point you can't proceed (missing dep, ambiguous instruction, tool error, repo in unexpected state, uncommitted changes blocking work):
 
 1. Do NOT mark the step `[DONE]`.
-2. Edit `REFACTOR-PLAN.md`: mark the step `[BLOCKED]` and add a `> **Blocker:** <description>` line directly under the step heading.
-3. Commit just the plan file: `git add REFACTOR-PLAN.md && git commit -m "refactor: block <step-id> — <one-line reason>"`.
+2. Edit `UPGRADE-PLAN.md`: mark the step `[BLOCKED]` and add a `> **Blocker:** <description>` line directly under the step heading.
+3. Commit just the plan file: `git add UPGRADE-PLAN.md && git commit -m "refactor: block <step-id> — <one-line reason>"`.
 4. Report the blocker to the user. Stop.
 
 ## Sanity check before starting
@@ -110,6 +114,6 @@ If output is non-empty, report `Working tree dirty — commit or stash before /r
 
 ## Related
 
-- The plan itself: `/REFACTOR-PLAN.md`
-- Source audits: `.planning/audits/48-package-structure.md` through `53-testing.md`
-- Deepening rationale: surfaced 2026-05-03 in conversation; recorded in REFACTOR-PLAN.md phase headers G–L.
+- The plan itself: `/UPGRADE-PLAN.md`
+- Plan provenance: interview + grill session 2026-06-12 (`~/.claude/plans/quizzical-gliding-goblet.md`); grill resolutions baked into UPGRADE-PLAN.md § "Why this plan exists"
+- Predecessor: `docs/archive/REFACTOR-PLAN.md` (audits `.planning/audits/48-53`, all done except F4 → tracked as UPGRADE-PLAN T1)
