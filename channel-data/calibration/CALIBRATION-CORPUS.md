@@ -56,7 +56,7 @@ When the script contains a quantitative comparison (1,000/yr vs 80,000/yr), buil
 The predictions file was written BEFORE filming, with timestamps to check, falsification conditions, confounds, and decision rules — explicitly to prevent hindsight bias when reading retention curves. This is the channel's template for testing any script-level rule change (directly reusable for the Panama v18 test). *Source: FIG-TREE-EDIT-PASS-PREDICTIONS.md (whole-file pattern).*
 
 ### 56-11 [St] Lock-version edits v5→v6: claim-first hook; paraphrase archaic quotes in VO, verbatim on card; example-first economics — VALIDATED
-Three systematic lock-direction edits: (a) hook restructured claim-first (open on the claim being debunked, then the scene — → memory `feedback-script-structural-architecture` P1); (b) long archaic verbatims (Equiano, Gorrevod) paraphrased in his voice in VO with the verbatim held on screen; (c) abstract economics (Manning) leads with the concrete example (15-to-1 Dahomey price ratio) before the principle — → memory `feedback-script-structural-architecture` P4 concrete-first. *Source: READ-ALOUD-v6-2026-05-25.md header + body diff vs v5.*
+Three systematic lock-direction edits: (a) hook restructured claim-first (open on the claim being debunked, then the scene — → memory `feedback-script-structural-architecture` P1); (b) long archaic verbatims (Equiano, Gorrevod) paraphrased in his voice in VO with the verbatim held on screen; (c) abstract economics (Manning) leads with the concrete example (15-to-1 Dahomey price ratio) before the principle — → memory `feedback-script-structural-architecture` P4 concrete-first. *Source: READ-ALOUD-v6-2026-05-25.md header + body diff vs v5.* **Confidence ↑ (S3):** the paraphrase-in-VO/verbatim-on-card split in (b) is independently confirmed at the delivery layer in BOTH videos — even VO-scripted verbatims drifted or compressed to paraphrase on camera (56-28, 57-25, 57-26).
 
 ### 56-12 [V] Lock-version edits v7→v8: cut the aphoristic mirrored binary; cut date-math openers — VALIDATED
 At final lock he removed "Read it. The denial contains the confession." (quotable but op-ed-register mirrored aphorism — the Fig Tree scan had flagged it MEDIUM; he kept it for 4 versions, cut it at lock) and removed the "Sixty-three years after Romanus Pontifex," date-math opener. Also: the streamer-position paraphrase was verified against actual transcripts before lock (never paraphrase an opponent unverified). *Source: READ-ALOUD-v8-2026-05-25.md header.*
@@ -93,6 +93,26 @@ v1's loaded labels ("The buyer literally gaslights the supplier", "an aggressive
 ### 56-22 [Su] The closing verdict gets scoped down and earns an audience-honesty beat — VALIDATED
 v1 closed on an absolutist aphorism ("Buyers didn't find the Atlantic slave system—they engineered it."). The final closes with an honesty move ("I'm not under any illusion this will convince people who use history as a weapon in the culture war") plus a scoped claim ("The talking point is too broad to show the full picture… what didn't exist was the scale, the legal authority, and the racial logic"). Verdicts shrink to exactly what the shown evidence supports. Sibling of 56-14. *Source: diff v1-locked → v8, CLOSING VERDICT.*
 
+### S3 additions — SRT-vs-script ad-lib deltas (`finished cut.srt` vs locked 02-SCRIPT-DRAFT.md), mined 2026-06-12 — **ALL HYPOTHESIS** (per postmortem-methodology: the finished-cut SRT conflates on-camera ad-libs with edit-room cuts; nothing here is creator-confirmed as intentional)
+
+### 56-23 [V] He performs the opponent's claim in its actual vernacular, not the script's neutral summary — HYPOTHESIS
+Script: "Europeans never kidnapped anyone in Africa. They just bought slaves from a pre-existing African market." Delivered: the streamer's own wording, re-voiced — "didn't go over to Africa with a lasso and start wrangling up random black people. We didn't do that. We went over there and other black people sold them to us. They were already slaves to begin with." The claim-statement beat works as impersonation-of-the-claim, not summary — and it carries the video's title word ("lasso"). *Source: finished cut.srt 0:05–0:17 vs v8 HOOK.*
+
+### 56-24 [V] Mid-sentence parentheticals and em-dash asides get dropped on camera — HYPOTHESIS
+"He takes his royal fifth — 46 people for his personal estate —" gone; "from what is now southeastern Nigeria" → "from what is now Nigeria"; the Cape Verde clause and entrepôt sentence gone; "And the man who recorded that scene was Prince Henry's own court historian" gone. Same delta in #57 ("the one that answered every question people would spend the next five centuries asking" dropped from the death line). If a fact is load-bearing, don't park it in an aside — delivery sheds asides first. *Source: finished cut.srt vs v8, hook + asiento beats; #57 SRT closer.*
+
+### 56-25 [St] Beat-boundary cliffhangers get merged into flowing continuation — HYPOTHESIS
+Script ends Evidence 1 on the standalone hook "Then the Europeans stopped raiding." and opens the Bridge with "The raids didn't stop because Europeans had a change of heart." Delivered as one continuous sentence: "Then the Europeans stopped raiding, not because they had a change of heart, they stopped because African forces shut them down." He doesn't perform the dramatic pause; written cliffhanger-seams flatten into connective flow. *Source: finished cut.srt 4:55–5:03 vs v8 seam Evidence 1 → Bridge.*
+
+### 56-26 [V] Foreign-language verbatims don't survive delivery — English only in VO — HYPOTHESIS
+The scripted Latin read ("…illorumque personas in perpetuam servitutem redigendi…") plus the "On the left, the original Latin — on the right, the English" tour line were cut entirely on camera; the Romanus Pontifex beat went straight to the English operative verbs (and the Dum Diversas mention moved ahead of the quote, simplifying the sequence). Latin/foreign text belongs on the card; the voice reads English. *Source: finished cut.srt 8:43–9:11 vs v8 Evidence 3.*
+
+### 56-27 [V] Live micro-smoothing: un-contraction for emphasis + added connectives — HYPOTHESIS
+"That's true." delivered as "That is true." (deliberate stress un-contraction — the reverse of the global contraction rule); "Europe did organize slave raids" → "Europeans initially did organize slave raids"; "The lasso wasn't working." → "…wasn't working anymore"; "From now on — trade." → "From now on, just trade." His smoothing particles (initially/anymore/just) signal arc-position. *Source: finished cut.srt vs v8, multiple beats.*
+
+### 56-28 [Su] Quote wording drifts when spoken — verbatim fidelity lives on the card, not in the voice — HYPOTHESIS
+The de Marees quote was restructured aloud ("They do not have at their disposal a multitude of captives on the Gold Coast. They cannot be purchased in large numbers." vs the scripted "…multitude of Captives, and so on the Gold Coast they cannot be purchased in large numbers."). Even a scripted verbatim drifts in delivery; the on-screen card is the only reliable verbatim layer. Confirms the 56-11(b) paraphrase-in-VO/verbatim-on-card split as the safe default. *Source: finished cut.srt 7:07–7:24 vs v8 Evidence 2.*
+
 ---
 
 ## #57 — Piri Reis Map — published
@@ -112,7 +132,7 @@ The #57 rewrite consumed hours because the script was a Hancock debunk when the 
 Every clarity-fix added concrete detail: ~1,800 → ~3,100 words across one read-through. Recovering required killing whole sections or refocusing the structure (what won). Word-count at length-decision moments; 12-min cap ≈ 1,950 words @163wpm. *Source: WRITER-LESSONS.md §1.4, §6.6.*
 
 ### 57-05 [P] The read-through is the gate — and it catches different bug classes — VALIDATED
-Read-aloud catches: cold pronouns ("That's slow" — that's WHAT?), buried logic (1528 update never said WHY it mattered), undefined antecedents, recap-redundancy, vestigial references from prior structures. Earlier-approved phrasings may need cutting once their context changes — flag the override transparently. *Source: WRITER-LESSONS.md §1.5, §4.5.*
+Read-aloud catches: cold pronouns ("That's slow" — that's WHAT?), buried logic (1528 update never said WHY it mattered), undefined antecedents, recap-redundancy, vestigial references from prior structures. Earlier-approved phrasings may need cutting once their context changes — flag the override transparently. *Source: WRITER-LESSONS.md §1.5, §4.5.* **Confidence ↑ (S3):** recap-redundancy also dies at the DELIVERY layer — #56's delivered cut dropped the scripted Equiano recap ("His community had slavery. His own father owned slaves…") and the post-quote source-list enumeration recap in #57; recaps that survive the read-aloud still get shed on camera.
 
 ### 57-06 [St] Filler-beat catalogue — four beat types that are usually cut — VALIDATED
 (a) "real research vs fake research" meta beats (read as preaching); (b) moving-claim enumeration arcs across decades (recap-feel in delivery — one-line framing instead); (c) origin-of-the-claim history (Mallery/Hapgood/USAF — the document's own labels do the debunking); (d) corroborating-science stacking after the primary-source nail ("one nail per debunk"). *Source: WRITER-LESSONS.md §3.3.*
@@ -130,7 +150,7 @@ For each paragraph: state the intent plainly FIRST, then query the notebook agai
 At each paragraph: does the opening pronoun/connector have a clear antecedent in the previous paragraph? Does the ending set up the next? Cold pronouns and stranded transitions live at the seams, and they're invisible in isolated line review. *Source: REVISION-BRIEF-v6.md §loop step 3.*
 
 ### 57-11 [V] SRT headline finding: his ad-libs are more economical and concrete — never more gimmicky — HYPOTHESIS (SRT-derived)
-When he changes a scripted line live he makes it plainer, adds a concrete noun, or breaks it into an enumerated beat; he never adds YouTuber garnish. So "reads cringey" almost always = the WRITER added garnish. Tier note: SRT-derived (hypothesis per postmortem-methodology), but consistent with all later VALIDATED grill data. ⚠️ VOICE-PROFILE header explicitly supersedes SRT fingerprints where they conflict (the SRTs are heavily edited). *Source: VOICE-FINGERPRINT.md headline.*
+When he changes a scripted line live he makes it plainer, adds a concrete noun, or breaks it into an enumerated beat; he never adds YouTuber garnish. So "reads cringey" almost always = the WRITER added garnish. Tier note: SRT-derived (hypothesis per postmortem-methodology), but consistent with all later VALIDATED grill data. ⚠️ VOICE-PROFILE header explicitly supersedes SRT fingerprints where they conflict (the SRTs are heavily edited). *Source: VOICE-FINGERPRINT.md headline.* **Confidence ↑ (S3):** the full SRT-vs-script passes on #56 and #57 (56-23..28, 57-24..29) found the same direction in every systematic delta — plainer transitions, dropped apparatus, restored credentials, direct questions; zero garnish additions.
 
 ### 57-12 [V] The cringe inventory — 13 assistant-introduced phrasings, all stripped — VALIDATED
 Concrete banlist of what the assistant inserted across v1-v4 and the creator cut: "Here's what almost no video will tell you," "signed by the man they call the mystery," "let's play their game," "the receipt," "hot take," "keep that test in your pocket," "mystery-sellers," "let's do what nobody does," "If there's anything you remember from this video…," vestigial references, label-without-substance ("That's a Rorschach test"), close-recaps. Largely absorbed into VOICE-PROFILE's cringe no-list — kept here as the historical instance record with per-line context. *Source: WRITER-LESSONS.md §5.2.*
@@ -169,6 +189,29 @@ Lock-stage SOURCE blocks record scholarly splits and the editorial ruling ("McIn
 
 ### 57-23 [Su] v4→lock diff = the attribution-audit fix — cross-ref only
 The only substantive v4→SCRIPT.md change is the cağferiye reattribution (named-proponent claim → "appearance the next lines debunk," after the post-film audit found neither Hapgood nor Hancock builds on the word). → memory `feedback-attribution-audit` (canonical) + ATTRIBUTION-AUDIT.md / VO-PICKUP-cagferiye.md (instance record).
+
+### S3 additions — SRT-vs-script ad-lib deltas (`finished cut.srt` vs locked SCRIPT.md), mined 2026-06-12 — **ALL HYPOTHESIS** (finished-cut SRT conflates ad-libs with edit-room cuts)
+
+### 57-24 [Su] Missing credentials get restored by ad-lib — introduce-before-using is instinctive — HYPOTHESIS
+The locked script's first McIntosh mention carries no credential (the v3 credential chain was lost in the v4 refocus). On camera he added one unprompted: "McIntosh, **who wrote the authoritative book on this map**, checked the map…" When the script omits a source's authority intro, he patches it live — so the writer should never leave it out. *Source: finished cut.srt 2:05–2:14 vs SCRIPT.md Beat 2.*
+
+### 57-25 [V] Scripted verbatims compress to paraphrase in VO — the card carries the quote — HYPOTHESIS
+McIntosh's "…he never makes such a statement in any of the map inscriptions" blockquote: only the script's paraphrase ("the claim simply isn't there") was spoken. Hancock's Bimini scuba-dive blockquote: not spoken at all; he goes straight from claim description to "Piri Reis labeled that coast himself." Pattern across both videos (see 56-28): blockquotes written for VO tend to be delivered as paraphrase or skipped, with the verbatim presumably on screen. Script-side implication: write the paraphrase line FOR the voice and mark the verbatim as card-only from the start. *Source: finished cut.srt 2:05–2:16, 4:05–4:23 vs SCRIPT.md Beats 2–3.*
+
+### 57-26 [V] Archaic transliterations in quotes get normalized live to the terms already taught — HYPOTHESIS
+Kahle's "Dja'fariye is a mistake… for dja'grafiye, geography" was spoken as "Cağferiye is a mistake for jughrafiya — geography," matching the spellings the video had already established. He won't switch transliteration systems mid-video even inside a quote; scripts quoting period/scholarly orthography should pre-normalize the spoken version (verbatim stays on the card). *Source: finished cut.srt 3:56–4:00 vs SCRIPT.md Beat 2 Kahle quote.*
+
+### 57-27 [St] The flashback closer was flattened to chronology in the delivered cut — HYPOTHESIS
+Script order: 400-years-ignored → Porte → 1929 rediscovery → Kahle decode → [Beat 6] execution → "mutilated remains" → bookend. Delivered order: ignored → Porte → "rolled up and shelved" → **execution and death** → "mutilated remains" → "and there it stayed… until 1929" → Kahle decode → bookend. The man dies before the map is found — a strict timeline, stronger dramatic irony ("He died never knowing…"). Whether ad-lib or edit-room, the delivered structure beat the scripted flashback; candidate rule: closers run chronological. *Source: finished cut.srt 8:29–10:27 vs SCRIPT.md Beats 5–6.*
+
+### 57-28 [V] Embedded colon-clauses become direct spoken questions — HYPOTHESIS
+"There's one small mystery here: how an Ottoman admiral ended up with a map by Columbus." delivered as "There is one small mystery here. How does an Ottoman admiral end up with a map by Columbus?" He converts written subordination into a real question-and-answer rhythm. Distinct from staged rhetorical questions (which get cut — 56-16): this is a genuine setup question he then immediately answers. *Source: finished cut.srt 4:59–5:05 vs SCRIPT.md Beat 3.*
+
+### 57-29 [Su] Delivery degrades precision: attribution anchors shed, similar entities swapped, lists truncated — HYPOTHESIS
+Three precision losses on camera: (a) "Ptolemy's geography said one had to exist" → "One had to exist to balance the globe" (expository attribution dropped — the exact drift class feedback-attribution-audit polices at script stage); (b) "the one **Hancock** points to most often" delivered as "**Hapgood**" (similar-name entity swap, said once, corrected implicitly later); (c) the three scripted toponyms (Cabo Frio, Rio de Janeiro, Cananéia) delivered as two. Script-side mitigation: put load-bearing attributions in non-droppable positions, build disambiguation handles for confusable name-pairs (→ structural-architecture P8), and treat 3-item proof-lists as 2-survivable. *Source: finished cut.srt 4:05, 6:52–6:55, 7:16 vs SCRIPT.md Beats 3–4.*
+
+### 57-30 [St] The parasocial disclaimer and two honesty beats did not survive to the finished cut — HYPOTHESIS + ⚠️ S8 CONTRADICTION FLAG
+Cut between lock and publish: (a) the entire viewer-directed disclaimer ("if you like Graham Hancock and the stories he tells, this isn't an attack on the stories…") plus the Hancock/Lex intro line — compressed to "This video is about one document and what it says when you actually read it"; (b) "Kahle could read the original Ottoman. Hapgood couldn't — and he wrote his book thirty years later anyway" (the authority contrast the v4 reframe built); (c) "Kahle got plenty wrong, too — and McIntosh and others corrected him, point by point" (the accumulated-corrections honesty beat). All three were deliberate v4/lock investments (57-21, v4 reframe notes) that the delivered video dropped. Contradicts 57-21's VALIDATED status at the delivery layer — queue for S8/S9: does he actually want these beats, or do they die every time? *Source: finished cut.srt 0:26–0:48, 3:49–4:01, 9:41–10:11 vs SCRIPT.md Beats 1/2/5.*
 
 ---
 
@@ -232,6 +275,9 @@ Externally-imported REGISTER (NLM Fig-Tree parasocial signatures in #56; competi
 
 ### RP-6 [Su] Verdict language shrinks to what was shown
 #56: absolutist closing aphorism → scoped claim + audience-honesty beat (56-22), plural "letters of African kings" corrected to the one letter shown (56-14). #57: "the one man who could read it" overclaim cut at lock (57-22); editorial labels replaced by close reading in #56 (56-19) and report-don't-sell in #57 (57-01). The locked script consistently claims LESS than the draft and proves more. *Evidence: 56-14/56-19/56-22 + 57-01/57-22.*
+
+### RP-7 [V] Delivery strips written apparatus: asides, recaps, second verbatims, foreign text — HYPOTHESIS (S3, both videos)
+On camera, both #56 and #57 shed the same four apparatus classes: mid-sentence em-dash asides (56-24), recap lines (57-05 confidence note), VO-scripted verbatims beyond the first (56-26/56-28/57-25), and anything not in the video's established terminology (57-26). Script-side implication: write the VO layer as if these will be dropped — load-bearing facts in main clauses, one verbatim per beat in the voice, the rest on cards. Tier stays HYPOTHESIS until a grill confirms intent (the cuts could be edit-room, not instinct). *Evidence: S3 entries across #56 + #57.*
 
 ---
 

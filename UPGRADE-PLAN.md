@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (S2)
+**Last advanced:** 2026-06-12 (S3)
 **Total steps:** 24
-**Done:** 2
+**Done:** 3
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -92,7 +92,7 @@ Classify each recurring edit (not one-off content fixes): what did the lock vers
 
 **Commit:** `feat(calibration): S2 draft-vs-locked diff deltas`
 
-## S3 [TODO] SRT-vs-script ad-lib deltas
+## S3 [DONE] SRT-vs-script ad-lib deltas
 
 **Deps:** S1
 
