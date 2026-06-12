@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (S5)
+**Last advanced:** 2026-06-12 (S6)
 **Total steps:** 24
-**Done:** 5
+**Done:** 6
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -131,7 +131,7 @@ Pull the transcript of yt:yMAWJcjo_ug (his first, unscripted video — VOICE-PRO
 
 **Commit:** `feat(calibration): S5 unscripted-video linguistic fingerprint`
 
-## S6 [TODO] Reference-creator spoken-naturalness mine
+## S6 [DONE] Reference-creator spoken-naturalness mine
 
 **Deps:** S1
 
@@ -405,3 +405,6 @@ Run the full suite: python -m pytest tests/ tools/tests/ -q (and tools/youtube_a
 
 ### Out-of-scope observation (S4, 2026-06-12)
 `video-projects/_ARCHIVED/published/35-gibraltar-treaty-utrecht-2026/POST-PUBLISH-ANALYSIS.md` is misfiled: it analyzes video `TYNaIu28LeU` ("The 1922 Treaty Loophole That Ended the USSR" — Belavezha lane), not the Gibraltar video (`WZnCxVPNF7A` per project-map). Not fixed (off-step scope); S4 mapped it under zone labels with no Gibraltar chapter join.
+
+### Out-of-scope observation (S6, 2026-06-12)
+`transcripts/Kraut/` contains two non-Kraut files: `Why is Russia So DAMN BIG？.*` is a **RealLifeLore** video (the anti-voice — a first S6 digest pass was contaminated by it and re-run on genuine Kraut only) and `Tiedustelueverstin arvio Venäjästä….*` is a Finnish-language interview. Both excluded from S6; files left in place (off-step scope) — consider moving them out of the Kraut folder so future voice mining doesn't ingest the anti-voice as a positive ref.

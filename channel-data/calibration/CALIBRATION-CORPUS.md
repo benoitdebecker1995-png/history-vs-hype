@@ -290,6 +290,30 @@ very=9 (1.2/100w: "very first," "very little basis," "very good reason"); really
 
 ---
 
+## Reference creators (Kraut + Alex O'Connor) — S6 naturalness mine, 2026-06-12
+
+Source: `channel-data/calibration/REFERENCE-CREATOR-NATURALNESS.md` (full inventory + verbatim anchors there). Tier: **ALL IDEA** — his refs, not his voice (rules-hedge); ⚡TENSION items are queued for S8 as the most informative.
+
+### RC-01 [V] Same-breath concession-pivot — IDEA
+Both refs concede and pivot inside one sentence ("yes there are indeed non-biblical sources… however it is worth noticing…"), as a per-evidence reflex rather than a dedicated steelman section. Candidate upgrade to the channel's concede-first structure: micro-concessions at every evidence beat, not only the Act-1 concede. *Source: REFERENCE-CREATOR-NATURALNESS N9, §5.1.*
+
+### RC-02 [V] One wry interpretive sentence immediately after evidence, then move on — IDEA
+Both refs cap evidence with exactly one interpretation line, often dry ("the name kind of gives away the predatory nature"; "right off the bat this isn't really an argument for atheism") — never milked into a paragraph. Sharpens 56-18 (interpret every quote) with a LENGTH cap: one sentence. *Source: N2/N7 + §5.2.*
+
+### RC-03 [Su] Concrete artifact carries the thesis — IDEA
+Kraut's unclosable Stolichnaya bottle (designed on the assumption the bottle is finished in one sitting) does the work of a statistics paragraph. Research-phase implication: hunt for one thesis-bearing ARTIFACT per act, not just quotes and numbers. Extends concrete-first (P4) from sentence level to evidence selection. *Source: N8.*
+
+### RC-04 [Su] Source's epistemic journey as credential — IDEA
+O'Connor: "my friend and biblical scholar John Nelson… a Christian who used to think it could be reconciled but changed his mind." A changed-mind scholar is a stronger trust signal than a title alone — natural fit for debunk formats where the steelman needs teeth. *Source: N12.*
+
+### RC-05 [V] Limitation disclosure as authority move — IDEA
+O'Connor names what is NOT his area on contested terrain ("church patristics is really not my area… don't look to me for advice"). Gold standard has the same instinct ("I'm not a history teacher although I do tutor it"). Candidate: one scripted limitation-disclosure beat on videos where he's reading outside his strongest lane. *Source: N4; GS cross-ref.*
+
+### RC-06 [V] ⚡TENSION bundle — fragment-pivots, formal connectors, answered-question chains — IDEA (route to S8)
+Three ref mechanics conflict with validated/gold signals: (a) Kraut's register-drop fragment "Then came the Mongols." vs the earned-fragment reversal; (b) Kraut's free However/Consequently vs the gold so≫because stack; (c) O'Connor's 2-3-question dialectical chains (immediately answered) vs GS-03 zero-rhetorical-questions. Each needs a grill line-variant test, not adoption. *Source: N1/N10 + §2 + Tensions section.*
+
+---
+
 ## S4 — Retention-curve → beat mapping (all post-publish reports), mined 2026-06-12
 
 > **ALL HYPOTHESIS [St]/[Su].** Per `memory/feedback-channel-data-too-small`: individual-video retention is noise — nothing below is actionable per-video; only the cross-video zone histogram (RP-8) is promoted, and even that stays a hypothesis. Beat labels: 13 videos map to actual chapter names from their YOUTUBE-METADATA.md; the rest get coarse zone labels (the analyses report position % only). Severity: HIGH ≥10% of remaining viewers lost at that point, MED 5–10%, LOW <5%. Source files: `channel-data/analyses/POST-PUBLISH-ANALYSIS-*.md` + archived project folders.
