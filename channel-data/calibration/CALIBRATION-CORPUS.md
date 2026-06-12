@@ -727,6 +727,40 @@ Across every video with retention data: hook-zone drops (0–5%) in 33/40 videos
 
 ---
 
+## S9 grill resolutions (Session A, 2026-06-12) — all VALIDATED (user-picked)
+
+### GR-A9 [Su] Artifact-hunt directive: one thesis-bearing object per act — VALIDATED
+Research phase explicitly hunts a third evidence class beyond quotes and numbers: an object or document-feature that proves the point by itself (Kraut's unclosable Stolichnaya bottle; the channel's own accidental versions — Lausanne's zero instances of "Kurd," the Piri Reis source-list inscription). Beats may then open on the THING instead of a statistic. Use conditions (all three): it explains the point; a non-academic grasps it instantly; it's honest — no cherry-picked prop. Imports RC-03; extends concrete-first (P4) from sentence level to evidence selection. Wire into /research + 01-VERIFIED-RESEARCH template at S11. Sub-rule (RC-04 adopted): the changed-mind scholar credential ("X, who long argued the opposite, now writes…") — use when true, never manufactured. *Source: S9 grill 2026-06-12, agenda item A9.*
+
+### GR-A10 [St] One engineered no-VO hold per video — adopted as a TEST — VALIDATED (decision), device unproven
+One image-only hold (1–3s), placed after the single strongest document reveal, marked in the script/edit guide ("[HOLD ON DOCUMENT — no VO, 2s]"). User-approved as worth testing — NOT yet a proven device; judge at the edit layer + retention check before promoting to standing rule. Imports CRAFT R9 scoped to one hold per video; pairs with stay-on-face quote performance (56-08). *Source: S9 grill 2026-06-12, agenda item A10.*
+
+### GR-A8 [St] Scripted enumerations need a matching on-screen asset — no arity rule — VALIDATED
+The #57 toponym truncation (57-29c) is EXPLAINED, not a pattern: the on-screen asset was a map with translations, not the scripted three-item list, so he trimmed the spoken list to what the viewer could follow. The "proof lists are 2-survivable" candidate rule is WITHDRAWN. Actual rule (prep layer): when the script enumerates N items as proof, the asset must display those N items (labeled, followable); build the asset to the list or trim the list to the asset BEFORE filming. Methodology note: textbook case of why SRT deltas stay HYPOTHESIS until the creator explains the cause (feedback-postmortem-methodology). *Source: S9 grill 2026-06-12, agenda item A8.*
+
+### GR-A7 [Su] Load-bearing facts: promote it or cut it — never in an aside — VALIDATED (HARD RULE)
+A fact that must survive delivery gets its own main clause ("He takes his royal fifth. Forty-six people, for his personal estate."). If it can't earn a main clause within the runtime budget, it moves to the on-screen card or gets cut — it never rides in an em-dash aside or relative clause, because delivery sheds asides first (56-24 upgraded from HYPOTHESIS; imports CRAFT R2 as a hard rule scoped to load-bearing facts). *Source: S9 grill 2026-06-12, agenda item A7.*
+
+### GR-A6 [Su] Source-anchored micro-concessions at evidence beats — concede the true part when the source shows it — VALIDATED
+When the document on screen genuinely confirms part of the opposing claim, concede that part in the same breath ("And yes — that's a Dutch trader confirming Africans sold slaves to Europeans. That part's true.") then pivot to what else the source shows. Per-beat reflex IN ADDITION to the sectioned concede (56-17 architecture stands). Anchor condition: the concession must be shown by the on-screen source — never a ritual "to be fair." Imports RC-01 (refs' same-breath concession-pivot) in source-anchored form; doubles as the standard handling of confirmation-risk quotes (56-02). *Source: S9 grill 2026-06-12, agenda item A6.*
+
+### GR-A5 [Su] Quote default = paraphrase in VO + verbatim on card; verbatim delivery is earned by self-sufficiency — VALIDATED
+Default for every quote: the voice speaks the paraphrase/explanation, the card carries the exact words — because most historical quotes need their meaning explained, and that explanation IS the channel's job. Exception: a quote strong enough to live by itself (no gloss needed) gets read verbatim — and is stronger for being rare. Underlying guard: the video is an explanation that uses quotes, never a sum of quotes. Upgrades 56-11(b)/56-28/57-25 to rule; extends VOICE-PROFILE's quote-stack→speak-one+cards with the self-sufficiency test for WHICH one earns the voice. *Source: S9 grill 2026-06-12, agenda item A5.*
+
+### GR-A4 [St] Closers run chronological — flash-forward only when the outcome is already known — VALIDATED
+The closer's spine is strict chronology; the dramatic irony comes from the timeline itself ("He died never knowing…" → "and there it stayed… until 1929"), never from structural intercutting. A flash-forward clause is permitted only when the outcome is already known or obvious to the viewer, so it spoils nothing. Upgrades 57-27 from HYPOTHESIS to rule: the delivered chronological order was the right call, not an accident. *Source: S9 grill 2026-06-12, agenda item A4.*
+
+### GR-A3 [St] Method declaration: one hook-tail clause OR after the first source — never a standalone pre-evidence beat — VALIDATED
+What occupies 0:45–1:40 is evidence, not throat-clearing. The method declaration either (a) compresses to a clause on the hook tail ("…and the way to settle it is to just read the sources. So let's read them.") or (b) waits until the first source is on screen, then declares the method with the document as exhibit. Refines 56-13 (the standalone method bridge was the weaker form) and answers RP-8's setup-zone drag (20/40 videos bleed at 6–14%): get to the first document fast. *Source: S9 grill 2026-06-12, agenda item A3.*
+
+### GR-A2 [St] Thesis spoken in full ONCE — at the close; the whole video is setup for it — VALIDATED
+The video's thesis is stated clearly at the END; everything before exists to earn that line. No early same-words plant, no restatement device — imported craft rule R6 (strategic redundancy) is REJECTED even in exact-words form. The verdict line is a destination, not a refrain; recaps stay dead (57-05, RP-7 confirmed at the rule level). Pairs with RP-6 (verdict language scoped to what was shown) — one terminal, scoped, fully-earned thesis line. *Source: S9 grill 2026-06-12, agenda item A2.*
+
+### GR-A1 [St] Disclaimers are trigger-gated, not default — VALIDATED
+Viewer-directed disclaimers don't come naturally and enter a script ONLY when a trigger fires: (1) genuinely sensitive topic; (2) the creator is giving his own opinion; (3) the video deliberately gives one side more weight; (4) plain honesty requires it (hijab #52 precedent). Default = the method line does the disclaimer's work ("This video is about one document and what it says when you actually read it") — the channel's core is presenting the discipline of history and how historians reach conclusions, which carries the fairness signal by itself. Resolves the 57-30 contradiction: the Hancock disclaimer died at delivery because no trigger fired. Scholar-fallibility honesty beats ("Kahle got plenty wrong, too") fall under trigger 4 — include when the correction record does argumentative work, never as ritual. *Source: S9 grill 2026-06-12, agenda item A1.*
+
+---
+
 ## Side files (created by later S-steps)
 
 - `FINGERPRINT-UNSCRIPTED.md` — S5

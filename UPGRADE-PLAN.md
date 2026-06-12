@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (S14)
+**Last advanced:** 2026-06-12 (S9)
 **Total steps:** 24
-**Done:** 9
+**Done:** 10
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -174,7 +174,7 @@ Split the agenda into Session A (structure + substance) and Session B (process +
 
 **Commit:** `feat(calibration): S8 contradiction/gap report + interview agenda`
 
-## S9 [TODO] [INTERACTIVE] Grill session A — structure + substance
+## S9 [DONE] [INTERACTIVE] Grill session A — structure + substance
 
 **Deps:** S8
 

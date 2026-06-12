@@ -14,7 +14,7 @@
 
 # SESSION A — structure + substance (S9)
 
-## A1 — Parasocial disclaimer + honesty beats: lock investments that died at delivery — OPEN
+## A1 — Parasocial disclaimer + honesty beats: lock investments that died at delivery — RESOLVED (rule: disclaimers trigger-gated — sensitive / own-opinion / one-sided-weighting / honesty; default = method line. Corpus GR-A1)
 **Type:** CONTRADICTION · `[St]/[Su]`
 **Evidence (side 1):** 57-21 VALIDATED — the lock deliberately reframed the disclaimer to address the viewer's attachment ("if you like Graham Hancock and the stories he tells, this isn't an attack on the stories…"), an improvement he authored across v2→v3→lock.
 **Evidence (side 2):** 57-30 HYPOTHESIS + ⚠️ S8 flag — the finished cut dropped the entire disclaimer AND both honesty beats ("Kahle could read the original Ottoman. Hapgood couldn't…", "Kahle got plenty wrong, too — and McIntosh and others corrected him, point by point"). Three deliberate lock investments, zero survived to publish.
@@ -27,7 +27,7 @@
 
 **Sub-question (honesty beats):** is the scholar-fallibility beat ("Kahle got plenty wrong, too — and McIntosh and others corrected him, point by point" `[real]`) a class he wants — or does it die every time because it reads as apparatus once the argument is already won?
 
-## A2 — Strategic redundancy vs recaps-die — OPEN
+## A2 — Strategic redundancy vs recaps-die — RESOLVED (rule: thesis spoken in full once, at the close; whole video = setup for it; R6 rejected. Corpus GR-A2)
 **Type:** CONTRADICTION · `[St]`
 **Evidence (side 1):** CRAFT R6 IDEA — broadcast doctrine: one-pass medium, restate the critical thing twice, same words.
 **Evidence (side 2):** 57-05 VALIDATED + RP-7 HYPOTHESIS — recap-redundancy dies at his read-aloud AND at delivery (#56's Equiano recap and #57's source-list enumeration recap were both shed on camera). Counter-consideration in R6 itself: YouTube viewers can rewind.
@@ -38,7 +38,7 @@
 - **V2 `[constructed]` (same-words bookend):** plant the exact line "the scale, the legal authority, and the racial logic" once early (end of method beat) and repeat it verbatim at the close — two occurrences, zero paraphrase recaps anywhere else.
 - **V3 `[constructed]` (callback-word only):** no full restatement; thread one word of the verdict ("scale") through the evidence beats, full line spoken only at the close.
 
-## A3 — Method-declaration beat vs setup-zone drag — OPEN
+## A3 — Method-declaration beat vs setup-zone drag — RESOLVED (rule: method = hook-tail clause OR post-first-source; never standalone pre-evidence; sources arrive fast. Corpus GR-A3)
 **Type:** CONTRADICTION · `[St]`
 **Evidence (side 1):** 56-13 VALIDATED — v8 lock ADDED a standalone 15-second method bridge between hook and concede.
 **Evidence (side 2):** RP-8 HYPOTHESIS (n=40) — the 6–14% setup zone is the channel's biggest non-universal retention-drop cluster (20/40 videos): "setup/method drag before the turn." The method beat lives exactly in that zone.
@@ -49,7 +49,7 @@
 - **V2 `[constructed]` (compressed to a hook-tail clause, no standalone beat):** "…and the way to settle it is to just read the sources. So let's read them."
 - **V3 `[constructed]` (method folded into the first evidence intro):** no early method beat at all; the first document reveal carries it — "Here's the first source — a chronicle written by Prince Henry's own court historian. This is how we're going to do this whole video."
 
-## A4 — Closer architecture: scripted flashback vs delivered chronology — OPEN
+## A4 — Closer architecture: scripted flashback vs delivered chronology — RESOLVED (rule: closers chronological; flash-forward only when outcome already known/obvious; no structural flashback. Corpus GR-A4)
 **Type:** CONTRADICTION · `[St]`
 **Evidence (side 1):** #57 lock — closer scripted as flashback: 400-years-ignored → Porte → 1929 rediscovery → Kahle decode → [Beat 6] execution → "mutilated remains" → bookend.
 **Evidence (side 2):** 57-27 HYPOTHESIS — delivered order was strict chronology: ignored → Porte → "rolled up and shelved" → execution and death → "mutilated remains" → "and there it stayed… until 1929" → Kahle decode → bookend. The man dies before the map is found; stronger dramatic irony, and it's what shipped.
@@ -60,7 +60,7 @@
 - **V2 `[real]` (delivered chronological order):** death mid-closer, rediscovery after — close on "He died never knowing…" → bookend.
 - **V3 `[constructed]` (chronology with one flash-forward clause):** chronological spine, single forward-reference allowed ("a map nobody would read correctly for another four hundred years") instead of a structural flashback.
 
-## A5 — Verbatim handling: paraphrase-for-voice + card-only verbatim as the DEFAULT — OPEN
+## A5 — Verbatim handling: paraphrase-for-voice + card-only verbatim as the DEFAULT — RESOLVED (rule: paraphrase default, verbatim earned by self-sufficiency; video ≠ sum of quotes. Corpus GR-A5)
 **Type:** CONTRADICTION (script default vs observed delivery) · `[Su]/[St]`
 **Evidence (side 1):** current practice — locked scripts still write blockquote verbatims into the VO layer (e.g. #57 McIntosh blockquote, Hancock Bimini blockquote).
 **Evidence (side 2):** 56-11(b) VALIDATED (lock-stage paraphrase-in-VO/verbatim-on-card split) + 56-28/57-25 HYPOTHESIS (delivered verbatims drift or compress to paraphrase in BOTH videos; the card is the only reliable verbatim layer) + RP-7.
@@ -71,7 +71,7 @@
 - **V2 `[real]` (what he delivered):** VO speaks only the paraphrase — "the claim simply isn't there" — verbatim lives on the card alone.
 - **V3 `[constructed]` (killer-clause hybrid):** VO speaks just the operative fragment ("'he never makes such a statement' — that's McIntosh, in the authoritative book on this map"), card carries the full sentence.
 
-## A6 — Micro-concessions per evidence beat vs the sectioned concede — OPEN
+## A6 — Micro-concessions per evidence beat vs the sectioned concede — RESOLVED (rule: source-anchored micro-concessions added per beat; sectioned concede stands. Corpus GR-A6)
 **Type:** CONTRADICTION (imported reflex vs validated architecture) · `[St]/[Su]`
 **Evidence (side 1):** 56-17 VALIDATED — the concede is a full evidence SECTION with its own primary sources (Ahmed Baba on screen, Equiano, the 1,000-vs-80,000 graphic).
 **Evidence (side 2):** RC-01 IDEA — both refs concede-and-pivot inside one sentence at EVERY evidence beat ("yes there are indeed non-biblical sources… however it is worth noticing…"), as a reflex, not a section.
@@ -82,7 +82,7 @@
 - **V2 `[constructed]` (micro-concession added in the same breath):** "And yes — that's a Dutch trader confirming Africans sold slaves to Europeans. That part's true. But look at what else he's admitting…"
 - **V3 `[constructed]` (O'Connor form, concession as the beat's opener):** "Yes, there was a pre-existing market — the source says so plainly. However, notice what it says about the scale…"
 
-## A7 — Load-bearing facts in asides — main-clause promotion as a hard rule — OPEN
+## A7 — Load-bearing facts in asides — main-clause promotion as a hard rule — RESOLVED (rule: promote to main clause or cut/card — never an aside; HARD. Corpus GR-A7)
 **Type:** CONTRADICTION (writing habit vs delivery survival) · `[Su]`
 **Evidence (side 1):** drafts and even locks park load-bearing facts in em-dash asides and relative clauses (#56 royal-fifth aside; "from what is now southeastern Nigeria"; "And the man who recorded that scene was Prince Henry's own court historian").
 **Evidence (side 2):** 56-24 HYPOTHESIS — delivery sheds asides first: the royal-fifth number vanished on camera; same delta in #57. CRAFT R2 IDEA (radio pedagogy): no load-bearing fact inside a relative clause or aside; the ear can't bracket.
@@ -93,7 +93,7 @@
 - **V2 `[constructed]` (main-clause promotion):** "He takes his royal fifth. Forty-six people, for his personal estate."
 - **V3 `[constructed]` (triage):** if the fact can't earn its own main clause at the 12-min cap, it moves to the card or gets cut — never rides in an aside.
 
-## A8 — Proof-list arity: pairs for proof, triples for color — OPEN
+## A8 — Proof-list arity: pairs for proof, triples for color — RESOLVED (premise refuted: truncation was asset–script mismatch, not arity; rule = enumeration needs matching on-screen asset. Corpus GR-A8)
 **Type:** CONTRADICTION · `[Su]/[St]`
 **Evidence (side 1):** #57 lock scripted a three-toponym proof chain (Cabo Frio, Rio de Janeiro, Cananéia — "in correct order" is the argument).
 **Evidence (side 2):** 57-29 HYPOTHESIS — delivered as two of three; load-bearing 3-lists truncate on camera. CRAFT R12 IDEA cuts both ways: three-part lists are the best-evidenced emphasis device, AND his natural speech produces triples in COLOR positions (GS-09 "cool and edgy and flashy") while he cut the mirrored contrast pair in a VERDICT position (56-12).
@@ -104,7 +104,7 @@
 - **V2 `[constructed]` (pair + pointer):** "Cabo Frio, then Rio de Janeiro — and look, there's a third one further down the coast." (third item lives in the pointer gesture + card, can't be silently dropped)
 - **V3 `[constructed]` (pair only):** "Cabo Frio, then Rio de Janeiro — in the right order, going south." (if two carry the proof, script two)
 
-## A9 — Evidence-selection gap: hunt thesis-bearing artifacts, not just quotes — OPEN
+## A9 — Evidence-selection gap: hunt thesis-bearing artifacts, not just quotes — RESOLVED (rule: one thesis-bearing artifact per act; conditions = explanatory + non-academic-accessible + honest. Corpus GR-A9. Sub-question changed-mind credential: pending one-line answer)
 **Type:** GAP (no validated signal covers evidence SELECTION) · `[Su]`
 **Evidence:** the corpus's substance signals are all about HANDLING evidence (frame, attribution, scope) — nothing covers what to hunt. RC-03 IDEA: Kraut's unclosable Stolichnaya bottle does the work of a statistics paragraph. RC-04 IDEA: a changed-mind scholar ("a Christian who used to think it could be reconciled but changed his mind") out-credentials a title. Nearest channel analog: #56's two-column 1,000-vs-80,000 graphic (56-09) — a number-artifact, found late, at the edit layer.
 
@@ -114,7 +114,7 @@
 - **V2 `[constructed]` (artifact-led — Kraut shape):** lead with a physical/legal object that embodies the thesis ("Look at this bottle. You can't close it again once it's open. It was designed that way—"), then one causal sentence.
 - **Sub-question `[constructed]`:** when a steelman needs teeth, is the changed-mind credential ("X, who spent twenty years arguing the opposite, now writes…") a device he'd use — or does it read as a rhetorical trick?
 
-## A10 — Scripted silence: the no-VO hold — OPEN
+## A10 — Scripted silence: the no-VO hold — RESOLVED (decision: adopt as a test — one marked hold per video after strongest reveal; judge before promoting. Corpus GR-A10)
 **Type:** GAP (no signal; conflicts with the wall-to-wall format) · `[St]`
 **Evidence:** CRAFT R9 IDEA — documentary craft: one image-only hold after the strongest reveal marks importance and lets the viewer process. Current format has zero scripted silence anywhere. Pairs with the validated stay-on-face quote performance (56-08) — the channel already trusts non-narrated seconds in one direction (face), never the other (document).
 
@@ -216,3 +216,14 @@
 # Resolution log
 
 *(S9/S10 runners: mark items RESOLVED/DEFERRED above and append one line per resolution here — date, item, derived rule, corpus entry ID.)*
+
+- 2026-06-12 · A1 · disclaimers trigger-gated (sensitive / own-opinion / one-sided / honesty); default = method line · GR-A1
+- 2026-06-12 · A2 · thesis spoken once, at the close; whole video is setup; R6 rejected · GR-A2
+- 2026-06-12 · A3 · method = hook-tail clause or post-first-source; never standalone pre-evidence · GR-A3
+- 2026-06-12 · A4 · closers chronological; flash-forward only when outcome already known · GR-A4
+- 2026-06-12 · A5 · quote default = paraphrase VO + verbatim card; verbatim earned by self-sufficiency; video ≠ sum of quotes · GR-A5
+- 2026-06-12 · A6 · source-anchored micro-concessions per beat; sectioned concede stands · GR-A6
+- 2026-06-12 · A7 · load-bearing fact: main clause or cut/card — never an aside (HARD) · GR-A7
+- 2026-06-12 · A8 · premise refuted (asset–script mismatch, not arity); enumeration needs matching asset · GR-A8
+- 2026-06-12 · A9 · artifact-hunt: one thesis-bearing object per act (explanatory/accessible/honest); changed-mind credential use-when-true · GR-A9
+- 2026-06-12 · A10 · no-VO hold adopted as a test (one per video, post-strongest-reveal) · GR-A10
