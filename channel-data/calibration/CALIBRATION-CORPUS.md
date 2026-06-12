@@ -67,6 +67,32 @@ v8 added a 15-second standalone beat between hook and concede: "What I want to d
 ### 56-14 [Su] Closing must name only what was shown — VALIDATED
 "the desperate letters of African kings" (plural) when only ONE king's letter was shown = factual error caught by the creator. Montage/recap language must match the evidence count exactly. *Source: REWRITE-PLAN-2026-05-25.md §C5, §D.9.*
 
+### S2 additions — draft-vs-locked diff (02-SCRIPT-DRAFT-v1-locked.md → 02-SCRIPT-DRAFT.md v8 final), mined 2026-06-12
+
+### 56-15 [St] GUIDE-bullets don't survive lock — everything becomes fully scripted prose with camera-state choreography — VALIDATED
+v1-locked had whole sections as `[GUIDE]` bullet lists (concede beat, every post-quote interpretation block). The final has zero bullets: every beat is written-out spoken prose, interleaved with explicit camera state (`[OPEN ON TALKING HEAD]` / `[CUT TO:]` / `[BACK TO TALKING HEAD]` / `[POINTER — highlight …]`). The lock direction is full scripting plus shot blocking inside the script, not talking points left to delivery. *Source: diff 02-SCRIPT-DRAFT-v1-locked.md → 02-SCRIPT-DRAFT.md (v8).*
+
+### 56-16 [V] Rhetorical-question transitions get compressed or cut at lock — VALIDATED
+v1's stagey questions ("What happens when you ignore the modern culture war and just read the receipts…?", "So how did Europe respond when an African monarch begged them to stop?") were cut; the one question that survived was radically shortened ("…why is a reigning African monarch on the record demanding a cessation of the trade while it was happening?" → "why is the King of Kongo demanding it stop?"). Transitions became declarative callbacks ("To understand why, we have to go back to the chronicle we opened with"). *Source: diff v1-locked → v8.*
+
+### 56-17 [Su] The steelman is an evidence beat — give it its own primary sources, not a name-check — VALIDATED
+v1's concede beat was six bullets citing Thomas Sowell. The final replaced it with a full evidence section: Ahmed Baba verbatim on screen (religion-bound enslavement), Equiano on inter-polity limits, the 1,000-vs-80,000 comparison graphic, and Lovejoy's "mode of production" framing. Concede beats get the same document-on-screen treatment as attack beats. *Source: diff v1-locked → v8, CONCEED-BEAT section.*
+
+### 56-18 [Su] Interpret every quote after it lands — close reading, not just confirmation-risk setup — VALIDATED
+Generalizes 56-02: v1 frequently let quotes land with a one-line bullet; the final adds an explicit plain-language reading after each ("He's not saying 'no slaves are being taken.' He's saying Kongo is so large you wouldn't notice"; "De Marees is admitting two things…"). Setup before + interpretation after became the uniform quote frame at lock. *Source: diff v1-locked → v8, João III + de Marees beats.*
+
+### 56-19 [V] Editorial labels out, close reading in — VALIDATED
+v1's loaded labels ("The buyer literally gaslights the supplier", "an aggressive, diplomatic steamroller", "the smoking gun") were all removed. The final does the work by paraphrase-precision instead ("The denial isn't 'we're not doing this' — it's 'you won't miss them.' The Crown wasn't denying the trade. It was denying the scale."). The indictment comes from the document's own logic, never from a name the narrator sticks on it. *Source: diff v1-locked → v8.*
+
+### 56-20 [P] Lock direction can be EXPANSION — +54% words when the draft under-evidences — VALIDATED
+1,180 → ~1,820 spoken words from draft-lock to final. The growth was all evidence: Dum Diversas, the 1518 asiento (a whole new evidence section), the raid→system bridge beat, the upgraded steelman. Counter-instance to "editing = cutting": when a draft asserts more than it shows, the locked version is longer. Pairs with 58-06 (completeness → MORE). *Source: word counts + diff v1-locked → v8.*
+
+### 56-21 [V] Numbers are written as they're spoken — VALIDATED
+"80,000" → "eighty thousand"; "81,000" row read as "eighty-one thousand"; "338,000" → "three hundred thirty-eight thousand". Digits in the draft became spelled-out spoken forms at lock (teleprompter-ready, no on-the-fly conversion). *Source: diff v1-locked → v8.*
+
+### 56-22 [Su] The closing verdict gets scoped down and earns an audience-honesty beat — VALIDATED
+v1 closed on an absolutist aphorism ("Buyers didn't find the Atlantic slave system—they engineered it."). The final closes with an honesty move ("I'm not under any illusion this will convince people who use history as a weapon in the culture war") plus a scoped claim ("The talking point is too broad to show the full picture… what didn't exist was the scale, the legal authority, and the racial logic"). Verdicts shrink to exactly what the shown evidence supports. Sibling of 56-14. *Source: diff v1-locked → v8, CLOSING VERDICT.*
+
 ---
 
 ## #57 — Piri Reis Map — published
@@ -115,6 +141,35 @@ Creator's gut pick first; scorer/critic only if unsure. Don't override a clearly
 ### 57-14 [V] Voice rules from #57 now canonical elsewhere — cross-refs only
 The full DO/DON'T catalogue (enumeration cadence, "There's just one problem," plain-concrete verbs, credential+name+"put it," dry irony at the opponent's material, fan-directed concession, "let's" is his, "basically" OK, understated-honesty move, "so busy…they…" irony, counter the conspiracy STRUCTURE) → `VOICE-PROFILE.md` (canonical, supersedes) + `VOICE-FINGERPRINT.md` (instance record). Do not re-derive from here; the profile wins on conflict.
 
+### S2 additions — version-chain diff (SCRIPT-v2.md → SCRIPT-v3.md → SCRIPT-v4.md → SCRIPT.md locked), mined 2026-06-12
+
+### 57-15 [P] Structure-lock before prose passes — two full polish passes were sunk cost — VALIDATED
+v2 (transition rewrite, 5,407 words) and v3 (competitor-cadence pass, 5,233 words) both polished prose on the wrong structure (Hancock-debunk under a "What the map actually says" title). The v4 refocus cut ~1,750 words (→3,488) by changing the spine, discarding most of both passes. Quantified version of 57-03: run the title-scope check and lock structure BEFORE any sentence-level pass; prose work on an unlocked structure has near-zero survival. *Source: word counts + diff SCRIPT-v2/v3 → SCRIPT-v4.*
+
+### 57-16 [St] The filler-beat cut catalogue holds even for POLISHED beats — confidence upgrade for 57-06 — VALIDATED
+The v3→v4 diff removed, wholesale: the moving-claim geographic-migration arc (~480 words, v2/v3's centerpiece "turn"), the real-vs-manufactured-mystery meta beat (~250 words, "keep that test in your pocket"), the origin-of-the-claim history (Mallery radio broadcast + USAF off-duty letters), and the glaciology corroboration stack (34M years / 740k-yr core / 3km). Every one was sourced, teased, and payoff-threaded — craft quality didn't save them. Beat TYPE predicts the cut, not execution. *Source: diff SCRIPT-v3 → SCRIPT-v4; confirms 57-06 (a)–(d).*
+
+### 57-17 [Su] Debunk by positive identification, not refutation stack — VALIDATED
+v2/v3's Antarctica beat refuted (letters debunk → inscription 10 "read that again" → California-island analogy → glaciology escalation). The lock replaces the stack with a positive ID: the southern coast IS Brazil (Cabo Frio / Rio / Cananéia toponyms in correct order) running into the terra australis every 1500s mapmaker drew, with inscription 10 doing only the ice-kill and McIntosh's cherry-picking point closing it. "Here's what it actually is" beat "here's why they're wrong" at lock. *Source: diff SCRIPT-v3 Beat 6 → SCRIPT.md Beat 4.*
+
+### 57-18 [Su] Genealogy steelman — concede the kernel, isolate the leap — VALIDATED
+v3 dismissed the Alexandria claim ("people heard Alexander, Ptolemy, Alexandria and built a library out of a coincidence"). The lock reconstructs how the proponent actually got there: "Hancock got the Library of Alexandria from Hapgood, in 1966. And Hapgood got it, in part, from the map itself — the source list really does say the oldest charts go back to the time of Alexander… But that last step is his, not Piri Reis's." Concede what's genuinely in the document, then isolate the single unsupported step. Strongest anti-strawman pattern in the chain. *Source: diff SCRIPT-v3 Beat 3 → SCRIPT.md Beat 2.*
+
+### 57-19 [P] Imported-cadence and imported-format passes get reverted at the creator pass — VALIDATED
+v3 imported competitor patterns wholesale: direct-address garnish ("let's play their game," "I told you… Here's the fingerprint," "Read that again," "Let's do what nobody does"), promissory teaser-threading (⟶TEASER/PAYOFF), and the two-sentence on-screen paradox card (the 5.3x niche outlier format). v4/lock stripped virtually all of it — the cold open went back to plain spoken escalation, the teaser apparatus vanished with the beats it pointed at. An entire pass modeled on competitor transcripts was net-negative. What DOES survive import: structural/visual patterns (split-screen build, document pointers). Pairs with 56-07 (NLM ports) — register imports fail, mechanics imports survive. *Source: diff SCRIPT-v3 → SCRIPT-v4/SCRIPT.md; v3 changelog vs lock.*
+
+### 57-20 [St] CTA at ~70%, value-anchored with a forward tease; the closer ends on an image — VALIDATED
+v2/v3 ended on a hard CTA ("…subscribe. That's the whole channel."). The lock moves the CTA to ~70% (end of Beat 3, after the strongest reveal), anchors it to the channel method ("That's what I try to do on this channel — go to the document and read it"), and teases forward ("There's still the bottom of the map"). The closer carries no second CTA and ends on the lingering Soucek image + bookend line. *Source: diff SCRIPT-v3 Beat 8 → SCRIPT.md Beats 3/6.*
+
+### 57-21 [V] The disclaimer is addressed to the viewer's attachment, not the target's character — VALIDATED
+v2: "this isn't about whether Graham Hancock is a good guy." v3 added "By all accounts, he is." The lock reframes entirely: "if you like Graham Hancock and the stories he tells, this isn't an attack on the stories. I'm just trying to explain why the scientific community doesn't agree with him." Speak to the parasocial viewer directly; don't adjudicate the opponent's character in either direction. *Source: diff cold opens v2 → v3 → SCRIPT.md.*
+
+### 57-22 [P] The locked script doubles as an audit trail — SOURCE blocks carry adjudication, not just citations — VALIDATED
+Lock-stage SOURCE blocks record scholarly splits and the editorial ruling ("McIntosh/Soucek read the eight as Ptolemaic… Pinto reads them as KMMS. We follow McIntosh/Soucek… The thesis holds under both"), scope rationales ("scoped to 'who can read the original' deliberately"), and flagged overclaim cuts ("⚠️ 'the one man who could read it' was an overclaim and is cut"). v2/v3 blocks were bare IDs. This is what made the post-film cağferiye attribution fix traceable. *Source: diff SOURCE blocks v2/v3 → SCRIPT.md.*
+
+### 57-23 [Su] v4→lock diff = the attribution-audit fix — cross-ref only
+The only substantive v4→SCRIPT.md change is the cağferiye reattribution (named-proponent claim → "appearance the next lines debunk," after the post-film audit found neither Hapgood nor Hancock builds on the word). → memory `feedback-attribution-audit` (canonical) + ATTRIBUTION-AUDIT.md / VO-PICKUP-cagferiye.md (instance record).
+
 ---
 
 ## #58 — Kurdistan Statelessness — script locked 2026-06-10
@@ -158,7 +213,25 @@ All locked into VOICE-PROFILE.md with 2026-06-06→06-10 dates: flowing-not-stac
 
 ## Recurring patterns (cross-video)
 
-*(Initially empty at S1 — populated by S2+ when a pattern appears in 2+ videos. Candidates already visible but awaiting S2 diff evidence: read-aloud-as-gate (56-06/57-05), report-don't-sell vs front-load-the-quote (56-02/57-01), length-bloat-then-refocus (57-04/58-08).)*
+*(Populated by S2 from the draft-vs-locked diffs, 2026-06-12. Each pattern cites its per-video evidence; all VALIDATED unless noted.)*
+
+### RP-1 [St] Claim-first cold open — the lock version always restructures the hook around the claim
+#56: scene-first v1 (Prince Henry 1444) → claim-first v8 ("There's a claim… It goes like this" + streamer clip, scene becomes the payoff). #57: narrated-context v2 and paradox-card v3 → spoken claim-stack escalation at lock ("most accurate map… seafaring civilization… aliens"). → memory `feedback-script-structural-architecture` P1, now diff-validated in 2 videos. *Evidence: 56-11(a) + #57 cold-open chain.*
+
+### RP-2 [P] Register imports fail, mechanics imports survive
+Externally-imported REGISTER (NLM Fig-Tree parasocial signatures in #56; competitor direct-address cadence + paradox-card format in #57 v3) gets systematically stripped at the creator pass. Externally-imported MECHANICS (document-reveal pointers, split-screen translation builds, stay-on-face quote performance) survive and spread. Test imports by class before spending a pass on them. *Evidence: 56-07 + 57-19; consistent with 58-04 (own old tics as negative corpus).*
+
+### RP-3 [V] Stagey rhetorical questions and quotable aphorisms get cut at lock — even after surviving multiple versions
+#56: "What happens when you ignore the culture war…?" cut; "Read it. The denial contains the confession." cut at v8 after surviving 4 versions; date-math opener cut. #57: "keep that test in your pocket," "Let's do what nobody does," paradox-card copy — all cut. The writer's most quotable lines are the most likely lock casualties. *Evidence: 56-12 + 56-16 + 57-16/57-19.*
+
+### RP-4 [Su] Quote discipline: set up what it proves before, close-read it after
+#56: de Marees confirmation-risk front-load (56-02) generalized to every quote at lock (56-18). #57: baseline-before-exception survived every rewrite (the Hancock claim stated fairly before each debunk), and the lock added the genealogy steelman (57-18). The frame around a quote is as load-bearing as the quote. *Evidence: 56-02/56-18 + 57-01/57-18.*
+
+### RP-5 [P] Lock-direction length is bimodal: evidence beats expand, device beats get cut
+#56 GREW 1,180→1,820 (under-evidenced draft gained an asiento section, a bridge beat, a full steelman). #57 SHRANK 5,407→3,640 (device/meta/corroboration beats cut wholesale). Same law as #58's grill calibration: completeness → MORE, device → LEAN (58-06). "Tighten the script" is the wrong instruction; the right one is "expand the evidence, cut the apparatus." *Evidence: 56-20 + 57-15/57-16 + 58-06.*
+
+### RP-6 [Su] Verdict language shrinks to what was shown
+#56: absolutist closing aphorism → scoped claim + audience-honesty beat (56-22), plural "letters of African kings" corrected to the one letter shown (56-14). #57: "the one man who could read it" overclaim cut at lock (57-22); editorial labels replaced by close reading in #56 (56-19) and report-don't-sell in #57 (57-01). The locked script consistently claims LESS than the draft and proves more. *Evidence: 56-14/56-19/56-22 + 57-01/57-22.*
 
 ---
 

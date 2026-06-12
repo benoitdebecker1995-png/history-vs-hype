@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (S1)
+**Last advanced:** 2026-06-12 (S2)
 **Total steps:** 24
-**Done:** 1
+**Done:** 2
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -76,7 +76,7 @@ Each lesson becomes one corpus entry: short rule statement, axis tag, source art
 
 **Commit:** `feat(calibration): S1 consolidate existing lesson artifacts into corpus`
 
-## S2 [TODO] Mine draft-vs-locked version diffs
+## S2 [DONE] Mine draft-vs-locked version diffs
 
 **Deps:** S1
 
