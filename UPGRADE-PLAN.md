@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (S7)
+**Last advanced:** 2026-06-12 (S8)
 **Total steps:** 24
-**Done:** 7
+**Done:** 8
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -157,7 +157,7 @@ WebSearch sweep: published craft guidance on writing for spoken delivery (broadc
 
 **Commit:** `feat(calibration): S7 imported craft rules (hedged)`
 
-## S8 [TODO] Contradiction + gap report → interview agenda
+## S8 [DONE] Contradiction + gap report → interview agenda
 
 **Deps:** S1, S2, S3, S4, S5, S6, S7
 
