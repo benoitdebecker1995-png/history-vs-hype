@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (S10)
+**Last advanced:** 2026-06-12 (S11)
 **Total steps:** 24
-**Done:** 11
+**Done:** 12
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -200,7 +200,7 @@ Same protocol as S9 for Session B (process + revision economy: what makes a draf
 
 **Commit:** `feat(calibration): S10 grill session B resolutions`
 
-## S11 [TODO] Compile agent diff proposals
+## S11 [DONE] Compile agent diff proposals
 
 **Deps:** S9, S10
 
