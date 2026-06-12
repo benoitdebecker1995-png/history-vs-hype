@@ -51,6 +51,8 @@ Before any other behavior fires, read these in parallel (one message, multiple R
 
 Also locate the project's NotebookLM notebook ID — either from the project's memory snapshot (e.g., `52-hijab-production-state.md`) OR from `<project>/PROJECT-BRIEF.md` if present. Store it for Phase 2 notebook queries. If `--no-notebook` flag is set, skip this.
 
+**Voice-lint pre-pass (deterministic):** run `python -m tools.voice_lint <project>/SCRIPT.md` and keep the output. HARD findings = cringe-no-list hits to resolve in Phase 2; WARN = dispreferred devices; REVIEW = per-handoff transition verdicts consumed by the Phase 3 Transition audit. The linter mechanizes `VOICE-PROFILE.md`'s cringe list so the human read-aloud is freed for substance — it does not replace Phase 2 judgment.
+
 Do NOT begin Phase 1 until all reads complete.
 
 ---
@@ -188,9 +190,14 @@ After all Phase 2 candidates resolved:
    - Sentences too long for one breath
    - Unfamiliar terms used before introduction
    - "Here's" count exceeded budget (max 2-4 per script — see channel CLAUDE.md)
-2. **Resolve all `⏳ Verify` flags** by running targeted notebook queries
-3. **Confirm SOURCES section page numbers** match what's cited inline
-4. **Memory batch:** during the pass, you should have been collecting any NEW patterns the user named with novel reactions ("cringy," "typical AI writing," "weird sentence again"). Surface these as a proposed update to `feedback-scriptcollab.md` → "Voice-Pass Patterns" section. Format:
+2. **Transition audit (his #1 standing weakness — see `.claude/REFERENCE/VOICE-PROFILE.md` "Transitions").** For EVERY act/section handoff (each `##` boundary except the opener), check the first sentence after the handoff:
+   - **Thesis-forward?** It must name where we're going and/or state the causal link into the next beat's subject — not just sit adjacent. ❌ bare topic jump → rewrite as a plain causal bridge ("So those states didn't just fade out. Someone took them apart — and it was the empire they'd served") or a thesis statement of what's coming.
+   - **No vague referent.** A bridge opening on "This/That/It/the very first one" after a section reset must name its subject. ("the very first one" → "the very first *what*?")
+   - **Don't call the common story flatly "wrong."** Prefer "oversimplified / tells only one part of the story"; reserve "wrong" for a specific factual error.
+   - `tools/voice_lint.py` (Phase 0 pre-pass) already emits REVIEW verdicts per handoff — walk each REVIEW here and either fix or confirm it's genuinely thesis-forward.
+3. **Resolve all `⏳ Verify` flags** by running targeted notebook queries
+4. **Confirm SOURCES section page numbers** match what's cited inline
+5. **Memory batch:** during the pass, you should have been collecting any NEW patterns the user named with novel reactions ("cringy," "typical AI writing," "weird sentence again"). Surface these as a proposed update to `feedback-scriptcollab.md` → "Voice-Pass Patterns" section. Format:
 
 ```
 New patterns identified during this pass:
@@ -206,7 +213,8 @@ Approve, edit, or reject each before I update feedback-scriptcollab.md.
 
 User approves → apply updates. Reject → discard. Edit → integrate user's preferred phrasing.
 
-5. **Status check:** if the project's lifecycle changes (e.g., `SCRIPT-LOCKED` → `FILM-READY`), prompt the user to run `/reconcile <project-slug>`. Do NOT auto-modify the AUTO block in PROJECT-STATUS.md.
+6. **Status check:** if the project's lifecycle changes (e.g., `SCRIPT-LOCKED` → `FILM-READY`), prompt the user to run `/reconcile <project-slug>`. Do NOT auto-modify the AUTO block in PROJECT-STATUS.md.
+7. **Read-aloud override log (use-and-correct loop):** the script now goes to the creator's read-aloud (T1 lock gate). When he overrides a voice rule there — changes a line away from what `VOICE-PROFILE.md` / the linter predicted — record it in `<project>/VOICE-OVERRIDE-LOG.md` (create from `.claude/templates/VOICE-OVERRIDE-LOG-TEMPLATE.md` if absent). One row per override, his exact replacement wording. Patterns seen 2+ times across projects get promoted to `VOICE-PROFILE.md` (and the linter). This is how the profile sharpens over time — do NOT automate it.
 
 ---
 

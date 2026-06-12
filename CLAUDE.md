@@ -189,7 +189,7 @@ See: `tools/PACKAGING_MANDATE.md` | `.claude/REFERENCE/TITLE-GENERATION-PROTOCOL
 10. **Single source of truth** — 01-VERIFIED-RESEARCH.md only
 11. **Quality gates** — 90% verified → write; 100% cross-checked → film
 12. **HOW > WHY** for subscriber growth — mechanisms/logistics, not politics
-13. **No years/colons in titles** — -46% / -28% CTR penalty
+13. **Years/colons in titles = HEDGE, not ban** — graded penalties, A/B-testable (the old -46%/-28% hard rule was topic-confounded; the channel's #1 and #3 videos have colons). See `tools/PACKAGING_MANDATE.md` Tier 2
 14. **Text overlay on thumbnails** — 2-4 words, not full title. Maps for territorial.
 15. **AGENT ORCHESTRATION** — Read `.claude/AGENT-ORCHESTRATION.md` before spawning sub-agents — return contract, tiers, rate-limit rule
 

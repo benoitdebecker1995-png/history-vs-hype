@@ -302,7 +302,7 @@ else:
 - Documentary tone
 - Include main hook/myth
 - **Score 65+ on title_scorer.py** (run Gate 1 before finalizing)
-- **No years, colons, or "The X That Y"** (auto-REJECTED by scorer)
+- **Years, colons, "The X That Y" = graded style penalties, NOT auto-rejects** (per `tools/PACKAGING_MANDATE.md` Tier 2 HEDGE — the hard-reject policy is RETIRED; the channel's #1/#3 videos both use colons. Review warnings, don't treat as fatal.)
 
 **SEO Keyword Pivoting:**
 - If primary keyword has zero search volume, pivot to related high-volume terms

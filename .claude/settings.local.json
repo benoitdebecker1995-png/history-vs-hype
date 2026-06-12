@@ -379,7 +379,8 @@
       "PowerShell($dir = \"D:\\\\History vs Hype\\\\video-projects\\\\_IN_PRODUCTION\\\\57-piri-reis-map-ottoman-2026\\\\_broll-assets\\\\graphics\"; Start-Process -FilePath \"python\" -ArgumentList \"-m\",\"http.server\",\"8141\" -WorkingDirectory $dir -WindowStyle Hidden; Start-Sleep 2; try { \\(Invoke-WebRequest \"http://127.0.0.1:8141/piri-southern-coast-map.html\" -Method Head -TimeoutSec 5\\).StatusCode } catch { $_.Exception.Message })",
       "mcp__playwright__browser_press_key",
       "Bash(PYTHONPATH=\"D:/History vs Hype\" python \"D:/tmp/finish_growth_phases.py\")",
-      "Bash(break)"
+      "Bash(break)",
+      "PowerShell(nlm login *)"
     ],
     "deny": [],
     "ask": []

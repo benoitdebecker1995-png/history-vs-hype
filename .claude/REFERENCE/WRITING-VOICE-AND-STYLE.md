@@ -97,7 +97,9 @@
 
 **Your spot:** "Calm Prosecutor" — emotionally low, intellectually high. Confident but not smug. Skeptical of claims, respectful of viewers.
 
-**Closest competitor model:** Wendover's "Systems Engineer" — ice-cold analytical baseline, formal diagnostic cadence, passive voice for systemic critique, rare emotional spikes that hit harder through contrast. NOT Johnny Harris (breathless explorer) or RealLifeLore (academic atlas).
+> **CORRECTION (`/voice-discovery` 2026-06-05, creator's live picks — canonical: `VOICE-PROFILE.md`):** The reference frame here was wrong as stated. His closest models are **Kraut** (the explanatory causal spine) **+ Alex O'Connor** (conversational, intellectually honest, dry) — **NOT** the "Wendover Systems Engineer," **NOT** History Matters (too clipped). His explicit **anti-voice is RealLifeLore** (scale-comparison atlas). And "ice-cold" overstates him: his baseline is *explanatory*, not ice-cold. **Read `VOICE-PROFILE.md` first** — it is the canonical fingerprint; this file is the craft manual.
+
+**Closest competitor model:** ~~Wendover's "Systems Engineer"~~ → **Kraut + Alex O'Connor** (see correction above). NOT Johnny Harris (breathless explorer). RealLifeLore is the **anti-voice**, not a model.
 
 **Closest article-writer voice-matches:** Bret Devereaux (academic depth + casual delivery + mechanism-focused + steelmans before critique), Patrick Wyman (concrete physical details + systems over events + verdict closings + Anglo-Saxon word choice), Anton Howes (history newsletter format + primary source quotes + evidence-as-narrative + named individuals from footnotes), David Graeber (counterintuitive reframes + uses establishment sources against the establishment).
 
@@ -243,6 +245,19 @@ These are the dead giveaways. Cut on sight.
 | "signed by the man they call the mystery" | Clever-clever wordplay with no referent |
 | "keep that test in your pocket" | Cute filler |
 
+### Additions from `/voice-discovery` (2026-06-05, creator's live cringe sweep — canonical: `VOICE-PROFILE.md`)
+
+| Phrase / move | Why forbidden |
+|--------|---------------|
+| "One word: X" / "Two words: X" | Compressed clever reveal — cringe. Use a full causal sentence ("Because there was something it wanted more: Mosul"). |
+| "But guess what?" / "And guess who…" | **RETIRED.** Gameshow hooks; lose to a plain/analytical alternative ("the part almost everyone gets wrong" / "Except none of that is the real story"). They appear in old delivered cuts but he drops them on sight when offered a plain option. |
+| "Go back to the [decade]…" + present tense | Decade/era scene-drop in present tense — rejected. Era framing stays past tense (present OK only for a single dramatic *moment* — see §1.4). |
+| Forced scale comparison ("the size of Texas", "the population of Canada") | RealLifeLore move — his explicit anti-voice. Script-side, state numbers plainly (see §2.3 override). |
+| Sensory dwelling on atrocity ("the air smelled of apple and garlic") | "Doesn't do anything." On human cost, default to the plain fact; add heat only as *specific, attributed* culpability (named actor + concrete reason), never sensory, never abstract sermon. |
+| "erased the Kurds" / "erased [people]" | Reads weird to him — prefer "wrote them out." |
+
+**NOT cringe (stop over-policing these):** "here's where it gets interesting" (1× max), "Think about that", "the system worked exactly as designed", "basically". And compression like "they wrote one" / "maximum discretion" is **dispreferred, not forbidden** — he'll choose the fuller version but won't wince at the compressed one.
+
 **Connector & question density (read-aloud tic check):** Don't stack paragraph-opening **"So"** / **"Now"** — vary them (bare statement, "Which means…", "Then…", a direct imperative) and keep ≤2–3 across a script *or article*. Don't pile up literal rhetorical questions ("So what does X say?" / "So where did Y get Z?") — convert most to declaratives and reserve **one** payoff question (typically the title- or lede-callback closer). This is cross-medium: the same drag and question-pileup hurts written prose as much as spoken delivery. Origin: #57 carried 7 questions + 8 "So" openers before the connector/question pass.
 
 ### Trust-killing hedge words
@@ -282,6 +297,8 @@ Em dashes may be used **sparingly (2-3 per article max)** for conversational rhy
 
 ## 1.4 Sentence rhythm and the stumble test
 
+> **EXPLANATORY DEFAULT (`/voice-discovery` 2026-06-05 — canonical: `VOICE-PROFILE.md`):** This creator leans **more explanatory than the staccato/8-word-gavel emphasis below suggests** — that emphasis is over-applied to him. His default is a **plain, complete, *explaining* sentence**; the short punch is rare and reserved for a clean *landing*; even turns can breathe. His signature shape is **flowing parallel clauses → em-dash → a verdict that carries the catch** ("…fielded their own armies — everything a state does except the one thing they never managed: unite"). He picks the **dash-compound or full-sentence verdict over the staccato two-beat every time** ("That's not a tribe — that's a functioning state," NOT "That is not a tribe. That is a state."). Read the staccato/fragment guidance below as *available rare devices*, not the baseline texture. **BUT the lean has a hard ceiling — bar-talk, not prose.** His governing image is "me talking to people in a bar": plain, simple explanation, historical integrity intact, *tight.* He flags "too much prose," over-citing, and clunky transitions as standing problems, and picks the *tighter* paragraph when offered. So explanatory ≠ wordy. **When in doubt: explain the mechanism plainly like you're telling a smart friend in a bar — then cut everything that isn't that.** Never staccato-gimmick; never purple prose; the target is the lean middle.
+
 ### The Stumble Test
 
 Scripts are read aloud via teleprompter. They must sound natural when spoken. If a line would make a presenter stumble, pause awkwardly, or mentally translate written prose into speech, rewrite it. The "Would I say this?" Test: would you actually say this out loud explaining to a friend? If not, rewrite.
@@ -299,7 +316,9 @@ AI tends to pack too much into dense, passive compound sentences. The fix is cla
 
 ### Vary sentence length deliberately
 
-4+ consecutive sentences of similar length = monotone. Mix long mechanisms with short punches. Long sentences carry evidence. Short sentences carry verdicts.
+4+ consecutive sentences of similar length = monotone. Mix long mechanisms with short punches. Long sentences carry evidence; short sentences carry verdicts. (This matches the creator's *unscripted* rhythm — long causal sentences that accumulate, then a short, plain close.)
+
+> **Script (creator):** the "land" is usually a **plain short sentence or a dash-compound verdict that carries the catch** ("That's not a tribe — that's a functioning state"), NOT a clipped fragment or a two-beat gavel. Vary length, yes — but the short landing is a *full sentence*, not staccato. See VOICE-PROFILE.md. **Article:** the short-punch / fragment landing below is freely available.
 
 **The Provost principle, observed across Bryson, Pinker, Harari, Wyman:**
 
@@ -309,28 +328,32 @@ AI tends to pack too much into dense, passive compound sentences. The fix is cla
 - **Land** with short ones (verdict, insight, reframe).
 - The short sentence is where the insight lives.
 
-### The verdict punch (after complex explanations, end with ≤8 words)
+### The verdict punch (after complex explanations, land the catch)
 
-| Long explanation | Short verdict |
+> **Script (creator) — leads here:** after a complex explanation, land **what it meant / why it matters**, in a **plain full sentence or a dash-compound verdict** — *not* a clipped ≤8-word gavel. His signature is flowing parallel clauses → em-dash → a verdict that carries the catch ("…everything a state does except the one thing they never managed: unite"). The ≤8-word hammer below is a **rare device reserved for a clean landing**, never the default texture (the staccato/gavel emphasis is over-applied to him — see VOICE-PROFILE.md). **Article:** the ≤8-word gavel is a standard, freely-available move (see "The 8-Word Verdict" below).
+
+The principle is **consequence-driven**: never just state the fact, land what it meant. The verdict's power comes from **reframing**, not brevity (see the refinement under "The 8-Word Verdict" below).
+
+| Long explanation | Verdict (script: full/dash-compound preferred · article: gavel OK) |
 |------------------|---------------|
 | "Both sides quietly dropped the joint survey. They'd divided the planet using a measurement that didn't exist yet." | (already rhythmic) |
 | Long legal analysis of intertemporal law, British Foreign Jurisdiction Act, administrative overreach... | "Britain's overreach became its legal weapon." |
 | "A British surveyor estimated 157 miles through dense jungle, costing around 145 pounds, around 18 million in today's money." | "Britain never built it." |
 
-**Bryson's law:** if you use a decimal point, the next sentence must be a hammer under 5 words.
+**Bryson's law (article-side, rare device script-side):** if you use a decimal point, the next sentence must be a hammer under 5 words.
 
-### Fragments for emphasis (script-side rhetorical)
+### Fragments for emphasis (rare landing device, not the default)
 
-USE fragments for rhetorical impact:
+> **Script (creator):** the **default is full, complete sentences.** A fragment is a **rare** device — reserved for a proper-noun reveal landing ("…Saddam Hussein.") or a single isolated beat. **Never fragment triplets**, never compressed-prose fragments. "Same pattern. Different players." is the **Same X. Different Y.** flourish family the creator explicitly cuts (see `/polish` category 1 + 6) — keep it out of scripts. A lone "Britain never built it." after a long build is fine; three fragments in a row is not.
+
+USE a fragment (sparingly) for a clean landing:
 
 - "They won."
 - "Zero."
-- "Same pattern. Different players."
 - "Britain never built it."
-- "Not 1916. Fifteen years."
 - "Not 'declared.' Restored."
 
-DON'T use fragments for compressed prose:
+DON'T use fragments for compressed prose, and DON'T stack them ("Same pattern. Different players." / "Not 1916. Fifteen years." read as the staccato-flourish family — combine into a flowing sentence):
 
 | Wrong (compressed prose) | Right (flowing sentence) |
 |--------------------------|--------------------------|
@@ -346,6 +369,8 @@ For 1-2 key moments per script, shift from past to present tense to make history
 | "In 1494, two countries drew a line..." | "It's 1494. Two countries draw a line through a world they've never mapped." |
 
 Signal back to past tense with a status phrase: "That was [year]. [Consequence]."
+
+> **REFINEMENT (`/voice-discovery` 2026-06-05):** The creator confirmed historical present **only for a single sharp dramatic MOMENT** — a confrontation, a signing, an action beat ("It's June 1923. The delegate stands up and says…"). He **rejects** present tense for **decade/era scene-setting** ("Go back to the 1970s. The Kurds are in open revolt…") — period framing stays past tense. The test is **moment (present OK) vs. era-framing (past only).**
 
 ### The 8-Word Verdict (cross-medium, especially article)
 
@@ -645,15 +670,19 @@ Translation: [Plain language explanation of what this means].
 
 ## 2.3 Concrete size and time comparisons
 
-Never leave a number abstract. Compare it to something the viewer can picture.
+> **SCRIPT-VOICE OVERRIDE (`/voice-discovery` 2026-06-05 — canonical: `VOICE-PROFILE.md`):** This section is **article-side guidance; for the creator's SCRIPT voice, scale-comparison is essentially OFF.** He is the *anti*-RealLifeLore — he chose the **plain figure** even on twelve million (Atlantic slave trade), over both a comparison and a repeat-for-weight. State the number plainly. Reach for a comparison only in the genuinely rare case where the scale is otherwise impossible to picture *and* the comparison earns its place — never as a reflex. (Articles may use comparisons more freely; this override is script-side.)
 
-| AI default | Creator's version |
+**Script (creator) — leads here:** state the **plain number.** He is the *anti*-RealLifeLore: he chose the plain figure even on twelve million (Atlantic slave trade), over both a comparison and a repeat-for-weight. Comparison is **essentially off** in scripts — reach for one only in the genuinely rare case where the scale is otherwise impossible to picture *and* the comparison earns its place. ✅ "More than thirty million Kurds, spread across Turkey, Iran, Iraq and Syria." ❌ "…roughly the population of Canada." (See VOICE-PROFILE.md "Numbers / scale".)
+
+**Article — the rest of this section applies freely:** never leave a number abstract; compare it to something the reader can picture. The patterns below are article-side guidance.
+
+| AI default | Article version |
 |------------|-------------------|
 | "an island of Bermeja's reported size" | "an island the size of Birmingham" |
 | "approximately 229 ethnic groups" | "229 ethnic groups — that's nearly the entire population of an average country, divided" |
 | "a one-hundred-mile-long structure" | "a continuous, one-hundred-mile-long, mirror-clad structure called the Line that will bisect a desert tract the size of Massachusetts" |
 
-**Rule:** When mentioning a size, distance, population, or quantity, consider adding a comparison to something familiar. Not every number needs one — use comparisons when the scale is genuinely hard to grasp, not as a default reflex.
+**Rule (article):** When mentioning a size, distance, population, or quantity, consider adding a comparison to something familiar. Not every number needs one — use comparisons when the scale is genuinely hard to grasp, not as a default reflex. **(Script: default to the plain number; the comparison is the exception, not the reflex.)**
 
 Match comparisons to the AUDIENCE. The UK/DE/CA/US audience needs European and North American comparisons.
 
@@ -676,7 +705,7 @@ The comparison should illustrate AND argue. Make it do double duty. But DON'T sp
 
 ### Specific measurements as authority markers
 
-EVERY territorial claim. Specific numbers create authority.
+**Cross-medium (script + article) — this is about precision, not comparison.** A plain, *specific* number is the creator's instinct ("370 kilometers as the crow flies," not "about 400km"); the script-side override above is on the comparison *reflex*, not on precision. Specific numbers create authority.
 
 - "The border right here that separates the two countries is only **80 meters wide**, which makes it the shortest international border anywhere in the world."
 - "There are **78,000 people** that live here, surrounded by a **6-meter high** border fence."
@@ -1094,6 +1123,8 @@ Here's why it mattered — not just economically, but structurally.
 - "Which created a problem:"
 - "That's the context for what happened next."
 - "To understand why this mattered, you need to know..."
+
+> **THESIS-FORWARD RULE (`/voice-discovery` 2026-06-05 — transitions are the creator's #1 standing complaint):** A bridge must be **thesis-forward and hand directly into the next beat's subject** — name where we're going, tightly. Validated forms: thesis-forward ("What comes next is one pattern, on repeat: armed when useful, abandoned when not"); plain causal bridge naming the next subject ("Those states didn't just fade out. Someone took them apart — and it was the empire they'd served for three centuries" — chosen over an abstract question-bridge); or a thesis-pointed question → plain statement. **Two tics to avoid:** (1) vague referents in the bridge ("gets the very first one wrong" → "the very first *what*?"); (2) calling the common story flatly **"wrong"** — prefer **"oversimplified / tells only one part"** (reserve "wrong" for a specific factual error).
 
 ### Rule 3: Quotes come AFTER setup
 

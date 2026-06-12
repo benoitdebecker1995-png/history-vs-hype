@@ -139,10 +139,10 @@ if result["verdict"] == "CAUTION" and not result["keyword_matches"]:
     # Use scored["verdict"], scored["estimated_volume"], scored["reasons"]
 ```
 
-**Decision:**
+**Decision (thresholds = PACKAGING_MANDATE V1):**
 - **GO** (≥1,000/mo search volume): Proceed to Step 2
-- **CAUTION** (200-999/mo): Warn user — "This topic has marginal demand. Proceed only if you have a strong angle."
-- **STOP** (<200/mo or no data): **HARD BLOCK** — "Do not invest time in this topic. Find a higher-demand angle."
+- **CAUTION** (500-999/mo): Passes the V1 floor. Warn user — "Marginal demand. Proceed only with a strong angle or live news hook."
+- **STOP** (<500/mo or no data): **HARD BLOCK** unless a verified live news hook exists (V1's alternative path — verify date AND content, don't trust prior briefs). Otherwise: "Do not invest time in this topic. Find a higher-demand angle."
 
 **If STOP:** Suggest related keywords from keywords.db that DO have volume. Show the user what people actually search for. Reference `.claude/REFERENCE/vidiq-unicorn-keywords.md` for pre-vetted keyword opportunities.
 
@@ -162,6 +162,10 @@ A strong news hook can upgrade a marginal-demand topic: "CAUTION + URGENT news h
 DEMAND: GO ✓ (4,299/mo — "why is haiti so poor")
 NEWS HOOK: TRENDING (3 articles this week)
 ```
+
+### Step 1b: Composite Topic Rubric (when comparing fresh candidates)
+
+When this is a FRESH topic choice with 2+ candidates (`--compare`, or ranking pipeline entries), score through **`tools/TOPIC-RUBRIC.md`** (v2, 2026-06-11): identity + demand gates, then 30% VidIQ Overall / 20% topicality / 25% whitespace / 10% title-format CTR / 10% rankability / 5% source access, plus the symmetric POCKET flag. Whitespace requires a live SERP scan (`serp_title_study.py`), not the static intel corpus. Skip for series episodes and already-decided revivals — the rubric is for fresh selection only.
 
 ### Step 2: Title Viability Check
 
@@ -204,7 +208,7 @@ If no title provided, generate candidates using:
 1. Title MUST include the exact search keyword (or close variant)
 2. Title MUST use versus, declarative, or how/why pattern
 3. Title MUST score 65+ on `title_scorer.py` AND 60+ on the `/curiosity` check (The Emotional Hook check)
-4. Title MUST NOT contain years, colons, or "The X That Y"
+4. Style hedges (years, colons, "The X That Y") are graded penalties, NOT bans — per the re-tiered `PACKAGING_MANDATE.md` Tier 2 (the hard-reject policy is RETIRED; the channel's #1 and #3 videos both have colons). A/B-testable per BREAKOUT-HYPOTHESES.
 5. Title MUST set up a clear paradox (Specific Subject + Common Belief + Contradiction) that can be resolved in the first 5 seconds of the video.
 
 **Traffic-optimized title selection (from TRAFFIC-SOURCE-ANALYSIS.md):**

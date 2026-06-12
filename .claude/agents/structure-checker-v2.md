@@ -29,17 +29,18 @@ model: opus
 
 ### PRIMARY REFERENCE (Mandatory — read for EVERY check)
 
-1. **`.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md`** - **SINGLE SOURCE OF TRUTH** for all style rules
+0. **`.claude/REFERENCE/VOICE-PROFILE.md`** - **CANONICAL voice fingerprint (read FIRST).** Per `docs/adr/0006-voice-profile-supersedes-style-manual.md` (2026-06-05), this file is canonical on any voice conflict with the style manual below; the manual carries inline correction-callouts that defer to it. (The "deprecated VOICE-PROFILE.md" referenced in the 2026-05-02 consolidation note was the OLD file; this is the new canonical one.)
+1. **`.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md`** - **PRIMARY craft manual** for style rules (canonical EXCEPT where VOICE-PROFILE.md overrides — ADR 0006)
    - PART 1: Core Voice (forbidden phrases, sentence rhythm, word choice, cognitive patterns)
    - PART 2: Evidence as Narrative (real quotes, primary sources, causal chains, anti-oversimplification)
    - PART 3: Structure (hook/turn/close, narrative flow rules, pacing, spoken delivery)
    - PART 4: Debunking Framework (myth-first, seven principles, concede-pivot)
    - PART 5: Techniques Toolkit (creator phrases, hooks, bridges, mechanism forensics)
 
-**IMPORTANT:** Do NOT read deprecated files (`STYLE-GUIDE.md`, `VOICE-PROFILE.md`, `creator-techniques.md`,
+**IMPORTANT:** Do NOT read these deprecated files (`STYLE-GUIDE.md`, `creator-techniques.md`,
 `CREATOR-PHRASE-LIBRARY.md`, `PROVEN-TECHNIQUES-LIBRARY.md`, `NARRATIVE-FLOW-RULES.md`,
 `SCRIPTWRITING-DEBUNKING-FRAMEWORK.md`, `EXTRACTED-TECHNIQUES.md`, `ARTICLE-WRITING-STYLE-BIBLE.md`).
-All consolidated into WRITING-VOICE-AND-STYLE.md (2026-05-02).
+All consolidated into WRITING-VOICE-AND-STYLE.md (2026-05-02). NOTE: VOICE-PROFILE.md is NO LONGER deprecated — it was re-created as the canonical voice fingerprint on 2026-06-05 (ADR 0006); see reference 0 above.
 
 ### SUPPORTING REFERENCES (Read when relevant)
 

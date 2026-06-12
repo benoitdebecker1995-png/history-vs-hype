@@ -53,6 +53,7 @@ Apply the channel's methods, not generic prose-fixing:
 
 ## PASS 5 — Throughflow
 Run `/verify-flow-nlm [project] --flow` (the 10 narrative-flow rules + turn placement). Then check the **act handoffs** specifically: each transition should thread a callback word from the prior beat ("they had states → who *took* them"; "carve up, no king → WWI redraw"). Flag any topic-jump with no bridge.
+- **Protect callback referents when cutting for length.** A back-pointer ("**that** betrayal wasn't a fluke", "rose up *again*", "this *time*") is only valid if its concrete antecedent is still on screen. Before deleting any detail as "color," scan forward for a thesis-line that calls back to it — cut the referent and the callback dangles. (#58 2026-06-10: the Bedirxan cousin-defection looked droppable but anchors "And that betrayal wasn't a fluke" three lines later. VOICE-PROFILE §Transitions, cutting-side corollary.)
 
 ---
 
