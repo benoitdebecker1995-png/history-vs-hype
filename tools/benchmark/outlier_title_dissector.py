@@ -136,7 +136,7 @@ def load_all_channel_data() -> list:
             channel_median = median(view_counts) if view_counts else 0
 
         for v in videos:
-            views = v.get('view_count', 0)
+            views = v.get('view_count') or 0
             ratio = views / max(channel_median, 1)
             v['channel'] = channel_name
             v['channel_median'] = channel_median

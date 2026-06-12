@@ -1,0 +1,112 @@
+[
+ {
+  "id": "H3VvJRKZFHc",
+  "title": "Why This Country Was Erased From History",
+  "channel": "Johnny Harris",
+  "views": 2347755,
+  "tags": {
+   "overlay_text": "The Largest Group Without a Country",
+   "overlay_words": 6,
+   "framing": "declarative",
+   "face": false,
+   "map": true,
+   "dominant_colors": [
+    "#1A2B4C",
+    "#8B4513"
+   ],
+   "subject": "Map of Kurdistan region with text overlay",
+   "operation": "VISUAL_ANSWER"
+  }
+ },
+ {
+  "id": "3EK6UIMvakc",
+  "title": "Why Isn't There A Kurdistan? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 2040164,
+  "tags": {
+   "overlay_text": "",
+   "overlay_words": 0,
+   "framing": "none",
+   "face": false,
+   "map": false,
+   "dominant_colors": [
+    "#000000",
+    "#000000"
+   ],
+   "subject": "image analysis not supported",
+   "operation": "NO_OVERLAY"
+  }
+ },
+ {
+  "id": "IxsYpUCD4M0",
+  "title": "Who are the Kurds and why don't they have their own country? | DW News",
+  "channel": "DW News",
+  "views": 835868,
+  "tags": null
+ },
+ {
+  "id": "rFQdwNzzTP4",
+  "title": "Why Don't Syria, Iran, Iraq And Turkey Want A Kurdistan? | AJ+",
+  "channel": "AJ+",
+  "views": 784592,
+  "tags": {
+   "overlay_text": "",
+   "overlay_words": 0,
+   "framing": "none",
+   "face": false,
+   "map": false,
+   "dominant_colors": [
+    "",
+    ""
+   ],
+   "subject": "",
+   "operation": "NO_OVERLAY"
+  }
+ },
+ {
+  "id": "IZB9HqoHaaU",
+  "title": "Who are the Kurds? What do they want? And why does nobody want to give it to them?",
+  "channel": "Al Jazeera English",
+  "views": 736228,
+  "tags": {
+   "overlay_text": "",
+   "overlay_words": 0,
+   "framing": "none",
+   "face": false,
+   "map": false,
+   "dominant_colors": [],
+   "subject": "",
+   "operation": "NO_OVERLAY"
+  }
+ },
+ {
+  "id": "Wiqhu3Q5NpE",
+  "title": "The Kurds: The Most Famous Unknown People in the World | Stephen Mansfield | TEDxNashville",
+  "channel": "TEDx Talks",
+  "views": 714200,
+  "tags": null
+ },
+ {
+  "id": "jWYslKbs01A",
+  "title": "Kurdistan: The Military History of a Stateless Nation",
+  "channel": "WarFronts",
+  "views": 514970,
+  "tags": null
+ },
+ {
+  "id": "uAJj4RePzyU",
+  "title": "The Kurdish Story: 6,000 Years in the Making",
+  "channel": "ELEMENTS OF HISTORY",
+  "views": 408173,
+  "tags": {
+   "overlay_text": "",
+   "overlay_words": 0,
+   "framing": "none",
+   "face": false,
+   "map": false,
+   "dominant_colors": [],
+   "subject": "image content not accessible for classification",
+   "operation": "NO_OVERLAY"
+  }
+ }
+]

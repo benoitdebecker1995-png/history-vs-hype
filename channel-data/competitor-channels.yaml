@@ -39,3 +39,35 @@ channels:
   handle: '@HistoriaCivilis'
   niche_relevance: medium
   channel_id: UCv_vLHiWVBh_FR9vbeuiY-A
+- name: Alex O'Connor
+  handle: '@CosmicSkeptic'
+  niche_relevance: high
+  channel_id: UC7kIy8fZavEni8Gzl8NLjOQ
+- name: Premodernist
+  handle: '@premodernist_history'
+  niche_relevance: high
+  channel_id: UC2xHMABk_sX2aC14-D7OhIw
+- name: The Cynical Historian
+  handle: '@CynicalHistorian'
+  niche_relevance: high
+  channel_id: UCN5mhhJYPcNUKBMZkR5Nfzg
+- name: PolyMatter
+  handle: '@PolyMatter'
+  niche_relevance: medium
+  channel_id: UCgNg3vwj3xt7QOrcIDaHdFg
+- name: Asianometry
+  handle: '@Asianometry'
+  niche_relevance: medium
+  channel_id: UC1LpsuAUaKoMzzJSEt5WImw
+- name: Metatron
+  handle: '@metatronyt'
+  niche_relevance: medium
+  channel_id: UCIjGKyrdT4Gja0VLO40RlOw
+- name: Mr. Beat
+  handle: '@iammrbeat'
+  niche_relevance: medium
+  channel_id: UCmYesELO6axBrCuSpf7S9DQ
+- name: Step Back History
+  handle: '@stepbackhistory'
+  niche_relevance: medium
+  channel_id: UCxTdWpLJurbGlFMWOwXWG_A

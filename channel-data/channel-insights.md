@@ -1,6 +1,6 @@
 # Channel Performance Insights
 
-> Generated: 2026-06-03 14:50 UTC
+> Generated: 2026-06-11 00:20 UTC
 > Videos analyzed: 50 own-channel videos
 > Auto-generated. Do not edit manually. Re-run: `python -m tools.youtube_analytics.backfill --insights-only`
 
@@ -49,16 +49,16 @@ Based on 50 own-channel long-form videos. All signals are early-to-moderate.
 
 | Source | Views | % of Total | Watch Time (hrs) |
 |--------|-------|-----------|-----------------|
-| Browse/Home Feed | 33,082 | 71.4% | 1964.5 |
-| Suggested Videos | 6,273 | 13.5% | 455.8 |
-| YouTube Search | 2,365 | 5.1% | 138.3 |
-| External | 1,820 | 3.9% | 128.8 |
-| Other/Direct | 1,083 | 2.3% | 51.5 |
-| Other YT Pages | 545 | 1.2% | 37.5 |
-| Channel Page | 535 | 1.2% | 38.4 |
+| Browse/Home Feed | 33,103 | 71.2% | 1965.4 |
+| Suggested Videos | 6,315 | 13.6% | 459.1 |
+| YouTube Search | 2,440 | 5.2% | 142.6 |
+| External | 1,822 | 3.9% | 128.8 |
+| Other/Direct | 1,090 | 2.3% | 51.9 |
+| Other YT Pages | 548 | 1.2% | 37.8 |
+| Channel Page | 536 | 1.2% | 38.4 |
 | Shorts → Long-form | 313 | 0.7% | 11.9 |
-| Playlists | 153 | 0.3% | 14.8 |
-| End Screens | 92 | 0.2% | 9.0 |
+| Playlists | 156 | 0.3% | 15.0 |
+| End Screens | 95 | 0.2% | 9.6 |
 | Notifications | 57 | 0.1% | 3.1 |
 | NO_LINK_EMBEDDED | 2 | 0.0% | 0.0 |
 | Hashtags | 1 | 0.0% | 0.2 |
@@ -67,7 +67,7 @@ Based on 50 own-channel long-form videos. All signals are early-to-moderate.
 
 ## Search Terms Driving Traffic
 
-Top 10 queries surfacing long-form videos. 26 video(s) currently get zero search traffic — packaging or distribution miss.
+Top 10 queries surfacing long-form videos. 27 video(s) currently get zero search traffic — packaging or distribution miss.
 
 | Query | Views | Watch Time (hrs) | Videos |
 |-------|-------|------------------|--------|
@@ -88,7 +88,7 @@ Top 10 queries surfacing long-form videos. 26 video(s) currently get zero search
 - The Berlin Conference: How Colonial Borders Still Fuel Confl — 440 views
 - China vs Taiwan. 4 Historical Claims Exposed by Scholars — 257 views
 - India vs Pakistan. Britain Sold Kashmir for 7.5 Million Rupe — 228 views
-- Why The Sol Invictus Story Is Completely Wrong — 213 views
+- Why The Sol Invictus Story Is Completely Wrong — 214 views
 
 ---
 
@@ -100,11 +100,11 @@ Channel-wide: **98.4% of views come from non-subscribers** (algorithm push, not 
 
 | Video | Views | Non-Sub % | Sub Retention | Non-Sub Retention |
 |-------|-------|-----------|---------------|-------------------|
-| Yes Slavery Existed In Africa. Then Europe Took Ov | 73 | 100.0% | N/A | 26.4% |
-| Two Countries Split a Continent They Had Never Map | 791 | 99.6% | 34.2% | 16.7% |
+| Yes Slavery Existed In Africa. Then Europe Took Ov | 76 | 100.0% | N/A | 26.4% |
+| Two Countries Split a Continent They Had Never Map | 793 | 99.6% | 34.2% | 16.7% |
 | Venezuela vs Guyana: The Oil War Over Essequibo | 1,966 | 99.5% | 59.8% | 34.4% |
-| Turkey Claims 152 Greek Islands. Here's Why. | 960 | 99.5% | 81.5% | 39.0% |
-| The Country That Might Disappear: Guatemala vs Bel | 29,641 | 99.3% | 26.9% | 35.4% |
+| Turkey Claims 152 Greek Islands. Here's Why. | 963 | 99.5% | 81.5% | 39.0% |
+| The Country That Might Disappear: Guatemala vs Bel | 29,694 | 99.3% | 26.9% | 35.4% |
 
 ---
 
@@ -112,15 +112,15 @@ Channel-wide: **98.4% of views come from non-subscribers** (algorithm push, not 
 
 Channel-wide: **31.8% avg retention** across videos, **16.5% reaching the end** on average.
 
-**Mid-video cliffs** (steepest drop in first 80% of runtime, min 50 views — excludes natural end-falloff). 40 of 56 videos have a cliff before 80% worth investigating:
+**Mid-video cliffs** (steepest drop in first 80% of runtime, min 50 views — excludes natural end-falloff). 41 of 56 videos have a cliff before 80% worth investigating:
 
 | Video | Views | Cliff At | Retention at Cliff |
 |-------|-------|----------|--------------------|
 | The Flat Earth Myth Was Invented in 1828. Here's W | 213 | 68% of runtime | 7.1% |
 | Why Egypt and Sudan Both Reject Bir Tawil | 73 | 69% of runtime | 11.3% |
-| Two Countries Split a Continent They Had Never Map | 791 | 73% of runtime | 12.2% |
+| Two Countries Split a Continent They Had Never Map | 793 | 73% of runtime | 12.2% |
 | India vs Pakistan. Britain Sold Kashmir for 7.5 Mi | 228 | 66% of runtime | 13.8% |
-| Why The Sol Invictus Story Is Completely Wrong | 213 | 75% of runtime | 15.3% |
+| Why The Sol Invictus Story Is Completely Wrong | 214 | 75% of runtime | 15.3% |
 
 ---
 

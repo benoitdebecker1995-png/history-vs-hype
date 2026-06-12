@@ -73,6 +73,54 @@
       "name": "ReligionForBreakfast",
       "category": "style-match",
       "notes": "Academic nonsectarian religion (Dr. Andrew Henry, PhD) — topic relevance for hijab/I-P religious-framing videos. Added 2026-06-03 (RSS-verified)."
+    },
+    {
+      "id": "UC7kIy8fZavEni8Gzl8NLjOQ",
+      "name": "Alex O'Connor",
+      "category": "style-match",
+      "notes": "CosmicSkeptic — intellectual-honesty argumentation; parallel/symmetry rebuttal, concession-as-armor. Flagged voice-match (Calm Prosecutor in argument form). Mined 2026-06-04 for Rule 21/46 additions. Added 2026-06-04 (yt-dlp-verified)."
+    },
+    {
+      "id": "UC2xHMABk_sX2aC14-D7OhIw",
+      "name": "Premodernist",
+      "category": "style-match",
+      "notes": "Medieval myth-busting, primary-document-first ('the sources actually say X'). Fills medieval + document-first gap. Added 2026-06-04 (yt-dlp-verified)."
+    },
+    {
+      "id": "UCN5mhhJYPcNUKBMZkR5Nfzg",
+      "name": "The Cynical Historian",
+      "category": "style-match",
+      "notes": "Explicit myth-debunk format + historiography (Lost Cause, etc.), academic-leaning. Pure debunk lane beyond Atun-Shei. Added 2026-06-04 (yt-dlp-verified)."
+    },
+    {
+      "id": "UCgNg3vwj3xt7QOrcIDaHdFg",
+      "name": "PolyMatter",
+      "category": "geopolitics",
+      "notes": "Geopolitics-as-systems, dossier aesthetic — #59 I/P thumbnail exemplar. Mechanism/treaty fit. Added 2026-06-04 (yt-dlp-verified)."
+    },
+    {
+      "id": "UC1LpsuAUaKoMzzJSEt5WImw",
+      "name": "Asianometry",
+      "category": "broad-history",
+      "notes": "Mechanism / 'how it actually worked,' diagram-driven — thumbnail playbook mechanism exemplar. Added 2026-06-04 (yt-dlp-verified)."
+    },
+    {
+      "id": "UCIjGKyrdT4Gja0VLO40RlOw",
+      "name": "Metatron",
+      "category": "style-match",
+      "notes": "History/arms/language myth-busting, debunk register. Added 2026-06-04 (yt-dlp-verified)."
+    },
+    {
+      "id": "UCmYesELO6axBrCuSpf7S9DQ",
+      "name": "Mr. Beat",
+      "category": "broad-history",
+      "notes": "US political/territorial explainers, debunk-adjacent, same 25-44 demo. Added 2026-06-04 (yt-dlp-verified)."
+    },
+    {
+      "id": "UCxTdWpLJurbGlFMWOwXWG_A",
+      "name": "Step Back History",
+      "category": "style-match",
+      "notes": "Materialist causal-chain analysis (Kraut-adjacent). Added 2026-06-04 (yt-dlp-verified)."
     }
   ]
 }

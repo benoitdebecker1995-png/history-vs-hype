@@ -71,7 +71,7 @@ Forensics say the 3 breakouts shared: (1) a live contemporary hook at publish, (
 | #59 I/P partition pilot | (pending) | H1-tag: HOOK, H2, H4 candidate | — | — |
 | (H3 pocket slot) | — | H3 demand-pocket raid + H1-tag: HOOK | — | — |
 | sXadwOj8VoA Sapodilla | 2026-03-30 | (retro) sequel-inheritance | n/a | KILLED — 47 views, 7 sub/browse views, 41.5% watch |
-| — | — | — | — | — |
+| Panama Canal treaties (greenlit 2026-06-11) | (pending) | H1-tag: HOOK (verified live: CK Hutchison/Supreme Court cycle), H2 (CTR ≥4%), H4 A/B | A: "Panama vs the Canal Treaty. Not One Panamanian Signed It." (93/A, curiosity 82) · B: "No Panamanian Signed the Panama Canal Treaty. Here's Who Did." (77/B, curiosity 84) — same thumbnail family | — |
 | — | — | — | — | — |
 
 *Review trigger: after upload 5, score each hypothesis CONFIRMED / KILLED / EXTEND, then re-tier the mandate accordingly.*

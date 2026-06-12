@@ -1,0 +1,154 @@
+[
+ {
+  "id": "H3VvJRKZFHc",
+  "title": "Why This Country Was Erased From History",
+  "channel": "Johnny Harris",
+  "views": 2347755,
+  "tags": {
+   "title": "Why This Country Was Erased From History",
+   "len": 40,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "3EK6UIMvakc",
+  "title": "Why Isn't There A Kurdistan? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 2040164,
+  "tags": {
+   "title": "Why Isn't There A Kurdistan? (Short Animated Documentary)",
+   "len": 57,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "IxsYpUCD4M0",
+  "title": "Who are the Kurds and why don't they have their own country? | DW News",
+  "channel": "DW News",
+  "views": 835868,
+  "tags": {
+   "title": "Who are the Kurds and why don't they have their own country? | DW News",
+   "len": 70,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "rFQdwNzzTP4",
+  "title": "Why Don't Syria, Iran, Iraq And Turkey Want A Kurdistan? | AJ+",
+  "channel": "AJ+",
+  "views": 784592,
+  "tags": {
+   "title": "Why Don't Syria, Iran, Iraq And Turkey Want A Kurdistan? | AJ+",
+   "len": 62,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "IZB9HqoHaaU",
+  "title": "Who are the Kurds? What do they want? And why does nobody want to give it to them?",
+  "channel": "Al Jazeera English",
+  "views": 736228,
+  "tags": {
+   "title": "Who are the Kurds? What do they want? And why does nobody want to give it to them?",
+   "len": 82,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Wiqhu3Q5NpE",
+  "title": "The Kurds: The Most Famous Unknown People in the World | Stephen Mansfield | TEDxNashville",
+  "channel": "TEDx Talks",
+  "views": 714200,
+  "tags": {
+   "title": "The Kurds: The Most Famous Unknown People in the World | Stephen Mansfield | TEDxNashville",
+   "len": 90,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "jWYslKbs01A",
+  "title": "Kurdistan: The Military History of a Stateless Nation",
+  "channel": "WarFronts",
+  "views": 514970,
+  "tags": {
+   "title": "Kurdistan: The Military History of a Stateless Nation",
+   "len": 53,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "uAJj4RePzyU",
+  "title": "The Kurdish Story: 6,000 Years in the Making",
+  "channel": "ELEMENTS OF HISTORY",
+  "views": 408173,
+  "tags": {
+   "title": "The Kurdish Story: 6,000 Years in the Making",
+   "len": 44,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

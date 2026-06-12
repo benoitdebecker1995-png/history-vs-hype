@@ -1,5 +1,7 @@
 # Traffic Source Analysis
 
+> **⚠ STALENESS BANNER (2026-06-11, Fable Phase 1/5):** The headline "Subscribers (Home) drives 73%" conclusion below MISREAD the Analytics API — the SUBSCRIBER bucket includes home-page feed views. B1 Guatemala logged 23,741 "SUBSCRIBER" views on a ~515-sub channel: impossible as subscriber loyalty. The channel's #1 video was a **homepage algorithmic (Browse) breakout**. Re-read every subscriber-dependence conclusion in this file through the Funnel Model in `tools/PACKAGING_MANDATE.md` (2026-06-10). Per-topic percentages remain useful as *relative* comparisons only.
+
 **Generated:** 2026-03-21
 **Videos analyzed:** 48
 
