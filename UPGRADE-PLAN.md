@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (S6)
+**Last advanced:** 2026-06-12 (S7)
 **Total steps:** 24
-**Done:** 6
+**Done:** 7
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -144,7 +144,7 @@ Positive refs per VOICE-PROFILE: Kraut, Alex O'Connor (anti-voice: RealLifeLore)
 
 **Commit:** `feat(calibration): S6 reference-creator naturalness digest`
 
-## S7 [TODO] Internet craft-rules sweep
+## S7 [DONE] Internet craft-rules sweep
 
 **Deps:** S1
 
