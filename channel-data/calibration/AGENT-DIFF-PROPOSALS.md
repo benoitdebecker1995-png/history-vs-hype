@@ -169,10 +169,11 @@ If the closing verdict paragraph contains zero colloquial hedge (I think / I gue
 - **H1–H7 voice tensions** (fragments-as-pivots, formal connectors, question chains, tier-aloud honesty, contrast pairs, limitation disclosure, OTPS sentence-shape) — awaiting `/voice` grill; nothing encoded.
 - **N13 "Wikipedia tells me" transparency** — not proposed (channel academic positioning); only the honesty mechanic survives, inside /voice H4.
 
-# S12 walk checklist
+# S12 walk checklist — COMPLETED 2026-06-12
 
-- [ ] D-block (flow) — P-D1..P-D6
-- [ ] A-block (writer v18) — P-A1..P-A11
-- [ ] B-block (checker Wave 12) — P-B1..P-B8
-- [ ] C-block (lint) — P-C1..P-C7
-- [ ] On apply: bump script-writer-v2 → v18.0, structure-checker-v2 → Wave 12, voice_lint rule list; update `memory/agent-versions.md`; record rejections back into CALIBRATION-CORPUS.md.
+- [x] D-block (flow) — **APPROVED ALL, with two creator amendments** (recorded as corpus GR-B7): P-D1 structure lock = convergence of an ITERATIVE research loop (propose → push back → re-research → adjust), not a one-shot gate; P-D2 phrasing checkpoints become a PRE-SCRIPT QUESTION ROUND (one round before drafting, then one full draft written from the answers; success metric = zero-feedback read-through). P-D3..P-D6 applied as proposed. → `script.md` §THE CANONICAL PRODUCTION FLOW + Workflow Steps + After Generation + Teleprompter step 8.
+- [x] A-block (writer v18) — APPROVED ALL. Rule 48 added (Tier 1); v18 amendment blocks under Rules 36/17/23/44/38/13/41/19/32/7.
+- [x] B-block (checker Wave 12) — APPROVED ALL. Constraints T2/U2/V2/W2/X2/Y2/Z2 + AA2 added before the Jargon Scan section.
+- [x] C-block (lint) — APPROVED ALL (P-C7 implemented at REVIEW severity, advisory). Smoke-tested on locked #58: 0 HARD preserved; new checks fire advisory-only (10 WARN / 6 REVIEW).
+- [x] Versions bumped: script-writer-v2 → **v18.0**, structure-checker-v2 → **Wave 12**, voice_lint v18-calibration; `memory/agent-versions.md` + MEMORY.md updated. `agent_contract_check.py` not applicable (validates agent OUTPUTS via --check, not definition edits).
+- Rejections: none — all 32 proposals approved (D1/D2 amended, not rejected). Pre-compile rejections (CRAFT R6, R12, arity rule) already recorded in §Deferred/rejected.

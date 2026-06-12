@@ -144,6 +144,21 @@ Hook pattern from outliers: "legal fiction exposed" frame drove 4x median views.
 - **Niche format trends:** What video lengths and formats are performing (from Niche Patterns section)
 - **Competitor gaps:** What topics competitors are NOT covering (differentiation opportunities)
 
+## THE CANONICAL PRODUCTION FLOW (v18 — creator-stated, S12 2026-06-12)
+
+> Source: creator process statement + S9/S10 grill (CALIBRATION-CORPUS.md GR-B1..B5, GR-B7). This is the spine every `--new` script run follows. The gates below in this file implement its steps.
+
+1. **Decide the video together** — interest + keywords + comment mining + competitor gaps + initial research (`/greenlight` territory; precedes this command).
+2. **Deep research** — surface the interesting material; scope and thesis are ALLOWED TO MOVE based on findings.
+3. **Structure emerges DURING research, as a loop:** propose structure → creator pushes back → agree → research again *in function of the video* → adjust scope/structure/beats. Repeat until converged.
+4. **STRUCTURE LOCK** = the loop's convergence point: present the final structure with the evidence under each beat (one screen; beat = one line + its evidence; checked against the title — "what is the video we're trying to make"). Creator approves/adjusts. **No sentence-level work before this lock** (GR-B2 HARD; #57 burned two full polish passes on the wrong spine).
+5. **PRE-SCRIPT QUESTION ROUND** — before writing anything, interview the creator with SPECIFIC prepared questions: how to present this evidence, how to do this transition, how to phrase this key sentence (hook, verdict, mechanism beats). 2–3 concrete prepared variants per question, Bar-talk pre-filtered — never blank questions (GR-B1, GR-B3a). **Preparation bar:** research fully digested, topic genuinely understood, committed own idea of phrasing + build BEFORE asking anything.
+6. **Write the FULL script from the answers** — one real draft, not a cold one (the answers shaped it). Then the **PRE-READ HEAVY GATE** runs before the creator sees it (GR-B3b, GR-B4), in order: (1) notebook grounding on all mechanism beats → (2) attribution audit → (3) seam flow-check (in/out at every paragraph) → (4) `python -m tools.voice_lint` → (5) corpus-scan → (6) Bar-talk test on solo-written lines. Per-round hygiene: every rewritten beat gets a scoped re-scan (lint + register) before its diff is shown; one full-script scan at the lock gate.
+7. **Creator read-through = T1 verification, not a draft filter.** Success metric: ZERO feedback needed — if the questions in step 5 were right, the read is a formality. Whatever feels off, he says, gets fixed locally (post-draft changes stay small + localized) → ready-to-film script.
+8. **Everything he says feeds back** — every pushback, pick, correction is mined into `channel-data/calibration/CALIBRATION-CORPUS.md` (post-lock mining loop, CLAUDE.md trigger).
+
+**Quote bank precondition (GR-B5):** scripting is blocked until `01-VERIFIED-RESEARCH.md` holds the COMPLETE quote bank — all useful quotes round-trip-verified with page + provenance, plus one thesis-bearing artifact hunted per act (GR-A9). The script writes from the bank only; a quote not in the bank mid-draft = STOP, route to research round-trip, never inline. Lock-gate backstop: load-bearing on-screen verbatims get one re-confirmation (verification notes go stale, 58-02).
+
 ## Research Verification Gate (MANDATORY — Runs Before Script Generation)
 
 **Applies to:** `--new` and default (interactive write) modes ONLY. Skip for `--revise`, `--review`, `--teleprompter`, `--hooks`, `--collaborate` — these work on existing scripts, not new generation from research.
@@ -547,9 +562,13 @@ After classifying video type, check `.claude/REFERENCE/coverage-audit.md` Covera
 
 2. **Gather information and context** (see sections above)
 
-3. **Generate script** using script-writer-v2 agent guidelines below
+3. **STRUCTURE LOCK** (v18, GR-B2 HARD) — present the final beat list (beat = one line + evidence) checked against the title; creator approves before ANY prose. See THE CANONICAL PRODUCTION FLOW step 4.
 
-4. **Run retention scoring** on completed script and display risk assessment
+4. **PRE-SCRIPT QUESTION ROUND** (v18, GR-B1) — specific prepared questions on evidence presentation, transitions, key sentences; 2–3 concrete variants each. See CANONICAL FLOW step 5.
+
+5. **Generate script** using script-writer-v2 agent guidelines below — written FROM the locked structure + question-round answers
+
+6. **Run the PRE-READ HEAVY GATE** (v18, GR-B3b/B4 — CANONICAL FLOW step 6), then retention scoring, and only then present to the creator
 
 ### Hard Constraints
 - **VERBATIM facts only** - Copy exactly from research
@@ -602,6 +621,8 @@ Template: `.claude/templates/02-SCRIPT-DRAFT-TEMPLATE.md`
 **Note:** Use `SCRIPT.md` as the canonical script file. Git tracks version history—no V2/V3/FINAL files needed.
 
 ## After Generation
+
+> **v18 read-through protocol (GR-B1/B3):** the script reaches the creator only after the PRE-READ HEAVY GATE has fully run. His read-through is T1 verification — the success metric is zero feedback needed. Fixes from the read stay small and localized; if a fix forces structural change, that's a question-round failure — log it to CALIBRATION-CORPUS.md.
 
 Ask the user:
 1. Does this opening grab you in 8 seconds?
@@ -1127,7 +1148,8 @@ Export SCRIPT.md to clean text for filming.
 5. Strip source citations (`[SOURCE: ...]`)
 6. Strip metadata (target length, framing notes)
 7. Preserve paragraph breaks for pacing
-8. Output to SCRIPT-TELEPROMPTER.txt
+8. **Selective pause markers (v18, GR-B6):** render to professional teleprompter conventions. Add a pause/beat marker ONLY where a pause is load-bearing — the 2–3 seams per script where the pause IS the effect (pre-reveal, post-verdict). Never systematic marking; unmarked text flows. (He flattens unmarked written drama live — 56-25 — but over-marking reads amateur.)
+9. Output to SCRIPT-TELEPROMPTER.txt
 
 ### Output
 

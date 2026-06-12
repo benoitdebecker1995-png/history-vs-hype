@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (S11)
+**Last advanced:** 2026-06-12 (S12)
 **Total steps:** 24
-**Done:** 12
+**Done:** 13
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -213,7 +213,7 @@ Compile CALIBRATION-CORPUS.md (now including grill resolutions) into channel-dat
 
 **Commit:** `feat(calibration): S11 agent diff proposals (v18 candidate)`
 
-## S12 [TODO] [INTERACTIVE] Apply approved diffs
+## S12 [DONE] [INTERACTIVE] Apply approved diffs
 
 **Deps:** S11
 

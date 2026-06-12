@@ -8,7 +8,10 @@ structure, attribution) instead of surface tics.
 ⚠️  SOURCE OF TRUTH: the rules below are transcribed from
     `.claude/REFERENCE/VOICE-PROFILE.md` (the "Cringe no-list" + "NOT cringe"
     sections, picks-validated `/voice-discovery` 2026-06-05) AND from
-    `VOICE-PROFILE.md` §"Adversarial drift audit (Fable Phase 2, 2026-06-11)".
+    `VOICE-PROFILE.md` §"Adversarial drift audit (Fable Phase 2, 2026-06-11)"
+    AND from `channel-data/calibration/FINGERPRINT-UNSCRIPTED.md` §9
+    (quantitative thresholds, S12 2026-06-12 — single-sample start values, so
+    everything fingerprint-derived ships WARN/REVIEW, never HARD).
     When the profile changes, update RULES here to match. This tool does NOT
     invent voice rules — it mechanizes the profile's hard "no" list so the
     linter stays in lockstep with the canonical fingerprint.
@@ -112,6 +115,19 @@ WARN_REGEXES = [
         "Scholarly hedge = model fingerprint. His hedges are colloquial (basically/actually/kind of) — swap or delete.",
         True,
     ),
+    # --- v18 calibration (2026-06-12): FINGERPRINT-UNSCRIPTED quantitative rules ---
+    (
+        "really-intensifier",
+        r"\breally\b",
+        'His intensifier is "very" (gold: very=9/741w, really=0). Swap or delete.',
+        True,
+    ),
+    (
+        "youtuber-opener",
+        r"(?:^|[.!?]\s+)(?:Now|Look),\s|(?:^|[.!?]\s+)Listen\b[,.]",
+        "YouTuber-opener set (Now,/Look,/Listen) — absent in gold; he enters thoughts first-person (I/I'm) or with So/And.",
+        False,
+    ),
 ]
 
 WARN_REGEX_THRESHOLD = [
@@ -138,6 +154,14 @@ WARN_REGEX_THRESHOLD = [
         True,
         4,  # max_allowed: ship at 4 to avoid quote-intro false positives
     ),
+    # v18 calibration (2026-06-12): gold = 0 occurrences of either; writer's tools to ration.
+    (
+        "writer-connectors",
+        r"\b(which is why|and that meant)\b",
+        'Writer-connector density over budget (gold: 0; his causal stack is "so" >> "because"). Ration to <=2 per script.',
+        True,
+        2,  # max_allowed: flag when count > 2
+    ),
 ]
 
 # NOT cringe — never flag these as HARD (VOICE-PROFILE.md "NOT cringe" list).
@@ -146,6 +170,7 @@ NOT_CRINGE = [
     "basically",
     "the system worked exactly as designed",
     "here's where it gets interesting",  # 1x only (handled as WARN-over-threshold)
+    "very",  # HIS intensifier (gold: 1.2/100w) — never flag; "really" is the tell
 ]
 
 # Credential markers for the stacked-credentials detector.
@@ -460,6 +485,117 @@ def scan_negation_pairs(file: str, lines: list) -> list:
 
 
 # =============================================================================
+# v18 fingerprint scanners (S12 2026-06-12 — FINGERPRINT-UNSCRIPTED §9 start
+# values; single-sample, so WARN/REVIEW only, never HARD)
+# =============================================================================
+
+def _sections_with_sentences(lines: list) -> list:
+    """Return [(section_name, [(line_no, sent), ...])] split at ## headers."""
+    sections = []
+    current_name = "(preamble)"
+    current = []
+    for i, raw in enumerate(lines, 1):
+        if re.match(r"^##[^#]", raw.lstrip()):
+            if current:
+                sections.append((current_name, current))
+            current_name = raw.strip().lstrip("#").strip()
+            current = []
+            continue
+        if _is_structural(raw):
+            continue
+        text = clean_line(raw).strip()
+        if not text:
+            continue
+        for sent in _SENTENCE_SPLIT.split(text):
+            sent = sent.strip()
+            if sent:
+                current.append((i, sent))
+    if current:
+        sections.append((current_name, current))
+    return sections
+
+
+def scan_sentence_band(file: str, lines: list) -> list:
+    """WARN when a section's median sentence length falls outside 10–22 words.
+
+    Band from FINGERPRINT-UNSCRIPTED §1 (gold: median 13, mean 19). Broadcast
+    prior is 15–20 (CRAFT R3, IDEA tier) — noted, not enforced. Sections with
+    fewer than 5 sentences are skipped as noise.
+    """
+    findings = []
+    for name, sents in _sections_with_sentences(lines):
+        if len(sents) < 5:
+            continue
+        counts = sorted(word_count(s) for _, s in sents)
+        median = counts[len(counts) // 2]
+        if median < 10 or median > 22:
+            findings.append(Finding(
+                file, sents[0][0], "WARN", "sentence-band",
+                f"[{name[:40]}] median {median}w over {len(sents)} sentences",
+                "Per-beat median outside 10-22w (gold median 13 / mean 19). <10 = clipped-gavel risk; >22 = run-on risk. Rebalance the section's rhythm.",
+            ))
+    return findings
+
+
+def scan_fragment_share(file: str, lines: list) -> list:
+    """One WARN when 1–5-word sentences exceed 20% of the script (gold: 13%)."""
+    sents = _flatten_sentences(lines)
+    if len(sents) < 30:
+        return []
+    frags = [(ln, s) for ln, s in sents if word_count(s) <= 5]
+    share = len(frags) / len(sents)
+    if share > 0.20:
+        return [Finding(
+            file, frags[0][0], "WARN", "fragment-share",
+            f"{len(frags)}/{len(sents)} sentences are <=5 words ({share:.0%})",
+            "Fragment share over 20% (gold 13%, functional not dramatic). Combine into flowing sentences; keep only earned fragments.",
+        )]
+    return []
+
+
+def scan_questions(file: str, lines: list) -> list:
+    """REVIEW-flag every question in VO (gold baseline: 0 questions / 39 sentences).
+
+    Setup-questions immediately answered are the one acceptable scripted form
+    (57-28); free-floating rhetorical questions baseline ~0 (GS-03). The
+    chain-vs-zero tension (H3) is pending /voice — hence REVIEW, never HARD.
+    """
+    findings = []
+    for line_no, sent in _flatten_sentences(lines):
+        if sent.endswith("?"):
+            findings.append(Finding(
+                file, line_no, "REVIEW", "question",
+                sent[:80],
+                "Question in VO (gold baseline ~0). OK only as a setup-question answered in the NEXT sentence; cut staged rhetorical questions.",
+            ))
+    return findings
+
+
+_HEDGE = re.compile(r"\b(I think|I guess|kind of|basically|at least|probably)\b", re.IGNORECASE)
+
+
+def scan_verdict_hedge(file: str, lines: list) -> list:
+    """Advisory nudge (REVIEW): closing section carries zero colloquial hedge.
+
+    Hedge family (~1.5/100w) is constitutive of his verdict register (GS-05:
+    clause-final "I guess", scope-back qualifiers). Optional check — never blocks.
+    """
+    sections = _sections_with_sentences(lines)
+    if not sections:
+        return []
+    name, sents = sections[-1]
+    if len(sents) < 3:
+        return []
+    if any(_HEDGE.search(s) for _, s in sents):
+        return []
+    return [Finding(
+        file, sents[0][0], "REVIEW", "verdict-hedge",
+        f"[{name[:40]}] closing section has zero colloquial hedge",
+        "His verdict register hedges (I think / I guess / kind of / at least). Consider one — optional, aphorism-certainty closes are not him.",
+    )]
+
+
+# =============================================================================
 # Transition audit (REVIEW only — never fails the run)
 # =============================================================================
 
@@ -548,6 +684,10 @@ def lint_file(path: str, do_transitions: bool = True) -> list:
     findings += scan_staccato(path, lines)
     findings += scan_stacked_credentials(path, lines)
     findings += scan_negation_pairs(path, lines)
+    findings += scan_sentence_band(path, lines)
+    findings += scan_fragment_share(path, lines)
+    findings += scan_questions(path, lines)
+    findings += scan_verdict_hedge(path, lines)
     if do_transitions:
         findings += scan_transitions(path, lines)
     findings.sort(key=lambda f: (f.line, f.severity))
@@ -568,7 +708,7 @@ def format_report(path: str, findings: list, quiet: bool = False) -> str:
     out.append("=" * 64)
 
     if not quiet:
-        for label, group in (("HARD (must fix)", hard), ("WARN (dispreferred)", warn), ("REVIEW (transition audit)", review)):
+        for label, group in (("HARD (must fix)", hard), ("WARN (dispreferred)", warn), ("REVIEW (advisory)", review)):
             if not group:
                 continue
             out.append("")

@@ -1324,6 +1324,34 @@ Status: ✅ PASS (0-2) / ⚠️ OVERUSED (3+)
 
 ---
 
+### ✅ WAVE 12 CONSTRAINTS (2026-06-12 — S12 calibration, CALIBRATION-CORPUS GR-A1..A8)
+
+Run all eight on every script. Severities follow grill-validated tier (creator-picked rules → as marked; nothing here is hypothesis-sourced above WARNING).
+
+## CONSTRAINT T2: Load-Bearing Fact Inside Aside — CRITICAL
+Flag any sentence where a date, number, name, or causal claim sits inside an em-dash aside or relative clause. Fix: promote to its own main clause, or move to card / cut (writer Rule 48 — promote or cut, never an aside). *Cites: GR-A7.*
+
+## CONSTRAINT U2: Standalone Method Beat Before First Evidence — WARNING
+Flag a pre-first-evidence paragraph whose function is method declaration ("What I want to do in this video…") with no document on screen. Fix: compress to a hook-tail clause or move it post-first-source (writer Rule 17 v18). *Cites: GR-A3.*
+
+## CONSTRAINT V2: Early Full-Thesis / Recap Restatement — WARNING
+Flag (a) a full-thesis declarative in the first half that matches the closing verdict's content; (b) any paraphrase recap of previously-stated material. The thesis is spoken once, at the close (writer Rule 36 v18). *Cites: GR-A2.*
+
+## CONSTRAINT W2: Non-Chronological Closer — WARNING
+In the final section, flag date sequences that run backwards (structural flashback). PASS if the only violation is a single flash-forward clause to an outcome the viewer already knows (writer Rule 23 v18). *Cites: GR-A4.*
+
+## CONSTRAINT X2: Spoken-Verbatim Budget — WARNING
+Flag >1 verbatim quote written for VO in a single beat, and any VO blockquote >25 words lacking a self-sufficiency justification note (writer Rule 44 v18 — paraphrase default, verbatim earned). *Cites: GR-A5.*
+
+## CONSTRAINT Y2: Enumeration–Asset Match — WARNING
+Flag any scripted ≥3-item proof enumeration with no `[SHOW]` note specifying an asset that displays those items labeled (writer Rule 41 v18). *Cites: GR-A8.*
+
+## CONSTRAINT Z2: Ungated Disclaimer — WARNING
+Flag disclaimer-shaped beats ("this isn't an attack on…", "I'm not saying…" openers) when none of the four triggers applies: sensitive topic / creator's own opinion / deliberate one-sided weighting / honesty requires it (writer Rule 13 v18). *Cites: GR-A1.*
+
+## CHECK AA2: Micro-Concession Presence — INFO
+On beats whose quote opens by appearing to CONFIRM the opposing claim (confirmation-risk class), note whether a same-breath source-anchored concession is present (writer Rule 38 v18). INFO only — presence is contextual. *Cites: GR-A6.*
+
 ### ✅ Jargon Scan (Automatic Technical Term Detection)
 
 **Purpose: Catch undefined technical/legal/historical terms that confuse viewers**
