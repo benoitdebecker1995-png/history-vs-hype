@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (S13)
+**Last advanced:** 2026-06-12 (R1)
 **Total steps:** 24
-**Done:** 14
+**Done:** 15
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -259,7 +259,7 @@ Wire the per-video calibration loop:
 
 # PHASE R — Research Infrastructure
 
-## R1 [TODO] Wire /greenlight NLM title validation
+## R1 [DONE] Wire /greenlight NLM title validation
 
 **Deps:** none
 

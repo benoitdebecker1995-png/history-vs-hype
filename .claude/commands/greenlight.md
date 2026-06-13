@@ -227,6 +227,25 @@ TITLE CANDIDATES:
 
 **If no candidate scores 65+:** Flag as REVIEW — "Title needs work before proceeding."
 
+### Step 2c: NLM Title Validation (packaging notebook) — runs on `--full`
+
+**Purpose:** Validate the scored title shortlist against the competitor outlier corpus before the composite verdict — patterns the mechanical scorers can't see (closest real competitor matches, differentiation risk).
+
+**Run:** Query the packaging intelligence notebook with **Prompt P5** (`.claude/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md` § Packaging Intelligence Prompts), passing the top 3–5 candidates from Step 2 with their scores. Use the notebook-researcher agent for a full session, or a direct `mcp__notebooklm__notebook_query` for the single P5 query (cheaper — preferred when Step 0B already ran this session).
+
+**Display:**
+```
+NLM TITLE VALIDATION (P5):
+  1. "France vs Haiti. 122 Years of Forced Payments."  — composite 82
+     closest outliers: "How France Made Haiti Pay" (1.2M) · "Haiti's Debt Explained" (3.8M)
+     ⚠ differentiation risk: framing near-identical to 1M+ video
+  2. ...
+```
+
+Feed the composite ranking + any differentiation flags into Step 4 (Composite Verdict).
+
+**SKIP path:** if the packaging notebook is unreachable (MCP auth expired and `nlm login` retry fails, notebook missing, or query errors twice), emit one line — "NLM title validation skipped: packaging notebook unreachable — verdict uses title_scorer + /curiosity + Step 0 scan only" — and proceed. This step is enrichment, not a gate.
+
 ### Step 3: Thumbnail Concept Check
 
 If checking an existing project (`--project`), read YOUTUBE-METADATA.md:

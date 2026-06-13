@@ -630,6 +630,28 @@ Compare against competitor data:
 
 ---
 
+### Prompt P5: Title Validation Against Competitor Outliers
+
+**When to use:** `/greenlight --full` Step 2c — after title candidates are generated and scored by `title_scorer` + `/curiosity`. Validates the shortlist against the packaging notebook before the composite verdict. (Wired 2026-06-12, UPGRADE-PLAN R1; formerly a Proposed/Backlog stub.)
+
+**Prompt:**
+```
+Working title candidates: [LIST — the 3-5 top-scored candidates with their scores].
+
+For each title, score 0–100 against these outlier patterns:
+(1) front-loaded high-volume keyword, (2) specificity bomb (named doc + named
+figure + concrete fact), (3) two-sentence declarative shape, (4) scale anchor
+(number that's unusual for the niche), (5) authority figure named,
+(6) date-paradox or year-collision.
+
+Cite the closest 2 competitor outliers per title with their titles + view
+counts. Rank candidates by composite score, and flag any candidate whose
+closest competitor match is ABOVE 1M views with near-identical framing
+(differentiation risk).
+```
+
+---
+
 ### Pre-Filming Script Audit
 
 **When to use:** After script is drafted, before filming. Catches attribution errors, structural contradictions, and pronunciation risks that waste filming time. Run this with the SAME notebook used for research — it has the sources to verify against.
@@ -892,7 +914,7 @@ Now you can verify each claim against the actual source and copy verified claims
 
 ## Proposed / Backlog Prompts (not yet wired)
 
-> Two prompt ideas surfaced in the 2026-04-14 workflow audit. Neither is currently invoked by any command — they live here as a backlog for future wiring. Migrated from `memory/workflow-audit.md` on 2026-05-26.
+> Prompt ideas surfaced in the 2026-04-14 workflow audit, migrated from `memory/workflow-audit.md` on 2026-05-26. One remains. (The `/greenlight` Title Validation prompt was wired 2026-06-12 as **Prompt P5** in Packaging Intelligence Prompts — UPGRADE-PLAN R1.)
 
 ### Post-`/script` Structure Comparison
 
@@ -906,14 +928,3 @@ Now you can verify each claim against the actual source and copy verified claims
 
 **Status:** PROPOSED — no command currently invokes this.
 
-### `/greenlight` Title Validation Against Competitor Outliers
-
-**Purpose:** Score working titles against known competitor outlier patterns (front-loaded keyword, specificity bomb, two-sentence declarative, scale anchor, authority figure, date paradox). Extends existing P1–P4 prompts.
-
-**Wiring target:** `/greenlight --full` Step 0 (after the existing P1–P4 prompts complete).
-
-**Notebook:** the competitor outlier notebook (corpus used by `/greenlight`).
-
-**Prompt sketch:** "Working title candidates: [list]. For each title, score 0–100 against these outlier patterns: (1) front-loaded high-volume keyword, (2) specificity bomb (named doc + named figure + concrete fact), (3) two-sentence declarative shape, (4) scale anchor (number that's unusual for the niche), (5) authority figure named, (6) date-paradox or year-collision. Cite the closest 2 competitor outliers per title with their titles + view counts. Rank candidates by composite score."
-
-**Status:** PROPOSED — no command currently invokes this.
