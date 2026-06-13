@@ -380,7 +380,11 @@
       "mcp__playwright__browser_press_key",
       "Bash(PYTHONPATH=\"D:/History vs Hype\" python \"D:/tmp/finish_growth_phases.py\")",
       "Bash(break)",
-      "PowerShell(nlm login *)"
+      "PowerShell(nlm login *)",
+      "Edit(.brain/**)",
+      "Write(.brain/**)",
+      "Edit(//d/History vs Hype/.brain/**)",
+      "Write(//d/History vs Hype/.brain/**)"
     ],
     "deny": [],
     "ask": []

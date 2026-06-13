@@ -143,3 +143,6 @@ video-projects/**/graphify-out/
 # SQLite WAL/SHM journal files (transient)
 *.db-wal
 *.db-shm
+
+# Transient per-run routine logs (diagnostics, not knowledge)
+.brain/_inbox/*.log

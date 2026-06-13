@@ -1,6 +1,6 @@
 # .brain/index.md — Master Knowledge Catalog
 
-*Auto-maintained by Routine 5 (brain hygiene, nightly). Last updated: 2026-06-11*
+*Auto-maintained by Routine 5 (brain hygiene, nightly). Last updated: 2026-06-13*
 
 ---
 
@@ -73,6 +73,11 @@
 ## 4. Recently Added / Changed (last 14 days)
 <!-- AUTO:routine-5 — prepend new entries; entries older than 14 days are dropped -->
 
+- 2026-06-13 — `video-projects/_IN_PRODUCTION/60-guadalupe-hidalgo-dispossession-2026/` — new project scaffolded (01-VERIFIED-RESEARCH, SCRIPT, 03-FACT-CHECK, PROJECT-STATUS, _research preliminary brief + NotebookLM source list + Gemini wiki cache)
+- 2026-06-13 — `channel-data/serp-studies/titles/guadalupe-hidalgo-2026-06-13.{json,md}` — SERP title shelf study for Guadalupe Hidalgo
+- 2026-06-13 — `.claude/routines/reconcile-daily.md` + `run-reconcile.ps1` — Routine 6 registered as claude-driven `HvH-Reconcile` task (auto-publish-only backstop)
+- 2026-06-13 — `.claude/routines/{brain-hygiene,channel-health-snapshot,stale-project-nudge}.md` — Routine 7 `HvH-GrowthRefresh` analytics.db refresh wiring + channel-health query repair
+- 2026-06-13 — `CLAUDE.md` — Routine 6/7 backstop chain documented (07:45 refresh → 08:00 health → 08:30 reconcile)
 - 2026-06-11 — `.claude/agents/script-writer-v2.md` — v17.0: Fable Phase 3 retention re-tier (VALIDATED/HEDGE/RETIRED), +Rule 47 retention-zone discipline
 - 2026-06-11 — `.claude/agents/script-writer-v2-CHANGELOG.md` — v17.0 changelog entry
 - 2026-06-11 — `.claude/agents/structure-checker-v2.md` — Wave 11: +BE early-zone authority, +BF late-quarter; A/B/U demoted to WARNING
@@ -101,10 +106,10 @@
 <!-- AUTO:routine-5 — populated by nightly brain-lint pass -->
 
 ```
-LAST LINT: 2026-06-11 22:02
+LAST LINT: 2026-06-13 22:00
 Stale items (>90d unverified):  0
-Orphan pages (no inbound links): 0
-Open contradictions:             0 (wiki/contradictions/ not accessible this run — skipped)
+Orphan pages (no inbound links): 0 (sources/ + threads/ empty)
+Open contradictions:             0 (wiki/contradictions/ absent — skipped)
 Next lint scheduled:             tomorrow 22:00 local (Routine 5)
 ```
 
@@ -113,8 +118,8 @@ Next lint scheduled:             tomorrow 22:00 local (Routine 5)
 ## 6. Cross-Root Links
 <!-- AUTO:routine-5 — wiki concepts referenced by current projects -->
 
-**Active projects (59-israel-palestine-partition-offer-2026, 36-panama-canal-deconcini-2026):**
-- No `~/llm-brain/` wiki references in either project's `01-VERIFIED-RESEARCH.md` yet
+**Active projects (59-israel-palestine-partition-offer-2026, 36-panama-canal-deconcini-2026, 60-guadalupe-hidalgo-dispossession-2026):**
+- No `~/llm-brain/` wiki references in any active project's `01-VERIFIED-RESEARCH.md` yet
 
 **Prior projects (archive crossref):**
 

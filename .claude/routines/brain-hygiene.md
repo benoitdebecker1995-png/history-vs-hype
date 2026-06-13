@@ -2,6 +2,8 @@
 
 **Purpose:** Every night, process the brain queue, lint for dead links and stale content, and refresh `.brain/index.md` AUTO sections. The repo's knowledge base stays coherent without manual upkeep.
 
+> **▶ EXECUTION DIRECTIVE (you are being run headless via `claude -p` — the routine path):** You ARE the nightly brain-hygiene routine. Execute STEP 1–5 in the fenced block below **right now** against this repo at `D:\History vs Hype` — do not treat the block as a template to describe or "paste somewhere." The `## Setup` and `## Guardrails` sections are reference for the human; honor every guardrail but do not act on the Setup section. If `.brain/_queue/` is empty AND lint finds <3 issues AND index.md needs no material change, exit silently per STEP 4 (that is correct success, not a skip). Do NOT respond with "what would you like to work on?" — you already have your task: the steps below.
+
 **Schedule:** Daily, 22:00 local (Desktop scheduled task — end of day)
 **Why Desktop:** Reads across all 4 brain roots including non-repo paths (`~/llm-brain/`, project memory).
 **Expected cost:** 1 of the 5 daily Routines credits.

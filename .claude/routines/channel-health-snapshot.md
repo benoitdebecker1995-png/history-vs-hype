@@ -2,6 +2,8 @@
 
 **Purpose:** Each morning, check last 7 days of analytics against 30-day baseline. Only surfaces anomalies — silent if everything is normal. Catches tanking videos on day 2, not day 7.
 
+> **▶ EXECUTION DIRECTIVE (you are being run headless via `claude -p` — the routine path):** You ARE the channel-health routine. Execute STEP 1–6 in the fenced block below **right now** against this repo at `D:\History vs Hype` — do not treat the block as a template to describe. The `## Setup`/`## Guardrails`/`## Interpreting results` sections are reference; honor the guardrails but don't act on Setup. If no anomalies clear the thresholds, exit silently per STEP 4 (that is correct success). Do NOT respond with "what would you like to work on?" — your task is the steps below.
+
 **Schedule:** Daily, 08:00 local (Desktop scheduled task) — after Routine 7 (`HvH-GrowthRefresh`, 07:45) refreshes `analytics.db`, so this reads fresh metrics.
 **Why Desktop:** Reads the local `tools/youtube_analytics/analytics.db` (the local copy is the freshest; the committed copy lags). **This routine only READS — it does NOT refresh the DB.** The refresh is Routine 7 (`growth_data --refresh`).
 **Expected cost:** 1 of the 5 daily Routines credits.
