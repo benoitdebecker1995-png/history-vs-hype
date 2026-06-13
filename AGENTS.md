@@ -33,7 +33,7 @@ video-projects/
 └── _ARCHIVED/          # Published or cancelled projects
 
 .claude/
-├── agents/             # Agent configurations (fact-checker, script-writer-v2, etc.)
+├── agents/             # Agent configurations (script-writer-v2, structure-checker-v2, etc.)
 ├── commands/           # Slash command definitions
 ├── REFERENCE/          # Style guides, fact-checking protocols
 │   ├── STYLE-GUIDE.md  # Authoritative voice/delivery reference

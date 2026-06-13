@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (W1)
+**Last advanced:** 2026-06-12 (W2)
 **Total steps:** 24
-**Done:** 18
+**Done:** 19
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -345,7 +345,7 @@ Inventory all entries in .claude/commands/, .claude/skills/ (project + user-leve
 
 **Commit:** `docs(audit): W1 command/skill/agent audit report`
 
-## W2 [TODO] [INTERACTIVE] Execute approved merges
+## W2 [DONE] [INTERACTIVE] Execute approved merges
 
 **Deps:** W1
 

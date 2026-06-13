@@ -54,8 +54,7 @@
 
 | Consumer | What it reads | How it uses output |
 |----------|--------------|-------------------|
-| `research-organizer` | `02-COMPETITOR-GAP-ANALYSIS.md` | Ensures the "Unique Angle" is supported by Phase 2 research. |
-| `script-writer-v2` | Same file | Uses "Gaps" to ensure the script doesn't just repeat what is already on YouTube. |
+| `script-writer-v2` | `02-COMPETITOR-GAP-ANALYSIS.md` | Uses "Gaps" to ensure the script doesn't just repeat what is already on YouTube. |
 
 **Breaking change definition:** Missing any required H2 section or failure to identify at least one "Primary Source Advantage".
 

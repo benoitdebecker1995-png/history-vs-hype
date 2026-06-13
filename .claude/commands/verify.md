@@ -35,6 +35,10 @@ Fact-check scripts, extract claims from transcripts, or run simplification detec
 | `--nlm` | Notebook-only pass: verify Tier 1 claims + citation grounding via MCP, skip web sources | `/verify --nlm 56-no-lassos-atlantic-slave-trade-origin-2026` |
 | `--adversarial` | Cross-model skeptic pass: Gemini attacks the locked-candidate script for overclaims/strawmen/laundered quotes; each finding is then NLM-adjudicated (Step 7.9) | `/verify --adversarial 58-kurdistan-2026` |
 
+> **Deeper passes (kept as separate lightweight commands by design — context economy, so you don't load this 47 KB file to run a 5 KB pass; W2 2026-06-12):**
+> - **`/verify-flow-nlm`** — narrative-flow verification + NotebookLM claim-query verification. The deeper claim-grounding pass that `--script` skips for context economy. Run when you want every claim NLM-checked, not just the Tier-1/contested ones.
+> - **`/script-research-pass`** — full editor + head-of-research pass: paragraph-by-paragraph NLM verification (no context-economy skip), expository/predicate-drift, quote-card provenance, completeness, flow, prose polish, and script↔teleprompter lock discipline. The heaviest pass; use before locking a high-stakes script.
+
 ---
 
 ## FACT-CHECK WORKFLOW (`--script` or default)
@@ -925,7 +929,6 @@ Historical integrity is the channel's core value. Better to cut a claim than to 
 
 - **Simplification rules:** `.claude/REFERENCE/FACT-CHECK-SIMPLIFICATION-RULES.md`
 - **Fact-check template:** `.claude/templates/03-FACT-CHECK-VERIFICATION-TEMPLATE.md`
-- **Fact-checker agent:** `.claude/agents/fact-checker.md`
 
 ---
 

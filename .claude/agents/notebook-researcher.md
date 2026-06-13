@@ -16,7 +16,7 @@ Output is a structured **Notebook Brief** — full landscape + the agent's recom
 
 **This agent does NOT modify `01-VERIFIED-RESEARCH.md`.** It produces a research report. The user files what they want from it.
 
-**This agent is NOT for first-pass topic exploration** (use `wiki-researcher` instead) or **fact-checking finished scripts** (use `fact-checker` instead). It assumes a notebook of academic sources already exists.
+**This agent is NOT for first-pass topic exploration** (use `wiki-researcher` instead) or **fact-checking finished scripts** (use `/verify` instead). It assumes a notebook of academic sources already exists.
 
 ---
 

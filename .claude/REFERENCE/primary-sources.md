@@ -2,7 +2,7 @@
 
 **Single source of truth for source citation and visual presentation.**
 
-Referenced by: script-writer-v2, fact-checker, research-organizer
+Referenced by: script-writer-v2
 
 ---
 

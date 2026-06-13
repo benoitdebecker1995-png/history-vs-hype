@@ -95,6 +95,14 @@ User-level files cost nothing in this repo's context until invoked; listed for c
 6. **`claims-extractor` agent (15.7 KB, 0 spawns)** — /verify --extract territory; check whether verify.md still delegates to it or does extraction inline. If inline: archive candidate.
 7. **`fact-checker` agent (31.6 KB, 0 spawns)** — same question as #6 for /verify's main path. Its 26 inbound refs are partly prose inflation ("fact-checker"/"fact-checking").
 
-## Decision log (W2 fills this in)
+## Decision log (W2 — 2026-06-12, interactive walk)
 
-*(empty — no decisions made in W1)*
+| # | Candidate | Decision | Action taken |
+|---|---|---|---|
+| 1 | Fold `/curiosity` into `/greenlight` | **KEEP STANDALONE** | None. 1.4 KB; distinct cheap one-off title scorer worth keeping out-of-flow. |
+| 2 | Verify/editor trio consolidation | **KEEP SPLIT, FIX DISCOVERABILITY** | Added a "Deeper passes" pointer block to `verify.md` flags section linking `/verify-flow-nlm` + `/script-research-pass` (the latter had 0 inbound refs). Context-economy split preserved (memory: `feedback-workflow-architecture`). |
+| 3 | `/polish` retire (absorbed by v18 flow) | **KEEP, CLARIFY SCOPE** | Added scope note to `polish.md`: v18 `/script` flow already runs this in-flow; `/polish` is for out-of-flow scripts (parked/imported/hand-written) only. |
+| 4 | Three unspawned agents | **ARCHIVE ALL THREE** | `git mv`'d `fact-checker`, `claims-extractor`, `research-organizer` (+ contracts) to `.claude/_ARCHIVE/agents-2026-06/` with a README. |
+| — | Analytics family (`/growth`, `/patterns` → `/analyze` flags) | **DEFERRED** (not raised in W2 walk) | None. Lowest-value, pure menu-declutter; revisit only if the command menu needs trimming. |
+
+**Reference cleanup on agent archive (W2):** `verify.md` (dropped fact-checker pointer), `primary-sources.md` ("Referenced by" trimmed), `.brain/methodology/gemini-routing.md` (3 routing rows removed), `competitor-gap.contract.md` (research-organizer consumer row removed), `AGENTS.md` (stale tree-comment example), `notebook-researcher.md` (fact-checking pointer → `/verify`). Remaining hits for the three names are prose role-mentions ("act as editor, fact-checker") or point-in-time `.planning/` + `.antigravity/` (parked) records — left as-is; none is live spawn wiring.

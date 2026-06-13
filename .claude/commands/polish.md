@@ -9,6 +9,8 @@ Strip AI writing fingerprints from a locked script before filming. Eliminates st
 
 **Designed to reproduce what was done manually with Sonnet in the 2026-05-14 Hijab voice pass.** Origin and rationale: `C:\Users\Benoi\.claude\plans\velvety-tinkering-finch.md`.
 
+> **Scope note (W2 2026-06-12):** The v18 `/script` flow already runs this scrub in-flow — the PRE-READ HEAVY GATE + `voice_lint.py` + the zero-feedback read-through cover the same AI-pattern/voice checks. So `/polish` is for scripts that did **NOT** go through the current `/script` flow: a parked draft being resumed (e.g. #59), a hand-written or imported script, or a deliberate standalone re-scrub. If a script just came out of `/script` v18, it's already polished — running `/polish` on it is redundant.
+
 ## Usage
 
 ```

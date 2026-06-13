@@ -19,9 +19,6 @@ Extends `~/llm-brain/wiki/concepts/gemini-claude-routing.md` with project-specif
 | `article-writer` | **Opus** | Voice + NotebookLM citation grounding loop; judgment-heavy |
 | `structure-checker-v2` | **Opus** | Extended thinking on retention science; constraint A-BB evaluation |
 | `thumbnail-critic` | **Sonnet** | Rubric-scoring against playbook, not generation; Sonnet sufficient |
-| `fact-checker` | **Sonnet** | Verdict logic (✅/⏳/❌); bulk source reading offloaded to Gemini |
-| `research-organizer` | **Sonnet** | Orchestration; Wikipedia/news/abstract phases offloaded to Gemini |
-| `claims-extractor` | **Haiku** | Pure extraction with output schema; cheapest option, no judgment needed |
 | `wiki-researcher` | **Haiku** | Brief assembly; Gemini reads the URLs, Haiku formats the structured output |
 | `competitor-gap` | **Sonnet** | Gap reasoning vs your script (judgment); transcript ingestion offloaded to Gemini |
 | `diy-asset-creator` | **Haiku** | Step-list generation against templates; mechanical |
