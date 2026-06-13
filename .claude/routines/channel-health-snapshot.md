@@ -2,8 +2,8 @@
 
 **Purpose:** Each morning, check last 7 days of analytics against 30-day baseline. Only surfaces anomalies — silent if everything is normal. Catches tanking videos on day 2, not day 7.
 
-**Schedule:** Daily, 08:00 local (Desktop scheduled task)
-**Why Desktop:** Requires `analytics.db` (local-only, not in repo).
+**Schedule:** Daily, 08:00 local (Desktop scheduled task) — after Routine 7 (`HvH-GrowthRefresh`, 07:45) refreshes `analytics.db`, so this reads fresh metrics.
+**Why Desktop:** Reads the local `tools/youtube_analytics/analytics.db` (the local copy is the freshest; the committed copy lags). **This routine only READS — it does NOT refresh the DB.** The refresh is Routine 7 (`growth_data --refresh`).
 **Expected cost:** 1 of the 5 daily Routines credits.
 
 ---
@@ -16,28 +16,37 @@ You are operating inside the History vs Hype repository at D:\History vs Hype.
 STEP 1 — Read channel baseline from channel-data/stats.md.
 Extract the 30-day baseline values for: CTR, AVD (average view duration), week-1 retention %.
 
-STEP 2 — Query last 7 days from analytics.db:
+STEP 2 — Query recent videos' current metrics from analytics.db.
+The DB lives at `tools/youtube_analytics/analytics.db` (NOT repo root). The table is
+`videos` — one row per video holding its current-snapshot metrics (there is no
+per-video per-day history table; `daily_channel` is channel-level only):
 
   python -c "
   import sqlite3, json
-  from datetime import datetime, timedelta
-  conn = sqlite3.connect('analytics.db')
-  cutoff = (datetime.now() - timedelta(days=7)).strftime('%Y-%m-%d')
+  from datetime import datetime, timedelta, timezone
+  conn = sqlite3.connect('tools/youtube_analytics/analytics.db')
+  cutoff = (datetime.now(timezone.utc) - timedelta(days=30)).strftime('%Y-%m-%dT%H:%M:%SZ')
   rows = conn.execute('''
-    SELECT video_id, title, date, views, ctr, avd_seconds, retention_pct
-    FROM video_stats
-    WHERE date >= ?
-    ORDER BY date DESC
+    SELECT video_id, title, published_at, views,
+           ctr_percent, avg_view_duration_seconds, avg_view_percentage
+    FROM videos
+    WHERE published_at >= ?
+    ORDER BY published_at DESC
   ''', (cutoff,)).fetchall()
   print(json.dumps(rows, default=str))
   conn.close()
   "
 
+(30-day window because the channel publishes ~weekly — a 7-day window often returns 0 rows.
+`avg_view_percentage` is the week-1 retention proxy; `ctr_percent` may be NULL because CTR
+comes from the Reporting API via `ctr_tracker`, not the Analytics API — skip NULLs, don't flag them.)
+
 STEP 3 — Compare against baseline. Flag ONLY if ANY of:
-  - CTR deviates more than 1.5 standard deviations from 30-day baseline
-  - AVD deviates more than 1.5 standard deviations from 30-day baseline
-  - Week-1 retention for any video < 22%
-  - Any video showing >30% view velocity drop day-over-day for 3+ consecutive days
+  - CTR (`ctr_percent`) deviates more than 1.5 standard deviations from 30-day baseline (skip if NULL)
+  - AVD (`avg_view_duration_seconds`) deviates more than 1.5 standard deviations from 30-day baseline
+  - Week-1 retention (`avg_view_percentage`) for any video < 22%
+  - (Per-video day-over-day view-velocity drop is NOT checkable on the current schema — no
+    per-video daily history is stored. Skip this check until such a table exists.)
 
 STEP 4 — If NO anomalies: exit silently. Write nothing. Do not commit.
 

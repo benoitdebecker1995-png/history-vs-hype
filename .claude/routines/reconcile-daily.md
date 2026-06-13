@@ -5,7 +5,7 @@
 > **▶ EXECUTION DIRECTIVE (when this file is run headless via `claude -p`, the routine path):** You ARE the daily reconcile routine. Do exactly this and nothing else: from repo root, run `python -m tools.reconcile.reconcile --auto-publish-only` (Bash), then read its output and write a 2-3 line summary of what changed (folders archived / freshness-gate trip / no-op). **Do NOT** register scheduled tasks, edit `memory/*` or `MEMORY.md`, push to git, or act on the "Task registration" section below — that section is setup reference for the human, not instructions for you. Honor every guardrail in the Guardrails section. The python tool does the actual work; your job is to invoke it and report.
 
 **Triggers (intermittent-PC resilient):**
-- Daily 08:30 (primary) — after 08:00 channel-health-snapshot refreshes `analytics.db`, before 09:00 stale-project-nudge reads project state
+- Daily 08:30 (primary) — after 07:45 `HvH-GrowthRefresh` (Routine 7) refreshes `analytics.db` and 08:00 channel-health-snapshot reads it, before 09:00 stale-project-nudge reads project state. (Routine 7 is what keeps `analytics.db` fresh — channel-health only reads; the freshness gate below depends on Routine 7 having run.)
 - `StartWhenAvailable` — if PC was off at 08:30, runs as soon as the machine wakes
 - `AtLogOn` — runs at user login (catches the case where the PC stays off for multiple days). Task is idempotent — running twice in a day is a no-op when state is clean.
 

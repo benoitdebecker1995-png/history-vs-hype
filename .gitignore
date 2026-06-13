@@ -139,3 +139,7 @@ video-projects/**/graphify-out/
 
 # Session scratch / temp (SERP sheets, thumbnail previews, etc.)
 /tmp/
+
+# SQLite WAL/SHM journal files (transient)
+*.db-wal
+*.db-shm
