@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (R3)
+**Last advanced:** 2026-06-12 (W1)
 **Total steps:** 24
-**Done:** 17
+**Done:** 18
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -332,7 +332,7 @@ Read memory/project-drive-library.md for current stage of the ~2000-PDF consolid
 
 # PHASE W — Workflow & Command Audit
 
-## W1 [TODO] Command/skill/agent audit report
+## W1 [DONE] Command/skill/agent audit report
 
 **Deps:** none
 
