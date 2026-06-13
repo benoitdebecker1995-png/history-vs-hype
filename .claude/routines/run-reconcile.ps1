@@ -1,7 +1,9 @@
-# Routine 6 wrapper — runs reconcile in auto-publish-only mode.
-# Invoked by Windows Scheduled Task "HvH-Reconcile" daily at 08:30.
-# Schedule logic: after Routine 3 (08:00, refreshes analytics.db),
-# before Routine 4 (09:00, stale-project-nudge reads post-reconcile state).
+# Routine 6 wrapper — claude-driven daily reconcile (auto-publish-only).
+# Invoked by Windows Scheduled Task "HvH-Reconcile" (Daily 08:30 + AtLogOn + StartWhenAvailable).
+# Matches the sibling routine pattern (run-stale-projects.ps1 etc.): claude -p reads the routine .md
+# and executes its EXECUTION DIRECTIVE (run `python -m tools.reconcile.reconcile --auto-publish-only` + summarize).
+# Logs to .brain/_inbox/ so a missed/failed run is detectable (W3 2026-06-12: bare-python predecessor left no log + was never scheduled).
+# Schedule logic: after Routine 3 (08:00, refreshes analytics.db), before Routine 4 (09:00, reads post-reconcile state).
 
 Set-Location "D:\History vs Hype"
 
@@ -12,13 +14,12 @@ if (-not (Test-Path $logDir)) {
 
 $logFile = Join-Path $logDir "reconcile-$(Get-Date -Format 'yyyy-MM-dd').log"
 
-"=== Routine 6 reconcile run @ $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') ===" |
+"=== Routine 6 (claude-driven) run @ $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') ===" |
     Out-File -FilePath $logFile -Append -Encoding utf8
 
-python -m tools.reconcile.reconcile --auto-publish-only 2>&1 |
-    Out-File -FilePath $logFile -Append -Encoding utf8
+$prompt = (Get-Content ".claude\routines\reconcile-daily.md" -Raw)
+claude -p $prompt 2>&1 | Out-File -FilePath $logFile -Append -Encoding utf8
 
 $exitCode = $LASTEXITCODE
 "=== Exit code: $exitCode ===" | Out-File -FilePath $logFile -Append -Encoding utf8
-
 exit $exitCode

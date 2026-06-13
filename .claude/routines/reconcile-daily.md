@@ -2,6 +2,8 @@
 
 **Purpose:** Archive any newly-uploaded YouTube videos that the conversational trigger missed, and keep derived docs (root `PROJECT_STATUS.md`, `PROJECT_REGISTRY.md`, `.brain/index.md §3`) in sync with reality. Narrower than interactive `/reconcile` — never touches memory snapshots or MEMORY.md.
 
+> **▶ EXECUTION DIRECTIVE (when this file is run headless via `claude -p`, the routine path):** You ARE the daily reconcile routine. Do exactly this and nothing else: from repo root, run `python -m tools.reconcile.reconcile --auto-publish-only` (Bash), then read its output and write a 2-3 line summary of what changed (folders archived / freshness-gate trip / no-op). **Do NOT** register scheduled tasks, edit `memory/*` or `MEMORY.md`, push to git, or act on the "Task registration" section below — that section is setup reference for the human, not instructions for you. Honor every guardrail in the Guardrails section. The python tool does the actual work; your job is to invoke it and report.
+
 **Triggers (intermittent-PC resilient):**
 - Daily 08:30 (primary) — after 08:00 channel-health-snapshot refreshes `analytics.db`, before 09:00 stale-project-nudge reads project state
 - `StartWhenAvailable` — if PC was off at 08:30, runs as soon as the machine wakes
@@ -41,43 +43,21 @@ This mode:
 
 ---
 
-## Paste into Desktop Scheduled Task (PowerShell wrapper)
+## Task registration (reference — claude-driven, matches sibling routines)
+
+The wrapper is **claude-driven** like the other Desktop routines (`run-stale-projects.ps1` etc. all do `claude -p <routine>.md`): `run-reconcile.ps1` feeds THIS file to `claude -p`, which then executes the ▶ EXECUTION DIRECTIVE above (run the python tool + summarize). It logs to `.brain/_inbox/reconcile-YYYY-MM-DD.log` so a missed/failed run is visible — the bare-python predecessor wrote no log and was never actually scheduled (W3 audit 2026-06-12).
 
 ```powershell
-# Wrapper: D:\History vs Hype\.claude\routines\run-reconcile.ps1
+# Wrapper: D:\History vs Hype\.claude\routines\run-reconcile.ps1  (claude-driven + logging)
 Set-Location "D:\History vs Hype"
-python -m tools.reconcile.reconcile --auto-publish-only 2>&1 |
-    Out-File -FilePath ".brain\_inbox\reconcile-$(Get-Date -Format 'yyyy-MM-dd').log" -Append -Encoding utf8
+$logFile = ".brain\_inbox\reconcile-$(Get-Date -Format 'yyyy-MM-dd').log"
+"=== Routine 6 (claude-driven) run @ $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') ===" | Out-File $logFile -Append -Encoding utf8
+$prompt = (Get-Content ".claude\routines\reconcile-daily.md" -Raw)
+claude -p $prompt 2>&1 | Out-File $logFile -Append -Encoding utf8
+exit $LASTEXITCODE
 ```
 
-## Setup (Windows Task Scheduler — admin PowerShell)
-
-```powershell
-# Intermittent-PC-resilient: daily 08:30 + at-logon backup + start-when-available catch-up.
-$action = New-ScheduledTaskAction -Execute "powershell.exe" `
-    -Argument "-NoProfile -ExecutionPolicy Bypass -File `"D:\History vs Hype\.claude\routines\run-reconcile.ps1`"" `
-    -WorkingDirectory "D:\History vs Hype"
-
-$dailyTrigger = New-ScheduledTaskTrigger -Daily -At "08:30"
-$logonTrigger = New-ScheduledTaskTrigger -AtLogOn
-# Delay logon trigger by 2 min so the OS has settled before we hit it
-$logonTrigger.Delay = "PT2M"
-
-$settings = New-ScheduledTaskSettingsSet `
-    -StartWhenAvailable `
-    -ExecutionTimeLimit (New-TimeSpan -Minutes 10) `
-    -MultipleInstances IgnoreNew
-
-Register-ScheduledTask -TaskName "HvH-Reconcile" `
-    -Action $action `
-    -Trigger @($dailyTrigger, $logonTrigger) `
-    -Settings $settings `
-    -RunLevel Highest `
-    -Force
-
-Get-ScheduledTask -TaskName "HvH-Reconcile" | Get-ScheduledTaskInfo |
-    Format-List TaskName, NextRunTime, State, LastRunTime
-```
+Registered via `New-ScheduledTaskAction -Execute pwsh.exe -Argument '-File "...run-reconcile.ps1"'`, mirroring the sibling tasks' principal (UserId Benoi, Interactive, Limited) with the spec's resilience triggers: **Daily 08:30 + AtLogOn (2-min delay) + StartWhenAvailable**, `MultipleInstances IgnoreNew`, 10-min execution limit. (Registered 2026-06-13.)
 
 ### Resilience notes
 
