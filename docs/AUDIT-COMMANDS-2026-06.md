@@ -106,3 +106,25 @@ User-level files cost nothing in this repo's context until invoked; listed for c
 | — | Analytics family (`/growth`, `/patterns` → `/analyze` flags) | **DEFERRED** (not raised in W2 walk) | None. Lowest-value, pure menu-declutter; revisit only if the command menu needs trimming. |
 
 **Reference cleanup on agent archive (W2):** `verify.md` (dropped fact-checker pointer), `primary-sources.md` ("Referenced by" trimmed), `.brain/methodology/gemini-routing.md` (3 routing rows removed), `competitor-gap.contract.md` (research-organizer consumer row removed), `AGENTS.md` (stale tree-comment example), `notebook-researcher.md` (fact-checking pointer → `/verify`). Remaining hits for the three names are prose role-mentions ("act as editor, fact-checker") or point-in-time `.planning/` + `.antigravity/` (parked) records — left as-is; none is live spawn wiring.
+
+---
+
+## Routine health check (W3 — 2026-06-12)
+
+Assessed routines 1–6 against their declared output locations + cadence. **Phase-0 path breakage: NONE** — grep of all routine specs (`.claude/routines/*.md`) and launchers (`run-*.ps1`) for every Phase-0-moved path (`REFACTOR-PLAN`, `WORKSPACE_RULES`, `flight-deals`, `ANTIGRAVITY_MIGRATION`, `_BACKLOG/36`, etc.) returned clean. The only moved path a routine consumes — Panama #36 `_BACKLOG/` → `_IN_PRODUCTION/` — is correct current state that stale-project-nudge + reconcile are *supposed* to see. **Nothing to fix; all issues below are behavioral/config findings (out of W3 fix-scope, per the plan).**
+
+| # | Routine | Runner | Declared output | Last evidence | Verdict |
+|---|---|---|---|---|---|
+| 1 | competitor-drop-scanner | cloud (no Desktop launcher) | `channel-data/competitor-drops/YYYY-MM-DD.md` | **2026-05-09** (~5 wks stale) | ⚠ DORMANT |
+| 2 | modern-relevance-hook-hunter | cloud (no Desktop launcher) | project `MODERN-RELEVANCE-QUEUE.md` + metadata | **never** (queue file absent repo-wide) | ⚠ NO OUTPUT |
+| 3 | channel-health-snapshot | Desktop `HvH-ChannelHealth` | `.brain/_inbox/channel-health-*.md` *(only on anomaly)* | ran 2026-06-12 08:00, result 0; silent | ✅ HEALTHY (silent = no anomalies, by design) |
+| 4 | stale-project-nudge | Desktop `HvH-StaleProjects` | `.brain/_inbox/stale-projects-*.md` *(only if stale)* + index §3 | ran 2026-06-12 09:00, result 0; last dated file 2026-05-18 | ✅ HEALTHY (silent = nothing stale, by design) |
+| 5 | brain-hygiene | Desktop `HvH-BrainHygiene` | `.brain/index.md` AUTO blocks + `_inbox/brain-hygiene-*.md` | ran 2026-06-11 22:00, **result 0x8007042B = Win32 1067 ERROR_PROCESS_ABORTED**; output dated 2026-06-11 present | ⚠ ABORTING |
+| 6 | reconcile-daily | Desktop — wrapper expects task `HvH-Reconcile` | `_inbox/reconcile-*.diff` + `-*.md` + `-*.log` | **no `HvH-Reconcile` task registered; zero `reconcile-*.log` files ever**; last `.diff` 2026-06-08 (manual /reconcile) | ✗ NOT SCHEDULED |
+
+### Findings (behavioral/config — for user decision, not fixed here)
+
+1. **Routine 6 reconcile is not actually scheduled.** `run-reconcile.ps1` documents "Scheduled Task HvH-Reconcile daily at 08:30," but no such task exists (`Get-ScheduledTask` shows only BrainHygiene/ChannelHealth/StaleProjects). No `reconcile-*.log` has ever been written, confirming the wrapper never fired on schedule — the `.diff` files are all from manual `/reconcile`. CLAUDE.md's claim that "Routine 6 runs daily 08:30 as a backstop" is **currently false.** Fix = register the task: `schtasks /Create /TN HvH-Reconcile /TR "powershell -File 'D:\History vs Hype\.claude\routines\run-reconcile.ps1'" /SC DAILY /ST 08:30`. Held for user approval (touches OS scheduler; outside W3 path-fix scope).
+2. **Routine 5 brain-hygiene aborts.** Last run terminated unexpectedly (Win32 1067). The `claude -p` headless invocation is crashing — likely a long-prompt/timeout or auth issue in the non-interactive context. The 2026-06-11 output exists (wrote before aborting or on a prior run), but the failure means index AUTO-block refresh is unreliable. Needs a live debug run of `run-brain-hygiene.ps1` to capture the crash.
+3. **Routines 1 & 2 (the two "cloud" routines) show no recent output.** Competitor-drop last wrote 2026-05-09; modern-relevance has never produced its queue file. Neither has a Desktop launcher, so they were meant to run as scheduled cloud agents — but there's no evidence they're registered/firing. Verify via the `schedule` skill (cloud-agent list); if unregistered, either register them or downgrade the CLAUDE.md/brain-index claims that imply daily routines 1–3 run.
+4. **`.brain/index.md` line 31 minor doc drift:** lists Routine 1 output as `.brain/_inbox/competitor-drops-*.md`, but the spec writes to `channel-data/competitor-drops/*.md`. Cosmetic; flag only.

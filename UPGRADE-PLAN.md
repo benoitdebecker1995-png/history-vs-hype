@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (W2)
+**Last advanced:** 2026-06-12 (W3)
 **Total steps:** 24
-**Done:** 19
+**Done:** 20
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -358,7 +358,7 @@ Walk the W1 shortlist with the user. Execute ONLY approved merges/retirements; f
 
 **Commit:** `refactor(commands): W2 approved consolidations`
 
-## W3 [TODO] Routine health check
+## W3 [DONE] Routine health check
 
 **Deps:** none
 
