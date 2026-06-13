@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (S12)
+**Last advanced:** 2026-06-12 (S13)
 **Total steps:** 24
-**Done:** 13
+**Done:** 14
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -226,7 +226,7 @@ Walk AGENT-DIFF-PROPOSALS.md with the user; apply ONLY approved diffs. Bump vers
 
 **Commit:** `feat(agents): S12 script-writer v18 + checker/lint calibration diffs`
 
-## S13 [TODO] Regression harness — in-sample sanity check
+## S13 [DONE] Regression harness — in-sample sanity check
 
 **Deps:** S12
 
