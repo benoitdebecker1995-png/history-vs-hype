@@ -384,6 +384,25 @@ The structure checker found issues that historically correlate with retention dr
 
 **Graceful degradation:** If the structure-checker-v2 agent file is missing or unavailable for any reason, emit a one-line note — "Structure check skipped — run `/script --review` manually" — and proceed. Never block on a failed check.
 
+## NLM Structure Comparison (Post-Structure-Check, gated)
+
+**Purpose:** Catch "correct but boring" — the structure checker validates compliance; this checks whether the script's hook + thesis + closing shape has been done many times by larger channels, and what this script's variant adds. (Wired 2026-06-12, UPGRADE-PLAN R2.)
+
+**Gate:** Runs ONLY when the project has a NotebookLM notebook (i.e., the project went through Phase 2 — check the project folder/PROJECT-STATUS for a notebook reference, or `mcp__notebooklm__notebook_list` for a notebook matching the project slug). No project notebook → skip silently with one line: "NLM structure comparison skipped — no project notebook." Also skip on MCP auth failure after one `nlm login` retry. Enrichment, not a gate.
+
+**Run:** Query the **85-transcript competitor notebook** with the **Post-Script Structure Comparison prompt** (`.claude/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md`, next to the Pre-Filming Script Audit), pasting the script's hook, thesis line, and closing beat.
+
+**Display:**
+```
+--- NLM Structure Comparison ---
+Similar hooks in corpus: [N] — closest: "[title]", "[title]"
+Closest closings: [2-3 titles + their final-2-sentence shape]
+Structural delta this script has: [the differentiator, or "NONE FOUND — consider sharpening"]
+---
+```
+
+**Handling:** A "NONE FOUND" delta is a flag for the creator's read-through, not a block — surface it in the user-facing summary next to the structure-check findings.
+
 ## Automatic Packaging Coherence Check (Post-Generation, MANDATORY)
 
 **Why this exists:** The most common failure mode the channel data shows is title-promise / hook-delivery drift — title promises X, the hook delivers Y, viewer bails at 0:30-1:00. This check runs automatically at the end of every `/script` to catch the gap before filming.

@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (R1)
+**Last advanced:** 2026-06-12 (R2)
 **Total steps:** 24
-**Done:** 15
+**Done:** 16
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -272,7 +272,7 @@ Read .claude/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md § Proposed/Backlog — th
 
 **Commit:** `feat(greenlight): R1 wire NLM title validation`
 
-## R2 [TODO] Wire post-/script NLM structure comparison
+## R2 [DONE] Wire post-/script NLM structure comparison
 
 **Deps:** none
 

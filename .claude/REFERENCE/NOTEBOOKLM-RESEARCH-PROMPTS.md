@@ -652,6 +652,25 @@ closest competitor match is ABOVE 1M views with near-identical framing
 
 ---
 
+### Post-Script Structure Comparison
+
+**When to use:** Invoked by `/script` automatically after the structure-checker-v2 report, gated on the project having a NotebookLM notebook (see `/script` § NLM Structure Comparison). Catches "correct but boring." Notebook: the **85-transcript competitor notebook**. (Wired 2026-06-12, UPGRADE-PLAN R2; formerly a Proposed/Backlog stub.)
+
+**Prompt:**
+```
+Here are the hook, thesis, and closing of a script: [PASTE hook + thesis line + closing beat].
+
+Compare against the competitor transcripts in this notebook.
+(a) How many transcripts open with a structurally similar hook (specificity bomb
+    + named primary doc + viral-quote rebuttal)? List up to 5 by title.
+(b) For the closing, identify the 3 most similar closings and quote their final
+    2 sentences.
+(c) What structural delta does this script have that the most similar ones do
+    not?
+```
+
+---
+
 ### Pre-Filming Script Audit
 
 **When to use:** After script is drafted, before filming. Catches attribution errors, structural contradictions, and pronunciation risks that waste filming time. Run this with the SAME notebook used for research — it has the sources to verify against.
@@ -914,17 +933,5 @@ Now you can verify each claim against the actual source and copy verified claims
 
 ## Proposed / Backlog Prompts (not yet wired)
 
-> Prompt ideas surfaced in the 2026-04-14 workflow audit, migrated from `memory/workflow-audit.md` on 2026-05-26. One remains. (The `/greenlight` Title Validation prompt was wired 2026-06-12 as **Prompt P5** in Packaging Intelligence Prompts — UPGRADE-PLAN R1.)
-
-### Post-`/script` Structure Comparison
-
-**Purpose:** Catch "correct but boring" — surface whether the script's hook + thesis + closing beat structure has been done many times before by larger channels, and what your variant adds (or doesn't).
-
-**Wiring target:** `/script` (run after structure-checker-v2 produces its report, before final output).
-
-**Notebook:** the 85-transcript competitor notebook.
-
-**Prompt sketch:** "Here are the hook, thesis, and closing of a script: [pasted]. Compare against the competitor transcripts in this notebook. (a) How many transcripts open with a structurally similar hook (specificity bomb + named primary doc + viral-quote rebuttal)? List up to 5 by title. (b) For the closing, identify the 3 most similar closings and quote their final 2 sentences. (c) What structural delta does this script have that the most similar ones do not?"
-
-**Status:** PROPOSED — no command currently invokes this.
+> Both prompt ideas from the 2026-04-14 workflow audit are now wired (UPGRADE-PLAN R1 + R2, 2026-06-12): the `/greenlight` Title Validation prompt is **Prompt P5** (Packaging Intelligence Prompts) and the Post-`/script` Structure Comparison is in Packaging Intelligence Prompts next to the Pre-Filming Script Audit. Backlog currently empty — add future prompt stubs here.
 
