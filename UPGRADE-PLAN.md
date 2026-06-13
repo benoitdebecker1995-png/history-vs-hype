@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (R2)
+**Last advanced:** 2026-06-12 (R3)
 **Total steps:** 24
-**Done:** 16
+**Done:** 17
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -285,7 +285,7 @@ Same pattern as R1 for the post-/script structure-comparison stub: wire into .cl
 
 **Commit:** `feat(script): R2 wire NLM structure comparison`
 
-## R3 [TODO] NLM coverage-notebook pilot (decides R4)
+## R3 [DONE] NLM coverage-notebook pilot (decides R4)
 
 **Deps:** none
 
@@ -298,7 +298,9 @@ Create a NotebookLM notebook "HvH-coverage-corpus" with all 01-VERIFIED-RESEARCH
 
 **Commit:** `feat(research-infra): R3 coverage-notebook pilot + verdict`
 
-## R4 [TODO] Scope-A research-graph densification (conditional on R3)
+## R4 [BLOCKED] Scope-A research-graph densification (conditional on R3)
+
+> **Blocker (by design):** R3 verdict = **NOTEBOOK-SUFFICIENT** (2026-06-12). The `HvH-coverage-corpus` notebook (26 research files) beat `graphify-research` 10/10 on the coverage-query pilot — see `.claude/REFERENCE/GRAPHIFY-OPS.md` Open work item 1 for the comparison table. Densification is redundant; do not proceed unless the notebook path degrades.
 
 **Deps:** R3
 

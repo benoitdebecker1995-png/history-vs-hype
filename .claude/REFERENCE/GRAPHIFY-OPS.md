@@ -63,7 +63,26 @@ cat graphify-out/research/.needs_refresh 2>/dev/null
 
 Ranked by impact:
 
-1. **Research-graph densification — scope A (UPGRADE-PLAN Phase 2.3, decided 2026-06-12):** research corpus only — all `01-VERIFIED-RESEARCH.md` (archived + active) + `.brain/` quote threads + `tools/benchmark/` playbooks — via **Gemini Flash CLI** (existing sub, zero marginal cost), extending `tools/refresh-research-graph.py`. Before building, check whether a NotebookLM coverage notebook (same corpus via `notebook_query`) answers "have we covered X" well enough to make the graph work redundant. ~~Ollama full-22.5M-word extraction~~ RETIRED — Ollama is a verified dead end on this laptop (gemma3:4b fails JSON, qwen2.5:7b too slow on CPU; smoke-tested 2026-05-26).
+1. **Research-graph densification — scope A:** ⛔ **VERDICT: NOTEBOOK-SUFFICIENT (R3 pilot, 2026-06-12). Densification (UPGRADE-PLAN R4) is BLOCKED — the coverage notebook makes the graph work redundant for coverage queries.**
+
+   **Pilot:** NotebookLM notebook **`HvH-coverage-corpus`** (id `f3bc649e-b90e-4832-92d7-e1d4b9932dc4`) built with all 26 `01-VERIFIED-RESEARCH.md` files (archived + active + backlog), sources renamed to project slugs. 10 representative coverage queries run head-to-head against `mcp__graphify-research__query_graph`:
+
+   | # | Coverage query | Notebook (HvH-coverage-corpus) | Graph (graphify-research) |
+   |---|---|---|---|
+   | 1 | Cited Mamdani? | ✅ #40, both works, page-anchored claims | ❌ no nodes |
+   | 2 | Treaty of Lausanne? | ✅ #58 full role + "only project" scoping | ❌ wrong treaties (Zaragoza/Utrecht/Tripoli) |
+   | 3 | McDowall as source? | ✅ #58, 17 claim clusters incl. retired-quote audit trail | ❌ matched "David Lindberg" |
+   | 4 | uti possidetis? | ✅ 4 videos (#41/#40/#55/#01) with per-video role | ⚠️ 1 video (#01 only) |
+   | 5 | ICJ rulings? | ✅ 5 videos with named cases | ⚠️ 1 thin hit (Chagos–UK edge) |
+   | 6 | Radcliffe commission? | ✅ #43 with full detail | ⚠️ correct but thin (1 node + 1 edge) |
+   | 7 | Promised plebiscite never held? | ✅ 3 videos, conceptually apt | ❌ no nodes |
+   | 8 | Ottoman-script primary docs? | ✅ 3 videos (#57/#58/#51) | ❌ no nodes |
+   | 9 | Sykes-Picot mentions? | ✅ #58 with role nuance (foil / saturated-lane) | ❌ no nodes |
+   | 10 | Oil drives a border/legal decision? (thematic) | ✅ 5-video cross-corpus synthesis | ⚠️ 1 edge (APOC–Iran) |
+
+   **Score: notebook 10/10, graph 0/10** (3 partials, 7 misses/wrong). Latency: graph <2s vs notebook ~20–60s/query — but per the R3 spec both paths are zero marginal cost and the judgment is quality-only, and the quality gap is total. The graph's 169-entity extraction misses scholars, treaties, and concepts wholesale; the notebook handles entity, concept, AND thematic queries with per-video roles and page-anchored citations.
+
+   **Operational consequence:** for "have we covered X" questions, query `HvH-coverage-corpus` via `notebook_query` (NOT the research graph). Keep the notebook current: add each new project's `01-VERIFIED-RESEARCH.md` at archive time (candidate /reconcile backstop). The research graph stays as-is for visualization; do not invest further extraction effort. ~~Ollama full-22.5M-word extraction~~ RETIRED — Ollama is a verified dead end on this laptop (gemma3:4b fails JSON, qwen2.5:7b too slow on CPU; smoke-tested 2026-05-26).
 2. **`graphify install --project`** — moves the graphify skill from `~/.claude/skills/` (user-global) into `.claude/skills/` (project-tracked). Worth doing if you ever want to reproduce the setup on another machine.
 3. **`graphify watch .` in background** — real-time AST updates while editing. Redundant with the post-commit hook unless you want sub-commit refresh.
 4. **`uv tool install graphifyy`** — cleaner install than current system-Python `site-packages`. Migrate only if you hit conflicts. Path detection in the hook and MCP config uses absolute paths, so a reinstall under `uv` will require updating `graphify-out/.graphify_python` and the two MCP entries in `~/.claude.json`.
