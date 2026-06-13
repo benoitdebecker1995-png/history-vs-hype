@@ -313,7 +313,9 @@ Only if R3 verdict = GRAPH-STILL-NEEDED. Extend tools/refresh-research-graph.py 
 
 **Commit:** `feat(research-infra): R4 scope-A graph densification`
 
-## R5 [TODO] Drive source library — next stage only
+## R5 [BLOCKED] Drive source library — next stage only
+
+> **Blocker (2026-06-12):** Next stage per `memory/project-drive-library.md` is **Layer 3 — Drive mirror + NLM integration** (Layers 1–2 + 2026-06-01 downloads consolidation all done; library = 1,063 active files, 15 GB — fits the Google AI Plus 2 TB quota). Layer 3 needs Google Drive WRITE access, which doesn't exist on this machine: no rclone, no Google Drive for Desktop mount (only C:/D: volumes), and the `claude.ai Google Drive` MCP connector is disabled in project config (and is read/search-oriented, not a bulk-upload channel). All setup paths (rclone OAuth, Drive for Desktop install) require user-live browser auth. The only other open library item (`_stash-needs-id` 16-file review) is also user-gated. **Unblock:** user picks an upload path — simplest is installing Google Drive for Desktop and pointing a mirror at `library/by-topic/`; alternative is rclone with an interactive OAuth config — then rerun R5.
 
 **Deps:** none
 
