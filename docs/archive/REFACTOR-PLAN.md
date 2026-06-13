@@ -44,7 +44,7 @@ Read /REFACTOR-PLAN.md. If any step is marked [DOING], finish or rollback it to 
 **Last advanced:** 2026-05-05 (L3)
 **Total steps:** 47
 **Done:** 47 (A1/B1/B2/B3/B6/C1/C2/C3/C4/C5/D1/D2/D3/E2/E3/F1 reconciled; A2/B4/B5 executed 2026-05-03; D4/E1/E4/E5/F2/F3/G1/G2/G3/G4/H1/H2/H3 executed 2026-05-04; H4/H5 executed 2026-05-05; I1/I2/I3/I4/J1/J2/J3 executed 2026-05-05; K1/K2 executed 2026-05-05; L1/L2/L3 executed 2026-05-05)
-**Blocked:** 1 — F4 (schema mismatch with audit; see step F4)
+**Blocked:** 0 — F4 resolved WONTFIX 2026-06-12 (UPGRADE-PLAN T1: already satisfied, audit was stale; see step F4)
 
 | Phase | Steps | Audit / Source | Risk |
 |-------|-------|----------------|------|
@@ -887,7 +887,9 @@ Mark F3 [DONE].
 
 ---
 
-## F4 [BLOCKED] Add indexes to `intel.db` for hot query paths
+## F4 [WONTFIX] Add indexes to `intel.db` for hot query paths
+
+> **Resolution (2026-06-12, UPGRADE-PLAN T1): WONTFIX — already satisfied; the source audit was stale.** F4's corrected intent (index the real hot-query paths in `intel.db`) is already fully implemented: the only table large enough to matter, `competitor_videos` (1,800 live rows), carries indexes on exactly the three columns its queries filter/sort by — `channel_id`, `is_outlier`, `published_at` (`_SCHEMA_SQL` lines 88–90, verified present in the live DB via `PRAGMA index_list`). Every other query is a no-op for indexing: `algo_snapshots` (16 rows) and `niche_snapshots` (14 rows) are read only as `ORDER BY id DESC LIMIT 1` (served by the integer-PK rowid), and `competitor_channels` (20 rows) is a tiny config registry where a `track_active` index would be ignored. The audit's two specific targets — `algo_snapshots.topic` and `niche_snapshots.niche` — name columns that never existed in the shipped schema, so adding a v3 migration to "implement" F4 would be cargo-cult: a useless gate against phantom columns. Per the root-cause rule, no schema was bent to force-fit the audit; the audit's Risk 4 concern ("intel.db has no explicit indexes") was simply resolved during normal F1–F3 schema work before F4's turn came.
 
 > **Blocker (2026-05-04):** Prompt's column targets don't match current `tools/intel/kb_store.py` schema:
 > - `algo_snapshots.topic` — column does not exist (table has `algorithm_model`, `signal_weights`, `longform_insights`, `confidence`).

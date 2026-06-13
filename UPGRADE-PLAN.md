@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (W3)
+**Last advanced:** 2026-06-12 (T1)
 **Total steps:** 24
-**Done:** 20
+**Done:** 21
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -375,7 +375,7 @@ For routines 1-6 (tools/routines/ + .claude/routines/ + scheduled task definitio
 
 # PHASE T — Production Tooling
 
-## T1 [TODO] Resolve REFACTOR-PLAN F4 (database hardening leftover)
+## T1 [DONE] Resolve REFACTOR-PLAN F4 (database hardening leftover)
 
 **Deps:** none
 
