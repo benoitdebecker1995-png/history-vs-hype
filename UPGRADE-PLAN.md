@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (T2)
+**Last advanced:** 2026-06-12 (R5)
 **Total steps:** 24
-**Done:** 22
+**Done:** 23
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -313,9 +313,9 @@ Only if R3 verdict = GRAPH-STILL-NEEDED. Extend tools/refresh-research-graph.py 
 
 **Commit:** `feat(research-infra): R4 scope-A graph densification`
 
-## R5 [BLOCKED] Drive source library — next stage only
+## R5 [DONE] Drive source library — next stage only
 
-> **Blocker (2026-06-12):** Next stage per `memory/project-drive-library.md` is **Layer 3 — Drive mirror + NLM integration** (Layers 1–2 + 2026-06-01 downloads consolidation all done; library = 1,063 active files, 15 GB — fits the Google AI Plus 2 TB quota). Layer 3 needs Google Drive WRITE access, which doesn't exist on this machine: no rclone, no Google Drive for Desktop mount (only C:/D: volumes), and the `claude.ai Google Drive` MCP connector is disabled in project config (and is read/search-oriented, not a bulk-upload channel). All setup paths (rclone OAuth, Drive for Desktop install) require user-live browser auth. The only other open library item (`_stash-needs-id` 16-file review) is also user-gated. **Unblock:** user picks an upload path — simplest is installing Google Drive for Desktop and pointing a mirror at `library/by-topic/`; alternative is rclone with an interactive OAuth config — then rerun R5.
+> **Resolved (2026-06-12):** Next stage was **Layer 3 — Drive mirror + NLM integration**. User went live; chose **rclone** over Drive-for-Desktop (programmatic verify + no resident app). Installed rclone 1.74.3 (winget), authorized remote `gdrive` (OAuth), uploaded all **1,063** `library/by-topic/` files (~23.7 GiB) to `gdrive:HvH-library/by-topic/`. Verified: remote count 1,063 = local 1,063, 0 missing, 10-file spot-check clean. Built `tools/drive_sync.ps1` (incremental `rclone sync` + `-Check`), and wired the Drive mirror into `/research` Step 8.5 (`source_add(drive)` fallback + `source_sync_drive` refresh + SKIP path). Full state in `memory/project-drive-library.md` Layer 3. (Drive quota is 400 GiB, not the "2 TB"/"15 GB" earlier notes — corrected.) Remaining library item `_stash-needs-id` (16 files) is user-gated review, tracked in the memory file, not part of this pipeline stage.
 
 **Deps:** none
 

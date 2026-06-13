@@ -508,6 +508,10 @@ Runs AFTER the ignorant sweep (Step 8). Resolves which swept sources we already 
    - Record the notebook UUID in `PROJECT-STATUS.md` Historian Stage State.
    - If NLM auth is expired (`Authentication expired`), STOP and ask the user to run `nlm login` (interactive — Claude cannot run it); stage the upload list and resume on their confirm.
 4. **The `[ACQUIRE]` remainder** is the acquisition queue — only sources the sweep wants that we don't own.
+5. **Drive mirror (Layer 3, wired 2026-06-12):** `library/by-topic/` is mirrored to Google Drive at `HvH-library/by-topic/` (rclone remote `gdrive`, same Google account as NotebookLM).
+   - **Upload fallback:** if a local `source_add(source_type="file")` fails (size/timeout), find the file's Drive copy via `mcp__notebooklm__source_list_drive` (search by canonical filename) and add it with `source_add(source_type="drive", document_id=...)`. Drive-sourced notebook sources can later be refreshed with `mcp__notebooklm__source_sync_drive`.
+   - **Keep mirror fresh:** after new PDFs land in `library/by-topic/`, run `powershell tools/drive_sync.ps1` (wraps `rclone sync`; `-Check` verifies without transferring).
+   - **SKIP path:** if rclone is missing or its auth is expired, continue with local-file uploads only — the mirror is a convenience, never a gate.
 
 **Note:** Owned sources upload automatically (above). For the `[ACQUIRE]` remainder, Claude surfaces the Stage B→C checklist; user confirms acquisition/upload before Stage C begins.
 
