@@ -23,9 +23,9 @@ The previous improvement cycles are closed. The dominant remaining problem, per 
 
 ## Status Tracker
 
-**Last advanced:** 2026-06-12 (T1)
+**Last advanced:** 2026-06-12 (T2)
 **Total steps:** 24
-**Done:** 21
+**Done:** 22
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -388,7 +388,7 @@ Read docs/archive/REFACTOR-PLAN.md step F4 (blocked: schema mismatch with audit)
 
 **Commit:** `fix(db): T1 resolve REFACTOR-PLAN F4 (implement or wontfix)`
 
-## T2 [TODO] Test-suite status + calibration-tool gaps
+## T2 [DONE] Test-suite status + calibration-tool gaps
 
 **Deps:** none
 
