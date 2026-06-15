@@ -16,10 +16,13 @@ Usage:
     python -m tools.packaging_autopilot --competitors      # Competitor scan only
     python -m tools.packaging_autopilot --retitle VIDEO_ID # Generate swap candidates for one video
 
-The 48h swap logic (from SWAP-PROTOCOL.md):
-    CTR < 2% at 48h + >500 impressions -> SWAP TITLE + THUMBNAIL
-    CTR 2-4% at 48h + >500 impressions -> SWAP TITLE only
-    CTR > 4% -> Hold steady
+The swap logic (V5 thresholds, from SWAP-PROTOCOL.md, 2026-06-14 live data):
+    CTR < 1.3% + >500 impressions -> SWAP one lever NOW (urgent; algo throttling)
+    CTR 1.3-4% + >500 impressions -> SWAP one lever to lift
+    CTR >= 4%  -> Hold steady
+Single-variable doctrine: change the thumbnail OR the title, never both (changing
+both re-blends the CTR). Surface picks the lever: Suggested/Browse -> thumbnail,
+Search -> title. Log every swap with `tools/swap_ledger.py` so the delta is tracked.
 """
 
 import json
@@ -130,19 +133,30 @@ def _assess_video(video: Dict) -> Dict[str, Any]:
         assessment['reason'] = f'Only {impressions} impressions — need 500+ for reliable CTR'
         return assessment
 
-    # CTR < 2%: SWAP TITLE + THUMBNAIL
-    if ctr > 0 and ctr < 2.0:
-        assessment['action'] = 'SWAP_BOTH'
-        assessment['reason'] = f'CTR {ctr:.1f}% < 2% with {impressions:,} impressions'
+    # V5 thresholds (2026-06-14 live data): the algorithm throttles fast, and you
+    # learn by changing ONE lever at a time (single-variable doctrine — changing
+    # both title AND thumbnail re-blends the CTR and teaches nothing about which
+    # moved it). See tools/SWAP-PROTOCOL.md, memory/feedback-filters-not-predictors.md.
+    surface = (video.get('traffic_source') or video.get('surface') or '').strip()
+
+    # CTR < 1.3%: urgent — swap ONE lever now
+    if ctr > 0 and ctr < 1.3:
+        assessment['action'] = 'SWAP'
+        assessment['priority'] = 'URGENT'
+        assessment['lever'] = _lever_guidance(surface)
+        assessment['reason'] = (f'CTR {ctr:.1f}% < 1.3% with {impressions:,} impressions '
+                                f'— algorithm throttling. {assessment["lever"]}')
         assessment['swap_candidates'] = _generate_swap_candidates(title)
 
-    # CTR 2-4%: SWAP TITLE ONLY
-    elif ctr >= 2.0 and ctr < 4.0:
-        assessment['action'] = 'SWAP_TITLE'
-        assessment['reason'] = f'CTR {ctr:.1f}% in 2-4% range — title swap may help'
+    # CTR 1.3-4%: swap one lever to lift
+    elif 1.3 <= ctr < 4.0:
+        assessment['action'] = 'SWAP'
+        assessment['priority'] = 'NORMAL'
+        assessment['lever'] = _lever_guidance(surface)
+        assessment['reason'] = (f'CTR {ctr:.1f}% in 1.3-4% range. {assessment["lever"]}')
         assessment['swap_candidates'] = _generate_swap_candidates(title)
 
-    # CTR > 4%: HOLD
+    # CTR >= 4%: HOLD
     elif ctr >= 4.0:
         assessment['action'] = 'HOLD'
         assessment['reason'] = f'CTR {ctr:.1f}% is strong — hold steady'
@@ -159,6 +173,23 @@ def _assess_video(video: Dict) -> Dict[str, Any]:
         assessment['reason'] += f' | RETITLE CANDIDATE: {retention:.0f}% retention but only {views} views'
 
     return assessment
+
+
+def _lever_guidance(surface: str) -> str:
+    """Single-variable swap guidance: pick ONE lever based on the dominant surface.
+
+    Suggested/Browse-dominant = thumbnail-dominant surface, so swap the thumbnail.
+    Search-dominant = title/keyword-dominant surface, so swap the title.
+    Never both — changing two re-blends the CTR (filters-not-predictors doctrine).
+    Log the swap with `python -m tools.swap_ledger open ...` so the delta is tracked.
+    """
+    s = surface.lower()
+    if 'search' in s:
+        return 'Swap the TITLE only (Search-dominant surface); leave the thumbnail. Log it in swap_ledger.'
+    if 'suggest' in s or 'browse' in s or 'related' in s:
+        return 'Swap the THUMBNAIL only (Suggested/Browse-dominant surface); leave the title. Log it in swap_ledger.'
+    return ('Swap ONE lever, not both: thumbnail if traffic is mostly Suggested/Browse, '
+            'title if mostly Search. Log it in swap_ledger.')
 
 
 def _generate_swap_candidates(current_title: str) -> List[Dict[str, Any]]:
@@ -181,16 +212,23 @@ def _generate_swap_candidates(current_title: str) -> List[Dict[str, Any]]:
 
 
 def _suggest_pattern_change(current_pattern: str, score_result: dict) -> str:
-    """Suggest what pattern to switch to based on current pattern's failure."""
+    """Suggest a DIFFERENT pattern to test against the failing one.
+
+    A swap should change the pattern (so it's a real alternative), not "fix" a
+    style flag. The colon/year/the_x_that "rules" are RETIRED causal claims —
+    confounded single-snapshot correlations, A/B-testable hedges, never "remove
+    it" (the channel's #1 and #3 videos both use colons). See PACKAGING_MANDATE
+    Tier 2/3 and title_scorer v5.
+    """
     pattern_alternatives = {
-        'declarative': 'Try versus framing ("X vs Y") or add evidence promise ("Here\'s the proof")',
-        'how_why': 'Try declarative with two sentences ("Statement. Evidence promise.")',
-        'versus': 'Try declarative with controversy frame ("X Claims Y. The Documents Say Otherwise.")',
-        'colon': 'Remove colon — use period or em-dash. Try declarative pattern.',
-        'question': 'Convert to declarative statement. Questions underperform.',
-        'the_x_that': 'Completely rewrite — worst pattern. Try versus or declarative.',
+        'declarative': 'Try versus framing ("X vs Y") or add an evidence promise ("Here\'s the proof")',
+        'how_why': 'Try declarative two-sentence ("Statement. Evidence promise.")',
+        'versus': 'Try declarative with a controversy frame ("X Claims Y. The Documents Say Otherwise.")',
+        'colon': 'Try a declarative two-punch (period instead of colon) — the colon itself is not the problem (#1/#3 videos use colons); change the pattern to get a real alternative arm.',
+        'question': 'Try a declarative statement arm (small sample on questions; test the alternative).',
+        'the_x_that': 'Try a versus or declarative arm — the "The X That Y" rule is retired (CIA Condor used it at 4.91% CTR); change the pattern to get contrast.',
     }
-    return pattern_alternatives.get(current_pattern, 'Try a different title pattern.')
+    return pattern_alternatives.get(current_pattern, 'Try a different title pattern as the alternative arm.')
 
 
 # =============================================================================
@@ -230,7 +268,7 @@ def generate_full_report(days: int = 14) -> str:
     lines.append("\n--- RECENT VIDEOS (48h SWAP CHECK) ---\n")
     recent = check_recent_videos(days=days)
 
-    action_counts = {'SWAP_BOTH': 0, 'SWAP_TITLE': 0, 'HOLD': 0, 'WAIT': 0, 'CHECK_STUDIO': 0}
+    action_counts = {'SWAP': 0, 'HOLD': 0, 'WAIT': 0, 'CHECK_STUDIO': 0}
     for v in recent:
         if 'error' in v:
             lines.append(f"  ERROR: {v['error']}")
@@ -239,20 +277,23 @@ def generate_full_report(days: int = 14) -> str:
         action = v['action']
         action_counts[action] = action_counts.get(action, 0) + 1
 
-        icon = {'SWAP_BOTH': 'XX', 'SWAP_TITLE': 'X.', 'HOLD': 'OK', 'WAIT': '..', 'CHECK_STUDIO': '??'}
+        icon = {'SWAP': 'X.', 'HOLD': 'OK', 'WAIT': '..', 'CHECK_STUDIO': '??'}
+        tag = action
+        if action == 'SWAP' and v.get('priority') == 'URGENT':
+            tag = 'SWAP!'
         lines.append(
             f"  [{icon.get(action, '??')}] {v['ctr']:.1f}% CTR | {v['views']:>5} views | "
             f"{v['title'][:45]}"
         )
-        if action.startswith('SWAP'):
+        if action == 'SWAP':
             lines.append(f"       -> {v['reason']}")
             for cand in v.get('swap_candidates', []):
                 if 'suggestion' in cand:
-                    lines.append(f"       -> Suggestion: {cand['suggestion']}")
+                    lines.append(f"       -> If swapping the title: {cand['suggestion']}")
 
-    lines.append(f"\n  Summary: {action_counts.get('SWAP_BOTH', 0)} need full swap, "
-                 f"{action_counts.get('SWAP_TITLE', 0)} need title swap, "
-                 f"{action_counts.get('HOLD', 0)} performing well")
+    lines.append(f"\n  Summary: {action_counts.get('SWAP', 0)} need a single-lever swap, "
+                 f"{action_counts.get('HOLD', 0)} performing well, "
+                 f"{action_counts.get('WAIT', 0)} too early")
 
     # Section 2: Competitor outliers
     lines.append("\n--- COMPETITOR OUTLIERS (3x+ channel avg) ---\n")
@@ -264,6 +305,24 @@ def generate_full_report(days: int = 14) -> str:
         lines.append("  No recent outliers found.")
 
     lines.append(f"\n  Total outliers in niche: {comp['outlier_count']}")
+
+    # Section 2b: Swap experiments due to read
+    lines.append("\n--- SWAP EXPERIMENTS DUE TO READ ---\n")
+    try:
+        from tools.swap_ledger import experiments_due
+        due = experiments_due()
+        if due:
+            for e in due:
+                lines.append(
+                    f"  [DUE] #{e['id']} {e['video_id']} ({e['variable']}) — "
+                    f"baseline {e['baseline_ctr']:.2f}%, read by {e['planned_read_date']}"
+                )
+                lines.append(f"        -> python -m tools.swap_ledger read {e['id']}")
+        else:
+            lines.append("  None due. (Open one after a single-variable swap: "
+                         "python -m tools.swap_ledger open ...)")
+    except Exception as e:
+        lines.append(f"  Could not read swap ledger: {e}")
 
     # Section 3: Quick stats
     lines.append("\n--- CHANNEL PACKAGING HEALTH ---\n")
@@ -277,12 +336,12 @@ def generate_full_report(days: int = 14) -> str:
             if avg and avg[0]['avg_ctr']:
                 lines.append(f"  Avg CTR: {avg[0]['avg_ctr']:.1f}% (across {avg[0]['n']} videos)")
 
-            # Videos with CTR < 2% and > 500 impressions (actionable swaps).
+            # Videos below the 4% hold floor with a real impression test (swap candidates).
             swap = store.execute(
                 "SELECT COUNT(*) AS n FROM videos "
-                "WHERE ctr_percent > 0 AND ctr_percent < 2.0 AND impressions > 500"
+                "WHERE ctr_percent > 0 AND ctr_percent < 4.0 AND impressions > 500"
             )
-            lines.append(f"  Videos needing swap: {swap[0]['n']}")
+            lines.append(f"  Swap candidates (<4% CTR, >500 imp): {swap[0]['n']}")
 
             # High retention + low views.
             retitle = store.execute(

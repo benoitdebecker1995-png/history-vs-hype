@@ -28,12 +28,26 @@ Run:
 import sys
 from pathlib import Path
 
+import pytest
+
 # Make sure repo root is on the path so `tools` package resolves.
 _REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
 from tools.title_scorer import score_title  # noqa: E402
+
+
+# This corpus measures CONSTRUCTION scoring (see module docstring — "a
+# construction-only scorer"). But score_title() silently pulls
+# get_viability_modifier(), which reads the LIVE, mutable intel.db. That demand
+# signal makes the test non-deterministic and drifted the bar from 7 to 8 as
+# intel.db was refreshed (observed 2026-06-15, present on the committed tree too).
+# Neutralize it so the test measures what it claims to and is reproducible.
+@pytest.fixture(autouse=True)
+def _construction_only(monkeypatch):
+    import tools.packaging_intel as _pi
+    monkeypatch.setattr(_pi, "get_viability_modifier", lambda q: 0)
 
 # ---------------------------------------------------------------------------
 # 22-VIDEO REGRESSION CORPUS — D1 §4 (PREDICTED-VS-ACTUAL)
@@ -196,6 +210,40 @@ def test_clickbait_still_rejected():
     )
 
 
+def test_staleness_fields_present_and_safe():
+    """score_title carries staleness_days/snapshot_date keys; static mode = None, no crash."""
+    r = score_title("Guatemala vs Belize: Border on Trial")  # no db_path
+    assert "staleness_days" in r and "snapshot_date" in r
+    assert r["staleness_days"] is None and r["snapshot_date"] is None
+
+
+def test_get_latest_snapshot_date_and_staleness(tmp_path):
+    """get_latest_snapshot_date reads MAX date; score_title --db computes staleness_days."""
+    import sqlite3
+    from datetime import date, timedelta
+    from tools.title_ctr_store import get_latest_snapshot_date
+
+    db = tmp_path / "keywords.db"
+    conn = sqlite3.connect(db)
+    # Minimal tables score_title's DB path touches; only ctr_snapshots is read for staleness.
+    conn.execute(
+        "CREATE TABLE ctr_snapshots (video_id TEXT, snapshot_date DATE, ctr_percent REAL, "
+        "impression_count INTEGER, view_count INTEGER)"
+    )
+    old_date = (date.today() - timedelta(days=100)).isoformat()
+    conn.execute(
+        "INSERT INTO ctr_snapshots VALUES (?,?,?,?,?)",
+        ("V", old_date, 3.0, 1000, 30),
+    )
+    conn.commit()
+    conn.close()
+
+    assert get_latest_snapshot_date(str(db)) == old_date
+    r = score_title("China vs Taiwan. Four Claims Exposed", db_path=str(db))
+    assert r["snapshot_date"] == old_date
+    assert r["staleness_days"] >= 100  # 100-day-old snapshot -> stale (warns past 45)
+
+
 def test_regression_pass():
     """Full 22-video regression: mismatches must be <= REGRESSION_BAR (v4 baseline = 10/22)."""
     mismatch_count, mismatches = run_regression()
@@ -214,6 +262,10 @@ if __name__ == "__main__":
     print()
     print("Running Title Scorer v5 regression + acceptance cases...")
     print()
+
+    # Construction-only: neutralize the live-DB viability modifier (see fixture note).
+    import tools.packaging_intel as _pi
+    _pi.get_viability_modifier = lambda q: 0
 
     failures = []
 

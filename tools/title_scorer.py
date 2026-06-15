@@ -214,6 +214,7 @@ COLON_PENALTY_VERSUS = 0    # was -10; "X vs Y: Stakes" = channel #3 video's exa
 THE_X_THAT_PENALTY = -15    # was -50; CIA Condor title ("The CIA Document That Proved...")
                             # got 4.91% fresh CTR 2026-06-10 snapshot (D1 dossier)
 SEARCH_ANCHOR_BONUS = 12    # v5 new: recognized head term in first 40 chars (C3)
+STALENESS_WARN_DAYS = 45    # warn when the newest live CTR snapshot is older than this
 LENGTH_SWEET_SPOT = (35, 70)  # Optimal character range for mobile (v4: lowered from 40)
 LENGTH_PENALTY_SHORT = -5   # Too short = vague
 LENGTH_PENALTY_LONG = -10   # Too long = truncated on mobile
@@ -576,6 +577,22 @@ def score_title(title: str, db_path: str = None, topic_type: str = None, experim
     db_base_score = db_overrides.get(pattern)  # None if not in DB
     db_enriched = db_base_score is not None
 
+    # Staleness of the live-CTR data behind a DB-enriched score (informational).
+    # The scorer's static PATTERN_SCORES rest on a 2026-02-23 snapshot; --db reads
+    # live ctr_snapshots. Report how old the newest snapshot is so a stale DB is visible.
+    staleness_days: Optional[int] = None
+    snapshot_date: Optional[str] = None
+    if db_path is not None:
+        try:
+            from tools.title_ctr_store import get_latest_snapshot_date
+            from datetime import date
+            snapshot_date = get_latest_snapshot_date(db_path)
+            if snapshot_date:
+                y, m, d = (int(x) for x in snapshot_date[:10].split('-'))
+                staleness_days = (date.today() - date(y, m, d)).days
+        except Exception:
+            pass  # never crash on staleness reporting
+
     # ------------------------------------------------------------------
     # 4. Small-sample fallback (BENCH-02)
     #    When db_path provided AND own-channel n < _OWN_CHANNEL_MIN_SAMPLE
@@ -830,6 +847,8 @@ def score_title(title: str, db_path: str = None, topic_type: str = None, experim
         'detected_topic': normalized_topic,
         'topic_type_target': topic_type_target,
         'niche_percentile_label': niche_percentile_label,
+        'staleness_days': staleness_days,        # age of newest live CTR snapshot, or None
+        'snapshot_date': snapshot_date,          # YYYY-MM-DD of newest live CTR snapshot
     }
 
 
@@ -900,6 +919,16 @@ def format_result(result: dict) -> str:
     fallback_warning = result.get('fallback_warning')
     if fallback_warning:
         lines.append(f"  Notice:  {fallback_warning}")
+
+    # Live-CTR staleness banner — only when DB-enriched scoring was attempted
+    snapshot_date = result.get('snapshot_date')
+    staleness_days = result.get('staleness_days')
+    if snapshot_date and staleness_days is not None:
+        line = f"  Live:    live CTR as of {snapshot_date} ({staleness_days} days old)"
+        if staleness_days > STALENESS_WARN_DAYS:
+            line += (f"  !! STALE (>{STALENESS_WARN_DAYS}d) — refresh via "
+                     f"ctr_quick_add; scores may rest on old data")
+        lines.append(line)
 
     if result.get('penalties'):
         for desc, val in result['penalties']:

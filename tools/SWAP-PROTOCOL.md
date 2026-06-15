@@ -15,91 +15,105 @@ Delayed-push videos average 1,917 lifetime views vs 544 for front-loaded (3.5x).
 
 **Implication:** The 48h swap trigger should focus on **CTR and impressions**, not raw view count. A video with low views but decent CTR (>4%) may simply be waiting for an algorithm push. Only swap when CTR is poor (<2%) WITH sufficient impressions (>500), confirming YouTube tested and viewers rejected the packaging.
 
-## Step 1: Pull 48h Metrics
+## Step 1: Pull Metrics
 
 From YouTube Studio (manual) or `/analyze`:
-- **CTR** (click-through rate)
+- **New-viewer CTR** — the metric to judge on. 98% of views are non-subscribers and
+  new-viewer CTR (~3%) runs well below returning-viewer CTR (~7%); blended CTR hides
+  the cold-audience gap the packaging must win. Use new-viewer CTR where Studio breaks
+  it out; fall back to blended only if it doesn't.
 - **Impressions** (how many times YouTube showed the thumbnail)
-- **AVD** (average view duration)
-- **Views**
+- **Dominant traffic surface** (Suggested / Browse / Search) — this picks the lever (Step 3)
+- **AVD** (average view duration), **Views**
 
-## Step 2: Diagnose
+## Step 2: Diagnose (V5 thresholds, 2026-06-14 live data)
 
-| CTR | Impressions | Diagnosis | Action |
-|-----|-------------|-----------|--------|
-| <2% | >500 | **Bad packaging** — YouTube tested it, viewers rejected it | SWAP TITLE + THUMBNAIL |
-| <2% | <500 | **Bad topic or suppressed** — YouTube didn't push it | Check search volume. If low, this was a bad topic choice. |
-| 2-4% | >500 | **Mediocre packaging** — performing below potential | SWAP TITLE only (test against backup) |
-| 2-4% | <500 | **Early — wait** | Re-check at 7 days |
-| >4% | Any | **Good packaging** — hold steady | No swap needed |
+The algorithm throttles fast — inferred ~1.3% first-48h CTR is the "keep getting pushed"
+floor; sub-1% plateaus within 24-48h. Judge on **new-viewer CTR**.
 
-## Step 3: Generate Swap Candidates
+| New-viewer CTR | Impressions | Diagnosis | Action |
+|----------------|-------------|-----------|--------|
+| <1.3% | >500 | **Throttling now** — tested and rejected | SWAP **one lever** immediately |
+| 1.3-4% | >500 | **Below potential** | SWAP **one lever** to lift |
+| <1.3-4% | <500 | **Early or suppressed** — check search volume | Wait / re-check at 7 days |
+| >=4% | Any | **Working** | HOLD — don't fix it |
 
-### Title Swap
+## Step 3: Pick ONE lever (single-variable doctrine)
 
-1. Run existing title through `title_scorer.py` — identify why it's underperforming
-2. Check backup titles in YOUTUBE-METADATA.md — score those too
-3. Generate new candidates with `retitle_gen.py` logic:
-   - Extract thesis from script opening
-   - Slot into versus/declarative patterns
-   - Score all candidates
-4. Pick the highest-scoring candidate that:
-   - Contains the primary search keyword
-   - Uses a DIFFERENT pattern than the failing title
-   - Scores 65+ on title_scorer.py
+**Change the thumbnail OR the title, never both.** CTR is one blended number
+(title + thumbnail + topic); if you change two things you can't attribute the move, so
+you learn nothing. The surface tells you which lever:
 
-### Thumbnail Swap
+- **Suggested / Browse-dominant** → swap the **thumbnail** (thumbnail-dominant surface).
+- **Search-dominant** → swap the **title** (keyword/title-dominant surface).
+- A thumbnail swap read on a Search-heavy video (or vice-versa) reads dirty — match the
+  lever to the surface.
 
-1. Run current thumbnail concept through `thumbnail_checker.py`
-2. If current concept fails any rule → fix the violation
-3. If current concept passes → change the STYLE, not the rules:
-   - Currently split-map? → Try arrow/flow map
-   - Currently document-on-map? → Try pure split-map
-   - Always keep text overlay, no talking-head face
-   - Map-based for territorial topics; historical/document visual for myth-busting
+**Log the swap before you wait** so the before/after delta is tracked, not lost to prose:
 
-### Description Swap
+```
+python -m tools.swap_ledger open --video <id> --variable thumbnail \
+    --baseline-ctr 1.91 --baseline-impr 2672 --surface Suggested --read-in 21d \
+    --old "<old>" --new "<new>" --note "<why>"
+```
 
-4. If the title changes, update first 3 lines of description to match
-5. Ensure primary search keyword appears in first sentence
+## Step 3b: Generate the alternative arm
 
-## Step 3b: (PREFERRED) Use YouTube Native A/B Testing
+Generate ONLY the lever you picked in Step 3 — leave the other untouched.
 
-Before manual swapping, use YouTube's built-in Test & Compare:
-1. YouTube Studio → Content → Select video → Thumbnail section → "Test & Compare"
-2. Upload up to 3 thumbnail+title combinations
-3. YouTube splits traffic and measures watch time per variant
-4. Let test run — YouTube declares winner automatically
+**If swapping the TITLE** (Search-dominant):
+1. Run the existing title through `title_scorer.py --db` — see why it underperforms.
+2. Score backups in YOUTUBE-METADATA.md; generate new candidates.
+3. Pick the highest-scoring candidate that (a) anchors the primary search keyword in
+   the first ~40 chars, (b) uses a **different pattern** than the failing title (so it's
+   a real alternative arm), (c) scores 65+. Note: colon/year/the-X-that are HEDGE flags,
+   not disqualifiers — don't "remove the colon," change the pattern.
+4. If the title changes, update the first 3 lines of the description to match.
 
-**Why this is better than manual swaps:**
-- Statistical significance testing (not raw 48h CTR snapshots)
-- Larger sample, no guessing about swap readiness
-- Tests run simultaneously, not sequentially
+**If swapping the THUMBNAIL** (Suggested/Browse-dominant):
+1. Build the new thumbnail to `.claude/REFERENCE/THUMBNAIL-CRAFT-RECIPE.md` (cut-out +
+   saturation pop + ONE red accent at the focal point + ≤3 huge words + REAL subject —
+   no AI-generated figure).
+2. Gate the rendered PNG through `python -m tools.preflight.thumbnail_image_audit` —
+   it must pass the **feed-size legibility** check (the one image-computable failure).
+   CLIP differentiation is informational only (ADR 0007).
+3. Run the concept through `thumbnail_checker.py` for the curiosity-gap filter (the
+   overlay must not duplicate the title). Don't leave the title unchanged AND make the
+   overlay restate it.
 
-**Use manual 48h swap ONLY if:**
-- Test & Compare unavailable (older video)
-- Urgent creative failure (CTR < 1% with high impressions)
+## Step 3c: Native A/B (Test & Compare) — PARKED at current traffic
 
-## Step 4: Execute Swap (Manual Fallback)
+YouTube's Test & Compare is the only verdict that truly isolates the thumbnail, but it
+needs more impressions than this channel's uploads currently get to reach significance
+(0 of the last 12 uploads ever ran one). **Until traffic grows, learn via the
+single-variable before/after swap above**, not A/B. When a video does pull enough reach,
+prefer Test & Compare over a manual swap. (See ADR 0007 + the packaging-overhaul plan.)
 
-1. Change title in YouTube Studio
-2. Upload new thumbnail
-3. Update YOUTUBE-METADATA.md with swap history:
+## Step 4: Execute + log
+
+1. Change the one lever in YouTube Studio (title OR thumbnail).
+2. **Log it in the swap ledger** (this is the system of record — not a prose SWAP LOG):
    ```
-   ### SWAP LOG
-   - **Original (published DATE):** "Old Title" — CTR X.X%, Y impressions
-   - **Swap 1 (DATE):** "New Title" — Reason: [diagnosis]
+   python -m tools.swap_ledger open --video <id> --variable thumbnail \
+       --baseline-ctr <pre> --baseline-impr <pre> --surface <Suggested|Search|Browse> \
+       --read-in 21d --old "<old>" --new "<new>" --note "<why>"
    ```
-4. Update POST-PUBLISH-ANALYSIS.md with swap details
-5. Re-check at 48h post-swap
+3. The ledger regenerates `channel-data/SWAP-LEDGER.md` automatically.
 
-## Step 5: Learn
+## Step 5: Read the result + learn
 
-After 7 days post-swap:
-- Compare pre-swap vs post-swap CTR
-- If improved: note what changed (pattern type? keyword placement? thumbnail style?)
-- If not improved: the problem may be deeper (topic demand, retention, content quality)
-- Update `channel-data/patterns/TITLE-PATTERNS.md` with the learning
+When the experiment comes due (`python -m tools.swap_ledger list` flags it **DUE TO
+READ**), pull the post-swap **new-viewer CTR** from Studio and close the loop in one step:
+
+```
+python -m tools.ctr_quick_add "<title>" --ctr <new> --views <v> --impressions <i> --swap-read <experiment_id>
+```
+
+This ingests the CTR datapoint AND computes the experiment's delta + verdict
+(LIFT ≥ +0.5pp / FLAT / DROP). On a **LIFT**, it prints a paste-ready line for the
+proven-recipes appendix in `THUMBNAIL-CRAFT-RECIPE.md` so the win compounds into the
+operation priors. A FLAT/DROP means the problem is likely deeper (topic demand,
+retention) — don't keep swapping the same lever.
 
 ---
 
@@ -108,10 +122,10 @@ After 7 days post-swap:
 | Timing | Action |
 |--------|--------|
 | Publish | Monitor first 2 hours for obvious issues |
-| 48 hours | Run full swap protocol (this document) |
-| 48h post-swap | Re-check swapped videos |
-| 7 days | Final assessment, log learnings |
-| 30 days | Bulk retitle review (all videos <100 views) |
+| 48 hours | Diagnose (Step 2) on new-viewer CTR; if <1.3% on >500 imp, swap ONE lever now |
+| At swap | Log the experiment in `swap_ledger` |
+| ~21 days | `swap_ledger list` flags it DUE; read with `ctr_quick_add --swap-read` |
+| 30 days | Bulk review (`packaging_autopilot`) — back-catalog single-lever swaps |
 
 ---
 

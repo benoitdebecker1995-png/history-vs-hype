@@ -210,6 +210,9 @@ def main() -> None:
     parser.add_argument('--date', default=None, help='Snapshot date (YYYY-MM-DD, default: today)')
     parser.add_argument('--show', action='store_true', help='Show all CTR data in DB')
     parser.add_argument('--batch', help='Batch file: one line per video (title|ctr|views|impressions)')
+    parser.add_argument('--swap-read', type=int, default=None,
+                        help='Also close swap_ledger experiment #N with this reading '
+                             '(computes the before/after delta + verdict)')
 
     args = parser.parse_args()
 
@@ -265,6 +268,20 @@ def main() -> None:
     print(f"  Score:    {result['score']}/100 ({result['grade']})")
     print(f"  DB:       {'Written' if result['db_written'] else result.get('db_error', 'Failed')}")
     print(f"  Synth:    {'Updated' if result['synthesis_updated'] else result.get('synthesis_error', 'Skipped')}")
+
+    # Close a swap-ledger experiment with this reading, if requested.
+    if args.swap_read is not None:
+        from tools.swap_ledger import read_experiment
+        swap = read_experiment(args.swap_read)
+        if 'error' in swap:
+            print(f"  Swap:     {swap['error']}")
+        else:
+            print(f"  Swap:     #{swap['id']} {swap['verdict']} "
+                  f"({swap['baseline_ctr']:.2f}% -> {swap['post_ctr']:.2f}%, "
+                  f"{swap['delta_pp']:+.2f}pp)")
+            if swap.get('recipe_line'):
+                print("  Recipe:   LIFT — paste into THUMBNAIL-CRAFT-RECIPE.md:")
+                print(f"            {swap['recipe_line']}")
     print()
 
 

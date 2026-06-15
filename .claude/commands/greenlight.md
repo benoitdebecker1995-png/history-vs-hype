@@ -122,6 +122,25 @@ PACKAGING INTEL:
 
 This angle recommendation feeds directly into Step 2 (Title Generation) — titles should be generated FROM the angle, not in a vacuum.
 
+**0D. Competitor Outlier-Mining (growth lever — is the algorithm boosting this cluster NOW?)**
+
+A topic YouTube is actively pushing for small channels gets the impression test that Gate-2 packaging needs. Surface what's breaking out in the niche *right now* and whether this topic-cluster is among it:
+
+```bash
+python -m tools.packaging_intel --scan-competitors        # recent niche-wide 3x+ outliers (last 90 days)
+python -m tools.packaging_intel "<topic>"                 # topic-specific: competitor outlier_count + top match
+```
+
+The scanner is recency-filtered (last 90 days) — these are live boosts, not all-time hits. `get_topic_viability`'s `competitor_signal.outlier_count` tells you if *this* topic-cluster has recent outliers.
+
+```
+OUTLIER SIGNAL:
+  Niche-wide hot now: "the Iran war is SO much worse..." (40.8x), "the rotating villain theory" (13.3x)
+  This topic-cluster: 2 recent 3x+ outliers (top: "..." 310K) → outlier: YES
+```
+
+Carry **`outlier: YES/NO`** into the Step 4 composite verdict. An active cluster boost is a strong GO signal; no recent outliers isn't a STOP, but means you're relying on demand + hook alone.
+
 ---
 
 ### Step 1: Demand Check (HARD GATE)
@@ -211,6 +230,11 @@ If no title provided, generate candidates using:
 4. Style hedges (years, colons, "The X That Y") are graded penalties, NOT bans — per the re-tiered `PACKAGING_MANDATE.md` Tier 2 (the hard-reject policy is RETIRED; the channel's #1 and #3 videos both have colons). A/B-testable per BREAKOUT-HYPOTHESES.
 5. Title MUST set up a clear paradox (Specific Subject + Common Belief + Contradiction) that can be resolved in the first 5 seconds of the video.
 
+**Keyword-ladder GATE (MANDATE V2 — now a PASS/FAIL gate, not just a scorer bonus):**
+The best title MUST anchor a **famous parent keyword with real search volume in the first ~40 characters** — a 515-sub channel has no ranking power for a bare obscure proper noun. Verify with `title_scorer.has_search_anchor(title)` (the head-term recognizer behind `SEARCH_ANCHOR_BONUS`). The obscure entity is the *reveal* (the second punch), never the lead. If no candidate anchors a head term, the title FAILS this gate — regenerate, don't proceed (carry the result into Step 4).
+
+**Title ↔ thumbnail division of labor:** the title carries the **searched keyword + curiosity**; the thumbnail carries the **evidence/emotional payload**. They must NOT duplicate each other (this is the same curiosity-gap necessary condition `thumbnail_checker` enforces in Step 3) — if the title already says it, the thumbnail overlay must raise the question or name the charge, not restate it.
+
 **Traffic-optimized title selection (from TRAFFIC-SOURCE-ANALYSIS.md):**
 - **Search-optimized topics** (evergreen, high search volume): Prefer **How/Why** pattern — gets 26.4% search traffic (2x declarative)
 - **Browse-optimized topics** (trending, algorithm push): Prefer **Declarative** pattern — 3.8% CTR maximizes Browse clicks
@@ -255,29 +279,23 @@ from tools.preflight.thumbnail_checker import check_project
 result = check_project("video-projects/_IN_PRODUCTION/21-haiti-independence-debt-2025")
 ```
 
-If checking a new topic (`--full`), generate 3 thumbnail concepts following PACKAGING_MANDATE:
+If checking a new topic (`--full`), generate 3 thumbnail concepts by **operation** (not by static layout). Each concept performs ONE visual operation; pick the operations that fit the video's payload. See `.claude/REFERENCE/THUMBNAIL-CRAFT-RECIPE.md` for the full recipe and `/thumbnail` for grounded concept generation.
 
-**Template (auto-generate for any topic):**
+**Operation taxonomy (auto-generate for any topic):**
 
 ```
-**Concept A: Map + Text** (for territorial topics)
-- [Geographic view showing the two sides of the story]
-- Color contrast: [Side A color] vs [Side B color]
-- Bold text overlay: 2-4 word declarative phrase (e.g. "BORDER ERASED")
-- No talking-head face
+**Concept A — COMPRESSION**: collapse the whole video into one image the eye reads in <1s
+  (the single fact/contrast that IS the video). 2-4 word overlay naming the charge, not the title.
 
-**Concept B: Historical Visual + Text** (for myth-busting topics)
-- [Historical photo, document close-up, or conceptual visual]
-- Bold text overlay: topic word or short phrase (e.g. "THE MEMO")
-- No talking-head face
+**Concept B — DOSSIER METAPHOR**: the evidence object as the hero — real document/map/artifact,
+  cut-out + saturation pop + ONE red accent at the focal point. The auditor's-edge moat made visual.
+  (Raw sepia documents are a LIABILITY untreated — they must be cut out + saturated, not pasted flat.)
 
-**Concept C: Document + Text**
-- [Primary source document or evidence visual]
-- Text overlay highlighting the key claim/revelation
-- No talking-head face
+**Concept C — VISUAL ANSWER or MECHANISM REFRAME**: a simple map that answers a question (one red
+  contested zone, for territorial), OR a diagram that reframes the mechanism (for HOW/system topics).
 ```
 
-Then run the checker on the generated concepts.
+**Every concept MUST satisfy the necessary conditions** (these are filters, not predictors — ADR 0007): legible at 160px, ≤3 huge words, real subject (NO AI-generated figure — invisible polish of real material only), no talking-head face, and a **curiosity gap** (overlay must not duplicate the title). Then run the checker on the generated concepts; on the rendered PNG, gate with `thumbnail_image_audit` (feed-size legibility).
 
 ### Step 3b: Audience Segment + Format Tag (New — 2026-03-29)
 
@@ -326,8 +344,10 @@ Combine all checks into a single verdict:
 ║  Packaging: 5 competitors, gap found ✓           ║
 ║  Angle:     "Document reveal — original receipts" ║
 ║  Demand:    GO ✓  (4,299/mo)                     ║
+║  Outlier:   YES — cluster boosted now (2 recent)  ║
 ║  Title:     GO ✓  (85/A — versus, DB-enriched)   ║
-║  Thumbnail: GO ✓  (90/100 — map-based)           ║
+║  Keyword:   PASS ✓ — anchors "Haiti" (head term)  ║
+║  Thumbnail: PASS ✓ — necessary conditions met     ║
 ╠══════════════════════════════════════════════════╣
 ║  → Proceed to /research --new                    ║
 ╚══════════════════════════════════════════════════╝
@@ -339,9 +359,11 @@ When DB enrichment is unavailable (no CTR data ingested yet), display:
 ```
 
 **Verdict logic:**
-- **GO:** Demand ≥ GO AND best title ≥ 65 AND thumbnail ≥ 60
-- **REVIEW:** Any component is CAUTION/REVIEW but none is STOP/FAIL
-- **STOP:** Demand = STOP OR best title < 40 OR thumbnail = FAIL
+- **GO:** Demand ≥ GO AND best title ≥ 65 AND keyword-ladder = PASS AND thumbnail = PASS (necessary conditions). Outlier YES strengthens GO.
+- **REVIEW:** Any component is CAUTION/REVIEW but none is STOP/FAIL (e.g. keyword-ladder FAIL on every candidate → regenerate titles).
+- **STOP:** Demand = STOP OR best title < 40 OR thumbnail = FAIL (necessary conditions not met).
+
+**Note (ADR 0007 — filters, not predictors):** the Thumbnail and Keyword lines are **PASS/FAIL on necessary conditions** (legibility, curiosity-gap, head-term anchor), not clickability scores. No pre-publish number predicts the click; the only verdicts are demand (Gate 1) and live CTR (Gate 2, post-publish). The Outlier line is a topic-selection signal, not a packaging score.
 
 ### Step 5: Next Action
 

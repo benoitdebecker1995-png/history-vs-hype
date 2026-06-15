@@ -64,8 +64,10 @@
 
 | Topic | Lifecycle | Phase | Last Touched |
 |-------|-----------|-------|--------------|
+| `60-guadalupe-hidalgo-dispossession-2026` | `_IN_PRODUCTION` | research | 2026-06-13 |
+| `36-panama-canal-deconcini-2026` | `_IN_PRODUCTION` | scripting | 2026-06-11 |
 | `59-israel-palestine-partition-offer-2026` | `_IN_PRODUCTION` | fact-checked | 2026-06-08 |
-| `58-kurdistan-statelessness-2026` | `_READY_TO_FILM` | fact-checked | 2026-06-07 |
+| `58-kurdistan-statelessness-2026` | `_READY_TO_FILM` | fact-checked | 2026-06-14 |
 | `1-sykes-picot-2025` | `_READY_TO_FILM` | filmed | 2026-05-11 |
 
 ---

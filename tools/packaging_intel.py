@@ -411,6 +411,9 @@ def scan_competitor_outliers(
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
 
+        # Recency filter: only outliers published within the window ("what's working NOW").
+        # Rows with NULL published_at fail the comparison and are excluded (can't confirm
+        # recent) — intentional, matches the lever's purpose.
         cursor.execute("""
             SELECT cv.title, cv.views, cv.outlier_ratio, cv.topic_cluster,
                    cv.published_at, cc.channel_id
@@ -418,9 +421,10 @@ def scan_competitor_outliers(
             LEFT JOIN competitor_channels cc ON cv.channel_id = cc.channel_id
             WHERE cv.is_outlier = 1
               AND cv.outlier_ratio >= ?
+              AND cv.published_at >= date('now', ?)
             ORDER BY cv.outlier_ratio DESC
             LIMIT 30
-        """, (min_ratio,))
+        """, (min_ratio, f'-{int(days)} days'))
 
         rows = cursor.fetchall()
         conn.close()

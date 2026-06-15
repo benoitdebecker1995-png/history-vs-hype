@@ -165,14 +165,21 @@ An empty flag list (zero flags across all four checks) counts as automatic pass 
 import sys, subprocess
 sys.path.insert(0, '.')
 from tools.title_scorer import score_title
+from tools.discovery.database import KeywordDB
 
+# Use live CTR (DB-enriched) by default — static PATTERN_SCORES are only a fallback.
+db = KeywordDB()
+db_path = db.db_path
 candidates = ["Title Option A", "Title Option B", "Title Option C"]
 for t in candidates:
-    result = score_title(t)
+    result = score_title(t, db_path=db_path)
     print(f"  {result['score']}/{result['grade']}  {t}")
+    if result.get('snapshot_date'):
+        print(f"    live CTR as of {result['snapshot_date']} ({result['staleness_days']}d old)")
     if result.get('penalties'):
         for p in result['penalties']:
             print(f"    PENALTY: {p}")
+db.close()
 
 # Also run outlier pattern check for niche-validated signals
 for t in candidates:
@@ -185,9 +192,9 @@ for t in candidates:
 
 **Rules:**
 - **Score < 65 → BLOCKED.** Do not include in YOUTUBE-METADATA.md. Generate a replacement.
-- **Grade = REJECTED → HARD BLOCK.** Title contains a year, colon, or "The X That Y" pattern. Rewrite immediately.
+- **Grade = REJECTED → HARD BLOCK.** REJECTED now fires ONLY on the clickbait brand-gate (e.g. "SHOCKING", "You won't believe") — NOT on year/colon/"The X That Y" (those are graded HEDGE style penalties per `PACKAGING_MANDATE.md` Tier 2/3; the hard-reject policy is RETIRED — the channel's #1/#3 videos both use colons). Review `style_warnings`, don't treat them as fatal.
 - **All 3 title options must score 65+.** If none pass, keep generating until 3 do.
-- **Display scores to user** so they can make an informed pick.
+- **Display scores to user** (incl. the live-CTR staleness line) so they can make an informed pick.
 
 **Output format in YOUTUBE-METADATA.md:**
 

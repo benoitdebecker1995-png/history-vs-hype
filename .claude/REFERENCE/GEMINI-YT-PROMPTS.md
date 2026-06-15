@@ -99,3 +99,26 @@ judging them directly (or with a vision tool you control). Keep only if you cros
 **Wired into:** the 48h **swap protocol** (P5 + P-SWAP — judge on new-viewer CTR, watch the ~1.3%
 @48h throttle floor) and `/greenlight` **outlier-mining** (P2 as a live complement to the static
 `intel.db` scan). See `tools/SWAP-PROTOCOL.md`, `.claude/commands/greenlight.md`, ADR 0007.
+
+---
+
+## Refresh ritual — keep the scorer's live data current
+
+The per-video CTR numbers these prompts pull are the channel's **only** fresh CTR source
+(`analytics.db` stores NULL CTR; the live data lives in `keywords.db ctr_snapshots`). `title_scorer`
+now prints a staleness banner ("live CTR as of YYYY-MM-DD (N days old)") and warns past 45 days. To
+keep it fresh, after a Studio-Gemini number pull, paste the readings straight back through
+`ctr_quick_add`:
+
+```bash
+# one video:
+python -m tools.ctr_quick_add "Exact Published Title" --ctr 3.8 --views 1500 --impressions 40000
+# many at once (one per line: title|ctr|views|impressions):
+python -m tools.ctr_quick_add --batch ctr_pulls.txt
+```
+
+This updates `ctr_snapshots` (so DB-enriched `title_scorer --db` and the staleness banner stay
+current) and the master synthesis table. If the pull was reading a video under a live single-variable
+swap, add `--swap-read <experiment_id>` to also close that `swap_ledger` experiment in the same step.
+Run this whenever you do a Studio-Gemini pull — it's the standing refresh that keeps the static
+constants from going stale.

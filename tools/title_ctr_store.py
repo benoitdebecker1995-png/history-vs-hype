@@ -17,11 +17,30 @@ Usage:
 """
 
 import sqlite3
-from typing import Dict
+from typing import Dict, Optional
 
 from tools.logging_config import get_logger
 
 logger = get_logger(__name__)
+
+
+def get_latest_snapshot_date(db_path: str) -> Optional[str]:
+    """Return the most recent non-zero ctr_snapshots date (YYYY-MM-DD), or None.
+
+    Used by title_scorer to report how stale the live-CTR data behind a DB-enriched
+    score is. Returns None on any DB error / missing table — never raises.
+    """
+    try:
+        conn = sqlite3.connect(db_path)
+        cur = conn.execute(
+            "SELECT MAX(snapshot_date) FROM ctr_snapshots WHERE ctr_percent > 0"
+        )
+        row = cur.fetchone()
+        conn.close()
+        return row[0] if row and row[0] else None
+    except sqlite3.Error as e:
+        logger.debug("latest snapshot date lookup failed (%s): %s", db_path, e)
+        return None
 
 
 def get_pattern_ctr_from_db(db_path: str, min_sample: int = 3) -> Dict[str, int]:

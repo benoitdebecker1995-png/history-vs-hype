@@ -36,8 +36,8 @@ Breakouts held 34–39% avg watch; the channel median is 28.1%. Governed by scri
 - Evidence: every breakout had one; the impression-starved 2025 cohort had neither. Binding constraint at Gate 1.
 - Enforced by `/greenlight` + `demand_checker.py`. Hard stop, no exceptions.
 
-### V2: Search-anchored head term
-- A country/region/entity head term with real search volume must appear in the first ~40 characters of the title.
+### V2: Search-anchored head term (keyword-ladder GATE)
+- A country/region/entity head term with real search volume must appear in the first ~40 characters of the title. **Enforced as a `/greenlight` Step-4 PASS/FAIL gate** (2026-06-15), not just the `title_scorer` `SEARCH_ANCHOR_BONUS (+12)`: anchor a famous parent keyword, deliver the obscure entity as the *reveal*. Recognizer: `title_scorer.has_search_anchor`.
 - Evidence: all 4 breakouts front-load country names ("Guatemala vs Belize", "Venezuela vs Guyana", "Turkey Claims 152 Greek Islands", "JD Vance"). The stall cohort is dominated by document/myth-first titles with zero-volume head terms ("The Lenape…", "Treaty of Tripoli:…", "38 Dead Over 4.6 Square Kilometers"). Confirms feedback-starting-channel-search-anchored (515 subs = every title needs a keyword anchor).
 - Channel-DNA note: the document-forensic identity stays **in the video** (doc on screen). The title front-loads the searched subject; the primary-source reveal is the second punch ("…The Documents Disagree"). NOT stakes-first geopolitics framing — that's the RealLifeLore lane (anti-voice).
 
