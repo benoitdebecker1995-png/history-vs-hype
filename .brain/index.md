@@ -1,6 +1,6 @@
 # .brain/index.md — Master Knowledge Catalog
 
-*Auto-maintained by Routine 5 (brain hygiene, nightly). Last updated: 2026-06-13*
+*Auto-maintained by Routine 5 (brain hygiene, nightly). Last updated: 2026-06-14*
 
 ---
 
@@ -73,6 +73,11 @@
 ## 4. Recently Added / Changed (last 14 days)
 <!-- AUTO:routine-5 — prepend new entries; entries older than 14 days are dropped -->
 
+- 2026-06-14 — `docs/adr/0007-thumbnail-checks-are-filters-not-predictors.md` — new ADR: thumbnail checks reframed as pass/fail filters, not CTR predictors
+- 2026-06-14 — `.claude/REFERENCE/THUMBNAIL-CRAFT-RECIPE.md` — new craft-recipe reference for thumbnail construction
+- 2026-06-14 — `tools/thumbnail/` — new thumbnail render module (`render.py`, `__init__.py`)
+- 2026-06-14 — `tools/preflight/{thumbnail_checker,thumbnail_image_audit}.py` — updated under filters-not-predictors reframe
+- 2026-06-14 — `.claude/{agents/thumbnail-critic,commands/thumbnail}.md` — thumbnail critic + command aligned to craft recipe
 - 2026-06-13 — `video-projects/_IN_PRODUCTION/60-guadalupe-hidalgo-dispossession-2026/` — new project scaffolded (01-VERIFIED-RESEARCH, SCRIPT, 03-FACT-CHECK, PROJECT-STATUS, _research preliminary brief + NotebookLM source list + Gemini wiki cache)
 - 2026-06-13 — `channel-data/serp-studies/titles/guadalupe-hidalgo-2026-06-13.{json,md}` — SERP title shelf study for Guadalupe Hidalgo
 - 2026-06-13 — `.claude/routines/reconcile-daily.md` + `run-reconcile.ps1` — Routine 6 registered as claude-driven `HvH-Reconcile` task (auto-publish-only backstop)
@@ -106,7 +111,7 @@
 <!-- AUTO:routine-5 — populated by nightly brain-lint pass -->
 
 ```
-LAST LINT: 2026-06-13 22:00
+LAST LINT: 2026-06-14 22:00
 Stale items (>90d unverified):  0
 Orphan pages (no inbound links): 0 (sources/ + threads/ empty)
 Open contradictions:             0 (wiki/contradictions/ absent — skipped)

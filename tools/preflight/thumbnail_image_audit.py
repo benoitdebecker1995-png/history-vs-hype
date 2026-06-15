@@ -2,18 +2,22 @@
 Thumbnail Image Audit — pixel-level QC of a RENDERED thumbnail.
 
 Complements `thumbnail_checker.py` (which scores the *concept text* pre-render).
-This tool scores the actual exported image on three things the concept checker
-can't see:
+This tool verifies the image NECESSARY conditions the concept checker can't see.
+It is a FILTER, not a clickability predictor (clickability is decided by native A/B):
 
-  1. Technical compliance   (>=1280x720, ~16:9, <2MB, JPG/PNG)
-  2. Mobile legibility       (downsized previews at feed sizes for eyeball check)
-  3. SERP differentiation     (does it blend into THIS video's actual competitors?)
+  1. Technical compliance    (>=1280x720, ~16:9, <2MB, JPG/PNG)
+  2. Feed-size legibility     (COMPUTED detail gate at 160px + preview render) — the
+                              one image-computable failure: a mushy blob that won't
+                              read in feed. This drives the verdict. Calibrated on real
+                              winners/losers 2026-06-14 (blob=2103, winners>=4255).
+  3. SERP differentiation     (CLIP cosine vs the actual shelf) — INFORMATIONAL ONLY.
+                              Differentiation is NOT clickability (a low-info blob is
+                              "distinct"); the old +5/-20 scoring was a false-confidence
+                              bug and has been removed.
 
-The differentiation check is the reason this exists. Channel thumbnail rules are
-LOW confidence on averages (text overlay is a 90%+ floor in BOTH winners and
-losers — see THUMBNAIL-AUDIT-FINDINGS-2026-04-26.md). This sidesteps averaging:
-it measures whether the rendered thumbnail is visually distinct from the actual
-top results for the target query, per-video, objectively.
+Curiosity-gap (title vs overlay), single-focal-point, and AI-figure are SEMANTIC —
+handled by thumbnail_checker, thumbnail-critic, and native A/B, not here.
+See .claude/REFERENCE/THUMBNAIL-CRAFT-RECIPE.md.
 
 Adapted from deeployCO/youtube-seo-skills (analyze_thumbnail.py / SKILL.md), with
 two improvements for this repo:
@@ -55,9 +59,17 @@ RATIO_TOLERANCE = 0.05          # +/- 5% of 16:9
 MAX_BYTES = 2 * 1024 * 1024     # YouTube hard cap 2MB
 MOBILE_SIZES = [(120, 68), (246, 138), (480, 270)]  # feed / search / mid
 
-# SERP differentiation verdict bands (CLIP cosine, mean vs competitors)
-DIFF_STRONG = 0.55   # below = strong pattern-break (good)
-DIFF_BLEND = 0.70    # above = blends into the shelf (bad)
+# Feed-size legibility gate (4-neighbour Laplacian variance at 160x90).
+# Calibrated 2026-06-14 on REAL thumbnails: the one known mushy-blob failure
+# (old Combo B coin) = 2103; every winner + clean render observed >= 4255.
+# Below MIN = likely illegible at feed size. This is the #1 image-computable failure.
+LEGIBILITY_MIN = 3000
+
+# SERP differentiation bands (CLIP cosine). INFORMATIONAL ONLY — differentiation is
+# NOT clickability (a low-info blob is "distinct" precisely because it's empty).
+# Does NOT affect the score; the old +5/-20 scoring was the false-confidence bug.
+DIFF_DISTINCT = 0.55
+DIFF_SIMILAR = 0.70
 
 CLIP_MODEL = "ViT-B-32"
 CLIP_PRETRAINED = "openai"
@@ -122,6 +134,17 @@ def _contrast(img) -> float:
     arr = np.asarray(img, dtype=np.float32)
     lum = 0.299 * arr[..., 0] + 0.587 * arr[..., 1] + 0.114 * arr[..., 2]
     return float(lum.std())
+
+
+def _legibility(img) -> float:
+    """Detail retained at feed size (160x90), via 4-neighbour Laplacian variance.
+    Low = mushy blob that won't read in the feed — the one image-computable failure.
+    (Does NOT see curiosity-gap, single-focal-point, or AI-figure; those are semantic.)"""
+    from PIL import Image
+    s = np.asarray(img.resize((160, 90), Image.LANCZOS).convert("L"), dtype=np.float32)
+    c = s[1:-1, 1:-1]
+    lap = s[:-2, 1:-1] + s[2:, 1:-1] + s[1:-1, :-2] + s[1:-1, 2:] - 4 * c
+    return float(lap.var())
 
 
 def _write_mobile_previews(img, stem: str) -> Path:
@@ -215,12 +238,12 @@ def _differentiation(target: Path, serp: List[Path]) -> Dict:
     mean_sim = float(sims.mean())
     order = np.argsort(sims)[::-1][:3]
     closest = [(serp[i].stem, round(float(sims[i]), 3)) for i in order]
-    if mean_sim < DIFF_STRONG:
-        band = "STRONG pattern-break"
-    elif mean_sim < DIFF_BLEND:
-        band = "TYPICAL (category norm)"
+    if mean_sim < DIFF_DISTINCT:
+        band = "DISTINCT"
+    elif mean_sim < DIFF_SIMILAR:
+        band = "TYPICAL"
     else:
-        band = "BLENDS IN (too similar)"
+        band = "SIMILAR to shelf"
     return {
         "method": method,
         "mean_sim": round(mean_sim, 3),
@@ -284,6 +307,16 @@ def audit(thumb_path: str, serp_ids: Optional[str] = None,
     passes.append("Dominant colors: " +
                   ", ".join(f"{hx} ({sh:.0%})" for hx, sh in colors))
 
+    # --- feed-size legibility (the one image-computable failure: mushy blob) ---
+    leg = _legibility(img)
+    if leg < LEGIBILITY_MIN:
+        issues.append(f"ILLEGIBLE AT FEED SIZE — detail {leg:.0f} < {LEGIBILITY_MIN} "
+                      "(mushy/low-detail at 160px; the subject won't read in feed). "
+                      "Fix: bigger subject, sharper cutout, heavier stroked text.")
+        score -= 35
+    else:
+        passes.append(f"Feed-size legibility (detail {leg:.0f} >= {LEGIBILITY_MIN}) OK")
+
     # --- mobile previews ---
     preview_dir = _write_mobile_previews(img, path.stem)
     passes.append(f"Mobile previews written -> {preview_dir} "
@@ -303,23 +336,17 @@ def audit(thumb_path: str, serp_ids: Optional[str] = None,
 
     if serp_paths:
         diff = _differentiation(path, serp_paths)
-        if diff["band"].startswith("STRONG"):
-            passes.append(f"SERP differentiation {diff['mean_sim']} — "
-                          f"{diff['band']} ({diff['method']})")
-            score += 5
-        elif diff["band"].startswith("TYPICAL"):
-            issues.append(f"SERP differentiation {diff['mean_sim']} — "
-                          f"{diff['band']}. Push one element (color/layout) further "
-                          f"from the pack. ({diff['method']})")
-            score -= 5
-        else:
-            issues.append(f"SERP differentiation {diff['mean_sim']} — "
-                          f"{diff['band']}. Redesign: it disappears next to "
-                          f"competitors. ({diff['method']})")
-            score -= 20
+        # INFORMATIONAL ONLY — differentiation is not clickability; no score impact.
+        passes.append(f"SERP differentiation {diff['mean_sim']} — {diff['band']} "
+                      f"({diff['method']}). Informational only — NOT a clickability signal.")
     else:
-        passes.append("No competitors supplied — skipped differentiation "
-                      "(pass --serp-ids id1,id2 to enable)")
+        passes.append("No competitors supplied — differentiation skipped "
+                      "(informational only; pass --serp-ids id1,id2 to enable)")
+
+    # Honest scope: this gate verifies image NECESSARY conditions only.
+    passes.append("SCOPE: catches illegibility + tech only. Curiosity-gap (title vs "
+                  "overlay), single-focal-point, and AI-figure are NOT image-computable "
+                  "— use thumbnail_checker (duplication) + thumbnail-critic + native A/B.")
 
     score = max(0, min(100, score))
     verdict = "PASS" if score >= 80 else "REVIEW" if score >= 60 else "FAIL"
@@ -334,8 +361,8 @@ def print_report(result: Dict) -> None:
     reset = "\033[0m"
     v = (f"{colors.get(verdict,'')}{verdict}{reset}"
          if sys.stderr.isatty() else verdict)
-    print(f"\n{'=' * 60}\n  THUMBNAIL IMAGE AUDIT\n{'=' * 60}")
-    print(f"\n  Verdict: {v} ({score}/100)")
+    print(f"\n{'=' * 60}\n  THUMBNAIL IMAGE FILTER  (feed-size legibility + tech — NOT clickability)\n{'=' * 60}")
+    print(f"\n  Verdict: {v} ({score}/100 — filter score, not a clickability prediction)")
     if result.get("diff"):
         d = result["diff"]
         print(f"\n  DIFFERENTIATION ({d['method']}):")

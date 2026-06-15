@@ -81,7 +81,7 @@ Each entry lists the n-size and the contradicting evidence. Per feedback-data-ov
 ## THUMBNAIL MANDATE
 
 > **Retired 2026-04-26.** Thumbnail rules live in `tools/benchmark/PER-CHANNEL-THUMBNAIL-PLAYBOOK.md` and `tools/benchmark/OUTLIER-THUMBNAIL-CORPUS.md` (text overlay is a floor, not a predictor; face/map usage channel-anchored). Use `/thumbnail` for per-video concepts.
-> **Gate-2 addendum (2026-06-10):** the thumbnail carries at least half the test-batch CTR burden. Rendered thumbnail must pass `thumbnail_image_audit.py` SERP differentiation (<0.70 CLIP vs target query top results) — this is now the thumbnail's Gate-2 check.
+> **Gate-2 addendum (2026-06-10, corrected 2026-06-14 per ADR 0007):** the thumbnail carries at least half the test-batch CTR burden — but no pre-publish number predicts the click. Rendered thumbnail must pass `thumbnail_image_audit.py`'s **feed-size legibility + tech gate** (a mushy/illegible thumbnail is the one image-computable click-killer). CLIP **differentiation is informational only** (differentiation ≠ clickability). The real Gate-2 verdict is native A/B / reach-window CTR, never a pre-publish score.
 
 ---
 
@@ -91,7 +91,7 @@ Each entry lists the n-size and the contradicting evidence. Per feedback-data-ov
 - [ ] Title front-loads a search-anchored head term (V2)
 - [ ] Title scores 65+ on title_scorer.py (V4) — style warnings reviewed, not auto-fatal
 - [ ] Pattern chosen deliberately (declarative default; versus for bilateral disputes; how/why for evergreen search)
-- [ ] Thumbnail concepts via `/thumbnail`; rendered image passes `thumbnail_image_audit.py` differentiation
+- [ ] Thumbnail concepts via `/thumbnail`; rendered image passes `thumbnail_image_audit.py` **feed-size legibility + tech** (differentiation is informational only — ADR 0007)
 - [ ] Final-cut audio: -16 to -12 LUFS, true peak ≤ -1 dBTP (`audio_loudness.py`)
 - [ ] 48h swap protocol armed (V5): know your swap candidates BEFORE publish
 
@@ -104,7 +104,7 @@ Each entry lists the n-size and the contradicting evidence. Per feedback-data-ov
 | `title_scorer.py` | Title construction, anchors, graded penalties | `python -m tools.title_scorer "Title Here"` |
 | `outlier_title_dissector.py` | Outlier pattern analysis (scale words, two_sentence, specificity) | `python -m tools.benchmark.outlier_title_dissector --score "Title Here"` |
 | `thumbnail_checker.py` | Concept TEXT checks | `python -m tools.preflight.thumbnail_checker --project PATH [--territorial]` |
-| `thumbnail_image_audit.py` | Rendered IMAGE: compliance, legibility, SERP differentiation | `python -m tools.preflight.thumbnail_image_audit THUMB.jpg --serp-ids id1,id2` |
+| `thumbnail_image_audit.py` | Rendered IMAGE filter: tech compliance + **feed-size legibility** (hard); CLIP differentiation informational only | `python -m tools.preflight.thumbnail_image_audit THUMB.jpg` |
 | `audio_loudness.py` | Final-cut loudness | `python -m tools.preflight.audio_loudness FINAL-CUT.mp4` |
 | `demand_checker.py` | Search volume, comparables | `python -m tools.preflight.demand_checker "topic"` |
 | `news_hook_monitor.py` | Live news hooks (now a V1 input, not just discovery) | `python -m tools.discovery.news_hook_monitor --scan` |

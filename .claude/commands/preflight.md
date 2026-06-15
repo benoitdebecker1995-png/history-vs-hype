@@ -8,7 +8,7 @@ model: opus
 One command, two layers:
 
 1. **Script-stage readiness** — the existing 5-gate engine (`tools/preflight/scorer.py`): topic, script, title/metadata, thumbnail-concept, duration → weighted composite + READY/REVIEW/NOT-READY verdict. This is meaningful from the moment a script + metadata exist.
-2. **Render QC** (conditional) — runs **only** when the rendered assets exist: the exported thumbnail image (`thumbnail_image_audit.py`) and the final cut audio (`audio_loudness.py`). These are NOT folded into the composite (they don't exist at script stage and would dilute it) — they're a separate pass/fail block that hard-blocks upload on a thumbnail that blends in.
+2. **Render QC** (conditional) — runs **only** when the rendered assets exist: the exported thumbnail image (`thumbnail_image_audit.py`) and the final cut audio (`audio_loudness.py`). These are NOT folded into the composite (they don't exist at script stage and would dilute it) — they're a separate pass/fail block that hard-blocks upload on a thumbnail that's illegible at feed size.
 
 Use it twice in a project's life: at script-lock (layer 1 only) and pre-upload (both layers).
 
@@ -17,7 +17,7 @@ Use it twice in a project's life: at script-lock (layer 1 only) and pre-upload (
 ```
 /preflight                          # Auto-detect active _IN_PRODUCTION / _READY_TO_FILM project
 /preflight [project-folder]         # Explicit project
-/preflight [project] --serp-ids a,b,c   # Supply competitor video IDs for thumbnail differentiation
+/preflight [project] --serp-ids a,b,c   # Optional: adds the informational thumbnail shelf-differentiation line
 /preflight [project] --save         # Also write PREFLIGHT-SCORECARD.md to the project folder
 ```
 
@@ -27,7 +27,7 @@ Use it twice in a project's life: at script-lock (layer 1 only) and pre-upload (
 |------|---------|
 | *(default)* | Auto-detect single in-production/ready project. If multiple, list and ask. |
 | `[project-folder]` | Use a specific project folder. |
-| `--serp-ids a,b,c` | Competitor YouTube video IDs for the thumbnail SERP-differentiation check. If omitted, the command tries `_research/comment-mining/*.info.json`; if none, it runs the image audit *without* differentiation and notes it. |
+| `--serp-ids a,b,c` | Optional competitor IDs for the **informational** shelf-differentiation line (CLIP, not a gate — ADR 0007). Omit it and the image audit still runs its real job: the feed-size legibility + tech gate. |
 | `--save` | Append the full report to `[project]/PREFLIGHT-SCORECARD.md`. Default: chat only. |
 | `--no-render` | Skip layer 2 even if assets exist (script-stage check only). |
 
@@ -79,11 +79,11 @@ python -m tools.preflight.audio_loudness "<final-cut.mp4>"
 
 | Check | BLOCK (hard) | FLAG (advisory) | PASS |
 |---|---|---|---|
-| Thumbnail differentiation | `BLENDS IN` (>0.70) | `TYPICAL` (0.55–0.70) | `STRONG` (<0.55) |
+| Thumbnail feed-size legibility | illegible at 160px (mushy / low-detail) | — | reads at 160px |
 | Thumbnail tech | res < 1280×720, or file > 2MB | low contrast | compliant |
 | Audio | — | outside −16…−12 LUFS, or peak > −1 dBTP | in band |
 
-- If `open_clip_torch` missing, the image audit falls back to a histogram proxy (flagged, directional) — report it as such, don't treat as authoritative.
+- SERP differentiation (CLIP) is **informational only** (ADR 0007 — differentiation ≠ clickability), never a BLOCK; `--serp-ids` only adds that context line. If `open_clip_torch` is missing it falls back to an even-more-directional histogram proxy.
 - If ffmpeg missing, audio returns `MISSING` — surface `winget install Gyan.FFmpeg`, do NOT block.
 
 ### Step 4 — Combined verdict
@@ -92,9 +92,9 @@ Print one consolidated verdict line:
 
 - **UPLOAD-READY** — composite ≥ 70 AND no Render-QC BLOCK.
 - **REVIEW** — composite 50–69, OR any Render-QC FLAG with no BLOCK.
-- **NOT READY** — composite < 50, OR any Render-QC BLOCK (e.g., thumbnail BLENDS IN, sub-spec resolution).
+- **NOT READY** — composite < 50, OR any Render-QC BLOCK (e.g., thumbnail illegible at feed size, sub-spec resolution).
 
-A thumbnail `BLENDS IN` or sub-spec resolution overrides a passing composite to NOT READY — a strong script behind an invisible thumbnail still doesn't get the click.
+A thumbnail that's **illegible at feed size** or sub-spec resolution overrides a passing composite to NOT READY — a strong script behind an unreadable thumbnail still doesn't get the click.
 
 ### Step 5 — Save (if `--save`)
 

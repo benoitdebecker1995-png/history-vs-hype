@@ -26,7 +26,10 @@ WEIGHTS = {
     'topic': 0.20,
     'script': 0.25,
     'title': 0.25,
-    'thumbnail': 0.15,
+    'thumbnail': 0.15,   # NOTE (ADR 0007): the thumbnail-concept score is a NECESSARY-CONDITIONS
+                         # filter (legible / curiosity-gap / real-subject), NOT a clickability
+                         # predictor. A clean concept ~100; broken concepts drop. Clickability is
+                         # decided live (Test & Compare / reach-window CTR), never by this number.
     'duration': 0.15,
 }
 

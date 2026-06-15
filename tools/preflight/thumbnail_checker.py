@@ -1,5 +1,13 @@
 """
-Thumbnail Checker — enforces thumbnail rules validated by niche benchmark.
+Thumbnail Checker — necessary-condition FILTER on the thumbnail CONCEPT TEXT.
+
+Reworked 2026-06-14 to align with .claude/REFERENCE/THUMBNAIL-CRAFT-RECIPE.md:
+removed the harmful penalties (no-map-on-territorial -20 and document-only -15 both
+pushed the RealLifeLore look and punished the on-voice dossier operation), and added a
+curiosity-gap check (the overlay must not duplicate the title). This is a FILTER, not a
+clickability predictor — clickability is decided by native A/B.
+
+Original niche-benchmark notes follow.
 
 Rules based on visual classification of 650 thumbnails across 14 edu/history channels
 (classified 2026-03-20) — see tools/benchmark/THUMBNAIL-NICHE-ANALYSIS.md.
@@ -158,8 +166,31 @@ def _has_signal(text: str, signals: List[str], exclude_negated: bool = False) ->
     return bool(found), found
 
 
+_STOPWORDS = {
+    "the", "a", "an", "of", "in", "for", "on", "with", "at", "by", "from", "to",
+    "and", "or", "but", "their", "they", "its", "his", "her", "our", "your", "my",
+    "this", "that", "these", "those", "is", "are", "was", "were", "be", "it",
+    "own", "had", "has", "have", "who", "what", "why", "how", "years", "year",
+}
+
+
+def _content_words(s: str) -> set:
+    """Lowercased significant words (drops stopwords / short tokens) for overlap checks."""
+    return {w for w in re.findall(r"[a-z0-9]+", s.lower())
+            if w not in _STOPWORDS and len(w) > 2}
+
+
+def _extract_title(metadata: str) -> Optional[str]:
+    """Best-effort title pull from YOUTUBE-METADATA.md (Title: line, or first H1)."""
+    for pat in (r"(?im)^\s*(?:\*\*)?title(?:\*\*)?\s*[:\-]\s*(.+)$", r"(?m)^#\s+(.+)$"):
+        m = re.search(pat, metadata)
+        if m:
+            return m.group(1).strip().strip('"').strip("*").strip()
+    return None
+
+
 def check_thumbnail(text: str, is_person_focused: bool = False,
-                    is_territorial: bool = False) -> Dict:
+                    is_territorial: bool = False, title: Optional[str] = None) -> Dict:
     """Check thumbnail concept text against niche-validated rules.
 
     Rules based on visual classification of 650 thumbnails across 14 edu/history
@@ -191,8 +222,9 @@ def check_thumbnail(text: str, is_person_focused: bool = False,
     # Best: 2-4 word phrase. NOT the full title.
     has_text, text_matches = _has_signal(text, TEXT_OVERLAY_SIGNALS, exclude_negated=True)
     if has_text:
-        passes.append(f"Text overlay present (87% of niche, n=650): {', '.join(text_matches[:2])}")
-        score += 5  # Small bonus
+        # Overlay presence is a FLOOR, not a plus (90%+ of all videos have one) — no bonus.
+        # ADR 0007 / CONTEXT: score the operation the overlay performs, not its mere presence.
+        passes.append("Text overlay present (floor met — not scored; the operation is what matters)")
     else:
         if 'no text' in lower:
             issues.append("NO TEXT OVERLAY — 87% of niche uses text (n=650). Add 2-4 word phrase. "
@@ -203,25 +235,38 @@ def check_thumbnail(text: str, is_person_focused: bool = False,
                           "WonderWhy style: 'WHY IRELAND SPLIT'. Knowing Better style: single topic word.")
             score -= 10
 
-    # --- RULE 1b: Text length check (12-char hard limit) ---
-    # Thumbnails with under 12 text characters significantly outperform.
-    # "ELIMINATE SALIENT" (17 chars) failed 2-second comprehension in Ferozepur test.
+    # --- RULE 1b: Overlay WORD count (recipe R6: <=3 words; a 2-line 4-word overlay is the max) ---
+    # Was a 12-char limit, which false-failed legit 2-line overlays like "PROOF OF | A STATE".
+    # Re-based on word count — reads-at-feed-size is about word count, not raw character length.
     text_overlay_match = re.search(
         r'["\u201c]([^"\u201d]+)["\u201d]',  # Extract quoted text overlay
         text
     )
     if text_overlay_match:
         overlay_text = text_overlay_match.group(1).strip()
-        char_count = len(overlay_text)
-        if char_count > 12:
-            issues.append(f"TEXT TOO LONG — \"{overlay_text}\" is {char_count} chars (max 12). "
-                          "Shorten to 1-2 words. Ferozepur lesson: jargon + long text fails comprehension.")
+        word_count = len(overlay_text.split())
+        if word_count > 4:
+            issues.append(f"OVERLAY TOO LONG — \"{overlay_text}\" is {word_count} words. "
+                          "Recipe R6: <=3 words (a 2-line 4-word overlay like 'PROOF OF / A STATE' "
+                          "is the ceiling). Long overlays don't resolve at feed size.")
             score -= 10
-        elif char_count <= 7:
-            passes.append(f"Text overlay \"{overlay_text}\" is {char_count} chars (excellent — under 7)")
-            score += 3
         else:
-            passes.append(f"Text overlay \"{overlay_text}\" is {char_count} chars (under 12 limit)")
+            passes.append(f"Overlay length OK (\"{overlay_text}\" = {word_count} words, <=3-4)")
+
+    # --- RULE 9: Curiosity gap — overlay must NOT duplicate the title (recipe R2) ---
+    if title and text_overlay_match:
+        overlay_cw = _content_words(text_overlay_match.group(1))
+        title_cw = _content_words(title)
+        dup = overlay_cw & title_cw
+        if overlay_cw and len(dup) / len(overlay_cw) >= 0.5:
+            issues.append("OVERLAY DUPLICATES TITLE — shared: " + ", ".join(sorted(dup)) +
+                          ". Title and thumbnail must divide labor (curiosity gap): make the "
+                          "overlay raise the question / name the charge, not repeat the title.")
+            score -= 25  # duplication breaks the one real necessary condition — must drop below PASS
+        else:
+            passes.append("Curiosity gap OK (overlay adds what the title doesn't)")
+    elif title:
+        passes.append("Curiosity gap not checked (no quoted overlay text found)")
 
     # --- RULE 2: No talking-head face (0% of niche uses selfie/talking head) ---
     # Historical/subject photos are acceptable (27% of closest matches use them)
@@ -244,19 +289,18 @@ def check_thumbnail(text: str, is_person_focused: bool = False,
     else:
         passes.append("No talking-head face (0% of niche norm)")
 
-    # --- RULE 3: Geographic/map element (TOPIC-DEPENDENT) ---
-    # Territorial topics: 88% of geo channels use maps → strongly recommended
-    # Myth-busting topics: 14% of closest matches use maps → optional
+    # --- RULE 3: Map (INFORMATIONAL — not mandatory) ---
+    # Per THUMBNAIL-CRAFT-RECIPE: a map only helps if it performs VISUAL ANSWER
+    # (simple zones + ONE red contested area, like the ICJ/Guatemala winners). A map is
+    # NOT required for territorial topics — the old -20 "no map" penalty pushed the
+    # RealLifeLore look and is removed.
     has_map, map_matches = _has_signal(text, MAP_SIGNALS)
     if has_map:
-        passes.append(f"Map/geographic element detected: {', '.join(map_matches[:3])}")
-    elif is_territorial:
-        issues.append("NO MAP FOR TERRITORIAL TOPIC — Geo channels use maps 88% of the time. "
-                      "Territorial/border topics should have map-first thumbnails.")
-        score -= 20
+        passes.append(f"Map element detected: {', '.join(map_matches[:3])} — ensure it's a "
+                      "SIMPLE map that answers a question (one red contested zone), not a busy "
+                      "reference map.")
     else:
-        # For non-territorial topics, map is optional — myth-busting channels only use maps 14%
-        passes.append("No map (acceptable for non-territorial topic — myth-busting channels average 14% map usage)")
+        passes.append("No map (fine — document/subject operations are on-voice for this channel)")
 
     # --- RULE 4: Arrows/icons (OPTIONAL — 14% of niche) ---
     has_arrows, arrow_matches = _has_signal(text, ARROW_ICON_SIGNALS)
@@ -270,22 +314,17 @@ def check_thumbnail(text: str, is_person_focused: bool = False,
         issues.append(f"STOCK IMAGERY — Use custom maps/documents instead: {', '.join(stock_matches)}")
         score -= 15
 
-    # --- RULE 6: No document-only (must pair with geographic context) ---
+    # --- RULE 6: Document-only is FINE (the dossier operation) ---
+    # Removed the old -15 penalty: a document / evidence object IS the auditor's-edge
+    # dossier operation (cf. the KGB 18.4% winner). On-voice, not a defect.
     has_doc_only, doc_matches = _has_signal(text, DOCUMENT_ONLY_SIGNALS)
     if has_doc_only:
-        issues.append("DOCUMENT-ONLY — Pair documents with geographic context (map + document overlay)")
-        score -= 15
+        passes.append("Document/evidence-object focus (the dossier operation — on-voice)")
 
-    # --- RULE 7: Color contrast ---
-    contrast_signals = ['color contrast', 'two colors', 'opposing', 'split',
-                        'warm', 'cool', 'red', 'blue', 'gold', 'faded',
-                        'rich', 'drained', 'bright', 'dark']
-    has_contrast, contrast_matches = _has_signal(text, contrast_signals)
-    if has_contrast:
-        passes.append(f"Color contrast detected: {', '.join(contrast_matches[:3])}")
-    else:
-        issues.append("NO COLOR CONTRAST — Use two distinct colors showing opposing sides")
-        score -= 10
+    # --- RULE 7 (REMOVED 2026-06-14, ADR 0007): "no color contrast -10" was a PREDICTOR on the
+    # concept TEXT, not a necessary condition — it false-fired on fine dossier concepts that simply
+    # didn't name a color. Contrast is verified on the rendered IMAGE by thumbnail_image_audit
+    # (luminance std), never guessed from the concept wording.
 
     # --- RULE 8: Clean composition ---
     busy_signals = ['busy', 'cluttered', 'complex background', 'many elements',
@@ -360,7 +399,8 @@ def check_project(project_path: str, is_person_focused: bool = False,
             'text_analyzed': '',
         }
 
-    return check_thumbnail(thumb_section, is_person_focused, is_territorial)
+    title = _extract_title(metadata_text)
+    return check_thumbnail(thumb_section, is_person_focused, is_territorial, title=title)
 
 
 def print_report(result: Dict) -> None:
@@ -378,9 +418,9 @@ def print_report(result: Dict) -> None:
         v_display = verdict
 
     print(f"\n{'=' * 60}")
-    print(f"  THUMBNAIL CHECK")
+    print(f"  THUMBNAIL CONCEPT FILTER  (necessary conditions — NOT a clickability score)")
     print(f"{'=' * 60}")
-    print(f"\n  Verdict: {v_display} ({score}/100)")
+    print(f"\n  Verdict: {v_display} ({score}/100 conditions met — clickability is decided live, not here)")
 
     if result['passes']:
         print(f"\n  PASSES:")
@@ -401,6 +441,7 @@ def main():
     )
     parser.add_argument("project", nargs='?', help="Project folder path")
     parser.add_argument("--text", help="Direct thumbnail description text to check")
+    parser.add_argument("--title", help="Video title — enables the curiosity-gap check (overlay must not duplicate it)")
     parser.add_argument("--person-focused", action="store_true",
                         help="Video is about a specific person (allows face)")
     parser.add_argument("--territorial", action="store_true",
@@ -412,7 +453,7 @@ def main():
     setup_logging(args.verbose, args.quiet)
 
     if args.text:
-        result = check_thumbnail(args.text, args.person_focused, getattr(args, 'territorial', False))
+        result = check_thumbnail(args.text, args.person_focused, getattr(args, 'territorial', False), title=args.title)
     elif args.project:
         result = check_project(args.project, args.person_focused, getattr(args, 'territorial', False))
     else:

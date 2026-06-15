@@ -39,6 +39,19 @@ Reusable hook construction: establish the same rule/pattern across 4-6 independe
 The script-quality KPI: number of full top-to-bottom read-aloud or revision rounds that produce script edits before the script locks. Micro-fixes inside a round don't count as a separate pass. Reference points: #56 = 6 (READ-ALOUD v3→v8); #58 ≈ 2-3 (v17 baseline). Target: fewer passes with each script-writer calibration cycle (defined 2026-06-12, UPGRADE-PLAN Phase 1).
 _Avoid_: counting line-level micro-fixes or packaging edits as passes.
 
+## Packaging / thumbnail terms
+
+**Thumbnail clickability**:
+Whether a thumbnail earns the click. Measurable ONLY *live* — two distinct signals: native **Test & Compare** (the variant winner) and the reach-window CTR trend in `ctr_snapshots` (don't conflate them; at current traffic A/B isn't viable yet, so the operative read is the reach-window trend + single-variable swaps). There is **no pre-publish clickability score**. Pre-publish tools verify NECESSARY CONDITIONS (clarity, feed-size legibility, curiosity-gap), they do not predict the winner. See `.claude/REFERENCE/THUMBNAIL-CRAFT-RECIPE.md` and ADR 0007.
+_Avoid_: calling any pre-publish number (CLIP differentiation, a checker score) a "clickability" measure — that was the false-confidence bug fixed 2026-06-14.
+
+**Thumbnail differentiation**:
+How visually unlike the competitor shelf a thumbnail is (CLIP cosine, `thumbnail_image_audit`). **Informational only** — a low-information blob scores highly "differentiated" precisely because it's empty. Differentiation ≠ clickability.
+
+**Thumbnail operation**:
+The job the overlay+visual performs — COMPRESSION, DOSSIER METAPHOR, MECHANISM REFRAME, VISUAL ANSWER, LOCATION PROOF (`PER-CHANNEL-THUMBNAIL-PLAYBOOK.md`). The operation is the win-predictor; the *presence of a text overlay* is a **floor** (90%+ of all videos have one), not a predictor.
+_Avoid_: scoring "has a text overlay" as a positive — score the operation the overlay performs.
+
 ## Voice & delivery (channel-wide)
 
 > Canonical fingerprint and full rules: `.claude/REFERENCE/VOICE-PROFILE.md` (picks-validated, `/voice-discovery` 2026-06-05). VOICE-PROFILE.md **wins on conflict** with `WRITING-VOICE-AND-STYLE.md`. These are term definitions only; the rules/examples live in the profile.

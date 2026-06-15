@@ -1,76 +1,115 @@
-# SWAP CHECKLIST — 2026-06-03
+# SWAP CHECKLIST — 2026-06-13
 
-**Generated:** 2026-06-03 | **Batch size:** 1 (targeted) | **Measure at:** 2026-06-10
+**Generated:** 2026-06-13 | **Measure at:** 2026-06-20 (7-day window)
+**Data source:** fresh ctr_tracker snapshot 2026-06-10 (keywords.db `ctr_snapshots`) — NOT the stale Feb synthesis table.
 
-> **Instructions:** Open this file in one window, YouTube Studio in another.
-> Change the title on swap day for a clean 7-day comparison window.
-> Targeted single-video run (not the standard top-5 audit) — surfaced from the
-> analytics refresh as the channel's clearest packaging-trapped win.
+> **Why only 2 videos (not 10):** The `/retitle` audit reads a stale Feb-2023 lifetime snapshot and surfaced ghosts (Dark Ages, Tariff, Stalin — Stalin/Turkey are *already retitled*, Dark Ages/Tariff get ~0 live impressions). Per the funnel model, packaging effort pays at **Gate 2 — videos YouTube is testing RIGHT NOW.** Only two videos are getting real live impressions and failing the click. Those are the entire priority.
+
+> **Instructions (SUPERSEDED 2026-06-14 — single-variable):** The original plan said "change title + thumbnail together." That is a 2-variable change — you can't tell which moved CTR. **New method: change ONE variable at a time** (thumbnail OR title) per video, and read the before/after on the impressions it still gets. See `memory/feedback-filters-not-predictors.md` + ADR 0007.
+>
+> **▶ Active experiment #1 (Slave Trade `aSfZtrgGjwA`, shipped 2026-06-14):** THUMBNAIL-ONLY swap (DEPOPULATED → **"THE RECEIPTS"**: real African-noble illustration + real 1576 Portuguese manuscript + red wax seal, all real materials; **title kept** = "They Didn't Just Buy Slaves. They Built the System."). Baseline to beat: **1.91% CTR · ~2,672 imp L28D · 69% Suggested**. Read in 2-4 weeks — watch CTR *and* whether impressions re-expand. A clear lift (→ ~2.5%+) validates the craft loop → run it on the next dying video. The "NEW TITLE" proposed for Video 1 below is **on hold** — changing the title now would confound this thumbnail test.
 
 ---
 
-## Video 1: Putin / NATO Promise
+## Video 1: Atlantic Slave Trade (live Gate-2 failure — HIGHEST ROI)
 
-**Video ID:** `499YLd1BHZ4`
-**Studio link:** https://studio.youtube.com/video/499YLd1BHZ4/edit
-**Diagnosis:** LOW_IMPRESSIONS + low CTR. 48.3% retention (well above channel avg) trapped behind a 2.47% CTR title. Pure packaging failure — the content holds viewers; the title doesn't earn the click or signal topic relevance for impressions.
+**Video ID:** `aSfZtrgGjwA`
+**Studio link:** https://studio.youtube.com/video/aSfZtrgGjwA/edit
+**Live status (2026-06-10):** 5,188 impressions · **1.91% CTR** · 25.4% retention
+**Diagnosis:** Title concedes the opponent's frame; thumbnail is cryptic about the topic on a charged subject. SWAP TITLE + THUMBNAIL.
 
 ### OLD TITLE (copy to revert)
-Putin Says NATO Promised Not to Expand. The Documents Disagree.
+`Yes Slavery Existed In Africa. Then Europe Took Over`
 
 ### NEW TITLE
-Putin's NATO Promise Never Existed. 1,000 Documents Prove It
-*(score 77/100, grade B, pattern: declarative — +15 over current)*
+`The Atlantic Slave Trade Was Run by Europe. The Documents Prove It.`
+— score 80/100 (B), declarative two-punch, +10 vs current. Head term "Atlantic Slave Trade" front-loaded; evidence promise; matches the hook ("written by the men who ran the operation").
 
-### Title Source
-RETITLE-RECOMMENDATIONS via CATALOG-OPTIMIZATION-PLAN.md, re-scored this run, then **verified against the actual video transcript** (pulled 2026-06-03, saved at `channel-data/analyses/TRANSCRIPT-499YLd1BHZ4.txt`). No project-folder script exists for this video.
+### Why the old title failed
+It opens with **"Yes…"** — a concession that *agrees with the talking point* before the reveal. No curiosity gap; reads as conceding ground. The video's actual thesis is the opposite: the operation was built, scaled, and **documented by Europeans** (Henry the Navigator 1444, the papal bull, the Zurara chronicle). The title should promise the receipts, not concede the claim.
 
-### All Scored Candidates
+### All scored candidates
 | Score | Grade | Title |
-|-------|-------|-------|
-| 77 | B | Putin's NATO Promise Never Existed. 1,000 Documents Prove It |
-| 72 | B | NATO Never Promised Russia Anything. The Documents Prove It |
-| 67 | C | Putin Lied About a NATO Promise. 1,000 Documents Exposed Him |
-| 67 | C | NATO Never Promised Not to Expand. 1,000 Documents Prove It |
-| 62 | D | *(CURRENT)* Putin Says NATO Promised Not to Expand. The Documents Disagree. |
-| 57 | F | Putin Says NATO Broke a Promise. 1,000 Documents Say Otherwise |
-| 57 | D | The NATO Promise Putin Keeps Citing Never Existed |
-| 52 | D | NATO Promised Not to Expand. 1,000 Declassified Documents Disagree |
+|------|-------|-------|
+| 80 | B | The Atlantic Slave Trade Was Run by Europe. The Documents Prove It. ← pick |
+| 77 | B | The Men Who Ran the Slave Trade Wrote Everything Down. |
+| 70 | B | *(current)* Yes Slavery Existed In Africa. Then Europe Took Over |
+| 65 | C | A Pope Authorized the Atlantic Slave Trade in Writing. |
+| 55 | D | "They Were Already Slaves." The Slavers' Own Records Disagree. *(myth-quote — scorer-penalized but a strong A/B alt for ideological topics if pick #1 stalls)* |
 
-**Accuracy note (transcript-verified):** The title is well-grounded. The video's actual thesis is that Baker's "not one inch eastward" (Feb 9 1990, German Federal Archives) referred *only* to East German territory during reunification — NOT to Poland/Ukraine/Eastern Europe — and that Bush soon after told Gorbachev any country may choose its own path. So the broad "NATO promised not to expand" pledge Putin cites never existed. "Never Existed" matches the video's argument exactly. Runner-up (72/B) is the cleaner-attribution alternative if preferred.
+### THUMBNAIL — SWAP NEEDED
+**Current:** streamer face (left) + tiny illegible manuscript (right) + "CLAIMS vs RECEIPTS". Clever frame, but a browse viewer can't tell the topic, and a vague thumb on a racially-charged subject suppresses clicks.
+**New concept:** Make the **primary source the hero** — a large, legible aged document (the 1444/1455 record or papal bull) filling ~60% of frame, warm parchment tone. Short overlay, 2-3 words, high-contrast: **"THE SLAVERS' RECORDS"** or **"WRITTEN BY EUROPE"**. Keep the target-streamer face only as a small inset if it tests the original claim — but lead with the document. No verdict words (no "LIE"/"WRONG" — per channel rule, thumbnails declare facts, not verdicts).
+**Rationale:** title carries the topic keyword; thumbnail carries the *visual proof* (the document) — they reinforce instead of duplicating.
 
-### NEW DESCRIPTION (first 3 lines only — replace existing opening)
-Did NATO promise Russia it would never expand east? Putin has cited that promise dozens of times to justify the war in Ukraine. The declassified record says it never existed.
-Yale historian M.E. Sarotte had 1,000+ documents declassified from six national archives — and Baker's actual 1990 words ("not one inch eastward") were about East German territory, not Eastern Europe. Bush then told Gorbachev any country could choose its own path.
-Evidence-based, straight from the declassified diplomatic record — not talking points.
+### PRE-SWAP METRICS (for 2026-06-20 check)
+- CTR 1.91% · Impressions 5,188 · Retention 25.4% · Views 77
 
-### THUMBNAIL
-**Status:** MANUAL CHECK REQUIRED — no project folder / YOUTUBE-METADATA.md for this video.
-**Type:** document-on-map (declassified document is the central evidence; NATO-eastward map as backdrop)
-**Concept:** Map of Europe with NATO expansion shading pushing east toward Russia; a "DECLASSIFIED"-stamped document overlaid in the foreground. Optional 2-word overlay: "NO PROMISE". No face.
-**Color scheme:** NATO-blue west, cold grey/red Russia east, red stamp/overlay on the document.
-**Checker result:** Not run (no project metadata). Verify against thumbnail_checker before swap if a thumbnail change is made.
+---
 
-### PRE-SWAP METRICS (for comparison at 7-day check)
-- CTR: 2.47% | Impressions: 1,214 | Retention: 48.3% | Views: 46–51 | Subs: +3 (6.52%/100 views)
-- Source: ctr_snapshots (4 snapshots, 2026-02-23); analytics.db has no API CTR for this video.
+## Video 2: Hijab / The Veil (live Gate-2 failure — THUMBNAIL-DRIVEN)
+
+**Video ID:** `mCR5f_ZcB5k`
+**Studio link:** https://studio.youtube.com/video/mCR5f_ZcB5k/edit
+**Live status (2026-06-10):** 1,759 impressions · **1.48% CTR** · 28.2% retention
+**Diagnosis:** Title is *already* a strong two-punch — so 1.48% CTR is **thumbnail-driven**. SWAP THUMBNAIL (primary) + TITLE (secondary, reinforces).
+
+### OLD TITLE (copy to revert)
+`The Hijab Wasn't Modesty. It Was a Property Law`
+
+### NEW TITLE
+`The Veil Existed 1,800 Years Before Islam. The Law Proves It.`
+— score 80/100 (**A**), +10 vs current. Specificity bomb ("1,800 years"); **de-centers the religion fight** (less polarizing = more clicks); two-punch with evidence promise.
+
+### Why swap a title that's already decent
+The current "Wasn't modesty / property law" engages the Islam argument head-on — charged, and "property law" is abstract. The 1,800-years framing leads with a *shocking specific fact* and a curiosity gap, and pairs with a thumbnail that can finally show the veil.
+
+### All scored candidates
+| Score | Grade | Title |
+|------|-------|-------|
+| 80 | A | The Veil Existed 1,800 Years Before Islam. The Law Proves It. ← pick |
+| 70 | B | The Veil Is 1,800 Years Older Than Islam. Here Is Why It Existed. |
+| 70 | B | *(current)* The Hijab Wasn't Modesty. It Was a Property Law |
+| 65 | B | The First Veil Law Punished Slaves for Wearing One. *(paradox-hook A/B alt)* |
+
+### THUMBNAIL — SWAP NEEDED (the main lever here)
+**Current:** "PROPERTY LAW" + "MAL 40" on a bare brick wall. Legible but **the veil itself is absent** — no topic recognition, no curiosity. A browse viewer sees bricks and scrolls.
+**New concept:** Show **a veiled figure** (a historical/illustrative veiled woman, or a museum relief of a veiled figure — Wikimedia/public-domain to stay zero-budget and AI-trust-safe) against the Assyrian-relief background. Overlay, big high-contrast: **"1,800 YEARS BEFORE ISLAM"**. Optional tiny corner tag: "Assyrian Law, 1200 BCE". The veil = instant topic recognition; "1,800 years before Islam" = the curiosity gap.
+**Rationale:** the image must show the *subject* (the veil) AND the *surprise* (predates Islam). The current thumb shows neither.
+
+### PRE-SWAP METRICS (for 2026-06-20 check)
+- CTR 1.48% · Impressions 1,759 · Retention 28.2% · Views 80
+
+---
+
+## SECONDARY (lower confidence — do AFTER the two above)
+
+Dormant high-lifetime-impression videos. They got their impressions months ago and are **not currently being tested** (~0 live impressions), so a retitle is a *re-test gamble*, not a sure thing. Only worth doing once the two live failures are swapped and you want more at-bats.
+
+| Video | Lifetime imp | Old CTR | Note |
+|---|---|---|---|
+| Dark Ages Myth | 7,237 | 1.11% | No project map / candidates wired — needs script read before retitle |
+| Tariff Myth | 6,055 | 1.01% | Same |
 
 ---
 
 ## Post-Swap Checklist
+- [ ] Both titles changed in Studio (same day)
+- [ ] Both thumbnails swapped (document-hero for slave trade; veiled-figure for hijab)
+- [ ] SWAP LOG row added to each POST-PUBLISH-ANALYSIS (say "swaps executed" and I'll inject them)
+- [ ] Reminder set: **2026-06-20** — run `/retitle --check aSfZtrgGjwA` and `/retitle --check mCR5f_ZcB5k`
+- [ ] Success threshold: +0.5% CTR. Target: ≥4% (Gate-2 ideal). If flat → revert.
 
-- [ ] Title changed in YouTube Studio
-- [ ] Description first 3 lines updated (after SRT confirmation)
-- [ ] Thumbnail reviewed (swap optional — title-first test is cleaner for isolating CTR delta)
-- [ ] SWAP LOG added to POST-PUBLISH-ANALYSIS-499YLd1BHZ4.md (tell me "swaps executed" and I'll inject it)
-- [ ] Calendar reminder: **2026-06-10** — run `/retitle --check 499YLd1BHZ4`
-
-### SWAP LOG Entry Template (paste into POST-PUBLISH-ANALYSIS-499YLd1BHZ4.md)
-
+### SWAP LOG template (paste into each POST-PUBLISH-ANALYSIS)
 ```
 ## SWAP LOG
-
 | Date | Type | Old Value | New Value | Pre-CTR | Post-CTR | Result |
 |------|------|-----------|-----------|---------|---------|--------|
-| 2026-06-03 | title | "Putin Says NATO Promised Not to Expand. The Documents Disagree." | "Putin's NATO Promise Never Existed. 1,000 Documents Prove It" | 2.47% | TBD | pending |
+| 2026-06-13 | title | "<old>" | "<new>" | 1.91% | TBD | pending |
+| 2026-06-13 | thumbnail | "<old concept>" | "<new concept>" | 1.91% | TBD | pending |
 ```
+
+---
+
+## TOOLING GAP FOUND (worth fixing later)
+The `/retitle` audit (`tools/retitle_audit.py`) reads **lifetime CTR from the stale Feb-2023 `CROSS-VIDEO-SYNTHESIS.md`** and has no access to the fresh `ctr_snapshots` table or video IDs. It recommends retitles for already-fixed/dormant videos. **Fix:** point the audit at `tools/discovery/keywords.db ctr_snapshots` (latest snapshot) + join titles/IDs from `analytics.db`, and prioritize videos with live impressions in the most recent window. Until then, run the snapshot query manually (as done here) before trusting `/retitle`.

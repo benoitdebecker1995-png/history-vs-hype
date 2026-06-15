@@ -233,15 +233,15 @@ Gates 0–2 check metadata *text*. They cannot see the actual files the viewer e
 **a. Thumbnail image audit** — runs only if a rendered thumbnail exists:
 
 ```bash
-python -m tools.preflight.thumbnail_image_audit "<thumb.png>" --serp-ids <id1>,<id2>,<id3>
+python -m tools.preflight.thumbnail_image_audit "<thumb.png>"            # legibility + tech gate (hard)
+python -m tools.preflight.thumbnail_image_audit "<thumb.png>" --serp-ids <id1>,<id2>,<id3>   # + informational shelf line
 ```
 
-Supply 3–5 competitor video IDs for the target query (pull from `_research/comment-mining/*.info.json` if present, else the top search results for the primary keyword). This checks tech compliance, writes mobile-legibility previews, and scores **SERP differentiation** (CLIP cosine vs those competitors). This is the rendered-image counterpart to `thumbnail_checker.py`'s concept-text check.
+The **hard gate is feed-size legibility** — a mushy/low-detail thumbnail that won't resolve in the ~160px feed (the one image-computable click-killer), plus tech compliance (res / ratio / size). **SERP differentiation (CLIP) is INFORMATIONAL ONLY** — per ADR 0007, differentiation ≠ clickability (a low-info blob is trivially "distinct"). Pass `--serp-ids` only if you want the informational DISTINCT/TYPICAL/SIMILAR line; it does **not** affect the verdict.
 
-- **BLENDS IN (>0.70)** → BLOCK. The thumbnail disappears next to its competitors on the shelf; redesign before upload.
-- **TYPICAL (0.55–0.70)** → FLAG. Push one element (color/layout) further from the pack.
-- **STRONG (<0.55)** → pass.
-- If `open_clip_torch` isn't installed it falls back to an RGB-histogram proxy (flagged, directional only) — still catches gross blend-in.
+- **ILLEGIBLE AT FEED SIZE / sub-spec resolution / oversize file** → BLOCK. Won't read (or won't upload); fix before publishing.
+- **Legibility + tech PASS** → proceed.
+- Differentiation, when computed, is reported DISTINCT/TYPICAL/SIMILAR — a note for context, never a gate. (`open_clip_torch` missing → RGB-histogram proxy, even more directional; still informational.)
 
 **b. Audio loudness QC** — runs only if a final cut exists (and ffmpeg is installed):
 
@@ -254,7 +254,7 @@ Checks integrated LUFS / true-peak / loudness-range against YouTube's −14 LUFS
 - Integrated outside −16…−12 LUFS, or true peak > −1 dBTP → FLAG, remaster.
 - `MISSING` (ffmpeg not installed) → note it, don't block: `winget install Gyan.FFmpeg`.
 
-**Gate behavior:** A thumbnail `BLENDS IN` verdict blocks like a failing title (Gate 1). Audio findings are advisory flags, not hard blocks. If neither asset exists yet, record "Gate 3 deferred — assets not exported" and proceed.
+**Gate behavior:** A thumbnail that's **illegible at feed size** (or sub-spec resolution / oversize) blocks like a failing title (Gate 1). Differentiation is informational, never a block. Audio findings are advisory flags, not hard blocks. If neither asset exists yet, record "Gate 3 deferred — assets not exported" and proceed.
 
 ---
 

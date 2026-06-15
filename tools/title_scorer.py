@@ -8,8 +8,9 @@ Scores titles 0-100 based on measured CTR from POST-PUBLISH-ANALYSIS files.
     - declarative (n=19): Largest sample, most reliable pattern
     - how_why (n=5): Small but usable
     - question (n=1): SINGLE DATAPOINT — treat as unreliable
-    - colon penalty (-28%): RELIABLE — measured across multiple videos
-    - year penalty (-46%): RELIABLE — 5 with years vs 30 without
+    - colon penalty (-28%) / year penalty (-46%): NOT reliable causal effects — confounded
+      single-snapshot (2026-02-23) correlations (the channel's #1 and #3 videos BOTH use colons).
+      Now graded HEDGE penalties, A/B-testable, never auto-reject — see PACKAGING_MANDATE Tier 2/3.
     - "26x map multiplier" was FALSE (actual: ~1.7x) — removed from scoring
 
     All CTR snapshots are from a single collection date (2026-02-23).
@@ -794,11 +795,11 @@ def score_title(title: str, db_path: str = None, topic_type: str = None, experim
     # ------------------------------------------------------------------
     suggestions = []
     if has_year(title):
-        suggestions.append('Remove the year — 43.7% CTR penalty')
+        suggestions.append('Year = HEDGE flag (confounded -46% from a single 2026-02-23 snapshot, not causal) — A/B-test it; move it to the description if the title reads cleaner without it')
     if ':' in title:
-        suggestions.append('Replace colon with em-dash or period — colons cost 37% CTR')
+        suggestions.append('Colon = HEDGE flag (confounded -28%; the channel #1 and #3 videos both use colons) — keep it if it reads well, A/B-test')
     if pattern == 'the_x_that':
-        suggestions.append('Rewrite — "The X That Y" is the worst-performing pattern (1.2% CTR)')
+        suggestions.append('"The X That Y" = HEDGE flag (CIA Condor used it at 4.91% CTR) — fine to test, not a ban')
     if length > 70:
         suggestions.append(f'Shorten to under 70 chars (currently {length}) — gets truncated on mobile')
     if not has_specific_number(title) and not has_active_verb(title):
@@ -843,7 +844,7 @@ def format_result(result: dict) -> str:
 
     if result.get('hard_rejects'):
         lines.append("  " + "!" * 50)
-        lines.append("  *** REJECTED — DO NOT PUBLISH ***")
+        lines.append("  *** BRAND-GATE REJECT (clickbait tone only — style hedges are NOT rejects) ***")
         lines.append("  " + "!" * 50)
         for reason in result['hard_rejects']:
             lines.append(f"  REASON: {reason}")

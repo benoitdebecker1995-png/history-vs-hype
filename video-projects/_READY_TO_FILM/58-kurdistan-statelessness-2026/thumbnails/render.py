@@ -103,16 +103,18 @@ def combo_b():
     cmask = cmask.filter(ImageFilter.GaussianBlur(4))
 
     base = Image.new("RGB", (W, H), CHARCOAL)
-    # subtle radial charcoal vignette + warm under-glow behind coin
+    # neutral cool lift behind coin (no brown halo)
     glow = Image.new("RGB", (W, H), (0, 0, 0))
-    ImageDraw.Draw(glow).ellipse([640, 70, 1240, 670], fill=(70, 44, 14))
-    glow = glow.filter(ImageFilter.GaussianBlur(110))
+    ImageDraw.Draw(glow).ellipse([700, 110, 1180, 590], fill=(44, 50, 56))
+    glow = glow.filter(ImageFilter.GaussianBlur(120))
     base = ImageChops.screen(base, glow)
     cx, cy = 700, 60  # coin center-right
+    # soft drop shadow for depth (replaces the old rim halo)
+    sh = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(sh).ellipse([cx+16, cy+24, cx+D+16, cy+D+24], fill=170)
+    sh = sh.filter(ImageFilter.GaussianBlur(24))
+    base = Image.composite(Image.new("RGB", (W, H), (0, 0, 0)), base, sh)
     base.paste(coin, (cx, cy), cmask)
-    # warm rim ring
-    rd = ImageDraw.Draw(base)
-    rd.ellipse([cx+4, cy+4, cx+D-4, cy+D-4], outline=(150, 96, 40), width=5)
 
     base = vignette(base, 0.42)
     d = ImageDraw.Draw(base)

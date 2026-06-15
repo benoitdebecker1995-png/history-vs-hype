@@ -316,7 +316,7 @@ If `--save` flag was passed, append the DIY guide to the same `THUMBNAIL-CONCEPT
 
 **Stop conditions:**
 - If the agent's output exceeds 500 words, surface a warning — DIY guide should be focused, not exhaustive.
-- If the agent suggests AI image generation, flag it as a violation: this conflicts with HvH's "real materials > AI" preference (per `MEMORY.md` → `feedback-thumbnail-process.md`). Re-run once with that constraint reinforced. If still violated, surface the raw output.
+- If the agent proposes an **AI-generated subject/figure** (a fake person/artifact the thumbnail asks the viewer to believe), flag it: the evidentiary subject must be REAL (Wikimedia/Unsplash/Pexels). AI *polish* of real material and *atmospheric backdrops* are fine — the test is "does it read as AI / fake the evidence?" (per `feedback-thumbnail-process.md` R7 refinement + ADR 0007). Re-run once reinforcing a real subject; if still violated, surface the raw output.
 
 ---
 
@@ -342,7 +342,14 @@ If `--save` flag was passed, append the DIY guide to the same `THUMBNAIL-CONCEPT
 /script              # Write script
 /verify              # Fact-check
 /comment-mine        # Pull same-topic competitor videos (feeds /thumbnail Step 2.5)
-/thumbnail --study --save   ← You are here — classify live SERP shelf (Step 2.6) + generate + save concepts
+/thumbnail --study --save   ← classify live SERP shelf (Step 2.6) + generate + save concepts
+# then BUILD IN PHOTOSHOP to the craft checklist (HUMAN builds — "Claude specs, user builds") + FILTER:
+#   checklist: cut-out + saturation pop + ONE red accent at focal point + <=3 huge words +
+#   REAL subject (no AI-generated figure) + 160px proof + voice gate  (THUMBNAIL-CRAFT-RECIPE)
+python -m tools.preflight.thumbnail_checker <project> --title "<title>"   # concept filter: curiosity-gap (title != overlay)
+python -m tools.preflight.thumbnail_image_audit thumb.png                 # image filter: feed-size legibility (HARD); CLIP INFORMATIONAL only
+# tools.thumbnail.render is OPTIONAL (fast draft / spec ref), NOT the pipeline.
+# at current traffic: pick the winner by a SINGLE-VARIABLE before/after swap; native A/B (Test & Compare) once reach grows. ADR 0007
 /prep --full         # Asset + edit guides (reads THUMBNAIL-CONCEPTS.md)
 ```
 
