@@ -38,83 +38,22 @@ Research and respond to YouTube comments using evidence-based public history com
 3. Building trustworthiness through transparency
 4. Correcting the record with evidence
 
-### Step 1: Extract ALL Claims
+### How it works: spawn the `comment-responder` agent
 
-Before anything else, list EVERY claim in the comment:
+`--respond` delegates to the **`comment-responder`** agent (`.claude/agents/comment-responder.md`), which runs the full pipeline: classify **posture** (Interlocutor / Drive-by / Question / Troll) → extract every claim → fact-check **notebook-first** (verifying our own claims too) → **steelman** → draft in the channel's accessible-historian voice (**sources named in prose, no citation dump** for discussion replies) → advisory Gemini voice pass → return the ready-to-post reply + a behind-the-scenes audit trail.
 
-- **Explicit claims** (directly stated)
-- **Implicit claims** (underlying assumptions)
-- **Sources they cite** (have you read them?)
-- **Questions they ask**
+Spawn it with the pasted comment (or the whole thread) and which video it's on:
 
-### Step 2: Classify Identity Stake
+```
+Task(subagent_type="comment-responder", model="opus",
+  prompt="Reply to this comment on [video/slug]: '[comment text, incl. our prior reply if a thread]'. [any steer]")
+```
 
-| Level | Indicators | Strategy |
-|-------|------------|----------|
-| **Low** | Genuine questions, curiosity | Deep engagement |
-| **Medium** | Mild preference, cites sources | Tactical pivot |
-| **High** | Emotional language, "us vs them" | Correct for lurkers |
-| **Very High** | Personal attacks, trolling | Strategic silence |
+Use `model="sonnet"` for a simple Drive-by/Question. The full spec — posture taxonomy, the discussion-vs-debunk sourcing split, the voice rules and AI-tell ban — lives in `.claude/REFERENCE/youtube-comment-response-guide.md`.
 
-### Step 3: Read Context
+**The agent may recommend NOT replying** (troll / not worth it). That's a valid outcome — don't override it into an essay.
 
-**Before researching:**
-1. Find video script (what was actually said?)
-2. Check existing verified research
-3. Check VERIFIED-CLAIMS-DATABASE.md
-4. Identify what needs verification
-
-### Step 4: Verify Claims
-
-**Check existing research FIRST** (avoid duplicate work)
-
-**Verify YOUR claims too** - not just commenter's
-
-**Save new research:** `research/[Topic]-Comment-Response-Research.md`
-
-### Step 5: Use Response Template
-
-**Template 1: Factual Correction (Low/Medium Stake)**
-- Lead with FACT, not myth
-- Provide alternative explanation
-- Cite specific sources with page numbers
-- 200-300 words
-
-**Template 2: Contested Interpretation (Medium Stake)**
-- Acknowledge shared value
-- Present multiple valid interpretations
-- Explain WHY historians disagree
-- 300-400 words
-
-**Template 3: Nationalist Bias (High Stake)**
-- Validate FEELING, not claim
-- Expose contradictions
-- Redirect to evidence
-- 400-500 words max
-
-**Template 4: Genuine Question (Low Stake)**
-- Direct answer
-- Provide 2-3 sources
-- Encourage further learning
-- 250-350 words
-
-### Step 6: Apply Channel Voice
-
-**Tone requirements:**
-- Professional but conversational
-- Active voice ("I cite" not "is cited")
-- Confident about evidence, humble about interpretation
-- Natural and flowing
-- Under 500 words (YouTube limit)
-
-### Output
-
-Present drafted response with:
-- Sources used
-- Identity stake classification
-- Any judgment calls flagged
-
-**If video error discovered:** Ask about running `/engage --correction`
+**If a video error surfaces during the check:** run `/engage --correction`.
 
 ---
 

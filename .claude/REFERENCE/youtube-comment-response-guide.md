@@ -1,229 +1,137 @@
-# YouTube Comment Response Guide - History vs Hype
+# YouTube Comment Response Guide — History vs Hype
 
-## Voice & Tone
-- Clear, direct, professional, conversational
-- Write like talking to a smart friend
-- **No em dashes (—)** - they don't read naturally when spoken. Use commas, periods, or colons instead
-  - Bad: "Mosul—oil-rich city"
-  - Good: "Mosul, oil-rich city"
-- No buzzwords
-- Keep it natural
-- This applies to both comments AND scripts
+**This is the spec for the `comment-responder` agent** (`.claude/agents/comment-responder.md`) and the reference for any hand-drafted reply. `/engage --respond` routes here via that agent.
 
-## Core Principles
+**The one principle everything else serves:** do the research to an academic standard *behind the scenes* — comprehensive, sourced, steelmanned, no false balance — then deliver it in the *accessible, human register a real creator actually types.* The old version of this guide mandated a formal `state myth → correct → (Sources: …) → CTA` template on every reply; that produced replies the owner rejected as **"artificial and fake."** Real creator replies (23 pulled from comparable history channels) run **median ~38 characters, max ~305** — blunt, personal, one or two points. Undergraduate-essay length does not transfer to a comment box.
 
-1. **Lead with the claim, then the correction**
-2. **Cite 2-4 credible sources** when debunking myths (4-6 for complex nuanced arguments)
-3. **Be respectful on sensitive topics** - never repeat denialist claims without immediate correction
-4. **Keep replies short** unless asked for long form (exception: nuanced arguments requiring deeper research)
-5. **Default CTA**: "Full breakdown on YouTube. Sources in description."
-6. **If unsure, say so** and suggest where to verify
-7. **Verify commenter assumptions** - don't accept claims about "autonomy," "control," or "consensus" without researching
+---
 
-## Research Workflow (CRITICAL)
+## 1. Classify the posture first (the spine)
 
-**Always follow this order:**
-1. **Check research folder FIRST** (`research/` directory)
-   - Look for relevant documents on the topic
-   - Check completed research, active projects, and source references
-2. **Only web search to supplement** if research folder lacks needed information
-3. Be efficient with tokens - don't over-research when folder content is sufficient
+Every reply starts by classifying the commenter. Posture — not topic, not how heated — drives voice, sourcing, length, and whether to engage at all.
 
-This saves time and ensures consistency with existing channel research.
+| Posture | Looks like | Reply shape |
+|---|---|---|
+| **Interlocutor** | Engaged, good-faith, substantive; real arguments; often long / a thread | Full referee reply |
+| **Drive-by claim** | A single wrong/oversimplified assertion, low investment | Short fact-first correction |
+| **Question** | A genuine ask | Direct answer + a named source |
+| **Troll** | Bad-faith, personal attacks, slogans, or engaging just amplifies it | Advise-then-defer |
 
-## Response Templates by Type
+*Stake* (how emotional) is a sub-modifier, not a separate axis. A heated but sincere commenter is still an Interlocutor.
 
-### Myth or False Claim
-Structure:
-1. State the myth/claim clearly
-2. Correct it immediately
-3. Provide evidence
-4. Cite 2-4 credible sources
-5. Add CTA
+---
 
-**Example:**
-> Comment: "Vikings had horned helmets. That's just a fact."
->
-> Response: "Horned helmets are a myth. No archaeological evidence supports Vikings wearing them in combat. The image comes from 19th-century opera costumes and romantic art, not history. (Sources: National Museum of Denmark, BBC History, Archaeological evidence from grave sites)
->
-> Full breakdown on YouTube. Sources in description."
+## 2. Per-posture playbook
 
-### Geopolitical or Sensitive Topic
-Structure:
-1. Acknowledge complexity
-2. Present evidence without taking political sides
-3. Cite authoritative, neutral sources
-4. Be respectful but firm on facts
+### INTERLOCUTOR — the referee reply
 
-**Example:**
-> Comment: "NATO expansion caused the Ukraine conflict. Simple as that."
->
-> Response: "That's one narrative, but it oversimplifies a complex situation. Russia violated Ukraine's sovereignty in 2014 and 2022. Ukraine is a sovereign nation with the right to choose alliances. Multiple factors contributed, including internal Ukrainian politics, Russian imperial ambitions, and yes, security concerns. (Sources: Council on Foreign Relations, RAND Corporation, UN Security Council resolutions)
->
-> Full breakdown on YouTube. Sources in description."
+The core case. Structure: **steelman → concede fast → correct the overreaches → close on the honest verdict.**
 
-### Complex Nuanced Arguments with Research
-**Use this template when:** A commenter makes a partially valid point that needs to be acknowledged BUT also contextualized with deeper research, or when challenging assumptions about agency/autonomy.
+- **Steelman first.** Open by granting the strongest version of their point, in their own words. This is the move that lands ("you're right on X, and honestly on Y you're *more* right than you put it"). It buys every correction that follows.
+- **Concede specifically, then correct.** Don't hedge every clause. Pick the 1–3 points that matter; concede the real hits plainly; correct the overreaches with evidence.
+- **No false balance.** Where scholarship agrees, state it as fact. Where it genuinely divides, name both poles and leave it open. Where the record itself is thin, *say so* ("the Arab-side archive barely exists, so any confident motive claim is shaky") rather than pick a side.
+- **Close on the verdict, not a bow.** State where each side actually lands. The channel's own verdict shape — "not fair to the Arabs, not crazy for the Jews" — is a legitimate close; a *manufactured* thesis-statement bow is not.
+- **Sourcing: named in prose, no apparatus.** Name a scholar or document only when the claim would be doubted or naming adds weight ("Khalidi dates it to the 1920s"; "the plan put ~400k Arabs inside the Jewish state"). **No `(Sources:)` block. No CTA.**
+- **Length: adaptive.** A long argument earns 2–3 tight paragraphs. Never an essay.
 
-Structure:
-1. Acknowledge the commenter's valid point (yes, AND approach)
-2. Build on it with additional nuance
-3. Provide historical context with specific evidence
-4. Challenge underlying assumptions with data
-5. Tie back to agency/broader argument from your video
-6. Cite multiple credible sources (4-6 for complex topics)
-7. End with CTA
+**Canonical example — #59 Israel/Palestine partition (the reply that beat the fake drafts):**
 
-**Example:**
-> Comment: "The Mayans are not a nation. They're not even a monolithic group. Talking about the Mayans unnecessarily complicate the matter. The Mayans in question consist of a fraction of the population of Belize and enjoys great control over the land they do inhabit."
+> You're more right on the sincerity than you put it — just not on Hourani. He's the one who publicly offered the Jews full citizenship; it was the Mufti, who actually ran things, who wanted to cap it at Jews who'd been there before WWI. Soft public face, hard core underneath. Fair hit.
 >
-> Response: "You're right that Maya peoples are diverse groups, but they've been organizing politically across those lines for decades. The Maya Leaders Alliance (MLA) and Toledo Alcaldes Association represent a pan-Maya movement in southern Belize precisely because state borders don't respect indigenous territories.
->
-> And 'great control' is questionable. Q'eqchi' and Mopan Maya fled Guatemala in the 1870s-1880s to escape enslavement and forced labor. During Guatemala's civil war, counter-insurgency operations killed nearly 200,000 people and displaced over a million, operations the UN called genocidal. Many Maya refugees ended up in Belize.
->
-> Despite a 2015 Caribbean Court of Justice ruling affirming Maya land rights in Belize, the government still hasn't fully implemented it. As of 2024, Cultural Survival and the IACHR are still fighting for Free, Prior and Informed Consent on Maya lands. Indigenous communities still lack formal land ownership.
->
-> So who's to say either state respects Maya autonomy once the ICJ formalizes borders in 2025? Guatemala claims 53% of Belize's territory. Neither government has centered Maya agency in border negotiations. That's the point.
->
-> (Sources: Cultural Survival, IACHR, Minority Rights Group, Caribbean Court of Justice 2015 ruling, UN Human Rights Council 2024 review)
->
-> Full breakdown in the video. Sources in description."
+> The rest — the regional asymmetry, the 800k Jews pushed out of Arab countries — all argues the Jewish *yes* was reasonable, and I'd agree. It just doesn't make the split of the land itself even: a third of the people got most of it. That's the only thing the video was weighing. Not fair to the Arabs, not crazy for the Jews.
 
-**Example 2:**
-> Comment: "William Wilberforce and Christians ended slavery."
->
-> Response: "You're absolutely right that William Wilberforce was a devout evangelical Christian who fought to end slavery in the British Empire. The 1807 Abolition of the Slave Trade Act and the 1833 Slavery Abolition Act were Christian-led victories. That's historical fact.
->
-> But here's what the video is about: OTHER Christians defended slavery just as passionately using the same Bible.
->
-> The Southern Baptist Convention was founded in 1845 specifically to support slavery after northern Baptists rejected appointing slaveholders as missionaries. The Methodist Episcopal Church split in 1844-45 over the same issue, with Southern Methodists organizing a separate pro-slavery denomination. In 1874, Southern Methodists reaffirmed their antebellum proslavery positions even after the Civil War ended.
->
-> Southern ministers wrote the majority of published defenses of slavery. Baptist pastor Richard Fuller argued slavery wasn't sinful because the Bible doesn't explicitly forbid it. They cited Leviticus 25:44 ('You may buy slaves from the nations around you'), Paul's instruction for slaves to obey masters, and twisted Genesis 9 into the 'Curse of Ham' to claim God ordained Black enslavement. Presbyterian theologian James Henley Thornwell argued Africans were 'a different class, a lower class of people.'
->
-> Historian Mark Noll documented that 'the overwhelming majority of churches and ministers' in the South supported slaveholding. These weren't fringe figures. These were mainstream Christian denominations using Scripture to defend human bondage.
->
-> So yes, Christians like Wilberforce helped to end slavery. And Christians like Richard Furman and James Henley Thornwell defended it. Both used the Bible. That's the point.
->
-> (Sources: Southern Baptist Convention founding documents 1845, Methodist Episcopal Church split records 1844-45, Mark Noll's scholarship on Christianity and slavery, Richard Fuller and James Henley Thornwell theological writings)
->
-> Full breakdown in the video. Sources in description."
+Note: sources (Hourani, the Mufti, Khalidi, ~400k, 800k) are *named in prose*. No block, no CTA. Concedes before it corrects. No `On X:` scaffolding, no meta-commentary.
 
-**Key Principles:**
-- **Check research folder FIRST** before web searches
-- **Only use web search to supplement** what's not already in research
-- Research claims before responding for current events/statistics
-- Verify commenter's assumptions (don't take "great control" or "autonomy" at face value)
-- Show historical patterns that challenge present-day claims
-- Center agency and power dynamics
-- Be respectful but don't concede inaccurate premises
+### DRIVE-BY CLAIM — the short correction
 
-### Simple Question
-Structure:
-1. Direct answer first
-2. Evidence second
-3. Sources third
-4. CTA
+A single wrong assertion from a low-investment commenter. **Fact-first:** lead with the truth, state the myth **once without amplifying its language**, give a factual alternative that fills the gap. Keep it short. A light sources line + CTA is allowed here (a skeptical stranger wants the receipt).
 
-**Example:**
+*(The fact-first structure is a soft default, not a law — the "truth sandwich" is empirically contested; a plain fact-first correction does as well. Don't apply it mechanically.)*
+
+> Comment: "Vikings had horned helmets, that's just a fact."
+>
+> Reply: "No horned helmets — there's zero archaeological evidence Vikings wore them in battle. The image comes from 19th-century opera costume design, not the Viking age. (National Museum of Denmark has the write-up.)"
+
+### QUESTION — direct answer + source
+
+Answer first, evidence second, one or two named sources. No essay.
+
 > Comment: "Did Napoleon really shoot the Sphinx's nose off?"
 >
-> Response: "No. The nose was already gone before Napoleon arrived in Egypt (1798). Sketches from the 1700s show it missing. Most likely destroyed centuries earlier, possibly by religious iconoclasm. (Sources: British Museum archives, drawings by Frederic Louis Norden 1737)
->
-> Full breakdown on YouTube. Sources in description."
+> Reply: "No — the nose was already gone. Danish sketches from the 1730s, decades before Napoleon reached Egypt in 1798, already show it missing. Most likely deliberate iconoclasm centuries earlier."
 
-### Appreciation or Positive Feedback
-Structure:
-1. Short and genuine
-2. No over-selling
-3. Acknowledge the support
+### TROLL — advise-then-defer
 
-**Example:**
-> Comment: "Finally someone with actual sources. Subscribed!"
->
-> Response: "Appreciate it. That's the goal. History deserves better than myths and clickbait."
+Bad-faith, slogans, personal attacks, or a claim where engaging just amplifies it. **Lead with a recommendation to disengage** — "I'd heart-and-move-on here, because…" — and only draft a one-line boundary reply if the owner still wants one. It's fine to talk the owner out of replying. Don't feed trolls; you perform for lurkers only when it's worth it.
 
-### Correction or Challenge to Our Content
-Structure:
-1. Be humble
-2. Open to being wrong
-3. Engage authentically
-4. Ask for specifics
+---
 
-**Example:**
-> Comment: "I think you got the dates wrong on the Treaty of Westphalia."
->
-> Response: "Good catch. Double-checking now. If I missed something, I'll pin a correction. What date are you seeing?"
+## 3. Voice rules
 
-### Bad Faith or Accusatory Comments
-Structure:
-1. Don't take the bait
-2. Don't engage with the tone
-3. Redirect to evidence
-4. Stay professional
+**Kill the AI-tells** (the "fake" fingerprints):
+- Rigid `On X: … On Y: … On Z:` scaffolding — a visible template.
+- Professorial meta-commentary ("notice what kind of argument this is").
+- Symmetric hedging on every clause — reads as diplomacy, not a person with a view.
+- A neat thesis-statement bow at the end.
 
-**Example:**
-> Comment: "This is just liberal propaganda. You're pushing an agenda."
->
-> Response: "I cite primary sources and academic research. If you see factual errors, point them out with sources and I'll review. Disagreeing with a conclusion is fine, but the evidence is what it is."
+**Instead:** concede fast, pick your battles, keep personality, don't give every point equal airtime. Match the owner's own reply voice and `.claude/REFERENCE/VOICE-PROFILE.md`.
 
-### When Uncertain
-Structure:
-1. Admit uncertainty
-2. Suggest where to verify
-3. Never fake knowledge
+- **No em dashes (—)** — commas, periods, colons instead. They don't read as spoken.
+- **Contractions, plain words.** Talk like a smart person in a bar, not a press release.
+- **Concede-first** is the channel's most reliable move: state the appeal, then the rebuttal.
+- **Accessible, not gatekeeping** — define a term the moment you use it; weave the source into the sentence.
 
-**Example:**
-> Comment: "What about the conspiracy theory that [obscure claim]?"
->
-> Response: "I'm not familiar enough with that specific claim to comment confidently. I'd suggest checking [relevant academic database/institution]. If you find credible sources, share them and I'll take a look."
+---
 
-## Source Quality Guidelines
+## 4. Sourcing policy (the split)
 
-**Preferred Sources:**
-- Academic journals and peer-reviewed research
-- Museums and archaeological institutions
-- Government archives and official records
-- Court rulings and legal decisions (ICJ, Caribbean Court of Justice, etc.)
-- Established historical societies
-- Council on Foreign Relations, RAND Corporation (for geopolitics)
-- Human rights organizations (IACHR, UN Human Rights Council, Cultural Survival, Minority Rights Group)
-- Primary source documents
-- BBC History, Smithsonian, National Geographic (for accessible explanations)
+| Posture | In-reply sourcing |
+|---|---|
+| Interlocutor, Question | **Named in prose**, only where the claim would be doubted or naming adds weight. No `(Sources:)` block. No CTA. |
+| Drive-by | A **light sources line** + CTA is allowed (skeptical stranger wants the receipt). |
 
-**Avoid:**
-- Random blogs or opinion sites
-- Politically biased sources without counterbalance
-- Single-source claims on controversial topics
-- Social media posts as evidence
+Regardless of what the viewer sees, the agent always keeps a **full sourced audit trail** behind the scenes (see the agent's OUTPUT FORMAT). "Honest about sources" means the *research* is fully sourced and the *reply* names what it needs to — not a citation dump.
 
-## What NOT to Do
+**When to name a source vs just state the fact:** name it when (a) the claim is contested or would be doubted, or (b) naming adds credibility the bare assertion lacks. Otherwise just state the fact plainly — over-citing is its own tell.
 
-- Don't use em dashes
-- Don't use buzzwords or marketing speak
-- Don't over-format (excessive bold, caps, emojis)
-- Don't repeat harmful denialist claims without immediate correction
-- Don't get into flame wars
-- Don't fake expertise on topics you don't know
-- Don't cite sources you haven't verified
-- Don't take political sides on current geopolitical issues
-- Don't be condescending or sarcastic
+---
 
-## Length Guidelines
+## 5. Fact-check workflow
 
-- **Default**: 2-4 sentences + sources + CTA
-- **Complex topics**: 1 short paragraph + sources + CTA
-- **Nuanced arguments with research**: 150-200 words + sources + CTA (when commenter makes partially valid points requiring deeper context)
-- **Appreciation**: 1 sentence
-- **Bad faith**: 2 sentences max, redirect to evidence
-- **Long form**: Only when explicitly requested
+**Notebook-first cascade, never block:**
 
-## CTA Variations
+`project notebook → the video's 01-VERIFIED-RESEARCH.md + research/ folder → web`
 
-Default: "Full breakdown on YouTube. Sources in description."
+If the video has no notebook at all, drop to research + web and flag those claims one notch lower confidence.
 
-Alternatives when appropriate:
-- "More on this in the full video. Sources in description."
-- "Covered this in detail on the channel. Check the sources."
-- "Deep dive on YouTube. All sources linked below."
+- **Interlocutor:** check EVERY distinct claim (explicit + implicit), each with a verdict (right / overstated / wrong / unverifiable) + evidence tier. This is what catches the commenter being *more right than he stated* (the #59 sincerity point) or a landmine you'd have walked into.
+- **Verify OUR OWN claims too** — the prior reply and the video can be wrong.
+- **Consensus vs fork:** agreement stated as fact; genuine division attributed to both poles, left open.
+- **Never fabricate a citation.** A comment isn't on screen, so `notebook_query` synthesis is fine to *name* who said something — but never render a page-cited verbatim you didn't raw-read. If `sources_used` comes back empty, treat it as ungrounded.
 
-Keep it consistent. The goal is to drive viewers back to the video and the source list.
+---
+
+## 6. Source quality tiers
+
+**Preferred:** peer-reviewed / university-press scholarship, primary documents, museums and archives, court rulings (ICJ, etc.), the project's own NotebookLM notebook, established reference works (BBC History, Smithsonian) for accessible framing.
+
+**Avoid:** random blogs, single-source claims on contested topics, social-media posts as evidence, politically-slanted sources without counterbalance.
+
+---
+
+## 7. What NOT to do
+
+- Don't ship the formal `(Sources: …)` + CTA on an Interlocutor/Question reply — that's the fake tell.
+- Don't write essay-length; scale to the comment.
+- Don't manufacture false balance, and don't omit evidence that cuts against the video.
+- Don't fabricate a quote or page number.
+- Don't take the bait from a troll — recommend disengaging.
+- Don't be condescending, sarcastic, or over-formatted (bold/caps/emoji spam).
+
+---
+
+## Cross-references
+
+- Agent: `.claude/agents/comment-responder.md` · Command: `.claude/commands/engage.md`
+- Voice: `.claude/REFERENCE/VOICE-PROFILE.md` · Glossary: `CONTEXT.md` (posture terms) · ADR: the discussion-vs-debunk sourcing split
+- Memory: `feedback-comment-reply-natural-voice`, `feedback-notebook-before-web-for-provenance`, `feedback-earn-your-inclusion`, `feedback-referee-*`
