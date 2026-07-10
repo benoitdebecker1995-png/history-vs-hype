@@ -54,9 +54,9 @@ Write the brief to `channel-data/series/<series-slug>-NEXT-<YYYY-MM-DD>.md` (cre
 
 ## QUALITY RULES
 
-1. **Cite demand, don't assert it** — every demand claim carries n + source; channel n<30 = info-only, decide on niche-wide (n=85+). Per `memory/feedback-channel-data-too-small.md`.
-2. **Distribution over aggregates** — one episode can dominate a series' traffic; report the distribution, not just the mean. Per `memory/analytics-distribution-not-retention.md`.
-3. **Evergreen, not news** — a candidate that only works because of a live 2026 event is a hook, not a series episode. Per `memory/feedback-evergreen-not-news.md`.
+1. **Cite demand, don't assert it** — every demand claim carries n + source; channel n<30 = info-only, decide on niche-wide (n=85+). Per [[feedback-channel-data-too-small]].
+2. **Distribution over aggregates** — one episode can dominate a series' traffic; report the distribution, not just the mean. Per [[analytics-distribution-not-retention]].
+3. **Evergreen, not news** — a candidate that only works because of a live 2026 event is a hook, not a series episode. Per [[feedback-evergreen-not-news]].
 4. **Identity guard is a hard filter** — method-first, never regional; a candidate that fails it is a runner-up at best.
 5. **No fabricated coverage** — `notebook_query` points at sources, it does not supply quotes (it fabricates); state coverage as yes/no, not with invented citations. Per `historian`.
 6. **Recommend, don't decide** — rank and evidence; the creator picks. No yes-manning.

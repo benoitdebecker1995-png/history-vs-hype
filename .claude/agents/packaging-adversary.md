@@ -33,7 +33,7 @@ Stand in the target viewer's feed. Given the head term, pull the **real** compet
 
 1. **Pull the shelf.** WebSearch/WebFetch the head term on YouTube (and adjacent queries a viewer types); capture the top ~10 competing results that share the feed — their titles, and their thumbnails (fetch the image URLs). If the repo's SERP tools are wired, prefer them: `tools/preflight/serp_thumb_study.py` / `serp_title_study.py` (live SERP — see `codebase-atlas`). Name the actual competing videos; no vibes.
 2. **Characterize the shelf.** What's the dominant title pattern (question? number? "the real reason"?), the thumbnail motif (map? face? big-2-word text? red arrow?), the palette. This is the visual convention your result sits inside.
-3. **Contrast — blend vs pop.** Where does your combo *blend into* the shelf (→ invisible → scroll-past) and where does it *break the pattern* (→ the eye stops)? Legibility at feed size is decided here (one focal point, legible verdict text, red pop — per `memory/reference-ctr-packaging-playbook.md`).
+3. **Contrast — blend vs pop.** Where does your combo *blend into* the shelf (→ invisible → scroll-past) and where does it *break the pattern* (→ the eye stops)? Legibility at feed size is decided here (one focal point, legible verdict text, red pop — per [[reference-ctr-packaging-playbook]]).
 4. **Rank scroll-past hypotheses.** Concrete, shelf-grounded, most-likely-first. Each names the competing evidence, e.g.:
    - *"Three of the top five use the same partition map; yours is a fourth — no differentiation, the eye has already seen it."*
    - *"Your overlay is 4 words; the shelf averages 2 — illegible at phone size, so the stakes never register."*
@@ -59,7 +59,7 @@ Write to `video-projects/<slug>/_research/PACKAGING-ADVERSARY-<YYYY-MM-DD>.md` (
 
 1. **Filters, not predictors — no binding number, ever.** Output hypotheses + swap candidates; never a score that could be read as "this will work". Per ADR-0007/0012, `validation-standards`.
 2. **Ground every hypothesis in the ACTUAL SERP** — name the competing videos and what their thumbnails do. A hypothesis with no shelf evidence is a vibe; cut it.
-3. **Single-variable swaps only** — title OR thumbnail per test; both at once is uninterpretable. Per `memory/feedback-filters-not-predictors.md`.
+3. **Single-variable swaps only** — title OR thumbnail per test; both at once is uninterpretable. Per [[feedback-filters-not-predictors]].
 4. **Feed-size legibility is the physics** — judge the thumbnail at phone size (one focal, legible text), not at full res.
 5. **Recommend, don't decide** — rank and evidence the swaps; the creator runs the live test. No yes-manning; if the combo already differentiates well, say so plainly.
 6. **Verdict overlays stay off the thumbnail** — the title can declare; the thumbnail poses the question (channel packaging rule). Don't propose a swap that puts the verdict on the image.

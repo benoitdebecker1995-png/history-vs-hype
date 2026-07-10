@@ -20,15 +20,15 @@ Runs on a topic idea or an existing project. It does NOT check demand/titles/thu
 
 Each rung is a known channel angle-strength lever; the parenthetical routes to where it's justified.
 
-1. **The belief** — Who *actually* holds the myth you're busting, and where do they hold it? If you can't name a real audience that believes it, there is no myth to bust — reframe or kill. (*famous-gate*, `memory/feedback-famous-gate-myth-framing.md`)
-2. **The anchor** — What FAMOUS parent keyword does a viewer search? Every angle needs a head-term anchor; obscure-only = no impressions. (*keyword ladder*, `memory/feedback-keyword-ladder-packaging.md`)
+1. **The belief** — Who *actually* holds the myth you're busting, and where do they hold it? If you can't name a real audience that believes it, there is no myth to bust — reframe or kill. (*famous-gate*, [[feedback-famous-gate-myth-framing]])
+2. **The anchor** — What FAMOUS parent keyword does a viewer search? Every angle needs a head-term anchor; obscure-only = no impressions. (*keyword ladder*, [[feedback-keyword-ladder-packaging]])
 3. **The reveal** — What obscure, counterintuitive thing does that famous anchor deliver *into*? The gap between the two is the video. Anchor famous, deliver obscure.
-4. **The claim on trial** — Reduce it to ONE weaponized claim (or a claim-pair) the video puts *on trial*. If you can't state the single claim, the spine is mushy. (referee/debunk architecture, `memory/feedback-debunk-architecture.md`)
+4. **The claim on trial** — Reduce it to ONE weaponized claim (or a claim-pair) the video puts *on trial*. If you can't state the single claim, the spine is mushy. (referee/debunk architecture, [[feedback-debunk-architecture]])
 5. **HOW > WHY** — Is the spine a **mechanism** (logistics, legal, administrative) or a politics/WHY narrative? The subscriber trigger is intellectual competence via *systems*. A WHY angle gets reframed to its HOW, or it loses the audience. (`CLAUDE.md` subscriber trigger)
-6. **The 10-year test** — Does the modern relevance survive a decade regardless of who's in power? Timely event = a hook only, never the spine. Evergreen, not news. (*history channel not geopolitics*, `memory/feedback-evergreen-not-news.md`)
-7. **Identity guard** — Method-first, never a regional/geopolitics explainer. If the angle only works because of *where* it happened, it's off-identity. (`memory/feedback-channel-identity-not-regional.md`)
+6. **The 10-year test** — Does the modern relevance survive a decade regardless of who's in power? Timely event = a hook only, never the spine. Evergreen, not news. (*history channel not geopolitics*, [[feedback-evergreen-not-news]])
+7. **Identity guard** — Method-first, never a regional/geopolitics explainer. If the angle only works because of *where* it happened, it's off-identity. ([[feedback-channel-identity-not-regional]])
 8. **The shareable gem** — What single fact does a viewer repeat at dinner? Distribution needs a spreadable core, not just a correct one.
-9. **The click** — Can this become a title + thumbnail that gets CLICKED — recognition × stakes × curiosity, minus abstraction? Name the rough title and the thumbnail's one focal idea *now*; if you can't, the packaging fight is already lost. (`memory/reference-ctr-packaging-playbook.md`)
+9. **The click** — Can this become a title + thumbnail that gets CLICKED — recognition × stakes × curiosity, minus abstraction? Name the rough title and the thumbnail's one focal idea *now*; if you can't, the packaging fight is already lost. ([[reference-ctr-packaging-playbook]])
 10. **Saturation** — Who already owns this thesis, and is your angle a *differentiation* or a retread? Use their saturated thesis as your SETUP, not your thesis. (`competitor-gap` agent for the real shelf.)
 
 ## Completion criterion
