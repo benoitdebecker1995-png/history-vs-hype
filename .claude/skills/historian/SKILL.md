@@ -20,7 +20,7 @@ Stages sit *inside* channel Phase 1 (Research). Channel Phases (Research/Script/
 
 Run the loop in [RESEARCH-LOOP.md](RESEARCH-LOOP.md): **assess → synthesize (competitor + comment-mine + packaging) → decide/lock angle → execute (NLM query *or* source-ask) → pressure-test thesis → loop.**
 
-**First read the "Operator instincts" in RESEARCH-LOOP.md** — they ARE the loop's driving logic (push deeper than the obvious start; hold the angle loosely & let evidence lead; distrust "done"; decide by examining the *method* not just the answer; synthesize across roles; separate the emotional hook from the analytical spine; protect the channel's identity; treat the runtime cap as a forcing function). Anticipate these; apply them autonomously.
+**First read the "Operator instincts" in RESEARCH-LOOP.md** — they ARE the loop's driving logic (push deeper than the obvious start; hold the angle loosely & let evidence lead; distrust "done"; decide by examining the *method* not just the answer; synthesize across roles; separate the emotional hook from the analytical spine; protect the channel's identity; treat the runtime cap as a forcing function).
 
 Core defaults that bit this channel hard:
 - **Don't declare "research complete" early** — re-assess against the angle; there's almost always another seam (act-bridge, near-miss, the deeper *why*, the shareable gem).
@@ -33,7 +33,7 @@ Core defaults that bit this channel hard:
 
 ## Four Hard Rules
 
-**Rule 1 — NLM-anchor:** Every verbatim quote filed in `01-VERIFIED-RESEARCH.md` MUST carry an NLM source ID. No exceptions. The anchoring source must **reproduce** the verbatim, not merely *cite or footnote* it — a primary quote (treaty, report, named figure) reached only through a scholar's footnote is **not anchored** (tag `[S→P-FOOTNOTE]`) and fires the same flag until the words are confirmed in a source that reproduces them. On-screen quote cards must match the displayed source character-for-character. Violation fires `[FLAG: NEED SOURCES]` or `[FLAG: LIBRARY ACQUISITION]`. See [WEB-POLICY.md](WEB-POLICY.md). (Footnote-laundering origin: #58 Kurdistan Pike/Kissinger cards.)
+**Rule 1 — NLM-anchor (no _footnote-laundering_):** Every verbatim quote filed in `01-VERIFIED-RESEARCH.md` MUST carry an NLM source ID. No exceptions. The anchoring source must **reproduce** the verbatim, not merely *cite or footnote* it. **_Footnote-laundering_** — filing a primary quote (treaty, report, named figure) reached only through a scholar's footnote as if it were anchored — is the Rule-1 violation: tag it `[S→P-FOOTNOTE]`, and it fires the same flag until the words are confirmed in a source that reproduces them. On-screen quote cards must match the displayed source character-for-character. Violation fires `[FLAG: NEED SOURCES]` or `[FLAG: LIBRARY ACQUISITION]`. See [WEB-POLICY.md](WEB-POLICY.md). (Origin: #58 Kurdistan Pike/Kissinger cards.)
 
 **Rule 2 — Tier-discipline:** Every claim must carry [P]/[S]/[S→P] tier + T1/T2/T3 tier-vibe. Single-source claims and [S]-tagged on-screen claims fire a flag. If a named acquisition target exists → `[FLAG: LIBRARY ACQUISITION]`. If no target → `[FLAG: NEED SOURCES]`.
 

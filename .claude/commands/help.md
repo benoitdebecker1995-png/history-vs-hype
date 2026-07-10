@@ -16,18 +16,20 @@ Display available commands organized by production phase. Use this to discover c
 
 ---
 
-## Pre-production (4)
+## Pre-production (5)
 
 Pick topics, validate viability, set up the project.
 
 | Command | Purpose | Flags |
 |---------|---------|-------|
+| `/grill-angle` | Interrogate a topic's ANGLE before research — one-at-a-time grill → GO/REFRAME/KILL verdict | - |
 | `/greenlight` | Pre-work viability gate (demand + title + thumbnail) | `--full`, `--scan`, `--project`, `--compare` |
 | `/research` | Start new video, topic research, source list | `--new`, `--topic-only`, `--existing`, `--sources`, `--prompts` |
 | `/next` | Ranked topic recommendations from winning patterns | - |
 | `/translate` | Translation pipeline for "Untranslated Evidence" series | clause-by-clause translation |
 
 **When to use:**
+- Chosen a topic, unsure the angle is strong → `/grill-angle "topic"` (before `/greenlight`)
 - "Should I make this video?" → `/greenlight "topic"`
 - Weekly opportunity scan → `/greenlight --scan`
 - Starting a new project → `/research --new "Topic"`

@@ -13,6 +13,20 @@
 
 ---
 
+## Skill Library (read `project-onboarding` first in any cold session)
+
+Nine skills under `.claude/skills/` carry the project's operating knowledge — built 2026-07 so
+any session (junior engineer or smaller model) can debug, extend, validate, and advance this
+project at standard: `project-onboarding` (entry router) · `codebase-atlas` · `data-stores` ·
+`debugging-playbook` · `automation-ops` · `extending-safely` · `authoring-skills` (craft standard
+for writing skills/commands/agents) · `validation-standards` ·
+`production-map` (+ pre-existing `historian`; + `primary-source`, the on-screen-provenance
+discipline that pairs with the `primary-source-hunter` agent). Index: `.claude/skills/README.md`. Skills route
+to authoritative files rather than duplicating them; when this file and a skill disagree on an
+implementation detail, the skill's live-verified claim is usually newer — verify, then fix both.
+
+---
+
 ## Knowledge Graphs (MCP)
 
 Two MCP servers are live for this project: `graphify-code` (54K-node AST graph of the whole repo) and `graphify-research` (sparse 110-node concept graph from 16 archived `01-VERIFIED-RESEARCH.md` files). Graphs survive across sessions. Post-commit hook keeps the code graph fresh.
@@ -42,7 +56,7 @@ Workflow patterns, recovery commands, and the open-work list: `.claude/REFERENCE
 
 ## Quick Start Commands
 
-**Pre-production:** `/greenlight` (FIRST) → `/research` → `/sources`
+**Pre-production:** `/grill-angle` (sharpen angle) → `/greenlight` (packaging gate, before ANY research) → `/research` → `/sources`
 **Production:** `/script` → `/verify` → `/prep` → `/thumbnail`
 **Post-production:** `/editing-guide` (after rough cut) → `/fix` (subtitle correction) → `/publish` → `/engage` → (on upload) `/reconcile <slug>`
 **Navigation:** `/status` | `/reconcile` | `/help` | `/next` | `/intel`
