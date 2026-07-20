@@ -36,8 +36,10 @@ The repo has genuinely advanced LLM-craft infrastructure — a calibration corpu
 ## Status Tracker
 
 **Total steps:** 15
-**Done:** 8 (E1-E5, D1-D3 — executed 2026-07-19, committed 2026-07-20, commits `12f54e8`..`173b829`)
+**Done:** 9 (E1-E5, D1-D3, C1 — E/D executed 2026-07-19/committed 2026-07-20 `12f54e8`..`173b829`; C1 done 2026-07-20 `96b1e14`)
 **Blocked:** 1 (L3 — investigated 2026-07-19/20: Phase 75a is still "Not started" in `.planning/ROADMAP.md`, so the worked-example prerequisite is unmet)
+
+**C1 finding worth flagging for C2/C3/C4:** the plan's premise (48 dated rules = sediment) didn't hold on inspection — script-writer-v2.md was already well-consolidated, amendments folded in-place rather than layered. The real yield was small (~1.6% size) but caught something the size-reduction framing wouldn't have found on its own: a stale voice-calibration section that actively contradicted the canonical VOICE-PROFILE.md. Expect C2/structure-checker-v2.md and C3/WRITING-VOICE-AND-STYLE.md to need the same targeted-comparison approach (grep for overlap, verify against the canonical doc) rather than a bulk line-count-reduction pass — and worth checking each for the same contradiction pattern, not just duplication.
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -183,7 +185,7 @@ Read .claude/commands/script.md's Step 3a (Packaging Coherence Check) and .claud
 
 Applies Karpathy's write/select/compress/isolate and the repo's own `authoring-skills` progressive-disclosure standard to the two oversized agents and the largest reference doc — guarded by the Phase E eval scores so compaction can't silently regress R01–R24 or the told-so-far criteria.
 
-## C1 [BLOCKED — deps: E5] Compact script-writer-v2.md
+## C1 [DONE] Compact script-writer-v2.md
 
 **Deps:** E5
 
@@ -196,7 +198,7 @@ Run the Phase E harness (tests/unit/test_eval_harness.py + the E3 judge protocol
 
 **Commit:** `refactor(agents): C1 compact script-writer-v2, eval-guarded`
 
-## C2 [BLOCKED — deps: C1] Compact structure-checker-v2.md
+## C2 [TODO — deps: C1 done] Compact structure-checker-v2.md
 
 **Deps:** C1
 
