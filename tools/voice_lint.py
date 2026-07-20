@@ -16,6 +16,12 @@ structure, attribution) instead of surface tics.
     invent voice rules — it mechanizes the profile's hard "no" list so the
     linter stays in lockstep with the canonical fingerprint.
 
+    2026-07-19 sync (LLM-CRAFT-UPGRADE-PLAN.md D1): applied the two
+    corrections VOICE-PROFILE.md ~line 505 staged from the #62 generative
+    (_adlib/) corpus — "understand-go-back" (T7) demoted HARD -> WARN-with-
+    exception (scan_understand_go_back), and "Now," excepted from
+    "youtuber-opener" (only the empty "Now —" camera-turn stays banned).
+
 Severity:
     HARD   — a profile "hard no". Non-zero exit. Must be fixed before lock.
     WARN   — dispreferred device (profile: "use sparingly / 1x max"). Advisory.
@@ -84,7 +90,10 @@ HARD_REGEXES = [
     ("love-your-thoughts", r"\bI'?d love to hear your thoughts\b", "Engagement-bait CTA. Cut.", True),
     ("tragedy-of", r"\bthe tragedy of\b", "Melodrama telegraph (family: dark-twist / darkest-chapter). State the event plainly, let it land.", True),
     ("isnt-just-its", r"\bisn'?t just [^.!?]{0,60}— it'?s\b", "\"isn't just X — it's Y\" escalation-correction tic (AI default). One claim, stated directly.", True),
-    ("understand-go-back", r"\b[Tt]o understand [^.!?]{0,60}[, ]+(you|we) (have|need) to go back\b", "Obligatory-journey transition — verbatim-class AI tissue. Bridge by consequence instead: \"So…\" / thesis-forward.", True),
+    # "understand-go-back" DEMOTED from HARD to WARN-with-exception, 2026-07-19
+    # (VOICE-PROFILE.md ~line 505: his 2026-07-15 _adlib/ ad-libs open causal
+    # chains with exactly this phrasing, unprompted — the prerequisite-chain
+    # doorway IS his native move. See scan_understand_go_back() below.)
     ("ghost-hangs", r"\b(ghost|shadow|weight) of [^.!?]{0,40}(hangs|hung|looms|loomed)\b", "Abstraction-as-agent poetry — purple prose, anti-voice. Cut or replace with a concrete fact.", True),
     ("population-compare", r"\bmore than the (entire )?population of\b", "Forced scale comparison (anti-voice family; closes a gap in the existing scale-* rules). State the plain figure.", True),
 ]
@@ -123,9 +132,13 @@ WARN_REGEXES = [
         True,
     ),
     (
+        # "Now," EXCEPTED 2026-07-19 (VOICE-PROFILE.md ~line 505): his own
+        # _adlib/ ad-libs use "Now, it is important to mention…" naturally as a
+        # relevance-scaffold opener — that form is his voice, not a tell. Only
+        # the empty camera-turn "Now —" (dash, no follow-on content) is banned.
         "youtuber-opener",
-        r"(?:^|[.!?]\s+)(?:Now|Look),\s|(?:^|[.!?]\s+)Listen\b[,.]",
-        "YouTuber-opener set (Now,/Look,/Listen) — absent in gold; he enters thoughts first-person (I/I'm) or with So/And.",
+        r"(?:^|[.!?]\s+)Look,\s|(?:^|[.!?]\s+)Listen\b[,.]|(?:^|[.!?]\s+)Now\s*(?:—|–|--)\s",
+        "YouTuber-opener set (Look,/Listen/empty 'Now —' camera-turn) — absent in gold; he enters thoughts first-person (I/I'm) or with So/And. ('Now,' as a relevance-scaffold opener is his own voice per the _adlib/ corpus — not flagged.)",
         False,
     ),
 ]
@@ -199,6 +212,17 @@ _BOLD = re.compile(r"\*\*([^*]*)\*\*")
 _ITALIC = re.compile(r"(?<!\*)\*([^*]+)\*(?!\*)")
 _SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+")
 _WORD = re.compile(r"\w+")
+
+# "To understand X, we/you have to go back…" — WARN-with-exception (demoted
+# from HARD 2026-07-19, VOICE-PROFILE.md ~line 505). His own ad-libs open
+# causal chains with this exact phrasing when a walked chain follows (a year
+# or >=8 more words of the same sentence developing the explanation); it's
+# only the AI tissue when the transition is bare/empty. See scan_understand_go_back().
+_UNDERSTAND_GO_BACK_RX = re.compile(
+    r"\b[Tt]o understand [^.!?]{0,60}[, ]+(you|we) (have|need) to go back\b",
+    re.IGNORECASE,
+)
+_TRAILING_YEAR_RX = re.compile(r"\b\d{3,4}\b")
 
 
 def _is_structural(raw: str) -> bool:
@@ -484,6 +508,40 @@ def scan_negation_pairs(file: str, lines: list) -> list:
     return []
 
 
+def scan_understand_go_back(file: str, lines: list) -> list:
+    """WARN-with-exception for 'to understand X, we have to go back…' (T7).
+
+    Demoted from HARD 2026-07-19 per VOICE-PROFILE.md ~line 505: his own
+    2026-07-15 _adlib/ ad-libs open causal chains with exactly this phrasing,
+    unprompted, when a walked chain actually follows — the prerequisite-chain
+    doorway IS his native move. Only the bare/empty transition (nothing
+    concrete follows) is the AI tissue this rule still catches.
+
+    Exception test: does a year (3-4 digit number) appear within the rest of
+    the sentence, OR does the sentence continue for >=8 more words past the
+    match? Either signals a walked chain follows — suppress entirely (no
+    finding, not even WARN), matching "keep such lines when they're his".
+    """
+    findings = []
+    for line_no, sent in _flatten_sentences(lines):
+        m = _UNDERSTAND_GO_BACK_RX.search(sent)
+        if not m:
+            continue
+        tail = sent[m.end():]
+        has_year = bool(_TRAILING_YEAR_RX.search(tail))
+        tail_words = len(_WORD.findall(tail))
+        if has_year or tail_words >= 8:
+            continue  # walked chain follows — his voice, not the AI tissue
+        findings.append(Finding(
+            file, line_no, "WARN", "understand-go-back", m.group(0),
+            "Obligatory-journey transition with no walked chain following — bare "
+            "AI-tissue form. If it leads into an actual causal walk (a year, or "
+            "the explanation continuing), it's his voice and won't fire here; "
+            "if it's standing alone, bridge by consequence instead: \"So…\" / thesis-forward.",
+        ))
+    return findings
+
+
 # =============================================================================
 # v18 fingerprint scanners (S12 2026-06-12 — FINGERPRINT-UNSCRIPTED §9 start
 # values; single-sample, so WARN/REVIEW only, never HARD)
@@ -684,6 +742,7 @@ def lint_file(path: str, do_transitions: bool = True) -> list:
     findings += scan_staccato(path, lines)
     findings += scan_stacked_credentials(path, lines)
     findings += scan_negation_pairs(path, lines)
+    findings += scan_understand_go_back(path, lines)
     findings += scan_sentence_band(path, lines)
     findings += scan_fragment_share(path, lines)
     findings += scan_questions(path, lines)
