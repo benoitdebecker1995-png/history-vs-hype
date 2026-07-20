@@ -47,7 +47,7 @@ Before any other behavior fires, read these in parallel (one message, multiple R
 2. `<project>/PROJECT-STATUS.md` — current lifecycle state
 3. `C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\feedback-scriptcollab.md` — canonical Voice-Pass Patterns ruleset
 4. `C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\feedback-staccato-delivery.md` — fragment + frequency-cap rule
-5. `D:\History vs Hype\.claude\REFERENCE\WRITING-VOICE-AND-STYLE.md` — Calm Prosecutor voice, antecedent clarity, contractions
+5. `D:\History vs Hype\.claude\REFERENCE\WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md` — Calm Prosecutor voice, antecedent clarity, contractions
 6. `D:\History vs Hype\.claude\REFERENCE\THESIS-DISCIPLINE.md` — 9-step throughline procedure (used in Phase 1 lite mode)
 7. `D:\History vs Hype\.claude\REFERENCE\NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` — Use Case 18 thesis articulation + attribution verification
 
@@ -188,7 +188,7 @@ Workflow:
 After all Phase 2 candidates resolved:
 
 1. **Read the full script top-to-bottom.** Flag anything that *sounds* unnatural read aloud:
-   - Antecedents drifting across paragraph breaks (Rule from `WRITING-VOICE-AND-STYLE.md` PART 5.2)
+   - Antecedents drifting across paragraph breaks (Rule from `WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md` §5.2)
    - Sentences too long for one breath
    - Unfamiliar terms used before introduction
    - "Here's" count exceeded budget (max 2-4 per script — see channel CLAUDE.md)

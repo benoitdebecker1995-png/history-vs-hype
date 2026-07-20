@@ -4,7 +4,7 @@
 **All facts pre-verified:** ✅ YES / ❌ NO (if NO, stop and verify first)
 **Retention optimized:** ✅ YES / ❌ NO
 
-**Style Reference:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` PARTS 1-5 (Kraut, Alex O'Connor, Knowing Better, Shaun, Historia Civilis, Fall of Civilizations patterns)
+**Style Reference:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` (index) routes to PARTS 1-5 sibling files (Kraut, Alex O'Connor, Knowing Better, Shaun, Historia Civilis, Fall of Civilizations patterns)
 
 ---
 
@@ -41,7 +41,7 @@
 
 **Goal:** Modern relevance + why this matters NOW
 
-**Choose Opening Pattern (from REFERENCE/OPENING-HOOK-TEMPLATES.md or WRITING-VOICE-AND-STYLE.md §3.1 / §5.2):**
+**Choose Opening Pattern (from REFERENCE/OPENING-HOOK-TEMPLATES.md or WRITING-VOICE-AND-STYLE-P3-STRUCTURE.md §3.1 / WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md §5.2):**
 
 **Option A - Kraut Sweep-Then-Specifics:**
 > [Sweeping historical pattern] → [Multiple specific examples] → [Exception that creates curiosity]

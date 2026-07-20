@@ -23,7 +23,7 @@ Two passes on a finished `SCRIPT.md`: (A) narrative-flow / structure verificatio
 
 ## PASS A — NARRATIVE-FLOW VERIFICATION (`--flow`)
 
-Read `SCRIPT.md`. Apply the 10 narrative-flow rules (`WRITING-VOICE-AND-STYLE.md` §3.2) + the structure checks. For each finding give `line N → issue → concrete fix`.
+Read `SCRIPT.md`. Apply the 10 narrative-flow rules (`WRITING-VOICE-AND-STYLE-P3-STRUCTURE.md` §3.2) + the structure checks. For each finding give `line N → issue → concrete fix`.
 
 **Check:**
 1. **Terms before use** — every technical/foreign/named term defined in-breath at first mention (emirate, hükûmet, Anfal, etc.). Flag any term used before it's introduced.

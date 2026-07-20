@@ -224,7 +224,7 @@ Max script words: [N] (target × 250 WPM × 1.80)
 ## Before Writing
 
 **Read these reference files:**
-- `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` - **AUTHORITATIVE** style reference (PARTS 1-5: voice, evidence, structure, debunking framework, techniques toolkit)
+- `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` index - **AUTHORITATIVE** style reference, routes to PARTS 1-5 sibling files (voice, evidence, structure, debunking framework, techniques toolkit)
   - **PART 1:** Core Voice (forbidden phrases, sentence rhythm, word choice)
   - **PART 3:** Structure (hook/turn/close, narrative flow, pacing)
   - **PART 4:** Debunking Framework (myth-first, seven principles, concede-pivot)
@@ -235,6 +235,7 @@ Max script words: [N] (target × 250 WPM × 1.80)
 - `.claude/USER-PREFERENCES.md` - Natural speaking patterns
 - `.claude/REFERENCE/NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` - Prompts for your uploaded books
 - **`.claude/REFERENCE/OPENING-HOOK-TEMPLATES.md`** - Fill-in-the-blank templates for first 60 seconds
+- **`.claude/REFERENCE/RETENTION-STRUCTURE-MAP.md`** - Whole-video gap-sustain map (turn at 15-25% — land early; McKee's 25% = outer bound, 25-35% = documented dead zone; three-touch macro-gap, top-spin, no new gaps in final 2 min) — keeps the opener's gains from bleeding out in the body
 - **`.claude/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md`** - Fill-in-the-blank templates for final 60-90 seconds
 - **`.claude/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md`** - Pre-filming polish (Iran Part 1 lessons)
 
@@ -247,7 +248,7 @@ Before generating a script, the system automatically surfaces relevant past perf
 When topic type is known (territorial, ideological, fact-check, general), the system displays:
 - **Topic Performance:** How this topic type has performed historically (retention, conversion)
 - **Retention Lessons:** What caused viewer drop-offs in similar past videos
-- **Suggested Patterns:** Which WRITING-VOICE-AND-STYLE.md PART 1/PART 5 voice patterns work best for this topic type
+- **Suggested Patterns:** Which WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md / -P5-TECHNIQUES.md voice patterns work best for this topic type
 - **Past hook and structure choice patterns** for this topic type (from variant history)
 - **Last 3 failure-mode diagnoses** (from `channel-data/DIAGNOSIS-LOG.md` — wired by `/analyze --diagnose`). Surfaces the recurring leak so the next script doesn't repeat it. Format: `LAST FAILURES: [VIDEO]→[FAILURE TYPE]→[CONCRETE FIX]`. If file is missing, skip silently.
 
@@ -569,7 +570,7 @@ After classifying video type, check `.claude/REFERENCE/coverage-audit.md` Covera
 4. **Self-affirmation** (acknowledge shared values before corrections)
 5. **Source credibility** (explain WHY myth was created)
 
-**See:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` PART 4 (Debunking Framework) for complete framework
+**See:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P4-DEBUNKING.md` for complete framework
 
 **NotebookLM assistance:** Use prompts from `NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` for:
 - Identity stake assessment (Use Case 2)
@@ -626,7 +627,7 @@ After classifying video type, check `.claude/REFERENCE/coverage-audit.md` Covera
 - [ ] Rhetorical fragments preserved for emphasis only
 - [ ] Passes the "Stumble Test" (read aloud without hesitation)
 
-See: `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` → §3.5 "Spoken-delivery rules"
+See: `.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P3-STRUCTURE.md` → §3.5 "Spoken-delivery rules"
 
 ### Natural Delivery Patterns (MANDATORY - Added 2025-12-30)
 - [ ] Abbreviations expanded ("African Union" not "AU")
@@ -1196,7 +1197,7 @@ Export SCRIPT.md to clean text for filming.
 
 ## Reference Files
 
-- **Authoritative style guide:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` (PARTS 1-5 are script-side)
+- **Authoritative style guide:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` index (PARTS 1-5 sibling files are script-side)
 - **Script template:** `.claude/templates/02-SCRIPT-DRAFT-TEMPLATE.md`
 - **Opening templates:** `.claude/REFERENCE/OPENING-HOOK-TEMPLATES.md`
 - **Closing templates:** `.claude/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md`

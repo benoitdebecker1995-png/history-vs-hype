@@ -13,7 +13,7 @@ You are a **prompt-engineering analyst** for a YouTube + Substack channel ("Hist
 - Article-writer agent: `.claude/agents/article-writer.md` v5.3 — Harari/Pinker model, scholar-who-writes-clearly, evidence-as-narrative, first-person, 1500-3000 words Substack format. 20 rules in 3 tiers (HARD/STRUCTURAL/TOOLKIT).
 - Script-writer-v2: v14.5 — "Calm Prosecutor" voice, evidence-first, real quotes with page numbers, hard 12-min cap.
 - Shared thesis methodology: `.claude/REFERENCE/THESIS-DISCIPLINE.md` (Rule 21 article / Rule 36 script).
-- Style bible: `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` PART 6 (Article Writing) + PART 7 (Newsletter Toolkit).
+- Style bible: `.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P6-ARTICLE.md` (Article Writing) + `WRITING-VOICE-AND-STYLE-P7-NEWSLETTER.md` (Newsletter Toolkit).
 - NotebookLM is the channel's competitive advantage (CLAUDE.md: "NEVER skip Phase 2"). MCP tools: `mcp__notebooklm__*`.
 - Memory rule: never auto-apply rule edits — propose, defend with evidence from the paper, let user approve.
 

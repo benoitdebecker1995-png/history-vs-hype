@@ -16,7 +16,7 @@ changelog: .claude/agents/script-writer-v2-CHANGELOG.md
 | File | Purpose |
 |------|---------|
 | **`.claude/REFERENCE/VOICE-PROFILE.md`** | **READ FIRST** — the creator's canonical personal voice fingerprint (`/voice-discovery` 2026-06-05, picks-validated). The *who-he-is*; the manual below is the *how-to*. Where they conflict, this wins. |
-| **`.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md`** | **PRIMARY** — Voice, structure, delivery, debunking framework, techniques toolkit. Read PARTS 1-5 (skip PART 6 article-side and PART 7 newsletter toolkit). |
+| **`.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md`** (index) | **PRIMARY** — routes to `-P1-CORE-VOICE.md`, `-P2-EVIDENCE.md`, `-P3-STRUCTURE.md`, `-P4-DEBUNKING.md`, `-P5-TECHNIQUES.md`. Skip PART 6/7 (article-side, not needed here). |
 | **`.claude/REFERENCE/THESIS-DISCIPLINE.md`** | **THESIS** — Universal 9-step throughline-finding procedure. Source of truth for Rule 36. Read before STEP 0. |
 | `.claude/templates/02-SCRIPT-DRAFT-TEMPLATE.md` | Output template |
 
@@ -31,7 +31,7 @@ changelog: .claude/agents/script-writer-v2-CHANGELOG.md
 | `.claude/REFERENCE/breakout-retention-audit.md` | Pre-filming audit protocol |
 | `tools/benchmark/WAVE-8-SCRIPT-TECHNIQUES.md` | Wave 8/8B competitor rebuttal, momentum, character techniques |
 
-**WRITING-VOICE-AND-STYLE.md is the single source of truth for style (PARTS 1-5). This agent file contains ONLY behavioral instructions and guardrails.**
+**WRITING-VOICE-AND-STYLE-P1..P5 (see `WRITING-VOICE-AND-STYLE.md` index) are the single source of truth for style. This agent file contains ONLY behavioral instructions and guardrails.**
 
 ---
 
@@ -198,7 +198,7 @@ Scripts are read aloud on camera via teleprompter. This is the CORE NON-NEGOTIAB
 - Contractions used ("it's" not "it is")
 - Every technical term defined on first use
 - "Here's" count: 2-4 per script max
-- No forbidden phrases (see WRITING-VOICE-AND-STYLE.md §1.3, SCRIPTWRITING-EXAMPLES.md §4)
+- No forbidden phrases (see WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md §1.3, SCRIPTWRITING-EXAMPLES.md §4)
 - Informational lists use commas, not staccato periods
 - The Stumble Test: if a line would make presenter pause → rewrite
 - **Latin/technical terms:** If a Latin or technical term can be replaced with plain language, replace it. "Intertemporal law" → "a principle: you judge a treaty by the standards of its time." The creator WILL stumble on Latin terms — every one is a re-take risk.
@@ -1626,7 +1626,7 @@ Map energy arc. Place valley before peak. Plan breathing room techniques.
 
 # VOICE CALIBRATION
 
-**Canonical: `VOICE-PROFILE.md` §Sentence rhythm, §Connectors, §Cold-open, §Transitions.** This agent file does not restate voice patterns — see the "VOICE PROFILE" block at the top of this file for the compressed operative digest. For connector/bridge-phrase inventories, see `WRITING-VOICE-AND-STYLE.md` PART 1 §2.4 (connectors) and PART 5.3 (bridge phrases). For the "Here's" cap and forbidden-phrase list, see Rule 7.
+**Canonical: `VOICE-PROFILE.md` §Sentence rhythm, §Connectors, §Cold-open, §Transitions.** This agent file does not restate voice patterns — see the "VOICE PROFILE" block at the top of this file for the compressed operative digest. For connector/bridge-phrase inventories, see `WRITING-VOICE-AND-STYLE-P2-EVIDENCE.md` §2.4 (connectors) and `WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md` §5.3 (bridge phrases). For the "Here's" cap and forbidden-phrase list, see Rule 7.
 
 **2026-07-20 removal note:** this section previously carried standalone examples ("Temporary occupation. Twelve years." / "Iraq's borders? Finalized in 1926.") that predate `VOICE-PROFILE.md` and directly contradict it — VOICE-PROFILE.md §Sentence rhythm names chopped staccato fragments the **#1 "too-AI" tell** and defaults to flowing sentences. Removed rather than corrected in place, per "canonical wins conflicts."
 

@@ -848,7 +848,7 @@ Body: [2-3 paragraph summary of the key evidence/finding]
 - **Thumbnail framework:** `.claude/REFERENCE/THUMBNAIL-EVALUATION-FRAMEWORK.md`
 - **VidIQ filter:** `.claude/REFERENCE/VIDIQ-CHANNEL-DNA-FILTER.md`
 - **Title database:** `channel-data/COMPETITOR-TITLE-DATABASE.md`
-- **Technique library:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` PART 5 (Techniques Toolkit)
+- **Technique library:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md`
 - **Technique log:** `channel-data/TECHNIQUE-USAGE-LOG.md`
 - **Metadata checker:** `tools/discovery/metadata_checker.py`
 - **Prompt generator:** `tools/production/prompt_generator.py`
@@ -864,7 +864,7 @@ Body: [2-3 paragraph summary of the key evidence/finding]
 ### Evaluate Technique Effectiveness
 
 1. **What techniques did you use?**
-   - List techniques from WRITING-VOICE-AND-STYLE.md PART 5 used in this video
+   - List techniques from WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md used in this video
    - Note which script sections used which techniques
 
 2. **How did they perform?**
@@ -877,7 +877,7 @@ Body: [2-3 paragraph summary of the key evidence/finding]
    - Include: date, video slug, technique, section, retention %, rating, notes
 
 4. **Update the library (optional):**
-   - If technique worked well, update "Effectiveness" in WRITING-VOICE-AND-STYLE.md PART 5
+   - If technique worked well, update "Effectiveness" in WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md
    - If technique failed, note why in the library entry
 
 > **Proactive:** "It's been [X] days since [video] published. Ready to evaluate technique effectiveness? I can help you log which techniques worked."

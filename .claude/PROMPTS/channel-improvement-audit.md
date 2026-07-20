@@ -34,7 +34,7 @@ For each new channel:
 4. Note any unique structural techniques
 5. Extract copy-paste templates
 
-**1B. Identify techniques NOT in current WRITING-VOICE-AND-STYLE.md PART 5**
+**1B. Identify techniques NOT in current WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md**
 
 Check current library, then find gaps:
 - Opening hook types we're missing
@@ -63,7 +63,7 @@ Create comparison table:
 **2C. Script Quality Audit**
 
 Review scripts in `video-projects/_IN_PRODUCTION/` and `_READY_TO_FILM/`:
-- Check against WRITING-VOICE-AND-STYLE.md PART 5 checklist
+- Check against WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md checklist
 - Flag missing techniques
 - Suggest specific improvements with line numbers
 
@@ -113,7 +113,7 @@ Search for and analyze:
 
 Based on findings, update these files:
 
-**5A. WRITING-VOICE-AND-STYLE.md PART 5**
+**5A. WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md**
 - Add new techniques discovered
 - Remove techniques that don't work for our niche
 - Update examples with our own content
@@ -180,7 +180,7 @@ Date: [date]
 
 Audit is complete when:
 - [ ] At least 3 new competitor transcripts analyzed
-- [ ] WRITING-VOICE-AND-STYLE.md PART 5 updated with new patterns
+- [ ] WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md updated with new patterns
 - [ ] At least 1 script in production audited and improved
 - [ ] Summary report created
 - [ ] Specific, actionable recommendations provided

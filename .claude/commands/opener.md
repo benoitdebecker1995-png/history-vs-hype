@@ -45,7 +45,7 @@ Before running, /opener reads these artifacts from the target project folder:
 
 ## VOICE GUARD (Live-Read from Style Doc)
 
-Before any candidate is scored, run a forbidden-phrase check. Read live from `D:\History vs Hype\.claude\REFERENCE\WRITING-VOICE-AND-STYLE.md`. Reject candidates containing:
+Before any candidate is scored, run a forbidden-phrase check. Read live from `D:\History vs Hype\.claude\REFERENCE\WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md` (§1.3 forbidden phrases). Reject candidates containing:
 
 **Forbidden phrases:**
 - "Buckle up" / "Strap in" / "Hold on tight"

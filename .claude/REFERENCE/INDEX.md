@@ -2,18 +2,18 @@
 
 **Which files to read for each task. Don't read all — read only what your task needs.**
 
-> **2026-05-02 consolidation:** 9 voice/style files merged into `WRITING-VOICE-AND-STYLE.md`. Source files archived at `.claude/_ARCHIVE/voice-consolidation-2026-05-02/`. See PART-mapping at the bottom of `WRITING-VOICE-AND-STYLE.md`.
+> **2026-05-02 consolidation:** 9 voice/style files merged into `WRITING-VOICE-AND-STYLE.md`. Source files archived at `.claude/_ARCHIVE/voice-consolidation-2026-05-02/`. See PART-mapping at the bottom of `WRITING-VOICE-AND-STYLE.md`. **2026-07-20 split (LLM-CRAFT-UPGRADE-PLAN C3):** the consolidated file is now split by PART into `WRITING-VOICE-AND-STYLE-P1..P7-*.md` sibling files; `WRITING-VOICE-AND-STYLE.md` is a lean index that points to them. **2026-07-20 split (LLM-CRAFT-UPGRADE-PLAN C3):** the consolidated file is now split by PART into `WRITING-VOICE-AND-STYLE-P1..P7-*.md` sibling files; `WRITING-VOICE-AND-STYLE.md` is a lean index that points to them.
 
 ---
 
 ## Scriptwriting (read these 4)
-1. **WRITING-VOICE-AND-STYLE.md** — PARTS 1-5 are script-side. PART 1 voice, PART 2 evidence, PART 3 structure, PART 4 debunking framework, PART 5 techniques toolkit. AUTHORITATIVE.
+1. **WRITING-VOICE-AND-STYLE.md** (index) — PARTS 1-5 are script-side, split into sibling files: `-P1-CORE-VOICE.md` (voice), `-P2-EVIDENCE.md`, `-P3-STRUCTURE.md`, `-P4-DEBUNKING.md`, `-P5-TECHNIQUES.md`. AUTHORITATIVE.
 2. **THESIS-DISCIPLINE.md** — Universal 9-step throughline-finding methodology (script-writer Rule 36, article-writer Rule 21).
 3. **OPENING-HOOK-TEMPLATES.md** — Hook patterns with retention data (deep template library; cross-references PART 5.2).
 4. **CLOSING-SYNTHESIS-TEMPLATES.md** — Close patterns (cross-references PART 5.5).
 
 ## Newsletter / Article Writing (read this 1)
-1. **WRITING-VOICE-AND-STYLE.md** — PARTS 1, 2, 6, 7 are article-side. PART 6 article writing (10 rules, SCQA, verdict sentences, anti-slop, CRIBS, first-person modes), PART 7 newsletter workshop toolkit. AUTHORITATIVE.
+1. **WRITING-VOICE-AND-STYLE.md** (index) — PARTS 1, 2, 6, 7 are article-side: `-P1-CORE-VOICE.md`, `-P2-EVIDENCE.md`, `-P6-ARTICLE.md` (10 rules, SCQA, verdict sentences, anti-slop, CRIBS, first-person modes), `-P7-NEWSLETTER.md` (workshop toolkit). AUTHORITATIVE.
 
 ## Fact-Checking (read these 2)
 1. **fact-checking-protocol.md** — Source hierarchy (Tier 1/2/3), verification process.

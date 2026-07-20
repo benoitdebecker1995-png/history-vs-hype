@@ -21,7 +21,7 @@ description: Autonomous follow-up to /voice discover — build the voice linter,
 3. `docs/adr/0006-voice-profile-supersedes-style-manual.md` — why the profile supersedes the manual.
 4. `C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\feedback-script-voice-calibration.md` — origin trail + the ⚠️ reversed-notes flag.
 5. `.claude/agents/script-writer-v2.md` — the 8-point VOICE PROFILE callout in AGENT MISSION (v16.5).
-6. `WRITING-VOICE-AND-STYLE.md` §1.1, §1.3, §1.4, §2.3, §3.2 — the correction-callouts already inserted.
+6. `WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md` §1.1, §1.3, §1.4; `-P2-EVIDENCE.md` §2.3; `-P3-STRUCTURE.md` §3.2 — the correction-callouts already inserted.
 7. One existing tool in `tools/` (e.g. `tools/title_scorer.py`) — to copy CLI/argparse/reporting conventions for Task 1.
 
 Do not proceed until you've read 1–3 and skimmed 5–6. The cringe lists and the locked decisions are the source of truth for everything below.
@@ -56,7 +56,7 @@ Two parts:
 2. Add a short prose step to the relevant command — read `.claude/commands/polish.md` and `.claude/commands/verify.md`, pick whichever already owns line-level voice passes, and add a "Transition audit" step: for every act/section handoff, confirm it is thesis-forward and hands into the next beat's subject (per VOICE-PROFILE.md "Transitions"). Keep it as a checklist item, not a new sub-agent. Show the diff in your report.
 
 ## Task 4 — Reconcile the manual body with the profile (prevent agent confusion)
-`WRITING-VOICE-AND-STYLE.md` now carries correction-callouts, but the BODY of §1.4 (staccato/8-word-gavel emphasis) and §2.3 (scale-comparison) still teaches the opposite as primary — a fresh agent skimming the body gets mixed signals. Rewrite those BODY sections so they lead with the profile's position, demoting the old guidance to "rare device."
+`WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md` §1.4 (staccato/8-word-gavel emphasis) and `-P2-EVIDENCE.md` §2.3 (scale-comparison) now carry correction-callouts, but the BODY text still teaches the opposite as primary — a fresh agent skimming the body gets mixed signals. Rewrite those BODY sections so they lead with the profile's position, demoting the old guidance to "rare device."
 - **CRITICAL CONSTRAINT:** this manual serves BOTH script-writer and article-writer. The §2.3 scale-comparison guidance is **article-OK** (the override I added is script-side). Preserve article-side nuance — frame the demotions as "Script: … / Article: …" where they differ, per the file's own pointer rule. Do not delete the article-side value.
 - Keep the callouts (they're the audit trail) but make the body no longer contradict them.
 - This is the authoritative style file — edit surgically, preserve all article-side content, do not drop examples. If a section's rewrite is genuinely ambiguous between script/article, leave the callout and add a `TODO(voice): confirm with creator` rather than guessing.

@@ -132,13 +132,13 @@ When a script file is provided, the system maps retention drops to specific scri
 2. Parses script into H2 sections with word counts
 3. Maps retention drop points to sections using word-count-based timing (150 WPM)
 4. Diagnoses root causes for each drop
-5. Recommends specific voice patterns from WRITING-VOICE-AND-STYLE.md PART 1 (Core Voice) and PART 5 (Techniques Toolkit)
+5. Recommends specific voice patterns from WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md and WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md
 
 ### Output
 
 - **Retention Drop Map:** Table showing which sections lost viewers, with magnitude and severity
 - **Section Diagnostics:** Root cause analysis with specific pattern recommendations
-- Each recommendation references exact WRITING-VOICE-AND-STYLE.md PART 1 (Core Voice) and PART 5 (Techniques Toolkit) patterns
+- Each recommendation references exact WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md and WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md patterns
 
 ### Requirements
 

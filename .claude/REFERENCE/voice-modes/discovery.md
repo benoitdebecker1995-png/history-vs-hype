@@ -26,7 +26,7 @@ model: opus
 
 Read in parallel (one message), then dispatch Gemini:
 
-1. `D:\History vs Hype\.claude\REFERENCE\WRITING-VOICE-AND-STYLE.md` — the comprehensive spec (PARTS 1–5).
+1. `D:\History vs Hype\.claude\REFERENCE\WRITING-VOICE-AND-STYLE.md` index — routes to the comprehensive spec, PARTS 1-5 sibling files.
 2. `C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\feedback-script-voice-calibration.md` — picks-derived model + the #58 block (the "ask me / give me options" method and what his Kurdistan picks revealed).
 3. `C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\feedback-scriptcollab.md` — the "Voice-Pass Patterns" canonical cringe ruleset.
 4. `C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\feedback-staccato-delivery.md` — fragment + frequency-cap rule.
@@ -100,7 +100,7 @@ Keep to 3–4, and make each answerable by pointing rather than essay-writing:
    - Dimension-by-dimension do/don't.
    This file is the quick-reference companion to the comprehensive `WRITING-VOICE-AND-STYLE.md`; it is the *fingerprint*, that file is the *manual*.
 2. **Update** `feedback-script-voice-calibration.md` — fold the consolidated model in; note `VOICE-PROFILE.md` as canonical; link `[[script-revision-grounding]]`.
-3. **Propose** (don't silently apply) folding the top ~10 rules into `WRITING-VOICE-AND-STYLE.md` §1.1–1.3 and into the `script-writer-v2` agent system prompt, so future drafts START in-voice. Show the diff; get approval.
+3. **Propose** (don't silently apply) folding the top ~10 rules into `WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md` §1.1–1.3 and into the `script-writer-v2` agent system prompt, so future drafts START in-voice. Show the diff; get approval.
 4. **Reconcile the scattered docs** — name the overlaps between WRITING-VOICE-AND-STYLE.md, VOICE-FINGERPRINT.md (#57), feedback-scriptcollab.md, feedback-staccato-delivery.md; recommend which stays canonical for what, so this doesn't re-fragment.
 
 ---

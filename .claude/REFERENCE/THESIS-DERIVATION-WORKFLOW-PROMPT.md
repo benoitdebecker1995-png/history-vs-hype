@@ -24,7 +24,7 @@ Before doing anything else, read these files. They are the rules. Do not skip.
 
 1. .claude/agents/script-writer-v2.md — read Rule 36 (THESIS THROUGH-LINE) and Rule 32F.2b (visual Chekhov's gun). Both are in Tier 2.
 2. .claude/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md — read Lessons 25–32 (Tripoli rough-cut findings, including the Walk-Away Test).
-3. .claude/REFERENCE/WRITING-VOICE-AND-STYLE.md PART 1 (Core Voice) — read the full part. This is the single source of truth for voice match. §1.4 (Sentence rhythm and the stumble test) and §3.1/§5.5 (Closings) are the most important.
+3. .claude/REFERENCE/WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md — read the full file. This is the single source of truth for voice match. §1.4 (Sentence rhythm and the stumble test) is the most important; also see WRITING-VOICE-AND-STYLE-P3-STRUCTURE.md §3.1 and WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md §5.5 (Closings).
 4. .claude/REFERENCE/NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md — read Use Case 18 (Thesis Articulation Check). You will run a variant of this against the project's notebook.
 5. C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\feedback-rough-cut-instincts.md — read the 8 instincts. They are the voice rules that govern candidate audit.
 6. {{PROJECT_FOLDER}}/PROJECT-STATUS.md — current state of this project.
@@ -79,7 +79,7 @@ PHASE 3 — Audit and lock the thesis
 When the user picks a candidate, AUDIT it honestly:
 
 - Does the closing line anchor to a NAMED ARTIFACT (per Lesson 31)?
-- Does the line use voice-matched register per WRITING-VOICE-AND-STYLE.md PART 1? (Hard rules: no staccato fragments for dramatic effect; no "and that's the real story" energy; no academic abstractions like "ideological architectures"; YES to longer flowing sentences with subordinate clauses, "But for X years..." pivots, three-adjective lists.)
+- Does the line use voice-matched register per WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md? (Hard rules: no staccato fragments for dramatic effect; no "and that's the real story" energy; no academic abstractions like "ideological architectures"; YES to longer flowing sentences with subordinate clauses, "But for X years..." pivots, three-adjective lists.)
 - Does the thesis type pass the Universality Test? (The same sentence should plausibly caption ≥1 unrelated case in the channel pipeline.)
 
 If any audit check fails, propose a voice-matched rewrite that preserves the thesis but fixes the voice issue. Do not silently fix without flagging.
@@ -97,7 +97,7 @@ STAGE B (post-script, pre-film): Audit the existing 02-SCRIPT-DRAFT.md against t
 STAGE C (post-film, pre-edit): Run the Tripoli workflow.
 - Compare the rough-cut closing audio to the locked thesis. If they don't align:
   - Run NotebookLM Round 2 for closing-line candidates that pair with what's already on tape. Save to CLOSING-LINE-CANDIDATES-NLM.md.
-  - Audit candidates against WRITING-VOICE-AND-STYLE.md PART 1. Surface honest verdicts (which are reject-on-voice, which are salvageable). If round 2 drifts academic, run Round 3 with sharper voice constraints. Save each round to its own file.
+  - Audit candidates against WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md. Surface honest verdicts (which are reject-on-voice, which are salvageable). If round 2 drifts academic, run Round 3 with sharper voice constraints. Save each round to its own file.
   - When user locks a closing line, write EDIT-PLAN-THESIS-LOCK.md with: KEEP/CUT operations against the SRT (real video timestamps, accounting for any SRT timecode offset), VO pickup line + booth instructions, B-roll alignment, lower-third specs for any moved citations, runtime delta calculation.
   - Identify any HTML asset modifications needed (e.g., highlighted-state stills for graphic crossfades).
 
@@ -135,11 +135,11 @@ HARD RULES (do not violate)
 —————————————————————————————
 
 - Never propose a thesis without verifying its anchor evidence is verbatim in the project's notebook or 01-VERIFIED-RESEARCH.md.
-- Never silently fix voice issues. If a candidate violates WRITING-VOICE-AND-STYLE.md PART 1, flag it explicitly and propose the rewrite. The user has explicitly rejected silent corrections.
+- Never silently fix voice issues. If a candidate violates WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md, flag it explicitly and propose the rewrite. The user has explicitly rejected silent corrections.
 - Never collapse two distinct thesis candidates into one because they sound similar — surface both and articulate the difference.
 - Three options max for any branching question. Different ANGLES, not synonyms.
 - After each major step, output: ✅ [what was completed]
-- If the user pushes back on an audit verdict, defend with WRITING-VOICE-AND-STYLE.md PART 1 citations or notebook evidence. Do not flip on pushback alone.
+- If the user pushes back on an audit verdict, defend with WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md citations or notebook evidence. Do not flip on pushback alone.
 - Stop conditions: do not modify any file outside {{PROJECT_FOLDER}}/ except .claude/REFERENCE/ files for read-only access. Do not push to git. Do not run /publish, /preflight, or any other channel skill without explicit user OK.
 
 OUTPUT FORMAT
@@ -165,7 +165,7 @@ Claude (in the new chat) will read the rules, detect the stage, and walk you thr
 
 - **Self-contained:** the new chat starts with zero context, but Phase 0 forces it to read all the canonical references before doing anything. No hallucinated rules.
 - **Stage-aware:** Phase 1 detects whether the project is pre-script, post-script-pre-film, post-film-pre-edit, or archived. The workflow branches to the right intervention for each stage.
-- **Voice-honest:** Phase 3 mandates the audit against WRITING-VOICE-AND-STYLE.md PART 1 and explicitly rejects silent corrections. The Tripoli workflow burned three rounds of NotebookLM before getting voice right; this prompt encodes that lesson up-front.
+- **Voice-honest:** Phase 3 mandates the audit against WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md and explicitly rejects silent corrections. The Tripoli workflow burned three rounds of NotebookLM before getting voice right; this prompt encodes that lesson up-front.
 - **User-paced:** every phase has explicit pause points where the user's instincts drive the lock. Claude doesn't run ahead and over-commit to a thesis before the user has reacted.
 - **Reproduces the Tripoli artifacts:** if you re-run this on Tripoli (project 51), you'd get THESIS-CANDIDATES-NLM.md → CLOSING-LINE-CANDIDATES-NLM.md → CLOSING-LINE-CANDIDATES-NLM-R3.md → updated EDIT-PLAN-THESIS-LOCK.md / PROJECT-STATUS.md / 02-SCRIPT-DRAFT.md / YOUTUBE-METADATA.md. Same pipeline, same artifacts.
 

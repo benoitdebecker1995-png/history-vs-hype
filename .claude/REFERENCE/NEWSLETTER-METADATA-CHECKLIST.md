@@ -166,6 +166,6 @@
 
 - **Subject line scoring:** `python -m tools.newsletter.subject_line_scorer "Subject Here"`
 - **Article quality gate:** `python -m tools.newsletter.article_scorer path/to/article.md`
-- **Article writing style:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` PARTS 6-7 (Article Writing + Newsletter Toolkit)
+- **Article writing style:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P6-ARTICLE.md` + `-P7-NEWSLETTER.md`
 - **YouTube metadata (for cross-linking):** `.claude/REFERENCE/METADATA-CHECKLIST.md`
 - **Launch roadmap:** `NEWSLETTER-LAUNCH-ROADMAP.md`

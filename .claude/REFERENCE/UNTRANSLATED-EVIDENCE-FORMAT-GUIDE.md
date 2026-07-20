@@ -411,7 +411,7 @@ All rules from WRITING-VOICE-AND-STYLE.md remain in force:
 
 Same voice as main channel content.
 
-**Reference:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` §1.1 (Channel identity — Calm Prosecutor)
+**Reference:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md` §1.1 (Channel identity — Calm Prosecutor)
 
 **Characteristics:**
 - Forensic, calm, slightly sardonic
@@ -524,13 +524,13 @@ The language of the document is treated with respect, not condescension.
 
 ### Spoken Delivery Reminder
 
-All scripts are read aloud via teleprompter. Apply WRITING-VOICE-AND-STYLE.md §3.5 spoken delivery rules:
+All scripts are read aloud via teleprompter. Apply WRITING-VOICE-AND-STYLE-P3-STRUCTURE.md §3.5 spoken delivery rules:
 - Contractions ("it's" not "it is")
 - Ordinal dates ("On June 3rd, 1940," not "June 3, 1940")
 - Define technical terms immediately
 - Avoid essay-style language ("However," "Nevertheless")
 
-**See:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` §3.5 for complete rules
+**See:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P3-STRUCTURE.md` §3.5 for complete rules
 
 ---
 
@@ -707,6 +707,6 @@ Use this checklist when creating document analysis content:
 ---
 
 **See also:**
-- `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` — Base channel voice and delivery rules (PARTS 1, 3)
+- `.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md` + `-P3-STRUCTURE.md` — Base channel voice and delivery rules
 - `.claude/REFERENCE/HYBRID_TALKING_HEAD_GUIDE.md` — Visual strategy for talking head vs. evidence display
 - `CLAUDE.md` — Channel philosophy: quality over quantity, academic sources, real quotes

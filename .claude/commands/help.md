@@ -176,7 +176,7 @@ You don't need to remember commands. Just describe what you want:
 - `/sources` → `/research --sources` / `--prompts` / `--format-sources`
 - `/intel --score` / `--query` / `--algo` → `/patterns --score` / `--query` / `--intel`
 - `/newsletter`, `/workshop` → `article-writer` agent (CONVERT / WRITE / EDIT / WORKSHOP modes)
-- `/humanify` → article-writer Rule 1 (voice patterns from WRITING-VOICE-AND-STYLE.md PART 1)
+- `/humanify` → article-writer Rule 1 (voice patterns from WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md)
 - `/preflight`, `/deep-analytics`, `/think`, `/thesis-discovery` → archived (dead, redundant, or already executed)
 
 ---

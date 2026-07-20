@@ -433,7 +433,7 @@ After preliminary research, before deep research:
    - What's missing from their coverage?
 
 2. **Check for applicable techniques:**
-   - Skim `WRITING-VOICE-AND-STYLE.md` PART 5 (Techniques Toolkit) for relevant techniques
+   - Skim `WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md` for relevant techniques
    - Which opening hook fits this topic?
    - What evidence presentation style works here?
    - Note intended techniques in PROJECT-STATUS.md
@@ -851,7 +851,7 @@ Cannot proceed to scripting until:
 - **Research subfolder:** `.claude/templates/_RESEARCH-SUBFOLDER-TEMPLATE.md`
 - **Source standards:** `.claude/REFERENCE/NOTEBOOKLM-SOURCE-STANDARDS.md`
 - **Claims database:** `.claude/VERIFIED-CLAIMS-DATABASE.md`
-- **Technique library:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` PART 5 (Techniques Toolkit)
+- **Technique library:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md`
 - **Gap database:** `.claude/REFERENCE/GAP-DATABASE.md`
 
 ---

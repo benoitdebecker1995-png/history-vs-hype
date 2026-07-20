@@ -134,7 +134,7 @@ The owner is scientific: data-backed, test-and-measure. These rules gate every r
 
 | Question is about | Go to | Note |
 |---|---|---|
-| How to write the script — voice, style, structure, delivery | `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` (PARTS 1-5) + `.claude/REFERENCE/VOICE-PROFILE.md` | VOICE-PROFILE.md is CANONICAL — it wins on any conflict |
+| How to write the script — voice, style, structure, delivery | `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` index (routes to PARTS 1-5 sibling files) + `.claude/REFERENCE/VOICE-PROFILE.md` | VOICE-PROFILE.md is CANONICAL — it wins on any conflict |
 | Research discipline — filing claims, quotes, tiers, NLM, stop-flags | **historian skill** (`.claude/skills/historian/SKILL.md`) | Owns all research-mode rules; dormant only during project mechanics |
 | Titles / thumbnails — rules, patterns, protocols | `tools/PACKAGING_MANDATE.md` + `.claude/REFERENCE/TITLE-GENERATION-PROTOCOL.md` | Read with the ADR-0012 correction above (65 = enrichment) |
 | Gate/advancement mechanics | `tools/preflight/packaging_lock.py` + `docs/adr/0012-packaging-advancement-is-code-gated.md` | This skill's Gate section is the digest; the ADR is authority |

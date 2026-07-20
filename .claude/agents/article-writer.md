@@ -13,7 +13,7 @@ version: 5.6 (2026-06-01) — full changelog in memory/agent-versions.md. Latest
 | File | Purpose |
 |------|---------|
 | **`.claude/REFERENCE/THESIS-DISCIPLINE.md`** | **THESIS** — Universal 9-step throughline-finding procedure. Source of truth for Rule 21. Read BEFORE drafting; if thesis cannot be articulated in ≤12 words, insert [THESIS GAP] flag. |
-| **`.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md`** | **PRIMARY** — Voice, evidence-as-narrative, structural techniques, opening/ending templates, anti-slop checklist, CRIBS audit. Read PART 1 (Core Voice) + PART 2 (Evidence as Narrative) + PART 6 (Article Writing) + PART 7 (Newsletter Toolkit). Skip PARTS 3-5 (script-side). |
+| **`.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md`, `-P2-EVIDENCE.md`, `-P6-ARTICLE.md`, `-P7-NEWSLETTER.md`** | **PRIMARY** — Voice, evidence-as-narrative, structural techniques, opening/ending templates, anti-slop checklist, CRIBS audit. Index: `WRITING-VOICE-AND-STYLE.md`. Skip PARTS 3-5 (script-side, not needed here). |
 | `tools/newsletter/ROTATION-STATE.md` | What the last articles used (endings, openings, phrases, references). Pick differently. |
 | Last 2-3 `NEWSLETTER-ARTICLE.md` files | Read for cross-article tic detection |
 
@@ -35,7 +35,7 @@ Write like a scholar who happens to write clearly. The author spent weeks in the
 - **EDIT:** Draft -> Feedback. Run the quality gate, return line-level fixes.
 - **WORKSHOP:** Draft -> NotebookLM critique loop -> Final. Use Article Workshop notebook `3ccc9c87-3ea7-41c4-9516-718f73a5efd0` (19 real human articles + Lopate/Best American Essays anthologies) to critique opening, weakest transition, key evidence section, and closing. Iterate. (Folded from former /workshop command, 2026-05-03.)
 
-**WRITING-VOICE-AND-STYLE.md PARTS 1, 2, 6, 7 are the single source of truth for voice, techniques, and models. This agent file contains ONLY behavioral rules and guardrails.**
+**WRITING-VOICE-AND-STYLE-P1/-P2/-P6/-P7 (see `WRITING-VOICE-AND-STYLE.md` index) are the single source of truth for voice, techniques, and models. This agent file contains ONLY behavioral rules and guardrails.**
 
 ## Toolchain (folded from former /newsletter, 2026-05-03)
 

@@ -32,12 +32,12 @@ model: opus
 ### PRIMARY REFERENCE (Mandatory — read for EVERY check)
 
 0. **`.claude/REFERENCE/VOICE-PROFILE.md`** - **CANONICAL voice fingerprint (read FIRST).** Per `docs/adr/0006-voice-profile-supersedes-style-manual.md` (2026-06-05), this file is canonical on any voice conflict with the style manual below; the manual carries inline correction-callouts that defer to it. (The "deprecated VOICE-PROFILE.md" referenced in the 2026-05-02 consolidation note was the OLD file; this is the new canonical one.)
-1. **`.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md`** - **PRIMARY craft manual** for style rules (canonical EXCEPT where VOICE-PROFILE.md overrides — ADR 0006)
-   - PART 1: Core Voice (forbidden phrases, sentence rhythm, word choice, cognitive patterns)
-   - PART 2: Evidence as Narrative (real quotes, primary sources, causal chains, anti-oversimplification)
-   - PART 3: Structure (hook/turn/close, narrative flow rules, pacing, spoken delivery)
-   - PART 4: Debunking Framework (myth-first, seven principles, concede-pivot)
-   - PART 5: Techniques Toolkit (creator phrases, hooks, bridges, mechanism forensics)
+1. **`.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md`** (index) - **PRIMARY craft manual** for style rules (canonical EXCEPT where VOICE-PROFILE.md overrides — ADR 0006). Split 2026-07-20 into PART sibling files:
+   - `-P1-CORE-VOICE.md`: forbidden phrases, sentence rhythm, word choice, cognitive patterns
+   - `-P2-EVIDENCE.md`: real quotes, primary sources, causal chains, anti-oversimplification
+   - `-P3-STRUCTURE.md`: hook/turn/close, narrative flow rules, pacing, spoken delivery
+   - `-P4-DEBUNKING.md`: myth-first, seven principles, concede-pivot
+   - `-P5-TECHNIQUES.md`: creator phrases, hooks, bridges, mechanism forensics
 
 **IMPORTANT:** Do NOT read these deprecated files (`STYLE-GUIDE.md`, `creator-techniques.md`,
 `CREATOR-PHRASE-LIBRARY.md`, `PROVEN-TECHNIQUES-LIBRARY.md`, `NARRATIVE-FLOW-RULES.md`,

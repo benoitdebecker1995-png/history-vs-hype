@@ -397,7 +397,7 @@ Six beats drilled across two rounds on a topic never drilled before. **6/6 on wh
 
 ## How this reconciles with the other voice docs
 
-- **`WRITING-VOICE-AND-STYLE.md`** — the comprehensive manual; still authoritative for craft mechanics. BUT three of its rules are now corrected by this file: (1) §1.1 reference models (Kraut+Alex, not Wendover/History-Matters), (2) the staccato/8-word-gavel emphasis (he leans explanatory), (3) §1.4 historical present + §2.3 "always anchor a number" (he rejects both). Fold the top rules into §1.1–1.3 (proposal pending creator approval).
+- **`WRITING-VOICE-AND-STYLE.md`** (index; split 2026-07-20 into PART sibling files) — still authoritative for craft mechanics. BUT three of its rules are now corrected by this file: (1) §1.1 reference models (Kraut+Alex, not Wendover/History-Matters) in `-P1-CORE-VOICE.md`, (2) the staccato/8-word-gavel emphasis (he leans explanatory) in `-P1-CORE-VOICE.md`, (3) §1.4 historical present in `-P1-CORE-VOICE.md` + §2.3 "always anchor a number" in `-P2-EVIDENCE.md` (he rejects both). Fold the top rules into §1.1–1.3 (proposal pending creator approval).
 - **`57-piri-reis/VOICE-FINGERPRINT.md`** — SRT-derived ad-lib fingerprint. Useful but **superseded where it conflicts** (it overstated enumeration-as-staccato, "guess who", and present-tense scene-drops; this file's live picks reverse those).
 - **`feedback-script-voice-calibration.md`** (memory) — the running calibration log; this file is now the canonical distillation it points to.
 
