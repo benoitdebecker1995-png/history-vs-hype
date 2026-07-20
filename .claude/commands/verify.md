@@ -493,6 +493,16 @@ For each Gemini finding:
 - **Format A/B:** advisory — surface the table, user decides.
 - **Never** let an unadjudicated Gemini finding drive an edit, and never let "Gemini found nothing" substitute for the 7.5–7.8 passes.
 
+#### Append the verdict to the judge-verdict ledger
+
+Append one line to `channel-data/calibration/JUDGE-VERDICT-LOG.md` (create it from its header template if it doesn't exist yet) summarizing this 7.5–7.9 attribution/provenance pass — these are real LLM-as-judge calls (Claude's own 7.5–7.8 verdicts, plus the Gemini-raises/NLM-confirms triage at 7.9) that otherwise only exist in the chat transcript:
+
+```
+| [today's date] | /verify Steps 7.5-7.9 | [video slug] | raised=[N] survived-triage=[M] nlm-confirmed=[K] | [any HARD gate tripped: yes/no] |
+```
+
+Lightweight, no new tooling — an append, matching `/script` Step 4b (`docs/LLM-CRAFT-UPGRADE-PLAN.md` D3). This is what lets attribution-judge drift and false-alarm rate become measurable across videos instead of evaporating each session.
+
 ---
 
 ### Output Location

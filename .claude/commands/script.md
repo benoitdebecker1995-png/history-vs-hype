@@ -476,6 +476,16 @@ THUMBNAIL CONCEPT: [if found, one-line coherence note: "Operation 'forensic clos
 ---
 ```
 
+### Step 4b: Append the verdict to the judge-verdict ledger
+
+Append one line to `channel-data/calibration/JUDGE-VERDICT-LOG.md` (create the file from its header template if it doesn't exist yet — see the file itself for the exact schema):
+
+```
+| [today's date] | /script Step 3a | [video slug] | promise=[PASS/DRIFT/FAIL] verb=[PASS/DRIFT/FAIL] specificity=[PASS/DRIFT/FAIL] | OVERALL=[MATCH/DRIFT/FAIL] |
+```
+
+This is intentionally lightweight — no new tooling, just an append — so packaging-coherence drift and (once enough entries exist) judge-to-creator agreement become measurable over time instead of evaporating each session (`docs/LLM-CRAFT-UPGRADE-PLAN.md` D3).
+
 ### Step 5: FAIL handling — block the user-facing summary
 
 When OVERALL = FAIL, the "After Generation" section appends this gate block:
