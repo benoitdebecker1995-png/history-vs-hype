@@ -36,10 +36,10 @@ The repo has genuinely advanced LLM-craft infrastructure — a calibration corpu
 ## Status Tracker
 
 **Total steps:** 15
-**Done:** 9 (E1-E5, D1-D3, C1 — E/D executed 2026-07-19/committed 2026-07-20 `12f54e8`..`173b829`; C1 done 2026-07-20 `96b1e14`)
+**Done:** 10 (E1-E5, D1-D3, C1-C2 — E/D executed 2026-07-19/committed 2026-07-20 `12f54e8`..`173b829`; C1 `96b1e14`; C2 `bbec442`)
 **Blocked:** 1 (L3 — investigated 2026-07-19/20: Phase 75a is still "Not started" in `.planning/ROADMAP.md`, so the worked-example prerequisite is unmet)
 
-**C1 finding worth flagging for C2/C3/C4:** the plan's premise (48 dated rules = sediment) didn't hold on inspection — script-writer-v2.md was already well-consolidated, amendments folded in-place rather than layered. The real yield was small (~1.6% size) but caught something the size-reduction framing wouldn't have found on its own: a stale voice-calibration section that actively contradicted the canonical VOICE-PROFILE.md. Expect C2/structure-checker-v2.md and C3/WRITING-VOICE-AND-STYLE.md to need the same targeted-comparison approach (grep for overlap, verify against the canonical doc) rather than a bulk line-count-reduction pass — and worth checking each for the same contradiction pattern, not just duplication.
+**C1 finding worth flagging for C3/C4:** the plan's premise (48 dated rules = sediment) didn't hold uniformly. script-writer-v2.md (C1) was already well-consolidated — small yield (~1.6%), but caught a stale voice section actively contradicting VOICE-PROFILE.md. structure-checker-v2.md (C2) was the opposite: a whole parallel checklist system from an old iteration (dated 2025-01-16/2025-12-03, referencing a stale agent version) sat undetected alongside the current lettered Constraint system — real 17.8%-line reduction, and multiple sections were actively teaching the OPPOSITE of validated current rules (staccato mandate again, an 8-10-authority-marker target contradicting Constraint BE, a retention-fabrication instruction contradicting the file's own stated rule). The lesson holding across both: **don't assume sediment volume from file size — cross-read against the canonical docs (VOICE-PROFILE.md) and the file's own stated rules to find contradictions, not just duplication.** C3/WRITING-VOICE-AND-STYLE.md should get the same treatment.
 
 | Phase | Steps | Theme | Risk |
 |-------|-------|-------|------|
@@ -198,7 +198,7 @@ Run the Phase E harness (tests/unit/test_eval_harness.py + the E3 judge protocol
 
 **Commit:** `refactor(agents): C1 compact script-writer-v2, eval-guarded`
 
-## C2 [TODO — deps: C1 done] Compact structure-checker-v2.md
+## C2 [DONE] Compact structure-checker-v2.md
 
 **Deps:** C1
 
@@ -211,7 +211,7 @@ Same method as C1, applied to .claude/agents/structure-checker-v2.md (2,582 line
 
 **Commit:** `refactor(agents): C2 compact structure-checker-v2, eval-guarded`
 
-## C3 [BLOCKED — deps: C2] Progressive-disclosure the style manual
+## C3 [TODO — deps: C2 done] Progressive-disclosure the style manual
 
 **Deps:** C2
 
