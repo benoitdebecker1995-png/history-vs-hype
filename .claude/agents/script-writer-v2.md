@@ -640,7 +640,7 @@ These rules shape the script's architecture. Apply during the pre-writing reason
 
 ---
 
-## Rule 15: MYTH-FIRST STRUCTURE (Merged Rules 23+33)
+## Rule 15: MYTH-FIRST STRUCTURE
 
 **For ANY video that is NOT a pure territorial explainer, myth-first structure is the strong default.**
 
@@ -791,7 +791,7 @@ The default 4-beat above (cold-fact / myth / contradiction / payoff preview) is 
 
 ---
 
-## Rule 18: ARGUMENT STRUCTURE SELECTION (Merged Rule 52)
+## Rule 18: ARGUMENT STRUCTURE SELECTION
 
 Choose ONE structure per script. The verdict goes in the CLOSING, not the hook.
 
@@ -808,7 +808,7 @@ See §19 for defaults by topic type. Add to metadata: `## ARGUMENT STRUCTURE: [t
 
 ---
 
-## Rule 19: EVIDENCE SEQUENCING BY IMPACT (Merged Rule 54)
+## Rule 19: EVIDENCE SEQUENCING BY IMPACT
 
 > **v18 amendment (2026-06-12, GR-A9):** evidence has a THIRD class beyond quotes and numbers — the thesis-bearing artifact: an object or document-feature that proves the point by itself (Lausanne's zero instances of "Kurd"; the Piri Reis source-list label; Kraut's unclosable Stolichnaya bottle). When research supplies one, the beat may LEAD with the artifact, then one causal sentence. Use conditions (all three): explains the point / a non-academic grasps it instantly / honest — no cherry-picked prop. Sub-rule: the changed-mind scholar credential ("X, who long argued the opposite, now writes…") — use when true, never manufactured.
 
@@ -827,7 +827,7 @@ After the turn, sequence evidence from lowest to highest impact:
 
 ---
 
-## Rule 20: ENERGY ARC — OSCILLATING INTENSITY (Merged Rules 50+54)
+## Rule 20: ENERGY ARC — OSCILLATING INTENSITY
 
 Top videos oscillate: HIGH → low → HIGH → low → HIGHEST → low (closing).
 
@@ -844,7 +844,7 @@ Top videos oscillate: HIGH → low → HIGH → low → HIGHEST → low (closing
 
 ---
 
-## Rule 21: DEBUNKING & STEELMANNING (Merged Rules 7+42+55)
+## Rule 21: DEBUNKING & STEELMANNING
 
 ### A. Identity Stake Assessment
 
@@ -894,7 +894,7 @@ See §9 for examples of each technique.
 
 ---
 
-## Rule 22: CAUSAL CHAINS (Merged Rules 29+43)
+## Rule 22: CAUSAL CHAINS
 
 ### A. Forward Chains (A → B → C)
 
@@ -1174,7 +1174,7 @@ These rules come from analyzing ~130 competitor videos. They are IDEAS and TOOLS
 
 ---
 
-## Rule 26: HUMAN TEXTURE & ANTI-AI (Merged Rules 53+35)
+## Rule 26: HUMAN TEXTURE & ANTI-AI
 
 Rules 1-25 produce a "correct" script. Rule 26 makes it sound like a PERSON wrote it. Polished consistency = signature of AI. Human writing has friction.
 
@@ -1211,7 +1211,7 @@ Never: Meta-humor, fourth-wall breaks, thematic CTAs, broad sarcasm. Never in ho
 
 ---
 
-## Rule 27: NARRATIVE FLOW & TRANSITIONS (Merged Rules 8/36/60)
+## Rule 27: NARRATIVE FLOW & TRANSITIONS
 
 ### A. Micro-Transitions (Paragraph-to-Paragraph)
 
@@ -1302,7 +1302,7 @@ All standard rules (7, 12, 20, 22) still apply within document mode.
 
 ---
 
-## Rule 30: SOURCE UNCERTAINTY & EPISTEMIC HUMILITY (Merged Rules 41 + Epistemic Humility)
+## Rule 30: SOURCE UNCERTAINTY & EPISTEMIC HUMILITY
 
 Match hedging language to actual confidence level. 5-level hierarchy in §18.
 
@@ -1314,7 +1314,7 @@ Match hedging language to actual confidence level. 5-level hierarchy in §18.
 
 ---
 
-## Rule 31: DATA DELIVERY (Merged Rules 47+58)
+## Rule 31: DATA DELIVERY
 
 ### A. Timing
 
@@ -1342,7 +1342,7 @@ Setup phrase → Bold number → What it means. See §10.
 
 ---
 
-## Rule 32: VISUAL STAGING & ARTIFACT PRESENTATION (Merged Rules 31+44)
+## Rule 32: VISUAL STAGING & ARTIFACT PRESENTATION
 
 > **v18 A/B note (2026-06-12, GR-A10 — TEST, not a rule):** one engineered image-only hold (1–3s) per video, marked `[HOLD ON DOCUMENT — no VO, 2s]`, placed after the single strongest document reveal. Creator-approved as worth testing; judge at the edit layer + retention before promoting. Do NOT use more than once per video.
 
@@ -1448,7 +1448,7 @@ When making strong factual claims, weave the source into the prose rather than b
 
 ---
 
-## Rule 33: COMPETITOR-DERIVED PATTERNS (Consolidated Rules 34-40+45)
+## Rule 33: COMPETITOR-DERIVED PATTERNS
 
 **These are suggestions, not requirements. Evaluate per script.**
 
@@ -1488,7 +1488,7 @@ Rotate between 5 bridge types (see §15). Specific phrases > generic "this is st
 
 ---
 
-## Rule 34: PROSE CRAFT (Merged Rules 28+51)
+## Rule 34: PROSE CRAFT
 
 ### A. Verdict Sentences at Section Ends
 
@@ -1626,20 +1626,9 @@ Map energy arc. Place valley before peak. Plan breathing room techniques.
 
 # VOICE CALIBRATION
 
-**Complete patterns in WRITING-VOICE-AND-STYLE.md PART 1 (Core Voice) and PART 3 (Structure)**
+**Canonical: `VOICE-PROFILE.md` §Sentence rhythm, §Connectors, §Cold-open, §Transitions.** This agent file does not restate voice patterns — see the "VOICE PROFILE" block at the top of this file for the compressed operative digest. For connector/bridge-phrase inventories, see `WRITING-VOICE-AND-STYLE.md` PART 1 §2.4 (connectors) and PART 5.3 (bridge phrases). For the "Here's" cap and forbidden-phrase list, see Rule 7.
 
-**Quick reference:**
-- SHORT declarative sentences: "Temporary occupation. Twelve years."
-- Q&A format: "Iraq's borders? Finalized in 1926."
-- Explicit causation (spoken-register default): "BECAUSE X. SO Y." / "Which is why..." — reach for fluent connectors first; keep "consequently/thereby" to 1-2 per script for variation. The mechanism is mandatory; the formal word is not.
-- Transitions: "But it gets worse." "And here's the part that gets me."
-- Evidence: "Reading directly from the letter:" (then quote)
-
-**Transition Words:** "But" (main contrast), "So" (result), "Now" (topic shift), "And" / "On top of that" (addition). Avoid: "However," "Nevertheless," "Subsequently."
-
-**Signature Phrases:** "The truth is..." / "Here's what [X] actually says." (2-4x) / "But here's where it gets interesting." (1x) / "So, I read/checked/found..." (NEVER in the first 90s — Rule 47A)
-
-**Filler Budget:** "I think": 2-3x. "Now/So": 5-6x. "you know/like": 0-2x max.
+**2026-07-20 removal note:** this section previously carried standalone examples ("Temporary occupation. Twelve years." / "Iraq's borders? Finalized in 1926.") that predate `VOICE-PROFILE.md` and directly contradict it — VOICE-PROFILE.md §Sentence rhythm names chopped staccato fragments the **#1 "too-AI" tell** and defaults to flowing sentences. Removed rather than corrected in place, per "canonical wins conflicts."
 
 ---
 
