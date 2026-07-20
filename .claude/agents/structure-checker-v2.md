@@ -1463,18 +1463,13 @@ Mid/late-zone citation specificity: [Strong/Medium/Weak], see Source Citation Qu
 - [ ] Am I using THEIR phrases or generic ones?
 - [ ] Consistent with VOICE-PROFILE.md's flowing-sentence default (not staccato)?
 
-### Filler Density Check
+### Filler Density Check (corrected 2026-07-20 — routes instead of an independent budget)
 
-**BUDGET PER SCRIPT:**
-- "I think": 2-3
-- "you know": 0-2
-- "like": 0-2
-- "kind of": 0-1
-- "basically": 0-1
+**Canonical: `VOICE-PROFILE.md` §Connectors (~line 293)** — his natural connectors/fillers are "so / and / because / that / actually / basically / I guess / you know"; the polished script KEEPS so/because/actually/basically and DROPS uh/um/like. There is no fixed per-script numeric cap in the canonical profile — flag density (a filler repeated many times in a short span) and drop the two banned ones (uh/um, like used as a filler), not a hardcoded budget.
 
 **Process:**
-1. Count each filler type
-2. Flag overuse
+1. Count "uh"/"um" and filler "like" (not the comparison "like") — these should be near-zero
+2. Flag any connector (so/because/actually/basically/I guess/you know) repeated densely in one short span (reads as a tic, not a budget violation)
 3. Identify specific lines to fix
 4. **Provide fixes in user's voice (VERIFY against script patterns)**
 
@@ -1482,14 +1477,8 @@ Mid/late-zone citation specificity: [Strong/Medium/Weak], see Source Citation Qu
 ```
 ## FILLER ANALYSIS
 
-**Count:**
-- "I think": [X/3] [✅ or ❌]
-- "you know": [X/2] [✅ or ❌]
-- "like": [X/2] [✅ or ❌]
-- "kind of": [X/1] [✅ or ❌]
-- "basically": [X/1] [✅ or ❌]
-
-**TOTAL: [X]** [✅ Within budget or ❌ Overuse]
+**Banned fillers found:** "uh"/"um": [X], filler "like": [X] — should be near-zero
+**Natural connectors (so/because/actually/basically/I guess/you know):** [count] — flag only if densely repeated in one span, not against a fixed budget
 
 **Tone Assessment:**
 [X] Knowledgeable authority

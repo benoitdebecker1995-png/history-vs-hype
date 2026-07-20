@@ -618,29 +618,15 @@ After classifying video type, check `.claude/REFERENCE/coverage-audit.md` Covera
 - [ ] Both extremes framed in opening
 - [ ] Steelman section included
 - [ ] Real quotes throughout with page numbers
-- [ ] Filler count within budget (I think: 2-3, Now/So: 5-6)
-- [ ] Read aloud for natural delivery
+- [ ] Read aloud for natural delivery — voice mechanics per VOICE-PROFILE.md (below), not restated here
 
-### Spoken Delivery (MANDATORY)
-- [ ] No telegraph-style noun fragments ("Ambassadors. Embassies." → full sentence)
-- [ ] Informational fragments combined into flowing sentences
-- [ ] Rhetorical fragments preserved for emphasis only
+### Voice and Spoken Delivery (corrected 2026-07-20 — routes instead of restating)
+
+**Canonical: `.claude/REFERENCE/VOICE-PROFILE.md`** (wins on any conflict, ADR-0006) — sentence rhythm (flowing, not staccato; the chopped-fragment "Ambassadors. Embassies." shape is the #1 too-AI tell), connectors, cold-open, transitions. Secondary: `.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P3-STRUCTURE.md` §3.5 (spoken-delivery mechanics) and `-P1-CORE-VOICE.md` (forbidden phrases, word choice).
+
+**2026-07-20 removal note:** this section previously restated its own filler-count budget ("I think: 2-3, Now/So: 5-6" — the same unsourced numbers already cut from script-writer-v2.md's VOICE CALIBRATION in C1) and a "Natural Delivery Patterns" checklist duplicating VOICE-PROFILE.md content, pointing to `.claude/USER-PREFERENCES.md` → "NATURAL DELIVERY PATTERNS" — a section that does not exist in that file (dead link). Removed; script-writer-v2 (invoked above) already carries the correct VOICE-PROFILE.md Tier-1 reference, so this command doesn't need its own copy.
+
 - [ ] Passes the "Stumble Test" (read aloud without hesitation)
-
-See: `.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P3-STRUCTURE.md` → §3.5 "Spoken-delivery rules"
-
-### Natural Delivery Patterns (MANDATORY - Added 2025-12-30)
-- [ ] Abbreviations expanded ("African Union" not "AU")
-- [ ] Parenthetical asides removed (no mid-sentence population numbers)
-- [ ] Lists connected with commas (flowing, not staccato)
-- [ ] "That is" for emphasis, "That's" for casual flow
-- [ ] Declarative statements over rhetorical questions
-- [ ] No "quote" markers before quoted text
-- [ ] Explicit transitions ("The deal was this." not "The deal:")
-- [ ] Personal ownership ("I found" not "they found")
-- [ ] Polite CTAs ("please subscribe")
-
-See: `.claude/USER-PREFERENCES.md` → "NATURAL DELIVERY PATTERNS" (Patterns 11-20)
 
 ## Output Location
 
