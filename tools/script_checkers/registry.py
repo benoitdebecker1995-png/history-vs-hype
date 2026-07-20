@@ -8,7 +8,7 @@ Usage:
 
     registry = build_default_registry()
     result = registry.run("stumble", script_text)
-    print(registry.list_all())  # ['flow', 'pacing', 'repetition', 'scaffolding', 'stumble']
+    print(registry.list_all())  # ['flow', 'pacing', 'repetition', 'scaffolding', 'stumble', 'told_so_far']
 """
 
 from typing import Dict, Any, List, runtime_checkable, Protocol
@@ -131,6 +131,7 @@ def build_default_registry() -> CheckerRegistry:
     from .checkers.repetition import RepetitionChecker
     from .checkers.scaffolding import ScaffoldingChecker
     from .checkers.stumble import StumbleChecker
+    from .checkers.told_so_far import ToldSoFarChecker
 
     config = Config()
     registry = CheckerRegistry()
@@ -154,6 +155,10 @@ def build_default_registry() -> CheckerRegistry:
     registry.register(_BaseCheckerAdapter(
         StumbleChecker(config),
         "Detect teleprompter stumble risks: long sentences, nested subordinate clauses."
+    ))
+    registry.register(_BaseCheckerAdapter(
+        ToldSoFarChecker(config),
+        "Flag rebuttal/callback sentences whose antecedent claim hasn't appeared earlier in the script."
     ))
 
     return registry

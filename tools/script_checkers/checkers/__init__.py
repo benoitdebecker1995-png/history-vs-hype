@@ -50,6 +50,7 @@ from .scaffolding import ScaffoldingChecker
 from .repetition import RepetitionChecker
 from .flow import FlowChecker
 from .pacing import PacingChecker
+from .told_so_far import ToldSoFarChecker
 
 __all__ = [
     'BaseChecker',
@@ -57,5 +58,6 @@ __all__ = [
     'ScaffoldingChecker',
     'RepetitionChecker',
     'FlowChecker',
-    'PacingChecker'
+    'PacingChecker',
+    'ToldSoFarChecker'
 ]
