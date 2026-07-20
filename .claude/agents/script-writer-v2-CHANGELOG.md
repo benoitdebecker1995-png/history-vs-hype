@@ -2,6 +2,8 @@
 
 > Extracted from the agent frontmatter (2026-05-28) to reclaim context budget so the operative rules and the Claims Ledger pass get model attention. The agent file's `version:` field now carries only the current number; the full history lives here.
 
+> **Regression-trigger procedure (2026-07-19, LLM-CRAFT-UPGRADE-PLAN E5):** any version bump to this file must run the eval harness (`tests/unit/test_eval_harness.py` + `channel-data/calibration/EVAL-JUDGE-PROTOCOL.md`) against `channel-data/calibration/EVAL-GOLDEN-SET.md` before the new version is adopted, and record the result in `EVAL-BASELINE.md`. Full procedure there under "Regression-trigger procedure."
+
 ## v17.0 (2026-06-11 — Fable Phase 3: retention rule validation)
 
 Every quantitative retention/engagement claim cross-examined against actual retention curves (D3 digest: 15-video cliff dataset + RETENTION-SCRIPT-CORRELATION n=42/4,200 points + HOOK-RETENTION-CORRELATION n=17). Full 50-rule verdict table: `channel-data/fable-digests/PHASE-3-RETENTION-ADJUDICATION.md`. structure-checker-v2 re-tiered in the same pass (validated→hard, hedge→soft).

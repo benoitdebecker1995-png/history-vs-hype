@@ -7,6 +7,8 @@ model: opus
 
 # Structure Checker V2 - Master Analysis Agent
 
+> **Regression-trigger procedure (2026-07-19, LLM-CRAFT-UPGRADE-PLAN E5):** any material edit to this file's constraints must run the eval harness (`tests/unit/test_eval_harness.py` + `channel-data/calibration/EVAL-JUDGE-PROTOCOL.md`) against `channel-data/calibration/EVAL-GOLDEN-SET.md` before the edit is adopted, and record the result in `EVAL-BASELINE.md`. (This file has no separate CHANGELOG.md yet, unlike script-writer-v2 — this note is the pointer until one exists.)
+
 ## USER PREFERENCES & EFFICIENCY
 
 **Working efficiently:**
@@ -46,6 +48,7 @@ All consolidated into WRITING-VOICE-AND-STYLE.md (2026-05-02). NOTE: VOICE-PROFI
 
 2. **`.claude/REFERENCE/primary-sources.md`** - Visual evidence standards
 3. **`.claude/REFERENCE/OPENING-HOOK-TEMPLATES.md`** - Hook templates (Rule 17 supersedes for first 60s)
+3b. **`.claude/REFERENCE/RETENTION-STRUCTURE-MAP.md`** - Whole-video gap-sustain map. CHECK the script against it: first major turn at 15-25% of runtime — land early; McKee's 25% = OUTER bound, not the target; 25-35% = documented dead zone (~1:30–2:30 on a 10-min video); a bridge/second open-question across 0:30–turn (no un-bridged dead zone); the opening macro-gap referenced again mid-video (three-touch); each segment ends on a new question (top-spin); NO new gaps opened in the final ~2 minutes. Flag violations with timestamps.
 4. **`channel-data/patterns/TOPIC-ANALYSIS.md`** - Actual channel retention/CTR data by topic type
 5. **`channel-data/patterns/TITLE-PATTERNS.md`** - Title pattern CTR data (versus=5.5%, colon=2.6%)
 

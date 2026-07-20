@@ -45,5 +45,21 @@ The regen encoded the structural lessons convincingly. Strongest three: (1) R05 
 |---|---|---|---|
 | #58 Kurdistan | v17 | ≈2–3 full passes (+ ~6 line-level drill sessions) | baseline (58-10); read-aloud T1 2026-06-10 |
 | #36 Panama | v18 | TBD | first clean v18 test; H2 gate: first-28-day CTR ≥4% |
+| #59 Israel/Palestine | manual / collaborative (not a clean v18 regen) | heavy — full collaborative rebuild of Acts 6–7 + close, then a whole-script lean restructure (~13 → ~10.5 min) + 2 full read-throughs (2026-06-23→24); cold open + Acts 1–5 were locked a prior session | NOT a clean writer-version KPI (hand-collaborative). Value = the read-aloud delta yield (51 deltas → corpus 59-01..22) + 2 new grill items (H8 thread-word, H9 partisan-label), not passes-to-lock. Calibration-loop standing format, not a regen test. |
 
 *(S14 standing loop appends each future video's passes-to-lock here at lock declaration.)*
+
+## Regression-trigger procedure (LLM-CRAFT-UPGRADE-PLAN E5, 2026-07-19)
+
+Extends the standing regeneration-regression guard (`memory/feedback-talk-first-scripting.md`: "after ANY regen, diff against the last live-picked build and restore his wordings verbatim") from a within-project diff to a cross-version prompt-change check.
+
+**Trigger:** any version bump to `.claude/agents/script-writer-v2.md`, `.claude/agents/structure-checker-v2.md`, or a HARD-tier rule change in `.claude/REFERENCE/VOICE-PROFILE.md`.
+
+**Procedure, before the new version is treated as adopted:**
+1. Run `tests/unit/test_eval_harness.py` (deterministic layer) against `EVAL-GOLDEN-SET.md`.
+2. Run the `EVAL-JUDGE-PROTOCOL.md` manual judge pass against the same golden set (or, once one exists, the current held-out script).
+3. Append a new dated row to this file's Scores table (or a new dated block, if the rubric has grown past R01–R28 by then) comparing the new version's results to the immediately-prior version's recorded results.
+4. **If any criterion regresses** (a PASS becomes PARTIAL/FAIL, or a new HARD voice_lint finding appears on a golden-set positive) — that criterion's supporting instruction was cut during the edit. Restore it before the version is adopted; do not ship a net-negative prompt change on the strength of "it reads cleaner now."
+5. If nothing regresses, the version bump is clear to commit.
+
+**Where this is referenced from:** `.claude/agents/script-writer-v2-CHANGELOG.md` (version-history entries), `.claude/agents/structure-checker-v2.md` (header note — this file has no separate CHANGELOG.md yet, unlike script-writer-v2).
