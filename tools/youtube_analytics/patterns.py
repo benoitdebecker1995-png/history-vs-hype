@@ -53,7 +53,6 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() not in ('utf-8', 'utf8'):
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 import json
-import glob as glob_module
 from pathlib import Path
 from datetime import datetime, timezone
 from collections import defaultdict
@@ -61,8 +60,6 @@ from statistics import mean
 
 from tools.logging_config import get_logger
 from tools.post_publish import (
-    PostPublishMalformedError,
-    PostPublishMissingError,
     PostPublishReport,
     PostPublishStore,
 )
@@ -210,12 +207,14 @@ def extract_title_structure(title: str) -> dict:
 
 
 def _report_to_patterns_dict(report: PostPublishReport) -> dict:
-    """Convert a PostPublishReport to the legacy patterns.py dict shape.
+    """Convert a PostPublishReport to this module's INTERNAL working dict.
 
-    Note the field-name and unit contract this preserves:
-      - `avg_retention` is a FRACTION (0.281), not a percent — patterns.py
-        historically diverged from feedback_parser.py on this.
-      - `ctr_percent` (not `ctr`) — patterns.py's name.
+    Module-private format, not a cross-module contract (the other dict
+    dialect, feedback_parser's percent-keyed one, was deleted 2026-07-01 —
+    ADR-0005). The aggregation/report code below builds its own stats dicts
+    reusing these key names, so the units are load-bearing throughout:
+      - `avg_retention` is a FRACTION (0.281), not a percent.
+      - `ctr_percent` is a percent.
     """
     return {
         'video_id': report.video_id,
@@ -239,21 +238,6 @@ def collect_video_data() -> list[dict]:
     _report_to_patterns_dict for the field contract).
     """
     return [_report_to_patterns_dict(r) for r in PostPublishStore().discover_and_load_all()]
-
-
-def parse_analysis_file(filepath: str) -> dict | None:
-    """
-    Parse a POST-PUBLISH-ANALYSIS.md file and extract structured data.
-
-    Thin shim over tools.post_publish.PostPublishStore.load(). Returns the
-    legacy dict shape (avg_retention as fraction, field `ctr_percent`),
-    or None on parse failure — preserving the historical contract.
-    """
-    try:
-        report = PostPublishStore().load(Path(filepath))
-    except (PostPublishMalformedError, PostPublishMissingError):
-        return None
-    return _report_to_patterns_dict(report)
 
 
 def auto_tag_video(title: str, description: str = '') -> list[str]:
@@ -305,19 +289,14 @@ def find_project_folder_for_video(title: str) -> str | None:
     if not significant_words:
         return None
 
-    search_paths = [
-        PROJECT_ROOT / 'video-projects' / '_IN_PRODUCTION' / '*',
-        PROJECT_ROOT / 'video-projects' / '_READY_TO_FILM' / '*',
-        PROJECT_ROOT / 'video-projects' / '_ARCHIVED' / '*',
-    ]
-
-    for pattern in search_paths:
-        for folder in glob_module.glob(str(pattern)):
-            if not Path(folder).is_dir():
-                continue
-            folder_name = Path(folder).name.lower()
-            if any(word in folder_name for word in significant_words):
-                return folder
+    # All live stages via the resolver — the old _ARCHIVED/* glob never
+    # descended into _ARCHIVED/published/<slug>, so published projects (the
+    # ones that actually have post-publish data) were never matched.
+    from tools.video_projects import VideoProjectRepo
+    for proj in VideoProjectRepo(PROJECT_ROOT).all():
+        folder_name = proj.slug.lower()
+        if any(word in folder_name for word in significant_words):
+            return str(proj.path)
 
     return None
 

@@ -1,0 +1,585 @@
+{
+ "video": "62-volhynia-massacre-untranslated-2026",
+ "lifecycle": "_IN_PRODUCTION",
+ "source_file": "video-projects/_IN_PRODUCTION/62-volhynia-massacre-untranslated-2026/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "Under Soviet NKVD interrogation, UPA commander Iurii Stelmashchuk testified that Klyachkivsky personally gave him a secret directive for the complete physical destruction of the Polish population in western Ukraine.",
+   "topics": ["ethnic-cleansing-mechanics", "document-provenance"],
+   "verbatim": "personally gave me the secret directive from the OUN-B central provid about the complete physical destruction of the Polish population to be carried out in western Ukraine.",
+   "source": "McBride, Slavic Review 2016, p. 642",
+   "status": "verified",
+   "anchor": "[P1] Klyachkivsky (\"Klym Savur\") June 1943 directive — Volhynia  ⭐ SPINE (CORRECTED after NLM grounding 2026-06-28)"
+  },
+  {
+   "claim": "Scholars dispute the form of the 1943 Klyachkivsky liquidation order: McBride calls it a secret directive from a face-to-face meeting, Himka an oral order, and Motyka a local initiative of unclear provenance.",
+   "topics": ["document-provenance", "contested-attribution"],
+   "verbatim": "local initiative… provenance unclear.",
+   "source": "Motyka",
+   "status": "partial",
+   "anchor": "[P1] Klyachkivsky (\"Klym Savur\") June 1943 directive — Volhynia  ⭐ SPINE (CORRECTED after NLM grounding 2026-06-28)"
+  },
+  {
+   "claim": "A UPA order commanded the destruction of Polish churches and farm homes so that no evidence would remain that anyone had ever lived there.",
+   "topics": ["evidence-destruction", "ethnic-cleansing-mechanics"],
+   "verbatim": "so there is no evidence that anyone ever lived there.",
+   "source": "McBride p. 640",
+   "status": "verified",
+   "anchor": "[P1c] UPA \"destroy all traces\" order — closing exhibit (T2, grounded)  ⭐ NEW"
+  },
+  {
+   "claim": "The Act of Restoration of the Ukrainian State was proclaimed by Yaroslav Stetsko in Lviv on 30 June 1941, not by Stepan Bandera, who was confined by the Germans at the time.",
+   "topics": ["document-provenance", "contested-attribution"],
+   "verbatim": null,
+   "source": "RL pp. 245, 873–874",
+   "status": "verified",
+   "anchor": "[P2] Act of Restoration of the Ukrainian State — Lviv, 30 June 1941  ⭐ FIRST EXHIBIT (✅ GROUNDED VERBATIM)"
+  },
+  {
+   "claim": "The 1941 Act of Restoration declared that the renewed Ukrainian state would collaborate closely with National Socialist Germany under Hitler to help Ukrainians liberate themselves from \"Muscovite occupation.\"",
+   "topics": ["collaborationist-legislation", "propaganda-and-narrative-control"],
+   "verbatim": "will collaborate closely with National Socialist Greater Germany, which under the leadership of Adolf Hitler is creating a new order in Europe and the world and is helping the Ukrainian people liberate themselves from Muscovite occupation.",
+   "source": "Himka pp. 208–209",
+   "status": "verified",
+   "anchor": "[P2] Act of Restoration of the Ukrainian State — Lviv, 30 June 1941  ⭐ FIRST EXHIBIT (✅ GROUNDED VERBATIM)"
+  },
+  {
+   "claim": "Post-war nationalist and diaspora reprints of the 1941 Act of Restoration deleted its Hitler-collaboration passage, re-presenting the document as pure anti-German resistance.",
+   "topics": ["evidence-destruction", "propaganda-and-narrative-control", "document-provenance"],
+   "verbatim": null,
+   "source": "RL ~pp. 2036, 2249 (fns)",
+   "status": "verified",
+   "anchor": "[P2] Act of Restoration of the Ukrainian State — Lviv, 30 June 1941  ⭐ FIRST EXHIBIT (✅ GROUNDED VERBATIM)"
+  },
+  {
+   "claim": "Bandera was held in Sachsenhausen's special-prisoners wing with privileges including parcels and family visits, while his brothers died at Auschwitz.",
+   "topics": ["propaganda-and-narrative-control", "contested-attribution"],
+   "verbatim": null,
+   "source": "RL pp. 245–246, 251, 286–287",
+   "status": "verified",
+   "anchor": "[P2] Act of Restoration of the Ukrainian State — Lviv, 30 June 1941  ⭐ FIRST EXHIBIT (✅ GROUNDED VERBATIM)"
+  },
+  {
+   "claim": "OUN-B's own December 1941 internal figure recorded approximately 1,500 members arrested by the Nazis, not the commonly cited figure of about 2,000.",
+   "topics": ["casualty-estimate-methodology", "document-provenance"],
+   "verbatim": null,
+   "source": "RL p.251",
+   "status": "verified",
+   "anchor": "VERIFIED NUMBERS (NLM-grounded 2026-06-28 — ⚠ SCOPE matters)"
+  },
+  {
+   "claim": "Ethnic cleansing in Volhynia in 1943 alone killed approximately 50,000-60,000 Poles, a figure distinct from the higher whole-war toll across western Ukraine.",
+   "topics": ["casualty-estimate-methodology", "ethnic-cleansing-mechanics"],
+   "verbatim": null,
+   "source": "McBride p.633; Snyder; Motyka",
+   "status": "verified",
+   "anchor": "VERIFIED NUMBERS (NLM-grounded 2026-06-28 — ⚠ SCOPE matters)"
+  },
+  {
+   "claim": "Polish deaths across all of western Ukraine for the entire war, including Eastern Galicia, totaled approximately 70,000-100,000, a figure that must not be conflated with the Volhynia-only 1943 toll.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": null,
+   "source": "McBride p.633; RL fn.1297",
+   "status": "verified",
+   "anchor": "VERIFIED NUMBERS (NLM-grounded 2026-06-28 — ⚠ SCOPE matters)"
+  },
+  {
+   "claim": "The coordinated \"Bloody Sunday\" attacks of 11-12 July 1943 struck over 100 to 167 localities and killed roughly 4,000 people in a single day.",
+   "topics": ["ethnic-cleansing-mechanics", "casualty-estimate-methodology"],
+   "verbatim": null,
+   "source": "Snyder *Reconstruction* p.177; McBride p.640",
+   "status": "verified",
+   "anchor": "VERIFIED NUMBERS (NLM-grounded 2026-06-28 — ⚠ SCOPE matters)"
+  },
+  {
+   "claim": "Across the whole of July 1943, UPA attacks struck 520 localities and killed an estimated 10,000-11,000 people.",
+   "topics": ["ethnic-cleansing-mechanics", "casualty-estimate-methodology"],
+   "verbatim": null,
+   "source": "RL fns.1285–86",
+   "status": "verified",
+   "anchor": "VERIFIED NUMBERS (NLM-grounded 2026-06-28 — ⚠ SCOPE matters)"
+  },
+  {
+   "claim": "Most Anglophone scholars classify the Volhynia killings as ethnic cleansing, Motyka calls it genocidal cleansing, and Poland's parliament classifies it as genocide.",
+   "topics": ["genocide-classification-debate"],
+   "verbatim": null,
+   "source": "McBride pp.631–32; Snyder; RL pp.32/442/545",
+   "status": "partial",
+   "anchor": "VERIFIED NUMBERS (NLM-grounded 2026-06-28 — ⚠ SCOPE matters)"
+  },
+  {
+   "claim": "OUN-B militia rounded up Jews in Lviv in 1941, part of a three-phase pattern Himka identifies in OUN/UPA Holocaust participation running from 1941 roundups through 1943-44 UPA involvement.",
+   "topics": ["ethnic-cleansing-mechanics", "perpetrator-organisation-structure"],
+   "verbatim": null,
+   "source": "Himka pp. 14, 228; RL p. 209",
+   "status": "verified",
+   "anchor": "[P3] 1941 Holocaust strand (context, NOT spine) — ✅ GROUNDED"
+  },
+  {
+   "claim": "An OUN propaganda sector member stated in July 1941 that regarding the Jews, the movement would accept all methods leading to their destruction.",
+   "topics": ["ethnic-cleansing-mechanics"],
+   "verbatim": "With regard to the Jews we will accept all methods that lead to their destruction.",
+   "source": "Himka p. 240",
+   "status": "verified",
+   "anchor": "[P3] 1941 Holocaust strand (context, NOT spine) — ✅ GROUNDED"
+  },
+  {
+   "claim": "The death toll of the 1941 Lviv pogrom is contested among scholars, ranging from roughly 500 to 8,000 depending on scope.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": null,
+   "source": "[P3] 1941 Holocaust strand section",
+   "status": "partial",
+   "anchor": "[P3] 1941 Holocaust strand (context, NOT spine) — ✅ GROUNDED"
+  },
+  {
+   "claim": "Ukrainian state archivist Viatrovych found that the Volhynia SBU archive Filar cites contains no documentary confirmation of an order to destroy all Poles.",
+   "topics": ["document-provenance", "archival-silence"],
+   "verbatim": "no documentary confirmation of the existence of an order to destroy all Poles has been found.",
+   "source": "Viatrovych (Druha pol's'ko-ukraïns'ka viĭna 1942–1947)",
+   "status": "partial",
+   "anchor": "FINDING 1 — Filar acquisition is MOOT; the forensic crux is now bulletproof from in-notebook sources"
+  },
+  {
+   "claim": "After the Ostrivky/Wola Ostrowiecka massacre on 30 August 1943, UPA battalion commander Klymchak reported to superiors that he had liquidated all Poles from young to old and burned the buildings.",
+   "topics": ["ethnic-cleansing-mechanics", "document-provenance"],
+   "verbatim": "I liquidated all Poles from young to old. I burned all the buildings and took the possessions and livestock for the needs of the battalion.",
+   "source": "McBride p.648 (HDA SBU spr.11315)",
+   "status": "verified",
+   "anchor": "FINDING 1 — Filar acquisition is MOOT; the forensic crux is now bulletproof from in-notebook sources"
+  },
+  {
+   "claim": "Competing scholarly theses attribute the 1943 liquidation order either to OUN leader Lebed or to Klyachkivsky, though both agree the leadership's intent to kill was clear regardless of the order's exact provenance.",
+   "topics": ["ethnic-cleansing-mechanics", "document-provenance"],
+   "verbatim": "regardless of debates over dates and provenance of the order to kill... the intent on the part of the OUN-UPA leadership is clear.",
+   "source": "McBride p.638",
+   "status": "verified",
+   "anchor": "FINDING 1 — Filar acquisition is MOOT; the forensic crux is now bulletproof from in-notebook sources"
+  },
+  {
+   "claim": "A rank-and-file UPA order instructed fighters to kill all enemies of the UPA, including Poles, Czechs, Jews, Komsomol members, Red Army officers, and policemen.",
+   "topics": ["ethnic-cleansing-mechanics"],
+   "verbatim": "kill all enemies of the UPA, including all Poles, Czechs, Jews, Komsomol members, Red Army officers, policemen...",
+   "source": "McBride p.638",
+   "status": "verified",
+   "anchor": "FINDING 1 — Filar acquisition is MOOT; the forensic crux is now bulletproof from in-notebook sources"
+  },
+  {
+   "claim": "Viatrovych's own published archival collection reproduces signed Klyachkivsky directives on tribunals, land policy, and territorial administration, but no signed liquidation order.",
+   "topics": ["document-provenance", "archival-silence"],
+   "verbatim": null,
+   "source": "Viatrovych's own *Enemy Archives*",
+   "status": "partial",
+   "anchor": "FINDING 1 — Filar acquisition is MOOT; the forensic crux is now bulletproof from in-notebook sources"
+  },
+  {
+   "claim": "Viatrovych frames the 1943 Volhynia violence as a \"Second Polish-Ukrainian War,\" a reciprocal rural conflict between two national-liberation undergrounds rather than one-sided genocide.",
+   "topics": ["genocide-classification-debate", "contested-attribution"],
+   "verbatim": "Second Polish-Ukrainian War",
+   "source": "Viatrovych; *Enemy Archives* intro",
+   "status": "partial",
+   "anchor": "FINDING 2 — the AFFIRMATIVE Ukrainian steelman is now in the notebook (the referee's weak side, covered)"
+  },
+  {
+   "claim": "On 10 March 1944 at Sahryń, Polish Home Army units destroyed a Ukrainian village, killing about 237 people including women and children.",
+   "topics": ["ethnic-cleansing-mechanics", "casualty-estimate-methodology"],
+   "verbatim": null,
+   "source": "*Enemy Archives* doc 82, testimony of Anastazia Shufel",
+   "status": "partial",
+   "anchor": "FINDING 2 — the AFFIRMATIVE Ukrainian steelman is now in the notebook (the referee's weak side, covered)"
+  },
+  {
+   "claim": "In February 1944 at Hanachiv, UPA fighters killed about 180 Poles and burned 80% of the village, an act Viatrovych himself concedes \"went beyond the bounds of the permissible\" by shooting women.",
+   "topics": ["ethnic-cleansing-mechanics"],
+   "verbatim": "went beyond the bounds of the permissible",
+   "source": "*Enemy Archives* doc 81",
+   "status": "partial",
+   "anchor": "FINDING 2 — the AFFIRMATIVE Ukrainian steelman is now in the notebook (the referee's weak side, covered)"
+  },
+  {
+   "claim": "A May 1944 OUN krai provid instruction ordered Poles removed from Ukrainian-claimed lands within 48-hour deadlines, followed by liquidation.",
+   "topics": ["forced-population-removal", "ethnic-cleansing-mechanics"],
+   "verbatim": null,
+   "source": "krai provid instruction, 5 May 1944",
+   "status": "partial",
+   "anchor": "FINDING 2 — the AFFIRMATIVE Ukrainian steelman is now in the notebook (the referee's weak side, covered)"
+  },
+  {
+   "claim": "After UPA fighters murdered over 600 people at Gaj on 30 August 1943, a Ukrainian couple secretly adopted and baptized an orphaned Polish baby found among the corpses, hiding her identity for decades.",
+   "topics": ["ethnic-cleansing-mechanics"],
+   "verbatim": null,
+   "source": "Szabłowski",
+   "status": "partial",
+   "anchor": "FINDING 3 — the human anchor / shareable gem: Szabłowski's \"righteous traitors\""
+  },
+  {
+   "claim": "When UPA men came to take the hidden Polish orphan of Gaj, her adoptive father said she was his daughter and that \"they'd have to shoot him first.\"",
+   "topics": ["ethnic-cleansing-mechanics"],
+   "verbatim": "they'd have to shoot him first.",
+   "source": "Szabłowski",
+   "status": "partial",
+   "anchor": "FINDING 3 — the human anchor / shareable gem: Szabłowski's \"righteous traitors\""
+  },
+  {
+   "claim": "Ukrainians who saved Polish civilians during the Volhynia massacre, such as those who carried a warning into the Przebraże refuge, were branded \"true traitors\" by nationalist memory rather than honored as rescuers.",
+   "topics": ["propaganda-and-narrative-control", "contested-attribution"],
+   "verbatim": null,
+   "source": "Szabłowski",
+   "status": "partial",
+   "anchor": "FINDING 3 — the human anchor / shareable gem: Szabłowski's \"righteous traitors\""
+  },
+  {
+   "claim": "Across all the contested lands, roughly seventy thousand Poles were killed compared to about twenty thousand Ukrainians, making Poles the larger share of victims by about 3.5 to 1.",
+   "topics": ["casualty-estimate-methodology", "ethnic-cleansing-mechanics"],
+   "verbatim": "about seventy thousand Poles to perhaps twenty thousand Ukrainians",
+   "source": "Snyder *Reconstruction* p.204",
+   "status": "verified",
+   "anchor": "#1 — The cycle (reciprocal but ASYMMETRIC) [Snyder]"
+  },
+  {
+   "claim": "Communist Poland's Operation Vistula on 28 April 1947 deported approximately 140,575 Ukrainians from their homeland.",
+   "topics": ["forced-population-removal", "population-transfer"],
+   "verbatim": null,
+   "source": "web-confirmed (Wikipedia / ENRS)",
+   "status": "verified",
+   "anchor": "#1 — The cycle (reciprocal but ASYMMETRIC) [Snyder]"
+  },
+  {
+   "claim": "Poland's own 2016 Sejm genocide resolution acknowledges that Polish revenge attacks on Ukrainian villages cannot be dismissed or downplayed.",
+   "topics": ["ethnic-cleansing-mechanics", "declassification-and-official-history"],
+   "verbatim": "Nor can one dismiss or downplay acts of Polish revenge on Ukrainian villages…",
+   "source": "web-ok — official parliamentary record",
+   "status": "verified",
+   "anchor": "#1 — The cycle (reciprocal but ASYMMETRIC) [Snyder]"
+  },
+  {
+   "claim": "Dmytro Dontsov, described as the \"spiritual father of the OUN\" though never a formal member, built a doctrine of amorality holding that any act helping achieve a Ukrainian state was moral.",
+   "topics": ["propaganda-and-narrative-control"],
+   "verbatim": "spiritual father of the OUN",
+   "source": "RL",
+   "status": "verified",
+   "anchor": "#2 — The causal \"why\" [RL] ✅ chain RAW-CONFIRMED; ⚠ punchy verbatims UNCONFIRMED"
+  },
+  {
+   "claim": "Kolodzinskyi's late-1930s \"War Doctrine\" called for a national uprising to sweep the Polish population from the western Ukrainian lands to end rival territorial claims.",
+   "topics": ["ethnic-cleansing-mechanics", "myth-origin-tracing"],
+   "verbatim": "sweep away literally to the last man the Polish element from the Western Ukrainian Lands",
+   "source": "Himka print p.154; *Ukraina Moderna* 20 (2013) print p.266",
+   "status": "verified",
+   "anchor": "#2 — The causal \"why\" [RL] ✅ chain RAW-CONFIRMED; ⚠ punchy verbatims UNCONFIRMED"
+  },
+  {
+   "claim": "Approximately 5,000 Ukrainian auxiliary police deserted to the UPA between 19 March and 14 April 1943, bringing experience in the mass killing of civilians honed under German command.",
+   "topics": ["ethnic-cleansing-mechanics", "perpetrator-organisation-structure"],
+   "verbatim": "experience in the mass killing of civilians.",
+   "source": "McBride",
+   "status": "verified",
+   "anchor": "#2 — The causal \"why\" [RL] ✅ chain RAW-CONFIRMED; ⚠ punchy verbatims UNCONFIRMED"
+  },
+  {
+   "claim": "A 6 April 1944 UPA internal directive titled \"Weapons ready — Death to Poles\" is a perpetrator-authored document supporting genocidal intent.",
+   "topics": ["ethnic-cleansing-mechanics", "document-provenance"],
+   "verbatim": "Zbroia na verkh — Smert' poliakam",
+   "source": "RL fn.1267 → \"Nadzvychaine zariadzhennia\" (Extraordinary directive), 06.04.1944, KAW M/II/30/2",
+   "status": "verified",
+   "anchor": "#2 — The causal \"why\" [RL] ✅ chain RAW-CONFIRMED; ⚠ punchy verbatims UNCONFIRMED"
+  },
+  {
+   "claim": "OUN leader Lebed ordered in April 1943 that Ukrainian forces \"cleanse the entire revolutionary territory of the Polish population.\"",
+   "topics": ["ethnic-cleansing-mechanics", "forced-population-removal"],
+   "verbatim": "cleanse the entire revolutionary territory of the Polish population",
+   "source": "McBride p.631",
+   "status": "verified",
+   "anchor": "#2 — The causal \"why\" [RL] ✅ chain RAW-CONFIRMED; ⚠ punchy verbatims UNCONFIRMED"
+  },
+  {
+   "claim": "As the Red Army advanced into western Ukraine in spring 1944, many UPA units began collaborating with German forces again despite earlier fighting them.",
+   "topics": ["collaborationist-legislation"],
+   "verbatim": "As the Red Army came closer to western Ukraine in spring 1944, the interests of the UPA and the Germans began to overlap, and as a result many UPA units began to collaborate with the Germans again.",
+   "source": "RL fn.1337",
+   "status": "verified",
+   "anchor": "#2b — The SHIFTING collaboration / 1944 re-collaboration ✅ RAW-CONFIRMED (RL, raw-read 2026-07-05)"
+  },
+  {
+   "claim": "Retreating German forces left the OUN-UPA tons of arms and ammunition in 1944, viewing the cooperation as a good investment against the Soviet Union.",
+   "topics": ["collaborationist-legislation"],
+   "verbatim": "left the OUN-UPA tons of arms and ammunition. The German army regarded this cooperation as a good investment in the war against the Soviet Union.",
+   "source": "RL fn.1379",
+   "status": "verified",
+   "anchor": "#2b — The SHIFTING collaboration / 1944 re-collaboration ✅ RAW-CONFIRMED (RL, raw-read 2026-07-05)"
+  },
+  {
+   "claim": "To keep standing with the Western Allies, the OUN-B and UPA hid their 1944 collaboration with Germany and portrayed themselves as enemies of \"Nazi imperialism,\" the same concealment strategy they used for the ethnic cleansing and killing of Jews.",
+   "topics": ["propaganda-and-narrative-control", "evidence-destruction"],
+   "verbatim": "kept the collaboration with the Germans a secret, portrayed itself as the enemy of 'Nazi imperialism,'",
+   "source": "RL fn.1378",
+   "status": "verified",
+   "anchor": "#2b — The SHIFTING collaboration / 1944 re-collaboration ✅ RAW-CONFIRMED (RL, raw-read 2026-07-05)"
+  },
+  {
+   "claim": "Siemaszko's registry documents 36,543-36,750 named Polish victims of the Volhynia killings, out of an estimated total of 50,000-60,000.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": "co najmniej 36 543–36 750 Polaków",
+   "source": "Siemaszko vol.2",
+   "status": "verified",
+   "anchor": "#3 — Siemaszko precision ✅ RAW-CONFIRMED (credibility gold)"
+  },
+  {
+   "claim": "Siemaszko's registry names individual victims, including a specific 49-year-old woman and her children, and records 75 men and boys known by name who died in fires.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": null,
+   "source": "Siemaszko vol.2",
+   "status": "verified",
+   "anchor": "#3 — Siemaszko precision ✅ RAW-CONFIRMED (credibility gold)"
+  },
+  {
+   "claim": "Ukraine's state memory institute director Viatrovych dismissed historians Himka and Carynnyk's documentation of OUN/UPA crimes as \"Soviet falsification with the purpose of provocation.\"",
+   "topics": ["propaganda-and-narrative-control", "historiographical-revision"],
+   "verbatim": "Soviet falsification with the purpose of provocation.",
+   "source": "RL + Himka",
+   "status": "verified",
+   "anchor": "✅ VERIFIED — strong (populated `sources_used`):"
+  },
+  {
+   "claim": "Historians who document OUN/UPA atrocities in Ukraine fear being \"collectively berated by their colleagues, friends, and relatives\" for breaking the national memory taboo.",
+   "topics": ["propaganda-and-narrative-control", "archival-silence"],
+   "verbatim": "collectively berated by their colleagues, friends, and relatives.",
+   "source": "RL",
+   "status": "verified",
+   "anchor": "The memory asymmetry (grounds the \"why Ukrainians don't know this\" without citing YouTube comments)"
+  },
+  {
+   "claim": "Rossoliński-Liebe describes Ukraine's historical treatment of OUN/UPA crimes as a \"coalition of silence, or collective or organized denial,\" comparable to early postwar West Germany's silence about Nazi crimes.",
+   "topics": ["propaganda-and-narrative-control", "archival-silence"],
+   "verbatim": "coalition of silence, or collective or organized denial",
+   "source": "RL",
+   "status": "verified",
+   "anchor": "The memory asymmetry (grounds the \"why Ukrainians don't know this\" without citing YouTube comments)"
+  },
+  {
+   "claim": "City councils in Lviv, Ternopil, and Ivano-Frankivsk devoted the first school history lesson of 2009 to Stepan Bandera under the theme \"Symbol of the Undefeated Nation.\"",
+   "topics": ["propaganda-and-narrative-control"],
+   "verbatim": "Stepan Bandera—Symbol of the Undefeated Nation",
+   "source": "RL",
+   "status": "verified",
+   "anchor": "The memory asymmetry (grounds the \"why Ukrainians don't know this\" without citing YouTube comments)"
+  },
+  {
+   "claim": "Poles largely remember the UPA as \"a band of murderers,\" reflecting a national memory starkly divergent from Ukrainian remembrance of the same organization.",
+   "topics": ["propaganda-and-narrative-control", "contested-attribution"],
+   "verbatim": "a band of murderers",
+   "source": "Snyder *Reconstruction*",
+   "status": "verified",
+   "anchor": "The memory asymmetry (grounds the \"why Ukrainians don't know this\" without citing YouTube comments)"
+  },
+  {
+   "claim": "McBride writes that Viatrovych \"has always worked to absolve Ukrainian nationalist organizations of war crimes.\"",
+   "topics": ["propaganda-and-narrative-control", "historiographical-revision"],
+   "verbatim": "absolve Ukrainian nationalist organizations of war crimes",
+   "source": "McBride, *Slavic Review* 2016, n.11",
+   "status": "verified",
+   "anchor": "The official state stance — acknowledged the *victims*, rejects the *crime's* framing"
+  },
+  {
+   "claim": "Ukraine's 2005 Kulchytsky state working group treated the UPA's mass killing of Poles \"as a tragedy rather than a crime,\" denying it was a nationalist ethnic-cleansing project.",
+   "topics": ["propaganda-and-narrative-control", "historiographical-revision"],
+   "verbatim": "treated UPA's mass murder of the Polish population as a tragedy rather than a crime,",
+   "source": "Himka",
+   "status": "verified",
+   "anchor": "The official state stance — acknowledged the *victims*, rejects the *crime's* framing"
+  },
+  {
+   "claim": "In the 1997 Kyiv reconciliation declaration, the Polish and Ukrainian presidents stated they could not forget \"the blood of Poles spilled in Volhynia particularly in 1942-43.\"",
+   "topics": ["declassification-and-official-history"],
+   "verbatim": "We cannot forget about the blood of Poles spilled in Volhynia particularly in 1942-43.",
+   "source": "Piotrowski + Snyder *Reconstruction*",
+   "status": "verified",
+   "anchor": "The reconciliation record — the gestures ARE real (the both/and)"
+  },
+  {
+   "claim": "Polish scholars Siemaszko and Piotrowski argue the 1997 reconciliation declaration mentioned Volhynia only \"in half a sentence\" and did not resolve the question of acknowledging genocide had been committed.",
+   "topics": ["genocide-classification-debate", "contested-attribution"],
+   "verbatim": "in half a sentence",
+   "source": "Piotrowski/Siemaszko",
+   "status": "partial",
+   "anchor": "Where it still falls short (the Polish-camp grievance — present as *their* charge, not neutral fact)"
+  },
+  {
+   "claim": "The OUN-B proclaimed the 1941 Act as a fait accompli, hoping Berlin would accept the new Ukrainian state as it had accepted client states Slovakia and Croatia.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": null,
+   "source": "RL p.811/853; Armstrong pp.81-82",
+   "status": "partial",
+   "anchor": "1. Why Germany rejected the 1941 state (CH2 walked-why) — ⏳ notebook-grounded"
+  },
+  {
+   "claim": "Berlin's actual plan for Ukraine treated it as a colony under Generalplan Ost, intending Ukrainians as manpower rather than an allied state.",
+   "topics": ["colonial-legal-code", "forced-labour-systems"],
+   "verbatim": null,
+   "source": "Plokhy pp.276, 287, 297; Generalplan Ost p.378",
+   "status": "partial",
+   "anchor": "1. Why Germany rejected the 1941 state (CH2 walked-why) — ⏳ notebook-grounded"
+  },
+  {
+   "claim": "German official Kundt told Bandera in July 1941 that only the Wehrmacht and the Führer were empowered to establish a Ukrainian government and demanded the Act be rescinded, but Bandera and his followers refused.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": "Bandera and his followers refused",
+   "source": "RL pp.1144-45; Armstrong p.83; Viatrovych p.45",
+   "status": "verified",
+   "anchor": "1. Why Germany rejected the 1941 state (CH2 walked-why) — ⏳ notebook-grounded"
+  },
+  {
+   "claim": "By the end of 1942, roughly 80 percent of the OUN-B leadership was imprisoned by German authorities following their formal arrest in September 1941.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": "80 percent of the OUN-B leadership was in prison",
+   "source": "RL p.512",
+   "status": "verified",
+   "anchor": "1. Why Germany rejected the 1941 state (CH2 walked-why) — ⏳ notebook-grounded"
+  },
+  {
+   "claim": "The OUN-B sought to absorb Ukrainian auxiliary policemen likely to desert after the German defeat at Stalingrad, before Soviet partisans or rival factions recruited them.",
+   "topics": ["perpetrator-organisation-structure"],
+   "verbatim": "absorb the Ukrainian policemen likely to leave their posts after Stalingrad",
+   "source": "Snyder p.166",
+   "status": "verified",
+   "anchor": "2. The desertion's purpose + immediacy (CH4 rebuild) — ⏳ notebook-grounded, McBride part ✅ raw"
+  },
+  {
+   "claim": "UPA platoon leader Redesha, apolitical before the war and driven by anger over Soviet repression of his family, testified that though he did not personally kill a Pole, many Poles were killed as a result of his orders.",
+   "topics": ["ethnic-cleansing-mechanics", "perpetrator-organisation-structure"],
+   "verbatim": "I did not kill a single Pole… As a result of my orders many Poles were killed.",
+   "source": "McBride p.648 (HDA SBU f.13 spr.1020 ark.174)",
+   "status": "verified",
+   "anchor": "3. Redesha — ✅ RAW-VERIFIED (McBride pp.648-49, 652-53, fn105/107) — script's characterization CORRECT, and richer"
+  },
+  {
+   "claim": "Redesha testified UPA fighters were told burning Polish settlements would leave no trace of their existence so Poles could never again claim Ukraine, explaining it would ease the coming \"Ukrainian revolution.\"",
+   "topics": ["evidence-destruction", "ethnic-cleansing-mechanics"],
+   "verbatim": "We burned Polish settlements so there would be no trace of their existence and so that the Poles would never again try to lay claim to Ukraine. It was explained to us [by OUN-UPA] that by doing this it would make it easier to bring about the coming 'Ukrainian revolution.'",
+   "source": "McBride pp.652-53 (fn105/107)",
+   "status": "verified",
+   "anchor": "3. Redesha — ✅ RAW-VERIFIED (McBride pp.648-49, 652-53, fn105/107) — script's characterization CORRECT, and richer"
+  },
+  {
+   "claim": "The full text of Stelmashchuk's 24 June 1943 letter reporting Klyachkivsky's oral directive for the \"total and widespread physical destruction of the Polish population\" survives only through published transcriptions since the original file is inaccessible.",
+   "topics": ["document-provenance", "archival-silence"],
+   "verbatim": "total and widespread physical destruction of the Polish population",
+   "source": "Katchanovski pp.15-16 (citing Nakonechnyi 2006)",
+   "status": "partial",
+   "anchor": "8. THE LETTER TRACE (2026-07-17, creator-requested: \"can we find it and show it on screen?\")"
+  },
+  {
+   "claim": "Katchanovski found the Volyn SBU archive documents underlying the Stelmashchuk letter could not be accessed because they either became classified again or were burned during the Soviet collapse in 1991.",
+   "topics": ["archival-silence", "document-provenance"],
+   "verbatim": "could not be accessed by the author, because they either became classified again or were burned during the collapse of the Soviet Union in 1991",
+   "source": "Katchanovski pp. 10–11, 16",
+   "status": "verified",
+   "anchor": "8. THE LETTER TRACE (2026-07-17, creator-requested: \"can we find it and show it on screen?\")"
+  },
+  {
+   "claim": "Viatrovych claims the 1945 Stelmashchuk interrogation protocol never existed and was KGB-fabricated, while Katchanovski counters he located a 1963 copy in the SBU electronic archive and an official Russian-published copy with 1945 NKVD notations.",
+   "topics": ["document-provenance", "contested-attribution"],
+   "verbatim": null,
+   "source": "Viatrovych 2011 p. 93; 2012 pp. 112–120; Katchanovski (Photo 1); *Ukrainskie…* 2012, pp. 578–81",
+   "status": "partial",
+   "anchor": "8. THE LETTER TRACE (2026-07-17, creator-requested: \"can we find it and show it on screen?\")"
+  },
+  {
+   "claim": "A scholar who accepts the Stelmashchuk letter's authenticity notes its command titles match designations used at the end of 1943 rather than June 1943, suggesting it may be a later transcription rather than the contemporaneous original.",
+   "topics": ["document-provenance", "source-transmission-chain"],
+   "verbatim": null,
+   "source": "Katchanovski",
+   "status": "partial",
+   "anchor": "8. THE LETTER TRACE (2026-07-17, creator-requested: \"can we find it and show it on screen?\")"
+  },
+  {
+   "claim": "Litopys UPA New Series volume 9 acknowledges UPA participation in the 1943 anti-Polish action and includes witness protocols confirming the mass killings of Poles.",
+   "topics": ["archival-silence", "document-provenance"],
+   "verbatim": "participation in the anti-Polish action of 1943",
+   "source": "Litopys NS Vol.9 English intro",
+   "status": "verified",
+   "anchor": "Litopys NS Vol.9 check (raw, English apparatus):"
+  },
+  {
+   "claim": "Soviet forces captured UPA commander Stelmashchuk in January 1945; his information led to locating and killing Klyachkivsky in February 1945, and Stelmashchuk himself was tried and executed later that year.",
+   "topics": ["document-provenance"],
+   "verbatim": null,
+   "source": "Litopys NS Vol.9 English intro, pp. 64–67",
+   "status": "verified",
+   "anchor": "Litopys NS Vol.9 check (raw, English apparatus):"
+  },
+  {
+   "claim": "American historian Burds charges that Viatrovych's SBU team knowingly omitted the Stelmashchuk February 1945 interrogation protocol from its 2007 published document volume.",
+   "topics": ["archival-silence", "document-provenance"],
+   "verbatim": null,
+   "source": "Josh Cohen, \"The Historian Whitewashing Ukraine's Past,\" Foreign Policy, 2 May 2016 (quoting Burds)",
+   "status": "partial",
+   "anchor": "Custody-chain verdicts (the letter's carriers):"
+  },
+  {
+   "claim": "According to Motyka, Stelmashchuk doubted the killing order during his own interrogation, suspecting it was a distortion introduced in the field rather than from the OUN center.",
+   "topics": ["document-provenance", "contested-attribution"],
+   "verbatim": "przekręcenie w terenie",
+   "source": "Motyka 2011",
+   "status": "partial",
+   "anchor": "ACQUISITION OUTCOMES (2026-07-17 PM — owner downloads + free pulls)"
+  },
+  {
+   "claim": "On 26 May 2026, Zelensky awarded the honorary title \"Heroes of the UPA\" to a Ukrainian special-forces unit, stating the aim was to restore the historical traditions of the national army.",
+   "topics": ["propaganda-and-narrative-control"],
+   "verbatim": "restore the historical traditions of the national army.",
+   "source": "Kyiv Independent; ABC News; Euromaidan Press; Wikipedia",
+   "status": "verified",
+   "anchor": "MODERN HOOK — VERIFIED 2026-07-17 (web, kind-3 recent numbers per WEB-POLICY: 2+ outlets, \"reported\", RE-VERIFY WEEK-OF-FILM)"
+  },
+  {
+   "claim": "Polish President Karol Nawrocki revoked Zelensky's Order of the White Eagle on 19 June 2026, an honor originally awarded to Zelensky in 2023.",
+   "topics": ["propaganda-and-narrative-control"],
+   "verbatim": null,
+   "source": "Wikipedia; PBS; CNN; TVP World; Jerusalem Post",
+   "status": "verified",
+   "anchor": "MODERN HOOK — VERIFIED 2026-07-17 (web, kind-3 recent numbers per WEB-POLICY: 2+ outlets, \"reported\", RE-VERIFY WEEK-OF-FILM)"
+  },
+  {
+   "claim": "Three former Ukrainian presidents voluntarily returned their own Orders of the White Eagle in solidarity with Zelensky after Poland's revocation.",
+   "topics": ["propaganda-and-narrative-control"],
+   "verbatim": null,
+   "source": "Euromaidan Press; PBS",
+   "status": "verified",
+   "anchor": "MODERN HOOK — VERIFIED 2026-07-17 (web, kind-3 recent numbers per WEB-POLICY: 2+ outlets, \"reported\", RE-VERIFY WEEK-OF-FILM)"
+  },
+  {
+   "claim": "Polish historian Piotrowski cites a directive he describes as issued and signed by Klyachkivsky in June 1943, ordering that forest villages \"should disappear from the face of the earth.\"",
+   "topics": ["document-provenance", "contested-attribution"],
+   "verbatim": "A secret directive issued and signed by Klachkivskyi in June 1943 reads: 'We should undertake a great action of liquidation of the Polish element… forest villages… should disappear from the face of the earth.'",
+   "source": "Piotrowski, *Ukrainian Collaboration* p.247",
+   "status": "partial",
+   "anchor": "ADVERSARIAL BLIND-SPOT AUDIT (2026-07-18, NotebookLM, pre-lock — owner-requested \"see what they bring back\")"
+  },
+  {
+   "claim": "McBride does not claim no signature was ever found on a liquidation order; he describes the order's provenance only as unclear, a distinction the research team's own synthesis had blurred.",
+   "topics": ["document-provenance"],
+   "verbatim": "unclear",
+   "source": "McBride pp.637–38",
+   "status": "partial",
+   "anchor": "ADVERSARIAL BLIND-SPOT AUDIT (2026-07-18, NotebookLM, pre-lock — owner-requested \"see what they bring back\")"
+  },
+  {
+   "claim": "Piotrowski argues UPA anti-German actions were largely demonstrative and propagandistic rather than genuine attempts to weaken German military capacity.",
+   "topics": ["collaborationist-legislation", "propaganda-and-narrative-control"],
+   "verbatim": "demonstrative and propagandistic… not to weaken German military potential.",
+   "source": "Piotrowski",
+   "status": "partial",
+   "anchor": "ADVERSARIAL BLIND-SPOT AUDIT (2026-07-18, NotebookLM, pre-lock — owner-requested \"see what they bring back\")"
+  },
+  {
+   "claim": "Motyka rejects Viatrovych's claim that Poland started the Volhynia violence, calling the framing a \"megakłamstwo\" and noting Poles in Volhynia were totally unprepared and the weaker force almost everywhere.",
+   "topics": ["contested-attribution", "genocide-classification-debate"],
+   "verbatim": "megakłamstwo",
+   "source": "Motyka",
+   "status": "partial",
+   "anchor": "ADVERSARIAL BLIND-SPOT AUDIT (2026-07-18, NotebookLM, pre-lock — owner-requested \"see what they bring back\")"
+  }
+ ]
+}

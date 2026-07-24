@@ -29,6 +29,63 @@ Breakouts held 34–39% avg watch; the channel median is 28.1%. Governed by scri
 
 ---
 
+## 2026-06-27 — COMPLETE-DATA UPDATE (supersedes the 2026-02-23 snapshot for CTR)
+
+**Data vintage upgrade:** real per-video Studio impressions+CTR for ALL 56 long-form now in
+`analytics.db` (`videos.impressions/ctr_percent`), plus per-surface CTR (`surface_ctr` —
+Browse/Suggested) and full 56-thumbnail visual tagging (`thumbnail_features`). The "22-video
+2026-02-23 snapshot" caveat is retired for CTR. Sources: `channel-data/CTR-TITLE-FORMULA-2026-06.md`,
+`CTR-THUMBNAIL-FINDINGS-2026-06.md`, `AB-TEST-AND-TRAFFIC-CTR-2026-06.md`, `FLOP-AUTOPSY-PLAN-2026-06.md`.
+
+**Funnel confirmed + quantified (n=56):**
+- views↔impressions r=0.92 · views↔CTR r=0.62 · **views↔retention r=0.07**. Cause of death:
+  27/56 NOT-CLICKED (CTR<2.5%), 11 NOT-SERVED, only **3 retention**. Retention is NOT a view lever.
+- **FAME is the #1 validated CTR driver: +0.87 blended, +2.23 on Browse** (famous-topic Browse
+  CTR 5.65% vs 3.41%). This is Gate-1 demand expressed as a packaging lever.
+- **Packaging only pays once the topic is famous** (interaction): within famous topics, a
+  document-focal thumbnail costs −2.11% and clutter −1.05%; within obscure topics packaging is
+  flat (~0). → Sequence is FIXED — famous topic first (precondition), THEN clean packaging.
+
+**NEW VALIDATED TACTIC — topical CLUSTERS (4–7× on Suggested):** the Guatemala×2 +
+Venezuela-Guyana border-dispute cluster pulls 4–7% Suggested CTR; isolated one-offs 0.5–1%.
+Ship 2–3 in the SAME dispute family within ~2–4 weeks so they feed each other's Suggested
+traffic. Isolated topics get suggested next to unrelated content and die.
+
+**Surfaces:** Browse CTR healthy (7.5% aggregate), Search 6.73%, **Suggested weak (3.07%)**.
+The low per-video blended median (2.51%) is an impressions-distribution artifact, not a
+thumbnail-quality failure — confirms the Browse-breakout reinterpretation above.
+
+**Thumbnail — validated on all 56 (filters, not predictors):** document-AS-FOCAL-POINT hurts
+(−0.71 overall, −2.11 within famous); clutter hurts (−0.52); clean map mild + (proxy for
+famous territorial); blank creator face doesn't help (emote or omit). Enforced in
+`thumbnail_checker.py` RULE 6 (document-focal = REVIEW flag).
+**OVER-FIT KILLS (do NOT prescribe):** "red pop" (−0.67; on 29/47 thumbs, confounded with the
+cluttered-document style) and title "visceral predicate" (+0.08) both looked like winners in a
+12-extreme pre-analysis and evaporated on the full set.
+
+**Overlay wording (A/B = watch-time-share, individually inconclusive but cross-test):**
+"FACT CHECKED" beat its synonyms ("Myths Busted"/"Reality Check"/"The Real Evidence") in 2
+independent tests; an existential question ("DOES BELIZE EXIST?") beat flat framings. Default
+verdict-overlay direction; confirm via forward A/B (A/B power itself is gated on fame→impressions).
+
+---
+
+## 2026-07-23 — FORWARD-VIDEO FINDINGS (July-23 Studio LIFETIME import, verified)
+
+**Data authority:** the July-23 Studio lifetime export (57 videos, `studio_ctr_imports`/`studio_ctr_rows`, schema v5) is now the freshest CTR truth. ⚠ **`surface_ctr` is a Feb-2026 legacy export and is missing #59 — directional only; do NOT cite it as current.** Every result below was reproduced by the main thread against the live DB; queries in `tools/youtube_analytics/_research/CODEX-FUTURE-VIDEOS-2026-07-23.md`. All Guatemala-sensitive results computed with `Y21EjQ0v9W4` excluded.
+
+**These are FORWARD (at-creation) rules for the NEXT video, not patches for old ones. Tagged so nothing reads as law that isn't.**
+
+- **[CONFIRMED, null, n=56] Nothing measurable post-publish predicts distribution.** Impressions vs: CTR ρ=+0.18, retention ρ≈0, like-rate **−0.26**, age ≈0. You cannot earn a push with retention/engagement tuning. **The only at-creation distribution levers are TOPIC and PACKAGING.** This confirms the Gate-1/funnel model above with the current data.
+- **[CONFIRMED, null, n=56] No topic FORMULA in the data.** Topic-type vs impressions Kruskal–Wallis **p=0.18** (not significant). Territorial runs a higher median (3,330 vs 2,240) — a weak directional hint, NOT a law. Fame/recognizability/live-relevance are not stored, so the data can't test the stronger idea. **→ V1 demand gate is the rule; territorial is one presentation, not the formula.** Do not build a "make territorial disputes" doctrine.
+- **[CONFIRMED, n=55] Structure: the 5–10% post-hook seam is where holds are won or lost.** r20 top vs bottom retention quartile 48.7% vs 27.8%; the beat right after the cold open loses a mean **12.7 pp** vs 4.7 pp for the next band. **→ at SCRIPT stage: no welcome, methodology preamble, recap, or roadmap in the first 5–10%; go straight into substance.** This is a HOLD/watch-time lever (Gate 3), not a distribution lever — see `WRITING-VOICE-AND-STYLE` and the opener docs for where it's actioned.
+- **[HYPOTHESIS, n=8] Evidence-promise titles run higher CTR.** Median 3.28% vs 2.41% (mean 3.92% vs 3.04%). Supports V3's evidence-promise punch. Small cohort, JD-Vance-influenced — a default-to-test, not a gate.
+- **[CONFIRMED concentration] Search demand is entity-led.** 47% of non-Guatemala search views come from 5 exact named terms; some titles omit the searched entity (`operation sig`, `treaty of tripoli`). **→ reinforces V2: name the exact searched person/treaty/operation/case in the title, or the first description line at upload.**
+- **[HYPOTHESIS, n=46] Thumbnail: document-as-focal-object negative** (2.39% vs 3.11%), busy weak-negative, **red is not a lever** (2.48% vs 3.16%). Confirms the "OVER-FIT KILLS" note above from the fresh data. One clear focal object, few elements.
+- **[CONFIRMED, null, n=47] Length is not a lever in 5–13 min** (duration↔body-retention r=−0.12). Let the argument decide runtime.
+
+---
+
 ## TIER 1 — VALIDATED (publication gates)
 
 ### V1: Topic demand gate
@@ -143,4 +200,7 @@ Pattern scores from real CTR averages; min 3 videos per pattern before DB overri
 
 Ranked, falsifiable packaging hypotheses for the next 5 uploads: `channel-data/BREAKOUT-HYPOTHESES.md`. Back-catalog retitle queue: `channel-data/RETITLE-SHORTLIST.md` (feeds `/retitle`).
 
-*This mandate overrides all previous title guidance. Data vintage: lifetime CTR = 2026-02-23 POST-PUBLISH snapshot (22 videos); fresh CTR = 2026-06-10 ctr_tracker reach-window (compare within snapshot only).*
+*This mandate overrides all previous title guidance. Data vintage: **CTR = complete per-video
+Studio export, all 56 videos, 2026-06-27** (in `analytics.db` videos.impressions/ctr_percent +
+surface_ctr + thumbnail_features) — see the 2026-06-27 COMPLETE-DATA UPDATE section above. Older
+vintages (2026-02-23 22-video snapshot; 2026-06-10 ctr_tracker reach-window) are superseded for CTR.*

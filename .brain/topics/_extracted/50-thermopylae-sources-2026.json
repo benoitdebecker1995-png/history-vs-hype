@@ -1,0 +1,361 @@
+{
+ "video": "50-thermopylae-sources-2026",
+ "lifecycle": "_ARCHIVED",
+ "source_file": "video-projects/_ARCHIVED/published/50-thermopylae-sources-2026/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "Herodotus wrote his Histories roughly 40-50 years after Thermopylae, partly by interviewing aging war veterans.",
+   "topics": ["ancient-source-reliability", "source-transmission-chain"],
+   "verbatim": null,
+   "source": "Cartledge, Thermopylae: The Battle That Changed the World, p.32",
+   "status": "verified",
+   "anchor": "### Claim: Herodotus wrote ~40-50 years after Thermopylae, using oral testimony"
+  },
+  {
+   "claim": "Herodotus is called the \"Father of History\" for his pioneering inquiry, though ancient critics such as Plutarch labeled him the \"Father of Lies.\"",
+   "topics": ["ancient-source-reliability", "contested-attribution"],
+   "verbatim": "He is known as the 'Father of History' for his pioneering 'inquiry' (historiē), though critics like Plutarch labeled him the 'Father of Lies'",
+   "source": "NotebookLM synthesis",
+   "status": "partial",
+   "anchor": "### Claim: Herodotus wrote ~40-50 years after Thermopylae, using oral testimony"
+  },
+  {
+   "claim": "Diodorus Siculus wrote about Thermopylae roughly 430 years after the battle, relying heavily on the now entirely-lost historian Ephorus.",
+   "topics": ["source-transmission-chain", "archival-silence"],
+   "verbatim": "a 4th-century BCE historian whose 30-book universal history is now entirely lost",
+   "source": "Hau, Moral History from Herodotus to Diodorus Siculus, pp.171-193",
+   "status": "verified",
+   "anchor": "### Claim: Diodorus Siculus wrote ~430 years after Thermopylae, drawing on the lost historian Ephorus"
+  },
+  {
+   "claim": "Diodorus frames the Spartan stand as an intentional, noble sacrifice for Panhellenic freedom, aiming for moral instruction rather than strict record-keeping.",
+   "topics": ["source-transmission-chain", "myth-origin-tracing"],
+   "verbatim": "Diodorus aims for moral didacticism, framing the Spartan stand as an intentional, noble sacrifice for Panhellenic freedom",
+   "source": "NotebookLM synthesis",
+   "status": "verified",
+   "anchor": "### Claim: Diodorus Siculus wrote ~430 years after Thermopylae, drawing on the lost historian Ephorus"
+  },
+  {
+   "claim": "Ctesias served 17 years as a Greek physician at the Persian court and positioned his history as a direct correction to Herodotus.",
+   "topics": ["ancient-source-reliability", "contested-attribution"],
+   "verbatim": "Greek physician at court of Artaxerxes II, finished *Persica* c. 398/7 BCE (~80 years after battle)",
+   "source": "Llewellyn-Jones & Robson, Ctesias' History of Persia, pp.4-45",
+   "status": "verified",
+   "anchor": "### Claim: Ctesias served as physician at the Persian court for 17 years, positioned his work as a correction to Herodotus"
+  },
+  {
+   "claim": "Ctesias repeatedly calls Herodotus a liar and a \"writer of fables.\"",
+   "topics": ["contested-attribution", "scholarly-disagreement"],
+   "verbatim": "frequently calls [Herodotus] a liar and 'writer of fables'",
+   "source": "Waters, Ctesias' Persica and its Near Eastern Context, pp.3-19",
+   "status": "verified",
+   "anchor": "### Claim: Ctesias served as physician at the Persian court for 17 years, positioned his work as a correction to Herodotus"
+  },
+  {
+   "claim": "Ctesias claimed to have used Persian royal records, but modern scholars believe he mainly relied on oral traditions from the Persian nobility.",
+   "topics": ["document-provenance", "source-transmission-chain"],
+   "verbatim": "Although Ctesias claimed to access 'royal records' written on leather, modern scholars believe he primarily used oral traditions from the Persian nobility",
+   "source": "Llewellyn-Jones & Robson, Ctesias' History of Persia, p.11",
+   "status": "partial",
+   "anchor": "### Claim: Ctesias served as physician at the Persian court for 17 years, positioned his work as a correction to Herodotus"
+  },
+  {
+   "claim": "Ctesias's history survives only as fragments, preserved chiefly through the 9th-century Byzantine patriarch Photius.",
+   "topics": ["source-transmission-chain", "archival-silence"],
+   "verbatim": "His reputation for sensationalism, 'absurd fantasies,' and muddled chronology made his full work less likely to be preserved",
+   "source": "Llewellyn-Jones & Robson, Ctesias' History of Persia, p.28",
+   "status": "verified",
+   "anchor": "### Claim: Ctesias survives only as fragments via Photius, a 9th-century Byzantine patriarch"
+  },
+  {
+   "claim": "Herodotus put the Persian land army at 1,700,000 infantry.",
+   "topics": ["casualty-estimate-methodology", "ancient-source-reliability"],
+   "verbatim": "the number of troops in the whole land army added together was found to be 1,700,000",
+   "source": "Herodotus, The Histories, Landmark ed., 7.60, p.544",
+   "status": "verified",
+   "anchor": "### Claim: Persian army size — Herodotus says 1,700,000 infantry"
+  },
+  {
+   "claim": "Diodorus put the Persian land army at over 800,000 men.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": "the number of his land forces was over eight hundred thousand men",
+   "source": "Diodorus, Library of History, 11.5.7, Delphi Classics p.614",
+   "status": "verified",
+   "anchor": "### Claim: Persian army size — Diodorus says 800,000"
+  },
+  {
+   "claim": "Ctesias put the Persian army at 800,000 men plus 1,000 triremes.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": "Xerxes assembled a Persian army of 800,000 (not counting chariots), and 1,000 triremes",
+   "source": "Ctesias, Fragment 27.20, Llewellyn-Jones & Robson p.183",
+   "status": "verified",
+   "anchor": "### Claim: Persian army size — Ctesias says 800,000 + 1,000 triremes"
+  },
+  {
+   "claim": "Modern historians estimate the real Persian invasion force at 75,000 to 300,000 based on wartime logistics.",
+   "topics": ["casualty-estimate-methodology", "historiographical-revision"],
+   "verbatim": "If Xerxes' army really was as large as Herodotus says, then the column of march would have been 2,000 miles long, with the head of the column reaching Thermopylae in Greece at the same time as the end of the column was marching out of Susa in Iran.",
+   "source": "Matthews, The Battle of Thermopylae: A Campaign in Context, p.147",
+   "status": "verified",
+   "anchor": "### Claim: Modern consensus — Persian army was 75,000 to 300,000"
+  },
+  {
+   "claim": "Herodotus put the Greek defending force at roughly 7,000 total, including 300 Spartiates.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": "300 Spartan hoplites... altogether, they added up to [about 7,000]",
+   "source": "Herodotus, The Histories, 7.202-203, Landmark ed. pp.550-551",
+   "status": "verified",
+   "anchor": "### Claim: Greek force — Herodotus says ~7,000 total including 300 Spartiates"
+  },
+  {
+   "claim": "Diodorus says the Spartan-led contingent was actually 1,000 men — 300 citizen-Spartiates plus 700 perioikoi — out of roughly 4,000 Greeks present.",
+   "topics": ["casualty-estimate-methodology", "contested-attribution"],
+   "verbatim": "Leonidas... announced that only one thousand men should follow him... There were, then, of the Lacedaemonians one thousand, and with them three hundred Spartiates, while the rest of the Greeks... were three thousand",
+   "source": "Diodorus, Library of History, 11.4.2-5, Delphi Classics p.611",
+   "status": "verified",
+   "anchor": "### Claim: Greek force — Diodorus says 1,000 Lacedaemonians including 300 Spartiates, ~4,000 total initially"
+  },
+  {
+   "claim": "Ctesias claims only two or three Spartans died while the entire Persian horde was cut down.",
+   "topics": ["casualty-estimate-methodology", "ancient-source-reliability"],
+   "verbatim": "And the great Persian horde was cut down, while only two or three Spartans were killed.",
+   "source": "Ctesias, Fragment 27, Llewellyn-Jones & Robson p.183",
+   "status": "verified",
+   "anchor": "### Claim: Ctesias gives absurdly low Greek casualties — \"two or three Spartans\""
+  },
+  {
+   "claim": "The three ancient sources give incompatible tactical accounts of the early fighting: Herodotus describes a feigned Spartan retreat, Diodorus a static phalanx, and Ctesias an absurd casualty ratio followed by flogged Persian troops.",
+   "topics": ["contested-attribution", "source-transmission-chain"],
+   "verbatim": "they would turn their backs and feign flight all together... then suddenly turn around to face them, at which point they would slay countless numbers of them.",
+   "source": "Herodotus, The Histories, 7.211, Landmark ed. p.558",
+   "status": "verified",
+   "anchor": "### Claim: First days of fighting — all three describe Persian slaughter, but details differ"
+  },
+  {
+   "claim": "The three sources name different guides for the mountain path: Herodotus names Ephialtes of Malis, Diodorus says an anonymous Trachinian, and Ctesias has two anonymous Trachinian men and omits Ephialtes entirely.",
+   "topics": ["contested-attribution", "source-transmission-chain", "myth-origin-tracing"],
+   "verbatim": "Ephialtes of Malis, son of Eurydemos, came to speak with him, expecting to win some great reward for telling the King of the path that led through the mountain to Thermopylae.",
+   "source": "Herodotus, The Histories, 7.213, Landmark ed. p.560",
+   "status": "verified",
+   "anchor": "### Claim: The betrayal — three different versions of who revealed the mountain path"
+  },
+  {
+   "claim": "Ctesias's account has Xerxes sending 40,000 men over the mountain path guided by \"the two leading men of Trachis,\" omitting the traitor Ephialtes by name.",
+   "topics": ["contested-attribution", "source-transmission-chain"],
+   "verbatim": "the two leading men of Trachis",
+   "source": "Llewellyn-Jones & Robson, Ctesias' History of Persia, p.28",
+   "status": "partial",
+   "anchor": "### Claim: The betrayal — three different versions of who revealed the mountain path"
+  },
+  {
+   "claim": "Herodotus and Diodorus give incompatible accounts of the final stand — a desperate daytime hillock defense versus a bold night raid on Xerxes's tent — while Ctesias omits it entirely.",
+   "topics": ["contested-attribution", "historiographical-revision"],
+   "verbatim": "they tried to defend themselves with their daggers if they still had them, or if not, with their hands and their teeth.",
+   "source": "Herodotus, The Histories, 7.225, Landmark ed. p.570",
+   "status": "verified",
+   "anchor": "### Claim: The final stand — Herodotus describes a daytime hillock defense; Diodorus describes a suicidal night raid"
+  },
+  {
+   "claim": "A modern historian judged Diodorus's story of a night raid on Xerxes's tent \"almost certainly fictional,\" likely inherited from the lost historian Ephorus's rhetorical tradition.",
+   "topics": ["historiographical-revision", "source-transmission-chain", "myth-origin-tracing"],
+   "verbatim": "almost certainly fictional",
+   "source": "Matthews, The Battle of Thermopylae: A Campaign in Context, p.234",
+   "status": "verified",
+   "anchor": "### Claim: The final stand — Herodotus describes a daytime hillock defense; Diodorus describes a suicidal night raid"
+  },
+  {
+   "claim": "All three sources agree Leonidas died at Thermopylae, but diverge on the circumstances; Herodotus adds that Xerxes had his head cut off and body impaled, unusual for Persian custom.",
+   "topics": ["contested-attribution"],
+   "verbatim": "the Persians and Lacedaemonians engaged in a violent struggle over the corpse",
+   "source": "Herodotus, The Histories, 7.224, Landmark ed. p.568",
+   "status": "verified",
+   "anchor": "### Claim: Death of Leonidas — accounts agree he died but diverge on circumstances"
+  },
+  {
+   "claim": "\"Molon labe\" (come and take them) does not appear in Herodotus; it first appears in Plutarch roughly 600 years after the battle.",
+   "topics": ["myth-origin-tracing", "source-transmission-chain"],
+   "verbatim": "Modern historians generally consider it a later rhetorical invention intended to exemplify the 'Spartan Legend' rather than a verbatim historical record",
+   "source": "Cartledge, Thermopylae: The Battle That Changed the World, pp.807-809",
+   "status": "verified",
+   "anchor": "### Claim: \"Molon labe\" (Come and take them) is NOT in Herodotus — first appears in Plutarch, ~600 years later"
+  },
+  {
+   "claim": "Herodotus records no conversation at all between Xerxes and Leonidas; Diodorus records a similar but longer exchange about Greeks winning land by valor, not cowardice.",
+   "topics": ["myth-origin-tracing", "contested-attribution"],
+   "verbatim": "The Greeks have learned from their fathers to gain lands, not by cowardice, but by valour",
+   "source": "Diodorus, Library of History, 11.5.5",
+   "status": "verified",
+   "anchor": "### Claim: \"Molon labe\" (Come and take them) is NOT in Herodotus — first appears in Plutarch, ~600 years later"
+  },
+  {
+   "claim": "\"Then we shall fight in the shade\" does appear in Herodotus, but attributed to a Spartan named Dienekes, not Leonidas.",
+   "topics": ["myth-origin-tracing", "contested-attribution"],
+   "verbatim": "Dienekes was not alarmed... said that what his Trachinian friend had reported was in fact good news, since it meant that while the Medes were blocking the sun, they would fight them in the shade.",
+   "source": "Herodotus, The Histories, 7.226, Landmark ed. p.572",
+   "status": "verified",
+   "anchor": "### Claim: \"Then we shall fight in the shade\" — IS in Herodotus, attributed to Dienekes (not Leonidas)"
+  },
+  {
+   "claim": "\"Tonight we dine in Hades\" is absent from Herodotus and first appears in Diodorus roughly 430 years after the battle.",
+   "topics": ["myth-origin-tracing", "source-transmission-chain"],
+   "verbatim": "Highly likely to be a rhetorical invention",
+   "source": "Cartledge, Thermopylae: The Battle That Changed the World, p.826",
+   "status": "verified",
+   "anchor": "### Claim: \"Tonight we dine in Hades\" — NOT in Herodotus, first appears in Diodorus (~430 years later)"
+  },
+  {
+   "claim": "The \"Go tell the Spartans\" epitaph, attributed to the contemporary poet Simonides, is considered by scholars the most likely authentic quote from the battle.",
+   "topics": ["myth-origin-tracing", "ancient-source-reliability"],
+   "verbatim": "Authentic. Scholars accept this as a genuine historical inscription commissioned by the Amphictyonic League of Delphi",
+   "source": "Cartledge, Thermopylae: The Battle That Changed the World, p.733",
+   "status": "verified",
+   "anchor": "### Claim: \"Go tell the Spartans\" epitaph — the strongest quote, likely authentic"
+  },
+  {
+   "claim": "Scholars debate whether the Greek word \"rhemasi\" in the Thermopylae epitaph means \"laws\" or \"orders,\" which changes its meaning significantly.",
+   "topics": ["scholarly-disagreement", "treaty-translation-discrepancy"],
+   "verbatim": "The key word \"ῥήμασι\" can mean \"laws\" or \"orders\" — this changes the meaning significantly. Scholars debate which.",
+   "source": "Simonides, Fragments, Delphi Classics pp.304-305",
+   "status": "partial",
+   "anchor": "### Claim: \"Go tell the Spartans\" epitaph — the strongest quote, likely authentic"
+  },
+  {
+   "claim": "No Persian narrative account of Thermopylae survives.",
+   "topics": ["archival-silence", "source-transmission-chain"],
+   "verbatim": "the Persians have not left us the same kind of reflexive, introspective, cross-culturally comparativist literature that the Greeks, famously, did.",
+   "source": "Cartledge, Thermopylae: The Battle That Changed the World, p.xi-xii",
+   "status": "verified",
+   "anchor": "### Claim: No Persian narrative account of Thermopylae survives"
+  },
+  {
+   "claim": "Achaemenid Persia had many scribes but no historians, making the absence of a Persian account of Thermopylae a structural feature, not archival loss.",
+   "topics": ["archival-silence", "historiographical-revision"],
+   "verbatim": "Achaemenid Persia had scribes, many of them, but not one historian.",
+   "source": "Cartledge, Thermopylae: The Battle That Changed the World, p.32",
+   "status": "verified",
+   "anchor": "### Claim: No Persian narrative account of Thermopylae survives"
+  },
+  {
+   "claim": "The Persian Daiva Inscription frames Xerxes's suppression of rebellious regions as a religious struggle against \"the Lie,\" and never mentions Thermopylae.",
+   "topics": ["archival-silence", "legal-justification-doctrine"],
+   "verbatim": "Among these countries there was a place where previously demons [daiva] had been worshipped. Afterwards... there I worshipped Ahura Mazda in accordance with Truth reverently.",
+   "source": "Daiva Inscription, quoted in NotebookLM synthesis",
+   "status": "verified",
+   "anchor": "### Claim: The Daiva Inscription does not mention Thermopylae"
+  },
+  {
+   "claim": "Persian royal inscriptions recorded victories and divine favor but not defeats — a standard practice of the empire, not evidence of a lost record.",
+   "topics": ["archival-silence", "propaganda-and-narrative-control"],
+   "verbatim": null,
+   "source": "NotebookLM synthesis",
+   "status": "verified",
+   "anchor": "### Claim: The Daiva Inscription does not mention Thermopylae"
+  },
+  {
+   "claim": "Herodotus's \"inquiry\" (historiē) was a new, human-based search for knowledge that Persian court historiography, focused on eternal truths about the king, had no equivalent for.",
+   "topics": ["historiographical-revision", "ancient-source-reliability"],
+   "verbatim": "a new, entirely human-based search for knowledge\" — \"a concept alien to the top-down Persian world",
+   "source": "Cartledge, Thermopylae: The Battle That Changed the World, p.32",
+   "status": "verified",
+   "anchor": "### Claim: Persian historiography vs Greek — structural difference explains the silence"
+  },
+  {
+   "claim": "Modern historians read Thermopylae as a coordinated land-sea rearguard strategy, not pure suicidal heroism, allowing the Greek fleet to hold the straits at Artemisium.",
+   "topics": ["historiographical-revision"],
+   "verbatim": "The Greeks could have had no expectation of defeating the Persian army at Thermopylae. They expected only to delay the Persian army, in the hope that their fleet might defeat the Persians.",
+   "source": "Prentice, \"Thermopylae and Artemisium,\" pp.5-18",
+   "status": "verified",
+   "anchor": "### Claim: Thermopylae was a strategic rearguard action, not just suicidal heroism"
+  },
+  {
+   "claim": "Herodotus records that Leonidas selected only soldiers who already had living sons, suggesting he expected the force would not return.",
+   "topics": ["contested-attribution"],
+   "verbatim": "Leonidas selected only men with living sons",
+   "source": "Herodotus, The Histories, 7.220",
+   "status": "verified",
+   "anchor": "### Claim: Thermopylae was a strategic rearguard action, not just suicidal heroism"
+  },
+  {
+   "claim": "A 1939 excavation found Persian bronze arrowheads on Kolonos Hill, archaeologically confirming Herodotus's account of the final stand's location.",
+   "topics": ["ancient-source-reliability", "document-provenance"],
+   "verbatim": null,
+   "source": "PRELIMINARY-RESEARCH.md citing 1939 Marinatos excavation",
+   "status": "verified",
+   "anchor": "### Claim: Archaeological confirmation of the final stand location"
+  },
+  {
+   "claim": "Herodotus describes a Persian counting method — packing 10,000 men into a walled circle — used to reach the 1.7 million troop figure.",
+   "topics": ["casualty-estimate-methodology", "ancient-source-reliability"],
+   "verbatim": "They gathered groups of 10,000 men together at one spot, packed them in as closely as they could, and then drew a circle around them from the outside.",
+   "source": "Herodotus, The Histories, 7.60, Landmark ed., p.521",
+   "status": "verified",
+   "anchor": "### Claim: Herodotus describes a physical counting method for the Persian army — packing 10,000 men into a circle"
+  },
+  {
+   "claim": "A modern historian calls the resulting 1.7 million-troop figure \"grossly exaggerated\" and \"quite impossible.\"",
+   "topics": ["casualty-estimate-methodology", "historiographical-revision"],
+   "verbatim": "grossly exaggerated",
+   "source": "Matthews, The Battle of Thermopylae: A Campaign in Context, p.58",
+   "status": "verified",
+   "anchor": "### Claim: Herodotus describes a physical counting method for the Persian army — packing 10,000 men into a circle"
+  },
+  {
+   "claim": "A Delphic oracle prophecy about Thermopylae may have been composed after the fact to cover the priesthood's own pro-Persian leanings, though it could also reflect Leonidas engineering the prophecy to secure Spartan commitment.",
+   "topics": ["myth-origin-tracing", "contested-attribution", "religious-legal-authority"],
+   "verbatim": "Either your city of glory will perish, sacked by the Perseids, / Or else the boundaries of Lacedaemon will grieve for the death of a king born of Herakles",
+   "source": "Herodotus, The Histories, 7.220, Landmark ed., p.571",
+   "status": "partial",
+   "anchor": "### Claim: Herodotus records a Delphic Oracle prophecy and says Leonidas selected only men with living sons"
+  },
+  {
+   "claim": "The contemporary poet Simonides recorded an inscription at Thermopylae claiming \"three million\" Persians fought \"four thousand\" Greeks, a figure Diodorus later gives as two million.",
+   "topics": ["casualty-estimate-methodology", "contested-attribution"],
+   "verbatim": "Three million foes were once fought right here / By four thousand men from the Peloponnese.",
+   "source": "Herodotus, The Histories, 7.228, Landmark ed., p.580",
+   "status": "verified",
+   "anchor": "### Claim: Simonides recorded \"four thousand... against three million\" as an inscription at the site"
+  },
+  {
+   "claim": "700 Thespians died to the last man alongside the Spartans at Thermopylae but are largely forgotten; their monument was erected only in the modern era, centuries after the Spartan monument.",
+   "topics": ["myth-origin-tracing", "historiographical-revision"],
+   "verbatim": "refused to leave and chose to fight and die alongside the Spartans",
+   "source": "Herodotus, The Histories, 7.222, Landmark ed.",
+   "status": "verified",
+   "anchor": "### Claim: 700 Thespians died to the last man alongside the Spartans"
+  },
+  {
+   "claim": "Herodotus names several Spartan dead individually but names only one of the 700 Thespian dead, Dithyrambus son of Harmatides.",
+   "topics": ["contested-attribution", "source-transmission-chain"],
+   "verbatim": null,
+   "source": "Herodotus, The Histories, 7.222, Landmark ed.",
+   "status": "verified",
+   "anchor": "### Claim: 700 Thespians died to the last man alongside the Spartans"
+  },
+  {
+   "claim": "Herodotus portrays the Thebans at Thermopylae as unwilling hostages held over suspected Persian sympathies; Plutarch explicitly accuses Herodotus of anti-Theban bias.",
+   "topics": ["contested-attribution", "historiographical-revision"],
+   "verbatim": null,
+   "source": "Plutarch, On the Malice of Herodotus",
+   "status": "partial",
+   "anchor": "### Claim: The Thebans — Herodotus says hostages, other sources and modern historians say willing fighters"
+  },
+  {
+   "claim": "Aristodemus, one of the 300 Spartans, survived Thermopylae after being sent away with an eye disease, and returned to Sparta shunned as \"Aristodemos the Trembler.\"",
+   "topics": ["contested-attribution"],
+   "verbatim": "not a single Spartan would give him fire or speak with him, and his disgrace was that he was called 'Aristodemos the Trembler'",
+   "source": "Herodotus, The Histories, 7.229-231, Landmark ed., p.578",
+   "status": "verified",
+   "anchor": "### Claim: Aristodemus returned to Sparta and was shunned as \"the Trembler\""
+  },
+  {
+   "claim": "Herodotus judged Aristodemus the bravest Spartan at the later Battle of Plataea, suggesting the \"Trembler\" verdict may have reflected jealousy rather than fact.",
+   "topics": ["contested-attribution", "historiographical-revision"],
+   "verbatim": "the man who proved the best and bravest by far was Aristodemos, the only one of the 300 to have survived Thermopylae",
+   "source": "Herodotus, The Histories, 9.71, Landmark ed., p.679",
+   "status": "partial",
+   "anchor": "### Claim: Aristodemus returned to Sparta and was shunned as \"the Trembler\""
+  }
+ ]
+}

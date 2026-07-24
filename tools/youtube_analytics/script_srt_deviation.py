@@ -159,45 +159,15 @@ def parse_script(script_path: Path) -> list[str]:
 # =========================================================================
 
 def parse_srt(srt_path: Path) -> list[dict]:
+    """Parse an SRT into this module's {text,start_sec,end_sec} shape.
+
+    Thin adapter over the canonical parser (tools.subtitles, ADR-0010).
     """
-    Parse an SRT file into a list of subtitle blocks with timestamps.
-
-    Returns list of dicts: {'text': str, 'start_sec': float, 'end_sec': float}
-    """
-    text = srt_path.read_text(encoding='utf-8', errors='replace')
-    blocks = re.split(r'\n\n+', text.strip())
-
-    subtitles = []
-    for block in blocks:
-        lines = block.strip().split('\n')
-        if len(lines) < 3:
-            continue
-
-        # Parse timestamp line
-        ts_match = re.match(
-            r'(\d{2}):(\d{2}):(\d{2})[,.](\d{3})\s*-->\s*(\d{2}):(\d{2}):(\d{2})[,.](\d{3})',
-            lines[1],
-        )
-        if not ts_match:
-            continue
-
-        h1, m1, s1, ms1 = int(ts_match.group(1)), int(ts_match.group(2)), int(ts_match.group(3)), int(ts_match.group(4))
-        h2, m2, s2, ms2 = int(ts_match.group(5)), int(ts_match.group(6)), int(ts_match.group(7)), int(ts_match.group(8))
-
-        start_sec = h1 * 3600 + m1 * 60 + s1 + ms1 / 1000
-        end_sec = h2 * 3600 + m2 * 60 + s2 + ms2 / 1000
-
-        # Join text lines, strip HTML tags
-        raw_text = ' '.join(lines[2:])
-        clean_text = re.sub(r'<[^>]+>', '', raw_text).strip()
-
-        if clean_text:
-            subtitles.append({
-                'text': clean_text,
-                'start_sec': start_sec,
-                'end_sec': end_sec,
-            })
-
+    from tools.subtitles import parse as _parse
+    subtitles = [
+        {"text": c.text, "start_sec": c.start, "end_sec": c.end}
+        for c in _parse(srt_path)
+    ]
     logger.debug("Parsed %d subtitle blocks from %s", len(subtitles), srt_path.name)
     return subtitles
 

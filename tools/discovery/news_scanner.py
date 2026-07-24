@@ -20,6 +20,10 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from tools.video_projects import StatusDoc
+
 
 # ---------------------------------------------------------------------------
 # Topic extraction from project folders
@@ -89,18 +93,8 @@ def get_pipeline_topics(production_dir: str = 'video-projects/_IN_PRODUCTION') -
         if clean_slug in SKIP_SLUGS or slug in SKIP_SLUGS:
             continue
 
-        # Check project status
-        status = 'UNKNOWN'
-        status_file = folder / 'PROJECT-STATUS.md'
-        if status_file.exists():
-            try:
-                text = status_file.read_text(encoding='utf-8')[:500]
-                # Look for status line
-                m = re.search(r'Status[:\s]*\*?\*?([A-Z ]+)', text)
-                if m:
-                    status = m.group(1).strip()
-            except Exception:
-                pass
+        # Check project status (the shared fuzzy read lives on StatusDoc)
+        status = StatusDoc.load(folder / 'PROJECT-STATUS.md').status_label or 'UNKNOWN'
 
         # Check for published indicators
         post_pub = folder / 'POST-PUBLISH-ANALYSIS.md'

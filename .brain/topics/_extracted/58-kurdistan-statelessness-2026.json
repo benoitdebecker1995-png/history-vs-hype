@@ -1,0 +1,433 @@
+{
+ "video": "58-kurdistan-statelessness-2026",
+ "lifecycle": "_READY_TO_FILM",
+ "source_file": "video-projects/_READY_TO_FILM/58-kurdistan-statelessness-2026/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "Saladin, founder of the Ayyubid dynasty, was of Kurdish origin from the Rawadi clan of the Hadhbani confederation, per medieval and modern sources.",
+   "topics": ["contested-attribution", "myth-origin-tracing"],
+   "verbatim": "came from the town of Dvin and were **Rawadi Kurds in origin, which lineage is the noblest of the Kurds**.",
+   "source": "Ibn al-Athir, al-Kamil, p.176",
+   "status": "verified",
+   "anchor": "✅ C1 — Saladin was of Kurdish (Rawadi clan, Hadhbani confederation) origin — [P] T1, triple-sourced"
+  },
+  {
+   "claim": "Named Kurdish dynasties, including the Shaddadids, Rawadids, Hasanwayhids, Marwanids, and Ayyubids, ruled parts of the Middle East for centuries before the modern era.",
+   "topics": ["contested-attribution", "sovereignty-recognition"],
+   "verbatim": "the most powerful Kurdish dynasty in the history of Islam",
+   "source": "Eppel",
+   "status": "verified",
+   "anchor": "✅ C2 — Named Kurdish dynasties ruled centuries before the modern era — [S]+[P] T1"
+  },
+  {
+   "claim": "Kurdish distinctiveness is ancient and documented, but a unified national identity is anachronistic before the modern era, since tribal and religious identities were historically stronger than Kurdish ethnic identity.",
+   "topics": ["self-determination-claims", "contested-attribution"],
+   "verbatim": "tribal and religious identities were stronger and more defined than Kurdish distinctiveness",
+   "source": "Eppel",
+   "status": "partial",
+   "anchor": "✅ C3 — Identity framing RESOLVED → Framing B locked (2026-05-30): distinct, not a nation"
+  },
+  {
+   "claim": "The 1555 Treaty of Amasya had the Safavids recognize Ottoman sovereignty over Iraq and most of Kurdistan while Iran retained parts of Kurdistan, Azerbaijan, and Yerevan.",
+   "topics": ["treaty-text-vs-practice", "great-power-partition-diplomacy"],
+   "verbatim": "recognized **Ottoman sovereignty over Arab Iraq and the areas north of Azarbayjan, including Kurdistan**.",
+   "source": "Allouche",
+   "status": "verified",
+   "anchor": "✅ C4 — What Amasya (1555) and Zuhab (1639) actually stipulated — [S-via-P] T1"
+  },
+  {
+   "claim": "The claim that the 1639 Treaty of Zuhab divided the Kurds is a nationalist myth enshrined in the historiography of the region.",
+   "topics": ["myth-origin-tracing", "boundary-commission-mechanism", "treaty-text-vs-practice"],
+   "verbatim": "a myth … powerfully enshrined in the historiographies and nationalisms of the countries sharing this boundary",
+   "source": "Ateş",
+   "status": "verified",
+   "anchor": "✅ C5 — \"1639 divided the Kurds\" is a MYTH (auditor's-edge keystone for Act 2) — [S] T1, Ateş"
+  },
+  {
+   "claim": "The 1639 Treaty of Zuhab did not draw a precise boundary line but designated vague frontier regions; the actual Ottoman-Iranian border was drawn between 1843 and 1914.",
+   "topics": ["boundary-commission-mechanism", "treaty-text-vs-practice"],
+   "verbatim": "did not lay down a precise line but rather designated entire regions lying between the two states as 'frontier'",
+   "source": "Ateş",
+   "status": "verified",
+   "anchor": "✅ C5 — \"1639 divided the Kurds\" is a MYTH (auditor's-edge keystone for Act 2) — [S] T1, Ateş"
+  },
+  {
+   "claim": "The 1920 Treaty of Sèvres explicitly named Kurdistan and offered predominantly Kurdish areas a path to conditional independence within one year if a majority petitioned the League of Nations.",
+   "topics": ["treaty-text-vs-practice", "self-determination-claims"],
+   "verbatim": "SECTION III. KURDISTAN",
+   "source": "Treaty of Sèvres text",
+   "status": "verified",
+   "anchor": "✅ C6 — Sèvres (1920) explicitly named \"Kurdistan\" and promised conditional independence — [P] T1"
+  },
+  {
+   "claim": "Sèvres's Kurdish independence clause was contingent on the League of Nations judging the Kurds capable of self-government, a 'standard of civilization' test the Great Powers applied only to non-European peoples.",
+   "topics": ["self-determination-claims", "legal-justification-doctrine"],
+   "verbatim": "contingent upon a 'standard of civilization'",
+   "source": "Radpey",
+   "status": "verified",
+   "anchor": "✅ C7 — The promise was weak/conditional by design — [S] T1, Radpey + McDowall"
+  },
+  {
+   "claim": "The 1923 Treaty of Lausanne never mentions the Kurds or Kurdistan, and its minority-protection articles cover only non-Muslim minorities, categorically excluding the Muslim Kurds.",
+   "topics": ["treaty-text-vs-practice", "religious-legal-authority", "statelessness"],
+   "verbatim": "non-Moslem minorities",
+   "source": "Treaty of Lausanne, Articles 37-45",
+   "status": "verified",
+   "anchor": "✅ C8 — KEYSTONE: Lausanne (1923) erased the Kurds, and the wording proves it was a choice — [P]+[S] T1"
+  },
+  {
+   "claim": "British delegate Curzon told the Turkish delegation at Lausanne that the Kurds ought to be an autonomous race, but the provision for Kurdish autonomy was abandoned along with safeguards for Muslim minorities.",
+   "topics": ["self-determination-claims", "great-power-arbitration"],
+   "verbatim": "the Kurds, with their own independent history, customs, manners and character, ought to be an autonomous race",
+   "source": "McDowall",
+   "status": "verified",
+   "anchor": "✅ C8 — KEYSTONE: Lausanne (1923) erased the Kurds, and the wording proves it was a choice — [P]+[S] T1"
+  },
+  {
+   "claim": "Britain privately pledged to abandon Kurdish autonomy provisions from Sèvres to ease frontier negotiations with Turkey over Mosul.",
+   "topics": ["concession-extraction", "self-determination-claims"],
+   "verbatim": "I suggest that it might considerably ease the frontier negotiations if we could give preliminary official pledge to Turkey that … we have **abandoned the idea of Kurdish autonomy**",
+   "source": "Sluglett, p.223",
+   "status": "verified",
+   "anchor": "✅ C9 — The price: Kurdish autonomy abandoned to win Mosul; oil bought Turkey's signature — [P]+[S] T1"
+  },
+  {
+   "claim": "The 1926 Treaty of Ankara gave Turkey 10 percent of Iraq's oil royalties for 25 years in exchange for recognizing the Mosul frontier.",
+   "topics": ["resource-extraction-economy", "concession-extraction"],
+   "verbatim": "10 per cent of Iraq's oil royalties for 25 years",
+   "source": "Sluglett p.190; Radpey p.1203",
+   "status": "verified",
+   "anchor": "✅ C9 — The price: Kurdish autonomy abandoned to win Mosul; oil bought Turkey's signature — [P]+[S] T1"
+  },
+  {
+   "claim": "The Republic of Mahabad collapsed after Soviet withdrawal and tribal defection, as tribal landlords deserted the republic in anticipation of the returning monarchist order.",
+   "topics": ["sovereignty-recognition", "great-power-arbitration"],
+   "verbatim": "had already begun **deserting the Republic** … repositioning themselves … in anticipation of … the monarchist order.",
+   "source": "Vali, p.665-666",
+   "status": "verified",
+   "anchor": "✅ C10 — A Kurdish state DID briefly exist (Mahabad, 1946) — and why it fell — [S]+[P-via-S] T1"
+  },
+  {
+   "claim": "Tribal support for the Mahabad Republic was conditional: the tribes backed Qazi Muhammad only because he controlled economic and military assistance.",
+   "topics": ["sovereignty-recognition", "administrative-collapse"],
+   "verbatim": "The tribes had supported him **only because he held the key** to economic as well as military assistance.",
+   "source": "McDowall, p.227",
+   "status": "verified",
+   "anchor": "✅ C10 — A Kurdish state DID briefly exist (Mahabad, 1946) — and why it fell — [S]+[P-via-S] T1"
+  },
+  {
+   "claim": "Unlike the Poles, Serbs, and Czechoslovaks who were officially admitted to the 1919 Paris Peace Conference, the Kurdish representative Şerif Pasha was an uninvited petitioner turned away at the gates.",
+   "topics": ["self-determination-claims", "great-power-partition-diplomacy"],
+   "verbatim": "simply turned away at the gates",
+   "source": "Manela, p.6,46",
+   "status": "verified",
+   "anchor": "✅ C11 — Why others got states and the Kurds didn't (comparative mechanism) — [S] T1"
+  },
+  {
+   "claim": "British Prime Minister Lloyd George forgot to list Kurdistan among the Ottoman territories at the Paris Peace Conference and later admitted his geography had been faulty.",
+   "topics": ["self-determination-claims", "archival-silence"],
+   "verbatim": "cheerfully admitted that his geography had been faulty.",
+   "source": "MacMillan, Paris 1919",
+   "status": "verified",
+   "anchor": "✅ C11 — Why others got states and the Kurds didn't (comparative mechanism) — [S] T1"
+  },
+  {
+   "claim": "The Kurdish emirate of Bitlis under Abdal Khan in 1655 was a sophisticated court hosting foreign scholars, with a 6,000-guest banquet attended by his sons and 77 tribal chieftains.",
+   "topics": ["sovereignty-recognition", "administrative-collapse"],
+   "verbatim": "his **twelve sons and the seventy-seven tribal chieftains who were submissive to him**.",
+   "source": "Evliya Çelebi",
+   "status": "verified",
+   "anchor": "✅ C12 — The emirates were real polities, not \"mountain tribes\" (Act 2 on-screen color) — [P] T1"
+  },
+  {
+   "claim": "Atatürk publicly promised in 1923 that Kurdish provinces would rule themselves autonomously, but the 1924 abolition of the caliphate ended that common ground, and Kurdish rebellions followed until 1938.",
+   "topics": ["self-determination-claims", "treaty-reservation-mechanism"],
+   "verbatim": "a kind of local autonomy is to be granted. Hence, **provinces inhabited by the Kurds will rule themselves autonomously**",
+   "source": "Cambridge History, p.163",
+   "status": "verified",
+   "anchor": "✅ C13 — Atatürk publicly promised the Kurds autonomy in 1923 — then erased it — [S] T1"
+  },
+  {
+   "claim": "At Lausanne, Turkish delegate İnönü insisted the Kurds and Turks were a single people needing no separate protection, while British delegate Curzon countered that the Kurds were a distinct Iranian-descended people.",
+   "topics": ["contested-attribution", "self-determination-claims"],
+   "verbatim": "It was reserved for the Turkish delegation … to discover for the first time in history that the Kurds were Turks. Nobody has ever found it out before… the Kurds are a people of Iranian race",
+   "source": "Lausanne Conference Proceedings, p.1045",
+   "status": "verified",
+   "anchor": "✅ C15 — Inside the room at Lausanne: Turkey demanded the erasure, Britain sold it for Mosul (answers Q1) — [P]+[S] T1"
+  },
+  {
+   "claim": "Saladin's soldiers fought for Islam rather than for a Kurdish national cause, showing shared Islam bound Kurds to neighboring Muslim states more than it built Kurdish nationhood.",
+   "topics": ["religious-legal-authority", "self-determination-claims"],
+   "verbatim": "acted essentially as an Islamic rather than Kurdish national leader.",
+   "source": "McDowall",
+   "status": "verified",
+   "anchor": "⭐ C16 — RELIGION as the double-edged through-thread (answers #4 — POSSIBLE THESIS ENHANCEMENT) — [S] T1"
+  },
+  {
+   "claim": "The Ottoman state deliberately co-opted Kurdish tribes into militias like the Hamidiye to balance rival Kurdish powers against each other, engineering the disunity later blamed on the Kurds themselves.",
+   "topics": ["colonial-boundary-inheritance", "administrative-collapse"],
+   "verbatim": "The state took one of these 'hostile' elements—Kurdish tribes—and tried to transform them … into an arm of state authority itself in order to manage the other 'threats'.",
+   "source": "Klein",
+   "status": "verified",
+   "anchor": "⭐ C17 — #2: Kurdish disunity was largely ENGINEERED from above (divide-and-rule) — [S] T1 — REFINES Framing B"
+  },
+  {
+   "claim": "The Treaty of Sèvres was never ratified by its signatory states and was signed by Ottoman representatives who were effectively prisoners of the British forces.",
+   "topics": ["treaty-ratification-process", "myth-origin-tracing"],
+   "verbatim": "this treaty was not ratified by the signatory states",
+   "source": "Radpey",
+   "status": "verified",
+   "anchor": "✅ C19 — #6: Sèvres was a DEAD LETTER, never ratified (sharpens Act 3) — [P]+[S] T1"
+  },
+  {
+   "claim": "Estimates place the Kurdish population above 30 million, making them the world's largest stateless nation, though exact figures are unreliable because affected states do not census ethnicity.",
+   "topics": ["census-as-political-instrument", "statelessness"],
+   "verbatim": "largely indefensible guesses",
+   "source": "McDowall",
+   "status": "verified",
+   "anchor": "✅ C20 — #7: population ~30–35 million; \"largest stateless nation\" defensible — [S] T1"
+  },
+  {
+   "claim": "Unlike the Kurds, the Arabs had a religiously prestigious leader in Sharif Hussein of Mecca and a written British wartime promise of independence in exchange for revolt.",
+   "topics": ["self-determination-claims", "great-power-partition-diplomacy"],
+   "verbatim": "prepared to recognise and support the independence of the Arabs",
+   "source": "Hussein-McMahon correspondence, 1915-16",
+   "status": "verified",
+   "anchor": "⭐ C22 — #3: Why the Arabs got states and the Kurds didn't (the controlled comparison) — [P]+[S] T1"
+  },
+  {
+   "claim": "Most Kurds fought for, not against, the Ottoman Empire in World War One, with an estimated 300,000 to 800,000 Kurdish deaths in Ottoman military service.",
+   "topics": ["self-determination-claims", "great-power-partition-diplomacy"],
+   "verbatim": "the greater part of the Ottoman forces in the region were Kurdish",
+   "source": "McDowall",
+   "status": "verified",
+   "anchor": "⭐ C22 — #3: Why the Arabs got states and the Kurds didn't (the controlled comparison) — [P]+[S] T1"
+  },
+  {
+   "claim": "After Sultan Selim I's 1514 victory at Chaldiran, Kurdish emirs won semi-independent status under nominal Ottoman suzerainty; top-tier emirates paid no tax and faced no inspection for more than 300 years.",
+   "topics": ["administrative-collapse", "sovereignty-recognition"],
+   "verbatim": "separated from the pen … and cut off from the feet",
+   "source": "Ateş / van Bruinessen",
+   "status": "verified",
+   "anchor": "⭐⭐ C23 — THE KURDISH EMIRATES: 300 years of real self-rule, destroyed in the 1840s–50s (the \"what was lost,\" anchors the deep-history spine) — [P]+[S] T1"
+  },
+  {
+   "claim": "Kurdish emirs Muhammad Kor of Soran and Bedirxan of Bohtan had the Friday sermon read in their own names and minted their own coins, the two classic marks of Islamic sovereignty.",
+   "topics": ["sovereignty-recognition", "document-provenance"],
+   "verbatim": "khutba read in their names",
+   "source": "Cambridge History / Eppel",
+   "status": "verified",
+   "anchor": "⭐⭐ C23 — THE KURDISH EMIRATES: 300 years of real self-rule, destroyed in the 1840s–50s (the \"what was lost,\" anchors the deep-history spine) — [P]+[S] T1"
+  },
+  {
+   "claim": "The Ottoman Empire's 1830s-50s destruction of the Kurdish emirates wiped out the potential nuclei that could have formed a Kurdish state after World War One.",
+   "topics": ["administrative-collapse", "colonial-boundary-inheritance"],
+   "verbatim": "wiped out any potential nuclei",
+   "source": "Eppel",
+   "status": "verified",
+   "anchor": "⭐⭐ C23 — THE KURDISH EMIRATES: 300 years of real self-rule, destroyed in the 1840s–50s (the \"what was lost,\" anchors the deep-history spine) — [P]+[S] T1"
+  },
+  {
+   "claim": "Claims linking the Kurds to the ancient Karduchi or the Medes are not supported by continuity in Islamic geography or linguistic evidence; scholars call the connection unprovable rather than disproven.",
+   "topics": ["myth-origin-tracing", "contested-attribution"],
+   "verbatim": "everything is possible but nothing is demonstrable",
+   "source": "Cambridge History",
+   "status": "partial",
+   "anchor": "✅ C24 — Ancient roots: real but unprovable (auditor's-edge opener material) — [S] T1"
+  },
+  {
+   "claim": "Syria's 1962 Hasakah census stripped an estimated 120,000 to 150,000 Kurds of citizenship, requiring proof of residence before 1940, creating the stateless population that Syria's 2026 decree began reversing.",
+   "topics": ["census-as-political-instrument", "statelessness"],
+   "verbatim": "all non-Arab inhabitants, in practice only Kurds, had to prove … residence prior to 1940.",
+   "source": "McDowall / Cambridge History",
+   "status": "verified",
+   "anchor": "✅ C25 — #B ANSWERED: the 1962 Syrian statelessness = the root of the 2026 citizenship grant — [S] T1 (no new source needed)"
+  },
+  {
+   "claim": "Kurdish mountain terrain provided refuge from conquest but fragmented political unity so severely that traveling from one Kurdish village could be easier to Amsterdam than to another Kurdish village.",
+   "topics": ["strategic-corridor-access", "administrative-collapse"],
+   "verbatim": "From any given village in Kurdistan it is easier to reach Amsterdam than most other Kurdish villages",
+   "source": "van Bruinessen",
+   "status": "verified",
+   "anchor": "✅ C26 — #C: GEOGRAPHY as mechanism (the \"systems/HOW\" beat) — [S] T1"
+  },
+  {
+   "claim": "Commercial oil at Kirkuk's Baba Gurgur field was struck in October 1927, eighteen months after the 1926 Mosul settlement, meaning the decision was a strategic gamble rather than a proven oil grab.",
+   "topics": ["resource-extraction-economy", "concession-extraction"],
+   "verbatim": "strategic gamble made ~18 months before oil was proven.",
+   "source": "Pedersen / Curzon at Lausanne",
+   "status": "verified",
+   "anchor": "✅ C27 — #D: OIL-claim NUANCE (corrects/guards C9 — avoid anachronism) — [S] T1"
+  },
+  {
+   "claim": "Sheikh Mahmud Barzanji proclaimed himself Ruler of all Kurdistan in 1919, was later exiled, then declared himself King of Kurdistan in 1922 before an RAF air campaign broke him.",
+   "topics": ["self-determination-claims", "sovereignty-recognition"],
+   "verbatim": "You are the people who have broken my spirit",
+   "source": "McDowall",
+   "status": "verified",
+   "anchor": "✅ C28 — #E: HUMAN ANCHOR — Sheikh Mahmud Barzanji (a throughline for the script) — [P]+[S] T1"
+  },
+  {
+   "claim": "Kurdish leader Simko Shikak built an autonomous zone in Iran from 1918-22 but remained a tribal chief without a concept of Kurdish sovereignty, and was killed in a 1929 ambush.",
+   "topics": ["self-determination-claims", "contested-attribution"],
+   "verbatim": "striking absence of the idea of the Kurdish nation as sovereign",
+   "source": "Vali",
+   "status": "verified",
+   "anchor": "✅ C29 — #F: Iran's Kurds (Simko) + the LANGUAGE fracture — [S] T1"
+  },
+  {
+   "claim": "Three different imposed scripts, Latin in Turkey, Arabic in Iraq and Iran, and Cyrillic in the USSR, along with major Kurmanji-Sorani dialect differences, severely hindered intra-Kurdish communication.",
+   "topics": ["administrative-collapse", "colonial-boundary-inheritance"],
+   "verbatim": "tremendously hindered intra-Kurdish communication",
+   "source": "McDowall / van Bruinessen",
+   "status": "verified",
+   "anchor": "✅ C29 — #F: Iran's Kurds (Simko) + the LANGUAGE fracture — [S] T1"
+  },
+  {
+   "claim": "Muhammad Kor, the blind ruler of Soran from 1814-1836, controlled more of Kurdistan than any prior emir, then mysteriously disappeared after surrendering under a sealed Quran's safe-conduct guarantee.",
+   "topics": ["sovereignty-recognition", "document-provenance"],
+   "verbatim": "controlled a **larger part of Kurdistan than any Kurdish emir before him**.",
+   "source": "Historical account of the Soran emirate",
+   "status": "verified",
+   "anchor": "⭐⭐ C30 — COLD-OPEN ANCHOR: Muhammad Kor of Soran (\"Mîr-î Kor,\" the Blind Mir, r. 1814–1836) — [S] T1"
+  },
+  {
+   "claim": "The Kurdish principalities served as a buffer zone between the Ottoman and Safavid empires until the Ottoman state deliberately destroyed the last emirates by military force.",
+   "topics": ["colonial-boundary-inheritance", "administrative-collapse"],
+   "verbatim": "The last emirates were **deliberately, by military force, destroyed by the Ottoman state**",
+   "source": "van Bruinessen",
+   "status": "verified",
+   "anchor": "✅ C31 — THESIS VERIFIED defensible (root-cause synthesis) — [S] T1"
+  },
+  {
+   "claim": "In 1880, Sheikh Ubeydullah of Nehri attempted the first reassembly of Kurdistan, seeking to unify Ottoman and Iranian Kurdistan under his rule and explicitly invoking the idea of Kurdish nationhood.",
+   "topics": ["self-determination-claims", "administrative-collapse"],
+   "verbatim": "The Kurdish nation … is a people apart … We are a nation apart. We want our affairs to be in our own hands",
+   "source": "Sheikh Ubeydullah, letter to Dr Cochran, 5 Oct 1880",
+   "status": "verified",
+   "anchor": "✅ C32 — THE BRIDGE 1850–1914 (fills the 68-year hole between Act 1 and Act 3) — [P]+[S] T1"
+  },
+  {
+   "claim": "The closest the Kurdish emirates came to unity was Bedirxan's 1847 coalition, which Ottoman intelligence called a 'strong unity' dreaming of independent statehood, before it was betrayed from within.",
+   "topics": ["administrative-collapse", "contested-attribution"],
+   "verbatim": "ittifak-ı kaviyye",
+   "source": "Ottoman intelligence report, via Cambridge History",
+   "status": "verified",
+   "anchor": "✅ C33 — THE NEAR-MISS UNIFICATION + the honesty guard (de-risks the angle) — [P]+[S] T1"
+  },
+  {
+   "claim": "Scholars caution the Kurds were never united under one political unit named Kurdistan, and the partition in no way resembled the partition of Poland.",
+   "topics": ["contested-attribution", "myth-origin-tracing"],
+   "verbatim": "were never united under one political unit named 'Kurdistan'",
+   "source": "Posch, via Cambridge History",
+   "status": "partial",
+   "anchor": "✅ C33 — THE NEAR-MISS UNIFICATION + the honesty guard (de-risks the angle) — [P]+[S] T1"
+  },
+  {
+   "claim": "Saddam Hussein, born in Saladin's hometown of Tikrit, publicly idolized Saladin as an Arab hero while erasing his Kurdish origin, even as his regime carried out the Anfal genocide.",
+   "topics": ["propaganda-and-narrative-control", "contested-attribution"],
+   "verbatim": "exploited by … Saddam Hussein",
+   "source": "Eppel",
+   "status": "verified",
+   "anchor": "⭐⭐⭐ G1 — SALADIN WAS A KURD (the headline gem — surprising, emotional, AND it's the thesis) — [P]+[S] T1"
+  },
+  {
+   "claim": "Şahmaran, a half-woman half-snake mother-goddess figure, hangs as a guardian image in Kurdish households, and Kurdish blood-feud custom holds that a woman dropping her white veil between fighters commands them to stop.",
+   "topics": ["myth-origin-tracing", "syncretism-and-festival-origins"],
+   "verbatim": "in every Kurdish household",
+   "source": "Deniz, Lexington 2020",
+   "status": "partial",
+   "anchor": "⭐⭐ G2 — ŞAHMARAN, the serpent-mother (the fresh, visual, almost-unknown delight) — [S] T2 (Deniz, Lexington 2020)"
+  },
+  {
+   "claim": "Iraq's 1988 Anfal campaign destroyed roughly 4,000 Kurdish villages and displaced 1.5 million people, with registration and segregation at Topzawa compared by one historian to Nazi death camps.",
+   "topics": ["ethnic-cleansing-mechanics", "casualty-estimate-methodology"],
+   "verbatim": "a brutality reminiscent of Nazi death camps",
+   "source": "McDowall",
+   "status": "verified",
+   "anchor": "✅ C35 — Halabja & the Anfal genocide, 1988 (the 20th-c. human cost; competitors' peak — now sourced harder than theirs) — [S]+[P-via-S] T1"
+  },
+  {
+   "claim": "Britain doubled its export credit to Iraq the year after the Halabja gassing, and one historian documents that Britain knowingly supplied materials used to manufacture the chemical weapons.",
+   "topics": ["evidence-destruction", "propaganda-and-narrative-control"],
+   "verbatim": "both West Germany and Britain had supplied the materials",
+   "source": "McDowall",
+   "status": "verified",
+   "anchor": "✅ C35 — Halabja & the Anfal genocide, 1988 (the 20th-c. human cost; competitors' peak — now sourced harder than theirs) — [S]+[P-via-S] T1"
+  },
+  {
+   "claim": "External powers repeatedly used the Kurds as a pressure tool without intending their success, exemplified by Kissinger's remark that covert action should not be confused with missionary work.",
+   "topics": ["covert-regime-change", "intelligence-agency-operations"],
+   "verbatim": "covert action should not be confused with missionary work.",
+   "source": "Kissinger, Pike Committee testimony",
+   "status": "verified",
+   "anchor": "✅ C36 — \"No friends but the mountains\" + the betrayal pattern (use as SETUP) — [P]+[S] T1"
+  },
+  {
+   "claim": "The Ottoman legal term for top-tier Kurdish emirates, meaning 'separated from the pen and cut off from the feet,' meant no census and no Ottoman troops on their land.",
+   "topics": ["administrative-collapse", "sovereignty-recognition"],
+   "verbatim": "no census or registers were drawn up, and no Ottoman troops or officials were stationed in their lands",
+   "source": "Ateş",
+   "status": "verified",
+   "anchor": "✅ C37 — ACT 1 PRIMARY-SOURCE UPGRADES (turn \"they had states\" from assertion into document) — [P]+[S] T1"
+  },
+  {
+   "claim": "A 19th-century traveler in Muhammad Kor's Soran emirate reported that a dropped purse of gold would lie untouched on the road until properly claimed, evidence of functioning rule of law.",
+   "topics": ["administrative-collapse", "sovereignty-recognition"],
+   "verbatim": "were any man… to see a purse of gold on the road, he would not touch it, but report the fact to the head of the next village",
+   "source": "Fraser, 1834 traveler account, via van Bruinessen",
+   "status": "verified",
+   "anchor": "✅ C37 — ACT 1 PRIMARY-SOURCE UPGRADES (turn \"they had states\" from assertion into document) — [P]+[S] T1"
+  },
+  {
+   "claim": "In 1842-43 Bedirxan of Bohtan had coins minted bearing the legend 'Emir-i Bohtan Bedirhan' and had the Friday prayer read in his own name instead of the sultan's.",
+   "topics": ["document-provenance", "sovereignty-recognition"],
+   "verbatim": "Emir-i Bohtan Bedirhan",
+   "source": "Janet Klein, via McDowall",
+   "status": "partial",
+   "anchor": "✅ C38 — THE ONE RECORDED COIN LEGEND: Bedirxan of Bohtan — [S] T2 ⚠️ SINGLE-SOURCE"
+  },
+  {
+   "claim": "The US Pike Committee report on the 1975 Kurdish betrayal found that neither the Shah nor Kissinger desired victory for the Kurds, only enough sustained hostility to weaken Iraq.",
+   "topics": ["intelligence-agency-operations", "covert-regime-change"],
+   "verbatim": "Neither the foreign Head of State (the Shah) nor the President and Dr. Kissinger desired victory for our clients (the Kurds). They merely hoped to ensure that the insurgents would be capable of sustaining a level of hostility just high enough to sap the resources of the neighbouring state.",
+   "source": "Vanly, \"Kurdistan in Iraq,\" in Chaliand (ed.), People Without a Country, p.185",
+   "status": "verified",
+   "anchor": "✅ C39 — ACT 4 PRIMARY-DOCUMENT UPGRADES (fixes the document-cadence gap — Act 4 was running on narration) — [P]+[S] T1"
+  },
+  {
+   "claim": "Iraqi general Ali Hasan al-Majid, known as Chemical Ali, was recorded in May 1988 declaring he would kill the Kurds with chemical weapons regardless of international reaction.",
+   "topics": ["ethnic-cleansing-mechanics", "evidence-destruction"],
+   "verbatim": "I will kill them all with chemical weapons! Who is going to say anything? The international community? Fuck them!",
+   "source": "McDowall, p.428",
+   "status": "verified",
+   "anchor": "✅ C39 — ACT 4 PRIMARY-DOCUMENT UPGRADES (fixes the document-cadence gap — Act 4 was running on narration) — [P]+[S] T1"
+  },
+  {
+   "claim": "Syria's Decree No. 13, issued January 16, 2026, granted citizenship to stateless Kurds and recognized Kurdish as a national language, while a concurrent US-brokered deal ceded Kurdish-held oil territory to Damascus.",
+   "topics": ["statelessness", "sovereignty-recognition"],
+   "verbatim": "granted **citizenship to stateless Kurds**, recognized **Kurdish as a \"national language,\"**",
+   "source": "MEC; Al Jazeera, 30 Jan 2026",
+   "status": "verified",
+   "anchor": "✅ C40 — THE MODERN RHYME, VERIFIED + DATED (closing payoff) — [web] T2 (cultural-moment verification)"
+  },
+  {
+   "claim": "A historian described outside powers' interest in the Kurds as strategic dominance-seeking through alliances with sub-state groups useful as a 'cat's paw,' not a genuine commitment to Kurdish statehood.",
+   "topics": ["covert-regime-change", "intelligence-agency-operations"],
+   "verbatim": "cat's paw",
+   "source": "McDowall, p.2",
+   "status": "verified",
+   "anchor": "✅ C42 — McDowall synthesis card: \"cat's paw\" CONFIRMED · \"nuisance, not resolution\" RETIRED — [S] T1"
+  },
+  {
+   "claim": "A Kurdish historian identified tribalism, not external suppression alone, as the main barrier to a unified Kurdish national consciousness, with revolts collapsing through betrayals and shifting allegiances.",
+   "topics": ["administrative-collapse", "contested-attribution"],
+   "verbatim": "Tribalism seems to have been the main barrier to the emergence of a national consciousness",
+   "source": "Kendal Nezan, in Chaliand ed., A People Without a Country",
+   "status": "verified",
+   "anchor": "✅ C43 — Kendal Nezan tribalism card (Act 2 \"feuds were real\" beat) — [S] T1"
+  }
+ ]
+}

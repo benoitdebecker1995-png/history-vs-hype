@@ -1,76 +1,30 @@
 """
 Feedback Parser Module
 
-Back-compat shim over tools.post_publish.PostPublishStore. The legacy
-public surface is preserved:
+Backfill CLI over tools.post_publish.PostPublishStore: parses post-publish
+reports and stores their feedback sections in the performance database.
 
-    from feedback_parser import parse_analysis_file, find_analysis_files, backfill_all
+    from feedback_parser import find_analysis_files, backfill_all
 
-`parse_analysis_file` returns a legacy dict (avg_retention as PERCENT, field
-name `ctr`, error-dict on failure) — distinct from patterns.py's contract
-(fraction, ctr_percent, None-on-failure). The unification of the two
-contracts will happen in Phase 3 when each caller is migrated to import
-PostPublishReport directly.
+The legacy dict dialect (`avg_retention` as PERCENT, field name `ctr`) was
+deleted 2026-07-01 — its numeric fields had no live readers, and killing the
+dialect ends the fraction-vs-percent divergence with patterns.py (ADR-0005).
+Consumers read `PostPublishReport` attributes directly.
 """
 
 import json
 import sys
 from pathlib import Path
-from datetime import datetime, timezone
 from typing import Dict, List, Any
 
 from tools.logging_config import get_logger
 from tools.post_publish import (
     PostPublishMalformedError,
     PostPublishMissingError,
-    PostPublishReport,
     PostPublishStore,
 )
 
 logger = get_logger(__name__)
-
-
-def _report_to_feedback_dict(report: PostPublishReport) -> Dict[str, Any]:
-    """Convert a PostPublishReport to the legacy feedback_parser dict shape.
-
-    Note the contract preserved here vs. patterns.py:
-      - `avg_retention` is a PERCENT (28.1), not a fraction.
-      - Field name is `ctr` (not `ctr_percent`).
-      - `parsed_at` is set to NOW at conversion time (matches old behaviour).
-      - `filepath` (not `source_file`) holds the source path as a string.
-    """
-    return {
-        'video_id': report.video_id,
-        'parsed_at': datetime.now(timezone.utc).isoformat(),
-        'filepath': str(report.source_path),
-        'avg_retention': report.avg_retention_pct,
-        'final_retention': report.final_retention_pct,
-        'ctr': report.ctr_percent,
-        'impressions': report.impressions,
-        'views': report.views,
-        'subscribers_gained': report.subscribers_gained,
-        'observations': report.observations,
-        'actionable': report.actionable,
-        'drop_points': report.drop_points,
-        'biggest_drop_position': report.biggest_drop_position,
-        'discovery': report.discovery,
-    }
-
-
-def parse_analysis_file(filepath: str) -> Dict[str, Any]:
-    """Parse one POST-PUBLISH-ANALYSIS file into the legacy feedback dict shape.
-
-    Returns the dict on success, or {'error': msg, 'filepath': filepath} on
-    failure — preserving the historical contract that callers branch on
-    `'error' in result`.
-    """
-    try:
-        report = PostPublishStore().load(Path(filepath))
-    except PostPublishMissingError:
-        return {'error': 'File not found', 'filepath': filepath}
-    except PostPublishMalformedError as exc:
-        return {'error': str(exc), 'filepath': filepath}
-    return _report_to_feedback_dict(report)
 
 
 def find_analysis_files(project_root: Path) -> List[Path]:
@@ -121,19 +75,19 @@ def backfill_all(project_root: Path, force: bool = False) -> Dict[str, Any]:
         logger.debug("[%d/%d] Parsing: %s...", i, total, filename)
 
         # Parse file
-        parsed = parse_analysis_file(str(filepath))
-
-        if 'error' in parsed:
-            logger.warning("Parse error for %s: %s", filename, parsed['error'])
+        try:
+            report = PostPublishStore().load(filepath)
+        except (PostPublishMissingError, PostPublishMalformedError) as exc:
+            logger.warning("Parse error for %s: %s", filename, exc)
             results['errors'] += 1
             results['details'].append({
                 'file': filename,
                 'status': 'error',
-                'message': parsed['error']
+                'message': str(exc)
             })
             continue
 
-        video_id = parsed['video_id']
+        video_id = report.video_id
 
         # Check if already has feedback (unless force=True)
         if not force and db.has_feedback(video_id):
@@ -148,10 +102,10 @@ def backfill_all(project_root: Path, force: bool = False) -> Dict[str, Any]:
 
         # Store in database
         feedback_data = {
-            'biggest_drop_position': parsed['biggest_drop_position'],
-            'observations': parsed['observations'],
-            'actionable': parsed['actionable'],
-            'discovery': parsed.get('discovery', {})
+            'biggest_drop_position': report.biggest_drop_position,
+            'observations': report.observations,
+            'actionable': report.actionable,
+            'discovery': report.discovery
         }
 
         store_result = db.store_video_feedback(video_id, feedback_data)
@@ -224,5 +178,10 @@ if __name__ == '__main__':
         result = backfill_all(project_root, force=args.force)
         sys.exit(0 if result['errors'] == 0 else 1)
     else:
-        result = parse_analysis_file(args.target)
-        print(json.dumps(result, indent=2))
+        from dataclasses import asdict
+        try:
+            report = PostPublishStore().load(Path(args.target))
+        except (PostPublishMissingError, PostPublishMalformedError) as exc:
+            print(json.dumps({'error': str(exc), 'filepath': args.target}, indent=2))
+        else:
+            print(json.dumps(asdict(report), indent=2, default=str))

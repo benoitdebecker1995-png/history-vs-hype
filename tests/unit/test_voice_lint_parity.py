@@ -22,7 +22,9 @@ import unittest
 from tools.voice_lint import (
     scan_understand_go_back,
     scan_patterns,
+    scan_cta_position,
     mask_comments,
+    mask_appendix_sections,
 )
 
 
@@ -94,6 +96,76 @@ class TestNowCommaException(unittest.TestCase):
         findings = self._run(["Look, this is the part everyone gets wrong."])
         rule_ids = {f.rule for f in findings}
         self.assertIn("youtuber-opener", rule_ids, "'Look,' is unaffected by this correction, must still fire")
+
+
+class TestCtaPositionReconciliation(unittest.TestCase):
+    """2026-07-19: scan_cta_position resolved a real contradiction with
+    CALIBRATION-CORPUS 57-20 / EVAL-BASELINE.md R22 — the original rule
+    (CTA must be in the final 5%) HARD-flagged #57/#58's own validated
+    lock-time CTA placement (~70%, closer ends on a document beat after it).
+    """
+
+    def _make_lines(self, before_words: int, cta_sentence: str, after_words: int):
+        # Build a script where the CTA sits at a known word-position with a
+        # known amount of content following, so scan_cta_position's math is
+        # exercised directly rather than guessed at from a real script.
+        before = " ".join(f"word{i}" for i in range(before_words)) + "."
+        after = " ".join(f"tail{i}" for i in range(after_words)) + "." if after_words else ""
+        lines = [before, "", cta_sentence]
+        if after:
+            lines += ["", after]
+        return mask_comments(lines)
+
+    def test_validated_70pct_cta_with_document_close_not_flagged(self):
+        # ~70% position, ~370 words follow (matches #58's actual shape).
+        lines = self._make_lines(700, "If you like that, subscribe.", 370)
+        findings = scan_cta_position("test.md", lines)
+        self.assertEqual(findings, [], "validated ~70%-with-close pattern must not be flagged")
+
+    def test_genuinely_early_cta_still_flagged(self):
+        # ~20% position — well below the validated pattern, still premature.
+        lines = self._make_lines(200, "Please subscribe to the channel.", 800)
+        findings = scan_cta_position("test.md", lines)
+        rule_ids = {f.rule for f in findings}
+        self.assertIn("cta-too-early", rule_ids, "a genuinely early CTA must still fire")
+
+    def test_cta_ending_the_video_still_flagged(self):
+        # Matches the actual R22 FAIL case (REGEN-58-v18: CTA at ~100%, nothing after).
+        lines = self._make_lines(1000, "If that's the history you want, subscribe.", 0)
+        findings = scan_cta_position("test.md", lines)
+        rule_ids = {f.rule for f in findings}
+        self.assertIn("cta-ends-video", rule_ids, "a CTA the video ends on must still fire")
+
+
+class TestAppendixSectionMasking(unittest.TestCase):
+    """2026-07-19: voice_lint.py misread '## VERIFICATION NOTES' bibliography
+    bullets as staccato spoken prose (real bug found on #56's actual script).
+    """
+
+    def test_verification_notes_section_is_blanked(self):
+        lines = [
+            "The empire ruled for three centuries.",
+            "",
+            "## VERIFICATION NOTES",
+            "- Manning citation: Ch. 5, p. 106",
+            "- Zurara poisoned arrows: Ch. LXXXVI, p. 402",
+        ]
+        masked = mask_appendix_sections(lines)
+        self.assertEqual(len(masked), len(lines), "line count must be preserved")
+        self.assertEqual(masked[0], lines[0], "content before the heading is untouched")
+        self.assertEqual(masked[3].strip(), "", "citation bullets under the heading are blanked")
+        self.assertEqual(masked[4].strip(), "", "citation bullets under the heading are blanked")
+
+    def test_sources_section_is_also_blanked(self):
+        lines = ["Spoken line.", "## SOURCES CITED", "- Some Author, p. 12"]
+        masked = mask_appendix_sections(lines)
+        self.assertEqual(masked[0], lines[0])
+        self.assertEqual(masked[2].strip(), "")
+
+    def test_no_appendix_heading_leaves_lines_untouched(self):
+        lines = ["The empire ruled for three centuries.", "It fell in 1923."]
+        masked = mask_appendix_sections(lines)
+        self.assertEqual(masked, lines)
 
 
 if __name__ == "__main__":

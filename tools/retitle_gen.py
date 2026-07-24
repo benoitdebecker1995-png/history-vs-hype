@@ -244,8 +244,17 @@ def get_opening_text(video_id: str) -> str:
     # Source 1: Project folder SRT/script
     project_slug = VIDEO_PROJECT_MAP.get(video_id)
     if project_slug:
-        base = Path('video-projects/_IN_PRODUCTION') / project_slug
-        if base.exists():
+        # Resolve across all stages — a retitled video is usually published, so
+        # it lives in _ARCHIVED/published/, not _IN_PRODUCTION/ (the old hardcoded
+        # path never existed for published videos and silently fell through).
+        from tools.video_projects import AmbiguousSlugError, VideoProjectRepo
+
+        try:
+            project = VideoProjectRepo().by_slug(project_slug)
+        except AmbiguousSlugError:
+            project = None
+        base = project.path if project else None
+        if base is not None and base.exists():
             # SRT transcript
             for srt_file in sorted(base.glob('*.srt')):
                 if 'BACKUP' in srt_file.name or '_es' in srt_file.name or '_fr' in srt_file.name:

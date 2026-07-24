@@ -19,6 +19,10 @@ Usage:
 import sqlite3
 from typing import Dict, Optional
 
+from tools.discovery.ctr_reads import (
+    latest_valid_ctr_by_video,
+    latest_valid_snapshot_date,
+)
 from tools.logging_config import get_logger
 
 logger = get_logger(__name__)
@@ -32,15 +36,13 @@ def get_latest_snapshot_date(db_path: str) -> Optional[str]:
     """
     try:
         conn = sqlite3.connect(db_path)
-        cur = conn.execute(
-            "SELECT MAX(snapshot_date) FROM ctr_snapshots WHERE ctr_percent > 0"
-        )
-        row = cur.fetchone()
-        conn.close()
-        return row[0] if row and row[0] else None
     except sqlite3.Error as e:
         logger.debug("latest snapshot date lookup failed (%s): %s", db_path, e)
         return None
+    try:
+        return latest_valid_snapshot_date(conn, require_ctr=True)
+    finally:
+        conn.close()
 
 
 def get_pattern_ctr_from_db(db_path: str, min_sample: int = 3) -> Dict[str, int]:
@@ -77,45 +79,36 @@ def get_pattern_ctr_from_db(db_path: str, min_sample: int = 3) -> Dict[str, int]
 
     try:
         conn = sqlite3.connect(db_path)
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-
-        # Fetch the latest non-zero CTR snapshot per video, joined with title.
-        # Subquery picks MAX snapshot_date per video WHERE ctr_percent > 0.
-        cursor.execute(
-            """
-            SELECT vp.video_id, vp.title, cs.ctr_percent
-            FROM video_performance vp
-            JOIN ctr_snapshots cs ON cs.video_id = vp.video_id
-            WHERE cs.ctr_percent > 0
-              AND vp.title IS NOT NULL
-              AND cs.snapshot_date = (
-                  SELECT MAX(cs2.snapshot_date)
-                  FROM ctr_snapshots cs2
-                  WHERE cs2.video_id = vp.video_id
-                    AND cs2.ctr_percent > 0
-              )
-            """
-        )
-        rows = cursor.fetchall()
-        conn.close()
-
+    except sqlite3.Error as e:
+        logger.debug("CTR DB open failed (%s): %s — using static scores", db_path, e)
+        return {}
+    try:
+        # Canonical valid-latest CTR per video (is_valid=1, one row per video —
+        # excludes quarantined snapshots and same-date duplicates). See ADR-0017.
+        latest = latest_valid_ctr_by_video(conn, require_ctr=True)
+        titles = {
+            r[0]: r[1]
+            for r in conn.execute(
+                "SELECT video_id, title FROM video_performance WHERE title IS NOT NULL"
+            )
+        }
     except sqlite3.Error as e:
         logger.debug("CTR DB read failed (%s): %s — using static scores", db_path, e)
         return {}
+    finally:
+        conn.close()
 
-    if not rows:
+    if not latest:
         return {}
 
-    # Group by detected pattern
+    # Group by detected pattern — exactly one observation per video.
     pattern_ctrs: Dict[str, list] = {}
-    for row in rows:
-        title = row["title"]
-        ctr = row["ctr_percent"]
+    for video_id, rec in latest.items():
+        title = titles.get(video_id)
         if not title:
             continue
         pattern = detect_pattern(title)
-        pattern_ctrs.setdefault(pattern, []).append(ctr)
+        pattern_ctrs.setdefault(pattern, []).append(rec["ctr_percent"])
 
     # Filter by min_sample, compute averages, convert to scores
     result: Dict[str, int] = {}

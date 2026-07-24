@@ -1,0 +1,401 @@
+{
+ "video": "14-chagos-islands-2025",
+ "lifecycle": "_ARCHIVED",
+ "source_file": "video-projects/_ARCHIVED/published/14-chagos-islands-2025/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "A 1965 British official memo described a strategy to frighten Mauritius's premier with hope of independence unless he cooperated on detaching the Chagos Archipelago.",
+   "topics": ["colonial-withdrawal-acceleration", "self-determination-claims"],
+   "verbatim": "The object is to frighten him with hope: hope that he might get independence; Fright lest he might not unless he is sensible about the detachment of the Chagos Archipelago.",
+   "source": "Note prepared 22 September 1965; ICJ Advisory Opinion paragraph 105 — Sir Oliver Wright (Private Secretary to PM Harold Wilson)",
+   "status": "verified",
+   "anchor": "### 1. \"Frighten him with hope\" memo"
+  },
+  {
+   "claim": "British Prime Minister Wilson told Mauritius's premier in 1965 he could return home either with independence or without it.",
+   "topics": ["self-determination-claims", "decolonization-process"],
+   "verbatim": "The Premier and his colleagues could return to Mauritius either with Independence or without it.",
+   "source": "ICJ Advisory Opinion paragraph 107 — PM Wilson to Premier Ramgoolam, Lancaster House, 23 September 1965",
+   "status": "verified",
+   "anchor": "### 2. Wilson's threat"
+  },
+  {
+   "claim": "The International Court of Justice found that the 1965 detachment of the Chagos Archipelago was not based on the free and genuine will of the people concerned.",
+   "topics": ["international-court-advisory-opinion", "self-determination-claims"],
+   "verbatim": "this detachment was not based on the free and genuine expression of the will of the people concerned.",
+   "source": "ICJ Advisory Opinion paragraph 172",
+   "status": "verified",
+   "anchor": "### 3. ICJ finding on consent"
+  },
+  {
+   "claim": "The International Court of Justice ruled 13-1 that the United Kingdom's continued administration of the Chagos Archipelago is an internationally wrongful act.",
+   "topics": ["international-court-advisory-opinion", "de-facto-vs-de-jure-statehood"],
+   "verbatim": "the United Kingdom's continued administration of the Chagos Archipelago constitutes a wrongful act entailing the international responsibility of that State.",
+   "source": "ICJ Advisory Opinion paragraph 177",
+   "status": "verified",
+   "anchor": "### 4. ICJ finding on wrongful act"
+  },
+  {
+   "claim": "In 1964 secret talks, US officials said the islands were wanted under exclusive control without local inhabitants present.",
+   "topics": ["forced-population-removal", "protectorate-doctrine"],
+   "verbatim": "exclusive control (without local inhabitants)",
+   "source": "Island of Shame page 78; U.S. Embassy London telegram — Kitchen and Sloan (U.S. officials), secret talks 1964",
+   "status": "verified",
+   "anchor": "### 5. \"Exclusive control without local inhabitants\""
+  },
+  {
+   "claim": "A steamship company representative told Chagossian Rita Bancoult in Mauritius that her island had been sold and she would never return.",
+   "topics": ["forced-population-removal", "population-transfer"],
+   "verbatim": "Your island has been sold. You will never go there again.",
+   "source": "Island of Shame page 6",
+   "status": "verified",
+   "anchor": "### 6. Rita Bancoult quote"
+  },
+  {
+   "claim": "British agents and US troops on Diego Garcia herded the Chagossians' pet dogs into sealed sheds and gassed and burned them in front of their owners before deportation.",
+   "topics": ["forced-population-removal"],
+   "verbatim": "herded the Chagossians' pet dogs into sealed sheds and gassed and burned them in front of their traumatized owners awaiting deportation.",
+   "source": "Island of Shame page 1 — Marcel Moulinie under order of BIOT Commissioner Sir Bruce Greatbatch",
+   "status": "verified",
+   "anchor": "### 7. Dogs gassed"
+  },
+  {
+   "claim": "Chagossian Rita Bancoult described her forced removal as being pulled from paradise and put into hell.",
+   "topics": ["forced-population-removal"],
+   "verbatim": "It's as if I was pulled from my paradise to put me in hell.",
+   "source": "Island of Shame page 6",
+   "status": "verified",
+   "anchor": "### 8. \"Paradise to hell\""
+  },
+  {
+   "claim": "The 2025 UK-Mauritius treaty permits Chagossian resettlement on the Chagos Archipelago except on Diego Garcia.",
+   "topics": ["treaty-text-vs-practice", "self-determination-claims"],
+   "verbatim": "Mauritius is free to implement a programme of resettlement on the islands of the Chagos Archipelago other than Diego Garcia.",
+   "source": "Agreement between UK and Mauritius, Article 6 (2025)",
+   "status": "verified",
+   "anchor": "### 9. Treaty Article 6 (Diego Garcia exclusion)"
+  },
+  {
+   "claim": "UN human rights experts said the 2025 UK-Mauritius agreement fails to guarantee the Chagossian right to return, effective remedy, reparations, and cultural rights.",
+   "topics": ["self-determination-claims", "indemnity-and-reparations"],
+   "verbatim": "fails to guarantee and protect the rights of the Chagossian people, including their right to return to Diego Garcia, effective remedy and reparations and their cultural rights.",
+   "source": "OHCHR Press Release, 10 June 2025 — Nicolas Levrat, K.P. Ashwini, Bernard Duhaime, Bina D'Costa",
+   "status": "verified",
+   "anchor": "### 10. UN experts statement"
+  },
+  {
+   "claim": "US military planners once described their strategic aim as being able to run the planet from Guam and Diego Garcia.",
+   "topics": ["strategic-corridor-access", "protectorate-doctrine"],
+   "verbatim": "to run the planet from Guam and Diego Garcia",
+   "source": "Island of Shame (Vine)",
+   "status": "verified",
+   "anchor": "### Military Value of Diego Garcia"
+  },
+  {
+   "claim": "Diego Garcia has been described as the single most important military facility in the region, filling the power vacuum left by British withdrawal East of Suez.",
+   "topics": ["strategic-corridor-access"],
+   "verbatim": "The single most important military facility we've got",
+   "source": "Island of Shame (Vine)",
+   "status": "verified",
+   "anchor": "### Military Value of Diego Garcia"
+  },
+  {
+   "claim": "The UK argued at the ICJ that it held continuous sovereignty over the Chagos Archipelago since the 1814 Treaty of Paris.",
+   "topics": ["sovereignty-recognition", "de-facto-vs-de-jure-statehood"],
+   "verbatim": "Continuous sovereignty since 1814",
+   "source": "UK Legal Arguments at ICJ",
+   "status": "verified",
+   "anchor": "### UK Legal Arguments at ICJ"
+  },
+  {
+   "claim": "The UK argued Chagos was linked to Mauritius only for administrative convenience, never actually forming part of Mauritius.",
+   "topics": ["colonial-boundary-inheritance", "de-facto-vs-de-jure-statehood"],
+   "verbatim": "administrative convenience",
+   "source": "UK Legal Arguments at ICJ",
+   "status": "verified",
+   "anchor": "### UK Legal Arguments at ICJ"
+  },
+  {
+   "claim": "The UK argued the Royal Prerogative permitted detaching Chagos from one colony to another as a matter of constitutional law.",
+   "topics": ["legal-justification-doctrine", "colonial-boundary-inheritance"],
+   "verbatim": "Royal Prerogative allows detaching territory from one colony to another",
+   "source": "UK Legal Arguments at ICJ",
+   "status": "verified",
+   "anchor": "### UK Legal Arguments at ICJ"
+  },
+  {
+   "claim": "The UK argued the Mauritian negotiating team was democratically elected and had sufficient mandate to consent to detachment.",
+   "topics": ["self-determination-claims", "legal-justification-doctrine"],
+   "verbatim": "democratically elected",
+   "source": "UK Legal Arguments at ICJ",
+   "status": "verified",
+   "anchor": "### UK Legal Arguments at ICJ"
+  },
+  {
+   "claim": "The UK argued it had committed to return the Chagos Archipelago once it was no longer needed for defence purposes.",
+   "topics": ["treaty-guarantee-nonenforcement", "protectorate-doctrine"],
+   "verbatim": "no longer needed for defence purposes",
+   "source": "UK Legal Arguments at ICJ",
+   "status": "verified",
+   "anchor": "### UK Legal Arguments at ICJ"
+  },
+  {
+   "claim": "The UK argued the ICJ's advisory opinion was not legally binding and that the General Assembly's referral was a misuse of powers.",
+   "topics": ["international-court-advisory-opinion", "legal-justification-doctrine"],
+   "verbatim": "misuse of powers",
+   "source": "UK Legal Arguments at ICJ",
+   "status": "partial",
+   "anchor": "### UK Legal Arguments at ICJ"
+  },
+  {
+   "claim": "Dissenting Judge Donoghue argued the ICJ should have declined to give an advisory opinion because the matter was fundamentally a bilateral sovereignty dispute.",
+   "topics": ["international-court-advisory-opinion", "scholarly-disagreement"],
+   "verbatim": "quintessentially bilateral... dispute over territorial sovereignty",
+   "source": "Judge Donoghue's Dissent (the 1 in 13-1)",
+   "status": "partial",
+   "anchor": "### Judge Donoghue's Dissent (the 1 in 13-1)"
+  },
+  {
+   "claim": "Judge Donoghue argued the General Assembly's request for an advisory opinion had the effect of circumventing the UK's absence of consent to judicial settlement.",
+   "topics": ["international-court-advisory-opinion", "scholarly-disagreement"],
+   "verbatim": "has the effect of circumventing the absence of United Kingdom consent",
+   "source": "Judge Donoghue's Dissent (the 1 in 13-1)",
+   "status": "partial",
+   "anchor": "### Judge Donoghue's Dissent (the 1 in 13-1)"
+  },
+  {
+   "claim": "The UK stated it fully accepts the Chagossians' removal and subsequent treatment was shameful and wrong, while denying legal culpability.",
+   "topics": ["forced-population-removal", "indemnity-and-reparations"],
+   "verbatim": "The UK fully accepts that the manner in which the Chagossians were removed... and the way they were treated thereafter, was shameful and wrong, and it deeply regrets that fact.",
+   "source": "UK Acknowledgment of Moral Wrong",
+   "status": "partial",
+   "anchor": "### UK Acknowledgment of Moral Wrong"
+  },
+  {
+   "claim": "Mauritius received a payment of three million pounds as part of the 1965 deal that detached the Chagos Archipelago.",
+   "topics": ["indemnity-and-reparations", "concession-extraction"],
+   "verbatim": "£3 million payment",
+   "source": "1965 Deal Benefits to Mauritius",
+   "status": "verified",
+   "anchor": "### 1965 Deal Benefits to Mauritius"
+  },
+  {
+   "claim": "Mauritius's Premier Ramgoolam told Parliament the country had no choice but to accept the 1965 detachment deal.",
+   "topics": ["self-determination-claims", "concession-extraction"],
+   "verbatim": "we had no choice",
+   "source": "PM Ramgoolam, Parliament statement",
+   "status": "verified",
+   "anchor": "### 1965 Deal Benefits to Mauritius"
+  },
+  {
+   "claim": "Chagossians resettled in Mauritius were left languishing on the beach while a promised resettlement grant went unimplemented.",
+   "topics": ["forced-population-removal", "population-transfer"],
+   "verbatim": "languishing on the beach",
+   "source": "Mauritius Treatment of Chagossians (1973-present)",
+   "status": "verified",
+   "anchor": "### Mauritius Treatment of Chagossians (1973-present)"
+  },
+  {
+   "claim": "1980s surveys found a 58 percent unemployment rate among Chagossian women resettled in Mauritius.",
+   "topics": ["population-transfer"],
+   "verbatim": "58% unemployment rate for Chagossian women (1980s surveys)",
+   "source": "Mauritius Treatment of Chagossians (1973-present)",
+   "status": "verified",
+   "anchor": "### Mauritius Treatment of Chagossians (1973-present)"
+  },
+  {
+   "claim": "Mauritius agreed in the 2025 treaty to bar Chagossian resettlement on Diego Garcia for ninety-nine years.",
+   "topics": ["treaty-text-vs-practice", "self-determination-claims"],
+   "verbatim": "bar Diego Garcia resettlement for 99 years",
+   "source": "2025 Treaty Critique",
+   "status": "verified",
+   "anchor": "### 2025 Treaty Critique"
+  },
+  {
+   "claim": "Critics say the 2025 treaty's resettlement clause is in substance declaratory and does not secure the Chagossian right to return.",
+   "topics": ["treaty-text-vs-practice", "scholarly-disagreement"],
+   "verbatim": "in substance declaratory",
+   "source": "2025 Treaty Critique",
+   "status": "partial",
+   "anchor": "### 2025 Treaty Critique"
+  },
+  {
+   "claim": "The Chagos Refugees Group, led by Olivier Bancoult, called the 2025 deal a historic day, welcoming the completion of Mauritian decolonization.",
+   "topics": ["self-determination-claims", "decolonization-process"],
+   "verbatim": "historic day for us",
+   "source": "Chagos Refugees Group (CRG), Olivier Bancoult",
+   "status": "partial",
+   "anchor": "### Support for 2025 Deal"
+  },
+  {
+   "claim": "Chagossian Voices sought recognition as an indigenous people before the UN while opposing the 2025 deal's denial of full return rights.",
+   "topics": ["self-determination-claims", "contested-attribution"],
+   "verbatim": "indigenous people",
+   "source": "Chagossian Voices",
+   "status": "partial",
+   "anchor": "### Opposition to 2025 Deal"
+  },
+  {
+   "claim": "Judge Sebutinde argued Chagossians possess a distinct societal and cultural identity separating them from the wider Mauritian people.",
+   "topics": ["self-determination-claims", "contested-attribution"],
+   "verbatim": "societal/cultural identity that separates them from wider Mauritian people",
+   "source": "Judge Sebutinde",
+   "status": "partial",
+   "anchor": "### What Chagossians Actually Want"
+  },
+  {
+   "claim": "The ICJ ruled Chagos detachment unlawful by applying a heightened-scrutiny consent standard to colonial agreements, not on grounds of generalized coercion.",
+   "topics": ["international-court-advisory-opinion", "legal-justification-doctrine"],
+   "verbatim": "heightened scrutiny",
+   "source": "Why ICJ Ruled Detachment Unlawful",
+   "status": "verified",
+   "anchor": "### Why ICJ Ruled Detachment Unlawful"
+  },
+  {
+   "claim": "The ICJ held that conditioning Mauritius's independence on surrendering territory subverted the true will of the colonial people.",
+   "topics": ["self-determination-claims", "legal-justification-doctrine"],
+   "verbatim": "This subverted the true will of the colonial people",
+   "source": "Why ICJ Ruled Detachment Unlawful",
+   "status": "verified",
+   "anchor": "### Why ICJ Ruled Detachment Unlawful"
+  },
+  {
+   "claim": "The ICJ treated decolonization as a multilateral obligation owed to the whole international community, requiring the UK to end unlawful administration regardless of Mauritius's consent.",
+   "topics": ["decolonization-process", "international-court-advisory-opinion"],
+   "verbatim": "Requires UK to cease unlawful administration regardless of Mauritius consent",
+   "source": "Decolonization vs. Bilateral Dispute",
+   "status": "verified",
+   "anchor": "### Decolonization vs. Bilateral Dispute"
+  },
+  {
+   "claim": "The ICJ confirmed Mauritius's territorial integrity as a corollary of self-determination but left Chagossian resettlement modalities to the UN General Assembly.",
+   "topics": ["decolonization-process", "self-determination-claims"],
+   "verbatim": "relegated Chagossian resettlement to UN General Assembly for \"modalities\"",
+   "source": "Self-Determination vs. Resettlement",
+   "status": "verified",
+   "anchor": "### Self-Determination vs. Resettlement"
+  },
+  {
+   "claim": "Unlike Chagos, the UK's Cyprus Sovereign Base Areas did not require deporting the local population when Cyprus gained independence.",
+   "topics": ["forced-population-removal", "protectorate-doctrine"],
+   "verbatim": "strategic population cleansing",
+   "source": "Cyprus Sovereign Base Areas comparison",
+   "status": "verified",
+   "anchor": "### Cyprus Sovereign Base Areas"
+  },
+  {
+   "claim": "Unlike Chagos, Gibraltar's population determines the territory's future through their own right of self-determination.",
+   "topics": ["self-determination-claims", "protectorate-doctrine"],
+   "verbatim": "Gibraltarian people determine territory's future via self-determination",
+   "source": "Gibraltar comparison",
+   "status": "verified",
+   "anchor": "### Gibraltar"
+  },
+  {
+   "claim": "Unlike Chagos, Mayotte's population voted in a referendum to remain with France when France separated it from the Comoros in 1975.",
+   "topics": ["self-determination-claims", "decolonization-process"],
+   "verbatim": "Mayotte voted to stay with France",
+   "source": "Mayotte (France) comparison",
+   "status": "verified",
+   "anchor": "### Mayotte (France)"
+  },
+  {
+   "claim": "The US secretly agreed with Denmark to remove about 150 Inughuit people from Thule, Greenland, part of a broader pattern of strategic island expulsions.",
+   "topics": ["forced-population-removal", "population-transfer"],
+   "verbatim": "US secret agreement with Denmark to remove 150 Inughuit",
+   "source": "Other Strategic Expulsions comparison",
+   "status": "verified",
+   "anchor": "### Other Strategic Expulsions"
+  },
+  {
+   "claim": "Thousands of Marshall Islanders displaced from Kwajalein were relocated to a small island described as a ghetto of the Pacific.",
+   "topics": ["population-transfer", "forced-population-removal"],
+   "verbatim": "ghetto of the Pacific",
+   "source": "Other Strategic Expulsions comparison",
+   "status": "verified",
+   "anchor": "### Other Strategic Expulsions"
+  },
+  {
+   "claim": "The UK has defied the UN General Assembly's withdrawal deadline and maintains it will only cede Chagos when no longer needed for defence.",
+   "topics": ["treaty-guarantee-nonenforcement", "international-court-advisory-opinion"],
+   "verbatim": "UK defied UNGA deadline, maintains will only cede when \"no longer needed for defence\"",
+   "source": "Legal Force of ICJ Ruling",
+   "status": "partial",
+   "anchor": "### SECTION 7: Unresolved Questions"
+  },
+  {
+   "claim": "There is no guarantee the forty-million-pound Chagossian trust fund created by the 2025 treaty will be under Chagossian control.",
+   "topics": ["indemnity-and-reparations", "self-determination-claims"],
+   "verbatim": "no guarantee £40M fund will be Chagossian-controlled",
+   "source": "Chagossian Control over Reparations",
+   "status": "partial",
+   "anchor": "### SECTION 7: Unresolved Questions"
+  },
+  {
+   "claim": "The UK detached the Chagos Archipelago on 8 November 1965, three years before Mauritius's independence on 12 March 1968.",
+   "topics": ["decolonization-process", "colonial-withdrawal-acceleration"],
+   "verbatim": "8 November 1965",
+   "source": "Key Numbers table",
+   "status": "verified",
+   "anchor": "## SECTION 8: Key Numbers"
+  },
+  {
+   "claim": "Between 1,500 and 2,000 Chagossians were deported from the islands between 1967 and 1973.",
+   "topics": ["forced-population-removal", "population-transfer"],
+   "verbatim": "1,500-2,000",
+   "source": "Key Numbers table",
+   "status": "verified",
+   "anchor": "## SECTION 8: Key Numbers"
+  },
+  {
+   "claim": "The 2025 UK-Mauritius treaty commits the UK to pay Mauritius roughly 3.4 billion pounds via 101 million pounds annually for ninety-nine years.",
+   "topics": ["indemnity-and-reparations", "treaty-text-vs-practice"],
+   "verbatim": "£101 million for 99 years",
+   "source": "Key Numbers table",
+   "status": "verified",
+   "anchor": "## SECTION 8: Key Numbers"
+  },
+  {
+   "claim": "The UN General Assembly voted 116-6 demanding the UK withdraw from the Chagos Archipelago.",
+   "topics": ["great-power-arbitration", "international-court-advisory-opinion"],
+   "verbatim": "116-6 (demanding UK withdrawal)",
+   "source": "Key Numbers table",
+   "status": "verified",
+   "anchor": "## SECTION 8: Key Numbers"
+  },
+  {
+   "claim": "The 2025 treaty grants the UK a 99-year lease on Diego Garcia, extendable to 139 years.",
+   "topics": ["treaty-text-vs-practice", "concession-extraction"],
+   "verbatim": "99 years, extendable to 139",
+   "source": "Key Numbers table",
+   "status": "verified",
+   "anchor": "## SECTION 8: Key Numbers"
+  },
+  {
+   "claim": "The 1956 Suez Crisis raised US fears of a Cold War power vacuum in the Indian Ocean as Britain's long-term regional control was questioned.",
+   "topics": ["colonial-withdrawal-acceleration", "strategic-corridor-access"],
+   "verbatim": "power vacuum",
+   "source": "Causal Sequence (Cold War Anxiety to Strategic Island Concept)",
+   "status": "verified",
+   "anchor": "## SECTION 9: Causal Sequence"
+  },
+  {
+   "claim": "Planners selected Chagos for the base partly because it was judged a neglected minor backwater with minimal population.",
+   "topics": ["strategic-corridor-access", "forced-population-removal"],
+   "verbatim": "Neglected minor backwater",
+   "source": "Causal Sequence (Chagos Selected)",
+   "status": "verified",
+   "anchor": "## SECTION 9: Causal Sequence"
+  },
+  {
+   "claim": "British officials maintained a policy of pretending the islands' inhabitants were not permanent residents to avoid triggering UN scrutiny of the base.",
+   "topics": ["forced-population-removal", "propaganda-and-narrative-control"],
+   "verbatim": "maintain the fiction that inhabitants are not permanent",
+   "source": "Causal Sequence (Deportation Decided)",
+   "status": "verified",
+   "anchor": "## SECTION 9: Causal Sequence"
+  }
+ ]
+}

@@ -3,7 +3,8 @@
 # Matches the sibling routine pattern (run-stale-projects.ps1 etc.): claude -p reads the routine .md
 # and executes its EXECUTION DIRECTIVE (run `python -m tools.reconcile.reconcile --auto-publish-only` + summarize).
 # Logs to .brain/_inbox/ so a missed/failed run is detectable (W3 2026-06-12: bare-python predecessor left no log + was never scheduled).
-# Schedule logic: after Routine 3 (08:00, refreshes analytics.db), before Routine 4 (09:00, reads post-reconcile state).
+# Schedule logic: after Routine 7 HvH-GrowthRefresh (07:45, REFRESHES analytics.db, which reconcile's
+# freshness gate depends on) and Routine 3 channel-health (08:00, reads it); before Routine 4 (09:00, reads post-reconcile state).
 
 Set-Location "D:\History vs Hype"
 

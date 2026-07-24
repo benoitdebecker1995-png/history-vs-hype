@@ -59,20 +59,23 @@ class VideoRow:
     duration_seconds: int
     fetched_at: str
     tags: Optional[str] = None  # JSON-encoded array string
-    views: int = 0
-    watch_time_minutes: float = 0.0
-    avg_view_duration_seconds: int = 0
-    avg_view_percentage: float = 0.0
-    likes: int = 0
-    comments: int = 0
-    shares: int = 0
-    subscribers_gained: int = 0
+    # Analytics-API metrics. None = "not fetched this refresh" (upsert COALESCEs
+    # to keep last-known-good); a real 0 still lands. See upsert_video + ADR-0004.
+    views: Optional[int] = 0
+    watch_time_minutes: Optional[float] = 0.0
+    avg_view_duration_seconds: Optional[int] = 0
+    avg_view_percentage: Optional[float] = 0.0
+    likes: Optional[int] = 0
+    comments: Optional[int] = 0
+    shares: Optional[int] = 0
+    subscribers_gained: Optional[int] = 0
     subscribers_lost: int = 0
     impressions: Optional[int] = None
     ctr_percent: Optional[float] = None
     topic_type: str = "general"
     angles: Optional[str] = None  # JSON-encoded array string
     metrics_fetched_at: Optional[str] = None
+    ctr_as_of: Optional[str] = None  # snapshot_date the CTR came from (freshness stamp)
 
 
 def _open_conn(db_path: Path) -> sqlite3.Connection:
@@ -115,6 +118,62 @@ class AnalyticsStore:
     def __exit__(self, *_exc: Any) -> None:
         self.close()
 
+    def commit(self) -> None:
+        self._conn.commit()
+
+    # ── studio CTR imports ────────────────────────────────────────────────────
+
+    def studio_import_exists(self, source_sha256: str) -> bool:
+        """True if a CSV with this content hash was already imported (idempotency)."""
+        row = self._conn.execute(
+            "SELECT 1 FROM studio_ctr_imports WHERE source_sha256 = ?", (source_sha256,)
+        ).fetchone()
+        return row is not None
+
+    def insert_studio_import(self, *, source_sha256: str, source_filename: str,
+                             exported_at: str, imported_at: str, window_kind: str,
+                             period_start: Optional[str], period_end: Optional[str],
+                             surface: str, rows: List[Dict[str, Any]],
+                             unmatched_count: int) -> int:
+        """Insert one import header + its rows in a single transaction. Returns import_id.
+
+        Does NOT commit. Caller commits. Idempotency is the caller's job via
+        studio_import_exists — the UNIQUE hash also hard-stops a double insert.
+        """
+        cur = self._conn.execute(
+            "INSERT INTO studio_ctr_imports "
+            "(source_sha256, source_filename, exported_at, imported_at, window_kind, "
+            " period_start, period_end, surface, row_count, unmatched_count) "
+            "VALUES (?,?,?,?,?,?,?,?,?,?)",
+            (source_sha256, source_filename, exported_at, imported_at, window_kind,
+             period_start, period_end, surface, len(rows), unmatched_count),
+        )
+        import_id = cur.lastrowid
+        self._conn.executemany(
+            "INSERT INTO studio_ctr_rows (import_id, video_id, video_title, impressions, ctr_percent) "
+            "VALUES (?,?,?,?,?)",
+            [(import_id, r["video_id"], r.get("video_title"), r.get("impressions"),
+              r.get("ctr_percent")) for r in rows],
+        )
+        return import_id
+
+    def latest_studio_lifetime(self) -> tuple:
+        """Return ({video_id: {impressions, ctr_percent}}, exported_at) for the most
+        recent LIFETIME import, or ({}, None) if none. Used by the CTR validator."""
+        hdr = self._conn.execute(
+            "SELECT id, exported_at FROM studio_ctr_imports "
+            "WHERE window_kind = 'lifetime' ORDER BY exported_at DESC, id DESC LIMIT 1"
+        ).fetchone()
+        if hdr is None:
+            return {}, None
+        rows = self._conn.execute(
+            "SELECT video_id, impressions, ctr_percent FROM studio_ctr_rows WHERE import_id = ?",
+            (hdr["id"],),
+        ).fetchall()
+        out = {r["video_id"]: {"impressions": r["impressions"], "ctr_percent": r["ctr_percent"]}
+               for r in rows}
+        return out, hdr["exported_at"]
+
     # ── videos ────────────────────────────────────────────────────────────────
 
     _VIDEO_COLUMNS = (
@@ -123,7 +182,7 @@ class AnalyticsStore:
         "avg_view_percentage, likes, comments, shares, "
         "subscribers_gained, subscribers_lost, "
         "impressions, ctr_percent, topic_type, angles, "
-        "fetched_at, metrics_fetched_at"
+        "fetched_at, metrics_fetched_at, ctr_as_of"
     )
 
     def videos(
@@ -371,6 +430,69 @@ class AnalyticsStore:
         ).fetchall()
         return [dict(r) for r in rows]
 
+    # ── opener_retention ──────────────────────────────────────────────────────
+
+    def opener_rows(
+        self,
+        *,
+        topic_type: Optional[str] = None,
+        hook_archetype: Optional[str] = None,
+    ) -> List[Dict[str, Any]]:
+        """Return opener_retention rows, optionally filtered by topic / archetype.
+
+        Each row: {video_id, opener_text, hook_archetype, first_30s_retention,
+                   intro_drop_30s, topic_type, published_at, fetched_at}.
+        DIAGNOSTIC ONLY — per-archetype n is small; never rank hook types on this.
+        """
+        where: List[str] = []
+        params: List[Any] = []
+        if topic_type is not None:
+            where.append("topic_type = ?")
+            params.append(topic_type)
+        if hook_archetype is not None:
+            where.append("hook_archetype = ?")
+            params.append(hook_archetype)
+        clause = f"WHERE {' AND '.join(where)}" if where else ""
+        sql = (
+            "SELECT video_id, opener_text, hook_archetype, first_30s_retention, "
+            "intro_drop_30s, topic_type, published_at, fetched_at "
+            f"FROM opener_retention {clause} ORDER BY intro_drop_30s DESC"
+        )
+        return [dict(r) for r in self._conn.execute(sql, params).fetchall()]
+
+    def upsert_opener_retention(
+        self,
+        *,
+        video_id: str,
+        opener_text: Optional[str],
+        hook_archetype: Optional[str],
+        first_30s_retention: Optional[float],
+        intro_drop_30s: Optional[float],
+        topic_type: Optional[str],
+        published_at: Optional[str],
+        fetched_at: str,
+    ) -> None:
+        """Insert or update one row in opener_retention (video_id PRIMARY KEY).
+
+        Does NOT commit. Caller calls store.commit() after batching writes.
+        """
+        self._conn.execute(
+            "INSERT INTO opener_retention "
+            "(video_id, opener_text, hook_archetype, first_30s_retention, "
+            " intro_drop_30s, topic_type, published_at, fetched_at) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?) "
+            "ON CONFLICT(video_id) DO UPDATE SET "
+            "opener_text = excluded.opener_text, "
+            "hook_archetype = excluded.hook_archetype, "
+            "first_30s_retention = excluded.first_30s_retention, "
+            "intro_drop_30s = excluded.intro_drop_30s, "
+            "topic_type = excluded.topic_type, "
+            "published_at = excluded.published_at, "
+            "fetched_at = excluded.fetched_at",
+            (video_id, opener_text, hook_archetype, first_30s_retention,
+             intro_drop_30s, topic_type, published_at, fetched_at),
+        )
+
     # ── search_terms ──────────────────────────────────────────────────────────
 
     def search_terms(
@@ -530,6 +652,17 @@ class AnalyticsStore:
 
         Does NOT commit. Caller calls store.commit() after batching writes.
 
+        Update semantics: COALESCE-guarded (a NULL in the new row keeps the prior
+        value) for every metric that can be transiently unavailable — the CTR
+        trio (impressions, ctr_percent, ctr_as_of) from the flaky keywords.db
+        bridge, AND the Analytics-API metrics (views, watch_time, retention,
+        subscribers_gained, …). `fetch_video_metrics_bulk` OMITS a video whose
+        per-video query fails or returns no rows, so store_videos passes None for
+        those fields; without the COALESCE a single failed video — or a broad API
+        outage — would overwrite last-known-good metrics with 0. A genuine 0 is
+        passed as 0 (not None) and still lands. Only metadata (title, tags, …) and
+        subscribers_lost (never fetched per-video) stay full-replace.
+
         The VideoRow dataclass's field order matches the INSERT column
         order — astuple() produces a tuple compatible with the SQL below.
         """
@@ -539,28 +672,36 @@ class AnalyticsStore:
             " tags, views, watch_time_minutes, avg_view_duration_seconds, "
             " avg_view_percentage, likes, comments, shares, "
             " subscribers_gained, subscribers_lost, "
-            " impressions, ctr_percent, topic_type, angles, metrics_fetched_at) "
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) "
+            " impressions, ctr_percent, topic_type, angles, metrics_fetched_at, "
+            " ctr_as_of) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) "
             "ON CONFLICT(video_id) DO UPDATE SET "
             "title = excluded.title, "
             "published_at = excluded.published_at, "
             "duration_seconds = excluded.duration_seconds, "
             "fetched_at = excluded.fetched_at, "
             "tags = excluded.tags, "
-            "views = excluded.views, "
-            "watch_time_minutes = excluded.watch_time_minutes, "
-            "avg_view_duration_seconds = excluded.avg_view_duration_seconds, "
-            "avg_view_percentage = excluded.avg_view_percentage, "
-            "likes = excluded.likes, "
-            "comments = excluded.comments, "
-            "shares = excluded.shares, "
-            "subscribers_gained = excluded.subscribers_gained, "
+            # Analytics-API metrics: COALESCE so an omitted-from-fetch video
+            # (NULL) keeps its last-known-good value; a genuine 0 still lands.
+            "views = COALESCE(excluded.views, videos.views), "
+            "watch_time_minutes = COALESCE(excluded.watch_time_minutes, videos.watch_time_minutes), "
+            "avg_view_duration_seconds = COALESCE(excluded.avg_view_duration_seconds, videos.avg_view_duration_seconds), "
+            "avg_view_percentage = COALESCE(excluded.avg_view_percentage, videos.avg_view_percentage), "
+            "likes = COALESCE(excluded.likes, videos.likes), "
+            "comments = COALESCE(excluded.comments, videos.comments), "
+            "shares = COALESCE(excluded.shares, videos.shares), "
+            "subscribers_gained = COALESCE(excluded.subscribers_gained, videos.subscribers_gained), "
             "subscribers_lost = excluded.subscribers_lost, "
-            "impressions = excluded.impressions, "
-            "ctr_percent = excluded.ctr_percent, "
+            # CTR/impressions/stamp are COALESCE-guarded: a refresh where the CTR
+            # source is transiently empty (keywords.db missing/locked, tracker
+            # failed) passes NULL, and without this guard the upsert would wipe
+            # last-known-good CTR to NULL. Keep the old value when the new is NULL.
+            "impressions = COALESCE(excluded.impressions, videos.impressions), "
+            "ctr_percent = COALESCE(excluded.ctr_percent, videos.ctr_percent), "
             "topic_type = excluded.topic_type, "
             "angles = excluded.angles, "
-            "metrics_fetched_at = excluded.metrics_fetched_at",
+            "metrics_fetched_at = excluded.metrics_fetched_at, "
+            "ctr_as_of = COALESCE(excluded.ctr_as_of, videos.ctr_as_of)",
             astuple(row),
         )
 

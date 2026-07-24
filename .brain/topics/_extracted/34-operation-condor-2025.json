@@ -1,0 +1,345 @@
+{
+  "video": "34-operation-condor-2025",
+  "lifecycle": "_ARCHIVED",
+  "source_file": "video-projects/_ARCHIVED/published/34-operation-condor-2025/01-VERIFIED-RESEARCH.md",
+  "model": "sonnet-agent",
+  "extracted_at": "2026-07-22",
+  "claims": [
+    {
+      "claim": "Operation Condor was founded on November 28, 1975, when Chile, Argentina, Uruguay, Paraguay, and Bolivia signed a closing statement in Santiago.",
+      "topics": ["transnational-repression", "intelligence-agency-operations"],
+      "verbatim": null,
+      "source": "McSherry, Predatory States, p. 93; Lessa, The Condor Trials, p. 80; Kornbluh, The Pinochet File, p. 331",
+      "status": "verified",
+      "anchor": "#### Claim: Operation Condor was founded on November 28, 1975"
+    },
+    {
+      "claim": "Operation Condor's founding meeting took place at the Army War Academy in Santiago, Chile.",
+      "topics": ["transnational-repression", "intelligence-agency-operations"],
+      "verbatim": null,
+      "source": "Lessa, The Condor Trials, p. 80; Dinges, The Condor Years, pp. 12, 48, 118",
+      "status": "verified",
+      "anchor": "#### Claim: The founding meeting took place at the Army War Academy in Santiago, Chile"
+    },
+    {
+      "claim": "Five countries — Chile, Argentina, Uruguay, Paraguay, and Bolivia — signed Operation Condor's founding agreement through their intelligence-service representatives.",
+      "topics": ["transnational-repression", "perpetrator-organisation-structure"],
+      "verbatim": null,
+      "source": "Lessa, The Condor Trials, p. 80; Dinges, The Condor Years, pp. 15, 117-118",
+      "status": "verified",
+      "anchor": "#### Claim: Five countries signed the founding agreement (Chile, Argentina, Uruguay, Paraguay, Bolivia)"
+    },
+    {
+      "claim": "Brazil attended Operation Condor's founding meeting only as an observer, under orders from dictator Ernesto Geisel to 'listen more than talk,' and joined formally in June 1976.",
+      "topics": ["transnational-repression", "contested-attribution"],
+      "verbatim": "listen more than talk.",
+      "source": "McSherry, Predatory States, p. 79; Lessa, The Condor Trials, pp. 80, 105; Dinges, The Condor Years, p. 15; Kornbluh, The Pinochet File, p. 345",
+      "status": "verified",
+      "anchor": "#### Claim: Brazil attended as observer, joined formally in June 1976"
+    },
+    {
+      "claim": "The Uruguayan delegation proposed the name 'Condor' for the alliance to honor host country Chile, whose national symbol is the condor.",
+      "topics": ["transnational-repression"],
+      "verbatim": null,
+      "source": "McSherry, Predatory States, p. 94; Lessa, The Condor Trials, p. 80; Dinges, The Condor Years, pp. 15, 286",
+      "status": "verified",
+      "anchor": "#### Claim: The name \"Condor\" was proposed by the Uruguayan delegation"
+    },
+    {
+      "claim": "Operation Condor's stated purpose was to create something similar to Interpol, but dedicated to subversion.",
+      "topics": ["transnational-repression", "intelligence-agency-operations"],
+      "verbatim": "something similar to Interpol, but dedicated to subversion",
+      "source": "Calloni, Operación Cóndor, p. 126; McSherry, Predatory States, p. 93; Dinges, The Condor Years, pp. 4, 13, 121; Kornbluh, The Pinochet File, p. 331",
+      "status": "verified",
+      "anchor": "#### Claim: The stated purpose was to create \"something similar to Interpol, but dedicated to subversion\""
+    },
+    {
+      "claim": "DINA, Chile's secret police under Pinochet, was officially established June 14, 1974 by Decree Law 521, whose secret articles granted it unlimited power to raid homes and detain people without charges.",
+      "topics": ["intelligence-agency-operations", "perpetrator-organisation-structure"],
+      "verbatim": null,
+      "source": "Kornbluh, Dinges, McSherry (multiple citations)",
+      "status": "verified",
+      "anchor": "#### Claim: DINA was officially established June 14, 1974 by Decree Law 521"
+    },
+    {
+      "claim": "DINA director Manuel Contreras met privately with Pinochet every morning at 7:30 AM and received U.S. Army training at Fort Belvoir, Virginia, between 1967 and 1969.",
+      "topics": ["intelligence-agency-operations", "perpetrator-organisation-structure"],
+      "verbatim": null,
+      "source": "Multiple sources confirm",
+      "status": "verified",
+      "anchor": "#### Claim: Manuel Contreras led DINA and reported directly to Pinochet"
+    },
+    {
+      "claim": "DINA grew from about 600 agents in 1974 to 9,300 agents by 1977, backed by a network of 20,000 to 30,000 informants.",
+      "topics": ["intelligence-agency-operations", "perpetrator-organisation-structure"],
+      "verbatim": null,
+      "source": "Academic sources confirm",
+      "status": "verified",
+      "anchor": "#### Claim: DINA grew from 600 agents (1974) to 9,300 agents (1977)"
+    },
+    {
+      "claim": "DINA was dissolved August 13, 1977 under international pressure after the Letelier assassination, and its personnel and infrastructure passed to the new CNI in a transition that was largely cosmetic.",
+      "topics": ["intelligence-agency-operations", "perpetrator-organisation-structure"],
+      "verbatim": "largely cosmetic",
+      "source": "Multiple sources confirm",
+      "status": "verified",
+      "anchor": "#### Claim: DINA was dissolved August 13, 1977 and replaced by CNI"
+    },
+    {
+      "claim": "By August 1974, the CIA and other U.S. agencies already knew of bilateral cooperation among regional intelligence services to track and, in some cases, kill political opponents — the precursor to Operation Condor.",
+      "topics": ["declassification-and-official-history", "intelligence-agency-operations", "transnational-repression"],
+      "verbatim": "Within a year after the coup, the CIA and other U.S. Government agencies were aware of bilateral cooperation among regional intelligence services to track the activities of and, in at least a few cases, kill political opponents. This was the precursor to Operation Condor...",
+      "source": "CIA \"Hinchey Report\" (September 18, 2000)",
+      "status": "verified",
+      "anchor": "#### Claim: CIA was aware of cross-border \"hunter-killer\" cooperation by August 1974"
+    },
+    {
+      "claim": "The CIA's Logistics Department manufactured a machine specifically for the 'Condor System' to encode and decode secure communications between member intelligence services.",
+      "topics": ["declassification-and-official-history", "intelligence-agency-operations"],
+      "verbatim": null,
+      "source": "Multiple academic sources with declassified documents",
+      "status": "verified",
+      "anchor": "#### Claim: CIA provided computers and training for Condor's centralized database"
+    },
+    {
+      "claim": "Operation Condor used a U.S. military communications facility in the Panama Canal Zone as a parent station, allowing U.S. personnel to monitor Condor's communications.",
+      "topics": ["declassification-and-official-history", "intelligence-agency-operations"],
+      "verbatim": null,
+      "source": "Kornbluh, The Pinochet File; Dinges, The Condor Years",
+      "status": "verified",
+      "anchor": "#### Claim: Condor used a U.S. military communications facility in the Panama Canal Zone"
+    },
+    {
+      "claim": "DINA director Manuel Contreras was a paid CIA asset from 1974 to 1977.",
+      "topics": ["declassification-and-official-history", "intelligence-agency-operations"],
+      "verbatim": null,
+      "source": "CIA Hinchey Report, multiple academic sources",
+      "status": "verified",
+      "anchor": "#### Claim: Manuel Contreras was a paid CIA asset (1974-1977)"
+    },
+    {
+      "claim": "Henry Kissinger personally canceled a State Department warning about a planned Condor assassination on September 16, 1976, instructing that no further action be taken on the matter.",
+      "topics": ["declassification-and-official-history", "transnational-repression"],
+      "verbatim": "SECRETARY DECLINED TO APPROVE MESSAGE TO MONTEVIDEO AND HAS INSTRUCTED THAT NO FURTHER ACTION BE TAKEN ON THIS MATTER.",
+      "source": "Cable SECTO 27128 (Lusaka to Washington), September 16, 1976",
+      "status": "verified",
+      "anchor": "#### Claim: Henry Kissinger canceled the Condor warning on September 16, 1976"
+    },
+    {
+      "claim": "A State Department report from August 1976 acknowledged that the southern cone military regimes had established Operation Condor to find and kill terrorists in their own countries and in Europe.",
+      "topics": ["declassification-and-official-history", "transnational-repression"],
+      "verbatim": "The military regimes of the southern cone of South America see themselves as embattled... they have established Operation Condor to find and kill terrorists... in their own countries and in Europe.",
+      "source": "ARA Monthly Report (August 3, 1976): \"The 'Third World War' and South America\"",
+      "status": "verified",
+      "anchor": "#### Claim: State Department knew Condor was created to \"find and kill terrorists\""
+    },
+    {
+      "claim": "Orlando Letelier was killed by a remote-control car bomb at Sheridan Circle in Washington, D.C. on September 21, 1976, five days after Kissinger's cancellation of the U.S. warning.",
+      "topics": ["transnational-repression", "perpetrator-organisation-structure"],
+      "verbatim": null,
+      "source": "Multiple sources confirm",
+      "status": "verified",
+      "anchor": "#### Claim: Orlando Letelier was assassinated on September 21, 1976, at Sheridan Circle, Washington D.C."
+    },
+    {
+      "claim": "Ronni Moffitt, a 25-year-old American human rights activist, was killed alongside Letelier when bomb shrapnel severed her carotid artery.",
+      "topics": ["transnational-repression"],
+      "verbatim": null,
+      "source": "Multiple sources confirm",
+      "status": "verified",
+      "anchor": "#### Claim: Ronni Moffitt, a 25-year-old American, was also killed"
+    },
+    {
+      "claim": "Augusto Pinochet personally ordered the Letelier assassination, according to a 1987 State Department memo, CIA intelligence, and testimony by DINA director Manuel Contreras.",
+      "topics": ["transnational-repression", "perpetrator-organisation-structure"],
+      "verbatim": "In my role as representative of the President and Executive Director of DINA, I carried out strictly what he ordered me to do... I did not act on my own and whatever mission had to be carried out had to have come, as it always did come, from the President of the Republic.",
+      "source": "Manuel Contreras testimony (1997 Chilean Supreme Court)",
+      "status": "verified",
+      "anchor": "#### Claim: Pinochet personally ordered the assassination"
+    },
+    {
+      "claim": "Lead U.S. prosecutor Lawrence Barcella stated it was laughable to think DINA could have carried out the Letelier attack in the United States without Pinochet's authorization.",
+      "topics": ["transnational-repression", "perpetrator-organisation-structure"],
+      "verbatim": "The idea that General Contreras and DINA could have ordered and executed an operation of this magnitude—the attack against Letelier in the United States—without the authorization and approval of General Pinochet, is laughable.",
+      "source": "Dinges, The Condor Years",
+      "status": "verified",
+      "anchor": "#### Claim: Pinochet personally ordered the assassination"
+    },
+    {
+      "claim": "Michael Townley, a U.S. expatriate recruited by DINA in 1974, led the Letelier assassination and later became a U.S. prosecution witness after his 1978 expulsion from Chile.",
+      "topics": ["transnational-repression", "perpetrator-organisation-structure"],
+      "verbatim": null,
+      "source": "Multiple sources confirm",
+      "status": "verified",
+      "anchor": "#### Claim: Michael Townley was a DINA operative who led the assassination"
+    },
+    {
+      "claim": "Operation Condor operated in three phases: intelligence-sharing surveillance, cross-border kidnapping and torture within South America centered on the Automotores Orletti site in Buenos Aires, and international assassination missions codenamed Teseo.",
+      "topics": ["transnational-repression", "perpetrator-organisation-structure"],
+      "verbatim": null,
+      "source": "Multiple academic sources",
+      "status": "verified",
+      "anchor": "#### Claim: Condor had three operational phases"
+    },
+    {
+      "claim": "Operation Condor coordinated through a secure telex system called Condortel, using Swiss-made and later Argentine cryptographic equipment, with each member country assigned a numeric code.",
+      "topics": ["transnational-repression", "intelligence-agency-operations"],
+      "verbatim": null,
+      "source": "Dinges, McSherry, Kornbluh",
+      "status": "verified",
+      "anchor": "#### Claim: Condor used a secure telex system called \"Condortel\""
+    },
+    {
+      "claim": "A 2024 database study documented 805 confirmed transnational victims of Operation Condor between 1969 and 1981, of whom 367 were disappeared or executed and 382 survived.",
+      "topics": ["casualty-estimate-methodology", "transnational-repression"],
+      "verbatim": null,
+      "source": "Lessa & Balardini (2024), THRV Database",
+      "status": "verified",
+      "anchor": "#### Claim: 805 confirmed transnational victims (1969-1981)"
+    },
+    {
+      "claim": "The commonly cited figure of 60,000 refers to Uruguayan civilians detained — about one in every 50 citizens — not the death toll of Operation Condor as a whole.",
+      "topics": ["casualty-estimate-methodology", "contested-attribution"],
+      "verbatim": null,
+      "source": "Multiple academic sources",
+      "status": "verified",
+      "anchor": "#### Claim: The \"60,000\" figure refers to Uruguayan detentions, not Condor deaths"
+    },
+    {
+      "claim": "As of the dossier's compilation, 107 perpetrators had been convicted across 45 criminal proceedings, providing judicial recognition for 262 confirmed Condor victims.",
+      "topics": ["declassification-and-official-history", "transnational-repression"],
+      "verbatim": null,
+      "source": "Lessa scholarship (November 2021)",
+      "status": "verified",
+      "anchor": "#### Claim: 107 perpetrators convicted to date across 45 proceedings"
+    },
+    {
+      "claim": "In May 2016, a Buenos Aires federal court became the first to convict defendants of Operation Condor as a transnational criminal conspiracy, describing it in the verdict as a vast and transnational criminal enterprise.",
+      "topics": ["declassification-and-official-history", "transnational-repression"],
+      "verbatim": "a vast and transnational *asociación ilícita* (criminal enterprise)",
+      "source": "Lessa, court documents",
+      "status": "verified",
+      "anchor": "#### Claim: The 2016 Buenos Aires trial was the first to recognize Condor as a criminal conspiracy"
+    },
+    {
+      "claim": "In the 2016 Buenos Aires trial, former Argentine dictator Reynaldo Bignone received a 20-year sentence and Uruguayan colonel Manuel Cordero received 25 years, becoming the first foreign official extradited to Argentina for human rights crimes.",
+      "topics": ["declassification-and-official-history", "transnational-repression"],
+      "verbatim": null,
+      "source": "Lessa, court documents",
+      "status": "verified",
+      "anchor": "#### Claim: The 2016 Buenos Aires trial was the first to recognize Condor as a criminal conspiracy"
+    },
+    {
+      "claim": "Italy sentenced Uruguayan officer Jorge Troccoli to life imprisonment in 2019 for crimes against 20 Uruguayan victims, and its Court of Cassation ratified the sentence in 2021, leading to his arrest.",
+      "topics": ["declassification-and-official-history", "transnational-repression"],
+      "verbatim": null,
+      "source": "Multiple sources",
+      "status": "verified",
+      "anchor": "#### Claim: Italy sentenced Jorge Troccoli to life imprisonment (2019/2021)"
+    },
+    {
+      "claim": "The October 1998 arrest of Augusto Pinochet in London on a Spanish warrant established the modern concept of universal jurisdiction and triggered hundreds of new criminal complaints in Chile.",
+      "topics": ["arbitration-and-adjudication", "transnational-repression"],
+      "verbatim": null,
+      "source": "Multiple academic sources",
+      "status": "verified",
+      "anchor": "#### Claim: 1998 Pinochet arrest in London transformed international justice"
+    },
+    {
+      "claim": "Argentina's 2019 Declassification Project delivered 43,000 pages of declassified U.S. intelligence records, revealing details of the Teseo assassination unit and direct U.S. monitoring of Condor's plans.",
+      "topics": ["declassification-and-official-history", "transnational-repression"],
+      "verbatim": null,
+      "source": "National Security Archive",
+      "status": "verified",
+      "anchor": "#### Claim: The 2019 Argentina Declassification Project released 43,000 pages"
+    },
+    {
+      "claim": "Chile's 1978 Decree Law 2191 granted a blanket amnesty for dictatorship-era crimes, later circumvented by courts treating forced disappearance as an ongoing 'permanent kidnapping' with no fixed statute of limitations.",
+      "topics": ["declassification-and-official-history", "arbitration-and-adjudication"],
+      "verbatim": "Secuestro permanente",
+      "source": "Multiple academic sources",
+      "status": "verified",
+      "anchor": "#### Claim: Chile enacted Decree Law 2191 (1978) granting blanket amnesty"
+    },
+    {
+      "claim": "Argentina's amnesty laws — the 1986 Punto Final and 1987 Due Obedience laws — were declared unconstitutional by a judge in 2001, a ruling the Supreme Court ratified in 2005.",
+      "topics": ["arbitration-and-adjudication", "declassification-and-official-history"],
+      "verbatim": null,
+      "source": "Multiple academic sources",
+      "status": "verified",
+      "anchor": "#### Claim: Argentina's amnesty laws (Punto Final 1986, Due Obedience 1987) were declared unconstitutional in 2005"
+    },
+    {
+      "claim": "Uruguay repealed its amnesty law, the Ley de Caducidad, in October 2011, following an Inter-American Court of Human Rights ruling in the Gelman case.",
+      "topics": ["arbitration-and-adjudication", "declassification-and-official-history"],
+      "verbatim": null,
+      "source": "Multiple academic sources",
+      "status": "verified",
+      "anchor": "#### Claim: Uruguay repealed Ley de Caducidad in October 2011"
+    },
+    {
+      "claim": "Operation Condor's original founding documents, meeting minutes, and prisoner transfer records — the Archives of Terror — were discovered in a police station in Asunción, Paraguay, in 1992.",
+      "topics": ["document-provenance", "declassification-and-official-history", "transnational-repression"],
+      "verbatim": null,
+      "source": "Archives of Terror (Paraguay)",
+      "status": "verified",
+      "anchor": "#### [P2] Archives of Terror (Paraguay)"
+    },
+    {
+      "claim": "Scholars disagree on whether a U.S. warning would have stopped the Letelier assassination: one argued the warning would probably have prevented it, while a State Department official maintained Contreras's operatives would have gone ahead regardless.",
+      "topics": ["scholarly-disagreement", "contested-attribution", "transnational-repression"],
+      "verbatim": "Démarche or no démarche, Contreras's operatives would have gone ahead",
+      "source": "Position 1 (Dinges); Position 2 (Shlaudeman)",
+      "status": "partial",
+      "anchor": "### Whether U.S. Warning Would Have Prevented Letelier Assassination"
+    },
+    {
+      "claim": "Brazil's role in Operation Condor is contested: it officially limited participation to intelligence exchange short of assassination operations, but records show Brazilian agents present at torture sessions and participating in abductions.",
+      "topics": ["contested-attribution", "transnational-repression"],
+      "verbatim": null,
+      "source": "Multiple sources (official position vs. documented evidence)",
+      "status": "partial",
+      "anchor": "### Brazil's Level of Participation"
+    },
+    {
+      "claim": "The widely cited figure of 30,000 disappeared in Argentina is a symbolic number used by human rights organizations; CONADEP documented 8,960 named victims, while Battalion 601's internal records show around 22,000.",
+      "topics": ["casualty-estimate-methodology", "contested-attribution"],
+      "verbatim": null,
+      "source": "CONADEP; Battalion 601 records",
+      "status": "partial",
+      "anchor": "### The \"30,000\" in Argentina"
+    },
+    {
+      "claim": "A Uruguayan Condor delegate said Chile proposed operations to eliminate enemies all over the world, naming Letelier as an example of someone causing harm to their countries.",
+      "topics": ["transnational-repression", "perpetrator-organisation-structure"],
+      "verbatim": "Chile proposed operations to eliminate enemies all over the world, to eliminate people who were causing harm to our countries, people like Letelier.",
+      "source": "Dinges, The Condor Years, pp. 15, 120 (interview October 2001)",
+      "status": "verified",
+      "anchor": "### Perpetrator Statements"
+    },
+    {
+      "claim": "Paraguay's Chief of Staff said Condor 'made short work of the international subversion,' arguing that without it their countries might have had communist governments.",
+      "topics": ["transnational-repression", "propaganda-and-narrative-control"],
+      "verbatim": "The difference was it [Condor] worked. It was very successful. It made short work of the international subversion. Otherwise we might have had communist governments in all our countries.",
+      "source": "Dinges, The Condor Years, p. 229",
+      "status": "verified",
+      "anchor": "### Perpetrator Statements"
+    },
+    {
+      "claim": "DINA director Manuel Contreras justified his agency's actions by saying they had 'served in the darkness and bloodied our hands so that Chileans might live in sunshine and tranquillity.'",
+      "topics": ["transnational-repression", "propaganda-and-narrative-control"],
+      "verbatim": "We have served in the darkness and bloodied our hands so that Chileans might live in sunshine and tranquillity.",
+      "source": "Dinges, The Condor Years, p. 331",
+      "status": "verified",
+      "anchor": "### Perpetrator Statements"
+    },
+    {
+      "claim": "Argentine prosecutor Julio César Strassera argued in closing that the junta's defendants were either common criminals, if there was no war, or war criminals, if there was one.",
+      "topics": ["arbitration-and-adjudication", "transnational-repression"],
+      "verbatim": "Either there was no war, as I believe, and we have before us common criminals; or there was—and we have before us war criminals.",
+      "source": "Trial transcripts",
+      "status": "verified",
+      "anchor": "### Prosecutor Statements"
+    }
+  ]
+}

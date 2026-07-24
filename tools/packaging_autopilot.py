@@ -33,6 +33,7 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Dict, Any, List, Optional, Tuple
 
+from tools.discovery.ctr_reads import latest_valid_ctr_for
 from tools.logging_config import get_logger
 
 logger = get_logger(__name__)
@@ -107,23 +108,21 @@ def _assess_video(video: Dict) -> Dict[str, Any]:
             kw_db = _PROJECT_ROOT / "tools" / "discovery" / "keywords.db"
             if kw_db.exists():
                 kw_conn = sqlite3.connect(str(kw_db))
-                kw_cursor = kw_conn.cursor()
-                kw_cursor.execute("""
-                    SELECT ctr_percent, impression_count, view_count
-                    FROM ctr_snapshots
-                    WHERE video_id = ? AND ctr_percent > 0
-                    ORDER BY snapshot_date DESC LIMIT 1
-                """, (video['video_id'],))
-                row = kw_cursor.fetchone()
-                if row:
-                    ctr = row[0]
-                    impressions = impressions or row[1]
-                    views = views or row[2]
+                try:
+                    # Canonical valid-latest CTR (is_valid=1). See ADR-0017.
+                    rec = latest_valid_ctr_for(
+                        kw_conn, video['video_id'], require_ctr=True
+                    )
+                finally:
+                    kw_conn.close()
+                if rec:
+                    ctr = rec['ctr_percent']
+                    impressions = impressions or rec['impression_count']
+                    views = views or rec['view_count']
                     assessment['ctr'] = ctr
                     assessment['impressions'] = impressions
                     assessment['views'] = views
                     assessment['ctr_source'] = 'ctr_snapshots'
-                kw_conn.close()
         except Exception:
             pass
 

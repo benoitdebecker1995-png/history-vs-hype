@@ -41,7 +41,8 @@ def _create_test_db_with_data(declarative_ctr=3.8, n_declarative=3):
             impression_count INTEGER NOT NULL,
             view_count INTEGER NOT NULL,
             is_late_entry BOOLEAN DEFAULT 0,
-            recorded_at TEXT NOT NULL
+            recorded_at TEXT NOT NULL,
+            is_valid INTEGER NOT NULL DEFAULT 1
         );
     """)
 
@@ -167,34 +168,39 @@ class TestScoreTitleDbPath:
         assert result["db_enriched"] is False
         # No crash — function returns gracefully
 
-    def test_hard_rejects_still_apply_with_db_path(self):
+    def test_style_rules_graded_not_rejected_with_db_path(self):
         """
-        Hard reject penalties (year, colon, the_x_that) still apply regardless of DB scores.
-        DB with high CTR does not override REJECTED grade for year-containing titles.
+        v5 (C1): style rules (year/colon/the_x_that) are graded style warnings, not
+        auto-rejects, even with high DB scores. They land in style_warnings, never
+        hard_rejects. --strict restores the old REJECTED behavior.
         """
         from tools.title_scorer import score_title
 
         path = _create_test_db_with_data(declarative_ctr=5.0, n_declarative=3)
         try:
-            # Title has a year — should be REJECTED even with excellent DB scores
+            # Title has a year — graded from score, not rejected, even with excellent DB scores
             result = score_title("France Conquered Haiti in 1825", db_path=path)
-            assert result["grade"] == "REJECTED"
-            assert len(result["hard_rejects"]) > 0
+            assert result["grade"] != "REJECTED"
+            assert result["style_warnings"]
+            assert result["hard_rejects"] == []
+            # --strict promotes the style warning back to a hard reject (v4 regression mode)
+            strict = score_title("France Conquered Haiti in 1825", db_path=path, strict=True)
+            assert strict["grade"] == "REJECTED"
         finally:
             os.unlink(path)
 
-    def test_colon_hard_reject_with_db_path(self):
-        """Colon as 'Topic: Subtitle' still produces REJECTED even when DB scores high.
-
-        v4 recalibration: versus+colon gets reduced penalty, not hard reject.
-        Use a pure colon title to test the hard reject path.
+    def test_colon_graded_not_rejected_with_db_path(self):
+        """v5 (C1): a pure colon title is a graded style warning, not REJECTED, even
+        when DB scores high. (versus+colon gets a reduced penalty; this uses a pure
+        colon title to exercise the style-warning path.)
         """
         from tools.title_scorer import score_title
 
         path = _create_test_db_with_data(declarative_ctr=5.0, n_declarative=3)
         try:
             result = score_title("Dark Ages: What Americans Believe", db_path=path)
-            assert result["grade"] == "REJECTED"
+            assert result["grade"] != "REJECTED"
+            assert result["style_warnings"]
         finally:
             os.unlink(path)
 

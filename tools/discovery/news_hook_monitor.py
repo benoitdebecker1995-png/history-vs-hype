@@ -226,11 +226,12 @@ def extract_pipeline_topics() -> List[Dict[str, Any]]:
             logger.warning("Failed to parse pipeline: %s", e)
 
     # --- Source 2: Scan _IN_PRODUCTION folders ---
-    if PRODUCTION_DIR.is_dir():
-        for folder in sorted(PRODUCTION_DIR.iterdir()):
-            if not folder.is_dir():
-                continue
-            slug = folder.name
+    from tools.video_projects import Stage, VideoProjectRepo
+    production = VideoProjectRepo().in_stage(Stage.IN_PRODUCTION)
+    if production:
+        for proj in production:
+            folder = proj.path
+            slug = proj.slug
             clean = _slug_to_clean(slug)
             if clean in SKIP_SLUGS or slug in SKIP_SLUGS:
                 continue
@@ -241,15 +242,10 @@ def extract_pipeline_topics() -> List[Dict[str, Any]]:
             if post_pub.exists():
                 status = "PUBLISHED"
                 continue  # Skip published projects
-            status_file = folder / "PROJECT-STATUS.md"
-            if status_file.exists():
-                try:
-                    st_text = status_file.read_text(encoding="utf-8")[:500]
-                    sm = re.search(r"Status[:\s]*\*?\*?([A-Z ]+)", st_text)
-                    if sm:
-                        status = sm.group(1).strip()
-                except Exception:
-                    pass
+            # Shared fuzzy status read lives on the typed reader (StatusDoc).
+            label = proj.status.status_label
+            if label:
+                status = label
 
             topic_str = _slug_to_topic(slug)
             keywords = _slug_to_keywords(slug)

@@ -40,7 +40,8 @@ def _create_test_db(rows):
             impression_count INTEGER NOT NULL,
             view_count INTEGER NOT NULL,
             is_late_entry BOOLEAN DEFAULT 0,
-            recorded_at TEXT NOT NULL
+            recorded_at TEXT NOT NULL,
+            is_valid INTEGER NOT NULL DEFAULT 1
         );
     """)
 
@@ -101,6 +102,39 @@ class TestGetPatternCtrFromDb:
             assert "declarative" in result
             # 3.8 * 17 = 64.6 -> int(64.6) = 64
             assert result["declarative"] == 64
+        finally:
+            os.unlink(path)
+
+    def test_quarantined_snapshot_excluded_from_scoring(self):
+        """A later is_valid=0 snapshot must NOT reach pattern scoring (ADR-0017).
+
+        Before the canonical read seam, an invalid double-counted row won
+        MAX(snapshot_date) and its CTR leaked into the score."""
+        from tools.title_ctr_store import get_pattern_ctr_from_db
+
+        rows = [
+            {"video_id": "v1", "title": "France Conquered Haiti", "ctr_percent": 3.8,
+             "snapshot_date": "2026-07-10"},
+            {"video_id": "v2", "title": "Spain Divided the World", "ctr_percent": 3.8,
+             "snapshot_date": "2026-07-10"},
+            {"video_id": "v3", "title": "Britain Erased the Map", "ctr_percent": 3.8,
+             "snapshot_date": "2026-07-10"},
+        ]
+        path = _create_test_db(rows)
+        try:
+            baseline = get_pattern_ctr_from_db(path)
+            assert baseline.get("declarative") == 64
+            # Inject a later QUARANTINED snapshot with an absurd CTR for v1.
+            conn = sqlite3.connect(path)
+            conn.execute(
+                "INSERT INTO ctr_snapshots (video_id, snapshot_date, ctr_percent, "
+                "impression_count, view_count, recorded_at, is_valid) "
+                "VALUES ('v1', '2026-07-23', 99.0, 5000, 200, '2026-07-23', 0)"
+            )
+            conn.commit()
+            conn.close()
+            after = get_pattern_ctr_from_db(path)
+            assert after == baseline  # 99% invalid row must not move the score
         finally:
             os.unlink(path)
 

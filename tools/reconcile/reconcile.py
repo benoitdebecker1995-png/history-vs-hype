@@ -45,6 +45,11 @@ from tools.reconcile.match import (
     load_videos,
     match_folder,
 )
+from tools.video_projects.status_doc import (
+    RECONCILE_DASHBOARD_ZONE,
+    RECONCILE_ZONE,
+    StatusDoc,
+)
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -60,10 +65,8 @@ MANUAL_MATCHES = REPO_ROOT / 'tools' / 'reconcile' / 'manual-matches.json'
 ROOT_STATUS = VIDEO_PROJECTS / 'PROJECT_STATUS.md'
 ROOT_REGISTRY = VIDEO_PROJECTS / 'PROJECT_REGISTRY.md'
 
-AUTO_OPEN = '<!-- AUTO:reconcile — do not edit manually, regenerated each run -->'
-AUTO_CLOSE = '<!-- /AUTO:reconcile -->'
-DERIVED_OPEN = '<!-- AUTO:reconcile-dashboard — regenerated each run, do not edit -->'
-DERIVED_CLOSE = '<!-- /AUTO:reconcile-dashboard -->'
+# Fence markers + zone surgery live in tools/video_projects/status_doc.py
+# (RECONCILE_ZONE, RECONCILE_DASHBOARD_ZONE) — reconcile renders zone BODIES.
 
 # analytics.db freshness gate for --auto-publish-only mode (Routine 6).
 # If metrics_fetched_at max is older than this, refuse to run.
@@ -226,35 +229,14 @@ def attach_matches(states: list[FolderState]) -> None:
 def read_auto_block(path: Path) -> dict | None:
     """Parse the AUTO:reconcile block from a PROJECT-STATUS.md. Returns the
     key/value pairs or None if no block present."""
-    if not path.exists():
-        return None
-    try:
-        text = path.read_text(encoding='utf-8', errors='ignore')
-    except OSError:
-        return None
-    if AUTO_OPEN not in text or AUTO_CLOSE not in text:
-        return None
-    start = text.index(AUTO_OPEN) + len(AUTO_OPEN)
-    end = text.index(AUTO_CLOSE)
-    block = text[start:end]
-    result = {}
-    for line in block.splitlines():
-        line = line.strip()
-        if not line or ':' not in line:
-            continue
-        key, _, value = line.partition(':')
-        # Strip inline comments like "(only when published)"
-        value = value.split('(', 1)[0].strip()
-        result[key.strip()] = value
-    return result
+    return StatusDoc.load(path).zone_fields(RECONCILE_ZONE)
 
 
 def render_auto_block(state: FolderState, today: str) -> str:
-    """Render the AUTO:reconcile block as a string."""
+    """Render the AUTO:reconcile zone body (marker-less; StatusDoc frames it)."""
     target = target_bucket(state)
     status = target_status_label(state)
     lines = [
-        AUTO_OPEN,
         f'Status: {status}',
         f'Lifecycle: {target}',
     ]
@@ -263,36 +245,16 @@ def render_auto_block(state: FolderState, today: str) -> str:
     if state.published_at:
         lines.append(f'Published: {state.published_at[:10]}')
     lines.append(f'Last reconciled: {today}')
-    lines.append(AUTO_CLOSE)
-    return '\n'.join(lines) + '\n'
+    return '\n'.join(lines)
 
 
-def write_auto_block(path: Path, new_block: str) -> str:
-    """Write or replace the AUTO block at the top of a PROJECT-STATUS.md.
-    Preserves all narrative below <!-- /AUTO:reconcile -->. Returns the
+def write_auto_block(path: Path, body: str) -> str:
+    """Write or replace the AUTO:reconcile zone at the top of a
+    PROJECT-STATUS.md. Preserves all narrative below the zone. Returns the
     previous content (for backup)."""
-    existing = ''
-    if path.exists():
-        try:
-            existing = path.read_text(encoding='utf-8', errors='ignore')
-        except OSError:
-            existing = ''
-
-    if AUTO_OPEN in existing and AUTO_CLOSE in existing:
-        # Replace existing block
-        end = existing.index(AUTO_CLOSE) + len(AUTO_CLOSE)
-        # Skip trailing newline after close marker if present
-        if end < len(existing) and existing[end] == '\n':
-            end += 1
-        new_content = new_block + existing[end:]
-    else:
-        # Prepend block; preserve all existing content
-        sep = '\n' if existing and not existing.startswith('\n') else ''
-        new_content = new_block + sep + existing
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(new_content, encoding='utf-8')
-    return existing
+    doc = StatusDoc.load(path)
+    doc.write_zone(RECONCILE_ZONE, body)
+    return doc.save()
 
 
 # ---------------------------------------------------------------------------
@@ -333,7 +295,7 @@ def render_root_status_block(states: list[FolderState], today: str) -> str:
     for s in states:
         by_bucket.setdefault(s.bucket, []).append(s)
 
-    lines = [DERIVED_OPEN, f'Last reconciled: {today}', '']
+    lines = [f'Last reconciled: {today}', '']
     lines.append('## Lifecycle counts')
     lines.append('')
     lines.append('| Bucket | Count |')
@@ -400,36 +362,20 @@ def render_root_status_block(states: list[FolderState], today: str) -> str:
             lines.append(f'| {(s.published_at or "—")[:10]} | `{s.path.name}` | `{s.video_id or "—"}` |')
         lines.append('')
 
-    lines.append(DERIVED_CLOSE)
-    return '\n'.join(lines) + '\n'
+    return '\n'.join(lines)
 
 
 def write_root_status(states: list[FolderState], today: str) -> str | None:
-    """Write/replace the AUTO:reconcile-dashboard block at the top of
-    video-projects/PROJECT_STATUS.md. Preserves narrative below the close marker.
+    """Write/replace the AUTO:reconcile-dashboard zone at the top of
+    video-projects/PROJECT_STATUS.md. Preserves narrative below the zone.
     Returns the previous full content (for .pre-diff backup) or None if file didn't exist.
     """
-    block = render_root_status_block(states, today)
-    existing = ''
+    body = render_root_status_block(states, today)
     pre_existing = ROOT_STATUS.exists()
-    if pre_existing:
-        try:
-            existing = ROOT_STATUS.read_text(encoding='utf-8', errors='ignore')
-        except OSError:
-            existing = ''
-
-    if DERIVED_OPEN in existing and DERIVED_CLOSE in existing:
-        end = existing.index(DERIVED_CLOSE) + len(DERIVED_CLOSE)
-        if end < len(existing) and existing[end] == '\n':
-            end += 1
-        new_content = block + existing[end:]
-    else:
-        sep = '\n' if existing and not existing.startswith('\n') else ''
-        new_content = block + sep + existing
-
-    ROOT_STATUS.parent.mkdir(parents=True, exist_ok=True)
-    ROOT_STATUS.write_text(new_content, encoding='utf-8')
-    return existing if pre_existing else None
+    doc = StatusDoc.load(ROOT_STATUS)
+    doc.write_zone(RECONCILE_DASHBOARD_ZONE, body)
+    previous = doc.save()
+    return previous if pre_existing else None
 
 
 def render_registry(states: list[FolderState], today: str) -> str:
@@ -682,18 +628,46 @@ def write_diff_log(path: Path, proposals: list[ProposedChange],
 
 
 def apply_proposals(proposals: list[ProposedChange], today: str,
-                    states_by_path: dict) -> tuple[list, list]:
-    """Apply moves and AUTO block edits. Returns (backups, moves) for the diff log.
+                    states_by_path: dict) -> tuple[list, list, list]:
+    """Apply moves and AUTO block edits. Returns (backups, moves, conflicts).
 
-    backups: list of (file_path, pre_diff_path) — the .pre-diff sibling backups.
-    moves:   list of (src_folder, dst_folder).
+    backups:   list of (file_path, pre_diff_path) — the .pre-diff sibling backups.
+    moves:     list of (src_folder, dst_folder).
+    conflicts: list of (src_folder, dst_folder) — moves SKIPPED because the
+               destination already exists. The caller must treat a non-empty
+               conflicts list as an incomplete run (no heartbeat, nonzero exit).
     """
     backups = []
     moves = []
+    conflicts = []
 
-    # Apply AUTO block edits FIRST (before moves change the path)
+    bucket_paths = {
+        '_IN_PRODUCTION': IN_PRODUCTION,
+        '_READY_TO_FILM': READY_TO_FILM,
+        '_ARCHIVED/published': ARCHIVED_PUBLISHED,
+    }
+
+    # Preflight destination conflicts BEFORE touching any file. A move whose
+    # destination already exists is skipped — AND so is that same project's
+    # AUTO-block edit, so a PROJECT-STATUS.md never claims a lifecycle bucket
+    # its folder isn't actually in (the partial-state-as-success failure the
+    # 2026-07 audit found: AUTO edits were applied, then the move silently
+    # skipped on conflict).
+    conflicted_folders = set()
+    for pr in proposals:
+        if pr.kind != 'move':
+            continue
+        dst = bucket_paths[pr.target_bucket] / pr.folder.name
+        if dst.exists():
+            conflicted_folders.add(pr.folder)
+            conflicts.append((str(pr.folder), str(dst)))
+
+    # Apply AUTO block edits FIRST (before moves change the path), skipping any
+    # folder whose move is blocked by a conflict.
     for pr in proposals:
         if pr.kind != 'edit-auto-block':
+            continue
+        if pr.folder in conflicted_folders:
             continue
         status_md = pr.folder / 'PROJECT-STATUS.md'
         state = states_by_path[pr.folder]
@@ -710,38 +684,42 @@ def apply_proposals(proposals: list[ProposedChange], today: str,
         write_auto_block(status_md, block)
 
     # Apply moves second
-    bucket_paths = {
-        '_IN_PRODUCTION': IN_PRODUCTION,
-        '_READY_TO_FILM': READY_TO_FILM,
-        '_ARCHIVED/published': ARCHIVED_PUBLISHED,
-    }
     for pr in proposals:
         if pr.kind != 'move':
+            continue
+        if pr.folder in conflicted_folders:
             continue
         dst_parent = bucket_paths[pr.target_bucket]
         dst_parent.mkdir(parents=True, exist_ok=True)
         dst = dst_parent / pr.folder.name
         if dst.exists():
-            # Conflict — log and skip
+            # Race: destination appeared after preflight. Record and skip.
+            conflicts.append((str(pr.folder), str(dst)))
             continue
         shutil.move(str(pr.folder), str(dst))
         moves.append((str(pr.folder), str(dst)))
 
-    return backups, moves
+    return backups, moves, conflicts
 
 
-def regenerate_derived_docs(today: str) -> list[tuple[str, str]]:
+def regenerate_derived_docs(today: str) -> tuple[list[tuple[str, str]], list[str]]:
     """Re-scan filesystem post-moves and write root PROJECT_STATUS.md,
-    PROJECT_REGISTRY.md, and .brain/index.md §3. Returns list of (path, pre_diff)
-    backups for the diff log."""
+    PROJECT_REGISTRY.md, and .brain/index.md §3.
+
+    Returns (backups, failures): backups is the list of (path, pre_diff) sibling
+    backups; failures is a list of human-readable messages for any doc that
+    could not be regenerated. The caller treats a non-empty failures list as an
+    incomplete run (no heartbeat, nonzero exit) — a swallowed regen failure used
+    to leave a stale index while the run reported success (2026-07 audit)."""
     fresh_states = scan_buckets()
     attach_matches(fresh_states)
 
     backups = []
-    for doc_path, write_fn in (
-        (ROOT_STATUS, lambda: write_root_status(fresh_states, today)),
-        (ROOT_REGISTRY, lambda: write_registry(fresh_states, today)),
-        (BRAIN_INDEX, lambda: write_brain_index_section_3(fresh_states)),
+    failures = []
+    for doc_path, write_fn, label in (
+        (ROOT_STATUS, lambda: write_root_status(fresh_states, today), 'root PROJECT_STATUS.md'),
+        (ROOT_REGISTRY, lambda: write_registry(fresh_states, today), 'PROJECT_REGISTRY.md'),
+        (BRAIN_INDEX, lambda: write_brain_index_section_3(fresh_states), '.brain/index.md §3'),
     ):
         pre_diff = doc_path.with_suffix(doc_path.suffix + '.pre-diff')
         if doc_path.exists():
@@ -752,10 +730,11 @@ def regenerate_derived_docs(today: str) -> list[tuple[str, str]]:
             backups.append((str(doc_path), str(pre_diff)))
         try:
             write_fn()
-        except Exception:
-            # Regen failure: leave file as-is, continue with others.
+        except Exception as exc:
+            # Regen failure: leave file as-is, continue with others, but REPORT it.
+            failures.append(f'{label}: {exc}')
             continue
-    return backups
+    return backups, failures
 
 
 def undo_latest() -> int:
@@ -894,6 +873,31 @@ def analytics_db_age_hours() -> float:
 # ---------------------------------------------------------------------------
 
 
+def packaging_lock_flags(states) -> list[str]:
+    """Non-blocking flags for active in-flight projects lacking a VALID packaging lock.
+
+    Grandfathering (per the packaging-lock ADR, 2026-07-01): reconcile never hard-blocks
+    a project already in flight — it just surfaces "no packaging lock on record" so the
+    project earns one next time its packaging is touched. New projects are gated at
+    /research, not here."""
+    flags: list[str] = []
+    try:
+        from tools.preflight.packaging_lock import validate_lock
+    except Exception:
+        return flags
+    for s in states:
+        if s.bucket not in ('_IN_PRODUCTION', '_READY_TO_FILM'):
+            continue
+        try:
+            valid, reasons = validate_lock(str(s.path))
+        except Exception:
+            continue
+        if not valid:
+            why = reasons[0] if reasons else 'no valid packaging lock'
+            flags.append(f'  ⚠ {s.path.name}: {why}')
+    return flags
+
+
 def main():
     parser = argparse.ArgumentParser(description='Reconcile project state.')
     parser.add_argument('project', nargs='?', help='Folder slug substring to reconcile')
@@ -917,9 +921,11 @@ def main():
             alert = BRAIN_INBOX / f'reconcile-stale-db-{datetime.now().strftime("%Y-%m-%d")}.md'
             BRAIN_INBOX.mkdir(parents=True, exist_ok=True)
             alert.write_text(
-                f'# Routine 6 ABORTED — analytics.db stale ({age:.1f}h)\n\n'
-                f'Routine 3 (channel-health-snapshot, 08:00) may have failed.\n'
-                f'Check `tools/youtube_analytics/` auth and retry.\n',
+                f'# HvH-Reconcile ABORTED — analytics.db stale ({age:.1f}h)\n\n'
+                f'The refresher — Routine 7 HvH-GrowthRefresh (07:45, '
+                f'`python -m tools.youtube_analytics.growth_data --refresh`) — '
+                f'likely failed; it, not channel-health, writes analytics.db.\n'
+                f'Check `tools/youtube_analytics/` auth (YouTube OAuth token) and retry.\n',
                 encoding='utf-8',
             )
             print(f'ABORT: analytics.db is {age:.1f}h stale (max {MAX_DB_AGE_HOURS}h).')
@@ -936,6 +942,14 @@ def main():
             return 1
 
     attach_matches(states)
+
+    # Non-blocking packaging-lock flags (grandfathered in-flight projects).
+    pl_flags = packaging_lock_flags(states)
+    if pl_flags:
+        print('\nPackaging-lock flags (non-blocking — earn a lock next time packaging is touched):')
+        for line in pl_flags:
+            print(line)
+
     proposals = build_proposals(states)
 
     if args.dry_run:
@@ -951,12 +965,17 @@ def main():
         # be stale even when filesystem state hasn't drifted — e.g. analytics.db
         # got new metrics).
         today = datetime.now().strftime('%Y-%m-%d')
-        derived_backups = regenerate_derived_docs(today)
+        derived_backups, regen_failures = regenerate_derived_docs(today)
         log_path = diff_log_path()
         write_diff_log(log_path, [], derived_backups, [])
-        LAST_RECONCILE_TS.write_text(datetime.now(timezone.utc).isoformat(), encoding='utf-8')
         print(f'No folder moves needed. Regenerated {len(derived_backups)} derived docs.')
         print(f'Diff log: {log_path}')
+        if regen_failures:
+            for f in regen_failures:
+                print(f'DERIVED-DOC REGEN FAILED: {f}')
+            print('NOT advancing the reconcile heartbeat; re-run after fixing.')
+            return 1
+        LAST_RECONCILE_TS.write_text(datetime.now(timezone.utc).isoformat(), encoding='utf-8')
         return 0
 
     print_proposals(proposals, states=states)
@@ -986,11 +1005,11 @@ def main():
 
     today = datetime.now().strftime('%Y-%m-%d')
     states_by_path = {s.path: s for s in states}
-    backups, moves = apply_proposals(proposals, today, states_by_path)
+    backups, moves, conflicts = apply_proposals(proposals, today, states_by_path)
 
     # Always regen derived docs on any apply (even no-op proposals — keeps root
     # PROJECT_STATUS.md, PROJECT_REGISTRY.md, .brain/index.md §3 fresh).
-    derived_backups = regenerate_derived_docs(today)
+    derived_backups, regen_failures = regenerate_derived_docs(today)
     backups.extend(derived_backups)
 
     # Write diff log
@@ -999,6 +1018,23 @@ def main():
     print(f'\nApplied {len(moves)} moves + {len(backups)} file edits ({len(derived_backups)} derived docs).')
     print(f'Diff log: {log_path}')
     print(f'Undo with: /reconcile --undo')
+
+    # An incomplete run (a move blocked by a conflict, or a derived-doc that
+    # failed to regenerate) must NOT record a fresh heartbeat — otherwise the
+    # partial state reads as a clean reconcile and the next run skips it.
+    problems = []
+    for src, dst in conflicts:
+        print(f'CONFLICT: {src} NOT moved — destination already exists: {dst}')
+    if conflicts:
+        problems.append(f'{len(conflicts)} move conflict(s)')
+    for f in regen_failures:
+        print(f'DERIVED-DOC REGEN FAILED: {f}')
+    if regen_failures:
+        problems.append(f'{len(regen_failures)} derived-doc failure(s)')
+    if problems:
+        print(f'\nIncomplete reconcile ({"; ".join(problems)}). NOT advancing the '
+              f'heartbeat; resolve the above and re-run.')
+        return 1
 
     LAST_RECONCILE_TS.write_text(datetime.now(timezone.utc).isoformat(), encoding='utf-8')
     return 0

@@ -287,7 +287,8 @@ def compare_variants_for_video(
         try:
             cursor = db._conn.cursor()
             cursor.execute(
-                "SELECT MAX(snapshot_date) FROM ctr_snapshots WHERE video_id = ?",
+                "SELECT MAX(snapshot_date) FROM ctr_snapshots "
+                "WHERE video_id = ? AND is_valid = 1 AND impression_count > 0",
                 (video_id,)
             )
             row = cursor.fetchone()
@@ -305,7 +306,7 @@ def compare_variants_for_video(
             cursor = db._conn.cursor()
             col = 'active_thumbnail_id' if variant_type == 'thumbnail' else 'active_title_id'
             cursor.execute(
-                f"SELECT COUNT(*), SUM(CASE WHEN {col} IS NOT NULL THEN 1 ELSE 0 END) FROM ctr_snapshots WHERE video_id = ?",
+                f"SELECT COUNT(*), SUM(CASE WHEN {col} IS NOT NULL THEN 1 ELSE 0 END) FROM ctr_snapshots WHERE video_id = ? AND is_valid = 1",
                 (video_id,)
             )
             row = cursor.fetchone()
@@ -683,26 +684,16 @@ def format_benchmarks_markdown(report: Dict[str, Any]) -> str:
 
 def find_project_folder(video_id: str) -> Optional[Path]:
     """Find project folder for a video ID."""
-    project_root = Path(__file__).resolve().parent.parent.parent
-    video_projects = project_root / 'video-projects'
-
-    if not video_projects.exists():
-        return None
-
-    # Search in lifecycle folders
-    for lifecycle in ['_IN_PRODUCTION', '_READY_TO_FILM', '_ARCHIVED']:
-        lifecycle_path = video_projects / lifecycle
-        if lifecycle_path.exists():
-            for project in lifecycle_path.iterdir():
-                if project.is_dir():
-                    # Check if any file in project contains video_id
-                    for f in project.glob('*.md'):
-                        try:
-                            content = f.read_text(encoding='utf-8')
-                            if video_id in content:
-                                return project
-                        except (OSError, UnicodeDecodeError):
-                            pass  # Non-blocking: file read failure skips this file
+    # All live stages via the resolver — the old hand-glob never descended into
+    # _ARCHIVED/published/<slug>, so published videos' folders were never found.
+    from tools.video_projects import VideoProjectRepo
+    for proj in VideoProjectRepo().all():
+        for f in proj.path.glob('*.md'):
+            try:
+                if video_id in f.read_text(encoding='utf-8'):
+                    return proj.path
+            except (OSError, UnicodeDecodeError):
+                pass  # Non-blocking: file read failure skips this file
     return None
 
 

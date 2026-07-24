@@ -1,0 +1,361 @@
+{
+ "video": "54-spanish-inquisition-torture-rules-2026",
+ "lifecycle": "_ARCHIVED",
+ "source_file": "video-projects/_ARCHIVED/published/54-spanish-inquisition-torture-rules-2026/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "Tomás de Torquemada issued the Instrucciones in 1484, establishing the Spanish Inquisition's core procedures.",
+   "topics": ["judicial-procedure-codification", "document-provenance"],
+   "verbatim": null,
+   "source": "Homza pp. 61-68; Kamen p. 188; Rawlings p. 12",
+   "status": "verified",
+   "anchor": "## Claim cluster 1 — The document (Torquemada's Instrucciones)"
+  },
+  {
+   "claim": "The 1484 procedural code was supplemented in 1485, 1488 and 1498; Valdés issued a definitive 81-clause Instructions in September 1561.",
+   "topics": ["judicial-procedure-codification"],
+   "verbatim": null,
+   "source": "Kamen p. 188; Homza codification doc p. 61",
+   "status": "verified",
+   "anchor": "## Claim cluster 1 — The document (Torquemada's Instrucciones)"
+  },
+  {
+   "claim": "Argüello's 1627/1630 compilation collected the old and new Inquisition instructions into the standard accessible edition.",
+   "topics": ["document-provenance"],
+   "verbatim": null,
+   "source": "Homza pp. 61-62",
+   "status": "verified",
+   "anchor": "## Claim cluster 1 — The document (Torquemada's Instrucciones)"
+  },
+  {
+   "claim": "The 1667 Compilación de las Instrucciones is the comprehensive final compilation of Spanish Inquisition procedure.",
+   "topics": ["document-provenance"],
+   "verbatim": null,
+   "source": "Kamen p. 188",
+   "status": "verified",
+   "anchor": "## Claim cluster 1 — The document (Torquemada's Instrucciones)"
+  },
+  {
+   "claim": "Inquisition instructions were originally for restricted internal circulation, keeping the public uninformed of actual procedure while the internal flow of information stayed almost impeccable.",
+   "topics": ["archival-silence", "propaganda-and-narrative-control"],
+   "verbatim": "The outside world may have been kept uninformed, but internally the flow of information was almost impeccable",
+   "source": "Kamen pp. 188-189",
+   "status": "verified",
+   "anchor": "## Claim cluster 1 — The document (Torquemada's Instrucciones)"
+  },
+  {
+   "claim": "Article XV of the 1484 Instrucciones permitted torture only when a crime \"appears half proven,\" to be decided by the inquisitors in consultation with the ordinario.",
+   "topics": ["judicial-procedure-codification", "legal-justification-doctrine"],
+   "verbatim": "Next, if the crime appears half proven, the inquisitors, in consultation with the ordinario, shall consider putting the accused to the question of torture.",
+   "source": "Homza pp. 67-68",
+   "status": "verified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "A confession extracted under torture was legally invalid unless the accused voluntarily ratified it on the next or third day.",
+   "topics": ["judicial-procedure-codification", "legal-justification-doctrine"],
+   "verbatim": "If the accused confesses the crime under torture, and afterward ratifies or confirms his confession on the next or third day, he shall be punished as convicted.",
+   "source": "Homza pp. 67-68",
+   "status": "verified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "If a torture confession was later revoked and the crime remained unproven, inquisitors ordered only a public abjuration and a mild, arbitrary penance rather than conviction.",
+   "topics": ["judicial-procedure-codification"],
+   "verbatim": "the inquisitors must order him to publicly abjure the error of which he is defamed and suspected, on account of infamy and the presumption that results against him. The inquisitors shall give him some arbitrary penance and treat him mildly.",
+   "source": "Homza pp. 67-68",
+   "status": "verified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "The basic rule in Inquisition torture was that the accused should suffer no danger to life or limb.",
+   "topics": ["judicial-procedure-codification", "religious-legal-authority"],
+   "verbatim": "The basic rule in torture was that the accused should suffer no danger to life or limb",
+   "source": "Kamen p. 240",
+   "status": "verified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "The Inquisition used only three torture methods — garrucha (strappado), toca (waterboarding) and potro (rack) — the same three used by secular and other ecclesiastical courts across Europe.",
+   "topics": ["judicial-procedure-codification"],
+   "verbatim": null,
+   "source": "Kamen pp. 240-241; Hassner ch. 2; Homza",
+   "status": "verified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "Valdés's 1561 Instruction 48 required both the Inquisitor and the Ordinario to be present at both the sentencing and the execution of torture.",
+   "topics": ["judicial-procedure-codification", "religious-legal-authority"],
+   "verbatim": "Al pronunciar de la sentencia de tormento se hallen presentes todos los Inquisidores, y Ordinario, y assimismo a la execucion del",
+   "source": "Compilación f. 33r",
+   "status": "verified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "Valdés's Instruction 55 restricted the torture chamber to judges, the notary, and torture ministers only.",
+   "topics": ["judicial-procedure-codification"],
+   "verbatim": "AL Tormento no se debe hallar presente persona alguna mas de los Juezes y el Notario y ministros del tormento",
+   "source": "Compilación f. 34 Instr.55",
+   "status": "verified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "Instruction 17 required the notary to record every word the inquisitor and the prisoner spoke during a torture session.",
+   "topics": ["judicial-procedure-codification", "document-provenance"],
+   "verbatim": "el Notario... escriva todo lo que el Inquisidor... dixeren al preso, y lo que el preso respondiere",
+   "source": "Compilación f. 29v Instr.17",
+   "status": "verified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "The primary Inquisition instructions do not list a doctor as a mandatory presence during torture sessions, contradicting a later scholarly claim that a doctor \"had to be present.\"",
+   "topics": ["document-provenance", "scholarly-disagreement", "contested-attribution"],
+   "verbatim": "had to be present",
+   "source": "Hassner p. 27",
+   "status": "partial",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "Physicians were usually available in case of emergency during Inquisition torture sessions, though not codified as mandatory; one doctor claimed payment for attending 434 sessions in 1702.",
+   "topics": ["document-provenance"],
+   "verbatim": "physicians were usually available in case of emergency.",
+   "source": "Kamen p. 240",
+   "status": "partial",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "The popular claim that Inquisition waterboarding was capped at a fixed 8 liters of water is refuted — no primary source sets any such limit.",
+   "topics": ["myth-origin-tracing", "historiographical-revision"],
+   "verbatim": null,
+   "source": "Kamen p. 240",
+   "status": "unverified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "The amount of water used in Inquisition waterboarding was left to the inquisitor's discretion and varied by the number of jars used; one 1601 prisoner received 7 jars, roughly 14 liters.",
+   "topics": ["judicial-procedure-codification"],
+   "verbatim": "severity varied with number of jars",
+   "source": "Kamen p. 240",
+   "status": "verified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "Torture required three prior formal warnings (moniciones) on separate days urging the accused to tell the truth.",
+   "topics": ["judicial-procedure-codification"],
+   "verbatim": "haciéndole tres moniciones en diferentes dias, con alguna interpolación",
+   "source": "Compilación f. 29r",
+   "status": "verified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "The popular claim that Inquisition torture sessions were capped at a fixed 15 minutes is refuted — no primary source sets this limit.",
+   "topics": ["myth-origin-tracing", "historiographical-revision"],
+   "verbatim": null,
+   "source": "Hassner",
+   "status": "unverified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "Francisca Carvajal's 1590 torture session lasted three hours, showing no fixed time limit was actually enforced.",
+   "topics": ["judicial-procedure-codification"],
+   "verbatim": null,
+   "source": "Hassner",
+   "status": "verified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "Inquisitors were officially barred from torturing a person twice over the same evidence, but bypassed this by labeling a continued session a \"suspension\" rather than concluding it.",
+   "topics": ["judicial-procedure-codification", "legal-justification-doctrine"],
+   "verbatim": "no se quita que los Inquisidores puedan repetir la questión del tormento",
+   "source": "Compilación f. 6v (Article XV)",
+   "status": "verified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "Inquisition torture was not penal — it was used only to extract verifiable information, applied \"in cold blood,\" not to punish or terrify.",
+   "topics": ["judicial-procedure-codification", "legal-justification-doctrine"],
+   "verbatim": "tortured in cold blood",
+   "source": "Hassner p. 18",
+   "status": "verified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "Only capital heresy cases qualified for torture; the bulk of Inquisition cases, involving minor offenses, did not.",
+   "topics": ["judicial-procedure-codification"],
+   "verbatim": null,
+   "source": "Kamen p. 239; Hassner; Rawlings",
+   "status": "verified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "Inquisition torture practice shifted from an early \"exploratory\" use (1484-1500) to a more regulated \"corroborative\" use, confirming an already-proven case, by the mid-16th century.",
+   "topics": ["judicial-procedure-codification", "historiographical-revision"],
+   "verbatim": null,
+   "source": "Hassner ch. 3-4",
+   "status": "verified",
+   "anchor": "## Claim cluster 2 — Torture procedure rules"
+  },
+  {
+   "claim": "Total executions across the Spanish Inquisition's roughly 350-year history are estimated at a maximum of about 3,000.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": "a maximum of three thousand persons may have suffered death during the entire history of the tribunal",
+   "source": "Kamen p. 254",
+   "status": "verified",
+   "anchor": "## Claim cluster 3 — Statistical reality"
+  },
+  {
+   "claim": "About 2,000 of the Inquisition's total executions, roughly 75%, were concentrated in its first 50 years, 1480 to 1530.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": "around 2,000 people died… during the period between 1480 and 1530",
+   "source": "Rawlings",
+   "status": "verified",
+   "anchor": "## Claim cluster 3 — Statistical reality"
+  },
+  {
+   "claim": "A 1972 data-bank study of 50,000 Inquisition trial summaries from 1540-1700 found only 1.8% ended in an in-person death sentence.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": null,
+   "source": "Rawlings p. 12-13",
+   "status": "verified",
+   "anchor": "## Claim cluster 3 — Statistical reality"
+  },
+  {
+   "claim": "For most of its active history, the Inquisition's execution rate stayed below 2%, averaging roughly 5 deaths per year.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": "For most of its active history the execution rate remained below 2 per cent",
+   "source": "Rawlings",
+   "status": "verified",
+   "anchor": "## Claim cluster 3 — Statistical reality"
+  },
+  {
+   "claim": "Torture was applied to only about 12% of defendants at the Toledo tribunal between 1575 and 1610, concentrated on major heresy cases such as Lutheranism, Judaism and Islam.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": "123 of 1,046 individuals tried, or 12 percent, were tortured",
+   "source": "Hassner pp. 70-71",
+   "status": "verified",
+   "anchor": "## Claim cluster 3 — Statistical reality"
+  },
+  {
+   "claim": "In Ciudad Real between 1483 and 1485, only two of more than 400 conversos tried are known to have been tortured.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": null,
+   "source": "Kamen p. 239",
+   "status": "verified",
+   "anchor": "## Claim cluster 3 — Statistical reality"
+  },
+  {
+   "claim": "Inquisition prisons were generally cleaner and more humane than royal or ordinary ecclesiastical jails of the period.",
+   "topics": ["judicial-procedure-codification"],
+   "verbatim": null,
+   "source": "Kamen p. 235",
+   "status": "verified",
+   "anchor": "## Claim cluster 3 — Statistical reality"
+  },
+  {
+   "claim": "Historian Juan Antonio Llorente's 19th-century estimate of 300,000 Inquisition victims is now judged \"bizarre\" by modern historians; the real figure is about 1% of that.",
+   "topics": ["historiographical-revision", "casualty-estimate-methodology"],
+   "verbatim": "find this conclusion bizarre",
+   "source": "Kamen pp. 382-383",
+   "status": "verified",
+   "anchor": "## Claim cluster 3 — Statistical reality"
+  },
+  {
+   "claim": "Inquisition torture was well under the severity of every contemporary secular court in continental Europe, and even under that of other ecclesiastical tribunals.",
+   "topics": ["judicial-procedure-codification", "historiographical-revision"],
+   "verbatim": "well under that of all contemporary secular courts in continental Europe, and even under that of other ecclesiastical tribunals",
+   "source": "Peters p. 93",
+   "status": "verified",
+   "anchor": "## Claim cluster 4 — Comparison with secular courts"
+  },
+  {
+   "claim": "Contemporary secular courts used a much wider range of torture methods likely to cause permanent injury or death, including whips, fire, hot irons and bone-breaking devices.",
+   "topics": ["judicial-procedure-codification"],
+   "verbatim": "whips, fire, hot irons, the rack, devices for breaking bones, tools to tear legs or distend the mouth, hot bricks for the stomach or groin",
+   "source": "Hassner p. 26",
+   "status": "verified",
+   "anchor": "## Claim cluster 4 — Comparison with secular courts"
+  },
+  {
+   "claim": "Between 1559 and 1566, Spain executed 83 people for Protestantism, versus over 1,300 in the Habsburg Netherlands and roughly four times Spain's rate in Mary's England.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": null,
+   "source": "Kamen p. 107",
+   "status": "verified",
+   "anchor": "## Claim cluster 4 — Comparison with secular courts"
+  },
+  {
+   "claim": "Madrid's secular criminal courts handled roughly 500 cases a year in the 18th century — the Inquisition would have needed a full century to match that volume.",
+   "topics": ["judicial-procedure-codification"],
+   "verbatim": "would have needed not a year but a complete century to attain the figure",
+   "source": "Kamen p. 247",
+   "status": "verified",
+   "anchor": "## Claim cluster 4 — Comparison with secular courts"
+  },
+  {
+   "claim": "Secular courts in Castile executed far more people for sodomy alone — 100-150 in Madrid and over 100 in Seville between 1575 and 1640 — than the Inquisition executed for any comparable offense.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": null,
+   "source": "Rawlings (citing Monter)",
+   "status": "verified",
+   "anchor": "## Claim cluster 4 — Comparison with secular courts"
+  },
+  {
+   "claim": "In 1573, a secular court in Plasencia sentenced a Morisco to hanging and quartering for damaging a religious image; the Inquisition reviewed the same case, found it unproven, and freed him.",
+   "topics": ["judicial-procedure-codification", "legal-justification-doctrine"],
+   "verbatim": null,
+   "source": "Kamen p. 254",
+   "status": "verified",
+   "anchor": "## Claim cluster 4 — Comparison with secular courts"
+  },
+  {
+   "claim": "Scholars contrast the Inquisition's patient, bureaucratic, corroborative torture practice with the rash, improvised post-9/11 CIA interrogation of presumed-guilty suspects.",
+   "topics": ["historiographical-revision", "judicial-procedure-codification"],
+   "verbatim": null,
+   "source": "Hassner pp. 17-18",
+   "status": "verified",
+   "anchor": "## Claim cluster 4 — Comparison with secular courts"
+  },
+  {
+   "claim": "The Black Legend was a campaign of anti-Spanish propaganda produced by Protestant rivals — the Netherlands, England, France and German states — in the second half of the 16th century.",
+   "topics": ["propaganda-and-narrative-control", "myth-origin-tracing"],
+   "verbatim": null,
+   "source": "Peters pp. 131-147; Rawlings pp. 3-5; Kamen ch. 15",
+   "status": "verified",
+   "anchor": "## Claim cluster 5 — The Black Legend (context/framing)"
+  },
+  {
+   "claim": "The Black Legend's founding text, published in 1567 under the pseudonym \"Reginaldus Gonsalvius Montanus,\" was likely actually written by Antonio del Corro, a Spanish Protestant exile.",
+   "topics": ["document-provenance", "myth-origin-tracing"],
+   "verbatim": null,
+   "source": "Peters pp. 147-153",
+   "status": "partial",
+   "anchor": "## Claim cluster 5 — The Black Legend (context/framing)"
+  },
+  {
+   "claim": "The 1567 Black Legend text was translated into English, French, Dutch and German within a year and reprinted for the next two centuries as the most influential text on the Inquisition.",
+   "topics": ["propaganda-and-narrative-control", "myth-origin-tracing"],
+   "verbatim": "most influential text on the subject",
+   "source": "Peters p. 147",
+   "status": "verified",
+   "anchor": "## Claim cluster 5 — The Black Legend (context/framing)"
+  },
+  {
+   "claim": "William of Orange's 1581 Apology accused Spain of taking delight in the fires that \"tormented so many poor Christians.\"",
+   "topics": ["propaganda-and-narrative-control"],
+   "verbatim": "the brightness of the fires wherein they have tormented so many poor Christians was never delightful or pleasant to mine eyes, as it hath rejoiced the sight of the Duke of Alba and the Spaniards",
+   "source": "Kamen p. 377",
+   "status": "verified",
+   "anchor": "## Claim cluster 5 — The Black Legend (context/framing)"
+  },
+  {
+   "claim": "The Inquisition's own deliberate secrecy about its actual procedures directly enabled Black Legend myth-making about it.",
+   "topics": ["archival-silence", "propaganda-and-narrative-control", "myth-origin-tracing"],
+   "verbatim": null,
+   "source": "Kamen pp. 188-189",
+   "status": "verified",
+   "anchor": "## Claim cluster 5 — The Black Legend (context/framing)"
+  }
+ ]
+}

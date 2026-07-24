@@ -146,3 +146,6 @@ video-projects/**/graphify-out/
 
 # Transient per-run routine logs (diagnostics, not knowledge)
 .brain/_inbox/*.log
+
+# pytest cache (regenerated locally, never committed)
+.pytest_cache/

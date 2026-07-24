@@ -108,30 +108,18 @@ def build_srt_mapping() -> dict[str, Path]:
         mapping[vid_scores[0][0]] = srt_path
     return mapping
 
-def _parse_srt_timestamp(ts: str) -> float:
-    match = re.match(r"(\d+):(\d+):(\d+)[,.](\d+)", ts.strip())
-    if not match: return 0.0
-    h, m, s, ms = match.groups()
-    return int(h) * 3600 + int(m) * 60 + int(s) + int(ms) / 1000
-
 def parse_srt(path: Path) -> list[dict]:
-    try: content = path.read_text(encoding="utf-8")
-    except UnicodeDecodeError: content = path.read_text(encoding="latin-1")
-    segments = []
-    blocks = re.split(r"\n\s*\n", content.strip())
-    for block in blocks:
-        lines = block.strip().split("\n")
-        ts_line = next((l for l in lines if "-->" in l), None)
-        if not ts_line: continue
-        parts = ts_line.split("-->")
-        start, end = _parse_srt_timestamp(parts[0]), _parse_srt_timestamp(parts[1])
-        text = re.sub(r"<[^>]+>", "", " ".join(lines[lines.index(ts_line)+1:])).strip()
-        if text: segments.append({"start_seconds": start, "end_seconds": end, "text": text})
-    if segments and 3500 <= segments[0]["start_seconds"] <= 3700:
-        for seg in segments:
-            seg["start_seconds"] = max(0.0, seg["start_seconds"] - 3600.0)
-            seg["end_seconds"] = max(0.0, seg["end_seconds"] - 3600.0)
-    return segments
+    """Parse an SRT into this module's {start_seconds,end_seconds,text} shape.
+
+    Thin adapter over the canonical parser (tools.subtitles, ADR-0010); the
+    +1h-offset correction this module relied on is preserved via fix_hour_offset.
+    """
+    from tools.subtitles import parse as _parse
+    track = _parse(path, fix_hour_offset=True)
+    return [
+        {"start_seconds": c.start, "end_seconds": c.end, "text": c.text}
+        for c in track
+    ]
 
 def classify_content(text: str) -> str:
     return RetentionInference.classify_content(text)

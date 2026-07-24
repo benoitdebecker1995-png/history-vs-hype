@@ -1,0 +1,505 @@
+{
+ "video": "36-panama-canal-deconcini-2026",
+ "lifecycle": "_IN_PRODUCTION",
+ "source_file": "video-projects/_IN_PRODUCTION/36-panama-canal-deconcini-2026/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "Philippe Bunau-Varilla, a French citizen, signed the 1903 Hay-Bunau-Varilla Treaty as Panama's plenipotentiary envoy.",
+   "topics": ["treaty-ratification-process", "concession-extraction"],
+   "verbatim": "Bunau-Varilla was a **French citizen** who signed the 1903 treaty as Panama's \"Envoy Extraordinary and Minister Plenipotentiary.\"",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective (Oxford UP); 1903 Hay-Bunau-Varilla Treaty signature block",
+   "status": "verified",
+   "anchor": "ACT 1 — 1903: the treaty no Panamanian signed"
+  },
+  {
+   "claim": "Bunau-Varilla held a personal financial stake of up to $40 million in the bankrupt New Panama Canal Company if the US chose the Panama route.",
+   "topics": ["concession-extraction"],
+   "verbatim": "wanted to pocket the $40 million for his New Panama Canal Company as quickly as possible.",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "ACT 1 — 1903: the treaty no Panamanian signed"
+  },
+  {
+   "claim": "Bunau-Varilla signed the 1903 treaty at 6:40pm on November 18 in Washington, hours before the Panamanian delegation arrived to negotiate.",
+   "topics": ["treaty-ratification-process", "concession-extraction"],
+   "verbatim": "signed at **6:40 p.m., Nov 18, 1903** in Hay's home",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "ACT 1 — 1903: the treaty no Panamanian signed"
+  },
+  {
+   "claim": "Bunau-Varilla personally widened the US canal zone from ten kilometers to ten miles and changed Hay's proposed 99-year lease into a perpetual grant.",
+   "topics": ["treaty-text-vs-practice", "concession-extraction"],
+   "verbatim": "widened the zone area from ten kilometers (or six miles) to ten miles, and lengthened Hay's 99-year lease to 'perpetuity.'",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "ACT 1 — 1903: the treaty no Panamanian signed"
+  },
+  {
+   "claim": "The 1903 treaty granted the US the canal zone in perpetuity, a zone ten miles wide.",
+   "topics": ["treaty-text-vs-practice", "de-facto-vs-de-jure-statehood"],
+   "verbatim": "The Republic of Panama grants to the United States **in perpetuity** the use, occupation and control of a zone of land … of the width of ten miles…",
+   "source": "1903 Hay-Bunau-Varilla Treaty (Yale Avalon Project), Art. II",
+   "status": "verified",
+   "anchor": "ACT 1 — 1903: the treaty no Panamanian signed"
+  },
+  {
+   "claim": "The 1903 treaty gave the US all rights and authority in the Canal Zone as if it were the sovereign, to the entire exclusion of Panama's own sovereign rights there.",
+   "topics": ["treaty-text-vs-practice", "de-facto-vs-de-jure-statehood"],
+   "verbatim": "all the rights, power and authority … which the United States would possess and exercise **if it were the sovereign** of the territory … to the entire exclusion of the exercise by the Republic of Panama of any such sovereign rights…",
+   "source": "1903 Hay-Bunau-Varilla Treaty (Yale Avalon Project), Art. III; LaFeber pp. 226-227",
+   "status": "verified",
+   "anchor": "ACT 1 — 1903: the treaty no Panamanian signed"
+  },
+  {
+   "claim": "The 1903 treaty paid Panama $10 million in gold on ratification plus $250,000 annually beginning nine years later.",
+   "topics": ["indemnity-and-reparations", "concession-extraction"],
+   "verbatim": "**$10,000,000** in gold on ratification + **$250,000** annual \"beginning nine years after.\"",
+   "source": "1903 Hay-Bunau-Varilla Treaty (Yale Avalon Project), Art. XIV; LaFeber",
+   "status": "verified",
+   "anchor": "ACT 1 — 1903: the treaty no Panamanian signed"
+  },
+  {
+   "claim": "Colombia's Senate unanimously rejected the earlier Hay-Herran treaty in August 1903, Panama declared independence on November 3, and the new treaty with the US was signed November 18.",
+   "topics": ["covert-regime-change", "treaty-ratification-process"],
+   "verbatim": "Colombian Senate **unanimously rejected** Hay-Herran (Aug 1903); Panama declared independence **Nov 3, 1903**",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective; Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "ACT 1 — 1903: the treaty no Panamanian signed"
+  },
+  {
+   "claim": "Panama accepted the 1903 treaty under duress; a 1970s Panamanian documentary about it was titled 'The Treaty that No Panamanian Signed.'",
+   "topics": ["treaty-ratification-process", "myth-origin-tracing"],
+   "verbatim": "Panama, however, did accept under duress.",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "ACT 1 — 1903: the treaty no Panamanian signed"
+  },
+  {
+   "claim": "The 1977 Panama Canal Treaty was set to expire at the 1999 handover, but the companion Neutrality Treaty was made permanent, surviving the termination of any other treaty.",
+   "topics": ["treaty-text-vs-practice", "sovereignty-recognition"],
+   "verbatim": "notwithstanding the termination of any other treaties",
+   "source": "Neutrality Treaty, Art. IV (Panama Canal Authority text / UN Treaty Series)",
+   "status": "verified",
+   "anchor": "ACT 2/3 — 1977–78: the treaties and the clause"
+  },
+  {
+   "claim": "The US Senate's DeConcini condition reserved the right for the US to use military force in Panama to reopen the canal if it were closed or its operations interfered with.",
+   "topics": ["treaty-reservation-mechanism"],
+   "verbatim": "Notwithstanding the provisions of Article V or any other provision of the Treaty, if the Canal is closed, or its operations are interfered with, the United States of America and the Republic of Panama shall each independently have the right to take such steps as each deems necessary, in accordance with its constitutional processes, **including the use of military force in the Republic of Panama**, to reopen the Canal or restore the operations of the Canal, as the case may be.",
+   "source": "UN Treaty Series Vol. 1161 (Panama's instrument of ratification); Congressional Record, 95th Cong., 1978",
+   "status": "verified",
+   "anchor": "ACT 2/3 — 1977–78: the treaties and the clause"
+  },
+  {
+   "claim": "The US Senate adopted the DeConcini condition 75-23 on March 15, 1978, and ratified the Neutrality Treaty 68-32 on March 16, one vote above the required two-thirds.",
+   "topics": ["treaty-ratification-process"],
+   "verbatim": "DeConcini condition adopted **75–23 on March 15, 1978**; Neutrality Treaty ratified **68–32 on March 16, 1978** (one above the two-thirds threshold).",
+   "source": "Maier, The Right to Defend the Panama Canal; LaFeber",
+   "status": "verified",
+   "anchor": "ACT 2/3 — 1977–78: the treaties and the clause"
+  },
+  {
+   "claim": "The Leadership Amendment clarified that any US action under the treaties could never be directed against Panama's territorial integrity or political independence, and was not a right of intervention.",
+   "topics": ["treaty-reservation-mechanism", "treaty-text-vs-practice"],
+   "verbatim": "This does not mean, nor shall it be interpreted as, a right of intervention of the United States in the internal affairs of Panama. Any United States action will be directed at insuring that the Canal will remain open, secure, and accessible, and it shall **never be directed against the territorial integrity or political independence of Panama**.",
+   "source": "UN Treaty Series Vol. 1161; Congressional Record; LaFeber; Jorden p. 481",
+   "status": "verified",
+   "anchor": "ACT 2/3 — 1977–78: the treaties and the clause"
+  },
+  {
+   "claim": "The US Senate's non-intervention reservation stated any US action would only aim to keep the canal open and accessible, not to intervene in Panama's internal affairs or sovereignty.",
+   "topics": ["treaty-reservation-mechanism"],
+   "verbatim": "Pursuant to its adherence to the principle of nonintervention, any action taken by the United States of America … shall be only for the purpose of assuring that the Canal shall remain open, neutral, secure, and accessible … and shall not have as its purpose or be interpreted as a right of intervention in the internal affairs of the Republic of Panama or interference with its political independence or sovereign integrity.",
+   "source": "Panama Canal Treaty, US Senate Reservation (a)(1)",
+   "status": "verified",
+   "anchor": "ACT 2/3 — 1977–78: the treaties and the clause"
+  },
+  {
+   "claim": "Panama's ratification included a counter-reservation stating any action would be consistent with mutual respect and cooperation, and that Panama would reject any foreign attempt to intervene in its affairs.",
+   "topics": ["treaty-reservation-mechanism", "sovereignty-recognition"],
+   "verbatim": "the actions which either Party may take … including measures to reopen the Canal or to restore its normal operation … will be effected in a **manner consistent with the principles of mutual respect and co-operation** … The Republic of Panama … will **reject, in unity and with decisiveness and firmness, any attempt by any country to intervene in its internal or external affairs**.",
+   "source": "UN Treaty Series Vol. 1161; Jorden, Panama Odyssey p. 621",
+   "status": "verified",
+   "anchor": "ACT 2/3 — 1977–78: the treaties and the clause"
+  },
+  {
+   "claim": "Senator DeConcini stated on the Senate floor that his reservation was meant to make clear the US could take military action on Panamanian soil without the Panamanian government's consent.",
+   "topics": ["treaty-reservation-mechanism"],
+   "verbatim": "make it clear that the United States can take military action **on Panamanian soil without the consent of the Panamanian Government**.",
+   "source": "Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "THE CENTRAL LEGAL QUESTION (debunk core — honesty-guarded)"
+  },
+  {
+   "claim": "Legal scholar Maier concluded there is no right for the United States to enter Panama to protect the canal, either under the treaty provisions or under customary international law.",
+   "topics": ["treaty-reservation-mechanism", "legal-justification-doctrine"],
+   "verbatim": "In conclusion, there is no right for the United States to enter Panama to protect the Canal under the existing Treaty provisions, amendments and reservations. There also is no such right in customary international law.",
+   "source": "Maier, \"The Right to Defend the Panama Canal,\" Ga. J. Int'l & Comp. L., p. 223",
+   "status": "verified",
+   "anchor": "THE CENTRAL LEGAL QUESTION (debunk core — honesty-guarded)"
+  },
+  {
+   "claim": "Maier held that the Leadership Amendment, being treaty text, carries greater legal weight than DeConcini's language, which was solely a unilateral reservation.",
+   "topics": ["treaty-reservation-mechanism", "legal-justification-doctrine"],
+   "verbatim": "solely a unilateral reservation",
+   "source": "Maier, \"The Right to Defend the Panama Canal,\" p. 223",
+   "status": "verified",
+   "anchor": "THE CENTRAL LEGAL QUESTION (debunk core — honesty-guarded)"
+  },
+  {
+   "claim": "Maier concluded the DeConcini reservations, taken together, give and take away with the same hand.",
+   "topics": ["treaty-reservation-mechanism"],
+   "verbatim": "give and take away with the same hand",
+   "source": "Maier, \"The Right to Defend the Panama Canal,\" p. 223",
+   "status": "verified",
+   "anchor": "THE CENTRAL LEGAL QUESTION (debunk core — honesty-guarded)"
+  },
+  {
+   "claim": "Senator DeConcini himself cosponsored the Leadership Amendment, which said in effect that his own approach was not the policy of the United States.",
+   "topics": ["treaty-reservation-mechanism", "contested-attribution"],
+   "verbatim": "that said in effect that the DeConcini approach was not the policy of the United States.",
+   "source": "Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "THE CENTRAL LEGAL QUESTION (debunk core — honesty-guarded)"
+  },
+  {
+   "claim": "Bush's 1989 justification for invading Panama cited safeguarding American lives, defending democracy, combating drug trafficking, and protecting the integrity of the Panama Canal Treaty.",
+   "topics": ["covert-regime-change", "legal-justification-doctrine"],
+   "verbatim": "protect the integrity of the Panama Canal Treaty",
+   "source": "Physicians for Human Rights, Operation Just Cause: The Human Cost (1991)",
+   "status": "verified",
+   "anchor": "ACT — 1989: Operation Just Cause"
+  },
+  {
+   "claim": "The United States did not invoke the DeConcini reservation by name as its legal justification for the 1989 invasion of Panama, relying instead on general treaty-integrity language.",
+   "topics": ["treaty-reservation-mechanism", "legal-justification-doctrine"],
+   "verbatim": null,
+   "source": "Physicians for Human Rights, Operation Just Cause: The Human Cost (1991); LaFeber",
+   "status": "verified",
+   "anchor": "ACT — 1989: Operation Just Cause"
+  },
+  {
+   "claim": "Physicians for Human Rights documented at least 300 Panamanian civilian deaths in the 1989 US invasion, roughly 100 more than the official Pentagon count of 201.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": "at least 300 Panamanian civilians died",
+   "source": "Physicians for Human Rights, Operation Just Cause: The Human Cost (1991)",
+   "status": "verified",
+   "anchor": "ACT — 1989: Operation Just Cause"
+  },
+  {
+   "claim": "The UN General Assembly voted 75-20 to strongly deplore the US invasion of Panama and demand US withdrawal.",
+   "topics": ["great-power-arbitration", "covert-regime-change"],
+   "verbatim": "strongly deplore",
+   "source": "Physicians for Human Rights, Operation Just Cause: The Human Cost (1991)",
+   "status": "verified",
+   "anchor": "ACT — 1989: Operation Just Cause"
+  },
+  {
+   "claim": "Manuel Noriega had long been a CIA asset used in anti-Sandinista operations, prompting the assessment that he was disreputable but useful to US interests.",
+   "topics": ["intelligence-agency-operations", "covert-regime-change"],
+   "verbatim": "Noriega may have been an s.o.b., but he was our s.o.b.",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "ACT — 1989: Operation Just Cause"
+  },
+  {
+   "claim": "Trump claimed in his January 2025 inaugural address that China was operating the Panama Canal and that the US was taking it back, a claim fact-checkers found false.",
+   "topics": ["propaganda-and-narrative-control", "myth-origin-tracing"],
+   "verbatim": "China is operating the Panama Canal. And we didn't give it to China. We gave it to Panama, and we're taking it back.",
+   "source": "Trump inaugural address, Jan 20 2025; web-verified via FactCheck.org and AP/USNews, 2025-01-20",
+   "status": "verified",
+   "anchor": "CLOSING RHYME — 2026 (web-verified 2026-06-15; modern payoff only)"
+  },
+  {
+   "claim": "Canal-company lobbyist William Nelson Cromwell contributed $60,000 to the Republican Party in 1900 to help kill a congressional plan favoring a Nicaragua canal route, and later burned his own papers.",
+   "topics": ["covert-regime-change", "evidence-destruction"],
+   "verbatim": "the most dangerous man the country has produced since the days of Aaron Burr.",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "How the consent was MANUFACTURED (1903 lobbying drama)"
+  },
+  {
+   "claim": "Bunau-Varilla used an 1901 Nicaraguan postage stamp depicting a volcano erupting with lava to persuade US senators to choose the Panama route over Nicaragua.",
+   "topics": ["propaganda-and-narrative-control", "map-as-evidence"],
+   "verbatim": "1901 Nicaraguan postage stamp of Momotombo \"magnificently belching lava,\"",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "How the consent was MANUFACTURED (1903 lobbying drama)"
+  },
+  {
+   "claim": "Bunau-Varilla placed the volcano postage stamp on every US senator's desk labeled as official testimony of Nicaraguan volcanic activity.",
+   "topics": ["propaganda-and-narrative-control"],
+   "verbatim": "put one on **every Senator's desk** labeled \"**Official testimony regarding volcanic activity in Nicaragua.**\"",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "How the consent was MANUFACTURED (1903 lobbying drama)"
+  },
+  {
+   "claim": "On November 3, 1903, a US gunboat and a railroad superintendent stranded 2,500 Colombian troops, and the only deaths in Panama's independence were a civilian, a dog, and a donkey.",
+   "topics": ["covert-regime-change"],
+   "verbatim": "a Chinese citizen, a dog, and … a donkey.",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "How the consent was MANUFACTURED (1903 lobbying drama)"
+  },
+  {
+   "claim": "Roosevelt boasted in 1911 that he took the Canal Zone and let Congress debate while construction proceeded anyway.",
+   "topics": ["covert-regime-change", "propaganda-and-narrative-control"],
+   "verbatim": "I took the Canal Zone and let Congress debate, and while the debate goes on the Canal does also.",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "How the consent was MANUFACTURED (1903 lobbying drama)"
+  },
+  {
+   "claim": "Roosevelt asked his cabinet if he had defended his Panama conduct; Secretary of State Elihu Root told him he had proven himself guilty of a worse offense than alleged.",
+   "topics": ["legal-justification-doctrine", "contested-attribution"],
+   "verbatim": "You have shown that you were accused of seduction and you have conclusively **proved that you were guilty of rape.**",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "How the consent was MANUFACTURED (1903 lobbying drama)"
+  },
+  {
+   "claim": "Secretary of State Hay coined the term 'titular sovereignty' for Panama's nominal rights over the Canal Zone, which Taft privately called a barren scepter.",
+   "topics": ["de-facto-vs-de-jure-statehood", "propaganda-and-narrative-control"],
+   "verbatim": "barren scepter",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective; Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "How the consent was MANUFACTURED (1903 lobbying drama)"
+  },
+  {
+   "claim": "The Canal Zone was a 10-mile strip splitting Panama, described by a US ambassador as a permanent bone in the throat of Panamanians.",
+   "topics": ["de-facto-vs-de-jure-statehood", "colonial-boundary-inheritance"],
+   "verbatim": "a **bone in the throat** of the Panamanians ever after.",
+   "source": "Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "How the fiction was LIVED (the Zone, 1903–1964)"
+  },
+  {
+   "claim": "The Canal Zone ran a racially segregated Gold Roll/Silver Roll pay system, with segregation extending to drinking fountains, toilets, housing, transport, and schools.",
+   "topics": ["forced-labour-systems", "population-transfer"],
+   "verbatim": "spread to drinking fountains, toilet facilities, and nearly every other public service",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective; Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "How the fiction was LIVED (the Zone, 1903–1964)"
+  },
+  {
+   "claim": "Only about 20% of the American Zonians living in the Canal Zone spoke Spanish, despite earning roughly three times the US average salary.",
+   "topics": ["de-facto-vs-de-jure-statehood"],
+   "verbatim": "only 20% of Zonians spoke Spanish",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "How the fiction was LIVED (the Zone, 1903–1964)"
+  },
+  {
+   "claim": "A January 9, 1964 flag dispute at Balboa High School escalated into riots that broke Panama's diplomatic relations with the US, with a banner declaring Panama sovereign.",
+   "topics": ["de-facto-vs-de-jure-statehood", "self-determination-claims"],
+   "verbatim": "Panamá es soberana en la Zona del Canal",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective; Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "How the fiction CRACKED (1964 — the turn of the whole story)"
+  },
+  {
+   "claim": "An OAS investigation found the 1964 Panama riots were not communist-instigated but a typical example of nineteenth-century nationalism.",
+   "topics": ["contested-attribution", "propaganda-and-narrative-control"],
+   "verbatim": "not communist prompted … a typical example of nineteenth-century nationalism",
+   "source": "Jorden, Panama Odyssey; LaFeber",
+   "status": "verified",
+   "anchor": "How the fiction CRACKED (1964 — the turn of the whole story)"
+  },
+  {
+   "claim": "In a May 1975 National Security Council meeting, Kissinger warned Ford that continued US control of the canal looked like pure colonialism.",
+   "topics": ["propaganda-and-narrative-control", "great-power-arbitration"],
+   "verbatim": "looks like pure colonialism",
+   "source": "NSArchive, Panama Canal Treaty Declassified (2025)",
+   "status": "verified",
+   "anchor": "Why 1977 became inevitable (bridge to handover)"
+  },
+  {
+   "claim": "The 1846 Bidlack-Mallarino Treaty had the US guarantee both transit rights across the isthmus and Colombia's sovereign control over the area.",
+   "topics": ["treaty-text-vs-practice", "strategic-corridor-access"],
+   "verbatim": "guaranteed both the rights of transit across the Isthmus AND Colombian control over the area.",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "THE ROOT — the fiction started in 1846, not 1903"
+  },
+  {
+   "claim": "In 1903 Roosevelt invoked the 1846 treaty, which had guaranteed Colombia's sovereignty, as legal pretext to instead destroy that sovereignty.",
+   "topics": ["legal-justification-doctrine", "treaty-text-vs-practice"],
+   "verbatim": "justified United States intervention in order to preserve Colombia's sovereignty. TR intervened, however, to destroy that sovereignty.",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "THE ROOT — the fiction started in 1846, not 1903"
+  },
+  {
+   "claim": "The State Department's own top lawyer, John Bassett Moore, rejected the legal theory Roosevelt relied on to justify the 1903 intervention.",
+   "topics": ["legal-justification-doctrine", "contested-attribution"],
+   "verbatim": "exploded Straus's sophistry.",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "THE ROOT — the fiction started in 1846, not 1903"
+  },
+  {
+   "claim": "US troops landed in Panama at least four times between 1846 and 1903 under the pretext of the Bidlack-Mallarino Treaty.",
+   "topics": ["covert-regime-change"],
+   "verbatim": "at least four times (some historians say six)",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "THE ROOT — the fiction started in 1846, not 1903"
+  },
+  {
+   "claim": "The 1856 Watermelon War, the first US landing under the 1846 treaty, began when a dispute over an unpaid slice of watermelon triggered a riot.",
+   "topics": ["covert-regime-change"],
+   "verbatim": "refused to pay for a slice of watermelon",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "THE ROOT — the fiction started in 1846, not 1903"
+  },
+  {
+   "claim": "The 1850 Clayton-Bulwer Treaty barred the US and Britain from exclusively controlling any isthmian canal, but the US escaped it via the 1901 Hay-Pauncefote Treaty.",
+   "topics": ["treaty-text-vs-practice", "great-power-arbitration"],
+   "verbatim": "directly abrogated the 1850 pact",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "THE ROOT — the fiction started in 1846, not 1903"
+  },
+  {
+   "claim": "Panamanian ruler Omar Torrijos shifted strategy from enumerating grievances to internationalizing the canal dispute before world opinion.",
+   "topics": ["self-determination-claims", "great-power-arbitration"],
+   "verbatim": "tough, shrewd, egotistical, ill-educated, charismatic, incredibly patient, yet often volatile.",
+   "source": "Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "THE RECLAMATION MECHANISM — how Panama actually won (HOW>WHY)"
+  },
+  {
+   "claim": "Torrijos got the UN Security Council to meet in Panama City in March 1973, where 13 of 15 members backed Panama and the US cast a rare veto.",
+   "topics": ["great-power-arbitration", "propaganda-and-narrative-control"],
+   "verbatim": "13 of 15 members backed Panama's view; Britain abstained; the US killed it with \"only its third veto since 1945.\"",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective; Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "THE RECLAMATION MECHANISM — how Panama actually won (HOW>WHY)"
+  },
+  {
+   "claim": "The February 1974 Tack-Kissinger Statement of Principles committed the US to abrogate the 1903 treaty's perpetuity clause and set a fixed date to return the Canal Zone to Panama.",
+   "topics": ["treaty-text-vs-practice", "great-power-arbitration"],
+   "verbatim": null,
+   "source": "NSArchive, Panama Canal Treaty Declassified (2025); LaFeber; Jorden",
+   "status": "verified",
+   "anchor": "THE RECLAMATION MECHANISM — how Panama actually won (HOW>WHY)"
+  },
+  {
+   "claim": "Torrijos rejected any attempt to disguise perpetual US control, saying he would not let the treaty be camouflaged into perpetuity no matter how it was dressed up.",
+   "topics": ["treaty-reservation-mechanism", "self-determination-claims"],
+   "verbatim": "I will not let them camouflage 'perpetuity.' … Even if they dress it up as a clown, it will still be perpetuity.",
+   "source": "Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "REFINES the DeConcini act (Jorden first-hand — corrects earlier framing)"
+  },
+  {
+   "claim": "US Senators Byrd, Church, and Sarbanes secretly drafted a series of appendices, ending in Appendix E, that neutralized the DeConcini reservation in coordination with Panama's ambassador.",
+   "topics": ["treaty-reservation-mechanism", "document-provenance"],
+   "verbatim": "the purpose of words in politics.",
+   "source": "Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "REFINES the DeConcini act (Jorden first-hand — corrects earlier framing)"
+  },
+  {
+   "claim": "Reagan attacked the prospective canal treaties in his 1976 primary campaign, declaring the US bought, paid for, and built the canal and should keep it, nearly costing Ford the nomination.",
+   "topics": ["propaganda-and-narrative-control", "great-power-arbitration"],
+   "verbatim": "When it comes to the canal, we bought it, we paid for it, it's ours, and we should tell Torrijos and company that we are going to keep it",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective; Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "REFINES the US domestic fight"
+  },
+  {
+   "claim": "As many as 20,000 workers died during France's failed canal effort before de Lesseps abandoned the project in 1889; he and his son were later convicted of fraud.",
+   "topics": ["forced-labour-systems", "resource-extraction-economy"],
+   "verbatim": "as many as 20,000 died before de Lesseps gave up in 1889",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective, p.11",
+   "status": "verified",
+   "anchor": "Root, cinematic"
+  },
+  {
+   "claim": "Attorney General Philander Knox reportedly told Roosevelt not to let so great an achievement suffer from any taint of legality regarding the canal acquisition.",
+   "topics": ["legal-justification-doctrine"],
+   "verbatim": "do not let so great an achievement suffer from any taint of legality.",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective, p.27",
+   "status": "verified",
+   "anchor": "Root, cinematic"
+  },
+  {
+   "claim": "A truce in Colombia's Thousand Days' War was negotiated aboard the USS Wisconsin in the Bay of Panama in November 1902, one in a long line of US interventions before 1903.",
+   "topics": ["covert-regime-change", "great-power-arbitration"],
+   "verbatim": "worked out aboard the **U.S.S. *Wisconsin*** in the Bay of Panama, November 1902",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective, p.22",
+   "status": "verified",
+   "anchor": "Root, cinematic"
+  },
+  {
+   "claim": "Omar Torrijos seized power in Panama on October 11, 1968, ousting President Arnulfo Arias.",
+   "topics": ["self-determination-claims"],
+   "verbatim": "Seized power **Oct 11, 1968** (ousting Arnulfo Arias).",
+   "source": "Jorden, Panama Odyssey; LaFeber",
+   "status": "verified",
+   "anchor": "Reclamation, cinematic"
+  },
+  {
+   "claim": "Torrijos described his approach to the Canal Zone as a choice to lead it rather than smash it.",
+   "topics": ["self-determination-claims"],
+   "verbatim": "to smash it or lead it, and I'm not going to smash it.",
+   "source": "LaFeber, The Panama Canal: The Crisis in Historical Perspective",
+   "status": "verified",
+   "anchor": "Reclamation, cinematic"
+  },
+  {
+   "claim": "On April 16, 1978, Senate Majority Leader Robert Byrd, Senator Frank Church, and Senator Sarbanes drafted the final Appendix E that neutralized the DeConcini reservation.",
+   "topics": ["treaty-reservation-mechanism", "document-provenance"],
+   "verbatim": "Robert Byrd knelt on the floor** rewriting \"Appendix C\" by pen; **Church then typed** the draft; **Sarbanes typed the final \"Appendix E\"** that \"**pulled the fangs**\" of DeConcini.",
+   "source": "Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "Reclamation, cinematic"
+  },
+  {
+   "claim": "At the September 7, 1977 treaty signing at the OAS, before heads of state from Trudeau to Pinochet, Carter declared fairness, not force, should lie at the heart of the dealings.",
+   "topics": ["great-power-arbitration"],
+   "verbatim": "fairness, not force, should lie at the heart of our dealings",
+   "source": "Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "Reclamation, cinematic"
+  },
+  {
+   "claim": "At the June 16, 1978 ratification ceremony in Panama City, a crowd of over 100,000, the largest in the nation's history, heard Carter address them in Spanish.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": "over 100,000",
+   "source": "Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "Reclamation, cinematic"
+  },
+  {
+   "claim": "Omar Torrijos died on July 31, 1981, when his military plane crashed into a mountain in Coclé province during a tropical storm, killing all seven aboard.",
+   "topics": ["contested-attribution"],
+   "verbatim": "military plane crashed into a Coclé mountain in a tropical downpour, all 7 dead.",
+   "source": "Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "Reclamation, cinematic"
+  },
+  {
+   "claim": "Ancon Hill, Panama City's highest point, sat inside the US Canal Zone since 1903; being able to walk up it became the measure of real independence.",
+   "topics": ["de-facto-vs-de-jure-statehood", "self-determination-claims"],
+   "verbatim": "You can keep your damn antennas, but give us the hill.",
+   "source": "Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "EMOTIONAL-SPINE LAYER (added 2026-06-28 — writers'-room pass; grounds SCRIPT.md v2 Ancon Hill close)"
+  },
+  {
+   "claim": "At the 1979 handover celebration, Panama's president led a sunrise march up Ancon Hill where a fifty-foot flag was raised, declaring that a state within a state no longer existed.",
+   "topics": ["sovereignty-recognition", "self-determination-claims"],
+   "verbatim": "a state within a state no longer exists.",
+   "source": "Jorden, Panama Odyssey",
+   "status": "verified",
+   "anchor": "EMOTIONAL-SPINE LAYER (added 2026-06-28 — writers'-room pass; grounds SCRIPT.md v2 Ancon Hill close)"
+  }
+ ]
+}

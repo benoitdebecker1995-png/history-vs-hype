@@ -1,0 +1,289 @@
+{
+ "video": "55-falklands-malvinas-2026",
+ "lifecycle": "_BACKLOG",
+ "source_file": "video-projects/_BACKLOG/55-falklands-malvinas-2026/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "Pope Alexander VI's 1493 bull Inter caetera divided the New World between Spain and Portugal.",
+   "topics": ["legal-justification-doctrine", "colonial-boundary-inheritance"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "The 1494 Treaty of Tordesillas set the Spain-Portugal dividing line, placing the Falklands on the Spanish side.",
+   "topics": ["treaty-ratification-process", "colonial-boundary-inheritance"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "Captain John Strong made the first recorded landing on the islands in 1690 and named the Falkland Sound.",
+   "topics": ["contested-attribution", "document-provenance"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "Louis Antoine de Bougainville established the first permanent settlement, Port-Saint-Louis, for France in 1764.",
+   "topics": ["colonial-boundary-inheritance"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "Captain John Byron landed on Saunders Island in 1765 and claimed the archipelago for Great Britain.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "France transferred Port-Saint-Louis to Spain in 1766, while Britain separately established Port Egmont.",
+   "topics": ["colonial-boundary-inheritance", "sovereignty-recognition"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "Spain took control of Port-Saint-Louis in 1767 and renamed it Puerto Soledad.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "Spanish forces expelled the British from Port Egmont in 1770, nearly triggering a war between Spain and Britain.",
+   "topics": ["sovereignty-recognition", "great-power-arbitration"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "An Anglo-Spanish agreement in 1771 let Britain return to Port Egmont without either side relinquishing its sovereignty claim.",
+   "topics": ["sovereignty-recognition", "treaty-text-vs-practice"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "Britain withdrew from the islands in 1774 for economic reasons but left a plaque asserting its sovereignty claim.",
+   "topics": ["sovereignty-recognition", "effective-occupation-doctrine"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "Spain withdrew its garrison from Puerto Soledad in 1811 amid the Peninsular War and South American independence movements.",
+   "topics": ["administrative-collapse", "decolonization-process"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "Colonel David Jewett claimed the islands for the United Provinces of the Río de la Plata (Argentina) in 1820.",
+   "topics": ["sovereignty-recognition", "uti-possidetis-juris"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "Luis Vernet established a settlement at Puerto Luis in 1828 with both Argentine and British permission.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "Buenos Aires appointed Vernet military and civil commander of the islands in 1829, and Britain formally protested.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "The USS Lexington raided Puerto Luis in 1831 in retaliation for the seizure of American sealing vessels.",
+   "topics": ["great-power-arbitration"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "HMS Clio arrived in 1833; Captain James Onslow re-established British rule and the Argentine administration departed.",
+   "topics": ["effective-occupation-doctrine", "sovereignty-recognition"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "The 1850 Arana-Southern Treaty restored what its text called \"perfect relations\" between Britain and Argentina.",
+   "topics": ["treaty-text-vs-practice", "treaty-ratification-process"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "Argentina resumed formal sovereignty protests over the islands in 1884 after a period of silence.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "UN Resolution 2065 in 1965 invited Britain and Argentina to negotiate a peaceful solution to the sovereignty dispute.",
+   "topics": ["arbitration-and-adjudication", "self-determination-claims"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "Argentina invaded the islands on April 2, 1982, and Britain recaptured them by June 14, 1982.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "Argentina's 1994 constitution enshrines recovery of the islands as a \"permanent and unwavering\" national goal.",
+   "topics": ["sovereignty-recognition", "legal-justification-doctrine"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "In a 2013 referendum, 99.8% of Falkland Islanders voted to remain a British Overseas Territory.",
+   "topics": ["self-determination-claims"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (1) TIMELINE"
+  },
+  {
+   "claim": "The UK bases its sovereignty claim on first discovery, the 1765 settlement, and continuous administration since 1833.",
+   "topics": ["effective-occupation-doctrine", "sovereignty-recognition"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (3) KEY CLAIMS"
+  },
+  {
+   "claim": "Argentina claims sovereignty as Spain's successor state under uti possidetis juris following its 1816 independence.",
+   "topics": ["uti-possidetis-juris", "colonial-boundary-inheritance"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (3) KEY CLAIMS"
+  },
+  {
+   "claim": "Argentina argues that Britain's 1833 return was an illegal act of force violating its territorial integrity.",
+   "topics": ["sovereignty-recognition", "legal-justification-doctrine"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (3) KEY CLAIMS"
+  },
+  {
+   "claim": "The UK holds that the principle of self-determination gives the islanders the right to choose their own government.",
+   "topics": ["self-determination-claims"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (3) KEY CLAIMS"
+  },
+  {
+   "claim": "Argentina contends self-determination does not apply because the islanders are an \"implanted population\" of British citizens.",
+   "topics": ["self-determination-claims", "population-transfer"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (3) KEY CLAIMS"
+  },
+  {
+   "claim": "The UK cites Argentina's silence on the islands in the 1850 Arana-Southern Treaty as a tacit abandonment of its claim.",
+   "topics": ["treaty-text-vs-practice", "contested-attribution"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (3) KEY CLAIMS"
+  },
+  {
+   "claim": "The UK argues that Spain's 1811 withdrawal left the islands effectively abandoned, permitting the later British return.",
+   "topics": ["effective-occupation-doctrine", "legal-justification-doctrine"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (3) KEY CLAIMS"
+  },
+  {
+   "claim": "Historians dispute whether the 1850 Arana-Southern Treaty legally constituted Argentine \"acquiescence\" to British rule.",
+   "topics": ["scholarly-disagreement", "treaty-text-vs-practice"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (4) DEBATES"
+  },
+  {
+   "claim": "Historians dispute whether the 1790 Nootka Sound Convention barred Britain from making future settlements in the South Atlantic.",
+   "topics": ["scholarly-disagreement", "treaty-text-vs-practice"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (4) DEBATES"
+  },
+  {
+   "claim": "Legal scholars dispute whether uti possidetis juris automatically transfers uninhabited colonial territory to a newly independent successor state.",
+   "topics": ["uti-possidetis-juris", "scholarly-disagreement"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (4) DEBATES"
+  },
+  {
+   "claim": "Early European sightings underlying rival \"first discovery\" claims to the islands are poorly documented and contested by historians.",
+   "topics": ["contested-attribution", "document-provenance"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (4) DEBATES"
+  },
+  {
+   "claim": "Modern disputes over the islands include oil-drilling rights in the North Falkland Basin and fishing concessions.",
+   "topics": ["resource-extraction-economy"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (7) MODERN RELEVANCE"
+  },
+  {
+   "claim": "Regional blocs Mercosur and CELAC regularly issue statements backing Argentina's call for sovereignty negotiations over the islands.",
+   "topics": ["sovereignty-recognition", "great-power-arbitration"],
+   "verbatim": null,
+   "source": "Wikipedia",
+   "status": "partial",
+   "anchor": "### (7) MODERN RELEVANCE"
+  }
+ ]
+}

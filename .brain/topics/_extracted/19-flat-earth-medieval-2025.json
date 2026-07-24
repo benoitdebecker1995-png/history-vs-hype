@@ -1,0 +1,241 @@
+{
+ "video": "19-flat-earth-medieval-2025",
+ "lifecycle": "_ARCHIVED",
+ "source_file": "video-projects/_ARCHIVED/published/19-flat-earth-medieval-2025/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "With extraordinary few exceptions, no educated person in Western civilization from the third century BC onward believed the Earth was flat.",
+   "topics": ["myth-origin-tracing", "historiographical-revision"],
+   "verbatim": "With extraordinary few exceptions no educated person in the history of Western Civilization from the third century B.C. onward believed that the earth was flat.",
+   "source": "Jeffrey Burton Russell, Inventing the Flat Earth (1991)",
+   "status": "verified",
+   "anchor": "### Claim 1.1: Medieval scholars universally accepted a spherical Earth"
+  },
+  {
+   "claim": "Scarcely any Christian scholar of the Middle Ages failed to acknowledge Earth's sphericity and even know its approximate circumference.",
+   "topics": ["myth-origin-tracing"],
+   "verbatim": "There was scarcely a Christian scholar of the Middle Ages who did not acknowledge [Earth's] sphericity and even know its approximate circumference.",
+   "source": "David Lindberg & Ronald Numbers, historians of science",
+   "status": "verified",
+   "anchor": "### Claim 1.1: Medieval scholars universally accepted a spherical Earth"
+  },
+  {
+   "claim": "From the seventh through the fourteenth century, every important medieval thinker on the natural world stated that the world was a round globe.",
+   "topics": ["myth-origin-tracing"],
+   "verbatim": "From the seventh century to the fourteenth, every important medieval thinker concerned about the natural world stated more or less explicitly that the world was a round globe.",
+   "source": "Stephen Jay Gould, \"The Late Birth of a Flat Earth\" (1994)",
+   "status": "verified",
+   "anchor": "### Claim 1.1: Medieval scholars universally accepted a spherical Earth"
+  },
+  {
+   "claim": "The Venerable Bede described the Earth as shaped like a ball, explicitly rejecting a flat, shield-like shape.",
+   "topics": ["myth-origin-tracing"],
+   "verbatim": "The earth is like a ball... not circular like a shield but rather like a ball, and it extends from its centre with perfect roundness on all sides",
+   "source": "Bede, De Temporum Ratione",
+   "status": "verified",
+   "anchor": "### Claim 1.1: Medieval scholars universally accepted a spherical Earth"
+  },
+  {
+   "claim": "Isidore of Seville described the Earth as 'orbis' in his Etymologiae, though scholars debate whether he meant a disc or a sphere.",
+   "topics": ["scholarly-disagreement", "myth-origin-tracing"],
+   "verbatim": "Described Earth as \"orbis\" (though some debate disc vs. sphere interpretation)",
+   "source": "Isidore of Seville, Etymologiae",
+   "status": "partial",
+   "anchor": "### Claim 1.1: Medieval scholars universally accepted a spherical Earth"
+  },
+  {
+   "claim": "Roger Bacon's thirteenth-century Opus Majus discussed the possibility of sailing west from Spain to reach Asia.",
+   "topics": ["myth-origin-tracing"],
+   "verbatim": "Discussed sailing west from Spain to Asia",
+   "source": "Roger Bacon, Opus Majus",
+   "status": "verified",
+   "anchor": "### Claim 1.1: Medieval scholars universally accepted a spherical Earth"
+  },
+  {
+   "claim": "Fourteenth-century scholar Jean Buridan discussed the possibility of Earth's rotation.",
+   "topics": ["myth-origin-tracing"],
+   "verbatim": "Discussed Earth's rotation",
+   "source": "Jean Buridan",
+   "status": "verified",
+   "anchor": "### Claim 1.1: Medieval scholars universally accepted a spherical Earth"
+  },
+  {
+   "claim": "Fourteenth-century scholar Nicole Oresme debated the evidence for Earth's daily rotation in Livre du ciel et du monde.",
+   "topics": ["myth-origin-tracing"],
+   "verbatim": "Debated evidence for daily Earth rotation",
+   "source": "Nicole Oresme, Livre du ciel et du monde",
+   "status": "verified",
+   "anchor": "### Claim 1.1: Medieval scholars universally accepted a spherical Earth"
+  },
+  {
+   "claim": "Christopher Columbus consulted Pierre d'Ailly's Imago Mundi, a work grounded in standard medieval spherical-Earth cosmology.",
+   "topics": ["myth-origin-tracing"],
+   "verbatim": "Columbus consulted this work",
+   "source": "Pierre d'Ailly, Imago Mundi",
+   "status": "verified",
+   "anchor": "### Claim 1.1: Medieval scholars universally accepted a spherical Earth"
+  },
+  {
+   "claim": "John of Sacrobosco's De Sphaera Mundi was required reading in every western European university for the next four hundred years.",
+   "topics": ["myth-origin-tracing"],
+   "verbatim": "was required reading by students in all western European universities for the next four hundred years.",
+   "source": "Mathematical Association of America",
+   "status": "verified",
+   "anchor": "### Claim 1.2: Sacrobosco's *De Sphaera Mundi* was the standard astronomy textbook"
+  },
+  {
+   "claim": "More than 300 manuscripts of Sacrobosco's De Sphaera Mundi survive, alongside 359 known printed editions issued after 1472.",
+   "topics": ["myth-origin-tracing", "document-provenance"],
+   "verbatim": "300+ surviving manuscripts",
+   "source": "Mathematical Association of America",
+   "status": "verified",
+   "anchor": "### Claim 1.2: Sacrobosco's *De Sphaera Mundi* was the standard astronomy textbook"
+  },
+  {
+   "claim": "In his 725 CE work, Bede explicitly taught the Earth's circumference formed the figure of a perfect globe rather than a flat shape.",
+   "topics": ["myth-origin-tracing"],
+   "verbatim": "We call the earth a globe, not as if the shape of a sphere were expressed in the diversity of plains and mountains, but because, if all things are included in the outline, the earth's circumference will represent the figure of a perfect globe",
+   "source": "Bede, De Temporum Ratione (725 CE)",
+   "status": "verified",
+   "anchor": "### Claim 1.3: The Venerable Bede explicitly taught spherical Earth in 725 CE"
+  },
+  {
+   "claim": "Dante's early fourteenth-century Divine Comedy depicts a spherical Earth, describing southern-hemisphere stars, a shifted sun position, and differing time zones.",
+   "topics": ["myth-origin-tracing"],
+   "verbatim": "The Purgatorio demonstrates the medieval knowledge of a spherical Earth. During the poem, Dante discusses the different stars visible in the Southern Hemisphere, the altered position of the Sun, and the various time zones of the Earth.",
+   "source": "Dante, Divine Comedy (c. 1320)",
+   "status": "verified",
+   "anchor": "### Claim 1.5: Dante's *Divine Comedy* (c. 1320) depicts spherical Earth"
+  },
+  {
+   "claim": "Thomas Aquinas treated Earth's sphericity as an uncontroversial fact he could use to illustrate other philosophical conclusions.",
+   "topics": ["myth-origin-tracing", "religious-legal-authority"],
+   "verbatim": "Both an astronomer and a physical scientist may demonstrate the same conclusion, for instance that the earth is spherical.",
+   "source": "Thomas Aquinas, Summa Theologica",
+   "status": "verified",
+   "anchor": "### Claim 1.6: Thomas Aquinas treated spherical Earth as uncontroversial fact"
+  },
+  {
+   "claim": "Historian Jeffrey Burton Russell identified only five flat-earthers across the entire medieval period, at least two of whom were ridiculed at the time for the belief.",
+   "topics": ["myth-origin-tracing", "contested-attribution"],
+   "verbatim": "at least two of whom were ridiculed during the Middle Ages for being so silly",
+   "source": "Russell",
+   "status": "verified",
+   "anchor": "### Claim 2.1: Only two identifiable medieval flat-earthers existed"
+  },
+  {
+   "claim": "Historian David Lindberg identified Cosmas Indicopleustes as the only medieval European known to have defended a flat-earth cosmology.",
+   "topics": ["myth-origin-tracing", "source-transmission-chain"],
+   "verbatim": "Cosmas is, in fact, the only medieval European known to have defended a flat earth cosmology.",
+   "source": "David C. Lindberg",
+   "status": "verified",
+   "anchor": "### Claim 2.2: Cosmas Indicopleustes was unknown in medieval Western Europe"
+  },
+  {
+   "claim": "Lactantius, an early Christian rhetorician who rejected Greek philosophy and a spherical Earth, was deemed heretical by Church Fathers and his work was ignored until the Renaissance.",
+   "topics": ["myth-origin-tracing", "religious-legal-authority"],
+   "verbatim": "His views were considered heresy by the Church Fathers and his work was ignored until the Renaissance.",
+   "source": "Lactantius, Divine Institutes",
+   "status": "verified",
+   "anchor": "### Claim 2.3: Lactantius was considered heretical and ignored"
+  },
+  {
+   "claim": "Washington Irving's romanticized 1828 Columbus biography invented a scene of clerics rejecting Columbus's voyage on flat-Earth grounds, a scene that never occurred.",
+   "topics": ["myth-origin-tracing", "nineteenth-century-historiography-invention"],
+   "verbatim": "included invented scenes of Columbus facing an inquisitorial council at Salamanca where supposedly ignorant clerics and scholars opposed his voyage on the grounds that Earth was flat and Columbus would sail off the edge. This dramatic scene never occurred.",
+   "source": "Washington Irving, A History of the Life and Voyages of Christopher Columbus (1828)",
+   "status": "verified",
+   "anchor": "### Claim 3.1: Washington Irving invented the Columbus flat-earth story in 1828"
+  },
+  {
+   "claim": "Even Irving's own 1828 biography acknowledged the real Columbus-era dispute concerned distance to Asia rather than Earth's shape.",
+   "topics": ["myth-origin-tracing"],
+   "verbatim": null,
+   "source": "Washington Irving, A History of the Life and Voyages of Christopher Columbus (1828)",
+   "status": "partial",
+   "anchor": "### Claim 3.1: Washington Irving invented the Columbus flat-earth story in 1828"
+  },
+  {
+   "claim": "French academic Antoine-Jean Letronne misrepresented Church Fathers as flat-Earth believers in his 1834 anti-religious work on their cosmography.",
+   "topics": ["myth-origin-tracing", "nineteenth-century-historiography-invention", "propaganda-and-narrative-control"],
+   "verbatim": "In 1834, Jean Antoine Letronne, a French academic of strong antireligious ideas, misrepresented the Church Fathers and their medieval successors as believing in a flat Earth in his work 'On the Cosmographical Ideas of the Church Fathers.'",
+   "source": "Letronne, \"On the Cosmographical Ideas of the Church Fathers\" (1834)",
+   "status": "verified",
+   "anchor": "### Claim 3.2: Antoine-Jean Letronne misrepresented Church Fathers in 1834"
+  },
+  {
+   "claim": "John William Draper's 1874 book, which embedded the flat-Earth myth in a science-versus-religion conflict thesis, went through fifty editions in fifty years.",
+   "topics": ["myth-origin-tracing", "nineteenth-century-historiography-invention", "propaganda-and-narrative-control"],
+   "verbatim": "Book went through 50 editions in 50 years",
+   "source": "John William Draper, History of the Conflict Between Religion and Science (1874)",
+   "status": "verified",
+   "anchor": "### Claim 3.3: Draper and White codified the myth (1874, 1896)"
+  },
+  {
+   "claim": "Andrew Dickson White wrote his 1896 warfare-thesis history partly in response to religious criticism of Cornell University's non-sectarian founding.",
+   "topics": ["myth-origin-tracing", "nineteenth-century-historiography-invention"],
+   "verbatim": "Wrote in response to religious criticism of Cornell's non-sectarian founding",
+   "source": "Andrew Dickson White, A History of the Warfare of Science with Theology in Christendom (1896)",
+   "status": "verified",
+   "anchor": "### Claim 3.3: Draper and White codified the myth (1874, 1896)"
+  },
+  {
+   "claim": "Historian Ronald Numbers concluded that Draper's and White's historical accounts function more as propaganda than accurate history.",
+   "topics": ["historiographical-revision", "propaganda-and-narrative-control"],
+   "verbatim": "Historians of science have known for years that White's and Draper's accounts are more propaganda than history.",
+   "source": "Ronald Numbers",
+   "status": "verified",
+   "anchor": "### Claim 3.3: Draper and White codified the myth (1874, 1896)"
+  },
+  {
+   "claim": "Russell's survey of nineteenth-century textbooks found the flat-earth myth spread into general culture between 1860 and 1890, appearing in almost all texts after 1880.",
+   "topics": ["myth-origin-tracing", "nineteenth-century-historiography-invention"],
+   "verbatim": "very few mentioned the flat-earth myth before 1870, but that almost all texts after 1880 featured the legend",
+   "source": "Russell's survey of 19th-century history texts",
+   "status": "verified",
+   "anchor": "### Claim 3.4: The myth spread through schools between 1860-1890"
+  },
+  {
+   "claim": "Jeffrey Burton Russell's 1991 book concluded neither Columbus nor his contemporaries believed the Earth was flat.",
+   "topics": ["myth-origin-tracing", "historiographical-revision"],
+   "verbatim": "Neither Columbus nor his contemporaries thought Earth was flat",
+   "source": "Russell, Inventing the Flat Earth: Columbus and Modern Historians (1991)",
+   "status": "verified",
+   "anchor": "### Claim 4.1: Jeffrey Burton Russell definitively debunked the myth in 1991"
+  },
+  {
+   "claim": "Stephen Jay Gould concluded there was never a period of flat-Earth darkness among scholars, since Greek knowledge of sphericity never faded through the medieval period.",
+   "topics": ["myth-origin-tracing", "historiographical-revision"],
+   "verbatim": "There never was a period of 'flat Earth darkness' among scholars... Greek knowledge of sphericity never faded, and all major medieval scholars accepted the Earth's roundness as an established fact of cosmology.",
+   "source": "Stephen Jay Gould, \"The Late Birth of a Flat Earth\", in Dinosaur in a Haystack (1996)",
+   "status": "verified",
+   "anchor": "### Claim 4.2: Stephen Jay Gould confirmed Russell's findings (1994)"
+  },
+  {
+   "claim": "A 2009 scholarly anthology edited by Ronald Numbers concluded no one believed the Earth was flat during the Middle Ages.",
+   "topics": ["myth-origin-tracing", "historiographical-revision"],
+   "verbatim": "The book makes the case that no one believed the Earth was flat in the Middle Ages.",
+   "source": "Galileo Goes to Jail anthology, ed. Ronald Numbers, Chapter 3 by Lesley B. Cormack",
+   "status": "verified",
+   "anchor": "### Claim 4.3: *Galileo Goes to Jail* anthology (2009) includes chapter on flat-earth myth"
+  },
+  {
+   "claim": "The Greek scholar Eratosthenes calculated Earth's circumference around the third century BCE with remarkable accuracy.",
+   "topics": ["ancient-source-reliability", "myth-origin-tracing"],
+   "verbatim": "Calculated Earth's circumference (remarkably accurate)",
+   "source": "Eratosthenes (c. 276-194 BCE)",
+   "status": "verified",
+   "anchor": "### Claim 6.1: Spherical Earth was established by Greeks in 6th century BCE"
+  },
+  {
+   "claim": "Greek knowledge of Earth's sphericity was continuously transmitted through Late Antiquity and the medieval period, never lapsing into a period of ignorance.",
+   "topics": ["source-transmission-chain", "ancient-source-reliability"],
+   "verbatim": "Greek knowledge of sphericity never faded, and all major medieval scholars accepted the Earth's roundness as an established fact of cosmology.",
+   "source": "Stephen Jay Gould",
+   "status": "verified",
+   "anchor": "### Claim 6.2: Greek knowledge was preserved through Late Antiquity and Middle Ages"
+  }
+ ]
+}

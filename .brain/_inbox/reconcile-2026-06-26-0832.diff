@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-06-26T13:32:26.851651+00:00",
+  "moves": [],
+  "backups": [
+    {
+      "path": "D:\\History vs Hype\\video-projects\\_ARCHIVED\\published\\52-hijab-women-rights-2026\\PROJECT-STATUS.md",
+      "pre_diff": "D:\\History vs Hype\\video-projects\\_ARCHIVED\\published\\52-hijab-women-rights-2026\\PROJECT-STATUS.md.pre-diff"
+    },
+    {
+      "path": "D:\\History vs Hype\\video-projects\\PROJECT_STATUS.md",
+      "pre_diff": "D:\\History vs Hype\\video-projects\\PROJECT_STATUS.md.pre-diff"
+    },
+    {
+      "path": "D:\\History vs Hype\\video-projects\\PROJECT_REGISTRY.md",
+      "pre_diff": "D:\\History vs Hype\\video-projects\\PROJECT_REGISTRY.md.pre-diff"
+    },
+    {
+      "path": "D:\\History vs Hype\\.brain\\index.md",
+      "pre_diff": "D:\\History vs Hype\\.brain\\index.md.pre-diff"
+    }
+  ],
+  "proposals": [
+    {
+      "kind": "edit-auto-block",
+      "folder": "D:\\History vs Hype\\video-projects\\_ARCHIVED\\published\\52-hijab-women-rights-2026",
+      "target_bucket": "_ARCHIVED/published",
+      "video_id": "mCR5f_ZcB5k",
+      "video_title": "The Hijab Was a Status Symbol, Not a Religious Rule",
+      "target_status": "PUBLISHED",
+      "score": 1.0,
+      "confidence": "high"
+    }
+  ]
+}

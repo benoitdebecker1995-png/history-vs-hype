@@ -1,46 +1,47 @@
 <!-- AUTO:reconcile-dashboard — regenerated each run, do not edit -->
-Last reconciled: 2026-06-08
+Last reconciled: 2026-07-05
 
 ## Lifecycle counts
 
 | Bucket | Count |
 |---|---|
-| `_IN_PRODUCTION/` (pre-script / scripting / fact-check) | 1 |
-| `_READY_TO_FILM/` (script-locked / filmed / in-post, pre-publish) | 2 |
-| `_ARCHIVED/published/` (YouTube confirmed) | 32 |
+| `_IN_PRODUCTION/` (pre-script / scripting / fact-check) | 4 |
+| `_READY_TO_FILM/` (script-locked / filmed / in-post, pre-publish) | 1 |
+| `_ARCHIVED/published/` (YouTube confirmed) | 34 |
 
 ## In production
 
 | Folder | Phase |
 |---|---|
-| `59-israel-palestine-partition-offer-2026` | fact-checked |
+| `36-panama-canal-deconcini-2026` | fact-checked |
+| `60-guadalupe-hidalgo-dispossession-2026` | fact-checked |
+| `61-spanish-colonization-black-legend-2026` | research |
+| `62-volhynia-massacre-untranslated-2026` | research |
 
 ## Ready to film / filmed pre-publish
 
 | Folder | Phase |
 |---|---|
-| `1-sykes-picot-2025` | filmed |
 | `58-kurdistan-statelessness-2026` | fact-checked |
 
 ## Recently published (last 60 days)
 
 | Published | Folder | Video ID | Title |
 |---|---|---|---|
+| 2026-07-05 | `59-israel-palestine-partition-offer-2026` | `OHWq4jY8iAY` | Israel vs Palestine: They Argue About This Plan. Almost Nobo |
 | 2026-06-04 | `57-piri-reis-map-ottoman-2026` | `zt7VntgauC8` | The Piri Reis Map Cites Columbus. Hancock Calls It 12,000 Ye |
-| 2026-05-28 | `56-no-lassos-atlantic-slave-trade-origin-2026` | `aSfZtrgGjwA` | Yes Slavery Existed In Africa. Then Europe Took Over |
-| 2026-05-20 | `52-hijab-women-rights-2026` | `mCR5f_ZcB5k` | The Hijab Wasn't Modesty. It Was a Property Law |
+| 2026-05-28 | `56-no-lassos-atlantic-slave-trade-origin-2026` | `aSfZtrgGjwA` | They Didn't Just Buy Slaves. They Built the System. |
+| 2026-05-20 | `52-hijab-women-rights-2026` | `mCR5f_ZcB5k` | The Hijab Was Never About Modesty. A 3,200-Year-Old Law Prov |
 | 2026-05-14 | `54-spanish-inquisition-torture-rules-2026` | `rbsdtveYvv0` | The Spanish Inquisition Documented Its Torture Methods. Most |
-| 2026-05-08 | `45-manhattan-purchase-myth-2026` | `mg6ujk6rDVE` | The Lenape Never Sold Manhattan. Every Piece Was Forged |
-| 2026-04-30 | `51-treaty-tripoli-article-11-2026` | `liW4BSh46DU` | Treaty of Tripoli: The Most-Cited Line Isn’t in the Arabic T |
-| 2026-04-16 | `44-bakassi-peninsula-2026` | `MXvTuHXSf3o` | Nigeria vs Cameroon. The Court Chose Paper Over People |
-| 2026-04-11 | `50-thermopylae-sources-2026` | `yetYD9_VcmM` | The Myths of Thermopylae: Fake Quotes & Missing Soldiers |
+| 2026-05-08 | `45-manhattan-purchase-myth-2026` | `mg6ujk6rDVE` | The $24 Manhattan Myth: A 19th-Century Fraud |
 
-## All archived (32 folders)
+## All archived (34 folders)
 
 _Full list in `_ARCHIVED/published/`. Reverse-chronological by publish date below._
 
 | Published | Folder | Video ID |
 |---|---|---|
+| 2026-07-05 | `59-israel-palestine-partition-offer-2026` | `OHWq4jY8iAY` |
 | 2026-06-04 | `57-piri-reis-map-ottoman-2026` | `zt7VntgauC8` |
 | 2026-05-28 | `56-no-lassos-atlantic-slave-trade-origin-2026` | `aSfZtrgGjwA` |
 | 2026-05-20 | `52-hijab-women-rights-2026` | `mCR5f_ZcB5k` |
@@ -66,6 +67,7 @@ _Full list in `_ARCHIVED/published/`. Reverse-chronological by publish date belo
 | 2025-12-04 | `13-belize-icj-endgame-2025` | `XbGl1Kcspt4` |
 | 2025-11-27 | `4-crusades-fact-check-2025` | `VyPv2n4mii8` |
 | 2025-11-20 | `3-fuentes-fact-check-2025` | `BNEEAD--Y3c` |
+| 2025-11-13 | `1-sykes-picot-2025` | `BXyT8OTGBBo` |
 | 2025-11-08 | `28-vance-part-2-review-2025` | `FvqALriDCv4` |
 | 2025-10-24 | `17-viking-laws-gragas-2025` | `2RQWu-cyO90` |
 | 2025-10-10 | `27-peru-2025` | `6GybGd_q25w` |

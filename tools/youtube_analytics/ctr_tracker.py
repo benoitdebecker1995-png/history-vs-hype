@@ -26,6 +26,7 @@ import sys
 import sqlite3
 import argparse
 from pathlib import Path
+from dataclasses import dataclass
 from datetime import date, datetime, timezone
 from typing import Dict, List, Tuple, Optional
 
@@ -60,7 +61,7 @@ def get_previous_snapshot(conn: sqlite3.Connection,
     """
     # Find the most recent snapshot date before today
     row = conn.execute(
-        "SELECT MAX(snapshot_date) FROM ctr_snapshots WHERE snapshot_date < ?",
+        "SELECT MAX(snapshot_date) FROM ctr_snapshots WHERE snapshot_date < ? AND is_valid = 1",
         (before_date,)
     ).fetchone()
 
@@ -70,7 +71,7 @@ def get_previous_snapshot(conn: sqlite3.Connection,
 
     rows = conn.execute(
         "SELECT video_id, view_count, ctr_percent, impression_count, snapshot_date "
-        "FROM ctr_snapshots WHERE snapshot_date = ?",
+        "FROM ctr_snapshots WHERE snapshot_date = ? AND is_valid = 1",
         (prev_date,)
     ).fetchall()
 
@@ -80,7 +81,7 @@ def get_previous_snapshot(conn: sqlite3.Connection,
 def get_latest_snapshot(conn: sqlite3.Connection) -> Dict[str, dict]:
     """Get the most recent snapshot (any date)."""
     row = conn.execute(
-        "SELECT MAX(snapshot_date) FROM ctr_snapshots"
+        "SELECT MAX(snapshot_date) FROM ctr_snapshots WHERE is_valid = 1"
     ).fetchone()
 
     latest_date = row[0] if row else None
@@ -89,7 +90,7 @@ def get_latest_snapshot(conn: sqlite3.Connection) -> Dict[str, dict]:
 
     rows = conn.execute(
         "SELECT video_id, view_count, ctr_percent, impression_count, snapshot_date "
-        "FROM ctr_snapshots WHERE snapshot_date = ?",
+        "FROM ctr_snapshots WHERE snapshot_date = ? AND is_valid = 1",
         (latest_date,)
     ).fetchall()
 
@@ -105,7 +106,7 @@ def get_two_most_recent_snapshots(conn: sqlite3.Connection
     """
     dates = conn.execute(
         "SELECT DISTINCT snapshot_date FROM ctr_snapshots "
-        "ORDER BY snapshot_date DESC LIMIT 2"
+        "WHERE is_valid = 1 ORDER BY snapshot_date DESC LIMIT 2"
     ).fetchall()
 
     if len(dates) < 2:
@@ -118,13 +119,13 @@ def get_two_most_recent_snapshots(conn: sqlite3.Connection
 
     latest_rows = conn.execute(
         "SELECT video_id, view_count, ctr_percent, impression_count, snapshot_date "
-        "FROM ctr_snapshots WHERE snapshot_date = ?",
+        "FROM ctr_snapshots WHERE snapshot_date = ? AND is_valid = 1",
         (latest_date,)
     ).fetchall()
 
     prev_rows = conn.execute(
         "SELECT video_id, view_count, ctr_percent, impression_count, snapshot_date "
-        "FROM ctr_snapshots WHERE snapshot_date = ?",
+        "FROM ctr_snapshots WHERE snapshot_date = ? AND is_valid = 1",
         (prev_date,)
     ).fetchall()
 
@@ -164,13 +165,120 @@ def store_snapshot(conn: sqlite3.Connection, video_id: str,
 REACH_JOB_REPORT_TYPE = 'channel_reach_basic_a1'
 
 
+def _dedup_reports_by_interval(reports: list) -> list:
+    """One report per reporting interval — the newest generated — newest date first.
+
+    YouTube regenerates reach reports for the same day, so `reports` can hold
+    several objects sharing a (startTime, endTime) interval. The aggregation loop
+    SUMS impressions across whatever it's given, so feeding it duplicates double-
+    counts: observed 2026-07 when #59's 30-day rolling impressions (20,919) came
+    out ABOVE its lifetime Studio total (10,925) — physically impossible. Keep
+    only the report with the latest createTime per interval before windowing.
+    """
+    by_interval: Dict[tuple, dict] = {}
+    for r in reports:
+        key = (r.get('startTime', ''), r.get('endTime', ''))
+        prev = by_interval.get(key)
+        if prev is None or r.get('createTime', '') > prev.get('createTime', ''):
+            by_interval[key] = r
+    return sorted(by_interval.values(), key=lambda r: r.get('endTime', ''), reverse=True)
+
+
+def _load_studio_lifetime() -> Tuple[Dict[str, dict], Optional["date"]]:
+    """Return ({video_id: {impressions}}, export_date) from the latest Studio
+    import, or ({}, None) if none exists.
+
+    Wired to the Studio importer (studio_ctr_imports/rows) once that lands. Until
+    then it returns empty, so the lifetime comparison in take_snapshot skips
+    gracefully while the internal invariants (non-negative, CTR range) still run.
+    """
+    try:
+        from tools.youtube_analytics.store import AnalyticsStore
+        with AnalyticsStore.open() as store:
+            if hasattr(store, "latest_studio_lifetime"):
+                return store.latest_studio_lifetime()
+    except Exception as e:  # importer/table not present yet — skip, don't fail
+        logger.debug("No Studio lifetime source available: %s", e)
+    return {}, None
+
+
+@dataclass
+class ValidationResult:
+    """Outcome of validating a rolling CTR map before it is snapshotted."""
+    ok: bool
+    failures: List[str]          # hard invariant breaches — abort the snapshot
+    unverified: List[str]        # video_ids with no lifetime reference to check
+    warnings: List[str]          # non-fatal (e.g. stale Studio export skipped)
+
+
+def validate_rolling_against_lifetime(
+    rolling: Dict[str, dict],
+    lifetime: Dict[str, dict],
+    *,
+    studio_as_of: "date",
+    reporting_window_end: "date",
+) -> ValidationResult:
+    """Hard-guard the rolling CTR map before it is written.
+
+    The invariant that matters: rolling (≤30-day) impressions can never exceed
+    lifetime impressions. When it does, the collector is double-counting (the
+    2026-07 regression: #59 rolling 20,919 > lifetime 10,925). Integer counts,
+    so no tolerance.
+
+    The lifetime comparison is OPPORTUNISTIC — Studio exports are manual. It runs
+    only when `studio_as_of >= reporting_window_end` (an older export can be
+    legitimately overtaken by newer reporting and must not raise a false alarm);
+    otherwise it is skipped with a warning. Videos absent from `lifetime` are
+    reported `unverified`, never assumed valid or invalid.
+
+    Internal invariants (always checked, no lifetime needed): non-negative
+    impressions, CTR in [0, 100].
+    """
+    failures: List[str] = []
+    unverified: List[str] = []
+    warnings: List[str] = []
+
+    for vid, d in rolling.items():
+        imp = d.get('impression_count', 0)
+        ctr = d.get('ctr_percent', 0.0)
+        if imp < 0:
+            failures.append(f"{vid}: negative impressions ({imp})")
+        if not (0.0 <= ctr <= 100.0):
+            failures.append(f"{vid}: CTR out of range ({ctr})")
+
+    if studio_as_of < reporting_window_end:
+        warnings.append(
+            f"Studio export ({studio_as_of}) predates reporting window end "
+            f"({reporting_window_end}); skipping lifetime comparison."
+        )
+    else:
+        for vid, d in rolling.items():
+            life = lifetime.get(vid)
+            if life is None:
+                unverified.append(vid)
+                continue
+            r_imp = d.get('impression_count', 0)
+            l_imp = life.get('impression_count', life.get('impressions', 0))
+            if r_imp > l_imp:
+                failures.append(
+                    f"{vid}: rolling impressions {r_imp} > lifetime {l_imp} "
+                    "(collector double-count)"
+                )
+
+    return ValidationResult(
+        ok=not failures, failures=failures, unverified=unverified, warnings=warnings,
+    )
+
+
 def fetch_ctr_from_reach_reports(video_ids: set) -> Dict[str, dict]:
     """
     Fetch CTR data from YouTube Reporting API reach reports.
 
-    Downloads the most recent bulk CSV report (channel_reach_basic_a1) which
-    contains per-video, per-day impressions and CTR. Aggregates across all
-    days to get lifetime CTR per video.
+    Downloads the most recent bulk CSV reports (channel_reach_basic_a1), each
+    covering one day, and aggregates the 30 most recent (see report_list[:30]
+    below) into an impression-weighted CTR per video. This is a ROLLING ~30-DAY
+    figure, NOT lifetime — it moves as the window slides, so downstream must not
+    treat it as a stable cumulative number.
 
     Returns dict of {video_id: {ctr_percent, impression_count}}.
     Returns empty dict if no reports are available yet.
@@ -198,13 +306,9 @@ def fetch_ctr_from_reach_reports(video_ids: set) -> Dict[str, dict]:
                        "'name': 'CTR Reach Report'})", REACH_JOB_REPORT_TYPE)
         return {}
 
-    # List available reports, sorted by date descending
+    # List available reports, dedup by interval, sort newest date first
     reports = reporting.jobs().reports().list(jobId=reach_job['id']).execute()
-    report_list = sorted(
-        reports.get('reports', []),
-        key=lambda r: r.get('endTime', ''),
-        reverse=True
-    )
+    report_list = _dedup_reports_by_interval(reports.get('reports', []))
 
     if not report_list:
         logger.info("No reach reports available yet (job created recently, "
@@ -341,6 +445,30 @@ def take_snapshot() -> Tuple[int, str]:
     # Fetch CTR metrics from Reporting API bulk reports
     logger.info("Fetching CTR from Reporting API reach reports...")
     ctr_map = fetch_ctr_from_reach_reports(set(longform_ids))
+
+    # Guard: never write a snapshot that fails the invariants. Validate BEFORE
+    # any insert so the "today already exists" guard can't lock a broken snapshot
+    # in place (a partial insert would block the next clean run).
+    lifetime, studio_as_of_raw = _load_studio_lifetime()
+    # latest_studio_lifetime returns exported_at as a stored string; the validator
+    # compares dates, so coerce here at the seam.
+    try:
+        studio_as_of = date.fromisoformat(studio_as_of_raw) if studio_as_of_raw else date.today()
+    except (TypeError, ValueError):
+        studio_as_of = date.today()
+    validation = validate_rolling_against_lifetime(
+        ctr_map, lifetime,
+        studio_as_of=studio_as_of,
+        reporting_window_end=date.today(),
+    )
+    for w in validation.warnings:
+        logger.warning("CTR validation: %s", w)
+    if not validation.ok:
+        for f in validation.failures:
+            logger.error("CTR validation FAILED: %s", f)
+        logger.error("Aborting snapshot for %s — no rows written.", today)
+        conn.close()
+        return 0, today
 
     # Store snapshots with CTR data where available
     stored = 0
@@ -617,7 +745,7 @@ run `python -m tools.youtube_analytics.auth` interactively to re-authorize.
         latest_data = {}
         rows = conn.execute(
             "SELECT video_id, view_count, ctr_percent, impression_count, snapshot_date "
-            "FROM ctr_snapshots WHERE snapshot_date = ?",
+            "FROM ctr_snapshots WHERE snapshot_date = ? AND is_valid = 1",
             (today,)
         ).fetchall()
         latest_data = {r['video_id']: dict(r) for r in rows}

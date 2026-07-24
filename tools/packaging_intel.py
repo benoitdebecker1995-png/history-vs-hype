@@ -446,6 +446,126 @@ def scan_competitor_outliers(
 
 
 # =============================================================================
+# VidIQ outlier cache-refresh (official API → intel.db)
+# =============================================================================
+
+def refresh_outliers_from_vidiq(
+    videos: List[Dict[str, Any]],
+    db_path: str = None,
+    category_by_channel: Optional[Dict[str, str]] = None,
+) -> Dict[str, Any]:
+    """
+    Upsert VidIQ `vidiq_outliers` results into intel.db `competitor_videos`.
+
+    MCP tools can't be called from Python, so the agent calls `vidiq_outliers`
+    (/greenlight Step 0D) and passes the returned `videos` array here. This
+    refreshes the same table the RSS scraper writes, so every existing consumer
+    (`get_topic_viability`, `scan_competitor_outliers`, Step 0D) reads fresh,
+    non-bot-walled data with no other change. Official API replaces the
+    yt-dlp path that gets 429/botcheck-walled (ADR-0013).
+
+    Args:
+        videos: the `videos` list from vidiq_outliers output. VidIQ keys:
+                videoId, channelId, videoTitle, viewCount, breakoutScore,
+                videoDuration, videoPublishedAt (unix seconds), videoTopics
+                (list), channelTitle, subscriberCount.
+        db_path: intel.db path (default: auto-detect).
+        category_by_channel: optional {channel_id: 'style-match'|...} to tag
+                newly-inserted competitor_channels rows (from
+                competitor_channels.json). Never overwrites an existing tag.
+
+    Returns {'written': int, 'channels': int, 'errors': [str]}. Never raises.
+    """
+    path = db_path or str(_INTEL_DB)
+    cat = category_by_channel or {}
+    written = 0
+    channels = set()
+    errors: List[str] = []
+
+    if not videos:
+        return {'written': 0, 'channels': 0, 'errors': ['no videos supplied']}
+
+    try:
+        conn = sqlite3.connect(path)
+        cur = conn.cursor()
+        now = datetime.now(timezone.utc).isoformat()
+        for v in videos:
+            try:
+                vid = v.get('videoId')
+                if not vid:
+                    continue
+                ch = v.get('channelId')
+                ts = v.get('videoPublishedAt')
+                if isinstance(ts, (int, float)):
+                    pub = datetime.fromtimestamp(ts, tz=timezone.utc).isoformat()
+                else:
+                    pub = str(ts or '')
+                topic_cluster = json.dumps(v.get('videoTopics') or [])
+
+                # Upsert channel (minimal). ON CONFLICT preserves an existing
+                # niche_category (only channel_name/subs refreshed).
+                if ch:
+                    cur.execute(
+                        """
+                        INSERT INTO competitor_channels
+                            (channel_id, channel_name, subscriber_count, niche_category, track_active, added_at)
+                        VALUES (?, ?, ?, ?, 1, ?)
+                        ON CONFLICT(channel_id) DO UPDATE SET
+                            channel_name=excluded.channel_name,
+                            subscriber_count=excluded.subscriber_count
+                        """,
+                        (ch, v.get('channelTitle') or ch, v.get('subscriberCount'), cat.get(ch), now),
+                    )
+                    channels.add(ch)
+
+                # Everything vidiq_outliers returns already passed its outlier
+                # filter → is_outlier=1, breakoutScore is the ratio. ON CONFLICT
+                # preserves scraper-only fields (likes, description).
+                cur.execute(
+                    """
+                    INSERT INTO competitor_videos
+                        (video_id, channel_id, title, published_at, views, duration_seconds,
+                         is_outlier, outlier_reason, outlier_ratio, topic_cluster, fetched_at)
+                    VALUES (?, ?, ?, ?, ?, ?, 1, 'vidiq_breakout', ?, ?, ?)
+                    ON CONFLICT(video_id) DO UPDATE SET
+                        title=excluded.title,
+                        views=excluded.views,
+                        published_at=excluded.published_at,
+                        duration_seconds=excluded.duration_seconds,
+                        is_outlier=excluded.is_outlier,
+                        outlier_reason=excluded.outlier_reason,
+                        outlier_ratio=excluded.outlier_ratio,
+                        topic_cluster=excluded.topic_cluster,
+                        fetched_at=excluded.fetched_at
+                    """,
+                    (vid, ch, v.get('videoTitle') or '', pub, v.get('viewCount'),
+                     v.get('videoDuration'), v.get('breakoutScore'), topic_cluster, now),
+                )
+                written += 1
+            except Exception as e:
+                errors.append(f"{v.get('videoId', '?')}: {e}")
+        conn.commit()
+        conn.close()
+    except Exception as e:
+        logger.warning("VidIQ outlier refresh failed: %s", e)
+        return {'written': written, 'channels': len(channels), 'errors': errors + [str(e)]}
+
+    return {'written': written, 'channels': len(channels), 'errors': errors}
+
+
+def _category_map_from_config() -> Dict[str, str]:
+    """Best-effort {channel_id: niche_category} from competitor_channels.json."""
+    try:
+        from tools.intel.competitor_tracker import load_channel_config
+        channels = load_channel_config()
+        if isinstance(channels, dict):  # error dict
+            return {}
+        return {c['id']: c.get('category', '') for c in channels if c.get('id')}
+    except Exception:
+        return {}
+
+
+# =============================================================================
 # Title scorer integration
 # =============================================================================
 
@@ -487,9 +607,29 @@ def main():
     parser.add_argument('query', nargs='?', help='Topic to evaluate')
     parser.add_argument('--scan-competitors', action='store_true',
                         help='Scan for recent competitor outliers')
+    parser.add_argument('--refresh-from-vidiq', metavar='PATH',
+                        help='Upsert a saved vidiq_outliers JSON (full output or bare list) into intel.db')
     parser.add_argument('--json', action='store_true', help='Output as JSON')
 
     args = parser.parse_args()
+
+    if args.refresh_from_vidiq:
+        try:
+            with open(args.refresh_from_vidiq, 'r', encoding='utf-8') as f:
+                payload = json.load(f)
+        except Exception as e:
+            print(f"ERROR reading {args.refresh_from_vidiq}: {e}", file=sys.stderr)
+            sys.exit(2)
+        videos = payload.get('videos', payload) if isinstance(payload, dict) else payload
+        result = refresh_outliers_from_vidiq(videos, category_by_channel=_category_map_from_config())
+        if args.json:
+            print(json.dumps(result, indent=2))
+        else:
+            print(f"VidIQ outlier refresh: {result['written']} videos, "
+                  f"{result['channels']} channels upserted.")
+            for err in result['errors']:
+                print(f"  ! {err}")
+        return
 
     if args.scan_competitors:
         outliers = scan_competitor_outliers()

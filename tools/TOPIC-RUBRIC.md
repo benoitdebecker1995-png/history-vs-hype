@@ -30,7 +30,7 @@ v2 therefore: adds gates (identity, demand floor), adds topicality (20%), upgrad
 
 | Weight | Dimension | Scoring | Source / tool | Evidence tier |
 |---|---|---|---|---|
-| **30%** | VidIQ Overall Keyword Score (0–100) | Direct | VidIQ keyword output prefix number. Never hand-build vol×comp transforms. | VALIDATED methodology (VidIQ published composite) |
+| **30%** | VidIQ Overall Keyword Score (0–100) | Direct | `vidiq_keyword_research(keyword, mode="research")` MCP → `overallScore` (or the in-app keyword prefix number). Never hand-build vol×comp transforms. | VALIDATED methodology (VidIQ published composite) |
 | **20%** | Topicality / live-hook strength | Verified active hook (dispute/ruling/claim live NOW) = 100 · credible dated upcoming event or major anniversary ≤6 mo = 50 · evergreen = 0 | `news_hook_monitor.py` + mandatory web verification of date AND content | All 4 breakouts had one; stall cohort had none (D1, n=57). Formal ≥3x test pending = H1 |
 | **25%** | Whitespace (shelf × angle) | Quality English explainer exists AND serves the doc-forensic angle = 0 · shelf exists but primary-doc/legal/admin angle unserved = 50 · no quality English coverage of the topic = 100 | Live SERP scan: `serp_title_study.py --slug X --query "..."` + top-result skim. Live SERP beats static intel corpus (corpus-refresh mechanics). | D4 corpus map + B1 pocket forensics (the one organic breakout was a zero-coverage topic) |
 | **10%** | Title CTR format fit | VidIQ Channel CTR score for the natural title format; if untested, cross-batch format average flagged **ESTIMATED** | VidIQ | HEDGE — construction explained little Gate-1 variance (scorer rejected the #1 and #3 videos) |

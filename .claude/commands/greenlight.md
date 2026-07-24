@@ -93,6 +93,10 @@ COMPETITOR LANDSCAPE:
   GAP: Nobody covers the specific treaty clauses or original documents
 ```
 
+**0A-bis. VidIQ MCP competitor/trend enrichment (`--full` + ad-hoc; skip on quick checks)**
+
+If the VidIQ MCP is connected (`docs/VIDIQ-MCP-SETUP.md`), use it for what we have no other tool for: competitor/channel research and trend discovery. This is **enrichment** — it sharpens Step 0's landscape, it does **not** decide anything. Any VidIQ title/thumbnail score it volunteers goes to the packaging-lock ENRICHMENT line only and is **clickbait-guarded** (rejected if it trips `title_scorer`'s brand gate or the CTR kill-list). Costs 5 credits/call (Boost tier — headroom). If unreachable/out of credits, fall back to the 0A web scan + manual in-app VidIQ; note it and continue.
+
 **0B. NotebookLM Packaging Intelligence (if packaging notebook exists)**
 
 Query the packaging intelligence notebook (see setup guide: `tools/PACKAGING-NOTEBOOK-GUIDE.md`):
@@ -126,12 +130,20 @@ This angle recommendation feeds directly into Step 2 (Title Generation) — titl
 
 A topic YouTube is actively pushing for small channels gets the impression test that Gate-2 packaging needs. Surface what's breaking out in the niche *right now* and whether this topic-cluster is among it:
 
+**VidIQ refresh (preferred — official API, not bot-walled):** if the VidIQ MCP is connected, first refresh the outlier cache from the official API (the tracked competitor set is the repo's `style-match` + `broad-history` tiers, synced 2026-07-01 — ADR-0013). Call `vidiq_outliers(channelIds=<tracked or a broad-history subset>, contentType="long", publishedWithin="threeMonths", minOutlierScore=2)`, save the JSON, and upsert it into intel.db so the scanners below read fresh data:
+
 ```bash
-python -m tools.packaging_intel --scan-competitors        # recent niche-wide 3x+ outliers (last 90 days)
+python -m tools.packaging_intel --refresh-from-vidiq <saved-vidiq-outliers.json>
+```
+
+This replaces the yt-dlp scrape that gets 429/botcheck-walled. If the MCP is unreachable/out of credits, skip it and fall back to the scraped cache (note it and continue).
+
+```bash
+python -m tools.packaging_intel --scan-competitors        # recent niche-wide 2x+ outliers (last 90 days)
 python -m tools.packaging_intel "<topic>"                 # topic-specific: competitor outlier_count + top match
 ```
 
-The scanner is recency-filtered (last 90 days) — these are live boosts, not all-time hits. `get_topic_viability`'s `competitor_signal.outlier_count` tells you if *this* topic-cluster has recent outliers.
+The scanner is recency-filtered (last 90 days) — these are live boosts, not all-time hits. `get_topic_viability`'s `competitor_signal.outlier_count` tells you if *this* topic-cluster has recent outliers. **Lens choice (ADR-0013):** use the `broad-history` channels for "is this topic hot for viewers like mine" (demand), the `style-match` peers for "has a real peer covered this, and how" (craft/differentiation).
 
 ```
 OUTLIER SIGNAL:
@@ -182,9 +194,38 @@ DEMAND: GO ✓ (4,299/mo — "why is haiti so poor")
 NEWS HOOK: TRENDING (3 articles this week)
 ```
 
+**VidIQ keyword enrichment (optional, `--full`):** the demand gate above uses free sources (autocomplete + pytrends + API). If the VidIQ MCP is connected, also call `vidiq_keyword_research(keyword="<plain topic>", mode="research")` for real YouTube search volume + competition + the **Overall** score, and record it as **enrichment** beside the free-source verdict. It sharpens the read and feeds the TOPIC-RUBRIC's "30% VidIQ Overall" (Step 1b) — but it does **not** replace the V1 gate and cannot upgrade a STOP (ADR-0012). If unreachable, note it and proceed on the free-source verdict.
+
 ### Step 1b: Composite Topic Rubric (when comparing fresh candidates)
 
 When this is a FRESH topic choice with 2+ candidates (`--compare`, or ranking pipeline entries), score through **`tools/TOPIC-RUBRIC.md`** (v2, 2026-06-11): identity + demand gates, then 30% VidIQ Overall / 20% topicality / 25% whitespace / 10% title-format CTR / 10% rankability / 5% source access, plus the symmetric POCKET flag. Whitespace requires a live SERP scan (`serp_title_study.py`), not the static intel corpus. Skip for series episodes and already-decided revivals — the rubric is for fresh selection only.
+
+### Step 1c: Cluster opportunity (2026-06-27 — validated 4–7× Suggested lever)
+
+Per-video Suggested-surface CTR shows a topical **cluster** pulls **4–7%** vs **0.5–1%** for
+isolated one-offs (the Guatemala×2 + Venezuela-Guyana dispute family; see PACKAGING_MANDATE
+§2026-06-27). Videos in a tight topical neighborhood feed each other's Suggested traffic.
+⚠ **Re-verified 2026-07-23:** cluster median Suggested CTR **4.15% vs 0.97%** (n=15 others) — a
+4.3× gap. But the source (`surface_ctr`) is Feb-stale AND topic-confounded (the family shares an
+audience), so this is **directional, not proof**. The mechanism is sound regardless (Up Next runs
+on the currently-watched video, so a neighborhood hands YouTube real co-watch candidates instead
+of an isolated niche upload) — the neighborhood is the channel's best distribution architecture
+*because you can't earn a push after publishing* (PACKAGING_MANDATE §2026-07-23, distribution null).
+
+Check whether this topic **extends an existing cluster** or could **seed one**:
+- Glob `_ARCHIVED/published/` + `_IN_PRODUCTION/` for same-family topics (same dispute, region,
+  grifter/myth, or scholar). If 1–2 already exist and performed, this is a **CLUSTER EXTEND** —
+  strong GO signal (it inherits Suggested adjacency).
+- If none exist but the topic is a famous dispute with obvious siblings, flag **CLUSTER SEED**.
+  **Prefer to greenlight the whole neighborhood as a batch — three angles up front, before
+  producing the first**, published within ~2–4 weeks. A working structure: (1) the central
+  claim/dispute, (2) the document/mechanism behind it, (3) a neighboring case. Each stands alone
+  (own demand + title gates), but they share an audience identity and each points to the next
+  (wire the one-destination end screen at `/prep`).
+- A famous one-off with no cluster path isn't a STOP, but note it gets no Suggested tailwind.
+
+Carry **cluster: EXTEND / SEED / NONE** into the Step 4 verdict. On SEED, the next-action should
+name the other two angles, not just this one.
 
 ### Step 2: Title Viability Check
 
@@ -215,6 +256,8 @@ db.close()
 ```
 
 **Curiosity Check:** After running the mechanical `title_scorer`, you MUST run `/curiosity "[Title]"` to get the emotional hook score.
+
+**Filter basis (model C):** `title_scorer` encodes the CTR audit (`channel-data/CTR-TITLE-FORMULA-2026-06.md` — recognition/fame + the kill-list: no abstract-noun lead, no obscure-proper-noun lead, no homework framing). Under the packaging-lock model, the **binary** parts are the filters (`has_search_anchor` → head-term anchor; `hard_rejects` → clickbait brand-gate). The composite **score (65) and `/curiosity` (60) are enrichment**, not gates — record them, nudge if low, never block on them.
 
 If no title provided, generate candidates using:
 1. The topic + search keywords
@@ -290,6 +333,10 @@ If checking a new topic (`--full`), generate 3 thumbnail concepts by **operation
 **Concept B — DOSSIER METAPHOR**: the evidence object as the hero — real document/map/artifact,
   cut-out + saturation pop + ONE red accent at the focal point. The auditor's-edge moat made visual.
   (Raw sepia documents are a LIABILITY untreated — they must be cut out + saturated, not pasted flat.)
+  ⚠ 2026-06-27 DATA: a document/page as the FOCAL POINT is the channel's CTR floor (−0.71 overall,
+  −2.11 within famous topics; body text doesn't resolve at feed size). If you use this concept,
+  the hero must be the ONE legible line/number/seal the document reveals — never the page. A clean
+  map or famous-face concept (A/C) usually out-clicks a document hero; prefer them on famous topics.
 
 **Concept C — VISUAL ANSWER or MECHANISM REFRAME**: a simple map that answers a question (one red
   contested zone, for territorial), OR a diagram that reframes the mechanism (for HOW/system topics).
@@ -344,10 +391,13 @@ Combine all checks into a single verdict:
 ║  Packaging: 5 competitors, gap found ✓           ║
 ║  Angle:     "Document reveal — original receipts" ║
 ║  Demand:    GO ✓  (4,299/mo)                     ║
+║  Fame:      HIGH — famous parent (Browse +2.23%)  ║
+║  Cluster:   EXTEND — 2 in family already live     ║
 ║  Outlier:   YES — cluster boosted now (2 recent)  ║
-║  Title:     GO ✓  (85/A — versus, DB-enriched)   ║
+║  Title:     GO ✓  (85 enrichment — versus)        ║
 ║  Keyword:   PASS ✓ — anchors "Haiti" (head term)  ║
 ║  Thumbnail: PASS ✓ — necessary conditions met     ║
+║  Lock:      VALID ✓ — 4 filters recorded (Step 4b)║
 ╠══════════════════════════════════════════════════╣
 ║  → Proceed to /research --new                    ║
 ╚══════════════════════════════════════════════════╝
@@ -358,18 +408,31 @@ When DB enrichment is unavailable (no CTR data ingested yet), display:
 ║  Title:     GO ✓  (85/A — versus, static scores) ║
 ```
 
-**Verdict logic:**
-- **GO:** Demand ≥ GO AND best title ≥ 65 AND keyword-ladder = PASS AND thumbnail = PASS (necessary conditions). Outlier YES strengthens GO.
-- **REVIEW:** Any component is CAUTION/REVIEW but none is STOP/FAIL (e.g. keyword-ladder FAIL on every candidate → regenerate titles).
-- **STOP:** Demand = STOP OR best title < 40 OR thumbnail = FAIL (necessary conditions not met).
+**Verdict logic (model C — filters decide, scores are enrichment):**
+- **GO:** Demand ≥ GO AND all four **packaging FILTERS** PASS (search-anchor · clickbait brand-gate · title↔thumbnail curiosity gap · thumbnail conditions — thumbnail may be PENDING). Outlier YES strengthens GO.
+- **REVIEW:** All filters PASS but an **enrichment** score is below its nudge (`title_scorer` <65 or `/curiosity` <60), or thumbnail = REVIEW. A nudge means *eyeball it*, not *stop*.
+- **STOP:** Demand = STOP OR any mechanical filter FAILS (no search anchor, clickbait brand-gate reject, thumbnail FAIL) OR the title↔thumbnail gap judgment is blank.
 
-**Note (ADR 0007 — filters, not predictors):** the Thumbnail and Keyword lines are **PASS/FAIL on necessary conditions** (legibility, curiosity-gap, head-term anchor), not clickability scores. No pre-publish number predicts the click; the only verdicts are demand (Gate 1) and live CTR (Gate 2, post-publish). The Outlier line is a topic-selection signal, not a packaging score.
+**Note (ADR 0007 + the packaging-lock ADR — filters, not predictors):** the packaging verdict is **PASS/FAIL on necessary conditions**, never a clickability score. `title_scorer`'s 65 and `/curiosity`'s 60 are **recorded enrichment**, not gates — a low composite that clears the four filters is REVIEW, never STOP (the composite is confounded; see `channel-data/CTR-TITLE-FORMULA-2026-06.md`). VidIQ/NLM are enrichment and **cannot** upgrade a filter FAIL. No pre-publish number predicts the click; the only verdicts are demand (Gate 1) and live CTR (Gate 2, post-publish).
+
+### Step 4b: Write the Packaging Lock (HARD GATE — code-enforced)
+
+The verdict above is not real until it's **recorded by the checker**. #62 failed because a written rule didn't bind — so this is a code gate, not an instruction. Run:
+
+```bash
+python -m tools.preflight.packaging_lock --project <path> --title "<best title>" \
+  --curiosity <N> --vidiq "<score/note — or 'not queried'>" --nlm "<P5 note>" \
+  --gap "<why the thumbnail overlay does NOT restate the title — REQUIRED judgment>" \
+  [--territorial] [--person-focused] --write
+```
+
+This writes the `<!-- AUTO:packaging-lock -->` block into `PROJECT-STATUS.md` (below the reconcile zone) recording the four FILTERS + the ENRICHMENT scores. **The lock is INVALID (BLOCKED) if:** any mechanical filter FAILS, or the `--gap` judgment is blank. `/research` calls `packaging_lock --validate` before advancing a new project and refuses if BLOCKED. A blank `--gap` is not a shortcut — fill it or mark PENDING with a reason.
 
 ### Step 5: Next Action
 
 Based on verdict, tell the user exactly what to do:
 
-- **GO:** "Run `/research --new [topic]` to start the project. Use title '[best title]' as your working title."
+- **GO:** "Run `/research --new [topic]` to start the project. Use title '[best title]' as your working title." If `cluster: SEED`, add: "Plan 2–3 follow-ups in the same dispute family within ~2–4 weeks (validated 4–7× Suggested lift — they feed each other)."
 - **REVIEW:** "Fix these issues first: [list]. Then re-run `/greenlight`."
 - **STOP:** "Don't make this video. Here are higher-demand alternatives: [suggest 3 from keywords.db]"
 

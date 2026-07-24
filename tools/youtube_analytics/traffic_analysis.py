@@ -72,21 +72,13 @@ DAY_NAMES = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
 # =========================================================================
 
 def classify_title_pattern(title: str) -> str:
-    """Classify title into pattern categories matching title_scorer.py."""
-    t = title.lower().strip()
+    """Classify title into the canonical structural taxonomy (ADR-0009).
 
-    if " vs " in t or " versus " in t:
-        return "versus"
-    if " | " in t or ":" in t:
-        return "colon"
-    if t.startswith("how ") or t.startswith("why "):
-        return "how_why"
-    if (t.endswith("?") or t.startswith("what ") or t.startswith("who ")
-            or t.startswith("where ") or t.startswith("when ")
-            or t.startswith("did ") or t.startswith("was ")
-            or t.startswith("were ")):
-        return "question"
-    return "declarative"
+    Delegates to tools.title_features.pattern — was a local copy identical to the
+    one in ctr_by_source_analysis, now unified on the canonical logic.
+    """
+    from tools.title_features import pattern
+    return pattern(title)
 
 
 def classify_duration_bucket(seconds: int) -> str:

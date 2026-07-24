@@ -116,6 +116,18 @@ Too many counter-arguments backfire. Simple myths are more "cognitively attracti
 
 Identify your 3 STRONGEST pieces of evidence. Cut the rest. Quality of evidence > quantity.
 
+### 8. The open-question ledger (compose method, not just an audit pass)
+
+Derived from #62's five full cold-reads (2026-07-16/17, `CALIBRATION-CORPUS.md` 62-01; canonical statement in `VOICE-PROFILE.md` §Transitions). **The viewer runs an open-question ledger; a paragraph is legal only if it answers the question currently open and raises the next one.** Nearly every read-aloud flag across a multi-camp debunk resolves to one of five violations:
+
+- **V1 — new term/claim used before it's introduced.** A concept the viewer hasn't been given yet gets referenced as if it were common ground.
+- **V2 — answering a question the viewer never asked.** A rebuttal or qualifier lands before its target claim has been stated on screen.
+- **V3 — raising a question and not answering it.** A setup line implies a payoff that never arrives.
+- **V4 — re-answering an already-closed question.** The commonest failure: an argument used to settle a point gets redeployed later to settle the same point again (repetition).
+- **V5 — breaking a promise the script itself made.** The open promises primary documents; the body delivers a scholar's paraphrase instead.
+
+**Compose, don't just audit:** before prose, write the whole video as a numbered Q→A chain — every joint explicitly BUT or THEREFORE, never "and then" (Minto-pyramid shape). Any beat that can't name which open question it answers gets moved or cut. On a multi-camp debunk (§4.2 items 1–3 above), this is the mechanism that makes camp ordering work: each camp's beat should answer a question the PRIOR camp's beat just raised, not sit in neutral chronological sequence.
+
 ## 4.3 Concede-pivot and steelmanning
 
 Covered in detail in 2.5. Quick reference:

@@ -10,11 +10,23 @@ Run with: pytest tests/test_script_checkers.py -v
 import subprocess
 import json
 import os
+import pytest
 from pathlib import Path
 
 
 FIXTURE_PATH = Path("tests/fixtures/test_script.md")
-CHECKERS = ["stumble", "repetition", "scaffolding", "flow", "pacing"]
+CHECKERS = ["stumble", "repetition", "scaffolding", "flow", "pacing", "told-so-far"]
+
+# stumble/flow/pacing lazy-load spaCy; skip their spaCy-dependent assertions
+# when the [nlp] extra isn't installed, matching tests/unit/test_pacing.py's
+# existing convention rather than asserting on a CLI crash we didn't cause.
+try:
+    import spacy  # noqa: F401
+    NLP_AVAILABLE = True
+except ImportError:
+    NLP_AVAILABLE = False
+
+requires_nlp = pytest.mark.skipif(not NLP_AVAILABLE, reason="spaCy required (pip install -e .[nlp])")
 
 
 def _run_checker(checker_name: str, json_output: bool = False):
@@ -44,6 +56,7 @@ class TestScriptCheckersCLI:
         result = _run_checker("stumble")
         assert result.returncode in (0, 1, 2), f"Unexpected exit code: {result.returncode}"
 
+    @requires_nlp
     def test_stumble_checker_json_output(self):
         """Stumble checker produces valid JSON when requested."""
         result = _run_checker("stumble", json_output=True)
@@ -78,11 +91,13 @@ class TestScriptCheckersCLI:
         assert isinstance(data, dict), "JSON output is not a dict"
         assert "scaffolding" in data, "scaffolding key missing from JSON output"
 
+    @requires_nlp
     def test_flow_checker_exit_code(self):
         """Flow checker produces exit code 0 and output."""
         result = _run_checker("flow")
         assert result.returncode in (0, 1, 2), f"Unexpected exit code: {result.returncode}"
 
+    @requires_nlp
     def test_flow_checker_json_output(self):
         """Flow checker produces valid JSON when requested."""
         result = _run_checker("flow", json_output=True)
@@ -96,6 +111,7 @@ class TestScriptCheckersCLI:
         result = _run_checker("pacing")
         assert result.returncode in (0, 1, 2), f"Unexpected exit code: {result.returncode}"
 
+    @requires_nlp
     def test_pacing_checker_json_output(self):
         """Pacing checker produces valid JSON when requested."""
         result = _run_checker("pacing", json_output=True)
@@ -104,6 +120,13 @@ class TestScriptCheckersCLI:
         assert isinstance(data, dict), "JSON output is not a dict"
         assert "pacing" in data, "pacing key missing from JSON output"
 
+    def test_told_so_far_checker_json_output(self):
+        """Told-so-far checker is reachable through its public CLI flag."""
+        result = _run_checker("told-so-far", json_output=True)
+        assert result.returncode in (0, 1, 2), result.stderr
+        data = json.loads(result.stdout)
+        assert "told_so_far" in data, "told_so_far key missing from JSON output"
+    @requires_nlp
     def test_all_checkers_together(self):
         """All checkers run together with --all flag."""
         env = os.environ.copy()
@@ -116,6 +139,7 @@ class TestScriptCheckersCLI:
         )
         assert result.returncode in (0, 1, 2), f"Unexpected exit code: {result.returncode}"
 
+    @requires_nlp
     def test_all_checkers_json(self):
         """All checkers produce valid JSON output."""
         env = os.environ.copy()

@@ -15,8 +15,48 @@
 ```
 You are operating inside the History vs Hype repository at D:\History vs Hype.
 
-STEP 1 — Read channel baseline from channel-data/stats.md.
-Extract the 30-day baseline values for: CTR, AVD (average view duration), week-1 retention %.
+STEP 1 — COMPUTE the channel baseline live from the databases (no baseline file exists;
+the old channel-data/stats.md reference was a dead path — fixed 2026-07-03).
+
+Baseline population = the 10 most recently published videos OLDER than the 30-day check
+window (so the videos being checked in STEP 2 don't contaminate their own baseline).
+
+  python -c "
+  import sqlite3, json, statistics
+  from datetime import datetime, timedelta, timezone
+  conn = sqlite3.connect('tools/youtube_analytics/analytics.db')
+  cutoff = (datetime.now(timezone.utc) - timedelta(days=30)).strftime('%Y-%m-%dT%H:%M:%SZ')
+  rows = conn.execute('''
+    SELECT avg_view_duration_seconds, avg_view_percentage FROM videos
+    WHERE published_at < ? ORDER BY published_at DESC LIMIT 10
+  ''', (cutoff,)).fetchall()
+  avd = [r[0] for r in rows if r[0]]; ret = [r[1] for r in rows if r[1]]
+  print(json.dumps({
+    'avd_mean': statistics.mean(avd), 'avd_sd': statistics.stdev(avd),
+    'ret_mean': statistics.mean(ret), 'ret_sd': statistics.stdev(ret), 'n': len(rows)}))
+  conn.close()
+  "
+
+CTR baseline comes from keywords.db (analytics.db's API CTR field is NULL — see data-stores
+skill). Latest snapshot per CHANNEL video only (the table also holds competitor rows):
+
+  python -c "
+  import sqlite3, json, statistics
+  con = sqlite3.connect('tools/discovery/keywords.db')
+  con.execute('ATTACH DATABASE \"tools/youtube_analytics/analytics.db\" AS a')
+  rows = con.execute('''
+    SELECT c.ctr_percent, MAX(c.snapshot_date) FROM ctr_snapshots c
+    JOIN a.videos v ON v.video_id = c.video_id
+    WHERE c.ctr_percent > 0 GROUP BY c.video_id
+  ''').fetchall()
+  ctrs = [r[0] for r in rows]; newest = max((r[1] for r in rows), default=None)
+  print(json.dumps({'ctr_mean': statistics.mean(ctrs), 'ctr_sd': statistics.stdev(ctrs),
+                    'n': len(ctrs), 'newest_snapshot': newest}))
+  con.close()
+  "
+
+If `newest_snapshot` is older than 14 days, SKIP all CTR checks in STEP 3 (stale snapshots
+would false-flag) and mention the staleness in any alert you do write.
 
 STEP 2 — Query recent videos' current metrics from analytics.db.
 The DB lives at `tools/youtube_analytics/analytics.db` (NOT repo root). The table is
@@ -74,6 +114,11 @@ This is a local-only alert file.
 ---
 
 ## Setup (Windows Task Scheduler)
+
+> ⚠️ **STALE EXAMPLE — do NOT copy.** This block predates the wrapper pattern and matches no live
+> task (live registration: pwsh wrapper `run-channel-health.ps1`, default principal, no
+> `-RunLevel Highest`). The verified registration recipe lives in the `automation-ops` skill
+> (`.claude/skills/automation-ops/SKILL.md` § Re-register / modify a task).
 
 ```powershell
 # Run once to register the scheduled task

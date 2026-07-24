@@ -1,0 +1,1229 @@
+---
+name: "source-command-script"
+description: "Write, revise, review, or export scripts (Production Phase 1)"
+---
+
+# source-command-script
+
+Use this skill when the user asks to run the migrated source command `script`.
+
+## Command Template
+
+# /script - Script Management Entry Point
+
+Write new scripts, revise existing ones, review for issues, or export for teleprompter.
+
+## Usage
+
+```
+/script                      # Interactive: write new or work on existing
+/script --new [project]      # Write new script for project
+/script --variants [project] # Generate hook/structure variants, then write script
+/script --new --variants [project]  # Combine: new script with variant generation
+/script --document-mode [project]  # Document-structured script (clause-by-clause walkthrough)
+/script --collaborate [project]  # Collaborative editing: you draft, Codex refines
+/script --revise [project]   # Revise existing script
+/script --review [project]   # Review script for issues
+/script --teleprompter [project]  # Export clean text for filming
+```
+
+## Flags
+
+| Flag | Purpose | Example |
+|------|---------|---------|
+| `--new` | Write new script from verified research | `/script --new 19-flat-earth-medieval-2025` |
+| `--hooks` | Score existing hook, generate LLM variants, rank with fulfillment check | `/script --hooks 42-why-brazil-speaks-portuguese-2026 --title "Why Brazil Speaks Portuguese"` |
+| `--title "Title Text"` | Video title — enables title-fulfillment check in --hooks (entity echo + promise-type). If omitted, fulfillment check is skipped. | `/script --hooks 42-why-brazil-2026 --title "Why Brazil Speaks Portuguese"` |
+| `--document-mode` | Generate clause-by-clause document walkthrough script | `/script --document-mode 35-gibraltar-treaty-utrecht-2026` |
+| `--collaborate` | Collaborative editing — you draft, Codex refines | `/script --collaborate 50-thermopylae-sources-2026` |
+| `--revise` | Revise existing SCRIPT.md | `/script --revise 19-flat-earth-medieval-2025` |
+| `--review` | Comprehensive quality review | `/script --review 19-flat-earth-medieval-2025` |
+| `--teleprompter` | Export clean text for filming | `/script --teleprompter 19-flat-earth-medieval-2025` |
+| `--variants` | Generate hook and structure variants before full script | `/script --variants 35-gibraltar-treaty-utrecht-2026` |
+
+---
+
+## WRITE NEW SCRIPT (`--new` or default)
+
+Generate a script using the script-writer-v2 agent.
+
+## YouTube Intelligence Check (Auto-run Before Every Script)
+
+Before generating any script, run the intelligence staleness check and load the KB:
+
+### Step 1: Staleness Check
+
+```python
+import sys
+sys.path.insert(0, '.')
+from tools.intel.kb_store import KBStore
+from pathlib import Path
+
+if Path('tools/intel/intel.db').exists():
+    s = KBStore()
+    is_stale = s.is_stale()
+    if is_stale:
+        print('STALE')
+else:
+    is_stale = True
+    print('NOT_INITIALIZED')
+```
+
+If stale or not initialized, run refresh before proceeding:
+
+```python
+import sys
+sys.path.insert(0, '.')
+from tools.intel.refresh import run_refresh, get_refresh_summary
+result = run_refresh(force=True)
+print(get_refresh_summary(result))
+```
+
+### Step 2: Load YouTube Intelligence KB
+
+Read `channel-data/youtube-intelligence.md` for current algorithm and niche intelligence:
+
+```python
+from pathlib import Path
+kb_path = Path('channel-data/youtube-intelligence.md')
+if kb_path.exists():
+    kb_content = kb_path.read_text(encoding='utf-8')
+    print(kb_content)
+```
+
+Use the KB to inform script structure decisions:
+- **Algorithm Mechanics:** What satisfaction signals does YouTube reward? What matters for longform?
+- **Niche Patterns:** What duration is working in the niche? What title formulas dominate?
+- **Competitor Landscape:** What topics are competitors covering now? What gaps exist?
+- **Outlier Analysis:** What made the outlier videos succeed? Can that pattern be applied here?
+
+**Do NOT display the KB dump to the user** — use it as internal context for structure and hook decisions.
+
+**Advisory Display:** After loading the KB, display a brief 2-3 line advisory summarizing the most relevant intelligence for this script. Focus on algorithm priorities, niche patterns, and any outlier hook patterns. See "YouTube Intelligence Context (Auto-run)" section below for format.
+
+## Channel Insights Context (Auto-run)
+
+Before generating output, check for own-channel performance context:
+
+1. Read `channel-data/channel-insights.md` if it exists
+2. Use as **internal context** for decisions — do NOT dump full file to user
+3. Display a brief 2-3 line advisory block:
+
+```
+--- Channel Performance Context ---
+[Extract 2-3 most relevant lines from channel-insights.md for this workflow]
+Example: Top format: territorial (avg 1,950 views). Best retention: 42.0%.
+Low signal: ~15 videos — experiment freely.
+---
+```
+
+4. If file does not exist, skip silently — NEVER block generation on missing analytics
+5. Insights are advisory — guide experimentation, never dictate choices
+
+**For /script:** Focus on what formats and topics perform best for YOUR channel (view counts, retention rates, subscriber conversion)
+
+---
+
+## YouTube Intelligence Context (Auto-run)
+
+Before generating output, check for YouTube algorithm and niche intelligence:
+
+1. Read `channel-data/youtube-intelligence.md` if it exists
+2. Use as **internal context** for hook and structure decisions — do NOT dump full file to user
+3. Display a brief 2-3 line advisory block:
+
+```
+--- YouTube Intelligence Context ---
+[Extract 2-3 most relevant lines from youtube-intelligence.md for this workflow]
+Example: Algorithm priority: viewer satisfaction (very_high weight). Niche trend: 20-30min docs dominating.
+Hook pattern from outliers: "legal fiction exposed" frame drove 4x median views.
+---
+```
+
+4. If file does not exist, skip silently — NEVER block generation on missing intelligence
+5. If last refresh date is >30 days old, add note: "(Intel last refreshed [date] — consider running /patterns --refresh-intel)"
+6. Intelligence is advisory — inform hook and structure decisions, never dictate
+
+**For /script:** Focus on:
+- **Algorithm signals:** What satisfaction signals matter most right now (AVD, CTR, satisfaction surveys)
+- **Hook patterns:** What hook types are working in outlier videos (from Outlier Analysis section)
+- **Niche format trends:** What video lengths and formats are performing (from Niche Patterns section)
+- **Competitor gaps:** What topics competitors are NOT covering (differentiation opportunities)
+
+## THE CANONICAL PRODUCTION FLOW (v18 — creator-stated, S12 2026-06-12)
+
+> Source: creator process statement + S9/S10 grill (CALIBRATION-CORPUS.md GR-B1..B5, GR-B7). This is the spine every `--new` script run follows. The gates below in this file implement its steps.
+
+1. **Decide the video together** — interest + keywords + comment mining + competitor gaps + initial research (`/greenlight` territory; precedes this command).
+2. **Deep research** — surface the interesting material; scope and thesis are ALLOWED TO MOVE based on findings.
+3. **Structure emerges DURING research, as a loop:** propose structure → creator pushes back → agree → research again *in function of the video* → adjust scope/structure/beats. Repeat until converged.
+4. **STRUCTURE LOCK** = the loop's convergence point: present the final structure with the evidence under each beat (one screen; beat = one line + its evidence; checked against the title — "what is the video we're trying to make"). Creator approves/adjusts. **No sentence-level work before this lock** (GR-B2 HARD; #57 burned two full polish passes on the wrong spine).
+5. **PRE-SCRIPT QUESTION ROUND** — before writing anything, interview the creator with SPECIFIC prepared questions: how to present this evidence, how to do this transition, how to phrase this key sentence (hook, verdict, mechanism beats). 2–3 concrete prepared variants per question, Bar-talk pre-filtered — never blank questions (GR-B1, GR-B3a). **Preparation bar:** research fully digested, topic genuinely understood, committed own idea of phrasing + build BEFORE asking anything.
+6. **Write the FULL script from the answers** — one real draft, not a cold one (the answers shaped it). Then the **PRE-READ HEAVY GATE** runs before the creator sees it (GR-B3b, GR-B4), in order: (1) notebook grounding on all mechanism beats → (2) attribution audit → (3) seam flow-check (in/out at every paragraph) → (4) `python -m tools.voice_lint` → (5) corpus-scan → (6) Bar-talk test on solo-written lines. Per-round hygiene: every rewritten beat gets a scoped re-scan (lint + register) before its diff is shown; one full-script scan at the lock gate.
+7. **Creator read-through = T1 verification, not a draft filter.** Success metric: ZERO feedback needed — if the questions in step 5 were right, the read is a formality. Whatever feels off, he says, gets fixed locally (post-draft changes stay small + localized) → ready-to-film script.
+8. **Everything he says feeds back** — every pushback, pick, correction is mined into `channel-data/calibration/CALIBRATION-CORPUS.md` (post-lock mining loop, AGENTS.md trigger).
+
+**Quote bank precondition (GR-B5):** scripting is blocked until `01-VERIFIED-RESEARCH.md` holds the COMPLETE quote bank — all useful quotes round-trip-verified with page + provenance, plus one thesis-bearing artifact hunted per act (GR-A9). The script writes from the bank only; a quote not in the bank mid-draft = STOP, route to research round-trip, never inline. Lock-gate backstop: load-bearing on-screen verbatims get one re-confirmation (verification notes go stale, 58-02).
+
+## Research Verification Gate (MANDATORY — Runs Before Script Generation)
+
+**Applies to:** `--new` and default (interactive write) modes ONLY. Skip for `--revise`, `--review`, `--teleprompter`, `--hooks`, `--collaborate` — these work on existing scripts, not new generation from research.
+
+**Step 1: Locate the verified research file.**
+
+Glob for `video-projects/**/[project]/01-VERIFIED-RESEARCH.md`. If the file is not found, emit a one-line warning — "No verified research file found — skipping verification gate" — and proceed normally. Do NOT block on a missing file.
+
+**Step 2: Count verification markers in the file.**
+
+Scan the file content for these status markers:
+- `✅` or the word `VERIFIED` = verified claim
+- `⏳` or the word `RESEARCHING` = pending claim
+- `❌` or the word `UNVERIFIABLE` = failed claim
+
+Count total = verified + pending + failed. Calculate percentage: `verified / total * 100`. If no markers are found at all, skip the gate and proceed.
+
+**Step 3: Apply gate logic.**
+
+**If percentage < 90%:** BLOCK. Display the message below and STOP. Do not proceed to script generation.
+
+```
+--- RESEARCH VERIFICATION GATE: BLOCKED ---
+Project: [project-name]
+Verified: X/Y claims (Z%)
+Pending: N claims (⏳)
+Failed: M claims (❌)
+
+Cannot proceed: Research must be >=90% verified before scripting.
+Fix: Complete verification in 01-VERIFIED-RESEARCH.md, then re-run /script.
+---
+```
+
+**If percentage >= 90%:** PASS. Display the message below, then proceed normally to the Duration & Structure Gate and script generation.
+
+```
+--- Research Verification Gate: PASSED ---
+Verified: X/Y claims (Z%)
+[If any claims are still pending or failed: "Note: N claims still pending/failed — verify before filming"]
+---
+```
+
+## Duration & Structure Gate (MANDATORY — Check Before Writing)
+
+**Before writing ANY script, confirm these two parameters with the user:**
+
+1. **Target duration:** Default is 10 minutes. Hard cap at 12 minutes (Rule 32). Only exceed with explicit user approval AND all 4 exception criteria met (10K+/mo search demand, all 4 breakout factors, every section earns its place, user explicitly approves).
+
+2. **Structure type:** For non-territorial videos, myth-first structure is MANDATORY (Rule 33). State this to user:
+   - "This is a [territorial/ideological/colonial/fact-check] video. Using [myth-first/chronological] structure."
+   - If non-territorial and user hasn't specified: default to myth-first.
+
+**Display at script start:**
+```
+--- Duration & Structure Gate ---
+Target: [X] min (hard cap: 12 min)
+Structure: [MYTH-FIRST / CHRONOLOGICAL]
+Turn target: [15-25%] of runtime = [Y:YY-Z:ZZ]
+Max script words: [N] (target × 250 WPM × 1.80)
+---
+```
+
+## Before Writing
+
+**Read these reference files:**
+- `.Codex/REFERENCE/WRITING-VOICE-AND-STYLE.md` index - **AUTHORITATIVE** style reference, routes to PARTS 1-5 sibling files (voice, evidence, structure, debunking framework, techniques toolkit)
+  - **PART 1:** Core Voice (forbidden phrases, sentence rhythm, word choice)
+  - **PART 3:** Structure (hook/turn/close, narrative flow, pacing)
+  - **PART 4:** Debunking Framework (myth-first, seven principles, concede-pivot)
+  - **PART 5:** Techniques Toolkit (hooks, mechanism forensics, source-flip, accumulation)
+  - Retention playbook auto-updated with `python -m tools.youtube_analytics.playbook_synthesizer --update`
+  - Creator technique library auto-updated with `python -m tools.youtube_analytics.pattern_synthesizer_v2 --update`
+- `.Codex/REFERENCE/channel-values.md` - Brand DNA
+- `.Codex/USER-PREFERENCES.md` - Natural speaking patterns
+- `.Codex/REFERENCE/NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` - Prompts for your uploaded books
+- **`.Codex/REFERENCE/OPENING-HOOK-TEMPLATES.md`** - Fill-in-the-blank templates for first 60 seconds
+- **`.Codex/REFERENCE/RETENTION-STRUCTURE-MAP.md`** - Whole-video gap-sustain map (turn at 15-25% — land early; McKee's 25% = outer bound, 25-35% = documented dead zone; three-touch macro-gap, top-spin, no new gaps in final 2 min) — keeps the opener's gains from bleeding out in the body
+- **`.Codex/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md`** - Fill-in-the-blank templates for final 60-90 seconds
+- **`.Codex/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md`** - Pre-filming polish (Iran Part 1 lessons)
+
+## PRE-SCRIPT INTELLIGENCE
+
+Before generating a script, the system automatically surfaces relevant past performance insights.
+
+### Automatic Display
+
+When topic type is known (territorial, ideological, fact-check, general), the system displays:
+- **Topic Performance:** How this topic type has performed historically (retention, conversion)
+- **Retention Lessons:** What caused viewer drop-offs in similar past videos
+- **Suggested Patterns:** Which WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md / -P5-TECHNIQUES.md voice patterns work best for this topic type
+- **Past hook and structure choice patterns** for this topic type (from variant history)
+- **Last 3 failure-mode diagnoses** (from `channel-data/DIAGNOSIS-LOG.md` — wired by `/analyze --diagnose`). Surfaces the recurring leak so the next script doesn't repeat it. Format: `LAST FAILURES: [VIDEO]→[FAILURE TYPE]→[CONCRETE FIX]`. If file is missing, skip silently.
+
+### How to Use
+
+The pre-script intelligence block appears automatically before script generation begins.
+Use these insights to inform structure decisions:
+- If past territorial videos lost viewers during treaty text → show treaty on screen instead
+- If causal chains correlated with high retention → prioritize "which meant that" transitions
+- If topic type has low sample size → insights flagged as "low confidence"
+
+### Technical Details
+
+Insights come from:
+- `tools/youtube_analytics/feedback_queries.py` → `get_pre_script_insights(topic_type)`
+- `tools/youtube_analytics/topic_strategy.py` → `generate_topic_strategy()`
+- Past POST-PUBLISH-ANALYSIS data stored in keywords.db
+
+### Requirements
+
+- At least 1 past video of the same topic type must exist in the feedback database
+- Run `python -m tools.youtube_analytics.feedback backfill` to populate feedback data
+
+### Implementation (For Codex)
+
+**Run this automatically (do not ask user):**
+```python
+import sys
+sys.path.insert(0, 'tools/youtube_analytics')
+from feedback_queries import get_pre_script_insights
+topic = '{topic_type}'  # Determine from user's topic (territorial, ideological, colonial, legal)
+insights = get_pre_script_insights(topic)
+if insights:
+    print(insights)
+else:
+    print('No past performance insights available yet. Run: python -m tools.youtube_analytics.feedback backfill')
+```
+
+**Topic type detection:** When user describes their topic, classify into: territorial, ideological, colonial, legal, general. Use this classification for the query.
+
+**Display the insights block** at the start of your response before proceeding with script generation. This gives the user context about what worked/failed in similar past videos.
+
+**If no insights available:** Skip silently. Do not block script generation.
+
+### RETENTION SCORING (Post-Generation)
+
+After script generation is complete, run retention scoring on the output:
+
+1. Parse the generated script with ScriptParser
+2. Import and call `score_all_sections(sections, topic_type)` from retention_scorer.py
+3. Call `format_retention_warnings(scored_sections)` to get formatted warnings
+4. Display warnings to user BEFORE finalizing script
+
+**Output format:**
+```
+## RETENTION RISK ASSESSMENT
+
+| Section | Risk | Score | Top Warning |
+|---------|------|-------|-------------|
+| Introduction | LOW | 0.82 | - |
+| The Treaty of 1859 | HIGH | 0.38 | Section 280 words exceeds territorial avg 150 |
+| Modern Consequences | LOW | 0.91 | - |
+
+**HIGH RISK sections should be revised before filming.**
+```
+
+**Implementation for Codex:**
+```python
+import sys
+sys.path.insert(0, 'tools/youtube_analytics')
+try:
+    from retention_scorer import score_all_sections, format_retention_warnings
+    SCORER_AVAILABLE = True
+except ImportError:
+    SCORER_AVAILABLE = False
+
+# After script generation:
+if SCORER_AVAILABLE:
+    from tools.production.parser import ScriptParser
+    parser = ScriptParser()
+    sections = parser.parse_file(script_path)
+    scored = score_all_sections(sections, topic_type)
+    warnings = format_retention_warnings(scored)
+    # Display warnings to user
+```
+
+If retention_scorer not available, skip silently (graceful degradation).
+
+### Retention Prediction (Post-Draft)
+
+After the full script is generated, run the retention predictor to identify drop-risk sections:
+
+```python
+from tools.youtube_analytics.retention_predictor import predict_from_file
+result = predict_from_file(script_path)
+# Shows: predicted curve, per-section deltas, flagged risk zones
+# Key insight: statistics sections = retention gold (+0.061), modern relevance bridges may disrupt (-0.010)
+```
+
+If predicted retention is below channel average (27.8%), flag specific sections for revision. The predictor uses empirical content-type deltas from 42 videos and 4,200 data points.
+
+## Automatic Structure Check (Post-Generation)
+
+After the script has been generated and saved to `SCRIPT.md`, AND after retention scoring and retention prediction have run, automatically invoke the `structure-checker-v2` agent by reading `.Codex/agents/structure-checker-v2.md` and following its instructions against the generated script file.
+
+**How to invoke:** Read `.Codex/agents/structure-checker-v2.md` in full, then apply its constraints and checklist to the generated script. The agent reads the script and analyzes it for structural compliance — no external tool call needed, Codex does this natively.
+
+**Display findings organized by severity:**
+
+```
+--- Automatic Structure Check ---
+
+CRITICAL (must fix before /verify):
+- [finding 1]
+- [finding 2]
+
+WARNING:
+- [finding 1]
+
+INFO:
+- [finding 1]
+
+[If no CRITICAL findings: "No critical issues found. Proceed to /verify when ready."]
+---
+```
+
+**CRITICAL finding handling:** When ANY CRITICAL-level findings are present, append this explicit block AFTER the findings:
+
+```
+*** CRITICAL ISSUES DETECTED ***
+Fix the CRITICAL items above or explicitly acknowledge them before running /verify.
+The structure checker found issues that historically correlate with retention drops.
+```
+
+**Graceful degradation:** If the structure-checker-v2 agent file is missing or unavailable for any reason, emit a one-line note — "Structure check skipped — run `/script --review` manually" — and proceed. Never block on a failed check.
+
+## NLM Structure Comparison (Post-Structure-Check, gated)
+
+**Purpose:** Catch "correct but boring" — the structure checker validates compliance; this checks whether the script's hook + thesis + closing shape has been done many times by larger channels, and what this script's variant adds. (Wired 2026-06-12, UPGRADE-PLAN R2.)
+
+**Gate:** Runs ONLY when the project has a NotebookLM notebook (i.e., the project went through Phase 2 — check the project folder/PROJECT-STATUS for a notebook reference, or `mcp__notebooklm__notebook_list` for a notebook matching the project slug). No project notebook → skip silently with one line: "NLM structure comparison skipped — no project notebook." Also skip on MCP auth failure after one `nlm login` retry. Enrichment, not a gate.
+
+**Run:** Query the **85-transcript competitor notebook** with the **Post-Script Structure Comparison prompt** (`.Codex/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md`, next to the Pre-Filming Script Audit), pasting the script's hook, thesis line, and closing beat.
+
+**Display:**
+```
+--- NLM Structure Comparison ---
+Similar hooks in corpus: [N] — closest: "[title]", "[title]"
+Closest closings: [2-3 titles + their final-2-sentence shape]
+Structural delta this script has: [the differentiator, or "NONE FOUND — consider sharpening"]
+---
+```
+
+**Handling:** A "NONE FOUND" delta is a flag for the creator's read-through, not a block — surface it in the user-facing summary next to the structure-check findings.
+
+## Automatic Packaging Coherence Check (Post-Generation, MANDATORY)
+
+**Why this exists:** The most common failure mode the channel data shows is title-promise / hook-delivery drift — title promises X, the hook delivers Y, viewer bails at 0:30-1:00. This check runs automatically at the end of every `/script` to catch the gap before filming.
+
+**Runs after:** retention scoring → retention prediction → structure check. This is the final auto-check before the user-facing summary.
+
+### Step 1: Extract the script's actual hook + verdict
+
+From the just-generated `SCRIPT.md`:
+
+- **Hook = first 150 words of script body** (skip metadata, frontmatter, and any `## ACT 1` or `## HOOK` heading lines — start at first prose line). This is what the viewer hears in 0:00-1:00.
+- **Verdict sentence** = the single sentence the script lands on (look for the closing paragraph of the final section — usually under `## CLOSING` or the last `##` heading. Take the last 1-2 sentences.).
+- **Thesis** = if the script has a `THESIS:` line in metadata or front-matter, capture it (per Rule 36 / `THESIS-DISCIPLINE.md` — should be ≤12 words).
+
+### Step 2: Locate existing title and thumbnail concept
+
+Glob the project folder:
+
+- `YOUTUBE-METADATA.md` → extract the `Title:` line (or first H1 if structured differently)
+- `THUMBNAIL-CONCEPTS.md` → extract the top-ranked concept (operation, overlay text, visual)
+
+### Step 3a: If title EXISTS — score promise vs delivery
+
+Run a coherence judgment (Codex-native, no Python tool needed):
+
+```
+Hook (first 150 words): [extracted hook text]
+Title: [extracted title]
+Thesis: [extracted thesis if present]
+Verdict: [extracted closing verdict]
+```
+
+Then evaluate three coherence dimensions:
+
+| Dimension | Question | Pass / Drift / Fail |
+|-----------|----------|---------------------|
+| **Promise match** | Does the title's promise appear in the first 150 words? | PASS = explicit / DRIFT = implied but not named / FAIL = absent or contradicted |
+| **Verb match** | Does the title's main verb (debunks/exposes/explains/proves) match what the hook actually does? | PASS = same operation / DRIFT = adjacent operation / FAIL = different operation |
+| **Specificity match** | Are the specific entities/numbers/dates in the title also in the hook? | PASS = all present / DRIFT = some present / FAIL = title is more specific than the hook delivers |
+
+### Step 3b: If title MISSING — generate from script
+
+Generate 5 title candidates using the script's actual hook + verdict + thesis as input. Score them with `python -m tools.title_scorer` and surface the top 2.
+
+```bash
+python -m tools.title_scorer "Candidate A" "Candidate B" "Candidate C" "Candidate D" "Candidate E" --topic [territorial|ideological|fact-check|general]
+```
+
+Note: the title generator should prefer the verdict sentence as the title's promise — that's the single line the script lands on, and the title should tee it up.
+
+### Step 4: Display the coherence block
+
+```
+--- Packaging Coherence Check ---
+
+TITLE: "[extracted or generated title]"
+HOOK (first 150w): "[first 50 chars of hook]..."
+VERDICT: "[verdict sentence]"
+
+Promise match:    [PASS/DRIFT/FAIL] — [one-sentence why]
+Verb match:       [PASS/DRIFT/FAIL] — [one-sentence why]
+Specificity:      [PASS/DRIFT/FAIL] — [one-sentence why]
+
+OVERALL: [MATCH / DRIFT / FAIL]
+
+[If MATCH: "Title-hook coherent. Proceed to /verify when ready."]
+[If DRIFT: "Title and hook are close but the [specific gap] would benefit from one rewrite. Concrete fix: [actionable single sentence]"]
+[If FAIL: "Title and hook are pulling in different directions. Concrete fix: [either rewrite the hook to deliver the title's promise, OR rewrite the title to match what the hook actually does — recommend whichever requires fewer words to change]."]
+
+THUMBNAIL CONCEPT: [if found, one-line coherence note: "Operation 'forensic close-read' matches hook's document-reveal — coherent" / if missing, "No thumbnail concept yet — run /thumbnail after fixing any DRIFT/FAIL above."]
+---
+```
+
+### Step 4b: Append the verdict to the judge-verdict ledger
+
+Append one line to `channel-data/calibration/JUDGE-VERDICT-LOG.md` (create the file from its header template if it doesn't exist yet — see the file itself for the exact schema):
+
+```
+| [today's date] | /script Step 3a | [video slug] | promise=[PASS/DRIFT/FAIL] verb=[PASS/DRIFT/FAIL] specificity=[PASS/DRIFT/FAIL] | OVERALL=[MATCH/DRIFT/FAIL] |
+```
+
+This is intentionally lightweight — no new tooling, just an append — so packaging-coherence drift and (once enough entries exist) judge-to-creator agreement become measurable over time instead of evaporating each session (`docs/LLM-CRAFT-UPGRADE-PLAN.md` D3).
+
+### Step 5: FAIL handling — block the user-facing summary
+
+When OVERALL = FAIL, the "After Generation" section appends this gate block:
+
+```
+*** PACKAGING COHERENCE FAILED ***
+The title promises something the hook does not deliver. Filming this script as-is will burn impressions on viewers who click the title and bail at 0:30. Fix the gap before /verify, OR explicitly acknowledge that you understand the drift and are accepting it.
+```
+
+DRIFT does not block — it surfaces and recommends. MATCH proceeds silently.
+
+**Graceful degradation:** If `YOUTUBE-METADATA.md` is missing AND title generation fails (e.g. tools unavailable), emit a one-line note — "Coherence check skipped — no title found and generation unavailable. Run `/greenlight` to set up packaging." — and proceed.
+
+## Format Template Selection (NEW - 2026-01-04)
+
+**Before gathering information, identify if topic fits a signature format:**
+
+Ask user:
+```
+Does this topic fit a format template?
+
+1. ⭐ BOTH EXTREMES ARE WRONG - Two polarized online claims about same history?
+2. DOCUMENT SHOWDOWN - Two competing documents for opposite claims?
+3. TREATY AUTOPSY - Legal treaty with modern territorial dispute?
+4. THE MAP THEY IGNORED - Documented alternative borders that were proposed?
+5. SAME DAY DIFFERENT WAR - Multiple theaters on same date?
+6. CUSTOM - None of the above
+
+Which format? (Or type number)
+```
+
+**If format identified:**
+- Read `.Codex/REFERENCE/FORMAT-TEMPLATES.md` for full structure
+- Follow template Act breakdown exactly
+- Use series branding elements (title formula, intro, thumbnail)
+
+## Gather Information
+
+Ask the user:
+
+1. **Topic:** What myth are you debunking?
+2. **Hook Type:** Territorial (colonial → conflict) OR Ideological (myth → belief)?
+3. **Modern hook:** What 2024-2025 event connects to this?
+4. **Both extremes:** (if using "Both Extremes Wrong" format)
+   - Extreme A (usually dismissive):
+   - Extreme B (usually oversimplified):
+5. **Research ready?** NotebookLM output or preliminary research?
+6. **Smoking gun:** Key documents, statistics, word-for-word quotes?
+
+## Coverage Checkpoint (Pre-Flight)
+
+After classifying video type, check `.Codex/REFERENCE/coverage-audit.md` Coverage Matrix:
+
+| Video Type | Action |
+|------------|--------|
+| ✅ Sufficient | Proceed silently. No output. |
+| ⚠️ Marginal | Emit one-line note with specific expansion recommendation. Proceed. |
+| ❌ Underspecified | Emit short gap notice with concrete creator/video recommendations. Proceed. |
+
+**Rules:**
+- Never block output
+- Never apologize
+- Never ask permission
+- Never repeat if user already acknowledged
+- Use exact templates from coverage-audit.md
+
+## Debunking Framework Check (NEW - 2026-01-02)
+
+**Before writing, assess identity stake:**
+
+| Identity Stake | Topic Examples | Framework Required? |
+|----------------|----------------|---------------------|
+| **High** | Territorial disputes, national founding myths, religious narratives | **MANDATORY** - Use full debunking framework |
+| **Medium** | Colonial history, ideological movements, contested figures | **RECOMMENDED** - Use key principles |
+| **Low** | Ancient civilizations, medieval Europe, scientific discoveries | **OPTIONAL** - Focus on historical thinking |
+
+**If High or Medium stake, apply:**
+1. **Fact-first headlines** (avoid repeating myth)
+2. **Alternative explanations** (fill mental gaps, don't just negate)
+3. **KISS principle** (3 key points max per section)
+4. **Self-affirmation** (acknowledge shared values before corrections)
+5. **Source credibility** (explain WHY myth was created)
+
+**See:** `.Codex/REFERENCE/WRITING-VOICE-AND-STYLE-P4-DEBUNKING.md` for complete framework
+
+**NotebookLM assistance:** Use prompts from `NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` for:
+- Identity stake assessment (Use Case 2)
+- Backfire effect prevention (Use Case 3)
+- Historical thinking integration (Use Case 4)
+- Trust-building language (Use Case 5)
+
+---
+
+## Write the Script
+
+### Workflow Steps
+
+1. **Surface pre-script intelligence** (automatic)
+   - Determine topic type from user input or project metadata
+   - Call `get_pre_script_insights(topic_type)` to load past lessons
+   - Display intelligence block to user before proceeding with script generation
+   - Use insights to inform structure, pacing, and pattern choices
+
+2. **Gather information and context** (see sections above)
+
+3. **STRUCTURE LOCK** (v18, GR-B2 HARD) — present the final beat list (beat = one line + evidence) checked against the title; creator approves before ANY prose. See THE CANONICAL PRODUCTION FLOW step 4.
+
+4. **PRE-SCRIPT QUESTION ROUND** (v18, GR-B1) — specific prepared questions on evidence presentation, transitions, key sentences; 2–3 concrete variants each. See CANONICAL FLOW step 5.
+
+5. **Generate script** using script-writer-v2 agent guidelines below — written FROM the locked structure + question-round answers
+
+6. **Run the PRE-READ HEAVY GATE** (v18, GR-B3b/B4 — CANONICAL FLOW step 6), then retention scoring, and only then present to the creator
+
+### Hard Constraints
+- **VERBATIM facts only** - Copy exactly from research
+- **Logic bridges required** - Every A→B needs explicit connector
+- **Audience zero** - Define every term immediately
+- **Real quotes with citations** - Word-for-word from sources
+
+### Structure
+- **Opening:** Kraut sweep-then-specifics OR Alex conversational OR Historiographical problem framing
+  - **For contested history:** Open with "Here's the problem: [why sources disagree]"
+  - **Then introduce sources:** Name each source, when they wrote, their biases, their value
+- **Evidence:** Modern relevance every 90 seconds, pattern interrupts every 2-3 min
+  - **When sources contradict:** Present side-by-side with quotes on screen
+- **Synthesis:** Return to both extremes, connect to present
+
+### Quality Checklist
+- [ ] Both extremes framed in opening
+- [ ] Steelman section included
+- [ ] Real quotes throughout with page numbers
+- [ ] Read aloud for natural delivery — voice mechanics per VOICE-PROFILE.md (below), not restated here
+
+### Voice and Spoken Delivery (corrected 2026-07-20 — routes instead of restating)
+
+**Canonical: `.Codex/REFERENCE/VOICE-PROFILE.md`** (wins on any conflict, ADR-0006) — sentence rhythm (flowing, not staccato; the chopped-fragment "Ambassadors. Embassies." shape is the #1 too-AI tell), connectors, cold-open, transitions. Secondary: `.Codex/REFERENCE/WRITING-VOICE-AND-STYLE-P3-STRUCTURE.md` §3.5 (spoken-delivery mechanics) and `-P1-CORE-VOICE.md` (forbidden phrases, word choice).
+
+**2026-07-20 removal note:** this section previously restated its own filler-count budget ("I think: 2-3, Now/So: 5-6" — the same unsourced numbers already cut from script-writer-v2.md's VOICE CALIBRATION in C1) and a "Natural Delivery Patterns" checklist duplicating VOICE-PROFILE.md content, pointing to `.Codex/USER-PREFERENCES.md` → "NATURAL DELIVERY PATTERNS" — a section that does not exist in that file (dead link). Removed; script-writer-v2 (invoked above) already carries the correct VOICE-PROFILE.md Tier-1 reference, so this command doesn't need its own copy.
+
+- [ ] Passes the "Stumble Test" (read aloud without hesitation)
+
+## Output Location
+
+Save to: `video-projects/[lifecycle]/[project]/SCRIPT.md`
+
+Template: `.Codex/templates/02-SCRIPT-DRAFT-TEMPLATE.md`
+
+**Note:** Use `SCRIPT.md` as the canonical script file. Git tracks version history—no V2/V3/FINAL files needed.
+
+## After Generation
+
+> **v18 read-through protocol (GR-B1/B3):** the script reaches the creator only after the PRE-READ HEAVY GATE has fully run. His read-through is T1 verification — the success metric is zero feedback needed. Fixes from the read stay small and localized; if a fix forces structural change, that's a question-round failure — log it to CALIBRATION-CORPUS.md.
+
+Ask the user:
+1. Does this opening grab you in 8 seconds?
+2. Does the steelmanning feel fair to the other side?
+3. Should I expand any section?
+4. Any structure check findings you want to address first?
+5. Any packaging coherence drift you want to fix before filming?
+6. Ready for fact-checking?
+
+**Proactive suggestion:** "Script complete. Review structure check + packaging coherence findings above, then run `/verify` to fact-check before filming."
+
+**If packaging coherence returned FAIL:** explicitly call this out: "Packaging coherence FAILED — fix the title/hook gap before `/verify`, or acknowledge the drift before proceeding."
+
+---
+
+## HOOK VARIANT GENERATION (`--hooks`)
+
+Score the existing hook, show a style recommendation banner, generate LLM variants grounded in actual script material, auto-score each with title-fulfillment check, and rank.
+
+**Flags:**
+- `--title "Title Text"` — enables title-fulfillment check (entity echo + promise-type). Skip and fulfillment check is omitted.
+- `--topic [type]` — override auto-detected topic type. One of: `territorial`, `ideological`, `political_fact_check`, `general`.
+
+### Process
+
+**Step 1: Locate project and read script**
+
+Find SCRIPT.md in the project folder. Extract the first ~300 spoken words as the "existing hook":
+
+```python
+from tools.production.parser import strip_for_teleprompter
+from pathlib import Path
+
+script_text = Path(script_path).read_text(encoding='utf-8')
+clean_text = strip_for_teleprompter(script_text)
+existing_hook = ' '.join(clean_text.split()[:300])
+```
+
+**Step 2: Auto-detect topic type from script content**
+
+```python
+from tools.research.hook_scorer import detect_topic_from_script
+
+topic_type = detect_topic_from_script(clean_text)
+# --topic flag overrides auto-detection if provided by user
+```
+
+**Step 3: Score the existing hook with fulfillment check**
+
+```python
+from tools.research.hook_scorer import score_hook, rank_hooks, format_hook_ranking
+
+title = user_provided_title  # from --title flag, or None
+result = score_hook(existing_hook, label='Current Hook', title=title, topic_type=topic_type)
+```
+
+**Step 4: Display style recommendation banner FIRST (before score)**
+
+```
+--- Style Recommendation ---
+Topic type: {topic_type} -> Recommended style: {result['style_recommendation']['recommended']}
+Confidence: {HIGH/MEDIUM/LOW} ({N} examples in library)
+
+Examples from top channels:
+- "{example_1}"
+- "{example_2}"
+---
+```
+
+**Step 5: Display existing hook score with fulfillment result**
+
+```
+## Current Hook Score: {total}/100
+
+| Dimension | Score | Details |
+|-----------|-------|---------|
+| Framework | {framework_score}/40 | anomaly: {score}/15, stakes: {score}/15, inciting: {score}/10 |
+| Pattern   | {pattern_score}/30  | specific number, shocking verb, visual detail |
+| Authority | {authority_score}/15 | first-person I read/found/checked |
+| Gap       | {gap_score}/15      | contradiction / curiosity opener |
+
+Title Fulfillment: {PASS/FAIL}
+- Entity echo: {PASS/FAIL} ({matched_entities})
+- Promise type: {PASS/FAIL} ({title_type} vs {hook_type})
+{If FAIL: "Mismatch: {fix_suggestion}"}
+```
+
+(Fulfillment is displayed separately — it is not added to the 100-point score total.)
+
+**Step 6: Determine urgency**
+
+| Condition | Urgency |
+|-----------|---------|
+| Score >= 70 AND fulfillment passed | LOW — current hook is solid |
+| Score >= 50 OR fulfillment failed | MEDIUM — alternatives recommended |
+| Score < 50 | HIGH — hook needs rework |
+
+**Step 7: Generate alternative hook variants (LLM-generated, not template-based)**
+
+Read the full script to extract key material: specific numbers, named documents, contradictions, named entities (the same material TitleMaterialExtractor uses). Then write 3-5 variants using the **Document Reveal** framework as structural guidance:
+
+- **Layer 1:** Start with a specific, localized anomaly — a line on a map, a telegram, a redacted sentence
+- **Layer 2:** Connect the anomaly to a massive systemic consequence
+- **Layer 3:** Insert an inciting incident or pivot within ~45 seconds
+
+**Brand voice:** "Forensic, intelligent, skeptical. Bureaucratic Horror — high stakes hidden in dry documents, maps, and administrative failures."
+
+**Variant guidance:**
+- Lead with the recommended style for the detected topic type (e.g., `cold_fact` for territorial, `myth_contradiction` for ideological)
+- Include 2-3 additional style variants (e.g., `specificity_bomb`, `myth_contradiction`)
+- Variant count is proportional to script material richness — 3-5 variants is typical
+- Output spoken text only — NO `[VISUAL]`, `[AUDIO]`, or `[B-ROLL]` cues
+- Every variant should be 3-8 sentences (style-dependent)
+
+**Step 8: Auto-score each generated variant**
+
+```python
+hooks = [
+    {'label': f'{style}: {brief_description}', 'text': variant_text}
+    for style, brief_description, variant_text in generated_variants
+]
+ranked = rank_hooks(hooks, title=title, topic_type=topic_type)
+report = format_hook_ranking(ranked)
+```
+
+**Step 9: Display ranked comparison table with fulfillment column**
+
+```
+# Hook Variant Comparison
+
+| Rank | Label | Score | Framework | Fulfillment | Pattern | Authority | Gap | Key Issue |
+|------|-------|-------|-----------|-------------|---------|-----------|-----|-----------|
+| 1 | cold_fact: Treaty line | **82** | 35/40 | E:Y P:Y | 20 | 15 | 12 | None |
+| 2 | myth_contradiction: Standard answer | **75** | 30/40 | E:Y P:N | 20 | 10 | 15 | Promise type mismatch |
+| 3 | specificity_bomb: Named document | **68** | 28/40 | E:N P:Y | 15 | 10 | 15 | Entity echo missing |
+...
+
+Pick a hook (1/2/3/...):
+```
+
+### Scoring Criteria
+
+| Dimension | Max Points | What It Measures |
+|-----------|-----------|-----------------|
+| Framework | 40 | Anomaly (0-15) + stakes (0-15) + inciting incident (0-10) — Document Reveal |
+| Pattern match | 30 | Specific number, shocking verb, visual detail (not abstract) |
+| Authority signal | 15 | First-person "I read/found/checked" marker |
+| Information gap | 15 | Contradiction that opens curiosity |
+| Style modifier | +/-5 | Match/mismatch with recommended style (HIGH confidence only: 7+ examples) |
+| **Total** | **100** | (capped at 100) |
+| Fulfillment | PASS/FAIL | Entity echo + promise-type alignment — displayed separately, NOT in 100-pt score |
+
+### Example Output
+
+```
+--- Style Recommendation ---
+Topic type: territorial -> Recommended style: cold_fact
+Confidence: HIGH (9 examples in library)
+
+Examples from top channels:
+- "Open a language map of South America. Every country speaks Spanish. Except one."
+- "In 1494, two countries divided a world they had never mapped."
+---
+
+## Current Hook Score: 58/100
+
+| Dimension | Score | Details |
+|-----------|-------|---------|
+| Framework | 22/40 | anomaly: 15/15, stakes: 7/15, inciting: 0/10 |
+| Pattern   | 20/30 | specific number present, no shocking verb |
+| Authority | 10/15 | first-person signal present |
+| Gap       | 6/15  | weak contradiction |
+
+Title Fulfillment: FAIL
+- Entity echo: PASS (Portugal, Brazil)
+- Promise type: FAIL (title promises mechanism, hook opens with context)
+Mismatch: Title promises mechanism content but hook opens with contextual background. Try: open with the specific document or mechanism.
+
+Urgency: MEDIUM — alternatives recommended.
+
+# Hook Variant Comparison
+
+| Rank | Label | Score | Framework | Fulfillment | Pattern | Authority | Gap | Key Issue |
+|------|-------|-------|-----------|-------------|---------|-----------|-----|-----------|
+| 1 | cold_fact: Treaty line | **82** | 35/40 | E:Y P:Y | 20 | 15 | 12 | None |
+| 2 | myth_contradiction: Standard answer | **75** | 30/40 | E:Y P:N | 20 | 10 | 15 | Promise type mismatch |
+| 3 | specificity_bomb: Named document | **68** | 28/40 | E:N P:Y | 15 | 10 | 15 | Entity echo missing |
+
+Pick a hook (1/2/3):
+```
+
+### After Selection
+
+If the project has a SCRIPT.md:
+> "Apply hook 1 to the script? This will replace the current opening. [Y/N]"
+
+If no script yet:
+> "Hook 1 saved. When you run `/script --new`, this hook will be used as the opening."
+
+---
+
+## VARIANT GENERATION (`--variants`)
+
+Generate opening hook and structural approach variants before writing full script.
+
+### Flow
+1. Surface past choice patterns for topic type (if any exist)
+2. Generate 2-3 opening hook variants (labeled A/B/C)
+3. User picks hook by letter
+4. Generate 2 structural approach variants (labeled 1/2)
+5. User picks structure by number
+6. Proceed with full script generation using selected hook + structure
+
+### Choice Logging
+Choices are automatically logged to database for pattern recognition.
+After 5+ choices, the system recommends preferred options based on your past patterns.
+
+### Review Past Choices
+```
+python -m tools.youtube_analytics.technique_library --choices
+python -m tools.youtube_analytics.technique_library --choices territorial
+python -m tools.youtube_analytics.technique_library --choice-stats
+```
+
+---
+
+## DOCUMENT-STRUCTURED MODE (`--document-mode`)
+
+Generate scripts for clause-by-clause document walkthrough videos (Untranslated Evidence format).
+
+### When to Use
+
+Use document mode when:
+- Video centers on untranslated or mistranslated primary document
+- Goal is to reveal what document says in original language vs. English summaries
+- Script should follow document's clause-by-clause order
+- Visual format is split-screen (original left, translation right)
+
+**Format reference:** `.Codex/REFERENCE/UNTRANSLATED-EVIDENCE-FORMAT-GUIDE.md`
+
+### Prerequisites
+
+1. **Translation output exists:** Phase 40 translation pipeline completed
+   - Formatted output file: `*-TRANSLATION-FORMATTED.md` in project folder
+   - Cross-check complete (or explicitly skipped)
+   - Legal annotations present
+   - Surprise detection complete (optional)
+
+2. **Translation verified:** `/verify --translation` returned GREEN or YELLOW verdict
+
+### Workflow
+
+**Step 1: Locate translation**
+- Auto-detect: Search project folder for `*-TRANSLATION-FORMATTED.md`
+- Override: Use `--translation PATH` to specify exact file
+
+**Step 2: Parse document structure**
+- Extract clauses (articles, sections, paragraphs)
+- Identify surprise markers (MAJOR, NOTABLE, MINOR from surprise_detector)
+- Load legal term annotations
+- Determine clause ordering (document order or thematic grouping)
+
+**Step 3: Generate script following format:**
+
+**Structure:**
+1. Cold Open (1-2 min) - Modern hook, stakes, preview
+2. Document Introduction (2-3 min) - Context, translation status
+3. Clause-by-Clause Walkthrough (bulk) - For each clause:
+   - Context setup (talking head)
+   - Read original (split-screen left)
+   - Translate (split-screen right)
+   - Explain significance (talking head)
+   - Connect to myth (talking head)
+4. Synthesis "What They Got Wrong" (3-5 min) - Recap surprises
+5. Conclusion (1-2 min) - Return to hook, modern consequences
+
+**Surprise handling:**
+- Major/Notable surprises emphasized during walkthrough: "This is crucial—[reason]"
+- All Major/Notable surprises recapped in Synthesis section
+- Minor surprises mentioned inline only
+
+**Original text in visual notes:**
+```
+[VISUAL SPLIT-SCREEN:
+LEFT: Original [language] text - "[exact text]"
+RIGHT: English translation - "[exact translation]"]
+```
+
+**Step 4: Quality checks**
+- Every clause has 5 elements (context, read, translate, explain, connect)
+- Surprises appear twice (inline + synthesis)
+- Visual notes specify panel layout
+- Spoken narration is natural and read-aloud friendly
+
+### Flags
+
+| Flag | Purpose |
+|------|---------|
+| `--translation PATH` | Specify translation file (overrides auto-detect) |
+| `--group-thematic` | Allow thematic clause grouping instead of document order |
+| `--teleprompter` | Export clean text after generation (strips visual notes) |
+
+### Output
+
+- **SCRIPT.md:** Full script with visual staging notes
+- **SCRIPT-TELEPROMPTER.txt:** (if --teleprompter used) Clean spoken text only
+
+### After Generation
+
+**Proactive suggestion:**
+> "Document-structured script complete. Next steps:
+> 1. `/verify --script` - Fact-check before filming
+> 2. `/prep --split-screen` - Generate split-screen edit guide
+>
+> Ready to verify? Run `/verify --script`"
+
+### Example Usage
+
+```bash
+# Auto-detect translation in project folder
+/script --document-mode 37-vichy-statut-juifs-2026
+
+# Specify translation file explicitly
+/script --document-mode 37-vichy-statut-juifs-2026 --translation path/to/translation.md
+
+# Thematic grouping instead of document order
+/script --document-mode 35-gibraltar-utrecht-2026 --group-thematic
+
+# Generate script and export teleprompter text
+/script --document-mode 37-vichy-statut-juifs-2026 --teleprompter
+```
+
+### Reference Files
+
+- **Format guide:** `.Codex/REFERENCE/UNTRANSLATED-EVIDENCE-FORMAT-GUIDE.md`
+- **Agent rules:** `.Codex/agents/script-writer-v2.md` Rule 18
+- **Translation pipeline:** `tools/translation/cli.py`
+
+---
+
+## COLLABORATIVE EDITING (`--collaborate`)
+
+You draft, Codex refines. The preferred workflow for scripts where your voice and personal takes matter.
+
+**Trigger:** User pastes a draft with inline comments, says "read my changes," or runs `--collaborate`.
+
+### Process
+
+**Step 1: Read and Parse**
+
+1. Read the user's draft (pasted in chat or from SCRIPT.md)
+2. Read `01-VERIFIED-RESEARCH.md` from the project folder
+3. Detect inline comments: anything in parentheses, `??`, incomplete sentences, `(why)`, `(how)`, questions
+4. Detect rewrites: compare against previous SCRIPT.md if one exists
+
+**Step 2: Respond to Comments**
+
+For each inline comment:
+- **Factual questions** ("why??", "how?"): Answer from verified research with source citations
+- **Corrections** ("eh, they can no?"): Check the user's correction against sources — they may be right
+- **Incomplete thoughts** (trailing off mid-sentence): Interpret intent, propose completion, ask if correct
+- **Uncertainty markers** ("I think", "maybe"): Verify the claim, confirm or correct
+
+**Step 3: Identify Voice Patterns**
+
+If the user has made rewrites, identify 5-6 concrete patterns in their changes:
+- Word choice shifts (precision, cadence, formality)
+- Structural preferences (first person, declarative, fragments vs sentences)
+- What they cut (dead weight, redundancy)
+- What they add (emphasis words, spoken flow)
+
+State these briefly. Purpose: confirm you're tracking their voice so they can trust the edits.
+
+**Step 4: Personal Take Questions**
+
+Ask 3-5 questions focused on the user's REACTION to the material:
+- "What surprised you when you read this source?"
+- "Do you have a personal take on [specific claim]?"
+- "This detail [X] — did you find it moving or intellectually interesting? Delivery changes based on which."
+- "Is there a moment in this script where you want the audience to feel something specific?"
+
+Do NOT ask about logistics, filming setup, or on-screen graphics. Those are separate concerns.
+
+**Step 5: Integrate and Audit**
+
+1. Apply the user's answers as script edits
+2. **Accuracy audit:** Cross-check EVERY addition against `01-VERIFIED-RESEARCH.md`
+3. Flag claims NOT in verified research — do not silently include them
+4. For flagged claims: run targeted NotebookLM queries (not blanket re-verification)
+5. **Primary source preference:** When a secondary source (Cartledge, Green, Matthews) summarizes a primary source, check if the primary source (Herodotus, Diodorus, treaty text) says it more powerfully. If yes, use the primary source with the historian's interpretation alongside.
+
+**Step 6: Iterate**
+
+Make small edits, one round at a time. Present changes, wait for feedback. Do not batch all edits into one massive rewrite.
+
+### What This Mode Is NOT
+
+- NOT `/script --new` — you don't generate from scratch
+- NOT `/script --revise` — you don't apply mechanical fixes
+- NOT `/script --review` — you don't run checklists
+- This is a conversation about the script where you act as editor, fact-checker, and sounding board
+
+### When to Use
+
+- User has written a draft and wants refinement
+- User has annotated an existing script with comments
+- User says "read my changes" or "I made some edits"
+- Any time the user's voice and personal takes are the product
+
+---
+
+## REVISE SCRIPT (`--revise`)
+
+Work on an existing SCRIPT.md with specific improvements.
+
+### Process
+
+1. **Read current script:** Find and read SCRIPT.md
+2. **Identify revision type:**
+   - User feedback (specific sections to change)
+   - Quality issues (from `/script --review`)
+   - Fact-check findings (from `/verify`)
+3. **Apply revisions** while preserving voice and structure
+4. **Git tracks history** - no need for V2/V3 files
+
+### Common Revision Types
+
+| Type | Focus |
+|------|-------|
+| **Tightening** | Remove filler, redundancy, tangents |
+| **Restructuring** | Reorder sections for better flow |
+| **Evidence update** | Add/fix quotes and citations |
+| **Voice correction** | Fix forbidden phrases, improve delivery |
+| **Hook improvement** | Strengthen opening/closing |
+
+---
+
+## REVIEW SCRIPT (`--review`)
+
+Comprehensive script analysis before filming. Absorbs `/review-script` functionality.
+
+### Part 1: Forbidden Phrase Scan
+
+Run grep for forbidden patterns:
+```
+(Let me show you|Here's where it gets interesting|And that's the key insight|Buckle up|Stay with me here|Here's the thing|You won't believe|SHOCKING)
+```
+
+**If found:** Flag as CRITICAL and provide rewrite.
+
+### Part 2: Narrative Flow Check
+
+- **Rule 1:** Terms introduced before use
+- **Rule 2:** Bridge transitions between sections
+- **Rule 3:** Quote integration (Setup → Quote → Implication)
+- **Rule 4:** Implications after major facts
+- **Rule 5:** Meta-commentary count within budget
+- **Rule 6:** No repetition of same fact in different words
+
+### Part 3: Voice Profile Check
+
+- Approved phrases used correctly
+- Formal language flagged (Furthermore → On top of that)
+- Register check (educated casual, not academic)
+- Read-aloud test (sentences under 25 words, contractions)
+
+### Part 4: Structure Check
+
+- Opening (0:00-1:00): Concrete detail, modern hook, both extremes
+- Closing (final 60-90 sec): Returns to opening, answers "so what?"
+- Modern relevance map (no gaps over 90 seconds)
+- Both extremes pattern complete
+- Steelman present
+
+### Part 5: Retention Prediction
+
+- Danger zones identified (0:00-0:08, 1:00-1:30, 3:00-4:00)
+- Pattern interrupt check every 90-120 seconds
+- Predicted retention curve
+
+### Output Format
+
+```markdown
+## QUICK SUMMARY
+
+**Forbidden Phrases:** [X found / Clean]
+**Narrative Flow:** [X/10]
+**Voice Match:** [X/10]
+**Structure:** [Both Extremes / Other]
+**Retention Risk:** [Low / Medium / High]
+
+**VERDICT:** [Ready to film / Needs revision / Major issues]
+
+## CRITICAL ISSUES (Must Fix)
+[List with specific line numbers and fixes]
+
+## IMPORTANT ISSUES (Should Fix)
+[List with specific fixes]
+
+## WHAT WORKS
+[Strengths to preserve]
+```
+
+---
+
+## TELEPROMPTER EXPORT (`--teleprompter`)
+
+Export SCRIPT.md to clean text for filming.
+
+> **The teleprompter is a DERIVED artifact, generated only AFTER the script is locked.** It is never hand-edited and never the place a claim or quote lives — it is a one-way render of the locked `SCRIPT.md`. Creating it from an unlocked draft is what lets the spoken cut silently drift from the verified script (origin: #58 Kurdistan 2026-06-04 — a premature teleprompter retained an unverified "postage stamps" line the master had cut, dropped an honesty hedge, and carried two stale quote-card wordings). **All edits go to SCRIPT.md, then re-export. If you find yourself editing SCRIPT-TELEPROMPTER.txt directly, stop — fix SCRIPT.md and re-run this command.**
+
+### Process
+
+0. **LOCK GATE (hard).** Confirm the script is locked before exporting. Locked = an explicit `**STATUS: LOCKED**` (or `<!-- SCRIPT-LOCKED: YYYY-MM-DD -->`) marker at the top of `SCRIPT.md`, OR a `FINAL-SCRIPT.md` exists, OR the user states the read-aloud T1 gate has passed. **If not locked: do NOT write SCRIPT-TELEPROMPTER.txt.** Emit: "Script not locked — teleprompter is a post-lock derived artifact. Read aloud from SCRIPT.md for the T1 gate; once locked, re-run `/script --teleprompter`." Then stop.
+1. Read SCRIPT.md from project folder
+2. **Run Pre-Filming Polish checklist** (see `.Codex/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md`)
+   - Cut academic attributions from flow
+   - Cut "Do you see what this means?" phrases
+   - Convert numbered lists to prose
+   - Remove hedging words (essentially, basically, kind of)
+3. Strip all markdown formatting (`#`, `**`, `[]`, etc.)
+4. Strip B-roll notes (`[B-ROLL: ...]`)
+5. Strip source citations (`[SOURCE: ...]`)
+6. Strip metadata (target length, framing notes)
+7. Preserve paragraph breaks for pacing
+8. **Selective pause markers (v18, GR-B6):** render to professional teleprompter conventions. Add a pause/beat marker ONLY where a pause is load-bearing — the 2–3 seams per script where the pause IS the effect (pre-reveal, post-verdict). Never systematic marking; unmarked text flows. (He flattens unmarked written drama live — 56-25 — but over-marking reads amateur.)
+9. Output to SCRIPT-TELEPROMPTER.txt
+
+### Output
+
+- **File:** `SCRIPT-TELEPROMPTER.txt` in project folder
+- **Format:** Plain text, clean paragraphs
+- **Content:** Spoken words only
+
+### Reports After Export
+
+- Word count
+- Estimated runtime (words / 150)
+- Output file location
+
+---
+
+## Reference Files
+
+- **Authoritative style guide:** `.Codex/REFERENCE/WRITING-VOICE-AND-STYLE.md` index (PARTS 1-5 sibling files are script-side)
+- **Script template:** `.Codex/templates/02-SCRIPT-DRAFT-TEMPLATE.md`
+- **Opening templates:** `.Codex/REFERENCE/OPENING-HOOK-TEMPLATES.md`
+- **Closing templates:** `.Codex/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md`
+
+---
+
+## After Completion
+
+When script generation completes, suggest:
+
+> "Script saved to SCRIPT.md. Next recommended steps:
+> 1. `/verify` - Run fact-check verification (recommended before filming)
+> 2. `/prep --edit-guide` - Generate filming preparation guide
+>
+> Ready for fact-check? Run `/verify`"
+
+**If review mode (`--review`):** Suggest based on verdict:
+
+> **If Ready to film:** "Script passed review. Run `/verify` for fact-check before filming."
+> **If Needs revision:** "Script has [X] issues to fix. Run `/script --revise` to address them."
+
+**If teleprompter mode (`--teleprompter`):**
+
+> "Teleprompter text exported to SCRIPT-TELEPROMPTER.txt.
+> [Word count] words, estimated [X] minutes at 150 wpm.
+> Ready to film!"
+
+---
+
+## Absorbed Commands
+
+This command consolidates functionality from:
+- Original `/script` - Script generation
+- `/review-script` - Script quality review
+- `/teleprompter` - Clean text export for filming
+
+All original functionality preserved through flags.

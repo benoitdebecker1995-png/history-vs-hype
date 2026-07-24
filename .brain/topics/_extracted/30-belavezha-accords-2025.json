@@ -1,0 +1,177 @@
+{
+  "video": "30-belavezha-accords-2025",
+  "lifecycle": "_ARCHIVED",
+  "source_file": "video-projects/_ARCHIVED/published/30-belavezha-accords-2025/01-VERIFIED-RESEARCH.md",
+  "model": "sonnet-agent",
+  "extracted_at": "2026-07-22",
+  "claims": [
+    {
+      "claim": "The Belavezha Accords were signed on December 8, 1991, at the Viskuli lodge.",
+      "topics": ["state-dissolution-mechanics"],
+      "verbatim": null,
+      "source": "Multiple sources",
+      "status": "verified",
+      "anchor": "### Core Facts"
+    },
+    {
+      "claim": "Three leaders signed the Belavezha Accords: Boris Yeltsin, Leonid Kravchuk, and Stanislav Shushkevich.",
+      "topics": ["state-dissolution-mechanics"],
+      "verbatim": null,
+      "source": "Plokhy, Zubok",
+      "status": "verified",
+      "anchor": "### Core Facts"
+    },
+    {
+      "claim": "The Belavezha Accords' preamble declared that the USSR ceases its existence.",
+      "topics": ["state-dissolution-mechanics", "sovereignty-recognition"],
+      "verbatim": "USSR...ceases its existence",
+      "source": "Primary document",
+      "status": "verified",
+      "anchor": "### Core Facts"
+    },
+    {
+      "claim": "In the March 17, 1991 referendum on preserving the Soviet Union, 77.85% voted yes.",
+      "topics": ["state-dissolution-mechanics"],
+      "verbatim": null,
+      "source": "Presidential Library",
+      "status": "verified",
+      "anchor": "### Core Facts"
+    },
+    {
+      "claim": "In Ukraine's December 1, 1991 independence referendum, 90.32% voted for independence.",
+      "topics": ["state-dissolution-mechanics", "self-determination-claims"],
+      "verbatim": null,
+      "source": "Wilson Center",
+      "status": "verified",
+      "anchor": "### Core Facts"
+    },
+    {
+      "claim": "By 1991, the Soviet Union comprised 15 constituent republics.",
+      "topics": ["state-dissolution-mechanics"],
+      "verbatim": null,
+      "source": "Multiple sources",
+      "status": "verified",
+      "anchor": "### Core Facts"
+    },
+    {
+      "claim": "On March 15, 1996, Russia's State Duma declared the Belavezha Accords invalid.",
+      "topics": ["state-dissolution-mechanics", "legal-justification-doctrine"],
+      "verbatim": null,
+      "source": "RFE/RL, Meduza",
+      "status": "verified",
+      "anchor": "### Core Facts"
+    },
+    {
+      "claim": "In April 2005, Vladimir Putin described the Soviet collapse using the phrase 'greatest geopolitical catastrophe.'",
+      "topics": ["state-dissolution-mechanics", "propaganda-and-narrative-control"],
+      "verbatim": "greatest geopolitical catastrophe",
+      "source": "Kremlin archives",
+      "status": "verified",
+      "anchor": "### Core Facts"
+    },
+    {
+      "claim": "Historian Vladislav Zubok wrote that by December 2, 1991, the Soviet Union was already a carcass, destroyed first by Gorbachev's reforms and then by Yeltsin's separatism.",
+      "topics": ["state-dissolution-mechanics", "historiographical-revision"],
+      "verbatim": "On 2 December 1991, the Soviet Union was already a carcass, destroyed first by Gorbachev's reforms and then by the implacable separatism of Yeltsin's course of action.",
+      "source": "Vladislav Zubok, Collapse: The Fall of the Soviet Union, p. 395",
+      "status": "verified",
+      "anchor": "#### Zubok on USSR as \"carcass\""
+    },
+    {
+      "claim": "Legal advisor Sergey Shakhrai argued that because Russia, Ukraine, and Belarus had tied the 'political nuptial cord' forming the USSR in 1922, they alone had legal standing to dissolve it seven decades later.",
+      "topics": ["state-dissolution-mechanics", "legal-justification-doctrine"],
+      "verbatim": "Legal advisor Sergey Shakhrai improvised the logic that since the three republics had tied the 'political nuptial cord' in 1922, they were the only ones who could untie it seven decades later.",
+      "source": "Serhii Plokhy, The Last Empire, p. 309; Vladislav Zubok, Collapse, p. 406; Journal of Siberian Federal University, p. 1848",
+      "status": "verified",
+      "anchor": "#### Shakhrai's \"political nuptial cord\" argument"
+    },
+    {
+      "claim": "In a 2011 interview, Leonid Kravchuk admitted the signing of the Belavezha Accords was a coup d'état completed peacefully.",
+      "topics": ["state-dissolution-mechanics", "legal-justification-doctrine", "contested-attribution"],
+      "verbatim": "The signing of the Belavezha Accords was a coup d'état which was completed peacefully.",
+      "source": "Leonid Kravchuk, interview with Radio SVOBODA, December 8, 2011, cited in Alexander Salenko, \"The Belavezha Accords: Legal Aspects of the Dissolution of the USSR,\" Heidelberg Journal of International Law (ZaöRV), Vol. 75 (2015), p. 158, footnote 25",
+      "status": "verified",
+      "anchor": "#### Kravchuk's \"peaceful coup\" admission"
+    },
+    {
+      "claim": "Mikhail Gorbachev confronted the three Belavezha signatories, demanding to know who had given them authorization to act.",
+      "topics": ["state-dissolution-mechanics", "legal-justification-doctrine"],
+      "verbatim": "The three of you got together, but who gave you any such authorization?",
+      "source": "Serhii Plokhy, The Last Empire, p. 321; Salenko, p. 159",
+      "status": "verified",
+      "anchor": "#### Gorbachev's \"no authorization\" confrontation"
+    },
+    {
+      "claim": "Gorbachev later wrote that both before and after the Belavezha pact, he had warned about its dangerous and destructive consequences.",
+      "topics": ["state-dissolution-mechanics"],
+      "verbatim": "Both before and after the pact was made... I was warning about the dangerous and destructive consequences.",
+      "source": "Salenko, p. 142, citing Gorbachev's March 14, 2014 letter",
+      "status": "verified",
+      "anchor": "#### Gorbachev's \"no authorization\" confrontation"
+    },
+    {
+      "claim": "In August 1991, immediately after Ukraine's independence declaration, Russian spokesman Pavel Voshchanov said Russia reserved the right to raise the question of the revision of boundaries with republics that left the Union, specifically naming Crimea and Donbas.",
+      "topics": ["boundary-criteria-loophole", "sovereignty-recognition", "state-dissolution-mechanics"],
+      "verbatim": "raise the question of the revision of boundaries",
+      "source": "Plokhy, The Last Empire; Chatham House analysis (August 2022); Euromaidan Press (April 2016)",
+      "status": "verified",
+      "anchor": "#### Voshchanov statement (CRITICAL TIMELINE)"
+    },
+    {
+      "claim": "The Voshchanov statement about revising borders with departing republics predates the December 1991 Belavezha Accords by about four months.",
+      "topics": ["boundary-criteria-loophole", "state-dissolution-mechanics"],
+      "verbatim": null,
+      "source": "Plokhy, The Last Empire; Chatham House analysis (August 2022); Euromaidan Press (April 2016)",
+      "status": "verified",
+      "anchor": "#### Voshchanov statement (CRITICAL TIMELINE)"
+    },
+    {
+      "claim": "Soviet inflation reached about 250% per month in late 1991.",
+      "topics": ["state-dissolution-mechanics"],
+      "verbatim": null,
+      "source": "Stephen Kotkin, Armageddon Averted",
+      "status": "verified",
+      "anchor": "### Economic Context"
+    },
+    {
+      "claim": "The Soviet economy declined by about 17% over the first three quarters of 1991.",
+      "topics": ["state-dissolution-mechanics"],
+      "verbatim": null,
+      "source": "Kotkin, Armageddon Averted",
+      "status": "verified",
+      "anchor": "### Economic Context"
+    },
+    {
+      "claim": "The 1922 Union Treaty created the USSR from four founding republics: the RSFSR, Ukraine, Belarus, and the Transcaucasian SFSR.",
+      "topics": ["state-dissolution-mechanics"],
+      "verbatim": null,
+      "source": "1922 Union Treaty, per dossier Legal Framework table",
+      "status": "verified",
+      "anchor": "### Legal Framework"
+    },
+    {
+      "claim": "A 1990 Soviet law required a five-year process for constituent republics to legally secede from the union.",
+      "topics": ["state-dissolution-mechanics", "treaty-guarantee-nonenforcement"],
+      "verbatim": null,
+      "source": "1990 Secession Law, per dossier Legal Framework table",
+      "status": "verified",
+      "anchor": "### Legal Framework"
+    },
+    {
+      "claim": "Article 5 of the Belavezha Accords committed the signatories to recognize and respect each other's territorial integrity and the inviolability of existing borders.",
+      "topics": ["treaty-guarantee-nonenforcement", "sovereignty-recognition", "state-dissolution-mechanics"],
+      "verbatim": "Recognize and respect each other's territorial integrity and the inviolability of existing borders",
+      "source": "Belavezha Accords Art. 5, per dossier Legal Framework table",
+      "status": "verified",
+      "anchor": "### Legal Framework"
+    },
+    {
+      "claim": "In 1996, Russia's State Duma passed a resolution declaring the Belavezha Accords had no legal force.",
+      "topics": ["state-dissolution-mechanics", "legal-justification-doctrine"],
+      "verbatim": null,
+      "source": "1996 Duma Resolution, per dossier Legal Framework table",
+      "status": "verified",
+      "anchor": "### Legal Framework"
+    }
+  ]
+}

@@ -152,31 +152,33 @@ class TitleIntelligence:
     Analyzes title patterns, predicts CTR, and audits SEO.
 
     Uses data from:
-      - analytics.db (videos table: title, topic_type, views, retention, traffic)
-      - keywords.db (ctr_snapshots: actual CTR per video)
+      - analytics.db (videos table: title, topic_type, views, retention, traffic,
+        and cached CTR from the growth_data bridge)
       - analytics.db (traffic_sources: search traffic %)
+      - keywords.db (keyword DEMAND only, for find_content_gaps — not CTR)
     """
 
     def __init__(self, analytics_db: Path = None, keywords_db: Path = None):
         self._analytics_path = analytics_db or ANALYTICS_DB
+        # keywords.db is still used for keyword DEMAND data (find_content_gaps),
+        # NOT for CTR — CTR now comes cached from analytics.db via the bridge.
         self._keywords_path = keywords_db or KEYWORDS_DB
         self._patterns: Optional[Dict] = None
 
     def _get_video_data(self) -> List[Dict]:
         """
-        Merge video metadata from analytics.db with CTR from keywords.db.
+        Merge video metadata + cached CTR + search-traffic share.
 
         Returns list of dicts with: title, topic_type, views, avg_view_percentage,
         subscribers_gained, ctr_percent, impressions, search_traffic_pct
 
-        Delegates to tools.youtube_analytics.views — the cross-store merge lives
-        there to keep the analytics/keywords seam crossing in one place.
+        CTR/impressions are the CACHED analytics.db values written by the
+        growth_data bridge from keywords.db.ctr_snapshots — NOT re-read from
+        keywords.db here (that override was retired 2026-07-22; see views.py).
+        Delegates to tools.youtube_analytics.views — the merge lives there.
         """
         from tools.youtube_analytics.views import videos_with_ctr_and_traffic
-        return videos_with_ctr_and_traffic(
-            analytics_db=self._analytics_path,
-            keywords_db=self._keywords_path,
-        )
+        return videos_with_ctr_and_traffic(analytics_db=self._analytics_path)
 
     def analyze_title_patterns(self) -> Dict[str, Any]:
         """

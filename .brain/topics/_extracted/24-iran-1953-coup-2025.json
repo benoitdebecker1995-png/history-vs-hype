@@ -1,0 +1,694 @@
+{
+ "video": "24-iran-1953-coup-2025",
+ "lifecycle": "_ARCHIVED",
+ "source_file": "video-projects/_ARCHIVED/published/24-iran-1953-coup-2025/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "The Constitutional Revolution began in December 1905 after Tehran's governor punished merchants for refusing to lower sugar prices.",
+   "topics": [
+    "economic-grievance-uprising"
+   ],
+   "verbatim": "The Iranian constitutional revolution is usually dated from December 1905, when the governor of Tehran beat the feet of several sugar merchants for not lowering their raised sugar prices as ordered.",
+   "source": "Kagan, Modern Iran, p.67",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 1: Revolution Trigger (December 1905)"
+  },
+  {
+   "claim": "In mid-1906, roughly 14,000 protesters took sanctuary (bast) in the British Legation in Tehran demanding a parliament.",
+   "topics": [
+    "self-determination-claims"
+   ],
+   "verbatim": "Their numbers gradually increased, and soon there were 14,000 persons in the Legation garden.",
+   "source": "British Legation, Correspondence Respecting the Affairs of Persia, Vol I, No. 1, p.4",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 2: British Embassy Protest (July 1906)"
+  },
+  {
+   "claim": "Iran's constitutional movement is often called among the first in Asia, but Japan's 1905 constitutional system and the 1876 Ottoman constitution preceded it.",
+   "topics": [
+    "scholarly-disagreement",
+    "self-determination-claims"
+   ],
+   "verbatim": "Iranians were among the first in Asia to agitate for democracy. The Constitutional Revolution of 1905–1911 successfully established a democratic constitution and government.",
+   "source": "Parsa, Democracy in Iran, p.5",
+   "status": "partial",
+   "anchor": "### ✅ CLAIM 4: First Parliament in Asia (CONTESTED)"
+  },
+  {
+   "claim": "Iran's 1906 Constitution was modeled on the Belgian Constitution of 1831.",
+   "topics": [
+    "treaty-text-vs-practice"
+   ],
+   "verbatim": "The Constitution itself, modelled on that of the Belgian Constitution – itself derived from the unwritten British constitution – was drawn up into two Fundamental Laws",
+   "source": "Ansari, Modern Iran since 1797, p.104",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 5: Constitution Modeled on Belgium"
+  },
+  {
+   "claim": "Under the 1906 constitution, the Majlis held final authority over laws, budgets, treaties, loans, monopolies and concessions.",
+   "topics": [
+    "treaty-ratification-process"
+   ],
+   "verbatim": "it had final say over all 'laws, decrees, budgets, treaties, loans, monopolies, and concessions.'",
+   "source": "Abrahamian, A History of Modern Iran, p.49",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 7: Majlis Powers Under 1906 Constitution"
+  },
+  {
+   "claim": "In 1872, Nasser al-Din Shah sold Baron Julius de Reuter exclusive rights to build Iran's mines, railways and industry for $200,000 plus 60% of profits.",
+   "topics": [
+    "concession-extraction",
+    "resource-extraction-economy"
+   ],
+   "verbatim": "Nasser al-Din Shah initiated this process in 1872 by selling the sole right to construct mines, railways, tramways, dams, roads, and industrial plants to Baron Julius de Reuter",
+   "source": "Abrahamian, A History of Modern Iran, p.14",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 9: Reuter Concession (1872)"
+  },
+  {
+   "claim": "Lord Curzon called the 1872 Reuter concession the most complete surrender of a kingdom's resources ever accomplished in history.",
+   "topics": [
+    "concession-extraction"
+   ],
+   "verbatim": "most complete surrender of the entire resources of a kingdom into foreign hands that has ever been dreamed of, much less accomplished in history.",
+   "source": "Abrahamian, A History of Modern Iran, p.14",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 10: Lord Curzon \"Surrender\" Quote"
+  },
+  {
+   "claim": "In 1901, Muzaffar al-Din Shah granted William Knox D'Arcy a 60-year exclusive oil concession in exchange for 16% of net annual profits.",
+   "topics": [
+    "concession-extraction",
+    "resource-extraction-economy"
+   ],
+   "verbatim": "special and exclusive privilege to obtain, exploit, develop, render suitable for trade, carry away and sell natural gas [and] petroleum . . . for a term of sixty years.",
+   "source": "Kinzer, All the Shah's Men, p.33",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 11: D'Arcy Concession Terms (1901)"
+  },
+  {
+   "claim": "The British government bought a 51-52.5% controlling stake in the Anglo-Persian Oil Company around 1913-1914.",
+   "topics": [
+    "resource-extraction-economy",
+    "nationalisation-and-expropriation"
+   ],
+   "verbatim": "the British government spent £2 million to buy 51 percent of the company.",
+   "source": "Kinzer, All the Shah's Men, p.49",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 14: British Government Buys APOC (51-52.5%)"
+  },
+  {
+   "claim": "The 1907 Anglo-Russian Convention divided Iran into a Russian zone, a British zone, and a neutral zone without consulting Iran.",
+   "topics": [
+    "partition-of-territory",
+    "great-power-arbitration"
+   ],
+   "verbatim": "Iran was not consulted but was simply informed of this arrangement after the treaty was signed in St. Petersburg.",
+   "source": "Kinzer, All the Shah's Men, p.38",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 15: Iran Divided Without Consent"
+  },
+  {
+   "claim": "Russian forces bombarded the Majlis building in 1908 and, in 1911, issued an ultimatum demanding the dismissal of the American treasurer-general Shuster.",
+   "topics": [
+    "great-power-arbitration",
+    "administrative-collapse"
+   ],
+   "verbatim": "sent his Cossacks to occupy the telegraph office and to bombard the Majles building.",
+   "source": "Abrahamian, A History of Modern Iran, p.52",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 16: Foreign Powers Undermined Majlis"
+  },
+  {
+   "claim": "The 1919 Anglo-Persian Agreement would have given Britain sole rights to supply Iran's loans, arms, military advisors and customs administrators.",
+   "topics": [
+    "sovereignty-recognition",
+    "concession-extraction"
+   ],
+   "verbatim": "Britain obtained the sole right to provide Iran with loans, arms, advisors, military instructors, customs administrators, and even teachers.",
+   "source": "Abrahamian, A History of Modern Iran, p.28",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 18: 1919 Agreement Terms"
+  },
+  {
+   "claim": "Iran's prime minister received an advance of £131,000 while helping negotiate the 1919 Anglo-Persian Agreement, apparently to secure its passage through the Majlis.",
+   "topics": [
+    "treaty-ratification-process",
+    "concession-extraction"
+   ],
+   "verbatim": "received an advance of £131,000, presumably to steer it through the Majles since all foreign treaties required parliamentary ratification.",
+   "source": "Abrahamian, A History of Modern Iran, p.29",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 19: Bribery of Iranian Officials"
+  },
+  {
+   "claim": "The Majlis never ratified the 1919 Anglo-Persian Agreement, and Reza Khan later abrogated it.",
+   "topics": [
+    "treaty-ratification-process"
+   ],
+   "verbatim": "He facilitated British withdrawal, abrogated the Anglo-Persian Agreement.",
+   "source": "Abrahamian, A History of Modern Iran, p.35",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 20: Majlis Never Ratified 1919 Agreement"
+  },
+  {
+   "claim": "On February 21, 1921, General Reza Khan led 3,000 men and 18 machine guns to take control of Tehran.",
+   "topics": [
+    "covert-regime-change"
+   ],
+   "verbatim": "General Reza Khan, commander of the Cossack garrison in Qazvin, took control of Tehran, with 3,000 men and 18 machine guns.",
+   "source": "Abrahamian, A History of Modern Iran, p.47",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 22: 1921 Coup Date"
+  },
+  {
+   "claim": "British officers in Qazvin promoted Reza Khan to garrison commander and supplied him with ammunition and pay before his 1921 march on Tehran.",
+   "topics": [
+    "covert-regime-change",
+    "intelligence-agency-operations"
+   ],
+   "verbatim": "Ironside had placed Reza Khan in charge of the Qazvin garrison and hurriedly promoted him general. ... Ironside also provided Reza Khan with ammunition and pay for his men.",
+   "source": "Abrahamian, A History of Modern Iran, p.48",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 23: British Involvement in 1921 Coup"
+  },
+  {
+   "claim": "The Qajar dynasty ended when the Majlis ratified Reza Khan's rule in October 1925, and he was crowned Reza Shah on April 25, 1926.",
+   "topics": [
+    "covert-regime-change"
+   ],
+   "verbatim": "the actual deposition was not ratified by the Majlis until 31 October 1925",
+   "source": "Ansari, Modern Iran since 1797, p.135",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 24: Reza Khan Becomes Shah (1925-1926)"
+  },
+  {
+   "claim": "Reza Shah gained absolute political control largely by turning the Majlis from a real power center into a rubber-stamp body.",
+   "topics": [
+    "legislative-capture"
+   ],
+   "verbatim": "He gained absolute control over the political system mainly by transforming the Majles from an aristocratic power center into a pliant rubber stamp.",
+   "source": "Abrahamian, A History of Modern Iran, p.60",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 25: Majlis Reduced to \"Rubber Stamp\""
+  },
+  {
+   "claim": "On March 15, 1951, all 96 Majlis deputies present voted unanimously to nationalize Iran's oil industry.",
+   "topics": [
+    "nationalisation-and-expropriation"
+   ],
+   "verbatim": "Ninety-six deputies turned up, including several who had promised the Shah they would stay away. Every one voted in favor of nationalization.",
+   "source": "Kinzer, All the Shah's Men, p.78",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 26: Oil Nationalization Vote (March 15, 1951)"
+  },
+  {
+   "claim": "Under the 1933 oil agreement, Iran's share of profits rose only from 16% to about 20%.",
+   "topics": [
+    "resource-extraction-economy"
+   ],
+   "verbatim": "increase Iran's share of the annual profits from 16 percent to a modest 20 percent.",
+   "source": "Abrahamian, Iran Between Two Revolutions, p.144",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 28: Iran Received ~20% Under Old Agreement"
+  },
+  {
+   "claim": "Britain offered Iran up to 60% of oil profits in 1951 negotiations but insisted real operational control remain in Western hands.",
+   "topics": [
+    "resource-extraction-economy",
+    "legal-justification-doctrine"
+   ],
+   "verbatim": "London was willing to go beyond the normal 50/50 deal and give Iran as much as 60 percent of the profits so long as real 'control' remained in Western hands.",
+   "source": "Abrahamian, A History of Modern Iran, p.112",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 29: Britain Offered 50/50 But Kept \"Control\""
+  },
+  {
+   "claim": "AIOC chairman Sir William Fraser declared in early 1951 that there would be no further concessions to Iran.",
+   "topics": [
+    "resource-extraction-economy"
+   ],
+   "verbatim": "There will be no further concessions",
+   "source": "CIA internal history (Wilber), quoted in Abrahamian, The Coup, p.86",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 30: British Refusal Quote (\"No Further Concessions\")"
+  },
+  {
+   "claim": "On July 22, 1952, the International Court of Justice ruled 9-5 that it had no jurisdiction over the Anglo-Iranian oil dispute.",
+   "topics": [
+    "arbitration-and-adjudication"
+   ],
+   "verbatim": "the ICJ ruled that it had no competence to consider the Anglo-Iranian dispute",
+   "source": "Abrahamian, The Coup, p.112",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 31: ICJ Ruling (July 22, 1952)"
+  },
+  {
+   "claim": "The CIA budgeted $150,000 for a propaganda campaign against Mossadegh, including money to purchase Majlis deputies.",
+   "topics": [
+    "propaganda-and-narrative-control",
+    "covert-regime-change"
+   ],
+   "verbatim": "A sum of $150,000 was budgeted for conducting 'a massive propaganda campaign against Mosaddeq.'",
+   "source": "Rahnema, Behind the 1953 Coup, p.61",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 35: Tactics (Bribery, Black Propaganda, Mobs)"
+  },
+  {
+   "claim": "CIA agents issued black propaganda in the name of the communist Tudeh party to threaten Iran's religious leaders if they opposed Mossadegh.",
+   "topics": [
+    "propaganda-and-narrative-control",
+    "covert-regime-change"
+   ],
+   "verbatim": "CIA agents gave serious attention to alarming the religious leaders at Tehran by issuing black propaganda in the name of the [Communist] Tudeh party, threatening these leaders with savage punishment if they opposed Mosaddegh.",
+   "source": "CIA Report, quoted in Kinzer, All the Shah's Men, p.97",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 35: Tactics (Bribery, Black Propaganda, Mobs)"
+  },
+  {
+   "claim": "A former CIA staff member said the mob decisive in overthrowing Mossadegh was mercenary, had no ideology, and was paid with American dollars.",
+   "topics": [
+    "covert-regime-change",
+    "propaganda-and-narrative-control"
+   ],
+   "verbatim": "that mob was paid with American dollars.",
+   "source": "Richard Cottam (CIA staff), quoted in Kinzer, All the Shah's Men, p.230",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 35: Tactics (Bribery, Black Propaganda, Mobs)"
+  },
+  {
+   "claim": "The CIA's first coup attempt failed on August 15-16, 1953, after Mossadegh learned of the plan through a military leak.",
+   "topics": [
+    "covert-regime-change",
+    "intelligence-agency-operations"
+   ],
+   "verbatim": "The original D-Day set by CIA misfired when Mossadeq, learning of the plan through a leak in our military covert apparatus, took immediate counteraction to neutralize the plan.",
+   "source": "CIA internal history, p.3309",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 36: First Coup Failed (August 15-16, 1953)"
+  },
+  {
+   "claim": "On August 18, 1953, CIA headquarters cabled that operations against Mossadegh should be discontinued.",
+   "topics": [
+    "covert-regime-change",
+    "intelligence-agency-operations"
+   ],
+   "verbatim": "operations against Mossadegh should be discontinued.",
+   "source": "FRUS 1951-1954 Iran, Document 278",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 37: CIA Abort Cable (DIR 16295)"
+  },
+  {
+   "claim": "Kermit Roosevelt ignored Washington's order to leave Iran and continued the coup operation on his own initiative.",
+   "topics": [
+    "covert-regime-change",
+    "intelligence-agency-operations"
+   ],
+   "verbatim": "Washington instructed Roosevelt to leave.",
+   "source": "Abrahamian, The Coup, pp.196-197",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 38: Roosevelt Ignored Abort Order"
+  },
+  {
+   "claim": "The second, successful coup against Mossadegh was carried out on August 19, 1953.",
+   "topics": [
+    "covert-regime-change"
+   ],
+   "verbatim": "The ouster of Mossadeq was successfully accomplished on 19 Aug 1953.",
+   "source": "CIA internal history, p.3312",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 39: Second Coup Succeeded (August 19, 1953)"
+  },
+  {
+   "claim": "The CIA's own declassified history states the 1953 coup was carried out under CIA direction as an act of US foreign policy approved at the highest level.",
+   "topics": [
+    "declassification-and-official-history",
+    "covert-regime-change"
+   ],
+   "verbatim": "The military coup that overthrew Mosadeq and his National Front cabinet was carried out under CIA direction as an act of US foreign policy, conceived and approved at the highest level of government.",
+   "source": "CIA history \"The Battle for Iran,\" cited in Rahnema, p.4",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 40: CIA 2013 Declassification Quote"
+  },
+  {
+   "claim": "A March 1951 British Foreign Office memo stated Britain could be flexible on oil profits and administration but not on control.",
+   "topics": [
+    "legal-justification-doctrine",
+    "resource-extraction-economy"
+   ],
+   "verbatim": "We can be flexible in profits, administration, or partnership, but not in the issue of control.",
+   "source": "Foreign Office records cited in Abrahamian, The Coup, p.48",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 41: Oil Was Primary Motive (Abrahamian)"
+  },
+  {
+   "claim": "MI6 officer Christopher Woodhouse admitted he deliberately emphasized a communist threat over oil control to win American backing for the coup.",
+   "topics": [
+    "propaganda-and-narrative-control",
+    "covert-regime-change"
+   ],
+   "verbatim": "I decided to emphasize the Communist threat to Iran rather than the need to recover control of the oil industry.",
+   "source": "Woodhouse, Something Ventured, cited in Kinzer, All the Shah's Men, p.3",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 42: MI6 Deliberately Framed as Communist Threat"
+  },
+  {
+   "claim": "The Tudeh party made up under 1% of Iran's officer corps and had no capacity to carry out its own coup in 1953.",
+   "topics": [
+    "propaganda-and-narrative-control",
+    "historiographical-revision"
+   ],
+   "verbatim": "the Tudeh could influence rank-and-file troops . . . but could not possibly pull off a successful coup d'etat.",
+   "source": "Abrahamian, The Coup, p.219; Iran Between Two Revolutions, p.338",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 44: Tudeh Lacked Capacity for Coup"
+  },
+  {
+   "claim": "Historian Bayandor argues the 1953 coup was a spontaneous mass movement rather than a CIA operation; historian Rahnema counters this sanitizes foreign intervention.",
+   "topics": [
+    "historiographical-revision",
+    "scholarly-disagreement"
+   ],
+   "verbatim": "[D. Bayandor] argues that the August 19 events were a 'spontaneous mass movement' or a 'national resurgence' rather than a CIA-orchestrated event.",
+   "source": "Rahnema, Behind the 1953 Coup, pp.245, 296",
+   "status": "partial",
+   "anchor": "### ⚠️ CLAIM 45: CONTESTED - Revisionist View (Bayandor/Takeyh)"
+  },
+  {
+   "claim": "At his 1953 trial, Mossadegh said his only crime was nationalizing Iran's oil and removing colonial economic influence.",
+   "topics": [
+    "nationalisation-and-expropriation",
+    "judicial-procedure-codification"
+   ],
+   "verbatim": "My only crime is that I nationalized the Iranian oil industry and removed from this land the network of colonialism and the political and economic influence of the greatest empire on earth.",
+   "source": "Kinzer, All the Shah's Men, p.268",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 46: Mossadegh Trial Quote"
+  },
+  {
+   "claim": "Mossadegh was sentenced to three years in prison followed by house arrest for life.",
+   "topics": [
+    "judicial-procedure-codification"
+   ],
+   "verbatim": "three years in prison, followed by house arrest for life.",
+   "source": "Kinzer, All the Shah's Men, p.268",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 48: Sentence and House Arrest"
+  },
+  {
+   "claim": "The Shah's widely-quoted toast to Roosevelt, \"I owe my throne to you,\" comes from Roosevelt's own memoir, which Eisenhower and historian Abrahamian judged unreliable.",
+   "topics": [
+    "contested-attribution",
+    "document-provenance"
+   ],
+   "verbatim": "it seemed more like a dime novel than historical facts.",
+   "source": "Kinzer, All the Shah's Men, p.211 (Eisenhower diary, October 8, 1953)",
+   "status": "partial",
+   "anchor": "### ⚠️ CLAIM 52: \"I Owe My Throne\" Quote (CONTESTED RELIABILITY)"
+  },
+  {
+   "claim": "In 2000, US Secretary of State Albright acknowledged the US played a significant role in orchestrating Mossadegh's overthrow.",
+   "topics": [
+    "declassification-and-official-history"
+   ],
+   "verbatim": "the United States played a significant role in orchestrating the overthrow of Iran's popular Prime Minister, Mohammed Massadegh.",
+   "source": "Albright, Remarks before the American-Iranian Council",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 53: Albright Acknowledgment (March 17, 2000)"
+  },
+  {
+   "claim": "In his 2009 Cairo speech, Obama became the first sitting US president to acknowledge the US role in overthrowing Iran's elected government.",
+   "topics": [
+    "declassification-and-official-history"
+   ],
+   "verbatim": "the United States played a role in the overthrow of a democratically elected Iranian government.",
+   "source": "Obama, \"A New Beginning\" speech, Cairo University, June 4, 2009",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 54: Obama Cairo Speech (June 4, 2009)"
+  },
+  {
+   "claim": "A 1989 State Department history volume on Iran omitted any documentation of the CIA's role in the 1953 coup; a 2017 release supplemented it.",
+   "topics": [
+    "declassification-and-official-history",
+    "archival-silence"
+   ],
+   "verbatim": "did not provide any documentation on the role of the Central Intelligence Agency (CIA) in the formulation of U.S. policy toward Iran",
+   "source": "State Department, FRUS 1951-1954, Iran (Retrospective)",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 56: 2017 FRUS Release (What Was New)"
+  },
+  {
+   "claim": "In October 2023, the CIA publicly called the 1953 coup it backed \"undemocratic\" for the first time, in an official podcast.",
+   "topics": [
+    "declassification-and-official-history"
+   ],
+   "verbatim": "it was important to be transparent about the historical context surrounding these events.",
+   "source": "PBS NewsHour",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 57: 2023 CIA \"Undemocratic\" Statement (October 2023)"
+  },
+  {
+   "claim": "Many US records related to the 1953 Iran coup were destroyed in the 1960s, and parts of the record remain withheld.",
+   "topics": [
+    "evidence-destruction",
+    "archival-silence"
+   ],
+   "verbatim": "Important parts of the record are still being withheld.",
+   "source": "Malcolm Byrne (National Security Archive)",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 57: 2023 CIA \"Undemocratic\" Statement (October 2023)"
+  },
+  {
+   "claim": "The 1953 coup was foreign-planned but ultimately steered, executed and operationalized by Iranians carrying out modified British-American plans.",
+   "topics": [
+    "covert-regime-change",
+    "historiographical-revision"
+   ],
+   "verbatim": "The events were steered, executed and operationalized by Iranians who were directly and indirectly carrying out modified British–US plans.",
+   "source": "Rahnema, Behind the 1953 Coup, p.294",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 58: Coup \"Executed by Iranians\""
+  },
+  {
+   "claim": "Mossadegh's movement failed to build an organization capable of mobilizing broad support and did not act forcefully against its opponents.",
+   "topics": [
+    "leadership-tactical-error"
+   ],
+   "verbatim": "they failed to create an organization capable of mobilizing broad support for their movement",
+   "source": "Gasiorowski, Mohammad Mosaddeq and the 1953 Coup, p.275",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 59: Mossadegh's Tactical Errors"
+  },
+  {
+   "claim": "Mossadegh's August 1953 referendum used separate ballot boxes for yes and no votes, widely seen as a rigged parody of democracy.",
+   "topics": [
+    "sham-referendum-mechanics"
+   ],
+   "verbatim": "The referendum, hurriedly convened at the beginning of August, was a disastrous parody of democracy. There were separate ballot boxes for yes and no votes.",
+   "source": "Kinzer, All the Shah's Men, p.165",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 62: The Referendum Criticism"
+  },
+  {
+   "claim": "Iran's Guardian Council is a 12-member body of six clerics and six lay jurists that can veto legislation and vet election candidates for public office.",
+   "topics": [
+    "electoral-gatekeeping",
+    "religious-legal-authority"
+   ],
+   "verbatim": "This Guardian Council could veto bills passed by the legislature if it deemed them contrary to the spirit of either the constitution or the shari'a. It also had the power to vet candidates running for public office",
+   "source": "Abrahamian, A History of Modern Iran, p.67",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 64: Guardian Council Veto Power"
+  },
+  {
+   "claim": "Iran's Guardian Council has disqualified between 19% and 46% of candidates in Majles elections from 1980 to 2012.",
+   "topics": [
+    "electoral-gatekeeping"
+   ],
+   "verbatim": "The council eliminated 46 percent of the candidates in the first Majles elections in 1980",
+   "source": "Parsa, Democracy in Iran, p.144",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 65: Candidate Disqualification Rates"
+  },
+  {
+   "claim": "Iran's Guardian Council disqualified Ayatollah Khomeini's own grandson, Hassan Khomeini, from running for the Assembly of Experts in 2016.",
+   "topics": [
+    "electoral-gatekeeping"
+   ],
+   "verbatim": "The council even disqualified Hassan Khomeini, grandson of Ayatollah Khomeini, from running for the Assembly of Experts",
+   "source": "Parsa, Democracy in Iran, p.29",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 66: Notable Disqualifications (Rafsanjani, Khomeini's Grandson)"
+  },
+  {
+   "claim": "Iran's constitution gives the Supreme Leader power to declare war, appoint military commanders, grant amnesty, and initiate the dismissal of presidents.",
+   "topics": [
+    "religious-legal-authority",
+    "legal-justification-doctrine"
+   ],
+   "verbatim": "He could grant amnesty and initiate the dismissal of presidents. As commander-in-chief, he could declare war and peace, mobilize the armed forces, appoint their commanders",
+   "source": "Abrahamian, A History of Modern Iran, p.67",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 67: Article 110 Supreme Leader Powers"
+  },
+  {
+   "claim": "Under velayat-e faqih, a single religious scholar holds the same governing authority as the Prophet, and all people are obliged to obey him.",
+   "topics": [
+    "religious-legal-authority"
+   ],
+   "verbatim": "will possess the same authority as the Most Noble Messenger (upon whom be peace and blessings) in the administration of society, and it will be the duty of all people to obey him.",
+   "source": "Kurzman, The Unthinkable Revolution in Iran, p.626",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 68: Velayat-e Faqih Definition"
+  },
+  {
+   "claim": "Semi-governmental foundations (bonyads) control roughly 20% of Iran's economy alongside twenty state ministries controlling much of the rest.",
+   "topics": [
+    "parastatal-economic-control",
+    "resource-extraction-economy"
+   ],
+   "verbatim": "semi-governmental foundations controlled another 20 percent.",
+   "source": "Abrahamian, A History of Modern Iran, p.6",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 69: IRGC Economic Control (20-40%)"
+  },
+  {
+   "claim": "The IRGC's engineering arm, Khatam al-Anbia, is Iran's largest recipient of state contracts for dams, railroads and industrial projects.",
+   "topics": [
+    "parastatal-economic-control"
+   ],
+   "verbatim": "The IRGC's Khatam al-Anbia Organization and its subsidiaries are Iran's largest recipient of state contracts.",
+   "source": "Ostovar, Vanguard of the Imam, p.7",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 70: IRGC Sectors (Construction, Oil, Telecom)"
+  },
+  {
+   "claim": "Iranian officials claim the Basij militia has over 15 million members, but a more realistic estimate is closer to 4 million.",
+   "topics": [
+    "propaganda-and-narrative-control"
+   ],
+   "verbatim": "Iranian officials claim that the Basij has over fifteen million members, but a more realistic figure is probably closer to four million.",
+   "source": "Ostovar, Vanguard of the Imam, p.5",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 71: Basij Membership (~4 Million Realistic)"
+  },
+  {
+   "claim": "Iran built welfare institutions after 1979 that channeled revolutionary and wartime mobilization into what one historian calls a warfare-welfare complex.",
+   "topics": [
+    "welfare-patronage-system"
+   ],
+   "verbatim": "channeled the popular mobilization of the 1979 revolution and the eight-year war with Iraq into a warfare-welfare complex.",
+   "source": "Harris, A Social Revolution, p.14",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 75: Welfare-Warfare Complex (Harris)"
+  },
+  {
+   "claim": "Iran's 1999 student protests began after the Majlis passed a press-censorship law and a reformist newspaper was shut down the next day.",
+   "topics": [
+    "protest-crackdown-cycle"
+   ],
+   "verbatim": "the Majles approved a tough new law censoring press freedom. . . . The following day, a reformist newspaper, Salaam . . . was quickly shut down, sparking student protests.",
+   "source": "Parsa, Democracy in Iran, p.189",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 76: 1999 Student Protests"
+  },
+  {
+   "claim": "Death tolls for Iran's 2009 protests are contested: the government reported around 70 deaths, while provincial accounts placed casualties in the thousands.",
+   "topics": [
+    "casualty-estimate-methodology",
+    "protest-crackdown-cycle"
+   ],
+   "verbatim": "provincial accounts place the total casualties in the thousands.",
+   "source": "Ansari, Modern Iran since 1797, p.390",
+   "status": "partial",
+   "anchor": "### ✅ CLAIM 77: 2009 Green Movement"
+  },
+  {
+   "claim": "Death tolls for Iran's 2019 protests are contested: Reuters reported roughly 1,500 deaths, Amnesty documented 304-321 by name, and Iran's government said 230.",
+   "topics": [
+    "casualty-estimate-methodology",
+    "protest-crackdown-cycle"
+   ],
+   "verbatim": "304-321 deaths verified with names",
+   "source": "Amnesty International, \"Details of 321 Deaths\" (2022 update)",
+   "status": "partial",
+   "anchor": "### ✅ CLAIM 79: 2019 November Protests (\"Bloody November\")"
+  },
+  {
+   "claim": "Iran's 2022 Woman Life Freedom protests began after Mahsa Amini died in morality-police custody on September 16, 2022.",
+   "topics": [
+    "protest-crackdown-cycle"
+   ],
+   "verbatim": "she was severely beaten and that she died as a result of police brutality.",
+   "source": "Web Sources: Wikipedia, Amnesty International",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 80: 2022 Woman Life Freedom Movement"
+  },
+  {
+   "claim": "A UN fact-finding mission concluded Iranian state authorities committed gross human rights violations during the 2022 crackdown, some amounting to crimes against humanity.",
+   "topics": [
+    "protest-crackdown-cycle",
+    "declassification-and-official-history"
+   ],
+   "verbatim": "State authorities committed gross human rights violations, some of which the Mission found to have amounted to crimes against humanity.",
+   "source": "UN Fact-Finding Mission (Sara Hossain, chairperson)",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 80: 2022 Woman Life Freedom Movement"
+  },
+  {
+   "claim": "Iran's December 2025 economic protests began when merchants in Tehran's Grand Bazaar closed their shops to protest the rial's currency collapse.",
+   "topics": [
+    "protest-crackdown-cycle"
+   ],
+   "verbatim": "merchants (bazaari) closed shops to protest currency collapse",
+   "source": "Web Sources: Wikipedia, Al Jazeera, Iran Human Rights",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 81: 2025-2026 Economic Protests (ONGOING)"
+  },
+  {
+   "claim": "Historian Katouzian describes Iranian political history as a recurring cycle of arbitrary rule, chaos, and a return to arbitrary rule.",
+   "topics": [
+    "cyclical-authoritarian-relapse",
+    "historiographical-revision"
+   ],
+   "verbatim": "the long cycle of arbitrary rule-chaos-arbitrary rule in Iranian history",
+   "source": "Katouzian, Mohammad Mosaddeq and the 1953 Coup, pp.2-3",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 84: \"Arbitrary Rule-Chaos-Arbitrary Rule\" Cycle (Katouzian)"
+  },
+  {
+   "claim": "Iranian political discourse commonly frames politics through the vocabulary of plots, spies and treason, casting real events as controlled by \"hidden hands.\"",
+   "topics": [
+    "conspiratorial-political-culture",
+    "propaganda-and-narrative-control"
+   ],
+   "verbatim": "This vocabulary treats Iranian politics as a puppet show in which the real players are 'hidden hands'",
+   "source": "Abrahamian, Khomeinism, p.909",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 85: The \"Paranoid Style\" in Iranian Politics"
+  },
+  {
+   "claim": "The Constitutional Revolution aimed not just to overthrow an unjust ruler but to replace arbitrary rule with the rule of law.",
+   "topics": [
+    "self-determination-claims",
+    "legal-justification-doctrine"
+   ],
+   "verbatim": "the Constitutional Revolution was fought, for the first time in Iranian history, not just to overthrow an unjust arbitrary ruler but ultimately to replace the ancient arbitrary rule by the rule of law.",
+   "source": "Katouzian, Mohammad Mosaddeq and the 1953 Coup, p.1709",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 82: The Core Demand (Constitutional Limits)"
+  },
+  {
+   "claim": "By the late 20th century, Iranians increasingly described themselves as citizens (\"shahrvandi\") with a right to participate in politics, rather than as mere subjects of the ruler.",
+   "topics": [
+    "self-determination-claims"
+   ],
+   "verbatim": "average Iranians now consider themselves no longer mere subjects of the ruler but full citizens, irrespective of gender, with the inalienable right to participate in national politics.",
+   "source": "Abrahamian, A History of Modern Iran, p.6",
+   "status": "verified",
+   "anchor": "### ✅ CLAIM 83: Citizen vs. Subject"
+  }
+ ]
+}

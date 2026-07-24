@@ -71,6 +71,44 @@ def test_kb_store_get_active_channels(intel_store):
     assert isinstance(result, (list, dict))
 
 
+def _video(vid, title="A Title", published="2026-01-01"):
+    return {
+        "video_id": vid, "channel_id": "chan1", "title": title,
+        "published_at": published, "views": 100, "likes": 10,
+        "duration_seconds": 600, "description": "d",
+    }
+
+
+def test_replace_competitor_videos_swaps_corpus(intel_store):
+    """replace_competitor_videos purges old + saves new in one call."""
+    intel_store.save_competitor_videos([_video("old1"), _video("old2")])
+    res = intel_store.replace_competitor_videos([_video("new1"), _video("new2"), _video("new3")])
+    assert res.get("deleted") == 2 and res.get("saved") == 3
+    ids = {v["video_id"] for v in intel_store.get_competitor_videos(limit=100)}
+    assert ids == {"new1", "new2", "new3"}  # old corpus fully replaced
+
+
+def test_replace_competitor_videos_empty_refuses_to_purge(intel_store):
+    """An empty replacement must NOT wipe the corpus (no-op guard)."""
+    intel_store.save_competitor_videos([_video("keep1"), _video("keep2")])
+    res = intel_store.replace_competitor_videos([])
+    assert "error" in res
+    ids = {v["video_id"] for v in intel_store.get_competitor_videos(limit=100)}
+    assert ids == {"keep1", "keep2"}  # untouched
+
+
+def test_replace_competitor_videos_rolls_back_on_failure(intel_store):
+    """A mid-save failure rolls back the DELETE — the old corpus survives intact
+    (the purged-but-empty failure mode the two-transaction version had)."""
+    intel_store.save_competitor_videos([_video("keep1"), _video("keep2")])
+    # Second video has title=None -> violates NOT NULL -> IntegrityError mid-batch.
+    bad_batch = [_video("would_be_new"), _video("bad", title=None)]
+    res = intel_store.replace_competitor_videos(bad_batch)
+    assert "error" in res
+    ids = {v["video_id"] for v in intel_store.get_competitor_videos(limit=100)}
+    assert ids == {"keep1", "keep2"}  # DELETE rolled back, nothing saved
+
+
 def test_run_refresh_returns_dict_with_mocked_network(tmp_path):
     """run_refresh() completes without network access and returns a dict.
 

@@ -416,6 +416,73 @@ class KBStore:
         except (sqlite3.Error, KeyError, TypeError) as exc:
             return self._err("save_competitor_videos", exc)
 
+    def replace_competitor_videos(self, videos: list[dict]) -> dict:
+        """Atomically replace the entire competitor_videos corpus.
+
+        DELETE + bulk INSERT run in ONE transaction (default deferred isolation:
+        neither is committed until the final commit). On any error the whole
+        thing rolls back, so a mid-save failure can never leave the corpus
+        purged-but-empty — the failure mode of the old purge-then-save, which
+        committed the DELETE in a separate transaction before the save ran.
+
+        Refuses to purge when given an empty list (a no-op guard: an empty fetch
+        must never wipe the corpus). INSERT mirrors save_competitor_videos —
+        keep the two in sync.
+
+        Returns {'deleted': int, 'saved': int} or {'error': str}.
+        """
+        if not videos:
+            return self._err(
+                "replace_competitor_videos", ValueError("no videos"),
+                message="replace_competitor_videos called with no videos — "
+                        "refusing to purge the corpus",
+            )
+        conn = None
+        try:
+            conn = self._connect()
+            now = self._now()
+            deleted = conn.execute("DELETE FROM competitor_videos").rowcount
+            saved = 0
+            for video in videos:
+                conn.execute(
+                    """INSERT INTO competitor_videos
+                       (video_id, channel_id, title, published_at, views, likes,
+                        duration_seconds, description, is_outlier, outlier_reason, fetched_at)
+                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                       ON CONFLICT(video_id) DO UPDATE SET
+                           views            = excluded.views,
+                           likes            = excluded.likes,
+                           duration_seconds = excluded.duration_seconds,
+                           is_outlier       = excluded.is_outlier,
+                           outlier_reason   = excluded.outlier_reason,
+                           fetched_at       = excluded.fetched_at""",
+                    (
+                        video.get("video_id"),
+                        video.get("channel_id"),
+                        video.get("title"),
+                        video.get("published_at"),
+                        video.get("views"),
+                        video.get("likes"),
+                        video.get("duration_seconds"),
+                        video.get("description"),
+                        int(bool(video.get("is_outlier", False))),
+                        video.get("outlier_reason"),
+                        now,
+                    ),
+                )
+                saved += 1
+            conn.commit()   # atomic: purge + save land together, or not at all
+            conn.close()
+            return {"deleted": deleted, "saved": saved}
+        except (sqlite3.Error, KeyError, TypeError) as exc:
+            if conn is not None:
+                try:
+                    conn.rollback()   # undo the DELETE — corpus survives intact
+                    conn.close()
+                except sqlite3.Error:
+                    pass
+            return self._err("replace_competitor_videos", exc)
+
     def get_competitor_videos(
         self,
         channel_id: str | None = None,

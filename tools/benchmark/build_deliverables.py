@@ -15,27 +15,13 @@ HOOKS_FILE = RAW_DIR / "verified_hooks.json"
 
 
 def classify_title_pattern(title):
-    """Classify title into pattern categories matching title_scorer.py."""
-    t = title.lower().strip()
+    """Classify title into the canonical structural taxonomy (ADR-0009).
 
-    # versus: contains "vs" or "versus"
-    if " vs " in t or " versus " in t:
-        return "versus"
-
-    # colon: contains " | " or ":"
-    if " | " in t or ":" in t:
-        return "colon"
-
-    # how_why: starts with how/why
-    if t.startswith("how ") or t.startswith("why "):
-        return "how_why"
-
-    # question: ends with "?" or starts with interrogative
-    if t.endswith("?") or t.startswith("what ") or t.startswith("who ") or t.startswith("where ") or t.startswith("when ") or t.startswith("did ") or t.startswith("was ") or t.startswith("were ") or t.startswith("can ") or t.startswith("could "):
-        return "question"
-
-    # declarative: everything else
-    return "declarative"
+    Delegates to tools.title_features.pattern — was a local copy that had drifted
+    (treated `|` as colon, added can/could question prefixes); now unified.
+    """
+    from tools.title_features import pattern
+    return pattern(title)
 
 
 def classify_topic_type(title, description=""):

@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-07-05T14:14:25.246437+00:00",
+  "moves": [
+    {
+      "from": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\59-israel-palestine-partition-offer-2026",
+      "to": "D:\\History vs Hype\\video-projects\\_ARCHIVED\\published\\59-israel-palestine-partition-offer-2026"
+    }
+  ],
+  "backups": [
+    {
+      "path": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\59-israel-palestine-partition-offer-2026\\PROJECT-STATUS.md",
+      "pre_diff": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\59-israel-palestine-partition-offer-2026\\PROJECT-STATUS.md.pre-diff"
+    },
+    {
+      "path": "D:\\History vs Hype\\video-projects\\PROJECT_STATUS.md",
+      "pre_diff": "D:\\History vs Hype\\video-projects\\PROJECT_STATUS.md.pre-diff"
+    },
+    {
+      "path": "D:\\History vs Hype\\video-projects\\PROJECT_REGISTRY.md",
+      "pre_diff": "D:\\History vs Hype\\video-projects\\PROJECT_REGISTRY.md.pre-diff"
+    },
+    {
+      "path": "D:\\History vs Hype\\.brain\\index.md",
+      "pre_diff": "D:\\History vs Hype\\.brain\\index.md.pre-diff"
+    }
+  ],
+  "proposals": [
+    {
+      "kind": "move",
+      "folder": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\59-israel-palestine-partition-offer-2026",
+      "target_bucket": "_ARCHIVED/published",
+      "video_id": "OHWq4jY8iAY",
+      "video_title": "Israel vs Palestine: They Argue About This Plan. Almost Nobody's Read It",
+      "target_status": "FILMED",
+      "score": 1.0,
+      "confidence": "tier1"
+    },
+    {
+      "kind": "edit-auto-block",
+      "folder": "D:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\59-israel-palestine-partition-offer-2026",
+      "target_bucket": "_ARCHIVED/published",
+      "video_id": "OHWq4jY8iAY",
+      "video_title": "Israel vs Palestine: They Argue About This Plan. Almost Nobody's Read It",
+      "target_status": "FILMED",
+      "score": 1.0,
+      "confidence": "high"
+    }
+  ]
+}

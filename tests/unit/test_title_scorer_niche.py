@@ -48,7 +48,8 @@ def _create_db(patterns_and_n: dict) -> str:
             impression_count INTEGER NOT NULL,
             view_count INTEGER NOT NULL,
             is_late_entry BOOLEAN DEFAULT 0,
-            recorded_at TEXT NOT NULL
+            recorded_at TEXT NOT NULL,
+            is_valid INTEGER NOT NULL DEFAULT 1
         );
     """)
 
@@ -256,18 +257,25 @@ class TestTopicTypeGradeThresholds:
         if 60 <= result["score"] < 75:
             assert result["grade"] == "D", f"Expected D for score {result['score']}, got {result['grade']}"
 
-    def test_hard_rejects_override_topic_type_grade(self):
-        """Hard rejects (year, colon, the_x_that) produce REJECTED regardless of topic type."""
+    def test_style_rules_do_not_reject_under_topic_type(self):
+        """v5 (C1): style rules (year/colon/the_x_that) are graded style warnings, not
+        REJECTED, regardless of topic type. --strict restores the old reject behavior."""
         from tools.title_scorer import score_title
-        # Year in title -> REJECTED even with lenient territorial thresholds
+        # Year in title -> NOT rejected; flagged as a non-fatal style warning
         result = score_title("France Conquered Haiti in 1825", topic_type="territorial")
-        assert result["grade"] == "REJECTED"
+        assert result["grade"] != "REJECTED"
+        assert result["style_warnings"]
+        # --strict promotes the style warning back to a hard reject (v4 regression mode)
+        strict = score_title("France Conquered Haiti in 1825",
+                             topic_type="territorial", strict=True)
+        assert strict["grade"] == "REJECTED"
 
-    def test_colon_hard_reject_with_topic_type(self):
-        """Colon hard reject applies regardless of topic type."""
+    def test_colon_is_style_warning_under_topic_type(self):
+        """v5 (C1): a pure colon title is a graded style warning, not REJECTED."""
         from tools.title_scorer import score_title
         result = score_title("France: The Haiti Story", topic_type="territorial")
-        assert result["grade"] == "REJECTED"
+        assert result["grade"] != "REJECTED"
+        assert result["style_warnings"]
 
     def test_gap_message_when_grade_below_B(self):
         """gap_message is non-empty when grade is below B."""
@@ -407,20 +415,30 @@ class TestBackwardCompatibility:
         assert "grade" in result
         assert "pattern" in result
 
-    def test_hard_reject_year_still_works(self):
+    def test_year_is_style_warning_not_reject(self):
+        """v5 (C1): year is a non-fatal style warning, not an auto-reject.
+        --strict restores the old REJECTED behavior."""
         from tools.title_scorer import score_title
         result = score_title("France Conquered Haiti in 1825")
-        assert result["grade"] == "REJECTED"
+        assert result["grade"] != "REJECTED"
+        assert result["style_warnings"]
+        assert score_title("France Conquered Haiti in 1825", strict=True)["grade"] == "REJECTED"
 
-    def test_hard_reject_colon_still_works(self):
+    def test_colon_is_style_warning_not_reject(self):
+        """v5 (C1): a pure colon title is a graded style warning, not REJECTED."""
         from tools.title_scorer import score_title
         result = score_title("France: The Haiti Debt Story")
-        assert result["grade"] == "REJECTED"
+        assert result["grade"] != "REJECTED"
+        assert result["style_warnings"]
+        assert score_title("France: The Haiti Debt Story", strict=True)["grade"] == "REJECTED"
 
-    def test_hard_reject_the_x_that_still_works(self):
+    def test_the_x_that_is_style_warning_not_reject(self):
+        """v5 (C1): the_x_that is a graded style warning, not REJECTED."""
         from tools.title_scorer import score_title
         result = score_title("The Country That Paid Its Colonizer")
-        assert result["grade"] == "REJECTED"
+        assert result["grade"] != "REJECTED"
+        assert result["style_warnings"]
+        assert score_title("The Country That Paid Its Colonizer", strict=True)["grade"] == "REJECTED"
 
     def test_existing_db_enriched_key_still_works(self):
         """db_enriched key still present and False when no db_path."""

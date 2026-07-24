@@ -1,8 +1,10 @@
 """
 Article Scorer -- Grades newsletter articles against measurable quality rules.
 
-Scores articles pass/warn/fail across 16 checks in 5 categories:
-structure, style, rhythm, content, and formatting.
+Scores articles pass/warn/fail across 19 checks in 5 categories:
+structure, style, rhythm, content, and formatting. (Style includes three
+soft stop-slop imports — false agency, business jargon, throat-clearing —
+that warn on overuse but never fail the grade.)
 
 Usage:
     python -m tools.newsletter.article_scorer path/to/NEWSLETTER-ARTICLE.md
@@ -87,6 +89,42 @@ ZOMBIE_NOUN_PHRASES = [
     'the facilitation of',
     'the optimization of',
     'the prioritization of',
+]
+
+# --- stop-slop imports (github.com/hardikpandya/stop-slop), 2026-06-25 ---
+# Writing-side hygiene only, NOT spoken-voice rules (the spoken fingerprint lives
+# in VOICE-PROFILE.md + voice_lint.py and is left untouched). Soft by design:
+# these warn on OVERUSE and never fail the grade — the user's call, "useful
+# sometimes, just not overused."
+#
+# False agency DELIBERATELY EXCLUDES document/source speech ("the treaty says",
+# "the map shows", "the record shows") — putting the verdict on the primary
+# document is the channel's core move, not slop. Only corporate/abstract agency
+# is flagged.
+FALSE_AGENCY_PHRASES = [
+    'the data tells us', 'the data tells you', 'the numbers tell us',
+    'the market rewards', 'the market punishes', 'the market decides',
+    'the culture shifts', 'the conversation moves', 'the conversation shifts',
+    'the conversation turns', 'the decision emerges', 'history teaches us',
+    'the algorithm decides', 'the algorithm rewards', 'the moment demands',
+]
+
+# 'navigate' deliberately omitted (literal for canal/maritime history topics).
+BUSINESS_JARGON_PHRASES = [
+    'lean into', 'leaned into', 'leaning into', 'double down', 'doubled down',
+    'circle back', 'deep dive', 'deep-dive', 'game-changer', 'game changer',
+    'move the needle', 'on the same page', 'take a step back', 'stepping back',
+    'moving forward', 'unpack',
+]
+
+# 'the real question is' omitted (legit analytical turn for this channel).
+THROAT_CLEARING_PHRASES = [
+    "here's the thing", 'the truth is', 'the uncomfortable truth is',
+    'it turns out', 'the real problem is', 'the real issue is',
+    'the real story is', 'let me be clear', 'make no mistake',
+    'let that sink in', "i'll be honest", 'to be honest', 'let me be honest',
+    'this matters because', "here's why that matters", 'at the end of the day',
+    'the reality is', 'in a world where',
 ]
 
 
@@ -473,6 +511,45 @@ def _check_zombie_nouns(body: str) -> dict:
     }
 
 
+def _count_phrase_hits(lower: str, phrases: list) -> list:
+    """Return a flat list of every phrase occurrence, word-boundary matched.
+
+    Word boundaries avoid substring false positives (e.g. 'unpack' won't fire
+    inside 'unpackaged'); conservative by design (misses some inflections).
+    """
+    found = []
+    for p in phrases:
+        pat = r'\b' + re.escape(p) + r'\b'
+        found.extend([p] * len(re.findall(pat, lower)))
+    return found
+
+
+def _soft_phrase_check(name: str, body: str, phrases: list) -> dict:
+    """stop-slop soft check: pass at <=1 occurrence, warn on overuse, never fail."""
+    found = _count_phrase_hits(body.lower(), phrases)
+    count = len(found)
+    status = 'pass' if count <= 1 else 'warn'
+    detail = f'{count} found'
+    if found:
+        detail += f' ({", ".join(sorted(set(found)))})'
+    return {'name': name, 'status': status, 'detail': detail, 'value': count}
+
+
+def _check_false_agency(body: str) -> dict:
+    """stop-slop: inanimate/abstract subjects performing human actions (soft)."""
+    return _soft_phrase_check('False agency', body, FALSE_AGENCY_PHRASES)
+
+
+def _check_business_jargon(body: str) -> dict:
+    """stop-slop: business/blog jargon (lean into, deep dive, circle back) (soft)."""
+    return _soft_phrase_check('Business jargon', body, BUSINESS_JARGON_PHRASES)
+
+
+def _check_throat_clearing(body: str) -> dict:
+    """stop-slop: throat-clearing / emphasis-crutch openers (soft)."""
+    return _soft_phrase_check('Throat-clearing', body, THROAT_CLEARING_PHRASES)
+
+
 def _check_verdict_sentences(body: str) -> dict:
     """Check 11: Count sentences with 5 or fewer words (not headers or fragments)."""
     sentences = _split_sentences(body)
@@ -717,6 +794,10 @@ def score_article(filepath: str) -> dict:
     checks.append(_check_metadiscourse(body))
     checks.append(_check_qualifiers(body))
     checks.append(_check_zombie_nouns(body))
+    # stop-slop soft imports (warn-on-overuse, never fail)
+    checks.append(_check_false_agency(body))
+    checks.append(_check_business_jargon(body))
+    checks.append(_check_throat_clearing(body))
 
     # Rhythm checks
     checks.append(_check_verdict_sentences(body))
@@ -774,7 +855,8 @@ _CATEGORIES = [
     ('STRUCTURE', ['Word count', 'Sections', 'Section length',
                    'Verdict-first', 'Axiom anchors']),
     ('STYLE', ['Em dashes', 'AI slop', 'Metadiscourse',
-               'Qualifiers', 'Zombie nouns']),
+               'Qualifiers', 'Zombie nouns',
+               'False agency', 'Business jargon', 'Throat-clearing']),
     ('RHYTHM', ['Verdict sentences', 'Rhythm variety']),
     ('CONTENT', ['[PERSONAL] markers', 'Blockquoted sources',
                  'Source citations']),

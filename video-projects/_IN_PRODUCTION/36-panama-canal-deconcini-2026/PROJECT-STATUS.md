@@ -4,13 +4,22 @@ Lifecycle: _IN_PRODUCTION
 Last reconciled: 2026-05-11
 <!-- /AUTO:reconcile -->
 
+## Historian Stage State
+**Current stage:** Stage C — Corroboration (locked 2026-06-15)
+**Next stage:** Channel Phase 2 — Script (`/script`)
+**Outstanding flags:** None blocking. Non-blocking: re-query Jorden on Carter-suggested-counter-reservation backstory before it narrates on screen; OAS 20-1 vote dropped (use UN 75-20).
+**Stage A locked:** 2026-06-11
+**Stage B locked:** 2026-06-15 (notebook `b3314135` built, 18 sources; user uploaded LaFeber/Jorden/Maier/PHR/NSArchive)
+**Stage C locked:** 2026-06-15 (24 spine claims NLM-anchored + page-cited; angle locked in 01-VERIFIED-RESEARCH.md)
+
 # Project 36: Panama Canal - The DeConcini Reservation
 
 **Topic:** The treaties that gave away the canal — 1903 Hay–Bunau-Varilla (no Panamanian signed) + 1978 DeConcini Reservation (US right to use force, still in effect)
-**Working Titles (A/B pre-registered in BREAKOUT-HYPOTHESES, 2026-06-11):**
-- A: "Panama vs the Canal Treaty. Not One Panamanian Signed It." (title_scorer 93/A, curiosity 82)
-- B: "No Panamanian Signed the Panama Canal Treaty. Here's Who Did." (77/B, curiosity 84)
-- ⚠ Old working title "The Clause That Lets the US Invade Panama" RETIRED — zero-volume head term, document-first (stall pattern per PACKAGING_MANDATE V2)
+**Working Titles — DATA-LOCKED 2026-06-25 (VidIQ chat + channel framework; full record in `YOUTUBE-METADATA.md`):**
+- **A (lead):** "Panama Canal Explained. No Panamanian Signed the Treaty." (56 chars) — anchor `panama canal explained` comp 21.8; exact-match to zero-comp query "did Panamanians sign the treaty"; thumbnail "Signed by a Frenchman."
+- **B:** "Panama Canal Explained. A Frenchman Signed It Away." (51 chars) — same anchor, counterparty reveal (Bunau-Varilla); thumbnail "Exhibit A." Single-variable A/B = the reveal half.
+- ⚠ Pre-VidIQ titles RETIRED: "Panama vs the Canal Treaty…" (keyword buried, VidIQ search 4/10); "No Panamanian Signed… Here's Who Did" (telegraphs reveal). Old "Clause That Lets the US Invade Panama" already retired (zero-volume head term).
+- **Anchor moved** `panama canal history` → `panama canal explained` (lower comp at 550 subs). `ferdinand de lesseps` (16.5K/mo) rejected as off-thesis → logged to TOPIC-PIPELINE as a future French-build→treaties series.
 **Target Length:** 8-11 minutes
 
 ## Greenlight Record (2026-06-11 — full composite GO)

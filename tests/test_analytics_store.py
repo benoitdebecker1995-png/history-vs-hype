@@ -41,7 +41,8 @@ def analytics_conn() -> sqlite3.Connection:
             topic_type TEXT,
             angles TEXT,
             fetched_at TEXT NOT NULL,
-            metrics_fetched_at TEXT
+            metrics_fetched_at TEXT,
+            ctr_as_of TEXT
         );
         CREATE TABLE traffic_sources (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -331,8 +332,103 @@ def test_upsert_video_updates_existing_row(store: AnalyticsStore) -> None:
     assert row["title"] == "Mid Video — RETITLED"
     assert row["views"] == 99999
     assert row["ctr_percent"] == 6.6
-    # Defaulted fields blow away prior values (intentional — full upsert).
-    assert row["impressions"] is None  # was 8000, defaulted to None on the new row
+    # Analytics metrics are COALESCE-guarded too, but VideoRow's default is 0.0
+    # (a real value, not None), so an unset field here lands as 0 — same result
+    # as before. Passing None instead would preserve the prior value (see
+    # test_upsert_preserves_metrics_when_new_row_has_none).
+    assert row["watch_time_minutes"] in (0, 0.0)
+    # BUT the three CTR-source fields are COALESCE-guarded: a NULL in the new
+    # row keeps last-known-good, because their source (keywords.db) is flaky and
+    # a transient empty must not wipe good CTR. Here the new row left impressions
+    # unset (None), so the prior 8000 is preserved.
+    assert row["impressions"] == 8000
+
+
+def test_upsert_preserves_ctr_when_new_row_has_none(store: AnalyticsStore) -> None:
+    # The data-loss guard: a refresh whose CTR source came up empty passes
+    # ctr_percent=None/impressions=None and must NOT wipe existing values.
+    store.upsert_video(VideoRow(
+        video_id="v_mid", title="t", published_at="2026-02-10",
+        duration_seconds=300, fetched_at="2026-05-19",
+        views=5000, impressions=9000, ctr_percent=3.3, ctr_as_of="2026-07-23",
+    ))
+    store.commit()
+    # Second upsert with CTR fields unset (the transient-empty case)
+    store.upsert_video(VideoRow(
+        video_id="v_mid", title="t2", published_at="2026-02-10",
+        duration_seconds=300, fetched_at="2026-05-20", views=5100,
+    ))
+    store.commit()
+    row = store.video("v_mid")
+    assert row["views"] == 5100          # non-CTR field updated
+    assert row["impressions"] == 9000    # CTR fields preserved
+    assert row["ctr_percent"] == 3.3
+    assert row["ctr_as_of"] == "2026-07-23"
+
+
+def test_upsert_genuine_zero_ctr_overwrites_not_preserved(store: AnalyticsStore) -> None:
+    # COALESCE guards only NULL, not 0. A real 0.0% CTR must still land.
+    store.upsert_video(VideoRow(
+        video_id="v_mid", title="t", published_at="2026-02-10",
+        duration_seconds=300, fetched_at="2026-05-19",
+        views=5000, impressions=500, ctr_percent=4.0,
+    ))
+    store.commit()
+    store.upsert_video(VideoRow(
+        video_id="v_mid", title="t", published_at="2026-02-10",
+        duration_seconds=300, fetched_at="2026-05-20",
+        views=5000, impressions=600, ctr_percent=0.0,
+    ))
+    store.commit()
+    row = store.video("v_mid")
+    assert row["ctr_percent"] == 0.0     # genuine zero lands, not preserved as 4.0
+    assert row["impressions"] == 600
+
+
+def test_upsert_preserves_metrics_when_new_row_has_none(store: AnalyticsStore) -> None:
+    # Finding B: fetch_video_metrics_bulk OMITS a video whose per-video query
+    # fails / returns no rows, so store_videos passes None for the Analytics-API
+    # metrics. Those must NOT overwrite last-known-good with 0 (a broad API
+    # outage would otherwise zero the catalog while the refresh reports success).
+    store.upsert_video(VideoRow(
+        video_id="v_mid", title="t", published_at="2026-02-10",
+        duration_seconds=300, fetched_at="2026-05-19",
+        views=5000, watch_time_minutes=1200.0, avg_view_percentage=35.3,
+        subscribers_gained=42, metrics_fetched_at="2026-05-19",
+    ))
+    store.commit()
+    # Second upsert simulates an omitted-from-fetch video: metrics unset -> None.
+    store.upsert_video(VideoRow(
+        video_id="v_mid", title="t2", published_at="2026-02-10",
+        duration_seconds=300, fetched_at="2026-05-20",
+        views=None, watch_time_minutes=None, avg_view_percentage=None,
+        subscribers_gained=None, metrics_fetched_at=None,
+    ))
+    store.commit()
+    row = store.video("v_mid")
+    assert row["views"] == 5000                  # preserved, not zeroed
+    assert row["watch_time_minutes"] == 1200.0
+    assert row["avg_view_percentage"] == 35.3
+    assert row["subscribers_gained"] == 42
+
+
+def test_upsert_genuine_zero_metric_lands(store: AnalyticsStore) -> None:
+    # COALESCE guards only NULL, not 0: a real 0 (e.g. a video that genuinely
+    # gained 0 subs this refresh) must still overwrite the prior value.
+    store.upsert_video(VideoRow(
+        video_id="v_mid", title="t", published_at="2026-02-10",
+        duration_seconds=300, fetched_at="2026-05-19",
+        views=5000, subscribers_gained=42,
+    ))
+    store.commit()
+    store.upsert_video(VideoRow(
+        video_id="v_mid", title="t", published_at="2026-02-10",
+        duration_seconds=300, fetched_at="2026-05-20",
+        views=5000, subscribers_gained=0,
+    ))
+    store.commit()
+    row = store.video("v_mid")
+    assert row["subscribers_gained"] == 0        # genuine zero lands, not preserved as 42
 
 
 def test_upsert_daily_metric_inserts_new_row(store: AnalyticsStore) -> None:
@@ -440,11 +536,9 @@ def test_views_merges_search_traffic_pct(tmp_path: Path, analytics_conn: sqlite3
     analytics_conn.backup(disk)
     disk.close()
 
-    # No keywords.db — views should gracefully fall back to analytics.db CTR.
     result = v.videos_with_ctr_and_traffic(
         min_views=1,  # include all three test videos
         analytics_db=db_path,
-        keywords_db=tmp_path / "missing.db",
     )
     by_id = {r["video_id"]: r for r in result}
 
@@ -460,44 +554,33 @@ def test_views_merges_search_traffic_pct(tmp_path: Path, analytics_conn: sqlite3
     assert by_id["v_long"]["search_traffic_pct"] == 0
     assert by_id["v_long"]["total_traffic_views"] == 0
 
-    # Without keywords.db, analytics.db ctr_percent stays.
-    assert by_id["v_mid"]["ctr_percent"] == 4.5
 
-
-def test_views_overrides_ctr_from_keywords_db(tmp_path: Path, analytics_conn: sqlite3.Connection) -> None:
+def test_views_returns_analytics_cache_ctr_unchanged(tmp_path: Path, analytics_conn: sqlite3.Connection) -> None:
+    # The keywords.db read-time override was retired 2026-07-22. CTR/impressions
+    # now pass through from the analytics.db cache (bridge output) untouched.
     db_path = tmp_path / "analytics.db"
     disk = sqlite3.connect(db_path)
     analytics_conn.backup(disk)
     disk.close()
 
-    # Build a minimal keywords.db with one ctr_snapshot row.
-    kw_path = tmp_path / "keywords.db"
-    kw = sqlite3.connect(kw_path)
-    kw.execute("""
-        CREATE TABLE ctr_snapshots (
-            id INTEGER PRIMARY KEY,
-            video_id TEXT,
-            snapshot_date DATE,
-            ctr_percent REAL,
-            impression_count INTEGER
-        )
-    """)
-    kw.executemany(
-        "INSERT INTO ctr_snapshots (video_id, snapshot_date, ctr_percent, impression_count) "
-        "VALUES (?,?,?,?)",
-        [
-            ("v_mid", "2026-04-01", 5.0, 9000),   # earlier
-            ("v_mid", "2026-05-01", 7.5, 12000),  # latest — should win
-        ],
-    )
-    kw.commit()
-    kw.close()
-
-    result = v.videos_with_ctr_and_traffic(
-        min_views=1,
-        analytics_db=db_path,
-        keywords_db=kw_path,
-    )
+    result = v.videos_with_ctr_and_traffic(min_views=1, analytics_db=db_path)
     by_id = {r["video_id"]: r for r in result}
-    assert by_id["v_mid"]["ctr_percent"] == 7.5
-    assert by_id["v_mid"]["impressions"] == 12000
+    assert by_id["v_mid"]["ctr_percent"] == 4.5      # fixture value, not overlaid
+    assert by_id["v_mid"]["impressions"] == 8000
+    assert by_id["v_short"]["ctr_percent"] == 3.0
+
+
+def test_views_keeps_genuine_zero_ctr(tmp_path: Path, analytics_conn: sqlite3.Connection) -> None:
+    # The old override's `WHERE ctr_percent > 0` would have dropped a real 0.0%.
+    # With the override gone, a genuine cached zero must survive.
+    db_path = tmp_path / "analytics.db"
+    disk = sqlite3.connect(db_path)
+    analytics_conn.backup(disk)
+    disk.execute("UPDATE videos SET ctr_percent = 0.0, impressions = 700 WHERE video_id = 'v_mid'")
+    disk.commit()
+    disk.close()
+
+    result = v.videos_with_ctr_and_traffic(min_views=1, analytics_db=db_path)
+    by_id = {r["video_id"]: r for r in result}
+    assert by_id["v_mid"]["ctr_percent"] == 0.0
+    assert by_id["v_mid"]["impressions"] == 700

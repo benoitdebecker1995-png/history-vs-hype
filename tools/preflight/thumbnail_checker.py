@@ -314,12 +314,25 @@ def check_thumbnail(text: str, is_person_focused: bool = False,
         issues.append(f"STOCK IMAGERY — Use custom maps/documents instead: {', '.join(stock_matches)}")
         score -= 15
 
-    # --- RULE 6: Document-only is FINE (the dossier operation) ---
-    # Removed the old -15 penalty: a document / evidence object IS the auditor's-edge
-    # dossier operation (cf. the KGB 18.4% winner). On-voice, not a defect.
+    # --- RULE 6: Document as the FOCAL POINT — REVIEW flag (2026-06-27 real-CTR reconciliation) ---
+    # CORRECTION: the prior "document-only is on-voice, KGB 18.4% winner" rationale was wrong on
+    # its own example — the KGB thumbnail is two FACES + a red CLASSIFIED stamp (real CTR 7.40%),
+    # not a document. On the channel's actual data, document-AS-FOCAL-POINT thumbnails are the
+    # floor: Vichy "typed draft" 1.11%, JD Vance document-wall 1.48%. A page of small body text
+    # does not resolve at feed size. So this is NOT a free pass. It is a soft REVIEW flag:
+    # surface the legible SHOCK the document reveals (one highlighted line / number), never the
+    # document's body text as the focal point. See channel-data/CTR-THUMBNAIL-FINDINGS-2026-06.md.
+    # (Clickability is still decided by native Test & Compare, not here.)
     has_doc_only, doc_matches = _has_signal(text, DOCUMENT_ONLY_SIGNALS)
     if has_doc_only:
-        passes.append("Document/evidence-object focus (the dossier operation — on-voice)")
+        issues.append("DOCUMENT AS FOCAL POINT — channel data (n=47): document-focal thumbnails "
+                      "underperform by ~0.7% CTR (median 2.41% vs 3.12%; floor cases Vichy 1.11%, "
+                      "JD Vance doc-wall 1.48%); small body text doesn't resolve at feed size. Show "
+                      "the legible SHOCK the document reveals (one highlighted line/number, high "
+                      "contrast), not the page of text. NB: a red stamp/arrow does NOT rescue it — "
+                      "'red pop' is on 29/47 thumbs and is itself negative (confounded with this "
+                      "cluttered-document style).")
+        score -= 10
 
     # --- RULE 7 (REMOVED 2026-06-14, ADR 0007): "no color contrast -10" was a PREDICTOR on the
     # concept TEXT, not a necessary condition — it false-fired on fine dossier concepts that simply

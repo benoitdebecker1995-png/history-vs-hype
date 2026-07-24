@@ -1,0 +1,577 @@
+{
+ "video": "41-treaty-tordesillas-2026",
+ "lifecycle": "_ARCHIVED",
+ "source_file": "video-projects/_ARCHIVED/published/41-treaty-tordesillas-2026/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "Pope Nicholas V's 1452 bull Dum diversas authorized Portugal to conquer non-Christians and reduce them to perpetual slavery.",
+   "topics": ["papal-donation-doctrine", "legal-justification-doctrine"],
+   "verbatim": "attack, conquer and subdue Saracens, pagans... reduce their persons to perpetual slavery",
+   "source": "Boxer p.21, Disney",
+   "status": "verified",
+   "anchor": "TIMELINE"
+  },
+  {
+   "claim": "Pope Nicholas V's 1455 bull Romanus Pontifex ordered Portugal to invade, capture, and enslave Saracens and pagans, granting perpetual monopoly on trade south of Cape Bojador.",
+   "topics": ["papal-donation-doctrine", "legal-justification-doctrine"],
+   "verbatim": "invade, search out, capture, vanquish, and subdue all Saracens and pagans... and to reduce their persons to perpetual slavery",
+   "source": "Romanus Pontifex p.873",
+   "status": "verified",
+   "anchor": "3. The Doctrine of Discovery"
+  },
+  {
+   "claim": "In 1493 Pope Alexander VI's Inter caetera drew a line 100 leagues west of the Azores and Cape Verde, granting Spain everything to its west.",
+   "topics": ["papal-donation-doctrine", "colonial-boundary-inheritance"],
+   "verbatim": null,
+   "source": "Miller p.12, Inter Caetera text",
+   "status": "verified",
+   "anchor": "TIMELINE"
+  },
+  {
+   "claim": "The 1494 Treaty of Tordesillas moved the demarcation line to 370 leagues west of the Cape Verde Islands.",
+   "topics": ["colonial-boundary-inheritance", "treaty-ratification-process"],
+   "verbatim": "three hundred and seventy leagues west of the Cape Verde Islands",
+   "source": "Treaty text p.895",
+   "status": "verified",
+   "anchor": "1. The Treaty Itself"
+  },
+  {
+   "claim": "Modern scholarship places the Tordesillas line at approximately 48.7 degrees west, a correction to earlier estimates of about 46.6 degrees.",
+   "topics": ["cartographic-error", "colonial-boundary-inheritance"],
+   "verbatim": null,
+   "source": "Laudares p.14",
+   "status": "verified",
+   "anchor": "1. The Treaty Itself"
+  },
+  {
+   "claim": "Historians confirm there was no means of determining precisely where the Tordesillas line ran, partly because it was unclear which Cape Verde island to measure from.",
+   "topics": ["treaty-text-vs-practice", "boundary-criteria-loophole"],
+   "verbatim": "there was no means of determining precisely where the line ran; nor was it even clear from which of the various Cape Verde Islands the 370 leagues was supposed to be measured",
+   "source": "Disney p.291",
+   "status": "partial",
+   "anchor": "1. The Treaty Itself"
+  },
+  {
+   "claim": "Failing to specify which Cape Verde island to measure from could shift the Tordesillas boundary by dozens of miles.",
+   "topics": ["boundary-criteria-loophole", "cartographic-error"],
+   "verbatim": null,
+   "source": "Benton p.76",
+   "status": "verified",
+   "anchor": "1. The Treaty Itself"
+  },
+  {
+   "claim": "The Tordesillas treaty text never specified the length of a league, compounding the line's unmeasurability.",
+   "topics": ["boundary-criteria-loophole", "treaty-text-vs-practice"],
+   "verbatim": null,
+   "source": "Disney p.291",
+   "status": "verified",
+   "anchor": "1. The Treaty Itself"
+  },
+  {
+   "claim": "The Tordesillas Treaty provided the foundation for Portugal's colonization of Brazil, and thus its Portuguese language.",
+   "topics": ["colonial-boundary-inheritance"],
+   "verbatim": "the Tordesillas Treaty provided the foundation for the eventual Portuguese colonization",
+   "source": "Laudares p.3",
+   "status": "verified",
+   "anchor": "2. Modern Consequences"
+  },
+  {
+   "claim": "In 1872, Brazilian municipalities on the Portuguese side of the Tordesillas line had more than double the slave density of those on the Spanish side.",
+   "topics": ["colonial-boundary-inheritance", "slave-trade-mechanics", "census-as-political-instrument"],
+   "verbatim": null,
+   "source": "Laudares p.8",
+   "status": "verified",
+   "anchor": "2. Modern Consequences"
+  },
+  {
+   "claim": "A regression model attributes a 5.48 percent jump in historical slave populations specifically to the Tordesillas line.",
+   "topics": ["colonial-boundary-inheritance", "census-as-political-instrument"],
+   "verbatim": null,
+   "source": "Laudares p.19",
+   "status": "verified",
+   "anchor": "2. Modern Consequences"
+  },
+  {
+   "claim": "Municipalities on the Portuguese side of the Tordesillas line show 0.04 Gini points higher inequality today, about ten percent of Brazil's national average.",
+   "topics": ["colonial-boundary-inheritance"],
+   "verbatim": null,
+   "source": "Laudares pp.1, 30",
+   "status": "verified",
+   "anchor": "2. Modern Consequences"
+  },
+  {
+   "claim": "Economists used a spatial regression discontinuity design treating the Tordesillas meridian as a natural experiment to isolate its effect on inequality.",
+   "topics": ["colonial-boundary-inheritance"],
+   "verbatim": null,
+   "source": "Laudares & Valencia Caicedo, \"Tordesillas, Slavery and the Origins of Brazilian Inequality\" (CEPR DP 18245, 2023)",
+   "status": "verified",
+   "anchor": "2. Modern Consequences"
+  },
+  {
+   "claim": "Reports in early 2023 described roughly 20,000 illegal miners inside Yanomami territory, a population of about 28,000, alongside over 570 reported child deaths in four years.",
+   "topics": ["indigenous-land-concepts", "resource-extraction-economy"],
+   "verbatim": "In early 2023, reports emerged of a humanitarian crisis... with an estimated 20,000 illegal miners encroaching on a population of 28,000, and over 570 reported child deaths",
+   "source": "Alencar pp.875, 879, 891",
+   "status": "partial",
+   "anchor": "2. Modern Consequences"
+  },
+  {
+   "claim": "Brazil's Marco Temporal doctrine restricts indigenous land claims to territory occupied as of October 5, 1988, a legacy tied to the hereditary captaincy system.",
+   "topics": ["land-title-adjudication", "indigenous-land-concepts"],
+   "verbatim": "legacy... present today through the concentration of land ownership",
+   "source": "Alencar p.11",
+   "status": "verified",
+   "anchor": "2. Modern Consequences"
+  },
+  {
+   "claim": "Pope Alexander VI was the Spanish-born Rodrigo Borgia, whose papacy and family wealth depended on favors from the Castilian crown.",
+   "topics": ["papal-donation-doctrine", "contested-attribution"],
+   "verbatim": "the Spaniard Rodrigo Borgia. Borgia owed not only his papacy but also much of his family's considerable lucre to the favors of the Castilian Crown",
+   "source": "Disney",
+   "status": "verified",
+   "anchor": "3. The Doctrine of Discovery"
+  },
+  {
+   "claim": "Elizabethan scholar Richard Hakluyt accused Alexander VI of being driven by blind favoritism toward his own nation when he drew the demarcation line.",
+   "topics": ["papal-donation-doctrine", "scholarly-disagreement"],
+   "verbatim": "was beyond all reason carried away with blind affection to his nation",
+   "source": "Williams p.179",
+   "status": "partial",
+   "anchor": "3. The Doctrine of Discovery"
+  },
+  {
+   "claim": "Some historians counter that the papacy generally ruled based on the facts petitioning monarchs presented to it, rather than out of national bias.",
+   "topics": ["papal-donation-doctrine", "scholarly-disagreement"],
+   "verbatim": "generally acted on the basis of the facts presented to it",
+   "source": "Muldoon",
+   "status": "partial",
+   "anchor": "3. The Doctrine of Discovery"
+  },
+  {
+   "claim": "The Vatican's 2023 statement repudiated Doctrine-of-Discovery concepts that failed to recognize indigenous peoples' human rights, without rescinding the original bulls.",
+   "topics": ["papal-donation-doctrine", "declassification-and-official-history"],
+   "verbatim": "The Catholic Church therefore repudiates those concepts that fail to recognize the inherent human rights of indigenous peoples",
+   "source": "Vatican Statement p.882",
+   "status": "verified",
+   "anchor": "3. The Doctrine of Discovery"
+  },
+  {
+   "claim": "Legal scholar Rossi describes a 'Tordesillas Syndrome' in which China's South China Sea claims echo the 1494 logic of dividing a global commons.",
+   "topics": ["cartographic-error", "great-power-partition-diplomacy"],
+   "verbatim": "Tordesillas Syndrome",
+   "source": "Rossi pp.748-749",
+   "status": "verified",
+   "anchor": "3. The Doctrine of Discovery"
+  },
+  {
+   "claim": "In Johnson v. M'Intosh (1823), Chief Justice Marshall ruled that discovery gave nations the exclusive right to extinguish indigenous title of occupancy.",
+   "topics": ["legal-justification-doctrine", "land-title-adjudication"],
+   "verbatim": "discovery gave an exclusive right to extinguish the Indian title of occupancy, either by purchase or by conquest",
+   "source": "Miller p.32",
+   "status": "verified",
+   "anchor": "3. The Doctrine of Discovery"
+  },
+  {
+   "claim": "In Tee-Hit-Ton Indians v. United States (1955), the Supreme Court ruled indigenous land title was mere permission from the whites to occupy, letting the government take Tlingit timber without compensation.",
+   "topics": ["legal-justification-doctrine", "land-title-adjudication"],
+   "verbatim": "permission from the whites to occupy",
+   "source": "Miller pp.185-186",
+   "status": "verified",
+   "anchor": "New Quotes"
+  },
+  {
+   "claim": "Historians dispute whether Portugal secretly knew of Brazil before Tordesillas; reconstructions of Cabral's voyage support but cannot prove deliberate intent.",
+   "topics": ["scholarly-disagreement", "contested-attribution"],
+   "verbatim": "modern reconstructions of the voyage from nautical and geographical evidence lend some support to the hypothesis it was deliberate",
+   "source": "Disney p.205",
+   "status": "partial",
+   "anchor": "4. Scholarly Debate: Did Portugal Know About Brazil?"
+  },
+  {
+   "claim": "Historian Boxer considered it immaterial to Brazil's history whether its discovery was accidental or deliberate.",
+   "topics": ["scholarly-disagreement"],
+   "verbatim": "It is immaterial to us whether Brazil was discovered accidentally or of set purpose",
+   "source": "Boxer p.84",
+   "status": "partial",
+   "anchor": "4. Scholarly Debate: Did Portugal Know About Brazil?"
+  },
+  {
+   "claim": "Scholar Miller argues the 1494 division of the world rested on the pope's full divine authority under a Petrine mandate.",
+   "topics": ["papal-donation-doctrine", "scholarly-disagreement"],
+   "verbatim": "The pope had thus divided the world for Christian exploration and domination",
+   "source": "Miller p.12",
+   "status": "partial",
+   "anchor": "5. Scholarly Debate: What Authority Did the Pope Actually Have?"
+  },
+  {
+   "claim": "King Francis I of France reportedly mocked the papal division of the Americas by demanding to see the clause in Adam's will bequeathing him half the world.",
+   "topics": ["papal-donation-doctrine", "scholarly-disagreement"],
+   "verbatim": "Where was the clause in Adam's will... which had bequeathed to him half the world?",
+   "source": "Pagden (quoting Francis I of France), Lords of All the World, p.32",
+   "status": "partial",
+   "anchor": "ON-SCREEN QUOTES (verified via NotebookLM — 2026-03-06)"
+  },
+  {
+   "claim": "Legal historian Benton argues Tordesillas marked the beginning of the end of universal papal authority, since it let secular sovereigns act independently.",
+   "topics": ["papal-donation-doctrine", "sovereignty-recognition"],
+   "verbatim": "marked the beginning of the end of universal papal authority rather than a high point",
+   "source": "Benton p.99",
+   "status": "partial",
+   "anchor": "5. Scholarly Debate: What Authority Did the Pope Actually Have?"
+  },
+  {
+   "claim": "Historian Muldoon argues the papal bulls did not divide up the world but merely allocated spheres of missionary responsibility.",
+   "topics": ["papal-donation-doctrine", "scholarly-disagreement"],
+   "verbatim": "did not... divide up the world",
+   "source": "Muldoon p.137",
+   "status": "partial",
+   "anchor": "5. Scholarly Debate: What Authority Did the Pope Actually Have?"
+  },
+  {
+   "claim": "Critics argue Tordesillas was an unenforceable diplomatic fantasy since no one could locate the line and settlers breached it for centuries.",
+   "topics": ["treaty-text-vs-practice", "boundary-criteria-loophole"],
+   "verbatim": "there was no means of determining precisely where the line ran",
+   "source": "Disney",
+   "status": "partial",
+   "anchor": "6. The Causation Question: Does Tordesillas CAUSE Modern Inequality?"
+  },
+  {
+   "claim": "Econometric data shows a discontinuous jump in both 1872 slave populations and modern Gini inequality precisely at the Tordesillas line.",
+   "topics": ["colonial-boundary-inheritance"],
+   "verbatim": "discontinuous jump",
+   "source": "Laudares pp.583-633",
+   "status": "verified",
+   "anchor": "6. The Causation Question: Does Tordesillas CAUSE Modern Inequality?"
+  },
+  {
+   "claim": "The Portuguese side of the Tordesillas line held a comparative advantage in transatlantic slavery due to Portugal's papally granted monopoly on the African coast.",
+   "topics": ["papal-donation-doctrine", "slave-trade-mechanics", "resource-extraction-economy"],
+   "verbatim": "comparative advantage in transatlantic slavery",
+   "source": "Laudares",
+   "status": "verified",
+   "anchor": "6. The Causation Question: Does Tordesillas CAUSE Modern Inequality?"
+  },
+  {
+   "claim": "The Requerimiento (1513), a legal document written by jurist Juan Lopez de Palacios Rubios, was used to satisfy Spain's legal requirement of a just war before conquest.",
+   "topics": ["legal-justification-doctrine", "colonial-legal-code"],
+   "verbatim": null,
+   "source": "Williams",
+   "status": "verified",
+   "anchor": "7. The Requerimiento (1513) — The Document That Made It \"Legal\""
+  },
+  {
+   "claim": "The Requerimiento threatened to enslave indigenous people's wives and children and seize their property if they resisted.",
+   "topics": ["legal-justification-doctrine", "colonial-legal-code", "captive-acquisition-methods"],
+   "verbatim": "[W]e shall take you and your wives and your children and shall make slaves of them... and shall sell and dispose of them",
+   "source": "Williams p.691",
+   "status": "verified",
+   "anchor": "7. The Requerimiento (1513) — The Document That Made It \"Legal\""
+  },
+  {
+   "claim": "In practice, the Requerimiento was often read to trees, empty huts, or the backs of fleeing people who could not understand it.",
+   "topics": ["treaty-text-vs-practice", "legal-justification-doctrine"],
+   "verbatim": "read to trees and empty huts",
+   "source": "Muldoon p.485",
+   "status": "verified",
+   "anchor": "7. The Requerimiento (1513) — The Document That Made It \"Legal\""
+  },
+  {
+   "claim": "Bartolome de Las Casas said of the Requerimiento that he did not know whether to laugh or to cry.",
+   "topics": ["legal-justification-doctrine", "contested-attribution"],
+   "verbatim": "did not know whether to laugh or to cry",
+   "source": "multiple sources",
+   "status": "verified",
+   "anchor": "7. The Requerimiento (1513) — The Document That Made It \"Legal\""
+  },
+  {
+   "claim": "Portugal asserted territorial claims by planting stone padrão pillars topped with a cross, while Spain asserted claims by reading legal declarations aloud.",
+   "topics": ["legal-justification-doctrine", "colonial-legal-code"],
+   "verbatim": "stone pillars topped by a square stone... and a cross",
+   "source": "Seed p.95",
+   "status": "verified",
+   "anchor": "8. Ceremonies of Possession — How Empires \"Claimed\" Land"
+  },
+  {
+   "claim": "Spain's method of claiming land formed an 'empire of towns,' using the Requerimiento speech to enact authority.",
+   "topics": ["legal-justification-doctrine", "colonial-legal-code"],
+   "verbatim": "empire of towns",
+   "source": "Seed p.99",
+   "status": "verified",
+   "anchor": "8. Ceremonies of Possession — How Empires \"Claimed\" Land"
+  },
+  {
+   "claim": "The Tordesillas line was not expanded in 1506; that date instead marks Pope Julius II's confirmation of the existing 1494 treaty via papal bull.",
+   "topics": ["papal-donation-doctrine", "colonial-boundary-inheritance"],
+   "verbatim": null,
+   "source": "Laudares p.8",
+   "status": "verified",
+   "anchor": "9. ~~1506 Expansion~~ — CORRECTED"
+  },
+  {
+   "claim": "The 1529 Treaty of Zaragoza extended the demarcation line to the Pacific anti-meridian, resolving the dispute over the Moluccas.",
+   "topics": ["colonial-boundary-inheritance", "great-power-arbitration"],
+   "verbatim": null,
+   "source": "Laudares p.8",
+   "status": "verified",
+   "anchor": "10. Treaty of Zaragoza (1529) — Pacific Extension"
+  },
+  {
+   "claim": "Although the Philippines fell on Portugal's side of the demarcation line, Spain colonized them anyway, violating its own treaty.",
+   "topics": ["treaty-text-vs-practice", "colonial-boundary-inheritance"],
+   "verbatim": "strictly speaking on the Portuguese side of the line of demarcation",
+   "source": "Disney",
+   "status": "verified",
+   "anchor": "10. Treaty of Zaragoza (1529) — Pacific Extension"
+  },
+  {
+   "claim": "In City of Sherrill v. Oneida Indian Nation (2005), the Supreme Court invoked the Doctrine of Discovery to deny a tribe sovereignty over land it had repurchased.",
+   "topics": ["legal-justification-doctrine", "land-title-adjudication", "sovereignty-recognition"],
+   "verbatim": "the Court invoked the doctrine of discovery... to deny the Oneida Indian Nation the right to reassert sovereignty over lands it had repurchased",
+   "source": "Miller pp.52-53",
+   "status": "verified",
+   "anchor": "New Legal Cases (Extend the \"persistence\" argument)"
+  },
+  {
+   "claim": "In Mabo v. Queensland (1992), Australia's High Court struck down terra nullius but preserved the Crown's radical title, which can still extinguish native title.",
+   "topics": ["legal-justification-doctrine", "land-title-adjudication"],
+   "verbatim": "the Crown's radical title... could still extinguish native title",
+   "source": "Miller pp.221-223",
+   "status": "verified",
+   "anchor": "New Legal Cases (Extend the \"persistence\" argument)"
+  },
+  {
+   "claim": "Theologian Vitoria's doctrine held that any indigenous violation of the Spanish rights to travel, trade, or preach gave Spain cause for a just war.",
+   "topics": ["legal-justification-doctrine", "religious-legal-authority"],
+   "verbatim": "Indian violation of any of these rights... provided the Spanish with a cause for waging a just war",
+   "source": "Anghie p.20",
+   "status": "verified",
+   "anchor": "New Scholarly Arguments (Script-worthy framings)"
+  },
+  {
+   "claim": "Legal scholar Anghie argues international law was not exported from Europe but was built out of the colonial encounter itself.",
+   "topics": ["legal-justification-doctrine", "historiographical-revision"],
+   "verbatim": "international law... was created out of the colonial encounter",
+   "source": "Anghie pp.3-4",
+   "status": "verified",
+   "anchor": "New Scholarly Arguments (Script-worthy framings)"
+  },
+  {
+   "claim": "Anghie's 'dynamic of difference' describes how international law created a civilized-versus-uncivilized distinction and continually recreated that gap to generate new justifications for conquest.",
+   "topics": ["legal-justification-doctrine", "historiographical-revision"],
+   "verbatim": "a dynamic of difference... which generated a set of distinctions between civilized and uncivilized peoples",
+   "source": "Anghie p.4",
+   "status": "verified",
+   "anchor": "New Scholarly Arguments (Script-worthy framings)"
+  },
+  {
+   "claim": "Vitoria justified conquest as humanitarian intervention if indigenous rulers were seen to tyrannize their own people, citing practices like human sacrifice.",
+   "topics": ["legal-justification-doctrine", "religious-legal-authority"],
+   "verbatim": "tyrannize their own people",
+   "source": "Anghie pp.22-23",
+   "status": "verified",
+   "anchor": "New Scholarly Arguments (Script-worthy framings)"
+  },
+  {
+   "claim": "Innocent IV argued the pope held responsibility for the souls of all men by virtue of creation, recognizing infidels could licitly hold land while still claiming ultimate papal jurisdiction.",
+   "topics": ["papal-donation-doctrine", "religious-legal-authority"],
+   "verbatim": "by virtue of creation",
+   "source": "Muldoon pp.10-11, 126",
+   "status": "verified",
+   "anchor": "New Concepts"
+  },
+  {
+   "claim": "A regression discontinuity analysis found a 0.0794 gap in Black-to-white income ratios depending on which side of the Tordesillas line a municipality sits.",
+   "topics": ["colonial-boundary-inheritance", "census-as-political-instrument"],
+   "verbatim": null,
+   "source": "Laudares Table 3, p.55",
+   "status": "verified",
+   "anchor": "New Statistics (strengthen the economics argument)"
+  },
+  {
+   "claim": "A one-percent rise in a municipality's 1872 enslaved population correlates with a 0.03 rise in modern Gini inequality and a 25 percent drop in Black relative to white household income.",
+   "topics": ["colonial-boundary-inheritance"],
+   "verbatim": null,
+   "source": "Laudares p.17",
+   "status": "verified",
+   "anchor": "New Statistics (strengthen the economics argument)"
+  },
+  {
+   "claim": "Legal scholar Rossi argues the Tordesillas treaty fused resource ownership (dominium) with sovereign jurisdiction (imperium), a fusion modern UNCLOS tries to keep separate.",
+   "topics": ["sovereignty-recognition", "great-power-partition-diplomacy"],
+   "verbatim": null,
+   "source": "Rossi pp.231, 245-246",
+   "status": "verified",
+   "anchor": "New Scholarly Framings (from audio 2)"
+  },
+  {
+   "claim": "Rossi traces UNCLOS's freedom-of-the-seas principle to Hugo Grotius's Mare Liberum, framing China's South China Sea claims as a relapse into Tordesillas-style ocean enclosure.",
+   "topics": ["great-power-partition-diplomacy", "cartographic-error"],
+   "verbatim": null,
+   "source": "Rossi pp.268-269",
+   "status": "verified",
+   "anchor": "New Scholarly Framings (from audio 2)"
+  },
+  {
+   "claim": "The Vatican justified not rescinding the original Doctrine of Discovery bulls by citing Pope Paul III's 1537 bull Sublimis Deus as the Church's true teaching on indigenous humanity.",
+   "topics": ["papal-donation-doctrine", "declassification-and-official-history"],
+   "verbatim": "true teaching",
+   "source": "Vatican 2023 statement",
+   "status": "verified",
+   "anchor": "New Details (strengthen existing sections)"
+  },
+  {
+   "claim": "In January 2020, Brazilian President Jair Bolsonaro said the indigenous person has changed and is evolving, more and more a human being like us, while opening indigenous lands to development.",
+   "topics": ["indigenous-land-concepts", "land-title-adjudication"],
+   "verbatim": "Com toda a certeza, o indio mudou, ta evoluindo. Cada vez mais o indio e um ser humano igual a nos.",
+   "source": "UOL Noticias, January 23, 2020",
+   "status": "verified",
+   "anchor": "New Details (strengthen existing sections)"
+  },
+  {
+   "claim": "Portugal's King John II demanded the demarcation line move from 100 to 370 leagues so the volta do mar navigation route would not force Portuguese ships through Spanish waters.",
+   "topics": ["colonial-boundary-inheritance", "strategic-corridor-access"],
+   "verbatim": null,
+   "source": "Disney",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 3)"
+  },
+  {
+   "claim": "Bandeirantes pushed deep into the Amazon interior far beyond any Tordesillas estimate, establishing de facto occupation later treaties recognized under uti possidetis.",
+   "topics": ["uti-possidetis-juris", "colonial-boundary-inheritance"],
+   "verbatim": null,
+   "source": "Disney",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 3)"
+  },
+  {
+   "claim": "Diplomat Alexandre de Gusmão used the Roman-law principle of uti possidetis to negotiate the 1750 Treaty of Madrid, arguing physical occupation superseded the unenforceable Tordesillas line.",
+   "topics": ["uti-possidetis-juris", "treaty-text-vs-practice", "great-power-arbitration"],
+   "verbatim": null,
+   "source": "Disney",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 3)"
+  },
+  {
+   "claim": "Romanus Pontifex was not a Vatican initiative but was commissioned by Portugal's King Duarte, who hired canon lawyers to draft the legal rationale the pope then issued.",
+   "topics": ["papal-donation-doctrine", "legal-justification-doctrine"],
+   "verbatim": null,
+   "source": "Williams pp.61-62",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 3)"
+  },
+  {
+   "claim": "Portuguese boundary-making relied on abstract mathematical lines rather than physical landmarks, unlike the English practice of using rivers and trees.",
+   "topics": ["cartographic-error", "boundary-criteria-loophole"],
+   "verbatim": "No physical points determined when you turn to head off in a different direction, only a mathematical calculation",
+   "source": "Seed p.141",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 3)"
+  },
+  {
+   "claim": "Portuguese mariners could measure latitude accurately with the astrolabe and Abraham Zacuto's declination tables, but longitude — the axis the Tordesillas line ran along — was unmeasurable in 1494.",
+   "topics": ["cartographic-error", "boundary-criteria-loophole"],
+   "verbatim": null,
+   "source": "Disney p.41",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 3)"
+  },
+  {
+   "claim": "Romanus Pontifex gave Portugal a monopoly on the navigation and trade of the African coast, which combined with Tordesillas's grant of eastern South America to let Portugal control both ends of the Atlantic slave trade.",
+   "topics": ["slave-trade-mechanics", "papal-donation-doctrine", "resource-extraction-economy"],
+   "verbatim": "monopoly of the navigation, trade and fishing",
+   "source": "Boxer p.22",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 4 — strongest new material)"
+  },
+  {
+   "claim": "Because Tordesillas denied Spain direct access to Africa, Spain used the asiento licensing system, paying Portuguese merchants for enslaved labor.",
+   "topics": ["slave-trade-mechanics", "resource-extraction-economy"],
+   "verbatim": null,
+   "source": "Laudares",
+   "status": "verified",
+   "anchor": "Mechanism 1: The Dual Monopoly"
+  },
+  {
+   "claim": "A 1514 German merchant's newsletter reported a Brazil-bound ship carrying brazilwood below deck and purchased young boys and girls above deck, just 14 years after Cabral's landing.",
+   "topics": ["slave-trade-mechanics", "captive-acquisition-methods"],
+   "verbatim": "The ship below deck is laden with brazilwood and above deck is full of purchased young boys and girls which cost the Portuguese little since most of them were offered voluntarily, for these people actually believe their children are traveling to the Promised Land.",
+   "source": "Schwartz p.12",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 4 — strongest new material)"
+  },
+  {
+   "claim": "Fleet secretary Pero Vaz de Caminha's May 1500 letter named Brazil the island of Vera Cruz, reflecting Portugal's lack of awareness of the continent's true scale.",
+   "topics": ["document-provenance", "cartographic-error"],
+   "verbatim": "From this Porto-Seguro, in Your Majesty's island of Vera Cruz, to-day, Friday, 1st May 1500.",
+   "source": "Schwartz p.9",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 4 — strongest new material)"
+  },
+  {
+   "claim": "Portugal's donatario system partitioned the Brazilian coast into fifteen captaincies granted to a dozen nobles, most of whom went bankrupt or never settled.",
+   "topics": ["colonial-legal-code", "settler-land-tenure"],
+   "verbatim": "the Brazilian coast was notionally partitioned from north to south into fifteen separate donatarias or proprietary captaincies",
+   "source": "Disney p.211",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 4 — strongest new material)"
+  },
+  {
+   "claim": "Each donatario captaincy operated under a Carta de Doação granting the land and a Foral fixing tax rates, crown monopolies, and judicial powers.",
+   "topics": ["colonial-legal-code", "judicial-procedure-codification"],
+   "verbatim": null,
+   "source": "Schwartz",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 4 — strongest new material)"
+  },
+  {
+   "claim": "French ships harvesting brazilwood in defiance of the Tordesillas line forced Portugal to formalize settlement through the donatario system by the 1530s.",
+   "topics": ["treaty-text-vs-practice", "resource-extraction-economy"],
+   "verbatim": "The main threat came from the French, whose persistent incursions had become a serious concern by the mid-1510s. Men from Normandy and Brittany were regularly sailing to Brazil in search of brazilwood",
+   "source": "Disney p.210",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 4 — strongest new material)"
+  },
+  {
+   "claim": "Unlike Spain, which conquered the centralized, tax-collecting Aztec and Inca empires, Portugal found no comparable stone-city civilization in Brazil and had to build colonial administration from scratch.",
+   "topics": ["indigenous-land-concepts", "administrative-collapse"],
+   "verbatim": "Brazilian indigenous people were not used to agriculture or taxation, unlike the Amerindians located in Mexico or Peru",
+   "source": "Laudares p.9",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 4 — strongest new material)"
+  },
+  {
+   "claim": "Brazil's first royal appellate court, planned for Bahia in 1588, never reached the colony because the ship carrying its magistrates failed to make the crossing, delaying its establishment until 1609.",
+   "topics": ["judicial-procedure-codification", "administrative-collapse"],
+   "verbatim": "After an aborted attempt in 1588, a royal court of appeals (*Relacao*) with ten judges (*desembargadores*) was established in 1609.",
+   "source": "Schwartz, Sovereignty and Society p.xvii",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 4 — strongest new material)"
+  },
+  {
+   "claim": "Brazil's colonial magistrates, trained in Roman law at Coimbra, embedded a curiously legalistic approach to government and life still reflected in the modern Brazilian slang 'é legal' for 'it's good.'",
+   "topics": ["judicial-procedure-codification", "colonial-legal-code"],
+   "verbatim": "curiously legalistic approach to government and life",
+   "source": "Schwartz",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 4 — strongest new material)"
+  },
+  {
+   "claim": "In 2010 census data, Brazilian inequality showed a conservative gap of about 0.043 Gini points, roughly ten percent of the national index, precisely at the Tordesillas line.",
+   "topics": ["colonial-boundary-inheritance"],
+   "verbatim": "The conservative estimates for 2010 are about 0.043 Gini index points, or slightly less than 10% of the 0.484 index for Brazil",
+   "source": "Laudares p.4",
+   "status": "verified",
+   "anchor": "New Historical Details (from audio 4 — strongest new material)"
+  },
+  {
+   "claim": "Contemporary critics mocked the papal grants as dividing the kingdoms of the earth with as little ceremony as a man would leave a sheepcote.",
+   "topics": ["papal-donation-doctrine"],
+   "verbatim": "grant away the kingdoms of the earth with as little ceremony as a man would leave a sheepcote",
+   "source": "Pagden, Lords of All the World, p.32",
+   "status": "verified",
+   "anchor": "ON-SCREEN QUOTES (verified via NotebookLM — 2026-03-06)"
+  }
+ ]
+}

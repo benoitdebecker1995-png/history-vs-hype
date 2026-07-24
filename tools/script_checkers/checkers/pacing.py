@@ -422,7 +422,7 @@ class PacingChecker(BaseChecker):
                         'reasons': [...]
                     }
                 ],
-                'all_sections': [  # Full data for verbose mode
+                'all_sections': [  # One entry per parsed section — always
                     {...}
                 ],
                 'stats': {
@@ -441,21 +441,12 @@ class PacingChecker(BaseChecker):
         # Parse into sections
         sections = self._parser.parse_text(text)
 
-        # Handle single-section scripts
-        if len(sections) == 1:
-            return {
-                'issues': [],
-                'all_sections': [],
-                'stats': {
-                    'total_sections': 1,
-                    'flagged_sections': 0,
-                    'average_score': 0,
-                    'energy_arc': '',
-                    'flat_zones': [],
-                    'verdict': 'SKIPPED'
-                },
-                'advisories': ['Single-section script — pacing analysis requires multiple sections']
-            }
+        # Contract: all_sections carries one entry per parsed section — always.
+        # A script with no ## headers parses to one implicit "Untitled" section;
+        # metrics are still computed for it, but the pacing VERDICT needs real
+        # structure, so that case returns SKIPPED (see below). A single headed
+        # section gets a full verdict (deltas are 0 for a first section anyway).
+        has_structure = not (len(sections) == 1 and sections[0].heading == "Untitled")
 
         # Analyze each section
         all_sections = []
@@ -504,6 +495,22 @@ class PacingChecker(BaseChecker):
 
         average_score = sum(scores) / len(scores)
         flagged_sections = [s for s in all_sections if s['score'] < pass_threshold]
+
+        # No ## structure: report the metrics, skip the judgment
+        if not has_structure:
+            return {
+                'issues': [],
+                'all_sections': all_sections,
+                'stats': {
+                    'total_sections': len(sections),
+                    'flagged_sections': 0,
+                    'average_score': int(average_score),
+                    'energy_arc': generate_sparkline(scores),
+                    'flat_zones': [],
+                    'verdict': 'SKIPPED'
+                },
+                'advisories': ['No ## section structure — pacing verdict skipped (per-section metrics still reported)']
+            }
 
         # Determine verdict
         if average_score >= pass_threshold:

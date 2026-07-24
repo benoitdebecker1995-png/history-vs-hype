@@ -1,0 +1,393 @@
+{
+ "video": "59-israel-palestine-partition-offer-2026",
+ "lifecycle": "_ARCHIVED",
+ "source_file": "video-projects/_ARCHIVED/published/59-israel-palestine-partition-offer-2026/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "UNSCOP's own demographic count showed the proposed Jewish state held 498,000 Jews against 407,000 Arabs and others, making it only barely majority-Jewish.",
+   "topics": ["census-as-political-instrument", "partition-of-territory"],
+   "verbatim": "498,000 Jews vs 407,000 Arabs & others",
+   "source": "UNSCOP Report A/364 figures, as reproduced and audited in Ad Hoc Committee Sub-Committee 2 report (A/AC.14/32)",
+   "status": "verified",
+   "anchor": "A. WHAT THE MAP ACTUALLY ALLOCATED (demographics inside the zones)"
+  },
+  {
+   "claim": "Sub-Committee 2 recounted 127,000 Bedouin using the UK's 1946 Beersheba census and concluded Arabs would actually hold a majority in the proposed Jewish state.",
+   "topics": ["census-as-political-instrument", "boundary-criteria-loophole"],
+   "verbatim": "The above statistics of population and of land ownership prove conclusively that the Arabs constitute a majority of the population of the proposed Jewish State, and own the bulk of the land.",
+   "source": "Ad Hoc Committee Sub-Committee 2 report (A/AC.14/32), citing the UK's May 1946 Beersheba census",
+   "status": "verified",
+   "anchor": "A. WHAT THE MAP ACTUALLY ALLOCATED (demographics inside the zones)"
+  },
+  {
+   "claim": "Sub-Committee 2 found the proposed Jewish state was allotted the more economically developed land, including nearly all the citrus-producing area.",
+   "topics": ["partition-of-territory", "resource-extraction-economy"],
+   "verbatim": "the more economically developed part… embracing practically the whole of the citrus producing area",
+   "source": "Ad Hoc Committee Sub-Committee 2 report (A/AC.14/32)",
+   "status": "verified",
+   "anchor": "A. WHAT THE MAP ACTUALLY ALLOCATED (demographics inside the zones)"
+  },
+  {
+   "claim": "Historian Benny Morris documented that the 1947 partition plan allocated about 55% of Palestine to the Jewish state although Jews owned only about 7% of the land.",
+   "topics": ["census-as-political-instrument", "partition-of-territory"],
+   "verbatim": "In 1947, Jews (i.e., the JNF, the PICA and private landholders) owned some seven per cent (i.e., 1.775 million dunams) of Palestine's total of 26.4 million dunams of land. The partition resolution had earmarked some 55 per cent of Palestine for the Jewish State; most of it was not Jewish owned.",
+   "source": "Benny Morris, Birth of the Palestinian Refugee Problem Revisited (2004), p.141",
+   "status": "verified",
+   "anchor": "A. WHAT THE MAP ACTUALLY ALLOCATED (demographics inside the zones)"
+  },
+  {
+   "claim": "Historian Rashid Khalidi corroborated that as of 1948 Jewish-owned land in Palestine amounted to only about 7% of the country's total land area.",
+   "topics": ["census-as-political-instrument", "scholarly-disagreement"],
+   "verbatim": "as late as 1948, Jewish-owned land in Palestine amounted to only about 7 percent of the country's total land area",
+   "source": "Rashid Khalidi, The Iron Cage",
+   "status": "verified",
+   "anchor": "A. WHAT THE MAP ACTUALLY ALLOCATED (demographics inside the zones)"
+  },
+  {
+   "claim": "UN Resolution 181 split both the proposed Jewish and Arab states into three disconnected territorial blocks that interlocked at only two crossing points.",
+   "topics": ["partition-of-territory", "boundary-commission-mechanism"],
+   "verbatim": "midway between… Yasur and Batani Sharqi",
+   "source": "UN General Assembly Resolution 181(II) full text",
+   "status": "verified",
+   "anchor": "B. WAS EITHER STATE VIABLE? (geometry + economic union)"
+  },
+  {
+   "claim": "Resolution 181 required the two proposed states to share a customs union, single currency, and joint railways, ports, and utilities under an Economic Union.",
+   "topics": ["partition-of-territory", "administrative-collapse"],
+   "verbatim": "Economic Union and Transit",
+   "source": "UN General Assembly Resolution 181(II), Part I Section D",
+   "status": "verified",
+   "anchor": "B. WAS EITHER STATE VIABLE? (geometry + economic union)"
+  },
+  {
+   "claim": "UNSCOP itself called economic unity between the two proposed states indispensable to their survival, since the Arab state lacked independent resources.",
+   "topics": ["partition-of-territory", "administrative-collapse"],
+   "verbatim": "the preservation of the economic unity of Palestine as a whole is indispensable to the life and development of the country and its peoples",
+   "source": "UNSCOP's cardinal principle, recorded in Ad Hoc Committee Sub-Committee 2 report (A/AC.14/32)",
+   "status": "verified",
+   "anchor": "B. WAS EITHER STATE VIABLE? (geometry + economic union)"
+  },
+  {
+   "claim": "The UN Palestine Commission had authority only over locally recruited militias, no international force of its own, and could only request Security Council enforcement.",
+   "topics": ["administrative-collapse", "arbitration-and-adjudication"],
+   "verbatim": "political and military control",
+   "source": "UN General Assembly Resolution 181(II), Part I Section B",
+   "status": "verified",
+   "anchor": "C. RECOMMENDED, BUT COULD IT BE ENFORCED? (the throughline)"
+  },
+  {
+   "claim": "In January 1948, Britain told the UN Palestine Commission it would end the Mandate by May 15, 1948 but could not relinquish authority piecemeal, killing the planned handover.",
+   "topics": ["colonial-withdrawal-acceleration", "administrative-collapse"],
+   "verbatim": "cannot agree to relinquish it piecemeal",
+   "source": "Sir Alexander Cadogan, quoted in UN Palestine Commission First Monthly Progress Report to the Security Council (S/663)",
+   "status": "verified",
+   "anchor": "C. RECOMMENDED, BUT COULD IT BE ENFORCED? (the throughline)"
+  },
+  {
+   "claim": "The UN Palestine Commission's own January 1948 report warned of a possible collapse of security and administration once the Mandate ended, absent a force never provided.",
+   "topics": ["administrative-collapse"],
+   "verbatim": "The Commission envisages the possibility of collapse of security and administrative services on the termination of the Mandate unless adequate means are made available to the Commission for the exercise of its authority",
+   "source": "UN Palestine Commission, First Monthly Progress Report to the Security Council (S/663, 29 Jan 1948)",
+   "status": "verified",
+   "anchor": "C. RECOMMENDED, BUT COULD IT BE ENFORCED? (the throughline)"
+  },
+  {
+   "claim": "The Arab Higher Committee cabled the UN Palestine Commission that it was determined to persist in rejecting partition and refused to recognize the resolution.",
+   "topics": ["sovereignty-recognition", "self-determination-claims"],
+   "verbatim": "ARAB HIGHER COMMITTEE IS DETERMINED [TO] PERSIST IN REJECTION [OF] PARTITION AND IN REFUSAL [TO] RECOGNIZE UNO RESOLUTION… AND ANYTHING DERIVING THEREFROM.",
+   "source": "Arab Higher Committee cable, quoted in UN Palestine Commission report",
+   "status": "verified",
+   "anchor": "C. RECOMMENDED, BUT COULD IT BE ENFORCED? (the throughline)"
+  },
+  {
+   "claim": "Mainstream legal scholars read UN General Assembly resolutions, including 181, as recommendations with no obligatory character since the Assembly is not a world legislature.",
+   "topics": ["legal-justification-doctrine", "sovereignty-recognition"],
+   "verbatim": "no obligatory character whatsoever",
+   "source": "Mainstream legal reading per Kelsen, Goodrich and Hambro, Eagleton, and Jessup, cited in Quigley, The Case for Palestine and Kattan, From Coexistence to Conquest",
+   "status": "verified",
+   "anchor": "D. WAS IT EVEN LEGAL? (recommendation vs binding + the ultra-vires near-miss)"
+  },
+  {
+   "claim": "A motion to send the legality of partition to the International Court of Justice was defeated by a single vote five days before the resolution was adopted.",
+   "topics": ["arbitration-and-adjudication", "legal-justification-doctrine"],
+   "verbatim": "cannot make a disposition or alienation of territory nor can it deprive the majority of the people of Palestine of their territory and transfer it to the exclusive use of a minority",
+   "source": "Kattan, From Coexistence to Conquest, citing the Ad Hoc Committee record",
+   "status": "verified",
+   "anchor": "D. WAS IT EVEN LEGAL? (recommendation vs binding + the ultra-vires near-miss)"
+  },
+  {
+   "claim": "Legal scholars Kattan and Quigley agree Resolution 181 was a non-binding recommendation but disagree on whether the General Assembly had the competence to recommend partition.",
+   "topics": ["scholarly-disagreement", "legal-justification-doctrine"],
+   "verbatim": "implied powers",
+   "source": "Kattan, From Coexistence to Conquest",
+   "status": "partial",
+   "anchor": "D. WAS IT EVEN LEGAL? (recommendation vs binding + the ultra-vires near-miss)"
+  },
+  {
+   "claim": "Once it was clear partition could not secure a Security Council majority, the United States reversed course and proposed a temporary UN trusteeship instead.",
+   "topics": ["great-power-arbitration", "administrative-collapse"],
+   "verbatim": "could not be secured by the necessary majority in the Security Council… partly because Britain would not enforce it, and partly because the Arabs and Jews were preparing for war",
+   "source": "Kattan, From Coexistence to Conquest",
+   "status": "verified",
+   "anchor": "D. WAS IT EVEN LEGAL? (recommendation vs binding + the ultra-vires near-miss)"
+  },
+  {
+   "claim": "UN Resolution 181 was adopted by roll-call vote on November 29, 1947, with 33 in favor, 13 against, and 10 abstaining.",
+   "topics": ["arbitration-and-adjudication", "great-power-arbitration"],
+   "verbatim": "33 in favour, 13 against, 10 abstaining",
+   "source": "Verbatim record, GA Plenary 128th meeting (A/PV.128, 29 Nov 1947)",
+   "status": "verified",
+   "anchor": "E. THE VOTE — WHAT WAS ACTUALLY SAID ON 29 NOV 1947 (A/PV.128)"
+  },
+  {
+   "claim": "Iraq's delegate rejected partition on the floor in 1947 by calling the decision anti-democratic, illegal, impractical, and contrary to the UN Charter.",
+   "topics": ["legal-justification-doctrine", "self-determination-claims"],
+   "verbatim": "anti-democratic, illegal, impractical and contrary to the Charter",
+   "source": "Iraq delegate al-Jamali, GA Plenary 128th meeting (A/PV.128, 29 Nov 1947)",
+   "status": "verified",
+   "anchor": "E. THE VOTE — WHAT WAS ACTUALLY SAID ON 29 NOV 1947 (A/PV.128)"
+  },
+  {
+   "claim": "Lebanon tabled a federal State of Palestine alternative at the last hour, but the president ruled partition had procedural priority and the federal plan was never voted on.",
+   "topics": ["self-determination-claims", "partition-of-territory"],
+   "verbatim": "the Constitution of the United States of America",
+   "source": "GA Plenary 128th meeting (A/PV.128, 29 Nov 1947)",
+   "status": "verified",
+   "anchor": "E. THE VOTE — WHAT WAS ACTUALLY SAID ON 29 NOV 1947 (A/PV.128)"
+  },
+  {
+   "claim": "Historian Michael Cohen documented that the US pressured Liberia's delegate to switch his partition vote to yes by threatening, through Harvey Firestone, to cancel its rubber-holdings expansion.",
+   "topics": ["great-power-arbitration", "covert-regime-change"],
+   "verbatim": "At Niles's instigation, the Liberian delegate was informed that if he did not change his vote, former Secretary of State Stettinius would use his business connections to make him do so. Stettinius mobilized Harvey Firestone who, fearing a Jewish boycott of his products, informed President Tubman of Liberia that if his country did not change its vote, the Firestone company would have to reconsider its plans to extend its rubber holdings in Liberia. The Liberian vote duly changed to support partition.",
+   "source": "Michael Cohen, Palestine and the Great Powers, p.297",
+   "status": "verified",
+   "anchor": "E. THE VOTE — WHAT WAS ACTUALLY SAID ON 29 NOV 1947 (A/PV.128)"
+  },
+  {
+   "claim": "Financier Bernard Baruch threatened French delegate Alexandre Parodi with a cutoff of American aid unless France voted for partition, hours before the vote.",
+   "topics": ["great-power-arbitration"],
+   "verbatim": "Bernard Baruch, mobilized by Niles, shocked the French delegate, Alexandre Parodi, with the blunt threat to cut off American aid to France if it voted against partition.",
+   "source": "Michael Cohen, Palestine and the Great Powers, p.298",
+   "status": "verified",
+   "anchor": "E. THE VOTE — WHAT WAS ACTUALLY SAID ON 29 NOV 1947 (A/PV.128)"
+  },
+  {
+   "claim": "A US State Department memo from November 18, 1947 recommended the US discourage the use of force to implement partition, to protect US-Arab relations and block Soviet involvement.",
+   "topics": ["great-power-arbitration", "administrative-collapse"],
+   "verbatim": "The US should seek to discourage the use of force for implementation",
+   "source": "FRUS 1947 vol. V, Document 872, Memo for the Secretary of State, 18 Nov 1947",
+   "status": "verified",
+   "anchor": "E. THE VOTE — WHAT WAS ACTUALLY SAID ON 29 NOV 1947 (A/PV.128)"
+  },
+  {
+   "claim": "The Security Council held Chapter VII enforcement power under the UN Charter to act on partition but chose not to invoke it.",
+   "topics": ["legal-justification-doctrine", "administrative-collapse"],
+   "verbatim": "only the UN Security Council… can make legally binding decisions… and enforce them by invoking its enforcement powers… provided for in Chapter VII",
+   "source": "Kattan, From Coexistence to Conquest",
+   "status": "verified",
+   "anchor": "F. THESIS PRESSURE-TEST + MIRROR VERDICT (the auditor's edge)"
+  },
+  {
+   "claim": "Historian James Barr concluded no country was willing to send troops to enforce partition, and the legal argument against Security Council authority was cover for that reluctance.",
+   "topics": ["great-power-arbitration", "administrative-collapse"],
+   "verbatim": "No one, however, was willing to send troops.",
+   "source": "James Barr, A Line in the Sand",
+   "status": "verified",
+   "anchor": "F. THESIS PRESSURE-TEST + MIRROR VERDICT (the auditor's edge)"
+  },
+  {
+   "claim": "Historian Benny Morris argued the Arab side launched hostilities specifically to scupper implementation of the partition resolution before a Jewish state could emerge.",
+   "topics": ["scholarly-disagreement", "partition-of-territory"],
+   "verbatim": "launched hostilities to scupper the resolution's implementation",
+   "source": "Benny Morris, 1948",
+   "status": "partial",
+   "anchor": "F. THESIS PRESSURE-TEST + MIRROR VERDICT (the auditor's edge)"
+  },
+  {
+   "claim": "The Swedish official who drew the partition borders said the plan could have worked had both sides wanted peace, but no border design could stop a war both sides wanted.",
+   "topics": ["partition-of-territory", "scholarly-disagreement"],
+   "verbatim": "If both sides had wanted to live in peace, it could have been realized in my partition plan… If they wanted war, it didn't matter how the border was drawn.",
+   "source": "Paul Mohn, quoted in Ben-Dror, UNSCOP and the Arab-Israeli Conflict",
+   "status": "verified",
+   "anchor": "F. THESIS PRESSURE-TEST + MIRROR VERDICT (the auditor's edge)"
+  },
+  {
+   "claim": "Resolution 181 itself imposed nothing: it was a non-binding recommendation with no UN army, refused by Britain, declined by the Security Council, and abandoned within four months.",
+   "topics": ["legal-justification-doctrine", "partition-of-territory"],
+   "verbatim": null,
+   "source": "Dossier synthesis of the primary record, citing Quigley, The Case for Palestine",
+   "status": "verified",
+   "anchor": "F. THESIS PRESSURE-TEST + MIRROR VERDICT (the auditor's edge)"
+  },
+  {
+   "claim": "Historian Efraim Karsh argued that had Arab leaders accepted partition there would have been no war, since the Zionist movement accepted a large non-Jewish minority in the Jewish state.",
+   "topics": ["scholarly-disagreement", "self-determination-claims"],
+   "verbatim": "Had these leaders, and their counterparts in the neighboring Arab states, accepted the resolution, there would have been no war and no dislocation in the first place, for the simple reason that the Zionist movement was amenable both to the existence of a substantial non-Jewish minority in the prospective Jewish state on an equal footing, and to the two-state solution…",
+   "source": "Efraim Karsh, Palestine Betrayed (2010)",
+   "status": "partial",
+   "anchor": "G. STEELMAN PASS (2026-06-18 referee-retrofit) — the pro-Israel affirmative case + modern syntheses"
+  },
+  {
+   "claim": "Karsh, defending the pro-Israel position, still accepted the 55%-land disproportion but noted the Negev desert made up about 80% of the Jewish state's allocated territory.",
+   "topics": ["census-as-political-instrument", "scholarly-disagreement"],
+   "verbatim": "The Negev… comprised about 80 percent of the territory assigned to the Jewish state by the partition resolution",
+   "source": "Efraim Karsh, Palestine Betrayed (2010)",
+   "status": "verified",
+   "anchor": "G. STEELMAN PASS (2026-06-18 referee-retrofit) — the pro-Israel affirmative case + modern syntheses"
+  },
+  {
+   "claim": "Karsh noted Jewish residents paid 68% of Palestine's 1944-45 income tax revenue compared to 15% paid by Arabs.",
+   "topics": ["census-as-political-instrument"],
+   "verbatim": "the Jewish contribution to revenue from income tax in 1944–45 amounted to 68 percent (compared with 15 percent paid by the Arabs)",
+   "source": "Efraim Karsh, Palestine Betrayed (2010)",
+   "status": "verified",
+   "anchor": "G. STEELMAN PASS (2026-06-18 referee-retrofit) — the pro-Israel affirmative case + modern syntheses"
+  },
+  {
+   "claim": "Palestinian historian Rashid Khalidi's 2020 synthesis found that only about 6% of Palestinian land was Jewish-owned before 1948 despite the Jewish state receiving over 56% of the territory.",
+   "topics": ["census-as-political-instrument", "self-determination-claims"],
+   "verbatim": "only about 6 percent of Palestinian land had been Jewish-owned prior to 1948",
+   "source": "Rashid Khalidi, The Hundred Years' War on Palestine (2020)",
+   "status": "verified",
+   "anchor": "G. STEELMAN PASS (2026-06-18 referee-retrofit) — the pro-Israel affirmative case + modern syntheses"
+  },
+  {
+   "claim": "Mainstream Zionist historian Anita Shapira conceded that Arabs perceived the partition plan as a flagrant wrong, a miscarriage of justice, and an act of coercion.",
+   "topics": ["scholarly-disagreement", "self-determination-claims"],
+   "verbatim": "was perceived by the Arabs as a flagrant wrong, a miscarriage of justice, and an act of coercion",
+   "source": "Anita Shapira, Israel: A History (2012)",
+   "status": "verified",
+   "anchor": "G. STEELMAN PASS (2026-06-18 referee-retrofit) — the pro-Israel affirmative case + modern syntheses"
+  },
+  {
+   "claim": "A UN committee found the Negev's Beersheba sub-district held 103,820 Arabs against just 1,020 Jews, undercutting the idea it was empty desert.",
+   "topics": ["census-as-political-instrument", "map-as-evidence"],
+   "verbatim": "1,020 Jews as against an Arab population of 103,820",
+   "source": "UN Ad Hoc Committee Sub-Committee 2 report (A/AC.14/32)",
+   "status": "verified",
+   "anchor": "G2 — SECOND PASS (2026-06-18): close the crops, add a beat, sharpen the verdict"
+  },
+  {
+   "claim": "Syria's delegate rebutted the Negev 'empty desert' framing by saying the land was useless to the Bedouin but of great use to the Jews of Warsaw and Riga.",
+   "topics": ["map-as-evidence", "self-determination-claims"],
+   "verbatim": "useless to the Bedouins but can be of great use to the Jews of Warsaw and Riga",
+   "source": "Syrian delegate, cited in the dossier's primary-record synthesis",
+   "status": "verified",
+   "anchor": "G2 — SECOND PASS (2026-06-18): close the crops, add a beat, sharpen the verdict"
+  },
+  {
+   "claim": "The Arab Higher Committee boycotted the UN Special Committee on Palestine with a one-day general strike and refused to testify before it.",
+   "topics": ["boundary-commission-mechanism", "self-determination-claims"],
+   "verbatim": "one-day general strike",
+   "source": "Ben-Dror, UNSCOP and the Arab-Israeli Conflict",
+   "status": "verified",
+   "anchor": "G2 — SECOND PASS (2026-06-18): close the crops, add a beat, sharpen the verdict"
+  },
+  {
+   "claim": "During the 1948 war Israel expanded its territory from the 55% of Mandatory Palestine allocated to it by the UN partition plan to 79%.",
+   "topics": ["partition-of-territory"],
+   "verbatim": "In the course of the war, Israel had expanded its territory from the 55 percent of mandatory Palestine allocated to it by the United Nations to 79 percent.",
+   "source": "Avi Shlaim, The Iron Wall",
+   "status": "verified",
+   "anchor": "G2 — SECOND PASS (2026-06-18): close the crops, add a beat, sharpen the verdict"
+  },
+  {
+   "claim": "Historian Avi Shlaim wrote that after 1948 the Palestinians were left out in the cold and the name Palestine was erased from the map.",
+   "topics": ["partition-of-territory", "sovereignty-recognition"],
+   "verbatim": "The Palestinians were left out in the cold. The name Palestine was erased from the map.",
+   "source": "Avi Shlaim, The Iron Wall",
+   "status": "verified",
+   "anchor": "G2 — SECOND PASS (2026-06-18): close the crops, add a beat, sharpen the verdict"
+  },
+  {
+   "claim": "Historian Benny Morris documented from archives that Ben-Gurion, Weizmann, and Shertok formed a virtual consensus favoring Arab population transfer after the 1937 Peel Commission.",
+   "topics": ["population-transfer", "scholarly-disagreement"],
+   "verbatim": "Ben-Gurion, Weizmann, Shertok, and others—a virtual consensus—went on record in support of transfer",
+   "source": "Benny Morris, Birth of the Palestinian Refugee Problem Revisited",
+   "status": "verified",
+   "anchor": "G2 — SECOND PASS (2026-06-18): close the crops, add a beat, sharpen the verdict"
+  },
+  {
+   "claim": "Morris concluded the 1948 military Plan D was not a political blueprint for expulsion but was governed by military considerations.",
+   "topics": ["population-transfer", "ethnic-cleansing-mechanics"],
+   "verbatim": "Plan D was not a political blueprint for the expulsion",
+   "source": "Benny Morris, Birth of the Palestinian Refugee Problem Revisited",
+   "status": "partial",
+   "anchor": "G2 — SECOND PASS (2026-06-18): close the crops, add a beat, sharpen the verdict"
+  },
+  {
+   "claim": "Morris concluded no single-cause explanation accounts for the 1948 Palestinian exodus, rejecting both a pre-war Zionist expulsion plan and Arab-ordered departure.",
+   "topics": ["ethnic-cleansing-mechanics", "scholarly-disagreement", "population-transfer"],
+   "verbatim": "a single-cause explanation of the exodus from most sites is untenable",
+   "source": "Benny Morris, Birth of the Palestinian Refugee Problem Revisited",
+   "status": "verified",
+   "anchor": "G2 — SECOND PASS (2026-06-18): close the crops, add a beat, sharpen the verdict"
+  },
+  {
+   "claim": "Morris found the archival record undermined both the claim Palestinians left voluntarily and the claim of a planned expulsion, increasing shared responsibility for the refugee problem.",
+   "topics": ["ethnic-cleansing-mechanics", "scholarly-disagreement"],
+   "verbatim": "substantially increase both Israeli and Palestinian responsibility for the creation of the refugee problem",
+   "source": "Benny Morris, Birth of the Palestinian Refugee Problem Revisited",
+   "status": "verified",
+   "anchor": "G2 — SECOND PASS (2026-06-18): close the crops, add a beat, sharpen the verdict"
+  },
+  {
+   "claim": "Ben-Gurion wrote his son in 1937 that a Jewish state under any borders would not be the end but only the beginning, expecting to settle the rest of the country later.",
+   "topics": ["contested-attribution", "scholarly-disagreement"],
+   "verbatim": "this state would be not the end but only the beginning… 'I am certain we will be able to settle in all the other parts of the country, whether through agreement… or in another way'",
+   "source": "David Ben-Gurion, letter to his son Amos, London, 5 Oct 1937, reproduced in Avi Shlaim, The Iron Wall",
+   "status": "partial",
+   "anchor": "G2 — SECOND PASS (2026-06-18): close the crops, add a beat, sharpen the verdict"
+  },
+  {
+   "claim": "Britain referred the Palestine question to the UN without recommendations, producing an 11-nation UNSCOP committee deliberately excluding permanent Security Council members to appear neutral.",
+   "topics": ["boundary-commission-mechanism", "great-power-arbitration"],
+   "verbatim": "without recommendations",
+   "source": "Dossier process notes, citing Ben-Dror, UNSCOP and the Arab-Israeli Conflict",
+   "status": "verified",
+   "anchor": "PROCESS / MECHANISM NOTES — the partition machinery (2026-06-18, for accurate explanation)"
+  },
+  {
+   "claim": "UNSCOP's 1947 report split 7 members favoring partition into a Jewish and Arab state, 3 favoring a single federal state, and Australia abstaining.",
+   "topics": ["boundary-commission-mechanism", "partition-of-territory"],
+   "verbatim": "Australia abstained",
+   "source": "UNSCOP Report A/364 (3 Sep 1947)",
+   "status": "verified",
+   "anchor": "PROCESS / MECHANISM NOTES — the partition machinery (2026-06-18, for accurate explanation)"
+  },
+  {
+   "claim": "Because partition was classified an 'important question' under UN Charter Article 18, it required a two-thirds majority, a threshold the 33-13-10 result barely cleared.",
+   "topics": ["legal-justification-doctrine", "arbitration-and-adjudication"],
+   "verbatim": "barely cleared",
+   "source": "Dossier process notes on UN Charter Article 18",
+   "status": "verified",
+   "anchor": "PROCESS / MECHANISM NOTES — the partition machinery (2026-06-18, for accurate explanation)"
+  },
+  {
+   "claim": "Historian Benny Morris noted that because Palestinians and Arab states never preserved their own 1947-49 state papers, the surviving archival record is structurally tilted toward the Israeli side.",
+   "topics": ["archival-silence", "document-provenance", "historiographical-revision"],
+   "verbatim": "the Palestinians failed to produce and preserve 'state papers' from 1947–1949, and the Arab states… refused and continue to refuse access to their papers from the 1948 war",
+   "source": "Benny Morris, quoted in the dossier's source-criticism pass",
+   "status": "verified",
+   "anchor": "SOURCE CRITICISM — method, evidentiary base & PRIMARY-SOURCE WEIGHT (2026-06-18)"
+  },
+  {
+   "claim": "British Foreign Secretary Ernest Bevin privately told Transjordan's prime minister in February 1948 that the Arab Legion could occupy Arab-allocated areas but must not invade areas allotted to the Jews.",
+   "topics": ["colonial-withdrawal-acceleration", "great-power-arbitration"],
+   "verbatim": "It seems the obvious thing to do. But do not go and invade the areas allotted to the Jews.",
+   "source": "Ernest Bevin to Tawfiq Pasha, 7 Feb 1948, cited in James Barr, A Line in the Sand",
+   "status": "verified",
+   "anchor": "FORK 3 — Britain: exhausted neutral withdrawal vs deliberate obstruction/tilt"
+  },
+  {
+   "claim": "Historian Wm. Roger Louis argued Britain's Palestine withdrawal was driven by economic exhaustion and a refusal to impose a plan unacceptable to one side rather than a deliberate tilt.",
+   "topics": ["colonial-withdrawal-acceleration", "scholarly-disagreement"],
+   "verbatim": "We are not going to use British Bayonets for this purpose",
+   "source": "Wm. Roger Louis, The British Empire in the Middle East 1945-1951",
+   "status": "partial",
+   "anchor": "FORK 3 — Britain: exhausted neutral withdrawal vs deliberate obstruction/tilt"
+  }
+ ]
+}

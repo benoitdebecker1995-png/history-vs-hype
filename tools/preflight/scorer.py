@@ -434,6 +434,48 @@ def _score_script(script_text: str) -> Dict[str, Any]:
 # Gate 3: Title / Metadata Score
 # ---------------------------------------------------------------------------
 
+def _classify_title_pattern_fallback(title: str) -> tuple:
+    """Classify title and return (pattern, base_score, issues).
+
+    Fallback used only when the title_scorer path errors out. The taxonomy
+    delegates to tools.title_features.pattern — the canonical 6-class home
+    (ADR-0009) — so the fallback's pattern labels match what the primary
+    title_scorer path reports. The base-score and penalty policy is
+    preflight's own and stays here.
+    """
+    from tools.title_features import pattern as classify_pattern
+
+    issues: List[str] = []
+    pattern = classify_pattern(title)
+
+    # Pattern base scores (niche-validated March 2026, aligned with title_scorer.py)
+    # versus score lowered: n=2 own only, 1/388 niche — VERY LOW confidence
+    pattern_scores = {
+        'versus': 75,       # ~3.7% CTR but n=2, LOW confidence
+        'declarative': 75,  # ~3.8% CTR, n=19, SAFE BET
+        'how_why': 70,      # ~3.3% CTR + 2x search traffic (26.4%)
+        'colon': 40,        # ~2.3% CTR, -28% penalty
+        'question': 35,     # ~2.0% CTR, LOW confidence
+        'the_x_that': 20,   # ~1.2% CTR — NEVER USE
+    }
+    base = pattern_scores.get(pattern, 60)
+
+    # Title killers (penalty flags)
+    if re.search(r'\b(1[0-9]{3}|20[0-2][0-9])\b', title):
+        issues.append('YEAR in title (-45.6% CTR): consider removing')
+        base = max(10, base - 30)
+    if re.search(r'\b\d+\b', title) and not re.search(r'\b(1[0-9]{3}|20[0-2][0-9])\b', title):
+        # Numbers that aren't years — mild penalty
+        pass  # numbers in "229 ethnic groups" can work for evidence-promise
+    if '?' in title:
+        issues.append('Question mark in title (-36.3% CTR)')
+
+    if pattern == 'the_x_that':
+        issues.append('"The [X] That [Verb]" pattern = 1.2% avg CTR — NEVER USE')
+
+    return pattern, base, issues
+
+
 def _score_title_metadata(metadata: str, titles: List[str], topic_type: str) -> Dict[str, Any]:
     """Score title variants and metadata completeness.
 
@@ -460,55 +502,6 @@ def _score_title_metadata(metadata: str, titles: List[str], topic_type: str) -> 
         return result
 
     sub_scores: List[float] = []
-
-    # --- Data-backed title pattern scoring (niche-validated March 2026, n=47 own + 388 niche) ---
-    def _classify_title_pattern(title: str) -> tuple:
-        """Classify title and return (pattern, base_score, issues)."""
-        t = title.lower()
-        issues = []
-
-        # Detect pattern
-        pattern = 'declarative'
-        if ' vs ' in t or ' vs. ' in t:
-            pattern = 'versus'
-        elif t.startswith('the ') and ' that ' in t:
-            pattern = 'the_x_that'
-        elif t.startswith('how '):
-            pattern = 'how'
-        elif t.startswith('why '):
-            pattern = 'why'
-        elif '?' in title:
-            pattern = 'question'
-        elif ':' in title:
-            pattern = 'colon'
-
-        # Pattern base scores (niche-validated March 2026, aligned with title_scorer.py)
-        # versus score lowered: n=2 own only, 1/388 niche — VERY LOW confidence
-        pattern_scores = {
-            'versus': 75,       # ~3.7% CTR but n=2, LOW confidence
-            'declarative': 75,  # ~3.8% CTR, n=19, SAFE BET
-            'how': 70,          # ~3.3% CTR, n=5 + 2x search traffic (26.4%)
-            'why': 70,          # ~3.3% CTR, same as how
-            'colon': 40,        # ~2.3% CTR, -28% penalty
-            'question': 35,     # ~2.0% CTR, LOW confidence
-            'the_x_that': 20,   # ~1.2% CTR — NEVER USE
-        }
-        base = pattern_scores.get(pattern, 60)
-
-        # Title killers (penalty flags)
-        if re.search(r'\b(1[0-9]{3}|20[0-2][0-9])\b', title):
-            issues.append(f'YEAR in title (-45.6% CTR): consider removing')
-            base = max(10, base - 30)
-        if re.search(r'\b\d+\b', title) and not re.search(r'\b(1[0-9]{3}|20[0-2][0-9])\b', title):
-            # Numbers that aren't years — mild penalty
-            pass  # numbers in "229 ethnic groups" can work for evidence-promise
-        if '?' in title:
-            issues.append('Question mark in title (-36.3% CTR)')
-
-        if pattern == 'the_x_that':
-            issues.append('"The [X] That [Verb]" pattern = 1.2% avg CTR — NEVER USE')
-
-        return pattern, base, issues
 
     # Score all titles using title_scorer (DB-enriched when keywords.db available)
     db_path = None
@@ -570,7 +563,7 @@ def _score_title_metadata(metadata: str, titles: List[str], topic_type: str) -> 
         result['notes'].append(f"title_scorer unavailable: {e} — using internal classifier")
         # Fallback to internal classifier
         for t in titles:
-            pattern, score, pattern_issues = _classify_title_pattern(t)
+            pattern, score, pattern_issues = _classify_title_pattern_fallback(t)
             if score > best_score:
                 best_score = score
                 best_title = t

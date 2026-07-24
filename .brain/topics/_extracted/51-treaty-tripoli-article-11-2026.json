@@ -1,0 +1,401 @@
+{
+ "video": "51-treaty-tripoli-article-11-2026",
+ "lifecycle": "_ARCHIVED",
+ "source_file": "video-projects/_ARCHIVED/published/51-treaty-tripoli-article-11-2026/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "Article 11 of the Barlow translation declared the US government not founded on the Christian religion and pledged that no religious pretext would disrupt US-Tripoli relations.",
+   "topics": ["treaty-translation-discrepancy", "religious-legal-authority"],
+   "verbatim": "As the government of the United States of America is not in any sense founded on the Christian Religion,—as it has in itself no character of enmity against the laws, religion or tranquility of Musselmen,—and as the said States never have entered into any war or act of hostility against any Mehomitan nation, it is declared by the parties that no pretext arising from religious opinions shall ever produce an interruption of the harmony existing between the two countries.",
+   "source": "Avalon Project (explicit attribution to Hunter Miller, Treaties and Other International Acts of the United States of America, Vol. 2, GPO 1931)",
+   "status": "verified",
+   "anchor": "F1 — Article 11 verbatim ✅"
+  },
+  {
+   "claim": "The Treaty of Tripoli was signed at Tripoli on November 4, 1796 by Joel Barlow, then co-signed at Algiers on January 3, 1797.",
+   "topics": ["treaty-ratification-process"],
+   "verbatim": null,
+   "source": "Avalon/Hunter Miller 1931 introduction to the treaty.",
+   "status": "verified",
+   "anchor": "F2 — Treaty timeline ✅"
+  },
+  {
+   "claim": "The treaty was submitted to the Senate on May 29, 1797, and the Senate resolved advice and consent to ratification on June 7, 1797.",
+   "topics": ["treaty-ratification-process"],
+   "verbatim": null,
+   "source": "Avalon/Hunter Miller 1931 introduction to the treaty.",
+   "status": "verified",
+   "anchor": "F2 — Treaty timeline ✅"
+  },
+  {
+   "claim": "Adams ratified the Tripoli treaty on June 10, 1797 and proclaimed it the same day.",
+   "topics": ["treaty-ratification-process"],
+   "verbatim": null,
+   "source": "Avalon/Hunter Miller 1931 introduction to the treaty.",
+   "status": "verified",
+   "anchor": "F2 — Treaty timeline ✅"
+  },
+  {
+   "claim": "On June 7, 1797, the Senate resolved that two-thirds of senators present concurred in advising and consenting to ratification of the Tripoli treaty.",
+   "topics": ["treaty-ratification-process"],
+   "verbatim": "Resolved, (two-thirds of the Senators present concurring therein,) That the Senate do advise and consent to the ratification of the treaty of peace and friendship between the United States of America and the Bey and subjects of Tripoli, of Barbary.",
+   "source": "Journal of the Executive Proceedings of the Senate of the United States, Vol. 1, page 244, June 7, 1797",
+   "status": "verified",
+   "anchor": "F3 — The Senate vote ✅✅ — PRIMARY-SOURCE CONFIRMED (2026-04-24)"
+  },
+  {
+   "claim": "The Senate vote to ratify the Tripoli treaty recorded 23 yeas, with no nays recorded for that vote.",
+   "topics": ["treaty-ratification-process"],
+   "verbatim": null,
+   "source": "Journal of the Executive Proceedings of the Senate of the United States, Vol. 1, page 244, June 7, 1797",
+   "status": "verified",
+   "anchor": "F3 — The Senate vote ✅✅ — PRIMARY-SOURCE CONFIRMED (2026-04-24)"
+  },
+  {
+   "claim": "The Senate Journal names all 23 senators who voted, out of 35 total senators in the Fifth Congress, with 12 absent from the vote.",
+   "topics": ["treaty-ratification-process"],
+   "verbatim": null,
+   "source": "Journal of the Executive Proceedings of the Senate of the United States, Vol. 1, page 244, June 7, 1797",
+   "status": "verified",
+   "anchor": "F3 — The Senate vote ✅✅ — PRIMARY-SOURCE CONFIRMED (2026-04-24)"
+  },
+  {
+   "claim": "The Senate Executive Journal entry for the ratification vote contains zero mentions of Article 11: no mention, no debate, no motion.",
+   "topics": ["archival-silence", "treaty-translation-discrepancy"],
+   "verbatim": "No mention, no debate, no motion.",
+   "source": "Journal of the Executive Proceedings of the Senate of the United States, Vol. 1, page 244, June 7, 1797",
+   "status": "verified",
+   "anchor": "F3 — The Senate vote ✅✅ — PRIMARY-SOURCE CONFIRMED (2026-04-24)"
+  },
+  {
+   "claim": "The 'amendment' referenced in the Senate proceedings applied to the committee's report recommending adoption of the treaty, not to the treaty text itself.",
+   "topics": ["treaty-ratification-process", "treaty-text-vs-practice"],
+   "verbatim": "and the report being amended, On the question to agree to the report as amended, It was determined in the affirmative.",
+   "source": "Journal of the Executive Proceedings of the Senate of the United States, Vol. 1, page 244, June 7, 1797",
+   "status": "verified",
+   "anchor": "F3 — The Senate vote ✅✅ — PRIMARY-SOURCE CONFIRMED (2026-04-24)"
+  },
+  {
+   "claim": "Adams ordered the ratified treaty published with his proclamation under the headline 'Important State Papers,' appearing on the front page of newspapers in six states.",
+   "topics": ["treaty-ratification-process"],
+   "verbatim": "Important State Papers.",
+   "source": "Spellberg footnotes 48–49 (citing the 1797 newspaper print run).",
+   "status": "verified",
+   "anchor": "F4 — Adams personally took responsibility, treaty published front-page ✅"
+  },
+  {
+   "claim": "All newspapers that printed the treaty in 1797 reproduced it without editorial commentary, except one.",
+   "topics": ["treaty-ratification-process"],
+   "verbatim": "All newspapers published WITHOUT editorial commentary, except one.",
+   "source": "Spellberg footnotes 48–49 (citing the 1797 newspaper print run).",
+   "status": "verified",
+   "anchor": "F4 — Adams personally took responsibility, treaty published front-page ✅"
+  },
+  {
+   "claim": "Federalist editor William Cobbett publicly objected to Article 11 in the June 23, 1797 edition of the Porcupine Gazette, calling it 'a little like trampling upon the cross.'",
+   "topics": ["religious-legal-authority", "contested-attribution"],
+   "verbatim": "The eleventh article of this treaty certainly wants some explanation. That 'the government of the United States of America is in no sense founded on the Christian religion,' is a declaration that one might have expected from Soliman Kaya, Hassan Bashaw, or the sansculotte Joel Barlow; but it sounds rather oddly from the President and the Senate. If it will admit of satisfactory explanation, it ought to receive it; for it certainly looks a little like trampling upon the cross.",
+   "source": "Spellberg quoting Cobbett directly, with citation footnote 50.",
+   "status": "verified",
+   "anchor": "F5 — The single public objection: William Cobbett ✅"
+  },
+  {
+   "claim": "Cobbett, a Federalist, could not directly criticize Adams or the Federalist Senate, so he deflected blame for Article 11 onto Muslim officials and Joel Barlow.",
+   "topics": ["contested-attribution"],
+   "verbatim": null,
+   "source": "Spellberg quoting Cobbett directly, with citation footnote 50.",
+   "status": "partial",
+   "anchor": "F5 — The single public objection: William Cobbett ✅"
+  },
+  {
+   "claim": "Joel Barlow, who negotiated and signed the Tripoli treaty, could not read Arabic, and none of his American colleagues could either.",
+   "topics": ["treaty-translation-discrepancy"],
+   "verbatim": "Barlow did not read Arabic.",
+   "source": "Spellberg pp. [Barlow section], fn 69-71; Avalon/Miller for the Barlow signature line.",
+   "status": "verified",
+   "anchor": "F6 — Joel Barlow: who he was, what he could and couldn't do ✅"
+  },
+  {
+   "claim": "Barlow signed a statement calling the treaty's English text 'a literal translation of the writing in Arabic on the opposite page,' despite being unable to verify the Arabic himself.",
+   "topics": ["treaty-translation-discrepancy", "document-provenance"],
+   "verbatim": "The foregoing is a literal translation of the writing in Arabic on the opposite page. JOEL BARLOW",
+   "source": "Spellberg pp. [Barlow section], fn 69-71; Avalon/Miller for the Barlow signature line.",
+   "status": "verified",
+   "anchor": "F6 — Joel Barlow: who he was, what he could and couldn't do ✅"
+  },
+  {
+   "claim": "Spanish consul Gerardo de Souza verified the Arabic seals on the treaty rather than Barlow verifying the translation itself.",
+   "topics": ["treaty-translation-discrepancy", "source-transmission-chain"],
+   "verbatim": null,
+   "source": "Spellberg fn 69, citing Miller 2:378–79",
+   "status": "verified",
+   "anchor": "F6 — Joel Barlow: who he was, what he could and couldn't do ✅"
+  },
+  {
+   "claim": "US consul James Cathcart, who had earlier been a prisoner in Algiers for 11 years, did not read Arabic, though he was familiar with Turkish and Italian.",
+   "topics": ["treaty-translation-discrepancy"],
+   "verbatim": "did not read Arabic, although he seems to have been familiar with Turkish and Italian",
+   "source": "Miller 2:382",
+   "status": "verified",
+   "anchor": "F6 — Joel Barlow: who he was, what he could and couldn't do ✅"
+  },
+  {
+   "claim": "Adams privately remarked that there 'was not a more worthless fellow' than Barlow, comparing him unfavorably to Thomas Paine.",
+   "topics": ["contested-attribution"],
+   "verbatim": "was not a more worthless fellow",
+   "source": "Spellberg pp. [Barlow section], fn 69-71; Avalon/Miller for the Barlow signature line.",
+   "status": "verified",
+   "anchor": "F6 — Joel Barlow: who he was, what he could and couldn't do ✅"
+  },
+  {
+   "claim": "Spellberg concludes that although Barlow's secular-deist views aligned with Article 11's language, he 'likely was involved in crafting it.'",
+   "topics": ["contested-attribution"],
+   "verbatim": "likely was involved in crafting it",
+   "source": "Spellberg pp. [Barlow section], fn 69-71; Avalon/Miller for the Barlow signature line.",
+   "status": "partial",
+   "anchor": "F6 — Joel Barlow: who he was, what he could and couldn't do ✅"
+  },
+  {
+   "claim": "Dutch Orientalist C. Snouck Hurgronje of Leiden was hired by the US State Department in 1930 to examine the Arabic original of the 1796 Tripoli treaty.",
+   "topics": ["document-provenance", "source-transmission-chain"],
+   "verbatim": "hired by the State Department in 1930",
+   "source": "Spellberg fn 71; Miller Vol. 2 preface (page vi, in uploaded PDF).",
+   "status": "verified",
+   "anchor": "F7 — Hurgronje 1930 Annotated Translation ✅¹ (need page-level Miller verification)"
+  },
+  {
+   "claim": "Hurgronje's 1930 annotated translation of the Tripoli treaty appears on pages 368-379 of Hunter Miller's 1931 volume of US treaties.",
+   "topics": ["document-provenance"],
+   "verbatim": null,
+   "source": "Spellberg fn 71; Miller Vol. 2 preface (page vi, in uploaded PDF).",
+   "status": "verified",
+   "anchor": "F7 — Hurgronje 1930 Annotated Translation ✅¹ (need page-level Miller verification)"
+  },
+  {
+   "claim": "Hunter Miller's preface thanked Professor C. Snouck Hurgronje and Dr. J. H. Kramers of Leiden for their editorial treatment of the Barbary treaties.",
+   "topics": ["document-provenance", "contested-attribution"],
+   "verbatim": "Professor C. Snouck Hurgronje and Dr. J. H. Kramers, of Leiden",
+   "source": "Spellberg fn 71; Miller Vol. 2 preface (page vi, in uploaded PDF).",
+   "status": "verified",
+   "anchor": "F7 — Hurgronje 1930 Annotated Translation ✅¹ (need page-level Miller verification)"
+  },
+  {
+   "claim": "Hurgronje found that Article 11 of the Barlow translation has no equivalent whatever in the Arabic text of the treaty.",
+   "topics": ["treaty-translation-discrepancy"],
+   "verbatim": "The eleventh article of the Barlow translation has no equivalent whatever in the Arabic.",
+   "source": "Hurgronje, \"The Annotated Translation of 1930,\" in Miller Vol. 2, p. 371",
+   "status": "verified",
+   "anchor": "F8 — What Hurgronje and Miller actually wrote ✅ — VERBATIM VERIFIED"
+  },
+  {
+   "claim": "The Arabic text opposite Article 11 is actually a letter from Hassan Pasha of Algiers to Yussuf Pasha of Tripoli.",
+   "topics": ["treaty-translation-discrepancy", "document-provenance"],
+   "verbatim": "The Arabic text opposite that article is a letter from Hassan Pasha of Algiers to Yussuf Pasha of Tripoli.",
+   "source": "Hurgronje, \"The Annotated Translation of 1930,\" in Miller Vol. 2, p. 371",
+   "status": "verified",
+   "anchor": "F8 — What Hurgronje and Miller actually wrote ✅ — VERBATIM VERIFIED"
+  },
+  {
+   "claim": "Hurgronje described the Arabic letter's introduction as drafted by a 'stupid secretary' whose bombastic phrasing he could only render as an impression of 'the nonsensical original.'",
+   "topics": ["treaty-translation-discrepancy", "source-transmission-chain"],
+   "verbatim": "The letter gives notice of the treaty of peace concluded with the Americans and recommends its observation. Three fourths of the letter consists of an introduction, drawn up by a stupid secretary who just knew a certain number of bombastic words and expressions occurring in solemn documents, but entirely failed to catch their real meaning. Here the only thing to be done by a translator is to try to give the reader an impression of the nonsensical original.",
+   "source": "Hurgronje, \"The Annotated Translation of 1930,\" in Miller Vol. 2, p. 371",
+   "status": "verified",
+   "anchor": "F8 — What Hurgronje and Miller actually wrote ✅ — VERBATIM VERIFIED"
+  },
+  {
+   "claim": "Hunter Miller's editorial note called the absence of Article 11 in the Arabic text 'most extraordinary (and wholly unexplained).'",
+   "topics": ["archival-silence", "treaty-translation-discrepancy"],
+   "verbatim": "Most extraordinary (and wholly unexplained) is the fact that Article 11 of the Barlow translation, with its famous phrase, 'the government of the United States of America is not in any sense founded on the Christian Religion,' does not exist at all. There is no Article 11.",
+   "source": "Miller, editor's note, p. 384",
+   "status": "verified",
+   "anchor": "F8 — What Hurgronje and Miller actually wrote ✅ — VERBATIM VERIFIED"
+  },
+  {
+   "claim": "Miller noted that what appears in the Arabic where Article 11 should be is 'in form a letter, crude and flamboyant and withal quite unimportant, from the Dey of Algiers to the Pasha of Tripoli.'",
+   "topics": ["treaty-translation-discrepancy", "document-provenance"],
+   "verbatim": "...in form a letter, crude and flamboyant and withal quite unimportant, from the Dey of Algiers to the Pasha of Tripoli.",
+   "source": "Miller, editor's note, p. 384",
+   "status": "verified",
+   "anchor": "F8 — What Hurgronje and Miller actually wrote ✅ — VERBATIM VERIFIED"
+  },
+  {
+   "claim": "Miller wrote that how the letter came to be regarded as Article 11 'is a mystery and seemingly must remain so,' since nothing in the diplomatic correspondence explains it.",
+   "topics": ["archival-silence"],
+   "verbatim": "How that script came to be written and to be regarded, as in the Barlow translation, as Article 11 of the treaty as there written, is a mystery and seemingly must remain so. Nothing in the diplomatic correspondence of the time throws any light whatever on the point.",
+   "source": "Miller, editor's note, p. 384",
+   "status": "verified",
+   "anchor": "F8 — What Hurgronje and Miller actually wrote ✅ — VERBATIM VERIFIED"
+  },
+  {
+   "claim": "Miller called it a further mystery that the Barlow translation had been 'trustfully and universally accepted' as the equivalent of the Arabic since 1797.",
+   "topics": ["archival-silence", "treaty-translation-discrepancy"],
+   "verbatim": "A further and perhaps equal mystery is the fact that since 1797 the Barlow translation has been trustfully and universally accepted as the just equivalent of the Arabic.",
+   "source": "Miller, editor's note, p. 384",
+   "status": "verified",
+   "anchor": "F8 — What Hurgronje and Miller actually wrote ✅ — VERBATIM VERIFIED"
+  },
+  {
+   "claim": "No scholar in the examined sources has resolved why Article 11 fails to correspond to the Arabic text; the discrepancy remains as unexplained as Miller left it in 1931.",
+   "topics": ["archival-silence", "scholarly-disagreement"],
+   "verbatim": null,
+   "source": "Hunter Miller 1931 Vol. 2, p. 384 (direct); Spellberg fn 57; Haselby (Guardian, 2011).",
+   "status": "verified",
+   "anchor": "F9 — Why no scholarly consensus on the discrepancy ✅ — DIRECT VERIFICATION"
+  },
+  {
+   "claim": "Historian Sam Haselby titled the puzzle 'The Enigma of America's Secular Roots' in a January 2011 Guardian piece on Barlow's disavowal of Christianity as the basis for US government.",
+   "topics": ["contested-attribution", "treaty-translation-discrepancy"],
+   "verbatim": "The Enigma of America's Secular Roots: Joel Barlow's Disavowal of Christianity as the Basis for US Government in the 1797 Treaty of Tripoli Is a Mystery.",
+   "source": "Sam Haselby, The Guardian, January 3, 2011",
+   "status": "verified",
+   "anchor": "F9 — Why no scholarly consensus on the discrepancy ✅ — DIRECT VERIFICATION"
+  },
+  {
+   "claim": "The 1805 Treaty of Tripoli's Article 14 omitted the declaration that the US government is 'not in any sense founded on the Christian Religion,' unlike the 1797 treaty's Article 11.",
+   "topics": ["treaty-text-vs-practice", "treaty-translation-discrepancy"],
+   "verbatim": "the government of the United States of America is not in any sense founded on the Christian Religion",
+   "source": "Spellberg pp. [Jefferson's Tripoli treaty section], fn 105–112.",
+   "status": "verified",
+   "anchor": "F10 — The 1805 superseding treaty ✅"
+  },
+  {
+   "claim": "Article 14 of the 1805 treaty retained language stating the US government has 'no character of enmity against the Laws, Religion or Tranquility of Musselmen.'",
+   "topics": ["treaty-text-vs-practice"],
+   "verbatim": "As the Government of the United States of America has in itself no character of enmity against the Laws, Religion or Tranquility of Musselmen...",
+   "source": "Spellberg pp. [Jefferson's Tripoli treaty section], fn 105–112.",
+   "status": "verified",
+   "anchor": "F10 — The 1805 superseding treaty ✅"
+  },
+  {
+   "claim": "Article 14 added a justification for the recent war, citing 'the defence of their just rights to freely navigate the High Seas,' following the First Barbary War.",
+   "topics": ["treaty-text-vs-practice"],
+   "verbatim": "...except in the defence of their just rights to freely navigate the High Seas.",
+   "source": "Spellberg pp. [Jefferson's Tripoli treaty section], fn 105–112.",
+   "status": "verified",
+   "anchor": "F10 — The 1805 superseding treaty ✅"
+  },
+  {
+   "claim": "Article 14 added a religious-freedom clause allowing consuls and agents of both nations to practice their religion in their own homes.",
+   "topics": ["religious-legal-authority", "treaty-text-vs-practice"],
+   "verbatim": "the Consuls and Agents of both Nations respectively, shall have liberty to exercise his Religion in his own house...",
+   "source": "Spellberg pp. [Jefferson's Tripoli treaty section], fn 105–112.",
+   "status": "verified",
+   "anchor": "F10 — The 1805 superseding treaty ✅"
+  },
+  {
+   "claim": "Unlike the 1797 Barlow translation, the Arabic text of the 1805 treaty matched the English text.",
+   "topics": ["treaty-translation-discrepancy"],
+   "verbatim": null,
+   "source": "Spellberg pp. [Jefferson's Tripoli treaty section], fn 105–112.",
+   "status": "verified",
+   "anchor": "F10 — The 1805 superseding treaty ✅"
+  },
+  {
+   "claim": "The Senate ratified the 1805 Tripoli treaty on April 17, 1806 by a vote of 21-8, not unanimously.",
+   "topics": ["treaty-ratification-process"],
+   "verbatim": null,
+   "source": "Spellberg pp. [Jefferson's Tripoli treaty section], fn 105–112.",
+   "status": "verified",
+   "anchor": "F10 — The 1805 superseding treaty ✅"
+  },
+  {
+   "claim": "Spellberg hypothesizes that Jefferson dropped the secular-founding language in 1805 because 1800 election attacks on his own religious views made him politically reticent.",
+   "topics": ["contested-attribution"],
+   "verbatim": null,
+   "source": "Spellberg pp. [Jefferson's Tripoli treaty section], fn 105–112.",
+   "status": "partial",
+   "anchor": "F10 — The 1805 superseding treaty ✅"
+  },
+  {
+   "claim": "The US Constitution's Article VI barred religious tests for federal office in 1788, and the First Amendment barred federal religious establishment in 1791, making the federal government secular by design.",
+   "topics": ["legal-justification-doctrine", "religious-legal-authority"],
+   "verbatim": "Congress shall make no law respecting an establishment of religion",
+   "source": "Spellberg (NC, Connecticut, religious-test debates); Lambert (Adams/Jefferson framing).",
+   "status": "verified",
+   "anchor": "F11 — 1797 federal-vs-state legal context (mitigation prep) ✅"
+  },
+  {
+   "claim": "In 1797, North Carolina's state constitution required officeholders to swear to 'the truth of the Protestant religion,' even though the federal government was secular by design.",
+   "topics": ["religious-legal-authority"],
+   "verbatim": "the truth of the Protestant religion",
+   "source": "Spellberg (NC, Connecticut, religious-test debates); Lambert (Adams/Jefferson framing).",
+   "status": "verified",
+   "anchor": "F11 — 1797 federal-vs-state legal context (mitigation prep) ✅"
+  },
+  {
+   "claim": "Georgia's state constitution required that representatives 'shall be of the Protestant religion,' while Massachusetts and New Hampshire retained Congregational establishments into the 19th century.",
+   "topics": ["religious-legal-authority"],
+   "verbatim": "shall be of the Protestant religion",
+   "source": "Spellberg (NC, Connecticut, religious-test debates); Lambert (Adams/Jefferson framing).",
+   "status": "verified",
+   "anchor": "F11 — 1797 federal-vs-state legal context (mitigation prep) ✅"
+  },
+  {
+   "claim": "Madison later reflected that by declaring the US not a Christian state, the president and Congress 'distanced themselves from European Christian powers that had a long history of religion-inspired animosity toward Muslims.'",
+   "topics": ["religious-legal-authority", "legal-justification-doctrine"],
+   "verbatim": "distanced themselves from European Christian powers that had a long history of religion-inspired animosity toward Muslims",
+   "source": "Lambert citing Madison fn 24",
+   "status": "verified",
+   "anchor": "F11 — 1797 federal-vs-state legal context (mitigation prep) ✅"
+  },
+  {
+   "claim": "Lambert frames early America as a 'pluralistic society comprising scores of voluntary sects' united by the Constitution's ban on a state church and its guarantee of free religious exercise.",
+   "topics": ["religious-legal-authority"],
+   "verbatim": "pluralistic society comprising scores of voluntary sects",
+   "source": "Spellberg (NC, Connecticut, religious-test debates); Lambert (Adams/Jefferson framing).",
+   "status": "verified",
+   "anchor": "F11 — 1797 federal-vs-state legal context (mitigation prep) ✅"
+  },
+  {
+   "claim": "Crane argues the now-widespread reading of Article 11 as a secular-founding statement developed through repeated rereadings applied to later domestic disputes, from clergy funding to Sunday alcohol sale bans.",
+   "topics": ["myth-origin-tracing", "historiographical-revision"],
+   "verbatim": "this now-widespread interpretation of Article 11 developed through a long series of rediscoveries and rereadings of the treaty as it was applied to a range of domestic political questions far removed from its original diplomatic context, from the public funding of Christian clergy to regulations prohibiting the sale of alcohol on Sundays.",
+   "source": "Jacob Crane, \"Reading American Secularism in the 1797 Treaty of Tripoli,\" American Quarterly 72:2 (2020), pp. 403–422.",
+   "status": "verified",
+   "anchor": "F12 — Modern secular reading is a 20th-century construction (Crane 2020) ✅✅ — VERBATIM VERIFIED via NLM"
+  },
+  {
+   "claim": "Crane found that Article 11's language was wielded as often by Christian nationalists as by militant secularists in later political debates.",
+   "topics": ["myth-origin-tracing", "propaganda-and-narrative-control"],
+   "verbatim": "the language of Article 11 was wielded as often by Christian nationalists as by militant secularists.",
+   "source": "Jacob Crane, \"Reading American Secularism in the 1797 Treaty of Tripoli,\" American Quarterly 72:2 (2020), pp. 403–422.",
+   "status": "verified",
+   "anchor": "F12 — Modern secular reading is a 20th-century construction (Crane 2020) ✅✅ — VERBATIM VERIFIED via NLM"
+  },
+  {
+   "claim": "Crane argues the history of Article 11 shows Christian nationalists and secularists alike using 'the figure of Tripoli' to construct American national character against a perceived Muslim otherness.",
+   "topics": ["myth-origin-tracing", "propaganda-and-narrative-control"],
+   "verbatim": "the history of Article 11 of the Treaty of Tripoli demonstrates how Christian nationalists and emergent secularists alike used the figure of Tripoli to articulate a national character in dialogue with, and in opposition to, the perceived otherness of the Muslim world.",
+   "source": "Jacob Crane, \"Reading American Secularism in the 1797 Treaty of Tripoli,\" American Quarterly 72:2 (2020), pp. 403–422.",
+   "status": "verified",
+   "anchor": "F12 — Modern secular reading is a 20th-century construction (Crane 2020) ✅✅ — VERBATIM VERIFIED via NLM"
+  },
+  {
+   "claim": "Yale president Timothy Dwight, Joel Barlow's former mentor, reacted to Article 11 by making his own translation of the Psalms and ceremonially removing Barlow's portrait from Yale.",
+   "topics": ["religious-legal-authority", "contested-attribution"],
+   "verbatim": "For Dwight, it was all too much. He made his own translation of the Psalms to replace that of his wayward protégé and, with ceremony, removed portraits of Barlow from Yale.",
+   "source": "Sam Haselby, The Origins of American Religious Nationalism (Oxford University Press, 2015), p. 109.",
+   "status": "verified",
+   "anchor": "F13 — The second contemporary reaction: Timothy Dwight (Haselby 2015) ✅✅ — VERBATIM VERIFIED via NLM — NEW"
+  },
+  {
+   "claim": "Haselby writes that most Americans presumed an enlightened nation was by definition Protestant, though Protestantism offered no clear model for enlightening a large, expanding republic.",
+   "topics": ["religious-legal-authority"],
+   "verbatim": "Most Americans presumed that an enlightened nation was by definition a Protestant nation, but Protestantism offered no clear model for enlightening the peoples of a large and expanding republic.",
+   "source": "Haselby 2015, pp. 29 and 49.",
+   "status": "verified",
+   "anchor": "F14 — Haselby on the broader \"Christian nation\" framing (Haselby 2015) ✅¹ — context, not script-load-bearing"
+  },
+  {
+   "claim": "Haselby notes that Baptists, like Connecticut Congregationalists, wanted not just a Christian nation but a Protestant one, while Jefferson and other secular rationalists explicitly did not.",
+   "topics": ["religious-legal-authority", "contested-attribution"],
+   "verbatim": "Like the Connecticut Congregationalists, the Baptists wanted not only a Christian nation, but also a Protestant one. Jefferson and other secular rationalists explicitly did not.",
+   "source": "Haselby 2015, pp. 29 and 49.",
+   "status": "verified",
+   "anchor": "F14 — Haselby on the broader \"Christian nation\" framing (Haselby 2015) ✅¹ — context, not script-load-bearing"
+  }
+ ]
+}

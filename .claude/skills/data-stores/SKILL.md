@@ -36,7 +36,7 @@ patterns, failure isolation. **Never propose consolidating them**; the standing 
 - **Post-publish analysis** → the POST-PUBLISH-ANALYSIS.md markdown corpus (ADR-0005), read via
   `tools/post_publish/` `PostPublishStore` — the fourth canonical store.
 
-## analytics.db (9 tables)
+## analytics.db (11 tables — schema v5)
 
 Schema owner: `tools/youtube_analytics/growth_data.py` `ensure_schema()` (the only sanctioned raw-conn
 writer). ALL other writes route through `AnalyticsStore` in `tools/youtube_analytics/store.py` — never

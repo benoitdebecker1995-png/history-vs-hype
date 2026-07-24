@@ -1,0 +1,433 @@
+{
+  "video": "63-leopold-congo-cobalt-2026",
+  "lifecycle": "_IN_PRODUCTION",
+  "source_file": "video-projects/_IN_PRODUCTION/63-leopold-congo-cobalt-2026/01-VERIFIED-RESEARCH.md",
+  "model": "sonnet-agent",
+  "extracted_at": "2026-07-22",
+  "claims": [
+    {
+      "claim": "The Congo Free State was King Leopold II's personal property rather than a Belgian colony.",
+      "topics": ["concession-extraction", "legal-justification-doctrine"],
+      "verbatim": null,
+      "source": "Hochschild, Adam — King Leopold's Ghost, pp. 87-88, 106",
+      "status": "verified",
+      "anchor": "### Claim: The Congo Free State was Leopold II's personal property, not a Belgian colony; population fell by at least half; Leopold burned the archives before the 1908 handover."
+    },
+    {
+      "claim": "The Congo's population fell by at least half under Leopold's rule, a decline confirmed by the 1919 Belgian government commission.",
+      "topics": ["casualty-estimate-methodology", "resource-extraction-economy"],
+      "verbatim": "by at least a half",
+      "source": "Vansina, Jan (Tier 2)",
+      "status": "verified",
+      "anchor": "### Claim: The Congo Free State was Leopold II's personal property, not a Belgian colony; population fell by at least half; Leopold burned the archives before the 1908 handover."
+    },
+    {
+      "claim": "Leopold destroyed the Congo Free State's records over about eight days before the 1908 transfer to Belgium, making the true death toll unknowable by design.",
+      "topics": ["evidence-destruction", "archival-silence", "casualty-estimate-methodology"],
+      "verbatim": null,
+      "source": "Hochschild, Adam — King Leopold's Ghost, pp. 87-88, 106",
+      "status": "verified",
+      "anchor": "### Claim: The Congo Free State was Leopold II's personal property, not a Belgian colony; population fell by at least half; Leopold burned the archives before the 1908 handover."
+    },
+    {
+      "claim": "The 1904 Casement Report documented a rule requiring a severed right hand for every cartridge used by Congo Free State soldiers.",
+      "topics": ["forced-labour-systems", "concession-extraction"],
+      "verbatim": null,
+      "source": "Casement Report (1904) (Tier 1 primary), pp. 21, 29, 34, 43",
+      "status": "verified",
+      "anchor": "### Claim: The Casement Report documented the cartridge/severed-hand rule and local population collapse."
+    },
+    {
+      "claim": "The Casement Report recorded population collapse figures, including Lukolela falling from 5,000 people in 1887 to under 600 by 1903, and Bolobo from 40,000 to 1,000.",
+      "topics": ["casualty-estimate-methodology", "forced-labour-systems"],
+      "verbatim": null,
+      "source": "Casement Report (1904) (Tier 1 primary), pp. 21, 29, 34, 43",
+      "status": "verified",
+      "anchor": "### Claim: The Casement Report documented the cartridge/severed-hand rule and local population collapse."
+    },
+    {
+      "claim": "Morel found that ships bound for the Congo carried army officers, firearms, ammunition, and manacles ledgered as military supplies, while returning ships carried rubber and ivory.",
+      "topics": ["concession-extraction", "forced-labour-systems", "resource-extraction-economy"],
+      "verbatim": null,
+      "source": "Hochschild + Ewans + Kara + Grant (NLM notebook 0b7dd2b2)",
+      "status": "verified",
+      "anchor": "**The mechanism (sourced):**"
+    },
+    {
+      "claim": "About 80% of the Congo's recorded imports were 'remote from trade purposes,' meaning no trade goods were sent in to pay for the rubber and ivory shipped out.",
+      "topics": ["resource-extraction-economy", "concession-extraction"],
+      "verbatim": "remote from trade purposes",
+      "source": "Kara",
+      "status": "verified",
+      "anchor": "**The mechanism (sourced):**"
+    },
+    {
+      "claim": "Morel calculated a trade discrepancy of 23.5 million Belgian francs in Congo shipping records between 1895 and 1900.",
+      "topics": ["resource-extraction-economy", "concession-extraction"],
+      "verbatim": null,
+      "source": "Kara",
+      "status": "verified",
+      "anchor": "**The mechanism (sourced):**"
+    },
+    {
+      "claim": "The value of goods leaving the Congo was roughly five times the value of goods shipped in.",
+      "topics": ["resource-extraction-economy"],
+      "verbatim": null,
+      "source": "Hochschild",
+      "status": "verified",
+      "anchor": "**The mechanism (sourced):**"
+    },
+    {
+      "claim": "Concession company profits for ABIR and the Anversoise were 'out of all proportion' to any legitimate trade.",
+      "topics": ["concession-extraction", "resource-extraction-economy"],
+      "verbatim": "out of all proportion",
+      "source": "Ewans",
+      "status": "verified",
+      "anchor": "**The mechanism (sourced):**"
+    },
+    {
+      "claim": "Morel concluded from the shipping manifests that the goods coming out of the Congo could only be explained by slave labor.",
+      "topics": ["forced-labour-systems", "concession-extraction"],
+      "verbatim": "There is no trade going on here… there can be only one explanation for their source: slave labor.",
+      "source": "Morel, via Hochschild",
+      "status": "verified",
+      "anchor": "**Key verbatim (Morel, via Hochschild):**"
+    },
+    {
+      "claim": "Morel described his discovery as stumbling upon a secret society of murderers with a king for a croniman.",
+      "topics": ["forced-labour-systems", "concession-extraction"],
+      "verbatim": "I had stumbled upon a secret society of murderers with a King for a croniman.",
+      "source": "Morel, via Hochschild",
+      "status": "verified",
+      "anchor": "**Key verbatim (Morel, via Hochschild):**"
+    },
+    {
+      "claim": "Morel quit his job at Elder Dempster in 1901 after refusing a £200 offer to stay silent about the Congo trade discrepancy.",
+      "topics": ["concession-extraction", "propaganda-and-narrative-control"],
+      "verbatim": null,
+      "source": "Hochschild + Ewans + Kara + Grant (NLM notebook 0b7dd2b2)",
+      "status": "verified",
+      "anchor": "**Timeline (sourced):**"
+    },
+    {
+      "claim": "Roger Casement described Morel in his diary, after their December 1903 meeting, as honest as day.",
+      "topics": ["propaganda-and-narrative-control"],
+      "verbatim": "The man is honest as day",
+      "source": "Casement diary, per Hochschild + Ewans + Kara + Grant",
+      "status": "verified",
+      "anchor": "**Timeline (sourced):**"
+    },
+    {
+      "claim": "The Congo Reform Association was founded on 23 March 1904 at Liverpool's Philharmonic Hall before about 2,000 attendees.",
+      "topics": ["propaganda-and-narrative-control"],
+      "verbatim": null,
+      "source": "Hochschild + Ewans + Kara + Grant (NLM notebook 0b7dd2b2)",
+      "status": "verified",
+      "anchor": "**Timeline (sourced):**"
+    },
+    {
+      "claim": "Hochschild called Morel's deduction from the shipping records a deduction more far-reaching than anything accomplished by Holmes.",
+      "topics": ["propaganda-and-narrative-control"],
+      "verbatim": "a deduction more far-reaching than anything accomplished by Holmes.",
+      "source": "Hochschild",
+      "status": "verified",
+      "anchor": "**Bonus texture:**"
+    },
+    {
+      "claim": "The Congo Free State was Leopold's personal private property, legally distinct from Belgium, where he was the absolute proprietor.",
+      "topics": ["concession-extraction", "legal-justification-doctrine"],
+      "verbatim": "proprietor.",
+      "source": "Casement + Hochschild + Ewans + Nzongola (NLM notebook 0b7dd2b2)",
+      "status": "verified",
+      "anchor": "**The legal shell:**"
+    },
+    {
+      "claim": "An 1885 decree declared all Congo land not physically occupied by houses or crops to be state property, letting Leopold claim all rubber and ivory for himself.",
+      "topics": ["legal-justification-doctrine", "effective-occupation-doctrine", "concession-extraction"],
+      "verbatim": null,
+      "source": "Casement + Hochschild + Ewans + Nzongola (NLM notebook 0b7dd2b2)",
+      "status": "verified",
+      "anchor": "**The legal shell:**"
+    },
+    {
+      "claim": "Leopold split Congo land into a state rubber-forest monopoly and a secret personal estate of about 250,000 square kilometers around Lake Leopold II, funding his Belgian building projects.",
+      "topics": ["concession-extraction", "resource-extraction-economy", "legal-justification-doctrine"],
+      "verbatim": null,
+      "source": "Casement + Hochschild + Ewans + Nzongola (NLM notebook 0b7dd2b2)",
+      "status": "verified",
+      "anchor": "**The legal shell:**"
+    },
+    {
+      "claim": "Extraction was outsourced to concession companies including ABIR and the Anversoise, in which the Congo Free State held about half the shares and granted rights of police.",
+      "topics": ["concession-extraction", "resource-extraction-economy"],
+      "verbatim": "rights of police.",
+      "source": "Casement + Hochschild + Ewans + Nzongola (NLM notebook 0b7dd2b2)",
+      "status": "verified",
+      "anchor": "**The machine:**"
+    },
+    {
+      "claim": "Rubber quotas of about 3 to 4 kilograms per man per fortnight were enforced through hostage-taking of women and children, the chicotte hippo-hide whip, and village burning.",
+      "topics": ["forced-labour-systems", "concession-extraction"],
+      "verbatim": null,
+      "source": "Casement + Hochschild + Ewans + Nzongola (NLM notebook 0b7dd2b2)",
+      "status": "verified",
+      "anchor": "**The machine:**"
+    },
+    {
+      "claim": "The Congo Reform Association was the first great international human rights movement of the twentieth century.",
+      "topics": ["propaganda-and-narrative-control"],
+      "verbatim": "the first great international human rights movement of the twentieth century",
+      "source": "Hochschild",
+      "status": "verified",
+      "anchor": "### ✅ Claim (THE EXPOSURE) — VERIFIED (NLM 2026-07-13; Hochschild + Grant + Ewans + Kara)"
+    },
+    {
+      "claim": "The Congo Reform Association's campaign was driven by the power of Morel's data and Casement's survivor testimonies.",
+      "topics": ["propaganda-and-narrative-control"],
+      "verbatim": "driven by the power of data (Morel) and survivor testimonies (Casement)",
+      "source": "Kara",
+      "status": "verified",
+      "anchor": "### ✅ Claim (THE EXPOSURE) — VERIFIED (NLM 2026-07-13; Hochschild + Grant + Ewans + Kara)"
+    },
+    {
+      "claim": "At its peak the Congo Reform Association held about 300 mass meetings a year in England, drawing supporters including Mark Twain, Arthur Conan Doyle, and Joseph Conrad.",
+      "topics": ["propaganda-and-narrative-control"],
+      "verbatim": null,
+      "source": "Hochschild + Grant + Ewans + Kara",
+      "status": "verified",
+      "anchor": "### ✅ Claim (THE EXPOSURE) — VERIFIED (NLM 2026-07-13; Hochschild + Grant + Ewans + Kara)"
+    },
+    {
+      "claim": "Historian Kevin Grant called Hochschild's portrayal of Morel hagiographic.",
+      "topics": ["scholarly-disagreement", "contested-attribution"],
+      "verbatim": "hagiographic",
+      "source": "Grant (the skeptic-of-Hochschild voice)",
+      "status": "partial",
+      "anchor": "**⚠ BALANCE NOTE (Grant, the skeptic-of-Hochschild voice):**"
+    },
+    {
+      "claim": "Grant argued the Congo reform campaign won popular British support only after missionaries appealed to Britain's Christian conscience through lantern-slide lectures.",
+      "topics": ["scholarly-disagreement", "propaganda-and-narrative-control"],
+      "verbatim": "Christian conscience",
+      "source": "Grant (the skeptic-of-Hochschild voice)",
+      "status": "partial",
+      "anchor": "**⚠ BALANCE NOTE (Grant, the skeptic-of-Hochschild voice):**"
+    },
+    {
+      "claim": "Alice Seeley Harris's severed-hand photographs constituted the first major international atrocity scandal in the age of the telegraph and the camera.",
+      "topics": ["propaganda-and-narrative-control", "atrocity-propaganda", "document-provenance"],
+      "verbatim": "the first major international atrocity scandal in the age of the telegraph and the camera",
+      "source": "Hochschild",
+      "status": "verified",
+      "anchor": "**Alice Seeley Harris photographs:**"
+    },
+    {
+      "claim": "Missionary John Harris said of the severed-hand photographs that their mute appeal would speak to the most skeptical.",
+      "topics": ["propaganda-and-narrative-control", "atrocity-propaganda"],
+      "verbatim": "the mute appeal of the hand… will speak to the most skeptical",
+      "source": "John Harris",
+      "status": "verified",
+      "anchor": "**Alice Seeley Harris photographs:**"
+    },
+    {
+      "claim": "George Washington Williams's 1890 Open Letter was the first systematic indictment of Congo Free State abuses, describing swindled chiefs, burned villages, and state slave-trading.",
+      "topics": ["propaganda-and-narrative-control", "forced-labour-systems", "document-provenance"],
+      "verbatim": null,
+      "source": "George Washington Williams, 1890 Open Letter",
+      "status": "verified",
+      "anchor": "**George Washington Williams (1890 Open Letter):**"
+    },
+    {
+      "claim": "George Washington Williams coined the term crimes against humanity in his 1890 letter to the US Secretary of State.",
+      "topics": ["legal-justification-doctrine", "propaganda-and-narrative-control"],
+      "verbatim": "crimes against humanity",
+      "source": "George Washington Williams, 1890 Open Letter",
+      "status": "verified",
+      "anchor": "**George Washington Williams (1890 Open Letter):**"
+    },
+    {
+      "claim": "Roger Casement was hanged in 1916 for his role in the Easter Rising, after the Crown circulated his diaries to defeat a clemency campaign.",
+      "topics": ["transnational-repression", "propaganda-and-narrative-control"],
+      "verbatim": null,
+      "source": "Hochschild + Grant + Ewans + Kara",
+      "status": "verified",
+      "anchor": "**Casement's arc:**"
+    },
+    {
+      "claim": "Adam Hochschild estimated the Congo death toll at roughly 10 million, describing the population as cut by at least half over about 30 years.",
+      "topics": ["casualty-estimate-methodology", "genocide-classification-debate", "scholarly-disagreement"],
+      "verbatim": "cut by at least half",
+      "source": "Hochschild",
+      "status": "partial",
+      "anchor": "**MAXIMALIST camp:**"
+    },
+    {
+      "claim": "Hochschild's estimate is corroborated by the 1919 Belgian government commission, which found the Congo population reduced by half.",
+      "topics": ["casualty-estimate-methodology", "scholarly-disagreement"],
+      "verbatim": "reduced by half",
+      "source": "1919 Belgian government commission",
+      "status": "partial",
+      "anchor": "**MAXIMALIST camp:**"
+    },
+    {
+      "claim": "Georges Nzongola-Ntalaja put the Congo death toll as high as 10 million, tracing a decline from 20-30 million to 8.5 million by 1911.",
+      "topics": ["casualty-estimate-methodology", "concession-extraction", "scholarly-disagreement"],
+      "verbatim": "as high as 10 million",
+      "source": "Nzongola-Ntalaja",
+      "status": "partial",
+      "anchor": "**MAXIMALIST camp:**"
+    },
+    {
+      "claim": "Historian Guy Vanthemsche argued that Hochschild's death-toll estimate remains conjectural.",
+      "topics": ["casualty-estimate-methodology", "scholarly-disagreement"],
+      "verbatim": "Hochschild's estimate remains conjectural.",
+      "source": "Vanthemsche",
+      "status": "partial",
+      "anchor": "**SKEPTIC / \"AGNOSTIC\" camp (the referee balance — CONFIRMED):**"
+    },
+    {
+      "claim": "Vanthemsche said no one knows the exact Congo death toll because reliable population statistics only begin in 1924.",
+      "topics": ["casualty-estimate-methodology", "scholarly-disagreement"],
+      "verbatim": "No one knows the exact figure… the first, rather unreliable, population statistics only go back to 1924.",
+      "source": "Vanthemsche",
+      "status": "partial",
+      "anchor": "**SKEPTIC / \"AGNOSTIC\" camp (the referee balance — CONFIRMED):**"
+    },
+    {
+      "claim": "Vanthemsche stated that no one contests that millions of people perished under white power in the Congo, despite uncertainty over the exact figure.",
+      "topics": ["casualty-estimate-methodology", "scholarly-disagreement"],
+      "verbatim": "no one contests the fact that… millions of people perished under white power.",
+      "source": "Vanthemsche",
+      "status": "partial",
+      "anchor": "**SKEPTIC / \"AGNOSTIC\" camp (the referee balance — CONFIRMED):**"
+    },
+    {
+      "claim": "Jan Vansina later revised his own widely cited 'cut by at least a half' figure, finding the Kuba population had actually risen in the first two colonial decades before declining from disease after 1900.",
+      "topics": ["casualty-estimate-methodology", "historiographical-revision", "scholarly-disagreement"],
+      "verbatim": null,
+      "source": "Vanthemsche citing Vansina",
+      "status": "partial",
+      "anchor": "**⚠ CRUCIAL NUANCE — Vansina walked back his own \"half\":**"
+    },
+    {
+      "claim": "Historian Roes distinguished 'maximalist' from 'agnostic' camps in the Congo death-toll debate, arguing a firm victim count must remain elusive since most deaths were never recorded.",
+      "topics": ["casualty-estimate-methodology", "scholarly-disagreement"],
+      "verbatim": "a firm estimate of the number of victims must indeed remain elusive",
+      "source": "Roes",
+      "status": "partial",
+      "anchor": "**Roes (verbatim):**"
+    },
+    {
+      "claim": "The Congo's population decline resulted from murder, starvation and exhaustion, disease, and a collapsed birth rate, with epidemics facilitated by the forced-labour regime itself.",
+      "topics": ["forced-labour-systems", "casualty-estimate-methodology"],
+      "verbatim": null,
+      "source": "Roes",
+      "status": "partial",
+      "anchor": "**Causation nuance:**"
+    },
+    {
+      "claim": "The Congo Free State's own defense, echoed in the Casement Report, blamed sleeping sickness alone for the population collapse.",
+      "topics": ["forced-labour-systems", "propaganda-and-narrative-control"],
+      "verbatim": null,
+      "source": "Casement Report",
+      "status": "partial",
+      "anchor": "**Causation nuance:**"
+    },
+    {
+      "claim": "Every camp in the Congo death-toll debate, skeptics included, agrees the dead numbered in the millions, even though the exact toll is unknowable since no census existed and Leopold burned the archives.",
+      "topics": ["casualty-estimate-methodology", "evidence-destruction", "scholarly-disagreement"],
+      "verbatim": null,
+      "source": "NLM notebook 0b7dd2b2",
+      "status": "partial",
+      "anchor": "**THE REFEREE'S VERDICT (grounded):**"
+    },
+    {
+      "claim": "Journalist Siddharth Kara documented hundreds of thousands of Congolese, including children as young as six, digging cobalt by hand in medieval conditions for $1-2 a day.",
+      "topics": ["forced-labour-systems", "resource-extraction-economy", "concession-extraction"],
+      "verbatim": "medieval conditions",
+      "source": "Kara, Cobalt Red",
+      "status": "verified",
+      "anchor": "**Kara (Cobalt Red):**"
+    },
+    {
+      "claim": "The DRC produced 72% of the world's cobalt in 2021, with up to 30% mined artisanally and laundered into tech and EV supply chains.",
+      "topics": ["resource-extraction-economy", "concession-extraction"],
+      "verbatim": null,
+      "source": "Kara, Cobalt Red",
+      "status": "verified",
+      "anchor": "**Kara (Cobalt Red):**"
+    },
+    {
+      "claim": "Kara called Kolwezi, the center of DRC cobalt mining, the new heart of darkness.",
+      "topics": ["resource-extraction-economy"],
+      "verbatim": "the new heart of darkness.",
+      "source": "Kara, Cobalt Red",
+      "status": "verified",
+      "anchor": "**Kara (Cobalt Red):**"
+    },
+    {
+      "claim": "Kara wrote that the most advanced consumer electronics and electric vehicles rely on cobalt excavated by the blistered hands of peasants using picks, shovels, and rebar.",
+      "topics": ["resource-extraction-economy", "forced-labour-systems"],
+      "verbatim": "The most advanced consumer electronic devices and electric vehicles in the world rely on a substance that is excavated by the blistered hands of peasants using picks, shovels, and rebar.",
+      "source": "Kara",
+      "status": "verified",
+      "anchor": "**KILLER VERBATIMS (the close):**"
+    },
+    {
+      "claim": "Kara wrote that watching Congolese cobalt diggers, one would be unable to tell whether they worked for Leopold or a tech company.",
+      "topics": ["resource-extraction-economy", "forced-labour-systems", "concession-extraction"],
+      "verbatim": "…you would be unable to determine whether they were working for the benefit of Leopold or a tech company.",
+      "source": "Kara",
+      "status": "verified",
+      "anchor": "**KILLER VERBATIMS (the close):**"
+    },
+    {
+      "claim": "Kara concluded that Leopold's extraction model remained intact in the modern Congo cobalt trade.",
+      "topics": ["resource-extraction-economy", "concession-extraction"],
+      "verbatim": "Leopold's model remained intact.",
+      "source": "Kara",
+      "status": "verified",
+      "anchor": "**KILLER VERBATIMS (the close):**"
+    },
+    {
+      "claim": "Nzongola-Ntalaja argued Belgian Congo was built on the legacy of Leopold's system of primitive accumulation.",
+      "topics": ["resource-extraction-economy", "concession-extraction"],
+      "verbatim": "the legacy of the Leopoldian system of primitive accumulation",
+      "source": "Nzongola",
+      "status": "verified",
+      "anchor": "**Nzongola (1908→now continuity):**"
+    },
+    {
+      "claim": "Patrice Lumumba, elected in 1960, was assassinated in January 1961 through a conspiracy involving the US, Belgium, and the UN, later documented by the 1975 Church Committee.",
+      "topics": ["covert-regime-change", "declassification-and-official-history"],
+      "verbatim": null,
+      "source": "Nzongola / Church Committee 1975",
+      "status": "verified",
+      "anchor": "**Nzongola (1908→now continuity):**"
+    },
+    {
+      "claim": "Mobutu ran the Congo for 32 years as a personal wealth machine.",
+      "topics": ["resource-extraction-economy", "covert-regime-change"],
+      "verbatim": "a personal wealth machine,",
+      "source": "Nzongola",
+      "status": "verified",
+      "anchor": "**Nzongola (1908→now continuity):**"
+    },
+    {
+      "claim": "Nzongola wrote that Mobutu stepped into the shoes of the former colonizers, replicating a system of personal rule with external backing.",
+      "topics": ["resource-extraction-economy", "covert-regime-change"],
+      "verbatim": "stepped into the shoes of the former colonizers.",
+      "source": "Nzongola",
+      "status": "verified",
+      "anchor": "**Nzongola (1908→now continuity):**"
+    },
+    {
+      "claim": "Kara explicitly rejected equating the Leopold-era death toll with modern cobalt-mining deaths, saying the continuity argument concerns the extraction model, not the body count.",
+      "topics": ["resource-extraction-economy", "scholarly-disagreement", "casualty-estimate-methodology"],
+      "verbatim": "there is little equivalency between the atrocities… and the harms taking place today",
+      "source": "Kara",
+      "status": "partial",
+      "anchor": "**⚠ CRUCIAL GUARDRAIL (Kara himself):**"
+    }
+  ]
+}

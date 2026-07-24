@@ -73,6 +73,8 @@ results.sort(key=lambda r: -(r['wasted_impressions'] * (1 + retention_bonus(r.ge
 
 **Exclusion rule:** Videos with retention < 15% should be noted as "HIGH RISK — content issues likely" in the checklist, but still included if wasted impressions are high enough.
 
+**VidIQ MCP retention diagnostic (enrichment — `docs/VIDIQ-MCP-SETUP.md`):** on the underperformers this step targets, the VidIQ **"Video Watch"** tool (10 credits, Boost tier) gives a frame-by-frame retention read we have no other tool for — use it to sharpen the packaging-vs-content call above (is the drop at the hook, or mid-body?). This is **enrichment only**; `title_scorer` + live CTR remain the deciders. Skip if the MCP is unreachable.
+
 ### Step 4: Generate Title Candidates Per Video
 
 For each of the top 5 videos:
@@ -109,7 +111,9 @@ scored.sort(key=lambda x: -x[1]['score'])
 valid = [(t, s) for t, s in scored if s['grade'] != 'REJECTED' and s['score'] >= 65]
 ```
 
-If no candidates pass the threshold, note "NO VALID CANDIDATES — all options scored below 65 or REJECTED" and show the highest-scoring blocked option with its rejection reason so the user understands why.
+If no candidates pass the threshold, note "NO VALID CANDIDATES — all options scored below 65 or REJECTED" and show the highest-scoring blocked option with its rejection reason so the user understands why. (Note: `grade == 'REJECTED'` now correctly fires on clickbait tone — the `title_scorer` brand gate was restored 2026-07-01 — so a clickbait swap candidate is blocked here too.)
+
+**VidIQ MCP enrichment column (optional):** if connected, add a VidIQ score/note column beside the `title_scorer` scores for a second opinion — but it is **enrichment, never the decider**, and a VidIQ suggestion that trips the brand gate/kill-list is rejected+logged (`docs/VIDIQ-MCP-SETUP.md`).
 
 **d. Live title shelf positioning check:**
 

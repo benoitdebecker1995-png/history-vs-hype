@@ -481,8 +481,12 @@ def _build_style_recommendation(
     detected_style = _detect_hook_style(text, pattern_library)
 
     # Score modifier — cross-validated 2026-03-24:
-    #   Competitor views: specificity_bomb 5.4x | cold_fact 3.7x | contextual_opening 2.7x
-    #   Own retention:    myth_contradiction 36.7% | contextual_opening 32.0% | cold_fact 29.4%
+    #   Competitor views (PRESCRIPTIVE): specificity_bomb 5.4x | cold_fact 3.7x | contextual_opening 2.7x
+    #   Own retention (DIAGNOSTIC ONLY, n<30): myth_contradiction 36.7% | contextual_opening 32.0% | cold_fact 29.4%
+    # The own-retention figures are diagnostic context only — they describe where our
+    # openers have bled, never which archetype to pick (that's niche-wide's job; see
+    # memory/feedback-channel-data-too-small.md). This is why /opener consumes this tool's
+    # `issues`/`fulfillment` as advisory lint, NOT its `total_score` as a ranking signal.
     # myth_contradiction is strongest in BOTH datasets. contextual_opening retains well
     # on our channel despite weak competitor views — reduce penalty.
     # standard_myth_then_contradict is a superset of myth_contradiction — treat as match

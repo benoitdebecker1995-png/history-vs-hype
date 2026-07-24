@@ -1,0 +1,257 @@
+{
+ "video": "31-bermeja-island-2025",
+ "lifecycle": "_ARCHIVED",
+ "source_file": "video-projects/_ARCHIVED/published/31-bermeja-island-2025/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "The first written description of Bermeja Island appeared in 1536, three years before it first appeared on a map.",
+   "topics": ["myth-origin-tracing", "cartographic-error"],
+   "verbatim": null,
+   "source": "Ex-Isles",
+   "status": "verified",
+   "anchor": "VERIFIED TIMELINE"
+  },
+  {
+   "claim": "Bermeja Island first appeared on a map in 1539, drawn by Spanish cartographer Alonso de Santa Cruz in his Islario General.",
+   "topics": ["cartographic-error", "map-as-evidence", "document-provenance"],
+   "verbatim": "...and by the same wind by twenty leagues is another (island) called Bermeja, as it appears to be of such a colour...",
+   "source": "Alonso de Santa Cruz (1539), Islario General, p. 518",
+   "status": "verified",
+   "anchor": "Quote 1: Santa Cruz's Original 1539 Description"
+  },
+  {
+   "claim": "Bermeja Island's name derives from the Spanish word for red, describing its reddish appearance from a distance on the original map.",
+   "topics": ["cartographic-error"],
+   "verbatim": "Reddish from a distance",
+   "source": "Ex-Isles",
+   "status": "verified",
+   "anchor": "✅ CLAIM 1: First Cartographic Appearance (VERIFIED)"
+  },
+  {
+   "claim": "Bermeja Island appeared on maps for 382 years, from its first appearance in 1539 to its last documented appearance in the 1921 Mexican Geographic Atlas.",
+   "topics": ["cartographic-error", "myth-origin-tracing"],
+   "verbatim": null,
+   "source": "Ex-Isles",
+   "status": "verified",
+   "anchor": "✅ CLAIM 2: 382 Years on Maps (VERIFIED)"
+  },
+  {
+   "claim": "Cartographers perpetuated the Bermeja error through a habit of replication, copying existing authoritative maps without verification, which gave the error the prestige of tradition and legitimacy.",
+   "topics": ["cartographic-error", "myth-origin-tracing"],
+   "verbatim": "the prestige of tradition and legitimacy.",
+   "source": "Ex-Isles",
+   "status": "verified",
+   "anchor": "✅ CLAIM 2: 382 Years on Maps (VERIFIED)"
+  },
+  {
+   "claim": "Bermeja Island appeared on Abraham Ortelius's 1564 world map under the name 'Vermeja.'",
+   "topics": ["cartographic-error"],
+   "verbatim": null,
+   "source": "Ex-Isles",
+   "status": "verified",
+   "anchor": "VERIFIED TIMELINE"
+  },
+  {
+   "claim": "Two Spanish naval expeditions, in 1775 and 1789, searched for Bermeja Island and failed to find it.",
+   "topics": ["cartographic-error"],
+   "verbatim": null,
+   "source": "Ex-Isles",
+   "status": "verified",
+   "anchor": "VERIFIED TIMELINE"
+  },
+  {
+   "claim": "In 1885, decades before any modern survey, the US Hydrographic Office already described Bermeja Island's existence as 'more than doubtful.'",
+   "topics": ["cartographic-error"],
+   "verbatim": "more than doubtful",
+   "source": "Ex-Isles",
+   "status": "verified",
+   "anchor": "VERIFIED TIMELINE"
+  },
+  {
+   "claim": "In 1997, the first modern search for Bermeja Island, conducted by the Mexican Navy to extend Mexico's exclusive economic zone, found no sign of the island.",
+   "topics": ["cartographic-error"],
+   "verbatim": null,
+   "source": "Ex-Isles",
+   "status": "verified",
+   "anchor": "✅ CLAIM 5: 1997 Survey (VERIFIED)"
+  },
+  {
+   "claim": "The 2000 US-Mexico maritime treaty divided a disputed Western Gap continental shelf area of 5,092 square nautical miles, allocating 62% to Mexico and 38% to the United States.",
+   "topics": ["boundary-criteria-loophole"],
+   "verbatim": "The total area of the Western polygon is approximately 5,092 square nautical miles. The treaty boundary splits the Western Polygon continental shelf allocating 62% of the total area to Mexico and the remaining 38% to the United States.",
+   "source": "Mexican Law Review, Vol. V, No. 2 (2012), p. 449",
+   "status": "verified",
+   "anchor": "Quote 3: The 62/38% Division"
+  },
+  {
+   "claim": "The 2000 treaty's maritime boundary was calculated as an equidistant line drawn from the US and Mexican coastal baselines, explicitly including the baselines of islands.",
+   "topics": ["boundary-criteria-loophole", "map-as-evidence"],
+   "verbatim": "In keeping with the methodology used in previous U.S.-Mexico maritime boundary treaties, this line represents an equidistant line drawn from the respective U.S. and Mexican coastal baseline, including the baselines of islands.",
+   "source": "U.S. Department of State, Letter of Submittal (July 5, 2000), p. VI",
+   "status": "verified",
+   "anchor": "Quote 2: Treaty Boundary Calculation Method"
+  },
+  {
+   "claim": "Because maritime boundaries are calculated from island baselines, if Bermeja Island had actually existed it could have shifted the equidistant line and given Mexico an even larger share of the disputed continental shelf.",
+   "topics": ["boundary-criteria-loophole", "cartographic-error"],
+   "verbatim": null,
+   "source": "Mexican Law Review analysis",
+   "status": "verified",
+   "anchor": "✅ CLAIM 3: Treaty Division (VERIFIED - CORRECTED)"
+  },
+  {
+   "claim": "Mexican senators stated in 2010 that the disputed Western Gap area held more than 22 billion barrels of oil reserves, a political estimate rather than a verified geological survey figure.",
+   "topics": ["resource-extraction-economy"],
+   "verbatim": "it is sitting in an area with more than 22 billion barrels of oil reserves.",
+   "source": "Mexican Senators Official Statement (2010), cited in The Phantom Atlas, p. 38",
+   "status": "partial",
+   "anchor": "✅ CLAIM 4: Oil Reserves at Stake (VERIFIED)"
+  },
+  {
+   "claim": "A 2012 legal analysis argued that full Mexican access to its continental shelf could lift thousands of citizens out of poverty, while losing any portion of it could be catastrophic to the Mexican economy.",
+   "topics": ["resource-extraction-economy"],
+   "verbatim": "if Mexico receives full access to its continental shelf, thousands of Mexican citizens could be lifted out of poverty. Moreover... the loss of any portion of its continental shelf in the Western Polygon could be catastrophic to the future of the Mexican economy.",
+   "source": "Mexican Law Review, Vol. V, No. 2 (2012), p. 446",
+   "status": "verified",
+   "anchor": "Quote 7: Economic Consequences"
+  },
+  {
+   "claim": "In 2009, a UNAM-led scientific expedition aboard the research vessel Justo Sierra surveyed the coordinates where Bermeja Island was supposed to exist.",
+   "topics": ["cartographic-error"],
+   "verbatim": null,
+   "source": "UNAM Press Release",
+   "status": "verified",
+   "anchor": "✅ CLAIM 6: UNAM 2009 Study (VERIFIED)"
+  },
+  {
+   "claim": "The 2009 UNAM expedition surveyed a maritime area of 223 square kilometers and an aerial area of 10,488 square kilometers, taking 933 digital photographs using deep-sea bathymetric ultrasound.",
+   "topics": ["cartographic-error"],
+   "verbatim": null,
+   "source": "UNAM Press Release",
+   "status": "verified",
+   "anchor": "✅ CLAIM 6: UNAM 2009 Study (VERIFIED)"
+  },
+  {
+   "claim": "UNAM's 2009 survey of the charted Bermeja coordinates, at a depth of 1,472 meters, found only stable deep-sea sediments with no underwater mounts or debris.",
+   "topics": ["cartographic-error"],
+   "verbatim": "stable deep-sea sediments",
+   "source": "UNAM findings",
+   "status": "verified",
+   "anchor": "✅ CLAIM 6: UNAM 2009 Study (VERIFIED)"
+  },
+  {
+   "claim": "UNAM's scientific team concluded that no island had existed at Bermeja's charted coordinates for more than 5,300 years.",
+   "topics": ["cartographic-error"],
+   "verbatim": "...the team from UNAM concluded that there had not been an island at the given coordinates for more than 5300 years.",
+   "source": "Ex-Isles: Islands that Disappeared (2018), p. 38",
+   "status": "verified",
+   "anchor": "Quote 4: UNAM's \"5,300 Years\" Finding"
+  },
+  {
+   "claim": "UNAM's official report was titled, in Spanish, 'UNAM concludes that Bermeja Island does not exist at the indicated location.'",
+   "topics": ["cartographic-error", "document-provenance"],
+   "verbatim": "CONCLUYE LA UNAM QUE NO EXISTE LA ISLA BERMEJA EN LA UBICACIÓN SEÑALADA",
+   "source": "UNAM official report title",
+   "status": "verified",
+   "anchor": "✅ CLAIM 6: UNAM 2009 Study (VERIFIED)"
+  },
+  {
+   "claim": "UNAM's report concluded that the island does not exist at the specific charted coordinates of 22°33' N, 91°22' W.",
+   "topics": ["cartographic-error"],
+   "verbatim": "The island does not exist at the charted coordinates (22° 33' N, 91° 22' W)",
+   "source": "UNAM Conclusion",
+   "status": "verified",
+   "anchor": "✅ CLAIM 8: Cartographic Error Conclusion (VERIFIED)"
+  },
+  {
+   "claim": "A UNAM geography director noted that historical analysis provides sufficient evidence to suggest Bermeja Island existed as an entity distinct from Cayo Arenas, meaning it may have existed elsewhere rather than at the searched coordinates.",
+   "topics": ["cartographic-error", "contested-attribution"],
+   "verbatim": "sufficient evidence to suggest the real existence of Bermeja Island as an entity distinct from Cayo Arenas",
+   "source": "Dr. Alcántara Ayala, UNAM",
+   "status": "partial",
+   "anchor": "✅ CLAIM 6: UNAM 2009 Study (VERIFIED)"
+  },
+  {
+   "claim": "Mexican Senator José Ángel Conchello, the primary voice opposing the 2000 treaty, warned of a 'secret plan' between the Mexican government and American oil firms.",
+   "topics": ["pseudohistory-debunking", "myth-origin-tracing", "propaganda-and-narrative-control"],
+   "verbatim": "secret plan",
+   "source": "Senator José Angel Conchello (PAN)",
+   "status": "verified",
+   "anchor": "✅ CLAIM 7: CIA Theory (DOCUMENTED AND DEBUNKED)"
+  },
+  {
+   "claim": "Senator Conchello died in a 1998 car accident officially attributed to mechanical failure, which his supporters viewed as an assassination.",
+   "topics": ["pseudohistory-debunking", "myth-origin-tracing"],
+   "verbatim": null,
+   "source": "Phantom Atlas",
+   "status": "verified",
+   "anchor": "✅ CLAIM 7: CIA Theory (DOCUMENTED AND DEBUNKED)"
+  },
+  {
+   "claim": "Two scientists calculated that destroying an island the size of Bermeja's reported footprint would have required a hydrogen bomb, a key piece of evidence debunking the theory that the CIA secretly demolished it.",
+   "topics": ["pseudohistory-debunking", "myth-origin-tracing"],
+   "verbatim": "Jaime Urrutia of UNAM and Saul Millan of the Instituto Politecnico Nacional decided that to obliterate an island of Bermeja's size a hydrogen bomb would be required.",
+   "source": "The Phantom Atlas (2016), p. 41",
+   "status": "verified",
+   "anchor": "Quote 5: Hydrogen Bomb Debunking"
+  },
+  {
+   "claim": "A German oceanographer noted that no geological scars exist at the site that would indicate deliberate destruction of an island.",
+   "topics": ["pseudohistory-debunking", "myth-origin-tracing"],
+   "verbatim": "geological scars",
+   "source": "Hans-Werner Schenke",
+   "status": "verified",
+   "anchor": "✅ CLAIM 7: CIA Theory (DOCUMENTED AND DEBUNKED)"
+  },
+  {
+   "claim": "The strongest case that Bermeja Island was real rests on 1540 positioning data giving specific coordinates that seem too precise for pure invention.",
+   "topics": ["contested-attribution", "cartographic-error"],
+   "verbatim": null,
+   "source": "STEELMAN section",
+   "status": "partial",
+   "anchor": "STEELMAN: The \"It Existed\" Argument"
+  },
+  {
+   "claim": "Unlike phantom islands that shifted location across different maps, Bermeja was drawn in approximately the same place for centuries, which some cite as evidence it was a real, if mischarted, feature.",
+   "topics": ["contested-attribution", "cartographic-error"],
+   "verbatim": null,
+   "source": "STEELMAN section",
+   "status": "partial",
+   "anchor": "STEELMAN: The \"It Existed\" Argument"
+  },
+  {
+   "claim": "If Bermeja Island was ever real, one proposed explanation is that it was later submerged; 19th-century British maps marked it as 'sunk.'",
+   "topics": ["contested-attribution", "cartographic-error"],
+   "verbatim": "sunk",
+   "source": "British 19th century maps",
+   "status": "partial",
+   "anchor": "STEELMAN: The \"It Existed\" Argument"
+  },
+  {
+   "claim": "Even while concluding the island does not exist at the searched coordinates, a UNAM scientist acknowledged the historical accounts were too precise and detailed to easily dismiss.",
+   "topics": ["contested-attribution", "scholarly-disagreement"],
+   "verbatim": "the historical accounts are too \"precise\" and \"detailed\" to easily dismiss",
+   "source": "Dr. Alcántara Ayala, UNAM",
+   "status": "partial",
+   "anchor": "STEELMAN: The \"It Existed\" Argument"
+  },
+  {
+   "claim": "Gulf of Mexico oil production accounts for about 17% of total US crude output, underscoring the economic stakes of the maritime boundary dispute.",
+   "topics": ["resource-extraction-economy"],
+   "verbatim": null,
+   "source": "EIA",
+   "status": "verified",
+   "anchor": "✅ CLAIM 4: Oil Reserves at Stake (VERIFIED)"
+  },
+  {
+   "claim": "Six Mexican PAN senators voiced 'plentiful suspicions' about the 2000 maritime treaty in the Senate in November 2000.",
+   "topics": ["myth-origin-tracing"],
+   "verbatim": "plentiful suspicions",
+   "source": "Political Timeline",
+   "status": "verified",
+   "anchor": "✅ CLAIM 7: CIA Theory (DOCUMENTED AND DEBUNKED)"
+  }
+ ]
+}

@@ -100,10 +100,10 @@ def save_config(data: dict) -> None:
 def active_topics() -> list[dict]:
     """Collect topic signals from active projects + TOPIC-PIPELINE.md."""
     topics = []
-    if PRODUCTION_DIR.exists():
-        for project_dir in PRODUCTION_DIR.iterdir():
-            if not project_dir.is_dir():
-                continue
+    from tools.video_projects import Stage, VideoProjectRepo
+    production = VideoProjectRepo().in_stage(Stage.IN_PRODUCTION)
+    if production:
+        for project_dir in [p.path for p in production]:
             metadata = project_dir / "YOUTUBE-METADATA.md"
             if metadata.exists():
                 text = metadata.read_text(encoding="utf-8", errors="replace")

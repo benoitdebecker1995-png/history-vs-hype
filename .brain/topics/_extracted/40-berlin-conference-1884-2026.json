@@ -1,0 +1,473 @@
+{
+ "video": "40-berlin-conference-1884-2026",
+ "lifecycle": "_ARCHIVED",
+ "source_file": "video-projects/_ARCHIVED/published/40-berlin-conference-1884-2026/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "The Berlin Conference opened on Saturday, 15 November 1884 and concluded on 26 February 1885.",
+   "topics": ["great-power-partition-diplomacy"],
+   "verbatim": null,
+   "source": "Pakenham p. 239; General Act, Hertslet p. 468",
+   "status": "verified",
+   "anchor": "1. Conference Basics"
+  },
+  {
+   "claim": "Fourteen signatory powers attended the Berlin Conference, including Austria-Hungary, Belgium, France, Germany, Great Britain, and the Ottoman Empire.",
+   "topics": ["great-power-partition-diplomacy"],
+   "verbatim": null,
+   "source": "Pakenham p. 239; General Act",
+   "status": "verified",
+   "anchor": "1. Conference Basics"
+  },
+  {
+   "claim": "The United States signed the Berlin Conference's General Act but never ratified it, though it was the first power to recognize Leopold's Congo claim in April 1884.",
+   "topics": ["treaty-ratification-process", "great-power-partition-diplomacy"],
+   "verbatim": null,
+   "source": "Pakenham p. 256; Hochschild p. 81",
+   "status": "verified",
+   "anchor": "1. Conference Basics"
+  },
+  {
+   "claim": "No African rulers, governments, or representatives were invited to or present at the Berlin Conference.",
+   "topics": ["colonial-boundary-inheritance", "self-determination-claims"],
+   "verbatim": null,
+   "source": "Pakenham (multiple); Förster et al.",
+   "status": "verified",
+   "anchor": "2. No Africans Present"
+  },
+  {
+   "claim": "The British considered inviting the Sultan of Zanzibar to the Berlin Conference for tactical reasons but ultimately did not.",
+   "topics": ["colonial-boundary-inheritance"],
+   "verbatim": "In 1884 no Africans were invited to the Conference, except that, for tactical reasons, the British had initially considered whether or not the Sultan of Zanzibar should be represented.",
+   "source": "Förster et al.",
+   "status": "verified",
+   "anchor": "2. No Africans Present"
+  },
+  {
+   "claim": "The Sultan of Zanzibar's protest letter against the Berlin Conference arrived in May 1885, after the conference had already concluded.",
+   "topics": ["colonial-boundary-inheritance", "self-determination-claims"],
+   "verbatim": null,
+   "source": "Förster et al.",
+   "status": "verified",
+   "anchor": "2. No Africans Present"
+  },
+  {
+   "claim": "British representative Sir Edward Malet acknowledged during the conference that the natives were not represented, even though its decisions would carry extreme importance for them.",
+   "topics": ["colonial-boundary-inheritance", "self-determination-claims"],
+   "verbatim": "I cannot forget that the natives are not represented amongst us, and that the decisions of the Conference will, nevertheless, have an extreme importance for them.",
+   "source": "Sir Edward Malet, cited in Förster et al.",
+   "status": "verified",
+   "anchor": "2. No Africans Present"
+  },
+  {
+   "claim": "Bismarck stated the conference's aim was to bring the natives of Africa within the pale of civilization by opening the continent's interior to commerce.",
+   "topics": ["propaganda-and-narrative-control", "great-power-partition-diplomacy"],
+   "verbatim": "bring the natives of Africa within the pale of civilisation by opening up the interior of that continent to commerce",
+   "source": "Pakenham p. 243 (Protocol No. 1)",
+   "status": "verified",
+   "anchor": "3. Bismarck's Motivations and Quotes"
+  },
+  {
+   "claim": "Privately, Bismarck viewed Africa purely as a chip in the European balance of power, saying his map of Africa was simply Russia and France with Germany in the middle.",
+   "topics": ["great-power-partition-diplomacy"],
+   "verbatim": "'Here is Russia and here is France, with Germany in the middle. That is my map of Africa.'",
+   "source": "Pakenham p. 291",
+   "status": "verified",
+   "anchor": "3. Bismarck's Motivations and Quotes"
+  },
+  {
+   "claim": "Bismarck privately dismissed German colonial policy as \"a sham,\" admitting it was pursued only for domestic electoral reasons.",
+   "topics": ["propaganda-and-narrative-control", "great-power-partition-diplomacy"],
+   "verbatim": "'All this colonial business is a sham [Schwindel], but we need it for elections.'",
+   "source": "Pakenham p. 203",
+   "status": "verified",
+   "anchor": "3. Bismarck's Motivations and Quotes"
+  },
+  {
+   "claim": "Bismarck privately mocked Leopold II's self-regard, saying he displayed the pretensions of someone who believed his charm would let him get away with anything.",
+   "topics": ["great-power-partition-diplomacy"],
+   "verbatim": "'His Majesty displays the pretensions and naïve selfishness of an Italian who considers that his charm and good looks will enable him to get away with anything.'",
+   "source": "Pakenham p. 245",
+   "status": "verified",
+   "anchor": "3. Bismarck's Motivations and Quotes"
+  },
+  {
+   "claim": "Article 35 of the General Act required signatory powers claiming African coastal territory to establish effective occupation sufficient to protect existing rights and trade.",
+   "topics": ["effective-occupation-doctrine", "treaty-text-vs-practice"],
+   "verbatim": "The Signatory Powers of the present Act recognize the obligation to insure the establishment of authority in the regions occupied by them on the coasts of the African Continent sufficient to protect existing rights, and, as the case may be, freedom of trade and of transit under the conditions agreed upon.",
+   "source": "General Act of the Berlin Conference, Article 35",
+   "status": "verified",
+   "anchor": "4. Articles 34-35 (Effective Occupation)"
+  },
+  {
+   "claim": "The effective-occupation requirement was legally restricted to coastal territory, yet in practice it triggered a rapid inland scramble as powers rushed to claim land before rivals.",
+   "topics": ["effective-occupation-doctrine", "boundary-criteria-loophole"],
+   "verbatim": null,
+   "source": "Förster et al.; Wesseling",
+   "status": "verified",
+   "anchor": "4. Articles 34-35 (Effective Occupation)"
+  },
+  {
+   "claim": "The Congo Free State was Leopold II's personal property rather than a Belgian colony, making him an absolute \"King-Sovereign\" there while remaining a constitutional monarch in Belgium.",
+   "topics": ["sovereignty-recognition", "colonial-legal-code"],
+   "verbatim": null,
+   "source": "Hochschild pp. 87-88",
+   "status": "verified",
+   "anchor": "5. Leopold II and the Congo"
+  },
+  {
+   "claim": "Leopold's front organization, the Association Internationale du Congo, deliberately took a name resembling the older and more respected International African Association to cause confusion.",
+   "topics": ["propaganda-and-narrative-control"],
+   "verbatim": null,
+   "source": "Hochschild pp. 64-66",
+   "status": "verified",
+   "anchor": "5. Leopold II and the Congo"
+  },
+  {
+   "claim": "A contemporary legal scholar wrote that in the Congo Free State, sovereignty did not reside in the Congolese nation but was vested in the person of the Sovereign.",
+   "topics": ["sovereignty-recognition", "colonial-legal-code"],
+   "verbatim": "Sovereignty does not reside in the Congolese nation, it is vested in the person of the Sovereign",
+   "source": "Morel/Cattier, pp. 20-21",
+   "status": "verified",
+   "anchor": "5. Leopold II and the Congo"
+  },
+  {
+   "claim": "In public, Leopold II framed his Congo project as a selfless civilizing crusade; privately he described it as securing \"a slice of this magnificent African cake.\"",
+   "topics": ["propaganda-and-narrative-control"],
+   "verbatim": "a slice of this magnificent African cake",
+   "source": "Leopold II to Baron Solvyns, 17 November 1877 (Hochschild)",
+   "status": "verified",
+   "anchor": "5. Leopold II and the Congo"
+  },
+  {
+   "claim": "Leopold II instructed an agent that the treaties imposed on Congolese chiefs must be as brief as possible while granting Leopold everything in a couple of articles.",
+   "topics": ["treaty-text-vs-practice", "concession-extraction"],
+   "verbatim": "The treaties must be as brief as possible, and in a couple of articles must grant us everything.",
+   "source": "Leopold II to Colonel Strauch, 16 October 1882 (Hochschild)",
+   "status": "verified",
+   "anchor": "5. Leopold II and the Congo"
+  },
+  {
+   "claim": "In A.B.I.R. territory of the Congo Free State, rubber quotas required 3-4 kg of dried rubber per adult male every fortnight, demanding up to 24 days of forest labor per month to meet.",
+   "topics": ["forced-labour-systems", "resource-extraction-economy"],
+   "verbatim": null,
+   "source": "Hochschild",
+   "status": "verified",
+   "anchor": "6. The Rubber Terror and Congo Atrocities"
+  },
+  {
+   "claim": "Under the Congo Free State's \"cartridge rule,\" soldiers were required to return one severed human hand for every cartridge fired.",
+   "topics": ["forced-labour-systems"],
+   "verbatim": null,
+   "source": "Casement Report",
+   "status": "verified",
+   "anchor": "6. The Rubber Terror and Congo Atrocities"
+  },
+  {
+   "claim": "Roughly 6,000 cartridges used over six months on the Momboyo River corresponded to about 6,000 people killed or mutilated under the cartridge-accounting system.",
+   "topics": ["forced-labour-systems", "casualty-estimate-methodology"],
+   "verbatim": null,
+   "source": "Casement Report",
+   "status": "verified",
+   "anchor": "6. The Rubber Terror and Congo Atrocities"
+  },
+  {
+   "claim": "Congo Free State soldiers held women and children hostage in a \"maison des otages\" to compel men to meet rubber quotas.",
+   "topics": ["forced-labour-systems", "captive-acquisition-methods"],
+   "verbatim": "maison des otages",
+   "source": "Casement Report",
+   "status": "verified",
+   "anchor": "6. The Rubber Terror and Congo Atrocities"
+  },
+  {
+   "claim": "The population of Lukolela fell from about 5,000 in 1887 to fewer than 600 by 1903, and the Stanley Pool Bateke population fell from 5,000 to fewer than 100 in the same period.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": null,
+   "source": "Casement Report",
+   "status": "verified",
+   "anchor": "6. The Rubber Terror and Congo Atrocities"
+  },
+  {
+   "claim": "Historian Jan Vansina's estimate that the Congo Free State era cut the population \"by at least a half\" was confirmed by a 1919 Belgian commission, with absolute death toll estimates ranging from about 10 million to 13 million.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": null,
+   "source": "Hochschild (Vansina; 1919 Belgian commission; Ndaywel è Nziem)",
+   "status": "verified",
+   "anchor": "6. The Rubber Terror and Congo Atrocities"
+  },
+  {
+   "claim": "Leopold II ordered the Congo state's archives burned for eight days before handing the territory over to Belgium in 1908.",
+   "topics": ["evidence-destruction", "archival-silence"],
+   "verbatim": null,
+   "source": "Hochschild",
+   "status": "verified",
+   "anchor": "6. The Rubber Terror and Congo Atrocities"
+  },
+  {
+   "claim": "Roger Casement concluded that the mutilations he documented were not a native custom but \"the deliberate act of the soldiers of a European administration\" carried out under orders from their superiors.",
+   "topics": ["forced-labour-systems", "atrocity-propaganda"],
+   "verbatim": "It was not a native custom prior to the coming of the white man; it was not the outcome of the primitive instincts of savages in their fights between village and village; it was the deliberate act of the soldiers of a European administration, and these men themselves never made any concealment that in committing these acts they were but obeying the positive orders of their superiors.",
+   "source": "Roger Casement, Congo Report (1904)",
+   "status": "verified",
+   "anchor": "6. The Rubber Terror and Congo Atrocities"
+  },
+  {
+   "claim": "A 2016 peer-reviewed study found that 229 African ethnic groups, 27.7% of the sample at a 10% land threshold, were split by colonial-era borders.",
+   "topics": ["colonial-boundary-inheritance", "partition-of-territory"],
+   "verbatim": null,
+   "source": "Michalopoulos & Papaioannou 2016, p. 1812",
+   "status": "verified",
+   "anchor": "7. Ethnic Partitioning (Michalopoulos & Papaioannou 2016)"
+  },
+  {
+   "claim": "Conflict intensity is 40% higher and political violence 57% higher in the historical homelands of ethnic groups partitioned by colonial borders.",
+   "topics": ["colonial-boundary-inheritance", "partition-of-territory"],
+   "verbatim": null,
+   "source": "Michalopoulos & Papaioannou 2016, pp. 1804, 1820",
+   "status": "verified",
+   "anchor": "7. Ethnic Partitioning (Michalopoulos & Papaioannou 2016)"
+  },
+  {
+   "claim": "Ethnic groups split by colonial borders show an 11-14% increased likelihood of ethnic civil war and about 7 percentage points higher political discrimination.",
+   "topics": ["colonial-boundary-inheritance", "partition-of-territory"],
+   "verbatim": null,
+   "source": "Michalopoulos & Papaioannou 2016, pp. 1805, 1835",
+   "status": "verified",
+   "anchor": "7. Ethnic Partitioning (Michalopoulos & Papaioannou 2016)"
+  },
+  {
+   "claim": "The Somali ethnic group was divided across four modern states, with the five-pointed star on Somalia's flag representing five partitioned regions.",
+   "topics": ["colonial-boundary-inheritance", "self-determination-claims"],
+   "verbatim": null,
+   "source": "Michalopoulos & Papaioannou 2016, p. 1809",
+   "status": "verified",
+   "anchor": "8. Case Study: Somali Partition"
+  },
+  {
+   "claim": "The 1977-78 Ogaden War was rooted in an 1897 Anglo-Ethiopian boundary treaty that divided Somali territory.",
+   "topics": ["boundary-commission-mechanism", "colonial-boundary-inheritance"],
+   "verbatim": null,
+   "source": "Michalopoulos & Papaioannou 2016 p. 1809; Craven p. 183",
+   "status": "verified",
+   "anchor": "8. Case Study: Somali Partition"
+  },
+  {
+   "claim": "The Ewe ethnic group was split across Ghana, Togo, and Benin by the British-German colonial border.",
+   "topics": ["colonial-boundary-inheritance", "partition-of-territory"],
+   "verbatim": null,
+   "source": "Michalopoulos & Papaioannou 2016; Herbst",
+   "status": "verified",
+   "anchor": "9. Case Study: Other Partitioned Groups"
+  },
+  {
+   "claim": "The Bakongo people, formerly a sophisticated 15th-century kingdom, were split across Angola, Congo-Brazzaville, DRC, and Gabon by colonial borders.",
+   "topics": ["colonial-boundary-inheritance", "partition-of-territory"],
+   "verbatim": null,
+   "source": "Multiple",
+   "status": "verified",
+   "anchor": "9. Case Study: Other Partitioned Groups"
+  },
+  {
+   "claim": "The Bakassi Peninsula dispute between Cameroon and Nigeria stemmed from conflicting 1884 and 1913 colonial-era treaties.",
+   "topics": ["treaty-text-vs-practice", "international-court-advisory-opinion"],
+   "verbatim": null,
+   "source": "ICJ records",
+   "status": "verified",
+   "anchor": "10. Case Study: Bakassi Peninsula (Cameroon-Nigeria)"
+  },
+  {
+   "claim": "The International Court of Justice ruled in Cameroon's favor over the Bakassi Peninsula on 10 October 2002 based on the 1913 Anglo-German Agreement, and full Cameroonian sovereignty was achieved by August 2013.",
+   "topics": ["international-court-advisory-opinion", "treaty-text-vs-practice"],
+   "verbatim": null,
+   "source": "ICJ records",
+   "status": "verified",
+   "anchor": "10. Case Study: Bakassi Peninsula (Cameroon-Nigeria)"
+  },
+  {
+   "claim": "Britain conquered Darfur in 1916 and imposed indirect rule; a 1929 census by Harold MacMichael classified the population by race rather than culture or language.",
+   "topics": ["census-as-political-instrument", "colonial-legal-code"],
+   "verbatim": null,
+   "source": "Mamdani pp. 215-216",
+   "status": "verified",
+   "anchor": "Sudan / Darfur"
+  },
+  {
+   "claim": "The 1929 Darfur census recorded only 28.2% of the population as \"Arabs\" even though 54.6% spoke Arabic at home, creating a racial binary that outlasted colonial rule.",
+   "topics": ["census-as-political-instrument"],
+   "verbatim": null,
+   "source": "Mamdani pp. 215-216",
+   "status": "verified",
+   "anchor": "Sudan / Darfur"
+  },
+  {
+   "claim": "The presence of Rwandan-origin populations in DRC's Kivu region traces to Belgian administrative integration of Ruanda-Urundi with the Congo.",
+   "topics": ["colonial-boundary-inheritance", "administrative-collapse"],
+   "verbatim": null,
+   "source": "Young p. 387 (Note 11)",
+   "status": "verified",
+   "anchor": "DRC Eastern Instability"
+  },
+  {
+   "claim": "The overwhelming majority of African polities were sovereign on the eve of the Berlin Conference, including large pre-colonial states such as the Sokoto Caliphate and the Kingdom of Benin.",
+   "topics": ["sovereignty-recognition", "de-facto-vs-de-jure-statehood"],
+   "verbatim": null,
+   "source": "Herbst / Boahen",
+   "status": "verified",
+   "anchor": "12. Pre-Colonial African States (Counter to \"Stateless\" Myth)"
+  },
+  {
+   "claim": "The category of \"tribe\" was often a colonial administrative invention used to contain and categorize Africans into fixed, governable units.",
+   "topics": ["census-as-political-instrument", "colonial-legal-code"],
+   "verbatim": null,
+   "source": "Young / Mamdani",
+   "status": "verified",
+   "anchor": "12. Pre-Colonial African States (Counter to \"Stateless\" Myth)"
+  },
+  {
+   "claim": "Pre-colonial African political power typically radiated in concentric circles from a core rather than being bounded by hard territorial borders.",
+   "topics": ["boundary-commission-mechanism", "de-facto-vs-de-jure-statehood"],
+   "verbatim": null,
+   "source": "Herbst",
+   "status": "verified",
+   "anchor": "12. Pre-Colonial African States (Counter to \"Stateless\" Myth)"
+  },
+  {
+   "claim": "Tanzanian leader Julius Nyerere argued that precisely because African colonial boundaries were so absurd, it was essential to maintain them, a logic the OAU adopted as the principle of uti possidetis.",
+   "topics": ["uti-possidetis-juris", "colonial-boundary-inheritance"],
+   "verbatim": "precisely because African boundaries were so absurd, it was essential to maintain them.",
+   "source": "Young, Postcolonial State, p. 303",
+   "status": "verified",
+   "anchor": "13. Nyerere and the Border Dilemma"
+  },
+  {
+   "claim": "Around 90% of Africa remained under African rule as late as 1876-1880, but European powers controlled roughly 90% of the continent by 1914.",
+   "topics": ["colonial-boundary-inheritance", "sovereignty-recognition"],
+   "verbatim": "90 per cent of Africa was still under African rule",
+   "source": "Pakenham p. i; Boahen p. 28",
+   "status": "verified",
+   "anchor": "14. Africa Control Percentage (Before/After)"
+  },
+  {
+   "claim": "European powers colonized roughly ten million square miles of African territory in the twenty-five years following 1880, leaving only Ethiopia and Liberia independent by 1912.",
+   "topics": ["colonial-boundary-inheritance"],
+   "verbatim": "ten million square miles",
+   "source": "Pakenham p. i, p. 712",
+   "status": "verified",
+   "anchor": "14. Africa Control Percentage (Before/After)"
+  },
+  {
+   "claim": "The Hutu/Tutsi distinction existed before Belgian colonial rule as a fluid occupational and social distinction, not a fixed racial identity.",
+   "topics": ["census-as-political-instrument", "colonial-legal-code"],
+   "verbatim": "fighting men",
+   "source": "Iliffe",
+   "status": "verified",
+   "anchor": "15. Rwanda: Colonial Ethnic Manipulation"
+  },
+  {
+   "claim": "European colonizers applied the \"Hamitic Hypothesis,\" regarding Tutsis as a superior immigrant race and reinforcing their political domination over Hutus.",
+   "topics": ["census-as-political-instrument", "propaganda-and-narrative-control"],
+   "verbatim": "regarded the Tutsi as a superior immigrant race and reinforced their domination",
+   "source": "Iliffe",
+   "status": "verified",
+   "anchor": "15. Rwanda: Colonial Ethnic Manipulation"
+  },
+  {
+   "claim": "Belgian colonizers introduced ethnic identity cards classifying every Rwandan as either Tutsi or Hutu, even though most of the population was in fact mixed.",
+   "topics": ["census-as-political-instrument"],
+   "verbatim": "classified people into one or the other and made them carry identification cards",
+   "source": "Cooper",
+   "status": "verified",
+   "anchor": "15. Rwanda: Colonial Ethnic Manipulation"
+  },
+  {
+   "claim": "The Belgian-introduced ethnic identity cards were later used by militias to identify victims during the 1994 Rwandan genocide.",
+   "topics": ["census-as-political-instrument", "genocide-classification-debate"],
+   "verbatim": null,
+   "source": "Mamdani / Cooper",
+   "status": "verified",
+   "anchor": "15. Rwanda: Colonial Ethnic Manipulation"
+  },
+  {
+   "claim": "Historian Frederick Cooper wrote that the 1994 Rwandan genocide was not a spontaneous outburst of ancient hatreds but was planned, and that the hatred involved was real but had a history rather than being a natural cultural attribute.",
+   "topics": ["genocide-classification-debate", "census-as-political-instrument"],
+   "verbatim": "The murderous violence that erupted on April 6 was not a spontaneous outburst of ancient hatreds; it was planned... The hatred in Rwanda was real enough, but it was hatred with a history, not a natural attribute of cultural difference",
+   "source": "Cooper",
+   "status": "verified",
+   "anchor": "15. Rwanda: Colonial Ethnic Manipulation"
+  },
+  {
+   "claim": "Historians Wesseling and Förster argue the Berlin Conference functioned as a \"safety valve\" to prevent war among European powers, rather than as the event that carved up Africa.",
+   "topics": ["great-power-partition-diplomacy", "great-power-arbitration"],
+   "verbatim": "safety valve",
+   "source": "Wesseling; Förster et al.",
+   "status": "verified",
+   "anchor": "17. The Steelmanned Counter-Position"
+  },
+  {
+   "claim": "Wesseling argues the Berlin Conference did not initiate the Scramble for Africa, since most territory was actually decided through separate bilateral agreements rather than at the conference itself.",
+   "topics": ["great-power-partition-diplomacy", "treaty-text-vs-practice"],
+   "verbatim": null,
+   "source": "Wesseling",
+   "status": "verified",
+   "anchor": "17. The Steelmanned Counter-Position"
+  },
+  {
+   "claim": "Wesseling observes that unlike in Europe, where conquest preceded mapmaking, in Africa the map was drawn first and it was decided afterward what would actually happen.",
+   "topics": ["map-as-evidence", "cartographic-error"],
+   "verbatim": "In Europe conquests preceded the drawing of maps; in Africa the map was drawn, and then it was decided what was going to happen.",
+   "source": "Wesseling",
+   "status": "verified",
+   "anchor": "17. The Steelmanned Counter-Position"
+  },
+  {
+   "claim": "Ethiopia's Menelik II acted as a \"partitioner\" rather than a victim of the Scramble for Africa, negotiating his own borders after defeating Italy at the Battle of Adwa in 1896.",
+   "topics": ["great-power-partition-diplomacy", "sovereignty-recognition"],
+   "verbatim": "partitioner",
+   "source": "Pakenham; Herbst",
+   "status": "verified",
+   "anchor": "17. The Steelmanned Counter-Position"
+  },
+  {
+   "claim": "Scholarly consensus holds that Belgian colonial policy significantly hardened the pre-existing Hutu/Tutsi distinction into a rigid legal category but did not invent the distinction from nothing.",
+   "topics": ["census-as-political-instrument", "genocide-classification-debate"],
+   "verbatim": null,
+   "source": "Contested claims analysis citing Mamdani",
+   "status": "partial",
+   "anchor": "Contested: Rwanda Genocide and Berlin Conference"
+  },
+  {
+   "claim": "While no African government or ruler was invited to the Berlin Conference itself, some African leaders later signed bilateral agreements and some elites, such as the Sultan of Zanzibar, were aware of and protested the process.",
+   "topics": ["self-determination-claims", "colonial-boundary-inheritance"],
+   "verbatim": null,
+   "source": "Contested claims analysis",
+   "status": "verified",
+   "anchor": "Contested: \"No Africans in the room\""
+  },
+  {
+   "claim": "Historians argue the Berlin Conference did not initiate the Scramble for Africa but instead created rules, including the effective-occupation doctrine, that turned an already-existing scramble into a race.",
+   "topics": ["effective-occupation-doctrine", "great-power-partition-diplomacy"],
+   "verbatim": null,
+   "source": "Wesseling, Förster et al.",
+   "status": "verified",
+   "anchor": "Contested: Conference as Primary Cause"
+  },
+  {
+   "claim": "Rwanda-backed M23 rebels captured Goma, the capital of DRC's North Kivu province, on 27 January 2025.",
+   "topics": ["colonial-boundary-inheritance"],
+   "verbatim": null,
+   "source": "Wikipedia (2025 Goma offensive); Crisis Group; Al Jazeera",
+   "status": "verified",
+   "anchor": "11b. DRC / Goma (January 2025) — NEWS SOURCES"
+  },
+  {
+   "claim": "Rwandan President Kagame has publicly questioned the colonial-era borders between Rwanda and the DRC, invoking a \"Greater Rwanda\" narrative claiming parts of eastern DRC as historical Rwandan land taken during the colonial period.",
+   "topics": ["colonial-boundary-inheritance", "self-determination-claims"],
+   "verbatim": "Greater Rwanda",
+   "source": "Crisis Group; Geopolitical Monitor; Pledge4Peace",
+   "status": "verified",
+   "anchor": "11b. DRC / Goma (January 2025) — NEWS SOURCES"
+  }
+ ]
+}

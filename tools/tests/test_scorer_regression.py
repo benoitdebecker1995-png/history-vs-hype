@@ -228,11 +228,12 @@ def test_get_latest_snapshot_date_and_staleness(tmp_path):
     # Minimal tables score_title's DB path touches; only ctr_snapshots is read for staleness.
     conn.execute(
         "CREATE TABLE ctr_snapshots (video_id TEXT, snapshot_date DATE, ctr_percent REAL, "
-        "impression_count INTEGER, view_count INTEGER)"
+        "impression_count INTEGER, view_count INTEGER, is_valid INTEGER NOT NULL DEFAULT 1)"
     )
     old_date = (date.today() - timedelta(days=100)).isoformat()
     conn.execute(
-        "INSERT INTO ctr_snapshots VALUES (?,?,?,?,?)",
+        "INSERT INTO ctr_snapshots (video_id, snapshot_date, ctr_percent, impression_count, view_count) "
+        "VALUES (?,?,?,?,?)",
         ("V", old_date, 3.0, 1000, 30),
     )
     conn.commit()

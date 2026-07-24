@@ -321,6 +321,25 @@ Stay on camera when:
 **CREATE IN:** [Tool] (for graphics only)
 ```
 
+#### 7. End Screen — ONE Next Destination (MANDATORY)
+
+End screens and playlists are badly underused on this channel (8 videos ever logged end-screen
+traffic: 107 views; playlists 174) while `RELATED_VIDEO` pulls ~6,900 — the algorithm is doing
+the co-watch work the packaging isn't. Fix it deliberately (PACKAGING_MANDATE §2026-07-23, growth
+strategy move #4):
+
+- **Pick ONE hand-matched sequel** — the single most-adjacent video, ideally the next episode in
+  the same topical neighborhood (see `/greenlight` Step 1c). **Not a menu of three unrelated
+  videos** — one clear destination gives YouTube one explicit co-watch candidate.
+- **Write the last ~20 seconds around it**, in-voice: "If you want to see how the same [legal
+  trick / mechanism] worked in [the neighboring case], watch this next." This rides *after* the
+  evidentiary payoff — it must not touch the fragile 5–10% post-hook seam or the close's landing.
+- **Same destination in three places:** end-screen element, the linked series playlist (if the
+  neighborhood has one), and the pinned comment.
+- Output a `## END SCREEN` block: the chosen sequel (title + video_id), the one-line VO, and the
+  playlist link. If the video is a one-off with no adjacent sibling, say so and default the
+  end-screen to the best topical neighbour + a subscribe element.
+
 ### Output Location
 
 `video-projects/[project]/EDITING-GUIDE.md`

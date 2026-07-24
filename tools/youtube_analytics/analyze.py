@@ -77,7 +77,11 @@ except ImportError:
 
 # Try to import feedback storage (Phase 31)
 try:
-    from .feedback_parser import parse_analysis_file
+    from tools.post_publish import (
+        PostPublishMalformedError,
+        PostPublishMissingError,
+        PostPublishStore,
+    )
     from .feedback_queries import get_insights_preamble
     FEEDBACK_AVAILABLE = True
 except ImportError:
@@ -123,43 +127,31 @@ def find_project_folder(video_id: str = None, video_title: str = None) -> str:
     Returns:
         Absolute path to project folder, or None if not found
     """
-    search_paths = [
-        PROJECT_ROOT / 'video-projects' / '_IN_PRODUCTION' / '*',
-        PROJECT_ROOT / 'video-projects' / '_READY_TO_FILM' / '*',
-        PROJECT_ROOT / 'video-projects' / '_ARCHIVED' / '*'
-    ]
+    # All live stages via the resolver — replaces hand-globbed lifecycle paths.
+    # The old _ARCHIVED/* glob never descended into _ARCHIVED/published/<slug>, so
+    # published videos' folders were never found; repo.all() fixes that.
+    from tools.video_projects import VideoProjectRepo
+    projects = VideoProjectRepo(PROJECT_ROOT).all()
 
     # Strategy 1: Search for video ID in files
     if video_id:
-        for pattern in search_paths:
-            for folder in glob.glob(str(pattern)):
-                if not os.path.isdir(folder):
+        for proj in projects:
+            for filepath in proj.path.glob('*.md'):
+                try:
+                    if video_id in filepath.read_text(encoding='utf-8'):
+                        return str(proj.path)
+                except (IOError, UnicodeDecodeError):
                     continue
-                # Search all .md files in the folder
-                for filepath in glob.glob(os.path.join(folder, '*.md')):
-                    try:
-                        with open(filepath, 'r', encoding='utf-8') as f:
-                            content = f.read()
-                            if video_id in content:
-                                return folder
-                    except (IOError, UnicodeDecodeError):
-                        continue
 
     # Strategy 2: Match title slug to folder name
     if video_title:
-        # Extract significant words (>3 chars) from title
         slug_words = re.sub(r'[^a-z0-9]+', ' ', video_title.lower()).split()
         significant_words = [w for w in slug_words if len(w) > 3]
-
         if significant_words:
-            for pattern in search_paths:
-                for folder in glob.glob(str(pattern)):
-                    if not os.path.isdir(folder):
-                        continue
-                    folder_name = os.path.basename(folder).lower()
-                    # Check if any significant word from title appears in folder name
-                    if any(word in folder_name for word in significant_words):
-                        return folder
+            for proj in projects:
+                folder_name = proj.slug.lower()
+                if any(word in folder_name for word in significant_words):
+                    return str(proj.path)
 
     return None
 
@@ -245,17 +237,20 @@ def save_analysis(analysis: dict, output_path: str = None) -> dict:
     feedback_stored = False
     if FEEDBACK_AVAILABLE:
         try:
-            parsed = parse_analysis_file(str(save_path))
-            if 'error' not in parsed:
+            try:
+                report = PostPublishStore().load(Path(save_path))
+            except (PostPublishMissingError, PostPublishMalformedError):
+                report = None
+            if report is not None:
                 from tools.discovery.performance_tracker import PerformanceTracker
                 db = PerformanceTracker.connect()
                 store_result = db.store_video_feedback(
-                    parsed.get('video_id', video_id),
+                    report.video_id or video_id,
                     {
-                        'biggest_drop_position': parsed.get('drop_points', [{}])[0].get('position_pct') if parsed.get('drop_points') else None,
-                        'observations': parsed.get('observations', []),
-                        'actionable': parsed.get('actionable', []),
-                        'discovery': parsed.get('discovery')
+                        'biggest_drop_position': report.drop_points[0].get('position_pct') if report.drop_points else None,
+                        'observations': report.observations,
+                        'actionable': report.actionable,
+                        'discovery': report.discovery
                     }
                 )
                 db.close()
@@ -408,7 +403,7 @@ def extract_video_id(url_or_id: str) -> str:
     raise ValueError(f"Could not extract video ID from: {url_or_id}")
 
 
-def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
+def run_analysis(video_id_or_url: str, manual_ctr: float = None, source=None) -> dict:
     """
     Run complete post-publish analysis for a video.
 
@@ -418,6 +413,9 @@ def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
     Args:
         video_id_or_url: YouTube video ID or URL
         manual_ctr: Optional manual CTR override (0-100)
+        source: AnalysisSource providing the data fetches. Defaults to
+            LiveAnalysisSource (real YouTube API + DB). Tests pass an
+            InMemoryAnalysisSource to run without network access. See ADR-0011.
 
     Returns:
         Complete analysis dict:
@@ -448,6 +446,10 @@ def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
     errors = []
     fetched_at = datetime.now(timezone.utc).isoformat()
 
+    if source is None:
+        from .analysis_source import LiveAnalysisSource
+        source = LiveAnalysisSource()
+
     # Extract video ID from URL if needed
     try:
         video_id = extract_video_id(video_id_or_url)
@@ -460,7 +462,7 @@ def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
         }
 
     # 1. Get video report (engagement, retention, CTR)
-    video_report = generate_video_report(video_id)
+    video_report = source.video_report(video_id)
 
     # Extract components from video report
     title = video_report.get('title')
@@ -482,7 +484,7 @@ def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
         }
 
     # 3. Fetch and categorize comments
-    comments_result = fetch_and_categorize_comments(video_id)
+    comments_result = source.comments(video_id)
 
     if 'error' in comments_result:
         errors.append({
@@ -506,7 +508,7 @@ def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
         }
 
     # 4. Get channel averages and comparison
-    channel_avgs = get_channel_averages()
+    channel_avgs = source.channel_averages()
 
     if 'error' in channel_avgs:
         errors.append({
@@ -519,7 +521,7 @@ def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
         }
     else:
         # Get video metrics for comparison
-        video_metrics = get_video_metrics(video_id)
+        video_metrics = source.video_metrics(video_id)
 
         if 'error' in video_metrics:
             comparison = None
@@ -562,38 +564,21 @@ def run_analysis(video_id_or_url: str, manual_ctr: float = None) -> dict:
                 'message': f'Discovery diagnostics failed: {str(e)}'
             })
 
-    # 7. Fetch variant tracking data if available
+    # 7. Fetch variant tracking data (None when unavailable or no variants)
     variant_data = None
-    if VARIANTS_AVAILABLE:
-        try:
-            db = PerformanceTracker.connect()
-            summary = db.get_variant_summary(video_id)
-            if summary['thumbnails'] > 0 or summary['titles'] > 0 or summary['snapshots'] > 0:
-                variant_data = {
-                    'summary': summary,
-                    'thumbnails': db.get_thumbnail_variants(video_id),
-                    'titles': db.get_title_variants(video_id),
-                    'snapshots': db.get_ctr_snapshots(video_id)
-                }
-            db.close()
-        except Exception as e:
-            errors.append({
-                'source': 'variants',
-                'message': f'Variant tracking query failed: {str(e)}'
-            })
+    try:
+        variant_data = source.variant_data(video_id)
+    except Exception as e:
+        errors.append({
+            'source': 'variants',
+            'message': f'Variant tracking query failed: {str(e)}'
+        })
 
-    # 8. Run CTR analysis if available
+    # 8. Run CTR analysis if there are variants to compare
     ctr_analysis = None
-    if BENCHMARKS_AVAILABLE and variant_data:
+    if variant_data:
         try:
-            benchmarks_data = get_benchmarks_report()
-            thumb_verdict = compare_variants_for_video(video_id, 'thumbnail', benchmarks_data.get('overall', {}))
-            title_verdict = compare_variants_for_video(video_id, 'title', benchmarks_data.get('overall', {}))
-            ctr_analysis = {
-                'thumbnail_verdict': thumb_verdict,
-                'title_verdict': title_verdict,
-                'benchmarks': benchmarks_data
-            }
+            ctr_analysis = source.ctr_analysis(video_id)
         except Exception as e:
             errors.append({
                 'source': 'ctr_analysis',

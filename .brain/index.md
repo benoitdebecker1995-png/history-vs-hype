@@ -1,6 +1,6 @@
 # .brain/index.md — Master Knowledge Catalog
 
-*Auto-maintained by Routine 5 (brain hygiene, nightly). Last updated: 2026-06-14*
+*Auto-maintained by Routine 5 (brain hygiene, nightly). Last updated: 2026-07-23*
 
 ---
 
@@ -24,6 +24,10 @@
 |-------------------|-----------|
 | Title CTR patterns (niche-wide, n=388) | `channel-data/COMPETITOR-TITLE-DATABASE.md`, `tools/benchmark/SCRIPT-PATTERN-ANALYSIS.md` |
 | Channel CTR baselines (my videos) | `channel-data/analyses/POST-PUBLISH-ANALYSIS-*.md` (per-video), `channel-data/CHANNEL_ANALYTICS_MASTER.md` |
+| Per-video retention curves (raw, n=57) | `channel-data/CHANNEL-PERFORMANCE-DATA-2026-06.md` (first30/body, traffic, drop-points — directional) |
+| Why long-form underperforms (holdout-tested) | `channel-data/LONGFORM-FAILURE-DIAGNOSIS-2026-06.md`, `channel-data/calibration/OPENER-RETENTION-DIAGNOSIS.md` |
+| CTR title + thumbnail formula (derived, my data, n=56) | `channel-data/CTR-TITLE-FORMULA-2026-06.md`, `channel-data/CTR-THUMBNAIL-FINDINGS-2026-06.md` |
+| Causal A/B + traffic-source CTR split, per-video funnel autopsy | `channel-data/AB-TEST-AND-TRAFFIC-CTR-2026-06.md`, `channel-data/FLOP-AUTOPSY-TABLE.md` |
 | Thumbnail formulas for this niche | `tools/benchmark/THUMBNAIL-NICHE-ANALYSIS.md`, `tools/benchmark/PER-CHANNEL-THUMBNAIL-PLAYBOOK.md` |
 | Thumbnail overlay operation map | `tools/benchmark/TITLE-TO-OVERLAY-OPERATION-MAP.md` |
 | Outlier thumbnail corpus | `tools/benchmark/OUTLIER-THUMBNAIL-CORPUS.md` |
@@ -64,48 +68,20 @@
 
 | Topic | Lifecycle | Phase | Last Touched |
 |-------|-----------|-------|--------------|
-| `60-guadalupe-hidalgo-dispossession-2026` | `_IN_PRODUCTION` | research | 2026-06-13 |
-| `36-panama-canal-deconcini-2026` | `_IN_PRODUCTION` | scripting | 2026-06-11 |
-| `59-israel-palestine-partition-offer-2026` | `_IN_PRODUCTION` | fact-checked | 2026-06-08 |
-| `58-kurdistan-statelessness-2026` | `_READY_TO_FILM` | fact-checked | 2026-06-14 |
-| `1-sykes-picot-2025` | `_READY_TO_FILM` | filmed | 2026-05-11 |
+| `62-volhynia-massacre-untranslated-2026` | `_IN_PRODUCTION` | research → script | 2026-07-22 |
+| `63-leopold-congo-cobalt-2026` | `_IN_PRODUCTION` | research (Stage C — page-pin verbatims) | 2026-07-22 |
+| `36-panama-canal-deconcini-2026` | `_IN_PRODUCTION` | script draft v2 (unlocked) → heavy gate + T1 | 2026-07-22 |
+| `61-spanish-colonization-black-legend-2026` | `_IN_PRODUCTION` | research → title-lock → script | 2026-07-22 |
+| `60-guadalupe-hidalgo-dispossession-2026` | `_IN_PRODUCTION` | script draft (unlocked) → read-aloud | 2026-07-22 |
+| `58-kurdistan-statelessness-2026` | `_READY_TO_FILM` | fact-checked | 2026-06-12 |
 
 ---
 
 ## 4. Recently Added / Changed (last 14 days)
 <!-- AUTO:routine-5 — prepend new entries; entries older than 14 days are dropped -->
 
-- 2026-06-14 — `docs/adr/0007-thumbnail-checks-are-filters-not-predictors.md` — new ADR: thumbnail checks reframed as pass/fail filters, not CTR predictors
-- 2026-06-14 — `.claude/REFERENCE/THUMBNAIL-CRAFT-RECIPE.md` — new craft-recipe reference for thumbnail construction
-- 2026-06-14 — `tools/thumbnail/` — new thumbnail render module (`render.py`, `__init__.py`)
-- 2026-06-14 — `tools/preflight/{thumbnail_checker,thumbnail_image_audit}.py` — updated under filters-not-predictors reframe
-- 2026-06-14 — `.claude/{agents/thumbnail-critic,commands/thumbnail}.md` — thumbnail critic + command aligned to craft recipe
-- 2026-06-13 — `video-projects/_IN_PRODUCTION/60-guadalupe-hidalgo-dispossession-2026/` — new project scaffolded (01-VERIFIED-RESEARCH, SCRIPT, 03-FACT-CHECK, PROJECT-STATUS, _research preliminary brief + NotebookLM source list + Gemini wiki cache)
-- 2026-06-13 — `channel-data/serp-studies/titles/guadalupe-hidalgo-2026-06-13.{json,md}` — SERP title shelf study for Guadalupe Hidalgo
-- 2026-06-13 — `.claude/routines/reconcile-daily.md` + `run-reconcile.ps1` — Routine 6 registered as claude-driven `HvH-Reconcile` task (auto-publish-only backstop)
-- 2026-06-13 — `.claude/routines/{brain-hygiene,channel-health-snapshot,stale-project-nudge}.md` — Routine 7 `HvH-GrowthRefresh` analytics.db refresh wiring + channel-health query repair
-- 2026-06-13 — `CLAUDE.md` — Routine 6/7 backstop chain documented (07:45 refresh → 08:00 health → 08:30 reconcile)
-- 2026-06-11 — `.claude/agents/script-writer-v2.md` — v17.0: Fable Phase 3 retention re-tier (VALIDATED/HEDGE/RETIRED), +Rule 47 retention-zone discipline
-- 2026-06-11 — `.claude/agents/script-writer-v2-CHANGELOG.md` — v17.0 changelog entry
-- 2026-06-11 — `.claude/agents/structure-checker-v2.md` — Wave 11: +BE early-zone authority, +BF late-quarter; A/B/U demoted to WARNING
-- 2026-06-11 — `.claude/commands/greenlight.md` — wired to TOPIC-RUBRIC v2 scoring
-- 2026-06-11 — `.claude/commands/publish.md` — Fable-pass updates
-- 2026-06-11 — `.claude/REFERENCE/VOICE-PROFILE.md` — voice fingerprint refinements (Phase 2 lint alignment)
-- 2026-06-11 — `channel-data/BREAKOUT-HYPOTHESES.md` — H1/H2/H4 pre-registered for Panama + #59
-- 2026-06-11 — `channel-data/fable-digests/PHASE-2-VOICE-LINT-SPEC.md` — voice-lint mechanization spec
-- 2026-06-11 — `channel-data/fable-digests/PHASE-3-RETENTION-ADJUDICATION.md` — retention rule adjudication digest
-- 2026-06-11 — `channel-data/fable-digests/PHASE-5-COHERENCE-REPORT-2026-06-11.md` — Opus coherence sweep; corpus coherent for #59 + Panama
-- 2026-06-11 — `channel-data/patterns/TRAFFIC-SOURCE-ANALYSIS.md` — one-video-distortion banner added (Guatemala 51%)
-- 2026-06-11 — `channel-data/serp-studies/titles/` — 5 SERP title studies: adwa-wuchale, brest-litovsk, panama-canal, suez-1956, unequal-treaties
-- 2026-06-11 — `channel-data/TOPIC-PIPELINE.md` — pipeline re-ranked under TOPIC-RUBRIC v2
-- 2026-06-11 — `channel-data/youtube-intelligence.md` — intelligence refresh
-- 2026-06-11 — `CLAUDE.md` — Critical Reminder 13 softened (years/colons = hedge, not ban)
-- 2026-06-11 — `tools/benchmark/outlier_title_dissector.py` — title scorer v5 adjudication
-- 2026-06-11 — `tools/PACKAGING_MANDATE.md` — Fable Phase 1 re-tiered mandate
-- 2026-06-11 — `tools/TOPIC-RUBRIC.md` — v2 canonical small-channel topic rubric (gates + 30/20/25/10/10/5 weights + POCKET flag)
-- 2026-06-11 — `tools/voice_lint.py` + `tools/tests/voice-fixtures/` — voice linter + gold/control fixtures
-- 2026-06-11 — `video-projects/_IN_PRODUCTION/36-panama-canal-deconcini-2026/` — pulled from _BACKLOG, greenlit; SCRIPT.md, RESEARCH-VIABILITY.md, 03-FACT-CHECK-VERIFICATION.md, PROJECT-STATUS.md, _research/00-PRELIMINARY-BRIEF.md touched
-- 2026-06-11 — `graphify-out/` — 3 new graph reports + 5 converted research docs (generated artifacts)
+- 2026-07-22 — `channel-data/calibration/CALIBRATION-CORPUS.md` — script-calibration lesson corpus updated; entry 62-14 corrected after the em-dash/connector drift claim was falsified
+- 2026-07-22 — `channel-data/calibration/VOICE-DRIFT-CROSS-SCRIPT-2026-07-21.md` — cross-catalogue voice-drift measurement (28 scripts + gold unscripted baseline); overturns the "drift started at #57" finding, two metrics still OPEN
 
 ---
 
@@ -113,10 +89,11 @@
 <!-- AUTO:routine-5 — populated by nightly brain-lint pass -->
 
 ```
-LAST LINT: 2026-06-14 22:00
+LAST LINT: 2026-07-23 22:00
 Stale items (>90d unverified):  0
-Orphan pages (no inbound links): 0 (sources/ + threads/ empty)
-Open contradictions:             0 (wiki/contradictions/ absent — skipped)
+Orphan pages (no inbound links): 0 (sources/ = 228 derived notes, all inbound-linked from topics/ via topic_mine; threads/ empty)
+Open contradictions:             0 (wiki/contradictions/ out-of-root — skipped)
+Dead links:                      0 (no URLs present in .brain/**/*.md)
 Next lint scheduled:             tomorrow 22:00 local (Routine 5)
 ```
 
@@ -125,8 +102,9 @@ Next lint scheduled:             tomorrow 22:00 local (Routine 5)
 ## 6. Cross-Root Links
 <!-- AUTO:routine-5 — wiki concepts referenced by current projects -->
 
-**Active projects (59-israel-palestine-partition-offer-2026, 36-panama-canal-deconcini-2026, 60-guadalupe-hidalgo-dispossession-2026):**
+**Active projects (36-panama-canal-deconcini-2026, 60-guadalupe-hidalgo-dispossession-2026, 61-spanish-colonization-black-legend-2026, 62-volhynia-massacre-untranslated-2026, 63-leopold-congo-cobalt-2026):**
 - No `~/llm-brain/` wiki references in any active project's `01-VERIFIED-RESEARCH.md` yet
+- *59-israel-palestine-partition-offer-2026 published 2026-07-05 (yt:OHWq4jY8iAY) — left `_IN_PRODUCTION`; no wiki crossrefs to archive.*
 
 **Prior projects (archive crossref):**
 

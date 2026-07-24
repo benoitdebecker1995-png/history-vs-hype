@@ -16,7 +16,6 @@ import re
 from pathlib import Path
 from typing import List, Dict, Tuple
 from difflib import SequenceMatcher
-import srt
 
 from tools.logging_config import get_logger
 
@@ -59,9 +58,12 @@ def extract_script_body(markdown_text: str) -> str:
 
 
 def parse_srt_to_text(srt_path: Path) -> str:
-    """Parse SRT subtitle file and concatenate content into continuous text.
+    """Parse an SRT file and concatenate its content into continuous text.
 
-    Uses srt library to handle timing data and malformed files gracefully.
+    Thin adapter over the canonical parser (tools.subtitles, ADR-0010). This
+    previously imported the `srt` third-party library, which is not installed or
+    declared anywhere — so this module could not even be imported. The seam is
+    stdlib-only, which fixes that.
 
     Args:
         srt_path: Path to SRT subtitle file
@@ -71,26 +73,9 @@ def parse_srt_to_text(srt_path: Path) -> str:
 
     Raises:
         FileNotFoundError: If SRT file doesn't exist
-        UnicodeDecodeError: If file encoding is not UTF-8 (tries common alternatives)
     """
-    # Try UTF-8 first, fall back to common alternatives
-    encodings = ['utf-8', 'utf-8-sig', 'latin-1', 'cp1252']
-
-    for encoding in encodings:
-        try:
-            with open(srt_path, 'r', encoding=encoding) as f:
-                content = f.read()
-                subtitles = list(srt.parse(content))
-                # Concatenate all subtitle content with spaces
-                return ' '.join(sub.content.replace('\n', ' ') for sub in subtitles)
-        except UnicodeDecodeError:
-            continue
-        except srt.SRTParseError as e:
-            # Log warning but continue - may be malformed SRT
-            logger.warning("Malformed SRT at %s: %s", srt_path, e)
-            return ""
-
-    raise UnicodeDecodeError(f"Could not decode {srt_path} with any common encoding")
+    from tools.subtitles import parse as _parse
+    return _parse(srt_path).text()
 
 
 def compare_script_to_transcript(script_path: Path, srt_path: Path) -> List[Dict]:
@@ -187,18 +172,13 @@ def find_video_pairs(projects_dir: Path) -> List[Tuple[Path, Path]]:
     """
     pairs = []
 
-    # Search both lifecycle folders
-    lifecycle_folders = ['_IN_PRODUCTION', '_READY_TO_FILM']
+    # In-production + ready-to-film projects via the resolver (ADR-0008).
+    from tools.video_projects import Stage, VideoProjectRepo
+    repo = VideoProjectRepo(projects_dir.parent)
 
-    for lifecycle in lifecycle_folders:
-        lifecycle_path = projects_dir / lifecycle
-        if not lifecycle_path.exists():
-            continue
-
-        # Iterate through video project folders
-        for project_dir in lifecycle_path.iterdir():
-            if not project_dir.is_dir():
-                continue
+    for lifecycle in (Stage.IN_PRODUCTION, Stage.READY_TO_FILM):
+        for _proj in repo.in_stage(lifecycle):
+            project_dir = _proj.path
 
             # Find script file (prefer SCRIPT.md, fall back to SCRIPT-PART*.md)
             script_file = project_dir / 'SCRIPT.md'

@@ -1,0 +1,329 @@
+{
+ "video": "35-gibraltar-treaty-utrecht-2026",
+ "lifecycle": "_ARCHIVED",
+ "source_file": "video-projects/_ARCHIVED/published/35-gibraltar-treaty-utrecht-2026/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "Gibraltar's 1704 capture was not originally intended as a permanent British annexation, since London initially showed no interest in administering it.",
+   "topics": ["effective-occupation-doctrine"],
+   "verbatim": "Initially no interest was shown from London in accepting responsibility for the administration of Gibraltar",
+   "source": "Peter Gold, p. 5",
+   "status": "verified",
+   "anchor": "Strategic Context"
+  },
+  {
+   "claim": "The Anglo-Dutch force that captured Gibraltar in 1704 comprised about 52 English and 10 Dutch ships of the line.",
+   "topics": ["effective-occupation-doctrine"],
+   "verbatim": "52 English + 10 Dutch ships of the line (~50-60 ships total)",
+   "source": "NLM sources",
+   "status": "verified",
+   "anchor": "Fleet Composition and Command"
+  },
+  {
+   "claim": "The Treaty of Utrecht's Article X ceded Gibraltar's town, castle, port and fortifications to Britain while explicitly withholding territorial jurisdiction and any open land communication with the surrounding country.",
+   "topics": ["treaty-text-vs-practice"],
+   "verbatim": "the abovenamed propriety be yielded to Great Britain without any territorial jurisdiction, and without any open communication by land with the country round about.",
+   "source": "Treaty of Utrecht (1713), Article X",
+   "status": "verified",
+   "anchor": "Article X Text"
+  },
+  {
+   "claim": "The UK government has stated that the Treaty of Utrecht's reversionary clause means independence is not an option for Gibraltar unless Spain agrees.",
+   "topics": ["treaty-text-vs-practice", "sovereignty-recognition"],
+   "verbatim": "under the treaty of Utrecht independence is not an option, unless Spain is prepared to agree",
+   "source": "UK Government position",
+   "status": "verified",
+   "anchor": "The \"Independence Trap\""
+  },
+  {
+   "claim": "The Treaty of Utrecht's reversionary clause requires that if Britain ever alienates Gibraltar, preference must always go to the Crown of Spain before any other party.",
+   "topics": ["treaty-text-vs-practice"],
+   "verbatim": "And in case it shall hereafter seem meet to the Crown of Great Britain to grant, sell, or by any means to alienate... the preference of having the same shall always be given to the Crown of Spain before any others",
+   "source": "Treaty of Utrecht (1713), Article X",
+   "status": "verified",
+   "anchor": "Reversionary Clause (\"Right of First Refusal\")"
+  },
+  {
+   "claim": "The Treaty of Utrecht explicitly barred Jews or Moors from residing in Gibraltar.",
+   "topics": ["treaty-text-vs-practice"],
+   "verbatim": "no leave shall be given under any pretence whatsoever, either to Jews or Moors, to reside or have their dwellings in the said town of Gibraltar",
+   "source": "Treaty of Utrecht (1713), Article X",
+   "status": "verified",
+   "anchor": "Jews and Moors Exclusion"
+  },
+  {
+   "claim": "The Treaty of Utrecht's ban on Jews and Moors in Gibraltar was quickly subverted in practice once Jewish merchants from Morocco became essential food suppliers to the garrison.",
+   "topics": ["treaty-text-vs-practice"],
+   "verbatim": null,
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "Jews and Moors Exclusion"
+  },
+  {
+   "claim": "The Treaty of Utrecht ceded only the 'town and castle' of Gibraltar with its fortifications, without ever mentioning the isthmus.",
+   "topics": ["treaty-text-vs-practice", "contested-attribution"],
+   "verbatim": "Town and Castle of Gibraltar, together with the port, fortifications, and forts thereunto belonging",
+   "source": "Treaty of Utrecht (1713), Article X",
+   "status": "verified",
+   "anchor": "The Isthmus Dispute"
+  },
+  {
+   "claim": "Britain argues the isthmus was implicitly covered by the treaty's 'cannon-shot principle' and 300 years of occupation, while Spain argues the isthmus was never ceded and its occupation is illegal encroachment.",
+   "topics": ["treaty-text-vs-practice", "contested-attribution"],
+   "verbatim": null,
+   "source": "UK position / Spain position",
+   "status": "partial",
+   "anchor": "2. Was the Isthmus Included in the 1713 Cession?"
+  },
+  {
+   "claim": "British civilians first moved onto the disputed Gibraltar isthmus in 1814 during a yellow fever outbreak, with Spanish permission, and never left.",
+   "topics": ["treaty-text-vs-practice"],
+   "verbatim": "1814: Yellow fever — British moved civilians onto isthmus with Spanish permission — never left",
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "The Isthmus Dispute"
+  },
+  {
+   "claim": "The border fence on Gibraltar's isthmus was built in 1908-1909 not for military defense but to save money on sentries stopping tobacco smuggling.",
+   "topics": ["treaty-text-vs-practice"],
+   "verbatim": "1908-1909: British built fence (not for defense — to save money on sentries stopping tobacco smuggling)",
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "The Isthmus Dispute"
+  },
+  {
+   "claim": "In the 1967 referendum, Gibraltarians voted to retain their link with Britain by 12,138 votes to 44 for Spain, on a 95.8% turnout.",
+   "topics": ["sovereignty-recognition", "self-determination-claims"],
+   "verbatim": "12,138 (99.64%)",
+   "source": "NLM",
+   "status": "verified",
+   "anchor": "1967 Referendum"
+  },
+  {
+   "claim": "The UN General Assembly declared the 1967 Gibraltar referendum a contravention of an earlier resolution, part of a colonial situation it said destroys Spain's national unity and territorial integrity.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": "Declares the holding of the referendum of 10 September 1967 by the administering Power to be a contravention of the provisions of General Assembly resolution 2231 (XXI)",
+   "source": "UN General Assembly Resolution 2353 (1967)",
+   "status": "verified",
+   "anchor": "UN Resolution 2353"
+  },
+  {
+   "claim": "In a 2002 referendum, Gibraltarians rejected a UK-Spain shared-sovereignty proposal by 17,900 votes to 192, on an 87.9% turnout.",
+   "topics": ["sovereignty-recognition", "self-determination-claims"],
+   "verbatim": "17,900 (98.97%)",
+   "source": "NLM",
+   "status": "verified",
+   "anchor": "2002 Referendum"
+  },
+  {
+   "claim": "The ICJ's 1975 Western Sahara advisory opinion held that regard must be paid to the freely expressed will of a territory's people, weakening arguments based purely on historical territorial claims.",
+   "topics": ["international-court-advisory-opinion", "self-determination-claims"],
+   "verbatim": "It is for the people to determine the destiny of the territory and not the territory the destiny of the people",
+   "source": "Judge Dillard (Western Sahara, 1975)",
+   "status": "verified",
+   "anchor": "ICJ Case Law"
+  },
+  {
+   "claim": "The ICJ's 2019 Chagos Islands advisory opinion held that fragmenting a Non-Self-Governing Territory by its administering power is generally illegal under international law.",
+   "topics": ["international-court-advisory-opinion"],
+   "verbatim": "Fragmentation of Non-Self-Governing Territory by administering power generally illegal",
+   "source": "Chagos Islands Advisory Opinion (2019)",
+   "status": "verified",
+   "anchor": "ICJ Case Law"
+  },
+  {
+   "claim": "The 1995 East Timor ICJ case established that the right to self-determination is owed to all states (erga omnes), not just to the parties in a specific dispute.",
+   "topics": ["self-determination-claims"],
+   "verbatim": "Self-determination is right erga omnes (owed to all)",
+   "source": "East Timor (1995)",
+   "status": "verified",
+   "anchor": "ICJ Case Law"
+  },
+  {
+   "claim": "A Cambridge legal analysis concluded there is no coherent legal doctrine allowing annexation of an enclave against its people's wishes, and that Gibraltarians qualify as a 'people' regardless of their origin.",
+   "topics": ["self-determination-claims", "contested-attribution"],
+   "verbatim": "No coherent legal doctrine allowing annexation of enclaves against people's wishes",
+   "source": "Trinidad analysis (Cambridge, 2018)",
+   "status": "verified",
+   "anchor": "ICJ Case Law"
+  },
+  {
+   "claim": "Spain argues Gibraltar's population is a 'prefabricated' colonial creation of 'pseudo-Gibraltarians' who cannot invoke self-determination to dismember sovereign Spanish territory.",
+   "topics": ["self-determination-claims", "contested-attribution"],
+   "verbatim": null,
+   "source": "Spain position, 1965 Red Book",
+   "status": "partial",
+   "anchor": "3. Are Gibraltarians a \"People\" with Right to Self-Determination?"
+  },
+  {
+   "claim": "Queen Isabella's 1504 will instructed her successors to always retain Gibraltar for the Crown of Castile and never alienate it, a document Spain still cites as the historical basis for its claim.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": "I ask and require of the Kings, my successors, that they may hold and retain the said City [of Gibraltar] for themselves and in their own possession; and that no alienation of it, nor any part of it, nor its jurisdiction, civil or criminal, shall ever be made from the Crown of Castille.",
+   "source": "Queen Isabella's 1504 Will",
+   "status": "verified",
+   "anchor": "Queen Isabella's 1504 Will"
+  },
+  {
+   "claim": "No Spanish government of any party has ever dropped Spain's sovereignty claim over Gibraltar, treating it as a sacred national duty.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": "No government has ever dropped the claim",
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "PP vs PSOE"
+  },
+  {
+   "claim": "Spain claims Gibraltar based on territorial integrity while rejecting Morocco's identical argument for Ceuta and Melilla, calling those enclaves integral parts of the Spanish state rather than colonies.",
+   "topics": ["sovereignty-recognition", "contested-attribution"],
+   "verbatim": "Spain claims Gibraltar based on territorial integrity",
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "CEUTA/MELILLA MIRROR PARADOX"
+  },
+  {
+   "claim": "Ceuta and Melilla are not listed as UN Non-Self-Governing Territories, unlike Gibraltar, and their residents hold full Spanish citizenship and parliamentary representation that Gibraltarians lack in the UK Parliament.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": null,
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "CEUTA/MELILLA MIRROR PARADOX"
+  },
+  {
+   "claim": "King Hassan II reportedly predicted that once Britain left Gibraltar, international pressure would force Spain out of its own African enclaves.",
+   "topics": ["sovereignty-recognition", "contested-attribution"],
+   "verbatim": null,
+   "source": "King Hassan II prediction",
+   "status": "partial",
+   "anchor": "CEUTA/MELILLA MIRROR PARADOX"
+  },
+  {
+   "claim": "Franco closed the Spain-Gibraltar border completely in June 1969, cutting land, sea and telephone links for sixteen years, triggered by the 1967 referendum and a new Gibraltar constitution.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": "1967 referendum + 1969 Gibraltar Constitution Order",
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "Border Closure"
+  },
+  {
+   "claim": "Gibraltar's modern British identity was partly a deliberate 'melting pot' narrative constructed in the 1940s-50s to distance the territory from Spain, even though 85% of schoolchildren still spoke only Spanish as late as the 1950s.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": "As late as 1950s: 85% of children started school speaking only Spanish",
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "Identity Formation Process"
+  },
+  {
+   "claim": "Franco's 1969-1985 border blockade acted as the catalyst that cemented a modern Gibraltarian identity defined more by being 'not Spanish' than by traditional Britishness.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": "Franco's blockade was the catalyst that cemented this identity",
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "The \"Manufactured\" But Authentic Identity"
+  },
+  {
+   "claim": "Gibraltar's economy stagnated but did not collapse during the sixteen-year blockade, growing in real terms with British development aid.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": "Economy \"stagnated, but did not fail\" — grew in real terms with British support",
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "Impact on Gibraltar"
+  },
+  {
+   "claim": "During the blockade, the Spanish city of Algeciras prospered as the exclusive cross-Strait shipping hub while La Línea, Gibraltar's immediate neighbor, suffered economically.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": "Algeciras PROSPERED — became exclusive cross-Strait hub",
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "Algeciras Paradox"
+  },
+  {
+   "claim": "The 2025 UK-EU Gibraltar Trade and Mobility Agreement removes physical barriers at the La Línea border while including a clause stating it does not affect either side's sovereignty claims.",
+   "topics": ["treaty-text-vs-practice"],
+   "verbatim": "\"Without prejudice\" clause: does not affect sovereignty claims",
+   "source": "NotebookLM / official government statements",
+   "status": "verified",
+   "anchor": "2025 Treaty: UK-EU Gibraltar Trade and Mobility Agreement"
+  },
+  {
+   "claim": "Under the 2025 agreement, physical barriers between Spain and Gibraltar are removed while Spain and Gibraltar each conduct separate, dual checks at the shared airport and port.",
+   "topics": ["treaty-text-vs-practice"],
+   "verbatim": "All physical barriers, checks and controls on people and goods moving between Spain and Gibraltar will be removed, while preserving the Schengen area, the EU Single Market and the Customs Union. Dual Gibraltar and Schengen border checks will be established at Gibraltar's port and airport…",
+   "source": "2025 Treaty Joint Declaration (June 11, 2025)",
+   "status": "verified",
+   "anchor": "2025 Treaty Joint Declaration (June 11, 2025)"
+  },
+  {
+   "claim": "Under EU negotiating rules, no EU-UK agreement applies to Gibraltar without Spain's prior bilateral consent, giving Madrid an effective second veto over Gibraltar's status.",
+   "topics": ["treaty-text-vs-practice", "sovereignty-recognition"],
+   "verbatim": null,
+   "source": "Clause 24 of EU negotiating guidelines",
+   "status": "verified",
+   "anchor": "2025 Treaty: UK-EU Gibraltar Trade and Mobility Agreement"
+  },
+  {
+   "claim": "Some Spanish officials describe the 2025 Schengen border arrangement as giving Spain a permanent right of oversight over Gibraltarian affairs, while UK/Gibraltar officials insist the arrangement is sovereignty-neutral.",
+   "topics": ["contested-attribution", "treaty-text-vs-practice"],
+   "verbatim": null,
+   "source": "Spain position (some officials) / UK/Gibraltar position",
+   "status": "partial",
+   "anchor": "4. Does the 2025 Schengen Arrangement Constitute Shared Sovereignty?"
+  },
+  {
+   "claim": "Scholarly analysis describes the 2025 arrangement as turning Gibraltar into a 'Schengen Protectorate' under Spain's tutelary authority, with a status inferior to sovereign microstates like Liechtenstein.",
+   "topics": ["sovereignty-recognition", "contested-attribution"],
+   "verbatim": "Gibraltar becomes \"Schengen Protectorate\" under Spain's tutelary authority",
+   "source": "Scholarly analysis",
+   "status": "partial",
+   "anchor": "4. Does the 2025 Schengen Arrangement Constitute Shared Sovereignty?"
+  },
+  {
+   "claim": "During the Great Siege of 1779-1783, British defenders destroyed all ten Spanish-French floating batteries using red-hot cannonballs after conventional bombardment had failed.",
+   "topics": ["effective-occupation-doctrine"],
+   "verbatim": "All 10 floating batteries destroyed or blown up",
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "Red-Hot Shot (\"Hot Potatoes\")"
+  },
+  {
+   "claim": "Gibraltar has been besieged at least fourteen times across seven centuries, changing hands between Moorish, Castilian, and British control before Britain's final retention after the 1779-1783 Great Siege.",
+   "topics": ["effective-occupation-doctrine"],
+   "verbatim": null,
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "Complete Siege List"
+  },
+  {
+   "claim": "Spain claims Gibraltar has no territorial sea under a 'dry coast' theory, while Britain claims three nautical miles, a dispute formalized when Spain filed a 1997 declaration against UNCLOS recognition of British maritime rights beyond the Treaty of Utrecht.",
+   "topics": ["treaty-text-vs-practice", "contested-attribution"],
+   "verbatim": null,
+   "source": "UK claim / Spain claim",
+   "status": "partial",
+   "anchor": "Competing Claims"
+  },
+  {
+   "claim": "About 80,000 vessels pass through the Strait of Gibraltar each year, underscoring the strategic value of controlling the chokepoint.",
+   "topics": ["strategic-corridor-access"],
+   "verbatim": "~80,000 vessels/year pass through Strait",
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "Strait Statistics"
+  },
+  {
+   "claim": "Franco declared Spain 'non-belligerent' in WWII, favoring the Axis, while still allowing over 13,000 Spanish workers to cross daily to build British airport defenses at Gibraltar.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": "Declared \"non-belligerent\" (favoring Axis)",
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "Operation Felix"
+  },
+  {
+   "claim": "Hitler's Operation Felix plan to seize Gibraltar, involving 210 guns and 20,000 shells, was never executed because Franco stalled by demanding excessive grain, weapons and territory in return.",
+   "topics": ["effective-occupation-doctrine"],
+   "verbatim": null,
+   "source": "NotebookLM",
+   "status": "verified",
+   "anchor": "Operation Felix"
+  }
+ ]
+}

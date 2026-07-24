@@ -1,0 +1,71 @@
+# VOICE RULES DERIVED — 2026-07-22
+
+> Round 2 working ledger. Only creator picks are treated as voice evidence. A rule remains a hypothesis unless the same discriminator has survived a second pick or a test elsewhere.
+
+## CONFIRMED
+
+### Carry the noun when the ear cannot recover an earlier referent
+✅ "This state lasted for about three years."
+❌ "It lasted about three years."
+Discriminator: At the start of a new sentence, repeat the concrete noun when "it" would make a listener search backward.
+Scope: Spoken historical transitions where more than one possible antecedent is active.
+Other application: The full name "the Organization of Ukrainian Nationalists" replaces the unexplained first-use acronym in CH3.
+Status: CONFIRMED — matches the standing carry-every-referent rule and survives the first-use acronym test elsewhere.
+
+### State a present political use as a practical function, not an abstract identity claim
+✅ "So that's why honoring these men is useful now."
+❌ "So honouring these men gives Ukraine a history of resistance to Moscow."
+Discriminator: When closing a causal explanation, say what the choice does now; do not turn it into an abstract claim about what history a country possesses.
+Scope: Modern-relevance landings after the historical mechanism has been shown.
+Other application: CH9 keeps the concrete function "hands Russia a weapon" rather than converting it into a general claim about national memory.
+Status: CONFIRMED — creator-picked line plus an existing unflagged application in CH9.
+
+### Preserve the reporting direction in chain-of-command evidence
+✅ "reporting a finished job up to his superiors"
+❌ "telling his superiors he had destroyed two Polish villages, as a finished job"
+Discriminator: In a command-chain beat, the spoken line must make the direction of reporting audible; do not hang "as a finished job" after the object.
+Scope: Documentary evidence used to prove organization or hierarchy.
+Other application: CH8 says commanders "reported the results up the chain."
+Status: CONFIRMED — creator wording plus a second application in the historians' verdict.
+
+### Separate distinct closing actions instead of merging them with a dash
+✅ "That's what I try to do on this channel. I go to the sources and tell you the history…"
+❌ "That's what I try to do on this channel — go to the sources and tell you the history…"
+Discriminator: When the sentences perform two distinct steps—identity, then method—give each a complete sentence. Flowing does not mean merging distinct acts.
+Scope: Closing and CTA beats; not a general ban on em dashes.
+Other application: CH3 keeps the postwar geography as two complete steps: the east falls, then the western territories go to Poland.
+Status: CONFIRMED — consistent with the profile's distinct-sequential-steps rule and survives the CH3 test.
+
+### Use the creator's plain idiom instead of a polished synonym
+✅ "calls Russia's atrocities at Bucha what they are"
+❌ "calls Russia's atrocities at Bucha by their name"
+Discriminator: If two lines carry the same claim, prefer the ordinary phrase he actually says over the more composed-sounding synonym.
+Scope: Verdicts and moral comparisons, especially in the close.
+Other application: CH9 keeps "uses it to claim" rather than upgrading it to a more formal accusation verb.
+Status: CONFIRMED — creator pick plus an existing unflagged application.
+
+### Historical context must retain the explicit non-justification guard
+✅ "we should try to look at these people in their historical context, without justifying everything that they did"
+❌ "As long as we don't downplay what they did, we can look at these people in their historical context."
+Discriminator: The context sentence should name the forbidden inference—justification—rather than replace it with a conditional permission structure.
+Scope: Closing judgments about compromised historical figures.
+Other application: CH4 keeps the absolutes-softener "This wasn't necessarily because they were devoted Nazis" while still stating the collaboration document plainly.
+Status: CONFIRMED — creator ad-lib line plus the existing CH4 absolutes-softener test.
+
+## HYPOTHESES
+
+### Geographic changes are easier to hear as oriented, complete steps
+✅ "The east of Ukraine fell to the Soviets. In the west, Volhynia and Galicia went to the new Poland."
+❌ "The east fell to the Soviets, while Volhynia and Galicia went to the new Poland."
+Discriminator: When territory divides in two directions, orient each half explicitly rather than compressing both into a balanced clause.
+Scope: Map and border-change narration.
+Other application to test: The CH6 1943→1944 violence sequence should keep its dates attached to each direction of violence rather than collapsing them into "both sides."
+Status: HYPOTHESIS — one direct creator pick; the CH6 test has not yet received a live verdict.
+
+### Expand the organization at the first load-bearing doctrinal mention
+✅ "the intellectual father of the Organization of Ukrainian Nationalists"
+❌ "Dmytro Dontsov became the intellectual father of the OUN."
+Discriminator: A first-use acronym loses when the full institution name also clarifies why the person matters.
+Scope: First load-bearing introduction of an organization; later acronyms may remain.
+Other application to test: CH4's first "OUN-B" may still need a spoken reminder that it is Bandera's faction.
+Status: HYPOTHESIS — one locked line; the CH4 application remains unresolved.

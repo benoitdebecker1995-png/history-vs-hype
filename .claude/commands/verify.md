@@ -19,6 +19,7 @@ Fact-check scripts, extract claims from transcripts, or run simplification detec
 /verify --translation [project] # Verify translated documents
 /verify --nlm [project]         # Notebook-only: Tier 1 claims + citation grounding via MCP
 /verify --adversarial [project] # Cross-model skeptic pass (Gemini attacks the script) → NLM-adjudicated findings
+/verify --audio [project]       # POST-FILM BACKSTOP: catch narrator ad-libs/misreads that deviate from the fact-checked script
 ```
 
 ## Flags
@@ -34,6 +35,7 @@ Fact-check scripts, extract claims from transcripts, or run simplification detec
 | `--translation` | Verify translated documents before filming | `/verify --translation 37-vichy-statute` |
 | `--nlm` | Notebook-only pass: verify Tier 1 claims + citation grounding via MCP, skip web sources | `/verify --nlm 56-no-lassos-atlantic-slave-trade-origin-2026` |
 | `--adversarial` | Cross-model skeptic pass: Gemini attacks the locked-candidate script for overclaims/strawmen/laundered quotes; each finding is then NLM-adjudicated (Step 7.9) | `/verify --adversarial 58-kurdistan-2026` |
+| `--audio` | **POST-FILM BACKSTOP** (secondary to the Step 0 pre-film coverage gate). Diffs the DELIVERED transcript against the fact-checked script to catch narrator ad-libs/misreads that changed a claim/source/number at the mic (#59: script said "the plan *gave* 84%" → tape said "the *annexes show* 84%"). Recommended before `/publish`; not a hard gate | `/verify --audio 59-israel-palestine-partition-offer-2026` |
 
 > **Deeper passes (kept as separate lightweight commands by design — context economy, so you don't load this 47 KB file to run a 5 KB pass; W2 2026-06-12):**
 > - **`/verify-flow-nlm`** — narrative-flow verification + NotebookLM claim-query verification. The deeper claim-grounding pass that `--script` skips for context economy. Run when you want every claim NLM-checked, not just the Tier-1/contested ones.
@@ -44,6 +46,19 @@ Fact-check scripts, extract claims from transcripts, or run simplification detec
 ## FACT-CHECK WORKFLOW (`--script` or default)
 
 Comprehensive fact-checking using the History vs Hype protocol.
+
+### Step 0: Coverage Completeness Gate (HARD — the #59 fix, run this FIRST)
+
+**Fact-checking is a PRE-FILM gate, and it only counts if it covers the WHOLE script.** The #59 failure (see `_CORRECTIONS-LOG.md`): `03-FACT-CHECK-VERIFICATION.md` was allowed to "pass" on the COLD OPEN only while Beats 2–8 were still a beat-map; the body prose was then written and filmed **without ever being cross-checked**, and two attribution errors (the "84% farmland" provenance, the "India" mis-credit) rode to tape. A fully fact-checked script means there is nothing left to catch after the camera rolls.
+
+**Rule:** a script is NOT film-ready — and this command CANNOT return APPROVED — until **every beat/section of the delivered script has a verdict row in `03-FACT-CHECK-VERIFICATION.md`.** A section marked `PENDING-DRAFT`, `BEAT MAP`, or "prose to draft later" is an **uncovered beat = NOT film-ready**, no matter how clean the cold open is.
+
+**Do this before anything else:**
+1. Read the full `SCRIPT.md` (or `02-SCRIPT-DRAFT.md`) — enumerate every beat/section.
+2. Read `03-FACT-CHECK-VERIFICATION.md` — which beats actually have verdict rows?
+3. Any script beat with no fact-check rows → emit `[COVERAGE-GAP: Beat N unchecked]`. The verdict is **NOT film-ready** until those beats are drafted-to-prose AND run through Steps 2–7 below.
+
+**Gate:** do not proceed to `/prep`, do not return APPROVED, and do not let the folder move to `_READY_TO_FILM/` with any open `[COVERAGE-GAP]`.
 
 ### Step 1: Identify the Script
 
@@ -198,6 +213,7 @@ Read `.claude/REFERENCE/FACT-CHECK-SIMPLIFICATION-RULES.md` and check for:
 1. [Claim] - Additional context needed: [What's missing]
 
 ## OVERALL ASSESSMENT
+- Coverage: every beat has fact-check rows? [YES/NO] (NO = not film-ready, Step 0)
 - Ready to film? [YES/NO]
 - Critical simplifications: [Number]
 - Source issues: [Number]
@@ -207,7 +223,8 @@ Read `.claude/REFERENCE/FACT-CHECK-SIMPLIFICATION-RULES.md` and check for:
 ### Step 7: Pre-Production Checklist
 
 Before approving for filming:
-- [ ] Every number has a source
+- [ ] **Coverage completeness (Step 0) — EVERY beat of the delivered script has fact-check rows; no `PENDING-DRAFT`/beat-map section survives (HARD gate — the #59 fix; a cold-open-only pass is NOT film-ready)**
+- [ ] Every load-bearing number/quote **classified + routed by KIND** (Step 7.8b) — kind-1 (contested/historical/atrocity/quote) academic-grounded, no `[WEB-NUMBER]` survivors; kind-2 academic-first else `[MODERN-ADMIN]` labeled; kind-3 routed to 7.6
 - [ ] Every quote verified from original
 - [ ] Contested claims clearly labeled
 - [ ] At least 2 sources for each major point
@@ -219,7 +236,8 @@ Before approving for filming:
 - [ ] Attributions have specific sources (video timestamp, document, interview date)
 - [ ] **Cultural-anchor / negative-finding check complete** (Step 7.6) — no script line asserts what verified research says did NOT happen; every "on [show] in [date]" / "most recently" anchor web-verified for BOTH date AND content; all `[CULTURAL-ANCHOR]` flags resolved (HARD gate for the cold open)
 - [ ] **Argument & expository attribution check complete** (Step 7.7) — (A) every "PERSON read/argued/claimed/treats X" sentence (esp. debunk TARGETS) anchored to that person making THAT move, not just a source confirming X is true; (B) every "[Authority]/[the treaty] said/required/established X" expository sentence round-tripped — authority asserts the EXACT predicate (P2), not an adjacent one (no predicate drift); all `[ATTRIBUTION-ARG]` + `[ATTRIBUTION-EXPOSITORY]` flags resolved AND every trigger-grep entry has a row in 03-FACT-CHECK (`[COVERAGE-GAP]` cleared) (HARD gate for debunk-format)
-- [ ] **Provenance & quote-card lock complete** (Step 7.8) — every on-screen quote card matches its displayed source character-for-character; no footnote-laundering (cited source reproduces the verbatim, not just footnotes it); every load-bearing on-screen quote re-queried THIS pass (never skipped for context-economy); all `[PROVENANCE]` flags resolved (HARD gate for on-screen quotes)
+- [ ] **Provenance & quote-card lock complete** (Step 7.8) — every on-screen quote card matches its displayed source character-for-character; no footnote-laundering (cited source reproduces the verbatim, not just footnotes it); every load-bearing on-screen quote re-queried THIS pass (never skipped for context-economy); **cross-checked against `_research/SOURCE-GENEALOGY.md` (verdict + verbatim + page match; no NO-LEDGER-ROW / LEDGER-MISMATCH; no SECONDARY-ONLY card framed as a document)**; all `[PROVENANCE]` flags resolved (HARD gate for on-screen quotes)
+- [ ] **Number-grounding tier check complete** (Step 7.8b) — every load-bearing figure/quote classified kind 1/2/3 and routed; no kind-1 `[WEB-NUMBER]` web-only survivors (HARD gate); kind-2 `[MODERN-ADMIN]` labeled with tier; kind-3 `[MEDIA-NUMBER]` cross-checked via 7.6
 - [ ] **Adversarial cross-model review complete** (Step 7.9, debunk-format) — Gemini skeptic pass run; every surviving finding routed to its 7.6/7.7/7.8 flag and **NLM-adjudicated** (Gemini raises, NLM confirms); any NLM-confirmed UNSUPPORTED/LAUNDERED/CONTRADICTS finding resolved; false alarms logged. No edit driven by an unadjudicated Gemini finding.
 
 ### Step 7.5: Attribution Mandate (for `X named/coined/termed Y` claims)
@@ -386,11 +404,13 @@ The #57 Ptolemy line **never entered `03-FACT-CHECK-VERIFICATION.md` at all** (g
 
 **The failure (#58):** three Act-4 quotes were tagged "NLM-grounded, verbatim + p.401 (McDowall)." On re-query the verbatim **wasn't in McDowall at all** — he only *footnoted* the primary source (Village Voice / Vanly). Two were also misquoted ("a uniquely cynical enterprise" — "uniquely" not in the source; "hoped our clients would not prevail" — a paraphrase in quote marks). It passed because the fact-check trusted the grounding tag instead of re-querying. The shortcut "context-economy: C##-tagged, not re-queried, trail exists" is exactly what hid it.
 
-#### Two checks
+#### Three checks
 
 **A — Footnote-laundering.** For any quote attributed to a primary source (treaty, report, named figure, document), confirm the in-notebook source **reproduces** the verbatim — not merely *cites or footnotes* it. A primary quote reached only through a scholar's footnote is **NOT grounded**; flag `[S→P-FOOTNOTE]` and either acquire a reproducing source or downgrade to paraphrase. (NotebookLM tip: when the answer surfaces footnotes/bibliography rather than body text containing the words, that's the tell.)
 
 **B — Quote-card verbatim lock.** Every **on-screen quote card** must match the source it displays **character-for-character** (wording, ellipses, brackets). Embellishments ("uniquely"), paraphrases-in-quote-marks, and merged sentences all fail. Trim only with honest ellipsis.
+
+**C — Genealogy ledger cross-check.** If `_research/SOURCE-GENEALOGY.md` exists (produced by `/research` Step 8, the `primary-source` skill), it is the single provenance source of truth — **cross-check each on-screen card against its ledger row instead of re-deriving**: the card's verbatim + page + source must match the row's, and the row's verdict (`PRIMARY-GROUNDED` / `PRIMARY-VIA-TESTIMONY` / `SECONDARY-ONLY`) must match how the script frames it (a `SECONDARY-ONLY` claim framed on screen as "the document shows" is a `[PROVENANCE]` fail — re-label to named-scholar attribution). **Any on-screen card with no ledger row is itself a flag** (`NO-LEDGER-ROW`) — run the genealogy for it (spawn `primary-source-hunter`) or add the inline-confirmed row before lock. If the ledger does NOT exist (older project, or genealogy step not yet run), fall back to checks A/B and note that the ledger is absent.
 
 #### No-skip rule (the one that bit #58)
 
@@ -401,12 +421,40 @@ The #57 Ptolemy line **never entered `03-FACT-CHECK-VERIFICATION.md` at all** (g
 ```
 [PROVENANCE]: line N — "<quote>" — attributed to <source/p.> 
   → status: REPRODUCED(<src, p.>) | FOOTNOTE-LAUNDERED(<scholar only cites it>) | MISQUOTED("<actual verbatim>") | NOT-IN-NOTEBOOK
+           | NO-LEDGER-ROW(<on-screen card absent from SOURCE-GENEALOGY.md>) | LEDGER-MISMATCH(<verdict/verbatim/page ≠ ledger row>)
 ```
 
 #### Gate behavior
 
-- **Any on-screen quote card: HARD gate.** Cannot lock with a FOOTNOTE-LAUNDERED / MISQUOTED / NOT-IN-NOTEBOOK card. Correct to the reproduced verbatim, re-anchor the citation to the reproducing source, or downgrade to paraphrase.
+- **Any on-screen quote card: HARD gate.** Cannot lock with a FOOTNOTE-LAUNDERED / MISQUOTED / NOT-IN-NOTEBOOK / LEDGER-MISMATCH card, or an on-screen card framed as a document whose ledger verdict is SECONDARY-ONLY. Correct to the reproduced verbatim, re-anchor the citation to the reproducing source, re-label secondary-only claims to named-scholar attribution, or downgrade to paraphrase.
+- **NO-LEDGER-ROW** (ledger exists but this on-screen card isn't in it): run the genealogy for it (`/research` Step 8 / spawn `primary-source-hunter`) or add the inline-confirmed row; don't lock an on-screen card that hasn't been traced.
 - **Post-film:** a misquoted/ungrounded on-screen card = re-cut the card art (and a VO pickup if it's also spoken). Template: #58 `03-FACT-CHECK` resolution + #57 `VO-PICKUP-cagferiye.md`.
+
+---
+
+### Step 7.8b: Number-Grounding Tier Check (route each figure to the right source tier)
+
+> See `memory/feedback-historical-number-grounding.md`. The #62 origin: a web ("Wikipedia/ENRS") figure was used to ground a number, and a web quote landmine had to be quarantined — the exact failure the "History vs Hype" premise forbids. This step doesn't add a new gate; its **only job is to CLASSIFY each load-bearing number/quote by KIND and route it to the gate that already handles that kind.** Classify by the KIND of fact, not its age (a 1947 admin count and a 2016 vote are both administrative; a recent death toll is still historical).
+
+#### Trigger — grep the script + `01-VERIFIED-RESEARCH.md` for load-bearing figures/quotes:
+death tolls, casualty counts, quantities, percentages, distances, dates, and any verbatim quote. (Round background color, not the load-bearing spine numbers.)
+
+#### Classify each into one of three KINDS, then route:
+
+- **Kind 1 — Contested / historical / atrocity figure, or ANY quote.** (death toll, who-killed-whom, verbatim.) → **academic / NLM / primary ALWAYS.** If its only source is web/Wikipedia/news → `[WEB-NUMBER]` **HARD flag** → re-ground via NLM (Step 4A) or quarantine. Routes into the existing provenance machinery (7.8).
+- **Kind 2 — Administrative fact of record.** (official count, vote tally, treaty text, event date.) → **academic-preferred**; authoritative-web fallback (ENRS / gov / primary registry) **only when no academic source carries it**, labeled `[MODERN-ADMIN: web-ok — <tier>]`. Try the notebook first even here.
+- **Kind 3 — Recent / media number.** (current-events figure too new for academic press.) → route into the **existing Step 7.6 cultural-anchor gate** (attribute to the outlet · cross-check 2+ independent outlets · label "reported" not "established" · re-verify week-of-film). No new gate.
+
+#### Flag output
+```
+[WEB-NUMBER]: line N — "<figure/quote>" — kind=1 — web-only source <url> → re-ground via NLM or quarantine
+[MODERN-ADMIN]: line N — "<figure>" — kind=2 — no academic source; authoritative web <tier> → labeled, OK
+[MEDIA-NUMBER]: line N — "<figure>" — kind=3 → routed to Step 7.6 (attributed + cross-checked + reverify-week-of-film)
+```
+
+#### Gate behavior
+- **Kind 1 web-only = HARD gate** (same as `[PROVENANCE]`): cannot lock. Re-ground or quarantine.
+- Kind 2/3 are routing labels, not blocks — but a kind-3 figure that fails the 7.6 cross-check IS blocked by 7.6.
 
 ---
 
@@ -510,6 +558,28 @@ Lightweight, no new tooling — an append, matching `/script` Step 4b (`docs/LLM
 `video-projects/[project]/03-FACT-CHECK-VERIFICATION.md`
 
 **Proactive suggestion:** "Fact-check complete. [APPROVED/X issues to fix]. Run `/prep` for filming preparation."
+
+---
+
+## POST-FILM VO DEVIATION BACKSTOP (`--audio`)
+
+> **Secondary to Step 0 — this is a backstop, not the main gate.** The primary control is the pre-film coverage gate (Step 0): a fully fact-checked *complete* script means there is nothing left to catch after filming. This mode covers only the one class Step 0 cannot reach: **narrator deviations at the mic** — ad-libs, misreads, dropped qualifiers between the fact-checked script and the delivered audio. #59 origin: the locked script said "the plan *gave* 84%"; the delivered VO said "the *annexes show* 84%" — a false attribution invented at filming, not in the script. (If a beat reaches filming never fact-checked at all, that is a **Step 0 failure**, not this — fix the pre-film gate.)
+
+**Run:** after filming, on the clean transcript, before `/publish`. Recommended, **not a hard gate** (Step 0 is the hard gate).
+
+### Inputs
+- The **cut `.srt`** (the rough-cut caption = what is actually IN the video) — **preferred**. The uncut `CLEAN-AUDIO-TRANSCRIPT-*.txt` has different takes + auto-transcription errors, so never rely on it for delivered wording (the #59 lesson: the uncut heard "annexes" / "India"-only where the cut had "documents and access" / "India, Iran, and Yugoslavia").
+- The **locked** `SCRIPT.md` / `TELEPROMPTER.md` (the fact-checked baseline to diff against).
+- `01-VERIFIED-RESEARCH.md` for anything that turns out to differ.
+
+### Process
+1. **Diff transcript vs locked script — offload to a cheap subagent** (Haiku/Sonnet; keeps main context lean, see `.claude/AGENT-ORCHESTRATION.md`). Bounded task: line up delivered audio against the locked script and return every place the delivered wording **changed a claim, a source, a number, or an attribution verb** ("the plan gave" → "the annexes show"). Ignore filler/retake stumbles. Return: `timestamp | script wording | delivered wording | what changed`.
+2. **Adjudicate the deltas — Opus, do NOT offload.** (The #59 India line was rubber-stamped by a review that reasoned from memory — never clear a delta from memory.) For each meaning-changing delta, check against `01-VERIFIED-RESEARCH.md`, and if load-bearing/contested RAW-READ the source (`mcp__notebooklm__source_get_content` → grep, per `reference-nlm-raw-read-verification`). Classify: SOURCE-DRIFT / PREDICATE-DRIFT / MIS-CREDIT / NUMBER-MISMATCH / benign-rewording.
+3. **Output** `video-projects/[project]/VO-ATTRIBUTION-AUDIT.md` (table: `ts | delivered sentence | delta type | research says | fix`); feed each into the editing-guide pickup list.
+
+### Gate behavior
+- A meaning-changing deviation on load-bearing audio = a **VO pickup (or cut), never a B-roll/caption patch** (`memory/feedback-broll-patch-for-postfilm-slips`) — the audio asserts something false. Benign rewordings pass.
+- This is a backstop; it does **not** substitute for Step 0. A script that reaches this stage with un-fact-checked beats has already failed the real gate.
 
 ---
 
@@ -944,7 +1014,7 @@ Historical integrity is the channel's core value. Better to cut a claim than to 
 
 ## After Completion
 
-**When verification completes with APPROVED verdict:**
+**When verification completes with APPROVED verdict** (valid ONLY if the Step 0 coverage gate passed — no open `[COVERAGE-GAP]`; a cold-open-only check is NOT an APPROVED script):
 
 > "Fact-check complete! Script approved for filming.
 > Next steps before filming:

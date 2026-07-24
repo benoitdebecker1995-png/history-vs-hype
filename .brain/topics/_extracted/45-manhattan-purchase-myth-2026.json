@@ -1,0 +1,441 @@
+{
+  "video": "45-manhattan-purchase-myth-2026",
+  "lifecycle": "_ARCHIVED",
+  "source_file": "video-projects/_ARCHIVED/published/45-manhattan-purchase-myth-2026/_research/01-VERIFIED-RESEARCH.md",
+  "model": "sonnet-agent",
+  "extracted_at": "2026-07-22",
+  "claims": [
+    {
+      "claim": "The $24 figure for the Manhattan purchase was invented by E.B. O'Callaghan in January 1844 in the Albany journal Northern Light.",
+      "topics": ["currency-and-valuation-myth", "myth-origin-tracing", "nineteenth-century-historiography-invention"],
+      "verbatim": "the purchase of the Island of Manhattans, two hundred and seventeen years ago, by the Dutch, from the Indians, for the sum of sixty guilders, or twenty-four dollars!",
+      "source": "McErleane, Stephen. \"Imagination Aided by the Painter's Brush.\" Gotham Center, 2020.",
+      "status": "verified",
+      "anchor": "### ✅ The $24 was invented by E.B. O'Callaghan in January 1844"
+    },
+    {
+      "claim": "The $24 figure has no relationship to actual buying power in 1626 because it dates only from the mid-nineteenth century.",
+      "topics": ["currency-and-valuation-myth"],
+      "verbatim": "We can dismiss the twenty-four-dollar figure because it dates to the mid-nineteenth century",
+      "source": "Shorto, Russell. The Island at the Center of the World. Doubleday, 2004.",
+      "status": "verified",
+      "anchor": "### ✅ The $24 figure has \"no relationship to buying power two hundred years earlier\""
+    },
+    {
+      "claim": "The modern equivalent of the 60 guilders paid for Manhattan is roughly $1,000, more than half a West India Company soldier's annual salary.",
+      "topics": ["currency-and-valuation-myth"],
+      "verbatim": null,
+      "source": "Howe, Richard. \"Notes on the Manhattan Purchase.\" Gotham Center, 2012.",
+      "status": "verified",
+      "anchor": "### ✅ Modern equivalent is approximately $1,000"
+    },
+    {
+      "claim": "In 1638, 100 acres of Long Island sold Dutch-to-Dutch for 52 guilders, a price comparable to the Manhattan payment.",
+      "topics": ["currency-and-valuation-myth"],
+      "verbatim": null,
+      "source": "Howe, Richard. \"Notes on the Manhattan Purchase.\" Gotham Center, 2012. | Shorto (2004)",
+      "status": "verified",
+      "anchor": "### ✅ Modern equivalent is approximately $1,000"
+    },
+    {
+      "claim": "John Romeyn Brodhead used the 1626 purchase in 1853 to argue the Dutch took Manhattan by \"justice and right,\" comparing it favorably to William Penn's treaty at Shackamaxon.",
+      "topics": ["myth-origin-tracing", "nineteenth-century-historiography-invention", "contested-attribution"],
+      "verbatim": "justice and right",
+      "source": "McErleane (2020)",
+      "status": "verified",
+      "anchor": "### ✅ John Romeyn Brodhead's actual role: legitimizer, not inventor"
+    },
+    {
+      "claim": "The purchase story spread rapidly after 1844 in newspaper headlines like \"Cheap!\" and was cemented in mass culture by the 1909 Hudson-Fulton Celebration.",
+      "topics": ["myth-origin-tracing", "propaganda-and-narrative-control"],
+      "verbatim": "usually as brief mentions in newspapers and periodicals with headings like 'Cheap!'",
+      "source": "McErleane (2020)",
+      "status": "verified",
+      "anchor": "### ✅ The story spread rapidly after 1844"
+    },
+    {
+      "claim": "The 1626 Schagen letter, the only contemporary record of the Manhattan purchase, mentions no beads or trinkets.",
+      "topics": ["document-provenance", "myth-origin-tracing"],
+      "verbatim": "They have purchased the Island Manhattes from the Indians for the value of 60 guilders",
+      "source": "Schagen letter (Nov 5, 1626) — Yale Avalon Project; NYSL translation; New Netherland Institute",
+      "status": "verified",
+      "anchor": "### ✅ The Schagen letter mentions NO beads or trinkets"
+    },
+    {
+      "claim": "William Ranney's 1853 painting was the first image or text to include beads, deliberately copying Benjamin West's 1771-72 Penn's Treaty and inventing the beads, tree, and kneeling figure.",
+      "topics": ["myth-origin-tracing", "nineteenth-century-historiography-invention"],
+      "verbatim": "contains the first inclusion in an image or text of the myth's infamous beads",
+      "source": "McErleane (2020)",
+      "status": "verified",
+      "anchor": "### ✅ William Ranney's 1853 painting introduced the beads myth"
+    },
+    {
+      "claim": "Historian Martha Lamb was the first to put beads into written text about the Manhattan purchase, in 1875, lifting the detail directly from Ranney's painting.",
+      "topics": ["myth-origin-tracing", "nineteenth-century-historiography-invention"],
+      "verbatim": "offered beads, buttons, and other trinkets",
+      "source": "McErleane (2020)",
+      "status": "verified",
+      "anchor": "### ✅ Martha Lamb was the first historian to put beads in text (1875)"
+    },
+    {
+      "claim": "Beads were legitimate, valued trade goods in other real Dutch-Lenape land transactions, not worthless trinkets.",
+      "topics": ["indigenous-land-concepts", "contested-attribution"],
+      "verbatim": "some knives, beads and awls",
+      "source": "Land Papers (Gehring trans.), GG 27",
+      "status": "partial",
+      "anchor": "### ⚠️ NUANCE: Beads WERE legitimate trade goods in other Dutch-Lenape transactions"
+    },
+    {
+      "claim": "The Lenape held land under usufruct, a custom giving the lawful right to use something so long as it was being utilized, administered by sachems and councils.",
+      "topics": ["indigenous-land-concepts"],
+      "verbatim": "Sachems and councils charged with administering family lands used a custom called usufruct—the lawful right to something so long as it is being utilized",
+      "source": "Grumet, Robert S. First Manhattans. University of Oklahoma Press, 2011. p. 61.",
+      "status": "verified",
+      "anchor": "### ✅ The Lenape held land under \"usufruct\" — communal shared-use rights"
+    },
+    {
+      "claim": "Dutch law treated all land under Crown or corporate control as private property under fee simple, regarding land sales as final.",
+      "topics": ["indigenous-land-concepts", "settler-land-tenure"],
+      "verbatim": "European law... defined all land under Crown or corporate control as private property and regarded land sales as final",
+      "source": "Grumet, First Manhattans. p. 62.",
+      "status": "verified",
+      "anchor": "### ✅ The Dutch held land under \"fee simple\" — absolute private property"
+    },
+    {
+      "claim": "Northeastern Indigenous peoples saw a real estate deal as combining a rental agreement with a treaty or alliance between two groups.",
+      "topics": ["indigenous-land-concepts"],
+      "verbatim": "Indians of the Northeast saw a real estate deal as a combination of a rental agreement and a treaty or alliance between two groups",
+      "source": "Shorto (2004) | Grumet, First Manhattans. p. 29.",
+      "status": "verified",
+      "anchor": "### ✅ The Lenape understood the transaction as a shared-use agreement"
+    },
+    {
+      "claim": "Indigenous parties probably regarded land deals as temporary arrangements that could be renewed or cancelled by either party at any time.",
+      "topics": ["indigenous-land-concepts"],
+      "verbatim": "Indians probably regarded these deals as temporary arrangements that could be renewed or cancelled by either party at any time",
+      "source": "Grumet, First Manhattans. p. 29.",
+      "status": "verified",
+      "anchor": "### ✅ The Lenape understood the transaction as a shared-use agreement"
+    },
+    {
+      "claim": "It is virtually certain that Native Americans did not understand Dutch and English land purchases the same way the Europeans did.",
+      "topics": ["indigenous-land-concepts"],
+      "verbatim": "It is virtually certain that the Native Americans did not understand the Dutch and English land purchases the same way these Europeans did",
+      "source": "Howe, \"Notes on the Manhattan Purchase.\" Gotham Center, 2012.",
+      "status": "verified",
+      "anchor": "### ✅ \"It is virtually certain that the Native Americans did not understand the Dutch and English land purchases the same way these Europeans did\""
+    },
+    {
+      "claim": "Lenape society was matrilineal, with clan mothers choosing sachems, and male sachems could not sell land without consulting all Indians with a claim to it.",
+      "topics": ["indigenous-land-concepts"],
+      "verbatim": null,
+      "source": "Soderlund, Lenape Country. UPenn Press, 2015. | O'Connell, Manifest Deception. Rutgers, 2024.",
+      "status": "verified",
+      "anchor": "### ✅ Lenape society was matrilineal — clan mothers chose sachems"
+    },
+    {
+      "claim": "Female \"squaw sachems\" such as Mamanuchqua actively signed treaties and sold land among the Lenape.",
+      "topics": ["indigenous-land-concepts"],
+      "verbatim": null,
+      "source": "Soderlund, Lenape Country. UPenn Press, 2015. | O'Connell, Manifest Deception. Rutgers, 2024.",
+      "status": "verified",
+      "anchor": "### ✅ Lenape society was matrilineal — clan mothers chose sachems"
+    },
+    {
+      "claim": "A modern Lenape elder described land as shared temporarily with the Dutch for survival, not permanently given away or excluding Lenape use.",
+      "topics": ["indigenous-land-concepts"],
+      "verbatim": "Land to us was like the air, sunlight, and water, something that was necessary for our survival, for our very lives. Our thought was that we were giving the whites some land to live on for a while. We saw it as sharing with them and did not consider giving them use of the land permanently. We certainly had no intention of excluding ourselves from using it.",
+      "source": "O'Connell, Manifest Deception. Rutgers, 2024. p. 12.",
+      "status": "verified",
+      "anchor": "**Hitakonanu'laxk (Treebeard), modern Lenape elder:**"
+    },
+    {
+      "claim": "Lenape sachem Nutimus explained in 1737 that no land could be sold without consulting all Indians with a claim, and that proceeds were divided among the affected families.",
+      "topics": ["indigenous-land-concepts"],
+      "verbatim": "No land can be sold without all the Indians round being made acquainted with the matter... the chief always – with the Leave of the others – undertook to sell and when he had agreed he called together the head of the families who had any right in the land sold and divided among the goods he got for the land.",
+      "source": "O'Connell, Manifest Deception. Rutgers, 2024.",
+      "status": "verified",
+      "anchor": "**Nutimus, Lenape sachem (1737):**"
+    },
+    {
+      "claim": "Lenape sachem Teedyuscung complained in 1756 that he had sold vast tracts of land to the English far below their true value, which proprietors then resold at inflated prices.",
+      "topics": ["indigenous-land-concepts"],
+      "verbatim": "I have sold great tracts of land at unreasonably low rates, to the English, far below what any person would allow to be their value... the proprietor has purchased the lands so cheap, yet he sells them again too dear to the poor people, that they do not use the Indians well and think they owe us nothing.",
+      "source": "Grumet, First Manhattans. pp. 69-70.",
+      "status": "verified",
+      "anchor": "**Teedyuscung, Lenape sachem (1756):**"
+    },
+    {
+      "claim": "The identity of the Indians who sold Manhattan Island is not known.",
+      "topics": ["myth-origin-tracing", "document-provenance"],
+      "verbatim": "The identity of the Indians who sold the island is not known",
+      "source": "Grumet, First Manhattans. p. 26",
+      "status": "verified",
+      "anchor": "### ✅ The identity of the sellers is entirely unknown"
+    },
+    {
+      "claim": "The claim that the Canarsee sold Manhattan is a fabrication that likely originated in a 1959 article by Nathaniel Benchley.",
+      "topics": ["myth-origin-tracing", "contested-attribution"],
+      "verbatim": "This farcical take likely originated in a 1959 article by Nathaniel Benchley",
+      "source": "McErleane (2020)",
+      "status": "verified",
+      "anchor": "### ✅ The \"Canarsee sold Manhattan\" claim is a 1959 fabrication"
+    },
+    {
+      "claim": "Dutch trader De Rasiere counted the Manhatesen in 1628 at 200 to 300 people, organized under different chiefs called Sackimas.",
+      "topics": ["myth-origin-tracing"],
+      "verbatim": "the old Manhatesen are about 200 to 300 strong, women and men, under different chiefs, whom they call Sackimas",
+      "source": "Grumet, First Manhattans. pp. 10-11, 16.",
+      "status": "verified",
+      "anchor": "### ✅ The \"Manhattans\" were a distinct community living on the island"
+    },
+    {
+      "claim": "The Canarsee were based in Kings County, Jamaica, and parts of Newtown in Brooklyn, not on Manhattan.",
+      "topics": ["myth-origin-tracing"],
+      "verbatim": "claimed the chief part of the lands in what is now called Kings county, Jamaica, and some part of Newtown",
+      "source": "O'Callaghan, History of New Netherland. 1846. p. 47.",
+      "status": "verified",
+      "anchor": "### ✅ The Canarsee were based in Brooklyn, NOT Manhattan"
+    },
+    {
+      "claim": "No subsequent Dutch payments for Manhattan specifically are recorded, unlike Staten Island which was sold multiple times; an English record from 1670 confirmed the island was bought and paid for 44 years earlier.",
+      "topics": ["document-provenance", "myth-origin-tracing"],
+      "verbatim": "bought & paid for 44 yeares agoe",
+      "source": "McErleane (2020)",
+      "status": "verified",
+      "anchor": "### ✅ No subsequent Dutch payments for Manhattan specifically"
+    },
+    {
+      "claim": "No deed or bill of sale for the Manhattan purchase has ever been found.",
+      "topics": ["document-provenance", "archival-silence"],
+      "verbatim": "Few documents—and, significantly, no deed or bill of sale—chronicle the purchase of Manhattan",
+      "source": "Grumet, First Manhattans. p. 26.",
+      "status": "verified",
+      "anchor": "### ✅ No deed for Manhattan has ever been found"
+    },
+    {
+      "claim": "The Schagen letter is not the only historical reference to the purchase; Dutch chronicler De Laet also referenced it in 1633.",
+      "topics": ["document-provenance", "source-transmission-chain"],
+      "verbatim": "our people have bought from [the Manatthans] the island separated from the rest of the land by the Hellgate",
+      "source": "Grumet (2011); McErleane (2020); Howe (2012)",
+      "status": "verified",
+      "anchor": "### ✅ The Schagen letter is not the ONLY reference — but it's the only contemporary one"
+    },
+    {
+      "claim": "The Dutch colonial archives were destroyed in 1821 when the Netherlands government sold what remained of the Dutch East and West India Companies' pre-1700 records as scrap paper, about 80,000 pounds of records.",
+      "topics": ["archival-silence", "evidence-destruction"],
+      "verbatim": "the government of the Netherlands... sold for scrap paper what remained of the archives of the Dutch East and West India Companies prior to 1700",
+      "source": "Shorto, The Island at the Center of the World. (2004)",
+      "status": "verified",
+      "anchor": "### ✅ The Dutch archives were destroyed in 1821"
+    },
+    {
+      "claim": "Historian John Romeyn Brodhead discovered the loss of the Dutch archival records in 1839 and reacted with surprise, mortification, and regret.",
+      "topics": ["archival-silence", "evidence-destruction", "myth-origin-tracing"],
+      "verbatim": "surprise, mortification, and regret",
+      "source": "Shorto (2004)",
+      "status": "verified",
+      "anchor": "### ✅ The Dutch archives were destroyed in 1821"
+    },
+    {
+      "claim": "The Schagen letter is a single handwritten page in the crabbed, loopy script of seventeenth-century Dutch, containing a greeting, one paragraph on the purchase, a cargo list, and a sign-off.",
+      "topics": ["document-provenance"],
+      "verbatim": "crabbed, loopy script of seventeenth-century Dutch",
+      "source": "Jacobs (2009); Shorto (2004); NYSL facsimile page",
+      "status": "verified",
+      "anchor": "### ✅ The Schagen letter: physical description"
+    },
+    {
+      "claim": "The Schagen letter is held at the Nationaal Archief in The Hague and bears an oval \"'S RYKS ARCHIEF\" stamp added later by the archive.",
+      "topics": ["document-provenance"],
+      "verbatim": "'S RYKS ARCHIEF",
+      "source": "Jacobs (2009); Shorto (2004); NYSL facsimile page",
+      "status": "verified",
+      "anchor": "### ✅ The Schagen letter: physical description"
+    },
+    {
+      "claim": "The surviving Staten Island deed is dated August 10, 1630, not 1626 as sometimes claimed.",
+      "topics": ["document-provenance", "historiographical-revision"],
+      "verbatim": null,
+      "source": "Land Papers (Gehring trans.), GG 6; Howe (2012)",
+      "status": "verified",
+      "anchor": "### ✅ The surviving Staten Island deed is dated August 10, 1630 — NOT 1626"
+    },
+    {
+      "claim": "The 1630 Staten Island deed does not itemize specific goods, saying only \"a certain lot of merchandise.\"",
+      "topics": ["document-provenance"],
+      "verbatim": "a certain lot of merchandise",
+      "source": "Land Papers, GG 6",
+      "status": "verified",
+      "anchor": "### ✅ The 1630 deed does NOT itemize goods"
+    },
+    {
+      "claim": "Later Dutch-Lenape land deeds itemized specific trade goods such as duffel cloth, kettles, axes, knives, and corals, but never beads as payment.",
+      "topics": ["document-provenance"],
+      "verbatim": "6 fathoms of duffels, 6 fathoms of sewant, 6 kettles, 6 axes, 6 adzes, 10 knives, 10 awls, 10 corals, 10 bells, 1 gun, 2 staves of lead, 2 lbs. of powder, 2 cloth coats",
+      "source": "Land Papers (Gehring trans.), GG 222",
+      "status": "verified",
+      "anchor": "### ✅ Later deeds DO itemize specific trade goods (NOT beads)"
+    },
+    {
+      "claim": "Eight named Indigenous signers on the 1630 Staten Island deed were described as inhabitants, owners, and inheritors of the island.",
+      "topics": ["document-provenance", "indigenous-land-concepts"],
+      "verbatim": "inhabitants, owners and inheritors of the island called by us Staten-Island",
+      "source": "Land Papers, GG 6",
+      "status": "verified",
+      "anchor": "### ✅ Eight Indigenous signers on the Staten Island deed"
+    },
+    {
+      "claim": "Kieft's War (1640-1645) was not a contestation of the 1626 Manhattan purchase; its actual causes were a Dutch maize levy, a stolen hog dispute, and Kieft's massacre of Indian refugees.",
+      "topics": ["historiographical-revision", "contested-attribution"],
+      "verbatim": null,
+      "source": "Grumet, First Manhattans. pp. 33-36.",
+      "status": "verified",
+      "anchor": "### ⚠️ CORRECTED: Kieft's War was NOT about contesting the 1626 purchase"
+    },
+    {
+      "claim": "During Kieft's War, Dutch troops broke into Indian houses and storage pits, burned fields, tortured a sachem's son, and killed townspeople, while Kieft ordered a massacre of refugees who had fled to the Dutch for protection.",
+      "topics": ["colonial-violence-escalation"],
+      "verbatim": "broke into Indian houses and storage pits, burned the Indians' fields, tortured a sachem's son, and killed several townspeople",
+      "source": "Grumet, First Manhattans. pp. 34-36.",
+      "status": "verified",
+      "anchor": "### ✅ Useful for: showing Dutch-Lenape relations deteriorated into extreme violence"
+    },
+    {
+      "claim": "Power asymmetry meant the Lenape lacked sufficient power to completely refuse Dutch colonial demands, producing negatively reciprocal exchanges.",
+      "topics": ["indigenous-land-concepts", "contested-attribution"],
+      "verbatim": "lacked sufficient power to completely refuse colonial demands",
+      "source": "Grumet p. 70",
+      "status": "verified",
+      "anchor": "### ✅ Level 3 (Structure): Why it works"
+    },
+    {
+      "claim": "Part of the Manhattan purchase myth's persistence reflects the \"noble savage\" stereotype casting Indigenous people as guileless innocents.",
+      "topics": ["propaganda-and-narrative-control", "myth-origin-tracing"],
+      "verbatim": "guileless innocents",
+      "source": "Grumet p. 66",
+      "status": "verified",
+      "anchor": "### ✅ Level 3 (Structure): Why it works"
+    },
+    {
+      "claim": "The Manhattan purchase functions as the primal real estate transaction from which every subsequent Manhattan property conveyance descends to the present day.",
+      "topics": ["settler-land-tenure", "myth-origin-tracing"],
+      "verbatim": "The Manhattan purchase was the primal Manhattan real estate transaction: from it is descended every other Manhattan property conveyance, on down to the present day",
+      "source": "Howe",
+      "status": "verified",
+      "anchor": "### ✅ Level 3 (Structure): Why it works"
+    },
+    {
+      "claim": "The Lenape were far from guileless dupes; in the short term they extracted considerably more value from the land transaction than the nominal purchase price indicates.",
+      "topics": ["indigenous-land-concepts", "contested-attribution", "scholarly-disagreement"],
+      "verbatim": "the Indians were far from guileless dupes, and in the short term, which was what mattered at the time, they got considerably more out of a simple land transaction than the amount of the purchase indicates",
+      "source": "Shorto, Island at the Center of the World (Van Slichtenhorst 1648 passage; NLM-verified 2026-04-17)",
+      "status": "partial",
+      "anchor": "### ✅ Indigenous agency — the Lenape were NOT naive"
+    },
+    {
+      "claim": "The Lenape adapted quickly to the European deed system; within a few years such land transactions were taking place among Native Americans themselves.",
+      "topics": ["indigenous-land-concepts", "contested-attribution"],
+      "verbatim": "within a few years such transactions were taking place among the Native Americans themselves",
+      "source": "Howe",
+      "status": "partial",
+      "anchor": "### ✅ Indigenous agency — the Lenape were NOT naive"
+    },
+    {
+      "claim": "Dutch West India Company instructions from 1625 explicitly ordered negotiators to induce the Lenape to give up land without forcing them.",
+      "topics": ["indigenous-land-concepts", "legal-justification-doctrine"],
+      "verbatim": "induce them to give up ownership and possession to us, without however forcing them thereto in the least",
+      "source": "O'Connell, Manifest Deception. Rutgers, 2024.",
+      "status": "partial",
+      "anchor": "### ✅ Dutch good faith (relative to other colonizers)"
+    },
+    {
+      "claim": "The Dutch followed a more formal negotiation protocol with the Lenape than the English did, and the Lenape regarded the formality of Dutch compacts highly.",
+      "topics": ["indigenous-land-concepts", "contested-attribution"],
+      "verbatim": "followed a much more formal protocol",
+      "source": "O'Connell",
+      "status": "partial",
+      "anchor": "### ✅ Dutch good faith (relative to other colonizers)"
+    },
+    {
+      "claim": "In March 2023 the Vatican repudiated the Doctrine of Discovery, stating it is not part of the teaching of the Catholic Church.",
+      "topics": ["papal-donation-doctrine", "legal-justification-doctrine", "historiographical-revision"],
+      "verbatim": "The 'doctrine of discovery' is not part of the teaching of the Catholic Church",
+      "source": "Vatican Press Office, March 30, 2023; NPR coverage (Chappell, 2023)",
+      "status": "verified",
+      "anchor": "### ✅ Doctrine of Discovery — Vatican Repudiation (March 30, 2023)"
+    },
+    {
+      "claim": "The Vatican's 2023 repudiation covered the papal bulls Dum Diversas (1452), Romanus Pontifex (1455), and Inter Caetera (1493), admitting they did not adequately reflect Indigenous peoples' equal dignity and rights.",
+      "topics": ["papal-donation-doctrine", "legal-justification-doctrine"],
+      "verbatim": "did not adequately reflect the equal dignity and rights of indigenous peoples",
+      "source": "Vatican Press Office, March 30, 2023",
+      "status": "verified",
+      "anchor": "### ✅ Doctrine of Discovery — Vatican Repudiation (March 30, 2023)"
+    },
+    {
+      "claim": "The Doctrine of Discovery entered US law via an 1823 Supreme Court ruling holding that Indigenous peoples possessed only occupancy rights, not ownership, over their land.",
+      "topics": ["papal-donation-doctrine", "land-title-adjudication", "legal-justification-doctrine"],
+      "verbatim": "occupancy",
+      "source": "Vatican Press Office, March 30, 2023; NPR coverage (Chappell, 2023)",
+      "status": "verified",
+      "anchor": "### ✅ Doctrine of Discovery — Vatican Repudiation (March 30, 2023)"
+    },
+    {
+      "claim": "NYC Mayor Eric Adams said the city must acknowledge the painful parts of its origin while celebrating the Lenape's contributions, and proclaimed November 20 Lenape Heritage Day.",
+      "topics": ["historiographical-revision"],
+      "verbatim": "we must also acknowledge the painful parts of its origin, and ensure we are celebrating the Lenape's rich contributions to our city as much as anyone else's",
+      "source": "NYC Mayor's Office, Dec 2024",
+      "status": "verified",
+      "anchor": "### ✅ \"Founded by NYC\" Campaign (Mayor's Office, Dec 2024)"
+    },
+    {
+      "claim": "Joe Baker of the Lenape Center said the 400th anniversary teaches New Yorkers about Lenape cultural principles of harmonious existence with \"Haki, Mother Earth.\"",
+      "topics": ["historiographical-revision", "indigenous-land-concepts"],
+      "verbatim": "This anniversary provides an opportunity to teach New Yorkers about crucial principles of culture that have provided the Lenape a harmonious and balanced existence with Haki, Mother Earth",
+      "source": "NYC Mayor's Office press release, Dec 2024",
+      "status": "verified",
+      "anchor": "### ✅ Joe Baker (Lenape Center) on the anniversary"
+    },
+    {
+      "claim": "MCNY's 2025 exhibition 'Unceded: 400 Years of Lenape Survivance' was described by the museum's president as a reminder of the resilience and continued presence of the Lenape people.",
+      "topics": ["historiographical-revision"],
+      "verbatim": "serves as a powerful reminder of the resilience and continued presence of the Lenape people",
+      "source": "NYC Mayor's Office press release; MCNY Lenape Weekend page",
+      "status": "verified",
+      "anchor": "### ✅ MCNY — \"Unceded: 400 Years of Lenape Survivance\""
+    },
+    {
+      "claim": "The Lenape were the first Indigenous nation to sign a treaty with the United States, in 1778.",
+      "topics": ["treaty-ratification-process", "sovereignty-recognition"],
+      "verbatim": null,
+      "source": "NY400 website",
+      "status": "verified",
+      "anchor": "### ✅ NY400 — Reframing as \"Negotiation\""
+    },
+    {
+      "claim": "NY400's official framing states that contrary to legend, the Dutch didn't buy Manhattan for $24, reframing the event as a negotiation.",
+      "topics": ["currency-and-valuation-myth", "historiographical-revision"],
+      "verbatim": "Contrary to Legend, the Dutch didn't buy Manhattan for $24",
+      "source": "NY400 website",
+      "status": "verified",
+      "anchor": "### ✅ NY400 — Reframing as \"Negotiation\""
+    },
+    {
+      "claim": "The Lenape held land cooperatively as a whole community, not through individual or family ownership claims.",
+      "topics": ["indigenous-land-concepts"],
+      "verbatim": "The Lenapes held land cooperatively, by the community as a whole, not by individual members or families claiming ownership rights.",
+      "source": "Soderlund, Lenape Country p. 14",
+      "status": "verified",
+      "anchor": "## SECTION 11: ON-SCREEN QUOTES"
+    },
+    {
+      "claim": "The Lenape considered a land deed to represent the beginning of a relationship between parties, not its termination.",
+      "topics": ["indigenous-land-concepts"],
+      "verbatim": "A land deed was considered by the Lenape as a treaty representing the beginning, not the termination, of a relationship.",
+      "source": "O'Connell/Grumet, Manifest Deception p. 50",
+      "status": "verified",
+      "anchor": "## SECTION 11: ON-SCREEN QUOTES"
+    }
+  ]
+}

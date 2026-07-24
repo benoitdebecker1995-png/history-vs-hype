@@ -10,7 +10,19 @@ Run with: pytest tests/test_checker_registry.py -v
 """
 from typing import Dict, Any
 
+import pytest
+
 from tools.script_checkers.registry import CheckerRegistry, build_default_registry
+
+# stumble lazy-loads spaCy; skip when the [nlp] extra isn't installed,
+# matching tests/unit/test_pacing.py's existing convention.
+try:
+    import spacy  # noqa: F401
+    NLP_AVAILABLE = True
+except ImportError:
+    NLP_AVAILABLE = False
+
+requires_nlp = pytest.mark.skipif(not NLP_AVAILABLE, reason="spaCy required (pip install -e .[nlp])")
 
 
 class _EchoChecker:
@@ -45,6 +57,7 @@ class TestCheckerRegistry:
         assert "issues" in result
         assert result["stats"]["word_count"] == 5
 
+    @requires_nlp
     def test_run_by_name(self):
         """registry.run('stumble', text) returns dict with issues and stats keys."""
         registry = build_default_registry()
@@ -58,11 +71,11 @@ class TestCheckerRegistry:
         assert isinstance(result["issues"], list), "'issues' must be a list"
 
     def test_list_all_returns_all_defaults(self):
-        """Default registry lists all 5 built-in checkers."""
+        """Default registry lists all 6 built-in checkers."""
         registry = build_default_registry()
         names = registry.list_all()
 
-        assert names == ["flow", "pacing", "repetition", "scaffolding", "stumble"]
+        assert names == ["flow", "pacing", "repetition", "scaffolding", "stumble", "told_so_far"]
 
     def test_get_returns_checker(self):
         """registry.get() returns a checker that can be called directly."""

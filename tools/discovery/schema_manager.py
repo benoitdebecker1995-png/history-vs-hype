@@ -520,15 +520,13 @@ class KeywordDB:
             logger.error("Migration to v27 failed: %s", e)
 
     def _ensure_ctr_snapshots_table(self):
-        """Create Phase 27 CTR snapshot tracking table if it doesn't exist."""
-        try:
-            cursor = self._conn.cursor()
-            cursor.execute(
-                "SELECT name FROM sqlite_master WHERE type='table' AND name='ctr_snapshots'"
-            )
-            if cursor.fetchone() is not None:
-                return
+        """Create Phase 27 CTR snapshot table + ensure the validity columns.
 
+        is_valid/invalid_reason (added 2026-07-22) let a polluted snapshot be
+        quarantined without deletion — the 2026-07-13/07-23 rows were double-
+        counted by the collector and must be readable-but-excluded, not lost.
+        """
+        try:
             with self._conn:
                 cursor = self._conn.cursor()
                 cursor.execute(
@@ -544,6 +542,8 @@ class KeywordDB:
                         active_title_id INTEGER,
                         is_late_entry BOOLEAN DEFAULT 0,
                         recorded_at DATE NOT NULL,
+                        is_valid INTEGER NOT NULL DEFAULT 1,
+                        invalid_reason TEXT,
                         FOREIGN KEY (video_id) REFERENCES video_performance(video_id),
                         FOREIGN KEY (active_thumbnail_id) REFERENCES thumbnail_variants(id),
                         FOREIGN KEY (active_title_id) REFERENCES title_variants(id)
@@ -553,6 +553,16 @@ class KeywordDB:
                 cursor.execute(
                     "CREATE INDEX IF NOT EXISTS idx_ctr_video_date ON ctr_snapshots(video_id, snapshot_date DESC)"
                 )
+                # Idempotent column migration for DBs created before 2026-07-22.
+                existing = {r[1] for r in cursor.execute("PRAGMA table_info(ctr_snapshots)")}
+                if "is_valid" not in existing:
+                    cursor.execute(
+                        "ALTER TABLE ctr_snapshots ADD COLUMN is_valid INTEGER NOT NULL DEFAULT 1"
+                    )
+                if "invalid_reason" not in existing:
+                    cursor.execute(
+                        "ALTER TABLE ctr_snapshots ADD COLUMN invalid_reason TEXT"
+                    )
 
         except sqlite3.Error as e:
             logger.error("Migration ctr_snapshots failed: %s", e)

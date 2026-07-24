@@ -1,0 +1,537 @@
+{
+ "video": "61-spanish-colonization-black-legend-2026",
+ "lifecycle": "_IN_PRODUCTION",
+ "source_file": "video-projects/_IN_PRODUCTION/61-spanish-colonization-black-legend-2026/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "Cortés wrote to the Spanish King that his native allies numbered more than 150,000 while the Spaniards themselves were only about nine hundred.",
+   "topics": ["historiographical-revision", "atrocity-propaganda"],
+   "verbatim": "our allies… numbered **more than 150,000 and we Spaniards were only some nine hundred**.",
+   "source": "Cortés, Second Letter [src 64c464ea, Pagden trans.]",
+   "status": "verified",
+   "anchor": "COLD OPEN · Exhibit A′ — \"Not 900 Spaniards. A native civil war.\" ✅ BULLETPROOF · [P] on screen"
+  },
+  {
+   "claim": "Cortés told the King that without his native allies he could not have served him as he had.",
+   "topics": ["historiographical-revision"],
+   "verbatim": "for without them I could not have served Your Highness as I have.",
+   "source": "Cortés, Fourth Letter",
+   "status": "verified",
+   "anchor": "COLD OPEN · Exhibit A′ — \"Not 900 Spaniards. A native civil war.\" ✅ BULLETPROOF · [P] on screen"
+  },
+  {
+   "claim": "Bernal Díaz corroborated the scale of native allied forces, recording that 16,000 warriors took more than three hours just to enter Texcoco.",
+   "topics": ["historiographical-revision"],
+   "verbatim": "16,000 took \"more than three hours\" to enter Texcoco",
+   "source": "Bernal Díaz [src dce205af]",
+   "status": "verified",
+   "anchor": "COLD OPEN · Exhibit A′ — \"Not 900 Spaniards. A native civil war.\" ✅ BULLETPROOF · [P] on screen"
+  },
+  {
+   "claim": "Many of Cortés's native allies also deserted during the campaign — of more than twenty-four thousand allied warriors, Bernal Díaz says only about two hundred remained at one point.",
+   "topics": ["historiographical-revision"],
+   "verbatim": "of more than twenty-four thousand friends… only about two hundred stayed.",
+   "source": "Bernal Díaz",
+   "status": "partial",
+   "anchor": "COLD OPEN · Exhibit A′ — \"Not 900 Spaniards. A native civil war.\" ✅ BULLETPROOF · [P] on screen"
+  },
+  {
+   "claim": "A historian cautions that Cortés's own letters were a work of persuasion, not a neutral record.",
+   "topics": ["historiographical-revision"],
+   "verbatim": "a brilliant piece of special pleading",
+   "source": "Pagden",
+   "status": "partial",
+   "anchor": "COLD OPEN · Exhibit A′ — \"Not 900 Spaniards. A native civil war.\" ✅ BULLETPROOF · [P] on screen"
+  },
+  {
+   "claim": "Both a White Legend historian and an independent scholar concede that roughly 200,000 native allies fought alongside the Spanish at Tenochtitlán.",
+   "topics": ["historiographical-revision"],
+   "verbatim": null,
+   "source": "Roca Barea / Restall",
+   "status": "verified",
+   "anchor": "COLD OPEN · Exhibit A′ — \"Not 900 Spaniards. A native civil war.\" ✅ BULLETPROOF · [P] on screen"
+  },
+  {
+   "claim": "At Cajamarca in 1532, roughly 168 Spanish soldiers under Pizarro captured the Inca ruler Atahualpa against a force of about 80,000, without a single Spanish death.",
+   "topics": ["historiographical-revision"],
+   "verbatim": "Cajamarca 15 Nov 1532, Pizarro 168 men vs 80,000, zero Spanish dead",
+   "source": "Exhibit J (Inca mirror)",
+   "status": "verified",
+   "anchor": "COLD OPEN · Exhibit A′ — \"Not 900 Spaniards. A native civil war.\" ✅ BULLETPROOF · [P] on screen"
+  },
+  {
+   "claim": "A historian described the Inca succession war between Atahualpa and Huáscar as a wedge that the conquistadors quickly recognized and exploited.",
+   "topics": ["historiographical-revision"],
+   "verbatim": "the dynastic war… provided a wedge the conquistadores quickly recognized and exploited.",
+   "source": "D'Altroy",
+   "status": "verified",
+   "anchor": "COLD OPEN · Exhibit A′ — \"Not 900 Spaniards. A native civil war.\" ✅ BULLETPROOF · [P] on screen"
+  },
+  {
+   "claim": "One demographic study concluded that epidemics alone can account for virtually all the excess mortality after conquest, without needing to invoke the Black Legend.",
+   "topics": ["genocide-classification-debate", "casualty-estimate-methodology"],
+   "verbatim": "epidemics can account for virtually all of the extra mortality… no reliance on the 'Black Legend'… is necessary.",
+   "source": "Cook/Whitmore",
+   "status": "partial",
+   "anchor": "COLD-OPEN BRIDGE · Exhibit F — Disease (why the allies survived; not a clean genocide) ⚠️ CONTESTED"
+  },
+  {
+   "claim": "A scholar disputed calling the post-conquest demographic collapse a genocide campaign, distinguishing mass death from a deliberate extermination policy.",
+   "topics": ["genocide-classification-debate"],
+   "verbatim": "not a holocaust in the sense of… a genocide campaign.",
+   "source": "Restall",
+   "status": "partial",
+   "anchor": "COLD-OPEN BRIDGE · Exhibit F — Disease (why the allies survived; not a clean genocide) ⚠️ CONTESTED"
+  },
+  {
+   "claim": "A counter-argument holds that disease and violence were interdependent forces that whipsawed victims between plague and violence, rather than acting as separate causes.",
+   "topics": ["genocide-classification-debate"],
+   "verbatim": "disease and genocide were interdependent forces… whipsawing their victims between plague and violence.",
+   "source": "Stannard",
+   "status": "partial",
+   "anchor": "COLD-OPEN BRIDGE · Exhibit F — Disease (why the allies survived; not a clean genocide) ⚠️ CONTESTED"
+  },
+  {
+   "claim": "A skeptical scholar argues the 'epidemic' explanation functions as a statistical deus ex machina that lets researchers avoid contesting the underlying population baseline.",
+   "topics": ["casualty-estimate-methodology", "genocide-classification-debate"],
+   "verbatim": "deus ex machina",
+   "source": "Henige",
+   "status": "partial",
+   "anchor": "COLD-OPEN BRIDGE · Exhibit F — Disease (why the allies survived; not a clean genocide) ⚠️ CONTESTED"
+  },
+  {
+   "claim": "A major epidemic called cocoliztli struck central Mexico decades after the conquest, in 1545 and 1576, and has been linked by genetic research to Salmonella enterica.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": null,
+   "source": "Vågene paper",
+   "status": "partial",
+   "anchor": "COLD-OPEN BRIDGE · Exhibit F — Disease (why the allies survived; not a clean genocide) ⚠️ CONTESTED"
+  },
+  {
+   "claim": "The Black Legend framed Spain as little more than a chronicle of cruelty in the service of political reaction and religious fanaticism.",
+   "topics": ["atrocity-propaganda", "historiographical-revision"],
+   "verbatim": "little more than a chronicle of cruelty at the service of political reaction and religious fanaticism.",
+   "source": "definition, ⚠️page unconfirmed",
+   "status": "partial",
+   "anchor": "ACT 1 · Exhibit N — Name the two forgers ✅ (the setup)"
+  },
+  {
+   "claim": "The White Legend was a conscious effort to retouch Spain's darkest colonial events and cover up its seamier side beneath a glittering mythical patina.",
+   "topics": ["atrocity-propaganda", "historiographical-revision"],
+   "verbatim": "a conscious effort to retouch the darkest events… cover up the seamier side… beneath a glittering mythical patina.",
+   "source": "definition, ⚠️page unconfirmed",
+   "status": "partial",
+   "anchor": "ACT 1 · Exhibit N — Name the two forgers ✅ (the setup)"
+  },
+  {
+   "claim": "The term 'Black Legend' is a twentieth-century coinage — Julián Juderías introduced it in 1914 to protest what he called distorting prisms — even though the propaganda phenomenon it names dates to the sixteenth century.",
+   "topics": ["historiographical-revision", "atrocity-propaganda"],
+   "verbatim": "coined the term to protest \"prisms that distorted Spanish reality\"",
+   "source": "Juderías, 1914",
+   "status": "verified",
+   "anchor": "ACT 1 · Exhibit N — Name the two forgers ✅ (the setup)"
+  },
+  {
+   "claim": "A historian's 1971 formulation treats the Black Legend and White Legend as equivalent distortions of a single truth, or equivalent deviations from a common middle ground.",
+   "topics": ["atrocity-propaganda", "historiographical-revision"],
+   "verbatim": "the Black Legend and the White Legend are taken as **equivalent distortions of a single truth**, or equivalent deviations from a common middle ground.",
+   "source": "Gibson (1971), The White Legend and the Black, ⚠️p.7",
+   "status": "partial",
+   "anchor": "The two-line referee anchor (on screen)"
+  },
+  {
+   "claim": "A Spanish historian argued that in history, the opposite of a falsehood is a contrary falsehood, not the truth.",
+   "topics": ["historiographical-revision", "atrocity-propaganda"],
+   "verbatim": "lo contrario de una falsedad es una falsedad contraria, no la verdad.",
+   "source": "Villacañas [src afc6706a]",
+   "status": "partial",
+   "anchor": "ACT 5 CAPSTONE · Exhibit O — Villacañas lands the gray ✅ (anchored)"
+  },
+  {
+   "claim": "The Spanish Crown legally encouraged settlers to intermarry with Amerindians as early as 1514.",
+   "topics": ["colonial-legal-code", "historiographical-revision"],
+   "verbatim": "Ferdinand and Isabel actively encouraged settlers… to intermarry with Amerindians.",
+   "source": "Earle [src 4689deb2]",
+   "status": "verified",
+   "anchor": "ACT 2 · Exhibit H — Mestizaje: the birth of a people (refereed) ✅ — PROMOTED (audience #1 theme)"
+  },
+  {
+   "claim": "Despite legal sanction for intermarriage, obedience and subjugation were integral to these unions, and indigenous women often lacked a wife's legal rights.",
+   "topics": ["colonial-legal-code", "atrocity-propaganda"],
+   "verbatim": "Obedience and subjugation were integral to the intimacies",
+   "source": "van Deusen [src f5476a6c]",
+   "status": "verified",
+   "anchor": "ACT 2 · Exhibit H — Mestizaje: the birth of a people (refereed) ✅ — PROMOTED (audience #1 theme)"
+  },
+  {
+   "claim": "Spain's colonial caste system was not a rigid fixed hierarchy in practice; one scholar called caste identity 'profoundly performative,' shaped by language, dress and food.",
+   "topics": ["colonial-legal-code", "historiographical-revision"],
+   "verbatim": "profoundly performative",
+   "source": "Earle",
+   "status": "verified",
+   "anchor": "ACT 2 · Exhibit H — Mestizaje: the birth of a people (refereed) ✅ — PROMOTED (audience #1 theme)"
+  },
+  {
+   "claim": "A historian observed that no one seemed to stay in the caste category the Crown had assigned them, undercutting the idea of a rigid colonial caste hierarchy.",
+   "topics": ["colonial-legal-code"],
+   "verbatim": "No one seemed to stay in the place the Crown had assigned.",
+   "source": "Gibson",
+   "status": "verified",
+   "anchor": "ACT 2 · Exhibit H — Mestizaje: the birth of a people (refereed) ✅ — PROMOTED (audience #1 theme)"
+  },
+  {
+   "claim": "The Requerimiento legal document declared in advance that any deaths and damages from a Spanish attack would be the natives' own fault, not the Crown's.",
+   "topics": ["legal-justification-doctrine"],
+   "verbatim": "and the deaths and damages will be your fault, not His Majesty's, nor mine.",
+   "source": "Requerimiento text",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit K — The Requerimiento ✅ (the single best laws-vs-reality artifact) · [P]"
+  },
+  {
+   "claim": "The Requerimiento was often read aloud to trees, empty huts, or muttered incomprehensibly, since it was delivered in Spanish to people who could not understand it.",
+   "topics": ["legal-justification-doctrine"],
+   "verbatim": "It was read to **trees and empty huts**… muttered into their beards… read from the deck as they approached an island.",
+   "source": "Hanke",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit K — The Requerimiento ✅ (the single best laws-vs-reality artifact) · [P]"
+  },
+  {
+   "claim": "Bartolomé de las Casas said he did not know whether to laugh or to weep at the Requerimiento's practice of being read to people who could not understand it.",
+   "topics": ["legal-justification-doctrine"],
+   "verbatim": "whether to laugh or to weep",
+   "source": "Las Casas",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit K — The Requerimiento ✅ (the single best laws-vs-reality artifact) · [P]"
+  },
+  {
+   "claim": "At Cajamarca, the Requerimiento read to the Inca ruler Atahualpa was garbled, and he reportedly called the reader 'a deaf mute.'",
+   "topics": ["legal-justification-doctrine"],
+   "verbatim": "a deaf mute",
+   "source": "record cited at Cajamarca",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit K — The Requerimiento ✅ (the single best laws-vs-reality artifact) · [P]"
+  },
+  {
+   "claim": "Spain's 1542 New Laws were, in one historian's words, calculated to destroy the encomienda system utterly within a generation.",
+   "topics": ["colonial-legal-code"],
+   "verbatim": "calculated to destroy encomienda utterly within a generation",
+   "source": "Gibson",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit E + L/L′ — Reform laws, Vitoria WHOLE, enforcement collapse, Valladolid ✅ (the referee's sharpest beat)"
+  },
+  {
+   "claim": "Francisco de Vitoria's De Indis argued Indians were genuinely rational beings, writing 'these are men' (sunt illi homines) and affirming they held lawful ownership of their property.",
+   "topics": ["religious-legal-authority", "legal-justification-doctrine"],
+   "verbatim": "these are men (*sunt illi homines*)",
+   "source": "Vitoria, De Indis [raw-confirmed in Pagden 4f62ae8e]",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit E + L/L′ — Reform laws, Vitoria WHOLE, enforcement collapse, Valladolid ✅ (the referee's sharpest beat)"
+  },
+  {
+   "claim": "The same Vitoria treatise that affirmed Indians' rational personhood also supplied a 'just titles' argument re-authorizing conquest, holding that Indians were refusing to be loved and hence violating the law of nature.",
+   "topics": ["religious-legal-authority", "legal-justification-doctrine"],
+   "verbatim": "refusing to be loved and hence violating the law of nature",
+   "source": "Vitoria, De Indis",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit E + L/L′ — Reform laws, Vitoria WHOLE, enforcement collapse, Valladolid ✅ (the referee's sharpest beat)"
+  },
+  {
+   "claim": "Vitoria also argued Indians' poor and barbarous education had left them unable to create civil societies, within the same treatise that founded modern human-rights theory.",
+   "topics": ["religious-legal-authority", "legal-justification-doctrine"],
+   "verbatim": "poor and barbarous education",
+   "source": "Vitoria, De Indis",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit E + L/L′ — Reform laws, Vitoria WHOLE, enforcement collapse, Valladolid ✅ (the referee's sharpest beat)"
+  },
+  {
+   "claim": "Juan Ginés de Sepúlveda, often strawmanned as calling Indians subhuman beasts, actually wrote that they were 'not bears or monkeys, wholly lacking in reason.'",
+   "topics": ["legal-justification-doctrine", "historiographical-revision"],
+   "verbatim": "not bears or monkeys, wholly lacking in reason",
+   "source": "Sepúlveda, Democrates [Pagden 4f62ae8e]",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit E + L/L′ — Reform laws, Vitoria WHOLE, enforcement collapse, Valladolid ✅ (the referee's sharpest beat)"
+  },
+  {
+   "claim": "Sepúlveda nonetheless called Indians 'homunculi in whom hardly a vestige of humanity remains,' showing his actual position was harsher than a simple 'not subhuman' defense implies.",
+   "topics": ["legal-justification-doctrine", "historiographical-revision"],
+   "verbatim": "homunculi in whom hardly a vestige of humanity remains",
+   "source": "Sepúlveda, Democrates [Pagden 4f62ae8e]",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit E + L/L′ — Reform laws, Vitoria WHOLE, enforcement collapse, Valladolid ✅ (the referee's sharpest beat)"
+  },
+  {
+   "claim": "Sepúlveda compared Indian rational faculties to those of bees and spiders.",
+   "topics": ["legal-justification-doctrine", "historiographical-revision"],
+   "verbatim": "bees and spiders",
+   "source": "Sepúlveda, Democrates [Pagden 4f62ae8e]",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit E + L/L′ — Reform laws, Vitoria WHOLE, enforcement collapse, Valladolid ✅ (the referee's sharpest beat)"
+  },
+  {
+   "claim": "When Spain tried to enforce the 1542 New Laws in Peru, colonist Gonzalo Pizarro rebelled and Viceroy Núñez Vela was captured and properly beheaded in 1546.",
+   "topics": ["colonial-legal-code"],
+   "verbatim": "had him properly beheaded",
+   "source": "Garcilaso",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit E + L/L′ — Reform laws, Vitoria WHOLE, enforcement collapse, Valladolid ✅ (the referee's sharpest beat)"
+  },
+  {
+   "claim": "Spain's protective New Laws were formally repealed on October 20, 1545, reportedly after colonists offered a generous bribe.",
+   "topics": ["colonial-legal-code"],
+   "verbatim": "persuaded by a generous bribe from the colonists",
+   "source": "Clayton",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit E + L/L′ — Reform laws, Vitoria WHOLE, enforcement collapse, Valladolid ✅ (the referee's sharpest beat)"
+  },
+  {
+   "claim": "Colonial officials' standard response to royal laws they disagreed with was 'I obey but I do not comply,' formally acknowledging royal authority while refusing to enforce it.",
+   "topics": ["colonial-legal-code"],
+   "verbatim": "I obey but I do not comply",
+   "source": "Gibson + Cole",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit E + L/L′ — Reform laws, Vitoria WHOLE, enforcement collapse, Valladolid ✅ (the referee's sharpest beat)"
+  },
+  {
+   "claim": "The 1550-51 Valladolid debate over the justice of the conquest ended without a verdict — the judges never passed sentence.",
+   "topics": ["arbitration-and-adjudication", "colonial-legal-code"],
+   "verbatim": "the judges never passed sentence",
+   "source": "Valladolid 1550-51 record",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit E + L/L′ — Reform laws, Vitoria WHOLE, enforcement collapse, Valladolid ✅ (the referee's sharpest beat)"
+  },
+  {
+   "claim": "The question of perpetual encomienda inheritance raised at Valladolid was ultimately decided not by scholarly argument but by a cash offer from Andean indigenous elites that outbid the Spanish settlers.",
+   "topics": ["arbitration-and-adjudication", "colonial-legal-code"],
+   "verbatim": "not through scholarly arguments but through a very generous offer in cash by the party of the Indians [Andean elites], which outbid the settlers",
+   "source": "Valladolid record",
+   "status": "verified",
+   "anchor": "ACT 3 · Exhibit E + L/L′ — Reform laws, Vitoria WHOLE, enforcement collapse, Valladolid ✅ (the referee's sharpest beat)"
+  },
+  {
+   "claim": "One historian treats the Valladolid debate as a rare anomaly of imperial self-scrutiny, unlike anything other European colonial powers attempted.",
+   "topics": ["historiographical-revision", "scholarly-disagreement"],
+   "verbatim": null,
+   "source": "Hanke (1949)",
+   "status": "partial",
+   "anchor": "ACT 3 · Exhibit E + L/L′ — Reform laws, Vitoria WHOLE, enforcement collapse, Valladolid ✅ (the referee's sharpest beat)"
+  },
+  {
+   "claim": "A different historian argues the Valladolid debate ultimately served to legitimize colonial authority rather than restrain it.",
+   "topics": ["historiographical-revision", "scholarly-disagreement"],
+   "verbatim": "served to legitimize colonial authority",
+   "source": "Castro (2007)",
+   "status": "partial",
+   "anchor": "ACT 3 · Exhibit E + L/L′ — Reform laws, Vitoria WHOLE, enforcement collapse, Valladolid ✅ (the referee's sharpest beat)"
+  },
+  {
+   "claim": "The Third Council of Lima (1583-85) declared Andean khipu recording devices to be idolatrous objects and ordered them destroyed.",
+   "topics": ["evidence-destruction", "colonial-legal-code"],
+   "verbatim": "khipus were declared to be idolatrous objects, and ordered to be destroyed",
+   "source": "Urton [src 8ebd4445]",
+   "status": "verified",
+   "anchor": "ACT 4 · Exhibit D — Khipu: an outlawed information system ⚠️ (criminalized, not erased) — SIGNATURE WHITESPACE"
+  },
+  {
+   "claim": "After being criminalized, khipu use became more clandestine but persisted for over a century, with the practice surviving today in Tupicocha, Peru.",
+   "topics": ["evidence-destruction", "archival-silence"],
+   "verbatim": "khipu use became more clandestine",
+   "source": "Urton [src 8ebd4445]",
+   "status": "partial",
+   "anchor": "ACT 4 · Exhibit D — Khipu: an outlawed information system ⚠️ (criminalized, not erased) — SIGNATURE WHITESPACE"
+  },
+  {
+   "claim": "The Spanish treasury ledger recording the 1577 looting of the Huaca Toledo tomb was formally titled a 'Libro de Quintos' documenting what was extracted from the Huaca de Toledo.",
+   "topics": ["resource-extraction-economy", "document-provenance"],
+   "verbatim": "LIBRO DE QUINTOS DE LA TESORERIA… REFERENTES A LO QUE SE SACO DE LA HUACA DE TOLEDO",
+   "source": "treasury ledger [src caee4afa, Zevallos]",
+   "status": "verified",
+   "anchor": "ACT 4 · Exhibit M — Huaca Toledo: the state taxed the dead ✅ PINNED · [P] ledger on screen"
+  },
+  {
+   "claim": "Spain formally taxed the looting of an indigenous royal tomb, recording 708 pesos as the Crown's royal fifth from a single gold bar taken in 1577.",
+   "topics": ["resource-extraction-economy", "colonial-legal-code"],
+   "verbatim": "708 pesos del quinto real",
+   "source": "treasury ledger [src caee4afa, Zevallos]",
+   "status": "verified",
+   "anchor": "ACT 4 · Exhibit M — Huaca Toledo: the state taxed the dead ✅ PINNED · [P] ledger on screen"
+  },
+  {
+   "claim": "The licensed company that looted the Huaca Toledo tomb included an indigenous cacique, Antonio Chayhuac, descended from the buried dynasty, along with his 41 indigenous vassals.",
+   "topics": ["resource-extraction-economy"],
+   "verbatim": "sus 41 indios vasallos",
+   "source": "Zevallos",
+   "status": "verified",
+   "anchor": "ACT 4 · Exhibit M — Huaca Toledo: the state taxed the dead ✅ PINNED · [P] ledger on screen"
+  },
+  {
+   "claim": "The widely cited monetary value looted from the Huaca Toledo tomb traces to a nineteenth-century error by Rivero and Tschudi, the same inflation mechanism later found in Black Legend death-toll figures.",
+   "topics": ["historiographical-revision", "casualty-estimate-methodology"],
+   "verbatim": "Rivero/Tschudi's 2.1M pesos, a 19th-c error",
+   "source": "Zevallos",
+   "status": "verified",
+   "anchor": "ACT 4 · Exhibit M — Huaca Toledo: the state taxed the dead ✅ PINNED · [P] ledger on screen"
+  },
+  {
+   "claim": "Eduardo Galeano's Open Veins of Latin America claimed eight million indigenous corpses resulted from Potosí's silver mining.",
+   "topics": ["casualty-estimate-methodology", "atrocity-propaganda"],
+   "verbatim": "ocho millones de cadáveres de indios",
+   "source": "Galeano, Open Veins, p.51 [src f3282e26]",
+   "status": "partial",
+   "anchor": "ACT 4 · Exhibit G/G′ — Potosí / silver: the legend inflates its own star exhibit ⚠️ MAJOR CORRECTION"
+  },
+  {
+   "claim": "Galeano attributed his eight-million death figure to nineteenth-century writer Josiah Conder rather than to primary colonial-era records.",
+   "topics": ["casualty-estimate-methodology", "historiographical-revision"],
+   "verbatim": "según **Josiah Conder**, ocho millones de vidas",
+   "source": "Galeano, Open Veins, p.59",
+   "status": "partial",
+   "anchor": "ACT 4 · Exhibit G/G′ — Potosí / silver: the legend inflates its own star exhibit ⚠️ MAJOR CORRECTION"
+  },
+  {
+   "claim": "Galeano described the Potosí mita labor system as a 'machine for grinding up Indians.'",
+   "topics": ["forced-labour-systems", "atrocity-propaganda"],
+   "verbatim": "máquina de triturar indios",
+   "source": "Galeano, Open Veins, p.61",
+   "status": "partial",
+   "anchor": "ACT 4 · Exhibit G/G′ — Potosí / silver: the legend inflates its own star exhibit ⚠️ MAJOR CORRECTION"
+  },
+  {
+   "claim": "A historian called Galeano's eight-million Potosí death toll 'all but impossible to imagine.'",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": "eight million… all but impossible to imagine",
+   "source": "Lane",
+   "status": "partial",
+   "anchor": "ACT 4 · Exhibit G/G′ — Potosí / silver: the legend inflates its own star exhibit ⚠️ MAJOR CORRECTION"
+  },
+  {
+   "claim": "A specialist historian estimated actual Potosí mining deaths at a few hundred per year rather than thousands, well below 'Black Legend' scale.",
+   "topics": ["casualty-estimate-methodology", "forced-labour-systems"],
+   "verbatim": "a few hundreds yearly… rather than thousands",
+   "source": "Bakewell",
+   "status": "partial",
+   "anchor": "ACT 4 · Exhibit G/G′ — Potosí / silver: the legend inflates its own star exhibit ⚠️ MAJOR CORRECTION"
+  },
+  {
+   "claim": "A 1677-81 investigation found that death in the Potosí mines was not a significant cause of mortality.",
+   "topics": ["casualty-estimate-methodology", "forced-labour-systems"],
+   "verbatim": "death in the mines was not a significant cause of mortality.",
+   "source": "Cole",
+   "status": "partial",
+   "anchor": "ACT 4 · Exhibit G/G′ — Potosí / silver: the legend inflates its own star exhibit ⚠️ MAJOR CORRECTION"
+  },
+  {
+   "claim": "Manila's founding in 1571 created the first permanent trade link between the Americas and Asia, with New World silver flowing through Spain to China.",
+   "topics": ["resource-extraction-economy"],
+   "verbatim": "Manila 1571 = first permanent America–Asia link",
+   "source": "Flynn & Giráldez [src 478c9aeb]",
+   "status": "verified",
+   "anchor": "ACT 4 · Exhibit G/G′ — Potosí / silver: the legend inflates its own star exhibit ⚠️ MAJOR CORRECTION"
+  },
+  {
+   "claim": "One economic historian argued Spain's own cloth industry was pinched off by the price inflation caused by New World silver, a resource-curse effect on Spain's own economy.",
+   "topics": ["resource-extraction-economy"],
+   "verbatim": "Spain's own cloth industry pinched off by price inflation",
+   "source": "Lane",
+   "status": "verified",
+   "anchor": "ACT 4 · Exhibit G/G′ — Potosí / silver: the legend inflates its own star exhibit ⚠️ MAJOR CORRECTION"
+  },
+  {
+   "claim": "A 1656 English edition of Las Casas escalated his death-toll figures for the conquest to 'above Fifty millions.'",
+   "topics": ["casualty-estimate-methodology", "atrocity-propaganda"],
+   "verbatim": "above Fifty millions",
+   "source": "1656 English edition of Las Casas",
+   "status": "partial",
+   "anchor": "ACT 5 · Exhibit C — Las Casas: liar or witness? (a 5-camp spectrum, not a verdict) ⚠️ GENUINELY CONTESTED"
+  },
+  {
+   "claim": "Las Casas's own writings gave varying death-toll figures for the conquest, including 'more than twelve million' in one passage.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": "more than twelve million",
+   "source": "Las Casas",
+   "status": "partial",
+   "anchor": "ACT 5 · Exhibit C — Las Casas: liar or witness? (a 5-camp spectrum, not a verdict) ⚠️ GENUINELY CONTESTED"
+  },
+  {
+   "claim": "Historians split sharply on Las Casas's reliability; one scholar called his death-toll reporting 'remarkably accurate… even underestimates.'",
+   "topics": ["casualty-estimate-methodology", "scholarly-disagreement"],
+   "verbatim": "remarkably accurate… even underestimates",
+   "source": "Keen",
+   "status": "partial",
+   "anchor": "ACT 5 · Exhibit C — Las Casas: liar or witness? (a 5-camp spectrum, not a verdict) ⚠️ GENUINELY CONTESTED"
+  },
+  {
+   "claim": "At the opposite extreme, one historian dismissed Las Casas's work entirely, saying it had 'no historical value at all.'",
+   "topics": ["casualty-estimate-methodology", "scholarly-disagreement"],
+   "verbatim": "no historical value at all",
+   "source": "Menéndez Pidal",
+   "status": "partial",
+   "anchor": "ACT 5 · Exhibit C — Las Casas: liar or witness? (a 5-camp spectrum, not a verdict) ⚠️ GENUINELY CONTESTED"
+  },
+  {
+   "claim": "A White Legend historian argues Las Casas's death tolls are physically impossible, since they would require each Spaniard to kill 'fourteen Indians a day.'",
+   "topics": ["casualty-estimate-methodology", "historiographical-revision"],
+   "verbatim": "fourteen Indians a day",
+   "source": "Roca Barea",
+   "status": "partial",
+   "anchor": "ACT 5 · Exhibit C — Las Casas: liar or witness? (a 5-camp spectrum, not a verdict) ⚠️ GENUINELY CONTESTED"
+  },
+  {
+   "claim": "One historian cautions that Las Casas himself remained an imperialist, warning against uncritically canonizing him as a purely sympathetic witness.",
+   "topics": ["historiographical-revision"],
+   "verbatim": null,
+   "source": "Castro [src 95e549c5]",
+   "status": "partial",
+   "anchor": "ACT 5 · Exhibit C — Las Casas: liar or witness? (a 5-camp spectrum, not a verdict) ⚠️ GENUINELY CONTESTED"
+  },
+  {
+   "claim": "De Bry used the same gory illustrative style across all his America volumes, including Virginia, Florida and Brazil, and his prefaces explicitly denied Spaniards were uniquely savage.",
+   "topics": ["propaganda-and-narrative-control", "atrocity-propaganda"],
+   "verbatim": "if we enjoyed the… license the Spaniards enjoyed… we would… be equal in savagery",
+   "source": "de Bry preface [srcs e3562639, 33d28dd9]",
+   "status": "partial",
+   "anchor": "ACT 5 · Exhibit B — de Bry: the weapon (effect real, intent contested) ⚠️"
+  },
+  {
+   "claim": "A historian argued nothing justifies calling de Bry's illustrated engravings 'a cynical arm of psychological warfare,' concluding the propaganda effect was real but the deliberate anti-Spanish intent was overstated.",
+   "topics": ["propaganda-and-narrative-control", "atrocity-propaganda"],
+   "verbatim": "a cynical arm of psychological warfare",
+   "source": "Keen",
+   "status": "partial",
+   "anchor": "ACT 5 · Exhibit B — de Bry: the weapon (effect real, intent contested) ⚠️"
+  },
+  {
+   "claim": "One historian noted Las Casas's original text was appropriated for purposes its author never intended, in conjunction with Theodor de Bry's engravings.",
+   "topics": ["propaganda-and-narrative-control", "atrocity-propaganda"],
+   "verbatim": "appropriated for purposes its author never intended… in conjunction with the engravings by Theodore de Bry.",
+   "source": "Gibson",
+   "status": "partial",
+   "anchor": "ACT 5 · Exhibit B — de Bry: the weapon (effect real, intent contested) ⚠️"
+  },
+  {
+   "claim": "Even the sharpest academic critic of the White Legend conceded the Black Legend was real, saying it existed and dominated the consciousness of many European countries from Philip II to Westphalia as one of Spain's enemies' weapons.",
+   "topics": ["atrocity-propaganda", "historiographical-revision"],
+   "verbatim": "La leyenda negra existió y dominó la conciencia de muchos países europeos desde… Felipe II hasta… Westfalia… fue una de las armas de los enemigos.",
+   "source": "Villacañas",
+   "status": "partial",
+   "anchor": "ACT 5 CAPSTONE · Exhibit O — Villacañas lands the gray ✅ (anchored)"
+  },
+  {
+   "claim": "In 2019, Mexico's president sent a letter to Spain's King Felipe VI and the Pope demanding an apology for the conquest.",
+   "topics": ["historiographical-revision", "atrocity-propaganda"],
+   "verbatim": null,
+   "source": "Phase-1 web: CNN, Al Jazeera",
+   "status": "partial",
+   "anchor": "CLOSE · Exhibit I — The war is still live ✅ (modern, current-events)"
+  },
+  {
+   "claim": "Spain's foreign minister firmly rejected Mexico's 2019 demand for an apology over the conquest.",
+   "topics": ["historiographical-revision"],
+   "verbatim": "firmly rejects",
+   "source": "Borrell, Phase-1 web: CNN, Al Jazeera",
+   "status": "partial",
+   "anchor": "CLOSE · Exhibit I — The war is still live ✅ (modern, current-events)"
+  }
+ ]
+}

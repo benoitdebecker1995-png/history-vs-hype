@@ -26,7 +26,7 @@ The user runs **History vs Hype**, a YouTube channel focused on evidence-based m
 - Community alternative `zubeid-youtube-mcp-server` has dependency bugs
 - Need alternative approach for pulling YouTube data
 
-**API Key (Still Valid):** AIzaSyAE8B9kDhMpv6D7pOcLUOhweFeAeqSMJBE
+**API Key:** [REDACTED — exposed Google API key removed 2026-07-23; rotate/revoke in Google Cloud Console → APIs & Services → Credentials]
 
 ### Alternative Approaches
 

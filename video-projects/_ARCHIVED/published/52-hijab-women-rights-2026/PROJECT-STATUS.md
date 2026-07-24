@@ -1,9 +1,9 @@
 <!-- AUTO:reconcile — do not edit manually, regenerated each run -->
-Status: FILMED
+Status: PUBLISHED
 Lifecycle: _ARCHIVED/published
 Video ID: mCR5f_ZcB5k
 Published: 2026-05-20
-Last reconciled: 2026-05-27
+Last reconciled: 2026-06-26
 <!-- /AUTO:reconcile -->
 
 # Project Status — #52 Hijab

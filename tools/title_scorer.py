@@ -66,6 +66,25 @@ v5 recalibration (2026-06-10) — PACKAGING_MANDATE re-tier + Fable Phase 1 spec
 
     C4 — Version bump to v5; changelog block added.
 
+v6 recalibration (2026-06-27) — FIRST run against COMPLETE per-video CTR (all 56 videos,
+    real Studio impressions+CTR ingested into analytics.db; prior calibrations rested on a
+    partial 2026-02-23 snapshot, n=33). Ref: channel-data/CTR-TITLE-FORMULA-2026-06.md +
+    FLOP-AUTOPSY-PLAN-2026-06.md.
+
+    Findings that CHANGED the model (median CTR delta, present vs absent):
+      - FAMOUS subject = the one ROBUST driver: +0.87 (n=31), and it survives stratification
+        (within colon=Y AND colon=N). → recognition set broadened to famous events/topics
+        (HEAD_TERMS above), not just countries/people.
+      - Validated existing bonuses: evidence_promise +1.02 (n=8), controversy_frame +0.68
+        (n=17). KEPT as-is.
+      - colon's apparent +1.15 is CONFOUNDED by fame — within non-famous titles colon is flat
+        (2.23 vs 2.33). The v5 colon de-penalization stands; do NOT add a colon bonus.
+      - Over-claims from a 12-extreme pre-analysis that DID NOT generalize and were NOT wired
+        in: "visceral predicate" (+0.08) and "abstraction penalty" (+0.10) — both ~zero on
+        full data. Deliberately omitted.
+    Caveat: n modest, deltas small, fame/topic/title confounded. Scorer is a FILTER; learn
+    weights via single-variable native A/B (see feedback-filters-not-predictors).
+
 Usage:
     python -m tools.title_scorer "Your Title Here"
     python -m tools.title_scorer "Title A" "Title B" "Title C"
@@ -79,6 +98,19 @@ import re
 import sys
 from pathlib import Path
 from typing import Optional
+
+# Canonical title-structure logic lives in tools.title_features (ADR-0009).
+# `detect_pattern` is re-exported here for backward compat — external callers
+# (ctr_quick_add, packaging_autopilot, title_ctr_store) import it from this module.
+from tools.title_features import (  # noqa: F401
+    pattern as detect_pattern,
+    has_year,
+    has_specific_number,
+    has_active_verb,
+    has_evidence_promise,
+    has_named_entity,
+    has_controversy_frame,
+)
 
 
 # =============================================================================
@@ -142,6 +174,20 @@ HEAD_TERMS = {
     'Churchill', 'Columbus', 'Cromwell', 'Fuentes', 'Hancock', 'Hitler',
     'Lenin', 'Lincoln', 'Machiavelli', 'Mao', 'Marx', 'Napoleon', 'Petain',
     'Putin', 'Saladin', 'Stalin', 'Trump', 'Vance',
+    # Current high-search world figures (added 2026-07-01 — the recognizer false-FAILed
+    # #62's "Zelensky ..." title, which genuinely leads with a famous searchable parent).
+    'Zelensky', 'Zelenskyy', 'Netanyahu', 'Bandera', 'Erdogan', 'Modi', 'Biden',
+    # Famous events / topics / movements (2026-06-27 recalibration — see header note).
+    # Fame is the one robust title CTR driver (+0.87% median, n=31, survives stratification
+    # by colon). Recognition was previously countries+people only; famous *topics* a general
+    # audience reacts to are anchors too, so they earn SEARCH_ANCHOR_BONUS.
+    'Crusades', 'Crusade', 'Inquisition', 'Holocaust', 'Cold War', 'Flat Earth',
+    'Atlantis', 'Vikings', 'Viking', 'Nazi', 'Nazis', 'Apartheid', 'Genocide',
+    'Reformation', 'Renaissance', 'Dark Ages', 'Roman Empire', 'Ottoman',
+    'Templars', 'Pharaoh', 'Aztec', 'Maya', 'Samurai', 'Mongol', 'Mongols',
+    # Charged cultural/religious anchors a general audience reacts to + searches (fame driver).
+    'Hijab', 'Veil', 'Islam', 'Islamic', 'Sharia', 'Quran', 'Bible', 'Vatican',
+    'Slavery', 'Slave Trade',
 }
 
 # Unified tone signals dict — positive (active verbs) and negative (clickbait)
@@ -173,6 +219,19 @@ def compute_tone_score(title: str) -> int:
         if pattern.lower() in t:
             score -= 10
     return score
+
+
+def detect_clickbait(title: str) -> list[str]:
+    """Return the clickbait tone patterns present in a title (case-insensitive).
+
+    This is the BRAND GATE: any hit makes score_title reject the title (grade REJECTED),
+    regardless of composite score. Style hedges (year/colon/the_x_that) are NOT clickbait —
+    they stay non-fatal style_warnings. Restored 2026-07-01: the gate was documented
+    ("hard_rejects populated by _apply_tone_filter") but that function never existed, so
+    hard_rejects was dead code and clickbait titles ("...SHOCKING") scored clean.
+    """
+    t = title.lower()
+    return [p for p in CLICKBAIT_PATTERNS if p.lower() in t]
 
 
 # =============================================================================
@@ -237,64 +296,6 @@ _SCALE_WORDS = {
 _OWN_CHANNEL_MIN_SAMPLE = 5
 
 
-def detect_pattern(title: str) -> str:
-    """Detect which title pattern this matches."""
-    t = title.lower()
-
-    # versus pattern: "X vs Y", "X versus Y"
-    if re.search(r'\bvs\.?\b|\bversus\b', t):
-        return 'versus'
-
-    # the_x_that pattern: "The [1-3 words] That [Verb]"
-    if re.search(r'^the\s+(?:\w+\s+){0,2}\w+\s+that\s+', t):
-        return 'the_x_that'
-
-    # colon pattern
-    if ':' in title:
-        return 'colon'
-
-    # question pattern
-    if title.strip().endswith('?'):
-        return 'question'
-
-    # how/why pattern
-    if re.search(r'^(how|why)\b', t):
-        return 'how_why'
-
-    return 'declarative'
-
-
-def has_year(title: str) -> bool:
-    """Check if title contains a 4-digit year."""
-    return bool(re.search(r'\b(1[0-9]{3}|20[0-2][0-9])\b', title))
-
-
-def has_specific_number(title: str) -> bool:
-    """Check for specific numbers (not years) that create real specificity.
-
-    v4: Exclude duration-as-adjective patterns like "200-Year-Old" or "500-Year"
-    which don't create the same specificity as "5 Myths" or "122 Years of French Extraction".
-    Duration adjectives are vague scale markers, not concrete data points.
-    """
-    # Remove years first
-    no_years = re.sub(r'\b(1[0-9]{3}|20[0-2][0-9])\b', '', title)
-    # Remove duration-as-adjective patterns (e.g., "200-Year-Old", "500-Year Lie")
-    no_duration_adj = re.sub(r'\b\d+-[Yy]ear-?\w*', '', no_years)
-    return bool(re.search(r'\b\d+\b', no_duration_adj))
-
-
-def has_active_verb(title: str) -> bool:
-    """Check for strong active verbs."""
-    active_verbs = [
-        'destroyed', 'erased', 'redrew', 'deleted', 'stole', 'conquered',
-        'invaded', 'betrayed', 'exposed', 'revealed', 'weaponized', 'carved',
-        'divided', 'partitioned', 'annexed', 'ruled', 'fought', 'claimed',
-        'debunked', 'proved', 'disproved', 'lied', 'fabricated',
-    ]
-    t = title.lower()
-    return any(v in t for v in active_verbs)
-
-
 def _year_is_hook(title: str) -> bool:
     """
     Detect if the year in the title serves as a hook/specificity rather than topic label.
@@ -334,61 +335,6 @@ def _colon_is_versus_stakes(title: str) -> bool:
         return False
     before_colon = title[:colon_pos].lower()
     return bool(re.search(r'\bvs\.?\b|\bversus\b', before_colon))
-
-
-def has_evidence_promise(title: str) -> bool:
-    """
-    Detect evidence/proof promise language — strongest CTR signal on this channel.
-
-    Top CTR titles: "Here's the Evidence" (9.5%), "Here's Who Did It" (3.7%),
-    "The Documents Prove It", "Primary Sources Destroy".
-
-    The channel's competitive advantage is evidence. Titles that promise it click better.
-    """
-    t = title.lower()
-    evidence_phrases = [
-        "here's", "the evidence", "the proof", "the documents",
-        "documents prove", "documents show", "primary source",
-        "the receipt", "every receipt", "we found", "we read",
-        "the original", "the actual", "word for word",
-    ]
-    return any(p in t for p in evidence_phrases)
-
-
-def has_named_entity(title: str) -> bool:
-    """
-    Detect named countries, leaders, or orgs that create specificity.
-
-    Titles with named entities get more impressions (YouTube knows who to show them to).
-    Top performers all name specific countries or political figures.
-    """
-    # Check for country/entity patterns (capitalized proper nouns typical of geo/political titles)
-    # Rather than maintain a huge list, detect patterns: "X vs Y" with caps, possessives, etc.
-    entity_signals = [
-        # Two+ capitalized words that aren't common English
-        r"\b(?:France|Spain|Portugal|Turkey|Greece|Iran|Venezuela|Guyana|"
-        r"Israel|Palestine|Russia|China|Morocco|Cyprus|Kashmir|Peru|"
-        r"Georgia|Haiti|Armenia|Kosovo|NATO|USSR|CIA|KGB|UN|EU|"
-        r"Trump|Vance|Stalin|Petain|Lagertha|Sykes|Picot)\b",
-    ]
-    return any(re.search(p, title) for p in entity_signals)
-
-
-def has_controversy_frame(title: str) -> bool:
-    """
-    Detect accusation/myth-busting framing that signals conflict/tension.
-
-    Top CTR: "Claims Christians Found Child Sacrifice" (9.5%), "Started With a Lie" (5.1%),
-    "Destroy the Narrative" (5.4%), "Weaponized Palestine" (5.5%).
-    """
-    t = title.lower()
-    controversy_words = [
-        'myth', 'lie', 'fake', 'hoax', 'claims', 'claim',
-        'debunk', 'destroy', 'narrative', 'propaganda',
-        'secret', 'hidden', 'nobody', 'sacrifice',
-        'walked back', 'phantom', 'illegal',
-    ]
-    return any(w in t for w in controversy_words)
 
 
 def has_search_anchor(title: str) -> tuple[bool, str]:
@@ -634,6 +580,14 @@ def score_title(title: str, db_path: str = None, topic_type: str = None, experim
     bonuses = []
     hard_rejects = []
     style_warnings = []  # v5: new key — style flags that are NOT fatal
+
+    # BRAND GATE (restored 2026-07-01): clickbait tone → hard reject. This is the ONLY
+    # surviving auto-reject (style rules are graded, non-fatal). Populates hard_rejects,
+    # which drives grade='REJECTED' below and is the packaging_lock clickbait filter.
+    clickbait_hits = detect_clickbait(title)
+    if clickbait_hits:
+        hard_rejects.append('Clickbait tone (off-brand for Calm Prosecutor voice): '
+                            + ', '.join(f'"{h}"' for h in clickbait_hits))
 
     # YEAR: Context-aware penalty (v4 recalibration, v5 rebalanced)
     # Year as hook ("Invented in 1828") = mild penalty. Year as label ("The 1494 Line") = warning.

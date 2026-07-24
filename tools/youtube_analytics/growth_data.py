@@ -32,13 +32,14 @@ from pathlib import Path
 from datetime import datetime, date, timezone, timedelta
 from typing import Dict, List, Any, Optional
 
+from tools.discovery.ctr_reads import latest_valid_ctr_by_video
 from tools.logging_config import get_logger
 from tools.youtube_analytics.auth import get_authenticated_service
 
 logger = get_logger(__name__)
 
 DB_PATH = Path(__file__).parent / 'analytics.db'
-CURRENT_SCHEMA_VERSION = 2
+CURRENT_SCHEMA_VERSION = 5
 MIN_DURATION_SECONDS = 180  # 3+ minutes = long-form
 
 # Pre-channel personal/test uploads (2014) that pass the long-form duration
@@ -139,6 +140,64 @@ CREATE TABLE IF NOT EXISTS subscribed_status (
 );
 """
 
+# /opener diagnostic: link each video's opener text to its first-30s retention.
+# Backfilled by tools.youtube_analytics.opener_retention. DIAGNOSTIC ONLY — per
+# memory/feedback-channel-data-too-small.md, per-archetype n is small, so this
+# never RANKS hook types; it only shows where our own openers have bled.
+SCHEMA_V3 = """
+CREATE TABLE IF NOT EXISTS opener_retention (
+    video_id TEXT PRIMARY KEY,
+    opener_text TEXT,                    -- verbatim narration, 0:00-0:30 (from SRT)
+    hook_archetype TEXT,                 -- classified via hook_scorer._detect_hook_style
+    first_30s_retention REAL,            -- audience_watch_ratio at ~30s (0..1+; 1.0 = 100%)
+    intro_drop_30s REAL,                 -- fraction of viewers lost from start to 30s
+    topic_type TEXT,                     -- territorial/ideological/colonial/explainer
+    published_at TEXT,
+    fetched_at TEXT NOT NULL
+);
+"""
+
+# v5: Studio CSV import tables. Lifetime/custom-range CTR from manual YouTube
+# Studio exports (the API can't pull it — videoThumbnailImpressionsClickRate is
+# "not supported" for this channel). Kept SEPARATE from videos.ctr_percent, which
+# is the rolling Reporting metric — they are different measurements and must not
+# be conflated. Each import is content-hashed for idempotency and carries an
+# explicit as-of date (never inferred from file mtime).
+SCHEMA_V5 = """
+CREATE TABLE IF NOT EXISTS studio_ctr_imports (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    source_sha256 TEXT UNIQUE NOT NULL,
+    source_filename TEXT NOT NULL,
+    exported_at TEXT NOT NULL,          -- the --as-of measurement date
+    imported_at TEXT NOT NULL,
+    window_kind TEXT NOT NULL,          -- lifetime | date_range
+    period_start TEXT,
+    period_end TEXT,
+    surface TEXT NOT NULL,              -- overall | browse | suggested | search | other
+    row_count INTEGER NOT NULL,
+    unmatched_count INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS studio_ctr_rows (
+    import_id INTEGER NOT NULL,
+    video_id TEXT NOT NULL,
+    video_title TEXT,
+    impressions INTEGER,
+    ctr_percent REAL,
+    PRIMARY KEY (import_id, video_id),
+    FOREIGN KEY (import_id) REFERENCES studio_ctr_imports(id)
+);
+"""
+
+# v4: freshness stamp for the keywords.db CTR bridge. CTR is copied from
+# keywords.db.ctr_snapshots (the Analytics API doesn't expose it for this
+# channel), so videos.ctr_percent is only as fresh as the last ctr_tracker run.
+# ctr_as_of records the snapshot_date each CTR came from, so a silent
+# ctr_tracker failure (which happened 2026-07-20) can't pass off a stale number
+# as current — consumers can read the age.
+SCHEMA_V4 = """
+ALTER TABLE videos ADD COLUMN ctr_as_of TEXT;
+"""
+
 
 def _get_db(db_path: Path = None) -> sqlite3.Connection:
     """Get database connection with row factory and WAL mode."""
@@ -156,6 +215,7 @@ def ensure_schema(conn: sqlite3.Connection) -> None:
     Migration ladder (idempotent):
       v0 -> v1: SCHEMA_V1 (videos, traffic_sources, daily_channel)
       v1 -> v2: SCHEMA_V2 (retention_curves, search_terms, subscribed_status)
+      v2 -> v3: SCHEMA_V3 (opener_retention)
     """
     current = conn.execute("PRAGMA user_version").fetchone()[0]
 
@@ -169,6 +229,15 @@ def ensure_schema(conn: sqlite3.Connection) -> None:
         if current < 2:
             conn.executescript(SCHEMA_V2)
             logger.info("Schema migrated to version 2 (retention_curves, search_terms, subscribed_status)")
+        if current < 3:
+            conn.executescript(SCHEMA_V3)
+            logger.info("Schema migrated to version 3 (opener_retention)")
+        if current < 4:
+            conn.executescript(SCHEMA_V4)
+            logger.info("Schema migrated to version 4 (videos.ctr_as_of freshness stamp)")
+        if current < 5:
+            conn.executescript(SCHEMA_V5)
+            logger.info("Schema migrated to version 5 (studio_ctr_imports/rows)")
         conn.execute(f"PRAGMA user_version = {CURRENT_SCHEMA_VERSION}")
         conn.commit()
     except sqlite3.Error as e:
@@ -438,6 +507,127 @@ def fetch_video_ctr_bulk(video_ids: Optional[List[str]] = None) -> Dict[str, Dic
 
     logger.info("Fetched CTR for %d / %d videos (per-video fallback)", len(result), len(video_ids))
     return result
+
+
+_KEYWORDS_DB = Path(__file__).resolve().parent.parent / 'discovery' / 'keywords.db'
+
+# CTR comes from ctr_snapshots, refreshed weekly (HvH-CtrTracker, Mon). More
+# than one full cycle without a new snapshot means the source pipeline stalled
+# — as it did 2026-07-20, when the tracker failed and the newest snapshot sat
+# at 2026-07-13 for ten days. Past this bound the bridge WARNS loudly rather
+# than copying a stale number as if it were current.
+CTR_STALE_AFTER_DAYS = 8
+
+
+def fetch_ctr_from_snapshots(video_ids: List[str],
+                             keywords_db: Path = None) -> Dict[str, Dict]:
+    """
+    Fallback CTR source: latest ctr_snapshots row per video from keywords.db.
+
+    The Analytics API does not expose `videoThumbnailImpressions` for this
+    channel (see fetch_video_ctr_bulk), so `ctr_tracker` pulls reach from the
+    Reporting API into keywords.db.ctr_snapshots. That data never reached
+    analytics.db.videos — nothing bridged the two DBs — so every consumer of
+    videos.ctr_percent read zero. This is that bridge.
+
+    ⚠ The metric is ROLLING ~30-DAY CTR/impressions, NOT lifetime — ctr_tracker
+    aggregates only the 30 most recent daily reach reports (ctr_tracker.py:214).
+    It moves as the window slides, so consumers must not treat it as a stable
+    lifetime figure.
+
+    Selects the most recent snapshot per video WITH impressions. A genuine
+    0.00% CTR on real impressions is kept — filtering on ctr_percent>0 would
+    silently drop a video whose latest reading is a real zero and substitute
+    an older non-zero one, which is the wrong number. Ties on snapshot_date are
+    broken by MAX(id) so the choice is deterministic (the table permits multiple
+    rows per video/date).
+
+    Each entry carries `ctr_as_of` (the snapshot_date it came from) so the
+    freshness is inspectable downstream, and the function logs a WARNING when
+    ANY served video's snapshot is older than CTR_STALE_AFTER_DAYS — the failure
+    mode that otherwise lets a dead ctr_tracker feed stale CTR in silently.
+
+    Returns {video_id: {impressions, ctr_percent, ctr_as_of}} — a superset of
+    the shape fetch_video_ctr_bulk returns, so store_videos consumes it unchanged.
+    """
+    db = keywords_db or _KEYWORDS_DB
+    if not db.exists():
+        logger.warning("keywords.db not found at %s — no CTR fallback", db)
+        return {}
+
+    # Canonical valid-latest read (is_valid=1, one row per video, tie-break by
+    # id). require_impressions (not require_ctr): a genuine 0.00% CTR on real
+    # impressions is a real reading and must be kept. This is the origin query of
+    # the shared seam — see tools/discovery/ctr_reads.py / ADR-0017.
+    conn = sqlite3.connect(str(db))
+    try:
+        latest = latest_valid_ctr_by_video(conn, require_impressions=True)
+    finally:
+        conn.close()
+
+    wanted = set(video_ids)
+    out: Dict[str, Dict] = {}
+    for vid, rec in latest.items():
+        if vid in wanted:
+            out[vid] = {'impressions': int(rec['impression_count']),
+                        'ctr_percent': float(rec['ctr_percent']),
+                        'ctr_as_of': rec['snapshot_date']}
+    logger.info("CTR snapshot fallback filled %d / %d videos", len(out), len(video_ids))
+
+    _warn_if_stale(out)
+    return out
+
+
+def _warn_if_stale(ctr: Dict[str, Dict]) -> Optional[int]:
+    """Log loudly if ANY served video's snapshot is older than the bound.
+
+    Per-video, not set-wide: a set can be 57 videos fresh from today and one
+    from months ago (a video that fell out of the 30-day impression window), and
+    checking only the newest date would call the whole set fresh and hide it.
+
+    Returns the MAX per-video staleness in days (None if no data), so callers and
+    tests can assert on it instead of scraping logs.
+    """
+    ages = []
+    for vid, d in ctr.items():
+        as_of = d.get('ctr_as_of')
+        if not as_of:
+            continue
+        try:
+            ages.append((vid, (date.today() - date.fromisoformat(as_of)).days, as_of))
+        except ValueError:
+            continue
+    if not ages:
+        return None
+    stale = [(v, a, s) for v, a, s in ages if a > CTR_STALE_AFTER_DAYS]
+    if stale:
+        oldest_v, oldest_age, oldest_date = max(stale, key=lambda t: t[1])
+        logger.warning(
+            "CTR STALE: %d of %d videos served from a snapshot older than %d "
+            "days (oldest: %s at %s, %d days). Likely a failed HvH-CtrTracker "
+            "run — check the tracker before trusting these videos' CTR.",
+            len(stale), len(ages), CTR_STALE_AFTER_DAYS,
+            oldest_v, oldest_date, oldest_age,
+        )
+    return max(a for _, a, _ in ages)
+
+
+def merge_ctr_with_snapshot_fallback(ctr_data: Dict[str, Dict],
+                                     video_ids: List[str],
+                                     keywords_db: Path = None) -> Dict[str, Dict]:
+    """Fill any video the API path left empty from the keywords.db snapshots.
+
+    API results win where present (live Analytics if it ever starts working);
+    snapshots fill the rest. Today the API returns {} for this channel, so
+    every video is filled from snapshots.
+    """
+    missing = [v for v in video_ids if v not in ctr_data]
+    if not missing:
+        return ctr_data
+    fallback = fetch_ctr_from_snapshots(missing, keywords_db)
+    merged = dict(ctr_data)
+    merged.update(fallback)
+    return merged
 
 
 # =========================================================================
@@ -792,17 +982,22 @@ def store_videos(videos: List[Dict],
                 duration_seconds=v['duration_seconds'],
                 fetched_at=now,
                 tags=v['tags'],
-                views=m.get('views', 0),
-                watch_time_minutes=m.get('watch_time_minutes', 0),
-                avg_view_duration_seconds=m.get('avg_view_duration_seconds', 0),
-                avg_view_percentage=m.get('avg_view_percentage', 0),
-                likes=m.get('likes', 0),
-                comments=m.get('comments', 0),
-                shares=m.get('shares', 0),
-                subscribers_gained=m.get('subscribers_gained', 0),
+                # None (not 0) when a metric is absent — the video was omitted
+                # from the fetch (per-video query failed / no rows). upsert_video
+                # COALESCEs None to keep last-known-good; a genuine 0 is present
+                # in `m` and passes through. See ADR-0004 / audit finding B.
+                views=m.get('views'),
+                watch_time_minutes=m.get('watch_time_minutes'),
+                avg_view_duration_seconds=m.get('avg_view_duration_seconds'),
+                avg_view_percentage=m.get('avg_view_percentage'),
+                likes=m.get('likes'),
+                comments=m.get('comments'),
+                shares=m.get('shares'),
+                subscribers_gained=m.get('subscribers_gained'),
                 # subscribers_lost not available per-video — VideoRow default 0
                 impressions=c.get('impressions'),
                 ctr_percent=c.get('ctr_percent'),
+                ctr_as_of=c.get('ctr_as_of'),
                 topic_type=topic,
                 metrics_fetched_at=now if m else None,
             ))
@@ -917,11 +1112,16 @@ def run_backfill(db_path: Path = None, refresh: bool = False,
         logger.info("Step 2: Fetching per-video metrics from Analytics API (%d videos)", len(longform_ids))
         metrics = fetch_video_metrics_bulk(longform_ids)
 
-        # Step 3: Fetch CTR in bulk
+        # Step 3: Fetch CTR in bulk (Analytics API), then fill gaps from the
+        # keywords.db reach snapshots — the API doesn't expose CTR for this
+        # channel, so without the fallback videos.ctr_percent stays NULL.
         logger.info("Step 3: Fetching CTR data from Analytics API")
         ctr_data = fetch_video_ctr_bulk(longform_ids)
+        ctr_data = merge_ctr_with_snapshot_fallback(ctr_data, longform_ids)
+        logger.info("Step 3b: CTR resolved for %d / %d videos", len(ctr_data), len(longform_ids))
 
-        # Step 4: Store videos + metrics
+        # Step 4: Store videos + metrics (CTR + ctr_as_of written atomically in
+        # the same upsert; see store.VideoRow / COALESCE guard)
         logger.info("Step 4: Storing videos and metrics")
         results['videos_stored'] = store_videos(videos, metrics, ctr_data)
 

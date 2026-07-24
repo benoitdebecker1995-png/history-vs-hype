@@ -183,12 +183,10 @@ def extract_keywords_from_metadata(text: str) -> list[str]:
 
 def active_projects(overrides: dict) -> list[dict]:
     projects = []
-    if not PRODUCTION_DIR.exists():
-        return projects
-    for project_dir in PRODUCTION_DIR.iterdir():
-        if not project_dir.is_dir():
-            continue
-        slug = project_dir.name
+    from tools.video_projects import Stage, VideoProjectRepo
+    for _proj in VideoProjectRepo().in_stage(Stage.IN_PRODUCTION):
+        project_dir = _proj.path
+        slug = _proj.slug
         if slug in overrides:
             keywords = [k.lower() for k in overrides[slug]]
         else:

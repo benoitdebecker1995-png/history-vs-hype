@@ -94,16 +94,11 @@ Run. This is another tremendously long sentence with lots and lots and lots of w
 
     @requires_nlp
     def test_sentence_variance_single_sentence(self):
-        """Multi-section script with single sentence in first section should return variance = 0.0"""
-        # Updated: added second section so all_sections is populated (not SKIPPED)
+        """Single sentence should return variance = 0.0 (single headed section is analyzed)"""
         text = """
 ## Test Section
 
 This is a single sentence.
-
-## Second Section
-
-This is the second section with some additional text to make analysis work.
 """
         result = self.checker.check(text)
         section = result['all_sections'][0]
@@ -146,15 +141,10 @@ Notwithstanding the aforementioned considerations regarding the multifaceted imp
     @requires_nlp
     def test_flesch_delta_first_section(self):
         """First section should have delta = 0"""
-        # Updated: added second section so all_sections is populated (not SKIPPED)
         text = """
 ## First Section
 
 This is the first section with some text.
-
-## Second Section
-
-This is additional content that makes the checker work across sections.
 """
         result = self.checker.check(text)
         section = result['all_sections'][0]
@@ -198,14 +188,10 @@ Foreign Minister Baerbock discussed with Prime Minister Trudeau and Chancellor S
     @requires_nlp
     def test_entity_density_empty_text(self):
         """Empty string should return density = 0.0"""
-        # Updated: added second section so all_sections is populated (not SKIPPED)
         text = """
 ## Empty Section
 
 
-## Second Section
-
-Some additional content here to avoid SKIPPED verdict.
 """
         result = self.checker.check(text)
         section = result['all_sections'][0]
@@ -216,15 +202,10 @@ Some additional content here to avoid SKIPPED verdict.
     @requires_nlp
     def test_composite_score_perfect(self):
         """All metrics below thresholds should return score = 100"""
-        # Updated: added second section so all_sections is populated (not SKIPPED)
         text = """
 ## Test Section
 
 The cat sat on the mat. The dog ran in the park. The bird flew over the tree. Simple and consistent sentences with normal word usage throughout.
-
-## Second Section
-
-The fish swam in the pond. The horse ran in the field. The rabbit hopped through the garden. Simple and consistent throughout.
 """
         result = self.checker.check(text)
         section = result['all_sections'][0]
@@ -251,15 +232,10 @@ Notwithstanding the aforementioned considerations regarding the multifaceted imp
     @requires_nlp
     def test_composite_score_floor(self):
         """All metrics very bad should not go below 0"""
-        # Updated: added second section so all_sections is populated (not SKIPPED)
         text = """
 ## Test Section
 
 W. This extremely long sentence with excessive length creates massive variance while simultaneously incorporating numerous proper nouns like President Biden Prime Minister Trudeau Chancellor Scholz Secretary Blinken Foreign Minister Baerbock creating extremely high entity density. X.
-
-## Second Section
-
-Normal text for multi-section analysis support.
 """
         result = self.checker.check(text)
         section = result['all_sections'][0]
@@ -329,12 +305,35 @@ Normal text for multi-section analysis support.
 
     @requires_nlp
     def test_check_single_section_skipped(self):
-        """Single-section script should return SKIPPED verdict"""
+        """Headerless script should return SKIPPED verdict"""
         text = """
 This is a script without any H2 headers so it becomes a single section.
 """
         result = self.checker.check(text)
         self.assertEqual(result['stats']['verdict'], 'SKIPPED')
+
+    @requires_nlp
+    def test_check_headerless_still_reports_sections(self):
+        """Contract: all_sections carries one entry per parsed section — even when SKIPPED"""
+        text = """
+This is a script without any H2 headers so it becomes a single section.
+"""
+        result = self.checker.check(text)
+        self.assertEqual(result['stats']['verdict'], 'SKIPPED')
+        self.assertEqual(len(result['all_sections']), 1)
+        self.assertIn('metrics', result['all_sections'][0])
+
+    @requires_nlp
+    def test_check_single_headed_section_gets_verdict(self):
+        """A single ## headed section is analyzed fully — SKIPPED is only for headerless text"""
+        text = """
+## Only Section
+
+The cat sat on the mat. The dog ran in the park. Simple text here.
+"""
+        result = self.checker.check(text)
+        self.assertEqual(len(result['all_sections']), 1)
+        self.assertIn(result['stats']['verdict'], ['PASS', 'NEEDS WORK', 'FAIL'])
 
     @requires_nlp
     def test_check_multi_section_verdict(self):
@@ -354,15 +353,10 @@ The bird flew over the tree. The fish swam in the pond. More simple text.
     @requires_nlp
     def test_broll_markers_stripped(self):
         """B-roll markers should not inflate counts"""
-        # Updated: added second section so all_sections is populated (not SKIPPED)
         text = """
 ## Test Section
 
 This sentence has normal words. [B-ROLL: Historical footage] This continues the narration. [MAP: Show border] And this is the conclusion.
-
-## Second Section
-
-Normal continuation text for multi-section analysis.
 """
         result = self.checker.check(text)
         section = result['all_sections'][0]
@@ -376,10 +370,6 @@ Normal continuation text for multi-section analysis.
 ## Test Section
 
 W. This extremely long sentence with many words creates significant variance in the reading rhythm. X.
-
-## Second Section
-
-Normal text for multi-section analysis.
 """
         result = self.checker.check(text)
         if result['issues']:

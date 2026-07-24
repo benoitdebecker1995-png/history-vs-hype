@@ -33,7 +33,7 @@ When the user says any of:
 python -m tools.reconcile.reconcile [args]
 ```
 
-The script reads `tools/youtube_analytics/analytics.db` (refreshed daily by Routine 3 at 08:00) as the truth source for publish status. No direct YouTube API calls.
+The script reads `tools/youtube_analytics/analytics.db` (refreshed daily by Routine 7 `HvH-GrowthRefresh` at 07:45; Routine 3 channel-health at 08:00 only READS it) as the truth source for publish status. No direct YouTube API calls.
 
 ## Output
 

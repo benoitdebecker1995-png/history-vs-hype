@@ -6,9 +6,14 @@ Re-check freshness with the recipes in SKILL.md. Anything not cheaply re-verifia
 
 ## analytics.db — `D:\History vs Hype\tools\youtube_analytics\analytics.db`
 
-Schema versioning: `growth_data.py` `ensure_schema()`, `PRAGMA user_version`, `CURRENT_SCHEMA_VERSION = 3`
+Schema versioning: `growth_data.py` `ensure_schema()`, `PRAGMA user_version`, `CURRENT_SCHEMA_VERSION = 5`
 (v1 = videos/traffic_sources/daily_channel; v2 = retention_curves/search_terms/subscribed_status;
-v3 = opener_retention). WAL mode set by `AnalyticsStore._open_conn`.
+v3 = opener_retention; v4 = the keywords.db CTR-bridge freshness columns on `videos`
+— `metrics_fetched_at`/`ctr_as_of`, not a table; v5 = studio_ctr_imports/studio_ctr_rows).
+Live inventory is **11 tables** — the list below plus `studio_ctr_imports`, `studio_ctr_rows`,
+`surface_ctr`, and `thumbnail_features`. Re-derive with
+`PRAGMA user_version` + `SELECT name FROM sqlite_master WHERE type='table'` rather than trusting
+this note. WAL mode set by `AnalyticsStore._open_conn`.
 
 | Table | Rows | Key columns / notes |
 |---|---|---|

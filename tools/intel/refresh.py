@@ -258,57 +258,50 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
     raw_videos = competitor_result.get("videos", [])
 
     # -----------------------------------------------------------------------
-    # Phase 5: Purge old competitor videos (purge-and-replace)
-    # Safety: only purge if Phase 4 returned enough new videos to replace them.
-    # If fetch failed (OAuth expired, network error), keep existing data.
+    # Phase 5-6: Atomically replace the competitor corpus (purge + save in ONE
+    # transaction). Safety: only replace if Phase 4 returned enough usable new
+    # videos — a failed fetch (OAuth expired, network error) keeps the existing
+    # corpus AND does not advance freshness, so the next run retries rather than
+    # waiting out the 7-day window. `corpus_refreshed_ok` gates the Phase 10
+    # timestamp so a skipped, failed, or half run is never recorded as fresh.
+    # See audit finding D.
     # -----------------------------------------------------------------------
-    _print_phase(5, "Purging old competitor videos")
-    min_videos_for_purge = 5
-    if len(raw_videos) >= min_videos_for_purge:
+    _print_phase(5, "Replacing competitor corpus (atomic purge + save)")
+    corpus_refreshed_ok = False
+    min_videos_for_replace = 5
+    # Normalise videos for storage (is_outlier defaults to False before detection).
+    videos_to_save = [
+        {
+            "video_id":         v.get("video_id"),
+            "channel_id":       v.get("channel_id"),
+            "title":            v.get("title"),
+            "published_at":     v.get("published_at"),
+            "views":            v.get("views"),
+            "likes":            v.get("likes"),
+            "duration_seconds": v.get("duration_seconds"),
+            "description":      v.get("description"),
+            "is_outlier":       False,
+            "outlier_reason":   None,
+        }
+        for v in raw_videos
+        if v.get("video_id") and v.get("title")
+    ]
+    if len(videos_to_save) >= min_videos_for_replace:
         try:
-            purge_result = store.purge_competitor_videos()
-            if "error" in purge_result:
-                errors.append(f"Phase 5 (purge) failed: {purge_result['error']}")
+            replace_result = store.replace_competitor_videos(videos_to_save)
+            if "error" in replace_result:
+                errors.append(f"Phase 5-6 (replace corpus) failed: {replace_result['error']}")
             else:
-                logger.info("     Purged %d old videos", purge_result.get('deleted', 0))
+                corpus_refreshed_ok = True
+                logger.info("     Replaced corpus: purged %d, saved %d",
+                            replace_result.get('deleted', 0),
+                            replace_result.get('saved', 0))
         except (sqlite3.Error, OSError) as exc:
-            errors.append(f"Phase 5 (purge) failed: {exc}")
+            errors.append(f"Phase 5-6 (replace corpus) failed: {exc}")
     else:
-        logger.info("     Skipping purge — Phase 4 returned only %d videos (need >= %d)",
-                     len(raw_videos), min_videos_for_purge)
-
-    # -----------------------------------------------------------------------
-    # Phase 6: Save new competitor videos
-    # -----------------------------------------------------------------------
-    _print_phase(6, "Saving new competitor videos")
-    try:
-        if raw_videos:
-            # Normalise videos for storage (is_outlier defaults to False before detection)
-            videos_to_save = [
-                {
-                    "video_id":         v.get("video_id"),
-                    "channel_id":       v.get("channel_id"),
-                    "title":            v.get("title"),
-                    "published_at":     v.get("published_at"),
-                    "views":            v.get("views"),
-                    "likes":            v.get("likes"),
-                    "duration_seconds": v.get("duration_seconds"),
-                    "description":      v.get("description"),
-                    "is_outlier":       False,
-                    "outlier_reason":   None,
-                }
-                for v in raw_videos
-                if v.get("video_id") and v.get("title")
-            ]
-            save_result = store.save_competitor_videos(videos_to_save)
-            if "error" in save_result:
-                errors.append(f"Phase 6 (save videos) failed: {save_result['error']}")
-            else:
-                logger.info("     Saved %d videos", save_result.get('saved', 0))
-        else:
-            logger.info("     No videos to save")
-    except (sqlite3.Error, OSError) as exc:
-        errors.append(f"Phase 6 (save videos) failed: {exc}")
+        logger.info("     Skipping replace — Phase 4 returned only %d usable videos "
+                     "(need >= %d); keeping existing corpus, NOT advancing freshness.",
+                     len(videos_to_save), min_videos_for_replace)
 
     videos_total = len(raw_videos)
 
@@ -405,14 +398,19 @@ def run_refresh(force: bool = False, db_path: str = None) -> dict:
     # Phase 10: Update last_refresh timestamp
     # -----------------------------------------------------------------------
     _print_phase(10, "Updating last_refresh timestamp")
-    try:
-        ts_result = store.set_last_refresh()
-        if "error" in ts_result:
-            errors.append(f"Phase 10 (set refresh) failed: {ts_result['error']}")
-        else:
-            logger.info("     Timestamp: %s", ts_result.get('last_refresh', '—')[:19])
-    except (sqlite3.Error, OSError) as exc:
-        errors.append(f"Phase 10 (set refresh) failed: {exc}")
+    if corpus_refreshed_ok:
+        try:
+            ts_result = store.set_last_refresh()
+            if "error" in ts_result:
+                errors.append(f"Phase 10 (set refresh) failed: {ts_result['error']}")
+            else:
+                logger.info("     Timestamp: %s", ts_result.get('last_refresh', '—')[:19])
+        except (sqlite3.Error, OSError) as exc:
+            errors.append(f"Phase 10 (set refresh) failed: {exc}")
+    else:
+        logger.warning("     NOT advancing last_refresh — competitor corpus was not "
+                       "refreshed this run (fetch too small or replace failed); the "
+                       "next scheduled run retries instead of waiting out the window.")
 
     if errors:
         logger.info("Refresh complete. %d error(s).", len(errors))

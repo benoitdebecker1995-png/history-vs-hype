@@ -107,6 +107,19 @@ WARN_ALWAYS = [
     # (id, phrase, fix) — dispreferred, flag every occurrence at WARN
     ("think-about-that", "think about that", "Dispreferred filler — prefer letting the fact carry its own weight."),
     ("honest-part", "here's the honest part", 'Meta-framing tic — use a plain emphasis insertion instead ("but — and this is important — …").'),
+    # --- stop-slop-family imports (anti-ai-slop-writing / unslop), 2026-06-25 ---
+    # NOT picks-validated — these are generic-AI tells filtered to ones plausible
+    # in his narration and not already his voice. WARN only (the file does not
+    # invent HARD voice rules; un-validated imports ship advisory, like the
+    # fingerprint single-sample block). User-approved Tier 2 (opener/filler tics).
+    ("heres-the-deal", "here's the deal", 'Opener tic (sibling of "here\'s the thing"). Open on the concrete thing itself.'),
+    ("in-a-nutshell", "in a nutshell", "Summary cliché. State the point plainly; the listener doesn't need the frame."),
+    ("the-bottom-line", "the bottom line is", "Verdict-filler frame. Just say the verdict."),
+    ("end-of-the-day", "at the end of the day", "Filler frame. Delete; land the point."),
+    ("without-further-ado", "without further ado", "Throat-clear opener tic. Cut; start on the substance."),
+    ("goes-without-saying", "it goes without saying", "Filler hedge. If it goes without saying, don't say it; if it's load-bearing, state it plainly."),
+    ("lets-dive-in", "let's dive in", 'Agenda-announce opener (the bare form `agenda-announce` misses). Start on the substance (bar-talk #2).'),
+    ("lets-dive-deeper", "let's dive deeper", 'Agenda-announce opener. Walk into the next beat by consequence ("so…"), don\'t announce the dive.'),
 ]
 
 WARN_REGEXES = [
@@ -139,6 +152,17 @@ WARN_REGEXES = [
         "youtuber-opener",
         r"(?:^|[.!?]\s+)Look,\s|(?:^|[.!?]\s+)Listen\b[,.]|(?:^|[.!?]\s+)Now\s*(?:—|–|--)\s",
         "YouTuber-opener set (Look,/Listen/empty 'Now —' camera-turn) — absent in gold; he enters thoughts first-person (I/I'm) or with So/And. ('Now,' as a relevance-scaffold opener is his own voice per the _adlib/ corpus — not flagged.)",
+        False,
+    ),
+    # --- stop-slop-family import (anti-ai-slop-writing), 2026-06-25 — user-approved Tier 1 ---
+    # Sentence-initial formal connectors = the SAME class VOICE-PROFILE explicitly
+    # rejects (consequently/thereby/nevertheless/subsequently). His connectors are
+    # so / which is why / because / and that meant. Case-sensitive: only the
+    # capitalized opener form is the tell. WARN (un-validated import).
+    (
+        "formal-connector-opener",
+        r"(?:^|[.!?]\s+)(Moreover|Furthermore|Additionally|Notably|Importantly|Indeed|Interestingly)\b",
+        "Formal-connector opener — the class VOICE-PROFILE rejects (consequently/thereby/nevertheless). Swap to his: So / which is why / because / and that meant.",
         False,
     ),
 ]
@@ -213,10 +237,23 @@ _ITALIC = re.compile(r"(?<!\*)\*([^*]+)\*(?!\*)")
 _SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+")
 _WORD = re.compile(r"\w+")
 
+# Like/subscribe/bell CTA phrases (verb-context only — avoids the "subscribers" noun
+# and bare "like" comparisons). Used by scan_cta_position.
+_CTA_RX = re.compile(
+    r"\b(?:"
+    r"subscrib(?:e|ing)"
+    r"|consider\s+(?:liking|subscribing)"
+    r"|(?:hit|smash|tap|leave|drop|click)\s+(?:that\s+|the\s+|a\s+)?(?:like|subscribe|bell|button|notification)"
+    r"|like\s+(?:this|the)\s+video"
+    r"|ring\s+(?:the|that)\s+bell"
+    r")\b",
+    re.IGNORECASE,
+)
+
 # "To understand X, we/you have to go back…" — WARN-with-exception (demoted
 # from HARD 2026-07-19, VOICE-PROFILE.md ~line 505). His own ad-libs open
 # causal chains with this exact phrasing when a walked chain follows (a year
-# or >=8 more words of the same sentence developing the explanation); it's
+# or ≥8 more words of the same sentence developing the explanation); it's
 # only the AI tissue when the transition is bare/empty. See scan_understand_go_back().
 _UNDERSTAND_GO_BACK_RX = re.compile(
     r"\b[Tt]o understand [^.!?]{0,60}[, ]+(you|we) (have|need) to go back\b",
@@ -251,6 +288,34 @@ def _is_structural(raw: str) -> bool:
 
 _COMMENT_OPEN = "<!--"
 _COMMENT_CLOSE = "-->"
+
+# Non-spoken appendix sections (off-camera fact-check/production bookkeeping)
+# that must never be scanned as script prose. Added 2026-07-19 after
+# scan_staccato() misread a "## VERIFICATION NOTES" citation bullet
+# ("Manning citation: Ch. 5, p. 106") as a 3-fragment staccato triplet.
+# Headings surveyed across ~20 script files (VERIFICATION NOTES, SOURCES /
+# SOURCES CITED / SOURCE CITATIONS FOR DESCRIPTION, B-ROLL REQUIREMENTS /
+# VISUAL NOTES, NOTES FOR FILMING / READ-ALOUD, CUT MATERIAL, APPENDIX).
+_APPENDIX_HEADING_RX = re.compile(
+    r"^##\s+(VERIFICATION NOTES|SOURCES?\b|SOURCE CITATIONS|B-ROLL|NOTES FOR|"
+    r"CUT MATERIAL|APPENDIX)",
+    re.IGNORECASE,
+)
+
+
+def mask_appendix_sections(lines: list) -> list:
+    """Blank every line from a non-spoken appendix heading to EOF.
+
+    Mirrors mask_comments()'s "blank but preserve line indices" approach so
+    every downstream scanner benefits without individual changes.
+    """
+    out = []
+    in_appendix = False
+    for raw in lines:
+        if not in_appendix and _APPENDIX_HEADING_RX.match(raw.strip()):
+            in_appendix = True
+        out.append("" if in_appendix else raw)
+    return out
 
 
 def mask_comments(lines: list) -> list:
@@ -629,7 +694,44 @@ def scan_questions(file: str, lines: list) -> list:
     return findings
 
 
-_HEDGE = re.compile(r"\b(I think|I guess|kind of|basically|at least|probably)\b", re.IGNORECASE)
+_HEDGE = re.compile(
+    r"\b(I think|I guess|kind of|sort of|basically|at least|probably)\b", re.IGNORECASE
+)
+
+# "kind of" / "sort of" after one of these is the CLASSIFIER ("what kind of record",
+# "this kind of collaboration", "the kind of history you want") — a noun-phrase head,
+# not the downtoner hedge. Reported as hedges since T6; see CALIBRATION-CORPUS 62-21.
+_CLASSIFIER_DET = {
+    "what", "which", "this", "that", "these", "those", "the", "a", "an",
+    "some", "any", "every", "no", "another", "each",
+}
+# "at least" before a quantity is a numeric floor ("at least one OUN-B member"),
+# not a verdict hedge.
+_QUANTITY = re.compile(
+    r"^(a|an|one|two|three|four|five|six|seven|eight|nine|ten|\d)", re.IGNORECASE
+)
+
+
+def _hedges_in(sentence: str) -> list:
+    """Colloquial hedges in `sentence`, with classifier/quantifier false positives removed.
+
+    The raw pattern over-reports: `kind of` is far more often a noun-phrase classifier
+    than a downtoner, and `at least` is usually a numeric floor. Both were being counted
+    as verdict hedges, which made the hedge metric report noise as signal.
+    """
+    found = []
+    for m in _HEDGE.finditer(sentence):
+        phrase = m.group(1).lower()
+        if phrase in ("kind of", "sort of"):
+            before = sentence[: m.start()].split()
+            if before and before[-1].strip("\"'“‘(,;:").lower() in _CLASSIFIER_DET:
+                continue
+        elif phrase == "at least":
+            after = sentence[m.end():].lstrip()
+            if _QUANTITY.match(after):
+                continue
+        found.append(m.group(1))
+    return found
 
 
 def scan_verdict_hedge(file: str, lines: list) -> list:
@@ -644,13 +746,79 @@ def scan_verdict_hedge(file: str, lines: list) -> list:
     name, sents = sections[-1]
     if len(sents) < 3:
         return []
-    if any(_HEDGE.search(s) for _, s in sents):
+    if any(_hedges_in(s) for _, s in sents):
         return []
     return [Finding(
         file, sents[0][0], "REVIEW", "verdict-hedge",
         f"[{name[:40]}] closing section has zero colloquial hedge",
         "His verdict register hedges (I think / I guess / kind of / at least). Consider one — optional, aphorism-certainty closes are not him.",
     )]
+
+
+def scan_cta_position(file: str, lines: list, early_floor: float = 0.5, end_tail_words: int = 40) -> list:
+    """HARD: flag a CTA that's genuinely early, OR one the video ends on.
+
+    RESOLVED 2026-07-19 (was a contradiction with CALIBRATION-CORPUS 57-20 /
+    EVAL-BASELINE.md R22 — see docs/LLM-CRAFT-UPGRADE-PLAN.md). The original
+    rule required the CTA in the final 5%, which HARD-flagged #57 and #58's
+    own locked, corpus-validated CTA placement (~70%, own paragraph,
+    value-anchored, closer ends on a document beat AFTER it — the creator's
+    explicit lock-time choice, #58 SCRIPT.md L98: "Forward-tease cut per
+    creator pick 2026-06-06"). R22 itself scores that exact pattern PASS and
+    only fails a CTA that the video ENDS on (REGEN-58-v18 placed its CTA at
+    ~100% and ended there — R22 FAIL).
+
+    What both sources actually agree on, once reconciled: (1) a CTA before
+    the argument has earned it reads as "the new information is over" and
+    sheds viewers (the Kashmir holdout finding — a GENUINELY early ask, not
+    a ~70% one); (2) the video must not end on the ask (the R22 finding). So:
+    HARD if the CTA sits before `early_floor` (default 50% — well below the
+    validated ~70% pattern, so it doesn't refire on it), OR if fewer than
+    `end_tail_words` of spoken content follow it (the video effectively ends
+    on the CTA). A CTA in the 50-95% range followed by a real closing beat —
+    the validated pattern — is not flagged.
+    See channel-data/calibration/OPENER-RETENTION-DIAGNOSIS.md (Kashmir) and
+    channel-data/calibration/EVAL-BASELINE.md R22 (corpus validation).
+    """
+    # First pass: cumulative spoken-word position of each content line.
+    spoken = []  # (line_no, text, words_before_line, words_in_line)
+    total = 0
+    for i, raw in enumerate(lines, 1):
+        if _is_structural(raw):
+            continue
+        text = clean_line(raw).strip()
+        if not text:
+            continue
+        w = word_count(text)
+        spoken.append((i, text, total, w))
+        total += w
+    if total == 0:
+        return []
+
+    findings = []
+    for i, text, before, w in spoken:
+        m = _CTA_RX.search(text)
+        if not m:
+            continue
+        pos = before / total
+        words_after = total - before - w
+        if pos < early_floor:
+            findings.append(Finding(
+                file, i, "HARD", "cta-too-early", m.group(0),
+                f"CTA at ~{pos*100:.0f}% of the script — genuinely early (before "
+                f"{early_floor*100:.0f}%). A mid-video CTA signals 'the info is over' "
+                f"and sheds remaining viewers (holdout-validated; "
+                f"OPENER-RETENTION-DIAGNOSIS.md). The validated pattern is a CTA around "
+                f"~70% followed by a document-beat close, not one this early.",
+            ))
+        elif words_after < end_tail_words:
+            findings.append(Finding(
+                file, i, "HARD", "cta-ends-video", m.group(0),
+                f"CTA at ~{pos*100:.0f}% with only {words_after} words following — the "
+                f"video effectively ends on the ask. EVAL-BASELINE.md R22: the closer must "
+                f"end on a document/synthesis beat AFTER the CTA, not on the CTA itself.",
+            ))
+    return findings
 
 
 # =============================================================================
@@ -737,6 +905,7 @@ def _judge_transition(sent: str):
 def lint_file(path: str, do_transitions: bool = True) -> list:
     text = Path(path).read_text(encoding="utf-8", errors="replace")
     lines = mask_comments(text.splitlines())
+    lines = mask_appendix_sections(lines)
     findings = []
     findings += scan_patterns(path, lines)
     findings += scan_staccato(path, lines)
@@ -747,6 +916,7 @@ def lint_file(path: str, do_transitions: bool = True) -> list:
     findings += scan_fragment_share(path, lines)
     findings += scan_questions(path, lines)
     findings += scan_verdict_hedge(path, lines)
+    findings += scan_cta_position(path, lines)
     if do_transitions:
         findings += scan_transitions(path, lines)
     findings.sort(key=lambda f: (f.line, f.severity))

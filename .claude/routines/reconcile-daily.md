@@ -7,7 +7,7 @@
 **Triggers (intermittent-PC resilient):**
 - Daily 08:30 (primary) — after 07:45 `HvH-GrowthRefresh` (Routine 7) refreshes `analytics.db` and 08:00 channel-health-snapshot reads it, before 09:00 stale-project-nudge reads project state. (Routine 7 is what keeps `analytics.db` fresh — channel-health only reads; the freshness gate below depends on Routine 7 having run.)
 - `StartWhenAvailable` — if PC was off at 08:30, runs as soon as the machine wakes
-- `AtLogOn` — runs at user login (catches the case where the PC stays off for multiple days). Task is idempotent — running twice in a day is a no-op when state is clean.
+- Logon coverage — SUPERSEDED 2026-07-03: instead of a per-task `AtLogOn` trigger, the `HvH-MorningCatchup` task (at logon + daily 10:30 sweeper, `run-morning-catchup.ps1`) re-runs any missing morning step IN DEPENDENCY ORDER, which also fixes the catch-up-storm ordering problem a bare AtLogOn would not. Task is idempotent — running twice in a day is a no-op when state is clean.
 
 **Why Desktop:** Reads local filesystem, writes to local `.brain/_inbox/`, executes folder moves via `shutil.move`.
 **Expected cost:** 1 of the 5 daily Routines credits, sometimes 0 (no-op if no new state).
@@ -57,12 +57,12 @@ claude -p $prompt 2>&1 | Out-File $logFile -Append -Encoding utf8
 exit $LASTEXITCODE
 ```
 
-Registered via `New-ScheduledTaskAction -Execute pwsh.exe -Argument '-File "...run-reconcile.ps1"'`, mirroring the sibling tasks' principal (UserId Benoi, Interactive, Limited) with the spec's resilience triggers: **Daily 08:30 + AtLogOn (2-min delay) + StartWhenAvailable**, `MultipleInstances IgnoreNew`, 10-min execution limit. (Registered 2026-06-13.)
+Registered via `New-ScheduledTaskAction -Execute pwsh.exe -Argument '-File "...run-reconcile.ps1"'`, mirroring the sibling tasks' principal (UserId Benoi, Interactive, Limited) with resilience settings: **Daily 08:30 + StartWhenAvailable**, `MultipleInstances IgnoreNew`, 10-min execution limit. (Registered 2026-06-13. The planned **AtLogOn (2-min delay)** trigger was NEVER registered — it needs an elevated shell; task XML verified daily-only 2026-07-03.)
 
 ### Resilience notes
 
 - **`StartWhenAvailable`** — Windows tracks missed runs. If your PC was off at 08:30, the task fires when the PC wakes.
-- **`AtLogOn` with 2-min delay** — runs at every user login. Belt-and-braces if `StartWhenAvailable` somehow misses (e.g. PC stayed off for days, wake didn't catch up). 2-minute delay lets the OS settle (services start, network up) before reconcile reads analytics.db.
+- **Logon belt-and-braces** — delivered 2026-07-03 by `HvH-MorningCatchup` (logon trigger, 2-min delay, + daily 10:30 sweeper): evidence-gated ordered re-run of the whole morning chain, so reconcile only fires AFTER a completed refresh. Replaces the originally planned per-task `AtLogOn`.
 - **`MultipleInstances IgnoreNew`** — if a previous run is still going when a new trigger fires, the new trigger is ignored (no double-run race).
 - **Idempotent script** — even if both daily AND at-logon fire on the same day, the second run is a no-op (`No changes needed. Everything reconciled.`).
 

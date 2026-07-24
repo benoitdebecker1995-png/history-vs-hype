@@ -1,10 +1,15 @@
 #!/bin/sh
 # secret-guard pre-commit hook
-# Blocks commits that stage credential files or private-key material.
+# Blocks commits that stage credential files, private-key material, or
+# high-confidence credential tokens (API keys / access tokens) in added lines.
 # Tracked copy lives here; install with: tools/hooks/install.sh
 # Origin: 2026-06-03 — gitignore had a dead hyphen path (youtube-analytics vs
 # youtube_analytics), leaving a token.json directly in the module committable.
-# This is the backstop so a stray OAuth export never reaches git history.
+# 2026-07-23 — added token-content scan (a live Google API key had sat in a
+# tracked file since the initial commit; the old content scan only caught
+# private-key blocks) and fixed filename splitting so paths with spaces are
+# checked (the old `for f in $STAGED` split "service account.json" on the space).
+# This is the backstop so a stray secret never reaches git history.
 #
 # Override (use only when you are SURE the match is a false positive):
 #   git commit --no-verify
@@ -15,6 +20,11 @@ STAGED=$(git diff --cached --name-only --diff-filter=ACM)
 
 BLOCKED=""
 
+# Iterate on newlines only, so filenames containing spaces stay intact.
+OLDIFS=$IFS
+IFS='
+'
+
 # --- 1. Filename patterns (the real risk: a credential file gets staged) ---
 FILENAME_RE='(token\.json$|[-_]token\.json$|client_secret.*\.json$|.*oauth.*\.json$|service-account.*\.json$|credentials\.json$|secrets\.json$|\.(pem|key|p12|pfx)$|(^|/)\.env$)'
 for f in $STAGED; do
@@ -23,12 +33,25 @@ for f in $STAGED; do
     fi
 done
 
-# --- 2. Content scan: private-key blocks in ADDED lines only (low false-positive) ---
-# Look at staged additions across text files; binary diffs are skipped by git.
-KEYHITS=$(git diff --cached -U0 --diff-filter=ACM | grep -nE '^\+.*BEGIN [A-Z ]*PRIVATE KEY' || true)
-if [ -n "$KEYHITS" ]; then
-    BLOCKED="${BLOCKED}  [content] private-key block in a staged addition\n"
-fi
+# --- 2. Content scan: credential tokens / private keys in ADDED lines only ---
+# High-confidence, structurally-anchored patterns only, to keep false positives
+# near zero (a noisy guard trains people to reach for --no-verify).
+#   AIza…            Google API key           AKIA…      AWS access key id
+#   gh[opsu]_…       GitHub token             github_pat_…  GitHub fine-grained PAT
+#   xox[baprs]-…     Slack token              sk_live_…  Stripe live secret key
+#   GOCSPX-…         Google OAuth client secret
+#   BEGIN … PRIVATE KEY                        PEM private-key block
+TOKEN_RE='AIza[0-9A-Za-z_-]{35}|AKIA[0-9A-Z]{16}|gh[opsu]_[0-9A-Za-z]{36}|github_pat_[0-9A-Za-z_]{22,}|xox[baprs]-[0-9A-Za-z-]{10,}|sk_live_[0-9A-Za-z]{24,}|GOCSPX-[0-9A-Za-z_-]{20,}|BEGIN [A-Z ]*PRIVATE KEY'
+for f in $STAGED; do
+    # Added lines for this file (strip the +++ header); never echo the match.
+    if git diff --cached -U0 --diff-filter=ACM -- "$f" \
+        | grep '^+' | grep -v '^+++' \
+        | grep -qE "$TOKEN_RE"; then
+        BLOCKED="${BLOCKED}  [content] possible credential token in a staged addition: $f\n"
+    fi
+done
+
+IFS=$OLDIFS
 
 if [ -n "$BLOCKED" ]; then
     printf '\n\033[31mCOMMIT BLOCKED — secret-guard\033[0m\n' 2>/dev/null || printf '\nCOMMIT BLOCKED — secret-guard\n'

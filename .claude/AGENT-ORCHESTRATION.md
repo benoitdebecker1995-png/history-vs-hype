@@ -94,6 +94,20 @@ Rate limits are expected, not exceptional. The orchestrator handles them; it doe
 
 **Spec vs implementation.** This section is the spec. Phase 75a is the first implementation — its worked example will make the sequential retry loop concrete. Subsequent phases cite this section; they do not re-decide the schedule.
 
+### ⭐ DURABLE OUTPUT — the failure this section did NOT cover (added 2026-07-21, learned the hard way)
+
+The rules above handle a spawn that is *refused*. They do nothing for the failure that actually cost a session: **an agent dies MID-RUN — session limit, process exit, context exhaustion — after doing all the work and before writing anything.** On 2026-07-21, five agent deaths across one day produced **four with zero output on disk**, including one that had "retrieved and read all 8 sources" and one whose message was literally "dataset is solid, now the trend tests." Hours of retrieval, thrown away.
+
+**Every agent brief MUST carry a durable-output instruction. Non-negotiable, no exceptions:**
+
+> "Write your output file EARLY with whatever is solid, then refine it in place. A partial file on disk beats a complete analysis that dies with the session. If you are running low on room, prioritise: (a) get the file written, (b) the headline finding, (c) the detail."
+
+**Corollaries, all learned 2026-07-21:**
+- **Scratch work is recoverable; transcripts often aren't.** An agent that leaves `results.json` + its extraction script in the scratchpad can be finished by the main thread in minutes. One did exactly that — the drift study's write-up was salvaged from `results.json` after the agent died, and the salvage even *corrected* the finding the orchestrator had already written into canon. **Tell agents to persist intermediate data, not just conclusions.**
+- **Check disk before resuming or respawning.** `SendMessage` to a dead agent resumes it from its transcript when one exists, and re-does nothing. But confirm what landed first: on 2026-07-21 one agent's 46KB output file was complete on disk while its notification said "failed."
+- **Session limits are account-wide.** When one agent dies on a session limit, resuming its siblings immediately just burns three more attempts on the same wall. Read the reset time out of the error and wait.
+- **A spawn is not free.** Five agents ran on one video in one day; the fourth and fifth returned real value (a false canon entry overturned, a bad citation caught) but the *third* mostly confirmed prior work. Before spawning, state what decision the output will change. If the answer is "none," don't spawn.
+
 ## Extend, Don't Add
 
 **Default rule.** Before creating any new reference, command, or agent, check whether an existing one can absorb the change. Extend first. Create only if extension is impossible.

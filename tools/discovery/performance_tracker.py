@@ -17,6 +17,7 @@ import json
 from datetime import datetime, timezone
 from typing import Optional, Dict, List, Any
 
+from tools.discovery.ctr_reads import latest_valid_ctr_by_video
 from tools.logging_config import get_logger
 
 logger = get_logger(__name__)
@@ -979,25 +980,22 @@ class PerformanceTracker:
         try:
             import statistics as stats
 
-            cursor = self._conn.cursor()
-
-            cursor.execute(
-                """
-                SELECT
-                    s.video_id,
-                    s.ctr_percent,
-                    s.snapshot_date,
-                    COALESCE(vp.topic_type, 'general') as topic_type
-                FROM ctr_snapshots s
-                LEFT JOIN video_performance vp ON s.video_id = vp.video_id
-                WHERE s.snapshot_date = (
-                    SELECT MAX(snapshot_date) FROM ctr_snapshots
-                    WHERE video_id = s.video_id
+            # Canonical valid-latest CTR per video (is_valid=1, one row per
+            # video, ctr>0 so quarantined double-count rows and unavailable
+            # zeros don't drag the channel average). topic_type joined
+            # separately. See tools/discovery/ctr_reads.py / ADR-0017.
+            latest = latest_valid_ctr_by_video(self._conn, require_ctr=True)
+            topic_map = {
+                vid: (tt or 'general')
+                for vid, tt in self._conn.execute(
+                    "SELECT video_id, topic_type FROM video_performance"
                 )
-                """
-            )
-
-            rows = cursor.fetchall()
+            }
+            rows = [
+                (vid, rec['ctr_percent'], rec['snapshot_date'],
+                 topic_map.get(vid, 'general'))
+                for vid, rec in latest.items()
+            ]
 
             if not rows:
                 return {

@@ -37,6 +37,7 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+from tools.discovery.ctr_reads import latest_valid_ctr_for
 from tools.logging_config import get_logger
 
 logger = get_logger(__name__)
@@ -112,22 +113,16 @@ def _verdict_for(delta_pp: float) -> str:
 
 
 def _latest_snapshot(conn: sqlite3.Connection, video_id: str,
-                     after_date: Optional[str] = None) -> Optional[sqlite3.Row]:
-    """Latest non-zero ctr_snapshots row for a video, optionally after a date."""
-    sql = (
-        "SELECT ctr_percent, impression_count, view_count, snapshot_date "
-        "FROM ctr_snapshots WHERE video_id = ? AND ctr_percent > 0"
+                     after_date: Optional[str] = None) -> Optional[Dict[str, Any]]:
+    """Latest VALID non-zero ctr_snapshots row for a video, optionally after a date.
+
+    Routes through the canonical valid-latest read seam (is_valid=1, one row per
+    video) so a quarantined post-swap snapshot never gets read as the result.
+    See ADR-0017.
+    """
+    return latest_valid_ctr_for(
+        conn, video_id, after_date=after_date, require_ctr=True
     )
-    params: List[Any] = [video_id]
-    if after_date:
-        sql += " AND snapshot_date >= ?"
-        params.append(after_date)
-    sql += " ORDER BY snapshot_date DESC LIMIT 1"
-    try:
-        return conn.execute(sql, params).fetchone()
-    except sqlite3.Error as e:
-        logger.warning("snapshot lookup failed: %s", e)
-        return None
 
 
 # ---------------------------------------------------------------------------

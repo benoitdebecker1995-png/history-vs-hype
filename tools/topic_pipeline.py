@@ -209,19 +209,16 @@ def classify_topic(keyword):
 
 
 def get_existing_projects():
-    """Get list of topics already in production."""
-    projects = set()
-    prod_dir = PROJECT_ROOT / "video-projects" / "_IN_PRODUCTION"
-    if prod_dir.exists():
-        for p in prod_dir.iterdir():
-            if p.is_dir():
-                projects.add(p.name.lower())
-    arch_dir = PROJECT_ROOT / "video-projects" / "_ARCHIVED"
-    if arch_dir.exists():
-        for p in arch_dir.iterdir():
-            if p.is_dir():
-                projects.add(p.name.lower())
-    return projects
+    """Get folder-name slugs of projects already in the lifecycle.
+
+    Uses the resolver so the set is the real live projects across all three
+    stages — not the literal `published` folder or the abandoned `_ARCHIVED/old-*`
+    drafts the old top-level `_ARCHIVED` scan picked up (and it missed the real
+    published slugs, which live one level deeper under `_ARCHIVED/published/`).
+    """
+    from tools.video_projects import VideoProjectRepo
+
+    return {p.slug.lower() for p in VideoProjectRepo(PROJECT_ROOT).all()}
 
 
 def score_topics(top_n=20):

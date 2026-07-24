@@ -1,0 +1,489 @@
+{
+ "video": "43-india-pakistan-partition-2026",
+ "lifecycle": "_ARCHIVED",
+ "source_file": "video-projects/_ARCHIVED/published/43-india-pakistan-partition-2026/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "Cyril Radcliffe had never visited India and had expressed no known opinions on its problems before being appointed to draw the partition boundary.",
+   "topics": ["boundary-commission-mechanism"],
+   "verbatim": "Radcliffe, who had never even visited India and expressed no known opinions on its problems, was unanimously accepted and would soon decide the destiny of millions of Hindus, Sikhs, and Muslims...",
+   "source": "Wolpert, Jinnah of Pakistan, p. 333",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Radcliffe had never been to India"
+  },
+  {
+   "claim": "The British government selected Radcliffe specifically because his total ignorance of India was seen as guaranteeing impartiality.",
+   "topics": ["boundary-commission-mechanism"],
+   "verbatim": "British government chose him *because* of his ignorance — total outsider = impartial",
+   "source": "Khan, p. 104; Wolpert, p. 333",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Radcliffe had never been to India"
+  },
+  {
+   "claim": "Radcliffe simultaneously chaired both the Punjab and Bengal Boundary Commissions, which is why he could not personally attend the Punjab public hearings.",
+   "topics": ["boundary-commission-mechanism"],
+   "verbatim": "He chaired both the Punjab Boundary Commission and the Bengal Boundary Commission at the same time. He could not physically attend the Punjab public hearings because he was processing Bengal paperwork from Delhi/Simla",
+   "source": "French, p. 322-323",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Radcliffe was simultaneously chairing TWO boundary commissions"
+  },
+  {
+   "claim": "Radcliffe acknowledged that a task like his would normally take even the most careful arbitrators years to complete.",
+   "topics": ["boundary-commission-mechanism"],
+   "verbatim": "Normally, he pointed out, this was a job which would take even the most careful arbitrators years to decide, but he realized that here was something urgent.",
+   "source": "Leonard Mosley, cited in Sadullah, p. XIII",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Radcliffe acknowledged the task was impossible"
+  },
+  {
+   "claim": "Radcliffe had exactly five weeks, from July 8 to August 12, 1947, to draw the boundaries dividing the subcontinent.",
+   "topics": ["boundary-commission-mechanism"],
+   "verbatim": "Radcliffe reached New Delhi on July 8, giving him precisely five weeks to draw new national boundaries across whose lines, bitterly disputed by both countries, approximately 10 million refugees would run terrified in opposite directions.",
+   "source": "Wolpert, Jinnah of Pakistan, p. 333",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: 5-week timeline (July 8 → August 12)"
+  },
+  {
+   "claim": "The Punjab and Bengal Boundary Commissions deadlocked 2-2 on every substantive issue, so Radcliffe alone made all the decisions.",
+   "topics": ["boundary-commission-mechanism"],
+   "verbatim": "In practice, Radcliffe took no notice of his eminent warring legal colleagues, and made all the decisions on the awards himself.",
+   "source": "French, Liberty or Death, p. 322",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Commissions deadlocked 2-2 on every substantive issue"
+  },
+  {
+   "claim": "The Indian Independence Act was amended so a Boundary Commission 'award' legally meant the Chairman's decision alone, anticipating the deadlock in advance.",
+   "topics": ["boundary-commission-mechanism"],
+   "verbatim": "\"award\" meant \"decision of the Chairman alone\"",
+   "source": "Sadullah, pp. XVI-XVIII; ToP XII, p. 63",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Commissions deadlocked 2-2 on every substantive issue"
+  },
+  {
+   "claim": "The Boundary Commission's terms of reference required demarcation based on contiguous religious majorities but also instructed it to weigh undefined 'other factors.'",
+   "topics": ["boundary-criteria-loophole"],
+   "verbatim": "The Boundary Commission is instructed to demarcate the boundaries... on the basis of ascertaining the contiguous majority areas of Muslims and non-Muslims. In doing so, it will also take into account other factors.",
+   "source": "June 30, 1947 announcement [Radcliffe Award, p. 1; Sadullah, p. VII]",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Terms of Reference — the \"other factors\" loophole"
+  },
+  {
+   "claim": "The 'other factors' clause in the Boundary Commission's mandate was never defined, with no assigned mathematical weight or hierarchy.",
+   "topics": ["boundary-criteria-loophole"],
+   "verbatim": "\"Other factors\" was never defined — no mathematical weight, no hierarchy",
+   "source": "Michel, pp. 162-163; Khan, p. 105",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Terms of Reference — the \"other factors\" loophole"
+  },
+  {
+   "claim": "Radcliffe based his boundary decisions on 1941 census data that was six years out of date and reportedly biased against Sikhs, many of whom were away at war when it was collected.",
+   "topics": ["census-as-political-instrument"],
+   "verbatim": "Matters were complicated further by the knowledge that the census statistics on communal composition were six years out of date, and supposedly biased against the Sikhs, many of whom had been away at war when the information was collected.",
+   "source": "French, Liberty or Death, p. 321",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Radcliffe used 1941 census data (6 years outdated)"
+  },
+  {
+   "claim": "Radcliffe did not attend the Punjab public hearings in person, staying in Delhi and Simla and receiving daily transcripts flown to him.",
+   "topics": ["boundary-commission-mechanism"],
+   "verbatim": "Radcliffe stayed in Delhi/Simla and received daily transcripts flown to him",
+   "source": "French, p. 322-323",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Radcliffe did not attend the public hearings"
+  },
+  {
+   "claim": "A draft map sent to a provincial governor on August 8, 1947 showed the Ferozepore salient going to Pakistan, matching its Muslim-majority demographics.",
+   "topics": ["boundary-criteria-loophole", "boundary-commission-mechanism"],
+   "verbatim": "On 8 August, George Abell sent a rough map featuring the Ferozepur salient to the private office of Sir Evan Jenkins... An accompanying letter signed by Abell said: 'There will not be any great changes from this boundary.'",
+   "source": "French, Liberty or Death, p. 328",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: August 8 draft showed Ferozepore going to Pakistan"
+  },
+  {
+   "claim": "Two to three days after the August 8 draft map, a telegram from the Viceroy's House instructed officials to 'eliminate salient,' reversing the decision so Ferozepore stayed in India.",
+   "topics": ["boundary-criteria-loophole"],
+   "verbatim": "Jenkins received a Secraphone message from Viceroy's House telling him to 'eliminate salient', meaning that the whole of Ferozepur district would now remain in India.",
+   "source": "French, Liberty or Death, p. 328",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: The final award reversed the Ferozepore decision"
+  },
+  {
+   "claim": "Radcliffe's formal award justified keeping Muslim-majority areas east of the Sutlej in India by citing disruption to railways and water systems, not demographics.",
+   "topics": ["boundary-criteria-loophole"],
+   "verbatim": "I have hesitated long over those not inconsiderable areas east of the Sutlej River... in which Muslim majorities are found... I have come to the conclusion that... there are factors such as the disruption of railway communications and water systems that ought in this instance to displace the primary claims of contiguous majorities.",
+   "source": "Radcliffe Award, p. 6",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: The final award reversed the Ferozepore decision"
+  },
+  {
+   "claim": "Radcliffe's own private secretary testified that Mountbatten, allegedly under pressure from Nehru, persuaded Radcliffe to change the Punjab line so Ferozepur went to India instead of Pakistan.",
+   "topics": ["boundary-commission-mechanism", "arbitration-and-adjudication"],
+   "verbatim": "Mountbatten (allegedly under pressure from Nehru) persuaded Radcliffe to change the Punjab borderline in India's favour, so that Ferozepur tehsil was awarded to India instead of Pakistan.",
+   "source": "French, p. 326; Nayar, p. 28",
+   "status": "partial",
+   "anchor": "⚠️ CONTESTED: Mountbatten intervened to change the award"
+  },
+  {
+   "claim": "Mountbatten maintained that he and Radcliffe were always careful never to discuss the boundary lines with each other.",
+   "topics": ["arbitration-and-adjudication"],
+   "verbatim": "mutually most careful never to have any discussions about the boundaries",
+   "source": "ToP XII; French, p. 329",
+   "status": "partial",
+   "anchor": "⚠️ CONTESTED: Mountbatten intervened to change the award"
+  },
+  {
+   "claim": "Gurdaspur district contained the only non-mountainous road and the only bridge linking eastern Punjab, and therefore India, to Jammu and Kashmir.",
+   "topics": ["strategic-corridor-access", "infrastructure-as-boundary-factor"],
+   "verbatim": "Gurdaspur included the only road linking the Eastern Punjab, and hence India, with Jammu and Kashmir, and the only bridge (on the Madhopur Barrage) over the Ravi above Lahore.",
+   "source": "Michel, The Indus Rivers, pp. 189, 191",
+   "status": "verified",
+   "anchor": "⚠️ PARTIALLY TRUE: Gurdaspur award gave India road access to Kashmir"
+  },
+  {
+   "claim": "India's October 1947 military intervention in Kashmir was carried out by airlift rather than via the Gurdaspur road, though the road was needed to sustain a long-term military presence.",
+   "topics": ["strategic-corridor-access"],
+   "verbatim": "the Indian army could not have held Jammu",
+   "source": "Michel, p. 191; ToP XII, p. XXXIII",
+   "status": "partial",
+   "anchor": "⚠️ PARTIALLY TRUE: Gurdaspur award gave India road access to Kashmir"
+  },
+  {
+   "claim": "Radcliffe later said he had not been aware of the Kashmir issue when deciding Gurdaspur's fate and might have weighed it differently had he known.",
+   "topics": ["strategic-corridor-access", "boundary-commission-mechanism"],
+   "verbatim": "I wouldn't dream of defending some of the decisions in detail I made at the time. I was not aware of Kashmir thing at all. If I had been, it might have been a factor to take into account.",
+   "source": "Sadullah, p. XXXIV",
+   "status": "partial",
+   "anchor": "⚠️ PARTIALLY TRUE: Gurdaspur award gave India road access to Kashmir"
+  },
+  {
+   "claim": "Radcliffe destroyed all his personal notes, memoranda, and draft maps after completing the Partition award.",
+   "topics": ["evidence-destruction", "archival-silence"],
+   "verbatim": "Sir Cyril's personal notes, memoranda, and drafts were all destroyed at that time.",
+   "source": "Michel, The Indus Rivers, p. 168",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Radcliffe burned all working papers"
+  },
+  {
+   "claim": "Radcliffe never returned to India after the award, later saying he suspected both sides would want to shoot him.",
+   "topics": ["boundary-commission-mechanism"],
+   "verbatim": "God forbid. Not even if they asked me. I suspect they'd shoot me out of hand — both sides.",
+   "source": "Radcliffe, months before his death (1977) [French, p. 330]",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Radcliffe never returned to India"
+  },
+  {
+   "claim": "Mountbatten delayed publishing the Radcliffe Award until August 17, two days after both India's and Pakistan's independence celebrations.",
+   "topics": ["boundary-commission-mechanism", "propaganda-and-narrative-control"],
+   "verbatim": "Award published: August 17 — two full days AFTER both celebrations",
+   "source": "Sadullah, p. XXVIII; Radcliffe Award",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Mountbatten delayed publication to protect independence ceremonies"
+  },
+  {
+   "claim": "British officials reasoned that postponing publication of the boundary award would reduce the blame that would fall on Britain.",
+   "topics": ["propaganda-and-narrative-control"],
+   "verbatim": "It had been obvious all along that, the later we postponed publication, the less would the inevitable odium react upon the British...",
+   "source": "Official documents [Khan, p. 125; French, p. 329]",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Mountbatten delayed publication to protect independence ceremonies"
+  },
+  {
+   "claim": "Attlee originally set a deadline of no later than June 1948 for the British transfer of power in India.",
+   "topics": ["colonial-withdrawal-acceleration"],
+   "verbatim": "On 20 February 1947 he [Attlee] announced that the British would quit after transferring power to Indian hands 'by a date not later than 6 June 1948...'",
+   "source": "French, p. 304",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Attlee set June 1948 deadline; Mountbatten moved it to August 1947"
+  },
+  {
+   "claim": "Mountbatten moved British withdrawal from India forward to August 15, 1947, nearly ten months earlier than Attlee's original deadline.",
+   "topics": ["colonial-withdrawal-acceleration"],
+   "verbatim": "The date for the end of British rule was fixed as 15 August, nearly ten months ahead of the time limit set by Attlee.",
+   "source": "Michel, p. 731",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Attlee set June 1948 deadline; Mountbatten moved it to August 1947"
+  },
+  {
+   "claim": "Mountbatten said he accelerated the independence date because rising violence meant 'things were slipping from my hands.'",
+   "topics": ["colonial-withdrawal-acceleration"],
+   "verbatim": "When I checked with Mountbatten himself, he said he had to change the date because he could not hold the country together. 'Things were slipping from my hands,' he said repeatedly.",
+   "source": "Nayar, Beyond the Lines, p. 17",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Mountbatten claimed violence forced his hand"
+  },
+  {
+   "claim": "The British organized detailed evacuation plans for their own citizens but made no equivalent preparations for the millions of refugees Partition would displace.",
+   "topics": ["colonial-withdrawal-acceleration", "administrative-collapse"],
+   "verbatim": "The British made detailed plans to evacuate their OWN citizens (\"Operation Madhouse\") but took NO similar precautions for 12 million refugees",
+   "source": "Khan, p. 617",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Critics argue acceleration was to escape liability"
+  },
+  {
+   "claim": "Section 9 of the Indian Independence Act 1947 gave the Governor-General sweeping executive powers to adapt existing law and divide assets without prior parliamentary approval.",
+   "topics": ["colonial-withdrawal-acceleration", "administrative-collapse"],
+   "verbatim": "Section 9: Gave Governor-General sweeping executive powers to adapt existing law, divide assets, and issue orders without prior parliamentary approval",
+   "source": "IIA 1947",
+   "status": "verified",
+   "anchor": "Indian Independence Act 1947"
+  },
+  {
+   "claim": "One widely cited estimate holds that Partition killed roughly one million people and displaced about 20 million.",
+   "topics": ["casualty-estimate-methodology", "population-transfer"],
+   "verbatim": "Estimates of the scale of the killing and migration vary, but one figure generally accepted is: one million killed and 20 million uprooted.",
+   "source": "Nayar, Beyond the Lines, p. 24",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Displacement — 10-17 million people"
+  },
+  {
+   "claim": "Death toll estimates for Partition range from roughly 200,000 in police-report-based counts to over 2 million in demographic-residual studies comparing pre- and post-Partition census data.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": null,
+   "source": "Bharadwaj et al. (2008/2009); Hill et al. (2005)",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Deaths — 200K to 3.4 million (ranges by methodology)"
+  },
+  {
+   "claim": "Older Partition death counts were a 'butcher's bill' recording only violent murders, while later demographic estimates also capture deaths from disease and starvation during flight.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": "Older counts (200K-500K) were a \"butcher's bill\" — only counting recorded violent murders",
+   "source": "French, pp. 348-349",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Deaths — 200K to 3.4 million (ranges by methodology)"
+  },
+  {
+   "claim": "Political leaders including Attlee, Jinnah, and Nehru all had incentives to understate the true scale of Partition's death toll.",
+   "topics": ["casualty-estimate-methodology", "propaganda-and-narrative-control"],
+   "verbatim": "Lower estimates served political convenience — Attlee, Jinnah, Nehru all wanted to play down the scale",
+   "source": "French, pp. 348-349",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Deaths — 200K to 3.4 million (ranges by methodology)"
+  },
+  {
+   "claim": "By 1950, Partition violence had produced near-total religious homogenization in Punjab, with the Muslim population in Indian Punjab down to about 1% and Hindus/Sikhs in Pakistani Punjab near 0%.",
+   "topics": ["ethnic-cleansing-mechanics", "partition-of-territory"],
+   "verbatim": "By 1950: Muslim population in Indian Punjab ~1%, Hindu/Sikh in Pakistani Punjab ~0%",
+   "source": "Nayar, p. 8; Khan, p. 188",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Violence concentrated overwhelmingly in Punjab"
+  },
+  {
+   "claim": "Bengal's Partition displacement was comparatively smaller and its violence nowhere near the scale of Punjab's.",
+   "topics": ["ethnic-cleansing-mechanics", "partition-of-territory"],
+   "verbatim": "Bengal: displacement was \"comparatively fewer\" and violence \"nowhere near on the scale\" of Punjab",
+   "source": "Khan, p. 188",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Violence concentrated overwhelmingly in Punjab"
+  },
+  {
+   "claim": "Refugee displacement began before the boundary award was even published, with about 80,000 refugees created by riots in Rawalpindi and Multan in March 1947 alone.",
+   "topics": ["population-transfer"],
+   "verbatim": "Rawalpindi/Multan riots (March 1947): ~80,000 refugees created by April",
+   "source": "Khan, p. 124",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Displacement began BEFORE the award was published"
+  },
+  {
+   "claim": "An Indian politician told Mountbatten that had he not transferred power when he did, there would have been no power left to transfer, given the Raj's collapse.",
+   "topics": ["administrative-collapse", "colonial-withdrawal-acceleration"],
+   "verbatim": "If you had not transferred power when you did, there would have been no power to transfer.",
+   "source": "C. Rajagopalachari [French, p. 331; Khan, p. 528]",
+   "status": "partial",
+   "anchor": "Counter-Argument 1: The Raj was collapsing — there was no power to transfer"
+  },
+  {
+   "claim": "By mid-1947 the colonial administration's higher civil services had 'virtually disintegrated,' with officials becoming subordinate politicians rather than neutral administrators.",
+   "topics": ["administrative-collapse"],
+   "verbatim": "higher Services have virtually disintegrated",
+   "source": "Governor Jenkins report, cited in Sadullah, pp. 1029-1030",
+   "status": "partial",
+   "anchor": "Counter-Argument 1: The Raj was collapsing — there was no power to transfer"
+  },
+  {
+   "claim": "The British Chiefs of Staff actually opposed partition because they wanted to preserve a unified Indian Army for Commonwealth defense.",
+   "topics": ["administrative-collapse", "decolonization-process"],
+   "verbatim": "British Chiefs of Staff opposed partition — they wanted a unified Indian Army for Commonwealth defense",
+   "source": "Khan, p. 517; Michel, pp. 756-757",
+   "status": "partial",
+   "anchor": "Counter-Argument 3: British self-interest actually opposed partition"
+  },
+  {
+   "claim": "Nehru and Patel accepted the accelerated partition timeline as 'tired men' eager for immediate power, showing Indian political agency rather than a purely British-imposed outcome.",
+   "topics": ["decolonization-process", "self-determination-claims"],
+   "verbatim": "Nehru and Patel were \"tired men\" who accepted partition as a \"way out\" — they wanted to come to power immediately",
+   "source": "Khan, p. 516; French, p. 308",
+   "status": "partial",
+   "anchor": "Counter-Argument 4: Indian leaders accepted the timeline"
+  },
+  {
+   "claim": "Mainstream scholarship characterizes the British role in Partition as a 'shoddy implementation' of a 'wafer-thin plan' driven by exhaustion and haste, not a deliberate conspiracy.",
+   "topics": ["historiographical-revision", "administrative-collapse"],
+   "verbatim": "Scholars like Yasmin Khan and Joya Chatterji argue that the British were guilty of a \"shoddy implementation\" of a \"wafer-thin plan.\"",
+   "source": "Khan, pp. 516-517; Chatterji, pp. 1580-1585",
+   "status": "partial",
+   "anchor": "Modern scholarly consensus"
+  },
+  {
+   "claim": "The 1946 Cabinet Mission Plan proposed a weak federal center over grouped provinces, handling only foreign affairs, defence, and communications, as an alternative to outright partition.",
+   "topics": ["partition-of-territory", "decolonization-process"],
+   "verbatim": "Three-tier structure: weak central \"union of India\" (foreign affairs, defence, communications only) + grouped provinces (Muslim-majority western group, Muslim-majority eastern group, Hindu-majority centre)",
+   "source": "Nayar, pp. 43-48; Khan, pp. 63-67",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Cabinet Mission Plan (1946) — the federal alternative that failed"
+  },
+  {
+   "claim": "Congress interpreted the Cabinet Mission's 'grouping' provision as voluntary from the start, an irreconcilable reading with the Muslim League's that the British failed to resolve.",
+   "topics": ["partition-of-territory", "decolonization-process"],
+   "verbatim": "Congress also initially engaged but interpreted \"grouping\" as voluntary from the start — an irreconcilable reading the British failed to resolve",
+   "source": "Khan, pp. 67-68",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Cabinet Mission Plan (1946) — the federal alternative that failed"
+  },
+  {
+   "claim": "Nehru's July 1946 statement reserving Congress's right to modify the Cabinet Mission proposal effectively killed the federal alternative to partition.",
+   "topics": ["decolonization-process", "partition-of-territory"],
+   "verbatim": "Nehru... said his party would be free to suggest in the constituent assembly modifications to the proposal... The reservation on the part of the Congress sounded the death knell for the proposal.",
+   "source": "Nayar, pp. 48-50; Khan, pp. 68-69",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Nehru killed the Cabinet Mission (July 10, 1946)"
+  },
+  {
+   "claim": "Jinnah's call for Direct Action after the Cabinet Mission's collapse led to the Great Calcutta Killing of August 1946, in which thousands died within three days.",
+   "topics": ["ethnic-cleansing-mechanics", "casualty-estimate-methodology"],
+   "verbatim": "Over 5,000 people lost their lives in less than three days in what came to be known as the 'great Calcutta killing'... The Statesman laid the blame on the British governor and Chief Minister Suhrawardy.",
+   "source": "Khan, pp. 72-73; Nayar, pp. 51-52",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Direct Action Day — the Great Calcutta Killing (August 16, 1946)"
+  },
+  {
+   "claim": "Communal violence cascaded regionally through 1946-47 — Calcutta, then Noakhali, then Bihar, then Garhmukteshwar — as organized militias cleansed areas ahead of the eventual border.",
+   "topics": ["ethnic-cleansing-mechanics", "administrative-collapse"],
+   "verbatim": "Calcutta was revenged in Noakhali, Noakhali in Bihar, Bihar in Garmuktesar...",
+   "source": "Nayar, p. 53; Khan, pp. 75-78",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Cascading violence made British position untenable"
+  },
+  {
+   "claim": "Viceroy Wavell drafted a secret withdrawal plan, code-named 'Mad House,' for evacuating British troops and civilians by March 1948, but Attlee dismissed it and replaced Wavell with Mountbatten.",
+   "topics": ["colonial-withdrawal-acceleration", "administrative-collapse"],
+   "verbatim": "Wavell... prepared a secret plan for withdrawal... called 'Mad House'... for the evacuation of British troops and British civilians by March 1948... Attlee announced the replacement of Wavell with a new viceroy, Lord Mountbatten.",
+   "source": "French, pp. 308, 333-334; Khan, pp. 88-90",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Wavell proposed \"Operation Breakdown\" — Attlee replaced him"
+  },
+  {
+   "claim": "Mountbatten's eventual withdrawal was even faster than the plan he replaced, framed as a negotiated political settlement rather than a military retreat.",
+   "topics": ["colonial-withdrawal-acceleration", "propaganda-and-narrative-control"],
+   "verbatim": "Mountbatten eventually carried out an even MORE rapid withdrawal than Wavell proposed, dressed in the language of \"political settlement\" rather than \"military retreat\"",
+   "source": "French, p. 335",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Wavell proposed \"Operation Breakdown\" — Attlee replaced him"
+  },
+  {
+   "claim": "Mountbatten's partition plan drew heavily on a proposal V.P. Menon had already drafted under the previous viceroy, which Mountbatten simply adopted and accelerated.",
+   "topics": ["colonial-withdrawal-acceleration", "partition-of-territory"],
+   "verbatim": "Mountbatten's \"conclusion\" was heavily influenced by V.P. Menon, who had already drafted a partition plan under Wavell that Mountbatten simply adopted and accelerated",
+   "source": "French, pp. 338-339",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Mountbatten arrived March 22/23, 1947 — concluded partition was unavoidable"
+  },
+  {
+   "claim": "The June 3 Plan for partition was accepted by Nehru, Jinnah, and Sikh leader Baldev Singh in a same-day meeting.",
+   "topics": ["partition-of-territory"],
+   "verbatim": "I woke up on 2 June... By 10 a.m. we were all assembled... Congress was represented by Pandit Nehru, Sardar V. Patel and Mr Kripalani, the Moslem League by Mr Jinnah... and the Sikhs by Sardar Baldev Singh...",
+   "source": "Ismay, pp. 1040-1042; ToP XII, pp. 609-610",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: June 3 Plan accepted by Nehru, Jinnah, and Baldev Singh"
+  },
+  {
+   "claim": "In June 1947 the Bengal and Punjab provincial assemblies formally voted to partition their own provinces, giving the split a basis in local democratic decisions.",
+   "topics": ["partition-of-territory", "self-determination-claims"],
+   "verbatim": "On June 20, 1947, members of the Bengal legislative assembly voted for partition of their province by a large majority. Three days later the Punjabi assembly members opted for a similar Caesarian solution.",
+   "source": "Wolpert, pp. 331-333; Khan, pp. 99-101",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Punjab and Bengal assemblies voted for partition (June 1947)"
+  },
+  {
+   "claim": "Critics argue the provincial partition votes were a 'sham' because the assemblies, elected in 1946 on a restricted franchise, had no mandate to break up their own provinces.",
+   "topics": ["partition-of-territory", "self-determination-claims"],
+   "verbatim": "Critics argue this was a \"sham\" — assemblies elected in 1946 on a restricted franchise had no mandate to destroy their provincial integrity",
+   "source": "Khan, p. 102",
+   "status": "partial",
+   "anchor": "✅ VERIFIED: Punjab and Bengal assemblies voted for partition (June 1947)"
+  },
+  {
+   "claim": "Radcliffe's award fixed the Punjab boundary along static district lines rather than the actual, shifting course of the Sutlej River.",
+   "topics": ["cartographic-error", "boundary-criteria-loophole"],
+   "verbatim": "The district boundaries, and not the actual course of the Sutlej River, shall in each case constitute the boundary between the East and West Punjab.",
+   "source": "Radcliffe Award, pp. 90-97",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Radcliffe used district boundaries, not the Sutlej River"
+  },
+  {
+   "claim": "Using static district lines instead of the river created small cross-river 'bridgehead' enclaves for both India and Pakistan near the Ferozepore canal headworks.",
+   "topics": ["cartographic-error"],
+   "verbatim": "At the site of the Ferozepore headworks, the Ferozepore District had a small 'bridgehead' north of the Sutlej... and—a fact that Radcliffe might have overlooked in the press of his work—about five miles above Ferozepore, the Lahore District included an equally small 'bridgehead' south of the Sutlej.",
+   "source": "Michel, The Indus Rivers, pp. 168-172",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: This created bizarre bridgeheads on both sides"
+  },
+  {
+   "claim": "Radcliffe's border was drawn entirely from maps at a distance; the map-maker never personally visited or inspected the villages and communities the line divided.",
+   "topics": ["cartographic-error", "boundary-commission-mechanism"],
+   "verbatim": "The border would be devised from a distance; the land, villages and communities to be divided were not visited or inspected by the imperial map-maker... [They] retreated behind closed doors, working from maps using pen and paper, rather than walking the land.",
+   "source": "Khan, p. 109; Chatterji, pp. 1029-1030",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Radcliffe worked from maps at a distance, never inspected the terrain"
+  },
+  {
+   "claim": "The river-boundary bridgehead anomaly caused later irrigation crises, including India's unilateral closure of canal water supplies to Pakistan in April 1948.",
+   "topics": ["cartographic-error", "infrastructure-as-boundary-factor"],
+   "verbatim": "India cut off supplies on the canals leading into West Pakistan [on April 1, 1948]... The actual delimitation at Suleimanke resulted from armed clashes between India and Pakistani forces.",
+   "source": "Michel, pp. 401-418",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: The bridgeheads created immediate practical crises"
+  },
+  {
+   "claim": "The Punjab Boundary Force, tasked with keeping order during the transition, covered 38,000 square miles with fewer than two men per square mile.",
+   "topics": ["administrative-collapse"],
+   "verbatim": "Fewer than 2 men per square mile, or 4 men for every 3 villages",
+   "source": "French, p. 346",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: The force was catastrophically understaffed"
+  },
+  {
+   "claim": "The Punjab Boundary Force was legally barred from operating inside Princely States, and organized gangs of killers exploited this by escaping across those jurisdictional lines.",
+   "topics": ["administrative-collapse"],
+   "verbatim": "Organized gangs of killers exploited this — escaped across state borders where PBF could not follow",
+   "source": "Khan, p. 145",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: The force was legally unable to operate in Princely States"
+  },
+  {
+   "claim": "As violence escalated, the religious neutrality of Boundary Force troops broke down once soldiers began receiving news that their own home villages had been massacred.",
+   "topics": ["administrative-collapse", "ethnic-cleansing-mechanics"],
+   "verbatim": "As violence escalated and soldiers received news of massacres in their home villages, communal neutrality of troops began to fail",
+   "source": "Khan, p. 145; French, p. 348",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: The force was widely described as useless"
+  },
+  {
+   "claim": "In several Punjab tehsils with clear Muslim majorities in the 1941 census, including one at 65.26%, territory was awarded to India under the 'other factors' clause rather than the demographic-majority rule.",
+   "topics": ["boundary-criteria-loophole", "census-as-political-instrument"],
+   "verbatim": null,
+   "source": "Michel, pp. 172, 187, 189-193; Sadullah, pp. XXV-XXVIII, 108-109; Radcliffe Award, pp. 1-12",
+   "status": "verified",
+   "anchor": "✅ VERIFIED: Muslim-majority tehsils awarded to India"
+  },
+  {
+   "claim": "Sikh and Hindu communities argued the 1941 census inflated rival numbers for political representation and preferred the 1931 census as a more reliable baseline.",
+   "topics": ["census-as-political-instrument"],
+   "verbatim": "Sikhs and Hindus argued communities inflated numbers for political representation. They preferred the 1931 census as a more reliable baseline",
+   "source": "Khan, p. 107; Sadullah, p. XIII",
+   "status": "partial",
+   "anchor": "Data limitations (important for script honesty)"
+  }
+ ]
+}

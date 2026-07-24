@@ -2,24 +2,14 @@
 
 ## Installation
 
-The voice fingerprinting module requires the `srt` library for parsing subtitle files.
+No dependencies to install. SRT subtitle parsing goes through the repo's own
+dependency-free parser, `tools.subtitles.parse()` (ADR-0010) — the third-party
+`srt` pip package was deliberately **rejected** and must not be reintroduced.
 
-### Install dependencies:
-
-```bash
-pip install -r tools/script_checkers/requirements.txt
-```
-
-If `srt` fails to install automatically, install it manually:
+### Verify the parser is importable:
 
 ```bash
-pip install srt
-```
-
-### Verify installation:
-
-```bash
-python -c "import srt; print('srt version:', srt.__version__)"
+python -c "from tools.subtitles import parse; print('subtitles parser OK')"
 ```
 
 ## Usage
@@ -87,10 +77,9 @@ After analyzing 11 video pairs, you should see:
 
 ### "ModuleNotFoundError: No module named 'srt'"
 
-Install the srt library:
-```bash
-pip install srt
-```
+You're on an old code path that imported the rejected `srt` package. SRT parsing
+is now dependency-free via `tools.subtitles.parse()` (ADR-0010) — update the
+caller to import from `tools.subtitles`, do NOT `pip install srt`.
 
 ### "Warning: Only X video pairs found"
 

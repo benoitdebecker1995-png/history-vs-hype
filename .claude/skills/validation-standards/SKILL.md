@@ -17,14 +17,14 @@ Two non-negotiable mechanics, then the commands:
 
 | What | Command |
 |---|---|
-| Default suite (`tests/` only — 649 tests, 0 collection errors as of 2026-07-01) | `python -m pytest -p no:cacheprovider -q` |
-| Full suite (adds the repo-side pin files pytest skips by default) | `python -m pytest tests/ tools/tests/ tools/script_checkers/tests/ -p no:cacheprovider -q` |
+| Default suite (`tests/` only — 0 collection errors expected) | `python -m pytest -p no:cacheprovider -q` |
+| Full suite (adds the repo-side pin files pytest skips by default) | `python -m pytest tests/ tools/tests/ tools/research/test_opener_diagnostic.py -p no:cacheprovider -q` |
 | One file | `python -m pytest tests/test_status_doc.py -p no:cacheprovider -q` |
 | One test | `python -m pytest tests/unit/test_pacing.py -k <name> -p no:cacheprovider -q` (collect-verified 2026-07-03) |
 | Collect-only sanity check (fast, safe, no test executes) | `python -m pytest --collect-only -q -p no:cacheprovider` |
 | Repo-side pins only | `python -m pytest tools/tests/ -p no:cacheprovider -q` |
 
-The full run is SLOW (8m29s on 2026-06-12) — don't run it casually; scope to the files covering your change, then full-suite before declaring done.
+The full run is SLOW (~5–8½ min) — don't run it casually; scope to the files covering your change, then full-suite before declaring done. **Don't hardcode a test count** — it drifts every change; get the current number from `python -m pytest --collect-only -q -p no:cacheprovider` when you need it.
 
 ### Collection traps (each one has bitten a session)
 
@@ -71,8 +71,8 @@ All mappings import-verified. Files under `tools/tests/` need an explicit path (
 | translation, hook_scorer, ctr_ingest, logging_config | `tests/test_translation.py`, `tests/unit/test_hook_scorer.py`, `tests/integration/test_ctr_ingest.py`, `tests/test_logging_config.py` |
 | opener_diagnostic | `tools/research/test_opener_diagnostic.py` (in-package but proper `tools.` imports — collects fine via explicit path) |
 
-**Known zero-coverage (don't assume a net exists):**
-- `tools/voice_lint.py` — **ZERO automated tests** (9 public scanners; the highest-priority gap per TEST-STATUS §D). It also carries the channel's one holdout-surviving HARD gate (`cta-too-early`), so a silent regression here corrupts every script lint.
+**Known thin coverage (don't assume a full net exists):**
+- `tools/voice_lint.py` — no longer zero-coverage: `tests/unit/test_voice_lint_parity.py` and `test_voice_lint_hedge.py` import the scanners directly and pin behavior, including the channel's one holdout-surviving HARD gate (`cta-too-early`). Coverage is per-scanner, not exhaustive across all 9 — confirm the specific scanner you touch is exercised, and add a case if not.
 - 4 of 5 script checkers (`flow`, `repetition`, `scaffolding`, `stumble`) — only subprocess smoke-pins (exit code + non-empty output), no behavior tests.
 - Most of `tools/youtube_analytics/`'s 60 modules (e.g. `patterns.py`, 1,955 lines) — untested orchestration. ADR-0011's "net first, no rearranging" stance applies: do not restructure untested code before adding a net.
 

@@ -1,0 +1,29 @@
+[mcp_servers.graphify-code]
+command = 'C:\Users\Benoi\AppData\Local\Programs\Python\Python312\python.exe'
+args = [
+    "-m",
+    "graphify.serve",
+    'D:\History vs Hype\graphify-out\graph.json',
+]
+
+[mcp_servers.graphify-research]
+command = 'C:\Users\Benoi\AppData\Local\Programs\Python\Python312\python.exe'
+args = [
+    "-m",
+    "graphify.serve",
+    'D:\History vs Hype\graphify-out\research\graph.json',
+]
+
+[mcp_servers.notebooklm]
+command = "notebooklm-mcp"
+
+[mcp_servers.playwright]
+command = "npx"
+args = [
+    "-y",
+    "@playwright/mcp@latest",
+    "--headless",
+]
+
+[mcp_servers.vidiq]
+url = "https://mcp.vidiq.com/mcp"

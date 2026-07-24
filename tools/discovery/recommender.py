@@ -81,62 +81,14 @@ def get_existing_topics() -> List[str]:
         >>> print(existing[:3])
         ['somaliland', 'dark ages', 'iran 1953 coup']
     """
-    topics = []
+    from tools.video_projects import VideoProjectRepo
+
     project_root = Path(__file__).parent.parent.parent
-
-    # Folders to scan
-    folders = [
-        project_root / 'video-projects' / '_IN_PRODUCTION',
-        project_root / 'video-projects' / '_ARCHIVED'
-    ]
-
-    for folder in folders:
-        if not folder.exists():
-            continue
-
-        try:
-            for item in folder.iterdir():
-                if not item.is_dir():
-                    continue
-
-                # Skip README.md and hidden folders
-                if item.name.startswith('.') or item.name == 'README.md':
-                    continue
-
-                # Parse folder name: {number}-{topic-slug-year} or old-{topic}
-                name = item.name.lower()
-
-                # Handle "old-topic" format in _ARCHIVED
-                if name.startswith('old-'):
-                    topic = name[4:]  # Remove "old-" prefix
-                else:
-                    # Handle "{number}-{topic-slug-year}" format
-                    # E.g., "10-dark-ages-2025" -> "dark ages"
-                    parts = name.split('-')
-
-                    # Skip if no parts
-                    if not parts:
-                        continue
-
-                    # Remove leading number if present
-                    if parts[0].isdigit():
-                        parts = parts[1:]
-
-                    # Remove trailing year if present (4-digit number)
-                    if parts and len(parts[-1]) == 4 and parts[-1].isdigit():
-                        parts = parts[:-1]
-
-                    # Join remaining parts with spaces
-                    topic = ' '.join(parts)
-
-                if topic:
-                    topics.append(topic)
-
-        except OSError:
-            # Handle permission errors or other OS issues
-            continue
-
-    return topics
+    # VideoProject.topic_slug strips the leading number and trailing year and
+    # spaces the slug (e.g. "10-dark-ages-2025" -> "dark ages"). repo.all() covers
+    # all live stages and excludes abandoned old-*/_BACKLOG; the old _ARCHIVED
+    # top-level scan missed the real published slugs (one level deeper).
+    return [p.topic_slug for p in VideoProjectRepo(project_root).all()]
 
 
 def topic_matches_existing(keyword: str, existing: List[str]) -> bool:

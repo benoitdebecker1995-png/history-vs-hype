@@ -151,6 +151,7 @@ Live SERP shelf (this topic, today — from serp_thumb_study; classify your conc
 Whitespace operations ABSENT from this shelf (prioritize concepts that occupy this gap):
 [absent-operations line from Step 2.6, OR "none"]
 HvH constraint: 515 subs, evidence-based myth-busting, "intellectual competence" trigger, format = 8–12 min talking-head + B-roll. Do not propose assets HvH cannot produce.
+VALIDATED CTR RULES (own data, all 56 thumbnails, 2026-06-27 — see PACKAGING_MANDATE §2026-06-27): (1) NO document-as-focal-point — a page of body text is the CTR floor (−0.71 overall, −2.11 within famous topics); show the ONE legible line/number the document reveals, never the page. (2) NO clutter — one focal point only (busy −0.52). (3) A clean map (one contested zone) or a famous/emoting face works; a blank creator face does NOT help. (4) Do NOT rely on a "red pop" — it tested NEGATIVE on the full set (confounded with the cluttered-document style), so red is not a clickability lever. (5) Verdict-overlay wording: "FACT CHECKED" beat its synonyms in 2 independent A/B tests; existential questions ("DOES X EXIST?") beat flat framings — prefer these, but they're directional (A/B-confirm).
 
 When topic-comparable winners are present, your concepts must explicitly position against them: name which topic-comparable convention each concept either differentiates from or strategically copies, and cite the specific video by channel + view count. Do not generate concepts that ignore an established topic convention without naming why.
 

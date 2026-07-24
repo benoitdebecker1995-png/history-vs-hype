@@ -43,7 +43,8 @@ def ledger_db(tmp_path, monkeypatch):
             snapshot_date DATE NOT NULL,
             ctr_percent REAL NOT NULL,
             impression_count INTEGER NOT NULL,
-            view_count INTEGER NOT NULL
+            view_count INTEGER NOT NULL,
+            is_valid INTEGER NOT NULL DEFAULT 1
         )
         """
     )

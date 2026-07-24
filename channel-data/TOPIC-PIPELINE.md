@@ -49,6 +49,7 @@
 
 ## TIER B — viable, weaker profile
 
+- **Ferdinand de Lesseps — the French canal that failed before the US one (NEW ENTRANT 2026-06-25, VidIQ):** `ferdinand de lesseps` **16,544/mo, comp 28** — bigger + same comp as the Panama anchor. Surfaced while scoring #36's anchors; rejected *for #36* (off-thesis — #36 leads with the treaties, not the build). Stands on its own as a **French-attempt → bankruptcy/scandal → US takeover** narrative that could chain with #36 into a Panama series. Doc-forensic spine to probe: the 1889 Compagnie collapse + the Panama scandal (French political corruption trial). Needs a competitor-gap + whitespace scan before greenlight.
 - **Monroe Doctrine — text vs invocation:** 51 Overall, comp ~48-54 → rankability 0-50. Decent volume (1,245×3) and the doc-forensic angle is open (D4: interventions-catalogs over-served), but the score says crowded. Pairs as thematic follow-on to Panama/Greenland.
 - **Greenland — legal paper trail (DEMOTED from Tier A):** raw volume is big (8,100 + 2,900) but **50 Overall with comp 51-54 → rankability 0**, the shelf is flooded, and it carries the highest anti-voice risk (RealLifeLore lane). `kauffmann agreement greenland`: no VidIQ index. Only viable doc-first with a verified hook; otherwise park.
 - **Falklands/Malvinas:** `falklands malvinas dispute` returned NO DATA in the new index (old db: 1,400/mo — conflict). Needs broader anchor terms re-scored before it can claim a slot. Backlog folder banked.

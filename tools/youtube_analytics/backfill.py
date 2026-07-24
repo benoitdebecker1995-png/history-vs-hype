@@ -1182,12 +1182,25 @@ def run_backfill(project_root: Path, force: bool = False, skip_markdown: bool = 
         'errors': []
     }
 
-    # Stage 1: JSON import
-    logger.info("Stage 1: Importing from JSON pre-fetches")
-    json_result = import_from_json_prefetch(project_root)
-    results['json_import'] = json_result
-    if json_result.get('errors'):
-        results['errors'].extend(json_result['errors'])
+    # Stage 1: JSON import (LEGACY — manual drop-in path).
+    # Nothing in the repo generates _longform_enriched.json / _longform_metrics.json
+    # anymore; the live API path (performance.py --fetch-all) populates the DB
+    # directly. Only run this stage if a pre-fetch file is actually present, so a
+    # normal run skips silently instead of reporting a spurious "no pre-fetch" error.
+    analytics_dir = project_root / 'tools' / 'youtube_analytics'
+    has_prefetch = any(
+        (analytics_dir / name).exists()
+        for name in ('_longform_enriched.json', '_longform_metrics.json')
+    )
+    if has_prefetch:
+        logger.info("Stage 1: Importing from JSON pre-fetches")
+        json_result = import_from_json_prefetch(project_root)
+        results['json_import'] = json_result
+        if json_result.get('errors'):
+            results['errors'].extend(json_result['errors'])
+    else:
+        logger.info("Stage 1: Skipped (no JSON pre-fetch present; using live DB)")
+        results['json_import'] = {'skipped': True, 'imported': 0, 'errors': []}
 
     # Stage 2: Markdown import (optional)
     if not skip_markdown:
@@ -1238,10 +1251,11 @@ Examples:
   python -m tools.youtube_analytics.backfill --json-only  JSON import only, skip markdown
   python -m tools.youtube_analytics.backfill --insights-only  Skip all imports, regenerate report
 
-Data source priority:
-  1. _longform_enriched.json (20 videos, has CTR + retention)
-  2. _longform_metrics.json (40 videos, basic metrics only)
-  3. POST-PUBLISH-ANALYSIS markdown files (adds lessons_learned)
+Data sources:
+  - LIVE (primary): analytics.db / keywords.db, populated by
+    `python -m tools.youtube_analytics.performance --fetch-all`
+  - POST-PUBLISH-ANALYSIS markdown files (adds lessons_learned)
+  - _longform_*.json (LEGACY manual drop-in; Stage 1 skips if absent)
 
 Output: tools/discovery/keywords.db (video_performance table)
         channel-data/channel-insights.md
@@ -1303,9 +1317,12 @@ Output: tools/discovery/keywords.db (video_performance table)
     json_import = result.get('json_import', {})
     md_import = result.get('markdown_import', {})
 
-    print(f"  Stage 1 (JSON import):    {json_import.get('imported', 0)} imported, "
-          f"{json_import.get('skipped', 0)} skipped, "
-          f"{len(json_import.get('errors', []))} errors")
+    if json_import.get('skipped') is True:
+        print("  Stage 1 (JSON import):    skipped (legacy; no pre-fetch present)")
+    else:
+        print(f"  Stage 1 (JSON import):    {json_import.get('imported', 0)} imported, "
+              f"{json_import.get('skipped', 0)} skipped, "
+              f"{len(json_import.get('errors', []))} errors")
 
     if not args.json_only:
         print(f"  Stage 2 (Markdown):       {md_import.get('processed', 0)} processed, "

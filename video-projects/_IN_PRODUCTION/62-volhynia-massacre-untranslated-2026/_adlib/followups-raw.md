@@ -1,0 +1,13 @@
+# Follow-up ad-libs — raw transcripts (2026-07-15, dictated in-chat)
+
+## F1 — the graves-flip beat (explain-back after logic walk) → KEEP, with guard
+
+So where does that leave us, all these atrocities? If we look at where the volume [Volhynia] massacre was committed, it was on the land that is now Ukraine. If we look at where most Ukrainians were killed by Poles, it is on the land that is now Poland. So both peoples decided to cleanse or safeguard their land by eliminating or by by killing, removing, um, um, um, other ethnicities.
+
+**Rebuild notes:** flip core landed and is KEPT (his phrasing: "the land that is now Ukraine / the land that is now Poland"). ⚠ GUARD: "both peoples decided to cleanse" symmetrizes too far — precise actors required (the UPA vs largely communist Poland's state; Vistula = government deportation) + hold the asymmetry (one side started it, did most of the killing). Weld his flip to the Sejm-concession line.
+
+## F2 — cold open, 30 seconds to camera
+
+Why would a country that is fighting for its independence... stop. Stop. Stop. Um, I think we should focus on the fact, uh, of the why. Like, why would a country that is fighting, um, an oppressive, uh, and or or why would a country that is fighting, um, an invading force that is committing atrocities honor, um, men that committed the atrocity. the upper [UPA] soldiers that Ukraine has been honoring recently have been condemned or are are sure or are are the main perpetrators of the Volonia [Volhynia] massacre. Both sides. both Ukraine, Poland. Right? Both Ukraine and Poland, um, have a very clear vision of that story. Well, that's the problem with stories. They don't look at the actual evidence. Both sides just take the evidence that supports their point of view. That's what I'm trying to do with this video. Look at the primary sources, the evidence, and try to make sense of these stories and show, um, what the documents actually support.
+
+**Rebuild notes:** his open = the WHY-PARADOX ("why would a country fighting an invader that commits atrocities honor the men who committed an atrocity") — not the locked news-lead ("Not Russia. Poland."). ⭐ Keeper line: "That's the problem with stories… both sides just take the evidence that supports their point of view." Missing from his version: the concrete news beats (26 May decree · Poland strips the White Eagle) that carry the modern hook + the "documents these men left behind" anchor. FORK for the read: (A) locked news-lead as-is, (B) his paradox-first blended with the news concretes. Note his mid-take self-edit instinct: he stopped and re-aimed at "the why" — the why-question is his native doorway (same as Act 1's ad-lib).

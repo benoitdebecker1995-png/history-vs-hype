@@ -1,0 +1,321 @@
+{
+  "video": "56-no-lassos-atlantic-slave-trade-origin-2026",
+  "lifecycle": "_ARCHIVED",
+  "source_file": "video-projects/_ARCHIVED/published/56-no-lassos-atlantic-slave-trade-origin-2026/01-VERIFIED-RESEARCH.md",
+  "model": "sonnet-agent",
+  "extracted_at": "2026-07-22",
+  "claims": [
+    {
+      "claim": "Portuguese raiders attacked captives at Arguin Bank in 1444 while shouting Christian battle cries, killing and capturing all they could.",
+      "topics": ["captive-acquisition-methods", "slave-trade-mechanics", "myth-origin-tracing"],
+      "verbatim": "But they, shouting out 'St. James', 'St. George', 'Portugal', at once attacked them, killing and taking all they could.",
+      "source": "Beazley & Prestage Hakluyt Vol I, Ch XIX, p. 65-66",
+      "status": "verified",
+      "anchor": "### Verbatim quote A — The Christian battle cry attack (✅ VERIFIED)"
+    },
+    {
+      "claim": "During the 1444 Arguin raid, families were separated as parents fled and hid or buried children among seaweed trying to escape capture.",
+      "topics": ["captive-acquisition-methods", "slave-trade-mechanics"],
+      "verbatim": "Then might you see mothers forsaking their children, and husbands their wives, each striving to escape as best he could. Some drowned themselves in the water; others thought to escape by hiding under their huts; others stowed their children among the sea-weed, where our men found them afterwards, hoping they would thus escape notice.",
+      "source": "Beazley & Prestage Hakluyt Vol I, Ch XIX, p. 66",
+      "status": "verified",
+      "anchor": "### Verbatim quote B — The family separation (✅ VERIFIED)"
+    },
+    {
+      "claim": "The 1444 Arguin raid captured 165 men, women, and children, in addition to those killed.",
+      "topics": ["captive-acquisition-methods", "slave-trade-mechanics"],
+      "verbatim": "They took captive of those Moors, what with men, women, and children, **165**, besides those that perished and were killed.",
+      "source": "Beazley & Prestage Hakluyt Vol I, Ch XIX, p. 66",
+      "status": "verified",
+      "anchor": "### Outcome of the 1444 raid"
+    },
+    {
+      "claim": "At the Lagos auction two weeks after the Arguin raid, Prince Henry personally divided his royal fifth of the captives among his retinue.",
+      "topics": ["captive-acquisition-methods", "slave-trade-mechanics"],
+      "verbatim": "The Infant was there, mounted upon a powerful steed, and accompanied by his retinue, making distribution of his favours, as a man who sought to gain but small treasure from his share; for of the forty-six souls that fell to him as his fifth, he made a very speedy partition of these...",
+      "source": "Beazley & Prestage Hakluyt Vol I, Ch XXV, p. 83",
+      "status": "verified",
+      "anchor": "### Verbatim — Ch XXV royal-fifth division (✅ VERIFIED 2026-05-21)"
+    },
+    {
+      "claim": "Zurara's chronicle describes captives at the Lagos auction clinging to one another so tightly they could hardly be separated.",
+      "topics": ["captive-acquisition-methods", "slave-trade-mechanics"],
+      "verbatim": "...while captives cling to one another, so close they can hardly be separated.",
+      "source": "Beazley & Prestage Hakluyt Vol I, Ch XXV, p. 83",
+      "status": "verified",
+      "anchor": "### COLD-OPEN TRANSLATION FLAG (surfaced 2026-05-21) — ✅ RESOLVED 2026-05-24 via grill-with-docs"
+    },
+    {
+      "claim": "Portuguese direct-capture raids on West Africa occurred repeatedly between 1441 and 1446, including night raids and pursuits of canoe occupants.",
+      "topics": ["captive-acquisition-methods", "slave-trade-mechanics"],
+      "verbatim": null,
+      "source": "Gomes Eanes de Zurara, Chronica do descobrimento e conquisita da Guiné, written c. 1453",
+      "status": "verified",
+      "anchor": "### Contextual support (1441-1448 raid pattern)"
+    },
+    {
+      "claim": "In 1445, African fighters using poisoned arrows killed 20 of 22 Portuguese raiders, including the explorer Nuno Tristão.",
+      "topics": ["captive-acquisition-methods", "myth-origin-tracing"],
+      "verbatim": "very strong and skilful in defending themselves... their dangerous way of fighting would be frightful to any reasonable man",
+      "source": "Gomes Eanes de Zurara, Chronica do descobrimento e conquisita da Guiné, written c. 1453",
+      "status": "verified",
+      "anchor": "### Contextual support (1441-1448 raid pattern)"
+    },
+    {
+      "claim": "Portuguese slave raids on West Africa stopped in 1448 because of African military resistance, not because of any moral change of policy.",
+      "topics": ["captive-acquisition-methods", "myth-origin-tracing"],
+      "verbatim": null,
+      "source": "Gomes Eanes de Zurara, Chronica do descobrimento e conquisita da Guiné, written c. 1453",
+      "status": "verified",
+      "anchor": "### Contextual support (1441-1448 raid pattern)"
+    },
+    {
+      "claim": "In a July 1526 letter, King Afonso I of Kongo protested that Portuguese merchants were seizing his countrymen, nobles, and vassals daily, depopulating his land.",
+      "topics": ["captive-acquisition-methods", "slave-trade-mechanics", "myth-origin-tracing"],
+      "verbatim": "And this harm has come to us at such cost that the said merchants take our countrymen the sons of our land and the sons of our noblemen every day, as well as our vassals and parents, because the thieves and men of bad conscience captivate them with a desire to have the things and goods of this Kingdom of which they are greedy, they seize and sell them in such a way, Sir, that because of this corruption and licentiousness, our land is being all but depopulated.",
+      "source": "French, Born in Blackness, p. 296",
+      "status": "verified",
+      "anchor": "### Verbatim quote A — The depopulation protest (✅ VERIFIED)"
+    },
+    {
+      "claim": "King Afonso I of Kongo demanded in writing that all slave trading and export from his kingdom cease entirely.",
+      "topics": ["captive-acquisition-methods", "slave-trade-mechanics"],
+      "verbatim": "Our will is that in this Kingdom there be no slave trade nor [any] outlet for it.",
+      "source": "French, Born in Blackness, p. 296",
+      "status": "verified",
+      "anchor": "### Verbatim quote B — The trade-ban demand (✅ VERIFIED)"
+    },
+    {
+      "claim": "Afonso I's October 1526 letter described free Kongolese nobles and relatives being stolen and, once in traders' power, branded with fire and shackled in irons.",
+      "topics": ["captive-acquisition-methods", "slave-trade-mechanics"],
+      "verbatim": "Many of our people... steal many of our free and protected people... they have stolen nobles and the sons of nobles, and our own relatives... and as soon as they are in the power of these white men they are at once branded with fire and clapped in irons.",
+      "source": "French, p. 296, citing Levy Maria Jordão, Historia do Congo (Lisbon: Typ. da Academia, 1877), pp. 56-58",
+      "status": "verified",
+      "anchor": "### Synth-beat material (October 18, 1526 second letter — ✅ VERIFIED)"
+    },
+    {
+      "claim": "King João III of Portugal replied to Afonso's protest by dismissing the depopulation claim, implying Kongo's population size proved no captives had actually left.",
+      "topics": ["propaganda-and-narrative-control", "slave-trade-mechanics"],
+      "verbatim": "You say in your letters that you do not want there to be any slave trade in your kingdom because it is depopulating your land. I can believe that you only say this as a result of the suffering that the Portuguese cause you, because I am told of the great size of Kongo and how it is so populated that it appears that not a single slave has left it.",
+      "source": "Malyn Newitt, The Portuguese in West Africa, 1415–1670: A Documentary History (Cambridge UP, 2010), Doc 36",
+      "status": "verified",
+      "anchor": "### Killer synth beat — João III's 1529 dismissive reply (✅ VERIFIED)"
+    },
+    {
+      "claim": "Portuguese trade goods sent to Kongo included cloth, copper, beads, brass, and manilhas as well as weapons, making the strict 'guns-for-slaves' cycle thesis a contested oversimplification.",
+      "topics": ["scholarly-disagreement", "contested-attribution", "slave-trade-mechanics"],
+      "verbatim": "if a fidalgo of yours rebels against you and receives merchandise from Portugal...",
+      "source": "Malyn Newitt, The Portuguese in West Africa, 1415–1670: A Documentary History (Cambridge UP, 2010), Doc 36",
+      "status": "partial",
+      "anchor": "### Resolution 2026-05-17 — \"merchandise\" vs \"guns\" (per `03-FACT-CHECK-VERIFICATION.md` ISSUE 3)"
+    },
+    {
+      "claim": "By the 1450s a Portuguese trading factory at Arguim was supplying 800 to 1,000 captives per year to the European market.",
+      "topics": ["slave-trade-mechanics", "resource-extraction-economy"],
+      "verbatim": null,
+      "source": "Howard French, Born in Blackness (W. W. Norton, 2021), p. 66",
+      "status": "verified",
+      "anchor": "### French p. 66 — Cadamosto/Arguim factory (✅ VERIFIED 2026-05-25)"
+    },
+    {
+      "claim": "Iberian sugar plantations on Atlantic islands including Madeira, the Canaries, Cape Verde, and São Tomé became the prototype that New World plantations later copied.",
+      "topics": ["slave-trade-mechanics", "resource-extraction-economy", "forced-labour-systems"],
+      "verbatim": null,
+      "source": "Howard French, Born in Blackness (W. W. Norton, 2021), p. 116",
+      "status": "verified",
+      "anchor": "### French p. 116 — Madeira/São Tomé prototype (✅ VERIFIED 2026-05-25)"
+    },
+    {
+      "claim": "The Atlantic sugar-island plantation system was built in the Atlantic islands before crossing to become the New World plantation model.",
+      "topics": ["slave-trade-mechanics", "resource-extraction-economy"],
+      "verbatim": null,
+      "source": "David Brion Davis, foreword to Eltis & Richardson, Atlas of the Transatlantic Slave Trade (Yale UP, 2010), p. xiv",
+      "status": "verified",
+      "anchor": "### Davis Atlas p. xiv — sugar-island prototype (✅ VERIFIED 2026-05-25)"
+    },
+    {
+      "claim": "Between 1450 and 1500, roughly 81,000 enslaved Africans entered the Atlantic system; between 1501 and 1600, that rose to about 338,000.",
+      "topics": ["slave-trade-mechanics", "casualty-estimate-methodology"],
+      "verbatim": null,
+      "source": "Paul E. Lovejoy, Transformations in Slavery: A History of Slavery in Africa, 3rd ed. (Cambridge UP, 2012), p. 45, Table 3.1",
+      "status": "verified",
+      "anchor": "### Lovejoy Table 3.1 — volume ramp (✅ VERIFIED 2026-05-25)"
+    },
+    {
+      "claim": "Before 1450, slavery in Africa was a marginal social institution; the Atlantic trade transformed it into a central mode of production.",
+      "topics": ["slave-trade-mechanics", "myth-origin-tracing"],
+      "verbatim": null,
+      "source": "Paul E. Lovejoy, Transformations in Slavery, 3rd ed. (Cambridge UP, 2012), Introduction",
+      "status": "verified",
+      "anchor": "### Lovejoy Introduction — transformation thesis (✅ VERIFIED 2026-05-25)"
+    },
+    {
+      "claim": "In August 1518, Spain's Charles I licensed Lorenzo de Gorrevod to transport four thousand enslaved Africans directly to the Indies, sourced largely from Cape Verde.",
+      "topics": ["slave-trade-mechanics", "legal-justification-doctrine", "captive-acquisition-methods"],
+      "verbatim": "Know ye that I have given permission... to Lorenzo de Gorrevod... whereby he... may proceed to take to the Indies, the islands and the mainland of the ocean sea... four thousand negro slaves both male and female, provided they be Christians... without coming to Seville, as many as possible being taken from Cape Verde.",
+      "source": "Donnan, Documents Illustrative of the History of the Slave Trade to America, Vol. I (Carnegie Institution, 1930), pp. 41-42",
+      "status": "verified",
+      "anchor": "### Verbatim quote (✅ VERIFIED 2026-05-25)"
+    },
+    {
+      "claim": "The 1518 Gorrevod asiento operationalized the 1455 Romanus Pontifex papal license as a commercial state contract sixty-three years later.",
+      "topics": ["legal-justification-doctrine", "papal-donation-doctrine", "slave-trade-mechanics"],
+      "verbatim": null,
+      "source": "Elizabeth Donnan, Documents Illustrative of the History of the Slave Trade to America, Vol. I (Carnegie Institution, 1930), pp. 41-42, Document 2",
+      "status": "verified",
+      "anchor": "## BEAT 5 — 1518 Gorrevod Asiento ✅ VERIFIED 2026-05-25"
+    },
+    {
+      "claim": "A Dutch trader observed around 1602 that the Gold Coast, unlike Angola or Kongo, could not supply enough captives at scale to fill European ships.",
+      "topics": ["captive-acquisition-methods", "myth-origin-tracing"],
+      "verbatim": "They also enslave one another, but not in the same manner as in Angola or Conge [Kongo], for it would not be possible to load ships here with blacks. They do not have at their disposal a multitude of Captives, and so on the Gold Coast they cannot be purchased in large numbers.",
+      "source": "Smallwood, Saltwater Slavery, p. 30, quoting van Dantzig/Jones 1987 translation, p. 176",
+      "status": "verified",
+      "anchor": "### Verbatim quote (✅ VERIFIED)"
+    },
+    {
+      "claim": "Pieter de Marees's account describes the Gold Coast specifically, not Africa as a whole, and explicitly distinguishes it from Angola and Kongo where captives were supplied at scale.",
+      "topics": ["captive-acquisition-methods", "myth-origin-tracing"],
+      "verbatim": null,
+      "source": "Smallwood, Saltwater Slavery, p. 30, quoting van Dantzig/Jones 1987 translation, p. 176",
+      "status": "verified",
+      "anchor": "### CRITICAL FRAMING CORRECTION (2026-05-13)"
+    },
+    {
+      "claim": "Enslavement produced a two-tiered price structure: a newly captured person was priced cheaply based on the cost of capturing them, while a 'seasoned' slave commanded a much higher price.",
+      "topics": ["captive-acquisition-methods", "slave-trade-mechanics"],
+      "verbatim": "The process of enslavement resulted in a two-tiered price structure, distinguishing the very low price of a newly taken captive (a price based not on the value of the person but on the cost of capturing him or her), and the higher price of a slave ready to be put to work.",
+      "source": "Patrick Manning, Slavery and African Life, Cambridge UP, 1990, ch. 4",
+      "status": "verified",
+      "anchor": "### Mechanism support — Manning's two-tiered price structure (**NEWLY DEPLOYED in v3 script, 2026-05-25**)"
+    },
+    {
+      "claim": "European market demand pushed indigenous African slavery away from a marginal social framework toward a system where slaves played an increasingly central economic role.",
+      "topics": ["slave-trade-mechanics", "myth-origin-tracing"],
+      "verbatim": "The pull of the market had the effect of pushing indigenous forms of slavery further away from a social framework... to a system in which slaves played an increasingly important role in the economy.",
+      "source": "Paul E. Lovejoy, Transformations in Slavery: A History of Slavery in Africa, 3rd ed., Cambridge UP, 2012, Introduction",
+      "status": "verified",
+      "anchor": "### Mechanism support — Lovejoy's transformation thesis"
+    },
+    {
+      "claim": "European demand pressured African rulers to progressively find ways around existing legal restrictions on enslaving their own people.",
+      "topics": ["slave-trade-mechanics", "captive-acquisition-methods"],
+      "verbatim": "progressively and opportunistically seek ways around existing strictures on the enslavement of one's own people",
+      "source": "David Brion Davis, Inhuman Bondage, Oxford UP, 2006, p. 221",
+      "status": "verified",
+      "anchor": "### Mechanism support — the \"right not to be sold\" linguistic evidence"
+    },
+    {
+      "claim": "Pope Nicholas V's 1455 bull Romanus Pontifex authorized reducing conquered non-Christian peoples to perpetual slavery.",
+      "topics": ["papal-donation-doctrine", "legal-justification-doctrine", "religious-legal-authority"],
+      "verbatim": "...illorumque personas in perpetuam servitutem redigendi...",
+      "source": "Davenport, European Treaties bearing on the History of the United States and its Dependencies to 1648, Vol. I (Carnegie Institution, 1917), p. 16",
+      "status": "verified",
+      "anchor": "### Verbatim Latin (✅ VERIFIED)"
+    },
+    {
+      "claim": "Romanus Pontifex authorized Portugal to invade, capture, and subdue Saracens, pagans, and enemies of Christ, seize their goods and lands, and reduce their persons to perpetual slavery.",
+      "topics": ["papal-donation-doctrine", "legal-justification-doctrine"],
+      "verbatim": "...to invade, search out, capture, vanquish, and subdue all Saracens and pagans whatsoever, and other enemies of Christ wheresoever placed, and the kingdoms, dukedoms, principalities, dominions, possessions, and all movable and immovable goods whatsoever held and possessed by them and **to reduce their persons to perpetual slavery**, and to apply and appropriate to himself and his successors the kingdoms, dukedoms, counties, principalities, dominions, possessions, and goods, and to convert them to his and their use and profit...",
+      "source": "Davenport, European Treaties bearing on the History of the United States and its Dependencies to 1648, Vol. I (Carnegie Institution, 1917), p. 23",
+      "status": "verified",
+      "anchor": "### Verbatim English translation (✅ VERIFIED)"
+    },
+    {
+      "claim": "The 1452 bull Dum Diversas already contained the identical perpetual-enslavement clause that Romanus Pontifex repeated three years later.",
+      "topics": ["papal-donation-doctrine", "legal-justification-doctrine"],
+      "verbatim": "...tibi Sarracenos, et paganos, aliosque infideles, et Christi inimicos quoscunque... invadendi, conquerendi, expugnandi, et subjugandi, **illorumque personas in perpetuam servitutem redigendi**, regna quoque... tibi et successoribus tuis Regibus Portugalliae, perpetuo applicandi...",
+      "source": "Davenport Vol I, p. 17 (Note 37), citing Jordão, Bullarium, p. 22",
+      "status": "verified",
+      "anchor": "### BONUS — *Dum Diversas* (18 June 1452) Latin clause (✅ VERIFIED 2026-05-21)"
+    },
+    {
+      "claim": "Papal bulls of this type were almost always issued in response to a formal petition from the recipient monarch rather than unilaterally by the pope.",
+      "topics": ["papal-donation-doctrine", "legal-justification-doctrine"],
+      "verbatim": "almost always the result of a formal petition (*supplik*) from the recipient",
+      "source": "Davenport, European Treaties bearing on the History of the United States and its Dependencies to 1648, Vol. I (Carnegie Institution, 1917)",
+      "status": "verified",
+      "anchor": "### Critical context (all ✅ verified via Davenport editorial apparatus)"
+    },
+    {
+      "claim": "Romanus Pontifex granted Portugal an exclusive trading and territorial monopoly from Cape Bojador through Guinea and beyond.",
+      "topics": ["papal-donation-doctrine", "legal-justification-doctrine"],
+      "verbatim": "from Capes Bojador and Não through all Guinea, and beyond toward that southern shore",
+      "source": "Davenport, European Treaties bearing on the History of the United States and its Dependencies to 1648, Vol. I (Carnegie Institution, 1917)",
+      "status": "verified",
+      "anchor": "### Critical context (all ✅ verified via Davenport editorial apparatus)"
+    },
+    {
+      "claim": "Romanus Pontifex's text authorizes perpetual servitude but does not explicitly grant heritable slave status; heritability developed later through separate colonial legal practices.",
+      "topics": ["papal-donation-doctrine", "legal-justification-doctrine", "myth-origin-tracing"],
+      "verbatim": null,
+      "source": "Romanus Pontifex, 8 January 1455, per Davenport Vol I",
+      "status": "verified",
+      "anchor": "### Resolution 2026-05-17 — \"perpetual\" vs \"heritable\" (per `03-FACT-CHECK-VERIFICATION.md` ISSUE 4)"
+    },
+    {
+      "claim": "Prince Henry the Navigator cited various earlier papal bulls as the authority giving him the right to take slaves in Guinea.",
+      "topics": ["papal-donation-doctrine", "legal-justification-doctrine", "captive-acquisition-methods"],
+      "verbatim": "Henry... had much more powerful authority than tradition or the Siete partidas to justify his engagement in the slave trade. Various earlier papal bulls could be interpreted as giving him the right to take slaves in Guinea.",
+      "source": "P.E. Russell, Prince Henry \"The Navigator\": A Life (Yale UP, 2000), p. 250",
+      "status": "verified",
+      "anchor": "### Russell p. 250 — operators relied on the bulls (✅ VERIFIED 2026-05-25)"
+    },
+    {
+      "claim": "Roughly as many captives crossed the Atlantic between 1501 and 1900 as left Africa by every other trade route combined since the end of the Roman Empire.",
+      "topics": ["slave-trade-mechanics", "casualty-estimate-methodology"],
+      "verbatim": "About the same number of captives traveled across the Atlantic Ocean between 1501 and 1900 as left Africa by all other routes combined from the end of the Roman Empire to 1900.",
+      "source": "David Brion Davis, foreword to Eltis & Richardson, Atlas of the Transatlantic Slave Trade (Yale UP, 2010), p. xi-xii",
+      "status": "verified",
+      "anchor": "### Atlantic vs. trans-Saharan intensity numbers (✅ VERIFIED)"
+    },
+    {
+      "claim": "The English word 'slave' derives from 'Slav,' reflecting the Genoese and Venetian trade in captive Slavic peoples from the Black Sea region centuries before the Atlantic system.",
+      "topics": ["myth-origin-tracing", "slave-trade-mechanics"],
+      "verbatim": "Italians had established slave-trading ports along the northern coast of the Black Sea, much as later European merchants would do along the western coast of Africa. Over the course of nearly two and a half centuries the Genoese and the Venetians purchased thousands of captive Armenians, Circassians, Mingrelians, Tatars, and Bulgarians—**peoples whose vague ethnic status as 'Slavs' became the origin of the words for slave in western European languages**. 'Slav' slaves were highly prized from Muslim Egypt and Syria to Sicily and eastern Spain... In Sicily a notary's record in Latin referred to **sclavi negri, literally 'black Slavs,'** who outnumbered white slaves there by the 1490s.",
+      "source": "David Brion Davis, foreword to Eltis & Richardson, Atlas of the Transatlantic Slave Trade (Yale UP, 2010), p. xiv",
+      "status": "verified",
+      "anchor": "### Davis on Sclavus → Slav etymology (✅ VERIFIED 2026-05-21) — OPTIONAL PRE-CLOSER"
+    },
+    {
+      "claim": "Sixteenth-century Islamic legal scholar Ahmed Baba ruled that non-belief, not race, was what made enslavement permissible under Islamic law.",
+      "topics": ["religious-legal-authority", "captive-acquisition-methods", "myth-origin-tracing"],
+      "verbatim": "Non-belief is that which makes enslavement permissible, whether the enslaved were black or white.",
+      "source": "Barbour & Jacobs, The Mi'raj, in Willis (ed.), Slaves and Slavery in Africa Vol I (Frank Cass, 1985), p. 130",
+      "status": "verified",
+      "anchor": "### Verbatim quote in script (✅ VERIFIED)"
+    },
+    {
+      "claim": "Ahmed Baba ruled that Muslims from Kano, Katsina, Bornu, Gobir, and Songhai could not lawfully be enslaved and should be freed if wrongly captured.",
+      "topics": ["religious-legal-authority", "captive-acquisition-methods"],
+      "verbatim": "The Muslims among them, like the people of Kano, Katsina, Bornu, Gobir, and all of Songhai are Muslims, who are not to be owned. Yet, some of them transgress on the others unjustly by invasion as do the Arabs, Bedouins, who transgress on free Muslims and sell them unjustly... If anybody is known to have come from these countries, he should be set free directly and his freedom acknowledged.",
+      "source": "Barbour & Jacobs, The Mi'raj, in Willis (ed.), Slaves and Slavery in Africa Vol I (Frank Cass, 1985), p. 131",
+      "status": "verified",
+      "anchor": "### Additional verbatim passages available (held in reserve for future enrichment)"
+    },
+    {
+      "claim": "Ahmed Baba's ruling listed specific non-Muslim ethnic groups, including the Mossi, Gurma, and Yoruba, as lawfully enslaveable under his framework.",
+      "topics": ["religious-legal-authority", "captive-acquisition-methods"],
+      "verbatim": "Those who come to you from the following clans: the Mossi, the Gurma, the Busa, the Yorko, the Kutukul, the Yoruba, Tanbughu [Dogon of the hills], the Bobo are considered non-believers who still adhere to non-belief until now",
+      "source": "Barbour & Jacobs, The Mi'raj, in Willis (ed.), Slaves and Slavery in Africa Vol I (Frank Cass, 1985), p. 137",
+      "status": "verified",
+      "anchor": "### Additional verbatim passages available (held in reserve for future enrichment)"
+    },
+    {
+      "claim": "Olaudah Equiano's account of Igbo society describes a strict rule requiring proof that anyone sold into slavery was a prisoner of war or convicted criminal, not simply captured at will.",
+      "topics": ["captive-acquisition-methods", "myth-origin-tracing"],
+      "verbatim": "They always carry slaves through our land; but the strictest account is exacted of their manner of procuring them before they are suffered to pass. Sometimes indeed we sold slaves to them, but they were only prisoners of war, or such among us as had been convicted of kidnapping, for adultery, and some other crimes, which we esteemed heinous.",
+      "source": "Equiano, The Interesting Narrative of the Life of Olaudah Equiano, 3rd ed. (London, 1790), pp. 13-14",
+      "status": "verified",
+      "anchor": "### Verbatim quote on screen — pp. 13-14 (✅ VERIFIED 2026-05-25)"
+    },
+    {
+      "claim": "The scale of the Atlantic slave trade, running to millions of people over centuries, proceeded after 1455 under the legal authority the Romanus Pontifex bull conferred, meaning the legal architecture preceded the commerce at scale.",
+      "topics": ["papal-donation-doctrine", "legal-justification-doctrine", "slave-trade-mechanics"],
+      "verbatim": null,
+      "source": "Davenport, European Treaties bearing on the History of the United States and its Dependencies to 1648, Vol. I (Carnegie Institution, 1917)",
+      "status": "verified",
+      "anchor": "### Why this is the strongest mechanism document"
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "video": "60-guadalupe-hidalgo-dispossession-2026",
+  "lifecycle": "_IN_PRODUCTION",
+  "source_file": "video-projects/_IN_PRODUCTION/60-guadalupe-hidalgo-dispossession-2026/01-VERIFIED-RESEARCH.md",
+  "model": "sonnet-agent",
+  "extracted_at": "2026-07-22",
+  "claims": [
+    {
+      "claim": "Article VIII of the Treaty of Guadalupe Hidalgo held that Mexicans remaining in the ceded territory over one year defaulted to US citizenship unless they declared otherwise, and their property was to be respected.",
+      "topics": ["treaty-text-vs-practice", "settler-land-tenure"],
+      "verbatim": null,
+      "source": "treaty text (Avalon Art. VIII); Griswold p.66; NARA",
+      "status": "verified",
+      "anchor": "### Claim: Article VIII — Mexicans staying >1yr defaulted to US citizenship unless they declared otherwise; property to be respected"
+    },
+    {
+      "claim": "The US Senate weakened Article IX before ratification, changing its citizenship-rights timeline from 'as soon as possible' to being decided at the proper time, to be judged of by Congress.",
+      "topics": ["treaty-ratification-process", "treaty-guarantee-nonenforcement"],
+      "verbatim": "at the proper time, to be judged of by Congress",
+      "source": "Gómez p.130 (verbatim); Griswold p.46; treaty text",
+      "status": "verified",
+      "anchor": "### Claim: Senate WEAKENED Article IX (\"as soon as possible\" → \"at the proper time, to be judged of by Congress\")"
+    },
+    {
+      "claim": "The US Senate deleted Article X of the treaty entirely before ratification — the article that would have honored all Spanish and Mexican land grants.",
+      "topics": ["treaty-ratification-process", "treaty-guarantee-nonenforcement", "settler-land-tenure"],
+      "verbatim": "[Stricken out]",
+      "source": "Griswold pp.44,46; Gómez p.44; NARA",
+      "status": "verified",
+      "anchor": "### Claim: Senate DELETED Article X entirely (would have honored all Spanish/Mexican land grants)"
+    },
+    {
+      "claim": "The 1848 Protocol of Querétaro assured Mexico that striking Article X was not meant to void Mexican-era land grants, a reassurance the United States later disavowed.",
+      "topics": ["treaty-guarantee-nonenforcement", "treaty-ratification-process"],
+      "verbatim": null,
+      "source": "Ebright pp.29-30; Gómez pp.130-131; Griswold p.54",
+      "status": "verified",
+      "anchor": "### Claim: Protocol of Querétaro reassured Mexico → US (Sec. Clayton, 1849) disavowed it"
+    },
+    {
+      "claim": "In 1849, US Secretary of State John Clayton stated the United States had at no time regarded the Protocol of Querétaro as obligatory, formally disavowing it.",
+      "topics": ["treaty-guarantee-nonenforcement"],
+      "verbatim": "at no time regarded the Protocol as obligatory.",
+      "source": "Ebright p.30; Griswold p.54",
+      "status": "verified",
+      "anchor": "### Claim: Protocol of Querétaro reassured Mexico → US (Sec. Clayton, 1849) disavowed it"
+    },
+    {
+      "claim": "The land-dispossession process ran through a Surveyor General's office created in 1854, then the Court of Private Land Claims (1891-1904), culminating in U.S. v. Sandoval (1897), which held communal lands had belonged to the Mexican sovereign and passed to the United States in 1848.",
+      "topics": ["land-title-adjudication", "settler-land-tenure", "treaty-guarantee-nonenforcement"],
+      "verbatim": null,
+      "source": "Ebright pp.34-48; Gómez pp.128-134; Sandoval opinion",
+      "status": "verified",
+      "anchor": "### Claim: Dispossession machine — Surveyor General (1854) → Court of Private Land Claims (1891–1904) → U.S. v. Sandoval (1897) communal-lands doctrine"
+    },
+    {
+      "claim": "The Court of Private Land Claims confirmed only about 6% of the acreage claimed under Mexican-era land grants, roughly 35.5 million claimed acres reduced to about 2.05 million confirmed, across 88 confirmed grants out of 291 consolidated cases.",
+      "topics": ["land-title-adjudication", "casualty-estimate-methodology"],
+      "verbatim": null,
+      "source": "Bradfute pp.95,214; Griswold p.81",
+      "status": "verified",
+      "anchor": "### Claim: CPLC confirmed ~6% of acreage claimed (~35.5M→~2.05M); 88 grants/291 cases; CA ~75% vs NM ~6%"
+    },
+    {
+      "claim": "California's Mexican-era land grant claims were confirmed at a rate of about 75%, compared to only about 6% in New Mexico.",
+      "topics": ["land-title-adjudication", "contested-attribution"],
+      "verbatim": null,
+      "source": "Bradfute p.214",
+      "status": "verified",
+      "anchor": "### Claim: CPLC confirmed ~6% of acreage claimed (~35.5M→~2.05M); 88 grants/291 cases; CA ~75% vs NM ~6%"
+    },
+    {
+      "claim": "The Treaty of Guadalupe Hidalgo contained no clause making the English text prevail over the Spanish; both language versions were signed as equally authentic, following the precedent set in the Percheman case.",
+      "topics": ["treaty-translation-discrepancy", "myth-origin-tracing"],
+      "verbatim": null,
+      "source": "Ebright p.32; NARA",
+      "status": "verified",
+      "anchor": "### Claim: No English-prevails clause; texts equally authentic (Percheman precedent)"
+    },
+    {
+      "claim": "Estimates for the population living in the territory Mexico ceded in 1848 range from about 56,000 to about 100,000; no credible source supports the commonly cited figure of 80,000.",
+      "topics": ["census-as-political-instrument", "myth-origin-tracing"],
+      "verbatim": null,
+      "source": "Griswold p.62 \"some 100,000\"; Lozano p.22 ~56,000",
+      "status": "verified",
+      "anchor": "### Claim: Population of ceded territory — use sourced RANGE, not \"80,000\""
+    },
+    {
+      "claim": "The claim that the treaty's English version legally prevailed over the Spanish in case of discrepancy is false; the real dispute ran the opposite way, with Mexico invoking the pro-grant Spanish reading via the Protocol of Querétaro, which the US disavowed in 1849.",
+      "topics": ["treaty-translation-discrepancy", "myth-origin-tracing"],
+      "verbatim": null,
+      "source": "Wikipedia + JSTOR Daily annotated treaty",
+      "status": "unverified",
+      "anchor": "## ❌ KILLED CLAIM — do not use"
+    },
+    {
+      "claim": "In the 1833 case United States v. Percheman, Chief Justice Marshall reversed his own earlier ruling after being shown that the Spanish verb 'quedarán' in a Florida treaty had been mistranslated, requiring both language versions to be read together.",
+      "topics": ["treaty-translation-discrepancy"],
+      "verbatim": "quedarán",
+      "source": "Ebright p.32",
+      "status": "verified",
+      "anchor": "### ⭐ GOLD — the *Percheman* translation mechanism (replaces the dead \"English prevails\" hook)"
+    },
+    {
+      "claim": "Historian Malcolm Ebright argues the United States deleted Article X specifically to avoid being bound by the pro-grantee legal precedent set in the Percheman case.",
+      "topics": ["treaty-translation-discrepancy", "treaty-guarantee-nonenforcement"],
+      "verbatim": null,
+      "source": "Ebright p.32",
+      "status": "verified",
+      "anchor": "### ⭐ GOLD — the *Percheman* translation mechanism (replaces the dead \"English prevails\" hook)"
+    },
+    {
+      "claim": "Of roughly 32.7 million rejected acres of New Mexico land claims, about 12,467,456 acres belonged to a single fraudulent grant, and roughly half of the true remainder was communal land rejected under the Sandoval doctrine.",
+      "topics": ["land-title-adjudication", "casualty-estimate-methodology", "contested-attribution"],
+      "verbatim": null,
+      "source": "Ebright p.309 fn.35",
+      "status": "verified",
+      "anchor": "### Sourced specificity bombs — BRADFUTE-AUTHORITATIVE (2026-06-13, supersedes wiki-brief numbers)"
+    },
+    {
+      "claim": "In the Sandoval case, the San Miguel del Bado grant's roughly 300,000 to 315,000 claimed acres were reduced to about 5,000 confirmed acres.",
+      "topics": ["land-title-adjudication"],
+      "verbatim": null,
+      "source": "Ebright p.48; Gómez p.128",
+      "status": "verified",
+      "anchor": "### Sourced specificity bombs — BRADFUTE-AUTHORITATIVE (2026-06-13, supersedes wiki-brief numbers)"
+    },
+    {
+      "claim": "The 1889 Supreme Court ruling in Botiller v. Dominguez made the Treaty of Guadalupe Hidalgo's land guarantees judicially unenforceable, holding that unfiled land claims were forever barred.",
+      "topics": ["treaty-guarantee-nonenforcement", "land-title-adjudication", "judicial-procedure-codification"],
+      "verbatim": "forever barred",
+      "source": "130 U.S. 238; Ebright p.35; Griswold",
+      "status": "verified",
+      "anchor": "### Claim: *Botiller v. Dominguez* (1889) made the treaty judicially unenforceable"
+    },
+    {
+      "claim": "The Court of Private Land Claims misapplied Spanish settlement-procedure law to questions of property ownership, ignoring the Siete Partidas provision that ejidos, montes, and dehesas belonged to the common of each town.",
+      "topics": ["judicial-procedure-codification", "colonial-legal-code", "land-title-adjudication"],
+      "verbatim": "ejidos, montes, dehesas… belong to the common of each town",
+      "source": "Ebright pp.113–123",
+      "status": "verified",
+      "anchor": "### Claim: The Court misread *procedure* for *property* (the doctrinal error)"
+    },
+    {
+      "claim": "US Attorney Matthew Reynolds architected the legal argument that naked title to communal lands had stayed with the Spanish crown rather than passing to the community.",
+      "topics": ["land-title-adjudication", "judicial-procedure-codification"],
+      "verbatim": "naked title stayed with the crown",
+      "source": "Ebright pp.113–123",
+      "status": "verified",
+      "anchor": "### Claim: The Court misread *procedure* for *property* (the doctrinal error)"
+    },
+    {
+      "claim": "The San Miguel del Bado land grant originated in 1794 when the Spanish crown granted land to Lorenzo Márquez and 51 other men, and by 1894 it supported over 1,000 families across eight villages.",
+      "topics": ["settler-land-tenure", "land-title-adjudication"],
+      "verbatim": null,
+      "source": "Gómez pp.122–135; Sandoval 167 U.S. 278",
+      "status": "verified",
+      "anchor": "### Claim: Human anchor — San Miguel del Bado / Mariano Barros"
+    },
+    {
+      "claim": "The Court of Private Land Claims confirmed the San Miguel del Bado grant by a 4-1 vote, but the Supreme Court under Chief Justice Fuller reversed that confirmation in 1897.",
+      "topics": ["land-title-adjudication"],
+      "verbatim": null,
+      "source": "Gómez pp.122–135; Sandoval 167 U.S. 278",
+      "status": "verified",
+      "anchor": "### Claim: Human anchor — San Miguel del Bado / Mariano Barros"
+    },
+    {
+      "claim": "Mariano Barros, an 80-year-old claimant, testified in Spanish through an interpreter in the San Miguel del Bado land-claim proceedings.",
+      "topics": ["land-title-adjudication"],
+      "verbatim": null,
+      "source": "Gómez pp.122–135; Sandoval 167 U.S. 278",
+      "status": "verified",
+      "anchor": "### Claim: Human anchor — San Miguel del Bado / Mariano Barros"
+    },
+    {
+      "claim": "Historians disagree on whether the Court of Private Land Claims acted fairly: one scholar called it relatively fair, unbiased, conscientious, while others describe it as being in error, performing national service for US interests, or presiding over a field of pain and death.",
+      "topics": ["scholarly-disagreement", "contested-attribution", "land-title-adjudication"],
+      "verbatim": "relatively fair, unbiased, conscientious",
+      "source": "Bradfute vs. Ebright/Gómez/Correia",
+      "status": "partial",
+      "anchor": "### Claim: Intent is CONTESTED — present tiered, viewer judges (do NOT adjudicate)"
+    },
+    {
+      "claim": "Misconceptions about the treaty's fairness persist because each one protects present-day land titles, the legitimacy of national forests built from confiscated grants, or the broader story of equality under the law.",
+      "topics": ["myth-origin-tracing", "land-title-adjudication"],
+      "verbatim": null,
+      "source": "Spitzzeri; Twitchell",
+      "status": "verified",
+      "anchor": "### Claim: The misconceptions persist because they're load-bearing (the framing spine)"
+    },
+    {
+      "claim": "Historian Twitchell perpetuated an error about communal land grants instead of independent research, a mistake later scholarship corrected.",
+      "topics": ["myth-origin-tracing", "historiographical-revision"],
+      "verbatim": "instead of independent research",
+      "source": "Twitchell",
+      "status": "verified",
+      "anchor": "### Claim: The misconceptions persist because they're load-bearing (the framing spine)"
+    },
+    {
+      "claim": "Today most of the former common lands of northern New Mexico's community land grants are owned by the federal government as parts of the Carson and Santa Fe National Forests.",
+      "topics": ["land-title-adjudication", "settler-land-tenure"],
+      "verbatim": "Today most former common lands of community land grants in northern New Mexico are owned by the federal government as parts of the Carson and Santa Fe National Forests.",
+      "source": "Ebright p.123",
+      "status": "verified",
+      "anchor": "### Closing payoff candidates"
+    },
+    {
+      "claim": "The Carson and Santa Fe National Forests total about 2.4 million acres, of which the Forest Service estimates 22% were originally community commons, part of roughly 13.6 million acres of New Mexico land that passed to the Forest Service in the early 1900s.",
+      "topics": ["land-title-adjudication", "settler-land-tenure"],
+      "verbatim": null,
+      "source": "Forest Service estimates, per dossier locked-numbers section",
+      "status": "verified",
+      "anchor": "## 🔒 LOCKED ON-SCREEN NUMBERS (one figure per claim — use THESE, no variants on screen)"
+    },
+    {
+      "claim": "The legal dispossession process spanned 56 years, from the 1848 treaty to the Court of Private Land Claims' closure in 1904, and the court itself operated for 13 years, from 1891 to 1904.",
+      "topics": ["land-title-adjudication", "treaty-guarantee-nonenforcement"],
+      "verbatim": null,
+      "source": "Bradfute p.214, per dossier locked-numbers section",
+      "status": "verified",
+      "anchor": "## 🔒 LOCKED ON-SCREEN NUMBERS (one figure per claim — use THESE, no variants on screen)"
+    },
+    {
+      "claim": "In 1897, the Supreme Court in U.S. v. Sandoval reasoned that lands not actually allotted to individual settlers had remained the property of the Spanish king and therefore passed to the United States.",
+      "topics": ["land-title-adjudication", "treaty-guarantee-nonenforcement"],
+      "verbatim": "not actually allotted to settlers remained the property of the king",
+      "source": "Ebright p.48; Gómez p.134",
+      "status": "verified",
+      "anchor": "### Hook quote candidates (specificity-ranked)"
+    },
+    {
+      "claim": "A Mexican historian described the Treaty of Guadalupe Hidalgo as one of the harshest in modern history.",
+      "topics": ["treaty-text-vs-practice"],
+      "verbatim": "one of the harshest in modern history.",
+      "source": "Ebright p.29",
+      "status": "verified",
+      "anchor": "### Hook quote candidates (specificity-ranked)"
+    },
+    {
+      "claim": "Historian Malcolm Ebright wrote that the Court of Private Land Claims rejected 91 percent of the acreage claimed before it, though he judged the majority of those rejections unfair.",
+      "topics": ["land-title-adjudication", "contested-attribution"],
+      "verbatim": "rejected 91 percent of the acreage claimed before it… the majority of these rejections were… unfair.",
+      "source": "Ebright p.50",
+      "status": "partial",
+      "anchor": "### Hook quote candidates (specificity-ranked)"
+    },
+    {
+      "claim": "The Court of Private Land Claims effectively reversed the legal meaning of a community land grant, confirming only individual allotments and rejecting shared communal ownership.",
+      "topics": ["land-title-adjudication", "judicial-procedure-codification"],
+      "verbatim": "flipped on its head the notion of a community grant",
+      "source": "Gómez p.134",
+      "status": "verified",
+      "anchor": "### Thesis verbs"
+    },
+    {
+      "claim": "A 2025 letter from New Mexico state representative Miguel Garcia asked the US Attorney to reopen the 1897 Sandoval case, tying the historical dispossession directly to a live 2025 legislative hearing on land grants.",
+      "topics": ["land-title-adjudication", "treaty-guarantee-nonenforcement"],
+      "verbatim": null,
+      "source": "Source New Mexico, sourcenm.com",
+      "status": "verified",
+      "anchor": "### Modern hook — ✅ VERIFIED 2026-06-13 (web; cultural-moment rule satisfied)"
+    },
+    {
+      "claim": "Two unrelated Supreme Court cases both carry the name U.S. v. Sandoval: the 1897 case concerns the San Miguel del Bado land commons, while a separate 1913 case concerns Pueblo Indian lands.",
+      "topics": ["land-title-adjudication", "contested-attribution"],
+      "verbatim": null,
+      "source": "U.S. v. Sandoval 167 U.S. 278 (1897); U.S. v. Sandoval 231 U.S. 28 (1913)",
+      "status": "verified",
+      "anchor": "### ⚠ ENTITY-DISAMBIGUATION (hard guard)"
+    }
+  ]
+}

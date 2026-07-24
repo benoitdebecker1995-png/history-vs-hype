@@ -35,9 +35,15 @@ def step(msg):
 
 def run_gemini():
     step('Bundling archived research files')
-    # Recursive glob — catches direct-child case AND `<slug>/_research/01-VERIFIED-RESEARCH.md`
+    # Published projects via the resolver (ADR-0008); recursive glob per project
+    # catches the direct-child case AND `<slug>/_research/01-VERIFIED-RESEARCH.md`
     # (e.g. 45-manhattan-purchase-myth-2026 stores it in _research/).
-    files = sorted((ROOT / 'video-projects' / '_ARCHIVED' / 'published').glob('**/01-VERIFIED-RESEARCH.md'))
+    from tools.video_projects import Stage, VideoProjectRepo
+    files = sorted(
+        f
+        for proj in VideoProjectRepo(ROOT).in_stage(Stage.PUBLISHED)
+        for f in proj.path.glob('**/01-VERIFIED-RESEARCH.md')
+    )
     if not files:
         print('No archived research files found — nothing to do.')
         sys.exit(0)

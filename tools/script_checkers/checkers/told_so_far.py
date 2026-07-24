@@ -81,6 +81,50 @@ def _content_words(text: str) -> Set[str]:
     return {w.lower() for w in _WORD_RX.findall(text)} - _STOPWORDS
 
 
+# --- V5: enumerated promises -------------------------------------------------
+# "…it would have left three things behind — attacks going off everywhere at
+# once, reports coming back up the chain, and the order itself."
+# Only the ENUMERATED form is detected. A promise the script makes in prose
+# ("we'll come back to this") is not mechanizable and is not attempted.
+_NUMBER_WORDS = {"two": 2, "three": 3, "four": 4, "five": 5}
+_PROMISE_RX = re.compile(
+    r"\b(two|three|four|five)\s+(?:things|reasons|questions|parts|pieces|ways|"
+    r"tests|conditions|documents|claims)\b[^—:.]*[—:]\s*(.+)$",
+    re.IGNORECASE,
+)
+
+
+def _split_promise_items(tail: str) -> List[str]:
+    """Split the list after the dash/colon into its items."""
+    tail = re.split(r"(?<=[.!?])\s", tail)[0]
+    tail = re.sub(r"\band\s+", ", ", tail, flags=re.IGNORECASE)
+    return [p.strip(" .;") for p in tail.split(",") if p.strip(" .;")]
+
+
+def _head_noun(item: str) -> str:
+    """First content word of a promise item — its handle for later mentions."""
+    for w in _WORD_RX.findall(item):
+        if w.lower() not in _STOPWORDS:
+            return w.lower()
+    return ""
+
+
+# --- V4: near-duplicate claims -----------------------------------------------
+# Overlap coefficient, not Jaccard: a restatement is usually SHORTER than the
+# original ("the toll had run to somewhere between fifty and sixty thousand"
+# vs the fuller first statement), and Jaccard punishes that asymmetry.
+_V4_MIN_CONTENT_WORDS = 5
+_V4_OVERLAP_THRESHOLD = 0.7
+
+_POSITION_GUARD = (
+    "REVIEW ONLY — a restated fact is not automatically repetition. Ask what this "
+    "restatement's POSITION is doing before cutting it: #62 states the death toll "
+    "twice on purpose, so the scale lands BEFORE the honoring is explained, and a "
+    "previous pass cut the first instance as V4 and broke the sequencing guard. "
+    "If you cannot say what the position is doing, leave it and flag it."
+)
+
+
 def _flatten_sentences(text: str) -> List[Tuple[int, str]]:
     """Return [(line_no, sentence_text)] over spoken content only."""
     out = []
@@ -161,13 +205,92 @@ class ToldSoFarChecker(BaseChecker):
 
             seen_words |= _content_words(sent)
 
+        # V1 alone decides pass/fail severity. V4/V5 are REVIEW-only and must
+        # never turn a clean script into a warning — this project gates on
+        # `0 HARD`, so an uncertain checker that escalates is worse than none.
         severity = 'warning' if issues else 'ok'
+
+        promises, broken = self._check_promises(sentences)
+        issues.extend(promises)
+        issues.extend(broken)
+        issues.extend(self._check_reanswers(sentences))
 
         return {
             'issues': issues,
             'stats': {
                 'total_triggers': total_triggers,
-                'flagged': len(issues),
+                'flagged': len(issues) - len(promises) - len(broken)
+                           - sum(1 for i in issues if i['type'] == 'possible_reanswer'),
                 'severity': severity,
+                'promises_found': len(promises),
+                'broken_promises': len(broken),
+                'not_mechanized': ['V2', 'V3'],
             },
         }
+
+    def _check_promises(self, sentences):
+        """V5: find enumerated promises; break one only on a ZERO later mention.
+
+        Deliberately weak. Deciding whether a payoff actually *satisfies* a
+        promise needs to tell "an order we can inspect" (the payoff) from
+        "Germany ordered them to withdraw" (an unrelated verb) and from "is
+        there proof of an order from the top?" (the question that RAISES it).
+        Measured on #62: the noun `order` appears three times before its payoff
+        chapter, all in those other senses. So partial-payoff detection is not
+        honestly mechanizable and is not attempted — only the unambiguous case
+        where a promised item is never mentioned again at all, which is exactly
+        what happens when a beat gets cut for runtime.
+        """
+        promises, broken = [], []
+        for idx, (line_no, sent) in enumerate(sentences):
+            m = _PROMISE_RX.search(sent)
+            if not m:
+                continue
+            expected = _NUMBER_WORDS[m.group(1).lower()]
+            items = _split_promise_items(m.group(2))
+            if len(items) != expected:
+                continue  # not a real enumeration; don't guess
+            later = " ".join(s for _, s in sentences[idx + 1:])
+            unsatisfied = [
+                it for it in items
+                if (h := _head_noun(it))
+                and not re.search(r"\b" + re.escape(h) + r"\b", later, re.IGNORECASE)
+            ]
+            promises.append({
+                'type': 'promise', 'line': line_no, 'sentence': sent,
+                'severity': 'review', 'items': items,
+                'suggestion': (
+                    f"The script promises {expected} things here: {items}. Each must be "
+                    "dealt with later, in this order. If a beat answering one is ever cut "
+                    "for runtime, this sentence has to change with it."
+                ),
+            })
+            if unsatisfied:
+                broken.append({
+                    'type': 'broken_promise', 'line': line_no, 'sentence': sent,
+                    'severity': 'review', 'unsatisfied': unsatisfied,
+                    'suggestion': (
+                        f"Never mentioned again after this promise: {unsatisfied}. Either the "
+                        "payoff beat was cut, or the promise needs rewording to match what "
+                        "the script actually delivers."
+                    ),
+                })
+        return promises, broken
+
+    def _check_reanswers(self, sentences):
+        """V4: near-duplicate claims, REVIEW-only, always carrying the position guard."""
+        out, prepared = [], []
+        for line_no, sent in sentences:
+            words = _content_words(sent)
+            if len(words) >= _V4_MIN_CONTENT_WORDS:
+                prepared.append((line_no, sent, words))
+        for i, (ln_a, sent_a, wa) in enumerate(prepared):
+            for ln_b, sent_b, wb in prepared[i + 1:]:
+                overlap = len(wa & wb) / min(len(wa), len(wb))
+                if overlap >= _V4_OVERLAP_THRESHOLD:
+                    out.append({
+                        'type': 'possible_reanswer', 'line': ln_b, 'sentence': sent_b,
+                        'severity': 'review', 'echoes_line': ln_a, 'echoes': sent_a,
+                        'overlap': round(overlap, 2), 'suggestion': _POSITION_GUARD,
+                    })
+        return out

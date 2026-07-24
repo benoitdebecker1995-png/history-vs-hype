@@ -1,0 +1,457 @@
+{
+ "video": "57-piri-reis-map-ottoman-2026",
+ "lifecycle": "_ARCHIVED",
+ "source_file": "video-projects/_ARCHIVED/published/57-piri-reis-map-ottoman-2026/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "Piri Reis's inscription no. 6 states he compiled about twenty source maps and mappaemundi, including Ptolemaic charts, an Arab map of India, four Portuguese charts, and a map by Columbus.",
+   "topics": ["source-transmission-chain", "document-provenance"],
+   "verbatim": "I have used twenty maps and mappaemundi... eight such cağferiyes... one of the Arab maps of India, four maps made by the Portuguese who applied mathematical methods to represent the Orient (lit. Sin, Hind, and Çin), and finally, I have also used a map drawn by Columbus (Kolonbo) in the western part [of the world]. I have brought all these sources to one scale, and this map is [the result].",
+   "source": "Soucek translation, NLM `5f2d6542`",
+   "status": "verified",
+   "anchor": "Claim 1: Piri Reis documented ~20 source maps ON the map in Ottoman Turkish"
+  },
+  {
+   "claim": "Scholars disagree whether Piri Reis's inscription meant a total of twenty source maps or a total of thirty-four, by adding the fourteen named sources to the twenty.",
+   "topics": ["scholarly-disagreement", "source-transmission-chain"],
+   "verbatim": "There appears to be some disagreement among scholars as to whether the twenty maps and mappaemundi mentioned in the inscription included the eight jaferyas and the four Portuguese maps. Some have interpreted the passage to mean that there were a total of twenty maps. Others have thirty or, by adding the eight jaferyas and the four Portuguese maps to the twenty, arrive at a total of thirty-four.",
+   "source": "McIntosh, NLM `9d6725c8`",
+   "status": "partial",
+   "anchor": "Claim 11 (NEW from Supplemental Verification 2026-05-26): Scholars are genuinely divided on whether Piri Reis used 20, 30, or 34 source maps"
+  },
+  {
+   "claim": "Soucek described Piri Reis's twenty-maps inscription as tantalizing but ultimately ambiguous about the exact source count.",
+   "topics": ["scholarly-disagreement", "document-provenance"],
+   "verbatim": "This statement is tantalizingly informative but also frustratingly enigmatic.",
+   "source": "Soucek, NLM `5f2d6542`",
+   "status": "partial",
+   "anchor": "Claim 11 (NEW from Supplemental Verification 2026-05-26): Scholars are genuinely divided on whether Piri Reis used 20, 30, or 34 source maps"
+  },
+  {
+   "claim": "One of Piri Reis's source maps was a map by Christopher Columbus depicting the coasts and islands of the New World.",
+   "topics": ["source-transmission-chain", "map-as-evidence"],
+   "verbatim": "And also Colombo was a great astronomer. The coasts and islands on this map are taken from Colombo's map.",
+   "source": "Kahle 1933, NLM `c4d04eaf`",
+   "status": "verified",
+   "anchor": "Claim 2: One of Piri Reis's sources was Christopher Columbus's Caribbean map"
+  },
+  {
+   "claim": "Piri Reis's uncle Kemal Reis obtained the Columbus map from a Spanish prisoner who claimed to have sailed three times with Columbus to the New World.",
+   "topics": ["source-transmission-chain", "contested-attribution"],
+   "verbatim": "From the inscription we learn that this Columbus map was obtained by Kemal Reis, the uncle of Piri Reis, from a Spanish prisoner of war or slave who said he had sailed three times with Columbus to the new lands across the Western Sea.",
+   "source": "McIntosh, NLM `9d6725c8`",
+   "status": "verified",
+   "anchor": "VQ12: Spanish slave's account — the chain of custody (McIntosh)"
+  },
+  {
+   "claim": "McIntosh cautions that the Spanish prisoner's account contains factual errors, including a route through the Strait of Gibraltar that Columbus's actual expeditions never sailed.",
+   "topics": ["source-transmission-chain", "scholarly-disagreement"],
+   "verbatim": "In the inscription, the Spanish captive, from whom the Columbus map was apparently obtained, states that after leaving Spain, they first reached the Strait of Gibraltar. This is in conflict with the facts because all of Columbus's expeditions sailed from Atlantic ports in Spain (Palos, Cadiz, and Seville) and did not sail through the Straits from the Mediterranean to the Atlantic.",
+   "source": "McIntosh, NLM `9d6725c8`",
+   "status": "partial",
+   "anchor": "Claim 12 (NEW from Supplemental Verification 2026-05-26): The Spanish prisoner's testimony is partially unreliable, but the Columbus connection holds via cartometric evidence"
+  },
+  {
+   "claim": "McIntosh concludes that despite the unreliable prisoner testimony, the accumulated Columbian place-names and geographic conceptions on the map provide overwhelming evidence of an embedded Columbus source map.",
+   "topics": ["source-transmission-chain", "map-as-evidence"],
+   "verbatim": "When we add up all of the Columbian features on the Piri Reis map, i.e., the place-names and the Columbian geographical conceptions, there is an overwhelming preponderance of evidence that there is a Columbian map imbedded in the Piri Reis map, although one cannot say so categorically.",
+   "source": "McIntosh, NLM `9d6725c8`",
+   "status": "verified",
+   "anchor": "Claim 12 (NEW from Supplemental Verification 2026-05-26): The Spanish prisoner's testimony is partially unreliable, but the Columbus connection holds via cartometric evidence"
+  },
+  {
+   "claim": "The place-name 'Porta ghande,' Columbus's name for modern Guantanamo Bay, appears on the Piri Reis map and on no other map in the historical cartographic record.",
+   "topics": ["map-as-evidence", "source-transmission-chain"],
+   "verbatim": "Porta ghande is Puerto Grande, Columbus's name for modern Guantanamo Bay in Cuba, discovered on his second voyage. The Piri Reis map is the only map that has this Columbian place-name.",
+   "source": "McIntosh, NLM `9d6725c8`",
+   "status": "verified",
+   "anchor": "Claim 10 (NEW from NLM Q4): The Piri Reis map contains unique place-names found nowhere else"
+  },
+  {
+   "claim": "Kahle's 1933 translation independently identified the same Columbian place-names on the Piri Reis map decades before McIntosh's analysis.",
+   "topics": ["scholarly-disagreement", "source-transmission-chain"],
+   "verbatim": "That this shore is meant for Cuba is confirmed by the names on the map. Porta Ghande refers to the Puerto Grande which Bernaldez mentions in his report, and Kaw Punta Orofay, a little farther on, refers to the region of Ornofay also mentioned by Bernaldez.",
+   "source": "Kahle 1933, NLM `c4d04eaf`",
+   "status": "verified",
+   "anchor": "Claim 10 (NEW from NLM Q4): The Piri Reis map contains unique place-names found nowhere else"
+  },
+  {
+   "claim": "Cartometric analysis by Gaspar found the two unique Columbian place-names point directly to a Columbus source for the Caribbean section of the Piri Reis map.",
+   "topics": ["map-as-evidence", "cartographic-error"],
+   "verbatim": "the claim that the representation of the West Indies was copied from a map made by Columbus is most certainly true... These two place-names, Orofay and Porta ghande, from Columbus's second voyage, are located on a depiction of the Columbian conception of Cuba as a mainland and point directly to the Columbian origin of the source map used by Piri Reis.",
+   "source": "Gaspar 2008/2013, NLM `94fb9eae`",
+   "status": "verified",
+   "anchor": "Claim 10 (NEW from NLM Q4): The Piri Reis map contains unique place-names found nowhere else"
+  },
+  {
+   "claim": "In 1933 the US Secretary of State ordered a search of Turkish archives for Columbus's original source map after learning of the connection, but the search was unavailing.",
+   "topics": ["document-provenance", "source-transmission-chain"],
+   "verbatim": "Early in 1933 at the request of the American ambassador to Turkey a circular letter was sent by Yusuf Akcura Bey... to the directors of the various museums of Turkey and to scholars engaged in the study of Turkish maritime history, requesting assistance in a search for the original map of Columbus. To date (April, 1933) the search has been unavailing.",
+   "source": "Kahle 1933, NLM `c4d04eaf`",
+   "status": "verified",
+   "anchor": "Claim 9 (NEW from NLM Q4): Columbus's source map is confirmed lost"
+  },
+  {
+   "claim": "McIntosh concludes the Piri Reis map may preserve cartography closer to Columbus's lost original Caribbean map than any other surviving chart.",
+   "topics": ["map-as-evidence", "source-transmission-chain"],
+   "verbatim": "The Piri Reis map may be closer to the one [now lost] that Columbus made of his Caribbean discoveries than any other extant chart, even that of Columbus's brother Bartholomeo with Alessandro Zorzi (1503).",
+   "source": "McIntosh, NLM `9d6725c8`",
+   "status": "verified",
+   "anchor": "Claim 9 (NEW from NLM Q4): Columbus's source map is confirmed lost"
+  },
+  {
+   "claim": "Inscription no. 10, written on the map's southern landmass itself, describes the region as barren, hot, and inhabited by large serpents that kept Portuguese sailors from landing.",
+   "topics": ["map-as-evidence", "pseudohistory-debunking"],
+   "verbatim": "This country is barren. Everything is desolate and in ruins and it is said that large serpents are found here. For this reason the Portuguese infidels did not land on these shores and these shores are also said to be very hot.",
+   "source": "McIntosh translation, NLM Q10",
+   "status": "verified",
+   "anchor": "Claim 3: The \"Antarctica\" landmass is Piri Reis's speculation, not a true continental depiction"
+  },
+  {
+   "claim": "Kahle's independent 1933 translation of the same southern-landmass inscription also describes it as uncultivated with large snakes, avoided by Portuguese sailors.",
+   "topics": ["map-as-evidence", "source-transmission-chain"],
+   "verbatim": "In this country is no trace of cultivation. All is desolate, and big snakes are said to be there. For this reason the Portuguese infidels are said not to have disembarked on the shore...",
+   "source": "Kahle 1933 independent translation",
+   "status": "verified",
+   "anchor": "Claim 3: The \"Antarctica\" landmass is Piri Reis's speculation, not a true continental depiction"
+  },
+  {
+   "claim": "The manipulation list often cited to prove the map shows Antarctica — a 20-degree rotation, 9x scale distortion, and a 1,000-mile pole shift — actually describes Hapgood's treatment of the Oronce Fine 1531 map, not the Piri Reis map itself.",
+   "topics": ["pseudohistory-debunking", "cartographic-error"],
+   "verbatim": "In order to show that the outline of the Terra Australis on the Fine map 'matched' the outline of the real continent of Antarctica, Hapgood had to rotate the Fine depiction 20° in longitude, drastically alter its scale (Fine's Terra Australis is nine times larger than Antarctica!), change the position of the South Pole by 1,000 miles, and omit the 900-mile-long Antarctic (or Palmer) Peninsula.",
+   "source": "McIntosh, NLM Q12",
+   "status": "verified",
+   "anchor": "Claim 3: The \"Antarctica\" landmass is Piri Reis's speculation, not a true continental depiction"
+  },
+  {
+   "claim": "McIntosh compares Hapgood's Fine-map manipulation to a historian who 'proved' Columbus was really Cleopatra by changing his name, nationality, gender, and era.",
+   "topics": ["pseudohistory-debunking", "scholarly-disagreement"],
+   "verbatim": "This is reminiscent of the historian who 'proved' that Columbus was really Cleopatra; all he had to do was change Columbus's name, nationality, gender, era, etc.",
+   "source": "McIntosh, NLM Q12",
+   "status": "verified",
+   "anchor": "Claim 3: The \"Antarctica\" landmass is Piri Reis's speculation, not a true continental depiction"
+  },
+  {
+   "claim": "Gaspar's cartometric analysis found nothing about the Piri Reis map, other than its Caribbean section, distinguishes it from other charts of the early sixteenth century.",
+   "topics": ["map-as-evidence", "cartographic-error"],
+   "verbatim": "nothing cartographically relevant, other than the depiction of the Caribbean, distinguishes this chart from all other charts of the beginning of the sixteenth century.",
+   "source": "Gaspar, NLM Q12",
+   "status": "verified",
+   "anchor": "Claim 3: The \"Antarctica\" landmass is Piri Reis's speculation, not a true continental depiction"
+  },
+  {
+   "claim": "The Antarctica interpretation of the Piri Reis map originated on an August 26, 1956 Georgetown University radio broadcast by retired officer Arlington Mallery, not from any ancient tradition.",
+   "topics": ["myth-origin-tracing", "pseudohistory-debunking"],
+   "verbatim": "Father Linehan and Walters took part with Mallery in a radio panel discussion, sponsored by Georgetown University, on August 26, 1956.",
+   "source": "Hapgood, Maps of the Ancient Sea Kings, NLM `dec8a807`",
+   "status": "verified",
+   "anchor": "Claim 4: The Antarctica theory originated in 1956, not from ancient tradition"
+  },
+  {
+   "claim": "Hapgood credited Mallery in his book's dedication as the person who first suggested the Piri Reis map showed part of Antarctica.",
+   "topics": ["myth-origin-tracing", "contested-attribution"],
+   "verbatim": "He first suggested that the Piri Re'is Map, brought to light in 1929 but drawn in 1513 and based upon much older maps, showed a part of Antarctica.",
+   "source": "Hapgood, Maps of the Ancient Sea Kings, NLM `dec8a807`",
+   "status": "verified",
+   "anchor": "Claim 4: The Antarctica theory originated in 1956, not from ancient tradition"
+  },
+  {
+   "claim": "Hapgood published Maps of the Ancient Sea Kings in 1966, ten years after Mallery's original broadcast claim, popularizing the Antarctica theory.",
+   "topics": ["myth-origin-tracing"],
+   "verbatim": null,
+   "source": "Hapgood, Maps of the Ancient Sea Kings, NLM `dec8a807`",
+   "status": "verified",
+   "anchor": "Claim 4: The Antarctica theory originated in 1956, not from ancient tradition"
+  },
+  {
+   "claim": "The Piri Reis map's colophon records it was drawn between March 9 and April 7, 1513, in the town of Gelibolu (Gallipoli).",
+   "topics": ["document-provenance", "map-as-evidence"],
+   "verbatim": "This map was drawn by the poor man Piri son of Haji Mehmet and the nephew of Kemal Reis—may Allah have mercy on them both—in the town of Gelibolu, in the month of Muharram of the year 919. Gelibolu is present-day Gallipoli... The date is equivalent to between 9 March and 7 April 1513 C.E.",
+   "source": "McIntosh translation, NLM `9d6725c8`",
+   "status": "verified",
+   "anchor": "Claim 5: The map was drawn in 1513 on gazelle skin; only one-third survives"
+  },
+  {
+   "claim": "Only about one-third of the original Piri Reis map survives, measuring roughly 90 by 65 centimeters and depicting the Atlantic Ocean.",
+   "topics": ["document-provenance", "map-as-evidence"],
+   "verbatim": "The map itself is actually only the surviving western portion (about one-third) of a larger world map, the remainder having been lost. The surviving portion, measuring about 90 cm X 65 cm, depicts the Atlantic Ocean with its islands and coasts",
+   "source": "McIntosh, NLM `9d6725c8`",
+   "status": "verified",
+   "anchor": "Claim 5: The map was drawn in 1513 on gazelle skin; only one-third survives"
+  },
+  {
+   "claim": "The map was presented to Sultan Selim I in Cairo in 1517, then lay forgotten in the Topkapi Palace library for over 400 years.",
+   "topics": ["document-provenance", "archival-silence"],
+   "verbatim": "After being presented to Sultan Selim I in Cairo in 1517, the map lay completely forgotten in the Topkapi Palace library for over 400 years.",
+   "source": "Soucek, NLM `5f2d6542`",
+   "status": "verified",
+   "anchor": "Claim 7: The map was rediscovered in 1929 during a Topkapi Palace conversion"
+  },
+  {
+   "claim": "The map was rediscovered in 1929 by Halil Ethem, director general of the Topkapi Palace, while it was being converted into a museum.",
+   "topics": ["document-provenance"],
+   "verbatim": "The Piri Reis map of 1513 was discovered in 1929 by Bey Halil Ethem, director general of the Topkapi Serai in Istanbul, when that palace was being converted to a museum of antiquities.",
+   "source": "McIntosh, NLM `9d6725c8`",
+   "status": "verified",
+   "anchor": "Claim 7: The map was rediscovered in 1929 during a Topkapi Palace conversion"
+  },
+  {
+   "claim": "Piri Reis was an Ottoman corsair-turned-admiral who was executed by imperial order, with sources disputing whether the year was 1553 or 1554.",
+   "topics": ["contested-attribution"],
+   "verbatim": "Piri Reis (ca 1480-1553) was an ottoman-Turkish corsair, admiral in the imperial navy... Piri Reis was executed in 1553 in compliance with an order issued from the imperial headquarters.",
+   "source": "Soucek, NLM `5f2d6542`",
+   "status": "verified",
+   "anchor": "Claim 8: Piri Reis was an Ottoman corsair-turned-admiral, executed in 1553"
+  },
+  {
+   "claim": "Officials in Egypt reportedly omitted mention of treasure Piri Reis had brought back when reporting his naval defeat to Suleiman, making it appear he had simply fled and triggering his execution order.",
+   "topics": ["contested-attribution"],
+   "verbatim": "Following his defeat in a sea battle with the Portuguese, it was reported to the sultan by officials in Egypt... that Piri Reis ran from the battle in order to save himself and his great treasure.",
+   "source": "McIntosh, NLM `9d6725c8`",
+   "status": "verified",
+   "anchor": "Claim 8: Piri Reis was an Ottoman corsair-turned-admiral, executed in 1553"
+  },
+  {
+   "claim": "Soucek argues the Ottoman governing elite's failure to grasp the value of Piri Reis's cartography meant the opportunity to build an Ottoman school of cartography vanished with him.",
+   "topics": ["source-transmission-chain", "archival-silence"],
+   "verbatim": "The sultan and the rest of the Ottoman governing elite failed to grasp the value of Piri Reis's work, and this neglect had adverse consequences not only for him: the opportunity to create an Ottoman-Turkish school of cartography and cosmography vanished with him.",
+   "source": "Soucek, NLM `5f2d6542`",
+   "status": "verified",
+   "anchor": "Claim 13 (NEW from Supplemental Verification 2026-05-26): The 400-year neglect was structural, not accidental — Ottoman state values vs Western maritime ambitions"
+  },
+  {
+   "claim": "Unlike Western European states that sponsored institutional maritime cartography offices, the Ottoman elite had no comparable agency or private group to sustain Piri Reis's work.",
+   "topics": ["source-transmission-chain", "archival-silence"],
+   "verbatim": "It felt no need to establish an agency, sponsored by the government or by a company engaged in maritime activities, or to sponsor private groups doing so, as was done in Portugal, Spain, Holland, France, and England.",
+   "source": "Soucek, NLM `5f2d6542`",
+   "status": "verified",
+   "anchor": "Claim 13 (NEW from Supplemental Verification 2026-05-26): The 400-year neglect was structural, not accidental — Ottoman state values vs Western maritime ambitions"
+  },
+  {
+   "claim": "The cartographic holdings of Istanbul's major Ottoman archives remain uncataloged, forcing historians of Ottoman cartography to rely on incidental finds rather than systematic surveys.",
+   "topics": ["archival-silence", "document-provenance"],
+   "verbatim": "The cartographic holdings of even the most central repositories of source materials for Ottoman history, the library and the archives of the Topkapı Sarayı Müzesi, the Başbakanlık Arşivi, and the Istanbul Üniversitesi Kütüphanesi, all in Istanbul, remain uncataloged.",
+   "source": "Harley-Woodward, NLM `ca58a8c4`",
+   "status": "verified",
+   "anchor": "Claim 13 (NEW from Supplemental Verification 2026-05-26): The 400-year neglect was structural, not accidental — Ottoman state values vs Western maritime ambitions"
+  },
+  {
+   "claim": "Other Ottoman cartographic works were also mostly lost: only about one-sixth of Piri Reis's 1528 second world map survives, and Mehmed II's commissioned Ptolemaic world map does not survive at all.",
+   "topics": ["archival-silence", "document-provenance"],
+   "verbatim": null,
+   "source": "Soucek, NLM `5f2d6542`; Harley-Woodward, NLM `ca58a8c4`",
+   "status": "verified",
+   "anchor": "Claim 13 (NEW from Supplemental Verification 2026-05-26): The 400-year neglect was structural, not accidental — Ottoman state values vs Western maritime ambitions"
+  },
+  {
+   "claim": "Dr. Paul Kahle recognized the Columbus connection in 1929 because he had already spent several years studying Piri Reis's separate work, the Kitab-i Bahriye.",
+   "topics": ["contested-attribution", "source-transmission-chain"],
+   "verbatim": "Deissmann, in turn, showed it to Dr. Paul Kahle, a noted German Orientalist who had previously published an incomplete transcription and translation of the earlier version of the Kitab-i Bahriye.",
+   "source": "McIntosh, NLM `9d6725c8`",
+   "status": "verified",
+   "anchor": "Claim 14 (NEW from Supplemental Verification 2026-05-26): Paul Kahle was the right scholar in the right room — and later scholars had to correct his errors"
+  },
+  {
+   "claim": "McIntosh later corrected several of Kahle's errors, including mistranslated place-names such as rendering Guadeloupe as 'Galeota on Trinidad.'",
+   "topics": ["scholarly-disagreement", "contested-attribution"],
+   "verbatim": "Kahle... incorrectly transliterated Barbura as 'Barbuda,' Paksin vidad as 'San Domingo,' and Bazi döküntü as 'Bas Bakosa.'",
+   "source": "McIntosh, NLM `9d6725c8`",
+   "status": "verified",
+   "anchor": "Claim 14 (NEW from Supplemental Verification 2026-05-26): Paul Kahle was the right scholar in the right room — and later scholars had to correct his errors"
+  },
+  {
+   "claim": "McIntosh found that Kahle and Hapgood, the two most influential Piri Reis researchers, compared the map only to modern maps rather than other contemporary sixteenth-century manuscript maps, leading to misidentifications.",
+   "topics": ["scholarly-disagreement", "cartographic-error"],
+   "verbatim": "Kahle and Hapgood, the two most influential researchers and commentators on the Piri Reis map, did not compare the coastline of South America on the Piri Reis map with other contemporary manuscript maps... Instead, they compared the Piri Reis map only with a modern map.",
+   "source": "McIntosh, NLM `9d6725c8`",
+   "status": "verified",
+   "anchor": "Claim 14 (NEW from Supplemental Verification 2026-05-26): Paul Kahle was the right scholar in the right room — and later scholars had to correct his errors"
+  },
+  {
+   "claim": "Graham Hancock's claim about the Piri Reis map migrated geographically over thirty years — from Antarctica in 1995, to the Caribbean's Bimini Road in 2019, to the Sunda Shelf in Indonesia in 2024 — while the map's inscriptions never changed.",
+   "topics": ["myth-origin-tracing", "pseudohistory-debunking"],
+   "verbatim": null,
+   "source": "NLM ingestion of two YouTube sources 2026-05-27",
+   "status": "partial",
+   "anchor": "Claim 15 (NEW from Supplemental Verification 2026-05-27): Hancock's claim has MOVED over 30 years while the document hasn't"
+  },
+  {
+   "claim": "The 2024 version of Hancock's claim cites the Sunda Shelf as evidence, even though that region falls on the portion of the Piri Reis map that has been lost.",
+   "topics": ["pseudohistory-debunking", "map-as-evidence"],
+   "verbatim": "Sunda Shelf is on the LOST portion of the Piri Reis map. Hancock is claiming as evidence a region that doesn't survive on the fragment.",
+   "source": "NLM ingestion of two YouTube sources 2026-05-27",
+   "status": "verified",
+   "anchor": "Claim 15 (NEW from Supplemental Verification 2026-05-27): Hancock's claim has MOVED over 30 years while the document hasn't"
+  },
+  {
+   "claim": "A synthesis of Hancock's claims describes the pattern as a 'Rorschach test': whenever mainstream science explains one region of the map, the claim migrates to a different distorted feature on the same parchment.",
+   "topics": ["myth-origin-tracing", "pseudohistory-debunking"],
+   "verbatim": "When one region of the map is explained by mainstream science, the claim easily migrates to another distorted feature on the same parchment. This reveals that the alternative history model is not derived from the map itself. Instead, the map is used as a convenient backdrop onto which Hancock projects whichever geographic region is currently necessary to support his changing narrative of an Ice Age civilization.",
+   "source": "Gemini synthesis, 2026-05-27",
+   "status": "partial",
+   "anchor": "The \"Rorschach test\" pattern (Gemini synthesis, 2026-05-27)"
+  },
+  {
+   "claim": "McIntosh notes that some modern writers claim Piri Reis used maps from the ancient Library of Alexandria, even though Piri Reis never makes such a statement anywhere in his map inscriptions or writings.",
+   "topics": ["myth-origin-tracing", "pseudohistory-debunking"],
+   "verbatim": "Some modern writers have asserted that Piri Reis used maps found in the ancient library of Alexandria, although he never makes such a statement in any of the map inscriptions or in his writings in the Bahriye.",
+   "source": "McIntosh, cited in Debunks table",
+   "status": "verified",
+   "anchor": "Debunks already in our verified research — each Hancock framing collapses against the same document"
+  },
+  {
+   "claim": "Piri Reis's term for his Ptolemaic source maps, 'ca'feriye,' is a scribal misspelling of the Arabic word for geography caused by a single dropped diacritical dot, not evidence of an ancient source category.",
+   "topics": ["myth-origin-tracing", "source-transmission-chain"],
+   "verbatim": "In Arabic, the letter *ghayn* (transliterated as gh) differs by only a dot from its sister letter *'ayn*... It is possible that Piri Reis accidentally left the dot out for the *ghayn* thereby rendering it to us readers of posterity as an *'ayn*.",
+   "source": "Pinto, NLM `99b6ae37`",
+   "status": "verified",
+   "anchor": "Claim 16: \"Ca'feriye\" / \"Jaferya\" is a misspelling of the Arabic word for geography — not a reference to ancient maps"
+  },
+  {
+   "claim": "Kahle identified the ca'feriye spelling error as early as 1933, describing it as an easily explained mistake for the Arabic word for geography referring to Ptolemy's maps.",
+   "topics": ["scholarly-disagreement", "source-transmission-chain"],
+   "verbatim": "Dja'fariye is a mistake—easily explained from the Arabic script—for dja'grafiye, geography; Piri Re'is is thinking of Ptolemy's maps.",
+   "source": "Kahle 1933, NLM `c4d04eaf`",
+   "status": "verified",
+   "anchor": "Claim 16: \"Ca'feriye\" / \"Jaferya\" is a misspelling of the Arabic word for geography — not a reference to ancient maps"
+  },
+  {
+   "claim": "Piri Reis's reference to source maps 'from the days of Alexander the Great' likely reflects a conflation of the 2nd-century geographer Claudius Ptolemy with Ptolemy I, Alexander's general, rather than evidence of ancient surveys.",
+   "topics": ["myth-origin-tracing", "contested-attribution"],
+   "verbatim": "The mention to Alexander the Great is an obvious blunder of the author, who has probably mistaken the geographer Claudius Ptolemy, who lived in the first and second centuries AD, with Ptolemy I, a general of Alexander who lived 400 years before.",
+   "source": "Gaspar, NLM `94fb9eae`",
+   "status": "verified",
+   "anchor": "Claim 16: \"Ca'feriye\" / \"Jaferya\" is a misspelling of the Arabic word for geography — not a reference to ancient maps"
+  },
+  {
+   "claim": "Campbell's scholarship on portolan charts places their origin in late-13th-century Italy, finding no evidence they existed before the thirteenth century.",
+   "topics": ["myth-origin-tracing", "source-transmission-chain"],
+   "verbatim": "Attempts to locate the charts' origin elsewhere than in the thirteenth century run counter to the information available... If portolan charts existed before the thirteenth century, they have failed to leave any discernible trace.",
+   "source": "Campbell, NLM `6e083672`",
+   "status": "verified",
+   "anchor": "Claim 17: Portolan charts are a medieval Italian invention — no ancient or Alexandrian heritage"
+  },
+  {
+   "claim": "Campbell calls Hapgood's theory tracing portolan charts to Neolithic times the most extreme and implausible explanation offered for their origin.",
+   "topics": ["pseudohistory-debunking", "scholarly-disagreement"],
+   "verbatim": "Most extreme, in terms of both age and plausibility, is Hapgood's contention that the inception of the portolan charts should be traced back to Neolithic times.",
+   "source": "Campbell, NLM `6e083672`",
+   "status": "verified",
+   "anchor": "Claim 17: Portolan charts are a medieval Italian invention — no ancient or Alexandrian heritage"
+  },
+  {
+   "claim": "Geological ice-core records show Antarctica's fundamental glaciation began roughly 34 million years ago, undermining any claim of an ice-free coastline within the last several thousand years.",
+   "topics": ["pseudohistory-debunking"],
+   "verbatim": "The sudden, widespread glaciation of Antarctica... is one of the most fundamental reorganizations of global climate known in the geologic record.",
+   "source": "DeConto & Pollard, NLM `d5f57f2a`",
+   "status": "verified",
+   "anchor": "Claim 18: Antarctica has been continuously glaciated for 34 million years — not ice-free in 1513, 6000 BCE, or any time in human history"
+  },
+  {
+   "claim": "An Antarctic ice core from Dome C provides a continuous climate record spanning 740,000 years, showing sustained glaciation across that entire span.",
+   "topics": ["pseudohistory-debunking"],
+   "verbatim": "Here we report the recovery of a deep ice core from Dome C, Antarctica, that provides **a climate record for the past 740,000 years**.",
+   "source": "EPICA community members, NLM `44ce0a8c`",
+   "status": "verified",
+   "anchor": "Claim 18: Antarctica has been continuously glaciated for 34 million years — not ice-free in 1513, 6000 BCE, or any time in human history"
+  },
+  {
+   "claim": "Piri Reis's 1528 second world map depicts Cuba correctly as an island, in contrast to his 1513 map's mainland depiction, indicating he had abandoned the older Columbus-derived source.",
+   "topics": ["map-as-evidence", "cartographic-error"],
+   "verbatim": "Here Piri Re'is represents Cuba in a form typical of the other maps of the day. He had evidently **abandoned his ancient maps**.",
+   "source": "Hapgood, NLM `dec8a807`",
+   "status": "verified",
+   "anchor": "Claim 19: The 1528 Piri Reis map shows Cuba as an ISLAND — the 1513 map's \"mainland Cuba\" is dated evidence from Columbus's 1495-96 primitive cartography"
+  },
+  {
+   "claim": "Columbus required his crew to swear in a June 12, 1494 notarial act that Cuba was mainland Asia, on penalty of a fine and having their tongues cut out.",
+   "topics": ["contested-attribution", "document-provenance"],
+   "verbatim": "levy a fine of ten thousand maravedis on any one of them who ever said the contrary, and have his tongue cut out",
+   "source": "Morison, Admiral of the Ocean Sea, pp. 466-467",
+   "status": "verified",
+   "anchor": "Claim 19: The 1528 Piri Reis map shows Cuba as an ISLAND — the 1513 map's \"mainland Cuba\" is dated evidence from Columbus's 1495-96 primitive cartography"
+  },
+  {
+   "claim": "McIntosh concludes the Piri Reis map's Caribbean cartography is the most primitive record of the New World discoveries, preserving Columbus's own map from around 1495-96.",
+   "topics": ["map-as-evidence", "source-transmission-chain"],
+   "verbatim": "the earliest, most primitive, and most rudimentary cartography of these islands... a primitiveness which indicates that the earliest of all cartographic records of the discoveries in the New World—a map made by Christopher Columbus or under his supervision about 1495 or 1496—is preserved in the Piri Reis map of 1513.",
+   "source": "McIntosh, NLM `9d6725c8`",
+   "status": "verified",
+   "anchor": "Claim 9 (NEW from NLM Q4): Columbus's source map is confirmed lost"
+  },
+  {
+   "claim": "The USAF officers who evaluated the Piri Reis map for Hapgood did so as volunteer work during off-duty hours, reviewing Hapgood's own manuscript rather than independently analyzing the map.",
+   "topics": ["pseudohistory-debunking", "contested-attribution"],
+   "verbatim": "It is not very often that we have an opportunity to evaluate maps of ancient origin. The Piri Reis (1513) and Oronteus Fineaus (1531) maps sent to us by you, presented a delightful challenge... With added enthusiasm we accepted this challenge and **have expended many off duty hours evaluating your manuscript and the above maps**.",
+   "source": "Burroughs to Hapgood, August 14, 1961, reproduced in Hapgood, NLM `dec8a807`",
+   "status": "verified",
+   "anchor": "Claim 20: The Ohlmeyer/Burroughs USAF evaluation was volunteer work on their own time — not an official Air Force analysis"
+  },
+  {
+   "claim": "A circa-1580 Ottoman scholar writing the era's most extensive Ottoman work on the New World did not know Piri Reis had already recorded information about America, illustrating the total institutional isolation of his cartography.",
+   "topics": ["archival-silence", "source-transmission-chain"],
+   "verbatim": "During the sixteenth century, not once did an Ottoman source containing information on America utilize a preceding Ottoman source; instead, every author... began their work with **entirely different European materials**.",
+   "source": "Goodrich, NLM `09f528d3`",
+   "status": "verified",
+   "anchor": "Claim 21: A 1580 Ottoman scholar didn't know Piri Reis had mapped America — proves total institutional isolation"
+  },
+  {
+   "claim": "Gaspar's cartometric analysis found Mallery's 1956 claim that the map correctly positions Africa and South America in longitude is methodologically impossible, since the map has no longitude scale and 16th-century navigators could not measure longitude accurately.",
+   "topics": ["pseudohistory-debunking", "cartographic-error"],
+   "verbatim": "To state, as Arlington Mallery has done in 1956, that Africa and South America are correctly positioned in longitude doesn't make any sense. First, because the map doesn't show a longitude scale; and second because it was not possible, during the sixteenth century, to determine longitude accurately.",
+   "source": "Gaspar, NLM `94fb9eae`",
+   "status": "verified",
+   "anchor": "Claim 22: Mallery's \"longitude accuracy\" claim is cartometrically impossible — and the map shows less precision than contemporaries, not more"
+  },
+  {
+   "claim": "Gaspar found the Piri Reis map's southern continent is an adaptation of Ptolemy's convention of a landlocked Indian Ocean bridging Africa, Asia and South America, shared with several contemporary maps rather than a unique ancient source.",
+   "topics": ["myth-origin-tracing", "cartographic-error"],
+   "verbatim": "an adaptation of Ptolemy's conception of the world",
+   "source": "Gaspar, NLM `94fb9eae`",
+   "status": "verified",
+   "anchor": "Claim 23: The southern continent is a Ptolemaic cartographic convention — no special source claimed, no special source needed"
+  },
+  {
+   "claim": "A 1443 statement by Portugal's Infante Dom Pedro records that cartographers of the era drew unknown regions 'according to the pleasure of the men who made them,' reflecting standard period practice rather than transmitted ancient knowledge.",
+   "topics": ["myth-origin-tracing", "cartographic-error"],
+   "verbatim": "on maps unknown regions 'were not drawn except according to the pleasure of the men who made them'",
+   "source": "Infante Dom Pedro of Portugal, 1443, quoted in McIntosh, NLM `9d6725c8`",
+   "status": "verified",
+   "anchor": "Claim 23: The southern continent is a Ptolemaic cartographic convention — no special source claimed, no special source needed"
+  },
+  {
+   "claim": "Inscriptions on the same southern landmass describe it as hot with large serpents, matching details that McIntosh says definitely do not apply to Antarctica.",
+   "topics": ["pseudohistory-debunking", "document-provenance"],
+   "verbatim": "Inscriptions 9 and 10, located on the supposed 'Antarctica,' give details, such as the land being hot, in ruins, with large serpents, and sighted by the Portuguese, which **definitely do not apply to Antarctica** and should cause anyone to question whether it is, indeed, Antarctica that is depicted.",
+   "source": "McIntosh, NLM `9d6725c8`",
+   "status": "verified",
+   "anchor": "Claim 24: Inscriptions 26, 29, and 30 describe the \"Antarctica\" landmass as hot, with gold ore and spices — Hapgood never read these because his editions omitted them"
+  },
+  {
+   "claim": "Hapgood's Antarctica theory relied on 1950s Turkish editions of the map's inscriptions that omitted several inscriptions describing spices and gold ore on the same landmass.",
+   "topics": ["pseudohistory-debunking", "document-provenance"],
+   "verbatim": null,
+   "source": "McIntosh, NLM `9d6725c8`",
+   "status": "verified",
+   "anchor": "Claim 24: Inscriptions 26, 29, and 30 describe the \"Antarctica\" landmass as hot, with gold ore and spices — Hapgood never read these because his editions omitted them"
+  },
+  {
+   "claim": "Gaspar's cartometric analysis concludes the Caribbean section's distortions, including Haiti rotated 90 degrees and Cuba's coastline reshaped to resemble China, were a deliberate manipulation by Columbus to support his claim of having reached Asia.",
+   "topics": ["contested-attribution", "cartographic-error"],
+   "verbatim": "It is my conviction that this representation is nothing more than a deliberate manipulation aimed at supporting the Admiral's pretension of having reached the Indies. That is confirmed by the fact that no nautical chart of the sixteenth century reproduces the mistake, which was only reflected on some world maps and globes.",
+   "source": "Gaspar, NLM `94fb9eae`",
+   "status": "verified",
+   "anchor": "Claim 25: The Columbus source map is a deliberate political document — Cuba rotated, Haiti misidentified — preserved in Piri Reis as a cartographic fossil"
+  },
+  {
+   "claim": "The Piri Reis map's colophon, in Arabic, is the only Arabic-script text on the map; the rest is Ottoman Turkish transliterated into Arabic script by a professional calligrapher.",
+   "topics": ["document-provenance", "map-as-evidence"],
+   "verbatim": null,
+   "source": "B-ROLL / ON-SCREEN VISUAL INVENTORY, NLM Session 3",
+   "status": "verified",
+   "anchor": "B-ROLL / ON-SCREEN VISUAL INVENTORY (from NLM Session 3 — for script/edit planning)"
+  }
+ ]
+}

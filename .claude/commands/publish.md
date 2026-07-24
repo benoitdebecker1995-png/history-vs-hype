@@ -224,6 +224,21 @@ for t in candidates:
 
 **Required status:** [PASS] before publishing
 
+#### Gate 2b: Exact searched-entity in title OR first description line (HIGH priority)
+
+Search demand on this channel is **entity-led** — 47% of non-Guatemala search views come from
+5 exact named terms, and some past titles omitted the very name people searched (`operation sig`,
+`treaty of tripoli`) (PACKAGING_MANDATE §2026-07-23, growth move #7). Search is a durable evergreen
+*floor*, not the breakout engine, so this is discoverability insurance, not a Browse lever.
+
+- Identify the video's **exact searchable entity** — the operation, treaty, person, court case, or
+  country a viewer would type. If it's already in the title (V2 head-term), done.
+- **If the entity is NOT in the title, put it verbatim in the FIRST description line** and as a
+  chapter heading. Use the real name people search, not a paraphrase.
+- ⚠ **Only when it accurately describes the video** — do NOT keyword-stuff, and do NOT weaken a
+  strong Browse title to force a search term in. Judge by *absolute* search views later, never
+  search share (search-heavy videos get fewer total impressions — it's a floor, not growth).
+
 **If [FAIL]:**
 1. Review issues list
 2. Fix HIGH priority issues

@@ -1,0 +1,217 @@
+{
+ "video": "39-adwa-wuchale-2026",
+ "lifecycle": "_BACKLOG",
+ "source_file": "video-projects/_BACKLOG/39-adwa-wuchale-2026/01-VERIFIED-RESEARCH.md",
+ "model": "sonnet-agent",
+ "extracted_at": "2026-07-22",
+ "claims": [
+  {
+   "claim": "The Treaty of Wuchale was signed on May 2, 1889, at Wuchale, Ethiopia.",
+   "topics": ["treaty-translation-discrepancy"],
+   "verbatim": "Treaty of Wuchale was signed May 2, 1889 at Wuchale, Ethiopia",
+   "source": "Treaty text itself (Tier 1) — available at Horn Affairs and Afrolegends PDF",
+   "status": "verified",
+   "anchor": "### Claim: Treaty of Wuchale was signed May 2, 1889 at Wuchale, Ethiopia"
+  },
+  {
+   "claim": "The Treaty of Wuchale contained 20 articles, each rendered in both Amharic and Italian.",
+   "topics": ["treaty-translation-discrepancy"],
+   "verbatim": "Treaty contained 20 articles in both Amharic and Italian",
+   "source": "Treaty text (Tier 1) — Horn Affairs full English translation",
+   "status": "verified",
+   "anchor": "### Claim: Treaty contained 20 articles in both Amharic and Italian"
+  },
+  {
+   "claim": "Article 17's Italian text stated the Ethiopian emperor consents to use the Italian government for all dealings with other powers, wording Italy read as creating a protectorate.",
+   "topics": ["treaty-translation-discrepancy", "protectorate-doctrine"],
+   "verbatim": "Sua Maesta il Re dei Re d'Etiopia consente di servirsi del Governo di Sua Maesta il Re d'Italia per tutte le trattazioni di affari che avesse con altre potenze o governi.",
+   "source": "Treaty text, Italian original available at University of Parma PDF",
+   "status": "partial",
+   "anchor": "### Claim: Article 17 Italian version made Ethiopia an Italian protectorate; Amharic version made Italian mediation optional"
+  },
+  {
+   "claim": "Article 17's Amharic version stated the Ethiopian emperor can, not must, use the Italian government for dealings with other powers, making Italian mediation optional.",
+   "topics": ["treaty-translation-discrepancy", "protectorate-doctrine"],
+   "verbatim": "His Majesty the King of Kings of Ethiopia **can** use the Government of His Majesty the King of Italy for all business with other powers or governments.",
+   "source": "Wikipedia (Tier 3) — cites Rubenson and Jonas",
+   "status": "partial",
+   "anchor": "### Claim: Article 17 Italian version made Ethiopia an Italian protectorate; Amharic version made Italian mediation optional"
+  },
+  {
+   "claim": "Count Pietro Antonelli, an Italian diplomat, personally negotiated and drafted both the Italian and Amharic versions of the treaty.",
+   "topics": ["treaty-translation-discrepancy", "document-provenance"],
+   "verbatim": "Count Pietro Antonelli negotiated and drafted both versions",
+   "source": "Wikipedia — Pietro Antonelli (Tier 3)",
+   "status": "verified",
+   "anchor": "### Claim: Count Pietro Antonelli negotiated and drafted both versions"
+  },
+  {
+   "claim": "Antonelli, born in 1853, was the grandson of Cardinal Giacomo Antonelli and made his first expedition to Ethiopia between 1879 and 1881.",
+   "topics": ["treaty-translation-discrepancy"],
+   "verbatim": "Born 1853, grandson of Cardinal Giacomo Antonelli. First expedition to Ethiopia 1879-1881.",
+   "source": "Wikipedia — Pietro Antonelli (Tier 3)",
+   "status": "verified",
+   "anchor": "### Claim: Count Pietro Antonelli negotiated and drafted both versions"
+  },
+  {
+   "claim": "Antonelli's Amharic was described as lacking full proficiency, though sources agree he understood enough to know the treaty's two versions differed.",
+   "topics": ["treaty-translation-discrepancy", "contested-attribution"],
+   "verbatim": "lacking full Amharic proficiency",
+   "source": "Sewasew Ethiopian encyclopedia (Tier 2)",
+   "status": "partial",
+   "anchor": "### Claim: Antonelli knew Amharic (degree of fluency contested)"
+  },
+  {
+   "claim": "Italy notified the European powers in October 1889 that Ethiopia had become an Italian protectorate.",
+   "topics": ["protectorate-doctrine", "treaty-translation-discrepancy"],
+   "verbatim": "Italy notified European powers of protectorate status in October 1889",
+   "source": "Wikipedia (Tier 3) — consistent across sources",
+   "status": "verified",
+   "anchor": "### Claim: Italy notified European powers of protectorate status in October 1889"
+  },
+  {
+   "claim": "In April 1891, Emperor Menelik II sent a circular letter to the heads of Britain, France, Germany, Italy, and Russia defining Ethiopia's borders and asserting its sovereignty.",
+   "topics": ["sovereignty-recognition", "self-determination-claims"],
+   "verbatim": "Sent to Britain, France, Germany, Italy, Russia. Defined Ethiopia's borders and asserted sovereignty.",
+   "source": "Somalitalk (Tier 2 — primary source reproduction)",
+   "status": "verified",
+   "anchor": "### Claim: Menelik sent circular letter to European heads of state (April 10, 1891)"
+  },
+  {
+   "claim": "Emperor Menelik II formally repudiated the Treaty of Wuchale in February 1893.",
+   "topics": ["treaty-translation-discrepancy", "sovereignty-recognition"],
+   "verbatim": "Menelik formally repudiated Treaty of Wuchale in February 1893",
+   "source": "Britannica (Tier 2)",
+   "status": "verified",
+   "anchor": "### Claim: Menelik formally repudiated Treaty of Wuchale in February 1893"
+  },
+  {
+   "claim": "The Battle of Adwa, a decisive Ethiopian victory over Italy, was fought on March 1, 1896.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": "Battle of Adwa fought March 1, 1896 — decisive Ethiopian victory",
+   "source": "Britannica (Tier 2)",
+   "status": "verified",
+   "anchor": "### Claim: Battle of Adwa fought March 1, 1896 — decisive Ethiopian victory"
+  },
+  {
+   "claim": "Ethiopian forces at Adwa are estimated at roughly 82,000 soldiers plus 20,000 spearmen and 8,000 cavalry, with other sources citing up to 100,000.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": "~82,000 soldiers + 20,000 spearmen + 8,000 cavalry",
+   "source": "Wikipedia citing multiple scholars (Tier 3)",
+   "status": "partial",
+   "anchor": "### Claim: Ethiopian forces numbered 73,000-100,000+"
+  },
+  {
+   "claim": "Italian colonial force size at Adwa is disputed, with estimates of 14,500 or 17,000 depending on whether askari troops are counted.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": "Discrepancy between 14,500 and 17,000 depending on how askari are counted",
+   "source": "Britannica (Tier 2)",
+   "status": "partial",
+   "anchor": "### Claim: Italian forces numbered ~14,500"
+  },
+  {
+   "claim": "Roughly 5,900 Italian and colonial troops died at Adwa, including 300 officers, 4,600 Italian rank-and-file, and about 1,000 askari.",
+   "topics": ["casualty-estimate-methodology"],
+   "verbatim": "300 officers, 4,600 Italian rank, ~1,000 askari = ~5,900 dead",
+   "source": "Wikipedia citing Richard Caulk (Tier 3)",
+   "status": "partial",
+   "anchor": "### Claim: ~6,000 Italian/colonial troops killed, ~3,800 captured"
+  },
+  {
+   "claim": "Ethiopia is considered the only African nation to defeat a European colonial force in battle and keep its independence afterward.",
+   "topics": ["decolonization-process", "sovereignty-recognition"],
+   "verbatim": "the only African nation to defeat a European colonial force and keep its independence",
+   "source": "Multiple academic sources (Jonas, Britannica, EBSCO)",
+   "status": "verified",
+   "anchor": "### Claim: Ethiopia is the only African nation to defeat a European colonial army AND maintain independence"
+  },
+  {
+   "claim": "The Treaty of Addis Ababa secured Italy's full recognition of Ethiopian sovereignty and nullified the Treaty of Wuchale.",
+   "topics": ["treaty-translation-discrepancy", "sovereignty-recognition"],
+   "verbatim": "Italy's full recognition of Ethiopian sovereignty, nullification of Wuchale",
+   "source": "Britannica (Tier 2)",
+   "status": "partial",
+   "anchor": "### Claim: Treaty of Addis Ababa (October 1896) recognized Ethiopian sovereignty"
+  },
+  {
+   "claim": "Empress Taytu Betul organized logistics and devised the strategy to cut off the Italian water supply at the Battle of Mekelle.",
+   "topics": ["sovereignty-recognition"],
+   "verbatim": "Organized logistics, devised strategy to cut off Italian water supply at Battle of Mekelle.",
+   "source": "Wikipedia (Tier 3)",
+   "status": "verified",
+   "anchor": "### Claim: Empress Taytu Betul commanded her own contingent at Adwa"
+  },
+  {
+   "claim": "The Organisation of African Unity was founded on May 25, 1963, in Addis Ababa.",
+   "topics": ["decolonization-process"],
+   "verbatim": "OAU founded May 25, 1963 in Addis Ababa",
+   "source": "Multiple authoritative sources — well-established fact",
+   "status": "verified",
+   "anchor": "### Claim: OAU founded May 25, 1963 in Addis Ababa"
+  },
+  {
+   "claim": "Adwa Victory Day is observed on March 2 of the Ethiopian calendar and was first celebrated officially under Haile Selassie.",
+   "topics": ["decolonization-process"],
+   "verbatim": "observed on March 2 (Yekatit 23 Ethiopian calendar)",
+   "source": "Wikipedia (Tier 3)",
+   "status": "verified",
+   "anchor": "### Claim: Adwa Victory Day is Ethiopia's national holiday"
+  },
+  {
+   "claim": "The Adwa Victory Memorial Museum, inaugurated in February 2024, drew over 31,000 visitors in its first month.",
+   "topics": ["decolonization-process"],
+   "verbatim": "31,000+ visitors in first month",
+   "source": "Borkena.com (Tier 3)",
+   "status": "verified",
+   "anchor": "### Claim: Adwa Victory Memorial Museum inaugurated February 2024"
+  },
+  {
+   "claim": "The Treaty of Wuchale's preamble asserted that its Italian and Amharic versions agreed perfectly and both carried equal legal authority.",
+   "topics": ["treaty-translation-discrepancy"],
+   "verbatim": "This Treaty being written in Italian to Amharic and the two versions agreeing perfectly with each other, both texts will be considered official and will in all respects equal faith.",
+   "source": "Treaty text, Afrolegends PDF",
+   "status": "verified",
+   "anchor": "### Quote: Treaty preamble claims both versions agree"
+  },
+  {
+   "claim": "One scholarly view holds Antonelli privately accepted the Amharic reading but deliberately left the Italian version unchanged.",
+   "topics": ["treaty-translation-discrepancy", "contested-attribution"],
+   "verbatim": "Antonelli knew Amharic, accepted the Amharic reading, but did not change the Italian version (Encyclopaedia Africana)",
+   "source": "Encyclopaedia Africana",
+   "status": "partial",
+   "anchor": "### Contested: Was Article 17 deliberately mistranslated?"
+  },
+  {
+   "claim": "An alternative view holds Antonelli's imperfect Amharic could have produced genuine confusion rather than deliberate fraud.",
+   "topics": ["treaty-translation-discrepancy", "contested-attribution"],
+   "verbatim": "Antonelli's Amharic was imperfect — \"lacking full proficiency\" — genuine confusion possible",
+   "source": "School B (deliberate ambiguity / diplomatic vagueness)",
+   "status": "partial",
+   "anchor": "### Contested: Was Article 17 deliberately mistranslated?"
+  },
+  {
+   "claim": "A third view holds the protectorate clause was already in Italy's draft before Antonelli arrived, suggesting deliberate state policy rather than one diplomat's trick.",
+   "topics": ["treaty-translation-discrepancy", "protectorate-doctrine"],
+   "verbatim": "The protectorate clause was in Italy's draft before Antonelli even arrived — suggesting it was state policy, not one man's trick",
+   "source": "School C (Italian institutional fraud, not just Antonelli)",
+   "status": "partial",
+   "anchor": "### Contested: Was Article 17 deliberately mistranslated?"
+  },
+  {
+   "claim": "One secondary source suggests the treaty's provisional draft, including the protectorate clause, was written in Italy before negotiations began.",
+   "topics": ["treaty-translation-discrepancy", "protectorate-doctrine"],
+   "verbatim": "The provisional treaty draft was presumably written in Italy before negotiations",
+   "source": "LoganCochrane.com referencing Rubenson (Tier 3 — secondary reference)",
+   "status": "partial",
+   "anchor": "### Claim: The provisional treaty draft was presumably written in Italy before negotiations"
+  },
+  {
+   "claim": "Menelik reportedly wrote to King Umberto I of Italy on September 27, 1890, protesting Italy's interpretation of Article 17.",
+   "topics": ["treaty-translation-discrepancy"],
+   "verbatim": "Menelik wrote to King Umberto I protesting Italian interpretation (September 27, 1890)",
+   "source": "Multiple secondary sources give this date",
+   "status": "partial",
+   "anchor": "### Claim: Menelik wrote to King Umberto I protesting Italian interpretation (September 27, 1890)"
+  }
+ ]
+}

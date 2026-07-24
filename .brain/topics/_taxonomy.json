@@ -1,0 +1,228 @@
+{
+  "_README": [
+    "Hand-written. The ONE file in .brain/topics/ that is not generated.",
+    "Extraction invents a fresh slug per dossier; this folds those into concepts.",
+    "Deciding that two slugs name the same idea is editorial judgment — that is",
+    "the whole point of the topic layer, and automating it would rebuild the",
+    "sprawl it exists to fix. Slugs absent from here render as `provisional`,",
+    "which is visible debt, not a silent guess. Rebuild with:",
+    "  python -m tools.brain.topic_mine build",
+    "Rules of thumb when adding: a concept must name a MECHANISM that could",
+    "recur in a different episode. Never a person, document, place, or era.",
+    "Reject vague catch-alls (`historical-context`, `biography`) — they carry no",
+    "information and swallow claims that belong somewhere specific."
+  ],
+
+  "canonical": {
+    "contested-attribution": {
+      "title": "Contested Attribution",
+      "aliases": ["blame-deflection", "historical-characterization", "political-motivations",
+                  "spellberg-hypothesis", "scholarly-correction", "self-correction",
+                  "historical-criticism", "historical-error", "scholarly-omission"]
+    },
+    "scholarly-disagreement": {
+      "title": "Scholarly Disagreement",
+      "aliases": ["scholarly-consensus", "scholarly-engagement", "academic-reaction",
+                  "scientific-consensus", "historical-assessment"]
+    },
+    "historiographical-revision": {
+      "title": "Historiographical Revision",
+      "aliases": ["historiography", "historical-rereading", "historical-manipulation",
+                  "knowledge-diffusion", "historical-research"]
+    },
+    "myth-origin-tracing": {
+      "title": "Myth Origin Tracing",
+      "aliases": ["etymology-debunking", "historical-origins", "historical-perceptions",
+                  "historical-omission", "historical-mystery"]
+    },
+    "nineteenth-century-historiography-invention": {
+      "title": "19th-Century Historiography Invention",
+      "aliases": []
+    },
+    "pseudohistory-debunking": {
+      "title": "Pseudohistory Debunking",
+      "aliases": ["pseudohistory-claims", "pseudohistory-framing", "lost-civilizations",
+                  "alien-theories", "ice-age-claims", "antarctica-myth", "antarctica-glaciation",
+                  "hancock-claims", "hapgood-analysis", "von-daniken", "bimini-road",
+                  "terra-australis", "climate-science", "glaciology", "historical-media"]
+    },
+    "currency-and-valuation-myth": {
+      "title": "Currency and Valuation Myth",
+      "aliases": []
+    },
+
+    "document-provenance": {
+      "title": "Document Provenance",
+      "aliases": ["source-attribution", "source-legitimacy", "primary-source-publication",
+                  "archival-finds", "archival-search", "historical-correspondence",
+                  "diplomatic-correspondence", "diplomatic-records", "historical-quotes",
+                  "arabic-document", "arabic-text", "arabic-verification", "usaf-letter",
+                  "inscription-analysis", "map-rediscovery", "cartographic-preservation",
+                  "hurgronje-discovery", "hurgronje-findings", "hurgronje-role", "hurgronje-work"]
+    },
+    "source-transmission-chain": {
+      "title": "Source Transmission Chain",
+      "aliases": ["source-interpretation", "source-reliability", "source-abandonment",
+                  "historical-record", "historical-chronology", "cartographic-traditions"]
+    },
+    "ancient-source-reliability": {
+      "title": "Ancient Source Reliability",
+      "aliases": []
+    },
+    "archival-silence": {
+      "title": "Archival Silence",
+      "aliases": ["institutional-neglect"]
+    },
+    "evidence-destruction": {"title": "Evidence Destruction", "aliases": []},
+    "declassification-and-official-history": {
+      "title": "Declassification and Official History",
+      "aliases": ["state-department"]
+    },
+    "untranslated-evidence": {"title": "Untranslated Evidence", "aliases": []},
+
+    "treaty-translation-discrepancy": {
+      "title": "Treaty Translation Discrepancy",
+      "aliases": ["translation-discrepancy", "translation-accuracy", "translation-error",
+                  "translation-issues", "translation-mystery", "translation-puzzle",
+                  "article-11", "article-11-arabic", "article-11-absence", "article-11-omission",
+                  "article-11-authorship", "article-11-interpretation", "article-11-interpretations",
+                  "article-11-reasons", "linguistic-abilities"]
+    },
+    "treaty-ratification-process": {
+      "title": "Treaty Ratification Process",
+      "aliases": ["treaty-ratification", "ratification-date", "signing-date", "submission-date",
+                  "senate-vote", "senate-procedure", "senate-resolution", "senate-debate",
+                  "senate-members", "voting-record", "voting-details", "legislative-process",
+                  "legislative-amendment", "treaty-acceptance", "executive-action",
+                  "executive-order", "presidential-action", "diplomatic-process"]
+    },
+    "treaty-text-vs-practice": {
+      "title": "Treaty Text vs Practice",
+      "aliases": ["treaty-text", "treaty-content", "treaty-analysis", "treaty-integrity",
+                  "treaty-continuity", "treaty-revisions", "superseding-treaty",
+                  "treaty-publication", "treaty-publicity", "article-11-weaponization",
+                  "article-11-reaction"]
+    },
+    "treaty-reservation-mechanism": {"title": "Treaty Reservation Mechanism", "aliases": []},
+    "treaty-guarantee-nonenforcement": {"title": "Treaty Guarantee Non-Enforcement", "aliases": []},
+
+    "boundary-commission-mechanism": {"title": "Boundary Commission Mechanism", "aliases": []},
+    "boundary-criteria-loophole": {"title": "Boundary Criteria Loophole", "aliases": []},
+    "colonial-boundary-inheritance": {"title": "Colonial Boundary Inheritance", "aliases": []},
+    "uti-possidetis-juris": {"title": "Uti Possidetis Juris", "aliases": []},
+    "effective-occupation-doctrine": {"title": "Effective Occupation Doctrine", "aliases": []},
+    "partition-of-territory": {"title": "Partition of Territory", "aliases": []},
+    "great-power-partition-diplomacy": {"title": "Great-Power Partition Diplomacy", "aliases": []},
+    "great-power-arbitration": {"title": "Great-Power Arbitration", "aliases": []},
+    "arbitration-and-adjudication": {"title": "Arbitration and Adjudication", "aliases": []},
+    "international-court-advisory-opinion": {
+      "title": "International Court Advisory Opinion", "aliases": []
+    },
+    "strategic-corridor-access": {"title": "Strategic Corridor Access", "aliases": []},
+    "infrastructure-as-boundary-factor": {
+      "title": "Infrastructure as Boundary Factor", "aliases": []
+    },
+
+    "cartographic-error": {
+      "title": "Cartographic Error",
+      "aliases": ["map-accuracy", "cartographic-analysis", "cartographic-convention",
+                  "cartographic-evolution", "cartographic-innovation", "cartographic-speculation",
+                  "contemporary-cartography", "longitude-measurement", "map-fragmentation",
+                  "map-speculation", "lost-maps", "unique-toponymy", "cuban-geography"]
+    },
+    "map-as-evidence": {
+      "title": "Map as Evidence",
+      "aliases": ["cartometric-analysis", "cartometric-evidence", "political-cartography",
+                  "portolan-charts", "piri-reis-map", "columbus-cartography"]
+    },
+
+    "sovereignty-recognition": {
+      "title": "Sovereignty Recognition",
+      "aliases": ["foreign-policy-alignment", "diplomatic-assistance", "diplomatic-role",
+                  "consular-officials"]
+    },
+    "de-facto-vs-de-jure-statehood": {"title": "De Facto vs De Jure Statehood", "aliases": []},
+    "statelessness": {"title": "Statelessness", "aliases": []},
+    "self-determination-claims": {
+      "title": "Self-Determination Claims",
+      "aliases": ["national-identity", "national-character", "perceived-otherness"]
+    },
+    "decolonization-process": {"title": "Decolonization Process", "aliases": []},
+    "colonial-withdrawal-acceleration": {"title": "Colonial Withdrawal Acceleration", "aliases": []},
+    "administrative-collapse": {"title": "Administrative Collapse", "aliases": []},
+    "state-dissolution-mechanics": {"title": "State Dissolution Mechanics", "aliases": []},
+    "protectorate-doctrine": {"title": "Protectorate Doctrine", "aliases": []},
+    "papal-donation-doctrine": {"title": "Papal Donation Doctrine", "aliases": []},
+
+    "legal-justification-doctrine": {
+      "title": "Legal Justification Doctrine",
+      "aliases": ["us-constitution", "us-founding-principles", "federal-secularism",
+                  "separation-of-church-state", "religious-tests", "secularism-construction",
+                  "secular-roots", "secular-deism", "militant-secularism"]
+    },
+    "colonial-legal-code": {"title": "Colonial Legal Code", "aliases": []},
+    "judicial-procedure-codification": {"title": "Judicial Procedure Codification", "aliases": []},
+    "land-title-adjudication": {"title": "Land Title Adjudication", "aliases": []},
+    "settler-land-tenure": {"title": "Settler Land Tenure", "aliases": []},
+    "indigenous-land-concepts": {"title": "Indigenous Land Concepts", "aliases": ["cultural-differences"]},
+    "religious-legal-authority": {
+      "title": "Religious Legal Authority",
+      "aliases": ["religious-founding", "religious-freedom", "religious-pluralism",
+                  "religious-relations", "religious-movements", "religious-nationalism",
+                  "christian-nation", "christian-nationalism", "protestant-nation",
+                  "pluralistic-society", "state-religious-establishments"]
+    },
+    "syncretism-and-festival-origins": {
+      "title": "Syncretism and Festival Origins",
+      "aliases": ["liturgical-calendar-calculation"]
+    },
+
+    "concession-extraction": {"title": "Concession Extraction", "aliases": []},
+    "resource-extraction-economy": {"title": "Resource Extraction Economy", "aliases": []},
+    "forced-labour-systems": {"title": "Forced Labour Systems", "aliases": []},
+    "slave-trade-mechanics": {"title": "Slave Trade Mechanics", "aliases": []},
+    "captive-acquisition-methods": {"title": "Captive Acquisition Methods", "aliases": []},
+    "indemnity-and-reparations": {"title": "Indemnity and Reparations", "aliases": []},
+    "nationalisation-and-expropriation": {
+      "title": "Nationalisation and Expropriation",
+      "aliases": ["parastatal-economic-control"]
+    },
+
+    "population-transfer": {"title": "Population Transfer", "aliases": []},
+    "forced-population-removal": {"title": "Forced Population Removal", "aliases": []},
+    "ethnic-cleansing-mechanics": {
+      "title": "Ethnic Cleansing Mechanics",
+      "aliases": ["colonial-violence-escalation"]
+    },
+    "genocide-classification-debate": {"title": "Genocide Classification Debate", "aliases": []},
+    "perpetrator-organisation-structure": {
+      "title": "Perpetrator Organisation Structure", "aliases": []
+    },
+    "casualty-estimate-methodology": {"title": "Casualty Estimate Methodology", "aliases": []},
+    "census-as-political-instrument": {"title": "Census as Political Instrument", "aliases": []},
+    "collaborationist-legislation": {"title": "Collaborationist Legislation", "aliases": []},
+
+    "covert-regime-change": {
+      "title": "Covert Regime Change",
+      "aliases": ["political-intrigue", "leadership-tactical-error",
+                  "political-coalition-fragmentation"]
+    },
+    "intelligence-agency-operations": {"title": "Intelligence Agency Operations", "aliases": []},
+    "transnational-repression": {"title": "Transnational Repression", "aliases": []},
+    "propaganda-and-narrative-control": {
+      "title": "Propaganda and Narrative Control",
+      "aliases": ["political-rhetoric", "public-discourse", "public-reception",
+                  "public-objection", "media-response", "newspaper-coverage",
+                  "conspiratorial-political-culture"]
+    },
+    "atrocity-propaganda": {"title": "Atrocity Propaganda", "aliases": []},
+
+    "electoral-gatekeeping": {"title": "Electoral Gatekeeping", "aliases": ["legislative-capture"]},
+    "sham-referendum-mechanics": {"title": "Sham Referendum Mechanics", "aliases": []},
+    "protest-crackdown-cycle": {
+      "title": "Protest Crackdown Cycle",
+      "aliases": ["economic-grievance-uprising", "cyclical-authoritarian-relapse"]
+    },
+    "welfare-patronage-system": {"title": "Welfare Patronage System", "aliases": []}
+  }
+}
