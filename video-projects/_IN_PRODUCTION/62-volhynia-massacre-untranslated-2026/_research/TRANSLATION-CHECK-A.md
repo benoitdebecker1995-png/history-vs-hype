@@ -202,3 +202,19 @@ Both pages rendered & legible (`_research/genealogy/`). These are **Soviet NKVD 
 
 **Bottom line: every load-bearing on-screen card is translated and placeable now** — only the optional SB-"Skob" T1 folio
 pull and the Sejm-line wording check remain, neither blocking.
+
+---
+
+## ADDENDUM 2026-07-24 — three NEW UA card verbatims drafted via `/translate`
+
+Full clause-by-clause translations + annotations + surprise/predicate flags: **`_research/translations/UA-CARD-VERBATIMS-TRANSLATION-2026-07-24.md`** (source texts in `_research/translations/*.txt`). These are the UA verbatims newly acquired this session; all three are **🟡 CONFIRM — drafted, Check-A pending.**
+
+| Card | Verbatim | Friend action (the whole job) |
+|---|---|---|
+| **#11 Kolodzinskyi** p.266 | «…вимести… польський елємент… а решту треба зтероризувати й примусити до втечі за Вислу» | Confirm the card reads **«польський елємент» = "the Polish element"** (NOT "population") + the kill-resisters/expel-the-rest split. Translation already matches **Himka p.154** word-for-word (strong cross-check). |
+| **#17 Makar** Vol.5 p.15 | «…ворогів України: німців, москвинів-більшовиків та поляків» | Confirm the three-enemies clause + the «москвини» = "Muscovites/Russians" gloss. Caption says "Poles among *the enemies of Ukraine*," May 1943; "resurrected Poland" stays **Snyder**-attributed. |
+| **"Chas ne zhde"** Vol.1 p.109 | «…за нею йде друга ворожа нам сила — московський імперіялізм» | 🔴 **Confirms the SOURCE-DRIFT flag:** the post-German enemy named here is **Muscovite imperialism (Russia), not Poland.** NOT a "resurrected Poland" card. Optional B-roll for the preemptive-strike mindset only. |
+
+**"Find the originals":** each traced — Kolodzinskyi MS (OUN archive) · *Вісник УІС* no.11 (May 1943) · *Самостійність* (Jan 1944). **None digitized;** the reproductions in hand (Ukraina Moderna 2013 · Litopys UPA main-series) are the standard showable primaries. A photographic original would be a non-blocking T1 upgrade.
+
+> ⚠ **Tooling note:** the `/translate` **command doc and `smoke_test.py` are stale** — they reference the pre-consolidation module files (`structure_detector.py`, `cross_checker.py`, `formatter.py`, etc.) that were merged into `tools/translation/pipeline.py` (`DocumentTranslationPipeline`). The CLI smoketest fails on those imports; the real pipeline API runs fine (used here). Flagged for a fix.
