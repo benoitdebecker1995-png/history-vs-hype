@@ -59,8 +59,9 @@ def step1_module_health_check() -> Tuple[bool, str, str]:
     """
     Step 1: Verify all pipeline modules import correctly.
 
-    Checks that TranslationDataBuilder, StructureDetector, and Formatter
-    all import successfully — validating the pure Python data processing layer.
+    Checks that TranslationDataBuilder (translator.py) plus StructureDetector,
+    Formatter, and DocumentTranslationPipeline (all consolidated into pipeline.py)
+    import successfully — validating the pure Python data processing layer.
 
     Returns:
         (passed, detail_on_pass, error_on_fail)
@@ -80,7 +81,7 @@ def step1_module_health_check() -> Tuple[bool, str, str]:
 
     # Check StructureDetector
     try:
-        from tools.translation.structure_detector import StructureDetector
+        from tools.translation.pipeline import StructureDetector
         _ = StructureDetector()
         modules_checked.append('StructureDetector')
     except ImportError as e:
@@ -90,13 +91,23 @@ def step1_module_health_check() -> Tuple[bool, str, str]:
 
     # Check Formatter
     try:
-        from tools.translation.formatter import Formatter
+        from tools.translation.pipeline import Formatter
         _ = Formatter()
         modules_checked.append('Formatter')
     except ImportError as e:
-        errors.append(f"formatter.Formatter: {e}")
+        errors.append(f"pipeline.Formatter: {e}")
     except Exception as e:
-        errors.append(f"formatter.Formatter (init): {e}")
+        errors.append(f"pipeline.Formatter (init): {e}")
+
+    # Check the consolidated orchestrator (DocumentTranslationPipeline)
+    try:
+        from tools.translation.pipeline import DocumentTranslationPipeline
+        _ = DocumentTranslationPipeline()
+        modules_checked.append('DocumentTranslationPipeline')
+    except ImportError as e:
+        errors.append(f"pipeline.DocumentTranslationPipeline: {e}")
+    except Exception as e:
+        errors.append(f"pipeline.DocumentTranslationPipeline (init): {e}")
 
     if errors:
         error_msg = '; '.join(errors)
@@ -114,7 +125,7 @@ def step2_structure_detection() -> Tuple[bool, str, str, Any]:
         (passed, detail, error, sections_for_next_step)
     """
     try:
-        from tools.translation.structure_detector import StructureDetector
+        from tools.translation.pipeline import StructureDetector
     except ImportError as e:
         return False, '', f"Could not import StructureDetector: {e}", None
 
@@ -271,10 +282,10 @@ def run_smoke_test() -> int:
             'name': 'Module health check',
             'error': error,
             'fix': (
-                "Verify all translation modules are present:\n"
-                "  tools/translation/translator.py\n"
-                "  tools/translation/structure_detector.py\n"
-                "  tools/translation/formatter.py"
+                "Verify the consolidated translation modules import:\n"
+                "  tools/translation/translator.py  (TranslationDataBuilder)\n"
+                "  tools/translation/pipeline.py     (StructureDetector, Formatter,\n"
+                "                                     DocumentTranslationPipeline, et al.)"
             )
         })
         _print_results(all_passed, failures, test_start)
@@ -294,7 +305,7 @@ def run_smoke_test() -> int:
             'name': 'Structure detection',
             'error': error,
             'fix': (
-                "Check tools/translation/structure_detector.py\n"
+                "Check StructureDetector in tools/translation/pipeline.py\n"
                 "Ensure ARTICLE_PATTERNS includes French article patterns."
             )
         })

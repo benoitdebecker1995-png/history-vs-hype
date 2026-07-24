@@ -5,11 +5,11 @@ Unified command-line interface for document translation pipeline.
 
 After refactor (Phase 42.1), this CLI is split into two tiers:
 
-STANDALONE (no API key, no LLM):
-    python tools/translation/cli.py detect --file document.txt
-    python tools/translation/cli.py detect "Article 1\nText here"
-    cat document.txt | python tools/translation/cli.py detect -
-    python tools/translation/cli.py smoketest
+STANDALONE (no API key, no LLM) — run as a module (relative imports require -m):
+    python -m tools.translation.cli detect --file document.txt
+    python -m tools.translation.cli detect "Article 1\nText here"
+    cat document.txt | python -m tools.translation.cli detect -
+    python -m tools.translation.cli smoketest
 
 REPLACED BY /translate SLASH COMMAND (requires Claude Code):
     translate   -> Use: /translate [project] --file [document] --language [language]
