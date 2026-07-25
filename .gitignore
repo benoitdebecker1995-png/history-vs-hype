@@ -47,8 +47,11 @@ credentials.json
 # Large audio files
 *.wav
 *.aiff
+*.m4a
+*.mp3
 
 # Photoshop working files (keep only finals)
+*.psd
 *.psd~
 
 # DaVinci Resolve project files (large)
@@ -86,6 +89,15 @@ logs/*.log
 
 # Library PDFs (large files - track separately or use Git LFS)
 library/
+
+# Per-project research source documents (same class as library/ above: large
+# third-party PDFs/ebooks). These are SOURCE MATERIAL, not project work —
+# they live on disk + Drive, never in git. Added 2026-07-25 after a 3.9 GB
+# push failure traced to 199 committed PDFs. Our OWN rendered exhibits
+# (_research/exhibits/, _research/genealogy/) are small and stay tracked.
+video-projects/**/_research/documents/
+research/example articles/
+*.epub
 
 # YouTube Analytics credentials (belt and suspenders)
 # NOTE: module dir uses an UNDERSCORE (youtube_analytics). The old hyphen paths
