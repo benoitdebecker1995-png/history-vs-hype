@@ -99,6 +99,11 @@ video-projects/**/_research/documents/
 research/example articles/
 *.epub
 
+# Files rescued out of git history before the 2026-07-25 history rewrite
+# (research PDFs/audio from deleted projects that existed ONLY in git).
+# Move these to Drive; never re-commit them.
+_rescued-from-git/
+
 # YouTube Analytics credentials (belt and suspenders)
 # NOTE: module dir uses an UNDERSCORE (youtube_analytics). The old hyphen paths
 # here were dead rules — fixed 2026-06-03. Patterns broadened to catch a stray
