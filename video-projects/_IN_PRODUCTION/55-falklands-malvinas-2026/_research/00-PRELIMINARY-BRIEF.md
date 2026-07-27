@@ -1,5 +1,23 @@
 # Preliminary Brief: Falklands/Malvinas Sovereignty Dispute
 
+> ## ⚠️ PARTIALLY SUPERSEDED — read this box before acting on anything below (2026-07-26)
+>
+> This is a **Phase 1, Wikipedia-tier artifact from 2026-05-10**, preserved as-written. Four sections
+> have since been overtaken by measured data. Do not act on them.
+>
+> | Section below | Status | Superseded by |
+> |---|---|---|
+> | **COMPETITOR LANDSCAPE** (all "Unknown" views) | ❌ **WRONG — discard entirely** | `_research/comment-mining/COMPETITOR-AND-COMMENT-FINDINGS.md` — 10 videos, real view counts, 700 comments |
+> | **"Strongest hook: the April 2026 Trump memo"** | ⚠️ **demoted** | VidIQ 2026-07-26: news/oil angles have **0 search volume**. Also outpaced by the **World Cup banner, 2026-07-20**, which is a far larger live peg. News = cold-open material only, never the spine. |
+> | **"Angle to pursue: why international law can't resolve it"** (Next Steps §4) + the same claim in the Exec Summary | ⚠️ **NOT a decision** | Angle is deliberately **🔓 OPEN** per creator directive 2026-07-26 — see `PROJECT-STATUS.md`. This brief's angle is *one of six* logged hypotheses, not the chosen one. |
+> | **Next Steps §5** (`/research --sources`) | ✅ done | `_research/00-NOTEBOOKLM-SOURCE-LIST.md` (2026-07-26) |
+>
+> **What in here is still good and got *stronger*:** the TIMELINE, KEY FIGURES, CLAIMS TO VERIFY, the
+> **UNDEREXPLORED ANGLES** table (the *Lexington*/Jewett/1771/1850 findings — still the best material
+> in the file, still unverified), DEBATES & CONTROVERSIES, and the ACADEMIC SOURCES table.
+>
+> **One demand figure in the original was wrong by two orders of magnitude** — see `PROJECT-STATUS.md`.
+
 **Generated:** 2026-05-10
 **Sources:** Wikipedia (1 article via Gemini, 3 related articles PENDING) + 6 news results + 10 competitor videos identified
 **Time saved:** ~2-4 hours of manual browsing

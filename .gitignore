@@ -99,6 +99,19 @@ video-projects/**/_research/documents/
 research/example articles/
 *.epub
 
+# EXTENDED 2026-07-27. The exhibits/ folder above was exempted on the premise
+# that it holds only OUR OWN small renders. On #55 Falklands it accumulated
+# 96 MB of third-party source material instead — a 58 MB FO memorandum scan,
+# an 8.5 MB book scan, and ~14 MB of full-book OCR extracts. That is the same
+# class as documents/ and library/, so the same rule applies: source material
+# lives on disk + Drive, never in git. Small artefacts we produced ourselves
+# (page renders, short OCR of hard-to-reobtain items) stay tracked.
+video-projects/**/_research/exhibits/*.pdf
+video-projects/**/_research/exhibits/*-CLEANED.txt
+video-projects/**/_research/exhibits/*-FULLTEXT.txt
+video-projects/**/_research/exhibits/wtest-*.txt
+video-projects/**/_research/exhibits/Wellington-Despatches-*.txt
+
 # Files rescued out of git history before the 2026-07-25 history rewrite
 # (research PDFs/audio from deleted projects that existed ONLY in git).
 # Move these to Drive; never re-commit them.

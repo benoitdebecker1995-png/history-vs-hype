@@ -1,0 +1,1539 @@
+SOURCE: G. T. Whitington, The Falkland Islands, Etc. Compiled from Ten Years Investigation
+of the Subject (London: Smith Elder / J. Ridgway, 1840), 88pp.
+COPY: British Library, digitised by Google Books 21 Oct 2013. Volume ID ZmJZAAAAcAAJ.
+EXTRACTION: Google Books EPUB OCR text layer, tags stripped, printed-page anchors preserved.
+NOTE: This is GOOGLE OCR OF AN INDEPENDENT SCAN. It is NOT a hand-transcription of the
+image-only copy at _research/exhibits/Whitington-The-Falkland-Islands.pdf. See C29.
+
+ 
+
+ The Falkland Islands, Etc. Compiled from Ten Years' Investigation of the Subject 
+ 
+.fakecover {
+ margin:0;
+ padding:0;
+ border:none;
+ height:100%;
+ width:100%;
+ background:black;
+ text-align: center;
+ font-weight: normal;
+ font-family: Georgia,"Times New Roman",Serif;
+}
+.cover {
+ color: black;
+ margin: 0px;
+ padding:100px 0px 100px 0px;
+ background:white;
+}
+.title {
+ font-size: 35px;
+ padding: 25px 5px 40px 5px;
+}
+.author {
+ padding: 40px 5px 25px 5px;
+ font-size: 25px;
+}
+.notice {
+ padding: 80px 5px 10px 5px;
+ font-size: 18px;
+ color: white;
+}
+.top {
+ height:120px;
+}
+.bottom {
+ height:120px;
+}
+.flow {
+ margin: 0;
+ font-size: 1em;
+}
+.flow .pagebreak {
+ page-break-before: always;
+}
+.flow p {
+ text-align: left;
+ text-indent: 0;
+ margin-top: 0;
+ margin-bottom: 0.5em;
+}
+.flow .gstxt_sup {
+ font-size: 75%;
+ position: relative;
+ bottom: 0.5em;
+}
+.flow .gstxt_sub {
+ font-size: 75%;
+ position: relative;
+ top: 0.3em;
+}
+.flow .gstxt_hlt {
+ background-color: yellow;
+}
+.flow div.gtxt_inset_box {
+ padding: 0.5em 0.5em 0.5em 0.5em;
+ margin: 1em 1em 1em 1em;
+ border: 1px black solid;
+}
+.flow div.gtxt_footnote {
+ padding: 0 0.5em 0 0.5em;
+ border: 1px black dotted;
+}
+.flow .gstxt_underline {
+ text-decoration: underline;
+}
+.flow .gtxt_heading {
+ text-align: center;
+ margin-bottom: 1em;
+ font-size: 150%;
+ font-weight: bold;
+ font-variant: small-caps;
+}
+.flow .gtxt_h1_heading {
+ text-align: center;
+ font-size: 120%;
+ font-weight: bold;
+}
+.flow .gtxt_h2_heading {
+ font-size: 110%;
+ font-weight: bold;
+}
+.flow .gtxt_h3_heading {
+ font-weight: bold;
+}
+.flow .gtxt_lineated {
+ margin-left: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ white-space: pre-wrap;
+}
+.flow .gtxt_lineated_code {
+ margin-left: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ white-space: pre-wrap;
+ font-family: monospace;
+}
+.flow .gtxt_quote {
+ margin-left: 2em;
+ margin-right: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow .gtxt_list_entry {
+ margin-left: 2ex;
+ text-indent: -2ex;
+}
+.flow .gimg_graphic {
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow .gimg_table {
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow {
+ font-family: serif;
+}
+.flow span,p {
+ font-family: inherit;
+}
+
+ The Falkland Islands, Etc. Compiled from Ten Years' Investigation of the Subject 
+ G. T. WHITINGTON 
+
+ Google™ Book Search 
+
+This is a digital copy of a book that was preserved for generations on library shelves before it was carefully scanned by Google as part of a project to make the world's books discoverable online. See the back of the book for detailed information.
+
+ THE 
+
+ The Falkland Islands, Etc. Compiled from Ten Years' Investigation of the Subject 
+ 
+.flow {
+ margin: 0;
+ font-size: 1em;
+}
+.flow .pagebreak {
+ page-break-before: always;
+}
+.flow p {
+ text-align: left;
+ text-indent: 0;
+ margin-top: 0;
+ margin-bottom: 0.5em;
+}
+.flow .gstxt_sup {
+ font-size: 75%;
+ position: relative;
+ bottom: 0.5em;
+}
+.flow .gstxt_sub {
+ font-size: 75%;
+ position: relative;
+ top: 0.3em;
+}
+.flow .gstxt_hlt {
+ background-color: yellow;
+}
+.flow div.gtxt_inset_box {
+ padding: 0.5em 0.5em 0.5em 0.5em;
+ margin: 1em 1em 1em 1em;
+ border: 1px black solid;
+}
+.flow div.gtxt_footnote {
+ padding: 0 0.5em 0 0.5em;
+ border: 1px black dotted;
+}
+.flow .gstxt_underline {
+ text-decoration: underline;
+}
+.flow .gtxt_heading {
+ text-align: center;
+ margin-bottom: 1em;
+ font-size: 150%;
+ font-weight: bold;
+ font-variant: small-caps;
+}
+.flow .gtxt_h1_heading {
+ text-align: center;
+ font-size: 120%;
+ font-weight: bold;
+}
+.flow .gtxt_h2_heading {
+ font-size: 110%;
+ font-weight: bold;
+}
+.flow .gtxt_h3_heading {
+ font-weight: bold;
+}
+.flow .gtxt_lineated {
+ margin-left: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ white-space: pre-wrap;
+}
+.flow .gtxt_lineated_code {
+ margin-left: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ white-space: pre-wrap;
+ font-family: monospace;
+}
+.flow .gtxt_quote {
+ margin-left: 2em;
+ margin-right: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow .gtxt_list_entry {
+ margin-left: 2ex;
+ text-indent: -2ex;
+}
+.flow .gimg_graphic {
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow .gimg_table {
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow {
+ font-family: serif;
+}
+.flow span,p {
+ font-family: inherit;
+}
+
+ 10470. C.14. 
+
+ FALKLAND ISLANDS, 
+
+ &c. &c. 
+
+ COMPILED FROM TEN YEARS' INVESTIGATION OF THE SUBJECT. 
+
+ BY 
+
+ G. T. WHITINGTON. 
+
+ THIS Work gives the early history of the Falklands: it details the dif- ferent contests for their sovereignty, which is now vested in the British Crown; it comprises the personal examinations and general observations of Don LOUIS VERNET, the Spanish Governor, and his people, who resided on the Falklands from 1826 until 1833, as also of Captain J. J. ONSLOW, R.N., who took possession and hoisted there the British Flag in 1833, together with that of Lieutenants HENRY SMITH, R.N., Resident Governor during four years, from 1834 to 1838, ROBERT LOWCAY, R.N., Resident Governor for 1838 and 1839, WILLIAM LANG- DON, R.N., HENRY REA, R.N., and other indisputable authorities; embracing the soil, climate, natural productions, local advantages, fitness and facilities for Colonization, and for the establishment of a Naval and Commercial Depôt. Accompanied by Tables of Temperature, Journal of Weather, Nautical Notes, Instructions for Navigators, and accurate Maps of the Islands, with Chart of Berkley Sound, the shores of Magellan, &c., with some account of that country and people, as bearing upon their contiguity to the Falklands. To this is added important and interesting historical, statistical, political, and general remarks upon Colonization, Emigration, Poor Laws, Corn Laws, &c. 
+
+ LONDON: 
+
+ SMITH, ELDER, & CO., 65, CORNHILL; AND J. RIDGWAY, 169, PICCADILLY. 
+
+ 1840. 
+
+===== PRINTED PAGE 2 =====
+
+ LONDON:
+
+ Printed by W. CLOWES and Sons,
+
+ 14, Charing Cross.
+
+ The Falkland Islands, Etc. Compiled from Ten Years' Investigation of the Subject 
+ 
+.flow {
+ margin: 0;
+ font-size: 1em;
+}
+.flow .pagebreak {
+ page-break-before: always;
+}
+.flow p {
+ text-align: left;
+ text-indent: 0;
+ margin-top: 0;
+ margin-bottom: 0.5em;
+}
+.flow .gstxt_sup {
+ font-size: 75%;
+ position: relative;
+ bottom: 0.5em;
+}
+.flow .gstxt_sub {
+ font-size: 75%;
+ position: relative;
+ top: 0.3em;
+}
+.flow .gstxt_hlt {
+ background-color: yellow;
+}
+.flow div.gtxt_inset_box {
+ padding: 0.5em 0.5em 0.5em 0.5em;
+ margin: 1em 1em 1em 1em;
+ border: 1px black solid;
+}
+.flow div.gtxt_footnote {
+ padding: 0 0.5em 0 0.5em;
+ border: 1px black dotted;
+}
+.flow .gstxt_underline {
+ text-decoration: underline;
+}
+.flow .gtxt_heading {
+ text-align: center;
+ margin-bottom: 1em;
+ font-size: 150%;
+ font-weight: bold;
+ font-variant: small-caps;
+}
+.flow .gtxt_h1_heading {
+ text-align: center;
+ font-size: 120%;
+ font-weight: bold;
+}
+.flow .gtxt_h2_heading {
+ font-size: 110%;
+ font-weight: bold;
+}
+.flow .gtxt_h3_heading {
+ font-weight: bold;
+}
+.flow .gtxt_lineated {
+ margin-left: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ white-space: pre-wrap;
+}
+.flow .gtxt_lineated_code {
+ margin-left: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ white-space: pre-wrap;
+ font-family: monospace;
+}
+.flow .gtxt_quote {
+ margin-left: 2em;
+ margin-right: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow .gtxt_list_entry {
+ margin-left: 2ex;
+ text-indent: -2ex;
+}
+.flow .gimg_graphic {
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow .gimg_table {
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow {
+ font-family: serif;
+}
+.flow span,p {
+ font-family: inherit;
+}
+
+===== PRINTED PAGE 3 =====
+
+ THE FALKLAND ISLANDS.
+
+ In calling the consideration of the public to the subject of the Falkland Islands, I am actuated with the sincere desire to promote the naval, commercial, and general prosperity of my country, by pointing out most important objects, which appear to me to have been too long overlooked, and even now to be very imperfectly understood or appreciated. I have voluntarily undertaken the task of endeavouring to remove long received but unfounded prejudices against those Islands, which have been disseminated partly from interested motives, and in a large degree have resulted from the habit of detailing the reports of others, without due examination or personal knowledge as to their truth; and although fully aware of the difficulty of correcting or eradicating pre-conceived opinions, I do not shrink from the attempt, relying with perfect confidence upon the discrimination of my readers, and the utility of the objects I have in view, and which it is so important should be rendered generally known to the people of Great Britain.
+
+ The number of years during which the individuals from whom I derive much of my information have resided constantly in the Falkland Islands, affords me the best authority for representing with fidelity the real nature of the climate and soil, with the whole of the local productions and adventitious facilities which they possess; and I may be permitted to add, that the official characters of those gentlemen will supply a reasonable guarantee for the correctness of the statements made by them, and that their
+
+ A2
+
+===== PRINTED PAGE 4 =====
+
+ nautical education has duly qualified them for the performance of that portion of the subject which bears reference to maritime affairs. I have devoted many years to the attainment of every useful information respecting these Islands, regardless of either trouble or expense: the result leaves no room for doubt as to their great national importance; and I feel that it would be unjustifiable on my part to withhold the knowledge so acquired from the public, who are so largely interested in the subject.
+
+ The Falkland Islands form a group consisting of nearly ninety islands, lying between 51° and 52° 45' south, and between 57° 20′ and 61° 40' west longitude; two of them are of considerable extent, and are called East and West Falklands. The eastern island is the largest, its greatest length from N.E. to S.W. being nearly 130 miles, and its greatest breadth about 80. The western island from N.E. to S.W. is about 100 miles in length, and 50 in breadth; between the two main islands is Falkland Sound, from 7 to 12 miles in breadth, and navigable for ships of any class; many of the smaller islands are situate in this channel. In another place I have given ample nautical details of the localities, which will be found of service to captains of vessels who may have occasion to visit the Falklands, either in their outward or homeward bound voyages, accompanied by useful instructions for safe navigation with the most prevailing winds, all of which is derived from experienced naval men well acquainted with the navigation of that quarter.
+
+ The Falkland Islands appear to have shared the fate of an estate in Chancery with a defective title -whilst the suit proceeds the estate is allowed to run to waste; and these islands have run to waste in like manner, whilst their sovereignty has been claimed and contested by England, Spain, France, and the republican government of Buenos Ayres; England neglected them, but still contended for the right of sovereignty; Spain took possession literally, with the view of preventing any other country from esta blishing a settlement so contiguous to their South American territories, and which by its locality was so well calculated to command the navigation of the Atlantic and Pacific Oceans, and ultimately to obtain an influence that might be extremely prejudicial to their interests; the most anxious solicitude of Spain being always directed to the exclusion of other countries, from communication or intercourse with her South American colonies. 
+
+===== PRINTED PAGE 5 =====
+
+ On the contrary, whether instigated by ambitious views, or merely desirous of extending her colonial possessions, whatever was the super-inducing motive, France in 1763 actually took possession of these Islands, and at once established a colony at Port Louis on the East Island; the French colonists were brought from the vicinity of St. Malo, and they gave the name of "the Malouines" to the Islands, in compliment to the new settlers. The French colonists appear to have been quite happy and contented; they were also very successful and prosperous, which excited the fears as also the jealousy of Old Spain; and in consequence a Spanish naval force took possession of these Islands in 1765 in the name of the King of Spain, expelling therefrom the French settlers, without even permitting them sufficient time for the removal of their property. To this triffing coincidence is partly owing the present existence of immense herds of fine wild cattle, with wild horses, hogs, goats, &c., which have been produced from the stock of the tame animals left to run wild in the Island by the French, at the time of their expulsion; and sufficiently accounts for the size and good quality of the flesh of those wild animals.*
+
+ The Spaniards, having possessed themselves of these Islands, took no further interest in them than that of excluding other nations, and merely retaining nominal possession, but without any regular occupants. In 1766, the English established a colony at Port Egmont, 
+situated in West Falkland Island; the site was certainly ill chosen, and could only have been selected on account of the spacious harbour and safe anchorage. The existence of this English colony revived the old Spanish jealousy, and accordingly a small garrison was established by the Spaniards in East Falkland, for the purpose of giving some colour to their assumed claim of sovereignty, and to watch the proceedings of the English settlers with their limited garrison at Port Egmont. Both parties abstained from any direct interference with each other, for it appears that the instructions of the British government were confined, in the first instance, to the taking possession in the name of the King of England; and it was specially directed, that if any peaceable settlers were found in the Islands, they should not be molested or removed, but were to be informed that the Falklands were a dependency of the British crown; so that both countries claimed the sovereignty, and each seemed satisfied with simply making that claim of right. 
+
+ * From my recited authorities, together with the testimonies of several masters of merchant vessels, the gross weights of the wild cattle killed by them varied from 150 to 190 stone each, and their hides from 70 to 90 lbs. per hide.
+
+===== PRINTED PAGE 6 =====
+
+ Under this state of indecision, the Spaniards remained quietly located in East Falkland, and the English as quietly at West Falkland, until November 1769, when Captain Hunt, the military governor of Port Egmont, warned a Spanish schooner to depart, which he had observed nearing the English garrison, hovering about the island and surveying it. The Spaniard, by withdrawing, made an indication of obeying the orders from Captain Hunt; but in two days afterwards returned with letters from the Spanish governor of Port Solidad in East Falkland, now known as Port Louis, conveyed by the chief officer of that settlement, in which letters the Spanish governor complains, that when Captain Hunt ordered the schooner to depart, he assumed a power to which he could have no pretensions, "by sending an imperious message to the Spaniards in the King of Spain's own dominions." In another letter sent at the same time, he supposes the English to be in that part only by accident, and to be ready to depart at the first warning; Captain Hunt in reply warned them from the Island, claiming it in the name of the King of England by right of first 
+discovery, and first settlement; to which the governor of Port Solidad rejoined by protest, and formally warning Captain Hunt to leave Port Egmont, and to forbear navigating those seas without regular permission from the King of Spain. The operations of such harmless warfare as the interchange of protests continued for some months between these protesting belligerents, without as may be supposed much inconvenience to either party, until in the month of June 1770, a Spanish frigate anchored in Port Egmont, and three days thereafter four other frigates entered the port;Captain Farmer, who then commanded the garrison, and Captain Maltby, of the Favourite frigate, warned the Spanish commodore from the Island, as from a place held by the English in right of discovery. The Spaniards were supplied with every requisite munition of war, and an overwhelming military force; consequently after the exchange of a few shots, without any loss of life, the English were compelled to capitulate and quit the Islands. 
+
+===== PRINTED PAGE 7 =====
+
+ This event, when made known to the British nation, gave rise to much excitement, and the Earl of Egmont, at that time First Lord of the Admiralty, and in compliment to whom the capacious harbour and anchorage of Port Egmont had been so named, took the subject up with much vigour; a commanding naval force was speedily fitted out, and a peremptory demand was made upon the Spanish government for satisfaction, by public disavowal of the conduct of Buccarelli, governor of Buenos Ayres, who had ordered the Spanish naval force to take possession, and the restitution of the Falklands. The hostile force sent to take possession, and to expel the English from Port Egmont, was stated by the Spanish government to have been so employed by Buccarelli on his own responsibility, and without any instructions or authority to that effect from the mother country; but the Spanish ministry evaded a specific denial of their sanction to the steps adopted by Buccarelli; neither did they assent to or negative the demand of England for immediate restitution.
+
+===== PRINTED PAGE 8 =====
+
+ The Earl of Egmont was a man of vigorous and ardent mind, of extensive political knowledge, and perfectly qualified to estimate the benefits that must result to Great Britain, by the possession of colonies conveniently situated, and of maritime stations such as the Falklands, in different parts of the world, which would extend our naval power, and be at all times ready to protect and promote our commercial enterprise. To Earl Egmont therefore, Spanish diplomacy was wholly misapplied, and evasion was worse than useless, of which he very soon convinced the Spanish government, by assembling a powerful fleet well manned and well stored, with an expedition that scarcely any other nation was capable of exerting. These extensive preparations were not thrown away upon Spain, so soon as she perceived the formidable attitude assumed by Great Britain, and became conscious of her impending danger, Spain lowered her tone in the negociations then carried on, and ultimately abandoned her pretensions to sovereignty, as also her evasions, by at once conceding the reasonable demands of the English ministry, and restoring the Falklands in 1771.
+
+ After this restoration, obtained with so much trouble, and at an expense to the country of half a million sterling , to what fatality or combination of circumstances are we to attribute the perfect indifference and neglect exhibited by the British government towards these Islands, which were left wholly unheeded from the period of their restoration, in 1771, until they were once more taken possession of, and claimed in sovereignty, by the republican government of Buenos Ayres, in 1820? Two causes have been assigned for this inconsistency on the part of the British government; in the first place, credit was given to the unfavourable reports designedly circulated by Spain, representing the climate as inhospitable, and the Islands themselves as barren, deficient of all traces of vegetation, and the scene of continual hurricanes, where, in fact, no human beings could exist; secondly, the disinclination on the part of Great Britain, during the continuance of the domina tion of Old Spain over her South American colonies, and then in friendly alliance with England, to renew her former jealousy by maintaining a garrison in the Falklands at a fruitless expense. Possibly both of these motives might partially influence the conduct of the English government in this particular instance, or it may have been the result of some private understanding between the two governments, at the time when Spain was compelled to restore the Falkland Islands to Great Britain-an understanding which, if it ever existed, as has been averred, could not have been longer binding after the acknowledged independence of the South American provinces. Be that, however, as it may, one fact is certain, namely, that the prejudices artfully and politically raised against the Falkland Islands, and stamped with Doctor Johnson's authority, still retain possession of the public mind, although the objects for which the misrepresentations were fabricated have long ceased to operate, and the knowledge of their falsehood has been made manifest by the most indisputable testimony. 
+
+===== PRINTED PAGE 9 =====
+
+ The particulars attendant upon this new claim of sovereignty are somewhat singular, and historically they may be interesting to the general reader; I take them from the very able work of Captain James Weddell, R.N., in the publication of his "Voyage towards "the South Pole." Captain Weddell states that, while lying in Port St. Salvador, in 1820, he received a letter from the Commander of the national patriot frigate Heroind, of 30 guns, then at anchor in Port Louis, of which the following is a copy:--
+
+ "National Frigate Heroind, at Port Soledad, November 2nd, 1820. " SIR,
+
+ "I have the honour to inform you of the circumstance of my "arrival at this port, commissioned by the supreme government " of the United Provinces of South America, to take possession of "these Islands in the name of the country to which they naturally
+
+ appertain. In the performance of this duty it is my desire to act "towards all friendly flags with the most distinguished justice and 
+" politeness. A principal object is to prevent the wanton destruction " of the sources of supply to those whose necessities compel or in"vite to visit the islands, and to aid and assist such as require it to " obtain a supply with the least trouble and expense. As your " views do not enter into contravention or competition with these " orders, and, as I think, mutual advantage may result from a per"sonal interview, I invite you to pay me a visit on board my ship, "where I shall be happy to accommodate you during your " pleasure. 
+
+===== PRINTED PAGE 10 =====
+
+ " I would also beg you, so far as comes within your sphere, to "communicate this information to other British subjects in this " vicinity.
+
+ "I have the honour to be, Sir,
+
+ "You most obedient humble servant,
+
+ "JEWITT,
+
+ " Colonel of the Marine of the United Provinces of South America, and Commander of the frigate Heroind."
+
+ Captain Weddell accordingly visited Colonel Jewitt, on board the Heroind; and a few days after Colonel Jewitt took formal possession of the Falklands, in the name of the Patriot Government of Buenos Ayres, when a declaration was read under their colours, planted on a fort in ruins, and terminating with a salute of 21 guns.
+
+ Nothing further appears to have occurred until June, 1826, when Dor Louis Vernet obtained a formal grant for himself, heirs, and assigns in perpetuity, of the East Falkland Island, with everything upon it, from the government of Buenos Ayres, with very extensive privileges, which are more fully detailed in the particulars of the grant made to him, and confirmed by a decree passed by the legislature of Buenos Ayres, on the 5th of January, 1828, whereby, amongst other privileges and immunities, Don Louis Vernet was constituted governor of the Falklands, 
+proprietor of Staten Island, with the exclusive right of the whole fisheries of the adjacent coast, as well as those of the Islands. Under this title Don Louis Vernet took possession, and located himself and settlers at Port Louis, in East Falkland, which is, in reality, the original Port Solidad of the Spaniards. Don Louis Vernet and his colony proceeded successfully in establishing themselves at Port Louis, and in making arrangements for more extensive colonization, when, in 1830, Lieut. Langdon, R.N., and myself, obtained from Don Louis Vernet a considerable grant of land, and extensive privileges, upon East Falkland and Staten Island; and immediately entered into negociation with the British government for the purpose of colonizing the Falklands with British settlers, under the protection of the British flag. To this overture it would appear that the British government was for a considerable time perfectly indifferent; our zeal, however, having induced us to furnish much important information respecting the natural productions, and other local resources of the Falklands, caused the British government to consider the subject in a more favourable point of view. 
+
+===== PRINTED PAGE 11 =====
+
+ At this period, 1832, a circumstance occurred which attracted the particular attention of the British government, arising from the seizure by Don Louis Vernet, in 1831, of three American sealers, who resisted his authority as governor, in persisting wantonly to destroy indiscriminately the rookeries of seal; these vessels he carried to Buenos Ayres, where they were condemned as lawful prize, in December, 1831; and the American government fitted out, in reprisal, the Lexington corvette, from which a considerable force was landed on the Island, who literally destroyed the whole of Don Louis Vernet's establishment. It was rumoured, at this time, that the American government actually contemplated taking possession of the Falklands, on their own account, for the purpose of establishing there a naval depôt, to protect their fisheries and promote their trade with the South American Republics; and it is quite certain they caused overtures to be made to me about this period for 
+the purchase of my grant,* which I communicated to government. These circumstances excited immediate attention, and once more England began to take an active interest in the long-neglected dependency of the Falkland Islands; accordingly we find that, in 1832, Captain J. J. Onslow, R.N., was commissioned to take possession, on behalf of Great Britain; and I am indebted to the politeness of that very able officer for the following copy of his instructions upon that occasion, viz. 
+
+===== PRINTED PAGE 12 =====
+
+ "By Sir Thomas Baker, K.C.B., Rear Admiral of the Red, and Commander-in-Chief of his Majesty's ships and vessels employed on the South American Station.
+
+ "The Right Honourable the Lords Commissioners of the Ad"miralty, having, in pursuance of his Majesty's pleasure, sig"nified to me their directions to despatch a ship of the squadron " under my orders to Port Egmont, in the Falkland Islands, for "the purpose of exercising the rights of sovereignty there, and of " acting at the said Islands as in a possession belonging to the "crown of Great Britain, you are hereby required and directed " to put to sea to-morrow morning in his Majesty's sloop Clio, " under your command, and to proceed with all expedition to Port
+
+ Egmont, for the purpose of exercising the rights of sovereignty " over the said islands, and of acting thereat as in a possession "belonging to the crown of Great Britain accordingly. On your "arrival at Port Egmont, you will immediately restore the sym"bols of his Majesty's sovereignty over the Falkland Islands, con"sisting of the blockhouse, flag-staff, and flag, formerly erected "there by England, if you find that such symbols have disap"peared or fallen into decay; and you will, with that view, hoist "the British union flag on shore, and proceed to repair Fort "George if any part of it remains, or to construct a new small "fort or block-house on its ancient site, of adequate dimensions, " on which, when it is completed, you will erect a permanent "flag-staff, and keep the British union flag constantly hoisted.
+
+ * The sum offered was 20,000 dollars, which was rejected.
+
+===== PRINTED PAGE 13 =====
+
+ "Should you find at Port Egmont any persons professing to "be British subjects, you are to call them publicly before you, " and register their names, ages, and occupations, together with "the time they may have been residing in the Falkland Islands; " and in the event of there being also at that port any foreign
+
+ persons, occupied in peaceable pursuits, you will explain to " them the relation in which they are to continue to hold them"selves to the crown of Great Britain, whilst they remain in the "British settlement of the Falkland Islands; you will endeavour "to ascertain, as near as possible, the numbers and nations of
+
+ any such foreigners, but you are not to disturb them in their " agricultural or other inoffensive employments. So soon as you " shall have accomplished this service at Port Egmont, you will " charge the most respectable British subject in the place, if there " be one, to preserve the British flag, and to keep it duly hoisted; " and should nothing unforeseen have arisen, during your stay, "to require your further presence there, you are to set out on
+
+ your return, to give an account of your proceedings to the Com"mander-in-Chief, for the information of the Lords Commis"sioners of the Admiralty, and his Majesty's Government.
+
+ "Such will be your routine, if you meet with no impediment; "but should you find, on your arrival at Port Egmont, any " foreign persons in military force, who, affecting to be in posses"sion of that port, may have hoisted a foreign flag, or shall
+
+ attempt to resist your landing or operations, in obedience to these " instructions, you are, in the first place, to acquaint the chief per" son commanding such force with the object of your mission; "request to be informed of the reason of the force under his " command being there in a British settlement; and, in terms of " civility, require that the flag, if any be hoisted, be immediately " struck, and that the force may be quickly withdrawn. You will " then wait his reply, and, should he promptly comply with your
+
+ 66
+
+ request, you will, under due caution , afford every facility in your "power for the embarkation and orderly departure of the foreign 
+" force in question, with any property to which such force may have " a just claim; but if, on the contrary, your request for such flag "to be struck, or for such foreign military force being withdrawn, " should be refused, and objections of any sort be raised against "compliance, you are, providing you deem the force of the sloop " under your command adequate to the duty of forcible expul"sion, to command, in the name of his Majesty, the said foreign "person exercising chief authority, and all foreign military per"sons whomsoever, to lay down their arms and quit forthwith at "their peril, the British possessions. And if, after this command, 
+
+===== PRINTED PAGE 14 =====
+
+ any further hesitation or resistance be attempted, you are to "compel them to depart; observing that, in the event of your "being obliged to have recourse to this painful measure, which
+
+ you are only to adopt in the last extremity; you are to execute "it with all possible moderation, consistent with its effectual "accomplishment. And you are to admit of no compromise or "evasive delay under any pretence whatever, if there be vessels
+
+ present to convey such military persons away; it being his Ma"jesty's purpose to keep up and maintain his sovereign rights over "these Islands.
+
+ "If, however, there should be no means of conveyance from the "Islands for such foreign military persons, they are to be dis"armed, and left there until further measures can be taken for "their early removal. Should you, on the other hand, be of "opinion, that any such foreign forces which you may find at Port "Egmont, or in any other port or place in the said Islands, are "decidedly superior to the force of the Clio, which is scarcely to "be expected; and it might therefore be imprudent to attempt to "expel them by arms, you must then, should your request for "their quiet departure be rejected, most solemnly protest in "writing, in the name of the King, against such forcible resist"ance and hostility in the British territories, and warn such chief "person in command, and all persons whomsoever, of the lament"able consequences which must inevitably and suddenly follow so
+
+===== PRINTED PAGE 15 =====
+
+ "gross a violation of the law of nations, and especially of the dig"nity and sacred rights of Great Britain. Excepting this protest, you are to enter into no written correspondence whatever with any such military persons holding forcible possession of his Ma"jesty's dominions; nor to recognise them by any of your proceed"ings in any other view than as illegal intruders. And if, after
+
+ your final protest, the person exercising chief command of such "foreign force, should still refuse to resign possession of the place, "you are to proceed with all possible despatch to join the Com"mander-in-Chief for further orders. But as it is desirable that "his Majesty's minister at Buenos Ayres should be made ac"quainted as early as possible with the result, whatever it may be, "of your visit to the Falkland Islands, you will call in on your "return at Monte Video, whence you will forward to that gentle"man a concise report of your proceedings; and should you not "find the Commander-in-Chief in the river Plate, you will hear "intelligence of his position, and resume your exertions to rejoin "him without a moment's delay.
+
+ "Given on board the Warspite, Rio Janeiro, this 28th Nov. 1832. 
+
+ "T. BAKER,
+
+ "To John James Onslow, Esq.,
+
+ "Rear-Admiral and Commander-in-Chief.
+
+ "Commander of his Majesty's sloop Clio.
+
+ "By Command of the Commander-in-Chief,
+
+ "ALEXANDER KANT, Secretary."
+
+ Captain Onslow immediately proceeded in performance of the duties assigned to him, and from Monte Video, on the 19th Jan. 1833, made the following report to Admiral Sir Thomas Baker,
+
+ viz.
+
+ "SIR,
+
+ "Monte Video, 19th January, 1833.
+
+ "I have the honour to report, for your information, H.M. sloop "under my command, arrived at Port Egmont, West Falkland, 
+"20th December, 1832, and found the ruins of our settlement on ""Saunders Island. The town stood on the south side of a "mountain not less than 600 feet high. The settlers had ex"tended their gardens to the westward of this mountain, the " remains of which are still perceptible. Both at the town and "garden are good springs of water, and is easily procured, "except when it blows hard, when from the enormous size of the "harbour, communication with the shore is rendered inconvenient. "The best anchorage is immediately off the creek, at the foot of "the ruins of the town, bearing N.N.W. in nine fathoms, about "three quarters of a mile from the shore. Not finding any inha"bitants on Saunders Island or in the vicinity of the harbour, I "caused a signal-post to be erected, and repaired what appeared "to me to have been Fort George; whilst in port, the union "was hoisted daily at the fort, and I left the following inscription "on a board : 
+
+===== PRINTED PAGE 16 =====
+
+ "Visited by H.B.M. sioop Clio, for the purpose of exercising the right of "sovereignty over these Islands, 23rd December, 1832.
+
+ "During our stay at Port Egmont, the boats were employed to "examine into Brett's Harbour, Byron's Sound, Keppel's Sound, "and as far to the westward as Point Bay, 60 miles from our "anchorage, to search for inhabitants, but found none. I was "therefore led to believe, with reference to that part of your orders "which pointed out the probability of a foreign force being in "these Islands (if any existed), I should find them in Berkley "Sound, to the eastward. Not having met with the obstructions "at Port Egmont, mentioned in the seventh and eighth paragraphs "of your orders, I did not conceive myself justified in waiting at "that port for H.M. ship Tyne, as I had been ten days there. I "left a letter in a sealed bottle at the fort, to acquaint Captain "Hope that I had sailed for Berkley Sound, where I arrived on "the 2nd January, 1833, and found a settlement under a Buenos "Ayrean flag, with twenty-five soldiers, and also a national "schooner of war under the same flag. I waited upon the com "mander of the schooner; he informed me he commanded both "afloat and ashore. I acquainted him civilly with the object of "my mission, and requested him to embark his force and haul "down his flag on shore, he being in a possession belonging to "the crown of Great Britain. At first he acquiesced, provided I "would put the same in writing, which I did, merely stating what "I had verbally communicated, viz., that I came to these Islands "to exercise the right of sovereignty over them, and declined any "further written communication on the subject. On the morning " of the 3rd instant, at 5 A.M. he visited me, to request me to allow "the Buenos Ayrean flag to be kept flying on shore till Saturday "the 5th, when he would finally sail, taking with him the force "and such of the settlers as expressed a desire to leave the Island. " I told him his request was inadmissible, and that he must con"sider he was in a port belonging to Great Britain. Finding he "wavered, and was reluctant to strike the flag, I immediately " landed, hoisted the Union, and caused it to be lowered, sending "it with a civil message on board the national schooner. It is to "be observed, whilst the schooner of war was at sea, the soldiers "mutinied, and shot their commander; and from all I could learn "from the commander of the schooner, great insubordination "existed in this settlement, which paralyzed the settlers; and had we not arrived might have led to worse consequences, as there were "a great many bad characters who left in the national schooner. 
+
+===== PRINTED PAGE 17 =====
+
+ "The position of these Islands, and the numerous harbours "so advantageously situated for piratical purposes, particularly "on vessels passing and re-passing Cape Horn, which, from the "circumstance of large shipments of specie being sent from the "Pacific to Europe in merchant ships, is to be apprehended, "I therefore respectfully draw your attention to the necessity of "having a small force stationed at this port, and the Islands to be "frequently visited by H.M. ships and vessels of war. This port " is much frequented by whaling and sealing vessels, which makes "the propriety of this suggestion apparent; to preserve order and
+
+ B
+
+===== PRINTED PAGE 18 =====
+
+ "authority, and to protect the settlers in their peaceful, agricul"tural, fishing, and other pursuits. I have little doubt when it is "generally known Great Britain has taken these Islands under "her protection, settlers will be induced to come out. The East "Falkland is capable of being easily brought into cultivation; the "soil has produced all sorts of vegetables; the interior abounds in "wild cattle, horses, hogs, rabbits, ducks, and geese, which when "caught young are easily tamed and afford good stock to the "settlers; sheep would thrive well, and prove advantageous stock. "This harbour is spacious, and has an inner one for vessels draw"ing fourteen feet water to enter, and is well calculated to heave "down or repair at. Mr. Vernet is stated to have held unlimited "power over this Island from the Buenos Ayrean government for "twenty-six years. The settlers were his dependents, which ap"peared to me from their representation to have subjected them "to many vexatious exactions, and caused great dissatisfaction. "The whole of the settlers requested me to move the Government "in their favour for grants of land.
+
+ "I am Sir,
+
+ "Your most obedient Servant,
+
+ "J. J. ONSLOW, Commander."
+
+ Captain Onslow, after taking possession of the Falklands for the British crown, left the charge of the British flag with Mr. W. Dickson, who had constantly resided upon the Islands for a period of seven years; Mr. Dickson assured Captain Onslow that the Falklands undoubtedly possessed a most healthy temperate climate , and that snow seldom remained upon the ground many days ; the pasturage in the interior, he stated, was abundant, and very rich in quality, as evidenced by the immense number of wild cattle found always fat and in good condition: the soil he repre sented as being well calculated for advantageously breeding sheep, and that the exports might be made very important in sal fish, provisions, hides, whale, seal, and fish oils.
+
+ The Falkland Islands, Etc. Compiled from Ten Years' Investigation of the Subject 
+ 
+.flow {
+ margin: 0;
+ font-size: 1em;
+}
+.flow .pagebreak {
+ page-break-before: always;
+}
+.flow p {
+ text-align: left;
+ text-indent: 0;
+ margin-top: 0;
+ margin-bottom: 0.5em;
+}
+.flow .gstxt_sup {
+ font-size: 75%;
+ position: relative;
+ bottom: 0.5em;
+}
+.flow .gstxt_sub {
+ font-size: 75%;
+ position: relative;
+ top: 0.3em;
+}
+.flow .gstxt_hlt {
+ background-color: yellow;
+}
+.flow div.gtxt_inset_box {
+ padding: 0.5em 0.5em 0.5em 0.5em;
+ margin: 1em 1em 1em 1em;
+ border: 1px black solid;
+}
+.flow div.gtxt_footnote {
+ padding: 0 0.5em 0 0.5em;
+ border: 1px black dotted;
+}
+.flow .gstxt_underline {
+ text-decoration: underline;
+}
+.flow .gtxt_heading {
+ text-align: center;
+ margin-bottom: 1em;
+ font-size: 150%;
+ font-weight: bold;
+ font-variant: small-caps;
+}
+.flow .gtxt_h1_heading {
+ text-align: center;
+ font-size: 120%;
+ font-weight: bold;
+}
+.flow .gtxt_h2_heading {
+ font-size: 110%;
+ font-weight: bold;
+}
+.flow .gtxt_h3_heading {
+ font-weight: bold;
+}
+.flow .gtxt_lineated {
+ margin-left: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ white-space: pre-wrap;
+}
+.flow .gtxt_lineated_code {
+ margin-left: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ white-space: pre-wrap;
+ font-family: monospace;
+}
+.flow .gtxt_quote {
+ margin-left: 2em;
+ margin-right: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow .gtxt_list_entry {
+ margin-left: 2ex;
+ text-indent: -2ex;
+}
+.flow .gimg_graphic {
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow .gimg_table {
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow {
+ font-family: serif;
+}
+.flow span,p {
+ font-family: inherit;
+}
+
+===== PRINTED PAGE 19 =====
+
+ This testimony is highly deserving of notice, coming as it does from a disinterested source, and being the result of personal knowledge and seven years' experience. I have been further favoured by Captain Onslow with his own private observations: they are too important to be omitted; and they are written with so much ability, that it would be unpardonable on my part not to give the advantage of them to the public.
+
+ Observations made in 1832 and 1833, by J. J. Onslow, Esq.,. Commander of his Majesty's ship Clio.
+
+ "WEST FALKLAND. - On the northern coast of the Western Is"land there are many entrances; the principal one is that leading "to Port Egmont, and which may be seen some distance off. By "keeping the opening S.E. by S. by compass, it may be sailed "into without risk. About nine miles N.N.W. from the entrance, "are two islets; by passing within half a mile of the western side "of these, the course will be about S.S.E. E. per compass. The "sunken rock laid down in sailing into the harbour, in Lieutenant "Edgar's chart, between "Saunders' and Keppel's Islands," was "sounded upon by the master of my ship, and it had nine fathoms upon it at low water; consequently, there are no dangers in
+
+ "sailing into the harbour.
+
+ "PORT EGMONT. ----The best anchorage is immediately off the
+
+ "creek.
+
+ "SAUNDERS' ISLAND.-At the foot of the ruins of our original "settlement, Fort George, 51° 25" S. lat., 60° 1' W. lon., bearing "N.N.W. about three quarters of a mile from the shore, in nine "fathoms, muddy bottom, off the eastern point of the creek, runs a "reef which is marked out by the kelp. The best watering place "is at the head of the creek; there is also a second near the spot "where the settlers had their gardens, one mile west of the town, "and where I observed celery, thyme, parsley, &c., growing wild.
+
+ B2
+
+===== PRINTED PAGE 20 =====
+
+ "Peat is plentiful. The rise of tide about nine feet. The original "town stood on the south side of a mountain, 600 feet high. In "the ravines, the country appeared capable of cultivation, the "soil being of a rich dark peaty substance, with fine grasses and "plenty of turf. The islands abound in wild fowl, geese, snipes, "rabbits, and plenty of fish.
+
+ "EAST FALKLAND. -The entrance to Berkley Sound, which is "formed on one side by the north east point of the mainland, is "immediately seen on approaching within a few miles; and to Goat "Island, which is about seven miles up the bay, the passage is "quite open: the inner harbour in Port Louis is so narrow, that a "pair of flood-gates might be easily placed, to render it a perfect "dock. On drawing near this Island, two large beds of kelp are "observed, between which is a passage running W. by N., but "there are no dangers that are not seen; the passage was sounded "over by me, and I had from 5, 7, and 10 fathoms.
+
+ "Latitude of Port Louis, 51° 32' S., Longitude , 58° 11′ W. "Variation of Port Louis 20° E. High water , full and change , " 10н. 30м.
+
+ "The Eastern Falkland is decidedly the most important Island "to form a settlement on, from the fertility of its soil. The Island "abounds in wild cattle, horses, and hogs, rabbits, wild fowl, geese, "snipe, fish, with plenty of wild celery and parsley. The soil is of "a rich black mould, and, according to my own observation, toge"ther with that of a very intelligent German, who has resided here " five years, capable of being cultivated to great advantage: he in"formed me he had raised most kinds of vegetables and potatoes, "and he had little doubt corn would grow; he recommended the "Scotch breed of sheep to be sent out. I observed in a garden, "onions, carrots, and turnips growing. The German stated the "winters were not colder than in Scotland, and that the snow "never laid on the ground many days.
+
+===== PRINTED PAGE 21 =====
+
+ "Captain Fitzroy was appointed by Government to survey the "Straits of Magellan and the Falkland Islands: he was supplied "with first-rate instruments, proper chronometers, &c. This "gentleman has recently published a very interesting and able "work, and states in vols. 2 and 3 so much respecting these "Islands, both politically and commercially, that the Government "and the public must now be fully aware of their vast importance "to this country. If anything further were requisite to impress "more strongly on the Government the necessity of paying im"mediate attention to the establishment of a naval station at the "Falklands, it will be found in the recent proceedings of the "French government and their blockade of Buenos Ayres, which "evidently shews their determination, if possible, to obtain a com"manding influence in that quarter, and points out the necessity "which therefore exists, even in self-defence, of establishing a "naval station in the southern hemisphere.
+
+ "J. J. ONSLOW."
+
+ In 1833, it appears that the Beagle, Capt. Fitzroy, arrived upon his surveying expedition to the Straits of Magellan and the Falkland Islands; and in the performance of that duty Captain Fitzroy has rendered a most important and acceptable service to navigators rounding Cape Horn, as also to the public, by the detailed account of the Falklands, Terra del Fuego, and Patagonia, given in his works; wherein it is stated, "that the "coasts of the Falklands abound in fish; there is no want of peat "and other fuel; potatoes, and other European vegetables, thrive "well there: with these capabilities, and with herds of fine wild "cattle, it is quite evident that the Falkland Islands are well able "to support an industrious colony."
+
+ The correctness of Captain Fitzroy's statements are fully borne out by several other competent authorities; and it greatly confirms my ardent hopes that, in the weight of recent indisputable information, a sufficient corrective will be found to remove the mists of early prejudice. To prove the moderate temperature of the 
+Falkland Islands, I have annexed to this work a table accurately taken and kept by Lieut. Henry Smith, R.N., from August 1835 to August 1836, both inclusive; together with a comparative statement of the weather, and prevailing winds, kept by Henry Channon, for 1833; together with a comparative table of British and continental temperature. 
+
+===== PRINTED PAGE 22 =====
+
+ To render this part of my narrative intelligible, it will be requisite to mention here, circumstances that occurred between the interval of the destruction of Don Louis Vernet's settlement by the American corvette Lexington, in December 1831; the re-establishment of that settlement by the schooner Sarandi, under the Argentine authority, in October 1832; and the communications made in November 1833 to Sir Michael Seymour, Bart. K.C.B., commander-in-chief on the South American station; representing that in the absence of Don Louis Vernet from the Island, the Indian convicts in his employ, to the number of eight, had risen upon the other settlers, murdered Captain Brisbane (Don Louis Vernet's superintendent), and that those who had escaped with their lives were in hourly danger of being murdered. The sufferings of these persons must have been severe in the extreme, being obliged almost daily, with the aid of a small jolly boat, to risk landing at the settlement for provisions, and to seek for wild cattle in the interior, or resort to the adjacent coast and turf island, to obtain wild fowl for their miserable support; in this state of destitution and danger these unfortunate people continued from the 26th August 1833 until the 7th January 1834, when the Challenger, Captain Seymour, released them from their disagreeable and perilous situation.
+
+ The first duty that devolved on Lieut. Henry Smith, on being left in command, was to retain the Islands officially on behalf of the British nation, and to occupy himself, with the force left at his disposal, in securing the murderers if possible, and in re-establishing peace and good order in the Island, conformably with the instructions from Captain Seymour, upon his 
+quitting the Island. Previous to the departure of Captain Seymour, a detachment of sailors and marines, headed by Lieutenant Smith, were sent into the interior in search of the murderers, one of whom had been admitted by Captain Seymour as King's evidence: they remained out for five days and nights, sleeping constantly in the open air, and during great part of the time, both day and night, saturated with wet from rain, and passing through rivers, yet no individual caught cold, or sustained the slightest injury thereby; after a fruitless expedition, during which they saw quantities of wild cattle and wild horses, the party returned to Port Louis; subsequently another party of four sailors and five marines, sent in quest of the murderers, were fortunately successful, and brought them in prisoners to Port Louis on 7th March 1834, being just seven months, during which these men (the murderers) lived in the open air, subjected to every change of weather, yet suffered no inconvenience from either, but on the contrary they were in perfect and robust health, which would not have been the case if they were similarly exposed for seven months in England; this fact at once proves the climate in the Falklands to be both temperate and healthy. These felons were subsequently conveyed to England in H.M. ship Conway, and placed in Newgate. 
+
+===== PRINTED PAGE 23 =====
+
+ As I have had occasion to make frequent mention of Don Louis Vernet, who is now dead, it may be interesting to give some account of that gentleman's proceedings, in connection with the Falkland Islands; and as at the period of our purchase, I was put in possession of his remarks and personal operations, and also with the ulterior objects he contemplated carrying into effect, which he continued to communicate to the time of his recent demise, I cannot do better than insert some account of them here.
+
+ Don Louis Vernet having considerable claims against the Argentine government, received in the year 1823, as part compensation, a grant of thirty square leagues of land in East Falkland, to which he immediately directed the energies of 
+his powerful mind, as an object of extensive colonization; and he commenced operations by making arrangements for the early establishment of a fishery, out of the profits of which he contemplated realizing the means for accomplishing the ultimate colonization of these Islands. With his first grant he proceeded to improve the breed of wild cattle, by importing fresh male stock of every description, as well as sheep; convinced by practical proofs of the importance of the place, he subsequently obtained further powers and support from his government, as before stated. In 1826 to 1831 he located about ninety settlers; cultivated wheat, hemp, flax, potatoes, and other vegetables; commenced a fishery, from which in one year he supplied the Brazil market with eighty tons of salted fish, which netted £1,600 sterling; part of the fish cured for the Brazilian market was rock-cod, so much prized there as to sell for four times the price of any other fish. 
+
+===== PRINTED PAGE 24 =====
+
+ Amongst his other enterprises he issued paper money that passed currently. A copy of one of his notes is here inserted :-
+
+ The settlers continued healthy, prosperous, and happy, and from the sale of provisions, salt fish, hides, wool, tallow, &c. derived a handsome yearly income, until assailed, and their establishments destroyed, by the Americans.
+
+===== PRINTED PAGE 25 =====
+
+ Having explained what was the position of the settlers belong. ing to Don Louis Vernet, when the Falklands were again taken possession of by Captain Seymour on behalf of the British crown, and that Lieutenant Henry Smith was left in command, I shall now proceed to give the particulars of his successful experiments in rearing useful vegetables, cultivating corn, &c., together with his testimony as regards climate, soil, local productions, and facilities for naval and commercial establishments, taken from the written statements supplied by Lieutenant Smith, and compiled during his four years' residence as governor of the Islands.
+
+ He states, that being determined to restore the settlement to its former footing as far as was practicable, he formed gardens in which were reared abundance of vegetables of every description, and these, with fresh beef, milk, &c. afforded excellent subsistence for the people, and was also the means of restoring health to the crews of several French whalers, who could not keep the sea on account of the scurvy. These crews speedily recovered after landing upon the Island, and having the advantage of the fresh meat and vegetables, together with their using the wild celery and parsley, which can be had there in almost any quantity. Mr. Smith also exercised his best energies in endeavouring to repair the damages inflicted by the vindictiveness of the Americans, as also by the unbridled rapacity, selfishness, and even inhumanity, of both American and English sealing masters, who, forgetting the benefits they derived from obtaining supplies of provisions in the Falklands, most ungenerously took advantage of the distressed condition of the colonists, and seemed actually to take a pleasure in destroying the sources from which other navigators might thereafter obtain similar relief. This misconduct, however, applies principally to the sealers and the smaller vessels that resort to the Falkland fisheries; and does not attach to the South Sea whalers or any of the class of larger vessels, who, for the honour of seafaring men, always distinguished themselves by good and honourable conduct, and duly appreciated the importance of securing a harbour of refuge and supply in the southern hemisphere.
+
+===== PRINTED PAGE 26 =====
+
+ Mr. Smith further remarks, that after forming the gardens, his success in rearing vegetables, particularly potatoes and turnips, far exceeded his most sanguine expectations as respected their productiveness, and also as to size and quality; and that his agreeable surprise at this very favourable result, will be easily understood, when he avowed the fact of his having at the time of arrival, entertained all the prejudices against the Falklands which had so unaccountably prevailed for more than a century; that he considered them as being barren, inclement, unproductive, the scene of perpetual tempests, and wholly unfitted for the habitation of either man or beast; whereas he found them enjoying a temperate climate, a serene and clear sky, and comparatively free from the hurricanes and tempests which he had anticipated. He also found that East Falkland possessed numerous herds of fine fat wild cattle, wild horses, hogs, goats, rabbits, and other animals, with luxuriant pastures to feed on, without any trace of the devastations generally attributed to their isolated position; and that the nights were invariably serene and astonishingly mild, the boisterous weather only commencing with sunrise. Mr. Smith continues to state, that finding all his own preconceived ideas to be entirely erroneous, his ardour was thereby increased to ascertain what were the natural capabilities which the Falklands presented for the purposes of colonization.
+
+ These considerations led him to enter into various investigations during his four years' residence as governor, for the purpose of collecting every information which could be made practically useful to government; and when recalled he had tamed and gave up to his successor 350 head of cattle, leaving the settlers in possession of numerous tamed swine, plenty of poultry, and two schooners, their own property, under the protection of the English flag. Lieutenant Smith was succeeded in the command by Lieutenant Lowcay, who left Rio in August 1838, carrying with him to the Falklands a stock of sheep, fowls, and seeds of all kinds for propagation; it appears that Lieutenant Smith had warned all foreign vessels touching at the Islands, to desist from killing the
+
+===== PRINTED PAGE 27 =====
+
+ wild cattle, as also from fishing, whaling, and sealing at the Islands, or in their waters. This was subsequently confirmed by a public order issued by W. J. Scott, second master of H.M. ship Sparrow, and addressed to the masters of the United States vessels, General Williams and her tender, as follows, viz.
+
+ "The British Government having taken possession of the whole "of the Falkland Islands, all foreign vessels are prohibited fishing, "or sealing, round or near them; and all such vessels after 1838 "will be proceeded against as trespassers."
+
+ I shall now proceed to give the information respecting West Falkland and the adjoining coasts, derived from authentic sources, and, where material, quoting the authorities upon whose accuracy I feel myself warranted implicitly to rely. Captain Owen, R.N. speaking of his recent call there, describes Port Edgar "as a "beautiful port, having many advantages for a settlement, pos"sessing abundance of good water, fuel, live stock, and an excel"lent soil, and he is of opinion that timber would grow well in
+
+ "the valleys and on the slopes of the hills; and that as a free port, in the hands of a spirited private company, such an under"taking must prove eminently successful." I have been informed by parties deserving of full credence, that the temperature in this Island is 10° warmer than that of East Falkland; but as to the climate of East Falkland and its temperature, I am enabled, by the testimony of parties residing there for several years, to give most accurate information, substantiated by weather tables which are annexed :* and contrasted with the favoured countries of England, France, and Germany (all of which have the advantages of numerous inhabitants and civilized improvements), † it will be found that the Falklands, notwithstanding the gross misstatements respecting them, may challenge comparison with either for mildness of temperature, and surpass many portions of the globe in facilities for insuring to an industrious colony comort, prosperity, and wealth.
+
+ * Vide pages 73 to 84.
+
+ + Vide pages 85 to 88.
+
+ *
+
+===== PRINTED PAGE 28 =====
+
+ I shall now proceed to offer my observations and suggestions regarding the Falklands, founded upon a careful examination of the numerous authentic documents in my possession, -acquired during many years of diligent enquiry; and I feel myself fully justified in stating that they possess every facility and every requisite to form a commanding naval and commercial depôt, and for the establishment of a prosperous and important fishing colony, to be connected with the breeding of cattle and coarse-woolled sheep, so as to render it one of the most valuable dependencies of the British
+
+ crown.
+
+ The first objects which attract particular attention are the numerous safe and convenient harbours for shipping, all created by the hand of Nature, without any artificial aid from man; amongst these the splendid Berkley Sound claims our first attention, possessing as it does every advantage which either art or science can bestow, and in which spacious harbour all the fleets of Europe might find anchorage at the same time. In this favorable position, it is evident there exists the means for establishing a most commodious naval station , which from its locality becomes daily more requisite, in consequence of the increasing extension of our Australian and South American commerce, and the absence of any other naval position belonging to Great Britain, nearer to the southern hemisphere, than the Cape of Good Hope.
+
+ In a political point of view, our commercial relations with the republics of South America having now become of vast national importance, they require both protection and support, which the naval command upon the South American station is incompetent to supply, from being compelled at present to rendezvous either at Rio Janeiro, or to hover about the Rio Plata; but if a naval station were established in East Falkland, the ships of war would sustain little wear and tear, their damages could be easily repaired, their supplies constantly at hand, and their proximity and command of the Atlantic and Pacific Oceans would enable them at all times, to
+
+===== PRINTED PAGE 29 =====
+
+ grant ample protection to the mercantile interests of Great Britain. It also forms an object for due consideration, that a saving to a large amount annually would be effected in the unavoidable expenditure now incurred upon the South American command, by England possessing a naval establishment in that quarter; and, viewing the subject politically, suppose a war to break out with France, North America, or even with any of the South American republics, in such an event, which I hope is far distant, then a naval station at the Falklands would almost at the outset be decisive of the contest, as in point of fact it would be impossible for any number of vessels to navigate those seas and to escape the notice of the British cruizers; and they would not only command in that vicinity, but also possess every facility for cruizing between the Falklands and the Cape of Good Hope.
+
+ Placed intermediately between both seas, with a harbour of refuge at hand to refit in, and a good look-out, it would be difficult, if not impracticable, for any ship to navigate those seas without the permission of Great Britain; and upon these considerations alone I contend, that the Falkland Islands constitute a most important British dependency.
+
+ It shall now be satisfactorily shown that a settlement might be beneficially established at East Falkland, capable of absolutely insuring prosperity to the settlers, with the certainty of rendering most essential services to the shipping and commercial interests of this country, and that independently of any political benefit to be derived, from possessing a naval station there; although both establishments would, if carried into operation contemporaneously, very materially assist each other, inasmuch as that the early settlers would be greatly aided by the marines and sailors belonging to the naval depôt; whilst the colonists on the other hand would secure to the marines and sailors ample supplies of food, as their first duties would necessarily consist in taming wild cattle, which exist in the greatest abundance, and in raising adequate 
+supplies of various vegetables. I may here, with much propriety, quote and confirm the excellent remarks of Lord Cochrane, now Earl of Dundonald, when referring to the means of facilitating the colonization of the Falklands, in a letter addressed to me, as follows, viz. 
+
+===== PRINTED PAGE 30 =====
+
+ "SIR,
+
+ "Southampton, November 9th, 1834.
+
+ "I regret that my absence from town has prevented my having " an opportunity of meeting you on the subject of the Falkland " Islands, the colonization of which is highly interesting to the country. The old vessels of war, which are now annually sold "and broken up, under bonds of penalty, and the cast stores "periodically disposed of for a trifle (all of which are good " enough for ordinary purposes) would effect this object in an "ample manner, and would form fortresses, stores, and houses,
+
+ during the infancy of this establishment. Even should govern"ment not consider the subject of national importance, authorizing " them, as the guardians of the public purse, to grant these facili" ties, yet the undertaking cannot be of great expense conipared " to the advantages that may be fairly anticipated in a commer"cial point of view, wholly independent of the value of these " places in war, as a naval station.
+
+ "To G. T. Whitington, Esq."
+
+ " I am, Sir,
+
+ "Your obedient servant,
+
+ "DUNDONALD."
+
+ Following up his Lordship's admirable suggestions, I have further to state that the old fort, now in ruins, might, at the cost of only a few hundred pounds, be made available, so as effectually to guard the whole of Port Louis and Darlington Harbour, and, in fact, by judiciously planting cannon, at a trivial expense, on the high lands surrounding Berkley Sound, and the islands within it, the entire harbour and settlement could be fully protected. I have previously stated that Berkley Sound, at the east point of the Eastern Island, is about twelve miles in length, at the top 
+whereof is the present settlement of Port Louis, in latitude 51° 32′ South, longitude 58° 11′ 30′′ West, variation 20° East, high water, full and change, 10h. 30m. Safe anchorage throughout, and abundant supply of superior fresh water. There are also several convenient and safe harbours to the southward, easily accessible to vessels navigating from or to the Pacific, particularly at Fort William, where they have 16 to 6 fathoms, as marked in the map. 
+
+===== PRINTED PAGE 31 =====
+
+ The Falkland Islands, at Berkley Sound, are distant from London about 7000 miles, and are situated 400 miles east of Patagonia, 360 miles north-east of Terra del Fuego, 300 miles north-east of Staten Island, and 500 miles north-east of Cape Horn.
+
+ The East and West Falklands contain about 13,000 square miles, or about 8,300,000 square acres.
+
+ Before I enter upon the subject of climate, soil, and natural productions, it will be proper to reply to and obviate the most prominent objections advanced against these Islands, such as their being the site of perpetual tempests, barren, and so unproductive as to render them wholly unfit to become the habitation of either man or beast.
+
+ In support of these unfounded assertions, which rest exclusively upon intentional misrepresentations, and have been perpetuated by ignorant prejudices and false notions, much reliance is placed upon the absence of aboriginal inhabitants, and the want of forest trees. This wholesale condemnation, and false reasoning, are attempted to be maintained by the joint authorities of Dr. Johnson and Captain M'Bride; the first engaged in a fierce party contention with the celebrated author of Junius, and the latter wilfully misrepresenting their real character from some sinister motive. But these disingenuous reasoners either conceal or wholly set aside
+
+===== PRINTED PAGE 32 =====
+
+ the more authentic recent informations derived from Bougainville and Byron's publications, which were the result of personal examinations and practical knowledge, during a four years' residence as commanders of these settlements. Many unfavourable accounts were doubtless invented by the Spaniards; several may be traced to the natural wish of the British government of that day to justify, in some measure, their own tame conduct towards Spain, in 1770, in respect to the Falklands; and for this purpose it is well known that Dr. Johnson was especially employed, who availed himself of the loose and wilfully inaccurate observations of Captain M'Bride, to demonstrate and support his distorted misrepresentations, and by these means to exculpate the faulty proceedings of the Ministry.
+
+ It is difficult to decide which of the two controversialists carried their party feelings farthest: Junius, however, wrote acrimoniously for fame, and made every point against the government which his fertile genius could supply or invent; Dr. Johnson wrote for bread , and brought, in support of his views, false reasonings, aided by unfounded statements, conveyed in powerful appeals to the passions and to the ignorant prejudices of the day; but, like an over-willing witness, he proves too much, for if the Falklands were so perfectly valueless, so barren, stormy, and inclement, how can it be reasonably accounted for that England, France, Spain, and, recently, Buenos Ayres, countries all of whom possess such abundance and magnificence at home, should have had successive contests for the occupation of so worthless a possession? And I may be permitted further to enquire how it has happened, that, in these sterile, inhospitable Islands, settlements were actually established by Spain, England, France, and Buenos Ayres, every one of which settlements was prosperous and successful? In point of fact, every object, place, and country, must be judged, as to advantage or disadvantage, by comparison , with others of a similar class. I am, therefore, quite willing to have the Falkland Islands estimated by that general test, and to contrast their climate, soil, productions, and 
+local facilities, with those of other approved localities; it will then be found that they possess claims to consideration inferior to few, and far superior to many countries which stand high in public estimation. 
+
+===== PRINTED PAGE 33 =====
+
+ It is insisted upon by Dr. Johnson, and others, that the absence of original native inhabitants furnishes conclusive proof of their barrenness and inclemency: I reply that the island of Juan Fernandez, which gave rise to the beautiful tale of Robinson Crusoe, forms at once an indisputable refutation of that erroneous doctrine; the climate of that island presents a perpetual spring, yielding in abundance all the luxuries of life, but not possessed of aboriginal occupants. The North American States have recently obtained its sovereignty from the Republican government of Chili, and created a settlement for the purpose of forming a naval station, to benefit and advance their commerce in the southern hemisphere. In respect to climate, Terra del Fuego, an island situated several degrees further south than the Falklands, is admitted to be, at its southernmost point, barren in soil, and of inhospitable climate; notwithstanding which thousands of aborigines exist there, and they continue to increase, even at the very southernmost point; and, still further south, is situated an island of considerable extent, named the Hermit, in latitude 56°, upon which aborigines are found, living in a cheerless region, amidst winds and tempests.
+
+ Towards the northern shores of Terra del Fuego, the peppertree, fusia, evergreen beech, &c., grow freely, and Patagonia, situate in a parallel latitude with the Falklands, possesses from its very shore facing Terra del Fuego, good soil, favourable climate, and resources, with some of the finest timber in the world, great portion of it well adapted for masts and spars; it is inhabited by a superior race of people, inoffensive in their habits, and anxious to encourage trading with foreigners. It is also remarkable that there are no trees near the sea, from a few
+
+ C
+
+===== PRINTED PAGE 34 =====
+
+ miles northward of the Straits of Magellan up to the shores of the river Plata, although the country presents a beautiful irregularity of surface, is well watered and clothed with grass; and towards the river Negro the country becomes level, with rich pasture, on which herds of cattle and horses run wild.
+
+ Staten Land, a large rocky island at the N. E. point of Cape Horn, is a complete forest of wood; * it is, however, totally destitute of inhabitants; proving to a demonstration that the existence or non-existence of timber or aborigines, form no fixed criterion to determine either soil or climate, which is also evidenced by many districts even in this country, where with an excellent soil there is a total absence of timber.
+
+ As regards cold climates being unfit for the habitation of human beings, I may, in refutation of that dictum, confidently refer to northern regions in much higher latitudes than the Falklands, such as Lapland, Iceland, Spitzbergen, Kamschatka, Siberia, Esquimaux, and Yakutsk;† these countries are ice and snow bound for six months in the year, during which time the cattle are obliged to be housed and stall-fed, all of which places possess inhabitants and trade without any local or political advantages of importance, capable of being at all compared to those unquestionably appertaining to the Falklands.
+
+ * Much of this timber is the blue gum, similar to that of Van Diemen's Land. + The earth has no spot upon its surface, either habitable or otherwise, which is so cold as Yakutsk, a paltry yet principal town of Eastern Siberia, where a few wooden houses are intermixed with numerous huts, plastered over with cow-dung, and windowed with ice. In this dreary and remote region, the earth is always frozen, the summer's thaw never reaching below 3 feet from the surface, the subterranean ice having a computed depth of 200 yards; in January the thermometer has been known to sink 18° below the bitterest cold experienced by Sir John Ross during his last expedition, and yet the inhabitants, favoured by a warm, though short summer, reap both wheat and barley, and cultivate, successfully, potatoes and other hardy vegetables.
+
+===== PRINTED PAGE 35 =====
+
+ Newfoundland is not blessed with a mild climate; on the contrary, it is most severely cold, and is a large, in part barren, inclement, rocky island, producing timber but no pasturage, grain, or useful plants, yet it is successfully colonized as a fishing establishment, and deemed one of the most important dependencies of Great Britain; on this desolate island the Red Indians were found domiciliated, whether as aborigines cannot be clearly ascertained. The present British settlers are reputed to exceed eighty thousand, and obtain their flour and all other supplies from England and foreigners.
+
+ Several places which enjoy the most favourable climate, nevertheless did not possess aboriginal inhabitants-for instance, the Island of Madeira, so celebrated for its salubrious and mild climate; yet no one would argue that the want of primitive ocсиpants was of itself sufficient proof that the Island was unfit to be inhabited. The Ionian Islands, again, afford another forcible illustration of the fallacy of these hasty unwarranted assertions, and which are the result of prejudice and want of due consideration; if generally admitted, they would have left those peculiarly favoured places unpeopled, even at the present day. It is the characteristic of prejudice, to confound right and wrong together, and being always governed by ignorance and obstinacy; to persist in error, and resist the truth.
+
+ c2
+
+===== PRINTED PAGE 36 =====
+
+ 4
+
+ The Climate, Soil, Natural Productions, and Local Advantages of the Falkland Islands , considered Politically , Commercially , and with reference to their early Colonization.
+
+ Climate . The following observations on this part of my subject is more particularly directed to East Falkland, where Lieutenant Smith resided, without interruption, as Governor, for a period of four years and three months, from 1834 to 1838. He states that the climate was generally temperate, never exceeding that of Great Britain, and much milder during the winter season, which may be ascertained by reference to the annexed Tables. There are more frequent falls of rain in the Falklands than in England, but the showers are much lighter, and the evaporation very considerably quicker, therefore more favourable to vegetation. The winds, although occasionally violent, are not lasting; and, being almost always early in the morning, are found to moderate and gradually subside, so that the settler does not experience any material impediment from either wind or rain. Port Louis is the only existing establishment in the Island, situate at the top of Berkley Sound.
+
+ I have subjoined* full instructions for the government of vessels touching at the Falklands, which will be found practically useful to navigators visiting the Islands, or rounding Cape Horn.
+
+ The appearance of the Islands, upon entering Berkley Sound, is at first sight rather unfavourable, arising principally from the rocky mountains then visible, with the absence of wood, which gives the country a dreary and barren aspect; from these appearances I have little doubt that, in remote periods, casual observers were deterred from exploring the country, and gave those deplorable accounts of these islands, which, despite of numerous authentic testimonials, and recent accurate information, continue, in the absence of public refutation, still attached to them, even in the
+
+ * Vide pages 69, 70, 71.
+
+===== PRINTED PAGE 37 =====
+
+ minds of well-informed persons, and proves how very difficult it is to remove preconceived prejudices of long standing. If, however, those timid voyagers had possessed more enterprise, and landed upon East Falkland, their hasty opinions would have been quickly changed; as, upon passing over the first range of hills, they would have found most extensive plains of fine grass land, fit for sheeppastures or other purposes, and forming a pleasing variety of rising and sloping grounds, extending to the southern extremity.
+
+ Mere geographical position forms no criterion for judging of climate, however it may apply to different parts of Europe, since it has been fully ascertained that local causes, and other circumstances, very materially affect and determine the climate in many quarters. It would not be supposed, although the fact is so, that, at New Orleans, in 30° N., in some parts of Mexico lying within the tropic, and even in the centre of North Africa, in 12° N., the temperature at night is so low, at certain seasons of the year, as to produce ice.
+
+ The low temperature erroneously assigned to the Southern Ocean has resulted from the mistakes of early navigators, who were misled by their own feelings, in consequence of the sudden transit from the heat of Rio, or the milder atmosphere of Buenos Ayres, and experiencing effects of rapid change frequently occurring, at certain periods in summer, during a southerly wind, at the southern extremity of South America; mistakingly supposed that they indicated a proportionate depression of temperature for winter, in the same degree as uniformly takes place in Europe. But these alternations do not so much apply to the Falklands, and are experienced Lore at Cape Horn; they originate in a strong south wind, in summer, coming from and passing over the ice, in latitude 65° to 70° S., which suddenly reduces the temperature at times 10° and 20°, although it again rises to its former elevation with a change of wind to W., N. and E. The early navigators hence erroneously concluded that the climate was 
+proportionably affected in winter, which idea has been wholly refuted by more correct observation, and by the more unerring evidence obtained from long residence at the Falkland Islands, which is an uninhabited country. Contrast three years' temperature there with the same period in England, where the air is meliorated by dense population, buildings, and various other local causes, which are well known to greatly affect temperature in all situations, and it will be proved, by experience, that, in the Falklands, the difference of climate in winter, during an equal time, is constantly superior to, or more favourable than, that of England, to the extent of many degrees. 
+
+===== PRINTED PAGE 38 =====
+
+ The climate is far less variable and more healthy than that of England; in evidence of which, it seldom happens that snow remains upon the ground more than forty-eight hours, except on the mountain tops, which must be admitted as sufficient proof of a mild atmosphere; and, although it has been stated by some nautical men that wheat would not always ripen, in consequence of the absence of a sufficient continuance of high temperature, even that circumstance, if found to be substantially correct, would form no real obstacle to the establishment of a prosperous settlement; as Newfoundland grows no corn for its own use, and the entire east coast of South America is wholly dependent upon foreigners for the supply of flour, biscuit, fish, and potatoes, without experiencing want or any serious inconvenience on that account. It is, however, to be observed, that the native raspberry and strawberry, as also the berries of various plants, ripen perfectly, which leads me justly to doubt the accuracy of the opinion respecting wheat. Potatoes of a superior size and quality, with every variety of bulbous and succulent vegetables, have been successfully cultivated in the Falklands; and the non-production of wheat, biscuit, and flour, can be amply supplied in bond from England, sent in vessels destined round Cape Horn; whilst similar supplies from the North American States would also constitute an advantageous source of barter.
+
+===== PRINTED PAGE 39 =====
+
+ From a recent communication made by Dr. Hancock, of Venezuela, and which was read to the Med. Bot. Society, on the 22nd January, 1839, it appears that maize dos mises grows indigenously in Venezuela, &c., and that it ripens in two months after sowing, is highly nutritious, and thrives well in cold climates, consequently it would be very suitable for the Falklands; as also the Tartarian and early Angus oats, which would certainly thrive well there, and I consider that buck-wheat and barley would answer, together with hemp, flax, rye, and beans; but whether the four warmest months would always be sufficient to ripen wheat must be determined by practical experiments; the temperature of these I give, and my opinion is, that, with the rapid evaporation, they will be found sufficient to ripen wheat:*
+
+ The month of November averaging, at noon, 55°
+
+ Although for many consecutive days in each month the average was between 60° and 70°, and, in the months of January and February, frequently above that quotation, with as many hours of sunshine as we usually have in England. I conclude my remarks upon the climate, by stating that, in many instances, Lieut. Smith, and his men, slept in the open air, without catching colds, or suffering the slightest inconvenience. Most nights of the year are clear and starlight, to an extent wholly unknown in this country. The white frosts of spring and summer do not hurt the plants, and change to a dew at the rising of the sun. Thunder is a rare occurrence.
+
+ * As a practical agriculturist I hesitate not to declare, that I would not myself voluntarily embark in agricultural pursuits, from a knowledge of the risks and small rate of interest returned on capital so employed; and with the conviction that an exchange of other produce with South America, the United States, and Baltic, will be more remunerative to the Falkland colonists.
+
+===== PRINTED PAGE 40 =====
+
+ Soil . In the plains to the southward and westward of Port Louis, comprising the best lands, the soil is deeper than required for the plough; it is so intermixed with the roots of plants, to about a foot in depth, as to render it expedient to remove this layer, and burn it, or, in the summer, to set fire to the grass as it stands. Underneath the first layer is a black mould, seldom less than eight to eighteen inches in thickness, after which yellow clay, of uncertain depths, supported by peat, slates, gravel, stone, sandstone, and quartz. Clay and sand abound, fit for making bricks and earthenware. In two spots were discovered a tenacious white clay, resembling putty, but neither limestone or chalk could be perceived; the latter may, however, be obtained in any quantity from the chalk hills on the Patagonian coast, situated between Santa Cruz harbour and Port St. Julien; and at the last mentioned place may be had abundance of dry salt, as well as from the Cape de Verds.
+
+ Grasses-consist of the reed and tussock, cow clover, and common grasses. The tussock, when green, is eaten freely by the cattle, and, growing to the height of six feet, when ripe, it becomes admirably adapted for the thatching of buildings, and for the construction of mats and baskets.
+
+ Plants are in great variety, comprising the spruce, raspberry, strawberry, varnish plant, producing in considerable quantity gum ammonia, and wild celery, parsley, sorrel, peppergrass, spleenwort, &c., all of which are abundant and antiscorbutic.
+
+ Shrubs . The leaves of the tea plant* are a good substitute for Chinese tea; diddle-dee is a most useful shrub, from its inflammability, serving the purpose of wood in lighting of fires, and also the thashire, being four to five feet in height, with a stem of three inches and upwards in circumference.
+
+ * I am in possession of specimens of this shrub, and various other productions of the Eastern Island.
+
+ 4
+
+===== PRINTED PAGE 41 =====
+
+ Marine Plants and Weeds are various and numerous, among which Don Louis Vernet represented, and the information was confirmed by Sir Woodbine Parish, that the orchilla plant, or weed, is plentiful in the Islands.
+
+ Flowers are of different kinds, amongst which a fine variety of the yellow violet. They are all innocuous, with the exception of one, which is white, and has the perfume of the tube-rose.*
+
+ Stones-are the sandstone, granite, pebbles of various kinds, coloured pink, amber, and red, yellow talc, pyrites, spar, and quartz, in great abundance, clearly indicating the proximity of minerals. Some of the quartz are unfriable, yield sparks, and a phosphoric light, with a strong sulphuric smell; horizontal layers of a very fine hard-grained stone, and inclined layers of slate, also masses of stone dissected by foliation, bearing impressions of unknown shells; this stone is well calculated for making grindstones.
+
+ Minerals. Much of the mountainous portion of the Islands is doubtless metalliferous. Copper, titanium, and iron have already been found, also red and yellow ochre; some German miners, who put into Berkley Sound on their way to Copiapo, declared that, from the geological appearances, they believed coal to exist in the Islands.
+
+ Fuel-consists of brush-wood and two descriptions of peat, found in quantity in almost every direction. One kind is discovered in beds below the surface, formed of the spoils and roots of plants; the smell is not unwholesome, producing a cheerful bright fire. The other is found in the elevated banks existing in the interior of the country; this, being dry, burns quickly, turns into clinkers resembling coke, and yields heat sufficient to weld iron.
+
+ * Mr. John Duckham, of Falmouth, informs me that the Duke of Bedford has made arrangements to obtain a regular supply of native bulbs and plants from the Falklands.
+
+===== PRINTED PAGE 42 =====
+
+ Aborigines. None.
+
+ Animals . Wild horned cattle, of different colours, numerous; estimated by the Buenos Ayrean government, by Don Louis Vernet, and by the subsequent English residents, at from 20,000 to 30,000 head. Wild horses, variously computed from 1,200 to 3,000. Wild swine more or less abundant in all the Islands.* Goats are found upon some of the Western Isles, supposed to have been recently placed there by whaling vessels. Foxes numerous; but no poisonous or creeping reptiles have ever been seen. bits, black and grey, in immense numbers.
+
+ Rab
+
+ Birds .-Swans, geese of four kinds, ducks, and teal of several kinds, of the latter some are quite black, and some entirely white; albatross, penguin, diver, shags, alcyons, gulls, some of a beautiful pink, with red feet, eagles, crows, rooks, curlews, oyster catchers, eagrets, plovers, snipes, starlings, doves, sparrows, the crested nightingale, with various tropical birds, and there are three or four varieties of each species here named, all of which in great abundance, the feathers of which would amply supply settlers with beds; and the quantities of eggs, by being buried in sea sand, will keep fresh for months, and form a valuable article of food for the use of ships' crews.
+
+ Amphibious and Aquatic Animals . -Plenty of black and some sperm whale come into the bays; also sea elephants, hair and fur seals, are to be found on all the rocks and islets. The fur seal is stated by Linnæus as being the native of the Falklands, and he denominates it "Phoca Falklandica."
+
+ Water . There are several rapid streams falling into the sea, applicable to the use of water-mills, but none of them are navigable. Into these streams run many smaller ones, so that the country is 
+everywhere well fresh-watered. There are also different lakes and ponds, many of them at the tops of mountains, some fresh and the others salt water. The sides and immediate bottoms of these mountains are soft and spongy from the soak of the stagnant waters at top, which, from the undulating nature of the country, might easily be let off, and the land rendered perfectly dry. 
+
+ * I have been credibly informed that, four years since, upwards of three thousand hogs were killed by the crews of two sealing vessels, for their skins only.
+
+===== PRINTED PAGE 43 =====
+
+ Fish. The bass, rock cod, mullet, smelt, salmon-trout, and several other salt and fresh water varieties, measuring from ten to thirty inches in length, and of two to sixteen pounds weight each. There are several kinds of crustaceous fish.
+
+ Shells. Upon the coasts are to be found an abundant variety of sea-shells, amongst others the following are specified on account of their beauty and rarity, viz.: -the poulette, found nowhere else but in a fossil state; the lopas, esteemed for its handsome colours; the foliated baccino; the large striped muscle; and the finest specimens of mother-of-pearl. During the equinoctial gales the most delicate spunges are thrown up on the shore in considerable quantities. And I am informed, by Messrs. de Quætville and Co., of Jersey, that a vessel belonging to them touched at the Falklands, and the Captain, who had been long engaged in the South Sea trade, asserted, that he had there found the Besche de Mer, so valuable as an article of commerce with China.
+
+ Having given a rapid summary of the climate, soil, and natural productions of the Falkland Islands, I now proceed to point out their fitness and importance as a naval station in the southern hemisphere; and I shall also endeavour to show that my impressions are not erroneous in regard to their being peculiarly adapted to successful colonization. I have already stated, that we do not possess, or rather have not established, any naval station nearer to the South American Republics than the Cape of Good Hope; the consequence of which is, that the ships of war destined for the protection of our trade in that quarter are compelled to rendez vous either at Rio Janeiro, or in the River Plate. I shall not reiterate my former remarks on the unavoidable expense which this entails upon the nation; but confine myself more particularly to the inefficient protection that can be afforded to commerce by such a system, especially in case of war with either North America or any of the European Maritime Countries, or indeed with the South American Republics. This is a point which deserves serious and dispassionate consideration, for as our commerce extends, and becomes continually more valuable with those Republics, and increases so rapidly with our Australian Colonies and New Zealand, it follows that a more active and immediate protection is now required for the benefit of the trading community. 
+
+===== PRINTED PAGE 44 =====
+
+ The local position of the Falklands, placed intermediately between the Atlantic and Pacific Oceans, seems to point them out as the natural site for a British naval station, which would give England a commanding influence in the southern hemisphere, and insure to her trade, protection and constant support. They possess at East Falkland capacious natural harbours, capable of containing the navies of the world, and with adequate depth of water for vessels of any size: in their present condition affording numerous facilities far superior to any that present themselves in our other New Colonies. Amongst these may be enumerated an ample supply of the finest fresh water, plenty of excellent fat wild cattle, abundance of wild hogs and rabbits, together with an endless supply of geese, ducks, and other wild fowl. The Colony produces potatoes of a superior size and quality, together with all ordinary culinary vegetables; in addition to which there exists wild celery, parsley, and various other useful antiscorbutic plants. These advantages, in favour of settlers to commence their operations with, are most important, and it must be conceded that they would greatly conduce to lessen early difficulties; and, by adopting the judicious suggestions of Earl Dundonald, it is obvious that a naval station might be established with great rapidity, at a comparatively trifling expense.
+
+===== PRINTED PAGE 45 =====
+
+ Had there been a British naval station at the Falklands, I feel convinced that France would not have ventured on the paper blockade of Mexico, and Buenos Ayres. And it will be seen, by my letters inserted in the Colonial Gazette , Times , and Morning Chronicle, of April 1839, that I then predicted the intention of France to take forcible possession of some eligible position in the River Plate, thereon to establish a permanent French settlement : they have since seized upon Maldonado, and are now realizing the views I then attributed to them, as appears by the following statement extracted from the French paper, of February 1840, La Sentinelle de Bayonne , viz. :
+
+ Emigration to the new French Colony of Phillippeville, "Monte Video, is continued from this part of France: a vessel "containing 292 emigrants sailed on the 25th. Amongst them "were 50 women and 17 children; upwards of 300 settlers had
+
+ previously sailed in two vessels for the same colony."
+
+ Let England look to this speedily, or her commerce will suffer most severely. And in the present contest with the Chinese Government, if a naval station were at East Falkland, an efficient force could have been dispatched from thence, to assist and protect the British shipping in the China seas. My previous brief remarks are meant to deal with the subject merely in reference to the eligibility of East Falkland for a naval station; and the great local and natural advantages which render it peculiarly qualified to have one formed there. But if colonization shall be embraced contemporaneously with the construction of a maritime depôt, both operations would be materially benefited and greatly expedited by the reciprocal aid they would afford to each other, inasmuch as that the marines and sailors would lighten the heavy labours incidental to a new colony, whilst the colonists would insure ample supplies of food for their own use, and also for that of the naval department. There exists in reality no obstacle to the speedy formation of a prosperous colony at East Falkland; it 
+being already shown that the climate is much less variable, and more temperate than that of England; and whatever doubts may arise as to the successful cultivation of wheat, there can be none with regard to grazing and breeding of sheep. The wild cattle are always found in good condition, and constantly multiplying in an extraordinary degree, notwithstanding such large quantities were, at a former period, annually destroyed; which must be allowed to afford manifest evidence of the fertility of the soil, and the nutritious quality of the grasses. 
+
+===== PRINTED PAGE 46 =====
+
+ In July 1838, the Admiralty dispatched the Arrow, under command of Commodore J. B. Sulivan, to complete the surveys, and to transfer a quantity of wild horned cattle from the East to West Falkland, there then being upon the latter island only hogs, goats, rabbits, wild fowl and other birds. In August 1838 Her Majesty's ship Sparrow, commanded by Lieutenant Lowcay, proceeded from Rio to the Falklands, with sheep, fowls, and various seeds for propagation. By permission of Lord Minto I am enabled here to give the substance of Lieutenant Lowcay's Official Reports, as Resident Governor, to the Admiralty; from which, the four winter months, June to October of 1839, are selected for the guidance of my readers.
+
+ "Weather moderate and fine generally, with the exception of " some squally weather, and occasionally, but rarely, violent gales " of wind for one or two days, pretty much the same as are usual " in England. State House nearly rebuilt; offices rapidly pro"ceeding to completion, including store-house, smithy, and other " requisite buildings. Gave grants of lands for gardens to settlers, " in conformity with the terms limited by Government. The
+
+ "
+
+ gardens fresh dug up under inspection, and seeds planted; but "the walls of the gardens require to be raised, to prevent the "sheep and other animals from jumping over them and destroying the young plants and growing crops. There are a thousand " hides, salt and dry, in store. The wild dogs are on the increase, 
+"and destroy the calves; recommends offering a premium for "killing them. Represents settlers as distressed for want of "clothing, but principally the want of shoes and stockings; re"commends the distribution of a supply from the Sparrow. "Lieutenant Lowcay states last winter to have been unusually 
+
+===== PRINTED PAGE 47 =====
+
+ severe, that all the high lands were covered with snow, and drift "snow remained for three weeks in the hollows and sheltered "places; that in consequence the Spring was greatly retarded :
+
+ states, that a woman, named Antonina Kinney, came to claim "fourteen head of cattle, given to her for services rendered in "the Colony, as per the certificate of Lieutenant Smith; made
+
+ inquiry, and found she was a very humane and good character, " and particularly useful in the Colony, as a doctrix and midwife. "The grant was stated for services rendered to the sick. Of the "eight sheep from Monte Video, one died on the passage, another
+
+ 66
+
+ soon after landing, the other six are doing well, and no doubt " will thrive here; they had three lambs: two died from want of " due attention, and the third was killed by the wild dogs. The " settlers amount together to 45; that is, 25 men, 10 women, " 10 children, They have tame pigs in abundance, poultry scarce; recommends sending a few dozens of fowls. The two " schooners belonging to settlers were then out on the sea elephant tracts, but hourly expected to return. And the season having commenced, the South Sea whalers were daily looked "for. Supplies from them were too dear for the settlers to be"come purchasers of anything beyond flour and biscuit. There " is a want of young horses, to tame for hunting the wild cattle "and wild horses; recommends to procure them from Patagonia, where the breed is excellent, and the run to the Falk"lands short, consequently preferable to obtaining them from "Monte Video, where the breed is inferior and the passage "much longer.
+
+ In pursuance of my intention to colonize the Falklands, I prepared a Report, in which detailed statements were inserted,
+
+===== PRINTED PAGE 48 =====
+
+ pointing out their fitness, and explaining their natural resources and existing advantages; I sent one of these to Lieutenant Smith, and another to Captain Onslow; from these gentlemen I was favoured with the following satisfactory replies :
+
+ "SIR,
+
+ "3, Lyon's Inn, 17th December, 1838.
+
+ " I have perused with attention and return your report on the "Falkland Islands. After living four years and a half on the " Eastern Island , I feel justified in saying that your statements " are fully borne out in every respect by my own observations " and trials, that a well-directed colony must flourish rapidly is
+
+ beyond a doubt; they are besides a key to the Pacific. There " are some detailed accounts at the Admiralty worthy inspection. "So highly do I think of the Islands as a British settlement, " climate, resources, &c., taken in the aggregate, more immediate " and generally desirable than any of our other early settlements, "that I should prefer, and would gladly take an active part in
+
+ forming a colony and reside there with my family. The small " settlement that now actually exists at Port Louis, East Falk"land, though the inhabitants are there only on sufferance, with" out an inch of ground they can call their own, are thriving " rapidly, which speaks volumes.
+
+ "I remain, Sir,
+
+ "Your obedient Servant,
+
+ "To G. T. Whitington, Esq ."
+
+ "H. SMITH, Lieutenant,
+
+ "MY DEAR SIR,
+
+ "I am sorry that your engagements in town prevented our meeting. I have read Mr. Mackinnon's Falkland Islands , and "think you may extract more matter from my remarks than his "work supplies. I differ with him in opinion as regards the soil
+
+ near Port Louis; it is capable of producing corn, turnips, &c.
+
+===== PRINTED PAGE 49 =====
+
+ " &c. In a garden close to the village I observed large-sized
+
+ vegetables; and the fatness of the cattle inland proves the richness of the pasture. I am astonished that the Government do "not colonize them, and make them a great naval depôt. My "dispatches clearly point out their importance and advantage,
+
+ It is clearly shown that very large tracts of land are fully capable of valuable cultivation, and even if the theoretical notions of some non-agriculturists, "that wheat would not always ripen sufficiently ," be well founded, there are various other products that can be relied upon capable of being abundantly remunerating for the labour to be bestowed upon them; with the breeding of cattle and of sheep added to the interminable resources of the fisheries, there are ample means for supporting a colony, and of insuring certain comfort and prosperity to the colonists.
+
+ The geographical and relative position of these Islands, with their proximity to the adjacent coasts, clearly show that they are destined at an early period to become most important colonial possessions belonging to Great Britain. The trade of the colonists could not fail to be highly lucrative and extensive; and to illustrate that point, it must be borne in mind, that the Falklands are equi distant , and in the direct tract to and from the mother country, the Australasian colonies, New Zealand, and the various important settlements on the western coast of South America; that great numbers of British vessels,* including whalers and sealers, together with those of foreign nations annually passing and repassing Cape Horn, are compelled to run to the Brazils for supplies and repairs, also for masts and spars, obtained at a very heavy cost, besides paying enormous harbour dues, and incurring
+
+ * Vide page 68.
+
+ D
+
+===== PRINTED PAGE 50 =====
+
+ considerable loss of time;* but if a settlement was established at East Falkland, the whole of this advantageous traffic would be enjoyed by the colonists, with British aid and protection. In support of this view, it is well known that vessels, which have once touched there and obtained their supplies, invariably resort to the Islands on their subsequent voyages, of which there has frequently been seen six and seven ships lying in Berkley Sound at the same time.
+
+ It is also a most favourable circumstance, that there exists a certain remunerative market which cannot be overstocked, in the adjoining South American Republics and the Brazils, for cured fish, cured provisions, potatoes, and other productions, which the Falklands can abundantly supply; by means whereof a most profitable barter trade would be created to mutual satisfaction and advantage, without at all interfering with the ability of furnishing the shipping with all they might require. The homeward-bound vessels from the western coast of South America, the Australasian Colonies, and New Zealand, would bring part cargo in sheep and flour, and fill up again with produce there, such as hemp, wool, oil, hides, tallow, horns, skins, whalebone, calcined kelp, &c.
+
+ Although much rain falls, as is previously stated, it is of short duration, and must be far preferable to the excessive droughts and heats of New South Wales, not only for rearing of stock, but for the cure of provisions and fish; and it is more favourable to the production of every variety of vegetable, hemp, flax, and corn, as the evaporation is very great, tending to quicken vegetation.
+
+ * Istly. The delay is from a month to six weeks , arising from tardiness in obtaining inferior Supplies and Repairs , from foreigners, at a very high rate , in proof of which, the recent cases of the "Jane Sheriff" and "Hercules," with numerous others, are referred to; as well as vessels having afterwards to beat against trade winds; which objections will be avoided at the Falk lands.
+
+ 2ndly. The Port-charges on a vessel of 250 tons merely putting in for refreshments at any of the Brazilian Ports amount to the enormous sum of 301., with an additional charge for Anchorage Dues of 17. 16s. per diem, for 50 consecutive days.
+
+===== PRINTED PAGE 51 =====
+
+ The following hardy timber-trees, of rapid growth in England, might, with perfect certainty of success, be reared in the Falklands, and that from English seeds, viz ., the black poplar, timber willow, alder, larch, spruce, birch, beech, ash, Norway pine, Scotch fir, hawthorn, furze, or gorze, all of which can be raised from seed; with these might also be reared most other garden shrubs and bushes. I do not name the oak and elm, being aware that they will not thrive where affected with sea breezes; but a variety of other trees from Staten Land, Terra del Fuego, and Patagonia, might be transplanted from thence, and would of course thrive equally well in the Falklands. The benefits which would arise therefrom, beyond their ornamental appearance, would not, in my opinion, at the outset of any colony, be equivalent to having three or four cargoes of deals and plank direct from Norway, the cost of which would be very trifling, I will not say at what price, but certainly at so cheap a rate as would enable houses and other buildings to be erected, at less by one-half than they would cost in England; and in after years timber could be procured from Staten Island for the expense of cutting. It would still more materially conduce to the interests and advancement of the colony, were a system of barter introduced for exchanging provisions and British manufactures of every description, for the superior masts, spars, ship-building timber, hides, skins, furs, and other as yet unknown products of that interesting and neglected people, the Magellaneans.
+
+ For the honour of England I would willingly see these people raised higher in the scale of human estimation and utility, for at this age of the world it appears almost incredible, and certainly discreditable, that there should exist such a tractable, peaceable people, in an almost pristine condition; the humane and kind conduct which it is admitted they exhibit towards one another, and their inoffensive behaviour to strangers, surely entitles them to this observation in their favour, that although they are the most distant from civilised life, owing principally to local circumstances, they are the most
+
+ D2
+
+===== PRINTED PAGE 52 =====
+
+ inoffensive of any savages we are acquainted with, and deserve to be taught those advantages which raise man above the brute, rendering him useful to himself and to others. I have only now to recommend these neglected people to the philanthropic portion of the community, as presenting an untouched field for their exertions, in ameliorating the condition of these their fellow-men, who most need our help and are willing to receive it; and I conscientiously believe, that the colonization of the Falklands, from their proximity, would provide the means of speedily effecting this great moral good, without interference with these people's rights or property.
+
+ I know of no place where steam-boats could be employed with such good effect, to so much advantage, or be navigated at so small an expense, as at the Falklands, where shifting and uncertain winds are general, and the communication by water-traffic continuous; in addition to which the proximity of Patagonia, Buenos Ayres, and Rio Janeiro, would sufficiently pay for keeping up regular intercourse and beneficial exchange. The frequent facilities of conveyance, combined with the shortness and safety of the voyage from England to the Falklands, are circumstances highly in favour of these Islands, and should be duly estimated; all vessels destined for the Falklands should call at Bona Vista, or Praya, in the Cape de Verds, for water and fresh provisions, and then proceed direct to the Falklands, without touching at any of the South American ports; by such an arrangement, they would make their passage with certainty in eight or nine weeks.
+
+ I have already stated the result of practical observations supplied from various sources, and several excursions into the interior of the country, attested by the experience of several highly respectable individuals, after many years of uninterrupted residence in the Islands; and I cannot now do better for the satisfaction of my readers, and in confirmation of these statements, than to furnish 
+the remarks of Lieutenant William Langdon, R.N., whose opinions are entitled to high consideration, from his perfect knowledge of the Falkland Islands, by frequently touching there during his command of the Hugh Crawford, and the Thomas Laurie, vessels engaged in the trade with New Holland; and from his long residence as a successful colonist in Van Diemen's Land, from whence he has recently returned with an ample fortune, realised by his own skill and enterprise, as appears by his letter to me dated May 1839. In the correspondence with myself and John Campbell, Esq., which has been extensive, ranging over a period of fourteen years, Mr. Langdon gives detailed remarks as to the climate, soil, political and commercial position, with the resources and value of these Islands, for stock, sheep, and other required supplies, in that particular quarter; and strongly dissuades Mr. Campbell and myself from waving our attention from lands in the Falklands, for those in Swan River, or any of the older colonies. By subsequent letters, Mr. Langdon expresses his surprise that no great progress was made respecting the settlement of these Islands, possessing, as they unquestionably do, resources and advantages more numerous and immediate than any colonies in New Holland; with superior facilities for locating and supplying them in half the time, and at one-half the cost, by reason of the many vessels from London, Liverpool, and Glasgow, bound round Cape Horn. The quantities of fish and cattle would supply the numerous whalers and sealers as well as the colonies of Australasia, to almost any extent, with potatoes, meat, provisions, butter, and cheese, the climate of New Holland being far too hot for the satisfactory curing and preserving provisions from their own stocks. 
+
+===== PRINTED PAGE 53 =====
+
+ New Zealand possesses no cattle or horses, and will therefore require considerable supplies of cured provisions and live cattle, which can be procured from the Falklands in any quantities that may be required, in return for cargoes of plank and timber, with which New Zealand abounds.
+
+===== PRINTED PAGE 54 =====
+
+ In February 1840 Mr. Langdon writes from Devonshire, to say that he shall be in town next month, and will be prepared to co-operate in the colonization of the Falklands, being still of the same opinion, that no money can be anywhere invested with such certainty of speedy and profitable return; providing the rocks are avoided upon which so many undertakings have split, namely, that of sacrificing their best interests, by appointing incompetent persons in the management of their affairs in the colonies. Mr. Langdon adds, that he would be responsible for a profit in a very short period, and so clearly does he see his way, that he would not object to sacrifice his personal comforts here, to go out for a couple of years without remuneration, for the purpose of establishing a settlement. He remarks, that a considerable portion of the wild cattle must be destroyed, reserving a sufficient number for domestic purposes, and to stock the smaller Islands; when this is done, the Eastern Island would alone keep from 250,000 to 300,000 head of sheep, and that he would immediately send, on his own account, 2,000 to 3,000 ewes from Van Diemen's Land; observing, in conclusion, that one gentleman in Devon, with his relations, who are friends of Mr. Langdon's, were prepared immediately to invest in the undertaking £10,000, which he submits for my consideration. Mr. Langdon further adds, that the quantities and condition of the wild cattle alone furnish conclusive evidence for the most sceptical, as to the soil and climate; and he remarks, that when first he visited Van Diemen's Land in 1821, it was generally stated and believed, that this Island would grow nothing but culinary vegetables and wheat, and such was the prevailing prejudice at the time, that he was strongly advised against accepting a grant of 2,000 acres. It has since been practically shewn that it is one of the most fertile countries in the world, and may fairly be called the granary of Australasia; the high mountains in the interior are constantly covered with snow, which however is not the case in the Falklands.
+
+===== PRINTED PAGE 55 =====
+
+ With these indisputable testimonials, in addition to the important matter previously detailed in favour of my views respecting the very great fitness of the Falklands for the establishment of a naval station, and for the formation of a prosperous colony, I cannot reasonably be charged with having rashly hazarded the opinions now given to the public. In these Islands there are no original inhabitants to interfere with the safety or impede the interests of the colonists; neither can they be exposed to any difficulties in procuring food at the commencement of their operations; both of which circumstances have acted as very serious obstacles in other new settlements.
+
+ CONCLUSION.
+
+ This work would not do justice to the author's views, if it terminated without making some observations on the importance of colonies in general to all maritime countries, to which they are in point of fact the source of strength, wealth, and greatness; and it is with much satisfaction that I advert to the judicious regulations recently introduced by Mr. E. G. Wakefield, for the encouragement of colonization, by which an improved feature has been imparted to this great national object, that of insuring the rapid success of the British colonies, by securing to them, out of their own resources, an adequate supply of labour, which alone can give value to waste lands , and at the same time so shaping the operation, as to make the infant colony minister to the very best interests of the parent state.
+
+ The sale of waste crown lands is now happily contrasted with the former improvident and impolitic system of extensive grants. The money realised by the sale of the waste lands is now constituted into an emigration fund, out of which labourers and their families are conveyed to the new settlements free of expense; internal improvements are provided for, and the principal difficulties of 
+the new colonies guarded against, and although there still remains room for further beneficial arrangements, the consequence has already been, that colonial investments have now become the most safe, profitable, and certain, in which the capitalist can employ his surplus funds. 
+
+===== PRINTED PAGE 56 =====
+
+ The people of this highly-favoured nation may be aptly compared to a hive of industrious bees, which, when overstocked with busy occupants, relieves itself by sending out its surplus labourers, and presently there are two thriving communities formed out of one. But we have not hitherto been sufficiently observant of the natural sagacity which regulates the new colonies of bees, and therefore have neglected the important points which invariably secure their success; the new system, however, approaches far towards supplying that deficiency; the younger bees quit the place of their nativity under a leader, and an adequate number of labourers; so it will now be with the superabundant population of the United Kingdom: by the improved system, they proceed under the auspices of the landed proprietor, to new regions, carrying with them their arts and industry, and speedily changing the solitudes of ages into the cheerful and busy haunts of civilized man.
+
+ The successful working of the new system of colonization is substantiated, by all accounts from the colonies, where, by its means, intrinsic value has also been given to waste lands heretofore left barren and neglected, proving beyond doubt the success of the measure, and that it is the true policy of Great Britain, to afford every facility to the establishment of British settlements in her distant colonies, giving always a decided preference to Island Colonies over every other; as they contribute so much more to the benefit of the mother country, by their becoming nurseries for rearing sailors to navigate our commercial shipping, and to man our navy.
+
+===== PRINTED PAGE 57 =====
+
+ The paramount advantages of Island Colonies will appear more manifest by reference to the ascertained fact, that two entire thirds of the British vessels sailing out of the Port of London are em ployed in the Colonial trade , independent of those which are engaged at the colonies, in exchanging the supplies yielded by one colony for the surplus produce of another; whilst by their own wants the colonists largely increase the consumption of English goods, and become the means of diffusing a taste for British manufactures and English merchandise, throughout the most remote parts of the habitable globe; and in this manner returning to the parent state advantages a hundred-fold more than those previously conferred upon themselves.
+
+ The improved system therefore gives value to the land otherwise valueless; gives employment to our shipping, and remunerative occupation to our unemployed operatives; the very funds paid to purchase the waste land are made the instant medium for supplying useful labour, * without which, land could offer but little inducement to either proprietor or producer to quit their native locality, for one more distant, although presenting the means of bettering their condition and prospects than they can hope for in England; where land and other objects of legitimate and secure investment, with almost every production, have attained, from forced competition and artificial means, a price beyond their maximum value. We live in an age when the minds of men incline them to seek settlements in new countries, as may be clearly seen by the annexed Emigration Table, extracted from Mr. Montgomery Martin's Colonial Ma gazine; it will be there observed that the number of British emigrants to New York averaged, for nine years, 26,000 annually.
+
+ * This labour, consisting of the best kind, selected from well-disposed and willing emigrants who can procure no sufficiently remunerative employ in this country, and which would not be tainted with the demoralizing effects of convict labourers, sent to our old Polynesian settlements, at an enormous expense to the nation, literally to further contaminate each other, and perpetuate crime amongst the rising generation!
+
+===== PRINTED PAGE 59 =====
+
+ EMIGRATION TABLE,
+
+ Showing the Number and Direction of Emigrants who left the British Isles, from June 1828 to June 1839.
+
+ The number of British emigrants who landed in New York, in nine years ending 1837, varied from 11,500 to 59,000, and averaged 26,000 annually, In the year 1836 it was 59,075. If to this we add 27,728, who went to Canada, 1,621 free settlers and 3,823 convicts, who went to New South Wales, and probably 3,000 to other parts of New Holland and the Cape; it follows that no less than 95,000 persons emigrated in that one year. Emigration to Canada reached its maximum in 1831 and 1832. In the former it was 49,783, and in the latter 51,185. In 1833 it was only 21,725, in 1834 it rose to 30,935; in 1835 it fell to 12,527, in 1836 it rose to 27,728; in 1837 it was 21,901, and in 1838 it sunk to 3,266. These are numbers that arrived at Quebec, exclusive of a few who went to New Brunswick, Nova Scotia, &c.
+
+ Total
+
+ 4,577 14,332 292 14,021 33,222 
+
+===== PRINTED PAGE 60 =====
+
+ In the last half-year up to the end of June 1839, the emigration to the North American States amounted to 22,451, being greater than the whole number of emigrants for 1838.
+
+ These people were the most valuable class of settlers, and each had scraped together the sums requisite to pay for their own passage and expenses; had proper measures been at that time adopted, there can be little doubt that instead of these industrious people being induced to add to the strength and resources of the North American States, the far greater portion of them would, under the regulations of the improved system, have given preference to the British colonies, and contributed their labour, which is wealth, to the rapid success and prosperity of the colonies they might have selected. I have been informed, through an influential and high official source, that the United States Government have become alive to the recent movements of Great Britain for promoting and assisting emigration to her own colonies; and that in consequence arrangements are in progress, for applying the proceeds of future land sales by the North American Government to the purpose of an American emigration fund, for paying the passage of English emigrants to the United States generally; so as to become competitors in the labour market, and thereby to prevent the British improved system from curtailing the immense advantages which the United States have so long enjoyed, by means of British immigrants.
+
+ On this subject it is exceedingly important to observe the improving value of lands and increasing demand for labour in the colonies. Sir George Gipps' Despatches, dated in 1838, state, "that the demand for labour in New South Wales cannot be " supplied with less than 12,000 souls, male and female, an"nually." With the knowledge of all these facts before us, surely it is our interest, and becomes an imperative duty to devise adequate measures for speedily turning the immense stream of 
+emigration from the North American States to the Falkland Islands, and our other colonies in the Ethiopic and Pacific Oceans. 
+
+===== PRINTED PAGE 61 =====
+
+ I am an ardent advocate for colonization generally, and have devoted my attention to the subject during many years; and I feel thoroughly convinced, that it is capable of conferring the highest benefits upon the parent state, and the colonists also, if it be promoted by due arrangements, and care taken to select the proper class of settlers: but in my opinion, the success and future prosperity of a colony depend greatly upon the description of persons who are selected for carrying into effect the organization of any new establishment. As to purchasers of land or capitalists, together with comparative wealthy settlers, their attention will very soon be directed to a thriving colony, there needs no inducements beyond their own self-interests to attract them; but the useful labourer, who wishes to do so, yet cannot by his own resources quit his native home, and migrate to a distant one, however inviting; it is his co-operation that insures prosperity, and in the absence of whose aid, monied settlers are absolutely valueless. I have studied this particular point most fully, and have felt myself warranted in offering to Government some suggestions which, if adopted, will infinitely facilitate the supply of those settlers best adapted for the early purposes of colonization, and without whom, success or prosperity are not easily to be attained, as the mode hitherto pursued has been defective; for after arriving at the wise policy of providing and paying for the passage of poor emigrants, respectable shopkeepers and tradesmen in the principal provincial towns have been appointed emigration agents, instead of whom I would strongly recommend the selection of the relieving officers in the various Poor Law Unions, to the performance of that duty, under the salutary control of the Board of Guardians; these officers are most likely to know the character, wants, and habits of all the poor in their several districts, and are consequently better enabled to procure from this source the most useful and desirable settlers; but to 
+render their operations extensively effective, the Board of Guardians of the different Unions should be empowered, if they so thought fit, to order the expenses of conveying any pauper and his family (wishing to emigrate, and having made proper arrangement and agreement with any company or individual for that purpose) to the nearest port of embarkation in England, to be defrayed out of the poor's-rate of the parish to which such pauper belongs, in exactly the same mode as all other "out-relief"" is now charged in the different Unions in England. Such a measure would speedily produce great relief in the parish expenses, and confer immediate benefits upon the poor families so assisted and removed from the possibility of incurring any further charges upon the rate-payers. 
+
+===== PRINTED PAGE 62 =====
+
+ In confirmation of my previous observations relating to rise in value of colonial lands, let my readers look to Adelaide, South Australia, settled under Mr. Wakefield's system in 1837, where half an acre, town allotment, which then cost 10s., had in 1839 sold for £755; one acre, with some buildings thereon, for £2,000, and many similar town and country sections which cost but £1 per acre, had realised sums ranging from £100 to £3000; and others had been let on lease at from £50 to £90 per annum. At Port Lincoln, the offshoot of Adelaide, for half an acre with water frontage 300 guineas had been refused! In 1839 the population of South Australia was estimated at 12,000 persons, located within three years. In 1839 the sum of £220,000 had been paid for lands sold at £1 per acre, the whole of which must be appropriated to the payment of passage of willing immigrants into that colony.
+
+ The same happy results would immediately follow the coloni zation of the Falklands, from their commanding position, their local resources, and short distance from the mother country, which does not exceed a two-months' voyage: thus evidencing the means for employing and remunerating the labourer for his 
+toil; and, per contra , I will give the position and reward for the industry of our working class at home, illustrative of the privations to which they will submit rather than voluntarily resort to parish relief. 
+
+===== PRINTED PAGE 63 =====
+
+ "An independent agricultural labourer, earning 12s. per week, " with wife and four small children, one child earning 3s. per " week, making together 15s.
+
+ " From that sum must be deducted rent per week, 2s. ; firing, soap, candles, needles, pins, and other requisites " for mending clothes, and a broom, per week, 2s.
+
+ "Residue
+
+ 4
+
+ 11s.
+
+ "It thus appears that the said labourer, with the highest rate
+
+ " of wages, has but 1s. 10d . per week per head, (or less than 3d.
+
+ 66
+
+ per day each person!!) to obtain food for himself and family, all " which food must be purchased retail and consequently in the most "disadvantageous mode; whilst it is shewn in the Quarterly "Abstract of Accounts of the Guildford Union Workhouse, that "an inmate of that house, dieted according to the direction of the "Poor Law Commissioners, has an allowance in food alone of " 2s. 9d. weekly. The account then stands thus:
+
+ " Difference in favour of pauper. 011d., or one-half more " than the independent labourer."
+
+ "If it be thus with the man with but four children, how must " he fare if he have five or six? or if instead of receiving 15s. " weekly, he earn but 12s. or 13s., and the latter certainly is, " by far, the most numerous class.
+
+===== PRINTED PAGE 64 =====
+
+ "Here is nothing said about clothes or shoes, because it is "supposed that the increased earnings during the harvest may
+
+ "
+
+ supply the means of providing a scanty pittance of those articles "to the independent labourer and family, which are supplied
+
+ gratuitously and abundantly to the inhabitant of the workhouse."
+
+ " It is hereby evident that if, per chance, the labourer permits
+
+ " himself the luxury of a pint of beer with the hope of keeping
+
+ 66
+
+ up his spirits and invigorating his body to sustain his daily toil,
+
+ " he, in so doing, diminishes by so much, the diurnal allowance " of bread ( for how is he to get meat ?) to his children!"
+
+ And what, I would ask, is to better their condition in this country, whilst the population is augmenting in the ratio of half a million of souls annually?
+
+ I will close these remarks with my decided opinion, that as there are lands enough in the universe unoccupied, and containing the means of providing happiness for millions, the wealthier classes must resort to one of two alternatives, either cordial co-operation and aid in emigration, or a repeal of the present Corn Laws, and I do not hesitate to assert that the latter will not complete, to the full extent, the public benefit and comfort, unless combined with the former.
+
+ The present Corn Laws, I assert, from practical observation and experience, benefit few besides the foreigner, whose price is advanced according as the demand appears from England, he well knowing that we have grounds, real or imaginary, for speculating upon the Is. duty, and to which end every possible device is applied in London; whereas a permanent fixed duty of 10s. per quarter, would set such speculation at rest, our exits of specie would not be so sudden or so considerable, and the foreigner would consign his produce for sale here, as well as sell it to us at 
+an equally diminished price per quarter; we should receive his growth gradually, in lieu of every third year en masse , from accumulation, during which period the foreign manufacturer is com-. peting with ours at half the cost of production: and it is a fact beyond dispute, that the Treasury would have hitherto, and would still receive the 10s. per quarter duty on every quarter of corn which has arrived, and would be imported under the 10s. system. Any fluctuating scale of duties will prove abortive, for as much wheat will come in and pay duty at 10s. as at 5s., and when at less than 10s. it can easily be forced by gambling to 1s. duty; and during which operation British grown supplies are withheld from consumption, fewer sales returned at much higher prices, and the consumer suffering for weeks, if not months, by the thus-forced-up price: therefore policy and humanity unite in recommending a moderate fixed duty. 
+
+===== PRINTED PAGE 65 =====
+
+ I decidedly concur in the correct delineation of the inherent faults of the fluctuating scale, so ably pictured by Mr. Fonblanque in the Examiner of the 5th April, wherein he justly characterises it "as the slippery scale on which the farmer "slides, and gets such heavy falls in prices; it is the slippery "scale on which the importer slides, with liability to the "same mishaps; it is the slide on which every interest in the "country gets its falls; the slide which nearly brought the Bank "to the ground last autumn, and made her dependent on the "bank of France for bullion to avert a stoppage; it is the slide " on which our manufactures slip down at home, or slip away to "foreign countries; the slide on which nothing is stable and "secure; all a chance, a lottery of ups and downs, the toss of "heads and tails, with the exception perhaps of the landlords' "individual interests, to whom it furnishes a plea for upholding "rents, and justifying tenants in being less liberal to their "labourers."
+
+ It will be found that the majority of those who are opposed to
+
+ E
+
+===== PRINTED PAGE 66 =====
+
+ reciprocity of trade, which gives increase of commerce and employ, who prevent cheaper and more steady price in the staff of life, who are inimical to emigration of our poor operatives to new countries appertaining to Great Britain, nevertheless generally style themselves the friends of the poor, the upholders of justice, morality, and religion, whilst their acts are the reverse of all their pretensions; and as Lord Morpeth has beautifully remarked, is a mockery of the Lord's Prayer, beseeching that the Creator's bounties may be shed equally over the world.
+
+ But the occupants of the British Isles, with all their arts and science, commercial enterprise and shipping, are to be prohibited from partaking of the kind dispensations of Providence from climes more genial and better suited for the culture of corn, because some of the higher classes find it more to their pecuniary advantage to legislate against the laws of nature and the interests of mankind, to set at defiance the beneficent dispensations by which places and produce are adjusted to the wants of the inhabitants of the world, so that the abundance of one quarter may supply the deficiency in another.
+
+ The existing Corn Law is founded on the principle of relying upon skill and capital to conquer-coute qui coute -the disadvantages of nature, with the superabundant population of the British Isles, and to which these law-makers would tie their poorer brethren in slavery and penury, to force, by undue means, an artificial priced produce, merely to maintain the aristocracy and their interests in the soil, which already preponderate most injuriously.
+
+ I would not willingly compel any one to adopt my opinions, for I am not a tyrant, and I duly respect them who differ with me, if they are sincere; but I have no measure of tolerance for those who sacrifice their real sentiments to objects of expediency, or what is infinitely worse, for selfish purposes.
+
+ The Falkland Islands, Etc. Compiled from Ten Years' Investigation of the Subject 
+ 
+.flow {
+ margin: 0;
+ font-size: 1em;
+}
+.flow .pagebreak {
+ page-break-before: always;
+}
+.flow p {
+ text-align: left;
+ text-indent: 0;
+ margin-top: 0;
+ margin-bottom: 0.5em;
+}
+.flow .gstxt_sup {
+ font-size: 75%;
+ position: relative;
+ bottom: 0.5em;
+}
+.flow .gstxt_sub {
+ font-size: 75%;
+ position: relative;
+ top: 0.3em;
+}
+.flow .gstxt_hlt {
+ background-color: yellow;
+}
+.flow div.gtxt_inset_box {
+ padding: 0.5em 0.5em 0.5em 0.5em;
+ margin: 1em 1em 1em 1em;
+ border: 1px black solid;
+}
+.flow div.gtxt_footnote {
+ padding: 0 0.5em 0 0.5em;
+ border: 1px black dotted;
+}
+.flow .gstxt_underline {
+ text-decoration: underline;
+}
+.flow .gtxt_heading {
+ text-align: center;
+ margin-bottom: 1em;
+ font-size: 150%;
+ font-weight: bold;
+ font-variant: small-caps;
+}
+.flow .gtxt_h1_heading {
+ text-align: center;
+ font-size: 120%;
+ font-weight: bold;
+}
+.flow .gtxt_h2_heading {
+ font-size: 110%;
+ font-weight: bold;
+}
+.flow .gtxt_h3_heading {
+ font-weight: bold;
+}
+.flow .gtxt_lineated {
+ margin-left: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ white-space: pre-wrap;
+}
+.flow .gtxt_lineated_code {
+ margin-left: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ white-space: pre-wrap;
+ font-family: monospace;
+}
+.flow .gtxt_quote {
+ margin-left: 2em;
+ margin-right: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow .gtxt_list_entry {
+ margin-left: 2ex;
+ text-indent: -2ex;
+}
+.flow .gimg_graphic {
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow .gimg_table {
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow {
+ font-family: serif;
+}
+.flow span,p {
+ font-family: inherit;
+}
+
+===== PRINTED PAGE 67 =====
+
+ I give my views fearlessly and honestly: they are the result of much thought and mature consideration; when they shall be proved faulty, then I shall be ready to admit that my experience and my judgment have but served to mislead me.
+
+ The public will, I hope, appreciate the motives which have given rise to this production; the facts narrated I hold myself responsible for, and that portion which is collected from other sources has been done with much care and attention; but how far with judgment must be left to the impartial decision of my readers. If my well-meant efforts shall, however, create increased interest in the subjects which I have animadverted upon, my labour has been well bestowed, and my objects to some extent realised, as in conformity with my "emblem," "arms," and "motto," I seek only to develop facts, and to do good.
+
+ N.B.-Since writing my own account, I have perused Mr. Mackinnon's pamphlet on the Falklands (just published by Baily & Co. of Cornhill), and am in justice bound to say it is impartially and amusingly written, being a detail of variated and highly interesting objects and pursuits, during his sojourn upon the Islands, and cannot fail in proving pleasingly instructive to those who may feel disposed to peruse it.
+
+===== PRINTED PAGE 68 =====
+
+ TABLE OF BRITISH SHIPPING IN THE PACIFIC.
+
+ Return published by the House of Commons (on the Motion of W. J. Denison, Esq., M.P. for Surrey), shewing the Number and Tonnage of Vessels which cleared out in the years 1838 and 1839 from London and Liverpool only for our Australasian Settlements, South Sea Fisheries, and the Ports on the Western Coast of South America, round Cape Horn.
+
+ Making a total of 539 vessels of 190,312 tons, worth, at the most moderate average calculation, upwards of two millions of pounds sterling , exclusive of valuable cargoes out and home; if to which were added those cleared out from other ports in England, Scotland, and Ireland, the amount would be materially augmented. This Table demonstrates the value of our trade in the Pacific, and the importance of a colony and protective station at the Falklands.
+
+ The Falkland Islands, Etc. Compiled from Ten Years' Investigation of the Subject 
+ 
+.flow {
+ margin: 0;
+ font-size: 1em;
+}
+.flow .pagebreak {
+ page-break-before: always;
+}
+.flow p {
+ text-align: left;
+ text-indent: 0;
+ margin-top: 0;
+ margin-bottom: 0.5em;
+}
+.flow .gstxt_sup {
+ font-size: 75%;
+ position: relative;
+ bottom: 0.5em;
+}
+.flow .gstxt_sub {
+ font-size: 75%;
+ position: relative;
+ top: 0.3em;
+}
+.flow .gstxt_hlt {
+ background-color: yellow;
+}
+.flow div.gtxt_inset_box {
+ padding: 0.5em 0.5em 0.5em 0.5em;
+ margin: 1em 1em 1em 1em;
+ border: 1px black solid;
+}
+.flow div.gtxt_footnote {
+ padding: 0 0.5em 0 0.5em;
+ border: 1px black dotted;
+}
+.flow .gstxt_underline {
+ text-decoration: underline;
+}
+.flow .gtxt_heading {
+ text-align: center;
+ margin-bottom: 1em;
+ font-size: 150%;
+ font-weight: bold;
+ font-variant: small-caps;
+}
+.flow .gtxt_h1_heading {
+ text-align: center;
+ font-size: 120%;
+ font-weight: bold;
+}
+.flow .gtxt_h2_heading {
+ font-size: 110%;
+ font-weight: bold;
+}
+.flow .gtxt_h3_heading {
+ font-weight: bold;
+}
+.flow .gtxt_lineated {
+ margin-left: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ white-space: pre-wrap;
+}
+.flow .gtxt_lineated_code {
+ margin-left: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ white-space: pre-wrap;
+ font-family: monospace;
+}
+.flow .gtxt_quote {
+ margin-left: 2em;
+ margin-right: 2em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow .gtxt_list_entry {
+ margin-left: 2ex;
+ text-indent: -2ex;
+}
+.flow .gimg_graphic {
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow .gimg_table {
+ margin-top: 1em;
+ margin-bottom: 1em;
+}
+.flow {
+ font-family: serif;
+}
+.flow span,p {
+ font-family: inherit;
+}
+
+===== PRINTED PAGE 69 =====
+
+ Remarks , explanatory of the Map, for use of Navigators.
+
+ The Falkland Islands lie in latitude 51° to 52° 45' S., longitude 57° 20′ to 61° 46′ W., distant at Berkley Sound about 400 miles E. of Patagonia, 360 miles N.E. of Terra del Fuego, 300 miles N.E. of Staten Island, 500 miles N.E. of Cape Horn, and about 7000 miles distant from London, the voyage occupying eight to nine weeks.
+
+ Fast Falkland. ---Berkley Sound, at the east point, is about twelve miles in length, at the top whereof is the present settlement of Port Louis, in latitude 51° 32′ S., longitude 58° 11′ 30′′ W., variation 20° E., high water, full and change, 10h. 30m.; safe anchorage throughout, and abundant supply of superior fresh water: there are likewise several convenient and safe harbours, with fresh-water streams to the southward.
+
+ West Falkland .-Port Edgar, at the south-west entrance to Falkland Sound, is in latitude 52° S., and in longitude 60° 17′ 12" W., easy of access, and with good anchorage. At West Point Island, the anchorage is in latitude 51° 24' 15" S., and longitude 64° 36′ 30′′; very little current; tide rises nine feet, full and change of 7h. 30m. A.M.; there are several excellent safe harbours on both sides of Falkland Sound, which will afford great facilities for communication between the East and West Island.
+
+ N.B. At the Falklands, kelp is the unerring symbol of rocks under water, and although in some places they lie very deep, they nevertheless indicate rocks with equal certainty as if they were buoyed.
+
+ Staten Island is in latitude 54° to 55° S., and longitude 63° to 65° W., and has several good harbours; New Year's and St. 
+John's, are most known; the first on the north side, the latter at the east end, where there is a very heavy tide rip, so that slack tide is the proper period for entering. 
+
+===== PRINTED PAGE 70 =====
+
+ Winds and Weather . At the end of October the wind begins to draw from the N., and continues northerly to the middle of February, when it generally blows between S.W. and N.W. until the middle of May, then from E. up to the end of June; in July, August, September, and October, the prevailing winds are between S.W. and N.W.; and in March, April, August, and September, they are principally S. and S.W. The strongest winds are from the south, occasionally shifting a point or two, and lasting from twenty to thirty hours, during the equinoxial months. Wind at east rises light, but should it vere to south, it may be expected to blow hard. Wind at north comes on gradually, and in about thirty hours draws to N.W. shifting to S.W. All gales, however, are of very short duration, especially in summer, when they blow in short gusts between S.W. and N.W., moderating to N. and E. with fine and calm weather.
+
+ Vessels may safely anchor anywhere with a S.W. wind, but more care is requisite when the wind is at N.W. , which is apt to shift suddenly to S.W.
+
+ Doubling Cape Horn. -The difficulties and dangers which were supposed to attend the doubling of Cape Horn, originated in the error of constantly standing too close in with that shore, and in passing at all times through the Straits of Le Maire, which should not be done, more particularly during the months of March, April, August, and September; at which period the winds and tides are much stronger from the southernmost points of Cape Horn and Terra del Fuego, where from local causes will be found a prevailing west wind, occasioning the danger of drifting upon Staten Land by the strong easterly current. All vessels rounding Cape Horn should pass east of 
+Staten Island, and invariably run down to 59° or 60° south, before westing into the Pacific or easting into the Atlantic, when they will encounter neither danger nor difficulty, and by which course they will experience steady winds, save much time, and obviate considerable wear and tear, besides being in a direct line for Berkley Sound, where they can command safe anchorage, and procure supplies. 
+
+===== PRINTED PAGE 71 =====
+
+ All vessels destined for the Falklands should call at Bona Vista, or Praya, in the Cape de Verds, for water and fresh provisions, and then proceed direct to the Falklands, without touching at any of the South American ports; by such an arrangement they would make their passage with certainty in eight or nine weeks.
+
+===== PRINTED PAGE 73 =====
+
+ FALKLAND ISLANDS.- WEATHER TABLE kept by HENRY CHANNON
+
+ whilst at PORT LOUIS, BERKLEY SOUND, from the 9th April to 26th August 1833.
+
+ F
+
+===== PRINTED PAGE 74 =====
+
+ Weather Table kept by H. Channon, at Port Louis, &c.-( continued .)
+
+===== PRINTED PAGE 75 =====
+
+ Weather Table kept by H. Channon, at Port Louis, &c. (continued.)
+
+ F2
+
+===== PRINTED PAGE 76 =====
+
+ WEATHER TABLE kept by HENRY CHANNON whilst on TURF ISLAND, BERKLEY SOUND, from 27th August 1833 to 9th January 1834.
+
+===== PRINTED PAGE 77 =====
+
+ A. WEEK'S TEMPERATURE taken in the Shade, by Lieutenant Rea, whilst at BERKLEY SOUND in 1834, on his way to the South in the "Hopeful."
+
+===== PRINTED PAGE 78 =====
+
+ TABLE OF TEMPERATURE at BERKLEY SOUND, EAST FALKLAND ISLAND,
+
+ from August 1835 to August 1836, both inclusive.
+
+ SUNDAY 2039 45
+
+ 39 38 
+
+ Tuesday 20 48
+
+ 54
+
+ 38 38 
+
+===== PRINTED PAGE 79 =====
+
+ Table of Temperature at Berkley Sound, &c. ( continued .)
+
+===== PRINTED PAGE 80 =====
+
+ Table of Temperature at Berkley Sound, &c.-( continued .)
+
+===== PRINTED PAGE 81 =====
+
+ Table of Temperature at Berkley Sound, &c.-( continued .)
+
+===== PRINTED PAGE 82 =====
+
+ 'Table of Temperature at Berkley Sound, &c. ( continued .)
+
+ Saturday
+
+ 238 40 32 30
+
+ The Falkland Islands, Etc. Compiled from Ten Years' Investigation of the Subject 
+ 
+.frontmatter_header {
+ font-size:1.2em;
+ font-weight:bold
+;}
+.frontmatter_body {
+ font-size:1em;
+}
+
+ About this Book - From Google
+
+This is a digital copy of a book that was preserved for generations on library
+shelves before it was carefully scanned by Google as part of a project to make
+the world's books discoverable online. It has survived long enough for the
+copyright to expire and the book to enter the public domain. A public domain
+book is one that was never subject to copyright or whose legal copyright term
+has expired. Whether a book is in the public domain may vary country to
+country. Public domain books are our gateways to the past, representing a
+wealth of history, culture and knowledge that's often difficult to discover.
+Marks, notations and other marginalia present in the original volume may appear
+in this file - a reminder of this book's long journey from the publisher to a
+library and finally to you.
+
+Google Book Search has digitized millions of physical books and made them
+available online at the Google Books web site. The digitization at
+the most basic level is based on page images of the
+physical books. To make this book available as an ePub formated file we have
+taken those page images and extracted the text using Optical Character
+Recognition (or OCR for short) technology. The extraction of text from page
+images is a difficult engineering task. Smudges on the physical books' pages,
+fancy fonts, old fonts, torn pages, etc. can all lead to errors in the
+extracted text. Imperfect OCR is only the first challenge in the ultimate goal
+of moving from collections of page images to extracted-text based books. Our
+computer algorithms also have to automatically determine the structure of the
+book (what are the headers and footers, where images are placed, whether text
+is verse or prose, and so forth). Getting this right allows us to render the
+book in a way that follows the format of the original book.
+
+Despite our best efforts you may see spelling mistakes, garbage characters,
+extraneous images, or missing pages in this book. Based on our estimates, these
+errors should not prevent you from enjoying the content of the book. The
+technical challenges of automatically constructing a perfect book are daunting,
+but we continue to make enhancements to our OCR and book structure extraction
+technologies.
+
+We hope you'll enjoy these books as much as we do.
+
+ Usage guidelines 
+
+Google is proud to partner with libraries to digitize public domain
+materials and make them widely accessible. Public domain books belong
+to the public and we are merely their custodians. Nevertheless, this
+work is expensive, so in order to keep providing this resource, we
+have taken steps to prevent abuse by commercial parties, including
+placing technical restrictions on automated querying.
+
+We also ask that you:
+
+ Make non-commercial use of the files: We designed Google Book
+Search for use by individuals, and we request that you use these files
+for personal, non-commercial purposes.
+
+ Refrain from automated querying: Do not send automated queries
+of any sort to Google's system: If you are conducting research on
+machine translation, optical character recognition or other areas
+where access to a large amount of text is helpful, please contact
+us. We encourage the use of public domain materials for these purposes
+and may be able to help.
+
+ Maintain attribution: The Google "watermark" you see on
+each file is essential for informing people about this project and
+helping them find additional materials through Google Book Search.
+Please do not remove it.
+
+ Keep it legal: Whatever your use, remember that you are responsible
+for ensuring that what you are doing is legal. Do not assume that
+just because we believe a book is in the public domain for users in
+the United States, that the work is also in the public domain for
+users in other countries. Whether a book is still in copyright varies
+from country to country, and we can't offer guidance on whether any
+specific use of any specific book is allowed. Please do not assume
+that a book's appearance in Google Book Search means it can be used
+in any manner anywhere in the world. Copyright infringement liability
+can be quite severe.
+
+ About Google Book Search
+
+Google's mission is to organize the world's information and to make
+it universally accessible and useful. Google Book Search helps readers
+discover the world's books while helping authors and publishers reach
+new audiences.
+
+ 
