@@ -209,6 +209,17 @@ class ValidationResult:
     failures: List[str]          # hard invariant breaches — abort the snapshot
     unverified: List[str]        # video_ids with no lifetime reference to check
     warnings: List[str]          # non-fatal (e.g. stale Studio export skipped)
+    compared: int = 0            # how many videos were ACTUALLY checked against lifetime
+
+    @property
+    def lifetime_check_ran(self) -> bool:
+        """True only when at least one video was really compared.
+
+        Without this, `ok=True` was ambiguous: a clean pass and a total failure to
+        load the reference data looked identical. Callers must be able to tell
+        "verified nothing was wrong" from "verified nothing".
+        """
+        return self.compared > 0
 
 
 def validate_rolling_against_lifetime(
@@ -237,6 +248,7 @@ def validate_rolling_against_lifetime(
     failures: List[str] = []
     unverified: List[str] = []
     warnings: List[str] = []
+    compared = 0
 
     for vid, d in rolling.items():
         imp = d.get('impression_count', 0)
@@ -257,6 +269,7 @@ def validate_rolling_against_lifetime(
             if life is None:
                 unverified.append(vid)
                 continue
+            compared += 1
             r_imp = d.get('impression_count', 0)
             l_imp = life.get('impression_count', life.get('impressions', 0))
             if r_imp > l_imp:
@@ -264,15 +277,93 @@ def validate_rolling_against_lifetime(
                     f"{vid}: rolling impressions {r_imp} > lifetime {l_imp} "
                     "(collector double-count)"
                 )
+        if compared == 0 and rolling:
+            warnings.append(
+                f"lifetime comparison verified 0/{len(rolling)} videos — no reference "
+                "data matched. The double-count guard did NOT run this snapshot."
+            )
 
     return ValidationResult(
-        ok=not failures, failures=failures, unverified=unverified, warnings=warnings,
+        ok=not failures, failures=failures, unverified=unverified,
+        warnings=warnings, compared=compared,
     )
 
 
-def fetch_ctr_from_reach_reports(video_ids: set) -> Dict[str, dict]:
+def validate_rolling_against_daily(
+    rolling: Dict[str, dict],
+    conn,
+    *,
+    window_start: Optional["date"],
+    window_end: Optional["date"],
+    traffic_source: str = "ALL",
+) -> ValidationResult:
+    """Closed-loop double-count check that needs NO manual Studio export.
+
+    The lifetime comparison is only as available as the last hand-made CSV, which
+    is why it had effectively never run. But both numbers here derive from the same
+    reports: the rolling sum the collector just aggregated, and the per-day rows it
+    just persisted. Over the same window they must be EQUAL.
+
+    That equality is precisely what a duplicate report breaks — summing the same
+    day twice inflates the rolling figure while `impressions_daily` upserts it
+    once. So this catches the original bug class directly, on every run, forever.
+
+    A mismatch is a hard failure, not a warning: the two numbers disagreeing means
+    the collector is not counting what it stored.
+    """
+    failures: List[str] = []
+    warnings: List[str] = []
+    compared = 0
+
+    if not (window_start and window_end):
+        return ValidationResult(
+            ok=True, failures=[], unverified=list(rolling), compared=0,
+            warnings=["no reach window bounds; skipped rolling-vs-daily check"],
+        )
+
+    unverified: List[str] = []
+    for vid, d in rolling.items():
+        try:
+            row = conn.execute(
+                "SELECT COALESCE(SUM(impressions), 0) FROM impressions_daily "
+                "WHERE video_id = ? AND traffic_source = ? "
+                "AND metric_date >= ? AND metric_date <= ?",
+                (vid, traffic_source, window_start.isoformat(), window_end.isoformat()),
+            ).fetchone()
+        except Exception as e:  # table missing on a legacy DB — skip, don't crash
+            return ValidationResult(
+                ok=True, failures=[], unverified=list(rolling), compared=0,
+                warnings=[f"impressions_daily unavailable ({e}); check skipped"],
+            )
+        daily_sum = (row or [0])[0]
+        if daily_sum == 0:
+            unverified.append(vid)
+            continue
+        compared += 1
+        r_imp = d.get('impression_count', 0)
+        if r_imp != daily_sum:
+            failures.append(
+                f"{vid}: rolling {r_imp} != daily-sum {daily_sum} over "
+                f"{window_start}..{window_end} (collector/store disagree)"
+            )
+
+    return ValidationResult(
+        ok=not failures, failures=failures, unverified=unverified,
+        warnings=warnings, compared=compared,
+    )
+
+
+def fetch_ctr_from_reach_reports(
+    video_ids: set, *, window_out: Optional[dict] = None
+) -> Dict[str, dict]:
     """
     Fetch CTR data from YouTube Reporting API reach reports.
+
+    `window_out`, if given, is populated with the ACTUAL window this call covered:
+    {'start': date, 'end': date, 'days': int}. Callers need it because the window
+    ends at the newest AVAILABLE report (~D-3), not at today — validating against
+    `date.today()` made the freshness gate permanently 3 days too strict, which is
+    why the lifetime comparison had effectively never run.
 
     Downloads the most recent bulk CSV reports (channel_reach_basic_a1), each
     covering one day, and aggregates the 30 most recent (see report_list[:30]
@@ -306,9 +397,28 @@ def fetch_ctr_from_reach_reports(video_ids: set) -> Dict[str, dict]:
                        "'name': 'CTR Reach Report'})", REACH_JOB_REPORT_TYPE)
         return {}
 
-    # List available reports, dedup by interval, sort newest date first
-    reports = reporting.jobs().reports().list(jobId=reach_job['id']).execute()
-    report_list = _dedup_reports_by_interval(reports.get('reports', []))
+    # List available reports, dedup by interval, sort newest date first.
+    #
+    # PAGINATE. A single list() call returns 100 objects, and because YouTube
+    # regenerates reports there are far more objects than intervals (measured
+    # 2026-07-28: 103 objects for 63 unique days). Taking only page 1 therefore
+    # silently truncates the oldest days today, and as regenerations accumulate it
+    # would start truncating RECENT days — the ones that matter. The API contracts
+    # no ordering, so the fix is to read every page, not to assume page 1 is enough.
+    raw_reports: list = []
+    page_token = None
+    while True:
+        resp = reporting.jobs().reports().list(
+            jobId=reach_job['id'], pageToken=page_token
+        ).execute()
+        raw_reports.extend(resp.get('reports', []))
+        page_token = resp.get('nextPageToken')
+        if not page_token:
+            break
+
+    report_list = _dedup_reports_by_interval(raw_reports)
+    logger.info("Reach reports: %d objects -> %d unique intervals",
+                len(raw_reports), len(report_list))
 
     if not report_list:
         logger.info("No reach reports available yet (job created recently, "
@@ -321,7 +431,19 @@ def fetch_ctr_from_reach_reports(video_ids: set) -> Dict[str, dict]:
     clicks_by_video: Dict[str, int] = {}
     reports_downloaded = 0
 
-    for report in report_list[:30]:
+    windowed = report_list[:30]
+    if window_out is not None and windowed:
+        def _d(ts: str):
+            # report times are RFC3339, e.g. '2026-07-25T07:00:00Z'
+            try:
+                return date.fromisoformat(ts[:10])
+            except (TypeError, ValueError):
+                return None
+        window_out['end'] = _d(windowed[0].get('endTime', ''))
+        window_out['start'] = _d(windowed[-1].get('startTime', ''))
+        window_out['days'] = len(windowed)
+
+    for report in windowed:
         try:
             url = report['downloadUrl']
             response = reporting._http.request(url)
@@ -372,6 +494,130 @@ def fetch_ctr_from_reach_reports(video_ids: set) -> Dict[str, dict]:
     return ctr_map
 
 
+def ingest_daily_impressions(
+    video_ids: set, *, backfill_days: Optional[int] = 35, conn=None
+) -> Dict[str, int]:
+    """Persist the DAILY grain into `impressions_daily`. Idempotent by data date.
+
+    This is the durable record. `ctr_snapshots` answers "what does the rolling
+    window look like as of this run"; this answers "what happened on this day",
+    which is the only thing that can support a first-28-day figure.
+
+    Idempotency is structural, not defensive: the primary key is
+    (video_id, metric_date, traffic_source) and a regenerated report REPLACES its
+    row when its createTime is newer. Running twice cannot double a count — which
+    is the bug that produced 20,919 rolling impressions against a 10,925 lifetime.
+
+    `backfill_days` bounds how far back to re-ingest on a routine run; None means
+    every interval the API still holds (~60 days). Because rows are keyed by data
+    date, a run that was missed entirely self-heals the next time it runs, as long
+    as those days have not aged out of API retention.
+
+    Returns {'days': n_report_days, 'rows': n_upserted, 'videos': n_distinct}.
+    """
+    import csv
+    import io
+
+    try:
+        reporting = get_authenticated_service('youtubereporting', 'v1')
+    except Exception as e:
+        logger.warning("Could not connect to Reporting API: %s", e)
+        return {'days': 0, 'rows': 0, 'videos': 0}
+
+    jobs = reporting.jobs().list().execute()
+    reach_job = next(
+        (j for j in jobs.get('jobs', []) if j['reportTypeId'] == REACH_JOB_REPORT_TYPE),
+        None,
+    )
+    if not reach_job:
+        logger.warning("No reach report job found; cannot ingest daily impressions.")
+        return {'days': 0, 'rows': 0, 'videos': 0}
+
+    raw_reports: list = []
+    page_token = None
+    while True:
+        resp = reporting.jobs().reports().list(
+            jobId=reach_job['id'], pageToken=page_token
+        ).execute()
+        raw_reports.extend(resp.get('reports', []))
+        page_token = resp.get('nextPageToken')
+        if not page_token:
+            break
+
+    report_list = _dedup_reports_by_interval(raw_reports)
+    if backfill_days is not None:
+        report_list = report_list[:backfill_days]
+
+    own_conn = conn is None
+    if own_conn:
+        conn = _get_db()
+
+    now = datetime.now(timezone.utc).isoformat()
+    rows_written = 0
+    videos_seen: set = set()
+    days_done = 0
+
+    for report in report_list:
+        create_time = report.get('createTime', '')
+        try:
+            response = reporting._http.request(report['downloadUrl'])
+            if response[0].status != 200:
+                logger.warning("Failed to download report: HTTP %d", response[0].status)
+                continue
+            reader = csv.DictReader(io.StringIO(response[1].decode('utf-8')))
+
+            batch = []
+            for row in reader:
+                vid = row.get('video_id', '')
+                if vid not in video_ids:
+                    continue
+                # 'date' is the channel-local day the report attributes the row to,
+                # e.g. '20260705'. Anchoring on THIS rather than on run date is the
+                # entire point of the table.
+                raw_day = (row.get('date') or '').strip()
+                if len(raw_day) != 8 or not raw_day.isdigit():
+                    continue
+                metric_date = f"{raw_day[:4]}-{raw_day[4:6]}-{raw_day[6:]}"
+
+                imps = int(row.get('video_thumbnail_impressions', 0) or 0)
+                ctr_rate = float(row.get('video_thumbnail_impressions_ctr', 0) or 0)
+                clicks = int(round(imps * ctr_rate))
+                batch.append((vid, metric_date, 'ALL', imps, clicks,
+                              round(ctr_rate * 100, 4), create_time, now))
+                videos_seen.add(vid)
+
+            if batch:
+                with conn:
+                    conn.executemany(
+                        """
+                        INSERT INTO impressions_daily
+                            (video_id, metric_date, traffic_source, impressions,
+                             clicks, ctr_percent, report_create_time, ingested_at)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                        ON CONFLICT(video_id, metric_date, traffic_source) DO UPDATE SET
+                            impressions        = excluded.impressions,
+                            clicks             = excluded.clicks,
+                            ctr_percent        = excluded.ctr_percent,
+                            report_create_time = excluded.report_create_time,
+                            ingested_at        = excluded.ingested_at
+                        WHERE excluded.report_create_time > impressions_daily.report_create_time
+                        """,
+                        batch,
+                    )
+                rows_written += len(batch)
+            days_done += 1
+        except Exception as e:
+            logger.warning("Error ingesting report %s: %s", create_time, e)
+            continue
+
+    if own_conn:
+        conn.close()
+
+    logger.info("impressions_daily: %d report-days, %d rows upserted, %d videos",
+                days_done, rows_written, len(videos_seen))
+    return {'days': days_done, 'rows': rows_written, 'videos': len(videos_seen)}
+
+
 def fetch_view_counts(video_ids: List[str]) -> Dict[str, int]:
     """
     Fetch current view counts via YouTube Data API v3 (statistics).
@@ -415,9 +661,11 @@ def take_snapshot() -> Tuple[int, str]:
     today = date.today().isoformat()
     conn = _get_db()
 
-    # Check if we already have a snapshot for today
+    # Check if we already have a snapshot for today.
+    # Only VALID rows count: a day quarantined by the validator (is_valid=0) must
+    # remain re-collectable, otherwise a single bad run locks that date out forever.
     existing = conn.execute(
-        "SELECT COUNT(*) FROM ctr_snapshots WHERE snapshot_date = ?",
+        "SELECT COUNT(*) FROM ctr_snapshots WHERE snapshot_date = ? AND is_valid = 1",
         (today,)
     ).fetchone()[0]
 
@@ -442,9 +690,20 @@ def take_snapshot() -> Tuple[int, str]:
     logger.info("Fetching view counts for %d long-form videos...", len(longform_ids))
     view_counts = fetch_view_counts(longform_ids)
 
+    # Persist the daily grain FIRST. It is the durable record and it is
+    # idempotent, so it must not be skipped when the rolling snapshot aborts on a
+    # validation failure — losing a launch-window day is unrecoverable, whereas a
+    # rolling figure can simply be recomputed on the next run.
+    logger.info("Ingesting daily impressions (impressions_daily)...")
+    try:
+        ingest_daily_impressions(set(longform_ids), conn=conn)
+    except Exception as e:
+        logger.error("Daily impressions ingest failed: %s", e)
+
     # Fetch CTR metrics from Reporting API bulk reports
     logger.info("Fetching CTR from Reporting API reach reports...")
-    ctr_map = fetch_ctr_from_reach_reports(set(longform_ids))
+    window: dict = {}
+    ctr_map = fetch_ctr_from_reach_reports(set(longform_ids), window_out=window)
 
     # Guard: never write a snapshot that fails the invariants. Validate BEFORE
     # any insert so the "today already exists" guard can't lock a broken snapshot
@@ -452,17 +711,59 @@ def take_snapshot() -> Tuple[int, str]:
     lifetime, studio_as_of_raw = _load_studio_lifetime()
     # latest_studio_lifetime returns exported_at as a stored string; the validator
     # compares dates, so coerce here at the seam.
-    try:
-        studio_as_of = date.fromisoformat(studio_as_of_raw) if studio_as_of_raw else date.today()
-    except (TypeError, ValueError):
-        studio_as_of = date.today()
+    #
+    # FAIL CLOSED, NOT OPEN. This used to coerce a missing/garbled export date to
+    # date.today(), which made `studio_as_of >= reporting_window_end` true and let
+    # the comparison "run" against an empty lifetime map — reporting ok=True having
+    # checked nothing. date.min makes an unusable export read as unusably stale, so
+    # the skip is explicit and shows up in the warnings.
+    studio_as_of: date
+    if studio_as_of_raw:
+        try:
+            studio_as_of = date.fromisoformat(studio_as_of_raw)
+        except (TypeError, ValueError):
+            logger.warning("Studio export date %r is unparseable; treating as stale.",
+                           studio_as_of_raw)
+            studio_as_of = date.min
+    else:
+        studio_as_of = date.min
+
+    # The window ends at the newest AVAILABLE report (~D-3), not today.
+    reporting_window_end = window.get('end') or date.today()
+    if window:
+        logger.info("Reach window: %s -> %s (%s report-days)",
+                    window.get('start'), window.get('end'), window.get('days'))
+
     validation = validate_rolling_against_lifetime(
         ctr_map, lifetime,
         studio_as_of=studio_as_of,
-        reporting_window_end=date.today(),
+        reporting_window_end=reporting_window_end,
     )
     for w in validation.warnings:
         logger.warning("CTR validation: %s", w)
+    logger.info("CTR validation: compared %d video(s) against Studio lifetime; "
+                "%d unverified.", validation.compared, len(validation.unverified))
+    # Closed-loop check — always available, needs no manual Studio export.
+    daily_check = validate_rolling_against_daily(
+        ctr_map, conn,
+        window_start=window.get('start'), window_end=window.get('end'),
+    )
+    for w in daily_check.warnings:
+        logger.warning("CTR rolling-vs-daily: %s", w)
+    logger.info("CTR rolling-vs-daily: compared %d video(s); %d unverified.",
+                daily_check.compared, len(daily_check.unverified))
+    if not daily_check.ok:
+        for f in daily_check.failures:
+            logger.error("CTR rolling-vs-daily FAILED: %s", f)
+        logger.error("Aborting snapshot for %s — collector and store disagree.", today)
+        conn.close()
+        return 0, today
+
+    if not validation.lifetime_check_ran and not daily_check.lifetime_check_ran and ctr_map:
+        logger.warning(
+            "CTR validation: NEITHER double-count guard ran for this snapshot. "
+            "Rows are written unverified."
+        )
     if not validation.ok:
         for f in validation.failures:
             logger.error("CTR validation FAILED: %s", f)
@@ -698,14 +999,24 @@ Scheduled execution (Windows Task Scheduler):
     /TR "cmd /c cd /D \"D:\History vs Hype\" && python -m tools.youtube_analytics.ctr_tracker >> logs\ctr_tracker.log 2>&1" ^
     /SC WEEKLY /D MON /ST 09:00 /F
 
-The scheduled task runs weekly on Monday at 09:00. OAuth token auto-refreshes
-as long as the task runs at least once every 6 months. If the token expires,
-run `python -m tools.youtube_analytics.auth` interactively to re-authorize.
+The scheduled task (HvH-CtrTracker) runs DAILY. It must: API retention is only
+~60 days and `impressions_daily` is the only durable record of a launch window.
+OAuth token auto-refreshes as long as the task runs at least once every 6 months.
+If the token expires, run `python -m tools.youtube_analytics.auth` interactively.
         """
     )
     parser.add_argument(
         '--report-only', action='store_true',
         help='Only compare existing snapshots, do not fetch new data'
+    )
+    parser.add_argument(
+        '--ingest-only', action='store_true',
+        help='Only refresh impressions_daily (no rolling snapshot, no velocity report)'
+    )
+    parser.add_argument(
+        '--backfill-days', type=int, default=35, metavar='N',
+        help='How many report-days of daily impressions to re-ingest (default 35). '
+             'Use 0 for every interval the API still holds (~60 days).'
     )
 
     verbosity = parser.add_mutually_exclusive_group()
@@ -718,6 +1029,17 @@ run `python -m tools.youtube_analytics.auth` interactively to re-authorize.
     setup_logging(args.verbose, args.quiet)
 
     conn = _get_db()
+
+    if args.ingest_only:
+        conn.close()
+        logger.info("Ingest-only mode: refreshing impressions_daily")
+        ids = [v['id'] for v in fetch_video_metadata(fetch_all_video_ids())]
+        stats = ingest_daily_impressions(
+            set(ids), backfill_days=(args.backfill_days or None)
+        )
+        print(f"impressions_daily: {stats['rows']} rows upserted across "
+              f"{stats['days']} report-days for {stats['videos']} videos")
+        sys.exit(0)
 
     if args.report_only:
         logger.info("Report-only mode: comparing existing snapshots")

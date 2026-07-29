@@ -101,6 +101,7 @@ class KeywordDB:
                 self._ensure_performance_table()
                 self._ensure_variant_tables()
                 self._ensure_ctr_snapshots_table()
+                self._ensure_impressions_daily_table()
                 self._ensure_feedback_tables()
 
     def init_database(self) -> Dict[str, Any]:
@@ -566,6 +567,64 @@ class KeywordDB:
 
         except sqlite3.Error as e:
             logger.error("Migration ctr_snapshots failed: %s", e)
+
+    def _ensure_impressions_daily_table(self):
+        """Daily-grain thumbnail impressions — the launch-window record (2026-07-28).
+
+        WHY A SEPARATE TABLE. `ctr_snapshots.impression_count` is a SLIDING ~30
+        report-day sum ending ~D-3. It cannot answer "first-28-day impressions",
+        which is the pre-registered breakout threshold, and because it is anchored
+        to RUN date rather than DATA date, a missed collector run is unrecoverable
+        loss. That is exactly how video #59's launch window vanished: the task ran
+        weekly, so days 0-4 were never captured and can never be reconstructed from
+        the rolling figure.
+
+        Six live consumers read `impression_count` with its rolling meaning
+        (ctr_reads, swap_ledger, packaging_autopilot, performance_tracker, the two
+        backfill tools). Repurposing it under them is the divergence ADR-0017
+        exists to prevent — so the rolling column stays exactly as it is and the
+        daily fact lands here.
+
+        PRIMARY KEY (video_id, metric_date, traffic_source) is the whole design:
+        ingest becomes idempotent BY DATA DATE, so a missed run self-heals on the
+        next run while the day is still inside API retention (~60 days). Upserting
+        on a newer report_create_time means regenerated reports REPLACE rather than
+        ADD — structurally preventing the double-count bug class rather than
+        detecting it afterwards.
+
+        traffic_source is in the key from day one, defaulting to 'ALL'. The
+        channel_reach_combined_a1 job (created 2026-07-28) may expose a per-surface
+        breakdown once its reports generate; if it does, browse-only rows drop in
+        beside the 'ALL' rows with no migration.
+        """
+        try:
+            with self._conn:
+                cursor = self._conn.cursor()
+                cursor.execute(
+                    """
+                    CREATE TABLE IF NOT EXISTS impressions_daily (
+                        video_id TEXT NOT NULL,
+                        metric_date DATE NOT NULL,
+                        traffic_source TEXT NOT NULL DEFAULT 'ALL',
+                        impressions INTEGER NOT NULL,
+                        clicks INTEGER NOT NULL,
+                        ctr_percent REAL NOT NULL,
+                        report_create_time TEXT NOT NULL,
+                        ingested_at TEXT NOT NULL,
+                        PRIMARY KEY (video_id, metric_date, traffic_source)
+                    )
+                    """
+                )
+                cursor.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_impr_daily_date "
+                    "ON impressions_daily(metric_date)"
+                )
+                cursor.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_impr_daily_video "
+                    "ON impressions_daily(video_id, metric_date)"
+                )
+        except sqlite3.Error as e:
+            logger.error("Migration impressions_daily failed: %s", e)
 
     def _ensure_feedback_tables(self):
         """Create Phase 27 feedback storage tables and columns if they don't exist."""

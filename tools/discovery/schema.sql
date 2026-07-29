@@ -298,6 +298,33 @@ CREATE TABLE IF NOT EXISTS ctr_snapshots (
 
 CREATE INDEX IF NOT EXISTS idx_ctr_video_date ON ctr_snapshots(video_id, snapshot_date DESC);
 
+-- ----------------------------------------------------------------------------
+-- DAILY IMPRESSIONS GRAIN (2026-07-28) — the launch-window record.
+--
+-- ctr_snapshots.impression_count is a SLIDING ~30-report-day sum ending ~D-3 and
+-- is anchored to RUN date, so a missed collector run loses that day forever. This
+-- table is anchored to DATA date instead: the PK makes ingest idempotent, so a
+-- missed run self-heals while the day is still inside API retention (~60 days).
+-- Upserting only on a newer report_create_time makes regenerated reports REPLACE
+-- rather than ADD, which structurally prevents the double-count bug class.
+-- traffic_source is in the key from the start (default 'ALL') so per-surface rows
+-- can land without a migration. See schema_manager._ensure_impressions_daily_table.
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS impressions_daily (
+    video_id TEXT NOT NULL,
+    metric_date DATE NOT NULL,
+    traffic_source TEXT NOT NULL DEFAULT 'ALL',
+    impressions INTEGER NOT NULL,
+    clicks INTEGER NOT NULL,
+    ctr_percent REAL NOT NULL,
+    report_create_time TEXT NOT NULL,
+    ingested_at TEXT NOT NULL,
+    PRIMARY KEY (video_id, metric_date, traffic_source)
+);
+
+CREATE INDEX IF NOT EXISTS idx_impr_daily_date ON impressions_daily(metric_date);
+CREATE INDEX IF NOT EXISTS idx_impr_daily_video ON impressions_daily(video_id, metric_date);
+
 -- ============================================================================
 -- FEEDBACK STORAGE (Phase 27)
 -- Purpose: Track video performance feedback and section-level notes

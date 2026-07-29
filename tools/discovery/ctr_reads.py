@@ -108,6 +108,99 @@ def latest_valid_ctr_for(
         return None
 
 
+def d28_for(
+    conn: sqlite3.Connection,
+    video_id: str,
+    published_date: str,
+    *,
+    traffic_source: str = "ALL",
+) -> Dict[str, Any]:
+    """First-28-day impressions for one video, from `impressions_daily`.
+
+    This is the pre-registered breakout metric (BREAKOUT-HYPOTHESES.md, H3). It
+    must NOT be computed from `ctr_snapshots.impression_count`, which is a sliding
+    ~30-report-day sum ending ~D-3 and therefore answers a different question
+    entirely — for a video older than a month it does not contain the launch
+    window at all.
+
+    `published_date` is 'YYYY-MM-DD'. The window is [published, published+27]
+    inclusive.
+
+    ALWAYS check `complete`. A partial window is a real number about an unfinished
+    period, and comparing it to a threshold as though it were final is how a video
+    gets called a win before its window closes. Returns `days_covered` so callers
+    can say so out loud.
+
+    Completeness is measured against REPORT COVERAGE, not against this video's own
+    rows. A day on which a video got zero impressions produces no CSV row at all,
+    so counting the video's rows would mean a quiet video could never read as
+    complete — the exact error that made a fully-covered window look like 24/28.
+    """
+    empty = {
+        "video_id": video_id, "impressions": 0, "clicks": 0, "ctr_percent": 0.0,
+        "days_covered": 0, "days_with_data": 0, "complete": False,
+        "window_start": published_date, "window_end": None,
+    }
+    try:
+        from datetime import date as _date, timedelta as _td
+        start = _date.fromisoformat(published_date)
+    except (TypeError, ValueError):
+        logger.debug("d28_for(%s): unparseable published_date %r", video_id, published_date)
+        return empty
+
+    end = start + _td(days=27)
+    try:
+        row = conn.execute(
+            """
+            SELECT COALESCE(SUM(impressions), 0), COALESCE(SUM(clicks), 0),
+                   COUNT(DISTINCT metric_date)
+              FROM impressions_daily
+             WHERE video_id = ? AND traffic_source = ?
+               AND metric_date >= ? AND metric_date <= ?
+            """,
+            (video_id, traffic_source, start.isoformat(), end.isoformat()),
+        ).fetchone()
+        # Report coverage across ALL videos — the denominator for completeness.
+        covered = conn.execute(
+            """
+            SELECT COUNT(DISTINCT metric_date) FROM impressions_daily
+             WHERE metric_date >= ? AND metric_date <= ?
+            """,
+            (start.isoformat(), end.isoformat()),
+        ).fetchone()[0]
+    except sqlite3.Error as e:
+        logger.debug("d28_for(%s) failed: %s", video_id, e)
+        return empty
+
+    impressions, clicks, days_with_data = (row or (0, 0, 0))
+    return {
+        "video_id": video_id,
+        "impressions": impressions,
+        "clicks": clicks,
+        "ctr_percent": round(clicks / impressions * 100, 2) if impressions else 0.0,
+        "days_covered": covered,            # report-days we hold for this window
+        "days_with_data": days_with_data,   # days this video actually appeared
+        "complete": covered >= 28,
+        "window_start": start.isoformat(),
+        "window_end": end.isoformat(),
+    }
+
+
+def d28_impressions_by_video(
+    conn: sqlite3.Connection,
+    published: Dict[str, str],
+    *,
+    traffic_source: str = "ALL",
+) -> Dict[str, Dict[str, Any]]:
+    """`d28_for` across a {video_id: published_date} map. Complete windows only
+    should be used for baselines — filter on `complete` at the call site so the
+    exclusion is visible rather than buried here."""
+    return {
+        vid: d28_for(conn, vid, pub, traffic_source=traffic_source)
+        for vid, pub in published.items()
+    }
+
+
 def latest_valid_snapshot_date(
     conn: sqlite3.Connection, *, require_ctr: bool = True
 ) -> Optional[str]:

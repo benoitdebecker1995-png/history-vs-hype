@@ -25,7 +25,12 @@ CREATE TABLE IF NOT EXISTS ctr_snapshots (
     impression_count INTEGER,
     view_count INTEGER,
     is_late_entry INTEGER,
-    recorded_at TEXT
+    recorded_at TEXT,
+    -- Quarantine columns (live schema, keywords.db). The fixture drifted from
+    -- production and hid the fact that the duplicate-guard query never filtered
+    -- on validity, so a quarantined day could never be re-collected.
+    is_valid INTEGER DEFAULT 1,
+    invalid_reason TEXT
 )
 """
 
@@ -261,4 +266,40 @@ def test_duplicate_guard():
         mock_fetch.assert_not_called()
 
     assert stored == 1  # Returns existing row count
+    real_conn.close()
+
+
+def test_quarantined_day_is_recollectable():
+    """A day quarantined by the validator must NOT block a re-run.
+
+    The guard counted rows regardless of `is_valid`, so once a bad snapshot was
+    written and then flagged (as 2026-07-13 and 2026-07-23 were), that date was
+    locked out permanently — the collector would report "already exists" forever
+    and the day could never be repaired.
+    """
+    real_conn = make_in_memory_conn()
+    wrapper = NonClosingConnection(real_conn)
+    today = "2026-03-15"
+
+    real_conn.execute(
+        "INSERT INTO ctr_snapshots (video_id, snapshot_date, ctr_percent, impression_count, "
+        "view_count, is_late_entry, recorded_at, is_valid, invalid_reason) "
+        "VALUES (?, ?, 0, 0, 1000, 0, ?, 0, 'collector double-count')",
+        ("vid001", today, today)
+    )
+    real_conn.commit()
+
+    with patch("tools.youtube_analytics.ctr_tracker._get_db", return_value=wrapper), \
+         patch("tools.youtube_analytics.ctr_tracker.fetch_all_video_ids",
+               return_value=[]) as mock_fetch, \
+         patch("tools.youtube_analytics.ctr_tracker.date") as mock_date:
+
+        mock_date.today.return_value.isoformat.return_value = today
+
+        from tools.youtube_analytics.ctr_tracker import take_snapshot
+        take_snapshot()
+
+        # It must get PAST the guard and attempt a real collection.
+        mock_fetch.assert_called_once()
+
     real_conn.close()

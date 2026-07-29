@@ -107,3 +107,96 @@ def test_reads_never_raise_on_missing_table():
         assert latest_valid_snapshot_date(empty) is None
     finally:
         empty.close()
+
+
+# ---------------------------------------------------------------------------
+# d28 — the pre-registered breakout metric (impressions_daily, 2026-07-28)
+# ---------------------------------------------------------------------------
+
+@pytest.fixture
+def daily_conn():
+    """28 report-days from 2026-06-01. VID_LOUD appears every day; VID_QUIET is
+    absent on 4 of them, because a zero-impression day produces NO report row."""
+    from datetime import date, timedelta
+
+    c = sqlite3.connect(":memory:")
+    c.executescript(
+        """
+        CREATE TABLE impressions_daily (
+            video_id TEXT NOT NULL,
+            metric_date DATE NOT NULL,
+            traffic_source TEXT NOT NULL DEFAULT 'ALL',
+            impressions INTEGER NOT NULL,
+            clicks INTEGER NOT NULL,
+            ctr_percent REAL NOT NULL,
+            report_create_time TEXT NOT NULL,
+            ingested_at TEXT NOT NULL,
+            PRIMARY KEY (video_id, metric_date, traffic_source)
+        );
+        """
+    )
+    start = date(2026, 6, 1)
+    rows = []
+    for i in range(28):
+        d = (start + timedelta(days=i)).isoformat()
+        rows.append(("VID_LOUD", d, "ALL", 100, 5, 5.0, "t", "t"))
+        if i not in (3, 7, 11, 19):           # quiet video: 24 days with data
+            rows.append(("VID_QUIET", d, "ALL", 10, 1, 10.0, "t", "t"))
+    c.executemany("INSERT INTO impressions_daily VALUES (?,?,?,?,?,?,?,?)", rows)
+    c.commit()
+    yield c
+    c.close()
+
+
+def test_d28_sums_the_launch_window(daily_conn):
+    from tools.discovery.ctr_reads import d28_for
+    r = d28_for(daily_conn, "VID_LOUD", "2026-06-01")
+    assert r["impressions"] == 2800          # 28 x 100, hand-derived
+    assert r["clicks"] == 140
+    assert r["ctr_percent"] == 5.0
+    assert r["complete"] is True
+
+
+def test_d28_complete_measures_report_coverage_not_video_rows(daily_conn):
+    """A quiet video must still read COMPLETE.
+
+    Completeness is a property of how much of the window we HOLD, not of how
+    often the video happened to be served. Counting the video's own rows made a
+    fully-covered window report 24/28 and would have permanently excluded every
+    low-traffic video from the baseline.
+    """
+    from tools.discovery.ctr_reads import d28_for
+    r = d28_for(daily_conn, "VID_QUIET", "2026-06-01")
+    assert r["days_covered"] == 28           # we hold all 28 report-days
+    assert r["days_with_data"] == 24         # it only appeared on 24
+    assert r["complete"] is True
+    assert r["impressions"] == 240
+
+
+def test_d28_partial_window_is_flagged_incomplete(daily_conn):
+    from tools.discovery.ctr_reads import d28_for
+    r = d28_for(daily_conn, "VID_LOUD", "2026-06-20")   # window runs past our data
+    assert r["complete"] is False
+    assert r["days_covered"] < 28
+
+
+def test_d28_excludes_days_outside_the_window(daily_conn):
+    from tools.discovery.ctr_reads import d28_for
+    r = d28_for(daily_conn, "VID_LOUD", "2026-06-08")   # starts 7 days in
+    assert r["days_with_data"] == 21                     # 28 - 7 available
+    assert r["impressions"] == 2100
+
+
+def test_d28_never_raises_on_missing_table():
+    from tools.discovery.ctr_reads import d28_for
+    empty = sqlite3.connect(":memory:")
+    try:
+        r = d28_for(empty, "A", "2026-06-01")
+        assert r["impressions"] == 0 and r["complete"] is False
+    finally:
+        empty.close()
+
+
+def test_d28_handles_bad_published_date(daily_conn):
+    from tools.discovery.ctr_reads import d28_for
+    assert d28_for(daily_conn, "VID_LOUD", "not-a-date")["complete"] is False
