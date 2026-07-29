@@ -4,6 +4,22 @@ Lifecycle: _IN_PRODUCTION
 Last reconciled: 2026-05-11
 <!-- /AUTO:reconcile -->
 
+<!-- AUTO:packaging-lock — managed by packaging_lock.py, do not hand-edit -->
+## Packaging Lock (2026-07-28)
+title: "America Took the Panama Canal With a Treaty. Panama Took It Back."
+FILTERS (pass/fail — all must PASS to advance; PENDING allowed for thumbnail):
+  search-anchor:        PASS  (anchors "Panama")
+  clickbait brand-gate: PASS  (no hard_rejects (clickbait tone clean))
+  title<->thumb gap:    PASS  (Title carries the searched subject + the resolution: America took the canal with a treaty, Panama took it back. Thumbnail carries a fact the title never states — that the 1903 grant was IN PERPETUITY, forever — over a flat-fill map showing the Canal Zone as a solid red strip cutting Panama in half. The title says Panama won it back; the thumbnail says the grant had no end date. That raises the question the title does not answer (how do you undo perpetuity? = Act 6, the DeConcini reveal), restates no title phrase, and the strip image needs zero prior knowledge.)
+  thumbnail conditions: PASS  (MISSING TEXT OVERLAY — Add 2-4 word phrase on thumbnail. WonderWhy style: 'WHY IRELAND SPLIT'. Knowing Better style: single topic word.; SINGLE CONCEPT — Create 3 concepts for A/B testing)
+ENRICHMENT (recorded, non-binding — cannot override a FILTER FAIL):
+  title_scorer:  73/100 (grade B)
+  /curiosity:    84/100
+  VidIQ MCP:     panama canal history 8,995/mo VidIQ Overall 63; doc terms ownable (hay bunau varilla treaty comp 10.3, torrijos carter treaty comp 9.3). NOTE: search is ~5% of this channel's traffic (BREAKOUT-MECHANICS-2026-07) so the search anchor is NOT the deciding factor — June's comp-21.8 anchor optimisation retired on that basis.   (clickbait-guard: rejected if it pushes a kill-list title)
+  NLM P5:        Not re-queried this pass. Packaging decided on the channel's own H6 evidence: pocket-named x stranger-legible. title_scorer gave all 8 candidates 73 (no discrimination) -> decided on pocket evidence per ADR-0012.
+VERDICT: LOCK VALID
+<!-- /AUTO:packaging-lock -->
+
 ## Historian Stage State
 **Current stage:** Stage C — Corroboration (locked 2026-06-15)
 **Next stage:** Channel Phase 2 — Script (`/script`)

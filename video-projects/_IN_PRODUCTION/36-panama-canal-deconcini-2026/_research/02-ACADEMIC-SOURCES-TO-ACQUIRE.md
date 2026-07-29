@@ -172,3 +172,64 @@
 ---
 
 *Created: 2026-02-12 based on preliminary research findings*
+
+---
+
+# 🛑 GAP FOUND 2026-07-28 — THERE IS NO PANAMANIAN VOICE IN THIS PROJECT
+
+Every source in the notebook and every target on this list is **American**: LaFeber (Cornell), Jorden
+(US Ambassador), Maier (US legal scholar), PHR, NSArchive, Avalon, McCullough, RAND, JCS.
+
+**Why this now matters more than it did in June.** The video has been re-titled
+**"America Took the Panama Canal With a Treaty. Panama Took It Back."** — a Panamanian achievement,
+currently narrated entirely through American sources. And the audience being targeted is the Panamanian
+pocket (23 self-identified Panamanian commenters, `COMP-AND-POCKET-REFRESH-2026-07.md`), whose stated
+complaint about existing coverage is that it *"skips some important facts"* and *"lacks a lot of history
+and background facts."* Channel referee discipline also requires each camp to have an **affirmative
+defender in its own voice** ([[feedback-referee-steelman-sourcing]]).
+
+Concretely, the script currently quotes **Torrijos twice** — *"to smash it or lead it"* and *"Even if
+they dress it up as a clown, it'll still be perpetuity"* — and **both come via American authors**
+(LaFeber, Jorden). Panama's whole case is being made by the other side's historians.
+**Creator's verifiable languages include Spanish**, so these are readable as-acquired.
+
+## PRIORITY 1 — the direct counterpart to Jorden
+
+**[PA1] Rómulo Escobar Bethancourt, *Torrijos: ¡Colonia americana, no!* (Carlos Valencia Editores, 1981)**
+- **Who:** Panama's **chief treaty negotiator** for the 1977 Torrijos–Carter treaties, and Torrijos's
+  closest political adviser.
+- **Why it is the #1 target:** this is the **Panamanian *Panama Odyssey***. The dossier has the American
+  ambassador's book on one side and nothing on the other. Escobar Bethancourt was in the same rooms.
+- **What it should settle:** the Panamanian read of the DeConcini fight and the counter-reservation
+  (C14/C42/C43); whether Panama saw "Appendix E" as a genuine fix or a face-saver; the Torrijos quotes in
+  their original Spanish rather than LaFeber's/Jorden's English.
+- **Access:** Spanish, out of print — check Panamanian university libraries, WorldCat/ILL, AbeBooks.
+
+## PRIORITY 2 — Torrijos in his own voice
+
+**[PA2] Omar Torrijos Herrera, *La batalla de Panamá* (1973)**
+- Torrijos's own account, published the year of the UN Security Council gambit (C40).
+- **Would upgrade C42/C49** from *quoted-by-an-American* to the man's own text.
+- Spanish; reprint editions exist.
+
+## PRIORITY 3 — the diplomat and the historian
+
+**[PA3] Juan Antonio Tack** — Panama's Foreign Minister; co-author of the **1974 Tack–Kissinger Statement
+of Principles** (C41), the legal foundation for 1977. Any memoir/collected papers; also Panama's MFA
+documentary record of the negotiations.
+
+**[PA4] Omar Jaén Suárez** — Panamanian historian *and* treaty negotiator; wrote extensively on the canal
+negotiations. Gives an academic Panamanian counterweight to LaFeber.
+
+**[PA5] Gabriel Lewis Galindo** — Panama's ambassador in Washington and the source of **C58**, the
+strongest closing-rhyme line in the project. Currently held only as *quoted by Jorden* ([S→P]). Any
+biography, papers or published interviews would upgrade it and give the pocket its own named voice.
+
+## What this does NOT block
+
+**None of this is a blocker for filming.** Every on-screen claim is already NLM-anchored, page-cited and
+T1; the treaty verbatims are from UN Treaty Series and the Congressional Record, which are neutral
+primaries. **This is an enrichment gap and a credibility gap, not a verification gap.**
+
+**But if only one is acquired, make it [PA1].** It is the single source that would let a Panamanian
+commenter watch this and not say "you told our story with their books."

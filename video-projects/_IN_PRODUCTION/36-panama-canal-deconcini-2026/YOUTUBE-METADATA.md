@@ -5,7 +5,37 @@
 
 ---
 
-## TITLE — A/B rotation (native, all combos)
+## 🎯 TITLE — SUPERSEDED 2026-07-28 (breakout re-spec)
+
+> **The June packaging is retired, and the reason is a measurement finding, not a taste call.**
+> June optimised the **search anchor** (`panama canal explained`, comp 21.8 over comp 28). Today's
+> traffic audit (`channel-data/BREAKOUT-MECHANICS-2026-07.md`) shows **search is ~5% of this channel's
+> traffic** — 4.4% on the breakout, 1–8% elsewhere. This channel lives on Browse. **The June titles were
+> optimising the wrong funnel.**
+>
+> The replacement optimises the two terms that actually track serve size (**H6**): the **pocket named in
+> the title**, and a **stake legible to a stranger with zero prior knowledge**. The pocket is confirmed
+> real and English-reading — 23 self-identified Panamanian comments, 1 Spanish comment in 1,711 lines
+> (`_research/COMP-AND-POCKET-REFRESH-2026-07.md`).
+
+- **LEAD: "America Took the Panama Canal With a Treaty. Panama Took It Back."** (65 chars)
+  - **Pocket named twice**, and framed as *Panama's win* rather than a US grievance.
+  - **Stranger-legible:** the mirror structure parses with zero prior knowledge — the property only the
+    Belize breakout had.
+  - It is the script's own thesis line, and it answers the pocket's most-liked request verbatim
+    (~2,800 likes across two channels: *"how the panamanian got the control of the canal"*).
+- **ARM B: "A Frenchman Signed Away the Panama Canal. Panama Took It Back."** (62 chars)
+  - Single variable = first half only (**mechanism vs specificity**); second sentence and thumbnail held.
+
+⚠ **`title_scorer` gave all eight candidates 73** — the composite could not discriminate, so this was
+decided on the pocket evidence per ADR-0012 (filters gate, scores are enrichment). Both arms: two-sentence
+formula, anchor in the first 40 chars, no hard rejects.
+
+**Retired 2026-07-28 (were the June leads):** "Panama Canal Explained. No Panamanian Signed the Treaty."
+(56) · "Panama Canal Explained. A Frenchman Signed It Away." (51). Sound search logic; wrong funnel, and
+both end on grievance rather than the resolution the pocket asked for.
+
+## TITLE — June A/B rotation (RETIRED, kept for the record)
 
 Both: anchor front-loaded · Format C two-sentence declarative (5.3× niche) · no year · no colon · <60 chars.
 
@@ -20,7 +50,28 @@ Retired working titles (pre-VidIQ): "Panama vs the Canal Treaty. Not One Panaman
 
 ---
 
-## THUMBNAIL — text overlay (no face; document = unsigned 1903 Hay–Bunau-Varilla treaty on screen)
+## 🎯 THUMBNAIL — SUPERSEDED 2026-07-28. DROP THE DOCUMENT.
+
+> **Document-as-focal-point is this channel's CTR floor** — −0.71 overall, **−2.11 on famous topics**
+> (`CTR-THUMBNAIL-FINDINGS-2026-06.md`, full-56 validation). SCRIPT.md v2's own note already says the
+> thumbnail *"needs regen off document-focal."* Confirmed by visual comparison of the five images that
+> ever cleared 5% (`BREAKOUT-MECHANICS-2026-07.md` §9): winners are **flat fill, not line**; **famous face
+> or no face**; **two text registers**; **one or two focal objects**.
+
+- **Image:** Panama in solid flat green. The Canal Zone as **one solid red stripe cutting the country
+  clean in half**, ocean to ocean. Nothing else — no photo, no face, no document, no ships.
+- **Top register:** `A COUNTRY CUT IN HALF` — black on white, heavy sans, thick outline.
+- **Bottom register:** `IN PERPETUITY` — yellow, heavy outline.
+- **Curiosity gap (packaging-lock requirement):** the title says Panama took it back; the thumbnail says
+  the grant was **forever**. The overlay restates nothing in the title and raises the question the title
+  does not answer — *how do you undo perpetuity?* That is Act 6.
+- **Why the strip:** it is the literal story (a foreign strip through the middle of a country), it is two
+  flat fills legible at feed size, and it needs **zero prior knowledge** — the H6 second term, in an image.
+
+**Retired 2026-07-28:** "Signed by a Frenchman" / "Exhibit A" over the 1903 document. The signature belongs
+in the video, not on the thumbnail.
+
+## THUMBNAIL — June spec (RETIRED, kept for the record)
 
 - **Lead (pairs with Title A): "Signed by a Frenchman"** (4 words) — one-two punch: title says who *didn't* sign, thumbnail says who *did*. The word "Frenchman" beside a Panama Canal document is the paradox in miniature; resolves zero curiosity before the click.
 - **Alt (pairs with Title B): "Exhibit A"** (2 words) — max mobile legibility, forensic "this is the proof" frame; neutral enough to run with either title.
