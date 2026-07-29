@@ -11,7 +11,8 @@
 # evening task up at morning logon would run it at the wrong time of day; its own
 # StartWhenAvailable handles it.
 
-Set-Location "D:\History vs Hype"
+. "$PSScriptRoot\_lib-preflight.ps1"
+Set-RepoRoot
 
 $logDir = ".brain\_inbox"
 if (-not (Test-Path $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
@@ -49,7 +50,7 @@ if ((Get-Date).DayOfWeek -eq 'Monday') {
     if (StepDone "ctr-tracker-$today.log") { Log "ctr-tracker: already ran today - skip" }
     else {
         Log "ctr-tracker: missing - running"
-        & pwsh -File ".claude\routines\run-ctr-tracker.ps1"
+        & pwsh -File "$PSScriptRoot\run-ctr-tracker.ps1"
         Log "ctr-tracker: exit $LASTEXITCODE"
         if ($LASTEXITCODE -ne 0) { $failed = $true }
     }
@@ -59,7 +60,7 @@ if ((Get-Date).DayOfWeek -eq 'Monday') {
 if (StepDone "growth-refresh-$today.log") { Log "growth-refresh: already ran today - skip"; $growthOk = $true }
 else {
     Log "growth-refresh: missing - running"
-    & pwsh -File ".claude\routines\run-growth-refresh.ps1"
+    & pwsh -File "$PSScriptRoot\run-growth-refresh.ps1"
     Log "growth-refresh: exit $LASTEXITCODE"
     $growthOk = ($LASTEXITCODE -eq 0)
     if (-not $growthOk) { $failed = $true }
@@ -76,7 +77,7 @@ else {
     if (StepDone "channel-health-run-$today.log") { Log "channel-health: already ran today - skip" }
     else {
         Log "channel-health: missing - running"
-        & pwsh -File ".claude\routines\run-channel-health.ps1"
+        & pwsh -File "$PSScriptRoot\run-channel-health.ps1"
         Log "channel-health: exit $LASTEXITCODE"
         if ($LASTEXITCODE -ne 0) { $failed = $true }
     }
@@ -88,7 +89,7 @@ else {
     if ($reconcileDone) { Log "reconcile: heartbeat already today - skip" }
     else {
         Log "reconcile: heartbeat not today - running"
-        & pwsh -File ".claude\routines\run-reconcile.ps1"
+        & pwsh -File "$PSScriptRoot\run-reconcile.ps1"
         Log "reconcile: exit $LASTEXITCODE"
         if ($LASTEXITCODE -ne 0) { $failed = $true }
     }
@@ -98,7 +99,7 @@ else {
 if (StepDone "stale-projects-run-$today.log") { Log "stale-projects: already ran today - skip" }
 else {
     Log "stale-projects: missing - running"
-    & pwsh -File ".claude\routines\run-stale-projects.ps1"
+    & pwsh -File "$PSScriptRoot\run-stale-projects.ps1"
     Log "stale-projects: exit $LASTEXITCODE"
     if ($LASTEXITCODE -ne 0) { $failed = $true }
 }

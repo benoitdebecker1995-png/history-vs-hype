@@ -6,7 +6,8 @@
 # Schedule logic: after Routine 7 HvH-GrowthRefresh (07:45, REFRESHES analytics.db, which reconcile's
 # freshness gate depends on) and Routine 3 channel-health (08:00, reads it); before Routine 4 (09:00, reads post-reconcile state).
 
-Set-Location "D:\History vs Hype"
+. "$PSScriptRoot\_lib-preflight.ps1"
+Set-RepoRoot
 
 $logDir = ".brain\_inbox"
 if (-not (Test-Path $logDir)) {
@@ -18,9 +19,30 @@ $logFile = Join-Path $logDir "reconcile-$(Get-Date -Format 'yyyy-MM-dd').log"
 "=== Routine 6 (claude-driven) run @ $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') ===" |
     Out-File -FilePath $logFile -Append -Encoding utf8
 
-$prompt = (Get-Content ".claude\routines\reconcile-daily.md" -Raw)
-claude -p $prompt 2>&1 | Out-File -FilePath $logFile -Append -Encoding utf8
+if (-not (Test-ClaudeAuth -LogFile $logFile)) {
+    "=== Exit code: $EXIT_AUTH_EXPIRED (auth pre-flight) ===" |
+        Out-File -FilePath $logFile -Append -Encoding utf8
+    exit $EXIT_AUTH_EXPIRED
+}
 
+$prompt = (Get-Content ".claude\routines\reconcile-daily.md" -Raw)
+$output = claude -p $prompt 2>&1
 $exitCode = $LASTEXITCODE
+$output | Out-File -FilePath $logFile -Append -Encoding utf8
+
+# F1/F20: this wrapper only ever saw CLAUDE's exit code, so a failure inside
+# `python -m tools.reconcile.reconcile` was invisible — claude exits 0 after reporting a
+# python error in prose. Scan the captured output for the python failure signature and
+# escalate, so a broken reconcile cannot report success. Exit 80 = inner python failed.
+if ($exitCode -eq 0) {
+    $innerFailure = $output | Select-String -Pattern 'Traceback \(most recent call last\)|ModuleNotFoundError|reconcile (?:failed|aborted)|sqlite3\.\w*Error' -Quiet
+    if ($innerFailure) {
+        $msg = "PREFLIGHT FAIL: claude exited 0 but its output contains a python failure signature — treating as failed."
+        Write-Host $msg
+        $msg | Out-File -FilePath $logFile -Append -Encoding utf8
+        $exitCode = 80
+    }
+}
+
 "=== Exit code: $exitCode ===" | Out-File -FilePath $logFile -Append -Encoding utf8
 exit $exitCode

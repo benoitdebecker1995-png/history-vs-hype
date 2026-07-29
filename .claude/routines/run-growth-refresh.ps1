@@ -6,7 +6,8 @@
 # and reconcile's freshness gate no-op'd every run (debug session 2026-06-13).
 # Logs to .brain/_inbox/ so a missed/failed refresh is visible.
 
-Set-Location "D:\History vs Hype"
+. "$PSScriptRoot\_lib-preflight.ps1"
+Set-RepoRoot
 
 $logDir = ".brain\_inbox"
 if (-not (Test-Path $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }

@@ -1,13 +1,25 @@
-# Routine 8 wrapper — weekly CTR/impressions snapshot from the YouTube Analytics API.
-# Invoked by Windows Scheduled Task "HvH-CtrTracker" weekly Monday 07:30 — BEFORE the
-# morning chain (07:45 GrowthRefresh, 08:00 channel-health, 08:30 reconcile), so Monday's
-# channel-health computes its CTR baseline from a same-morning snapshot.
+# Routine 8 wrapper — DAILY CTR/impressions collection from the YouTube Reporting API.
+# Invoked by Windows Scheduled Task "HvH-CtrTracker" DAILY 14:30, ahead of the rest of the
+# chain, so channel-health computes its CTR baseline from a same-day snapshot.
+#
+# WHY DAILY (changed 2026-07-28 — it was weekly Mondays, and that cost us a launch window):
+#   Reporting API retention is only ~60 days, and `impressions_daily` is the ONLY durable
+#   record of what a video did on a given day. Video #59 published Sunday 2026-07-05; the
+#   next Monday run missed, so days 0-4 were never captured — and 88% of that video's
+#   lifetime impressions landed on day 1. The rolling figure in ctr_snapshots cannot
+#   reconstruct a launch window, so a missed day used to be permanent data loss.
+#   Ingest is now idempotent by DATA date, so a missed run self-heals on the next one
+#   while those days are still inside retention. Daily is what keeps that guarantee real.
+#   NOTE: nothing is gained by running more often than daily — the API publishes one
+#   report per day.
+#
 # Created 2026-07-03: ctr_snapshots froze for 18 days (2026-06-15 → 2026-07-03) because
 # nothing scheduled ctr_tracker; the freeze silently staled title_scorer's live-CTR
 # enrichment and the channel-health CTR baseline (F14 in debugging-playbook).
-# Writes tools/discovery/keywords.db (ctr_snapshots). Logs to .brain/_inbox/.
+# Writes tools/discovery/keywords.db (ctr_snapshots + impressions_daily). Logs to .brain/_inbox/.
 
-Set-Location "D:\History vs Hype"
+. "$PSScriptRoot\_lib-preflight.ps1"
+Set-RepoRoot
 
 $logDir = ".brain\_inbox"
 if (-not (Test-Path $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }

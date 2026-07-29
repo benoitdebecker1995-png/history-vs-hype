@@ -4,7 +4,8 @@
 # (Before 2026-06-13 this was bare `claude -p $prompt` with no capture — the 2026-06-11
 #  ERROR_PROCESS_ABORTED run left zero diagnostics, which is why W3 couldn't see the cause.)
 
-Set-Location "D:\History vs Hype"
+. "$PSScriptRoot\_lib-preflight.ps1"
+Set-RepoRoot
 
 $logDir = ".brain\_inbox"
 if (-not (Test-Path $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
@@ -12,6 +13,12 @@ $logFile = Join-Path $logDir "brain-hygiene-run-$(Get-Date -Format 'yyyy-MM-dd')
 
 "=== Routine 5 brain-hygiene run @ $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') ===" |
     Out-File -FilePath $logFile -Append -Encoding utf8
+
+if (-not (Test-ClaudeAuth -LogFile $logFile)) {
+    "=== Exit code: $EXIT_AUTH_EXPIRED (auth pre-flight) @ $(Get-Date -Format 'HH:mm:ss') ===" |
+        Out-File -FilePath $logFile -Append -Encoding utf8
+    exit $EXIT_AUTH_EXPIRED
+}
 
 $prompt = (Get-Content ".claude\routines\brain-hygiene.md" -Raw)
 claude -p $prompt 2>&1 | Out-File -FilePath $logFile -Append -Encoding utf8
