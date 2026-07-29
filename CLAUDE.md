@@ -235,5 +235,9 @@ Single-context layout — `CONTEXT.md` and `docs/adr/` at repo root. See `docs/a
 - **Packaging:** `tools/PACKAGING_MANDATE.md`
 - **Performance data:** See memory files (patterns, analytics, competitor findings)
 - **Topic pipeline:** `channel-data/TOPIC-PIPELINE.md`
+- **Next-video discovery / breakout work (ACTIVE, cross-machine handoff):**
+  `channel-data/NEXT-VIDEO-DISCOVERY-HANDOFF.md` — read this when asked to continue finding the next
+  video, hunt topics with demand but no supply, or resume breakout/measurement work. Carries the serve-vs-CTR
+  model, the two failure modes, the gap-hunter build spec, and current blockers.
 
 **Start:** `/greenlight` → `/research --new`

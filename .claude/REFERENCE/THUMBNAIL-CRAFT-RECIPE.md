@@ -29,8 +29,16 @@ Physics of the mobile feed. If the subject + the words don't resolve at 160px, i
 ### [T1] 4. Single focal point: 40–60% of frame, cut out + separated, high contrast
 The subject fills 40–60%, sits off-center (rule of thirds), and is **cut out from its background** with rim-light / drop-shadow / darkened-blurred BG — the biggest "looks designed vs flat" lever. Edge vignette + saturation pop on the subject. De-emphasize the background.
 
-### [T2] 5. The RED accent = this channel's "look-here" signal
-All three winners put **one red element at the focal point**: the CLASSIFIED stamp (KGB), the red disputed zone (ICJ), the red contested strip (Guatemala). Red = the contested/evidence accent. (n=3 own-channel + general contrast theory — strong convention, A/B-confirmable.)
+### [T3] 5. One high-contrast accent at the focal point — but NOT because red is proven
+All three winners put one red element at the focal point: the CLASSIFIED stamp (KGB), the red disputed zone
+(ICJ), the red contested strip (Guatemala).
+⚠ **Downgraded T2 → T3, 2026-07-28.** Across all 47 tagged videos "red pop" is **−0.67** and was formally
+killed as over-fit in `CTR-THUMBNAIL-FINDINGS-2026-06.md`; restricted to the 13 meaningfully-served videos
+it collapses to −0.28. Red is on 29 of 47 thumbnails, most of them cluttered-document flops, so the n=3
+winners are a selection of the survivors, not evidence.
+**Keep the practice, drop the claim:** one saturated accent at the single focal point is sound contrast
+craft. It is not a validated channel signal, and nothing should be prescribed *because it is red*.
+See `CTR-THUMBNAIL-RECOMPUTE-2026-07-28.md`.
 
 ### [T2] 6. Text — ≤3 words, ≥~100px tall, heavy stroke, ONE accent color
 Bold condensed sans (Anton/Bebas/Impact/Oswald), white + 8–10px black stroke + soft shadow; one accent color (your yellow `#FFD23F` or red) on the payoff word only. Keep text ≥40–60px off edges and **out of the bottom-right** (duration badge). Short text (<4 words) ≈ +30% CTR.

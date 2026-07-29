@@ -3,6 +3,46 @@
 **Built:** 2026-06-10 (Fable Phase 1) | **Input:** D1 breakout dossier + D4 whitespace scan
 **Status:** ACTIVE — each upload should consciously run one of these as its A/B test. Update the Outcome column as data lands; a hypothesis is CONFIRMED or KILLED only by its named metric, not by vibes.
 
+> ### 🎯 PRE-REGISTERED THRESHOLDS FOR #36 PANAMA (locked 2026-07-28, BEFORE publish)
+> | metric | confirm | kill |
+> |---|---|---|
+> | **H3** first-28-day impressions | **≥9,000** (≥3× recent median) | **<4,500** (<1.5×) |
+> | **H2** first-28-day CTR (≥1,000 impr) | **≥4%** | <2.5% |
+> | **H6** both terms present | pocket named ✓ · stranger-legible ✓ | — |
+> | **H3 geography — the falsifiable one** | disproportionate share of views from **Panama + US-Panamanian diaspora**, checked in Studio exactly as Belize was | **generic-US geography ⇒ H3 is WRONG** and something else drove Belize |
+>
+> ### ➕ ADDED 2026-07-28, BEFORE #36 PUBLISHES — H3 needs a SHAPE criterion, not just a total
+> | metric | confirm | kill |
+> |---|---|---|
+> | **H3-shape** day-1 share of first-28-day impressions | **<60%** | **≥80% ⇒ test batch, not a pocket** |
+> | **H3-shape** impressions in days 8–28 | **≥1,500** | **<300 ⇒ serve collapsed** |
+>
+> **Why this was added, and why it is not post-hoc.** A total-only threshold cannot tell a demand pocket
+> from a failed test batch, and #59 proves it. Its daily series — recoverable only now that
+> `impressions_daily` exists — reads **9,626 impressions on day 1, then 44, 102, 44, 50…** It reached
+> **10,087 by day 21 and would have "CONFIRMED" H3 at ≥9,000**, while actually being a video YouTube served
+> once, tested, and cut inside 48 hours. That is the opposite of what H3 claims to detect.
+> This **strengthens** a pre-registered hypothesis using a measurement that did not exist when it was
+> written; it is dated and locked **before** #36 publishes. **The 9,000 / 4,500 totals are NOT retuned** —
+> re-deriving thresholds after seeing results is exactly what pre-registration prevents.
+>
+> ⚠ **Honest basis:** only **two** complete first-28-day windows are historically reconstructable
+> (`aSfZtrgGjwA` = 2,422 · `zt7VntgauC8` = 3,088), because Reporting API retention is ~60 days.
+> **The 9,000/4,500 numbers rest on n=2.** Manual Studio Advanced-mode exports for the last ~16 videos are
+> the only way to give them a real distribution (`studio_import.py` already supports it — data entry, no
+> code). Cite the n=2 basis whenever these thresholds are used.
+>
+> ⚠ **Surface caveat:** H3 is framed on **browse** impressions, but `channel_reach_basic_a1` reports
+> **total** impressions across all surfaces. Job `31fd84bd-0dbf-436b-a608-8f80a16b2d93`
+> (`channel_reach_combined_a1`) was created 2026-07-28 to test whether a per-surface split is available;
+> reports take 24–48h. **Until it lands, treat these thresholds as total-impression thresholds.**
+>
+> ✅ **~~Measurement gap~~ — CLOSED 2026-07-28.** `HvH-CtrTracker` ran **weekly, Mondays only**, which is
+> why #59's launch window was lost (published a Sunday; days 0–4 never captured). Now: **daily at 14:30**,
+> writing `impressions_daily` at the **data-date** grain, so ingest is idempotent and a missed run
+> self-heals rather than losing the day. Day 0 of #59 was recovered retroactively from API history as
+> proof. See ADR-0018.
+
 **Baselines (for thresholds):** channel median views = 91; recent-upload impression tests = 1.7K–5.2K (fresh ctr_tracker window); channel median CTR = 2.48% (lifetime snapshot); avg-watch median = 28.1%.
 
 ---
@@ -63,13 +103,51 @@ Forensics say the 3 breakouts shared: (1) a live contemporary hook at publish, (
 
 ---
 
+## H6 — The two-term serve model (NEW 2026-07-28, supersedes "stakes-first" as a lone factor)
+
+**Built from:** `channel-data/BREAKOUT-MECHANICS-2026-07.md`. Four predictors of serve size were tested
+and ALL failed (CTR, retention, thumbnail feature tags, peer coverage; plus channel-state and topic_type).
+The escalation event is **not predictable** from anything measurable. H6 is the best surviving *descriptive*
+model, and it is explicitly n=1 on the winning cell.
+
+**Claim:** serve size needs BOTH terms, and either alone underperforms:
+> **(1) the POCKET is named in the title** — an English-reading national/diaspora audience must be able
+> to see the video is about them · **(2) the STAKE is legible to a stranger** — parseable with zero prior
+> knowledge of the dispute.
+
+**Evidence (the channel's own H3-shaped uploads):**
+
+| video | pocket | named | stranger-legible | impressions |
+|---|---|:-:|:-:|---:|
+| "**The Country That Might Disappear**: Guatemala vs Belize" | Belize | ✓ | **✓** | **292,398** |
+| "The Oil War Over **Essequibo**" | Guyana | ✓ | ✗ (must know Essequibo) | 36,263 |
+| "**Somaliland's** Legal Independence Problem" | Somaliland | ✓ | ✗ (abstract) | 6,187 |
+| "Britain Drew the India–Pakistan Border in 5 Weeks" | India/Pak | ✓ | ✓ but coverage saturated | 3,111 |
+| "Britain Expelled 2,000 Islanders" (**Chagos, unnamed**) | Chagos | ✗ | ✓ | 781 |
+| "Honduras Called These Islands…" (**Sapodilla/Belize, unnamed**) | Belize | ✗ | ✓ | 508 |
+
+**Aggregate:** H3-shaped uploads (n=9) median **5,610** impressions / **228** views vs **2,772 / 92** for
+everything else — ~2×, and **3 of the channel's top 5 by views are H3-shaped.** The mechanism is real;
+the variance inside it is what H6 explains.
+**Note this reconciles H3 with the "stranger-legible stakes" idea — they are not rival explanations, they
+are the two terms.** Belize is the only upload that has both.
+
+**Test:** across the next 4 uploads, tag each at publish for BOTH terms (pocket-named Y/N ·
+stranger-legible Y/N), pre-registered in `YOUTUBE-METADATA.md`, never retro-fitted.
+**Confirm:** both-terms uploads median first-28-day impressions ≥3× single-term uploads.
+**Kill:** <1.5×, or a both-terms upload lands under 5,000 impressions twice.
+**⚠ Standing caveat:** the winning cell is **n=1**. Do not treat H6 as a formula. It sets the packaging
+brief; it does not predict the serve.
+
+---
+
 ## Pre-registration log
 
 | Upload | Date | Hypotheses carried | Arms | Outcome |
 |---|---|---|---|---|
 | #58 Kurdistan | (pending) | H2 (CTR ≥4% target), H1-tag: EVERGREEN | A/B already locked | — |
 | #59 I/P partition pilot | (pending) | H1-tag: HOOK, H2, H4 candidate | — | — |
-| (H3 pocket slot) | — | H3 demand-pocket raid + H1-tag: HOOK | — | — |
+| **#36 Panama — H3 POCKET SLOT, FILLED 2026-07-28** | (pending) | **H3** pocket raid · **H6** both-terms · H1-tag: **HOOK** (re-verified 2026-07-28: ICC arbitration >US$2B, Panama missed the 13 Mar deadline, Beijing "heavy price"; runs years) · H2 (CTR ≥4%) · H4 A/B | **LEAD:** "America Took the Panama Canal With a Treaty. Panama Took It Back." (65ch) · **ARM B:** "A Frenchman Signed Away the Panama Canal. Panama Took It Back." (62ch) — single-variable, same second sentence, same thumbnail family | — |
 | sXadwOj8VoA Sapodilla | 2026-03-30 | (retro) sequel-inheritance | n/a | KILLED — 47 views, 7 sub/browse views, 41.5% watch |
 | Panama Canal treaties (greenlit 2026-06-11) | (pending) | H1-tag: HOOK (verified live: CK Hutchison/Supreme Court cycle), H2 (CTR ≥4%), H4 A/B | A: "Panama vs the Canal Treaty. Not One Panamanian Signed It." (93/A, curiosity 82) · B: "No Panamanian Signed the Panama Canal Treaty. Here's Who Did." (77/B, curiosity 84) — same thumbnail family | — |
 | — | — | — | — | — |

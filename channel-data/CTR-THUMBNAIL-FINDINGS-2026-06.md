@@ -32,7 +32,14 @@ JD Vance child sacrifice 9.37% · Guatemala-2 9.11% · Guatemala-1 7.62% · Selk
 1. **One focal point** — a face, a map, or a single object. Never cluttered.
 2. **Recognizable or emotional element** — a famous/expressive face, OR a clean map with
    ONE red disputed slice, OR a meme.
-3. **Red / high-contrast conflict pop** — disputed land in red, red "CLASSIFIED" stamp.
+3. ~~**Red / high-contrast conflict pop** — disputed land in red, red "CLASSIFIED" stamp.~~
+   🛑 **STRUCK 2026-07-28 — THIS CONTRADICTED THE VALIDATION TABLE 30 LINES ABOVE IN THIS SAME FILE.**
+   The table killed red as over-fit (−0.67, "do NOT prescribe"); this line then prescribed it. Any agent
+   reading top-to-bottom picked up the killed rule, so every generated thumbnail inherited it.
+   **What is actually true:** red is not a driver *and* not a poison — it collapses to −0.28 once you look
+   only at videos that were meaningfully served (n=13), which is to say it is unmeasurable here either way.
+   Use one high-contrast accent at the focal point because contrast theory says so, not because this
+   channel's data says so. See `CTR-THUMBNAIL-RECOMPUTE-2026-07-28.md`.
 4. **2–4 words of big legible text**, white/yellow with heavy black stroke, ≤2 lines.
 5. **Verdict / investigation language** — EXPOSED, ON TRIAL, FACT CHECKED, CLASSIFIED,
    "THE GENOCIDE NO ONE TALKS ABOUT."

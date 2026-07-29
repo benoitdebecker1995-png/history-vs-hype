@@ -1,0 +1,230 @@
+[
+ {
+  "id": "DbKNlFcg02c",
+  "title": "Only Two Countries Can Still Claim Antarctica",
+  "channel": "CGP Grey",
+  "views": 7822494,
+  "tags": {
+   "title": "Only Two Countries Can Still Claim Antarctica",
+   "len": 45,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Eg1ScKoBnHA",
+  "title": "Who Owns Antarctica?",
+  "channel": "Map Men",
+  "views": 3313304,
+  "tags": {
+   "title": "Who Owns Antarctica?",
+   "len": 20,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Xp_vWnn6H3k",
+  "title": "Who Actually Owns Antarctica?",
+  "channel": "The Infographics Show",
+  "views": 772890,
+  "tags": {
+   "title": "Who Actually Owns Antarctica?",
+   "len": 29,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "GUU1L8XGIYE",
+  "title": "Antarctica (2026) The Forbidden Documentary That Shocked The Whole World",
+  "channel": "Secret Origins",
+  "views": 434713,
+  "tags": {
+   "title": "Antarctica (2026) The Forbidden Documentary That Shocked The Whole World",
+   "len": 72,
+   "pattern": "declarative",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "4I3P7UqzPzk",
+  "title": "What the 1958 Antarctic Team Saw Before the Treaty Locked the Continent Down",
+  "channel": "The Collapsed Archive",
+  "views": 292311,
+  "tags": {
+   "title": "What the 1958 Antarctic Team Saw Before the Treaty Locked the Continent Down",
+   "len": 76,
+   "pattern": "declarative",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "a22fYMe-6uw",
+  "title": "Antarctic Territories Explained: Geopolitics in Antarctica",
+  "channel": "Ticket To Know",
+  "views": 120221,
+  "tags": {
+   "title": "Antarctic Territories Explained: Geopolitics in Antarctica",
+   "len": 58,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "xmoOqlOs0-Q",
+  "title": "Who Owns Antarctica? Complex Claims to the Antarctic Explained - TLDR News",
+  "channel": "TLDR News Global",
+  "views": 87648,
+  "tags": {
+   "title": "Who Owns Antarctica? Complex Claims to the Antarctic Explained - TLDR News",
+   "len": 74,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "YXV4_EbZNno",
+  "title": "Antarctic Treaty: The power of impossible ambitions",
+  "channel": "Greenpeace International",
+  "views": 53208,
+  "tags": {
+   "title": "Antarctic Treaty: The power of impossible ambitions",
+   "len": 51,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "wBEq1jLnymM",
+  "title": "No one owns Antarctica, but that agreement is showing cracks",
+  "channel": "CBC News: The National",
+  "views": 47122,
+  "tags": {
+   "title": "No one owns Antarctica, but that agreement is showing cracks",
+   "len": 60,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "yWxeOXeX5zI",
+  "title": "Why So Many Countries Claim Antarctica But Can’t Do Anything With It",
+  "channel": "Geography By Geoff",
+  "views": 42993,
+  "tags": {
+   "title": "Why So Many Countries Claim Antarctica But Can’t Do Anything With It",
+   "len": 68,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "LN7KBL1pMp4",
+  "title": "The Antarctic Treaty Explained",
+  "channel": "Ben Sage",
+  "views": 35682,
+  "tags": {
+   "title": "The Antarctic Treaty Explained",
+   "len": 30,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "CMzVgskcQIY",
+  "title": "The treaty protecting Antarctica from mining and military activity | ABC News",
+  "channel": "ABC News (Australia)",
+  "views": 29442,
+  "tags": {
+   "title": "The treaty protecting Antarctica from mining and military activity | ABC News",
+   "len": 77,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]
