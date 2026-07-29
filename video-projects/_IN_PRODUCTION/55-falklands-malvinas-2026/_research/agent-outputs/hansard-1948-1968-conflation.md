@@ -5,7 +5,29 @@
 chain. Residual gaps are enumerated in §5.4 and the limits of the negative in §5.5.
 **Agent:** archival-search sub-agent
 **Date:** 2026-07-27
+
 **Question:** When and where did British ministers first publicly conflate the 1948 *Falkland Islands Dependencies* ICJ/arbitration offer with an offer about the *Falkland Islands* themselves?
+
+> ## 🛑 FOLLOW-UP CORRECTIONS — added 2026-07-27 after the arbitration sweep (ledger **C47**)
+> This report's core finding stands. Two things in it are now known to be wrong or overstated:
+>
+> 1. **§4.2 "Zero written answers" is meaningless — do not cite it.** The
+>    `search/contributions/Written.json` endpoint returns `TotalResultCount: 0` for *every* search term
+>    in *every* period tested, including `Falkland` and `housing`, and including 1979–1985 — a window in
+>    which this project holds an actual written answer (Belstead, `HL Deb 27 April 1982 c862WA`).
+>    **The Written index does not cover the historic corpus. It is a dead index, not a negative.**
+>    ✅ **Written answers have since been swept properly (ledger C48)** by walking the
+>    `historic-hansard` day indexes directly: 3,097 sitting days, 123 relevant written answers read,
+>    **6 mention the Court/arbitration/Hague and all six are Dependencies- or Antarctic-scoped.** The
+>    negative holds in the written record. The sweep also recovered **Macmillan, `HC Deb 06 May 1955
+>    vol 540 cc178-80W`**, dating the arbitration offer to identical Notes of 21 December 1954.
+> 2. **§5.3 / §4.x "one hit in the eleven years 1957–1967" is vocabulary-bounded and now superseded.**
+>    The `The Hague` sweep found **Boyd-Carpenter / Mrs. White, `HC Deb 07 November 1966 vol 735
+>    cc962-3`**, about the Falkland Islands themselves. The conclusion is *strengthened* (White denies
+>    any Hague referral was proposed) but "twelve-year silence" is too strong.
+>
+> **§5.5(2) — the arbitration/`arbitral`/`The Hague`/`Malvinas` gap — is CLOSED.** 3,141 contributions
+> swept, negative holds, and **McNeil, `HC Deb 16 February 1948 vol 447 cc822-3`** was recovered. See C47.
 
 ---
 

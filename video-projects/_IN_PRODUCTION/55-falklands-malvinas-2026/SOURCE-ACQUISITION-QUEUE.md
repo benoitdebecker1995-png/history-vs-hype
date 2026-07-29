@@ -4,9 +4,28 @@
 **Generated from:** `primary-source-hunter` trace of the Jennings "strong presumption against the validity" dictum, 2026-07-27.
 **Status legend:** TARGETED / ATTEMPTING / ACQUIRED / UNAVAILABLE / DEFERRED
 
+## 🎯 QUEUE DOWNGRADED 2026-07-27 — NOTHING HERE BLOCKS ANY MORE. SPEND NOTHING.
+
+**Both items below were Priority 1 because the arbitration beat had no doctrinal authority except the
+Jennings dictum, held at three removes (Gustafson → Moore's AJIL letter → Jennings 1963).**
+
+**C44b supersedes them.** The United Kingdom's own **Application Instituting Proceedings, 4 May 1955**
+(*Antarctica, UK v. Argentina*) lists "**actively seeking to bring the dispute to arbitration or
+judicial settlement**" among the things by which a state has "energetically prosecuted its case,
+upheld its sovereignty, and maintained its rights and titles." That is:
+- **free** (downloaded from the Court's own site; held in `_research/exhibits/`),
+- **[P] T1**, character-verified against the rendered page image,
+- **showable on screen**, and
+- **Britain's own words**, which is stronger for this video than any professor's dictum.
+
+→ Both items **demoted to Priority 3 / DEFERRED**. Keep them listed: if the Jennings dictum is ever
+wanted *as Jennings*, the ladder below is still the route. **But do not buy either. Nothing is
+waiting on them.** Per C42a the Jennings dictum stays off screen regardless.
+
 ## Queue Summary
 - Total acquisitions targeted: 2
-- Priority 1 (blocks on-screen primary for the Jennings/arbitration beat): 2
+- Priority 1: **0** (was 2 — both demoted 2026-07-27, see above)
+- Priority 3 / DEFERRED: 2
 
 ---
 

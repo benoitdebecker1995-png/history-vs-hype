@@ -1,6 +1,6 @@
 # .brain/index.md — Master Knowledge Catalog
 
-*Auto-maintained by Routine 5 (brain hygiene, nightly). Last updated: 2026-07-23*
+*Auto-maintained by Routine 5 (brain hygiene, nightly). Last updated: 2026-07-29*
 
 ---
 
@@ -68,7 +68,7 @@
 
 | Topic | Lifecycle | Phase | Last Touched |
 |-------|-----------|-------|--------------|
-| `62-volhynia-massacre-untranslated-2026` | `_IN_PRODUCTION` | research → script | 2026-07-22 |
+| `62-volhynia-massacre-untranslated-2026` | `_IN_PRODUCTION` | research → script | 2026-07-24 |
 | `63-leopold-congo-cobalt-2026` | `_IN_PRODUCTION` | research (Stage C — page-pin verbatims) | 2026-07-22 |
 | `36-panama-canal-deconcini-2026` | `_IN_PRODUCTION` | script draft v2 (unlocked) → heavy gate + T1 | 2026-07-22 |
 | `61-spanish-colonization-black-legend-2026` | `_IN_PRODUCTION` | research → title-lock → script | 2026-07-22 |
@@ -80,6 +80,7 @@
 ## 4. Recently Added / Changed (last 14 days)
 <!-- AUTO:routine-5 — prepend new entries; entries older than 14 days are dropped -->
 
+- 2026-07-28 — `channel-data/NEXT-VIDEO-DISCOVERY-HANDOFF.md` — handoff spec for a next-video discovery method (four-gate demand×supply×ours×cold-parse filter); reading-order entry point into BREAKOUT-MECHANICS + TOPIC-RUBRIC
 - 2026-07-22 — `channel-data/calibration/CALIBRATION-CORPUS.md` — script-calibration lesson corpus updated; entry 62-14 corrected after the em-dash/connector drift claim was falsified
 - 2026-07-22 — `channel-data/calibration/VOICE-DRIFT-CROSS-SCRIPT-2026-07-21.md` — cross-catalogue voice-drift measurement (28 scripts + gold unscripted baseline); overturns the "drift started at #57" finding, two metrics still OPEN
 
@@ -89,7 +90,7 @@
 <!-- AUTO:routine-5 — populated by nightly brain-lint pass -->
 
 ```
-LAST LINT: 2026-07-23 22:00
+LAST LINT: 2026-07-29 08:10
 Stale items (>90d unverified):  0
 Orphan pages (no inbound links): 0 (sources/ = 228 derived notes, all inbound-linked from topics/ via topic_mine; threads/ empty)
 Open contradictions:             0 (wiki/contradictions/ out-of-root — skipped)
@@ -102,8 +103,9 @@ Next lint scheduled:             tomorrow 22:00 local (Routine 5)
 ## 6. Cross-Root Links
 <!-- AUTO:routine-5 — wiki concepts referenced by current projects -->
 
-**Active projects (36-panama-canal-deconcini-2026, 60-guadalupe-hidalgo-dispossession-2026, 61-spanish-colonization-black-legend-2026, 62-volhynia-massacre-untranslated-2026, 63-leopold-congo-cobalt-2026):**
-- No `~/llm-brain/` wiki references in any active project's `01-VERIFIED-RESEARCH.md` yet
+**Active projects (36-panama-canal-deconcini-2026, 55-falklands-malvinas-2026, 60-guadalupe-hidalgo-dispossession-2026, 61-spanish-colonization-black-legend-2026, 62-volhynia-massacre-untranslated-2026, 63-leopold-congo-cobalt-2026):**
+- No `~/llm-brain/` wiki references in any active project's `01-VERIFIED-RESEARCH.md` yet (grepped all 6 in-production research files this run)
+- *55-falklands-malvinas-2026 resumed from `_BACKLOG` 2026-07-25 — now carried in the active set.*
 - *59-israel-palestine-partition-offer-2026 published 2026-07-05 (yt:OHWq4jY8iAY) — left `_IN_PRODUCTION`; no wiki crossrefs to archive.*
 
 **Prior projects (archive crossref):**

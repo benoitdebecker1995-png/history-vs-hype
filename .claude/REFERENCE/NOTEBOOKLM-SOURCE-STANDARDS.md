@@ -34,9 +34,14 @@
 - Published by university press or academic society
 
 **Price is NOT a constraint:**
-- Budget $150-250 per video for source purchases
+- **Budget is UNLIMITED** (CLAUDE.md). There is no per-video cap.
 - Quality over cost always
 - Use Internet Archive where possible, but buy if needed
+- ⚠️ **Do NOT anchor on a dollar figure.** This block previously read "Budget $150-250 per video,"
+  which contradicted its own heading *and* CLAUDE.md. **Corrected 2026-07-26 after it caused a live
+  failure:** the #55 Falklands sweep was truncated to 7 paid monographs (≈$210-280 — i.e. the stale
+  cap almost exactly) and the creator had to challenge it to get the real list of 18. Cost is an
+  acquisition note, never a selection criterion. See `memory/feedback-source-selection-breadth.md`.
 
 ### Source Hierarchy (Mandatory)
 
@@ -303,7 +308,26 @@ Before uploading to NotebookLM:
 
 NotebookLM limit: 50 sources, 25M words total
 
-**Recommended per video:** 10-20 sources, focused on topic
+**Recommended per video:** 20-40 sources for a document-led referee build; 10-20 only for a
+narrow single-document video (e.g. one treaty clause).
+
+⚠️ **This is a FLOOR, not a ceiling, and never a stopping rule.** Build the list to cover the
+*roles* (below), then stop — not on reaching a number. Corrected 2026-07-26: the old
+"10-20, focused on topic" wording was read as a budget and produced a truncated #55 sweep.
+
+**Role coverage is the real stopping criterion.** A referee build is not complete until every
+row has an occupant:
+
+| Role | Complete when |
+|---|---|
+| Affirmative defender, camp A | A named, credentialed advocate arguing camp A's case at its strongest |
+| Affirmative defender, camp B | Same for camp B — never a strawman, never "camp B as described by camp A" |
+| Third-country / low-bias adjudicator | A scholar from neither camp's nationality |
+| Primary documents | 3+ (Tier 1 requirement above) |
+| **Recent scholarship (2018–present)** | **At least 2** — see recency sweep below |
+| Temporal spread | Sources from ≥3 distinct eras, so "when was this written" is itself testable evidence |
+| Foreign-language originals | Where the dispute has a non-English canon, in a language the creator verifies (FR/ES/DE/NL/La/Gr) |
+| Adjacent framework / discovery layer | Monographs that generalise the mechanism without a stake in this dispute |
 
 ---
 
@@ -378,7 +402,8 @@ NotebookLM limit: 50 sources, 25M words total
 **Phase 1: Upload (Organized by theme)**
 - Create separate notebooks for different source types
 - Use naming convention: `[P1] Treaty-Name.pdf`, `[A1] Author-Book-Chapters.pdf`
-- Upload 10-20 sources per video (focused, not exhaustive)
+- Upload to the role-coverage floor (see **Maximum Sources** above) — typically 20-40 for a
+  referee build. Do NOT truncate to a round number; stop when every role has an occupant.
 
 **Phase 2: Audio Overviews**
 - Generate customized overview for each notebook
@@ -413,6 +438,18 @@ This standard applies to ALL videos. The `/new-video` command should generate a 
 - [ ] Source list meets minimum requirements (academic quality standards)
 - [ ] All Tier 1 and Tier 2 sources identified from university presses
 - [ ] **Every source graded A through E** (see Source Confidence Grading above)
+- [ ] **RECENCY SWEEP RUN — ≥2 sources published 2018-present.** A dedicated search pass for recent
+      monographs/articles, run as its own step, not as a by-product of listing canonical works.
+      *Canonical-old is acceptable ONLY for what-the-document-says (treaty texts, primaries are
+      timeless). It is never acceptable for interpretation or angle-surfacing, which is where recent
+      scholarship lives.* **Repeat-offence flag:** this failed at #58 Kurdistan (2026-05-30, list
+      skewed 1990s-2000s + a rationalising "recency note") and AGAIN at #55 Falklands (2026-07-26,
+      18 sources, newest 2017, zero post-2017). It recurred because the rule lived only in
+      `memory/feedback-source-selection-breadth.md` and never in this operational checklist.
+- [ ] **ROLE COVERAGE COMPLETE** — every row of the role table (see Maximum Sources) has an
+      occupant. This, not a source count, is the stopping criterion.
+- [ ] **No cost-based exclusions.** Confirm no source was dropped, deferred, or shelved into an
+      "optional/depth tier" because of price or acquisition difficulty. Budget is UNLIMITED.
 - [ ] **No script claim depends solely on a C/D/E source** — if it does, find a higher-grade source or cut the claim
 - [ ] Author credentials confirmed (check affiliations, citations)
 - [ ] Access confirmed for each source (library or purchase)

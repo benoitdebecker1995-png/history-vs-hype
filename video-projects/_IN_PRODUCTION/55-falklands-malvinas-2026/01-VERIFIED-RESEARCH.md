@@ -2776,6 +2776,11 @@ account, is currently the first thing the video says.** That is indefensible and
 **What would resolve it:** either (a) locate a second witness to an 1844 Argentine arbitration
 request, or (b) demote it — quote the *refusal sentence* without the 1844 framing, which is what
 Beck's and Dolzer's readings both survive, or (c) replace the cold open.
+> **STATUS 2026-07-27:** (b) done and standing. Route (a) attempted twice and failed both times —
+> Gustafson gives **1884** (C39d), and Greig's second 1844 citation resolves back to the same Godwin
+> memorandum with an Argentine 1955 note that is silent on 1844 (**C49e**). **Do not restore 1844.**
+> Route (c) is effectively taken: the cold open now has far stronger candidates in
+> **McNeil 16 Feb 1948** (C47a) and the **4 May 1955 pairing** (C44a + C49a).
 
 ---
 
@@ -2951,8 +2956,14 @@ acquisition of the territory." **A clean, tiered scholarly fork on the same fact
 
 ### Status and follow-ups
 - Tier: **[S] T1** throughout — a named senior official speaking on the record in a published book.
-- **`[FLAG: LIBRARY ACQUISITION]`** — HCFAC 1982–3 Minutes of Proceedings (April 1983) to establish
+- ~~**`[FLAG: LIBRARY ACQUISITION]`**~~ — HCFAC 1982–3 Minutes of Proceedings (April 1983) to establish
   the draft report's wording and fate. Free.
+  > ✅ **ANSWERED 2026-07-27 — C50d. DOWNGRADED; the suppression reading is dead.** Freedman (Official
+  > History, p.18): the Committee was about to conclude when **the May 1983 general election
+  > intervened**; a reconstituted Committee reported the next year, *"unable to reach a categorical
+  > conclusion on the legal validity of the claims"* of either side. Sinclair's recollection is
+  > confirmed and the mechanism is **a dissolution, not a hand on a file.** The Minutes would still add
+  > the division detail; **nothing load-bearing waits on them.**
 - Charlton remains ~95% unmined: 256pp of first-hand testimony from Ridley, Carrington, Stewart,
   Chalfont, Hunter Christie, Kirkpatrick and others, covering 1960s–1982 diplomacy, the leaseback
   attempts and the Falklands lobby. **Substantial further collection available here.**
@@ -3024,7 +3035,14 @@ explanations for the same conduct:
 | Explanation | Evidence |
 |---|---|
 | **Each side privately doubted its own case** | Godwin/1844 refusal (C30b), Fitzmaurice 1930 (C24b), Craigie/Vyvyan/Fitzmaurice (C18a), Troutbeck 1936 (C18b), 1946 memorandum (C17a), de Bernhardt 1911 (C10a) |
-| **The dispute is not justiciable, and a loss is politically unacceptable to whoever loses** | Greig (C38b), Fawcett (C24e), Sinclair (C37e), Weller (C35b), and Thatcher's Beagle Channel point (C33b) |
+| **The dispute is not justiciable, and a loss is politically unacceptable to whoever loses** | Greig (C38b), Fawcett (C24e), Sinclair (C37e), Weller (C35b), Thatcher's Beagle Channel point (C33b), **Freedman, Official History (C50a)** |
+| **🆕 The tribunals themselves are structurally biased** — added 2026-07-27, C50b | **FCO Research Department, late 1981:** the case rested "almost entirely on 148 years of continuous settlement" and was not put to the test given the "probable in-built anti-colonial bias of most of the international institutions which might be involved if the case went to arbitration" · **mirror image:** Argentina, 4 May 1955, notes states reserve territorial questions out of the Court's reach and *"tel est justement le cas du Royaume-Uni"* (C49b) |
+
+> 🛑 **AMENDED 2026-07-27 — THREE explanations now, not two, and the second has six named voices
+> including the official historian.** See **C50a/C50b**. Also mandatory from that pass:
+> **C50c — Thatcher personally proposed going to the ICJ in late March 1982.** Any statement of the
+> spine as *willingness* must answer it. The form that survives is behavioural — nothing was ever
+> submitted on sovereignty — and **C50e has Freedman himself asserting exactly that.**
 
 **These are not mutually exclusive** — Britain can have doubted its case *and* judged the question
 unsuitable for a court. But a script that asserts only the first is **cherry-picking**, and the
@@ -3127,7 +3145,13 @@ been the only nation ever to make this request.**"
 sequence, cf. C3, C21d). **Two independent scholars converge on the mid-1880s. The 1844 date remains
 single-source, via a memorandum nobody in this project has read.**
 → **The C36 flag stands and hardens.** Recommend the 1844 framing be dropped from any prominent
-position until a second witness is found. Gustafson also points to a possible route: his note 101
+position until a second witness is found.
+> 🛑 **UPDATE 2026-07-27 — C49e. Greig's other 1844 citation was chased and it is a dead end.** His
+> footnote 63 points to an **Argentine** note of 4 May 1955 in the ICJ Antarctica Pleadings (pp.91–93);
+> that note was obtained and read. **It does not mention 1844** — and Greig's 1844 sentence in n.63 is
+> merely his own cross-reference back to n.66, the Godwin memorandum. **Still one source.** Argentina's
+> own 1955 note reciting its grievances at length never cites an 1844 arbitration proposal, which is a
+> pointed (though not decisive — the note's subject is the Antarctic) negative. Gustafson also points to a possible route: his note 101
 cites "**Groussac, *Islas Malvinas*, pp. 11–22**" for *Argentine proposals to Great Britain for
 arbitration* — plural. `[FLAG: LIBRARY ACQUISITION]` — Groussac (1910), Spanish, in the creator's
 verifiable languages.
@@ -3513,18 +3537,36 @@ complexions**". **The other complexion is the one that got it right.**
 - **Lord Chalfont** (Minister of State) **neither confirms nor corrects** — he declines to comment at
   all, on the ground that it might prejudice the talks.
 
-**Three ministerial postures in thirteen years:** Reading **corrects** (1955) → Stewart **adopts**
-(Mar 1968) → Chalfont **ducks** (Jun 1968). By mid-1968 the government has stopped policing it.
+> ✅ **THE ARBITRATION LIMB IS TRACED — see C48b/C48c (2026-07-27).** Inglewood's addition was **not
+> invented**. Britain *did* offer arbitration, in identical Notes of **21 December 1954**, as the
+> alternative to the Court — **for the Dependencies** — and Argentina and Chile both rejected it
+> (Macmillan, `HC Deb 06 May 1955 vol 540 cc178-80W`). So the second limb has the same anatomy as the
+> first: **a true Dependencies fact with the scope word gone.** ⚠ Amend the bracket above: "arbitration,
+> which Britain never offered on the Falklands" is correct as written, but it must not be shortened to
+> "Britain never offered arbitration" — that is false.
+
+**Ministerial postures, now four across thirteen years:** Reading **corrects** (Jul 1955) → **White
+declines** (Nov 1966, C47d) → Stewart **adopts** (Mar 1968) → Chalfont **ducks** (Jun 1968). By mid-1968
+the government has stopped policing it.
 
 ### C43d — THE SHAPE OF THE ANSWER: A TWELVE-YEAR SILENCE, FILLED WRONG
+> 🛑 **SUPERSEDED IN PART — AMENDED 2026-07-27, see C47e. Read that before using anything below.**
+> The "one hit in eleven years" count is true of the `"International Court"` search vocabulary **only**.
+> The `The Hague` sweep (C47) found a further ministerial exchange **inside** the window —
+> Boyd-Carpenter / Mrs. White, `HC Deb 07 November 1966 vol 735 cc962-3` — about the Falkland Islands
+> themselves. **The underlying finding survives and is strengthened** (the last ministerial word before
+> the slip is a *denial* that any Hague referral was proposed), **but the phrases "twelve-year silence"
+> and "the conversation stops in 1956" are too strong and must not be scripted.**
+
 Second sweep: `"International Court"` alone, 1948–68, **832 contributions retrieved**, filtered to
 Falklands/Antarctic → **56 hits**. Distribution:
 - **52 of 56 fall in 1948–1956** — the live Antarctic/Dependencies dispute.
-- **One hit in the eleven years 1957–1967** (Lord Denning on Antarctic law, not a minister).
+- **One hit in the eleven years 1957–1967** (Lord Denning on Antarctic law, not a minister)
+  — ⚠ *vocabulary-bounded; C47d adds Boyd-Carpenter/White, 7 Nov 1966.*
 - Then **1968**: Hutchison + Stewart (26 Mar), Inglewood (26 Jun). Nothing else.
-→ **The conversation stops in 1956 and restarts in 1968 in a completely different context** — the
-secret sovereignty talks. Nobody in 1968 was arguing about Antarctic bases. The precedent was
-retrieved from memory, and the memory had lost the qualifier.
+→ **The conversation thins drastically after 1956 and restarts in 1968 in a completely different
+context** — the secret sovereignty talks. Nobody in 1968 was arguing about Antarctic bases. The
+precedent was retrieved from memory, and the memory had lost the qualifier.
 
 ### 🛑 C43e — MANDATORY GUARDS AGAINST THESIS-FITTING (the agent flagged these; they bind)
 1. **Attlee, 23 Feb 1948 (HC vol 447 cc1600–1) is NOT a conflation.** Two days *before* Bevin, he
@@ -3562,8 +3604,15 @@ retrieved from memory, and the memory had lost the qualifier.
 > in July 1955. Statements that avoided both search vocabularies would not have been caught."
 **Residual gaps, enumerated in the report §5.4–5.5:** `Malvinas`, `arbitration`/`arbitral` and
 `The Hague` were not run as standalone terms; written answers not swept; six named debates not
-fetched. **The arbitration limb is a real remaining gap** — Inglewood's June 1968 addition was found
+fetched. ~~**The arbitration limb is a real remaining gap**~~ — Inglewood's June 1968 addition was found
 incidentally.
+> ✅ **ARBITRATION LIMB CLOSED 2026-07-27 — see C47.** All four terms swept (3,141 contributions);
+> the negative holds and McNeil 16 Feb 1948 was recovered.
+> ✅ **WRITTEN ANSWERS ALSO CLOSED, same day — see C48.** The report's "zero written answers" came from a
+> search endpoint that returns zero for *every* term in *every* period (C47f) — a dead index, not a
+> negative. Replaced with a direct walk of `historic-hansard`'s day indexes: **3,097 sitting days,
+> 123 relevant written answers read, 6 mention the Court/arbitration/Hague, all six Dependencies- or
+> Antarctic-scoped.**
 
 ### Status
 - **C36's open flag on the conflation's origin: RESOLVED**, and resolved *against* my original
@@ -3574,3 +3623,791 @@ incidentally.
 - All quotes [P] T1, Hansard, free, permanent, character-verified.
 - **Strongest single new exhibit in the project: Reading 1955 against Stewart 1968.** Same
   institution, same question, thirteen years apart, opposite answers.
+
+## C44 ⭐⭐⭐⭐⭐⭐ — BRITAIN WENT TO THE WORLD COURT IN 1955 AND WROTE THE FALKLANDS OUT IN A FOOTNOTE ✅ [P] T1
+**Date:** 2026-07-27. Collection targets stated in advance; bounded negatives at C44e.
+**Source:** *Antarctica (United Kingdom v. Argentina)*, **Application Instituting Proceedings, 4 May
+1955**, ICJ Pleadings, Oral Arguments, Documents — the United Kingdom's own filing, signed out of the
+**Foreign Office, London S.W.1**. Free from the Court's own site; held at
+`_research/exhibits/UK-v-Argentina-Application-ICJ-1955.pdf` (40pp) + `.txt`.
+**Read directly. No intermediary, no scholar, no cost.**
+⚠ The PDF OCR text layer is poor (1955 scan). **Every verbatim below was eyeballed against the
+rendered page image before filing** — renders kept at `_page8-footnote1.png`, `_p33.png`.
+
+---
+
+### ⭐⭐⭐⭐⭐⭐ C44a — THE FOOTNOTE. Britain limits its own consent in the act of giving it. [P] T1
+**Printed p.8, footnote 1 to paragraph 1.** Character-verified against the page image:
+
+> "It results from the present Application that the United Kingdom Government accepts the jurisdiction
+> of the Court in respect of the questions hereby submitted to it, and in particular that of the title
+> to sovereignty over the islands and lands of the Falkland Islands Dependencies. **The present
+> Application does not constitute a submission to the jurisdiction of the Court in any other respect,
+> or as regards the title to sovereignty over any territory outside the Dependencies.**"
+
+→ This is the **Dependencies distinction in the primary**, written by the British government at the
+moment it walked into the Court. Everything the dossier holds on this point until now was
+*reported* — Beck (C24a), Perl (C23a), Gustafson (C39c), Thatcher 1982 (C33a), Belstead (C33c),
+Reading 1955 (C43b). **This is the document those five are describing.**
+→ It also dates precisely: **4 May 1955**. Reading's Lords answer refusing the conflation (C43b) is
+**20 July 1955** — ten weeks later. The minister was describing a filing that had just happened.
+
+### ⭐⭐⭐⭐⭐ C44b — AND BRITAIN TOLD THE COURT WHAT GOOD TITLE LOOKS LIKE [P] T1
+**Printed p.33, end of ¶35.** Character-verified against the page image:
+
+> "The United Kingdom, by its continued display of State activity ; by protests or counter-measures,
+> which were always prompt, and evidence of the exercise of due vigilance ; by attempts to settle the
+> dispute through diplomatic negotiations ; **by actively seeking to bring the dispute to arbitration
+> or judicial settlement** (see paragraph 40 below) ; and by submitting the present Application to the
+> Court, had energetically prosecuted its case, upheld its sovereignty, and maintained its rights and
+> titles."
+
+→ Britain lists **going to arbitration** among the things that show a state has "energetically
+prosecuted its case, upheld its sovereignty, and maintained its rights and titles."
+→ 🎯 **This replaces the Jennings dictum.** C39b filed Jennings as "the legal principle the spine has
+been asserting without authority"; C42d withdrew it as unreachable and possibly backwards. **The
+inference no longer needs Jennings, Gustafson or Moore. Britain's own filing carries it** — free,
+showable, character-verified. **The two priced acquisitions in `SOURCE-ACQUISITION-QUEUE.md` are no
+longer load-bearing.** Leave them queued; they no longer block anything.
+
+### C44c — THE FOUR CASES, CITED BY BRITAIN, AGAINST ARGENTINA [P] T1
+Same page, ¶36 — Britain's own sub-heading, verbatim:
+> "**The Jurisprudence of International Tribunals Negatives the Argentine Claims and Supports the
+> United Kingdom's Titles.**"
+
+listing *Island of Palmas* (1928), *Clipperton Island* (1931), *Legal Status of Eastern Greenland*
+(1933), *Minquiers and Ecrehos* (1953) — and at ¶37 relying on **Palmas p.846 and Clipperton p.1109**
+for the proposition that "any such early Spanish titles could not prevail to-day against
+long-continued British display and exercise of sovereignty."
+→ Those are the exact pages read directly at C41b–c and C44d. **Britain was reading the same passages
+this project has been reading, and had reached the opposite mood from its own 1936 minutes.**
+⚠ Britain's citation prints *Eastern Greenland* as "(1953)" — a slip for 1933. Noted, not a finding.
+
+### C44d — THE THREE UNREAD CASES, NOW READ. THEY ANSWER THE ABANDONMENT READING. [P] T1
+Files: `Clipperton-1931-RIAA-II-1105-1111.pdf/.txt` (the UN's own RIAA, **French original**),
+`EasternGreenland-1933-PCIJ-CLEANED.txt`, `Minquiers-Ecrehos-1953-ICJ-Judgment.pdf/.txt`.
+
+**Clipperton (Victor-Emmanuel III, 28 Jan 1931), RIAA II p.1111** — final paragraph:
+> "Il n'y a aucun motif d'estimer que la France ait ultérieurement perdu son droit par *derelictio*,
+> puisqu'elle n'a jamais eu l'*animus* d'abandonner l'île, et le fait de n'y avoir pas exercé son
+> autorité d'une manière positive n'implique pas la déchéance d'une acquisition déjà définitivement
+> achevée."
+
+**Eastern Greenland (PCIJ, 5 September 1933), ¶¶98, 102:**
+> "in many cases the tribunal has been satisfied with **very little in the way of the actual exercise
+> of sovereign rights**, provided that the other State could not make out a superior claim. This is
+> particularly true in the case of claims to sovereignty over areas in thinly populated or unsettled
+> countries."
+> "As regards voluntary abandonment, **there is nothing to show any definite renunciation**."
+
+→ 🛑 **This is the strongest doctrinal answer to the abandonment reading in the project, and it runs
+against us.** Dolzer's abandonment conclusion (C27c), Wellington's "we abandoned Port Egmont nearly
+sixty years ago" (C15b) and C41e's "maintenance failure" reading of 1774–1833 all assume prolonged
+non-exercise erodes title. **Clipperton says non-exercise without *animus* does not; Eastern Greenland
+says very little exercise is needed in unsettled country and that abandonment needs a definite
+renunciation.** Britain left a plaque, not a renunciation.
+→ ⚠ **Held in tension, not resolved.** Huber in *Palmas* (1928) required effectiveness "equally for
+the maintenance of the right" (C41b). Clipperton (1931) is three years later and points the other way.
+**Both stay in the dossier; neither is scripted as settled.**
+
+**Minquiers (ICJ, 17 November 1953)** — decided unanimously for the United Kingdom. Two points bear on
+C40, and the second cuts against the analogy:
+> "What is of decisive importance, in the opinion of the Court, is not indirect presumptions deduced
+> from events in the Middle Ages, but the evidence which relates directly to the possession of the
+> Ecrehos and Minquiers groups."
+- The Court leaned heavily on **France's own damaging admissions** — a French Minister of Marine
+  describing the Minquiers in 1819 as "possédés par L'Angleterre", and France making no reservation
+  when Britain called the group "this dependency of the Channel Islands" in 1869. **France first
+  claimed sovereignty only in 1888.**
+→ 🛑 **This weakens C40's analogy in Britain's favour, not ours.** Britain's Minquiers file contained a
+century of French silence and admissions against interest. Its Falklands file contains continuous
+Argentine protest from 1833. **A lawyer comparing the two would see the difference on exactly the
+variable *Palmas* made decisive ("peaceful in relation to other States").** That is a better
+explanation of the different postures than either competing motive — **and it is MY inference, found
+in no source held here. It is a hypothesis, not a finding.**
+
+### 🛑 C44e — BOUNDED NEGATIVES AND COUNTER-READS (these bind)
+1. **The case was never tested.** Order of 16 March 1956 removed it from the List: Argentina's note of
+   1 August 1955 "reaffirms its refusal in the most express way" to have Antarctic sovereignty referred
+   to any court or arbitral tribunal. **Britain's pleading is advocacy no tribunal ever ruled on.** It
+   also confirms the C24e symmetry guard from the primary: **Argentina refused too, in terms.**
+2. **A scope footnote is ordinary litigation practice.** A state filing unilaterally must define the
+   limits of its consent or risk counter-claims. **C44a is not by itself evidence of anything about the
+   Falklands** — its force is that it is the same distinction five later sources describe, not that the
+   footnote is unusual. **Do not present it as a smoking gun.**
+3. **C44b is a summary of conduct, not a statement of doctrine.** Britain is describing what it did in
+   the Antarctic dispute, where it *had* offered arbitration (Notes of 21 December 1954, ¶41). Reading
+   it as "Britain's own test for good title" is **our inference** and must be framed as one.
+4. **Perl 1983 already had all of this** (`Perl-...-CLEANED.txt`, printed pp.42–44) and it sat unread in
+   our own exhibits folder. Perl reports it as **Britain's argument**, and so must we — Rule 4A. Filing
+   "Perl concludes the case law favours Britain" would be a misattribution.
+5. **Beck 1988 never mentions any of the four cases** (term count 0 across the full text). Nor do
+   Charlton, Freedman, Hoffmann or Mira & Pedrosa. Greig and Calvert mention Minquiers once each, on
+   the merits. **Nobody in this corpus connects Britain's 1955 pleading to its Falklands silence.** Per
+   [[feedback-no-definitive-claims-without-verification]] that is a statement about **this corpus**,
+   not a claim of novelty.
+
+### C44f — WHAT THIS KILLS, INCLUDING IN OUR OWN THESIS
+- **"Britain refused because it knew it would lose" is now untenable** — and not on our reasoning, on
+  Britain's. In 1955 the government told the Court that the modern case law *negatived* the Argentine
+  claim. Whatever explains the Falklands silence, it is not a belief that the law was hostile.
+  Confirms C40d and Sinclair (C37b) from the primary rather than on a scholar's word.
+- **The doubt chain is dead in its naive 1829→1911→1936→1946 accumulating form.** C37b flagged it,
+  C41d softened it, this closes it.
+
+### Status
+- Tiers: C44a, C44b, C44c **[P] T1, character-verified against page images**; C44d **[P] T1**
+  (Clipperton in French — within the creator's verifiable languages; an English rendering would need
+  AJIL 26 (1932) p.390, not held, not needed).
+- **Rule 1:** all read directly, none NLM-anchored — same standing as C8/C10/C15/C30/C43.
+- New exhibits: 5 files, all free, £0 spent.
+
+## C45 ⭐⭐⭐⭐⭐ — THE MAN WHO SAID BRITAIN COULD NOT RISK ARBITRATION ARGUED AN ISLANDS CASE AT THE HAGUE, AND WON ✅ [P] T1
+**Source:** *Minquiers and Ecrehos*, ICJ Reports 1953, p.47 — the judgment's own list of
+representation, read directly.
+
+The United Kingdom was represented by **Mr. R. S. B. Best, Third Legal Adviser to the Foreign Office**,
+as Agent, assisted as Counsel by Sir Lionel Heald QC MP (Attorney-General), Mr. C. S. Harrison
+(Attorney-General for Jersey), Professor E. C. S. Wade, and:
+
+> "**Mr. G. G. Fitzmaurice, C.M.G., Legal Adviser of the Foreign Office**"
+> "**Mr. D. H. N. Johnson, Assistant Legal Adviser, Foreign Office**"
+
+The judgment further records that "Sir Lionel Heald, **Mr. Fitzmaurice**, Professor Wade and
+Mr. Harrison spoke on behalf of the United Kingdom Government." The Court found **unanimously** for
+the United Kingdom on 17 November 1953.
+
+→ **Fitzmaurice is the dossier's own central figure.** Beck attributes to him the 1930 memorandum and
+the 6 February 1936 minute behind "we can have no confidence in our claim to the Falklands succeeding
+in the event of it being submitted to arbitration" (C18a, C24b). **Twenty-three years after the 1930
+memorandum, the same lawyer stood up at the Peace Palace and won a small-islands sovereignty case for
+Britain.**
+→ **D. H. N. Johnson** is the same Johnson whom Dolzer places in Group 3 — the doctrine that a claimant
+who does not pursue negotiation or judicial settlement forfeits its claim (C42c). He published
+*"Acquisitive Prescription in International Law"*, BYIL 27 (1950), the year before the Minquiers
+Special Agreement, and was on the team.
+
+### ⚠ C45a — GUARDS. Three, and the first is decisive.
+1. **This is NOT hypocrisy and must never be framed as such.** Twenty-three years separate the two,
+   and in between came Palmas, Clipperton, Eastern Greenland and Britain's own 1955 pleading (C44c).
+   A lawyer's assessment changing when the authorities change is **competence, not duplicity.** The
+   honest form is C40d: *the same man, with the law having moved his way, litigated the analogous case
+   and still never proposed the Falklands.*
+2. **The 1930/1936 attributions remain Beck-mediated.** The ICJ appearance is [P] T1 and independent.
+   The Falklands minutes are [S] T1 via Beck, and C30 established that Beck's apparatus on the
+   adjacent arbitration quote is unreliable. **Standing guard holds: never inherit a Beck archive
+   reference onto screen.** If this pairing is ever used, the 1930/1936 side needs its own primary.
+3. **Guard 11 (triage doc) still binds:** Fitzmaurice is **Gerald**, not George, and in 1930 he was
+   *a* legal adviser. By 1953 the judgment calls him **the Legal Adviser of the Foreign Office** —
+   so the title changes across the two dates and the script must not flatten it.
+
+### Status
+- **[P] T1** — the Court's own record of representation. Free, permanent, showable.
+- The *connection* between the two facts is **mine**; neither Beck, Greig, Gustafson, Dolzer, Perl,
+  Calvert, Charlton, Hoffmann, Freedman nor Lorton makes it (C44e.5 term counts). Hypothesis, not
+  finding.
+
+## C46 — CHARLTON, THE UNMINED 250pp: THE ASYMMETRY HARDENS, AND ARGENTINA'S ARBITRATION RECORD IS THE MIRROR [S] T1
+**Date:** 2026-07-27. Target 3 from the creator's list. Source: Michael Charlton, *The Little Platoon*
+(Basil Blackwell, 1989), read directly from the owned extract (`Charlton-1989-Little-Platoon-CLEANED.txt`,
+609,156 chars). Oral history; 40 named contributors, including five senior Argentines — **Costa Méndez,
+Camilión, Guyer, Admiral Allara, Rear-Admiral Busser**.
+Chapter 5 "Argentine Attitudes" (printed pp.99–123) extracted to `_Charlton-ch5-ArgentineAttitudes.txt`.
+
+**Stated target:** the C39a asymmetry — the dossier holds a century of *British* officials privately
+doubting their own case and no Argentine equivalent. Does the Argentine testimony supply one?
+
+---
+
+### 🛑 C46a — BOUNDED NEGATIVE, WHOLE BOOK. IT DOES NOT. [S] T1
+Term counts across all 609K characters, not just chapter 5:
+
+| Term | Hits | What they actually are |
+|---|---|---|
+| `International Court` | **2** | both in **Sinclair's** answer (C37e), plus the index entry |
+| `arbitrat*` | **13** | **all** either Sinclair on *Palmas*/judicial settlement, or the **Beagle Channel** (C46b). **None** concern Falklands arbitration |
+| `legal case` / `our case` / `juridic*` / `legal title` | **0 / 0 / 0 / 0** | — |
+
+→ **Five senior Argentine officials speak on the record across a 256-page book and not one questions
+Argentina's title, or refers to Argentine legal advice, or mentions an internal memorandum.**
+C39a inferred this from chapter 5 alone (72K chars) with the confound that Charlton's questions were
+British-facing. **The whole-book count removes the sampling objection but not the confound** — it is
+still Charlton's interview agenda. Mira & Pedrosa (C39a) remains the stronger evidence because it is
+Argentine-edited.
+→ **C39a stands and hardens. "Both governments privately knew their case was weak" remains
+unsupportable and the internal-doubt evidence must be presented as one-sided.**
+
+### ⭐⭐⭐⭐⭐ C46b — THE REAL MIRROR IS NOT INTERNAL DOUBT. IT IS THE BEAGLE CHANNEL. [S] T1
+**Speaker: Hugh Carless** — former head of the Latin American department, Foreign Office; by 1977–78
+minister and chargé d'affaires in Buenos Aires. Charlton introduces him by name immediately before
+(printed pp.61–63):
+
+> "the Beagle Channel dispute over three islands right at the bottom of Tierra del Fuego … an
+> international panel sat, under the auspices of the British Crown, **which the Argentine and Chilean
+> governments had agreed to and had asked for arbitration** over these three islands, Picton, Lennox
+> and Nueva … and it awarded all these three islands to Chile."
+> "**Argentina after mulling over the arbitration award which went against her then declared it null
+> and void.**"
+> "the British Crown had become involved in these frontier arbitrations between Argentina and Chile
+> **as long ago as 1902. Those arbitration awards had worked, very successfully.**"
+
+→ 🎯 **This is the symmetry the dossier needed, and it is behaviour, not doctrine.** Argentina was not
+an arbitration refuser in general. She **asked for** arbitration with Chile, repeatedly, across
+seventy-six years, and it worked — until one went against her, and she declared it void, mobilised,
+and expelled Chileans from Patagonia.
+→ It is **Thatcher's Beagle Channel steelman (C33b) told from the other end**, by a British diplomat
+who was in Buenos Aires while it happened. It also grounds Greig's objection (C38b) — that a ruling
+would be unacceptable to whichever side lost — in a real event rather than a prediction.
+→ And it supplies the honest closing symmetry: **Britain never asked; Argentina asked, lost, and
+refused the answer.** Both sentences are documented. Neither is a slur.
+⚠ **GUARDS.** (1) Carless is a British official describing Argentine conduct — Rule 4A: this is
+*his account*, not an Argentine self-description, and no Argentine contributor is asked about it.
+(2) The 1977 award was rejected by the **military junta**, not by a democratic government, and the
+dispute was ultimately settled by papal mediation in 1984 — **say so, or the beat implies bad faith is
+a national trait.** (3) "Under the auspices of the British Crown" needs Carless's own qualifier kept:
+*"we British really had nothing to do with the arbitration."* Dropping it manufactures a British role.
+
+### C46c — THE DECEMBER 1968 COLLAPSE, FROM THE TWO MEN IT HAPPENED TO [S] T1
+**Lord Chalfont** (FO minister, Wilson government; first British minister ever to visit the Islands,
+November 1968), on Buenos Aires, printed p.23:
+> "**They had a claim to sovereignty which we might not be prepared to accept in legalistic terms
+> but, in realistic terms**, for the future of our relations with Argentina and the future prosperity
+> of the people of the Falkland Islands, it seemed to me we were on the right track."
+
+And his 1968 report, quoted back to him by Charlton (p.24):
+> "**Unless sovereignty is seriously negotiated and ceded, in the long term we are likely to end up in
+> a state of armed conflict with Argentina.**"
+
+**Michael Stewart**, Foreign Secretary, on the Commons reaction, printed pp.24–25:
+> "I concluded from that … that the idea of actually transferring sovereignty would be extremely
+> unwelcome to Parliament."
+> "Whatever international law practice may have been in the past, I do not think, in the twentieth
+> century, you go handing people over to a government that they will detest, **and which can put up no
+> case in law for the territory either.**"
+
+→ Chalfont was "quite unprepared for the degree of passionate opposition"; Charlton records that
+"British policy over the Falklands crumbled." **The word "paramount" enters British policy here** — on
+Stewart's account, deliberately, to end the alarm.
+
+### 🛑 C46d — MANDATORY GUARD: THERE ARE TWO 1968 STEWART DEBATES AND THIS DOSSIER MUST NOT MERGE THEM
+| | **26 March 1968** (C43a) | **December 1968** (C46c) |
+|---|---|---|
+| Occasion | adjournment debate, 6.44 a.m., on the secret talks | statements on the Memorandum of Understanding, both Houses |
+| What Stewart does | **adopts the conflation** — "As has been pointed out, Governments of both complexions … have been prepared to put this question to the International Court" | announces **paramountcy** of the Islanders' wishes |
+| Status in dossier | [P] T1, Hansard, verified | [S] T1, Charlton, Stewart's recollection twenty years later |
+
+→ ⚠ **Merging them would be precisely the error this video exists to expose.** C43e(4) already bars
+Lorton's gloss of the 11 December 1968 statement (the ICJ is not mentioned in it once). **Charlton
+does not date the paramountcy exchange to a column and Stewart says "in this adjournment debate" —
+which is loose recollection, not a citation. Do not use Charlton to date anything.**
+→ Stewart's "can put up no case in law" is **his public position on Argentina's title**, recalled in
+1988. It is *not* internal doubt and it is *not* evidence about the March 1968 conflation. Rule 4B:
+the predicate is "Argentina has no legal case," nothing more.
+
+### Status
+- Tier **[S] T1** throughout — named officials on the record in a published book, read directly.
+- **No new flags.** C46b is the session's most usable *historical* material: an event, with dates,
+  named participants, and a documented outcome.
+- **Still unmined:** Ridley, Carrington, Shackleton, Hunter Christie, Rowlands, Luce, Parsons and the
+  1970s leaseback chapters. The book remains ~80% unread, but the *forum* question is now exhausted in
+  it — C46a is the answer and it is a negative.
+
+## C47 ⭐⭐⭐⭐⭐⭐ — THE ARBITRATION LIMB CLOSED: A MINISTER STATED THE PRINCIPLE IN 1948, AND IT WAS SCOPED TO THE DEPENDENCIES ✅ [P] T1
+**Date:** 2026-07-27. Target 2 — the residual gap flagged at C43g and §5.5(2) of the Hansard report:
+`arbitration`, `arbitral` and `The Hague` were never run as standalone terms, nor `Malvinas`.
+**Method, reproducing C43's standard exactly:** official `hansard-api.parliament.uk` search API, all
+four terms, 1948-01-01→1968-12-31, full paging; results filtered locally on a Falklands/Antarctic
+regex; every hit's own Hansard page then fetched with `curl` from `api.parliament.uk/historic-hansard`,
+stripped locally with a Python regex pass, and **re-fetched a second time for byte-level exact
+substring verification. No summarising model between the wire and the analysis at any point.**
+Sweep script and raw hits retained in the session scratchpad.
+
+**Corpus swept:** `arbitration` 2,474 spoken contributions · `The Hague` 604 · `arbitral` 61 ·
+`Malvinas` 2 — **3,141 contributions**, topic-filtered to 135 unique, of which **8 contain a
+Falklands-context arbitration / Hague / International Court sentence.** All 8 read in full.
+
+---
+
+### ⭐⭐⭐⭐⭐⭐ C47a — McNEIL, 16 FEBRUARY 1948. THE INFERENCE, STATED BY A BRITISH MINISTER, IN PUBLIC. [P] T1
+`HC Deb 16 February 1948 vol 447 cc822-3` — "FALKLAND ISLAND DEPENDENCIES (BRITISH TITLE)".
+**Hector McNeil, Minister of State**, answering Mr. Sharp. All four strings below EXACT MATCH on
+independent refetch:
+
+> "His Majesty's Government consider the British title to the Falkland Islands Dependencies to be well
+> founded, and **have been willing that it should stand the test of international arbitration.** In the
+> protests which we made to the Argentine and Chilean Governments in December last, we made it plain
+> that we would accept the decision of the International Court. **This offer has been rejected by both
+> Governments, and we can only regard this as evidence that they have no confidence in their ability
+> to dispute our legal title.**"
+
+→ 🎯 **This is the principle the entire spine rests on, said out loud at the despatch box in 1948:
+refusal to go to court is evidence that you have no confidence in your own title.**
+→ It is the **third and best** replacement for the Jennings dictum. C39b filed Jennings as the missing
+authority; C42d withdrew him as unreachable and possibly backwards; C44b replaced him with Britain's
+1955 ICJ filing. **This is earlier, shorter, spoken in Parliament, and free.** The dossier no longer
+needs a professor to license the inference — it has a minister.
+→ Register note: McNeil also says "**despite our declared willingness to see this question settled
+legally**", and closes "there are many other methods of settling international disputes."
+
+### 🛑 C47b — AND IT IS SCOPED TO THE DEPENDENCIES. THE GUARD BINDS HARDEST HERE.
+McNeil's sentence is about **the Falkland Islands Dependencies** and about **Argentina's and Chile's**
+refusal. It is not about the Falkland Islands and it is not about Britain.
+→ **The honest form, and it is the whole video:** *Britain stated the principle in 1948, applied it to
+Argentina, and never once submitted the Falkland Islands themselves.* 
+→ ❌ **NEVER SCRIPT:** "Britain admitted its own refusal proved its case was weak." Britain never
+turned the sentence on itself and there is no evidence it ever did. Asserting that is the C36
+ATTRIBUTION DRIFT failure repeated.
+→ Confirmed as settled government position nine months later: **Viscount Jowitt, Lord Chancellor,
+`HL Deb 01 February 1949 vol 160 cc418-20`** — "the British title to the Falkland Islands Dependencies
+to be well founded and have indicated their willingness to accept the decision of the International
+Court of Justice at The Hague", expressly restating "the Minister of State's statement of February 16".
+**[P] T1, EXACT MATCH.** New to the dossier; correctly scoped; a fourth independent Dependencies
+confirmation on top of C39c's three.
+
+### ⭐⭐⭐⭐ C47c — THE MECHANISM BEVIN GAVE, AND WHAT IT COLLIDES WITH [P] T1
+`HC Deb 25 February 1948 vol 447 cc1931-3` — the C34a anchor, refetched and verified. Beyond the known
+"rival claims in the Falkland Islands Dependencies" sentence, Bevin explains **why Britain could not
+simply sue**:
+> "the sole reason for presenting the matter in this form was that **neither Argentina nor Chile had
+> accepted the Optional Clause** of the Statute of the International Court of Justice and that
+> consequently it is impossible at present for His Majesty's Government to bring this dispute before
+> the Court by themselves proceeding as plaintiffs."
+
+→ ⭐ **Set this against C24d and C30d.** In 1948 Britain complains publicly that Argentina has not
+accepted the Optional Clause — while Britain's own acceptance had been drafted by **Sir Cecil Hurst**
+specifically "to exclude the possibility of the question of the Falkland Islands being brought before
+the court" (C30d), and its 1969 acceptance carried a 1945 cut-off that excluded the dispute by
+construction (C24d).
+→ **This is a HOW beat, not a legal one:** both governments used the same instrument — the Optional
+Clause — to stay out of court, and each complained about the other doing it. Mechanism, on the record,
+in plain words.
+
+### C47d — A THIRD MINISTERIAL POSTURE, AND IT SITS INSIDE THE "SILENCE" [P] T1
+`HC Deb 07 November 1966 vol 735 cc962-3` — "FALKLAND ISLANDS (INCIDENT)". EXACT MATCH both strings.
+> **Mr. Boyd-Carpenter:** "can she, as a distinguished defender of the rights of colonial people, at
+> least give an assurance that she does not propose to **hand over the destiny of these people to the
+> Hague Court**?"
+> **Mrs. White** (Parliamentary Under-Secretary): "**There is no such suggestion at present**, and we
+> are hoping to continue discussions with the Argentine on the subject very shortly."
+
+→ The question is about **the Falkland Islands themselves** and the Hague. A minister had every
+opportunity to say "we have twice offered the Court" — the claim Hutchison and Stewart would make
+sixteen months later — **and did not. She said there was no such suggestion.**
+→ The ministerial sequence is now four, not three:
+**Reading corrects (Jul 1955) → White declines (Nov 1966) → Stewart adopts (Mar 1968) → Chalfont ducks
+(Jun 1968).** C43b's mirror exhibit gains a second, later mirror much closer to the slip.
+
+### 🛑 C47e — THIS CORRECTS OUR OWN C43d. THE "ELEVEN-YEAR SILENCE" WAS VOCABULARY-BOUNDED.
+C43d states: "**One hit in the eleven years 1957–1967** (Lord Denning on Antarctic law, not a
+minister)." That was true of the `"International Court"` vocabulary only. **The `The Hague` sweep finds
+Boyd-Carpenter/White, 7 November 1966 — a Falklands-and-Hague exchange involving a minister, inside the
+window.**
+→ **Amend C43d.** The correct form: *the ICJ conversation thins drastically after 1956, but it does not
+vanish; a Hague question about the Falkland Islands themselves was put to a minister in November 1966
+and answered in the negative.* The finding is **strengthened** — the last ministerial word before the
+slip is a denial — but **the "twelve-year silence, filled wrong" phrasing is now too strong and must not
+be scripted.** This is the second time a sharp narrative in this dossier has failed on a wider sweep
+(cf. C36, C43e).
+
+### C47f — THE BOUNDED NEGATIVE, AND ONE DEAD INDEX
+**Negative, stated so it is reproducible:** across 3,141 spoken contributions matching `arbitration`,
+`arbitral`, `The Hague` or `Malvinas` in Hansard 1948–1968, filtered to Falklands/Antarctic context and
+read in full, **no ministerial statement was found, before 26 March 1968, describing Britain as having
+offered THE FALKLAND ISLANDS to arbitration or to the Hague.** Every ministerial arbitration/Court
+statement in the window is Dependencies-scoped (McNeil ×2, Jowitt, Davies, Reading, Nutting, Turton) or
+a non-assertion (White 1966). The two loose formulations remain the known near-misses — Attlee 23 Feb
+1948 and Mayhew 23 Mar 1949 (C43e.1).
+→ **`Malvinas` returns 2 contributions in 21 years.** Effectively absent from British parliamentary
+vocabulary in this period.
+
+🛑 **A METHOD CORRECTION THAT MATTERS.** The Hansard report's §4.2 records "Zero written answers" from
+the search API. **That number is meaningless.** The `search/contributions/Written.json` endpoint returns
+`TotalResultCount: 0` for *every* term tested, including `Falkland` and `housing`, and including
+1979–1985 — a window in which this dossier **holds a written answer** (Belstead, `HL Deb 27 April 1982
+c862WA`, C33c). **The Written index does not cover the historic corpus. It is a dead index, not a
+negative.**
+→ ~~**Written answers across 1948–1968 remain entirely unswept**~~ — **CLOSED SAME DAY, see C48.** The
+day-index walk was built and run: 3,097 sitting days, 123 relevant written answers read, 6 mention the
+Court/arbitration/Hague, **all six Dependencies- or Antarctic-scoped.** The negative holds in the written
+record too, and the sweep recovered **Macmillan, 6 May 1955**, which dates the arbitration offer to
+21 December 1954. **Standing method note: never use `search/contributions/Written.json` for this corpus —
+walk `historic-hansard`'s own day indexes.**
+
+### Status
+- All quotes **[P] T1**, Hansard, free, permanent, **exact-substring verified on independent refetch.**
+- Target 2 **closed**. C43g's arbitration gap is answered: the limb exists, it is Dependencies-scoped,
+  and it produced the strongest single sentence found in this project.
+- **Two corrections to our own prior findings** (C43d's silence claim; the written-answer negative).
+- Out of scope, not run: post-1968 (`arbitration` 1969–1982), and the four written answers surfaced but
+  never opened in the earlier sweep.
+
+## C48 ⭐⭐⭐⭐⭐⭐ — WRITTEN ANSWERS SWEPT. THE CONFLATION IS NOW FULLY DECOMPOSED: FOUR TRUE FACTS, FOUR WRONG LABELS ✅ [P] T1
+**Date:** 2026-07-27. Closes the gap opened at C47f — the largest remaining hole in the Hansard evidence.
+**Why it needed a new method:** the search API's `Written` index is dead (C47f). So this walked
+`api.parliament.uk/historic-hansard`'s **own** indexes directly:
+`sittings/YYYY/mon` → sitting days → `sittings/YYYY/mon/DD` → the day's `written_answers/…` slugs.
+**No search API, no summarising tool.** Raw HTML, parsed locally. Script retained in session scratchpad.
+
+**Corpus actually walked:** **3,097 sitting days, 1948–1968**, every written-answer item indexed on each.
+**301 slug matches → 123 genuinely Falklands/Antarctic** after removing noise ("drug dependence",
+Scottish Shetland/Orkney, "Israel Independence Day", "colonial territories and dependencies").
+**All 123 fetched and read. 6 mention the Court, arbitration or The Hague.**
+
+---
+
+### ✅ C48a — THE NEGATIVE, AND IT IS CLEAN. ALL SIX ARE DEPENDENCIES- OR ANTARCTIC-SCOPED. [P] T1
+| Date | Reference | Scope as written |
+|---|---|---|
+| 20 Sep 1948 | `HC Deb 20 September 1948 vol 456 cc10-1W` | topic **"Antarctica (British Territory)"** — "disputed sovereignty **in this region**" |
+| 13 Nov 1950 | `HC Deb 13 November 1950 vol 480 cc114-5W` | topic **"Falkland Island Dependencies"** — "this question" |
+| 2 Jul 1951 | `HC Deb 02 July 1951 vol 489 c181W` | "rival claims **in the Falkland Island Dependencies**" |
+| 24 Nov 1954 | `HC Deb 24 November 1954 vol 533 c155W` | "submit **the Antarctic dispute** to judicial settlement" |
+| **6 May 1955** | `HC Deb 06 May 1955 vol 540 cc178-80W` | **"the Falkland Islands Dependencies"** — see C48b |
+| 6 Dec 1955 | `HC Deb 06 December 1955 vol 547 cc53-4W` | "**As regards the Falkland Islands Dependencies**, Her Majesty's Government have submitted the applications to the International Court at The Hague" |
+
+→ **No written answer in twenty-one years describes Britain as having offered THE FALKLAND ISLANDS to
+the Court or to arbitration.** The pattern found in the spoken record (C43, C47) holds in the written
+record without a single exception.
+→ Distribution note: **zero relevant written answers in 1960 and 1963**; the 1957–67 stretch yields 21
+in eleven years; **1968 alone yields 51** — the sovereignty-talks year, a 5× spike over any prior year.
+All quotes EXACT MATCH on independent refetch.
+
+### ⭐⭐⭐⭐⭐⭐ C48b — MACMILLAN, 6 MAY 1955. THE ARBITRATION LIMB, WITH ITS DATE. [P] T1
+`HC Deb 06 May 1955 vol 540 cc178-80W`. **Mr. H. Macmillan, Secretary of State for Foreign Affairs**,
+answering Mr. Mott-Radclyffe — **two days after Britain filed at the Court.** All five strings EXACT
+MATCH on independent refetch:
+
+> "Her Majesty's Government have several times invited Argentina and Chile to resolve the dispute
+> peacefully by referring it to the International Court of Justice. **On 21st December last Her
+> Majesty's Government repeated this offer in identical Notes** addressed to the Argentine and Chilean
+> Governments and stated that, if the two Governments still felt unable to accept our invitation, **we
+> should, as an alternative to adjudication by the Court, be prepared to consider reference of the
+> dispute to international arbitration.**"
+> "By the end of April the Argentine and Chilean Governments had returned no reply to our Notes and Her
+> Majesty's Government therefore decided to make a direct application to the International Court…
+> **submitted these to the Court on 4th May.** Our Ambassadors at Buenos Aires and Santiago have since
+> been informed by the Argentine and Chilean Governments that **they reject the offer of arbitration
+> which we made last December.**"
+
+The question itself, from Mott-Radclyffe, is scoped in terms: *"Her Majesty's Government's offer to
+submit the dispute over the sovereignty in **the Falkland Islands Dependencies** to arbitration."*
+And Macmillan's own scope: *"large parts of the United Kingdom sector of the Antarctic **known as the
+Falkland Islands Dependencies**."*
+
+→ 🎯 **TWO INDEPENDENT PRIMARIES, ONE EVENT, ONE WEEK.** Macmillan says Britain "submitted these to
+the Court on 4th May"; **C44a is that filing, dated 4 May 1955, carrying the footnote that excludes any
+territory outside the Dependencies.** The Foreign Secretary in the Commons and the Foreign Office at
+The Hague, corroborating each other two days apart. Neither depends on a scholar.
+
+### 🎯🎯 C48c — THE CONFLATION IS NOW FULLY DECOMPOSED. FOUR LIMBS, ALL TRUE, ALL MISLABELLED.
+Everything asserted in 1968 traces to a real Dependencies fact with the scope word removed:
+
+| The 1968 claim | The true underlying fact | Actual scope | Anchor |
+|---|---|---|---|
+| "in 1947 the British Government offered to submit the dispute to the ICJ" (Hutchison) | Notes of Dec 1947; the offer stated in the Commons Feb 1948 | **Dependencies** | McNeil 16 Feb 1948 (C47a); Bevin 25 Feb 1948 (C34a) |
+| "A similar move was made in 1955" (Hutchison) | Application filed **4 May 1955** | **Dependencies**, by express footnote | C44a; Macmillan 6 May 1955 (C48b) |
+| "both Argentina and Chile declined" (Hutchison) | Both refused the Court's jurisdiction | **Dependencies** — and **Chile has never claimed the Falkland Islands** | C43a tell; Order 16 Mar 1956 (C44e.1) |
+| "and also that it should be settled **by arbitration**" (Inglewood, Jun 1968) | **Notes of 21 December 1954**, arbitration offered as the alternative to the Court; both rejected it | **Dependencies** | **C48b**; UK Application ¶41 (C44) |
+
+→ **This is the mechanism, complete.** Inglewood's arbitration limb was the last unexplained element in
+the dossier (C43c called it "a real remaining gap"). It was not invented and it was not a mistake about
+whether arbitration happened. **Arbitration was offered, in writing, on a precise date, and refused —
+for the Antarctic.** The 1968 speakers had the facts right and the label wrong, every time.
+→ ⚠ **This is a claim about the four limbs' factual pedigree, NOT about how anyone came to mislabel
+them.** No document links Hutchison or Inglewood to any particular source. **C43e(3) still binds: do
+not say the conflation "began" anywhere, and do not supply a causal story.** The dossier has the
+anatomy; it does not have the transmission.
+
+### C48d — BOUNDED NEGATIVE, STATED SO IT IS REPRODUCIBLE
+> Across **3,097 sitting days** of Hansard 1948–1968, every written-answer item indexed and filtered to
+> a Falklands/Antarctic slug pattern (**123 answers, all fetched and read**), **six** mention the
+> International Court, arbitration or The Hague, and **all six are scoped to the Falkland Islands
+> Dependencies or to the Antarctic**. No written answer describes Britain as having offered the Falkland
+> Islands themselves to any tribunal.
+
+**Residual limits, honestly:** (1) the filter is on the **topic slug**, so a court statement buried in a
+written answer titled something unrelated would be missed — this is the same class of gap as C43g's
+"statements avoiding both vocabularies"; (2) Lords written answers appear in the same
+`written_answers/` namespace and were included, but were not separately audited for completeness;
+(3) **1969–1982 not swept** — out of the stated window, and the 1982 position is already anchored
+(C24c, C33a, C33c).
+
+### Status
+- **[P] T1** throughout, Hansard, free, permanent, exact-substring verified on independent refetch.
+- **C47f's "largest remaining hole" is CLOSED**, and it closed *for* the thesis rather than against it.
+- **New named primary of the first rank: Macmillan, 6 May 1955.** A Foreign Secretary, dating the
+  arbitration offer to 21 December 1954 and the Court filing to 4 May 1955, both Dependencies-scoped.
+- Method note: the day-index walk is the correct route for any future Hansard written-answer question in
+  this project. **Do not use `search/contributions/Written.json` — it returns 0 for everything.**
+
+## C49 ⭐⭐⭐⭐⭐⭐ — ARGENTINA'S OWN NOTE, 4 MAY 1955: IT REFUSES THE COURT *BECAUSE OF* THE FALKLANDS, AND NAMES BRITAIN'S RESERVATION ✅ [P] T1
+**Date:** 2026-07-27. Reached by following **Greig's footnote 63** — a citation nobody in this project
+had opened: *"Note from the Minister of Foreign Affairs of the Argentine Republic to the British
+Ambassador in Buenos Aires of 4 May 1955: ICJ Pleadings, Antarctica cases, 91-3."*
+**Source:** *ICJ Pleadings, Oral Arguments, Documents — Antarctica Cases*, **Part IV, Correspondence,
+printed pp.91–93**. Transmitted to the Registrar by **Ambassador Natalio Carvajal Palacios** on
+1 August 1955 as an annex; the note itself is **Argentine MFA No. 675 D.S.T., Buenos Aires, 4 May 1955**.
+Held at `_research/exhibits/ICJ-Antarctica-1955-Correspondence.pdf` (38pp) + `.txt`. **FREE.**
+⚠ **Printed in FRENCH** (the Argentine originals are Spanish; Greig notes "translation supplied" — and
+the printed French carries a giveaway Spanish-ism, *"como amicale"*, italicised in the original).
+French is within the creator's verifiable languages. **OCR is poor; both load-bearing passages below
+were eyeballed against rendered page images** (`_arg92.png`, `_arg93.png`).
+
+---
+
+### ⭐⭐⭐⭐⭐⭐ C49a — ARGENTINA REFUSES THE COURT, AND ITS STATED REASON IS THE FALKLANDS [P] T1
+**Printed p.92, ¶¶5–6.** Character-verified against the page image:
+
+> "…en passant sous silence **l'occupation que détient le Royaume-Uni sur les îles Malouines**. Tandis
+> que l'agression commise d'usurper sa possession ne soit réparée par la restitution de cet archipel à
+> la République argentine, le Gouvernement argentin ne peut concevoir ni accepter *como amicale* ni
+> comme juridique aucune proposition qui ait pour base de maintenir cette usurpation."
+>
+> "6. En conséquence, tandis que la question préalable qui vient d'être mentionnée ne sera résolue dans
+> le sens indiqué, **il n'y a pas lieu de proposer, comme le fait la Grande-Bretagne, de soumettre le
+> cas à la Cour internationale de Justice de La Haye ou à un tribunal d'arbitrage *ad hoc*.**"
+
+→ 🎯 **This is the other half of C44a, and the pairing is the strongest thing in the dossier.**
+**Britain's Application of 4 May 1955 carries a footnote excluding any territory outside the
+Dependencies (C44a). Argentina's note of 4 May 1955 refuses the Court precisely *because* the
+Falklands are excluded.** Same day. Same dispute. Opposite ends of the same silence.
+→ The spine tightens from *"neither would let a court rule"* to something documented and specific:
+**in 1955 each government's position on the forum was governed by the Falklands — Britain wrote them
+out of the case, and Argentina walked out of the case because they were written out.**
+→ ⚠ Note the asymmetry, and keep it: **Argentina's refusal is reasoned and conditional** ("tandis que…
+ne soit réparée") — it is a demand for the prior question first, not a blanket rejection of
+adjudication. **This is guard 4 of the triage doc (Argentina's position is principled in its own
+terms), now anchored in Argentina's own words rather than inferred.**
+
+### ⭐⭐⭐⭐⭐ C49b — AND ARGENTINA NAMES BRITAIN'S OWN RESERVATION, TO BRITAIN'S FACE, IN 1955 [P] T1
+**Printed p.93, ¶7.** Character-verified against the page image:
+
+> "Aucune règle juridique ni morale n'impose aux États de soumettre à la décision des pouvoirs ou des
+> entités étrangères leurs droits territoriaux basés sur des titres légitimes… Par ailleurs, c'est
+> confirmé par le fait que la quasi-unanimité des pays qui ont adhéré à la juridiction obligatoire de
+> la Cour internationale de Justice de La Haye ont fait les réserves dues pour exclure de cette
+> juridiction toute possibilité de rester assujettis à ce que le Tribunal décide de la légitimité de
+> leurs droits territoriaux. **Tel est justement le cas du Royaume-Uni, qui a exclu, en plus des
+> litiges configurés avant l'année 1930, ceux que concernent les questions soumises à sa juridiction
+> exclusive.**"
+
+→ 🎯 **The mirror, on the record, seventy years before this project found it in the archives.** C24d
+(Fitzmaurice, 1930: the Falklands fell outside Britain's Optional Clause acceptance) and C30d (Hurst
+drafted it that way) were recovered from British internal files via Beck and Greig. **Argentina had
+spotted the same reservation and said so publicly in a diplomatic note in 1955.**
+→ ⚠ **PREDICATE GUARD (Rule 4B), and it binds hard.** Argentina asserts **P1**: Britain has excluded
+pre-1930 disputes and matters of exclusive jurisdiction. Argentina does **NOT** assert **P2**: that
+Britain drafted the reservation *in order to* exclude the Falklands. **P2 is the archival finding
+(C30d, Hurst) and must stay attributed there.** Do not let Argentina appear to say it.
+→ It also complicates C38b usefully: **Argentina's stated 1955 reason is not "the dispute is
+non-justiciable"** — it is "no state is obliged to submit its territory to a foreign tribunal, and
+Britain does the same." A different, more pointed argument than Greig's, from the party itself.
+
+### C49c — THE ARBITRATION OFFER, NOW CONFIRMED FROM THREE PRIMARIES AND BOTH SIDES [P] T1
+**Printed p.91, ¶1.** Argentina recites Britain's own note **No. 114 of 21 December [1954]**, asking
+whether, "comme alternative de ce tempérament", Argentina would join Britain in submitting
+> "à la décision d'un tribunal d'arbitrage indépendant, *ad hoc*, la question de leurs droits
+> respectifs, selon le droit international, **au territoire désigné par les cartes patentes de 1908 et
+> de 1917 comme dépendances des îles Malouines**."
+
+And at ¶9 Argentina declines "ni à celle d'aucun autre tribunal de justice ou d'arbitrage."
+
+→ **The 21 December 1954 arbitration offer is now anchored in three independent primaries:** the UK
+Application ¶41 (C44), **Macmillan HC 6 May 1955** (C48b), and **Argentina's own note** (here).
+→ ⭐ **And the scope is confirmed from the Argentine side, in Argentine words:** the arbitration
+proposal covered "the territory designated by the Letters Patent of 1908 and 1917 as **dependencies of
+the Malvinas**." **Not the islands.** The Dependencies distinction (C39c, C44a, C48a) is now attested
+by *both governments* in the same exchange. It is the most thoroughly corroborated fact in the project.
+
+### C49d — THE DATE COINCIDENCE, AND IT IS EXACT [P] T1
+| 21 Dec 1954 | Britain offers arbitration on the Dependencies, identical Notes to Argentina and Chile |
+| **4 May 1955** | **Britain files at the ICJ** — with the footnote excluding everything outside the Dependencies (C44a) |
+| **4 May 1955** | **Argentina's MFA refuses both Court and arbitration** — because the Malvinas are excluded (C49a) |
+| 6 May 1955 | Macmillan tells the Commons the offer was rejected (C48b) |
+| 1 Aug 1955 | Argentina transmits its refusal to the Court's Registrar |
+| 16 Mar 1956 | The Court removes the case from its List |
+
+→ Britain's filing and Argentina's refusal are **the same day.** Neither knew the other's document.
+
+### 🛑 C49e — THE 1844 FLAG: STILL OPEN, AND NOW WITH A MEANINGFUL NEGATIVE
+**Target of this pass was the 1844 arbitration request. It is not here.** Term counts across the whole
+38-page Correspondence: **`1844` = 0**, `Malvinas` = 0 (the French prints *Malouines*).
+→ **Greig's footnote 63 does NOT supply a second witness.** Read in full, its 1844 sentence is Greig's
+own aside cross-referring to **n.66 — the Godwin memorandum**, i.e. back to the same single source.
+**C36's flag stands unchanged: the 1844 claim remains single-source, at two removes, from a file nobody
+in this project has seen.**
+→ ⚖️ **But this is now a pointed negative.** Argentina, setting out its grievance at length to the
+British Embassy in 1955 — reciting usurpation, aggression, restitution, the 1908/1917 Letters Patent,
+the Rio Treaty, the Caracas resolutions — **never mentions having proposed arbitration in 1844.** The
+party with every incentive to cite such a precedent does not cite it.
+→ ⚠ **Bounded, honestly:** the note's subject is the **Antarctic** dispute, not the Falklands title, so
+an omission is not decisive. It is one more reason not to restore 1844 to any prominent position, not
+proof it never happened. **Recommendation unchanged from C39d: keep it demoted; the refusal sentence
+can be quoted without the 1844 framing.**
+
+### C49f — STATUS AND GUARDS
+- Tier **[P] T1** — the Court's own published Pleadings, read directly, both load-bearing passages
+  character-verified against page images. Free.
+- **Attribution:** this is **Argentina's advocacy**, not a finding of any tribunal. The case was struck
+  out (C44e.1). Neither side's 1955 pleading was ever tested.
+- **On-screen:** the French text is showable, but any card needs the French with an English rendering
+  beneath, and must state it is a translation from the Spanish original.
+- **Never pair C44a and C49a as "both sides were hiding the same thing."** Britain excluded the
+  Falklands from a case about the Antarctic; Argentina refused a case about the Antarctic until the
+  Falklands were addressed. **Those are different acts with different logics** — the symmetry is that
+  the Falklands governed both, not that both did the same thing.
+
+## C50 🛑⭐⭐⭐⭐⭐⭐ — FREEDMAN'S OFFICIAL HISTORY: THE MOST AUTHORITATIVE COUNTER-EVIDENCE IN THE PROJECT, AND IT REACHES 1982 [S] T1
+**Date:** 2026-07-27. Target 4. Source: **Lawrence Freedman, *The Official History of the Falklands
+Campaign*, Vol. I: *The Origins of the Falklands War*** — the commissioned official history, written
+with privileged access to the closed British records. Read directly
+(`Freedman-Vol1-CLEANED.txt`, 755K chars). Previously ~unmined; 15 ICJ hits, none filed until now.
+⚠ **Page pins below are PDF-extract pages** from the local text, not printed pages. Verified present
+in the extract by whitespace-normalised substring match. **Eyeball the PDF before any on-screen card.**
+
+**Stated targets for this pass:** (1) forum material not already held; (2) anything arguing *against*
+the spine; (3) Argentine internal doubt; (4) whether anyone already draws the Minquiers/Falklands
+contrast (the live `[FLAG: NEED SOURCES]` on C40f).
+**Result: target 2 produced far more than target 1. That is the finding.**
+
+---
+
+### 🛑🛑 C50a — THE OFFICIAL HISTORIAN REJECTS THE PRIVATE-DOUBT MOTIVE, IN TERMS (p.19) [S] T1
+> "Equally when British officials considered the possibility of transferring the Islands to Argentina
+> **this was not because of a lack of confidence in the claim but more in their ability to sustain the
+> Islands** in the face of continued pressure from Argentina."
+
+And, on the forum question itself:
+> "**Handing the matter over to international lawyers would not have taken the matter out of politics.**
+> Any opinion from the International Court of Justice (ICJ) would not arise simply out of a
+> disinterested process of legal analysis. Much would depend on the composition of the Court, including
+> the nationality and legal philosophy of individual members, as well as whether they were disposed to
+> see the Falklands as a relic of colonialism or a shining example of self determination."
+
+→ 🛑 **This is the single strongest counter to this dossier's motive claim, and it comes from the
+historian the British government appointed and gave the files to.** It must be carried in any beat that
+touches motive. **Non-negotiable, on the same footing as C38a (Greig).**
+→ It is also a **fifth named voice** for the non-justiciability / political-risk reading, after Greig
+(C38b), Fawcett (C24e), Sinclair (C37e) and Weller (C35b). **The tally in C38c must be updated: five
+against, and the fifth is the official history.**
+→ ⚠ **Freedman is not neutral either** — he is the *official* historian, writing for the government
+whose motive is in question. **State that whenever he is used.** Symmetric treatment with the Dolzer
+guard (triage guard 5).
+
+### ⭐⭐⭐⭐⭐ C50b — THE DOUBT CHAIN EXTENDS TO LATE 1981, AND SUPPLIES A THIRD MOTIVE (p.29) [S] T1
+> "In late 1981 the Research Department at the Foreign & Commonwealth Office (FCO) produced a paper on
+> the British case. The intention had been to produce a sanitised version to pass to suitable contacts
+> but **officials were clearly surprised by the conclusion that the British case rested 'almost entirely
+> on 148 years of continuous settlement.'** This was not a view that officials chose to put to the test,
+> especially given the '**probable in-built anti-colonial bias of most of the international institutions
+> which might be involved if the case went to arbitration.**'"
+
+→ The dossier's chain ran 1829 → 1911 → 1928–36 → 1946. **This adds a link in late 1981 — months before
+the war** — and it is the latest internal example found.
+→ 🎯 **But read what the reason is.** Not "our case is weak" and not "the dispute is non-justiciable"
+but **"the tribunals are biased against us."** That is a **third distinct motive**, in the FCO's own
+words, and it belongs in the C38c table as a third column. It also rhymes exactly with Argentina's
+mirror-image complaint of 1955 (C49b): each side believed the forum was structurally tilted against it.
+→ Same page, and it closes a provenance loop: the 1910 memorandum (de Bernhardt, C10/C11) "was in the
+Public Records Office, and could not be recalled, and had, in any case, **already been identified by an
+academic researching the matter** who had drawn it to the attention of the FCO." **The FCO knew a
+scholar had found the doubt chain before 1982.** (The academic is unnamed here — ⚠ do **not** assume it
+is Beck without evidence.)
+
+### 🛑🛑🛑 C50c — THATCHER PUSHED TO GO TO THE COURT IN 1982. THIS IS THE HARDEST FACT AGAINST THE SPINE. (p.180) [S] T1
+> "To the Prime Minister **a much more attractive option was to go to the International Court of Justice
+> at the Hague. She had raised the idea that morning** and Carrington had investigated it during the day.
+> A submission could be made but would not be accepted if Argentina withheld consent. He was therefore
+> edging towards going to the Court **on the legality of Argentine behaviour on South Georgia rather than
+> on sovereignty.** To Thatcher that was where the challenge lay… there seemed obvious advantages in
+> **daring Argentina to go to Court.**"
+
+→ 🛑 **The spine says neither government "has ever been willing to let a court rule." In the last days of
+March 1982 a British Prime Minister proposed going to the Court, and her Foreign Secretary looked into
+it.** This cannot be omitted.
+→ **What survives, and it still survives cleanly:**
+  1. Nothing was ever submitted on **sovereignty** — Carrington steered it to South Georgia legality.
+  2. Consent was the obstacle Carrington identified — Argentina's, not Britain's reluctance.
+  3. Thatcher's interest was **tactical** — "daring Argentina to go to Court" is a diplomatic manoeuvre
+     in a crisis, not an offer to have title adjudicated.
+→ **And it makes C33a sharper, not weaker.** Thatcher told the Commons on **29 April 1982** that "we
+have never sought a ruling on the Falkland Islands themselves from that court" — **four weeks after
+raising precisely that idea in private.** Both statements are true on their own terms (she raised it;
+Britain never sought it). **The honest beat is the gap between them, and it needs no insinuation.**
+→ ⚠ **NEVER script this as "Thatcher lied."** She didn't. Britain never sought a ruling. The interest
+was days old, was redirected to a different question, and died on the consent problem.
+
+### ✅ C50d — C37a's FLAG IS ANSWERED, AND THE ANSWER IS MUNDANE: AN ELECTION, NOT SUPPRESSION (p.18) [S] T1
+C37a filed `[FLAG: LIBRARY ACQUISITION]` on the HCFAC 1982–3 draft conclusion favouring Argentina, with
+the guard: *"Do not characterise this as suppression until the final report has been read."* Freedman
+answers it:
+> "As the Committee was about to reach a conclusion, **the May 1983 general election intervened**, and it
+> took until the next year before a reconstituted Committee could issue a report… The Committee declared
+> itself '**unable to reach a categorical conclusion on the legal validity of the claims**' of either
+> Britain or Argentina."
+> "The Government expressed its regret in 1985 at the Committee's reluctance to reach a conclusion."
+
+→ **The draft's pro-Argentina conclusion did not survive, and the reason is a dissolution.** Sinclair's
+"I believe it was not in fact incorporated" (C37a) is confirmed, and the mechanism is a general
+election, not a hand on a file.
+→ **The suppression reading is dead. Do not revive it.** C37a's flag can be downgraded: the Minutes of
+Proceedings would still add the division detail, but nothing load-bearing now waits on them.
+→ ⭐ Freedman also notes the Government "could not ignore the fact that for some 15 years it had been
+prepared to talk with Argentina about the future of the Falklands, with the transfer of sovereignty
+often explicitly on the agenda."
+
+### ⭐⭐⭐⭐ C50e — AND FREEDMAN STATES THE SPINE HIMSELF (p.18) [S] T1
+> "**there has never been any formal presentation of the British claim before any international or
+> judicial** [body]"
+> "an international court has never tested the claim and Argentina disagrees"
+> "**law has mattered less than power and determination when it comes to deciding ownership.**"
+
+→ 🎯 **The official historian states the behavioural spine as plain fact.** After C38c narrowed the
+dossier to "the behaviour is documented, the motive is contested," this is the behaviour asserted by the
+most authoritative source in the corpus. **The spine no longer rests only on Hansard — it is the
+official history's own framing.**
+
+### C50f — THREE CORROBORATIONS AND ONE NARROWING
+- **The 1955 Dependencies separation, independently confirmed (p.28):** "The 1955 application stressed
+  that the claim to sovereignty over the Dependencies was **separate and not derived from the title to
+  the Falklands themselves.**" → C44a from the Official History. The distinction is now attested by
+  Britain's filing, Argentina's note, Macmillan, Thatcher, Belstead, Reading, Beck, Perl, Gustafson and
+  Freedman.
+- **1884, a fourth scholar (p.26):** "In 1884 Argentina tried to force Britain to accept arbitration.
+  This was one of the few points in the conflict when an international evaluation of the competing
+  claims might have been possible." → With Beck (1885–8), Gustafson (1884) and Perl. **The 1844 date is
+  now outnumbered four to one. C49e's recommendation hardens again.**
+- 🛑 **A NARROWING on 1910 (p.27):** "in 1910 there was intensive discussion in the Foreign Office on the
+  possibility of ceding the South Orkneys to Argentina, **not on the basis of doubts on sovereignty but
+  because this was a useless piece of land** and its transfer would be a goodwill gesture." → ⚠ This is
+  the **South Orkneys**, not the Falklands, so it does not touch de Bernhardt (C10/C11). **But it bars
+  any beat that treats 1910 FO cession talk generally as doubt-driven.** Keep the territories separate.
+- **The legal logic, stated (p.25):** "The weaker Britain's pre-1833 claim the weaker it was post-1833."
+
+### C50g — TARGETS 3 AND 4: BOTH NEGATIVE
+- **Target 3 (Argentine internal doubt): nothing.** All eleven Argentine-adjacent "doubt" passages in
+  755K chars concern British doubt *about* Argentine intentions, islander opinion, or invasion planning.
+  **No Argentine official doubting Argentina's title appears in Freedman either. C39a stands after a
+  fourth source.**
+- **Target 4 (the Minquiers contrast): not made.** Term counts across all four sources —
+  **Minquiers: Gustafson 0, Freedman 0, Hoffmann 0, Calvert 1** (on the merits, per C44e.5).
+  **`Optional Clause`: Gustafson 0, Freedman 0, Hoffmann 0, Calvert 0, Beck 1.**
+  → **C40f's flag stays open but is now well-bounded:** the Minquiers/Falklands contrast is made by
+  nobody in this ten-source corpus, and the Optional-Clause mechanism (C24d, C30d, C47c, C49b) is
+  essentially untouched in the literature we hold. Per
+  [[feedback-no-definitive-claims-without-verification]] that is a statement about **this corpus**, not
+  a claim of novelty — the literature is far larger. **If either goes on screen it is framed as an
+  observation, never attributed to a scholar.**
+
+### Status
+- Tier **[S] T1** throughout — official history, archive-privileged, read directly. ⚠ **Official ≠
+  neutral**; label him whenever used.
+- **New named source surfaced:** Jeffrey Myhre, "Title to the Falklands-Malvinas Under International
+  Law", *Millennium* 12:1 (1983), p.34 — Freedman cites him for the observation that common-law-trained
+  lawyers accept acquisitive prescription more readily than Roman-law-trained ones, "as practised in
+  Argentina." A possible explanation for the doctrinal fork at C42. Not held; low priority.
+- **C38c's motive table now needs three columns, not two** (private doubt · non-justiciability ·
+  institutional bias). That is the honest state of the evidence and it is more interesting than either
+  sharp version.
+- **This pass was run by asking what argues against the thesis.** It produced the strongest counter
+  (C50a), the hardest fact (C50c), a flag closure (C50d) and the spine's best endorsement (C50e).
