@@ -105,6 +105,44 @@ def page_text(pdf_path, page: int) -> Optional[str]:
         doc.close()
 
 
+# Tesseract ships with this repo's machine; PyMuPDF drives it directly, so no
+# pytesseract dependency. Multi-language because the collection is not English:
+# a Cyrillic scan OCR'd with `eng` alone returns transliterated garbage
+# ("6OMMCAHIE"), and with `eng+rus` returns readable Cyrillic.
+OCR_LANGUAGES = "eng+rus+fra+spa+deu"
+TESSDATA = r"C:\Program Files\Tesseract-OCR\tessdata"
+
+
+def ocr_page_text(pdf_path, page: int, language: str = OCR_LANGUAGES,
+                  dpi: int = 200) -> Optional[str]:
+    """OCR a single 1-based page. None if the page or tesseract is unavailable.
+
+    Deliberately per-page and opt-in: OCR costs ~0.3-3s per page against ~0ms for
+    an existing text layer, so it is a fallback for image-only scans, never the
+    default path.
+    """
+    import os
+    os.environ.setdefault("TESSDATA_PREFIX", TESSDATA)
+    doc = _open(pdf_path)
+    if doc is None:
+        return None
+    try:
+        if not 1 <= page <= doc.page_count:
+            return None
+        # Hold ONE Page object: get_textpage_ocr keeps a weak reference to its
+        # parent, so `doc[i]` twice raises "weakly-referenced object no longer
+        # exists".
+        p = doc[page - 1]
+        textpage = p.get_textpage_ocr(language=language, dpi=dpi, full=True)
+        return p.get_text(textpage=textpage)
+    except Exception as exc:
+        logger.warning("OCR failed on page %d of %s: %s",
+                       page, Path(pdf_path).name, str(exc)[:80])
+        return None
+    finally:
+        doc.close()
+
+
 def normalise(text: str) -> str:
     """Fold the differences a PDF introduces but a human quoting it will not.
 

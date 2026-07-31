@@ -75,6 +75,13 @@ BAD_TITLE = re.compile(
 ICJ_NAME = re.compile(r"^(\d{3})-(\d{4})(\d{2})(\d{2})-(JUD|ADV|ORD)-", re.I)
 FILENAME_YEAR = re.compile(r"\b(1[6-9]\d{2}|20[0-2]\d)\b")
 
+# Archive/scan cruft carrying no meaning: long digit runs, hex hashes, DOI
+# prefixes, "pdf_1-293" page ranges, libgen/z-lib tails. Stripping these leaves
+# whatever human words the filename still holds.
+FILENAME_CRUFT = re.compile(
+    r"(\b\d{5,}\b|\b[0-9a-f]{8,}\b|10\.\d{4}[@/][^\s-]+|pdf[_ ]?\d+[-–]\d+"
+    r"|z-?lib(rary)?(\.\w+)?|libgen(\.\w+)?|anna.?s archive|_compre\w*)", re.I)
+
 # An OCR-garbage title: too few vowels to be language. `DFOBiHtIS` produced the
 # same proposed name for two different Karabakh scans, which would have collided.
 def _is_garbage(title: str) -> bool:
@@ -147,8 +154,53 @@ def classify(text: str) -> str:
     return "book"
 
 
-def extract(path: Path) -> Candidate:
-    """Best-effort identification. Never raises."""
+def _from_epub(path: Path, cand: Candidate) -> Candidate:
+    """Read Dublin Core metadata out of an EPUB.
+
+    An EPUB is a zip whose OPF package file carries `dc:title`, `dc:creator` and
+    `dc:date` — better metadata than most PDFs have, and reachable with the
+    standard library alone. 22 of the stash's stragglers are EPUBs; OCR, which
+    this was added alongside, rescued only 2 files in total.
+    """
+    import xml.etree.ElementTree as ET
+    import zipfile
+
+    DC = "{http://purl.org/dc/elements/1.1/}"
+    try:
+        with zipfile.ZipFile(path) as z:
+            opf = next((n for n in z.namelist() if n.lower().endswith(".opf")), None)
+            if not opf:
+                cand.problem = "epub with no OPF package file"
+                return cand
+            root = ET.fromstring(z.read(opf))
+    except Exception as exc:
+        cand.problem = f"unreadable epub: {str(exc)[:50]}"
+        return cand
+
+    def _first(tag: str) -> str:
+        el = root.find(f".//{DC}{tag}")
+        return _clean(el.text) if el is not None and el.text else ""
+
+    title = _first("title")
+    if title and not BAD_TITLE.match(title) and not _is_garbage(title):
+        cand.title, cand.evidence = title, "epub-opf"
+    creator = _first("creator")
+    if creator and len(creator) < 60:
+        cand.author = creator.split(",")[0].split(" and ")[0].strip()
+    m = re.search(r"(1[6-9]\d{2}|20[0-2]\d)", _first("date") or path.stem)
+    if m:
+        cand.year = m.group(0)
+    if not cand.title:
+        cand.problem = "epub without a usable dc:title"
+    return cand
+
+
+def extract(path: Path, ocr: bool = False) -> Candidate:
+    """Best-effort identification. Never raises.
+
+    `ocr` enables the last-resort image pass; it is off by default because it
+    costs seconds per file against milliseconds for the other routes.
+    """
     cand = Candidate(path=path)
     try:
         if path.stat().st_size == 0:
@@ -157,6 +209,9 @@ def extract(path: Path) -> Candidate:
     except OSError as exc:
         cand.problem = f"unstattable: {exc}"
         return cand
+
+    if path.suffix.lower() == ".epub":
+        return _from_epub(path, cand)
 
     if path.suffix.lower() != ".pdf":
         cand.problem = f"not a PDF ({path.suffix})"
@@ -229,8 +284,43 @@ def extract(path: Path) -> Candidate:
 
     if cand.kind == "book":
         cand.kind = classify(text)
+
+    # Fallback 1: the filename minus its archive cruft. Cheap, and on the
+    # Karabakh scans it beat OCR outright -- "000199_000009_002585977-1823
+    # karabach census" carries a title and a year, while OCR of that 1823 print
+    # returned "6OMMCAHIE".
     if not cand.title:
-        cand.problem = cand.problem or "no title in metadata or page text (image-only? needs OCR)"
+        remnant = FILENAME_CRUFT.sub(" ", path.stem)
+        remnant = _clean(re.sub(r"[_+]+", " ", remnant))
+        if len(re.findall(r"[A-Za-zÀ-ÿ]{3,}", remnant)) >= 2 and not _is_garbage(remnant):
+            cand.title, cand.evidence = remnant, "filename-remnant"
+
+    # Fallback 2: OCR the first pages. Only now, because it costs seconds per
+    # page against nothing for the two checks above.
+    if not cand.title and ocr:
+        from tools.pdf_source import ocr_page_text
+        scanned = ""
+        for i in (1, 2):
+            got = ocr_page_text(path, i)
+            if got:
+                scanned += got + "\n"
+            if len(scanned) > 200:
+                break
+        if scanned:
+            for line in (l.strip() for l in scanned.splitlines()):
+                line = _clean(line)
+                if _usable(line) and not line.isdigit():
+                    cand.title, cand.evidence = line, "ocr"
+                    break
+            if not cand.year:
+                years = re.findall(r"\b(1[6-9]\d{2}|20[0-2]\d)\b", scanned[:2000])
+                if years:
+                    cand.year = Counter(years).most_common(1)[0][0]
+            if cand.kind == "book":
+                cand.kind = classify(scanned)
+
+    if not cand.title:
+        cand.problem = cand.problem or "no title in metadata, text, filename or OCR"
     return cand
 
 
@@ -307,12 +397,12 @@ def classify_topic(text: str, vocab: dict):
     return best, top, second
 
 
-def triage(stash=None) -> List[Candidate]:
+def triage(stash=None, ocr: bool = False) -> List[Candidate]:
     base = Path(stash) if stash else STASH
     if not base.is_dir():
         logger.warning("no stash at %s", base)
         return []
-    return [extract(f) for f in sorted(base.iterdir()) if f.is_file()]
+    return [extract(f, ocr=ocr) for f in sorted(base.iterdir()) if f.is_file()]
 
 
 def main() -> int:
@@ -331,6 +421,8 @@ def main() -> int:
     ap.add_argument("--file", action="store_true",
                     help="move identified files into library/by-topic/<topic>/ when the "
                          "topic is unambiguous (abstains otherwise — they stay in the stash)")
+    ap.add_argument("--ocr", action="store_true",
+                    help="OCR image-only scans as a last resort (slow: seconds per file)")
     ap.add_argument("--limit", type=int, default=0)
     g = ap.add_mutually_exclusive_group()
     g.add_argument("--verbose", "-v", action="store_true")
@@ -338,7 +430,7 @@ def main() -> int:
     args = ap.parse_args()
     setup_logging(args.verbose, args.quiet)
 
-    cands = triage()
+    cands = triage(ocr=args.ocr)
     if args.limit:
         cands = cands[:args.limit]
     if not cands:
