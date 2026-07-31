@@ -17,6 +17,12 @@ from unittest.mock import patch, MagicMock
 
 # All tests that exercise _run_autocomplete need to suppress the HTTP path
 # so mocked extract_keywords_batch is used instead.
+# Shared trends stub. `_run_trends_pulse()` reads keys off this dict, so patching
+# TrendsClient is not enough on its own — the mock must be CONFIGURED, not merely
+# installed. Two tests patched it without configuring it and silently made live
+# Google Trends calls (116s of the suite) until 2026-07-30.
+_MOCK_TRENDS = {"direction": "stable", "percent_change": 10.0, "interest": 50}
+
 _EMPTY_HTTP = patch(
     "tools.discovery.discovery_scanner.DiscoveryScanner._http_autocomplete",
     return_value=[],
@@ -550,11 +556,14 @@ class TestScanProducesReport:
              patch("tools.discovery.discovery_scanner.AUTOCOMPLETE_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.fetch_all_competitors", return_value={"channels_fetched": 0, "videos_total": 0, "videos": [], "errors": []}), \
              patch("tools.discovery.discovery_scanner.COMPETITOR_TRACKER_AVAILABLE", True), \
+             patch("tools.discovery.discovery_scanner.TrendsClient") as mock_tc, \
+             patch("tools.discovery.discovery_scanner.TRENDSPYG_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.get_existing_topics", return_value=[]), \
              patch("tools.discovery.discovery_scanner.topic_matches_existing", return_value=False), \
              patch("tools.discovery.discovery_scanner.KeywordStore") as mock_db_cls, \
              patch("tools.discovery.discovery_scanner.classify_topic", return_value="general"):
 
+            mock_tc.return_value.get_interest_over_time.return_value = _MOCK_TRENDS
             mock_db = MagicMock()
             mock_db.get_keyword.return_value = {"error": "not found"}
             mock_db_cls.connect.return_value = mock_db
@@ -576,11 +585,14 @@ class TestScanProducesReport:
              patch("tools.discovery.discovery_scanner.AUTOCOMPLETE_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.fetch_all_competitors", return_value=MOCK_COMPETITOR_RESULT), \
              patch("tools.discovery.discovery_scanner.COMPETITOR_TRACKER_AVAILABLE", True), \
+             patch("tools.discovery.discovery_scanner.TrendsClient") as mock_tc, \
+             patch("tools.discovery.discovery_scanner.TRENDSPYG_AVAILABLE", True), \
              patch("tools.discovery.discovery_scanner.get_existing_topics", return_value=[]), \
              patch("tools.discovery.discovery_scanner.topic_matches_existing", return_value=False), \
              patch("tools.discovery.discovery_scanner.KeywordStore") as mock_db_cls, \
              patch("tools.discovery.discovery_scanner.classify_topic", return_value="territorial"):
 
+            mock_tc.return_value.get_interest_over_time.return_value = _MOCK_TRENDS
             mock_db = MagicMock()
             mock_db.get_keyword.return_value = {"error": "not found"}
             mock_db_cls.connect.return_value = mock_db

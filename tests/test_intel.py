@@ -16,6 +16,21 @@ def _make_fake_feed():
     return fake_feed
 
 
+def _fake_youtube():
+    """Stub of the YouTube Data API client.
+
+    `competitor_tracker.fetch_channel_uploads` (:300) pages `playlistItems.list`
+    until `nextPageToken` is absent, so the stub returns one empty page and the
+    loop exits immediately.
+    """
+    yt = MagicMock()
+    yt.playlistItems.return_value.list.return_value.execute.return_value = {
+        "items": [], "nextPageToken": None,
+    }
+    yt.videos.return_value.list.return_value.execute.return_value = {"items": []}
+    return yt
+
+
 def test_kb_store_imports_cleanly():
     """KBStore is importable without sys.path hacks."""
     from tools.intel.kb_store import KBStore
@@ -125,9 +140,20 @@ def test_run_refresh_returns_dict_with_mocked_network(tmp_path):
     mock_response.text = "<html>Algorithm insights</html>"
     mock_response.raise_for_status = MagicMock()
 
+    # The feedparser patches below are vestigial: competitor_tracker no longer
+    # fetches RSS on this path. `fetch_all_competitors` calls the *YouTube Data
+    # API* (30 channels -> 111 googleapiclient requests, ~45s of live SSL), which
+    # neither feedparser nor `requests` intercepts. Both call sites (:237, :300)
+    # import `get_authenticated_service` INSIDE the function, so it has to be
+    # patched at source, not on the competitor_tracker module. Until 2026-07-30
+    # these two tests hit the live API for 114s while one was named
+    # "..._with_mocked_network"; profiling, not the docstring, found it.
     with patch("tools.intel.algo_scraper.feedparser.parse", return_value=fake_feed), \
          patch("tools.intel.competitor_tracker.feedparser.parse", return_value=fake_feed), \
-         patch("tools.intel.algo_scraper.requests.get", return_value=mock_response):
+         patch("tools.intel.algo_scraper.requests.get", return_value=mock_response), \
+         patch("requests.get", return_value=mock_response), \
+         patch("tools.youtube_analytics.auth.get_authenticated_service",
+               return_value=_fake_youtube()):
         result = run_refresh(
             db_path=str(tmp_path / "test_intel.db"),
             force=True,
@@ -146,9 +172,20 @@ def test_run_refresh_result_has_expected_keys(tmp_path):
     mock_response.text = "<html>Algorithm insights</html>"
     mock_response.raise_for_status = MagicMock()
 
+    # The feedparser patches below are vestigial: competitor_tracker no longer
+    # fetches RSS on this path. `fetch_all_competitors` calls the *YouTube Data
+    # API* (30 channels -> 111 googleapiclient requests, ~45s of live SSL), which
+    # neither feedparser nor `requests` intercepts. Both call sites (:237, :300)
+    # import `get_authenticated_service` INSIDE the function, so it has to be
+    # patched at source, not on the competitor_tracker module. Until 2026-07-30
+    # these two tests hit the live API for 114s while one was named
+    # "..._with_mocked_network"; profiling, not the docstring, found it.
     with patch("tools.intel.algo_scraper.feedparser.parse", return_value=fake_feed), \
          patch("tools.intel.competitor_tracker.feedparser.parse", return_value=fake_feed), \
-         patch("tools.intel.algo_scraper.requests.get", return_value=mock_response):
+         patch("tools.intel.algo_scraper.requests.get", return_value=mock_response), \
+         patch("requests.get", return_value=mock_response), \
+         patch("tools.youtube_analytics.auth.get_authenticated_service",
+               return_value=_fake_youtube()):
         result = run_refresh(
             db_path=str(tmp_path / "test_intel.db"),
             force=True,
