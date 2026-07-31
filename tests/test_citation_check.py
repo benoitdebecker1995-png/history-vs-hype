@@ -1,0 +1,132 @@
+"""Tests for citation faithfulness.
+
+The load-bearing case is WRONG_PAGE: a quote that exists in the document but on
+a different page. It survives every text-only check and only fails when a viewer
+looks it up, which is the worst possible moment for this channel.
+
+The other half of the contract is not crying wolf. Two of these tests pin
+failures found on the tool's first real run against published research.
+"""
+import pytest
+
+from tools.preflight.citation_check import check_file, quotes_in
+
+fitz = pytest.importorskip("fitz", reason="PyMuPDF not installed")
+
+QUOTE_P2 = "boats were requisitioned under the denial policy"
+
+
+@pytest.fixture
+def source(tmp_path):
+    docs = tmp_path / "_research" / "documents"
+    docs.mkdir(parents=True)
+    doc = fitz.open()
+    for body in ["Page one is introductory matter.",
+                 f"Page two records that {QUOTE_P2} across the province.",
+                 "Page three holds the mortality estimate."]:
+        doc.new_page().insert_text((72, 72), body, fontsize=13)
+    out = docs / "Kamen-famine-report.pdf"
+    doc.save(str(out))
+    doc.close()
+    return tmp_path
+
+
+def _md(root, text):
+    p = root / "01-VERIFIED-RESEARCH.md"
+    p.write_text(text, encoding="utf-8")
+    return p
+
+
+def test_correct_citation_verifies(source):
+    md = _md(source, f'- Claim "{QUOTE_P2}" (pdf p.2)\n')
+
+    r = check_file(md)
+
+    assert [x.verdict for x in r] == ["VERIFIED"]
+
+
+def test_off_by_one_page_is_caught(source):
+    """The headline case. Flagged WITH the page it is actually on, because
+    'wrong' without 'where' just makes work."""
+    md = _md(source, f'- Claim "{QUOTE_P2}" (pdf p.1)\n')
+
+    r = check_file(md)
+
+    assert r[0].verdict == "WRONG_PAGE"
+    assert r[0].found_pages == [2]
+    assert "p.2" in r[0].detail or "[2]" in r[0].detail
+
+
+def test_quote_not_in_document_is_not_found(source):
+    md = _md(source, '- Claim "the commission found no evidence of hoarding" (pdf p.2)\n')
+
+    assert check_file(md)[0].verdict == "NOT_FOUND"
+
+
+def test_absent_source_is_not_reported_as_fabrication(source):
+    """Regression, first real run: 8 quotes citing Kamen/Homza/Arguello were
+    reported as possible fabrication when the folder held one unrelated PDF.
+    Accusing a correct citation is how a checker gets ignored."""
+    md = _md(source, '- Claim "a passage from a book we do not hold" Thornton p. 44\n')
+
+    r = check_file(md)
+
+    assert r[0].verdict == "SOURCE_ABSENT"
+    assert "Thornton" in r[0].detail
+
+
+def test_printed_page_citation_is_not_failed(source):
+    """Academic PDFs are offset from their printed page numbers -- #66 cites
+    '(pdf p.32, printed p.26)'. A bare page number is ambiguous, so it reports
+    where the quote is rather than failing a possibly-correct citation."""
+    md = _md(source, f'- Claim "{QUOTE_P2}" p. 26\n')
+
+    r = check_file(md)
+
+    assert r[0].verdict == "PAGE_UNKNOWN"
+    assert r[0].found_pages == [2]
+
+
+def test_line_break_inside_a_quote_still_verifies(source):
+    """PDFs wrap; humans quote flat. This must not fail."""
+    md = _md(source, f'- Claim "{QUOTE_P2.replace(" ", "  ")}" (pdf p.2)\n')
+
+    assert check_file(md)[0].verdict == "VERIFIED"
+
+
+def test_short_fragments_are_ignored(source):
+    """'the treaty' matches everywhere and proves nothing."""
+    md = _md(source, '- Claim "the boats" (pdf p.2)\n')
+
+    assert check_file(md) == []
+
+
+def test_no_documents_directory_yields_no_findings(tmp_path):
+    md = _md(tmp_path, f'- Claim "{QUOTE_P2}" (pdf p.2)\n')
+
+    assert check_file(md) == []
+
+
+def test_missing_file_is_not_an_exception(tmp_path):
+    assert check_file(tmp_path / "ghost.md") == []
+
+
+# ------------------------------------------------------------ quote pairing ---
+
+def test_quotes_are_paired_not_alternated():
+    """Regression: a naive '"([^"]+)"' findall consumes the FIRST quote then
+    matches the text BETWEEN quotes as the second. First run produced findings
+    like '" (synthesis from operational records). Kamen p. 240: "'."""
+    line = ('Instruction 55 restricts the chamber to "Judges, Notary, and ministers only" '
+            'and Kamen p. 240 adds "physicians were usually available in case of emergency"')
+
+    found = quotes_in(line)
+
+    assert len(found) == 2
+    assert found[0].startswith("Judges, Notary")
+    assert found[1].startswith("physicians were usually")
+    assert not any("Kamen p. 240" in q for q in found)
+
+
+def test_unquoted_line_yields_nothing():
+    assert quotes_in("no quotes here at all, just prose about the denial policy") == []
