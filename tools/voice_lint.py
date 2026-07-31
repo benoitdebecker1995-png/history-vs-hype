@@ -120,6 +120,48 @@ WARN_ALWAYS = [
     ("goes-without-saying", "it goes without saying", "Filler hedge. If it goes without saying, don't say it; if it's load-bearing, state it plainly."),
     ("lets-dive-in", "let's dive in", 'Agenda-announce opener (the bare form `agenda-announce` misses). Start on the substance (bar-talk #2).'),
     ("lets-dive-deeper", "let's dive deeper", 'Agenda-announce opener. Walk into the next beat by consequence ("so…"), don\'t announce the dive.'),
+
+    # --- Wikipedia "Signs of AI writing" imports, 2026-07-31 ---
+    # Source: VOICE-PROFILE.md § "Generic LLM tells — IMPORTED CATALOGUE".
+    # Provenance is WikiProject AI Cleanup, not his corpus, so WARN only (same
+    # standing as the fingerprint single-sample block). Measured first: all of
+    # these appear ZERO times in 8,885 spoken words across the four
+    # EVAL-GOLDEN-SET scripts. `legacy` was a candidate and was REJECTED — #58
+    # uses it as ordinary English ("obsessed with his legacy: Saddam Hussein").
+    # NOTE: multi-word and exact forms live here; stems are regexes below,
+    # because matching is \b-anchored and \bfoster\b will not catch "fostering".
+
+    # Copulative avoidance — say "is"
+    ("copula-serves-as", "serves as", 'Copulative avoidance (AI tell). Say "is".'),
+    ("copula-stands-as", "stands as", 'Copulative avoidance (AI tell). Say "is".'),
+    ("copula-functions-as", "functions as", 'Copulative avoidance (AI tell). Say "is" or name what it does.'),
+
+    # Puffery / travel-brochure register
+    ("puffery-nestled", "nestled", "Travel-brochure register. Say where it is."),
+    ("puffery-heart-of", "in the heart of", "Travel-brochure register. Name the place."),
+    ("puffery-breathtaking", "breathtaking", "Puffery adjective. Cut, or show the thing that earns it."),
+    ("puffery-diverse-array", "diverse array", 'Puffery. Say how many, or list them.'),
+    ("puffery-diverse-range", "diverse range", 'Puffery. Say how many, or list them.'),
+
+    # Undue significance — legitimate history words, but the claim must be EARNED
+    ("sig-testament", "a testament to", "Hollow significance. Show what demonstrates it, or cut."),
+    ("sig-setting-stage", "setting the stage", "Hollow significance. State the actual causal link."),
+    ("sig-indelible", "indelible mark", "Hollow significance cliché. Name what actually persisted."),
+    ("sig-deeply-rooted", "deeply rooted", "Asserted depth. Show the root — a date, a document, an actor."),
+
+    # Superficial-analysis motion verbs
+    ("shallow-contributing-to", "contributing to", "Motion without content. Name the mechanism."),
+    ("shallow-valuable-insights", "valuable insights", "Empty. Say what was learned."),
+
+    # ⭐ Vague attribution — the highest-value group for this channel
+    ("vague-experts", "experts argue", "Unnamed authority. Name the scholar + page, or cut. This is the channel's whole advantage."),
+    ("vague-experts-say", "experts say", "Unnamed authority. Name the scholar + page, or cut."),
+    ("vague-observers", "observers have noted", "Unnamed authority. Name who, or cut."),
+    ("vague-industry-reports", "industry reports", "Unnamed authority. Cite the report."),
+
+    # Outline-like conclusion formula
+    ("outline-despite-challenges", "despite these challenges", 'The "Despite X, Y continues to thrive" wrap-up formula. Close on evidence.'),
+    ("outline-despite-its-challenges", "despite its challenges", 'The "Despite X, Y continues to thrive" wrap-up formula. Close on evidence.'),
 ]
 
 WARN_REGEXES = [
@@ -135,6 +177,46 @@ WARN_REGEXES = [
         "scholarly-hedge",
         r"\b(essentially|arguably|in many ways|at its core|in essence|considerable autonomy|considerable independence)\b",
         "Scholarly hedge = model fingerprint. His hedges are colloquial (basically/actually/kind of) — swap or delete.",
+        True,
+    ),
+    # --- Wikipedia "Signs of AI writing" imports, 2026-07-31 (stems + structures) ---
+    # See VOICE-PROFILE.md § "Generic LLM tells — IMPORTED CATALOGUE". WARN only:
+    # imported provenance, not picks-validated. Zero hits across the four
+    # EVAL-GOLDEN-SET scripts at import time.
+    (
+        "ai-vocab",
+        r"\b(delv(e|es|ed|ing)|tapestr(y|ies)|pivotal|underscor(e|es|ed|ing)|meticulous(ly)?"
+        r"|intricate(ly)?|intricacies|garner(s|ed|ing)?|showcas(e|es|ed|ing)|foster(s|ed|ing)?"
+        r"|vibrant|boasts|seamless(ly)?|multifaceted|myriad)\b",
+        "AI-vocabulary word (Wikipedia: Signs of AI writing). Say it the way you'd say it out loud.",
+        True,
+    ),
+    (
+        "ai-shallow-verb",
+        r"\b(symboliz(e|es|ed|ing)|encompass(es|ed|ing)?|exemplif(y|ies|ied)"
+        r"|underpin(s|ned|ning)?|epitomiz(e|es|ed|ing))\b",
+        "Superficial-analysis verb. Name the mechanism instead of gesturing at it.",
+        True,
+    ),
+    (
+        "negative-parallelism",
+        r"\bnot (only|just|merely|simply)\b[^.!?]{0,60}\bbut\b",
+        'Negative parallelism ("not just X, but Y") — a top-tier AI tell, and distinct from the '
+        "earned negation-correction that scan_negation_pairs caps. Say the positive claim.",
+        True,
+    ),
+    (
+        "vague-attribution",
+        r"\b(historians|scholars|experts|critics|researchers|analysts|observers)\s+"
+        r"(argue|say|said|believe|agree|note|noted|contend|maintain|suggest)\b",
+        "⭐ Unnamed authority — the exact inverse of this channel's advantage. Name the scholar "
+        "and the page, or cut the sentence.",
+        True,
+    ),
+    (
+        "vague-some-scholars",
+        r"\b(some|several|many|most)\s+(historians|scholars|critics|experts|researchers|sources|publications)\b",
+        "⭐ Unnamed authority. How many, and which ones? Name them or cut.",
         True,
     ),
     # --- v18 calibration (2026-06-12): FINGERPRINT-UNSCRIPTED quantitative rules ---

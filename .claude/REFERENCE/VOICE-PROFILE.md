@@ -525,3 +525,54 @@ When HE hedges, it's colloquial: *basically, actually, kind of, I guess.* When a
 The control exhibits, and the locked scripts fully avoid: scale-comparison openers ("more than the entire population of Canada… Poland… California"), agenda announcement ("So today, we're going to answer the question"), "X changed everything," "But here's the thing" / "And here's why," inflated-adjective register ("extraordinary ambition," "devastating"), abstraction-as-agent poetry ("the ghost of 1920 hangs in the air"), fragment-elegy bookend close ("Forty million people are still waiting."), engagement-bait CTA ("let me know in the comments… I'd love to hear your thoughts"), em-dash defining appositive after every proper noun. These are now mechanized as HARD lint rules (Phase 2 spec) so the gain is locked, not just observed.
 
 *Lint mechanization: `channel-data/fable-digests/PHASE-2-VOICE-LINT-SPEC.md` → `tools/voice_lint.py`. Acceptance: gold = 0 HARD · AI control ≥ 5 HARD · #58 stays 0 HARD.*
+
+---
+
+## Generic LLM tells — IMPORTED CATALOGUE, not his fingerprint (2026-07-31)
+
+⚠ **Different provenance from everything above. Read this before using it.**
+
+Every rule above this line was derived from *his* corpus — a line he approved beside a line he
+rejected. The block below was **imported from outside**: [Wikipedia's *Signs of AI
+writing*](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI
+Cleanup from patterns observed across thousands of AI-generated texts, citing peer-reviewed 2025
+detection studies and tracking how tells shift between model versions.
+
+**Why import at all.** The fingerprint above can only contain tells he *noticed and rejected*. A tell
+that never survived to reach him, or that he never named, is invisible to it by construction. This is
+the floor underneath the fingerprint, not a replacement for it.
+
+**Why it ships WARN, never HARD.** It is not picks-validated. Same standing as the
+FINGERPRINT-UNSCRIPTED single-sample thresholds: advisory until his own picks confirm one, at which
+point it graduates upward into the fingerprint proper and out of this section.
+
+**Empirical filter applied.** All candidates were measured against **8,885 spoken words** across the
+four EVAL-GOLDEN-SET scripts (#56, #57, #58, #59), using `voice_lint`'s own structural filter so
+production directions and HTML comments were excluded. **54 of 55 candidates appear zero times in
+approved work** — they are foreign to his voice, which is exactly what makes them safe to flag.
+
+**One candidate was REJECTED by that filter:** `legacy`. It appears in #58 —
+*"another ruler obsessed with his legacy: Saddam Hussein"* — as ordinary English doing real work.
+A history channel will use it. Not a rule.
+
+### The groups
+
+| Group | Tells | Test to apply |
+|---|---|---|
+| **AI vocabulary** | delve, tapestry, a testament to, pivotal, underscore, meticulous, intricate, garner, showcase, foster, enduring, crucial, landscape, realm, vibrant, boasts, enhance, seamless, robust, comprehensive, align with | Would he say this word out loud in a pub? |
+| **Copulative avoidance** | serves as, stands as, functions as, represents, marks a | Say *is*. The synonym adds nothing but register. |
+| **Negative parallelism** | not only … but, not just … but | Distinct from the negation-correction engine `scan_negation_pairs` already caps — that one is "wasn't X — it was Y". Keep an EARNED correction; delete the rhetorical seesaw. |
+| **Puffery** | nestled, in the heart of, rich cultural/history, breathtaking, renowned, groundbreaking, diverse array | Travel-brochure register. Say where it is and what happened there. |
+| **Undue significance** | pivotal moment, turning point, setting the stage, indelible mark, deeply rooted, reflects broader | ⚠ These are *legitimate historical vocabulary*. The tell is asserting significance the evidence hasn't earned. Ask: did the script SHOW this, or just claim it? |
+| **Superficial-analysis verbs** | contributing to, symbolizing, encompassing, ensuring, valuable insights, highlighting, emphasizing | Motion without content. Name the mechanism instead. |
+| **⭐ Vague attribution** | experts argue, historians argue/say/believe/agree, observers have cited/noted, some critics/scholars/historians, industry reports, several sources/publications | **Highest-value group for this channel.** Unnamed authority is the exact opposite of the competitive advantage. Every one of these must become a named scholar with a page number, or be cut. |
+| **Outline conclusion** | despite its/these challenges | The "Despite X, Y continues to thrive" formula. Close on the evidence, not a wrap-up. |
+
+### The caveat that keeps this from flattening the voice
+
+Several community anti-slop lists ban the **em dash** outright. **This profile does not, and must
+not.** §"HOW HIS LINES GET LOST" records that his lines die by *tidying*, not by bad writing — and a
+blanket punctuation ban is precisely that failure mode. Import the tells, not the aesthetics.
+
+*Mechanized as WARN in `tools/voice_lint.py` § "Wikipedia Signs-of-AI-writing imports". Source order
+is unchanged: this file leads, the linter follows (ADR-0006).*
