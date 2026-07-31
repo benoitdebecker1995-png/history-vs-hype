@@ -186,6 +186,7 @@ def fetch_traffic_sources_api(video_ids: Optional[List[str]] = None) -> Dict[str
         Dict mapping video_id -> list of traffic source dicts.
     """
     from tools.youtube_analytics.auth import get_authenticated_service
+    from tools.youtube_analytics.analytics_batch import query_grouped_by_video
 
     analytics = get_authenticated_service('youtubeAnalytics', 'v2')
 
@@ -194,33 +195,36 @@ def fetch_traffic_sources_api(video_ids: Optional[List[str]] = None) -> Dict[str
         video_ids = list(metadata.keys())
 
     logger.info("Fetching traffic sources for %d videos from API...", len(video_ids))
-    result = {}
 
-    for i, vid_id in enumerate(video_ids):
-        try:
-            response = analytics.reports().query(
-                ids='channel==MINE',
-                startDate='2024-01-01',
-                endDate='2026-12-31',
-                metrics='views,estimatedMinutesWatched',
-                dimensions='insightTrafficSourceType',
-                filters=f'video=={vid_id}'
-            ).execute()
+    # One batched request instead of one per video (58 round-trips -> 1).
+    grouped = query_grouped_by_video(
+        analytics,
+        video_ids=video_ids,
+        dimensions='insightTrafficSourceType',
+        metrics='views,estimatedMinutesWatched',
+        start_date='2024-01-01',
+        end_date='2026-12-31',
+        # Ordering note: the unbatched per-video query passed no `sort`, so rows
+        # came back in the API's unspecified internal order (neither alphabetical
+        # nor by views — e.g. NO_LINK_OTHER, SUBSCRIBER, YT_CHANNEL, YT_SEARCH,
+        # RELATED_VIDEO, PLAYLIST). Batching needs a deterministic sort or paging
+        # can drop/duplicate rows at a page boundary, so source_type order is now
+        # alphabetical. Verified 2026-07-30 against a live pre-change capture:
+        # identical content for all 58 videos, 0 differences; only order moved.
+        # Safe because every consumer re-sorts by views itself (e.g. :470, :404).
+    )
 
-            sources = []
-            for row in response.get('rows', []):
-                sources.append({
-                    'source_type': row[0],
-                    'views': int(row[1]),
-                    'watch_time_minutes': float(row[2]),
-                })
-
-            result[vid_id] = sources
-            if (i + 1) % 10 == 0:
-                logger.info("  Fetched %d/%d videos", i + 1, len(video_ids))
-
-        except Exception as e:
-            logger.warning("Failed to fetch traffic for %s: %s", vid_id, e)
+    result = {
+        vid_id: [
+            {
+                'source_type': row[0],
+                'views': int(row[1]),
+                'watch_time_minutes': float(row[2]),
+            }
+            for row in rows
+        ]
+        for vid_id, rows in grouped.items()
+    }
 
     logger.info("Fetched traffic data for %d videos", len(result))
     return result

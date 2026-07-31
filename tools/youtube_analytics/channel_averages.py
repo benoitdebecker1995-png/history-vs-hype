@@ -36,7 +36,7 @@ Dependencies:
 
 import sys
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 
 from tools.logging_config import get_logger
 from tools.youtube_analytics.auth import get_authenticated_service
@@ -137,16 +137,24 @@ def get_channel_averages(last_n_videos: int = 10) -> dict:
             'note': 'Channel may be new or have no public videos'
         }
 
-    # Fetch metrics for each video
-    metrics_list = []
-    failed_videos = []
+    # Fetch metrics for all videos in ONE request (was one per video: 10 videos
+    # cost 20 round-trips and ~20s, because get_video_metrics() also fetched each
+    # title via a second Data API call). Titles are not used in the averages
+    # below, so the batched path skips them entirely.
+    from tools.youtube_analytics.analytics_batch import fetch_metrics_for_videos
 
-    for vid in video_ids:
-        result = get_video_metrics(vid)
-        if 'error' not in result:
-            metrics_list.append(result)
-        else:
-            failed_videos.append(vid)
+    analytics = get_authenticated_service('youtubeAnalytics', 'v2')
+    fetched = fetch_metrics_for_videos(
+        analytics,
+        video_ids=video_ids,
+        start_date='2020-01-01',
+        end_date=date.today().isoformat(),
+    )
+
+    # Preserve input order, and treat "no row returned" the same way the old
+    # per-video error dict was treated: a failed video, excluded from the average.
+    metrics_list = [fetched[vid] for vid in video_ids if vid in fetched]
+    failed_videos = [vid for vid in video_ids if vid not in fetched]
 
     # Require minimum 3 videos for meaningful averages
     if len(metrics_list) < 3:

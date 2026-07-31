@@ -89,6 +89,11 @@ def save_search_terms_json(data: Dict[str, List[dict]]) -> None:
 # API FETCH
 # =========================================================================
 
+# Top-N search terms kept per video. Applied by the API for the single-video
+# helper below, and by hand after grouping in the batched fetch.
+SEARCH_TERMS_PER_VIDEO = 25
+
+
 def fetch_search_terms_for_video(analytics, video_id: str) -> List[dict]:
     """Fetch search terms driving traffic to a specific video."""
     try:
@@ -99,7 +104,7 @@ def fetch_search_terms_for_video(analytics, video_id: str) -> List[dict]:
             metrics='views,estimatedMinutesWatched',
             dimensions='insightTrafficSourceDetail',
             filters=f'video=={video_id};insightTrafficSourceType==YT_SEARCH',
-            maxResults=25,
+            maxResults=SEARCH_TERMS_PER_VIDEO,
             sort='-views'
         ).execute()
 
@@ -136,6 +141,16 @@ def fetch_all_search_terms(video_ids: Optional[List[str]] = None) -> Dict[str, L
         video_ids = list(metadata.keys())
 
     logger.info("Fetching search terms for %d videos from API...", len(video_ids))
+
+    # ⚠ This loop CANNOT be batched — do not "optimise" it into one request.
+    # Its siblings (geography_analysis, traffic_analysis) were collapsed from 58
+    # round-trips to 1 on 2026-07-30 via analytics_batch.query_grouped_by_video.
+    # The same change was attempted here and the API rejects it:
+    #     dimensions='video,insightTrafficSourceDetail'
+    #     -> HTTP 400 badRequest, "The query is not supported."
+    # insightTrafficSourceDetail cannot be broken down by video; it is only
+    # available filtered to a single video at a time. So the per-video loop is
+    # the supported shape, not an oversight.
     result = {}
 
     for i, vid_id in enumerate(video_ids):
