@@ -1,81 +1,135 @@
-# CTR Thumbnail Findings — visual audit of real thumbnails vs CTR (2026-06-27)
+# CTR Thumbnail Findings — served-cohort recompute (corrected 2026-07-29)
 
-**Method:** pulled the actual published thumbnails (img.youtube.com by video_id) for the
-6 highest- and 6 lowest-CTR videos and visually compared them against real Studio CTR.
-Companion to `CTR-TITLE-FORMULA-2026-06.md`. Lifetime CTR is confounded by topic+title, so
-treat these as STRONG hypotheses to confirm via native Test & Compare (per-variant CTR).
+**Status:** Recomputed and reconciled. **Informational only — no gate or checker was
+changed.** This supersedes the June 27th “FULL-56 VALIDATION” table and the
+high/low-extremes recipe previously in this file.
+
+## Decision summary
+
+- The channel does **not** have enough served videos to validate a thumbnail-feature
+  predictor.
+- `surface_ctr` contains 56 videos, but **38 have fewer than 1,000 lifetime Browse
+  impressions**. Only 18 clear that floor.
+- `thumbnail_features` is frozen at 47 tagged videos. After joining it to
+  `surface_ctr`, the served-and-tagged cohort is **n=17**; several feature arms shrink
+  to n=1–4.
+- **Red is neither a winner rule nor a poison rule.** Its sign changes with cohort
+  selection and Guatemala inclusion. Do not prescribe or penalize red from this data.
+- Document-as-focal remains directionally negative, but only **2 of 17** served tagged
+  videos carry the flag. That is a hypothesis, not a validated gate.
+- Busy composition, creator face, emotional face, and clean map are also unvalidated.
+  Their deltas are unstable, near zero, or supported by tiny arms.
+
+The only binding thumbnail checks should continue to come from independent necessary
+conditions: technical compliance, feed-size legibility, and title↔thumbnail coherence.
+Those are craft filters, not predictions from this dataset.
 
 ---
 
-## ✅ FULL-56 VALIDATION (2026-06-27) — all thumbnails tagged, not just extremes
+## Source and method
 
-Tagged all 56 thumbnails (table `analytics.db.thumbnail_features`), CTR-by-feature on n=47:
+**Data surfaces**
 
-| feature | median CTR delta | verdict |
-|---|---:|---|
-| document-as-focal-point | **−0.71** (2.41 vs 3.12) | CONFIRMED bad |
-| clean map | **+0.65** (3.12 vs 2.47) | CONFIRMED good (largely a proxy for famous territorial topic) |
-| busy / cluttered | **−0.52** | CONFIRMED bad |
-| creator face: emoting vs blank | 3.62 vs 2.52 (n=2 vs 9) | holds, weak — blank face doesn't help |
-| **red pop** | **−0.67** | ❌ **OVER-FIT, KILLED.** Claimed a winner from the 12 extremes; across all 56 it's NEGATIVE — red is on 29/47 thumbs (every declassified-stamp / red-arrow document flop), so it's confounded with the cluttered-document style, not a driver. Do NOT prescribe "add red." |
+- `analytics.db.surface_ctr`: 56 rows; lifetime Browse impressions and Browse CTR from
+  the manual Studio export captured June 27th. The table has no timestamp column and no
+  writer, so it is historical/directional rather than current.
+- `analytics.db.thumbnail_features`: 47 hand-tagged rows (`doc`, `cf`, `em`, `map`,
+  `busy`, `red`); no writer and no operation taxonomy.
+- `analytics.db.videos`: title lookup and channel-video membership.
 
-Confound caveat: map/document features partly proxy TOPIC FAME (famous disputes get clean
-maps; obscure topics get cluttered documents). Image-craft rules that stand on their own:
-**avoid document-as-focal, avoid clutter, keep it legible, emote if a face is shown.**
-Causation still needs Test & Compare.
+All reads were made through `AnalyticsStore.execute()`. The robustness cut is
+`browse_impr >= 1,000`. Reported deltas are **percentage-point differences between
+median Browse CTR for flag=1 and flag=0**.
 
-## Winners (high CTR) — shared recipe
+Why Browse: this is the cold feed where the thumbnail has to earn the click. Using
+overall Studio impressions, as the July 28th first recompute did, left 40 videos above
+1,000 and did not test the 38-of-56 Browse-serve problem that triggered this audit.
 
-JD Vance child sacrifice 9.37% · Guatemala-2 9.11% · Guatemala-1 7.62% · Selk'nam genocide
-7.59% · KGB 7.40% · Crusades 5.48%.
+---
 
-1. **One focal point** — a face, a map, or a single object. Never cluttered.
-2. **Recognizable or emotional element** — a famous/expressive face, OR a clean map with
-   ONE red disputed slice, OR a meme.
-3. ~~**Red / high-contrast conflict pop** — disputed land in red, red "CLASSIFIED" stamp.~~
-   🛑 **STRUCK 2026-07-28 — THIS CONTRADICTED THE VALIDATION TABLE 30 LINES ABOVE IN THIS SAME FILE.**
-   The table killed red as over-fit (−0.67, "do NOT prescribe"); this line then prescribed it. Any agent
-   reading top-to-bottom picked up the killed rule, so every generated thumbnail inherited it.
-   **What is actually true:** red is not a driver *and* not a poison — it collapses to −0.28 once you look
-   only at videos that were meaningfully served (n=13), which is to say it is unmeasurable here either way.
-   Use one high-contrast accent at the focal point because contrast theory says so, not because this
-   channel's data says so. See `CTR-THUMBNAIL-RECOMPUTE-2026-07-28.md`.
-4. **2–4 words of big legible text**, white/yellow with heavy black stroke, ≤2 lines.
-5. **Verdict / investigation language** — EXPOSED, ON TRIAL, FACT CHECKED, CLASSIFIED,
-   "THE GENOCIDE NO ONE TALKS ABOUT."
-6. **Readable in <1 second**, and coherent with the title.
+## Recomputed feature deltas
 
-## Losers (low CTR) — the kill-list
+| feature | all tagged n (yes/no) | all tagged Δ | served n (yes/no) | served Δ | served excluding both Guatemala videos |
+|---|---:|---:|---:|---:|---:|
+| document as focal | 47 (13/34) | −0.37 pp | 17 (2/15) | **−1.67 pp** | −1.59 pp (2/13) |
+| creator face | 47 (11/36) | −0.44 pp | 17 (4/13) | −1.35 pp | **+0.35 pp** (4/11) |
+| emotional face | 47 (2/45) | −0.49 pp | 17 (1/16) | +0.11 pp | +0.21 pp (1/14) |
+| clean map | 47 (24/23) | +0.01 pp | 17 (11/6) | +0.16 pp | +0.08 pp (9/6) |
+| busy composition | 47 (26/21) | −0.29 pp | 17 (8/9) | −1.35 pp | **+0.35 pp** (8/7) |
+| red pop | 47 (29/18) | +0.12 pp | 17 (10/7) | +0.67 pp | **−0.23 pp** (8/7) |
 
-JD Vance human rights 1.48% · Medieval literacy 1.12% · Vichy 1.11% · Trade Wars 1.02% ·
-USSR "3 men" 0.93% · $24 Manhattan 0.48%.
+### Interpretation
 
-- **Clutter** — 3+ competing elements (Trade Wars: podium + newspaper + chart).
-- **Document or chart as the focal point** — walls of unreadable small text (JD Vance human
-  rights, Vichy "typed draft"), charts (Trade Wars). The forensic-document MOAT is poison
-  as thumbnail material — show the *shock the document reveals*, not the document.
-- **Blank faces** — Medieval literacy used the creator's face + "DEBUNKED!" (the exact
-  MiniMinuteMan move) and got 1.12%. A neutral face adds nothing; only an EMOTING face works.
-- **Dull / monochrome** — gray old maps (USSR), faded backgrounds.
-- **Title↔thumbnail mismatch** — $24 Manhattan (thumb "PLAGIARIZED" over paintings vs title
-  about Manhattan purchase), USSR (thumb "ILLEGAL BORDERS?" vs "3 men signed"), Medieval
-  (thumb "Dark Ages" vs title "Literacy Boom"). Incoherent packaging = no click.
-- **Nerdy archival hooks** — "TYPED DRAFT / HIS NOTES", arrows pointing at clauses,
-  signatures. The auditor's-edge appeal does not survive at thumbnail size.
-- **Typos** — "PROPGANDA" (Trade Wars). Reads amateur.
+- **No “CONFIRMED good/bad” verdict survives.** The served cohort is too small for
+  feature-level conclusions, and the arms are often badly imbalanced.
+- **Map is effectively null** in every defensible cut. The two Guatemala thumbnails
+  explain much of the intuitive “map/red wins” story, but similarly tagged thumbnails
+  range from 3–6% Browse CTR.
+- **Red is demonstrably unstable.** It reads +0.67 pp with both Guatemala videos and
+  −0.23 pp without them. The correct verdict is **unmeasurable**, not winner or loser.
+- **Busy is also unstable.** It reads −1.35 pp in the served cohort but +0.35 pp after
+  removing both Guatemala videos. The best-served JD Vance thumbnail is itself tagged
+  busy, showing that the six booleans do not capture the actual visual operation.
+- **Document-focal is the only direction that does not reverse**, but n=2 flagged
+  cases cannot validate a channel rule. A page of unreadable body text may still fail
+  the independent feed-size legibility filter; that is a different, defensible claim.
+- **“Emote if a face is shown” has no channel evidence.** Only one served thumbnail is
+  tagged both creator-face and emotional.
 
-## Key reversals (don't repeat these mistakes)
+## What the old extremes audit can still say
 
-- **"Put the creator's face on it" is NOT the lever.** Tested (Medieval, 1.12%) and failed.
-  Faces work only when (a) famous OR (b) emoting hard, AND the topic carries stakes.
-- **Documents/charts kill thumbnails** even though documents are the channel's content moat.
-- **Title and thumbnail must tell ONE coherent story.** Mismatch is rampant in the losers.
+The six highest- and six lowest-CTR thumbnails remain useful examples to inspect, but
+they cannot supply a shared winner recipe:
 
-## What's possible / data needed
+- high CTR mixes maps, faces, memes, stamps, and no-overlay compositions;
+- low CTR mixes documents, maps, faces, paintings, and charts;
+- title, topic fame, traffic surface, publication era, and thumbnail all change at once;
+- therefore the audit is descriptive, not causal.
 
-- **Now:** audit all 56 thumbnails to confirm; encode findings into a thumbnail pre-flight
-  checklist (focal point · legible 2–4 words · red conflict pop · coherent w/ title · no
-  chart/document focal · face only if emoting); gate every new thumbnail before publish.
-- **Going forward (only the creator can generate):** native **Test & Compare** per-variant
-  CTR on the same video = clean causal data. Run 2–3 variants/upload, log per-variant CTR;
-  after ~6–8 videos we have a real thumbnail-feature dataset and can weight the rubric.
+The old prescriptions—“clean map wins,” “red conflict pop,” “documents/charts kill,”
+and “only an emoting face works”—are retired as **own-channel data claims**.
+
+---
+
+## Craft defaults that remain independently justified
+
+These may guide a concept without pretending the channel data predicts CTR:
+
+1. **Pass technical and feed-size legibility checks.** Small body text must resolve or
+   be removed.
+2. **Keep title and thumbnail coherent while preserving a curiosity gap.**
+3. **Catch typos and rendering defects.**
+4. **Start with one clear visual operation and few competing elements.** This is a
+   craft default to test, not a measured channel law.
+5. **Use color—including red—only when the composition calls for it.** There is no
+   channel-specific red rule.
+
+---
+
+## Review checkpoint before enforcement changes
+
+No enforcement surface was edited in this task. If the owner accepts these conclusions,
+the next bounded change would be reviewed separately:
+
+1. remove the stale `n=47 / −0.7% CTR` predictive claim from
+   `tools/preflight/thumbnail_checker.py` Rule 6 while preserving the independent
+   feed-size-legibility concern;
+2. decide whether “busy composition” remains a necessary-condition craft review or
+   loses its fixed score deduction;
+3. remove downstream claims that red is the channel’s data-backed “look-here signal”;
+4. keep all resulting checks as filters, never clickability predictions (ADR-0007).
+
+Until that review happens, this file supplies **no new gate**.
+
+---
+
+## Data needed for a real conclusion
+
+- Native Test & Compare or another within-video randomized comparison.
+- A live video receiving enough traffic to accumulate at least 1,000 impressions in the
+  read window; dead back-catalog swaps cannot answer the question.
+- A reproducible thumbnail tagging process that records the actual operation
+  (COMPRESSION, MECHANISM REFRAME, VISUAL ANSWER, LOCATION PROOF, etc.), not only six
+  booleans.
+
+With only 17 served-and-tagged videos, every feature conclusion remains a hypothesis.

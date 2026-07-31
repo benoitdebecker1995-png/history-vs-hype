@@ -4,8 +4,10 @@ Thumbnail Checker — necessary-condition FILTER on the thumbnail CONCEPT TEXT.
 Reworked 2026-06-14 to align with .claude/REFERENCE/THUMBNAIL-CRAFT-RECIPE.md:
 removed the harmful penalties (no-map-on-territorial -20 and document-only -15 both
 pushed the RealLifeLore look and punished the on-voice dossier operation), and added a
-curiosity-gap check (the overlay must not duplicate the title). This is a FILTER, not a
-clickability predictor — clickability is decided by native A/B.
+curiosity-gap check (the overlay must not duplicate the title). Own-channel
+visual-feature correlations are informational notes with no score impact; the
+separate n=650 niche corpus supports a structural REVIEW when no overlay exists.
+This is a FILTER, not a clickability predictor — clickability is decided live.
 
 Original niche-benchmark notes follow.
 
@@ -19,9 +21,9 @@ Channels grouped by content match to History vs Hype:
 - ANIMATED: History Matters, Kings and Generals, Historia Civilis
 - DIFFERENT MODEL: Fall of Civilizations, Toldinstone
 
-Key findings (650 thumbnails, 14 channels):
-- Text overlay: 87% of niche uses text → MANDATORY (only no-text channel = lowest performer)
-- No talking-head face: 0% of niche → MANDATORY (faces OK as historical/subject photos)
+Key findings (650 thumbnails, 14 channels; structural norms, not CTR predictions):
+- Text overlay: 87% of niche uses text → absence requires concept REVIEW
+- No talking-head face: 0% of niche → niche norm (faces OK as historical/subject photos)
 - Maps: 31% overall, but topic-dependent:
   - Geo/territorial channels: 88% maps → use maps for border/territorial topics
   - Myth-busting channels (closest matches): 14% maps → maps optional for ideological topics
@@ -47,8 +49,8 @@ logger = get_logger(__name__)
 # See: tools/benchmark/THUMBNAIL-NICHE-ANALYSIS.md
 # ---------------------------------------------------------------------------
 
-# Text overlay: 87% of niche uses text (650 videos) → MANDATORY
-# No talking-head face: 0% of niche uses selfie/talking head → MANDATORY
+# Text overlay: 87% of niche uses text (650 videos) → STRUCTURAL REVIEW FILTER
+# No talking-head face: 0% of niche uses selfie/talking head → INFORMATIONAL NORM
 #   (historical/subject photos OK — 27% of closest matches use them)
 # Maps: 31% overall, 88% in geo channels, 14% in myth-busting channels → TOPIC-DEPENDENT
 # Arrows/icons: 14% of niche → OPTIONAL (concentrated in geo channels)
@@ -63,7 +65,7 @@ MAP_SIGNALS = [
     'split-map', 'map overlay', 'document overlay', 'maritime', 'zone', 'boundary',
 ]
 
-# Negative signals: talking-head faces (FORBIDDEN — 0% of niche uses selfie/talking head)
+# Informational signals: talking-head faces (0% of niche uses selfie/talking head)
 # Historical/subject photos are OK (27% of closest matches use them)
 TALKING_HEAD_SIGNALS = [
     'selfie', 'talking head', 'presenter', 'host', 'youtuber',
@@ -76,7 +78,7 @@ SUBJECT_FACE_SIGNALS = [
     'photo of', 'subject', 'target',
 ]
 
-# Positive signals: text overlay (MANDATORY — 87% of niche uses text)
+# Informational signal: text overlay (87% of niche uses text)
 # Best practice: 2-4 word emotional phrase, NOT the full title
 # WonderWhy style: "WHY IRELAND SPLIT", topic label
 # Knowing Better style: single topic word "Neoslavery", "Pilgrims"
@@ -191,7 +193,7 @@ def _extract_title(metadata: str) -> Optional[str]:
 
 def check_thumbnail(text: str, is_person_focused: bool = False,
                     is_territorial: bool = False, title: Optional[str] = None) -> Dict:
-    """Check thumbnail concept text against niche-validated rules.
+    """Check thumbnail concept text against binding conditions and craft notes.
 
     Rules based on visual classification of 650 thumbnails across 14 edu/history
     channels (2026-03-20). See tools/benchmark/THUMBNAIL-NICHE-ANALYSIS.md.
@@ -208,7 +210,7 @@ def check_thumbnail(text: str, is_person_focused: bool = False,
     lower = text.lower()
     issues: List[str] = []
     passes: List[str] = []
-    score = 100  # Start at 100, deduct for violations
+    score = 100  # Deduct only for independently justified necessary-condition failures.
 
     # Auto-detect territorial topic from text
     territorial_signals = ['border', 'territory', 'dispute', 'claim', 'treaty',
@@ -216,32 +218,33 @@ def check_thumbnail(text: str, is_person_focused: bool = False,
     if not is_territorial:
         is_territorial = any(s in lower for s in territorial_signals)
 
-    # --- RULE 1: Text overlay (MANDATORY — 87% of niche, n=650) ---
+    text_overlay_match = re.search(
+        r'["\u201c]([^"\u201d]+)["\u201d]',  # Extract quoted text overlay
+        text
+    )
+
+    # --- RULE 1: Text overlay (STRUCTURAL REVIEW FILTER — niche corpus n=650) ---
     # 87% of niche uses text, including 87% of closest content matches.
     # Only no-text channel (Toldinstone, 20% text) has lowest median views (111K).
-    # Best: 2-4 word phrase. NOT the full title.
+    # Unlike the n=17 own-channel feature correlations, this benchmark-corpus
+    # structural norm is sufficiently supported to require REVIEW when absent.
     has_text, text_matches = _has_signal(text, TEXT_OVERLAY_SIGNALS, exclude_negated=True)
-    if has_text:
+    if has_text or text_overlay_match:
         # Overlay presence is a FLOOR, not a plus (90%+ of all videos have one) — no bonus.
         # ADR 0007 / CONTEXT: score the operation the overlay performs, not its mere presence.
         passes.append("Text overlay present (floor met — not scored; the operation is what matters)")
     else:
         if 'no text' in lower:
-            issues.append("NO TEXT OVERLAY — 87% of niche uses text (n=650). Add 2-4 word phrase. "
-                          "E.g. 'BORDER ERASED', 'THE MEMO', 'WHY HERE?'")
-            score -= 15
+            issues.append("NO TEXT OVERLAY — STRUCTURAL REVIEW: 87% of the benchmark niche "
+                          "uses text (n=650). Add a short overlay before this concept can PASS.")
         else:
-            issues.append("MISSING TEXT OVERLAY — Add 2-4 word phrase on thumbnail. "
-                          "WonderWhy style: 'WHY IRELAND SPLIT'. Knowing Better style: single topic word.")
-            score -= 10
+            issues.append("MISSING TEXT OVERLAY — STRUCTURAL REVIEW: add a short overlay "
+                          "before this concept can PASS (benchmark niche: 87%, n=650).")
+        score -= 25
 
     # --- RULE 1b: Overlay WORD count (recipe R6: <=3 words; a 2-line 4-word overlay is the max) ---
     # Was a 12-char limit, which false-failed legit 2-line overlays like "PROOF OF | A STATE".
     # Re-based on word count — reads-at-feed-size is about word count, not raw character length.
-    text_overlay_match = re.search(
-        r'["\u201c]([^"\u201d]+)["\u201d]',  # Extract quoted text overlay
-        text
-    )
     if text_overlay_match:
         overlay_text = text_overlay_match.group(1).strip()
         word_count = len(overlay_text.split())
@@ -268,7 +271,9 @@ def check_thumbnail(text: str, is_person_focused: bool = False,
     elif title:
         passes.append("Curiosity gap not checked (no quoted overlay text found)")
 
-    # --- RULE 2: No talking-head face (0% of niche uses selfie/talking head) ---
+    # --- RULE 2: Face choice (INFORMATIONAL — no score impact) ---
+    # The served-cohort recompute found creator-face direction unstable after removing
+    # the two Guatemala videos. The niche norm remains useful context, not a predictor.
     # Historical/subject photos are acceptable (27% of closest matches use them)
     has_talking_head, th_matches = _has_signal(text, TALKING_HEAD_SIGNALS, exclude_negated=True)
     has_subject_face, sf_matches = _has_signal(text, SUBJECT_FACE_SIGNALS, exclude_negated=True)
@@ -279,26 +284,25 @@ def check_thumbnail(text: str, is_person_focused: bool = False,
     )
 
     if has_talking_head:
-        issues.append(f"TALKING HEAD — 0% of edu/history niche uses selfie/talking head (n=650): {', '.join(th_matches)}")
-        score -= 30
+        issues.append("TALKING HEAD (INFORMATIONAL — no score impact) — absent from the "
+                      f"edu/history benchmark niche (n=650): {', '.join(th_matches)}")
     elif has_subject_face or (has_generic_face and is_person_focused):
         passes.append("Historical/subject face photo (acceptable — 27% of closest matches use subject photos)")
     elif has_generic_face and not is_person_focused:
-        issues.append("FACE DETECTED — Specify if this is a historical/subject photo (OK) or creator face (not OK)")
-        score -= 10
+        issues.append("FACE DETECTED (INFORMATIONAL — no score impact) — specify whether "
+                      "this is a historical/subject photo or a creator face.")
     else:
         passes.append("No talking-head face (0% of niche norm)")
 
-    # --- RULE 3: Map (INFORMATIONAL — not mandatory) ---
-    # Per THUMBNAIL-CRAFT-RECIPE: a map only helps if it performs VISUAL ANSWER
-    # (simple zones + ONE red contested area, like the ICJ/Guatemala winners). A map is
-    # NOT required for territorial topics — the old -20 "no map" penalty pushed the
-    # RealLifeLore look and is removed.
+    # --- RULE 3: Map (INFORMATIONAL — no score impact) ---
+    # The served-cohort recompute found map effectively null and red unstable. A map is
+    # not required for territorial topics; assess only whether its operation is legible
+    # and coherent with the title.
     has_map, map_matches = _has_signal(text, MAP_SIGNALS)
     if has_map:
-        passes.append(f"Map element detected: {', '.join(map_matches[:3])} — ensure it's a "
-                      "SIMPLE map that answers a question (one red contested zone), not a busy "
-                      "reference map.")
+        passes.append(f"Map element detected (informational): {', '.join(map_matches[:3])} — "
+                      "map use and color are not validated CTR rules; assess legibility and "
+                      "title coherence.")
     else:
         passes.append("No map (fine — document/subject operations are on-voice for this channel)")
 
@@ -308,44 +312,38 @@ def check_thumbnail(text: str, is_person_focused: bool = False,
         passes.append(f"Arrows/icons detected: {', '.join(arrow_matches[:2])}")
     # No penalty — arrows are optional (14% of niche, concentrated in geo channels)
 
-    # --- RULE 5: No stock photography ---
+    # --- RULE 5: Stock imagery (INFORMATIONAL — no score impact) ---
     has_stock, stock_matches = _has_signal(text, STOCK_SIGNALS)
     if has_stock:
-        issues.append(f"STOCK IMAGERY — Use custom maps/documents instead: {', '.join(stock_matches)}")
-        score -= 15
+        issues.append("STOCK IMAGERY (INFORMATIONAL — no score impact) — consider whether a "
+                      f"custom source visual would be more on-voice: {', '.join(stock_matches)}")
 
-    # --- RULE 6: Document as the FOCAL POINT — REVIEW flag (2026-06-27 real-CTR reconciliation) ---
-    # CORRECTION: the prior "document-only is on-voice, KGB 18.4% winner" rationale was wrong on
-    # its own example — the KGB thumbnail is two FACES + a red CLASSIFIED stamp (real CTR 7.40%),
-    # not a document. On the channel's actual data, document-AS-FOCAL-POINT thumbnails are the
-    # floor: Vichy "typed draft" 1.11%, JD Vance document-wall 1.48%. A page of small body text
-    # does not resolve at feed size. So this is NOT a free pass. It is a soft REVIEW flag:
-    # surface the legible SHOCK the document reveals (one highlighted line / number), never the
-    # document's body text as the focal point. See channel-data/CTR-THUMBNAIL-FINDINGS-2026-06.md.
-    # (Clickability is still decided by native Test & Compare, not here.)
+    # --- RULE 6: Document as focal point (INFORMATIONAL — no score impact) ---
+    # The corrected Browse-served cohort has only 2 document-focal examples among
+    # 17 served-and-tagged videos, so it cannot support a numeric deduction. Feed-size
+    # legibility remains independently binding on the rendered image. See
+    # channel-data/CTR-THUMBNAIL-FINDINGS-2026-06.md and ADR 0019.
     has_doc_only, doc_matches = _has_signal(text, DOCUMENT_ONLY_SIGNALS)
     if has_doc_only:
-        issues.append("DOCUMENT AS FOCAL POINT — channel data (n=47): document-focal thumbnails "
-                      "underperform by ~0.7% CTR (median 2.41% vs 3.12%; floor cases Vichy 1.11%, "
-                      "JD Vance doc-wall 1.48%); small body text doesn't resolve at feed size. Show "
-                      "the legible SHOCK the document reveals (one highlighted line/number, high "
-                      "contrast), not the page of text. NB: a red stamp/arrow does NOT rescue it — "
-                      "'red pop' is on 29/47 thumbs and is itself negative (confounded with this "
-                      "cluttered-document style).")
-        score -= 10
+        issues.append("DOCUMENT AS FOCAL POINT (INFORMATIONAL — no score impact) — the "
+                      "Browse-served cohort is only n=2/17, so CTR impact is unvalidated. "
+                      "Independently verify that any body text resolves at feed size.")
 
     # --- RULE 7 (REMOVED 2026-06-14, ADR 0007): "no color contrast -10" was a PREDICTOR on the
     # concept TEXT, not a necessary condition — it false-fired on fine dossier concepts that simply
     # didn't name a color. Contrast is verified on the rendered IMAGE by thumbnail_image_audit
     # (luminance std), never guessed from the concept wording.
 
-    # --- RULE 8: Clean composition ---
+    # --- RULE 8: Composition density (INFORMATIONAL — no score impact) ---
+    # Busy reverses from −1.35 pp to +0.35 pp when both Guatemala videos are
+    # excluded from the 17-video served cohort. That instability forbids a deduction.
     busy_signals = ['busy', 'cluttered', 'complex background', 'many elements',
                     'collage', 'montage']
     has_busy, _ = _has_signal(text, busy_signals)
     if has_busy:
-        issues.append("BUSY COMPOSITION — Simplify to clean, high-contrast geographic view")
-        score -= 10
+        issues.append("BUSY COMPOSITION (INFORMATIONAL — no score impact) — own-channel CTR "
+                      "direction reverses under the served-cohort sensitivity check; assess "
+                      "feed-size legibility directly.")
 
     # --- Check for 3-concept structure ---
     concept_count = len(re.findall(r'concept [abc]|option [abc]|thumbnail [abc]|\*\*[abc]\*\*',

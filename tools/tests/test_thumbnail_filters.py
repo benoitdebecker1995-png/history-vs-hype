@@ -9,6 +9,8 @@ curiosity-gap heuristic can't silently regress:
     Kurdistan renders clear LEGIBILITY_MIN (the actual recipe calibration).
   - thumbnail_checker curiosity-gap: an overlay that duplicates the title is
     flagged; a charged, non-duplicating overlay passes.
+  - thumbnail_checker overlay floor: a concept with no text requires REVIEW,
+    grounded in the n=650 niche corpus rather than the n=17 own-channel cohort.
   - render.headline(): the size-floor warning fires when an overlay can't fit at
     the legibility floor (too many words).
 
@@ -78,16 +80,53 @@ _TITLE = "They Minted Their Own Coins"
 def test_overlay_duplicating_title_is_flagged():
     res = check_thumbnail('coin photo, bold text overlay "THEIR COINS"', title=_TITLE)
     assert any("DUPLICATES TITLE" in i for i in res["issues"])
+    assert res["score"] == 75
+    assert res["verdict"] == "REVIEW"
 
 
 def test_non_duplicating_overlay_passes_gap():
     res = check_thumbnail('coin photo, bold text overlay "PROOF OF A STATE"', title=_TITLE)
     assert not any("DUPLICATES TITLE" in i for i in res["issues"])
     assert any("Curiosity gap OK" in p for p in res["passes"])
+    assert res["score"] == 100
+    assert res["verdict"] == "PASS"
 
 
 # --------------------------------------------------------------------------- #
-# 3. Render headline size-floor warning (too many words to read at feed size)
+# 3. Niche structural norm: a text-free concept requires REVIEW (ADR 0019)
+# --------------------------------------------------------------------------- #
+def test_no_text_concept_does_not_pass_at_100():
+    res = check_thumbnail(
+        "a photo of me talking to camera, no text, cluttered background, stock photo"
+    )
+
+    assert any("NO TEXT OVERLAY" in item for item in res["issues"])
+    assert res["score"] == 75
+    assert res["verdict"] == "REVIEW"
+
+
+# --------------------------------------------------------------------------- #
+# 4. Own-channel unvalidated features are informational (ADR 0007 / ADR 0019)
+# --------------------------------------------------------------------------- #
+@pytest.mark.parametrize(
+    ("concept", "note"),
+    [
+        ('talking head presenter, bold text overlay "THE SECRET"', "TALKING HEAD"),
+        ('stock photo, bold text overlay "THE SECRET"', "STOCK IMAGERY"),
+        ('document only, bold text overlay "THE SECRET"', "DOCUMENT AS FOCAL POINT"),
+        ('busy collage, bold text overlay "THE SECRET"', "BUSY COMPOSITION"),
+    ],
+)
+def test_unvalidated_concept_features_are_notes_without_score_impact(concept, note):
+    res = check_thumbnail(concept)
+
+    assert any(note in item for item in res["issues"])
+    assert res["score"] == 100
+    assert res["verdict"] == "PASS"
+
+
+# --------------------------------------------------------------------------- #
+# 5. Render headline size-floor warning (too many words to read at feed size)
 # --------------------------------------------------------------------------- #
 def test_headline_warns_when_overlay_cannot_fit_floor():
     render = pytest.importorskip("tools.thumbnail.render")

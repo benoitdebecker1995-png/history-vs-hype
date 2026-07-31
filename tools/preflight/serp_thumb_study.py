@@ -33,7 +33,7 @@ import sys
 from collections import Counter
 from datetime import date
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 from tools.logging_config import get_logger, setup_logging
 from tools.preflight.thumbnail_image_audit import _download_serp
@@ -41,6 +41,12 @@ from tools.preflight.thumbnail_image_audit import _download_serp
 logger = get_logger(__name__)
 
 GEMINI_MODEL = "gemini-2.5-flash"
+
+# Minimum share of the requested shelf that must actually classify before the
+# study is allowed to make composition or whitespace claims. Below this the
+# report emits a failure block instead and the CLI exits non-zero. See ADR-0020:
+# a tool that observed nothing must not report "every operation is absent".
+MIN_TAGGED_FRACTION = 0.5
 
 # HvH operation taxonomy (from THUMBNAIL-RECOMMEND-PROTOCOL.md) — given to the
 # VLM so classification is consistent with the rest of the packaging stack.
@@ -119,12 +125,44 @@ def _extract_json(raw: str) -> Optional[Dict]:
         return None
 
 
-def tag_thumbnail(img: Path, retries: int = 1) -> Optional[Dict]:
-    """Tag one thumbnail via Gemini Flash vision. Returns parsed dict or None."""
+class GeminiUnavailable(RuntimeError):
+    """The `gemini` CLI itself can't run — every image would fail identically."""
+
+
+def _gemini_probe() -> Optional[str]:
+    """Resolve the `gemini` binary, or None if the CLI isn't runnable.
+
+    Tagging shells out through `bash -lc` so `gemini` resolves the same way the
+    /gemini command proves it does on this machine. The cost of that indirection
+    is that a MISSING CLI surfaces as exit 127 with EMPTY stdout on the inner
+    command — which the old code read as an unparseable model response. Probing
+    once turns 2xN silent "unparseable tag" lines into one honest error.
+    """
+    try:
+        proc = subprocess.run(["bash", "-lc", "command -v gemini"],
+                              capture_output=True, text=True, timeout=30)
+    except (subprocess.TimeoutExpired, FileNotFoundError) as e:
+        logger.error("cannot probe for the gemini CLI: %s", e)
+        return None
+    return proc.stdout.strip() or None
+
+
+def tag_thumbnail(img: Path, retries: int = 1) -> Tuple[Optional[Dict], str]:
+    """Tag one thumbnail via Gemini Flash vision.
+
+    Returns (tags, "") on success, (None, reason) on failure. The reason is
+    carried into the report — a study that classified nothing has to say WHY,
+    and "unparseable tag for X (attempt 1): " with nothing after the colon
+    (the 2026-07-30 #65 run) is not a diagnosis.
+
+    Raises GeminiUnavailable when the CLI can't run at all, so the caller can
+    abort instead of burning the same failure across the rest of the shelf.
+    """
     img_posix = img.as_posix()
     # Invoke through bash so `gemini` resolves the same way the /gemini command
     # proves it does on this machine; instructions on stdin, image ref in -p.
     cmd = f'gemini -m {GEMINI_MODEL} -p "@{img_posix}" --yolo -o text'
+    reason = "no attempt completed"
     for attempt in range(retries + 1):
         try:
             proc = subprocess.run(
@@ -133,14 +171,26 @@ def tag_thumbnail(img: Path, retries: int = 1) -> Optional[Dict]:
                 capture_output=True, text=True, timeout=150,
             )
         except (subprocess.TimeoutExpired, FileNotFoundError) as e:
-            logger.warning("gemini call failed for %s: %s", img.name, e)
+            reason = f"{type(e).__name__}: {e}"
+            logger.warning("gemini call failed for %s: %s", img.name, reason)
             continue
+        stderr = (proc.stderr or "").strip()
+        if proc.returncode == 127 or "command not found" in stderr:
+            raise GeminiUnavailable(
+                f"`gemini` is not runnable here (exit {proc.returncode}): "
+                f"{stderr[:200] or 'no stderr'}"
+            )
         parsed = _extract_json(proc.stdout)
         if parsed:
-            return parsed
-        logger.warning("unparseable tag for %s (attempt %d): %s",
-                       img.name, attempt + 1, proc.stdout[:160])
-    return None
+            return parsed, ""
+        # Log the RAW response, both streams. Without stderr and the exit code a
+        # systematic failure (auth, quota, model rename, schema drift) is
+        # indistinguishable from one flaky parse.
+        reason = (f"unparseable response — exit {proc.returncode}, "
+                  f"stdout={proc.stdout.strip()[:200]!r}, stderr={stderr[:200]!r}")
+        logger.warning("tag failed for %s (attempt %d): %s",
+                       img.name, attempt + 1, reason)
+    return None, reason
 
 
 def _pct(n: int, total: int) -> str:
@@ -148,12 +198,27 @@ def _pct(n: int, total: int) -> str:
 
 
 def _aggregate(records: List[Dict]) -> Dict:
-    """Shelf composition stats from a study's tagged records (shared by study + synthesize)."""
+    """Shelf composition stats from a study's tagged records (shared by study + synthesize).
+
+    `reliable` is False when fewer than MIN_TAGGED_FRACTION of the shelf
+    classified, and `absent_ops` is then **None — never []**. Both list values
+    are lies about an unobserved shelf: `[]` reads as "the shelf covers every
+    operation", and the full OPERATIONS list reads as "attack anywhere, it's all
+    whitespace". The second is the one /thumbnail Step 2.6 acts on, so None is
+    used to force every caller to handle the case rather than silently render it
+    (ADR-0020; ADR-0012 — a rule that must bind goes in code, not prose).
+    """
+    total = len(records)
     tagged = [r for r in records if r.get("tags")]
     n = len(tagged)
+    coverage = (n / total) if total else 0.0
+    reliable = total > 0 and coverage >= MIN_TAGGED_FRACTION
     ops = Counter(r["tags"].get("operation", "?") for r in tagged)
     return {
         "n": n,
+        "total": total,
+        "coverage": coverage,
+        "reliable": reliable,
         "faces": sum(1 for r in tagged if r["tags"].get("face")),
         "maps": sum(1 for r in tagged if r["tags"].get("map")),
         "framings": Counter(r["tags"].get("framing", "none") for r in tagged),
@@ -162,12 +227,44 @@ def _aggregate(records: List[Dict]) -> Dict:
             c.lower() for r in tagged for c in (r["tags"].get("dominant_colors") or [])
         ),
         "avg_words": (sum(r["tags"].get("overlay_words", 0) for r in tagged) / n) if n else 0,
-        "absent_ops": [op for op in OPERATIONS if op not in ops],
+        "absent_ops": [op for op in OPERATIONS if op not in ops] if reliable else None,
     }
 
 
+def _failure_block(records: List[Dict], a: Dict) -> List[str]:
+    """The section an unreliable study emits INSTEAD of composition + whitespace."""
+    reasons = Counter(r.get("tag_error") or "not attempted (no reason recorded)"
+                      for r in records if not r.get("tags"))
+    floor = f"{MIN_TAGGED_FRACTION * 100:.0f}%"
+    lines = [
+        "## ⛔ STUDY FAILED — NO SHELF CLASSIFICATION WAS PRODUCED",
+        "",
+        f"**{a['n']} of {a['total']} thumbnails tagged ({a['coverage'] * 100:.0f}%), "
+        f"below the {floor} floor.**",
+        "",
+        "This file deliberately carries **no composition percentages and no whitespace "
+        "section.** With this much of the shelf unclassified, every operation would be "
+        "listed ABSENT and the face/map rows would print as zero-over-zero — the "
+        "strongest possible whitespace claim, derived from zero observations. `/thumbnail` "
+        "Step 2.6 reads the whitespace line directly and feeds it to the concept generator "
+        "as the gap to occupy, so emitting one here would launder a tool failure into a "
+        "packaging decision (ADR-0020).",
+        "",
+        "**What failed:**",
+        "",
+    ]
+    lines += [f"- ({c}x) {reason}" for reason, c in reasons.most_common()]
+    lines += [
+        "",
+        "**Recovery:** fix the tagger (check `bash -lc 'command -v gemini'` first — a "
+        "missing CLI exits 127 with empty stdout), then re-run. Nothing above is a finding.",
+        "",
+    ]
+    return lines
+
+
 def build_study(slug: str, records: List[Dict]) -> str:
-    """records: each has id/title/channel/views + 'tags' dict (or None)."""
+    """records: each has id/title/channel/views + 'tags' dict (or None) + optional 'tag_error'."""
     a = _aggregate(records)
     n = a["n"]
     faces, maps = a["faces"], a["maps"]
@@ -179,21 +276,39 @@ def build_study(slug: str, records: List[Dict]) -> str:
         "",
         f"**Generated:** {date.today().isoformat()}  ",
         f"**Method:** scrapetube SERP → top {len(records)} by views → Gemini Flash vision tags  ",
-        f"**Tagged:** {n}/{len(records)}",
+        f"**Tagged:** {n}/{len(records)}"
+        + ("" if a["reliable"] else "  ← **BELOW THRESHOLD — see failure block**"),
         "",
-        "## Shelf composition",
-        "",
-        f"- **Face present:** {faces}/{n} ({_pct(faces, n)})",
-        f"- **Map present:** {maps}/{n} ({_pct(maps, n)})",
-        f"- **Framing:** " + ", ".join(f"{k} {v}" for k, v in framings.most_common()),
-        f"- **Operations:** " + ", ".join(f"{k} {v}" for k, v in ops.most_common()),
-        f"- **Avg overlay words:** {avg_words:.1f}",
-        f"- **Color palette:** " + ", ".join(f"{k}({v})" for k, v in colors.most_common(6)),
-        "",
-        "## Whitespace (operations ABSENT from this shelf — attack here)",
-        "",
-        ("- " + ", ".join(absent_ops)) if absent_ops else "- none — shelf covers every operation; differentiate on subject/color instead.",
-        "",
+    ]
+
+    if not a["reliable"]:
+        lines += _failure_block(records, a)
+    else:
+        lines += [
+            "## Shelf composition",
+            "",
+            f"- **Face present:** {faces}/{n} ({_pct(faces, n)})",
+            f"- **Map present:** {maps}/{n} ({_pct(maps, n)})",
+            f"- **Framing:** " + ", ".join(f"{k} {v}" for k, v in framings.most_common()),
+            f"- **Operations:** " + ", ".join(f"{k} {v}" for k, v in ops.most_common()),
+            f"- **Avg overlay words:** {avg_words:.1f}",
+            f"- **Color palette:** " + ", ".join(f"{k}({v})" for k, v in colors.most_common(6)),
+            "",
+            "## Whitespace (operations ABSENT from this shelf — attack here)",
+            "",
+            ("- " + ", ".join(absent_ops)) if absent_ops else "- none — shelf covers every operation; differentiate on subject/color instead.",
+            "",
+        ]
+        if n < a["total"]:
+            lines += [
+                f"> ⚠ Whitespace above is read off **{n} of {a['total']}** thumbnails — "
+                f"{a['total'] - n} failed to tag. An operation listed absent may simply be "
+                "in an untagged one. Phrase findings as *\"absent from the tagged sample\"*, "
+                "never *\"absent from the shelf\"*.",
+                "",
+            ]
+
+    lines += [
         "## Per-thumbnail tags",
         "",
         "| Views | Channel | Op | Face | Map | Framing | Words | Overlay text | Subject |",
@@ -226,6 +341,7 @@ def synthesize(studies_dir: Path) -> str:
 
     files = sorted(glob.glob(str(studies_dir / "*.json")))
     studies = []
+    excluded: List[str] = []
     for f in files:
         try:
             records = json.loads(Path(f).read_text(encoding="utf-8"))
@@ -234,11 +350,22 @@ def synthesize(studies_dir: Path) -> str:
             continue
         slug = Path(f).stem.rsplit("-", 3)[0]  # strip trailing -YYYY-MM-DD
         agg = _aggregate(records)
-        if agg["n"]:
-            studies.append((slug, agg))
+        # An under-tagged study reports most operations "absent" purely because
+        # they were never observed, which would inflate the chronic-absence
+        # counter below into a durable-whitespace claim. Excluded, and said so.
+        if not agg["reliable"]:
+            excluded.append(f"{slug} ({agg['n']}/{agg['total']} tagged)")
+            logger.warning("excluding %s from synthesis: %d/%d tagged, below the %.0f%% floor",
+                           slug, agg["n"], agg["total"], MIN_TAGGED_FRACTION * 100)
+            continue
+        studies.append((slug, agg))
     N = len(studies)
     if N == 0:
-        raise SystemExit(f"No study JSONs in {studies_dir} — run some --query studies first.")
+        raise SystemExit(
+            f"No usable study JSONs in {studies_dir} — run some --query studies first."
+            + (f" ({len(excluded)} excluded for insufficient tag coverage: "
+               f"{', '.join(excluded)})" if excluded else "")
+        )
 
     threshold = max(2, ceil(N / 2))
     conf = "LOW (thin sample)" if N < 3 else ("MEDIUM" if N < 6 else "HIGH")
@@ -290,6 +417,16 @@ def synthesize(studies_dir: Path) -> str:
         f"**Recurrence threshold:** pattern must hold in ≥ {threshold}/{N} shelves  ",
         f"**Confidence ceiling:** {conf}",
         "",
+    ]
+    if excluded:
+        lines += [
+            f"**Excluded ({len(excluded)}) — tag coverage below "
+            f"{MIN_TAGGED_FRACTION * 100:.0f}%:** {', '.join(excluded)}. An under-tagged "
+            "shelf reports operations absent that were merely never looked at, which would "
+            "read here as durable whitespace (ADR-0020).",
+            "",
+        ]
+    lines += [
         "> These are DURABLE cross-topic candidates only. Per-topic snapshots were excluded by design",
         "> (staleness + SERP-ranking is confounded by channel authority, so it is NOT a 'what wins' signal).",
         "> **Nothing here is written to the notebook automatically.** Approve below, then Claude patches",
@@ -323,7 +460,13 @@ def synthesize(studies_dir: Path) -> str:
 
 
 def run(slug: str, queries: List[str], ids: Optional[str], top_n: int,
-        out: Optional[str]) -> str:
+        out: Optional[str]) -> Dict:
+    """Fetch, tag and write the study.
+
+    Returns {'path', 'tagged', 'total', 'ok', 'aborted'}. `ok` is False when tag
+    coverage fell below MIN_TAGGED_FRACTION — the report then carries a failure
+    block instead of composition/whitespace, and the CLI exits non-zero.
+    """
     if ids:
         records = [{"id": i.strip(), "title": "", "channel": "(supplied)", "views": 0}
                    for i in ids.split(",") if i.strip()][:top_n]
@@ -332,11 +475,28 @@ def run(slug: str, queries: List[str], ids: Optional[str], top_n: int,
     if not records:
         raise SystemExit("No SERP results — check the query or scrapetube install.")
 
-    paths = _download_serp([r["id"] for r in records])
+    aborted = ""
+    if _gemini_probe() is None:
+        aborted = ("`gemini` CLI not found on PATH (`bash -lc 'command -v gemini'` is empty) "
+                   "— the vision tagger cannot run. Install it or fix PATH.")
+        logger.error(aborted)
+
+    paths = [] if aborted else _download_serp([r["id"] for r in records])
     by_id = {p.stem: p for p in paths}
     for r in records:
         img = by_id.get(r["id"])
-        r["tags"] = tag_thumbnail(img) if img else None
+        if aborted:
+            r["tags"], r["tag_error"] = None, f"not attempted — run aborted: {aborted}"
+        elif not img:
+            r["tags"], r["tag_error"] = None, "thumbnail download failed (no image on disk)"
+        else:
+            try:
+                r["tags"], r["tag_error"] = tag_thumbnail(img)
+            except GeminiUnavailable as e:
+                # Systematic, not flaky: the rest of the shelf would fail identically.
+                aborted = str(e)
+                r["tags"], r["tag_error"] = None, aborted
+                logger.error("aborting the tag pass: %s", aborted)
         status = "ok" if r["tags"] else "FAIL"
         logger.info("tagged %s (%s) -> %s", r["id"], r["channel"][:18], status)
 
@@ -346,7 +506,10 @@ def run(slug: str, queries: List[str], ids: Optional[str], top_n: int,
     out_path.write_text(md, encoding="utf-8")
     out_path.with_suffix(".json").write_text(
         json.dumps(records, indent=1, ensure_ascii=False), encoding="utf-8")
-    return str(out_path)
+
+    a = _aggregate(records)
+    return {"path": str(out_path), "tagged": a["n"], "total": a["total"],
+            "ok": a["reliable"], "aborted": aborted}
 
 
 def main():
@@ -369,15 +532,26 @@ def main():
         path = synthesize(Path(args.studies_dir))
         print(f"\nSynthesis proposal written: {path}")
         print("Review it, then have Claude patch the notebook (note_create) ONLY for approved patterns.")
-        return
+        return 0
 
     if not args.query and not args.ids:
         ap.error("provide at least one --query or --ids (or use --synthesize)")
     if not args.slug:
         ap.error("--slug is required for a study run")
-    path = run(args.slug, args.query, args.ids, args.top, args.out)
-    print(f"\nStudy written: {path}")
+    res = run(args.slug, args.query, args.ids, args.top, args.out)
+    if res["ok"]:
+        print(f"\nStudy written: {res['path']} ({res['tagged']}/{res['total']} tagged)")
+        return 0
+
+    # Non-zero so a caller (/thumbnail Step 2.6, a script, a routine) can't read
+    # the file as a finished study.
+    print(f"\nSTUDY FAILED: {res['tagged']}/{res['total']} thumbnails tagged, below the "
+          f"{MIN_TAGGED_FRACTION * 100:.0f}% floor. No composition or whitespace claims "
+          f"were written.\n  Report (failure block only): {res['path']}", file=sys.stderr)
+    if res["aborted"]:
+        print(f"  Cause: {res['aborted']}", file=sys.stderr)
+    return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

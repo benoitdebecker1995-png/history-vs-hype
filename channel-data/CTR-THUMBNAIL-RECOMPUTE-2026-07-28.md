@@ -1,94 +1,64 @@
-# Thumbnail feature rules, recomputed on served videos only
+# Thumbnail feature rules, corrected Browse-served recompute
 
-**Date:** 2026-07-28 · **Supersedes the validation table in** `CTR-THUMBNAIL-FINDINGS-2026-06.md`
-**Source:** `thumbnail_features` ⋈ `studio_ctr_rows` (lifetime Studio export, 2026-07-23), n=47 joined.
+**Corrected:** 2026-07-29 · **Authoritative conclusions:** `CTR-THUMBNAIL-FINDINGS-2026-06.md`
 
-## Why this was run
+## Correction to the July 28th method
 
-The enforced rules in `tools/preflight/thumbnail_checker.py` (RULE 6 and friends) come from median CTR
-deltas computed across all 47 tagged videos. But **serve is wildly unequal on this channel**: one video
-holds 292,398 of ~500,000 lifetime impressions, and the median video has **2,258**. A "median CTR" over
-that population is mostly a median over three-digit-impression noise.
+The first version of this note called its cohort “served videos only” but imposed its
+floor on **overall Studio impressions** from `studio_ctr_rows`. That was the wrong
+denominator for the reported problem: in `surface_ctr`, **38 of 56 videos have fewer
+than 1,000 lifetime Browse impressions**.
 
-So: recompute the same deltas at increasing impression floors. A real image effect should survive. An
-artifact of which videos happened to get served should not.
+This correction uses Browse impressions and Browse CTR from `surface_ctr`, joined to
+the six hand-tagged booleans in `thumbnail_features`. All reads went through
+`AnalyticsStore.execute()`.
 
-## Result
+- 56 videos have surface data.
+- 18 videos have at least 1,000 Browse impressions.
+- 17 of those 18 have thumbnail-feature tags.
+- The feature deltas below are percentage-point differences in **median Browse CTR**
+  between flag=1 and flag=0.
 
-| feature | floor 0 (n=47) | floor 1,000 (n=40) | floor 5,000 (n=13) |
-|---|---:|---:|---:|
-| document-as-focal | **−0.73** | **−0.73** | *untestable — 1 of 13* |
-| creator face | −0.10 | −0.16 | −0.98 |
-| clean map | **+0.64** | **+0.64** | **−1.72** ⚠ *reverses* |
-| busy composition | **−0.48** | −0.54 | −0.15 *collapses* |
-| red pop | −0.68 | −0.71 | −0.28 *collapses* |
+## Corrected result
 
-## What this means — and what it does NOT mean
+| feature | all tagged n (yes/no) | all tagged Δ | Browse-served n (yes/no) | Browse-served Δ | excluding both Guatemala videos |
+|---|---:|---:|---:|---:|---:|
+| document as focal | 47 (13/34) | −0.37 pp | 17 (2/15) | −1.67 pp | −1.59 pp (2/13) |
+| creator face | 47 (11/36) | −0.44 pp | 17 (4/13) | −1.35 pp | **+0.35 pp** (4/11) |
+| emotional face | 47 (2/45) | −0.49 pp | 17 (1/16) | +0.11 pp | +0.21 pp (1/14) |
+| clean map | 47 (24/23) | +0.01 pp | 17 (11/6) | +0.16 pp | +0.08 pp (9/6) |
+| busy composition | 47 (26/21) | −0.29 pp | 17 (8/9) | −1.35 pp | **+0.35 pp** (8/7) |
+| red pop | 47 (29/18) | +0.12 pp | 17 (10/7) | +0.67 pp | **−0.23 pp** (8/7) |
 
-**It does not mean maps are bad.** The floor-5,000 map arm is 10 videos against **3**, and those 3 are
-JD Vance (9.41%), Crusades (5.47%) and Sol Invictus (2.48%). A median of three is one video wide. The
-reversal is noise.
+## Reconciled conclusion
 
-**The real finding is that both cuts are fatal, in opposite directions:**
+**None of the six feature rules is validated.**
 
-- At **floor 0**, 34 of 47 videos sit below 5,000 impressions. The deltas are dominated by videos YouTube
-  barely showed to anyone — you are measuring the algorithm's serve decision, not the image's clickability.
-- At a **meaningful floor**, there are only 13 videos and one arm routinely drops to n≤3. Nothing can be
-  computed.
+- Red is neither a winner nor a poison. Its sign reverses when the two Guatemala
+  videos are removed.
+- Creator face and busy composition also reverse sign under that sensitivity check.
+- Clean map is effectively null.
+- Emotional face has only one flagged case in the served cohort.
+- Document-as-focal stays negative, but its flagged arm is only two videos. Unreadable
+  document text can still fail an independent feed-size legibility check; this data
+  does not establish a CTR rule.
 
-**So the six-boolean feature rules cannot be validated with the data this channel has.** Not "they are
-wrong" — *unvalidatable*. `thumbnail_checker.py` currently applies fixed deductions derived from the
-floor-0 numbers as if they were established. They are not.
+The earlier claim that a “no creator face” feature rule survived is withdrawn. The
+cross-sectional data cannot isolate thumbnail effects from topic, title, traffic
+surface, publication era, and channel size at publication.
 
-## The sharper observation: the taxonomy doesn't describe the winners
+No checker or gate was changed. Any enforcement change requires owner review of the
+corrected conclusions first.
 
-The four best-served-and-clicked images:
+## Honest limits
 
-| CTR | impressions | doc | face | map | red | busy | video |
-|---:|---:|:--:|:--:|:--:|:--:|:--:|---|
-| **9.41%** | 9,969 | 0 | 0 | 0 | 0 | 1 | JD Vance / child sacrifice |
-| **9.18%** | 44,295 | 0 | 0 | 1 | 1 | 0 | Guatemala vs Belize (ICJ) |
-| **7.66%** | 292,398 | 0 | 0 | 1 | 1 | 0 | Guatemala — country that might disappear |
-| **5.47%** | 10,036 | 0 | 0 | 0 | 0 | 0 | Crusades primary sources |
-
-**They share nothing on these six flags** except "no document" and "no creator face" — and one of them is
-flagged *busy*, which the rules penalise. The two Guatemala images are near-identical on the flags to the
-India–Pakistan image at 3.17% and the Berlin Conference at 3.66%.
-
-**Six booleans do not capture what makes these images work.** That is consistent with what
-`OUTLIER-THUMBNAIL-CORPUS.md` already found niche-wide ("outlier patterns are channel-anchored, not
-niche-wide"; every aggregate signal weakened as n grew), and with ADR-0007's rule that pre-publish
-thumbnail checks are **filters, never predictors**.
-
-## Actions
-
-1. **Demote the feature deltas from CONFIRMED to UNVALIDATED** in `CTR-THUMBNAIL-FINDINGS-2026-06.md`.
-   They are not measurements of image quality; they are partly measurements of serve.
-2. **Keep `thumbnail_checker.py` running, but as necessary-condition filters only** — legibility, overlay
-   word count, curiosity gap, no-creator-face. Those are craft constraints with independent justification.
-   The point *scores* should not be read as predictions. This is ADR-0007's position; the docs had drifted
-   from it.
-3. **The one surviving filter stands:** no `cf=1` (creator face) video has ever cleared 4% CTR (max 3.83,
-   n=8–11 depending on cut), and the direction strengthens under a floor rather than collapsing. Necessary,
-   not sufficient.
-4. **Tag the channel's own thumbnails with the OPERATION taxonomy** (COMPRESSION, MECHANISM REFRAME, VISUAL
-   ANSWER, TITLE REPETITION, LOCATION PROOF, AESTHETIC HOOK). That is the variable `/thumbnail` and
-   `thumbnail-critic` actually reason in, and it has **never been recorded for a single HvH image** —
-   `thumbnail_features` has six booleans and no operation column, no writer script, and covers 47 of 59
-   videos. Until that exists, the generator's core decision variable is validated only against 30 outliers
-   on eight *other* channels.
-5. **Stop deriving new thumbnail rules from cross-sectional own-channel CTR.** With 13 meaningfully-served
-   videos it cannot support feature-level conclusions. Within-video swaps are the only design that can —
-   see the 5 uncollected experiments in `swap_experiments`.
-
-## Honest limits of this analysis
-
-- `studio_ctr_rows` is a lifetime export dated **2026-07-23**; CTR is lifetime, not launch-window.
-- `thumbnail_features` covers **47 of 59** videos and was hand-tagged in a one-off session with no writer
-  script — it cannot be regenerated or extended without redoing that by hand.
-- Impression floors are correlated with topic, publish date and channel size at publish time. None of the
-  cuts above control for those. **That is the point:** if a delta cannot survive a crude robustness check,
-  it should not be enforced as a rule.
+- `surface_ctr` is a lifetime, manually imported snapshot from June 27th. It has no
+  timestamp column or automated writer.
+- `thumbnail_features` covers 47 videos and was hand-tagged in a one-off session; it
+  has no writer and no operation taxonomy.
+- The 1,000-impression floor removes obvious three-digit noise but leaves only 17
+  tagged videos, with feature arms as small as one or two.
+- These are observational comparisons, not randomized thumbnail experiments.
 
 ---
 

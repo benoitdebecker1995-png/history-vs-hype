@@ -83,7 +83,8 @@ def _pct(n: int, total: int) -> str:
     return f"{(100 * n / total):.0f}%" if total else "0%"
 
 
-def build_title_study(slug: str, records: List[Dict], query_terms: set) -> str:
+def build_title_study(slug: str, records: List[Dict], query_terms: set,
+                      queries: Optional[List[str]] = None) -> str:
     rows = [{**r, "tags": _classify(r["title"])} for r in records if r.get("title")]
     n = len(rows)
     if not n:
@@ -132,7 +133,24 @@ def build_title_study(slug: str, records: List[Dict], query_terms: set) -> str:
         f"- **Avg length:** {avg_len:.0f} chars",
         f"- **Saturated keywords:** " + ", ".join(f"{w}({c})" for w, c in kw),
         "",
-        "## Positioning whitespace (where a new title should aim)",
+        "## ⛔ WHAT THIS STUDY CANNOT TELL YOU",
+        "",
+        "**This is a top-%d sample on %d quer%s. It CANNOT establish that coverage does not exist.**"
+        % (n, len(queries or []) or 1, "y" if (len(queries or []) or 1) == 1 else "ies"),
+        "",
+        "- Queries actually run: " + (", ".join(f"`{x}`" for x in queries) if queries
+                                      else "`(reused a prior study's fetch — queries not recorded)`"),
+        "- A referee phrased differently, in another language, or ranking below the cut is **invisible here**.",
+        "- Therefore: write findings as *“searched these queries, did not find a referee”* — **never**"
+        " as *“no referee exists”* or *“whitespace = 100”*.",
+        "- Before citing any candidate referee as absent or present, **verify it by ID**:"
+        " `youtube.videos().list(part='snippet,statistics,contentDetails', id=...)` — exact, 1 quota unit.",
+        "- Precedent: 2026-07-29, a “cleanest whitespace of the session” claim was written into"
+        " project #64 and used to greenlight it. A 73-minute specialist adjudication with 736,169 views"
+        " (`NQX5LlJ7YXg`) had existed since 2022. Two tools were asked, both have windows that excluded"
+        " it, and their silence was read as proof.",
+        "",
+        "## Positioning whitespace — TITLE STRUCTURE ONLY (not topic coverage)",
         "",
     ]
     lines += [f"- {x}" for x in levers]
@@ -168,7 +186,7 @@ def run(slug: str, queries: List[str], from_study: Optional[str], top_n: int,
     if not records:
         raise SystemExit("No SERP results — check the query or scrapetube install.")
 
-    md = build_title_study(slug, records, query_terms)
+    md = build_title_study(slug, records, query_terms, queries=queries)
     out_path = Path(out) if out else Path("channel-data/serp-studies/titles") / f"{slug}-{date.today().isoformat()}.md"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(md, encoding="utf-8")

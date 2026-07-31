@@ -128,11 +128,12 @@ The notebook corpus is niche-wide aggregate (n=30, 8 channels). It cannot see wh
 python -m tools.preflight.serp_thumb_study --slug <project-slug> --query "<query 1>" --query "<query 2>" --top 8
 ```
 
-3. Read the generated `channel-data/serp-studies/<slug>-<date>.md`. Extract two things for the query in Step 3:
+3. **Check the exit code first.** Non-zero means fewer than half the shelf classified; the report carries a `⛔ STUDY FAILED` block and deliberately has **no** composition or whitespace section. Do not read numbers out of it. Set both SERP blocks to `none — SERP study unavailable` and continue.
+4. On exit 0, read the generated `channel-data/serp-studies/<slug>-<date>.md`. Extract two things for the query in Step 3:
    - **Shelf composition** — face %, map %, dominant framing, dominant colors, most-common operations (what convention to break, or strategically keep if it's a hard topic convention like a map).
-   - **Whitespace** — the "operations ABSENT from this shelf" line (the gap to occupy).
+   - **Whitespace** — the "operations ABSENT from this shelf" line (the gap to occupy). If the report carries the partial-coverage caveat (`read off N of M`), pass the absent list through as *"absent from the tagged sample"* — never as *"absent from the shelf"*.
 
-**Stop condition:** if the tool errors (scrapetube / gemini / network), surface a one-line warning, set the SERP block to `none — SERP study unavailable` and continue. This is enrichment, not a gate.
+**Stop condition:** if the tool errors or exits non-zero (scrapetube / gemini / network / under-tagged shelf), surface a one-line warning, set the SERP block to `none — SERP study unavailable` and continue. This is enrichment, not a gate. **Never synthesize a whitespace line yourself to fill the gap** — an unclassified shelf lists every operation as absent, which is the strongest possible claim from zero evidence (ADR-0020; the 2026-07-30 #65 run).
 
 ### Step 3: Build the notebook query
 

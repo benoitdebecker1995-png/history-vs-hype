@@ -85,6 +85,25 @@ v6 recalibration (2026-06-27) — FIRST run against COMPLETE per-video CTR (all 
     Caveat: n modest, deltas small, fame/topic/title confounded. Scorer is a FILTER; learn
     weights via single-variable native A/B (see feedback-filters-not-predictors).
 
+v6.1 anchor-recognizer repair (2026-07-30) — two defects found running the packaging gate
+    for #65 (Enigma). Recognition set only; no weight changed. Pins: tests/unit/test_search_anchor.py
+
+    A1 — Acronyms now match CASE-SENSITIVELY (+ STOPWORD_ACRONYMS guard for ALL-CAPS
+      prefixes). "Who Really Broke Enigma?" was returning (True, 'Who') by matching the
+      acronym WHO case-insensitively — a spurious PASS on packaging_lock FILTER 1, which
+      is BINDING (ADR-0012), so anchorless titles could clear the keyword-ladder gate.
+      HEAD_TERMS stay case-insensitive; only the acronym half tightened.
+
+    A2 — HEAD_TERMS widened to notable NON-territorial figures. "Alan Turing Didn't Break
+      Enigma First." failed the filter despite "alan turing" = 98,056 est. monthly searches
+      (vidIQ). The list was sovereign-state biased by construction; fame is the test.
+
+    Re-baselining: A1 can only REMOVE anchors, A2 can only ADD them, so previously recorded
+    packaging-lock verdicts are not automatically still true. validate_lock() recomputes
+    the filter from the live title on every read, so no stored AUTO block needs rewriting —
+    the recompute is the source of truth. Audited 2026-07-30: no PROJECT-STATUS.md lock
+    block on the tree flips verdict under the new recognizer.
+
 Usage:
     python -m tools.title_scorer "Your Title Here"
     python -m tools.title_scorer "Title A" "Title B" "Title C"
@@ -137,6 +156,17 @@ ALLOWED_ACRONYMS = [
     'KGB',  # v5: added — "How the KGB Weaponized..." got highest fresh CTR (18.41% 2026-06-10)
 ]
 
+# Acronyms that are also ordinary English words. has_search_anchor matched the whole
+# acronym list case-INSENSITIVELY until 2026-07-30, so every interrogative "Who" anchored
+# on WHO (World Health Organization) — a spurious PASS on the BINDING packaging_lock
+# filter (ADR-0012). These anchor only on an exact-case match, and only when the title's
+# casing carries information: an ALL-CAPS prefix has no case signal, so they are skipped
+# there. Kept broader than today's ALLOWED_ACRONYMS so future additions inherit the guard.
+STOPWORD_ACRONYMS = {
+    'WHO', 'US', 'IT', 'IN', 'AT', 'ON', 'NO', 'SO', 'OR', 'WAS', 'AM', 'BE',
+    'AN', 'AS', 'BY', 'DO', 'HE', 'IF', 'IS', 'ME', 'MY', 'OF', 'TO', 'UP', 'WE',
+}
+
 # =============================================================================
 # SEARCH ANCHOR HEAD TERMS (v5 — C3)
 # Sovereign states, geographic shorthands, and notable figure surnames.
@@ -188,6 +218,18 @@ HEAD_TERMS = {
     # Charged cultural/religious anchors a general audience reacts to + searches (fame driver).
     'Hijab', 'Veil', 'Islam', 'Islamic', 'Sharia', 'Quran', 'Bible', 'Vatican',
     'Slavery', 'Slave Trade',
+    # Notable NON-territorial figures (2026-07-30 — the recognizer false-FAILed #65's
+    # "Alan Turing Didn't Break Enigma First. Poland Did."; "alan turing" = 98,056 est.
+    # monthly searches, vidIQ). The list above is sovereign-state biased by construction,
+    # which blocked science-, ideas- and law-led subjects at lock time even when the
+    # subject outsearches most of the states already recognised. Fame is the anchor test,
+    # not geography — same reasoning as the 2026-06-27 famous-topics widening.
+    'Turing', 'Alan Turing', 'Einstein', 'Darwin', 'Galileo', 'Newton', 'Tesla',
+    'Copernicus', 'Oppenheimer', 'Freud', 'Orwell', 'Marco Polo', 'Da Vinci',
+    'Gandhi', 'Mandela', 'Guevara', 'Mussolini', 'Trotsky', 'Khrushchev', 'Beria',
+    'Rasputin', 'Genghis Khan', 'Caesar', 'Cleopatra', 'Bismarck', 'Kissinger',
+    'Thatcher', 'Roosevelt', 'Kennedy', 'Nixon', 'Reagan', 'Truman', 'Pol Pot',
+    'Leopold', 'Cecil Rhodes', 'Mengele', 'Eichmann', 'Himmler', 'Goebbels',
 }
 
 # Unified tone signals dict — positive (active verbs) and negative (clickbait)
@@ -343,21 +385,36 @@ def has_search_anchor(title: str) -> tuple[bool, str]:
 
     Returns (found: bool, matched_term: str).  matched_term is '' when not found.
 
-    Recognition list: HEAD_TERMS (sovereign states + geographic shorthands) +
-    ALLOWED_ACRONYMS + notable-figure surnames already in the corpus.
-    Case-insensitive whole-word match.
+    Recognition list: HEAD_TERMS (sovereign states, geographic shorthands, famous
+    topics, notable figures) + ALLOWED_ACRONYMS.
+
+    Matching is asymmetric, and deliberately so (2026-07-30):
+      - HEAD_TERMS match case-INSENSITIVELY. They are proper nouns whose lowercase
+        form means the same thing, so casing carries no information.
+      - ALLOWED_ACRONYMS match case-SENSITIVELY, because several are homographs of
+        ordinary English words. Matching them loosely made "Who Really Broke Enigma?"
+        anchor on WHO (World Health Organization) — a spurious PASS on FILTER 1 of
+        packaging_lock (ADR-0012), which is binding, not advisory. STOPWORD_ACRONYMS
+        are additionally skipped when the prefix is ALL CAPS and case tells us nothing.
+
+    When several terms match, which one is returned is set-iteration order and is not
+    part of the contract — only the boolean is load-bearing.
 
     A miss on an obscure-but-valid term is acceptable — scorer is a floor, not an oracle.
     Keep it cheap and static: no API calls.
     """
     prefix = title[:40]
-    # Build lookup set: HEAD_TERMS + ALLOWED_ACRONYMS (case-insensitive keys)
-    candidates = list(HEAD_TERMS) + list(ALLOWED_ACRONYMS)
-    for term in candidates:
-        pattern = re.compile(r'\b' + re.escape(term) + r'\b', re.IGNORECASE)
-        if pattern.search(prefix):
+    for term in HEAD_TERMS:
+        m = re.search(r'\b' + re.escape(term) + r'\b', prefix, re.IGNORECASE)
+        if m:
             # Return the matched surface form from the title
-            m = pattern.search(prefix)
+            return (True, m.group(0))
+    prefix_has_no_case_signal = prefix.isupper()
+    for term in ALLOWED_ACRONYMS:
+        if prefix_has_no_case_signal and term in STOPWORD_ACRONYMS:
+            continue
+        m = re.search(r'\b' + re.escape(term) + r'\b', prefix)
+        if m:
             return (True, m.group(0))
     return (False, '')
 
