@@ -73,6 +73,7 @@ translation = [
 # None rather than raising, and their tests skip — so it is an extra, not core.
 documents = [
     "pymupdf>=1.24",
+    "rapidfuzz>=3.0",   # OCR-tolerant matching — scanned sources are the norm here
 ]
 
 # pip install -e .[thumbnails]
@@ -115,6 +116,7 @@ all = [
     "imagehash>=4.3.0",
     "numpy>=1.24",
     "pymupdf>=1.24",
+    "rapidfuzz>=3.0",   # OCR-tolerant matching — scanned sources are the norm here
     "pytest>=7.0.0",
     "pytest-cov>=4.0.0",
     "pytest-socket>=0.7.0",

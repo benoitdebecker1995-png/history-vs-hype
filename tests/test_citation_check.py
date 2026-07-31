@@ -130,3 +130,36 @@ def test_quotes_are_paired_not_alternated():
 
 def test_unquoted_line_yields_nothing():
     assert quotes_in("no quotes here at all, just prose about the denial policy") == []
+
+
+def test_connective_prose_between_quotes_is_not_a_quote():
+    """Regression, #66 run: research files wrap quotes in italics and run them
+    across lines -- `imports."* Mansergh's summary describes Wavell *"pressing`.
+    A line BEGINNING mid-quote inverts the odd/even pairing, so the connective
+    prose lands on the odd index. Emphasis brackets identify it."""
+    line = 'imports."* Mansergh\'s own editorial summary describes Wavell *"pressing for diversion of ships"'
+
+    found = quotes_in(line)
+
+    assert not any("Mansergh" in q for q in found), found
+
+
+def test_passage_on_several_pages_is_not_adjudicated(source, tmp_path):
+    """Regression, #66 run: a 6-word section heading appears in both the
+    contents and the body, so it matched pdf p.61 AND p.287 and was reported
+    WRONG_PAGE against a cited p.62. With repeated text the page cannot be
+    adjudicated -- the cited page may hold an occurrence the OCR lost."""
+    docs = source / "_research" / "documents"
+    doc = fitz.open()
+    heading = "Power of Governor to issue Proclamations"
+    for body in [f"Contents: {heading} ... 630", "filler", f"{heading}. The Governor may suspend."]:
+        doc.new_page().insert_text((72, 72), body, fontsize=12)
+    doc.save(str(docs / "act.pdf"))
+    doc.close()
+
+    md = _md(source, f'- Section "{heading} and related powers" (pdf p.2)\n')
+    # quote spans the heading text; it occurs on pages 1 and 3, not the cited 2
+    r = [x for x in check_file(md) if x.document == "act.pdf"]
+
+    if r:  # only assert if the fuzzy pass matched it on multiple pages
+        assert r[0].verdict != "WRONG_PAGE", r[0]

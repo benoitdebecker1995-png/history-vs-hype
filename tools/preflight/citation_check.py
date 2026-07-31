@@ -59,7 +59,21 @@ def quotes_in(line: str) -> List[str]:
     parts = line.split('"')
     if len(parts) < 3:
         return []
-    return [p for p in parts[1::2] if 25 <= len(p) <= 400]
+    out = []
+    for seg in parts[1::2]:
+        if not 25 <= len(seg) <= 400:
+            continue
+        # Parity guard. Odd indices are inside the quotes ONLY if the line
+        # starts outside one. Research files wrap quotes in italics and run them
+        # across lines -- `imports."* Mansergh's summary describes Wavell *"…` --
+        # so a line beginning mid-quote inverts the pairing and the CONNECTIVE
+        # prose lands on the odd index instead. Such a segment is bracketed by
+        # emphasis markers, which a real quotation is not.
+        stripped = seg.strip()
+        if stripped.startswith(("*", "_")) and stripped.endswith(("*", "_")):
+            continue
+        out.append(seg)
+    return out
 
 # "pdf p.32" / "pdf page 32" — an explicit PDF index, checkable exactly.
 PDF_PAGE = re.compile(r"\bpdf\s+p(?:age|p?)?\.?\s*(\d+)", re.I)
@@ -129,12 +143,16 @@ def check_file(md_path, documents=None, max_quotes: int = 0) -> List[Result]:
                 int(any_hit.group(1)) if any_hit else None)
             exact = pdf_hit is not None
 
-            where, doc_name = [], None
+            where, doc_name, ocr_score = [], None, None
             for pdf in pdfs:
                 hits = find_text(pdf, quote)
                 if hits:
                     where = [h.page for h in hits]
                     doc_name = pdf.name
+                    # Scanned sources match through OCR noise; say so rather
+                    # than presenting a fuzzy match as an exact one.
+                    if not hits[0].exact:
+                        ocr_score = hits[0].score
                     break
 
             if not where:
@@ -164,7 +182,20 @@ def check_file(md_path, documents=None, max_quotes: int = 0) -> List[Result]:
                           f"(found on {where}); if that was a PRINTED page this may be "
                           f"correct — write 'pdf p.N' to make it checkable")
             elif cited in where:
-                verdict, detail = "VERIFIED", f"quote is on pdf p.{cited}"
+                if ocr_score is not None:
+                    verdict = "VERIFIED_OCR"
+                    detail = (f"on pdf p.{cited}, matched through OCR noise "
+                              f"({ocr_score}% — the scan is dirty, the citation is not)")
+                else:
+                    verdict, detail = "VERIFIED", f"quote is on pdf p.{cited}"
+            elif len(where) > 1:
+                # The passage appears on several pages -- a section heading in
+                # both the contents and the body, a running head, an index entry.
+                # "Wrong page" is then not provable: the cited page may hold a
+                # further occurrence the OCR lost. Report, do not fail.
+                verdict = "PAGE_UNKNOWN"
+                detail = (f"cited pdf p.{cited}; the passage appears on {where} — "
+                          "repeated text (heading/index), so the page cannot be adjudicated")
             else:
                 verdict, detail = "WRONG_PAGE", (
                     f"cited pdf p.{cited}, but the quote is on {where}")
