@@ -12,7 +12,22 @@ automation is NOT this skill — jump to debugging-playbook and cite its F-row I
 
 ## 1. Scheduled tasks (Windows Task Scheduler)
 
-Seven `HvH-*` tasks, all `Ready` (five live-verified 2026-07-02; HvH-CtrTracker + HvH-MorningCatchup registered 2026-07-03). All run
+> ⚠ **ALL SEVEN VANISHED — found and re-registered 2026-07-31.** `Get-ScheduledTask`, `schtasks`
+> and a direct scan of `C:\Windows\System32\Tasks` all returned **nothing** for `HvH-*`, while this
+> section claimed seven Ready tasks. They were genuinely running on 2026-07-29 (a
+> `reconcile-2026-07-29-0834.diff` sits in `.brain/_inbox/`, four minutes after the 08:30 trigger),
+> so the loss happened between 07-29 and 07-31 — cause unknown, no elevation was involved.
+>
+> **This is the second silent outage found the same day** (graphify died when its interpreter was
+> uninstalled). Both failed the same way: documentation asserting a live system, nothing checking.
+> **Run the health check below when something feels stale — do not trust this table.**
+>
+> All seven re-registered with the documented schedules and verified `Ready` with correct
+> `NextRunTime`. The `AtLogOn` trigger on MorningCatchup was attempted and **rejected with "Access
+> is denied"** — confirming empirically that it needs an elevated shell. Its daily 10:30 sweeper is
+> live, which is the fallback that trigger existed to cover.
+
+Seven `HvH-*` tasks, all `Ready` (five live-verified 2026-07-02; HvH-CtrTracker + HvH-MorningCatchup registered 2026-07-03; **all seven re-registered 2026-07-31 after the outage above**). All run
 `C:\Program Files\PowerShell\7\pwsh.exe -File "G:\History vs Hype\.claude\routines\<wrapper>.ps1"`,
 daily trigger ONLY — the `AtLogOn` trigger documented in `reconcile-daily.md` is NOT
 registered (needs an elevated shell; still pending). `MultipleInstances IgnoreNew`,

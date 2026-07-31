@@ -33,9 +33,38 @@ claude mcp add --transport http vidiq https://mcp.vidiq.com/mcp
 
 ## Plan / credits
 
-- Available on all plans (Free / **Boost** / Max). **User is on Boost** → credit headroom for gate-time calls **plus** ad-hoc use during research.
+- Available on all plans (Free / **Boost** / Max). **User is on Boost.**
 - Credit cost: **5 credits** per standard call (channel research, competitor analysis, title/thumbnail scoring, comment sentiment, trend discovery); **10 credits** for **"Video Watch"** (frame-by-frame retention diagnostics). Free utility calls: credit balance, connected channels, trend categories.
 - Credits refresh at the start of each billing cycle. If out of credits or the MCP is down → **fall back to manual in-app VidIQ** (paste-ready prompts).
+
+> ⚠ **"Credit headroom" is no longer true — measured 2026-07-31:**
+> ```
+> renewable: 0 / 1,000   (refills 2026-08-17)
+> add-on:    3,448 / 5,050   <- these NEVER refill
+> ```
+> The renewable bucket is empty. Everything spent before 17 Aug comes out of a finite
+> non-replenishing pool — roughly 690 calls at 5 credits, then gone. Check with the free
+> `vidiq_balance` before any ad-hoc session.
+
+### 🚫 Never route channel analytics through vidIQ
+
+`vidiq_channel_analytics` is a YouTube Analytics API wrapper — views, watch time, subscribers,
+retention curves, traffic sources, demographics, geography, top videos. **This repo already pulls
+all of it directly, for free**, via `tools/youtube_analytics/` (and since 2026-07-31 it is batched:
+geography 83s → 6.5s, traffic 27.5s → 3.0s). Spending 5 finite credits on data you own is pure
+waste. The same applies to `vidiq_channel_stats` for our own channel — `growth_data` has it.
+
+**vidIQ's unique value is what our API cannot give us**, and this is the whole allowed list:
+
+| Use vidIQ for | Because |
+|---|---|
+| `vidiq_channel_search` | semantic niche discovery, breakout flag, growth filters |
+| `vidiq_outliers` | competitor breakout mining (Step 0D) |
+| `vidiq_keyword_research` | real YouTube search volume + competition |
+| `vidiq_video_comments` / `vidiq_video_transcript` | competitor mining on videos we don't own |
+| `vidiq_similar_channels` / `vidiq_trending_videos` | discovery surface we have no equivalent for |
+
+Anything about **our own channel** goes through `tools/youtube_analytics/`, not vidIQ.
 
 ## Where it's wired
 
