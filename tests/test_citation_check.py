@@ -111,6 +111,33 @@ def test_missing_file_is_not_an_exception(tmp_path):
     assert check_file(tmp_path / "ghost.md") == []
 
 
+def test_unresolved_is_not_reported_as_not_found(tmp_path, monkeypatch):
+    """Regression, #66 library run: when no source resolves, NOTHING was opened,
+    so NOT_FOUND ('check for paraphrase-as-verbatim') is an accusation about a
+    citation nobody read. 21 quotes were mislabelled that way."""
+    from tools.preflight import citation_check as cc
+    monkeypatch.setattr(cc, "LIBRARY_DIR", tmp_path / "empty-library")
+
+    md = tmp_path / "01-VERIFIED-RESEARCH.md"
+    md.write_text('- Claim "a passage with no author named anywhere near it" (pdf p.4)\n',
+                  encoding="utf-8")
+
+    r = cc.check_file(md, use_library=True)
+
+    assert r == [] or r[0].verdict == "UNRESOLVED"
+
+
+def test_source_is_resolved_from_the_section_heading(source):
+    """#66 names sources in headings and quotes underneath, so scanning the
+    quote line alone resolved nothing."""
+    from tools.preflight.citation_check import _named_sources
+
+    index = {"kamen": [], "homza": []}
+
+    assert _named_sources("- a quote line", "### A2 — Kamen on the denial policy", index) == ["kamen"]
+    assert _named_sources("cited by Homza here", "### heading", index) == ["homza"]
+
+
 # ------------------------------------------------------------ quote pairing ---
 
 def test_quotes_are_paired_not_alternated():

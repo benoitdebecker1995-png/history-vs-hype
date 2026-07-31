@@ -92,6 +92,24 @@ def _cited_source(line: str) -> Optional[str]:
     return m.group(1) if m else None
 
 
+WORD = re.compile(r"[A-Za-zÀ-ÿ]{3,}")
+
+
+def _named_sources(line: str, heading: str, index: dict) -> List[str]:
+    """Library keys named by this citation, from the line or its section heading.
+
+    #66 names its sources in headings ("### A2 — THE KEY FINDING … (pdf p.32)")
+    and quotes underneath, so scanning the quote line alone resolved nothing and
+    every quote came back NOT_FOUND against zero PDFs searched.
+    """
+    found = []
+    for word in WORD.findall(f"{line} {heading}"):
+        key = word.casefold()
+        if key in index and key not in found:
+            found.append(key)
+    return found
+
+
 @dataclass
 class Result:
     line: int
@@ -101,6 +119,30 @@ class Result:
     found_pages: List[int]
     document: Optional[str]
     detail: str
+
+
+LIBRARY_DIR = REPO_ROOT / "library"
+
+
+def library_index(library=None) -> dict:
+    """{surname: [pdf paths]} from the persistent library's filenames.
+
+    `library/` holds 1,600+ PDFs / 23 GB, so scanning it per quote is not an
+    option — a 5-PDF run already takes two minutes. The library's own naming
+    convention (`TitleWords-Author-Year-Publisher.pdf`) carries the author, and
+    a citation says "Behrens p. 240", so the surname resolves a quote to one or
+    two files instead of sixteen hundred.
+    """
+    base = Path(library) if library else LIBRARY_DIR
+    index: dict = {}
+    if not base.is_dir():
+        return index
+    for pdf in base.rglob("*.pdf"):
+        # TitleWords-Author-Year-Publisher.pdf -> Author is the second field.
+        parts = pdf.stem.split("-")
+        if len(parts) >= 2:
+            index.setdefault(parts[1].casefold(), []).append(pdf)
+    return index
 
 
 def _documents(explicit, md_path: Path) -> List[Path]:
@@ -118,21 +160,32 @@ def _documents(explicit, md_path: Path) -> List[Path]:
     return []
 
 
-def check_file(md_path, documents=None, max_quotes: int = 0) -> List[Result]:
-    """Verify every quote+locator pair in a markdown file. Never raises."""
+def check_file(md_path, documents=None, max_quotes: int = 0,
+               use_library: bool = False) -> List[Result]:
+    """Verify every quote+locator pair in a markdown file. Never raises.
+
+    `use_library` additionally resolves each citation against the persistent
+    `library/` by the surname it names, so a source does not have to be copied
+    into the project to be checkable.
+    """
     md = Path(md_path)
     if not md.is_file():
         logger.warning("not a file: %s", md)
         return []
 
     pdfs = _documents(documents, md)
-    if not pdfs:
+    index = library_index() if use_library else {}
+    if not pdfs and not index:
         logger.warning("no source PDFs found for %s — nothing to check against", md.name)
         return []
-    logger.info("checking against %d PDF(s)", len(pdfs))
+    logger.info("checking against %d local PDF(s)%s", len(pdfs),
+                f" + library ({sum(len(v) for v in index.values())} indexed)" if index else "")
 
     results: List[Result] = []
+    heading = ""
     for n, line in enumerate(md.read_text(encoding="utf-8", errors="replace").splitlines(), 1):
+        if line.lstrip().startswith("#"):
+            heading = line
         for quote in quotes_in(line):
             if len(quote.split()) < MIN_WORDS:
                 continue
@@ -143,8 +196,18 @@ def check_file(md_path, documents=None, max_quotes: int = 0) -> List[Result]:
                 int(any_hit.group(1)) if any_hit else None)
             exact = pdf_hit is not None
 
+            # Local documents first (small, project-specific), then the library
+            # narrowed to the source this citation names.
+            candidates = list(pdfs)
+            if index:
+                # A surname can appear as "Behrens p. 240" on the line, or -- as
+                # #66 does throughout -- only in the section heading above the
+                # quote ("### A2 ... (pdf p.32)"). Carry the heading down.
+                for name in _named_sources(line, heading, index):
+                    candidates += index[name]
+
             where, doc_name, ocr_score = [], None, None
-            for pdf in pdfs:
+            for pdf in candidates:
                 hits = find_text(pdf, quote)
                 if hits:
                     where = [h.page for h in hits]
@@ -155,7 +218,13 @@ def check_file(md_path, documents=None, max_quotes: int = 0) -> List[Result]:
                         ocr_score = hits[0].score
                     break
 
-            if not where:
+            if not where and not candidates:
+                # Searched nothing, so say nothing. Reporting NOT_FOUND here
+                # would accuse a citation whose source was never opened.
+                verdict = "UNRESOLVED"
+                detail = ("no source could be resolved for this citation — name the "
+                          "author on the line or in its heading, or pass --documents")
+            elif not where:
                 # Distinguish "the quote is wrong" from "that book is not here".
                 # On the first real run, 8 quotes citing Kamen/Homza/Argüello were
                 # reported as possible fabrication when the folder held exactly one
@@ -163,14 +232,14 @@ def check_file(md_path, documents=None, max_quotes: int = 0) -> List[Result]:
                 # ignored, so name the likelier cause when the source is absent.
                 cited_name = _cited_source(line)
                 have_it = cited_name and any(
-                    cited_name.lower() in p.name.lower() for p in pdfs)
+                    cited_name.lower() in p.name.lower() for p in candidates)
                 if cited_name and not have_it:
                     verdict = "SOURCE_ABSENT"
                     detail = (f"cites '{cited_name}', which is not among the "
-                              f"{len(pdfs)} PDF(s) here — cannot verify, not a failure")
+                              f"{len(candidates)} PDF(s) searched — cannot verify, not a failure")
                 else:
                     verdict = "NOT_FOUND"
-                    detail = (f"quote not found in the {len(pdfs)} PDF(s) present — "
+                    detail = (f"quote not found in the {len(candidates)} PDF(s) searched — "
                               "check for paraphrase-as-verbatim or a wrong attribution")
             elif cited is None:
                 verdict, detail = "PAGE_UNKNOWN", f"no page cited; quote is on p.{where[0]}"
@@ -219,6 +288,8 @@ def main() -> int:
     )
     ap.add_argument("file")
     ap.add_argument("--documents", help="PDF file or directory (default: the project's _research/documents/)")
+    ap.add_argument("--library", action="store_true",
+                    help="also resolve citations against the persistent library/ by author surname")
     ap.add_argument("--limit", type=int, default=0, help="stop after N quotes (0 = all)")
     ap.add_argument("--json", action="store_true")
     g = ap.add_mutually_exclusive_group()
@@ -227,7 +298,7 @@ def main() -> int:
     args = ap.parse_args()
     setup_logging(args.verbose, args.quiet)
 
-    results = check_file(args.file, args.documents, args.limit)
+    results = check_file(args.file, args.documents, args.limit, use_library=args.library)
 
     if args.json:
         print(json.dumps([asdict(r) for r in results], indent=2))
