@@ -7,7 +7,7 @@ description: Entry-point router for the History vs Hype repo — the two work su
 
 You have CLAUDE.md and MEMORY.md loaded and nothing else. This skill is the missing layer:
 which kind of session you're in, what is authoritative, where to read next for your task,
-and the ten mistakes that are never acceptable here. Repo root: `D:\History vs Hype`
+and the ten mistakes that are never acceptable here. Repo root: `G:\History vs Hype`
 (Windows 11; PowerShell primary, Git Bash available; Python is `python`, run modules as
 `python -m tools.<pkg>.<module>` from repo root).
 
@@ -58,7 +58,7 @@ its stage; `_BACKLOG/` is for parked work only, never filmed/published work.
 ## Task-type → read-order router (the core section)
 
 Read in the order given, then act. Each row names the owning skill(s) plus at most the 1–2
-files that are authoritative beyond it. Skills live in `D:\History vs Hype\.claude\skills\<name>\SKILL.md`.
+files that are authoritative beyond it. Skills live in `G:\History vs Hype\.claude\skills\<name>\SKILL.md`.
 
 | You were asked to… | Read, in this order | Then act |
 |---|---|---|

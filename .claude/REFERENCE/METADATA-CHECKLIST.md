@@ -12,8 +12,8 @@
 - [ ] **Each flagged as SEARCH or BROWSE** — search titles target keywords people type; browse titles optimize for feed clicks
 - [ ] **Under 60 characters** — readable on mobile
 - [ ] **Front-load keyword** — main topic word in first 3-4 words
-- [ ] **No year in title** — -46% CTR penalty (measured)
-- [ ] **No colon** — -28% CTR penalty (measured)
+- [ ] **Year in title** — graded penalty, not a ban. `YEAR_PENALTY -15` / `YEAR_PENALTY_HOOK -5` (`tools/title_scorer.py:308-310`). The old "-46%" figure was topic-confounded and is retired.
+- [ ] **Colon in title** — graded penalty, not a ban. `COLON_PENALTY -10`, and **0 for versus titles** (`tools/title_scorer.py:311-313`). The channel's #1 and #3 videos both use colons.
 - [ ] **No "The X That Y" pattern** — hard reject per PACKAGING_MANDATE
 - [ ] **Scored by `title_scorer.py`** — minimum 60/100
 - [ ] **Declarative or versus pattern preferred** — highest measured CTR

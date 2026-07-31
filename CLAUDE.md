@@ -27,17 +27,26 @@ implementation detail, the skill's live-verified claim is usually newer — veri
 
 ---
 
-## Knowledge Graphs (MCP)
+## Knowledge Graphs
 
-Two MCP servers are live for this project: `graphify-code` (54K-node AST graph of the whole repo) and `graphify-research` (sparse 110-node concept graph from 16 archived `01-VERIFIED-RESEARCH.md` files). Graphs survive across sessions. Post-commit hook keeps the code graph fresh.
+⚠ **The two MCP servers are NOT registered — verified 2026-07-30.** `graphify` appears
+nowhere in `~/.claude.json`, the Claude Desktop config, or the surviving backup, and no
+`mcp__graphify-*` tool resolves. This file previously told sessions to prefer
+`mcp__graphify-code__query_graph` etc. over grep; **those calls cannot work.** Use grep,
+Glob, and the file-based queries below until the servers are re-registered
+(`.claude/REFERENCE/GRAPHIFY-OPS.md` § Recovery).
 
-**Prefer graph queries over grep/Read when the question is structural:**
-- "Where does X live" / "what does X depend on" → `mcp__graphify-code__query_graph` or `mcp__graphify-code__get_neighbors`
-- "How does A connect to B" → `mcp__graphify-code__shortest_path`
-- "What are the most-connected hubs" → `mcp__graphify-code__god_nodes`
-- "Have we covered scholar / treaty / topic Z across videos" → `mcp__graphify-research__query_graph`
+**The graph data still exists** — only the MCP wiring is gone:
+- Code graph — `graphify-out/graph.json` (81 MB, refreshed by the post-commit hook)
+- Research graph — sparse ~110-node concept graph over the archived
+  `01-VERIFIED-RESEARCH.md` files. Query it directly:
+  ```bash
+  python graphify-out/research/query.py "uti possidetis" --max-nodes 5
+  ```
+  Read `graphify-out/research/GRAPH_REPORT.md` for bridges and suggested questions.
 
-**Honest scope:** Code graph is dense and reliable. Research graph is sparse — query it for entity-specific lookups ("did we cite Mamdani"), but if it returns <3 hits fall back to file reads. Densifying the research graph is on the open-work list.
+**Honest scope:** the research graph is sparse — good for entity lookups ("did we cite
+Mamdani"), but under ~3 hits means fall back to file reads.
 
 Workflow patterns, recovery commands, and the open-work list: `.claude/REFERENCE/GRAPHIFY-OPS.md`.
 
@@ -56,10 +65,10 @@ Workflow patterns, recovery commands, and the open-work list: `.claude/REFERENCE
 
 ## Quick Start Commands
 
-**Pre-production:** `/grill-angle` (sharpen angle) → `/greenlight` (packaging gate, before ANY research) → `/research` → `/sources`
+**Pre-production:** `/grill-angle` (sharpen angle) → `/greenlight` (packaging gate, before ANY research) → `/research` → `/research --sources`
 **Production:** `/script` → `/verify` → `/prep` → `/thumbnail`
 **Post-production:** `/editing-guide` (after rough cut) → `/fix` (subtitle correction) → `/publish` → `/engage` → (on upload) `/reconcile <slug>`
-**Navigation:** `/status` | `/reconcile` | `/help` | `/next` | `/intel`
+**Navigation:** `/status` | `/reconcile` | `/help` | `/next`
 **Article writing:** `article-writer` agent (CONVERT / WRITE / EDIT / WORKSHOP modes — invoke directly)
 **Analytics:** `/analyze` | `/patterns` | `/growth` | `/retitle`
 
@@ -87,7 +96,7 @@ Workflow patterns, recovery commands, and the open-work list: `.claude/REFERENCE
 - `YOUTUBE-METADATA.md` — title, description, tags, timestamps
 - `PROJECT-STATUS.md` — per-folder narrative. Top of file has a `<!-- AUTO:reconcile -->` block (managed by `/reconcile`); narrative below `<!-- /AUTO:reconcile -->` is hand-written and never overwritten.
 
-See: `.claude/FOLDER-STRUCTURE-GUIDE.md`
+See: `.claude/REFERENCE/FOLDER-STRUCTURE-GUIDE.md`
 
 ---
 
@@ -106,13 +115,13 @@ See: `.claude/FOLDER-STRUCTURE-GUIDE.md`
 
 **Conversational trigger (MANDATORY):** When the user says "I uploaded X" / "I released X" / "I published X" / "X is live" / "X went up" — run `/reconcile <X>` immediately. Do NOT just look up the video. Do NOT assume project files are current. The utterance IS the write trigger. If X is ambiguous (multiple folders match), ask once before proceeding.
 
-**Conversational trigger — script lock (MANDATORY):** When the user declares a script locked ("script locked" / "lock it" / "T1 passed" / read-aloud passed top-to-bottom) — IMMEDIATELY run the post-lock delta-mine for that video: (1) consolidate its read-aloud notes, version diffs, and session corrections into `channel-data/calibration/CALIBRATION-CORPUS.md` (axis-tagged, tiered, per the corpus header rules); (2) append any new contradictions to `channel-data/calibration/INTERVIEW-AGENDA.md`; (3) record the video's passes-to-lock count in `channel-data/calibration/EVAL-BASELINE.md`. The lock declaration IS the mining trigger — deltas are freshest at lock and go stale fast. See `memory/feedback-calibration-loop.md`.
+**Conversational trigger — script lock (MANDATORY):** When the user declares a script locked ("script locked" / "lock it" / "T1 passed" / read-aloud passed top-to-bottom) — IMMEDIATELY run the post-lock delta-mine for that video: (1) consolidate its read-aloud notes, version diffs, and session corrections into `channel-data/calibration/CALIBRATION-CORPUS.md` (axis-tagged, tiered, per the corpus header rules); (2) append any new contradictions to `channel-data/calibration/INTERVIEW-AGENDA.md`; (3) record the video's passes-to-lock count in `channel-data/calibration/EVAL-BASELINE.md`. The lock declaration IS the mining trigger — deltas are freshest at lock and go stale fast. See the `feedback-calibration-loop` memory (user-memory store, not a repo path).
 
-**Backstop:** Routine 6 archives new YouTube publishes missed by conversation, and NEVER touches memory snapshots — lessons-promotion stays gated on interactive `/reconcile`. **Registered 2026-06-13** as Windows task `HvH-Reconcile` (claude-driven like its sibling routines: `run-reconcile.ps1` → `claude -p reconcile-daily.md` → runs `python -m tools.reconcile.reconcile --auto-publish-only`; daily 08:30 + StartWhenAvailable; `AtLogOn` trigger pending an elevated add). Smoke-tested 2026-06-13: the claude-driven path executes correctly. Its freshness gate depends on **Routine 7 `HvH-GrowthRefresh`** (`run-growth-refresh.ps1` → `python -m tools.youtube_analytics.growth_data --refresh`, daily 07:45) keeping `analytics.db` current — **registered 2026-06-13** after a debug session found nothing was refreshing the DB (channel-health is read-only and was even querying a non-existent table; the refresh tool `growth_data` was never scheduled, so the DB sat >36h stale and reconcile no-op'd every run). With Routine 7 in place the chain is: 07:45 refresh → 08:00 channel-health reads → 08:30 reconcile. See `docs/AUDIT-COMMANDS-2026-06.md` § Routine health. `/reconcile` itself backstops the calibration loop: each run flags locked scripts whose deltas aren't in the corpus (see `.claude/commands/reconcile.md`).
+**Backstop:** Routine 6 (`HvH-Reconcile`, daily 08:30) archives publishes missed by conversation and NEVER touches memory snapshots — lessons-promotion stays gated on interactive `/reconcile`. It depends on Routine 7 (`HvH-GrowthRefresh`, 07:45) keeping `analytics.db` fresh; the chain is 07:45 refresh → 08:00 channel-health → 08:30 reconcile. Schedules, wrapper scripts and health checks: **automation-ops** skill. `/reconcile` also backstops the calibration loop, flagging locked scripts whose deltas aren't in the corpus.
 
 **Memory snapshots** (`memory/[N]-production-state.md`): frozen point-in-time during active project life. Append new dated entries; don't overwrite. On archive (interactive `/reconcile` only), user is prompted to promote lessons to `feedback-*.md` before snapshot is deleted.
 
-See: `.claude/commands/reconcile.md` | `memory/feedback-project-reconciliation.md`
+See: `.claude/commands/reconcile.md` | the `feedback-project-reconciliation` memory
 
 ---
 
@@ -164,14 +173,14 @@ See: `.claude/commands/reconcile.md` | `memory/feedback-project-reconciliation.m
 
 **NEVER include unverified claims.** If you can't verify: don't include it, flag it, or ask user for source.
 
-See: `.claude/FACT-CHECK-SIMPLIFICATION-RULES.md` for 8 anti-oversimplification rules
+See: `.claude/REFERENCE/FACT-CHECK-SIMPLIFICATION-RULES.md` for 8 anti-oversimplification rules
 
 ---
 
 ## Packaging-First Workflow
 
-1. **Search demand** — <1K/mo = hard stop
-2. **Title generation** — `title_scorer.py`. No years (-46% CTR), no colons (-28%). Front-load keyword. Declarative = default (3.8% CTR).
+1. **Search demand** — graded gate, NOT a hard stop: GO ≥1,000/mo · CAUTION 500–999 · STOP <500, and a **verified live news hook overrides a STOP**. Authority: `.claude/commands/greenlight.md` Step 1.
+2. **Title generation** — `title_scorer.py`. Front-load keyword. Declarative = default (3.8% CTR). **Years and colons are graded penalties, not bans** — `YEAR_PENALTY -15`, `COLON_PENALTY -10`, `COLON_PENALTY_VERSUS 0` (`tools/title_scorer.py:308-313`, authoritative). The old −46%/−28% "hard rule" was topic-confounded and is **retired**; the channel's #1 and #3 videos both use colons.
 3. **Thumbnail concept** — text overlay MANDATORY (87% niche), no face (0% niche), maps for territorial. `thumbnail_checker.py`
 4. **THEN research** — only after `/greenlight` passes
 
@@ -188,6 +197,34 @@ See: `tools/PACKAGING_MANDATE.md` | `.claude/REFERENCE/TITLE-GENERATION-PROTOCOL
 - **Parallel tool calls** — when multiple independent reads needed
 - **Don't ask for info in files you can read** — find it yourself
 - See: `.claude/USER-PREFERENCES.md` for complete guide
+
+### Calibration (Opus 5 — these are specific because the model follows instructions literally)
+
+Documented Opus 5 traits: longer responses, readier narration, longer written files, scope
+expansion, loud correction-narration, readier delegation. Each has a rule. Full sourcing and the
+remedies: **`.claude/REFERENCE/OPUS-5-CALIBRATION.md`**.
+
+1. **Lead with the outcome.** First sentence answers "what happened" / "what did you find."
+   Detail after. Caveats short, and after the answer.
+2. **Calibrated language.** State what a finding is and what it supports; let the reader weigh it.
+   **At most one "strongest/most important" per project**, and say what it changes. "Mother lode",
+   "crown jewel", "spectacular" — no. *(Hyperbole is NOT a documented model trait; it is a house
+   failure. See ADR-0021, which enforces the evidence half in code.)*
+3. **Narrate once, not per step.** One sentence before the first tool call; updates only on a real
+   finding or a change of direction.
+4. **Written files match the task.** Cover the substance; no filler sections, no redundant
+   summaries. A research file records findings and status — not a narrative of the session.
+5. **Hold scope.** Deliver what was asked. Routine judgement calls are yours; check in only when
+   readings differ materially. Better idea? Say it in a sentence, then do what was asked.
+6. **Correct once, quietly.** Only when the error changes a decision. Then continue.
+7. **Delegate rarely.** Only large, genuinely independent, parallel work. Never to verify your own
+   work. ⚠ `USER-PREFERENCES.md` § "Main Context = Orchestrator Only" was tuned for a model that
+   under-delegated — treat its trigger as an upper bound, not a prompt.
+
+**Do NOT add self-verification scaffolding** ("double-check", "re-verify before responding").
+Opus 5 self-verifies; such instructions cause over-verification. *(Checked 2026-07-30: the
+`re-verify` rules in `/verify`, `/verify-flow-nlm` and `.claude/skills/historian/WEB-POLICY.md` are domain rules
+about fast-moving facts — legitimate, keep them.)*
 
 ---
 
@@ -208,22 +245,17 @@ See: `tools/PACKAGING_MANDATE.md` | `.claude/REFERENCE/TITLE-GENERATION-PROTOCOL
 13. **Years/colons in titles = HEDGE, not ban** — graded penalties, A/B-testable (the old -46%/-28% hard rule was topic-confounded; the channel's #1 and #3 videos have colons). See `tools/PACKAGING_MANDATE.md` Tier 2
 14. **Text overlay on thumbnails** — 2-4 words, not full title. Maps for territorial.
 15. **AGENT ORCHESTRATION** — Read `.claude/AGENT-ORCHESTRATION.md` before spawning sub-agents — return contract, tiers, rate-limit rule
+16. **Claim status is graded, not binary** — `ASSERTED → SOURCED → INSPECTED → CORROBORATED/CONTESTED → SETTLED`. Verdict words (REFUTED/PROVEN/RESOLVED) only at CORROBORATED+. Check with `python -m tools.preflight.claim_status <file.md>`; `--frontier` says whether research is actually finished. ADR-0021
+17. **Collision-check before proposing a video** — `python -m tools.preflight.candidate_preflight "<topic>"`. Published match = stop. Run it *before* the pitch, not after
+18. **Calibration** — lead with the outcome · one superlative per project, max · narrate once not per step · hold scope · correct once, quietly. See Working Style above and `.claude/REFERENCE/OPUS-5-CALIBRATION.md`
 
 ---
 
 ## Agent skills
 
-### Issue tracker
-
-Issues live in GitHub Issues for `benoitdebecker1995-png/history-vs-hype`, accessed via `gh` CLI. See `docs/agents/issue-tracker.md`.
-
-### Triage labels
-
-Default canonical labels: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
-
-### Domain docs
-
-Single-context layout — `CONTEXT.md` and `docs/adr/` at repo root. See `docs/agents/domain.md`.
+- **Issues** — GitHub Issues on `benoitdebecker1995-png/history-vs-hype` via `gh` CLI → `docs/agents/issue-tracker.md`
+- **Triage labels** — `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix` → `docs/agents/triage-labels.md`
+- **Domain docs** — single-context layout, `CONTEXT.md` + `docs/adr/` at repo root → `docs/agents/domain.md`
 
 ---
 

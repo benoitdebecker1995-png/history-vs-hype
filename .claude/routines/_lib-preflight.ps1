@@ -23,7 +23,7 @@ $script:EXIT_BAD_REPO_ROOT = 79
 function Set-RepoRoot {
     <#  Set-Location, but fatal on failure instead of silently continuing. #>
     param(
-        [string]$Path = "D:\History vs Hype",
+        [string]$Path = "G:\History vs Hype",
         [string]$LogFile
     )
     try {

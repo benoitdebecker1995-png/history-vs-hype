@@ -9,10 +9,10 @@ description: Map of the repo's data layer — the three live SQLite databases (a
 
 | DB | Path | Question it answers | Freshness column |
 |---|---|---|---|
-| analytics.db | `D:\History vs Hype\tools\youtube_analytics\analytics.db` | "How is OUR channel performing?" (YouTube Data + Analytics APIs) | `videos.metrics_fetched_at` |
-| keywords.db | `D:\History vs Hype\tools\discovery\keywords.db` | "What should we make next / how to package it?" (VidIQ + downstream scoring + real CTR) | `ctr_snapshots.snapshot_date` |
-| intel.db | `D:\History vs Hype\tools\intel\intel.db` | Competitor / algorithm knowledge base | `kb_meta.last_refresh` |
-| projects.db | `D:\History vs Hype\tools\history-clip-tool\data\projects.db` | DORMANT — unrelated Shorts clip tool, untouched since 2026-01. Exclude from all data-layer reasoning. | — |
+| analytics.db | `G:\History vs Hype\tools\youtube_analytics\analytics.db` | "How is OUR channel performing?" (YouTube Data + Analytics APIs) | `videos.metrics_fetched_at` |
+| keywords.db | `G:\History vs Hype\tools\discovery\keywords.db` | "What should we make next / how to package it?" (VidIQ + downstream scoring + real CTR) | `ctr_snapshots.snapshot_date` |
+| intel.db | `G:\History vs Hype\tools\intel\intel.db` | Competitor / algorithm knowledge base | `kb_meta.last_refresh` |
+| projects.db | `G:\History vs Hype\tools\history-clip-tool\data\projects.db` | DORMANT — unrelated Shorts clip tool, untouched since 2026-01. Exclude from all data-layer reasoning. | — |
 
 The analytics/keywords split is DELIBERATE — different providers, different mutation
 patterns, failure isolation. **Never propose consolidating them**; the standing answer is

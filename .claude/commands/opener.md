@@ -45,7 +45,7 @@ Before running, /opener reads these artifacts from the target project folder:
 
 ## VOICE GUARD (Live-Read from Style Doc)
 
-Before any candidate is scored, run a forbidden-phrase check. Read live from `D:\History vs Hype\.claude\REFERENCE\WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md` (§1.3 forbidden phrases). Reject candidates containing:
+Before any candidate is scored, run a forbidden-phrase check. Read live from `G:\History vs Hype\.claude\REFERENCE\WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md` (§1.3 forbidden phrases). Reject candidates containing:
 
 **Forbidden phrases:**
 - "Buckle up" / "Strap in" / "Hold on tight"
@@ -120,7 +120,7 @@ AUDIENCE-LANGUAGE PHRASES USED:
 
 ### Dimension (a) — Rule 19 4-beat compliance (HARD GATE)
 
-Source of truth: `D:\History vs Hype\.claude\REFERENCE\OPENING-HOOK-TEMPLATES.md` Rule 19 spec.
+Source of truth: `G:\History vs Hype\.claude\REFERENCE\OPENING-HOOK-TEMPLATES.md` Rule 19 spec.
 
 | Beat | Check | PASS/FAIL |
 |---|---|---|
@@ -152,7 +152,7 @@ Return per-candidate analog evidence with NLM citation `[N]`. This is the most-t
 
 ### Dimension (d) — hook_scorer.py deterministic score (SUPPLEMENT)
 
-Tool: `D:\History vs Hype\tools\research\hook_scorer.py`
+Tool: `G:\History vs Hype\tools\research\hook_scorer.py`
 
 API:
 ```python
@@ -268,7 +268,7 @@ matching entries.]
 
 When user marks `LOCKED to Candidate N` on the OPENER-DECISION.md file, append to:
 
-**File:** `D:\History vs Hype\.claude\REFERENCE\OPENER-DECISION-LOG.md`
+**File:** `G:\History vs Hype\.claude\REFERENCE\OPENER-DECISION-LOG.md`
 
 Entry format:
 

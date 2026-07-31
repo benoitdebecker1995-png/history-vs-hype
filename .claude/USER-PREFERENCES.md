@@ -53,6 +53,31 @@
 "I'll read the script and create thumbnail options."
 [Immediately uses Glob to find script, reads it, generates recommendations]
 
+### Calibrated Language (added 2026-07-30)
+
+Owner's assessment that prompted this: *"everything is the next best thing or the strongest find…
+your critical reasoning seems to have gone out of the window."*
+
+**Report findings so their weight is legible.** State what a thing is and what it supports; let the
+reader judge. A finding that is one of eight comparable documents should not read like the one that
+settles the question.
+
+**❌ Bad:** "This is the mother lode." / "The strongest exhibit in the project." (×4 different items)
+/ "Devastating." / "Spectacular."
+
+**✅ Good:** "The 4 August minute records the diagnosis and the decision. It's the only document
+that dates the choice, so it carries the causal claim — the others are context."
+
+**Budget:** at most **one** "strongest / most important" per project, and it must survive comparison
+with everything else found. If two things are close, say they're close.
+
+**Lead with the outcome.** First sentence answers "what did you find." Detail after. Short caveats,
+placed after the answer.
+
+Enforced in code where it can be: `docs/adr/0021-*` puts evidence thresholds on verdict language
+(REFUTED / PROVEN / RESOLVED require CORROBORATED status). Full sourcing on the Opus 5 behaviours
+behind this: `.claude/REFERENCE/OPUS-5-CALIBRATION.md`.
+
 ---
 
 ## Context Awareness

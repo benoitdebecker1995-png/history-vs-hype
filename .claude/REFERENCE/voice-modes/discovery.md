@@ -26,13 +26,13 @@ model: opus
 
 Read in parallel (one message), then dispatch Gemini:
 
-1. `D:\History vs Hype\.claude\REFERENCE\WRITING-VOICE-AND-STYLE.md` index — routes to the comprehensive spec, PARTS 1-5 sibling files.
+1. `G:\History vs Hype\.claude\REFERENCE\WRITING-VOICE-AND-STYLE.md` index — routes to the comprehensive spec, PARTS 1-5 sibling files.
 2. `C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\feedback-script-voice-calibration.md` — picks-derived model + the #58 block (the "ask me / give me options" method and what his Kurdistan picks revealed).
 3. `C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\feedback-scriptcollab.md` — the "Voice-Pass Patterns" canonical cringe ruleset.
 4. `C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\feedback-staccato-delivery.md` — fragment + frequency-cap rule.
 5. `C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\feedback-read-aloud-catches-logic.md` — why read-aloud is the T1 gate.
-6. `D:\History vs Hype\video-projects\_READY_TO_FILM\57-piri-reis-map-ottoman-2026\VOICE-FINGERPRINT.md` — the prior script-vs-SRT ad-lib fingerprint.
-7. `D:\History vs Hype\video-projects\_READY_TO_FILM\58-kurdistan-statelessness-2026\SCRIPT.md` — live material; the v2 voice pass + the lines he picked are in here.
+6. `G:\History vs Hype\video-projects\_READY_TO_FILM\57-piri-reis-map-ottoman-2026\VOICE-FINGERPRINT.md` — the prior script-vs-SRT ad-lib fingerprint.
+7. `G:\History vs Hype\video-projects\_READY_TO_FILM\58-kurdistan-statelessness-2026\SCRIPT.md` — live material; the v2 voice pass + the lines he picked are in here.
 
 Then **dispatch Gemini** (`/gemini`) to digest 8–12 finished-cut delivered SRTs spanning formats (debunk, territorial, document-reveal, ideological). Good candidates:
 `video-projects\_READY_TO_FILM\1-sykes-picot-2025\finshed video.srt`, `…\51-treaty-tripoli-article-11-2026\tripoli finshed cut srt.srt`, `…\50-thermopylae-sources-2026\finished edit.srt`, `…\44-bakassi-peninsula-2026\bakassi_youtube.srt`, `…\37-untranslated-vichy-statut-juifs-2026\statut definitive.srt`, `…\41-treaty-tordesillas-2026\tordesillas.srt`, `…\45-manhattan-purchase-myth-2026\finshed cut.srt`, `…\13-belize-icj-endgame-2025\belize guatemala icj.srt`, plus the plain `transcripts\*.srt` set.
@@ -92,7 +92,7 @@ Keep to 3–4, and make each answerable by pointing rather than essay-writing:
 
 ## Phase 4 — Synthesize → write the canonical profile + propagate
 
-1. **Write** `D:\History vs Hype\.claude\REFERENCE\VOICE-PROFILE.md` — the single distilled, picks-validated personal voice profile. Structure:
+1. **Write** `G:\History vs Hype\.claude\REFERENCE\VOICE-PROFILE.md` — the single distilled, picks-validated personal voice profile. Structure:
    - One-paragraph voice signature (what he sounds like, in plain terms).
    - The fingerprint (rhythm, openers, transitions, closings, connectors) — each rule paired with a **real example line HE approved** and a **counter-example he rejected**.
    - His personal cringe no-list, in his words.

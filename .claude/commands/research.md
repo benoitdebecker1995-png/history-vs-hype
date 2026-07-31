@@ -92,6 +92,31 @@ Low signal: ~15 videos — experiment freely.
 
 ---
 
+## COMPLETION GATE (run before reporting research finished — ALWAYS)
+
+Research is **not** finished because a milestone was reached. It is finished when no claim below
+CORROBORATED still has an available, untried route.
+
+```bash
+python -m tools.preflight.claim_status --frontier <project>/01-VERIFIED-RESEARCH.md   # done?
+python -m tools.preflight.claim_status          <project>/01-VERIFIED-RESEARCH.md   # rule violations
+```
+
+- **`--frontier` returns `OPEN`** → say what is still open and keep going. Do **not** report
+  completion.
+- **`UNTRACKED` items** → claims below CORROBORATED with no `next:` at all. These are the silent
+  abandonments; either give them a `next:` or close them with `next: none — <reason>`.
+- **Default mode returns `FAIL`** → a verdict word (REFUTED / PROVEN / RESOLVED) is sitting on a
+  claim that has not earned it, a locator is missing, or a `circular:` claim is over-ranked.
+
+Status ladder: `ASSERTED → SOURCED → INSPECTED → CORROBORATED/CONTESTED → SETTLED`.
+`--ladder` prints the thresholds. **ADR-0021.**
+
+*Why this is a gate: on 2026-07-30 research was reported complete twice while free, obtainable
+sources sat unread, and the owner had to ask "Why did you stop?" both times.*
+
+---
+
 ## NEW PROJECT WORKFLOW (`--new` or default)
 
 ### Stage 0 — Project Setup (historian skill dormant)

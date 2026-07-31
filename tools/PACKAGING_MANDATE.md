@@ -27,9 +27,34 @@ Breakouts held 34–39% avg watch; the channel median is 28.1%. Governed by scri
 
 **Identity guard (overrides all packaging tactics):** The channel is "history through primary sources — showing how history is done" (intro video yt:yMAWJcjo_ug). Any packaging optimization that requires regional positioning or stakes-first geopolitics framing is out of bounds, whatever the data says. Topic selection passes identity first, demand second.
 
+> **RESTATED 2026-07-29 (owner interview) — the guard was true but too narrow, and the narrowness caused real drift.**
+>
+> The subject is **access to the historical record**. Something is properly known by people who work on it, and the public can't get to it; the channel goes and gets it. The mission in the owner's words: *"make the historical discipline more accessible… bring history closer to the people and cut through the ideological bullshit."*
+>
+> **Four barriers block access**, and all four are in scope:
+> | barrier | the viewer's problem | precedent |
+> |---|---|---|
+> | **enclosure** | it's settled scholarship locked in a £95 university-press book | thinly served so far — the NotebookLM workflow is built for exactly this |
+> | **language** | the evidence exists, it just isn't in English | #62 Volhynia · #37 Vichy · Wuchale · Recopilación |
+> | **ideology** | the record is buried under a story someone invented | Flat Earth (1828) · Sol Invictus · Dark Ages · Fuentes · Vance |
+> | **archive** | the document exists and nobody has looked at it | Vichy draft · Condor cable · Piri Reis |
+>
+> **Territory, treaties and courts are NOT a lane.** They are topics where several barriers happened to stack. The owner's correction, verbatim: *"i dont want the focus to be solely on law or geopolitics… i do want to show why it is relevant but i want to specialize in history."* Relevance is the closing rhyme; history is the subject.
+>
+> **Deliberately left open:** which barrier carries breakout demand, and how visible the historian's method should be. The owner declined to pre-commit on both and assigned them to measurement (`tools/discovery/gap_hunter.py` barrier axis, `channel-data/gap-hunter/`). **Do not resolve either by assertion.**
+>
+> **Ideological targets are symmetric** — nationalist myth, pseudo-history, and current political claims about history all qualify, whoever is making them. No period constraint: *"the topic decides."*
+
 ---
 
 ## 2026-06-27 — COMPLETE-DATA UPDATE (supersedes the 2026-02-23 snapshot for CTR)
+
+> ⚠ **ARCHIVAL — `surface_ctr` and `thumbnail_features` are frozen datasets, verified 2026-07-30.**
+> Neither table has a single reader or writer anywhere in `tools/` — nothing refreshes them and
+> nothing queries them. Both stop at videos published **2026-06-04** (56 and 47 rows against 58
+> live videos). Treat every figure derived from them below as a **dated observation, not current
+> data**, and do not cite them as an authority — see the 2026-07-23 section, which supersedes them.
+> To revive either one it needs an importer; until then the vintage stands.
 
 **Data vintage upgrade:** real per-video Studio impressions+CTR for ALL 56 long-form now in
 `analytics.db` (`videos.impressions/ctr_percent`), plus per-surface CTR (`surface_ctr` —

@@ -5,7 +5,7 @@ description: Evidence-first diagnostic method and known-failure-mode catalog for
 
 # Debugging Playbook
 
-How to debug in `D:\History vs Hype`. The one-sentence version: **pull the evidence
+How to debug in `G:\History vs Hype`. The one-sentence version: **pull the evidence
 artifact for the subsystem BEFORE forming any hypothesis, match against the known-failure
 catalog, fix the root cause where it lives, verify against real data.** Never fix a symptom.
 
@@ -38,22 +38,22 @@ All paths absolute; commands are PowerShell, copy-pasteable from any directory.
 | Subsystem | Evidence artifact | How to read it |
 |---|---|---|
 | Scheduled routines (HvH-*) | Task Scheduler ground truth | `Get-ScheduledTask -TaskName "HvH-*" \| Get-ScheduledTaskInfo \| Format-Table TaskName, LastRunTime, LastTaskResult, NextRunTime` |
-| Routine execution detail | `.brain/_inbox/` run logs (`growth-refresh-*.log`, `reconcile-*.log`, `channel-health-run-*.log`, `stale-projects-run-*.log`, `brain-hygiene-run-*.log`, `ctr-tracker-*.log`, `morning-catchup-*.log`) | `Get-ChildItem "D:\History vs Hype\.brain\_inbox" \| Sort-Object LastWriteTime -Descending \| Select-Object -First 10 Name, LastWriteTime` |
+| Routine execution detail | `.brain/_inbox/` run logs (`growth-refresh-*.log`, `reconcile-*.log`, `channel-health-run-*.log`, `stale-projects-run-*.log`, `brain-hygiene-run-*.log`, `ctr-tracker-*.log`, `morning-catchup-*.log`) | `Get-ChildItem "G:\History vs Hype\.brain\_inbox" \| Sort-Object LastWriteTime -Descending \| Select-Object -First 10 Name, LastWriteTime` |
 | Reconcile outcome | `.brain\_inbox\reconcile-YYYY-MM-DD.md` (summary), `reconcile-*-HHMM.diff` (reversible, powers `--undo`), `reconcile-stale-db-YYYY-MM-DD.md` (freshness abort) | Read the newest; the `.md` alert is the REAL signal for aborts — but on a no-op/gray-zone day NO `.md` is written: the `reconcile-YYYY-MM-DD.log` is then the load-bearing evidence (grep for "gray-zone" / "LOGGED", F20). The wrapper logs claude's exit (0), not the tool's (2) |
-| Reconcile heartbeat | `.brain\last-reconcile-ts.txt` (ISO UTC of last successful run) | `Get-Content "D:\History vs Hype\.brain\last-reconcile-ts.txt"` |
+| Reconcile heartbeat | `.brain\last-reconcile-ts.txt` (ISO UTC of last successful run) | `Get-Content "G:\History vs Hype\.brain\last-reconcile-ts.txt"` |
 | analytics.db freshness | `MAX(metrics_fetched_at)` in `videos` (UTC; reconcile gates at 36h) | `python -c "import sqlite3; print(sqlite3.connect('file:D:/History%20vs%20Hype/tools/youtube_analytics/analytics.db?mode=ro', uri=True).execute('SELECT MAX(metrics_fetched_at) FROM videos').fetchone()[0])"` |
 | Live CTR freshness | `ctr_snapshots.snapshot_date` in keywords.db (separate from analytics.db freshness!) | `python -c "import sqlite3; print(sqlite3.connect('file:D:/History%20vs%20Hype/tools/discovery/keywords.db?mode=ro', uri=True).execute('SELECT MAX(snapshot_date) FROM ctr_snapshots').fetchone()[0])"` |
 | intel.db freshness | `kb_meta.last_refresh`; every intel query output carries a staleness footer | `python -m tools.intel.query` output footer, or read `kb_meta` read-only as above |
-| YouTube OAuth state | `tools\youtube_analytics\credentials\token.json` mtime (rewritten on every refresh/re-auth) + the newest `growth-refresh-*.log` | `Get-Item "D:\History vs Hype\tools\youtube_analytics\credentials\token.json" \| Select-Object LastWriteTime` |
+| YouTube OAuth state | `tools\youtube_analytics\credentials\token.json` mtime (rewritten on every refresh/re-auth) + the newest `growth-refresh-*.log` | `Get-Item "G:\History vs Hype\tools\youtube_analytics\credentials\token.json" \| Select-Object LastWriteTime` |
 | MCP servers | live connection status | `claude mcp list` (run from repo). NLM health = an authenticated call (`notebook_list`), NEVER `refresh_auth`/`server_info` — both false-report "expired" (0.6.14 bug) |
 | Graphify code graph | `~/.cache/graphify-rebuild.log` (post-commit rebuilds) | `Get-Content "$env:USERPROFILE\.cache\graphify-rebuild.log" -Tail 20` |
-| Graphify research graph | staleness marker `graphify-out\research\.needs_refresh` (touched by `/reconcile` on archive) | `Test-Path "D:\History vs Hype\graphify-out\research\.needs_refresh"` |
-| Gemini CLI | `_gemini-output/` dated files (did the dispatch land?); `~/.gemini/settings.json` → `security.auth.selectedType` must be `"gemini-api-key"` | `Get-ChildItem "D:\History vs Hype\_gemini-output" \| Sort-Object LastWriteTime -Descending \| Select-Object -First 5` |
+| Graphify research graph | staleness marker `graphify-out\research\.needs_refresh` (touched by `/reconcile` on archive) | `Test-Path "G:\History vs Hype\graphify-out\research\.needs_refresh"` |
+| Gemini CLI | `_gemini-output/` dated files (did the dispatch land?); `~/.gemini/settings.json` → `security.auth.selectedType` must be `"gemini-api-key"` | `Get-ChildItem "G:\History vs Hype\_gemini-output" \| Sort-Object LastWriteTime -Descending \| Select-Object -First 5` |
 | Cloud routines 1–2 | dated files in `channel-data\competitor-drops\` / `channel-data\modern-relevance\` — a dated file = it ran | `Get-ChildItem` on those dirs; a dated file = a run happened (manual runs exist, latest 2026-05-09) — NOT registered as scheduled tasks, see F18 |
 | Routine findings (not runs) | `.brain\_inbox\channel-health-*.md`, `stale-projects-*.md` — written ONLY on anomaly; silence is healthy | absence ≠ failure; check the `-run-*.log` for execution proof |
 
 If the URI-form sqlite one-liner errors on your shell, fall back to
-`sqlite3.connect(r'D:\History vs Hype\tools\youtube_analytics\analytics.db')` — read queries
+`sqlite3.connect(r'G:\History vs Hype\tools\youtube_analytics\analytics.db')` — read queries
 only; never write to a live DB during diagnosis (all three main DBs are git-tracked).
 Full DB semantics, tables, refresh chains: → data-stores skill.
 
@@ -176,7 +176,7 @@ down; needs you to click through a Google login once"), never architecture terms
 
 ## Windows gotchas that masquerade as bugs
 
-- **Quote every path** — `D:\History vs Hype` has a space; unquoted paths are the #1 way a
+- **Quote every path** — `G:\History vs Hype` has a space; unquoted paths are the #1 way a
   new script breaks here. Git Bash form: `/d/History vs Hype/` (still quoted).
 - **Two shells, two syntaxes:** scheduled tasks run PowerShell 7; git hooks run POSIX `sh`
   (Git Bash). `2>$null` vs `/dev/null` — never mix.

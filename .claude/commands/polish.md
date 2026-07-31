@@ -47,9 +47,9 @@ Before any other behavior fires, read these in parallel (one message, multiple R
 2. `<project>/PROJECT-STATUS.md` — current lifecycle state
 3. `C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\feedback-scriptcollab.md` — canonical Voice-Pass Patterns ruleset
 4. `C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\feedback-staccato-delivery.md` — fragment + frequency-cap rule
-5. `D:\History vs Hype\.claude\REFERENCE\WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md` — Calm Prosecutor voice, antecedent clarity, contractions
-6. `D:\History vs Hype\.claude\REFERENCE\THESIS-DISCIPLINE.md` — 9-step throughline procedure (used in Phase 1 lite mode)
-7. `D:\History vs Hype\.claude\REFERENCE\NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` — Use Case 18 thesis articulation + attribution verification
+5. `G:\History vs Hype\.claude\REFERENCE\WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md` — Calm Prosecutor voice, antecedent clarity, contractions
+6. `G:\History vs Hype\.claude\REFERENCE\THESIS-DISCIPLINE.md` — 9-step throughline procedure (used in Phase 1 lite mode)
+7. `G:\History vs Hype\.claude\REFERENCE\NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` — Use Case 18 thesis articulation + attribution verification
 
 Also locate the project's NotebookLM notebook ID — either from the project's memory snapshot (e.g., `52-hijab-production-state.md`) OR from `<project>/PROJECT-BRIEF.md` if present. Store it for Phase 2 notebook queries. If `--no-notebook` flag is set, skip this.
 

@@ -5,7 +5,7 @@ description: Standards for CHANGING the History vs Hype repo — the extend-don'
 
 # Extending Safely
 
-How to change this repo without degrading it. Everything here was live-verified 2026-07-01/02 (files read, hooks read, commands run). Repo root: `D:\History vs Hype`; run everything from there.
+How to change this repo without degrading it. Everything here was live-verified 2026-07-01/02 (files read, hooks read, commands run). Repo root: `G:\History vs Hype`; run everything from there.
 
 ## Owner context — read before framing any change
 

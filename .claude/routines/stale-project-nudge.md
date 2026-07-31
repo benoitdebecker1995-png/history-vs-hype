@@ -2,7 +2,7 @@
 
 **Purpose:** Every morning, scan `_IN_PRODUCTION/` for projects untouched more than 7 days. Surfaces the exact next action for each stale project so the morning session has a clear starting point.
 
-> **▶ EXECUTION DIRECTIVE (you are being run headless via `claude -p` — the routine path):** You ARE the stale-project-nudge routine. Execute the STEP block below **right now** against this repo at `D:\History vs Hype` — do not treat it as a template to describe. The `## Setup`/`## Guardrails` sections are reference; honor the guardrails but don't act on Setup. If nothing is stale and `.brain/index.md` §3 is current, exit silently (correct success). Do NOT respond with "what would you like to work on?" — your task is the steps below.
+> **▶ EXECUTION DIRECTIVE (you are being run headless via `claude -p` — the routine path):** You ARE the stale-project-nudge routine. Execute the STEP block below **right now** against this repo at `G:\History vs Hype` — do not treat it as a template to describe. The `## Setup`/`## Guardrails` sections are reference; honor the guardrails but don't act on Setup. If nothing is stale and `.brain/index.md` §3 is current, exit silently (correct success). Do NOT respond with "what would you like to work on?" — your task is the steps below.
 
 **Schedule:** Daily, 09:00 local (Desktop scheduled task — after channel health)
 **Why Desktop:** Reads local `video-projects/_IN_PRODUCTION/` mtimes and PROJECT-STATUS.md files.
@@ -13,7 +13,7 @@
 ## Paste this into Desktop Scheduled Task (prompt field)
 
 ```
-You are operating inside the History vs Hype repository at D:\History vs Hype.
+You are operating inside the History vs Hype repository at G:\History vs Hype.
 
 STEP 1 — Scan all projects in video-projects/_IN_PRODUCTION/ for staleness:
 
@@ -72,7 +72,7 @@ Only allowed writes: .brain/_inbox/stale-projects-YYYY-MM-DD.md and .brain/index
 ## Setup (Windows Task Scheduler)
 
 ```powershell
-$action = New-ScheduledTaskAction -Execute "claude" -Argument "--print `"$(Get-Content .claude\routines\stale-project-nudge.md -Raw)`"" -WorkingDirectory "D:\History vs Hype"
+$action = New-ScheduledTaskAction -Execute "claude" -Argument "--print `"$(Get-Content .claude\routines\stale-project-nudge.md -Raw)`"" -WorkingDirectory "G:\History vs Hype"
 $trigger = New-ScheduledTaskTrigger -Daily -At "09:00"
 Register-ScheduledTask -TaskName "HvH-StaleProjects" -Action $action -Trigger $trigger -RunLevel Highest
 ```

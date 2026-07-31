@@ -5,7 +5,7 @@ description: Operational inventory and admin procedures for this repo's automati
 
 # Automation Ops
 
-Inventory + admin for everything that runs unattended in `D:\History vs Hype`.
+Inventory + admin for everything that runs unattended in `G:\History vs Hype`.
 Every command below is tagged **LOOK-ONLY** (safe anywhere) or **MUTATES** (changes task
 state, tokens, config, or data — know what you're doing first). Diagnosis of a broken
 automation is NOT this skill — jump to debugging-playbook and cite its F-row IDs.
@@ -13,7 +13,7 @@ automation is NOT this skill — jump to debugging-playbook and cite its F-row I
 ## 1. Scheduled tasks (Windows Task Scheduler)
 
 Seven `HvH-*` tasks, all `Ready` (five live-verified 2026-07-02; HvH-CtrTracker + HvH-MorningCatchup registered 2026-07-03). All run
-`C:\Program Files\PowerShell\7\pwsh.exe -File "D:\History vs Hype\.claude\routines\<wrapper>.ps1"`,
+`C:\Program Files\PowerShell\7\pwsh.exe -File "G:\History vs Hype\.claude\routines\<wrapper>.ps1"`,
 daily trigger ONLY — the `AtLogOn` trigger documented in `reconcile-daily.md` is NOT
 registered (needs an elevated shell; still pending). `MultipleInstances IgnoreNew`,
 per-task execution limits (Reconcile 10 min · GrowthRefresh 30 min · CtrTracker 20 min · BrainHygiene/MorningCatchup 1 h;
@@ -37,7 +37,7 @@ The morning chain is a data dependency: 07:45 refresh WRITES `analytics.db` → 
 → 08:30 freshness-gates on it (36h) → 09:00 reads project state. Semantics of the gate and
 the DB → data-stores skill.
 
-**Claude-driven wrapper pattern** (all but GrowthRefresh): `Set-Location "D:\History vs Hype"`
+**Claude-driven wrapper pattern** (all but GrowthRefresh): `Set-Location "G:\History vs Hype"`
 → read routine `.md` → `claude -p $prompt` → append output + exit code to
 `.brain\_inbox\<name>-YYYY-MM-DD.log`. The wrapper logs *claude's* exit code, not the inner
 python's — the `.brain\_inbox` artifact files are the real verdict (F1/F2).
@@ -56,7 +56,7 @@ Get-ScheduledTask -TaskName "HvH-*" | Get-ScheduledTaskInfo |
 Export-ScheduledTask -TaskName "HvH-ChannelHealth"
 
 # Newest run logs (execution proof — result codes lie, logs don't)
-Get-ChildItem "D:\History vs Hype\.brain\_inbox" | Sort-Object LastWriteTime -Descending |
+Get-ChildItem "G:\History vs Hype\.brain\_inbox" | Sort-Object LastWriteTime -Descending |
   Select-Object -First 10 Name, LastWriteTime
 ```
 
@@ -67,7 +67,7 @@ terminated, `0x800710E0` refused → F7, exit 1 session-limit → F4, stale-abor
 
 ```powershell
 # Preferred: run the wrapper directly — same behavior, output visible, log written
-pwsh -File "D:\History vs Hype\.claude\routines\run-growth-refresh.ps1"
+pwsh -File "G:\History vs Hype\.claude\routines\run-growth-refresh.ps1"
 
 # Or via the scheduler (fires detached; check the log afterwards)
 Start-ScheduledTask -TaskName "HvH-Reconcile"
@@ -83,8 +83,8 @@ Live-verified registration pattern (exported from `HvH-GrowthRefresh` task XML, 
 
 ```powershell
 $action  = New-ScheduledTaskAction -Execute "C:\Program Files\PowerShell\7\pwsh.exe" `
-           -Argument '-File "D:\History vs Hype\.claude\routines\run-<name>.ps1"' `
-           -WorkingDirectory "D:\History vs Hype"
+           -Argument '-File "G:\History vs Hype\.claude\routines\run-<name>.ps1"' `
+           -WorkingDirectory "G:\History vs Hype"
 $trigger = New-ScheduledTaskTrigger -Daily -At 07:45   # weekly variant: -Weekly -DaysOfWeek Monday -At 09:00
 $set     = New-ScheduledTaskSettingsSet -StartWhenAvailable -MultipleInstances IgnoreNew `
            -ExecutionTimeLimit (New-TimeSpan -Minutes 20)
@@ -118,7 +118,7 @@ owner's call — propose, don't silently register.
 
 ## 2. Hooks
 
-### Claude Code — project (`D:\History vs Hype\.claude\settings.json`)
+### Claude Code — project (`G:\History vs Hype\.claude\settings.json`)
 
 | Event | Matcher | Script | Behavior |
 |---|---|---|---|
@@ -144,13 +144,13 @@ their internals are outside this repo — don't debug them here.
 
 Fresh clone / hooks missing? Reinstall both: `sh tools/hooks/install.sh` then
 `graphify hook install` (both MUTATE `.git/hooks/`). Verify LOOK-ONLY:
-`Get-ChildItem "D:\History vs Hype\.git\hooks" | Where-Object Name -notlike "*.sample"`.
+`Get-ChildItem "G:\History vs Hype\.git\hooks" | Where-Object Name -notlike "*.sample"`.
 
 ## 3. MCP servers (7)
 
 **Config:** there is NO project `.mcp.json`. Everything lives in `C:\Users\Benoi\.claude.json`,
 which has **two project keys**: `D:/History vs Hype` (forward-slash — the ACTIVE one) and
-`D:\History vs Hype` (backslash — stale legacy; holds a dead `youtube-data` server with a
+`G:\History vs Hype` (backslash — stale legacy; holds a dead `youtube-data` server with a
 plaintext API key, see §5). Edits to the wrong key silently don't take effect. User scope
 (top-level `mcpServers`): context7, notebooklm.
 
@@ -203,7 +203,7 @@ secret-guard (§2) is the enforcement backstop, not permission to be careless.
 
 | Credential | Location | Handling |
 |---|---|---|
-| YouTube OAuth client + token | `D:\History vs Hype\tools\youtube_analytics\credentials\` (`client_secret.json`, `token.json`) | Gitignored + guard-blocked. Check mtime, never cat contents into a transcript. |
+| YouTube OAuth client + token | `G:\History vs Hype\tools\youtube_analytics\credentials\` (`client_secret.json`, `token.json`) | Gitignored + guard-blocked. Check mtime, never cat contents into a transcript. |
 | Gemini API key | `GEMINI_API_KEY` User env var | Never echo it. |
 | NLM auth token | Managed entirely by `nlm login` (dedicated auth-Chrome profile) | Recover via the CLI only; don't locate/copy the token file. |
 | VidIQ OAuth token | Held by Claude Code's MCP config after the browser flow | Re-auth via `claude mcp add`, never by hand-editing. |

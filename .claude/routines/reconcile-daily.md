@@ -48,8 +48,8 @@ This mode:
 The wrapper is **claude-driven** like the other Desktop routines (`run-stale-projects.ps1` etc. all do `claude -p <routine>.md`): `run-reconcile.ps1` feeds THIS file to `claude -p`, which then executes the ▶ EXECUTION DIRECTIVE above (run the python tool + summarize). It logs to `.brain/_inbox/reconcile-YYYY-MM-DD.log` so a missed/failed run is visible — the bare-python predecessor wrote no log and was never actually scheduled (W3 audit 2026-06-12).
 
 ```powershell
-# Wrapper: D:\History vs Hype\.claude\routines\run-reconcile.ps1  (claude-driven + logging)
-Set-Location "D:\History vs Hype"
+# Wrapper: G:\History vs Hype\.claude\routines\run-reconcile.ps1  (claude-driven + logging)
+Set-Location "G:\History vs Hype"
 $logFile = ".brain\_inbox\reconcile-$(Get-Date -Format 'yyyy-MM-dd').log"
 "=== Routine 6 (claude-driven) run @ $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') ===" | Out-File $logFile -Append -Encoding utf8
 $prompt = (Get-Content ".claude\routines\reconcile-daily.md" -Raw)

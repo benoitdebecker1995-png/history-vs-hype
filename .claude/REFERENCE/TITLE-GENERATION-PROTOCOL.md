@@ -2,7 +2,11 @@
 
 Reusable prompt for generating title candidates. Forces data-anchored output, prevents yes-man flip-flopping.
 
-> **Cross-ref:** Title penalty rules (-46% year, -28% colon) also appear in `METADATA-CHECKLIST.md`. Keep both in sync.
+> **Single source of truth for title penalties: `tools/title_scorer.py:308-313`.** Do not restate the
+> numbers here or in `METADATA-CHECKLIST.md` — read them from the code. A hand-maintained
+> "keep both in sync" contract lived here until 2026-07-30 and had already drifted: this file and
+> `CLAUDE.md` asserted a retired −46%/−28% hard rule as binding, while `CLAUDE.md` *also* recorded it
+> as retired 62 lines later. Logged as finding FL2 on 2026-06-11 and unfixed for seven weeks.
 
 ---
 
@@ -29,7 +33,7 @@ STEP 1: Read the script/SRT. Extract:
 STEP 2: Generate exactly 3 titles. Each MUST:
 - Use declarative pattern (3.8% CTR, n=19 own + n=104 niche — proven safe bet)
 - Score 65+ on title_scorer.py
-- No year (-46% CTR penalty), no colon (-28% penalty)
+- Year and colon are **graded penalties, not bans** — see `tools/title_scorer.py:308-313`
 - Under 65 characters
 - Front-load the keyword or named entity
 

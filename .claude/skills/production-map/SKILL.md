@@ -12,7 +12,7 @@ to write a script or do research, you have left this skill's lane — jump to th
 
 ## Pipeline spine (idea → published)
 
-One row per phase. Commands live in `D:\History vs Hype\.claude\commands\<name>.md`.
+One row per phase. Commands live in `G:\History vs Hype\.claude\commands\<name>.md`.
 
 | # | Command | What it does | Artifact produced | Gate it enforces |
 |---|---|---|---|---|

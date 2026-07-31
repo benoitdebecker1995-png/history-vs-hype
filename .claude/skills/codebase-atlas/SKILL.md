@@ -1,15 +1,15 @@
 ---
 name: codebase-atlas
-description: Map of the Python code surface in D:\History vs Hype — package map of tools/, runnable entry points with exact commands, the ADR seam catalog (which file owns what, where to route a change), and navigation recipes (graphify-code MCP vs CODE-MAP.md vs grep). Use when: asking "where does X live", "what depends on Y", "which file implements Z", "how do I run tool X", when adding or modifying anything under tools/, or when deciding which seam a change routes through. Does NOT cover DB schemas or query recipes (→ data-stores skill) or how to run tests (→ validation-standards skill).
+description: Map of the Python code surface in G:\History vs Hype — package map of tools/, runnable entry points with exact commands, the ADR seam catalog (which file owns what, where to route a change), and navigation recipes (graphify-code MCP vs CODE-MAP.md vs grep). Use when: asking "where does X live", "what depends on Y", "which file implements Z", "how do I run tool X", when adding or modifying anything under tools/, or when deciding which seam a change routes through. Does NOT cover DB schemas or query recipes (→ data-stores skill) or how to run tests (→ validation-standards skill).
 ---
 
 # Codebase Atlas
 
-Everything below was live-verified 2026-07-01 (commands actually run, files read). Repo root: `D:\History vs Hype`. Python 3.12.2, invoked as `python` (system install, no venv in use).
+Everything below was live-verified 2026-07-01 (commands actually run, files read). Repo root: `G:\History vs Hype`. Python 3.12.2, invoked as `python` (system install, no venv in use).
 
 ## Rule zero — how to run anything
 
-**Always `python -m tools.<pkg>.<module>` from repo root.** (The repo path contains a SPACE — `D:\History vs Hype` — quote it in every shell command that uses an absolute path.) Direct-script invocation fails for most modules: `python tools/title_scorer.py --help` dies with `ModuleNotFoundError: No module named 'tools'` (no sys.path bootstrap in the file), while `python -m tools.title_scorer --help` works. A few entry modules (reconcile, session_context, news_scanner) carry a bootstrap and survive direct invocation — don't rely on it; `-m` is the universal convention.
+**Always `python -m tools.<pkg>.<module>` from repo root.** (The repo path contains a SPACE — `G:\History vs Hype` — quote it in every shell command that uses an absolute path.) Direct-script invocation fails for most modules: `python tools/title_scorer.py --help` dies with `ModuleNotFoundError: No module named 'tools'` (no sys.path bootstrap in the file), while `python -m tools.title_scorer --help` works. A few entry modules (reconcile, session_context, news_scanner) carry a bootstrap and survive direct invocation — don't rely on it; `-m` is the universal convention.
 
 One exception that CANNOT use `-m`: `tools/refresh-research-graph.py` (hyphen in filename). Run it as `python tools/refresh-research-graph.py --skip-gemini` (omitting `--skip-gemini` makes a live Gemini call).
 
@@ -118,7 +118,7 @@ Two seams deliberately NOT extracted yet ("defer the dangerous writer" house pat
 
 | Symptom | Cause → fix |
 |---|---|
-| `ModuleNotFoundError: No module named 'tools'` | Direct-script invocation → run `python -m tools....` from `D:\History vs Hype`. |
+| `ModuleNotFoundError: No module named 'tools'` | Direct-script invocation → run `python -m tools....` from `G:\History vs Hype`. |
 | Grep finds `KeywordDB` in `tools/discovery/database.py` but the code looks empty | It's the backward-compat shim → real implementation in `tools/discovery/schema_manager.py`. |
 | `python -m tools.refresh-research-graph` fails | Hyphenated filename can't be a module → `python tools/refresh-research-graph.py --skip-gemini`. |
 | Filesystem walk / `find` dies with Permission denied | `tools/youtube_analytics/.pytest_cache` is unwritable (WinError 5) → exclude that dir from walks. |

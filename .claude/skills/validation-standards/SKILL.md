@@ -1,11 +1,11 @@
 ---
 name: validation-standards
-description: How work gets VALIDATED in D:\History vs Hype — exact pytest commands and the collection traps, the test-suite map (module → test file, what has zero coverage), conftest fixture + DB-pin patterns, the real-data verification rule (synthetic fixtures alone are never "verified"), the filters-not-predictors gate philosophy, and per-artifact definition of done. Use when: running tests or interpreting test results; deciding whether a change is "done" or "verified"; writing or modifying a checker, gate, or score; claiming a result from data (views, CTR, retention, traffic); adding tests for new code. NOT for locating code or seams (→ codebase-atlas), how to route a change (→ extending-safely), or DB schemas/query recipes (→ data-stores).
+description: How work gets VALIDATED in G:\History vs Hype — exact pytest commands and the collection traps, the test-suite map (module → test file, what has zero coverage), conftest fixture + DB-pin patterns, the real-data verification rule (synthetic fixtures alone are never "verified"), the filters-not-predictors gate philosophy, and per-artifact definition of done. Use when: running tests or interpreting test results; deciding whether a change is "done" or "verified"; writing or modifying a checker, gate, or score; claiming a result from data (views, CTR, retention, traffic); adding tests for new code. NOT for locating code or seams (→ codebase-atlas), how to route a change (→ extending-safely), or DB schemas/query recipes (→ data-stores).
 ---
 
 # Validation Standards
 
-Repo root: `D:\History vs Hype`. Run everything from there; Python 3.12.2 as `python`.
+Repo root: `G:\History vs Hype`. Run everything from there; Python 3.12.2 as `python`.
 Provenance: file-level facts (pytest config, conftest, every test file's existence, phantom module) verified by direct read 2026-07-02. Collection counts and command runs were live-verified 2026-07-01 (Wave-1 code inventory); anything not re-run since is dated or marked [UNVERIFIED].
 
 ## Running tests
