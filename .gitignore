@@ -145,6 +145,12 @@ tools/discovery/backups/
 
 # Stray temp/debug files at repo root
 _tmp_*.txt
+# Leading slash = repo root ONLY. This catches a stray analytics.db written by a
+# tool run from the wrong cwd. It does NOT ignore the real database.
+# The three SQLite DBs are deliberately TRACKED — they are how this repo syncs
+# state between machines, so expect them dirty after any tool run and stage them
+# with the work that wrote them:
+#   tools/youtube_analytics/analytics.db · tools/discovery/keywords.db · tools/intel/intel.db
 /analytics.db
 
 # Empty stderr dumps from flight-deals scanner

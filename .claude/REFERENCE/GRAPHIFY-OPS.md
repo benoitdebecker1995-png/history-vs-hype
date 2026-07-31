@@ -26,7 +26,7 @@ Built 2026-05-25/26 across one long session. This file captures the current stat
 - `.graphifyignore` (32 lines) — excludes worktrees, `_ARCHIVE/`, `_inbox/`, yt-dlp dumps from future runs.
 - `tools/refresh-research-graph.py` — one-shot doc-graph refresh (Gemini Flash → cleanup → graphify build → marker clear). Use `--skip-gemini` to rebuild from existing JSON without re-extracting.
 - `.git/hooks/post-commit` + `post-checkout` — auto-rebuild AST graph in background after every commit/branch-switch. Free, no LLM. Log at `~/.cache/graphify-rebuild.log`. Uninstall: `python -m graphify hook uninstall`.
-- `~/.claude.json` — both project-path variants (`D:\History vs Hype` and `D:/History vs Hype`) now have `graphify-code` and `graphify-research` MCP servers. Backup at `~/.claude.json.bak.before-graphify-mcp-1779796087`.
+- `~/.claude.json` — both project-path variants (`G:\History vs Hype` and `D:/History vs Hype`) now have `graphify-code` and `graphify-research` MCP servers. Backup at `~/.claude.json.bak.before-graphify-mcp-1779796087`.
 - `.claude/commands/reconcile.md` — archive transition now touches `graphify-out/research/.needs_refresh` with the new slug.
 
 ## Health checks (run if something feels off)
@@ -36,7 +36,7 @@ Built 2026-05-25/26 across one long session. This file captures the current stat
 ls .git/hooks/post-commit .git/hooks/post-checkout
 
 # 2. MCP servers configured?
-python -c "import json; d=json.load(open(r'C:\Users\Benoi\.claude.json')); proj=d['projects'].get('D:/History vs Hype') or d['projects'].get(r'D:\History vs Hype'); print(list(proj['mcpServers'].keys()))"
+python -c "import json; d=json.load(open(r'C:\Users\Benoi\.claude.json')); proj=d['projects'].get('D:/History vs Hype') or d['projects'].get(r'G:\History vs Hype'); print(list(proj['mcpServers'].keys()))"
 # Expect: ['playwright', 'notebooklm', 'graphify-code', 'graphify-research'] (or with youtube-data on the backslash variant)
 
 # 3. Both graphs queryable?
@@ -98,6 +98,25 @@ Ranked by impact:
 | Slim code graph (back to 96 MB) | `cp graphify-out/graph.full.json.bak graphify-out/graph.json` |
 | Research graph | Delete `graphify-out/research/` and re-run `tools/refresh-research-graph.py` |
 | Everything graphify | `python -m graphify uninstall --purge` (also deletes `graphify-out/`) |
+
+## Disk retention
+
+The post-commit hook writes a new dated snapshot into `graphify-out/` on every
+commit and never removes the old one. Unchecked, that reached **65 snapshots /
+4.2 GB** by 2026-07-30 — nothing in the repo reads any of them. Live artifacts
+are `graph.json`, `graph.full.json.bak`, `cache/`, and the tracked `research/`
+subtree; the dated dirs are pure history.
+
+```bash
+python -m tools.routines.prune_graphify_snapshots            # dry run
+python -m tools.routines.prune_graphify_snapshots --apply    # keep newest 3
+```
+
+Dry-run by default; only ever touches directories matching `YYYY-MM-DD[_N]`, so
+`research/` and `cache/` can't be hit. First run (2026-07-30) deleted 62
+snapshots and reclaimed 3.6 GB, taking `graphify-out/` to 644 MB. Not yet
+scheduled — run it after a heavy commit stretch, or register it via
+**automation-ops** if it starts needing a babysitter.
 
 ## Known caveats (don't re-discover these)
 
