@@ -1,0 +1,192 @@
+[
+ {
+  "id": "Hf-xePlM-zg",
+  "title": "Global Politics in 30 Seconds",
+  "channel": "boomsmack",
+  "views": 7342924,
+  "tags": {
+   "title": "Global Politics in 30 Seconds",
+   "len": 29,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "tnJkxMLjkU4",
+  "title": "Family Guy making fun of conservatives compilation ",
+  "channel": "Some Family Guy channel",
+  "views": 7163806,
+  "tags": {
+   "title": "Family Guy making fun of conservatives compilation",
+   "len": 50,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "bwWW3sbk4EU",
+  "title": "The history of the Cuban Missile Crisis - Matthew A. Jordan",
+  "channel": "TED-Ed",
+  "views": 6282905,
+  "tags": {
+   "title": "The history of the Cuban Missile Crisis - Matthew A. Jordan",
+   "len": 59,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "IF2RYhNhBdw",
+  "title": "Unemployment Insurance History Of The World",
+  "channel": "cujofriend",
+  "views": 2775224,
+  "tags": {
+   "title": "Unemployment Insurance History Of The World",
+   "len": 43,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "8_TYFfkc_1U",
+  "title": "Ugly History: The Khmer Rouge murders - Timothy Williams",
+  "channel": "TED-Ed",
+  "views": 2600347,
+  "tags": {
+   "title": "Ugly History: The Khmer Rouge murders - Timothy Williams",
+   "len": 56,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "uSOieh0KH78",
+  "title": "Every Heretical \"Christian\" CULT explained in 8 minutes",
+  "channel": "Redeemed Zoomer",
+  "views": 2438746,
+  "tags": {
+   "title": "Every Heretical \"Christian\" CULT explained in 8 minutes",
+   "len": 55,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "MjwL1mSrPLA",
+  "title": "Debunking Every Anti-Communist Argument Ever",
+  "channel": "Spooky Scary Socialist",
+  "views": 2114088,
+  "tags": {
+   "title": "Debunking Every Anti-Communist Argument Ever",
+   "len": 44,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "UivhqdhcHNI",
+  "title": "What Schools Don't Teach You About Slavery",
+  "channel": "Matt Walsh",
+  "views": 1990397,
+  "tags": {
+   "title": "What Schools Don't Teach You About Slavery",
+   "len": 42,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "HMLop-jR8cw",
+  "title": "Covid-19: Why is America's death toll so high?",
+  "channel": "The Economist",
+  "views": 1916619,
+  "tags": {
+   "title": "Covid-19: Why is America's death toll so high?",
+   "len": 46,
+   "pattern": "colon",
+   "question": true,
+   "year": false,
+   "colon": true,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "dW_ekZRGalk",
+  "title": "Meet the Man Responsible for the Most Deaths in History",
+  "channel": "The Infographics Show",
+  "views": 1701938,
+  "tags": {
+   "title": "Meet the Man Responsible for the Most Deaths in History",
+   "len": 55,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

@@ -1,0 +1,192 @@
+[
+ {
+  "id": "-K397NmwGxg",
+  "title": "Band of Brothers Points",
+  "channel": "hopkins88",
+  "views": 11559176,
+  "tags": {
+   "title": "Band of Brothers Points",
+   "len": 23,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "WARonsfUOvw",
+  "title": "Why Didn't the Allies Declare War on the USSR when it Invaded Poland? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 3151973,
+  "tags": {
+   "title": "Why Didn't the Allies Declare War on the USSR when it Invaded Poland? (Short Animated Documentary)",
+   "len": 98,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "BO-mnNg4iZo",
+  "title": "Why did Japan refuse Poland's declaration of war in WW2? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 1969084,
+  "tags": {
+   "title": "Why did Japan refuse Poland's declaration of war in WW2? (Short Animated Documentary)",
+   "len": 85,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "N4C2P3e_gi4",
+  "title": "Poland is not yet Lost",
+  "channel": "Reply History",
+  "views": 1788970,
+  "tags": {
+   "title": "Poland is not yet Lost",
+   "len": 22,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "RsA6AdCRI-k",
+  "title": "What Happened at the Nuremberg Trials? | History",
+  "channel": "HISTORY",
+  "views": 1599076,
+  "tags": {
+   "title": "What Happened at the Nuremberg Trials? | History",
+   "len": 48,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "SWMyXP1SxXY",
+  "title": "Why did Prussia lose Poland after the Napoleonic Wars? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 1526951,
+  "tags": {
+   "title": "Why did Prussia lose Poland after the Napoleonic Wars? (Short Animated Documentary)",
+   "len": 83,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "9YPbue5bfgk",
+  "title": "Why did the USSR hand over West Berlin? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 1491778,
+  "tags": {
+   "title": "Why did the USSR hand over West Berlin? (Short Animated Documentary)",
+   "len": 68,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Y8FIJobxbtw",
+  "title": "Why did Poland's border change so much after World War 2? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 1381801,
+  "tags": {
+   "title": "Why did Poland's border change so much after World War 2? (Short Animated Documentary)",
+   "len": 86,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "7B1AkE6ePo8",
+  "title": "German-Soviet Invasion of Poland 1939 (WW2 Documentary)",
+  "channel": "Real Time History",
+  "views": 1319993,
+  "tags": {
+   "title": "German-Soviet Invasion of Poland 1939 (WW2 Documentary)",
+   "len": 55,
+   "pattern": "declarative",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "-EZO12D1RlQ",
+  "title": "The Polish Soviet War 1919-1921 (Documentary)",
+  "channel": "The Great War",
+  "views": 1143783,
+  "tags": {
+   "title": "The Polish Soviet War 1919-1921 (Documentary)",
+   "len": 45,
+   "pattern": "declarative",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

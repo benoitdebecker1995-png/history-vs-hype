@@ -1,0 +1,154 @@
+[
+ {
+  "id": "M8Rbj7H0eX4",
+  "title": "The Irish Potato Famine (1845–1852)",
+  "channel": "Simple History",
+  "views": 2524840,
+  "tags": {
+   "title": "The Irish Potato Famine (1845–1852)",
+   "len": 35,
+   "pattern": "declarative",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "17RE_G-DJzg",
+  "title": "Why didn't Irish people eat fish during the Great Famine?",
+  "channel": "Irish History Podcast",
+  "views": 1901614,
+  "tags": {
+   "title": "Why didn't Irish people eat fish during the Great Famine?",
+   "len": 57,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "PRloj_jb1xQ",
+  "title": "Irish Potato Famine | Extra History Complete | Irish History",
+  "channel": "Extra History",
+  "views": 1605963,
+  "tags": {
+   "title": "Irish Potato Famine | Extra History Complete | Irish History",
+   "len": 60,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "OUieqzVZdQc",
+  "title": "What really caused the Irish Potato Famine - Stephanie Honchell Smith",
+  "channel": "TED-Ed",
+  "views": 1149211,
+  "tags": {
+   "title": "What really caused the Irish Potato Famine - Stephanie Honchell Smith",
+   "len": 69,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "4nL_RsAjxhg",
+  "title": "How Britain Starved Ireland",
+  "channel": "The Gravel Institute",
+  "views": 523219,
+  "tags": {
+   "title": "How Britain Starved Ireland",
+   "len": 27,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "dEOD4u0RFcM",
+  "title": "How Britain Starved Ireland | The Bastani Factor",
+  "channel": "Novara Media",
+  "views": 267124,
+  "tags": {
+   "title": "How Britain Starved Ireland | The Bastani Factor",
+   "len": 48,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "lpu7tFC7E_I",
+  "title": "Shane Gillis on The Irish Famine (1845 - 1852)",
+  "channel": "432Clips",
+  "views": 230174,
+  "tags": {
+   "title": "Shane Gillis on The Irish Famine (1845 - 1852)",
+   "len": 46,
+   "pattern": "declarative",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "8W3ykqW3WK0",
+  "title": "How the Irish famine impacted Ireland forever | Union - BBC",
+  "channel": "BBC",
+  "views": 95041,
+  "tags": {
+   "title": "How the Irish famine impacted Ireland forever | Union - BBC",
+   "len": 59,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

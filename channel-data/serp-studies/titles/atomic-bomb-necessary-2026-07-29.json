@@ -1,0 +1,230 @@
+[
+ {
+  "id": "rSgq0jMJYT4",
+  "title": "Truman Warns Japanese - 1945",
+  "channel": "AP Archive",
+  "views": 3366584,
+  "tags": {
+   "title": "Truman Warns Japanese - 1945",
+   "len": 28,
+   "pattern": "declarative",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "CJTA2OinEHw",
+  "title": "Nuclear Historian Answers Nuclear War Questions | Tech Support | WIRED",
+  "channel": "WIRED",
+  "views": 2668503,
+  "tags": {
+   "title": "Nuclear Historian Answers Nuclear War Questions | Tech Support | WIRED",
+   "len": 70,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "BmIBbcxseXM",
+  "title": "Was it Wrong to Drop the Atom Bomb on Japan? | 5 Minute Videos | PragerU",
+  "channel": "PragerU",
+  "views": 2228936,
+  "tags": {
+   "title": "Was it Wrong to Drop the Atom Bomb on Japan? | 5 Minute Videos | PragerU",
+   "len": 72,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "h-3_zyNTmW4",
+  "title": "Did Japan Surrender Because of the Atomic Bomb?",
+  "channel": "Real Time History",
+  "views": 2178361,
+  "tags": {
+   "title": "Did Japan Surrender Because of the Atomic Bomb?",
+   "len": 47,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "w4q1fG1vh5I",
+  "title": "The Atomic Bomb: Crash Course History of Science #33",
+  "channel": "CrashCourse",
+  "views": 924544,
+  "tags": {
+   "title": "The Atomic Bomb: Crash Course History of Science #33",
+   "len": 52,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "gltrQGcLcAU",
+  "title": "Hiroshima and Nagasaki Bombings: Were Nuclear Weapons Required to End the War?",
+  "channel": "Imperial War Museums",
+  "views": 878231,
+  "tags": {
+   "title": "Hiroshima and Nagasaki Bombings: Were Nuclear Weapons Required to End the War?",
+   "len": 78,
+   "pattern": "colon",
+   "question": true,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "hdNvxzxLWp0",
+  "title": "Why America Nuked Japan. Twice.",
+  "channel": "Imperial War Museums",
+  "views": 868776,
+  "tags": {
+   "title": "Why America Nuked Japan. Twice.",
+   "len": 31,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": true
+  }
+ },
+ {
+  "id": "XX63b1sJtoc",
+  "title": "Controversy over the decision to drop atomic bombs on Japan still lingers",
+  "channel": "Washington Post",
+  "views": 806174,
+  "tags": {
+   "title": "Controversy over the decision to drop atomic bombs on Japan still lingers",
+   "len": 73,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "oPRdaTfOJPw",
+  "title": "Hiroshima 80: The Decision to Surrender",
+  "channel": "NBC News",
+  "views": 728843,
+  "tags": {
+   "title": "Hiroshima 80: The Decision to Surrender",
+   "len": 39,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "xG4ks5f31Wg",
+  "title": "Were the Atomic Bombings Necessary?",
+  "channel": "The Intel Report",
+  "views": 458852,
+  "tags": {
+   "title": "Were the Atomic Bombings Necessary?",
+   "len": 35,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "5vMEgneKF10",
+  "title": "Atomic bombing of Japan was NOT necessary to end WWII. US gov't documents admit it",
+  "channel": "Geopolitical Economy Report",
+  "views": 323988,
+  "tags": {
+   "title": "Atomic bombing of Japan was NOT necessary to end WWII. US gov't documents admit it",
+   "len": 82,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "584k0gwvhUs",
+  "title": "Hiroshima: Was the atomic bomb necessary? - UpFront",
+  "channel": "Al Jazeera English",
+  "views": 234140,
+  "tags": {
+   "title": "Hiroshima: Was the atomic bomb necessary? - UpFront",
+   "len": 51,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

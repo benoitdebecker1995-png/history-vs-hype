@@ -1,0 +1,192 @@
+[
+ {
+  "id": "voF7KCOm6eY",
+  "title": "Scars of History: Allied Bombings were justified",
+  "channel": "Kraut",
+  "views": 1051230,
+  "tags": {
+   "title": "Scars of History: Allied Bombings were justified",
+   "len": 48,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "clWVfASJ7dc",
+  "title": "Dresden, A Justifiable Target",
+  "channel": "Potential History",
+  "views": 701392,
+  "tags": {
+   "title": "Dresden, A Justifiable Target",
+   "len": 29,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "ppEZqr0ZSso",
+  "title": "The Bombing of Dresden - Complete Animated Documentary",
+  "channel": "The Operations Room",
+  "views": 470129,
+  "tags": {
+   "title": "The Bombing of Dresden - Complete Animated Documentary",
+   "len": 54,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "4lmIM3RrYJ4",
+  "title": "The Unbelievable HORRORS of Dresden",
+  "channel": "Disturban History",
+  "views": 426079,
+  "tags": {
+   "title": "The Unbelievable HORRORS of Dresden",
+   "len": 35,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "YwkMo1_rWM0",
+  "title": "Allied bombing of Dresden: Legitimate target or war crime? | DW News",
+  "channel": "DW News",
+  "views": 385442,
+  "tags": {
+   "title": "Allied bombing of Dresden: Legitimate target or war crime? | DW News",
+   "len": 68,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Sa-6pR5S5YY",
+  "title": "The Allied bombing of German cities in World War II was unjustifiable",
+  "channel": "Intelligence Squared",
+  "views": 278773,
+  "tags": {
+   "title": "The Allied bombing of German cities in World War II was unjustifiable",
+   "len": 69,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "uGX-CGeZXJc",
+  "title": "The Firebombing of Dresden: War Crime or Justified Military Necessity?",
+  "channel": "Into the Shadows",
+  "views": 277933,
+  "tags": {
+   "title": "The Firebombing of Dresden: War Crime or Justified Military Necessity?",
+   "len": 70,
+   "pattern": "colon",
+   "question": true,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "dCWo4K5mE1k",
+  "title": "The Unspeakable Horror Of The Dresden Bombing | WW2 Documentary",
+  "channel": "Flashback History",
+  "views": 262282,
+  "tags": {
+   "title": "The Unspeakable Horror Of The Dresden Bombing | WW2 Documentary",
+   "len": 63,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "rkIlCxOyiC8",
+  "title": "Dresden: World War Two bombing 75 years on | ITV News",
+  "channel": "ITV News",
+  "views": 154182,
+  "tags": {
+   "title": "Dresden: World War Two bombing 75 years on | ITV News",
+   "len": 53,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "HTOu_54csQw",
+  "title": "WWII: Allied Bombing of Dresden Begins - 1945 | Today In History | 13 Feb 17",
+  "channel": "British Movietone",
+  "views": 43080,
+  "tags": {
+   "title": "WWII: Allied Bombing of Dresden Begins - 1945 | Today In History | 13 Feb 17",
+   "len": 76,
+   "pattern": "colon",
+   "question": false,
+   "year": true,
+   "colon": true,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ }
+]

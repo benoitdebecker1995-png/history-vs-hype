@@ -1,0 +1,192 @@
+[
+ {
+  "id": "w0Wmc8C0Eq0",
+  "title": "History of Russia - Rurik to Revolution",
+  "channel": "Epic History",
+  "views": 17112454,
+  "tags": {
+   "title": "History of Russia - Rurik to Revolution",
+   "len": 39,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "f9HmkRYlVZw",
+  "title": "Netanyahu says Hitler didn't want to kill the Jews, but a Muslim convinced him to do it",
+  "channel": "Insider",
+  "views": 3918586,
+  "tags": {
+   "title": "Netanyahu says Hitler didn't want to kill the Jews, but a Muslim convinced him to do it",
+   "len": 87,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "9Gwuu7TXPwI",
+  "title": "How Ukraine Became Part of the USSR - The Soviet–Ukrainian War (Documentary)",
+  "channel": "The Great War",
+  "views": 2313469,
+  "tags": {
+   "title": "How Ukraine Became Part of the USSR - The Soviet–Ukrainian War (Documentary)",
+   "len": 76,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "N9P3MxkKU_g",
+  "title": "The Horrible Life of People In Soviet Gulags",
+  "channel": "The Infographics Show",
+  "views": 1608563,
+  "tags": {
+   "title": "The Horrible Life of People In Soviet Gulags",
+   "len": 44,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "gY00FF7HLZY",
+  "title": "The Unspeakable Things The Bolsheviks Did During Their Reign",
+  "channel": "A Day In History",
+  "views": 1407283,
+  "tags": {
+   "title": "The Unspeakable Things The Bolsheviks Did During Their Reign",
+   "len": 60,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "bZ0lQ4IimPQ",
+  "title": "Life In The Soviet Gulags.",
+  "channel": "Joe Bartolozzi",
+  "views": 1170538,
+  "tags": {
+   "title": "Life In The Soviet Gulags.",
+   "len": 26,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "91ECL6TbK4o",
+  "title": "How did the Bolsheviks Take Russia?",
+  "channel": "Knowledgia",
+  "views": 510498,
+  "tags": {
+   "title": "How did the Bolsheviks Take Russia?",
+   "len": 35,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "fqTAzp71Pb4",
+  "title": "Hearts of Iron, Historical Revision, and \"Sovietology\"",
+  "channel": "Rosencreutz",
+  "views": 247622,
+  "tags": {
+   "title": "Hearts of Iron, Historical Revision, and \"Sovietology\"",
+   "len": 54,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "JeSHwfPhjZM",
+  "title": "The Men Who Escaped the Deadliest Russian Death Camp",
+  "channel": "Breakfiles",
+  "views": 237344,
+  "tags": {
+   "title": "The Men Who Escaped the Deadliest Russian Death Camp",
+   "len": 52,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "SQBnE-PopsA",
+  "title": "The BRUTAL Executions Of Stalin's Gulags",
+  "channel": "TheUntoldPast",
+  "views": 108761,
+  "tags": {
+   "title": "The BRUTAL Executions Of Stalin's Gulags",
+   "len": 40,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

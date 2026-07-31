@@ -1,0 +1,230 @@
+[
+ {
+  "id": "xLhNP0qp38Q",
+  "title": "The Industrial Revolution (18-19th Century)",
+  "channel": "Simple History",
+  "views": 3489934,
+  "tags": {
+   "title": "The Industrial Revolution (18-19th Century)",
+   "len": 43,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "zjK7PWmRRyg",
+  "title": "The Industrial Revolution: Crash Course European History #24",
+  "channel": "CrashCourse",
+  "views": 2747837,
+  "tags": {
+   "title": "The Industrial Revolution: Crash Course European History #24",
+   "len": 60,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Xpb9XKmRsyw",
+  "title": "What was the Industrial Revolution?",
+  "channel": "Pursuit of History",
+  "views": 606410,
+  "tags": {
+   "title": "What was the Industrial Revolution?",
+   "len": 35,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "EX4OZ-lhdY0",
+  "title": "How Did the Industrial Revolution Affect People’s Lives?",
+  "channel": "Captivating History",
+  "views": 155809,
+  "tags": {
+   "title": "How Did the Industrial Revolution Affect People’s Lives?",
+   "len": 56,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "4ss002M6J9Q",
+  "title": "The 40-hour Week was Meant to be Temporary",
+  "channel": "Nicole Rudolph",
+  "views": 101643,
+  "tags": {
+   "title": "The 40-hour Week was Meant to be Temporary",
+   "len": 42,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "0I4TNYTw4k4",
+  "title": "A Day In The Life Of A Working In The Industrial Revolution",
+  "channel": "Historylia",
+  "views": 82422,
+  "tags": {
+   "title": "A Day In The Life Of A Working In The Industrial Revolution",
+   "len": 59,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "9a4MwWmbN4o",
+  "title": "An Industrial and Humanitarian Revolution | Politically Incorrect Guide to the Industrial Revolution",
+  "channel": "Capital Research Center",
+  "views": 39711,
+  "tags": {
+   "title": "An Industrial and Humanitarian Revolution | Politically Incorrect Guide to the Industrial Revolution",
+   "len": 100,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Xr2ujXdU7UY",
+  "title": "The Politically Incorrect Guide to the Industrial Revolution (Starring Tom Woods & Michael Malice!)",
+  "channel": "Capital Research Center",
+  "views": 28174,
+  "tags": {
+   "title": "The Politically Incorrect Guide to the Industrial Revolution (Starring Tom Woods & Michael Malice!)",
+   "len": 99,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "yxp3aJRI4Zg",
+  "title": "What was the Industrial Revolution?",
+  "channel": "Institute of Economic Affairs",
+  "views": 11768,
+  "tags": {
+   "title": "What was the Industrial Revolution?",
+   "len": 35,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "d_gpAkqpBpU",
+  "title": "Did the Industrial Revolution make life better – or WORSE?",
+  "channel": "HistoryExtra",
+  "views": 9502,
+  "tags": {
+   "title": "Did the Industrial Revolution make life better – or WORSE?",
+   "len": 58,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "ZwWshv8rnD0",
+  "title": "Was Eric Hobsbawm right?",
+  "channel": "Mr Gunn History",
+  "views": 7280,
+  "tags": {
+   "title": "Was Eric Hobsbawm right?",
+   "len": 24,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Tv5nWRfJoNA",
+  "title": "Pre-modern Growth, Industrialization and Biological Living Standards of Japan and Korea, 1840-2023",
+  "channel": "Quantitative History HQ",
+  "views": 421,
+  "tags": {
+   "title": "Pre-modern Growth, Industrialization and Biological Living Standards of Japan and Korea, 1840-2023",
+   "len": 98,
+   "pattern": "declarative",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

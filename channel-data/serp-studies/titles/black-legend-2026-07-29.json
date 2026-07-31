@@ -1,0 +1,230 @@
+[
+ {
+  "id": "6E9WU9TGrec",
+  "title": "The Black Legend, Native Americans, and Spaniards: Crash Course US History #1",
+  "channel": "CrashCourse",
+  "views": 10863631,
+  "tags": {
+   "title": "The Black Legend, Native Americans, and Spaniards: Crash Course US History #1",
+   "len": 77,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "zmcKS47BsAo",
+  "title": "Ugly History: The Spanish Inquisition - Kayla Wolf",
+  "channel": "TED-Ed",
+  "views": 1905528,
+  "tags": {
+   "title": "Ugly History: The Spanish Inquisition - Kayla Wolf",
+   "len": 50,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "TrjbtvKfPFk",
+  "title": "How Bad was the Spanish Inquisition? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 1436907,
+  "tags": {
+   "title": "How Bad was the Spanish Inquisition? (Short Animated Documentary)",
+   "len": 65,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "FQXDIUjr41M",
+  "title": "The Deadly History of the Spanish Inquisition",
+  "channel": "Into the Shadows",
+  "views": 1293486,
+  "tags": {
+   "title": "The Deadly History of the Spanish Inquisition",
+   "len": 45,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "aEOfQg2SP4U",
+  "title": "Why The Inquisition Was Awesome, Actually",
+  "channel": "Pax Tube",
+  "views": 504179,
+  "tags": {
+   "title": "Why The Inquisition Was Awesome, Actually",
+   "len": 41,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "CY-pS6iLFuc",
+  "title": "Timewatch - The Myth of the Spanish Inquisition (BBC 1994)",
+  "channel": "batrachious",
+  "views": 232806,
+  "tags": {
+   "title": "Timewatch - The Myth of the Spanish Inquisition (BBC 1994)",
+   "len": 58,
+   "pattern": "declarative",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "YmVymMDBuJU",
+  "title": "TRUTH about the Spanish Inquisition - Forgotten History",
+  "channel": "FORGOTTEN HISTORY",
+  "views": 185438,
+  "tags": {
+   "title": "TRUTH about the Spanish Inquisition - Forgotten History",
+   "len": 55,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "7X1Ra60EtiA",
+  "title": "The Spanish Inquisition Wasn't What You Think",
+  "channel": "Ryan M Reeves",
+  "views": 60615,
+  "tags": {
+   "title": "The Spanish Inquisition Wasn't What You Think",
+   "len": 45,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "rJL50z8e93I",
+  "title": "5 Myths About the INQUISITION",
+  "channel": "Breaking In The Habit",
+  "views": 44186,
+  "tags": {
+   "title": "5 Myths About the INQUISITION",
+   "len": 29,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "qqYr3bz8sP4",
+  "title": "Debunking Myths And Lies About The Inquisition | The Catholic Talk Show",
+  "channel": "The Catholic Talk Show",
+  "views": 38208,
+  "tags": {
+   "title": "Debunking Myths And Lies About The Inquisition | The Catholic Talk Show",
+   "len": 71,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "jeF7Ng8t11E",
+  "title": "Why Did Europeans Really Hate the Spanish Empire?",
+  "channel": "Iberian History",
+  "views": 37000,
+  "tags": {
+   "title": "Why Did Europeans Really Hate the Spanish Empire?",
+   "len": 49,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "y93Zdl5m-1Q",
+  "title": "The Black Legend: How Propaganda Shapes History",
+  "channel": "Hipstorian",
+  "views": 21064,
+  "tags": {
+   "title": "The Black Legend: How Propaganda Shapes History",
+   "len": 47,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ }
+]

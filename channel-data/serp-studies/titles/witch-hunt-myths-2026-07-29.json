@@ -1,0 +1,230 @@
+[
+ {
+  "id": "NVd8kuufBhM",
+  "title": "What really happened during the Salem Witch Trials - Brian A. Pavlac",
+  "channel": "TED-Ed",
+  "views": 8076309,
+  "tags": {
+   "title": "What really happened during the Salem Witch Trials - Brian A. Pavlac",
+   "len": 68,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "NbPH9TcrRl4",
+  "title": "Historian Answers Witchcraft Questions | Tech Support | WIRED",
+  "channel": "WIRED",
+  "views": 3683373,
+  "tags": {
+   "title": "Historian Answers Witchcraft Questions | Tech Support | WIRED",
+   "len": 61,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "rW4XFiHUQAs",
+  "title": "Witchcraft: Crash Course European History #10",
+  "channel": "CrashCourse",
+  "views": 1384449,
+  "tags": {
+   "title": "Witchcraft: Crash Course European History #10",
+   "len": 45,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "bHe6EWNS0S0",
+  "title": "Fortune Tellers, Mediums, and Witchcraft - Did They Get Away With Murder?",
+  "channel": "Bailey Sarian",
+  "views": 1048213,
+  "tags": {
+   "title": "Fortune Tellers, Mediums, and Witchcraft - Did They Get Away With Murder?",
+   "len": 73,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "aSWyevQzEF8",
+  "title": "11 Myths About the Salem Witch Trials",
+  "channel": "Weird History",
+  "views": 1009892,
+  "tags": {
+   "title": "11 Myths About the Salem Witch Trials",
+   "len": 37,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "SjXETCPMuHo",
+  "title": "Debunking the Pervasive Myths About Medieval Witch Hunts",
+  "channel": "Kaz Rowe",
+  "views": 507952,
+  "tags": {
+   "title": "Debunking the Pervasive Myths About Medieval Witch Hunts",
+   "len": 56,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "uIdcjeeYjaE",
+  "title": "Witchcraft - Malleus Maleficarum - The Hammer of Witches - History and Analysis of the Inquisition",
+  "channel": "ESOTERICA",
+  "views": 149887,
+  "tags": {
+   "title": "Witchcraft - Malleus Maleficarum - The Hammer of Witches - History and Analysis of the Inquisition",
+   "len": 98,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "tPeSpQOKlpc",
+  "title": "Salem Witch 101: Witchcraft Explained",
+  "channel": "NBC10 Boston",
+  "views": 40211,
+  "tags": {
+   "title": "Salem Witch 101: Witchcraft Explained",
+   "len": 37,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "sm1EbtFKrxM",
+  "title": "Why Was Witchcraft So Popular? - The Hammer of Witches: Part 5 (Malleus Maleficarum Explained)",
+  "channel": "The Legends of History",
+  "views": 16683,
+  "tags": {
+   "title": "Why Was Witchcraft So Popular? - The Hammer of Witches: Part 5 (Malleus Maleficarum Explained)",
+   "len": 94,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "vhtrLsn8vmU",
+  "title": "THE SALEM WITCH TRIALS: Biggest Lies You Still Believe — and more  | History for Sleep",
+  "channel": "Sleepy History with Oliver",
+  "views": 16560,
+  "tags": {
+   "title": "THE SALEM WITCH TRIALS: Biggest Lies You Still Believe — and more  | History for Sleep",
+   "len": 86,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "PBi3v5QgT00",
+  "title": "The SHOCKING Truth Of the Salem Witch Trials (Worse Than You Think)",
+  "channel": "Mystik Manor",
+  "views": 15081,
+  "tags": {
+   "title": "The SHOCKING Truth Of the Salem Witch Trials (Worse Than You Think)",
+   "len": 67,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "M1xM1_fdbL8",
+  "title": "Things You Get Wrong About The Salem Witch Trials",
+  "channel": "Grunge",
+  "views": 12510,
+  "tags": {
+   "title": "Things You Get Wrong About The Salem Witch Trials",
+   "len": 49,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

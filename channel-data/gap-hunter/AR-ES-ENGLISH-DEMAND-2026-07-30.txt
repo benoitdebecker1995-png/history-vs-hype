@@ -1,0 +1,53 @@
+### DISCOVERY ar: 19 qualifying
+   3,500,000  6583v QA  Al Jazeera Documentary الجزيرة الوثائقية   UC0LSnqrwqtMwl2YwfUpO66g
+   3,440,000   249v SA  وثائقية أحداث وحقائق روايات                UC8UMer6lHgbnj6XCNQIL-Pw
+   2,780,000  1527v DE  DW Documentary وثائقية دي دبليو            UCET6sWl4Xcu-U8Ka9PJPrwA
+   2,010,000  2010v EG  حياة وثائقية - Hayah Documentary           UC4tNC0SDwlGrx1SpTz-gJGA
+   1,100,000   634v DZ  الأستاذ بورنان                             UCeyN7ipOQs6Ld4jEIMFAaKw
+### DISCOVERY es-LATAM: 3 qualifying
+     708,000   893v MX  Bully Magnets - Historia Documental        UC24kleObm1QTJPXqwb33zHg
+     222,000  1116v AR  Historia con Patricio Lons                 UCa81SE6SxNsANTHs8wyztvg
+      82,500   630v ES  Más Allá del Imperio                       UC2s6uq5qhQrHTCbCU7Fqkkg
+
+
+========== SCAN ==========
+
+### es-ES  Academia Play — top 30 of 300 | signal videos: 0 | WEIGHT: 0
+
+### es-ES  Memorias de Pez — top 30 of 300 | signal videos: 0 | WEIGHT: 0
+
+### es-ES  Pero eso es otra Historia — top 30 of 300 | signal videos: 0 | WEIGHT: 0
+
+### es-ES  La cuna de Halicarnaso — top 30 of 276 | signal videos: 0 | WEIGHT: 0
+
+### ar  Al Jazeera Documentary الجزيرة الوثائقية — top 30 of 300 | signal videos: 0 | WEIGHT: 0
+
+### ar  وثائقية أحداث وحقائق روايات — top 30 of 250 | signal videos: 7 | WEIGHT: 4671
+    3084 |   2,775,721 | hHHzspXjH9A | الـثــورة الـجنــسية الكبرى ، القصة الكاملة التي لم تروى .
+          └ [1625] اطالب صاحب القناة ان يمنحني الحق في تنزيل الفيديو وترجمته الإنجليزية والفرنسية والفراسية واللغات الأسيوية لكي ينتشر في العالم
+          └ [1369] هذا فيديو ينبغي أن يترجم للإنجليزية لأهميته القصوى.. أتمنى أن يتم ذلك عاجلا.
+     599 |   3,207,756 | jVottsYCWg8 | أحداث آخر الزمان ونبوءات ﷺ العشر، علامات النهاية وملحمة أر
+          └ [599] من أروع ما شاهدته في حياتي، كل الشكر و التقدير لمن ساهم في تذكيرنا بواقعنا الخبيث. كان من المستحب إضافة الترجمة الإنجليزية حتى تعم الفائدة، جزاكم الله ألف خير.
+     579 |   2,829,501 | far6JoAVapw | وثائقي هاروت وماروت ولعـ ـنة بابل الاولى ، القصة الكاملة ل
+          └ [362] يا ريت لو تحط ترجمة بالانجليزي حتي يستفيد الجميع ويكون عمل عالمي وشكرااا لك من يوافقني الرأي
+          └ [200] Can you please upload with English Subtitles. Your Arabic Documentaries are amazing. Love from Pakistan! JazakAllah
+     221 |   2,816,915 | qby028XVPgc | الوثائقي الشامل للعصر الاخير، ظهور العين الثالثة
+          └ [175] Can you please add English subtitles. This will help me with a converted Muslim to have more of understanding. Gazzak Allah khaer.
+          └ [38] يا أخي الكريم لازم وضروري أن يتم ترجمة المحتوى الذي تقدمة إلى الإنجليزية
+     111 |   2,806,374 | u91b1-qjMV8 | إسحاق نيوتن ، القصة الثانية والمحـرمـة التي لا يريدون كشفه
+          └ [111] لمن يسأل لماذا لا تتم ترجمة هذه الفيديوهات إلى الإنجليزية : لقد أجابكم أندوريا في بداية المقطع 😏 "لقد أقسمت ألا أقول الكلام بلغة الساخرين لأنهم لا يستحقون سماع ما أك
+
+### ar  DW Documentary وثائقية دي دبليو — top 30 of 300 | signal videos: 0 | WEIGHT: 0
+
+### es-LATAM  Bully Magnets - Historia Documental — top 30 of 300 | signal videos: 0 | WEIGHT: 0
+
+### es-LATAM  Historia con Patricio Lons — top 30 of 300 | signal videos: 3 | WEIGHT: 5
+       2 |      37,304 | l2tGmSNihbQ | INGLATERRA acorralada busca crear conflictos
+          └ [2] Escucha, las Malvinas serán inglesas hasta que el sol se apague y el universo entre en bancarrota. Te guste o no. La gente que vive allí quiere ser inglesa. Increíbl
+       2 |      36,569 | ZZHT5oNqBmw | ¿Los “Libertadores” odiaban a los pueblos originarios? – L
+          └ [2] Una lastima NO poder tener estò subtitulado al inglés… para compartirlo con mi comunidad de idioma englesa !
+       1 |      30,756 | PIe387CDE60 | Banderas de Hispanoamérica - #historia
+          └ [1] Don patricio debería ver bien eso de las traducciones automáticas a sus titulos. Aca en ingles en vez de poner “Hispanoamerica” o “hispanic america”, te esta poniend
+
+### es-LATAM  Más Allá del Imperio — top 30 of 300 | signal videos: 0 | WEIGHT: 0
+

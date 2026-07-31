@@ -1,0 +1,154 @@
+[
+ {
+  "id": "jFICRFKtAc4",
+  "title": "How did Hitler rise to power? - Alex Gendler and Anthony Hazard",
+  "channel": "TED-Ed",
+  "views": 11491582,
+  "tags": {
+   "title": "How did Hitler rise to power? - Alex Gendler and Anthony Hazard",
+   "len": 63,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "yRlbUeji01U",
+  "title": "How the Nazis created an economic miracle",
+  "channel": "Money & Macro",
+  "views": 1611915,
+  "tags": {
+   "title": "How the Nazis created an economic miracle",
+   "len": 41,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "eAIjFbKchAM",
+  "title": "bUt hItLer fIxEd ThE eCoNomY!",
+  "channel": "How Business Worked and How Money Works",
+  "views": 844662,
+  "tags": {
+   "title": "bUt hItLer fIxEd ThE eCoNomY!",
+   "len": 29,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "8MDQo7oILJw",
+  "title": "How Hitler Changed the German Economy",
+  "channel": "VisualEconomik EN",
+  "views": 76313,
+  "tags": {
+   "title": "How Hitler Changed the German Economy",
+   "len": 37,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "KTKx_ardsF4",
+  "title": "How did the 1931 financial crisis help Hitler’s rise to power? | Tobias Straumann",
+  "channel": "Oxford Academic (Oxford University Press)",
+  "views": 19144,
+  "tags": {
+   "title": "How did the 1931 financial crisis help Hitler’s rise to power? | Tobias Straumann",
+   "len": 81,
+   "pattern": "how_why",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "XCd5nSYCytE",
+  "title": "The Economic Collapse That Paved the Way for Hitler",
+  "channel": "Money History Explained",
+  "views": 10361,
+  "tags": {
+   "title": "The Economic Collapse That Paved the Way for Hitler",
+   "len": 51,
+   "pattern": "the_x_that",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "lQxPL9I6Ffo",
+  "title": "The Real Story Behind Germany’s 1930s “Economic Miracle”",
+  "channel": "Epoch Documentaries",
+  "views": 8111,
+  "tags": {
+   "title": "The Real Story Behind Germany’s 1930s “Economic Miracle”",
+   "len": 56,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "YDadz7zqy6g",
+  "title": "The Real Bankruptcy That Created Hitler Wasn't Hyperinflation — It Was 1931",
+  "channel": "Uncover Empire History",
+  "views": 1862,
+  "tags": {
+   "title": "The Real Bankruptcy That Created Hitler Wasn't Hyperinflation — It Was 1931",
+   "len": 75,
+   "pattern": "the_x_that",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

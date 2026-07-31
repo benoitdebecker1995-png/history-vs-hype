@@ -1,0 +1,192 @@
+[
+ {
+  "id": "Lv0i8Do4u48",
+  "title": "93-year-old Nazi guard on trial for his role at Auschwitz",
+  "channel": "CBS Evening News",
+  "views": 13025986,
+  "tags": {
+   "title": "93-year-old Nazi guard on trial for his role at Auschwitz",
+   "len": 57,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "bfAnmqy5uYE",
+  "title": "A Warning to Those Visiting Auschwitz",
+  "channel": "Patrick Ney",
+  "views": 11425332,
+  "tags": {
+   "title": "A Warning to Those Visiting Auschwitz",
+   "len": 37,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "qr6X8_hNIfs",
+  "title": "A Rare Look Inside Auschwitz’s Restricted Areas",
+  "channel": "History Hit",
+  "views": 1708659,
+  "tags": {
+   "title": "A Rare Look Inside Auschwitz’s Restricted Areas",
+   "len": 47,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "dqB9rYufPXI",
+  "title": "Genocide of Jews in Poland | The Abyss Ep. 8 | Full Documentary",
+  "channel": "criminals and crime fighters",
+  "views": 1555937,
+  "tags": {
+   "title": "Genocide of Jews in Poland | The Abyss Ep. 8 | Full Documentary",
+   "len": 63,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "7B1AkE6ePo8",
+  "title": "German-Soviet Invasion of Poland 1939 (WW2 Documentary)",
+  "channel": "Real Time History",
+  "views": 1319993,
+  "tags": {
+   "title": "German-Soviet Invasion of Poland 1939 (WW2 Documentary)",
+   "len": 55,
+   "pattern": "declarative",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "R0lsXqCL1BA",
+  "title": "Auschwitz Survivor Explains How She Escaped the Gas Chambers",
+  "channel": "Good Morning Britain",
+  "views": 882953,
+  "tags": {
+   "title": "Auschwitz Survivor Explains How She Escaped the Gas Chambers",
+   "len": 60,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "0OaDM_UKlWU",
+  "title": "Auschwitz Details That Were Too Horrific For History Class",
+  "channel": "Grunge",
+  "views": 755680,
+  "tags": {
+   "title": "Auschwitz Details That Were Too Horrific For History Class",
+   "len": 58,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "p-gleC7WxNY",
+  "title": "Life in German-Occupied Poland (Uncensored Version)",
+  "channel": "The Armchair Historian",
+  "views": 155766,
+  "tags": {
+   "title": "Life in German-Occupied Poland (Uncensored Version)",
+   "len": 51,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Feojhxxzaw4",
+  "title": "Terror in Occupied Poland",
+  "channel": "Yad Vashem",
+  "views": 90276,
+  "tags": {
+   "title": "Terror in Occupied Poland",
+   "len": 25,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "7vOyh85y1fo",
+  "title": "The Nazi Regime in Germany and the Occupation of Poland | Yad Vashem",
+  "channel": "Yad Vashem",
+  "views": 24996,
+  "tags": {
+   "title": "The Nazi Regime in Germany and the Occupation of Poland | Yad Vashem",
+   "len": 68,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

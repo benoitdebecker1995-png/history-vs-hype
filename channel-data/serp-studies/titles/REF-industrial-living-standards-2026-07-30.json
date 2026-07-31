@@ -1,0 +1,192 @@
+[
+ {
+  "id": "xLhNP0qp38Q",
+  "title": "The Industrial Revolution (18-19th Century)",
+  "channel": "Simple History",
+  "views": 3490188,
+  "tags": {
+   "title": "The Industrial Revolution (18-19th Century)",
+   "len": 43,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "tlsU_YT9n_g",
+  "title": "We Could've Had the Industrial Revolution 2,000 Years Early",
+  "channel": "CGP Grey",
+  "views": 2874465,
+  "tags": {
+   "title": "We Could've Had the Industrial Revolution 2,000 Years Early",
+   "len": 59,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "zjK7PWmRRyg",
+  "title": "The Industrial Revolution: Crash Course European History #24",
+  "channel": "CrashCourse",
+  "views": 2748194,
+  "tags": {
+   "title": "The Industrial Revolution: Crash Course European History #24",
+   "len": 60,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Uan6pbm_nfQ",
+  "title": "What Hygiene Was Like During the Industrial Revolution",
+  "channel": "Weird History",
+  "views": 1822220,
+  "tags": {
+   "title": "What Hygiene Was Like During the Industrial Revolution",
+   "len": 54,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "PjYUut5NcTs",
+  "title": "What if the Industrial Revolution Never Happened? (Ft. List 25)",
+  "channel": "AlternateHistoryHub",
+  "views": 1060376,
+  "tags": {
+   "title": "What if the Industrial Revolution Never Happened? (Ft. List 25)",
+   "len": 63,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "0SMNYivhGsc",
+  "title": "How inventions change history (for better and for worse) - Kenneth C. Davis",
+  "channel": "TED-Ed",
+  "views": 1014434,
+  "tags": {
+   "title": "How inventions change history (for better and for worse) - Kenneth C. Davis",
+   "len": 75,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "ewu-v36szlE",
+  "title": "The Labor Movement in the United States | History",
+  "channel": "HISTORY",
+  "views": 793242,
+  "tags": {
+   "title": "The Labor Movement in the United States | History",
+   "len": 49,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "zfBsvFoqwhY",
+  "title": "The Unabomber Tried To Warn You",
+  "channel": "Moon",
+  "views": 654565,
+  "tags": {
+   "title": "The Unabomber Tried To Warn You",
+   "len": 31,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Xpb9XKmRsyw",
+  "title": "What was the Industrial Revolution?",
+  "channel": "Pursuit of History",
+  "views": 606530,
+  "tags": {
+   "title": "What was the Industrial Revolution?",
+   "len": 35,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "cZEeYV3SLMQ",
+  "title": "The Industrial Revolution Spreads [AP World History] Unit 5 Topic 4",
+  "channel": "Heimler's History",
+  "views": 541533,
+  "tags": {
+   "title": "The Industrial Revolution Spreads [AP World History] Unit 5 Topic 4",
+   "len": 67,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

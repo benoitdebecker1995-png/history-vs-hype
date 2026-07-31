@@ -1,0 +1,230 @@
+[
+ {
+  "id": "CtHwcfNHfPM",
+  "title": "‘World’s Chillest Man’ Asked Robbery Suspect for a Beer",
+  "channel": "Inside Edition",
+  "views": 68159527,
+  "tags": {
+   "title": "‘World’s Chillest Man’ Asked Robbery Suspect for a Beer",
+   "len": 55,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "_U0bbxo_9Ms",
+  "title": "The War Criminals Trying to Prevent a Genocide",
+  "channel": "VICE News",
+  "views": 7240778,
+  "tags": {
+   "title": "The War Criminals Trying to Prevent a Genocide",
+   "len": 46,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "QOzezrUxAMk",
+  "title": "Ten Minute History - Mussolini and Fascist Italy (Short Documentary)",
+  "channel": "History Matters",
+  "views": 3999565,
+  "tags": {
+   "title": "Ten Minute History - Mussolini and Fascist Italy (Short Documentary)",
+   "len": 68,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "2T5c5REOlyM",
+  "title": "This Is Why People Fear The Mossad | Former CIA Officer John Kiriakou",
+  "channel": "Dalton Fischer Podcast",
+  "views": 3743108,
+  "tags": {
+   "title": "This Is Why People Fear The Mossad | Former CIA Officer John Kiriakou",
+   "len": 69,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "ojAIgO3BtUY",
+  "title": "Most Horrific Crimes - The Italian Mafia",
+  "channel": "The Infographics Show",
+  "views": 3551429,
+  "tags": {
+   "title": "Most Horrific Crimes - The Italian Mafia",
+   "len": 40,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "OlPCZ_9T490",
+  "title": "The Italian invasion of Abyssinia (1935-36)",
+  "channel": "Simple History",
+  "views": 3080064,
+  "tags": {
+   "title": "The Italian invasion of Abyssinia (1935-36)",
+   "len": 43,
+   "pattern": "declarative",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "aZw_u60v_5U",
+  "title": "Why didn't Alexander the Great conquer Rome? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 2170018,
+  "tags": {
+   "title": "Why didn't Alexander the Great conquer Rome? (Short Animated Documentary)",
+   "len": 73,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "B5d_MPw1nQs",
+  "title": "Why wasn't Italy occupied after World War 2? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 1639073,
+  "tags": {
+   "title": "Why wasn't Italy occupied after World War 2? (Short Animated Documentary)",
+   "len": 73,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "RsA6AdCRI-k",
+  "title": "What Happened at the Nuremberg Trials? | History",
+  "channel": "HISTORY",
+  "views": 1599076,
+  "tags": {
+   "title": "What Happened at the Nuremberg Trials? | History",
+   "len": 48,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "CDg0WCw7HGo",
+  "title": "How Did Senior Nazi Officials Manage To Escape After World War 2?",
+  "channel": "Timeline - World History Documentaries",
+  "views": 549332,
+  "tags": {
+   "title": "How Did Senior Nazi Officials Manage To Escape After World War 2?",
+   "len": 65,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "SaeuolX7NOQ",
+  "title": "Why did Italy attack Ethiopia in 1935?",
+  "channel": "Knowledgia",
+  "views": 507921,
+  "tags": {
+   "title": "Why did Italy attack Ethiopia in 1935?",
+   "len": 38,
+   "pattern": "question",
+   "question": true,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "cs_gb172AhQ",
+  "title": "Why Wasn't There an Italian \"Nuremberg / Tokyo War Crimes\" Trial After WWII?",
+  "channel": "Today I Found Out",
+  "views": 413741,
+  "tags": {
+   "title": "Why Wasn't There an Italian \"Nuremberg / Tokyo War Crimes\" Trial After WWII?",
+   "len": 76,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

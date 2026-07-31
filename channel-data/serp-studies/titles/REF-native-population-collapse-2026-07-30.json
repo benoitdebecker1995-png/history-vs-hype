@@ -1,0 +1,154 @@
+[
+ {
+  "id": "NoFQjAHsWE8",
+  "title": "The Forgotten Prehistoric War That Killed 95% Of All Men",
+  "channel": "ExtinctZoo ",
+  "views": 5477363,
+  "tags": {
+   "title": "The Forgotten Prehistoric War That Killed 95% Of All Men",
+   "len": 56,
+   "pattern": "the_x_that",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "kTKogX9O7dY",
+  "title": "How the USA Colonized the USA, Mapped",
+  "channel": "Johnny Harris",
+  "views": 4705612,
+  "tags": {
+   "title": "How the USA Colonized the USA, Mapped",
+   "len": 37,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "tk7Twg2u6lw",
+  "title": "What they don't teach you about Native Americans",
+  "channel": "Elephants in Rooms - Ken LaCorte",
+  "views": 2736782,
+  "tags": {
+   "title": "What they don't teach you about Native Americans",
+   "len": 48,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "GHdW_LVfn28",
+  "title": "6 Misconceptions About Native American People | Teen Vogue",
+  "channel": "Teen Vogue",
+  "views": 2248758,
+  "tags": {
+   "title": "6 Misconceptions About Native American People | Teen Vogue",
+   "len": 58,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "-E9T6UWaDRA",
+  "title": "Christopher Columbus - The Discovery Of America And What Happened After",
+  "channel": "Native American History",
+  "views": 1523868,
+  "tags": {
+   "title": "Christopher Columbus - The Discovery Of America And What Happened After",
+   "len": 71,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Zadq5dl2G8Q",
+  "title": "The Loss of Native American Lands Within the US: Every Year",
+  "channel": "EmperorTigerstar",
+  "views": 805624,
+  "tags": {
+   "title": "The Loss of Native American Lands Within the US: Every Year",
+   "len": 59,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "HWZuavGGWDo",
+  "title": "What if Disease Didn't Wipe Out the Native Americans?",
+  "channel": "AlternateHistoryHub",
+  "views": 804209,
+  "tags": {
+   "title": "What if Disease Didn't Wipe Out the Native Americans?",
+   "len": 53,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "-8jT6qpR96k",
+  "title": "The Truth About Native Americans before Europeans Arrived",
+  "channel": "Step Back",
+  "views": 771803,
+  "tags": {
+   "title": "The Truth About Native Americans before Europeans Arrived",
+   "len": 57,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

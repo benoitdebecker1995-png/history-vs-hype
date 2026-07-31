@@ -1,0 +1,230 @@
+[
+ {
+  "id": "bfAnmqy5uYE",
+  "title": "A Warning to Those Visiting Auschwitz",
+  "channel": "Patrick Ney",
+  "views": 11425330,
+  "tags": {
+   "title": "A Warning to Those Visiting Auschwitz",
+   "len": 37,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "kOIHRQlQqwU",
+  "title": "Liberators and Survivors: The First Moments",
+  "channel": "Yad Vashem",
+  "views": 7391636,
+  "tags": {
+   "title": "Liberators and Survivors: The First Moments",
+   "len": 43,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "p3TYsR3oDZU",
+  "title": "A Holocaust Survivor Recalls The Day He Was Liberated",
+  "channel": "BuzzFeedVideo",
+  "views": 5529183,
+  "tags": {
+   "title": "A Holocaust Survivor Recalls The Day He Was Liberated",
+   "len": 53,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "8l7wzzD2Bv0",
+  "title": "GULAGS (The Cold War)",
+  "channel": "Simple History",
+  "views": 4663566,
+  "tags": {
+   "title": "GULAGS (The Cold War)",
+   "len": 21,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "5stTQxUjzoo",
+  "title": "The Price for 42,000 Lives: How the SS Guards Finally Paid in 1945",
+  "channel": "World History",
+  "views": 1779583,
+  "tags": {
+   "title": "The Price for 42,000 Lives: How the SS Guards Finally Paid in 1945",
+   "len": 66,
+   "pattern": "colon",
+   "question": false,
+   "year": true,
+   "colon": true,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "qr6X8_hNIfs",
+  "title": "A Rare Look Inside Auschwitz’s Restricted Areas",
+  "channel": "History Hit",
+  "views": 1708343,
+  "tags": {
+   "title": "A Rare Look Inside Auschwitz’s Restricted Areas",
+   "len": 47,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "9Vw-BqoD-Aw",
+  "title": "Why didn't Greece become a part of the Eastern Bloc? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 1682880,
+  "tags": {
+   "title": "Why didn't Greece become a part of the Eastern Bloc? (Short Animated Documentary)",
+   "len": 81,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "AYUXrPUZgWo",
+  "title": "What Did the Soviets Do with the German SS Prisoners Captured in 1945?",
+  "channel": "WW2 Legends",
+  "views": 1050041,
+  "tags": {
+   "title": "What Did the Soviets Do with the German SS Prisoners Captured in 1945?",
+   "len": 70,
+   "pattern": "question",
+   "question": true,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "cZjVedLNRX4",
+  "title": "The Liberation Of Auschwitz",
+  "channel": "TheUntoldPast",
+  "views": 656720,
+  "tags": {
+   "title": "The Liberation Of Auschwitz",
+   "len": 27,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "u84EftZD1RA",
+  "title": "Those who handled this matter disappeared",
+  "channel": "Kanał Historyczny Zwiadowców Historii",
+  "views": 311750,
+  "tags": {
+   "title": "Those who handled this matter disappeared",
+   "len": 41,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "RHvwD3TwWHg",
+  "title": "Auschwitz haunts Soviet veteran",
+  "channel": "AFP News Agency",
+  "views": 59819,
+  "tags": {
+   "title": "Auschwitz haunts Soviet veteran",
+   "len": 31,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "blXwcwjcAjA",
+  "title": "Poles deported to Siberia in 1940 - 1 of 5 - second world war",
+  "channel": "toitb",
+  "views": 54667,
+  "tags": {
+   "title": "Poles deported to Siberia in 1940 - 1 of 5 - second world war",
+   "len": 61,
+   "pattern": "declarative",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

@@ -1,0 +1,230 @@
+[
+ {
+  "id": "D1-WuBbVe2E",
+  "title": "Why The Ancient Greeks Couldn't See Blue",
+  "channel": "AsapSCIENCE",
+  "views": 9965908,
+  "tags": {
+   "title": "Why The Ancient Greeks Couldn't See Blue",
+   "len": 40,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "4jmMWohs1XM",
+  "title": "The white lie we've been told about Roman statues",
+  "channel": "Vox",
+  "views": 5171726,
+  "tags": {
+   "title": "The white lie we've been told about Roman statues",
+   "len": 49,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Liy1q1ilUDs",
+  "title": "Ancient sculptures reveal their true colors",
+  "channel": "CBS Sunday Morning",
+  "views": 249668,
+  "tags": {
+   "title": "Ancient sculptures reveal their true colors",
+   "len": 43,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "86PD8o6xe_4",
+  "title": "Why Ancient Marble Statues Aren’t Meant To Be Seen As “White” (HBO)",
+  "channel": "VICE News",
+  "views": 174073,
+  "tags": {
+   "title": "Why Ancient Marble Statues Aren’t Meant To Be Seen As “White” (HBO)",
+   "len": 67,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "gRMPYh2QdSM",
+  "title": "Roman Sculpture and Colour: the \"Treu Head\" (Ancient Greek and Roman Color / Polychromy)",
+  "channel": "Giovanni Verri",
+  "views": 71473,
+  "tags": {
+   "title": "Roman Sculpture and Colour: the \"Treu Head\" (Ancient Greek and Roman Color / Polychromy)",
+   "len": 88,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "y8c45utvBQM",
+  "title": "Were marble statues painted in Ancient Rome?",
+  "channel": "Darius Arya Digs",
+  "views": 63849,
+  "tags": {
+   "title": "Were marble statues painted in Ancient Rome?",
+   "len": 44,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "qE24xg3Q8hI",
+  "title": "Greek Statues Were Painted",
+  "channel": "The Young Turks",
+  "views": 47584,
+  "tags": {
+   "title": "Greek Statues Were Painted",
+   "len": 26,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "qNf-0a6TvSw",
+  "title": "Greek Sculpture: Painted Marble, not White!",
+  "channel": "World History Encyclopedia",
+  "views": 43205,
+  "tags": {
+   "title": "Greek Sculpture: Painted Marble, not White!",
+   "len": 43,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "pGpNBrix7Hk",
+  "title": "Greek And Roman Statues Were Once Colorfully Painted | National Geographic",
+  "channel": "National Geographic",
+  "views": 34306,
+  "tags": {
+   "title": "Greek And Roman Statues Were Once Colorfully Painted | National Geographic",
+   "len": 74,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "YAMvi7w1PjE",
+  "title": "How White Washing Ancient Greece contributes to White Supremacy",
+  "channel": "Ornament and Crime",
+  "views": 6342,
+  "tags": {
+   "title": "How White Washing Ancient Greece contributes to White Supremacy",
+   "len": 63,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "3n5rBGxa5Cw",
+  "title": "Saintly violence? Santiago in the Americas",
+  "channel": "Smarthistory",
+  "views": 6329,
+  "tags": {
+   "title": "Saintly violence? Santiago in the Americas",
+   "len": 42,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "JN5-lBmXsbM",
+  "title": "Roman statues were not white, they were painted in vivid colour",
+  "channel": "TopRomanFacts",
+  "views": 5132,
+  "tags": {
+   "title": "Roman statues were not white, they were painted in vivid colour",
+   "len": 63,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

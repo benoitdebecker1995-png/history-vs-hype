@@ -1,0 +1,192 @@
+[
+ {
+  "id": "ZFL-l-2XMwg",
+  "title": "Live: Parliament resumes after Supreme Court ruling | ITV News",
+  "channel": "ITV News",
+  "views": 189187,
+  "tags": {
+   "title": "Live: Parliament resumes after Supreme Court ruling | ITV News",
+   "len": 62,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "KK_YhOHmQs4",
+  "title": "Dr. Anthony Fauci Testifies on the COVID-19 Pandemic",
+  "channel": "C-SPAN",
+  "views": 136995,
+  "tags": {
+   "title": "Dr. Anthony Fauci Testifies on the COVID-19 Pandemic",
+   "len": 52,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "DjKD3grJFXc",
+  "title": "Bercow jokes that baby in the Commons is better behaved than MPs",
+  "channel": "Daily Mail World",
+  "views": 101010,
+  "tags": {
+   "title": "Bercow jokes that baby in the Commons is better behaved than MPs",
+   "len": 64,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "cRM416HMDr0",
+  "title": "Johnson faces resignation calls over 'unlawful' Parliament suspension - BBC News",
+  "channel": "BBC News",
+  "views": 95221,
+  "tags": {
+   "title": "Johnson faces resignation calls over 'unlawful' Parliament suspension - BBC News",
+   "len": 80,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "EUDJNwHngVI",
+  "title": "The Controversial Answer to the Question of \"Does Child Labor Help Children in Poverty?\"",
+  "channel": "Learn Liberty",
+  "views": 89842,
+  "tags": {
+   "title": "The Controversial Answer to the Question of \"Does Child Labor Help Children in Poverty?\"",
+   "len": 88,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "sDd2qPW8I84",
+  "title": "No babies in Commons, MP Stella Creasy told after bringing newborn to the House",
+  "channel": "The Telegraph",
+  "views": 42079,
+  "tags": {
+   "title": "No babies in Commons, MP Stella Creasy told after bringing newborn to the House",
+   "len": 79,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Ar6UxL3bmIs",
+  "title": "In full: MPs debate sleaze and Parliamentary standards following Owen Paterson row",
+  "channel": "The Telegraph",
+  "views": 41307,
+  "tags": {
+   "title": "In full: MPs debate sleaze and Parliamentary standards following Owen Paterson row",
+   "len": 82,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "tGhdJw7_xt8",
+  "title": "Poor man cheated by wife,Kicked out of by familys,unaware he's hide Tycoon,1call make them pay.",
+  "channel": "Fiery short TV",
+  "views": 39370,
+  "tags": {
+   "title": "Poor man cheated by wife,Kicked out of by familys,unaware he's hide Tycoon,1call make them pay.",
+   "len": 95,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "sNXXxj9JAZM",
+  "title": "Triangle Shirtwaist Factory Fire 1911 New York City Reenactment ILGWU",
+  "channel": "markdcatlin",
+  "views": 23739,
+  "tags": {
+   "title": "Triangle Shirtwaist Factory Fire 1911 New York City Reenactment ILGWU",
+   "len": 69,
+   "pattern": "declarative",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "I51TWmb0M94",
+  "title": "Is Parliament baby-proof as new mum Jacinda Ardern returns to work?",
+  "channel": "1News",
+  "views": 23623,
+  "tags": {
+   "title": "Is Parliament baby-proof as new mum Jacinda Ardern returns to work?",
+   "len": 67,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

@@ -1,0 +1,192 @@
+[
+ {
+  "id": "g9HmV_-EE8g",
+  "title": "Nazi Town, USA | Full Documentary | AMERICAN EXPERIENCE | PBS",
+  "channel": "American Experience | PBS",
+  "views": 3676718,
+  "tags": {
+   "title": "Nazi Town, USA | Full Documentary | AMERICAN EXPERIENCE | PBS",
+   "len": 61,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "sQpd9m4GBjs",
+  "title": "The Nazi Dismantling Of Constitutional Law In Germany",
+  "channel": "Timeline - World History Documentaries",
+  "views": 1300908,
+  "tags": {
+   "title": "The Nazi Dismantling Of Constitutional Law In Germany",
+   "len": 53,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "L52e29SVyYc",
+  "title": "What Were the Nuremberg Race Laws? | Holocaust Explainer",
+  "channel": "United States Holocaust Memorial Museum",
+  "views": 82396,
+  "tags": {
+   "title": "What Were the Nuremberg Race Laws? | Holocaust Explainer",
+   "len": 56,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "DamUkVBqi3c",
+  "title": "Third Reich Nuremberg Laws",
+  "channel": "C-SPAN",
+  "views": 52516,
+  "tags": {
+   "title": "Third Reich Nuremberg Laws",
+   "len": 26,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Vh3g4Ju9-Mk",
+  "title": "Trump & Pre-WW2 Nazi Germany Share Similarities",
+  "channel": "David Pakman Show",
+  "views": 36374,
+  "tags": {
+   "title": "Trump & Pre-WW2 Nazi Germany Share Similarities",
+   "len": 47,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "GNHdyeljvhI",
+  "title": "Hate and Its Impact: Nazi Ideology and Racism in the Jim Crow South",
+  "channel": "United States Holocaust Memorial Museum",
+  "views": 33779,
+  "tags": {
+   "title": "Hate and Its Impact: Nazi Ideology and Racism in the Jim Crow South",
+   "len": 67,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "ld5q9p1zHZw",
+  "title": "Racial Science in Nazi Germany",
+  "channel": "Library of Congress",
+  "views": 33750,
+  "tags": {
+   "title": "Racial Science in Nazi Germany",
+   "len": 30,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "jSnITJkq5A8",
+  "title": "Nuremberg Symposium: Intro to Nuremberg Laws",
+  "channel": "Raoul Wallenberg Centre for Human Rights",
+  "views": 23668,
+  "tags": {
+   "title": "Nuremberg Symposium: Intro to Nuremberg Laws",
+   "len": 44,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "-oh9lqLR4UQ",
+  "title": "Race and Society in Nazi Germany and the US: From Swastika to Jim Crow",
+  "channel": "United States Holocaust Memorial Museum",
+  "views": 17770,
+  "tags": {
+   "title": "Race and Society in Nazi Germany and the US: From Swastika to Jim Crow",
+   "len": 70,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "hOwgbN1gLl4",
+  "title": "How America Normalized Racism: Ghetto",
+  "channel": "ShawninOrlando",
+  "views": 17565,
+  "tags": {
+   "title": "How America Normalized Racism: Ghetto",
+   "len": 37,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

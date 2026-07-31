@@ -1,0 +1,192 @@
+[
+ {
+  "id": "MDN-DtJMs4Y",
+  "title": "A Brief History Of Ukraine (And Why Russia Wants To Control It)",
+  "channel": "History Hit",
+  "views": 3779437,
+  "tags": {
+   "title": "A Brief History Of Ukraine (And Why Russia Wants To Control It)",
+   "len": 63,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "TU1N8KTxIJU",
+  "title": "History of Russia Part 1: From Tribes to Tsars",
+  "channel": "Epic History",
+  "views": 1857344,
+  "tags": {
+   "title": "History of Russia Part 1: From Tribes to Tsars",
+   "len": 46,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "xkZflNk5uQY",
+  "title": "The Mongol Invasion of Ukraine",
+  "channel": "History Dose",
+  "views": 880092,
+  "tags": {
+   "title": "The Mongol Invasion of Ukraine",
+   "len": 30,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "mMZYKxgc9TE",
+  "title": "Ukraine and Russia: What Caused the War?",
+  "channel": "vlogbrothers",
+  "views": 861928,
+  "tags": {
+   "title": "Ukraine and Russia: What Caused the War?",
+   "len": 40,
+   "pattern": "colon",
+   "question": true,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "0pQv8nUHkUI",
+  "title": "Olga of Kiev: The Viking Saint of Russia",
+  "channel": "Biographics",
+  "views": 609269,
+  "tags": {
+   "title": "Olga of Kiev: The Viking Saint of Russia",
+   "len": 40,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "ZekpT8DaV_0",
+  "title": "TRUE Reason Russia Started War in Ukraine That No One Talks About",
+  "channel": "The Military Show",
+  "views": 589883,
+  "tags": {
+   "title": "TRUE Reason Russia Started War in Ukraine That No One Talks About",
+   "len": 65,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "pzxBKcTpRe4",
+  "title": "Putin’s Inaccurate Historical Propaganda : The History of the Russian and Ukrainian Relations",
+  "channel": "M. Laser History",
+  "views": 327969,
+  "tags": {
+   "title": "Putin’s Inaccurate Historical Propaganda : The History of the Russian and Ukrainian Relations",
+   "len": 93,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": true,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "DEoKs8g3pJo",
+  "title": "Average Ukrainian vs Average Russian - How Different Are They?",
+  "channel": "The Infographics Show",
+  "views": 269644,
+  "tags": {
+   "title": "Average Ukrainian vs Average Russian - How Different Are They?",
+   "len": 62,
+   "pattern": "versus",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "u7p-QOht-5Q",
+  "title": "Historian explains origin of Russia and Ukraine | Serhii Plokhy and Lex Fridman",
+  "channel": "Lex Clips",
+  "views": 128569,
+  "tags": {
+   "title": "Historian explains origin of Russia and Ukraine | Serhii Plokhy and Lex Fridman",
+   "len": 79,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": true,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "ytEVMq7YWR4",
+  "title": "Did Vikings Establish Rus'? The Norman Controversy",
+  "channel": "Styrman",
+  "views": 123868,
+  "tags": {
+   "title": "Did Vikings Establish Rus'? The Norman Controversy",
+   "len": 50,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

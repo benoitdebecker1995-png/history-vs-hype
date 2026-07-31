@@ -1,0 +1,192 @@
+[
+ {
+  "id": "h8Ers8gw_W4",
+  "title": "Churchill's legacy still painful for Indians - BBC News",
+  "channel": "BBC News",
+  "views": 985757,
+  "tags": {
+   "title": "Churchill's legacy still painful for Indians - BBC News",
+   "len": 55,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "plZkO3y9_hY",
+  "title": "The Bengal Famine and Winston Churchill | BadEmpanada",
+  "channel": "BadEmpanada",
+  "views": 261581,
+  "tags": {
+   "title": "The Bengal Famine and Winston Churchill | BadEmpanada",
+   "len": 53,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Gyac1eICWxY",
+  "title": "The Bengal Famine of 1943: Natural Disaster or Man-Made Catastrophe?",
+  "channel": "Geographics",
+  "views": 235103,
+  "tags": {
+   "title": "The Bengal Famine of 1943: Natural Disaster or Man-Made Catastrophe?",
+   "len": 68,
+   "pattern": "colon",
+   "question": true,
+   "year": true,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "2KOw_R5s5Qc",
+  "title": "How was Bengal Famine caused by Winston Churchill? | Keerthi History",
+  "channel": "Keerthi",
+  "views": 207951,
+  "tags": {
+   "title": "How was Bengal Famine caused by Winston Churchill? | Keerthi History",
+   "len": 68,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "bAj_2b_-aQI",
+  "title": "Science Backs Churchill Hand In Bengal Famine Deaths",
+  "channel": "Brut India",
+  "views": 103063,
+  "tags": {
+   "title": "Science Backs Churchill Hand In Bengal Famine Deaths",
+   "len": 52,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "amV_XKaiTKE",
+  "title": "'I saw children like us lying dead on the streets' | I remember the Bengal Famine | BBC News India",
+  "channel": "BBC News India",
+  "views": 71362,
+  "tags": {
+   "title": "'I saw children like us lying dead on the streets' | I remember the Bengal Famine | BBC News India",
+   "len": 98,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "-0M7ISjJcE0",
+  "title": "The Unspeakable Things That Happened In The Bengal Famine",
+  "channel": "A Day In History",
+  "views": 61155,
+  "tags": {
+   "title": "The Unspeakable Things That Happened In The Bengal Famine",
+   "len": 57,
+   "pattern": "the_x_that",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "kzA8Af09p80",
+  "title": "Winston Churchill and the Bengal Famine",
+  "channel": "Douglas Murray",
+  "views": 27354,
+  "tags": {
+   "title": "Winston Churchill and the Bengal Famine",
+   "len": 39,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "uCN7VO7p9LI",
+  "title": "Did Winston Churchill Cause the Bengal Famine of 1943? WW2 (Indian History Documentary)",
+  "channel": "Historia Maxima",
+  "views": 8962,
+  "tags": {
+   "title": "Did Winston Churchill Cause the Bengal Famine of 1943? WW2 (Indian History Documentary)",
+   "len": 87,
+   "pattern": "declarative",
+   "question": false,
+   "year": true,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "XX1wFifWNts",
+  "title": "Complete Rubbish! Churchill DID NOT Cause the Bengal Famine! - Rafe Heydel-Mankoo",
+  "channel": "Rafe Heydel-Mankoo",
+  "views": 7413,
+  "tags": {
+   "title": "Complete Rubbish! Churchill DID NOT Cause the Bengal Famine! - Rafe Heydel-Mankoo",
+   "len": 81,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

@@ -1,0 +1,192 @@
+[
+ {
+  "id": "gIzQxNZfGM4",
+  "title": "How the British Empire Impoverished India",
+  "channel": "Odd Compass",
+  "views": 4811940,
+  "tags": {
+   "title": "How the British Empire Impoverished India",
+   "len": 41,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "z8Qv7zZBxq8",
+  "title": "How British colonialism increased diabetes in south Asians | It's Complicated",
+  "channel": "It's Complicated",
+  "views": 1085395,
+  "tags": {
+   "title": "How British colonialism increased diabetes in south Asians | It's Complicated",
+   "len": 77,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "h8Ers8gw_W4",
+  "title": "Churchill's legacy still painful for Indians - BBC News",
+  "channel": "BBC News",
+  "views": 985757,
+  "tags": {
+   "title": "Churchill's legacy still painful for Indians - BBC News",
+   "len": 55,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "cH6Cyr-KQOk",
+  "title": "What The British Really Did To India | The Bastani Factor",
+  "channel": "Novara Media",
+  "views": 861555,
+  "tags": {
+   "title": "What The British Really Did To India | The Bastani Factor",
+   "len": 57,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "jZVzha3dpag",
+  "title": "The British Colonization of India Explained",
+  "channel": "History Scope",
+  "views": 467229,
+  "tags": {
+   "title": "The British Colonization of India Explained",
+   "len": 43,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "Ob_lIQRAnYM",
+  "title": "British empire killed 165 million Indians in 40 years: How colonialism inspired fascism",
+  "channel": "Geopolitical Economy Report",
+  "views": 388793,
+  "tags": {
+   "title": "British empire killed 165 million Indians in 40 years: How colonialism inspired fascism",
+   "len": 87,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "UWVr6SvBdC4",
+  "title": "The Indian Partition: The UK's Huge Mistake that Ended in Disaster",
+  "channel": "Into the Shadows",
+  "views": 288309,
+  "tags": {
+   "title": "The Indian Partition: The UK's Huge Mistake that Ended in Disaster",
+   "len": 66,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "KGHoiU7JG-0",
+  "title": "Pontiac’s War: The Native Rebellion That Shook Britain",
+  "channel": "Kings and Generals",
+  "views": 79173,
+  "tags": {
+   "title": "Pontiac’s War: The Native Rebellion That Shook Britain",
+   "len": 54,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "mexNOFv70R8",
+  "title": "The British Empire In Colour   part 1",
+  "channel": "worldlifetravel",
+  "views": 72790,
+  "tags": {
+   "title": "The British Empire In Colour   part 1",
+   "len": 37,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "amV_XKaiTKE",
+  "title": "'I saw children like us lying dead on the streets' | I remember the Bengal Famine | BBC News India",
+  "channel": "BBC News India",
+  "views": 71366,
+  "tags": {
+   "title": "'I saw children like us lying dead on the streets' | I remember the Bengal Famine | BBC News India",
+   "len": 98,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]
