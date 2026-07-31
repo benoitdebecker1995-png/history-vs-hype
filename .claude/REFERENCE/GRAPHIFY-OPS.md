@@ -2,6 +2,18 @@
 
 Built 2026-05-25/26 across one long session. This file captures the current state, how to use it, and what's still on the table. Read this first when picking up graphify work later.
 
+> **2026-07-31 — REPAIRED after a silent outage.** graphify had been dead for an unknown period:
+> it was installed under `C:\Users\Benoi\AppData\Local\Programs\Python\Python312\python.exe`, that
+> interpreter was uninstalled, and nothing noticed — the MCP servers simply stopped resolving and
+> sessions fell back to grep. Fixed by installing `graphifyy` 0.9.31 on the live interpreter
+> (Python 3.14.2), repointing `graphify-out/.graphify_python`, and moving the server declarations
+> out of user-level `~/.claude.json` into the repo's version-controlled **`.mcp.json`** so the next
+> machine change is visible in a diff instead of silent.
+>
+> Live counts differ from the 2026-05 figures below: **code graph 90,745 nodes / 97,940 edges**
+> (not 54,135), **research graph 169 nodes** (not 110). Both servers smoke-tested over MCP stdio —
+> research starts in 2.0s, code in 11.1s (80 MB graph).
+
 ## What exists right now
 
 **Code graph (`graphify-out/`)** — AST extraction of the whole repo, slimmed and labeled.
@@ -35,9 +47,13 @@ Built 2026-05-25/26 across one long session. This file captures the current stat
 # 1. AST hook still installed?
 ls .git/hooks/post-commit .git/hooks/post-checkout
 
-# 2. MCP servers configured?
-python -c "import json; d=json.load(open(r'C:\Users\Benoi\.claude.json')); proj=d['projects'].get('D:/History vs Hype') or d['projects'].get(r'G:\History vs Hype'); print(list(proj['mcpServers'].keys()))"
-# Expect: ['playwright', 'notebooklm', 'graphify-code', 'graphify-research'] (or with youtube-data on the backslash variant)
+# 2. MCP servers configured?  (moved to the repo's .mcp.json on 2026-07-31 —
+#    user-level config is what silently died when Python 3.12 was uninstalled)
+python -c "import json; print(list(json.load(open('.mcp.json'))['mcpServers']))"
+# Expect: ['notebooklm', 'graphify-code', 'graphify-research']
+
+# 2b. Does the server actually start? (rc=0 and a JSON-RPC result on stdout)
+python -m graphify --help >/dev/null && echo "graphify CLI OK"
 
 # 3. Both graphs queryable?
 python graphify-out/research/query.py "uti possidetis" --max-nodes 5
@@ -94,7 +110,7 @@ Ranked by impact:
 | To undo | Run |
 |---|---|
 | Git hooks | `python -m graphify hook uninstall` |
-| MCP servers | Restore `~/.claude.json.bak.before-graphify-mcp-1779796087` |
+| MCP servers | Declared in the repo's `.mcp.json` — edit or delete the entries there. (The old recovery pointer named `~/.claude.json.bak.before-graphify-mcp-1779796087`; that backup no longer exists.) |
 | Slim code graph (back to 96 MB) | `cp graphify-out/graph.full.json.bak graphify-out/graph.json` |
 | Research graph | Delete `graphify-out/research/` and re-run `tools/refresh-research-graph.py` |
 | Everything graphify | `python -m graphify uninstall --purge` (also deletes `graphify-out/`) |

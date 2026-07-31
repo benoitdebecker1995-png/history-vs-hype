@@ -29,10 +29,22 @@ implementation detail, the skill's live-verified claim is usually newer — veri
 
 ## Knowledge Graphs
 
-⚠ **The graphify MCP servers do NOT resolve** (verified 2026-07-30 — their Python 3.12 was
-uninstalled). Use grep/Glob. The graph *data* survives: `graphify-out/graph.json`, and
-`python graphify-out/research/query.py "<entity>"` for the sparse research graph (under ~3 hits ⇒
-read files instead). Recovery + open work: `.claude/REFERENCE/GRAPHIFY-OPS.md`.
+**Repaired 2026-07-31** (they had been dead since their Python 3.12 was uninstalled). Both servers
+are now declared in the version-controlled `.mcp.json`, not user-level state, so they survive a
+machine change:
+
+- `graphify-code` — 90,745 nodes / 97,940 edges over the repo AST (`graphify-out/graph.json`)
+- `graphify-research` — 169-node concept graph over the archived `01-VERIFIED-RESEARCH.md` files
+
+**Prefer a graph query over grep/Read when the question is structural** — that is the whole point,
+it costs far fewer tokens than reading files:
+- "Where does X live / what depends on it" → `query_graph`, `get_neighbors`
+- "How does A connect to B" → `shortest_path` · "Most-connected hubs" → `god_nodes`
+- "Have we covered scholar/treaty Z" → `graphify-research` `query_graph`
+
+**Honest scope:** the research graph is sparse — under ~3 hits, fall back to file reads. If the MCP
+tools don't resolve, the file-based fallback still works:
+`python graphify-out/research/query.py "<entity>"`. Ops + recovery: `.claude/REFERENCE/GRAPHIFY-OPS.md`.
 
 ---
 

@@ -1,7 +1,15 @@
 {
   "mcpServers": {
     "notebooklm": {
-      "command": "${NOTEBOOKLM_MCP:-${APPDATA}/Python/Python314/Scripts/notebooklm-mcp.exe}"
+      "command": "${APPDATA}/Python/Python314/Scripts/notebooklm-mcp.exe"
+    },
+    "graphify-code": {
+      "command": "${APPDATA}/Python/Python314/Scripts/graphify-mcp.exe",
+      "args": ["${CLAUDE_PROJECT_DIR:-.}/graphify-out/graph.json"]
+    },
+    "graphify-research": {
+      "command": "${APPDATA}/Python/Python314/Scripts/graphify-mcp.exe",
+      "args": ["${CLAUDE_PROJECT_DIR:-.}/graphify-out/research/graph.json"]
     }
   }
 }
