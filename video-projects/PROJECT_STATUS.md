@@ -1,11 +1,11 @@
 <!-- AUTO:reconcile-dashboard — regenerated each run, do not edit -->
-Last reconciled: 2026-07-05
+Last reconciled: 2026-07-29
 
 ## Lifecycle counts
 
 | Bucket | Count |
 |---|---|
-| `_IN_PRODUCTION/` (pre-script / scripting / fact-check) | 4 |
+| `_IN_PRODUCTION/` (pre-script / scripting / fact-check) | 19 |
 | `_READY_TO_FILM/` (script-locked / filmed / in-post, pre-publish) | 1 |
 | `_ARCHIVED/published/` (YouTube confirmed) | 34 |
 
@@ -13,10 +13,25 @@ Last reconciled: 2026-07-05
 
 | Folder | Phase |
 |---|---|
+| `1-somaliland-2025` | idea |
+| `10-dark-ages-2025` | idea |
+| `14-chagos-islands-2025` | idea |
+| `19-flat-earth-medieval-2025` | idea |
+| `23-christmas-origins-2025` | idea |
+| `24-iran-1953-coup-2025` | idea |
+| `27-peru-2025` | idea |
+| `28-vance-part-2-review-2025` | idea |
+| `30-belavezha-accords-2025` | idea |
+| `35-gibraltar-treaty-utrecht-2026` | idea |
 | `36-panama-canal-deconcini-2026` | fact-checked |
+| `37-untranslated-vichy-statut-juifs-2026` | idea |
+| `55-falklands-malvinas-2026` | research |
+| `6-bir-tawil-2025` | idea |
 | `60-guadalupe-hidalgo-dispossession-2026` | fact-checked |
 | `61-spanish-colonization-black-legend-2026` | research |
-| `62-volhynia-massacre-untranslated-2026` | research |
+| `62-volhynia-massacre-untranslated-2026` | filmed |
+| `63-leopold-congo-cobalt-2026` | research |
+| `Tariffs` | idea |
 
 ## Ready to film / filmed pre-publish
 
@@ -28,12 +43,8 @@ Last reconciled: 2026-07-05
 
 | Published | Folder | Video ID | Title |
 |---|---|---|---|
-| 2026-07-05 | `59-israel-palestine-partition-offer-2026` | `OHWq4jY8iAY` | Israel vs Palestine: They Argue About This Plan. Almost Nobo |
+| 2026-07-05 | `59-israel-palestine-partition-offer-2026` | `OHWq4jY8iAY` | Israel vs Palestine. The 1947 UN Plan Wasn’t Legally Binding |
 | 2026-06-04 | `57-piri-reis-map-ottoman-2026` | `zt7VntgauC8` | The Piri Reis Map Cites Columbus. Hancock Calls It 12,000 Ye |
-| 2026-05-28 | `56-no-lassos-atlantic-slave-trade-origin-2026` | `aSfZtrgGjwA` | They Didn't Just Buy Slaves. They Built the System. |
-| 2026-05-20 | `52-hijab-women-rights-2026` | `mCR5f_ZcB5k` | The Hijab Was Never About Modesty. A 3,200-Year-Old Law Prov |
-| 2026-05-14 | `54-spanish-inquisition-torture-rules-2026` | `rbsdtveYvv0` | The Spanish Inquisition Documented Its Torture Methods. Most |
-| 2026-05-08 | `45-manhattan-purchase-myth-2026` | `mg6ujk6rDVE` | The $24 Manhattan Myth: A 19th-Century Fraud |
 
 ## All archived (34 folders)
 

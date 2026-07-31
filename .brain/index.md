@@ -68,12 +68,26 @@
 
 | Topic | Lifecycle | Phase | Last Touched |
 |-------|-----------|-------|--------------|
-| `62-volhynia-massacre-untranslated-2026` | `_IN_PRODUCTION` | research → script | 2026-07-24 |
-| `63-leopold-congo-cobalt-2026` | `_IN_PRODUCTION` | research (Stage C — page-pin verbatims) | 2026-07-22 |
-| `36-panama-canal-deconcini-2026` | `_IN_PRODUCTION` | script draft v2 (unlocked) → heavy gate + T1 | 2026-07-22 |
-| `61-spanish-colonization-black-legend-2026` | `_IN_PRODUCTION` | research → title-lock → script | 2026-07-22 |
-| `60-guadalupe-hidalgo-dispossession-2026` | `_IN_PRODUCTION` | script draft (unlocked) → read-aloud | 2026-07-22 |
-| `58-kurdistan-statelessness-2026` | `_READY_TO_FILM` | fact-checked | 2026-06-12 |
+| `36-panama-canal-deconcini-2026` | `_IN_PRODUCTION` | fact-checked | 2026-07-28 |
+| `55-falklands-malvinas-2026` | `_IN_PRODUCTION` | research | 2026-07-28 |
+| `Tariffs` | `_IN_PRODUCTION` | idea | 2026-07-25 |
+| `6-bir-tawil-2025` | `_IN_PRODUCTION` | idea | 2026-07-25 |
+| `35-gibraltar-treaty-utrecht-2026` | `_IN_PRODUCTION` | idea | 2026-07-25 |
+| `30-belavezha-accords-2025` | `_IN_PRODUCTION` | idea | 2026-07-25 |
+| `28-vance-part-2-review-2025` | `_IN_PRODUCTION` | idea | 2026-07-25 |
+| `27-peru-2025` | `_IN_PRODUCTION` | idea | 2026-07-25 |
+| `24-iran-1953-coup-2025` | `_IN_PRODUCTION` | idea | 2026-07-25 |
+| `23-christmas-origins-2025` | `_IN_PRODUCTION` | idea | 2026-07-25 |
+| `19-flat-earth-medieval-2025` | `_IN_PRODUCTION` | idea | 2026-07-25 |
+| `14-chagos-islands-2025` | `_IN_PRODUCTION` | idea | 2026-07-25 |
+| `10-dark-ages-2025` | `_IN_PRODUCTION` | idea | 2026-07-25 |
+| `1-somaliland-2025` | `_IN_PRODUCTION` | idea | 2026-07-25 |
+| `62-volhynia-massacre-untranslated-2026` | `_IN_PRODUCTION` | filmed | 2026-07-24 |
+| `63-leopold-congo-cobalt-2026` | `_IN_PRODUCTION` | research | 2026-07-13 |
+| `61-spanish-colonization-black-legend-2026` | `_IN_PRODUCTION` | research | 2026-06-18 |
+| `60-guadalupe-hidalgo-dispossession-2026` | `_IN_PRODUCTION` | fact-checked | 2026-06-14 |
+| `58-kurdistan-statelessness-2026` | `_READY_TO_FILM` | fact-checked | 2026-06-13 |
+| `37-untranslated-vichy-statut-juifs-2026` | `_IN_PRODUCTION` | idea | — |
 
 ---
 

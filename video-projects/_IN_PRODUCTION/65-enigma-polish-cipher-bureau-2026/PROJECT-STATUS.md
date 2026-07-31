@@ -137,12 +137,17 @@ two-sentence Claim.Evidence. format, the channel's top-retention brand signal.
 3. **"Poland Broke Enigma Before Britain Did. Here's the Proof."**
    Generic second half; "Here's" is rationed on this channel.
 
-**Rejected at the gate:** *"Alan Turing Didn't Break Enigma First. Poland Did."* (51/D) and
-*"Turing Got the Credit. Three Poles Got There First."* (51/D) both **FAIL `has_search_anchor`** —
-"Turing" is not in the head-term list despite 98,056/mo. Two scorer defects were found and filed
-as a separate task (`has_search_anchor` also **false-positives on the ordinary word "who"**, so
-*"Who Really Broke Enigma?"* passed the anchor gate spuriously). Do not lock a "who" title until
-that is fixed.
+**Re-baselined 2026-07-30 — both scorer defects are FIXED** (`title_scorer` v6.1, pinned by
+`tests/unit/test_search_anchor.py`). The two verdicts recorded here have flipped:
+
+- *"Alan Turing Didn't Break Enigma First. Poland Did."* and *"Turing Got the Credit. Three Poles
+  Got There First."* were rejected for failing `has_search_anchor` — "Turing" was missing from the
+  head-term list despite 98,056/mo. It is now recognised: both **PASS**, `(True, 'Turing')`, +12
+  `SEARCH_ANCHOR_BONUS` (72/B today). **They are back in contention** — the owner's pick is open
+  between the Poland framings above (77/B) and these.
+- *"Who Really Broke Enigma? Not Bletchley Park."* was passing the anchor gate spuriously — the
+  ordinary word "Who" matched the acronym WHO. It now correctly **FAILS** (50/D, no head term).
+  The "do not lock a who-title" warning stands, but the gate enforces it now instead of inverting it.
 
 ## Exhibits to obtain (Phase 2 — NOT yet verified)
 
