@@ -116,6 +116,72 @@ doing only if the skills are ever shared outside this repo.
 
 ---
 
+## ADOPT (as a source, not a tool) — the anti-AI-slop cluster
+
+**Added 2026-07-31 after the owner asked why this wasn't covered. He was right — the first pass
+searched research/infrastructure and missed the cluster aimed at the channel's actual #1 content
+problem ("scripts feel AI").**
+
+There is a whole genre here: [xr0zv/no-ai-slop](https://github.com/xr0zv/no-ai-slop),
+[jalaalrd/anti-ai-slop-writing](https://github.com/jalaalrd/anti-ai-slop-writing),
+[adewale/anti-slop-writing](https://github.com/adewale/anti-slop-writing),
+[hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop),
+[conorbronsdon/avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing),
+[petergyang/no-ai-slop](https://github.com/petergyang/no-ai-slop),
+[realrossmanngroup/no_ai_slop_writing_rules](https://github.com/realrossmanngroup/no_ai_slop_writing_rules),
+[Byk3y/no-slop](https://github.com/Byk3y/no-slop).
+
+### Do NOT adopt their rule lists wholesale — architecture forbids it
+
+`tools/voice_lint.py` carries ~40 rules and says so explicitly: *"This tool does NOT invent voice
+rules — it mechanizes the profile's hard 'no' list."* Rules derive **from**
+`.claude/REFERENCE/VOICE-PROFILE.md` (527 lines, built from the owner's own rejections, each rule an
+approved line plus a rejected counter-example), never the reverse — that is ADR-0006. Bulk-importing
+a stranger's banned-word list inverts the arrow and would corrupt a personal fingerprint with
+generic advice.
+
+Two claims also failed inspection, which is why the whole genre gets judged as a *source* not a tool:
+
+- The Rossmann repo is widely described as carrying "a data-driven voice profile built from corpus
+  analysis of 513,683 words." **Its actual SKILL.md documents no such thing** — reading it directly:
+  no corpus methodology, no training-data source, no derivation. It is 24 rules and banned-word
+  lists. It also **specifies no licence**, so it is not adoptable regardless.
+- Most of the others are constraint prompts, not runnable linters, and emit no machine-readable
+  findings — so they cannot gate anything the way `voice_lint` does.
+
+### The genuinely valuable find: Wikipedia's *Signs of AI writing*
+
+[`Byk3y/no-slop`](https://github.com/Byk3y/no-slop) (MIT, 13 patterns, 40+ banned words) is the only
+one that names a real, checkable provenance: every rule derives from
+[**Wikipedia:Signs of AI writing**](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing),
+maintained by WikiProject AI Cleanup from patterns observed across thousands of AI-generated texts.
+Verified directly: seven categories (content, language/grammar, style formatting, communication
+patterns, markup, citations, edit summaries), citing peer-reviewed 2025 detection studies and
+tracking how tells shift between LLM versions.
+
+That is a **collaboratively maintained, evidence-based, citable catalogue** — the same standard this
+channel demands of its historical sources. It is a far better input than any one developer's list.
+
+**Recommendation.** `voice_lint`'s 40 rules cover the tells the owner *noticed and rejected*. Tells
+he never had to reject — because they never survived to reach him, or he never named them — are
+invisible to it by construction. So:
+
+1. Mine *Signs of AI writing* for tells absent from `VOICE-PROFILE.md`.
+2. Put the survivors **into the profile first**, as a clearly separate "generic LLM tells" tier
+   distinct from his personal fingerprint, so ADR-0006's arrow still points the right way.
+3. Re-derive `voice_lint` from the profile. Ship them **WARN**, never HARD — the existing
+   fingerprint-derived thresholds already ship WARN because they are single-sample, and generic
+   rules deserve no more authority than that.
+
+Named caller: `/polish`, which already exists for exactly this pass.
+
+**One caveat worth stating plainly:** several of these lists ban the em dash outright, and blanket
+bans are how a voice gets flattened. `VOICE-PROFILE.md` records that his lines get "eaten by
+tidying, not by bad writing" — a generic tidy-up list is precisely that failure mode. Import the
+tells, not the aesthetics.
+
+---
+
 ## REJECT — and why, so this isn't re-researched
 
 | Candidate | Reason |
@@ -158,3 +224,5 @@ Both are extensions of surfaces that already exist, which is the outcome `extend
 - [VoltAgent/awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents)
 - [Galaxy-Dawn/claude-scholar](https://github.com/Galaxy-Dawn/claude-scholar)
 - [imbad0202/academic-research-skills](https://github.com/imbad0202/academic-research-skills)
+- [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)
+- [Byk3y/no-slop](https://github.com/Byk3y/no-slop) · [xr0zv/no-ai-slop](https://github.com/xr0zv/no-ai-slop) · [jalaalrd/anti-ai-slop-writing](https://github.com/jalaalrd/anti-ai-slop-writing) · [adewale/anti-slop-writing](https://github.com/adewale/anti-slop-writing) · [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) · [conorbronsdon/avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing) · [petergyang/no-ai-slop](https://github.com/petergyang/no-ai-slop) · [realrossmanngroup/no_ai_slop_writing_rules](https://github.com/realrossmanngroup/no_ai_slop_writing_rules)
