@@ -29,26 +29,10 @@ implementation detail, the skill's live-verified claim is usually newer — veri
 
 ## Knowledge Graphs
 
-⚠ **The two MCP servers are NOT registered — verified 2026-07-30.** `graphify` appears
-nowhere in `~/.claude.json`, the Claude Desktop config, or the surviving backup, and no
-`mcp__graphify-*` tool resolves. This file previously told sessions to prefer
-`mcp__graphify-code__query_graph` etc. over grep; **those calls cannot work.** Use grep,
-Glob, and the file-based queries below until the servers are re-registered
-(`.claude/REFERENCE/GRAPHIFY-OPS.md` § Recovery).
-
-**The graph data still exists** — only the MCP wiring is gone:
-- Code graph — `graphify-out/graph.json` (81 MB, refreshed by the post-commit hook)
-- Research graph — sparse ~110-node concept graph over the archived
-  `01-VERIFIED-RESEARCH.md` files. Query it directly:
-  ```bash
-  python graphify-out/research/query.py "uti possidetis" --max-nodes 5
-  ```
-  Read `graphify-out/research/GRAPH_REPORT.md` for bridges and suggested questions.
-
-**Honest scope:** the research graph is sparse — good for entity lookups ("did we cite
-Mamdani"), but under ~3 hits means fall back to file reads.
-
-Workflow patterns, recovery commands, and the open-work list: `.claude/REFERENCE/GRAPHIFY-OPS.md`.
+⚠ **The graphify MCP servers do NOT resolve** (verified 2026-07-30 — their Python 3.12 was
+uninstalled). Use grep/Glob. The graph *data* survives: `graphify-out/graph.json`, and
+`python graphify-out/research/query.py "<entity>"` for the sparse research graph (under ~3 hits ⇒
+read files instead). Recovery + open work: `.claude/REFERENCE/GRAPHIFY-OPS.md`.
 
 ---
 
@@ -125,68 +109,27 @@ See: `.claude/commands/reconcile.md` | the `feedback-project-reconciliation` mem
 
 ---
 
-## Research: Two-Phase Approach (CRITICAL)
+## The pipeline, and where its rules live
 
-**Phase 1: Internet research** — map landscape, identify claims to verify (Wikipedia, news, Google Scholar). All findings marked ❓. Free, 2-4 hours.
+`/greenlight` (packaging gate) → `/research` → `/script` → `/verify` → `/prep` → `/publish`
 
-**Phase 2: NotebookLM academic verification** — university press books ONLY (Cambridge, Oxford, etc.), top scholars, critical editions. Budget UNLIMITED. Upload 10-20 sources, use citation grounding for exact page numbers. Output: verified quotes ready for script.
+1. **Research + Verify** → `01-VERIFIED-RESEARCH.md`, each fact ✅/⏳/❌. Gate: 90%+ before writing.
+2. **Script from verified facts ONLY** → `02-SCRIPT-DRAFT.md`. Unverified fact ⇒ STOP and verify.
+3. **Cross-check** → `03-FACT-CHECK-VERIFICATION.md`, every line vs the research. ✅ APPROVED / ❌ REVISION.
 
-**NEVER skip Phase 2.** That's the competitive advantage. See: `.claude/REFERENCE/NOTEBOOKLM-SOURCE-STANDARDS.md`
+The detailed rules are **path-scoped** in `.claude/rules/` — they load automatically when you open a
+matching file, so they are not repeated here (split 2026-07-31; nothing was dropped):
 
----
+| Rule file | Loads when you open | Covers |
+|---|---|---|
+| `script-writing.md` | `SCRIPT.md`, `*SCRIPT-DRAFT.md`, `FINAL-SCRIPT.md` | Calm-Prosecutor voice, structure, language-to-avoid, templates, voice_lint |
+| `packaging.md` | `YOUTUBE-METADATA.md`, `THUMBNAIL-*.md`, `title_scorer.py` | Demand gate, title penalties, thumbnail rules, collision check |
+| `research-verification.md` | `01-VERIFIED-RESEARCH.md`, `03-FACT-CHECK-*.md`, `_research/**` | Two-phase research, source tiers, red flags, graded claim status |
+| `python-tools.md` | `tools/**/*.py`, `tests/**/*.py` | Import/error/logging contracts, seams, test discipline |
 
-## Verified Workflow (3-Phase Quality Gates)
-
-1. **Research + Verify** → `01-VERIFIED-RESEARCH.md` — mark each fact ✅/⏳/❌. Gate: 90%+ verified before writing.
-2. **Script from verified facts ONLY** → `02-SCRIPT-DRAFT.md` — if fact isn't verified, STOP and verify first.
-3. **Cross-check** → `03-FACT-CHECK-VERIFICATION.md` — every script line vs verified research. Verdict: ✅ APPROVED or ❌ REVISION.
-
----
-
-## Script Writing
-
-**Authoritative reference:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` — READ BEFORE WRITING ANY SCRIPT (PARTS 1-5 script-side).
-
-**Voice:** "Calm Prosecutor" — emotionally low, intellectually high. Evidence-based referee.
-
-**Key rules:** Real quotes with page numbers | Primary sources ON SCREEN | Define every term immediately | Contractions ("it's" not "it is") | Dates spoken ("On June 16th, 2014") | "Here's" max 2-4/script
-
-**Structure:** Myth-first for non-territorial (30.3% vs 22.4% retention) | Turn at 15-25% runtime (3.2x, not 25-35% dead zone at 2.1x) | Modern relevance every 90s | Pattern interrupt every 2-3 min | Deep causal chains throughout
-
-**Language to avoid:** "X is occupying Y" | "Z destroyed the culture" | absolutist language | conspiracy framing without documentation
-
-**Templates:** `.claude/REFERENCE/OPENING-HOOK-TEMPLATES.md` | `.claude/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md`
-
----
-
-## Fact-Checking
-
-**Source hierarchy:** See `.claude/REFERENCE/fact-checking-protocol.md`
-- Tier 1: Primary documents, peer-reviewed (2010+), expert historians
-- Tier 2: Journalists, intl org reports, declassified docs
-- Tier 3: News sources (verify multiple), documentary evidence
-
-**Red flags requiring immediate verification:**
-- "The court ruled X..." → Which paragraph? Exact quote?
-- "The treaty says..." → Which article? Exact language?
-- Any quote without page number → Verify with primary source
-
-**NEVER include unverified claims.** If you can't verify: don't include it, flag it, or ask user for source.
-
-See: `.claude/REFERENCE/FACT-CHECK-SIMPLIFICATION-RULES.md` for 8 anti-oversimplification rules
-
----
-
-## Packaging-First Workflow
-
-1. **Search demand** — graded gate, NOT a hard stop: GO ≥1,000/mo · CAUTION 500–999 · STOP <500, and a **verified live news hook overrides a STOP**. Authority: `.claude/commands/greenlight.md` Step 1.
-2. **Title generation** — `title_scorer.py`. Front-load keyword. Declarative = default (3.8% CTR). **Years and colons are graded penalties, not bans** — `YEAR_PENALTY -15`, `COLON_PENALTY -10`, `COLON_PENALTY_VERSUS 0` (`tools/title_scorer.py:308-313`, authoritative). The old −46%/−28% "hard rule" was topic-confounded and is **retired**; the channel's #1 and #3 videos both use colons.
-3. **Thumbnail concept** — text overlay MANDATORY (87% niche), no face (0% niche), maps for territorial. `thumbnail_checker.py`
-4. **THEN research** — only after `/greenlight` passes
-
-See: `tools/PACKAGING_MANDATE.md` | `.claude/REFERENCE/TITLE-GENERATION-PROTOCOL.md`
-
-**Channel DNA:** History channel with modern relevance, NOT geopolitics with historical background. Test: "Will this matter in 10 years regardless of who's in power?"
+**NEVER skip Phase 2** (NotebookLM academic verification) — that is the competitive advantage.
+**Channel DNA:** history with modern relevance, NOT geopolitics with historical background. Test:
+"Will this matter in 10 years regardless of who's in power?"
 
 ---
 
@@ -230,24 +173,23 @@ about fast-moving facts — legitimate, keep them.)*
 
 ## Critical Reminders
 
-1. **PACKAGING FIRST** — `/greenlight` before ANY research
-2. **NEVER skip Phase 2** (NotebookLM) — that's the competitive advantage
-3. **ACADEMIC SOURCES ONLY** — university presses, top scholars. Budget UNLIMITED
-4. **REAL QUOTES with page numbers** — not summaries
-5. **Primary sources ON SCREEN** — non-optional
-6. **Read WRITING-VOICE-AND-STYLE.md before scripts** — voice, delivery, patterns, checklist (PARTS 1-5)
-7. **Write for spoken delivery** — contractions, natural phrasing
-8. **Deep causal chains** — explain WHY (spoken-register connectors: so, which is why, and that meant; formal "consequently/thereby" sparingly)
-9. **Intellectual honesty** — acknowledge what opposing side gets right
-10. **Single source of truth** — 01-VERIFIED-RESEARCH.md only
-11. **Quality gates** — 90% verified → write; 100% cross-checked → film
-12. **HOW > WHY** for subscriber growth — mechanisms/logistics, not politics
-13. **Years/colons in titles = HEDGE, not ban** — graded penalties, A/B-testable (the old -46%/-28% hard rule was topic-confounded; the channel's #1 and #3 videos have colons). See `tools/PACKAGING_MANDATE.md` Tier 2
-14. **Text overlay on thumbnails** — 2-4 words, not full title. Maps for territorial.
-15. **AGENT ORCHESTRATION** — Read `.claude/AGENT-ORCHESTRATION.md` before spawning sub-agents — return contract, tiers, rate-limit rule
-16. **Claim status is graded, not binary** — `ASSERTED → SOURCED → INSPECTED → CORROBORATED/CONTESTED → SETTLED`. Verdict words (REFUTED/PROVEN/RESOLVED) only at CORROBORATED+. Check with `python -m tools.preflight.claim_status <file.md>`; `--frontier` says whether research is actually finished. ADR-0021
-17. **Collision-check before proposing a video** — `python -m tools.preflight.candidate_preflight "<topic>"`. Published match = stop. Run it *before* the pitch, not after
-18. **Calibration** — lead with the outcome · one superlative per project, max · narrate once not per step · hold scope · correct once, quietly. See Working Style above and `.claude/REFERENCE/OPUS-5-CALIBRATION.md`
+These are the cross-cutting ones. Stage-specific rules (voice, source tiers, title penalties, claim
+status) live in `.claude/rules/` and load when you open a matching file — they are not repeated here.
+
+1. **PACKAGING FIRST** — `/greenlight` before ANY research. Collision-check first:
+   `python -m tools.preflight.candidate_preflight "<topic>"`. A published match is a stop, and it
+   runs *before* the pitch, not after.
+2. **NEVER skip Phase 2** (NotebookLM academic verification) — that's the competitive advantage.
+   University presses, top scholars, budget UNLIMITED.
+3. **REAL QUOTES with page numbers, primary sources ON SCREEN** — not summaries, not optional.
+   This is the whole product; unnamed authority ("historians argue") is its exact inverse.
+4. **HOW > WHY** for subscriber growth — mechanisms and logistics, not politics.
+5. **Intellectual honesty** — acknowledge what the opposing side gets right.
+6. **AGENT ORCHESTRATION** — read `.claude/AGENT-ORCHESTRATION.md` before spawning sub-agents:
+   return contract, tiers, rate-limit rule.
+7. **Calibration** — lead with the outcome · one superlative per project, max · narrate once, not
+   per step · hold scope · correct once, quietly. Working Style above, and
+   `.claude/REFERENCE/OPUS-5-CALIBRATION.md`.
 
 ---
 
