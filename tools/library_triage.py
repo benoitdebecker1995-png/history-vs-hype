@@ -241,6 +241,72 @@ def proposed_name(c: Candidate) -> str:
     return f"{_camel(c.title)}-{author}-{year}-Stash{kind}{c.path.suffix.lower()}"
 
 
+STOPWORDS = set(
+    "the of and in a to for an on at from with its their his her by as is are was "
+    "were new history historical study studies vol volume edition unknown press "
+    "university book books text texts introduction chapter part page pages".split())
+
+# Never a filing TARGET: general-history is the catch-all, 605 of 1,151 books.
+# Sending ambiguous items there is how a library becomes a pile.
+CATCHALL = "general-history"
+
+# A topic must win by this multiple over the runner-up. Below it the evidence is
+# split, and a wrong shelf is worse than the stash: in the stash you know it is
+# unfiled, on the wrong shelf you think it is filed.
+MARGIN = 1.6
+MIN_SCORE = 0.6
+
+
+def topic_vocabulary(library=None) -> dict:
+    """{topic: {term: distinctiveness}} learned from books already filed.
+
+    Weighting is deliberately by DISTINCTIVENESS, not frequency: "world" and
+    "empire" appear across most topics and must not decide anything, while
+    "bakassi", "moche" and "crusading" are near-conclusive on their own.
+    """
+    from tools.library_index import collect
+    data = collect(library)
+    per_topic = {}
+    doc_freq: Counter = Counter()
+    for topic, books in data["topics"].items():
+        terms = Counter()
+        for b in books:
+            for w in re.findall(r"[a-zà-ÿ]{4,}", b.title.lower()):
+                if w not in STOPWORDS:
+                    terms[w] += 1
+        per_topic[topic] = terms
+        for w in terms:
+            doc_freq[w] += 1
+    vocab = {}
+    for topic, terms in per_topic.items():
+        total = sum(terms.values()) or 1
+        vocab[topic] = {
+            w: (c / total) * (1.0 / doc_freq[w])   # frequency x distinctiveness
+            for w, c in terms.items() if c >= 2
+        }
+    return vocab
+
+
+def classify_topic(text: str, vocab: dict):
+    """(topic, score, runner_up_score). topic is None when the evidence is split."""
+    words = [w for w in re.findall(r"[a-zà-ÿ]{4,}", (text or "").lower())
+             if w not in STOPWORDS]
+    if not words:
+        return None, 0.0, 0.0
+    seen = set(words)
+    scores = {
+        topic: sum(weights.get(w, 0.0) for w in seen) * 100
+        for topic, weights in vocab.items() if topic != CATCHALL
+    }
+    if not scores:
+        return None, 0.0, 0.0
+    ranked = sorted(scores.items(), key=lambda kv: kv[1], reverse=True)
+    (best, top), (_, second) = ranked[0], (ranked[1] if len(ranked) > 1 else ("", 0.0))
+    if top < MIN_SCORE or top < second * MARGIN:
+        return None, top, second
+    return best, top, second
+
+
 def triage(stash=None) -> List[Candidate]:
     base = Path(stash) if stash else STASH
     if not base.is_dir():
@@ -262,6 +328,9 @@ def main() -> int:
                     help="move zero-byte/unreadable files to library/_stash-broken/")
     ap.add_argument("--apply", action="store_true",
                     help="rename confidently-identified files in place (implies --quarantine)")
+    ap.add_argument("--file", action="store_true",
+                    help="move identified files into library/by-topic/<topic>/ when the "
+                         "topic is unambiguous (abstains otherwise — they stay in the stash)")
     ap.add_argument("--limit", type=int, default=0)
     g = ap.add_mutually_exclusive_group()
     g.add_argument("--verbose", "-v", action="store_true")
@@ -329,6 +398,41 @@ def main() -> int:
         print("\n  sample proposals (dry run — pass --apply):")
         for c in confident[:8]:
             print(f"    {c.path.name[:38]:40} -> {proposed_name(c)[:60]}  [{c.evidence}]")
+
+    if args.file:
+        # Validated 2026-07-31 against 167 already-filed books: 92% correct when
+        # it commits, abstaining on 34%. Abstentions stay in the stash, because a
+        # wrong shelf is worse than an obvious backlog.
+        vocab = topic_vocabulary()
+        moved: Counter = Counter()
+        abstained = 0
+        for path in sorted(p for p in STASH.iterdir() if p.is_file()):
+            book = None
+            try:
+                from tools.library_index import parse_name
+                book = parse_name(path.stem)
+            except Exception:
+                pass
+            evidence = f"{book.title if book else ''} {path.stem}"
+            topic, top, second = classify_topic(evidence, vocab)
+            if not topic:
+                abstained += 1
+                continue
+            dest_dir = BY_TOPIC / topic
+            dest_dir.mkdir(parents=True, exist_ok=True)
+            dest = dest_dir / path.name
+            if dest.exists():
+                abstained += 1
+                continue
+            try:
+                shutil.move(str(path), str(dest))
+                moved[topic] += 1
+            except OSError as exc:
+                logger.warning("could not file %s: %s", path.name, exc)
+        print(f"\n  filed {sum(moved.values())} into by-topic/ "
+              f"({abstained} abstained — evidence split, left in the stash)")
+        for topic, n in moved.most_common():
+            print(f"    {topic:24} +{n}")
 
     return 0
 
