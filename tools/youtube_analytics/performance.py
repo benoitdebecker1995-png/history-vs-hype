@@ -43,8 +43,12 @@ from datetime import datetime, timezone
 from typing import Optional, Dict, List, Any
 
 from tools.logging_config import get_logger
-from .metrics import get_video_metrics
-from .channel_averages import get_recent_video_ids
+# NOTE: `.metrics` and `.channel_averages` are imported at their single use sites
+# below, not here. Both pull in `.auth` -> googleapiclient -> google.api_core, a
+# 2.66s import of the whole OAuth stack. `classify_topic_type()` is a pure string
+# function, but `tools/title_scorer.py:555` imports this module just to reach it —
+# so every title score, and every `/greenlight` and `/thumbnail` run behind it,
+# paid 2.66s to load an API client it never called. Keep these function-local.
 
 logger = get_logger(__name__)
 
@@ -274,6 +278,7 @@ def fetch_video_performance(video_id: str, save_to_db: bool = True) -> Dict[str,
             print(f"Conversion: {result['conversion_rate']:.3f}%")
     """
     # Fetch metrics from YouTube Analytics API
+    from .metrics import get_video_metrics
     metrics = get_video_metrics(video_id)
 
     if 'error' in metrics:
@@ -360,6 +365,7 @@ def fetch_catalog_metrics(max_videos: int = 50, save_to_db: bool = True) -> List
         print(f"Fetched {len(success)} of {len(results)} videos")
     """
     # Get recent video IDs
+    from .channel_averages import get_recent_video_ids
     video_ids = get_recent_video_ids(max_videos)
 
     if isinstance(video_ids, dict) and 'error' in video_ids:
