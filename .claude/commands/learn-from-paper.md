@@ -80,7 +80,7 @@ For each surviving technique (DIRECT TRANSFER or ADAPT), tag where it applies:
 
 ### Step 5 — Write the proposal file
 
-Write to: `D:\History vs Hype\video-projects\_IN_PRODUCTION\51-treaty-tripoli-article-11-2026\_research\article-writer-upgrade-proposal.md`
+Write to: `G:\History vs Hype\video-projects\_IN_PRODUCTION\51-treaty-tripoli-article-11-2026\_research\article-writer-upgrade-proposal.md`
 
 (For future runs on different papers, the path becomes `<pdf-parent-dir>/article-writer-upgrade-proposal.md` so each paper produces its own proposal.)
 

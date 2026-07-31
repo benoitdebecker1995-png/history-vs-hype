@@ -85,6 +85,27 @@ sweeping for demand-without-supply. That inversion is the build.
 
 ## 5. The build
 
+> ### ✅ BUILT AND RUN 2026-07-29 — `tools/discovery/gap_hunter.py`
+> Stages 1–3 are code; Stage 4 stayed judgment, as specified.
+> ```
+> python -m tools.discovery.gap_hunter --sweep --videos 80 --comments 200
+> python -m tools.discovery.gap_hunter --digest
+> ```
+> - **Storage:** `intel.db` schema **v3** — `comment_signals` (PK `comment_id`, so re-sweeps are
+>   idempotent) + `comment_sweeps` ledger (re-runs skip swept videos). Routed through `KBStore`.
+>   `comments.fetch_video_comments()` now also returns `comment_id` (additive).
+> - **First run:** 170 videos / 33,532 comments / **3,343 tagged signals**. Digest:
+>   `channel-data/gap-hunter/HARVEST-DIGEST.md`. Verdict: **`channel-data/gap-hunter/CANDIDATES-2026-07-29.md`**
+>   (recommends *West Papua — the 1969 Act of Free Choice*; alternate *Panglong 1947*).
+> - **Tests:** `tests/test_gap_hunter.py` (19). Uses the Data API, not yt-dlp.
+> - **Known limit, fix before the next run:** the tracked competitor set is misaligned with this
+>   channel's lane — Metatron / ReligionForBreakfast / Alex O'Connor produced 1,397 of 3,343 signals,
+>   and only 61 signals in the entire corpus carry treaty/border/court vocabulary. Widen
+>   `tools/intel/competitor_channels.json` toward borders/treaties channels and re-sync first.
+> - **Stage 2 is deliberately shallow.** Term aggregation is a likes-weighted proper-noun count that
+>   narrows ~33k comments to ~200 quotable ones. Clustering those into a topic is judgment, and the
+>   digest's §2/§3 exist to be *read*, not scored.
+
 A **gap-hunter** that sweeps and ranks, rather than scoring one input at a time.
 
 **Stage 1 — harvest.** For the tracked competitor set (`channel-data/competitor-channels.yaml`, 20
@@ -110,6 +131,32 @@ for the competitor side, and the `intel.db` schema for storage. Route new code t
 
 **Honesty guard:** this finds *candidates*, not winners. It cannot predict serve — nothing can. It narrows
 the field to topics that have a pool and an unanswered question. That is all it should ever claim.
+
+> ## 🛑 THE REFEREE-GAP TRAP — read before claiming any whitespace
+>
+> **A search returning nothing is NOT evidence a referee doesn't exist.** On 2026-07-29 a "cleanest
+> whitespace of the session" claim for project #64 was published into that project's status file and
+> used to greenlight it. It was false: a 73-minute specialist adjudication with 736,169 views had
+> existed since 2022 (`NQX5LlJ7YXg`). It was missed because two tools were asked, both have windows
+> that exclude it, and their silence was read as proof.
+>
+> **Tools whose emptiness means nothing here:**
+> - `vidiq_outliers` — ranks on breakout/recency; omits older videos **even with `sort: viewCount`
+>   and `publishedWithin: allTime`**. Cannot establish a channel's full catalogue.
+> - `intel.db competitor_videos` — ~100 most recent uploads per channel only.
+> - `serp_title_study` — top-N on the queries you happened to pick. A referee using different wording
+>   is invisible to it.
+> - the autocomplete scraper and yt-dlp comments — **bot-walled; they return empty, not an error.**
+> - free-source `demand_scorer` — emits a **200/mo floor placeholder**, not a measurement.
+>
+> **Required before writing "no referee exists" into any artifact:**
+> 1. If an ID, URL or exact title was supplied by any source, **query that directly** —
+>    `youtube.videos().list(part='snippet,statistics,contentDetails', id=...)` is exact, 1 quota unit.
+> 2. Search the specific channels most likely to have done it, by catalogue, not by ranking endpoint.
+> 3. Write the finding as **"searched X, Y, Z on these queries; did not find a referee"** — never as
+>    "there is no referee".
+> 4. Whitespace = 100 is a claim about the world. It needs the same evidentiary standard as an
+>    on-screen historical claim.
 
 ---
 

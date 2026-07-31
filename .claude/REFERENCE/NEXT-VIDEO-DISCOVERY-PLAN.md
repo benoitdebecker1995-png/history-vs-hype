@@ -9,9 +9,24 @@
 
 ## THE FILTER (read this first — kill criteria)
 
+> ### ⚠ CRITERION 1 IS WITHDRAWN — 2026-07-29, owner interview
+> Asked directly whether the pre-1900 rule was his or something a tool invented, the owner chose
+> **"No constraint — the topic decides."** The rule below was never his; it was inferred here on
+> 2026-05-26 and then hardened into a kill criterion. **Do not apply it.** A 1969 UN report and a
+> 1494 treaty compete on equal terms; the test is whether showable primary evidence exists.
+>
+> The "modern exception (NARROW)" clause below is therefore also void — there is nothing to except.
+>
+> Criteria 2–5 stand. The auto-kill list stands **except** that "20th-century declassified files"
+> is a *performance* observation (Condor/Iran/Vichy averaged 34–40 views), not an identity rule —
+> treat it as a caution to package harder, not a ban. Current-affairs commentary stays killed:
+> the owner's line is *"i do want to show why it is relevant but i want to specialize in history."*
+>
+> Live identity definition: `tools/PACKAGING_MANDATE.md` § Identity guard (restated 2026-07-29).
+
 A candidate must satisfy ALL of:
 
-1. **Primary document is PRE-1900** (medieval / early modern / 19th century max). The "old documents that have been sitting there the whole time" effect is the channel's signature.
+1. ~~**Primary document is PRE-1900**~~ — **WITHDRAWN, see box above.** Replaced by: **the topic clears at least one access barrier** (enclosure · language · ideology · archive) for the viewer.
 2. **High demand** — parent search term ≥2,000/mo OR cultural-moment spike (NYT viral series, court case ruling, anniversary).
 3. **Public misconception OR English coverage gap** — most existing accounts get it wrong, OR no English long-form video covers it well.
 4. **Document is visually presentable** — text, treaty, manuscript, deed, decree, letter. Not just "an account of."

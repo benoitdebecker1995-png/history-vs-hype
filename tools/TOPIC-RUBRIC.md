@@ -20,7 +20,13 @@ v2 therefore: adds gates (identity, demand floor), adds topicality (20%), upgrad
 
 ## GATES (pass/fail BEFORE scoring — a fail ends the candidacy)
 
-**G0 — Identity (overrides everything, incl. demand).** Method-first channel-DNA test: can this be told primary-documents-on-screen, and does it matter in 10 years regardless of who's in power? No regional positioning, no stakes-first geopolitics framing (RealLifeLore lane = anti-voice). Per the 2026-06-11 identity guard in `PACKAGING_MANDATE.md`.
+**G0 — Identity (overrides everything, incl. demand).** Method-first channel-DNA test: can this be told primary-documents-on-screen, and does it matter in 10 years regardless of who's in power? No regional positioning, no stakes-first geopolitics framing (RealLifeLore lane = anti-voice). Per the identity guard in `PACKAGING_MANDATE.md`.
+
+> **⚠ WIDENED 2026-07-29 (owner interview) — read the restated identity guard in `PACKAGING_MANDATE.md` before applying G0.** The subject is **access to the historical record**, blocked by four barriers (enclosure · language · ideology · archive). A candidate passes G0 if it clears at least one barrier for the viewer — it does **not** need a treaty, a court, or a border.
+>
+> **This rubric was drifting.** Its worked examples are treaty-forensic end to end, and `TOPIC-PIPELINE.md` came out 9-of-10 treaties as a result. That is a selection artefact of Phase-1 forensics (the only escalation in channel history was a border dispute), not a statement of what the channel is. **A myth-origin, a translation, or a piece of enclosed scholarship is a first-class candidate here.** Explicit owner correction: *"i dont want the focus to be solely on law or geopolitics… i want to specialize in history."*
+>
+> **No period constraint.** Any "must be pre-1900" rule you find in an older planning doc is withdrawn — see `.claude/REFERENCE/NEXT-VIDEO-DISCOVERY-PLAN.md`.
 
 **G1 — Demand floor (= mandate V1, VALIDATED tier).** VidIQ search volume >500/mo **or** a verifiable live news hook (active dispute, ruling, public claim by a notable figure). Hook claims must be **web-verified for date and content** before counting (per cultural-moment-verification — don't trust prior briefs).
 
@@ -32,7 +38,35 @@ v2 therefore: adds gates (identity, demand floor), adds topicality (20%), upgrad
 |---|---|---|---|---|
 | **30%** | VidIQ Overall Keyword Score (0–100) | Direct | `vidiq_keyword_research(keyword, mode="research")` MCP → `overallScore` (or the in-app keyword prefix number). Never hand-build vol×comp transforms. | VALIDATED methodology (VidIQ published composite) |
 | **20%** | Topicality / live-hook strength | Verified active hook (dispute/ruling/claim live NOW) = 100 · credible dated upcoming event or major anniversary ≤6 mo = 50 · evergreen = 0 | `news_hook_monitor.py` + mandatory web verification of date AND content | All 4 breakouts had one; stall cohort had none (D1, n=57). Formal ≥3x test pending = H1 |
-| **25%** | Whitespace (shelf × angle) | Quality English explainer exists AND serves the doc-forensic angle = 0 · shelf exists but primary-doc/legal/admin angle unserved = 50 · no quality English coverage of the topic = 100 | Live SERP scan: `serp_title_study.py --slug X --query "..."` + top-result skim. Live SERP beats static intel corpus (corpus-refresh mechanics). | D4 corpus map + B1 pocket forensics (the one organic breakout was a zero-coverage topic) |
+| **25%** | Whitespace (shelf × angle) — ⚠ **SERP-ONLY CAPS AT 50, see below** | Quality English explainer exists AND serves the doc-forensic angle = 0 · **searched N queries and found no referee = 50 (SERP-only ceiling)** · 100 requires the referee-absence protocol below | Live SERP scan: `serp_title_study.py --slug X --query "..."`, **plus the protocol below for anything above 50** | D4 corpus map + B1 pocket forensics (the one organic breakout was a zero-coverage topic) |
+
+### ⛔ Whitespace is a claim about the world — REFEREE-ABSENCE PROTOCOL (added 2026-07-30)
+
+**The old anchor read "no quality English coverage of the topic = 100" and named a top-12 SERP as its
+instrument. A 12-row sample on one or two queries cannot support a universal negative.** That defect
+caused a real failure: on 2026-07-29 a "cleanest whitespace of the session" claim was written into
+project #64's status file and used to greenlight it. A 73-minute specialist adjudication with **736,169
+views** (`NQX5LlJ7YXg`, World of Antiquity, published 2022) had existed the whole time. Two tools were
+consulted; both have windows that excluded it; their silence was read as proof.
+
+**Scoring rule.** A SERP scan alone scores **50 maximum**, and the finding must be written as
+*"searched \<queries\>, did not find a referee"* — never *"no referee exists"*.
+
+**To score above 50, all four:**
+1. **≥4 distinct query framings**, including the partisan wording proponents actually use, neutral
+   causal wording, and combinations with *historian / evidence / debate / debunk*.
+2. **Catalogue-check the 3 channels most likely to have done it** — by full catalogue, not by a
+   ranking endpoint. `vidiq_outliers` ranks on breakout/recency and **omits older videos even with
+   `sort: viewCount`**; `intel.db` holds only ~100 recent uploads per channel. Neither can prove absence.
+3. **Any candidate referee named by any source — including another model — is verified BY ID**:
+   `youtube.videos().list(part='snippet,statistics,contentDetails', id=...)`. Exact, 1 quota unit.
+   **Never substitute a search for a supplied ID.**
+4. **Record the instruments and the date in the project file.** An unattributed whitespace number is
+   not evidence and must not be cited.
+
+**Standard of proof.** A strategy claim that decides what gets made carries the same evidentiary
+burden as a claim that goes on screen. The channel's own material teaches that absence of evidence is
+not evidence of absence; that applies to the rubric too.
 | **10%** | Title CTR format fit | VidIQ Channel CTR score for the natural title format; if untested, cross-batch format average flagged **ESTIMATED** | VidIQ | HEDGE — construction explained little Gate-1 variance (scorer rejected the #1 and #3 videos) |
 | **10%** | Small-channel rankability | competition <40 = 100 · 40–50 = 50 · >50 = 0 | VidIQ competition score | Backlinko/TubeBuddy published guidance |
 | **5%** | Source verifiability + access | User's languages (FR/ES/DE/Dutch; Latin/Greek verification-only) + PDF/critical-edition availability; check `library/by-topic/` | Manual | Channel competitive advantage |
