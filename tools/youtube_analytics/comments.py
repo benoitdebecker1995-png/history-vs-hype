@@ -70,6 +70,7 @@ def fetch_video_comments(video_id: str, max_comments: int = 100) -> list[dict] |
         list of comment dicts on success:
             [
                 {
+                    "comment_id": "UgxAbC...",
                     "text": "Comment content...",
                     "author": "Username",
                     "likes": int,
@@ -105,6 +106,7 @@ def fetch_video_comments(video_id: str, max_comments: int = 100) -> list[dict] |
             for item in response.get('items', []):
                 snippet = item['snippet']['topLevelComment']['snippet']
                 comments.append({
+                    'comment_id': item['snippet']['topLevelComment']['id'],
                     'text': snippet['textDisplay'],
                     'author': snippet['authorDisplayName'],
                     'likes': snippet.get('likeCount', 0),

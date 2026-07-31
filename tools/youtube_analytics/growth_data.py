@@ -28,6 +28,8 @@ import sys
 import json
 import sqlite3
 import argparse
+import time
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from datetime import datetime, date, timezone, timedelta
 from typing import Dict, List, Any, Optional
@@ -41,6 +43,9 @@ logger = get_logger(__name__)
 DB_PATH = Path(__file__).parent / 'analytics.db'
 CURRENT_SCHEMA_VERSION = 5
 MIN_DURATION_SECONDS = 180  # 3+ minutes = long-form
+ANALYTICS_VIDEO_BATCH_SIZE = 200
+ANALYTICS_QUERY_RETRIES = 1
+ANALYTICS_MAX_WORKERS = 6
 
 # Pre-channel personal/test uploads (2014) that pass the long-form duration
 # filter but are not History vs Hype content. They skew retention-cliff and
@@ -282,6 +287,8 @@ def fetch_all_video_ids() -> List[str]:
 
     # Paginate uploads playlist for every video ID.
     all_ids: List[str] = []
+    seen_ids = set()
+    duplicate_count = 0
     page = None
     while True:
         resp = yt.playlistItems().list(
@@ -290,11 +297,22 @@ def fetch_all_video_ids() -> List[str]:
             maxResults=50,
             pageToken=page,
         ).execute()
-        all_ids.extend(item['contentDetails']['videoId'] for item in resp.get('items', []))
+        for item in resp.get('items', []):
+            video_id = item['contentDetails']['videoId']
+            if video_id in seen_ids:
+                duplicate_count += 1
+                continue
+            seen_ids.add(video_id)
+            all_ids.append(video_id)
         page = resp.get('nextPageToken')
         if not page:
             break
 
+    if duplicate_count:
+        logger.warning(
+            "Uploads playlist returned %d duplicate video ID(s); deduplicated at source",
+            duplicate_count,
+        )
     logger.info("Found %d total videos on channel", len(all_ids))
     return all_ids
 
@@ -352,53 +370,73 @@ def fetch_video_metrics_bulk(video_ids: List[str]) -> Dict[str, Dict]:
     """
     Fetch metrics for specific videos via Analytics API v2.
 
-    Uses per-video filter to ensure we get data for all long-form videos,
-    not just the top 200 by views (which mixes in shorts).
+    Uses a filtered video dimension so each API call returns one row per
+    requested long-form video without mixing in shorts. The API accepts up to
+    500 video IDs in a filter; batches stay at 200 to match the report row
+    limit used elsewhere in this module.
 
     Args:
         video_ids: List of video IDs to fetch metrics for
 
     Returns dict keyed by video_id with metrics.
     """
-    analytics = get_authenticated_service('youtubeAnalytics', 'v2')
     result = {}
+    if not video_ids:
+        logger.info("Fetched metrics for 0 / 0 videos")
+        return result
+
+    analytics = get_authenticated_service('youtubeAnalytics', 'v2')
     metrics_str = ','.join([
         'views', 'estimatedMinutesWatched', 'averageViewDuration',
         'averageViewPercentage', 'subscribersGained',
         'likes', 'comments', 'shares',
     ])
 
-    for vid in video_ids:
+    for offset in range(0, len(video_ids), ANALYTICS_VIDEO_BATCH_SIZE):
+        batch = video_ids[offset:offset + ANALYTICS_VIDEO_BATCH_SIZE]
+        batch_set = set(batch)
         try:
             resp = analytics.reports().query(
                 ids='channel==MINE',
                 startDate='2014-01-01',
                 endDate=date.today().isoformat(),
                 metrics=metrics_str,
-                filters=f'video=={vid}',
-            ).execute()
-
-            rows = resp.get('rows', [])
-            if not rows:
-                continue
+                dimensions='video',
+                filters=f"video=={','.join(batch)}",
+                maxResults=ANALYTICS_VIDEO_BATCH_SIZE,
+            ).execute(num_retries=ANALYTICS_QUERY_RETRIES)
 
             headers = [h['name'] for h in resp.get('columnHeaders', [])]
-            data = dict(zip(headers, rows[0]))
-
-            result[vid] = {
-                'views': int(data.get('views', 0)),
-                'watch_time_minutes': float(data.get('estimatedMinutesWatched', 0)),
-                'avg_view_duration_seconds': int(data.get('averageViewDuration', 0)),
-                'avg_view_percentage': float(data.get('averageViewPercentage', 0)),
-                'subscribers_gained': int(data.get('subscribersGained', 0)),
-                'likes': int(data.get('likes', 0)),
-                'comments': int(data.get('comments', 0)),
-                'shares': int(data.get('shares', 0)),
-            }
+            for row in resp.get('rows', []):
+                data = dict(zip(headers, row))
+                vid = data.get('video')
+                if vid not in batch_set:
+                    continue
+                result[vid] = {
+                    'views': int(data.get('views', 0)),
+                    'watch_time_minutes': float(data.get('estimatedMinutesWatched', 0)),
+                    'avg_view_duration_seconds': int(data.get('averageViewDuration', 0)),
+                    'avg_view_percentage': float(data.get('averageViewPercentage', 0)),
+                    'subscribers_gained': int(data.get('subscribersGained', 0)),
+                    'likes': int(data.get('likes', 0)),
+                    'comments': int(data.get('comments', 0)),
+                    'shares': int(data.get('shares', 0)),
+                }
         except Exception as e:
-            logger.warning("Metrics fetch failed for %s: %s", vid, e)
+            logger.error(
+                "Metrics bulk fetch failed for videos %d-%d: %s",
+                offset + 1,
+                offset + len(batch),
+                e,
+            )
 
-    logger.info("Fetched metrics for %d / %d videos", len(result), len(video_ids))
+    calls = (len(video_ids) + ANALYTICS_VIDEO_BATCH_SIZE - 1) // ANALYTICS_VIDEO_BATCH_SIZE
+    logger.info(
+        "Fetched metrics for %d / %d videos in %d batched API call(s)",
+        len(result),
+        len(video_ids),
+        calls,
+    )
     return result
 
 
@@ -406,8 +444,9 @@ def fetch_video_ctr_bulk(video_ids: Optional[List[str]] = None) -> Dict[str, Dic
     """
     Fetch CTR/impressions for videos via Analytics API.
 
-    Tries the bulk path (dimensions=video) first. If that fails with 400
-    "not supported", falls back to per-video queries (filters=video==<id>).
+    Uses the same filtered video-dimension batches as the metrics fetch. If the
+    API rejects the CTR metrics as unsupported, returns an empty mapping so the
+    Reporting API snapshot bridge can fill the values.
 
     For some channels (including this one as of 2026-05), the metric
     `videoThumbnailImpressions` is not exposed via the Analytics API at all
@@ -415,97 +454,78 @@ def fetch_video_ctr_bulk(video_ids: Optional[List[str]] = None) -> Dict[str, Dic
     that case CTR is owned by `tools.youtube_analytics.ctr_tracker`, which
     pulls reach reports from the YouTube *Reporting* API (a different
     endpoint) and writes to keywords.db.ctr_snapshots. We detect that
-    condition and skip the per-video loop instead of spamming 60 identical
-    400s, leaving CTR columns NULL in analytics.db.
+    condition and skip further batches instead of spamming identical 400s,
+    leaving CTR columns NULL in analytics.db.
 
     Args:
-        video_ids: IDs to query in the per-video fallback. If None, only
-            the bulk path is attempted.
+        video_ids: IDs to include in the filtered bulk query. If None, queries
+            the channel-wide video dimension for backward compatibility.
 
     Returns dict keyed by video_id with impressions and ctr_percent.
     """
     analytics = get_authenticated_service('youtubeAnalytics', 'v2')
     end = date.today().isoformat()
-    bulk_unsupported = False
-
-    try:
-        resp = analytics.reports().query(
-            ids='channel==MINE',
-            startDate='2014-01-01',
-            endDate=end,
-            metrics='views,videoThumbnailImpressions,videoThumbnailImpressionsClickRate',
-            dimensions='video',
-            sort='-views',
-            maxResults=200  # API limit for video dimension
-        ).execute()
-
-        headers = [h['name'] for h in resp.get('columnHeaders', [])]
-        result = {}
-        for row in resp.get('rows', []):
-            data = dict(zip(headers, row))
-            vid = data['video']
-            impressions = data.get('videoThumbnailImpressions')
-            ctr_rate = data.get('videoThumbnailImpressionsClickRate')
-            if impressions is not None and ctr_rate is not None:
-                result[vid] = {
-                    'impressions': int(impressions),
-                    'ctr_percent': round(float(ctr_rate) * 100, 2),
-                }
-
-        if result:
-            logger.info("Fetched CTR for %d videos (bulk)", len(result))
-            return result
-        logger.info("Bulk CTR query returned no rows — trying per-video fallback")
-    except Exception as e:
-        msg = str(e)
-        if 'not supported' in msg.lower():
-            bulk_unsupported = True
-            logger.warning(
-                "CTR metric not supported via Analytics API for this channel. "
-                "Run `python -m tools.youtube_analytics.ctr_tracker` to populate "
-                "CTR via the Reporting API instead. Skipping per-video fallback."
-            )
-        else:
-            logger.warning("CTR bulk fetch failed, falling back to per-video: %s", e)
-
-    if bulk_unsupported or not video_ids:
-        return {}
-
-    # Probe with the first video — if it returns "not supported", the metric
-    # isn't enabled for this channel and the remaining N-1 calls will all fail
-    # the same way. Stop early.
     result = {}
-    for i, vid in enumerate(video_ids):
+    batches = (
+        [video_ids[offset:offset + ANALYTICS_VIDEO_BATCH_SIZE]
+         for offset in range(0, len(video_ids), ANALYTICS_VIDEO_BATCH_SIZE)]
+        if video_ids
+        else [None]
+    )
+
+    for batch_number, batch in enumerate(batches, start=1):
+        query_args = {
+            'ids': 'channel==MINE',
+            'startDate': '2014-01-01',
+            'endDate': end,
+            'metrics': (
+                'views,videoThumbnailImpressions,'
+                'videoThumbnailImpressionsClickRate'
+            ),
+            'dimensions': 'video',
+            'sort': '-views',
+            'maxResults': ANALYTICS_VIDEO_BATCH_SIZE,
+        }
+        if batch:
+            query_args['filters'] = f"video=={','.join(batch)}"
+
         try:
-            resp = analytics.reports().query(
-                ids='channel==MINE',
-                startDate='2014-01-01',
-                endDate=end,
-                metrics='videoThumbnailImpressions,videoThumbnailImpressionsClickRate',
-                filters=f'video=={vid}',
-            ).execute()
-            rows = resp.get('rows', [])
-            if not rows:
-                continue
+            resp = analytics.reports().query(**query_args).execute(
+                num_retries=ANALYTICS_QUERY_RETRIES
+            )
             headers = [h['name'] for h in resp.get('columnHeaders', [])]
-            data = dict(zip(headers, rows[0]))
-            impressions = data.get('videoThumbnailImpressions')
-            ctr_rate = data.get('videoThumbnailImpressionsClickRate')
-            if impressions is not None and ctr_rate is not None:
-                result[vid] = {
-                    'impressions': int(impressions),
-                    'ctr_percent': round(float(ctr_rate) * 100, 2),
-                }
+            requested = set(batch) if batch else None
+            for row in resp.get('rows', []):
+                data = dict(zip(headers, row))
+                vid = data.get('video')
+                if not vid or (requested is not None and vid not in requested):
+                    continue
+                impressions = data.get('videoThumbnailImpressions')
+                ctr_rate = data.get('videoThumbnailImpressionsClickRate')
+                if impressions is not None and ctr_rate is not None:
+                    result[vid] = {
+                        'impressions': int(impressions),
+                        'ctr_percent': round(float(ctr_rate) * 100, 2),
+                    }
         except Exception as e:
-            if i == 0 and 'not supported' in str(e).lower():
+            if 'not supported' in str(e).lower():
                 logger.warning(
-                    "Per-video CTR also not supported. Use ctr_tracker (Reporting "
-                    "API) instead. Aborting CTR fetch."
+                    "CTR metric not supported via Analytics API for this channel. "
+                    "Run `python -m tools.youtube_analytics.ctr_tracker` to populate "
+                    "CTR via the Reporting API instead. Skipping remaining batches."
                 )
                 return {}
-            logger.warning("Per-video CTR fetch failed for %s: %s", vid, e)
+            logger.warning("CTR bulk fetch failed for batch %d: %s", batch_number, e)
 
-    logger.info("Fetched CTR for %d / %d videos (per-video fallback)", len(result), len(video_ids))
+    if video_ids is None:
+        logger.info("Fetched CTR for %d videos (channel-wide bulk)", len(result))
+    else:
+        logger.info(
+            "Fetched CTR for %d / %d videos in %d batched API call(s)",
+            len(result),
+            len(video_ids),
+            len(batches),
+        )
     return result
 
 
@@ -634,46 +654,87 @@ def merge_ctr_with_snapshot_fallback(ctr_data: Dict[str, Dict],
 # ANALYTICS API — TRAFFIC SOURCES
 # =========================================================================
 
+def _run_per_video_workers(video_ids: List[str], fetch_chunk) -> List[Any]:
+    """Run per-video-only reports with one Analytics client per worker.
+
+    googleapiclient's httplib2 transport is not thread-safe, so a service is
+    never shared between workers. Contiguous chunks preserve input/result
+    insertion order while bounding concurrency and authentication overhead.
+    """
+    if not video_ids:
+        return []
+
+    worker_count = min(ANALYTICS_MAX_WORKERS, len(video_ids))
+    chunk_size = (len(video_ids) + worker_count - 1) // worker_count
+    chunks = [
+        video_ids[offset:offset + chunk_size]
+        for offset in range(0, len(video_ids), chunk_size)
+    ]
+    services = [
+        get_authenticated_service('youtubeAnalytics', 'v2')
+        for _ in chunks
+    ]
+
+    with ThreadPoolExecutor(
+        max_workers=worker_count,
+        thread_name_prefix="growth-data",
+    ) as executor:
+        futures = [
+            executor.submit(fetch_chunk, service, chunk)
+            for service, chunk in zip(services, chunks)
+        ]
+        return [future.result() for future in futures]
+
+
 def fetch_traffic_sources_per_video(video_ids: List[str]) -> Dict[str, List[Dict]]:
     """
     Fetch traffic source breakdown per video.
 
     The Analytics API doesn't support video+trafficSource combined dimension
-    in a single query, so we fetch per-video. To manage quota, we batch
-    up to 50 video IDs per filter.
+    in a single query, so these remain one request per video, run through the
+    bounded worker pool.
 
     Returns dict keyed by video_id with list of {source_type, views, watch_time_minutes}.
     """
-    analytics = get_authenticated_service('youtubeAnalytics', 'v2')
     result = {}
 
-    for vid in video_ids:
-        try:
-            resp = analytics.reports().query(
-                ids='channel==MINE',
-                startDate='2014-01-01',
-                endDate=date.today().isoformat(),
-                metrics='views,estimatedMinutesWatched',
-                dimensions='insightTrafficSourceType',
-                filters=f'video=={vid}',
-            ).execute()
+    def fetch_chunk(analytics, chunk):
+        chunk_result = {}
+        for vid in chunk:
+            try:
+                resp = analytics.reports().query(
+                    ids='channel==MINE',
+                    startDate='2014-01-01',
+                    endDate=date.today().isoformat(),
+                    metrics='views,estimatedMinutesWatched',
+                    dimensions='insightTrafficSourceType',
+                    filters=f'video=={vid}',
+                ).execute(num_retries=ANALYTICS_QUERY_RETRIES)
 
-            headers = [h['name'] for h in resp.get('columnHeaders', [])]
-            sources = []
-            for row in resp.get('rows', []):
-                data = dict(zip(headers, row))
-                sources.append({
-                    'source_type': data['insightTrafficSourceType'],
-                    'views': int(data.get('views', 0)),
-                    'watch_time_minutes': float(data.get('estimatedMinutesWatched', 0)),
-                })
-            result[vid] = sources
+                headers = [h['name'] for h in resp.get('columnHeaders', [])]
+                sources = []
+                for row in resp.get('rows', []):
+                    data = dict(zip(headers, row))
+                    sources.append({
+                        'source_type': data['insightTrafficSourceType'],
+                        'views': int(data.get('views', 0)),
+                        'watch_time_minutes': float(data.get('estimatedMinutesWatched', 0)),
+                    })
+                chunk_result[vid] = sources
 
-        except Exception as e:
-            logger.warning("Traffic source fetch failed for %s: %s", vid, e)
-            result[vid] = []
+            except Exception as e:
+                logger.warning("Traffic source fetch failed for %s: %s", vid, e)
+                chunk_result[vid] = []
+        return chunk_result
 
-    logger.info("Fetched traffic sources for %d videos", len(result))
+    for chunk_result in _run_per_video_workers(video_ids, fetch_chunk):
+        result.update(chunk_result)
+
+    logger.info(
+        "Fetched traffic sources for %d videos with up to %d workers",
+        len(result),
+        min(ANALYTICS_MAX_WORKERS, len(video_ids)),
+    )
     return result
 
 
@@ -730,36 +791,50 @@ def fetch_retention_curves(video_ids: List[str]) -> Dict[str, List[Dict]]:
     One API call per video. Returns dict keyed by video_id with list of
     {elapsed_ratio, audience_watch_ratio, relative_performance}.
     """
-    analytics = get_authenticated_service('youtubeAnalytics', 'v2')
     end = date.today().isoformat()
     result: Dict[str, List[Dict]] = {}
 
-    for vid in video_ids:
-        try:
-            resp = analytics.reports().query(
-                ids='channel==MINE',
-                startDate='2014-01-01',
-                endDate=end,
-                metrics='audienceWatchRatio,relativeRetentionPerformance',
-                dimensions='elapsedVideoTimeRatio',
-                filters=f'video=={vid};audienceType==ORGANIC',
-                maxResults=200,
-                sort='elapsedVideoTimeRatio',
-            ).execute()
+    def fetch_chunk(analytics, chunk):
+        chunk_result = {}
+        for vid in chunk:
+            try:
+                resp = analytics.reports().query(
+                    ids='channel==MINE',
+                    startDate='2014-01-01',
+                    endDate=end,
+                    metrics='audienceWatchRatio,relativeRetentionPerformance',
+                    dimensions='elapsedVideoTimeRatio',
+                    filters=f'video=={vid};audienceType==ORGANIC',
+                    maxResults=200,
+                    sort='elapsedVideoTimeRatio',
+                ).execute(num_retries=ANALYTICS_QUERY_RETRIES)
 
-            points = []
-            for row in resp.get('rows', []):
-                points.append({
-                    'elapsed_ratio': float(row[0]),
-                    'audience_watch_ratio': float(row[1]),
-                    'relative_performance': float(row[2]) if len(row) > 2 and row[2] is not None else None,
-                })
-            if points:
-                result[vid] = points
-        except Exception as e:
-            logger.warning("Retention curve fetch failed for %s: %s", vid, e)
+                points = []
+                for row in resp.get('rows', []):
+                    points.append({
+                        'elapsed_ratio': float(row[0]),
+                        'audience_watch_ratio': float(row[1]),
+                        'relative_performance': (
+                            float(row[2])
+                            if len(row) > 2 and row[2] is not None
+                            else None
+                        ),
+                    })
+                if points:
+                    chunk_result[vid] = points
+            except Exception as e:
+                logger.warning("Retention curve fetch failed for %s: %s", vid, e)
+        return chunk_result
 
-    logger.info("Fetched retention curves for %d / %d videos", len(result), len(video_ids))
+    for chunk_result in _run_per_video_workers(video_ids, fetch_chunk):
+        result.update(chunk_result)
+
+    logger.info(
+        "Fetched retention curves for %d / %d videos with up to %d workers",
+        len(result),
+        len(video_ids),
+        min(ANALYTICS_MAX_WORKERS, len(video_ids)),
+    )
     return result
 
 
@@ -796,37 +871,48 @@ def fetch_search_terms_per_video(video_ids: List[str]) -> Dict[str, List[Dict]]:
 
     One API call per video. Returns up to 25 terms per video, sorted by views.
     """
-    analytics = get_authenticated_service('youtubeAnalytics', 'v2')
     end = date.today().isoformat()
     result: Dict[str, List[Dict]] = {}
 
-    for vid in video_ids:
-        try:
-            resp = analytics.reports().query(
-                ids='channel==MINE',
-                startDate='2014-01-01',
-                endDate=end,
-                metrics='views,estimatedMinutesWatched',
-                dimensions='insightTrafficSourceDetail',
-                filters=f'video=={vid};insightTrafficSourceType==YT_SEARCH',
-                maxResults=25,
-                sort='-views',
-            ).execute()
+    def fetch_chunk(analytics, chunk):
+        chunk_result = {}
+        for vid in chunk:
+            try:
+                resp = analytics.reports().query(
+                    ids='channel==MINE',
+                    startDate='2014-01-01',
+                    endDate=end,
+                    metrics='views,estimatedMinutesWatched',
+                    dimensions='insightTrafficSourceDetail',
+                    filters=f'video=={vid};insightTrafficSourceType==YT_SEARCH',
+                    maxResults=25,
+                    sort='-views',
+                ).execute(num_retries=ANALYTICS_QUERY_RETRIES)
 
-            terms = []
-            for row in resp.get('rows', []):
-                terms.append({
-                    'term': row[0],
-                    'views': int(row[1]),
-                    'watch_time_minutes': float(row[2]),
-                })
-            if terms:
-                result[vid] = terms
-        except Exception as e:
-            logger.warning("Search term fetch failed for %s: %s", vid, e)
+                terms = []
+                for row in resp.get('rows', []):
+                    terms.append({
+                        'term': row[0],
+                        'views': int(row[1]),
+                        'watch_time_minutes': float(row[2]),
+                    })
+                if terms:
+                    chunk_result[vid] = terms
+            except Exception as e:
+                logger.warning("Search term fetch failed for %s: %s", vid, e)
+        return chunk_result
+
+    for chunk_result in _run_per_video_workers(video_ids, fetch_chunk):
+        result.update(chunk_result)
 
     total_terms = sum(len(v) for v in result.values())
-    logger.info("Fetched %d search terms across %d / %d videos", total_terms, len(result), len(video_ids))
+    logger.info(
+        "Fetched %d search terms across %d / %d videos with up to %d workers",
+        total_terms,
+        len(result),
+        len(video_ids),
+        min(ANALYTICS_MAX_WORKERS, len(video_ids)),
+    )
     return result
 
 
@@ -865,35 +951,45 @@ def fetch_subscribed_status_per_video(video_ids: List[str]) -> Dict[str, List[Di
     Tells you whether the algorithm is amplifying to new audience (UNSUBSCRIBED
     share high = good for reach) or recycling existing subs.
     """
-    analytics = get_authenticated_service('youtubeAnalytics', 'v2')
     end = date.today().isoformat()
     result: Dict[str, List[Dict]] = {}
 
-    for vid in video_ids:
-        try:
-            resp = analytics.reports().query(
-                ids='channel==MINE',
-                startDate='2014-01-01',
-                endDate=end,
-                metrics='views,estimatedMinutesWatched,averageViewPercentage',
-                dimensions='subscribedStatus',
-                filters=f'video=={vid}',
-            ).execute()
+    def fetch_chunk(analytics, chunk):
+        chunk_result = {}
+        for vid in chunk:
+            try:
+                resp = analytics.reports().query(
+                    ids='channel==MINE',
+                    startDate='2014-01-01',
+                    endDate=end,
+                    metrics='views,estimatedMinutesWatched,averageViewPercentage',
+                    dimensions='subscribedStatus',
+                    filters=f'video=={vid}',
+                ).execute(num_retries=ANALYTICS_QUERY_RETRIES)
 
-            rows_out = []
-            for row in resp.get('rows', []):
-                rows_out.append({
-                    'status': row[0],
-                    'views': int(row[1]),
-                    'watch_time_minutes': float(row[2]),
-                    'avg_view_percentage': float(row[3]),
-                })
-            if rows_out:
-                result[vid] = rows_out
-        except Exception as e:
-            logger.warning("Subscribed status fetch failed for %s: %s", vid, e)
+                rows_out = []
+                for row in resp.get('rows', []):
+                    rows_out.append({
+                        'status': row[0],
+                        'views': int(row[1]),
+                        'watch_time_minutes': float(row[2]),
+                        'avg_view_percentage': float(row[3]),
+                    })
+                if rows_out:
+                    chunk_result[vid] = rows_out
+            except Exception as e:
+                logger.warning("Subscribed status fetch failed for %s: %s", vid, e)
+        return chunk_result
 
-    logger.info("Fetched subscribed-status for %d / %d videos", len(result), len(video_ids))
+    for chunk_result in _run_per_video_workers(video_ids, fetch_chunk):
+        result.update(chunk_result)
+
+    logger.info(
+        "Fetched subscribed-status for %d / %d videos with up to %d workers",
+        len(result),
+        len(video_ids),
+        min(ANALYTICS_MAX_WORKERS, len(video_ids)),
+    )
     return result
 
 
@@ -1079,6 +1175,7 @@ def run_backfill(db_path: Path = None, refresh: bool = False,
     Returns:
         Results dict with counts and any errors
     """
+    started_at = time.perf_counter()
     conn = _get_db(db_path)
     ensure_schema(conn)
 
@@ -1106,11 +1203,40 @@ def run_backfill(db_path: Path = None, refresh: bool = False,
             results['errors'].append("No long-form videos found")
             return results
 
-        longform_ids = [v['id'] for v in videos]
+        unique_videos = {}
+        for video in videos:
+            unique_videos.setdefault(video['id'], video)
+        if len(unique_videos) != len(videos):
+            logger.warning(
+                "Video metadata contained %d duplicate row(s); deduplicated before refresh",
+                len(videos) - len(unique_videos),
+            )
+        videos = list(unique_videos.values())
+        longform_ids = list(unique_videos)
 
-        # Step 2: Fetch metrics per video
-        logger.info("Step 2: Fetching per-video metrics from Analytics API (%d videos)", len(longform_ids))
+        # Step 2: Fetch metrics in filtered video-dimension batches
+        logger.info(
+            "Step 2: Fetching batched video metrics from Analytics API (%d videos)",
+            len(longform_ids),
+        )
         metrics = fetch_video_metrics_bulk(longform_ids)
+        if not metrics:
+            message = (
+                f"Video metrics fetch failed: returned 0 of {len(longform_ids)} rows; "
+                "last-known metrics preserved"
+            )
+            results['errors'].append(message)
+            logger.error(message)
+        elif len(metrics) < len(longform_ids):
+            missing_count = len(longform_ids) - len(metrics)
+            noun = "video" if missing_count == 1 else "videos"
+            message = (
+                f"Video metrics fetch incomplete: returned {len(metrics)} of "
+                f"{len(longform_ids)} rows; last-known metrics preserved for "
+                f"{missing_count} {noun}"
+            )
+            results['errors'].append(message)
+            logger.error(message)
 
         # Step 3: Fetch CTR in bulk (Analytics API), then fill gaps from the
         # keywords.db reach snapshots — the API doesn't expose CTR for this
@@ -1155,6 +1281,12 @@ def run_backfill(db_path: Path = None, refresh: bool = False,
         logger.error("Backfill failed: %s", e, exc_info=True)
     finally:
         conn.close()
+        elapsed_seconds = time.perf_counter() - started_at
+        logger.info(
+            "Growth data refresh elapsed time: %.1f seconds (%.2f minutes)",
+            elapsed_seconds,
+            elapsed_seconds / 60,
+        )
 
     return results
 
@@ -1249,6 +1381,8 @@ Output: tools/youtube_analytics/analytics.db
 
     from tools.logging_config import setup_logging
     setup_logging(args.verbose, args.quiet)
+    if logger.name == "__main__":
+        logger = get_logger("tools.youtube_analytics.growth_data")
 
     logger.info("Growth Data Backfill")
     logger.info("Database: %s", DB_PATH)

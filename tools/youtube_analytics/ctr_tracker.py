@@ -678,6 +678,11 @@ def take_snapshot() -> Tuple[int, str]:
     # Fetch video IDs and metadata (long-form only)
     logger.info("Fetching video catalog from YouTube API...")
     all_ids = fetch_all_video_ids()
+    if not all_ids:
+        logger.error("No videos found")
+        conn.close()
+        return 0, today
+
     videos = fetch_video_metadata(all_ids)
     longform_ids = [v['id'] for v in videos]
 
