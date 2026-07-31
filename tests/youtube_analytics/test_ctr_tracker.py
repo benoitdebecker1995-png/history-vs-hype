@@ -163,7 +163,15 @@ def test_ctr_partial_failure():
                }), \
          patch("tools.youtube_analytics.ctr_tracker.get_pattern_ctr_from_db",
                return_value={}), \
+         patch("tools.youtube_analytics.ctr_tracker.ingest_daily_impressions",
+               return_value={}), \
          patch("tools.youtube_analytics.ctr_tracker.DB_PATH", "ignored"):
+        # ingest_daily_impressions was the one unpatched call: take_snapshot:704
+        # -> ingest_daily_impressions:522 -> auth.get_authenticated_service, i.e.
+        # a live OAuth/network round-trip. take_snapshot swallows its exceptions,
+        # so this test passed either way and the call went unnoticed until the
+        # autouse socket guard flagged it on 2026-07-30. It returns Dict[str, int]
+        # and nothing here asserts on it, so {} is a faithful stub.
 
         from tools.youtube_analytics.ctr_tracker import take_snapshot
         stored, snapshot_date = take_snapshot()
@@ -216,8 +224,12 @@ def test_summary_output(capsys):
                }), \
          patch("tools.youtube_analytics.ctr_tracker.get_pattern_ctr_from_db",
                return_value={"declarative": 64}), \
+         patch("tools.youtube_analytics.ctr_tracker.ingest_daily_impressions",
+               return_value={}), \
          patch("tools.youtube_analytics.ctr_tracker.DB_PATH", "ignored"):
-
+        # See the note in test_ctr_partial_failure: unpatched, this reaches
+        # auth.get_authenticated_service and makes a live call that take_snapshot
+        # silently swallows.
         from tools.youtube_analytics.ctr_tracker import take_snapshot
         take_snapshot()
 
