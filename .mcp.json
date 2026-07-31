@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "notebooklm": {
+      "command": "${NOTEBOOKLM_MCP:-${APPDATA}/Python/Python314/Scripts/notebooklm-mcp.exe}"
+    }
+  }
+}

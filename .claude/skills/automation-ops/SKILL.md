@@ -129,10 +129,19 @@ owner's call — propose, don't silently register.
 
 ### Claude Code — user-global (`C:\Users\Benoi\.claude\settings.json`)
 
-GSD suite (SessionStart/PreToolUse/PostToolUse guards) + the **Stop hook**
-`extract-learnings.js`, which drops candidate learnings into `~/.claude/wiki/_queue/` for
-`/wiki-ingest`. Scripts live in `C:\Users\Benoi\.claude\hooks\`. These fire in every project;
-their internals are outside this repo — don't debug them here.
+**Unwired 2026-07-31 — this file previously described a setup that no longer runs, and one part of
+which never existed.** The GSD suite (SessionStart `gsd-check-update.js`, PostToolUse
+`gsd-context-monitor.js`, plus the statusline and 11 `gsd-*` agents) was removed from
+`~/.claude/settings.json`: the PostToolUse entry had no matcher, so it spawned a node process on
+*every tool call* for a workflow the owner had abandoned. Moved, not deleted —
+`~/.claude/_disabled-gsd/` with a README and one-line restore.
+
+The **Stop hook `extract-learnings.js`** described here never existed. No such script, no
+`~/.claude/wiki/`, no `/wiki-ingest` command — verified 2026-07-31. Correction capture is now the
+project-level `UserPromptSubmit` hook `tools/hooks/utterance_triggers.py` (see the table above).
+
+User-global settings now hold `model`, `skipDangerousModePermissionPrompt` and
+`agentPushNotifEnabled` only — no hooks, no statusline.
 
 ### Git hooks (`.git/hooks/` — installed, NOT version-controlled)
 
