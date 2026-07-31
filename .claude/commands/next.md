@@ -306,4 +306,24 @@ cd tools/discovery && python recommender.py [flags]
 
 ---
 
+## Continuing a series instead of picking a standalone
+
+`/next` ranks **standalone** topics. When the answer is "the next episode of a
+series we're already running" (Claims-on-Trial, Untranslated Evidence, …), that
+is a different question — it needs the series arc, the shipped episodes and how
+they performed, and the continuity threads — so hand it to the `series-planner`
+agent instead:
+
+```
+Agent({ subagent_type: "series-planner",
+        description: "Next episode brief for <series>",
+        prompt: "Plan the next episode of <series>. Return the ranked
+                 next-episode brief with continuity threads and demand signal." })
+```
+
+It returns a ranked brief with callbacks, recurring framing, and an identity
+guard. For a single-topic research brief use `notebook-researcher` instead.
+
+---
+
 *Phase 21 - Recommendation Engine*

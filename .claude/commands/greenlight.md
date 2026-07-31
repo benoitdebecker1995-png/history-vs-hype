@@ -63,6 +63,25 @@ After `--scan`, run `/greenlight "<top opportunity>"` on any candidate that catc
 
 ## WORKFLOW
 
+### Step −1: Collision pre-flight (ALWAYS — runs first, before anything else)
+
+**Have we already done this?** Runs on every invocation including quick checks. Costs one command.
+
+```bash
+python -m tools.preflight.candidate_preflight "<topic>"
+```
+
+- **`COLLISION`** (published-title match, exit 1) → **STOP.** Report the video ID and date and ask
+  whether this is a deliberate revisit. Do not proceed to demand checks.
+- **`FLAG`** (existing project in `_IN_PRODUCTION` / `_READY_TO_FILM` / `_BACKLOG` / `_ARCHIVED`) →
+  continue, but **say so in the verdict**. Existing projects are eligible on merit; banked research
+  lowers cost. Silence about a collision is the failure mode.
+- **`CLEAR`** → continue to Step 0.
+
+*Why this is a code step and not a reminder: the rule already existed in prose in
+`.claude/PROMPTS/blind-next-video-discovery.md` and was ignored twice on 2026-07-30 — once on a topic
+that was already published (`499YLd1BHZ4`). ADR-0021.*
+
 ### Step 0: Packaging Research (runs on `--full`, skipped on `--no-research`)
 
 **Purpose:** Before generating titles in a vacuum, find out what already exists on this topic and what packaging worked. Titles informed by competitive intelligence beat titles generated algorithmically.
@@ -475,6 +494,27 @@ Recommendation      | ← START HERE       |
 - `/greenlight --project` → after scripting, before filming
 - `/preflight` → after scripting, final quality gate (more comprehensive)
 - `/greenlight` is the FIRST check. `/preflight` is the LAST check.
+
+## Optional: red-team the locked packaging
+
+Everything above decides whether the packaging *passes*. It does not ask why the
+target viewer would scroll **past** it in a feed full of competitors. Once the
+title + thumbnail are locked, the `packaging-adversary` agent attacks them
+against the LIVE SERP and returns ranked scroll-past hypotheses, each shaped as a
+single-variable A/B swap:
+
+```
+Agent({ subagent_type: "packaging-adversary",
+        description: "Red-team locked packaging",
+        prompt: "Red-team this locked title + thumbnail against the live SERP
+                 for <query>. Return ranked scroll-past hypotheses as
+                 single-variable swap candidates." })
+```
+
+It is **not** a gate and returns no binding score — the filters in
+`packaging_lock.py` decide (ADR-0012). Use it when a topic matters enough to
+want a second, hostile opinion. For scoring *concepts* before they are locked,
+use `thumbnail-critic` via `/thumbnail --critique` instead.
 
 ---
 
