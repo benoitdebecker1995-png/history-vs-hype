@@ -51,6 +51,7 @@ from .repetition import RepetitionChecker
 from .flow import FlowChecker
 from .pacing import PacingChecker
 from .told_so_far import ToldSoFarChecker
+from .cta_placement import CTAPlacementChecker
 
 __all__ = [
     'BaseChecker',

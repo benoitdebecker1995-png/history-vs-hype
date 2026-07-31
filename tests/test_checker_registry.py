@@ -71,11 +71,17 @@ class TestCheckerRegistry:
         assert isinstance(result["issues"], list), "'issues' must be a list"
 
     def test_list_all_returns_all_defaults(self):
-        """Default registry lists all 6 built-in checkers."""
+        """Default registry lists all 7 built-in checkers.
+
+        Re-baselined 2026-07-29: 'cta' added. Retention data showed the median
+        subscribe ask sat at ~80% of the script, where only 22.4% of viewers
+        remain, and three published scripts had no ask at all — so CTA
+        placement became a binding necessary condition rather than a habit.
+        """
         registry = build_default_registry()
         names = registry.list_all()
 
-        assert names == ["flow", "pacing", "repetition", "scaffolding", "stumble", "told_so_far"]
+        assert names == ["cta", "flow", "pacing", "repetition", "scaffolding", "stumble", "told_so_far"]
 
     def test_get_returns_checker(self):
         """registry.get() returns a checker that can be called directly."""

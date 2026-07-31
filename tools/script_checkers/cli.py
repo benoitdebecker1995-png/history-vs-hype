@@ -108,7 +108,7 @@ def run_checkers(text: str, config: Config, checker_flags: Dict[str, bool]) -> D
     # NB: told_so_far was registered in the registry but missing from this list, so it
     # never ran via the CLI — every clean 'told-so-far' result before 2026-07-22 was a
     # checker that did not execute. Keep this list in sync with build_default_registry().
-    ordered = ['flow', 'repetition', 'stumble', 'scaffolding', 'pacing', 'told_so_far']
+    ordered = ['flow', 'repetition', 'stumble', 'scaffolding', 'pacing', 'told_so_far', 'cta']
 
     for name in ordered:
         if not checker_flags.get(name, False):
@@ -247,6 +247,7 @@ Exit codes:
     parser.add_argument('--stumble', action='store_true', help='Run stumble checker only')
     parser.add_argument('--scaffolding', action='store_true', help='Run scaffolding checker only')
     parser.add_argument('--pacing', action='store_true', help='Run pacing analysis (sentence variance, readability, entity density)')
+    parser.add_argument('--cta', action='store_true', dest='cta', help='Check the subscribe ask exists and lands early enough to be heard')
     parser.add_argument('--told-so-far', action='store_true', dest='told_so_far', help='Run open-question ledger checks (V1 antecedents, V4 restatements, V5 promises)')
     parser.add_argument('--all', action='store_true', help='Run all checkers (default)')
     parser.add_argument('--json', action='store_true', help='Output JSON instead of Markdown')
@@ -323,7 +324,7 @@ Exit codes:
     # Determine which checkers to run
     checker_flags = {}
 
-    if args.all or not (args.flow or args.repetition or args.stumble or args.scaffolding or args.pacing or args.told_so_far):
+    if args.all or not (args.flow or args.repetition or args.stumble or args.scaffolding or args.pacing or args.told_so_far or args.cta):
         # Default: run all checkers
         checker_flags = {
             'flow': True,
@@ -331,7 +332,8 @@ Exit codes:
             'stumble': True,
             'scaffolding': True,
             'pacing': True,
-            'told_so_far': True
+            'told_so_far': True,
+            'cta': True
         }
     else:
         # Run selected checkers
@@ -347,6 +349,8 @@ Exit codes:
             checker_flags['pacing'] = True
         if args.told_so_far:
             checker_flags['told_so_far'] = True
+        if args.cta:
+            checker_flags['cta'] = True
 
     # Read script file
     try:
