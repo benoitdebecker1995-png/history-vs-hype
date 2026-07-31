@@ -1,12 +1,14 @@
 """
 kb_store.py — SQLite storage layer for the YouTube Intelligence Engine
 
-Manages tools/intel/intel.db with 5 tables:
+Manages tools/intel/intel.db with 7 tables:
     algo_snapshots      — Algorithm knowledge snapshots per refresh
     competitor_channels — Channel registry (config)
     competitor_videos   — Competitor video data (rolling window)
     niche_snapshots     — Niche format/hook pattern snapshots
     kb_meta             — Staleness tracking / last refresh timestamp
+    comment_signals     — Demand-signal comments harvested from competitor videos (v3)
+    comment_sweeps      — Per-video sweep ledger, so re-runs skip swept videos (v3)
 
 All public methods follow the error-dict pattern: return {'error': msg}
 on failure; never raise. JSON columns use json.dumps/json.loads.
@@ -27,7 +29,7 @@ logger = get_logger(__name__)
 DB_PATH = Path(__file__).parent / "intel.db"
 
 # Current schema version — increment when adding new migrations below
-CURRENT_SCHEMA_VERSION = 2
+CURRENT_SCHEMA_VERSION = 5
 
 _SCHEMA_SQL = """
 -- Algorithm knowledge: one snapshot per refresh
@@ -88,6 +90,40 @@ CREATE TABLE IF NOT EXISTS kb_meta (
 CREATE INDEX IF NOT EXISTS idx_competitor_videos_channel   ON competitor_videos(channel_id);
 CREATE INDEX IF NOT EXISTS idx_competitor_videos_outlier   ON competitor_videos(is_outlier);
 CREATE INDEX IF NOT EXISTS idx_competitor_videos_published ON competitor_videos(published_at);
+"""
+
+# Version 3 DDL — kept separate so the v3 gate can replay it on pre-v3 databases
+_SCHEMA_V3_SQL = """
+-- Demand-signal comments harvested from competitor videos (gap-hunter Stage 1).
+-- One row per comment that matched at least one signal pattern; comment_id is the
+-- YouTube comment ID, so re-sweeping the same video is idempotent.
+CREATE TABLE IF NOT EXISTS comment_signals (
+    comment_id      TEXT PRIMARY KEY,
+    video_id        TEXT NOT NULL,
+    channel_id      TEXT,
+    author          TEXT,
+    text            TEXT NOT NULL,
+    likes           INTEGER DEFAULT 0,
+    reply_count     INTEGER DEFAULT 0,
+    published_at    TEXT,
+    patterns        TEXT NOT NULL,      -- JSON array: unmet_supply | pocket | question
+    matched_phrases TEXT,               -- JSON array of the phrases that fired
+    demand_types    TEXT,               -- JSON array: enclosure|language|ideology|archive|method (v4)
+    fetched_at      TEXT NOT NULL
+);
+
+-- Sweep ledger: which videos have been mined, when, and what came back.
+CREATE TABLE IF NOT EXISTS comment_sweeps (
+    video_id         TEXT PRIMARY KEY,
+    channel_id       TEXT,
+    swept_at         TEXT NOT NULL,
+    comments_fetched INTEGER DEFAULT 0,
+    signals_found    INTEGER DEFAULT 0,
+    note             TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_comment_signals_video ON comment_signals(video_id);
+CREATE INDEX IF NOT EXISTS idx_comment_signals_likes ON comment_signals(likes);
 """
 
 
@@ -220,6 +256,73 @@ class KBStore:
             conn.close()
             self._set_schema_version(2)
             logger.info("intel.db: migration to version 2 complete")
+            version = 2
+
+        # ----------------------------------------------------------------
+        # Version 3: comment-signal harvest tables (gap-hunter, Stage 1)
+        # ----------------------------------------------------------------
+        if version < 3:
+            logger.info("intel.db: migrating to version 3 (comment_signals, comment_sweeps)")
+            conn = sqlite3.connect(str(self.db_path), autocommit=False)
+            conn.row_factory = sqlite3.Row
+            try:
+                with conn:
+                    for stmt in _SCHEMA_V3_SQL.strip().split(";\n"):
+                        sql_lines = [
+                            line for line in stmt.splitlines()
+                            if line.strip() and not line.strip().startswith("--")
+                        ]
+                        sql = "\n".join(sql_lines).strip()
+                        if sql:
+                            conn.execute(sql)
+            except (sqlite3.Error, OSError, ValueError) as exc:
+                conn.close()
+                raise RuntimeError(f"KBStore migration to v3 failed: {exc}") from exc
+            conn.close()
+            self._set_schema_version(3)
+            logger.info("intel.db: migration to version 3 complete")
+            version = 3
+
+        # ----------------------------------------------------------------
+        # Version 4: demand_types on comment_signals (which BARRIER the
+        # commenter is hitting, not just which topic they're asking about)
+        # ----------------------------------------------------------------
+        if version < 4:
+            logger.info("intel.db: migrating to version 4 (comment_signals.demand_types)")
+            conn = sqlite3.connect(str(self.db_path), autocommit=False)
+            conn.row_factory = sqlite3.Row
+            try:
+                cols = [r[1] for r in conn.execute("PRAGMA table_info(comment_signals)").fetchall()]
+                with conn:
+                    if "demand_types" not in cols:
+                        conn.execute("ALTER TABLE comment_signals ADD COLUMN demand_types TEXT")
+            except (sqlite3.Error, OSError, ValueError) as exc:
+                conn.close()
+                raise RuntimeError(f"KBStore migration to v4 failed: {exc}") from exc
+            conn.close()
+            self._set_schema_version(4)
+            logger.info("intel.db: migration to version 4 complete")
+            version = 4
+
+        # ----------------------------------------------------------------
+        # Version 5: barrier on competitor_channels, so a comment's barrier
+        # can be cross-tabbed against the barrier its host channel serves
+        # ----------------------------------------------------------------
+        if version < 5:
+            logger.info("intel.db: migrating to version 5 (competitor_channels.barrier)")
+            conn = sqlite3.connect(str(self.db_path), autocommit=False)
+            conn.row_factory = sqlite3.Row
+            try:
+                cols = [r[1] for r in conn.execute("PRAGMA table_info(competitor_channels)").fetchall()]
+                with conn:
+                    if "barrier" not in cols:
+                        conn.execute("ALTER TABLE competitor_channels ADD COLUMN barrier TEXT")
+            except (sqlite3.Error, OSError, ValueError) as exc:
+                conn.close()
+                raise RuntimeError(f"KBStore migration to v5 failed: {exc}") from exc
+            conn.close()
+            self._set_schema_version(5)
+            logger.info("intel.db: migration to version 5 complete")
 
     @staticmethod
     def _now() -> str:
@@ -318,6 +421,7 @@ class KBStore:
         channel_url: str | None = None,
         subscriber_count: int | None = None,
         niche_category: str | None = None,
+        barrier: str | None = None,
     ) -> dict:
         """
         Upsert a competitor channel into the registry.
@@ -329,14 +433,16 @@ class KBStore:
             conn = self._connect()
             conn.execute(
                 """INSERT INTO competitor_channels
-                   (channel_id, channel_name, channel_url, subscriber_count, niche_category, added_at)
-                   VALUES (?, ?, ?, ?, ?, ?)
+                   (channel_id, channel_name, channel_url, subscriber_count, niche_category, barrier, added_at)
+                   VALUES (?, ?, ?, ?, ?, ?, ?)
                    ON CONFLICT(channel_id) DO UPDATE SET
                        channel_name = excluded.channel_name,
                        channel_url  = excluded.channel_url,
                        subscriber_count = excluded.subscriber_count,
-                       niche_category = excluded.niche_category""",
-                (channel_id, channel_name, channel_url, subscriber_count, niche_category, self._now()),
+                       niche_category = excluded.niche_category,
+                       barrier = COALESCE(excluded.barrier, competitor_channels.barrier)""",
+                (channel_id, channel_name, channel_url, subscriber_count, niche_category,
+                 barrier, self._now()),
             )
             conn.commit()
             conn.close()
@@ -693,6 +799,185 @@ class KBStore:
             return {"updated": True}
         except sqlite3.Error as exc:
             return self._err("update_video_outlier_ratio", exc)
+
+    def update_channel_barrier(self, channel_id: str, barrier: str | None) -> dict:
+        """
+        Set the access-barrier tag on an existing channel row.
+
+        Narrow single-column update: the full upsert nulls subscriber_count when
+        called from config (the JSON carries no sub counts), so barrier sync for
+        already-registered channels goes through here instead.
+
+        Returns {'updated': True} or {'error': str}.
+        """
+        if barrier is None:
+            return {"updated": False}
+        try:
+            conn = self._connect()
+            conn.execute(
+                "UPDATE competitor_channels SET barrier = ? WHERE channel_id = ?",
+                (barrier, channel_id),
+            )
+            conn.commit()
+            conn.close()
+            return {"updated": True}
+        except sqlite3.Error as exc:
+            return self._err("update_channel_barrier", exc)
+
+    # ------------------------------------------------------------------
+    # Comment signals (gap-hunter Stage 1)
+    # ------------------------------------------------------------------
+
+    def save_comment_signals(self, signals: list[dict]) -> dict:
+        """
+        Upsert harvested demand-signal comments.
+
+        Keyed on comment_id, so re-sweeping a video overwrites rather than
+        duplicating — a re-run after a partial failure self-heals.
+
+        Args:
+            signals: List of dicts with keys comment_id, video_id, channel_id,
+                     author, text, likes, reply_count, published_at,
+                     patterns (list), matched_phrases (list)
+
+        Returns:
+            {'saved': N} or {'error': str}
+        """
+        if not signals:
+            return {"saved": 0}
+        try:
+            now = self._now()
+            rows = [
+                (
+                    s["comment_id"], s["video_id"], s.get("channel_id"),
+                    s.get("author"), s["text"], s.get("likes", 0),
+                    s.get("reply_count", 0), s.get("published_at"),
+                    json.dumps(s.get("patterns", [])),
+                    json.dumps(s.get("matched_phrases", [])),
+                    json.dumps(s.get("demand_types", [])),
+                    now,
+                )
+                for s in signals
+            ]
+            conn = self._connect()
+            conn.executemany(
+                """INSERT INTO comment_signals
+                   (comment_id, video_id, channel_id, author, text, likes,
+                    reply_count, published_at, patterns, matched_phrases,
+                    demand_types, fetched_at)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                   ON CONFLICT(comment_id) DO UPDATE SET
+                     likes = excluded.likes,
+                     reply_count = excluded.reply_count,
+                     patterns = excluded.patterns,
+                     matched_phrases = excluded.matched_phrases,
+                     demand_types = excluded.demand_types,
+                     fetched_at = excluded.fetched_at""",
+                rows,
+            )
+            conn.commit()
+            conn.close()
+            return {"saved": len(rows)}
+        except (sqlite3.Error, KeyError, TypeError) as exc:
+            return self._err("save_comment_signals", exc)
+
+    def record_comment_sweep(
+        self,
+        video_id: str,
+        channel_id: str | None,
+        comments_fetched: int,
+        signals_found: int,
+        note: str | None = None,
+    ) -> dict:
+        """Record that a video has been swept (upsert on video_id)."""
+        try:
+            conn = self._connect()
+            conn.execute(
+                """INSERT INTO comment_sweeps
+                   (video_id, channel_id, swept_at, comments_fetched, signals_found, note)
+                   VALUES (?, ?, ?, ?, ?, ?)
+                   ON CONFLICT(video_id) DO UPDATE SET
+                     swept_at = excluded.swept_at,
+                     comments_fetched = excluded.comments_fetched,
+                     signals_found = excluded.signals_found,
+                     note = excluded.note""",
+                (video_id, channel_id, self._now(), comments_fetched, signals_found, note),
+            )
+            conn.commit()
+            conn.close()
+            return {"recorded": True}
+        except sqlite3.Error as exc:
+            return self._err("record_comment_sweep", exc)
+
+    def get_swept_video_ids(self, since: str | None = None) -> list[str]:
+        """
+        Return video IDs already swept (optionally only since an ISO timestamp).
+
+        Read-side helper: returns [] on error rather than raising.
+        """
+        try:
+            conn = self._connect()
+            if since:
+                rows = conn.execute(
+                    "SELECT video_id FROM comment_sweeps WHERE swept_at >= ?", (since,)
+                ).fetchall()
+            else:
+                rows = conn.execute("SELECT video_id FROM comment_sweeps").fetchall()
+            conn.close()
+            return [r["video_id"] for r in rows]
+        except sqlite3.Error:
+            return []
+
+    def get_comment_signals(
+        self,
+        pattern: str | None = None,
+        min_likes: int = 0,
+        limit: int = 500,
+        demand_type: str | None = None,
+    ) -> list[dict]:
+        """
+        Return harvested signal comments, highest-liked first.
+
+        Args:
+            pattern:     Filter to one pattern tag (unmet_supply | pocket | question)
+            min_likes:   Minimum like count
+            limit:       Max rows
+            demand_type: Filter to one barrier tag
+                         (enclosure | language | ideology | archive | method)
+
+        Returns:
+            List of dicts (patterns/matched_phrases/demand_types decoded back
+            to lists); [] on error.
+        """
+        try:
+            conn = self._connect()
+            sql = """SELECT s.*, v.title AS video_title, c.channel_name,
+                            c.barrier AS channel_barrier
+                     FROM comment_signals s
+                     LEFT JOIN competitor_videos v ON v.video_id = s.video_id
+                     LEFT JOIN competitor_channels c ON c.channel_id = s.channel_id
+                     WHERE s.likes >= ?"""
+            params: list = [min_likes]
+            if pattern:
+                sql += " AND s.patterns LIKE ?"
+                params.append(f'%"{pattern}"%')
+            if demand_type:
+                sql += " AND s.demand_types LIKE ?"
+                params.append(f'%"{demand_type}"%')
+            sql += " ORDER BY s.likes DESC LIMIT ?"
+            params.append(limit)
+            rows = conn.execute(sql, params).fetchall()
+            conn.close()
+            out = []
+            for r in rows:
+                d = dict(r)
+                d["patterns"] = json.loads(d.get("patterns") or "[]")
+                d["matched_phrases"] = json.loads(d.get("matched_phrases") or "[]")
+                d["demand_types"] = json.loads(d.get("demand_types") or "[]")
+                out.append(d)
+            return out
+        except (sqlite3.Error, json.JSONDecodeError):
+            return []
 
     def is_stale(self, max_age_days: int = 7) -> bool:
         """

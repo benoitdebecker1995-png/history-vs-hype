@@ -7,6 +7,15 @@ model: opus
 
 Mine competitor YouTube videos to surface which thesis angle has the most unmet audience demand. Use this BEFORE locking angle/thesis, after brainstorming ≥2 candidate angles.
 
+> **You already have a topic and ≥2 angles?** This command. **You have neither, and want candidates
+> generated from unprompted demand?** That's the inversion — sweep the whole tracked competitor set
+> instead of one topic:
+> ```
+> python -m tools.discovery.gap_hunter --sweep --digest
+> ```
+> It stores tagged signals in `intel.db.comment_signals` and regenerates
+> `channel-data/gap-hunter/HARVEST-DIGEST.md`. Spec: `channel-data/NEXT-VIDEO-DISCOVERY-HANDOFF.md` §5.
+
 ## Usage
 
 ```
@@ -50,7 +59,7 @@ Create the directory first, then run for each video:
 
 ```powershell
 # Change to project comment-mining folder first
-cd "D:\History vs Hype\video-projects\_IN_PRODUCTION\[project-folder]\_research\comment-mining"
+cd "G:\History vs Hype\video-projects\_IN_PRODUCTION\[project-folder]\_research\comment-mining"
 
 yt-dlp `
   --skip-download `

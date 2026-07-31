@@ -87,12 +87,21 @@ def ensure_channels_loaded(store: KBStore) -> None:
 
         for channel in channels:
             channel_id = channel.get("id")
-            if channel_id and channel_id not in existing_ids:
+            if not channel_id:
+                continue
+            if channel_id not in existing_ids:
                 store.save_competitor_channel(
                     channel_id=channel_id,
                     channel_name=channel.get("name", channel_id),
                     niche_category=channel.get("category"),
+                    barrier=channel.get("barrier"),
                 )
+            else:
+                # Barrier is a config-only field added after most channels were
+                # already registered, so it must sync for EXISTING rows too.
+                # Narrow update rather than a full upsert: save_competitor_channel
+                # would null out subscriber_count (see docstring above).
+                store.update_channel_barrier(channel_id, channel.get("barrier"))
     except (sqlite3.Error, OSError) as exc:
         # Non-fatal — proceed even if bootstrap fails
         logger.warning("ensure_channels_loaded failed: %s", exc)

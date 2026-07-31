@@ -1,126 +1,217 @@
 {
   "_comment": "Channel IDs verified against YouTube RSS feeds 2026-02-23. Verify by visiting https://www.youtube.com/channel/CHANNEL_ID",
   "_note": "All IDs confirmed working via https://www.youtube.com/feeds/videos.xml?channel_id=ID",
+  "_barrier_taxonomy": "2026-07-29, owner interview: the channel's subject is ACCESS to the historical record, not territory/law. Four barriers block access — 'enclosure' (locked in university-press scholarship), 'language' (evidence not in English), 'ideology' (buried under an invented story), 'archive' (undigitised/unvisited). Which barrier carries breakout demand is an OPEN QUESTION the comment sweep exists to answer, so the set must span all four rather than optimise for one. The legacy 'category' field (style-match/broad-history/geopolitics) is retained for existing consumers; 'barrier' is the new axis.",
   "channels": [
     {
       "id": "UCr_Q-bPpcw5fJ-Oow1BW1NQ",
       "name": "Kraut",
       "category": "style-match",
+      "barrier": "ideology",
       "notes": "Deep causal chains, comparative analysis — primary style reference"
     },
     {
       "id": "UCT6Y5JJPKe_JDMivpKgVXew",
       "name": "Fall of Civilizations",
       "category": "style-match",
+      "barrier": "enclosure",
       "notes": "Systems collapse framing, evidence stacking — primary style reference"
     },
     {
       "id": "UCJ6o36XL0CpYb6U5dNBiXHQ",
       "name": "Shaun",
       "category": "style-match",
+      "barrier": "ideology",
       "notes": "Document-first argumentation, chronological precision — primary style reference"
     },
     {
       "id": "UC8XjmAEDVZSCQjI150cb4QA",
       "name": "Knowing Better",
       "category": "style-match",
+      "barrier": "ideology",
       "notes": "Forensic source verification, translation skepticism — primary style reference"
     },
     {
       "id": "UCv_vLHiWVBh_FR9vbeuiY-A",
       "name": "Historia Civilis",
       "category": "style-match",
+      "barrier": "enclosure",
       "notes": "Roman history, minimalist, intellectual — strong channel DNA overlap"
     },
     {
       "id": "UCP5tjEmvPItGyLhmjdwP7Ww",
       "name": "RealLifeLore",
       "category": "broad-history",
+      "barrier": "reach",
       "notes": "Geography/maps, same 25-44 male demographic"
     },
     {
       "id": "UCMmaBzfCCwZ2KqaBJjkj0fw",
       "name": "Kings and Generals",
       "category": "broad-history",
+      "barrier": "reach",
       "notes": "Military history, animated — format reference"
     },
     {
       "id": "UC9RM-iSvTu1uPJb8X5yp3EQ",
       "name": "Wendover Productions",
       "category": "broad-history",
+      "barrier": "reach",
       "notes": "Logistics/systems — audience overlap with History vs Hype"
     },
     {
       "id": "UCmGSJVG3mCRXVOP4yZrU1Dw",
       "name": "Johnny Harris",
       "category": "geopolitics",
+      "barrier": "reach",
       "notes": "Geopolitics journalism — monitor for format innovations"
     },
     {
       "id": "UC8MX9ECowgDMTOnFTE8EUJw",
       "name": "HistoryMarche",
       "category": "broad-history",
+      "barrier": "reach",
       "notes": "Military animated history — Tier 3 watch for format innovations"
     },
     {
       "id": "UCqoGR_EedlhKDVuWNwYWRbg",
       "name": "Voices of the Past",
       "category": "style-match",
+      "barrier": "language",
       "notes": "Primary-source-verbatim — reads first-hand accounts on screen. Closest match to HvH core differentiator. Added 2026-06-03 (RSS-verified)."
     },
     {
       "id": "UCct9aR7HC79Cv2g-9oDOTLw",
       "name": "ReligionForBreakfast",
       "category": "style-match",
+      "barrier": "enclosure",
       "notes": "Academic nonsectarian religion (Dr. Andrew Henry, PhD) — topic relevance for hijab/I-P religious-framing videos. Added 2026-06-03 (RSS-verified)."
     },
     {
       "id": "UC7kIy8fZavEni8Gzl8NLjOQ",
       "name": "Alex O'Connor",
       "category": "style-match",
+      "barrier": "ideology",
       "notes": "CosmicSkeptic — intellectual-honesty argumentation; parallel/symmetry rebuttal, concession-as-armor. Flagged voice-match (Calm Prosecutor in argument form). Mined 2026-06-04 for Rule 21/46 additions. Added 2026-06-04 (yt-dlp-verified)."
     },
     {
       "id": "UC2xHMABk_sX2aC14-D7OhIw",
       "name": "Premodernist",
       "category": "style-match",
+      "barrier": "ideology",
       "notes": "Medieval myth-busting, primary-document-first ('the sources actually say X'). Fills medieval + document-first gap. Added 2026-06-04 (yt-dlp-verified)."
     },
     {
       "id": "UCN5mhhJYPcNUKBMZkR5Nfzg",
       "name": "The Cynical Historian",
       "category": "style-match",
+      "barrier": "ideology",
       "notes": "Explicit myth-debunk format + historiography (Lost Cause, etc.), academic-leaning. Pure debunk lane beyond Atun-Shei. Added 2026-06-04 (yt-dlp-verified)."
     },
     {
       "id": "UCgNg3vwj3xt7QOrcIDaHdFg",
       "name": "PolyMatter",
       "category": "geopolitics",
+      "barrier": "reach",
       "notes": "Geopolitics-as-systems, dossier aesthetic — #59 I/P thumbnail exemplar. Mechanism/treaty fit. Added 2026-06-04 (yt-dlp-verified)."
     },
     {
       "id": "UC1LpsuAUaKoMzzJSEt5WImw",
       "name": "Asianometry",
       "category": "broad-history",
+      "barrier": "enclosure",
       "notes": "Mechanism / 'how it actually worked,' diagram-driven — thumbnail playbook mechanism exemplar. Added 2026-06-04 (yt-dlp-verified)."
     },
     {
       "id": "UCIjGKyrdT4Gja0VLO40RlOw",
       "name": "Metatron",
       "category": "style-match",
+      "barrier": "ideology",
       "notes": "History/arms/language myth-busting, debunk register. Added 2026-06-04 (yt-dlp-verified)."
     },
     {
       "id": "UCmYesELO6axBrCuSpf7S9DQ",
       "name": "Mr. Beat",
       "category": "broad-history",
+      "barrier": "reach",
       "notes": "US political/territorial explainers, debunk-adjacent, same 25-44 demo. Added 2026-06-04 (yt-dlp-verified)."
     },
     {
       "id": "UCxTdWpLJurbGlFMWOwXWG_A",
       "name": "Step Back History",
       "category": "style-match",
+      "barrier": "ideology",
       "notes": "Materialist causal-chain analysis (Kraut-adjacent). Added 2026-06-04 (yt-dlp-verified)."
+    },
+    {
+      "id": "UC-SrCCzkGq0wmSAuRs7EBFg",
+      "name": "Miniminuteman",
+      "category": "style-match",
+      "barrier": "ideology",
+      "notes": "3.45M. Pseudo-archaeology debunking with method visible — the largest audience in the 'that story was invented' lane. Added 2026-07-29 (API-verified)."
+    },
+    {
+      "id": "UC64TYItcUS940vNWhQRnJWg",
+      "name": "World of Antiquity",
+      "category": "style-match",
+      "barrier": "ideology",
+      "notes": "351K. Dr David Miano — pseudo-history rebuttal from the sources; debunk register with credentials on screen. Added 2026-07-29 (API-verified)."
+    },
+    {
+      "id": "UCZ9jWH_8tJ-Nmaj8dSQdEYA",
+      "name": "Stefan Milo",
+      "category": "style-match",
+      "barrier": "enclosure",
+      "notes": "649K. 'How we actually know this' prehistory — reads the papers and shows where the evidence runs out. Purest method-IS-the-content reference. Added 2026-07-29 (API-verified)."
+    },
+    {
+      "id": "UCoydhtfFSk1fZXNRnkGnneQ",
+      "name": "Esoterica",
+      "category": "style-match",
+      "barrier": "language",
+      "notes": "1.12M. Justin Sledge — academic esotericism, reads primary texts in Hebrew/Latin/Greek on screen. Proof the language+enclosure barrier scales to 7 figures. Added 2026-07-29 (API-verified)."
+    },
+    {
+      "id": "UC9dRb4fbJQIbQ3KHJZF_z0g",
+      "name": "Let's Talk Religion",
+      "category": "style-match",
+      "barrier": "enclosure",
+      "notes": "1.07M. University-press religious history delivered straight, no debunk framing — enclosure barrier without an antagonist. Added 2026-07-29 (API-verified)."
+    },
+    {
+      "id": "UCEqNbbsx0i7fhwRt0saYIcQ",
+      "name": "Ancient Americas",
+      "category": "style-match",
+      "barrier": "enclosure",
+      "notes": "305K. Specialist scholarship on regions the anglophone shelf ignores; heavy Spanish-language source base. Enclosure + language together. Added 2026-07-29 (API-verified)."
+    },
+    {
+      "id": "UC0_CTubjGeDth7X0bxUTBTA",
+      "name": "Atun-Shei Films",
+      "category": "style-match",
+      "barrier": "ideology",
+      "notes": "538K. Lost Cause debunking with primary sources on screen. Was in competitor-channels.yaml but never in the json, so never synced. Added 2026-07-29 (API-verified)."
+    },
+    {
+      "id": "UCCT8a7d6S6RJUivBgNRsiYg",
+      "name": "Three Arrows",
+      "category": "style-match",
+      "barrier": "ideology",
+      "notes": "368K. German-language-source historical rebuttal — nationalist myth + language barrier together. Was in the yaml but never in the json. Added 2026-07-29 (API-verified)."
+    },
+    {
+      "id": "UCUlmlFBHBd7_LADceRz66eA",
+      "name": "Sam Aronow",
+      "category": "style-match",
+      "barrier": "language",
+      "notes": "82.7K. Jewish history from Hebrew/Yiddish/German sources — smallest channel in the set on purpose: tests whether the language barrier draws demand at HvH's scale rather than only at 1M+. Added 2026-07-29 (API-verified)."
+    },
+    {
+      "id": "UC1Zc6_BhPXiCWZlrZP4EsEg",
+      "name": "History With Hilbert",
+      "category": "style-match",
+      "barrier": "language",
+      "notes": "497K. Northern-European history from Dutch/Nordic sources — overlaps the owner's own reading languages (FR/ES/DE/Dutch). Added 2026-07-29 (API-verified)."
     }
   ]
 }
