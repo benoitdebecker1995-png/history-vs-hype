@@ -31,10 +31,19 @@ intel = [
 ]
 
 # pip install -e .[nlp]
+# Powers the spaCy-backed script checkers (pacing / flow / stumble) and
+# tools/production/entities.py. Without it those checkers skip silently — on
+# 2026-07-30 they were missing from the live env and 28 tests were skipping.
+# spaCy also needs its model, which pip cannot express:
+#   python -m spacy download en_core_web_sm
+# Verified working on Python 3.14.2 with spacy 3.8.13 (the older "spaCy is
+# incompatible with 3.14" note is out of date).
 nlp = [
     "spacy>=3.8",
     "textstat>=0.7.3",
-    "srt>=3.5.0",
+    # `srt` deliberately NOT declared: ADR-0010 rejected the pip lib in favour of
+    # tools/subtitles.py. It was listed here anyway until 2026-07-30, with zero
+    # importers repo-wide. Do not reintroduce.
 ]
 
 # pip install -e .[discovery]
@@ -43,10 +52,14 @@ discovery = [
     "pyppeteer-stealth>=2.7.4",
     "scrapetube>=2.3.4",
     "trendspyg>=0.1.0",
-    "jinja2>=3.1.0",
+    "jinja2>=3.1.0",  # tools/discovery/orchestrator.py:225 — function-local import, easy to miss
 ]
 
 # pip install -e .[translation]
+# ⚠ Audited 2026-07-30: googletrans and deep-translator have ZERO importers in
+# tools/ or tests/, and neither is installed. Left declared rather than deleted
+# because the Untranslated series is live work and may still want them — but
+# treat them as unproven, not as a working dependency.
 translation = [
     "requests>=2.28.0",
     "googletrans>=4.0.0",
@@ -56,18 +69,21 @@ translation = [
 # pip install -e .[thumbnails]
 thumbnails = [
     "imagehash>=4.3.0",
+    "numpy>=1.24",          # tools/preflight/thumbnail_image_audit.py:48 (module-level import)
 ]
 
 # pip install -e .[dev]
 dev = [
     "pytest>=7.0.0",
     "pytest-cov>=4.0.0",
+    "pytest-socket>=0.7.0",  # autouse network guard in tests/conftest.py — see ADR/plan Track B2
 ]
 
 # pip install -e .[test]
 test = [
     "pytest>=7.0.0",
     "pytest-cov>=4.0.0",
+    "pytest-socket>=0.7.0",
 ]
 
 # pip install -e .[all] — convenience for full install
@@ -80,7 +96,6 @@ all = [
     "requests>=2.28.0",
     "spacy>=3.8",
     "textstat>=0.7.3",
-    "srt>=3.5.0",
     "pyppeteer>=1.0.2",
     "pyppeteer-stealth>=2.7.4",
     "scrapetube>=2.3.4",
@@ -89,8 +104,10 @@ all = [
     "googletrans>=4.0.0",
     "deep-translator>=1.11.0",
     "imagehash>=4.3.0",
+    "numpy>=1.24",
     "pytest>=7.0.0",
     "pytest-cov>=4.0.0",
+    "pytest-socket>=0.7.0",
 ]
 
 [tool.hatch.build.targets.wheel]
@@ -101,3 +118,6 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
+markers = [
+    "network: test genuinely requires live network access; exempts it from the autouse socket guard in tests/conftest.py",
+]
