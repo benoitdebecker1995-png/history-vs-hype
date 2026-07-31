@@ -59,3 +59,38 @@ class TestPublishedCollision:
         res = check("some topic here", db_path=str(tmp_path / "nope.db"))
         assert "error" not in res
         assert res["warnings"] >= 1
+
+
+class TestOrigin:
+    """The #66 failure: four candidates generated from the assistant's own recall,
+    screened against each other, winner announced, provenance never disclosed."""
+
+    def test_undeclared_origin_is_not_ok(self):
+        from tools.preflight.candidate_preflight import origin_note
+
+        res = origin_note(None)
+        assert res["ok"] is False
+
+    def test_recall_is_allowed_but_flagged_weak(self):
+        from tools.preflight.candidate_preflight import origin_note
+
+        res = origin_note("recall")
+        assert res["ok"] is True and res["weak"] is True
+        assert "SELF-GENERATED" in res["note"]
+
+    def test_frame_origin_is_strong(self):
+        from tools.preflight.candidate_preflight import origin_note
+
+        res = origin_note("frame")
+        assert res["ok"] is True and res["weak"] is False
+
+    def test_unknown_origin_rejected(self):
+        from tools.preflight.candidate_preflight import origin_note
+
+        assert origin_note("vibes")["ok"] is False
+
+    def test_origin_appears_in_check_result(self, tmp_path):
+        from tools.preflight.candidate_preflight import check
+
+        res = check("some new topic idea", db_path=str(tmp_path / "x.db"), origin="recall")
+        assert res["origin"]["weak"] is True

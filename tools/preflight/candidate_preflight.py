@@ -69,10 +69,48 @@ def _match(terms: List[str], haystack: str) -> List[str]:
     return [t for t in terms if t in h]
 
 
-def check(topic: str, min_terms: int = 2, db_path: Optional[str] = None) -> Dict:
-    """Check a candidate topic for prior art. Never raises.
+# Where a candidate came from. Ranked: an enumerable frame beats a memory.
+ORIGINS = {
+    "frame": "enumerated from a defined corpus (category, list-article, catalogue)",
+    "catalogue": "surfaced by a systematic scan (cross-lingual sweep, comment mine)",
+    "audience": "asked for by the audience (comments, requests)",
+    "data": "surfaced by the channel's own analytics",
+    "owner": "the owner proposed it",
+    "recall": "the assistant thought of it",
+}
+WEAK_ORIGIN = "recall"
+
+
+def origin_note(origin: Optional[str]) -> Dict:
+    """Classify where a candidate came from. Never raises.
+
+    Exists because on 2026-07-30 four candidates were generated from the assistant's own
+    recall, screened against each other, and a winner announced — with the self-generated
+    shortlist never disclosed. The owner identified it: "keep an open mind pls."
+
+    `recall` is not forbidden. It is required to be *stated*, so the reader can discount it.
+    """
+    if origin is None:
+        return {"origin": None, "ok": False,
+                "note": "origin not declared — say where this candidate came from"}
+    o = origin.strip().lower()
+    if o not in ORIGINS:
+        return {"origin": o, "ok": False,
+                "note": f"unknown origin; use one of: {', '.join(ORIGINS)}"}
+    if o == WEAK_ORIGIN:
+        return {"origin": o, "ok": True, "weak": True,
+                "note": ("SELF-GENERATED. Say so when proposing, and screen against candidates "
+                         "from a frame or catalogue before ranking. A shortlist you invented and "
+                         "then judged is not a screen.")}
+    return {"origin": o, "ok": True, "weak": False, "note": ORIGINS[o]}
+
+
+def check(topic: str, min_terms: int = 2, db_path: Optional[str] = None,
+          origin: Optional[str] = None) -> Dict:
+    """Check a candidate topic for prior art and declare its origin. Never raises.
 
     min_terms: how many content words must co-occur to count as a collision.
+    origin: where the idea came from — see ORIGINS.
     """
     terms = _terms(topic)
     if not terms:
@@ -136,6 +174,7 @@ def check(topic: str, min_terms: int = 2, db_path: Optional[str] = None) -> Dict
 
     return {
         "topic": topic,
+        "origin": origin_note(origin),
         "terms": terms,
         "min_terms": need,
         "collisions": collisions,
@@ -156,6 +195,9 @@ def format_report(res: Dict) -> str:
         f"  topic: {res['topic']}",
         f"  terms: {', '.join(res['terms'])}  (>= {res['min_terms']} must co-occur)",
     ]
+    o = res.get("origin") or {}
+    tag = "!!" if not o.get("ok") else ("**" if o.get("weak") else "  ")
+    out.append(f"  {tag} origin: {o.get('origin') or 'UNDECLARED'} — {o.get('note','')}")
     if not res["collisions"]:
         out.append("\n  no prior art found")
     else:
@@ -186,13 +228,14 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap.add_argument("topic", help="candidate topic or working title")
     ap.add_argument("--min-terms", type=int, default=2, help="content words that must co-occur")
     ap.add_argument("--db", help="override analytics.db path")
+    ap.add_argument("--origin", choices=sorted(ORIGINS), help="where this candidate came from")
     g = ap.add_mutually_exclusive_group()
     g.add_argument("-v", "--verbose", action="store_true")
     g.add_argument("-q", "--quiet", action="store_true")
     args = ap.parse_args(argv)
     setup_logging(args.verbose, args.quiet)
 
-    res = check(args.topic, min_terms=args.min_terms, db_path=args.db)
+    res = check(args.topic, min_terms=args.min_terms, db_path=args.db, origin=args.origin)
     print(format_report(res))
     if "error" in res:
         return 2

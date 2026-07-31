@@ -127,11 +127,46 @@ Verified against the actual failure: the NATO topic returns `COLLISION` with the
 
 **Run it before proposing a candidate, not after.**
 
+### C. Idea provenance — `--origin`
+
+Four candidates were generated from the assistant's own recall, screened against each other, and a
+winner announced; the self-generated shortlist was never disclosed. The owner named it:
+*"keep an open mind pls."*
+
+**Decision:** `candidate_preflight --origin {frame|catalogue|audience|data|owner|recall}`.
+`recall` is **not forbidden — it is required to be stated**, so the reader can discount it, and it
+prints: *"SELF-GENERATED… A shortlist you invented and then judged is not a screen."* Same principle
+as `circular:` in R2: make the weak state declarable rather than invisible.
+
+### D. Hyperbole — `--tone`
+
+*"Everything is the next best thing or the strongest find."* Chat cannot be linted; **written
+deliverables can**, and those are the half that persists in the repo.
+
+**Decision:** `claim_status --tone <file.md>` counts three families — superlative, awe, intensifier —
+against a house budget of **one superlative claim per project** (CLAUDE.md § Calibration).
+
+Run against the file that prompted this: **10 superlatives, 5 intensifiers, verdict OVER**, with
+`"strongest"` used five times for five different things.
+
+⚠ **Signal, not a gate.** Quoted source material inflates it — two of those ten were quotations from
+the Cabinet minute and from Wavell. Read the hit list, do not just read the count.
+
 ### Still not covered
 
-Neither tool addresses *judgement* — proposing a candidate that is unwise rather than duplicated, or
-choosing the wrong hinge question. They enforce that the cheap mechanical checks actually run, which
-is what failed here. Do not read them as a substitute for adversarial review.
+None of this addresses *judgement* — proposing a candidate that is unwise rather than duplicated,
+choosing the wrong hinge question, or hyperbole in conversation as opposed to in files. These
+enforce that cheap mechanical checks actually run, and make weak states declarable. **They are not a
+substitute for the owner saying "you are all over the place."** That remains the only signal that
+caught most of this.
+
+### Wiring (the part that was nearly missed)
+
+Building the tools and invoking them from nothing would have repeated the exact failure they exist
+to prevent — the collision rule sat unenforced in prose for months. They are therefore wired in:
+
+- **`/greenlight` Step −1** — `candidate_preflight`, before demand, on every invocation.
+- **`/research` completion gate** — `claim_status --frontier` before reporting research finished.
 
 ## Alternatives considered
 

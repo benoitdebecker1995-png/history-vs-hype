@@ -245,6 +245,88 @@ def format_frontier(res: Dict) -> str:
     return "\n".join(out)
 
 
+HYPE = {
+    "superlative": re.compile(
+        r"\b(strongest|biggest|greatest|best|most important|most valuable|single most|"
+        r"decisive|definitive)\b",
+        re.I,
+    ),
+    "awe": re.compile(
+        r"\b(mother ?lode|crown jewel|spectacular|extraordinary|devastating|remarkable|"
+        r"stunning|incredible|astonishing|superb|exceptional|goldmine|smoking gun)\b",
+        re.I,
+    ),
+    "intensifier": re.compile(
+        r"\b(genuinely|truly|utterly|absolutely|profoundly|enormously|hugely)\b", re.I
+    ),
+}
+# House rule (CLAUDE.md § Calibration): at most ONE superlative claim per project.
+SUPERLATIVE_BUDGET = 1
+
+
+def tone(text: str, source_name: str = "<text>") -> Dict:
+    """Count hyperbole in a written deliverable. A signal, not a gate. Never raises.
+
+    Exists because on 2026-07-30 the owner wrote: "everything is the next best thing or the
+    strongest find". Written files are countable even though chat is not — this closes half
+    the gap, and the half it closes is the half that persists in the repo.
+    """
+    hits: Dict[str, List[Dict]] = {k: [] for k in HYPE}
+    for n, line in enumerate(text.splitlines(), 1):
+        if line.lstrip().startswith(("|", ">")) and "hype" in line.lower():
+            continue  # don't flag this checker's own documentation
+        for fam, rx in HYPE.items():
+            for m in rx.finditer(line):
+                hits[fam].append({"line": n, "term": m.group(0).lower(),
+                                  "text": line.strip()[:90]})
+
+    sup = len(hits["superlative"])
+    over = sup > SUPERLATIVE_BUDGET
+    return {
+        "source": source_name,
+        "counts": {k: len(v) for k, v in hits.items()},
+        "hits": hits,
+        "superlative_budget": SUPERLATIVE_BUDGET,
+        "over_budget": over,
+        "verdict": "OVER" if over else "OK",
+    }
+
+
+def format_tone(res: Dict) -> str:
+    if "error" in res:
+        return f"ERROR: {res['error']}"
+    c = res["counts"]
+    out = [
+        "=" * 72,
+        "  TONE CHECK  (signal, not a gate — hyperbole in written deliverables)",
+        "=" * 72,
+        f"  file: {res['source']}",
+        f"  superlative {c['superlative']}  ·  awe {c['awe']}  ·  intensifier {c['intensifier']}",
+        f"  budget: {res['superlative_budget']} superlative claim per project",
+    ]
+    for fam in ("superlative", "awe"):
+        if res["hits"][fam]:
+            out.append(f"\n  {fam.upper()}:")
+            for h in res["hits"][fam][:12]:
+                out.append(f"    L{h['line']:<5} \"{h['term']}\"  {h['text']}")
+    out.append(f"\n  VERDICT: {res['verdict']}")
+    if res["verdict"] == "OVER":
+        out.append("  -> more than one superlative claim. Rank them; keep the one that changes")
+        out.append("     the conclusion and state plainly what the others are.")
+    out.append("=" * 72)
+    return "\n".join(out)
+
+
+def tone_file(path: str) -> Dict:
+    p = Path(path)
+    if not p.exists():
+        return {"error": f"no such file: {path}"}
+    try:
+        return tone(p.read_text(encoding="utf-8", errors="replace"), str(p))
+    except OSError as exc:
+        return {"error": f"could not read {path}: {exc}"}
+
+
 def check_file(path: str) -> Dict:
     """Check one file. Returns {'error': ...} rather than raising."""
     p = Path(path)
@@ -298,6 +380,10 @@ def main(argv: Optional[List[str]] = None) -> int:
         action="store_true",
         help="report unfinished threads instead of violations (definition of done)",
     )
+    ap.add_argument(
+        "--tone", action="store_true",
+        help="count hyperbole in a written deliverable (signal, not a gate)",
+    )
     g = ap.add_mutually_exclusive_group()
     g.add_argument("-v", "--verbose", action="store_true")
     g.add_argument("-q", "--quiet", action="store_true")
@@ -312,7 +398,12 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     failed = False
     for f in args.files:
-        if args.frontier:
+        if args.tone:
+            res = tone_file(f)
+            print(format_tone(res))
+            if "error" in res:
+                failed = True
+        elif args.frontier:
             res = frontier_file(f)
             print(format_frontier(res))
             if "error" in res or res["verdict"] == "OPEN":

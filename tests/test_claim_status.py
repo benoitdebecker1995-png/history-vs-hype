@@ -148,3 +148,35 @@ class TestFrontier:
         res = frontier("- [CORROBORATED] Cabinet diagnosed hoarding. p.156 + p.352")
         assert res["verdict"] == "COMPLETE"
         assert res["open"] == [] and res["untracked"] == []
+
+
+class TestTone:
+    """The #66 failure: 'everything is the next best thing or the strongest find'."""
+
+    def test_multiple_superlatives_go_over_budget(self):
+        from tools.preflight.claim_status import tone
+
+        res = tone(
+            "This is the strongest exhibit.\nThe strongest finding yet.\nThe decisive line."
+        )
+        assert res["verdict"] == "OVER"
+        assert res["counts"]["superlative"] >= 3
+
+    def test_one_superlative_is_within_budget(self):
+        from tools.preflight.claim_status import tone
+
+        res = tone("The Cabinet minute is the strongest exhibit because it dates the decision.")
+        assert res["verdict"] == "OK"
+
+    def test_awe_words_are_counted(self):
+        from tools.preflight.claim_status import tone
+
+        res = tone("This is the mother lode. A spectacular, devastating find.")
+        assert res["counts"]["awe"] >= 3
+
+    def test_plain_prose_is_clean(self):
+        from tools.preflight.claim_status import tone
+
+        res = tone("The minute records the diagnosis and the decision, dated 4 August 1943.")
+        assert res["verdict"] == "OK"
+        assert res["counts"]["awe"] == 0
