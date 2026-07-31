@@ -137,11 +137,17 @@ def library_index(library=None) -> dict:
     index: dict = {}
     if not base.is_dir():
         return index
+    # Same parser as the index generator, deliberately: a second copy here drifted
+    # immediately -- both took parts[1] as the author and truncated hyphenated
+    # surnames (Maddy-Weitzman -> "Maddy"), making 65 books unresolvable.
+    from tools.library_index import parse_name
     for pdf in base.rglob("*.pdf"):
-        # TitleWords-Author-Year-Publisher.pdf -> Author is the second field.
-        parts = pdf.stem.split("-")
-        if len(parts) >= 2:
-            index.setdefault(parts[1].casefold(), []).append(pdf)
+        book = parse_name(pdf.stem)
+        index.setdefault(book.author.casefold(), []).append(pdf)
+        # Hyphenated surnames are cited by either barrel in practice.
+        for barrel in book.author.split("-"):
+            if len(barrel) > 2:
+                index.setdefault(barrel.casefold(), []).append(pdf)
     return index
 
 
