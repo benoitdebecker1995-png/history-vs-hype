@@ -1,13 +1,12 @@
 ---
-name: "source-command-fix"
-description: "Fix subtitle errors from auto-transcription (Post-production Phase 2)"
+name: source-command-fix
+description: "Fixes subtitle errors from auto-transcription. Use when: correcting an SRT or VTT, or the auto-captions mangled names, dates and technical terms."
 ---
 
-# source-command-fix
-
-Use this skill when the user asks to run the migrated source command `fix`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/fix.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /fix - Subtitle Correction
 

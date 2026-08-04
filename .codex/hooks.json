@@ -1,23 +1,43 @@
 {
+  "description": "Codex port of the .claude/settings.json hooks. Same three scripts, same events. The Windows commands pin the absolute repo root (G:\\History vs Hype) because Codex has no $CLAUDE_PROJECT_DIR; tests/unit/test_codex_surface_parity.py fails if that path goes stale. PreToolUse matches apply_patch, not Edit|Write|NotebookEdit — Codex routes every file edit through apply_patch and reports that canonical name.",
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Edit|Write|NotebookEdit",
+        "matcher": "apply_patch",
         "hooks": [
           {
             "type": "command",
-            "command": "python \"$CLAUDE_PROJECT_DIR/tools/hooks/locked_asset_guard.py\""
+            "command": "python \"$(git rev-parse --show-toplevel)/tools/hooks/locked_asset_guard.py\"",
+            "commandWindows": "python \"G:\\History vs Hype\\tools\\hooks\\locked_asset_guard.py\"",
+            "timeout": 30,
+            "statusMessage": "Checking for protected assets"
           }
         ]
       }
     ],
     "SessionStart": [
       {
-        "matcher": "startup|resume|clear",
+        "matcher": "startup|resume|clear|compact",
         "hooks": [
           {
             "type": "command",
-            "command": "python \"$CLAUDE_PROJECT_DIR/tools/hooks/session_context.py\""
+            "command": "python \"$(git rev-parse --show-toplevel)/tools/hooks/session_context.py\"",
+            "commandWindows": "python \"G:\\History vs Hype\\tools\\hooks\\session_context.py\"",
+            "timeout": 30,
+            "additionalContextLimit": 5000,
+            "statusMessage": "Surfacing active video projects"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$(git rev-parse --show-toplevel)/tools/hooks/utterance_triggers.py\"",
+            "commandWindows": "python \"G:\\History vs Hype\\tools\\hooks\\utterance_triggers.py\"",
+            "timeout": 30
           }
         ]
       }

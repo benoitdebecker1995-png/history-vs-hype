@@ -1,13 +1,12 @@
 ---
-name: "source-command-script-research-pass"
-description: "Full editor + head-of-research pass on a draft script — paragraph-by-paragraph NotebookLM verification (no context-economy skip), expository/predicate-drift, quote-card provenance, completeness, flow, writing polish, and script↔teleprompter lock discipline."
+name: source-command-script-research-pass
+description: "Full editor and head-of-research pass on a draft — paragraph-by-paragraph NotebookLM verification, expository drift, quote-card provenance, completeness, flow and writing polish. Use when: a draft is complete and needs a real editorial pass before lock."
 ---
 
-# source-command-script-research-pass
-
-Use this skill when the user asks to run the migrated source command `script-research-pass`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/script-research-pass.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /script-research-pass — the "editor + head of research" pre-lock pass
 

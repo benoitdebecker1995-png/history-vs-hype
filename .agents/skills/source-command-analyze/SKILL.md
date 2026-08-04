@@ -1,13 +1,12 @@
 ---
-name: "source-command-analyze"
-description: "Run complete post-publish analysis on any video"
+name: source-command-analyze
+description: "Complete post-publish analysis of one video — retention, traffic, CTR, and what to change next time. Use when: a video has been up long enough to have data, or asked how a video performed. Does NOT compare across the catalogue (→ source-command-patterns)."
 ---
 
-# source-command-analyze
-
-Use this skill when the user asks to run the migrated source command `analyze`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/analyze.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /analyze - Post-Publish Video Analysis
 

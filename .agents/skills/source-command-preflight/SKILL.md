@@ -1,13 +1,12 @@
 ---
-name: "source-command-preflight"
-description: "Full pre-upload scorecard — 5 script-stage gates + conditional rendered-asset QC (topic/script/title/thumb/duration + image + audio)"
+name: source-command-preflight
+description: "Full pre-upload scorecard — 5 script-stage gates plus conditional rendered-asset QC (topic, script, title, thumbnail, duration, image, audio). Use when: about to upload, doing the final check before publish, or asked whether a video is actually ready."
 ---
 
-# source-command-preflight
-
-Use this skill when the user asks to run the migrated source command `preflight`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/preflight.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /preflight — Pre-Upload Scorecard
 

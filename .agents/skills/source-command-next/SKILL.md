@@ -1,13 +1,12 @@
 ---
-name: "source-command-next"
-description: "Get ranked topic recommendations based on winning patterns"
+name: source-command-next
+description: "Ranked next-topic recommendations built from measured winning patterns and demand data. Use when: asked what video to make next, for topic ideas, or to refill the pipeline. Does NOT validate a specific topic's packaging (→ source-command-greenlight)."
 ---
 
-# source-command-next
-
-Use this skill when the user asks to run the migrated source command `next`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/next.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /next
 
@@ -309,6 +308,26 @@ Before `/next` works, you need:
 ```bash
 cd tools/discovery && python recommender.py [flags]
 ```
+
+---
+
+## Continuing a series instead of picking a standalone
+
+`/next` ranks **standalone** topics. When the answer is "the next episode of a
+series we're already running" (Claims-on-Trial, Untranslated Evidence, …), that
+is a different question — it needs the series arc, the shipped episodes and how
+they performed, and the continuity threads — so hand it to the `series-planner`
+agent instead:
+
+```
+Agent({ subagent_type: "series-planner",
+        description: "Next episode brief for <series>",
+        prompt: "Plan the next episode of <series>. Return the ranked
+                 next-episode brief with continuity threads and demand signal." })
+```
+
+It returns a ranked brief with callbacks, recurring framing, and an identity
+guard. For a single-topic research brief use `notebook-researcher` instead.
 
 ---
 

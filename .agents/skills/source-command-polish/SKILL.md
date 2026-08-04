@@ -1,19 +1,18 @@
 ---
-name: "source-command-polish"
-description: "Final AI-pattern pass on a locked script before filming"
+name: source-command-polish
+description: "Final AI-pattern pass on a locked script before filming — strips the model tells the linter misses. Use when: a script is locked and about to be filmed, or a draft 'sounds AI'."
 ---
 
-# source-command-polish
-
-Use this skill when the user asks to run the migrated source command `polish`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/polish.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /polish - Final voice pass on a locked script
 
 Strip AI writing fingerprints from a locked script before filming. Eliminates staccato fragments used as flourish, decorative metaphors, redundant restatements, vague meta-transitions, and attribution slips. Verifies thesis throughline and viewer-followability. Uses force-think-before-rewrite methodology — articulate intent in one sentence, then write a normal sentence; no folds, no clever parallels.
 
-**Designed to reproduce what was done manually with Sonnet in the 2026-05-14 Hijab voice pass.** Origin and rationale: `C:\Users\Benoi\.Codex\plans\velvety-tinkering-finch.md`.
+**Designed to reproduce what was done manually with Sonnet in the 2026-05-14 Hijab voice pass.** Origin and rationale: `C:\Users\Benoi\.claude\plans\velvety-tinkering-finch.md`.
 
 > **Scope note (W2 2026-06-12):** The v18 `/script` flow already runs this scrub in-flow — the PRE-READ HEAVY GATE + `voice_lint.py` + the zero-feedback read-through cover the same AI-pattern/voice checks. So `/polish` is for scripts that did **NOT** go through the current `/script` flow: a parked draft being resumed (e.g. #59), a hand-written or imported script, or a deliberate standalone re-scrub. If a script just came out of `/script` v18, it's already polished — running `/polish` on it is redundant.
 
@@ -51,11 +50,11 @@ Before any other behavior fires, read these in parallel (one message, multiple R
 
 1. `<project>/SCRIPT.md` — the locked script
 2. `<project>/PROJECT-STATUS.md` — current lifecycle state
-3. `C:\Users\Benoi\.Codex\projects\D--History-vs-Hype\memory\feedback-scriptcollab.md` — canonical Voice-Pass Patterns ruleset
-4. `C:\Users\Benoi\.Codex\projects\D--History-vs-Hype\memory\feedback-staccato-delivery.md` — fragment + frequency-cap rule
-5. `D:\History vs Hype\.Codex\REFERENCE\WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md` — Calm Prosecutor voice, antecedent clarity, contractions
-6. `D:\History vs Hype\.Codex\REFERENCE\THESIS-DISCIPLINE.md` — 9-step throughline procedure (used in Phase 1 lite mode)
-7. `D:\History vs Hype\.Codex\REFERENCE\NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` — Use Case 18 thesis articulation + attribution verification
+3. `C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\feedback-scriptcollab.md` — canonical Voice-Pass Patterns ruleset
+4. `C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\feedback-staccato-delivery.md` — fragment + frequency-cap rule
+5. `G:\History vs Hype\.claude\REFERENCE\WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md` — Calm Prosecutor voice, antecedent clarity, contractions
+6. `G:\History vs Hype\.claude\REFERENCE\THESIS-DISCIPLINE.md` — 9-step throughline procedure (used in Phase 1 lite mode)
+7. `G:\History vs Hype\.claude\REFERENCE\NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` — Use Case 18 thesis articulation + attribution verification
 
 Also locate the project's NotebookLM notebook ID — either from the project's memory snapshot (e.g., `52-hijab-production-state.md`) OR from `<project>/PROJECT-BRIEF.md` if present. Store it for Phase 2 notebook queries. If `--no-notebook` flag is set, skip this.
 
@@ -197,8 +196,8 @@ After all Phase 2 candidates resolved:
    - Antecedents drifting across paragraph breaks (Rule from `WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md` §5.2)
    - Sentences too long for one breath
    - Unfamiliar terms used before introduction
-   - "Here's" count exceeded budget (max 2-4 per script — see channel AGENTS.md)
-2. **Transition audit (his #1 standing weakness — see `.Codex/REFERENCE/VOICE-PROFILE.md` "Transitions").** For EVERY act/section handoff (each `##` boundary except the opener), check the first sentence after the handoff:
+   - "Here's" count exceeded budget (max 2-4 per script — see channel CLAUDE.md)
+2. **Transition audit (his #1 standing weakness — see `.claude/REFERENCE/VOICE-PROFILE.md` "Transitions").** For EVERY act/section handoff (each `##` boundary except the opener), check the first sentence after the handoff:
    - **Thesis-forward?** It must name where we're going and/or state the causal link into the next beat's subject — not just sit adjacent. ❌ bare topic jump → rewrite as a plain causal bridge ("So those states didn't just fade out. Someone took them apart — and it was the empire they'd served") or a thesis statement of what's coming.
    - **No vague referent.** A bridge opening on "This/That/It/the very first one" after a section reset must name its subject. ("the very first one" → "the very first *what*?")
    - **Don't call the common story flatly "wrong."** Prefer "oversimplified / tells only one part of the story"; reserve "wrong" for a specific factual error.
@@ -222,7 +221,7 @@ Approve, edit, or reject each before I update feedback-scriptcollab.md.
 User approves → apply updates. Reject → discard. Edit → integrate user's preferred phrasing.
 
 6. **Status check:** if the project's lifecycle changes (e.g., `SCRIPT-LOCKED` → `FILM-READY`), prompt the user to run `/reconcile <project-slug>`. Do NOT auto-modify the AUTO block in PROJECT-STATUS.md.
-7. **Read-aloud override log (use-and-correct loop):** the script now goes to the creator's read-aloud (T1 lock gate). When he overrides a voice rule there — changes a line away from what `VOICE-PROFILE.md` / the linter predicted — record it in `<project>/VOICE-OVERRIDE-LOG.md` (create from `.Codex/templates/VOICE-OVERRIDE-LOG-TEMPLATE.md` if absent). One row per override, his exact replacement wording. Patterns seen 2+ times across projects get promoted to `VOICE-PROFILE.md` (and the linter). This is how the profile sharpens over time — do NOT automate it.
+7. **Read-aloud override log (use-and-correct loop):** the script now goes to the creator's read-aloud (T1 lock gate). When he overrides a voice rule there — changes a line away from what `VOICE-PROFILE.md` / the linter predicted — record it in `<project>/VOICE-OVERRIDE-LOG.md` (create from `.claude/templates/VOICE-OVERRIDE-LOG-TEMPLATE.md` if absent). One row per override, his exact replacement wording. Patterns seen 2+ times across projects get promoted to `VOICE-PROFILE.md` (and the linter). This is how the profile sharpens over time — do NOT automate it.
 
 ---
 
@@ -243,6 +242,6 @@ User approves → apply updates. Reject → discard. Edit → integrate user's p
 
 ## References
 
-- **Plan & rationale:** `C:\Users\Benoi\.Codex\plans\velvety-tinkering-finch.md`
+- **Plan & rationale:** `C:\Users\Benoi\.claude\plans\velvety-tinkering-finch.md`
 - **Canonical patterns:** `feedback-scriptcollab.md` → "Voice-Pass Patterns" section
 - **Origin session:** 2026-05-14 Hijab voice pass with Sonnet

@@ -1,13 +1,12 @@
 ---
-name: "source-command-engage"
-description: "Comment responses, corrections, and feedback management (Post-production Phase 3)"
+name: source-command-engage
+description: "Drafts comment responses, corrections and feedback handling in the channel's voice. Use when: replying to YouTube comments, handling a correction after publish, or triaging viewer feedback."
 ---
 
-# source-command-engage
-
-Use this skill when the user asks to run the migrated source command `engage`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/engage.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /engage - Audience Engagement Entry Point
 
@@ -46,7 +45,7 @@ Research and respond to YouTube comments using evidence-based public history com
 
 ### How it works: spawn the `comment-responder` agent
 
-`--respond` delegates to the **`comment-responder`** agent (`.Codex/agents/comment-responder.md`), which runs the full pipeline: classify **posture** (Interlocutor / Drive-by / Question / Troll) → extract every claim → fact-check **notebook-first** (verifying our own claims too) → **steelman** → draft in the channel's accessible-historian voice (**sources named in prose, no citation dump** for discussion replies) → advisory Gemini voice pass → return the ready-to-post reply + a behind-the-scenes audit trail.
+`--respond` delegates to the **`comment-responder`** agent (`.claude/agents/comment-responder.md`), which runs the full pipeline: classify **posture** (Interlocutor / Drive-by / Question / Troll) → extract every claim → fact-check **notebook-first** (verifying our own claims too) → **steelman** → draft in the channel's accessible-historian voice (**sources named in prose, no citation dump** for discussion replies) → advisory Gemini voice pass → return the ready-to-post reply + a behind-the-scenes audit trail.
 
 Spawn it with the pasted comment (or the whole thread) and which video it's on:
 
@@ -55,7 +54,7 @@ Task(subagent_type="comment-responder", model="opus",
   prompt="Reply to this comment on [video/slug]: '[comment text, incl. our prior reply if a thread]'. [any steer]")
 ```
 
-Use `model="sonnet"` for a simple Drive-by/Question. The full spec — posture taxonomy, the discussion-vs-debunk sourcing split, the voice rules and AI-tell ban — lives in `.Codex/REFERENCE/youtube-comment-response-guide.md`.
+Use `model="sonnet"` for a simple Drive-by/Question. The full spec — posture taxonomy, the discussion-vs-debunk sourcing split, the voice rules and AI-tell ban — lives in `.claude/REFERENCE/youtube-comment-response-guide.md`.
 
 **The agent may recommend NOT replying** (troll / not worth it). That's a valid outcome — don't override it into an essay.
 
@@ -141,7 +140,7 @@ For similar future comments:
 
 ### Step 6: Add to Fact-Check Improvements
 
-**File:** `.Codex/FACT-CHECK-IMPROVEMENTS.md`
+**File:** `.claude/FACT-CHECK-IMPROVEMENTS.md`
 
 Document:
 - Error type (territorial simplification, temporal inaccuracy, etc.)
@@ -254,9 +253,9 @@ channel-data/
 
 ## Reference Files
 
-- **Comment response guide:** `.Codex/REFERENCE/youtube-comment-response-guide.md`
+- **Comment response guide:** `.claude/REFERENCE/youtube-comment-response-guide.md`
 - **Corrections log:** `video-projects/_CORRECTIONS-LOG.md`
-- **Verified claims:** `.Codex/VERIFIED-CLAIMS-DATABASE.md`
+- **Verified claims:** `.claude/VERIFIED-CLAIMS-DATABASE.md`
 
 ---
 

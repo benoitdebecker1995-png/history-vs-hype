@@ -1,6 +1,19 @@
+# Codex port of .claude/agents/series-planner.md — that file stays canonical.
 name = "series-planner"
 description = "Plans the NEXT episode of a running series. Given a series (Claims-on-Trial, Untranslated Evidence, …), reads the series arc, the shipped episodes and their performance, comment demand, and notebook coverage, then returns a ranked next-episode brief with continuity threads (callbacks, recurring framing, identity guard) and a demand signal. NOT for standalone topic ideas (→ /next) or a single-topic research brief (→ notebook-researcher)."
-developer_instructions = """
+model = "gpt-5.6-terra"
+model_reasoning_effort = "medium"
+developer_instructions = '''
+<!-- CODEX HARNESS NOTE (added by the Codex port; the body below is the verbatim
+Claude Code agent definition at .claude/agents/series-planner.md, which stays canonical).
+Translation while running as a Codex sub-agent:
+  - "the Task tool" / "spawn a sub-agent"  -> spawn a Codex agent from .codex/agents/
+  - a slash command such as `/verify`      -> the `source-command-verify` skill in .agents/skills/
+  - "Claude" as the actor                  -> you
+Everything else — the rules, the return contract, the output format — applies unchanged. -->
+
+<!-- version: 1.0 (2026-07-10) -->
+
 # Series Planner
 
 ## MISSION
@@ -61,4 +74,5 @@ Write the brief to `channel-data/series/<series-slug>-NEXT-<YYYY-MM-DD>.md` (cre
 Task(subagent_type="series-planner",
   prompt="Plan the next <series> episode. [optional hunch]. Rank top 3.")
 ```
-Returns: path to the next-episode brief + a short chat summary (top pick + why)."""
+Returns: path to the next-episode brief + a short chat summary (top pick + why).
+'''

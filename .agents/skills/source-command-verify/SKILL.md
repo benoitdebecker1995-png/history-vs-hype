@@ -1,13 +1,12 @@
 ---
-name: "source-command-verify"
-description: "Fact-check scripts, extract claims, detect simplifications (Production Phase 2)"
+name: source-command-verify
+description: "Fact-checks a script line-by-line against the verified research, extracts claims, and detects oversimplifications. Use when: a draft is written and needs checking, asked to fact-check or verify claims, or filling 03-FACT-CHECK-VERIFICATION.md. Does NOT run the deeper narrative-flow + per-claim NotebookLM pass (→ source-command-verify-flow-nlm)."
 ---
 
-# source-command-verify
-
-Use this skill when the user asks to run the migrated source command `verify`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/verify.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /verify - Verification Entry Point
 
@@ -167,7 +166,7 @@ After MCP pass, run Step 4B only for any claims the notebook couldn't address.
 
 **CRITICAL: Scan script for simplification patterns**
 
-Read `.Codex/REFERENCE/FACT-CHECK-SIMPLIFICATION-RULES.md` and check for:
+Read `.claude/REFERENCE/FACT-CHECK-SIMPLIFICATION-RULES.md` and check for:
 
 | Rule | Pattern | Severity |
 |------|---------|----------|
@@ -466,7 +465,7 @@ death tolls, casualty counts, quantities, percentages, distances, dates, and any
 
 ### Step 7.9: Adversarial Cross-Model Review (Gemini-as-skeptic → NLM-adjudicated)
 
-> Origin: 2026-06-03, ecosystem "dual-model review" practice (Codex writes → a *different* model reviews → feedback incorporated), adapted to this channel's rigor. Rationale: Codex wrote and self-verified the script, so Codex carries confirmation bias toward its own phrasing. A fresh model with no stake in the wording surfaces overclaims Codex rationalized. This step does **not** replace 7.5–7.8 — it **feeds** them: Gemini *raises suspicion*, NotebookLM *adjudicates*.
+> Origin: 2026-06-03, ecosystem "dual-model review" practice (Claude writes → a *different* model reviews → feedback incorporated), adapted to this channel's rigor. Rationale: Claude wrote and self-verified the script, so Claude carries confirmation bias toward its own phrasing. A fresh model with no stake in the wording surfaces overclaims Claude rationalized. This step does **not** replace 7.5–7.8 — it **feeds** them: Gemini *raises suspicion*, NotebookLM *adjudicates*.
 
 **Runs as a flag (`--adversarial`) or automatically before lock on debunk-format scripts.** Advisory on Format A/B.
 
@@ -549,7 +548,7 @@ For each Gemini finding:
 
 #### Append the verdict to the judge-verdict ledger
 
-Append one line to `channel-data/calibration/JUDGE-VERDICT-LOG.md` (create it from its header template if it doesn't exist yet) summarizing this 7.5–7.9 attribution/provenance pass — these are real LLM-as-judge calls (Codex's own 7.5–7.8 verdicts, plus the Gemini-raises/NLM-confirms triage at 7.9) that otherwise only exist in the chat transcript:
+Append one line to `channel-data/calibration/JUDGE-VERDICT-LOG.md` (create it from its header template if it doesn't exist yet) summarizing this 7.5–7.9 attribution/provenance pass — these are real LLM-as-judge calls (Claude's own 7.5–7.8 verdicts, plus the Gemini-raises/NLM-confirms triage at 7.9) that otherwise only exist in the chat transcript:
 
 ```
 | [today's date] | /verify Steps 7.5-7.9 | [video slug] | raised=[N] survived-triage=[M] nlm-confirmed=[K] | [any HARD gate tripped: yes/no] |
@@ -579,7 +578,7 @@ Lightweight, no new tooling — an append, matching `/script` Step 4b (`docs/LLM
 - `01-VERIFIED-RESEARCH.md` for anything that turns out to differ.
 
 ### Process
-1. **Diff transcript vs locked script — offload to a cheap subagent** (Haiku/Sonnet; keeps main context lean, see `.Codex/AGENT-ORCHESTRATION.md`). Bounded task: line up delivered audio against the locked script and return every place the delivered wording **changed a claim, a source, a number, or an attribution verb** ("the plan gave" → "the annexes show"). Ignore filler/retake stumbles. Return: `timestamp | script wording | delivered wording | what changed`.
+1. **Diff transcript vs locked script — offload to a cheap subagent** (Haiku/Sonnet; keeps main context lean, see `.claude/AGENT-ORCHESTRATION.md`). Bounded task: line up delivered audio against the locked script and return every place the delivered wording **changed a claim, a source, a number, or an attribution verb** ("the plan gave" → "the annexes show"). Ignore filler/retake stumbles. Return: `timestamp | script wording | delivered wording | what changed`.
 2. **Adjudicate the deltas — Opus, do NOT offload.** (The #59 India line was rubber-stamped by a review that reasoned from memory — never clear a delta from memory.) For each meaning-changing delta, check against `01-VERIFIED-RESEARCH.md`, and if load-bearing/contested RAW-READ the source (`mcp__notebooklm__source_get_content` → grep, per `reference-nlm-raw-read-verification`). Classify: SOURCE-DRIFT / PREDICATE-DRIFT / MIS-CREDIT / NUMBER-MISMATCH / benign-rewording.
 3. **Output** `video-projects/[project]/VO-ATTRIBUTION-AUDIT.md` (table: `ts | delivered sentence | delta type | research says | fix`); feed each into the editing-guide pickup list.
 
@@ -845,7 +844,7 @@ The tool recognizes multiple NotebookLM output formats:
 
 ### Optimized Prompts
 
-For best extraction results, use prompts from `.Codex/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md` — designed to produce extractor-compatible output with [N] citation markers and page numbers.
+For best extraction results, use prompts from `.claude/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md` — designed to produce extractor-compatible output with [N] citation markers and page numbers.
 
 ### Output Location
 
@@ -862,7 +861,7 @@ Verify translated documents before filming to catch discrepancies and missing an
 ```
 /verify --translation [project]                           # Audit existing translation output
 /verify --translation [project] --scholarly-summary FILE  # Compare against scholarly description
-/verify --translation [project] --document-name "Name"   # Compare against Codex's knowledge
+/verify --translation [project] --document-name "Name"   # Compare against Claude's knowledge
 ```
 
 ### Modes
@@ -876,13 +875,13 @@ Verify translated documents before filming to catch discrepancies and missing an
 
 **Scholarly comparison:** Optional verification against academic descriptions of the document.
 - `--scholarly-summary FILE`: User provides file with scholarly description (e.g., "Article 3 establishes X, Article 5 prohibits Y")
-- Codex (this command itself) executes the LLM comparison natively — no API key needed
+- Claude Code (this command itself) executes the LLM comparison natively — no API key needed
 - Flags omissions or contradictions
-- Uses `TranslationVerifier.build_scholarly_comparison_payload()` to build prompt, then Codex executes it
+- Uses `TranslationVerifier.build_scholarly_comparison_payload()` to build prompt, then Claude Code executes it
 
-**Knowledge comparison:** Optional verification against Codex's training knowledge.
-- `--document-name "Name"`: Codex compares translation against known scholarly descriptions
-- Uses `TranslationVerifier.build_knowledge_comparison_payload()` to build prompt, then Codex executes it
+**Knowledge comparison:** Optional verification against Claude's training knowledge.
+- `--document-name "Name"`: Claude Code compares translation against known scholarly descriptions
+- Uses `TranslationVerifier.build_knowledge_comparison_payload()` to build prompt, then Claude Code executes it
 
 ### Process
 
@@ -896,10 +895,10 @@ Verify translated documents before filming to catch discrepancies and missing an
    ```python
    result = verifier.verify_translation(translation_file='[path]', mode='audit')
    ```
-4. For scholarly comparison: build payload, execute LLM call natively as Codex, pass result back:
+4. For scholarly comparison: build payload, execute LLM call natively as Claude Code, pass result back:
    ```python
    payload = verifier.build_scholarly_comparison_payload(translation_text, scholarly_summary)
-   # Codex executes LLM call using payload['system_prompt'] and payload['user_prompt']
+   # Claude Code executes LLM call using payload['system_prompt'] and payload['user_prompt']
    scholarly_result = verifier.parse_scholarly_comparison_response(claude_response)
    result = verifier.verify_translation(translation_file='[path]', scholarly_result=scholarly_result)
    ```
@@ -1013,8 +1012,8 @@ Historical integrity is the channel's core value. Better to cut a claim than to 
 
 ## Reference Files
 
-- **Simplification rules:** `.Codex/REFERENCE/FACT-CHECK-SIMPLIFICATION-RULES.md`
-- **Fact-check template:** `.Codex/templates/03-FACT-CHECK-VERIFICATION-TEMPLATE.md`
+- **Simplification rules:** `.claude/REFERENCE/FACT-CHECK-SIMPLIFICATION-RULES.md`
+- **Fact-check template:** `.claude/templates/03-FACT-CHECK-VERIFICATION-TEMPLATE.md`
 
 ---
 

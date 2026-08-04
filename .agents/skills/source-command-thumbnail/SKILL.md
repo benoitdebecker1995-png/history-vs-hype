@@ -1,13 +1,12 @@
 ---
-name: "source-command-thumbnail"
-description: "Generate 3 ranked thumbnail concepts grounded in the close-match outlier corpus + per-channel playbook"
+name: source-command-thumbnail
+description: "Generates 3 ranked thumbnail concepts grounded in the close-match outlier corpus and the per-channel playbook. Use when: designing a thumbnail, asked for thumbnail ideas, or working in THUMBNAIL-*.md. Does NOT score or critique existing concepts (→ the thumbnail-critic agent)."
 ---
 
-# source-command-thumbnail
-
-Use this skill when the user asks to run the migrated source command `thumbnail`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/thumbnail.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /thumbnail — Outlier-Grounded Thumbnail Recommender
 
@@ -351,7 +350,7 @@ If `--save` flag was passed, append the DIY guide to the same `THUMBNAIL-CONCEPT
 /verify              # Fact-check
 /comment-mine        # Pull same-topic competitor videos (feeds /thumbnail Step 2.5)
 /thumbnail --study --save   ← classify live SERP shelf (Step 2.6) + generate + save concepts
-# then BUILD IN PHOTOSHOP to the craft checklist (HUMAN builds — "Codex specs, user builds") + FILTER:
+# then BUILD IN PHOTOSHOP to the craft checklist (HUMAN builds — "Claude specs, user builds") + FILTER:
 #   checklist: cut-out + saturation pop + ONE red accent at focal point + <=3 huge words +
 #   REAL subject (no AI-generated figure) + 160px proof + voice gate  (THUMBNAIL-CRAFT-RECIPE)
 python -m tools.preflight.thumbnail_checker <project> --title "<title>"   # concept filter: curiosity-gap (title != overlay)

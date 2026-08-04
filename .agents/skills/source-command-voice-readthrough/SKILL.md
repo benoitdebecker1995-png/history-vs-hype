@@ -1,22 +1,21 @@
 ---
-name: "source-command-voice-readthrough"
-description: "AI dry-run of the creator read-aloud on an UNLOCKED draft SCRIPT.md — read every beat in his voice, flag stumbles with concrete rewrites, and sharpen VOICE-PROFILE.md from what the read surfaces. Precedes the human T1 read-aloud; goal = zero feedback when he reads it."
+name: source-command-voice-readthrough
+description: "AI dry-run of the creator's read-aloud on an UNLOCKED draft — reads every beat in his voice and flags stumbles with concrete rewrites. Use when: a draft is finished but the creator hasn't read it aloud yet; the target is zero feedback when he does."
 ---
 
-# source-command-voice-readthrough
-
-Use this skill when the user asks to run the migrated source command `voice-readthrough`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/voice-readthrough.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /voice-readthrough <project-slug>
 
-The **dry-run of the read-aloud.** Before the creator reads a fresh draft top-to-bottom (the T1 gate in `/script`), this command has Codex *perform* that read in his voice — sentence by sentence — catching the lines that would make him stumble, and feeding anything new back into the canonical voice profile. It is the bridge between writing the draft and the human read: if this pass is honest, the human read should need **zero feedback** (v18 target, CALIBRATION-CORPUS GR-B).
+The **dry-run of the read-aloud.** Before the creator reads a fresh draft top-to-bottom (the T1 gate in `/script`), this command has Claude *perform* that read in his voice — sentence by sentence — catching the lines that would make him stumble, and feeding anything new back into the canonical voice profile. It is the bridge between writing the draft and the human read: if this pass is honest, the human read should need **zero feedback** (v18 target, CALIBRATION-CORPUS GR-B).
 
 This is NOT `/voice grill` (abstract recurring calibration on off-beats) and NOT the human T1 read. It is the **AI read-aloud** of one specific live draft.
 
 ## Shared invariants (inherited from `/voice` — obey all)
-- **Canonical artifact = `.Codex/REFERENCE/VOICE-PROFILE.md`.** The ONE home for voice rules. New findings stage in its **"Pending / topic-specific (un-promoted)"** section and promote into the body only after recurring across **≥2 topics** (the generality gate). Never invent a global rule from a single script.
+- **Canonical artifact = `.claude/REFERENCE/VOICE-PROFILE.md`.** The ONE home for voice rules. New findings stage in its **"Pending / topic-specific (un-promoted)"** section and promote into the body only after recurring across **≥2 topics** (the generality gate). Never invent a global rule from a single script.
 - **His LIVE picks are ground truth** — if he reworks a line during the pass, that pick rewrites the profile, even against an existing rule.
 - **Concrete line options go in CHAT**, never the truncating `AskUserQuestion` box ([[feedback-grill-easier]]).
 - **Update the profile inline; DO NOT COMMIT; voice only.** Preserve `[SHOW]`/`[SOURCE]`/`[NLM]` tags + verbatim quotes; use NotebookLM for phrasing, never fabricate a quote.
@@ -27,7 +26,7 @@ This is NOT `/voice grill` (abstract recurring calibration on off-beats) and NOT
 **0. Locate + gate.** Glob `video-projects/**/<slug>/SCRIPT.md`. Confirm unlocked (else profile-only). Read it in full.
 
 **1. Load the fingerprint + mechanical pre-pass.**
-- Read `.Codex/REFERENCE/VOICE-PROFILE.md` in full (the bar-talk lock test's 9 checks + the fingerprint rules + the cringe no-list are the rubric for this read).
+- Read `.claude/REFERENCE/VOICE-PROFILE.md` in full (the bar-talk lock test's 9 checks + the fingerprint rules + the cringe no-list are the rubric for this read).
 - Run `python -m tools.voice_lint "<path to SCRIPT.md>"`. Fix every HARD and every WARN you agree with first (mechanical tics) so the human-judgment read isn't cluttered by lint-catchable noise.
 
 **2. Perform the read — beat by beat, sentence by sentence.** For each sentence, actually *say it in one breath* (lock-test #1) and judge it against the 9 checks. Mark each line:

@@ -1,126 +1,223 @@
 # AGENTS.md
 
-This file provides guidance to WARP (warp.dev) when working with code in this repository.
+Project guidance for **Codex / GPT-5.6** working in this repository. The Claude Code surface
+(`.claude/`) is the canonical source of truth for every rule below; this file and the Codex surface
+(`.agents/skills/`, `.codex/`) are the hand-maintained port of it. When the two disagree, `.claude/`
+wins and the port needs fixing.
 
 ## Repository Overview
 
-**History vs Hype** is a YouTube channel content production repository for evidence-based, myth-busting history videos. The channel uses academic sources and primary documents displayed on screen—the key competitive advantage over commentary channels.
+**History vs Hype** — YouTube channel: evidence-based myth-busting about geopolitics, colonial
+history, border disputes, and ideological narratives. Academic research + primary sources to debunk
+historical myths.
 
-**Channel DNA:** History-first with modern relevance. The historical source/event is the core content (60-80%), modern relevance is the hook (20-40%). NOT geopolitics with historical background.
+**Stats:** 515 subs, 219K+ views, 47 long-form, 28.1% median retention | **Audience:** Males 25-44
+(UK, DE, CA, US)
+**Format:** 8-12 min hybrid talking head + B-roll evidence | **Hard cap 12 min**
+(r=-0.455 duration-retention, n=47)
 
-## Quick Commands
+**Subscriber trigger:** "intellectual competence" — proving you understand SYSTEMS, not narratives.
+HOW > WHY. Mechanism > politics. Logistics/legal/admin angles win. RealLifeLore/Wendover overlap
+audience.
 
-| Phase | Command | Purpose |
-|-------|---------|---------|
-| Pre-production | `/research --new` | Start new video project |
-| Pre-production | `/sources --recommend` | Source recommendations for NotebookLM |
-| Production | `/script` | Generate script from verified research |
-| Production | `/script --teleprompter` | Export for teleprompter |
-| Production | `/verify --script` | Fact-check verification |
-| Post-production | `/publish --metadata` | YouTube metadata package |
-| Post-production | `/fix` | Fix subtitle errors |
-| Navigation | `/status` | Current project state + next action |
-| Navigation | `/help` | Full command list |
+**Growth bottleneck:** Packaging, not content. Only 3/47 broke 2K views. Content that gets
+impressions performs well. Run the greenlight gate BEFORE any research.
 
-## Architecture
+---
 
-### Folder Structure
+## How this project's workflows reach you on Codex
 
-```
-video-projects/
-├── _IN_PRODUCTION/     # Active research and scripting
-├── _READY_TO_FILM/     # Finalized scripts ready for filming
-└── _ARCHIVED/          # Published or cancelled projects
+Claude Code has slash commands, sub-agents, path-scoped rules and skills. Codex has skills,
+sub-agents and `AGENTS.md`. The mapping:
 
-.claude/
-├── agents/             # Agent configurations (script-writer-v2, structure-checker-v2, etc.)
-├── commands/           # Slash command definitions
-├── REFERENCE/          # Style guides, fact-checking protocols
-│   ├── STYLE-GUIDE.md  # Authoritative voice/delivery reference
-│   └── fact-checking-protocol.md
-└── USER-PREFERENCES.md # Working style, efficiency expectations
+| Claude Code | Codex | Where |
+|---|---|---|
+| 34 slash commands (`/greenlight`, `/script`, …) | skills named `source-command-<name>` | `.agents/skills/` |
+| 11 project skills | same skills | `.agents/skills/` |
+| 4 path-scoped rules | 3 rule-skills + this file's nested copies | `.agents/skills/`, `tools/AGENTS.md`, `tests/AGENTS.md` |
+| 12 sub-agents | custom agents | `.codex/agents/*.toml` |
+| 3 lifecycle hooks | same 3 scripts, same 3 events | `.codex/hooks.json` |
+| MCP servers | the 3 from `.mcp.json` + vidiq + playwright | `.codex/config.toml` |
 
-tools/
-├── youtube_analytics/  # Channel analytics tools
-└── script_checkers/    # Script validation
-```
+A skill fires implicitly off its description, or you can name it: `$source-command-greenlight`.
 
-### Standard Project Files
+**Two fidelity gaps to know about:**
 
-```
-[project-folder]/
-├── 01-VERIFIED-RESEARCH.md       # Single source of truth (✅/⏳/❌ markers)
-├── 02-SCRIPT-DRAFT.md            # Script from verified facts only
-├── 03-FACT-CHECK-VERIFICATION.md # Final quality gate
-├── PROJECT-STATUS.md             # Progress tracking
-├── NOTEBOOKLM-SOURCE-LIST.md     # Academic sources to download
-├── NOTEBOOKLM-PROMPTS.md         # Research prompts
-├── FINAL-SCRIPT.md               # Ready for filming
-├── YOUTUBE-METADATA.md           # Title, description, tags, chapters
-└── EDITING-GUIDE-SHOT-BY-SHOT.md # Visual staging
-```
+1. **Rules are model-triggered here, not automatic.** On Claude Code the voice rules, packaging
+   penalties and source-tier rules load the moment a matching file is opened. On Codex they are
+   skills that fire off their description. **Before writing or editing a `SCRIPT.md`, a
+   `YOUTUBE-METADATA.md`, or a `01-VERIFIED-RESEARCH.md`, load the matching rule-skill yourself**
+   (`rule-script-writing`, `rule-packaging`, `rule-research-verification`). Don't assume it fired.
+2. **No per-workflow model pin.** Claude's command files pin a model each; Codex skills run at the
+   session model, which `.codex/config.toml` pins to `gpt-5.6-sol` at `high` effort (sol's own
+   default is `low` — leaving it unset is how a heavy session quietly runs shallow). The cheap
+   routing workflows (`status`, `help`) therefore cost the same as the expensive ones here.
+   Sub-agents pin their own model and effort per file; `.codex/agents/` is the place to change that.
 
-## Critical Workflows
+**Keeping the port honest.** `.claude/` is canonical and nothing syncs automatically, so an edit
+there does not reach Codex until it is re-ported. `python -m pytest tests/unit/test_codex_surface_parity.py`
+fails the moment the two drift — run it after touching anything under `.claude/`.
 
-### Two-Phase Research (The Competitive Advantage)
+**Entry point for a cold session:** read the `project-onboarding` skill first. It routes to the
+other ten (`codebase-atlas`, `data-stores`, `debugging-playbook`, `automation-ops`,
+`extending-safely`, `authoring-skills`, `validation-standards`, `production-map`, `historian`,
+`primary-source`).
 
-**Phase 1: Preliminary Internet Research** — Map the landscape, identify claims to verify (Wikipedia, Google Scholar previews, news). Mark all findings as ❓ until verified.
+---
 
-**Phase 2: NotebookLM Academic Verification** — Download 10-20 academic sources from university presses (Cambridge, Oxford, Chicago, Harvard). Upload to NotebookLM. Run targeted prompts. Extract exact quotes with page numbers.
+## Knowledge Graphs
 
-**NEVER skip Phase 2.** This is what sets the channel apart from commentary YouTubers.
+Two MCP servers, declared in `.codex/config.toml`:
 
-### Three-Phase Verified Workflow
+- `graphify-code` — 90,745 nodes / 97,940 edges over the repo AST (`graphify-out/graph.json`)
+- `graphify-research` — 169-node concept graph over the archived `01-VERIFIED-RESEARCH.md` files
 
-1. **Research + Verify** → `01-VERIFIED-RESEARCH.md` (90%+ verified before proceeding)
-2. **Write Script** → `02-SCRIPT-DRAFT.md` (ONLY from verified facts)
-3. **Cross-Check** → `03-FACT-CHECK-VERIFICATION.md` (100% match required)
+**Prefer a graph query over grep/Read when the question is structural** — that is the whole point,
+it costs far fewer tokens than reading files:
+- "Where does X live / what depends on it" → `query_graph`, `get_neighbors`
+- "How does A connect to B" → `shortest_path` · "Most-connected hubs" → `god_nodes`
+- "Have we covered scholar/treaty Z" → `graphify-research` `query_graph`
 
-**Result:** 5.5 hours vs. 9 hours (old workflow), zero errors vs. 2+ per video.
+**Honest scope:** the research graph is sparse — under ~3 hits, fall back to file reads. File-based
+fallback: `python graphify-out/research/query.py "<entity>"`. Ops + recovery:
+`.claude/REFERENCE/GRAPHIFY-OPS.md`.
 
-## Key Principles
+---
 
-1. **Real quotes with page numbers** — "According to Chris Wickham in *The Inheritance of Rome*, page 147..." not "historians say..."
-2. **Primary sources displayed on screen** — Show the treaty document, manuscript, or court ruling visually
-3. **Academic-level sources only** — University press publications, top scholars, critical editions. Budget is unlimited.
-4. **Scripts for spoken delivery** — Teleprompter reading. Use contractions, ordinal dates ("On June 16th, 2014,"), natural flow.
-5. **Verify before including** — If you can't cite the specific source with timestamp/page number, don't include the claim.
-6. **Check existing research first** — Search `**/RESEARCH*.md`, `**/VERIFIED*.md` before any web search.
+## Core Principles
 
-## Style Quick Reference
+1. **Historical integrity** — every claim verified with credible sources
+2. **Real quotes with page numbers** — word-for-word from academic sources (the competitive advantage)
+3. **Modern relevance** — connect history to 2024-2026 developments
+4. **Academic balance** — present multiple perspectives, acknowledge counter-evidence
+5. **Deep causal chains** — explain WHY (spoken-register connectors: so, which is why, and that
+   meant; formal "consequently/thereby" sparingly)
+6. **No oversimplification** — maintain nuance while accessible
 
-See `.claude/REFERENCE/STYLE-GUIDE.md` for complete rules.
+---
 
-| Rule | Wrong | Right |
-|------|-------|-------|
-| Dates | "June 16, 2014." | "On June 16th, 2014," |
-| Contractions | "it is" | "it's" |
-| Technical terms | "estoppel" | "estoppel — a legal rule that..." |
-| Lists (info) | "Britain. France. Egypt." | "Britain, France, Egypt" |
-| "Here's" usage | 10+ per script | 2-4 max |
-| Abbreviations | "The AU" (first use) | "The African Union" |
+## The pipeline
 
-**Voice:** "Calm Prosecutor" — emotionally low, intellectually high. Evidence-based referee.
+`greenlight` (packaging gate) → `research` → `script` → `verify` → `prep` → `publish`
 
-## Tool Stack
+Each stage is a `source-command-*` skill.
 
-- **VidIQ Pro** — Topic research, script generation, clipping
-- **NotebookLM (Gemini 2.0 Flash)** — Source-grounded academic research (2M token context)
-- **DaVinci Resolve** — Video editing
-- **Photoshop** — Thumbnail creation
+1. **Research + Verify** → `01-VERIFIED-RESEARCH.md`, each fact ✅/⏳/❌. Gate: 90%+ before writing.
+2. **Script from verified facts ONLY** → `02-SCRIPT-DRAFT.md`. Unverified fact ⇒ STOP and verify.
+3. **Cross-check** → `03-FACT-CHECK-VERIFICATION.md`, every line vs the research.
+   ✅ APPROVED / ❌ REVISION.
 
-## Working Style Expectations
+**Other workflows:** `grill-angle` (sharpen angle, before greenlight) · `thumbnail` · `opener` ·
+`polish` · `editing-guide` · `fix` (subtitles) · `engage` · `reconcile` · `status` · `next` ·
+`analyze` / `patterns` / `growth` / `retitle` · `translate` (Untranslated series) ·
+`voice` / `voice-readthrough` / `voice-clickdrill` · `preflight` · `comment-mine` ·
+`learn-from-paper` · `referee-retrofit` · `gemini` (bulk-read offload).
 
-- **Read files first, ask questions later** — Use Glob to find context before asking
-- **Parallel tool calls** — When multiple independent reads/searches needed
-- **Direct and efficient** — No unnecessary pleasantries, minimize questions
-- **Never create loose folders** — Always use lifecycle folders (_IN_PRODUCTION, etc.)
-- **Check COMPLETE-PERFORMANCE-DATABASE.md** — Before suggesting topics (user may have already covered them)
+**NEVER skip Phase 2** (NotebookLM academic verification) — that is the competitive advantage.
+**Channel DNA:** history with modern relevance, NOT geopolitics with historical background. Test:
+"Will this matter in 10 years regardless of who's in power?"
 
-## For Complete Documentation
+---
 
-- **Full channel context:** `CLAUDE.md`
-- **Working style details:** `.claude/USER-PREFERENCES.md`
-- **Style rules:** `.claude/REFERENCE/STYLE-GUIDE.md`
-- **Folder system:** `.claude/REFERENCE/FOLDER-STRUCTURE-GUIDE.md`
-- **Fact-checking:** `.claude/REFERENCE/fact-checking-protocol.md`
+## File Organization (CRITICAL)
+
+**Lifecycle folders (MANDATORY):**
+- `video-projects/_IN_PRODUCTION/` → `_READY_TO_FILM/` → `_ARCHIVED/published/`
+- **NEVER** create loose folders in `video-projects/` root
+- Naming: `video-projects/[lifecycle]/[number]-[topic-slug-year]/`
+
+**Folder lifecycle (truth source: filesystem + analytics.db):**
+- `_IN_PRODUCTION/` — research / scripting / fact-check phase
+- `_READY_TO_FILM/` — `FINAL-SCRIPT.md` exists OR `.mp4` rough cut exists, no YouTube URL yet
+- `_ARCHIVED/published/` — YouTube published. Matched via `analytics.db` Video ID.
+- `_BACKLOG/` — **holding bucket, OUTSIDE the lifecycle.** Dormant/parked projects. Invisible to
+  scanners (`session_context.py`, `project_scanner.py`, `reconcile.py` glob only the 3 lifecycle
+  folders). Pull a folder back to `_IN_PRODUCTION/` when you resume it. NOT for published or filmed
+  work.
+
+**Before creating any file:** read `PROJECT_STATUS.md` → glob for an existing folder → confirm
+lifecycle stage.
+
+**Standard project files:** `01-VERIFIED-RESEARCH.md` (single source of truth for verified facts) ·
+`02-SCRIPT-DRAFT.md` · `03-FACT-CHECK-VERIFICATION.md` · `YOUTUBE-METADATA.md` ·
+`PROJECT-STATUS.md` (its `<!-- AUTO:reconcile -->` block is machine-managed; narrative below the
+close tag is hand-written and never overwritten).
+
+See: `.claude/REFERENCE/FOLDER-STRUCTURE-GUIDE.md`
+
+---
+
+## Project State Reconciliation (folder drift)
+
+**Truth sources:** filesystem → lifecycle stage · `tools/youtube_analytics/analytics.db` → publish
+status · in-folder `PROJECT-STATUS.md` narrative → hand-written state.
+
+**Derived (auto-regenerated by the `reconcile` skill):** folder location, the AUTO block, root
+`PROJECT_STATUS.md` / `PROJECT_REGISTRY.md`, `.brain/index.md §3`.
+
+**Conversational trigger (MANDATORY):** when the user says "I uploaded X" / "I released X" /
+"I published X" / "X is live" / "X went up" — run the `reconcile` skill on X immediately. Do NOT
+just look up the video. The utterance IS the write trigger. If X is ambiguous, ask once.
+
+**Conversational trigger — script lock (MANDATORY):** when the user declares a script locked
+("script locked" / "lock it" / "T1 passed") — immediately run the post-lock delta-mine: consolidate
+read-aloud notes and session corrections into `channel-data/calibration/CALIBRATION-CORPUS.md`,
+append new contradictions to `INTERVIEW-AGENDA.md`, record passes-to-lock in `EVAL-BASELINE.md`.
+The lock declaration IS the mining trigger.
+
+**Backstop:** a daily scheduled routine (`HvH-Reconcile`, 08:30) archives publishes missed by
+conversation and never touches memory snapshots. Chain: 07:45 growth refresh → 08:00 channel-health
+→ 08:30 reconcile. Details: `automation-ops` skill.
+
+---
+
+## Working Style
+
+- **Be direct and efficient** — no pleasantries, get to the point
+- **Read first, ask later** — glob/read to find info, don't ask the user
+- **Don't ask for info in files you can read** — find it yourself
+- **Lead with the outcome.** First sentence answers "what happened" / "what did you find."
+- **Calibrated language.** State what a finding is and what it supports. At most one
+  "strongest/most important" per project, and say what it changes. No "mother lode", "crown jewel",
+  "spectacular".
+- **Written files match the task.** No filler sections, no redundant summaries.
+- **Hold scope.** Deliver what was asked. Better idea? Say it in a sentence, then do what was asked.
+- **Correct once, quietly.** Only when the error changes a decision.
+- See `.claude/USER-PREFERENCES.md` for the full guide.
+
+### Sub-agents
+
+16 custom agents live in `.codex/agents/*.toml` (article-writer, primary-source-hunter,
+notebook-researcher, script-writer-v2, structure-checker-v2, packaging-adversary, thumbnail-critic,
+comment-responder, competitor-gap, series-planner, wiki-researcher, diy-asset-creator, …).
+
+Spawn one only for large, genuinely independent work — never to verify your own output. Every spawn
+prompt carries: the exact paths to read, one imperative goal sentence, and the return contract from
+`.claude/AGENT-ORCHESTRATION.md`. Concurrency cap is set by
+`agents.max_concurrent_threads_per_session` in `.codex/config.toml`.
+
+---
+
+## Critical Reminders
+
+1. **PACKAGING FIRST** — greenlight before ANY research. Collision-check first:
+   `python -m tools.preflight.candidate_preflight "<topic>"`. A published match is a stop, and it
+   runs *before* the pitch.
+2. **NEVER skip Phase 2** (NotebookLM academic verification). University presses, top scholars,
+   budget UNLIMITED.
+3. **REAL QUOTES with page numbers, primary sources ON SCREEN** — not summaries, not optional.
+   Unnamed authority ("historians argue") is the exact inverse of the product.
+4. **HOW > WHY** for subscriber growth — mechanisms and logistics, not politics.
+5. **Intellectual honesty** — acknowledge what the opposing side gets right.
+6. **Load the rule-skill before writing** — see fidelity gap 1 above.
+
+---
+
+## Key References
+
+- **Style:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` (authoritative)
+- **Reference index:** `.claude/REFERENCE/INDEX.md` · **Packaging:** `tools/PACKAGING_MANDATE.md`
+- **Topic pipeline:** `channel-data/TOPIC-PIPELINE.md`
+- **Next-video discovery / breakout work (ACTIVE):** `channel-data/NEXT-VIDEO-DISCOVERY-HANDOFF.md`
+- **Issues:** GitHub Issues on `benoitdebecker1995-png/history-vs-hype` via `gh` → `docs/agents/issue-tracker.md`
+- **Domain docs:** `CONTEXT.md` + `docs/adr/` at repo root → `docs/agents/domain.md`

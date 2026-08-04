@@ -1,11 +1,11 @@
 ---
 name: extending-safely
-description: Standards for CHANGING the History vs Hype repo — the extend-don't-add acceptance test, seam-routing pre-change checklist (which seam, which tests, which docs), code conventions for new modules, test-first expectations, commit + secret-guard rules, and the agent-spawn digest. Use when: about to write or modify code under tools/; creating any NEW surface (module, command, skill, agent, REFERENCE doc, DB table, derived doc); planning a refactor or migration; about to commit, or the pre-commit hook just fired; spawning sub-agents for a build; tempted to mock, skip, or work around a failure. NOT for locating existing code (→ codebase-atlas), running tests (→ validation-standards), or DB schemas (→ data-stores).
+description: 'Standards for CHANGING the History vs Hype repo — the extend-don''t-add acceptance test, seam-routing pre-change checklist (which seam, which tests, which docs), code conventions for new modules, test-first expectations, commit + secret-guard rules, and the agent-spawn digest. Use when: about to write or modify code under tools/; creating any NEW surface (module, command, skill, agent, REFERENCE doc, DB table, derived doc); planning a refactor or migration; about to commit, or the pre-commit hook just fired; spawning sub-agents for a build; tempted to mock, skip, or work around a failure. NOT for locating existing code (→ codebase-atlas), running tests (→ validation-standards), or DB schemas (→ data-stores).'
 ---
 
 # Extending Safely
 
-How to change this repo without degrading it. Everything here was live-verified 2026-07-01/02 (files read, hooks read, commands run). Repo root: `D:\History vs Hype`; run everything from there.
+How to change this repo without degrading it. Everything here was live-verified 2026-07-01/02 (files read, hooks read, commands run). Repo root: `G:\History vs Hype`; run everything from there.
 
 ## Owner context — read before framing any change
 
@@ -14,7 +14,7 @@ The owner is a **non-engineer** channel creator (terse/shorthand messages are ho
 - **Frame code work as outcomes** — which command/report it affects, what breaks today, what improves. Never present architecture-option menus ("4 vs 6 fetches?" was rejected 2026-06-25 as "too technical"). Make the technical calls yourself; offer a plain-language go/no-go.
 - **Workarounds only when explicitly time-boxed by the owner.** Otherwise: root cause. ADR-0012 is the house example — a dead clickbait gate was fixed IN `title_scorer.py`, not patched over in the new checker.
 - **Surface real risks plainly** even so ("rearranging untested code first is how you break things").
-- **When the owner corrects you, capture the rule immediately** — memory/wiki + `video-projects/_CORRECTIONS-LOG.md`, not just "noted". Live capture is a standing hard rule; the Stop hook is only the backstop.
+- **When the owner corrects you, capture the rule immediately** — user-memory store + `video-projects/_CORRECTIONS-LOG.md`, not just "noted". Live capture is a standing hard rule. The backstop is the `UserPromptSubmit` hook `tools/hooks/utterance_triggers.py`, which flags correction-shaped prompts as they arrive. *(It previously said "the Stop hook is only the backstop" — no Stop hook, `extract-learnings.js` or `~/.claude/wiki/` ever existed; verified absent 2026-07-31. Anything that trusted that backstop lost the correction.)*
 - **Plans are executable docs**: persist any multi-step plan as a named in-repo markdown file with a top "How to execute" header (plans propose; the owner triggers). Origin: 2026-05-28, cloud sessions only see committed files.
 - Full owner-communication profile (shorthand style, AskUserQuestion rules, no yes-manning) → **project-onboarding** skill; the bullets above are only the code-work subset.
 
@@ -22,12 +22,12 @@ The owner is a **non-engineer** channel creator (terse/shorthand messages are ho
 
 Before creating ANY new persistent surface (module, command, skill, agent, reference file):
 
-1. **Three cheap greps first** (~2 tool calls; skipping them once cost ~30% of a build when `/fix` already did the proposed feature, 2026-05-11): Grep `.Codex/commands/`, Grep `.Codex/skills/`, Grep `.Codex/REFERENCE/` for the capability keyword.
+1. **Three cheap greps first** (~2 tool calls; skipping them once cost ~30% of a build when `/fix` already did the proposed feature, 2026-05-11): Grep `.claude/commands/`, Grep `.claude/skills/`, Grep `.claude/REFERENCE/` for the capability keyword.
 2. **If an existing surface can absorb it — extend that surface.** Create only if extension is impossible.
 3. **New surface requires a named justification**, recorded where the work is documented (CONTEXT.md, the ADR, or the plan doc): "no existing surface carries this responsibility and here's the boundary." "We needed a place to put it" fails the test. (Planned monthly enforcement via `/status --surface` — ROADMAP Phase 79, NOT yet implemented; today the acceptance test is manual discipline.)
 4. If only *adjacent* tooling exists, say so explicitly and state the differentiation.
 
-Spec: `.Codex/AGENT-ORCHESTRATION.md` § "Extend, Don't Add" (that doc caps itself at 400 lines as its own self-test).
+Spec: `.claude/AGENT-ORCHESTRATION.md` § "Extend, Don't Add" (that doc caps itself at 400 lines as its own self-test).
 
 ## Module-depth heuristics (does a new seam earn its place?)
 
@@ -54,7 +54,7 @@ Action-side checklist. The descriptive seam catalog (what each seam IS) lives in
 | A packaging rule that must BIND | Add a FILTER in `tools/preflight/packaging_lock.py` (code), never prose in a command file | `tests/test_packaging_lock.py` | ADR-0012; enrichment can never upgrade a filter FAIL |
 | Any thumbnail check | Pass/fail necessary condition ONLY — a predictive pre-publish score is the forbidden failure mode | `tools/tests/test_thumbnail_filters.py` | ADR-0007 |
 | /analyze external fetches | Extend the `AnalysisSource` Protocol + BOTH impls (Live + InMemory) | `tests/test_analyze.py` | ADR-0011 |
-| Script-checker behavior | `tools/script_checkers/` — subclass `BaseChecker` (`checkers/__init__.py`), register in `registry.py::build_default_registry` | `tests/test_script_checkers.py` (subprocess pins), `tests/test_checker_registry.py` — **adding a checker legitimately re-baselines the exact-5 `list_all()` pin; update it deliberately, in the same change** | CLI wiring = argparse flag + `checker_flags` dicts (`cli.py`) + **the hardcoded `ordered` list in `cli.py::run_checkers` — a checker missing from `ordered` silently never runs, no error**. Voice rules derive FROM `.Codex/REFERENCE/VOICE-PROFILE.md` → then re-derive `voice_lint` (ADR-0006, never the reverse) |
+| Script-checker behavior | `tools/script_checkers/` — subclass `BaseChecker` (`checkers/__init__.py`), register in `registry.py::build_default_registry` | `tests/test_script_checkers.py` (subprocess pins), `tests/test_checker_registry.py` — **adding a checker legitimately re-baselines the exact-5 `list_all()` pin; update it deliberately, in the same change** | CLI wiring = argparse flag + `checker_flags` dicts (`cli.py`) + **the hardcoded `ordered` list in `cli.py::run_checkers` — a checker missing from `ordered` silently never runs, no error**. Voice rules derive FROM `.claude/REFERENCE/VOICE-PROFILE.md` → then re-derive `voice_lint` (ADR-0006, never the reverse) |
 | Phase rule / slug parsing | Import `detect_phase` / `extract_topic_slug` from `tools/dashboard/project_scanner.py` — reuse, don't relocate | — | ADR-0008 deferred the move deliberately |
 | A 4th store / new seam | Copy the ADR meta-shape: neutral peer package, frozen-dataclass returns, strict-single + lenient-bulk errors, staged migration, tests landed WITH the seam | new suite in `tests/` | **Write a new ADR** in `docs/adr/` (next number after 0014, `NNNN-slug.md`) |
 
@@ -66,7 +66,7 @@ Action-side checklist. The descriptive seam catalog (what each seam IS) lives in
 - **Tests** → `tests/` (only dir default pytest collects), unit files in `tests/unit/`. `tools/tests/` is for regression PINS that run via explicit path only. **Never put a test file inside `tools/youtube_analytics/`** — that dir is pytest-poison (bare-import collection errors; the 6 broken files there have working twins in `tests/unit/`).
 - **New ADR** (`docs/adr/`) when: creating a seam/store, adding a BINDING gate, adding a pip dependency to core, or rejecting a proposed consolidation so it stays rejected.
 - **New scheduled routine** → workload in `tools/routines/`, registration via automation-ops skill.
-- Filesystem for video work is owned by the lifecycle rules in AGENTS.md — never invent folders under `video-projects/`.
+- Filesystem for video work is owned by the lifecycle rules in CLAUDE.md — never invent folders under `video-projects/`.
 
 ## Code conventions a new module must follow
 
@@ -101,11 +101,11 @@ Non-negotiables the principal enforced:
 - **When it fires:** unstage the file (`git restore --staged <file>`) and rethink — the hook is nearly always right. `git commit --no-verify` only if you are CERTAIN it's a false positive, and say so in the commit body. If a real secret ever reaches history: **rotate the credential immediately**; history is forever. Never bypass hooks to make a commit pass — a failing hook is a bug to root-cause, not an obstacle.
 - Expect the three committed SQLite DBs to show as modified after tool runs; that's normal (→ data-stores), not something to `git checkout --` away without checking what wrote them. When the owner asks for a commit, stage the DB files your tool run legitimately wrote (live history commits them with the work) — never commit DB changes you can't attribute.
 
-## Agent-spawn digest (builds only — the spec is `.Codex/AGENT-ORCHESTRATION.md`; read it before spawning)
+## Agent-spawn digest (builds only — the spec is `.claude/AGENT-ORCHESTRATION.md`; read it before spawning)
 
 - **Three triggers, any one → spawn instead of reading in main context:** (1) >500 lines to read (single file or cumulative), (2) reasoning >3 steps that won't collapse to a one-liner, (3) 2+ parallel independent tasks.
 - **Spawn prompt = three blocks:** `<read_first>` with exact absolute paths · one-sentence imperative goal · the Return Contract pasted verbatim (grep the `<!-- RETURN-CONTRACT-V1 -->` marker in AGENT-ORCHESTRATION.md; changing it = bump to V2 + update callers, never silent edits). Contract core: ≤200-word summary, full output written to disk, no raw dumps >10 lines, final line `OUTPUT: <absolute-path>`.
-- **Reference tiers:** Tier 0 = AGENTS.md + MEMORY.md (always loaded, tiny on purpose); Tier 1 = declared in command frontmatter; Tier 2 = loaded ONLY by the sub-agent that names them in `<read_first>` — main context never opens them, not even "to check"; Tier 3 = on-demand. Every ref above Tier 0 needs a named caller.
+- **Reference tiers:** Tier 0 = CLAUDE.md + MEMORY.md (always loaded, tiny on purpose); Tier 1 = declared in command frontmatter; Tier 2 = loaded ONLY by the sub-agent that names them in `<read_first>` — main context never opens them, not even "to check"; Tier 3 = on-demand. Every ref above Tier 0 needs a named caller.
 - **Rate limits are expected, not exceptional:** on 429 / "rate limit" strings, serialize pending spawns, retry with 30s/60s/120s backoff (max 3), then AskUserQuestion checkpoint (retry once more [recommended] / paste-prompt fallback / abort). Never fail the command on a rate limit.
 - Anti-pattern: reading a sub-agent's output file in full after return — the summary + `OUTPUT:` line is the contract; open it only for a specific quote/range.
 
@@ -117,7 +117,7 @@ Non-negotiables the principal enforced:
 4. A new file/command/agent/ref without the named-justification acceptance test — or without the three discovery greps first.
 5. Re-implementing what a seam owns (a second SRT parser, a fourth AUTO-fence surgery, a hardcoded lifecycle glob).
 6. `git commit --no-verify` as a reflex, or any hook bypass to force a commit through.
-7. Presenting the owner an architecture menu instead of a decision — or skipping the memory/wiki capture after he corrects course.
+7. Presenting the owner an architecture menu instead of a decision — or skipping the memory capture after he corrects course.
 8. Declaring a change done without the real-data check (synthetic fixtures prove it runs, not that behavior survived).
 
 ## Related skills

@@ -1,6 +1,6 @@
 ---
 name: authoring-skills
-description: Craft standard for writing and editing this repo's instruction surfaces — SKILL.md files, slash-command files, and agent files. The vocabulary and levers that make an instruction predictable. Use when: creating or editing any file under `.Codex/skills/`, `.Codex/commands/`, or `.Codex/agents/`; writing a skill/command/agent description; a skill/command/agent reads vague, bloated, or is ignored when it should fire; or another skill needs the skill-craft vocabulary. Decides HOW WELL the artifact is written; defers the should-it-exist gate to `extending-safely`.
+description: 'Craft standard for writing and editing this repo''s instruction surfaces — SKILL.md files, slash-command files, and agent files. The vocabulary and levers that make an instruction predictable. Use when: creating or editing any file under `.claude/skills/`, `.claude/commands/`, or `.claude/agents/`; writing a skill/command/agent description; a skill/command/agent reads vague, bloated, or is ignored when it should fire; or another skill needs the skill-craft vocabulary. Decides HOW WELL the artifact is written; defers the should-it-exist gate to `extending-safely`.'
 ---
 
 # Authoring Skills
@@ -54,11 +54,11 @@ This repo already coins strong ones — **use them, and promote buried ones to t
 
 ## Repo conventions (author to these)
 
-- **Audience = a cold Sonnet-class session** with only AGENTS.md + MEMORY.md loaded and no prior conversation. Every instruction must execute from a fresh prompt.
+- **Audience = a cold Sonnet-class session** with only CLAUDE.md + MEMORY.md loaded and no prior conversation. Every instruction must execute from a fresh prompt.
 - **Every path and command must run.** Live-verify before shipping — a dead path is a lie the next session inherits (Wave-3 review caught a routine bug this way).
 - **Skills route · commands do · agents return.** A skill points at the authoritative doc and says *when/why* to read it; a command is a task procedure; an agent carries the Return Contract.
 - **Format exemplar: `historian/SKILL.md`** — stages table, hard rules, stop-flags, disclosed supplementary files.
-- **Register on creation:** one-line entry in `.Codex/skills/README.md` + a AGENTS.md § Skill Library pointer; user-reachable commands also update the `project-onboarding` router.
+- **Register on creation:** one-line entry in `.claude/skills/README.md` + a CLAUDE.md § Skill Library pointer; user-reachable commands also update the `project-onboarding` router.
 
 ## Authoring checklist
 
@@ -68,7 +68,7 @@ This repo already coins strong ones — **use them, and promote buried ones to t
 - [ ] Long reference disclosed to a named sibling; SKILL.md ≤ ~250 lines.
 - [ ] Restatements collapsed into leading words; buried coinages promoted to where they fire.
 - [ ] No-op sentence-hunt done; prohibitions reworded to positives except load-bearing guardrails.
-- [ ] Every path/command live-verified; README + AGENTS.md pointer added.
+- [ ] Every path/command live-verified; README + CLAUDE.md pointer added.
 
 ## Related skills
 

@@ -1,18 +1,18 @@
 ---
 name: production-map
-description: Routing layer for content-production work in the History vs Hype repo — pipeline-phase→command map, the packaging gate authority model (filters decide, scores inform), mandatory conversational triggers, artifact done-standards, and decision epistemics for content decisions. Use when: working on a video project or any video-projects/ path; deciding which command comes next in the pipeline; the user says "uploaded"/"published"/"is live"/"script locked"/"lock it"/"T1 passed"; any packaging, gate, greenlight, or title/thumbnail-advancement question; citing channel performance data in a recommendation; unsure which reference doc or skill owns a content question. DORMANT for pure code/engineering work (→ codebase-atlas, extending-safely).
+description: 'Routing layer for content-production work in the History vs Hype repo — pipeline-phase→command map, the packaging gate authority model (filters decide, scores inform), mandatory conversational triggers, artifact done-standards, and decision epistemics for content decisions. Use when: working on a video project or any video-projects/ path; deciding which command comes next in the pipeline; the user says "uploaded"/"published"/"is live"/"script locked"/"lock it"/"T1 passed"; any packaging, gate, greenlight, or title/thumbnail-advancement question; citing channel performance data in a recommendation; unsure which reference doc or skill owns a content question. DORMANT for pure code/engineering work (→ codebase-atlas, extending-safely).'
 ---
 
 # Production Map
 
 ROUTER skill. It tells you WHERE to go and WHAT must fire — it never contains the procedure.
-AGENTS.md (always loaded) has the pipeline summary; this skill adds the decision map, the gate
+CLAUDE.md (always loaded) has the pipeline summary; this skill adds the decision map, the gate
 authority model, and the judgment that isn't written there. If you find yourself explaining HOW
 to write a script or do research, you have left this skill's lane — jump to the routed surface.
 
 ## Pipeline spine (idea → published)
 
-One row per phase. Commands live in `D:\History vs Hype\.Codex\commands\<name>.md`.
+One row per phase. Commands live in `G:\History vs Hype\.claude\commands\<name>.md`.
 
 | # | Command | What it does | Artifact produced | Gate it enforces |
 |---|---|---|---|---|
@@ -42,7 +42,9 @@ verification passes `/verify` skips for context-economy · `/comment-mine` audie
 Authority: `docs/adr/0012-packaging-advancement-is-code-gated.md` + `CONTEXT.md` § Packaging / thumbnail terms.
 
 - **FILTERS decide (pass/fail, all four must PASS):** (1) search-anchor in title
-  (`title_scorer.has_search_anchor`), (2) clickbait brand-gate (no `title_scorer` hard_rejects),
+  (`title_scorer.has_search_anchor` — a curated head term OR a verified ≥1,000/mo volume;
+  a FAIL on a famous term means "unmeasured", so record it rather than rewriting the title, ADR-0023),
+  (2) clickbait brand-gate (no `title_scorer` hard_rejects),
   (3) title↔thumbnail curiosity gap — a judgment field the gate requires be FILLED, (4) thumbnail
   conditions (`thumbnail_checker`; may be PENDING at lock, checked before publish).
 - **ENRICHMENT informs, never decides:** `title_scorer` composite (65), `/curiosity` (60), VidIQ
@@ -66,10 +68,10 @@ block · let enrichment override a filter FAIL · hand-edit inside any `<!-- AUT
 
 **Stale-doc trap:** `tools/PACKAGING_MANDATE.md` V4 still calls title_scorer 65+ a "gate/floor".
 ADR-0012 (newer) demoted 65 to recorded enrichment. ADR-0012 + CONTEXT.md win. Two more:
-AGENTS.md's "<1K/mo = hard stop" demand line is stale — the LIVE gate (greenlight.md) is graded:
+CLAUDE.md's "<1K/mo = hard stop" demand line is stale — the LIVE gate (greenlight.md) is graded:
 GO >= 1,000 / CAUTION 500-999 (passes the V1 floor, warn) / STOP < 500 unless a verifiable news
-hook; answer demand questions by RUNNING /greenlight, not from the AGENTS.md number. And
-AGENTS.md's quick-start still lists /sources and /intel — neither exists any more.
+hook; answer demand questions by RUNNING /greenlight, not from the CLAUDE.md number. And
+CLAUDE.md's quick-start still lists /sources and /intel — neither exists any more.
 
 ## Conversational triggers (MANDATORY — fire regardless of what else is happening)
 
@@ -78,8 +80,8 @@ AGENTS.md's quick-start still lists /sources and /intel — neither exists any m
 | "I uploaded / released / published X" / "X is live" / "X went up" | Run `/reconcile <X>`. Do NOT just look up the video; do NOT assume project files are current. Ambiguous X → ask once, then proceed | The utterance IS the write trigger; stale state files were the loudest recorded workflow failure (2026-05-12) |
 | "script locked" / "lock it" / "T1 passed" / read-aloud passed top-to-bottom | Run the post-lock delta-mine: (1) consolidate read-aloud notes + version diffs + session corrections into `channel-data/calibration/CALIBRATION-CORPUS.md` (axis-tagged, tiered); (2) append new contradictions to `channel-data/calibration/INTERVIEW-AGENDA.md`; (3) record passes-to-lock in `channel-data/calibration/EVAL-BASELINE.md` | Lock-session deltas are the highest-tier calibration signal and evaporate fast; #56/#57 lessons had to be archaeologically reconstructed |
 | Any pushback or correction | Save the derived rule to memory/wiki immediately (project analog: `video-projects/_CORRECTIONS-LOG.md` + affected agent files) — not just an acknowledgment | Global hard rule 1; "I'll remember" is not a process fix |
-| "save this idea somewhere" | Create `PROJECT-BRIEF.md` in a new NUMBERED folder under `video-projects/_BACKLOG/` (parked concept — pull to `_IN_PRODUCTION/` when work starts; NEVER a loose folder in `video-projects/` root) with the claim being fact-checked + preliminary findings, status "CONCEPT SAVED" | `.Codex/USER-PREFERENCES.md` § COMMENT-DRIVEN RESEARCH |
-| `/prompt-mini` request | Save the result as `.Codex/commands/<slug>.md`, not chat-only | User wants artifacts, not ephemera (MEMORY.md hard rule) |
+| "save this idea somewhere" | Create `PROJECT-BRIEF.md` in a new NUMBERED folder under `video-projects/_BACKLOG/` (parked concept — pull to `_IN_PRODUCTION/` when work starts; NEVER a loose folder in `video-projects/` root) with the claim being fact-checked + preliminary findings, status "CONCEPT SAVED" | `.claude/USER-PREFERENCES.md` § COMMENT-DRIVEN RESEARCH |
+| `/prompt-mini` request | Save the result as `.claude/commands/<slug>.md`, not chat-only | User wants artifacts, not ephemera (MEMORY.md hard rule) |
 
 Backstops exist (Routine 6 auto-archives missed publishes; `/reconcile` flags un-mined locked
 scripts) but backstops are for MISSES — the conversational trigger is the contract.
@@ -134,17 +136,17 @@ The owner is scientific: data-backed, test-and-measure. These rules gate every r
 
 | Question is about | Go to | Note |
 |---|---|---|
-| How to write the script — voice, style, structure, delivery | `.Codex/REFERENCE/WRITING-VOICE-AND-STYLE.md` index (routes to PARTS 1-5 sibling files) + `.Codex/REFERENCE/VOICE-PROFILE.md` | VOICE-PROFILE.md is CANONICAL — it wins on any conflict |
-| Research discipline — filing claims, quotes, tiers, NLM, stop-flags | **historian skill** (`.Codex/skills/historian/SKILL.md`) | Owns all research-mode rules; dormant only during project mechanics |
-| Titles / thumbnails — rules, patterns, protocols | `tools/PACKAGING_MANDATE.md` + `.Codex/REFERENCE/TITLE-GENERATION-PROTOCOL.md` | Read with the ADR-0012 correction above (65 = enrichment) |
+| How to write the script — voice, style, structure, delivery | `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` index (routes to PARTS 1-5 sibling files) + `.claude/REFERENCE/VOICE-PROFILE.md` | VOICE-PROFILE.md is CANONICAL — it wins on any conflict |
+| Research discipline — filing claims, quotes, tiers, NLM, stop-flags | **historian skill** (`.claude/skills/historian/SKILL.md`) | Owns all research-mode rules; dormant only during project mechanics |
+| Titles / thumbnails — rules, patterns, protocols | `tools/PACKAGING_MANDATE.md` + `.claude/REFERENCE/TITLE-GENERATION-PROTOCOL.md` | Read with the ADR-0012 correction above (65 = enrichment) |
 | Gate/advancement mechanics | `tools/preflight/packaging_lock.py` + `docs/adr/0012-packaging-advancement-is-code-gated.md` | This skill's Gate section is the digest; the ADR is authority |
 | Per-video state — where is project X, what's next for it | that folder's `PROJECT-STATUS.md` + `/status` | Never trust a stale registry line over the folder + `analytics.db` |
 | Channel performance numbers, staleness, which table holds what | **data-stores skill** | analytics.db / keywords.db / intel.db live there |
 | Topic selection / what to make next | `channel-data/TOPIC-PIPELINE.md` + `tools/TOPIC-RUBRIC.md` + `/next` | Rubric v2 is canonical for scoring |
-| Opening hooks / thesis throughline | `.Codex/REFERENCE/OPENING-HOOK-TEMPLATES.md` / `.Codex/REFERENCE/THESIS-DISCIPLINE.md` | Remember: no opening formula survived holdout — templates are craft, not predictors |
+| Opening hooks / thesis throughline | `.claude/REFERENCE/OPENING-HOOK-TEMPLATES.md` / `.claude/REFERENCE/THESIS-DISCIPLINE.md` | Remember: no opening formula survived holdout — templates are craft, not predictors |
 
 ## Related skills
 
 - **project-onboarding** — you're new to the repo entirely, or need the two-surface map (channel ops vs engineering) and the read-order for a task type.
 - **data-stores** — before querying or citing any number from analytics.db / keywords.db / intel.db, or touching anything near an `<!-- AUTO: -->` block.
-- **historian** (`.Codex/skills/historian/SKILL.md`) — the moment you act as a researcher: NLM queries, `_IN_PRODUCTION/` folders, editing `01-VERIFIED-RESEARCH.md`, any `/research` subcommand.
+- **historian** (`.claude/skills/historian/SKILL.md`) — the moment you act as a researcher: NLM queries, `_IN_PRODUCTION/` folders, editing `01-VERIFIED-RESEARCH.md`, any `/research` subcommand.

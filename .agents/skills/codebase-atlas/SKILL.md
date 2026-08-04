@@ -1,15 +1,15 @@
 ---
 name: codebase-atlas
-description: Map of the Python code surface in D:\History vs Hype — package map of tools/, runnable entry points with exact commands, the ADR seam catalog (which file owns what, where to route a change), and navigation recipes (graphify-code MCP vs CODE-MAP.md vs grep). Use when: asking "where does X live", "what depends on Y", "which file implements Z", "how do I run tool X", when adding or modifying anything under tools/, or when deciding which seam a change routes through. Does NOT cover DB schemas or query recipes (→ data-stores skill) or how to run tests (→ validation-standards skill).
+description: 'Map of the Python code surface in G:\History vs Hype — package map of tools/, runnable entry points with exact commands, the ADR seam catalog (which file owns what, where to route a change), and navigation recipes (graphify-code MCP vs CODE-MAP.md vs grep). Use when: asking "where does X live", "what depends on Y", "which file implements Z", "how do I run tool X", when adding or modifying anything under tools/, or when deciding which seam a change routes through. Does NOT cover DB schemas or query recipes (→ data-stores skill) or how to run tests (→ validation-standards skill).'
 ---
 
 # Codebase Atlas
 
-Everything below was live-verified 2026-07-01 (commands actually run, files read). Repo root: `D:\History vs Hype`. Python 3.12.2, invoked as `python` (system install, no venv in use).
+Everything below was live-verified 2026-07-01 (commands actually run, files read). Repo root: `G:\History vs Hype`. Python 3.12.2, invoked as `python` (system install, no venv in use).
 
 ## Rule zero — how to run anything
 
-**Always `python -m tools.<pkg>.<module>` from repo root.** (The repo path contains a SPACE — `D:\History vs Hype` — quote it in every shell command that uses an absolute path.) Direct-script invocation fails for most modules: `python tools/title_scorer.py --help` dies with `ModuleNotFoundError: No module named 'tools'` (no sys.path bootstrap in the file), while `python -m tools.title_scorer --help` works. A few entry modules (reconcile, session_context, news_scanner) carry a bootstrap and survive direct invocation — don't rely on it; `-m` is the universal convention.
+**Always `python -m tools.<pkg>.<module>` from repo root.** (The repo path contains a SPACE — `G:\History vs Hype` — quote it in every shell command that uses an absolute path.) Direct-script invocation fails for most modules: `python tools/title_scorer.py --help` dies with `ModuleNotFoundError: No module named 'tools'` (no sys.path bootstrap in the file), while `python -m tools.title_scorer --help` works. A few entry modules (reconcile, session_context, news_scanner) carry a bootstrap and survive direct invocation — don't rely on it; `-m` is the universal convention.
 
 One exception that CANNOT use `-m`: `tools/refresh-research-graph.py` (hyphen in filename). Run it as `python tools/refresh-research-graph.py --skip-gemini` (omitting `--skip-gemini` makes a live Gemini call).
 
@@ -19,14 +19,14 @@ One exception that CANNOT use `-m`: `tools/refresh-research-graph.py` (hyphen in
 
 | Package / module | What it is |
 |---|---|
-| `tools/title_scorer.py` | Title Scorer v5 — the packaging workhorse (~47KB). Clickbait brand gate + search-anchor recognizer live here (ADR-0012). `--strict` restores old hard-rejects; default is graded penalties. |
+| `tools/title_scorer.py` | Title Scorer v5 — the packaging workhorse (~47KB). Clickbait brand gate + search-anchor recognizer live here (ADR-0012; the recognizer accepts a curated term OR a verified ≥1,000/mo search volume from keywords.db — ADR-0023). `--strict` restores old hard-rejects; default is graded penalties. |
 | `tools/title_features.py` | ADR-0009 seam: pure `str → features`, 6-class `pattern()` taxonomy + predicates. No DB, no I/O. Topic classification deliberately excluded. |
 | `tools/subtitles.py` | ADR-0010 seam: THE one SRT parser (`parse()`, typed `Cue`/`SubtitleTrack`, encoding ladder, opt-in `fix_hour_offset`). |
 | `tools/benchmark_store.py` | Reader for `channel-data/niche_benchmark.json` (niche scores, topic thresholds). Never raises. Its docstring falsely says colon is a hard reject — behavior is right, comment lies. |
 | `tools/title_ctr_store.py` | DB-backed pattern-CTR lookup for the scorer (reads keywords.db). Never raises. |
 | `tools/topic_pipeline.py` | Ranks future topics (volume × fit × gap); writes `channel-data/TOPIC-PIPELINE.md` with `--save`. |
 | `tools/swap_ledger.py` | Single-variable packaging-swap ledger: DB row is truth, regenerates `channel-data/SWAP-LEDGER.md`. |
-| `tools/voice_lint.py` | v18 deterministic voice scanner; rules derived FROM `.Codex/REFERENCE/VOICE-PROFILE.md` (ADR-0006: never edit lint first). Zero automated tests — top coverage gap. |
+| `tools/voice_lint.py` | v18 deterministic voice scanner; rules derived FROM `.claude/REFERENCE/VOICE-PROFILE.md` (ADR-0006: never edit lint first). Zero automated tests — top coverage gap. |
 | `tools/retitle_audit.py` / `retitle_gen.py` | Find underperforming titles / generate retitle candidates. `retitle_gen` has no argparse (manual `--script-only` check). |
 | `tools/packaging_intel.py`, `packaging_autopilot.py`, `ctr_ingest.py`, `ctr_quick_add.py` | Packaging feedback loop: competitor/demand signals → scoring; CTR ingestion into keywords.db. |
 | `tools/logging_config.py` | Shared logging (`setup_logging` once in main, `get_logger(__name__)` per module) + `check_db_freshness()`. |
@@ -41,7 +41,7 @@ One exception that CANNOT use `-m`: `tools/refresh-research-graph.py` (hyphen in
 | `tools/script_checkers/` | Script QA: `cli.py`, `registry.py`, `checkers/` (flow, repetition, stumble, scaffolding, pacing), `voice/` (corpus_builder etc.). |
 | `tools/research/` | competitor_gap, hook_scorer, nlm_ingest, opener_diagnostic (+ its in-package tests, which DO collect). |
 | `tools/routines/` | Scheduled-task workloads: competitor_drop_scan, keyword_trends_daily, modern_relevance_scan, retention_audit_weekly. Scheduling itself → automation-ops skill. |
-| `tools/hooks/` | Codex harness hooks: `session_context.py` (SessionStart), `locked_asset_guard.py` (PreToolUse). |
+| `tools/hooks/` | Claude Code harness hooks: `session_context.py` (SessionStart), `locked_asset_guard.py` (PreToolUse). |
 | `tools/dashboard/project_scanner.py` | The ONE home of `detect_phase` + `extract_topic_slug`; VideoProjectRepo and reconcile import from it. Reuse, don't relocate. |
 | `tools/benchmark/` | One-shot competitor-corpus builders (n=85 corpus). Many hit the network (yt-dlp/YouTube) — do not run casually. |
 | `tools/newsletter/` | article_scorer, subject_line_scorer. |
@@ -77,7 +77,7 @@ Documented-but-not-executed (invocation read from `__main__` blocks): `python -m
 
 ## Seam catalog (ADR → files → when to route through it)
 
-Full ADRs in `docs/adr/0001..0014` (0001–0003 and 0006 are content-side decisions, not code seams). One-line takeaways only — read the ADR before arguing with it. Every code ADR is a re-litigation guard: **supersede with a new ADR rather than silently restructure.**
+Full ADRs in `docs/adr/` (0001–0003 and 0006 are content-side decisions, not code seams). The table below covers the seam ADRs; it is **not** an index of every ADR — `ls docs/adr/` is. One-line takeaways only — read the ADR before arguing with it. Every code ADR is a re-litigation guard: **supersede with a new ADR rather than silently restructure.**
 
 | ADR | Seam | Files | Route your change through this when… |
 |---|---|---|---|
@@ -88,8 +88,9 @@ Full ADRs in `docs/adr/0001..0014` (0001–0003 and 0006 are content-side decisi
 | 0009 | `title_features` = the one title-structure home | `tools/title_features.py` | Any title-structure question → import it. Broaden by enriching `pattern()` + re-baselining tests, never fork. Topic rules do NOT go here (they live in intent_mapper / topic_vocabulary / growth_data). |
 | 0010 | `subtitles` = the one SRT parser (the `srt` pip lib was rejected) | `tools/subtitles.py` | Any SRT read → `tools.subtitles.parse()`. The SRT WRITER (`auto_srt_fixer`) is deliberately still outside the seam. |
 | 0011 | `/analyze` data fetches behind `AnalysisSource` Protocol | `tools/youtube_analytics/analysis_source.py`, `analyze.py` | Adding/changing any external fetch in the analyze path → extend the Protocol + BOTH impls (Live + InMemory). |
-| 0012 | Packaging advancement is CODE-gated (4 filters; enrichment never upgrades a FAIL) | `tools/preflight/packaging_lock.py`; root-cause fixes in `title_scorer.py` (packaging_lock IMPORTS `score_title`/`has_search_anchor` from it) | Any packaging rule that must BIND → add as a filter in packaging_lock (code), never prose in a command file. Scores stay non-binding nudges. A title_scorer semantic change → re-run `tests/test_packaging_lock.py` + `tools/tests/test_scorer_regression.py` (explicit path). |
+| 0012 | Packaging advancement is CODE-gated (4 filters; enrichment never upgrades a FAIL) | `tools/preflight/packaging_lock.py`; root-cause fixes in `title_scorer.py` (packaging_lock IMPORTS `score_title`/`has_search_anchor` from it) | Any packaging rule that must BIND → add as a filter in packaging_lock (code), never prose in a command file. Scores stay non-binding nudges. The search-anchor recognizer itself is governed by ADR-0023. A title_scorer semantic change → re-run `tests/test_packaging_lock.py` + `tools/tests/test_scorer_regression.py` (explicit path). |
 | 0013 | VidIQ MCP = enrichment-only; repo JSON is the canonical competitor set | `tools/intel/vidiq_competitor_sync.py`, `tools/intel/competitor_channels.json` | Changing competitors → edit the repo JSON, then run the sync. VidIQ generation tools on-channel require a new ADR. |
+| 0023 | Search-anchor fame is MEASURED, not listed (curated set is a fast path only) | `tools/title_scorer.py` (`find_search_anchor`, `ANCHOR_VOLUME_FLOOR`, `record_anchor_volume`); pinned by `tests/unit/test_search_anchor.py` | A title fails the anchor filter on a term you believe is famous → do NOT add it to `HEAD_TERMS`. Record its verified volume: `python -m tools.title_scorer --record-anchor "<term>" --volume <n> --anchor-source vidiq-YYYY-MM-DD`. Three symptomatic list patches in eight weeks is what this ADR ended. |
 | 0014 | `status_doc` owns AUTO-zone fence grammar (3 registered zones) | `tools/video_projects/status_doc.py` (`AutoZone`, `StatusDoc`) | Any new managed block in PROJECT-STATUS.md → register a new `AutoZone`; never hand-roll `<!-- AUTO:* -->` markers or edit inside a zone. |
 
 Two seams deliberately NOT extracted yet ("defer the dangerous writer" house pattern): the folder mover (`tools/reconcile/reconcile.py`) and the SRT rewriter (`tools/youtube_analytics/auto_srt_fixer.py`). Do not "helpfully" wrap them. Full extend-vs-add judgment → extending-safely skill.
@@ -98,15 +99,15 @@ Two seams deliberately NOT extracted yet ("defer the dangerous writer" house pat
 
 | Question | Use | Why |
 |---|---|---|
-| "Where is class/function X defined?" | Grep for `def X\|class X` (or `.Codex/REFERENCE/CODE-MAP.md` god-node/community tables first) | Fastest; graph adds nothing for point lookups. |
-| "Where does capability X live / which package?" | The package map above, then `.Codex/REFERENCE/CODE-MAP.md` | CODE-MAP is the human-labeled community index. |
+| "Where is class/function X defined?" | Grep for `def X\|class X` (or `.claude/REFERENCE/CODE-MAP.md` god-node/community tables first) | Fastest; graph adds nothing for point lookups. |
+| "Where does capability X live / which package?" | The package map above, then `.claude/REFERENCE/CODE-MAP.md` | CODE-MAP is the human-labeled community index. |
 | "What depends on Y / blast radius of changing Y?" | `mcp__graphify-code__get_neighbors` / `query_graph`; cross-check with Grep for real import sites | Graph is dense and reliable for structure — but see the noise caveats below. |
 | "How does A connect to B across packages?" | `mcp__graphify-code__shortest_path` | The one thing grep can't do. |
 | "Most-connected hubs?" | `mcp__graphify-code__god_nodes` — or just read the de-noised list below | Report list is pre-cleaned. |
 | "Have we covered scholar/treaty/topic Z across videos?" | NotebookLM notebook `HvH-coverage-corpus` (id → automation-ops § MCP servers) via `notebook_query` — NOT the research graph | Head-to-head test 2026-06-12: notebook 10/10, graph 0/10. `mcp__graphify-research__*` is sparse; fine for a quick entity ping, fall back on <3 hits. |
-| Graph feels broken / needs rebuild | `.Codex/REFERENCE/GRAPHIFY-OPS.md` | Health checks, refresh, and rollback commands live there. |
+| Graph feels broken / needs rebuild | `.claude/REFERENCE/GRAPHIFY-OPS.md` | Health checks, refresh, and rollback commands live there. |
 
-**God nodes (de-noised, from `.Codex/REFERENCE/CODE-MAP.md`):**
+**God nodes (de-noised, from `.claude/REFERENCE/CODE-MAP.md`):**
 - `KeywordDB` (302 edges) — resolves to `tools/discovery/database.py`, which is a shim; real code is `schema_manager.py`. **220 of those edges are AST signature noise** (`Path`/`bool`/`Any`), not coupling — for real dependents, grep import sites instead.
 - `canonical_map` (267 edges) — publisher/scholar canonicalization registry driving the source-library renamer.
 - `ScriptParser` (`tools/production/parser.py`) — highest betweenness; touched by anything that reads SCRIPT.md.
@@ -118,7 +119,7 @@ Two seams deliberately NOT extracted yet ("defer the dangerous writer" house pat
 
 | Symptom | Cause → fix |
 |---|---|
-| `ModuleNotFoundError: No module named 'tools'` | Direct-script invocation → run `python -m tools....` from `D:\History vs Hype`. |
+| `ModuleNotFoundError: No module named 'tools'` | Direct-script invocation → run `python -m tools....` from `G:\History vs Hype`. |
 | Grep finds `KeywordDB` in `tools/discovery/database.py` but the code looks empty | It's the backward-compat shim → real implementation in `tools/discovery/schema_manager.py`. |
 | `python -m tools.refresh-research-graph` fails | Hyphenated filename can't be a module → `python tools/refresh-research-graph.py --skip-gemini`. |
 | Filesystem walk / `find` dies with Permission denied | `tools/youtube_analytics/.pytest_cache` is unwritable (WinError 5) → exclude that dir from walks. |

@@ -1,13 +1,12 @@
 ---
-name: "source-command-refactor"
-description: "Run the next eligible step in UPGRADE-PLAN.md (one step, then stop)"
+name: source-command-refactor
+description: "Runs the next eligible step in UPGRADE-PLAN.md — one step, then stops. Use when: asked to continue the refactor or upgrade plan."
 ---
 
-# source-command-refactor
-
-Use this skill when the user asks to run the migrated source command `refactor`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/refactor.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /refactor
 
@@ -36,7 +35,7 @@ Designed for phone use: fire the command, one atomic change lands, you decide wh
 - **No scope creep.** If you spot something else broken (typo, dead import, "while I'm here"), record it in the `Drift log` section at the bottom of `UPGRADE-PLAN.md` and continue with the assigned step only.
 - **Verify is non-negotiable.** If the `Verify:` block fails, do NOT mark `[DONE]`. Mark `[DOING]`, write what failed under `Drift log`, commit any work-in-progress with message `WIP: <step-id> verify failed — see drift log`, then stop and report.
 - **No push.** Never run `git push`. Local commit only.
-- **Don't touch unrelated paths.** `.Codex/`, `video-projects/`, `channel-data/`, `library/`, `transcripts/`, `research/` are off-limits unless the step explicitly references them.
+- **Don't touch unrelated paths.** `.claude/`, `video-projects/`, `channel-data/`, `library/`, `transcripts/`, `research/` are off-limits unless the step explicitly references them.
 - **Don't ask for clarification on the step's intent.** The Prompt block is the spec. If it's truly ambiguous, mark the step `[BLOCKED]`, write the question in the step's body in `UPGRADE-PLAN.md`, commit just the file edit, and stop.
 
 ## Procedure
@@ -122,5 +121,5 @@ If output is non-empty, report `Working tree dirty — commit or stash before /r
 ## Related
 
 - The plan itself: `/UPGRADE-PLAN.md`
-- Plan provenance: interview + grill session 2026-06-12 (`~/.Codex/plans/quizzical-gliding-goblet.md`); grill resolutions baked into UPGRADE-PLAN.md § "Why this plan exists"
+- Plan provenance: interview + grill session 2026-06-12 (`~/.claude/plans/quizzical-gliding-goblet.md`); grill resolutions baked into UPGRADE-PLAN.md § "Why this plan exists"
 - Predecessor: `docs/archive/REFACTOR-PLAN.md` (audits `.planning/audits/48-53`, all done except F4 → tracked as UPGRADE-PLAN T1)

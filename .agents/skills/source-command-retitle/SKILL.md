@@ -1,13 +1,12 @@
 ---
-name: "source-command-retitle"
-description: "Retitle underperforming videos — audit, generate candidates, output swap checklist"
+name: source-command-retitle
+description: "Audits underperforming published videos, generates candidate titles, and outputs a swap checklist. Use when: a published video underperforms on CTR, or asked to change the title of something already live."
 ---
 
-# source-command-retitle
-
-Use this skill when the user asks to run the migrated source command `retitle`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/retitle.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /retitle - Retitle Pipeline Entry Point
 
@@ -286,7 +285,7 @@ Do NOT generate candidates or create any files.
 
 ## SWAP LOG INJECTION ("swaps executed" trigger)
 
-After the user runs `/retitle`, executes all title and thumbnail swaps in YouTube Studio, and says **"swaps executed"** (or similar), Codex injects a SWAP LOG section into each video's POST-PUBLISH-ANALYSIS file.
+After the user runs `/retitle`, executes all title and thumbnail swaps in YouTube Studio, and says **"swaps executed"** (or similar), Claude injects a SWAP LOG section into each video's POST-PUBLISH-ANALYSIS file.
 
 **IMPORTANT rules:**
 - NEVER overwrite existing SWAP LOG entries. ALWAYS append new rows.

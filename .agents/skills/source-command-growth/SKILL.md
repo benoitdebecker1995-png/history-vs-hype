@@ -1,13 +1,12 @@
 ---
-name: "source-command-growth"
-description: "Channel growth dashboard — velocity, ROI, traffic, monetization countdown"
+name: source-command-growth
+description: "Channel growth dashboard — velocity, ROI, traffic sources, monetization countdown. Use when: asked about channel growth, subscriber trajectory, or progress toward monetization."
 ---
 
-# source-command-growth
-
-Use this skill when the user asks to run the migrated source command `growth`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/growth.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /growth - Growth Dashboard
 

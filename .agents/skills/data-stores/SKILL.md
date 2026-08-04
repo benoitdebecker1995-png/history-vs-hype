@@ -1,6 +1,6 @@
 ---
 name: data-stores
-description: Map of the repo's data layer — the three live SQLite databases (analytics.db, keywords.db, intel.db), the flat-file data stores, refresh chains and staleness semantics, the truth-source hierarchy for project state, and AUTO-zone rules in status docs. Use when: querying or citing numbers from analytics.db / keywords.db / intel.db; asking "which table holds X"; data looks stale, missing, or frozen; deciding which source is authoritative for project state; editing PROJECT-STATUS.md anywhere near an <!-- AUTO: --> block; tempted to add, drop, or "clean up" a table. NOT for diagnosing why an automation broke (→ debugging-playbook) or scheduled-task registration/admin (→ automation-ops).
+description: 'Map of the repo''s data layer — the three live SQLite databases (analytics.db, keywords.db, intel.db), the flat-file data stores, refresh chains and staleness semantics, the truth-source hierarchy for project state, and AUTO-zone rules in status docs. Use when: querying or citing numbers from analytics.db / keywords.db / intel.db; asking "which table holds X"; data looks stale, missing, or frozen; deciding which source is authoritative for project state; editing PROJECT-STATUS.md anywhere near an <!-- AUTO: --> block; tempted to add, drop, or "clean up" a table. NOT for diagnosing why an automation broke (→ debugging-playbook) or scheduled-task registration/admin (→ automation-ops).'
 ---
 
 # Data Stores
@@ -9,10 +9,10 @@ description: Map of the repo's data layer — the three live SQLite databases (a
 
 | DB | Path | Question it answers | Freshness column |
 |---|---|---|---|
-| analytics.db | `D:\History vs Hype\tools\youtube_analytics\analytics.db` | "How is OUR channel performing?" (YouTube Data + Analytics APIs) | `videos.metrics_fetched_at` |
-| keywords.db | `D:\History vs Hype\tools\discovery\keywords.db` | "What should we make next / how to package it?" (VidIQ + downstream scoring + real CTR) | `ctr_snapshots.snapshot_date` |
-| intel.db | `D:\History vs Hype\tools\intel\intel.db` | Competitor / algorithm knowledge base | `kb_meta.last_refresh` |
-| projects.db | `D:\History vs Hype\tools\history-clip-tool\data\projects.db` | DORMANT — unrelated Shorts clip tool, untouched since 2026-01. Exclude from all data-layer reasoning. | — |
+| analytics.db | `G:\History vs Hype\tools\youtube_analytics\analytics.db` | "How is OUR channel performing?" (YouTube Data + Analytics APIs) | `videos.metrics_fetched_at` |
+| keywords.db | `G:\History vs Hype\tools\discovery\keywords.db` | "What should we make next / how to package it?" (VidIQ + downstream scoring + real CTR) | `ctr_snapshots.snapshot_date` |
+| intel.db | `G:\History vs Hype\tools\intel\intel.db` | Competitor / algorithm knowledge base | `kb_meta.last_refresh` |
+| projects.db | `G:\History vs Hype\tools\history-clip-tool\data\projects.db` | DORMANT — unrelated Shorts clip tool, untouched since 2026-01. Exclude from all data-layer reasoning. | — |
 
 The analytics/keywords split is DELIBERATE — different providers, different mutation
 patterns, failure isolation. **Never propose consolidating them**; the standing answer is
@@ -36,7 +36,7 @@ patterns, failure isolation. **Never propose consolidating them**; the standing 
 - **Post-publish analysis** → the POST-PUBLISH-ANALYSIS.md markdown corpus (ADR-0005), read via
   `tools/post_publish/` `PostPublishStore` — the fourth canonical store.
 
-## analytics.db (9 tables)
+## analytics.db (11 tables — schema v5)
 
 Schema owner: `tools/youtube_analytics/growth_data.py` `ensure_schema()` (the only sanctioned raw-conn
 writer). ALL other writes route through `AnalyticsStore` in `tools/youtube_analytics/store.py` — never
@@ -131,7 +131,7 @@ sweeper, since 2026-07-03) re-runs whatever is missing in this exact order.
 
 ## Truth-source hierarchy (project state)
 
-Authoritative, in order (AGENTS.md §Project State Reconciliation — this deepens, doesn't repeat it):
+Authoritative, in order (CLAUDE.md §Project State Reconciliation — this deepens, doesn't repeat it):
 1. **Filesystem** — which lifecycle folder the project sits in. `_BACKLOG/` + `_ARCHIVED/old-*` are
    outside the lifecycle and invisible to every scanner.
 2. **analytics.db** — publish status (video_id, title, published_at). Reconcile trusts it INSTEAD of
@@ -176,7 +176,7 @@ per-project files; the root dashboard's zone is machine-owned. New machine-owned
 | `channel-data/youtube-intelligence.md` | DERIVED export of intel.db (refresh Phase 9) |
 | `channel-data/patterns/CROSS-VIDEO-SYNTHESIS.md` | appended by `tools/ctr_quick_add.py` (dual-write with `ctr_snapshots`) |
 | `channel-data/channel-insights.md` | written by `tools/youtube_analytics/backfill.py` Stage 4 |
-| `channel-data/calibration/*` (CORPUS, EVAL-BASELINE, INTERVIEW-AGENDA) | Codex-session-written at script lock (conversational trigger); no tool code touches them |
+| `channel-data/calibration/*` (CORPUS, EVAL-BASELINE, INTERVIEW-AGENDA) | Claude-session-written at script lock (conversational trigger); no tool code touches them |
 | `channel-data/RETITLE-SHORTLIST.md` | session-written via `/retitle` |
 | `channel-data/stats.md` | RETIRED — never existed; the channel-health routine that referenced it now computes its baseline live from analytics.db + ctr_snapshots (fixed 2026-07-03, F21). Don't create it |
 | `channel-data/{competitor-drops,modern-relevance,keyword-tracking,retention-audits}/` | dated routine outputs |

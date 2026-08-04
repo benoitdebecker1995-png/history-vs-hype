@@ -1,13 +1,12 @@
 ---
-name: "source-command-patterns"
-description: "Cross-Video Pattern Analysis"
+name: source-command-patterns
+description: "Cross-video pattern analysis over the whole catalogue. Use when: asking what consistently works or fails across videos, or looking for the structural pattern behind performance. Does NOT analyse a single video (→ source-command-analyze)."
 ---
 
-# source-command-patterns
-
-Use this skill when the user asks to run the migrated source command `patterns`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/patterns.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /patterns - Cross-Video Pattern Analysis
 

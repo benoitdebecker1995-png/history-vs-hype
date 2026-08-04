@@ -4,7 +4,7 @@ Companion to [SKILL.md](SKILL.md). Every row was live-verified or incident-sourc
 2026-07-01 (ops/data/code inventories) unless marked `[UNVERIFIED]`. Row IDs are stable —
 cite them ("this is F9") in reports and when adding cross-references.
 
-Run all `python -m …` commands from the repo root `D:\History vs Hype`. Quote every path.
+Run all `python -m …` commands from the repo root `G:\History vs Hype`. Quote every path.
 
 ## F-rows — automation, auth, external APIs
 
@@ -30,7 +30,7 @@ Run all `python -m …` commands from the repo root `D:\History vs Hype`. Quote 
 | F18 | Cloud Routines 1–2 (competitor-drop / modern-relevance) produce no RECENT dated files (manual runs exist through 2026-05-09) | `channel-data\competitor-drops\`, `channel-data\modern-relevance\` | Never registered as scheduled cloud agents (W3 audit); the python scanners work when run manually `[UNVERIFIED recently]` | Register via the `schedule` skill (owner's call) or downgrade the docs' claims — don't leave docs asserting automation that doesn't exist |
 | F19 | Analytics API intermittent `HttpError 500 backendError` on per-video search-term fetch | the refresh log (seen 2026-06-29) | Google-side transient | Per-video loops already catch and skip. Ignore unless persistent across runs — then it's not this row |
 | F20 | Reconcile exit 0, DB fresh, heartbeat advanced — but a published upload never archived | newest `.brain\_inbox\reconcile-YYYY-MM-DD.log` for "gray-zone" / "fuzzy-matched" / "LOGGED" | Fuzzy title match below auto-archive confidence — only tier1/high acts; 0.5–0.85 is logged, not acted | FIRST verify the match is real — compare the video's `published_at` against the project's timeline; gray-zone can be a FALSE positive (2026-07-02: #59, still unpublished, fuzzy-matched 0.50 to a folder-less 2025 video — resolved as false, noted in manual-matches.json). If real: add the Video ID to the folder's PROJECT-STATUS.md or a `manual-matches.json` entry (`null` = never-match; → data-stores), then `/reconcile <slug>` interactively |
-| F21 | Channel-health alerts absent or nonsensical even when metrics clearly moved | `Test-Path "D:\History vs Hype\channel-data\stats.md"` → False | HISTORICAL (fixed 2026-07-03): routine STEP 1 used to read `channel-data/stats.md`, which never existed, so the 1.5σ comparison ran baseline-less. STEP 1 now COMPUTES the baseline live (AVD/retention from analytics.db `videos`, CTR from channel-filtered `ctr_snapshots`, 14-day staleness skip) | If alerts look wrong now, run STEP 1's two baseline queries by hand (they're in `.claude/routines/channel-health-snapshot.md`) and check n + newest_snapshot in their output |
+| F21 | Channel-health alerts absent or nonsensical even when metrics clearly moved | `Test-Path "G:\History vs Hype\channel-data\stats.md"` → False | HISTORICAL (fixed 2026-07-03): routine STEP 1 used to read `channel-data/stats.md`, which never existed, so the 1.5σ comparison ran baseline-less. STEP 1 now COMPUTES the baseline live (AVD/retention from analytics.db `videos`, CTR from channel-filtered `ctr_snapshots`, 14-day staleness skip) | If alerts look wrong now, run STEP 1's two baseline queries by hand (they're in `.claude/routines/channel-health-snapshot.md`) and check n + newest_snapshot in their output |
 
 ## T-rows — test & tooling traps (full run commands → validation-standards skill)
 

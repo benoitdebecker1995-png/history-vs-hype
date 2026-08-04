@@ -1,13 +1,12 @@
 ---
-name: "source-command-publish"
-description: "YouTube metadata, title testing, clip suggestions (Post-production Phase 1)"
+name: source-command-publish
+description: "Builds the YouTube metadata package — title, description, tags, timestamps — plus title testing and clip suggestions. Use when: a video is edited and going up, asked for metadata / description / tags, or working in YOUTUBE-METADATA.md. Load rule-packaging first."
 ---
 
-# source-command-publish
-
-Use this skill when the user asks to run the migrated source command `publish`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/publish.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /publish - Publishing Preparation Entry Point
 
@@ -26,7 +25,7 @@ Generate YouTube metadata, test titles, or identify clip-worthy moments. Everyth
 /publish --synthesize [project]  # Re-run synthesis on existing intake data
 ```
 
-**Post-publish step:** After upload, fix auto-transcription errors with `/fix [project]` (single-purpose subtitle correction). Treat `/fix` as the documented next step in the publish flow — don't drop into a generic Codex conversation for it.
+**Post-publish step:** After upload, fix auto-transcription errors with `/fix [project]` (single-purpose subtitle correction). Treat `/fix` as the documented next step in the publish flow — don't drop into a generic Claude conversation for it.
 
 ## Flags
 
@@ -229,6 +228,21 @@ for t in candidates:
 - Tag count (5-30 recommended)
 
 **Required status:** [PASS] before publishing
+
+#### Gate 2b: Exact searched-entity in title OR first description line (HIGH priority)
+
+Search demand on this channel is **entity-led** — 47% of non-Guatemala search views come from
+5 exact named terms, and some past titles omitted the very name people searched (`operation sig`,
+`treaty of tripoli`) (PACKAGING_MANDATE §2026-07-23, growth move #7). Search is a durable evergreen
+*floor*, not the breakout engine, so this is discoverability insurance, not a Browse lever.
+
+- Identify the video's **exact searchable entity** — the operation, treaty, person, court case, or
+  country a viewer would type. If it's already in the title (V2 head-term), done.
+- **If the entity is NOT in the title, put it verbatim in the FIRST description line** and as a
+  chapter heading. Use the real name people search, not a paraphrase.
+- ⚠ **Only when it accurately describes the video** — do NOT keyword-stuff, and do NOT weaken a
+  strong Browse title to force a search term in. Judge by *absolute* search views later, never
+  search share (search-heavy videos get fewer total impressions — it's a floor, not growth).
 
 **If [FAIL]:**
 1. Review issues list
@@ -851,10 +865,10 @@ Body: [2-3 paragraph summary of the key evidence/finding]
 
 ## Reference Files
 
-- **Thumbnail framework:** `.Codex/REFERENCE/THUMBNAIL-EVALUATION-FRAMEWORK.md`
-- **VidIQ filter:** `.Codex/REFERENCE/VIDIQ-CHANNEL-DNA-FILTER.md`
+- **Thumbnail framework:** `.claude/REFERENCE/THUMBNAIL-EVALUATION-FRAMEWORK.md`
+- **VidIQ filter:** `.claude/REFERENCE/VIDIQ-CHANNEL-DNA-FILTER.md`
 - **Title database:** `channel-data/COMPETITOR-TITLE-DATABASE.md`
-- **Technique library:** `.Codex/REFERENCE/WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md`
+- **Technique library:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md`
 - **Technique log:** `channel-data/TECHNIQUE-USAGE-LOG.md`
 - **Metadata checker:** `tools/discovery/metadata_checker.py`
 - **Prompt generator:** `tools/production/prompt_generator.py`

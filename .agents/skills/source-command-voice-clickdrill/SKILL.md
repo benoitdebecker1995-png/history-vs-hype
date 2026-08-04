@@ -1,22 +1,21 @@
 ---
-name: "source-command-voice-clickdrill"
-description: "Click-based voice calibration — the grill loop with an AskUserQuestion click UI instead of chat A/B, so the creator just clicks options. Low-effort."
+name: source-command-voice-clickdrill
+description: "Click-based voice calibration — the grill loop with a click UI instead of chat A/B. Use when: calibrating voice with low effort, or the creator would rather click options than type."
 ---
 
-# source-command-voice-clickdrill
-
-Use this skill when the user asks to run the migrated source command `voice-clickdrill`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/voice-clickdrill.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /voice-clickdrill — click-to-calibrate (low-effort grill)
 
-The creator wants to **just click options, minimal typing**, and have his picks calibrate `VOICE-PROFILE.md` + improve the script. This is the `grill` loop (`.Codex/REFERENCE/voice-modes/grill.md`) with an **AskUserQuestion click UI** swapped in for the chat A/B.
+The creator wants to **just click options, minimal typing**, and have his picks calibrate `VOICE-PROFILE.md` + improve the script. This is the `grill` loop (`.claude/REFERENCE/voice-modes/grill.md`) with an **AskUserQuestion click UI** swapped in for the chat A/B.
 
 Arg = project slug. Default = the active `_IN_PRODUCTION` script that has an open `VOICE-DRILL-RESUME.md` (currently `36-panama-canal-deconcini-2026`).
 
 ## Setup (do silently, first)
-1. Read IN FULL: `.Codex/REFERENCE/VOICE-PROFILE.md`, `.Codex/REFERENCE/voice-modes/grill.md`, the target `SCRIPT.md` + its `VOICE-DRILL-RESUME.md`. Skim memories `feedback-grill-easier`, `feedback-script-voice-calibration`.
+1. Read IN FULL: `.claude/REFERENCE/VOICE-PROFILE.md`, `.claude/REFERENCE/voice-modes/grill.md`, the target `SCRIPT.md` + its `VOICE-DRILL-RESUME.md`. Skim memories `feedback-grill-easier`, `feedback-script-voice-calibration`.
 2. **Lock-state:** unlocked (no teleprompter / `FINAL-SCRIPT.md` / `.mp4`) → apply confirmed line fixes to `SCRIPT.md` live. Locked → profile-only mode (log changes, don't edit the script).
 3. Voice only. Preserve `[SHOW]`/`[SOURCE]`/`[NLM]` tags + verbatim quotes. Query NotebookLM for any phrasing/fact (the project's research notebook — #36 = `b3314135-7d32-475a-8c2b-5012450c7cc9`), never fabricate. **DO NOT COMMIT.**
 

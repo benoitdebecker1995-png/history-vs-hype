@@ -1,13 +1,12 @@
 ---
-name: "source-command-script"
-description: "Write, revise, review, or export scripts (Production Phase 1)"
+name: source-command-script
+description: "Writes, revises, reviews or exports the video script — from verified facts only. Use when: asked to write, draft or revise a script, working in SCRIPT.md / 02-SCRIPT-DRAFT.md / FINAL-SCRIPT.md, or exporting a teleprompter version. Load rule-script-writing first. Does NOT fact-check (→ source-command-verify) or run the final AI-pattern pass (→ source-command-polish)."
 ---
 
-# source-command-script
-
-Use this skill when the user asks to run the migrated source command `script`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/script.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /script - Script Management Entry Point
 
@@ -21,7 +20,8 @@ Write new scripts, revise existing ones, review for issues, or export for telepr
 /script --variants [project] # Generate hook/structure variants, then write script
 /script --new --variants [project]  # Combine: new script with variant generation
 /script --document-mode [project]  # Document-structured script (clause-by-clause walkthrough)
-/script --collaborate [project]  # Collaborative editing: you draft, Codex refines
+/script --collaborate [project]  # Collaborative editing: you draft, Claude refines
+/script --cross-model [project]  # Two-model drafting + convergence scan (no ad-lib required)
 /script --revise [project]   # Revise existing script
 /script --review [project]   # Review script for issues
 /script --teleprompter [project]  # Export clean text for filming
@@ -35,7 +35,8 @@ Write new scripts, revise existing ones, review for issues, or export for telepr
 | `--hooks` | Score existing hook, generate LLM variants, rank with fulfillment check | `/script --hooks 42-why-brazil-speaks-portuguese-2026 --title "Why Brazil Speaks Portuguese"` |
 | `--title "Title Text"` | Video title — enables title-fulfillment check in --hooks (entity echo + promise-type). If omitted, fulfillment check is skipped. | `/script --hooks 42-why-brazil-2026 --title "Why Brazil Speaks Portuguese"` |
 | `--document-mode` | Generate clause-by-clause document walkthrough script | `/script --document-mode 35-gibraltar-treaty-utrecht-2026` |
-| `--collaborate` | Collaborative editing — you draft, Codex refines | `/script --collaborate 50-thermopylae-sources-2026` |
+| `--collaborate` | Collaborative editing — you draft, Claude refines | `/script --collaborate 50-thermopylae-sources-2026` |
+| `--cross-model` | Two independent drafts (Claude + GPT-5.6) from one beat brief, then a convergence scan that flags the shared-LLM prose | `/script --cross-model 67-donation-constantine-forgery-2026` |
 | `--revise` | Revise existing SCRIPT.md | `/script --revise 19-flat-earth-medieval-2025` |
 | `--review` | Comprehensive quality review | `/script --review 19-flat-earth-medieval-2025` |
 | `--teleprompter` | Export clean text for filming | `/script --teleprompter 19-flat-earth-medieval-2025` |
@@ -159,9 +160,9 @@ Hook pattern from outliers: "legal fiction exposed" frame drove 4x median views.
 3. **Structure emerges DURING research, as a loop:** propose structure → creator pushes back → agree → research again *in function of the video* → adjust scope/structure/beats. Repeat until converged.
 4. **STRUCTURE LOCK** = the loop's convergence point: present the final structure with the evidence under each beat (one screen; beat = one line + its evidence; checked against the title — "what is the video we're trying to make"). Creator approves/adjusts. **No sentence-level work before this lock** (GR-B2 HARD; #57 burned two full polish passes on the wrong spine).
 5. **PRE-SCRIPT QUESTION ROUND** — before writing anything, interview the creator with SPECIFIC prepared questions: how to present this evidence, how to do this transition, how to phrase this key sentence (hook, verdict, mechanism beats). 2–3 concrete prepared variants per question, Bar-talk pre-filtered — never blank questions (GR-B1, GR-B3a). **Preparation bar:** research fully digested, topic genuinely understood, committed own idea of phrasing + build BEFORE asking anything.
-6. **Write the FULL script from the answers** — one real draft, not a cold one (the answers shaped it). Then the **PRE-READ HEAVY GATE** runs before the creator sees it (GR-B3b, GR-B4), in order: (1) notebook grounding on all mechanism beats → (2) attribution audit → (3) seam flow-check (in/out at every paragraph) → (4) `python -m tools.voice_lint` → (5) corpus-scan → (6) Bar-talk test on solo-written lines. Per-round hygiene: every rewritten beat gets a scoped re-scan (lint + register) before its diff is shown; one full-script scan at the lock gate.
+6. **Write the FULL script from the answers** — one real draft, not a cold one (the answers shaped it). *(Alternative for projects with no `_adlib/` corpus, added 2026-08-04: `--cross-model` replaces this step with two independent drafts and a convergence scan. Steps 1–5 and 7–8 are unchanged.)* Then the **PRE-READ HEAVY GATE** runs before the creator sees it (GR-B3b, GR-B4), in order: (1) notebook grounding on all mechanism beats → (2) attribution audit → (3) seam flow-check (in/out at every paragraph) → (4) `python -m tools.voice_lint` → (5) corpus-scan → (6) Bar-talk test on solo-written lines. Per-round hygiene: every rewritten beat gets a scoped re-scan (lint + register) before its diff is shown; one full-script scan at the lock gate.
 7. **Creator read-through = T1 verification, not a draft filter.** Success metric: ZERO feedback needed — if the questions in step 5 were right, the read is a formality. Whatever feels off, he says, gets fixed locally (post-draft changes stay small + localized) → ready-to-film script.
-8. **Everything he says feeds back** — every pushback, pick, correction is mined into `channel-data/calibration/CALIBRATION-CORPUS.md` (post-lock mining loop, AGENTS.md trigger).
+8. **Everything he says feeds back** — every pushback, pick, correction is mined into `channel-data/calibration/CALIBRATION-CORPUS.md` (post-lock mining loop, CLAUDE.md trigger).
 
 **Quote bank precondition (GR-B5):** scripting is blocked until `01-VERIFIED-RESEARCH.md` holds the COMPLETE quote bank — all useful quotes round-trip-verified with page + provenance, plus one thesis-bearing artifact hunted per act (GR-A9). The script writes from the bank only; a quote not in the bank mid-draft = STOP, route to research round-trip, never inline. Lock-gate backstop: load-bearing on-screen verbatims get one re-confirmation (verification notes go stale, 58-02).
 
@@ -230,20 +231,20 @@ Max script words: [N] (target × 250 WPM × 1.80)
 ## Before Writing
 
 **Read these reference files:**
-- `.Codex/REFERENCE/WRITING-VOICE-AND-STYLE.md` index - **AUTHORITATIVE** style reference, routes to PARTS 1-5 sibling files (voice, evidence, structure, debunking framework, techniques toolkit)
+- `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` index - **AUTHORITATIVE** style reference, routes to PARTS 1-5 sibling files (voice, evidence, structure, debunking framework, techniques toolkit)
   - **PART 1:** Core Voice (forbidden phrases, sentence rhythm, word choice)
   - **PART 3:** Structure (hook/turn/close, narrative flow, pacing)
   - **PART 4:** Debunking Framework (myth-first, seven principles, concede-pivot)
   - **PART 5:** Techniques Toolkit (hooks, mechanism forensics, source-flip, accumulation)
   - Retention playbook auto-updated with `python -m tools.youtube_analytics.playbook_synthesizer --update`
   - Creator technique library auto-updated with `python -m tools.youtube_analytics.pattern_synthesizer_v2 --update`
-- `.Codex/REFERENCE/channel-values.md` - Brand DNA
-- `.Codex/USER-PREFERENCES.md` - Natural speaking patterns
-- `.Codex/REFERENCE/NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` - Prompts for your uploaded books
-- **`.Codex/REFERENCE/OPENING-HOOK-TEMPLATES.md`** - Fill-in-the-blank templates for first 60 seconds
-- **`.Codex/REFERENCE/RETENTION-STRUCTURE-MAP.md`** - Whole-video gap-sustain map (turn at 15-25% — land early; McKee's 25% = outer bound, 25-35% = documented dead zone; three-touch macro-gap, top-spin, no new gaps in final 2 min) — keeps the opener's gains from bleeding out in the body
-- **`.Codex/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md`** - Fill-in-the-blank templates for final 60-90 seconds
-- **`.Codex/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md`** - Pre-filming polish (Iran Part 1 lessons)
+- `.claude/REFERENCE/channel-values.md` - Brand DNA
+- `.claude/USER-PREFERENCES.md` - Natural speaking patterns
+- `.claude/REFERENCE/NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` - Prompts for your uploaded books
+- **`.claude/REFERENCE/OPENING-HOOK-TEMPLATES.md`** - Fill-in-the-blank templates for first 60 seconds
+- **`.claude/REFERENCE/RETENTION-STRUCTURE-MAP.md`** - Whole-video gap-sustain map (turn at 15-25% — land early; McKee's 25% = outer bound, 25-35% = documented dead zone; three-touch macro-gap, top-spin, no new gaps in final 2 min) — keeps the opener's gains from bleeding out in the body
+- **`.claude/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md`** - Fill-in-the-blank templates for final 60-90 seconds
+- **`.claude/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md`** - Pre-filming polish (Iran Part 1 lessons)
 
 ## PRE-SCRIPT INTELLIGENCE
 
@@ -278,7 +279,7 @@ Insights come from:
 - At least 1 past video of the same topic type must exist in the feedback database
 - Run `python -m tools.youtube_analytics.feedback backfill` to populate feedback data
 
-### Implementation (For Codex)
+### Implementation (For Claude)
 
 **Run this automatically (do not ask user):**
 ```python
@@ -321,7 +322,7 @@ After script generation is complete, run retention scoring on the output:
 **HIGH RISK sections should be revised before filming.**
 ```
 
-**Implementation for Codex:**
+**Implementation for Claude:**
 ```python
 import sys
 sys.path.insert(0, 'tools/youtube_analytics')
@@ -358,9 +359,9 @@ If predicted retention is below channel average (27.8%), flag specific sections 
 
 ## Automatic Structure Check (Post-Generation)
 
-After the script has been generated and saved to `SCRIPT.md`, AND after retention scoring and retention prediction have run, automatically invoke the `structure-checker-v2` agent by reading `.Codex/agents/structure-checker-v2.md` and following its instructions against the generated script file.
+After the script has been generated and saved to `SCRIPT.md`, AND after retention scoring and retention prediction have run, automatically invoke the `structure-checker-v2` agent by reading `.claude/agents/structure-checker-v2.md` and following its instructions against the generated script file.
 
-**How to invoke:** Read `.Codex/agents/structure-checker-v2.md` in full, then apply its constraints and checklist to the generated script. The agent reads the script and analyzes it for structural compliance — no external tool call needed, Codex does this natively.
+**How to invoke:** Read `.claude/agents/structure-checker-v2.md` in full, then apply its constraints and checklist to the generated script. The agent reads the script and analyzes it for structural compliance — no external tool call needed, Claude does this natively.
 
 **Display findings organized by severity:**
 
@@ -397,7 +398,7 @@ The structure checker found issues that historically correlate with retention dr
 
 **Gate:** Runs ONLY when the project has a NotebookLM notebook (i.e., the project went through Phase 2 — check the project folder/PROJECT-STATUS for a notebook reference, or `mcp__notebooklm__notebook_list` for a notebook matching the project slug). No project notebook → skip silently with one line: "NLM structure comparison skipped — no project notebook." Also skip on MCP auth failure after one `nlm login` retry. Enrichment, not a gate.
 
-**Run:** Query the **85-transcript competitor notebook** with the **Post-Script Structure Comparison prompt** (`.Codex/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md`, next to the Pre-Filming Script Audit), pasting the script's hook, thesis line, and closing beat.
+**Run:** Query the **85-transcript competitor notebook** with the **Post-Script Structure Comparison prompt** (`.claude/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md`, next to the Pre-Filming Script Audit), pasting the script's hook, thesis line, and closing beat.
 
 **Display:**
 ```
@@ -433,7 +434,7 @@ Glob the project folder:
 
 ### Step 3a: If title EXISTS — score promise vs delivery
 
-Run a coherence judgment (Codex-native, no Python tool needed):
+Run a coherence judgment (Claude-native, no Python tool needed):
 
 ```
 Hook (first 150 words): [extracted hook text]
@@ -525,7 +526,7 @@ Which format? (Or type number)
 ```
 
 **If format identified:**
-- Read `.Codex/REFERENCE/FORMAT-TEMPLATES.md` for full structure
+- Read `.claude/REFERENCE/FORMAT-TEMPLATES.md` for full structure
 - Follow template Act breakdown exactly
 - Use series branding elements (title formula, intro, thumbnail)
 
@@ -544,7 +545,7 @@ Ask the user:
 
 ## Coverage Checkpoint (Pre-Flight)
 
-After classifying video type, check `.Codex/REFERENCE/coverage-audit.md` Coverage Matrix:
+After classifying video type, check `.claude/REFERENCE/coverage-audit.md` Coverage Matrix:
 
 | Video Type | Action |
 |------------|--------|
@@ -576,7 +577,7 @@ After classifying video type, check `.Codex/REFERENCE/coverage-audit.md` Coverag
 4. **Self-affirmation** (acknowledge shared values before corrections)
 5. **Source credibility** (explain WHY myth was created)
 
-**See:** `.Codex/REFERENCE/WRITING-VOICE-AND-STYLE-P4-DEBUNKING.md` for complete framework
+**See:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P4-DEBUNKING.md` for complete framework
 
 **NotebookLM assistance:** Use prompts from `NOTEBOOKLM-SCRIPTWRITING-PROMPTS.md` for:
 - Identity stake assessment (Use Case 2)
@@ -628,9 +629,9 @@ After classifying video type, check `.Codex/REFERENCE/coverage-audit.md` Coverag
 
 ### Voice and Spoken Delivery (corrected 2026-07-20 — routes instead of restating)
 
-**Canonical: `.Codex/REFERENCE/VOICE-PROFILE.md`** (wins on any conflict, ADR-0006) — sentence rhythm (flowing, not staccato; the chopped-fragment "Ambassadors. Embassies." shape is the #1 too-AI tell), connectors, cold-open, transitions. Secondary: `.Codex/REFERENCE/WRITING-VOICE-AND-STYLE-P3-STRUCTURE.md` §3.5 (spoken-delivery mechanics) and `-P1-CORE-VOICE.md` (forbidden phrases, word choice).
+**Canonical: `.claude/REFERENCE/VOICE-PROFILE.md`** (wins on any conflict, ADR-0006) — sentence rhythm (flowing, not staccato; the chopped-fragment "Ambassadors. Embassies." shape is the #1 too-AI tell), connectors, cold-open, transitions. Secondary: `.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P3-STRUCTURE.md` §3.5 (spoken-delivery mechanics) and `-P1-CORE-VOICE.md` (forbidden phrases, word choice).
 
-**2026-07-20 removal note:** this section previously restated its own filler-count budget ("I think: 2-3, Now/So: 5-6" — the same unsourced numbers already cut from script-writer-v2.md's VOICE CALIBRATION in C1) and a "Natural Delivery Patterns" checklist duplicating VOICE-PROFILE.md content, pointing to `.Codex/USER-PREFERENCES.md` → "NATURAL DELIVERY PATTERNS" — a section that does not exist in that file (dead link). Removed; script-writer-v2 (invoked above) already carries the correct VOICE-PROFILE.md Tier-1 reference, so this command doesn't need its own copy.
+**2026-07-20 removal note:** this section previously restated its own filler-count budget ("I think: 2-3, Now/So: 5-6" — the same unsourced numbers already cut from script-writer-v2.md's VOICE CALIBRATION in C1) and a "Natural Delivery Patterns" checklist duplicating VOICE-PROFILE.md content, pointing to `.claude/USER-PREFERENCES.md` → "NATURAL DELIVERY PATTERNS" — a section that does not exist in that file (dead link). Removed; script-writer-v2 (invoked above) already carries the correct VOICE-PROFILE.md Tier-1 reference, so this command doesn't need its own copy.
 
 - [ ] Passes the "Stumble Test" (read aloud without hesitation)
 
@@ -638,7 +639,7 @@ After classifying video type, check `.Codex/REFERENCE/coverage-audit.md` Coverag
 
 Save to: `video-projects/[lifecycle]/[project]/SCRIPT.md`
 
-Template: `.Codex/templates/02-SCRIPT-DRAFT-TEMPLATE.md`
+Template: `.claude/templates/02-SCRIPT-DRAFT-TEMPLATE.md`
 
 **Note:** Use `SCRIPT.md` as the canonical script file. Git tracks version history—no V2/V3/FINAL files needed.
 
@@ -883,7 +884,7 @@ Use document mode when:
 - Script should follow document's clause-by-clause order
 - Visual format is split-screen (original left, translation right)
 
-**Format reference:** `.Codex/REFERENCE/UNTRANSLATED-EVIDENCE-FORMAT-GUIDE.md`
+**Format reference:** `.claude/REFERENCE/UNTRANSLATED-EVIDENCE-FORMAT-GUIDE.md`
 
 ### Prerequisites
 
@@ -979,15 +980,15 @@ RIGHT: English translation - "[exact translation]"]
 
 ### Reference Files
 
-- **Format guide:** `.Codex/REFERENCE/UNTRANSLATED-EVIDENCE-FORMAT-GUIDE.md`
-- **Agent rules:** `.Codex/agents/script-writer-v2.md` Rule 18
+- **Format guide:** `.claude/REFERENCE/UNTRANSLATED-EVIDENCE-FORMAT-GUIDE.md`
+- **Agent rules:** `.claude/agents/script-writer-v2.md` Rule 18
 - **Translation pipeline:** `tools/translation/cli.py`
 
 ---
 
 ## COLLABORATIVE EDITING (`--collaborate`)
 
-You draft, Codex refines. The preferred workflow for scripts where your voice and personal takes matter.
+You draft, Claude refines. The preferred workflow for scripts where your voice and personal takes matter.
 
 **Trigger:** User pastes a draft with inline comments, says "read my changes," or runs `--collaborate`.
 
@@ -1053,6 +1054,110 @@ Make small edits, one round at a time. Present changes, wait for feedback. Do no
 - User has annotated an existing script with comments
 - User says "read my changes" or "I made some edits"
 - Any time the user's voice and personal takes are the product
+
+---
+
+## CROSS-MODEL DRAFTING (`--cross-model`)
+
+Two models draft the same act independently; the **overlap between them is the defect**. Added
+2026-08-04 for the case where Claude-alone prose fails the cold read and the creator does not want to
+ad-lib.
+
+### Why this exists, and what it assumes
+
+"Too AI" is not Claude's personal style — it is the **shared attractor** both frontier models fall
+into: balanced clauses, negation-pairs, em-dash-in-place-of-connector, abstract summary landings,
+tricolon. His measured natural rate of negation-pairs is **zero**; locked scripts ran 9–15 per script
+(memory `feedback-talk-first-scripting`; EVAL-BASELINE R24).
+
+**So: where two independently-prompted models converge on the same phrasing or the same rhetorical
+move at the same seam, that convergence is evidence of the attractor, not of quality.** That gives the
+creator something to act on without speaking a word — which is the gap between "Claude writes it" (has
+failed T1 twice) and "he ad-libs it" (works, but he has declined it).
+
+⚠ **This does NOT supersede talk-first.** Where `_adlib/` transcripts or `VOICE-CORPUS` §1 lines exist,
+they still outrank everything this mode produces. This is the path for a script with no ad-lib corpus.
+
+⚠ **Unmeasured.** The convergence scan is new. Give it one video's evidence before it becomes doctrine,
+and log the passes-to-lock count to `channel-data/calibration/EVAL-BASELINE.md` either way.
+
+### Prerequisites
+
+- **STRUCTURE LOCK passed** (v18 step 4, GR-B2 HARD). No sentence-level work before the creator has
+  approved the beat list. This mode is a replacement for canonical-flow **step 6**, not for step 4.
+- **Quote bank complete** in `01-VERIFIED-RESEARCH.md` (GR-B5).
+- Research verification gate ≥90%.
+
+### Step 1 — Claude writes the BEAT BRIEF (no prose)
+
+One file per act, `_crossmodel/act[N]-brief.md`. Contains **only**:
+
+- The locked facts for that act, each with its C-number and locator.
+- The quote bank entries available to it — verbatim, with page numbers.
+- The **open-question ledger**: what the viewer already knows entering this act, and the ONE question
+  currently open (`feedback-script-structure-laws`).
+- The **explicit joint** at every seam — a BUT or a THEREFORE, never "and then".
+- What must NOT appear (cut list, contested claims, modality that must be carried).
+
+⛔ **No example sentences, no suggested phrasings, no "something like…".** A single seeded phrase
+propagates into both drafts and destroys the independence the scan depends on.
+
+### Step 2 — GPT-5.6 drafts independently
+
+Hand it: the beat brief, `channel-data/calibration/VOICE-CORPUS-FOR-MODEL-PASSES.md` §1 (his locked
+lines — do not rewrite) and §2 (phrases he has rejected aloud). **It does not see Claude's draft.**
+
+Access, verified 2026-08-04:
+
+| Path | `gpt-5.6-sol` | Use for |
+|---|---|---|
+| ChatGPT web/desktop (Plus) | ✅ | Small pastes, high-reasoning passes. **Plus expires 2026-08-23** |
+| Codex CLI, ChatGPT sign-in | ❌ rejected under ChatGPT auth (openai/codex #31905, #34027, #35148) | Repo-reading drafts on **`gpt-5.6-terra`** |
+| OpenAI API key | ✅ | Headless; the only route to Sol without a browser |
+
+⚠ Neither `codex` nor `gemini` is on PATH in the default shell — confirm before scripting either.
+Codex reads the repo but does not write it; it returns the draft in chat, same contract as the
+`tools/youtube_analytics/_research/CODEX-*.md` briefs.
+
+### Step 3 — Claude drafts from the same brief
+
+Write it before reading the GPT draft. If the GPT draft has already landed, this step is compromised —
+say so and skip the scan rather than reporting a scan that means nothing.
+
+### Step 4 — Convergence scan (the actual product)
+
+Diff the two drafts beat by beat and classify every correspondence:
+
+| Class | What it looks like | Action |
+|---|---|---|
+| **Attractor** | Both drafts use the same rhetorical move at the same seam — same negation-pair, same em-dash pivot, same abstract landing | ⛔ **Cut or rewrite.** Two models reaching for it independently is the signature |
+| **Forced by evidence** | Both state the same fact in near-identical words because the quote or the locator constrains it | ✅ Keep — convergence here is correctness, not style |
+| **Divergent** | The drafts genuinely differ in framing, order, or emphasis | → Step 5 |
+
+Report as a table: seam, both renderings, class, and the proposed replacement for every **Attractor**.
+
+### Step 5 — Divergence goes to the creator, at the BEAT level
+
+Present each divergence as two framings with **the tradeoff named** — not as a line-level A/B. His own
+diagnosis is that picks are weak signal because he "settles" between options generated from one prior;
+these options come from different priors, so the choice carries information. He answers in a sentence.
+
+### Step 6 — Assemble, then the PRE-READ HEAVY GATE, unchanged
+
+Notebook grounding on mechanism beats → attribution audit → seam flow-check → `python -m
+tools.voice_lint` → corpus-scan → Bar-talk test on solo-written lines.
+
+**Plus the guard this mode makes non-optional:** mechanically diff every touched chapter against
+`VOICE-CORPUS` §1 before returning. Nine of his lines were lost in a single draft; every one was
+grammatical, most were shorter, and none tripped the linter. Only a diff catches it — *"I only
+tightened it"* is the signature of the failure, not a defence.
+
+### Output
+
+- `_crossmodel/act[N]-brief.md` — the briefs
+- `_crossmodel/act[N]-gpt.md` · `_crossmodel/act[N]-claude.md` — the two drafts, kept for audit
+- `_crossmodel/convergence-[date].md` — the scan table
+- `SCRIPT.md` — the assembled result
 
 ---
 
@@ -1160,7 +1265,7 @@ Export SCRIPT.md to clean text for filming.
 
 0. **LOCK GATE (hard).** Confirm the script is locked before exporting. Locked = an explicit `**STATUS: LOCKED**` (or `<!-- SCRIPT-LOCKED: YYYY-MM-DD -->`) marker at the top of `SCRIPT.md`, OR a `FINAL-SCRIPT.md` exists, OR the user states the read-aloud T1 gate has passed. **If not locked: do NOT write SCRIPT-TELEPROMPTER.txt.** Emit: "Script not locked — teleprompter is a post-lock derived artifact. Read aloud from SCRIPT.md for the T1 gate; once locked, re-run `/script --teleprompter`." Then stop.
 1. Read SCRIPT.md from project folder
-2. **Run Pre-Filming Polish checklist** (see `.Codex/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md`)
+2. **Run Pre-Filming Polish checklist** (see `.claude/REFERENCE/SCRIPT-TO-DELIVERY-LESSONS.md`)
    - Cut academic attributions from flow
    - Cut "Do you see what this means?" phrases
    - Convert numbered lists to prose
@@ -1189,10 +1294,10 @@ Export SCRIPT.md to clean text for filming.
 
 ## Reference Files
 
-- **Authoritative style guide:** `.Codex/REFERENCE/WRITING-VOICE-AND-STYLE.md` index (PARTS 1-5 sibling files are script-side)
-- **Script template:** `.Codex/templates/02-SCRIPT-DRAFT-TEMPLATE.md`
-- **Opening templates:** `.Codex/REFERENCE/OPENING-HOOK-TEMPLATES.md`
-- **Closing templates:** `.Codex/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md`
+- **Authoritative style guide:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` index (PARTS 1-5 sibling files are script-side)
+- **Script template:** `.claude/templates/02-SCRIPT-DRAFT-TEMPLATE.md`
+- **Opening templates:** `.claude/REFERENCE/OPENING-HOOK-TEMPLATES.md`
+- **Closing templates:** `.claude/REFERENCE/CLOSING-SYNTHESIS-TEMPLATES.md`
 
 ---
 

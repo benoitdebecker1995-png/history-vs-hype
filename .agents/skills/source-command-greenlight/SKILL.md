@@ -1,13 +1,12 @@
 ---
-name: "source-command-greenlight"
-description: "Pre-work viability gate — checks demand, titles, and thumbnails BEFORE you invest time"
+name: source-command-greenlight
+description: "Packaging viability gate — demand check, title scoring, thumbnail enforcement, and a collision check against already-published videos. Use when: considering a new video topic, asked 'should I make this', or BEFORE any research begins on a topic. This is the first gate in the pipeline and a published collision is a stop. Does NOT sharpen the thesis itself (→ source-command-grill-angle) or do the research (→ source-command-research)."
 ---
 
-# source-command-greenlight
-
-Use this skill when the user asks to run the migrated source command `greenlight`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/greenlight.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /greenlight — Will This Get Views?
 
@@ -68,6 +67,25 @@ After `--scan`, run `/greenlight "<top opportunity>"` on any candidate that catc
 ---
 
 ## WORKFLOW
+
+### Step −1: Collision pre-flight (ALWAYS — runs first, before anything else)
+
+**Have we already done this?** Runs on every invocation including quick checks. Costs one command.
+
+```bash
+python -m tools.preflight.candidate_preflight "<topic>"
+```
+
+- **`COLLISION`** (published-title match, exit 1) → **STOP.** Report the video ID and date and ask
+  whether this is a deliberate revisit. Do not proceed to demand checks.
+- **`FLAG`** (existing project in `_IN_PRODUCTION` / `_READY_TO_FILM` / `_BACKLOG` / `_ARCHIVED`) →
+  continue, but **say so in the verdict**. Existing projects are eligible on merit; banked research
+  lowers cost. Silence about a collision is the failure mode.
+- **`CLEAR`** → continue to Step 0.
+
+*Why this is a code step and not a reminder: the rule already existed in prose in
+`.claude/PROMPTS/blind-next-video-discovery.md` and was ignored twice on 2026-07-30 — once on a topic
+that was already published (`499YLd1BHZ4`). ADR-0021.*
 
 ### Step 0: Packaging Research (runs on `--full`, skipped on `--no-research`)
 
@@ -181,7 +199,7 @@ if result["verdict"] == "CAUTION" and not result["keyword_matches"]:
 - **CAUTION** (500-999/mo): Passes the V1 floor. Warn user — "Marginal demand. Proceed only with a strong angle or live news hook."
 - **STOP** (<500/mo or no data): **HARD BLOCK** unless a verified live news hook exists (V1's alternative path — verify date AND content, don't trust prior briefs). Otherwise: "Do not invest time in this topic. Find a higher-demand angle."
 
-**If STOP:** Suggest related keywords from keywords.db that DO have volume. Show the user what people actually search for. Reference `.Codex/REFERENCE/vidiq-unicorn-keywords.md` for pre-vetted keyword opportunities.
+**If STOP:** Suggest related keywords from keywords.db that DO have volume. Show the user what people actually search for. Reference `.claude/REFERENCE/vidiq-unicorn-keywords.md` for pre-vetted keyword opportunities.
 
 **News hook check (auto-run after demand):**
 ```python
@@ -211,16 +229,27 @@ When this is a FRESH topic choice with 2+ candidates (`--compare`, or ranking pi
 Per-video Suggested-surface CTR shows a topical **cluster** pulls **4–7%** vs **0.5–1%** for
 isolated one-offs (the Guatemala×2 + Venezuela-Guyana dispute family; see PACKAGING_MANDATE
 §2026-06-27). Videos in a tight topical neighborhood feed each other's Suggested traffic.
+⚠ **Re-verified 2026-07-23:** cluster median Suggested CTR **4.15% vs 0.97%** (n=15 others) — a
+4.3× gap. But the source (`surface_ctr`) is Feb-stale AND topic-confounded (the family shares an
+audience), so this is **directional, not proof**. The mechanism is sound regardless (Up Next runs
+on the currently-watched video, so a neighborhood hands YouTube real co-watch candidates instead
+of an isolated niche upload) — the neighborhood is the channel's best distribution architecture
+*because you can't earn a push after publishing* (PACKAGING_MANDATE §2026-07-23, distribution null).
 
 Check whether this topic **extends an existing cluster** or could **seed one**:
 - Glob `_ARCHIVED/published/` + `_IN_PRODUCTION/` for same-family topics (same dispute, region,
   grifter/myth, or scholar). If 1–2 already exist and performed, this is a **CLUSTER EXTEND** —
   strong GO signal (it inherits Suggested adjacency).
-- If none exist but the topic is a famous dispute with obvious siblings, flag **CLUSTER SEED** —
-  GO, and plan 2–3 follow-ups in the same family within ~2–4 weeks.
+- If none exist but the topic is a famous dispute with obvious siblings, flag **CLUSTER SEED**.
+  **Prefer to greenlight the whole neighborhood as a batch — three angles up front, before
+  producing the first**, published within ~2–4 weeks. A working structure: (1) the central
+  claim/dispute, (2) the document/mechanism behind it, (3) a neighboring case. Each stands alone
+  (own demand + title gates), but they share an audience identity and each points to the next
+  (wire the one-destination end screen at `/prep`).
 - A famous one-off with no cluster path isn't a STOP, but note it gets no Suggested tailwind.
 
-Carry **cluster: EXTEND / SEED / NONE** into the Step 4 verdict.
+Carry **cluster: EXTEND / SEED / NONE** into the Step 4 verdict. On SEED, the next-action should
+name the other two angles, not just this one.
 
 ### Step 2: Title Viability Check
 
@@ -269,7 +298,15 @@ If no title provided, generate candidates using:
 5. Title MUST set up a clear paradox (Specific Subject + Common Belief + Contradiction) that can be resolved in the first 5 seconds of the video.
 
 **Keyword-ladder GATE (MANDATE V2 — now a PASS/FAIL gate, not just a scorer bonus):**
-The best title MUST anchor a **famous parent keyword with real search volume in the first ~40 characters** — a 515-sub channel has no ranking power for a bare obscure proper noun. Verify with `title_scorer.has_search_anchor(title)` (the head-term recognizer behind `SEARCH_ANCHOR_BONUS`). The obscure entity is the *reveal* (the second punch), never the lead. If no candidate anchors a head term, the title FAILS this gate — regenerate, don't proceed (carry the result into Step 4).
+The best title MUST anchor a **famous parent keyword with real search volume**, and that keyword must **begin** within the first ~40 characters (it may run past that edge) — a 515-sub channel has no ranking power for a bare obscure proper noun. Verify with `python -m tools.title_scorer --anchor "<title>"`, which prints the matched term, its position and its provenance. The obscure entity is the *reveal* (the second punch), never the lead.
+
+⚠ **A FAIL is not automatically a verdict on the title** (ADR-0023). The recognizer accepts a term on a curated list *or* on a verified search volume ≥1,000/mo in `keywords.db`, so a FAIL means either the title genuinely leads with something obscure — regenerate — **or** the lead term is famous and nobody has measured it yet. Check demand before rewriting: if the term clears 1,000/mo, record it and re-run the gate.
+
+```bash
+python -m tools.title_scorer --record-anchor "<term>" --volume <n> --anchor-source vidiq-YYYY-MM-DD
+```
+
+**Never trade a title down for a vaguer one to clear a data gap** — #67 lost five candidates that way before this was fixed. If no candidate anchors after that check, the title FAILS this gate — regenerate, don't proceed (carry the result into Step 4).
 
 **Title ↔ thumbnail division of labor:** the title carries the **searched keyword + curiosity**; the thumbnail carries the **evidence/emotional payload**. They must NOT duplicate each other (this is the same curiosity-gap necessary condition `thumbnail_checker` enforces in Step 3) — if the title already says it, the thumbnail overlay must raise the question or name the charge, not restate it.
 
@@ -293,7 +330,7 @@ TITLE CANDIDATES:
 
 **Purpose:** Validate the scored title shortlist against the competitor outlier corpus before the composite verdict — patterns the mechanical scorers can't see (closest real competitor matches, differentiation risk).
 
-**Run:** Query the packaging intelligence notebook with **Prompt P5** (`.Codex/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md` § Packaging Intelligence Prompts), passing the top 3–5 candidates from Step 2 with their scores. Use the notebook-researcher agent for a full session, or a direct `mcp__notebooklm__notebook_query` for the single P5 query (cheaper — preferred when Step 0B already ran this session).
+**Run:** Query the packaging intelligence notebook with **Prompt P5** (`.claude/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md` § Packaging Intelligence Prompts), passing the top 3–5 candidates from Step 2 with their scores. Use the notebook-researcher agent for a full session, or a direct `mcp__notebooklm__notebook_query` for the single P5 query (cheaper — preferred when Step 0B already ran this session).
 
 **Display:**
 ```
@@ -317,7 +354,7 @@ from tools.preflight.thumbnail_checker import check_project
 result = check_project("video-projects/_IN_PRODUCTION/21-haiti-independence-debt-2025")
 ```
 
-If checking a new topic (`--full`), generate 3 thumbnail concepts by **operation** (not by static layout). Each concept performs ONE visual operation; pick the operations that fit the video's payload. See `.Codex/REFERENCE/THUMBNAIL-CRAFT-RECIPE.md` for the full recipe and `/thumbnail` for grounded concept generation.
+If checking a new topic (`--full`), generate 3 thumbnail concepts by **operation** (not by static layout). Each concept performs ONE visual operation; pick the operations that fit the video's payload. See `.claude/REFERENCE/THUMBNAIL-CRAFT-RECIPE.md` for the full recipe and `/thumbnail` for grounded concept generation.
 
 **Operation taxonomy (auto-generate for any topic):**
 
@@ -470,6 +507,27 @@ Recommendation      | ← START HERE       |
 - `/greenlight --project` → after scripting, before filming
 - `/preflight` → after scripting, final quality gate (more comprehensive)
 - `/greenlight` is the FIRST check. `/preflight` is the LAST check.
+
+## Optional: red-team the locked packaging
+
+Everything above decides whether the packaging *passes*. It does not ask why the
+target viewer would scroll **past** it in a feed full of competitors. Once the
+title + thumbnail are locked, the `packaging-adversary` agent attacks them
+against the LIVE SERP and returns ranked scroll-past hypotheses, each shaped as a
+single-variable A/B swap:
+
+```
+Agent({ subagent_type: "packaging-adversary",
+        description: "Red-team locked packaging",
+        prompt: "Red-team this locked title + thumbnail against the live SERP
+                 for <query>. Return ranked scroll-past hypotheses as
+                 single-variable swap candidates." })
+```
+
+It is **not** a gate and returns no binding score — the filters in
+`packaging_lock.py` decide (ADR-0012). Use it when a topic matters enough to
+want a second, hostile opinion. For scoring *concepts* before they are locked,
+use `thumbnail-critic` via `/thumbnail --critique` instead.
 
 ---
 

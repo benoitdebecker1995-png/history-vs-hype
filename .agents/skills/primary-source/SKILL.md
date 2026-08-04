@@ -1,13 +1,13 @@
 ---
 name: primary-source
-description: On-screen-provenance discipline for the History vs Hype channel — the rule that every claim going ON SCREEN carries a genealogy verdict (traced to the most-primary showable source), the two-layer model (on-screen primaries vs behind-camera scholarship), and when to spawn the primary-source-hunter agent. Use when: deciding what document/verbatim to put on screen, filing an on-screen claim in a project, reaching the Stage C → script-ready boundary in /research, running /verify Step 7.8 (provenance/quote-card lock), or whenever a claim's provenance ("who actually said/measured/wrote this?") is load-bearing. Owns the SOURCE-GENEALOGY.md ledger. DEFERS filing/tiering discipline to `historian`; routes deep single-claim traces to the `primary-source-hunter` agent.
+description: 'On-screen-provenance discipline for the History vs Hype channel — the rule that every claim going ON SCREEN carries a genealogy verdict (traced to the most-primary showable source), the two-layer model (on-screen primaries vs behind-camera scholarship), and when to spawn the primary-source-hunter agent. Use when: deciding what document/verbatim to put on screen, filing an on-screen claim in a project, reaching the Stage C → script-ready boundary in /research, running /verify Step 7.8 (provenance/quote-card lock), or whenever a claim''s provenance ("who actually said/measured/wrote this?") is load-bearing. Owns the SOURCE-GENEALOGY.md ledger. DEFERS filing/tiering discipline to `historian`; routes deep single-claim traces to the `primary-source-hunter` agent.'
 ---
 
 # Primary-Source Mode
 
 The channel's product is *demonstrated provenance* — we opened the document ourselves. A single mis-sourced on-screen claim is self-refuting: it makes the referee guilty of the hype the channel exists to expose. This skill institutionalises the standard so it never rides on a lucky deep-dive.
 
-**This skill owns the DISCIPLINE and the LEDGER; the `primary-source-hunter` agent owns the METHOD.** Don't re-derive the citation-ladder climb, the access-route repertoire, or the render commands here — those live in `.Codex/agents/primary-source-hunter.md`. This skill decides *what needs a trace, what verdict it must carry, and when to spawn the agent*.
+**This skill owns the DISCIPLINE and the LEDGER; the `primary-source-hunter` agent owns the METHOD.** Don't re-derive the citation-ladder climb, the access-route repertoire, or the render commands here — those live in `.claude/agents/primary-source-hunter.md`. This skill decides *what needs a trace, what verdict it must carry, and when to spawn the agent*.
 
 ---
 
@@ -45,7 +45,7 @@ The core decision this skill makes:
 | Behind-camera scholarship (tag only) | No trace. Tier-tag per `historian`. |
 | Provenance is fine but a claim's **wording** may drift from the primary | Run the attribution-mismatch check (below) inline; spawn the agent only if the primary needs re-reading. |
 
-Invocation (return contract + rate-limit rule: `.Codex/AGENT-ORCHESTRATION.md`):
+Invocation (return contract + rate-limit rule: `.claude/AGENT-ORCHESTRATION.md`):
 ```
 Task(subagent_type="primary-source-hunter", model="opus",
   prompt="Find the most-primary showable source for: '[claim]'. Currently cited to [src/p.] in [slug]. Notebook: '[name]'.")
@@ -101,6 +101,6 @@ The ledger is the **single provenance source of truth**: `/research` writes it b
 ## Related skills
 
 - **historian** — filing/tiering/NLM-anchor discipline, the Stage A/B/C research loop, and the [P]/[S]/[S→P] + T-vibe tags. This skill sits *on top* for the on-screen showability layer; it defers all filing discipline there.
-- **`primary-source-hunter` agent** (`.Codex/agents/primary-source-hunter.md`) — the deep method: citation-ladder climb, raw-read, access-route repertoire, render, per-claim Source Genealogy output. This skill routes single-claim traces to it.
+- **`primary-source-hunter` agent** (`.claude/agents/primary-source-hunter.md`) — the deep method: citation-ladder climb, raw-read, access-route repertoire, render, per-claim Source Genealogy output. This skill routes single-claim traces to it.
 - **production-map** — which pipeline command comes next; where /research and /verify sit.
 - **`/translate`** — the destination for every foreign-language primary's translation step.

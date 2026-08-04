@@ -1,13 +1,12 @@
 ---
-name: "source-command-grill-angle"
-description: "Pre-research angle interrogation — grills a video's thesis/hook one question at a time BEFORE /greenlight, then writes a GO / REFRAME / KILL verdict with the sharpened angle. Use before sinking research hours into a topic."
+name: source-command-grill-angle
+description: "Interrogates a video's thesis and hook one question at a time, then writes a GO / REFRAME / KILL verdict with the sharpened angle. Use when: a topic idea is vague, the angle feels generic or interchangeable, or before sinking research hours into a topic — runs BEFORE the greenlight gate. Does NOT check demand, titles or thumbnails (→ source-command-greenlight)."
 ---
 
-# source-command-grill-angle
-
-Use this skill when the user asks to run the migrated source command `grill-angle`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/grill-angle.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /grill-angle — is this angle worth researching?
 
@@ -30,7 +29,7 @@ Each rung is a known channel angle-strength lever; the parenthetical routes to w
 2. **The anchor** — What FAMOUS parent keyword does a viewer search? Every angle needs a head-term anchor; obscure-only = no impressions. (*keyword ladder*, [[feedback-keyword-ladder-packaging]])
 3. **The reveal** — What obscure, counterintuitive thing does that famous anchor deliver *into*? The gap between the two is the video. Anchor famous, deliver obscure.
 4. **The claim on trial** — Reduce it to ONE weaponized claim (or a claim-pair) the video puts *on trial*. If you can't state the single claim, the spine is mushy. (referee/debunk architecture, [[feedback-debunk-architecture]])
-5. **HOW > WHY** — Is the spine a **mechanism** (logistics, legal, administrative) or a politics/WHY narrative? The subscriber trigger is intellectual competence via *systems*. A WHY angle gets reframed to its HOW, or it loses the audience. (`AGENTS.md` subscriber trigger)
+5. **HOW > WHY** — Is the spine a **mechanism** (logistics, legal, administrative) or a politics/WHY narrative? The subscriber trigger is intellectual competence via *systems*. A WHY angle gets reframed to its HOW, or it loses the audience. (`CLAUDE.md` subscriber trigger)
 6. **The 10-year test** — Does the modern relevance survive a decade regardless of who's in power? Timely event = a hook only, never the spine. Evergreen, not news. (*history channel not geopolitics*, [[feedback-evergreen-not-news]])
 7. **Identity guard** — Method-first, never a regional/geopolitics explainer. If the angle only works because of *where* it happened, it's off-identity. ([[feedback-channel-identity-not-regional]])
 8. **The shareable gem** — What single fact does a viewer repeat at dinner? Distribution needs a spreadable core, not just a correct one.

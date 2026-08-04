@@ -4,11 +4,16 @@ Depth file for [SKILL.md](SKILL.md). Row counts and freshest-timestamps are as o
 inventory pass of 2026-07-01/02 — they drift daily; treat them as scale indicators, not current values.
 Re-check freshness with the recipes in SKILL.md. Anything not cheaply re-verifiable is marked [UNVERIFIED].
 
-## analytics.db — `D:\History vs Hype\tools\youtube_analytics\analytics.db`
+## analytics.db — `G:\History vs Hype\tools\youtube_analytics\analytics.db`
 
-Schema versioning: `growth_data.py` `ensure_schema()`, `PRAGMA user_version`, `CURRENT_SCHEMA_VERSION = 3`
+Schema versioning: `growth_data.py` `ensure_schema()`, `PRAGMA user_version`, `CURRENT_SCHEMA_VERSION = 5`
 (v1 = videos/traffic_sources/daily_channel; v2 = retention_curves/search_terms/subscribed_status;
-v3 = opener_retention). WAL mode set by `AnalyticsStore._open_conn`.
+v3 = opener_retention; v4 = the keywords.db CTR-bridge freshness columns on `videos`
+— `metrics_fetched_at`/`ctr_as_of`, not a table; v5 = studio_ctr_imports/studio_ctr_rows).
+Live inventory is **11 tables** — the list below plus `studio_ctr_imports`, `studio_ctr_rows`,
+`surface_ctr`, and `thumbnail_features`. Re-derive with
+`PRAGMA user_version` + `SELECT name FROM sqlite_master WHERE type='table'` rather than trusting
+this note. WAL mode set by `AnalyticsStore._open_conn`.
 
 | Table | Rows | Key columns / notes |
 |---|---|---|
@@ -39,7 +44,7 @@ v3 = opener_retention). WAL mode set by `AnalyticsStore._open_conn`.
 | surface_ctr | NO code writer (one-off session scripts 2026-06-27, flop-autopsy/CTR-audit) | NO code reader — queried conversationally; cited by `tools/PACKAGING_MANDATE.md` |
 | thumbnail_features | same | same — hypotheses in `channel-data/CTR-THUMBNAIL-FINDINGS-2026-06.md` derive from it |
 
-## keywords.db — `D:\History vs Hype\tools\discovery\keywords.db`
+## keywords.db — `G:\History vs Hype\tools\discovery\keywords.db`
 
 Schema evolution: `tools/discovery/schema_manager.py` (also writes the `backups/keywords_pre_v27_*.db`
 pre-migration copies — one per migration-path run; 18 present at the 2026-07-02 recount, pruning behavior unverified).
@@ -85,7 +90,7 @@ pre-migration copies — one per migration-path run; 18 present at the 2026-07-0
 
 ("ya/" = `tools/youtube_analytics/`.)
 
-## intel.db — `D:\History vs Hype\tools\intel\intel.db`
+## intel.db — `G:\History vs Hype\tools\intel\intel.db`
 
 | Table | Rows | Freshest ts (at audit) | Notes |
 |---|---|---|---|

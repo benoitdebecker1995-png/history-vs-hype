@@ -1,13 +1,12 @@
 ---
-name: "source-command-curiosity"
-description: "Evaluate a title's human psychology, curiosity gap, and emotional stakes"
+name: source-command-curiosity
+description: "Evaluates a title's human psychology, curiosity gap and emotional stakes. Use when: judging or comparing candidate titles, or a title scores well mechanically but feels flat."
 ---
 
-# source-command-curiosity
-
-Use this skill when the user asks to run the migrated source command `curiosity`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/curiosity.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /curiosity — Emotional Hook Scorer
 

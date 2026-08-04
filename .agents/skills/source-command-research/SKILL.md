@@ -1,13 +1,12 @@
 ---
-name: "source-command-research"
-description: "Start new video project OR conduct topic research (Pre-production Phase 1)"
+name: source-command-research
+description: "Starts a new video project folder or runs two-phase topic research — web landscape first, then NotebookLM academic verification — filing each fact ✅/⏳/❌ into 01-VERIFIED-RESEARCH.md. Use when: starting a new video, asked to research a topic, hunting sources, or filing verified claims. Load rule-research-verification first. Does NOT write the script (→ source-command-script) or fact-check a finished draft (→ source-command-verify)."
 ---
 
-# source-command-research
-
-Use this skill when the user asks to run the migrated source command `research`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/research.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /research - Pre-production Research Entry Point
 
@@ -15,7 +14,7 @@ Start a new video project or research an existing topic. This command consolidat
 
 **Competitive Integration:** This workflow includes competitor analysis and technique selection.
 
-> **Historian Mode:** This command activates the `historian` skill at workflow entry (Stage A and beyond). The skill is dormant during Stage 0 project mechanics (demand gate, folder creation, title pre-gen). See `.Codex/skills/historian/SKILL.md`.
+> **Historian Mode:** This command activates the `historian` skill at workflow entry (Stage A and beyond). The skill is dormant during Stage 0 project mechanics (demand gate, folder creation, title pre-gen). See `.claude/skills/historian/SKILL.md`.
 
 ## Usage
 
@@ -38,7 +37,7 @@ Start a new video project or research an existing topic. This command consolidat
 | `--existing` | Add research to existing project | `/research --existing 19-flat-earth-medieval-2025` |
 | `--ingest` | Ingest NLM output into verified research | `/research --ingest --existing 31-bermeja-island-2025` |
 | `--apply-review` | Apply reviewed claims to VERIFIED-RESEARCH.md | `/research --apply-review path/to/review.md` |
-| `--sources` | Generate Tier 1/2/3 academic source list via Codex API | `/research --sources "Library of Alexandria"` |
+| `--sources` | Generate Tier 1/2/3 academic source list via Claude API | `/research --sources "Library of Alexandria"` |
 | `--prompts` | Generate NotebookLM verification prompts for a project | `/research --prompts 19-flat-earth-medieval-2025` |
 | `--format-sources` | Format source list for YouTube description | `/research --format-sources` |
 
@@ -48,7 +47,7 @@ Start a new video project or research an existing topic. This command consolidat
 
 ### `--sources` — Automated source-list generation
 
-Generates an academic source list using `tools/notebooklm_bridge.py` (Codex API-backed).
+Generates an academic source list using `tools/notebooklm_bridge.py` (Claude API-backed).
 
 ```bash
 python tools/notebooklm_bridge.py "TOPIC" --type TYPE --output DIR
@@ -67,7 +66,7 @@ python tools/notebooklm_bridge.py "TOPIC" --type TYPE --output DIR
 
 ### `--prompts` — NotebookLM verification prompts
 
-Generate NotebookLM chat prompts tailored to a project's verified-claims gaps. References `.Codex/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md` for the prompt library.
+Generate NotebookLM chat prompts tailored to a project's verified-claims gaps. References `.claude/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md` for the prompt library.
 
 ### `--format-sources` — YouTube description formatter
 
@@ -95,6 +94,31 @@ Low signal: ~15 videos — experiment freely.
 5. Insights are advisory — guide experimentation, never dictate choices
 
 **For /research --new:** Focus on topic opportunity insights (what topic types perform well, what's underexplored)
+
+---
+
+## COMPLETION GATE (run before reporting research finished — ALWAYS)
+
+Research is **not** finished because a milestone was reached. It is finished when no claim below
+CORROBORATED still has an available, untried route.
+
+```bash
+python -m tools.preflight.claim_status --frontier <project>/01-VERIFIED-RESEARCH.md   # done?
+python -m tools.preflight.claim_status          <project>/01-VERIFIED-RESEARCH.md   # rule violations
+```
+
+- **`--frontier` returns `OPEN`** → say what is still open and keep going. Do **not** report
+  completion.
+- **`UNTRACKED` items** → claims below CORROBORATED with no `next:` at all. These are the silent
+  abandonments; either give them a `next:` or close them with `next: none — <reason>`.
+- **Default mode returns `FAIL`** → a verdict word (REFUTED / PROVEN / RESOLVED) is sitting on a
+  claim that has not earned it, a locator is missing, or a `circular:` claim is over-ranked.
+
+Status ladder: `ASSERTED → SOURCED → INSPECTED → CORROBORATED/CONTESTED → SETTLED`.
+`--ladder` prints the thresholds. **ADR-0021.**
+
+*Why this is a gate: on 2026-07-30 research was reported complete twice while free, obtainable
+sources sat unread, and the owner had to ask "Why did you stop?" both times.*
 
 ---
 
@@ -214,7 +238,7 @@ Store the chosen working title in PROJECT-STATUS.md.
 
 Before creating anything, check for existing verified research:
 
-1. **Read:** `.Codex/VERIFIED-CLAIMS-DATABASE.md`
+1. **Read:** `.claude/VERIFIED-CLAIMS-DATABASE.md`
 2. **Search for:** Topic keywords, related subjects, overlapping time periods
 3. **If claims found:**
    - Note which claims are already verified
@@ -244,7 +268,7 @@ Before creating anything, check for existing verified research:
 
 ### Step 4: Initialize Research Files
 
-**01-VERIFIED-RESEARCH.md** - Copy from `.Codex/templates/01-VERIFIED-RESEARCH-TEMPLATE.md`
+**01-VERIFIED-RESEARCH.md** - Copy from `.claude/templates/01-VERIFIED-RESEARCH-TEMPLATE.md`
 - Fill in project name, date, topic categories
 - Pre-populate with any claims from VERIFIED-CLAIMS-DATABASE
 
@@ -294,7 +318,7 @@ Using the brief as a foundation, fill any remaining gaps:
 
 ### Step 6.5: Topic Viability Gate (P11.1a)
 
-> **Companion to `/greenlight`** (packaging viability — will it get clicks). This gate covers substantive viability — can we research this topic at the channel's standard. Run after the Phase 1 wiki-researcher brief (Step 5 output: `_research/00-PRELIMINARY-BRIEF.md`). See `feedback-auditors-edge.md` §'tier-vibe' for T-tier accessibility, `feedback-topic-vs-angle-ordering.md` for the angle-locks-at-research principle, and `.Codex/REFERENCE/THESIS-DISCIPLINE.md` for throughline drafting.
+> **Companion to `/greenlight`** (packaging viability — will it get clicks). This gate covers substantive viability — can we research this topic at the channel's standard. Run after the Phase 1 wiki-researcher brief (Step 5 output: `_research/00-PRELIMINARY-BRIEF.md`). See `feedback-auditors-edge.md` §'tier-vibe' for T-tier accessibility, `feedback-topic-vs-angle-ordering.md` for the angle-locks-at-research principle, and `.claude/REFERENCE/THESIS-DISCIPLINE.md` for throughline drafting.
 >
 > **Distinction from `/greenlight`:** `/greenlight` = will this title/thumbnail get clicks (packaging). This gate = can we produce it with primary-source integrity (substantive). They run in parallel, not redundantly.
 >
@@ -455,7 +479,7 @@ After preliminary research, before deep research:
 
 Surface conversationally: *"Stage A (Historiographical Baseline) complete — ready for Stage B (Source Criticism)?"*
 
-Run the Stage A→B checklist in `.Codex/skills/historian/STAGE-AUDITS.md` before confirming. On user confirm, append to `PROJECT-STATUS.md` **below** `<!-- /AUTO:reconcile -->`:
+Run the Stage A→B checklist in `.claude/skills/historian/STAGE-AUDITS.md` before confirming. On user confirm, append to `PROJECT-STATUS.md` **below** `<!-- /AUTO:reconcile -->`:
 
 ```
 ## Historian Stage State
@@ -512,20 +536,20 @@ Runs AFTER the ignorant sweep (Step 8). Resolves which swept sources we already 
    - For each owned file: `mcp__notebooklm__source_add(notebook_id, source_type="file", file_path=<abs path>, wait=True)`
    - Free primary documents (the on-screen spine) go in the same pass as `source_type="url"`.
    - Record the notebook UUID in `PROJECT-STATUS.md` Historian Stage State.
-   - If NLM auth is expired (`Authentication expired`), STOP and ask the user to run `nlm login` (interactive — Codex cannot run it); stage the upload list and resume on their confirm.
+   - If NLM auth is expired (`Authentication expired`), STOP and ask the user to run `nlm login` (interactive — Claude cannot run it); stage the upload list and resume on their confirm.
 4. **The `[ACQUIRE]` remainder** is the acquisition queue — only sources the sweep wants that we don't own.
 5. **Drive mirror (Layer 3, wired 2026-06-12):** `library/by-topic/` is mirrored to Google Drive at `HvH-library/by-topic/` (rclone remote `gdrive`, same Google account as NotebookLM).
    - **Upload fallback:** if a local `source_add(source_type="file")` fails (size/timeout), find the file's Drive copy via `mcp__notebooklm__source_list_drive` (search by canonical filename) and add it with `source_add(source_type="drive", document_id=...)`. Drive-sourced notebook sources can later be refreshed with `mcp__notebooklm__source_sync_drive`.
    - **Keep mirror fresh:** after new PDFs land in `library/by-topic/`, run `powershell tools/drive_sync.ps1` (wraps `rclone sync`; `-Check` verifies without transferring).
    - **SKIP path:** if rclone is missing or its auth is expired, continue with local-file uploads only — the mirror is a convenience, never a gate.
 
-**Note:** Owned sources upload automatically (above). For the `[ACQUIRE]` remainder, Codex surfaces the Stage B→C checklist; user confirms acquisition/upload before Stage C begins.
+**Note:** Owned sources upload automatically (above). For the `[ACQUIRE]` remainder, Claude surfaces the Stage B→C checklist; user confirms acquisition/upload before Stage C begins.
 
 ### Stage B Lock
 
 Surface conversationally: *"Stage B (Source Criticism) complete — ready for Stage C (Corroboration)?"*
 
-Run the Stage B→C checklist in `.Codex/skills/historian/STAGE-AUDITS.md` before confirming. On user confirm, update `## Historian Stage State` in `PROJECT-STATUS.md`:
+Run the Stage B→C checklist in `.claude/skills/historian/STAGE-AUDITS.md` before confirming. On user confirm, update `## Historian Stage State` in `PROJECT-STATUS.md`:
 
 ```
 ## Historian Stage State
@@ -750,7 +774,7 @@ Sections updated:
 Rejected: 4 claims skipped
 ```
 
-**IMPORTANT:** This command orchestrates the flow but actual parsing and writing happens in `tools/research/nlm_ingest.py`. Codex reads this command, then runs the Python tool via Bash. Do NOT attempt to import Python directly from the command file — run it as a subprocess or Bash execution.
+**IMPORTANT:** This command orchestrates the flow but actual parsing and writing happens in `tools/research/nlm_ingest.py`. Claude reads this command, then runs the Python tool via Bash. Do NOT attempt to import Python directly from the command file — run it as a subprocess or Bash execution.
 
 ### Step 6 (post-apply): Mechanism-Word Lock Gate (P11.1b)
 
@@ -790,7 +814,7 @@ Rejected: 4 claims skipped
 
 **Trigger condition:** Fires after `--apply-review` successfully ingests claims AND P11.1b shows at least one LOCK in `RESEARCH-VIABILITY.md`. Skips if the mechanism-word gate has not yet run or has no LOCK.
 
-**Three angle-discovery NLM queries** (canonical prompts in `.Codex/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md` — see section "Angle-Discovery Prompts (P11.2)"):
+**Three angle-discovery NLM queries** (canonical prompts in `.claude/REFERENCE/NOTEBOOKLM-RESEARCH-PROMPTS.md` — see section "Angle-Discovery Prompts (P11.2)"):
 
 - **Query AD-1 — Candidate Hook Quotes (specificity-ranked).** Top 5 most specific, surprising, anchor-able quotes from the notebook. Each must contain ≥1 named person + ≥1 named document or date + ≥1 concrete fact. Rank by specificity-bomb score. Output: quote + source + page + T-tier + score.
 - **Query AD-2 — Candidate Thesis Verbs.** Top 3 verbs describing what historical actors actually did in this topic, with quote evidence supporting each. Pairs with the locked mechanism word from P11.1b. Output: verb + evidence + NLM-confidence.
@@ -823,7 +847,7 @@ Format:
 
 Surface conversationally after all `--apply-review` passes are complete and angle-discovery has run: *"Stage C (Corroboration) complete — ready to script?"*
 
-Run the Stage C→Ready-to-Script checklist in `.Codex/skills/historian/STAGE-AUDITS.md` before confirming. On user confirm, update `## Historian Stage State` in `PROJECT-STATUS.md`:
+Run the Stage C→Ready-to-Script checklist in `.claude/skills/historian/STAGE-AUDITS.md` before confirming. On user confirm, update `## Historian Stage State` in `PROJECT-STATUS.md`:
 
 ```
 ## Historian Stage State
@@ -853,12 +877,12 @@ Cannot proceed to scripting until:
 
 ## Reference Files
 
-- **Templates:** `.Codex/templates/01-VERIFIED-RESEARCH-TEMPLATE.md`
-- **Research subfolder:** `.Codex/templates/_RESEARCH-SUBFOLDER-TEMPLATE.md`
-- **Source standards:** `.Codex/REFERENCE/NOTEBOOKLM-SOURCE-STANDARDS.md`
-- **Claims database:** `.Codex/VERIFIED-CLAIMS-DATABASE.md`
-- **Technique library:** `.Codex/REFERENCE/WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md`
-- **Gap database:** `.Codex/REFERENCE/GAP-DATABASE.md`
+- **Templates:** `.claude/templates/01-VERIFIED-RESEARCH-TEMPLATE.md`
+- **Research subfolder:** `.claude/templates/_RESEARCH-SUBFOLDER-TEMPLATE.md`
+- **Source standards:** `.claude/REFERENCE/NOTEBOOKLM-SOURCE-STANDARDS.md`
+- **Claims database:** `.claude/VERIFIED-CLAIMS-DATABASE.md`
+- **Technique library:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE-P5-TECHNIQUES.md`
+- **Gap database:** `.claude/REFERENCE/GAP-DATABASE.md`
 
 ---
 

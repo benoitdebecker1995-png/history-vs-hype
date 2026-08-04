@@ -1,13 +1,13 @@
 ---
 name: project-onboarding
-description: Entry-point router for the History vs Hype repo — the two work surfaces (content production vs engineering), the truth-source hierarchy, a task-type→read-order router into the 7 domain skills + historian, the never-do list, and how to work with the owner. Use when: starting work in this repo without prior context, onboarding, unsure which skill/doc/command applies, or asking how this project is organized. This skill ROUTES — it contains no deep procedure; jump to the routed skill before acting.
+description: 'Entry-point router for the History vs Hype repo — the two work surfaces (content production vs engineering), the truth-source hierarchy, a task-type→read-order router into the 7 domain skills + historian, the never-do list, and how to work with the owner. Use when: starting work in this repo without prior context, onboarding, unsure which skill/doc/command applies, or asking how this project is organized. This skill ROUTES — it contains no deep procedure; jump to the routed skill before acting.'
 ---
 
 # Project Onboarding
 
-You have AGENTS.md and MEMORY.md loaded and nothing else. This skill is the missing layer:
+You have CLAUDE.md and MEMORY.md loaded and nothing else. This skill is the missing layer:
 which kind of session you're in, what is authoritative, where to read next for your task,
-and the ten mistakes that are never acceptable here. Repo root: `D:\History vs Hype`
+and the ten mistakes that are never acceptable here. Repo root: `G:\History vs Hype`
 (Windows 11; PowerShell primary, Git Bash available; Python is `python`, run modules as
 `python -m tools.<pkg>.<module>` from repo root).
 
@@ -16,7 +16,7 @@ and the ten mistakes that are never acceptable here. Repo root: `D:\History vs H
 This repo is two things sharing one directory:
 
 1. **A content-production operation** — a real YouTube channel. `video-projects/` lifecycle
-   folders, `.Codex/commands/` pipeline (`/greenlight` → `/research` → `/script` → … →
+   folders, `.claude/commands/` pipeline (`/greenlight` → `/research` → `/script` → … →
    `/reconcile`), research discipline, packaging gates. Governing skills: **production-map**
    + **historian**. Conversational triggers ("I uploaded X", "script locked") are ARMED here.
 2. **An engineering codebase** — `tools/` (241 Python files), three live SQLite DBs,
@@ -37,7 +37,7 @@ outcomes, not architecture (see The owner, below).
 | Filesystem (`video-projects/` lifecycle folders) | Which lifecycle stage a project is in | `_BACKLOG/` + `_ARCHIVED/old-*` are outside the lifecycle, invisible to every scanner — by design |
 | `tools/youtube_analytics/analytics.db` | Publish status + channel performance ground truth | Outranks YT Studio / VidIQ dashboards (both confabulate). Not an **API** CTR source (`videos.ctr_percent` is NULL): per-video CTR → keywords.db `ctr_snapshots`; browse/suggested splits → analytics.db `surface_ctr` |
 | Per-folder `PROJECT-STATUS.md` narrative (below `<!-- /AUTO:reconcile -->`) | Hand-written project state | Never machine-touched; everything ABOVE that marker is machine-owned |
-| AGENTS.md + `.Codex/REFERENCE/` + `docs/adr/` | Rules, style, and standing decisions | Newer ADR beats older prose (e.g. ADR-0012 beats PACKAGING_MANDATE's "65+ gate" line) |
+| CLAUDE.md + `.claude/REFERENCE/` + `docs/adr/` | Rules, style, and standing decisions | Newer ADR beats older prose (e.g. ADR-0012 beats PACKAGING_MANDATE's "65+ gate" line) |
 | Memory files (`MEMORY.md` + topic files) | Owner preferences and recorded incidents | Point-in-time — verify any code-behavior or file:line claim against current code before asserting |
 
 **The one-line rule: derived docs are regenerated, never hand-edited.** Root
@@ -50,7 +50,7 @@ reconcile-dashboard) is machine-owned, matched by EXACT marker string — a "har
 inside or to the marker line orphans the zone or gets silently overwritten. Full zone rules,
 schemas, staleness semantics → **data-stores** skill.
 
-Lifecycle in three judgment lines (the spec itself is in AGENTS.md — don't re-derive it):
+Lifecycle in three judgment lines (the spec itself is in CLAUDE.md — don't re-derive it):
 folder location is DERIVED state — `/reconcile` moves folders, you never move them by hand
 mid-conversation; before creating any project file, Glob for the existing folder and confirm
 its stage; `_BACKLOG/` is for parked work only, never filmed/published work.
@@ -58,7 +58,7 @@ its stage; `_BACKLOG/` is for parked work only, never filmed/published work.
 ## Task-type → read-order router (the core section)
 
 Read in the order given, then act. Each row names the owning skill(s) plus at most the 1–2
-files that are authoritative beyond it. Skills live in `D:\History vs Hype\.Codex\skills\<name>\SKILL.md`.
+files that are authoritative beyond it. Skills live in `G:\History vs Hype\.claude\skills\<name>\SKILL.md`.
 
 | You were asked to… | Read, in this order | Then act |
 |---|---|---|
@@ -71,9 +71,9 @@ files that are authoritative beyond it. Skills live in `D:\History vs Hype\.Code
 | Do historical research (claims, quotes, sources, NLM) | **historian** (four hard rules + stop flags) → the project's `01-VERIFIED-RESEARCH.md` | File nothing past an unresolved flag; verbatims need an NLM anchor |
 | Decide what document/verbatim goes ON SCREEN · trace a claim's provenance · genealogy-before-filing · /verify 7.8 | **primary-source** (on-screen-provenance discipline) → the project's `_research/SOURCE-GENEALOGY.md` ledger | Every on-screen claim needs a genealogy verdict before script-ready; a secondary-only claim is never framed as "documents show"; deep single-claim traces → `primary-source-hunter` agent |
 | Touch automation: scheduled tasks / hooks / MCP servers / OAuth | **automation-ops** (inventory + admin, LOOK-ONLY vs MUTATES) — if it's BROKEN, **debugging-playbook** first | Check state LOOK-ONLY before running anything that mutates |
-| Spawn sub-agents / run a big multi-step build | **extending-safely** § agent-spawn digest → `.Codex/AGENT-ORCHESTRATION.md` (the spec, incl. return contract + rate-limit rule) | Three spawn triggers; return contract verbatim; main context stays lean |
+| Spawn sub-agents / run a big multi-step build | **extending-safely** § agent-spawn digest → `.claude/AGENT-ORCHESTRATION.md` (the spec, incl. return contract + rate-limit rule) | Three spawn triggers; return contract verbatim; main context stays lean |
 | The user said something trigger-shaped ("I uploaded X", "X is live", "script locked", "lock it", "T1 passed") | **production-map** § conversational triggers | ACT FIRST — run `/reconcile <X>` or the calibration delta-mine immediately; the utterance IS the trigger |
-| Anything else / "how is this organized?" | This skill + AGENTS.md, then the closest row above | If two skills could own it, the routed skill's description settles the lane |
+| Anything else / "how is this organized?" | This skill + CLAUDE.md, then the closest row above | If two skills could own it, the routed skill's description settles the lane |
 
 ## Never-do list
 

@@ -1,6 +1,17 @@
+# Codex port of .claude/agents/diy-asset-creator.md — that file stays canonical.
 name = "diy-asset-creator"
 description = "Creates zero-budget DIY guides for producing B-roll assets using free tools (Canva, MapChart, Wikimedia, PowerPoint). Transforms expensive asset lists into accessible step-by-step instructions for creators without budget."
+model = "gpt-5.6-luna"
+model_reasoning_effort = "medium"
 developer_instructions = '''
+<!-- CODEX HARNESS NOTE (added by the Codex port; the body below is the verbatim
+Claude Code agent definition at .claude/agents/diy-asset-creator.md, which stays canonical).
+Translation while running as a Codex sub-agent:
+  - "the Task tool" / "spawn a sub-agent"  -> spawn a Codex agent from .codex/agents/
+  - a slash command such as `/verify`      -> the `source-command-verify` skill in .agents/skills/
+  - "Claude" as the actor                  -> you
+Everything else — the rules, the return contract, the output format — applies unchanged. -->
+
 # DIY Asset Creator - Zero-Budget B-Roll Production
 
 ## MISSION
@@ -543,4 +554,5 @@ The beauty of evidence-based videos: the quotes do the heavy lifting. You're not
 
 **Success metric**: Viewer can read/understand each asset in 4-6 seconds, and every visual reinforces a specific claim from your voiceover.
 
-**Your advantage**: Free tools are now powerful enough to create professional-looking assets. The only cost is your time.'''
+**Your advantage**: Free tools are now powerful enough to create professional-looking assets. The only cost is your time.
+'''

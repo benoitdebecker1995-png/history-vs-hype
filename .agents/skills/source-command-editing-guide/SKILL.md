@@ -1,13 +1,12 @@
 ---
-name: "source-command-editing-guide"
-description: "Generate a segment-by-segment editing playbook from a rough cut SRT (Post-production Phase 3)"
+name: source-command-editing-guide
+description: "Segment-by-segment editing playbook generated from a rough-cut SRT. Use when: a rough cut exists and needs an edit pass, or B-roll placement has to be planned against real timings."
 ---
 
-# source-command-editing-guide
-
-Use this skill when the user asks to run the migrated source command `editing-guide`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/editing-guide.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /editing-guide — Rough-cut editing playbook
 
@@ -123,7 +122,7 @@ Invoke via Bash:
 gemini -m gemini-2.5-flash -p "<prompt>" --yolo > [project]/_gemini-output/editing-guide-broll-<timestamp>.md
 ```
 
-After Gemini returns, **read only the parsed structured results** — do NOT pull the full output into Codex's context. Write the parsed list to a temporary working note in your head and reference by segment in Phase 5.
+After Gemini returns, **read only the parsed structured results** — do NOT pull the full output into Claude's context. Write the parsed list to a temporary working note in your head and reference by segment in Phase 5.
 
 ### Phase 5 — Compose the editing guide
 

@@ -1,13 +1,12 @@
 ---
-name: "source-command-opener"
-description: "Cold-open decision system — generates 3 candidate 30-second openers from project artifacts, scores them on 4 dimensions, writes ranked verdict to OPENER-DECISION.md"
+name: source-command-opener
+description: "Cold-open decision system — generates 3 candidate 30-second openers from the project artifacts, scores them on 4 dimensions, and writes a ranked verdict. Use when: the first 30 seconds need deciding, a script needs its hook, or first-minute retention is the problem (31.6pp of the audience leaves there)."
 ---
 
-# source-command-opener
-
-Use this skill when the user asks to run the migrated source command `opener`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/opener.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /opener — Cold-Open Decision System
 
@@ -51,7 +50,7 @@ Before running, /opener reads these artifacts from the target project folder:
 
 ## VOICE GUARD (Live-Read from Style Doc)
 
-Before any candidate is scored, run a forbidden-phrase check. Read live from `D:\History vs Hype\.Codex\REFERENCE\WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md` (§1.3 forbidden phrases). Reject candidates containing:
+Before any candidate is scored, run a forbidden-phrase check. Read live from `G:\History vs Hype\.claude\REFERENCE\WRITING-VOICE-AND-STYLE-P1-CORE-VOICE.md` (§1.3 forbidden phrases). Reject candidates containing:
 
 **Forbidden phrases:**
 - "Buckle up" / "Strap in" / "Hold on tight"
@@ -126,7 +125,7 @@ AUDIENCE-LANGUAGE PHRASES USED:
 
 ### Dimension (a) — Rule 19 4-beat compliance (HARD GATE)
 
-Source of truth: `D:\History vs Hype\.Codex\REFERENCE\OPENING-HOOK-TEMPLATES.md` Rule 19 spec.
+Source of truth: `G:\History vs Hype\.claude\REFERENCE\OPENING-HOOK-TEMPLATES.md` Rule 19 spec.
 
 | Beat | Check | PASS/FAIL |
 |---|---|---|
@@ -158,7 +157,7 @@ Return per-candidate analog evidence with NLM citation `[N]`. This is the most-t
 
 ### Dimension (d) — hook_scorer.py deterministic score (SUPPLEMENT)
 
-Tool: `D:\History vs Hype\tools\research\hook_scorer.py`
+Tool: `G:\History vs Hype\tools\research\hook_scorer.py`
 
 API:
 ```python
@@ -220,7 +219,7 @@ Structure (use this template verbatim):
 
 ## Decision-log prior (from past /opener runs)
 
-[1-paragraph synthesis read from .Codex/REFERENCE/OPENER-DECISION-LOG.md, 
+[1-paragraph synthesis read from .claude/REFERENCE/OPENER-DECISION-LOG.md, 
 filtered to this project's topic_type. Skip section if log is empty or no 
 matching entries.]
 
@@ -274,7 +273,7 @@ matching entries.]
 
 When user marks `LOCKED to Candidate N` on the OPENER-DECISION.md file, append to:
 
-**File:** `D:\History vs Hype\.Codex\REFERENCE\OPENER-DECISION-LOG.md`
+**File:** `G:\History vs Hype\.claude\REFERENCE\OPENER-DECISION-LOG.md`
 
 Entry format:
 
@@ -308,4 +307,4 @@ This log is queried by future `/opener` runs at the top of Step 5 to surface use
 
 ---
 
-*This skill is built per `C:\Users\Benoi\.Codex\plans\fuzzy-pondering-puddle.md`. Opener Outliers notebook: `5287616d-7790-492b-bf52-0bbe880db71a`.*
+*This skill is built per `C:\Users\Benoi\.claude\plans\fuzzy-pondering-puddle.md`. Opener Outliers notebook: `5287616d-7790-492b-bf52-0bbe880db71a`.*

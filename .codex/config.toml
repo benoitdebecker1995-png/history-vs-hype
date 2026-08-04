@@ -1,29 +1,51 @@
-[mcp_servers.graphify-code]
-command = 'C:\Users\Benoi\AppData\Local\Programs\Python\Python312\python.exe'
-args = [
-    "-m",
-    "graphify.serve",
-    'D:\History vs Hype\graphify-out\graph.json',
-]
+# Codex project config — History vs Hype
+#
+# Loaded because this project is trusted (`[projects.'g:\history vs hype']` in
+# ~/.codex/config.toml). Port of `.mcp.json` + the sub-agent wiring. `.claude/` stays canonical.
+#
+# Paths are absolute on purpose: Codex does NOT interpolate `${APPDATA}` / `${CLAUDE_PROJECT_DIR}`
+# the way `.mcp.json` does, and ~/.codex/config.toml already declares notebooklm this way.
 
-[mcp_servers.graphify-research]
-command = 'C:\Users\Benoi\AppData\Local\Programs\Python\Python312\python.exe'
-args = [
-    "-m",
-    "graphify.serve",
-    'D:\History vs Hype\graphify-out\research\graph.json',
-]
+sandbox_mode = "workspace-write"
+
+# This repo's work is judgment-heavy (verification, packaging gates, voice), so pin the model and
+# the effort here rather than inheriting whatever the user's global default happens to be.
+# gpt-5.6-sol's OWN default reasoning level is "low" (models_cache.json) — leaving effort unset is
+# how a heavyweight session silently runs shallow. Ladder: low|medium|high|xhigh|max|ultra.
+model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+
+# --- MCP servers ---------------------------------------------------------------------------------
+# The first three mirror `.mcp.json`. vidiq + playwright are Codex-only extras: on Claude Code they
+# come from the user-level config, and the greenlight / publish / comment-mine workflows need them.
 
 [mcp_servers.notebooklm]
-command = "notebooklm-mcp"
+command = 'C:\Users\benoi\AppData\Roaming\Python\Python314\Scripts\notebooklm-mcp.exe'
 
-[mcp_servers.playwright]
-command = "npx"
-args = [
-    "-y",
-    "@playwright/mcp@latest",
-    "--headless",
-]
+# 90,745 nodes / 97,940 edges over the repo AST. Prefer a graph query over grep when the question
+# is structural ("where does X live", "what depends on Y").
+[mcp_servers.graphify-code]
+command = 'C:\Users\benoi\AppData\Roaming\Python\Python314\Scripts\graphify-mcp.exe'
+args = ['G:\History vs Hype\graphify-out\graph.json']
+
+# 169-node concept graph over the archived 01-VERIFIED-RESEARCH.md files. Sparse — under ~3 hits,
+# fall back to file reads.
+[mcp_servers.graphify-research]
+command = 'C:\Users\benoi\AppData\Roaming\Python\Python314\Scripts\graphify-mcp.exe'
+args = ['G:\History vs Hype\graphify-out\research\graph.json']
 
 [mcp_servers.vidiq]
 url = "https://mcp.vidiq.com/mcp"
+
+[mcp_servers.playwright]
+command = "npx"
+args = ["-y", "@playwright/mcp@latest", "--headless"]
+
+# --- Sub-agents ----------------------------------------------------------------------------------
+# Definitions live in .codex/agents/*.toml. Model mapping from the Claude originals:
+# opus -> gpt-5.6-sol, sonnet -> gpt-5.6-terra, haiku -> gpt-5.6-luna.
+
+[agents]
+max_concurrent_threads_per_session = 4
+default_subagent_model = "gpt-5.6-terra"
+default_subagent_reasoning_effort = "medium"

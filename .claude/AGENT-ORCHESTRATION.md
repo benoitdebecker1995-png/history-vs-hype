@@ -63,6 +63,20 @@ Every sub-agent spawn prompt MUST include the fenced block below verbatim. Phase
 
 Phase 75a-d and Phase 77 paste this block verbatim into their agent prompts. If this contract changes, bump to `RETURN-CONTRACT-V2` and update callers — do not silently edit.
 
+## Relayed Claims Are Not Findings
+
+**A claim that arrives from a sub-agent is unverified until the orchestrator verifies it.** Passing it to the user as a finding is publishing someone else's unchecked work under your own name.
+
+**The rule:** before a relayed claim drives a decision or reaches the user, either **check it** — run the query, open the file, resolve the identifier — or **label it as relayed** and say so in the same breath. Both are acceptable. Silently promoting agent output to fact is not.
+
+**Say which is which.** A return that mixes both should read like: *"I verified the data-error findings myself; the retention figures and the search results are the agent's, relayed."*
+
+*Why this is a rule and not a preference: on 2026-08-03 a red-team agent reported that a title "omits the only recognisable proper noun in the research." The title contained **Vatican**. The claim rested on a gap in a hand-maintained list, was relayed to the user as a finding, and was corrected by the user rather than by any check. Same session: three analytics conclusions built on a snapshot column read as lifetime, all three surfaced as fact.*
+
+**This is ADR-0020 (`strategy claims carry the same evidentiary burden as on-screen claims`) applied to agent output.** The burden does not lighten because a sub-agent carried it.
+
+⚠ **The corollary for sub-agent briefs:** tell the agent not to trust the orchestrator's summaries either. An agent handed "median impressions is 56" will reason from it. Brief agents to query the source themselves and say so when they cannot.
+
 ## Reference Loading Tiers
 
 Every reference belongs to exactly one tier. Every additional ref above Tier 0 requires a named caller — no orphan refs.
@@ -124,9 +138,32 @@ The rules above handle a spawn that is *refused*. They do nothing for the failur
 <!-- Phase 75a success criterion #7 (ROADMAP line 298): "Pattern documented in .claude/AGENT-ORCHESTRATION.md as a concrete worked example so 75b/c/d can cite 'apply the 75a pattern'". -->
 <!-- Phase 75a APPENDS here — does not rewrite earlier sections. -->
 
+## Running on Codex (added 2026-08-04)
+
+Everything above is harness-neutral and applies unchanged on Codex / GPT-5.6: the three spawn
+triggers, the return contract, the durable-output instruction, "a spawn is not free". Four things
+differ, and only four:
+
+| | Claude Code | Codex |
+|---|---|---|
+| Invocation | Task tool with `subagent_type` | `spawn_agent` (hooks match it as `Agent`) |
+| Definitions | `.claude/agents/*.md` | `.codex/agents/*.toml` — port of the same files |
+| Tool narrowing | `tools:` frontmatter list | no per-agent tool list; use `sandbox_mode = "read-only"` and instructions |
+| Parallelism | rate-limit backoff rule above | `agents.max_concurrent_threads_per_session = 4` in `.codex/config.toml` caps it first |
+
+**Model pins.** The TOMLs pin `gpt-5.6-sol` where the Claude file said opus, `gpt-5.6-terra` for
+sonnet, `gpt-5.6-luna` for haiku. A custom agent file's `model` beats the `[agents]` default.
+
+**The rate-limit section still applies** — the concurrency cap makes 429s rarer, not impossible, and
+the sequential-fallback rule is what to do when one lands.
+
+**Drift.** The TOMLs embed each agent body verbatim, so an edit to `.claude/agents/*.md` does not
+reach Codex until it is re-ported. `tests/unit/test_codex_surface_parity.py` fails when they diverge.
+
 ## Cross-References
 
 - `CLAUDE.md` Critical Reminders item 15 — pointer to this doc from always-loaded project instructions.
+- `AGENTS.md` (repo root) — the Codex-side entry document; `.agents/skills/` + `.codex/` are the port.
 - `.claude/USER-PREFERENCES.md` "Main Context = Orchestrator Only" section — user-facing restatement of the core rule.
 - `.planning/ROADMAP.md` Phase 79 — monthly surface-area check via `/status --surface`; the enforcement mechanism for "Extend, Don't Add".
 - `.planning/REQUIREMENTS.md` AGENT-01 (line 18) — the requirement this doc satisfies.

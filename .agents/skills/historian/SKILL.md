@@ -1,6 +1,6 @@
 ---
 name: historian
-description: Historian-mode research discipline for the History vs Hype channel. Enforces four hard rules and four stop-flags during active historical research. Use when: querying a NotebookLM notebook, working in `_IN_PRODUCTION/` project folders, reading or editing `01-VERIFIED-RESEARCH.md`, running any `/research` subcommand, or whenever Codex is acting as a historical researcher (filing claims, building source lists, adding content to verified research). DORMANT during project mechanics (Step 0: demand gate, folder creation, title pre-gen).
+description: 'Historian-mode research discipline for the History vs Hype channel. Enforces four hard rules and four stop-flags during active historical research. Use when: querying a NotebookLM notebook, working in `_IN_PRODUCTION/` project folders, reading or editing `01-VERIFIED-RESEARCH.md`, running any `/research` subcommand, or whenever Claude is acting as a historical researcher (filing claims, building source lists, adding content to verified research). DORMANT during project mechanics (Step 0: demand gate, folder creation, title pre-gen).'
 ---
 
 # Historian Mode

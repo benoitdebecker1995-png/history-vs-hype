@@ -1,13 +1,12 @@
 ---
-name: "source-command-reconcile"
-description: "Reconcile project state — folder lifecycle, AUTO blocks, derived docs. Auto-fires when user says \"I uploaded/released/published X\"."
+name: source-command-reconcile
+description: "Reconciles project state — folder lifecycle moves, AUTO blocks, and the derived status docs — against the filesystem and analytics.db. Use when: the user says they uploaded, released or published a video, or that it is live / went up (MANDATORY — the utterance IS the write trigger, do not merely look the video up), or when folder state looks stale."
 ---
 
-# source-command-reconcile
-
-Use this skill when the user asks to run the migrated source command `reconcile`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/reconcile.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /reconcile — Project State Reconciler
 
@@ -19,7 +18,7 @@ When the user says any of:
 - *"I uploaded X"* / *"I released X"* / *"I published X"*
 - *"X went up"* / *"X is live"*
 
-...where X is a project name/slug/URL, run `/reconcile <X>` automatically. If X is ambiguous (multiple folders could match), ask once: "Which project — #54 Inquisition or #X?" Resolution is the only place Codex pauses.
+...where X is a project name/slug/URL, run `/reconcile <X>` automatically. If X is ambiguous (multiple folders could match), ask once: "Which project — #54 Inquisition or #X?" Resolution is the only place Claude pauses.
 
 ## Modes
 
@@ -81,7 +80,7 @@ Any cross-folder move detected during the current reconcile run.
 Check whether a per-project memory snapshot exists at:
 
 ```
-C:\Users\Benoi\.Codex\projects\D--History-vs-Hype\memory\<NN>-<slug>-production-state.md
+C:\Users\Benoi\.claude\projects\D--History-vs-Hype\memory\<NN>-<slug>-production-state.md
 ```
 
 Pattern: `<number>-<slug>-production-state.md`. Use Glob to locate it.
@@ -107,7 +106,7 @@ When moving `_READY_TO_FILM/` → `_ARCHIVED/published/`: the snapshot-refresh p
 
 ## Calibration-loop backstop (every run)
 
-> Mirror of the AGENTS.md script-lock conversational trigger; rule provenance: `memory/feedback-calibration-loop.md` (UPGRADE-PLAN S14).
+> Mirror of the CLAUDE.md script-lock conversational trigger; rule provenance: `memory/feedback-calibration-loop.md` (UPGRADE-PLAN S14).
 
 On every `/reconcile` run (any mode except `--auto-publish-only`), after the lifecycle scan:
 
@@ -124,7 +123,7 @@ $marker = 'graphify-out\research\.needs_refresh'
 Add-Content -Path $marker -Value '<newly-archived-slug>'
 ```
 
-Do NOT auto-rebuild the research graph inside `/reconcile` — it costs a Gemini Flash call. The user runs `python tools/refresh-research-graph.py` when they want a refresh (see that script for the one-shot pipeline). The marker is purely a visibility signal — `/status` and future Codex sessions can read it to surface "research graph is N videos behind."
+Do NOT auto-rebuild the research graph inside `/reconcile` — it costs a Gemini Flash call. The user runs `python tools/refresh-research-graph.py` when they want a refresh (see that script for the one-shot pipeline). The marker is purely a visibility signal — `/status` and future Claude sessions can read it to surface "research graph is N videos behind."
 
 ---
 
@@ -141,8 +140,8 @@ Do NOT auto-rebuild the research graph inside `/reconcile` — it costs a Gemini
 
 ## Reference
 
-- Plan: `C:\Users\Benoi\.Codex\plans\drifting-folders-reconcile.md`
+- Plan: `C:\Users\Benoi\.claude\plans\drifting-folders-reconcile.md`
 - Core script: `tools/reconcile/reconcile.py`
 - Matcher: `tools/reconcile/match.py`
-- Routine 6: `.Codex/routines/reconcile-daily.md`
+- Routine 6: `.claude/routines/reconcile-daily.md`
 - Behavioral rule: `memory/feedback-project-reconciliation.md`

@@ -1,13 +1,12 @@
 ---
-name: "source-command-verify-flow-nlm"
-description: "Run narrative-flow verification + NotebookLM claim-query verification on a script (the deeper pass /verify --script skips for context-economy)"
+name: source-command-verify-flow-nlm
+description: "Narrative-flow verification plus per-claim NotebookLM querying — the deeper pass the standard verify skips for context economy. Use when: a script passed basic verification but the argument's flow or a specific claim's grounding is still in doubt, or before locking a script."
 ---
 
-# source-command-verify-flow-nlm
-
-Use this skill when the user asks to run the migrated source command `verify-flow-nlm`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/verify-flow-nlm.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /verify-flow-nlm — Flow check + NotebookLM claim verification on a script
 
@@ -53,7 +52,7 @@ Turn lands at: [m:ss / %]   Forbidden phrases: [none / list]
 [If no CRITICAL: "Flow clean — proceed."]
 ---
 ```
-(For a fuller structural read, also apply `.Codex/agents/structure-checker-v2.md` natively.)
+(For a fuller structural read, also apply `.claude/agents/structure-checker-v2.md` natively.)
 
 ---
 

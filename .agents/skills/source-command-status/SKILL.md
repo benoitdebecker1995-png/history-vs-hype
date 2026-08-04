@@ -1,13 +1,12 @@
 ---
-name: "source-command-status"
-description: "Smart project status and next action suggestion (responds to \"what should I do?\")"
+name: source-command-status
+description: "Reads current project state across the lifecycle folders and names the single next action. Use when: asked 'what should I do', 'where are we', 'what's the status', or at the start of a work session."
 ---
 
-# source-command-status
-
-Use this skill when the user asks to run the migrated source command `status`.
-
-## Command Template
+> **Codex note.** This is the Codex port of `.claude/commands/status.md`, which stays canonical.
+> The procedure below is that file verbatim. While running here: a `/name` reference is the
+> `source-command-name` skill in `.agents/skills/`; "the Task tool" means spawning a Codex agent
+> from `.codex/agents/`; "Claude" means you.
 
 # /status - Context-Aware Project Router
 
