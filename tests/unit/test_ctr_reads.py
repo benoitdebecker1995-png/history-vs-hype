@@ -200,3 +200,123 @@ def test_d28_never_raises_on_missing_table():
 def test_d28_handles_bad_published_date(daily_conn):
     from tools.discovery.ctr_reads import d28_for
     assert d28_for(daily_conn, "VID_LOUD", "not-a-date")["complete"] is False
+
+
+# ---------------------------------------------------------------------------
+# launch shape — how the impressions arrived, not how many (2026-08-04)
+#
+# A total-impressions threshold cannot separate a demand pocket from a failed test batch.
+# #59 took 9,626 impressions on day one — 88% of its lifetime — then collapsed to ~44/day,
+# and would have PASSED a total-only bar of 9,000 while being a total failure.
+# ---------------------------------------------------------------------------
+
+@pytest.fixture
+def shape_conn():
+    """Three launch shapes over the same 28-day window, from 2026-06-01.
+
+    VID_DUMP   — the #59 failure mode: almost everything on day one, then nothing
+    VID_BUILD  — a slow build peaking on day 4, with a real tail
+    VID_FLAT   — even serve across the window
+    """
+    from datetime import date, timedelta
+
+    c = sqlite3.connect(":memory:")
+    c.executescript(
+        """
+        CREATE TABLE impressions_daily (
+            video_id TEXT NOT NULL,
+            metric_date DATE NOT NULL,
+            traffic_source TEXT NOT NULL DEFAULT 'ALL',
+            impressions INTEGER NOT NULL,
+            clicks INTEGER NOT NULL,
+            ctr_percent REAL NOT NULL,
+            report_create_time TEXT NOT NULL,
+            ingested_at TEXT NOT NULL,
+            PRIMARY KEY (video_id, metric_date, traffic_source)
+        );
+        """
+    )
+    start = date(2026, 6, 1)
+    dump = [950] + [10] * 27                      # 1,220 total; day1 = 950
+    build = [50, 100, 150, 400] + [20] * 24       # peak on day 4
+    flat = [100] * 28
+    rows = []
+    for i in range(28):
+        d = (start + timedelta(days=i)).isoformat()
+        for vid, series in (("VID_DUMP", dump), ("VID_BUILD", build), ("VID_FLAT", flat)):
+            if series[i]:
+                rows.append((vid, d, "ALL", series[i], 1, 1.0, "t", "t"))
+    c.executemany("INSERT INTO impressions_daily VALUES (?,?,?,?,?,?,?,?)", rows)
+    c.commit()
+    yield c
+    c.close()
+
+
+def test_day_one_dump_is_visible_in_the_shape(shape_conn):
+    from tools.discovery.ctr_reads import launch_shape_for
+    s = launch_shape_for(shape_conn, "VID_DUMP", "2026-06-01")
+    assert s["day1_impressions"] == 950
+    assert s["day1_share"] > 0.75
+    assert s["tail_share"] < 0.20          # days 8-28 carry almost nothing
+    assert s["peak_day"] == 1
+
+
+def test_a_slow_build_peaks_later_and_reads_low_on_day_one(shape_conn):
+    from tools.discovery.ctr_reads import launch_shape_for
+    s = launch_shape_for(shape_conn, "VID_BUILD", "2026-06-01")
+    assert s["peak_day"] == 4
+    assert s["day1_share"] < 0.10
+
+
+def test_totals_cannot_tell_the_two_apart_but_shape_can(shape_conn):
+    """The whole point: same-ish totals, opposite stories."""
+    from tools.discovery.ctr_reads import launch_shape_for
+    dump = launch_shape_for(shape_conn, "VID_DUMP", "2026-06-01")
+    build = launch_shape_for(shape_conn, "VID_BUILD", "2026-06-01")
+    assert abs(dump["impressions"] - build["impressions"]) < 200   # totals are close
+    assert dump["day1_share"] > 4 * build["day1_share"]            # shapes are not
+
+
+def test_flat_serve_has_an_even_share(shape_conn):
+    from tools.discovery.ctr_reads import launch_shape_for
+    s = launch_shape_for(shape_conn, "VID_FLAT", "2026-06-01")
+    assert abs(s["day1_share"] - 1 / 28) < 0.01
+    assert s["tail_share"] == pytest.approx(21 / 28, abs=0.01)
+
+
+def test_shares_are_none_not_zero_when_the_window_is_empty(shape_conn):
+    """A zero denominator is not a zero share."""
+    from tools.discovery.ctr_reads import launch_shape_for
+    s = launch_shape_for(shape_conn, "VID_ABSENT", "2026-06-01")
+    assert s["impressions"] == 0
+    assert s["day1_share"] is None and s["tail_share"] is None and s["peak_day"] is None
+
+
+def test_bad_published_date_does_not_raise(shape_conn):
+    from tools.discovery.ctr_reads import launch_shape_for
+    s = launch_shape_for(shape_conn, "VID_DUMP", "not-a-date")
+    assert s["day1_share"] is None and s["daily"] == []
+
+
+def test_shape_carries_the_d28_fields_unchanged(shape_conn):
+    """It extends d28_for; the completeness contract must survive."""
+    from tools.discovery.ctr_reads import d28_for, launch_shape_for
+    base = d28_for(shape_conn, "VID_DUMP", "2026-06-01")
+    s = launch_shape_for(shape_conn, "VID_DUMP", "2026-06-01")
+    for field in ("impressions", "clicks", "days_covered", "complete", "window_end"):
+        assert s[field] == base[field]
+
+
+def test_daily_series_is_ascending_and_matches_the_total(shape_conn):
+    from tools.discovery.ctr_reads import launch_shape_for
+    s = launch_shape_for(shape_conn, "VID_BUILD", "2026-06-01")
+    dates = [d for d, _ in s["daily"]]
+    assert dates == sorted(dates)
+    assert sum(i for _, i in s["daily"]) == s["impressions"]
+
+
+def test_no_verdict_is_returned(shape_conn):
+    """n=3 on real data. This read describes; it must never classify (ADR-0012)."""
+    from tools.discovery.ctr_reads import launch_shape_for
+    s = launch_shape_for(shape_conn, "VID_DUMP", "2026-06-01")
+    assert not {"verdict", "passed", "breakout", "classification"} & set(s)

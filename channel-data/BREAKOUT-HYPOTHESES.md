@@ -85,6 +85,34 @@ Forensics say the 3 breakouts shared: (1) a live contemporary hook at publish, (
 **Confirm:** ≥3x median first-28-day impressions vs the channel's recent uploads.
 **Kill:** <1.5x — pocket theory adds nothing over plain H1 topicality.
 
+### H3 shape addendum — record the shape, do NOT add a threshold (2026-08-04)
+
+**Why:** a total-impressions test cannot separate a demand pocket from a test batch that failed.
+#59 took **9,626 impressions on day one — 95% of its 28-day window** — then ran a 2% tail across
+days 8–28. On totals alone it would have *passed* the 9,000 bar while being a total failure.
+
+**Instrument:** `tools.discovery.ctr_reads.launch_shape_for(conn, video_id, published_date)` —
+day-1 share, days 1–3 share, days 8–28 tail share, peak day, and the daily series. It reproduces
+the two known complete windows (2,422 and 3,088) exactly. It returns **no verdict**, by design.
+
+**All three launch windows we hold** (ingest began 2026-05-24, so this is the whole sample):
+
+| video | 28-day impr | day 1 | day-1 share | days 1–3 | days 8–28 tail | peak day |
+|---|---:|---:|---:|---:|---:|---:|
+| Slave-trade system | 2,422 | 1,659 | 68% | 85% | 8% | 1 |
+| Piri Reis map | 3,088 | 158 | 5% | 55% | 3% | 4 |
+| #59 I/P 1947 UN plan | 10,148 | 9,626 | **95%** | 96% | **2%** | 1 |
+
+**What this does and does not license.** It shows the two failure modes are distinguishable in
+day-grain data: a front-loaded dump (#59) looks nothing like a build (Piri Reis, peak on day 4).
+It does **not** license a share threshold — **n=3**, every one of them a non-breakout, and no
+successful launch is in the sample at all, so "what a good shape looks like" is unobserved. The
+9,000/4,500 numbers stay exactly as pre-registered; retuning them now would be post-hoc.
+
+**Record the shape for every future launch.** When a fourth and fifth window close, a criterion
+becomes arguable. Until then this is a description with a sample size attached, and the tail share
+is the number to watch — all three died in the tail, whatever they did on day one.
+
 ## H4 — Searched-anchor-first beats document-first in titles (reframed 2026-06-11)
 
 **Claim:** Titles that front-load the SEARCHED subject (the country/conflict/figure people actually type) outperform titles that front-load the document/artifact/obscure entity — for the same video. The evidence reveal stays as the second punch ("…The Documents Disagree"), which is the method-first identity doing the clicking work, not stakes-vaporware.

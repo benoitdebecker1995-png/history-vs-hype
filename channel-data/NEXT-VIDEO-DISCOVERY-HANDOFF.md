@@ -168,6 +168,14 @@ Rebuilt 2026-07-28 because the instrument couldn't answer the pre-registered que
   impressions". Left alone (six consumers, ADR-0017).
 - **`impressions_daily`** added — per-video per-day grain, PK `(video_id, metric_date)`, upsert on newer
   `report_create_time`. Ingest is idempotent, so a missed run self-heals.
+  **It lives in `keywords.db`, not `analytics.db`** (corrected 2026-08-04 — an earlier draft of this
+  file put it in the wrong database, and `thumbnail_features` in §7.4 is the mirror-image error: that
+  one is in **`analytics.db`**, not keywords.db. Querying the named-but-absent table returns an
+  error or nothing, and per this repo's own standing rule an empty result is not an answer).
+  **State on 2026-08-04: 2,553 rows, 57 videos, 2026-05-24 → 2026-08-01.** Only **three** videos have
+  a true launch window inside it (published after ingest began): the slave-trade video (2,963
+  impressions), Piri Reis (3,258), and #59 I/P (11,013). The shape criterion §9 asks for is
+  computable now — on n=3.
 - `HvH-CtrTracker` was **weekly (Mondays)** — that's why #59's launch window was lost. Now daily.
 - **The Analytics API has no `impressions` metric** (verified: HTTP 400). Only
   `channel_reach_basic_a1` carries thumbnail impressions, with a `date` column — cumulative must be summed.
@@ -185,14 +193,38 @@ once reports generate** — if it carries `traffic_source_type`, add that dimens
 
 ## 7. Known-bad in the evidence base — fix before trusting it
 
-1. **Thumbnail rules are computed on unserved videos.** 38 of 56 have <1,000 lifetime browse impressions,
-   so the feature deltas in `CTR-THUMBNAIL-FINDINGS-2026-06.md` (−0.71 doc, +0.65 map, −0.52 busy) are
-   medians over three-digit-impression noise. **Recompute restricted to served-only (n≈18).**
-2. **That file contradicts itself.** Its validation table kills "red pop" (−0.67, "OVER-FIT, KILLED") and
+1. ~~**Thumbnail rules are computed on unserved videos.** … Recompute restricted to served-only.~~
+   **DONE 2026-07-29, and re-verified against the live database 2026-08-04.**
+   `channel-data/CTR-THUMBNAIL-RECOMPUTE-2026-07-28.md` carries the Browse-served recompute (floor
+   = 1,000 Browse impressions from `surface_ctr`, joined to `thumbnail_features`, all reads through
+   `AnalyticsStore`). Cohorts reproduce exactly: **56 videos with surface data · 18 over the floor ·
+   17 of those tagged · 47 tagged overall.** All six deltas reproduce to the stated precision
+   (doc −1.67, creator face −1.35, emotional face +0.11, clean map +0.16, busy −1.35, red +0.67).
+   **Conclusion stands: none of the six feature rules is validated** — creator face, busy and red
+   all reverse sign when the two Guatemala videos are removed, and the flagged arms run as small as
+   one or two videos. Do not resurrect any of them as a rule.
+2. ~~**That file contradicts itself.**~~ **Resolved (re-checked 2026-08-04).** The findings file was
+   rewritten and now states one position throughout: red is "neither a winner rule nor a poison
+   rule … do not prescribe or penalize red from this data." `THUMBNAIL-CRAFT-RECIPE.md` was
+   downgraded T2→T3 on 2026-07-28, `PACKAGING_MANDATE.md` lists red under OVER-FIT KILLS, and
+   `/thumbnail` rule 4 says red is not a lever. **Two downstream surfaces were still prescribing it
+   and are now fixed:** `tools/thumbnail/render.py` (which hard-coded a red bar and seal, ignoring
+   its own `--accent` flag — so a default render shipped two accent colours) and the
+   `packaging-adversary` agent (which red-teamed using the retired rule). Pins:
+   `tests/unit/test_thumbnail_accent.py`. Original text below for the record:
+   Its validation table kills "red pop" (−0.67, "OVER-FIT, KILLED") and
    forty lines below prescribes red as winner-recipe item #3; `THUMBNAIL-CRAFT-RECIPE.md` [T2] rule 5 still
    calls it the channel's look-here signal. **Any agent reading top-to-bottom gets the killed rule.**
-3. **5 swap experiments sit PENDING and unread** in `keywords.db.swap_experiments` (from June, one on a
-   19,388-impression video). **This is the channel's only within-video causal evidence.** Harvest it.
+3. ~~**5 swap experiments sit PENDING and unread**~~ — **READ OUT, and the answer is that the
+   instrument is dead (verified 2026-08-04).** All five rows in `keywords.db.swap_experiments` carry
+   `verdict = INCONCLUSIVE-NOT-SERVED`. Post-swap impressions collapsed one to two orders of
+   magnitude in every case: 2,672→218, 2,721→78, 2,242→482, 450→192, and **19,388→127**. The
+   post-swap CTRs are measured on nothing (the 10.94% is 192 impressions).
+   **The finding: you cannot A/B packaging on this channel while serve is the constraint**, because
+   the swap coincides with the serve ending. This was the only within-video causal instrument, and
+   it does not survive a serve-limited channel. Whether *any* design does — swapping only while a
+   video is actively served (day-grain data now makes "actively served" detectable), or measuring
+   off browse — is open.
 4. **`thumbnail_features` is frozen** — 47 of 58 rows, six booleans, no writer script, no *operation*
    column. The generator's core decision variable (the operation taxonomy) has never been tested on this
    channel's own data.
@@ -205,10 +237,24 @@ once reports generate** — if it carries `traffic_source_type`, add that dimens
   CLI are separate logins). A pre-flight now fails with **exit 78** and an actionable message instead of
   four silent `1`s — `.claude/routines/_lib-preflight.ps1`, dot-sourced by all seven wrappers.
 - **Current routine failures are a usage session limit**, not auth. Different cause, benign.
-- **`HvH-GrowthRefresh` still fails**: takes ~42 min against a PT30M task limit, killed almost daily since
-  2026-07-12. Root cause is serial per-video API calls with 500-retries in `growth_data.py`. **Do not just
-  raise the limit** — the standing rule is root cause over workaround.
-- **Reconcile hasn't archived publishes since 2026-07-23.** First successful run should catch up.
+- ~~**`HvH-GrowthRefresh` still fails**: takes ~42 min against a PT30M task limit~~ — **stale;
+  fixed. Re-measured 2026-08-04: it now runs in 428 seconds (7.1 min) using 6 workers** and exits 0
+  on 2026-08-01, -02, -03 (catch-up run) and -04. The serial-call diagnosis was correct and the
+  parallelisation landed.
+  **The real 2026-08-03 07:45 failure was different and is now fixed too:** the YouTube OAuth
+  refresh token had been revoked, so a *scheduled* run tried to open a browser consent page nobody
+  could answer, and its callback server failed to bind the hard-coded port 8080 —
+  `[WinError 10048]`, full traceback in `.brain/_inbox/growth-refresh-2026-08-03.log`. Two fixes in
+  `tools/youtube_analytics/auth.py`: the loopback port is now ephemeral (`port=0`; valid because the
+  client is an `installed`/Desktop type), and a headless run now raises `InteractiveAuthRequired`
+  and exits **78** with a fix instruction instead of hanging on a browser. The wrappers set
+  `HVH_NONINTERACTIVE=1` via `_lib-preflight.ps1`. Re-auth from a terminal with
+  `python -m tools.youtube_analytics.auth --login`. Pins: `tests/unit/test_auth_noninteractive.py`.
+- **Reconcile still hasn't archived publishes** (as of 2026-08-04). Cause is unchanged and is now the
+  ONLY thing blocking the four claude-driven routines: the **claude CLI's** refresh token is blank,
+  so ChannelHealth / Reconcile / BrainHygiene / StaleProjects all exit 78 at the pre-flight. This is
+  a separate credential from the YouTube one above and cannot be fixed from inside a session — the
+  machine owner must run `claude auth login --claudeai` in a terminal as this Windows user.
 - **VidIQ CSV export is 8 months stale** (2025-11-19). Manual pull; unused for anything load-bearing.
 
 ## 9. The video in flight

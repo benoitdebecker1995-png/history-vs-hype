@@ -201,6 +201,108 @@ def d28_impressions_by_video(
     }
 
 
+def launch_shape_for(
+    conn: sqlite3.Connection,
+    video_id: str,
+    published_date: str,
+    *,
+    traffic_source: str = "ALL",
+) -> Dict[str, Any]:
+    """Day-grain SHAPE of a launch window — how the impressions arrived, not how many.
+
+    Why a shape read exists at all: a total-impressions threshold cannot tell a demand pocket
+    apart from a test batch that failed. #59 took **88% of its lifetime impressions on day one**
+    and then collapsed to ~44/day by day three; it would have passed a total-only bar of 9,000
+    while being a total failure. Totals answer "how big"; only the shape answers "did it hold".
+
+    Returns, over the [published, published+27] window:
+      ``day1_impressions``   impressions on the publish date itself
+      ``day1_share``         day 1 as a fraction of the window total (0.0-1.0)
+      ``first3_share``       days 1-3 as a fraction of the window total
+      ``tail_share``         days 8-28 as a fraction — the "did serve continue" number
+      ``peak_day``           1-based day offset carrying the most impressions
+      ``peak_share``         that day's share
+      ``first_metric_date``  earliest row we hold for this video, whatever the publish date says
+      ``daily``              [(metric_date, impressions), ...] ascending, for plotting/inspection
+    plus ``impressions``, ``days_with_data``, ``days_covered`` and ``complete`` with the same
+    meanings as :func:`d28_for`.
+
+    **It deliberately returns no verdict.** As of 2026-08-04 only three videos have a launch
+    window inside `impressions_daily` (ingest began 2026-05-24), and the pre-registered
+    9,000/4,500 thresholds already rest on n=2. Numbers here describe; they do not classify.
+    Turning a share into a pass/fail bar on this sample would be overfitting, and per ADR-0012 a
+    rule that must bind belongs in a filter written deliberately, not inferred from three points.
+
+    Shares are ``None`` when the window holds no impressions — a zero denominator is not a zero
+    share. Read-side helper: never raises.
+    """
+    base = d28_for(conn, video_id, published_date, traffic_source=traffic_source)
+    shape = {
+        **base,
+        "day1_impressions": 0,
+        "day1_share": None,
+        "first3_share": None,
+        "tail_share": None,
+        "peak_day": None,
+        "peak_share": None,
+        "first_metric_date": None,
+        "daily": [],
+    }
+    if not base["window_end"]:
+        return shape
+
+    try:
+        rows = conn.execute(
+            """
+            SELECT metric_date, COALESCE(SUM(impressions), 0)
+              FROM impressions_daily
+             WHERE video_id = ? AND traffic_source = ?
+               AND metric_date >= ? AND metric_date <= ?
+             GROUP BY metric_date
+             ORDER BY metric_date
+            """,
+            (video_id, traffic_source, base["window_start"], base["window_end"]),
+        ).fetchall()
+        earliest = conn.execute(
+            "SELECT MIN(metric_date) FROM impressions_daily WHERE video_id = ?",
+            (video_id,),
+        ).fetchone()
+    except sqlite3.Error as e:
+        logger.debug("launch_shape_for(%s) failed: %s", video_id, e)
+        return shape
+
+    shape["first_metric_date"] = earliest[0] if earliest else None
+    shape["daily"] = [(d, int(i)) for d, i in rows]
+
+    total = sum(i for _, i in shape["daily"])
+    if not total:
+        return shape
+
+    from datetime import date as _date
+
+    start = _date.fromisoformat(base["window_start"])
+    by_offset = {}
+    for day, impressions in shape["daily"]:
+        try:
+            offset = (_date.fromisoformat(day) - start).days + 1  # 1-based
+        except ValueError:
+            continue
+        by_offset[offset] = by_offset.get(offset, 0) + impressions
+
+    day1 = by_offset.get(1, 0)
+    first3 = sum(v for k, v in by_offset.items() if 1 <= k <= 3)
+    tail = sum(v for k, v in by_offset.items() if 8 <= k <= 28)
+    peak_day = max(by_offset, key=lambda k: by_offset[k])
+
+    shape["day1_impressions"] = day1
+    shape["day1_share"] = round(day1 / total, 4)
+    shape["first3_share"] = round(first3 / total, 4)
+    shape["tail_share"] = round(tail / total, 4)
+    shape["peak_day"] = peak_day
+    shape["peak_share"] = round(by_offset[peak_day] / total, 4)
+    return shape
+
+
 def latest_valid_snapshot_date(
     conn: sqlite3.Connection, *, require_ctr: bool = True
 ) -> Optional[str]:
