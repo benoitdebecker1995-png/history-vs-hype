@@ -1,11 +1,11 @@
 <!-- AUTO:reconcile-dashboard — regenerated each run, do not edit -->
-Last reconciled: 2026-07-29
+Last reconciled: 2026-08-04
 
 ## Lifecycle counts
 
 | Bucket | Count |
 |---|---|
-| `_IN_PRODUCTION/` (pre-script / scripting / fact-check) | 19 |
+| `_IN_PRODUCTION/` (pre-script / scripting / fact-check) | 22 |
 | `_READY_TO_FILM/` (script-locked / filmed / in-post, pre-publish) | 1 |
 | `_ARCHIVED/published/` (YouTube confirmed) | 34 |
 
@@ -31,6 +31,9 @@ Last reconciled: 2026-07-29
 | `61-spanish-colonization-black-legend-2026` | research |
 | `62-volhynia-massacre-untranslated-2026` | filmed |
 | `63-leopold-congo-cobalt-2026` | research |
+| `64-ancient-dna-aryan-weaponised-2026` | idea |
+| `65-enigma-polish-cipher-bureau-2026` | idea |
+| `67-donation-constantine-forgery-2026` | fact-checked |
 | `Tariffs` | idea |
 
 ## Ready to film / filmed pre-publish
@@ -44,7 +47,6 @@ Last reconciled: 2026-07-29
 | Published | Folder | Video ID | Title |
 |---|---|---|---|
 | 2026-07-05 | `59-israel-palestine-partition-offer-2026` | `OHWq4jY8iAY` | Israel vs Palestine. The 1947 UN Plan Wasn’t Legally Binding |
-| 2026-06-04 | `57-piri-reis-map-ottoman-2026` | `zt7VntgauC8` | The Piri Reis Map Cites Columbus. Hancock Calls It 12,000 Ye |
 
 ## All archived (34 folders)
 
