@@ -1,6 +1,6 @@
 ---
 name: data-stores
-description: Map of the repo's data layer — the three live SQLite databases (analytics.db, keywords.db, intel.db), the flat-file data stores, refresh chains and staleness semantics, the truth-source hierarchy for project state, and AUTO-zone rules in status docs. Use when: querying or citing numbers from analytics.db / keywords.db / intel.db; asking "which table holds X"; data looks stale, missing, or frozen; deciding which source is authoritative for project state; editing PROJECT-STATUS.md anywhere near an <!-- AUTO: --> block; tempted to add, drop, or "clean up" a table. NOT for diagnosing why an automation broke (→ debugging-playbook) or scheduled-task registration/admin (→ automation-ops).
+description: 'Map of the repo''s data layer — the three live SQLite databases (analytics.db, keywords.db, intel.db), the flat-file data stores, refresh chains and staleness semantics, the truth-source hierarchy for project state, and AUTO-zone rules in status docs. Use when: querying or citing numbers from analytics.db / keywords.db / intel.db; asking "which table holds X"; data looks stale, missing, or frozen; deciding which source is authoritative for project state; editing PROJECT-STATUS.md anywhere near an <!-- AUTO: --> block; tempted to add, drop, or "clean up" a table. NOT for diagnosing why an automation broke (→ debugging-playbook) or scheduled-task registration/admin (→ automation-ops).'
 ---
 
 # Data Stores

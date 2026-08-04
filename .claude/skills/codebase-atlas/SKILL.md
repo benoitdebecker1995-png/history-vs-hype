@@ -1,6 +1,6 @@
 ---
 name: codebase-atlas
-description: Map of the Python code surface in G:\History vs Hype — package map of tools/, runnable entry points with exact commands, the ADR seam catalog (which file owns what, where to route a change), and navigation recipes (graphify-code MCP vs CODE-MAP.md vs grep). Use when: asking "where does X live", "what depends on Y", "which file implements Z", "how do I run tool X", when adding or modifying anything under tools/, or when deciding which seam a change routes through. Does NOT cover DB schemas or query recipes (→ data-stores skill) or how to run tests (→ validation-standards skill).
+description: 'Map of the Python code surface in G:\History vs Hype — package map of tools/, runnable entry points with exact commands, the ADR seam catalog (which file owns what, where to route a change), and navigation recipes (graphify-code MCP vs CODE-MAP.md vs grep). Use when: asking "where does X live", "what depends on Y", "which file implements Z", "how do I run tool X", when adding or modifying anything under tools/, or when deciding which seam a change routes through. Does NOT cover DB schemas or query recipes (→ data-stores skill) or how to run tests (→ validation-standards skill).'
 ---
 
 # Codebase Atlas
@@ -19,7 +19,7 @@ One exception that CANNOT use `-m`: `tools/refresh-research-graph.py` (hyphen in
 
 | Package / module | What it is |
 |---|---|
-| `tools/title_scorer.py` | Title Scorer v5 — the packaging workhorse (~47KB). Clickbait brand gate + search-anchor recognizer live here (ADR-0012). `--strict` restores old hard-rejects; default is graded penalties. |
+| `tools/title_scorer.py` | Title Scorer v5 — the packaging workhorse (~47KB). Clickbait brand gate + search-anchor recognizer live here (ADR-0012; the recognizer accepts a curated term OR a verified ≥1,000/mo search volume from keywords.db — ADR-0023). `--strict` restores old hard-rejects; default is graded penalties. |
 | `tools/title_features.py` | ADR-0009 seam: pure `str → features`, 6-class `pattern()` taxonomy + predicates. No DB, no I/O. Topic classification deliberately excluded. |
 | `tools/subtitles.py` | ADR-0010 seam: THE one SRT parser (`parse()`, typed `Cue`/`SubtitleTrack`, encoding ladder, opt-in `fix_hour_offset`). |
 | `tools/benchmark_store.py` | Reader for `channel-data/niche_benchmark.json` (niche scores, topic thresholds). Never raises. Its docstring falsely says colon is a hard reject — behavior is right, comment lies. |
@@ -77,7 +77,7 @@ Documented-but-not-executed (invocation read from `__main__` blocks): `python -m
 
 ## Seam catalog (ADR → files → when to route through it)
 
-Full ADRs in `docs/adr/0001..0014` (0001–0003 and 0006 are content-side decisions, not code seams). One-line takeaways only — read the ADR before arguing with it. Every code ADR is a re-litigation guard: **supersede with a new ADR rather than silently restructure.**
+Full ADRs in `docs/adr/` (0001–0003 and 0006 are content-side decisions, not code seams). The table below covers the seam ADRs; it is **not** an index of every ADR — `ls docs/adr/` is. One-line takeaways only — read the ADR before arguing with it. Every code ADR is a re-litigation guard: **supersede with a new ADR rather than silently restructure.**
 
 | ADR | Seam | Files | Route your change through this when… |
 |---|---|---|---|
@@ -88,8 +88,9 @@ Full ADRs in `docs/adr/0001..0014` (0001–0003 and 0006 are content-side decisi
 | 0009 | `title_features` = the one title-structure home | `tools/title_features.py` | Any title-structure question → import it. Broaden by enriching `pattern()` + re-baselining tests, never fork. Topic rules do NOT go here (they live in intent_mapper / topic_vocabulary / growth_data). |
 | 0010 | `subtitles` = the one SRT parser (the `srt` pip lib was rejected) | `tools/subtitles.py` | Any SRT read → `tools.subtitles.parse()`. The SRT WRITER (`auto_srt_fixer`) is deliberately still outside the seam. |
 | 0011 | `/analyze` data fetches behind `AnalysisSource` Protocol | `tools/youtube_analytics/analysis_source.py`, `analyze.py` | Adding/changing any external fetch in the analyze path → extend the Protocol + BOTH impls (Live + InMemory). |
-| 0012 | Packaging advancement is CODE-gated (4 filters; enrichment never upgrades a FAIL) | `tools/preflight/packaging_lock.py`; root-cause fixes in `title_scorer.py` (packaging_lock IMPORTS `score_title`/`has_search_anchor` from it) | Any packaging rule that must BIND → add as a filter in packaging_lock (code), never prose in a command file. Scores stay non-binding nudges. A title_scorer semantic change → re-run `tests/test_packaging_lock.py` + `tools/tests/test_scorer_regression.py` (explicit path). |
+| 0012 | Packaging advancement is CODE-gated (4 filters; enrichment never upgrades a FAIL) | `tools/preflight/packaging_lock.py`; root-cause fixes in `title_scorer.py` (packaging_lock IMPORTS `score_title`/`has_search_anchor` from it) | Any packaging rule that must BIND → add as a filter in packaging_lock (code), never prose in a command file. Scores stay non-binding nudges. The search-anchor recognizer itself is governed by ADR-0023. A title_scorer semantic change → re-run `tests/test_packaging_lock.py` + `tools/tests/test_scorer_regression.py` (explicit path). |
 | 0013 | VidIQ MCP = enrichment-only; repo JSON is the canonical competitor set | `tools/intel/vidiq_competitor_sync.py`, `tools/intel/competitor_channels.json` | Changing competitors → edit the repo JSON, then run the sync. VidIQ generation tools on-channel require a new ADR. |
+| 0023 | Search-anchor fame is MEASURED, not listed (curated set is a fast path only) | `tools/title_scorer.py` (`find_search_anchor`, `ANCHOR_VOLUME_FLOOR`, `record_anchor_volume`); pinned by `tests/unit/test_search_anchor.py` | A title fails the anchor filter on a term you believe is famous → do NOT add it to `HEAD_TERMS`. Record its verified volume: `python -m tools.title_scorer --record-anchor "<term>" --volume <n> --anchor-source vidiq-YYYY-MM-DD`. Three symptomatic list patches in eight weeks is what this ADR ended. |
 | 0014 | `status_doc` owns AUTO-zone fence grammar (3 registered zones) | `tools/video_projects/status_doc.py` (`AutoZone`, `StatusDoc`) | Any new managed block in PROJECT-STATUS.md → register a new `AutoZone`; never hand-roll `<!-- AUTO:* -->` markers or edit inside a zone. |
 
 Two seams deliberately NOT extracted yet ("defer the dangerous writer" house pattern): the folder mover (`tools/reconcile/reconcile.py`) and the SRT rewriter (`tools/youtube_analytics/auto_srt_fixer.py`). Do not "helpfully" wrap them. Full extend-vs-add judgment → extending-safely skill.

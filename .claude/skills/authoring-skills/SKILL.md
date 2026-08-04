@@ -1,6 +1,6 @@
 ---
 name: authoring-skills
-description: Craft standard for writing and editing this repo's instruction surfaces — SKILL.md files, slash-command files, and agent files. The vocabulary and levers that make an instruction predictable. Use when: creating or editing any file under `.claude/skills/`, `.claude/commands/`, or `.claude/agents/`; writing a skill/command/agent description; a skill/command/agent reads vague, bloated, or is ignored when it should fire; or another skill needs the skill-craft vocabulary. Decides HOW WELL the artifact is written; defers the should-it-exist gate to `extending-safely`.
+description: 'Craft standard for writing and editing this repo''s instruction surfaces — SKILL.md files, slash-command files, and agent files. The vocabulary and levers that make an instruction predictable. Use when: creating or editing any file under `.claude/skills/`, `.claude/commands/`, or `.claude/agents/`; writing a skill/command/agent description; a skill/command/agent reads vague, bloated, or is ignored when it should fire; or another skill needs the skill-craft vocabulary. Decides HOW WELL the artifact is written; defers the should-it-exist gate to `extending-safely`.'
 ---
 
 # Authoring Skills

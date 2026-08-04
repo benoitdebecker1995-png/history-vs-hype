@@ -89,7 +89,7 @@ script_titles = generate_script_titles(video_id, current_title)
 
 **b. Fallback chain (if script_titles is empty):**
 1. First fallback: `CANDIDATES` dict in `retitle_gen.py` — check `CANDIDATES.get(video_id, {}).get('options', [])`
-2. Second fallback: Read `channel-data/RETITLE-RECOMMENDATIONS.md` and extract options for the video
+2. Second fallback: Read `channel-data/RETITLE-SHORTLIST.md` and extract options for the video
 
 **Always surface which source was used** per video so the user knows whether titles are script-derived or pre-generated.
 
@@ -180,7 +180,7 @@ Write to `channel-data/SWAP-CHECKLIST.md` (overwrite each run — this file is e
 [Best candidate — score [XX]/100, grade [X], pattern: [pattern_name]]
 
 ### Title Source
-[script-generated | CANDIDATES dict | RETITLE-RECOMMENDATIONS.md]
+[script-generated | CANDIDATES dict | RETITLE-SHORTLIST.md]
 
 ### Shelf Positioning (from serp_title_study)
 [which live-shelf saturation the new title breaks / which absent lever it occupies — e.g. "shelf 0% two-sentence; new title leads with Claim.Evidence." OR "shelf check skipped"]
@@ -422,7 +422,7 @@ After reverting in YouTube Studio, confirm here and I'll update the SWAP LOG sta
 - **Thumbnail checker:** `tools/preflight/thumbnail_checker.py` — `check_thumbnail()`, `check_project()`
 - **CTR ingestion:** `tools/ctr_ingest.py` — `ingest_synthesis_ctr()`
 - **Swap protocol:** `tools/SWAP-PROTOCOL.md` — timing and rollback guidance
-- **Retitle recommendations:** `channel-data/RETITLE-RECOMMENDATIONS.md` — fallback candidate pool
+- **Retitle recommendations:** `channel-data/RETITLE-SHORTLIST.md` — fallback candidate pool
 - **Performance data:** `channel-data/patterns/CROSS-VIDEO-SYNTHESIS.md` — master CTR/impressions table
 
 ---

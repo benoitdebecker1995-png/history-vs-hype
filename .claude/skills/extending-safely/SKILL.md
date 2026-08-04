@@ -1,6 +1,6 @@
 ---
 name: extending-safely
-description: Standards for CHANGING the History vs Hype repo — the extend-don't-add acceptance test, seam-routing pre-change checklist (which seam, which tests, which docs), code conventions for new modules, test-first expectations, commit + secret-guard rules, and the agent-spawn digest. Use when: about to write or modify code under tools/; creating any NEW surface (module, command, skill, agent, REFERENCE doc, DB table, derived doc); planning a refactor or migration; about to commit, or the pre-commit hook just fired; spawning sub-agents for a build; tempted to mock, skip, or work around a failure. NOT for locating existing code (→ codebase-atlas), running tests (→ validation-standards), or DB schemas (→ data-stores).
+description: 'Standards for CHANGING the History vs Hype repo — the extend-don''t-add acceptance test, seam-routing pre-change checklist (which seam, which tests, which docs), code conventions for new modules, test-first expectations, commit + secret-guard rules, and the agent-spawn digest. Use when: about to write or modify code under tools/; creating any NEW surface (module, command, skill, agent, REFERENCE doc, DB table, derived doc); planning a refactor or migration; about to commit, or the pre-commit hook just fired; spawning sub-agents for a build; tempted to mock, skip, or work around a failure. NOT for locating existing code (→ codebase-atlas), running tests (→ validation-standards), or DB schemas (→ data-stores).'
 ---
 
 # Extending Safely
@@ -117,7 +117,7 @@ Non-negotiables the principal enforced:
 4. A new file/command/agent/ref without the named-justification acceptance test — or without the three discovery greps first.
 5. Re-implementing what a seam owns (a second SRT parser, a fourth AUTO-fence surgery, a hardcoded lifecycle glob).
 6. `git commit --no-verify` as a reflex, or any hook bypass to force a commit through.
-7. Presenting the owner an architecture menu instead of a decision — or skipping the memory/wiki capture after he corrects course.
+7. Presenting the owner an architecture menu instead of a decision — or skipping the memory capture after he corrects course.
 8. Declaring a change done without the real-data check (synthetic fixtures prove it runs, not that behavior survived).
 
 ## Related skills

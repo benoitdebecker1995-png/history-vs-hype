@@ -1,6 +1,6 @@
 ---
 name: project-onboarding
-description: Entry-point router for the History vs Hype repo — the two work surfaces (content production vs engineering), the truth-source hierarchy, a task-type→read-order router into the 7 domain skills + historian, the never-do list, and how to work with the owner. Use when: starting work in this repo without prior context, onboarding, unsure which skill/doc/command applies, or asking how this project is organized. This skill ROUTES — it contains no deep procedure; jump to the routed skill before acting.
+description: 'Entry-point router for the History vs Hype repo — the two work surfaces (content production vs engineering), the truth-source hierarchy, a task-type→read-order router into the 7 domain skills + historian, the never-do list, and how to work with the owner. Use when: starting work in this repo without prior context, onboarding, unsure which skill/doc/command applies, or asking how this project is organized. This skill ROUTES — it contains no deep procedure; jump to the routed skill before acting.'
 ---
 
 # Project Onboarding

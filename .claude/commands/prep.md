@@ -634,8 +634,8 @@ Phase 40: python tools/translation/cli.py full --language french ...
 ## Reference Examples
 
 **Good editing guides to match:**
-- `video-projects/_IN_PRODUCTION/6-bir-tawil-2025/EDITING-GUIDE.md`
-- `video-projects/_IN_PRODUCTION/3-fuentes-fact-check-2025/FUENTES-EDITING-GUIDE.md`
+- `video-projects/_ARCHIVED/published/6-bir-tawil-2025/EDITING-GUIDE.md`
+- `video-projects/_ARCHIVED/published/3-fuentes-fact-check-2025/FUENTES-EDITING-GUIDE.md`
 
 **Quality standards:**
 - WHY for every shot decision

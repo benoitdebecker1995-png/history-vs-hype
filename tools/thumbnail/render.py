@@ -4,7 +4,10 @@ Each template enforces the Tier-1 craft by construction:
   - one hero subject, 40-60% of frame, cut out + drop-shadow separation
   - edge vignette + saturation pop (depth)
   - headline: <=3 words/line, size-FLOOR enforced (survives 160px), heavy stroke, ONE accent color
-  - one red accent at the focal point (the channel's "look-here" signal)
+  - one accent at the focal point, in the SAME colour as the headline accent (`--accent`).
+    NOT necessarily red: the own-channel data retired the "red pop = look-here signal" claim
+    (CTR-THUMBNAIL-FINDINGS-2026-06: red is "neither a winner rule nor a poison rule … do not
+    prescribe or penalize red from this data"). Red remains a craft option, not a channel law.
   - a 160px proof saved next to every render (judge clarity there, not at full size)
 
 Operations:  face_compression | dossier_document | map_visual_answer | mechanism_reframe
@@ -165,17 +168,21 @@ def headline(img: Image.Image, lines, anchor_xy, max_w=None, font_path=IMPACT):
     return warnings, bbox
 
 
-def red_bar(img: Image.Image, xy, w, h=14):
-    ImageDraw.Draw(img).rectangle([xy[0], xy[1], xy[0] + w, xy[1] + h], fill=RED)
+def _darken(color, factor=0.55):
+    return tuple(max(0, int(c * factor)) for c in color)
 
 
-def red_seal(img: Image.Image, center, r=46):
-    """Small distressed red wax-seal dot = the focal red accent without an amateur box."""
+def accent_bar(img: Image.Image, xy, w, h=14, color=RED):
+    ImageDraw.Draw(img).rectangle([xy[0], xy[1], xy[0] + w, xy[1] + h], fill=color)
+
+
+def accent_seal(img: Image.Image, center, r=46, color=RED):
+    """Small distressed wax-seal dot = the focal accent without an amateur box."""
     seal = Image.new("RGBA", (r * 2, r * 2), (0, 0, 0, 0))
     sd = ImageDraw.Draw(seal)
-    sd.ellipse([2, 2, r * 2 - 2, r * 2 - 2], fill=RED + (235,))
+    sd.ellipse([2, 2, r * 2 - 2, r * 2 - 2], fill=tuple(color) + (235,))
     sd.ellipse([int(r * 0.5), int(r * 0.5), int(r * 1.5), int(r * 1.5)],
-               outline=(120, 10, 10, 255), width=4)
+               outline=_darken(color) + (255,), width=4)
     img.paste(seal, (center[0] - r, center[1] - r), seal)
 
 
@@ -218,7 +225,12 @@ def face_compression(asset, lines, out, crop=None, accent_box=(720, 40, 1180, 54
 
 def dossier_document(asset, lines, out, accent="yellow", seal=True):
     """Treaty/legal/evidence: a sharp, cut-out evidence object on a dark ground,
-    drop-shadow separation, headline in the left negative space, one red accent."""
+    drop-shadow separation, headline in the left negative space, ONE accent colour.
+
+    `accent` was accepted and then ignored until 2026-08-04: the bar and seal were hard-coded red
+    while the CLI coloured the headline yellow, so a default render shipped TWO accents — against
+    this module's own Tier-1 rule. Pass `accent="red"` for the pre-fix look.
+    """
     coin = pop(load_rgb(asset), contrast=1.35, color=1.05, brightness=1.12)
     D = 560
     subj = circular_rgba(coin, D)
@@ -231,9 +243,10 @@ def dossier_document(asset, lines, out, accent="yellow", seal=True):
     base = vignette(base, 0.42)
 
     warns, bbox = headline(base, lines, (EDGE_MARGIN, 250))
-    red_bar(base, (EDGE_MARGIN, bbox[3] + 14), w=int(W * 0.30))
+    color = ACCENTS[accent] if accent in ACCENTS else accent
+    accent_bar(base, (EDGE_MARGIN, bbox[3] + 14), w=int(W * 0.30), color=color)
     if seal:
-        red_seal(base, (cx + D - 70, cy + 70))
+        accent_seal(base, (cx + D - 70, cy + 70), color=color)
     return save(base, out), warns
 
 
@@ -319,7 +332,9 @@ def main():
     lines = [(t, WHITE) for t in parts[:-1]] + [(parts[-1], acc)]
     fn = {"face": face_compression, "dossier": dossier_document,
           "map": map_visual_answer, "mechanism": mechanism_reframe}[args.operation]
-    out, warns = fn(args.asset, lines, args.out)
+    # Templates that take an accent get the chosen one — `--accent` used to be a no-op for them.
+    kwargs = {"accent": args.accent} if args.operation in {"dossier", "mechanism"} else {}
+    out, warns = fn(args.asset, lines, args.out, **kwargs)
     _report(out, warns)
 
 

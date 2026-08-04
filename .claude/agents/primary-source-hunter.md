@@ -1,9 +1,9 @@
 ---
 name: primary-source-hunter
-description: Traces a single claim DOWN its citation ladder to the most-primary showable source a real historian would put on screen. Give it a claim (and where it's currently cited); it raw-reads the source, follows the footnotes down through each rung, classifies provenance tiers, leaves the notebook for the open primary record (FRUS, UN docs, archive.org, national archives) when the notebook bottoms out, retrieves/renders the actual document, and returns a Source Genealogy: the root primary, a showable file + exact page + char-exact verbatim, provenance verdict, and any attribution mismatches. NOT for topic exploration (→ notebook-researcher) or claim-vs-notebook fact-check (→ /verify).
+description: 'Traces a single claim DOWN its citation ladder to the most-primary showable source a real historian would put on screen. Give it a claim (and where it''s currently cited); it raw-reads the source, follows the footnotes down through each rung, classifies provenance tiers, leaves the notebook for the open primary record (FRUS, UN docs, archive.org, national archives) when the notebook bottoms out, retrieves/renders the actual document, and returns a Source Genealogy: the root primary, a showable file + exact page + char-exact verbatim, provenance verdict, and any attribution mismatches. NOT for topic exploration (→ notebook-researcher) or claim-vs-notebook fact-check (→ /verify).'
 tools: [Read, Write, Grep, Glob, Bash, mcp__notebooklm__notebook_list, mcp__notebooklm__notebook_get, mcp__notebooklm__notebook_describe, mcp__notebooklm__source_get_content, mcp__notebooklm__source_describe, mcp__notebooklm__notebook_query, WebSearch, WebFetch]
 model: sonnet
-version: 1.0 (2026-07-04) — codified from the #59 Israel/Palestine primary-source hunts (84% farmland, Beersheba census, Liberia Firestone → Forrestal Diaries, Philippines → FRUS d910)
+version: '1.0 (2026-07-04) — codified from the #59 Israel/Palestine primary-source hunts (84% farmland, Beersheba census, Liberia Firestone → Forrestal Diaries, Philippines → FRUS d910)'
 ---
 
 # Primary-Source Hunter

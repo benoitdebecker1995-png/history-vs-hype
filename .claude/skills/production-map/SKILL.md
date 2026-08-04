@@ -1,6 +1,6 @@
 ---
 name: production-map
-description: Routing layer for content-production work in the History vs Hype repo — pipeline-phase→command map, the packaging gate authority model (filters decide, scores inform), mandatory conversational triggers, artifact done-standards, and decision epistemics for content decisions. Use when: working on a video project or any video-projects/ path; deciding which command comes next in the pipeline; the user says "uploaded"/"published"/"is live"/"script locked"/"lock it"/"T1 passed"; any packaging, gate, greenlight, or title/thumbnail-advancement question; citing channel performance data in a recommendation; unsure which reference doc or skill owns a content question. DORMANT for pure code/engineering work (→ codebase-atlas, extending-safely).
+description: 'Routing layer for content-production work in the History vs Hype repo — pipeline-phase→command map, the packaging gate authority model (filters decide, scores inform), mandatory conversational triggers, artifact done-standards, and decision epistemics for content decisions. Use when: working on a video project or any video-projects/ path; deciding which command comes next in the pipeline; the user says "uploaded"/"published"/"is live"/"script locked"/"lock it"/"T1 passed"; any packaging, gate, greenlight, or title/thumbnail-advancement question; citing channel performance data in a recommendation; unsure which reference doc or skill owns a content question. DORMANT for pure code/engineering work (→ codebase-atlas, extending-safely).'
 ---
 
 # Production Map
@@ -42,7 +42,9 @@ verification passes `/verify` skips for context-economy · `/comment-mine` audie
 Authority: `docs/adr/0012-packaging-advancement-is-code-gated.md` + `CONTEXT.md` § Packaging / thumbnail terms.
 
 - **FILTERS decide (pass/fail, all four must PASS):** (1) search-anchor in title
-  (`title_scorer.has_search_anchor`), (2) clickbait brand-gate (no `title_scorer` hard_rejects),
+  (`title_scorer.has_search_anchor` — a curated head term OR a verified ≥1,000/mo volume;
+  a FAIL on a famous term means "unmeasured", so record it rather than rewriting the title, ADR-0023),
+  (2) clickbait brand-gate (no `title_scorer` hard_rejects),
   (3) title↔thumbnail curiosity gap — a judgment field the gate requires be FILLED, (4) thumbnail
   conditions (`thumbnail_checker`; may be PENDING at lock, checked before publish).
 - **ENRICHMENT informs, never decides:** `title_scorer` composite (65), `/curiosity` (60), VidIQ

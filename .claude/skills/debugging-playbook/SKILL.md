@@ -1,6 +1,6 @@
 ---
 name: debugging-playbook
-description: Evidence-first diagnostic method and known-failure-mode catalog for this repo's automation, data pipelines, and tooling. Use when: something is broken, failing, stale, or "didn't run" (a scheduled HvH-* task, a routine, reconcile no-op/abort); a tool or test throws; data is missing or stale in a DB; an MCP server (NotebookLM/graphify/VidIQ) errors or returns suspicious output; yt-dlp/OAuth/Gemini auth failures; a strange Task Scheduler result code. NOT for schema reference (→ data-stores skill) or the task/hook/MCP inventory itself (→ automation-ops skill) — this skill owns HOW to diagnose and fix.
+description: 'Evidence-first diagnostic method and known-failure-mode catalog for this repo''s automation, data pipelines, and tooling. Use when: something is broken, failing, stale, or "didn''t run" (a scheduled HvH-* task, a routine, reconcile no-op/abort); a tool or test throws; data is missing or stale in a DB; an MCP server (NotebookLM/graphify/VidIQ) errors or returns suspicious output; yt-dlp/OAuth/Gemini auth failures; a strange Task Scheduler result code. NOT for schema reference (→ data-stores skill) or the task/hook/MCP inventory itself (→ automation-ops skill) — this skill owns HOW to diagnose and fix.'
 ---
 
 # Debugging Playbook
@@ -29,7 +29,7 @@ catalog, fix the root cause where it lives, verify against real data.** Never fi
    the new checker). Then **verify with real data**: run the fixed path against the live
    DBs/files and confirm a known-true fact, not a synthetic fixture (→ validation-standards).
 7. **Capture the lesson.** Recurring failure → add/update a row in FAILURE-MODES.md.
-   User correction → save to memory/wiki immediately.
+   User correction → save to the user-memory store immediately.
 
 ## Evidence map — first stop per subsystem
 

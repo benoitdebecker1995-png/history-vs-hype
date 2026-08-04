@@ -1,3 +1,8 @@
+---
+description: 'Retrofit an existing video project to the document-led referee standard — name the camps, ground every mechanism, verify every quote, or conclude the topic does not fit the format'
+argument-hint: '<project-slug>'
+---
+
 # /referee-retrofit — retrofit an existing video to the document-led referee standard
 
 Apply the #61 Black Legend research method to an existing `_IN_PRODUCTION` project: **$ARGUMENTS**
