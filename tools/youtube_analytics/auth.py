@@ -10,6 +10,7 @@ Usage:
 
 import os
 import socket
+import sys
 from pathlib import Path
 
 from tools.logging_config import get_logger
@@ -40,6 +41,45 @@ API_SOCKET_TIMEOUT_SECONDS = 120
 CREDENTIALS_DIR = Path(__file__).parent / 'credentials'
 CLIENT_SECRET_PATH = CREDENTIALS_DIR / 'client_secret.json'
 TOKEN_PATH = CREDENTIALS_DIR / 'token.json'
+
+# Loopback port for the interactive consent redirect. 0 = let the OS pick a free one.
+# It used to be a hard-coded 8080, which collided: on 2026-08-03 the 07:45 HvH-GrowthRefresh run
+# died with `[WinError 10048] Only one usage of each socket address ... is normally permitted`
+# because HvH-CtrTracker (07:30, terminated at its PT20M limit) still held the port. This client is
+# an `installed` (Desktop) type with a plain `http://localhost` redirect, and Google's loopback flow
+# accepts ANY port for that client type — so a fixed port bought nothing and cost a daily outage.
+OAUTH_LOOPBACK_PORT = 0
+
+# Set by the routine wrappers. Also inferred when neither stdin nor stdout is a terminal.
+NONINTERACTIVE_ENV_VAR = 'HVH_NONINTERACTIVE'
+
+
+class InteractiveAuthRequired(RuntimeError):
+    """Re-authorization is needed but nobody can answer a browser prompt.
+
+    Raised instead of blocking on `run_local_server` in a scheduled/headless run. Mirrors the
+    claude-CLI pre-flight in `.claude/routines/_lib-preflight.ps1`: a dead session must fail fast
+    with an actionable message, not hang until the task's execution-time limit kills it.
+    """
+
+
+def _is_noninteractive() -> bool:
+    """True when no human can complete a browser consent flow.
+
+    The env var is an explicit override in BOTH directions; only when it is unset do we infer
+    from the streams. A terminal keeps its browser flow even with output redirected, because
+    stdin is still a tty there — under Task Scheduler neither stream is.
+    """
+    flag = os.environ.get(NONINTERACTIVE_ENV_VAR, '').strip().lower()
+    if flag in {'1', 'true', 'yes'}:
+        return True
+    if flag in {'0', 'false', 'no'}:
+        return False
+    try:
+        return not (sys.stdin.isatty() or sys.stdout.isatty())
+    except (AttributeError, ValueError):
+        # Detached or closed streams — a scheduled run, not a terminal.
+        return True
 
 
 def get_credentials():
@@ -77,12 +117,23 @@ def get_credentials():
                 logger.warning("Refresh token revoked — need full re-authorization")
                 creds = None
         if not creds or not creds.valid:
+            if _is_noninteractive():
+                raise InteractiveAuthRequired(
+                    "YouTube OAuth needs re-authorization, and this run is non-interactive "
+                    "(scheduled task or piped output) so the browser consent flow cannot be "
+                    "completed.\n"
+                    "  The routine was NOT run. This is not a model or repo problem.\n"
+                    "  FIX: open a terminal (as THIS Windows user) and run:\n"
+                    "       python -m tools.youtube_analytics.auth --login\n"
+                    f"  That refreshes {TOKEN_PATH.name}; the scheduled routines then resume on "
+                    "their own."
+                )
             logger.info("Opening browser for authorization...")
             flow = InstalledAppFlow.from_client_secrets_file(
                 str(CLIENT_SECRET_PATH),
                 SCOPES
             )
-            creds = flow.run_local_server(port=8080)
+            creds = flow.run_local_server(port=OAUTH_LOOPBACK_PORT)
 
         # Save for next run
         with open(TOKEN_PATH, 'w') as token_file:
@@ -116,9 +167,45 @@ def get_authenticated_service(api_name='youtubeAnalytics', api_version='v2'):
     return build(api_name, api_version, credentials=creds)
 
 
+def main(argv=None) -> int:
+    """CLI: check the stored token, or re-run the interactive consent flow.
+
+    `--login` is the command the non-interactive failure message tells the user to run, so it must
+    keep working from a terminal even when every scheduled routine is refusing to.
+    """
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        prog='python -m tools.youtube_analytics.auth',
+        description='Check or refresh the YouTube API OAuth token.',
+        epilog=(
+            'Examples:\n'
+            '  python -m tools.youtube_analytics.auth            # check the stored token\n'
+            '  python -m tools.youtube_analytics.auth --login    # re-authorize in a browser\n'
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument(
+        '--login',
+        action='store_true',
+        help='force the interactive browser flow even from a piped/redirected shell',
+    )
+    args = parser.parse_args(argv)
+
+    if args.login:
+        # The user asked for it at a terminal; the headless guard must not veto that.
+        os.environ[NONINTERACTIVE_ENV_VAR] = '0'
+
+    try:
+        creds = get_credentials()
+    except InteractiveAuthRequired as exc:
+        print(exc)
+        return 78  # same actionable code the routine pre-flight uses for a dead session
+
+    print('Authentication successful.')
+    print(f'Token expires: {creds.expiry}')
+    return 0
+
+
 if __name__ == '__main__':
-    # Quick test when run directly
-    print("Testing authentication...")
-    creds = get_credentials()
-    print(f"Authentication successful!")
-    print(f"Token expires: {creds.expiry}")
+    raise SystemExit(main())

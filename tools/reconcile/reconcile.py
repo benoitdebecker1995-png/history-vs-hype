@@ -899,6 +899,16 @@ def packaging_lock_flags(states) -> list[str]:
 
 
 def main():
+    # This module prints ⚠ / → / ✅ in its report. On Windows a piped or redirected stdout gets
+    # cp1252, where those raise UnicodeEncodeError mid-report — the run dies AFTER doing work but
+    # BEFORE saying what it did. Found 2026-08-04 running the routine's own command by hand.
+    # Same reconfigure the other CLI reporters in this repo use.
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding='utf-8', errors='replace')
+        except (AttributeError, ValueError):
+            pass  # already-wrapped or detached stream — nothing to do
+
     parser = argparse.ArgumentParser(description='Reconcile project state.')
     parser.add_argument('project', nargs='?', help='Folder slug substring to reconcile')
     parser.add_argument('--dry-run', action='store_true', help='Show diff only; do not apply')

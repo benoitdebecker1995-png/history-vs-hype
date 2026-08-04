@@ -2,9 +2,11 @@
 SessionStart hook — surfaces the active production state at session start so the
 first turn already knows what's in flight, without the user typing /status.
 
-Plain-text stdout is added to Claude's context by Claude Code. Fast, repo-only
-reads, fails open (never hangs or errors a session). Wired into
-.claude/settings.json SessionStart (matcher: startup).
+Plain-text stdout is added to the model's context by both Claude Code and Codex,
+so one script serves both. Fast, repo-only reads, fails open (never hangs or
+errors a session). Wired into `.claude/settings.json` (matcher: startup) and
+`.codex/hooks.json` (matcher: startup|resume|clear|compact — Codex adds
+`compact`, which fires after a context compaction).
 """
 
 import sys

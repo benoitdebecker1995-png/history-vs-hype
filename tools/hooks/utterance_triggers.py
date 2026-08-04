@@ -14,10 +14,12 @@ correction language at prompt time is both cheaper than a Stop hook (which fires
 every turn) and earlier (before the work happens, not after).
 
 Contract, same as session_context.py: read stdin, print plain text to stdout for
-Claude's context, ALWAYS exit 0. This hook must never block a prompt — a false
+the model's context, ALWAYS exit 0. This hook must never block a prompt — a false
 positive should cost a sentence of context, never the user's turn.
 
-Wired into .claude/settings.json UserPromptSubmit.
+Harness-neutral: Claude Code and Codex both send `prompt` on stdin and both add
+plain stdout to context, so one script serves both. Wired into
+`.claude/settings.json` and `.codex/hooks.json` UserPromptSubmit.
 """
 
 import json
@@ -37,7 +39,8 @@ _TRIGGERS = [
             r"|went\s+up)\b",
             re.IGNORECASE,
         ),
-        "TRIGGER — publish declared. CLAUDE.md: run `/reconcile <slug>` NOW. Do not just look the "
+        "TRIGGER — publish declared. Project guide (CLAUDE.md / AGENTS.md): run `/reconcile "
+        "<slug>` NOW — the reconcile skill on Codex. Do not just look the "
         "video up, and do not assume project files are current — the utterance IS the write "
         "trigger. If the slug is ambiguous across folders, ask once, then proceed.",
     ),
@@ -47,7 +50,8 @@ _TRIGGERS = [
             r"|read[-\s]?aloud\s+passed)\b",
             re.IGNORECASE,
         ),
-        "TRIGGER — script lock declared. CLAUDE.md: run the post-lock delta-mine NOW, while the "
+        "TRIGGER — script lock declared. Project guide (CLAUDE.md / AGENTS.md): run the post-lock "
+        "delta-mine NOW, while the "
         "deltas are fresh: (1) consolidate read-aloud notes, version diffs and session corrections "
         "into channel-data/calibration/CALIBRATION-CORPUS.md (axis-tagged, tiered); (2) append new "
         "contradictions to INTERVIEW-AGENDA.md; (3) record passes-to-lock in EVAL-BASELINE.md.",

@@ -20,9 +20,30 @@ $logFile = Join-Path $logDir "reconcile-$(Get-Date -Format 'yyyy-MM-dd').log"
     Out-File -FilePath $logFile -Append -Encoding utf8
 
 if (-not (Test-ClaudeAuth -LogFile $logFile)) {
-    "=== Exit code: $EXIT_AUTH_EXPIRED (auth pre-flight) ===" |
+    # DEGRADED MODE (2026-08-04). This routine's own directive says "the python tool does the
+    # actual work; your job is to invoke it and report" — so a dead claude session should cost us
+    # the prose summary, not the archiving. Between 2026-07-23 and 2026-08-04 it cost us both:
+    # five published videos sat unarchived because the wrapper exited at this line.
+    # --auto-publish-only is the narrow mode by construction (Tier-1/high-confidence publish
+    # transitions only, freshness-gated, never touches memory snapshots) and every run writes a
+    # .diff that `--undo` reverses.
+    $msg = "AUTH DEGRADED: running the python reconcile directly; no model summary this run."
+    Write-Host $msg
+    $msg | Out-File -FilePath $logFile -Append -Encoding utf8
+
+    $env:PYTHONIOENCODING = "utf-8"
+    python -m tools.reconcile.reconcile --auto-publish-only --apply 2>&1 |
         Out-File -FilePath $logFile -Append -Encoding utf8
-    exit $EXIT_AUTH_EXPIRED
+    $fallbackExit = $LASTEXITCODE
+
+    if ($fallbackExit -eq 0) {
+        "=== Exit code: 0 (degraded: archiving ran, summary skipped — fix with 'claude auth login --claudeai') ===" |
+            Out-File -FilePath $logFile -Append -Encoding utf8
+        exit 0
+    }
+    "=== Exit code: $fallbackExit (degraded fallback also failed) ===" |
+        Out-File -FilePath $logFile -Append -Encoding utf8
+    exit $fallbackExit
 }
 
 $prompt = (Get-Content ".claude\routines\reconcile-daily.md" -Raw)

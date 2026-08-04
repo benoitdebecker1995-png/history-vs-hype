@@ -16,6 +16,12 @@
 
 Set-StrictMode -Version Latest
 
+# Every routine that dot-sources this file is running unattended. Tell the Python side explicitly
+# rather than letting it infer from the streams: `tools/youtube_analytics/auth.py` then fails fast
+# with exit 78 and a fix instruction instead of trying to open a browser consent page nobody can
+# answer. That attempt is what killed the 2026-08-03 07:45 growth refresh.
+$env:HVH_NONINTERACTIVE = "1"
+
 # Distinct from claude's generic 1 so the cause is readable straight off the task result.
 $script:EXIT_AUTH_EXPIRED = 78   # sysexits EX_CONFIG
 $script:EXIT_BAD_REPO_ROOT = 79
