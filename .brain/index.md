@@ -68,6 +68,9 @@
 
 | Topic | Lifecycle | Phase | Last Touched |
 |-------|-----------|-------|--------------|
+| `67-donation-constantine-forgery-2026` | `_IN_PRODUCTION` | fact-checked | 2026-08-04 |
+| `65-enigma-polish-cipher-bureau-2026` | `_IN_PRODUCTION` | idea | 2026-07-30 |
+| `64-ancient-dna-aryan-weaponised-2026` | `_IN_PRODUCTION` | idea | 2026-07-29 |
 | `36-panama-canal-deconcini-2026` | `_IN_PRODUCTION` | fact-checked | 2026-07-28 |
 | `55-falklands-malvinas-2026` | `_IN_PRODUCTION` | research | 2026-07-28 |
 | `Tariffs` | `_IN_PRODUCTION` | idea | 2026-07-25 |

@@ -1,0 +1,80 @@
+{
+  "timestamp": "2026-08-04T20:25:45.879020+00:00",
+  "moves": [],
+  "backups": [
+    {
+      "path": "G:\\History vs Hype\\video-projects\\PROJECT_STATUS.md",
+      "pre_diff": "G:\\History vs Hype\\video-projects\\PROJECT_STATUS.md.pre-diff"
+    },
+    {
+      "path": "G:\\History vs Hype\\video-projects\\PROJECT_REGISTRY.md",
+      "pre_diff": "G:\\History vs Hype\\video-projects\\PROJECT_REGISTRY.md.pre-diff"
+    },
+    {
+      "path": "G:\\History vs Hype\\.brain\\index.md",
+      "pre_diff": "G:\\History vs Hype\\.brain\\index.md.pre-diff"
+    }
+  ],
+  "proposals": [
+    {
+      "kind": "move",
+      "folder": "G:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\1-somaliland-2025",
+      "target_bucket": "_ARCHIVED/published",
+      "video_id": "GuL9PtXEjN0",
+      "video_title": "Somaliland's Legal Independence Problem",
+      "target_status": "IDEA",
+      "score": 1.0,
+      "confidence": "tier1"
+    },
+    {
+      "kind": "move",
+      "folder": "G:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\14-chagos-islands-2025",
+      "target_bucket": "_ARCHIVED/published",
+      "video_id": "ZZz_g_Ov6Lg",
+      "video_title": "Britain Expelled 2,000 Islanders. The Memo Proves It",
+      "target_status": "IDEA",
+      "score": 1.0,
+      "confidence": "tier1"
+    },
+    {
+      "kind": "move",
+      "folder": "G:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\24-iran-1953-coup-2025",
+      "target_bucket": "_ARCHIVED/published",
+      "video_id": "L5ZIP24-36s",
+      "video_title": "Iran vs the CIA. Two Coups the West Wants You to Forget",
+      "target_status": "IDEA",
+      "score": 1.0,
+      "confidence": "tier1"
+    },
+    {
+      "kind": "move",
+      "folder": "G:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\28-vance-part-2-review-2025",
+      "target_bucket": "_ARCHIVED/published",
+      "video_id": "FvqALriDCv4",
+      "video_title": "JD Vance Says Human Rights Were Invented. History Says Otherwise",
+      "target_status": "IDEA",
+      "score": 1.0,
+      "confidence": "tier1"
+    },
+    {
+      "kind": "move",
+      "folder": "G:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\30-belavezha-accords-2025",
+      "target_bucket": "_ARCHIVED/published",
+      "video_id": "TYNaIu28LeU",
+      "video_title": "Three Men Ended the Soviet Union. Was It Legal?",
+      "target_status": "IDEA",
+      "score": 1.0,
+      "confidence": "tier1"
+    },
+    {
+      "kind": "move",
+      "folder": "G:\\History vs Hype\\video-projects\\_IN_PRODUCTION\\6-bir-tawil-2025",
+      "target_bucket": "_ARCHIVED/published",
+      "video_id": "XKAqt_ZLHGo",
+      "video_title": "Why Egypt and Sudan Both Reject Bir Tawil",
+      "target_status": "IDEA",
+      "score": 1.0,
+      "confidence": "tier1"
+    }
+  ]
+}
