@@ -58,13 +58,78 @@ def render_context(root: Path = REPO_ROOT) -> str:
     )
 
 
+HOT_FILES = ("PROJECT.md", "RESEARCH.md", "SCRIPT.md")
+
+
+def render_degraded(exc: Exception, root: Path = REPO_ROOT) -> str:
+    """What to print when the active project cannot be resolved.
+
+    WHY THIS EXISTS (2026-08-27). The bare `Front room unavailable: ...` line was
+    technically loud but practically useless: render_context() raises before it
+    returns anything, so a broken project pointer also cost the session CHANNEL.md
+    and every freshness date. The session then ran with no channel state at all,
+    and CLAUDE.md forbids falling back to `.claude/`.
+
+    13 of the 15 folders in _IN_PRODUCTION are missing at least one hot file, so
+    this is one edit to ACTIVE_PROJECT away at any time. Channel state does not
+    depend on the project resolving — emit it regardless, name exactly what is
+    missing, and list the folders that would work.
+    """
+    lines = [f"Front room DEGRADED — the active project could not be resolved: {exc}", ""]
+
+    pointer = root / "ACTIVE_PROJECT"
+    try:
+        target = pointer.read_text(encoding="utf-8", errors="replace").strip()
+    except OSError:
+        target = ""
+
+    if target:
+        project_dir = root / target
+        missing = [f for f in HOT_FILES if not (project_dir / f).is_file()]
+        lines.append(f"ACTIVE_PROJECT points at: {target}")
+        if missing:
+            lines.append(f"Missing hot file(s): {', '.join(missing)}")
+    else:
+        lines.append("ACTIVE_PROJECT is empty or unreadable.")
+
+    in_production = root / "video-projects" / "_IN_PRODUCTION"
+    if in_production.is_dir():
+        ready = sorted(
+            d.name for d in in_production.iterdir()
+            if d.is_dir() and all((d / f).is_file() for f in HOT_FILES)
+        )
+        if ready:
+            lines.append("")
+            lines.append("Projects that WOULD resolve (all three hot files present):")
+            lines.extend(f"  - {name}" for name in ready)
+
+    lines += [
+        "",
+        "AGENTS.md: repair the hot files BEFORE any other work. Build them from what is",
+        "already in the folder (a PROJECT-STATUS.md or the newest SCRIPT-V*), write them",
+        "under the real names, and say in one line what was built and from what.",
+        "",
+    ]
+
+    channel_path = root / "CHANNEL.md"
+    if channel_path.is_file():
+        channel = channel_path.read_text(encoding="utf-8", errors="replace").strip()
+        lines.append("Channel state is unaffected and still applies:")
+        lines.append("")
+        lines.append(channel)
+    else:
+        lines.append("CHANNEL.md is ALSO missing — this session has no channel state either.")
+
+    return "\n".join(lines)
+
+
 def main() -> int:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     try:
         print(render_context())
     except (ActiveProjectError, OSError) as exc:
-        print(f"Front room unavailable: {exc}")
+        print(render_degraded(exc))
     return 0
 
 

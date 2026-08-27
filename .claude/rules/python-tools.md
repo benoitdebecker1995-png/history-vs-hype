@@ -32,3 +32,15 @@ for the full seam catalogue and the extend-don't-add acceptance test.
   skip decorator, or `sys.modules` injection.
 - **A change is not done on synthetic fixtures alone** — run it against the live tree and confirm a
   known-true fact.
+- **A scorer is not done until it is correlated against outcomes (ADR-0029).** Any tool emitting a
+  number a human reads to make a decision must either be checked against what actually happened, or
+  ship with a non-predictive label. `title_scorer`'s composite ran for about a year unchecked; when
+  finally measured against `channel-data/analytics-exports/Table data.csv` it scored **+0.173**
+  Spearman against real CTR, and the titles it rated **100 averaged 2.67% CTR against a 3.05% channel
+  mean** — its strongest recommendation was its worst advice. An unvalidated number in a guidance
+  document is worse than no number, because it displaces judgement.
+- **Degrade loudly, never silently.** A checker that drops a component must say so in its result, not
+  return a plausible default. `_calculate_flesch` returning `0.0` on a corpus failure would read as
+  "maximally complex" on every section and invent readability cliffs — so it returns `None` and every
+  result path carries a `READABILITY NOT MEASURED` advisory. Silence and a wrong number are the same
+  failure; only the wrong number is harder to catch.
