@@ -47,7 +47,8 @@ if (-not (Test-ClaudeAuth -LogFile $logFile)) {
 }
 
 $prompt = (Get-Content ".claude\routines\reconcile-daily.md" -Raw)
-$output = claude -p $prompt 2>&1
+$claudeExe = Resolve-ClaudeExe -LogFile $logFile
+$output = & $claudeExe -p $prompt 2>&1
 $exitCode = $LASTEXITCODE
 $output | Out-File -FilePath $logFile -Append -Encoding utf8
 

@@ -25,6 +25,50 @@ $env:HVH_NONINTERACTIVE = "1"
 # Distinct from claude's generic 1 so the cause is readable straight off the task result.
 $script:EXIT_AUTH_EXPIRED = 78   # sysexits EX_CONFIG
 $script:EXIT_BAD_REPO_ROOT = 79
+$script:EXIT_CLAUDE_NOT_FOUND = 80
+
+function Resolve-ClaudeExe {
+    <#
+        Return an absolute path to the claude CLI, or exit 80.
+
+        WHY (2026-08-27): once the OAuth token was restored, the four claude-driven
+        routines still failed — this time because `claude` is not on PATH under the
+        Scheduled Task token. The CLI lives at %USERPROFILE%\.local\bin\claude.exe,
+        which an interactive shell picks up from the user profile and an unattended
+        task does not. A bare `claude -p` then dies with "term not recognized",
+        $LASTEXITCODE is never set, and the wrapper exits blank — indistinguishable
+        from a model failure.
+
+        Resolving explicitly keeps the fix in version control rather than in a
+        machine-local PATH edit that no other machine and no fresh login inherits.
+    #>
+    param([string]$LogFile)
+
+    $cmd = Get-Command claude -ErrorAction SilentlyContinue
+    if ($cmd -and $cmd.Source) { return $cmd.Source }
+
+    $candidates = @(
+        (Join-Path $env:USERPROFILE ".local\bin\claude.exe"),
+        (Join-Path $env:APPDATA "npm\claude.cmd"),
+        (Join-Path $env:LOCALAPPDATA "Programs\claude\claude.exe")
+    )
+    foreach ($c in $candidates) {
+        if ($c -and (Test-Path $c)) { return $c }
+    }
+
+    $lines = @(
+        "PREFLIGHT FAIL: the claude CLI was not found on PATH or in any known location.",
+        "  The routine was NOT run. This is not a model, auth, or repo problem.",
+        "  Looked in: PATH, $($candidates -join ', ')",
+        "  FIX: confirm where it lives (Get-Command claude) and add that directory to",
+        "       this Windows user's PATH, or add the path to Resolve-ClaudeExe."
+    )
+    foreach ($l in $lines) {
+        Write-Host $l
+        if ($LogFile) { $l | Out-File -FilePath $LogFile -Append -Encoding utf8 }
+    }
+    exit $script:EXIT_CLAUDE_NOT_FOUND
+}
 
 function Set-RepoRoot {
     <#  Set-Location, but fatal on failure instead of silently continuing. #>

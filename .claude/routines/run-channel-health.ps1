@@ -21,7 +21,8 @@ if (-not (Test-ClaudeAuth -LogFile $logFile)) {
 }
 
 $prompt = (Get-Content ".claude\routines\channel-health-snapshot.md" -Raw)
-claude -p $prompt 2>&1 | Out-File -FilePath $logFile -Append -Encoding utf8
+$claudeExe = Resolve-ClaudeExe -LogFile $logFile
+& $claudeExe -p $prompt 2>&1 | Out-File -FilePath $logFile -Append -Encoding utf8
 
 $exitCode = $LASTEXITCODE
 "=== Exit code: $exitCode @ $(Get-Date -Format 'HH:mm:ss') ===" | Out-File -FilePath $logFile -Append -Encoding utf8
