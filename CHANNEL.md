@@ -87,11 +87,20 @@ distribution, four times the views, nothing but the click. CTR across the catalo
 **So demand is necessary but not sufficient.** Berlin Conference was served 9,485 times and converted
 3.66%. The audience was found; the title did not earn the click.
 
-**The working rule, still a hypothesis:** winners name someone doing something with a stake; losers
-name a topic, a myth, or a method. This convicts the provenance titles specifically — Manhattan
-0.46%, Sol Invictus 2.48%, Flat Earth 3.65% — while "JD Vance Claims Christians Found Child
-Sacrifice", which *is* a provenance video packaged as a live conflict, took 9.41%. The move is sound;
-it has been titled like a seminar. A three-video retitle test reads out 28 days after it starts.
+**An UNTESTED hypothesis — do not treat this as a rule:** winners name someone doing something with a
+stake; losers name a topic, a myth, or a method. It convicts the provenance titles specifically —
+Manhattan 0.46%, Sol Invictus 2.48%, Flat Earth 3.65% — while "JD Vance Claims Christians Found Child
+Sacrifice", which *is* a provenance video packaged as a live conflict, took 9.41%.
+
+**Why the warning is this loud.** On 27 August the `title_scorer` composite was measured against this
+same catalogue and found non-predictive — its perfect scores average 2.67% CTR against a 3.05%
+channel mean (ADR-0029). It had guided title choices for about a year without anyone checking it.
+This hypothesis was derived the same way, off the same 47 rows, and has the same standing until
+tested on data it was not drawn from.
+
+**There is currently no validated title instrument on this channel.** The three-video retitle test —
+title only, predicted CTR recorded first — reads out 28 days after it starts, and is what would move
+this from hypothesis to finding.
 
 ## The current unresolved channel problem
 

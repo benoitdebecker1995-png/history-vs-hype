@@ -139,10 +139,23 @@ Provenance has been titled like a seminar. That is a fixable problem.
 The **diagnosis** is solid: retention exonerates the writing, 159,017 unclicked impressions convict
 the packaging.
 
-The **rule** is the leading hypothesis, not settled fact. The winners may have clicked because their
-subjects were live conflicts, with actor-and-act titles a symptom rather than the cause. The
-three-video retitle test (Berlin Conference, Medieval Literacy, Sol Invictus — title only, predicted
-CTR recorded first, read at 28 days) exists to separate those, since it holds the subject fixed.
+The **rule is an UNTESTED HYPOTHESIS.** Not a finding, not guidance, and it must not be used as a
+gate.
+
+Sharpened 27 August after `title_scorer`'s composite was measured against the same data and found
+non-predictive (ADR-0029: Spearman +0.173; its perfect scores average 2.67% CTR against a 3.05%
+channel mean). **That tool was almost certainly built the way this rule was built** — by reading
+patterns off this catalogue and never checking them against held-out outcomes. This rule was derived
+by eyeballing the same 47 rows. It currently has exactly the standing of the thing it replaced.
+
+The winners may also have clicked because their subjects were live conflicts, with actor-and-act
+titles a symptom rather than the cause.
+
+**What would settle it:** the three-video retitle test — Berlin Conference, Medieval Literacy, Sol
+Invictus. Title only, thumbnails untouched, predicted CTR written down before the change, read at 28
+days. It holds the subject fixed, which is the one thing that separates the rule from the confound.
+Until it reads out, the honest position is that this channel has **no validated title instrument at
+all.**
 
 **Known gap.** These impressions figures end 23 July 2026. The CTR collector has been broken since
 28 July and the analytics API surface in use does not expose impressions. Current per-video

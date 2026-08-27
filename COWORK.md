@@ -42,7 +42,7 @@ the creator's own standard, not for growth.
 **Packaging is the constraint.** 159,017 impressions were served to 27 videos that converted 5,898
 views. CTR across the catalogue runs 0.46% to 9.41%, and CTR gates how much YouTube serves at all.
 
-### The packaging rule
+### The packaging hypothesis — untested, not a rule
 
 **Winners name someone doing something with a stake. Losers name a topic, a myth, or a method.**
 
@@ -52,15 +52,18 @@ views. CTR across the catalogue runs 0.46% to 9.41%, and CTR gates how much YouT
 | How the KGB Weaponized Palestinian Resistance | 7.90% | The Historical Pattern Nobody Wants to Admit | 1.01% |
 | London's Stock Exchange Funded a Genocide | 7.45% | Medieval Europe's Hidden Literacy Boom | 1.11% |
 
-A title carrying "fact check", "the myth of", "what historians got wrong", or a bare topic noun is in
-the 1% band by measurement, not by taste.
+Those CTR figures are real. **The rule drawn from them is not established** — it was derived by
+reading patterns off 47 rows, which is how the channel's previous title tool was built, and that tool
+turned out to be steering titles the wrong way for a year (ADR-0029: its perfect scores average 2.67%
+CTR against a 3.05% channel mean). Treat this as the current best guess and say so out loud when
+using it. **Never gate on it.**
 
 **Draft the title before the script, not after the edit.** If the angle cannot be titled as an actor
-doing something with a stake, the angle is wrong — and that is worth learning in an afternoon rather
-than a fortnight.
+doing something with a stake, that is worth noticing in an afternoon rather than a fortnight — as a
+prompt to think again, not as a verdict.
 
-Treat the rule as the leading hypothesis, not settled fact. A three-video retitle test is running to
-check whether it is causal or merely correlated with live-conflict subjects.
+A three-video retitle test — title only, predicted CTR recorded first, read at 28 days — is what
+would show whether the rule is causal or merely correlated with live-conflict subjects.
 
 **The metric is CTR, not views.** 6% or better clears the bottleneck. 2% does not, however good the
 research was.
