@@ -19,7 +19,10 @@ from pathlib import Path
 from tools.script_checkers.checkers.told_so_far import ToldSoFarChecker
 
 ROOT = Path(__file__).resolve().parents[2]
-VOLHYNIA = ROOT / "video-projects/_IN_PRODUCTION/62-volhynia-massacre-untranslated-2026/VO-v7.1.md"
+# Moved 2026-08-26 when project 62 was migrated to the three-file shape: everything
+# except PROJECT/RESEARCH/SCRIPT went to _cold/legacy-working/. This fixture is a
+# frozen script version, so it belongs there permanently.
+VOLHYNIA = ROOT / "video-projects/_IN_PRODUCTION/62-volhynia-massacre-untranslated-2026/_cold/legacy-working/VO-v7.1.md"
 LASSOS = ROOT / "video-projects/_ARCHIVED/published/56-no-lassos-atlantic-slave-trade-origin-2026/FINAL-SCRIPT-TELEPROMPTER.txt"
 
 

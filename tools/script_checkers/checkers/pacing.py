@@ -20,7 +20,10 @@ import re
 import statistics
 
 from tools.production.parser import ScriptParser
+from tools.logging_config import get_logger
 from . import BaseChecker
+
+logger = get_logger(__name__)
 
 
 def generate_sparkline(scores: List[float]) -> str:
@@ -124,6 +127,7 @@ class PacingChecker(BaseChecker):
         super().__init__(config)
         self._nlp = None  # Lazy load spaCy model
         self._textstat = None  # Lazy load textstat
+        self._flesch_unavailable = None  # set to a reason string if the backend fails
         self._parser = ScriptParser()
 
     @property
@@ -206,7 +210,21 @@ class PacingChecker(BaseChecker):
 
         return statistics.stdev(word_counts)
 
-    def _calculate_flesch(self, text: str) -> float:
+    def _degradation_advisories(self) -> List[str]:
+        """Say out loud when part of the analysis did not run.
+
+        A checker that quietly drops a component is indistinguishable from one that
+        ran clean, which is how the readability backend stayed broken without anyone
+        noticing. Every result path prepends this.
+        """
+        if not getattr(self, '_flesch_unavailable', None):
+            return []
+        return [
+            "READABILITY NOT MEASURED — pacing scored on sentence variance and entity "
+            f"density only. Flesch/readability backend failed: {self._flesch_unavailable}"
+        ]
+
+    def _calculate_flesch(self, text: str):
         """
         Calculate Flesch Reading Ease score.
 
@@ -214,12 +232,35 @@ class PacingChecker(BaseChecker):
             text: Section content (markers stripped)
 
         Returns:
-            Flesch Reading Ease score (0-100+, higher = easier)
+            Flesch Reading Ease score (0-100+, higher = easier), or None when the
+            readability backend is unavailable.
+
+        DEGRADE LOUDLY, NEVER SILENTLY (2026-08-27). textstat reaches NLTK's cmudict
+        for syllable counting, and NLTK's own pathsec sentinel rejects the corpus when
+        %APPDATA% is redirected (packaged-app environments). That raised PermissionError
+        out of here, crashed the whole checker, and took 20 tests with it — including
+        two that only assert the CLI emits valid JSON.
+
+        Returning 0.0 on failure would be worse than crashing: a 0 is a real Flesch
+        value, so every section would look maximally complex and the delta scoring would
+        invent readability cliffs. So: return None, record why once, and let the callers
+        drop the readability component and say they dropped it.
         """
         if not text.strip():
             return 0.0
 
-        return self.textstat.flesch_reading_ease(text)
+        if getattr(self, '_flesch_unavailable', None):
+            return None
+
+        try:
+            return self.textstat.flesch_reading_ease(text)
+        except Exception as e:
+            self._flesch_unavailable = f"{type(e).__name__}: {e}"
+            logger.warning(
+                "Readability (Flesch) unavailable — pacing will score on sentence "
+                "variance and entity density only. Cause: %s", self._flesch_unavailable
+            )
+            return None
 
     def _calculate_entity_density(self, text: str) -> float:
         """
@@ -462,8 +503,14 @@ class PacingChecker(BaseChecker):
             flesch_score = self._calculate_flesch(clean_content)
             entity_density = self._calculate_entity_density(clean_content)
 
-            # Calculate delta from previous section
-            flesch_delta = flesch_score - prev_flesch if prev_flesch > 0 else 0
+            # Calculate delta from previous section. When readability is unavailable
+            # the delta is 0 — not "no change", but "not measured": _calculate_score
+            # and _explain_issues both key off flesch_delta, and a 0 makes them skip
+            # the readability component instead of inventing a cliff from a None.
+            if flesch_score is None or prev_flesch is None or not prev_flesch > 0:
+                flesch_delta = 0
+            else:
+                flesch_delta = flesch_score - prev_flesch
 
             metrics = {
                 'sentence_variance': sentence_variance,
@@ -509,7 +556,10 @@ class PacingChecker(BaseChecker):
                     'flat_zones': [],
                     'verdict': 'SKIPPED'
                 },
-                'advisories': ['No ## section structure — pacing verdict skipped (per-section metrics still reported)']
+                'advisories': (
+                    self._degradation_advisories()
+                    + ['No ## section structure — pacing verdict skipped (per-section metrics still reported)']
+                )
             }
 
         # Determine verdict
@@ -527,7 +577,7 @@ class PacingChecker(BaseChecker):
         flat_zones = detect_flat_zones(scores, flat_zone_window, flat_zone_tolerance)
 
         # Generate hook advisories
-        advisories = self._check_hook_gaps(sections)
+        advisories = self._degradation_advisories() + self._check_hook_gaps(sections)
 
         return {
             'issues': flagged_sections,
