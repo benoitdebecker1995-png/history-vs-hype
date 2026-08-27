@@ -38,7 +38,7 @@ topic note can be reused in a script without re-checking whose idea it was.
 | `channel-data/` | Channel analytics, competitor tracking, CTR baselines, POST-PUBLISH-ANALYSIS, topic pipeline |
 | `tools/benchmark/` | Title/thumbnail/hook playbooks, WAVE analyses, outlier corpus |
 | `~/llm-brain/wiki/` | Cross-project methodology, entities, concepts, quotes by source |
-| `~/.claude/projects/D--History-vs-Hype/memory/` | User behavior rules, feedback, channel stats, workflow notes |
+| `~/.claude/projects/G--History-vs-Hype/memory/` | User behavior rules, feedback, channel stats, workflow notes |
 | `.claude/REFERENCE/` | Claude-instruction files (prompts, writing voice, templates) — NOT knowledge |
 
 ## Maintenance contract

@@ -65,7 +65,7 @@ Five roots hold the project's knowledge. This doc explains what lives where, wha
 
 ---
 
-### 5. `~/.claude/projects/D--History-vs-Hype/memory/` — Behavioral memory
+### 5. `~/.claude/projects/G--History-vs-Hype/memory/` — Behavioral memory
 
 **What lives here:** User feedback rules, behavior corrections, channel stats snapshot, workflow observations, competitors findings, analytics patterns. Feeds Claude's context at session start.
 
@@ -96,7 +96,7 @@ Is it a Claude-instruction file (prompt, template, voice guide, skill)?
   → NOT in .brain/ (those are prompts, not knowledge)
 
 Is it a user behavior rule or feedback correction?
-  → ~/.claude/projects/D--History-vs-Hype/memory/feedback-*.md
+  → ~/.claude/projects/G--History-vs-Hype/memory/feedback-*.md
 
 Is it a decision about the project's architecture or methodology?
   → .brain/methodology/  (e.g., routing rules, handoff playbook)
