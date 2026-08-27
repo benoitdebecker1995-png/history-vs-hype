@@ -101,24 +101,36 @@ Committed and recorded. Do not reopen the script. If the edit exposes a genuine 
 
 ## What is live in this folder
 
-This folder holds **86 files**, including **thirteen script versions** and roughly twenty audit and
-diagnosis documents. Nothing here has been deleted — the history is intact — but only four files are
-current. Everything else is record.
+Migrated to the three-file shape on 26 August 2026. The top level now holds **three documents and
+the media**; 80 working documents moved to `_cold/legacy-working/`. Nothing was deleted, and git
+recorded the moves as renames.
 
-| Live | |
+| Live at top level | |
 |---|---|
 | `PROJECT.md` | this file — state, decisions, what blocks |
 | `RESEARCH.md` | the 18 evidence cards and their limits |
-| `SCRIPT.md` | 14 August |
-| `_cold/legacy-working/E01-RESOLUTION-2026-08-24.md` | the textbook exhibit |
-| `_cold/legacy-working/THUMBNAIL-SPEC-2026-08-23.md` | the two treatments to build |
+| `SCRIPT.md` | marked UNLOCKED — see the warning below |
+| `22082026_165250.mp4` | the take being edited. Lives in `Downloads`, backed up to `G:\History vs Hype-media\volhynia\` |
+| `23072026_170736.mp4`, `rough cut.mov`, `rough cut.srt`, `Recording (17).m4a` | the July take and the current cut |
 
-| Record — do not work from these | |
+| Live, in `_cold/legacy-working/` | |
 |---|---|
-| `SCRIPT-V1`…`V6`, `SCRIPT-REBUILT`, `READ-ALOUD-v7.0`, `VO-v7.1`, `VO-v8-referee-draft`, `TELEPROMPTER-FILMED-2026-07-23` | thirteen versions; V6 is the last lock, the July teleprompter is what was filmed |
-| `READTHROUGH-*`, `VOICE-AUDIT*`, `V2/V3-PREDICTED-STUMBLE-AUDIT`, `VOICE-FAILURE-AUDIT`, `REBUILD-FAILURE-DIAGNOSIS` | the rewrite loop |
-| `_cold/legacy-working/01-VERIFIED-RESEARCH.md` (98 KB) | superseded by `RESEARCH.md` (15 KB, same evidence, card format) |
-| `02-`…`09-`, `V3-*`, `*-AUDIT.md` | staged pipeline output from the retired command workflow |
+| `E01-RESOLUTION-2026-08-24.md` | the textbook exhibit |
+| `THUMBNAIL-SPEC-2026-08-23.md` | the two treatments to build |
+| `SCRIPT-V6-FILMING-LOCK.md` | **what was actually filmed** |
+
+⚠ **`SCRIPT.md` does not describe the video that exists.** It is marked *UNLOCKED — structural
+continuity rebuild*, contains sections the cut does not have (Polish violence and classification, the
+Stetsko proclamation, the five-rung evidence ladder, Stelmashchuk) and has **no polling passage at
+all**. The 22 August take was filmed against `_cold/legacy-working/SCRIPT-V6-FILMING-LOCK.md`. Any
+check run against `SCRIPT.md` is checking the wrong document. Decide after publication which becomes
+canonical; do not resolve it by re-cutting the video.
+
+### Assets
+
+`assets/youtube-native/` (25 files) is the **current visual language**. The 18 numbered presentation
+cards in `assets/` are **superseded — reference only**; several no longer match the filmed script at
+all (`SCRIPT.md` says outright that `03-evidence-ladder.png` "does not match this version").
 
 **The rule that keeps this from happening again: one script file, one research file, one project
 file. A new version replaces the old one. Git holds the history — that is what it is for.**
