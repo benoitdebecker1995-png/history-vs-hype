@@ -136,7 +136,25 @@ class TestRollingVsDaily(unittest.TestCase):
         res = validate_rolling_against_daily(
             {"A": {"impression_count": 200}}, c, window_start=self.WS, window_end=self.WE)
         self.assertFalse(res.ok)
-        self.assertIn("disagree", res.failures[0])
+        self.assertIn("double-counted", res.failures[0])
+        c.close()
+
+    def test_rolling_below_daily_is_a_warning_not_a_failure(self):
+        """The benign direction. Regression guard for the 2026-07-28..08-27 outage.
+
+        A rolling figure BELOW the stored daily sum means the store holds days this
+        fetch did not return — late-arriving or revised reach rows. Nothing is
+        double-counted. Failing on it aborted every snapshot for a month while all
+        14 real-world mismatches were in this direction and none was a double-count.
+        """
+        from tools.youtube_analytics.ctr_tracker import validate_rolling_against_daily
+        c = self._conn([("A", "2026-07-01", 60), ("A", "2026-07-02", 40)])
+        res = validate_rolling_against_daily(
+            {"A": {"impression_count": 89}}, c, window_start=self.WS, window_end=self.WE)
+        self.assertTrue(res.ok, "rolling < daily-sum must not abort the snapshot")
+        self.assertFalse(res.failures)
+        self.assertTrue(any("superset" in w for w in res.warnings))
+        self.assertEqual(res.compared, 1)
         c.close()
 
     def test_days_outside_the_window_are_not_counted(self):

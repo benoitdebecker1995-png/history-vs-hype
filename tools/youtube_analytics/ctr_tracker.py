@@ -308,8 +308,17 @@ def validate_rolling_against_daily(
     day twice inflates the rolling figure while `impressions_daily` upserts it
     once. So this catches the original bug class directly, on every run, forever.
 
-    A mismatch is a hard failure, not a warning: the two numbers disagreeing means
-    the collector is not counting what it stored.
+    DIRECTION MATTERS (corrected 2026-08-27). The bug class above has one
+    signature: a double-counted day inflates the ROLLING figure while
+    `impressions_daily` upserts it once, so `rolling > daily_sum`. That stays a
+    hard failure.
+
+    The opposite direction is benign and was aborting every run. `rolling <
+    daily_sum` means the store holds days this fetch did not return — late-arriving
+    or revised reach rows persisted by an earlier run. Nothing is double-counted;
+    the store is simply a superset of the current window. Failing on it blocked CTR
+    collection from 2026-07-28 to 2026-08-27, during which every one of the 14
+    reported mismatches was in this benign direction and not one was a double-count.
     """
     failures: List[str] = []
     warnings: List[str] = []
@@ -341,10 +350,17 @@ def validate_rolling_against_daily(
             continue
         compared += 1
         r_imp = d.get('impression_count', 0)
-        if r_imp != daily_sum:
+        if r_imp > daily_sum:
+            # Double-count signature: the collector aggregated more than it stored.
             failures.append(
-                f"{vid}: rolling {r_imp} != daily-sum {daily_sum} over "
-                f"{window_start}..{window_end} (collector/store disagree)"
+                f"{vid}: rolling {r_imp} > daily-sum {daily_sum} over "
+                f"{window_start}..{window_end} (double-counted report)"
+            )
+        elif r_imp < daily_sum:
+            # Benign: the store has days this fetch did not return.
+            warnings.append(
+                f"{vid}: rolling {r_imp} < daily-sum {daily_sum} over "
+                f"{window_start}..{window_end} (store is a superset; not a double-count)"
             )
 
     return ValidationResult(
