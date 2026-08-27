@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs><clipPath id="mapclip"><rect x="720" y="80" width="1110" height="900" rx="8"/></clipPath></defs>
+  <rect width="1920" height="1080" fill="#0A1628"/>
+  <g clip-path="url(#mapclip)">
+    <image x="720" y="80" width="1110" height="954" xlink:href="file:///G:/History%20vs%20Hype/video-projects/_IN_PRODUCTION/62-volhynia-massacre-untranslated-2026/assets/volhynia-1939-base.jpg" preserveAspectRatio="xMidYMid slice"/>
+    <rect x="720" y="80" width="1110" height="954" fill="#0A1628" opacity="0.12"/>
+  </g>
+  <rect x="90" y="80" width="570" height="900" rx="8" fill="#14243A"/>
+  <rect x="90" y="80" width="12" height="900" fill="#D2A23A"/>
+  <g font-family="Arial, sans-serif">
+    <text x="140" y="150" fill="#D2A23A" font-size="24" letter-spacing="4">ORIENTATION</text>
+    <text x="140" y="226" fill="#FFFFFF" font-size="58" font-weight="700">VOLHYNIA</text>
+    <text x="140" y="286" fill="#FFFFFF" font-size="42">Second Polish Republic</text>
+    <text x="140" y="336" fill="#FFFFFF" font-size="42">before September 1939</text>
+    <line x1="140" y1="382" x2="610" y2="382" stroke="#536174" stroke-width="2"/>
+    <text x="140" y="448" fill="#9EB0C5" font-size="22" letter-spacing="3">USE THIS MAP TO ESTABLISH</text>
+    <circle cx="154" cy="512" r="8" fill="#D2A23A"/><text x="184" y="523" fill="#E8DFC9" font-size="29">The prewar administrative region</text>
+    <circle cx="154" cy="582" r="8" fill="#D2A23A"/><text x="184" y="593" fill="#E8DFC9" font-size="29">Lutsk, Kowel and Włodzimierz</text>
+    <circle cx="154" cy="652" r="8" fill="#D2A23A"/><text x="184" y="663" fill="#E8DFC9" font-size="29">The Polish–Soviet border context</text>
+    <rect x="140" y="760" width="470" height="112" rx="6" fill="#263A55"/>
+    <text x="168" y="804" fill="#D2A23A" font-size="20" letter-spacing="2">MAP STATUS</text>
+    <text x="168" y="846" fill="#FFFFFF" font-size="25">Modern schematic, not a 1939 state map</text>
+    <text x="140" y="924" fill="#9EB0C5" font-size="19">Poeticbent, 12 Mar 2009 · PD-self</text>
+    <text x="140" y="950" fill="#9EB0C5" font-size="19">Data basis credited to W. &amp; E. Siemaszko</text>
+  </g>
+</svg>

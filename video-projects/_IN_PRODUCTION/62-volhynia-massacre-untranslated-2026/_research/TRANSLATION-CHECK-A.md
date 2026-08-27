@@ -25,7 +25,7 @@ re-translate those, at most confirms a highlighted passage matches.
 | Klymchak "I liquidated all Poles…" | — | McBride p.648 (English) | ✅ grounded | none |
 | Lebed "cleanse the entire… population" | — | McBride p.631 (English) | ✅ grounded | none |
 | Litopys p.441/442 | RU | protocol page (texture behind the English quote) | ✅ quote = McBride English | optional: gloss the RU header if captioned |
-| **Siemaszko registry** (named dead) | PL | Vol 1 p208 page | ✅ **caption-gloss only** (names + ages) | confirm gloss: `lat`=age, `zamordowany`=murdered |
+| **Siemaszko registry** (named dead) | PL | Vol.1 printed p.207 / PDF p.208 | ✅ **caption-gloss only** (names + ages) | confirm gloss: `lat`=age, `zamordowany`=murdered |
 | Sejm 2016 resolution | PL | official record line | 🟡 verify official EN wording | confirm "acts of Polish revenge on Ukrainian villages" |
 | 2015 Law #2538-1 · Decree 440/2026 · Pantheon bill | UA | document header/seal only | ✅ header only, no verbatim quote | none |
 | 1997 reconciliation declaration | PL/UA | narrated gesture, no card | ✅ grounded (Piotrowski/Snyder) | none |
@@ -202,6 +202,10 @@ Both pages rendered & legible (`_research/genealogy/`). These are **Soviet NKVD 
 
 **Bottom line: every load-bearing on-screen card is translated and placeable now** — only the optional SB-"Skob" T1 folio
 pull and the Sejm-line wording check remain, neither blocking.
+
+### 2026-08-14 lock clarification
+
+The factual narration has now been verified independently of the cards. For **film lock**, keep the creator-model's stricter human-verification boundary: a native Ukrainian reader should still confirm the exact highlighted words on Kolodzinskyi p.266, the 1941 proclamation and Order No.11. The existing multi-pass AI checks make their meanings strong enough for research and drafting, but they do not become a human Check-A merely because the worksheet says `verified`. The Siemaszko page is caption-gloss only; its correct locator is printed p.207 / PDF p.208.
 
 ---
 

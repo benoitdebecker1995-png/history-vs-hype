@@ -1,0 +1,25 @@
+asset_id,start,end,duration,track,recommended_transition,host_or_visual,purpose
+V01_KLYMCHAK_REPORT,00:00,00:14,00:14,V1,hard_cut_from_black,visual,McBride p648 report reproduction; evidence-first opening.
+V02_UA_DECREE_440,00:14,00:22,00:08,V1,sharp_document_reveal,visual,Ukraine Decree 440/2026; highlight Heroes of the UPA.
+V03_PL_REVOCATION,00:22,00:30,00:08,V1,straight_cut,visual,Polish revocation statement; date/reason.
+V04_POLISH_REACTION_CARD,00:30,00:46,00:16,V2,dissolve_to_host,visual,Attributed Poland reaction/SS analogy; no Nazi montage.
+V05_TERM_LADDER,00:46,01:10,00:24,V1,graphic_wipe,visual,Four-label taxonomy with attributions.
+V06_THESIS_HOST,01:10,01:17,00:07,V0,straight_cut,host,Documents-actually-support thesis.
+V07_CRIMEA_UPA_BRIDGE,01:17,01:30,00:13,V1,map_push,visual,2014 Crimea to UPA memory bridge.
+V08_MEMORY_TWO_COLUMN,01:30,01:57,00:27,V1,match_cut,visual,Ukraine memory vs Poland memory labels.
+V09_BANDERA_SACHSENHAUSEN,01:57,02:25,00:28,V1,dissolve,visual,Bandera portrait/Sachsenhausen aerial; confinement caption.
+V10_CRIMEA_LAW_DECREE,02:25,02:54,00:29,V1,graphic_wipe,visual,2015 Law 314-VIII and 2026 decree kept distinct.
+V11_VOLHYNIA_ESTIMATE,02:54,03:31,00:37,V1,straight_cut,visual,50–60k estimate and Sejm context; remove 03:29.40 dead gap.
+V12_VOLHYNIA_MAP,03:31,04:04,00:33,V1,map_reveal,visual,1919–23/1939 Volhynia-Galicia orientation map.
+V13_KOLODZINSKYI_DOCTRINE,04:04,04:42,00:38,V1,page_turn,visual,Doctrine facsimile/translation; not a 1943 order badge.
+V14_STETSKO_ACT,04:42,05:30,00:48,V1,document_dissolve,visual,30 June 1941 Act collaboration excerpt/date.
+V15_AUX_POLICE_SNYDER,05:30,06:30,01:00,V1,montage_cut,visual,Document edit markers, auxiliary-police lower third, Snyder card.
+V16_RED_ESHA_PORYCK,06:30,07:15,00:45,V1,fade_to_silence,visual,Redesha testimony and 11 July/Poryck dot map; interrogation label.
+V17_REGISTRY_ESTIMATE,07:15,08:00,00:45,V1,slow_push,visual,Siemaszko registry then Snyder 70k/20k estimate bars.
+V18_TAXONOMY_CONVERGENCE,08:00,08:50,00:50,V1,graphic_lock,visual,Organized/one-sided/removal convergence; disputed label open.
+V19_WEAPONS_READY,08:50,09:21,00:31,V1,match_cut_to_report,visual,Report callback and 1944 directive quote.
+V20_ORDER11_FULL_SCAN,09:21,09:55,00:34,V1,hard_cut_to_full_page,visual,Klym Savur Order No.11 unaltered scan; object/signature visible.
+V21_STELMASHCHUK_1945,09:55,10:20,00:25,V1,evidence_ladder_step,visual,1945 confession copy; UNDER SOVIET INTERROGATION badge.
+V22_STELMASHCHUK_1963_COPY,10:20,10:40,00:20,V1,straight_cut,visual,1963 archive copy/scholar reproduction.
+V23_STELMASHCHUK_LETTER,10:40,11:10,00:30,V1,document_match_cut,visual,June 1943 letter transcription; oral-order wording.
+V24_ORIGINAL_UNAVAILABLE,11:10,11:31,00:21,V1,red_stop_card,visual,ORIGINAL FILE UNAVAILABLE evidence stop.

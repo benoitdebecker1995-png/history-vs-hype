@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#0A1628"/>
+  <text x="110" y="118" fill="#D2A23A" font-family="Arial, sans-serif" font-size="27" letter-spacing="5">DOCUMENTARY VERDICT</text>
+  <text x="110" y="190" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="62" font-weight="700">Separate the record from the inference</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="110" y="282" width="530" height="610" rx="10" fill="#14243A"/>
+    <rect x="110" y="282" width="530" height="12" fill="#5D9B78"/>
+    <text x="154" y="358" fill="#8FC2A5" font-size="28" letter-spacing="4">PROVES</text>
+    <text x="154" y="426" fill="#FFFFFF" font-size="35" font-weight="700">A large, organized</text>
+    <text x="154" y="472" fill="#FFFFFF" font-size="35" font-weight="700">campaign against</text>
+    <text x="154" y="518" fill="#FFFFFF" font-size="35" font-weight="700">Polish civilians</text>
+    <text x="154" y="598" fill="#C9D2DC" font-size="27">After-action reports,</text>
+    <text x="154" y="636" fill="#C9D2DC" font-size="27">testimony, patterns of attack</text>
+    <text x="154" y="674" fill="#C9D2DC" font-size="27">and named-victim registries.</text>
+    <rect x="695" y="282" width="530" height="610" rx="10" fill="#14243A"/>
+    <rect x="695" y="282" width="530" height="12" fill="#D2A23A"/>
+    <text x="739" y="358" fill="#E5C772" font-size="28" letter-spacing="4">SUPPORTS</text>
+    <text x="739" y="426" fill="#FFFFFF" font-size="35" font-weight="700">Coordination and</text>
+    <text x="739" y="472" fill="#FFFFFF" font-size="35" font-weight="700">responsibility above</text>
+    <text x="739" y="518" fill="#FFFFFF" font-size="35" font-weight="700">the village level</text>
+    <text x="739" y="598" fill="#C9D2DC" font-size="27">The pattern and chain of</text>
+    <text x="739" y="636" fill="#C9D2DC" font-size="27">testimony make purely local</text>
+    <text x="739" y="674" fill="#C9D2DC" font-size="27">spontaneity implausible.</text>
+    <rect x="1280" y="282" width="530" height="610" rx="10" fill="#14243A"/>
+    <rect x="1280" y="282" width="530" height="12" fill="#C84A46"/>
+    <text x="1324" y="358" fill="#E7A4A2" font-size="28" letter-spacing="4">DOES NOT PROVE</text>
+    <text x="1324" y="426" fill="#FFFFFF" font-size="35" font-weight="700">A surviving signed</text>
+    <text x="1324" y="472" fill="#FFFFFF" font-size="35" font-weight="700">order by Klym Savur</text>
+    <text x="1324" y="518" fill="#FFFFFF" font-size="35" font-weight="700">to kill all Poles</text>
+    <text x="1324" y="598" fill="#C9D2DC" font-size="27">The public record does not</text>
+    <text x="1324" y="636" fill="#C9D2DC" font-size="27">contain that authenticated</text>
+    <text x="1324" y="674" fill="#C9D2DC" font-size="27">signed document.</text>
+    <text x="110" y="986" fill="#9EB0C5" font-size="23">A missing signed order is not evidence that the organized campaign did not occur.</text>
+  </g>
+</svg>

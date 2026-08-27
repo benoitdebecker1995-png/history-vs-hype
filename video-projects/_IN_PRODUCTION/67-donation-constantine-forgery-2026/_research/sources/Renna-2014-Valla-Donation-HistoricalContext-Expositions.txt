@@ -1,0 +1,1259 @@
+=== PAGE 1 ===
+[Expositions 8.1 (2014) 1–28] 
+ 
+Expositions (online) ISSN: 1747–5376 
+ 
+ 
+Lorenzo Valla and the Donation of Constantine in Historical Context, 1439–40 
+ 
+THOMAS RENNA 
+Saginaw Valley State University, Emeritus 
+ 
+ 
+ABSTRACT 
+ 
+Lorenzo Valla’s refutation (1440) of the forgery The Donation of Constantine (ca. 757-800) has 
+been variously interpreted as a rhetorical and philological exercise, an attack on papal temporal 
+power in general or the Papal States in particular, an invective against Pope Eugenius IV, an 
+apology for Alfonso V, a proposal for clerical reform, a satire on the clergy, a defense of the 
+Council of Basel. But little attention has been given to the role of Emperor Frederick III in 
+Valla’s implied suggestions for the improvement of circumstances in warring Italy. It is argued 
+here that Valla wrote the Declaration in part to encourage greater imperial involvement in the 
+papal schism and especially in the affairs of Italy and the City of Rome. 
+ 
+ 
+The Donation of Constantine is the most influential forgery in Western history. Lorenzo Valla’s 
+refutation of the document is the most famous debunking of any literary fraud. The renown of 
+the humanist’s Discourse1 stems from the historical fact that it was the first systematic refutation 
+of the Donation of Constantine, itself widely cited in 1200–1400.2 Although the Donation was 
+probably composed in the second half of the eighth century,3 it did not become the subject of 
+intense discussion until the twelfth century, when it was cited by the defenders of the pope’s 
+claim to crown German kings (after being elected Kings of the Romans) with the title of 
+Emperor of the Romans and retain some degree of control of the emperor and the empire. By the 
+time of Popes Innocent III and IV, the Donation’s claims were extended to the Papal States and 
+the pope’s temporal authority in general, particularly in the right to intervene indirectly in 
+imperial elections and jurisdiction.4 According to some modern scholars,5 by the time of Lorenzo 
+Valla, the Donation was not taken very seriously, although Valla thought—or pretended to 
+think—otherwise.6 
+In general, the past century of scholarly investigation of Valla’s Discourse has concentrated 
+more on his literary technique—his use of rhetoric and philology7—than on his attempt to make 
+his rebuttals relevant to his own day. (He seems to have written the bulk of the Discourse in 
+April-May 1440,8 although he may have started the work in late 1439.) Much less attention has 
+been given to the historical context of the writing of the Discourse, except to note Valla’s 
+apparent support of the Council of Basel, Pope Felix V,9 and, above all, his antagonism to Pope 
+Eugenius IV. In particular, Valla’s defense, often unstated in the Discourse, for King Alfonso V 
+of Aragon, the nemesis of Eugenius IV, is emphasized.10 At times the references in modern 
+
+=== PAGE 2 ===
+ 
+ 
+ 
+Lorenzo Valla and the Donation of Constantine 
+2
+studies to contemporary events are merely recited, as if the connections with Valla’s comments 
+are self-evident. Modern historians often praise the Donation as a compelling work which 
+definitively demolished the counterfeit document.11 In fact, the piece is sometimes a rambling 
+collage of disparate arguments only loosely connected. The odd choice of formula—a quasi-
+courtroom dialogue held at royal courts—seems to support those modern critics who emphasize 
+the Discourse as largely a rhetorical exercise, albeit replete with contemporary allusions. Perhaps 
+the reason for the unwieldy, composite character of the work is that Valla wrote it for several 
+reasons and for several audiences. 
+In the opinion of the present author, some of the misunderstandings of the treatise are the 
+result of focusing too narrowly on the antipapal rhetoric and not enough on the German emperor. 
+By neglecting the latter, the reader may be misled by Valla’s use of the literary device of the 
+“straw man,” especially Pope Eugenius IV,12 who must be assessed within the context of the 
+time Valla was writing. This concentration on Eugenius is understandable, since Valla himself 
+virtually ignores contemporary emperors (Frederick III is not even mentioned) or near 
+contemporaries (Albert II is missing; Sigismund III is mentioned just once13) This is not, of 
+course, to suggest that the Discourse is a tract on empire or that it is primarily a reform proposal 
+for the ills of society. The work is, after all, about an event (or non-event, since Constantine, 
+Valla assures us, never made such a donatio) and its subsequent evil effects. Hence Constantine 
+and Pope Sylvester14 get more attention, with allusions to later emperors and pontiffs, only to 
+show how naively uncritical they could be in accepting the Donation’s genuineness. Strangely, 
+Valla does not speculate on the circumstances of the forgery itself, except to imply that it was 
+made some centuries after the time of the first Christian emperor.15 
+The role of the Western emperor in 1440, however, was of great concern to Valla, who, it is 
+argued here, placed more hope in the new emperor than in his patron, Alfonso V of Aragon, to 
+restore sanity to Christendom. The Discourse is not, to be sure, a reform program or a speculum 
+principum for Frederick III. The Discourse is a difficult work to assess as a historical source not 
+only because of the relative paucity of references to external events, but also because of Valla’s 
+too few allusions to contemporary circumstances in his other writings, including his letters.16 
+ 
+Holy Roman Empire and Italy, 1436–39 
+ 
+Valla in fact wrote the Discourse in part, we contend, to induce Frederick III and his supporters 
+to intervene in Italy. Our humanist—never the optimist—did not envision imperial troops 
+marching over the Alps. Those days were gone. Rather, he sought to convince Frederick—who 
+seemed to be content with the neutrality of his Electors—and Italian leaders that a greater role 
+for the emperor (as yet uncrowned)17 was required to resolve the conflicts in Italy. For Valla the 
+settlement of the Basel-Vatican standoff was but a means to an end. He envisioned Frederick and 
+Eugenius working together to achieve peace south of the Alps. Valla wrote the Discourse 
+partially to promote the short-term gain of restraining the expansionist impulses of Filippo Maria 
+
+=== PAGE 3 ===
+3 
+ 
+Renna 
+ 
+ 
+ 
+Visconti, Eugenius IV, Venice, Genoa, Florence, and, indeed, even Alfonso V. His long-term 
+objective was to achieve a balance of power in Italy, end the schism between the two popes, 
+buttress the Union between Byzantine East and West, and get pope and emperor to organize a 
+pre-emptive attack on the Turks. 
+The political situation in Italy and the Holy Roman Empire in 1438–40 was chaotic. The 
+turmoil, confusion, broken promises, complexity, shifting alliances, profusion of unreliable 
+condottierri, and uncertainty must have been almost unbearable. There seemed no end to the 
+series of crises. The candidates for European-wide leadership—Council of Basel, Frederick III, 
+Charles VII of France, Eugenius IV—appeared anything but ecumenical.18 The hope of a 
+reconciliation between Council and Pope was dashed when Basel suspended Eugenius IV from 
+office in January 1438, and elected Felix V (so named in November 1439), who reigned until 
+April 1449.19 As the Council had increased its claims to be superior to the papacy during 1436–
+37, Eugenius responded by rejecting the proposal to transfer the Council to Avignon and 
+proposed Ferrara instead. The more hard-line conciliarists voted to declare Eugenius, who 
+frantically searched for supporters in France, Italy, and the Empire, deposed.20 The situation was 
+complicated by the delicate negotiations which were then occurring between the Byzantine John 
+VIII and the Western powers as to the location of the council where the union between Latin and 
+Greek churches was to occur.21 John VIII himself demanded the site to be on the Dalmatian coast 
+or at least in Italy. The kings of France and Germany pressed for a northern site, as did many 
+conciliarists. While Eugenius had supporters in the Holy Roman Empire, some Electors, 
+universities, and religious orders sided with Basel. For his part, Eugenius thought he could fend 
+off the Baseleans better from an Italian base, such as Bologna or Ferrara. Rome remained hostile 
+to the Pope. 
+When the Council was later moved to Florence the tensions in Italy actually increased. 
+Eugenius’ alliance with Venice was uncertain, as were his relations with the Visconti nemesis, 
+Francesco Sforza in the Romagna.22 When the Council of Florence did in fact achieve union with 
+Constantinople, few believed it was permanent or that it would lead to a successful crusade 
+against the infidels in the Balkans. Neither did anyone in the German empire feel complacent 
+with the doctrinal concessions made to the Hussites in Poland in May 1439. The threat of a 
+renewed Turkish assault on Hungary was always present to the Emperor Sigismund III and his 
+successor, Albert II of Luxemburg (March 1438–October 1439). Both Sigismund and Albert 
+attempted to remain neutral in the Basel-Eugenius conflict, lest the Catholic Church fall into 
+schism and the division in the German empire worsen.23 Charles VII of France remained neutral 
+as well, perhaps as a counter to his papalist bishops and the Baselean universities. Just as the two 
+popes, Felix V and Eugenius IV, were maneuvering to obtain adherents throughout Europe, 
+Sigismund died (9 December 1437), introducing another element of uncertainty. 
+For the new emperor, Albert II, this Basel-Eugenius business complicated his more pressing 
+concerns: get the Bohemians and Hungarians to accept his election as king of the Romans; 
+
+=== PAGE 4 ===
+ 
+ 
+ 
+Lorenzo Valla and the Donation of Constantine 
+4
+establish a uniform policy of church reform; solidify the union with the Greeks; muster a defense 
+against the Ottomans; adopt a more equitable policy in Germany loosely based on the French 
+Pragmatic Sanction of Bourges; maintain good relations with Eugenius; establish a semblance of 
+authority over his Electors; enforce the Mainz council decrees; maintain free elections and 
+prohibit annates.24 Yet, despite the discussions at Mainz, both the Council of Basel and Eugenius 
+in the end rejected many of these Mainz proposals. All hopes were left to a new universal 
+council, still to be determined. By April 1439 Albert II seemed unable to choose among the 
+neutrality of the Electors, the Acceptation of Mainz, the legitimacy of the Council of Basel and 
+its decrees, and the recognition of Eugenius as pope without conditions. Basel’s deposition of 
+Eugenius in effect rebuffed Albert’s attempts at a reconciliation of the Baselean reforms and the 
+papal schism. After more months of proposals and counter proposals, Albert II tried to reach an 
+agreement with his Electors at Frankfurt in November 1439. To the horror of the Electors, news 
+arrived that the Council of Basel had just elected Felix V on 5 November 1439. Then another 
+distressing report arrived: Albert II had passed away on October 27. The Electors responded by 
+renewing the Protection of Neutrality, which would be adopted by the next king, Frederick of 
+Habsburg. 
+ To add to the confusion, the emperor after Albert II, Frederick III of Habsburg, refused to 
+take sides in the papal schism, since he was engaged in numerous struggles: against the 
+Ottomans in 1439, Matthius Corvinus of Hungary, the Swiss Confederation which sought 
+independence, the Bohemians who opposed Albert II’s son Ladislaus, and the Electors who 
+chose different sides in the Basel vs Eugenius (who deposed two archbishop-Electors) dispute. 
+The unintended result of Frederick’s declaration of neutrality was to encourage both the 
+Baseleans and the Eugenians to step up their efforts to get the Germans—and Frederick—to their 
+side. The big question was: Who would Frederick support, Council or Pope? Where would the 
+next council be held? What would Frederick’s attitude be toward Italy? his attitude toward 
+Alfonso V of Aragon? So uncertain was Frederick’s position that he was not to be crowned king 
+of the Romans until 1442 (although he had been elected February 1440), and Emperor of the 
+Romans until 1452—the last emperor to be crowned in Rome. While modern historians often 
+characterize Frederick III as a Habsburg who put his House ahead of imperial concerns, he was 
+certainly active on many fronts during the years 1439–40. 
+Frederick was stymied as to how to respond to the (uncompromising) demands of both Basel 
+and Eugenius, who effectively required the clergy of the Holy Roman Empire to attend the synod 
+at Ferrara. The mood among the Electors and the bishops was to seek a compromise between 
+Council and Pontiff. The Elector-Archbishops of Mainz and Trier proposed a moderate solution 
+which protected both Eugenius and the Council decrees. As each mediation failed in 1438, the 
+new Emperor-elect, Frederick (III), was caught between Scylla (the Protestation of Neutrality) 
+and Charybdis (accept Eugenius as true pope and move the council to Ferrara). Albert II had 
+summoned imperial diets to attempt to find a formula acceptable to both Basel and Eugenius. 
+Pressure now mounted on Frederick to agree to a third city—other than Basel or Ferrara—for the 
+
+=== PAGE 5 ===
+5 
+ 
+Renna 
+ 
+ 
+ 
+council. The German delegation argued strenuously at Basel during December 1438–January 
+1439 in favor of the general council, a third city, and common imperial policies for the church in 
+the Empire. Eugenius responded by unilaterally transferring his council from Ferrara to Florence 
+(10 January 1439)! The German princes meeting at Mainz (March–April 1439) were convinced 
+that they had found a winning formula; they even accepted many of the Baselean reforms for the 
+church in the Empire. But to their consternation, the Council of Basel rejected them and deposed 
+Eugenius (June 1439). The result was an impasse. These disappointments notwithstanding, 
+however, Frederick never gave up on his efforts to conciliate Basel, Pope, and the German 
+church. In 1441 he issued a surprise series of reform proposals to establish more imperial 
+authority over his principalities, intending to rule in the manner of the legendary Emperor 
+Charles IV on the model of the Golden Bull of 1356. 
+ 
+Alfonso V and Lorenzo Valla 
+ 
+Where was Alfonso V of Aragon during these bewildering developments of 1438–39? Alfonso’s 
+actions indicate that he was neither a Baselean nor a Eugenean. He seems to have had no 
+ideological leaning in any direction. His priority was his new kingdom in Naples, while keeping 
+contact with events back in Spain. Alfonso spent much of his time in 1436–40 engaging in 
+military and diplomatic activity designed to expand his Sicilian empire and tighten the blockade 
+around the city of Naples, which he would finally capture in 1442.25 His alliance with Filippo 
+Maria Visconti was opportunistic, as were his ties with Venice, Francesco Sforza in Ancona, 
+and, it might be added, Felix V and Basel. Alfonso’s later dramatic shift to Eugenius—when this 
+pope discarded René of Anjou, son of Louis II of Anjou and rightful King of Sicily—is but one 
+example of Alfonso’s Realpolitik. It is unlikely that Alfonso considered Eugenius the source of 
+all his difficulties in Italy, as Valla appears to think. Perhaps Valla magnifies his case against this 
+Pope because he deems that this is what his patron wants to hear. 
+How did these rapid movements of Alfonso V influence Valla’s political thinking? It is 
+probable that Lorenzo Valla as Alfonso’s secretary—an undefined position—accompanied him 
+on military campaigns during 1437–39, and may have participated in minor diplomatic forays. 
+(Valla’s extensive amount of writing during his stay at court, Gaeta then Naples, suggests, 
+however, that he had ample time to research and write. Alfonso’s famous library was a boon.) 
+Valla was kept well informed about the events in Europe, and may have been an advisor of sorts 
+to the monarch.26 It is possible that Valla’s Discourse on the Donation of Constantine was 
+influenced by his involvement—either as a factor in Alfonso’s formation of policy, or as an 
+observer of events as a man about court—in high politics. Was the Discourse really the academic 
+exercise that some modern historians take it to be? 
+As Valla observed the fast pace of events in Italy from the vantage point of the Aragonese 
+court, whether at Gaeta or in via, he must have been amazed at the inconstancy of Fate. If he had 
+
+=== PAGE 6 ===
+ 
+ 
+ 
+Lorenzo Valla and the Donation of Constantine 
+6
+a perverse sense of humor he would have enjoyed the topsy-turvy course of events of 1436–40, 
+which were often the result of chance. Alfonso V’s Fortuna often depended on unreliable 
+mercenary captains on all sides. The uncertain flow of cash from Aragon and the Sicilian areas 
+endangered the financing of his campaigns; the alliances (often casual, often broken) with towns 
+and regions throughout Italy made his friends of today the enemies of tomorrow. The position of 
+Florence and Venice was never clear. Alfonso’s steadfast “ally,” Filippo Maria, was one of 
+convenience; the Visconti constantly complained of the King’s half-hearted offenses against 
+Genoa, Venice, and Francesco Sforza. Typical of Italian potentates was the Count of Caserta, 
+who switched sides no fewer than five times in two years! Alfonso’s on-again off-again marriage 
+proposals with Filippo Maria’s relatives infuriated the Visconti. Many rulers attempted to use 
+Alfonso in their attempts to snatch a piece of the Papal States; Eugenius was usually out of town. 
+Alfonso had no long-range policy—except to seize Naples—as he reacted to the initiative of his 
+enemies, such as Giovanni Vitelleschi’s incursion into the Abruzzi.27 This papal condottiere, the 
+butcher of Rome, embodied Valla’s notion of the misuse of papal authority. The vicissitudes of 
+Vitelleschi’s career—he had to retreat from the Abruzzi because he ran out of money to pay his 
+soldiers!—may have convinced Valla of the need for outside—that is, imperial—military or 
+diplomatic intervention. 
+It would be inaccurate, moreover, to view the battle for the Regno as simply a war between 
+René of Anjou and Alfonso V. The weak support for René can be seen in the hasty withdrawal of 
+many of his partisans in 1439–40 as the position of Alfonso improved with the death of Jacobo 
+Caldora in November 1439—and the welcome landing of provisions from Spain. The situation in 
+the Kingdom of Naples fluctuated with some unexpected deaths (such as Alfonso’s brother 
+Pedro) and the arrival of family members (such as his natural son, Ferdinand, in August 1438). 
+Alfonso was actually not a Baselean or an ally of Felix V. Basel and the antipope were for 
+Alfonso simply expedients to blackmail Eugenius into granting him legitimacy in Naples. 
+One has to wonder if Valla in early 1440, when he was writing his Discourse, was getting 
+worried about what would happen to his beloved Rome once the city of Naples finally fell to 
+Alfonso. Would the king then attempt to conquer the Papal States? What would happen to the 
+equilibrium of Italy? And the union with the Eastern Church? and to the Byzantine Empire, 
+under permanent siege? Was Valla feeling guilty about encouraging his King to pursue his 
+territorial designs? Above all, what would become of Rome and Italy after the settlement 
+between the Council of Basel and Eugenius? But where was Frederick III? If Valla had dreams 
+of making Gaeta, and later Naples, a center and model of humanist studies, he would have been 
+dismayed at the growing instability in Italia, where all true learning began. Far from being a 
+lackey of Alfonso V, Valla may have been troubled by the rapid turn in the King’s favor in late 
+1439. But how can Valla send a message to Alfonso, Eugenius (who seemed stronger every day), 
+Basel, other humanists, and Frederick III? Surely a polemical blast against Eugenius or some 
+other scapegoat would simply inflame the followers of both Council and Pontiff. Why not 
+something more scholarly and objective, a calm wind above the fray which would speak to a 
+
+=== PAGE 7 ===
+7 
+ 
+Renna 
+ 
+ 
+ 
+fundamental problem that bedeviled Italy? Who, if anyone, gave the scholar at Gaeta the idea to 
+write an attack on the renowned Donation of Constantine which would at the same time intimate, 
+however circuitously, how to rescue Italy from the morass of division and competition? 
+Sometime after 1433, Valla came upon a version of Nicholas of Cusa’s Catholic 
+Concordance, which referred to the Donation of Constantine. Cusa deemed it fraudulent and 
+implausible as a historical document. Given Valla’s temperament for exposing fakes and his 
+receptiveness for anything hostile to popes and especially Eugenius, he was impressed and 
+wished he had written the piece. The cantankerous Valla found it hard to resist a confrontation. 
+The insertion of the questioning of the veracity of the Donation in the treatise of Cusa was a 
+refutation and no more, although he makes a link to the Translation of Empire. Valla gave the 
+passages no more thought at the time. Years later (1438?) he considered the implications of the 
+forgery as they applied to his own day. Cusa, Valla realized, missed the staggering implications 
+for immediate political relevance. But, if Valla were to pick up on Cusa’s insights, he would 
+have to be careful not to appear to be simply repeating what the master had said, and not to 
+appear to criticize the great theologian/philosopher. And Cusa wrote in an academic style not 
+suited to Valla’s flair for high-flown rhetoric and dramatic bombast. Not that Valla ever hesitated 
+to challenge anybody, but one must keep one’s employment opportunities open. Alfonso was not 
+immortal, and could fire Valla on a whim. The humanist’s enemies at court needed little 
+encouragement to attack him. 
+What did Valla make of these stupendous events? The simple answer is that he wrote as a 
+publicist for his royal paymaster. Although Valla does not mention Alfonso in his Discourse, 
+there are plenty of indirect allusions,28 as modern scholars have noted. Eugenius IV is the bête 
+noire of the treatise because this prelate more than anyone obstructed Alfonso’s designs in Italy, 
+especially in the areas that were part of the Papal States. Such an approach to Valla’s intention 
+does not, runs this argument, negate the fondness for the humanist’s use of rhetoric and 
+philology. 
+ 
+Lorenzo’s Five Straw Men 
+ 
+Yet this pro-Alfonso interpretation of the Discourse is simplistic. It makes Valla a petty cynic 
+and court sycophant, driven by hatred of the Pope. Valla’s portrayal of papal prerogatives is, 
+admittedly, not always consistent. Pope Sylvester, the model pontiff, is introduced as denying all 
+possessions; yet later popes in the Discourse seem to be legitimate owners of the Papal States. 
+The “Franciscan” pope Sylvester does not always match what Valla considers the rightful duties 
+and possessions of later popes, such as Eugenius. Yet modern historians may have taken Valla’s 
+diatribe against Eugenius too literally, without realizing, in the opinion of the present author, that 
+this pope was to some extent a “straw man” in the Discourse set up to leave room for imperial 
+action from the North. Valla’s fulminations against Eugenius notwithstanding, it is unlikely that 
+
+=== PAGE 8 ===
+ 
+ 
+ 
+Lorenzo Valla and the Donation of Constantine 
+8
+Valla judged Eugenius the primary cause of all the problems in the church and society. But these 
+violent outbursts against Eugenius are in fact rhetorical devices to deflect from Valla’s larger 
+goals of promoting concord and justice in Italy, with the help of the new emperor. This is not to 
+say that Valla’s negative portrayal of the Venetian pope was entirely insincere, but only that the 
+latter is also a literary construct which the humanist builds only to demolish. 
+Strictly, Valla’s straw men are not usually entirely fictitious. “Straw man” is here taken to 
+mean an informal fallacy in which the polemicist pretends that the argument he is refuting is in 
+fact the one proposed by his opponent. Thus the writer somewhat dishonestly disproves a 
+proposal other than the one he alleges his adversary set forth. In Valla’s case it might be more 
+accurate to say that the errors he purports to destroy are only half-straw men, in the sense that 
+Valla implies that at least in some way the proposition is valid. But Valla exaggerates what he 
+claims the Donation of Constantine is supposed to be alleging. This use of exaggeration of the 
+detractor’s case is a technique he employs throughout the Discourse. Accordingly, many of his 
+arguments against the forgery are irrelevant, even trivial, and often strain a point. Valla’s heavy 
+resort to sarcasm makes some of his “arguments” appear more like witty remarks than as serious 
+objections to the Donation.29 Actually there is not one straw man in the Discourse but five, all 
+interrelated. The modern reader should be wary of taking Valla’s outbursts at face value. 
+ 
+1) Pope Eugenius IV loudly proclaims the truth of the Donation of Constantine, and 
+frequently threatens “certain kings and princes as if you [Eugenius] were exacting 
+vengeance for a purloined empire.”30 Eugenius demands subjection from the emperor, 
+when he has to be crowned, “as well as some other rulers, such as the King of Naples and 
+Sicily [Alfonso V].”31 Really? Did Eugenius—or Nicholas V or Felix V for that matter—
+ever make such a demand? Indeed, did any supreme pontiff assert such a right during the 
+Great Schism? Is Valla misinformed or is he maintaining this papal claim to make 
+Eugenius the arch-villain and thus more vulnerable to attack? Why does Valla overstate 
+Eugenius’ policies toward the Holy Roman Emperor and “some”—why “some”?—
+secular princes? It is amusing to hear Valla declare his courage in standing up to 
+Eugenius for daring to expose the Donation as a forgery!32 He boasts of his fearlessness 
+before the certain punishment which the Holy See will impose upon him! But Valla was 
+actually very aware that his invective would not threaten his comfortable stay at Gaeta 
+and Alfonso’s well-guarded entourage on the march. Eugenius had plenty of critics at the 
+time, least of which was this Italian pen-pusher. There was little risk in lampooning this 
+Pope’s ambition and avarice. 
+2) Pope Sylvester refused the Donation—if such a thing were in fact offered—because he 
+wanted to live the life of the poor Christ. Thus it was unlikely that so holy a pope would 
+have acceded to such an extraordinary honor.33 Valla might have seen the irony of his 
+acceptance of the description of Sylvester in the later Vita of this pope, a document Valla 
+ridicules. The Donation, of course, adds that Sylvester did in fact refuse the honor, and 
+
+=== PAGE 9 ===
+9 
+ 
+Renna 
+ 
+ 
+ 
+subsequently permitted others to rule in his stead. It is a non sequitur, however, to 
+contend that Constantine’s offer of the Western Empire to the pontiff was somehow 
+invalid because the latter would never have accepted. Valla’s praise of this pope’s love of 
+poverty is a not-so-subtle criticism of the prelates in the Italy of the 1430s. The 
+prototypical disciple of mammon is Eugenius IV, who could never measure up to a 
+Francis-like vicar of Christ.34 We should not be fooled by Valla’s arguments in favor of 
+the poverty of monks and friars in his The Profession of the Religious, which was written 
+shortly before the Discourse.35 This eulogy to the ascetic way of life of the genuine 
+religious (members of religious orders) seems prima facie incompatible with his earlier 
+On Pleasure, a work which was widely criticized—probably exactly what he wanted and 
+expected! The Profession of the Religious reads more like a diatribe on pretentious 
+religious—and religious at Alfonso’s court who think of themselves as humanists?—than 
+an apology for mendicant poverty. 
+ 
+Any reader of the Discourse could have inserted Eugenius IV as the anti-Sylvester, who 
+behaves as if he were an “emperor.”36 But, in point of fact, Eugenius never claimed—
+Valla is not consistent here in describing this Pope’s temporal assertions—extensive 
+power over the empire or all of Italy as the Discourse declares.37 The literary-Eugenius—
+more of a topos than a historical figure—is a caricature of the historical Pope, who would 
+be quite content just to maintain control of the Papal States while keeping at bay the dogs 
+of Milan, Venice, and Naples. Valla implies that Eugenius wants to abolish the Council 
+of Basel so he can become the de facto “emperor”38 of the West, or at least have the 
+princes of Europe recognize his de iure rights of universal sovereignty. Valla 
+misrepresents the nature of Eugenius’ disagreements with Basel and the major states of 
+Italy. (Of course, a supporter of Eugenius could plausibly argue that it was Alfonso V who 
+was the aggressor in the Papal States and elsewhere!) He implies that the Pope claims the 
+de iure rights of the Holy Roman Emperor. Somewhat anachronistically, Valla refers to 
+the oath the emperor takes to become Emperor of the Romans, an oath “by which today’s 
+Caesars are bound.”39 Perhaps Valla borrowed this theme of the pope as the cause of all 
+wars in Italy from Dante’s De Monarchia or, more likely, from Marsilius of Padua’s 
+Defensor pacis. Valla simply injected Eugenius as the prototype bogus-pontiff, in the 
+manner of the Vatican painter who depicted the face of Pope Sylvester as the 
+contemporary Clement VII in the fresco of the Donation of Constantine.40 
+ 
+Valla’s appeal to a primitive church model for the papacy and the clerical church is 
+somewhat incongruous for the 1430s. Criticisms of clerical wealth and even calls for 
+clerical dispossession were, to be sure, not unheard-of.41 Indeed there were several 
+proposals at the Council of Basel to conquer and divide the Papal States!42 But these 
+plans fall more into the category of territorial greed and political ambition than of wistful 
+dreams of an ecclesia primitiva. Such visions of clerics living within their means were 
+
+=== PAGE 10 ===
+ 
+ 
+ 
+Lorenzo Valla and the Donation of Constantine 
+10
+much more common in the early fourteenth century.43 Many Baseleans and Eugeneans 
+had more mundane issues to debate, such as the papal annates and reservations of 
+benefices. They were more concerned with fundamental questions of the relative power 
+of pope and general council. Although conciliarists sometimes bandied around the idea of 
+the primitive church, they were referring to communal sovereignty and rarely to usus 
+pauper.44 Zarabella, Panormitanus, John of Sevogia, and Escobar promoted the pope as 
+rector of the universitas, and not as a Francis-like ascetic. The prelates at Basel had little 
+interest in such esoteric ideals; the stripping of Eugenius of his annates was more of a 
+power-play than a demand that he live the apostolic life. Throughout the voluminous 
+debates of the Council of Basel, German reforms, and papal responses, such idealistic 
+fantasies in the tradition of the Spiritual Franciscans were less heard. Ockham or Wyclif 
+would have felt out of place in these learned discussions. The Italian powers who 
+distrusted the imperialistic schemes of Alfonso and Filippo Maria would prefer a balance 
+of power to an expanded Milan or Naples. Certainly the borders of the Papal States were 
+in flux, and indeed within the Papal States there were autonomous lords who lacked far-
+reaching policies. Thus Valla’s portrayal of Eugenius as a tyrant45 who subverted Italy 
+makes clever rhetoric but questionable validity as a realistic assessment of actual political 
+arrangements. Antipapal readers of Valla’s Discourse would have found much to smirk 
+about. Historians may have made too much of Valla’s criticism of Eugenius for 
+oppressing Rome, Bologna, and other places in Italy. While Valla’s readers might 
+sympathize with his attack on the Pope, they would likely not have approved of his ouster 
+from his Patrimony. It was not a matter of legal rights, but of practical politics. If Alfonso 
+and Filippo Maria could cut a cynical deal to grab the Papal States, then who was safe? 
+For the Italian powers the Papal States were a useful buffer zone squeezed in by Milan, 
+Venice, Florence, and the Regno. Certainly many signori grumbled about Eugenius’ 
+interference in areas outside his sphere of influence, and his willingness to make foreign 
+entanglements in his search for allies against Basel. It was always disconcerting, 
+moreover, to see the Vicar of Christ acting like a secular prince. At any rate, Valla’s 
+fulminations notwithstanding, it is doubtful that many in 1440 would have seen Eugenius 
+as the sole or even the principal cause of the disruptions in Italy. Valla drastically 
+oversimplifies the complexity that was Italia. Doubtless many saw Eugenius as the victim 
+of aggression and not vice versa. 
+ 
+The humanist’s satire on papal possessions—that is, the Papal States—was good for a 
+laugh, but of little concern to the Baseleans. While it is probable that Valla was familiar 
+with Marsilius of Padua’s Defensor pacis,46 he knew or should have known that the 
+Paduan’s radical assault on papal dominium had little place in the boardrooms of policy-
+makers in 1440. Our Renaissance humanist perhaps did not realize that the Defensor 
+pacis was written at a time (early 1320s) when the Franciscan poverty controversy was at 
+its height. Critics of Pope John XXII exploited the views of both the Fraticelli and the 
+
+=== PAGE 11 ===
+11 
+ 
+Renna 
+ 
+ 
+ 
+Conventuals to undermine the Pope’s position on user pauper and the papal right to 
+abrogate previous papal bulls. 
+3) Popes have always used the Donation to prop up their temporal authority. They have 
+always depended on the Donation to affirm their rights to the Papal States and temporal 
+prerogatives, at least de iure, over all Christian princes. Clearly not true. Innocent IV, 
+expanding upon Innocent III, was in fact the first pope to explicitly claim the fullness of 
+power on the basis of the Donation. Most fourteenth-century pontiffs gave little attention 
+to the Donation, although many papalist and imperialist writers debated its merits. Even 
+Innocent IV refers to the Donation simply as a confirmation of the temporal authority the 
+supreme priest already possesses from Peter and Christ. James of Viterbo, the most 
+extreme of the papal hierocrats, insists that the papal plenitudo potestatis was already 
+held by the successors of Peter.47 
+4) The pontiffs have always compelled emperors to accept the validity of the Donation in 
+exchange for crowning the Kings of the Romans as Emperors of the Romans.48 Popes 
+demanded the Donation so they could subjugate Rome and Italy. With these claims 
+allegedly made by previous popes, Valla seems to be only vaguely acquainted with the 
+tradition of canonist-imperialist exchanges concerning the Donation since at least the 
+twelfth century. Either he is deliberately distorting the literary heritage of the Donation 
+disputes, or, more likely, he simply does not know much about the history of how the 
+famous forgery was used by all sides. In fairness to Valla it must be acknowledged that 
+there were of course no writings on just such a history. He probably relied on a few 
+canonist and chronicle sources in Alfonso’s library and other collections. One suspects 
+that Valla’s reading of Marsilius’ Defensor pacis convinced him that all prior popes had 
+made the outlandish claims mocked by the Paduan. Valla doubtless realized that a 
+polemical work is not “history” as such, but facts selected to argue a point. But he 
+probably did not care how much of Marsilius’ treatise was historically accurate. He 
+resorts to hyperbole because it allows him at a stroke to demolish virtually all papal 
+pretensions to temporal ownership. As a result, his Discourse becomes an important 
+document—as Valla sees it—since it refutes the Donation. The crowning of the German 
+emperors becomes the defining constitutional act of the emperor’s authority. This puts 
+the pope in the enviable position of bestowing authority upon the emperor. Valla seems 
+only dimly aware that many imperialist writers for well over a century had maintained 
+that the elected King of the Romans possessed full imperial power before the pope 
+crowned him Emperor of the Romans.49 
+5) The emperor cannot be a true emperor unless he rules from Rome. Valla’s portrayal of 
+the City of Rome in the Discourse is uncharacteristically idealistic. He states repeatedly 
+that the Roman emperor must rule from Rome.50 Thus, it is absurd to think that 
+Constantine would have abandoned his capital to the pope, a transferal which would, in 
+
+=== PAGE 12 ===
+ 
+ 
+ 
+Lorenzo Valla and the Donation of Constantine 
+12
+effect, make the latter the emperor of the Western empire. If the Donation were in fact 
+never made, as Valla insists, the pontiff has title neither to the Western imperium51 nor to 
+the City of Rome. Rhetorically speaking, the Donation deprived the pope of the City, 
+which passes to him only by virtue of the fictitious Donatio. And, of course, a good 
+humanist like Valla would never miss an opportunity to exalt the glory days of the 
+Eternal City. 
+ 
+But what can these references to Rome mean in the context of the Italy of 1440? It is here in 
+his allusions to the City of Rome that Valla’s own strongly-held views are most clearly revealed. 
+It is here that his language becomes the most virulent. Valla, a native of Rome, is agitated at 
+Rome’s recent misfortunes, which, he concludes, can be reduced to a single cause: Pope 
+Eugenius IV’s attempts to rule it like a despot. The Romans were justified in opposing his return 
+to the City. The citizens of Rome should choose the emperor, not the pope.52 The City should be 
+a Republic, not the capital of the Papal States. In some sense the Republic should have a 
+connection with the Holy Roman Empire, which continues to possess de iure authority in Italy.53 
+But it is unlikely that Valla had any hope of an imperial army swooping down the Alps in pursuit 
+of peace-breakers. Yet there is something of the romantic in Valla’s eulogy to the Republic and 
+his implied appeal to the Emperor. Valla cannot let go of the “Roman” in the Holy Roman 
+Empire. Certainly the current pope cannot make such a claim; not even the Romans want him in 
+town! Surely he cannot fancy himself to be universal, being the fomenter of factions that he is. 
+According to Valla’s straw man—the pope’s temporal authority rests entirely on the Donation of 
+Constantine—papal claims to the fullness of power are founded on a fiction. Although Valla was 
+hardly an optimist, he had a small hope that if he succeeds in exposing the Donation as a fake, 
+there is, at least, a chance that the new emperor, working with the self-interests of the major 
+Italian states, can restore some stability in Italy.  
+Valla, then, utilizes his scholarly endeavor proving the Donation a forgery to advance certain 
+themes: the centrality of the City of Rome in the Holy Roman Empire and indeed Christendom; 
+the false claim of Pope Eugenius IV to be the universal caretaker of the Church Militant; the 
+emperor does not derive his power from the pope (this is the theme emphasized by the early 
+critics of Valla’s Discourse, and also by modern critics, who might sometimes be too little 
+cognizant of the historical context of 1439–40); the pope misuses his temporal power by 
+asserting it beyond the Papal States; if the Donation falls, so does the pope’s claim to universal 
+temporal potestas; peace in Italy is the first priority in Europe today, a concern which many 
+Baseleans and Eugeneans seem to have forgotten; the new Emperor in Germany has an 
+obligation to look to the troubles in Italy. A historic opportunity is here! Who but Frederick III is 
+better positioned to ensure the permanence of the Union of the two Churches? Who but 
+Frederick is best suited to pacify the Bohemians, resolve the papal schism, and harmonize Basel 
+and Eugenius? The fraudulent Donation is an obstacle to achieve these urgent goals. The world is 
+out of whack today because a basic principle of Christian history has been forgotten: Christian 
+
+=== PAGE 13 ===
+13 
+ 
+Renna 
+ 
+ 
+ 
+society has two universal heads, one spiritual (Vicar of Christ), one temporal (Western emperor). 
+The excessive power of the former and the weakness of the latter must be rectified. 
+Lorenzo Valla may have reflected: If the Donation can be shown to be counterfeit, there is a 
+reasonable chance that the New Constantine of the North can bring unity of purpose and 
+common cause to Christendom and above all to Italia. He will lead a dual crusade: against the 
+infidel and for universal church reform. The pen, not the sword, will cure Italy. With this 
+brilliant treatise, my fame as the foremost humanist will surpass that of Nicholas of Cusa or 
+Aeneas Sylvius Piccolomini! Now that I have shown the falsity upon which the Holy Father bases 
+his claim to Rome, the Papal States, and elsewhere, he has no moral or legal foundation to 
+expand his “empire” of the Patrimony of St Peter and meddle in other princes’ affairs. I see that 
+my enemies are trying to reduce my Refutation to a single dimension: the papacy’s rights in 
+temporals. They are blind—or pretend to be, since their simplistic interpretation allows them to 
+take the high moral ground by defending the Holy See—to my larger aim: persuade the new 
+emperor-elect, Frederick, to become more involved in Italian affairs, while working to end the 
+papal schism and constrain the enthusiasts at Basel. He must forthwith organize the great 
+crusade and reform the church in the German empire. The Habsburg should pay less attention to 
+the so-called reformers at Basel and pay more attention to us humanists, who are better trained 
+to provide effective moral leadership in these dark days. We, the new elite, know the ancient 
+wisdom best and how to make it relevant right now. The old elite, the “scholastics,” are stuck in 
+outmoded methods and authorities. Prudence prohibits me from making Pope Eugenius the 
+Antichrist, and my patron, Alfonso V, the savior of Italy. But any alert reader will catch my sub-
+text: at this moment in history Europe needs a strong Emperor who will restrain the wicked and 
+encourage the peacemakers.  
+And to you, Frederick: Remember, you are more than a Habsburg. You are the heir to 
+Constantine and Charlemagne! With the permission of my King I will gladly come to Vienna and 
+offer my humble services as your advisor. Now that I have cleared away the main legal obstacle 
+to universal concord and imperial might—the despicable Donation of Constantine, the last 
+refuge of grasping popes—you, the New Caesar, are liberated to pursue your providential role in 
+the land of the imperatores! 
+Valla was not so naive as to think of Frederick III as a deus ex machina who would descend 
+into the Po Valley in the tradition of Frederick Barbarossa, Henry VII, and Charles IV, and 
+impose a new ordo. Our humanist’s more modest goal was to propose a sort of clearing-house 
+for conflict resolution. The supporters of Eugenius and the major powers in Italy would come to 
+realize the usefulness of an imperial umbrella which did not threaten the concerns of individual 
+principalities. Anything was an improvement on the current free-for-all of competing interests. 
+Valla warns the new King of the Romans not to become immersed in the issues of ecclesiastical 
+reform in central Europe, and in the disputes among the Electors. He should seek a balance 
+between the objectives of Council and Pope. Valla intended his Discourse to be put to immediate 
+
+=== PAGE 14 ===
+ 
+ 
+ 
+Lorenzo Valla and the Donation of Constantine 
+14
+use. This practical motive explains why the work contains asides to contemporary events, 
+including recent or living persons. These mentions are, after all, extraneous to the thesis of the 
+treatise. The only logical person who could stand apart from the political fires burning all over 
+Europe and trim the temporal sails of popes and princes would be the Roman emperor, who is in 
+some sense still the caput mundi. The expansionist and parochial Alfonso would not qualify for 
+anything so grandiose. Valla’s Discourse is a skillful balance between a defense, if lukewarm, of 
+his royal patron and a summons—almost a program or, better, “general guidelines”—for the 
+untested Emperor-elect. 
+Can we reconstruct Valla’s thought-process prior to writing his attack on the Donation? His 
+thinking progressed through six stages: 
+ 
+1) Sometime after 1433, Valla read a version of Nicholas of Cusa’s Catholic Concordance, 
+or at least Book 3, chapters 1–4, which deals with the Donation and the respective powers 
+of pope and emperor. Valla was jealous that he himself had not written a similar 
+deconstruction, since it coincided with his own views of papal temporal power. But Valla 
+believed that Nicholas put too much emphasis on the pope’s role in choosing and 
+confirming an emperor, and not enough on the pope’s secular authority. Valla preferred, 
+however, Cusa’s Gelasian separation of ultimate spiritual and temporal power for pope 
+and emperor. And he was likewise drawn to the Basel-informed parallels between the 
+internal structures of papal and imperial governmental authority. But Valla thought Cusa 
+was not antipapal enough. 
+2) Valla was disappointed by the apparent powerlessness of contemporary emperors. 
+Following his coronation by the pope in Rome, Sigismund seemed unable to reconcile the 
+Baseleans and the Eugeneans, or even his Electors at home. Where was Sigismund when 
+the Turks were advancing into Hungary? Why cannot Sigismund bring the warring 
+princes and cities in Italy to the peace table? Albert II seemed even more helpless. What 
+would it take to entice Albert to assert his prerogatives more forcibly? (Perhaps Valla had 
+a simplistic view of how much political leeway Sigismund and Albert actually had in 
+responding to the papal schism, the independence of the Electors, the impudence of the 
+Bohemians, and the turmoil in northern Italy.) 
+3) Valla occasionally came across accounts of the debates between the Baseleans and the 
+Eugeneans. Indeed, at Alfonso’s court at Gaeta, Valla may well have participated in these 
+exchanges, which were the talk of Europe. Valla was attracted to ideas which propounded 
+an effective universal authority. Ideas of monarchy were widely circulated, long before 
+the works of Antonio Roselli.54 Perhaps Valla came across some of the earlier works of 
+John Torquemada or Pierre de Versailles and was intrigued about the possibilities of how 
+ideas of monarchy could be applied to the Empire. There is no reason to think Valla’s 
+interest in monarchy was confined only to the immediately practical. 
+4) Valla heard only bad news about his homeland, the City of Rome.55 The current pope, 
+
+=== PAGE 15 ===
+15 
+ 
+Renna 
+ 
+ 
+ 
+who was expelled by the Romans, is surely the main obstacle to the restoration of the 
+Republic in Rome. The humanist was not, to be sure, a latter-day Cola di Rienzo, with 
+visions of the return of yesteryear. Valla would be satisfied with good government of the 
+City, with the pontiff’s role reduced to a minimum. The dismissal of the Donation, with 
+its claims of papal control of Rome, would be a useful first step in this direction. 
+5) As Valla traveled with Alfonso during 1437–39, he would have seen the effects of the 
+harmful alliances with and within the Papal States. The implications of Cusa’s disproving 
+of the Donation were apparent: the pope’s hold on the Papal States contributed mightily 
+to the woes of Italy. Voltaire would say that the destruction of the veracity of the Old 
+Testament would undermine the New Testament. Valla became convinced that the 
+liquidation of the Donation would remove or at least subvert the pope’s possession of the 
+Papal States. 
+6) The incredibly rapid pace of events and turns of Fortuna throughout 1439 made Valla 
+wonder if the provocations of the wily Alfonso V were in the interests of the common 
+good of Rome and the Peninsula. An effective weapon against the scheming Pope and the 
+selfish factions in Italy would be a rebuttal of the Donation of Constantine cast in some 
+persuasive rhetorical frame. The point of the exercise was, after all, to persuade and prod 
+to action, not to engage in classroom dialectic. A lengthy tome with copious footnotes 
+pointing to venerable authorities would not do. Much better would be a literary form 
+nicely suited to the tastes of a humanist: a classically-inspired oration presented in the 
+guise of a dramatic courtroom exchange, supercharged with sarcasm and invective. 
+Voltaire once said that the most effective kind of polemic is one that makes the reader 
+laugh at your opponent. Valla’s choice of literary vehicle could serve a dual purpose: (a) 
+undercut the pope’s temporal authority (read: Eugenius IV), while (b) bolstering the 
+universal auctoritas of the one, true lord of temporals, the Roman Emperor (Holy Roman 
+Emperor, Frederick III, soon to be crowned). What is the basic cause of the runaway 
+potestas of the supreme pontiff, and the lack of power of the Emperor? Clearly it was the 
+Donation of Constantine. Did Valla really believe in such a reductionist view, almost 
+comical in its simplicity? Did he exaggerate the importance of a relatively small arrow in 
+the legal quiver of the popes? This is not the right question to ask. More to the point is a 
+literary query: how to compose a refutation of the Donation around a commanding 
+central theme? This theme must be negative, eye-catching, relevant, and point to a web of 
+images which appear to be logical spinoffs from the core idea. If the Discourse seems at 
+times simplistic, even naive, it is because the two sides of the treatise—the scholarly 
+debunking of a forgery and a polemic intended for the here and now, with intimations for 
+practical action—do not always mesh smoothly. It is too easy to overstate the role of 
+Valla’s patron, Alfonso, while underestimating another intended audience: other 
+humanists in Naples and elsewhere. And the Donation was in fact known at the time, if 
+
+=== PAGE 16 ===
+ 
+ 
+ 
+Lorenzo Valla and the Donation of Constantine 
+16
+relatively neglected.56 Valla got a response to his attack on the document, if not as much 
+as he would have wanted. But after his passing, the Discourse attracted more notice, if 
+not for all the reasons he sought. His detractors later in the century tended to single out 
+his assault on the pope’s temporal claims to the neglect of his other strands, such as the 
+proper role of the Emperor, as we have seen. The historical context of Valla’s Discourse 
+was quickly forgotten as each generation utilized it to suit its own purposes—exactly 
+what had happened to the Donation for the four centuries before Valla! Unfortunately, 
+modern historians have too often fallen into the trap of reading the later critics as the 
+voice of Valla’s contemporaries. Somehow the Holy Roman Emperor got lost in the 
+thrust and parry of Valla’s Oration. 
+ 
+Conclusion 
+ 
+If Lorenzo Valla intended to become rich and famous with the circulation of his refutation of the 
+Donation of Constantine, he would have been disappointed. Although renowned as a humanist, 
+more fame was to come. The relative neglect of the treatise at the time may simply have been a 
+lack of interest in the main topic (how pontiffs had originally obtained their temporal power), 
+although snide remarks on Pope Eugenius would have been popular in some circles. Neither was 
+the venerable issue of the Translation of Empire exactly a lively topic of the day. Perhaps Valla’s 
+readers took his Discourse in the narrowest sense: a proof of the fraudulent nature of the 
+Donation and little more. Certainly contemporaries were concerned about Eugenius’ 
+determination not to loosen his hold on his possessions in Italy, but few questioned the right of a 
+pope to his Patrimony. Valla would have been discouraged if his readers saw in his Discourse 
+only a criticism of Eugenius in particular and of papal possessions in general. He had other 
+designs, as has been argued in this study. 
+Modern scholars, for their part, have not been content to restrict their investigations of the 
+Discourse to the literal point-by-point refutation of the Donation. They have explored Valla’s use 
+of classical citations, rhetoric, philology, classical Latin, and literary forms. They have examined 
+his polemic against Eugenius IV and recent popes; his attack on papal (and also the clerical 
+church at large) temporals in general (which Valla purportedly claims to be founded in the 
+Donation); his defense of Alfonso V of Aragon; his support (at least indirectly) of the Council of 
+Basel and Pope Felix V; his implied criticism of scholastic philosophers and theologians (and 
+fellow humanists); his use of late Roman legal and historical sources; his knowledge of canon 
+law collections; and his apparent adherence to a notion of a normative primitive church. But in 
+this extensive range of research the place of the Frederick III and the contemporary Holy Roman 
+Empire gets less attention. The current article suggests that Valla wrote the Discourse in part as a 
+proposal (or recommendation) to the new Emperor-elect to be more aggressive in ending the 
+papal schism, finding a compromise between the supporters of Eugenius IV and the Council of 
+Basel, upholding the Union with Constantinople, mobilizing the West for a crusade against the 
+
+=== PAGE 17 ===
+17 
+ 
+Renna 
+ 
+ 
+ 
+Ottomans, restoring the City of Rome as a Republic (albeit the Bishop of Rome may stay, if he 
+behaves), and, above all, working to alleviate the out-of-control conflicts in Italy. Certainly Valla 
+was neither reformer (the Baseleans were also a means to other ends) nor idealist (except perhaps 
+in his vision of a Republican City). He intended the Discourse to be, among other things, a sort 
+of open letter to the court at Vienna, where the imperial advisors might take note. He did not 
+write the Discourse as a mirror of princes for Frederick III. The pope is not (in Valla’s belief or, 
+one could argue, in reality) the reprobate he has depicted in the Declaration. Valla’s larger 
+goal—and here he is in harmony with much of the political thought of the time—was to 
+encourage pope and emperor to cooperate in pursuing common objectives. He cautions the 
+Habsburg king not to become overly concerned with the high-sounding theories advanced by 
+Baseleans and Eugeneans. The intensity of these debates during the 1430s—not just at Basel, but 
+in virtually every curia and university in Europe!—must have been disconcerting; those who 
+were getting weary of these discussions would have sympathized with Valla’s tendency to 
+simplify and close the debates. While the Christian princes of Europe faced off with each other, 
+the infidels marched, the heretics won converts, and clerical discipline languished. Hopes for a 
+grand reconciliation between Council and Vatican were fading. Only the Emperor could provide 
+the leadership Christendom required in this End of Days. Valla’s tearing down of the trouble-
+making forgery is the way out. Now is the time to build and to plant.57  
+In the larger scheme of things, Valla’s refutation should be evaluated as a product of the time. 
+It was a response to the peculiar conditions in the West of 1431–40, an era of almost intolerable 
+tension and loss of direction. Valla’s Discourse should be assessed not simply as a disclaimer of 
+a forged document, or as an exercise of the crafts of the humanists, but as a legacy of the 
+historical tendency to envision Italy as an integral part of the Holy Roman Empire. The Donation 
+of Constantine was still an ingredient, although it had been diminished in papal-imperial 
+controversies since the late fourteenth century. The period 1430–50 was unusually fruitful in the 
+history of political theory. Ironically, when the first systematic rebuttal of the Donation arrived in 
+1440, it came as both a denial of papal temporal power and as an affirmation of the potestas of 
+the Holy Roman Emperor. In the absence of effective leadership from Basel or Rome, it was 
+time to look to Vienna. Valla’s Oration on the Donation of Constantine was an encomium to the 
+latter-day Roman Empire, currently under siege. 
+ 
+ 
+Endnotes 
+ 
+1. I will refer to Valla’s treatise as the Discourse, although it is referred to by various 
+names: “Oration” (Valla’s own word), “treatise,” “Declamatio” (never used in Valla’s 
+lifetime; first used by Ulrich von Hutten), “Refutation,” “opusculum.” 
+ 
+
+=== PAGE 18 ===
+ 
+ 
+ 
+Lorenzo Valla and the Donation of Constantine 
+18
+2. The bibliography is vast. Some standard surveys: Giovanni Maria Vian, La donazione di 
+Costantino (Bologna: il Mulino, 2004; new ed. 2010); Gerhard Laehr, Die 
+Konstantinische Schenkung in der abendländischen Literatur des ausgehenden 
+Mittelalters in Quellen und Forschungen aus italienischen Archiven und Bibliotheken 23 
+(Rome: Loescher, 1931–32), 120–81; Gerhard Laehr, Die Konstantinische Schenkung in 
+der abendländischen Literatur des Mittelalters bis zum Mitte des 14. Jahrhunderts, 
+Historische Studien 166 (Berlin: Matthiesen Verlag, 1926; Vaduz: Kraus Reprint, 1965); 
+Mario Conetti, L’origine del potere legittimo: spunti polemici contro la donazione di 
+Costantino da Graziano a Lorenzo Valla (Parma: Salvadé, 2004), chaps. 1–4, 5 (Council 
+of Basel), 6 (Valla). 
+ 
+3. A near-consensus points to the time of Pope Paul I (757–67), although several versions 
+may have circulated. The inclusion of the forgery in the pseudo-Isidorian decretals 
+assured its notoriety. A strong case for the 820s has been advanced by Johannes Fried, 
+Donation of Constantine and Constitutum Constantini: The Misinterpretation of a 
+Fiction and its Original Meaning (Berlin: Walter de Gruyter, 2007). While many 
+reviewers remain unconvinced by the new dating, the debate continues. See Horst 
+Fuhrmann, ed., Das Constitutum Constantini, Monumenta Germaniae Historica Fontes 
+iuris 10 (Hanover: Hahnsche Buchhandlung, 1968), Introduction; Fuhrmann, 
+“Konstantinische Schenkung und abendländische Kaisertum. Ein Beitrag zur 
+Überlieferungsgeschichte des Constitutum Constantini,” Deutsches Archive für 
+Erforschung des Mittelalters 22 (1966), 63–178. 
+ 
+4. See Domenico Maffei, La donazione di Costantino nei giuristi medievali (Milan: Giuffrè, 
+1969), chap. 1. 
+ 
+5. In general Wolfram Setz, in his masterful study and edition of Valla’s treatise, seems to 
+assume that Valla’s contemporaries gave little importance to the Donation’s legal and 
+historical significance. Setz does not believe Valla had much if any political motive in 
+writing his Discourse. See Lorenzo Vallas Schrift gegen die Konstantinische Schenkung: 
+De falso credita et ementita Constantini donatione: Zur Interpretation und 
+Wirkungsgeschichte (Tübingen: Max Niemeyer, 1975), chaps. 1 and 3, especially 13–17, 
+43–75. Laehr believes the Donation had little relevance at the time of Valla; Die 
+Konstantinische Schenkung in der abendlänischen Literatur in Quellen und Forschungen 
+aus italienischen Archiven und Bibliotheken 23 (Rome: Loescher, 1932), 120–81, here 
+166. In the present article I use four editions: Wolfram Setz, ed., Lorenzo Valla, De falso 
+credita et ementita Constantini donation; MGH: Quellen zur Geistesgeschichte des 
+Mittelalters 10 (Weimar: Böhlau, 1976); Christopher B. Coleman, ed. and trans., The 
+Treatise of Lorenzo Valla on the Donation of Constantine (New Haven: Yale University 
+
+=== PAGE 19 ===
+19 
+ 
+Renna 
+ 
+ 
+ 
+Press, 1922; repr. Toronto: University of Toronto Press, 1993) [unfortunately this edition 
+lacks paragraph numbers]; G. W. Bowersock, ed. and trans., Lorenzo Valla: On the 
+Donation of Constantine (Cambridge, MA: Harvard University Press, 2007), facing Latin 
+and English; “Contra Donationis, quae Constantini dicitur, Privilegium, ut falso creditum 
+Declamatio,” Eugenio Garin, ed., Valla: Opera Omnia (Turin: Bottega d’Erasmo, 1962 
+repr.), vol. 1, 761–95. 
+ 
+6. According to Valla, the Donation is the “sole authority those people have” for their 
+claims: G. W. Bowersock, trans., Lorenzo Valla: On the Donation of Constantine 
+(Cambridge, MA: Harvard University Press, 2008), 4 (§5); this edition is English only. 
+The pope can depose the emperor on the basis of the Donation: 68 (§82). Popes use the 
+Donation to extort the emperor to grant him lands in the West: 68 (§83). Popes rely on 
+the Donation because they have no other legal authority: 69 (§84). The crimes of popes 
+ruin Italy; their claims stem from this one source: 77 (§96). Throughout the Discourse 
+Valla assumes that the popes rest their claims to Italy and the empire on the Donation. 
+For convenience, I cite from this Bowersock translation. Does Valla know better, or does 
+he exaggerate the importance of the Donation for the pontiffs in order to score rhetorical 
+points? More on this later. 
+ 
+7. Some studies: Carlo Ginzburg, Preface, in Jean-Baptiste Giard, trans., Lorenzo Valla: La 
+Donation de Constantin (Paris: Les Belles Lettres, 1993), x–xxi; Vanna Gazzola 
+Stacchini, “Lorenzo Valla: la falsa donazione di Costantino,” NEMLA Italian Studies 17 
+(1993), 17–26; Imre Boba, “La ‘Donatio Constantini’ e l’‘Oratio’ del Valla a 
+confronto,”Angelicum 67 (1990), 215–39; Salvatore I. Camporeale, Lorenzo Valla: 
+Umanesimo, riforma e controriforma: Studi e Testi (Rome: Storia e Letteratura, 2002), 
+chap. 4, 465–604; and “Lorenzo Valla e il De falso credita donatione. Retorica, libertà ed 
+ecclesiologia nell ‘400’,” Memorie domenicane n.s. 19 (1988), 191–293 [a summary of 
+sorts in Journal of the History of Ideas 57 (1996), 9–26 in English]; Camporeale, Lorenzo 
+Valla: Umanesimo e teologia (Florence: Istituto Nazionale di Studi sul Rinascimento, 
+1972), 31–208; Franco Gaeta, Lorenzo Valla: Filologia e storia nell’umanesimo italiano 
+(Naples: Istituto Italiano per gli Studi Storici, 1955); Joseph A. Barber, “Lorenzo Valla e 
+la critica attributiva: Analisi della ‘Declamatio’ umanistica contro la ‘Donazione di 
+Costantino,’” Italienisch 16 (1986), 56–66; Olga Z. Pugliese, “The Power of the Text in 
+Humanist Culture: Valla and the Donation of Constantine,” Scripta Mediterranea 12–13 
+(1991), 157–68; Vincenzo De Caprio, “Retorica e ideologia nella Declamatio di Lorenzo 
+Valla sulla Donazione di Costantino,” Paragone 29 (1978), 36–56. 
+ 
+
+=== PAGE 20 ===
+ 
+ 
+ 
+Lorenzo Valla and the Donation of Constantine 
+20
+8. Setz, Lorenzo Vallas Schrift gegen die Konstantinische Schenkung, 13; Bowersock, 
+Donation of Constantine, vii. 
+ 
+9. See in particular the valuable studies of Riccardo Fubini, such as “Contestazioni 
+quattrocentesche della Donazione di Costantino: Niccolò Cusano, Lorenzo Valla,” in 
+Giorgio Bonamente and Franca Fusco, ed., Costantino il Grande: dall’antichità all’ 
+umanesimo, 2 vols. (Macerata: Università degli studi di Macerata, 1992), 1: 385–431; 
+also in Medioevo e Rinascimento 5, n. s. 2 (1991), 19–61; “Humanism and Truth: Valla 
+writes against the Donation of Constantine,” Journal of the History of Ideas 57 (1996), 
+79–86. Fubini analyzes the Declaration in the context of the conflict between the Council 
+of Basel and Pope Eugenius IV. 
+ 
+10. Analyses of Valla and Alfonso V in Giovanni Antonazzi, Lorenzo Valla e la polemica 
+sulla Donazione di Costantino (Rome: Storia e Letteratura, 1985), 49–69, 107–8, 169; 
+Mario Fois, Il pensiero cristiano di Lorenzo Valla nel quadro storico-culturale del suo 
+ambiente (Rome: Libreria editrice dell’Università Gregoriana, 1969), chaps. 4 and 7 
+(Declamatio in the context of Alfonso’s policies toward Basel and Eugenius); Conetti, 
+L’origine del potere legittimo, 249–57; Setz, Lorenzo Vallas Schrift gegen die 
+Konstantinische Schenkung, 59–80; Alan Ryder, Alfonso the Magnanimous: King of 
+Aragon, Naples and Sicily, 1396–1458 (Oxford: Oxford University Press, 1990), 321–25. 
+Valla, who seems to have been out of place at the Aragonese court, must have been 
+embarrassed by Alfonso V’s abandonment of Felix V and subsequent reconciliation with 
+Eugenius IV. As the King moved toward peace with Eugenius in 1442, his humanist 
+decoration (Valla) at the curia must have become a liability. Valla, too, may have been 
+disconcerted by Alfonso’s unwillingness to reach out to Frederick III. 
+ 
+11. Sometimes the descriptions of Valla’s Discourse seem almost like panegyrics, with little 
+heed to his exaggerations, overstatements, petty asides, sarcasms, ad hominem barbs, 
+irrelevancies, superficial digressions, overblown rhetorical speeches, facile witticisms, 
+meandering arguments, a priori judgments, anticlericism, and hostile tone. My sense is 
+that it was left unrevised. An example of this idealization of Valla’s critique is Olga Z. 
+Pugliese, trans., Introduction, Lorenzo Valla: The Profession of the Religious and 
+Selections from the Falsely Believed and Forged Donation of Constantine, 3rd ed. 
+(Toronto: Centre for Reformation and Renaissance Studies, 1998), 23–31. Online sources 
+for Valla and the Discourse often idolize the author. See, e.g., “Lorenzo Valla, Discourse 
+on the Forgery of the Alleged Donation of Constantine.” 
+ 
+12. Valla portrays Eugenius IV as the most despicable of popes, akin to Dante’s Boniface 
+VIII. Eugenius is a tyrant who despoils cities of their liberty: Bowersock, Donation, 76 
+(§94). Valla shows his hand—that is, reveals that another purpose is to go beyond the 
+
+=== PAGE 21 ===
+21 
+ 
+Renna 
+ 
+ 
+ 
+academic exercise of exposing a fraud, and comment on his own time in 1440—by 
+targeting the living pope, whose way of life is irrelevant to the subject of the refutation of 
+a text. Valla sarcastically appeals to Eugenius to behave like his predecessor, Sylvester. 
+(Ironically, some of the sources Valla cites in support of Sylvester’s sanctity are those he 
+considers fakes.) By virtue of the Donation, Eugenius threatens kings and princes: 26 
+(§33). From a rhetorical point of view, Valla’s selection of a single pope, and a living one 
+at that, gives his attack on the Donation a center-point and an immediacy. But did Valla 
+in 1440 really have such a negative attitude toward Eugenius? Was Valla still nursing this 
+pope’s slight when he denied Valla’s request for a curial position in 1434–35? Certainly 
+Valla had plenty of reasons to dislike Eugenius during 1435–40 (in particular his 
+“oppression” of Rome), but I think the humanist deliberately overstates his diatribe 
+against this Pope. Valla was a Baselean by default, not by firm conviction. See Setz, 
+Lorenzo Vallas Schrift, 70–73; Antonazzi, Lorenzo Valla, 52–53. 
+ 
+13. Bowersock, Donation, 68 (§83). It is possible that Valla was present at the coronation of 
+Sigismund in Rome on 31 May 1433. Valla was then teaching at the University of Pavia 
+(1431–33). It is, of course, ridiculous to assert—as does Valla—that Eugenius compelled 
+Sigismund to come to Rome and confirm the Donation. See Roger Pearse, “The Donation 
+of Constantine and the critique of Lorenzo Valla.” As Pearse puts it: “Valla’s text is not a 
+modern scholarly study, but a declamation—a piece of rhetoric.” As Pearse notes, many 
+of Valla’s criticisms are invalid or irrelevant. 
+ 
+14. On Sylvester, see Donation, 15–26 (§§20–32), 60–62 (§§74–75), 77–79 (§96). On 
+Constantine: 7–9 (§§10–12), 11–14 (§§15–18), 27–28 (§34), 65 (§79), 15–21 (§20–27). 
+Valla stresses the lack of references to the Donation in the later Roman empire, including 
+the fictitious Acts of Sylvester. Rhetorically, Valla’s quasi-dialogues between Constantine 
+and Sylvester are the most effective part of his Discourse. A critic of Valla might object 
+that this lengthy introduction, which focuses on the motives of the two protagonists, is 
+only marginally related to the refutation itself, and “loads the dice” against Constantine 
+and the pope (or rather, the popes after Sylvester). But that is another matter. Why did 
+Valla not make Constantine a model for Alfonso V or Frederick III? One could interpret 
+Valla’s qualified praise for imperial expansion under Constantine as a curtsey to Alfonso, 
+who in 1440 had not as yet captured Naples and indeed was mostly on the defensive. 
+Constantine’s “expansion” was for Valla an oblique message to Frederick to assert his 
+imperial rights in his non-Habsburg territories and contribute to the stability of Italy, once 
+the Basel-Eugenius conflict was resolved. 
+ 
+
+=== PAGE 22 ===
+ 
+ 
+ 
+Lorenzo Valla and the Donation of Constantine 
+22
+15. Valla seems to think that the counterfeit document was composed sometime between the 
+Acts of Sylvester and the Carolingian kings. For sure, a pope is the culprit; Donation, 66 
+(§81), etc. Valla has a vague notion of the history of the earliest Decretals of Gratian: 
+Donation, 88 (§35). But he is unwilling to speculate on a Carolingian origin, even though 
+he could have suspected this, given his chronicle sources. Like Dante, Valla confuses Leo 
+III with Stephen: 66 (§82). Perhaps Valla’s hesitancy to assign a late eighth-century date 
+is because (a) he did not want to imply that this pope was corrupt (Sylvester the 
+Incorruptible in the Discourse acts as a foil to the bad popes, especially Eugenius), and 
+(b) he did want to get the forgery mixed up with the transfer of empire: 66 (§82). Valla 
+does not seem informed as to the nature of the papal-Byzantine-Frankish entanglements 
+following the coronation of Pepin in 751. Of course, modern scholars have documents, 
+including canonist, which were not available to Valla. See Fried, Donation of 
+Constantine, chaps. 1–3; Maffei, Donazione, chap. 1; Laehr, Konstantinische, chap. 1; 
+Vian, Donazione, chaps. 1 and 2. 
+ 
+16. Valla’s letters: Ottavio Besomi and Mariangela Regoliosi, eds., Laurentii Valle Epistole 
+(Padua: In aedibus Antenoreis, 1984); Eugenio Garin, ed., Valla Epistole: Opera Omnia 
+(Turin: Bottega d’Erasmo, 1962) vol. 2, chaps. 6 (353–454) and 7 (455–64). New English 
+translation: Brendan Cook, trans., Lorenzo Valla: Correspondence (Cambridge, MA: 
+Harvard University Press, 2013). Unfortunately, Valla seems to have made few copies of 
+his letters (some 56 extant). His letters at Alfonso’s court reveal little of his political 
+views. For his correspondence during 1435–47, see Besomi and Regoliosi, Epistole, 151–
+314. For references to Alfonso V in Valla’s anecdotes on Bartolomeo Facio, see 
+Mariangela Regoliosi, ed., Laurentii Valle Antidotum in Facium (Pavia: In aedibus 
+Antenoreis, 1981), xiv–xxviii, xxxv–xxxviii, xlviii–l, 14–26, 54–57, 260–62, 310, 311, 
+and 316–17. Valla’s account of Ferdinand of Antequera (composed 1445–46) discloses 
+little of his broader notions of history, the Holy Roman Empire, or circumstances in Italy. 
+The work is valuable for its narration of Alfonso in Aragon and pre-1435. See Jerry H. 
+Bentley, Politics and Culture in Renaissance Naples (Princeton: Princeton University 
+Press, 1987), 233–41. 
+ 
+17. Frederick V, Duke of Austria since 1424, was elected King of the Romans on 2 February 
+1440 to become Frederick IV of Germany. Pope Nicholas V crowned him as Frederick 
+III, Emperor of the Romans, on 17 June 1442. Kept off balance by wars with the Swiss 
+and the Hussites, as well as his own Electors and some Baseleans, he contracted an 
+advantageous marriage with the Infanta Eleanor of Portugal. It is hard to know how much 
+Valla knew of Frederick’s difficulties during 1438–42. I suspect he encouraged Alfonso 
+V to think of Frederick as a potential ally in Italy. 
+ 
+
+=== PAGE 23 ===
+23 
+ 
+Renna 
+ 
+ 
+ 
+18. See the excellent survey by Alan Ryder, Alfonso the Magnanimous: King of Aragon, 
+Naples and Sicily, 1396–1458 (Oxford: Oxford University Press, 1990), chap. 6 (1436–
+1442). 
+ 
+19. The best synthesis is Joachim W. Stieber, Pope Eugenius IV, the Council of Basel and the 
+Secular and Ecclesiastical Authorities in the Empire: The Conflict over Supreme 
+Authority and Power in the Church (Leiden: Brill, 1978), Part 1, chaps. 4–6. 
+ 
+20. Stieber, Pope Eugenius IV, Part 6, 190–202. 
+ 
+21. See Joseph Gill, The Council of Florence (Cambridge: Cambridge University Press, 
+1959), chaps. 3–8. Extensive discussion of the theological debates. 
+ 
+22. See Stieber, Pope Eugenius IV, Part 5, chaps. 1–3; Part 7, chaps. 1–4. Alfonso V’s 
+lukewarm support of Felix V was a way to pressure Filippo Maria to oppose Genoa and 
+René of Anjou, and to move Eugenius to back his claims on Naples (in exchange for 
+Alfonso’s recognition of Eugenius as true pope). Alfonso, moreover, would have liked 
+Eugenius to recognize his son, Ferdinand, as heir to the throne of Naples. See Ryder, 
+Alfonso, 238–42. 
+ 
+23. See Brigitte Hailer, Kaiser Friedrich III. Im Urteil der Zeitgenossen (Vienna: Verlag des 
+Wissenschaftlichen Antiquariats H. Geyer, 1965); Bernd Rill, Friedrich III: Habsburg 
+europäischer Durchbruch (Graz: Verlag Styria, 1987); Brian A. Pavlac, “Frederick III,” 
+in John M. Jeep, ed., Medieval Germany: An Encyclopedia (New York: Taylor and 
+Francis, 2001), 245–47; S. A. Garretson, “Frederick III,” in Jonathan W. Zophy, ed., The 
+Holy Roman Empire: A Dictionary Handbook (Westport: Greenwood, 1980), 149–53; 
+Paul J. Heinig, Kaiser Friedrich III. (1440–1493): Hof, Regierung and Politik (Cologne: 
+Böhlau, 1997); Heinrich H. Koller, Kaiser Friedrich III (Darmstadt: Wissenschaftliche 
+Buchgesellschaft, 2005); Wikipedia articles: “Frederick III” (English) is 6 pages, and 
+“Friedrich III (HRR)” (German) is 28 pages with 8 pages of bibliography. 
+ 
+24. See Stieber, Pope Eugenius IV, Part 5, chaps. 1–3. 
+ 
+25. See Ryder, Alfonso, 241–51. 
+ 
+26. In addition to n. 10 above, see Jerry H. Bentley, Politics and Culture in Renaissance 
+Naples (n. 16 above), 108–22, 233–38, passim. Stimulating treatment of the interplay of 
+humanist culture at court and of political thought and policy. As was his penchant, Valla 
+got into many angry disputes with other scholars at the royal curia, e.g., with Bartolomeo 
+
+=== PAGE 24 ===
+ 
+ 
+ 
+Lorenzo Valla and the Donation of Constantine 
+24
+Facio (Bentley, 100–8). Alfonso may have had several quasi-official historiographers, 
+one of whom was Valla, who wrote about the early career of his patron. 
+ 
+27. Valla calls Vitelleschi a “depraved monster”: Donation, 70 (§86). No doubt this is a 
+reference to his treatment of the Romans. See Ryder, Alfonso, 215–27. Vitelleschi, the 
+commander of the papal forces, was notorious for the atrocities he committed after he 
+entered Rome. After massacring the troops of the Prince of Taranto, Pope Eugenius 
+rewarded him with a cardinal’s hat! When his co-captain refused to send aid, Vitelleschi, 
+the Patriarch of Alexandria, jumped in a small boat and ignominiously sailed off to 
+Venice. Surely these events contributed to Valla’s declining faith in “local” saviors to 
+restore freedom and peace to Rome and Italy. What happened to the great Vitelleschi 
+could happen to the King of Aragon. 
+ 
+28. The only direct reference is to the “King of Naples and Sicily”: Donation, 26 (§33). The 
+two acceptable reasons for making war could be an oblique reference to Alfonso: 71 
+(§88). The coming of new nations to Rome could be a roundabout way of justifying the 
+newcomer Alfonso: 72–73 (§89). Alfonso seems to restore the lands tyrannized by 
+Eugenius: 78–79 (§96). The many references to the oppressive Pope could be interpreted 
+as justifying the presence of the liberator Alfonso in Italy. See n. 10 above, particularly 
+the analyses of Antonazzi and Fois. My problem with this Valla-wrote-for-Alfonso 
+argument is that Valla passes up many opportunities for promoting his patron. The 
+Wikipedia article on Valla (modified 9/10/2013) declares categorically that “Valla was 
+motivated to reveal the Donation of Constantine as a fraud by his patron of the time, 
+Alfonso of Aragon, who was involved in a territorial conflict with the Papal States, then 
+under Eugene IV.” Indeed we are told that Alfonso asked Valla to write the Discourse! 
+This Wiki article contains many nonsensical simplifications. 
+ 
+29. See the studies of Boba, Gaita, Barber, De Caprio, and Camporeale in n. 7 above. 
+ 
+30. Donation, 26 (§33). 
+ 
+31. Ibid. 
+ 
+32. Donation, 1–4 (§§1–4), 77–78 (§96). 
+ 
+33. See especially Sylvester’s speech to Constantine: Donation, 15–21 (§§21–26). 
+ 
+34. Maria C. Pastore Passaro argues that Valla introduced a sort of “playful theology” in his 
+view of nature: “Lorenzo Valla’s Franciscan Vision,” Forum Italicum: A Journal of 
+Italian Studies 46 (2012), 164–68. I suspect that at the time readers saw Valla’s De 
+
+=== PAGE 25 ===
+25 
+ 
+Renna 
+ 
+ 
+ 
+voluptate (1433 and 1445) as blatantly Epicurean: Valla, On Pleasure, trans. A. Kent 
+Hieatt and Marstella Lorch (New York: Abaris, 1977). 
+ 
+35. Valla, The Profession of the Religious and Selections from The Falsely-Believed and 
+Forged Donation of Constantine, trans. and intro. by Olga Z. Pugliese, 3rd ed. (Toronto: 
+Centre for Reformation and Renaissance Studies, 1998), especially chaps. 4 and 10. Text: 
+Mariarosa Cortesi, ed., Laurentii Valle De Professione Religiosorum (Pavia: In aedibus 
+Antenoreis, 1986), 17–22, 50–55; Garin, ed., Opera Omnia 2, chap. 4. Valla’s praise of 
+the “true” religious is hardly an endorsement of Franciscan poverty and ascetic life. He is 
+more interested in deriding the Friar’s claim to the title of religious than in defending the 
+way of poverty. See Fois, Il pensiero cristiano di Lorenzo Valla, chap. 6; Louis B. 
+Pascoe, “Gerson and the Donation of Constantine: Growth and Development within the 
+Church,” Viator 5 (1974), 469–85. 
+ 
+36. Sylvester loudly proclaims that he could never be a temporal king or ruler of any kind: 
+Donation, 15–21 (§§21–26). The pope claims to be an emperor: 68–69 (§84). Recent 
+popes act as if they were emperors: 76–80 (§§94–97). 
+ 
+37. Modern scholars seem not to have noticed the absurdity of Valla’s charge that all the 
+wars and destruction in Italy are due solely to Eugenius IV. And indeed these wars of 
+papal aggression can all be traced to the Donation: 76–80 (§§94–97). 
+ 
+38. The pope is the Vicar of Christ, not the emperor: 80 (§97). 
+ 
+39. Donation, 69 (§84). 
+ 
+40. It is an indication of the longevity of the Donation of Constantine at the papal curia that a 
+painting of the event was commissioned for the Vatican. Perhaps Leo X’s motive was to 
+counter Luther or the incursions on the Papal States. The work was begun in 1520 but 
+after Raphael’s death one his students (Penni or Romano) painted the face of the new 
+pope, Clement VII (1523–34), following Adrian VI, on the head of Sylvester. The fresco 
+is in the Stanze di Raffaello in the Apostolic Palace in the Hall of Constantine, and can be 
+seen on the Vatican website. Such substitutions were not uncommon. In 1514 Raphael 
+replaced the head of Julius II with that of Leo X (1513–21) for the image of Leo I at the 
+meeting of the latter and Attila the Hun. 
+ 
+41. See A. J. Black, Monarchy and Community: Political Ideas in the Later Conciliar 
+Controversy 1430–1450 (Cambridge: Cambridge University Press, 1970), chap. 3, and 
+
+=== PAGE 26 ===
+ 
+ 
+ 
+Lorenzo Valla and the Donation of Constantine 
+26
+Council and Commune: The Conciliar Movement and the Fifteenth-Century Heritage 
+(London: Burns and Oates, 1979), chaps. 2–7; Stieber, Pope Eugenius IV, Part 1. 
+ 
+42. In a backroom deal, Alfonso and Filippo Maria conspired to partition the Papal States 
+between Aragon and Milan! Rome and all lands south of the Apennines were to go to 
+Alfonso; the Visconti would occupy Rome, Bologna, and the Romagna. See Ryder, 
+Alfonso the Magnanimous, 215. It was no secret that the Aragonese and Milanese 
+delegations met frequently at the Council of Basel—adding to Eugenius’ distrust of the 
+Council. While Pontedora’s entry into Rome in 1436 might have been welcomed by 
+Valla, he surely realized that the proposed partition would lead to unending war over the 
+boundaries of the Papal States. The proposal came to nothing when Vitelleschi made a 
+pre-emptive foray into the Abruzzi and defeated the Aragonese forces. This and other 
+aborted arrangements to divide the Papal States must have convinced Valla that 
+Aragonese victories were mixed blessings for Italy and Rome. Only an outsider with a 
+fresh perspective like the Emperor Frederick III had any hope of restoring glory or, at 
+least, a semblance of order to Italy. 
+ 
+43. The poverty controversy evolved from the mendicant disputes in the universities to the 
+“poor use” of the 1280s to the Council of Vienne to the intense exchanges in 1323–28. 
+The bibliography is immense. A good introduction is Malcolm D. Lambert, Franciscan 
+Poverty: The Doctrine of Absolute Poverty of Christ and the Apostles in the Franciscan 
+Order, 1210–1323, rev. ed. (St. Bonaventure: Franciscan Institute, 1998), chaps. 6–10. 
+The general council was never an issue—until Marsilius. 
+ 
+44. See A. J. Black, Monarchy and Community, chap. 1; Black, Council and Commune, 
+chaps. 2–7. 
+ 
+45. Valla often calls Eugenius a tyrant, e. g., Donation, 73 (§89). Recent popes are tyrants, 
+such as Boniface IX and Innocent VII: 75 (§94). 
+ 
+46. See Antonazzi, Lorenzo Valla, 39–40, 77–78, 107–8; Setz, Lorenzo Vallas Schrift, 64, 
+182 [n. 5 above]; Robert Black, “The Donation of Constantine: A New Source for the 
+Concept of the Renaissance?” in Alison Brown, ed., Language and Images of 
+Renaissance Italy (Oxford: Oxford University Press, 1995), 51–85, here 71; Paul E. 
+Sigmund, “The Influence of Marsilius on Fifteenth-Century Conciliarism,” Political 
+Studies 23 (1962), 392–402. 
+ 
+47. See R. W. Dyson, ed. and trans., James of Viterbo: De regimine Christiano (Leiden-
+Boston: Brill, 2009), Part 2, chaps. 8 and 10. 
+ 
+
+=== PAGE 27 ===
+27 
+ 
+Renna 
+ 
+ 
+ 
+48. Donation, 68 (§83). This theme continues throughout §§84–97. 
+ 
+49. A prominent and influential exponent of this view was Lupold von Bebenburg. See 
+Jürgen Miethke, ed., Alexander Sauter, trans., Lupold von Bebenburg: De iuribus regno 
+et imperii/Über die Rechte von Kaiser und Reich (Munich: Beck, 2005), chaps. 2, 3, 9, 
+18, and 19. It is possible that Valla had a vague idea of the King of the Romans having 
+imperial power from his acquaintance with Nicholas of Cusa’s Catholic Concordance, 
+Part 3. 
+ 
+50. Donation, 5 (§6), 15 (§21), 67 (§82), 68 (§83), 73 (§89). 
+ 
+51. Valla seems to be aware of the multiple meanings of imperium during the Late Republic 
+and Early Empire. See John Richardson, The Language of Empire: Rome and the Idea of 
+Empire from the Third Century BC to the Second Century AD (Cambridge: Cambridge 
+University Press, 2008), chaps. 3 and 4. I prefer to translate Valla’s imperium as “empire” 
+as does Coleman: Treatise of Lorenzo Valla On the Donation of Constantine, 107. 
+Bowersock renders imperator as “Commander,” which is technically accurate in this 
+context, but may obscure Valla’s intent: On the Donation of Constantine, 43 (§50); 87 
+(§50) in Bowersock’s Latin/English edition (Cambridge, MA: Harvard University Press, 
+2007). 
+ 
+52. Donation, 11 (§16), 68–69 (§§83–84). 
+ 
+53. In Cusa’s Catholic Concordance, which Valla read, the Empire has a close connection 
+with the church in Italy. See Paul E. Sigmund, Nicholas of Cusa and Medieval Political 
+Thought (Cambridge, MA: Harvard University Press, 1963), chap. 8. Although Valla got 
+into trouble for criticizing Bartolus of Sassoferrato, he would have concurred with the 
+great jurist’s adherence to the de iure rights of the emperor in Italy. See also Joseph 
+Canning, The Political Thought of Baldus de Ubaldis (Cambridge: Cambridge University 
+Press, 1987), 64–68. 
+ 
+54. See works cited in n. 41 above. For John Torquemada and the Donation see Thomas M. 
+Izbicki, Protector of the Faith: Cardinal Johannes de Turrecremata and the Defense of 
+the Institutional Church (Washington: Catholic University of America Press, 1981), 113 
+and 117. 
+ 
+55. See n. 50 above. 
+ 
+56. See R. Black, “The Donation of Constantine,” 70–85 (n. 46 above); Antonazzi, Lorenzo 
+Valla e la polemica sulla donazione di Costantino, 121–310 (n. 10 above); Fois, Il 
+
+=== PAGE 28 ===
+ 
+ 
+ 
+Lorenzo Valla and the Donation of Constantine 
+28
+pensiero cristiano di Lorenzo Valla, 324–45 (n. 10 above); Vian, Donazione di 
+Costantino, chaps. 4 and 5 (n. 2 above). 
+ 
+57. Jeremiah 1: 10, one of Pope Innocent III’s favorite biblical passages. 

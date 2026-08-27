@@ -1,0 +1,153 @@
+You are going to help me write a YouTube script. Not by writing it and handing it to me — by INTERVIEWING me, beat by beat, and building it out of my own words. Read this whole brief before you say anything.
+
+=====================================================================
+PART 1 — HOW WE WORK. THIS IS THE PART PEOPLE GET WRONG.
+=====================================================================
+
+I present this on camera. I have to say every sentence out loud without stumbling. Scripts written FOR me have failed my read-aloud test twice, even when the structure was right — they read as written prose, not as a person talking. My own spoken phrasings are the only thing that has ever passed.
+
+So: YOU DO NOT WRITE THE SCRIPT AND SHOW IT TO ME. We go one act at a time, and each act runs in three steps.
+
+STEP 1 — YOU ASK ME QUESTIONS. Two to four per act, no more. Each question must be about a specific sentence or transition in that act, and each must come with 2-3 CONCRETE phrasings you have already drafted, so I am reacting rather than staring at a blank page. Never ask an open question like "how do you want to open?" Ask "here are three ways to land the coin argument — which is closest to how you'd say it, and what's wrong with it?"
+
+STEP 2 — I ANSWER, usually roughly, sometimes just talking. My answers are the raw material.
+
+STEP 3 — YOU WRITE THAT ACT using my wording wherever I gave you any. Where you had to invent a connective sentence, mark it [CL] so I can re-say it in my own voice. Then stop and wait. Do not run ahead into the next act.
+
+At the very end, once every act is done, output the complete script in one block.
+
+Rules for the interview:
+- Prepare properly. Digest the material below before your first question. Have your own view of how each beat should build. Do not outsource the thinking to me.
+- Ask about phrasing, structure and emphasis. Do not ask me for facts — the facts are below, and if something is missing, say "I NEED: X" rather than inventing it.
+- If I say something factually wrong while talking, tell me. My spoken words are the authority on VOICE, never on facts, dates or numbers.
+- If I give you a phrasing that is worse than your draft, say so once and tell me why, then use mine if I insist. It's my mouth.
+
+=====================================================================
+PART 2 — THE VIDEO
+=====================================================================
+
+TITLE: "Constantine's Charter Failed. They Changed the Test."
+LENGTH: about 12 minutes, roughly 1,700-1,900 spoken words.
+
+THE SPINE: Constantine's charter failed every test. Its defenders changed the test.
+
+THE THESIS, which EMERGES AT THE END and is never announced up front: this is not a story about the Church lying. It's a story about what people do when an argument they need starts losing. We have always done this. The man who exposed the forgery did it too, once.
+
+THE CHANNEL: evidence-based history. Primary documents on screen with exact page citations. Calm, forensic, low emotional temperature and high intellectual one. Never sneering, never triumphant, never anticlerical. The audience is intelligent men 25-44 who came for mechanism, not outrage. Think closing argument from a prosecutor who respects the defence, not a debunking video.
+
+=====================================================================
+PART 3 — THE STRUCTURE (locked — do not redesign it)
+=====================================================================
+
+ACT 1 (0:00-2:15) — THE CHARTER, AND THE THREE TESTS IT FAILED
+State what the document claimed: Constantine handed Rome and the whole Western Empire to the pope. Then fail it three ways, briskly — the words, the record, the coins. End the act on the question that drives the rest: so what did its defenders do?
+CRITICAL: it must fail on THREE converging tests, not one. If I lead with only the coin, the defenders look like reasonable people disputing a weak argument, and the whole video collapses.
+CRITICAL: no throat-clearing. No "in this video." No channel intro. The first test must be arguing within about 35 seconds.
+
+CTA at roughly 2:15, one line, right after the first payoff.
+
+ACT 2 (2:15-5:00) — MOVE ONE: PRODUCE A BETTER WITNESS
+When the text fails, supply a different text. In 1447 Lauro Quirini sends Pope Nicholas V a Latin translation of a GREEK version of the Donation — presented as an older, independent witness. Every single word the critic had convicted it on has been quietly removed. Then in 1547 Agostino Steuco, defending the document, prints a Greek colophon which shows his "ancient independent" copy was made in December 1206 for a Roman cardinal. He published the evidence against himself.
+
+ACT 3 (5:00-7:00) — MOVE TWO: CHANGE WHAT THE DOCUMENT DOES
+When the text can't be saved, change what it claims to be. The jurist Sangiorgi argues it was never a gift at all — Constantine was handing BACK land Rome had wrongly taken. A restitutio. So the pope's claim stands whether or not the document is genuine. This is a real, sophisticated legal argument and must be presented as one. This is the beat that stops the video being "the defenders were liars."
+
+ACT 4 (7:00-9:15) — MOVE THREE: MAKE IT UNFALSIFIABLE. THIS IS THE PAYOFF.
+Every possible disproof gets converted into confirmation. Three answers from the same jurist:
+ - No historian mentions this enormous donation? The later emperors had it concealed and struck from the histories.
+ - Eusebius, writing at the time, contradicts it? Enemies of the Roman church corrupted his text.
+ - The Latin is bad? If the Roman church had wanted to fake it, it would have written it more elegantly. So the bad Latin proves it's genuine.
+The clumsiness of the forgery becomes proof of its authenticity. Put this beside the coin argument from Act 1 — one states a principle then tests it, the other explains away whatever turns up. The difference should be visible without me commenting on it.
+
+ACT 5 (9:15-10:30) — WHY THEY COULDN'T LET GO
+Bolognini had to hold the Donation valid because his own university's founding charter — itself forged, and accepted in 1437 — describes Rome as "our city." That collapses if Constantine had ceded the West. The defence of one forgery required the defence of another.
+
+ACT 6 (10:30-12:00) — CLOSE: ABANDONED, NOT REFUTED. AND NEVER HIDDEN.
+Enea Silvio Piccolomini argued FOR the Donation in 1436, absorbed the disproof over the following years, became Pope Pius II, and simply re-grounded papal temporal power on other arguments. Nobody was silenced. Nobody burned the books. No evidence of any church intervention against the critic has ever been found; the treatise went on the Index in 1559, a century after he died, and the "forbidden book" story came from his own publishers. The proof circulated in print the whole time.
+Then the last beat: the critic failed his own method too. He knew of an inscription that damaged his case and left it out. The scholar who says so is his greatest admirer.
+Land the thesis here, in my voice, without stating it as a moral: this is what people do.
+
+=====================================================================
+PART 4 — THE QUOTE BANK. THESE ARE THE ONLY QUOTES YOU MAY USE.
+=====================================================================
+
+Reproduce them EXACTLY. Do not paraphrase, tidy, modernise or extend them. If you want a quote that isn't here, write "I NEED: X" and stop.
+
+VALLA ON THE COINS:
+ - "...many of which are in my own possession, mostly with this legend beneath the image of the cross: 'Concordia orbis'"
+ - "An infinite number of such would be found for the popes, if you had ever ruled Rome. None are found — not gold, not silver, nor is any recorded as seen by anyone."
+ - "We tell counterfeit coins apart, separate them out, throw them away — and shall we not tell counterfeit doctrine apart?"
+ WARNING: the 'Concordia orbis' legend is NOT attested on surviving coins. Say "Valla says he owns many of them, mostly reading Concordia orbis beneath a cross." ATTRIBUTE IT TO HIM. Never caption a coin with it. His actual argument — the coins are Constantine's, they're Latin, and no papal coinage exists — is untouched.
+
+THE ANACHRONISTIC WORDS (on screen, from the critical edition):
+ - "frygium" and "lorum qui imperiale circumdare assolet collum" — Fuhrmann p. 87, lines 220-222
+ - "satrapibus" — Fuhrmann p. 80, line 158; "satrapa" — line 282
+ NOTE: the edition reads "frygium", Valla writes "phrygium". Do not harmonise them.
+
+QUIRINI'S DOCTORED WITNESS (1447):
+ - Where the original has "satrapibus", Quirini's text has "provinciarum prefecti". The strap-around-the-neck clause is deleted. The footwear clause is gone.
+ - Setz's verdict: "um dieser Kritik Vallas die Grundlage zu nehmen" — to take away the basis of Valla's criticism.
+ MODALITY GUARD, HARD: Setz writes "scheint der Schluß erlaubt" — the conclusion SEEMS permitted. This is an inference, not a confession. Do not write "Quirini admitted" or "we know he intended." Carry the hedge.
+
+SANGIORGI'S THREE ANSWERS (Setz pp. 132-133):
+ - "imperatores qui Constantino successerunt curarunt, ut ista occultarentur et abolerentur, nec de eis mentio in historiis fieret" — the emperors who succeeded Constantine saw to it that these things were concealed and abolished, and no mention made of them in the histories
+ - "nec mirandum esset, si ab emulis romane ecclesie Eusebii liber in hoc corruptus et depravatus fuisset" — nor would it be surprising if rivals of the Roman church had corrupted and debased Eusebius's book on this point
+ - "nemo enim dubitet, quod si ecclesia romana donationem istam fingere voluisset elegantius et cum maiori solemnitate omnia composuisset" — let no one doubt that if the Roman church had wanted to fake this donation it would have composed it all more elegantly and with greater ceremony
+
+SANGIORGI ON RESTITUTIO:
+ - "relaxare quod indebite per eum et antecessores suos erat occupatum" — to release what had been wrongly occupied by him and his predecessors
+
+NOBODY SUPPRESSED IT (Setz):
+ - "Bis heute ist kein Zeugnis bekannt, das eine kirchliche Intervention belegt." — To this day no testimony is known that documents a church intervention.
+
+BOLOGNINI'S OWN FORGERY:
+ - his university's charter reads "in romana nostra civitate" — in our city of Rome
+ GUARD: Setz marks the irony but never claims Bolognini knew his own charter was forged. Do not upgrade this to bad faith.
+
+VALLA'S OWN FAILURE:
+ - Fubini's judgement: it is at odds with "una disinteressata filologia" — a disinterested philology. The scholar who points this out, Camporeale, is Valla's greatest admirer.
+
+=====================================================================
+PART 5 — HARD FACTUAL GUARDS
+=====================================================================
+
+- NEVER assert a date for the forgery. Six competing scholarly models span 750 to 850 and the question is genuinely open. One line at most, framed as unresolved.
+- Otto III's chancery called it a forgery around the year 1001. I do NOT hold that document, so it is NARRATED only — never staged as a document reveal.
+- Do not say the Church "admitted" or "confessed" anything. Individual defenders changed arguments; that is the story.
+- Do not imply concealment or conspiracy anywhere. The opposite is the finding, and it is load-bearing: the criticism circulated openly and in print the entire time.
+- Cusa's argument, 1433: if the popes already owned the West, why did they need Pepin and then Charlemagne to reconquer it for them.
+
+=====================================================================
+PART 6 — VOICE. READ THIS TWICE.
+=====================================================================
+
+WRITE FOR A MOUTH, NOT A PAGE. Contractions throughout — "it's", "didn't", "here's". Dates spoken as I'd say them: "in 1447", "in the summer of 1440".
+
+THE FOUR TELLS THAT GET A DRAFT REJECTED. These are measured against how I actually speak:
+1. CHOPPED FRAGMENTS FOR EMPHASIS. "Ambassadors. Embassies. Treaties." I never talk like that. It is the single biggest giveaway. Write flowing sentences that breathe.
+2. NEGATION PAIRS. "Not X, but Y." "This isn't about A — it's about B." My natural rate of these is ZERO. Drafts written for me have run nine to fifteen per script. Use none unless I say one out loud first.
+3. EM DASHES REPLACING CONNECTIVES. Use "so", "which is why", "and that meant", "but". Say the logical relationship out loud instead of punctuating it.
+4. ABSTRACT SUMMARY LANDINGS. Ending a paragraph by restating what it just said in more general language. End on the concrete thing instead, and move on.
+
+NEVER WRITE THESE: "Let me show you" · "Here's where it gets interesting" · "And that's the key insight" · "Buckle up" · "Stay with me here" · "Here's the thing" · "You won't believe" · "SHOCKING" · "Little did they know" · "What happened next will" · anything with "hidden", "suppressed", "forbidden", "they don't want you to know".
+Cap "Here's" at two for the whole script.
+
+EXPLAIN CAUSATION IN SPOKEN REGISTER. "so", "which is why", "and that meant". Use "consequently" and "thereby" sparingly or not at all.
+
+DEFINE EVERY TERM THE MOMENT IT APPEARS. Assume the viewer has never heard of Valla, Cusa, a colophon, or a restitutio. One clause, in passing, then move on — never a glossary paragraph.
+
+NAME THE ACTORS. Not "it was argued that" but "Sangiorgi argued". People do things.
+
+STATE THE OTHER SIDE FAIRLY BEFORE HITTING IT. Sangiorgi's restitutio argument is genuinely clever and must sound clever. Steuco's objection about establishing the true reading first was right in principle. If the defenders sound stupid, I've written it wrong.
+
+DON'T ANNOUNCE THE DOCUMENTS. The screen does the pointing. Never write "and here it is, on your screen" or "look at this". Just say what it says.
+
+=====================================================================
+NOW BEGIN
+=====================================================================
+
+1. Tell me in no more than four sentences what you think this video is, so I can check you've got it.
+2. Flag anything in the structure you think is wrong, in one short paragraph. Say it once; I'll decide.
+3. Then ask me your questions for ACT 1 ONLY, with your 2-3 drafted phrasings each.
+
+Do not write any script prose until I've answered.

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#0A1628"/>
+  <text x="120" y="116" fill="#D2A23A" font-family="Arial, sans-serif" font-size="26" letter-spacing="4">ONE SCHOLAR’S SYNTHESIS — NOT AN EXACT CENSUS</text>
+  <text x="120" y="188" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="58" font-weight="700">“about seventy thousand Poles</text>
+  <text x="120" y="254" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="58" font-weight="700">to perhaps twenty thousand Ukrainians”</text>
+  <line x1="120" y1="304" x2="1800" y2="304" stroke="#536174" stroke-width="2"/>
+  <g font-family="Arial, sans-serif">
+    <text x="120" y="405" fill="#E8DFC9" font-size="34">POLISH VICTIMS</text>
+    <rect x="120" y="438" width="1470" height="116" rx="10" fill="#C84A46"/>
+    <text x="1640" y="518" fill="#FFFFFF" font-size="70" font-weight="700">~70,000</text>
+    <text x="120" y="663" fill="#E8DFC9" font-size="34">UKRAINIAN VICTIMS</text>
+    <rect x="120" y="696" width="420" height="116" rx="10" fill="#5A7BA3"/>
+    <text x="590" y="776" fill="#FFFFFF" font-size="70" font-weight="700">perhaps 20,000</text>
+    <text x="120" y="917" fill="#D2A23A" font-size="30" font-weight="700">Scope: all contested lands — not Volhynia alone.</text>
+    <text x="120" y="970" fill="#9EB0C5" font-size="24">Timothy Snyder, The Reconstruction of Nations (Yale University Press, 2003), p. 204.</text>
+  </g>
+</svg>

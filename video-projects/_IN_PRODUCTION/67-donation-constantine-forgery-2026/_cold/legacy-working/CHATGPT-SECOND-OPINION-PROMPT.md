@@ -1,0 +1,153 @@
+# External angle pass — #67, for GPT-5.6 Sol
+
+**Rewritten 2026-08-04.** Supersedes the 2026-08-03 version, which was written before the concept
+red-team and asked questions that have since been answered — and which quoted the *broken* impression
+figures. Paste everything below the line into ChatGPT (GPT-5.6 **Sol**; Plus expires 2026-08-23).
+
+⚠ **Rules for handling what comes back**, same as the `tools/youtube_analytics/_research/CODEX-*.md`
+briefs: the external model reasons, **the repo gates decide**, and every factual claim it returns about
+our data or about history gets verified here before it moves anything. Do not ask it repo-data
+questions — it has no access; everything it needs is in the prompt.
+
+---
+
+You are a YouTube packaging strategist. I want an **adversarial** second opinion. Another analyst has
+already red-teamed this plan and reached a recommendation; your job is to try to break *that*
+recommendation, not to re-litigate what it already settled. If you conclude it's right, say so — but
+only after genuinely attacking it.
+
+## The channel
+
+Small history channel, **515 subscribers**, 219,000 lifetime views, 57 published long-form videos.
+Audience: **men 25–44, UK / Germany / Canada / US**. Format 8–12 minutes, talking head plus document
+evidence on screen.
+
+**The identity:** it puts primary sources on screen — actual manuscript pages, critical editions,
+charters — with exact page citations, and the creator reads Latin, Greek, German, French, Spanish and
+Dutch. The differentiator is not "here's a story about history" but "here is the document, here is the
+line, here is what it actually says."
+
+**Verified lifetime performance** (from a YouTube Studio lifetime export, 57 videos — an earlier
+version of this brief quoted 28-day trailing windows by mistake and every number was wrong):
+
+- Median impressions per video **2,923**; **16 of 57** cleared 5,000; **4** cleared 20,000.
+- Median CTR **2.48%**. Lifetime CTR runs continuously from **0.46% to 9.41%** — no bimodal split.
+- **One breakout:** *"The Country That Might Disappear: Guatemala vs Belize"* — 292,398 impressions,
+  7.66% CTR, 30,540 views, 153 subscribers. Its sequel: 44,295 impressions at 9.18%.
+- Best CTRs: *"JD Vance Claims Christians Found Child Sacrifice"* 9.41% · Guatemala sequel 9.18% ·
+  *"The Country That Might Disappear"* 7.66% · *"How the KGB Weaponized Palestinian Resistance"* 7.90%.
+- Worst: *"3 Men Signed 1 Document. The Soviet Union Ceased"* 0.95% · *"The Historical Pattern Nobody
+  Wants to Admit"* 1.01% · *"Medieval Europe's Hidden Literacy Boom"* 1.11%.
+- Traffic is overwhelmingly **Browse and Suggested**; search is ~4% of lifetime views, and that search
+  is almost purely exact proper nouns typed by name.
+- **31.6 percentage points of the audience leave in the first 60 seconds.** The whole stretch from
+  5:00 to 11:30 costs 8.4 points. Retention percentage correlates with views at **+0.007** — it is a
+  hold lever, not a distribution lever.
+
+**Two internal findings that constrain your advice:**
+
+- **Recognisability, not era, separates this catalogue.** *Primary Sources Destroy the 'Awesome
+  Crusades' Narrative* — 10,036 impressions, 5.47% CTR. *Medieval Europe's Hidden Literacy Boom* —
+  7,475 impressions, 1.11% CTR. Comparable serve, one contains *Crusades*.
+- **Clustering works and expires.** Three border-dispute videos published within six weeks hold a
+  median 4.15% Suggested CTR against 1.12% for 21 isolated uploads. Two later family members shipped
+  four months late and never cleared 1,500 Suggested impressions.
+
+## The topic
+
+**The Donation of Constantine** — the forged charter by which Constantine supposedly handed the
+Western Empire to the papacy, and how it was exposed.
+
+**The field is strip-mined.** Five content-farm uploads in the last 90 days on channels with 0, 1,
+207, 757 and 4,930 subscribers, all near-identical titles (*"The Pope Controlled Every King in Europe
+For 700 Years — Using a Forged Document"*), **all under 65 views**. The best English long-form is
+4,309 views on a 70,000-subscriber channel. The best anywhere is Italian, 40,431 views, 2021.
+
+**Search demand, measured today:**
+
+| Term | est. global /mo | US /mo | GB /mo | global top markets |
+|---|---:|---:|---:|---|
+| donation of constantine | 3,412 | *unmeasured* | *unmeasured* | **returns empty — no data** |
+| lorenzo valla | 3,654 | *unmeasured* | *unmeasured* | **returns empty** |
+| **constantine** | 113,206 | **11,321** | **2,830** | VN 16%, BR 13.5%, US 10.8%, IN 8% |
+| vatican | 100,602 | 5,749 | 2,874 | VN 27%, BR 12%, PK 9%, ES 6%, HU 6% |
+| rome | — | 27,835 | 12,652 | — |
+| history of rome | 142,756 | 19,217 | — | US 13.7%, PK 9.8%, RU 9.8%, CA 5.9% |
+| medieval europe | 44,753 | 3,197 | 3,197 | PK 29%, BD 21%, IN 21% |
+| medieval forgery / historical forgery / how do we know history is true | **0** | 0 | 0 | — |
+
+## What this video has that no competitor in any language does
+
+Eleven months of archival research. The load-bearing findings:
+
+1. **The coin argument.** Valla's proof was not only philological: emperors mint coins, Constantine's
+   gold survives in Latin legends ("many of which are in my own possession"), and **no papal coinage
+   from that period exists anywhere**. His own metaphor: *"We tell counterfeit coins apart… and shall
+   we not tell counterfeit doctrine apart?"*
+2. **The defence was doctored.** In 1447 a Venetian humanist, Lauro Quirini, sent the Pope a Greek
+   "older witness" to the Donation — having silently deleted every single word Valla had convicted it
+   on. We hold the page that shows the substitution, with critical apparatus.
+3. **The other defender published the evidence against himself.** Agostino Steuco, defending the
+   document in the 1530s, printed a Greek colophon showing his "ancient independent" copy was made in
+   December 1206 for a Roman cardinal.
+4. **The papacy hired the man who exposed it.** Valla proved it fake in 1440; the Pope made him
+   apostolic scriptor in 1448 and papal secretary in 1456.
+5. **The Church destroyed the man who exposed it in order to defend them.** Reginald Pecock attacked
+   the Donation to defend the clergy — recanted, books burned, died confined.
+6. **Nobody suppressed it.** Index listing 1559, a century after Valla died. The "forbidden book"
+   story came from Valla's own publishers.
+7. **A man who argued FOR the Donation in 1436 absorbed the disproof, became Pope Pius II, and kept
+   the temporal claim on other grounds.** The specialist's verdict, verbatim: recognising it as a
+   forgery *"has no further consequences."*
+8. **Someone caught it 440 years before Valla** — Otto III's chancery, c. 1001. (We can cite this but
+   cannot show it; the charter isn't in our hands.)
+
+**What the audience actually asks about.** ~80 comment threads mined across the topic's two
+best-performing videos. **Zero** raised the distinction the current plan uses as its spine (that two
+critics used two different methods). **Four independent commenters** argued about whether the document
+was ever really believed or used. In the English-language comment sections the dominant register is
+conspiracist — phantom time, Fomenko, "everything you were taught is fake" — and finding 6 above
+contradicts exactly what that audience came for. The Spanish-language comments on the same topic are
+an ordinary history audience arguing substantively.
+
+## The three candidate spines — this is the decision
+
+| | Spine | Case for | Case against |
+|---|---|---|---|
+| **A** | **Two men, two methods** — Cusa tested the record, Valla tested the words | Already structured; historically the most precise | Zero measured audience interest; a distinction internal to historiography |
+| **B** | **A forgery exposed is not a claim withdrawn** (finding 7) | Answers the only measured comment demand; turns finding 6 from a disappointment into the payoff; makes findings 2–6 one argument instead of four surprises | Half a day of restructuring; the "demand" is engagement evidence, not click evidence |
+| **C** | **How do you prove a document is fake** — procedure, with the Donation as worked example | Highest fit with what the creator most wants to make; the channel's four method-first videos are untested rather than failed | Those four videos got 523 impressions **combined**; every method-shaped search term above returns **0** |
+
+The red-team recommended **B**, plus restoring *Constantine* to the title, plus putting whatever the
+title promises on screen before 0:10.
+
+## What I want from you
+
+1. **Attack spine B.** It rests on ~80 comment threads from two videos — engagement evidence used to
+   justify a structural decision about clicks. Is that a category error? If B is wrong, is A or C
+   right, or is there a fourth spine in the eight findings that none of us named?
+2. **Attack the Constantine title recommendation.** Constantine polls 11,321/mo in the US, but the
+   name is heavily shared with the Keanu Reeves film and with Constantine the DC character. Does the
+   fame help or does it deliver the wrong impressions? Give me the mechanism, not a verdict.
+3. **The strip-mined field.** Five farm videos died under 65 views and the best English effort is
+   4,309. Is that a demand ceiling or a supply-quality ceiling? What observable would distinguish the
+   two *before* we film?
+4. **The conspiracy-audience problem.** Our honest finding (nobody suppressed it) contradicts what the
+   English comment sections want. Does spine B genuinely solve that, or does it just relocate it?
+5. **Give me three titles you think beat both of ours** — *"How a Coin Exposed a Vatican Forgery"* and
+   *"The Vatican Hired the Man Who Exposed Its Forgery"* — and for each, state the **mechanism**, not
+   just the words.
+6. **Name the single most likely reason this video does 300 views instead of 30,000**, given the
+   corrected numbers above (serve is not the bottleneck — 16 videos cleared 5,000 impressions; the
+   click is).
+
+## Rules
+
+- **Be specific and adversarial.** "It's good, maybe tighten the title" is a useless answer.
+- ⛔ **Do not invent statistics, citations, view counts or case studies.** Name any real channel or
+  video you draw on and say roughly when. Label speculation as speculation. **A confident fabricated
+  example is worse than no example** — we have already caught two fabricated sources in this project's
+  research and we will check yours.
+- **Rank your recommendations by expected impact** and say what each costs to implement.
+- Do not recommend improving retention to get more views. On this channel retention↔views is +0.007.
+- Do not recommend a topic formula. We tested; Kruskal–Wallis p=0.18.

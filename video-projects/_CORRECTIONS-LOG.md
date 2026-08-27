@@ -1,11 +1,46 @@
 # Corrections Log - History vs Hype
 
 **Purpose:** Document errors discovered pre/post-publication to prevent repeats
-**Last Updated:** 2026-07-22
+**Last Updated:** 2026-08-11
 
 ---
 
 ## Pre-Publication Errors (Caught Before Upload)
+
+### Volhynia (#62) — Camera original mistaken for the edited master
+**Video:** 62-volhynia-massacre-untranslated-2026
+**Date Discovered:** 2026-08-10
+**Stage:** Rough-cut editing plan
+
+**Error:**
+Treated the 22:14 camera recording and 13:11 edited SRT as a failed conform instead of first establishing that the video file was the uncut camera source.
+
+**Root Cause:**
+Media roles were inferred from duration rather than confirmed from the creator or timeline metadata.
+
+**Lesson:**
+Before declaring a picture/caption mismatch, distinguish camera original, proxy, timeline export, and caption authority. Source-recording audio measurements are not master-delivery measurements.
+
+---
+
+### Volhynia (#62) — Runtime target treated as a mandatory cut
+**Video:** 62-volhynia-massacre-untranslated-2026
+**Date Discovered:** 2026-08-10
+**Stage:** Rough-cut editing plan
+
+**Error:**
+Turned the channel's 12-minute guidance into a required 75–81 second cut even though the creator's actual standard is qualitative: keep the current 13:11 runtime when the material is good and every beat earns its place.
+
+**Root Cause:**
+A standing duration rule was applied mechanically instead of judging the conformed film's pacing, clarity, evidence density, and performance.
+
+**Lesson:**
+Runtime is not a cut quota. Recommend a cut only when it removes repetition, repairs a weak seam, or improves the evidence chain. A strong 13-minute film stays 13 minutes.
+
+**Related preference:**
+For B-roll and on-screen evidence, prefer the most-primary showable source over scholar pages. Secondary material is a labeled fallback when the primary is unavailable or the claim is inherently interpretive.
+
+---
 
 ### Volhynia (#62) — Seven completed read-alouds overlooked
 **Video:** 62-volhynia-massacre-untranslated-2026
@@ -191,3 +226,97 @@ Dates, names, occupations, and temporal distinctions must be:
 **Failure:** Treated the creator’s annotations as isolated sentences to repair. Their repetition—“why?”, “why is this here?”, “who are these?”, “we already said this,” and “this does not sound like me”—was a coherent diagnosis of the script’s underlying reasoning and presentation model.
 
 **Rule:** Infer the creator’s governing priorities before rewriting: causal necessity; audience orientation before abstraction; fair steelmanning followed by an evidence-weighted verdict; strict separation of document, inference, and accusation; named authority with relevance explained; no repeated synthesis; and spoken prose that discovers the argument with the viewer instead of announcing a formal framework. Apply these rules to the whole script, including places the creator did not mark.
+
+
+---
+
+### 2026-08-03: Owned-in-print means readable — ask, don't refuse
+
+**Video:** 67-donation-constantine-forgery-2026
+
+**Failure:** Declined to mine a scan of Salter & Wicker, *Vernacularity in England and Wales*, because
+the filename carried shadow-library domains. Steered to a repository copy instead and offered the file
+back unread. **The creator owns the volume in print.** The provenance of the *file* was treated as if
+it settled the legitimacy of the *reading*, and it does not — a format-shifted copy of a book you own
+is your own book.
+
+**Rule:** A shadow-library filename is a question, not a verdict. **Ask once whether the creator owns
+the original; if yes, read it and move on** — no second mention, no re-litigating. Keep flagging the
+genuinely separate cases: a source whose *metadata is wrong* (the fake "Maffei 1997 English" upload,
+C37b) stays unusable no matter who owns what, because the citation would be false. Provenance of the
+text matters for citation; provenance of the file does not, once ownership is established.
+
+---
+
+### 2026-08-04: Comparator type and score provenance must be verified before reporting
+
+**Video:** 67-donation-constantine-forgery-2026
+
+**Failure:** A packaging second opinion mixed an ineligible 57-second Short into the competitor
+frame and reported title scores that did not match the creator's verified scoring results. The
+response did not make the exact scoring path/version prominent or stop when the outputs conflicted.
+
+**Rule:** Before citing a competitor as a long-form treatment, verify its duration and exclude
+Shorts. Before reporting any title or curiosity score, name the exact tool/scoring path and input;
+if another current result conflicts, treat the score as unresolved and omit it until reconciled.
+Scores remain enrichment, never verdicts.
+
+---
+
+### 2026-08-04: Never assert a bias direction on lifetime-view comparisons
+
+**Video:** 67-donation-constantine-forgery-2026
+
+**Failure:** In the same-channel counterfactual study I compared old competitor videos against their
+channels' *current* upload medians and asserted the ratio was **biased downward** — reasoning that the
+channels had grown, so today's baseline is harder to beat. I then used that to promote two ratios to
+"robust overperformance" (Polidoro 1.78x, Point of View 1.15x).
+
+**The bias direction is not knowable from lifetime views.** Channel growth pushes one way, but a 2021
+video has had five years to accumulate while the baseline uploads have had weeks — and so do evergreen
+search, back-catalogue rediscovery, retitled/rethumbnailed videos, and changes in upload cadence or
+subject mix. None of these separate from lifetime totals. The accumulation effect alone is probably
+larger than the growth effect, meaning my stated bias may have pointed the wrong way entirely.
+
+**Rule:** A cross-time view comparison is **temporally unidentified** unless both sides had the same
+time to accumulate. Compare a video only against uploads from **its own period** (a true surrounding
+window), or state the comparison as descriptive with **no** direction claimed. Never upgrade a ratio to
+"robust" on a bias argument. Where a surrounding window is unavailable, that is a limit on what can be
+concluded, not a licence to correct for the gap by assertion.
+
+**Second-order lesson:** the error survived my own write-up because I had labelled the section
+"biased" and thought the labelling discharged the duty. **Naming a confound is not controlling for
+it** — if the direction cannot be established, the number cannot carry an inference.
+
+**Caught by:** the GPT-5.6 Sol adversarial pass, 2026-08-04. Third external catch on this project, and
+the first that found a reasoning error rather than a data error.
+
+---
+
+### 2026-08-04: A structural complaint needs a structural pass, not a line pass
+
+**Video:** 67-donation-constantine-forgery-2026
+
+**Failure:** Told the script's acts "feel like six related sections rather than one argument," I ran a
+line-level voice pass — fixing referents, un-chopping sentences, trimming scholar names. Every edit was
+correct and none of them touched the problem. The creator had to ask twice, the second time explicitly:
+*"Stop polishing individual sentences. I want a CAUSAL-SPINE and SEAM pass."* Earlier in the same
+session I made the smaller version of the same mistake, patching five flagged act transitions
+individually instead of asking what each act hands to the next.
+
+**Rule:** When the complaint is about how parts relate — "disconnected", "feels like a list", "doesn't
+build", "jumps around" — **stop and map the argument before editing a word.** One row per section:
+*question inherited · what changes here · concrete result · question handed on.* Weak seams are then
+visible as rows where the inherited and handed-on questions don't chain. Line edits cannot fix a
+missing causal edge, and a well-written sentence at a broken seam hides the break rather than
+repairing it.
+
+**Tell that you're in this failure mode:** you are improving lines the creator did not complain about.
+---
+
+### 2026-08-11 — Ad-lib uncertainty must become a research queue
+
+- **What went wrong:** An ad-lib harvest for project 62 treated uncertain factual statements as material to quarantine or cut before checking whether the project's owned sources could verify them.
+- **Why it mattered:** This discarded some of the creator's strongest instincts—the exceptional conditions of Bandera's confinement, the sanitized 1941 proclamation, the exhumation dispute—and left a weaker `merely practical alliance` explanation in the script.
+- **Permanent correction:** For creator ad-libs, separate voice from factual authority but route every potentially useful uncertain claim through targeted research before making the editorial keep/cut decision. The order is `extract → verify/correct → evaluate runtime`, never `uncertain → exclude`.
+- **Applied now:** Project 62's research ledger, source genealogy, ad-lib harvest, and script were updated with the verified claims. The lecture-cancellation and Bandera-brothers details were researched and deliberately omitted for relevance, not uncertainty.

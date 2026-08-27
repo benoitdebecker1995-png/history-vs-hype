@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000000" flood-opacity="0.7"/></filter>
+    <clipPath id="docclip"><rect x="690" y="30" width="520" height="650" rx="8"/></clipPath>
+  </defs>
+  <rect width="1280" height="720" fill="#0A1628"/>
+  <circle cx="280" cy="330" r="520" fill="#233A59" opacity="0.7"/>
+  <g transform="rotate(5 950 350)" filter="url(#shadow)" clip-path="url(#docclip)">
+    <image x="690" y="30" width="520" height="650" xlink:href="file:///G:/History%20vs%20Hype/video-projects/_IN_PRODUCTION/62-volhynia-massacre-untranslated-2026/_research/exhibits/klym-savur-order11/order11-avr7498-p1.png" preserveAspectRatio="xMidYMid slice"/>
+  </g>
+  <rect x="735" y="316" width="500" height="74" transform="rotate(5 985 353)" fill="#C84A46"/>
+  <text x="54" y="246" fill="#FFFFFF" font-family="Impact, Arial Black, sans-serif" font-size="104" letter-spacing="2">READ THE</text>
+  <text x="54" y="360" fill="#D2A23A" font-family="Impact, Arial Black, sans-serif" font-size="132" letter-spacing="2">ORDER</text>
+  <rect x="58" y="414" width="500" height="10" fill="#C84A46"/>
+  <text x="62" y="474" fill="#C9D2DC" font-family="Arial, sans-serif" font-size="28" letter-spacing="4">WHAT DOES IT ACTUALLY SAY?</text>
+  <rect x="54" y="588" width="520" height="58" rx="6" fill="#14243A" stroke="#536174" stroke-width="2"/>
+  <text x="314" y="627" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="24" letter-spacing="3">UNTRANSLATED EVIDENCE</text>
+</svg>

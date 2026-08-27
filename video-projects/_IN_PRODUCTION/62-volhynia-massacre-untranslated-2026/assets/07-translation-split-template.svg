@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#0A1628"/>
+  <text x="90" y="92" fill="#D2A23A" font-family="Arial, sans-serif" font-size="23" letter-spacing="4">UNTRANSLATED EVIDENCE</text>
+  <text x="90" y="148" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="44" font-weight="700">Original text and translation remain separate</text>
+  <rect x="90" y="200" width="835" height="706" rx="8" fill="#E8DFC9"/>
+  <rect x="995" y="200" width="835" height="706" rx="8" fill="#14243A"/>
+  <g font-family="Arial, sans-serif">
+    <text x="135" y="262" fill="#6F675A" font-size="22" letter-spacing="3">ORIGINAL-LANGUAGE SOURCE</text>
+    <rect x="135" y="300" width="745" height="520" fill="#D8CEB7" stroke="#B6AA91" stroke-width="3" stroke-dasharray="12 10"/>
+    <text x="507" y="548" text-anchor="middle" fill="#736B5C" font-family="Georgia, serif" font-size="34">PLACE DOCUMENT CROP</text>
+    <rect x="135" y="842" width="745" height="34" fill="#D2A23A" opacity="0.72"/>
+    <text x="1040" y="262" fill="#9EB0C5" font-size="22" letter-spacing="3">EDITOR’S TRANSLATION</text>
+    <text x="1040" y="350" fill="#FFFFFF" font-family="Georgia, serif" font-size="42">“Place the checked English</text>
+    <text x="1040" y="406" fill="#FFFFFF" font-family="Georgia, serif" font-size="42">translation here. Preserve</text>
+    <text x="1040" y="462" fill="#FFFFFF" font-family="Georgia, serif" font-size="42">ellipses and grammatical objects.”</text>
+    <line x1="1040" y1="520" x2="1775" y2="520" stroke="#536174" stroke-width="2"/>
+    <text x="1040" y="580" fill="#D2A23A" font-size="22" letter-spacing="3">TRANSLATION STATUS</text>
+    <text x="1040" y="626" fill="#FFFFFF" font-size="28">[Published translator / editor’s translation]</text>
+    <text x="1040" y="704" fill="#D2A23A" font-size="22" letter-spacing="3">CONTEXT GUARD</text>
+    <text x="1040" y="750" fill="#FFFFFF" font-size="28">[Do-not-crop / attribution / duress note]</text>
+    <text x="90" y="988" fill="#9EB0C5" font-size="22">Never typeset invented original-language wording. The visible original must come from the displayed source.</text>
+  </g>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#0A1628"/>
+  <rect x="0" y="0" width="24" height="1080" fill="#D2A23A"/>
+  <text x="130" y="322" fill="#D2A23A" font-family="Arial, sans-serif" font-size="30" letter-spacing="7">HISTORY vs HYPE · UNTRANSLATED EVIDENCE</text>
+  <text x="130" y="438" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="92" font-weight="700">THE VOLHYNIA FILE</text>
+  <text x="130" y="528" fill="#E8DFC9" font-family="Georgia, serif" font-size="48">What the surviving documents prove—</text>
+  <text x="130" y="592" fill="#E8DFC9" font-family="Georgia, serif" font-size="48">and what they do not.</text>
+  <line x1="130" y1="662" x2="1120" y2="662" stroke="#536174" stroke-width="3"/>
+  <text x="130" y="724" fill="#9EB0C5" font-family="Arial, sans-serif" font-size="28">Primary documents · attributed testimony · contested inference</text>
+  <g transform="translate(1350 210) rotate(3)">
+    <rect x="0" y="0" width="360" height="560" fill="#E8DFC9"/>
+    <rect x="36" y="52" width="288" height="12" fill="#B6AA91"/>
+    <rect x="36" y="92" width="264" height="10" fill="#B6AA91"/>
+    <rect x="36" y="132" width="280" height="10" fill="#B6AA91"/>
+    <rect x="36" y="244" width="288" height="48" fill="#D2A23A" opacity="0.72"/>
+    <rect x="36" y="338" width="252" height="10" fill="#B6AA91"/>
+    <rect x="36" y="378" width="280" height="10" fill="#B6AA91"/>
+    <text x="180" y="510" text-anchor="middle" fill="#736B5C" font-family="Georgia, serif" font-size="28">EXHIBIT</text>
+  </g>
+</svg>

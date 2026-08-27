@@ -1,0 +1,247 @@
+You are conducting a pre-filming EDITABILITY AUDIT of my finished Volhynia YouTube script.
+
+I have attached a ZIP containing the current script, verified research, source genealogy, existing editing plans, exhibit files and finished/static assets. You must inspect the contents of that ZIP. Do not claim that you cannot access local paths: the relevant files are inside the uploaded package.
+
+This is not a writing review, fact-check or full shot-by-shot editing guide. I want to know whether this script will be realistically easy for me to edit by myself.
+
+PRODUCTION REALITY
+
+- I am the sole editor.
+- The video is approximately twelve minutes.
+- The base format is talking head with evidence-based B-roll.
+- I edit in DaVinci Resolve.
+- I can make simple cuts, crops, zooms, highlights, text overlays and basic keyframe animation.
+- I can use straightforward maps, timelines and document cards.
+- I do not want elaborate motion graphics, cinematic reenactments or time-consuming decorative animation.
+- I prefer using documents, maps and historical images already present in the project.
+- B-roll should strengthen the argument, not merely cover cuts.
+- Primary evidence and source qualifications must remain visible where they carry the argument.
+- A reasonable target is roughly 65% talking head and 35% evidence-based B-roll, but the argument takes priority over the ratio.
+
+SOURCE PRIORITY
+
+Treat SCRIPT.md as the current narration and source of truth for the planned video.
+
+Read these first:
+
+1. SCRIPT.md
+2. 01-VERIFIED-RESEARCH.md
+3. _research/SOURCE-GENEALOGY.md
+4. ON-SCREEN-SOURCES.md
+5. assets/ASSET-PACK-README.md
+6. assets/SOURCE-MANIFEST.md
+7. assets/TIMING-NOTES.md
+8. assets/youtube-native/README.md
+9. _research/exhibits/EXHIBITS-INDEX.md
+
+Then inspect the actual static files under assets/, assets/youtube-native/, _research/exhibits/ and _research/genealogy/.
+
+The package also contains older editing and B-roll plans. Use them as reference only. They may describe an older script or rough cut. Do not assume that their narration, timestamps or asset assignments still match SCRIPT.md.
+
+If a referenced file is genuinely absent from the uploaded ZIP, state that clearly. Do not pretend an asset exists merely because a plan mentions it.
+
+THE CENTRAL QUESTION
+
+Could one person edit this script cleanly without the production becoming exhausting?
+
+Judge the current script, not an imagined high-budget version.
+
+AUDIT EACH SPOKEN BEAT
+
+For every spoken paragraph or natural beat, determine whether it can be covered by:
+
+- Talking head only
+- Talking head plus simple overlay
+- Existing document or photograph
+- Existing finished asset
+- Simple map or timeline
+- Moderate custom graphic
+- Difficult or unresolved asset
+
+1. VISUAL AVAILABILITY
+
+Check:
+
+- Does the required visual already exist in the ZIP?
+- Is it a finished usable asset, a raw source, a template or only a written proposal?
+- Is the exact source file or exhibit named?
+- Does the script ask for a document that has not actually been acquired?
+- Does a visual depend on unresolved translation, licensing, authentication or archival retrieval?
+- Can it be made from existing material in under thirty minutes?
+- Does an existing asset still match the current script, or was it built for an older version?
+
+Do not count an asset as READY until you have inspected the actual file or a reliable visual preview of it.
+
+2. EDITING WORKLOAD
+
+Flag beats requiring:
+
+- several different assets in quick succession;
+- a custom historical map;
+- synchronised multi-stage animation;
+- readable document text at mobile size;
+- comparison of multiple documents;
+- recreating a location or massacre visually;
+- sensitive imagery that may be difficult or inappropriate to show;
+- unusually frequent B-roll changes;
+- visuals whose production time is out of proportion to their narrative value.
+
+3. EVIDENCE REQUIREMENTS
+
+Separate:
+
+- MANDATORY EVIDENCE: the document or source must appear because the spoken claim depends on it.
+- HELPFUL EVIDENCE: it improves comprehension, but talking head could carry the claim.
+- DECORATIVE B-ROLL: it adds atmosphere but no argumentative value.
+
+Never recommend cutting mandatory evidence merely to make editing easier.
+
+For every mandatory document, check:
+
+- whether the exact file is present;
+- which page or passage must be shown;
+- whether an English side-card is needed;
+- which phrase must be highlighted;
+- how long it must remain readable;
+- whether cropping could distort its meaning;
+- whether provenance, translation, custody or copy/original warnings must remain visible.
+
+4. TALKING-HEAD VIABILITY
+
+Identify paragraphs that should deliberately remain on camera because:
+
+- the distinction is easier to understand through direct explanation;
+- no useful visual exists;
+- B-roll would distract from a qualification;
+- the personal investigative voice is the point;
+- the moral or analytical conclusion should land face-to-camera.
+
+Do not assume every sentence needs visual coverage.
+
+5. PACING
+
+At 163 spoken words per minute, estimate where each section falls in the runtime.
+
+Check:
+
+- whether a visual must appear before the viewer has time to understand it;
+- whether document-heavy sections need pauses or longer holds;
+- whether any one-minute stretch demands too many unique assets;
+- whether there are long talking-head stretches that genuinely need a pattern interrupt;
+- whether the editing plan becomes most complex exactly where the argument is already hardest to follow.
+
+6. CURRENT ON-SCREEN INSTRUCTIONS
+
+Audit every [ON SCREEN / ANIMATE] block in SCRIPT.md.
+
+Classify each one:
+
+- READY: clear, feasible and supported by assets in the ZIP.
+- NEEDS SIMPLIFICATION: useful idea, but currently overbuilt.
+- NEEDS SPECIFICATION: feasible, but missing an exact asset, page, wording or visual sequence.
+- BLOCKED: depends on an unavailable asset or unresolved verification.
+- OPTIONAL: can safely be replaced by talking head.
+
+If simplifying, propose the smallest production-friendly version that preserves the argument.
+
+WORKLOAD SCALE
+
+Classify each required asset:
+
+- EASY: already available; under 10 minutes to prepare.
+- MODERATE: simple map, document card or composite; approximately 10–30 minutes.
+- HARD: custom animation, substantial sourcing or complex reconstruction; over 30 minutes.
+- BLOCKED: missing source, unresolved provenance, translation, rights or factual decision.
+
+Do not give false precision. Use realistic time ranges.
+
+DO NOT
+
+Do not:
+
+- rewrite the full script;
+- perform another general script-quality audit;
+- recommend decorative footage merely to avoid showing the talking head;
+- invent archive footage or photographs;
+- assume an image is licensable without evidence;
+- recommend AI-generated massacre imagery or fake historical documents;
+- propose elaborate animation when a static document with one highlight would work;
+- turn every historical sentence into a separate shot;
+- sacrifice evidentiary qualifications for pace;
+- assume an on-screen instruction proves the asset exists;
+- treat an SVG template as a finished asset without checking it;
+- create a complete timestamped editing guide before a new filmed SRT exists.
+
+If a wording change would materially reduce the editing burden, recommend it only when the visual problem cannot be solved more simply. Quote the exact current sentence and provide the smallest possible change.
+
+OUTPUT
+
+1. OVERALL VERDICT
+
+Choose one:
+
+- Easy solo edit
+- Manageable with preparation
+- Asset-heavy
+- Not realistically ready to film
+
+Explain the verdict in no more than five sentences.
+
+2. WORKLOAD ESTIMATE
+
+Report:
+
+- number of easy assets;
+- number of moderate assets;
+- number of hard assets;
+- number of blocked assets;
+- approximate preparation time before editing;
+- the three largest production bottlenecks.
+
+3. SECTION AUDIT
+
+Use this table:
+
+| Section | Approx. runtime | Best visual approach | Required assets | Difficulty | Main risk |
+|---|---:|---|---|---|---|
+
+4. MANDATORY EVIDENCE CHECKLIST
+
+List every source that must appear on screen, including:
+
+- exact file or source;
+- exact page or passage;
+- required highlight;
+- required translation or warning;
+- whether it is already ready.
+
+5. ON-SCREEN INSTRUCTION AUDIT
+
+Judge every existing [ON SCREEN / ANIMATE] block as READY, NEEDS SIMPLIFICATION, NEEDS SPECIFICATION, BLOCKED or OPTIONAL.
+
+For anything not ready, provide a simpler replacement instruction.
+
+6. TALKING-HEAD MAP
+
+Identify the passages that should deliberately remain on camera and explain why.
+
+7. ASSET BOTTLENECKS
+
+For every HARD or BLOCKED asset, provide:
+
+1. why it is difficult;
+2. whether it is necessary;
+3. the simplest acceptable alternative;
+4. what must be completed before filming.
+
+8. FINAL RECOMMENDATION
+
+Tell me exactly what I should prepare before filming.
+
+Distinguish:
+
+- Must prepare before filming
+- Can prepare after filming
+- Can abandon without hurting the video
+
+Do not edit SCRIPT.md and do not generate a full shot-by-shot guide.

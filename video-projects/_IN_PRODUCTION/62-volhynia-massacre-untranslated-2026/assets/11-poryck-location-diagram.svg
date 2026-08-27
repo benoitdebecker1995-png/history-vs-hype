@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs><clipPath id="mapclip"><rect x="90" y="150" width="1120" height="820" rx="8"/></clipPath></defs>
+  <rect width="1920" height="1080" fill="#0A1628"/>
+  <text x="90" y="92" fill="#D2A23A" font-family="Arial, sans-serif" font-size="24" letter-spacing="4">11 JULY 1943 · LOCATION DIAGRAM</text>
+  <g clip-path="url(#mapclip)">
+    <image x="90" y="150" width="1120" height="963" xlink:href="file:///G:/History%20vs%20Hype/video-projects/_IN_PRODUCTION/62-volhynia-massacre-untranslated-2026/assets/volhynia-1939-base.jpg" preserveAspectRatio="xMidYMid slice"/>
+    <rect x="90" y="150" width="1120" height="963" fill="#0A1628" opacity="0.10"/>
+    <circle cx="438" cy="690" r="28" fill="#C84A46" stroke="#FFFFFF" stroke-width="8"/>
+    <line x1="466" y1="670" x2="680" y2="548" stroke="#C84A46" stroke-width="7"/>
+    <rect x="650" y="480" width="430" height="130" rx="8" fill="#0A1628" fill-opacity="0.94"/>
+    <text x="685" y="532" fill="#D2A23A" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">PORYCK / PAVLIVKA</text>
+    <text x="685" y="575" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="27">50°41′N, 24°30′E</text>
+  </g>
+  <rect x="1270" y="150" width="560" height="820" rx="8" fill="#14243A"/>
+  <rect x="1270" y="150" width="12" height="820" fill="#C84A46"/>
+  <g font-family="Arial, sans-serif">
+    <text x="1320" y="224" fill="#E7A4A2" font-size="23" letter-spacing="3">ONE VERIFIED LOCATION</text>
+    <text x="1320" y="292" fill="#FFFFFF" font-size="47" font-weight="700">Poryck</text>
+    <text x="1320" y="342" fill="#FFFFFF" font-size="31">now Pavlivka, Ukraine</text>
+    <line x1="1320" y1="386" x2="1780" y2="386" stroke="#536174" stroke-width="2"/>
+    <text x="1320" y="452" fill="#D2A23A" font-size="21" letter-spacing="3">NARRATION FIT</text>
+    <text x="1320" y="504" fill="#E8DFC9" font-size="28">Use when the narration narrows</text>
+    <text x="1320" y="542" fill="#E8DFC9" font-size="28">from the region to Poryck.</text>
+    <text x="1320" y="622" fill="#D2A23A" font-size="21" letter-spacing="3">DO NOT INFER</text>
+    <text x="1320" y="674" fill="#E8DFC9" font-size="27">This pin does not map every</text>
+    <text x="1320" y="712" fill="#E8DFC9" font-size="27">11 July attack or its scale.</text>
+    <rect x="1320" y="792" width="460" height="104" rx="6" fill="#263A55"/>
+    <text x="1350" y="835" fill="#9EB0C5" font-size="20">Coordinates: Wikidata Q9388663</text>
+    <text x="1350" y="869" fill="#9EB0C5" font-size="20">Map base: Poeticbent · PD-self</text>
+  </g>
+</svg>

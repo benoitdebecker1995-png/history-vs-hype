@@ -1,0 +1,68 @@
+You proposed a same-channel counterfactual study to separate a demand ceiling from a supply-quality ceiling. I ran it. Below is the result.
+
+Your job now is ONLY to attack the inference. Do not supply data. In your last pass you reported scores from a tool you cannot run (you said 64/74/69; the real values were 92/87/82) and you cited a 57-second Short as a long-form competitor treatment. Every number below was pulled from the vidIQ API today and verified. If you need a number I have not given you, say "I need X" rather than producing one.
+
+## THE METHOD
+
+For each treatment of "The Donation of Constantine" on YouTube, compare its views against ITS OWN channel's baseline, rather than against absolute views or views-per-subscriber. Long-form only; Shorts excluded.
+
+## SECTION A — the only true surrounding-window comparison available
+
+Stephan's History of the World (69,800 subs, credible neutral English history) published "Lorenzo Valla exposed forged Church documents and corrected the Bible!" on 2026-06-09. It is recent enough that its neighbouring uploads are retrievable.
+
+Five uploads before (2026-05-20 to 06-05): 1,530 / 2,256 / 1,325 / 1,907 / 947
+Five uploads after (06-15 to 07-03): 47,229 / 1,775 / 1,018 / 17,539 / 22,237
+Median of those ten: 1,841
+The Donation/Valla video: 1,172
+RATIO: 0.64x — it underperformed its own channel.
+
+n=1. This is the only video in the field where a true window is computable, because the vidIQ channel endpoint returns "recent" or "popular" uploads, not the ten surrounding an arbitrary past date.
+
+## SECTION B — versus current channel median (biased, direction known)
+
+For older videos the baseline is the channel's CURRENT performance, on a channel that has since grown. The ratio is therefore biased DOWNWARD. Overperformance here is robust; underperformance is ambiguous.
+
+| Channel | Segment | Video (year) | Channel median | Ratio |
+| Massimo Polidoro (IT, 342K) | mainstream skeptic/debunker | 40,432 (2021) | 22,686 | 1.78x |
+| Point of View (TH, 3.95M) | large general history | 255,510 (2024) | 221,648 | 1.15x |
+| Static in the Attic (EN, 94.4K) | conspiracy-adjacent | 15,142 (2025) | 13,798 | 1.10x |
+| Varus PrimaRenatus (RU, 142K) | academic history | 30,370 (2021) | 45,958 | 0.66x |
+
+Excluded: Didascale (FR, 12.5K) would score ~19x, but its baseline is a dump of ~100-view audio-Bible readings, so the denominator is meaningless.
+
+## SECTION C — the content farms are void as evidence
+
+| Channel | Subs | Views | vidIQ outlier score |
+| Buried History | 757 | 63 | 1.02 |
+| The Fire & the Veil | 207 | 61 | 1.11 |
+| Theology Made | 4,930 | 40 | 1.13 |
+
+All three landed at ~1.0x their own baseline. They did not underperform at this topic; their channels are simply not served. The "five farm failures prove low demand" argument is dead.
+
+## SECTION D — an unplanned finding
+
+The same creator covered this subject twice:
+2024-05-12 "The Church's Most Famous Forgery: The Donation of Constantine" — 4,309 views
+2026-06-09 "Lorenzo Valla exposed forged Church documents and corrected the Bible!" — 1,172 views
+
+3.7x for the entity-led title over the scholar-led title. Confounded: the 2024 video has had two extra years to accumulate, and the channel was smaller then.
+
+## MY INFERENCE, WHICH I WANT YOU TO ATTACK
+
+"Demand ceiling, specific to English, sitting near 4,000 views rather than near 30,000. The topic performs at or slightly above baseline on large non-English general-history and skeptic channels, and below baseline on the one credible English channel measurable. This does not kill the video — it kills the breakout expectation and raises the weight on packaging and on shipping a sibling video within four weeks."
+
+## ATTACK THESE SPECIFICALLY
+
+1. Section A is n=1, and the one video is titled around an unrecognisable scholar rather than the famous entity — which is the exact packaging failure my own channel data already documents. Is 0.64x therefore evidence about DEMAND for the topic at all, or only evidence about that title? If the latter, my whole verdict collapses into Section D and I have no demand finding.
+
+2. Is "English-specific weakness" even coherent? Polidoro is a famous TV skeptic; Point of View has 3.95M subs. Both might overperform on ANY topic in their wheelhouse. Am I reading a language effect where the real variable is channel-audience fit?
+
+3. Section C says the farms are void. But is "the channel was never served" actually distinguishable from "the topic could not earn a serve for an unknown channel"? If a topic genuinely had pull, would YouTube not test it even on a 757-sub channel?
+
+4. My downward-bias argument for Section B: I claim old videos on grown channels are biased against overperformance, so 1.78x and 1.15x are robust. Is that right? What else moved between 2021 and now that could produce the same numbers without the topic being strong?
+
+5. Give me the ONE additional measurement that would most change this verdict, with the specific comparison and what each outcome would mean. It must be computable from public YouTube data.
+
+6. If you think the verdict is right, say so plainly and tell me what I should stop spending effort on as a result.
+
+Rank your points by how much they would move the decision. Label speculation as speculation.

@@ -1,1596 +1,1772 @@
 1
-01:00:00,366 --> 01:00:03,566
-<b>In August 1943, a Ukrainian commander</b>
+01:00:00,333 --> 01:00:03,000
+<b>In May 2026, President Zelensky gave a</b>
 
 2
-01:00:03,666 --> 01:00:05,666
-<b>wrote a report to his superiors.</b>
+01:00:03,000 --> 01:00:04,733
+<b>Ukrainian special forces unit, the</b>
 
 3
-01:00:05,933 --> 01:00:08,666
-<b>It reads, "I liquidated all Poles from</b>
+01:00:04,733 --> 01:00:06,133
+<b>honorary name, heroes</b>
 
 4
-01:00:08,666 --> 01:00:10,300
-<b>young to old, I burned</b>
+01:00:06,133 --> 01:00:07,000
+<b>of the UPA.</b>
 
 5
-01:00:10,300 --> 01:00:11,766
-<b>all the buildings and took</b>
+01:00:07,699 --> 01:00:09,400
+<b>Poland's president later withdrew</b>
 
 6
-01:00:11,766 --> 01:00:13,233
-<b>the possessions and livestock for the</b>
+01:00:09,400 --> 01:00:10,333
+<b>Zelensky's order of the</b>
 
 7
-01:00:13,233 --> 01:00:14,433
-<b>needs of the battalion."</b>
+01:00:10,333 --> 01:00:12,133
+<b>white eagle, Poland's highest</b>
 
 8
-01:00:15,033 --> 01:00:18,066
-<b>83 years later, Ukraine's president named</b>
+01:00:12,199 --> 01:00:12,633
+<b>honor.</b>
 
 9
-01:00:18,266 --> 01:00:19,066
-<b>an elite special</b>
+01:00:12,866 --> 01:00:14,833
+<b>And the Polish reaction makes sense once</b>
 
 10
-01:00:19,066 --> 01:00:21,133
-<b>forces unit in the army that</b>
+01:00:14,833 --> 01:00:16,833
+<b>you know what the UPA meant in Poland.</b>
 
 11
-01:00:21,133 --> 01:00:22,766
-<b>commander served in, the</b>
+01:00:17,599 --> 01:00:20,300
+<b>It is tied above Altovonia, where UPA</b>
 
 12
-01:00:22,833 --> 01:00:25,133
-<b>UPA, and called them heroes.</b>
+01:00:20,300 --> 01:00:21,366
+<b>units attacked Polish</b>
 
 13
-01:00:25,666 --> 01:00:27,766
-<b>Three weeks later, Poland took its</b>
+01:00:21,366 --> 01:00:22,566
+<b>communities during the Second</b>
 
 14
-01:00:27,766 --> 01:00:28,699
-<b>highest award back</b>
+01:00:22,599 --> 01:00:24,833
+<b>World War and tens of thousands of Polish</b>
 
 15
-01:00:28,699 --> 01:00:30,166
-<b>from Ukraine's president.</b>
+01:00:24,833 --> 01:00:26,000
+<b>civilians were killed.</b>
 
 16
-01:00:30,833 --> 01:00:33,166
-<b>For Poland, these men were the main</b>
+01:00:26,266 --> 01:00:27,633
+<b>When I first saw this, I thought maybe</b>
 
 17
-01:00:33,166 --> 01:00:34,466
-<b>perpetrators of the Volnya</b>
+01:00:27,633 --> 01:00:29,366
+<b>the answer was actually pretty simple.</b>
 
 18
-01:00:34,466 --> 01:00:37,000
-<b>massacre, so that decree sounded</b>
+01:00:29,566 --> 01:00:32,033
+<b>Maybe Ukraine could honor the UPA because</b>
 
 19
-01:00:37,000 --> 01:00:38,466
-<b>like Germany naming a</b>
+01:00:32,033 --> 01:00:32,966
+<b>Volnya had basically</b>
 
 20
-01:00:38,466 --> 01:00:40,033
-<b>brigade after the SS.</b>
+01:00:32,966 --> 01:00:33,900
+<b>been pushed out of the</b>
 
 21
-01:00:40,800 --> 01:00:41,966
-<b>The killings themselves</b>
+01:00:33,900 --> 01:00:36,133
+<b>story, minimized or explained away.</b>
 
 22
-01:00:41,966 --> 01:00:43,533
-<b>are not seriously disputed.</b>
+01:00:36,433 --> 01:00:38,366
+<b>Then I found a current Ukrainian history</b>
 
 23
-01:00:43,833 --> 01:00:45,233
-<b>The disagreement is what</b>
+01:00:38,400 --> 01:00:40,300
+<b>textbook, which makes that difficult.</b>
 
 24
-01:00:45,233 --> 01:00:46,733
-<b>kind of campaign this was.</b>
+01:00:40,433 --> 01:00:42,166
+<b>It says that the Volnyan leadership of</b>
 
 25
-01:00:47,300 --> 01:00:48,933
-<b>Poland calls it genocide.</b>
+01:00:42,166 --> 01:00:44,166
+<b>OUNB decided to expel</b>
 
 26
-01:00:49,366 --> 01:00:51,433
-<b>Ukraine's memory institute calls it a</b>
+01:00:44,166 --> 01:00:45,500
+<b>the Polish population and</b>
 
 27
-01:00:51,433 --> 01:00:53,300
-<b>second Polish-Ukrainian war.</b>
+01:00:45,500 --> 01:00:47,133
+<b>that UPA units attacked Polish</b>
 
 28
-01:00:53,666 --> 01:00:54,866
-<b>Most English-speaking</b>
+01:00:47,133 --> 01:00:48,766
+<b>settlements in July 1943.</b>
 
 29
-01:00:54,866 --> 01:00:57,066
-<b>historians call it ethnic cleansing.</b>
+01:00:49,366 --> 01:00:51,766
+<b>Later, the same textbook described the</b>
 
 30
-01:00:57,666 --> 01:01:00,133
-<b>Gregor's modica, the leading Polish</b>
+01:00:51,766 --> 01:00:52,900
+<b>UPA's fight against the</b>
 
 31
-01:01:00,133 --> 01:01:01,466
-<b>historian of the subject,</b>
+01:00:52,900 --> 01:00:54,400
+<b>Soviet secret police as</b>
 
 32
-01:01:01,599 --> 01:01:02,866
-<b>calls it genocidal ethnic</b>
+01:00:54,400 --> 01:00:55,466
+<b>a heroic struggle.</b>
 
 33
-01:01:02,900 --> 01:01:03,699
-<b>cleansing.</b>
+01:00:55,533 --> 01:00:56,566
+<b>So that made the question</b>
 
 34
-01:01:04,199 --> 01:01:05,366
-<b>And those aren't just</b>
+01:00:56,566 --> 01:00:57,966
+<b>much more interesting for me.</b>
 
 35
-01:01:05,366 --> 01:01:07,199
-<b>different words for the same thing.</b>
+01:00:58,300 --> 01:01:00,400
+<b>If a current Ukrainian textbook can say</b>
 
 36
-01:01:07,699 --> 01:01:09,333
-<b>A two-sided war means two</b>
+01:01:00,400 --> 01:01:01,866
+<b>this openly, then we</b>
 
 37
-01:01:09,333 --> 01:01:10,699
-<b>sides fighting each other.</b>
+01:01:01,866 --> 01:01:03,266
+<b>can't explain the honor by</b>
 
 38
-01:01:11,099 --> 01:01:13,866
-<b>Ethnic cleansing means organized violence</b>
+01:01:03,266 --> 01:01:03,966
+<b>simply saying that</b>
 
 39
-01:01:13,866 --> 01:01:15,766
-<b>to remove people from a territory.</b>
+01:01:04,033 --> 01:01:05,300
+<b>Volnya has been forgotten.</b>
 
 40
-01:01:16,300 --> 01:01:17,833
-<b>Genocide means the</b>
+01:01:06,033 --> 01:01:08,033
+<b>So why honor the UPA anyway?</b>
 
 41
-01:01:17,833 --> 01:01:19,866
-<b>intention went further than removal.</b>
+01:01:08,400 --> 01:01:10,800
+<b>And especially, why do it now when</b>
 
 42
-01:01:20,266 --> 01:01:22,633
-<b>It means destroying the whole group.</b>
+01:01:10,800 --> 01:01:11,699
+<b>Ukraine is fighting</b>
 
 43
-01:01:23,066 --> 01:01:24,366
-<b>So I wanted to see what the</b>
+01:01:11,699 --> 01:01:13,466
+<b>Russia and it obviously creates</b>
 
 44
-01:01:24,366 --> 01:01:25,933
-<b>documents actually support.</b>
+01:01:13,466 --> 01:01:14,633
+<b>a problem with Poland?</b>
 
 45
-01:01:26,433 --> 01:01:28,633
-<b>Ukraine says these men are being honored</b>
+01:01:14,866 --> 01:01:16,699
+<b>To answer that, I think we have to test</b>
 
 46
-01:01:28,800 --> 01:01:29,833
-<b>because they fought for an</b>
+01:01:16,699 --> 01:01:18,300
+<b>both parts of this properly.</b>
 
 47
-01:01:29,866 --> 01:01:31,199
-<b>independent Ukraine against</b>
+01:01:18,766 --> 01:01:20,400
+<b>First, what exactly was</b>
 
 48
-01:01:31,199 --> 01:01:31,733
-<b>Moscow.</b>
+01:01:20,400 --> 01:01:21,933
+<b>the UPA's role in Volnya?</b>
 
 49
-01:01:32,066 --> 01:01:34,033
-<b>Poland says you cannot separate that from</b>
+01:01:22,333 --> 01:01:24,766
+<b>And then, how real was the independence</b>
 
 50
-01:01:34,033 --> 01:01:34,833
-<b>what the same army</b>
+01:01:24,766 --> 01:01:26,699
+<b>struggle Ukraine says it's honoring?</b>
 
 51
-01:01:34,866 --> 01:01:36,466
-<b>did to Polish civilians.</b>
+01:01:27,533 --> 01:01:28,633
+<b>UPA stands for the</b>
 
 52
-01:01:36,866 --> 01:01:39,633
-<b>For Ukraine, the UPA was an army fighting</b>
+01:01:28,633 --> 01:01:30,266
+<b>Ukrainian Insurgent Army.</b>
 
 53
-01:01:39,633 --> 01:01:40,633
-<b>for independence</b>
+01:01:30,433 --> 01:01:32,233
+<b>It was tied to the Bandera wing of the</b>
 
 54
-01:01:40,633 --> 01:01:42,000
-<b>after almost every hope of</b>
+01:01:32,233 --> 01:01:33,033
+<b>Organization of</b>
 
 55
-01:01:42,000 --> 01:01:43,633
-<b>independence had disappeared.</b>
+01:01:33,033 --> 01:01:35,533
+<b>Ukrainian Nationalists, or OUNB.</b>
 
 56
-01:01:44,266 --> 01:01:46,466
-<b>Bandera led the nationalist faction that</b>
+01:01:35,733 --> 01:01:36,900
+<b>Their goal was an</b>
 
 57
-01:01:46,466 --> 01:01:47,833
-<b>later built the UPA.</b>
+01:01:36,933 --> 01:01:38,566
+<b>independent Ukrainian state.</b>
 
 58
-01:01:48,500 --> 01:01:50,566
-<b>In 1941, that faction</b>
+01:01:38,900 --> 01:01:40,900
+<b>After the First World War, attempts to</b>
 
 59
-01:01:50,566 --> 01:01:52,433
-<b>declared Ukrainian independence.</b>
+01:01:40,900 --> 01:01:42,433
+<b>create that state failed.</b>
 
 60
-01:01:52,733 --> 01:01:53,766
-<b>Germany ordered this</b>
+01:01:42,633 --> 01:01:43,699
+<b>Most of Ukraine became</b>
 
 61
-01:01:53,766 --> 01:01:55,166
-<b>declaration withdrawn.</b>
+01:01:43,733 --> 01:01:44,933
+<b>part of the Soviet Union.</b>
 
 62
-01:01:55,733 --> 01:01:57,933
-<b>The faction refused, so Bandera was</b>
+01:01:45,533 --> 01:01:47,500
+<b>Volnya and Eastern Galicia became part of</b>
 
 63
-01:01:57,933 --> 01:02:00,566
-<b>arrested and later held in Sachsenhausen.</b>
+01:01:47,500 --> 01:01:48,533
+<b>Poland, leaving</b>
 
 64
-01:02:01,333 --> 01:02:03,733
-<b>The underground army he left behind did</b>
+01:01:48,533 --> 01:01:49,933
+<b>millions of Ukrainians inside</b>
 
 65
-01:02:03,733 --> 01:02:04,966
-<b>attack the Germans too,</b>
+01:01:49,933 --> 01:01:51,066
+<b>the Polish state.</b>
 
 66
-01:02:05,133 --> 01:02:06,733
-<b>raiding prisons and ambushing</b>
+01:01:51,533 --> 01:01:53,633
+<b>Under Poland, Ukrainians could vote and</b>
 
 67
-01:02:06,733 --> 01:02:07,533
-<b>convoys.</b>
+01:01:53,633 --> 01:01:55,166
+<b>had legal political parties.</b>
 
 68
-01:02:07,800 --> 01:02:09,900
-<b>But these were small operations.</b>
+01:01:55,333 --> 01:01:57,166
+<b>But there was also repression,</b>
 
 69
-01:02:09,933 --> 01:02:10,766
-<b>They were not going to</b>
+01:01:57,166 --> 01:01:59,333
+<b>restrictions and promises of autonomy</b>
 
 70
-01:02:10,833 --> 01:02:12,300
-<b>change the war against Germany.</b>
+01:01:59,333 --> 01:02:00,566
+<b>that were never fulfilled.</b>
 
 71
-01:02:13,000 --> 01:02:15,300
-<b>After Germany's defeat, the UPA kept</b>
+01:02:01,199 --> 01:02:02,733
+<b>That helps explain why part of the</b>
 
 72
-01:02:15,300 --> 01:02:16,466
-<b>fighting the Soviets</b>
+01:02:02,733 --> 01:02:04,500
+<b>nationalist movement radicalized.</b>
 
 73
-01:02:16,500 --> 01:02:18,500
-<b>into the early 1950s.</b>
+01:02:04,900 --> 01:02:06,300
+<b>It does not make what happened later</b>
 
 74
-01:02:19,066 --> 01:02:19,900
-<b>So that part of the</b>
+01:02:06,533 --> 01:02:07,933
+<b>inevitable and most</b>
 
 75
-01:02:19,900 --> 01:02:21,433
-<b>Ukrainian story is real.</b>
+01:02:07,933 --> 01:02:09,300
+<b>Ukrainians were not members of the</b>
 
 76
-01:02:21,766 --> 01:02:23,633
-<b>These men did fight Moscow.</b>
+01:02:09,300 --> 01:02:09,833
+<b>OUN.</b>
 
 77
-01:02:23,866 --> 01:02:26,599
-<b>And when Russia took Crimea in 2014,</b>
+01:02:10,433 --> 01:02:12,766
+<b>But inside the OUN, the Polish population</b>
 
 78
-01:02:27,166 --> 01:02:28,366
-<b>Ukraine needed figures</b>
+01:02:12,800 --> 01:02:13,733
+<b>also became connected</b>
 
 79
-01:02:28,366 --> 01:02:29,800
-<b>who had done that before.</b>
+01:02:13,733 --> 01:02:15,266
+<b>to a territorial problem.</b>
 
 80
-01:02:30,533 --> 01:02:32,866
-<b>Soviet names came off the streets, Soviet</b>
+01:02:15,400 --> 01:02:17,266
+<b>If a large Polish population was still</b>
 
 81
-01:02:32,866 --> 01:02:34,066
-<b>monuments came down.</b>
+01:02:17,266 --> 01:02:18,333
+<b>living on this land when</b>
 
 82
-01:02:34,400 --> 01:02:36,599
-<b>But 2015 law recognized both the</b>
+01:02:18,333 --> 01:02:20,033
+<b>Europe's borders were redrawn</b>
 
 83
-01:02:36,599 --> 01:02:38,966
-<b>nationalist movement and the UPA as</b>
+01:02:20,099 --> 01:02:22,300
+<b>after another war, Poland could use that</b>
 
 84
-01:02:38,966 --> 01:02:40,233
-<b>fighters for Ukrainian</b>
+01:02:22,300 --> 01:02:24,233
+<b>population to claim the land again.</b>
 
 85
-01:02:40,233 --> 01:02:42,400
-<b>independence, and made it illegal to</b>
+01:02:24,800 --> 01:02:26,833
+<b>One of the OUN's military thinkers,</b>
 
 86
-01:02:42,433 --> 01:02:43,766
-<b>publicly disrespect them.</b>
+01:02:27,033 --> 01:02:27,933
+<b>Michaelo Kolonstinski,</b>
 
 87
-01:02:44,166 --> 01:02:45,633
-<b>The decree from 2026</b>
+01:02:28,500 --> 01:02:29,566
+<b>put that idea into a writing</b>
 
 88
-01:02:45,633 --> 01:02:47,233
-<b>is an extension of that.</b>
+01:02:29,566 --> 01:02:30,433
+<b>before the war.</b>
 
 89
-01:02:47,633 --> 01:02:48,733
-<b>So that's why honoring</b>
+01:02:30,633 --> 01:02:32,666
+<b>He talked about removing what he called</b>
 
 90
-01:02:48,733 --> 01:02:50,199
-<b>these men is useful now.</b>
+01:02:32,699 --> 01:02:33,900
+<b>the "Polish element"</b>
 
 91
-01:02:50,900 --> 01:02:52,166
-<b>But Poland remembers the</b>
+01:02:33,966 --> 01:02:35,233
+<b>and ending Polish claims</b>
 
 92
-01:02:52,166 --> 01:02:54,000
-<b>same army very differently.</b>
+01:02:35,233 --> 01:02:37,300
+<b>to the Polish character of these lands.</b>
 
 93
-01:02:54,500 --> 01:02:57,000
-<b>Its case is that this was neither local</b>
+01:02:37,699 --> 01:02:39,566
+<b>Then the Second World War changed what</b>
 
 94
-01:02:57,033 --> 01:02:58,933
-<b>chaos nor an equal war.</b>
+01:02:39,566 --> 01:02:41,166
+<b>the movement was capable of doing.</b>
 
 95
-01:02:59,500 --> 01:03:00,800
-<b>The UPA set out to</b>
+01:02:41,633 --> 01:02:44,533
+<b>In spring 1943, around 5,000 Ukrainian</b>
 
 96
-01:03:00,800 --> 01:03:02,266
-<b>remove Poles from Warnia.</b>
+01:02:44,533 --> 01:02:45,699
+<b>auxiliary policemen</b>
 
 97
-01:03:03,133 --> 01:03:05,300
-<b>Villages were attacked on the same days.</b>
+01:02:45,733 --> 01:02:47,066
+<b>deserted German service.</b>
 
 98
-01:03:05,699 --> 01:03:07,733
-<b>Commanders reported what they had done.</b>
+01:02:47,099 --> 01:02:49,266
+<b>They did not all end up in the UPA.</b>
 
 99
-01:03:08,066 --> 01:03:09,866
-<b>And 50 to 60 thousand Poles</b>
+01:02:49,466 --> 01:02:51,933
+<b>Some joined willingly, some were forced</b>
 
 100
-01:03:09,866 --> 01:03:11,633
-<b>were killed there in 1943.</b>
+01:02:52,033 --> 01:02:53,966
+<b>and some simply followed their units.</b>
 
 101
-01:03:12,433 --> 01:03:14,066
-<b>Poland's position is not that there was</b>
+01:02:54,133 --> 01:02:56,066
+<b>But those who joined brought weapons,</b>
 
 102
-01:03:14,066 --> 01:03:16,500
-<b>no Polish or Ukrainian violence.</b>
+01:02:56,166 --> 01:02:57,766
+<b>training and experience with them.</b>
 
 103
-01:03:16,766 --> 01:03:18,466
-<b>Its parliament acknowledges crimes</b>
+01:02:58,366 --> 01:02:59,800
+<b>There is one important thing about that</b>
 
 104
-01:03:18,466 --> 01:03:19,233
-<b>against Ukrainian</b>
+01:02:59,800 --> 01:03:00,966
+<b>police service as well.</b>
 
 105
-01:03:19,233 --> 01:03:21,300
-<b>civilians in the same resolution</b>
+01:03:01,366 --> 01:03:03,666
+<b>Some of those auxiliary police formations</b>
 
 106
-01:03:21,300 --> 01:03:23,233
-<b>that caused Warnia a genocide.</b>
+01:03:03,866 --> 01:03:04,666
+<b>had been used by the</b>
 
 107
-01:03:23,733 --> 01:03:26,400
-<b>What Poland does reject is the idea that</b>
+01:03:04,666 --> 01:03:06,099
+<b>Germans in the persecution</b>
 
 108
-01:03:26,400 --> 01:03:29,400
-<b>these reprisals turned</b>
+01:03:06,099 --> 01:03:07,266
+<b>and murder of Jews.</b>
 
 109
-01:03:31,833 --> 01:03:33,500
-<b>the UPA's earlier campaign</b>
+01:03:07,633 --> 01:03:09,633
+<b>That does not mean every policeman who</b>
 
 110
-01:03:33,800 --> 01:03:34,733
-<b>into a spontaneous</b>
+01:03:09,633 --> 01:03:11,233
+<b>later joined the UPA had</b>
 
 111
-01:03:34,733 --> 01:03:36,433
-<b>war between equal sides.</b>
+01:03:11,266 --> 01:03:12,466
+<b>personally participated</b>
 
 112
-01:03:37,000 --> 01:03:39,233
-<b>To understand why this happened, you have</b>
+01:03:12,533 --> 01:03:14,366
+<b>in killing, we cannot say that.</b>
 
 113
-01:03:39,233 --> 01:03:40,966
-<b>to go back to the First World War.</b>
+01:03:14,766 --> 01:03:16,366
+<b>But it does mean that some of the trained</b>
 
 114
-01:03:41,333 --> 01:03:43,433
-<b>After the First World War, Ukrainians</b>
+01:03:16,400 --> 01:03:17,233
+<b>men entering the</b>
 
 115
-01:03:43,433 --> 01:03:45,000
-<b>proclaimed a state of their own.</b>
+01:03:17,233 --> 01:03:19,066
+<b>insurgency came out of units</b>
 
 116
-01:03:45,300 --> 01:03:47,666
-<b>That state lasted about three years.</b>
+01:03:19,066 --> 01:03:19,800
+<b>that had already been</b>
 
 117
-01:03:47,933 --> 01:03:50,233
-<b>The east of Ukraine fell to the Soviets.</b>
+01:03:19,800 --> 01:03:21,266
+<b>used for mass violence.</b>
 
 118
-01:03:50,833 --> 01:03:53,666
-<b>In the west, Warnia and Galicia, both</b>
+01:03:21,633 --> 01:03:24,199
+<b>So by 1943, the idea of removing the</b>
 
 119
-01:03:53,666 --> 01:03:54,833
-<b>borderlands with Poland</b>
+01:03:24,199 --> 01:03:26,000
+<b>Polish population was already there.</b>
 
 120
-01:03:54,866 --> 01:03:56,800
-<b>with a Polish minority, went to</b>
+01:03:26,933 --> 01:03:29,199
+<b>The police desertions now added trained,</b>
 
 121
-01:03:56,800 --> 01:03:57,800
-<b>the new Poland.</b>
+01:03:29,533 --> 01:03:31,400
+<b>armed men to the growing UPA.</b>
 
 122
-01:03:58,366 --> 01:03:59,033
-<b>For Ukrainian</b>
+01:03:32,166 --> 01:03:36,433
+<b>Then on Sunday 11th July 1943, UPA units</b>
 
 123
-01:03:59,033 --> 01:04:00,900
-<b>nationalists, that left a problem.</b>
+01:03:36,433 --> 01:03:37,433
+<b>attacked nearly 100</b>
 
 124
-01:04:01,433 --> 01:04:03,633
-<b>Land full of someone else's people is the</b>
+01:03:37,599 --> 01:03:38,933
+<b>Polish localities in Wolnia.</b>
 
 125
-01:04:03,633 --> 01:04:05,133
-<b>land someone else can claim.</b>
+01:03:39,466 --> 01:03:41,533
+<b>Some attacks struck churches while people</b>
 
 126
-01:04:05,566 --> 01:04:07,400
-<b>Dmitry Donsov became the intellectual</b>
+01:03:41,533 --> 01:03:42,733
+<b>were attending mass.</b>
 
 127
-01:04:07,400 --> 01:04:08,833
-<b>father of the organization</b>
+01:03:42,966 --> 01:03:45,300
+<b>In Porek, survivor Jatwiga Kreyowska</b>
 
 128
-01:04:08,833 --> 01:04:10,333
-<b>of Ukrainian nationalists.</b>
+01:03:45,433 --> 01:03:46,533
+<b>remembered that the first</b>
 
 129
-01:04:10,800 --> 01:04:11,900
-<b>The OUN.</b>
+01:03:46,533 --> 01:03:48,000
+<b>shots came during the Gloria.</b>
 
 130
-01:04:12,766 --> 01:04:13,699
-<b>He made the nation</b>
+01:03:48,666 --> 01:03:49,966
+<b>Porek was only one place</b>
 
 131
-01:04:13,699 --> 01:04:15,166
-<b>the highest moral value.</b>
+01:03:49,966 --> 01:03:51,466
+<b>inside a much larger campaign.</b>
 
 132
-01:04:15,766 --> 01:04:17,666
-<b>If an action helped the nation get its</b>
+01:03:52,033 --> 01:03:55,533
+<b>In Wolnia in 1943, roughly 50-60 thousand</b>
 
 133
-01:04:17,666 --> 01:04:19,833
-<b>state, then the action was moral.</b>
+01:03:55,533 --> 01:03:56,966
+<b>Polish civilians were killed.</b>
 
 134
-01:04:20,566 --> 01:04:21,966
-<b>And one of the movement's military</b>
+01:03:57,333 --> 01:03:59,599
+<b>A few days later, around Hutas de Panska,</b>
 
 135
-01:04:21,966 --> 01:04:23,933
-<b>thinkers, Michailo Kolodinsky,</b>
+01:03:59,966 --> 01:04:01,066
+<b>UPA commander Ivan</b>
 
 136
-01:04:24,300 --> 01:04:26,133
-<b>wrote that the future uprising</b>
+01:04:01,066 --> 01:04:02,933
+<b>Litváncuk filed an operational</b>
 
 137
-01:04:26,266 --> 01:04:29,066
-<b>should sweep away literally to the last</b>
+01:04:02,933 --> 01:04:04,366
+<b>report describing attacks</b>
 
 138
-01:04:29,066 --> 01:04:30,466
-<b>man the Polish element</b>
+01:04:04,366 --> 01:04:06,133
+<b>on 26 Polish settlements.</b>
 
 139
-01:04:30,466 --> 01:04:31,733
-<b>from the Western Ukrainian</b>
+01:04:06,433 --> 01:04:09,366
+<b>So yes, you can actually see UPA</b>
 
 140
-01:04:31,733 --> 01:04:32,400
-<b>lands.</b>
+01:04:09,366 --> 01:04:11,500
+<b>operations against Polish settlements in</b>
 
 141
-01:04:33,133 --> 01:04:35,400
-<b>That by itself does not prove who ordered</b>
+01:04:11,500 --> 01:04:12,666
+<b>their own reporting.</b>
 
 142
-01:04:35,433 --> 01:04:36,800
-<b>the killings in 1943,</b>
+01:04:13,433 --> 01:04:14,599
+<b>Local Ukrainians also</b>
 
 143
-01:04:37,500 --> 01:04:38,500
-<b>but it does show that</b>
+01:04:14,599 --> 01:04:16,066
+<b>took part in some attacks.</b>
 
 144
-01:04:38,533 --> 01:04:40,966
-<b>removing Poles was part of the movement's</b>
+01:04:16,333 --> 01:04:19,099
+<b>That matters because local violence and</b>
 
 145
-01:04:40,966 --> 01:04:42,599
-<b>thinking before the massacre.</b>
+01:04:19,166 --> 01:04:20,900
+<b>UPA violence are not necessarily two</b>
 
 146
-01:04:42,833 --> 01:04:45,466
-<b>On June 30th, Yeroslav Stetsko proclaimed</b>
+01:04:20,900 --> 01:04:22,099
+<b>different explanations.</b>
 
 147
-01:04:45,466 --> 01:04:47,199
-<b>an independent Ukrainian state.</b>
+01:04:22,466 --> 01:04:24,500
+<b>Both could be happening at the same time.</b>
 
 148
-01:04:47,300 --> 01:04:49,699
-<b>The text survives, signed by Stetsko.</b>
+01:04:25,000 --> 01:04:26,833
+<b>And obviously that does not mean every</b>
 
 149
-01:04:50,066 --> 01:04:52,066
-<b>It says the new state would collaborate</b>
+01:04:26,833 --> 01:04:28,366
+<b>local Ukrainian took part.</b>
 
 150
-01:04:52,066 --> 01:04:53,099
-<b>closely with the National</b>
+01:04:28,599 --> 01:04:30,566
+<b>There are also accounts of Ukrainians</b>
 
 151
-01:04:53,099 --> 01:04:54,566
-<b>Socialist Greater Germany,</b>
+01:04:30,599 --> 01:04:31,333
+<b>warning Polish</b>
 
 152
-01:04:54,900 --> 01:04:56,199
-<b>which under the leadership of Adolf</b>
+01:04:31,333 --> 01:04:33,433
+<b>neighbors, hiding them and helping</b>
 
 153
-01:04:56,233 --> 01:04:57,833
-<b>Hitler is creating a new</b>
+01:04:33,433 --> 01:04:34,266
+<b>them escape.</b>
 
 154
-01:04:57,866 --> 01:04:59,433
-<b>order in Europe and the world.</b>
+01:04:34,533 --> 01:04:36,400
+<b>Some Ukrainians were themselves killed</b>
 
 155
-01:05:00,000 --> 01:05:01,000
-<b>This wasn't necessarily</b>
+01:04:36,400 --> 01:04:37,500
+<b>for giving that help.</b>
 
 156
-01:05:01,000 --> 01:05:02,599
-<b>because they were devoted Nazis.</b>
+01:04:37,800 --> 01:04:39,366
+<b>So the question is not really whether</b>
 
 157
-01:05:02,733 --> 01:05:04,366
-<b>It was a practical alliance.</b>
+01:04:39,366 --> 01:04:40,766
+<b>local people participated.</b>
 
 158
-01:05:05,066 --> 01:05:07,300
-<b>After terror, deportations and famine</b>
+01:04:41,166 --> 01:04:41,733
+<b>They did.</b>
 
 159
-01:05:07,599 --> 01:05:09,300
-<b>under Soviet rule, Moscow</b>
+01:04:41,933 --> 01:04:43,633
+<b>The harder question is whether this was</b>
 
 160
-01:05:09,300 --> 01:05:10,566
-<b>was the biggest obstacle</b>
+01:04:43,633 --> 01:04:44,833
+<b>mainly local Polish</b>
 
 161
-01:05:10,599 --> 01:05:11,866
-<b>to an independent Ukraine.</b>
+01:04:44,833 --> 01:04:46,533
+<b>Ukrainian violence exploding</b>
 
 162
-01:05:12,199 --> 01:05:14,699
-<b>The OUN thought Germany might allow a</b>
+01:04:46,566 --> 01:04:48,933
+<b>in the chaos of occupation, with the UPA</b>
 
 163
-01:05:14,699 --> 01:05:15,966
-<b>Ukrainian client state</b>
+01:04:48,966 --> 01:04:50,500
+<b>getting involved, or</b>
 
 164
-01:05:15,966 --> 01:05:17,666
-<b>like Slovakia or Croatia.</b>
+01:04:50,633 --> 01:04:52,400
+<b>whether OUN and UPA structures</b>
 
 165
-01:05:18,000 --> 01:05:19,666
-<b>It wanted Ukraine as a territory to</b>
+01:04:52,400 --> 01:04:54,233
+<b>were themselves organizing a wider</b>
 
 166
-01:05:19,666 --> 01:05:21,366
-<b>exploit, not as a country</b>
+01:04:54,266 --> 01:04:55,533
+<b>anti-Polish campaign.</b>
 
 167
-01:05:21,400 --> 01:05:22,866
-<b>allowed to govern itself.</b>
+01:04:55,733 --> 01:04:57,733
+<b>And one way to test that is to compare</b>
 
 168
-01:05:23,199 --> 01:05:25,266
-<b>Bandań and Stetsko refused to withdraw</b>
+01:04:57,733 --> 01:04:58,533
+<b>what the movement said</b>
 
 169
-01:05:25,266 --> 01:05:27,766
-<b>the declaration and both were arrested.</b>
+01:04:58,566 --> 01:05:00,000
+<b>publicly with what it said</b>
 
 170
-01:05:27,966 --> 01:05:29,233
-<b>Later, the movement</b>
+01:05:00,000 --> 01:05:00,633
+<b>internally.</b>
 
 171
-01:05:29,233 --> 01:05:30,500
-<b>changed this document.</b>
+01:05:01,266 --> 01:05:04,033
+<b>In October 1943, the OUN publicly</b>
 
 172
-01:05:30,833 --> 01:05:33,000
-<b>OUN emigres reprinted it without the</b>
+01:05:04,033 --> 01:05:05,800
+<b>described the violence as</b>
 
 173
-01:05:33,033 --> 01:05:33,933
-<b>passage promising</b>
+01:05:05,800 --> 01:05:07,433
+<b>part of a wider Polish-Ukrainian</b>
 
 174
-01:05:33,966 --> 01:05:35,533
-<b>collaboration with Hitler's Germany.</b>
+01:05:07,433 --> 01:05:08,166
+<b>conflict.</b>
 
 175
-01:05:35,833 --> 01:05:37,933
-<b>An edited version was later displayed in</b>
+01:05:08,566 --> 01:05:11,099
+<b>It blamed Polish interwar policy, the</b>
 
 176
-01:05:37,933 --> 01:05:39,966
-<b>a Bandań Museum outside of Lviv.</b>
+01:05:11,099 --> 01:05:12,233
+<b>Polish underground,</b>
 
 177
-01:05:40,733 --> 01:05:41,766
-<b>That does not prove a</b>
+01:05:12,466 --> 01:05:14,533
+<b>Polish auxiliary police, Soviet</b>
 
 178
-01:05:41,766 --> 01:05:43,533
-<b>Vonia order was destroyed.</b>
+01:05:14,533 --> 01:05:16,666
+<b>partisans and the German occupation.</b>
 
 179
-01:05:43,633 --> 01:05:46,000
-<b>It shows that the movement knew what part</b>
+01:05:17,233 --> 01:05:19,099
+<b>It talked about massacres on both sides</b>
 
 180
-01:05:46,000 --> 01:05:47,866
-<b>of its record was difficult to keep.</b>
+01:05:19,099 --> 01:05:20,099
+<b>and said that the OUN</b>
 
 181
-01:05:48,199 --> 01:05:50,666
-<b>German repression pushed the OUN B</b>
+01:05:20,266 --> 01:05:21,466
+<b>opposed the conflict.</b>
 
 182
-01:05:50,766 --> 01:05:51,900
-<b>underground and read</b>
+01:05:21,666 --> 01:05:23,066
+<b>That's how the movement explained what</b>
 
 183
-01:05:51,900 --> 01:05:53,333
-<b>the Genn building an army.</b>
+01:05:23,066 --> 01:05:24,233
+<b>was happening publicly.</b>
 
 184
-01:05:53,866 --> 01:05:56,966
-<b>By 1942, thousands of Ukrainians who had</b>
+01:05:24,599 --> 01:05:26,000
+<b>Now look at this.</b>
 
 185
-01:05:56,966 --> 01:05:59,366
-<b>later joined the UPA were serving as</b>
+01:05:26,099 --> 01:05:27,800
+<b>This is an internal security service</b>
 
 186
-01:05:59,400 --> 01:06:00,933
-<b>German auxiliary policemen.</b>
+01:05:27,800 --> 01:05:29,133
+<b>report from the Zagrava</b>
 
 187
-01:06:01,133 --> 01:06:03,300
-<b>They helped the occupation keep order and</b>
+01:05:29,133 --> 01:05:30,533
+<b>military district in eastern</b>
 
 188
-01:06:03,300 --> 01:06:04,766
-<b>random Jews for murder.</b>
+01:05:30,533 --> 01:05:30,966
+<b>Wonya.</b>
 
 189
-01:06:04,966 --> 01:06:07,033
-<b>Some joined for the salary and food.</b>
+01:05:31,333 --> 01:05:32,233
+<b>It covers roughly</b>
 
 190
-01:06:07,266 --> 01:06:08,833
-<b>Others wanted to keep their families out</b>
+01:05:32,233 --> 01:05:34,333
+<b>mid-September to mid-October 1943.</b>
 
 191
-01:06:08,833 --> 01:06:10,366
-<b>of forced labor roundups.</b>
+01:05:35,166 --> 01:05:37,199
+<b>And this is what it says about the Poles.</b>
 
 192
-01:06:10,733 --> 01:06:12,800
-<b>And some wanted the power the uniform</b>
+01:05:37,433 --> 01:05:39,199
+<b>The action of destroying the Poles did</b>
 
 193
-01:06:12,833 --> 01:06:14,366
-<b>gave them over their neighbors.</b>
+01:05:39,199 --> 01:05:40,933
+<b>not bring the expected results.</b>
 
 194
-01:06:14,800 --> 01:06:16,433
-<b>The nationalist leadership had also</b>
+01:05:41,133 --> 01:05:43,099
+<b>The next sentence says that the active</b>
 
 195
-01:06:16,433 --> 01:06:18,300
-<b>ordered its own members into the police</b>
+01:05:43,099 --> 01:05:45,199
+<b>Polish element had largely survived.</b>
 
 196
-01:06:18,300 --> 01:06:20,266
-<b>to gain training and collect weapons.</b>
+01:05:45,733 --> 01:05:47,166
+<b>So internally they're calling this an</b>
 
 197
-01:06:20,533 --> 01:06:21,533
-<b>What they needed at Army</b>
+01:05:47,233 --> 01:05:48,033
+<b>action and they're</b>
 
 198
-01:06:21,533 --> 01:06:23,233
-<b>4 became clear in 1943.</b>
+01:05:48,066 --> 01:05:49,366
+<b>asking whether it worked.</b>
 
 199
-01:06:24,033 --> 01:06:25,333
-<b>Germany was losing.</b>
+01:05:49,800 --> 01:05:51,199
+<b>That line is important.</b>
 
 200
-01:06:25,433 --> 01:06:27,433
-<b>The nationalist leadership expected the</b>
+01:05:51,433 --> 01:05:53,766
+<b>What exactly was the expected result?</b>
 
 201
-01:06:27,433 --> 01:06:29,666
-<b>map of Eastern Europe to be redrawn again</b>
+01:05:53,800 --> 01:05:54,733
+<b>Killing everybody?</b>
 
 202
-01:06:29,866 --> 01:06:32,166
-<b>and believed a restored Poland would try</b>
+01:05:54,800 --> 01:05:56,266
+<b>Forcing people to flee?</b>
 
 203
-01:06:32,166 --> 01:06:33,366
-<b>to reclaim the region.</b>
+01:05:56,633 --> 01:05:57,533
+<b>Removing the Polish</b>
 
 204
-01:06:33,766 --> 01:06:35,366
-<b>Around 5,000 policemen</b>
+01:05:57,533 --> 01:05:58,966
+<b>population from the territory?</b>
 
 205
-01:06:35,400 --> 01:06:37,366
-<b>deserted German service that spring</b>
+01:05:59,533 --> 01:06:01,000
+<b>Some combination of those?</b>
 
 206
-01:06:37,366 --> 01:06:38,900
-<b>and joined the nationalist underground</b>
+01:06:01,033 --> 01:06:02,233
+<b>This sentence by itself</b>
 
 207
-01:06:38,933 --> 01:06:40,333
-<b>with their weapons and training.</b>
+01:06:02,233 --> 01:06:03,266
+<b>does not tell us that.</b>
 
 208
-01:06:40,900 --> 01:06:41,766
-<b>A policeman named</b>
+01:06:03,533 --> 01:06:04,699
+<b>So you have to put it beside the</b>
 
 209
-01:06:41,766 --> 01:06:43,833
-<b>Redeschamp later explained.</b>
+01:06:04,699 --> 01:06:06,599
+<b>territorial ideas we just looked at.</b>
 
 210
-01:06:44,266 --> 01:06:46,166
-<b>"We burned Polish settlements so there</b>
+01:06:06,766 --> 01:06:08,633
+<b>The attacks themselves and the other</b>
 
 211
-01:06:46,166 --> 01:06:48,133
-<b>would be no trace of their existence</b>
+01:06:08,633 --> 01:06:09,833
+<b>operational reports.</b>
 
 212
-01:06:48,400 --> 01:06:50,099
-<b>and so that the Poles would never again</b>
+01:06:10,366 --> 01:06:12,733
+<b>Taken together, that evidence shows</b>
 
 213
-01:06:50,166 --> 01:06:51,866
-<b>try to lay claim to Ukraine."</b>
+01:06:12,766 --> 01:06:14,000
+<b>anti-Polish actions being</b>
 
 214
-01:06:52,300 --> 01:06:54,566
-<b>Now the idea had meant to carry it out.</b>
+01:06:14,033 --> 01:06:16,133
+<b>carried out, reported on and</b>
 
 215
-01:06:55,033 --> 01:06:59,233
-<b>On Sunday, July 11th, 1943, the UPA hid</b>
+01:06:16,133 --> 01:06:18,900
+<b>evaluated through OUN and UPA structures.</b>
 
 216
-01:06:59,233 --> 01:07:00,300
-<b>around 100 Polish</b>
+01:06:18,966 --> 01:06:20,699
+<b>That still does not give us a neat sign</b>
 
 217
-01:07:00,333 --> 01:07:01,800
-<b>villages at the same time.</b>
+01:06:20,699 --> 01:06:21,966
+<b>central order saying</b>
 
 218
-01:07:02,300 --> 01:07:04,033
-<b>Many villagers were at mass.</b>
+01:06:22,066 --> 01:06:23,099
+<b>"do this everywhere".</b>
 
 219
-01:07:04,566 --> 01:07:07,000
-<b>In Porek, attackers surrounded the church</b>
+01:06:23,400 --> 01:06:24,333
+<b>We don't have that.</b>
 
 220
-01:07:07,000 --> 01:07:09,033
-<b>and fired machine guns through the doors.</b>
+01:06:24,433 --> 01:06:26,533
+<b>And this same report complains about weak</b>
 
 221
-01:07:09,300 --> 01:07:10,833
-<b>Around 200 people died in</b>
+01:06:26,533 --> 01:06:27,666
+<b>higher level control</b>
 
 222
-01:07:10,833 --> 01:07:12,066
-<b>that village that morning.</b>
+01:06:27,666 --> 01:06:29,099
+<b>over local security service</b>
 
 223
-01:07:12,333 --> 01:07:15,233
-<b>Around 4,000 died across Wolnia that day.</b>
+01:06:29,099 --> 01:06:29,833
+<b>structures.</b>
 
 224
-01:07:15,833 --> 01:07:19,599
-<b>By the end of 1943, 50 to 60,000 Poles</b>
+01:06:29,933 --> 01:06:32,233
+<b>So the internal record itself is messier</b>
 
 225
-01:07:19,599 --> 01:07:20,633
-<b>were dead in Wolnia.</b>
+01:06:32,233 --> 01:06:34,066
+<b>than a perfectly top-down picture.</b>
 
 226
-01:07:21,266 --> 01:07:23,233
-<b>A Polish husband and wife team, the</b>
+01:06:34,266 --> 01:06:36,066
+<b>But whatever was happening locally, this</b>
 
 227
-01:07:23,233 --> 01:07:24,633
-<b>Simaszkos, spent</b>
+01:06:36,066 --> 01:06:37,933
+<b>was not separate from the organization.</b>
 
 228
-01:07:24,633 --> 01:07:26,133
-<b>decades building a registry.</b>
+01:06:38,000 --> 01:06:39,766
+<b>Its own people are reporting on the</b>
 
 229
-01:07:26,566 --> 01:07:27,300
-<b>Their volumes</b>
+01:06:39,833 --> 01:06:41,033
+<b>anti-Polish action</b>
 
 230
-01:07:27,300 --> 01:07:29,533
-<b>contained around 36,000 names.</b>
+01:06:41,099 --> 01:06:42,400
+<b>and judging the result.</b>
 
 231
-01:07:29,733 --> 01:07:31,333
-<b>The Ukrainian version is</b>
+01:06:43,000 --> 01:06:45,066
+<b>And that gets much closer to why Poland</b>
 
 232
-01:07:31,333 --> 01:07:32,699
-<b>right about one more thing.</b>
+01:06:45,066 --> 01:06:47,400
+<b>objects to honoring the UPA name itself.</b>
 
 233
-01:07:33,133 --> 01:07:34,966
-<b>Poles also killed Ukrainians.</b>
+01:06:47,433 --> 01:06:49,533
+<b>Ukraine says it is honoring the UPA</b>
 
 234
-01:07:35,400 --> 01:07:36,400
-<b>Polish attacks came</b>
+01:06:49,566 --> 01:06:50,266
+<b>because it fought for</b>
 
 235
-01:07:36,433 --> 01:07:38,166
-<b>back the other way in 1944.</b>
+01:06:50,266 --> 01:06:51,566
+<b>an independent Ukraine.</b>
 
 236
-01:07:38,966 --> 01:07:41,966
-<b>And in 1947, communist Poland deported</b>
+01:06:52,000 --> 01:06:53,266
+<b>So did it.</b>
 
 237
-01:07:41,966 --> 01:07:43,533
-<b>around 140,000</b>
+01:06:53,733 --> 01:06:54,733
+<b>And it was that war than</b>
 
 238
-01:07:43,566 --> 01:07:45,400
-<b>Ukrainians in Operation Vistula.</b>
+01:06:54,733 --> 01:06:56,333
+<b>just some small guerrilla war.</b>
 
 239
-01:07:46,133 --> 01:07:48,233
-<b>But the timing and scale were not equal.</b>
+01:06:56,500 --> 01:06:59,199
+<b>In 1943, the UPA published a leaflet</b>
 
 240
-01:07:48,766 --> 01:07:50,133
-<b>Timothy Snyder, working</b>
+01:06:59,199 --> 01:07:00,533
+<b>calling "What the Ukrainian</b>
 
 241
-01:07:50,133 --> 01:07:51,466
-<b>from Moptikka's research,</b>
+01:07:00,566 --> 01:07:01,866
+<b>insurgent army is fighting</b>
 
 242
-01:07:51,566 --> 01:07:54,166
-<b>puts the wider conflict at roughly 70,000</b>
+01:07:01,866 --> 01:07:02,233
+<b>for".</b>
 
 243
-01:07:54,199 --> 01:07:57,133
-<b>dead Poles to 20,000 dead Ukrainians.</b>
+01:07:02,433 --> 01:07:04,199
+<b>It says the UPA is fighting for an</b>
 
 244
-01:07:57,266 --> 01:07:59,099
-<b>And it wasn't Poles against Ukrainians as</b>
+01:07:04,199 --> 01:07:05,433
+<b>independent, united</b>
 
 245
-01:07:59,099 --> 01:08:00,466
-<b>whole peoples either.</b>
+01:07:05,466 --> 01:07:07,466
+<b>Ukrainian state and against Russian</b>
 
 246
-01:08:00,833 --> 01:08:03,400
-<b>The UPA's own security service shot</b>
+01:07:07,466 --> 01:07:09,433
+<b>Bolshevik and German occupiers.</b>
 
 247
-01:08:03,400 --> 01:08:05,599
-<b>Ukrainians at considered unreliable,</b>
+01:07:09,533 --> 01:07:10,366
+<b>That tells us what the</b>
 
 248
-01:08:05,933 --> 01:08:08,500
-<b>including men who refused to kill Poles.</b>
+01:07:10,366 --> 01:07:11,833
+<b>movement said about itself.</b>
 
 249
-01:08:08,666 --> 01:08:09,566
-<b>So the part about</b>
+01:07:11,900 --> 01:07:13,433
+<b>But did they actually keep fighting the</b>
 
 250
-01:08:09,599 --> 01:08:11,266
-<b>Polish reprisals is real.</b>
+01:07:13,433 --> 01:07:15,599
+<b>Soviet rule once the Red Army came back?</b>
 
 251
-01:08:11,766 --> 01:08:14,066
-<b>But most serious historians don't accept</b>
+01:07:15,633 --> 01:07:16,466
+<b>This is where Soviet</b>
 
 252
-01:08:14,066 --> 01:08:15,333
-<b>the spontaneous part.</b>
+01:07:16,466 --> 01:07:18,033
+<b>records become much more useful.</b>
 
 253
-01:08:15,500 --> 01:08:16,866
-<b>Jared McBride calls</b>
+01:07:18,133 --> 01:07:21,033
+<b>In June 1945, the Ukrainian Soviet secret</b>
 
 254
-01:08:16,866 --> 01:08:18,066
-<b>this ethnic cleansing.</b>
+01:07:21,033 --> 01:07:22,500
+<b>police sent instructions</b>
 
 255
-01:08:18,266 --> 01:08:19,433
-<b>Ivan Katamzowski</b>
+01:07:22,500 --> 01:07:23,733
+<b>to its regional officers</b>
 
 256
-01:08:19,433 --> 01:08:21,300
-<b>rejects the genocide label,</b>
+01:07:23,733 --> 01:07:25,433
+<b>about OUN members getting</b>
 
 257
-01:08:21,433 --> 01:08:23,566
-<b>but still calls it one-sided ethnic</b>
+01:07:25,433 --> 01:07:27,033
+<b>inside Soviet institutions.</b>
 
 258
-01:08:23,566 --> 01:08:27,233
-<b>cleansing organized by the OUNB, the UPA,</b>
+01:07:27,466 --> 01:07:29,233
+<b>The document says they were working</b>
 
 259
-01:08:27,333 --> 01:08:28,800
-<b>and its security service.</b>
+01:07:29,233 --> 01:07:29,800
+<b>inside local</b>
 
 260
-01:08:29,233 --> 01:08:31,133
-<b>Moptikka goes further and calls it</b>
+01:07:29,800 --> 01:07:32,266
+<b>administrations, land agencies, post</b>
 
 261
-01:08:31,133 --> 01:08:32,766
-<b>genocidal ethnic cleansing.</b>
+01:07:32,266 --> 01:07:34,699
+<b>and telephone services, military offices</b>
 
 262
-01:08:33,166 --> 01:08:35,000
-<b>The disagreement between those historians</b>
+01:07:34,733 --> 01:07:36,433
+<b>and other Soviet institutions.</b>
 
 263
-01:08:35,000 --> 01:08:36,833
-<b>is narrower than the political one.</b>
+01:07:36,599 --> 01:07:38,033
+<b>They were gathering information about</b>
 
 264
-01:08:36,966 --> 01:08:39,266
-<b>They agree this was organized violence to</b>
+01:07:38,033 --> 01:07:39,433
+<b>officials, security</b>
 
 265
-01:08:39,266 --> 01:08:41,366
-<b>remove the Polish population from Wolnia.</b>
+01:07:39,433 --> 01:07:41,133
+<b>arrangements, prisoners and troop</b>
 
 266
-01:08:41,866 --> 01:08:44,266
-<b>They disagree about whether the aim was</b>
+01:07:41,133 --> 01:07:41,766
+<b>movements.</b>
 
 267
-01:08:44,266 --> 01:08:46,000
-<b>removal or destruction,</b>
+01:07:42,033 --> 01:07:43,033
+<b>And that information</b>
 
 268
-01:08:46,333 --> 01:08:48,100
-<b>and about how close the surviving</b>
+01:07:43,033 --> 01:07:44,533
+<b>could be used to plan attacks.</b>
 
 269
-01:08:48,100 --> 01:08:50,533
-<b>documents take us to the men at the top.</b>
+01:07:45,033 --> 01:07:47,366
+<b>The NKVD document actually warns that</b>
 
 270
-01:08:50,699 --> 01:08:52,800
-<b>The report I started the video with is an</b>
+01:07:47,599 --> 01:07:48,866
+<b>Soviet institutions and</b>
 
 271
-01:08:52,800 --> 01:08:54,600
-<b>example of what we do have.</b>
+01:07:48,900 --> 01:07:50,466
+<b>enterprises are swamped by</b>
 
 272
-01:08:55,166 --> 01:08:56,199
-<b>A commander had just</b>
+01:07:50,466 --> 01:07:51,666
+<b>a hostile element.</b>
 
 273
-01:08:56,199 --> 01:08:58,133
-<b>destroyed two Polish villages,</b>
+01:07:51,733 --> 01:07:52,599
+<b>Those are the people</b>
 
 274
-01:08:58,233 --> 01:08:59,433
-<b>and he was reporting a</b>
+01:07:52,599 --> 01:07:53,933
+<b>trying to destroy the movement.</b>
 
 275
-01:08:59,433 --> 01:09:01,833
-<b>Finnish job up to his superiors.</b>
+01:07:54,099 --> 01:07:56,099
+<b>And their own records are saying OUN</b>
 
 276
-01:09:02,266 --> 01:09:04,133
-<b>That is not a mob of angry people.</b>
+01:07:56,133 --> 01:07:57,633
+<b>members are getting inside Soviet</b>
 
 277
-01:09:04,266 --> 01:09:05,899
-<b>It is an officer working</b>
+01:07:57,633 --> 01:07:59,066
+<b>institutions, collecting</b>
 
 278
-01:09:05,899 --> 01:09:07,399
-<b>inside a chain of command.</b>
+01:07:59,066 --> 01:07:59,900
+<b>intelligence and</b>
 
 279
-01:09:07,766 --> 01:09:10,133
-<b>And if we look at UPA internal directives</b>
+01:07:59,900 --> 01:08:01,599
+<b>helping armed groups operate.</b>
 
 280
-01:09:10,133 --> 01:09:12,466
-<b>from 1944, one ends</b>
+01:08:01,933 --> 01:08:03,833
+<b>Soviet records also describe major</b>
 
 281
-01:09:12,466 --> 01:09:13,699
-<b>with a standing greeting.</b>
+01:08:03,833 --> 01:08:05,500
+<b>operations, arrests,</b>
 
 282
-01:09:14,266 --> 01:09:16,666
-<b>Weapons ready, death to Poles.</b>
+01:08:05,666 --> 01:08:08,033
+<b>infiltration and deportations aimed</b>
 
 283
-01:09:17,033 --> 01:09:18,533
-<b>But if we follow these reports back to</b>
+01:08:08,033 --> 01:08:09,466
+<b>at destroying the underground and the</b>
 
 284
-01:09:18,533 --> 01:09:19,800
-<b>the top, at a certain</b>
+01:08:09,466 --> 01:08:10,699
+<b>people supporting it.</b>
 
 285
-01:09:19,800 --> 01:09:21,300
-<b>point the paper stops.</b>
+01:08:10,866 --> 01:08:14,166
+<b>So this really was an organized</b>
 
 286
-01:09:21,566 --> 01:09:24,166
-<b>The Volian UPA commander was Dmytrio</b>
+01:08:14,166 --> 01:08:15,866
+<b>resistance, not only something the</b>
 
 287
-01:09:24,166 --> 01:09:26,899
-<b>Krijakzkiewski, known as Klim Stavur.</b>
+01:08:15,866 --> 01:08:16,800
+<b>movement claimed about</b>
 
 288
-01:09:27,300 --> 01:09:29,066
-<b>Administrative and military orders</b>
+01:08:16,800 --> 01:08:17,566
+<b>itself.</b>
 
 289
-01:09:29,066 --> 01:09:30,966
-<b>bearing his signatures survive.</b>
+01:08:18,100 --> 01:08:20,600
+<b>By the end of the 1940s, the large UPA</b>
 
 290
-01:09:31,066 --> 01:09:33,500
-<b>Some Polish historians cite the directive</b>
+01:08:20,633 --> 01:08:22,533
+<b>formations had mostly disappeared.</b>
 
 291
-01:09:33,533 --> 01:09:34,633
-<b>they describe as Klim</b>
+01:08:22,899 --> 01:08:25,000
+<b>But smaller OUN and security service</b>
 
 292
-01:09:34,633 --> 01:09:35,800
-<b>Stavur's signed order</b>
+01:08:25,000 --> 01:08:27,566
+<b>groups continued into the 1950s.</b>
 
 293
-01:09:35,800 --> 01:09:37,500
-<b>to destroy the Polish population.</b>
+01:08:27,766 --> 01:08:29,566
+<b>And the underground also coerced and</b>
 
 294
-01:09:37,666 --> 01:09:39,433
-<b>But the original comes from the same</b>
+01:08:29,566 --> 01:08:30,666
+<b>killed Ukrainians, it's</b>
 
 295
-01:09:39,500 --> 01:09:42,266
-<b>archive complex nobody can inspect today.</b>
+01:08:30,666 --> 01:08:31,633
+<b>suspected of helping the</b>
 
 296
-01:09:42,366 --> 01:09:44,166
-<b>So the real problem is not that nobody</b>
+01:08:31,633 --> 01:08:32,333
+<b>Soviets.</b>
 
 297
-01:09:44,166 --> 01:09:46,699
-<b>has ever claimed a signed order existed.</b>
+01:08:32,633 --> 01:08:34,933
+<b>So no, recognizing that the struggle was</b>
 
 298
-01:09:46,933 --> 01:09:48,666
-<b>It's that nobody can produce an</b>
+01:08:34,933 --> 01:08:36,266
+<b>real does not make these</b>
 
 299
-01:09:48,666 --> 01:09:49,966
-<b>authenticated kill</b>
+01:08:36,266 --> 01:08:37,866
+<b>people angels or excuse</b>
 
 300
-01:09:50,000 --> 01:09:51,600
-<b>order bearing his signature</b>
+01:08:37,899 --> 01:08:39,199
+<b>everything else they did.</b>
 
 301
-01:09:51,766 --> 01:09:53,633
-<b>that all sites can inspect.</b>
+01:08:39,533 --> 01:08:40,966
+<b>But the struggle was real.</b>
 
 302
-01:09:54,000 --> 01:09:55,333
-<b>The closest evidence we do</b>
+01:08:41,166 --> 01:08:42,899
+<b>Now let's go back to the textbook.</b>
 
 303
-01:09:55,333 --> 01:09:57,000
-<b>have are two pieces of paper,</b>
+01:08:43,100 --> 01:08:44,733
+<b>The part about expelling Poles and</b>
 
 304
-01:09:57,266 --> 01:09:58,166
-<b>both from a UPA</b>
+01:08:44,733 --> 01:08:45,966
+<b>attacking Polish settlements</b>
 
 305
-01:09:58,166 --> 01:10:00,333
-<b>commander named Yuri Stelmakzuk.</b>
+01:08:46,000 --> 01:08:47,199
+<b>is supported by the historical</b>
 
 306
-01:10:00,633 --> 01:10:02,933
-<b>The first is a confession from 1945.</b>
+01:08:47,199 --> 01:08:47,800
+<b>record.</b>
 
 307
-01:10:03,699 --> 01:10:06,233
-<b>After he was captured, Stelmakzuk told</b>
+01:08:48,066 --> 01:08:49,033
+<b>So is the part about</b>
 
 308
-01:10:06,233 --> 01:10:08,399
-<b>Soviet interrogators that Klyrzkiewski</b>
+01:08:49,066 --> 01:08:50,300
+<b>fighting Soviet rule.</b>
 
 309
-01:10:08,566 --> 01:10:10,933
-<b>had given him the secret directive about</b>
+01:08:50,466 --> 01:08:53,300
+<b>Both basic claims check out, but only one</b>
 
 310
-01:10:10,933 --> 01:10:11,866
-<b>the complete physical</b>
+01:08:53,300 --> 01:08:54,733
+<b>gets described as heroic.</b>
 
 311
-01:10:11,866 --> 01:10:13,800
-<b>destruction of the Polish population.</b>
+01:08:54,933 --> 01:08:56,833
+<b>One textbook obviously cannot tell us</b>
 
 312
-01:10:13,933 --> 01:10:15,766
-<b>That confession was recorded under duress</b>
+01:08:56,833 --> 01:08:57,766
+<b>what every Ukrainian</b>
 
 313
-01:10:15,766 --> 01:10:17,333
-<b>and in the interrogator's wording,</b>
+01:08:57,766 --> 01:08:59,466
+<b>thinks, but it does show how</b>
 
 314
-01:10:17,533 --> 01:10:18,766
-<b>so it cannot be treated</b>
+01:08:59,466 --> 01:09:01,199
+<b>these two things can coexist.</b>
 
 315
-01:10:18,966 --> 01:10:20,500
-<b>like a voluntary statement.</b>
+01:09:01,533 --> 01:09:03,933
+<b>Volnya can be there in the history and at</b>
 
 316
-01:10:20,766 --> 01:10:23,066
-<b>Viatrovich says Soviet investigators</b>
+01:09:03,933 --> 01:09:05,033
+<b>the same time the</b>
 
 317
-01:10:23,066 --> 01:10:25,466
-<b>fabricated or manipulated it to discredit</b>
+01:09:05,033 --> 01:09:06,399
+<b>anti-Soviet struggle can</b>
 
 318
-01:10:25,466 --> 01:10:27,300
-<b>the Ukrainian independence movement.</b>
+01:09:06,399 --> 01:09:07,800
+<b>become the part of the UPA's</b>
 
 319
-01:10:27,800 --> 01:10:30,433
-<b>But a copy sits in Ukraine's own archive,</b>
+01:09:07,800 --> 01:09:09,500
+<b>history that gets commemorated.</b>
 
 320
-01:10:30,733 --> 01:10:32,366
-<b>filed there in 1963.</b>
+01:09:09,766 --> 01:09:10,766
+<b>That idea was already</b>
 
 321
-01:10:32,966 --> 01:10:35,233
-<b>Another published copy carries a Soviet</b>
+01:09:10,766 --> 01:09:12,566
+<b>developing before the current war.</b>
 
 322
-01:10:35,233 --> 01:10:36,166
-<b>general's handwritten</b>
+01:09:12,766 --> 01:09:15,033
+<b>The 2010 Ukrainian presidential decree</b>
 
 323
-01:10:36,166 --> 01:10:38,600
-<b>notes, dated April 1945.</b>
+01:09:15,199 --> 01:09:17,166
+<b>includes OUN and UPA members</b>
 
 324
-01:10:39,133 --> 01:10:40,533
-<b>That makes it difficult to say the</b>
+01:09:17,233 --> 01:09:18,800
+<b>among 20th century fighters</b>
 
 325
-01:10:40,566 --> 01:10:41,600
-<b>document itself was</b>
+01:09:18,833 --> 01:09:20,300
+<b>for Ukrainian independence.</b>
 
 326
-01:10:41,600 --> 01:10:43,266
-<b>invented decades later.</b>
+01:09:20,533 --> 01:09:23,866
+<b>Then in 2015, after Russia seized Crimea</b>
 
 327
-01:10:43,433 --> 01:10:44,899
-<b>It does not prove the confession was</b>
+01:09:23,933 --> 01:09:24,800
+<b>and the war in Donbas</b>
 
 328
-01:10:44,899 --> 01:10:46,466
-<b>voluntary or that every</b>
+01:09:24,800 --> 01:09:26,433
+<b>began, Ukraine passed a</b>
 
 329
-01:10:46,466 --> 01:10:47,866
-<b>word came from Stelmakzuk.</b>
+01:09:26,433 --> 01:09:28,899
+<b>law recognizing OUN and UPA as</b>
 
 330
-01:10:48,266 --> 01:10:51,133
-<b>The second piece is older and stronger, a</b>
+01:09:28,899 --> 01:09:30,300
+<b>organizations which fought</b>
 
 331
-01:10:51,133 --> 01:10:52,899
-<b>letter from June 1943.</b>
+01:09:30,300 --> 01:09:32,033
+<b>for Ukrainian independence and</b>
 
 332
-01:10:53,333 --> 01:10:54,433
-<b>Written while the killing</b>
+01:09:32,033 --> 01:09:33,166
+<b>made commemoration of that</b>
 
 333
-01:10:54,433 --> 01:10:56,333
-<b>was underway, Stelmakzuk</b>
+01:09:33,166 --> 01:09:34,766
+<b>struggle part of state policy.</b>
 
 334
-01:10:56,633 --> 01:10:58,066
-<b>doubted that the order had come from</b>
+01:09:35,000 --> 01:09:35,766
+<b>And I think the change</b>
 
 335
-01:10:58,066 --> 01:11:00,766
-<b>Klyrzkiewski, so he wrote to the OUN</b>
+01:09:35,766 --> 01:09:37,966
+<b>after 2014 is pretty obvious.</b>
 
 336
-01:11:00,899 --> 01:11:02,033
-<b>leadership to check.</b>
+01:09:38,199 --> 01:09:39,399
+<b>Resistance to Moscow was</b>
 
 337
-01:11:02,466 --> 01:11:04,399
-<b>In that letter, he repeated the same</b>
+01:09:39,399 --> 01:09:40,666
+<b>no longer only history.</b>
 
 338
-01:11:04,399 --> 01:11:06,466
-<b>secret directive and said it had been</b>
+01:09:41,066 --> 01:09:42,833
+<b>After Russia's full-scale invasion in</b>
 
 339
-01:11:06,466 --> 01:11:07,833
-<b>given by word of mouth.</b>
+01:09:42,833 --> 01:09:45,666
+<b>2022, that became even more relevant.</b>
 
 340
-01:11:07,933 --> 01:11:09,533
-<b>We do not know whether he received an</b>
+01:09:45,966 --> 01:09:48,133
+<b>The 2026 decree which gave the current</b>
 
 341
-01:11:09,600 --> 01:11:12,233
-<b>answer, but he carried the order out.</b>
+01:09:48,133 --> 01:09:49,300
+<b>military unit the name</b>
 
 342
-01:11:12,566 --> 01:11:14,766
-<b>Stelmakzuk signed the letter, but the</b>
+01:09:49,300 --> 01:09:50,966
+<b>"Heroes of the UPA" actually</b>
 
 343
-01:11:14,766 --> 01:11:16,600
-<b>letter reports an oral order.</b>
+01:09:50,966 --> 01:09:52,133
+<b>says this directly.</b>
 
 344
-01:11:16,899 --> 01:11:18,633
-<b>It is not the order itself.</b>
+01:09:52,500 --> 01:09:54,300
+<b>It says the name is meant to restore the</b>
 
 345
-01:11:18,933 --> 01:11:20,133
-<b>And there's one more problem.</b>
+01:09:54,300 --> 01:09:55,500
+<b>historical traditions of</b>
 
 346
-01:11:20,566 --> 01:11:22,166
-<b>Nobody has been able to inspect the</b>
+01:09:55,500 --> 01:09:57,199
+<b>Ukraine's national army while</b>
 
 347
-01:11:22,166 --> 01:11:24,133
-<b>original file the letter is cited from.</b>
+01:09:57,199 --> 01:09:58,800
+<b>Ukraine is defending its territorial</b>
 
 348
-01:11:24,399 --> 01:11:26,366
-<b>It was restricted again, it was</b>
+01:09:58,800 --> 01:10:00,566
+<b>integrity and independence.</b>
 
 349
-01:11:26,366 --> 01:11:28,300
-<b>restricted again or lost around the</b>
+01:10:00,733 --> 01:10:02,266
+<b>So we don't really have to guess why the</b>
 
 350
-01:11:28,333 --> 01:11:29,800
-<b>collapse of the Soviet Union.</b>
+01:10:02,266 --> 01:10:03,233
+<b>Ukrainian state thinks</b>
 
 351
-01:11:30,199 --> 01:11:33,033
-<b>So the public evidence is a transcription</b>
+01:10:03,266 --> 01:10:04,699
+<b>the UPA name is useful.</b>
 
 352
-01:11:33,033 --> 01:11:34,699
-<b>reproduced by historians.</b>
+01:10:05,199 --> 01:10:07,033
+<b>There is also a difference between saying</b>
 
 353
-01:11:35,133 --> 01:11:36,600
-<b>That is strong evidence</b>
+01:10:07,033 --> 01:10:08,166
+<b>"the UPA fought for a</b>
 
 354
-01:11:36,600 --> 01:11:38,366
-<b>of a reported oral order.</b>
+01:10:08,166 --> 01:10:09,433
+<b>Ukrainian independence"</b>
 
 355
-01:11:38,766 --> 01:11:41,100
-<b>It is not Klyrzkiewski's signature.</b>
+01:10:09,533 --> 01:10:10,966
+<b>and saying "everything</b>
 
 356
-01:11:41,766 --> 01:11:43,733
-<b>So where does that leave us?</b>
+01:10:10,966 --> 01:10:12,466
+<b>the UPA did was good".</b>
 
 357
-01:11:43,899 --> 01:11:45,366
-<b>The record shows an organized</b>
+01:10:12,933 --> 01:10:14,333
+<b>Those are not the same claim.</b>
 
 358
-01:11:45,399 --> 01:11:47,066
-<b>campaign under Klyrzkiewski.</b>
+01:10:14,466 --> 01:10:17,500
+<b>In April 2022, the rating group asked</b>
 
 359
-01:11:47,866 --> 01:11:49,833
-<b>It does not show an authenticated order</b>
+01:10:17,533 --> 01:10:19,033
+<b>whether OUN-UPA should be</b>
 
 360
-01:11:49,833 --> 01:11:51,800
-<b>from him that would settle the argument</b>
+01:10:19,033 --> 01:10:20,366
+<b>recognized as participants</b>
 
 361
-01:11:51,800 --> 01:11:53,433
-<b>about his exact intent.</b>
+01:10:20,366 --> 01:10:21,000
+<b>in the struggle for</b>
 
 362
-01:11:54,000 --> 01:11:55,899
-<b>And that's why this argument survives.</b>
+01:10:21,000 --> 01:10:22,366
+<b>Ukrainian independence.</b>
 
 363
-01:11:56,166 --> 01:11:58,466
-<b>Ukraine has offered Poland some things.</b>
+01:10:22,866 --> 01:10:24,666
+<b>81% supported that.</b>
 
 364
-01:11:58,933 --> 01:12:00,300
-<b>The two countries signed the</b>
+01:10:24,866 --> 01:10:26,866
+<b>Five months later, the Kiev International</b>
 
 365
-01:12:00,300 --> 01:12:03,100
-<b>reconciliation declaration in 1997.</b>
+01:10:26,866 --> 01:10:28,066
+<b>Institute of Sociology</b>
 
 366
-01:12:03,766 --> 01:12:06,300
-<b>And in 2023, their presidents</b>
+01:10:28,333 --> 01:10:29,466
+<b>asked people to assess</b>
 
 367
-01:12:06,300 --> 01:12:07,833
-<b>mourned the victims together.</b>
+01:10:29,466 --> 01:10:32,033
+<b>OUN-UPA's activities during the Second</b>
 
 368
-01:12:08,266 --> 01:12:10,166
-<b>But Poland still wants to dig up the</b>
+01:10:32,066 --> 01:10:33,533
+<b>World War more generally.</b>
 
 369
-01:12:10,166 --> 01:12:11,833
-<b>graves and name the dead.</b>
+01:10:34,233 --> 01:10:37,666
+<b>43% answered positively, 8% negatively,</b>
 
 370
-01:12:12,500 --> 01:12:13,366
-<b>And the unresolved</b>
+01:10:37,933 --> 01:10:40,333
+<b>and 37% found it difficult to judge.</b>
 
 371
-01:12:13,366 --> 01:12:15,500
-<b>history hands Russia a weapon.</b>
+01:10:40,399 --> 01:10:42,199
+<b>These are also different questions.</b>
 
 372
-01:12:16,000 --> 01:12:18,466
-<b>Moscow takes this very real crime and</b>
+01:10:42,633 --> 01:10:45,233
+<b>One asks whether OUN-UPA took part in the</b>
 
 373
-01:12:18,466 --> 01:12:19,466
-<b>uses it to claim that</b>
+01:10:45,233 --> 01:10:47,000
+<b>struggle for Ukrainian independence.</b>
 
 374
-01:12:19,466 --> 01:12:21,766
-<b>Ukraine itself is a Nazi state.</b>
+01:10:47,199 --> 01:10:49,333
+<b>The other asks people to give an overall</b>
 
 375
-01:12:22,300 --> 01:12:24,333
-<b>But nothing in these documents proves</b>
+01:10:49,333 --> 01:10:50,566
+<b>judgment on their activities</b>
 
 376
-01:12:24,333 --> 01:12:25,833
-<b>that about modern Ukraine.</b>
+01:10:50,566 --> 01:10:51,933
+<b>during the Second World War.</b>
 
 377
-01:12:26,766 --> 01:12:29,199
-<b>Poland still arms and supports Ukraine</b>
+01:10:52,233 --> 01:10:53,066
+<b>The distinction between</b>
 
 378
-01:12:29,266 --> 01:12:31,199
-<b>because its own security depends on an</b>
+01:10:53,066 --> 01:10:54,533
+<b>the questions is important.</b>
 
 379
-01:12:31,233 --> 01:12:32,433
-<b>independent Ukraine.</b>
+01:10:54,833 --> 01:10:56,666
+<b>Recognizing an independence struggle is</b>
 
 380
-01:12:33,166 --> 01:12:35,533
-<b>So it condemns the UPA while helping</b>
+01:10:56,666 --> 01:10:57,899
+<b>not the same thing as</b>
 
 381
-01:12:35,533 --> 01:12:37,066
-<b>modern Ukraine survive.</b>
+01:10:57,899 --> 01:10:59,433
+<b>giving one judgment on everything</b>
 
 382
-01:12:37,333 --> 01:12:38,866
-<b>This is not unique to Ukraine.</b>
+01:10:59,433 --> 01:11:01,033
+<b>the movement did during the war.</b>
 
 383
-01:12:39,000 --> 01:12:40,966
-<b>In my own Belgium, we still have statues</b>
+01:11:01,433 --> 01:11:02,433
+<b>This is also where the</b>
 
 384
-01:12:40,966 --> 01:12:42,000
-<b>and squares honoring</b>
+01:11:02,433 --> 01:11:04,033
+<b>Russian argument gets slippery.</b>
 
 385
-01:12:42,000 --> 01:12:45,266
-<b>Leopold II after everything</b>
+01:11:04,333 --> 01:11:06,100
+<b>OUN-B really did have</b>
 
 386
-01:12:45,966 --> 01:12:47,600
-<b>There's nothing wrong with looking to the</b>
+01:11:06,100 --> 01:11:07,300
+<b>an extremist ideology.</b>
 
 387
-01:12:47,633 --> 01:12:48,833
-<b>past for heroes when</b>
+01:11:07,699 --> 01:11:08,500
+<b>It really did</b>
 
 388
-01:12:48,833 --> 01:12:50,033
-<b>you're in a fight now.</b>
+01:11:08,500 --> 01:11:10,033
+<b>cooperate with Nazi Germany.</b>
 
 389
-01:12:50,466 --> 01:12:53,199
-<b>What is wrong is burying what they did.</b>
+01:11:10,233 --> 01:11:12,133
+<b>And the UPA really was tied to the</b>
 
 390
-01:12:53,433 --> 01:12:55,033
-<b>We should try to look at these people in</b>
+01:11:12,166 --> 01:11:13,600
+<b>anti-Polish campaign in Wolnia.</b>
 
 391
-01:12:55,033 --> 01:12:56,466
-<b>their historical context</b>
+01:11:14,133 --> 01:11:15,166
+<b>Those things are real.</b>
 
 392
-01:12:56,533 --> 01:12:57,566
-<b>without justifying</b>
+01:11:15,233 --> 01:11:16,933
+<b>What does not follow from that is that</b>
 
 393
-01:12:57,600 --> 01:12:58,966
-<b>everything that they did.</b>
+01:11:16,933 --> 01:11:19,433
+<b>modern Ukraine is therefore a Nazi state,</b>
 
 394
-01:12:59,633 --> 01:13:01,033
-<b>That's what I try to do here.</b>
+01:11:19,500 --> 01:11:20,233
+<b>or that Russia's</b>
 
 395
-01:13:01,233 --> 01:13:03,133
-<b>I go to the sources and tell you the</b>
+01:11:20,233 --> 01:11:21,933
+<b>invasion becomes justified.</b>
 
 396
-01:13:03,133 --> 01:13:05,033
-<b>history, even when it's uncomfortable,</b>
+01:11:22,433 --> 01:11:24,733
+<b>A wartime nationalist movement does not</b>
 
 397
-01:13:05,366 --> 01:13:07,333
-<b>even when it goes against a common story.</b>
+01:11:24,733 --> 01:11:26,533
+<b>define an entire modern country.</b>
 
 398
-01:13:08,000 --> 01:13:08,766
-<b>If that's the kind of</b>
+01:11:27,000 --> 01:11:28,699
+<b>You do not have to clean up the history</b>
 
 399
-01:13:08,766 --> 01:13:11,566
-<b>history you want, please subscribe.</b>
+01:11:28,699 --> 01:11:30,066
+<b>to reject the propaganda.</b>
+
+400
+01:11:30,333 --> 01:11:31,333
+<b>Poland has its own</b>
+
+401
+01:11:31,333 --> 01:11:32,633
+<b>version of this problem.</b>
+
+402
+01:11:32,866 --> 01:11:35,866
+<b>In 2024, one Polish ministry stopped</b>
+
+403
+01:11:35,866 --> 01:11:37,533
+<b>official commemoration of the</b>
+
+404
+01:11:37,566 --> 01:11:38,666
+<b>anti-communist fighter</b>
+
+405
+01:11:39,000 --> 01:11:41,800
+<b>Josef Kourasz, known as Ogien, after</b>
+
+406
+01:11:41,800 --> 01:11:42,966
+<b>objections concerning</b>
+
+407
+01:11:43,000 --> 01:11:44,300
+<b>crimes against civilians.</b>
+
+408
+01:11:44,866 --> 01:11:46,333
+<b>The Polish Institute of National</b>
+
+409
+01:11:46,333 --> 01:11:48,666
+<b>Remembrance responded that the actions</b>
+
+410
+01:11:48,666 --> 01:11:49,966
+<b>which deserve criticism</b>
+
+411
+01:11:50,233 --> 01:11:51,966
+<b>should not erase his contribution to the</b>
+
+412
+01:11:51,966 --> 01:11:53,699
+<b>struggle for an independent Poland.</b>
+
+413
+01:11:53,933 --> 01:11:54,733
+<b>I'm not saying these</b>
+
+414
+01:11:54,733 --> 01:11:55,833
+<b>cases are equivalent.</b>
+
+415
+01:11:56,100 --> 01:11:56,866
+<b>They're not.</b>
+
+416
+01:11:56,933 --> 01:11:58,033
+<b>The part I think is</b>
+
+417
+01:11:58,033 --> 01:11:59,733
+<b>comparable is just a problem.</b>
+
+418
+01:12:00,133 --> 01:12:01,966
+<b>What do you do with somebody who really</b>
+
+419
+01:12:01,966 --> 01:12:03,500
+<b>did fight for independence,</b>
+
+420
+01:12:03,533 --> 01:12:05,233
+<b>but also has serious crimes</b>
+
+421
+01:12:05,233 --> 01:12:06,500
+<b>attached to the same record?</b>
+
+422
+01:12:06,800 --> 01:12:09,033
+<b>The UPA and later nationalist underground</b>
+
+423
+01:12:09,166 --> 01:12:10,933
+<b>really did fight Soviet rule for an</b>
+
+424
+01:12:10,933 --> 01:12:12,100
+<b>independent Ukraine.</b>
+
+425
+01:12:12,500 --> 01:12:14,466
+<b>The same movement was also tied to an</b>
+
+426
+01:12:14,500 --> 01:12:15,266
+<b>organized campaign</b>
+
+427
+01:12:15,266 --> 01:12:16,733
+<b>against Polish civilians.</b>
+
+428
+01:12:16,899 --> 01:12:18,666
+<b>The UPA gives Ukraine a historical</b>
+
+429
+01:12:18,666 --> 01:12:20,066
+<b>example of people resisting</b>
+
+430
+01:12:20,066 --> 01:12:22,033
+<b>Moscow for an independent state.</b>
+
+431
+01:12:22,633 --> 01:12:24,666
+<b>And I don't think remembering, or even</b>
+
+432
+01:12:24,666 --> 01:12:25,966
+<b>admiring that contribution</b>
+
+433
+01:12:26,033 --> 01:12:27,466
+<b>in itself is the problem.</b>
+
+434
+01:12:27,766 --> 01:12:29,633
+<b>The problem for me begins if making the</b>
+
+435
+01:12:29,633 --> 01:12:31,566
+<b>UPA heroic requires cleaning</b>
+
+436
+01:12:31,566 --> 01:12:32,833
+<b>up the rest of its history.</b>
+
+437
+01:12:33,066 --> 01:12:35,233
+<b>The extremist ideology, the cooperation</b>
+
+438
+01:12:35,233 --> 01:12:36,733
+<b>with Nazi Germany and the</b>
+
+439
+01:12:36,766 --> 01:12:38,266
+<b>anti-Polish campaign in Wolnia.</b>
+
+440
+01:12:38,533 --> 01:12:40,966
+<b>Those facts belong to the same movement.</b>
+
+441
+01:12:41,266 --> 01:12:42,766
+<b>Acknowledging them does not mean</b>
+
+442
+01:12:42,800 --> 01:12:43,633
+<b>accepting Russia's</b>
+
+443
+01:12:43,633 --> 01:12:45,366
+<b>propaganda about modern Ukraine.</b>
 

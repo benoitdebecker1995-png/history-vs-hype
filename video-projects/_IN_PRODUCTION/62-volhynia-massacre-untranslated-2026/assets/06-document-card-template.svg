@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#0A1628"/>
+  <rect x="90" y="70" width="1120" height="900" rx="8" fill="#E8DFC9"/>
+  <rect x="122" y="102" width="1056" height="836" fill="#D8CEB7" stroke="#B6AA91" stroke-width="3" stroke-dasharray="12 10"/>
+  <text x="650" y="486" text-anchor="middle" fill="#736B5C" font-family="Georgia, serif" font-size="42">PLACE SOURCE IMAGE HERE</text>
+  <text x="650" y="544" text-anchor="middle" fill="#736B5C" font-family="Arial, sans-serif" font-size="23">Keep the full page visible before any crop or highlight</text>
+  <rect x="1270" y="70" width="560" height="900" rx="8" fill="#14243A"/>
+  <rect x="1270" y="70" width="12" height="900" fill="#D2A23A"/>
+  <g font-family="Arial, sans-serif">
+    <text x="1320" y="138" fill="#D2A23A" font-size="22" letter-spacing="3">SOURCE STATUS</text>
+    <text x="1320" y="184" fill="#FFFFFF" font-size="31" font-weight="700">PRIMARY-GROUNDED</text>
+    <text x="1320" y="264" fill="#9EB0C5" font-size="21" letter-spacing="3">DOCUMENT</text>
+    <text x="1320" y="310" fill="#FFFFFF" font-size="30">[Document title]</text>
+    <text x="1320" y="386" fill="#9EB0C5" font-size="21" letter-spacing="3">CREATOR · DATE</text>
+    <text x="1320" y="432" fill="#FFFFFF" font-size="28">[Creator], [date]</text>
+    <text x="1320" y="508" fill="#9EB0C5" font-size="21" letter-spacing="3">ARCHIVE · LOCATOR</text>
+    <text x="1320" y="554" fill="#FFFFFF" font-size="26">[Archive / fond / file / folio]</text>
+    <text x="1320" y="630" fill="#9EB0C5" font-size="21" letter-spacing="3">RIGHTS</text>
+    <text x="1320" y="676" fill="#FFFFFF" font-size="26">[Licence or fair-use note]</text>
+    <text x="1320" y="752" fill="#9EB0C5" font-size="21" letter-spacing="3">UNCERTAINTY</text>
+    <text x="1320" y="798" fill="#FFFFFF" font-size="26">[Custody / translation / duress]</text>
+    <rect x="1320" y="862" width="438" height="56" rx="6" fill="#263A55"/>
+    <text x="1539" y="900" text-anchor="middle" fill="#FFFFFF" font-size="23" letter-spacing="2">HISTORY vs HYPE · EXHIBIT</text>
+  </g>
+</svg>

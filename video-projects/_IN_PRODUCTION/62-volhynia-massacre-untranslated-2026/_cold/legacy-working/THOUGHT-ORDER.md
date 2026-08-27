@@ -1,0 +1,17 @@
+# Thought order — what is happening in Benoit's head
+
+| Beat | What I think / ask | Why the next question follows | Evidence that sharpens it | What I now think |
+|---|---|---|---|---|
+| 1 | Zelensky honoured the UPA; Poland reacted extremely strongly. Why do this during a war? | The diplomatic cost suggests this is more than an old argument. | 2026 decree, Polish revocation, returned medal | I need both countries' historical reasons before judging the decision. |
+| 2 | My basic explanation is independence fighters versus murdered civilians. | Both stories may be grounded; I need to test rather than choose one. | Ukrainian and Polish official positions | Each side is emphasizing a real part of the record. |
+| 3 | Does Ukrainian memory simply omit Volhynia? | If yes, denial explains coexistence; if no, something more complicated is happening. | Curriculum/textbook investigation | At least some official education mentions the expulsion decision while framing UPA within liberation/conflict. Simple denial is insufficient, but exact “heroic struggle” exhibit remains open. |
+| 4 | What was this movement trying to do, and why did Poles become a problem? | The crime needs a causal history, not an atrocity list. | Borders, OUN objective, Kolodzinskyi | Removing Poles existed as territorial thinking before 1943; that is not yet an operation. |
+| 5 | How did the movement acquire an army? | Ideas do not attack a hundred settlements. | 1941 German alliance/rupture, underground, police desertions | OUN-B acquired men, weapons and experience through mixed routes. |
+| 6 | What happened to civilians? | The political story now has to meet a human event. | Poryck, July attacks, victim registry | This was a large anti-civilian campaign, not an abstract border conflict. |
+| 7 | How do historians know it was organized? | Simultaneity is powerful, but internal evidence is better. | Public OUN language versus operational/Zahrawa records; UHVR minutes | Organization is much easier to establish than the original highest-level decision. |
+| 8 | Okay, that explains Poland. But did UPA actually fight for independence as Ukraine says? | The Ukrainian heroic case deserves the same test. | Soviet records, counterinsurgency, postwar duration; SB coercion | The insurgency was real. It was not clean. |
+| 9 | How did this part become nationally important? | Reality alone does not explain state commemoration. | Regional memory → Yushchenko → 2014 → 2015 → 2022 → 2026 | The honour is the result of a traceable rehabilitation accelerated by war with Russia. |
+| 10 | What do polls and education really show? | “Ukraine thinks” is too broad. | Differently worded polls; varied textbooks | Recognition of independence fighters can coexist with uncertainty or criticism about wartime conduct. |
+| 11 | If the killings can be acknowledged, why is Poland still angry? | Acknowledgment apparently does not resolve commemoration. | Polish official statements | Poland objects to honouring the organization, because the fighters and perpetrators are not separate organizations. |
+| 12 | What about Russia's use of this? | Honest history can be exploited without becoming false. | Real OUN/UPA record versus modern denazification claim | Russia uses true premises for a conclusion that does not follow. |
+| 13 | Where do I end up? | Evidence has answered historical questions; judgment remains mine. | Whole chain | I understand the honour better. I still think organizational honour carries a duty not to soften the crimes attached to the name. |

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#0A1628"/>
+  <rect x="84" y="70" width="14" height="112" fill="#D2A23A"/>
+  <text x="130" y="118" fill="#E8DFC9" font-family="Arial, sans-serif" font-size="28" letter-spacing="5">THE DISPUTE</text>
+  <text x="130" y="178" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="58" font-weight="700">What kind of campaign was this?</text>
+  <line x1="130" y1="220" x2="1790" y2="220" stroke="#536174" stroke-width="2"/>
+  <g font-family="Arial, sans-serif">
+    <rect x="130" y="278" width="780" height="128" rx="8" fill="#14243A"/>
+    <text x="174" y="328" fill="#9EB0C5" font-size="22" letter-spacing="3">POLISH STATE POSITION</text>
+    <text x="174" y="380" fill="#FFFFFF" font-size="44" font-weight="700">GENOCIDE</text>
+    <rect x="1010" y="278" width="780" height="128" rx="8" fill="#14243A"/>
+    <text x="1054" y="328" fill="#9EB0C5" font-size="22" letter-spacing="3">UKRAINIAN MEMORY INSTITUTE</text>
+    <text x="1054" y="380" fill="#FFFFFF" font-size="40" font-weight="700">“SECOND POLISH–UKRAINIAN WAR”</text>
+    <rect x="130" y="448" width="780" height="128" rx="8" fill="#14243A"/>
+    <text x="174" y="498" fill="#9EB0C5" font-size="22" letter-spacing="3">MOST ANGLOPHONE SCHOLARSHIP</text>
+    <text x="174" y="550" fill="#FFFFFF" font-size="44" font-weight="700">ETHNIC CLEANSING</text>
+    <rect x="1010" y="448" width="780" height="128" rx="8" fill="#14243A"/>
+    <text x="1054" y="498" fill="#9EB0C5" font-size="22" letter-spacing="3">GRZEGORZ MOTYKA</text>
+    <text x="1054" y="550" fill="#FFFFFF" font-size="40" font-weight="700">GENOCIDAL ETHNIC CLEANSING</text>
+    <text x="130" y="686" fill="#D2A23A" font-size="25" letter-spacing="4">COMMON GROUND</text>
+    <g fill="#E8DFC9" font-size="36">
+      <circle cx="154" cy="752" r="8" fill="#D2A23A"/><text x="184" y="764">Large-scale killing of Polish civilians</text>
+      <circle cx="154" cy="822" r="8" fill="#D2A23A"/><text x="184" y="834">Organized violence intended to remove Poles from territory</text>
+      <circle cx="154" cy="892" r="8" fill="#D2A23A"/><text x="184" y="904">The remaining question is intent, command and classification</text>
+    </g>
+    <text x="130" y="1002" fill="#9EB0C5" font-size="22">Attributions follow the narration and project research; this is not a quantitative “consensus meter.”</text>
+  </g>
+</svg>

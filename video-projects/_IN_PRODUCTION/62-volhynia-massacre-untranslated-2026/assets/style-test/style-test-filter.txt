@@ -1,0 +1,7 @@
+[0:v]trim=duration=46.733,setpts=PTS-STARTPTS,format=yuv420p[base];
+[1:v]fps=30,split=2[page_a][page_b];
+[page_a]scale=-2:680,pad=1280:720:(ow-iw)/2:(oh-ih)/2:color=0x252525,setsar=1,trim=duration=2.500,setpts=PTS-STARTPTS[whole];
+[page_b]crop=980:330:150:150,scale=1280:431,pad=1280:720:(ow-iw)/2:(oh-ih)/2:color=0xf4f1eb,setsar=1,trim=duration=6.000,setpts=PTS-STARTPTS[detail];
+[whole][detail]concat=n=2:v=1:a=0,drawbox=x=0:y=630:w=1280:h=90:color=black@0.72:t=fill,drawtext=fontfile='C\:/Windows/Fonts/arial.ttf':text='PUBLISHED REPRODUCTION  |  Jared McBride, Slavic Review 75\:3 (2016), p. 648':fontcolor=white:fontsize=23:x=38:y=646,drawtext=fontfile='C\:/Windows/Fonts/arial.ttf':text='Original archival folio cited as HDA SBU, spr.11315, t.1, ch.2, ark.16 — not obtained':fontcolor=0xdddddd:fontsize=19:x=38:y=681,setpts=PTS+5.933/TB[src];
+[base][src]overlay=eof_action=pass:shortest=0[with_doc];
+[with_doc]drawbox=x=32:y=638:w=560:h=50:color=black@0.70:t=fill:enable='between(t,15.200,20.000)',drawtext=fontfile='C\:/Windows/Fonts/arial.ttf':text='UKRAINE  |  DECREE 440/2026  |  26 MAY 2026':fontcolor=white:fontsize=21:x=50:y=653:enable='between(t,15.200,20.000)',drawbox=x=32:y=638:w=650:h=50:color=black@0.70:t=fill:enable='between(t,25.800,30.200)',drawtext=fontfile='C\:/Windows/Fonts/arial.ttf':text='POLAND  |  PRESIDENTIAL DECISION  |  19 JUNE 2026':fontcolor=white:fontsize=21:x=50:y=653:enable='between(t,25.800,30.200)'[v]

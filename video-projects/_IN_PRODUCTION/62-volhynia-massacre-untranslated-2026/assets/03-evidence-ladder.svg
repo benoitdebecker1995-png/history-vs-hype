@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#0A1628"/>
+  <text x="110" y="112" fill="#D2A23A" font-family="Arial, sans-serif" font-size="26" letter-spacing="5">THE MISSING PAPER</text>
+  <text x="110" y="180" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="60" font-weight="700">What survives — and what does not</text>
+  <g font-family="Arial, sans-serif">
+    <line x1="258" y1="282" x2="258" y2="884" stroke="#536174" stroke-width="8"/>
+    <circle cx="258" cy="322" r="27" fill="#D2A23A"/>
+    <rect x="330" y="260" width="1430" height="124" rx="8" fill="#14243A"/>
+    <text x="370" y="309" fill="#9EB0C5" font-size="22" letter-spacing="3">1943 AFTER-ACTION REPORT</text>
+    <text x="370" y="357" fill="#FFFFFF" font-size="36">A subordinate reports that Polish civilians were killed.</text>
+    <circle cx="258" cy="486" r="27" fill="#D2A23A"/>
+    <rect x="330" y="424" width="1430" height="124" rx="8" fill="#14243A"/>
+    <text x="370" y="473" fill="#9EB0C5" font-size="22" letter-spacing="3">1945 INTERROGATION TESTIMONY</text>
+    <text x="370" y="521" fill="#FFFFFF" font-size="36">Stelmashchuk says an oral, secret directive was transmitted.</text>
+    <circle cx="258" cy="650" r="27" fill="#D2A23A"/>
+    <rect x="330" y="588" width="1430" height="124" rx="8" fill="#14243A"/>
+    <text x="370" y="637" fill="#9EB0C5" font-size="22" letter-spacing="3">PUBLISHED TRANSCRIPTIONS AND COPIES</text>
+    <text x="370" y="685" fill="#FFFFFF" font-size="36">Later reproductions preserve wording, but custody and duress remain issues.</text>
+    <circle cx="258" cy="814" r="27" fill="#C84A46"/>
+    <rect x="330" y="752" width="1430" height="124" rx="8" fill="#281C29" stroke="#C84A46" stroke-width="3"/>
+    <text x="370" y="801" fill="#E7A4A2" font-size="22" letter-spacing="3">STOP</text>
+    <text x="370" y="849" fill="#FFFFFF" font-size="36" font-weight="700">No authenticated signed order to kill Poles is publicly showable.</text>
+    <text x="110" y="982" fill="#9EB0C5" font-size="23">Evidence may support an inference without becoming the missing signed document.</text>
+  </g>
+</svg>

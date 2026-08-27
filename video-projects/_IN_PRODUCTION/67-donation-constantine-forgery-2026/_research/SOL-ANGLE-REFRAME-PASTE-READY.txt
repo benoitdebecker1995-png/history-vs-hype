@@ -1,0 +1,70 @@
+I am reframing a video and I want you to attack my reframe and, if you can, find a better one.
+
+RULES. Do not supply data. Every number below was pulled from the YouTube API today and verified. If you need a number I have not given you, write "I NEED: <the number>" instead of producing one. Do not report scores from any tool. In an earlier pass you invented scorer outputs and cited a 57-second Short as a long-form competitor; both are now logged as correction rules. Label speculation as speculation.
+
+## THE CHANNEL
+
+Small history channel, 515 subscribers, 219,000 lifetime views, 57 long-form videos. Audience men 25-44, UK/DE/CA/US. Format 8-12 minutes, talking head plus primary documents on screen with exact page citations. The creator reads Latin, Greek, German, French, Spanish, Dutch. The identity is: here is the document, here is the line, here is what it actually says.
+
+Median lifetime impressions 2,923; 16 of 57 videos cleared 5,000. Median CTR 2.48%, range 0.46-9.41%. Traffic is overwhelmingly Browse and Suggested; search is ~4% of views. 31.6 percentage points of the audience leave in the first 60 seconds. Retention percentage correlates with views at +0.007 — it is a hold lever, not a distribution lever.
+
+## THE PROBLEM THE CREATOR RAISED
+
+Topic: the Donation of Constantine, the forged charter by which Constantine supposedly handed the Western Empire to the papacy.
+
+The creator's objection, in his words: "a lot of people have heard of the fake document... the video should be about something else. maybe how they realized it was fake? how it was possible to survive for this long? why it was faked... something to fill the competitor gap."
+
+I checked. Of the 25 ranked treatments in all languages, 22 put the fakeness in the title. The three exceptions are a text-to-speech bot upload, a student project, and one translation. Sample titles: "The Church's Most Famous Forgery", "History's Greatest Forgery", "The Fake Document That Gave the Pope Power Over Kings for 700 Years", "The Biggest Forgery in Catholic History", "Grandi falsi", "La (fausse) donation de Constantin", "Lies of the Faithful".
+
+So the promise "this document was fake" is saturated. The nearest thing to an exception is "How a Forgery Made The Pope the Most Powerful Man on Earth" (10,300 subs, 2,320 views), which is about how the forgery created power, not how it survived being exposed.
+
+The English field: the two highest English results are 15,142 views (phantom-time conspiracy channel) and ~14,700 (Orthodox-vs-Catholic apologetics). No neutral English long-form treatment was found on the queries run. Non-English long-form goes to 255,510 (Thai) and 229,791 (Spanish).
+
+One relevant measurement: the same English creator made this topic twice. His entity-led version ("The Church's Most Famous Forgery: The Donation of Constantine", 2024) did 4,309 views against a surrounding-window median of 2,134 = 2.02x, overperforming. His scholar-led version ("Lorenzo Valla exposed forged Church documents", 2026) did 1,172 against a window median of 1,841 = 0.64x, underperforming.
+
+Comment mining, ~80 threads on the two highest-signal videos: nobody raised the historiographical question the original plan used as its spine. FOUR independent commenters argued about whether the document was ever really believed or used. The English comment sections skew conspiracist (phantom time, Fomenko, "everything you were taught is fake"); the Spanish ones are an ordinary history audience.
+
+## THE RESEARCH THAT EXISTS
+
+Eleven months of archival work. Load-bearing findings, all sourced with page locators:
+
+SURVIVAL / RECEPTION
+- A man who argued FOR the Donation in 1436 absorbed the disproof, became Pope Pius II, and refounded papal temporal power on other grounds. The specialist's verbatim verdict: recognising it as a forgery "has no further consequences."
+- In 1447 a Venetian humanist sent the Pope a Greek "older, independent witness" to the Donation — having silently deleted every single word the critic had convicted it on.
+- In the 1530s-40s its most serious defender printed a Greek colophon showing his "ancient independent" copy was made in December 1206 for a Roman cardinal. He published the evidence against himself.
+- A jurist argued the Donation was not a gift at all but a restitutio — Constantine handing back what Rome had wrongly taken — which settles the validity question in advance. A real legal argument, not a smear.
+- The device underneath the defence: histories are silent, so the emperors suppressed them; Eusebius contradicts it, so his text was corrupted; the Latin is bad, because "a real forger would have written it more elegantly." The clumsiness of the forgery becomes proof of its authenticity.
+- One defender had to hold the Donation valid because his own university's founding charter (itself forged) collapsed if Constantine had ceded the West.
+- Nobody suppressed it. The Index listing is 1559, a century after the critic died, and the "forbidden book" story traces to his own publishers.
+- Deployment history runs from a papal letter of 1053 to a defence printed in 1547.
+
+METHOD / DETECTION
+- The critic's proof included a numismatic argument: emperors mint coins, Constantine's gold survives in Latin, and no papal coinage from the period exists anywhere.
+- Anachronistic vocabulary with exact line locators in the critical edition.
+- A second critic, seven years earlier, used a different instrument: the popes needed Pepin and then Charlemagne to reconquer land they supposedly already owned.
+- The critic then ran the method on himself and failed it once — he suppressed an inconvenient inscription. His greatest admirer is the scholar who says so.
+
+ORIGIN
+- Six live scholarly models for the forgery's date, spanning 750-850. The dating is contested; one prominent thesis is a strong minority, not consensus. An honest video cannot assert a date.
+
+## MY RECOMMENDATION, WHICH I WANT YOU TO ATTACK
+
+Reframe from "how we proved it fake" to "it was exposed, repeatedly, for four hundred years, and it changed nothing." The fakeness becomes a fast 20-second Act 1 setup — one physical object, one proof — which converts the saturated premise into a springboard. The video is then the survival: the doctored defence, the self-defeating colophon, the serious legal argument, the unfalsifiable device, and the man who argued for it and became pope.
+
+## ATTACK THESE
+
+1. Is "it survived exposure" actually a stronger CLICK promise than "it was fake", or only a stronger WATCH payoff? Four commenters is engagement evidence, not click evidence, and I have been burned on that distinction already. If it is only a watch payoff, what carries the click?
+
+2. Is the saturation argument even right? 22 of 25 titling the fakeness could mean the promise is exhausted — or that it is the only promise that works on this subject and everyone independently discovered that. How would I tell those apart before filming?
+
+3. "Why was it faked" has better novelty but its honest answer is "six competing models, nobody knows." Can a video promise a question it cannot answer, on a channel whose identity is evidentiary rigour? If yes, name a video that does this well and say what makes it work.
+
+4. Attack my 20-second Act 1. If the audience genuinely already knows the document was fake, is even 20 seconds too much — or is it too little to make the survival stakes land for the majority who have never heard of it?
+
+5. The conspiracy audience. "It survived because nobody cared enough to stop citing it" is close to what the phantom-time crowd wants to hear, and my honest finding is that nobody suppressed anything. Does the survival frame recruit the wrong audience harder than the method frame did?
+
+6. Give me THREE candidate angles I have not named, drawn only from the research above. For each: the one-sentence promise, the title shape, the strongest exhibit, and the reason no competitor has taken it. If you think one of my three is right, say which and why the others are worse.
+
+7. Name the single measurement that would most reduce my uncertainty here, computable from public YouTube data, with the interpretation of each outcome fixed in advance.
+
+Rank everything by how much it moves the decision.

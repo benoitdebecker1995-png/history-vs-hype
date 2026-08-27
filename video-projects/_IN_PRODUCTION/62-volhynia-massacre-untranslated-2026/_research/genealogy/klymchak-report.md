@@ -1,4 +1,6 @@
 # Source Genealogy — Klymchak ("Lysyi") after-action report ("I liquidated all Poles from young to old…")
+> **SUPERSEDED FOR CURRENT VERDICT (2026-08-10):** This 2026-07-05 trace did not incorporate Serhii Riabenko's reported inspection of Volyn SBU case 11315. The current verdict is **SECONDARY-ONLY, pending archive confirmation**. Do not rely on the older `PRIMARY-GROUNDED` / “keep the exhibit” language below. See `klymchak-access-locator-audit-2026-08-10.md` and the updated `../SOURCE-GENEALOGY.md` Row 2.
+
 **Date:** 2026-07-05 · **Project:** 62-volhynia-massacre-untranslated-2026
 **Verdict:** PRIMARY-GROUNDED (documentary root identified) — **but the T1 original is ARCHIVALLY RESTRICTED / unreachable; showable evidence tops out at T2 scholarly reproduction (McBride p.648), corroborated by 4 independent reproductions.**
 
