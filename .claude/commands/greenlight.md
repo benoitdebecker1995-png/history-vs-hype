@@ -293,7 +293,15 @@ If no title provided, generate candidates using:
 5. Title MUST set up a clear paradox (Specific Subject + Common Belief + Contradiction) that can be resolved in the first 5 seconds of the video.
 
 **Keyword-ladder GATE (MANDATE V2 — now a PASS/FAIL gate, not just a scorer bonus):**
-The best title MUST anchor a **famous parent keyword with real search volume in the first ~40 characters** — a 515-sub channel has no ranking power for a bare obscure proper noun. Verify with `title_scorer.has_search_anchor(title)` (the head-term recognizer behind `SEARCH_ANCHOR_BONUS`). The obscure entity is the *reveal* (the second punch), never the lead. If no candidate anchors a head term, the title FAILS this gate — regenerate, don't proceed (carry the result into Step 4).
+The best title MUST anchor a **famous parent keyword with real search volume**, and that keyword must **begin** within the first ~40 characters (it may run past that edge) — a 515-sub channel has no ranking power for a bare obscure proper noun. Verify with `python -m tools.title_scorer --anchor "<title>"`, which prints the matched term, its position and its provenance. The obscure entity is the *reveal* (the second punch), never the lead.
+
+⚠ **A FAIL is not automatically a verdict on the title** (ADR-0023). The recognizer accepts a term on a curated list *or* on a verified search volume ≥1,000/mo in `keywords.db`, so a FAIL means either the title genuinely leads with something obscure — regenerate — **or** the lead term is famous and nobody has measured it yet. Check demand before rewriting: if the term clears 1,000/mo, record it and re-run the gate.
+
+```bash
+python -m tools.title_scorer --record-anchor "<term>" --volume <n> --anchor-source vidiq-YYYY-MM-DD
+```
+
+**Never trade a title down for a vaguer one to clear a data gap** — #67 lost five candidates that way before this was fixed. If no candidate anchors after that check, the title FAILS this gate — regenerate, don't proceed (carry the result into Step 4).
 
 **Title ↔ thumbnail division of labor:** the title carries the **searched keyword + curiosity**; the thumbnail carries the **evidence/emotional payload**. They must NOT duplicate each other (this is the same curiosity-gap necessary condition `thumbnail_checker` enforces in Step 3) — if the title already says it, the thumbnail overlay must raise the question or name the charge, not restate it.
 

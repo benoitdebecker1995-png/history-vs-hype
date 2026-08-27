@@ -1,7 +1,7 @@
 # Codex project config — History vs Hype
 #
-# Loaded because this project is trusted (`[projects.'g:\history vs hype']` in
-# ~/.codex/config.toml). Port of `.mcp.json` + the sub-agent wiring. `.claude/` stays canonical.
+# Loaded because this project is trusted. Codex is the primary conversational surface
+# during the minimum-workflow migration; the legacy Claude control plane is cold.
 #
 # Paths are absolute on purpose: Codex does NOT interpolate `${APPDATA}` / `${CLAUDE_PROJECT_DIR}`
 # the way `.mcp.json` does, and ~/.codex/config.toml already declares notebooklm this way.
@@ -16,8 +16,9 @@ model = "gpt-5.6-sol"
 model_reasoning_effort = "high"
 
 # --- MCP servers ---------------------------------------------------------------------------------
-# The first three mirror `.mcp.json`. vidiq + playwright are Codex-only extras: on Claude Code they
-# come from the user-level config, and the greenlight / publish / comment-mine workflows need them.
+# NotebookLM is an optional source tool, never a mandatory research stage. VidIQ is market evidence,
+# never a score-based verdict. The research graph is intentionally absent because it indexes cold,
+# superseded project material.
 
 [mcp_servers.notebooklm]
 command = 'C:\Users\benoi\AppData\Roaming\Python\Python314\Scripts\notebooklm-mcp.exe'
@@ -28,24 +29,9 @@ command = 'C:\Users\benoi\AppData\Roaming\Python\Python314\Scripts\notebooklm-mc
 command = 'C:\Users\benoi\AppData\Roaming\Python\Python314\Scripts\graphify-mcp.exe'
 args = ['G:\History vs Hype\graphify-out\graph.json']
 
-# 169-node concept graph over the archived 01-VERIFIED-RESEARCH.md files. Sparse — under ~3 hits,
-# fall back to file reads.
-[mcp_servers.graphify-research]
-command = 'C:\Users\benoi\AppData\Roaming\Python\Python314\Scripts\graphify-mcp.exe'
-args = ['G:\History vs Hype\graphify-out\research\graph.json']
-
 [mcp_servers.vidiq]
 url = "https://mcp.vidiq.com/mcp"
 
 [mcp_servers.playwright]
 command = "npx"
 args = ["-y", "@playwright/mcp@latest", "--headless"]
-
-# --- Sub-agents ----------------------------------------------------------------------------------
-# Definitions live in .codex/agents/*.toml. Model mapping from the Claude originals:
-# opus -> gpt-5.6-sol, sonnet -> gpt-5.6-terra, haiku -> gpt-5.6-luna.
-
-[agents]
-max_concurrent_threads_per_session = 4
-default_subagent_model = "gpt-5.6-terra"
-default_subagent_reasoning_effort = "medium"

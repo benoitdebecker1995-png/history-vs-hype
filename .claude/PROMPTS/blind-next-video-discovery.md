@@ -115,9 +115,14 @@ proof. Do not repeat this.
 - **Pocket risk:** audiences outside the target countries convert worst — the channel's one breakout
   took 30,469 views to 152 subscribers (5.0/1,000, its floor). Check `topMarkets` on every anchor.
 - **Moderation:** 224 lifetime comments across 28 videos. He cannot arbitrate a war in his comments.
-- **Anchor filter:** `tools.title_scorer.has_search_anchor()` recognises only sovereign states,
-  geographic shorthands, acronyms and famous surnames, in the **first 40 characters**, and returns a
-  **tuple** — read `(found, term)`. A non-geographic subject fails `packaging_lock` at lock time.
+- **Anchor filter:** `tools.title_scorer.has_search_anchor()` accepts a term on the curated list
+  (states, shorthands, acronyms, famous surnames, famous topics) **or** on a verified search volume
+  ≥1,000/mo recorded in `keywords.db` (ADR-0023 — fame is measured, not remembered). The head term
+  must **begin** within the first 40 characters; it may run past that edge ("…: Guatemala vs Belize"
+  anchors at char 34). Returns a **tuple** — read `(found, term)`. If a novel subject FAILs, that is
+  as likely to be an unmeasured term as a bad title: measure it, then
+  `--record-anchor "<term>" --volume <n> --anchor-source vidiq-YYYY-MM-DD`. Never trade the title
+  down to clear a data gap.
 - A mechanically valid packaging lock is **not** a greenlight.
 
 ## Tools available

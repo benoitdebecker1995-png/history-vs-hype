@@ -16,6 +16,7 @@ Write new scripts, revise existing ones, review for issues, or export for telepr
 /script --new --variants [project]  # Combine: new script with variant generation
 /script --document-mode [project]  # Document-structured script (clause-by-clause walkthrough)
 /script --collaborate [project]  # Collaborative editing: you draft, Claude refines
+/script --cross-model [project]  # Two-model drafting + convergence scan (no ad-lib required)
 /script --revise [project]   # Revise existing script
 /script --review [project]   # Review script for issues
 /script --teleprompter [project]  # Export clean text for filming
@@ -30,6 +31,7 @@ Write new scripts, revise existing ones, review for issues, or export for telepr
 | `--title "Title Text"` | Video title — enables title-fulfillment check in --hooks (entity echo + promise-type). If omitted, fulfillment check is skipped. | `/script --hooks 42-why-brazil-2026 --title "Why Brazil Speaks Portuguese"` |
 | `--document-mode` | Generate clause-by-clause document walkthrough script | `/script --document-mode 35-gibraltar-treaty-utrecht-2026` |
 | `--collaborate` | Collaborative editing — you draft, Claude refines | `/script --collaborate 50-thermopylae-sources-2026` |
+| `--cross-model` | Two independent drafts (Claude + GPT-5.6) from one beat brief, then a convergence scan that flags the shared-LLM prose | `/script --cross-model 67-donation-constantine-forgery-2026` |
 | `--revise` | Revise existing SCRIPT.md | `/script --revise 19-flat-earth-medieval-2025` |
 | `--review` | Comprehensive quality review | `/script --review 19-flat-earth-medieval-2025` |
 | `--teleprompter` | Export clean text for filming | `/script --teleprompter 19-flat-earth-medieval-2025` |
@@ -153,7 +155,7 @@ Hook pattern from outliers: "legal fiction exposed" frame drove 4x median views.
 3. **Structure emerges DURING research, as a loop:** propose structure → creator pushes back → agree → research again *in function of the video* → adjust scope/structure/beats. Repeat until converged.
 4. **STRUCTURE LOCK** = the loop's convergence point: present the final structure with the evidence under each beat (one screen; beat = one line + its evidence; checked against the title — "what is the video we're trying to make"). Creator approves/adjusts. **No sentence-level work before this lock** (GR-B2 HARD; #57 burned two full polish passes on the wrong spine).
 5. **PRE-SCRIPT QUESTION ROUND** — before writing anything, interview the creator with SPECIFIC prepared questions: how to present this evidence, how to do this transition, how to phrase this key sentence (hook, verdict, mechanism beats). 2–3 concrete prepared variants per question, Bar-talk pre-filtered — never blank questions (GR-B1, GR-B3a). **Preparation bar:** research fully digested, topic genuinely understood, committed own idea of phrasing + build BEFORE asking anything.
-6. **Write the FULL script from the answers** — one real draft, not a cold one (the answers shaped it). Then the **PRE-READ HEAVY GATE** runs before the creator sees it (GR-B3b, GR-B4), in order: (1) notebook grounding on all mechanism beats → (2) attribution audit → (3) seam flow-check (in/out at every paragraph) → (4) `python -m tools.voice_lint` → (5) corpus-scan → (6) Bar-talk test on solo-written lines. Per-round hygiene: every rewritten beat gets a scoped re-scan (lint + register) before its diff is shown; one full-script scan at the lock gate.
+6. **Write the FULL script from the answers** — one real draft, not a cold one (the answers shaped it). *(Alternative for projects with no `_adlib/` corpus, added 2026-08-04: `--cross-model` replaces this step with two independent drafts and a convergence scan. Steps 1–5 and 7–8 are unchanged.)* Then the **PRE-READ HEAVY GATE** runs before the creator sees it (GR-B3b, GR-B4), in order: (1) notebook grounding on all mechanism beats → (2) attribution audit → (3) seam flow-check (in/out at every paragraph) → (4) `python -m tools.voice_lint` → (5) corpus-scan → (6) Bar-talk test on solo-written lines. Per-round hygiene: every rewritten beat gets a scoped re-scan (lint + register) before its diff is shown; one full-script scan at the lock gate.
 7. **Creator read-through = T1 verification, not a draft filter.** Success metric: ZERO feedback needed — if the questions in step 5 were right, the read is a formality. Whatever feels off, he says, gets fixed locally (post-draft changes stay small + localized) → ready-to-film script.
 8. **Everything he says feeds back** — every pushback, pick, correction is mined into `channel-data/calibration/CALIBRATION-CORPUS.md` (post-lock mining loop, CLAUDE.md trigger).
 
@@ -1047,6 +1049,110 @@ Make small edits, one round at a time. Present changes, wait for feedback. Do no
 - User has annotated an existing script with comments
 - User says "read my changes" or "I made some edits"
 - Any time the user's voice and personal takes are the product
+
+---
+
+## CROSS-MODEL DRAFTING (`--cross-model`)
+
+Two models draft the same act independently; the **overlap between them is the defect**. Added
+2026-08-04 for the case where Claude-alone prose fails the cold read and the creator does not want to
+ad-lib.
+
+### Why this exists, and what it assumes
+
+"Too AI" is not Claude's personal style — it is the **shared attractor** both frontier models fall
+into: balanced clauses, negation-pairs, em-dash-in-place-of-connector, abstract summary landings,
+tricolon. His measured natural rate of negation-pairs is **zero**; locked scripts ran 9–15 per script
+(memory `feedback-talk-first-scripting`; EVAL-BASELINE R24).
+
+**So: where two independently-prompted models converge on the same phrasing or the same rhetorical
+move at the same seam, that convergence is evidence of the attractor, not of quality.** That gives the
+creator something to act on without speaking a word — which is the gap between "Claude writes it" (has
+failed T1 twice) and "he ad-libs it" (works, but he has declined it).
+
+⚠ **This does NOT supersede talk-first.** Where `_adlib/` transcripts or `VOICE-CORPUS` §1 lines exist,
+they still outrank everything this mode produces. This is the path for a script with no ad-lib corpus.
+
+⚠ **Unmeasured.** The convergence scan is new. Give it one video's evidence before it becomes doctrine,
+and log the passes-to-lock count to `channel-data/calibration/EVAL-BASELINE.md` either way.
+
+### Prerequisites
+
+- **STRUCTURE LOCK passed** (v18 step 4, GR-B2 HARD). No sentence-level work before the creator has
+  approved the beat list. This mode is a replacement for canonical-flow **step 6**, not for step 4.
+- **Quote bank complete** in `01-VERIFIED-RESEARCH.md` (GR-B5).
+- Research verification gate ≥90%.
+
+### Step 1 — Claude writes the BEAT BRIEF (no prose)
+
+One file per act, `_crossmodel/act[N]-brief.md`. Contains **only**:
+
+- The locked facts for that act, each with its C-number and locator.
+- The quote bank entries available to it — verbatim, with page numbers.
+- The **open-question ledger**: what the viewer already knows entering this act, and the ONE question
+  currently open (`feedback-script-structure-laws`).
+- The **explicit joint** at every seam — a BUT or a THEREFORE, never "and then".
+- What must NOT appear (cut list, contested claims, modality that must be carried).
+
+⛔ **No example sentences, no suggested phrasings, no "something like…".** A single seeded phrase
+propagates into both drafts and destroys the independence the scan depends on.
+
+### Step 2 — GPT-5.6 drafts independently
+
+Hand it: the beat brief, `channel-data/calibration/VOICE-CORPUS-FOR-MODEL-PASSES.md` §1 (his locked
+lines — do not rewrite) and §2 (phrases he has rejected aloud). **It does not see Claude's draft.**
+
+Access, verified 2026-08-04:
+
+| Path | `gpt-5.6-sol` | Use for |
+|---|---|---|
+| ChatGPT web/desktop (Plus) | ✅ | Small pastes, high-reasoning passes. **Plus expires 2026-08-23** |
+| Codex CLI, ChatGPT sign-in | ❌ rejected under ChatGPT auth (openai/codex #31905, #34027, #35148) | Repo-reading drafts on **`gpt-5.6-terra`** |
+| OpenAI API key | ✅ | Headless; the only route to Sol without a browser |
+
+⚠ Neither `codex` nor `gemini` is on PATH in the default shell — confirm before scripting either.
+Codex reads the repo but does not write it; it returns the draft in chat, same contract as the
+`tools/youtube_analytics/_research/CODEX-*.md` briefs.
+
+### Step 3 — Claude drafts from the same brief
+
+Write it before reading the GPT draft. If the GPT draft has already landed, this step is compromised —
+say so and skip the scan rather than reporting a scan that means nothing.
+
+### Step 4 — Convergence scan (the actual product)
+
+Diff the two drafts beat by beat and classify every correspondence:
+
+| Class | What it looks like | Action |
+|---|---|---|
+| **Attractor** | Both drafts use the same rhetorical move at the same seam — same negation-pair, same em-dash pivot, same abstract landing | ⛔ **Cut or rewrite.** Two models reaching for it independently is the signature |
+| **Forced by evidence** | Both state the same fact in near-identical words because the quote or the locator constrains it | ✅ Keep — convergence here is correctness, not style |
+| **Divergent** | The drafts genuinely differ in framing, order, or emphasis | → Step 5 |
+
+Report as a table: seam, both renderings, class, and the proposed replacement for every **Attractor**.
+
+### Step 5 — Divergence goes to the creator, at the BEAT level
+
+Present each divergence as two framings with **the tradeoff named** — not as a line-level A/B. His own
+diagnosis is that picks are weak signal because he "settles" between options generated from one prior;
+these options come from different priors, so the choice carries information. He answers in a sentence.
+
+### Step 6 — Assemble, then the PRE-READ HEAVY GATE, unchanged
+
+Notebook grounding on mechanism beats → attribution audit → seam flow-check → `python -m
+tools.voice_lint` → corpus-scan → Bar-talk test on solo-written lines.
+
+**Plus the guard this mode makes non-optional:** mechanically diff every touched chapter against
+`VOICE-CORPUS` §1 before returning. Nine of his lines were lost in a single draft; every one was
+grammatical, most were shorter, and none tripped the linter. Only a diff catches it — *"I only
+tightened it"* is the signature of the failure, not a defence.
+
+### Output
+
+- `_crossmodel/act[N]-brief.md` — the briefs
+- `_crossmodel/act[N]-gpt.md` · `_crossmodel/act[N]-claude.md` — the two drafts, kept for audit
+- `_crossmodel/convergence-[date].md` — the scan table
+- `SCRIPT.md` — the assembled result
 
 ---
 

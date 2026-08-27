@@ -1,5 +1,5 @@
 {
-  "description": "Codex port of the .claude/settings.json hooks. Same three scripts, same events. The Windows commands pin the absolute repo root (G:\\History vs Hype) because Codex has no $CLAUDE_PROJECT_DIR; tests/unit/test_codex_surface_parity.py fails if that path goes stale. PreToolUse matches apply_patch, not Edit|Write|NotebookEdit — Codex routes every file edit through apply_patch and reports that canonical name.",
+  "description": "Minimum conversational hooks: protect locked assets, keep channel state separate from the active video, report data freshness, and capture ordinary-language state changes. Windows paths are absolute because Codex does not interpolate the project variable.",
   "hooks": {
     "PreToolUse": [
       {
@@ -25,7 +25,7 @@
             "commandWindows": "python \"G:\\History vs Hype\\tools\\hooks\\session_context.py\"",
             "timeout": 30,
             "additionalContextLimit": 5000,
-            "statusMessage": "Surfacing active video projects"
+            "statusMessage": "Loading the channel and current video"
           }
         ]
       }

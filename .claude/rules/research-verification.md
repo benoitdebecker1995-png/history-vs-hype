@@ -45,5 +45,24 @@ finished. ADR-0021.
 **Never assert absence without a direct check.** A search returning nothing proves nothing. If an ID
 or URL was supplied, query THAT. ADR-0020.
 
+**A figure quoted from a database carries its table, its grain and its as-of — or it is not quoted.**
+The same evidentiary burden, applied to instruments. "Median impressions is 56" is not a fact; "median
+impressions is 56 in `videos`, a trailing snapshot stamped `ctr_as_of = 2026-07-28`" is. Lifetime and
+snapshot answers to the same question differ by ~50× on this channel.
+
+- **Route through the seam.** `AnalyticsStore.lifetime_ctr_by_video()` for how a video actually did;
+  `snapshot_ctr_by_video()` for the recent window. Both stamp every row with `grain`, `as_of` and
+  `source_table`. Hand-rolled SQL against `analytics.db` is how this goes wrong — ADR-0017 exists
+  because six consumers each re-implemented one read and five got it wrong.
+- **Check the ADRs before deriving a metric.** ADR-0018 (impressions grain), ADR-0017 (canonical CTR
+  read), ADR-0012 (filters decide, scores inform). The principle you need has usually already been
+  written down.
+- **A score is not evidence until it is calibrated.** `title_scorer`'s composite correlates with
+  lifetime CTR at r ≈ +0.155. Quote the number if useful; do not treat a high one as validation.
+
+*Origin: 2026-08-03. Three strategy conclusions — a 56-impression median, a "bimodal CTR" shape test,
+and "the title scorer is anti-predictive" — were published off the snapshot column read as lifetime,
+and were caught by the channel owner rather than by any gate.*
+
 **Intellectual honesty** — acknowledge what the opposing side gets right. Single source of truth is
 `01-VERIFIED-RESEARCH.md`. Gate: 90% verified before writing; 100% cross-checked before filming.
