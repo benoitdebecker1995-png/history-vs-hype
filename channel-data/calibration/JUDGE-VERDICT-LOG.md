@@ -11,6 +11,8 @@
 | Date | Command | Video slug | Scores | Overall |
 |---|---|---|---|---|
 | _(none yet — first entry lands the next time `/script` runs Step 4b)_ | | | | |
+| 2026-08-10 | /script Step 3a | 62-volhynia-massacre-untranslated-2026 | promise=PASS verb=PASS specificity=PASS | OVERALL=MATCH |
+| 2026-08-11 | /script Step 3a | 62-volhynia-massacre-untranslated-2026 | promise=PASS verb=PASS specificity=PASS | OVERALL=MATCH |
 
 ## Attribution / provenance / adversarial (`/verify` Steps 7.5–7.9)
 

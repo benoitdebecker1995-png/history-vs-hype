@@ -1,38 +1,16 @@
-# History vs Hype
+# Start here
 
-Evidence-based history videos using academic sources and primary documents.
-
-## Getting Started
-
-**Just ask Claude what you want to do.** Claude knows the system.
+Talk normally about the channel or the current video. You do not need commands, modes, or a terminal.
 
 Examples:
-- "I want to start a video about X"
-- "What should I do next?"
-- "Help me fact-check this script"
-- "The video is ready, I need metadata"
 
-## Quick Commands
+- “What should I work on next?”
+- “Does this paragraph sound like me?”
+- “Can I safely make this claim?”
+- “Help me choose the title and explain which one you recommend.”
+- “Is this a strong next-video idea?”
+- “What are we actually learning from the channel?”
 
-| Phase | Command | Purpose |
-|-------|---------|---------|
-| Pre-production | /research | Start new video project |
-| Production | /script | Write from verified facts |
-| Production | /verify | Fact-check verification |
-| Post-production | /publish | YouTube metadata |
-
-**Full list:** `/help`
-
-## Project Workflow
-
-1. **Research** - Verify facts in NotebookLM
-2. **Script** - Write from verified facts only
-3. **Verify** - Cross-check before filming
-4. **Film** - Confident (pre-verified)
-5. **Publish** - Metadata, engage with comments
-
-**Current project status:** `/status`
-
----
-
-*For technical details, Claude reads CLAUDE.md automatically.*
+The assistant keeps two things separate: `CHANNEL.md` holds the channel-wide direction, while
+`ACTIVE_PROJECT` points to the current video's `PROJECT.md`, `RESEARCH.md`, and `SCRIPT.md`. The rest
+of the repository is supporting machinery and evidence, not something you need to operate.

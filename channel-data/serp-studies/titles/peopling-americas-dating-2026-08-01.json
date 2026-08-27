@@ -1,0 +1,230 @@
+[
+ {
+  "id": "x26XiY0UfUY",
+  "title": "Clovis People: The Original North Americans - Historian Dan Flores Explains",
+  "channel": "PowerfulJRE",
+  "views": 4592460,
+  "tags": {
+   "title": "Clovis People: The Original North Americans - Historian Dan Flores Explains",
+   "len": 75,
+   "pattern": "colon",
+   "question": false,
+   "year": false,
+   "colon": true,
+   "number": false,
+   "evidence_promise": true,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "dFk7o6C2kV8",
+  "title": "Ancient footprints in New Mexico raise questions about when humans inhabited North America",
+  "channel": "PBS NewsHour",
+  "views": 2132875,
+  "tags": {
+   "title": "Ancient footprints in New Mexico raise questions about when humans inhabited North America",
+   "len": 90,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "XOBQgZVoBSU",
+  "title": "How did Europe React to the Discovery of the Americas? (Short Animated Documentary)",
+  "channel": "History Matters",
+  "views": 1562122,
+  "tags": {
+   "title": "How did Europe React to the Discovery of the Americas? (Short Animated Documentary)",
+   "len": 83,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "phZeE7Att_s",
+  "title": "How Does Radiocarbon Dating Work? - Instant Egghead #28",
+  "channel": "Scientific American",
+  "views": 1549789,
+  "tags": {
+   "title": "How Does Radiocarbon Dating Work? - Instant Egghead #28",
+   "len": 55,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "9EBknU7D1OI",
+  "title": "Where Did The First Americans Come From?",
+  "channel": "Seeker",
+  "views": 1484626,
+  "tags": {
+   "title": "Where Did The First Americans Come From?",
+   "len": 40,
+   "pattern": "question",
+   "question": true,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "UsnrdCdGs7o",
+  "title": "The Best Evidence For The First Americans...so far",
+  "channel": "Stefan Milo",
+  "views": 1426337,
+  "tags": {
+   "title": "The Best Evidence For The First Americans...so far",
+   "len": 50,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "9fUAV4DcyD4",
+  "title": "The world's most heavily debated footprints",
+  "channel": "Stefan Milo",
+  "views": 1371632,
+  "tags": {
+   "title": "The world's most heavily debated footprints",
+   "len": 43,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "CmxhFgpIacI",
+  "title": "Most archaeologists think the first Americans arrived by boat. Now, they're beginning to prove it",
+  "channel": "Science Magazine",
+  "views": 575394,
+  "tags": {
+   "title": "Most archaeologists think the first Americans arrived by boat. Now, they're beginning to prove it",
+   "len": 97,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": true
+  }
+ },
+ {
+  "id": "5dyjZBJt-Yg",
+  "title": "How the First Americans Got There",
+  "channel": "SciShow",
+  "views": 493295,
+  "tags": {
+   "title": "How the First Americans Got There",
+   "len": 33,
+   "pattern": "how_why",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "MSxAj-XRsPg",
+  "title": "The Startling Alternative Theory of How Humans Arrived in America",
+  "channel": "Smithsonian Channel",
+  "views": 486084,
+  "tags": {
+   "title": "The Startling Alternative Theory of How Humans Arrived in America",
+   "len": 65,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "NFNPmRWDBag",
+  "title": "4 Ways to Date an Archaeological Site",
+  "channel": "SciShow",
+  "views": 242711,
+  "tags": {
+   "title": "4 Ways to Date an Archaeological Site",
+   "len": 37,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": true,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ },
+ {
+  "id": "QZ_GtdGi_IU",
+  "title": "Oldest Human Footprints in the Americas Finally Confirmed Rewriting Migration History!",
+  "channel": "Discovery Future",
+  "views": 213497,
+  "tags": {
+   "title": "Oldest Human Footprints in the Americas Finally Confirmed Rewriting Migration History!",
+   "len": 86,
+   "pattern": "declarative",
+   "question": false,
+   "year": false,
+   "colon": false,
+   "number": false,
+   "evidence_promise": false,
+   "named_entity": false,
+   "controversy": false,
+   "two_sentence": false
+  }
+ }
+]

@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eval Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" integrity="sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #faf9f5;
+      --surface: #ffffff;
+      --border: #e8e6dc;
+      --text: #141413;
+      --text-muted: #b0aea5;
+      --accent: #d97757;
+      --accent-hover: #c4613f;
+      --green: #788c5d;
+      --green-bg: #eef2e8;
+      --red: #c44;
+      --red-bg: #fceaea;
+      --header-bg: #141413;
+      --header-text: #faf9f5;
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .header .instructions {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.25rem;
+    }
+    .header .progress {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      text-align: right;
+    }
+
+    /* ---- Main content ---- */
+    .main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      flex-shrink: 0;
+    }
+    .section-header {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .section-body {
+      padding: 1rem;
+    }
+
+    /* ---- Config badge ---- */
+    .config-badge {
+      display: inline-block;
+      padding: 0.2rem 0.625rem;
+      border-radius: 9999px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-left: 0.75rem;
+      vertical-align: middle;
+    }
+    .config-badge.config-primary {
+      background: rgba(33, 150, 243, 0.12);
+      color: #1976d2;
+    }
+    .config-badge.config-baseline {
+      background: rgba(255, 193, 7, 0.15);
+      color: #f57f17;
+    }
+
+    /* ---- Prompt ---- */
+    .prompt-text {
+      white-space: pre-wrap;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Outputs ---- */
+    .output-file {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .output-file + .output-file {
+      margin-top: 1rem;
+    }
+    .output-file-header {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .output-file-header .dl-btn {
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-decoration: none;
+      cursor: pointer;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+    .output-file-header .dl-btn:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .output-file-content {
+      padding: 0.75rem;
+      overflow-x: auto;
+    }
+    .output-file-content pre {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+    .output-file-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .output-file-content iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+    .output-file-content table {
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+      width: 100%;
+    }
+    .output-file-content table td,
+    .output-file-content table th {
+      border: 1px solid var(--border);
+      padding: 0.375rem 0.5rem;
+      text-align: left;
+    }
+    .output-file-content table th {
+      background: var(--bg);
+      font-weight: 600;
+    }
+    .output-file-content .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .output-file-content .download-link:hover {
+      background: var(--border);
+    }
+    .empty-state {
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* ---- Feedback ---- */
+    .prev-feedback {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.625rem 0.75rem;
+      margin-top: 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .prev-feedback-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+    }
+    .feedback-textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      resize: vertical;
+      color: var(--text);
+    }
+    .feedback-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .feedback-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      min-height: 1.1em;
+    }
+
+    /* ---- Grades (collapsible) ---- */
+    .grades-toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .grades-toggle:hover {
+      color: var(--accent);
+    }
+    .grades-toggle .arrow {
+      margin-right: 0.5rem;
+      transition: transform 0.15s;
+      font-size: 0.75rem;
+    }
+    .grades-toggle .arrow.open {
+      transform: rotate(90deg);
+    }
+    .grades-content {
+      display: none;
+      margin-top: 0.75rem;
+    }
+    .grades-content.open {
+      display: block;
+    }
+    .grades-summary {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .grade-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .grade-pass { background: var(--green-bg); color: var(--green); }
+    .grade-fail { background: var(--red-bg); color: var(--red); }
+    .assertion-list {
+      list-style: none;
+    }
+    .assertion-item {
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem;
+    }
+    .assertion-item:last-child { border-bottom: none; }
+    .assertion-status {
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+    .assertion-status.pass { color: var(--green); }
+    .assertion-status.fail { color: var(--red); }
+    .assertion-evidence {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      padding-left: 1.5rem;
+    }
+
+    /* ---- View tabs ---- */
+    .view-tabs {
+      display: flex;
+      gap: 0;
+      padding: 0 2rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .view-tab {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .view-tab:hover { color: var(--text); }
+    .view-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .view-panel { display: none; }
+    .view-panel.active { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+
+    /* ---- Benchmark view ---- */
+    .benchmark-view {
+      padding: 1.5rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .benchmark-table {
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.8125rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .benchmark-table th, .benchmark-table td {
+      padding: 0.625rem 0.75rem;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .benchmark-table th {
+      font-family: 'Poppins', sans-serif;
+      background: var(--header-bg);
+      color: var(--header-text);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .benchmark-table tr:hover { background: var(--bg); }
+    .benchmark-table tr.benchmark-row-with { background: rgba(33, 150, 243, 0.06); }
+    .benchmark-table tr.benchmark-row-without { background: rgba(255, 193, 7, 0.06); }
+    .benchmark-table tr.benchmark-row-with:hover { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-without:hover { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-table tr.benchmark-row-avg { font-weight: 600; border-top: 2px solid var(--border); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-with { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-without { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-delta-positive { color: var(--green); font-weight: 600; }
+    .benchmark-delta-negative { color: var(--red); font-weight: 600; }
+    .benchmark-notes {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .benchmark-notes h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    .benchmark-notes ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+    }
+    .benchmark-notes li {
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin-bottom: 0.375rem;
+    }
+    .benchmark-empty {
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    /* ---- Navigation ---- */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .nav-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.15s;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .done-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .done-btn:hover {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .done-btn.ready {
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+    .done-btn.ready:hover {
+      background: var(--accent-hover);
+    }
+    /* ---- Done overlay ---- */
+    .done-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    .done-overlay.visible {
+      display: flex;
+    }
+    .done-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2rem 3rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+    }
+    .done-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .done-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .done-card .btn-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .done-card button {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .done-card button:hover {
+      background: var(--bg);
+    }
+    /* ---- Toast ---- */
+    .toast {
+      position: fixed;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 200;
+    }
+    .toast.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" style="height:100vh; display:flex; flex-direction:column;">
+    <div class="header">
+      <div>
+        <h1>Eval Review: <span id="skill-name"></span></h1>
+        <div class="instructions">Review each output and leave feedback below. Navigate with arrow keys or buttons. When done, copy feedback and paste into Claude Code.</div>
+      </div>
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- View tabs (only shown when benchmark data exists) -->
+    <div class="view-tabs" id="view-tabs" style="display:none;">
+      <button class="view-tab active" onclick="switchView('outputs')">Outputs</button>
+      <button class="view-tab" onclick="switchView('benchmark')">Benchmark</button>
+    </div>
+
+    <!-- Outputs panel (qualitative review) -->
+    <div class="view-panel active" id="panel-outputs">
+    <div class="main">
+      <!-- Prompt -->
+      <div class="section">
+        <div class="section-header">Prompt <span class="config-badge" id="config-badge" style="display:none;"></span></div>
+        <div class="section-body">
+          <div class="prompt-text" id="prompt-text"></div>
+        </div>
+      </div>
+
+      <!-- Outputs -->
+      <div class="section">
+        <div class="section-header">Output</div>
+        <div class="section-body" id="outputs-body">
+          <div class="empty-state">No output files found</div>
+        </div>
+      </div>
+
+      <!-- Previous Output (collapsible) -->
+      <div class="section" id="prev-outputs-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="togglePrevOutputs()">
+            <span class="arrow" id="prev-outputs-arrow">&#9654;</span>
+            Previous Output
+          </div>
+        </div>
+        <div class="grades-content" id="prev-outputs-content"></div>
+      </div>
+
+      <!-- Grades (collapsible) -->
+      <div class="section" id="grades-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="toggleGrades()">
+            <span class="arrow" id="grades-arrow">&#9654;</span>
+            Formal Grades
+          </div>
+        </div>
+        <div class="grades-content" id="grades-content"></div>
+      </div>
+
+      <!-- Feedback -->
+      <div class="section">
+        <div class="section-header">Your Feedback</div>
+        <div class="section-body">
+          <textarea
+            class="feedback-textarea"
+            id="feedback"
+            placeholder="What do you think of this output? Any issues, suggestions, or things that look great?"
+          ></textarea>
+          <div class="feedback-status" id="feedback-status"></div>
+          <div class="prev-feedback" id="prev-feedback" style="display:none;">
+            <div class="prev-feedback-label">Previous feedback</div>
+            <div id="prev-feedback-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav" id="outputs-nav">
+      <button class="nav-btn" id="prev-btn" onclick="navigate(-1)">&#8592; Previous</button>
+      <button class="done-btn" id="done-btn" onclick="showDoneDialog()">Submit All Reviews</button>
+      <button class="nav-btn" id="next-btn" onclick="navigate(1)">Next &#8594;</button>
+    </div>
+    </div><!-- end panel-outputs -->
+
+    <!-- Benchmark panel (quantitative stats) -->
+    <div class="view-panel" id="panel-benchmark">
+      <div class="benchmark-view" id="benchmark-content">
+        <div class="benchmark-empty">No benchmark data available. Run a benchmark to see quantitative results here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Done overlay -->
+  <div class="done-overlay" id="done-overlay">
+    <div class="done-card">
+      <h2>Review Complete</h2>
+      <p>Your feedback has been saved. Go back to your Claude Code session and tell Claude you're done reviewing.</p>
+      <div class="btn-row">
+        <button onclick="closeDoneDialog()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ---- Embedded data (injected by generate_review.py) ----
+    const EMBEDDED_DATA = {"skill_name": "repairing-script-voice v3", "runs": [{"id": "voice-A-with_skill", "prompt": "(No prompt found)", "eval_id": null, "outputs": [{"name": "response.md", "type": "text", "content": "Rewritten:\n\n---\n\nThe UPA was the armed wing of the OUN-B. These were its soldiers, and they wanted the same thing the OUN-B wanted: an independent Ukrainian state.\n\nIn Volhynia that goal ran into a problem, and the problem was not really about the war itself. It was about what would happen after it.\n\nIf a large Polish population was still living on this land when Europe's borders were redrawn, Poland could use that population to claim the land again.\n\nOne of the OUN's military thinkers, Mykhailo Kolodzinskyi, had put that reasoning into writing before the war. He wrote about removing what he called the \"Polish element\" and ending Polish claims to the character of these lands.\n\n**[ON SCREEN: verified Kolodzinskyi passage. Label clearly: `PRE-WAR DOCTRINE. NOT A 1943 ORDER.`]**\n\nThat is one thinker, in the 1930s. It is not an operational plan. But it tells us the idea was in the movement before anyone had the means to act on it.\n\nIt also helps to know what Ukrainians in interwar Poland were actually living under. They could vote and they had legal political parties. But there was also repression, restrictions, and promises of autonomy that were never kept.\n\nThat helps explain why part of the nationalist movement radicalized. It does not make what happened later inevitable, and most Ukrainians were never in the OUN.\n\nWhat changed by 1943 was not the idea. It was what the movement was capable of doing.\n\nIn spring 1943, around five thousand Ukrainian auxiliary policemen deserted German service. They did not all end up in the UPA \u2014 some joined willingly, some were pressured, some simply followed their units. But the ones who did join brought weapons, training and combat experience with them.\n\nAnd some of those police formations had already been used by the Germans in the persecution and murder of Jews. That does **not** mean every man who later joined the UPA had personally taken part in a killing. We cannot say that. It does mean some of the trained men entering the insurgency came out of units that had already been used for mass violence.\n\nSo by 1943 the idea of removing the Polish population had been around for years. What was new was that the movement now had trained, armed men.\n\nWhat we still don't have is the step in between \u2014 someone deciding, and passing that decision down. That is the part historians are actually arguing about, and it's what I want to look at next.\n\n---\n\nThree things were wrong.\n\nThe passage is built almost entirely out of the phrases on your own kill list \u2014 \"was never merely a military formation; it was\", \"beneath the surface\", \"a contradiction built into the movement\", \"on paper / in practice\", \"that changes everything\", \"the underlying causal mechanism\" for *why it happened*. I replaced them with the plain version of each claim rather than hunting for better ornaments.\n\nThe real problem was underneath that, though. \"Meanwhile, the German occupation shattered the existing order and normalized mass violence. And so, by 1943...\" is a transition standing where the mechanism should be. The draft goes straight from an idea to a massacre with nothing in between about who had the men or the guns. You already have that step researched \u2014 the roughly five thousand auxiliary police desertions in spring 1943 (E7) \u2014 so I restored it rather than flagging a hole. Separating the idea from the means to carry it out is your move; the draft deleted it and covered the gap with \"and so\".\n\nThe last line is the one I'd have stopped you on even if the prose had been fine. \"The result was not an accident. It was a policy\" asserts a decision from above, and your own ledger withholds exactly that: E13 says no authenticated order is established, E14 says the command genesis is disputed, and \"any claim that a specific Central Provid decision initiated the campaign\" is on the withheld list. Said on camera it settles the question this video exists to referee, and it hands the brigade the quote. I ended on the open question instead, which also hands off into the internal-records section.\n\nThe general constraint, so I stop producing this: when a beat lands on a big closing line, the line is usually standing where a missing step was. Here the slogan was doing the work of an order you don't have. I'll treat \"does this paragraph end on a punch?\" as a prompt to check whether the evidence for the punch exists \u2014 and if it doesn't, the paragraph ends on the open question. Say the word and I'll add that to `OPERATING-MODEL.md` section 10 so it isn't only in this chat.\n\nOne thing I did not do: I left `SCRIPT-V6-FILMING-LOCK.md` alone. This is a loose draft passage and the locked script's Volhynia act already handles this material \u2014 if you want this version in, tell me and I'll make the edit there.\n"}], "grading": {"expectations": [{"text": "The replacement text appears before any diagnosis", "passed": true, "evidence": "'Rewritten:' then the full text"}, {"text": "The replacement is a complete substitute for the passage, not a sketch or partial sample", "passed": true, "evidence": "Whole passage replaced"}, {"text": "The replacement is in the project's script format (short prompter lines, not paragraph blocks)", "passed": true, "evidence": "mean line 182 chars, blank-line separated prompter units"}, {"text": "No markdown section headers structuring the response", "passed": true, "evidence": "0 headers"}, {"text": "Names at least one rhetorical-furniture tell listed by name in the operating model", "passed": true, "evidence": "Names six section-10 constructions"}, {"text": "Identifies at least one substantive problem (evidence or logic), not only style", "passed": true, "evidence": "E13/E14 withheld-claim violation on 'It was a policy'"}, {"text": "Does not require a clarifying answer from Benoit before the delivered text is usable", "passed": true, "evidence": "Offer to document a rule, after complete text"}, {"text": "Does not rewrite more of the passage than the fault requires", "passed": true, "evidence": "Scoped to the passage; restored his own approved V6/ad-lib wording"}]}}, {"id": "voice-A-without_skill", "prompt": "(No prompt found)", "eval_id": null, "outputs": [{"name": "response.md", "type": "text", "content": "Fixed below. But the voice problem is the symptom, not the disease \u2014 the paragraph doesn't sound like you because there is no evidence in it. It's 130 words of thesis with no document, no number, no named person and no date, so it needs decorative connective tissue to stand up. That's what you're hearing.\n\n## Rewritten\n\n```\nThe UPA was the armed wing of the OUN-B. These were their soldiers.\n\nSo when I ask what the UPA was doing in Volhynia in 1943, I'm really asking what the OUN-B wanted.\n\nThey wanted an independent Ukrainian state, and they wanted it on this land.\n\nNow, on its own, that is not a motive for killing anybody.\n\nBut there is something in their own writing, from before the war, that we should look at.\n\nOne of their military thinkers, Mykhailo Kolodzinskyi, wrote about removing what he called the\n\"Polish element\" from these lands.\n\n[ON SCREEN: verified Kolodzinskyi passage, Ukraina Moderna 20, p.266.\nLabel: PRE-WAR DOCTRINE. NOT A 1943 ORDER.]\n\nAnd I want to be careful here. That is doctrine, written years earlier. It is not an order, and it\nhas no date on it.\n\nWhat it does tell us is that the idea was already inside the movement, in writing, long before\nanyone acted on it.\n\nPart of the reason it had an audience is Poland.\n\nUnder interwar Poland, Ukrainians could vote and they had legal political parties. I'm not going to\nskip past that.\n\nBut there was also repression, there were restrictions, and there were promises of autonomy that\nwere never fulfilled.\n\nThat helps explain why part of the nationalist movement radicalized.\n\nIt does not explain how men with an idea became units with weapons, attacking a hundred villages on\nthe same morning.\n\nThat's a separate question with a separate answer.\n\nSo for this part I want to keep those two things apart: the idea, and the means to carry it out.\n```\n\nAbout 240 spoken words, roughly 90 seconds at 163 wpm. One sentence per line, same as the rest of the filming script, so it reads off the teleprompter without you re-breaking it.\n\n## What was actually wrong\n\n**Two claims go past the evidence ledger.** These matter more than the prose.\n\n\"The result was not an accident. It was a policy.\" asserts exactly what the video is built to leave open. E13: no authenticated signed extermination order in the accessible corpus. E14: converging evidence supports an *organized campaign* while command genesis remains disputed. And \"any claim that a specific Central Provid decision initiated the campaign\" is on your withheld list. Your own ad-lib on this is better than the draft: *\"if this was decided from the top of the command, we don't have any evidence of that. What we do have is...\"* The draft trades that away for a closing snap.\n\n\"its vision of statehood required an ethnically homogeneous territory\" states as settled fact what E6 supports only as one military thinker's pre-war doctrine \u2014 and E6's named overstatement to avoid is treating it as the operational instruction. The rewrite keeps Kolodzinskyi as a named person writing a specific thing, with the DOCTRINE-NOT-ORDER card, which is the version you can defend.\n\n**The concession got dropped.** The draft says the Polish state \"pursued policies of colonization and Ukrainian cultural suppression, generating profound resentment\" and stops. The filming script concedes first \u2014 Ukrainians could vote, they had legal parties \u2014 and *then* limits the inference. Without that, the paragraph reads as building a justification, and E5's stated trap is exactly \"repression caused or excused massacre.\" Restored.\n\n**\"Meanwhile\" and \"the underlying causal mechanism was in place\" are hiding the mechanism.** The passage jumps from ideology in the 1930s straight to July 1943 with no step in between. The step is the one your locked script actually has: around five thousand auxiliary policemen deserted German service in spring 1943 and brought weapons, training and experience with them (E7). The draft covers that gap with a transition word. I didn't fill it in here \u2014 that beat lives a page later \u2014 so the rewrite ends by naming the gap and handing it forward instead of papering over it.\n\n**Surface tells, for the pattern rather than the list.** \"was never merely X; it was Y\", \"beneath the surface\", \"a contradiction built into the movement\", \"on paper / in practice\", \"that changes everything\", \"underlying causal mechanism\", and a two-fragment slogan ending. Every one of them is a connector doing work that a fact should be doing.\n\n## One thing to decide\n\nThis ground is already covered in `SCRIPT-V6-FILMING-LOCK.md` under WHAT HAPPENED IN VOLHYNIA, and it's covered well \u2014 the version there is closer to how you talk than this draft was. So before you use any of this: if the Act 2 opener is new narration to be filmed, fine, drop it in. If it's a replacement for something already in the can from 23 July, it's a refilm, and I don't think this passage is worth reopening a locked script for. Volhynia's problem is that it hasn't published, not that Act 2 opens weakly.\n\nTell me which one it is and I'll fit it properly.\n"}], "grading": {"expectations": [{"text": "The replacement text appears before any diagnosis", "passed": true, "evidence": "'## Rewritten' section comes first"}, {"text": "The replacement is a complete substitute for the passage, not a sketch or partial sample", "passed": true, "evidence": "Complete revised passage"}, {"text": "The replacement is in the project's script format (short prompter lines, not paragraph blocks)", "passed": true, "evidence": "Prompter format in both response and side file"}, {"text": "No markdown section headers structuring the response", "passed": false, "evidence": "3 markdown headers: Rewritten / What was actually wrong / One thing to decide"}, {"text": "Names at least one rhetorical-furniture tell listed by name in the operating model", "passed": true, "evidence": "Lists the six surface tells"}, {"text": "Identifies at least one substantive problem (evidence or logic), not only style", "passed": true, "evidence": "Contradicts E13/E14 and drops E5 qualifications"}, {"text": "Does not require a clarifying answer from Benoit before the delivered text is usable", "passed": false, "evidence": "Ends 'Tell me which one it is and I'll fit it properly' \u2014 the fit is deferred to his answer"}, {"text": "Does not rewrite more of the passage than the fault requires", "passed": true, "evidence": "Scoped to the passage"}]}}, {"id": "voice-B-with_skill", "prompt": "(No prompt found)", "eval_id": null, "outputs": [{"name": "response.md", "type": "text", "content": "You're right, and it isn't just the sound of it \u2014 two of the sentences are making claims your own evidence doesn't support. Here it is rewritten, in the V6 one-line-per-breath format:\n\n---\n\nSo why does Ukraine honour the UPA now?\n\nThe short answer is the one you can probably already guess.\n\nThe UPA fought Soviet rule for an independent Ukraine, and that is a useful thing to have in your history when you are fighting Russia today.\n\nBut I want to be more precise than that, because this was a decision, and you can actually see when it was taken.\n\nIn 2010, a Ukrainian presidential decree already counted OUN and UPA members among the twentieth-century fighters for Ukrainian independence.\n\nThen in 2015, after Russia took Crimea and the war in Donbas started, Ukraine passed a law recognizing OUN and UPA as organizations which fought for Ukrainian independence, and made commemorating that struggle part of state policy.\n\nThat law is part of the 2015 package usually called decommunization.\n\nBut look at what it actually does.\n\nIt recognizes the independence struggle. It does not say the movement was right about everything.\n\nAnd I don't think Soviet memory was simply replaced here by nationalist memory.\n\nVolhynia is still in the textbook. The attacks on Polish settlements are still in there.\n\nWhat changed is which part of the record gets called heroic.\n\nAnd that is exactly where Poland's objection starts.\n\n---\n\nFour things were wrong:\n\n**The furniture.** Three phrases off your own kill list in six sentences \u2014 \"this wasn't merely X; it was Y\", \"neither Poland nor Ukraine\", \"the truth was more complicated\". Each one was doing rhythm, not work.\n\n**\"Postwar Ukrainian national identity was constructed in opposition to Soviet rule\" is not true and it hides the mechanism.** Postwar Ukraine *was* the Soviet Union. E18 puts the shift at regional rehabilitation after 1991 and much stronger state recognition after 2014 \u2014 which is the interesting fact, and the abstraction buried it. I replaced it with the two dated decisions, 2010 and 2015. Same for \"the 2015 decommunization laws made this official\": \"made this official\" is a connector with nothing under it, so I said what the law recognizes and what it doesn't.\n\n**\"Nationalist memory replaced Soviet memory\" contradicts your thesis.** Your whole textbook act establishes that Volhynia is *in* the history \u2014 the point is asymmetric commemoration, not replacement. That sentence hands the \"Ukraine buries it\" frame back to the audience, which is the exact claim the rebuild narrowed away from.\n\n**The last two sentences are a verdict, and the mushy kind.** An act opener shouldn't land the video, and \"the truth was more complicated than either side admits\" is the no-verdict close the method lock rules out. \"Neither can retreat\" is also contradicted downstream by your own 2023 joint-mourning beat and the Ogie\u0144 case. Cut, and the opener now hands off into Poland instead.\n\nThe general version, so I stop producing it: when a sentence summarises what a change *meant* \u2014 \"became the vehicle for\", \"was a change of national self-understanding\" \u2014 that's where a date and an actor went missing. Say who decided what, and when, and the meaning takes care of itself. Want me to add that line to OPERATING-MODEL.md \u00a710? The decorative phrases are already listed there; this one isn't.\n"}], "grading": {"expectations": [{"text": "The replacement text appears before any diagnosis", "passed": true, "evidence": "Rewrite precedes diagnosis"}, {"text": "The replacement is a complete substitute for the passage, not a sketch or partial sample", "passed": true, "evidence": "Complete opener delivered"}, {"text": "The replacement is in the project's script format (short prompter lines, not paragraph blocks)", "passed": true, "evidence": "mean line 92 chars, prompter shape"}, {"text": "No markdown section headers structuring the response", "passed": true, "evidence": "0 headers"}, {"text": "Names at least one rhetorical-furniture tell listed by name in the operating model", "passed": true, "evidence": "Three kill-list constructions named"}, {"text": "Identifies at least one substantive problem (evidence or logic), not only style", "passed": true, "evidence": "E18 contradiction; 'postwar identity' factually false; replacement thesis regression"}, {"text": "Does not require a clarifying answer from Benoit before the delivered text is usable", "passed": true, "evidence": "No blocking question"}, {"text": "Does not rewrite more of the passage than the fault requires", "passed": true, "evidence": "Cut the furniture paragraph rather than expanding"}]}}, {"id": "voice-B-without_skill", "prompt": "(No prompt found)", "eval_id": null, "outputs": [{"name": "response.md", "type": "text", "content": "Your instinct is right, and the reason isn't mainly voice. Three of the six sentences say things the rest of the video contradicts, and two of them are claims the evidence ledger explicitly tells us not to make.\n\n## What's actually wrong\n\n**1. \"Postwar Ukrainian national identity was constructed in opposition to Soviet rule.\"**\n\nThis is the one that would get you corrected in the comments, and it's E18's named overstatement \u2014 the ledger's sequence is regional rehabilitation after 1991, moving to stronger state recognition especially after 2014, with \"uniform national consensus from 1991\" flagged as the thing to avoid. The draft pushes it further back still, into the Soviet period. Kasianov, Portnov and Shevel are in the notebook precisely because the asymmetry is post-2014. Cut it.\n\n**2. \"Nationalist memory replaced Soviet memory.\"**\n\nThis contradicts the argument the video actually makes. Your whole textbook beat is that Volhynia *is* in the history and the anti-Soviet struggle is what gets called heroic \u2014 coexistence, selection of emphasis. \"Replaced\" is the crude version you're arguing against.\n\n**3. \"Neither Poland nor Ukraine can retreat from the positions they have taken.\"**\n\nNot supported, and your Poland section says close to the opposite: the two states already acknowledged the victims together and their presidents jointly mourned in 2023. The Polish objection you land on is narrow and specific \u2014 organisational honour versus organisational responsibility (E21). A locked-deadlock framing throws that away for symmetry.\n\n**4. \"The truth was more complicated than either side admits.\"**\n\nThis is the mushy no-verdict the method lock rules out, and it's in the wrong place \u2014 it delivers the ending in the opener. Your judgment lands in WHERE I END UP, after the evidence. Saying it up front means the act has nowhere to go.\n\n**5. \"The 2015 decommunization laws made this official.\"**\n\nVague and slightly off. The operative instrument is Law 314-VIII (bill 2538-1), which recognised OUN and UPA as organisations that fought for independence and made commemorating that struggle state policy. The decommunization package is broader. \"Made this official\" also implies the law endorsed everything the movement did \u2014 E19's named overstatement.\n\n**6. The prose tells.** \"This wasn't merely X; it was Y,\" \"neither X nor Y,\" \"the truth was more complicated,\" \"became the vehicle for that replacement.\" Those are the constructions to scrutinise, and they cluster here because the paragraph is doing essay-thesis work rather than spoken work. Also \"Ukraine honours\" \u2014 it's the Ukrainian state, by decree and by law. Name the actor.\n\n## What I'd do\n\nDon't patch this paragraph. The ground it covers is already in the script and better sourced: the 2010 decree, the 2015 law, the post-2022 relevance, and the 2026 decree saying the reason out loud. If you're looking for an opener for that act, it should pose the question and hand off, not summarise the answer.\n\nSomething like this, sitting in front of \"Now go back to the textbook\":\n\n> So the question I actually started with was why any of this is still live in 2026.\n>\n> The UPA lost. The Soviet Union is gone. And this year a Ukrainian president put that name on a brigade.\n>\n> The short answer everybody gives is the war with Russia. I think that's mostly right. But the honours didn't start in 2022, and the timing is the part that explains it.\n>\n> So go back to the textbook.\n\nFour lines, no verdict, and it sets up the dated sequence you already have rather than pre-empting it.\n\n**One thing I need from you:** I've read \"Act 3\" as the modern-memory act \u2014 BACK TO THE TEXTBOOK running into POLAND AND THE PROBLEM OF COMMEMORATION. If you meant a different seam, tell me which and I'll redo it against that. And if this passage was meant to *replace* existing V6 text rather than open in front of it, say so \u2014 V6 is the filming lock and I don't want to reopen it on my own reading.\n"}], "grading": {"expectations": [{"text": "The replacement text appears before any diagnosis", "passed": false, "evidence": "Six numbered diagnosis points precede any replacement"}, {"text": "The replacement is a complete substitute for the passage, not a sketch or partial sample", "passed": false, "evidence": "'Something like this' \u2014 four lines against a six-sentence passage"}, {"text": "The replacement is in the project's script format (short prompter lines, not paragraph blocks)", "passed": true, "evidence": "Blockquote lines are prompter-shaped"}, {"text": "No markdown section headers structuring the response", "passed": false, "evidence": "2 markdown headers"}, {"text": "Names at least one rhetorical-furniture tell listed by name in the operating model", "passed": true, "evidence": "Names the constructions to scrutinise"}, {"text": "Identifies at least one substantive problem (evidence or logic), not only style", "passed": true, "evidence": "E18/E19 overstatements, deadlock framing contradicted"}, {"text": "Does not require a clarifying answer from Benoit before the delivered text is usable", "passed": false, "evidence": "Ends with two clarifying questions he must answer first"}, {"text": "Does not rewrite more of the passage than the fault requires", "passed": true, "evidence": "Recommends not patching, which is restrained"}]}}, {"id": "voice-C-with_skill", "prompt": "(No prompt found)", "eval_id": null, "outputs": [{"name": "response.md", "type": "text", "content": "Yes \u2014 the last paragraph is the problem, and the first three are fine. Here it is repaired:\n\n---\n\nSo if the textbook says it plainly, the honour can't be explained by saying Volhynia was forgotten.\n\nSo why honour the UPA anyway?\n\nAnd especially, why do it now, when Ukraine is fighting Russia and it obviously creates a problem with Poland?\n\nThe usual answer is the war with Russia, and I think that's mostly right.\n\nBut it doesn't explain the timing on its own, because the honours didn't start in 2022.\n\nThey started earlier, and I want to come back to that, because the sequence matters.\n\nFirst, though, I think we have to test both parts of this properly.\n\nWhat exactly was the UPA's role in Volhynia?\n\nAnd then, how real was the independence struggle Ukraine says it is honouring?\n\n---\n\nThree things were wrong, and the one you're feeling is probably the second.\n\n**It contradicts the beat it just finished.** The textbook beat establishes that Volhynia *is* in the Ukrainian record \u2014 printed openly, in a current schoolbook. Then the closing paragraph says \"the state wants the anti-Soviet struggle without the Volhynian record,\" which is the erasure claim you just spent the whole act disproving. That's the old thesis you narrowed away from in August. The version that survives your own evidence is the one already in the locked script: both things are in the record, but only one gets described as heroic. So the paragraph isn't just over-written, it argues the wrong case.\n\n**It promises a walkthrough and then delivers the verdict instead.** \"The sequence matters, so it's worth going through it properly\" sets up 2010 decree, 2015 law, 2022, 2026 \u2014 and the next sentence resolves the question before a single date appears. That sequence already exists and already works, at BACK TO THE TEXTBOOK in the V6 lock. So I've turned the promise into an actual forward reference and handed off to the two-part test, rather than duplicating it here and spending the payload in Act 1. Same reason I cut \"and it is why Poland keeps objecting\" \u2014 Poland's objection is specifically to the UPA *name* receiving state honour, which is a whole later act, and it's sharper there than as a throwaway clause here.\n\n**The wording is furniture.** \"A tension at the heart of... that has never been resolved,\" \"the contradiction built into the 2015 laws,\" \"it cannot have one without the other.\" The middle one is on your own kill list, and the third is a neat symmetry that's also factually wrong \u2014 the state demonstrably *can* have one without the other, which is the entire finding.\n\nOne general constraint so I stop producing this: an act that opens a question should not contain the answer the video proves later. When a paragraph summarises what a later act establishes, that's a voice failure, not a structure choice \u2014 it reads as narration about your argument rather than you making it. Want me to add that line to OPERATING-MODEL.md section 10?\n"}], "grading": {"expectations": [{"text": "The replacement text appears before any diagnosis", "passed": true, "evidence": "'Here it is repaired:' then the text"}, {"text": "The replacement is a complete substitute for the passage, not a sketch or partial sample", "passed": true, "evidence": "Complete replacement of the passage"}, {"text": "The replacement is in the project's script format (short prompter lines, not paragraph blocks)", "passed": true, "evidence": "mean line 75 chars, tightest of all runs"}, {"text": "No markdown section headers structuring the response", "passed": true, "evidence": "0 headers"}, {"text": "Names at least one rhetorical-furniture tell listed by name in the operating model", "passed": true, "evidence": "'the contradiction built into the 2015 laws' named"}, {"text": "Identifies at least one substantive problem (evidence or logic), not only style", "passed": true, "evidence": "Contradicts the textbook beat; promise/verdict mismatch"}, {"text": "Does not require a clarifying answer from Benoit before the delivered text is usable", "passed": true, "evidence": "Closing offer only, text complete"}, {"text": "Does not rewrite more of the passage than the fault requires", "passed": true, "evidence": "Explicitly says 'the first three are fine'; forward-references the later act instead of duplicating it"}]}}, {"id": "voice-C-without_skill", "prompt": "(No prompt found)", "eval_id": null, "outputs": [{"name": "response.md", "type": "text", "content": "Yes, the last paragraph needs to go. Three things are wrong with it, and the one you can feel is probably the third.\n\n**1. It contradicts the beat it's attached to.** The whole point of the textbook is that Volhynia is *in* the book \u2014 expelling Poles, attacks on Polish settlements, July 1943, stated plainly. Then the last paragraph says \"the state wants the anti-Soviet struggle without the Volhynian record.\" That's the forgetting explanation you just killed two sentences earlier. The accurate reading is the one you already have in BACK TO THE TEXTBOOK: both claims are there, only one gets called heroic. It's selection, not omission. As written, the paragraph argues against your own evidence.\n\n**2. It spends the verdict in Act 1.** The method on this video is locked: facts, then both cases straight, then your read at the end. That paragraph is the ending. If it goes here, the 2010 decree, the 2015 law, 2022 and the 2026 decree all become illustration of a conclusion the viewer already has, and the sequence stops being an investigation. You also promise the sequence in the sentence right before it \u2014 \"the sequence matters, so it's worth going through it properly\" \u2014 and then don't go through it. You answer instead. That broken promise is doing a lot of the discomfort.\n\n**3. You disappear.** Paragraphs one to three have a person in them: \"I think that's mostly right,\" \"can't,\" \"didn't.\" The last paragraph has a narrator: \"There is a tension at the heart of,\" \"that has never been resolved,\" \"it cannot have one without the other,\" \"the contradiction built into.\" No contractions, no first person, and three lines that are shaped for applause rather than for explaining anything. \"The contradiction built into\" in particular is a phrase you've flagged before. And \"it is why Poland keeps objecting\" is too tidy \u2014 Poland's objection is to the UPA name receiving state honour, which you handle properly later.\n\n## The passage, cut\n\nRecommended: end on the promise and go straight into 2010.\n\n> So if the textbook says it plainly, the honour can't be explained by saying Volhynia was forgotten.\n>\n> Which leaves the harder question. Why honour the UPA anyway, and why now?\n>\n> The usual answer is the war with Russia, and I think that's mostly right. But it doesn't explain the timing on its own, because the commemoration didn't start in 2022. It started earlier, and the sequence matters, so it's worth going through it properly.\n\nTwo small changes in there: \"the honours didn't start in 2022\" became \"the commemoration didn't start in 2022,\" because the 2010 decree and the 2015 law are recognition and commemoration policy, not honours in the sense of the 2026 unit name \u2014 and you don't want the viewer thinking there was an earlier named unit. Everything else stands.\n\n## If you want one more line before the sequence\n\nOnly if the cut feels too abrupt on the read-aloud. This one points at what the textbook actually shows and still doesn't answer anything:\n\n> And notice what the textbook already tells us. Both things are in the book. So the question isn't what Ukraine leaves out of the history. It's which part gets called heroic, and when that started.\n\nThat hands you the 2010 decree cleanly.\n\n## Where the cut material goes\n\nThe idea underneath that paragraph isn't wrong, it's early. Ukraine commemorating the anti-Soviet fight while the Volhynia record sits in the same textbook is your closing mechanism read \u2014 how states manufacture heroes by choosing what to emphasise, not by deleting what's inconvenient. When you write that ending, keep it in your own words: no \"tension at the heart of,\" no \"contradiction built into,\" no \"cannot have one without the other.\" Say what's selected and who does the selecting.\n"}], "grading": {"expectations": [{"text": "The replacement text appears before any diagnosis", "passed": false, "evidence": "Three numbered diagnosis sections come first; replacement appears under 'The passage, cut'"}, {"text": "The replacement is a complete substitute for the passage, not a sketch or partial sample", "passed": true, "evidence": "Complete cut version of the passage supplied in blockquote"}, {"text": "The replacement is in the project's script format (one sentence per line, readable off a prompter)", "passed": true, "evidence": "Blockquote, one sentence per line"}, {"text": "No markdown section headers structuring the response", "passed": false, "evidence": "3 markdown headers"}, {"text": "Names at least one rhetorical-furniture tell listed by name in the operating model", "passed": true, "evidence": "'The contradiction built into' identified as a phrase he has flagged before"}, {"text": "Identifies at least one substantive problem (evidence or logic), not only style", "passed": true, "evidence": "Same two substantive findings, plus the honours/commemoration precision fix"}, {"text": "Does not require a clarifying answer from Benoit before the delivered text is usable", "passed": true, "evidence": "Text is usable as delivered"}, {"text": "Does not rewrite more of the passage than the fault requires", "passed": true, "evidence": "Cut only the failing paragraph and left the working three alone \u2014 the correct minimal fix"}]}}], "previous_feedback": {}, "previous_outputs": {"voice-A-with_skill": [{"name": "response.md", "type": "text", "content": "Rewritten:\n\n---\n\nThe UPA was the armed wing of the OUN-B, and what they wanted was an independent Ukrainian state. That part is real, and it is the part Ukraine honours today. But inside that movement, the Polish population had already become a territorial problem. Volhynia went to Poland after the First World War, and it had a large Polish population. If those communities were still living there when Europe's borders were redrawn after another war, Poland could use them to claim the land again. One of the OUN's military thinkers, Mykhailo Kolodzinskyi, wrote that down before the war \u2014 remove what he called the \"Polish element,\" and the Polish claim to these lands goes with it.\n\nPolish rule there included elections and legal Ukrainian parties. It also included repression, restrictions, and promises of autonomy that were never kept. That helps explain why part of the nationalist movement radicalized. It does not make what happened later inevitable, and most Ukrainians never joined the OUN.\n\nSo the idea of removing the Polish population was there well before the war. What the movement did not have was the ability to carry it out, and that is what changed in 1943. In the spring, around five thousand Ukrainian auxiliary policemen deserted German service. Some joined the UPA willingly, some were forced, and some simply followed their units \u2014 but they brought weapons, training and experience with them. So by the middle of 1943 the movement had a reason to change who would be living on this land when the war ended, and it now had an armed force capable of doing it.\n\nThat still does not tell us who gave what instruction, or when. That is the hardest part of this story and I want to come to it properly. What it does tell us is that when the attacks came in July, they were not coming out of nowhere.\n\n---\n\nThree things were wrong.\n\nThe real problem is a missing mechanism. \"Meanwhile, the German occupation shattered the existing order and normalized mass violence. And so, by 1943, the underlying causal mechanism was in place\" uses \"and so\" to skip the thing that actually changed \u2014 the five thousand police desertions in spring 1943 that gave the movement armed men. You already have that beat in E7 and you already wrote the bridge for it in V2 (\"a reason to change who would control the territory... and it now had an armed force capable of doing it\"). Most of this fix was going back to your own approved wording rather than inventing anything.\n\nIt also reaches a verdict the evidence won't carry. \"The result was not an accident. It was a policy\" reads as a settled command decision, which is exactly what E13 and E14 say you can't claim \u2014 and it lands the interpretation in Act 2 instead of at the end. Separately, \"policies of colonization and Ukrainian cultural suppression, generating profound resentment\" drops the qualifications you deliberately put in (elections, legal parties, most Ukrainians not in the OUN) and lands on E5's listed overstatement, repression causing the massacre.\n\nAnd the furniture: \"was never merely X, it was Y,\" \"the contradiction... built into the movement,\" \"on paper / in practice,\" \"beneath the surface,\" \"underlying causal mechanism,\" \"that changes everything.\" That is five of the six constructions section 10 names by name, in eight sentences.\n\nThe general constraint, so I stop producing this: when a paragraph moves from an idea to an action, the connector has to name what made the action possible. If the mechanism is already in the ledger, put it in the sentence; if it isn't, say so rather than writing \"and so\" over the gap. Want me to add that line to OPERATING-MODEL section 10? It's the one rule here that isn't already written down.\n"}], "voice-B-with_skill": [{"name": "response.md", "type": "text", "content": "Your ear is right, and it isn't a polish problem \u2014 the passage is making claims your script doesn't make. Here it is repaired:\n\n---\n\nNow go back to the textbook.\n\nBoth parts of it hold up. The expulsion of Poles and the attacks on Polish settlements are supported by the record. So is the fight against Soviet rule. But only one of them gets described as heroic.\n\nI don't think that's because Volhynia has been erased. It's right there in the book. The real question is which part of this history gets to say who these people were, and what they should stand for now.\n\nThat anti-Soviet memory was already there when Ukraine became independent in 1991, mostly in the west. Under Yushchenko the state tried to give it wider national recognition, and a 2010 presidential decree named OUN and UPA members among the twentieth-century fighters for Ukrainian independence. But it stayed largely a western Ukrainian memory.\n\nWhat changed that was 2014. Russia took Crimea, the war in Donbas began, and resistance to Moscow was no longer only history.\n\nThen in 2015 Ukraine passed a law recognizing OUN and UPA as organizations which fought for Ukrainian independence, and made commemoration of that struggle part of state policy. After the full-scale invasion in 2022, that mattered more, not less.\n\nAnd we don't really have to guess about the 2026 decree either. It says the name is meant to restore the historical traditions of Ukraine's national army while Ukraine is defending its territorial integrity and independence. It tells us itself.\n\n---\n\nThree things were wrong.\n\n**The mechanism was replaced with an assertion.** \"Postwar Ukrainian national identity was constructed in opposition to Soviet rule\" is a broad claim about a population that nothing in your research supports, and it's doing the job your actual evidence chain does better: regional memory in the west \u2192 Yushchenko's 2010 decree \u2192 2014 makes it national \u2192 2015 law \u2192 2022 \u2192 the 2026 decree stating its own reason. That chain is why the beat lands, and the draft had cut all of it. \"The 2015 decommunization laws made this official\" is loose the same way \u2014 it was Law 314-VIII on the status of fighters for independence, and I've used your own wording for it.\n\n**It reintroduced the replacement thesis you dropped on 14 August.** \"Nationalist memory replaced Soviet memory, and the UPA became the vehicle for that replacement\" is the \"Ukraine buries Volhynia\" claim under a new coat. Your textbook exhibit refutes it \u2014 the book teaches both. The evidenced version is which part gets to be heroic, not which part survived.\n\n**Then the furniture.** \"This wasn't merely X; it was Y,\" \"neither X nor Y,\" and \"the truth was more complicated\" are three of the constructions on your own kill list, stacked in five sentences, each closing its paragraph on a big line. Worth saying separately: \"neither Poland nor Ukraine can retreat from the positions they have taken\" is not only furniture, it's false against your own script \u2014 the two presidents jointly mourned the victims in 2023, exhumations restarted in 2025, and Poland's own ministry pulled the Ogie\u0144 commemorations in 2024. Both sides have moved. What hasn't moved is the honour attached to the organisation's name, and that argument already has its home in the Poland act, so I've dropped the paragraph from the opener rather than rewrite it here. If you want the act to close forward, say so and I'll write one line, but the decree quoting its own reason is a stronger exit than a summary.\n\nThe general constraint, so I stop producing it: when a beat needs to explain why something is happening now, the answer is the dated chain of events you can show on screen, never a sentence about what a nation came to understand about itself. The abstraction is always where the mechanism got deleted.\n\nOne note beyond the voice fix. This draft is the second time a rewrite has walked the \"memory replaced memory\" thesis back in after you narrowed it. That's a claim-level regression, not a style one \u2014 if you want, I'll add a line to the script header saying the replacement framing is settled and closed, so the next pass over Act 3 doesn't rediscover it.\n"}], "voice-C-with_skill": [{"name": "response.md", "type": "text", "content": "Yes, and the thing bugging you is real \u2014 the last paragraph argues against the first one.\n\nHere it is repaired:\n\n---\n\nSo if the textbook says it plainly, the honour can't be explained by saying Volhynia was forgotten.\n\nWhich leaves the harder question. Why honour the UPA anyway, and why now?\n\nThe usual answer is the war with Russia, and I think that's mostly right. But it doesn't explain the\ntiming on its own, because the honours didn't start in 2022. They started earlier, and the sequence\nmatters, so it's worth going through it properly.\n\nIn 2010, a Ukrainian presidential decree already counted OUN and UPA members among the\ntwentieth-century fighters for Ukrainian independence. Then in 2015, after Russia seized Crimea and\nthe war in Donbas began, Ukraine passed a law recognizing OUN and UPA as organizations which fought\nfor Ukrainian independence, and made commemoration of that struggle part of state policy. So the\nfull-scale invasion made this more urgent, but the framework was already there.\n\nThat tells us when it happened. It doesn't tell us whether it holds up. So I think we have to test\nboth parts of this properly. First, what exactly was the UPA's role in Volhynia? And then, how real\nwas the independence struggle Ukraine says it is honouring?\n\n---\n\nThree things were wrong, and they were all in the closing paragraph.\n\n**It contradicted your own textbook beat.** \"The state wants the anti-Soviet struggle without the\nVolhynian record\" is the forgetting argument again, in a smarter coat \u2014 and you spend the paragraph\ndirectly above it killing that argument, because the textbook prints Volhynia plainly. Your actual\nfinding is stronger and different: the record is there *and* only one part of it gets commemorated.\nThose coexist. They aren't a suppression.\n\n**Paragraph three promises a sequence and paragraph four delivers a verdict.** You say \"the sequence\nmatters, so it's worth going through it properly\" and then the next thing out of your mouth is the\nconclusion of the whole video. That's the stumble you'd hit on the prompter \u2014 you announce a walk and\nthen don't take it. I made it take the walk.\n\n**\"The contradiction built into the 2015 laws, and it is why Poland keeps objecting\"** is two\nproblems in one sentence. \"The contradiction built into\" is the decorative frame you've already ruled\nout. And the causal claim isn't what your ledger supports: E21 has Poland objecting that\norganisational honour can't be separated from organisational responsibility, and the victims were\njointly mourned in 2023 \u2014 Poland's objection is to the UPA name carrying state honour, not to an\ninternal tension in Ukrainian law. That beat also belongs later, in the Poland section, where you\nalready do it properly.\n\nThe general version, so I stop handing you these: **if a paragraph states the video's conclusion\nbefore the evidence has run, it's a summary of the script rather than a beat in it.** Cut it or turn\nit into the next question.\n\nOne decision for you. The 2010 and 2015 lines I used here are currently in \"BACK TO THE TEXTBOOK\"\nlater in the locked script. I'd move them forward rather than duplicate them \u2014 \"why now\" is the\nquestion you just asked out loud, and answering it eight minutes later leaves the promise hanging.\nIf you'd rather keep the locked order, then cut \"and the sequence matters, so it's worth going\nthrough it properly\" from paragraph three and go straight into the two tests, because that phrase is\nwhat creates the debt. Either way it's roughly cost-neutral on the 11:12 runtime.\n"}], "voice-C-without_skill": [{"name": "response.md", "type": "text", "content": "Yes, the last paragraph needs to go. Three things are wrong with it, and the one you can feel is probably the third.\n\n**1. It contradicts the beat it's attached to.** The whole point of the textbook is that Volhynia is *in* the book \u2014 expelling Poles, attacks on Polish settlements, July 1943, stated plainly. Then the last paragraph says \"the state wants the anti-Soviet struggle without the Volhynian record.\" That's the forgetting explanation you just killed two sentences earlier. The accurate reading is the one you already have in BACK TO THE TEXTBOOK: both claims are there, only one gets called heroic. It's selection, not omission. As written, the paragraph argues against your own evidence.\n\n**2. It spends the verdict in Act 1.** The method on this video is locked: facts, then both cases straight, then your read at the end. That paragraph is the ending. If it goes here, the 2010 decree, the 2015 law, 2022 and the 2026 decree all become illustration of a conclusion the viewer already has, and the sequence stops being an investigation. You also promise the sequence in the sentence right before it \u2014 \"the sequence matters, so it's worth going through it properly\" \u2014 and then don't go through it. You answer instead. That broken promise is doing a lot of the discomfort.\n\n**3. You disappear.** Paragraphs one to three have a person in them: \"I think that's mostly right,\" \"can't,\" \"didn't.\" The last paragraph has a narrator: \"There is a tension at the heart of,\" \"that has never been resolved,\" \"it cannot have one without the other,\" \"the contradiction built into.\" No contractions, no first person, and three lines that are shaped for applause rather than for explaining anything. \"The contradiction built into\" in particular is a phrase you've flagged before. And \"it is why Poland keeps objecting\" is too tidy \u2014 Poland's objection is to the UPA name receiving state honour, which you handle properly later.\n\n## The passage, cut\n\nRecommended: end on the promise and go straight into 2010.\n\n> So if the textbook says it plainly, the honour can't be explained by saying Volhynia was forgotten.\n>\n> Which leaves the harder question. Why honour the UPA anyway, and why now?\n>\n> The usual answer is the war with Russia, and I think that's mostly right. But it doesn't explain the timing on its own, because the commemoration didn't start in 2022. It started earlier, and the sequence matters, so it's worth going through it properly.\n\nTwo small changes in there: \"the honours didn't start in 2022\" became \"the commemoration didn't start in 2022,\" because the 2010 decree and the 2015 law are recognition and commemoration policy, not honours in the sense of the 2026 unit name \u2014 and you don't want the viewer thinking there was an earlier named unit. Everything else stands.\n\n## If you want one more line before the sequence\n\nOnly if the cut feels too abrupt on the read-aloud. This one points at what the textbook actually shows and still doesn't answer anything:\n\n> And notice what the textbook already tells us. Both things are in the book. So the question isn't what Ukraine leaves out of the history. It's which part gets called heroic, and when that started.\n\nThat hands you the 2010 decree cleanly.\n\n## Where the cut material goes\n\nThe idea underneath that paragraph isn't wrong, it's early. Ukraine commemorating the anti-Soviet fight while the Volhynia record sits in the same textbook is your closing mechanism read \u2014 how states manufacture heroes by choosing what to emphasise, not by deleting what's inconvenient. When you write that ending, keep it in your own words: no \"tension at the heart of,\" no \"contradiction built into,\" no \"cannot have one without the other.\" Say what's selected and who does the selecting.\n"}]}, "benchmark": {"metadata": {"skill_name": "repairing-script-voice (v3)", "timestamp": "2026-08-23T06:09:34.441592+00:00", "evals_run": ["voice-A", "voice-B", "voice-C"], "runs_per_configuration": 1}, "runs": [{"eval_id": 0, "eval_name": "voice-A", "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 8, "failed": 0, "total": 8, "time_seconds": 168.6, "tokens": 69477, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "The replacement text appears before any diagnosis", "passed": true, "evidence": "'Rewritten:' then the full text"}, {"text": "The replacement is a complete substitute for the passage, not a sketch or partial sample", "passed": true, "evidence": "Whole passage replaced"}, {"text": "The replacement is in the project's script format (short prompter lines, not paragraph blocks)", "passed": true, "evidence": "mean line 182 chars, blank-line separated prompter units"}, {"text": "No markdown section headers structuring the response", "passed": true, "evidence": "0 headers"}, {"text": "Names at least one rhetorical-furniture tell listed by name in the operating model", "passed": true, "evidence": "Names six section-10 constructions"}, {"text": "Identifies at least one substantive problem (evidence or logic), not only style", "passed": true, "evidence": "E13/E14 withheld-claim violation on 'It was a policy'"}, {"text": "Does not require a clarifying answer from Benoit before the delivered text is usable", "passed": true, "evidence": "Offer to document a rule, after complete text"}, {"text": "Does not rewrite more of the passage than the fault requires", "passed": true, "evidence": "Scoped to the passage; restored his own approved V6/ad-lib wording"}], "notes": []}, {"eval_id": 0, "eval_name": "voice-A", "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.75, "passed": 6, "failed": 2, "total": 8, "time_seconds": 164.0, "tokens": 76378, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "The replacement text appears before any diagnosis", "passed": true, "evidence": "'## Rewritten' section comes first"}, {"text": "The replacement is a complete substitute for the passage, not a sketch or partial sample", "passed": true, "evidence": "Complete revised passage"}, {"text": "The replacement is in the project's script format (short prompter lines, not paragraph blocks)", "passed": true, "evidence": "Prompter format in both response and side file"}, {"text": "No markdown section headers structuring the response", "passed": false, "evidence": "3 markdown headers: Rewritten / What was actually wrong / One thing to decide"}, {"text": "Names at least one rhetorical-furniture tell listed by name in the operating model", "passed": true, "evidence": "Lists the six surface tells"}, {"text": "Identifies at least one substantive problem (evidence or logic), not only style", "passed": true, "evidence": "Contradicts E13/E14 and drops E5 qualifications"}, {"text": "Does not require a clarifying answer from Benoit before the delivered text is usable", "passed": false, "evidence": "Ends 'Tell me which one it is and I'll fit it properly' \u2014 the fit is deferred to his answer"}, {"text": "Does not rewrite more of the passage than the fault requires", "passed": true, "evidence": "Scoped to the passage"}], "notes": []}, {"eval_id": 1, "eval_name": "voice-B", "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 8, "failed": 0, "total": 8, "time_seconds": 158.4, "tokens": 73612, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "The replacement text appears before any diagnosis", "passed": true, "evidence": "Rewrite precedes diagnosis"}, {"text": "The replacement is a complete substitute for the passage, not a sketch or partial sample", "passed": true, "evidence": "Complete opener delivered"}, {"text": "The replacement is in the project's script format (short prompter lines, not paragraph blocks)", "passed": true, "evidence": "mean line 92 chars, prompter shape"}, {"text": "No markdown section headers structuring the response", "passed": true, "evidence": "0 headers"}, {"text": "Names at least one rhetorical-furniture tell listed by name in the operating model", "passed": true, "evidence": "Three kill-list constructions named"}, {"text": "Identifies at least one substantive problem (evidence or logic), not only style", "passed": true, "evidence": "E18 contradiction; 'postwar identity' factually false; replacement thesis regression"}, {"text": "Does not require a clarifying answer from Benoit before the delivered text is usable", "passed": true, "evidence": "No blocking question"}, {"text": "Does not rewrite more of the passage than the fault requires", "passed": true, "evidence": "Cut the furniture paragraph rather than expanding"}], "notes": []}, {"eval_id": 1, "eval_name": "voice-B", "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.5, "passed": 4, "failed": 4, "total": 8, "time_seconds": 144.8, "tokens": 63892, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "The replacement text appears before any diagnosis", "passed": false, "evidence": "Six numbered diagnosis points precede any replacement"}, {"text": "The replacement is a complete substitute for the passage, not a sketch or partial sample", "passed": false, "evidence": "'Something like this' \u2014 four lines against a six-sentence passage"}, {"text": "The replacement is in the project's script format (short prompter lines, not paragraph blocks)", "passed": true, "evidence": "Blockquote lines are prompter-shaped"}, {"text": "No markdown section headers structuring the response", "passed": false, "evidence": "2 markdown headers"}, {"text": "Names at least one rhetorical-furniture tell listed by name in the operating model", "passed": true, "evidence": "Names the constructions to scrutinise"}, {"text": "Identifies at least one substantive problem (evidence or logic), not only style", "passed": true, "evidence": "E18/E19 overstatements, deadlock framing contradicted"}, {"text": "Does not require a clarifying answer from Benoit before the delivered text is usable", "passed": false, "evidence": "Ends with two clarifying questions he must answer first"}, {"text": "Does not rewrite more of the passage than the fault requires", "passed": true, "evidence": "Recommends not patching, which is restrained"}], "notes": []}, {"eval_id": 2, "eval_name": "voice-C", "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 8, "failed": 0, "total": 8, "time_seconds": 142.9, "tokens": 67685, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "The replacement text appears before any diagnosis", "passed": true, "evidence": "'Here it is repaired:' then the text"}, {"text": "The replacement is a complete substitute for the passage, not a sketch or partial sample", "passed": true, "evidence": "Complete replacement of the passage"}, {"text": "The replacement is in the project's script format (short prompter lines, not paragraph blocks)", "passed": true, "evidence": "mean line 75 chars, tightest of all runs"}, {"text": "No markdown section headers structuring the response", "passed": true, "evidence": "0 headers"}, {"text": "Names at least one rhetorical-furniture tell listed by name in the operating model", "passed": true, "evidence": "'the contradiction built into the 2015 laws' named"}, {"text": "Identifies at least one substantive problem (evidence or logic), not only style", "passed": true, "evidence": "Contradicts the textbook beat; promise/verdict mismatch"}, {"text": "Does not require a clarifying answer from Benoit before the delivered text is usable", "passed": true, "evidence": "Closing offer only, text complete"}, {"text": "Does not rewrite more of the passage than the fault requires", "passed": true, "evidence": "Explicitly says 'the first three are fine'; forward-references the later act instead of duplicating it"}], "notes": []}, {"eval_id": 2, "eval_name": "voice-C", "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.75, "passed": 6, "failed": 2, "total": 8, "time_seconds": 151.4, "tokens": 57739, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "The replacement text appears before any diagnosis", "passed": false, "evidence": "Three numbered diagnosis sections come first; replacement appears under 'The passage, cut'"}, {"text": "The replacement is a complete substitute for the passage, not a sketch or partial sample", "passed": true, "evidence": "Complete cut version of the passage supplied in blockquote"}, {"text": "The replacement is in the project's script format (one sentence per line, readable off a prompter)", "passed": true, "evidence": "Blockquote, one sentence per line"}, {"text": "No markdown section headers structuring the response", "passed": false, "evidence": "3 markdown headers"}, {"text": "Names at least one rhetorical-furniture tell listed by name in the operating model", "passed": true, "evidence": "'The contradiction built into' identified as a phrase he has flagged before"}, {"text": "Identifies at least one substantive problem (evidence or logic), not only style", "passed": true, "evidence": "Same two substantive findings, plus the honours/commemoration precision fix"}, {"text": "Does not require a clarifying answer from Benoit before the delivered text is usable", "passed": true, "evidence": "Text is usable as delivered"}, {"text": "Does not rewrite more of the passage than the fault requires", "passed": true, "evidence": "Cut only the failing paragraph and left the working three alone \u2014 the correct minimal fix"}], "notes": []}], "run_summary": {"with_skill": {"pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0}, "time_seconds": {"mean": 156.633, "stddev": 10.566, "min": 142.9, "max": 168.6}, "tokens": {"mean": 70258, "stddev": 2481.908, "min": 67685, "max": 73612}}, "without_skill": {"pass_rate": {"mean": 0.667, "stddev": 0.118, "min": 0.5, "max": 0.75}, "time_seconds": {"mean": 153.4, "stddev": 7.965, "min": 144.8, "max": 164.0}, "tokens": {"mean": 66003, "stddev": 7754.367, "min": 57739, "max": 76378}}, "delta": {"pass_rate": "+0.333", "time_seconds": "+3.2", "tokens": "+4255"}}, "notes": ["ITERATION 3. v3 skill 24/24 (100%) vs no-skill baseline 16/24 (66.7%). The skill does beat no-skill on this task.", "Iteration 1 reported parity ONLY because the assertions measured the wrong things. Rewritten assertions measure the dimension that actually differs: does the reply hand back complete, prompter-shaped, paste-ready text with no headers and no blocking question.", "Where the baseline loses: it structures the reply as a memo (2-3 markdown headers), and it ends by asking a clarifying question Benoit must answer before the text is usable (2 of 3 runs). On voice-B it delivered a four-line sketch labelled 'Something like this' against a six-sentence passage.", "v2 of the skill scored 87.5% \u2014 WORSE than v1's 100%. The numbered 5-point output contract I added (including an explicit teleprompter-format rule) crowded out the imitation that was already producing that format. v3 removes the contract and keeps only two prose guards: no sketches, no blocking questions.", "Lesson consistent with Anthropic's authoring guidance: explain the why, do not add rigid specs. The explicit format rule produced worse format than no rule at all.", "v3 also costs FEWER tokens than v2 and slightly fewer than the baseline mean, so the win is not bought with verbosity.", "Caveat: n=1 per cell across 3 evals, one model. voice-A's line shape varied run to run (93 / 449 / 182 mean chars), so some of this dimension is noise. Repeat runs would be needed to separate skill effect from variance."]}};
+
+    // ---- State ----
+    let feedbackMap = {};  // run_id -> feedback text
+    let currentIndex = 0;
+    let visitedRuns = new Set();
+
+    // ---- Init ----
+    async function init() {
+      // Load saved feedback from server — but only if this isn't a fresh
+      // iteration (indicated by previous_feedback being present). When
+      // previous feedback exists, the feedback.json on disk is stale from
+      // the prior iteration and should not pre-fill the textareas.
+      const hasPrevious = Object.keys(EMBEDDED_DATA.previous_feedback || {}).length > 0
+        || Object.keys(EMBEDDED_DATA.previous_outputs || {}).length > 0;
+      if (!hasPrevious) {
+        try {
+          const resp = await fetch("/api/feedback");
+          const data = await resp.json();
+          if (data.reviews) {
+            for (const r of data.reviews) feedbackMap[r.run_id] = r.feedback;
+          }
+        } catch { /* first run, no feedback yet */ }
+      }
+
+      document.getElementById("skill-name").textContent = EMBEDDED_DATA.skill_name;
+      showRun(0);
+
+      // Wire up feedback auto-save
+      const textarea = document.getElementById("feedback");
+      let saveTimeout = null;
+      textarea.addEventListener("input", () => {
+        clearTimeout(saveTimeout);
+        document.getElementById("feedback-status").textContent = "";
+        saveTimeout = setTimeout(() => saveCurrentFeedback(), 800);
+      });
+    }
+
+    // ---- Navigation ----
+    function navigate(delta) {
+      const newIndex = currentIndex + delta;
+      if (newIndex >= 0 && newIndex < EMBEDDED_DATA.runs.length) {
+        saveCurrentFeedback();
+        showRun(newIndex);
+      }
+    }
+
+    function updateNavButtons() {
+      document.getElementById("prev-btn").disabled = currentIndex === 0;
+      document.getElementById("next-btn").disabled =
+        currentIndex === EMBEDDED_DATA.runs.length - 1;
+    }
+
+    // ---- Show a run ----
+    function showRun(index) {
+      currentIndex = index;
+      const run = EMBEDDED_DATA.runs[index];
+
+      // Progress
+      document.getElementById("progress").textContent =
+        `${index + 1} of ${EMBEDDED_DATA.runs.length}`;
+
+      // Prompt
+      document.getElementById("prompt-text").textContent = run.prompt;
+
+      // Config badge
+      const badge = document.getElementById("config-badge");
+      const configMatch = run.id.match(/(with_skill|without_skill|new_skill|old_skill)/);
+      if (configMatch) {
+        const config = configMatch[1];
+        const isBaseline = config === "without_skill" || config === "old_skill";
+        badge.textContent = config.replace(/_/g, " ");
+        badge.className = "config-badge " + (isBaseline ? "config-baseline" : "config-primary");
+        badge.style.display = "inline-block";
+      } else {
+        badge.style.display = "none";
+      }
+
+      // Outputs
+      renderOutputs(run);
+
+      // Previous outputs
+      renderPrevOutputs(run);
+
+      // Grades
+      renderGrades(run);
+
+      // Previous feedback
+      const prevFb = (EMBEDDED_DATA.previous_feedback || {})[run.id];
+      const prevEl = document.getElementById("prev-feedback");
+      if (prevFb) {
+        document.getElementById("prev-feedback-text").textContent = prevFb;
+        prevEl.style.display = "block";
+      } else {
+        prevEl.style.display = "none";
+      }
+
+      // Feedback
+      document.getElementById("feedback").value = feedbackMap[run.id] || "";
+      document.getElementById("feedback-status").textContent = "";
+
+      updateNavButtons();
+
+      // Track visited runs and promote done button when all visited
+      visitedRuns.add(index);
+      const doneBtn = document.getElementById("done-btn");
+      if (visitedRuns.size >= EMBEDDED_DATA.runs.length) {
+        doneBtn.classList.add("ready");
+      }
+
+      // Scroll main content to top
+      document.querySelector(".main").scrollTop = 0;
+    }
+
+    // ---- Render outputs ----
+    function renderOutputs(run) {
+      const container = document.getElementById("outputs-body");
+      container.innerHTML = "";
+
+      const outputs = run.outputs || [];
+      if (outputs.length === 0) {
+        container.innerHTML = '<div class="empty-state">No output files</div>';
+        return;
+      }
+
+      for (const file of outputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        // Always show file header with download link
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const content = document.createElement("div");
+        content.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          content.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          content.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          content.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(content, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          content.appendChild(a);
+        } else if (file.type === "error") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          pre.style.color = "var(--red)";
+          content.appendChild(pre);
+        }
+
+        fileDiv.appendChild(content);
+        container.appendChild(fileDiv);
+      }
+    }
+
+    // ---- XLSX rendering via SheetJS ----
+    function renderXlsx(container, b64Data) {
+      try {
+        const raw = Uint8Array.from(atob(b64Data), c => c.charCodeAt(0));
+        const wb = XLSX.read(raw, { type: "array" });
+
+        for (let i = 0; i < wb.SheetNames.length; i++) {
+          const sheetName = wb.SheetNames[i];
+          const ws = wb.Sheets[sheetName];
+
+          if (wb.SheetNames.length > 1) {
+            const sheetLabel = document.createElement("div");
+            sheetLabel.style.cssText =
+              "font-weight:600; font-size:0.8rem; color:#b0aea5; margin-top:0.5rem; margin-bottom:0.25rem;";
+            sheetLabel.textContent = "Sheet: " + sheetName;
+            container.appendChild(sheetLabel);
+          }
+
+          const htmlStr = XLSX.utils.sheet_to_html(ws, { editable: false });
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = htmlStr;
+          container.appendChild(wrapper);
+        }
+      } catch (err) {
+        container.textContent = "Error rendering spreadsheet: " + err.message;
+      }
+    }
+
+    // ---- Grades ----
+    function renderGrades(run) {
+      const section = document.getElementById("grades-section");
+      const content = document.getElementById("grades-content");
+
+      if (!run.grading) {
+        section.style.display = "none";
+        return;
+      }
+
+      const grading = run.grading;
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("grades-arrow").classList.remove("open");
+
+      const summary = grading.summary || {};
+      const expectations = grading.expectations || [];
+
+      let html = '<div style="padding: 1rem;">';
+
+      // Summary line
+      const passRate = summary.pass_rate != null
+        ? Math.round(summary.pass_rate * 100) + "%"
+        : "?";
+      const badgeClass = summary.pass_rate >= 0.8 ? "grade-pass" : summary.pass_rate >= 0.5 ? "" : "grade-fail";
+      html += '<div class="grades-summary">';
+      html += '<span class="grade-badge ' + badgeClass + '">' + passRate + '</span>';
+      html += '<span>' + (summary.passed || 0) + ' passed, ' + (summary.failed || 0) + ' failed of ' + (summary.total || 0) + '</span>';
+      html += '</div>';
+
+      // Assertions list
+      html += '<ul class="assertion-list">';
+      for (const exp of expectations) {
+        const statusClass = exp.passed ? "pass" : "fail";
+        const statusIcon = exp.passed ? "\u2713" : "\u2717";
+        html += '<li class="assertion-item">';
+        html += '<span class="assertion-status ' + statusClass + '">' + statusIcon + '</span>';
+        html += '<span>' + escapeHtml(exp.text) + '</span>';
+        if (exp.evidence) {
+          html += '<div class="assertion-evidence">' + escapeHtml(exp.evidence) + '</div>';
+        }
+        html += '</li>';
+      }
+      html += '</ul>';
+
+      html += '</div>';
+      content.innerHTML = html;
+    }
+
+    function toggleGrades() {
+      const content = document.getElementById("grades-content");
+      const arrow = document.getElementById("grades-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Previous outputs (collapsible) ----
+    function renderPrevOutputs(run) {
+      const section = document.getElementById("prev-outputs-section");
+      const content = document.getElementById("prev-outputs-content");
+      const prevOutputs = (EMBEDDED_DATA.previous_outputs || {})[run.id];
+
+      if (!prevOutputs || prevOutputs.length === 0) {
+        section.style.display = "none";
+        return;
+      }
+
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("prev-outputs-arrow").classList.remove("open");
+
+      // Render the files into the content area
+      content.innerHTML = "";
+      const wrapper = document.createElement("div");
+      wrapper.style.padding = "1rem";
+
+      for (const file of prevOutputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const fc = document.createElement("div");
+        fc.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          fc.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          fc.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          fc.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(fc, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          fc.appendChild(a);
+        }
+
+        fileDiv.appendChild(fc);
+        wrapper.appendChild(fileDiv);
+      }
+
+      content.appendChild(wrapper);
+    }
+
+    function togglePrevOutputs() {
+      const content = document.getElementById("prev-outputs-content");
+      const arrow = document.getElementById("prev-outputs-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Feedback (saved to server -> feedback.json) ----
+    function saveCurrentFeedback() {
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // Build reviews array from map
+      const reviews = [];
+      for (const [run_id, feedback] of Object.entries(feedbackMap)) {
+        if (feedback.trim()) {
+          reviews.push({ run_id, feedback, timestamp: new Date().toISOString() });
+        }
+      }
+
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reviews, status: "in_progress" }),
+      }).then(() => {
+        document.getElementById("feedback-status").textContent = "Saved";
+      }).catch(() => {
+        // Static mode or server unavailable — no-op on auto-save,
+        // feedback will be downloaded on final submit
+        document.getElementById("feedback-status").textContent = "Will download on submit";
+      });
+    }
+
+    // ---- Done ----
+    function showDoneDialog() {
+      // Save current textarea to feedbackMap (but don't POST yet)
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // POST once with status: complete — include ALL runs so the model
+      // can distinguish "no feedback" (looks good) from "not reviewed"
+      const reviews = [];
+      const ts = new Date().toISOString();
+      for (const r of EMBEDDED_DATA.runs) {
+        reviews.push({ run_id: r.id, feedback: feedbackMap[r.id] || "", timestamp: ts });
+      }
+      const payload = JSON.stringify({ reviews, status: "complete" }, null, 2);
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      }).then(() => {
+        document.getElementById("done-overlay").classList.add("visible");
+      }).catch(() => {
+        // Server not available (static mode) — download as file
+        const blob = new Blob([payload], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "feedback.json";
+        a.click();
+        URL.revokeObjectURL(url);
+        document.getElementById("done-overlay").classList.add("visible");
+      });
+    }
+
+    function closeDoneDialog() {
+      // Reset status back to in_progress
+      saveCurrentFeedback();
+      document.getElementById("done-overlay").classList.remove("visible");
+    }
+
+    // ---- Toast ----
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("visible");
+      setTimeout(() => toast.classList.remove("visible"), 2000);
+    }
+
+    // ---- Keyboard nav ----
+    document.addEventListener("keydown", (e) => {
+      // Don't capture when typing in textarea
+      if (e.target.tagName === "TEXTAREA") return;
+
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        navigate(-1);
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        navigate(1);
+      }
+    });
+
+    // ---- Util ----
+    function getDownloadUri(file) {
+      if (file.data_uri) return file.data_uri;
+      if (file.data_b64) return "data:application/octet-stream;base64," + file.data_b64;
+      if (file.type === "text") return "data:text/plain;charset=utf-8," + encodeURIComponent(file.content);
+      return "#";
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // ---- View switching ----
+    function switchView(view) {
+      document.querySelectorAll(".view-tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".view-panel").forEach(p => p.classList.remove("active"));
+      document.querySelector(`[onclick="switchView('${view}')"]`).classList.add("active");
+      document.getElementById("panel-" + view).classList.add("active");
+    }
+
+    // ---- Benchmark rendering ----
+    function renderBenchmark() {
+      const data = EMBEDDED_DATA.benchmark;
+      if (!data) return;
+
+      // Show the tabs
+      document.getElementById("view-tabs").style.display = "flex";
+
+      const container = document.getElementById("benchmark-content");
+      const summary = data.run_summary || {};
+      const metadata = data.metadata || {};
+      const notes = data.notes || [];
+
+      let html = "";
+
+      // Header
+      html += "<h2 style='font-family: Poppins, sans-serif; margin-bottom: 0.5rem;'>Benchmark Results</h2>";
+      html += "<p style='color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.25rem;'>";
+      if (metadata.skill_name) html += "<strong>" + escapeHtml(metadata.skill_name) + "</strong> &mdash; ";
+      if (metadata.timestamp) html += metadata.timestamp + " &mdash; ";
+      if (metadata.evals_run) html += "Evals: " + metadata.evals_run.join(", ") + " &mdash; ";
+      html += (metadata.runs_per_configuration || "?") + " runs per configuration";
+      html += "</p>";
+
+      // Summary table
+      html += '<table class="benchmark-table">';
+
+      function fmtStat(stat, pct) {
+        if (!stat) return "—";
+        const suffix = pct ? "%" : "";
+        const m = pct ? (stat.mean * 100).toFixed(0) : stat.mean.toFixed(1);
+        const s = pct ? (stat.stddev * 100).toFixed(0) : stat.stddev.toFixed(1);
+        return m + suffix + " ± " + s + suffix;
+      }
+
+      function deltaClass(val) {
+        if (!val) return "";
+        const n = parseFloat(val);
+        if (n > 0) return "benchmark-delta-positive";
+        if (n < 0) return "benchmark-delta-negative";
+        return "";
+      }
+
+      // Discover config names dynamically (everything except "delta")
+      const configs = Object.keys(summary).filter(k => k !== "delta");
+      const configA = configs[0] || "config_a";
+      const configB = configs[1] || "config_b";
+      const labelA = configA.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const labelB = configB.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const a = summary[configA] || {};
+      const b = summary[configB] || {};
+      const delta = summary.delta || {};
+
+      html += "<thead><tr><th>Metric</th><th>" + escapeHtml(labelA) + "</th><th>" + escapeHtml(labelB) + "</th><th>Delta</th></tr></thead>";
+      html += "<tbody>";
+
+      html += "<tr><td><strong>Pass Rate</strong></td>";
+      html += "<td>" + fmtStat(a.pass_rate, true) + "</td>";
+      html += "<td>" + fmtStat(b.pass_rate, true) + "</td>";
+      html += '<td class="' + deltaClass(delta.pass_rate) + '">' + (delta.pass_rate || "—") + "</td></tr>";
+
+      // Time (only show row if data exists)
+      if (a.time_seconds || b.time_seconds) {
+        html += "<tr><td><strong>Time (s)</strong></td>";
+        html += "<td>" + fmtStat(a.time_seconds, false) + "</td>";
+        html += "<td>" + fmtStat(b.time_seconds, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.time_seconds) + '">' + (delta.time_seconds ? delta.time_seconds + "s" : "—") + "</td></tr>";
+      }
+
+      // Tokens (only show row if data exists)
+      if (a.tokens || b.tokens) {
+        html += "<tr><td><strong>Tokens</strong></td>";
+        html += "<td>" + fmtStat(a.tokens, false) + "</td>";
+        html += "<td>" + fmtStat(b.tokens, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.tokens) + '">' + (delta.tokens || "—") + "</td></tr>";
+      }
+
+      html += "</tbody></table>";
+
+      // Per-eval breakdown (if runs data available)
+      const runs = data.runs || [];
+      if (runs.length > 0) {
+        const evalIds = [...new Set(runs.map(r => r.eval_id))].sort((a, b) => a - b);
+
+        html += "<h3 style='font-family: Poppins, sans-serif; margin-bottom: 0.75rem;'>Per-Eval Breakdown</h3>";
+
+        const hasTime = runs.some(r => r.result && r.result.time_seconds != null);
+        const hasErrors = runs.some(r => r.result && r.result.errors > 0);
+
+        for (const evalId of evalIds) {
+          const evalRuns = runs.filter(r => r.eval_id === evalId);
+          const evalName = evalRuns[0] && evalRuns[0].eval_name ? evalRuns[0].eval_name : "Eval " + evalId;
+
+          html += "<h4 style='font-family: Poppins, sans-serif; margin: 1rem 0 0.5rem; color: var(--text);'>" + escapeHtml(evalName) + "</h4>";
+          html += '<table class="benchmark-table">';
+          html += "<thead><tr><th>Config</th><th>Run</th><th>Pass Rate</th>";
+          if (hasTime) html += "<th>Time (s)</th>";
+          if (hasErrors) html += "<th>Crashes During Execution</th>";
+          html += "</tr></thead>";
+          html += "<tbody>";
+
+          // Group by config and render with average rows
+          const configGroups = [...new Set(evalRuns.map(r => r.configuration))];
+          for (let ci = 0; ci < configGroups.length; ci++) {
+            const config = configGroups[ci];
+            const configRuns = evalRuns.filter(r => r.configuration === config);
+            if (configRuns.length === 0) continue;
+
+            const rowClass = ci === 0 ? "benchmark-row-with" : "benchmark-row-without";
+            const configLabel = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+            for (const run of configRuns) {
+              const r = run.result || {};
+              const prClass = r.pass_rate >= 0.8 ? "benchmark-delta-positive" : r.pass_rate < 0.5 ? "benchmark-delta-negative" : "";
+              html += '<tr class="' + rowClass + '">';
+              html += "<td>" + configLabel + "</td>";
+              html += "<td>" + run.run_number + "</td>";
+              html += '<td class="' + prClass + '">' + ((r.pass_rate || 0) * 100).toFixed(0) + "% (" + (r.passed || 0) + "/" + (r.total || 0) + ")</td>";
+              if (hasTime) html += "<td>" + (r.time_seconds != null ? r.time_seconds.toFixed(1) : "—") + "</td>";
+              if (hasErrors) html += "<td>" + (r.errors || 0) + "</td>";
+              html += "</tr>";
+            }
+
+            // Average row
+            const rates = configRuns.map(r => (r.result || {}).pass_rate || 0);
+            const avgRate = rates.reduce((a, b) => a + b, 0) / rates.length;
+            const avgPrClass = avgRate >= 0.8 ? "benchmark-delta-positive" : avgRate < 0.5 ? "benchmark-delta-negative" : "";
+            html += '<tr class="benchmark-row-avg ' + rowClass + '">';
+            html += "<td>" + configLabel + "</td>";
+            html += "<td>Avg</td>";
+            html += '<td class="' + avgPrClass + '">' + (avgRate * 100).toFixed(0) + "%</td>";
+            if (hasTime) {
+              const times = configRuns.map(r => (r.result || {}).time_seconds).filter(t => t != null);
+              html += "<td>" + (times.length ? (times.reduce((a, b) => a + b, 0) / times.length).toFixed(1) : "—") + "</td>";
+            }
+            if (hasErrors) html += "<td></td>";
+            html += "</tr>";
+          }
+          html += "</tbody></table>";
+
+          // Per-assertion detail for this eval
+          const runsWithExpectations = {};
+          for (const config of configGroups) {
+            runsWithExpectations[config] = evalRuns.filter(r => r.configuration === config && r.expectations && r.expectations.length > 0);
+          }
+          const hasAnyExpectations = Object.values(runsWithExpectations).some(runs => runs.length > 0);
+          if (hasAnyExpectations) {
+            // Collect all unique assertion texts across all configs
+            const allAssertions = [];
+            const seen = new Set();
+            for (const config of configGroups) {
+              for (const run of runsWithExpectations[config]) {
+                for (const exp of (run.expectations || [])) {
+                  if (!seen.has(exp.text)) {
+                    seen.add(exp.text);
+                    allAssertions.push(exp.text);
+                  }
+                }
+              }
+            }
+
+            html += '<table class="benchmark-table" style="margin-top: 0.5rem;">';
+            html += "<thead><tr><th>Assertion</th>";
+            for (const config of configGroups) {
+              const label = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+              html += "<th>" + escapeHtml(label) + "</th>";
+            }
+            html += "</tr></thead><tbody>";
+
+            for (const assertionText of allAssertions) {
+              html += "<tr><td>" + escapeHtml(assertionText) + "</td>";
+
+              for (const config of configGroups) {
+                html += "<td>";
+                for (const run of runsWithExpectations[config]) {
+                  const exp = (run.expectations || []).find(e => e.text === assertionText);
+                  if (exp) {
+                    const cls = exp.passed ? "benchmark-delta-positive" : "benchmark-delta-negative";
+                    const icon = exp.passed ? "\u2713" : "\u2717";
+                    html += '<span class="' + cls + '" title="Run ' + run.run_number + ': ' + escapeHtml(exp.evidence || "") + '">' + icon + "</span> ";
+                  } else {
+                    html += "— ";
+                  }
+                }
+                html += "</td>";
+              }
+              html += "</tr>";
+            }
+            html += "</tbody></table>";
+          }
+        }
+      }
+
+      // Notes
+      if (notes.length > 0) {
+        html += '<div class="benchmark-notes">';
+        html += "<h3>Analysis Notes</h3>";
+        html += "<ul>";
+        for (const note of notes) {
+          html += "<li>" + escapeHtml(note) + "</li>";
+        }
+        html += "</ul></div>";
+      }
+
+      container.innerHTML = html;
+    }
+
+    // ---- Start ----
+    init();
+    renderBenchmark();
+  </script>
+</body>
+</html>

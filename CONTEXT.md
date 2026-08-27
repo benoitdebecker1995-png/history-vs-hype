@@ -1,4 +1,10 @@
-# History vs Hype — Video Content Domain
+# History vs Hype — legacy context glossary
+
+> This file is preserved for migration reference. It is not active instruction and must not be
+> loaded during normal work. Current channel state is in `CHANNEL.md`; current operating instructions
+> are in `AGENTS.md`; current-video state is resolved through `ACTIVE_PROJECT`.
+
+## Preserved glossary
 
 This context captures the canonical terms used when developing video content for the History vs Hype channel. Terms here define how concepts are named in scripts, research, and production decisions — not in code.
 
@@ -56,6 +62,10 @@ _Avoid_: using "stage" and "phase" interchangeably — **stage** = which of 3 li
 **Packaging filter**:
 A pass/fail NECESSARY CONDITION checked pre-publish — never a predictor. The four: search-anchor (title leads with a famous searchable parent), clickbait brand-gate (no `title_scorer` `hard_rejects`), title↔thumbnail curiosity gap (overlay doesn't restate the title), thumbnail conditions (`thumbnail_checker`). All must PASS (thumbnail may be PENDING) to advance. Enforced in code by `tools/preflight/packaging_lock.py`.
 _Avoid_: "packaging score" as a gate; treating `title_scorer`'s 65 or `/curiosity`'s 60 as a filter — those are enrichment.
+
+**Search anchor**:
+The famous searchable term a title leads with — recognised if it is on the curated `HEAD_TERMS` list **or** has a verified search volume ≥1,000/mo recorded in `keywords.db` (ADR-0023). It must *begin* within the first 40 characters; it may run past that edge. A FAIL means one of two things: the title leads with something obscure (rewrite it), or the term is famous and unmeasured (record the volume — `title_scorer --record-anchor`).
+_Avoid_: adding a term to `HEAD_TERMS` to clear a FAIL, and rewriting a title to route around a term the recognizer merely hasn't measured.
 
 **Packaging enrichment**:
 A recorded but NON-BINDING pre-publish signal — read, never gates, cannot override a filter FAIL. Includes the `title_scorer` composite, `/curiosity`, VidIQ MCP, NLM P5. A low value emits a REVIEW *nudge* ("eyeball it"), never a block.

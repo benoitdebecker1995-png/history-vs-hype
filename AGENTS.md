@@ -1,223 +1,188 @@
-# AGENTS.md
+# History vs Hype — active operating instructions
 
-Project guidance for **Codex / GPT-5.6** working in this repository. The Claude Code surface
-(`.claude/`) is the canonical source of truth for every rule below; this file and the Codex surface
-(`.agents/skills/`, `.codex/`) are the hand-maintained port of it. When the two disagree, `.claude/`
-wins and the port needs fixing.
+Codex is the primary conversational environment during the migration. The creator talks normally;
+commands, agents, databases, and files are internal implementation details.
 
-## Repository Overview
+## Current memory
 
-**History vs Hype** — YouTube channel: evidence-based myth-busting about geopolitics, colonial
-history, border disputes, and ideological narratives. Academic research + primary sources to debunk
-historical myths.
+There are two distinct levels of hot state:
 
-**Stats:** 515 subs, 219K+ views, 47 long-form, 28.1% median retention | **Audience:** Males 25-44
-(UK, DE, CA, US)
-**Format:** 8-12 min hybrid talking head + B-roll evidence | **Hard cap 12 min**
-(r=-0.455 duration-retention, n=47)
+- `CHANNEL.md` — channel identity, objectives, current evidence, operating boundaries, and the next
+  unresolved channel problem.
+- `ACTIVE_PROJECT` — the pointer to the one current video. That folder has exactly three hot documents:
 
-**Subscriber trigger:** "intellectual competence" — proving you understand SYSTEMS, not narratives.
-HOW > WHY. Mechanism > politics. Logistics/legal/admin angles win. RealLifeLore/Wendover overlap
-audience.
+- `PROJECT.md` — current decision, commitment, package, state, and next unresolved problem.
+- `RESEARCH.md` — creator-readable synthesis plus evidence that can bear script claims.
+- `SCRIPT.md` — the one current script.
 
-**Growth bottleneck:** Packaging, not content. Only 3/47 broke 2K views. Content that gets
-impressions performs well. Run the greenlight gate BEFORE any research.
+Do not project channel-wide instructions into the current video, and do not treat a video's package or
+state as the channel strategy. Load the smallest packet that answers the request:
 
----
+| Request | Load |
+|---|---|
+| How should this assistant/repository work? | `CHANNEL.md` + relevant creator-model section |
+| How is the channel doing / what is the priority? | `CHANNEL.md` + dated channel evidence |
+| What should I work on in the current video? | `PROJECT.md` only |
+| Explain a historical disagreement | `PROJECT.md` + relevant `RESEARCH.md` sections |
+| Can I safely say this? / what supports it? | `PROJECT.md` + full `SCRIPT.md` risk scan + relevant evidence cards and source pages |
+| Can I show this? | The narration packet plus the actual proposed exhibit, original page, verified translation, and provenance |
+| This sounds like AI | Current paragraph and neighbours + relevant spontaneous speech and approved language only |
+| Help me decide / recommend a course | `CHANNEL.md` + `PROJECT.md` only when the decision concerns the current video + the relevant creator-model section |
+| Is this a good next video? | `CHANNEL.md` + `PROJECT.md` for current commitment + relevant creator-model criteria + dated public market evidence + the channel recommendation ledger |
+| Choose or assess the package | `PROJECT.md` + `SCRIPT.md` + relevant creator-model criteria + package history + dated public evidence + the pre-publication expectation |
+| Is the channel becoming viable? | `CHANNEL.md` + creator-model business criteria + dated channel evidence + the channel recommendation ledger |
+| How did the video perform? | Pre-publication expectation + dated metrics/package versions + a small relevant cohort |
 
-## How this project's workflows reach you on Codex
+`python -m tools.front_room ...` is the internal helper for active-project resolution, compact
+retrieval, full-script risk selection, creator-language retrieval, package and material-recommendation
+recording, outcome reconciliation, and milestone snapshots. Never ask the creator to invoke it.
 
-Claude Code has slash commands, sub-agents, path-scoped rules and skills. Codex has skills,
-sub-agents and `AGENTS.md`. The mapping:
+The creator speaks normally. Infer the task and operate the machinery internally. Do not present a
+command menu, require modes, or ask the creator to choose an agent. Prefer the smallest stable seam
+that solves a repeated task; repository sophistication is a cost unless it makes the work more
+reliable, faster, or easier to resume.
 
-| Claude Code | Codex | Where |
-|---|---|---|
-| 34 slash commands (`/greenlight`, `/script`, …) | skills named `source-command-<name>` | `.agents/skills/` |
-| 11 project skills | same skills | `.agents/skills/` |
-| 4 path-scoped rules | 3 rule-skills + this file's nested copies | `.agents/skills/`, `tools/AGENTS.md`, `tests/AGENTS.md` |
-| 12 sub-agents | custom agents | `.codex/agents/*.toml` |
-| 3 lifecycle hooks | same 3 scripts, same 3 events | `.codex/hooks.json` |
-| MCP servers | the 3 from `.mcp.json` + vidiq + playwright | `.codex/config.toml` |
+## Switching the active project
 
-A skill fires implicitly off its description, or you can name it: `$source-command-greenlight`.
+The three hot files are a hard precondition, not a convention. `resolve_active_project` raises when
+any of `PROJECT.md`, `RESEARCH.md`, `SCRIPT.md` is missing, the `SessionStart` hook catches that and
+prints `Front room unavailable: ...`, and the session then begins with no channel state, no project
+state and no data freshness — while `CLAUDE.md` also forbids falling back to `.claude/`. The session
+starts blind and nothing says so out loud.
 
-**Two fidelity gaps to know about:**
+This is not hypothetical. Project 62 was the active project while missing `PROJECT.md` and
+`RESEARCH.md`, so every session start failed silently until 24 August 2026. Of the fourteen folders
+under `video-projects/_IN_PRODUCTION`, only 62 and 67 currently satisfy the precondition. Any other
+one becomes the active project and the front room goes dark again.
 
-1. **Rules are model-triggered here, not automatic.** On Claude Code the voice rules, packaging
-   penalties and source-tier rules load the moment a matching file is opened. On Codex they are
-   skills that fire off their description. **Before writing or editing a `SCRIPT.md`, a
-   `YOUTUBE-METADATA.md`, or a `01-VERIFIED-RESEARCH.md`, load the matching rule-skill yourself**
-   (`rule-script-writing`, `rule-packaging`, `rule-research-verification`). Don't assume it fired.
-2. **No per-workflow model pin.** Claude's command files pin a model each; Codex skills run at the
-   session model, which `.codex/config.toml` pins to `gpt-5.6-sol` at `high` effort (sol's own
-   default is `low` — leaving it unset is how a heavy session quietly runs shallow). The cheap
-   routing workflows (`status`, `help`) therefore cost the same as the expensive ones here.
-   Sub-agents pin their own model and effort per file; `.codex/agents/` is the place to change that.
+**So: whenever `ACTIVE_PROJECT` is about to change, and at the start of any session where the front
+room reports unavailable, repair the hot files first, before any other work.** Build them from what
+is already in the folder — a `PROJECT-STATUS.md` or the newest `SCRIPT-V*` — and write them under the
+real names. Never write them to a `.new` name and never leave a migration script for the creator to
+run; that is what caused this. Say in one line what was built and from what.
 
-**Keeping the port honest.** `.claude/` is canonical and nothing syncs automatically, so an edit
-there does not reach Codex until it is re-ported. `python -m pytest tests/unit/test_codex_surface_parity.py`
-fails the moment the two drift — run it after touching anything under `.claude/`.
+An unmigrated folder is one where the pipeline's staged filenames are still the only copies:
+`01-VERIFIED-RESEARCH.md`, `02-STRUCTURE-SYNTHESIS.md`, `PROJECT-STATUS.md`, `SCRIPT-V*.md`,
+`READ-ALOUD-*`, `VO-v*`. Project 67 shows the finished shape: three hot files, `_cold/`, `_research/`,
+`_assets/`, nothing else at the top level.
 
-**Entry point for a cold session:** read the `project-onboarding` skill first. It routes to the
-other ten (`codebase-atlas`, `data-stores`, `debugging-playbook`, `automation-ops`,
-`extending-safely`, `authoring-skills`, `validation-standards`, `production-map`, `historian`,
-`primary-source`).
+**One script file, one research file, one project file.** A new version replaces the old one; Git
+holds the history. Project 62 accumulated thirteen script versions and about twenty audit documents
+in a single folder, which is how the two files the architecture depends on came to be invisible
+inside it.
 
----
+## Historical safety
 
-## Knowledge Graphs
+Models synthesize and interpret. Deterministic tools establish locators, exact text, file identity,
+dates, metric grain, and state.
 
-Two MCP servers, declared in `.codex/config.toml`:
+Before endorsing a historical sentence, scan the complete current script for dangerous-if-wrong
+claims. Escalate exact numbers, dates, quotations, legal assertions, named attributions, source-content
+claims, absolutes, translations, and causal claims. Open the cited source and exact page for a
+load-bearing claim; an unresolved citation remains unresolved.
 
-- `graphify-code` — 90,745 nodes / 97,940 edges over the repo AST (`graphify-out/graph.json`)
-- `graphify-research` — 169-node concept graph over the archived `01-VERIFIED-RESEARCH.md` files
+Narration verification and exhibit verification are separate. A defensible sentence does not make a
+document card showable. For an exhibit, confirm that the displayed object is the claimed source, the
+page contains the text, the original language is preserved, the translation is labelled and checked,
+and provenance uncertainty is visible.
 
-**Prefer a graph query over grep/Read when the question is structural** — that is the whole point,
-it costs far fewer tokens than reading files:
-- "Where does X live / what depends on it" → `query_graph`, `get_neighbors`
-- "How does A connect to B" → `shortest_path` · "Most-connected hubs" → `god_nodes`
-- "Have we covered scholar/treaty Z" → `graphify-research` `query_graph`
+Research rigor scales with claim risk. Do not impose stages, percentages, research tiers, or a
+mandatory provider. `RESEARCH.md` holds only current synthesis, counterarguments, script-bearing
+evidence, exhibit locators, and important uncertainty. Corrections replace active claims instead of
+accumulating beneath them.
 
-**Honest scope:** the research graph is sparse — under ~3 hits, fall back to file reads. File-based
-fallback: `python graphify-out/research/query.py "<entity>"`. Ops + recovery:
-`.claude/REFERENCE/GRAPHIFY-OPS.md`.
+## Voice
 
----
+Spontaneous speech and creator-approved language are primary evidence. Retrieve only examples relevant
+to the passage. General rule corpora and model-written examples are never default doctrine. Voice
+evidence does not verify facts; recheck factual analogies separately.
 
-## Core Principles
+The target is cleaned spoken analytic prose: preserve Benoit's thought order, real causal scaffolding,
+meaningful qualifications, ordinary vocabulary, and moderately long sentences when the logic needs
+them. Remove filler, abandoned starts, stacked abstractions, institutional wording where a plain verb
+works, artificial punch fragments, decorative symmetry, slogans, and faux-documentary rhetoric. A
+connector must carry a real logical or causal link; it cannot conceal a missing mechanism.
 
-1. **Historical integrity** — every claim verified with credible sources
-2. **Real quotes with page numbers** — word-for-word from academic sources (the competitive advantage)
-3. **Modern relevance** — connect history to 2024-2026 developments
-4. **Academic balance** — present multiple perspectives, acknowledge counter-evidence
-5. **Deep causal chains** — explain WHY (spoken-register connectors: so, which is why, and that
-   meant; formal "consequently/thereby" sparingly)
-6. **No oversimplification** — maintain nuance while accessible
+`channel-data/creator-model/VOICE-EVIDENCE.md` is a query-only raw corpus. Never load it wholesale.
+Retrieve through `tools.front_room`, prefer current-project ad-libs when relevant, and let direct raw
+speech or later creator-approved language override a generalized rule.
 
----
+## Collaboration and reasoning
 
-## The pipeline
+Act as a critical collaborator, not an enthusiastic echo. Start with the current bottleneck and active
+decision. Show claim -> evidence -> inference, label uncertainty, and give a calibrated recommendation
+when the evidence supports one. Do not return a pile of equally weighted options or reopen a settled
+priority because a merely interesting alternative appeared.
 
-`greenlight` (packaging gate) → `research` → `script` → `verify` → `prep` → `publish`
+Treat gut discomfort as an alarm to inspect a premise, wording choice, or evidence gap, not as a
+verdict. Separate factual core, inference, interpretation, moral judgment, and propaganda conclusion.
+Stress-test monocausal stories, concede the strongest inconvenient fact, and say exactly what it does
+and does not prove. Narrow broad ideological questions into testable claims where possible.
 
-Each stage is a `source-command-*` skill.
+Set stopping criteria before open-ended research or optimization. Major schools, the strongest
+counterargument, claim origin, and hinge evidence matter; bibliography completion for its own sake does
+not. Keep machinery internal and do not let system improvement displace the active video unless it
+prevents a serious quality failure.
 
-1. **Research + Verify** → `01-VERIFIED-RESEARCH.md`, each fact ✅/⏳/❌. Gate: 90%+ before writing.
-2. **Script from verified facts ONLY** → `02-SCRIPT-DRAFT.md`. Unverified fact ⇒ STOP and verify.
-3. **Cross-check** → `03-FACT-CHECK-VERIFICATION.md`, every line vs the research.
-   ✅ APPROVED / ❌ REVISION.
+## Opportunity and commitment
 
-**Other workflows:** `grill-angle` (sharpen angle, before greenlight) · `thumbnail` · `opener` ·
-`polish` · `editing-guide` · `fix` (subtitles) · `engage` · `reconcile` · `status` · `next` ·
-`analyze` / `patterns` / `growth` / `retitle` · `translate` (Untranslated series) ·
-`voice` / `voice-readthrough` / `voice-clickdrill` · `preflight` · `comment-mine` ·
-`learn-from-paper` · `referee-retrofit` · `gemini` (bulk-read offload).
+For a genuine next-video conversation, use current public evidence, recent comments, foreign-language
+gaps, competition, source viability, packaging potential, channel evidence, and the creator's
+interests. Do not use composite opportunity, viral, breakout, title, thumbnail, or retention scores as
+decisions. Recommend in prose with decisive evidence, counterarguments, uncertainty, and reversal
+conditions.
 
-**NEVER skip Phase 2** (NotebookLM academic verification) — that is the competitive advantage.
-**Channel DNA:** history with modern relevance, NOT geopolitics with historical background. Test:
-"Will this matter in 10 years regardless of who's in power?"
+Once the creator chooses an idea, stop comparing marginal alternatives. Move to the next unresolved
+problem. Reopen only for meaningful new evidence or an explicit creator decision.
 
----
+Legacy opportunity, viral, breakout, title, thumbnail and retention scores remain preserved for
+recovery and comparison, but they are quarantined from normal decisions. `tools.front_room` must not
+load them into an opportunity, package, business or performance packet. Missing or stale public
+evidence is reported as a gap; it is never replaced by a composite score.
 
-## File Organization (CRITICAL)
+## Decision learning
 
-**Lifecycle folders (MANDATORY):**
-- `video-projects/_IN_PRODUCTION/` → `_READY_TO_FILM/` → `_ARCHIVED/published/`
-- **NEVER** create loose folders in `video-projects/` root
-- Naming: `video-projects/[lifecycle]/[number]-[topic-slug-year]/`
+Record an accepted material recommendation before its outcome is known: recommendation, rationale,
+predicted mechanism, expected observation and evidence limitations. Later attach the dated outcome
+and revised confidence. Do this for consequential topic, package, workflow, research and business
+choices, not for ordinary micro-edits. One noisy result updates confidence; it does not become a new
+channel law.
 
-**Folder lifecycle (truth source: filesystem + analytics.db):**
-- `_IN_PRODUCTION/` — research / scripting / fact-check phase
-- `_READY_TO_FILM/` — `FINAL-SCRIPT.md` exists OR `.mp4` rough cut exists, no YouTube URL yet
-- `_ARCHIVED/published/` — YouTube published. Matched via `analytics.db` Video ID.
-- `_BACKLOG/` — **holding bucket, OUTSIDE the lifecycle.** Dormant/parked projects. Invisible to
-  scanners (`session_context.py`, `project_scanner.py`, `reconcile.py` glob only the 3 lifecycle
-  folders). Pull a folder back to `_IN_PRODUCTION/` when you resume it. NOT for published or filmed
-  work.
+Channel-wide recommendations and project-specific recommendations are separate ledger scopes. A
+workflow, business, or channel strategy choice normally belongs to the channel scope. A title,
+thumbnail, script, research, or video-specific choice normally belongs to the active project. Never
+attach a channel operating decision to the current video merely because it is active.
 
-**Before creating any file:** read `PROJECT_STATUS.md` → glob for an existing folder → confirm
-lifecycle stage.
+## State and measurement
 
-**Standard project files:** `01-VERIFIED-RESEARCH.md` (single source of truth for verified facts) ·
-`02-SCRIPT-DRAFT.md` · `03-FACT-CHECK-VERIFICATION.md` · `YOUTUBE-METADATA.md` ·
-`PROJECT-STATUS.md` (its `<!-- AUTO:reconcile -->` block is machine-managed; narrative below the
-close tag is hand-written and never overwritten).
+Use existing store seams for analytics and project reconciliation. Every metric carries its source,
+grain, and as-of date. Stale or failed ingestion is reported, never silently replaced. Record every
+selected or changed title/thumbnail chronologically through the internal package-history path; hashes
+identify thumbnail files. Interpretation remains bounded by what the captured versions can establish.
 
-See: `.claude/REFERENCE/FOLDER-STRUCTURE-GUIDE.md`
+Performance interpretation requires an attributable package version and its pre-publication
+expectation. Compare against at most a small cohort chosen by a stated rule. If the project has no
+linked published video, say that the outcome is not yet observable.
 
----
+Create a non-Git milestone snapshot when a script is locked, a package is selected for publication,
+or a published package is changed.
 
-## Project State Reconciliation (folder drift)
+## Retrieval boundary
 
-**Truth sources:** filesystem → lifecycle stage · `tools/youtube_analytics/analytics.db` → publish
-status · in-folder `PROJECT-STATUS.md` narrative → hand-written state.
+Normal work never searches or loads:
 
-**Derived (auto-regenerated by the `reconcile` skill):** folder location, the AUTO block, root
-`PROJECT_STATUS.md` / `PROJECT_REGISTRY.md`, `.brain/index.md §3`.
+- `.agents/cold-skills/` or `.codex/cold-agents/`;
+- `.claude/` commands, agents, rules, prompts, or strategy references;
+- any project `_cold/` folder;
+- `_migration-snapshots/`;
+- superseded research, old scores, stale channel laws, or the giant voice doctrine.
 
-**Conversational trigger (MANDATORY):** when the user says "I uploaded X" / "I released X" /
-"I published X" / "X is live" / "X went up" — run the `reconcile` skill on X immediately. Do NOT
-just look up the video. The utterance IS the write trigger. If X is ambiguous, ask once.
+The creator model under `channel-data/creator-model/` is not part of that old doctrine. Load only the
+relevant operating-model section or retrieve a few raw examples through `tools.front_room`; the full
+raw corpus remains outside normal context.
 
-**Conversational trigger — script lock (MANDATORY):** when the user declares a script locked
-("script locked" / "lock it" / "T1 passed") — immediately run the post-lock delta-mine: consolidate
-read-aloud notes and session corrections into `channel-data/calibration/CALIBRATION-CORPUS.md`,
-append new contradictions to `INTERVIEW-AGENDA.md`, record passes-to-lock in `EVAL-BASELINE.md`.
-The lock declaration IS the mining trigger.
+Those materials may be opened only for explicit migration recovery or when the creator asks to compare
+the old system. Source PDFs under `_research/sources/` may be opened by exact locator; the directory is
+a cold dossier, not general context.
 
-**Backstop:** a daily scheduled routine (`HvH-Reconcile`, 08:30) archives publishes missed by
-conversation and never touches memory snapshots. Chain: 07:45 growth refresh → 08:00 channel-health
-→ 08:30 reconcile. Details: `automation-ops` skill.
-
----
-
-## Working Style
-
-- **Be direct and efficient** — no pleasantries, get to the point
-- **Read first, ask later** — glob/read to find info, don't ask the user
-- **Don't ask for info in files you can read** — find it yourself
-- **Lead with the outcome.** First sentence answers "what happened" / "what did you find."
-- **Calibrated language.** State what a finding is and what it supports. At most one
-  "strongest/most important" per project, and say what it changes. No "mother lode", "crown jewel",
-  "spectacular".
-- **Written files match the task.** No filler sections, no redundant summaries.
-- **Hold scope.** Deliver what was asked. Better idea? Say it in a sentence, then do what was asked.
-- **Correct once, quietly.** Only when the error changes a decision.
-- See `.claude/USER-PREFERENCES.md` for the full guide.
-
-### Sub-agents
-
-16 custom agents live in `.codex/agents/*.toml` (article-writer, primary-source-hunter,
-notebook-researcher, script-writer-v2, structure-checker-v2, packaging-adversary, thumbnail-critic,
-comment-responder, competitor-gap, series-planner, wiki-researcher, diy-asset-creator, …).
-
-Spawn one only for large, genuinely independent work — never to verify your own output. Every spawn
-prompt carries: the exact paths to read, one imperative goal sentence, and the return contract from
-`.claude/AGENT-ORCHESTRATION.md`. Concurrency cap is set by
-`agents.max_concurrent_threads_per_session` in `.codex/config.toml`.
-
----
-
-## Critical Reminders
-
-1. **PACKAGING FIRST** — greenlight before ANY research. Collision-check first:
-   `python -m tools.preflight.candidate_preflight "<topic>"`. A published match is a stop, and it
-   runs *before* the pitch.
-2. **NEVER skip Phase 2** (NotebookLM academic verification). University presses, top scholars,
-   budget UNLIMITED.
-3. **REAL QUOTES with page numbers, primary sources ON SCREEN** — not summaries, not optional.
-   Unnamed authority ("historians argue") is the exact inverse of the product.
-4. **HOW > WHY** for subscriber growth — mechanisms and logistics, not politics.
-5. **Intellectual honesty** — acknowledge what the opposing side gets right.
-6. **Load the rule-skill before writing** — see fidelity gap 1 above.
-
----
-
-## Key References
-
-- **Style:** `.claude/REFERENCE/WRITING-VOICE-AND-STYLE.md` (authoritative)
-- **Reference index:** `.claude/REFERENCE/INDEX.md` · **Packaging:** `tools/PACKAGING_MANDATE.md`
-- **Topic pipeline:** `channel-data/TOPIC-PIPELINE.md`
-- **Next-video discovery / breakout work (ACTIVE):** `channel-data/NEXT-VIDEO-DISCOVERY-HANDOFF.md`
-- **Issues:** GitHub Issues on `benoitdebecker1995-png/history-vs-hype` via `gh` → `docs/agents/issue-tracker.md`
-- **Domain docs:** `CONTEXT.md` + `docs/adr/` at repo root → `docs/agents/domain.md`
+Preserve unrelated worktree changes. Do not mass-delete the old laboratory during this pilot.
