@@ -85,7 +85,9 @@ The working replacement hypothesis — that titles naming an actor performing an
 outperform topic, myth and method framings — is recorded in
 `channel-data/PACKAGING-DIAGNOSIS-2026-08-26.md` and is **derived from this same 47-row sample**. It
 therefore has no more standing than the composite it replaces until tested on data it was not drawn
-from. The three-video retitle test in that document is what would test it.
+from. **Superseded on method by ADR-0030:** the back-catalogue retitle test named there is not
+runnable at this channel's current impression volumes. The hypothesis can only be tested
+prospectively across new uploads.
 
 This measurement is re-runnable from the CSV whenever a fresh Studio export lands, and should be
 re-run before any future title tool is trusted.

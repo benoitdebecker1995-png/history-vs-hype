@@ -62,8 +62,9 @@ using it. **Never gate on it.**
 doing something with a stake, that is worth noticing in an afternoon rather than a fortnight — as a
 prompt to think again, not as a verdict.
 
-A three-video retitle test — title only, predicted CTR recorded first, read at 28 days — is what
-would show whether the rule is causal or merely correlated with live-conflict subjects.
+Testing it is slow. The back-catalogue retitle test is **retired** (ADR-0030) — those videos get
+29–149 impressions a month and the measurement needs ~750 per arm. The rule can only be tested
+prospectively across several new uploads, each with its prediction recorded before publication.
 
 **The metric is CTR, not views.** 6% or better clears the bottleneck. 2% does not, however good the
 research was.
@@ -93,14 +94,28 @@ Everything else is downstream of it.
 analytics API surface in use does not expose them. Whether the problem is too few impressions or a
 click-through problem is genuinely open — get it from YouTube Studio before building on either.
 
-## Known broken — do not read these as current
+## State of the machinery — corrected 27 August 2026
 
-- All seven `HvH-*` scheduled tasks fail on every run and have written no log since 24 August.
-- `analytics.db` last refreshed 20 August, `keywords.db` 17 August, `intel.db` 10 August.
-- CTR data stale since 28 July.
+Fixed on 27 August:
+
+- **The routines run.** All seven `HvH-*` tasks were failing on three separate causes: an expired
+  YouTube OAuth token, a blank `claude` CLI refresh token, and `claude` not being on PATH under the
+  Task Scheduler. Five verified green in the scheduler; the other two ran clean by hand.
+- **CTR is collecting again.** Dark from 28 July to 27 August because a consistency guard used `!=`
+  where it meant `>`, so it aborted on a benign mismatch it was never built to catch.
+- **`analytics.db` and `keywords.db` are current.** `intel.db` is genuinely stale — comment signals
+  29 July, competitor videos 10 August. Nothing refreshes it on a schedule.
+- **Git is clean and pushed.**
+
+Still true:
+
 - 13 of the 15 projects in `_IN_PRODUCTION` are missing their three hot files. Only 62 and 67 have
-  them. Making any other one active starts a session blind.
-- Git holds 44 unpushed commits, a 3.99 GB pack and 352 uncommitted files.
+  them. The SessionStart hook now warns loudly and still emits channel state, but do not point
+  `ACTIVE_PROJECT` at the others.
+- **Impressions and CTR are best read from a fresh YouTube Studio export.** `impressions_daily` is
+  populated from the Reporting API and reads 7.48% channel CTR over 30 days against the 3.05% the
+  Studio export gives — the two sources see different slices, and the absolute numbers should not be
+  mixed.
 
 ## Stop list
 

@@ -98,9 +98,14 @@ channel mean (ADR-0029). It had guided title choices for about a year without an
 This hypothesis was derived the same way, off the same 47 rows, and has the same standing until
 tested on data it was not drawn from.
 
-**There is currently no validated title instrument on this channel.** The three-video retitle test —
-title only, predicted CTR recorded first — reads out 28 days after it starts, and is what would move
-this from hypothesis to finding.
+**There is currently no validated title instrument on this channel**, and no fast way to get one.
+The back-catalogue retitle test that was meant to settle this is **retired** (ADR-0030): the
+candidates receive 29–149 impressions a month against the ~750 per arm the measurement needs, and no
+video is both served enough to test and converting badly enough to be worth fixing. Retitling a dead
+video does not summon impressions YouTube is not offering.
+
+The hypothesis can only be tested **prospectively, on new uploads** — a season-long question, not a
+month-long one. Volhynia is the first entry; its prediction is recorded.
 
 ## The current unresolved channel problem
 
