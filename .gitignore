@@ -176,6 +176,10 @@ video-projects/**/graphify-out/
 # Session scratch / temp (SERP sheets, thumbnail previews, etc.)
 /tmp/
 
+# Independent migration/milestone snapshots. These are recovery artifacts, not
+# active memory and not Git history.
+/_migration-snapshots/
+
 # SQLite WAL/SHM journal files (transient)
 *.db-wal
 *.db-shm

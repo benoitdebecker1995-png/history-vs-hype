@@ -1,94 +1,63 @@
-"""
-UserPromptSubmit hook — makes CLAUDE.md's MANDATORY utterance triggers deterministic.
-
-CLAUDE.md marks two behaviours MANDATORY ("the utterance IS the write trigger"),
-and `extending-safely` makes a third a standing hard rule. All three depended on
-the model noticing the phrasing mid-conversation. This matches them at prompt
-time instead, so the reminder is in context before the turn starts.
-
-It replaces a backstop that never existed: `automation-ops` described a
-user-global Stop hook `extract-learnings.js` feeding `~/.claude/wiki/_queue/`,
-and `extending-safely` told every session "the Stop hook is only the backstop".
-Verified absent 2026-07-31 — no script, no wiki, no /wiki-ingest. Matching
-correction language at prompt time is both cheaper than a Stop hook (which fires
-every turn) and earlier (before the work happens, not after).
-
-Contract, same as session_context.py: read stdin, print plain text to stdout for
-the model's context, ALWAYS exit 0. This hook must never block a prompt — a false
-positive should cost a sentence of context, never the user's turn.
-
-Harness-neutral: Claude Code and Codex both send `prompt` on stdin and both add
-plain stdout to context, so one script serves both. Wired into
-`.claude/settings.json` and `.codex/hooks.json` UserPromptSubmit.
-"""
+"""Prompt-time reminders for conversational state changes that must be recorded."""
 
 import json
 import re
 import sys
 
-# Each: (compiled pattern, reminder). Patterns stay narrow — a false positive
-# spends context and, worse, trains the user to ignore the reminders.
+
 _TRIGGERS = [
     (
         re.compile(
-            # The adverb slot is an allowlist, not \w+, so negated forms
-            # ("I never uploaded", "I haven't published") do not fire.
-            r"\b(i\s+(just\s+|already\s+|finally\s+|now\s+)?"
-            r"(uploaded|released|published|posted)"
-            r"|(is|went)\s+live"
-            r"|went\s+up)\b",
-            re.IGNORECASE,
+            r"\b(i\s+(?:just\s+|already\s+|finally\s+|now\s+)?"
+            r"(?:uploaded|released|published|posted)|(?:is|went)\s+live|went\s+up)\b",
+            re.I,
         ),
-        "TRIGGER — publish declared. Project guide (CLAUDE.md / AGENTS.md): run `/reconcile "
-        "<slug>` NOW — the reconcile skill on Codex. Do not just look the "
-        "video up, and do not assume project files are current — the utterance IS the write "
-        "trigger. If the slug is ambiguous across folders, ask once, then proceed.",
+        "Publication was declared. Infer the current project, reconcile publication state using "
+        "the existing deterministic reconciler, record the effective package version, and create "
+        "a published milestone snapshot. Do not ask the creator for a command.",
+    ),
+    (
+        re.compile(r"\b(script\s+lock(?:ed)?|lock\s+it|t1\s+passed|read[-\s]?aloud\s+passed)\b", re.I),
+        "Script lock was declared. Create a non-Git active-state snapshot now. Treat spontaneous "
+        "read-through corrections as voice evidence, but do not expand a default voice doctrine.",
     ),
     (
         re.compile(
-            r"\b(script\s+lock(ed)?|lock\s+it|t1\s+passed"
-            r"|read[-\s]?aloud\s+passed)\b",
-            re.IGNORECASE,
+            r"\b(use|choose|lock|publish|go with|switch to|change to)\b.{0,40}"
+            r"\b(title|thumbnail|package)\b|\b(title|thumbnail)\b.{0,30}\b(is final|is locked)\b",
+            re.I,
         ),
-        "TRIGGER — script lock declared. Project guide (CLAUDE.md / AGENTS.md): run the post-lock "
-        "delta-mine NOW, while the "
-        "deltas are fresh: (1) consolidate read-aloud notes, version diffs and session corrections "
-        "into channel-data/calibration/CALIBRATION-CORPUS.md (axis-tagged, tiered); (2) append new "
-        "contradictions to INTERVIEW-AGENDA.md; (3) record passes-to-lock in EVAL-BASELINE.md.",
+        "A package choice may have been made. If so, record the exact title or hashed thumbnail "
+        "with its effective time through package history; do not merely update prose.",
     ),
     (
         re.compile(
-            r"(^|[.!?]\s+)(no[,.\s]|nope\b|wrong\b|that'?s not\b|don'?t\b|stop\b"
-            r"|never\b|actually,?\s)",
-            re.IGNORECASE,
+            r"\b(?:accept|accepted|go with|let'?s do|use)\b.{0,60}"
+            r"\b(?:recommendation|approach|plan|strategy)\b|"
+            r"\b(?:recommendation|approach|plan|strategy)\b.{0,40}\b(?:is final|is accepted)\b",
+            re.I,
         ),
-        "POSSIBLE CORRECTION — if the user is correcting you, capture the rule immediately in "
-        "video-projects/_CORRECTIONS-LOG.md (and the user-memory store if it is a standing "
-        "preference). `extending-safely`: live capture is a standing hard rule, not 'noted'. "
-        "Ignore this line if the message was not a correction.",
+        "A material recommendation may have been accepted. If it changes topic, package, workflow, "
+        "research or business direction, record its rationale, predicted mechanism, expected "
+        "observation and evidence limitations before an outcome is known. Ignore ordinary micro-edits.",
     ),
 ]
 
 
-def check(prompt: str) -> list:
-    """Reminders triggered by `prompt`. Pure — the tests drive this directly."""
-    return [msg for pattern, msg in _TRIGGERS if pattern.search(prompt or "")]
+def check(prompt: str) -> list[str]:
+    return [message for pattern, message in _TRIGGERS if pattern.search(prompt or "")]
 
 
 def main() -> int:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     try:
         raw = sys.stdin.read()
         prompt = json.loads(raw).get("prompt", "") if raw.strip() else ""
     except (ValueError, OSError):
-        # Fail open and silent. A hook that cannot read its input must not
-        # editorialise into the user's context.
         return 0
-
-    hits = check(prompt)
-    if hits:
-        print("Utterance triggers matched (tools/hooks/utterance_triggers.py):")
-        for msg in hits:
-            print("  - " + msg)
+    for message in check(prompt):
+        print(message)
     return 0
 
 

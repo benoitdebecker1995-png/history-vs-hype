@@ -485,6 +485,169 @@ class PerformanceTracker:
     # VARIANT TRACKING METHODS (Phase 29)
     # =========================================================================
 
+    def record_package_version(
+        self,
+        project_slug: str,
+        kind: str,
+        value: str,
+        *,
+        video_id: Optional[str] = None,
+        content_hash: Optional[str] = None,
+        source_path: Optional[str] = None,
+        effective_at: Optional[str] = None,
+        supersedes_id: Optional[int] = None,
+        experiment_id: Optional[str] = None,
+        reason: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        """Record an observed title/thumbnail version; never judge its quality."""
+        if kind not in {"title", "thumbnail"}:
+            return self._err("record_package_version", "kind must be title or thumbnail")
+        if not project_slug.strip() or not value.strip():
+            return self._err("record_package_version", "project_slug and value are required")
+        now = datetime.now(timezone.utc).isoformat()
+        effective = effective_at or now
+        try:
+            cursor = self._conn.execute(
+                """
+                INSERT INTO package_versions
+                    (project_slug, video_id, kind, value, content_hash, source_path,
+                     effective_at, recorded_at, supersedes_id, experiment_id, reason)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    project_slug.strip(), video_id, kind, value.strip(), content_hash,
+                    source_path, effective, now, supersedes_id, experiment_id, reason,
+                ),
+            )
+            self._conn.commit()
+            return {"status": "inserted", "version_id": cursor.lastrowid}
+        except sqlite3.Error as exc:
+            return self._err("record_package_version", "Database error recording package version", exc)
+
+    def get_package_versions(self, project_slug: str) -> List[Dict[str, Any]]:
+        """Return a project's package history in effective chronological order."""
+        try:
+            rows = self._conn.execute(
+                """
+                SELECT * FROM package_versions
+                WHERE project_slug = ?
+                ORDER BY effective_at, id
+                """,
+                (project_slug,),
+            ).fetchall()
+            return [dict(row) for row in rows]
+        except sqlite3.Error:
+            return []
+
+    # =========================================================================
+    # RECOMMENDATION / PREDICTION LEDGER
+    # =========================================================================
+
+    def record_recommendation(
+        self,
+        project_slug: str,
+        decision_kind: str,
+        recommendation: str,
+        rationale: str,
+        predicted_mechanism: str,
+        *,
+        expected_observation: Optional[str] = None,
+        decision_status: str = "proposed",
+        evidence_limitations: Optional[str] = None,
+        recorded_at: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        """Record reasoning before an outcome is known; never calculate a score."""
+        allowed_kinds = {"topic", "package", "workflow", "research", "business", "other"}
+        allowed_statuses = {"proposed", "accepted", "rejected", "superseded", "reviewed"}
+        if decision_kind not in allowed_kinds:
+            return self._err("record_recommendation", "unknown decision kind")
+        if decision_status not in allowed_statuses:
+            return self._err("record_recommendation", "unknown decision status")
+        required = (project_slug, recommendation, rationale, predicted_mechanism)
+        if any(not value or not value.strip() for value in required):
+            return self._err(
+                "record_recommendation",
+                "project, recommendation, rationale and predicted mechanism are required",
+            )
+        stamp = recorded_at or datetime.now(timezone.utc).isoformat()
+        try:
+            cursor = self._conn.execute(
+                """
+                INSERT INTO recommendation_ledger
+                    (project_slug, decision_kind, recommendation, rationale,
+                     predicted_mechanism, expected_observation, decision_status,
+                     recorded_at, evidence_limitations)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    project_slug.strip(), decision_kind, recommendation.strip(),
+                    rationale.strip(), predicted_mechanism.strip(),
+                    expected_observation.strip() if expected_observation else None,
+                    decision_status, stamp,
+                    evidence_limitations.strip() if evidence_limitations else None,
+                ),
+            )
+            self._conn.commit()
+            return {"status": "inserted", "recommendation_id": cursor.lastrowid}
+        except sqlite3.Error as exc:
+            return self._err("record_recommendation", "Database error recording recommendation", exc)
+
+    def record_recommendation_outcome(
+        self,
+        recommendation_id: int,
+        outcome: str,
+        revised_confidence: str,
+        *,
+        outcome_as_of: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        """Attach the observed outcome and the resulting confidence revision."""
+        if not outcome.strip() or not revised_confidence.strip():
+            return self._err(
+                "record_recommendation_outcome",
+                "outcome and revised confidence are required",
+            )
+        stamp = outcome_as_of or datetime.now(timezone.utc).isoformat()
+        try:
+            cursor = self._conn.execute(
+                """
+                UPDATE recommendation_ledger
+                SET outcome = ?, outcome_as_of = ?, revised_confidence = ?,
+                    decision_status = 'reviewed'
+                WHERE id = ?
+                """,
+                (outcome.strip(), stamp, revised_confidence.strip(), recommendation_id),
+            )
+            if cursor.rowcount != 1:
+                self._conn.rollback()
+                return self._err(
+                    "record_recommendation_outcome",
+                    "recommendation not found",
+                    recommendation_id=recommendation_id,
+                )
+            self._conn.commit()
+            return {"status": "updated", "recommendation_id": recommendation_id}
+        except sqlite3.Error as exc:
+            return self._err(
+                "record_recommendation_outcome",
+                "Database error recording recommendation outcome",
+                exc,
+            )
+
+    def get_recommendations(self, project_slug: str) -> List[Dict[str, Any]]:
+        """Return the recorded reasoning chain in chronological order."""
+        try:
+            rows = self._conn.execute(
+                """
+                SELECT * FROM recommendation_ledger
+                WHERE project_slug = ?
+                ORDER BY recorded_at, id
+                """,
+                (project_slug,),
+            ).fetchall()
+            return [dict(row) for row in rows]
+        except sqlite3.Error:
+            return []
+
     def add_thumbnail_variant(
         self,
         video_id: str,

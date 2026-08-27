@@ -41,6 +41,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from tools.logging_config import get_logger, setup_logging
+from tools.sqlite_access import connect_readonly
 
 logger = get_logger(__name__)
 
@@ -135,7 +136,7 @@ def live_tables() -> dict:
         tables = set()
         if path.exists():
             try:
-                con = sqlite3.connect(f"file:{path}?mode=ro", uri=True)
+                con = connect_readonly(path)
                 try:
                     tables = {
                         row[0]
@@ -155,6 +156,11 @@ def _iter_docs(root: Path):
     seen = set()
     for pattern in DOC_GLOBS:
         for path in sorted(root.glob(pattern)):
+            # Migration recovery copies are intentionally historical. Checking
+            # them against today's paths would give cold material authority over
+            # the active system and create false failures after a safe rename.
+            if path.name.casefold().endswith(".legacy.md"):
+                continue
             if path.is_file() and path not in seen:
                 seen.add(path)
                 yield path

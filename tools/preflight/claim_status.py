@@ -49,7 +49,7 @@ from typing import Dict, List, Optional
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from tools.logging_config import get_logger, setup_logging  # noqa: E402
+from tools.logging_config import get_logger, safe_print, setup_logging  # noqa: E402
 
 logger = get_logger(__name__)
 
@@ -70,8 +70,21 @@ VERDICT_WORDS = re.compile(
     r"\b(REFUTED|PROVEN|RESOLVED|DISPROVED|CONFIRMED|ESTABLISHED|SETTLED)\b"
 )
 STATUS_TAG = re.compile(r"\[(" + "|".join(LADDER) + r")\]")
+# Page numbers may be arabic or roman: academic front matter (introductions,
+# translators' prefaces) is roman-numbered, and those pages carry real quotations.
+# The roman branch is the strict grammar, not just "letters from the roman set" —
+# a loose [ivxlcdm]+ would read "p. civil" and "page did" as locators.
+# The trailing (?![ivxlcdm]) is load-bearing twice over: it stops the numeral
+# ending mid-token ("p. civil" -> "civ"), and because the strict grammar can match
+# the empty string, it is also what prevents a zero-width match from passing.
+_ROMAN = (
+    r"(?=[ivxlcdm])m{0,3}(?:cm|cd|d?c{0,3})(?:xc|xl|l?x{0,3})"
+    r"(?:ix|iv|v?i{0,3})(?![ivxlcdm])"
+)
+_PAGE_NO = r"(?:\d+|" + _ROMAN + r")"
 LOCATOR = re.compile(
-    r"(p\.\s*\d+|pp\.\s*\d+|page\s+\d+|§|sec\.\s*\d+|ch\.\s*[IVXLC\d]+|"
+    r"(p\.\s*" + _PAGE_NO + r"|pp\.\s*" + _PAGE_NO + r"|page\s+" + _PAGE_NO + r"|"
+    r"§|sec\.\s*\d+|ch\.\s*[IVXLC\d]+|"
     r"[A-Z]{2,4}\s*\d+/\d+|doc(ument)?\.?\s*\d+|archive|identifier|`[^`]+`)",
     re.I,
 )
@@ -388,10 +401,14 @@ def main(argv: Optional[List[str]] = None) -> int:
     g.add_argument("-v", "--verbose", action="store_true")
     g.add_argument("-q", "--quiet", action="store_true")
     args = ap.parse_args(argv)
-    setup_logging(args.verbose, args.quiet)
+    setup_logging(args.verbose, args.quiet)  # also hardens stdout against a narrow codepage
 
+    # Every report below is printed via safe_print, not print. The reports echo raw
+    # claim text, and the ladder doc below carries ✅ ⏳ ❌ — none of which cp1252 can
+    # encode. This CLI's exit code is the completion gate in /research, so an
+    # unprintable glyph must not become a research verdict. See configure_console_output.
     if args.ladder:
-        print(__doc__)
+        safe_print(__doc__)
         return 0
     if not args.files:
         ap.error("give at least one file, or --ladder")
@@ -400,17 +417,17 @@ def main(argv: Optional[List[str]] = None) -> int:
     for f in args.files:
         if args.tone:
             res = tone_file(f)
-            print(format_tone(res))
+            safe_print(format_tone(res))
             if "error" in res:
                 failed = True
         elif args.frontier:
             res = frontier_file(f)
-            print(format_frontier(res))
+            safe_print(format_frontier(res))
             if "error" in res or res["verdict"] == "OPEN":
                 failed = True
         else:
             res = check_file(f)
-            print(format_report(res))
+            safe_print(format_report(res))
             if "error" in res or res["verdict"] == "FAIL":
                 failed = True
     return 1 if failed else 0

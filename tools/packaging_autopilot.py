@@ -327,28 +327,43 @@ def generate_full_report(days: int = 14) -> str:
     lines.append("\n--- CHANNEL PACKAGING HEALTH ---\n")
     try:
         with AnalyticsStore.open(_ANALYTICS_DB) as store:
-            # Avg CTR across all videos with data.
-            avg = store.execute(
-                "SELECT AVG(ctr_percent) AS avg_ctr, COUNT(*) AS n "
-                "FROM videos WHERE ctr_percent > 0"
-            )
-            if avg and avg[0]['avg_ctr']:
-                lines.append(f"  Avg CTR: {avg[0]['avg_ctr']:.1f}% (across {avg[0]['n']} videos)")
+            # ADR-0024: these are "how did the catalogue actually do" questions, so
+            # they take the LIFETIME grain. They previously read
+            # videos.impressions/ctr_percent — the collector's trailing snapshot —
+            # which made the >500-impression reliability test almost unsatisfiable
+            # (snapshot median is 56). Measured 2026-08-03: the swap-candidate count
+            # read 2 when the true answer was 42, and avg CTR read 5.45% vs 3.20%.
+            lifetime = store.lifetime_ctr_by_video()
+            as_of = next(iter(lifetime.values()))['as_of'] if lifetime else None
+
+            ctrs = [r['ctr_percent'] for r in lifetime.values() if r['ctr_percent']]
+            if ctrs:
+                lines.append(
+                    f"  Avg CTR: {sum(ctrs) / len(ctrs):.1f}% "
+                    f"(across {len(ctrs)} videos, lifetime as of {as_of})"
+                )
 
             # Videos below the 4% hold floor with a real impression test (swap candidates).
-            swap = store.execute(
-                "SELECT COUNT(*) AS n FROM videos "
-                "WHERE ctr_percent > 0 AND ctr_percent < 4.0 AND impressions > 500"
+            swap_n = sum(
+                1 for r in lifetime.values()
+                if (r['ctr_percent'] or 0) > 0
+                and (r['ctr_percent'] or 0) < 4.0
+                and (r['impressions'] or 0) > 500
             )
-            lines.append(f"  Swap candidates (<4% CTR, >500 imp): {swap[0]['n']}")
+            lines.append(f"  Swap candidates (<4% CTR, >500 imp): {swap_n}")
 
-            # High retention + low views.
-            retitle = store.execute(
-                "SELECT COUNT(*) AS n FROM videos "
-                "WHERE avg_view_percentage > 30 AND views < 100 "
-                "AND ctr_percent > 0 AND ctr_percent < 3"
+            # High retention + low views, cross-referenced against lifetime CTR.
+            retention = {
+                r['video_id']: r for r in store.execute(
+                    "SELECT video_id, avg_view_percentage, views FROM videos "
+                    "WHERE avg_view_percentage > 30 AND views < 100"
+                )
+            }
+            retitle_n = sum(
+                1 for vid in retention
+                if 0 < (lifetime.get(vid, {}).get('ctr_percent') or 0) < 3
             )
-            lines.append(f"  Retitle candidates: {retitle[0]['n']} (>30% retention, <100 views)")
+            lines.append(f"  Retitle candidates: {retitle_n} (>30% retention, <100 views)")
     except Exception as e:
         lines.append(f"  Could not read analytics: {e}")
 

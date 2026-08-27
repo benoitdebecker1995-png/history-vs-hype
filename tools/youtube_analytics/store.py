@@ -36,6 +36,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence
 
 from tools.logging_config import get_logger
+from tools.sqlite_access import connect_readonly
 
 logger = get_logger(__name__)
 
@@ -107,6 +108,11 @@ class AnalyticsStore:
             raise FileNotFoundError(f"analytics.db not found at {db_path}")
         return cls(_open_conn(Path(db_path)))
 
+    @classmethod
+    def open_readonly(cls, db_path: Path = ANALYTICS_DB) -> "AnalyticsStore":
+        """Open analytics.db without migrations, WAL changes, or write capability."""
+        return cls(connect_readonly(Path(db_path)))
+
     def close(self) -> None:
         if self._conn is not None:
             self._conn.close()
@@ -174,6 +180,61 @@ class AnalyticsStore:
                for r in rows}
         return out, hdr["exported_at"]
 
+    def lifetime_ctr_by_video(self) -> Dict[str, Dict[str, Any]]:
+        """LIFETIME impressions/CTR per video, each row carrying its own as-of.
+
+        THE canonical read for "how did this video actually do". Peer to
+        ``tools.discovery.ctr_reads.latest_valid_ctr_by_video`` (ADR-0017), which
+        does the same job for keywords.db.
+
+        Returns ``{video_id: {impressions, ctr_percent, as_of, grain, source_table}}``.
+        Empty dict when no lifetime import exists.
+
+        ⚠ Do NOT substitute ``videos()[...]["impressions"]`` for this. Those columns
+        are a TRAILING SNAPSHOT stamped with ``ctr_as_of`` — on 2026-08-03 they held
+        a single collection date for 57 of 58 rows, and reading them as lifetime gave
+        a median of 56 impressions against a true lifetime median of 2,923. See the
+        ADR that records that incident.
+        """
+        lifetime, exported_at = self.latest_studio_lifetime()
+        return {
+            vid: {
+                "impressions": rec.get("impressions"),
+                "ctr_percent": rec.get("ctr_percent"),
+                "as_of": exported_at,
+                "grain": "lifetime",
+                "source_table": "studio_ctr_rows",
+            }
+            for vid, rec in lifetime.items()
+        }
+
+    def snapshot_ctr_by_video(self) -> Dict[str, Dict[str, Any]]:
+        """TRAILING-WINDOW impressions/CTR per video, each row carrying its as-of.
+
+        The ``videos.impressions`` / ``videos.ctr_percent`` pair, returned only ever
+        alongside ``videos.ctr_as_of`` so the grain cannot be lost in transit. Use
+        when you specifically want the recent window; use
+        :meth:`lifetime_ctr_by_video` for how a video actually did.
+        """
+        try:
+            rows = self._conn.execute(
+                "SELECT video_id, impressions, ctr_percent, ctr_as_of FROM videos "
+                "WHERE impressions IS NOT NULL"
+            ).fetchall()
+        except sqlite3.Error as e:
+            logger.debug("snapshot_ctr_by_video failed: %s", e)
+            return {}
+        return {
+            r["video_id"]: {
+                "impressions": r["impressions"],
+                "ctr_percent": r["ctr_percent"],
+                "as_of": r["ctr_as_of"],
+                "grain": "snapshot",
+                "source_table": "videos",
+            }
+            for r in rows
+        }
+
     # ── videos ────────────────────────────────────────────────────────────────
 
     _VIDEO_COLUMNS = (
@@ -200,6 +261,12 @@ class AnalyticsStore:
         Whitelist for `order_by`: video_id, title, published_at, duration_seconds,
         views, watch_time_minutes, avg_view_percentage, subscribers_gained,
         impressions, ctr_percent. Unknown values fall back to published_at.
+
+        ⚠ The ``impressions`` / ``ctr_percent`` columns in these rows are a
+        **TRAILING SNAPSHOT**, not lifetime, and are only meaningful next to the
+        ``ctr_as_of`` value returned in the same row. For "how did this video
+        actually do", call :meth:`lifetime_ctr_by_video` instead — reading these as
+        lifetime is a recorded incident, not a hypothetical.
         """
         order_col = self._safe_order_col(order_by)
         direction = "DESC" if descending else "ASC"

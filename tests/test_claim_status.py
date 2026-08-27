@@ -4,7 +4,18 @@ Each test below pins a failure that actually occurred in project #66 on 2026-07-
 They are regression tests for a research process, not for a parser.
 """
 
-from tools.preflight.claim_status import LADDER, WEIGHT, check_file, check_text
+import io
+import os
+import subprocess
+import sys
+from contextlib import contextmanager
+from pathlib import Path
+
+import pytest
+
+from tools.preflight.claim_status import LADDER, WEIGHT, check_file, check_text, main
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def _rules(res):
@@ -79,6 +90,18 @@ class TestR3Locator:
         for loc in ("p. 42", "pp. 155-158", "CAB 65/36", "ch. XVI", "`identifier-x`"):
             res = check_text(f"- [INSPECTED] A claim with a locator {loc}.")
             assert res["verdict"] == "PASS", loc
+
+    def test_roman_numeral_pages_are_locators(self):
+        """Front matter is roman-numbered; #67 quoted Bowersock's introduction at p. ix."""
+        for loc in ("p. ix", "pp. ix-x", "p. xvi", "page xiv", "p. xliv"):
+            res = check_text(f"- [CORROBORATED] A claim from the introduction, {loc}.")
+            assert res["verdict"] == "PASS", loc
+
+    def test_roman_branch_does_not_swallow_english_words(self):
+        """'civil' and 'did' are spelled from the roman letter set but are not numerals."""
+        for near_miss in ("p. civil", "page did", "pp. mild"):
+            res = check_text(f"- [CORROBORATED] A claim citing {near_miss} and nothing else.")
+            assert res["verdict"] == "FAIL", near_miss
 
     def test_below_inspected_needs_no_locator(self):
         res = check_text("- [ASSERTED] A model said the figure was 188,000 tons.")
@@ -180,3 +203,180 @@ class TestTone:
         res = tone("The minute records the diagnosis and the decision, dated 4 August 1943.")
         assert res["verdict"] == "OK"
         assert res["counts"]["awe"] == 0
+
+
+# ---------------------------------------------------------------------------
+# Console encoding
+# ---------------------------------------------------------------------------
+
+# The repo's research files mark claims with ⛔ ⚠ ⭐ by convention, and --frontier
+# echoes file text back: the whole line for an untracked claim, the next-action for an
+# open thread. cp1252 has no code point for any of those glyphs.
+OPEN_THREAD = "- ⛔ [SOURCED] Bowersock's introduction is unread | next: ⛔ order the Penn Press scan\n"
+UNTRACKED = "- ⭐ [ASSERTED] Valla dated the forgery to the eighth century\n"
+
+
+@contextmanager
+def cp1252_console():
+    """Run a block with sys.stdout/sys.stderr as strict cp1252 streams.
+
+    This is what a piped stdout looks like on Windows: Python falls back to the
+    ANSI codepage, and every glyph outside it is a hard UnicodeEncodeError.
+    Yields a callable returning everything written to stdout so far, decoded.
+
+    Deliberately a context manager and not a fixture: pytest re-installs its own
+    sys.stdout when the call phase begins, so a swap made during fixture setup is
+    silently undone before the test body runs.
+    """
+    out_buf, err_buf = io.BytesIO(), io.BytesIO()
+    out = io.TextIOWrapper(out_buf, encoding="cp1252", errors="strict", write_through=True)
+    err = io.TextIOWrapper(err_buf, encoding="cp1252", errors="strict", write_through=True)
+    saved_out, saved_err = sys.stdout, sys.stderr
+    sys.stdout, sys.stderr = out, err
+    try:
+        def read():
+            out.flush()
+            return out_buf.getvalue().decode("cp1252")
+
+        yield read
+    finally:
+        sys.stdout, sys.stderr = saved_out, saved_err
+
+
+class TestNarrowCodepageOutput:
+    """The 2026-08-02 failure: `claim_status --frontier` on project #67 died with
+    UnicodeEncodeError on '⛔' before printing its verdict.
+
+    The analysis was fine — only the printing failed. But this CLI's exit code is
+    the completion gate in /research, and the crash also exits 1, which is exactly
+    what a genuine OPEN verdict returns. An encoding problem must never be able to
+    stand in for a research verdict.
+    """
+
+    def test_the_fixtures_still_reach_the_formatter(self):
+        """Guard: these tests only prove anything while the glyph actually lands in the
+        rendered report. If format_frontier ever stops echoing file text, this fails
+        loudly instead of the suite going quietly green on a bug it no longer covers."""
+        from tools.preflight.claim_status import format_frontier, frontier
+
+        assert "⛔" in format_frontier(frontier(OPEN_THREAD))
+        assert "⭐" in format_frontier(frontier(UNTRACKED))
+
+    def test_frontier_prints_its_verdict_through_a_cp1252_stdout(self, tmp_path):
+        f = tmp_path / "01-VERIFIED-RESEARCH.md"
+        f.write_text(OPEN_THREAD, encoding="utf-8")
+
+        with cp1252_console() as stdout:
+            rc = main(["--frontier", str(f)])  # must not raise
+            report = stdout()
+
+        assert "RESEARCH FRONTIER" in report
+        assert "VERDICT: OPEN" in report
+        # The glyph degrades to '?'; the next-action it decorates survives intact.
+        assert "order the Penn Press scan" in report
+        assert "⛔" not in report
+        assert rc == 1  # OPEN — the verdict, reached and reported, not a crash
+
+    def test_frontier_complete_still_exits_zero_through_a_cp1252_stdout(self, tmp_path):
+        """The half a crash can never produce: a clean pass with unprintable glyphs."""
+        f = tmp_path / "01-VERIFIED-RESEARCH.md"
+        f.write_text(
+            "- ⛔ [CORROBORATED] Valla exposed the forgery. p. ix + Bowersock p. xvi.\n"
+            "- ⭐ [INSPECTED] The text survives in Cod. Vat. lat. 1984. next: none — collated\n",
+            encoding="utf-8",
+        )
+
+        with cp1252_console() as stdout:
+            rc = main(["--frontier", str(f)])
+            report = stdout()
+
+        assert "VERDICT: COMPLETE" in report
+        assert rc == 0
+
+    def test_untracked_claims_print_through_a_cp1252_stdout(self, tmp_path):
+        f = tmp_path / "01-VERIFIED-RESEARCH.md"
+        f.write_text(UNTRACKED, encoding="utf-8")
+
+        with cp1252_console() as stdout:
+            rc = main(["--frontier", str(f)])
+            report = stdout()
+
+        assert "UNTRACKED" in report
+        assert "Valla dated the forgery" in report
+        assert rc == 1
+
+    def test_default_mode_prints_violations_through_a_cp1252_stdout(self, tmp_path):
+        """Default mode echoes raw text too — but only for violations, which is why
+        it looked healthy on the same file while --frontier died."""
+        f = tmp_path / "01-VERIFIED-RESEARCH.md"
+        f.write_text("- ⛔ [INSPECTED] REFUTED: the donation is genuine.\n", encoding="utf-8")
+
+        with cp1252_console() as stdout:
+            rc = main([str(f)])
+            report = stdout()
+
+        assert "VERDICT: FAIL" in report
+        assert "[R1]" in report
+        assert "the donation is genuine" in report
+        assert rc == 1
+
+    def test_tone_mode_prints_hits_through_a_cp1252_stdout(self, tmp_path):
+        f = tmp_path / "notes.md"
+        f.write_text(
+            "⭐ The strongest exhibit yet.\n⭐ A spectacular, devastating find.\n"
+            "⭐ The single most important document.\n",
+            encoding="utf-8",
+        )
+
+        with cp1252_console() as stdout:
+            rc = main(["--tone", str(f)])
+            report = stdout()
+
+        assert "VERDICT: OVER" in report
+        assert "strongest" in report
+        assert rc == 0  # tone is a signal, not a gate
+
+    def test_ladder_prints_through_a_cp1252_stdout(self):
+        """--ladder prints the module docstring, which carries ✅ ⏳ ❌ of its own:
+        a second crash path in the same file, independent of any input file."""
+        with cp1252_console() as stdout:
+            rc = main(["--ladder"])
+            report = stdout()
+
+        assert "THE LADDER" in report
+        assert "CORROBORATED" in report
+        assert rc == 0
+
+    def test_missing_file_error_still_reaches_stdout(self):
+        with cp1252_console() as stdout:
+            rc = main(["--frontier", "does/not/exist.md"])
+            report = stdout()
+
+        assert "no such file" in report
+        assert rc == 1
+
+    @pytest.mark.parametrize(
+        "args, expected_rc, expected_text",
+        [(["--frontier"], 1, "VERDICT: OPEN"), (["--ladder"], 0, "THE LADDER")],
+    )
+    def test_cli_survives_a_cp1252_console_end_to_end(
+        self, tmp_path, args, expected_rc, expected_text
+    ):
+        """Subprocess pin of the reported repro: PYTHONIOENCODING=cp1252 is what the
+        owner's console does, and it is the only way to prove the real interpreter
+        stdout — not a monkeypatched one — carries the verdict out."""
+        f = tmp_path / "01-VERIFIED-RESEARCH.md"
+        f.write_text(OPEN_THREAD, encoding="utf-8")
+        cmd = [sys.executable, "-m", "tools.preflight.claim_status", *args]
+        if "--ladder" not in args:
+            cmd.append(str(f))
+
+        env = {**os.environ, "PYTHONIOENCODING": "cp1252"}
+        proc = subprocess.run(
+            cmd, cwd=REPO_ROOT, env=env, capture_output=True, text=True,
+            encoding="cp1252", errors="replace",
+        )
+
+        assert "UnicodeEncodeError" not in proc.stderr
+        assert expected_text in proc.stdout
+        assert proc.returncode == expected_rc

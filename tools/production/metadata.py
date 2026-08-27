@@ -23,7 +23,7 @@ from .parser import Section
 from .entities import Entity
 from .editguide import SectionTiming, format_time
 from .title_generator import generate_title_candidates, format_title_candidates, TitleMaterialExtractor
-from tools.title_scorer import CLICKBAIT_PATTERNS, ALLOWED_ACRONYMS
+from tools.title_scorer import CLICKBAIT_PATTERNS, ALLOWED_ACRONYMS, strip_clickbait  # noqa: F401
 
 # Title constraints
 MAX_TITLE_LENGTH = 70
@@ -380,11 +380,11 @@ class MetadataGenerator:
         Returns:
             Filtered title text
         """
-        # Check for clickbait patterns
-        for pattern in CLICKBAIT_PATTERNS:
-            if pattern.lower() in title.lower():
-                # Replace with neutral version
-                title = re.sub(re.escape(pattern), '', title, flags=re.IGNORECASE)
+        # Strip clickbait patterns. Routed through title_scorer.strip_clickbait so the
+        # case rules match the brand gate exactly (2026-08-03): the ALL-CAPS markers are
+        # only clickbait when SHOUTED, and this is a title *generator* — deleting an
+        # ordinary sentence-case "Exposed" would silently mangle an on-brand title.
+        title = strip_clickbait(title)
 
         # Remove excessive punctuation
         title = re.sub(r'[!?]{2,}', '', title)

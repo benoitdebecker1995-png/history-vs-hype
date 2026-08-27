@@ -34,6 +34,7 @@ from pathlib import Path
 from typing import Dict, Any, Optional, List
 
 from tools.logging_config import get_logger
+from tools.sqlite_access import connect_readonly
 
 logger = get_logger(__name__)
 
@@ -128,7 +129,7 @@ def _get_competitor_signal(query: str, db_path: str) -> Dict[str, Any]:
     }
 
     try:
-        conn = sqlite3.connect(db_path)
+        conn = connect_readonly(db_path)
         conn.row_factory = sqlite3.Row
 
         # Extract key terms from query for matching
@@ -223,20 +224,29 @@ def _get_own_channel_signal(query: str) -> Dict[str, Any]:
             where_clauses.append("LOWER(title) LIKE ?")
             params.append(f"%{term}%")
 
+        # ADR-0024: "how did our past videos on this topic actually do" is a
+        # LIFETIME question. ctr_percent is deliberately NOT selected here — the
+        # column on `videos` is the collector's trailing snapshot, and reading it as
+        # lifetime understates the catalogue by ~40% on this channel.
         sql = (
-            "SELECT title, views, ctr_percent FROM videos "
+            "SELECT video_id, title, views FROM videos "
             f"WHERE {' OR '.join(where_clauses)} "
             "ORDER BY views DESC LIMIT 20"
         )
 
-        with AnalyticsStore.open(_ANALYTICS_DB) as store:
+        with AnalyticsStore.open_readonly(_ANALYTICS_DB) as store:
             rows = store.execute(sql, params)
+            lifetime = store.lifetime_ctr_by_video()
 
         if not rows:
             return default
 
         total_views = sum(r['views'] or 0 for r in rows)
-        ctrs = [r['ctr_percent'] for r in rows if r['ctr_percent'] and r['ctr_percent'] > 0]
+        ctrs = [
+            c for c in (
+                (lifetime.get(r['video_id']) or {}).get('ctr_percent') for r in rows
+            ) if c and c > 0
+        ]
         avg_ctr = sum(ctrs) / len(ctrs) if ctrs else 0.0
 
         return {
@@ -259,7 +269,7 @@ def _get_demand_signal(query: str, db_path: str) -> Dict[str, Any]:
         if not Path(db_path).exists():
             return default
 
-        conn = sqlite3.connect(db_path)
+        conn = connect_readonly(db_path)
         conn.row_factory = sqlite3.Row
 
         # Check if we have cached demand data for any matching keyword
@@ -407,7 +417,7 @@ def scan_competitor_outliers(
     path = db_path or str(_INTEL_DB)
 
     try:
-        conn = sqlite3.connect(path)
+        conn = connect_readonly(path)
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
 

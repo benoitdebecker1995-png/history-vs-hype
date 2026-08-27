@@ -5,16 +5,18 @@ Flags the creator's known cringe patterns in a SCRIPT.md (or glob) BEFORE the
 read-aloud gate, so the human read-aloud is freed to catch substance (logic,
 structure, attribution) instead of surface tics.
 
-⚠️  SOURCE OF TRUTH: the rules below are transcribed from
-    `.claude/REFERENCE/VOICE-PROFILE.md` (the "Cringe no-list" + "NOT cringe"
-    sections, picks-validated `/voice-discovery` 2026-06-05) AND from
+⚠️  SOURCE OF TRUTH: the active authority is
+    `channel-data/creator-model/OPERATING-MODEL.md` plus directly relevant raw
+    or creator-approved language retrieved by `tools.front_room`. Compatible
+    older rules below were transcribed from the picks-validated 2026-06-05
+    profile, and from
     `VOICE-PROFILE.md` §"Adversarial drift audit (Fable Phase 2, 2026-06-11)"
     AND from `channel-data/calibration/FINGERPRINT-UNSCRIPTED.md` §9
     (quantitative thresholds, S12 2026-06-12 — single-sample start values, so
     everything fingerprint-derived ships WARN/REVIEW, never HARD).
-    When the profile changes, update RULES here to match. This tool does NOT
-    invent voice rules — it mechanizes the profile's hard "no" list so the
-    linter stays in lockstep with the canonical fingerprint.
+    When the creator model changes, update RULES and regression tests together.
+    This tool does NOT invent voice rules. Direct raw or later approved language
+    outranks a generalized lint rule; weaken or remove the rule on conflict.
 
     2026-07-19 sync (LLM-CRAFT-UPGRADE-PLAN.md D1): applied the two
     corrections VOICE-PROFILE.md ~line 505 staged from the #62 generative
@@ -83,7 +85,7 @@ HARD_REGEXES = [
     ("darkest-chapter", r"\bthe darkest (chapter|part|day)\b", "Melodrama telegraph. State the event plainly, let it land.", True),
     # --- Fable Phase 2 rules (2026-06-11): generic-AI tells ---
     ("agenda-announce", r"\bwe'?re going to (answer|explore|break down|dive into|look at)\b", "Agenda announcement — generic-AI opener. Start on the substance (bar-talk test #2); the question is shown by answering it.", True),
-    ("changed-everything", r"\bchanged everything\b", '"X changed everything" — AI hinge cliché. Name what actually changed, concretely.', True),
+    ("changed-everything", r"\bchange(?:d|s) everything\b", '"X changes/changed everything" — AI hinge cliché. Name what actually changed, concretely.', True),
     ("heres-the-thing", r"\bhere'?s the thing\b", "Meta-framing throat-clear. Delete; say the thing.", True),
     ("heres-why-standalone", r"\b[Aa]nd here'?s why\b|\bhere'?s why[.:]", "\"Here's why\" announcement — the zoom-out must be invisible (bar-talk #2). Walk into the cause with \"because/so\".", True),
     ("comment-bait", r"\blet me know in the comments\b", "Engagement-bait CTA — not his register. CTA = value-CTA (\"go to the document\"), earned by the prior beat.", True),
@@ -107,6 +109,12 @@ WARN_ALWAYS = [
     # (id, phrase, fix) — dispreferred, flag every occurrence at WARN
     ("think-about-that", "think about that", "Dispreferred filler — prefer letting the fact carry its own weight."),
     ("honest-part", "here's the honest part", 'Meta-framing tic — use a plain emphasis insertion instead ("but — and this is important — …").'),
+    # Creator operating model v3 §10: explicit language to scrutinize. These are
+    # advisory because the document says "scrutinize", not "never use".
+    ("v3-built-in-contradiction", "the contradiction was built into", "V3 documentary abstraction. Name the concrete contradiction and who created it."),
+    ("v3-beneath-surface", "beneath the surface", "V3 documentary flourish. State the hidden fact or mechanism directly."),
+    ("v3-truth-complicated", "the truth was more complicated", "V3 documentary flourish. Say what the evidence actually complicates."),
+    ("v3-causal-mechanism", "underlying causal mechanism", 'V3 formal substitution. Prefer "why it happened" or name the mechanism.'),
     # --- stop-slop-family imports (anti-ai-slop-writing / unslop), 2026-06-25 ---
     # NOT picks-validated — these are generic-AI tells filtered to ones plausible
     # in his narration and not already his voice. WARN only (the file does not
@@ -167,6 +175,12 @@ WARN_ALWAYS = [
 WARN_REGEXES = [
     # (id, pattern, fix, ignorecase) — dispreferred, flag every occurrence at WARN.
     # Fable Phase 2 drift-frequency tells (2026-06-11).
+    (
+        "v3-not-merely-correction",
+        r"\b(?:this|it) (?:wasn'?t|isn'?t) merely\b[^.!?]{0,70}[;—–-]\s*(?:this|it) (?:was|is)\b",
+        "V3 polished binary. State the positive claim and preserve the messy distinction.",
+        True,
+    ),
     (
         "sinister-adverb",
         r"\b(quietly|simply|conveniently|neatly|promptly) (erased|junked|vanished|disappeared|dropped|forgotten|ignored|buried)\b",
@@ -1034,6 +1048,8 @@ def format_report(path: str, findings: list, quiet: bool = False) -> str:
 
 
 def main():
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser(
         description="Voice Lint — flag creator-voice violations before the read-aloud gate (History vs Hype)",
         epilog=(

@@ -117,5 +117,72 @@ class TestRealJuly23(unittest.TestCase):
         self.assertEqual(by_id["OHWq4jY8iAY"]["ctr_percent"], 1.6)
 
 
+class TestCtrGrainSeparation(unittest.TestCase):
+    """The 2026-08-03 incident: `videos.impressions` (a trailing snapshot) was read
+    as lifetime, giving a median of 56 against a true lifetime median of 2,923, and
+    three false strategy conclusions were published off it.
+
+    These tests pin that the two grains are separately addressable, that neither can
+    be returned without its as-of, and that they are allowed to disagree.
+    """
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+
+    def _db(self) -> Path:
+        """One video whose SNAPSHOT and LIFETIME figures differ, as in real data."""
+        db = _db_with_videos(self.tmp, ["A"])
+        conn = sqlite3.connect(db)
+        conn.execute(
+            "UPDATE videos SET impressions = ?, ctr_percent = ?, ctr_as_of = ? "
+            "WHERE video_id = 'A'",
+            (3915, 11.03, "2026-07-28"),
+        )
+        conn.commit()
+        conn.close()
+        csv = _csv(self.tmp, "A,Title A,292398,7.66\n")
+        si.import_studio_csv(csv, as_of="2026-07-23", analytics_db=db)
+        return db
+
+    def test_lifetime_and_snapshot_disagree_and_say_so(self):
+        db = self._db()
+        with AnalyticsStore.open(db) as s:
+            life = s.lifetime_ctr_by_video()["A"]
+            snap = s.snapshot_ctr_by_video()["A"]
+
+        self.assertEqual(life["impressions"], 292398)
+        self.assertEqual(snap["impressions"], 3915)
+        self.assertNotEqual(life["impressions"], snap["impressions"])
+
+        # each row states its own grain, provenance and as-of — that is the fix
+        self.assertEqual(life["grain"], "lifetime")
+        self.assertEqual(life["source_table"], "studio_ctr_rows")
+        self.assertEqual(life["as_of"], "2026-07-23")
+        self.assertEqual(snap["grain"], "snapshot")
+        self.assertEqual(snap["source_table"], "videos")
+        self.assertEqual(snap["as_of"], "2026-07-28")
+
+    def test_no_row_is_returned_without_an_as_of(self):
+        db = self._db()
+        with AnalyticsStore.open(db) as s:
+            for rec in list(s.lifetime_ctr_by_video().values()) + list(
+                s.snapshot_ctr_by_video().values()
+            ):
+                self.assertIn("as_of", rec)
+                self.assertIn("grain", rec)
+                self.assertIn("source_table", rec)
+
+    def test_lifetime_is_empty_not_raising_when_no_import_exists(self):
+        """Read-side error contract: no lifetime import is a fact, not an exception."""
+        db = _db_with_videos(self.tmp, ["A"])
+        with AnalyticsStore.open(db) as s:
+            self.assertEqual(s.lifetime_ctr_by_video(), {})
+
+    def test_snapshot_skips_videos_with_no_impressions(self):
+        db = _db_with_videos(self.tmp, ["A"])  # impressions left NULL
+        with AnalyticsStore.open(db) as s:
+            self.assertNotIn("A", s.snapshot_ctr_by_video())
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -1,5 +1,9 @@
 # Personal voice profile supersedes the generic style manual
 
+> **Active authority update (14 August 2026):** ADR-0027 supersedes this file for normal retrieval and
+> conflict resolution. The older profile remains provenance for compatible deterministic lint rules;
+> creator model v3 plus direct spontaneous or later approved language now govern.
+
 The `/voice-discovery` session (2026-06-05) ran ~40 line-level A/B picks plus the creator's own typed rewrites, then validated the result three ways (predicting his picks, generalizing to other topics, and generating a from-scratch cold-open he accepted). The picks contradicted the established `WRITING-VOICE-AND-STYLE.md` on its core voice claims, so we created `.claude/REFERENCE/VOICE-PROFILE.md` as the canonical fingerprint and **declared it the winner on any conflict with the manual** (the manual now carries inline correction-callouts pointing to it). This is surprising — a new file overrides the doc the repo long called the "single source of truth for style," and the manual now appears to contradict itself.
 
 **What reversed:** (1) reference model is **Kraut + Alex O'Connor** (explanatory, conversational, dry), NOT Wendover's "Systems Engineer" or History Matters' clipped register; (2) the default is **plain, tight, "bar-talk" explanation**, NOT the staccato 8-word-gavel the manual emphasized; (3) **plain numbers** — scale-comparison anchors are off (RealLifeLore is the explicit anti-voice), reversing §2.3's "never leave a number abstract"; (4) the gimmick hooks "but guess what" / "guess who" / "One word: X" are **retired**; (5) historical present is narrowed to a single dramatic moment (never decade/era scene-setting). Governing image: "a calm prosecutor explaining the case to a friend in a bar." Gold-standard exemplar: the creator's first unscripted video (`yt:yMAWJcjo_ug`).

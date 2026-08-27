@@ -1,5 +1,5 @@
 """
-Unit tests for voice_lint.py <-> VOICE-PROFILE.md parity.
+Regression tests for older profile rules retained under creator model v3.
 
 Docs/LLM-CRAFT-UPGRADE-PLAN.md D1: voice_lint.py is hand-transcribed from
 VOICE-PROFILE.md ("update RULES here when the profile changes" per its own
@@ -8,10 +8,9 @@ check, sourced directly from the profile's own staged examples (not
 re-derived) so a future correction that goes uncoded shows up as a failing
 test instead of silent drift.
 
-When VOICE-PROFILE.md stages a NEW lint-rule correction, add its examples
-here as a new test case — that's what "parity" means in practice for a tool
-transcribed from prose (a full NLP-parse of the profile would be brittle and
-is not attempted).
+New creator-model rules and corrections belong in v3-specific tests. These
+cases remain because the older direct picks are compatible evidence, not
+because the legacy profile still controls active retrieval.
 
 Usage:
     python -m pytest tests/unit/test_voice_lint_parity.py -v

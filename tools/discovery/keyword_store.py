@@ -206,6 +206,27 @@ class KeywordStore:
         except sqlite3.Error:
             return []
 
+    def get_keywords_above_volume(self, min_volume: int) -> List[Dict[str, Any]]:
+        """Every keyword with a recorded search volume at or above min_volume.
+
+        Unlimited by design and returns only the three columns the caller needs: this
+        backs the search-anchor recognizer (ADR-0023), which builds a lookup table of
+        the WHOLE set once and caches it, rather than querying per title.
+        """
+        try:
+            cursor = self._conn.cursor()
+            cursor.execute(
+                """
+                SELECT keyword, search_volume, source
+                FROM keywords
+                WHERE search_volume IS NOT NULL AND search_volume >= ?
+                """,
+                (min_volume,),
+            )
+            return [dict(row) for row in cursor.fetchall()]
+        except sqlite3.Error:
+            return []
+
     def get_keywords_by_source(self, source: str, limit: int = 50) -> List[Dict[str, Any]]:
         try:
             cursor = self._conn.cursor()

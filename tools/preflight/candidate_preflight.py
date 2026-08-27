@@ -36,7 +36,8 @@ from typing import Dict, List, Optional
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from tools.logging_config import get_logger, setup_logging  # noqa: E402
+from tools.logging_config import get_logger, safe_print, setup_logging  # noqa: E402
+from tools.youtube_analytics.store import AnalyticsStore  # noqa: E402
 
 logger = get_logger(__name__)
 
@@ -127,14 +128,12 @@ def check(topic: str, min_terms: int = 2, db_path: Optional[str] = None,
         )
     else:
         try:
-            conn = sqlite3.connect(f"file:{db}?mode=ro", uri=True)
-            try:
-                rows = conn.execute(
+            with AnalyticsStore.open_readonly(db) as store:
+                rows = store.execute(
                     "SELECT video_id, title, published_at FROM videos WHERE title IS NOT NULL"
-                ).fetchall()
-            finally:
-                conn.close()
-            for vid, title, pub in rows:
+                )
+            for row in rows:
+                vid, title, pub = row["video_id"], row["title"], row["published_at"]
                 hits = _match(terms, title or "")
                 if len(hits) >= need:
                     collisions.append(
@@ -236,7 +235,9 @@ def main(argv: Optional[List[str]] = None) -> int:
     setup_logging(args.verbose, args.quiet)
 
     res = check(args.topic, min_terms=args.min_terms, db_path=args.db, origin=args.origin)
-    print(format_report(res))
+    # safe_print: the report echoes the candidate topic and published video titles from
+    # analytics.db, and exit 1 means COLLISION. An unprintable glyph must not read as one.
+    safe_print(format_report(res))
     if "error" in res:
         return 2
     return 1 if res["verdict"] == "COLLISION" else 0

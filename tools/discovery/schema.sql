@@ -279,6 +279,60 @@ CREATE TABLE IF NOT EXISTS title_variants (
 
 CREATE INDEX IF NOT EXISTS idx_title_video ON title_variants(video_id);
 
+-- Chronological package state. Project slug is available before a YouTube ID;
+-- effective_at later joins each version to dated impressions/CTR observations.
+CREATE TABLE IF NOT EXISTS package_versions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    project_slug TEXT NOT NULL,
+    video_id TEXT,
+    kind TEXT NOT NULL CHECK (kind IN ('title', 'thumbnail')),
+    value TEXT NOT NULL,
+    content_hash TEXT,
+    source_path TEXT,
+    effective_at TEXT NOT NULL,
+    recorded_at TEXT NOT NULL,
+    supersedes_id INTEGER,
+    experiment_id TEXT,
+    reason TEXT,
+    FOREIGN KEY (supersedes_id) REFERENCES package_versions(id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_package_project_time
+  ON package_versions(project_slug, effective_at, id);
+CREATE INDEX IF NOT EXISTS idx_package_video_time
+  ON package_versions(video_id, effective_at, id);
+
+-- Recommendation learning, not recommendation scoring.  Each record preserves
+-- the pre-decision rationale and predicted mechanism so an observed outcome can
+-- revise confidence without being rewritten into a false ex-post prediction.
+CREATE TABLE IF NOT EXISTS recommendation_ledger (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    project_slug TEXT NOT NULL,
+    decision_kind TEXT NOT NULL CHECK (
+        decision_kind IN ('topic', 'package', 'workflow', 'research', 'business', 'other')
+    ),
+    recommendation TEXT NOT NULL,
+    rationale TEXT NOT NULL,
+    predicted_mechanism TEXT NOT NULL,
+    expected_observation TEXT,
+    decision_status TEXT NOT NULL DEFAULT 'proposed' CHECK (
+        decision_status IN ('proposed', 'accepted', 'rejected', 'superseded', 'reviewed')
+    ),
+    recorded_at TEXT NOT NULL,
+    outcome TEXT,
+    outcome_as_of TEXT,
+    revised_confidence TEXT,
+    evidence_limitations TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_recommendation_project_time
+  ON recommendation_ledger(project_slug, recorded_at, id);
+
+-- A database created from this complete schema is already at the migration that
+-- introduced the legacy variant tables. Without this marker, reopening a brand-new
+-- database incorrectly runs the v27 backup migration.
+PRAGMA user_version = 27;
+
 -- CTR snapshot tracking (monthly)
 CREATE TABLE IF NOT EXISTS ctr_snapshots (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

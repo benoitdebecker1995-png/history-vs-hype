@@ -1,8 +1,12 @@
 """
-Shared logging configuration for History vs Hype tools.
+Shared logging and console-output configuration for History vs Hype tools.
 
 All tools/ CLI entry points call setup_logging() once in their main() function.
 All tools/ modules use get_logger(__name__) for their module-level logger.
+
+setup_logging() also hardens sys.stdout/sys.stderr against a narrow console
+codepage (see configure_console_output) — a report must never be able to kill
+the check that produced it.
 
 The 'tools' logger is configured as the root of the tools hierarchy.
 All tools.discovery.*, tools.youtube_analytics.*, tools.intel.* child loggers
@@ -19,6 +23,75 @@ Usage in modules:
 
 import logging
 import sys
+from typing import Optional, TextIO
+
+
+def configure_console_output(*streams: Optional[TextIO]) -> bool:
+    """Make text streams degrade unencodable characters instead of raising.
+
+    Defaults to (sys.stdout, sys.stderr). Never raises.
+
+    WHY THIS EXISTS
+    ---------------
+    The repo's research files use ⛔ ⚠ ⭐ ✅ by convention, and the preflight report
+    writers echo raw claim text back to stdout. On Windows a redirected/piped stdout
+    defaults to the ANSI codepage (cp1252), which has no code point for those glyphs,
+    so the *report* dies with UnicodeEncodeError while the analysis behind it was fine.
+
+    That is not cosmetic: `/research` reads the exit code of
+    `claim_status --frontier` as its completion gate, and a formatting crash exits 1 —
+    indistinguishable from a real "research is not finished" verdict. An encoding
+    problem must never decide a gate.
+
+    The stream's own encoding is deliberately left alone. Switching a cp1252 consumer
+    to UTF-8 would trade a crash for mojibake; `errors="replace"` keeps the text
+    readable in whatever codepage is actually in force and costs only the decorative
+    glyph, which is never the load-bearing part of a claim line.
+
+    Returns True if every stream was reconfigured. False means a stream could not be
+    (already-detached, or a non-TextIOWrapper sink such as a codecs.getwriter
+    wrapper) — callers that must not lose their output print via safe_print().
+    """
+    targets = streams if streams else (sys.stdout, sys.stderr)
+    ok = True
+    for stream in targets:
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is None:
+            ok = False
+            continue
+        try:
+            reconfigure(errors="replace")
+        except (ValueError, OSError, TypeError):
+            # Detached, closed, or a stream that doesn't support the kwarg.
+            ok = False
+    return ok
+
+
+def safe_print(text: str = "", stream: Optional[TextIO] = None) -> None:
+    """print() that degrades unencodable characters instead of raising. Never raises.
+
+    Second layer under configure_console_output(): a stream that could not be
+    reconfigured still gets readable output. Use it wherever a printed report
+    carries text lifted from a file — research claim lines, quotes, video titles.
+    """
+    out = sys.stdout if stream is None else stream
+    if out is None:
+        return
+    try:
+        print(text, file=out)
+        return
+    except UnicodeEncodeError:
+        pass  # Only this one is worth a second attempt.
+    except (ValueError, OSError):
+        return  # Closed or detached — re-encoding would not help.
+    # TextIOWrapper.write() encodes the whole chunk before emitting, so the failed
+    # write produced no partial output and re-printing cannot duplicate a prefix.
+    encoding = getattr(out, "encoding", None) or "ascii"
+    degraded = text.encode(encoding, errors="replace").decode(encoding, errors="replace")
+    try:
+        print(degraded, file=out)
+    except (UnicodeError, ValueError, OSError):
+        pass  # Output is lost, but the caller's verdict and exit code still stand.
 
 
 def setup_logging(verbose: bool = False, quiet: bool = False) -> None:
@@ -30,6 +103,10 @@ def setup_logging(verbose: bool = False, quiet: bool = False) -> None:
     Configures the 'tools' logger (NOT the root Python logger) to avoid
     interfering with third-party library logging.
 
+    Also calls configure_console_output() so every tools CLI's report survives a
+    narrow console codepage. It runs first, before the argument check below, so a
+    misconfigured call still gets a printable traceback.
+
     Args:
         verbose: If True, show DEBUG messages with module name prefix.
         quiet:   If True, show only ERROR messages.
@@ -37,6 +114,8 @@ def setup_logging(verbose: bool = False, quiet: bool = False) -> None:
     Raises:
         ValueError: If both verbose and quiet are True (they are mutually exclusive).
     """
+    configure_console_output()
+
     if verbose and quiet:
         raise ValueError("verbose and quiet are mutually exclusive")
 
@@ -143,7 +222,8 @@ def check_db_freshness(db_path: str, table: str = 'keywords',
         return {'error': f'Database not found: {db_path}'}
 
     try:
-        conn = sqlite3.connect(str(path))
+        from tools.sqlite_access import connect_readonly
+        conn = connect_readonly(path)
         cur = conn.cursor()
         # table and date_column are validated against _VALID_FRESHNESS_TABLES above
         cur.execute(f"SELECT MAX({date_column}) FROM {table}")

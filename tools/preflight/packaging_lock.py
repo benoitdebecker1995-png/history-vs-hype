@@ -36,8 +36,8 @@ from datetime import date
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-from tools.logging_config import get_logger, setup_logging
-from tools.title_scorer import has_search_anchor, score_title
+from tools.logging_config import get_logger, safe_print, setup_logging
+from tools.title_scorer import find_search_anchor, score_title
 from tools.preflight.thumbnail_checker import check_project as check_thumbnail_project
 # Fence markers + zone surgery live in status_doc; PACKAGING_LOCK_ZONE knows it
 # sits BELOW the reconcile zone — this module renders its zone BODY only.
@@ -56,14 +56,8 @@ TITLE_SCORE_NUDGE = 65
 
 def _keyword_db_path() -> Optional[str]:
     """Best-effort locate keywords.db for DB-enriched title scoring. None on failure."""
-    try:
-        from tools.discovery.database import KeywordDB
-        db = KeywordDB()
-        p = db.db_path
-        db.close()
-        return p
-    except Exception:
-        return None
+    path = Path(__file__).resolve().parents[1] / 'discovery' / 'keywords.db'
+    return str(path) if path.is_file() else None
 
 
 def resolve_title(project_path: str, explicit: Optional[str] = None) -> Optional[str]:
@@ -112,12 +106,14 @@ def run_filters(
     enrichment: Dict[str, Dict] = {}
 
     # --- FILTER 1: search anchor (mechanical) ---
-    anchor_found, anchor_term = has_search_anchor(title)
+    # describe() carries the PROVENANCE into the written block: a curated head term, or
+    # a measured volume and where it was measured (ADR-0023). On a FAIL it carries the
+    # repair command, because a FAIL means either "rewrite the title" or "this term is
+    # famous and unmeasured" and the block should not leave the reader guessing which.
+    anchor = find_search_anchor(title)
     filters['search_anchor'] = {
-        'status': 'PASS' if anchor_found else 'FAIL',
-        'detail': f'anchors "{anchor_term}"' if anchor_found
-                  else 'no famous searchable head term in first 40 chars — the obscure entity '
-                       'must be the REVEAL, not the lead',
+        'status': 'PASS' if anchor.found else 'FAIL',
+        'detail': anchor.describe(),
     }
 
     # --- FILTER 2: clickbait brand-gate (mechanical) + title_scorer as ENRICHMENT ---
@@ -292,9 +288,10 @@ def validate_lock(project_path: str) -> Tuple[bool, List[str]]:
         return False, ['packaging-lock block present but has no title line — regenerate it']
 
     # Recompute the mechanical filters from the current title (anti-tamper).
-    anchor_found, _ = has_search_anchor(title)
-    if not anchor_found:
-        reasons.append('search-anchor FAILS on the current title (recomputed) — no famous head term')
+    anchor = find_search_anchor(title)
+    if not anchor.found:
+        reasons.append('search-anchor FAILS on the current title (recomputed) — '
+                       + anchor.describe())
     hard_rejects = (score_title(title, db_path=_keyword_db_path()).get('hard_rejects') or [])
     if hard_rejects:
         reasons.append('clickbait brand-gate FAILS (recomputed): ' + '; '.join(hard_rejects))
@@ -315,23 +312,26 @@ def validate_lock(project_path: str) -> Tuple[bool, List[str]]:
 # ---------------------------------------------------------------------------
 
 def _print_result(title: str, result: Dict) -> None:
-    print(f"\n{'=' * 64}")
-    print("  PACKAGING LOCK  (filters = necessary conditions, NOT a clickability score)")
-    print(f"{'=' * 64}")
-    print(f'  title: "{title}"')
-    print("  FILTERS:")
+    # safe_print: this echoes the working title and filter details written by a human,
+    # and main() exits 2 on BLOCKED. An unprintable character in a title must not
+    # become a packaging-lock block.
+    safe_print(f"\n{'=' * 64}")
+    safe_print("  PACKAGING LOCK  (filters = necessary conditions, NOT a clickability score)")
+    safe_print(f"{'=' * 64}")
+    safe_print(f'  title: "{title}"')
+    safe_print("  FILTERS:")
     for k in ('search_anchor', 'clickbait_gate', 'title_thumb_gap', 'thumbnail'):
         fl = result['filters'][k]
-        print(f"    {k:16} {fl['status']:8} {fl['detail']}")
-    print("  ENRICHMENT (non-binding):")
+        safe_print(f"    {k:16} {fl['status']:8} {fl['detail']}")
+    safe_print("  ENRICHMENT (non-binding):")
     for k in ('title_scorer', 'curiosity', 'vidiq', 'nlm'):
         en = result['enrichment'][k]
         nudge = '  [REVIEW nudge]' if en.get('nudge') else ''
-        print(f"    {k:16} {en['value']}{nudge}")
-    print(f"\n  VERDICT: {result['verdict']}")
+        safe_print(f"    {k:16} {en['value']}{nudge}")
+    safe_print(f"\n  VERDICT: {result['verdict']}")
     for r in result['reasons']:
-        print(f"    - {r}")
-    print(f"{'=' * 64}\n")
+        safe_print(f"    - {r}")
+    safe_print(f"{'=' * 64}\n")
 
 
 def main() -> None:
@@ -354,17 +354,17 @@ def main() -> None:
     if args.validate and not args.write:
         valid, reasons = validate_lock(args.project)
         if valid:
-            print("PACKAGING LOCK: VALID — project may advance.")
+            safe_print("PACKAGING LOCK: VALID — project may advance.")
             sys.exit(0)
-        print("PACKAGING LOCK: BLOCKED — project may NOT advance:")
+        safe_print("PACKAGING LOCK: BLOCKED — project may NOT advance:")
         for r in reasons:
-            print(f"  - {r}")
+            safe_print(f"  - {r}")
         sys.exit(2)
 
     # Default / --write path
     title = resolve_title(args.project, args.title)
     if not title:
-        print("ERROR: no title (pass --title or add a 'Working title:' line to PROJECT-STATUS.md)")
+        safe_print("ERROR: no title (pass --title or add a 'Working title:' line to PROJECT-STATUS.md)")
         sys.exit(2)
 
     result = run_filters(

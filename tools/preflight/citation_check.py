@@ -40,7 +40,7 @@ from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import List, Optional
 
-from tools.logging_config import get_logger, setup_logging
+from tools.logging_config import get_logger, safe_print, setup_logging
 from tools.pdf_source import find_text
 
 logger = get_logger(__name__)
@@ -306,22 +306,25 @@ def main() -> int:
 
     results = check_file(args.file, args.documents, args.limit, use_library=args.library)
 
+    # safe_print, not print: the failure lines below echo verbatim quotes lifted from
+    # the source PDFs, and this CLI's exit code is a gate (1 == WRONG_PAGE). A quote
+    # containing a character the console codepage lacks must not read as a bad page.
     if args.json:
-        print(json.dumps([asdict(r) for r in results], indent=2))
+        safe_print(json.dumps([asdict(r) for r in results], indent=2))
     else:
         if not results:
-            print("citation_check: no checkable quote+locator pairs found")
+            safe_print("citation_check: no checkable quote+locator pairs found")
             return 0
         counts = {}
         for r in results:
             counts[r.verdict] = counts.get(r.verdict, 0) + 1
-        print(f"citation_check: {len(results)} quote(s) — " +
-              " · ".join(f"{v} {k}" for k, v in sorted(counts.items())))
+        safe_print(f"citation_check: {len(results)} quote(s) — " +
+                   " · ".join(f"{v} {k}" for k, v in sorted(counts.items())))
         for r in results:
             if r.verdict == "VERIFIED":
                 continue
-            print(f"  L{r.line} [{r.verdict}] {r.detail}")
-            print(f'      "{r.quote}…"' + (f"  ({r.document})" if r.document else ""))
+            safe_print(f"  L{r.line} [{r.verdict}] {r.detail}")
+            safe_print(f'      "{r.quote}…"' + (f"  ({r.document})" if r.document else ""))
 
     # Only a provably wrong page is a failure. NOT_FOUND is often a quote from a
     # source that simply is not in the folder, and PAGE_UNKNOWN is usually a

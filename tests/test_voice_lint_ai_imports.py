@@ -4,8 +4,8 @@ Two-sided contract, because a voice rule can fail in both directions: a rule
 that never fires is dead weight, and a rule that fires on approved work
 actively degrades the voice it is supposed to protect.
 
-Source of truth is VOICE-PROFILE.md § "Generic LLM tells — IMPORTED CATALOGUE";
-these rules are mechanized FROM it, never the reverse (ADR-0006).
+These imported catalogue rules retain their older profile provenance, but active
+authority and conflict resolution now follow creator model v3 (ADR-0027).
 """
 from pathlib import Path
 

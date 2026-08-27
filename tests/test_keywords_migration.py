@@ -28,6 +28,10 @@ EXPECTED_TABLES = {
     # Created by _ensure_variant_tables
     "thumbnail_variants",
     "title_variants",
+    # Current title/thumbnail history before and after a YouTube ID exists
+    "package_versions",
+    # Creator-model recommendation -> prediction -> outcome learning loop
+    "recommendation_ledger",
     # Created by _ensure_ctr_snapshots_table
     "ctr_snapshots",
     # Created by _ensure_feedback_tables

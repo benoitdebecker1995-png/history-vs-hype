@@ -154,3 +154,11 @@ class TestRepoIsClean:
     def test_cli_reports_clean_as_exit_zero(self, capsys):
         assert doc_truth.main([]) == 0
         assert "clean" in capsys.readouterr().out
+
+
+def test_legacy_recovery_docs_are_not_active_truth_surfaces(tmp_path):
+    (tmp_path / "tools").mkdir()
+    (tmp_path / "tools" / "AGENTS.legacy.md").write_text(
+        "see `tools/does-not-exist.py`", encoding="utf-8"
+    )
+    assert list(doc_truth._iter_docs(tmp_path)) == []

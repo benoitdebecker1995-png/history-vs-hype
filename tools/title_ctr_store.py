@@ -24,6 +24,7 @@ from tools.discovery.ctr_reads import (
     latest_valid_snapshot_date,
 )
 from tools.logging_config import get_logger
+from tools.sqlite_access import connect_readonly
 
 logger = get_logger(__name__)
 
@@ -35,8 +36,8 @@ def get_latest_snapshot_date(db_path: str) -> Optional[str]:
     score is. Returns None on any DB error / missing table — never raises.
     """
     try:
-        conn = sqlite3.connect(db_path)
-    except sqlite3.Error as e:
+        conn = connect_readonly(db_path)
+    except (sqlite3.Error, FileNotFoundError) as e:
         logger.debug("latest snapshot date lookup failed (%s): %s", db_path, e)
         return None
     try:
@@ -78,8 +79,8 @@ def get_pattern_ctr_from_db(db_path: str, min_sample: int = 3) -> Dict[str, int]
         return {}
 
     try:
-        conn = sqlite3.connect(db_path)
-    except sqlite3.Error as e:
+        conn = connect_readonly(db_path)
+    except (sqlite3.Error, FileNotFoundError) as e:
         logger.debug("CTR DB open failed (%s): %s — using static scores", db_path, e)
         return {}
     try:

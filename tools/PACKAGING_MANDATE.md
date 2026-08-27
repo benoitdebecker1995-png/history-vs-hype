@@ -56,8 +56,17 @@ Breakouts held 34–39% avg watch; the channel median is 28.1%. Governed by scri
 > data**, and do not cite them as an authority — see the 2026-07-23 section, which supersedes them.
 > To revive either one it needs an importer; until then the vintage stands.
 
+> ⛔ **CORRECTED 2026-08-03 (ADR-0024).** The sentence below previously read that Studio
+> impressions+CTR are in `videos.impressions/ctr_percent`. **They are not.** Those columns are the
+> **collector's trailing snapshot**, stamped `videos.ctr_as_of`; the Studio LIFETIME export lands in
+> **`studio_ctr_rows`**. They differ by ~50× — snapshot median 56 impressions vs lifetime median
+> 2,923; the breakout reads 3,915 @ 11.03% snapshot and **292,398 @ 7.66% lifetime**. Reading this
+> line as written is what produced three false strategy conclusions on 2026-08-03.
+> **Read via `AnalyticsStore.lifetime_ctr_by_video()`** — every row carries `grain`, `as_of` and
+> `source_table`. Use `snapshot_ctr_by_video()` only when the recent window is what you actually want.
+
 **Data vintage upgrade:** real per-video Studio impressions+CTR for ALL 56 long-form now in
-`analytics.db` (`videos.impressions/ctr_percent`), plus per-surface CTR (`surface_ctr` —
+`analytics.db` (**`studio_ctr_rows`** — *not* `videos.impressions/ctr_percent`), plus per-surface CTR (`surface_ctr` —
 Browse/Suggested) and full 56-thumbnail visual tagging (`thumbnail_features`). The "22-video
 2026-02-23 snapshot" caveat is retired for CTR. Sources: `channel-data/CTR-TITLE-FORMULA-2026-06.md`,
 `CTR-THUMBNAIL-FINDINGS-2026-06.md`, `AB-TEST-AND-TRAFFIC-CTR-2026-06.md`, `FLOP-AUTOPSY-PLAN-2026-06.md`.
@@ -119,7 +128,8 @@ verdict-overlay direction; confirm via forward A/B (A/B power itself is gated on
 - Enforced by `/greenlight` + `demand_checker.py`. Hard stop, no exceptions.
 
 ### V2: Search-anchored head term (keyword-ladder GATE)
-- A country/region/entity head term with real search volume must appear in the first ~40 characters of the title. **Enforced as a `/greenlight` Step-4 PASS/FAIL gate** (2026-06-15), not just the `title_scorer` `SEARCH_ANCHOR_BONUS (+12)`: anchor a famous parent keyword, deliver the obscure entity as the *reveal*. Recognizer: `title_scorer.has_search_anchor`.
+- A country/region/entity head term with real search volume must **begin** within the first 40 characters of the title (it may run past that edge — the breakout "The Country That Might Disappear: Guatemala vs Belize" anchors at char 34). **Enforced as a `/greenlight` Step-4 PASS/FAIL gate** (2026-06-15), not just the `title_scorer` `SEARCH_ANCHOR_BONUS (+12)`: anchor a famous parent keyword, deliver the obscure entity as the *reveal*. Recognizer: `title_scorer.has_search_anchor`.
+- **A FAIL means one of two things — decide which before touching the title** (ADR-0023). Either the title genuinely leads with something obscure (rewrite it), or the lead term is famous and its demand has never been measured (record it). The recogniser accepts a term on a curated list *or* on a verified search volume ≥1,000/mo in `keywords.db`; the second is what keeps it from going stale. Repair the second case with one command — the FAIL message prints it:<br>`python -m tools.title_scorer --record-anchor "<term>" --volume <n/mo> --anchor-source vidiq-YYYY-MM-DD`<br>Never trade a title down for a vaguer one to clear a gap in the list: that is what #67 did before the mechanism was fixed (five candidates regenerated away from "Constantine", 113,206/mo). Inspect any title's verdict with `python -m tools.title_scorer --anchor "<title>"`.
 - Evidence: all 4 breakouts front-load country names ("Guatemala vs Belize", "Venezuela vs Guyana", "Turkey Claims 152 Greek Islands", "JD Vance"). The stall cohort is dominated by document/myth-first titles with zero-volume head terms ("The Lenape…", "Treaty of Tripoli:…", "38 Dead Over 4.6 Square Kilometers"). Confirms feedback-starting-channel-search-anchored (515 subs = every title needs a keyword anchor).
 - Channel-DNA note: the document-forensic identity stays **in the video** (doc on screen). The title front-loads the searched subject; the primary-source reveal is the second punch ("…The Documents Disagree"). NOT stakes-first geopolitics framing — that's the RealLifeLore lane (anti-voice).
 

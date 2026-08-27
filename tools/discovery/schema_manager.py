@@ -100,6 +100,8 @@ class KeywordDB:
                 self._ensure_lifecycle_columns()
                 self._ensure_performance_table()
                 self._ensure_variant_tables()
+                self._ensure_package_versions_table()
+                self._ensure_recommendation_ledger_table()
                 self._ensure_ctr_snapshots_table()
                 self._ensure_impressions_daily_table()
                 self._ensure_feedback_tables()
@@ -567,6 +569,90 @@ class KeywordDB:
 
         except sqlite3.Error as e:
             logger.error("Migration ctr_snapshots failed: %s", e)
+
+    def _ensure_package_versions_table(self):
+        """Chronological title/thumbnail state before and after publication.
+
+        Unlike the legacy variant tables, this is keyed by project slug, so the
+        package can be recorded while a video is still unpublished.  It is an
+        event history, not a score or a prediction.
+        """
+        try:
+            with self._conn:
+                self._conn.execute(
+                    """
+                    CREATE TABLE IF NOT EXISTS package_versions (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        project_slug TEXT NOT NULL,
+                        video_id TEXT,
+                        kind TEXT NOT NULL CHECK (kind IN ('title', 'thumbnail')),
+                        value TEXT NOT NULL,
+                        content_hash TEXT,
+                        source_path TEXT,
+                        effective_at TEXT NOT NULL,
+                        recorded_at TEXT NOT NULL,
+                        supersedes_id INTEGER,
+                        experiment_id TEXT,
+                        reason TEXT,
+                        FOREIGN KEY (supersedes_id) REFERENCES package_versions(id)
+                    )
+                    """
+                )
+                self._conn.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_package_project_time "
+                    "ON package_versions(project_slug, effective_at, id)"
+                )
+                self._conn.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_package_video_time "
+                    "ON package_versions(video_id, effective_at, id)"
+                )
+        except sqlite3.Error as exc:
+            logger.error("Migration package_versions failed: %s", exc)
+
+    def _ensure_recommendation_ledger_table(self):
+        """Create the small decision-learning ledger required by the creator model.
+
+        This is deliberately not a scoring table.  It preserves the reasoning chain
+        around a recommendation so a later outcome can update confidence without
+        pretending that one noisy result proves a general law.
+        """
+        try:
+            with self._conn:
+                self._conn.execute(
+                    """
+                    CREATE TABLE IF NOT EXISTS recommendation_ledger (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        project_slug TEXT NOT NULL,
+                        decision_kind TEXT NOT NULL CHECK (
+                            decision_kind IN (
+                                'topic', 'package', 'workflow', 'research',
+                                'business', 'other'
+                            )
+                        ),
+                        recommendation TEXT NOT NULL,
+                        rationale TEXT NOT NULL,
+                        predicted_mechanism TEXT NOT NULL,
+                        expected_observation TEXT,
+                        decision_status TEXT NOT NULL DEFAULT 'proposed' CHECK (
+                            decision_status IN (
+                                'proposed', 'accepted', 'rejected',
+                                'superseded', 'reviewed'
+                            )
+                        ),
+                        recorded_at TEXT NOT NULL,
+                        outcome TEXT,
+                        outcome_as_of TEXT,
+                        revised_confidence TEXT,
+                        evidence_limitations TEXT
+                    )
+                    """
+                )
+                self._conn.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_recommendation_project_time "
+                    "ON recommendation_ledger(project_slug, recorded_at, id)"
+                )
+        except sqlite3.Error as exc:
+            logger.error("Migration recommendation_ledger failed: %s", exc)
 
     def _ensure_impressions_daily_table(self):
         """Daily-grain thumbnail impressions — the launch-window record (2026-07-28).

@@ -17,6 +17,11 @@ from pathlib import Path
 FIXTURE_PATH = Path("tests/fixtures/test_script.md")
 CHECKERS = ["stumble", "repetition", "scaffolding", "flow", "pacing", "told-so-far"]
 
+# Decode child output as UTF-8 to match the PYTHONIOENCODING=utf-8 set on every
+# child below. `errors="replace"` so a stray byte degrades one character instead
+# of losing the whole capture.
+UTF8_PIPE = {"text": True, "encoding": "utf-8", "errors": "replace"}
+
 # stumble/flow/pacing lazy-load spaCy; skip their spaCy-dependent assertions
 # when the [nlp] extra isn't installed, matching tests/unit/test_pacing.py's
 # existing convention rather than asserting on a CLI crash we didn't cause.
@@ -42,7 +47,12 @@ def _run_checker(checker_name: str, json_output: bool = False):
     result = subprocess.run(
         cmd,
         capture_output=True,
-        text=True,
+        # BOTH sides must name UTF-8. `text=True` alone decodes with the PARENT's
+        # locale codec (cp1252 here), which does not match the child's
+        # PYTHONIOENCODING above: the child's UTF-8 bytes then blow up inside
+        # subprocess's reader thread and result.stdout comes back empty, so any
+        # assertion on output silently tests nothing.
+        **UTF8_PIPE,
         env=env
     )
     return result
@@ -134,7 +144,7 @@ class TestScriptCheckersCLI:
         result = subprocess.run(
             ["python", "-m", "tools.script_checkers.cli", str(FIXTURE_PATH), "--all"],
             capture_output=True,
-            text=True,
+            **UTF8_PIPE,
             env=env
         )
         assert result.returncode in (0, 1, 2), f"Unexpected exit code: {result.returncode}"
@@ -147,7 +157,7 @@ class TestScriptCheckersCLI:
         result = subprocess.run(
             ["python", "-m", "tools.script_checkers.cli", str(FIXTURE_PATH), "--all", "--json"],
             capture_output=True,
-            text=True,
+            **UTF8_PIPE,
             env=env
         )
         assert result.returncode in (0, 1, 2), f"Unexpected exit code: {result.returncode}"

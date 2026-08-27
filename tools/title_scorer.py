@@ -104,6 +104,44 @@ v6.1 anchor-recognizer repair (2026-07-30) — two defects found running the pac
     the recompute is the source of truth. Audited 2026-07-30: no PROJECT-STATUS.md lock
     block on the tree flips verdict under the new recognizer.
 
+v6.2 anchor-recognizer repair (2026-08-03) — two more defects, both found running the gate
+    for #67 (Donation of Constantine). Recognition + window only; no weight changed.
+    Pins: tests/unit/test_search_anchor.py
+
+    B1 — The 40-char window truncated the title MID-WORD instead of testing the match's
+      START position, so a head term beginning inside the window but crossing its edge
+      could not match its own word boundary. It false-FAILed the channel's only breakout
+      ("...: Guatemala vs Belize", Guatemala@34, 292,398 impressions / 7.66% CTR) plus
+      three more live titles (Crusades@37, Viking@35, Genocide@33). Those four straddlers
+      hold MORE lifetime impressions than every title the filter passed. Fixed to a start-
+      position test; window stays 40 (no catalogue title has a head term starting at 40+,
+      so there is evidence for measuring it right, none for widening it).
+
+    B2 — Fame is no longer decided by list membership alone (ADR-0023). The recognizer
+      had failed twice in eight days by rejecting genuinely famous terms: "Alan Turing"
+      (2026-07-30, 98,056 est. monthly searches) and "Constantine" (2026-08-01, 113,206 —
+      while "Vatican" at 100,602 passed). Both were repaired by appending strings to
+      HEAD_TERMS, which fixes the instance and leaves the mechanism — a set someone has
+      to remember to extend — to fail again on the next unlisted subject. The #67 cost
+      was measurable: five title candidates were regenerated away from "Constantine",
+      "Pope", "Rome" and "Constantinople" under a constraint that was never real.
+
+      A term now ALSO anchors when a VERIFIED MONTHLY SEARCH VOLUME at or above
+      ANCHOR_VOLUME_FLOOR is on record for it in keywords.db — the same store, floor and
+      units the /greenlight demand gate already uses. HEAD_TERMS survives as a
+      zero-setup fast path, no longer as the definition of fame, and a false FAIL is now
+      repaired by recording a measurement (one command, printed in the FAIL message)
+      rather than by editing this file. The volume table is read once per process and
+      re-read only when keywords.db changes — no network call, no per-title query.
+
+    Also: when several terms match, the earliest now wins (longest breaks a positional
+    tie) instead of set-iteration order. The returned term is written verbatim into
+    PROJECT-STATUS.md lock blocks, so it is now reproducible.
+
+    Re-baselining: B1 and B2 can only ADD anchors, never remove one, so no previously
+    PASSing title can flip to FAIL. validate_lock() recomputes from the live title, so
+    no stored AUTO block needs rewriting.
+
 Usage:
     python -m tools.title_scorer "Your Title Here"
     python -m tools.title_scorer "Title A" "Title B" "Title C"
@@ -111,12 +149,19 @@ Usage:
     python -m tools.title_scorer "Title Here" --db           # DB-enriched scoring
     python -m tools.title_scorer "Title Here" --db --topic territorial  # Topic-aware grading
     python -m tools.title_scorer --ingest                    # Ingest CTR from synthesis file
+    python -m tools.title_scorer --anchor "Title Here"       # Explain the anchor verdict
+    python -m tools.title_scorer --record-anchor "Constantine" --volume 113206 \
+        --anchor-source vidiq-2026-08-03                     # Teach the gate a famous term
 """
 
 import re
+import sqlite3
 import sys
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
+
+from tools.sqlite_access import connect_readonly
 
 # Canonical title-structure logic lives in tools.title_features (ADR-0009).
 # `detect_pattern` is re-exported here for backward compat — external callers
@@ -137,15 +182,53 @@ from tools.title_features import (  # noqa: F401
 # metadata.py imports CLICKBAIT_PATTERNS and ALLOWED_ACRONYMS from this module.
 # =============================================================================
 
-# Clickbait patterns to filter/penalise (from VIDIQ-CHANNEL-DNA-FILTER.md)
-CLICKBAIT_PATTERNS = [
-    'SHOCKING', "You won't believe", "You won't BELIEVE",
-    'This will BLOW your mind', "What THEY don't want you to know",
-    'INSANE', 'MIND-BLOWING', 'EXPOSED', 'The TRUTH About',
-    'DESTROYED by Facts', 'What IT Really Means', 'How THIS Changed',
-    'Top 10', '5 Reasons Why', "3 Things You Didn't Know",
-    'LIED About', 'The Truth They HID',
+# Clickbait patterns to filter/penalise (from VIDIQ-CHANNEL-DNA-FILTER.md).
+#
+# Split into two lists 2026-08-03. The single list was matched case-INSENSITIVELY, but it
+# mixed two different kinds of thing, and the mix made the BINDING brand gate (FILTER 2 in
+# packaging_lock, ADR-0012) reject ordinary sentence-case English:
+#
+#   "China vs Taiwan. 4 Historical Claims Exposed by Scholars"  → REJECTED on 'EXPOSED'
+#
+# That is a REAL PUBLISHED title (7,318 lifetime impressions, 2.71% CTR). The list also
+# contradicted itself: 'exposed' and 'lied' are in _TONE_SIGNALS['positive'] as approved
+# active verbs (+5) while 'EXPOSED' / 'LIED About' were fatal. Same word, rewarded and
+# fatal at once. Same defect family as the v6.1 A1 acronym bug: a case-insensitive match
+# on a token whose meaning depends on its case.
+
+# (1) Clickbait FRAMES — the construction is clickbait however you case it. There is no
+# documentary use of "you won't believe" or "the truth about". Matched case-INSENSITIVELY,
+# as substrings (unchanged semantics for these entries).
+CLICKBAIT_PHRASES = [
+    "You won't believe",          # subsumes the old duplicate "You won't BELIEVE"
+    'This will blow your mind',
+    "What they don't want you to know",
+    'The truth about',
+    'Destroyed by facts',         # the meme phrase; bare "destroyed" stays an active verb
+    'Mind-blowing',
+    'Top 10',
+    '5 Reasons Why',
+    "3 Things You Didn't Know",
+    'The truth they hid',
 ]
+
+# (2) Tabloid SHOUTING — these words are ordinary English in sentence case and tabloid
+# emphasis only when SHOUTED, so the capitalisation IS the violation. Matched
+# case-SENSITIVELY on the ALL-CAPS tokens; the surrounding words still match any casing.
+# "Claims Exposed by Scholars" is on-brand; "Claims EXPOSED" is not. "Britain Lied About
+# the Famine" is the channel's own accusation voice; "Britain LIED About It" is not.
+CLICKBAIT_CAPS_MARKERS = [
+    'SHOCKING',
+    'INSANE',
+    'EXPOSED',
+    'LIED About',
+    'What IT Really Means',
+    'How THIS Changed',
+]
+
+# Back-compat union — this name is the module's published export (metadata.py, tests).
+# Order is phrases-then-markers so detect_clickbait's return order is stable.
+CLICKBAIT_PATTERNS = CLICKBAIT_PHRASES + CLICKBAIT_CAPS_MARKERS
 
 # Allowed acronyms (all-caps but NOT clickbait — used in _apply_tone_filter)
 ALLOWED_ACRONYMS = [
@@ -168,10 +251,16 @@ STOPWORD_ACRONYMS = {
 }
 
 # =============================================================================
-# SEARCH ANCHOR HEAD TERMS (v5 — C3)
-# Sovereign states, geographic shorthands, and notable figure surnames.
-# A recognized head term within the first 40 chars earns SEARCH_ANCHOR_BONUS.
-# Static list — a miss on obscure-but-valid term is fine; scorer is a floor.
+# SEARCH ANCHOR HEAD TERMS (v5 — C3; demoted to a fast path 2026-08-03, ADR-0023)
+#
+# Sovereign states, geographic shorthands, famous topics and notable figures whose
+# fame nobody would argue about. This set is a ZERO-SETUP FAST PATH, not the
+# definition of a search anchor: a term also anchors on a verified search volume at
+# or above ANCHOR_VOLUME_FLOOR recorded in keywords.db (see find_search_anchor).
+#
+# It exists because a fresh clone with an empty keyword table must still recognise
+# "France". It is NOT the place to fix a false FAIL — see the note at the end of
+# the set, and ADR-0023 for why three list patches in eight weeks was the signal.
 # =============================================================================
 HEAD_TERMS = {
     # Sovereign states (common English names + shorthands)
@@ -230,7 +319,26 @@ HEAD_TERMS = {
     'Rasputin', 'Genghis Khan', 'Caesar', 'Cleopatra', 'Bismarck', 'Kissinger',
     'Thatcher', 'Roosevelt', 'Kennedy', 'Nixon', 'Reagan', 'Truman', 'Pol Pot',
     'Leopold', 'Cecil Rhodes', 'Mengele', 'Eichmann', 'Himmler', 'Goebbels',
+    # STOP. Do not fix a false FAIL by adding a line here — that is the failure mode
+    # ADR-0023 exists to end (three symptomatic patches in eight weeks: Zelensky
+    # 2026-07-01, Alan Turing 2026-07-30, the classical/medieval cluster 2026-08-03).
+    # Record the measured volume instead; it takes one command and leaves an audit trail:
+    #   python -m tools.title_scorer --record-anchor "<term>" --volume <n/mo> \
+    #       --anchor-source vidiq-YYYY-MM-DD
 }
+
+# Characters from the start of the title within which a head term must BEGIN to count
+# as an anchor. See find_search_anchor for why "begin" (not "fit entirely") is the rule.
+ANCHOR_WINDOW_CHARS = 40
+
+# Verified monthly searches at or above which a term counts as a head term regardless
+# of whether anyone listed it (ADR-0023). Deliberately the SAME number as the
+# /greenlight demand gate's GO line (.claude/rules/packaging.md §1: GO >=1,000/mo,
+# CAUTION 500-999, STOP <500) — one volume vocabulary in the repo, not two. The claim
+# it encodes is modest and testable: a term people search 1,000+ times a month is a
+# term a viewer recognises in a thumbnail-sized glance, which is all the anchor rule
+# asks for. Volumes come from vidIQ via keywords.db; see record_anchor_volume.
+ANCHOR_VOLUME_FLOOR = 1000
 
 # Unified tone signals dict — positive (active verbs) and negative (clickbait)
 _TONE_SIGNALS = {
@@ -244,12 +352,71 @@ _TONE_SIGNALS = {
 }
 
 
+def _caps_marker_regex(pattern: str) -> 're.Pattern[str]':
+    """Compile a CLICKBAIT_CAPS_MARKERS entry: ALL-CAPS tokens must be SHOUTED in the
+    title; every other token matches in any casing.
+
+    'LIED About'  -> LIED must be capitalised, "about" need not be.
+    'EXPOSED'     -> matches "EXPOSED", never "Exposed".
+    """
+    parts = []
+    for tok in pattern.split():
+        if tok.isupper() and any(c.isalpha() for c in tok):
+            parts.append(re.escape(tok))                 # the shout is the violation
+        else:
+            parts.append(f'(?i:{re.escape(tok)})')       # casing carries no signal here
+    return re.compile(r'\b' + r'\s+'.join(parts) + r'\b')
+
+
+_CAPS_MARKER_RE = {p: _caps_marker_regex(p) for p in CLICKBAIT_CAPS_MARKERS}
+
+
+def detect_clickbait(title: str) -> list[str]:
+    """Return the clickbait tone patterns present in a title.
+
+    This is the BRAND GATE: any hit makes score_title reject the title (grade REJECTED),
+    regardless of composite score. Style hedges (year/colon/the_x_that) are NOT clickbait —
+    they stay non-fatal style_warnings. Restored 2026-07-01: the gate was documented
+    ("hard_rejects populated by _apply_tone_filter") but that function never existed, so
+    hard_rejects was dead code and clickbait titles ("...SHOCKING") scored clean.
+
+    Matching is asymmetric (2026-08-03), for the same reason has_search_anchor's is:
+      - CLICKBAIT_PHRASES match case-INSENSITIVELY. "The Truth About X" is a clickbait
+        frame in any casing.
+      - CLICKBAIT_CAPS_MARKERS match case-SENSITIVELY on their ALL-CAPS tokens, because
+        those words are ordinary English in sentence case. Matching them loosely rejected
+        "China vs Taiwan. 4 Historical Claims Exposed by Scholars" — a published title
+        with 7,318 lifetime impressions — on a BINDING filter.
+
+    Never raises; returns [] for an empty or unusual title.
+    """
+    hits = [p for p in CLICKBAIT_PHRASES if p.lower() in title.lower()]
+    hits += [p for p, rx in _CAPS_MARKER_RE.items() if rx.search(title)]
+    return hits
+
+
+def strip_clickbait(title: str) -> str:
+    """Remove clickbait patterns from a title, honouring the same case rules as
+    detect_clickbait. Used by metadata.py's title generator, which must not silently
+    delete an ordinary word like "Exposed" from an otherwise on-brand title.
+
+    Whitespace is left for the caller to normalise. Never raises.
+    """
+    for phrase in CLICKBAIT_PHRASES:
+        title = re.sub(re.escape(phrase), '', title, flags=re.IGNORECASE)
+    for rx in _CAPS_MARKER_RE.values():
+        title = rx.sub('', title)
+    return title
+
+
 def compute_tone_score(title: str) -> int:
     """
     Return a tone score for a title.
 
     +ACTIVE_VERB_BONUS (+5) for each active verb found.
-    -10 per clickbait pattern found.
+    -10 per clickbait pattern found (via detect_clickbait, so the case rules match the
+    brand gate — these used to disagree, and the old duplicate "You won't BELIEVE" entry
+    double-charged a single phrase).
 
     Neutral title (no active verb, no clickbait) -> 0.
     """
@@ -257,23 +424,8 @@ def compute_tone_score(title: str) -> int:
     t = title.lower()
     if any(v in t for v in _TONE_SIGNALS['positive']):
         score += ACTIVE_VERB_BONUS
-    for pattern in _TONE_SIGNALS['negative']:
-        if pattern.lower() in t:
-            score -= 10
+    score -= 10 * len(detect_clickbait(title))
     return score
-
-
-def detect_clickbait(title: str) -> list[str]:
-    """Return the clickbait tone patterns present in a title (case-insensitive).
-
-    This is the BRAND GATE: any hit makes score_title reject the title (grade REJECTED),
-    regardless of composite score. Style hedges (year/colon/the_x_that) are NOT clickbait —
-    they stay non-fatal style_warnings. Restored 2026-07-01: the gate was documented
-    ("hard_rejects populated by _apply_tone_filter") but that function never existed, so
-    hard_rejects was dead code and clickbait titles ("...SHOCKING") scored clean.
-    """
-    t = title.lower()
-    return [p for p in CLICKBAIT_PATTERNS if p.lower() in t]
 
 
 # =============================================================================
@@ -379,14 +531,198 @@ def _colon_is_versus_stakes(title: str) -> bool:
     return bool(re.search(r'\bvs\.?\b|\bversus\b', before_colon))
 
 
-def has_search_anchor(title: str) -> tuple[bool, str]:
+@dataclass(frozen=True)
+class AnchorMatch:
+    """The outcome of the search-anchor test, with its provenance.
+
+    `has_search_anchor` returns only the (found, term) tuple for backward compat;
+    packaging_lock reads the whole thing so the LOCK BLOCK records WHY a title
+    anchored — a curated term, or a measured volume with its source (ADR-0023).
     """
-    Detect if a recognized head term appears within the first 40 characters (v5 C3).
 
-    Returns (found: bool, matched_term: str).  matched_term is '' when not found.
+    found: bool
+    term: str = ''
+    start: Optional[int] = None
+    volume: Optional[int] = None     # verified monthly searches, when volume-backed
+    source: str = ''                 # keywords.db `source` column for that measurement
 
-    Recognition list: HEAD_TERMS (sovereign states, geographic shorthands, famous
-    topics, notable figures) + ALLOWED_ACRONYMS.
+    def as_tuple(self) -> tuple[bool, str]:
+        return (self.found, self.term)
+
+    def describe(self) -> str:
+        """One-line audit string for the packaging-lock block."""
+        if not self.found:
+            return NO_ANCHOR_DETAIL
+        where = f'begins at char {self.start}'
+        if self.volume is None:
+            return f'anchors "{self.term}" (curated head term, {where})'
+        return (f'anchors "{self.term}" ({self.volume:,}/mo verified searches, '
+                f'source: {self.source}; {where})')
+
+
+# The FAIL detail is deliberately actionable. A FAIL means one of two very different
+# things — "this title leads with something obscure" (rewrite the title) or "this term
+# is famous and nobody has measured it yet" (record the measurement). Before ADR-0023
+# the message only described the first, and #67 lost five title candidates to the
+# second: they were regenerated away from "Constantine" (113,206/mo) under a constraint
+# that did not exist.
+NO_ANCHOR_DETAIL = (
+    'no famous searchable head term begins in the first '
+    f'{ANCHOR_WINDOW_CHARS} chars — the obscure entity must be the REVEAL, not the '
+    'lead. If the lead term IS famous, this is a data gap and not a verdict: verify '
+    'its monthly search volume and record it — python -m tools.title_scorer '
+    '--record-anchor "<term>" --volume <n> --anchor-source vidiq-YYYY-MM-DD'
+)
+
+_ANCHOR_WORD_RE = re.compile(r"[A-Za-z0-9']+")
+
+# Longest recorded keyword worth testing as a single anchor phrase. Keywords in the
+# store run to 7 words ("scramble for africa and the berlin conference"); 8 covers
+# them with headroom and caps the per-title lookup count at a few dozen dict hits.
+_MAX_ANCHOR_WORDS = 8
+
+# {db_path: ((mtime, size), floor, table)} — the volume table is rebuilt only when
+# keywords.db actually changes, so has_search_anchor stays cheap enough for the
+# scoring loops that call it once per candidate. No network call, ever.
+_ANCHOR_VOLUME_CACHE: dict = {}
+
+
+def _default_keywords_db() -> Path:
+    """Path-anchored to the repo, never cwd-relative (ADR-0008)."""
+    return Path(__file__).resolve().parents[1] / 'tools' / 'discovery' / 'keywords.db'
+
+
+def _fold_token(token: str) -> str:
+    """Lowercase a word and drop a trailing possessive.
+
+    "Pope's" folds to "pope" because a viewer searching `pope` recognises the title
+    "The Pope's Own Coins…" — the possessive is grammar, not a different subject.
+    Applied to both sides of the comparison, so it cannot create a one-sided match.
+    Plain plurals are deliberately left alone ("popes" stays "popes"): stripping them
+    would start guessing at morphology instead of folding punctuation.
+    """
+    return re.sub(r"'s$|'$", '', token.lower())
+
+
+def normalize_anchor_term(term: str) -> str:
+    """Fold a term to its comparison form: lowercase words, single-spaced.
+
+    Applied to BOTH sides, so "Brest-Litovsk" in a title and "brest-litovsk" in the
+    keyword store fold to the same key.
+    """
+    return ' '.join(_fold_token(m.group(0)) for m in _ANCHOR_WORD_RE.finditer(term))
+
+
+def load_anchor_volumes(
+    db_path: Optional[str] = None,
+    floor: Optional[int] = None,
+) -> dict:
+    """Return {normalized term: (monthly_volume, source)} for every keyword at or
+    above the anchor floor.
+
+    Read-only and never raises — a missing/locked/older-schema keywords.db yields an
+    empty table, which degrades the recognizer to its curated fast path rather than
+    breaking the packaging gate. Opens its own read-only connection (no schema
+    migration side effects on a hot read) but runs the query through KeywordStore,
+    which owns the keywords table.
+    """
+    floor = ANCHOR_VOLUME_FLOOR if floor is None else floor
+    path = Path(db_path) if db_path else _default_keywords_db()
+    try:
+        stat = path.stat()
+        stamp = (stat.st_mtime, stat.st_size)
+    except OSError:
+        return {}
+
+    key = str(path)
+    cached = _ANCHOR_VOLUME_CACHE.get(key)
+    if cached is not None and cached[0] == stamp and cached[1] == floor:
+        return cached[2]
+
+    try:
+        from tools.discovery.keyword_store import KeywordStore
+        conn = connect_readonly(path)
+        try:
+            conn.row_factory = sqlite3.Row
+            rows = KeywordStore(conn).get_keywords_above_volume(floor)
+        finally:
+            conn.close()
+    except Exception:
+        return {}
+
+    table: dict = {}
+    for row in rows:
+        norm = normalize_anchor_term(row.get('keyword') or '')
+        volume = row.get('search_volume') or 0
+        if not norm or volume < floor:
+            continue
+        previous = table.get(norm)
+        if previous is None or volume > previous[0]:
+            table[norm] = (int(volume), row.get('source') or 'unrecorded')
+
+    _ANCHOR_VOLUME_CACHE[key] = (stamp, floor, table)
+    return table
+
+
+def record_anchor_volume(
+    term: str,
+    volume: int,
+    source: str,
+    db_path: Optional[str] = None,
+) -> dict:
+    """Record a verified monthly search volume for a term, making it an anchor.
+
+    This is the sanctioned repair for a false FAIL — the replacement for editing
+    HEAD_TERMS by hand (ADR-0023). `source` must say where the number came from and
+    when ("vidiq-2026-08-03"): it is copied into the packaging-lock block as the
+    audit trail for every title that later anchors on this term.
+
+    Returns the KeywordStore result dict, or {'error': ...}. Never raises.
+    """
+    if volume < ANCHOR_VOLUME_FLOOR:
+        return {'error': f'{volume} is below ANCHOR_VOLUME_FLOOR ({ANCHOR_VOLUME_FLOOR}/mo) '
+                         f'— a term this rarely searched is not a head term'}
+    try:
+        from tools.discovery.keyword_store import KeywordStore
+        store = KeywordStore.connect(db_path or str(_default_keywords_db()))
+        try:
+            result = store.add_keyword(term.strip(), source=source, search_volume=int(volume))
+        finally:
+            store.close()
+    except Exception as e:
+        return {'error': f'could not record anchor volume: {type(e).__name__}: {e}'}
+    _ANCHOR_VOLUME_CACHE.clear()
+    return result
+
+
+def _anchor_ngrams(title: str):
+    """Yield (normalized_ngram, start, surface) for word n-grams BEGINNING in the window."""
+    toks = [(_fold_token(m.group(0)), m.start(), m.end())
+            for m in _ANCHOR_WORD_RE.finditer(title)]
+    for i in range(len(toks)):
+        start = toks[i][1]
+        if start >= ANCHOR_WINDOW_CHARS:
+            break
+        for j in range(i, min(len(toks), i + _MAX_ANCHOR_WORDS)):
+            gram = ' '.join(t[0] for t in toks[i:j + 1])
+            yield gram, start, title[start:toks[j][2]]
+
+
+def find_search_anchor(title: str, db_path: Optional[str] = None) -> AnchorMatch:
+    """
+    Detect whether a recognized head term BEGINS within the first ANCHOR_WINDOW_CHARS.
+
+    Two independent recognizers, one decision (ADR-0023):
+
+      1. CURATED — HEAD_TERMS + ALLOWED_ACRONYMS. Zero setup, works on a fresh clone,
+         no I/O. It is a floor on what counts as famous, never the definition.
+      2. MEASURED — any term with a verified monthly search volume at or above
+         ANCHOR_VOLUME_FLOOR recorded in keywords.db. This is what makes the gate
+         self-repairing: a famous subject nobody thought to list still anchors as soon
+         as its demand is measured, and /greenlight measures demand anyway.
+
+    Returns an AnchorMatch carrying the provenance (curated, or volume + source), so
+    the packaging-lock block records WHY the title passed rather than just that it did.
 
     Matching is asymmetric, and deliberately so (2026-07-30):
       - HEAD_TERMS match case-INSENSITIVELY. They are proper nouns whose lowercase
@@ -397,26 +733,80 @@ def has_search_anchor(title: str) -> tuple[bool, str]:
         packaging_lock (ADR-0012), which is binding, not advisory. STOPWORD_ACRONYMS
         are additionally skipped when the prefix is ALL CAPS and case tells us nothing.
 
-    When several terms match, which one is returned is set-iteration order and is not
-    part of the contract — only the boolean is load-bearing.
+    The window is a START position, not a substring (fixed 2026-08-03). This used to
+    match against `title[:40]`, which truncates the title MID-WORD, so a term that
+    starts inside the window but crosses its edge could not match its own \\b boundary.
+    That silently failed the channel's only breakout — "The Country That Might
+    Disappear: Guatemala vs Belize" (292,398 impressions, 7.66% CTR) — because
+    "Guatemala" begins at char 34 and `title[:40]` leaves only "Guatem". Three more
+    live titles straddled the same edge (Crusades@37 5.47%, Viking@35 2.29%,
+    Genocide@33 7.45%); together the four straddlers hold MORE lifetime impressions
+    than every title the filter passed. The rule the window is meant to encode is
+    "the title leads with a famous searchable parent", and a term that starts at
+    char 34 leads with one. The window itself is unchanged at 40: no title in the
+    catalogue has a head term starting at or beyond 40, so there is no evidence for
+    widening it, only for measuring it correctly.
 
-    A miss on an obscure-but-valid term is acceptable — scorer is a floor, not an oracle.
-    Keep it cheap and static: no API calls.
+    When several terms match, the EARLIEST one wins (longest term breaks a tie at the
+    same position; a measured term breaks a tie against an identical curated one, so the
+    block records the number). That is a contract: the returned term is written verbatim
+    into the packaging-lock block in PROJECT-STATUS.md, so it must not depend on set
+    iteration order.
+
+    A miss on an obscure-but-valid term is acceptable — the gate is a floor, not an
+    oracle, and the FAIL message says how to correct a term it does not know yet.
+    Cheap by construction: regex over a short title plus cached dict lookups, no API call.
     """
-    prefix = title[:40]
+    best_key = None
+    best = AnchorMatch(False)
+
+    def _consider(start: int, surface: str,
+                  volume: Optional[int] = None, source: str = '') -> None:
+        nonlocal best_key, best
+        if start >= ANCHOR_WINDOW_CHARS:
+            return
+        # Earliest wins; then longest; then measured over curated (richer audit trail).
+        key = (start, -len(surface), 0 if volume is not None else 1)
+        if best_key is None or key < best_key:
+            best_key = key
+            best = AnchorMatch(True, surface, start, volume, source)
+
     for term in HEAD_TERMS:
-        m = re.search(r'\b' + re.escape(term) + r'\b', prefix, re.IGNORECASE)
+        m = re.search(r'\b' + re.escape(term) + r'\b', title, re.IGNORECASE)
         if m:
-            # Return the matched surface form from the title
-            return (True, m.group(0))
-    prefix_has_no_case_signal = prefix.isupper()
+            _consider(m.start(), m.group(0))
+
+    # The ALL-CAPS guard still reads the WINDOW, not the whole title: it asks whether
+    # the part of the title that can carry an anchor has any case signal to read.
+    prefix_has_no_case_signal = title[:ANCHOR_WINDOW_CHARS].isupper()
     for term in ALLOWED_ACRONYMS:
         if prefix_has_no_case_signal and term in STOPWORD_ACRONYMS:
             continue
-        m = re.search(r'\b' + re.escape(term) + r'\b', prefix)
+        m = re.search(r'\b' + re.escape(term) + r'\b', title)
         if m:
-            return (True, m.group(0))
-    return (False, '')
+            _consider(m.start(), m.group(0))
+
+    volumes = load_anchor_volumes(db_path)
+    if volumes:
+        for gram, start, surface in _anchor_ngrams(title):
+            entry = volumes.get(gram)
+            if entry is not None:
+                _consider(start, surface, entry[0], entry[1])
+
+    return best
+
+
+def has_search_anchor(title: str) -> tuple[bool, str]:
+    """Backward-compatible tuple view of find_search_anchor (v5 C3).
+
+    Returns (found: bool, matched_term: str); matched_term is '' when not found.
+    Callers that need the provenance — the volume and where it was measured — should
+    call find_search_anchor directly and read AnchorMatch.
+
+    NOTE the trap this signature sets: `if has_search_anchor(t):` is True even for a
+    NOT-FOUND result, because a 2-tuple is always truthy. Unpack it.
+    """
+    return find_search_anchor(title).as_tuple()
 
 
 def _get_pattern_sample_count(db_path: str, pattern: str) -> int:
@@ -431,8 +821,7 @@ def _get_pattern_sample_count(db_path: str, pattern: str) -> int:
     Never raises.
     """
     try:
-        import sqlite3
-        conn = sqlite3.connect(db_path)
+        conn = connect_readonly(db_path)
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         cursor.execute(
@@ -497,6 +886,32 @@ def _niche_percentile_label(final: int, pattern: str, niche_data: Optional[dict]
         return "below niche median"
     else:
         return "bottom quartile of niche"
+
+
+# ── how well this instrument has actually predicted anything ──────────────────
+#
+# ADR-0020: an artifact carries its own limits wherever it is cited. A composite
+# score with no stated validity gets read as evidence — on 2026-08-03 a "100/A"
+# was treated as reassurance, and a −0.053 computed against the WRONG column
+# (videos.impressions is a trailing snapshot; see ADR-0024) was used to argue the
+# scorer should be ignored entirely. Both readings were wrong. Publish the number.
+#
+# Re-measure by scoring every title in studio_ctr_rows (lifetime grain, via
+# AnalyticsStore.lifetime_ctr_by_video) against its lifetime CTR, and update this
+# block with the new r, n and date. Do NOT measure against `videos`.
+SCORE_CALIBRATION = {
+    'r': 0.155,
+    'n': 35,
+    'measured_against': 'lifetime CTR (studio_ctr_rows)',
+    'population': 'videos with >=2,000 lifetime impressions',
+    'measured_on': '2026-08-03',
+    'strength': 'WEAK',
+    'reading': (
+        'Weakly positive. Informs, does not decide — a high score is not evidence '
+        'a title will perform, and a low one is not evidence it will not. '
+        'ADR-0012: filters decide, scores inform.'
+    ),
+}
 
 
 def score_title(title: str, db_path: str = None, topic_type: str = None, experimental: bool = False, strict: bool = False) -> dict:
@@ -860,6 +1275,9 @@ def score_title(title: str, db_path: str = None, topic_type: str = None, experim
         'niche_percentile_label': niche_percentile_label,
         'staleness_days': staleness_days,        # age of newest live CTR snapshot, or None
         'snapshot_date': snapshot_date,          # YYYY-MM-DD of newest live CTR snapshot
+        # ADR-0020/0024: the score travels with its measured predictive validity,
+        # so it cannot be quoted downstream as evidence without it.
+        'calibration': SCORE_CALIBRATION,
     }
 
 
@@ -902,6 +1320,16 @@ def format_result(result: dict) -> str:
     score_line = f"  Score:   {result['score']}/100 ({result['grade']})"
     if niche_label:
         score_line = f"{score_line} — {niche_label}"
+
+    # ADR-0020: the score states its own validity wherever it is shown, so a high
+    # number cannot be read as evidence on its own.
+    cal = result.get('calibration')
+    if cal:
+        score_line = (
+            f"{score_line}\n"
+            f"           [{cal['strength']} predictor: r={cal['r']:+.3f}, n={cal['n']}, "
+            f"vs {cal['measured_against']}, measured {cal['measured_on']} — informs, does not decide]"
+        )
 
     lines.extend([
         f"  Title:   {result['title']}",
@@ -1004,7 +1432,51 @@ if __name__ == '__main__':
         help='(v5) Restore v4 auto-REJECT behavior for year/colon/the-x-that patterns '
              '(for comparison runs; default is graded penalty + style warning)',
     )
+    parser.add_argument(
+        '--anchor',
+        action='store_true',
+        help='Explain the search-anchor verdict for each title (the BINDING packaging '
+             'filter) instead of scoring it: matched term, position, and provenance',
+    )
+    parser.add_argument(
+        '--record-anchor',
+        metavar='TERM',
+        help='Record a verified monthly search volume for TERM so it anchors from now '
+             'on. The sanctioned repair for a false FAIL — see ADR-0023. Needs --volume',
+    )
+    parser.add_argument(
+        '--volume',
+        type=int,
+        help=f'Verified monthly searches for --record-anchor (must be >= '
+             f'{ANCHOR_VOLUME_FLOOR})',
+    )
+    parser.add_argument(
+        '--anchor-source',
+        default='',
+        help='Where the --volume number came from, with a date ("vidiq-2026-08-03"). '
+             'Copied into every packaging-lock block that anchors on this term',
+    )
     args = parser.parse_args()
+
+    # --record-anchor: teach the recognizer a measured term, then exit
+    if args.record_anchor:
+        if args.volume is None:
+            print("ERROR: --record-anchor needs --volume <verified monthly searches>")
+            sys.exit(2)
+        if not args.anchor_source.strip():
+            print("ERROR: --anchor-source is required — an unsourced number is not "
+                  "evidence. Use e.g. --anchor-source vidiq-2026-08-03")
+            sys.exit(2)
+        outcome = record_anchor_volume(
+            args.record_anchor, args.volume, args.anchor_source.strip())
+        if 'error' in outcome:
+            print(f"ERROR: {outcome['error']}")
+            sys.exit(2)
+        print(f"Recorded: \"{args.record_anchor}\" = {args.volume:,}/mo "
+              f"({args.anchor_source.strip()}) — {outcome.get('action', 'stored')}")
+        found, term = has_search_anchor(f"{args.record_anchor} Leads This Title")
+        print(f"Anchor check: {'PASS' if found else 'FAIL'} ({term!r})")
+        sys.exit(0)
 
     # --ingest: run ctr_ingest and exit
     if args.ingest:
@@ -1050,6 +1522,21 @@ if __name__ == '__main__':
     if not titles:
         parser.print_help()
         sys.exit(0)
+
+    # --anchor: report the BINDING filter on its own, with provenance. Exit 2 if any
+    # title fails, so a shell loop can gate on it the way packaging_lock does.
+    if args.anchor:
+        print("\n" + "=" * 64)
+        print("  SEARCH ANCHOR — packaging FILTER 1 (binding: ADR-0012, ADR-0023)")
+        print("=" * 64)
+        any_failed = False
+        for t in titles:
+            match = find_search_anchor(t)
+            any_failed = any_failed or not match.found
+            print(f"\n  {t}")
+            print(f"  {'PASS' if match.found else 'FAIL'}  {match.describe()}")
+        print()
+        sys.exit(2 if any_failed else 0)
 
     results = [score_title(t, db_path=db_path, topic_type=args.topic, experimental=args.experimental, strict=args.strict) for t in titles]
     results.sort(key=lambda x: -x['score'])
